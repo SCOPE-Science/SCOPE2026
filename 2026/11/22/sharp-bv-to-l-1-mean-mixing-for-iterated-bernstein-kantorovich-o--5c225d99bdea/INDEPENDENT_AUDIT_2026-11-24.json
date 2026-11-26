@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:37.316380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–6",
+        "VERIFICATION.md",
+        "checker.py",
+        "python3 -B /workspace/review-evidence/independent_checks.py 5"
+      ],
+      "rationale": "Cell averaging followed by Bernstein reconstruction factors K_n; the opposite composition is M, which is doubly stochastic and commutes with reflection. The BV derivative-measure decomposition (negative derivative measure if using left indicators) and Minkowski reduce the norm to jump profiles. Between consecutive grid boundaries the centered output is affine in jump position, so its L1 norm is convex and the sharp finite maximum is attained at a grid boundary. For a decreasing nonconstant coefficient vector, the derivative of its Bernstein polynomial is a sum of adjacent differences against a positive basis in (0,1), hence is strictly negative; cell averaging preserves strict order. Mean invariance gives precisely one crossing and twice the positive-part integral in (2). Binomial moments of cell averages of monomials give the distinct diagonal eigenvalues (n)_k/(n+1)^k; in particular the centered affine mode is h. For i and j left of center, M_ij-M_i,n-j is strictly positive because b_j>b_n-j throughout the interior of each such cell. Perron–Frobenius and antisymmetric extension give the strict sign pattern of w, normalized using w dot h=1. The spectral projection h w^T and integral of |x-1/2|=1/4 yield A_n and the uniform lower-mode error for fixed n. The strict gap in the magnitudes of partial sums excludes noncentral grid boundaries eventually, and reflection keeps the central pair tied when n is even. In degree one the sole nonconstant mode gives 2^(-r-1) exactly. Inspected the frozen checker without executing it. In an independent exact-arithmetic computation using a binomial-tail primitive for M and polynomial spectral projectors, all five displayed A_n and their grid index sets passed.",
+      "residual_risks": [
+        "Fixed-degree asymptotics only. The statement identifies maximizing grid indices eventually; the proof does not assume all-iterate centrality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Kantorovich paper gives a qualitative uniform convergence criterion; Kivinukk–Metsmägi bounds variation of K_nf-f under absolute-continuity hypotheses. The oscillation record gives an exact two-step L-infinity oscillation contraction."
+        ],
+        "reasoning": "Broader generalized-kernel convergence does not quantify this sharp norm. Variation of the identity defect and oscillation contraction are different functionals with different inputs or targets.",
+        "searches": [
+          "Bartoszek–Bartoszek arXiv:2403.07633 definition and Thm. 2.1",
+          "Kivinukk–Metsmägi Thm. 2",
+          "Resultary dbafb3d14a4f two-step oscillation"
+        ]
+      },
+      "checked_sources": [
+        "Cooper–Waldron §7",
+        "Kivinukk–Metsmägi Thm. 2",
+        "arXiv:2403.07633 Thm. 2.1",
+        "Resultary d70327ec81c9, dbafb3d14a4f and 3019bdce0f24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper gives the same eigenvalues and a dual-functional diagonal expansion on L1. The one-step parity record uses K_n-I; the Bernstein iterates record uses B_n^r-L with nodal Jordan variation."
+        ],
+        "reasoning": "The diagonal expansion yields the fixed-n exponent and a leading linear functional, but not its optimum on the BV unit ball or strict signs and gap of its cumulative grid weights. Nor does it supply the finite-r sharp reduction by affine cell dependence. The exact one-step identity-defect optimization does not imply that reduction and centrality for the mean-mixing objective.",
+        "searches": [
+          "Cooper–Waldron Corollary 7.1 and post-corollary diagonal expansion",
+          "Resultary d70327ec81c9 Finding and proof §§1–4; 3019bdce0f24 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cooper–Waldron §7 has K_n(Dg)=D(B_(n+1)g); integrating f once therefore turns K_n^r f-mean(f) into the derivative of the Bernstein endpoint-interpolation residual of the primitive. Resultary 3019bdce0f24 Finding optimizes the L1 norm of the undifferentiated Bernstein residual on pointwise Jordan BV."
+        ],
+        "reasoning": "Under the intertwining the required output norm is the variation of that residual, and the denominator measures variation of the derivative of the input primitive. The pointwise Jordan BV-to-L1 theorem does not bound this transformed ratio sharply or give its extremizers.",
+        "searches": [
+          "Resultary: Bernstein–Kantorovich mean mixing, integrated BV all iterates, sharp step grid",
+          "Cooper–Waldron author PDF §7: Kantorovich operator and derivative relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary d70327ec81c9 has an exact integrated BV norm and jump locations for K_n-I, not K_n^r minus the Lebesgue projection; dbafb3d14a4f covers K_n squared in oscillation. The published eigensystem supplies exact eigenvalues, not the sharp norm table."
+        ],
+        "reasoning": "A matching grid or degree parameter does not make the errors equal. No checked table or exact formula for another target supplies the claimed all-r sharp mixing family. The five displayed rational values merely illustrate a theorem for all n.",
+        "searches": [
+          "Resultary: Bernstein–Kantorovich parity-locked jumps, all powers, finite sharp norm and rational leading coefficient"
+        ]
+      },
+      "rationale": "Cooper–Waldron already identifies the exact spectrum, the derivative intertwining with the point-sampling operator, and the diagonal expansion including dual modes. Do not credit those ingredients as new. The checked primary passages and indexed near-matches do not yield the all-iterate sharp BV-to-L1 mean-mixing norm or the strict-sign argument identifying the locations that optimize its leading amplitude. Related same-day records are distinguished by the actual operator, residual and norm, not by a presumed order.",
+      "residual_risks": [
+        "Unindexed equivalent operator norm results or additional analysis of the known dual functional may exist. Catalogue date alone does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial spectral and intertwining coverage, not the checked sharp BV mean-mixing norm and optimizer",
+          "evidence": [
+            "Gives rho_k=n!/(n-k)!/(n+1)^k and eigenfunctions obtained by differentiating Bernstein eigenpolynomials.",
+            "States the full diagonal sum with dual coefficients and a separate area-matching limit for powers of I-K_n."
+          ],
+          "identifier_or_url": "https://www.math.auckland.ac.nz/~waldron/Preprints/Eigenstructure/eigenstructure.pdf",
+          "material_read": "Author PDF §7, Corollary 7.1 and diagonal expansion, printed pp. 22–23 (PDF pp. 23–24; offsets 57600–62851)",
+          "method": "Lawful author-hosted primary PDF found via landing page",
+          "title": "The eigenstructure of the Bernstein operator",
+          "trigger": "Same classical operator and exact spectrum, including possible dual-mode overlap"
+        },
+        {
+          "assessment": "Different norms and error target",
+          "evidence": [
+            "Bounds variation of K_n f-f in terms of variation and central differences under absolute-continuity assumptions."
+          ],
+          "identifier_or_url": "https://kirj.ee/public/proceedings_pdf/2011/issue_4/proc-2011-4-201-209.pdf",
+          "material_read": "Thm. 2 and conclusion, p. 208; offsets 35550–38131",
+          "method": "Lawful publisher OA primary PDF",
+          "title": "Approximation in variation by the Kantorovich operators",
+          "trigger": "Same operator and BV-type approximation norm"
+        },
+        {
+          "assessment": "Generalized operators and qualitative convergence, not sharp finite-degree BV coefficient",
+          "evidence": [
+            "Uniform convergence criterion uses Cesàro means."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07633",
+          "material_read": "Abstract, operator p. 4 and Thm. 2.1 pp. 5–6",
+          "method": "OA primary PDF section comparison",
+          "title": "Asymptotic dynamics of generalized Kantorovich operators",
+          "trigger": "Long-iteration Kantorovich mixing"
+        },
+        {
+          "assessment": "Material near-match, different residual",
+          "evidence": [
+            "Optimizes K_n-I, not powers relative to the invariant Lebesgue projection."
+          ],
+          "identifier_or_url": "Resultary d70327ec81c9",
+          "material_read": "Finding, proof §§1–4, offsets 0–4780",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp integrated BV error and parity-locked jump locations for Kantorovich operators",
+          "trigger": "Same BV-to-L1 setup with parity and jump extrema"
+        },
+        {
+          "assessment": "Different input/output norm and a two-step restriction",
+          "evidence": [
+            "L-infinity oscillation coefficient for K_n squared."
+          ],
+          "identifier_or_url": "Resultary dbafb3d14a4f",
+          "material_read": "Finding, offsets 0–3399",
+          "method": "Local mirror",
+          "title": "Sharp two-step oscillation coefficient of Bernstein–Kantorovich operators",
+          "trigger": "Exact multi-step contraction coefficient"
+        },
+        {
+          "assessment": "No direct implication through the derivative relation because it changes both norm roles",
+          "evidence": [
+            "The point-sampled operator B_n is compared to endpoint interpolation in L1 with pointwise Jordan variation in the denominator; it has endpoint-cell maximizers."
+          ],
+          "identifier_or_url": "Resultary 3019bdce0f24",
+          "material_read": "Finding and proof §§1–3; offsets 0–4120",
+          "method": "Local mirror primary record",
+          "title": "Exact integrated BV decay for all iterates of the Bernstein operator",
+          "trigger": "Similar all-iterate norm for the operator connected by differentiation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md (1)–(4), §§2–6",
+        "Cooper–Waldron §7",
+        "Resultary d70327ec81c9"
+      ],
+      "rationale": "The sharp distance from equilibrium on the BV unit ball is a natural mixing quantity sensitive to discontinuities. The theorem replaces an optimization over all BV inputs with a finite root-and-integral computation for every power and identifies the worst grid locations and sharp rational amplitude at long times. These quantitative facts are not determined just by the known spectral gap.",
+      "residual_risks": [
+        "No uniform-in-degree asymptotic, effective general cutoff or centrality at every finite iterate is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

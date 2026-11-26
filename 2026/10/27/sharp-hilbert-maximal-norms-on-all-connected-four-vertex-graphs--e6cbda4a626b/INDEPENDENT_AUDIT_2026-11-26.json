@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:14:28.788359Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because the maximal operator uses |f|, each choice of one of the distinct normalized ball rows per vertex gives a nonnegative linearization A and the squared output norm is the maximum of ||A|f|||² over those choices. Nonnegative top eigenvectors of AᵀA give equality in the optimization over input moduli, so the squared operator norm is the maximum top Gram eigenvalue. An independently written fraction-arithmetic replay rebuilt the balls via all-pairs distances and checked all 385 matrices. For the path, cycle, star, complete graph, diamond and paw, respectively, it checked 142,79,53,12,35,53 nonwinning Gram matrices by strict Sylvester minors; the 2,2,1,4,1,1 winners have the stated characteristic polynomials and exceed their rational barriers. Replay and exact output: branches/0e3353d6-7f1c-46d5-8713-0654f213edad/replay_record4.py and replay_record4_full.txt in the same directory; I inspected the code and output. The supplied verifier is separate and was not executed. In the path/paw form the rows are one high-coordinate singleton, two copies of its three-vertex average and one two-vertex average with the remaining coordinate; the cycle/diamond rows are two high singletons and averages on the highs plus each individual low. These forms give the claimed paired Gram spectra by permutations. Solving the low-coordinate equations gives a=1/(4Λ−1), c=2/(9Λ−4) and the stated three t values. Each winner has a connected Gram support and hence a unique positive Perron ray. Distinct winning row patterns for a graph have distinct high-coordinate sets; if a distinct averaging ball tied at an extremizer, the alternate choice would also have to be winning with the same Perron ray, which is impossible. This checks all extremizers, the listed distinct balls, and invariance under phase. The additional claim that the operator determines the graph follows because every ball row is exposed by a positive input peaked on the outer shell of that ball and lower outside; the resulting exposed row set identifies the smallest nonsingleton ball and thus the neighbors of each vertex.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 4 and 6 already supply the sharp strong ℓ² constants for complete and star graphs, including at order four. Their proofs furnish the matching complete modulus profile and an attaining symmetric star function.",
+          "Proposition 2 in the sequel constrains complete-graph extremizers to two values for p>1; Theorem 14 concerns variation."
+        ],
+        "reasoning": "The broad exact theorems cover the complete and star branches of the norm table and are not claimed as new. No inspected strong-ℓ² result for those families can be specialized to a paw or diamond.",
+        "searches": [
+          "González-Riquelme–Madrid arXiv:2005.03146v3, Theorems 4 and 6 and proofs",
+          "González-Riquelme–Madrid arXiv:2011.02630, Proposition 2 and Theorem 14"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary four-vertex sharp Hilbert graph maximal norms, norm table, pairings and exact extremizers",
+        "arXiv:1410.6204v1",
+        "arXiv:2005.03146v3",
+        "arXiv:2011.02630"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Relabeling the path winners identifies their singular values with the paw winners, and relabeling the cycle winners identifies theirs with the diamond winners; the indexed path and cycle results alone only give candidates for the counterparts.",
+          "Sharpness and the full equality cases on the counterparts require excluding every other paw and diamond choice; those comparisons are not consequences of knowing the ℓ¹ constants or the complete/star formulas."
+        ],
+        "reasoning": "The documented existing or overlapping branches are prior/component coverage, while the full sharp comparison and equality profiles on the remaining graphs require additional exact work. The dates of the indexed component matches do not settle priority.",
+        "searches": [
+          "Soria–Tradacete Example 2.6 and §3",
+          "González-Riquelme–Madrid ℓ² theorem proofs",
+          "Resultary centered P_4 and C_4 results and paw/diamond pairings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/1/SCOPE-the-first-strict-centered-uncentered-hilbert-maximal-norm-split--6b29545e8c1 has an equivalent centered P_4 branch, including the cubic and the reflected modulus profile.",
+          "2026/11/2/SCOPE-exact-strong-ell-2-norm-and-all-extremizers-of-the-centered-maxi--97888c3c8e65 gives the same C_4 constant and alternating modulus ray."
+        ],
+        "reasoning": "The centered branches really overlap; changing the graph labels and allowing signs/phases does not change this. An uncentered branch is a different problem. Neither source supplies the matching paw or diamond counterpart.",
+        "searches": [
+          "Resultary: four-vertex graph centered Hilbert/maximal operator sharp norm and equality profiles",
+          "Resultary: P_4 centered versus uncentered ℓ² maximal split; C_4 centered maximal extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 2.6 tabulates all six classes, including the path denoted L_4, at exponent 1, not exponent 2.",
+          "The exact C_4 indexed record isolates one graph and an 81-choice certificate, and the P_4 indexed record isolates the path branch; no inspected matching all-six Hilbert table or paw/diamond equality result emerged."
+        ],
+        "reasoning": "A complete table at p=1 cannot be read as the Hilbert table; nor does an exact result on one of two different graph types establish the asserted paired coincidence.",
+        "searches": [
+          "Resultary: all six connected four-vertex graph ℓ² maximal norm table, paw and diamond",
+          "Soria–Tradacete arXiv:1410.6204v1 Example 2.6"
+        ]
+      },
+      "rationale": "Credit the exact star and complete constants, the known K_4 extremizer profile and star witness, and the directly overlapping indexed P_4 and C_4 determinations as component coverage. The distinct remaining statement is an all-six sharp Hilbert classification with the paw and diamond equality cases and the exact nonisomorphic Hilbert-norm coincidences. The four-vertex ℓ¹ precedent concerns a different optimization problem.",
+      "residual_risks": [
+        "A differently indexed sharp Hilbert table, or separate paw/diamond result, may exist. The best-of-knowledge decision is for the distinct remainder, not a priority claim for all individual numbers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph list and framework; different exponent",
+          "evidence": "The four-vertex table computes strong ℓ¹ norms, not sharp ℓ² constants or their equality profiles.",
+          "identifier_or_url": "https://arxiv.org/html/1410.6204v1",
+          "material_read": "Example 2.6, HTML offset 20976",
+          "method": "Read primary full-text example",
+          "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+          "trigger": "Exact table on all six four-vertex types"
+        },
+        {
+          "assessment": "Covers exact norm subcases and some equality information",
+          "evidence": "Complete/star results specialize to the frozen constants, and the proofs give the one-high complete profile and an attaining symmetric star profile.",
+          "identifier_or_url": "https://arxiv.org/html/2005.03146v3",
+          "material_read": "Theorems 4 and 6, offsets 15010–18553; proof passages at 97700 and 102200",
+          "method": "Read primary full-text statements and proof passages",
+          "title": "Sharp Inequalities for maximal operators on finite graphs",
+          "trigger": "Previously known sharp complete and star constants"
+        },
+        {
+          "assessment": "Complete-graph extremizer structure and a variation theorem, not the six-graph Hilbert table",
+          "evidence": "Proposition 2 gives two-valued complete-graph extremizers for p>1; Theorem 14 treats variation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.02630",
+          "material_read": "PDF p. 4 Proposition 2, offset 12832; Theorem 14",
+          "method": "Read primary theorem passages",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Related extremizer/variation results on the same families"
+        },
+        {
+          "assessment": "Exact P_4 centered subclaim overlap",
+          "evidence": "Same centered cubic root and extremizer family, plus a different uncentered problem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-first-strict-centered-uncentered-hilbert-maximal-norm-split--6b29545e8c1/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Read local published-record mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first strict centered–uncentered Hilbert maximal-norm split occurs on the four-vertex path",
+          "trigger": "Same P_4 sharp constant and operator convention"
+        },
+        {
+          "assessment": "Exact C_4 subclaim overlap",
+          "evidence": "Same constant, alternating extremizers and exact check of all 81 matrices; no diamond classification in the Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-strong-ell-2-norm-and-all-extremizers-of-the-centered-maxi--97888c3c8e65/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Read local published-record mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact strong ℓ² norm and all extremizers of the centered maximal operator on the four-cycle",
+          "trigger": "Same C_4 sharp constant and equality rays"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order four is the first connected order with six structural types, including both four-edge types and a complete-minus-edge graph. A natural Hilbert norm separates four levels but cannot distinguish two pairs of nonisomorphic operators. Knowing precisely which pairs coincide, why their winning matrices match, and which inputs exhaust equality gives information beyond an isolated norm computation or a table in another exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

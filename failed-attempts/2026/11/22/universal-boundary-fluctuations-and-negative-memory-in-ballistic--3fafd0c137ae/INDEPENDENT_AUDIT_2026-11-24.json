@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:18.157572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The change of variable from age to a fraction of the flight gives zero centered reward on each whole flight for every bounded measurable spatial observable. The absolutely continuous primitive vanishes at both ends of each flight, proving the pathwise identity even across reset jumps. Equilibrium sampling length-biases the duration and makes the age fraction independent uniform. To verify endpoint decorrelation directly, condition on the initial flight and time of the first future renewal. For a bounded continuous test function of the primitive, the ordinary-renewal kernel at age a is E[psi(T H_g(a/T)) 1_{T>a}]; it is continuous by the duration density and dominated by a constant times the integrable decreasing duration tail, hence directly Riemann integrable. The nonarithmetic key renewal theorem and bounded convergence give the independent equilibrium endpoints. Uniform L2 truncation is valid by E[(T*)²]=ET³/ET, giving the stated coefficient. Near-zero covariance is positive by stochastic continuity at a fixed stationary time and Var(g)>0 for nonconstant Lipschitz g; nonnegative covariance at all positive lags would force at least linear growth of integrated variance. For normalized position H=u(1-u)/2 gives moments 1/12 and 1/120 and the exponential coefficient 2/(45 lambda²); Cramér's theorem excludes a Gaussian difference of the nondegenerate nonnegative endpoint variables. The inspected check.py is a finite numerical diagnostic, not evidence for the asymptotic theorem, and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "87b32b051bde gives the endpoint characteristic function, the exact q-moment threshold ET^(q+1), and the sharp finite/infinite third-moment variance boundary under the same model. Das–Majumdar–Pal arXiv:2611.16733v1 gives the same model and its uniform stationary marginal (Eqs. 7, 15–16); the inspected passages concern one-time density, not the fluctuation theorem. Patch–Nazarathy–Taimre treats generic renewal-reward covariance corrections, not this within-flight primitive."
+        ],
+        "reasoning": "The direct same-model stronger result, not generic renewal theory or a time-marginal match, is the decisive coverage.",
+        "searches": [
+          "87b32b051bde RESULT.md proof steps 2–5",
+          "arXiv:2611.16733v1 §§II.2, III.2, VIII",
+          "arXiv:1408.1530 introduction"
+        ]
+      },
+      "checked_sources": [
+        "87b32b051bde",
+        "b33291d37acb",
+        "arXiv:2611.16733v1",
+        "arXiv:1408.1530",
+        "arXiv:2610.21962"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directly matched theorem implies bounded integrated variance; the standard stationary variance integral then contradicts an everywhere nonnegative covariance with positive covariance near zero. The cited nearby sluggish-resetting result is about a diffusive excursion and a renewal occupation mean."
+        ],
+        "reasoning": "The non-Gaussian position limit also follows immediately by applying Cramér to the covered independent endpoints with the explicit nonnegative position primitive. The genuinely different sluggish model is not a source of coverage.",
+        "searches": [
+          "87b32b051bde proof steps 2–5",
+          "arXiv:2610.21962 §6.1.2 Eq. 72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered occupation Y_f(t) is exactly the frozen scaled centered time average; Phi_f=T*H_f(U) is its endpoint variable. The Gamma record makes the same identification for integer-shape Gamma durations."
+        ],
+        "reasoning": "Expanding or contracting the time average, renaming the primitive, and replacing bounded Borel by bounded measurable on the interval do not create a materially different claim. If Lebesgue rather than Borel measurability is intended, Borel representatives give the same path integrals and stationary samples.",
+        "searches": [
+          "Resultary 87b32b051bde RESULT.md, exact primitive and endpoint law",
+          "Resultary b33291d37acb RESULT.md, Gamma duration case"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact variance coefficient and the position example with exponential coefficient 2L²/(45 lambda²) are printed in the distinct catalogue record."
+        ],
+        "reasoning": "The exact-match check concerns published indexed claims rather than a finite table; dividing squared position by L² gives the frozen formula exactly.",
+        "searches": [
+          "Resultary 87b32b051bde variance and position example, offsets 2800–6637"
+        ]
+      },
+      "rationale": "A distinct directly inspected catalogue record (87b32b051bde) establishes the same main theorem in equivalent notation, including the normalized-position and exponential specializations after dividing by L². It adds stronger moment results. This is statement-level coverage, not a claim about within-day priority. The negative-lag statement is not seen verbatim in the overlapping finding, but is an immediate consequence of its bounded integrated variance and positive continuous-at-zero covariance; it does not rescue the original finding.",
+      "residual_risks": [
+        "Within-day chronology of the distinct catalogue entries is unresolved; the failure is demonstrated equivalent coverage, not inferred precedence or misconduct.",
+        "The bounded literature search does not establish historical uniqueness of the covariance corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and stronger coverage",
+          "evidence": "Identical equilibrium primitive, independent differences, same coefficient, stronger sharp moments.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-temporal-occupation-cancellation-in-a-ballistic-thresho--87b32b051bde/RESULT.md",
+          "material_read": "Finding and proof steps 2–5; offsets 0, 2800–6637",
+          "method": "Read exact file in configured local mirror",
+          "title": "Complete temporal occupation cancellation in a ballistic threshold-reset process",
+          "trigger": "Same model and all-observable endpoint law"
+        },
+        {
+          "assessment": "Covers integer-shape Gamma duration subfamily",
+          "evidence": "Exact endpoint identity and independent endpoint law for bounded spatial observables.",
+          "identifier_or_url": "2026/11/22/SCOPE-endpoint-laws-and-quadratic-variance-suppression-for-ballistic-t--b33291d37acb/RESULT.md",
+          "material_read": "Finding and moment comparison at offsets 0 and 4300",
+          "method": "Configured local mirror",
+          "title": "Endpoint laws and quadratic variance suppression for ballistic threshold resetting",
+          "trigger": "Same-model special case"
+        },
+        {
+          "assessment": "Same process and stationary density, not the main occupation theorem in passages read",
+          "evidence": "Uniform density from constant mean per-cycle local time; discussion lists correlations and counting statistics as further directions.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16733v1",
+          "material_read": "Sections II.2, III.2 and VIII, Eqs. (7), (15)–(16)",
+          "method": "OA HTML, bounded passages",
+          "title": "Freezing transition and shock-like transients in ballistic random walks under threshold resetting",
+          "trigger": "Cited primary paper on same model"
+        },
+        {
+          "assessment": "General epoch-reward covariance precedent",
+          "evidence": "Does not identify the same-model continuous-time spatial primitive in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/html/1408.1530",
+          "material_read": "Opening passage",
+          "method": "OA HTML",
+          "title": "A Correction Term for the Covariance of Renewal-Reward Processes with Multivariate Rewards",
+          "trigger": "General renewal-reward precedent"
+        },
+        {
+          "assessment": "Different excursion process and statistic",
+          "evidence": "Diffusive positive-half-line occupation-fraction law, not the ballistic endpoint theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21962",
+          "material_read": "Section 6.1.2 Eq. (72)",
+          "method": "OA HTML",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Adjacent occupation work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact occupation law would address a natural fluctuation question, but it is already supplied by the materially overlapping record. The remaining qualitative sign statement gives no lag, scale or signed-correlation law and follows routinely from bounded integrated variance and positive near-zero covariance. Repackaging that corollary alone does not provide a distinct valuable finding under the required standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:02.800899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Treat labeled secondary species as individual edge occurrences. Unordered pairs sharing two, one and zero vertices number D, W-2D and binom(m,2)-W+D, respectively. Their joint loss probabilities give the stated mean and exact variance identity. At fixed h, t3-t4 is the probability of three specified losses and a specified survivor; t2-2t3+t4 is the probability of two specified losses and two specified survivors. Their positive ranges are exactly 3<=h<=n-1 and 2<=h<=n-2, including the empty interior range at n=4. Integer degree balancing strictly reduces W unless each degree is r or r+1. In a simple graph, if d_u>=d_v+2 then some neighbor w other than v of u is not adjacent to v; moving uw to vw preserves simplicity and strictly decreases the sum of squared degrees. Termination yields an almost-regular graph, without isolated vertices because 2m>=n. This jointly realizes W_* and D=0, proving the sharp gaps and every equality case, including D not being constrained at h=n-1. For the iid case t_j=q^j gives both coefficients strictly positive and fixes the mean. The connected six-vertex example agrees exactly with the formulas. The verification notes and checker were inspected, not executed; small enumerations are not needed to establish the all-n bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 of Chabert-Liddell et al. varies A over a bipartite SBM, and Remark 3 separates variability over A from extinction orders.",
+          "Resultary 953689dbbe43 minimizes over a particular balanced d-regular class with d>=3; Resultary 00b5f6f9d2fc is a maximum for balanced regular networks."
+        ],
+        "reasoning": "Neither varying incidence under an SBM nor restricting to another regularity regime yields this fixed-incidence minimization over two-partner multigraphs. A covariance formula alone does not assert simultaneous feasibility or characterize equality.",
+        "searches": [
+          "arXiv:2106.06348 section 4.2; DOI 10.1002/ecm.1601; Resultary projective-plane and complete-overlap variance results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0df4831a9563, 50c3d8dc73d1, 5a5fdb56266c, ba6e6aa4edd2, 953689dbbe43, 00b5f6f9d2fc, a8150832a603",
+        "10.1098/rspb.2004.2909",
+        "arXiv:q-bio/0609005",
+        "arXiv:2106.06348",
+        "10.1002/ecm.1601 (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact tree formula hinges on two edge pairs' sharing one or zero endpoints, never two. Memmott et al. examine extinction curves; Burgos et al. measure area under a robustness curve. Resultary 5a5fdb56266c balances degrees for expected survival under a different threshold objective."
+        ],
+        "reasoning": "Mean optimization or area under a curve does not imply the variance minimum (the mean here is topology-independent). The separate signs of the parallel-pair and wedge penalties, and the attainability of their lower bounds together, are needed for the surviving result.",
+        "searches": [
+          "Compare 0df4831a9563 proof and the Chabert-Liddell proposition; Memmott et al. Figure 4; Burgos et al. section 3.1; Resultary 5a5fdb56266c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0df4831a9563: with h=n-k unselected sites, X=m-R_k is exactly the loss/induced-edge count; its variance is the frozen D=0 expression at m=n-1.",
+          "Simple graph overlap counts extend using the same two nonidentical edge cases regardless of tree structure. Parallel pairs require a third joint event."
+        ],
+        "reasoning": "Credit the exact tree dual and the standard simple-graph calculation. The tree statement does not classify feasible minimizers for all m, nor detect D or predict when repeated pairs can tie.",
+        "searches": [
+          "Resultary: induced edge count, habitat-site rarefaction, two-partner fixed-size coextinction variance",
+          "Primary literature: induced-subgraph edge-count variance and ecological robustness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tree entry actually gives the path as unique minimizer at informative stage sizes among trees. Same-day 50c3d8dc73d1 addresses iid variance peaks with primary degree two, and ba6e6aa4edd2 compares iid variance rankings for three-plant networks. Resultary a8150832a603 optimizes the probability of any loss, not variance."
+        ],
+        "reasoning": "These are exact indexed results on distinct classes/objectives except for the exact tree restriction. No entry inspected tabulated or stated the full stage classification for labeled secondary species allowed to share partners.",
+        "searches": [
+          "Resultary: two-partner coextinction variance gaps, stage optima and fixed-size/IID minimizers"
+        ]
+      },
+      "rationale": "The fixed-size simple-tree variance and path optimum already occur in the exact rarefaction dual, and the simple-graph overlap count is the same calculation. The supported distinct claim is the sharp joint minimization over general feasible loopless multigraphs, including the repeated-pair penalty, the complete stage-dependent equality classes, and simultaneous iid optimum. No inspected result covers that full extremal statement.",
+      "residual_risks": [
+        "A classic induced-edge or finite-population sampling result may supply a closer weighted variance formula; no covering extremal theorem was verified.",
+        "Full-text coverage in Jones et al. could not be determined. Index and primary searches are bounded, not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage, strictly limited to trees and fixed-size sampling",
+          "evidence": [
+            "The displayed mp2+m(m-1)p4+2W(p3-p4)-m^2 p2^2 equals the frozen fixed-size identity at D=0; the path is optimal among trees for 3<=h<=n-1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-six-site-limit-of-moment-based-rarefaction-in-tree-inciden--0df4831a9563/RESULT.md",
+          "material_read": "Mirrored Finding, Assumptions and proof sections 1–2 and start of 3, offset 0",
+          "method": "Resultary search and direct local-mirror passage inspection",
+          "title": "Sharp six-site limit of moment-based rarefaction in tree-incidence communities",
+          "trigger": "Exact dual interpretation and fixed-stage variance optimum"
+        },
+        {
+          "assessment": "Different statistic and averaging regime",
+          "evidence": [
+            "Proposition 3 takes variance over networks A drawn from the biSBM; Remark 3 decomposes variability over networks and extinction sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.06348",
+          "material_read": "PDF pp. 12–13, section 4.2 proposition 3 and remark 3, offsets about 33800 and 38200",
+          "method": "OA primary passage inspection",
+          "title": "Impact of the mesoscale structure of a bipartite ecological interaction network on its robustness through a probabilistic modeling",
+          "trigger": "Primary robustness variance candidate"
+        },
+        {
+          "assessment": "Loss proxy and random removal protocol rather than fixed-incidence variance optimization",
+          "evidence": [
+            "Figure 4 reports random and degree-ordered removal curves, some averaged over 300 simulations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2004.2909",
+          "material_read": "OA PDF p. 5, Figure 4 caption, offset about 30500",
+          "method": "OA primary passage inspection",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "Primary antecedent for all-partners-lost robustness"
+        },
+        {
+          "assessment": "Attack-tolerance-curve area and nestedness study, not this variance optimum",
+          "evidence": [
+            "Section 3.1 defines robustness using area; the conclusion depends on assumptions about which species face greater risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/q-bio/0609005",
+          "material_read": "PDF section 3.1 p. 4 and conclusion p. 8, offsets about 9700 and 22500",
+          "method": "OA primary passage inspection",
+          "title": "Why Nestedness in Mutualistic Networks?",
+          "trigger": "Possible analytic extremum for ecological robustness"
+        },
+        {
+          "assessment": "Statement-level coverage unresolved for this source",
+          "evidence": [
+            "The frozen record describes an expected-robustness comparison; that characterization was not verified from full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ecm.1601",
+          "material_read": "Bibliographic identification; full text not recovered",
+          "method": "Lawful OA attempt returned HTTP 403; no verified alternative full text recovered",
+          "title": "Novel analytic methods for predicting extinctions in ecological networks",
+          "trigger": "Analytic coextinction prediction could treat analogous optimizing structure"
+        },
+        {
+          "assessment": "Different degree regime and restricted class",
+          "evidence": [
+            "Balanced d-regular class with d>=3, not a theorem for two-partner multigraphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-projective-plane-pollination-webs-minimize-coextinction-variabil--953689dbbe43/RESULT.md",
+          "material_read": "Mirrored Finding and proof at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Projective-plane pollination webs minimize coextinction variability",
+          "trigger": "Another exact conditional fixed-stage variance minimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact gaps provide a design and comparison rule for stochastic coextinction counts at a fixed mean: some sampling stages detect repeated partners only, another detects degree imbalance only, and the iid model penalizes both. This complete classification is useful beyond the tree case, without claiming an empirical ecology result or novelty for covariance arithmetic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

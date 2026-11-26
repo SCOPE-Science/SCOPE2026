@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:16.018022Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–31 and 41–43",
+        "Frozen VERIFICATION.md and check_parity_logic.py (inspected without executing the package)"
+      ],
+      "rationale": "Simultaneous induction on formulas and programs is well-founded even for arbitrarily nested tests. Programs stay in components. On a nonisolated component, the abstract support supplies a necessary parity for any related pair and a mandatory witness for each supported parity: all diagonal pairs for even and all edges for odd. Intersection works because these witnesses are shared by the two operands. For composition, a diagonal is obtained by two diagonal steps or traversing an edge and its reverse, and an edge by one edge and one diagonal step. Star uses the zero-length walk and has odd support exactly when the operand does. The invariant is enough to decide diamonds with a uniform target and to decide loop at every point; it does not purport to recover every program pair. On an isolate the only possible program pair is the self-pair. The two truth bits yield exactly four classes, witnessed already on a singleton and an edge. In the usual syntax-tree representation the fixed-size computations at the nodes are linear in total input length, also for comparisons between formulas. Neither the induction nor the witness construction needs finite frames.",
+      "residual_risks": [
+        "The frozen generated-formula/finite-graph checks do not cover unbounded test nesting or infinite frames; the simultaneous induction covers both."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Figueira and Figueira identify ICPDL with the tree-width-two fragment of CPDL+. Lemma 5.8 gives the direction from pebble half-bisimulation to formula preservation without a finite-degree assumption. The game switches sides only with all pebbles stacked at a point."
+        ],
+        "reasoning": "On a bipartite component with an edge, map pebbled vertices of the component to the two endpoints according to the bipartition. Local moves are preserved. After a switch when the pebbles are stacked, embed the representative edge as any edge incident with the currently matched component vertex; that preserves equality, edges and legal local moves. Reset the orientation or chosen incident edge at later switches. This wins with three pebbles (in fact any fixed number at least two). Isolated components match the singleton. The needed game-to-formula implication applies also to infinite-degree components.",
+        "searches": [
+          "arXiv:2501.11641v1, Theorem 1, §5.2 move rules and Lemma 5.8",
+          "arXiv:2610.15632v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md definitions and proof",
+        "arXiv:2501.11641v1, Theorem 1 and §5.2",
+        "arXiv:2610.15632v1",
+        "Three distinct Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singleton and edge therefore represent all pointed theories for the frozen language. On the edge every definable program is invariant under swapping endpoints, so it is a union of the diagonal and edge relation."
+        ],
+        "reasoning": "Evaluate the original syntax on these two fixed representatives in constant time per node. The diagonal and edge relation bits on K2 are exactly the four-state parity algebra, including ordinary set intersection and relational composition. The four distinct formula pairs are realized by constants, the edge-existence diamond, and its negation. Thus both the four-class count and linear decision procedure follow, not just qualitative invariance.",
+        "searches": [
+          "arXiv:2501.11641v1, §5.2 (offsets 150810 and 156050), Theorem 1 and Lemma 5.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loop is already definable in ICPDL: loop(pi) is equivalent to <pi intersection top?>top. The ordinary variable-free KB record gives the same four truth profiles with only modal syntax."
+        ],
+        "reasoning": "Converse, star, tests and intersection are ordinary ICPDL operations; the loop abbreviation uses the operand once. The language with both operators is not a strict extension of ICPDL. Ordinary KB by itself would not cover the richer programs.",
+        "searches": [
+          "Figueira and Figueira, arXiv:2501.11641v1, Introduction at offset 5300 and Theorem 1",
+          "Resultary …af4e687aa942"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The KB record gives the exact four profiles for ordinary modalities. The loop-PDL records give arithmetic spectra on finite directed cycles and exclude program intersection."
+        ],
+        "reasoning": "These are exact related classifications, not graph or formula enumerations that could independently settle the full infinitary frame claim. The older general bisimulation theorem, rather than one of these tables or spectra, supplies the decisive coverage.",
+        "searches": [
+          "Resultary …af4e687aa942",
+          "Resultary …36359206b8ff and …e1a5174e9077"
+        ]
+      },
+      "rationale": "The pointwise collapse is a corollary of the previously established pebble-bisimulation invariance for a language containing ICPDL. The arbitrary bipartite components here are pointed bisimilar in that game to a single edge, and isolated components to a singleton. The fixed two-model evaluator and its four-state parity tables are the constant-size relation tables on those representatives. The parity-sandwich proof is a useful elementary alternative, but does not establish a distinct semantic result beyond that implication.",
+      "residual_risks": [
+        "The implication establishes coverage, not whether the exact four-class statement or the elementary proof appeared verbatim elsewhere. Published full-text comparison was bounded to the relevant passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication",
+          "evidence": [
+            "ICPDL equivalent to tree-width-two CPDL+; local moves and switch only with stacked pebbles; finite-degree condition not needed from bisimulation to preservation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.11641v1",
+          "material_read": "Introduction around offsets 5300 and 16175; §5.2 game and Lemma 5.8 around offsets 150810 and 156050; Theorem 1 characterization cited there and in §6.2",
+          "method": "Open arXiv HTML, locator queries and bounded passage reads",
+          "title": "A Common Ancestor of PDL, Conjunctive Queries, and Unary Negation First-order",
+          "trigger": "ICPDL under a general expressiveness and bisimulation theory"
+        },
+        {
+          "assessment": "Exact ordinary-modal overlap, not alone sufficient for full syntax",
+          "evidence": [
+            "Isolated and nonisolated profiles, and a two-bit evaluator on symmetric frames."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-semantic-classes-in-the-variable-free-fragment-of-kb--af4e687aa942",
+          "material_read": "RESULT.md Finding, assumptions and proof at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four semantic classes in the variable-free fragment of KB",
+          "trigger": "Identical two types and count in weaker syntax"
+        },
+        {
+          "assessment": "Different frames and invariant",
+          "evidence": [
+            "Directed-cycle length spectra with no program intersection, not a pointwise collapse on undirected bipartite frames."
+          ],
+          "identifier_or_url": "Resultary …36359206b8ff and …e1a5174e9077",
+          "material_read": "Both RESULT.md Finding/scope passages at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact arithmetic spectra and exact gcd spectra for variable-free loop dynamic logic on directed cycles",
+          "trigger": "Similar loop dynamic logic syntax"
+        },
+        {
+          "assessment": "Inspected statements concern finite satisfiability on arbitrary frames, not the two-type structural implication used here",
+          "evidence": [
+            "Discusses program intersection and establishes a finite-satisfiability result, not an exact class census for this setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15632v1",
+          "material_read": "Abstract and Introduction, offsets 0 and 4900",
+          "method": "Open arXiv HTML",
+          "title": "Towards Finite Satisfiability of PDL with Loops",
+          "trigger": "Loop and converse PDL"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof and Limitations",
+        "Comparison with pebble-bisimulation invariance in arXiv:2501.11641v1"
+      ],
+      "rationale": "The exact simplification is meaningful for this natural modal fragment: it gives small representative models and an evaluator that deals correctly with intersection rather than treating path parity alone as sufficient. The elementary proof brings out the reusable shared-witness argument. This utility does not establish originality of the semantic classification.",
+      "residual_risks": [
+        "The parity tables do not evaluate arbitrary individual graph pairs, and cannot be transferred without proof to nonbipartite frames or to the excluded operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

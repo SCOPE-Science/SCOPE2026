@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone executable sources `check_py.py` and `check_cpp.cpp` in this package construct the Möbius–Kantor graph by the given complete edge list. They do not read external files or rely on network access.
+## correctness
 
-Run `python3 check_py.py` and, independently, `g++ -std=c++17 -O2 check_cpp.cpp -o check_cpp && ./check_cpp`.
+PASS
 
-Both programs must report \(24\) graph edges, \(368\) ordinary edge-resolving four-sets, zero fault-tolerant four-sets, \(16\) fault-tolerant five-sets, and equality between these five-sets and the distinct distance-three spheres. The Python program also tests the ordinary three-set boundary and directly tests every one-vertex deletion from each candidate. C++ builds witness masks for all \(\binom{24}{2}=276\) edge pairs and enforces two-witness coverage. Both check \(64\), \(8\), \(48\) unordered optimal-pair intersections of sizes zero, two, three, respectively, and reconfiguration edge counts \((0,48,56,56,120)\) for replacement limits \(1\) through \(5\). Python independently computes connected-component sizes at each limit.
+Using the explicitly stipulated two-witness criterion (equivalently requiring a resolving set that still resolves after each deletion), I reconstructed GP(8,3) from its modular adjacency rule, found distances by Floyd–Warshall, and exhaustively tested the complementary indistinguishability sets; replay with python3 /workspace/evidence/1-exhaustive.py. Every resolving 3-set is excluded; 368 resolving 4-sets exist. There are no robust 4-sets, hence no smaller robust sets by monotonicity, and the 16 robust 5-sets are exactly the 16 distinct radius-three shells, all with cardinality five. In each of the two eight-set shore classes every set meets exactly one other in two vertices and all six others in three; the 64 cross-shore pairs are disjoint. Adjacency is 5 minus the overlap being at most k, giving precisely the five claimed graphs and threshold. The empty set is excluded by ordinary resolution and by the operative two-witness definition; a deletion-only formula should not be read as admitting the empty set vacuously. The finite exhaustive proof is for this one labelled graph. Inspected RESULT.md, VERIFICATION.md, check_py.py and check_cpp.cpp without running the uploaded programs.
 
-The exhaustive search is finite: \(\binom{16}{4}=1820\) four-subsets and \(\binom{16}{5}=4368\) five-subsets. The no-four-set result extends to all smaller fault-tolerant candidates by monotonicity of two-witness coverage. For ordinary edge metric dimension, the Python checker excludes all \(\binom{16}{3}=560\) triples, and a valid four-set exists. None of these experiments claims an infinite-family theorem.
+## originality
 
-Results were checked by reading and executing the actual delivered source texts after JSONL extraction; tool environment and compiler versions are not logically part of the proof.
+PASS
+
+No inspected prior statement covers the minimum one-failure EDGE resolving-set family on GP(8,3) or its intrinsic shell/exchange geometry. The ordinary dimension and its 368 bases are contextual, and there is a separate indexed record giving exactly those ordinary results. Neither the lower-bound principle nor the ordinary invariant is credited as new.
+
+## value
+
+PASS
+
+On a canonical cubic symmetric graph, the exact optimum family is a graph-intrinsic orbit of distance shells rather than a bare feasible count. It answers whether optimal resilient placements can be moved between the shores without replacing every landmark, and exactly classifies the intermediate budgets. This is meaningful at the finite graph scale without a wider family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

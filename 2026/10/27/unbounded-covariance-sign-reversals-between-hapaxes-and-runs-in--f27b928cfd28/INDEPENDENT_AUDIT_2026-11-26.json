@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:58.343302Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: equations (1)–(4), exact three-letter example, scope",
+        "Frozen VERIFICATION.md; verify_hapax_runs.py (inspected only)",
+        "Independent capped-occupancy and last-letter integer dynamic program"
+      ],
+      "rationale": "Conditionally on a single occurrence of i, an adjacent pair has equality probability ((n−2)/n)h_i: its two locations must miss the uniformly placed occurrence and then have the same letter under the normalized law off i. This proves Eq. (1) after weighting by np_i(1−p_i)^(n−1) and summing. At n=1 the covariance is zero; for n≥2 the binary sign is that of 1−na(1−a), with exactly one reversal in nonzero signs, and the equal-mass formulas agree. Adding a letter of mass ε preserves the finite previous sample of strict signs by continuity. The new letter has h=S and bracket 2S+n[−2Sε+(S+1)ε²]; at the two integer lengths floor(ε^(−1/2)), floor(2/ε) its contributions are respectively 2S√ε+o(√ε) and −4Se^(−2)+o(1). The old letters have uniformly bounded coefficient parameters and contributions O(n²(1−δ)^n) for some fixed δ>0, negligible at both scales. Thus each new positive mass appends two strict signs beyond the old lengths; the binary seed gives 2q−3 reversals for some fixed law on each q. An independent bounded integer dynamic program also verifies the ternary witness: the exact covariances are 65160/130321, −46035365796/6131066257801, 36283702577400/42052983462257059, and −3465336136509778177512/1978419655660313589123979 at lengths 2, 8, 11 and 19, respectively.",
+      "replay_paths": [
+        "/workspace/branches/e88718b3-e81f-45f8-999c-da59532bd769/exact_witness_dp.py (independent bounded check, not the induction)"
+      ],
+      "residual_risks": [
+        "The finite witness is not evidence for arbitrary alphabet sizes without the induction. No sharp upper bound for q>2 or infinitely many reversals for one law is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong's Eq. (6) tracks all symbol counts jointly with runs; additional corollaries track levels and per-symbol runs.",
+          "The exact single-window finding is about two occupancy-frequency counts under uniform iid draws and limits positivity to one interval."
+        ],
+        "reasoning": "The broader generating functions dominate finite joint-distribution computability, but no inspected theorem controls sign variation as n and the alphabet size range. The occupancy window is not a theorem about adjacent-letter statistics.",
+        "searches": [
+          "Kong joint distribution rises falls number of runs random sequences (Resultary)",
+          "arXiv:2405.01748v1, Theorem 3.1 and Corollaries 3.3–3.5",
+          "2026/10/26/SCOPE-a-single-covariance-window-for-distinct-occupancy-frequencies--46bdb4d9ec77"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.01748v1",
+        "Resultary exact RESULT.md comparisons listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-n coefficient extraction has no signed asymptotic conclusion for appending rare letters.",
+          "Universal positive coverage/run covariance does not isolate singleton symbols; the symmetric Pólya result assumes dependent observations and gives a single threshold for singleton counts."
+        ],
+        "reasoning": "Obtaining the 2q−3 bound from any of these finite identities would additionally require a perturbative construction that preserves earlier signs and supplies two new asymptotic scales. It is not a numerical specialization or immediate implication of an inspected theorem.",
+        "searches": [
+          "arXiv:2405.01748v1, Corollary 3.3, Eq. (6)",
+          "2026/10/13/SCOPE-categorical-coverage-and-run-count-have-universal-positive-covar--a8532889aa0a",
+          "2026/11/22/SCOPE-two-covariance-sign-reversals-between-rare-colour-frequencies-an--059b9a34ac8e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed composition in Kong can be iid-weighted by ∏p_i^(n_i) and grouped by the number of singleton coordinates to compute the same covariance at specified n.",
+          "The indexed universal positive coverage/run covariance uses occupied-symbol count, not singleton-symbol count."
+        ],
+        "reasoning": "The first is an equivalent representation only of the finite joint distribution; the second is a different statistic. Neither states the varying-length reversal result.",
+        "searches": [
+          "hapax singleton symbols covariance number of runs iid words sign reversals (Resultary)",
+          "unbounded sign changes covariance occupancy singleton count runs alphabet size (Resultary)",
+          "arXiv:2405.01748v1, Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The single-window record exhibits exact finite-n switches for Cov(N_1,N_8), not for Cov(H_n,R_n).",
+          "The three-species richness record varies the frequency index at fixed n=16, rather than varying word length."
+        ],
+        "reasoning": "These are exact indexed precedents for different covariances. Neither supplies the lower bound for the number of switches or the matching ternary hapax/run witness. A bounded query is not an exhaustive table search.",
+        "searches": [
+          "hapax runs covariance iid words number of letters occurring exactly once maximal constant-letter runs (Resultary)",
+          "2026/10/26/SCOPE-a-single-covariance-window-for-distinct-occupancy-frequencies--46bdb4d9ec77",
+          "2026/11/8/SCOPE-a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa"
+        ]
+      },
+      "rationale": "The supported distinct claim is the unbounded lower bound across alphabet sizes on sign reversals as n varies at a fixed law. General composition/run generating functions already encode any fixed-length hapax/run joint moment; the finite covariance identity is not the novelty. Closest indexed sign-window, run-count, and occupancy results differ in which statistics or parameters vary, or use dependent draws.",
+      "residual_risks": [
+        "No exhaustive historical search; equivalent sign-reversal constructions might exist in older run/occupancy literature. A broader generating function provides a possible route to an implicit derivation but the stated theorem was not found as an implication in the material inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite joint moments are covered implicitly via reweighting, but no stated unbounded sign-variation construction in the relevant results.",
+          "evidence": [
+            "Eq. (6), OA offset about 11827, sums word counts A(n;r,s,b) over all compositions and run/rise/fall counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.01748v1",
+          "material_read": "Abstract (PDF p. 2), Introduction (p. 3), Corollaries 3.3–3.5 (pp. 9–10), in particular Eq. (6)",
+          "method": "Lawful OA PDF, literal location and bounded page reads",
+          "title": "Joint distribution of rises, falls, and number of runs in random sequences",
+          "trigger": "Primary source encoding composition and run counts jointly."
+        },
+        {
+          "assessment": "Genuine analogy but both variables are occupancy counts.",
+          "evidence": [
+            "For 10 boxes Cov(N_1,N_8) has signs −,+,− at 9,20,70; the positive region is at most one interval."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-single-covariance-window-for-distinct-occupancy-frequencies--46bdb4d9ec77",
+          "material_read": "RESULT.md, Finding and scope near offset 0",
+          "method": "Local mirror",
+          "title": "A single covariance window for distinct occupancy frequencies",
+          "trigger": "Closest earlier indexed iid sample-size sign-change result."
+        },
+        {
+          "assessment": "The coverage variable is not hapax count.",
+          "evidence": [
+            "Proves positivity for occupied-symbol count versus runs."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-categorical-coverage-and-run-count-have-universal-positive-covar--a8532889aa0a",
+          "material_read": "RESULT.md, Finding near offset 0",
+          "method": "Local mirror",
+          "title": "Categorical coverage and run count have universal positive covariance",
+          "trigger": "Same run statistic and iid model."
+        },
+        {
+          "assessment": "Different variables and swept parameter regardless of chronology.",
+          "evidence": [
+            "Varies frequency r at fixed n=16 and compares richness with F_r."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-minimal-three-species-counterexample-to-one-switch-richness-fr--d3caf6abcfaa",
+          "material_read": "RESULT.md, offsets 0 and 3500",
+          "method": "Local mirror",
+          "title": "A minimal three-species counterexample to one-switch richness–frequency covariance",
+          "trigger": "Indexed three-colour example with three sign reversals."
+        },
+        {
+          "assessment": "Dependent Pólya sequence; distinct assumptions and conclusion.",
+          "evidence": [
+            "Two switches for r≥2; one threshold for the singleton statistic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-covariance-sign-reversals-between-rare-colour-frequencies-an--059b9a34ac8e",
+          "material_read": "RESULT.md, Finding near offset 0",
+          "method": "Local mirror",
+          "title": "Two covariance sign reversals between rare-colour frequencies and run changes in symmetric Pólya sampling",
+          "trigger": "Indexed sign reversals for rare-colour frequencies and runs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: Finding and rare-letter induction",
+        "Indexed coverage/run positivity and single-window occupancy results"
+      ],
+      "rationale": "This rules out any alphabet-uniform one-switch or finite-switch principle for the dependence between an occupancy statistic and an adjacent-run statistic of the same iid word. The rare-letter scales explain the mechanism; the strictly contrasted binary case and explicit first possible higher-alphabet example make it more than a collection of computed moments.",
+      "residual_risks": [
+        "The construction may require very long words and does not classify the maximum number of switches at fixed q."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

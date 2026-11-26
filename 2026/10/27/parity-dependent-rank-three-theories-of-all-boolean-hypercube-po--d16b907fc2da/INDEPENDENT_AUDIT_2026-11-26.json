@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:33:49.923716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Steps 1–4",
+        "VERIFICATION.md and verify.py: direct vertex and Hamming-orbit enumeration versus symbolic signatures",
+        "verification_output.txt: recorded 42 direct graph cases, 6801 orbit profiles, and classification checks through radius 150"
+      ],
+      "rationale": "For a selected ordered pair, equality/adjacency and the set of four extension patterns for a third, distinct vertex give exactly the rank-one pair type. Vertex transitivity makes equality of profile sets sufficient for the three-round game; a differing profile can also be named by a rank-one formula with two free variables, then existentially closed. At pair distance h, the third distances are i+j and h-i+j. An interior balanced point gives the common-neighbor criterion for h>=2, and h=1 has a common neighbor only for r,d>=2. For a mixed extension of an adjacent pair with d>r, flip min(r,d-h) agreeing coordinates; for h=r+1 this works iff an agreeing coordinate exists, and for larger h one differing coordinate suffices. Maximizing the smaller of the two third distances gives d-ceil(h/2), exactly the threshold for a common nonneighbor. On d>=r+2 the switch to all edge profiles allowing a common nonneighbor is at r+ceil(r/2)+1, and the first near nonedge allowing one is at r+ceil((r+1)/2)+1. These coincide for odd radius and differ by one for even radius. At d=2r+1 the far pair lacks a common nonneighbor; for d>=2r+2 all far pairs have one, as do all near nonedges. At r=1 the edge common-neighbor exception yields four classes; at r=2 the early and late middle intervals are empty and the middle singleton remains. The complete-graph cases are separated by capacity for three distinct vertices. Thus the partition and the minimum largest in-family representative size 2^(2r+2) follow. The sentence 'Every row below is one equivalence class' should say every semicolon-delimited range in a radius row; the table and proof identify the intended partition unambiguously.",
+      "residual_risks": [
+        "Only fixed-radius comparisons in ordinary adjacency/equality logic are covered. The sharp bound is internal to the family. The frozen script was inspected, not executed; the finite checks do not establish the unbounded claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-product result ranges over larger alphabets but uses Cartesian adjacency. The rank-four Hamming graph result has higher logical rank and the binary cutoff at six, but also uses Cartesian adjacency. The general Hamming-threshold coloring result ranges over powers but studies a different invariant."
+        ],
+        "reasoning": "A larger alphabet does not replace powering. Higher rank on the unpowered cube permits some translations but does not establish the power-graph classification for all radii.",
+        "searches": [
+          "Resultary: 5c7b235b180b, 63edf2a48369, 886a35e28ec6; arXiv:1001.2209v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "Resultary records 5c7b235b180b, 63edf2a48369, 886a35e28ec6 and a9528fa90607",
+        "Fu–Ling–Xing, arXiv:1001.2209v1; Kokkala–Östergård, arXiv:1607.01605v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing all mixed Hamming factors to K_2 gives the r=1 row. Translating square adjacency on distinct x,y as cube adjacency or a common cube neighbor increases quantifier rank by at most one. The known rank-four equivalence for d,e>=6 therefore implies the r=2 tail equivalence."
+        ],
+        "reasoning": "That translation establishes equivalence in the upper tail, not inequivalence at dimension five: rank-four inequivalence of the base graphs need not have a witness in the translated language. It does not give the general 2r+2 sharpness or the parity split.",
+        "searches": [
+          "Resultary: 5c7b235b180b and 63edf2a48369, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H(d,2) equals the ordinary cube Q_d. The distance-at-most-r binary word graph is Q_d^r in the coloring literature. The radius-two ball record works with closed neighborhoods of the square but measures VC dimension."
+        ],
+        "reasoning": "The alternate graph-power and Hamming-ball terminology changes no underlying graph. Coloring and shattering results for that graph are not classifications of its rank-three types. The binary specialization of the mixed-product rank-three theorem does exactly match radius one.",
+        "searches": [
+          "Resultary: mixed Hamming graph rank-three theories; binary hypercube rank-four theories; radius-two Hamming-ball VC dimension",
+          "Primary literature: arXiv:1001.2209v1; arXiv:1607.01605v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mixed-product table has precisely d=1,2,3 and d>=4 in its binary column. The rank-four binary table stabilizes at dimension six. The radius-two ball table enumerates VC dimensions 0,0,1,3,4 (last value for d>=5)."
+        ],
+        "reasoning": "Only the binary rank-three column is an exact matching table, and only for radius one. The other cutoffs and entries do not enumerate the requested power-graph profile sets.",
+        "searches": [
+          "Resultary: rank-three mixed Hamming graph table 5c7b235b180b; rank-four Hamming graph table 63edf2a48369; radius-two Hamming-ball table a9528fa90607"
+        ]
+      },
+      "rationale": "The distinct contribution is the fixed-radius all-radii classification, including the distinguishing boundary for the square, the parity-dependent middle regimes and the sharp general stabilization. The entire r=1 row is already present in a mixed Hamming graph classification, and the r=2 upper-tail equivalence follows from a cube rank-four classification; neither component should be credited as new. The inspected sources do not supply the higher-radius classification or imply it by the same translation.",
+      "residual_risks": [
+        "Bounded comparison; a theorem on neighborhood extension patterns indexed by both radius and dimension could imply more than the closest inspected results. No priority date or uniqueness certification is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "All binary factors give the four radius-one classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-nine-rank-three-theories-of-mixed-hamming-graphs--5c7b235b180b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Nine rank-three theories of mixed Hamming graphs",
+          "trigger": "Same quantifier rank and binary cubes as a specialization"
+        },
+        {
+          "assessment": "Partial implication",
+          "evidence": "The binary rate-four theory is indexed by min(d,6); the square-adjacency translation gives the upper tail only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sixteen-rank-four-theories-of-hamming-graphs-and-a-sharp-1024-ve--63edf2a48369/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Sixteen rank-four theories of Hamming graphs and a sharp 1024-vertex bound",
+          "trigger": "Plausibly implies rank-three equivalence of square powers"
+        },
+        {
+          "assessment": "Same upper-tail implication as the rank-four Hamming graph result; catalogue date does not settle priority",
+          "evidence": "Rank-four ordinary-cube cutoff at dimension six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-six-sharp-four-round-theories-of-binary-hypercube-graphs--886a35e28ec6/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Six sharp four-round theories of binary hypercube graphs",
+          "trigger": "Direct ordinary binary cube cutoff"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Closed-neighborhood shattering dimension, not third-vertex profile signatures.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-vc-dimension-of-radius-two-balls-in-every-boolean-hamming--a9528fa90607/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Exact VC dimension of radius-two balls in every Boolean Hamming cube",
+          "trigger": "Exact dimension table for related square-power neighborhood geometry"
+        },
+        {
+          "assessment": "Identifies the coloring comparison, not a matching theory classification",
+          "evidence": "Minimizes colors subject to a Hamming-distance threshold (or exact distance).",
+          "identifier_or_url": "arXiv:1001.2209v1",
+          "material_read": "Page 1, problem statement",
+          "method": "Open-access PDF",
+          "title": "New Results on Two Hypercube Coloring Problems",
+          "trigger": "Binary distance-threshold graphs"
+        },
+        {
+          "assessment": "Different claim",
+          "evidence": "Defines the threshold power and addresses a 13-coloring of Q_8^2.",
+          "identifier_or_url": "arXiv:1607.01605v1",
+          "material_read": "Page 1, graph definition and stated result",
+          "method": "Open-access PDF",
+          "title": "The chromatic number of the square of the 8-cube",
+          "trigger": "Same graph powers and a sharp square-power result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, profile thresholds, and sharp representative bound"
+      ],
+      "rationale": "Graph powering is a natural way of changing the geometry visible to a low-rank adjacency formula. The classification determines exactly how short formulas detect dimension, identifies a real even-radius intermediate phase, and makes the first possible stable representative sharp on both sides. The joint classification, not the recomputation of the ordinary-cube row or the mere finiteness of the profile set, supplies the value.",
+      "residual_risks": [
+        "No classification at higher quantifier rank, with counting, or across radii follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

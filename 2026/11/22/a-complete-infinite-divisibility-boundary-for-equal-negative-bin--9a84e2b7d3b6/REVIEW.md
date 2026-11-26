@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS (self-review).** The equal-row fiber is derived from independent negative-binomial probabilities. Its first two unnormalized coefficients are explicitly evaluated. The general additive-root argument demonstrates why a negative coefficient of the logarithm of the generating function excludes arbitrary infinite divisibility, not merely a particular compound-Poisson representation. The boundary region is exhausted by two strict rational inequalities. Every surviving case is realized by a positive compound-Poisson Lévy series. The embedded checker verifies exact polynomial coefficients, normalizations and parameter grids; it is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality: PASS against inspected sources.** DeSalvo's October 2026 Theorem 3.2 supplies the HNB conditional pmf but does not classify infinite divisibility. Existing ordinary negative-binomial infinite divisibility results settle the single-row cases only; the earlier sharp cutoff for geometric maxima is about a different distribution and its proof does not imply the present matrix-shaped parameter classification. DeSalvo's full primary text was examined in its §3, introduction and theorem statements. The general literature on power-series laws and zero-inflated negative-binomial models offers methods but no located statement of this same classification. Residual risk: an unlocated theorem about coefficient-wise powers of negative-binomial series might subsume the classification.
+PASS
 
-**Value: PASS.** Infinite divisibility determines whether a count admits a Poisson cluster or independent-increment interpretation. Conditioning independent infinitely divisible row totals to equality need not preserve that interpretation. The complete sharp integer two-parameter classification isolates its sole nontrivial survivor and supplies all of that survivor's Lévy rates, resolving the full natural equal-row zero-difference family—not an arbitrary numerical slice.
+The mathematical theorem survived unchanged. Independence and the positive all-zero event give weights ((c)_n/n!)^r w^n. If an iid real-valued m-fold root assigned positive probability to a negative value range, the event all summands are negative would have positive probability; hence all summands are nonnegative. The zero atom forces a zero atom for the root, and conditioning the other summands to be zero forces lattice support. For a compound Poisson or infinitely divisible law the second log coefficient must be nonnegative: the root's coefficient is p0^(1/m)(a2-(1-1/m)a1²/2)/m. Its sign in the limit is determined by ((c+1)/(2c))^r-1/2. The rational bounds 4/9 and 27/64 exclude every c,r>=2 except (2,2). At (2,2), summing (n+1)^2 gives (1+z)/(1-z)^3, so the log has intensities 4 w^k/k at odd k and 2 w^k/k at even k, a positive summable sequence. The ordinary geometric and negative binomial cases use the log series for (1-wz)^(-1) and (1-wz)^(-c). Inspected the supporting source and checker without executing uploaded code; the proof is exact and the checker's finite arithmetic is corroborative.
 
-**Limitations.** No classification for nonzero row differences, unequal/noninteger shapes, or claims of independent validation. The negative region is decided by a necessary coefficient condition; only the positive exceptional cases require and receive a constructive representation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Material literature omission repaired: the zero-offset family is already the COM-negative binomial (COM-Pascal in this slice), and a prior recursion implies the negative-region degree-two calculation. The surviving contribution is the complete ordinary integer boundary, especially the proof and full positive Lévy sequence for the sole nontrivial survivor; neither exact-survivor result nor full boundary was identified in the examined studies. No priority asserted for the law, criterion or trivial positive cases.
+
+## value
+
+PASS
+
+For the natural equality fiber (including unequal success parameters), exact ordinary divisibility determines if a Poisson cluster representation survives conditioning. A necessary sign computation alone would not settle survival. The complete nontrivial exception and its jump rates answer a focused question for all integer row sizes and counts, without claiming a general CMNB classification or novelty of the test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

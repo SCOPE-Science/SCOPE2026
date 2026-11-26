@@ -1,15 +1,21 @@
-# Scientific review: first unresolved four-column total-bondage cases
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers are finite and explicit: three nonperiodic Cartesian path grids, every edge-removal subset of cardinality at most three, and no deletion producing an isolated vertex. The proof gives a complete two-row-memory min-plus recurrence for total domination, enumerates all admissible smaller cuts, and provides actual damaging witnesses of sizes three, three, and four. A distinct enumeration of every original minimum total dominating set independently tests survival after every smaller cut. Both checkers agree on all nine admissible and damaging counts; the upper-bound witnesses are checked directly. The conclusion does not use experiments to justify an unbounded assertion.
+## correctness
 
-## Originality — PASS, with specified uncertainty
-Hu–Lu–Xu (arXiv:1109.3929v1, Section 5) establish only the corresponding upper bounds, and their known exact congruence classes do not cover these three cases. Their published witnesses for the length-seven and length-eight upper bounds are acknowledged, and the already-known base total-domination numbers are excluded from novelty. The original contribution is the three exact lower bounds, the smaller three-edge witness for length five, and the precise counts of damaging three-edge sets. Gamlath–Wei (arXiv:2401.16615v1) provides general total-bondage bounds but no exact evaluations for the three specified grids. Targeted searches of publicly available mathematical findings and related literature did not disclose an equivalent table. Unindexed computational work might have calculated the same quantities.
+PASS
 
-## Value — PASS
-The published four-column classification left the smallest representatives of the three unresolved residue classes without exact values. These calculations close all three natural initial cases: the first shows strict improvement over the published upper bound, and the other two prove sharpness. Counting every minimum-size damaging cut at lengths five and seven further describes the precise failure tolerance of the grids. The finite data are motivated by a specific gap in the literature, not by an arbitrary graph or a routine recomputation of a known table.
+The definition requires an open-neighborhood hit at every vertex and excludes any cut that isolates a vertex. For a fixed cut, row i is dominated exactly by the surviving same-row neighbors of its selected mask together with surviving vertical neighbors selected in rows i−1 and i+1. The two-mask transfer, with zero boundary masks, covers every possible selected set and minimizes its cost once each row condition is enforced. I inspected both frozen implementations and the fresh checker's decisive loops. The fresh checker enumerates all intact optima by branching over every optimal row choice, then records for each vertex and pattern of removed incident edges the bitset of optima still supplying a neighbor. For each k=1,2,3 the code visits each k-combination once, excludes zero residual degree, and intersects the bitsets over all vertices. An empty intersection is necessary and sufficient for damage by monotonicity under deletion. In the order n=5,7,8 we reproduced (edge count, γ_t, optimum set count)=(31,8,256),(45,10,121),(52,12,2916). By cut sizes 1,2,3 the admissible/damaging pairs are (31/0,461/0,4369/40), (45/0,986/0,14004/727), and (52/0,1322/0,21884/0). A separate transfer in the fresh script checks that the displayed witnesses are isolate-free and give γ_t=9,11,13 with cut sizes 3,3,4. Hence the exact minima are 3,3,4. No four-edge census or all-length claim is supported or needed.
 
-## Scope and risk
-The conclusions are not asserted for all four-column grid lengths, no counts beyond the stated edge-cut sizes are inferred, and neither an indexed search nor an exhaustive calculation establishes global priority. Independent external mathematical review remains to be done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact three values and small-cut census close named gaps in the inspected grid theorem. The intact total-domination numbers are known, the three-edge G_7 witness is from the prior construction, and a four-edge upper bound for G_8 was already known. The inspected preprint says G_8 has that upper bound by direct check but does not exhibit its specific cut; it does not confirm the frozen prose attributing this choice of witness to an earlier displayed construction. That attribution caveat is separate from the verified witness and the novelty of the exact lower bound.
+
+## value
+
+PASS
+
+These n were selected before enumeration as the first lengths in the three residue classes left at upper bounds by the published theorem. Their exact values give one strict improvement and two concrete sharpness benchmarks; the latter bear directly on the stated tightness conjecture without claiming it for larger grids. The complete small-cut checks also address precisely why small admissible cuts cannot improve those bounds. This is a motivated finite invariant, not an arbitrary small slice or a recomputation of the intact baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

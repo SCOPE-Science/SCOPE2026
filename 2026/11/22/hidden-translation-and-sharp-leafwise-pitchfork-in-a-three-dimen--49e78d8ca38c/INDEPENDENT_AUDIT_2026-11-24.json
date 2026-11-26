@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:42:43.457732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem's attraction and branch conclusions survive, but the frozen leafwise Jacobian incorrectly multiplies the first row by cos(tr), and the checker reproduced the wrong multiplier. The corrected files take the derivative of the actual shift-and-sine fiber map: first row (0,1), second row (tβ₀ cos(tr),tδ₀ cos(tr)). With q=t cos(tr), the characteristic polynomial is λ²−qδ₀λ−qβ₀, and the root through 1 has derivative 1/(1+β₀) at q=1. At a nonzero branch q=1−2(t−1)+O((t−1)²); the corrected multiplier is 1−2(t−1)/(1+β₀)+O((t−1)²). The other tends to −β₀ with β₀≤1/2. The central branch has q=t and loses stability. At t=1 a unit eigenvalue contradicts any uniform exponential attraction bound by differentiation. The scalar equation r=sin(tr) gives existence for every t>1 and exactly one positive and one negative root near t=1 by strict decrease of sin(tr)/r there; Taylor expansion gives the stated square-root law. Independently, direct cancellation yields W_n=W₀+nα, x and y are bounded after two steps, and a nonzero translation of the real line has no finite invariant probability. Squaring the nonnegative error majorant gives row sums s and β+δs≤s for s<1, proving the graph assertion and rate. The sine Taylor remainder plus the zero-coupling graph error gives s²/2+s² in the irrational Haar estimate. Zero-drift uniqueness, convergence and recurrence on the s<1 planes give exactly the invariant mixtures. The repaired RESULT.md, checker and reproducibility notes preserve the claim and correct the stability calculation; the frozen checker was inspected, not run. The conclusion rests on the analytic proof, not the finite checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7cdce67989b6 supplies a global escape function H∘F=μH and a zero graph for μ>1+|β|+|γ|+|δ|, disjoint from μ=1.",
+          "16a930ed513b treats effective-gain equilibrium and sink windows in a model without μz."
+        ],
+        "reasoning": "Neither the large-feedback theorem nor the numerical scans and separate equilibrium windows dominate the neutral regime of the corrected theorem. Standard contraction gives the general mechanism but not the cancellation, explicit Haar bias or identification of the sharp leafwise boundary.",
+        "searches": [
+          "Resultary 7cdce67989b6 and 16a930ed513b",
+          "DOI 10.3390/sym15040780, §§2–4 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_resonance.py; corrected proof, checker and scientific replay notes in repairs/1",
+        "DOI 10.3390/sym15040780",
+        "Resultary f8c78c1ec3a7, 7cdce67989b6 and 16a930ed513b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The map equation is prior; its exact cancellation on a codimension-two surface is checked directly here. The two-step bound is applied to a specific forced fiber with an explicit perturbative mean estimate.",
+          "The matching scalar coefficient √6 also occurs in the different critical sine map and follows from the standard cubic Taylor expansion."
+        ],
+        "reasoning": "The bifurcation coefficient alone would not distinguish the finding. No inspected source gives the neutral translation with the all-state drift and probability conclusions or the particular quantitative invariant graph law on this surface.",
+        "searches": [
+          "DOI 10.3390/sym15040780, Eq. (1)",
+          "Resultary f8c78c1ec3a7 and 7cdce67989b6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (1) is the identical feedback map but the inspected dynamics sections do not identify the resonant coordinate or phase reduction.",
+          "f8c78c1ec3a7 has a critical identity W∘F−W=sin(z)−z and the same square-root scaling of a pitchfork in a different map with no linear feedback."
+        ],
+        "reasoning": "The cubic-drift factor is not conjugated to this exact constant increment merely by matching a feedback parameter or a pitchfork coefficient. Its sinks concern the full space, whereas here W is conserved at zero drift and attraction is relative to one plane.",
+        "searches": [
+          "Resultary: hidden translation and leafwise pitchfork in three-dimensional sine maps; critical cubic drift and global escape coordinate",
+          "DOI 10.3390/sym15040780, Eq. (1) and §§3–4, 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical parameter choices in the cited paper are not on the stated cancellation surface; no matching bound or invariant law is tabulated there.",
+          "The exact matching assigned catalogue item is the record under review; distinct retrieved sine-map records differ in either model or parameter regime."
+        ],
+        "reasoning": "No finite table value is proposed as novel. The catalogue comparison targets the exact model, parameter surface and resulting uniform law, not just the shared existence of numerical pitchforks.",
+        "searches": [
+          "Resultary: neutral cancellation, sine-map mean and pitchfork; exact IDs f8c78c1ec3a7, 7cdce67989b6, 16a930ed513b",
+          "DOI 10.3390/sym15040780, numerical parameter/symmetry scans"
+        ]
+      },
+      "rationale": "The supported distinction is the exact neutral cancellation and its global and quantitative consequences for the feedback model. The corrected stability calculation does not enlarge that claim. The scalar sine pitchfork and Banach graph-transform method are not themselves original results.",
+      "residual_risks": [
+        "The exact contents of the 2017 precursor were not accessible; the absence of matching claims there is not established.",
+        "Bounded comparisons do not determine publication priority, including between same-day catalogue items, or exclude earlier unindexed neutral-regime analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; no statement-level match in inspected passages",
+          "evidence": "Introduces μ as self-feedback and gives numerical symmetry, parameter and synchronization results rather than neutral all-state translation and graph estimates.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15040780",
+          "material_read": "§2 Eq. (1), p. 3; §§3–4, pp. 3–6; §6, p. 8",
+          "method": "OA article PDF, text offsets 9916, 14887, 19780 and 29368",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Exact same map"
+        },
+        {
+          "assessment": "Unresolved full-text check",
+          "evidence": "The accessible 2023 paper identifies linear self-feedback as an addition to the earlier map; the precursor's exact theorem statements were not verified.",
+          "identifier_or_url": "https://emis.muni.cz/journals/BMAA/repository/docs/BMAA9-1-1.pdf",
+          "material_read": "No full text obtained; comparison limited to the model description in the 2023 paper's §2",
+          "method": "Cited OA PDF and lawful alternate retrieval attempted",
+          "title": "Symmetry and Periodic-Chaos in 3-D Sinusoid Discrete Maps",
+          "trigger": "Same-family precursor"
+        },
+        {
+          "assessment": "Analogous scalar scaling, distinct map and type of attraction",
+          "evidence": "Critical drift sin(z)−z and two full-space sinks in F=(y,sin(z),rx+by−s sin(z)), rather than constant W drift or neutral invariant leaves.",
+          "identifier_or_url": "2026/11/22/SCOPE-critical-cubic-drift-and-sharp-relaxation-in-a-three-dimensional--f8c78c1ec3a7",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Critical cubic drift and sharp relaxation in a three-dimensional sine map",
+          "trigger": "Closest normal-form and branch comparison"
+        },
+        {
+          "assessment": "Disjoint gain regime",
+          "evidence": "Multiplicative H∘F=μH when μ>1+|β|+|γ|+|δ|, not additive drift at μ=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-global-escape-coordinate-and-sharp-large-feedback-collapse-in--7cdce67989b6",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A global escape coordinate and sharp large-feedback collapse",
+          "trigger": "Same map and global factor"
+        },
+        {
+          "assessment": "Related equilibrium counting; not the same translation or leaf",
+          "evidence": "A no-linear-feedback sine family has a transition at effective gain one, without the resonant conserved coordinate in the claim.",
+          "identifier_or_url": "2026/11/22/SCOPE-infinitely-many-fold-to-flip-sink-windows-in-a-three-dimensional--16a930ed513b",
+          "material_read": "Opening finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Infinitely many fold-to-flip sink windows in a three-dimensional sine map",
+          "trigger": "Effective-gain threshold in the precursor family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cancellation identifies a solvable boundary regime of an existing feedback model. The result separates full-space drift and nonexistence of invariant probability from a global law for the bounded coordinates, with a useful error bound for stationary bias. The corrected leafwise analysis explains exactly where the uniform contraction result stops and avoids conflating leafwise and ambient attraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

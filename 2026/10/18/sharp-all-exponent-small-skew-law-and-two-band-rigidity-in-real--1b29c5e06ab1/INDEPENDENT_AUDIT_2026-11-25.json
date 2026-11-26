@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:01:03.127325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired RESULT.md, dividing the scalar skew difference by |a|^p+|b|^p reduces its absolute value to the one-variable quotient with u in (0,1), up to endpoint zeros and inversion. With u=exp(−s), stationarity gives cosh((p−1)s)=(p−1)cosh s. The log-derivative of the cosh ratio is (p−1)tanh((p−1)s)−tanh s, with strict sign of p−2 for s>0; the endpoint values give existence and uniqueness on either side of p=2. Equality in the nonnegative pointwise slack therefore forces exactly the indicated signed ratios almost everywhere off the common zero set, and unit normalization forces their |x|^p masses 1/(1+u^p), u^p/(1+u^p). Conversely the two bands make the slack zero. The disjoint-support construction gives two output coefficient lists identical up to permutation and signs, for every τ. Scalar Taylor bounds integrated using Hölder give the uniform O_p(τ^min(p,2)) norm remainders; arithmetic-mean domination supplies the lower bound uniformly even at t=∞ and the balanced pair supplies the common upper bound. Comparing these proves the near-minimizer slack estimate, not a norm-distance claim. The repair explicitly separates the p=2 degeneracy (D_2 identically zero, an orthogonal pair upper bounds all means). Dividing the stationarity residual by p−2 leaves a smooth equation near the Hilbert point; s sinh s−cosh s has derivative s cosh s>0 at its positive root, giving the displayed cusp by the implicit function theorem. Triple and quintuple angles give the stated p=4 and p=6 values. Independent finite replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 1 checked eight direct scalar maximizations and 24 balanced output pairs; it does not certify universal expansions. The frozen numerical checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Liu Theorem 3.2 gives exact matched-mean values at finite skew, with two-coordinate balancing; it does not classify all equality pairs of the limiting antisymmetric duality difference.",
+          "October 11 Birkhoff symmetry equation (8) imposes a zero forward duality pairing. November 17 record 763ef0c468aa has the same limiting root but its optimized discrepancy fixes skew one and imposes Birkhoff orthogonality in ℓ_p^2."
+        ],
+        "reasoning": "A finite-parameter optimal value and one balanced attaining pair do not specify all limiting signed-ratio bands. Orthogonality-constrained discrepancies and a fixed-skew Hilbert cusp are not the unrestricted two-unit-function extremal problem, despite shared scalar geometry.",
+        "searches": [
+          "L_p skew Schäffer constants Xu Liu matched exponent derivative small tau all exponents",
+          "2026/10/11/SCOPE-dimension-free-c-approximate-birkhoff-symmetry-of-real-l-p-space--5f371e82ef77",
+          "unique hyperbolic ratio cosh((p-1)s)=(p-1) cosh s c_p cusp z tanh z=1 signed two-band equality sharp D_p integrated scalar slack L_p all exponents"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03050v1",
+        "arXiv:0903.2704v2 and its citation of Martín–Merí (2009) Lemma 2",
+        "Resultary 2846c5f281be, 0608f06c0ab6, 5f371e82ef77, 763ef0c468aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact matched infimum in Xu–Liu is attained by balanced outputs. Monotonicity therefore makes it the exact infimum also for t≥p, including infinity. For 1≤t≤p the norms differ by at most 2τ and uniform Taylor bounds give only O_p(τ²) differences of the means, hence the same first-order law.",
+          "The numerical-radius identification and scalar normalization cover the variational coefficient. Quartic square identities supply the equality bands and slack at p=4."
+        ],
+        "reasoning": "Neither an all-mean headline nor the coefficient's repeated computation is the distinct result. Beyond p=4 the scalar equality and unit-mass arguments identify every attaining pair rather than the existence provided by a minimum-modulus witness, and connect small objective error to integrated scalar slack uniformly over every mean. This is the focus of the repaired assessment.",
+        "searches": [
+          "arXiv:2610.03050v1 Theorem 3.2 and Remark 3.3, Eqs. (10),(13),(14)",
+          "arXiv:0903.2704 numerical radius M_p",
+          "2846c5f281be and 0608f06c0ab6, Findings and Relationship sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martín–Merí–Popov use M_p=max |u^(p−1)−u|/(1+u^p) and identify it as a real ℓ_p^2 operator numerical radius.",
+          "For the quarter-turn A(a,b)=(b,−a), the norming-duality pairing divided by |a|^p+|b|^p is the same scalar skew quotient, so its absolute maximum is c_p."
+        ],
+        "reasoning": "This gives actual equivalent coverage of the scalar coefficient and pointwise inequality, not a different constant. Taking it as a known variational value does not identify its signed scalar equality configurations or the resulting all-unit-function classification and near-minimizer slack. The repaired work extracts them via strict hyperbolic monotonicity, forced masses and matching first-variation bounds.",
+        "searches": [
+          "semi-inner-product asymmetry first variation Lp duality mapping skew constant two-ratio extremizers",
+          "logarithmic norm derivative skew Lp asymmetry sharp coefficient p exponent",
+          "arXiv:0903.2704 Theorem 1 and discussion after Corollary 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2846c5f281be gives a uniform all-mean quartic expansion to second order and the exact square-identity deficit with signed equality ratios.",
+          "0608f06c0ab6 gives the quartic pairwise squared deficit and equality class with the finite-mean first-order law.",
+          "The all-exponent hyperbolic-ratio query retrieved other invariants, including the constrained Birkhoff cusp; the compared passages did not give the general nonquartic bands."
+        ],
+        "reasoning": "The exact quartic specialization is covered and not counted as distinct. These are explicit theorem matches, not a numerical table of p values. No inference of universal priority is made from the bounded ranked search.",
+        "searches": [
+          "Sharp all-exponent small-skew law two-band rigidity real Lp 2026 October 18",
+          "p-dependent sharp skew coefficient uniform over all outer power means t including infinity two-band equality deficit Lp",
+          "Resultary October 18 records 2846c5f281be and 0608f06c0ab6"
+        ]
+      },
+      "rationale": "Pass applies to the repaired focus: unique optimizer and the signed-band equality and quantitative deficit classification on general real non-Hilbert Lp spaces beyond the overlapping quartic specialization. The scalar variational coefficient M_p is in older numerical-radius literature. The sharp first-order transfer in t follows from Xu–Liu, and the distinct same-day quartic results give the actual equality and deficit, not just matching parameters. The repair credits all of this and retains the law and quartic formulas as context. Neither the same-day date nor the catalogue itself assigns chronological priority. In the retrieved nonquartic material no result supplied the full signed-band structure and uniform near-minimizer estimate.",
+      "residual_risks": [
+        "A nonquartic equality analysis under numerical-radius or semi-inner-product terminology may not have surfaced in bounded searches. The 2009 two-dimensional Lemma 2 was identified through the inspected 0903.2704 reference, not read directly.",
+        "Ni–Liu–Zhou DOI 10.7153/mia-2025-28-22 full text was unavailable in attempted lawful retrieval; its putative supremal scope was not taken as a whole-paper determination.",
+        "No priority within the same day is inferred, and no strong norm-distance stability is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers matched exact law and balanced pair; transfer gives common first variation. Checked statements do not give the general all-p equality/deficit classification.",
+          "evidence": [
+            "Eq. (13) uses disjoint supports and yields identical output p-norms by a signed permutation of the coefficient lists; Eq. (10) gives the matched minimum modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03050v1",
+          "material_read": "PDF pp. 4–5 at offsets 13608–17060, Theorem 3.2 and Remark 3.3; p. 7 outer-mean comparisons near offset 22737",
+          "method": "Lawful primary PDF passages, algebraic implication check",
+          "title": "Skew Schäffer Type Constants",
+          "trigger": "Matched-exponent exact prior result and possible transfer"
+        },
+        {
+          "assessment": "Exact M_p overlap; no signed equality/near-minimizer structure in the inspected statements.",
+          "evidence": [
+            "Same quotient on [0,1] in abstract and on [1,∞) in Theorem 1; the paragraph after Corollary 4 identifies it as an ℓ_p² numerical radius and cites Martín–Merí Lemma 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.2704",
+          "material_read": "Abstract p. 1 offsets 0–3247, Theorem 1 p. 3 offsets 11800–14482, paragraph after Corollary 4 and bibliography p. 6 offsets 27550–30270",
+          "method": "Open primary PDF passages and scalar normalization comparison",
+          "title": "On the numerical index of real Lp(μ)-spaces",
+          "trigger": "Exact numerical-radius equivalent of the variational coefficient"
+        },
+        {
+          "assessment": "Stronger uniform quartic expansion and matching quartic equality/deficit; p=4 scope only.",
+          "evidence": [
+            "Uniform expansion has coefficient −1/(2√2) and second-order coefficient 9/16; the exact squared slack vanishes on the same ratios."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-quadratic-small-skew-law-and-extremizer-rigidity-in-real--2846c5f281be/RESULT.md",
+          "material_read": "Finding, rigidity identity and relationship, offsets 0–6165 and 6000–9351",
+          "method": "Local-mirror original text",
+          "title": "Uniform quadratic small-skew law and extremizer rigidity in real L4 spaces",
+          "trigger": "Exact same-day quartic overlap"
+        },
+        {
+          "assessment": "Quartic first-order and pairwise slack overlap, not a general nonquartic result.",
+          "evidence": [
+            "The quartic slope is treated as a consequence of matched estimates; the band classification and deficit apply in real L4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-perfect-square-first-variation-rigidity-for-skew-sch-ffer-means--0608f06c0ab6/RESULT.md",
+          "material_read": "Finding and Relationship at offsets 0–6040 and 6000–9734",
+          "method": "Local-mirror original text",
+          "title": "Perfect-square first-variation rigidity for skew Schäffer means",
+          "trigger": "Direct same-day equality and deficit match"
+        },
+        {
+          "assessment": "Different discrepancy at fixed skew one with ordered Birkhoff constraint, not the unrestricted signed-band equality class.",
+          "evidence": [
+            "Its supremum is over x⊥_B y in the two-dimensional plane, with Δ assigned to a difference of finite norms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-second-order-hilbert-departure-of-the-birkhoff-skew-isosceles-co--763ef0c468aa/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2810",
+          "method": "Local-mirror original text; compared objective and admissible states",
+          "title": "Second-order Hilbert departure of the Birkhoff skew-isosceles constant on real ℓp²",
+          "trigger": "Identical limiting root and apparent cusp overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison of a known scalar numerical radius to the geometry of equality in an infinite-dimensional pairwise perturbation is useful beyond the numerical coefficient. Two uniquely located bands, their exact masses, and the near-optimal slack condition provide a reusable diagnostic throughout the non-Hilbert range and for the extreme outer mean, whereas a single attaining two-vector construction or a quartic square identity does not describe that range. The scope is first-order and integrated, not a finite-skew or strong metric stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to Franel output residues modulo eleven and gives a theorem for every full digit block and every cutoff. Lucas's theorem proves the digit factorization directly. The eleven one-digit integer sums, the logarithmic multiplicity vector, the ten-term cyclic autocorrelation, and its four monic cyclotomic remainders are independently calculated in `check.py`. Character orthogonality and Parseval turn these exact identities into the displayed variance, while aligned digit-block decomposition proves the arbitrary-cutoff upper bound. The variance gives a rigorous lower bound of \(11^{r/2}/5\) for at least one unit residue at each depth; finite tests are not substituted for these deductions.
+PASS
 
-## Originality — PASS, with limits
+Lucas factors the binomial-cube sum digit by digit, including zero-padded digits since f(0)=1. All eleven digit values are units, and the two-digit convolution is positive at all ten units. In the cyclic exponent coordinate the autocorrelation polynomial reduces at primitive tenth roots to 9+2X-2X²+2X³-2X⁴ = 11−2Φ₁₀(X), and at primitive fifth roots to 5−2X²−2X³ after subtracting 24Φ₅(X). The remaining evaluations at 1 and −1 are 121 and 1. This gives the stated spectral multiplicities, and Parseval with normalization 1/10, deleting just the trivial character, yields the centered variance, also at r=0. Any aligned block is a permutation of the unit histogram by multiplication by its prefix value. Fourier inversion costs at most (9/10)11^(r/2) per block; up to ten blocks of each size and the geometric sum give the stated arbitrary-cutoff constant. The variance lower bound implies the 1/5 lower bound for at least one unit at each depth, not a lower bound for every fixed unit. An independent exact raw-residue transfer through depth 12 and direct binomial sums at all 121 indices below 11² passed; replay with python3 /workspace/audit_checks.py 4.
 
-The nearest primary work by Z.-W. Sun, *Congruences for Franel numbers* (arXiv:1112.1034, Theorem 1.1), concerns weighted prime-square sums of Franel values. Z.-H. Sun's 2017 *Congruences for sums involving Franel numbers* similarly concerns finite weighted prime sums. Henningsen–Straub's 2021 Lucas-congruence framework supplies general digital multiplicativity, but not the special eleven-digit autocorrelation remainder \(Q\equiv11\pmod{\Phi_{10}}\), the exact variance, or its sharp arbitrary-cutoff consequence. OEIS A000172 supplies the sequence rather than a matching output-frequency spectrum. Related known archival Franel results at primes five and three address distinct residue characters, correlations, or nondivisibility index supports. Searches of related published records and primary-literature aliases found no direct implication matching the full formula. This is a qualified priority assessment, not a uniqueness certificate; an unindexed digital-Fourier specialization remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a binomial-cube sum of longstanding arithmetic interest, eleven is the first prime after five and seven at which no one-digit Franel value is divisible by the prime. This makes the exact distribution among *all* unit values a natural question. The theorem provides each complete-block frequency by an explicit group-ring formula and an unexpectedly simple closed variance, then proves a sharp square-root law for all initial intervals. The primitive tenth-root spectral cancellation is the structural point that makes exponent \(1/2\), rather than a generic digit-mixing exponent, exact. These are reusable benchmarks for digital congruence distributions, not an isolated unchecked finite table.
+The supported distinct claim is the exact mod-11 variance spectrum and the sharp uniform-in-unit square-root exponent including arbitrary cutoffs. Neither the Lucas product nor the reusable convolution and Fourier framework is new. The primitive-order-ten constant modulus and the smaller nontrivial modes depend on the special Franel digit distribution, and are not implied without an exact spectral calculation by the prior structural results inspected.
 
-## Scope and residual risk
+## value
 
-There is no claim for Franel residues modulo higher powers of eleven, nor of independent validation. The closest sources were inspected for theorem content and searched for residue-distribution vocabulary, but the full historical literature cannot be exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical sequence and a small prime with a zero-free digit table, it is natural to ask how the unit residues balance and at what rate. The exact variance quantifies finite-block nonuniformity and reveals a four-mode spectral edge exactly at the square-root scale, which turns a qualitative digit recurrence into a sharp discrepancy exponent for arbitrary prefixes. This is more than recomputing a table or reporting a generic spectral-gap bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

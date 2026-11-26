@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:18.197180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Möbius sum is multiplicative, with the stated positive prime-power factors. With x=1/p, r=kappa-1 and S_a=sum_{j=0}^a x^j, the factor Q(p^a)^r is the average of t^r on [S_(a-1),S_a]. This is strictly increasing with a and bounded above by (1-x)^(-r). Thus local scores tend to minus infinity as a grows, and only finitely many primes can compete with exponent zero at any epsilon>0. Choosing the largest local maximizer gives the largest integer. Expanding the same averages gives L_1=x/2+(kappa-5)x^2/24+O(x^3) and L_2=log(1+x)+x^2/(2(1+x))+O(x^4)=x+O(x^3). Comparing exponent one against zero permits equality, while comparison against two must be strict; the bound on Q excludes all a>=3 since the needed epsilon is asymptotic to 1/(4p log p), below s~1/(2p log p). This proves (s,t] with the stated width. The analytic extension T of t has T'(u)=-(1+o(1))/(2u^2 log u) and is eventually strictly decreasing. If p<q share a window, 0<T(p)-T(q)<t_p-s_p. For any fixed delta>0, q>=(1+delta)p would instead force a difference at least of order 1/(p log p); hence q/p tends to one uniformly along overlapping pairs. The derivative is then uniform on [p,q], giving the stated diameter. Strict increase of fixed-prime Q from a=1 to a=2 bounds any singleton parameter for that prime away from zero, so singleton primes all diverge uniformly as epsilon decreases to zero. Away from zero the upper bound on Q gives uniformly finite prime support. Large distinct primes differ by at least two, giving eventual uniqueness for 5<kappa<17; taking midpoint parameters gives unbounded endpoints divisible by the chosen primes and proves infinitude. An independent 95-digit finite check based on the binomial expansion of the local integral averages (checks/frozen_checks.py argument 4, checks/4.txt) tested fractional as well as integer kappa, with the expected scaled widths and both overlap/no-overlap at one twin-prime pair. This is a numerical consistency check, not certification of boundaries or an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Molnar Lemma 4.5 ensures repeated prime support in a broad range below the largest prime; it does not constrain all simultaneous singleton primes to a bounded-diameter interval.",
+          "The mirrored same-day continuous limiting-laws record treats value distributions in the reciprocal family for real kappa>1, not extremizer exponents. Fan–Kobayashi–Molnar's earlier objective uses nonreciprocal sigma-based LCM powers."
+        ],
+        "reasoning": "A global asymptotic law for values under an integer distribution or an extent-of-repeated-support result cannot be specialized into this constant-size bound on all singleton primes of one maximizing integer. The nonreciprocal normalization also does not give the same local competition.",
+        "searches": [
+          "arXiv:2610.12816v1 Lemmas 3.1, 4.2 and 4.5",
+          "arXiv:2511.02106v1 Definition 1.2",
+          "2026/10/18/SCOPE-continuous-ordered-limiting-laws-for-reciprocal-lcm-power-quotie--244008dbe1cb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12816v1, cited sections and remark",
+        "arXiv:2511.02106v1, defining passage",
+        "Resultary and specified mirrored same-family finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bound and primewise factorization allow exponent one to be compared against zero and two with all higher exponents excluded once epsilon exceeds the lower transition slope. The prior explicit ratio expansion gives the width directly.",
+          "The new argument derives a real-prime slope derivative and bounds q-p by combining the small width at p with the change in the upper transition slope between p and q; Lemma 4.5 only bounds support on a proportional prime scale."
+        ],
+        "reasoning": "The proof starts from prior local results but the joint theorem is not a specialization of an inspected stronger theorem about common-parameter support. The nonlocal comparison produces the factor (kappa-5)/6 and the prime-gap threshold 17, not contained in the prior width coefficient or repeated-support range on its own.",
+        "searches": [
+          "arXiv:2610.12816v1 Eq. (53), Definition 4.1, Lemmas 4.2 and 4.5, remark after Corollary 4.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Molnar Definition 1.4 and Definition 4.1 use the same normalized reciprocal function and objective for real kappa>1; Lemma 4.2 selects the largest local maximizer.",
+          "The remark following Corollary 4.8 gives Q(p^2)/Q(p)^2=1+(5-kappa)/(12p^2)+O(p^-3), which is the negative log-window numerator asymptotic after taking logs."
+        ],
+        "reasoning": "Changing from a prime-power ratio to a difference between transition slopes is a normalization, not a new local width coefficient. The cross-prime theorem requires intersections of parameter windows, rather than a local comparison at an individual prime.",
+        "searches": [
+          "Molnar arXiv:2610.12816v1 reciprocal LCM normalized endpoints and exponent-one slopes",
+          "Resultary: normalized reciprocal LCM-power maximizers with singleton exponent and common-parameter clustering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected closest primary text gives exact local factors and a local asymptotic, not a table covering all common-parameter singleton clusters.",
+          "The surfaced same-family catalogue match is an analytic limiting distribution, not exact canonical endpoint data."
+        ],
+        "reasoning": "The claim is a fixed-real-parameter, asymptotic statement. A finite endpoint table, even if found, would only cover its parameters and sizes; the verified asymptotic width is already supplied by the prior formula but the joint diameter was not found in the inspected material.",
+        "searches": [
+          "Resultary: exact normalized reciprocal LCM endpoint singleton phase intervals and simultaneous singleton-prime bound",
+          "arXiv:2610.12816v1 discussion around Lemma 4.5 and the remark after Corollary 4.8"
+        ]
+      },
+      "rationale": "Credit Molnar for the endpoint factorization, tie rule, fixed-real-parameter domain, and local asymptotic determining the window-width coefficient. The exact half-open window for sufficiently large primes is also a short consequence of his local formulas and bound, not credited here as a standalone novel result. The distinct supported contribution is the joint-prime localization at one common parameter and the resulting bounded support and eventual multiplicity law. The strongest inspected prior prime-support theorem controls a different, much wider range and does not supply this bound; the new comparison combines local width with the derivative in the prime variable.",
+      "residual_risks": [
+        "A differently phrased endpoint-spacing analysis may exist outside the inspected material; this is not a priority certification.",
+        "The prior local results already imply the one-prime interval and width; they should not be advertised separately as new. The comparison with the earlier nonreciprocal paper is at the defining-object level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact optimization setup, short local-window implication and prior width asymptotic, but not the asserted joint localization in the inspected prime-support material.",
+          "evidence": [
+            "Fixed-real-kappa domain; strict prime-power bound p/(p-1); largest local exponents at ties; (5-kappa)/12 ratio coefficient; broad repeated-support range below the largest prime."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12816v1",
+          "material_read": "Definition 1.4 near offset 3538; Lemma 3.1 and Eq. (53); Definition 4.1 and Lemma 4.2 around offsets 44762–47149; Lemma 4.5 near 51413; remark after Corollary 4.8 near 61512",
+          "method": "Bounded open primary HTML passages",
+          "title": "Reciprocal LCM powers and Robin’s criterion",
+          "trigger": "Same defining function and canonical maximizers"
+        },
+        {
+          "assessment": "Different nonreciprocal divisor-sum objective.",
+          "evidence": [
+            "Defines sigma-based LCM powers rather than the normalized reciprocal function here."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.02106v1",
+          "material_read": "Definition 1.2 and introductory definitions surrounding it",
+          "method": "Open primary HTML passages",
+          "title": "A family of analogues to the Robin criterion",
+          "trigger": "Earlier LCM-power family and extremal criterion"
+        },
+        {
+          "assessment": "Not an endpoint-support theorem.",
+          "evidence": [
+            "States limiting distributions for the reciprocal family, rather than local optimal exponents at one canonical parameter."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-continuous-ordered-limiting-laws-for-reciprocal-lcm-power-quotie--244008dbe1cb",
+          "material_read": "Mirrored RESULT.md, Finding and local-factor setting, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local primary mirror",
+          "title": "Continuous ordered limiting laws for reciprocal LCM-power quotients",
+          "trigger": "Same-day exact arithmetic family and real parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common-parameter support problem is natural immediately above the known transition at kappa=5. Replacing coarse prime-range information by a constant-diameter cluster restriction determines a bounded multiplicity for the whole family and proves an infinite exactly-one regime with an explicit endpoint of the guaranteed range. This is meaningful information on the canonical extremizers, not a new Robin inequality or a claim of sharpness at kappa=17.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

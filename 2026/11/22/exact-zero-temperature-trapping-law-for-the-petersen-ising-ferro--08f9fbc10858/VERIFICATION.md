@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-The supplied `verify_state_dp.py` and `verify_orbit_dp.py` use only Python 3's standard library. Run each separately from the same directory as this file.
+## correctness
 
-The first program builds the Petersen graph using its five outer-cycle edges, five inner step-two-cycle edges, and five spokes; it enumerates every one of the \(1024\) masks, computes all allowed majority flips and recursively evaluates exact absorption probabilities using `fractions.Fraction`. It checks all \(14\) absorbing masks, every flip's strict cut decrease, the full eleven Bernstein coefficients and the final rational probability.
+PASS
 
-The second program constructs the Petersen graph independently as the Kneser graph \(KG(5,2)\). It enumerates all \(120\) permutations on the five base points, joins the global spin complement, verifies that the resulting \(18\) orbits partition all \(1024\) masks, and checks transition-count equivariance for every orbit member. It solves the downward orbit recurrences exactly and matches the full coefficient vector, as recorded in `orbit_table.csv`. It also verifies that the twelve mixed absorbers form a single \(S_5\)-orbit.
+A flip with two or three discordant incident edges reduces the cut by one or three. While the spin configuration is unchanged, the waiting time for a genuine flip is an exponential race among the enabled vertices, uniform over them because their rates are identical. The cut descent and finite waiting times prove almost-sure absorption and the proposed recurrence. Every mixed absorber has monochromatic minimum degree at least two in both colors. Girth five forces two complementary induced five-cycles; exact enumeration verifies twelve such assignments, one S5 orbit. Independently I built KG(5,2) and performed forward probability transport, not the supplied backward recursion: starting with one unit of mass at each state of size k, visit the states in descending cut and distribute mass equally to enabled successors. This verifies all eleven unnormalized Bernoulli coefficients (nonzero at k=3,4,5,6,7 with values 88/9,8242/189,12788/189,8242/189,88/9), equal mass at the twelve mixed sinks at each k, and Q(1/2)=4121/24192. Both proposed polynomials in p have degree at most ten and agree at eleven distinct exact rational points. I also verified the frozen CSV entries for all 18 symmetry classes and their exact absorption values from the representative states. The endpoints are consensual and the formula is strictly increasing in p(1−p), giving the unique maximizer at one half. This does not model a parallel update or random fields.
 
-Both programs check the closed-form polynomial at eleven distinct rational values of the initial density; both sides have degree at most ten, so agreement establishes the polynomial identity. Both programs passed when executed on their supplied source files. The computations certify this finite state space only. They do not establish a general-graph theorem, external historical priority, or independent scientific audit.
+## originality
+
+PASS
+
+Credit the exact fixed-state count and the overlap with the same-graph three-state Potts certificate. The latter's statewise computational method can reproduce binary coefficients on restriction, but its stated exact probabilities and published results table are for other initial laws; its own prior-work section already acknowledges an exact two-spin Petersen freezing law. The explicit Bernoulli trapping polynomial and its quantitative seed and bias dependence are the supported contribution, not the fourteen fixed points or the generic cut-descent recursion. No independent earlier exact statement or exact table of this law was verified.
+
+## value
+
+PASS
+
+The Bernoulli trapping law measures kinetic accessibility rather than the mere number of locally stable patterns. It gives an exact bias-dependent benchmark, including suppression to third order at small seed probability and the exact extremum at an unbiased quench, for a canonical non-bipartite cubic graph. The finite coefficient profile is useful independently of a larger-family solution and is not supplied by the standard fixed-point census or the reported three-color aggregates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

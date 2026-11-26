@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:08:14.910001Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64; supporting VERIFICATION.md and verify.py inspected without running the frozen script.",
+        "Reyes arXiv:2611.10995v1 original text at offsets 7800 and 10400, Theorems C and D, Remark 5.6, Proposition 6.6 and Theorem 6.8. Independent proof and explicit comparison via the Bernoulli-marker representation detailed below."
+      ],
+      "rationale": "For the expressly named Becker–Baraviera/Reyes shift, Reyes v1 confirms the full transition: after a 1 the next symbol is 1 at or below the threshold and 0 above it (after a 0 either is allowed). The frozen description should spell out the above-threshold branch; treating it as a free choice would instead allow any finite word after a sufficiently long prefix of ones, giving the full shift after closure. For the named system Reyes's Theorems C–D give the entropy and uniqueness, with equality to the coded shift at k=1 and invariant-measure support on the coded subsystem for k≥2. Junction sampling gives the regenerative law q_m=2^(−m), for which entropy per codeword is 2 log 2 and mean length is 2(k+1); the decoded stationary suspension attains the required entropy. The block covering a typical time is size-biased, not part of the junction iid assertion. The iid tail is 2^(−r). A deterministic index sandwich around N/[2(k+1)] via the renewal strong law, without a spurious independence assumption between count and lengths, gives the stated o(1) law because N2^(−r_N) stays bounded. Taking floors away from the lattice phase boundaries gives the subsequential formula. Dyadic tail estimates and monotonic interpolation give the almost-sure logarithmic block maximum. The within-block potential goes from 0 to −km and back, so its difference at times 0 and n is S_n. The initial potential has all stationary moments; for the maximum the completed and all intersecting block maxima sandwich the pathwise depth and have the same asymptotic order and coefficient. This does not assert that the terminal partial block's own length is o(log N). Uniform second moments give zero variance per time.",
+      "residual_risks": [
+        "Passing correctness is for the cited shift with the deterministic after-1 transition, not a weaker prefix rule, an arbitrary invariant measure, or an iff characterization of parameters for entropy equality. The frozen finite rational diagnostics do not prove the stochastic limits and were not replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reyes gives the coded support, entropy and uniqueness. Pavlov provides general coded-shift uniqueness and Bernoulli-modulo-periodicity context, not this exact symbolic identification.",
+          "Gordon–Schilling–Waterman handle biased tosses and interrupted runs; the pure-run case at p=q=1/2 gives the approximation by floor(W/log 2+log2(K/2)), with W standard Gumbel, uniformly in the threshold. Their introduction notes the sharper fair-coin almost-sure growth results of Erdős–Révész."
+        ],
+        "reasoning": "The general coded-shift result alone would not suffice to translate the maxima. The already-known model-specific fair-marker conjugacy does; the classical longest-run theorem is stronger than the needed fair, pure-run bounded-centering case.",
+        "searches": [
+          "Reyes arXiv:2611.10995v1 Theorems C and D and Remark 5.6",
+          "Pavlov arXiv:1803.05966 Theorems 1.4–1.5",
+          "regenerative process cycle maxima maximum law discrete lattice logarithmic almost sure Rootzén Asmussen renewal cycle maxima longest Bernoulli runs theorem",
+          "Gordon–Schilling–Waterman DOI 10.1007/BF00699107, §3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Reyes arXiv:2611.10995v1; Pavlov arXiv:1803.05966; Gordon–Schilling–Waterman DOI 10.1007/BF00699107",
+        "Resultary 40d60d854aab, excluding the assigned self-match c19ec9a1f26d as independent evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Testing the classical floor approximation at integer r gives P(pure run < r)=exp(−K2^(−r)/2)+o(1); K=N/(k+1)+O(1) gives exactly the frozen exponent and its phase formula.",
+          "The earlier transfer is explicitly min(kj,(k+1)m−j) at progress j in a length-(k+1)m generator and has peak km. The frozen S_n is the negative of the earlier normalized count difference."
+        ],
+        "reasoning": "The fair-coin logarithmic law transfers to bracketed runs: use the first half-window for the lower bound, since almost surely eventually there is a marker in the second half, and the initial zero fragment is almost surely finite. It also controls all intersecting generators: almost surely eventually the terminal one ends before the end of a doubled macro-window (no-marker tail bounded by 2^(−K+O(1)), summable); the initial generator has fixed finite length. Completed and all intersecting peaks then have maximum (k+o(1))log2 N. Subtracting the fixed initial height costs O(1) on each path. This directly gives the claimed maximum and coefficient from the known height and run law, with no new stochastic estimate beyond trivial boundary trimming. The earlier L^q transfer gives the uniform moments and variance exactly.",
+        "searches": [
+          "Resultary 40d60d854aab Proof steps 1 and 4",
+          "Gordon–Schilling–Waterman §2, §3 Theorem 1, and introduction on almost-sure pure-run growth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the earlier marker model, conditional on phase, an eligible macro-window contains K=N/(k+1)+O(1) iid fair bits. Consecutive 1-markers at distance m enclose m−1 zeros and give exactly the generator 0^m 1^(km). Visible 10 boundaries are exactly the markers in the symbol process.",
+          "Gordon–Schilling–Waterman Theorem 1 specializes to the maximum pure-run length of iid fair bits."
+        ],
+        "reasoning": "With both marker endpoints included, R_N≤r corresponds to the longest zero run bracketed by markers having length strictly less than r. Allowing either terminal macro zero run to compete changes the probability by at most O(2^(−r)) for a fixed phase; the one-coordinate boundary conventions give only a bounded window shift. Thus the claim's physical-time statistic is precisely a classical fair-coin longest-run statistic up to these endpoint conventions, plus the length shift by one.",
+        "searches": [
+          "Gordon Schilling Waterman 1986 An extreme value theory for long head runs open pdf longest head run Erdos Renyi lattice distribution almost sure",
+          "Resultary 40d60d854aab RESULT.md, proof steps 1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 2026/11/17 record 40d60d854aab explicitly gives the same junction iid law and phase-resolved Bernoulli model, the centered count coboundary, finite moments of the transfer and zero variance rate. The strongest exact catalogue hit c19ec9a1f26d is the assigned record itself."
+        ],
+        "reasoning": "No distinct earlier catalogue record was found printing the whole maximum theorem verbatim, but the sampled process and discrepancy mechanism coincide exactly. The alias reduction to the primary longest-run theorem is decisive independently of a tabulation or exact-title match.",
+        "searches": [
+          "Resultary semantic lookup for integer-ratio frequency shifts, iid generator law, lattice extrema and discrepancy",
+          "Local Resultary 40d60d854aab RESULT.md Finding and proof at offsets 0, 3976 and 6950"
+        ]
+      },
+      "rationale": "The prior exact construction in Resultary 40d60d854aab already identifies the same phase-resolved fair Bernoulli-marker process, its Palm law, and the explicit within-block height coboundary with bounded moments and zero variance rate. The apparent new maxima reduce to the classical longest pure run for those iid markers: Gordon–Schilling–Waterman Theorem 1 gives the same lattice weak profile after the deterministic time rescaling and length shift, and the almost-sure logarithmic growth is classical. The sharp discrepancy maximum is the same maximum multiplied by the already-known within-block height factor k, with endpoint effects controlled at smaller scale for the maximum. This is concrete prior implication even though the earlier Resultary Finding does not print the maximum formulas.",
+      "residual_risks": [
+        "The Becker–Baraviera source was not independently recovered through DOI/Springer routes; exact scope here rests on the retrieved Reyes definition. This access limitation does not affect the demonstrated prior implication. No claim is made that the full translated formula already appeared verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the named shift and premises, not the claimed maximum formulas",
+          "evidence": "After a 1 the next symbol is deterministic with the strict above-threshold branch forcing 0. Code generators are 0^m1^(km); coded support and maximal entropy log 2/(k+1) are established.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10995v1",
+          "material_read": "Definition and introduction offsets 7800–9771, Theorems C and D p. 3 around offset 11200, Remark 5.6 p. 11 offset 42459, Proposition 6.6 and Theorem 6.8 p. 14",
+          "method": "Versioned original OA PDF passages",
+          "title": "Frequency shifts: non-soficity, absence of specification and intrinsic ergodicity",
+          "trigger": "Exact definition, coding, entropy and uniqueness premises"
+        },
+        {
+          "assessment": "Exact prior coverage of law and uniform moments, plus the exact change of variables for both maxima",
+          "evidence": "Marks of independent fair bits at macro-times encode successive complete generators, with uniform stationary phase. The explicit height vanishes at junctions and reaches km in a block of zero-length m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-periodic-equilibrium-correlations-and-tight-digit-counts-in-rati--40d60d854aab/RESULT.md",
+          "material_read": "Finding and proof steps 1 and 4 at offsets 0, 3976 and 6950; prior-work/limitations near 9000",
+          "method": "Local Resultary mirror",
+          "title": "Periodic equilibrium correlations and tight digit counts in rational frequency shifts",
+          "trigger": "Earlier exact equilibrium process and discrepancy coboundary"
+        },
+        {
+          "assessment": "Covers the lattice longest-run law under the exact marker reduction, and documents the stronger classical almost-sure precedent",
+          "evidence": "Theorem 1 gives the integerized Gumbel approximation, with rate of trials qK for pure runs. Introduction describes upper and lower logarithmic growth classes for fair runs.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00699107",
+          "material_read": "§§1–2 on fair-coin growth and completed runs, pp. 279–281 / offsets 0 and 3120; §3 Theorem 1 and beginning of proof, pp. 282–283 / offset 11050",
+          "method": "Identified public same-paper PDF at https://blog.thegrandlocus.com/static/misc/Gordon_Schilling_Waterman_1986.pdf",
+          "title": "An Extreme Value Theory for Long Head Runs",
+          "trigger": "Equivalent classical statistic from the prior fair Bernoulli-marker model"
+        },
+        {
+          "assessment": "Broader Bernoulli-modulo-periodicity context; not the decisive exact reduction",
+          "evidence": "General uniqueness and measure-structure results under coded-shift assumptions.",
+          "identifier_or_url": "arXiv:1803.05966",
+          "material_read": "Theorems 1.4–1.5 p. 2 / offsets 7197–7628",
+          "method": "Original OA PDF",
+          "title": "On entropy and intrinsic ergodicity of coded subshifts",
+          "trigger": "General coded-shift equilibrium properties"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64; Resultary 40d60d854aab proof; Gordon–Schilling–Waterman §3 Theorem 1."
+      ],
+      "rationale": "The contrast between bounded moments and growing pathwise maxima is a useful exposition of this process, but the previously established exact Bernoulli conjugacy and block height reduce both maxima to the classical fair-coin run maximum by an affine scaling and elementary boundary trimming. The frozen result supplies no new extremal invariant or estimate beyond those direct consequences. Removing the already-recorded law and moment statements does not leave a scientifically distinct valuable result to repair.",
+      "residual_risks": [
+        "This is not a verdict on extrema of other coded systems, genuinely new rates, or other equilibrium statistics not determined by these translations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

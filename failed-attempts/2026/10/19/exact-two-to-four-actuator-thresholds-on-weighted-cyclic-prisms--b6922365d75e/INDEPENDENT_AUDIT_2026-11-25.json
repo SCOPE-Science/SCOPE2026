@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:14.825269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tensor-sum Laplacian splits into increasing cycle spectra λ_j and λ_j+2w. There is at most one contributing space per parity at an eigenvalue, even if the same weight creates several distinct collisions. The harmonic dimensions and the PBH dimension bound give the claimed partition. On S_4, sums and differences across layers at each of positions 0,1 separate the two parity components; both are recovered by sine minors or singleton observations. On S_3 a colliding singleton is isolated at position 0 by parity, and the other component's sine coefficient is detected at position 1. In the two-input regimes sine minors suffice except at even w=2, where the merged singleton columns give full rank for adjacent same-layer sites. At arbitrary separation d, the least positive harmonic index for a vanishing sine is n/gcd(n,2d); checking whether it lies in I_n yields the gcd criterion, including d=0. At even w=2 the extra determinant compares the layer sign with the alternating spatial sign. n=3,4 have only one double harmonic; n=5 has interior cosine gap √5/2. Independent exact rational ranks passed at five instances, including every pair in n=4,w=2; n=6,w=2; and n=8,w=3 (/workspace/independent_checks.py). These are spot checks of the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "17a8333c0dda explicitly derives the entire tensor-by-parity eigenspace decomposition, including several simultaneous separate eigenvalue collisions, and proves all nested witnesses.",
+          "The inspected grid theorems of Notarstefano–Parlangeli treat products of paths, not a weighted cycle factor. Chapman product articles were not independently retrievable in full."
+        ],
+        "reasoning": "The existing specialized result, not an uninspected general product theorem, is what supplies the full collision answer and the product basis reducing the remaining pair check.",
+        "searches": [
+          "Targeted literature query on weighted circular ladders, Cartesian-product Laplacians and vertex PBH",
+          "arXiv:1203.0129 Theorem 3.6 and Proposition 3.7",
+          "17a8333c0dda proof steps 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 17a8333c0dda",
+        "arXiv:1109.3556",
+        "arXiv:1203.0129",
+        "Chapman et al. DOI 10.1109/CDC.2012.6426230 and 10.1109/TAC.2014.2328757 (retrieval attempted; no independent substantive full-text comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In any unmerged harmonic, restricting to a pair at spatial offset d is the same as the bare-cycle restriction with one row multiplied by ±1. The established cycle test (or directly n divides 2jd for a failing mode) is gcd(n,2d)=gcd(n,2).",
+          "At even w=2 the same product basis gives restrictions (1,(-1)^t) and (1,(-1)^d), so the one additional determinant is nonzero precisely when those signs differ."
+        ],
+        "reasoning": "The remaining pair conditions are immediate applications of the indexed spectral/PBH theorem to arbitrary rather than adjacent sites and of the bare-cycle arithmetic criterion; no additional eigenspaces or rank obstructions occur.",
+        "searches": [
+          "17a8333c0dda proof steps 1–3, cycle modes and vertical parity basis",
+          "arXiv:1109.3556 Eq. (9), cycle pair corollaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed model is C_n square K_2 with the same independent coordinate inputs; the order of layer and spatial coordinates is reversed.",
+          "Its maximum of {2} and d_j+d_k over 2w=ν_k−ν_j is exactly the stated piecewise formula since (ν_k−ν_j)/2=c_j−c_k."
+        ],
+        "reasoning": "Writing the same multiplicity partition in terms of two named cosine-difference sets does not change its content.",
+        "searches": [
+          "Resultary search for weighted cyclic prisms, circular ladders and rung-weight resonances",
+          "17a8333c0dda Finding and proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed formula covers a continuum of rung weights at each order and explicitly lists the n=5,w=√5/2 four-input case and the n=6 resonance sequence.",
+          "For n=3,4 there are fewer than two interior harmonics, immediately excluding a smaller four-input example in the indexed formula."
+        ],
+        "reasoning": "The exact classification is already indexed as a formula; no finite table or inference from example counts is needed.",
+        "searches": [
+          "Resultary search for exact 2/3/4 actuators and first four-actuator weighted circular ladder",
+          "17a8333c0dda exact count theorem and examples"
+        ]
+      },
+      "rationale": "Resultary 17a8333c0dda proves the exact same minimum for every n and w in collision-multiplicity notation, with the same optimal nested witnesses and even w=2 exception. It does not explicitly tabulate all optimal pairs. That remaining assertion follows mechanically from its explicit eigenspaces and PBH restriction: in each unmerged parity band the second observation differs from its bare-cycle counterpart only by a nonzero sign, so apply the known two-site cycle criterion. For the sole two-dimensional merged level, the displayed product basis of an alternating symmetric vector and a constant antisymmetric vector restricts to (1,(-1)^d) and (1,(-1)^t); independence is exactly the claimed extra sign test. There is no other two-site case. Coverage is distinct from chronological priority, which is not established from the October and November catalog paths.",
+      "residual_risks": [
+        "Chronological priority and relationship of the two indexed records remain unresolved.",
+        "The Chapman full-text access gap prevents conclusions about additional coverage there. The verdict is based on inspected different sources, not an access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact minimum-count coverage; full pair criterion is an immediate consequence, not an explicit statement there",
+          "evidence": [
+            "Maximum collision dimension attained by the same nested sites; constant and alternating endpoint bases and parity vectors (1,±1) are explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-resonance-resolved-minimum-coordinate-controllability-of-w--17a8333c0dda/RESULT.md",
+          "material_read": "Finding and assumptions (offsets 0–2828), Fourier and PBH proof (from offset 2850 to 7033)",
+          "method": "Read original index-mirror text and evaluate its explicit product basis on the frozen two-site geometry",
+          "title": "Exact resonance-resolved minimum coordinate controllability of weighted circular ladders",
+          "trigger": "Same weighted prism under the circular-ladder alias"
+        },
+        {
+          "assessment": "Covers the bare-cycle gcd test, not the rung-weight partition by itself",
+          "evidence": [
+            "Arithmetic criterion expressed as a gcd of cyclic gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+          "material_read": "Eq. (9) and related pair corollaries, PDF pp. 22–23, text offsets around 67500 and 70981",
+          "method": "Compare cycle gap arithmetic with the unmerged parity restrictions",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Cyclic geometry and exact pair separation restrictions"
+        },
+        {
+          "assessment": "Inspected simple-grid results use path factors, not the cyclic prism",
+          "evidence": [
+            "The grid construction does not identify opposite cycle ends."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.0129",
+          "material_read": "Product definition pp. 5–6, Theorem 3.6 pp. 11–12 and Proposition 3.7 p. 14",
+          "method": "Compared factor hypotheses and rank claims",
+          "title": "Controllability and Observability of Grid Graphs via Reduction and Symmetries",
+          "trigger": "Products of low-dimensional graph factors"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp hardware-count and placement criteria are useful for this model, but the count, sharp witnesses and exceptional weight are already available in the matching indexed result. The remaining criterion is the cycle gcd test plus a direct two-column sign comparison using the known product basis; it does not supply a substantively distinct unknown exact result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:24:20.259299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each marked point a, distinct traces containing a require distinct neighbors of a. Hence the incidence budget is md, and the minimum incidence cost for a fixed number of nonempty traces is attained by buying sets in increasing cardinality. If r<m, maximality of r gives rho < C(m-1,r), so the prescribed residual count does not exceed the available (r+1)-layer. Minimizing the square-sum of degrees in that uniform layer proves the claimed balancing: edges through both points cancel from the degree difference, so a higher-to-lower swap with an absent replacement exists whenever the difference is at least two. The resulting maximum extra incidence is ceil((r+1)e/m) <= rho. Every selected trace size is itself at most d. For a minimum host, the isolated singleton, matching (with at most one isolate), edge, triangle, and path on at least four points cover the stated cases and give distinct marked traces of permitted sizes. Adding just the missing traces as unmarked vertices makes each marked degree exactly its frequency among the traces and each unmarked degree its trace size. This also proves attainability for all saturation cases, and d=0 separately requires only the m isolated marked vertices. At a threshold the cheapest full layers exhaust the budget, and omitting the empty trace or substituting any larger set is impossible in an extremal family. Shattering is therefore possible exactly at d >= 2^(m-1); the large-m linear formula gives density one for fixed d>0. No required computation underlies these conclusions. The supplied check.py and VERIFICATION.md were inspected, not run; their enumerations and construction checks are finite diagnostics, and the listed expected output is not an independent run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berthe et al., introduction, define closed-neighborhood complexity under treewidth/pathwidth restrictions. Bonnet et al., abstract and opening page, give near-tight linear-in-twin-width bounds. Beaudou et al., opening page, use radius profiles and excluded-minor/tree-structured hypotheses."
+        ],
+        "reasoning": "Maximum vertex degree is neither the width parameter nor a general substitute for a fixed width or excluded-minor hypothesis. Even linear upper bounds cannot fix the exact residual floor, equality family, or minimum host order.",
+        "searches": [
+          "arXiv:2607.16889v1",
+          "arXiv:2301.04217v2",
+          "arXiv:2501.08895v4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 0fd3e423289b, 3519bee5e97b, 99413cf9082e, bd9f724b9520",
+        "arXiv:2607.16889v1, 2301.04217v2, 2501.08895v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block graph formula is 2^m through m=3 and 3m-2 thereafter; the interval formula is m(m+3)/2-1 for m>=2. Neither puts a pointwise degree cap on all hosts. The rank-width-one record describes a different graph restriction; the original passage was unavailable.",
+          "The cheapest-layer upper bound follows from incidence counting, and the balanced uniform-family lemma is a general combinatorial ingredient, not itself the claimed graph theorem."
+        ],
+        "reasoning": "Neither the adjacent exact formulas nor the broader bounds prove sharp attainment under the present cap. In particular, conversion of a family to an unconstrained-size incidence graph does not imply realization by exactly one vertex per trace.",
+        "searches": [
+          "Resultary 3519bee5e97b, 99413cf9082e, bd9f724b9520",
+          "Berthe et al. arXiv:2607.16889v1; Bonnet et al. arXiv:2301.04217v2; Beaudou et al. arXiv:2501.08895v4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3519bee5e97b and 99413cf9082e use the same open-trace object, with finite block graphs and finite interval graphs respectively.",
+          "The representation as a simple hypergraph with bounded point-incidence recovers the general count via a bipartite incidence graph, but that representation does not by itself achieve minimum host order."
+        ],
+        "reasoning": "Changing to either restricted graph class changes the extremum. In the set-system formulation the proof still needs a balanced realizable partial layer, and the minimum host conclusion needs distinct, symmetric traces of the marked vertices themselves.",
+        "searches": [
+          "Resultary: degree-bounded open-neighborhood traces; uniform layer and bounded-incidence Boolean set systems",
+          "Primary literature: neighborhood complexity and degree-bounded VC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is 0fd3e423289b, identical to the assigned claim. The inspected distinct block and interval entries give other formulas under other restrictions, not a table for maximum degree."
+        ],
+        "reasoning": "This is a uniform two-parameter theorem rather than a claim about one enumerated small graph. No distinct matching exact result was established by the checked catalogue evidence.",
+        "searches": [
+          "Resultary: exact degree-layer open-neighborhood trace growth; Hamming cube minimum incidence; almost regular uniform layer"
+        ]
+      },
+      "rationale": "The checked sources establish adjacent neighborhood-complexity results and the argument uses standard incidence and balancing ideas. No compared result gives the all-m,d open-trace layer optimum together with threshold rigidity and a one-vertex-per-trace extremizer. The matching published entry is the frozen record itself, not a distinct source. This is a bounded best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Rank-width-one entry compared only at catalogue level; its original passage was unavailable.",
+        "An unlocated result in extremal set systems or graph trace theory could give an equivalent bound; specific historical priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same thresholds, layer count and minimum host result.",
+          "identifier_or_url": "Resultary 0fd3e423289b",
+          "material_read": "Frozen finding and proof, RESULT.md lines 3–65",
+          "method": "Catalogue match and frozen text",
+          "title": "Sharp binomial-layer law for degree-bounded open-adjacency types",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Related, different cap",
+          "evidence": "2^m for m<=3 and 3m-2 for m>=4 over finite block graphs.",
+          "identifier_or_url": "Resultary 3519bee5e97b",
+          "material_read": "Original finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Sharp neighborhood trace complexity of finite block graphs",
+          "trigger": "Exact open traces for a graph class"
+        },
+        {
+          "assessment": "Related, different cap",
+          "evidence": "m(m+3)/2-1 for m>=2 over interval graphs, with VC dimension 3.",
+          "identifier_or_url": "Resultary 99413cf9082e",
+          "material_read": "Original finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Sharp open-neighborhood trace growth in finite interval graphs",
+          "trigger": "Exact open traces and VC invariants"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; indexed graph restriction differs",
+          "evidence": "Catalogue identifies rank-width one rather than maximum degree.",
+          "identifier_or_url": "Resultary bd9f724b9520",
+          "material_read": "Catalogue description only; original file unavailable in local mirror",
+          "method": "Resultary and attempted local mirror read",
+          "title": "Sharp four-parameter neighborhood profile spectrum in rank-width-one graphs",
+          "trigger": "Potential related graph-profile classification"
+        },
+        {
+          "assessment": "Related definitions and sharp bounds, not the present claim",
+          "evidence": "Closed-neighborhood complexity; bounded treewidth/pathwidth.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.16889",
+          "material_read": "p. 1, around text offset 330",
+          "method": "OA primary PDF passage",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Sharp width-dependent neighborhood formulas"
+        },
+        {
+          "assessment": "Parameter and strength differ",
+          "evidence": "Near-tight neighborhood bound under twin-width rather than degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04217v2",
+          "material_read": "p. 1, opening passage",
+          "method": "OA primary PDF passage",
+          "title": "Neighbourhood complexity of graphs of bounded twin-width",
+          "trigger": "Linear neighborhood complexity under a graph bound"
+        },
+        {
+          "assessment": "Related but no implication from inspected result",
+          "evidence": "Radius profiles with excluded-minor/tree-structured assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.08895v4",
+          "material_read": "p. 1, around text offset 408",
+          "method": "OA primary PDF passage",
+          "title": "Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs",
+          "trigger": "Potential general profile result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the exact growth function of a natural graph concept class in every degree/marking regime, not only the fixed-degree linear order. The thresholds identify the saturation and rigidity cases, and the symmetric realization on the least possible host resolves a separate issue that the standard incidence representation leaves open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

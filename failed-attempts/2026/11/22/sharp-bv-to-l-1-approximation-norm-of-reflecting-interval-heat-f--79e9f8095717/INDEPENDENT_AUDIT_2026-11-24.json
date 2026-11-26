@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:44:09.300873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 20–88",
+        "VERIFICATION.md",
+        "check.py",
+        "python3 -B /workspace/review-evidence/independent_checks.py 4"
+      ],
+      "rationale": "Signed-jump representation integrates J_s against Df and does not charge boundary traces. For each jump the L1 residual is twice the kernel crossing mass. From the stated image identity F_t(s)=integral_0^s p_t(s,y)dy is simply integral_0^{2s} N_t(z)dz. The half-period mass integral_0^1 N_t is 1/2 and N_t>0, so E_t'(s)=2(1-2F_t(s)) has strictly positive sign left of 1/2 and strictly negative sign right of it. This also avoids relying on weak point-mass convergence alone for the half-mass limit at its atom. Equality in the BV bound forces |Df| to concentrate on the midpoint. Integrating the cosine eigenfunctions over opposite sides of the jump gives the stated odd-mode series; differentiating proves the strict time signs. Poisson summation of the odd Gaussian series gives the alternating image sum for C'(t); integrating the first image error uses integral_0^t u^-1/2 exp(-1/(4u))du=O(t^(3/2)exp(-1/(4t))). The next odd eigenmode gives the stated long-time remainder. The frozen checker was inspected, not run. The independent check passed six comparisons of the image first moment with the odd-mode series.",
+      "residual_risks": [
+        "The proof concerns the specified Neumann generator and interior variation, not trace-charged BV or other boundary conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general probability-kernel theorem allows any even positive-a.e. kernel on a circle; the heat density qualifies. The powered Fejér finding is narrower, and the cyclic convolution hit is discrete. The older papers checked treat variation recovery, Gaussian bounds or small-time BV characterization."
+        ],
+        "reasoning": "It is the continuum even-kernel theorem plus reflection, not the discrete analogue or broader results on Neumann estimates, that actually supplies the sharp finite-time statement.",
+        "searches": [
+          "c827300bde01 §§1–2",
+          "Resultary 5321b930c41b and 8ae4197477e1",
+          "Angiuli et al. Eqs. (1.2),(1.5); Choulli et al. introduction; Alonso Ruiz–Baudoin Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c827300bde01, 5321b930c41b, 8ae4197477e1",
+        "Angiuli et al. pp. 297–299",
+        "arXiv:1502.06740 p. 1",
+        "arXiv:2010.12131 Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each t>0 the circular first moment is 2 integral_0^1 z N_t(z)dz. Integrating its standard Fourier expansion cancels every even nonzero mode, giving 1/2 minus the stated sum over odd modes."
+        ],
+        "reasoning": "Reflection preserves the exact ratio and does not destroy attainment. The sharp coefficient and unique jump follow by this reduction; strict time behavior and endpoint expansions are consequences of the resulting series and theta transformation.",
+        "searches": [
+          "c827300bde01 RESULT.md proof §§1–2 and frozen RESULT.md lines 23–32 (image kernel)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c827300bde01 proof §§1–2 gives first-geodesic-moment norm and precisely half-circle equality for an even probability density positive a.e.; the frozen kernel is the even period-two wrapped Gaussian."
+        ],
+        "reasoning": "Even reflection doubles both norms without adding seam jumps and turns Neumann evolution into the circular convolution. The even half-circle indicators are precisely the reflected centered steps (or their complements), so the full norm and equality survive restriction.",
+        "searches": [
+          "Resultary: reflecting interval heat, wrapped Gaussian Neumann, sharp circular convolution BV norm and equality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry 79e9f8095717 is the assigned record itself; distinct c827300bde01 supplies the generic norm. Fixed-step heat content or a mode table alone does not prove optimality."
+        ],
+        "reasoning": "This analytic all-time theorem is not decided by a numerical table: the generic coefficient evaluated at the wrapped Gaussian yields the entire series.",
+        "searches": [
+          "Resultary: exact Neumann interval heat BV-to-L1 norm, unique midpoint, odd-mode series"
+        ]
+      },
+      "rationale": "The exact all-time coefficient and complete equality statement are a direct restriction of the verified general circular convolution theorem to the even periodic extensions; their scope is covered regardless of same-day catalogue priority. Image and spectral evaluations give the time consequences without a separate extremal theorem. The older checked Neumann/BV papers, by contrast, are not the basis for the coverage verdict.",
+      "residual_risks": [
+        "No same-day publication order inferred.",
+        "Angeloni–Vinti full text and some heat-content leads remain unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact norm and equality after even reflection; same-day priority unresolved",
+          "evidence": [
+            "General Q_K and first-moment norm; if K>0 a.e., equality forces a half-circle two-level signal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-integrated-bv-error-of-fej-r-means-and-a-parity-change-in--c827300bde01/RESULT.md",
+          "material_read": "Proof §§1–2, especially offsets 3381–4664",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp integrated BV error of Fejér means and a parity change in extremal rigidity",
+          "trigger": "Stronger even-kernel norm and extremizer result"
+        },
+        {
+          "assessment": "Checked results do not give the finite-time sharp residual norm",
+          "evidence": [
+            "Variation recovery and short-time kernel characterization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10231-008-0076-3",
+          "material_read": "pp. 297–299, abstract, (1.2), (1.5)",
+          "method": "OA primary Springer PDF",
+          "title": "BV functions and parabolic initial boundary value problems on domains",
+          "trigger": "Neumann parabolic BV estimates"
+        },
+        {
+          "assessment": "No matching theorem in the inspected statements",
+          "evidence": [
+            "Gaussian upper estimates, analyticity and spectral multipliers, rather than optimization over BV inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.06740",
+          "material_read": "p. 1 abstract and introduction",
+          "method": "Primary PDF",
+          "title": "Observations on Gaussian upper bounds for Neumann heat kernels",
+          "trigger": "Neumann kernel estimates"
+        },
+        {
+          "assessment": "Asymptotic statement with a different scope",
+          "evidence": [
+            "Small-time BV characterization, not the all-time exact reflecting norm and equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.12131",
+          "material_read": "pp. 1–2, Theorem 1.1",
+          "method": "Primary PDF",
+          "title": "Yet another heat semigroup characterization of BV functions on Riemannian manifolds",
+          "trigger": "BV norm and short-time heat content"
+        },
+        {
+          "assessment": "Unresolved access limitation; not used for a negative conclusion",
+          "evidence": [
+            "Publisher denied access on the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2016/3843921",
+          "material_read": "No full-text passage accessed",
+          "method": "DOI, publisher PDF and article page attempted lawfully",
+          "title": "A Review on Approximation Results for Integral Operators in the Space of Bounded Variation",
+          "trigger": "Potential general BV approximation theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§1–5 and Limitations",
+        "Resultary c827300bde01 proof §§1–2"
+      ],
+      "rationale": "Exact reflecting heat error is meaningful, but the packaged advance beyond the general norm theorem is a standard even-extension restriction and evaluation of a Gaussian moment. The time derivatives and remainders are standard series consequences, and the Jacobi product is not needed even to show the midpoint maximum (the wrapped kernel's half-period mass suffices). No separate valuable remainder is established for repair.",
+      "residual_risks": [
+        "This does not deny the usefulness of the coefficient as a worked specialization of the general result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

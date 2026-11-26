@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:59:46.870850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting an edge gives a cut crossed at least once for a trunk edge and at least twice otherwise, by coverage and parity. The bound is attained by completing every attached subtree during its sole out-and-back excursion and moving once along the trunk. Equality forces precisely this form. At each vertex the independent choice is the order of its children after excluding the trunk directions or parent edge; the first changed order changes the word because outgoing Cayley labels are distinct. This proves the factorial product and includes the single-vertex tree. For R and L the maximum available distance is the rooted eccentricity (inversion reverses the order and inverts the letters); for D it is the diameter. Ordered diametral pairs label different normalized elements since a left translation preserving a finite nonempty free-group vertex set would have finite order and thus be the identity. Summing disjoint word sets gives the class formulas. For the series, q possible first trunk steps, p choices per further step, p endpoint side directions and p-1 internal side directions give the displayed geometric series; each off-trunk edge contributes u². Formal recursion fixes coefficients from earlier degrees and proves algebraicity, with no ambiguity at r=1 where p-1=0. I independently enumerated rank-two words through length eight by updating the freely reduced prefix and testing n=2(number of visited vertices-1)-endpoint distance; this gave (1,4,16,60,228,840,3132,11496,42528). This bounded replay is corroboration, not the proof. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2407.10489 paper counts elements and supplies the trunk/branch minimum, not a word count. The context-free grammar of 2609.35251v1 covers all geodesic words and every finite generating rank. The 2026/10/18 Resultary Green-geodesic recognition record covers Green minima."
+        ],
+        "reasoning": "The earlier explicit grammar and class-minimizing Munn geometry supply the structures used in both theorems. The element-growth series alone would not imply a word-growth series.",
+        "searches": [
+          "Kambites–Nyberg-Brodda–Szakács–Webb arXiv:2407.10489 §§2.1, 3.2–3.3",
+          "Bodart–Carvalho–Monteiro arXiv:2609.35251v1 §§4, 6",
+          "Resultary: exact Green-geodesic recognition/length minima"
+        ]
+      },
+      "checked_sources": [
+        "Bodart–Carvalho–Monteiro arXiv:2609.35251v1, decisive explicit grammar",
+        "Kambites et al. arXiv:2407.10489",
+        "Mitchell DOI 10.1017/S0017089500002317",
+        "Bokut–Chen–Zhao arXiv:0804.0959",
+        "Munn DOI 10.1112/plms/s3-29.3.385 (access attempt)",
+        "Resultary rank-two multiplicities and Green-language recognition records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Delete the explicit S_x -> empty rule, since its E_(Sigma minus {x^-1}) alternative already derives empty. The remaining productions are unambiguous: the reduced endpoint and the visited path fix the trunk; the unique traversal of each trunk edge fixes segmentation, and recursively the first free-group return to the branch origin fixes each closed excursion. Hence all E_M with |M|=a have series e_a=1+a*u²*e_p*e_(a-1) for a>=1, e_0=1, and every S_x has series s=e_p+p*u*e_(p-1)*s. The start series is e_q+q*u*e_p*s.",
+          "Unrolling e_a gives exactly E_(r,a)(u²), with e_p=F_r(u²). Solving for s gives exactly the frozen rational expression in F_r(u²). The unique branch orderings on a fixed Munn tree are the choices already allowed by the E_M productions. Taking the disjoint union over class-minimizing endpoints gives the stated Green-class counts."
+        ],
+        "reasoning": "The prior grammar supplies the same weighted combinatorial decomposition; removing redundant epsilon and recording lengths are routine and require no new structure theorem. The earlier Green minima and the immediate factorial product also give the class sums without an additional new invariant.",
+        "searches": [
+          "Bodart–Carvalho–Monteiro arXiv:2609.35251v1 Theorem 6.1, p. 14, offsets 44144–45972; proof pp. 14–16",
+          "Bodart–Carvalho–Monteiro §4 class-minimum descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Theorem 6.1, the branch production for each x in M is E_M -> x E_(Sigma minus {x^-1}) x^-1 E_(M minus {x}), or empty. Start and path productions insert these branches before the next reduced letter and after the final one, excluding the appropriate path directions.",
+          "The later 2026/11/8 rank-two catalogue record explicitly gives the factorial element and Green-class counts."
+        ],
+        "reasoning": "The grammar describes the same ordered excursions as the frozen result, not just the existence of some geodesic or one normal form. For a fixed tree, the successor choices are exactly permutations of the required child labels at each vertex. Their independent factorial counts are the fixed-tree formula.",
+        "searches": [
+          "Bodart–Carvalho–Monteiro arXiv:2609.35251v1 Theorem 6.1 and §4",
+          "Resultary: factorial shortest-word multiplicities and Green minima for Munn trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mitchell and Kambites et al. count trees/elements, not all word representatives. The 2026/11/8 catalogue record gives the exact factorial products and class sums in rank two, plus a per-tree D-class polynomial, but is later-dated and does not give a global word series."
+        ],
+        "reasoning": "The wrong counted object cannot establish prior coverage; the exact later rank-two overlap is a separate comparison. The decisive earlier coverage comes from the grammar's direct generating-function implication, not from a matched sequence or table.",
+        "searches": [
+          "Resultary rank-two extrema, factorial multiplicities and geodesic word-growth results",
+          "Mitchell Counting word-trees (1974), pp. 148–149",
+          "Kambites et al. sphere formulas"
+        ]
+      },
+      "rationale": "The earlier Bodart–Carvalho–Monteiro arXiv v1, Theorem 6.1, provides an exact grammar for the same set of word strings, with recursion on the allowed first directions of ordered idempotent branches and a separate reduced-path state. This is stronger than a mere assertion of context-freeness. Its direct weighted translation, after deleting one redundant empty production, is precisely Theorem B. Restricting those same productions to a fixed Munn tree gives the individual factorials in Theorem A, and the known class minima then give the class sums. The exact formulas need not be printed in the prior paper for the mechanical implication to apply.",
+      "residual_risks": [
+        "Munn's primary full text remained inaccessible. The fail verdict rests instead on an inspected preprint and explicit mathematical implication.",
+        "No claim is made that the earlier preprint prints either frozen formula verbatim. Catalogue date is not used to establish external priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication of both frozen enumerations",
+          "evidence": "E_M picks distinct ordered excursion directions and recurses inside each excursion; S and S_x separately generate the reduced path. Weighting by word length gives the exact algebraic expression after eliminating a redundant empty derivation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.35251v1",
+          "material_read": "v1 Theorem 6.1 and explicit productions, p. 14, offsets 44144–45972; proof and unique decomposition in pp. 10–11 and 14–16 examined in current PDF. Introduction and §4 for element growth and Green minima.",
+          "method": "OA primary PDF passage inspection, including version-pinned v1 for the decisive grammar",
+          "title": "Green languages and growth of free inverse monoids",
+          "trigger": "Earlier exact language description could encode all multiplicities and the word series"
+        },
+        {
+          "assessment": "Minimum length is prior; growth there counts elements",
+          "evidence": "Spheres are sets of elements of given minimum length; the count is based on trees and is not a count of every geodesic word.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.10489",
+          "material_read": "§2.1, §3.2 Lemmas 3.2–3.3 and §3.3, pp. 2 and 5–7",
+          "method": "OA primary PDF passage inspection",
+          "title": "The growth of free inverse monoids",
+          "trigger": "Same Munn trees and length-growth topic"
+        },
+        {
+          "assessment": "Tree counts, not fixed-tree word multiplicities",
+          "evidence": "The recurrence counts word-trees by points and endpoints, not traversals of an individual tree.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500002317",
+          "material_read": "Article, pp. 148–149",
+          "method": "Lawful accessible full-text inspection",
+          "title": "Counting word-trees",
+          "trigger": "Plausible older enumerative overlap hidden by terminology"
+        },
+        {
+          "assessment": "Normal form, not a count of all geodesic representatives in the inspected material",
+          "evidence": "Selects unique shortest normal forms and describes obtaining them.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.0959",
+          "material_read": "Introduction, pp. 1–2",
+          "method": "OA primary PDF passage inspection",
+          "title": "Gröbner–Shirshov bases for free inverse semigroups",
+          "trigger": "Canonical representative results potentially relevant to shortest words"
+        },
+        {
+          "assessment": "Unresolved historical scope, not relied on for verdict",
+          "evidence": "The representation is cited as foundational; no unavailable passage was treated as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1112/plms/s3-29.3.385",
+          "material_read": "Bibliographic identification only; full-text attempts unsuccessful",
+          "method": "Bounded DOI and repository lookup",
+          "title": "Free inverse semigroups",
+          "trigger": "Foundational Munn-tree representation and possible historical overlap"
+        },
+        {
+          "assessment": "Exact rank-two overlap in a later-dated record",
+          "evidence": "Piecewise degree factorial product and R/L/D minimum-class sums agree in rank two. Its per-tree polynomial is not the global series.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-extremal-geodesic-multiplicities-in-the-two-generated-free--9b0becf644d9",
+          "material_read": "Finding",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Sharp extremal geodesic multiplicities in the two-generated free inverse monoid",
+          "trigger": "Strongest exact catalogue formula overlap"
+        },
+        {
+          "assessment": "Class minima covered, multiplicities not explicit",
+          "evidence": "Gives class-wise minimum-length tests, rather than counts of their witnesses.",
+          "identifier_or_url": "2026/10/18/SCOPE-deterministic-linear-space-recognition-of-the-green-geodesic-lan--52856bc99716",
+          "material_read": "Finding on R/L/D criteria",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Deterministic linear-space recognition of the Green-geodesic languages",
+          "trigger": "Earlier Munn-tree criterion for class minimizers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two expressions are clear enumeration aids and correctly distinguish words from elements. As submitted, the quantitative statements are the immediate fixed-tree and length-weighted translations of the previously available excursion/path grammar, plus sums at independently known class minima. There is no additional unknown extremum, asymptotic, or other distinct exact invariant that could survive as a valuable repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

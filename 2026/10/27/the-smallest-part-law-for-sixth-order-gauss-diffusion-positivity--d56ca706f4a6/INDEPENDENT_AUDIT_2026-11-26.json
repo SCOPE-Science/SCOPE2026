@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:01.554497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; VERIFICATION.md and verify.py, inspected as text",
+        "Independent symbolic rational identities and exact witness fractions R(24)=−343/929, R(16)=−233/1031, R(12)=−25/179",
+        "Repaired RESULT.md and verify.py, inspected in full by reference to the frozen text and exact change diff"
+      ],
+      "rationale": "On the repaired statement: the multipartite Laplacian splits orthogonally into the constant, between-part and within-part spaces with eigenvalues 0, N and N−m. Substituting the projectors gives the diagonal spectral measure and both off-diagonal formulas. The exact derivative numerators establish strict decrease of R and g on [0,∞), yielding strictly positive off-diagonals at h>0 and strictly decreasing diagonals. At fixed h>0 each smaller-part measure has larger upper tails (including the case m=1), giving strict smallest-part ordering; the limit 2/N−1 proves the single crossing for N≥3. For N=2 the diagonal is (1+R(2h))/2>0. The same-order example was independently recomputed exactly: −66473/957799 and 1999/166291. Symmetry and the action on the constant vector give both unit sums; eigenvalues of modulus at most one, including 1, give norm one. The frozen Finding incorrectly called matrices with negative diagonal doubly stochastic; the replacement explicitly restricts this to the nonnegative interval, and the verifier's output now describes what its assertions check.",
+      "residual_risks": [
+        "Finite checks do not prove the all-partition result; the spectral and scalar arguments do. No internal-stage, nonlinear, weighted or directed claim is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arbitrary-filter criterion requires a nonnegative scalar filter, whereas R tends to −1.",
+          "The later stage-parity result gives off-diagonal positivity and eventual diagonal negativity for odd stages, but not the unique [3/3] root ordered by part size."
+        ],
+        "reasoning": "Neither a filter criterion with a failing hypothesis nor the broader stage-parity statement yields an exact sharp finite horizon or its ordering.",
+        "searches": [
+          "Resultary 2026/10/13 multipartite criterion 690509e7de2b",
+          "Resultary 2026/11/08 Gauss stage parity 6250aee1370d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.08242v2",
+        "Resultary 690509e7de2b, 4daa01b63753, 69e05d2d12b3, 6250aee1370d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stage parity and existing graph examples allow eventual loss of positivity; earliest crossing at the smallest part requires strict time monotonicity and a strict comparison of vertex spectral measures."
+        ],
+        "reasoning": "The sharp order law concerns which diagonals turn negative first, not just whether a negative value eventually exists. The inspected results do not imply it.",
+        "searches": [
+          "Resultary 690509e7de2b, 4daa01b63753, 69e05d2d12b3 and 6250aee1370d",
+          "arXiv:2102.08242v2 §5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanes–Iserles–Macnamara §5.2 warns that higher-order Padé approximants need not preserve positivity; it does not give this completed-step classification.",
+          "Resultary 2026/10/26 crown-network record 4daa01b63753 studies the same step on crown graphs, not the complete multipartite family; crowns with n≥3 per side are not complete multipartite."
+        ],
+        "reasoning": "Reformulating as [3/3] Padé of a Laplacian does not turn one of the known sign results into the unique threshold ordered by m.",
+        "searches": [
+          "Blanes–Iserles–Macnamara arXiv:2102.08242v2, higher-order diagonal Padé and graph-Laplacian positivity",
+          "Resultary complete multipartite, sixth-order Gauss and crown diffusion comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown record is on a different graph family. The biclique record is later and treats only two parts, whereas the worked comparison includes K2,2,2 against K3,3."
+        ],
+        "reasoning": "A finite table could cover an example but not the all-size sharp ordering. No matching table of the same-order witness or the full criterion was established in these sources.",
+        "searches": [
+          "Resultary crown-network exact horizon 4daa01b63753; biclique exact obstruction 69e05d2d12b3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the completed [3/3] sharp smallest-part horizon, not the Padé map, multipartite projector calculus, known scalar positivity criteria, or row/column preservation. The terminology repair does not change the distinct mathematical contribution.",
+      "residual_risks": [
+        "Limited primary-literature coverage; a focused search returning no additional candidate is not proof of priority. A specialized sign theorem for signed rational filters could have escaped indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related warning, no multipartite horizon in the inspected passage",
+          "evidence": "Discusses lack of positivity for some higher-order Padé approximations, in contrast to the second-order case.",
+          "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+          "material_read": "§5.2, Example 2, Robertson reaction, HTML offsets 88100–91915",
+          "method": "OA primary HTML passages",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Higher-order diagonal Padé positivity"
+        },
+        {
+          "assessment": "Nonnegative-filter hypothesis rules out this use for [3/3]",
+          "evidence": "Requires 0≤f≤1 and a nonincreasing (1−f(s))/s.",
+          "identifier_or_url": "Resultary:690509e7de2b",
+          "material_read": "Scalar criterion and assumptions",
+          "method": "Local Resultary search and matching statement",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Same graph family and functions of the Laplacian"
+        },
+        {
+          "assessment": "Close result on a distinct graph family",
+          "evidence": "Crown graphs K(n,n) minus a matching, not arbitrary multipartite graphs.",
+          "identifier_or_url": "Resultary:4daa01b63753",
+          "material_read": "Finding and graph definition",
+          "method": "Local Resultary search and matching statement",
+          "title": "Sharp positivity horizon for sixth-order Gauss diffusion on crown networks",
+          "trigger": "Same integration step and exact positivity language"
+        },
+        {
+          "assessment": "Later related result without the claimed root ordering",
+          "evidence": "Strict off-diagonals and eventual negative diagonal for odd stage count.",
+          "identifier_or_url": "Resultary:6250aee1370d",
+          "material_read": "Finding, odd-stage outcome",
+          "method": "Local Resultary comparison",
+          "title": "Stage parity classification of Gauss–Legendre positivity on complete multipartite graphs",
+          "trigger": "Broader Gauss family on the same graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, positivity theorem, projector proof and six-vertex witness"
+      ],
+      "rationale": "An all-size entrywise positivity boundary is structurally useful for choosing completed diffusion steps and separates norm stability from signs. It identifies the first lost signs and reduces a partition-dependent matrix check to one scalar root; the six-vertex comparison shows why order alone is insufficient.",
+      "residual_risks": [
+        "The threshold is not a numerical error bound or a claim about intermediate stages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

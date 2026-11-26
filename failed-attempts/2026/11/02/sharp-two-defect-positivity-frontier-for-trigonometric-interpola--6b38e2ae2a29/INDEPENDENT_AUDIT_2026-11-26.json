@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:57.449040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplying a degree-m trigonometric polynomial by e^{imx} turns unisolvence at the distinct nodes into ordinary Vandermonde unisolvence. For a positive single shift, the Dirichlet cardinal ratio subtracted from each unmoved weight divided by h is (−1)^{j+1}sin(δt)/sin((j−δ)t); for odd j its magnitude is below one since δt<(j−δ)t<π−δt. The moved weight is positive, and reflection covers negative shifts. For the symmetric pair, the equal positive moved weights are determined by the sum of their cardinal entries. Centering at the fixed neighbor gives an unmoved-k correction proportional to (−1)^k cos(kt)/(sin²v−sin²(kt)): off-center even indices increase their weights, and for odd |k|≥3 the positive correction ratio is less than one, by sin²(|k|t)>sin²t and cos(|k|t)<cos t. Thus only the central weight can vanish. Its normalized expression (1+cos t−sin²t/sin²v)/cos t decreases from 1 to −1−sec t through the specified zero. Strict convexity of arcsin(√2 sin(t/2)) gives monotonicity in K and the stated bounds via its slope at zero and its value at t=π/3. The absolute-weight mass follows by exactness on constants, and Taylor expansion gives the correct fixed-displacement orders. This is not a universal two-node threshold for arbitrary directions. The bundled floating-point moment-system checks were inspected, not executed; they do not prove the all-K signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-moved-node mirror covers odd N≥3 and every 0≤u<1 up to collision, including a quadratic noise blowup there; the single-moved-node mirror covers 0≤δ<1, including the unique zero at 1/2 and subsequent negative weight.",
+          "Yu–Townsend instead obtain central-weight negativity on sufficiently large grids by altering many nodes; Austin's thesis and Austin–Trefethen treat general perturbation, convergence and stability rather than these exact sparse signs in the passages read."
+        ],
+        "reasoning": "The stronger coverage comes from the exactly matched sparse configurations, not by substituting into the general literature's perturbation bounds. The two matching domains contain the frozen domains.",
+        "searches": [
+          "Resultary 34d52f2ee2dd and 639f82704fb3, Findings and assumptions",
+          "Austin dissertation §3.5.2; Austin–Trefethen arXiv:1612.04018; Yu–Townsend arXiv:2202.04722 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34d52f2ee2dd and 639f82704fb3",
+        "Austin thesis §3.5.2",
+        "arXiv:1612.04018",
+        "arXiv:2202.04722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete weight formulas imply the threshold at every K and the same exact ℓ¹ mass using 1−R_N. Its known implicit threshold gives δ_K=1−arcsin(√2 sin(t/2))/t by one trigonometric reduction.",
+          "The one-node mirror's cardinal ratio equals the frozen one after the same normalization change."
+        ],
+        "reasoning": "From the solved formula, the monotonicity and strict bounds are direct consequences of the elementary second derivative of arcsin(√2 sin(t/2)), and the fixed-shift mass limit and stated Taylor term follow by expanding the same known R_N. The two-move minimality observation for allowed shifts above the inward crossing combines the already established one-move impossibility and two-move construction.",
+        "searches": [
+          "Mirrored RESULT.md for 34d52f2ee2dd, Finding and Proof §§1–4",
+          "Mirrored RESULT.md for 639f82704fb3, Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 34d52f2ee2dd uses N=K, u=δ, and normalized-circle integration. Its R_N(u)=2 csc((1−u)t)/(csc(ut)−csc((2−u)t)) equals (sin²t−sin²v)/(cos t sin²v).",
+          "Resultary 639f82704fb3 states strict positivity for a single shift below half a mesh and the associated full sign frontier."
+        ],
+        "reasoning": "The first equality follows by writing ut=t−v and (2−u)t=t+v; w_1/h is exactly 1−R_N(u). Solving R_N=1 gives sin²v=1−cos t and the frozen arcsine threshold. Normalization multiplies all weights and the norm by 2π, preserving each sign. Circle reflection supplies both signs of the one-node displacement.",
+        "searches": [
+          "Resultary: inward two moved nodes toward common stationary neighbor, sharp odd-grid positivity",
+          "Resultary: uniform odd Fourier trigonometric interpolatory quadrature with just one displaced node or replaced site, exact positivity sign of the weights changes at half a mesh; minimal number of moved sites for a negative trigonometric quadrature weight is two within half spacing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-sharp-three-site-positivity-transition-and-quadratic-noise-blo--34d52f2ee2dd",
+          "2026/11/22/SCOPE-one-node-fourier-quadrature-a-sharp-positivity-frontier-and-coll--639f82704fb3"
+        ],
+        "reasoning": "These are exact symbolic sources rather than finite tables: the first entry's 'three-site' description includes the stationary center and only two moved sites. The second directly states the other sign claim.",
+        "searches": [
+          "Resultary exact matches for one-node half-mesh and symmetric inward two-node sign thresholds"
+        ]
+      },
+      "rationale": "Two distinct published Resultary statements substantively cover the two halves of the Finding. The inward two-moved-node theorem already gives the same complete signs, equivalent exact frontier, and amplification for a strictly wider parameter domain. The separate one-node theorem already gives the all-odd-grid positivity up to half a mesh and extends to larger displacements. The labels on the records do not establish priority; these are positive findings of mathematical coverage. Explicitly solving the existing cosecant level equation and differentiating the resulting elementary formula do not leave a distinct substantial theorem to validate or repair.",
+      "residual_risks": [
+        "Comparing the statements establishes coverage, not the order of discovery or precedence; the directory dates alone are not used for that inference.",
+        "Literature comparisons are restricted to the passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger valid domain and exactly equivalent finite-size frontier; priority not determined",
+          "evidence": [
+            "N≥3 odd, only center can change sign for 0≤u<1, zero iff R_N(u)=1, and norm 1+2 max(0,R_N−1)/N."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-three-site-positivity-transition-and-quadratic-noise-blo--34d52f2ee2dd",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions, Proof §§1–4, offsets 0–8381 with decisive equation rechecked",
+          "method": "Local Resultary mirror and trigonometric identification",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup in Fourier quadrature",
+          "trigger": "Exact same symmetric inward deformation"
+        },
+        {
+          "assessment": "One-node finding is a strict special case",
+          "evidence": [
+            "All weights positive before exactly half a mesh; the approached neighbor weight vanishes at half and is negative beyond it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-one-node-fourier-quadrature-a-sharp-positivity-frontier-and-coll--639f82704fb3",
+          "material_read": "Mirrored RESULT.md, Finding, assumptions, exact cardinal weights and start of sign proof, offsets 0–3362",
+          "method": "Local Resultary mirror and normalized-weight comparison",
+          "title": "One-node Fourier quadrature: a sharp positivity frontier and collision noise layer",
+          "trigger": "Potential surviving one-node positivity claim"
+        },
+        {
+          "assessment": "Inspected section studies general perturbations and conjectures; not an exact sparse sign theorem",
+          "evidence": [
+            "Conjectures 3.13–3.14 and experiments on absolute-weight sums; numerical negative weights for general perturbations at α≤1/4."
+          ],
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:11c16937-4a59-494d-a06f-6d27b634e2f3",
+          "material_read": "Dissertation §3.5.2, PDF pp. 85–87, offsets 321850–333000",
+          "method": "Lawful Oxford archive PDF after original URL returned 403",
+          "title": "Some New Results on and Applications of Interpolation in Numerical Computation",
+          "trigger": "Early perturbed-grid weight magnitude and sign experiments"
+        },
+        {
+          "assessment": "Different conclusion from the sparse fixed-grid sign classification",
+          "evidence": [
+            "Theorem 1.1 gives convergence under smoothness assumptions; absolute-weight boundedness is discussed as conjectural/experimental."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "PDF pp. 2–3, offsets 7800–11759",
+          "method": "OA PDF text",
+          "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "Primary general perturbation analysis"
+        },
+        {
+          "assessment": "Multiple-node alternating perturbation, not the same sparsity or exact threshold",
+          "evidence": [
+            "Theorem 4.1 gives a negative central weight for any fixed positive jitter fraction at sufficiently large even N by moving many sites."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.04722",
+          "material_read": "§4.1, pp. 10–11, offsets 40084–44340",
+          "method": "OA PDF text",
+          "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "Prior negative-weight construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Localized jitter and its effect on positive weights are useful problems. As a separate finding, the sign laws and amplification duplicate stronger descriptions. The explicit rearrangement and its elementary K trend are convenient, but do not supply a further scientific gap, e.g. a minimum displacement over all two-node configurations.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

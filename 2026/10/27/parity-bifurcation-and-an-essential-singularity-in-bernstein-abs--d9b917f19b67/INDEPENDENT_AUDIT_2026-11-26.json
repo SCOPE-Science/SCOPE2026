@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:44.449621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–76",
+        "Frozen VERIFICATION.md and check_moments.py, inspected as evidence only"
+      ],
+      "rationale": "Symmetry follows by k↔n−k and the normalized binomial variance at r=2 is p(1−p)/n. On the compact p interval and a compact r interval bounded away from 1, first derivatives are jointly continuous, including at zero deviations and as one-sided derivatives at endpoints. Their uniform convergence to (1−2p)/n gives strict outer derivative signs for any fixed small center neighborhood. For odd n, choose its radius below 1/(2n); the smooth second derivatives are then uniformly near −2/n, so symmetry and strict concavity give uniqueness. For even n take δ=p−1/2 and isolate W(δ)|δ|^r, with W=b_n(1−4δ²)^(n/2). The remainder H_r is even and smooth in a fixed radius less than 1/n. Put A_r=−H_r''(0)/2; subtraction at r=2 gives A_r→A=b_n+1/n. For δ>0 the derivative divided by δ is Q_r=δ^(r−2)B_r−D_r, with B_r=rW+δW'=r b_n+O(δ²), D_r=−H_r'/δ=2A_r+O(δ²), and B_r',D_r'=O(δ) uniformly by evenness and smoothness. For r≥2, A>b_n makes Q_r negative up to a fixed small radius. For r=2−ε, it diverges positively at zero. With L=log(A/b_n)>0 and t=exp(−L/(2ε)), Q_r is strictly negative for t≤δ≤h by δ^(−ε)≤sqrt(A/b_n) and the uniform coefficient gap. For 0<δ≤t, the derivative's negative leading term −ε δ^(−ε−1)B_r dominates errors O(δ^(1−ε)+δ), whose relative size is O(t²/ε). This proves one crossing and two symmetric global maxima below two. At the positive crossing d, division by B_r yields r b_n d^(−ε)=2A_r+O(d²). The log displacement limit follows, and inserting the same identity in H_r(d)−H_r(0)+W(d)d^r gives A_r ε d²/r+O(d⁴). Since d²=o(ε), the claimed prefactor and doubled log rate follow. This includes n=2 and does not take a degree limit.",
+      "residual_risks": [
+        "Finite numerical checks were not rerun and cannot establish uniqueness or either limit. Both the radius and exponent neighborhood are allowed to depend on n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adell–Bustamante–Quesada is the closest cited same-object work; exact publisher and alternate-copy attempts yielded metadata but no full text. The indexed abstract of the 2019 expansion paper describes expansions in powers of 1/n and approximation applications. The Berend–Kontorovich title and available material identify first mean absolute deviation, not optimization after continuously perturbing the exponent near two."
+        ],
+        "reasoning": "Neither a degree expansion nor evaluating at r=1 gives a general fixed-degree optimizer theorem crossing r=2. The 2015 paper is unresolved rather than excluded by its title or access failure.",
+        "searches": [
+          "Exact DOI 10.1016/j.jmaa.2015.05.020 and exact-title alternate search ‘Estimates for the moments of Bernstein polynomials’ Adell Bustamante Quesada preprint PDF Zaguan 2015 maximum absolute moments",
+          "2019 Expansion of moments of Bernstein polynomials, publisher PII S0022247X19302999",
+          "Exact DOI 10.1016/j.spl.2013.01.023 and author/title alternate search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and bibliography",
+        "Resultary db8d34ed1235, ec4368ab0a4e and e7a62692b128",
+        "Skorski arXiv:2012.06270v2, p. 3 and Theorem 3",
+        "Abstract/metadata and documented access attempts for the 2015, 2013 and 2019 papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=2 the variance gives the unique central maximum, but this does not control the factor d^(r−2) at exponentially small displacements. That factor occurs for the positive central lattice atom and is absent when n is odd. The inspected nearby parity result is a square-root law for the imaginary height of a Fourier zero, not the stated displacement or gain."
+        ],
+        "reasoning": "The central-atom/curvature balance and the separate uniqueness argument are necessary to get the actual optimizer and prefactor; no inspected stronger statement was found to imply them.",
+        "searches": [
+          "Skorski arXiv:2012.06270v2 Theorem 3, text offset 18250",
+          "2019 publisher indexed abstract; Adell–Bustamante–Quesada DOI and Berend–Kontorovich DOI",
+          "Resultary db8d34ed1235 §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Bernstein quantity is n^(−r) E|X−np|^r for X binomial. The normalization preserves maximizing p and converts the gain. Skorski Theorem 3 concerns ordinary central moments of positive integer order, not the real absolute-moment cusp around order two."
+        ],
+        "reasoning": "Compare the same binomial objective up to its p-independent scaling, not just terminology; formulas at integer orders do not differentiate or optimize through real r near two.",
+        "searches": [
+          "Resultary: Bernstein absolute moments parity exponent near 2 displacement gain",
+          "Primary search: binomial absolute central moments maximum parameter p near exponent 2 Bernstein polynomial maximizer parity bifurcation even degree central atom",
+          "Skorski arXiv:2012.06270v2 central moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching optimizer or exponent-limit record surfaced in the bounded queries. Same-day db8d34ed1235 studies Fourier zeros of a four-atom measure; ec4368ab0a4e studies radial-mass thresholds for a Bergman-kernel zero; e7a62692b128 concerns the branch locus and monodromy of a polynomial map, not the Bernstein kernel."
+        ],
+        "reasoning": "The same-day records were compared by their mathematical objects and conclusions, not date. An integer-moment table cannot encode this continuum of real-exponent maxima.",
+        "searches": [
+          "Resultary exact title ‘Parity bifurcation and an essential singularity in Bernstein absolute moments’",
+          "Resultary parity, displacement and gain; inspect db8d34ed1235, ec4368ab0a4e, and e7a62692b128"
+        ]
+      },
+      "rationale": "The supported distinct claim is fixed-degree optimizer parity close to the quadratic exponent, with a specific essential-singularity rate and gain prefactor. Integer signed-moment formulas, first absolute moments, or expansions in powers of 1/n do not give this conclusion. The most pertinent 2015 Bernstein absolute-moment paper remains an access risk; the assessment does not classify uninspected full texts as noncovering.",
+      "residual_risks": [
+        "The 2015 Adell–Bustamante–Quesada article is the most important unresolved full-text comparison. The 2013 and 2019 works were not inspected in full either. Unindexed or inaccessible prior fixed-degree optimizer results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full text inaccessible; coverage not established either way",
+          "evidence": "Publisher PDF PII S0022247X15004734 returned HTTP 403, DOI landing response did not expose text, and no accessible alternate was located. The frozen description of estimates is not independent full-text evidence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2015.05.020",
+          "material_read": "Exact metadata and the frozen comparison; no verified primary result passage",
+          "method": "DOI, publisher page and exact PDF with direct/VPN; targeted search for alternate manuscript",
+          "title": "Estimates for the moments of Bernstein polynomials",
+          "trigger": "Closest cited paper using Bernstein absolute moments"
+        },
+        {
+          "assessment": "Related order-one object; full text not verified",
+          "evidence": "The mean absolute deviation is the first absolute central moment. Publisher and alternate Academia link were unavailable in the follow-up retrieval.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2013.01.023",
+          "material_read": "Bibliographic/abstract-level information, no full result passage",
+          "method": "Exact DOI and identified publisher and alternate landing pages using direct/VPN",
+          "title": "A sharp estimate of the binomial mean absolute deviation with applications",
+          "trigger": "Binomial absolute moment literature"
+        },
+        {
+          "assessment": "Integer ordinary moments, not fixed-degree real absolute optimizer",
+          "evidence": "Theorem 3 states a formula for E[(S−E[S])^d] for positive integer d; the following remark gives the p↔1−p symmetry relation for the centered binomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06270v2",
+          "material_read": "Definition p. 3 and Theorem 3 with Remarks 1–2, around offset 18250",
+          "method": "Lawful OA PDF literal then bounded offset",
+          "title": "Handy Formulas for Binomial Moments",
+          "trigger": "Possible broader central-moment formulas and tables"
+        },
+        {
+          "assessment": "Abstract establishes degree expansions only; cannot rule out other results",
+          "evidence": "Its abstract describes moment and absolute-moment expansions applied to an expansion in increasing powers of 1/n and a Voronovskaya-type theorem.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X19302999",
+          "material_read": "Indexed abstract only; publisher full text not accessible",
+          "method": "Primary search, then exact publisher direct/VPN attempt",
+          "title": "Expansion of moments of Bernstein polynomials",
+          "trigger": "Same absolute moments and expansions"
+        },
+        {
+          "assessment": "Different object and asymptotic law",
+          "evidence": "The theorem concerns Fourier-transform complex zeros and a square-root zero-height law.",
+          "identifier_or_url": "db8d34ed1235",
+          "material_read": "Mirrored RESULT.md §Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp parity-dependent complex zero transition for symmetric four-atom measures",
+          "trigger": "Closest same-day parity-transition hit"
+        },
+        {
+          "assessment": "Different kernel and limit",
+          "evidence": "A Bergman-kernel zero is studied under added radial mass using radial moments.",
+          "identifier_or_url": "ec4368ab0a4e",
+          "material_read": "Mirrored RESULT.md §Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Universal moment law for the first Lu Qi-Keng zero created by concentrated mass",
+          "trigger": "Same-day moment law with symmetry and a threshold"
+        },
+        {
+          "assessment": "Different mathematical object",
+          "evidence": "The claim specifies the polynomial map's branch locus and monodromy, not Bernstein absolute moments.",
+          "identifier_or_url": "e7a62692b128",
+          "material_read": "Mirrored RESULT.md §Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Branch geometry and full symmetric monodromy of the Shi–Xu–Zuo polynomial map",
+          "trigger": "Same-day lexical Bernstein and branch match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Bernstein absolute-moment literature comparison above"
+      ],
+      "rationale": "The global maximizer of a natural Bernstein-kernel moment governs its worst-case size. A parity effect becomes visible only by resolving the exponentially small scale, where ordinary pointwise perturbation of the variance or a fixed numerical grid would miss the change in the optimizing position. Quantifying both the displacement and the gain gives information beyond bounds on the moment or a local failure of maximality at the center.",
+      "residual_risks": [
+        "No degree-uniform transition interval or phase diagram away from r=2, nor a new approximation bound based on this result, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

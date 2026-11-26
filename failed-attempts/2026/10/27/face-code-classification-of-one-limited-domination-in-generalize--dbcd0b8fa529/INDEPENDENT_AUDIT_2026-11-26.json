@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:38.368182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With T the complement, any vertex having two neighbors in T is forced into T. Two occupied points fill a coordinate line, and three corners fill the fourth corner of a coordinate rectangle. Along paths in any component, a full line in an active direction propagates to the next vertex by the rectangle rule, or is already the same line when the path changes that direction. Hence the component frees every active coordinate and fixes every other coordinate. A distance-two connection between distinct components would give an intermediate vertex forced into T, so components are at distance at least three. Domination excludes the whole graph as a component. Conversely, a proper face has outside neighbors reached by changing a fixed coordinate; none belong to another face. An outside vertex can reach at most one vertex of any given face by a single change and cannot reach two separate faces. For the optimum, each T-vertex contributes at least q_*−1 boundary edges from its fixed coordinates and each D-vertex contributes at most one. A shortest-alphabet hyperplane attains |T|=N/q_*. Equality forces exactly one fixed coordinate of size q_* in each component, and every vertex outside one such hyperplane is already adjacent to that hyperplane, ruling out a second component. This proves the labelled count, including d=1 and ties of q_i. The recorded ten exhaustive subset profiles and five ILP profiles corroborate small cases; the verifier was inspected, not executed, and is not required by the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kang–Missethan–Schmid give closedness of each projection, merging within distance two under closure, and noninteraction at distance at least three. The stated setting is equal alphabets, but the inspected Appendix A proof of Lemma A.2 expands a single coordinate line then propagates it using rectangles; at distance two it first inserts a common neighbor. The connected traversal in Lemma 2.7 then merges whole faces. These steps use complete adjacency separately in each coordinate, with no comparison of alphabet cardinalities. Slivken's earlier §2 also uses repeated merging of subtori within distance two starting from singleton vertices. Tepeh covers the binary optimum and a hyperplane witness in Proposition 12 and special rook-graph results."
+        ],
+        "reasoning": "Replace the common K_k by K_{q_i} in the i-th slot of the deterministic face-expansion proof; line filling, the two-neighbor witness, the rectangle, and connected traversal are unchanged. This gives the same merging for the frozen mixed product without relying on the papers' probabilistic estimates. Starting with singleton faces of a closed set and repeatedly merging faces at distance at most two leaves its union unchanged and ends at faces separated by at least three. Conversely, such a union is closed.",
+        "searches": [
+          "arXiv:2406.13341, §2.2, Lemmas 2.6–2.7, Remark 2.8 and Appendix A",
+          "arXiv:1407.2317, §2, Lemmas 2.1–2.4",
+          "arXiv:2606.22428v2, Propositions 6 and 12 and Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_hamming.py and its recorded output",
+        "arXiv:2406.13341",
+        "arXiv:1407.2317",
+        "arXiv:2606.22422v1, Definition 1",
+        "arXiv:2606.22428v2",
+        "Kwaśnik–Perl 2004",
+        "arXiv:1911.13151",
+        "Resultary records 9b22ee0af5b3 and d3ac59c01435"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior merging and noninteraction yield exactly the underlying component decomposition. For a component fixing coordinates I, every vertex of it has precisely sum over i in I of (q_i−1) edges to its complement. Separation ensures all these edges go to D. A minimum-alphabet hyperplane meets the bound and is adjacent to every outside vertex."
+        ],
+        "reasoning": "Once the prior deterministic decomposition is translated, counting the same edges from D bounds |T| by N/q_*. Equality permits one fixed minimum-size coordinate per component; a hyperplane cannot coexist with another component, and counting the choices gives the frozen labelled number. The mixed weights add only this direct boundary count. The full classification and extremum are mechanically covered, not claimed to have been printed together in one-limited-domination terminology.",
+        "searches": [
+          "arXiv:2406.13341, Appendix A, Lemma A.2 and proof of Lemma 2.7",
+          "arXiv:1407.2317, Lemmas 2.2 and 2.4",
+          "arXiv:2606.22428v2, Proposition 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kwaśnik–Perl's nearly perfect condition on T is that no outside vertex has two neighbors in T. Kang–Missethan–Schmid, §2.2, address exactly this closedness for the two-neighbor process; their projections are the frozen coordinate faces."
+        ],
+        "reasoning": "A set is unchanged by the two-neighbor process iff no vertex outside has two neighbors in it. Taking its complement turns this into the limited-neighbor constraint. On a connected Hamming product the additional domination condition for a closed T is precisely exclusion of T=V once decomposed into separated faces: each point of a proper face has an outside neighbor not in any other face.",
+        "searches": [
+          "2-neighbor bootstrap percolation Hamming graph different side lengths complete graph Cartesian products closed set disjoint subtori distance at least 3 P3 convex subcubes lemma",
+          "Kwaśnik–Perl, Nearly perfect sets in products of graphs, pp. 177–178"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records concern inclusion-maximal total mutual visibility and maximum two-distance mutual visibility, respectively, in three factors. Their criteria are on visibility and distance-two pairs, not outside two-neighbor closure of a complement. Tepeh's explicit binary number is an overlapping special case, not a mixed-profile table."
+        ],
+        "reasoning": "No matching mixed-profile table was identified, but the demonstrated coverage is structural and works for all profiles. The same-day visibility record is distinct on content, not excluded by date.",
+        "searches": [
+          "Local Resultary lookup for Hamming face classification and one-limited domination",
+          "2026/10/26/SCOPE-minimum-inclusion-maximal-total-mutual-visibility-sets-of-three--9b22ee0af5b3",
+          "2026/10/27/SCOPE-two-distance-visibility-in-three-factor-hamming-graphs-the-sharp--d3ac59c01435"
+        ]
+      },
+      "rationale": "The central face-code structure is the closed-set decomposition for two-neighbor bootstrap percolation on Hamming graphs, with the full graph excluded. The earlier deterministic face-merging proof works coordinatewise with unequal clique sizes, and the extremum and its rigidity are immediate boundary consequences of that structure. No verbatim unequal-alphabet one-limited theorem is needed for this implication.",
+      "residual_risks": [
+        "The exact publication history of the mixed-alphabet statement or its domination wording was not established. The decision rests on the concrete implication from the deterministic bootstrap results, not on an assertion of verbatim priority or on a negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior deterministic face structure, with proof carrying over coordinatewise to mixed alphabets",
+          "evidence": "Every projection is closed; any two projections within distance two close to one projection. The proof fills one complete-graph line at a time and uses distance-one rectangle witnesses, independent of common clique order.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.13341",
+          "material_read": "§2.2, Lemmas 2.6–2.7 and Remark 2.8, p. 5 near offsets 23900–25500; Appendix A, Lemma A.2 and proof of Lemma 2.7, pp. 33–34 at offset 193700 onward",
+          "method": "OA PDF passage and proof inspection",
+          "title": "Bootstrap percolation on the high-dimensional Hamming graph",
+          "trigger": "Exact equivalence between bootstrap-closed sets and the frozen complement constraint"
+        },
+        {
+          "assessment": "Independent evidence of earlier uniform-product closure mechanism",
+          "evidence": "Lemma 2.2 takes the closure of two subtori within distance two to their spanning subtorus; the proof of Lemma 2.4 starts from singletons and repeatedly merges nearby subtori.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2317",
+          "material_read": "§2, Lemmas 2.1–2.4 and their proofs, PDF pp. 6–7, offset 15870 onward",
+          "method": "OA PDF passage inspection",
+          "title": "Bootstrap percolation on the Hamming torus with threshold 2",
+          "trigger": "Earlier form of deterministic closure by repeatedly merging subtori"
+        },
+        {
+          "assessment": "Equivalent basic condition; inspected bounds on minimum sizes of maximal sets not used as the classification",
+          "evidence": "Outside vertices have at most one neighbor in the nearly perfect set; the theorem concerns maximal nearly perfect sets in a product.",
+          "identifier_or_url": "https://www.opuscula.agh.edu.pl/vol24/2/art/opuscula_math_2415.pdf",
+          "material_read": "Definition p. 177 at offset 103; Proposition 1 and Theorem 1 around offset 1700",
+          "method": "OA PDF passage inspection",
+          "title": "Nearly perfect sets in products of graphs",
+          "trigger": "Same external-neighbor condition under a different name"
+        },
+        {
+          "assessment": "Special-case numerical and witness overlap",
+          "evidence": "Proposition 12 gives the half-order hypercube optimum and a coordinate-hyperplane construction; the inspected product statements are not needed for the mixed-profile implication.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22428v2",
+          "material_read": "Proposition 6 around offset 29000, Theorem 7 around 31000, Proposition 12 around 47000",
+          "method": "OA full-text passage inspection",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Same invariant and Cartesian product examples"
+        },
+        {
+          "assessment": "Parameter restrictions for a related homogeneous coloring problem",
+          "evidence": "The inspected passage concerns constraints on (b,1)-colorings, not all closed components in mixed Hamming products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.13151",
+          "material_read": "Theorem 3.4, p. 3 around offset 16200",
+          "method": "OA PDF passage inspection",
+          "title": "Perfect 2-colorings of Hamming graphs",
+          "trigger": "Homogeneous extremizers are perfect 2-colorings"
+        },
+        {
+          "assessment": "Distinct set constraint",
+          "evidence": "Visibility of distance-two pairs of members is used, not closure under two neighbors in the complement.",
+          "identifier_or_url": "2026/10/26/SCOPE-minimum-inclusion-maximal-total-mutual-visibility-sets-of-three--9b22ee0af5b3",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Minimum inclusion-maximal total mutual-visibility sets of three-factor Hamming graphs",
+          "trigger": "Closest indexed distance-two set classification"
+        },
+        {
+          "assessment": "Distinct optimization property",
+          "evidence": "Plane, ball and tetrahedron cases optimize two-distance visibility, not one-limited domination.",
+          "identifier_or_url": "2026/10/27/SCOPE-two-distance-visibility-in-three-factor-hamming-graphs-the-sharp--d3ac59c01435",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Two-distance visibility in three-factor Hamming graphs",
+          "trigger": "Indexed extremal classification in the same ambient graph family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying structural classification is natural and useful, but it is already furnished by the deterministic bootstrap-closure mechanism. The additional domination and unequal-alphabet conclusions amount to excluding the full product and applying a tight crossing-edge count to those same components. No separate unknown invariant or substantial obstruction survives this translation in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

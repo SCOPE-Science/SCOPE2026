@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:30:13.738654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 34–63; VERIFICATION.md; verify.py, especially lines 91–149",
+        "Independent exact replay: /workspace/branches/8ee954c7-5a64-419a-a5b9-e3aa8c8ceaa7/reproduce.py and full.log (2026-11-24T19:23:26Z)"
+      ],
+      "rationale": "Independent exact reconstruction from the seven cyclic Fano lines gave a connected cubic graph on 28 vertices with 42 edges, 84 distinct perfect matchings of size 14, 28 matchings through every edge, and pair co-occurrence counts 0:84, 4:21, 6:168, 8:168, 10:84, 12:168, 14:168. Branching on the minimum available degree exhausts matchings because every perfect matching chooses exactly one available neighbor of that vertex. In the sign product expansion modulo 8, the constant is 84, every linear term is a multiple of 8, and the even pair counts kill all quadratic terms. On each matching a vertex switch contributes one minus sign; a connected graph has 2²⁷ distinct vertex switches, and a spanning tree fixes exactly one representative of each orbit. In the supplied BFS gauge, the independent integer transform and direct 84-term sums agree at all 32,768 frequencies, with absolute counts 4:21000, 12:9548, 20:1890, 28:300, 36:28, 84:2, and the stated signed splits. Thus the entire group spectrum has no zero, and the extreme singular values 4 and 84 give condition number 21 for the unnormalized convolution. The signed splits refer to the BFS tree in the verifier (root the first lexicographically ordered triple, visit neighbors in increasing order), not to arbitrary spanning trees.",
+      "residual_risks": [
+        "Exact finite result for this graph and kernel only. Absolute counts are tree-independent; signed counts need not be. For instance a spanning tree containing a perfect matching forces that matching positive, so its reduced table cannot contain −84."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wanless treats signed matrices and Hadamard-matrix permanents; arXiv:2106.15924 treats dimer algebras and cluster characters of Postnikov diagrams. The Desargues and McGee findings concern graph-specific computations.",
+          "The 2025 matching-polynomial paper was not available in full."
+        ],
+        "reasoning": "No inspected general theorem supplies the incidence parity and exact spectrum for this support. The sign-product argument is general only conditional on graph-specific incidence counts; the positivity/minimum then requires separate exact information.",
+        "searches": [
+          "Signed-matrix permanents and dimer partition functions",
+          "Matching polynomials of symmetric and semisymmetric graphs",
+          "Resultary exact signed graph spectra"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target and distinct Desargues and McGee records",
+        "Biggs 1973; Dejter arXiv:1002.1960; Wanless 2005; arXiv:2106.15924",
+        "Symmetry (2025), DOI 10.3390/sym17010133, bibliographic information only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unsigned count plus edge symmetry explains the per-edge count 84·14/42=28. Desargues supplies an example of the same quadratic parity mechanism but not Coxeter's co-occurrences or its transform."
+        ],
+        "reasoning": "The unsigned total and edge symmetry do not supply evenness for every distinct edge pair. The full histogram is stronger still; mod 8 alone cannot give the multiplicities or even ensure that 4 is attained.",
+        "searches": [
+          "Biggs Coxeter 1-factor count and automorphism action",
+          "Desargues pair-incidence congruence in the Resultary Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Coxeter Resultary hit is the assigned record. The Desargues record proves 4 mod 8 for all signings, but on a 20-vertex graph with 60 matchings and reduced absolute table 4:1551, 12:406, 20:90, 60:1. The McGee record treats another graph and has vanishing coefficients.",
+          "Biggs, p. 403, counts 84 1-factors, not their signed distribution."
+        ],
+        "reasoning": "Signed dimer sum, sparse signed matching partition function, and Walsh coefficient are equivalent when evaluated on the same edge domain. Neither graph substitution nor an unsigned enumeration preserves or determines the Coxeter spectrum.",
+        "searches": [
+          "Resultary Coxeter and signed perfect-matchings/dimer Walsh-spectrum search",
+          "Primary signed matching and permanent literature on the Coxeter graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Coxeter external integer found is the already-known unsigned 84; the independent Coxeter table has six absolute levels and differs from both nearby indexed tables."
+        ],
+        "reasoning": "An unsigned matching polynomial or matching count gives no nontrivial sign table, and tabulations for nonisomorphic graphs cannot furnish Coxeter's 32,768 gauge classes.",
+        "searches": [
+          "Resultary searches for Coxeter exact reduced Walsh and signed-dimer counts",
+          "Biggs p. 403 and the exact Desargues and McGee Finding tables"
+        ]
+      },
+      "rationale": "Biggs establishes the Coxeter graph's unsigned count, and a distinct same-day result on Desargues uses the same mod-eight mechanism. Neither gives the Coxeter pair-incidence premise or its 15-bit signed spectrum. The distinct claim is the graph-specific exact classification and invertibility; no originality is credited for the generic Walsh decomposition, switch reduction, or Boolean sign-product identity.",
+      "residual_risks": [
+        "No priority ordering for same-date analogues was established. An earlier unindexed signed-incidence or code-weight table could overlap. Full text of the 2025 matching-polynomial paper remained inaccessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unsigned count and graph structure, not the signed classification",
+          "evidence": [
+            "Coxeter graph Y has 84 1-factors; their complements and the automorphism action are discussed."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1973-040-1",
+          "material_read": "Printed p. 403 (PDF p. 7), 1-factor enumeration and automorphisms",
+          "method": "Lawfully accessible PDF, targeted passage near text offset 19755",
+          "title": "Three Remarkable Graphs",
+          "trigger": "Primary exact Coxeter perfect-matching study"
+        },
+        {
+          "assessment": "Graph construction context, not a matching sign table",
+          "evidence": [
+            "Fano-plane coloring is used for the passage from Coxeter to Klein."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.1960",
+          "material_read": "p. 4, Fano-plane passage",
+          "method": "OA PDF, targeted text offset 12977",
+          "title": "From the Coxeter graph to the Klein graph",
+          "trigger": "Fano-geometric construction of the same graph"
+        },
+        {
+          "assessment": "Different matrix family, not the sparse Coxeter signing spectrum",
+          "evidence": [
+            "The setup studies signed matrices and Hadamard-matrix permanents."
+          ],
+          "identifier_or_url": "Wanless, Linear and Multilinear Algebra 53 (2005), 427–433",
+          "material_read": "PDF p. 1, statement and setup",
+          "method": "OA primary PDF passage",
+          "title": "Permanents of matrices of signed ones",
+          "trigger": "Equivalent signed counting technique"
+        },
+        {
+          "assessment": "The relevant construction is not a theorem about Coxeter signed sums",
+          "evidence": [
+            "Works with Postnikov diagrams and cluster-character relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.15924",
+          "material_read": "p. 26, dimer and cluster passage",
+          "method": "OA PDF text around offset 79308",
+          "title": "Perfect matching modules, dimer partition functions and cluster characters",
+          "trigger": "Potential broader dimer partition-function coverage"
+        },
+        {
+          "assessment": "Potential partial prior coverage unresolved",
+          "evidence": [
+            "Bibliographic scope concerns matching polynomials; no signed-table comparison is inferred from failed access."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+          "material_read": "Bibliographic information only; full paper not inspected",
+          "method": "DOI lookup and direct lawful PDF attempt (HTTP 403)",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs and a Graph Formed by Three Mutual-Coupled Networks",
+          "trigger": "Plausible Coxeter matching data antecedent"
+        },
+        {
+          "assessment": "Material conceptual overlap, different object and multiplicities; no priority inferred from date",
+          "evidence": [
+            "60 matchings; mod-eight class 4; four different absolute levels with 2048 reduced signings."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-zero-free-signed-perfect-matchings-and-sharp-inverse-walsh-norms--93f8d550f67c",
+          "material_read": "Exact Finding and comparison of pair-incidence mechanism",
+          "method": "Resultary search and local mirror",
+          "title": "Zero-free signed perfect-matchings and sharp inverse Walsh norms for the Desargues graph",
+          "trigger": "Strongest distinct analogue, including identical congruence method"
+        },
+        {
+          "assessment": "Different graph; its zeros distinguish it even qualitatively",
+          "evidence": [
+            "McGee has a vanishing Walsh level; Coxeter does not."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-signed-matching-fourier-spectrum-and-sharp-range-projec--a2d03a669654",
+          "material_read": "Exact Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Complete signed matching Fourier spectrum and sharp range projection for the McGee cage",
+          "trigger": "Close analogue for an exact complete signed table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–3",
+        "Exact independent reduced spectrum; Biggs p. 403 and the Desargues and McGee comparisons"
+      ],
+      "rationale": "This is the complete character spectrum of a canonical matching measure on a classical symmetric graph, not a selected finite sample. It settles potential cancellation for every binary edge signing and determines both invertibility and exact numerical conditioning. The pair-incidence explanation pinpoints the obstruction to a zero, and the precise extrema and multiplicities could be reused in studying the inverse or comparing symmetric graphs. The value is the exact invariant of Coxeter, rather than novelty of the computation or a claimed universal law for cubic graphs.",
+      "residual_risks": [
+        "Not a weighted dimer result or a graph-family classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -42,11 +42,11 @@ For a word \(w\) of length \(N\), define its weighted autocorrelation polynomial
 \[
 C_w(z)=1+\sum_{\substack{1\le d<N\\w_{[0,N-d)}=w_{[d,N)}}}\left(\prod_{i=N-d}^{N-1}\Pr(w_i)\right)z^d.
 \]
-The standard single-word avoidance/first-hit identity says that the survival generating series is \(C_w(z)/D_w(z)\) with
+Let \(a_j\) be the probability that an iid word of length \(j\) has no copy of \(w\). The standard single-word avoidance/first-hit identity says that its length-indexed generating series \(A_w(z)=\sum_{j\ge0}a_j z^j\) is \(C_w(z)/D_w(z)\) with
 \[
 D_w(z)=(1-z)C_w(z)+\mu_p([w])z^N.
 \]
-Its least positive zero is \(r_w=e^{\gamma_w}>1\). All comparisons below concern these least positive zeros, not arbitrary algebraic zeros.
+Survival for \(n\) shift times as defined above has probability \(a_{n+N-1}\), including \(n=0\) since \(a_{N-1}=1\). Its generating series is \(z^{-(N-1)}\bigl(A_w(z)-\sum_{j=0}^{N-2}z^j\bigr)\), so the shift in indexing does not change the positive pole or escape rate. The least positive zero of \(D_w\) is \(r_w=e^{\gamma_w}>1\). All comparisons below concern these least positive zeros, not arbitrary algebraic zeros.
 
 ## Proof
 
@@ -118,7 +118,7 @@ Because \(t>q\), the crossing equality gives \(1=H_k(p_k)<q^{-k}-1\), hence \(p_
 \[
 2e^{-y_k}-1=e^{-3y_k}(1-e^{-y_k/k}).
 \]
-Its unique solution has \(y_k\to c\). Expansion by the ordinary implicit-function theorem at \((y,1/k)=(c,0)\) gives
+The positive right-hand side implies \(0<y_k<c\), and it is bounded above by \(c/k\), forcing \(y_k\to c\). Expansion by the ordinary implicit-function theorem at \((y,1/k)=(c,0)\) gives
 \[
 y_k=c-\frac{c}{8k}+O(k^{-2}),\qquad
  t_k=\exp\!\left(-\frac c k+\frac{c}{8k^2}+O(k^{-3})\right).
@@ -143,7 +143,7 @@ Bonanno, Cristadoro and Lenci (2022), Proposition 2.4, supply the weighted-autoc
 
 ## Limitations
 
-This theorem concerns iid binary sources, the two precisely specified length-matched cylinder holes and their escape exponents; it does not rank other holes or prove an optimal crossover among all words. Although the computed algebraic thresholds are unique for these pairs, no claim is made of a general uniqueness theorem for arbitrary forbidden words. Independently established priority for this specific growing family has not been completed; general weighted-overlap techniques in earlier work could allow an alternative derivation. No independent mathematical audit has been performed.
+This theorem concerns iid binary sources, the two precisely specified length-matched cylinder holes and their escape exponents; it does not rank other holes or prove an optimal crossover among all words. Although the computed algebraic thresholds are unique for these pairs, no claim is made of a general uniqueness theorem for arbitrary forbidden words. Priority remains provisional; general weighted-overlap techniques in earlier work could allow an alternative derivation.
 
 ## References
 

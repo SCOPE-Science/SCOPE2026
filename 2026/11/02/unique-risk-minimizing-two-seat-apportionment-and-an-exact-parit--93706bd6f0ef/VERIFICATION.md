@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. For \(3\le n\le100\) the verifier uses exact fractions to reconstruct the proposed lotteries and checks normalization, each \(2/n\) marginal, the pairwise inversion formula, the exact optimum-variance and three-point risk distribution, the sharp central-party lower-bound inequality, and the uniform anonymous variance.
+## correctness
 
-If NumPy and SciPy are installed, run `python verify.py --lp` to add an independently formulated finite linear-programming benchmark for \(3\le n\le18\). The tested LP constrains each party's marginal to \(2/n\) and minimizes the exact pair cost \((i+j-(n+1))^2\) using SciPy/HiGHS; numerical objective comparisons use tolerance \(10^{-8}\). Both commands executed successfully in the reported environment. The executable file `verify.py` is included alongside this text in the package.
+PASS
 
-The analytic proof in RESULT.md proves global correctness for every integer \(n\ge3\), including uniqueness, without relying on finite enumeration or floating-point optimization. A feasibility check and a numerical solver output alone would not prove uniqueness or an all-population optimum. The proof assumes the fixed arbitrary label convention at equal quotas; there is no assertion about alternate tie conventions or other residual-seat counts.
+For selected labels a<b, there are n-a-1 and n-b unselected labels above them, respectively. Their combined expected label sum is n+1, fixed by the 2/n marginals, so the variance is the expectation of (a+b-n-1)^2. For even n the zero-cost edges form a disjoint perfect matching and each row forces mass 2/n. For odd n, subtract a dual weight of 1 on edges incident to the center (n+1)/2; all resulting costs are nonnegative, and the tight edges are the outer mirror edges and the central triangle. Their marginal equations force 2/n on isolated edges and 1/n on each triangle edge, attaining 2/n and giving the stated envy masses. The triangle-only n=3 case is feasible and unique. Permutation invariance forces the uniform law; order its two labels at random so they are draws without replacement. Their covariance is minus the population variance divided by n-1, giving (n+1)(n-2)/6. This equals the unrestricted value only at n=3; the stated ratio for odd n follows. Replay: `cd /workspace && python audit_checks.py 1` confirms tight supports, exact marginals, direct inversion counts and uniform variances for n=3 through 40; the proof handles all n.
+
+## originality
+
+PASS
+
+The exact parity optimum, forced support and risk law are supported as a distinct evaluation of a previously defined and algorithmically solved optimization problem. The statistic, rule-independent mean, generic linear program and ordinary sampling-variance identity are not new.
+
+## value
+
+PASS
+
+The concrete obstruction to exact balancing for odd n and the unique optimal law are useful benchmarks for dependent rounding with prescribed marginals. The solution distinguishes representational fairness (the same inclusion probability) from permutation invariance, and quantifies a natural variance tradeoff that a per-instance LP output would not explain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

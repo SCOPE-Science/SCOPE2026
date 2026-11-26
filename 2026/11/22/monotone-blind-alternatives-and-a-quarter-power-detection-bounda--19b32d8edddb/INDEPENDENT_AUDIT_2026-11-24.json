@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:00:35.254765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing h=−min(x,y)+(x²+y²)/2 gives Δ=∫[2x(1−F)−(1−F)²]dx. My separate symbolic replay from that identity gives d/15−c²/30−d²/210 and verifies the rational zero parametrization. The derivative lower bound 2c(1−3r)>0, positive left endpoint, and factorization F−x=−x(1−x)[c+d(2x−1)] prove admissibility and strict stochastic separation. The derivative of the doubled projection, after dropping an irrelevant constant, is 2(x−(1−F(x))); integrating and taking exact variance gives the stated V, null value 1/45 and r=1/4 fraction. The sign of the displayed derivative follows from 24255−160622/9>0; variance is positive by the nonconstant projection and the positive density. The computed 5% limit is 0.0476118698. For the different linear-density family, the exact mean is −c²/30. The bounded degenerate kernel has remainder variance O(n⁻²) uniformly: distinct unordered pairs have zero covariance even when sharing one index, by conditional centering. First-projection row variances converge to the positive null limit by uniform density/projection convergence, and boundedness gives Lindeberg. The null-scaled drift is −h² n^(1/2−2γ)/(2√5); continuity at the cutoff gives the two finite-shift cases, and tightness plus divergent negative drift gives power one otherwise. For critical nonzero shift the two-sided normal tail is strictly increasing in the absolute shift and below one. The comparison is neither a minimax bound nor a claim about censoring. Own replay: /workspace/reviews/replay_statistics.py and replay_statistics.txt; the frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint provides the asymptotic calibration and generic first-projection variance, not the frozen variance evaluation or its sign for the reviewed family.",
+          "The exact-null-limit record gives a general integral expression for Δ and the projected variance, then imposes V=1/45 by adding a third polynomial direction."
+        ],
+        "reasoning": "General projection formulas and the extra-direction construction do not supply V(r)<1/45 along the two-direction rational curve. Quantifying the range here requires separate algebra on that curve and its projection variance; the generic CLT supplies only the subsequent transfer to power.",
+        "searches": [
+          "arXiv:2106.06368 PDF pp. 3–5, 7",
+          "Resultary:b7344a959664 RESULT.md Proof §§1–4",
+          "DOI 10.1007/s42952-023-00205-8 and the identified PMC9869324 alternate"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.06368",
+        "doi:10.1007/s42952-023-00205-8 (journal full text unavailable)",
+        "Resultary:b7344a959664",
+        "Resultary:570951d13f26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-Gaussian-limit record explicitly states D(0,0,c)=−c²/30 and the variance on the same linear tilt (its sign convention is reversed), so the drift, quarter-power balance and standard centered triangular-array argument closely overlap or follow directly.",
+          "The symmetric record derives subnominal behavior only for a different shape and exact polynomial section; a nonconstant symmetric density cannot be increasing."
+        ],
+        "reasoning": "The simple exact-mean scaling and qualitative monotone blindness are not used to rescue originality. The monotone subnominal branch is not a specialization of the null-variance theorem or of the symmetric-polynomial subnominal example. The supported distinct claim is the quantitative strictly subnominal law over an explicit one-sided stochastic class.",
+        "searches": [
+          "uniformity goodness of fit scalar U-statistic n^-1/4 local detection boundary",
+          "Resultary:b7344a959664 Proof §§1–2, offsets 2200–5265",
+          "Resultary:570951d13f26 Proof, offsets 2200–5306"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint's pair kernel, scalar target and statistic are exactly the ones reviewed. The preprint states nonzero under the alternative; the counterexamples refute that blanket assertion for the complete-data scalar statistic.",
+          "Both materially overlapping local-mirror records use exactly the same statistic. The exact-null-limit record has CDF x+cH+O(c²), H=x(1−x), in a fixed polynomial basis, so its density derivative is −2c+O(c²) uniformly: for negative small c it already gives strictly increasing blind densities. Its fixed power is α, not strictly below α."
+        ],
+        "reasoning": "Distinguish increasing CDF, increasing density, and the rejection probability. Even after the implied monotonicity is credited, the strict subnominal result for the explicit increasing quadratic family is different. The claim excludes threshold-wise integrated-square characterizations.",
+        "searches": [
+          "Kattumannil Sreedevi uniformity U-statistic zero expectation monotone alternative polynomial density",
+          "uniform distribution test scalar U statistic exact zero mean increasing nonuniform density blind alternatives",
+          "arXiv:2106.06368 PDF p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The symmetric-polynomial record uses the L4 and L2 directions and gives a distinct exact subnominal example, about 0.017188 at nominal 5%.",
+          "The exact-Gaussian-limit record supplies a different polynomial CDF family with limiting power exactly α for every fixed level.",
+          "The preprint's Section 4 concerns numerical power comparisons on other alternatives, not the exact rational example in the submitted Finding."
+        ],
+        "reasoning": "The meaningful analogue of a lookup table is an exact parameterized example in this setting. The retrieved examples overlap in the tested statistic and eventual failure of consistency, not in the explicit monotone subnominal family or example variance.",
+        "searches": [
+          "Kattumannil Sreedevi statistic polynomial alternatives exact null asymptotic variance Gaussian power",
+          "Resultary:570951d13f26",
+          "Resultary:b7344a959664"
+        ]
+      },
+      "rationale": "Pass rests on the explicit low-degree monotone zero-target curve with strictly subnominal fixed-alternative power throughout the stated parameter interval and its exact quantitative comparison. There is considerable same-day overlap: zero-target smooth laws, monotone blind laws near the null by implication, subnominal behavior for a different symmetric law, and the exact linear-tilt drift all occur in the retrieved material. Do not credit those constituent facts, or the local scale in isolation as independent evidence of priority. None of the inspected results yields the explicit quadratic strictly increasing subnominal curve and its full variance law. Within-day priority is unresolved.",
+      "residual_risks": [
+        "The journal version could contain relevant changes not recoverable in the inspected copies.",
+        "These indexed comparisons do not settle within-day order or rule out an earlier equivalent quadratic subnominal family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complete-data statistic and reference calibration; assertion of nonzero target under the alternative is contradicted",
+          "evidence": [
+            "Exact kernel and calibration 1/45, and numerical power comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06368",
+          "material_read": "PDF pp. 3–5 and Section 4 p. 7; offsets 6194, 7553, 11018, 17644",
+          "method": "Primary OA PDF text",
+          "title": "A new goodness of fit test for uniform distribution with censored observations",
+          "trigger": "Definition, proposed identification and null calibration"
+        },
+        {
+          "assessment": "Residual journal-version risk; not counted as negative coverage evidence",
+          "evidence": [
+            "The accessible source used for calibration and identification is the 2021 preprint, not an inferred journal passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s42952-023-00205-8",
+          "material_read": "No substantive journal passages retrieved; DOI, publisher/PDF, PMC9869324 and Europe PMC alternate attempted",
+          "method": "Lawful OA retrieval and index comparison",
+          "title": "Goodness of fit test for uniform distribution with censored observation",
+          "trigger": "Journal continuation of the exact preprint"
+        },
+        {
+          "assessment": "Strong equivalent partial coverage; different variance conclusion from the distinct submitted branch",
+          "evidence": [
+            "Analytic a(c), b(c) with first derivatives zero, H=x(1−x), exact V=1/45 and Δ=0 on its branch; exact Δ=−c²/30 on the pure tilt."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-smooth-nonuniform-laws-with-the-exact-gaussian-null-limit-of-a-s--b7344a959664",
+          "material_read": "Finding; Proof §§1–4 and limitations, offsets 0–8336 in bounded sections",
+          "method": "Local mirror",
+          "title": "Smooth nonuniform laws with the exact Gaussian null limit of a scalar uniformity test",
+          "trigger": "Same kernel, exact cancellations and same tilt direction"
+        },
+        {
+          "assessment": "Substantial overlap on fixed power obstruction, symmetric rather than strictly increasing laws",
+          "evidence": [
+            "The L4/L2 branch is symmetric and supports the explicit subnominal a=−1 case."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-smooth-blind-manifold-for-a-uniformity-u-statistic-with-subnom--570951d13f26",
+          "material_read": "Finding and proof of the polynomial branch, projection and subnominal case, offsets 0 and 2200–5306",
+          "method": "Local mirror",
+          "title": "A smooth blind manifold for a uniformity U-statistic with subnominal power",
+          "trigger": "Same kernel and strictly subnominal example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The point is not another arbitrary nonuniform zero. A quadratic perturbation (the lowest polynomial degree permitting this cancellation among nonuniform densities) produces strictly increasing densities whose CDFs separate from uniformity in a single direction and whose rejection rate stays below the nominal level throughout the stated branch. This gives a simple calibrated, shape-restricted benchmark for a procedure intended to detect nonuniform laws. The local-power calculation gives scope and a quantitative comparison, not novelty or value by itself over the prior exact tilt drift.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

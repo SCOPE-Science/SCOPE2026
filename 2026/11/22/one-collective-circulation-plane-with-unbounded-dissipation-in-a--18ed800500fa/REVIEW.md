@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is every integer \(n\ge2\), strictly positive real pinning and all-to-all spring rate, and strictly positive independent Langevin bath temperatures. The symmetric drift has two strictly positive eigenvalues. The stationary covariance is reconstructed analytically by its four spectral-projector blocks, not numerically guessed. The integrated current tensor follows from the exact Lyapunov equation and has an at-most-two-dimensional image; unequal temperatures make that rank exactly two. The stationary pointwise current lies in the same fixed plane. The reservoir heat expression uses the explicitly defined Stratonovich force-work convention and reproduces total energy conservation and the nonnegative quadratic-current expression for entropy production. The three-temperature construction has exactly fixed first and second moments and strictly positive entries, and its cold limit yields a proved reciprocal divergence while the current eigenvalues remain identical.
+PASS
 
-The included independent algebraic program checked 36 exact-rational examples by solving the full Lyapunov system rather than reusing the spectral-projector formula. Those examples are consistency checks; the displayed matrix proof establishes the quantified result.
+The drift is stable and symmetric with eigenvalues a,a+b; splitting the stationary Lyapunov equation into the P and I−P blocks gives denominators equal to the corresponding sums of relaxation rates. Positivity of D guarantees an invertible covariance. With the specified index and sign convention A=D−KC=(CK−KC)/2=b(PD−DP)/(2a+b). Writing T=T̄1+v shows A is the wedge of 1 and v with the stated coefficient: for unequal baths the rank is exactly two and Ω=b||v||/[(2a+b)√n], and for equal baths A=0. Since j(x)=AC⁻¹xρ(x), this is also pointwise confinement of the flux vectors. Conversion of bath force-work from Stratonovich gives h_i=(KCK−DK)_ii=(−AK)_ii; uniform off-diagonals of K give the stated row sums and ∑h_i=0. The Gaussian quadratic rate is tr(C⁻¹AᵀD⁻¹A); substitute A=D−KC on the right, use skew symmetry and cyclicity, to obtain −tr(D⁻¹AK), the reservoir rate. For the cold family the other two baths sum to 3−ε, their product is (6−12ε+4ε²)/4>0 on the stated interval, and total sum of squares is 6. Hence the first two moments and integrated-current spectrum are fixed, but only the 1/ε term of ∑1/T_i diverges. The divergence concerns entropy production, not heat flux or the full matrix A, and never assumes zero-temperature dynamics. Fresh bounded reproduction: exact SymPy Lyapunov solves in four cases (equal and unequal baths), heat and entropy trace checks, and symbolic cold-family moments and leading coefficient. Replay cd /workspace && python3 review-evidence/reproduce.py 1; output review-evidence/1.txt. Inspected but did not execute the frozen verifier; its recorded 36 cases are corroboration, not the general proof.
 
-## Originality — PASS on examined evidence
+## originality
 
-The 2003 self-consistent stochastic-reservoir harmonic crystal has a thermostat at each lattice site but uses an underdamped nearest-neighbor interaction and imposes self-consistency on interior bath temperatures. Filliger–Reimann's 2007 gyrator is two-dimensional with two baths. The 2016 Zia–Weiss–Mandal–Fox-Kemper linear-Gaussian probability-angular-momentum identity is prior and directly credited; neither it nor the 2007 model states the specialized arbitrary-size complete-graph flux-plane, bath-entropy law, or fixed-temperature-mean-and-variance unbounded-cost family. Defaveri–Olivares–Anteneodo's 2021 mean-field harmonic model uses inertial dynamics with two endpoint Langevin baths. Relevant public research records on bipartite skew Ornstein–Uhlenbeck noise, active graph forcing, and planar gyrators were also compared by hypotheses and implications. The examined sources do not establish the complete claim, though a specialized consequence in unindexed literature remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
+The Gaussian commutator is prior work, its rank bound follows from the two-rate drift with a one-dimensional eigenspace, and the two-bath case has a gyrator antecedent. The supported distinct contribution is the closed all-bath thermodynamic classification in this symmetry class coupled with the fixed-temperature-moments, fixed-integrated-current-spectrum divergence witness, not the general Gaussian method or unbounded OU dissipation without those constraints.
 
-The rank of stationary irreversibility under numerous independent baths is a motivated structural observable. Its collapse to one collective plane is exact in any dimension rather than a finite example; the explicit heat law connects current structure to the physically relevant reservoir exchanges. The fixed-moment counterfamily demonstrates a strict limitation of using a measured circulation eigenvalue as a proxy for dissipation, under stronger normalization than an unconstrained cold-bath limit. No claim is made for arbitrary graph topologies or friction matrices.
+## value
 
-## Closest literature and limitations
+PASS
 
-Sources inspected: Bonetto–Lebowitz–Lukkarinen, arXiv:math-ph/0307035 (2003); Filliger–Reimann, arXiv:0710.3735 (2007); Zia et al., arXiv:1610.02976 (2016); Defaveri–Olivares–Anteneodo, arXiv:2111.01332 (2021). The general Gaussian commutator is known; the claimed contribution is its specialized all-bath network classification plus exact thermodynamic counterexample. Evidence and remaining risks are detailed in AUDIT.json. External expert review, independent reproduction, and exhaustive historical-priority determination are not represented.
+A natural pinned complete-graph model reduces the stationary current to one plane irrespective of the number of unequal baths, giving a useful exactly solvable benchmark. More importantly, the fixed-moment witness distinguishes the purely spectral current diagnostic from reservoir entropy production even at fixed drift. It quantifies a real failure of inference from the measured invariant, not a claim about diverging mechanical heat flux or an arbitrary graph.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review of a finite circular-attractor classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposition is expressly restricted to twelve concrete, recursively specified binary words, not an unproved infinite pattern. The checker enumerates every length, every start position and every position pair; for each factor it sets bits at exactly the positions crossed by at least one occurrence. The pairwise OR criterion is equivalent to the definition of circular string attractor, with no extrapolation. Every final surviving pair is checked; the bipartition algorithm proves the exact complete bipartite structure by comparison of edge sets rather than merely edge counts. Each word has both letters, giving a rigorous lower bound of two positions. The exact critical-length checks are explicitly asserted; the largest instance has length 377 with 71,629 distinct length-tagged factors. Recorded output is reproduced by the included standalone program.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary circular-attractor paper (Romana 2023, inspected main algorithmic and illustrative sections) develops general algorithms and includes a Fibonacci example but not a complete twelve-stage minimum-pair census or bipartite extremizer classification. Banbara et al. (arXiv v1 February 18, 2026; full accessible CPM 2026 text inspected for statements and examples) study the corresponding linear rather than circular attractors. Related studies of Christoffel factor complexity do not imply the exact pair graph. Relevant mathematical research records and accessible earlier original claims were compared by implications and parameter ranges. Remaining historical risk: a computational appendix or unpublished equivalent finite tabulation might overlap, and searched records do not prove uniqueness or global priority.
+PASS
 
-## Value — PASS
-This supplies a complete exact extremizer census for a natural sequence of primitive near-balanced periodic words across twelve increasing levels, rather than one arbitrary string. The abrupt and consistent complete-bipartite shape, the rapidly growing count of 2,048 optimal pairs by length 377, and the exact identification of the only factor lengths that alter the feasible pair set give structural information not implied by known linear minimum attractor counts or by general factor complexity alone. The phenomenon provides a reproducible, mathematically motivated finite boundary against which proposed general structure theorems can be tested. No general index theorem or downstream application is asserted.
+The criterion for a given circular factor is to hit the union of its occurrence intervals modulo N, not to hit every occurrence. The frozen per-position incidence masks implement this criterion exactly. An independent factor-oriented enumeration formed those unions, filtered every unordered pair at each length 1 through N, and compared the full surviving edge set to the Cartesian product of the two active symbol classes for all m=1,...,12. It reproduced both shore sizes, 2^(m−1) edges, the isolates, and all strict-drop lists. For m=12 it checked 71,629 length-tagged factors, with 2,048 edges, shores 64 and 32, 281 isolates and drops at 1,2,3,5,8,13,21,34,55,89,144. There is no drop at m=1. One position cannot cover both distinct length-one factors, so the nonempty edge sets give minimum size two. The original checker and recorded output were inspected without running the original. Replay: python3 /workspace/branches/d7217b17-d1cf-4f0e-b0ba-db0bf27f7c9c/independent_fibonacci_circular_attractor.py --max-m 12; independent-summary.txt and per-level edge files are in that directory. This proves exactly the twelve finite cases, not a recurrence for all m.
 
-## Scope and residual risks
-The twelve-word cutoff is finite and computational, and the observed recurrence is unproved beyond it. The search cannot exclude unindexed older treatments of circular Christoffel words. Independent replication and publication-priority review have not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the full compatibility graph and length-by-length redundancy profile across the twelve circular Fibonacci words. The graph includes known edges and its nonempty minimum-size-two feature already has substantive prior coverage. The strongest inspected literature and catalogue statements do not determine all shores, edges, and strict drops.
+
+## value
+
+PASS
+
+The finite certificate goes beyond finding one attractor or re-counting factors: it identifies all freely combinable choices of the two markers and every length that affects the solution set. The twelve consecutive canonical words, through the 377-position case, provide a reproducible structural and constraint-redundancy benchmark for circular attractor work. The useful content is the verified product and drop structure, not the cutoff as a purported natural transition or any unproved generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

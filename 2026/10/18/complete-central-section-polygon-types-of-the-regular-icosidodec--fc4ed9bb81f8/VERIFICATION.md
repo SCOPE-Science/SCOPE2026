@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -22,6 +25,6 @@ Run `python3 check_sections.py` from the directory containing the delivered file
 
 The checker performs exact additions, multiplications, divisions and sign tests in the quadratic field \(\mathbb Q(\sqrt5)\). It reconstructs the icosahedron and its rectification, tests all 20 triangular and 12 pentagonal supporting facets against all midpoint vertices, and verifies edge incidence. It verifies that each of the 15 hyperplane reflections preserves the midpoint vertex set. It enumerates all 105 distinct mirror-plane pairs and groups their projective cross-product axes with exact rational normalization, obtaining 15 twofold, 10 threefold, and 6 fivefold lines. For every axis it counts strict edge crossings and polytope vertices already on the plane and checks section sizes 8, 6 and 10 respectively. A generic normal has 12 sides; a sample normal on precisely one wall has 10. The program prints `EXACT_SECTION_CERT_OK` upon success.
 
-The mathematical extrapolation from a generic sample to **all** generic directions is separately justified by the proven reflection symmetries and the chamber-transitivity lemma, not by sampling. Likewise, all open mirror arcs share the ten-sided count through the centrally symmetric degree-four incident-edge argument. Euler's formula completes the spherical region count.
+The mathematical extrapolation from a generic sample to **all** generic directions is separately justified by the proven reflection symmetries and the chamber-transitivity lemma, not by sampling. For an open mirror arc, the eight edges incident to the two on-plane vertices contribute complementary strict crossings on its two sides. Since the generic total is the same on both sides and the other edges have unchanged signs, exactly four of those incident edges cross on each side. Replacing the four strict crossings by two on-plane vertices gives ten vertices. Euler's formula completes the spherical region count.
 
 **Limitations:** The verification does not address metric measures of sections, noncentral planes or exact priority of every historical source. These checks are self-review with an executable finite certificate; independent audit is not performed.

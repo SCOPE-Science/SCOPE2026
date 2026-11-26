@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:28.923016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quantifier over 'unrestricted' optimizers removes automorphism invariance, not P=P^T. Convex averaging preserves feasibility and cannot worsen the spectral norm. Independently, for any feasible P let a be the mean cross-edge weight. The trace of the peripheral sum-zero compression divided by its dimension is 1-ra, and the class-contrast Rayleigh quotient is 1-(r+m)a, so max(1-ra,|1-(r+m)a|) is a lower bound. Nonnegative row sums bound a by min(1/r,1/m). The lower bound decreases strictly up to a_0=2/(m+2r), then increases; on the feasible segment its unique minimizer is min(a_0,1/m). In the invariant problem the remaining core sum-zero eigenvalue is 1-ma-rb, with holding probability 1-ma-(r-1)b. Bounding its modulus and requiring nonnegative holding gives exactly the stated interval; for m<=2r its spectral upper bound 2/(m+2r) is no tighter than the holding bound, since m>=2. For m>=2r the core row is saturated and forces b=0, including equality. The lower endpoint is positive exactly for m<r and the upper endpoint is positive exactly for m<2r. The averaged b being an average of nonnegative weights proves the two universal support implications, while attainable endpoints prove the existential middle regime. The stored LP and spectral tests were inspected as finite checks, not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The clique-lift theorem preserves optimal SLEM. In its star formula, masses proportional to (r,1,...,1) give m/(m+2r) up to m=2r and 1-r/m after it, and produce one invariant optimizer.",
+          "Boyd et al. provide the general multipartite quotient and within-part modes, not this full interval. The earlier exact Resultary theorem goes beyond invariant chains."
+        ],
+        "reasoning": "The known lift already eliminates novelty of the value, but not of a full support classification. The earlier optimizer-face result removes that remaining distinction.",
+        "searches": [
+          "Jafarizadeh arXiv:2501.02421v1, Theorem 1 Eqs. (8)–(9); Sections 6.5 and 6.1.1",
+          "Boyd et al., journal pp. 812–813, Section 5.4.2",
+          "Resultary 0fb2efaf041d, full unrestricted optimizer-face statement"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0fb2efaf041d and 45dc9950cb66",
+        "Boyd et al. journal Section 5.4.2 and arXiv:0709.0955v1",
+        "arXiv:2501.02421v1",
+        "Frozen result, verification notes and numerical evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Below saturation, the earlier face has cross-weight a=2/(m+2r), core-row remainder c=1-ma and core zero-sum spectral bound mu=m/(m+2r). An invariant block has core zero-sum eigenvalue c-rb and diagonal c-(r-1)b. Consequently max(0,(c-mu)/r)<=b<=min((c+mu)/r,c/(r-1)), which simplifies to the stated endpoints. At and above saturation a=1/m and the core block is zero.",
+          "The earlier result explicitly distinguishes mandatory, optional and forbidden core edges in exactly the frozen ranges."
+        ],
+        "reasoning": "There is no unidentified step left between the earlier general optimal face and the frozen invariant set and all-optima edge-use facts. A different proof by averaging does not change that coverage.",
+        "searches": [
+          "Resultary 0fb2efaf041d, optimizer face specialized to invariant core-block weights",
+          "Clique-lift and bipartite formulas compared with RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is complete multipartite with sizes (1,...,1,m), or a star with its center replaced by a clique of size r. For the lift the base stationary masses are r/(r+m) at the center and 1/(r+m) per leaf, giving uniform mass on the expanded graph.",
+          "The bipartite graph K_{r,m} instead deletes the core clique. For m>=r its value agrees, but for m<r its value is strictly worse."
+        ],
+        "reasoning": "The clique lift and complete-multipartite descriptions preserve the graph being optimized, unlike the bipartite deletion. The latter cannot be used to claim coverage of the small-m regime by itself.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, Section 5.4.2, complete k-partite and complete bipartite",
+          "Jafarizadeh arXiv:2501.02421v1, clique lift of a star",
+          "Local Resultary: complete split graph fastest mixing, optimizer face and zero clique-edge weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 Finding and proof force equal individual cross-edge probabilities, specify the allowed core blocks by row sum and spectrum, and explicitly give the identical three support regimes.",
+          "The Nov. 2 record also addresses unrestricted rigidity and support, but is later and is not needed for the negative originality decision."
+        ],
+        "reasoning": "The matching dated finding concerns exactly r,m>=2 and the same holding/zero-edge conventions. It even characterizes optimal kernels omitted by the frozen record.",
+        "searches": [
+          "Local Resultary 2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+          "Local Resultary 2026/11/2/SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66"
+        ]
+      },
+      "rationale": "An earlier indexed theorem treats exactly the same feasible symmetric uniform-stationary chains, states the same three edge-use regimes, and characterizes the entire unrestricted optimal face. Its invariant restriction yields the frozen b-interval. The exact optimum was also available via the published clique lift of a weighted star. This is stronger mathematical coverage, independent of title similarity or any postdated record.",
+      "residual_risks": [
+        "Other exact treatments may exist; exhaustive publication priority is not needed once the earlier stronger statement is verified. No priority inference is made from the later corroborating entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier, strictly stronger explicit coverage",
+          "evidence": "Same optimal SLEM and phase boundaries; fixes each cross weight and gives necessary and sufficient clique-block conditions.",
+          "identifier_or_url": "Resultary 0fb2efaf041d",
+          "material_read": "Finding and proof, optimizer face and edge support regimes",
+          "method": "Local Resultary search and source mirror",
+          "title": "Every fastest mixing kernel on complete split graphs",
+          "trigger": "Same split graphs and all-optima claim"
+        },
+        {
+          "assessment": "General reduction and exact bipartite value",
+          "evidence": "Complete k-partite quotient and within-part modes; for K_{ell,n}, ell<=n, max((n-ell)/n,n/(n+2ell)).",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Section 5.4.2, pp. 812–813, offset 75352; checked against arXiv:0709.0955v1 Section 3.1.2",
+          "method": "Primary OA PDF passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact multipartite representation and bipartite comparator"
+        },
+        {
+          "assessment": "Covers SLEM value and provides an optimizer, not full face",
+          "evidence": "Lift preserves optimal SLEM, and substitution of the star masses yields both closed-form regimes.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02421v1",
+          "material_read": "p. 3 feasible model, Section 3.2 Theorem 1 Eqs. (8)–(9), Section 6.5 Eqs. (52)–(55) and path case for two leaves",
+          "method": "Primary OA PDF passages",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Exact lift of the center of a star"
+        },
+        {
+          "assessment": "Postdated corroboration only",
+          "evidence": "Characterizes residual clique freedom and the same support phases.",
+          "identifier_or_url": "Resultary 45dc9950cb66",
+          "material_read": "Finding on cross-edge rigidity and clique-Laplacian conditions",
+          "method": "Local Resultary search and source mirror",
+          "title": "Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs",
+          "trigger": "Matching unrestricted structural classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimal edge use on this graph is a meaningful design question, but the submitted answer is a restriction of an existing complete classification of the very same optimizers. Neither the two phase boundaries nor the interval provides a distinct unknown fact, and the material offers no separate scientifically substantive remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

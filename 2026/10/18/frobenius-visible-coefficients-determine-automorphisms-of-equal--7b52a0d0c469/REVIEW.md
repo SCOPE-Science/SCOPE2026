@@ -1,12 +1,21 @@
-# Scientific review — Frobenius-visible coefficients
+# Independent mathematical audit
 
-## Correctness — PASS
-The local finite-dimensional Nakayama argument reduces automorphisms to nilpotent generator images with an invertible linear matrix. For \(d=mp^s\), \(m>1\), the coefficient of \(x_i^{d-p^s}x_j^{p^s}\) in a two-supported linear form's \(d\)-th power is nonzero, so the cotangent matrix is monomial. Under the \(p^s\)-Frobenius map, the square-free-forbidden criterion reduces to an \(m\)-th-power calculation in a truncated \(m\)-power algebra. The coefficient of the next-to-highest distinguished-variable power is a nilpotent times a unit, giving the exact admissible coefficient restriction. Counting yields the stated orders and reduced chart structures. The packaged standard-library verifier checked five small parameters exhaustively and four larger parameters by deterministic samples; no infinite assertion is inferred from the finite checks.
+## correctness
 
-## Originality — PASS, with limits
-The 1997 Deo–Maitra study covers graded automorphisms of the same characteristic-zero tensor-product family, and the broad Díaz–Liendo–Manzano-Flores–Regeta results from 2024 dominate its characteristic-zero setting. They do not imply the positive-characteristic conditions involving the \(p\)-free factor of the truncation exponent. The primary work of Angeltveit et al., arXiv:1206.0247 (2012), concerns \(K\)-theory of the same rings, not automorphisms. The publicly available full text on coordinate-cross algebra automorphisms imposes the distinct additional relations \(x_ix_j=0\), and its explicit normal form does not specialize to the present algebra. Targeted published-record and semantic database searches found no exact covering modular classification; this does not establish unconditional novelty. The 2024 and 2026 char-zero full texts were not both fully inspectable, and specialized positive-characteristic antecedents may remain unlocated.
+PASS
 
-## Value — PASS
-The exact automorphism order for every finite field, number and dimensions of reduced geometric components, and coefficient-level normal form are complete natural structural invariants for a classical tensor-product family. They reveal an arithmetical dichotomy not seen in graded characteristic-zero results: when the truncation exponent is a pure power of the characteristic, every invertible cotangent action is admissible; otherwise only monomial cotangent actions survive, with fiber dimensions determined by the full \(p\)-free part.
+The degree-d homogeneous component excludes two distinct nonzero linear coefficients when m>1: the surviving coefficient of x_i^(d-p^s)x_j^(p^s) is nonzero since binom(d,p^s)=m mod p. An invertible cotangent action is sufficient by surjectivity on the maximal-ideal filtration, then finite dimensionality. For f with leading term a x_j, raising to p^s projects to the box of exponents <m, with injective Frobenius on individual coefficients even over an imperfect field. Writing that projection as b+y_j u in B[y_j]/(y_j^m), the coefficient of y_j^(m-1) in its m-th power is b(m u_0^(m-1)+bC); u_0 is a unit by its nonzero residue, b is nilpotent, so the second factor is a unit. This proves necessity and sufficiency of the nonlinear support rule, not only of the leading action. For m=1 all positive-degree monomials die under the d-th power. The remaining parameters yield the two counts and dimensions; over an algebraic closure the reduced locus is identified by its points using the Nullstellensatz on the determinant open set. The permutation charts are open and closed with irreducible torus-affine factors.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest checked matches cover the pure-power branch, the leading monomial action, exponent two and the adjacent exponent p^e+1. Credit those cases and the classical ingredients. The supported distinction is the exact unrestricted set of ungraded coefficients and resulting census for general d=mp^s, especially m>1 and s>0, where divisibility in the smaller visible box is not divisibility in the original algebra. No inspected broader theorem implies that surviving distinction.
+
+## value
+
+PASS
+
+The exact leading-action fibers are useful for counting and constructing ungraded symmetries of this natural family. The mixed branch distinguishes nonlinear directions x_i cannot simply absorb as unit factors and determines the component dimensions for every equal exponent. This is substantive beyond the known leading action or the already matched pure-power and exponent-two cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

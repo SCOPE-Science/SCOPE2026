@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:30:28.831560Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fano incidence rule gives AAᵀ=2I+J, so |det A|=24. There are exactly 24 admissible bijections and all are even in this labeling, giving equality of determinant and matching sum for every signing. Independently enumerating bijections and summing signs on all 256 tree-normalized classes gives (−8:45, 0:168, 8:42, 24:1). Switching at a vertex changes the contribution of every matching by −1. The switch space has dimension 13 and exactly half its elements reverse sign (the all-vertex relation involves 14 even vertices). Normalizing all tree signs uniquely leaves the eight cotree bits, giving the claimed signed full spectrum, rank 720896, nullity 1376256, nonzero condition number 3, and pseudoinverse norm 1/8. The symbol of the range projection is constant on switch classes, so its kernel vanishes off the cycle space; the cotree bits and fundamental-cycle coordinates are dual. The replay finds integer inverse-kernel histogram (−8:77, 0:108, 8:42, 16:28, 88:1), with absolute sum 1488 at denominator 256. Averaging any projection by translation conjugacy leaves range and identity on that range unchanged, and cannot increase the norm. The unique invariant projection is Fourier truncation; the row and column absolute-sum norms are both 93/16. The frozen checker uses int.bit_count (Python ≥3.10), notwithstanding its Python 3.9 instruction; the independent calculation does not rely on running it.",
+      "replay": "/workspace/branches/cc6a75f5-af02-4c5f-a94e-b4ce87cc40d8/independent_check.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sparse 0–1 matrix work concerns unsigned determinants/permanents. The two-factor classification treats Heawood and Pappus as graphs; Brouwer gives 24 matchings and the complement structure."
+        ],
+        "reasoning": "Neither the unsigned extremal analysis nor the structural classification computes signed matching character sums or norms of the Fourier range projection. The known count is not credited as new.",
+        "searches": [
+          "arXiv:2011.01892v1; arXiv:1002.1891v1; Brouwer's Heawood graph reference, Subgraphs (a)"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer, Heawood graph, Subgraphs (a)",
+        "arXiv:2011.01892v1 pp. 2 and 20",
+        "arXiv:1002.1891v1 §1",
+        "Resultary local mirror: 706d7c9e0a96 (same record), 79bddf4f8e9f, cd9c61e17f90, 0645b73a843d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching complements and the 28 hexagons are known; the indexed hexagon calculation uses the same ambient cube and cycle-space reduction."
+        ],
+        "reasoning": "Taking complements of perfect matchings produces 14-edge spanning 2-factors, not individual hexagons. Common switching/averaging arguments reduce the calculation but do not give the matching sign histogram or inverse-kernel ℓ1 sum without graph-specific data.",
+        "searches": [
+          "Brouwer, Heawood graph, Subgraphs (a); Resultary Heawood hexagon record 79bddf4f8e9f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue exact hit 706d7c9e0a96 is this same frozen record, not independent coverage.",
+          "Araujo–Balogh–Wang give determinant 24 and permanent equal to determinant for the unsigned Fano incidence matrix."
+        ],
+        "reasoning": "The spectral computation is equivalent to a signed determinant census because every admitted permutation has the same parity. The known unsigned identity supplies that reduction, but gives only the value at the all-positive signing, not the signed distribution.",
+        "searches": [
+          "Resultary: Heawood/Fano perfect matching signed permanent, determinant histogram, Walsh spectrum and projection",
+          "arXiv:2011.01892v1, pp. 2 and 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heawood hexagons: six-level spectrum and 121/16 on the same 21 edge bits, but 28 six-cycle vectors.",
+          "Fano matroid: 28 non-line triples in an affine six-dimensional chart.",
+          "Dodecahedral matching record: 36 matchings on 30 edge bits, norm 83/8."
+        ],
+        "reasoning": "The census requires the same Fourier support-generating codebook up to an equivalence; cardinalities alone exclude affine equivalence of these codebooks to the 24 Heawood matchings. None of the tabulations matches the target.",
+        "searches": [
+          "Resultary: Heawood Walsh spectra and exact projection constants; records 79bddf4f8e9f, cd9c61e17f90, 0645b73a843d"
+        ]
+      },
+      "rationale": "The unsigned matching count and determinant coincidence are known, as are the general methods. The checked same-graph Fourier calculation has a different support, and other close computations use different graphs or ground sets. No checked source establishes the signed census and sharp projection constant for this matching support.",
+      "residual_risks": [
+        "The full text of the 2004 two-factor paper (10.1016/j.jctb.2004.09.004) was not obtained. Older or unindexed tabulations of signed Fano incidence determinants could overlap; an irrelevant search result is not evidence against such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known count and complement structure only",
+          "evidence": [
+            "24 matchings and description of their complements."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Heawood.html",
+          "material_read": "Subgraphs (a), offset 0",
+          "method": "Public reference webpage",
+          "title": "Heawood graph",
+          "trigger": "Unsigned matching and complement counts"
+        },
+        {
+          "assessment": "Covers unsigned ingredients, not the signed census",
+          "evidence": [
+            "Fano determinant 24; permanent equals determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.01892v1",
+          "material_read": "p. 2 (offset 6546), p. 20 (offset 78613)",
+          "method": "OA full-text PDF passages",
+          "title": "Maximum determinant and permanent of sparse 0–1 matrices",
+          "trigger": "Fano determinant/permanent route"
+        },
+        {
+          "assessment": "Structural classification, not the spectral/projection calculation",
+          "evidence": [
+            "Irreducible pseudo-2-factor-isomorphic cubic bipartite classification includes Heawood and Pappus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.1891v1",
+          "material_read": "§1, p. 3",
+          "method": "OA full-text PDF passage",
+          "title": "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs",
+          "trigger": "Same-graph two-factor characterization"
+        },
+        {
+          "assessment": "Different support and norm; same-day date does not establish priority",
+          "evidence": [
+            "Six-cycle codebook of size 28 and sharp constant 121/16."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-six-level-hexagon-walsh-spectrum-and-sharp-recovery-projection-f--79bddf4f8e9f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Six-level hexagon Walsh spectrum and sharp recovery projection",
+          "trigger": "Closest same-graph and same-operator-family overlap"
+        },
+        {
+          "assessment": "Different object and ambient affine space",
+          "evidence": [
+            "28 non-line triples; multipliers 28 once, 4 in 28 classes and −4 in 35 classes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-fano-matroid-base-support-is-a-cubic-bent-difference-set--cd9c61e17f90",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The Fano matroid base support is a cubic bent difference set",
+          "trigger": "Fano geometry and Walsh spectrum"
+        },
+        {
+          "assessment": "Analogous, not covering the Heawood graph",
+          "evidence": [
+            "36-matching codebook on 30 bits and endpoint norm 83/8."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-walsh-spectrum-and-optimal-recovery-for-dodecahedral-perfe--0645b73a843d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact Walsh spectrum and optimal recovery for dodecahedral perfect matchings",
+          "trigger": "Same invariant for another natural graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood graph is the canonical Fano incidence example, and its matching/determinant coincidence motivates comparing its unsigned count to its full signed cancellation profile. The census determines which Walsh magnitudes are available and how large the nullspace is; the sharp endpoint norm additionally quantifies the minimum range-projection cost over all linear projections, which rank or determinant bounds alone do not give. These form an exact benchmark on a natural graph rather than an arbitrary truncation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

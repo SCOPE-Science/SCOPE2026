@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:01.042750Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With h=1−c>0 the update is exactly V-gradient ascent with mobility diag(h,1). In scaled coordinates the Hessian is a diagonal cosine term minus b cos(2π(y−x)) vvᵀ, with v=(√h,−1) and ||v||²=1+h; hence its bottom eigenvalue is globally bounded below by −L. At L=2, equality in this directional lower bound for nonzero gradient would require alignment with v and both individual cosines −1, forcing the half-integer diagonal, where the gradient actually vanishes. Taylor's integral along each nonzero step therefore gives strictly positive ascent even at equality. The zero-displacement equations reduce, for sin(t)≠0 and r=b/a, to sin(u)=−hr sin(t), cos(u)=r(1+h cos(t)), so the unit-circle constraint fixes cos(t)=(r⁻²−1−h²)/(2h). It gives exactly two extra solutions if this value is strictly between −1 and 1, with the stated thresholds, and neither endpoint adds a distinct solution. The sin(t)=0 branch gives exactly the four grid points. In L≤2 the actual increments are each smaller than one, so there are no extra winding torus fixed points. Strict ascent and compactness put the limit set in this finite stationary set. Vanishing steps prevent transitions between separated small neighborhoods, first on the torus and then among distinct integer lifts. Finally, in the −L direction of the Hessian at the diagonal half-integer, the derivative multiplies by 1−L; the quadratic potential change is L²(2−L)||v||²/2 times the squared perturbation. This proves sharpness for this potential, not necessity for global convergence. The verification note and supporting code were inspected, not executed; their finite diagnostics are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0e6257ae608f proves strict potential descent and convergence up to h_net=2/Λ for F(z)=z+h_net K A sin(z) with K symmetric positive definite and A positive diagonal, including tree edge coordinates. Its exact remainder uses variation of cosine along the step.",
+          "Introducing three angles x, y, y−x (up to angular normalization and a phase shift) for the frozen map gives three sine terms but only two independent angles; the induced three-coordinate mobility has rank two."
+        ],
+        "reasoning": "The proof tools are closely related, but the stronger-looking theorem requires invertibility of K and a binary equilibrium set; it does not apply to the constrained cycle with singular mobility and possible nonbinary equilibria. One may adapt the remainder calculation, but the fixed-set and lift arguments are still needed. A standard smooth-gradient bound gives strictness below the step limit, not by itself at equality.",
+        "searches": [
+          "Resultary 0e6257ae608f, Finding, scope and Proof Steps 1–2 for the coordinatewise sinusoidal update theorem",
+          "General smooth gradient-ascent step bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72, VERIFICATION.md and verification.py",
+        "Resultary 0e6257ae608f, 2b21d21838bf and e796da7f332f",
+        "DOI 10.11648/j.acm.20221101.12 (abstract and metadata)",
+        "Hamri–Soula 2010 (bibliographic record)",
+        "DOI 10.1142/S0218127405013320 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary same-family abstract explicitly covers period doubling and analytic bifurcation curves. The 2005 abstract describes synchronized and asynchronous chaotic states and transverse period doubling in a related coupled sine model.",
+          "At the frozen diagonal half-integer the critical multiplier is −1, but zero gradient is the only way the step can attain equality in the potential estimate along its initial direction."
+        ],
+        "reasoning": "Knowledge of the local multiplier does not establish strictly increasing potential at every other state, at or below the flip threshold, or convergence for the real lift. Conversely, the demonstrated descent above the boundary near the diagonal only rules out this potential as globally monotone; it is not a theorem of nonconvergence.",
+        "searches": [
+          "Soula et al. 2022 DOI 10.11648/j.acm.20221101.12, publisher abstract",
+          "Maistrenko et al. 2005 DOI 10.1142/S0218127405013320, available abstract",
+          "Resultary 0e6257ae608f, Proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2b21d21838bf treats invertibility loss and an attracting fixed point of a coordinatewise sine path network, not all-state convergence of this asymmetric map.",
+          "For a=0, e796da7f332f corresponds after a phase shift to the difference equation δ′=δ−(2−c)b sin(δ), with δ=2π(y−x) and 2h_net=(2−c)b."
+        ],
+        "reasoning": "The scalar phase-difference case removes the onsite sine terms and is outside a>0; it does not reduce the dynamics of both coordinates when they are present. The path-network map addresses a different object and its inverse, not the weighted potential and real-plane convergence here.",
+        "searches": [
+          "Resultary semantic searches by exact coupled-sine title, authors, threshold a+(2−c)b and fixed-point expressions",
+          "Resultary 2b21d21838bf, Finding",
+          "Resultary e796da7f332f, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Resultary hits checked are different-model or excluded-boundary cases, not an exact tabulation of these fixed points. The 2022 abstract says it derives analytical bifurcation curves for fixed points and period-two orbits as c varies, but does not give the fixed-point counts or exact intervals."
+        ],
+        "reasoning": "The census is an exact continuum-parameter classification, not a finite table lookup. No accessible exact prior census was identified; the primary full-text limitation leaves that detail open, and no standalone priority claim for it is needed for the global result.",
+        "searches": [
+          "Resultary semantic query for the exact map, closed threshold and four/six fixed-point set",
+          "Soula et al., DOI 10.11648/j.acm.20221101.12, available abstract and bibliographic record; lawful attempts to obtain equations (4)–(10)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is global real-lift convergence with strict weighted-potential ascent on the closed region, and exact sharpness for that potential. The model, local flip phenomena, and the general Taylor descent method are antecedents, not novelty claims. The exact priority of the auxiliary four/six stationary census is not separately certified against the unavailable same-family full texts; acceptance does not depend on that census being new in isolation.",
+      "residual_risks": [
+        "The exact primary equations (4)–(10) and the full 2010 and 2005 texts were unavailable; the earlier asserted author-upload date and independent novelty of the census are not established here.",
+        "An exact equivalent convergence theorem for singular-mobility cyclic sine updates could remain unlocated. Unavailable searches and papers are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close local coverage; exact census and any additional full-text overlap unresolved",
+          "evidence": [
+            "Published 18 February 2022; abstract describes fixed-point and period-two bifurcations, period doubling and analytical bifurcation curves."
+          ],
+          "identifier_or_url": "https://doi.org/10.11648/j.acm.20221101.12",
+          "material_read": "Publisher bibliographic page and abstract; primary equations (4)–(10) not independently obtained",
+          "method": "Publisher abstract inspection and lawful full-text attempts via publisher and identified author-upload page; no full-text copy recovered",
+          "title": "Bifurcations and Dynamical Behavior of 2D Coupled Chaotic Sine Maps",
+          "trigger": "Exact family and strongest plausible antecedent for census and flip curve"
+        },
+        {
+          "assessment": "Potential older symmetric special-case overlap remains open",
+          "evidence": [
+            "The bibliographic record identifies basin and critical-curve analysis; it cannot establish what fixed-point statements the paper contains."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/228686600_Basins_and_Critical_Curves_Generated_by_A_Family_of_Two-Dimensional_Sine_Maps",
+          "material_read": "Bibliographic reference identifying EJTP 7(24), 139–150; full text unavailable",
+          "method": "2022 primary-paper reference check and lawful author-copy access attempt",
+          "title": "Basins and Critical Curves Generated by a Family of Two-Dimensional Sine Maps",
+          "trigger": "Earlier symmetric-family predecessor"
+        },
+        {
+          "assessment": "Relevant qualitative results, not sufficient evidence either for or against exact threshold coverage",
+          "evidence": [
+            "Abstract describes coexistence of synchronized and asynchronous states and transverse period doubling of synchronized saddle cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0218127405013320",
+          "material_read": "Crossref abstract; publisher full text not obtained",
+          "method": "Available abstract inspection and lawful full-text attempt",
+          "title": "Chaotic Synchronization and Antisynchronization in Coupled Sine Maps",
+          "trigger": "Earlier same-family synchronization and flip analysis"
+        },
+        {
+          "assessment": "Close proof mechanism; positive-definite coordinate hypothesis excludes the constrained cycle and does not yield its auxiliary census",
+          "evidence": [
+            "K is symmetric positive definite, sine acts coordinatewise, and the equilibrium set in the closed region consists of 2^d binary phases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-almost-sure-phase-opposition-threshold-for-analytic-sinuso--0e6257ae608f/RESULT.md",
+          "material_read": "Finding, scope and Proof Steps 1–2, offsets 0–4597",
+          "method": "Resultary search and targeted exact mirrored-text check, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp almost-sure phase-opposition threshold for analytic sinusoidal torus updates",
+          "trigger": "Strongest indexed potential-ascent/convergence analogy"
+        },
+        {
+          "assessment": "Different map in the path case; phase-difference special case with a=0 in the two-clock case",
+          "evidence": [
+            "The path result locates a global invertibility threshold at 1/λ_N and local attraction until 2/λ_N. The two-clock result controls the scalar phase difference."
+          ],
+          "identifier_or_url": "Resultary 2b21d21838bf and e796da7f332f",
+          "material_read": "Finding in each mirrored RESULT.md, offset 0",
+          "method": "Resultary retrieval and targeted statement inspection",
+          "title": "Sharp cubic loss of invertibility in sinusoidal path networks; Sharp global antiphase locking and critical crossover in the two-clock sine map",
+          "trigger": "Closest same-date path result and candidate exact boundary-model reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a model studied for periodic bifurcations, synchronization and chaotic dynamics, a rigorously gradient-like region for every unwrapped initial condition is useful, particularly at the neutral flip where the ordinary strict step-size estimate stops. The result supplies a computable exact potential boundary, distinguishes that boundary from a claim about all supercritical dynamics, and explains how limiting fixed-point choices change with the coupling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

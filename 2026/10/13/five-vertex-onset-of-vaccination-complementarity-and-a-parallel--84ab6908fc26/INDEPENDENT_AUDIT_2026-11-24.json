@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:01.516222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof, lines 18–67",
+        "Frozen VERIFICATION.md and CHECK/verify.py (inspected, not executed)",
+        "/workspace/replay/3_graph.py (independent exact reachability and edge-state replay, executed with python3)"
+      ],
+      "rationale": "Sample all open edges first and restrict the same graph after each deletion. The burden counts ordered connected pairs, including diagonals, divided by the fixed original order for the expected outbreak. Benefit submodularity is therefore the nonnegative mixed difference of the unnormalized burden. Sites in separate components give zero. In the common component, after both sites are removed, every residual component touches at least one site. Writing A and B for the sizes attached only to one site and c_i for sizes attached to both, squares for singly attached pieces cancel. Expanding the remaining squares gives 2[(A+1)(B+1)−Σ_{i<j}c_i c_j]. With at most four vertices the sum is at most 1. Both statements hold pointwise. On a forest an ordered pair contributes its path-open probability times the indicator of deleting no vertex of the path; each indicator has nonnegative mixed difference, including the length-zero path. On C5, any nonempty deletion set leaves a forest. For adjacent sites at most one residual component in the open graph can touch both, so only nonadjacent sites at the empty set can give a negative difference. The two complementary routes for a pair at distance d=1 or 2 give connection probability p^d+p^(5−d)−p^5. Subtracting the two four-vertex path burdens and adding back the 3+2p residual burden gives 2p²(1+3p+5p²−10p³). The derivative of the cubic has a single positive zero, a maximum, and the cubic changes from +1 to −1 across [0,1], proving the unique threshold. Independent Boolean reachability enumeration gave no negative deterministic differences for n≤4 (1,586 cases for n=2–4), the exact C5 coefficient vector, and the gap −61009/160000 at p=19/20, giving −61009/800000 after normalization. Independent bisection gave 0.935152824805653192… . These checks establish the sharp onset without transferring it to other seeding conventions.",
+      "residual_risks": [
+        "A source sampled only after deleting vertices changes the denominator; the homogeneous C5 threshold also does not assert a threshold for heterogeneous probabilities. The forest result and general deterministic identity rest on proof, not finite replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest indexed cycle theorem fixes an unvaccinated root, with cycle threshold p≤2/(n−1), a C4 failure and a rooted forest result.",
+          "Srivastava and Teng give general non-submodularity in network immunization and discuss complementarity of alternate paths. Li et al. prove submodularity for a single-source delayed-immunization tree model."
+        ],
+        "reasoning": "A fixed-root negative mixed difference need not survive averaging over sources, and root-deletion terms also matter when the source is allowed to be removed. Delayed immunization changes reachability. Neither result supplies the stated sharp uniform-seed cutoff.",
+        "searches": [
+          "Resultary cycle submodular vaccination lookup, 5ce39527ae14",
+          "arXiv:2410.19205v4, p. 1",
+          "Li et al., 2023, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary coverage checks including the fixed-root cycle and one-vaccine tree records above",
+        "Targeted primary literature lookup and located OA passages",
+        "Frozen RESULT.md scope and prior-work distinctions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unique-path forest conclusion has standard rooted coverage content: extend each nonnegative survivor-root burden by zero on deletion of that root, and average; root-involving mixed differences are nonnegative by monotonicity. The averaged phase on C5 is different: the fixed-root threshold is 1/2 on C5, whereas the frozen one is approximately 0.93515.",
+          "General alternate-path complementarity does not specify its sign against fragmentation for every pair of sites, and the known fragmentation statistic does not supply the attachment formula."
+        ],
+        "reasoning": "Credit the forest path mechanism and earlier evidence of non-submodularity. Neither implies the signed deterministic size identity, the universal sign cutoff, or the homogeneous C5 threshold; those are the supported distinct claims.",
+        "searches": [
+          "5ce39527ae14, RESULT.md fixed-root forest and cycle Findings",
+          "arXiv:cond-mat/0610625, p. 1",
+          "arXiv:2410.19205v4, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact unnormalized burden is |V−S| plus twice expected connected unordered survivor pairs; the modular first term and factor two do not affect the mixed-difference sign. One can also count disconnected pairs with the appropriate fixed-universe convention.",
+          "Chen et al. use a measure based on disconnected pairs after node removal; the inspected passage studies fragmentation under removal strategies rather than the mixed-difference criterion and C5 phase."
+        ],
+        "reasoning": "The connection to pairwise graph fragmentation is real, but switching to largest-component size or a denominator varying with |S| is not an equivalence of set functions. No inspected equivalent formulation supplied these mixed-difference results.",
+        "searches": [
+          "Targeted literature lookup on vaccination submodularity, graph disruption and expected pairwise connectivity",
+          "Chen et al., arXiv:cond-mat/0610625, p. 1",
+          "Local Resultary cycle and forest vaccination lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result with explicit cycle thresholds uses a fixed root and a different threshold; the distinct same-day tree record optimizes one vaccination and uses a post-deletion seed.",
+          "Holme performs exact small-graph SIR calculations, but the inspected scope concerns individual node importance, not the multi-deletion mixed differences here."
+        ],
+        "reasoning": "These finite or explicit results do not tabulate the exact same set function over two-site increments. Small-graph exact results for another epidemic or optimization criterion do not cover the C5 cubic or four-vertex guarantee.",
+        "searches": [
+          "Resultary search on small cycles and transmissibility-dependent vaccination, 5ce39527ae14 and 639f57a81324",
+          "Holme, arXiv:1708.06456, pp. 1–2"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparisons is the exact two-site identity for the uniform-original-source burden, the sharp universal four-vertex guarantee, and the complete five-cycle phase for that burden. Pairwise fragmentation, non-submodularity in related immunization models, and unique-path coverage are not credited as new in themselves.",
+      "residual_risks": [
+        "Network reliability or critical-node literature may use a different name for the exact mixed difference. Bounded comparisons do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares mechanism but has a different source process and exact boundary",
+          "evidence": "Fixed unvaccinated root; threshold 2/(n−1), C4 failure, and rooted forest coverage.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-transmissibility-threshold-for-submodular-vaccination-on--5ce39527ae14",
+          "material_read": "Local-mirror RESULT.md, Finding and model at offset 0",
+          "method": "Resultary lookup followed by local mirror passage inspection",
+          "title": "A sharp transmissibility threshold for submodular vaccination on cycles",
+          "trigger": "Closest explicit cycle threshold and forest guarantee"
+        },
+        {
+          "assessment": "Different seeding and single-site optimization, not a two-site phase",
+          "evidence": "One vaccine on a tree and seed sampled uniformly after deletion.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-eight-vertex-onset-of-transmissibility-dependent-optimal-v--639f57a81324",
+          "material_read": "Local-mirror RESULT.md, Finding and model at offset 0",
+          "method": "Resultary lookup followed by local mirror passage inspection",
+          "title": "Sharp eight-vertex onset of transmissibility-dependent optimal vaccination",
+          "trigger": "Small-order vaccination result at variable p"
+        },
+        {
+          "assessment": "Closely related statistic, no exact two-site result in inspected scope",
+          "evidence": "Defines a disconnected-pair measure and compares it with largest-component rankings for removal strategies.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0610625",
+          "material_read": "p. 1 abstract, OA offset 2100",
+          "method": "Lawful OA passage inspection",
+          "title": "Percolation theory applied to measures of fragmentation in social networks",
+          "trigger": "Pairwise fragmentation under node removal"
+        },
+        {
+          "assessment": "Credit general complementarity, not the exact boundary",
+          "evidence": "Discusses immunity objectives that can be neither submodular nor supermodular and alternate-path effects.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.19205v4",
+          "material_read": "p. 1, OA offset 1600",
+          "method": "Lawful OA passage inspection",
+          "title": "Overcoming Non-Submodularity: Towards Constant Approximation for Network Immunization",
+          "trigger": "Explicit immunization non-submodularity"
+        },
+        {
+          "assessment": "Different fixed-source and delayed-immunization model",
+          "evidence": "Proves monotone submodularity for its single-source tree objective.",
+          "identifier_or_url": "https://dyeun.wordpress.ncsu.edu/files/2023/05/ifip-networking23-final-ver.pdf",
+          "material_read": "pp. 2 and 4, Theorem 2, OA offsets 9700 and 22600",
+          "method": "Lawful author-hosted PDF passage inspection",
+          "title": "Controlling Epidemic Spread Under Immunization Delay Constraints",
+          "trigger": "Apparent forest submodularity antecedent"
+        },
+        {
+          "assessment": "Related exact calculations, not the same multi-site set function claim",
+          "evidence": "Exact outbreak and vaccination-importance calculations in a different stochastic SIR model.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06456",
+          "material_read": "Abstract and p. 2, OA offsets 0 and 12400",
+          "method": "Lawful OA passage inspection",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Small-graph exact SIR node deletion"
+        },
+        {
+          "assessment": "Related expected-spread objective and motivation",
+          "evidence": "Optimization of susceptible size to reduce average infection probability, not the sharp mixed-difference classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.1929",
+          "material_read": "p. 1 abstract, OA offset 1320",
+          "method": "Lawful OA passage inspection",
+          "title": "Suppressing epidemics with a limited amount of immunization units",
+          "trigger": "Fragmentation-based immunization"
+        },
+        {
+          "assessment": "Different meaning of percolation",
+          "evidence": "Submodular functions on modular lattices and chains, not bond reachability and node deletion.",
+          "identifier_or_url": "https://doi.org/10.1137/07069078X",
+          "material_read": "p. 1 abstract, author-hosted PDF offset 377",
+          "method": "Lawful OA alternate-copy passage inspection",
+          "title": "Submodular Percolation",
+          "trigger": "Near-exact title terms"
+        },
+        {
+          "assessment": "Different connectivity functional",
+          "evidence": "Studies disruption thresholds and largest-component size, not the sum of squared component sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0010251",
+          "material_read": "p. 1 abstract, OA offset 980",
+          "method": "Lawful OA passage inspection",
+          "title": "Breakdown of the Internet under intentional attack",
+          "trigger": "Graph-disruption formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen deterministic identity and C5 phase",
+        "Pairwise fragmentation and fixed-root cycle comparisons"
+      ],
+      "rationale": "Expected pairwise connectivity is a standard measure of fragmentation, and diminishing returns is a meaningful structural property of the deletion benefit. The attachment formula identifies exactly what competes with fragmentation and explains why the first deterministic obstruction cannot arise below five vertices. The threshold gives both sides of the obstruction under iid edge thinning, rather than only an endpoint example at p=1. These are reusable mathematical facts even without an optimization theorem.",
+      "residual_risks": [
+        "No transfer to real contact networks, time-dependent infection models, or vaccine strategy performance is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

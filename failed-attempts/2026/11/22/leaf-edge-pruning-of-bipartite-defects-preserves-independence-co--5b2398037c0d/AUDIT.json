@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For a defect leaf v attached to w, all faces containing vw are exactly {v,w} union a subset of N_F(w) minus v, irrespective of cycles elsewhere. Choose x another neighbor of w; pairing lower faces without x to uppers with x in descending subset-size order leaves each lower face free, with exactly 2^(deg_F(w)-2) pairs. After these all vw-containing faces, and only these, are gone, giving exactly X_{F-vw}. Iterated pruning of a forest retains one edge per nontrivial component; collapsing the two full-shore simplices in the matching case yields the claimed integral sphere/circle-wedge types. Standalone checker directly verified 1,399 intermediate free-face pairs over 640 examples and mod-two homology for 440 forest examples; finite tests are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barmak, arXiv:1007.0418, Theorem 3.4 gives a suspension-type statement for triangle-free graph independence complexes, and Theorem 3.7 characterizes realizable suspension types. No inclusion-map equivalence is asserted.",
+        "Bakshi et al., arXiv:2412.01125, Theorem 2 and Remark 1 discuss bipartite circle-graph restrictions and a suspension model. These hypotheses do not include arbitrary bipartite defect graphs, and no quantitative pruning collapse is stated.",
+        "Abdelmalek et al., arXiv:2106.10863, focus on higher independence complexes and chordal graph hypotheses, with no bipartite defect-edge pruning theorem."
+      ],
+      "reasoning": "A general suspension upper envelope on homotopy type allows torsion and arbitrary suspended complexes; it does not imply invariance under deletion of an identified defect edge. The local graph operation is not a corollary of the published statements inspected, and no stronger all-defect collapse theorem was found.",
+      "searches": [
+        "bipartite graph independence complex suspension Jonsson Barmak star clusters",
+        "independence complexes of circle graphs complementary graph Theorem 2",
+        "independence complexes of strongly orderable graphs chordal bipartite homotopy"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2008.06267",
+      "https://arxiv.org/abs/1007.0418",
+      "https://arxiv.org/abs/2106.10863",
+      "https://arxiv.org/abs/2412.01125",
+      "semantic published-record search for ordinary independence under bipartite defect forest pruning"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Berghoff gives a computational formalism for homology of arbitrary graphs, which is broader in class but weaker in the inclusion-map/simple-homotopy conclusion.",
+        "Barmak and Jonsson show suspension representation, not a specific elementary collapse onto the edge-filled bipartite graph.",
+        "Bakshi et al. show qualitative first homology behavior for bipartite circle graphs, not the unrestricted defect-leaf equivalence."
+      ],
+      "reasoning": "Even an abstract characterization of each homotopy type separately does not imply that the natural inclusion X_{F-vw} -> X_F is a simple-homotopy equivalence. The forest formula is a consequence of the new map statement, not a mere renaming of a published graph family. A sufficiently general unpublished or unindexed domination/folding theorem may nevertheless subsume the collapse.",
+      "searches": [
+        "Berghoff On the homology of independence complexes spectral sequence arxiv 2008.06267",
+        "Barmak Star clusters in independence complexes of graphs Theorem 3.5",
+        "Bakshi Independence complexes of circle graphs Section 3 complement graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berghoff, arXiv:2008.06267, Theorem 1.1 concerns a homology spectral sequence for arbitrary independence complexes; it is not a simplicial collapse of an edge-defect inclusion.",
+        "Barmak, arXiv:1007.0418, Theorems 3.4–3.7 identify general suspension types, not free-face pairs under a specific leaf-edge toggle."
+      ],
+      "reasoning": "One may reinterpret the object as the clique complex of the ordinary complement of a bipartite-complement graph, or as a union of shore simplices with mixed bicliques from the defect graph. Those equivalent descriptions do not by themselves establish a relative elementary-collapse map or its precise 2-power length; the actual face partition supplies the missing implication.",
+      "searches": [
+        "simple homotopy leaf edge pruning independence complex of complete bipartite graph with arbitrary deleted bipartite edges",
+        "bipartite complement independence complex invariant when deleting leaf edge of forbidden graph with degree two neighbor",
+        "bipartite complement independence complex forest deleted complete bipartite graph homotopy wedge circles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic record searches returned findings about second independence of matching-deleted bicliques, cyclic-band deletion, induced-forest complexes, and two-independent named graphs, not the ordinary independence simplicial collapse of arbitrary bipartite defects.",
+        "Own current-week ledger claims inspected for overlap concern higher-independence threshold r≥2 for one deleted cross-edge and other graph complexes, not the present ordinary r=1 arbitrary-defect inclusion."
+      ],
+      "reasoning": "No exact tabulation or formula for the ordinary independence complex of every forest-deleted complete bipartite graph was identified in checked sources. Finite computations would not imply the all-size relative collapse.",
+      "searches": [
+        "independence complex of complete bipartite graph with edges of arbitrary forest removed number connected components wedge circles forest deletion",
+        "simple homotopy leaf edge pruning independence complex of complete bipartite graph with arbitrary deleted bipartite edges",
+        "ordinary independence complex of bipartite complement of graph with leaf, collapse all faces containing that edge and forest defect connected components",
+        "forest edge deleted from biclique independence complex homotopy components forest deletion"
+      ]
+    },
+    "rationale": "Exact unit-step collapse proved for every bipartite defect graph, not just homology computation; inspected general suspension and independence-complex papers do not provide this edge-pruning inclusion equivalence or the all-forest exact result. Searches returned nearby second-independence and cycle-band results whose statements concern different complexes/defect structures. Residual unindexed and general folding literature risks are acknowledged.",
+    "residual_risks": [
+      "An unindexed exact face-pairing argument could exist in literature on co-bipartite graph folds or simplicial strong homotopy.",
+      "A general theorem for simplicial cofibers of graph-edge additions might imply the simple-homotopy conclusion, despite not being located in the inspected primary sources.",
+      "The 2024 circle-graph argument can make the first-homology forest consequence less distinctive in overlapping graph subclasses; the unrestricted explicit elementary collapse is the principal claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected theorem; a general spectral-sequence method, not edge-defect simple collapse",
+        "evidence": [
+          "Theorem 1.1 identifies an E1 page containing homology of Ind(G) and neighboring subgraphs, without the particular bipartite edge-toggle map."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.06267",
+        "material_read": "Abstract, Section 1 definitions, Theorem 1.1 and introductory scope, including the spectral sequence construction overview",
+        "method": "Full text accessed and relevant opening theorem inspected",
+        "title": "On the homology of independence complexes",
+        "trigger": "Dated literature anchor for ordinary independence-complex homology"
+      },
+      {
+        "assessment": "General suspension and forest-Ind(G) conclusions do not state or identify the present defect-edge collapse",
+        "evidence": [
+          "Section 3 proves a suspension result when a vertex is not in a triangle; the forest statement concerns Ind(F) rather than Ind(K_{A,B} minus E(F))."
+        ],
+        "identifier_or_url": "https://people.kth.se/~jbarmak/starclusters.pdf",
+        "material_read": "Introduction, Section 2 gluing/cofibration discussion, Section 3 Theorems 3.4–3.7 and the forest example, plus targeted text searches for leaf and edge deletion",
+        "method": "Full-text primary paper accessed; relevant theorem statements and proofs inspected",
+        "title": "Star clusters in independence complexes of graphs",
+        "trigger": "Broad stronger suspension theorem for all triangle-free graphs"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected statements; it treats higher independence of chordal graphs, rather than an arbitrary-edge defect inclusion",
+        "evidence": [
+          "Main object is Ind_r(G), principally with chordal or tree host graph hypotheses."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2106.10863",
+        "material_read": "Abstract, introduction, hypotheses and main theorem descriptions",
+        "method": "Full PDF opened and relevant introductory hypotheses inspected",
+        "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+        "trigger": "Potential stronger shellability result for independence complexes and trees"
+      },
+      {
+        "assessment": "The argument represents H1 classes with cross-edge components for circle graphs but does not prove the unrestricted leaf-edge simple collapse or the exact sequence length",
+        "evidence": [
+          "Theorem 2 bounds circle-wedge rank for bipartite circle graphs; Remark 1 recalls a suspension model, with no local free-face pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.01125",
+        "material_read": "Section 3, Theorem 2 proof and Remark 1 (pages 7–8), introduction and article abstract",
+        "method": "Full paper accessed and highly relevant section and proof inspected",
+        "title": "Independence complexes of circle graphs",
+        "trigger": "Most relevant overlap: bipartite complement graph controls circle-wedge cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b239803-7c0d-4ded-af04-ba43ece7931d",
+  "value": {
+    "rationale": "The universal relative simple-homotopy collapse is a structural invariance theorem for arbitrary missing-edge patterns of complete bipartite graphs, not a one-off homology count. It yields a natural complete forest classification independent of branching and a safe reduction to the cyclic core for all bipartite defect graphs, preserving all homotopy-invariant information. An isolated edge provides the sharp boundary, because its deletion changes connectivity. The result is relevant to reducing topological computations under graph edge faults, even though it does not classify general cyclic cores.",
+    "status": "PASS"
+  }
+}

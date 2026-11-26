@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact neutral ordered-replacement kernel is \(q_{u\to v}(\delta)=[(1-\delta)/d_u+\delta/d_v]/N\). On a tree, positive edge-balanced reproductive weights exist by unique-path propagation. Their weighted mutant count is an exact bounded martingale, and finite connected consensus occurs almost surely. The double-star weights give the rational six-vertex witness and the general \(D_{1,m}\) formulas. The six-vertex derivative cubic is strictly decreasing over \([0,1]\). The five-vertex exception is exhaustively handled by the explicit four-orbit derivative-sign certificates; other smaller trees fall under the published bidegreed monotonicity result. Exact algebra establishes the family boundary derivatives and limits. A separate exhaustive finite-state and symbolic checker supplements these proofs and reports 1514 checked identities.
+PASS
 
-## Originality — PASS under examined literature, with priority risk
+The claimed object is location-specific neutral fixation on a simple unweighted tree with δ the dB probability. Ordered copying u→v has probability ((1−δ)/d_u+δ/d_v)/N. On a tree, propagating w_v/w_u=q_(v→u)/q_(u→v) balances each edge, and the weighted mutant count has zero conditional drift; a finite positive-probability route to consensus and bounded convergence give fixation w_v/sum(w) including δ=0,1. Through order five only the five-vertex fork is not bidegreed: maximum degree ≤2 is a path, degree N−1 a star, and the five-vertex degree-3 nonstar has pendant branch lengths 1,1,2. The bidegreed theorem applies to all other trees; a singleton, if adjoined by the absorbing convention beyond the update rule's N≥2 domain, is trivial. I independently multiplied the fork weights in t=δ/(1−δ); their common denominator has coefficients (23,101,128,48) in ascending powers, and the derivative numerators agree with the four listed strict-sign certificates. For D_{1,3} the same polynomial method gives the reported rational function and a single strict maximum; the cubic is decreasing (its derivative is convex with negative endpoint values) and bisection gives 0.0336810499232197 and fixation 0.2110651074585313. The boundary derivatives and pure-rule limits follow by differentiating and evaluating the exact weight formula. At δ=m^−1/2, the small hub weight tends to 1/2 and the large-hub edge ratio divided by the large-leaf edge ratio tends to 1, so the normalizer divided by m tends to 1/2, proving the third asymptotic. The positive derivative at 0 and negative derivative at 1 give interior improvement over both endpoints. Replay paths for the frozen algebraic certificate: `verify.py`, lines 49–91, and the exact weight formula in RESULT.md Proof 2–4; the frozen script was inspected, not executed. This is not a threshold over all graphs or a global optimal-factor theorem.
 
-The motivating work explicitly studies nonmonotone fixation on general graphs and proves all bidegreed graphs have monotone neutral single-vertex fixation curves, but does not in its inspected neutral section and appendix classify the sharp minimum tree order or provide this double-star infinite family and its order-two interior improvement. The earlier conference preprint is separately credited, as is the 2013 mixed-update model. Searches of related indexed mathematical findings yielded results on graph switching and absorption-time response rather than the same static mixed-rule site fixation statement. Unindexed exact tree formulas may contain implicit corollaries; priority is not certified by negative search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The first non-bidegreed tree is a natural location for the boundary of mixed-update monotonicity. The exact smallest-order statement and all-orbit exclusion identify where the structural obstruction first appears, rather than merely naming another nonmonotone graph. The infinite family demonstrates that the phenomenon persists and can lead to an order-one relative gain—the attainable fixation probability approaches twice the better pure-rule probability—so it is not only a narrow numerical anomaly. These give concrete information for update-rule sensitivity in structured neutral populations.
+Generic neutral nonmonotonicity, the neutral balance formulation, and bidegreed monotonicity are prior. The supported distinct contribution is the all-tree sharp order-six onset, exact small-side-leaf witness, and infinite one-sided double-star family with an achievable asymptotic factor of two. The strongest primary examples are cyclic, and the bidegreed theorem leaves precisely the small obstruction and witness outside its domain.
 
-## Closest literature and limitations
+## value
 
-Brewster et al., arXiv:2511.18252 (November 23, 2025) and the expanded arXiv:2512.11164 (December 11, 2025), are the closest work. Zukewich et al., PLOS ONE 8:e54639 (2013), treats the earlier mixed dynamics for evolutionary games. No conclusion is claimed for general graphs, selected mutants, or heterogeneous edge weights, and independent evaluation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem answers a natural structural restriction of an existing mixed-updating question. It identifies the first acyclic obstruction and shows why its small six-vertex improvement is not the substantive limit: the same geometry at larger order admits a factor approaching two over the better pure rule. The exact lower-order monotonicity certificate and infinite-family scaling are independently useful, with no claim to an optimal universal factor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

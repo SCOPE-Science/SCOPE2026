@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:24:07.977995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93; VERIFICATION.md; checker.py (inspected, not run)",
+        "/workspace/branches/audit_exact_3.py (independent exact symbolic and rational run)"
+      ],
+      "rationale": "The payoff subtracts two costs for a cooperative vertex and uses edge-dependent benefits received from neighbors. The transition law uses pre-replacement competitor fitness, which is strictly positive on 0<c<2 for the fixed positive-cost setting and at cost zero for all nonnegative benefits. A boundary can move through a connected graph with positive probability, giving almost-sure absorption on this finite state space and uniqueness of the harmonic solution. I reconstructed independently from a uniformly chosen singleton: the twelve reachable nonabsorbing masks have a cooperative cyclic arc, so only its growth/shrinkage by one boundary site is relevant. Cancelling self-loops, I solved the harmonic equations over exact rational-function fields without the frozen orbit quotient. The results verify both cost-free identities, the two positive-cost rational formulas, their difference, and the rational witness at c=1/100. For c=2t/(1+t) the independently expanded numerator has exactly one sign variation (negative constant, all later coefficients positive); the transformed denominator D_c is strictly negative and the transformed Q_c strictly positive. Endpoint signs and Descartes' rule give one crossing, and the remaining difference factors give strict clustered dominance everywhere in the interval. The alternating deviation is negative because its quadratic factor is positive and its three denominator factors are negative. An exact rational bracket [0.04927573663345605,0.04927573663345615] supports the stated rounded decimal; uniqueness and the algebraic definition are exact. Replay: python3 /workspace/branches/audit_exact_3.py.",
+      "residual_risks": [
+        "The result compares fixation of a uniformly placed single cooperator to 1/4, not to single-defector fixation. The all-cost interval has fixed H,L,w; it is not a threshold theorem for general payoff parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact site-checkerboard cycle family includes length four but not the same payoff rule",
+          "Pi and Zhang treat interactions changing over time with weak-selection results; Chen et al.'s quantifier over configurations is over strategies and its criterion is weak-selection"
+        ],
+        "reasoning": "A result for any cycle length under donor-site payoffs is broader in graph size but not in payoff class. Neither a weak-selection result nor an averaging condition for variable edge games gives a rational crossing and strict comparison over 0<c<2 at the stated fixed intensity.",
+        "searches": [
+          "arXiv:2604.12546 Supplementary Note 2, exact checkerboard cycles",
+          "Pi et al. arXiv:2603.20603 §§I, II-A, II-B",
+          "Zhang et al. arXiv:2602.07877, pp. 3–4",
+          "Chen–McAvoy–Nowak DOI 10.1038/srep39181, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.12546, arXiv:2603.20603, arXiv:2602.07877; DOI 10.1038/srep39181",
+        "Resultary 6394365f2e27, 178faf04cdbe, and own-record match 3a51fbad9fc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There is an exact finite-selection checkerboard-site cycle formula; the frozen paper's prior-work summary should not be read as excluding that",
+          "Site-dependent benefits give identical cost-free competitor benefit on C4, whereas the claimed clustered edge arrangement produces a nonzero exact deviation. The indexed habitat one-switch uses a different fitness and transition rule."
+        ],
+        "reasoning": "The cited comparisons already show different spatial arrangements can change fixation, notably in exact finite-selection settings, but not the asserted pair of edge-game identities or the cost crossing. A generic hitting-system identity merely gives a calculation method and does not imply these strict signs without solving the specific payoff system.",
+        "searches": [
+          "arXiv:2604.12546 pp. 20–22, Supplementary Note 2 Eqs. S11–S19",
+          "Resultary 6394365f2e27, Finding and model scope",
+          "DOI 10.1038/srep39181 introduction and weak-selection criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kargaran et al. assign one benefit to a cooperator's site for both neighbors; the frozen model assigns a symmetric benefit separately to each edge",
+          "Resultary 6394365f2e27 is an exact C4 arrangement comparison, with birth–death updates and mutant-only site fecundity"
+        ],
+        "reasoning": "A common change of fitness normalization or relabelling cannot replace mixed incident edge benefits by one donor benefit. On C4 the two neighbors competing at a death site have the same neighbor set; in a cost-free donor-site game they therefore receive identical total benefit for every profile. In the frozen game this need not hold, and clustered fixation is strictly above neutral. Switching the update order in the habitat Moran model also changes the transition law.",
+        "searches": [
+          "Resultary searches for C4 clustered versus alternating environments, exact fixation, and edge assignments",
+          "Kargaran–Kaveh–Chatterjee arXiv:2604.12546, Model and Supplementary Note 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 3a51fbad9fc0 is the assigned record itself. Distinct nearby records 6394365f2e27 (birth–death mutant habitat on C4) and 178faf04cdbe (periodic interactions on P4) use other transition systems.",
+          "No distinct table of the two exact symmetric-edge rational functions or the same cost threshold was retrieved."
+        ],
+        "reasoning": "A fixation table or exact formula must use the same update order, static payoff coefficients, initial condition and selection comparison. Matching size or layout names alone cannot establish an exact match.",
+        "searches": [
+          "Resultary exact edge-correlation separation / sharp cost threshold C4 and neighboring finite arrangement results",
+          "Focused primary search for exact finite-strength cycle and four-cycle fixation comparisons"
+        ]
+      },
+      "rationale": "The strongest related primary source includes an exact finite-selection checkerboard cycle formula, not only weak-selection analysis. Its donor-site game and the fixed symmetric edge-benefit game are distinct even on C4. The strongest distinct indexed four-cycle arrangement theorem uses mutant-only site fitness and birth–death updating. The supported increment is the exact cost-zero neutrality versus advantage for static symmetric edge layouts, and the unique all-interval positive-cost crossing and strict order for the stated parameters. Neither the chain method nor the general observation that some arrangements matter is new.",
+      "residual_risks": [
+        "The bounded comparison does not exclude unpublished or unindexed static-edge cycle calculations. Pi et al. supplementary material was not inspected. The exact checkerboard-site result should be credited alongside the weak-selection antecedents, without conflating its payoff model with this one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-selection predecessor for a different donor-site payoff model",
+          "evidence": "A cooperator's site sets its benefit to both neighbors; the supplement obtains a finite-selection fixation formula under death–birth on checkerboard cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.12546",
+          "material_read": "PDF Model pp. 2–3 and Supplementary Note 2 pp. 20–22, Eqs. S11–S19",
+          "method": "OA PDF passages",
+          "title": "Predicting success of cooperators across arbitrary heterogeneous environmental landscapes",
+          "trigger": "Strongest exact cycle-level and checkerboard comparator"
+        },
+        {
+          "assessment": "Changing games and weak-selection conditions, not the frozen static exact theorem in these passages",
+          "evidence": "Games can differ across neighbors and change with random durations; the criterion is for weak selection in sufficiently large populations.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.20603",
+          "material_read": "HTML main text §§I, II-A, II-B; supplements not inspected",
+          "method": "OA arXiv HTML passages",
+          "title": "Evolutionary Dynamics of Variable Games in Structured Populations",
+          "trigger": "Potential general heterogeneous-interaction coverage"
+        },
+        {
+          "assessment": "Related edge-based model; inspected relationship is weak-selection with games updating",
+          "evidence": "Edges update their games after strategies update, and fitness is expanded to first order in selection.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.07877",
+          "material_read": "PDF p. 3 model/Fig. 1 caption (offset 15924); p. 4 fitness expansion (25041)",
+          "method": "OA PDF passages",
+          "title": "Effects of Stochastic Games on Evolutionary Dynamics in Structured Populations",
+          "trigger": "Potential stochastic edge-game model encompassing a fixed layout"
+        },
+        {
+          "assessment": "Broad initial strategy configurations but weak selection, not edge-payoff arrangements and finite-strength fixation identities",
+          "evidence": "The configuration in its quantifier is the set of cooperators versus defectors, not the distribution of edge benefits.",
+          "identifier_or_url": "https://doi.org/10.1038/srep39181",
+          "material_read": "PDF pp. 1–2, abstract and weak-selection benefit–cost criterion (offset 10606)",
+          "method": "OA PDF passages",
+          "title": "Fixation Probabilities for Any Configuration of Two Strategies on Regular Graphs",
+          "trigger": "Potential general regular graph donation-game criterion"
+        },
+        {
+          "assessment": "Strong thematic overlap and different mathematical model",
+          "evidence": "Birth–death Moran dynamics with habitat affecting only mutant site fecundities and with constant resident fecundity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-switch-law-for-mutant-only-habitat-clustering-on-a-four-cycl--6394365f2e27",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "One-switch law for mutant-only habitat clustering on a four-cycle",
+          "trigger": "Distinct exact same-graph clustered versus alternating comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, setup, two all-interval comparisons and witness",
+        "Independent harmonic-system and sign verification"
+      ],
+      "rationale": "This is a controlled regular-graph example showing that the same multiset of benefits does not determine exact fixation. It separates exact neutrality and strict advantage even away from weak selection, and shows the arrangement effect persists under a positive cost with a precisely identified neutral crossing. It supplies a test case for approximations using only a degree or global edge-benefit summary, not a theorem that the effect persists if all weighted degrees are also held fixed.",
+      "residual_risks": [
+        "Changing layout can change weighted degree distribution; neither a general graph statement nor a bidirectional cooperation-versus-defection criterion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

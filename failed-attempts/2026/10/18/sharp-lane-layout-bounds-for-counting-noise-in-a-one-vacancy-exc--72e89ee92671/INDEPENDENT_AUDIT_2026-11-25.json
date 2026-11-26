@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:38:05.527418Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–33 and 37–90; VERIFICATION.md and verify.py inspected, not executed",
+        "Fresh replay: /workspace/branches/901da877-110c-4680-b2dc-63f2491f86be/independent_replay.py and independent_replay_results.md"
+      ],
+      "rationale": "With one vacancy, each successful clockwise particle hop moves it one longitudinal site backward at the rate of its current lane. Its lane evolves autonomously on the symmetric cycle and has the uniform stationary law. Conditional on the lane path the total longitudinal count is Poisson with the integrated lane-dependent rate, by constructing longitudinal jumps with a clock independent of the lateral motion. Integrating the stationary intensity covariance gives variance rate p̄+2⟨f,(−Q)⁻¹f⟩ for f=p−p̄. If h solves −Qh=f and dᵢ=hᵢ−hᵢ₋₁, then χ(dᵢ−dᵢ₊₁)=fᵢ, so χdᵢ=F̄−Fᵢ by periodicity and summation by parts gives the claimed formula, independent of L. Balanced binary lanes give excess (a−b)²Var(H)/(2χ), with H the sign-prefix heights. The even/odd parity split forces Var(H)≥1/4, with equality only at two adjacent heights alternating by parity. For the maximum the cycle Green kernel, verified by second differences and zero average, reduces the objective to minimizing Σ_{x<y∈S}d(K−d) over high-rate sites. In cyclic gap coordinates the consecutive-pair terms yield strict concavity, including m=2, and the only minimizers are the equivalent vertices with one gap m+1. Those blocks have heights 0 and m once each and each height in between twice, giving variance (m²+2)/12 and both stated constants and their ratio. As a separate upper-bound check, if the range of a closed ±1 path is M≤m then the two endpoints are visited at least once and each interior level at least twice. Bounding any remaining visits by squared deviation M²/4 from the midpoint gives Var(H)≤[(3m−2M)M²+2M]/(12m), strictly increasing for 0≤M≤m. At M=m each of the two arcs between a minimum and a maximum is monotone, hence exactly a block. The fresh exact-rational replay matched 18 complete-cylinder generators and all 4704 balanced layouts at K=4,6,8,10,12,14. For K=3, L=2, p=(1,2,4), χ=11/5 the mean and variance rates were 7/3 and 833/297 by both calculations.",
+      "residual_risks": [
+        "The enumeration is finite. The proof, not the replay, gives all sizes. The count is total longitudinal activity at fixed finite size and one vacancy, not a single-bond current or a general-density result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rotation theorem allows any positive multiplicities and specifies balanced and one-block equality exactly. Infinite-lattice discrete Riesz inequalities use a different domain; Yu extremizes an adjacent-product sum rather than this all-pairs quadratic kernel. General MMPP theory yields counting variance from intensity covariance."
+        ],
+        "reasoning": "The indexed word theorem directly dominates the balanced binary combinatorial part and also applies to unbalanced binary lanes by the same scaling. The inspected infinite-lattice and adjacent-product passages do not directly cover these exact constants. MMPP theory does cover the counting mechanism, as opposed to the layout proof.",
+        "searches": [
+          "Resultary 0b67a9f3e612, Finding for arbitrary two-letter composition",
+          "Yu, Circular rearrangement inequality, formula (2); Hajaiej, Discrete rearrangement, pp. 1140–1141; Hajaiej–Han–Hua arXiv:2209.01003v2 Theorems 5.10 and 5.15",
+          "Asanjarani–Nazarathy arXiv:1905.01736, p. 2, MMPP second-order formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b67a9f3e612",
+        "Yu J. Math. Inequal. 12 (2018) 635–643",
+        "Hajaiej DOI:10.1016/j.na.2009.07.054; arXiv:2209.01003v2",
+        "arXiv:1502.04804, arXiv:2403.01934 and arXiv:1905.01736"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ASEP passages inspect stationary laws and mean current, not the new physical count as stated; the MMPP variance law applies once one notes that the vacancy lane is autonomous and the total longitudinal count has lane-only intensity. The explicit prefix sum is obtained by χ(dᵢ−dᵢ₊₁)=fᵢ with Σdᵢ=0. The indexed rotation theorem then gives the entire binary optimization."
+        ],
+        "reasoning": "The physical interpretation is different, but the variance rate computation specializes known theory and the asserted sharpness/rigidity is mechanically transferred from the equivalent stronger layout theorem. No distinct nonbinary optimization, density extension, or current-statistic theorem is stated. This justifies failing the originality axis on demonstrated coverage and routine specialization, not on an inaccessible paper.",
+        "searches": [
+          "Ezaki–Nishinari arXiv:1502.04804 and Ishiguro–Sato arXiv:2403.01934, underlying ASEP rules and stationary observables",
+          "Asanjarani–Nazarathy arXiv:1905.01736, second-order MMPP reduction",
+          "Resultary 0b67a9f3e612 proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror states the rotation-variance bounds and iff equality classifications and proves Rₖ₊₁−Rₖ=Kxₖ−n₁. Its proof Eq. (1) uses the identical pair cost d(K−d) and the same strict gap-concavity rigidity for one block."
+        ],
+        "reasoning": "For binary lanes normalized rotation counts differ from the lane prefixes only by a fixed multiplicative factor and a shift. For K=2m the word variance is m² times the variance of sign-prefix heights, and circular balance with equal composition is precisely alternation (length-two cyclic factors have average one 1 and must all have exactly one). This is exact equivalence of both layout bounds, not merely related clustering behavior.",
+        "searches": [
+          "Resultary 0b67a9f3e612; actual Finding and proof of binary circular Parikh rotation dispersion",
+          "Cyclic prefix variance, Green-kernel energy and binary circular rotation-count variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For composition (m,m) the indexed symbolic bounds are m²/4 and m²(m²+2)/12, with precise equality classes. Applying the exact variance scaling gives the same (a−b)²/(8χ) and (a−b)²(m²+2)/(24χ); these are not just coincident finite enumeration entries."
+        ],
+        "reasoning": "This family is covered by closed formulas for an equivalent observable, which is stronger evidence than a database of sampled lane arrangements. The dates attached to the two records do not invalidate the equivalence or establish actual priority.",
+        "searches": [
+          "Resultary 0b67a9f3e612 exact Finding and §§1–3, locally mirrored",
+          "Resultary and focused literature lookup for exact cyclic prefix/Green energy bounds under balanced signs"
+        ]
+      },
+      "rationale": "The sharp layout contribution has demonstrably equivalent exact coverage in a distinct indexed result for binary circular words, which in fact covers unequal multiplicities. For the indexed rotation count Rₖ of scattered 01 pairs, Rₖ₊₁−Rₖ=Kxₖ−n₁ with xₖ the high-lane indicator and n₁ its sum. Thus the lane prefix is Fₖ=(a−b)(Rₖ−R₀)/K and the variance excess is exactly 2(a−b)²Var(R)/(χK²). With n₁=K/2, the two bounds and both rigidity statements transfer with no residual optimization. The arbitrary-profile formula is the standard Markov-modulated Poisson variance law evaluated by one periodic first-difference integration. The record therefore does not establish a further materially distinct originality contribution against the inspected coverage. This is a statement-level decision, not a claim that the separately indexed result historically precedes this frozen record or that one copied the other.",
+      "residual_risks": [
+        "The displayed catalogue dates are October 18 and October 25, respectively; the mathematical implication is verified but historical order of discovery or dependency is not established.",
+        "The bounded review does not identify the earliest historical form of the circular rearrangement result. That does not weaken the exact equivalent coverage identified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly equivalent to both sharp balanced-binary layout bounds and iff equality statements, and stronger in allowed multiplicities; does not itself state the ASEP counting model.",
+          "evidence": [
+            "Its exact increment is Rₖ₊₁−Rₖ=Kxₖ−n₁. Bounds are d²(N²−1)/12 and n₀n₁(n₀n₁+2)/12 with circular-balance and one-interval equality. At n₀=n₁=m these are m²/4 and m²(m²+2)/12."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, including Eq. (1), mirror offsets 315–4727, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and bounded local-mirror passage inspection",
+          "title": "Sharp rotation dispersion bounds for binary circular Parikh counts",
+          "trigger": "Indexed exact optimization of a cyclic binary prefix observable"
+        },
+        {
+          "assessment": "Similar extremal patterns but a different objective.",
+          "evidence": [
+            "The cyclic objective is Σᵢ a_{r(i)}a_{r(i+1)}, not the centered prefix variance or inverse-Laplacian energy."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/jmi-12-48.pdf",
+          "material_read": "Formula (2), pp. 636–638",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Circular rearrangement inequality",
+          "trigger": "Published circular extremal templates for two levels"
+        },
+        {
+          "assessment": "General related inequalities; these inspected statements are on ℤ or ℤᵈ, not the finite cycle with the required exact extremizers.",
+          "evidence": [
+            "Theorem 5.10 admits nonincreasing distance kernels on the lattice. The basic discrete Pólya–Szegő comparison concerns a direct gradient energy, not immediately the inverse cycle Laplacian."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.na.2009.07.054; arXiv:2209.01003v2",
+          "material_read": "Hajaiej author copy, pp. 1140–1141; Hajaiej–Han–Hua Theorems 5.10 and 5.15, including p. 27",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Rearrangement inequalities in the discrete setting and some applications; Discrete Schwarz rearrangement on lattice graphs",
+          "trigger": "Potential dominating Riesz or Pólya–Szegő inequalities"
+        },
+        {
+          "assessment": "Establish stationary structures and currents, not a matching total-count noise law in inspected passages.",
+          "evidence": [
+            "The lane specialization fixes homogeneous lateral rates and a single vacancy; the cited steady-state calculations concern probabilities and mean currents."
+          ],
+          "identifier_or_url": "arXiv:1502.04804; arXiv:2403.01934",
+          "material_read": "Ezaki–Nishinari p. 1 and model description; Ishiguro–Sato pp. 1 and 4, Eqs. (15)–(17)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact solution of a heterogeneous multilane asymmetric simple exclusion process; Exact steady states in the asymmetric simple exclusion process beyond one dimension",
+          "trigger": "Same heterogeneous multilane physical setting and possible previously derived noise law"
+        },
+        {
+          "assessment": "General counting input applicable here after the one-vacancy projection; does not on its own contain the circular layout theorem.",
+          "evidence": [
+            "Second-order arrival variability under a Markov-modulated intensity is prior theory. Conditioning on the modulating lane path yields the integrated covariance formula used in the record."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.01736",
+          "material_read": "p. 2, MMPP/second-order discussion",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Stationary Markovian arrival processes: Results and open problems",
+          "trigger": "General long-time MMPP counting variance machinery"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 13–29 and 37–90",
+        "Resultary 0b67a9f3e612 Finding and proof §§1–3",
+        "Asanjarani–Nazarathy arXiv:1905.01736, p. 2"
+      ],
+      "rationale": "The contrast between equal mean transport and different count fluctuations is well motivated, and the application gives a clear physical interpretation. But as a standalone mathematical finding the exact optimizers and their quadratic separation are transferred by a constant scaling from the already-covered circular variance theorem. The only part outside that optimization is an elementary plug-in of the total-hop intensity into standard second-moment theory and a cycle prefix sum. No independently useful exact consequence requiring a new result beyond that reduction, such as a different count or interacting-vacancy regime, was established. Thus the physically natural interpretation does not rescue the routine remainder as a separate finding.",
+      "residual_risks": [
+        "This assessment is limited to the frozen mathematical claim; the same reduction may still be useful as an application or benchmark. No repair is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -17,8 +17,7 @@ def med(vals, weights):
              and sum(w for v,w in zip(vals,weights) if v > z) <= Q(1,2)]
     if len(valid) != 1:
         return None
-    # A nontrivial interval of minimizers is possible with a singleton
-    # observed value if half the weight lies on either side; reject that too.
+    # Check the equivalent strict mass criterion as well.
     z=valid[0]
     below=sum(w for v,w in zip(vals,weights) if v<z)
     above=sum(w for v,w in zip(vals,weights) if v>z)

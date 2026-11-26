@@ -1,101 +1,68 @@
-# Eight-level zero-free Walsh spectrum for the classical sixteen-point Steiner quadruple system
+# Exact inverse endpoint norm for the affine sixteen-point Steiner quadruple system
 
 ## Finding
-
-Let \(V=\mathbb F_2^4\), and let \(\mathcal B\) consist of all \(140\) affine two-flats \(P=x+\operatorname{span}(a,b)\) with independent \(a,b\in V\). Identify each block with its sixteen-coordinate binary incidence vector \(\mathbf 1_P\), and let \(G=\mathbb F_2^{V}\). Define the unnormalized counting-convolution operator on real or complex functions on \(G\) by
+Let \(V=\mathbb F_2^4\), \(G=\mathbb F_2^V\), and let \(\mathcal B\) be the 140 incidence vectors of the affine two-flats of \(V\). For the unnormalized counting convolution
 \[
- (Tf)(z)=\sum_{P\in\mathcal B}f(z+\mathbf 1_P).
+(Tf)(z)=\sum_{P\in\mathcal B}f(z+P),
 \]
-For each point-coloring \(s\in G\), its Walsh multiplier is
-\[
- \lambda_s=\sum_{P\in\mathcal B}(-1)^{\sum_{x\in P}s(x)}.
-\]
-The entire signed multiplier distribution is:
+the inverse is convolution by a kernel supported on the second-order Reed–Muller code \(C=RM(2,4)\). Its values are constant on the eight affine-coordinate orbits in \(C\):
 
-| Multiplier | Number of characters |
-| ---: | ---: |
-| \(-20\) | 896 |
-| \(-10\) | 14,336 |
-| \(-4\) | 26,880 |
-| \(6\) | 17,920 |
-| \(12\) | 1,120 |
-| \(28\) | 3,840 |
-| \(70\) | 512 |
-| \(140\) | 32 |
+| Type in \(C\) | Orbit size | \(3360k\) |
+|---|---:|---:|
+| Weight 0 | 1 | −255 |
+| Weight 4 | 140 | 24 |
+| Weight 6 | 448 | −9 |
+| Weight 8, affine | 30 | 25 |
+| Weight 8, nonaffine | 840 | −3 |
+| Weight 10 | 448 | 7 |
+| Weight 12 | 140 | 0 |
+| Weight 16 | 1 | −415 |
 
-Consequently \(T\) is invertible, its sharp smallest singular value is \(4\), and \(\|T\|_{2\to2}=140\), \(\|T^{-1}\|_{2\to2}=1/4\), \(\kappa_2(T)=35\). Its unique inverse has sharp endpoint norms
+In particular, the two sharp endpoint operator norms on the full group are
 \[
-\boxed{\|T^{-1}\|_{\ell^1(G)\to\ell^1(G)}
-=\|T^{-1}\|_{\ell^\infty(G)\to\ell^\infty(G)}=\frac{3617}{840}.}
+\|T^{-1}\|_{\ell^1(G)\to\ell^1(G)}=\|T^{-1}\|_{\ell^\infty(G)\to\ell^\infty(G)}=3617/840.
 \]
-These are exact operator norms, not upper bounds or norms restricted to translation-equivariant competing inverses.
+The eight spectral levels provide context; the result emphasized here is the inverse **in incidence coordinates** and its exact amplification norm.
 
 ## Assumptions and scope
-
-Every point of \(V\) is labeled by its four-bit integer in \(\{0,\ldots,15\}\); the coordinate of \(G\) at that point records membership in the block. All sums in incidence vectors and in the Fourier character exponent are over \(\mathbb F_2\), while the operator and multiplier values are over \(\mathbb Z\) or \(\mathbb C\). There are exactly \(35\) two-dimensional linear subspaces \(U\le V\), each with exactly four affine translates. The system is the classical Boolean Steiner quadruple system \(S(3,4,16)\); in particular every triple of distinct points has exactly one fourth completing a block. The statement concerns this particular labeled sixteen-point design and does not assert analogous nonvanishing in higher affine dimensions or for arbitrary Steiner systems.
+An element of \(G\) is a 16-bit word indexed by the four-bit labels of \(V\); its weight is its number of ones. Affine equivalence of codewords in the table means permuting the point coordinates by an invertible affine map on \(V\), without adding any word to the result. The convolution uses counting, not probability, normalization. This is about the classical affine SQS(16), not arbitrary Steiner designs or higher dimensions.
 
 ## Proof
+**Code and orbits.** A two-flat indicator is the product of two independent affine linear forms (using the level sets on which each form is one). Such products lie in \(C\). They span it: every quadratic monomial is such a product; for each variable \(x_i\) choose \(j\ne i\) and add the two products \(x_ix_j\) and \(x_i(1+x_j)\); and the four parallel two-flats of a fixed direction sum to the constant word. The span thus has dimension 11.
 
-**Reduction to eleven binary parameters.** Every Boolean point-coloring \(s:V\to\mathbb F_2\) has a unique algebraic normal form. Its affine (constant and linear) terms sum to zero on every four-point affine plane, so they do not change \(\lambda_s\). Thus choose the representative
+For \(Q\) of degree at most two, the alternating polar form of its quadratic part has rank 0, 2 or 4. Rank zero gives the affine cases. Rank two has normal form \(xy\) for the quadratic part: if the linear part vanishes on the radical, translation removes it and the two remaining constants distinguish weights 4 and 12. If it is nonzero on the radical, choose a radical coordinate \(z\) carrying it, and translate to absorb the constant, giving \(xy+z\), of weight 8. Rank four similarly has normal form \(xy+zt\) with linear term removable by translation and weights 6 and 10 distinguished by the constant. These normal forms show that the eight types are orbits. There are 35 rank-two polar forms, one for each two-dimensional annihilator of a radical (the nonzero alternating form on the two-dimensional quotient is unique), and the remaining 28 nonzero forms have rank four. For each rank-two form four linear terms vanish on its radical; for each, one constant yields weight 4 and the other weight 12. The other twelve linear terms and both constants give weight 8. For rank four all sixteen linear terms each admit one constant for each of the two weights. The nonconstant affine functions give 30 words. This yields all the displayed sizes.
+
+**An eight-dimensional convolution equation.** Write the orbit representatives in table order as
 \[
- s(x)=Q(x)+C(x)+d\,x_1x_2x_3x_4,
+0,\ xy,\ xy+zt,\ x,\ xy+z,\ 1+xy+zt,\ 1+xy,\ 1.
 \]
-where \(Q\) has six quadratic monomials, \(C\) four cubic monomials and \(d\in\mathbb F_2\). There are \(2^{11}=2048\) representatives, each corresponding to exactly \(2^5=32\) distinct Walsh characters.
-
-**Quadratic class.** For a quadratic \(Q\), its polar form \(B_Q(a,b)=Q(x)+Q(x+a)+Q(x+b)+Q(x+a+b)\) is alternating and independent of \(x\). Summing over the four cosets in each direction gives
+Point affine permutations preserve the block set, so convolution maps orbit-constant functions to orbit-constant functions on \(C\). For representative \(h_i\), let \(M_{ij}\) count the blocks \(P\) for which \(h_i+P\) has type \(j\). In the order above the transition matrix is
 \[
- \lambda_Q=4\sum_{U=\operatorname{span}(a,b)}(-1)^{B_Q(a,b)}.
+M=\begin{pmatrix}
+0&140&0&0&0&0&0&0\\
+1&36&64&3&36&0&0&0\\
+0&20&45&0&60&15&0&0\\
+0&14&0&0&112&0&14&0\\
+0&6&32&4&60&32&6&0\\
+0&0&15&0&60&45&20&0\\
+0&0&0&3&36&64&36&1\\
+0&0&0&0&0&0&140&0
+\end{pmatrix}.
 \]
-If \(R\) is the number of vectors in the radical of \(B_Q\), counting ordered independent pairs \((a,b)\) gives
+An exact recipe for each row is to take the set of distinct products \((a\cdot u+e)(b\cdot u+f)\) in the variables \(u\in V\), for unordered distinct nonzero \(a,b\in V\), \(e,f\in\{0,1\}\); this generates each of the 140 blocks, with repetitions removed. For each produced word add \(h_i\), tally its Hamming weight, and split weight eight according to membership in the 30 nonconstant affine words. This calculation is supplied in `orbit_inverse.py`. For example, from \(0\) all 140 planes give weight 4. From \(1\) they all give weight 12. Every row sums to 140, and \(|O_i|M_{ij}=|O_j|M_{ji}\) by reversal of each block addition.
+
+Multiplying \(M\) by the integer column \((-255,24,-9,25,-3,7,0,-415)^{\mathsf T}\) gives \((3360,0,0,0,0,0,0,0)^{\mathsf T}\). Therefore the proposed \(k\) satisfies \(Tk=\delta_0\) on \(C\). Off \(C\), adding a block never brings a word into \(C\), so extension by zero satisfies the same identity on \(G\). Convolution by \(k\) is consequently the unique inverse, since composition of convolutions multiplies their kernels by convolution and \(\delta_0\) is its identity.
+
+All row sums of absolute entries in the inverse matrix, and likewise all column sums, are \(\sum_g|k(g)|\). The \(\ell^1\) bound is attained on a single-coordinate unit vector; for \(\ell^\infty\) choose input signs agreeing with one row. The table gives \(\sum_g|k(g)|=14468/3360=3617/840\).
+
+## Spectral context and relation to prior work
+The affine design and its parallel classes are classical; see de Vries, *On orthogonal resolutions of the classical Steiner quadruple system SQS(16)*, DOI 10.1007/s10623-008-9207-5, and Kaski–Östergård–Pottonen, *The Steiner Quadruple Systems of Order 16*, J. Combin. Theory A 113 (2006), 1764–1770.
+
+For a Boolean coloring \(s\), let \(W_s(\xi)=\sum_{x\in V}(-1)^{s(x)+\xi\cdot x}\). The multiplier of counting block convolution is
 \[
- \sum_U(-1)^{B_Q(a,b)}=\frac{14(R-1)-2(16-R)}6.
+\lambda_s=\frac{16^{-1}\sum_{\xi\in V}W_s(\xi)^4-736}{24}.
 \]
-The only possible ranks of a four-dimensional alternating form are \(0,2,4\), so \(R\) equals \(16,4,1\); the resulting multipliers are \(140,12,-20\), respectively. Among the \(64\) quadratic forms the rank multiplicities are \(1,35,28\) (rank two is generated by a nonzero decomposable alternating two-form; there are \(35\), with the remaining \(28\) nondegenerate).
+Indeed the character-orthogonality sum runs over ordered zero-sum quadruples. The quadruples can be parametrized as \((x,x+a,x+b,x+a+b)\); the 46 pairs \((a,b)\) per base point with \(a=0\), \(b=0\) or \(a=b\) contribute \(+1\), while each genuine plane occurs 24 times. Thus the absolute Walsh distributions of the eight extended-affine classes of four-variable Boolean functions (for example the public [Affine Equivalence Classes, n=4 table](https://booleanfunction.github.io/equivalence-classes.html)) directly give the eight levels \(140,70,28,6,12,-4,-10,-20\); this reduction is not a new classification of Boolean functions or a claim of spectral priority. An unordered multiplier table does not specify the spatial inverse entries. The proof above obtains them by the affine-coordinate block-transition counts, without assuming spectral multiplicities or performing a full reciprocal transform.
 
-**Nonzero cubic class without a quartic.** The nonzero cubic leading form is, after an invertible affine coordinate change and absorption of lower-degree terms into \(Q\), a product of three independent affine linear forms. Its Boolean value is the indicator of a two-point affine line \(L\) with direction \(v\ne0\). For any direction \(U\), if \(v\in U\), the line intersects each coset in zero or two points and leaves all four signs unchanged. If \(v\notin U\), exactly two cosets contain one point of \(L\), and their signs cancel the other two. Therefore
-\[
- \lambda_{Q+\mathbf1_L}=4\sum_{U\ni v}(-1)^{B_Q(U)}
- =\begin{cases}28,&v\in\operatorname{rad}(B_Q),\\-4,&v\notin\operatorname{rad}(B_Q).\end{cases}
-\]
-There are seven two-dimensional directions containing \(v\). In the second case the seven quotient directions split into three with zero polar pairing and four with nonzero pairing. For a fixed nonzero cubic leading form, the three independent conditions \(B_Q(v,-)=0\) hold for \(8\) of the \(64\) choices of quadratic coefficients, and fail for \(56\). Since there are fifteen nonzero cubic leading forms, the reduced multiplicities are \(120\) for \(28\), and \(840\) for \(-4\).
-
-**Quartic class.** The monomial \(D=x_1x_2x_3x_4\) is the indicator of one point of \(V\). Translating the four coordinates of its input changes its cubic part by an arbitrary cubic form, bijectively, while modifying only lower-degree terms. Since affine permutations of \(V\) permute the blocks, all sixteen choices of \(C\) have the same distribution over \(Q\). For any fixed direction \(U\), exactly one of its four cosets contains the point supported by \(D\); thus adjoining \(D\) reverses just one of the four otherwise identical signs and halves the quadratic-only contribution. Hence \(\lambda_{Q+D}=\lambda_Q/2\), giving \(70,6,-10\) with reduced multiplicities \(16,560,448\). Multiplying all three cases by the affine factor \(32\) produces exactly the table in the Finding section and proves zero-freeness.
-
-**Exact inverse.** Because all multipliers are nonzero, the inverse is convolution by the unique kernel
-\[
- k(g)=2^{-16}\sum_{s\in G}\frac{(-1)^{\langle s,g\rangle}}{\lambda_s}.
-\]
-Exact integer Walsh inversion, using the eight displayed denominators and exhaustive enumeration of all \(2^{16}\) coordinates, gives the following complete distribution of \(3360k(g)\):
-
-| \(3360k(g)\) | Multiplicity |
-| ---: | ---: |
-| \(-415\) | 1 |
-| \(-255\) | 1 |
-| \(-9\) | 448 |
-| \(-3\) | 840 |
-| \(0\) | 63,628 |
-| \(7\) | 448 |
-| \(24\) | 140 |
-| \(25\) | 30 |
-
-The nonzero kernel coordinates lie in the eleven-dimensional Reed–Muller code \(RM(2,4)\) spanned by affine-plane indicators. Their values split by Hamming weight as follows: weight \(0\): \(-255\); weight \(4\): \(24\); weight \(6\): \(-9\); weight \(8\): \(-3\) on \(840\) words and \(25\) on the \(30\) affine-hyperplane words; weight \(10\): \(7\); weight \(16\): \(-415\). Weight \(12\) has coefficient zero. The complete calculation is the finite integer certificate implemented in `verify.py`; its inverse formula follows from the Walsh orthogonality identity, and every one of the \(65,536\) coefficients is checked, rather than sampled. The exact sum of absolute kernel numerators is \(14,468\). Convolution matrices have \(\ell^1\) and \(\ell^\infty\) operator norms equal to the sum of absolute kernel entries, proving \(14,468/3360=3617/840\).
-
-## Verification
-
-Run `python3 verify.py` with ordinary Python 3. The source constructs the 140 planes independently in two ways (three-point XOR completion and two-dimensional subspace cosets); proves an eleven-dimensional incidence span by exact binary Gaussian elimination; performs a full integer Walsh transform; tests the analytical cubic/quartic and quadratic multiplicities; inverts all 65,536 nonzero multipliers by another exact transform; and checks every entry of the inverse Fourier identity and the displayed inverse-kernel histogram. It needs no external library. It is a complete finite verification for the stated sixteen-point domain, not evidence for a larger-dimensional assertion.
-
-## Relationship to prior work
-
-The classical design, its 140 four-point blocks and its 35 parallel classes are established in work on Steiner quadruple systems and affine geometries. De Vries (2008) studies orthogonal resolutions of this exact design; Kaski–Östergård–Pottonen (2006) classify all sixteen-point Steiner quadruple systems; and Pavone (2023) exhibits a decomposition of this very affine-plane system into seven subdesigns isomorphic to the affine plane of order four. Reed–Muller-code and Gowers-derivative literature supplies related polynomial representations and cancellation tools. These results are inputs, not claimed as discoveries here. The assessed statement is instead the eight-level signed point-coloring spectrum, universal nonvanishing of all Fourier multipliers, and exact inverse endpoint norm for this design. Standard general Fourier diagonalization by itself does not specify these eight values or the inverse norm.
-
-## Limitations
-
-This is a finite-design theorem, not an asymptotic or higher-dimensional classification. The exact inverse-kernel coefficient table relies on a complete, reproducible integer transform, while nonvanishing and the entire multiplier spectrum have independent structural proofs above. Other published results on Reed–Muller coset distributions or spectral adjacency operators could imply part of the statement without matching its terminology; the checked sources do not resolve every possible historical priority route. No independent mathematical audit is asserted.
-
-## References
-
-1. H. L. de Vries, *On orthogonal resolutions of the classical Steiner quadruple system SQS(16)*, Designs, Codes and Cryptography 48 (2008), 287–292. https://doi.org/10.1007/s10623-008-9207-5 (publicly dated 2008-04-16).
-2. P. Kaski, P. R. J. Östergård and O. Pottonen, *The Steiner Quadruple Systems of Order 16*, Journal of Combinatorial Theory A 113 (2006), 1764–1770. https://pottonen.kapsi.fi/sqs16.pdf.
-3. M. Pavone, *A quasidouble of the affine plane of order 4 and the solution of a problem on additive designs*, Finite Fields and Their Applications 92 (2023), 102277. https://doi.org/10.1016/j.ffa.2023.102277.
-4. A. Bhattacharyya, S. Kopparty, G. Schoenebeck, M. Sudan and D. Zuckerman, *Optimal Testing of Reed-Muller Codes*, arXiv:0910.0641, first posted 2009-10-04. https://arxiv.org/abs/0910.0641.
-5. N. Elkies, *The Theory of Error-Correcting Codes*, lecture notes, Harvard University, 2013. https://people.math.harvard.edu/~elkies/M256.13/index.html.
+## Verification and limits
+Run `python3 orbit_inverse.py` with Python 3.10 or later. It generates the 140 planes as level-set products, evaluates the eight orbit rows and checks the convolution identity and exact norm. The original `verify.py` separately checks the full spectral and inverse tables with an integer Walsh transform. Neither calculation is an assertion about a different block system.

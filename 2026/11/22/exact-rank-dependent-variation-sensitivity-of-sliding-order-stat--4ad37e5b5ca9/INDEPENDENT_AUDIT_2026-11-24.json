@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:16:26.369292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a strict coordinate-order cone the filter is an index selector. Decomposing a perturbation into a constant plus cut steps reduces its TV operator norm to the maximum number of left/right selector transitions across a cut. Through the mixed region a shift removes a left entry and adds a right one, with clamped copies counted. The number k of right entries in the bottom q cannot decrease. At fixed 0<k<q the two bottom-group thresholds (left rank q−k and right rank k) move monotonically in opposite directions, so the selected side switches at most once, from right to left. This gives at most q between-block and q−1 within-block transitions; sign reversal gives the complementary bound. The proof may extend the centers beyond the sampled path to include the pure left/right windows for cuts near endpoints; restricting centers cannot increase variation. There are no left/right value ties under strict order, and the bound extends to any two inputs by integration along the segment and continuity. In the sharp construction, the low left values precede an increasing-value list alternating right and left. In the prefix windows the selecting rank in this list, when positive, is i−2s, with enough right entries already present (i such entries); in the late suffix windows deleting j of its initial left entries shifts the q-th survivor's original rank to q+j. Both count rules select right exactly at odd centers i>2s; q≤r+1 ensures that the suffix alone has enough entries even without extra copies of the maximum. A positive step of arbitrarily small size preserves the value order, so this pattern produces equality in TV. Negating the base values handles the complementary ranks, and constant continuation from n=2r+2 preserves the requisite first n outputs. Independent exact integer reproduction: python3 /workspace/checks/1.py; /workspace/checks/1.out. Exhausted strict orders and cuts in 60 (n,r,q) cells for n=4…7, checking equality where n≥2r+2, and checked 3264 exact positive-step witnesses for radii through 32 including longer paths. Frozen CHECKER.py was inspected, not executed. No extension of the claimed sharpness to shorter paths is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day symmetric trimmed-mean result states an exact attained coefficient w/(w−2t) for the average of the middle w−2t values; the maximal trimming case is the median. Differences of symmetric trimmed sums isolate complementary-rank pairs, not either individual intermediate rank.",
+          "The frozen record identifies a structural order-statistic representation paper and a single-input median smoothing paper. Independently attempted lawful access did not produce their decisive passages; these descriptions are not whole-paper exclusions."
+        ],
+        "reasoning": "A result bounding TV of one filtered input is not a bound for two unrelated nonlinear outputs, and a symmetric average is a different operator. Neither substitution provides the individual intermediate-rank constant and its sharpness.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-two-input-bounded-variation-stability-for-every-symmetric--15198f1331cd, Finding",
+          "Maragos–Schafer, doi:10.1109/TASSP.1987.1165254 and technical report scan",
+          "Restrepo–Chacón, doi:10.1109/78.286974 and listed manuscript copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 4ef2a38a9807, 5f5f2cb7d7b2, 15198f1331cd",
+        "doi:10.1109/TASSP.1987.1165254 (access attempted)",
+        "doi:10.1109/78.286974 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To attain the asserted intermediate coefficient one needs a rank-selector whose side oscillates for 2 min(q−1,w−q)+1 edges at a single input step. The median witness by itself only establishes the q=r+1 case; the extreme theorem only bounds the one-sided max/min selector. The trimmed-mean constants describe a normalized sum over a symmetric band, with different dependence on the window width."
+        ],
+        "reasoning": "No inspected result establishes the intermediate-rank count/block argument or specializes at the same window and rank to that attained bound. Applying TV to a single order-statistic output does not linearize the difference of two such outputs.",
+        "searches": [
+          "Resultary local originals 4ef2a38a9807 (median), 5f5f2cb7d7b2 (extrema), 15198f1331cd (trimmed mean)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier median finding gives the attained 2r+1 at q=r+1 under exactly the same path length and boundary regime. The morphology finding gives attained 1 for minimum/maximum when the filter is not a full-window constant. Truncation instead of clamping makes no difference for extrema because repeated endpoint values cannot change them.",
+          "Sign reversal interchanges q and w+1−q while preserving the two-input quotient, so only the intermediate ranks up to the median form distinct targets."
+        ],
+        "reasoning": "Ascending/descending rank and erosion/dilation terminology expose real special-case overlap. Neither median nor extreme-rank equivalence extends these results to an isolated intermediate order statistic.",
+        "searches": [
+          "Resultary: sharp two-input total variation of sliding rank/order-statistic filters, clamped centered path and all radii",
+          "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct corpus results explicitly match the median/extremes or give an attained formula for a symmetric average. The search returned the assigned record itself; it is excluded from independent evidence. A cyclic median finding changes the path geometry and only treats the central rank."
+        ],
+        "reasoning": "No distinct all-rank ladder was seen in the bounded catalogue comparison. This absence does not guarantee priority; neither the same-day date nor the existence of a nearby cyclic theorem disqualifies or establishes the specific formula.",
+        "searches": [
+          "Resultary: exact all-rank 2 min(q−1,w−q)+1, running quantile, path TV and endpoint clamping",
+          "Resultary local primary findings 4ef2a38a9807, 5f5f2cb7d7b2, 15198f1331cd"
+        ]
+      },
+      "rationale": "The exact attained median and end-rank coefficients are previous results on the relevant geometry (or the same min/max windows modulo repeated entries). Pass is for the noncentral intermediate ranks and their all-rank interpolation, not for those special cases, order-statistic representations, or single-input smoothing. The closest inspected findings do not supply the rank-dependent two-input transition bound and matching witness. Historical literature access is a residual risk, not negative coverage evidence.",
+      "residual_risks": [
+        "The decisive passages of the early signal-processing papers were not independently obtained. An unindexed historical two-input result for intermediate ranks remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior special case",
+          "evidence": [
+            "Attained coefficient 2r+1 for clamped running median on noncyclic path n≥2r+2."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "material_read": "Original Finding and scope (offset 0)",
+          "method": "Resultary and local primary mirror",
+          "title": "Sharp two-input variation instability of all-radius running medians",
+          "trigger": "Same geometry, normalization, and one rank"
+        },
+        {
+          "assessment": "Exact prior extreme values under equivalent min/max window convention",
+          "evidence": [
+            "The coefficient 1 is sharp for nonconstant running minima/maxima with truncated windows; repeating boundary entries does not change these outputs."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2",
+          "material_read": "Original Finding (offset 0)",
+          "method": "Resultary and local primary mirror",
+          "title": "Finite-window morphology: sharp two-input variation and a boundary effect",
+          "trigger": "Extreme order-statistic ranks"
+        },
+        {
+          "assessment": "Attained formula for a different family of rank averages",
+          "evidence": [
+            "For trimming t on each end the formula is w/(w−2t), including the median, not the ladder for each individual rank."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-input-bounded-variation-stability-for-every-symmetric--15198f1331cd",
+          "material_read": "Original Finding (offset 0)",
+          "method": "Resultary and local primary mirror",
+          "title": "Sharp two-input bounded-variation stability for every symmetric sliding trimmed mean",
+          "trigger": "Same-day sharp non-median generalization on sliding windows"
+        },
+        {
+          "assessment": "Unresolved primary access, not evidence of noncoverage",
+          "evidence": [
+            "The frozen record attributes max–min/threshold identities to this source; this attribution is not a substitute for the mathematical text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TASSP.1987.1165254",
+          "material_read": "Citation and frozen description only; no decisive primary theorem read",
+          "method": "Lawful technical report scan attempted (direct timeout, alternate without extractable text); journal DOI route did not yield readable full text",
+          "title": "Morphological Filters—Part II: Their Relations to Median, Order-Statistic, and Stack Filters",
+          "trigger": "Same family of order-statistic filters; plausible broader theorem"
+        },
+        {
+          "assessment": "Unresolved access; described in frozen record as a single-input result",
+          "evidence": [
+            "No original mathematical passage obtained; the claimed comparison concerns the two-input seminorm, not TV(Qx) alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/78.286974",
+          "material_read": "Citation and frozen description only; no decisive primary theorem read",
+          "method": "Attempts via IEEE page/PDF (202) and listed manuscript copy (403)",
+          "title": "A smoothing property of the median filter",
+          "trigger": "Possible TV comparison for the median special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For running quantile filters the distance from an extreme, rather than just window size, controls two-input instability in TV. The exact transition law quantifies all intermediate ranks and shows in particular that going one place in from an extreme increases the factor to 3 independently of radius (with an arbitrarily small attaining perturbation). That is useful for comparing robust filters on a finite path and not implied by known median/min/max factors. No usefulness for cyclic, weighted, or multistage filters is assumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

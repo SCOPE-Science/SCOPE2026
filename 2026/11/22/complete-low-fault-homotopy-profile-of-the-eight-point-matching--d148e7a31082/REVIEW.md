@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite claim is exact for all eight-vertex graphs obtained by deleting at most three edges from the complete graph; the sphere counts also equal 132-16 times the number of faults plus twice the number of disjoint faulty pairs. Every fault set belongs to one of nine isomorphism types; the self-contained verifier exhausts the 3683 labeled fault sets for orbit coverage, enumerates all faces in each representative, constructs all acyclic Morse pairs, and tests the complete directed Hasse graph. For each representative exactly one empty-face pair and only critical two-simplices remain; hence the ordinary CW model is a bouquet of the listed two-spheres. An independent Euler count verifies every multiplicity. No infinite extrapolation or torsion assumption is made.
+## correctness
 
-**Originality — PASS against inspected evidence.** The complete-graph 132-sphere result in Mondal–Mukherjee–Saha is prior art, credited explicitly; it does not classify noncomplete edge-fault graphs. Bayer–Jelić Milutinović–Vega's line-tiling family and general deletion/link tools do not imply the dense graph fault-orbit table. The broader integral split-injection fact for matching homology is not reclaimed as new; it does not supply the homotopy types. Relevant indexed edge-fault studies concern distinct graphs or complexes. Search-based novelty cannot exclude an unindexed equivalent table.
+PASS
 
-**Value — PASS.** Eight vertices is the first complete-graph matching-complex case with a simply connected nontrivial two-sphere bouquet and a known sharp homotopy result. The complete classification of single, double, and triple edge faults detects incidence dependence via the number of disjoint faulty pairs, and the first possible triangle-vs-star comparison at exactly three deletions. The result supplies missing homotopy information, not merely a known Euler table or routine primitive-inclusion corollary; complete finite orbit coverage is a coherent natural cutoff.
+The nine orbits follow by the components of a simple ≤3-edge fault graph: for three edges the connected shapes are triangle, path and star, with the two disconnected possibilities obtained by partitioning the edge count as 2+1 or 1+1+1. Relabeling graph vertices induces a simplicial isomorphism. Inclusion–exclusion in the alternating face sum, including the empty face, gives a term +reduced-chi(M(K_(8−2k))) for each matching of k faulty edges (the signs from exclusion and the shift in simplex size cancel). For k=0,1,2,3 these values are 132, −16, 2, 0, giving the formula and every row. The frozen Morse checker enumerates every Hasse incidence on each representative, not just incidences in its chosen pairs; its augmented orientation, and dropping the empty-face pair, give exactly the required discrete-Morse hypothesis. Independently verified the homotopy type without relying on that matching: each perfect-matching tetrahedron has a free triangular face since a three-edge matching leaves just two graph vertices and at most one extension. Collapse every tetrahedron along one such triangle, contract a maximal tree in the remaining connected 1-skeleton, and read triangle boundary relators. The independent checker verifies that iteratively killing generators appearing as the sole live generator of a triangle relator kills all generators on each of the nine representatives. This proves simple connectivity; a simply connected finite 2-complex has free H_2 of rank reduced χ, and Hurewicz plus homology Whitehead give the wedge of that many 2-spheres. Replay: python3 /workspace/reviews/check_mathematics.py 1. The nine generator counts before elimination are 183,169,155,156,141,141,142,143,144; zero survive in every case, with ranks 132,116,100,102,84,84,86,88,90.
 
-**Risk and limits.** The finding is finite and does not assert higher-order generality. A prior unindexed equivalent calculation could remove originality. The exhaustive program and written argument have not received independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact wedge of 132 spheres is established prior art. The contribution supported is the full nonempty low-fault homotopy profile; neither the Euler inclusion–exclusion method nor the Morse method is new. The closest distinct same-day perfect-matching deletion is real overlap in setting, but not coverage on these fault graphs.
+
+## value
+
+PASS
+
+At the eight-point intact case where the ordinary complex is a known two-sphere bouquet, the low-deletion question tests stability of the integral homotopy type under every small fault shape, through the first cyclic fault. This is a complete natural cutoff rather than chosen sample graphs. The nontrivial topology is uniform, while the sharp rank is incidence-sensitive already for two faults; the resulting benchmark distinguishes equal fault counts and identifies genuinely homotopy-equivalent nonisomorphic examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

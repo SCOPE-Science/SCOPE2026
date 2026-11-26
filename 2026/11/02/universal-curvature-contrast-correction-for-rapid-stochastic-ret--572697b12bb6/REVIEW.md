@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The return mean solves a scale/speed boundary-value problem, with an explicit derivative. Strong Markov renewal of the search/return cycles and stopped Dynkin's formula yield an exact identity for the difference of means at every rate. Oddness cancels first and third powers of the local search displacement; the first nonzero contribution is the variance term. Reflection/Gronwall controls the early hit probability, and fixed strong confinement controls tail and integrability. The expansion is therefore a genuine asymptotic theorem, not a finite simulation inference. `verify.py` independently checks nonlinear instances numerically. The sign and constants agree with the direct harmonic check.
+## correctness
 
-**Originality: PASS (qualified best-knowledge).** Dubey--Pal (arXiv:2610.18814) supply an exact renewal expression for switching *harmonic* potentials, and Frydel (arXiv:2511.14646) explicitly supplies the return-only high-rate plateau for a free/harmonic protocol. The plateau is excluded from the original contribution. The new claim covers arbitrary smooth odd strongly confining drift pairs, identifies the universal nontrivial \(r^{-3/2}\) correction and its local slope contrast, and supplies the exact drift-comparison identity. The specific harmonic and free/harmonic results cannot alone imply the nonlinear family without further argument. Searches of available public research records and accessible local claims did not locate a more general published statement. Residual risk: only the early main sections of the 2026 source could be inspected; its remaining full text was inaccessible, and uncatalogued diffusion perturbation results may overlap.
+PASS
 
-**Value: PASS.** The identified correction determines whether increased resetting approaches the finite return-only MFPT from above or below, even for nonlinear traps; the exponent is unexpectedly \(3/2\) rather than a naive half-power occupancy estimate. The coefficient separates local search curvature from global return potential and yields a usable finite-rate extrapolation rule for stochastic-return experiments. The equal-drift case gives an exact consistency boundary. This is a motivated structural law, not simply a tabulated numerical value.
+The return mean u solves u''+b2 u' = −1 with u(1)=0 and the stated scale-speed derivative; in the far negative tail the scale-speed ratio is at most 1/(c2 |x|) by integrating the dissipativity bound between y≤x and x. Thus u grows at most logarithmically there and (b1−b2)u' is bounded on x≤1, justifying the stopped Dynkin and renewal computations, whose success probability is positive. They give M_r−u(0)=N_r/p_r exactly. From |b1(x)|≤L|x|, a Gronwall bound by the Brownian running maximum gives the exponentially small short-time probability of hitting 1 and all needed moment bounds; comparison to sqrt(2)B_t in L1 gives E X_t^+=sqrt(t/pi)+O(t^(3/2)), and Itô gives E X_t²=2t+O(t²). Killing and fixed-neighborhood localization contribute errors smaller than every power after Laplace weighting. Near zero h(x)=x^+/S2+O(|x|³), so p_r=1/(2 S2 sqrt(r))+O(r^(−3/2)). With delta=b1'(0)−b2'(0), u''(0)=−1 and symmetry of unrestricted search eliminates odd terms, giving N_r=−2 delta r^(−2)+O(r^(−3)). Dividing gives the sign, factor 4 and O(r^(−5/2)) remainder in the claimed normalization; the exact identity gives equality when the drifts coincide. The finite mesh file was inspected, not executed or used as a continuum certificate.
 
-Independent priority and mathematical audits remain unperformed. Numerical checks are neither infinite proofs nor independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the quantified correction for arbitrary odd, smooth, globally Lipschitz and strongly confining drift pairs, not for the known plateau or the general renewal identity. A catalogue result gives exactly the exponential-clock OU specialization, but its arbitrary-clock generality does not cover nonlinear drifts. The general published renewal formula identifies the stopped-cycle ratio; it does not expose the signed drift discrepancy, parity cancellation or expansion of the ratio. The harmonic paper and free/harmonic plateau do not imply the nonlinear theorem.
+
+## value
+
+PASS
+
+The correction distinguishes approach from above and below to an otherwise common return-only mean; it separates the local slope contrast from a global return scale integral and explains why the linear spatial perturbation cancels. The controlled error and the extension to nonlinear confining drifts make the law useful beyond a harmonic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

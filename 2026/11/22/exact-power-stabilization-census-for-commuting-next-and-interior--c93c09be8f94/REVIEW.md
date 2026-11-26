@@ -1,15 +1,21 @@
-# Self-review of the exact finite-chain next–interior stabilization census
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nonempty finite upper-set chain, the two sides of the commutation scheme quantify over the two sets \(f([i,n-1])\) and \([f(i),n-1]\); testing all valuations equates them. This proves the upper-endpoint and binary-increment normal form without assuming openness. The image of a defect-\(r\) map is exactly the suffix of length \(n-r\). Surjectivity onto that suffix makes equality of successive powers equivalent to equality of successive powers of its restriction, with an unavoidable initial step. This gives the binomial extension coefficient \(\binom rs\), the base cases and a strictly decreasing recursion. The terminal-image argument proves \(\tau\le n-r\), the zero-position proof counts \(r\) maximizers when the suffix has at least two points, and explicit binary words realize every intermediate time. Finite exhaustive checks (`verify.py`, `VERIFY_OK 8158`) corroborate but are not substituted for these general proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2026 Alexandrov dynamic-topological-logic work settles axiomatizability and supplies the spatial/temporal setting, not a rank-index histogram. The 2024 Fernandes article, including Section 3, gives the known binary normal form/cardinality and presentations but no displayed power-index recursion; the 2013 Adeshola–Umar article gives exact rank/fixed-point margins, not stabilization-time fibers. A separate November 2026 theorem proves logarithmic *typical* power stabilization in the larger monoid of all monotone contractions; it does not give the present exact joint defect/time counts. Another theorem counts the fibers of the *eventual retraction* map by image rank, and an independent-product theorem treats independent factors, not iterates of the same map. The present claim is neither the old \(2^{n-1}\) monoid size nor its binomial rank distribution nor the logarithmic limit. Residual priority risk: less discoverable earlier index-enumeration work for transformation semigroups could imply the recursion. Historical priority is not independently certified.
+PASS
 
-## Value — PASS
-The precise question is motivated by finite dynamic-topological models where next and interior commute as operators, making it possible to ask when **all** temporal observations become stationary. The exact distribution by original image defect specifies more than the prior cardinality, fixed-point, and asymptotic statements: it gives an all-parameter finite depth histogram, a complete attainable-depth spectrum at each defect, and the exact multiplicity of the worst case. The recurrence is directly computable with terminating smaller-chain calls and sharp at every size; no general theorem about arbitrary topologies is claimed.
+At point i the two sides are inclusion predicates for the sets [f(i),n−1] and f([i,n−1]). Equality for every valuation is equivalent to their equality and forces monotonicity, fixed top and no upward step larger than one. Those conditions conversely give the suffix equality. The binary encoding f(i)=i+number of zeros at positions ≥i gives r zeros and image [r,n−1], including the r=0 identity and n=1 boundary. For r>0 the restriction to this image is again of the same form on n−r vertices. Its s zeros leave r−s zeros in the first r slots, giving binom(r,s) extensions. Surjectivity onto the first image cancels the first f in both adjacent powers, so the index is one plus that of the restriction. Following the least image point bounds the index by n−r: images are nested final intervals and equality of successive intervals forces identity on the current interval. Taking the final zero at position r+t−2 with all but one zero in the first r slots realizes t≥2; all r zeros in the first r slots give t=1. To attain n−r≥2 the minimum orbit must move by one at each remaining step, so the final suffix has exactly its last increment zero; there are r such extensions. There is one constant-top map if n−r=1. Singleton valuations distinguish unequal powers, proving the uniform interpretation. A fresh independent Python checker (`independent_check.py`) evaluated all maps and Boolean valuations through n=5 and directly composed all 4,095 encoded maps across n=1,…,12. It confirmed the recurrence and boundaries, including the n=8 histogram (1,7,46,42,20,8,3,1). These are bounded checks; the all-size result rests on surjective restriction.
 
-## Limits and comparison
-The theorem assumes a finite linear Alexandrov upper-set space and both directions of modal commutation. It does not generalize the proof to arbitrary preorders, all continuous maps, or general stochastic products. Prior numerical and structural facts are credited; exact priority remains tentative, and a second-party mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The interval-image subclass and ordinary rank census are prior art, and the Catalan rank-depth census overlaps on the statistic and contains the maps as a subclass after reversing order. The supported distinct claim is the joint exact defect-index enumeration subject to the fixed-end, unit-step condition, not the map family, binomial rank counts, or the general rank upper bound. The broader series do not select this constrained family.
+
+## value
+
+PASS
+
+Modal stabilization depth is the first uniform equality of successive next operators on arbitrary valuations, and measures information loss under iterating a single map. The joint census explains exactly how that depth varies at fixed first-step image loss, a statistic not recovered from counts by rank, fixed points or eventual rank. It provides all finite coefficients and the sharp multiplicity of the maximal delay within a natural topological subclass; the small histogram is just an illustration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

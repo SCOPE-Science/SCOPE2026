@@ -24,7 +24,7 @@ At these sites the two weighted evaluation representers are orthogonal and have 
 \[
  \boxed{\ \min_{x\ne y} C_{\alpha,\beta}(x,y)^2=\frac{\alpha}{12}\ },
 \]
-and the complete ordered minimizing family is \((x,y)=(1/2,1/2\pm b_0)\). The smaller-weight sensor remains at a fixed off-center location and cannot improve the cost beyond the individually optimal heavier sensor at the midpoint. For equal weights, the unique unordered design is \(\{1/\sqrt6,1-1/\sqrt6\}\), with squared constant \((1-\sqrt{2/3})/2\). Swapping the original labels swaps the ordered coordinates accordingly.
+and the complete ordered minimizing family is \((x,y)=(1/2,1/2\pm b_0)\). The smaller-weight sensor remains at a fixed off-center location and cannot improve the cost beyond the individually optimal heavier sensor at the midpoint. For equal weights \(\alpha=\beta=\gamma>0\), the unique unordered design is \(\{1/\sqrt6,1-1/\sqrt6\}\), with squared constant \(\gamma(1-\sqrt{2/3})/2\). Swapping the original labels swaps the ordered coordinates accordingly.
 
 ## Assumptions and scope
 

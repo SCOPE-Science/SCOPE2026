@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two reflexive-transitive relation images are normal, extensive, idempotent modal operators. Additivity reduces their commutation test to the singletons. The explicit four-world orders satisfy the hypotheses and the displayed sixteen unary expressions give every possible truth set. The exhaustive standalone checker tests every labelled partial order up to size four, every commuting ordered pair and every seed valuation; its exact census gives 960 full-orbit triples. A group-action argument shows every full-orbit triple is rigid, so division by 24 gives 40 isomorphism types. No infinite inference is drawn from the finite census.
+## correctness
 
-**Originality — PASS within inspected evidence.** Agnew (arXiv:2606.02941, 2026) treats locally finite K4 complex algebras and transitive frames, not this two-operator minimal finite saturation. Shallit–Willard (arXiv:1109.1227, Sections 2–4) prove infinite generation for two commuting abstract closure operators but not the four-world full-orbit classification under two additive topological modalities. Banakh et al. (arXiv:1508.07703, Sections 1–2) prove broad bounds for comparable topologies; the witness has incomparable ordered modal relations and the census is fixed-valuation and finite. The classical single-operator Kuratowski theorem is not a covering result. Remaining risk: an older finite-space census, possibly under Kuratowski-monoid nomenclature, may already contain the numerical classification.
+PASS
 
-**Value — PASS.** The cardinality and isomorphism count measure a natural precise logical expressivity invariant: what nested **unary** formulas in one variable can distinguish on a fixed commuting bimodal S4 frame. The sharp four-world threshold exhibits the smallest possible failure of the classical one-modality fourteen-set ceiling in a strongly constrained multimodal setting, and forty isomorphism types give a complete minimal-size census rather than an arbitrary example. The restriction to distinct ordered modalities is intrinsic to the syntax; the T0 condition is an added structural constraint that the construction satisfies.
+The forward image of a partial order is extensive, idempotent and additive; equality of the two compositions on singletons is sufficient by union preservation. In /workspace/reproductions/modal.py I independently enumerated the three orientations (including absent edge) of each unordered pair, imposed transitivity, and used sets and repeated simultaneous closure to enumerate orbits. Every seed in every commuting ordered pair is included; 2^n−1 rounds suffice because each nonstable round adds at least one subset. Counts of full triples at n=1,2,3,4 are 2,16,180,960. At n=4: 219 posets, 22735 commuting pairs, orbit histogram at sizes 2,4,…,16 is (48124,102252,107568,59376,29280,12144,4056,960), successful seed size counts are (168,624,168) at sizes 1,2,3, there are zero comparable successes, and the least total strict edge count is 4. The same reproduction evaluated all sixteen displayed words right-to-left for the given witness. No ≤3-world carrier can reach 15 subsets. An automorphism preserving the two named relations and seed commutes with all three unary maps, so in a full orbit it fixes every subset, in particular every singleton. Thus the labelled action is free and gives 960/24=40 classes without quotienting by an operation swap.
 
-**Limitations.** The census is computationally exhaustive rather than a symbolic closed formula. Its comparison literature is substantial but not an independent all-history novelty certification. All assertions concern this one fixed semantic class and do not claim anything about global formula equivalence across frames or larger carriers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked catalogue and primary sources cover the general closure-complement setting and related commuting-operator counts, but not the sharp finite T0 realization and census of ordered, commuting closure pairs with a fixed generating subset.
+
+## value
+
+PASS
+
+The 14-set single-closure comparison motivates this finite threshold; the commuting and T0 constraints make an admissible full witness nontrivial. The exact whole four-world census, rigidity and least-edge condition are reusable benchmarks for unary generation in finite closure spaces; they are not a selected sample or just a relabeling of the classical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

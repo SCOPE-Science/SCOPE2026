@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:31:20.962952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed 0<ε<1 an active edge contributes ε(p_i+p_j)/(4m) to the degree-weighted mass drift, regardless of the orientation of its disagreement. Every copying rate on a discordant edge is strictly positive; a spanning-tree sequence to consensus and the finiteness of the state space give a finite mean absorption time. Stopping the bounded degree mass gives the stated occupation correction, and the fixation probability is harmonic. Testing singleton plus sets shows that a nonzero same-preference drift cannot cancel there. For arbitrary signed linear weights, the singleton plus and singleton minus equations add to the unbiased walk equation for r_i=w_i/d_i: r_i is the average of its neighbors. The connected-graph maximum principle forces a constant r_i, without a positivity assumption. Thus an arbitrary nonzero linear martingale is exactly a multiple of M and exists only under edgewise cancellation. The star degrees put half of the mass at the hub; independent rate-one clocks have total first-change hazard (r+1)(1−ε)/2. Independent replay: python3 -B /workspace/branches/independent_checks.py 1, 644 exact generator-rank tests on all connected labeled simple graphs of orders 2–4 at ε=2/5, checking the dimension and degree basis of the linear martingale space. The analytic argument, not the finite tests, establishes the general statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4af872777a16 uses symmetric positive edge weights and general b_i; its cut identities force edgewise cancellation with no restriction to two bias values. It also gives first-change slowdown on any oppositely aligned bipartite graph. Llabrés–San Miguel–Toral gives the microscopic update and edge-type distinctions."
+        ],
+        "reasoning": "The stronger exact catalogue theorem covers the frozen graph and preference class, not simply a mean-field analogue. The primary partisan papers read add microscopic, approximate or simulation context, not stronger verified arbitrary-graph coverage than this match.",
+        "searches": [
+          "4af872777a16 Finding and Proof §§1–4; arXiv:2606.05062 Eq. (1), Eqs. (3)–(6); arXiv:2301.09563 abstract; arXiv:1012.2462 pp. 4 and 6; DOI 10.1103/PhysRevE.82.010103"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py read only",
+        "Resultary 4af872777a16 and 65cacf89161b targeted RESULT.md statements",
+        "Primary query: partisan voter finite graph bipartite preferences fixation probability martingale degree weighted conservation",
+        "arXiv:2606.05062, 2301.09563, 1012.2462 and cond-mat/0408101 (specified passages)",
+        "DOI 10.1103/PhysRevE.82.010103 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior generator drift after clock rescaling is the frozen active-cut drift. The same finite absorbing chain and the classical node-update walk conservation identity apply."
+        ],
+        "reasoning": "If a linear F is harmonic at bias ε, complementing opinions makes it harmonic at −ε because F(1−η)=Σw−F(η). Averaging the two affine-in-ε generators makes F harmonic for the unbiased process, for which r_i=w_i/d_i is harmonic on the connected graph and constant by the maximum principle. Apply the earlier weighted-mass criterion to obtain the signed classification. Stopped Dynkin on the earlier drift gives the occupation formula. The earlier geometric first-change mean 2/(1−ε), divided by total attempt rate |V|, gives the star mean with |V|=r+1.",
+        "searches": [
+          "4af872777a16 Proof §§1–4, offsets 2439–5389; arXiv:cond-mat/0408101 Eq. (2); frozen RESULT.md lines 57–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4af872777a16, Finding and scope (offsets 0–2439): for all fixed biases b_i∈(−1,1), weighted mass is a martingale iff b_i+b_j=0 on every edge; it fixes at the initial weighted mass."
+        ],
+        "reasoning": "Put σ_i=2η_i−1, b_i=εp_i and unit edge weights. On a disagreement σ_j=−σ_i, so (1+σ_j b_i)/2 is the frozen flip probability. A Poisson clock of overall rate |V| with uniform updater gives the independent rate-one clock convention and the same hitting law.",
+        "searches": [
+          "Resultary query: finite partisan voter network bipartite preferences degree-weighted fixation neutrality linear martingale",
+          "Resultary query: every linear martingale signed weights unique degree weighted mass partisan copying fixed preferences graph criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4af872777a16 explicitly indexes an all-graph neutrality locus and exact fixation and first-change formulas. 65cacf89161b concerns a distinct synchronous confirmation-bias map."
+        ],
+        "reasoning": "The decisive indexed result is an exact theorem, not a table of select graphs. The detailed-balance invariant for the synchronous map is not an equivalent process or a second direct overlap.",
+        "searches": [
+          "Resultary 4af872777a16 and 65cacf89161b; targeted query for signed-weight linear invariants"
+        ]
+      },
+      "rationale": "Earlier Resultary record 4af872777a16 proves the same exact edge-cancellation and universal weighted-fixation criterion for arbitrary fixed biases on symmetric weighted graphs. It also gives the same separation as bias tends to one: fixation probabilities stay neutral while the waiting time diverges on aligned bipartite graphs. This includes the star after a constant rescaling of update-attempt rate. Its exact drift supplies the occupation correction by stopping. The only other difference, the signed-linear conservation classification, follows directly from complement symmetry, the classical connected-walk invariant, and the already proved edge criterion; it is not a distinct substantial new result.",
+      "residual_risks": [
+        "Other historical antecedents in heterogeneous or dual voter models may exist; the named 2010 full text was unavailable. This does not affect the exact established catalogue overlap or the implication for signed weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of principal theorem and timescale example.",
+          "evidence": "Exact weighted cut drift, iff edgewise cancellation, universal fixation by absorption, and geometric first-change law in the aligned bipartite case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-edgewise-bias-cancellation-and-fixation-neutrality-in-part--4af872777a16/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–4, offsets 0–5389 and absorption passage at offset 4694.",
+          "method": "Targeted local mirror reads, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "Exact edgewise bias cancellation and fixation neutrality in partisan voter networks",
+          "trigger": "Exact neutrality for the same copying rates with a more general bias vector."
+        },
+        {
+          "assessment": "Microscopic and macroscopic background in passages read; exact matching earlier theorem is the catalogue source.",
+          "evidence": "Distinguishes active edges by endpoint state/preference and formulates the update rule.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.05062",
+          "material_read": "p. 1 active links, Eq. (1), Eqs. (3)–(6), Section III / Eqs. (15) and (17), at OA offsets 7842, 12303, 17383, 20742 and 30600.",
+          "method": "Primary literature search and targeted OA reading.",
+          "title": "Partisan voter model on complex networks: Dynamics of local ordering",
+          "trigger": "The frozen record inherits this microscopic model and active-edge distinctions."
+        },
+        {
+          "assessment": "Classical degree-weighted invariant for the unbiased process.",
+          "evidence": "Defines degree-weighted magnetization for node updates on heterogeneous networks.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0408101",
+          "material_read": "p. 2, Eq. (2), OA offset 11564.",
+          "method": "Targeted arXiv primary text.",
+          "title": "Conservation laws for the voter model in complex networks",
+          "trigger": "Known unbiased node-update invariant used to test the signed-linear remainder."
+        },
+        {
+          "assessment": "Coverage undetermined, not negative evidence.",
+          "evidence": "No theorem was inferable from the recovered material.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.82.010103",
+          "material_read": "Bibliographic/search result only; no primary theorem passage.",
+          "method": "DOI and APS OA attempts returned 403; no verified open copy recovered.",
+          "title": "Heterogeneous voter models",
+          "trigger": "Potential prior conservation or duality result for heterogeneous copying."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact topology-dependent neutrality is a worthwhile question, but the frozen version specializes an earlier more general theorem. Signed-weight uniqueness is an immediate consequence of global opinion complementation and the connected Laplacian; the occupation and clock consequences are routine. No independently substantive remainder warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

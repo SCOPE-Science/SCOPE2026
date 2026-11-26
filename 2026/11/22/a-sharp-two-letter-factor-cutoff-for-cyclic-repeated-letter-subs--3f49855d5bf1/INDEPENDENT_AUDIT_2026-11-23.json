@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:27.963005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the one-sided fixed point prolonged at zero and contiguous factors, any constant run lies in one substitution block or crosses only one boundary, since each entire block contains two distinct symbols. It has length at most r+1; the boundary in σ((a−1)a) attains it for every a (all symbols occur, and each consecutive pair needed occurs inside an image). Every factor with at most two symbols and a full block σ(a) uses exactly {a,a+1}. Since q≥3 that set uniquely identifies the source letter for every full aligned block. Hence the number k of full blocks is at most B=r+1. With k≤r the partial fringes have length at most r each, giving |u|≤rB+2r=L−2; with k=B, maximality of the source run means neither neighboring source letter is a, so the only permissible nonempty fringes are the terminal a from σ(a−1) and an initial (a+1)-run from σ(a+1). Their lengths are at most 1 and r. This proves the upper bound and forces the stated E_a at equality, including for q=3. Attainment follows because σ((a−1)a) contains (a−1)a^(r+1)(a+1), whose image supplies the extremal fringes and full blocks. Prefixes of the extremals and the constant-run bound give the complete stated ranges of m(n). All supplied scripts and saved outputs were inspected, not executed. The finite closure script computes 245 length/parameter sets but counts L−1 without an associated assertion (it asserts at the other four selected lengths); no part of the universal proof depends on that printed verification count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 4 proposes varying repetitions and alphabet. Theorem 7 is about binary Abelian complexity; Lemma 5 supplies ordered-pair coverage.",
+          "The two earlier published ternary-family records treat q=3 and r≥4 via binary Abelian or weighted-factor behavior on power scales, not all q and factor lengths.",
+          "Espinoza–Popoli–Stipulanti's inspected abstract concerns factor-balancedness, linear recurrence and factor complexity; the abstract alone does not settle full-text coverage."
+        ],
+        "reasoning": "These are relevant general techniques and overlapping ensembles, but the inspected operative statements neither force the sharp two-symbol length nor prescribe extremal words at that length.",
+        "searches": [
+          "arXiv:2610.03837v1, Remark 4, Lemmas 5 and 9, Theorem 7",
+          "arXiv:2602.03746v1 abstract",
+          "Published Resultary 7b09e62adf22 and f292807a24e1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and all five supporting files (inspected, not executed)",
+        "arXiv:2610.03837v1",
+        "Rowland–Yassawi (2020), Example 5.11",
+        "arXiv:2602.03746v1 abstract",
+        "Resultary 3f49855d5bf1 (self-match), 7b09e62adf22, f292807a24e1, 078da2d83e1b and 0e312252aa49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary weighted-factor proof already uses suffix/full-block/prefix decomposition and arbitrary weights on the three letters, but only derives a recurrence comparing lengths 4^m and 4^(m+1).",
+          "The r=2 reversal result controls reversibility, not the absence of one or more symbols; an irreversible factor can still have two letters."
+        ],
+        "reasoning": "The proof ingredient of decomposition is prior. Obtaining the cutoff here requires a different restriction on full blocks, a maximal run argument, and separate sharp control of the unequal fringes. The cited recurrences and reversal results do not mechanically imply that classification.",
+        "searches": [
+          "Allouche et al., Lemma 9 weighted-factor recurrence and its proof near offset 13030",
+          "Resultary r=2 reversal cutoff 0e312252aa49 and power-scale 078da2d83e1b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=3, avoiding a letter is exactly a zero-run problem after coding that letter as 1 and the two others as 0. At q>3 this coding allows q−1 letters and no longer characterizes support at most two.",
+          "Allouche et al. use the same ternary r=3 morphism and binary coding; their weighted-factor recurrence is for lengths 4^m, not run classification at lengths 20 and 21. Rowland–Yassawi explicitly have the q=3,r=2 morphism and prove length-two word coverage in their running example."
+        ],
+        "reasoning": "The recoding matters for priority in the ternary slice, not for the whole range. A weighted extremum restricted to power lengths or an alphabet-pair coverage result does not tell when the longest zero-run ends or identify its ternary lift.",
+        "searches": [
+          "Allouche et al., arXiv:2610.03837v1, §2 and Lemma 9",
+          "Rowland–Yassawi, DOI 10.4153/S0008414X19000488, Examples 5.7 and 5.11",
+          "Resultary: cyclic repeated-letter substitution, two-symbol factors and binary zero runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact match 3f49855d5bf1 is the frozen record itself.",
+          "078da2d83e1b gives exact binary Abelian complexity of the q=3,r=2 family at lengths 3^k, not a table of source factors at lengths 12 and 13. 0e312252aa49 studies reversal for r=2; its explicit short window certificate covers lengths up to nine, below 12."
+        ],
+        "reasoning": "Neither exact neighboring table covers the audited extremal statistic. Same-day dates were not used to dismiss evidence or infer priority.",
+        "searches": [
+          "Resultary: two-letter cutoff, repeated-letter factors",
+          "Same-day Resultary 078da2d83e1b and 0e312252aa49, with proof/verification scope"
+        ]
+      },
+      "rationale": "Pass concerns the exact support-cardinality cutoff and full list of extremal words for independent q≥3 and r≥2, not introduction of the morphisms, cyclic digit descriptions, elementary pair coverage, or binary Abelian complexity. The closest inspected same-family results do not give this cutoff or classify length-(r+1)(r+2) factors with exactly two symbols.",
+      "residual_risks": [
+        "A separate max-run result for a binary coding could cover a ternary special case, or a weighted digit-avoidance theorem could cover a wider range; none was established from the inspected statements.",
+        "A bounded literature and corpus comparison does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the specific morphism and closely related weighted block ingredients but not the sharp all-length support assertion in the inspected material",
+          "evidence": [
+            "Lemma 5: every ordered letter pair occurs. Lemma 9: H_(m+1)=H_m+3 max_a wt_m(a) for weighted length-4^m factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03837v1",
+          "material_read": "Lemma 3 and Remark 4 near offset 8980; Lemmas 5 and 6 and Theorem 7 near 10216–11194; Lemma 9 and start of proof near 13030",
+          "method": "Lawful OA full HTML, bounded sections",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Same ternary r=3 fixed point and a potentially equivalent binary coding"
+        },
+        {
+          "assessment": "Earlier same substitution and pair coverage; inspected statements are on cellular automaton spacetime words, not the sharp support cutoff",
+          "evidence": [
+            "The example has θ(0)=001, θ(1)=112, θ(2)=220; every word of length 2 occurs in every fixed point of θ."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S0008414X19000488",
+          "material_read": "Example 5.11 (PDF offset 98050, referring to Example 5.7)",
+          "method": "Lawful DOI-resolved OA PDF, bounded passage",
+          "title": "Automaticity and Invariant Measures of Linear Cellular Automata",
+          "trigger": "Earlier occurrence of q=3,r=2 cited by the reversal record"
+        },
+        {
+          "assessment": "Broad adjacent statistics; not a full-text conclusion",
+          "evidence": [
+            "The abstract discusses factor-balancedness, linear recurrence and Sturmian/ternary Arnoux–Rauzy applications."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.03746v1",
+          "material_read": "Abstract near offset 600",
+          "method": "Lawful OA HTML abstract passage",
+          "title": "Factor-balancedness, linear recurrence, and factor complexity",
+          "trigger": "Possible general recurrence or factor language theorem"
+        },
+        {
+          "assessment": "Overlap in family and weights, not the all-length number of distinct unrecoded symbols",
+          "evidence": [
+            "Both use q=3,r≥4 with the binary coding for Abelian-complexity results."
+          ],
+          "identifier_or_url": "2026/10/26 … 7b09e62adf22; 2026/11/2 … f292807a24e1",
+          "material_read": "Opening Findings, offset 0 in each mirrored RESULT.md",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Two earlier Resultary ternary Abelian-complexity records",
+          "trigger": "Same morphism family in r≥4"
+        },
+        {
+          "assessment": "Power-scale Abelian-type counts or reversal up to a sharp cutoff, not support cutoff",
+          "evidence": [
+            "The first computes binary Abelian complexity for lengths 3^k. The second compares reversibility, with a finite short-window certificate through length nine."
+          ],
+          "identifier_or_url": "2026/11/22 … 078da2d83e1b; 2026/11/22 … 0e312252aa49",
+          "material_read": "Findings at offsets 0 and 400; reversal Verification at 5260 and prior work at 6200",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact power-scale abelian complexity of the ternary cyclic digit word; A uniform reversal cutoff for cyclic repeated-letter morphisms",
+          "trigger": "Closest distinct same-day matches for r=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first factor length forcing three letters is a natural local coverage invariant of this cyclic substitution family. The q-independent threshold and complete extremal words are useful beyond a sampled census: they specify exactly when local windows stop behaving as two-letter words and, for q=3, determine the largest gaps in sightings of each letter. A run estimate or general recurrence alone would not determine the unequal fringe contributions or the full extremal list.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

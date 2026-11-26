@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:02:33.539385Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite simple graph has one common atomless weight law on independent unordered edges, so every strict edge order has equal probability. Write N_e for the closed incident-edge neighborhood. The marginal is 1/|N_e|; adjacent candidate edges are mutually exclusive. For disjoint e,f, the smallest weight on N_e union N_f must be e or f if both succeed. Conditioning on it being e, f must be the first-ranked member of N_f in the remaining uniform order, giving contribution 1/[b(a+b-h)] with a=|N_e|, b=|N_f| and h=|N_e intersection N_f|. With f smallest the contribution is 1/[a(a+b-h)]. Subtracting 1/(ab) gives the claimed covariance, and the zero pairs come from disjoint determining weight sets; this yields the induced-matching characterization of mutual independence. In a triangle-free d-regular host the marginal variances cancel the touching-pair contribution. Each potential cross edge between disjoint candidate edges has exactly (d-1)^2 choices of those candidates; no triangle ensures they are disjoint. Cross edges themselves form a matching, so only h=0,1,2 occur. Exactly two opposite-edge pairs per four-cycle have h=2, giving N_2=2c_4 and N_1=m(d-1)^2-4c_4. Substitution gives the displayed baseline and positive coefficient, including d=2, and c_4(K_{d,d})=binom(d,2)^2 gives the example. Independent exact order enumeration passed for all 76 labeled host graphs of orders 0 through 4 (1,977 graph-order instances) and for C4, C5, C6 and C8, with variances 2/9, 2/9, 4/15 and 16/45 respectively. Frozen verifier inspected, not executed. Finite checks corroborate, not establish, the universal result; replay: python3 /workspace/evidence/reciprocal_exact.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For arbitrary graph vertex degrees d_i,d_j, Eq. (3) uses the distance-two term h_ij / [(d_i+1)(d_j+1)(d_i+d_j-h_ij+2)], with h_ij their number of common neighbors. Adjacent vertices contribute -1/[(d_i+1)(d_j+1)]; farther pairs contribute zero. The same proof states pair dependence iff the distance is at most two.",
+          "The covariance identity in their proof uses no asymptotic or max-degree/growth assumption of the subsequent normal-approximation estimate."
+        ],
+        "reasoning": "Setting a=d_i+1, b=d_j+1 in L(G) yields the submitted arbitrary-host law term for term. Disjoint closed line-graph neighborhoods across any collection imply joint independence; either nonzero pair covariance obstruction precludes it.",
+        "searches": [
+          "Baldi Rinott Stein A normal approximation for the number of local maxima of a random function on a graph variance common neighbors formula pdf open",
+          "Baldi–Rinott, DOI 10.1214/aop/1176991178, Section 2 proof of Proposition 3 Eq. (3)"
+        ]
+      },
+      "checked_sources": [
+        "Baldi–Rinott DOI 10.1214/aop/1176991178",
+        "Baldi–Rinott–Stein conference paper on local minima",
+        "Baldi–Rinott J. Appl. Probab. 26 (1989) 171–175, proof of Proposition 3 on cube local maxima",
+        "Resultary f51047a8a8b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baldi–Rinott explicitly observe cancellation of the diagonal and adjacency terms for their regular underlying graph. If the submitted host is d-regular then L(G) is (2d-2)-regular. In a triangle-free host the positive h values are only one and two: h=2 is exactly an opposite-edge pair of a 4-cycle, and counting by its cross edge gives sum h=m(d-1)^2."
+        ],
+        "reasoning": "For a=2d-1, Eq. (3) reduces to 2/a^2 times [N_1/(2a-1)+2N_2/(2a-2)], with the factor two for unordered pairs. Inserting N_2=2c_4 and N_1=m(d-1)^2-4c_4 gives the exact displayed formula, including the positive coefficient and recovery statement. This is a closed substitution based on two local incidence counts, not a new probabilistic estimate or independent motif theorem.",
+        "searches": [
+          "Baldi–Rinott, proof of Proposition 3, p. 1650, Eq. (3) and the sentence immediately following it"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reciprocal edge minima in G are vertex local minima in L(G). Taking negatives of the independent identically distributed edge weights makes them vertex local maxima in L(G), Baldi–Rinott's model.",
+          "For vertex e=uv of L(G), its closed neighborhood has cardinality d_G(u)+d_G(v)-1. Two nonadjacent line-graph vertices have h common neighbors precisely when their disjoint host edges have h cross edges."
+        ],
+        "reasoning": "The line-graph mapping preserves the full joint indicator process, not just its mean. Distances 1, 2 and greater than 2 give touching, disjoint with at least one cross edge, and disjoint without cross edges respectively. Zero-pair configurations are independent because their entire determining neighborhoods are disjoint.",
+        "searches": [
+          "number of local minima random permutation graph variance covariance common neighbors reciprocal nearest neighbor symmetric weights line graph four cycles",
+          "local minima random graph peaks permutations variance common neighbors graph peaks probability local maxima",
+          "Baldi Rinott asymptotic normality some graph related statistics 1989 local maxima variance number neighbors intersection pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary f51047a8a8b8 indexes previously established all-order joint probabilities on complete hosts; the complete-graph covariance case is already credited in the submission.",
+          "Other four-cycle variance motifs returned by the index use different processes; none is needed to decide coverage. The decisive earlier formula is the exact overlap identity in Eq. (3), not an explicitly indexed host four-cycle table."
+        ],
+        "reasoning": "The earlier variance identity contains all the summands needed to obtain every claimed table value. A literal four-cycle-table match is not necessary, and the current finding's own indexed entry supplies no evidence of prior priority.",
+        "searches": [
+          "Resultary: reciprocal nearest neighbor mutual nearest neighbor edges variance four-cycle independent edge weights random regular graphs",
+          "reciprocal nearest neighbors four-cycles variance random graph symmetric iid edges mutual minima motif graph variance line graph",
+          "Baldi–Rinott, p. 1650 Eq. (3)"
+        ]
+      },
+      "rationale": "The frozen central pairwise identity is Baldi and Rinott's 1989 local-maximum covariance law on an arbitrary vertex-labeled graph, applied to the host's line graph and with label order reversed. Their proof of Proposition 3, p. 1650, Eq. (3), explicitly gives the three distance regimes and exact overlap-dependent covariance summands for the variance. The regular triangle-free four-cycle formula is a direct specialization of that variance identity: two elementary overlap counts give all the required multiplicities, and the regular-degree cancellation is already stated there. A separate printed four-cycle formula is not needed for coverage.",
+      "residual_risks": [
+        "The Stanford report EFS NSF 306 metadata and author-copy link for the later chapter were located; no readable full chapter was obtained, and no exclusion is asserted for it or for uninspected nearest-neighbor originals. This is immaterial to the positive implication from the separately inspected Annals paper.",
+        "Whether an even earlier work explicitly wrote the triangle-free host four-cycle formula was not decided and is not needed for the implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of the pairwise law; the host four-cycle theorem follows by direct substitution",
+          "evidence": [
+            "Defines local-maximum indicator using iid continuous labels and adjacent comparisons.",
+            "Defines h_ij as the common-neighbor count, gives the overlap-dependent exact variance and states pair dependence iff distance at most two.",
+            "The sentence immediately after Eq. (3) states the degree-regular cancellation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991178; open author copy https://pluto.huji.ac.il/~rinott/publications/BaldiRinottAnProb.pdf",
+          "material_read": "Full-text local-maxima model and Proposition 3 on pp. 1647–1648, and its proof through Eq. (3) and regular cancellation on p. 1650",
+          "method": "Author-hosted primary paper, PDF text extraction of the body and final page",
+          "title": "On Normal Approximations of Distributions in Terms of Dependency Graphs",
+          "trigger": "Identical probability model on the line graph and potentially exact general variance"
+        },
+        {
+          "assessment": "Explicitly precedes the finite host interpretation as a local-minimum count, gives general normal approximation with mean and example variances; the decisive exact general Eq. (3) is in the Annals paper",
+          "evidence": [
+            "Theorem in Section 2 uses iid continuous labels on a regular graph, and Eq. (2) gives |V|/(d+1). Section 3 lists specific variance examples."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+          "material_read": "Primary paper Sections 1–3 and references",
+          "method": "Primary open conference PDF extraction",
+          "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+          "trigger": "General random-label formulations of the same statistic on regular line graphs"
+        },
+        {
+          "assessment": "Known special case explicitly credited; not the decisive all-host overlap source",
+          "evidence": [
+            "Exact joint matching probabilities and variance-to-mean ratio for the complete graph."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, f51047a8a8b8",
+          "material_read": "Indexed theorem summary",
+          "method": "Resultary semantic search",
+          "title": "Exact mutual-nearest-neighbor component law in symmetric random-link graphs",
+          "trigger": "Same symmetric weights with a complete host"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The randomized observable and four-cycle recovery are natural, but the exact result is mechanically supplied by the classical common-neighbor variance identity on the line graph and elementary opposite-edge counting. The frozen record does not give a further non-implied probabilistic or structural result. The correct calculation could be an illustrative corollary, but that is not a surviving new exact finding under the stated standard. No repair is proposed or delivered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

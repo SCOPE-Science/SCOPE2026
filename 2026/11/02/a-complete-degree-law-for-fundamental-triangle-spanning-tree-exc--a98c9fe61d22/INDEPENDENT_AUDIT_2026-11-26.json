@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:39:22.389516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md §§Finding–Verification",
+        "Assigned VERIFICATION.md and both verification scripts, inspected",
+        "Independent bounded replay: python3 /workspace/review_checks/independent_discrete.py"
+      ],
+      "rationale": "A spanning tree's rim path components each contain exactly one selected spoke. Thus each positive-length inter-spoke gap has precisely one rim deletion, including the single-spoke case. A hub triangle with exactly two selected edges provides two distinct swaps and no swap is counted twice, since the insertion determines a unique fundamental cycle. In a gap of length 1 there is one active triangle; for g≥2 exactly two choices of deleted edge activate one triangle and the g−2 others activate two. Marking a spoke gives the factor r/m for labelled wheels, without any periodicity adjustment. Taking the formal logarithm gives the stated polynomial; evaluation and differentiation at z=1 give the Lucas count and the edge count (the derivative reduces to r[x^r](x+x³)/(1−3x+x²)). The minimum is attained only for one spoke with an adjacent deletion, the maximum only for all spokes since every gap of length g>1 contributes less than g, and any nontrivial rim component offers a swap increasing the spoke count. Independently enumerating actual fundamental paths agrees for r=3,…,8 with a coefficient recurrence based on the logarithmic derivative; in particular A_3=6z+9z²+z³ with the rim-only triangle excluded.",
+      "residual_risks": [
+        "The finite enumeration is a cross-check, not the proof for r>8. The argument concerns the exact restricted swap rule, not alternative wheel exchange graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rooted wheel forests have cyclic-interval count formulas, geometric plane-tree transition problems feature empty-triangle rotations, and rotor routing gives a group action on trees."
+        ],
+        "reasoning": "None of these inspected results tracks the activity of hub triangles in each spanning tree. Geometric empty triangles and rotor-routing changes do not impose the assigned fundamental-cycle rule.",
+        "searches": [
+          "Tamura–Tanaka arXiv:2609.29486, Theorems 1.1–1.2",
+          "Nichols–Pilz–Tóth–Zehmakan arXiv:1810.02839",
+          "Chan–Church–Grochow arXiv:1308.2677"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "The two closest Resultary records and three primary sources identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known gap lengths organize rooted-forest counts; the unrestricted exchange result proves distance and complementary-tree properties under a different move relation."
+        ],
+        "reasoning": "An interval count gives total choices, not their weights 2z+(g−2)z²; the latter distinguishes endpoint and interior deletions by the fundamental-cycle condition. Unrestricted exchange distances do not determine subgraph degrees.",
+        "searches": [
+          "Tamura–Tanaka cyclic intervals",
+          "Wheel spanning-tree exchange centers and complementary-tree census, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orientation law concerns acyclic orientations and single-edge reversals. The exchange-centers record has the same tree states but unrestricted single-edge exchange."
+        ],
+        "reasoning": "Neither adjacency relation agrees with the assigned one. On a rim of length 3 even an all-rim fundamental triangle is excluded; an unrestricted swap need not have a triangular fundamental cycle at all.",
+        "searches": [
+          "Resultary: wheel spanning-tree exchanges and degree distribution",
+          "Wheel acyclic-orientation flip graph, …--00ad365d2ac5",
+          "Wheel spanning-tree exchange centers and complementary-tree census, …--6102930841e3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior wheel tree count recovers A_r(1)=L_(2r)−2; the distinct catalog degree polynomial counts orientation states."
+        ],
+        "reasoning": "The exact specialization is covered, but gives no full coefficients, and no separate exact table matching the restricted exchange distribution was located in those checks.",
+        "searches": [
+          "Resultary: wheel degree enumerators / spanning-tree exchange",
+          "Tamura–Tanaka Theorem 1.1 one-root specialization"
+        ]
+      },
+      "rationale": "The known wheel tree count and the use of cyclic gap decompositions are not distinct contributions. The supported distinct claim is the full degree distribution for hub-triangle fundamental exchanges and its exact exchange invariants. The closest checked catalog and primary sources do not give this statistic or imply it without the activity refinement.",
+      "residual_risks": [
+        "The general literature query yielded no useful match; that is not evidence against overlap. An equivalent enumerator in unlocated basis-graph or matroid formulations remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogous enumeration, not the same graph",
+          "evidence": "Acyclic orientations under edge reversal; spoke/rim runs instead of tree gap deletions.",
+          "identifier_or_url": "2026/11/1/SCOPE-degree-distribution-of-the-wheel-acyclic-orientation-flip-graph--00ad365d2ac5",
+          "material_read": "RESULT.md, Finding and Proof §§1–4, local mirror offset 0",
+          "method": "Compare encoded states, moves and statistic",
+          "title": "Degree distribution of the wheel acyclic-orientation flip graph",
+          "trigger": "Wheel degree polynomial using a cyclic encoding"
+        },
+        {
+          "assessment": "Unrestricted graph result, not restricted degrees; date does not decide priority",
+          "evidence": "Every tree-preserving exchange is allowed; the outputs are radius, eccentricity, diameter and complementary-tree counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-wheel-spanning-tree-exchange-centers-and-complementary-tree-cens--6102930841e3",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, local mirror offset 0",
+          "method": "Compare exact adjacency and conclusion",
+          "title": "Wheel spanning-tree exchange centers and complementary-tree census",
+          "trigger": "Same labelled wheel spanning trees"
+        },
+        {
+          "assessment": "Covers unweighted order and related gap methods",
+          "evidence": "The one-root case gives the classical wheel tree count; product formulas enumerate forests conditioned on roots.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29486",
+          "material_read": "OA PDF §1 and Theorems 1.1–1.2, pp. 1–2, offsets 0 and about 6000",
+          "method": "Primary theorem and specialization comparison",
+          "title": "Rooted spanning forests in wheel graphs: Fibonacci–Lucas formulas and extremal root configurations",
+          "trigger": "Cyclic intervals and Fibonacci/Lucas enumeration on wheels"
+        },
+        {
+          "assessment": "Different geometric operation",
+          "evidence": "Empty-triangle rotations are defined on straight-line noncrossing plane trees.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.02839",
+          "material_read": "OA preprint abstract and §1, pp. 1–2, offset 0; publisher landing page only",
+          "method": "Compare move definitions in primary preprint",
+          "title": "Transition operations over plane trees",
+          "trigger": "Local triangle tree transitions"
+        },
+        {
+          "assessment": "Different action and observable",
+          "evidence": "The sandpile group acts on spanning trees by rotor routing; this is not a specification of the restricted degree law.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2677",
+          "material_read": "OA paper abstract and §1, p. 1, offset 0",
+          "method": "Compare operation and objective",
+          "title": "Rotor-routing and spanning trees on planar graphs",
+          "trigger": "Tree transitions on planar graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding and local-gap proof",
+        "Tamura–Tanaka count and the closest wheel exchange and flip-graph records"
+      ],
+      "rationale": "The restriction to triangular fundamental cycles is natural on wheels, whose hub triangles give uniform local supports. The full law measures available local reconfiguration moves at every state, distinguishes bottleneck degrees from average degree, and supplies exact counts useful for analyzing local dynamics. The connectedness proof establishes sufficiency of those supports. This is not justified by the classical total number of states alone.",
+      "residual_risks": [
+        "No mixing-time, distance-distribution or spectral claim follows from the degree profile alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Weyl's character and Haar-angle formulas reduce the operator norm to an exact positive integral of a finite sine sum. The checked rational geometric identity isolates the oscillatory first-order poles. Second-order remainder integration after deleting radius-\(M^{-1}\) neighborhoods contributes \(O_q(M)\), while the interior simple poles generate the displayed coefficient by a uniform periodic averaging lemma. Endpoints have vanishing Haar weight. The proof is valid for every fixed \(q\ge3\) and residue; the finite checker passed 8,288 tests.
+## correctness
 
-## Originality
-**PASS within the inspected literature, with stated residual priority risk.** The full available 2020 and 2021 Grow–Myers manuscripts concern Fourier convergence and unthinned partial sums, not arithmetic-residue endpoint constants. Two directly inspected closely related published theorems treat the single-block and consecutive-low-pass endpoint norms. Comparing the actual claims reveals that neither implies the interior-pole logarithmic term for a fixed arithmetic progression. Targeted searches found no covering claim. Older thin-spectrum kernel literature not exhaustively indexed remains the main risk.
+PASS
 
-## Value
-**PASS.** This supplies a sharp all-modulus spectral-design classification with a qualitative change of growth order, not a routine adjustment to a single cutoff. The exact root-of-unity resonance coefficient and its independence of the selected residue explain when thinning a Fourier spectrum increases endpoint instability by an additional logarithm; \(q=1,2\) identify the sharp structural boundary.
+The full-block central kernel is the dimension-weighted sum of characters, not the projection kernel on the span of the characters alone. Convolution has both strong endpoint norms equal to the Haar L1 mass (phase test and approximate identity), so the Weyl-weighted integral is (2/pi) times the integral of |T| sin(theta). Differentiating the finite geometric sum gives the stated cosine numerator with frequency qM+r−q/2 and first-order poles at qth roots of unity. The removed intervals of radius 1/M cost O_q(M) by |T|=O_q(M²); outside them the second-order remainder integrates to O_q(M). At each interior pole the weighted residue is M sin(2 pi h/q); bounded-primitive averaging of |cos| contributes (2/pi) log M+O_q(1) on each side, uniformly in phase. The Weyl factor gives exactly (8/pi²) sin(2 pi h/q) per interior pole, including C_3=4 sqrt(3)/pi². At 0 and pi the vanishing weight costs only O_q(M); for q=1,2 these are the only possible poles. Constants are for fixed q and uniform over its finitely many r. The analytic argument establishes the asymptotic; the recorded 8,288 finite checks were inspected in source, not rerun.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the exact fixed-modulus logarithmic amplification at interior Weyl angles, with residue-independent leading coefficient and an O_q(M) remainder. Single blocks and standard consecutive kernels do not give this result. The q=1,2 comparison is background rather than a separate claim of novelty. The result is distinct to the best of the inspected evidence, not a historical-priority certification.
+
+## value
+
+PASS
+
+Selecting a full residue class is a natural periodic spectral filter. The theorem shows that regular thinning can increase worst-case endpoint amplification by a logarithm, locates the first modulus where this occurs, and gives the sharp coefficient through the interior Weyl-angle weights. This quantifies a genuine distinction between central parity selection and higher moduli, not merely an alternative expression for the consecutive norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

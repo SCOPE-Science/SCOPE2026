@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:06:42.355081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 3.5 of arXiv:2611.18058 gives the nonequivariant wedge of F_(n-1) spheres in degree n-1 and a contractible n=1 case. Symmetric extension follows from the stated bipartite integrality argument, or by taking the left half and central edges of any extension and mirroring that half to the right. For 2p+s vertices with p swaps, the augmented Lefschetz contribution is -(-1)^(p+s); thus the homology trace is (-1)^n Z_n. Independent transfers reconstructed 14 reachable states, 38 nonzero entries, all 14 vanishing exact moments and Z_1 through Z_4 equal to 0,1,1,0. Cayley–Hamilton gives the all-length recurrence; the stated Fibonacci signs, including F_-1=1 for n=2 and zero trace for n=1, follow. Rational quotient homology is the invariant homology after barycentric subdivision. Reproduction: python3 /workspace/checks/column_transfer.py; this uses subsets of local complete tile choices and does not run the frozen verifier. The Python 3.8 minimum in the frozen verification notes understates the supplied script's bit_count requirement (3.10). This does not affect the theorem or independent check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four entries in its character are the identity rank and the row, column and half-turn traces. It proves the column entry from its own shared column/half-turn transition, with completion masks T containing the selected central edges and lying in Q for column reversal."
+        ],
+        "reasoning": "Restriction of the Klein-four character to the column subgroup determines both eigenspace ranks and hence the rational column quotient. The broader theorem controls the same family and the same involution; ordinary matching-complex results or the earlier row-only character are not the source of coverage.",
+        "searches": [
+          "Resultary: full symmetry quotient and half-turn character for the three-row perfect-matching complex",
+          "eda18ed068e3, proof of geometric quotient and full character"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eda18ed068e3 (exact equivalent column proof in larger result)",
+        "Resultary 521893fb03dc (n=2)",
+        "arXiv:2611.18058, Theorem 3.5",
+        "Resultary 2f3d5233732d (same record, excluded as comparative coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arXiv theorem is nonequivariant, including n=1 contractible. In eda18ed068e3, z^C_1 through z^C_4 are 0,1,1,0 and the 24-moment Cayley–Hamilton proof gives z^C_(n+4)+z^C_(n+2)-z^C_n=0, with trace (-1)^n z^C_n."
+        ],
+        "reasoning": "Homology ranks alone cannot imply the trace, but the all-length column calculation in the distinct full-symmetry record can and does. At n=1 contractibility implies the omitted zero trace. The larger transfer is used for two involutions, so a smaller single-purpose transfer does not identify a new invariant.",
+        "searches": [
+          "arXiv:2611.18058 Theorem 3.5",
+          "eda18ed068e3, §3, §5 and reference 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The column character c_n in eda18ed068e3 has entries (-1)^(k-1) F_(k-2) for n=2k and (-1)^k F_k for n=2k+1, with k>=1. Its C literally reverses the 2n columns of P_3 square P_(2n) acting on exactly the subsets of perfect matchings."
+        ],
+        "reasoning": "Rational and integral traces agree by scalar extension of a matrix on free integral homology. The candidate does not assert any further integral lattice classification, which could have been a different problem.",
+        "searches": [
+          "Resultary: Integral column-reflection trace of the three-row grid perfect-matching complex all-width signed Fibonacci trace",
+          "Resultary eda18ed068e3, Finding and Proof §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "521893fb03dc gives row, column and product signs (-1,+1,-1) at n=2 only. The distinct eda18ed068e3 gives the full exact formula, not just matching initial terms. The exact hit 2f3d5233732d is the candidate and is not counted as distinct evidence."
+        ],
+        "reasoning": "The finite width-four computation cannot settle the sequence; the full-symmetry record's exact character table, backed by its all-length proof, does.",
+        "searches": [
+          "Resultary: all-width column trace, Fibonacci and three-row grid perfect matching",
+          "Resultary 521893fb03dc, width-four signed reflection calculation"
+        ]
+      },
+      "rationale": "A distinct available record, Resultary eda18ed068e3, proves the identical all-width column character for the same edge-vertex perfect-matching complex via its 24-state transfer, then determines the stronger full Klein-four rational character and quotient. It is not merely a hit or an unverified citation: §3 supplies its own column terminal rule, same initial values and exact recurrence argument. This establishes equivalent coverage, not publication priority or ordering among same-day records. The integral trace equals the rational trace of the same automorphism on a free integral group; the n=1 addition is forced by known contractibility.",
+      "residual_risks": [
+        "The separately titled column-reflection result mentioned in eda18ed068e3 was not resolved as a distinct independently dated record. No claim is made about priority or direction of intellectual dependence; publication date alone does not resolve either."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent formula and consequences are covered; this does not determine chronology or the identity of the separately titled antecedent mentioned there.",
+          "evidence": [
+            "Proof §3 states the exact condition for column fixed-face extendibility by cutting and reflecting halves, the 24-state transfer's b_C terminal rule, its 24 exact vanishing moments and the same initial values.",
+            "Reference 4 credits a column result under another title, explicitly without a verified public source. The coverage conclusion uses the available record's own proof, not that attribution."
+          ],
+          "identifier_or_url": "Resultary eda18ed068e3",
+          "material_read": "Mirrored RESULT.md Finding and scope (offsets 0–2749), Proof §§3–5 and Verification (4500–8938), relationship to prior work and references (9650–12673).",
+          "method": "Local mirror primary statement and proof comparison.",
+          "title": "The half-turn Fibonacci character and full symmetry quotient of three-row perfect-matching complexes",
+          "trigger": "Distinct same-day record with identical column character entry and stronger combined theorem."
+        },
+        {
+          "assessment": "Gives the requisite degree and rank, not the column trace.",
+          "evidence": [
+            "Delta_1 is contractible and Delta_n for n>=2 is homotopy equivalent to a wedge of f_(n-1) spheres of dimension n-1, with f_1=f_2=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058",
+          "material_read": "Theorem 3.5, p. 6 (text offsets about 21983–22090), including the Fibonacci convention.",
+          "method": "OA PDF passage inspection.",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Primary source supplying the homology premise."
+        },
+        {
+          "assessment": "Covers only n=2, with column sign +1 rather than row sign -1.",
+          "evidence": [
+            "The sign triple (u_*,v_*,(uv)_*) is (-1,+1,-1), with v the column reversal."
+          ],
+          "identifier_or_url": "Resultary 521893fb03dc",
+          "material_read": "Mirrored RESULT.md statement of the signed actions on H_1.",
+          "method": "Local mirror primary statement comparison.",
+          "title": "A five-cycle core and signed reflection homology for the three-by-four perfect-matching complex",
+          "trigger": "Earlier same-involution specialization."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The trace would be a worthwhile invariant if unresolved, but the claimed result is exactly covered, including its rational quotient consequences. The frozen work offers a smaller single-involution encoding and a total-unimodularity proof of a symmetric-extension lemma, rather than a distinct useful mathematical remainder: for this mirror the lemma follows immediately by cutting any extension and reflecting its left matching. The automaton does not add a topological or integral equivariant classification, and the state-count difference has no established standalone consequence. No substantive repair of the supplied claim was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of the weight-two gapped pair-deck capacity theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses explicit one-position marker coordinates and determines every gapped pair count. The observed nonzero-one pair count gives the separation indicator; the two mixed pair counts determine the boundary-excess layer. Each layer is counted by an explicit contiguous integer interval or two disjoint intervals. The layers partition all words with two markers, so their sums yield the closed formulas, including the exceptional two-position gap. At the one-step-shorter block length, only the central long-pair layer changes and it changes the linear continuation by precisely one. A separate executable checks 1,879,860 source words in 836 parameter cases and directly enumerates 15,385 pair decks. It is corroboration, not a substitute for proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2022 guiding paper establishes the gapped deck model and general confusability questions, not the fixed-weight-two profile enumeration. The 2023 gapped-binomial paper characterizes equivalence for a single skipped symbol but treats word factors of special sequences; its Lemma 2.1 does not itself enumerate profiles over the weight-two layer, and does not cover arbitrary gaps. Relevant published mathematical records classify four-run fibres at a single gap, establish a growth exponent across all binary compositions, or enumerate small full-alphabet cases; the present all-gap/all-large-length capacity is not a restatement or corollary of those specific findings. Remaining risk: a literature source may contain an equivalent full-enumeration corollary outside the checked material.
+PASS
 
-**Value — PASS.** The central object is a concrete zero-error reconstruction channel, not an arbitrary small numerical census. Every marker placement is a possible input, but the channel identifies only linearly many output patterns despite quadratically many inputs. The exact slope changes discontinuously at the smallest nontrivial spacing, and a universal sharp threshold separates the linear law from a one-unit boundary discrepancy. This gives a reusable capacity benchmark across all spacings and identifies precisely how boundary effects limit sparse reconstruction.
+The frozen Finding overstates the classification by saying 'exact marker separation'. At n=10,s=3, the zero-based pairs (2,7) and (3,6) have separations 5 and 3 but both yield (G00,G01,G10,G11)=(19,4,4,1) and identical singleton counts. The complete corrected RESULT.md in repairs/2 replaces that assertion with the observed long/short indicator and explicitly exhibits the collision; the formulas, scope and threshold are unchanged. The corrected proof was re-audited: fixing length and weight makes (e,G01,G10) equivalent to the whole observation. With r=s-1,H=n-2s+1 the boundary layer j is G01+G10+2e-2H and the remaining coordinate is G01. Short central gaps 1 and 2 fill the parity ranges when r>=2; for r=1 only adjacent pairs occur. Positive-excess short pairs cannot cross the two boundaries for H>=r. For 1<=j<=r the left range is [0,r-j] and the reflected range starts at 2H-r+2j. For r<j<2r each side has one value and j=2r is impossible. Central long pairs reduce to sums of two integers 0<=x<=y'<=H-r-1 (all intermediate sums occur). For j=1,...,r the long-pair left/central, opposite-boundary and central/right runs have consecutive G01 ranges [r-j,H-1], [H,H+j-2], [H+j-1,2H+2j-r-2], with the middle empty for j=1. For j>r, only opposite boundaries work and their split gives 2r-j+1 values. The sums give both asserted linear branches. When H=r all counts just listed remain valid except central long pairs, now absent rather than the formal linear count -1; this proves the exact +1 correction. One representative per deck is a maximum distinguishable code. Independently ran `python3 /workspace/review_checks.py 2`: 35 parameter cases from s=2 through 8 and n=3s-2 through 3s+2, using literal position-pair enumeration, plus the exact separation collision. Neither this finite reproduction nor static inspection of the frozen checker substitutes for the interval argument.
 
-The claim is for binary weight-two words, with no assertion about noise, other weights, or arbitrary shorter lengths. The reviewed literature is finite and cannot establish global priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim is the exact fixed-weight-two output census for all gaps in the sharp length regime, not the definition of the gapped deck or identification of exact marker separation. Existing inspected statements cover the channel, other weights or limited lengths/run classes. One-skip equivalence and four-run formulas may cover portions of s=2, but neither available statement gives or directly implies the full census, especially at arbitrary gap and the first exceptional length.
+
+## value
+
+PASS
+
+The exact image size measures a natural noiseless sparse reconstruction limit: quadratically many inputs collapse to linearly many distinguishable ones. The exact slopes, change at the first nontrivial gap and shared sharp onset across all spacings are not explained by order-of-growth reasoning. The result supplies a precise benchmark without claiming recovery of exact spacing or a noisy-channel guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

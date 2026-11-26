@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:05:40.052678Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–119 and VERIFICATION.md lines 19–23",
+        "Frozen verify_split_majority.py lines 9–104 and verification_output.txt lines 1–10; inspected, not executed",
+        "Repaired RESULT.md lines 3–45, checked again from the exact vertex rule"
+      ],
+      "rationale": "Rechecked the original and the narrowed proof from the labelled vertex rules. A clique vertex of bit x sees c+s−x ones out of 2n−1, so the clique goes to 0, complements, or goes to 1 according to the sign of c+s−n. The independent side goes to 0, stays unchanged, or goes to 1 according to 2c−n. For positive total sign, negative clique sign sends the state to opposite constant shores, positive sign to consensus, and the clique tie keeps a nonempty independent word so the next step is consensus; the negative total sign is complementary. At total equality, the endpoints already alternate, the even midpoint flips the labelled clique with the independent word fixed, and 0<c<n/2 gives (n−c,0) and then opposite constant shores, with the other branch complementary. Thus the basin is precisely the total-equality layer plus the two strict opposite-sign regions. The Vandermonde layer contributes binom(2n,n). In the upper-total strict region j=n−s gives 0≤j<c<n/2; exchange symmetry doubles its mass to the entire weighted binomial square minus the diagonal, A_n²−Q_n. Odd/even symmetry yields the two closed forms. For even n the linear central-binomial term contributes −sqrt(2)/(2 sqrt(πn)), the central-square term contributes 3/(2πn), and the remaining central binomial contributes 1/(2 sqrt(πn)); the displayed error bounds follow from central-binomial Stirling with relative O(1/n). The repaired proof retains all sizes, including B₁=2 and B₂=6, and does not conflate fixed occupancies with fixed configurations. In the original, the same rule confirms the known recurrent census, and checks the sharp boundary transients directly: n=1 all states are periodic; for n=2 a clique tie is either already balanced or gives consensus in one step, and constant-clique cases take at most one; c=1,s=n−1 needs two steps for n≥3. None of these prior structural facts is sold as novelty in the repair.",
+      "residual_risks": [
+        "Finite verification only corroborates the proof. All-size exact enumeration is for balanced, labelled complete split graphs with deterministic tie retention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first split-graph comparator states no equality at three rounds when a=b; the same-day comparator likewise yields T≤2 for a=b and separately counts the three-round layer on other sizes.",
+          "Tamuz–Tessler states the classical broader finite-graph period-at-most-two assertion."
+        ],
+        "reasoning": "Balanced entry by two implies F⁴=F² and is already covered. General convergence or the third round layer does not yield the number of labelled initial states that ultimately oscillate.",
+        "searches": [
+          "Resultary 517ed2dd3465 and 46996c042071 full relevant dynamics passages",
+          "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1 and Tamuz–Tessler arXiv:1307.4035"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 517ed2dd3465, 46996c042071, 260f52d7946d, 21b4ec9c390e",
+        "Tamuz–Tessler arXiv:1307.4035",
+        "Goles–Olivos DOI landing page and abstract",
+        "Frozen AUDIT.json lines 9–68 for scope of the former novelty assertion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-split proofs give the same coordinate updates, periodic corner behavior, and enough information to reconstruct eventual outcome by population in the balanced case.",
+          "Their theorem formulas count recurrent points and transient depth; they do not supply the sum over the two weighted strictly ordered population regions, its diagonal subtraction A_n²−Q_n, or the even tie's effect on the expansion."
+        ],
+        "reasoning": "Credit the underlying periodic and entry classifiers. The surviving exact numerical invariant is obtained by a separate labelled basin calculation, not by merely substituting balanced parameters into either known count. The corresponding parity expansions are consequences of that new count, not standalone originality claims.",
+        "searches": [
+          "Resultary 517ed2dd3465 RESULTS proof offsets 3001 and 5257; 46996c042071 proof offset 3965",
+          "Frozen and repaired basin proof and novelty claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources treat exactly the same dynamics with unequal sizes allowed. Their recurrent counts at a=b=n give precisely the original parity law after subtracting the two fixed points and dividing by two.",
+          "An aggregate attraction basin includes preperiodic initial states; it is not the count of primitive orbits or points of Fix(F²)."
+        ],
+        "reasoning": "The balance specialization and periodic-point conversion are exact equivalences and are already covered. The repaired statement instead counts weighted initial-state preimages of the primitive two-cycle set.",
+        "searches": [
+          "Complete split graph, clique joined to an independent set, binary synchronous open-neighbor majority with inertia; Resultary 517ed2dd3465 and 46996c042071"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "517ed2dd3465 limits its basin assertion to transient depth; 46996c042071's E₃ is the exact size of a transient entry-time layer.",
+          "260f52d7946d gives a one-quarter limit on triangular books from different finite exact formulas. Same-date 21b4ec9c390e gives a one-half limiting basin on crown graphs."
+        ],
+        "reasoning": "No equal closed basin formula or equal parity corrections were located on the same model. Both distinct same-date records were compared by exact claim, not discarded by date; neither matching parity terminology nor a matching limiting fraction establishes equivalent coverage.",
+        "searches": [
+          "Resultary exact basin, complete-split oscillation, binomial count and parity-law search; inspected records 517ed2dd3465, 46996c042071, 260f52d7946d, 21b4ec9c390e"
+        ]
+      },
+      "rationale": "PASS only the repaired finding: the closed weighted count of all initial configurations attracted to oscillation and the parity-dependent quantitative approach to one quarter. Not a PASS for the original census/entry novelty package. The exact split-graph comparators permit identification of the eventual outcome from their update analysis but do not state or evaluate the weighted basin sum. The repaired theorem adds this enumeration, rather than rebranding the known local or recurrent dynamics.",
+      "residual_risks": [
+        "No priority ruling. Full text of Goles–Olivos was not recovered, and an unindexed exact split-basin computation remains possible. The original and corrected files remain separately preserved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original recurrent census and balanced cutoff; no basin enumeration",
+          "evidence": "Q=2, P for every a,b, explicit balanced parity form, and absence of third-update entry in balance. Scope says transient-depth bound, not enumeration of individual basins.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465",
+          "material_read": "RESULT.md offsets 0, 3001, 5257, Finding, Assumptions, classification of periodic configurations and uniform convergence cases",
+          "method": "Local published-record mirror, snapshot 36a7204; exact passage comparison",
+          "title": "Exact majority attractors and sharp convergence on complete split graphs",
+          "trigger": "Same dynamics and stronger graph family with exact recurrent census"
+        },
+        {
+          "assessment": "Direct recurrent and balanced depth overlap; no closed aggregate basin",
+          "evidence": "R(a,b) and (R−2)/2 are the recurrent-state and two-orbit counts. E₃ counts time-three entry, not eventual primitive period two. An unnamed earlier balanced result is mentioned; no priority inference made.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-sharp-three-round-majority-relaxation-phase-on-complete-split--46996c042071",
+          "material_read": "RESULT.md offsets 0, 3965 and 8161: Finding, entry proof and Relationship",
+          "method": "Local published-record mirror, snapshot 36a7204; exact passage comparison",
+          "title": "A sharp three-round majority-relaxation phase on complete split graphs",
+          "trigger": "Distinct same-date stronger split-graph classifier"
+        },
+        {
+          "assessment": "Real analogue on a distinct family",
+          "evidence": "Its two-cycle basin sizes are 2ⁿ+binom(n,n/2) in even sizes and 2ⁿ−2 binom(n,(n−1)/2) in odd sizes n≥3, not the split-graph formula.",
+          "identifier_or_url": "Resultary 2026/11/8/260f52d7946d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact entrance-time census and parity law for majority dynamics on triangular books",
+          "trigger": "Same one-quarter limit and two parity-dependent basin formulas"
+        },
+        {
+          "assessment": "Related, different graph and limiting basin",
+          "evidence": "Crown-graph exact parity law tends to one half, not one quarter.",
+          "identifier_or_url": "Resultary 2026/11/1/21b4ec9c390e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A parity fracture in synchronous majority dynamics on crown graphs",
+          "trigger": "Distinct same-date parity and exact basin comparison"
+        },
+        {
+          "assessment": "General periodicity only in inspected passage",
+          "evidence": "Finite-graph opinions eventually have period at most two; no split-graph basin count in this statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4035",
+          "material_read": "p. 3 finite-graph periodicity passage near offset 9039",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "General synchronous majority theorem"
+        },
+        {
+          "assessment": "Full-text coverage unassessed",
+          "evidence": "Accessible material supports period at most two, not an exact balanced split basin count.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic landing page and abstract; full text not recovered",
+          "method": "Lawful OA retrieval attempt and comparison with accessible periodicity statements",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Foundational periodicity article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and weighted-basin proof",
+        "Resultary 517ed2dd3465 recurrent census and basin limitation"
+      ],
+      "rationale": "The balanced graph is a natural family and basin mass is an independent dynamical observable: the known exponential difference in the number of recurrent cycles does not translate to a different limiting chance of oscillation. The closed all-size enumeration and opposite finite-size parity deviations quantify the distinction for unbiased initial opinions. This is not value assigned to recomputing the known orbit count or convergence depth.",
+      "residual_risks": [
+        "No inference for unequal shores, biased or correlated initial data, or altered update/tie rules is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

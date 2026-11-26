@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:12.521744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The diagonal derivatives of the determinant rule out every corank-one singularity: the rank-one symmetric adjugate is czzᵀ with a nonzero diagonal entry. For every full-edge matrix the recurrence determines a solution from any adjacent pair; in corank two each adjacent evaluation is therefore an isomorphism. With q_i=(x_i,y_i) the row evaluations of a kernel basis and e_i=det(q_i,q_{i+1}), the identity e_i q_{i−1}−p_{i−1,i+1}q_i+e_{i−1}q_{i+1}=0 verifies the stated inverse. Taking two determinants of each kernel equation forces all b_i e_i equal and the specified a_i, proving projective uniqueness. The constant-rank kernel map and the homogeneous inverse obtained by clearing ∏e_i are regular. Taking q_i=(1,i) shows nonemptiness. The principal projective open D_+(∏e_i) is affine and e_1 trivializes the canonical bundle O(−n) by trivializing O(1). For the germ, split off a nondegenerate complement of the kernel for the associated symmetric form; the differential of its Schur complement is restriction to the kernel, surjective by the three variations of an adjacent 2×2 block. The radial direction restricts to zero, so surjectivity survives in any projective chart. Three formal coordinates are the Schur entries and their determinant is the local equation up to a unit. The local Jacobian ideal in the quotient is then (u,v,w), giving reducedness and multiplicity two. Exactly one missing edge leaves a single path and nullity at most one; k≥2 missing edges give k path blocks (possibly singletons), each with nullity at most one and a nonzero determinant monic in the product of its own diagonal coordinates. At least two block determinants vanish, independently on these disjoint blocks, giving ambient codimension ≥k+2. This proves the top-dimensional statement without a boundary-germ classification. Independent replay `python3 /workspace/branches/independent_examples.py 1` checks exact nodal slices at one explicit point per n=4,…,8 (SymPy); it is not evidence of exhaustiveness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mazzucchelli–Pavlov–Wang treat varying numbers of Schubert divisors forming a cycle on fixed Gr(2,4), not all Gr(2,n) or cycle matrices. The accessible Sexton thesis abstract classifies real path/cycle schemes, with potentially pertinent but unread rank details.",
+          "The distinct same-date spider determinant theorem describes the reduced singular components of a tree matrix and a transverse node at a general point of each component."
+        ],
+        "reasoning": "Additional arrangement divisors on Gr(2,4) are not larger matrix sizes. The spider theorem is for a different graph class and generic germs; a cycle is not a spider or obtained by merely specializing arm lengths. A minimum-rank statement on the cycle, even if available, would not alone supply the parametrization or all-point transversality.",
+        "searches": [
+          "arXiv:2409.04288v2 §4.3 Example 4.12",
+          "The Minimum Rank of Schemes on Graphs, BYU 4402",
+          "Resultary SCOPE-88a7120cb732"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.3880 Proposition 3.2.1",
+        "arXiv:2409.04288v2 Example 4.12",
+        "SCOPE-1dab3c8e8faa",
+        "SCOPE-88a7120cb732",
+        "BYU thesis 4402 abstract",
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py and CHECKER_OUTPUT.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The usual symmetric Schur complement gives uw−v² for an ambient transverse slice. The necessary restriction-map surjectivity on the sparse cycle family is established at every point by adjacent evaluations, not by merely citing the ambient singularity.",
+          "The spider result's edge-cut component phenomenon does not imply the cyclic boundary bound: deleting one edge of a cycle gives one path, whereas deleting a tree edge disconnects it."
+        ],
+        "reasoning": "The distinct steps are the cyclic projective kernel chart and its all-point transversality plus control of the zero-edge singular boundary, not the ambient rank-stratification model or the standard inherited smoothness/canonical class of the Grassmannian. None of the inspected stronger-looking sources implies these steps by a parameter choice.",
+        "searches": [
+          "arXiv:1309.3880 Proposition 3.2.1 and normalized recurrence comparison",
+          "SCOPE-88a7120cb732, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1309.3880 Proposition 3.2.1 identifies the locus of equal consecutive minors for the normalized frieze model, rather than the locus where they are arbitrary and nonzero.",
+          "An explicit matrix inverse requires recovery of the actual symmetric varying edges b_i from the Wronskians e_i, not just the fixed-edge recurrence on the equal-minor slice."
+        ],
+        "reasoning": "Equal minors occur on the normalized sublocus (the b_i may all be taken equal), and diagonal gauge normalization relates some more weighted recurrences to it. That is not a statement of the full weighted kernel chart with the sparse determinant's projective singular scheme and its local germs.",
+        "searches": [
+          "Resultary: consecutive Plücker nonvanishing, cyclic Jacobi rank, sparse determinant nodes",
+          "periodic Jacobi matrix arbitrary symmetric weights corank two determinant singular locus Grassmannian consecutive Plucker nonzero kernel cyclic tridiagonal monodromy stress matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-cycle catalogue record identifies X_square with (C*)² × {(x,y):xy≠1} and gives Betti numbers (1,3,4,3,1). Its X_square is exactly U_4, since p_41=−p_14. The arrangement example gives its Euler characteristic as 0.",
+          "These exact results concern the open Grassmannian as an abstract space, not its isomorphism to the full-edge cycle determinant singular locus."
+        ],
+        "reasoning": "The n=4 target geometry is covered and not credited as a new computation. Neither the table nor the exact complement description determines the map from sparse matrices or the transverse ring. The frozen checker is finite local verification, not prior-coverage evidence.",
+        "searches": [
+          "Resultary SCOPE-1dab3c8e8faa, four-cycle Schubert complement",
+          "arXiv:2409.04288v2 (38), Table 5"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-n cycle-matrix kernel reconstruction and everywhere transverse-node and boundary statements. We credit the known n=4 open Grassmannian geometry, the normalized frieze identification, and the usual local model for symmetric rank strata. The strongest inspected statements do not supply the joint result; this is a bounded evidence-based decision, not a claim of priority.",
+      "residual_risks": [
+        "No independent thesis-body inspection was possible. A wider periodic-recurrence or sparse-matrix treatment not identified by the bounded search could give additional coverage. The strongest compared sources do not show that coverage, and access failure was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related normalized locus; not full weighted sparse determinant geometry",
+          "evidence": "Consecutive minors are equal in the proposition. Its normalized recurrence correspondence does not state the variable-edge singular chart or a determinant germ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3880",
+          "material_read": "Proposition 3.2.1, p.7, around offset 26878",
+          "method": "Primary OA PDF, exact proposition and hypotheses",
+          "title": "Linear difference equations, frieze patterns and combinatorial Gale transform",
+          "trigger": "Grassmannian parameterization of periodic second-order recurrences"
+        },
+        {
+          "assessment": "Exact overlap for the target U_4 only",
+          "evidence": "Same four divisors, with a product decomposition and integral topology, not a symmetric-cycle rank or singularity theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-product-structure-and-integral-topology-of-the-four-cycle-schube--1dab3c8e8faa/RESULT.md",
+          "material_read": "Finding, offset 200, and Relationship to prior work, offset 4061",
+          "method": "Local Resultary mirror, compare original definitions",
+          "title": "Product structure and integral topology of the four-cycle Schubert complement",
+          "trigger": "Exactly the consecutive-minor open set at n=4"
+        },
+        {
+          "assessment": "Exact arrangement data on fixed Gr(2,4); not an all-n cyclic Jacobi result",
+          "evidence": "The four-divisor cycle instance has Euler characteristic zero; d varies the number of lines in P³, not n in Gr(2,n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.04288",
+          "material_read": "v2 §4.3 Example 4.12, pp.14–15, formula (38) and Table 5, offsets 39193 and 40900",
+          "method": "Lawful OA PDF, parameter and formula comparison",
+          "title": "Hyperplane Arrangements in the Grassmannian",
+          "trigger": "Primary source of the cycle-divisor arrangement calculation"
+        },
+        {
+          "assessment": "Material overlap in mechanism but different graph and scope of germs",
+          "evidence": "Edge-cut and triple-arm components in a spider tree have codimension three and a node at general closed points. There is no cyclic Plücker chart or corresponding boundary estimate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-singular-components-and-generic-nodes-of-symmetric-spider-determ--88a7120cb732/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2297",
+          "method": "Local Resultary mirror, statement-level comparison",
+          "title": "Singular components and generic nodes of symmetric spider determinant hypersurfaces",
+          "trigger": "Same sparse symmetric determinant topic and same transverse formal node"
+        },
+        {
+          "assessment": "Unresolved historical rank-comparison risk",
+          "evidence": "The abstract concerns real symmetric support and specified diagonal schemes on graphs, including paths and cycles; it does not state the complex algebraic chart or germ.",
+          "identifier_or_url": "https://scholarsarchive.byu.edu/etd/4402/",
+          "material_read": "Repository abstract; thesis body was not readable",
+          "method": "Lawful repository inspection and bounded full-text attempts",
+          "title": "The Minimum Rank of Schemes on Graphs",
+          "trigger": "Potential maximum-nullity cycle classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-size result turns the maximum-nullity open locus of a natural sparse symmetric determinant into an explicit smooth moduli space. The uniform local ring, reduced Jacobian scheme and actual dimension separation from all boundary singular points tell a reader substantially more than a rank bound, a generic nodal statement or the known n=4 topology.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

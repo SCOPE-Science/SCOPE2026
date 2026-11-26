@@ -2,102 +2,70 @@
 
 ## Finding
 
-For every integer \(n\ge2\), \(1<\alpha\le2\), and every pair \(z,z'\in\mathbb R^n\), define the Tsallis probability map
+For \(n\ge2\) and \(1<\alpha\le2\), let
 \[
 E_\alpha(z)=\operatorname*{argmax}_{p\in\Delta_{n-1}}
-\left\{\langle z,p\rangle+\frac{1-\sum_{i=1}^n p_i^\alpha}{\alpha(\alpha-1)}\right\},
+\left\{\langle z,p\rangle+\frac{1-\sum_i p_i^\alpha}{\alpha(\alpha-1)}\right\},
 \qquad \Delta_{n-1}=\{p_i\ge0,\ \sum_i p_i=1\}.
 \]
-Write \(m=\lfloor n/2\rfloor\), \(\ell=\lceil n/2\rceil\), and \(\gamma=(\alpha-1)/(3-\alpha)\). The exact smallest constant in
+Write \(m=\lfloor n/2\rfloor\), \(\ell=\lceil n/2\rceil\), and \(\gamma=(\alpha-1)/(3-\alpha)\). The smallest constant in \(\|E_\alpha(z)-E_\alpha(z')\|_1\le L_{n,\alpha}\|z-z'\|_\infty\) is
 \[
-\|E_\alpha(z)-E_\alpha(z')\|_1\le L_{n,\alpha}\|z-z'\|_\infty
+\boxed{L_{n,\alpha}=\frac{4(m\ell)^{\alpha-1}}{(m^\gamma+\ell^\gamma)^{3-\alpha}}.}
 \]
-is
-\[
-\boxed{L_{n,\alpha}=\frac{4(m\ell)^{\alpha-1}}
- {(m^\gamma+\ell^\gamma)^{3-\alpha}}.}
-\]
-For even \(n\) this is exactly \(n^{\alpha-1}\). For odd \(n\) it is strictly smaller than \(n^{\alpha-1}\). For \(n=1\), the map is constant and the coefficient is zero. The \(\alpha\downarrow1\) limit equals the sharp \(\ell_\infty\)-to-\(\ell_1\) softmax coefficient \(1\) whenever \(n\ge2\).
+It equals \(n^{\alpha-1}\) for even \(n\) and is strictly smaller for odd \(n\). For \(n=1\) the map is constant and the coefficient is zero. For \(n\ge2\), the \(\alpha\downarrow1\) limit is the sharp corresponding softmax coefficient, one.
 
-For \(1<\alpha<2\), the only interior maximizing probability patterns, up to permutations and swapping the two blocks, consist of \(m\) equal entries summing to
-\[
-q=\frac{\ell^\gamma}{m^\gamma+\ell^\gamma},
-\]
-and \(\ell\) equal entries summing to \(1-q\). At \(\alpha=2\) (Euclidean simplex projection, or sparsemax), all strictly positive output probabilities have the same derivative; balanced sign partitions attain the coefficient \(4m\ell/n\). The input-direction extremizers are precisely the associated opposite-sign block directions, up to common translation, scaling, and the tie symmetries.
+For \(1<\alpha<2\), the only interior probability patterns giving Jacobian norm \(L_{n,\alpha}\) have, up to permutation and exchange of the named blocks, \(m\) equal entries of total mass \(q=\ell^\gamma/(m^\gamma+\ell^\gamma)\) and \(\ell\) equal entries of total mass \(1-q\). At \(\alpha=2\) every interior output has the same Jacobian and its norm is \(4m\ell/n\). At an interior maximizing output, the nonzero directions giving the maximal differential ratio in the ordinary norms are exactly the nonzero multiples of sign vectors of the maximizing cuts, with constant opposite signs on the two blocks. At \(\alpha=2\) any balanced cut is maximizing. Scores themselves can be translated by a constant; for direction classes modulo constants the displayed sign directions are the centered representatives. A nonzero constant shift of such a direction does not preserve equality in the ordinary, unquotiented norm.
 
 ## Assumptions and scope
 
-The inputs are arbitrary real score vectors. Both norms are ordinary unweighted finite-dimensional coordinate norms; the regularizer is normalized exactly as displayed, without a separate temperature or score multiplier. The result is global, not restricted to a fixed active set, fixed support, or bounded score diameter. The parameter range is \(1<\alpha\le2\); endpoint \(\alpha=1\) is stated as a limit and can also be proved directly for softmax. This is not a claim about \(\ell_2\)-to-\(\ell_2\), \(\ell_\infty\)-to-\(\ell_\infty\), or attention-layer composition norms.
+The inputs are arbitrary real scores, the norms are the ordinary unweighted coordinate norms, and the regularizer has exactly the stated normalization. The bound is global in the scores, with no fixed-support or score-diameter restriction. The direction classification is differential, at interior maximizing outputs, not a claim of finite-score-pair attainment. The endpoint \(\alpha=1\) is included only for softmax and the stated limit.
 
 ## Proof
 
-**1. Existence and derivative.** The objective is strictly concave on the simplex and has a unique maximizer. For any strictly positive probability vector \(p\), choosing \(z_i=p_i^{\alpha-1}/(\alpha-1)\) produces \(E_\alpha(z)=p\) by the first-order optimality conditions; a common score shift is irrelevant. Set \(\beta=2-\alpha\in[0,1)\). At points with positive active-set probabilities the Hessian of the negative Tsallis regularizer is \(\operatorname{diag}(p_i^{\alpha-2})\), hence the derivative of the output map is the symmetric positive-semidefinite matrix
+**1. Existence, derivative and support changes.** Strict concavity gives a unique output. Set \(\beta=2-\alpha\in[0,1)\). The optimality conditions give
 \[
-J(p)=\operatorname{diag}(s)-\frac{ss^{\mathsf T}}{S},
-\quad s_i=p_i^\beta\ (p_i>0),\quad s_i=0\ (p_i=0),\quad S=\sum_i s_i.
+p_i=\big[(\alpha-1)(z_i-\tau)\big]_+^{1/(\alpha-1)},\qquad \sum_i p_i=1,
 \]
-Here for \(\alpha=2\) the convention is \(s_i=1\) on the positive support and zero elsewhere; at support boundaries the derivative need not exist but does exist almost everywhere. The finite-dimensional regularizer is strongly convex (its interior second derivative is at least one for \(1<\alpha\le2\)), so its convex conjugate has a globally Lipschitz gradient; in particular \(E_\alpha\) is absolutely continuous along line segments. Thus a bound valid for the Jacobian almost everywhere integrates to the global two-input bound. This derivative also follows by differentiating the active-set Karush–Kuhn–Tucker equations.
-
-**2. An exact sign-cut norm identity.** For any symmetric positive-semidefinite \(J\),
+with a unique threshold \(\tau\). Every positive simplex point is realized by \(z_i=p_i^{\alpha-1}/(\alpha-1)\). For \(\beta>0\), the threshold equation is \(C^1\) including where a positive-part argument vanishes. The derivative of the sum in \(\tau\) is \(-S=-\sum_i p_i^\beta<0\), so the implicit function theorem yields a \(C^1\) score map with Jacobian
 \[
-\|J\|_{\infty\to1}
-=\max_{\varepsilon,\delta\in\{-1,1\}^n}\delta^{\mathsf T}J\varepsilon
+J(p)=\operatorname{diag}(s)-ss^{\mathsf T}/S,
+\qquad s_i=p_i^\beta,\quad S=\sum_i s_i.
+\]
+For \(\beta=0\) the map is Euclidean simplex projection. On an affine score segment it is continuous and piecewise affine: for each nonempty active set \(I\) the threshold is \((\sum_{i\in I}z_i-1)/|I|\), and its admissibility is given by affine inequalities. On each open subinterval with constant positive support the derivative along the segment is given by the same matrix with \(s_i=1\) on the positive support and \(0\) elsewhere. This includes segments lying in a support-boundary hyperplane. Thus a uniform bound on these matrices integrates along any score segment.
+
+**2. Exact sign-cut norm.** The matrix \(J\) is positive semidefinite by weighted Cauchy–Schwarz. By cube duality and Cauchy–Schwarz for \(J\),
+\[
+\|J\|_{\infty\to1}=\max_{\varepsilon,\delta\in\{-1,1\}^n}\delta^{\mathsf T}J\varepsilon
 =\max_{\varepsilon\in\{-1,1\}^n}\varepsilon^{\mathsf T}J\varepsilon.
 \]
-The first equality is duality of the two coordinate norms and extremality of cube vertices; the second follows from Cauchy–Schwarz for the positive-semidefinite bilinear form. For the above \(J(p)\), a sign cut \(I\subset[n]\) gives
-\[
-\varepsilon^{\mathsf T}J(p)\varepsilon
-=\frac{4A B}{A+B},\qquad
-A=\sum_{i\in I}s_i,\quad B=\sum_{i\notin I}s_i.
-\]
-Empty/full cuts give zero. This identity explicitly controls every input sign vector and every output dual sign vector, not merely a subset of Jacobian entries.
+For the cut \(I\) of positive signs this quadratic form equals \(4AB/(A+B)\), where \(A=\sum_{i\in I}s_i\), \(B=\sum_{i\notin I}s_i\). Empty and full cuts give zero.
 
-**3. Optimize a fixed cut.** Let \(k=|I|\), \(h=n-k\), and \(u=\sum_{i\in I}p_i\). Since \(0\le\beta<1\), concavity of the power function gives
+**3. Optimize a cut.** For nonempty blocks of sizes \(k,h\), and mass \(u=\sum_{i\in I}p_i\), Jensen gives \(A\le k^{1-\beta}u^\beta\), \(B\le h^{1-\beta}(1-u)^\beta\) when \(\beta>0\), with equality precisely at constant entries in each block. A zero-mass block gives zero cut value. For two positive masses, the cut value is strictly increasing in each weight sum. The remaining optimization minimizes \(k^{\beta-1}/u^\beta+h^{\beta-1}/(1-u)^\beta\). It is strictly convex, diverges at the endpoints, and its derivative gives \(u/(1-u)=(h/k)^\gamma\), \(\gamma=(1-\beta)/(1+\beta)\). Substitution gives
 \[
-A\le k^{1-\beta}u^\beta,\qquad
-B\le h^{1-\beta}(1-u)^\beta.
+F_{k,h}=\frac{4(kh)^{1-\beta}}{(k^\gamma+h^\gamma)^{1+\beta}}.
 \]
-The harmonic-mean expression \(4AB/(A+B)\) increases separately in both variables. For \(0<\beta<1\), equality holds precisely when entries are equal inside each cut block; the endpoint \(\beta=0\) has identical derivatives for all positive probability vectors on a given support. The remaining optimization minimizes
-\[
-\frac{k^{\beta-1}}{u^\beta}+
-\frac{h^{\beta-1}}{(1-u)^\beta}.
-\]
-For \(0<\beta<1\) this function is strictly convex and diverges at both endpoints, so its unique minimizer solves
-\[
-\frac{u}{1-u}=\left(\frac{h}{k}\right)^\gamma,
-\qquad \gamma=\frac{1-\beta}{1+\beta}=\frac{\alpha-1}{3-\alpha}.
-\]
-At \(\beta=0\) the expression is independent of \(u\). Substitution yields the exact fixed-cut bound
-\[
-F_{k,h}=\frac{4(kh)^{1-\beta}}{(k^\gamma+h^\gamma)^{1+\beta}}
-=\frac{4(kh)^{\alpha-1}}{(k^\gamma+h^\gamma)^{3-\alpha}}.
-\]
-This also bounds cut supports with vanished coordinates because they are limits of positive-simplex probability vectors and the Jacobian estimate cannot exceed the full-support supremum.
+When \(\beta=0\), use directly \(A\le k\), \(B\le h\), including at sparse outputs. The same expression \(F_{k,h}=4kh/(k+h)\) then follows and is attained for any positive output.
 
-**4. The balanced-cut theorem.** With \(n\) fixed, put \(x=k/h\in(0,1]\). A direct logarithmic derivative of the continuous relaxation is
+**4. Balanced cuts.** For fixed \(n\), use \(x=k/h\le1\) and relax to real cut sizes. Differentiating gives
 \[
-\frac{d}{dx}\log F_{nx/(1+x),\,n/(1+x)}
-=\frac{(\alpha-1)(1-x^{1+\gamma})}{x(1+x)(1+x^\gamma)}.
+\frac{d}{dx}\log F_{nx/(1+x),n/(1+x)}
+=\frac{(1-\beta)(1-x^{1+\gamma})}{x(1+x)(1+x^\gamma)}.
 \]
-It is strictly positive for \(0<x<1\). Symmetry under exchanging the blocks therefore forces the maximizing integer cut to have sizes \(m=\lfloor n/2\rfloor\) and \(\ell=\lceil n/2\rceil\), with no other sizes maximizing except the complementary tie. For even \(n\), substituting equal block sizes gives \(n^{\alpha-1}\); for odd \(n\), strict monotonicity gives a strict deficit relative to the unattainable equal-sized continuous cut.
+This is positive for \(0<x<1\), so by symmetry only the balanced integer sizes maximize, including the complementary tie. The equal-size value is \(n^{\alpha-1}\), giving the strict odd deficit. The equality cases of the cut optimization yield the stated patterns and maximizing cuts.
 
-**5. Equality and global sharpness.** Choose the two-block interior probability vector specified in the Finding, and an input score vector realizing it by step 1. Its Jacobian has norm exactly \(L_{n,\alpha}\) by steps 2–4; an arbitrarily small score perturbation in the corresponding opposite-sign direction gives a quotient tending to \(L_{n,\alpha}\). At \(\alpha=2\), use any interior probability and balanced sign direction. Together with step 1's global integration, this proves equality of the global Lipschitz constant and the claimed expression, including all stated boundary cases.
+**5. Sharpness and directions.** The interior pattern in the finding (any positive output at \(\alpha=2\)) has the asserted norm, and differentiation along a maximizing sign direction gives the matching lower bound on the global coefficient. For the direction classification, let \(M=\|J\|_{\infty\to1}>0\) at such an output and normalize a direction \(w\) by \(\|w\|_\infty=1\). If \(\|Jw\|_1=M\), choose a dual sign to attain that value. Cauchy–Schwarz forces \(w^{\mathsf T}Jw\ge M\), and convexity bounds it above by the maximum \(M\) on the cube. Since \(J_{ii}=s_i(1-s_i/S)>0\) for all \(i\), strict convexity on each coordinate line shows that a maximizing \(w\) has no interior coordinate. Conversely a maximizing sign vertex realizes the norm by testing against itself. This proves the claimed directions. For such a sign vector \(\varepsilon\), \(J(t\varepsilon+c\mathbf1)=tJ\varepsilon\) but \(\|t\varepsilon+c\mathbf1\|_\infty=|t|+|c|\), explaining the centering requirement. The one-coordinate case is immediate. At \(\alpha\downarrow1\), the formula tends to one. Softmax has the same Jacobian form with \(s_i=p_i\), so its cut values are \(4u(1-u)\le1\), with equality at any positive pattern having a cut with both masses one-half.
 
 ## Verification
 
-The derivation is self-contained once the standard finite-dimensional convex-optimality and duality statements are accepted. The standalone script \(`verify.py`\) checks the norm identity by exhaustive sign vectors for \(2\le n\le9\), compares 5 exponent values and many interior probability vectors to the claimed sharp bound, verifies analytic attaining probabilities, and separately tests finite differences of a threshold-equation implementation of the probability map. It reported 11,040 deterministic supplementary assertions. The script uses only Python's standard library; run \(`python3 verify.py`\) from an extracted package. No finite experiment is used to establish the all-dimensional formula.
+The proof applies to all stated dimensions and parameters. The supplementary standard-library script `verify.py` compares exhaustive cube-vertex norms with sign-cut norms for \(2\le n\le9\), checks predicted values and witnesses for five exponents, and tests finite differences using a separate threshold-equation implementation. The recorded run reported 11,040 deterministic assertions (`python3 verify.py`). These finite checks neither prove the all-dimension formula nor classify the equality directions.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-The Tsallis family and its normalization are introduced and analyzed by Blondel, Martins and Niculae (2018), while Peters, Niculae and Martins (2019), especially Appendix B, explicitly derive the general separable-entropy Jacobian formula used in proof step 1. Accordingly neither the variational construction nor that Jacobian is claimed to be new. The present statement additionally optimizes its cross-norm over *all* simplex outputs and *all* signed directions, proves the balanced-cut rigidity and exact odd/even dimension law, and supplies attaining score directions. The ordinary same-exponent softmax \(\ell_p\) bounds and sharp simplex-projection results in other norms do not give the heterogeneous \(\ell_\infty\)-to-\(\ell_1\) Tsallis formula without the new optimization.
-
-## Limitations
-
-The result is confined to finite dimensions and \(1<\alpha\le2\). The strict equality-pattern assertion refers to interior outputs and \(1<\alpha<2\); boundary outputs may have different active-set degeneracies and were not exhaustively classified as extremizers. No claim is made about weighted or temperature-scaled variants or over-composed network blocks. An unlocated earlier statement expressed in conjugate-smoothness or simplex-cut language remains a possible priority risk; mathematical correctness does not prove priority, and no independent mathematical review has been performed.
+The Tsallis variational map and normalization are in the Fenchel–Young loss and entmax literature. The separable-entropy Jacobian is attributed to Peters, Niculae and Martins (2019, Appendix B); neither the map nor that Jacobian is claimed as new. The contribution is its sharp heterogeneous cross-norm optimization over the simplex for the power entropy, including the strict odd-dimensional deficit and the maximizing patterns. The diagonal-plus-rank-one calculation for a fixed output by itself does not supply this optimization. Published same-exponent softmax bounds and other-norm projection bounds are different questions. The result makes no claim for weighted norms, additional temperatures, or composed layers. Exact priority remains subject to possible earlier sharp-modulus or equivalent simplex-cut formulations.
 
 ## References
 
-1. Mathieu Blondel, André F. T. Martins, Vlad Niculae. *Learning Classifiers with Fenchel-Young Losses: Generalized Entropies, Margins, and Algorithms*. arXiv:1805.09717 (first public 2018-05-24). https://arxiv.org/abs/1805.09717
-2. Ben Peters, Vlad Niculae, André F. T. Martins. *Sparse Sequence-to-Sequence Models*. arXiv:1905.05702 (first public 2019-05-14). See especially Section 3 and Appendix B. https://arxiv.org/abs/1905.05702
-3. André F. T. Martins, Ramón F. Astudillo. *From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification*. arXiv:1602.02068 (2016), earlier special endpoint. https://arxiv.org/abs/1602.02068
-4. Pravin Nair. *Softmax is 1/2-Lipschitz: A tight bound across all ℓp norms*. arXiv:2510.23012 (2025), same-exponent norms of the softmax endpoint, not a covering cross-norm theorem. https://arxiv.org/abs/2510.23012
+1. M. Blondel, A. F. T. Martins, V. Niculae, *Learning Classifiers with Fenchel-Young Losses: Generalized Entropies, Margins, and Algorithms*, arXiv:1805.09717.
+2. B. Peters, V. Niculae, A. F. T. Martins, *Sparse Sequence-to-Sequence Models*, arXiv:1905.05702, §3 and Appendix B.
+3. A. F. T. Martins, R. F. Astudillo, *From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification*, arXiv:1602.02068.
+4. P. Nair, *Softmax is 1/2-Lipschitz: A tight bound across all ℓp norms*, arXiv:2510.23012.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:37:26.544558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the equality case in RESULT.md §§1–5. For any fixed coordinate order and a uniform starting vertex, the edge sampled in each direction is uniform in that direction. Averaging gives the upper bound t·2^(d−1); a union of t directions attains it. At equality, for every order every antipodal path has weight t. In a square, compare both routes from 00 to 11 and append a common suffix of unused flips. Repeat from 10 to 01. For weights a,b at 00 and c,h on the corresponding perpendicular continuations, these comparisons give a+c=b+h and a+b=c+h, hence c=b and h=a. For d=2 the suffix is empty. The remaining coordinates of an i-edge can be changed one at a time across such squares, so every i-edge has the same c_i. Antipodal saturation gives sum c_i=t; conversely a geodesic uses each direction at most once and c_i≥0, proving feasibility. Integral t and the box bounds imply every vertex of the slice is zero-one: two fractional entries admit an opposite perturbation, and one alone cannot sum to an integer with the others. This gives exactly binom(d,t) integral maximizers, dimension d−1 for t<d by the interior point c_i=t/d, and a singleton for t=d. The frozen VERIFICATION.md records checks on Q₂, Q₃ and Q₄ (six optima at Q₄,t=2 and four at Q₄,t=3); the all-d result rests on the analytical argument, not a rerun or a formal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The isometric-path partition bound and the partial-cube coordinate-class construction yield value, not rigidity. The inspected Lucas-cube lower bound is for Λ_n and does not classify its optimizers or Boolean cube optimizers."
+        ],
+        "reasoning": "Neither the more general bound nor the distinct partial-cube family covers the necessary equality statement over all antipodal paths.",
+        "searches": [
+          "Resultary: partial cube edge general position maximum cardinality equality classification Fibonacci Lucas cube",
+          "arXiv:2207.07357v1 Lemmas 2.4 and 4.1, Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2105.04292v1",
+        "arXiv:2207.07357v1",
+        "Resultary 58d3d0b30f51 and d4c665650a79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known proofs combine an isometric-path cover/partition upper bound with one type of matching construction. The fractional query returned the frozen claim, not a separate general fractional result."
+        ],
+        "reasoning": "Saturation on a particular partition gives equations on that partition, not equality of opposite edges. The proof under review needs saturation on all antipodal paths and two comparisons per square. Neither the cited values nor the Q₄ integral table supplies this implication; a census of integral points does not determine a relaxation without an integrality argument.",
+        "searches": [
+          "Resultary: fractional edge general position hypercube optimal polytope hypersimplex weights geodesics",
+          "arXiv:2105.04292v1 Theorem 3.2 proof",
+          "arXiv:2207.07357v1 Theorem 4.2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The formal edge k-general-position definition forbids k selected edges on a geodesic, so k=t+1. The 2021 theorem gives the capacity-two value; the 2022 theorem gives the values for all capacities in scope."
+        ],
+        "reasoning": "The reformulation identifies the exact known extremal values and constructions; the source statements and proofs do not assert that those constructions exhaust the optimizers. Use the formal definition, not the inconsistent abstract wording in arXiv:2207.07357v1.",
+        "searches": [
+          "Resultary: Boolean hypercube edge k-general position maximum sets all extremal sets coordinate directions classification",
+          "arXiv:2105.04292v1 §3",
+          "arXiv:2207.07357v1 §§1,4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day Q₄ polynomial record, 58d3d0b30f51, identifies precisely six cardinality-16 maxima, each a union of two whole coordinate classes."
+        ],
+        "reasoning": "This is exact coverage of the d=4,t=2 integral specialization and must be credited. A single cube census does not give the general combinatorial theorem or a fractional face; the dates alone do not order the two results.",
+        "searches": [
+          "Resultary: antipodal geodesic path averaging equality case cube edge subsets maximum edge general position",
+          "Resultary: Boolean hypercube edge k-general position maximum sets all extremal sets coordinate directions classification"
+        ]
+      },
+      "rationale": "Pass for the all-dimension, all-capacity equality characterization and fractional face, not the classical maximum value or the specific integral census at d=4,t=2. In the inspected prior proofs a union of coordinate classes is a construction, not the conclusion of an equality analysis; no general classification or fractional face was established by the inspected matches.",
+      "residual_risks": [
+        "The two same-day records do not establish relative priority for the four-cube case.",
+        "Primary-source comparison was targeted to the named relevant theorems; it does not rule out an unindexed equality characterization under path-sum or polyhedral terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known maximum and construction only",
+          "evidence": "gp_e(Q_r)=2^r; uses two coordinate classes for the construction and an isometric path edge cover for the bound.",
+          "identifier_or_url": "https://arxiv.org/html/2105.04292v1",
+          "material_read": "§3, Lemma 3.1 and Theorem 3.2 and proof, OA HTML offsets 11200 and 13000",
+          "method": "Read bounded primary HTML passages",
+          "title": "Edge General Position Problem",
+          "trigger": "Same cube, capacity two"
+        },
+        {
+          "assessment": "Known full range of values; no equality classification in the inspected result",
+          "evidence": "gp_e^(k)(Q_d)=(k−1)2^(d−1), 3≤k≤d+1; uses partition bound and a union of k−1 coordinate classes. The fractional relaxation is outside that statement.",
+          "identifier_or_url": "https://arxiv.org/html/2207.07357v1",
+          "material_read": "§1 definition, Lemma 2.4, and §4 Lemma 4.1 and Theorem 4.2 with proof, OA HTML offsets 0, 8500 and 20000–21000",
+          "method": "Read bounded primary HTML passages",
+          "title": "Generalization of Edge General Position Problem",
+          "trigger": "All capacities in the exact cube setting; possible general implication"
+        },
+        {
+          "assessment": "Covers the fixed integral Q₄,t=2 case; no comparative priority inferred",
+          "evidence": "Six maxima of size 16, exactly the unions of two coordinate classes.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-edge-general-position-and-maximal-set-polynomials-o--58d3d0b30f51",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The complete edge-general-position and maximal-set polynomials (four-cube record)",
+          "trigger": "Exact same-day catalogue overlap"
+        },
+        {
+          "assessment": "Related but different graph and claim",
+          "evidence": "A lower bound for the Lucas cube Λ_n, not an equality characterization for Q_d.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exponential-improvement-to-edge-general-position-in-lucas-cub--d4c665650a79",
+          "material_read": "RESULT.md statement",
+          "method": "Published-record mirror",
+          "title": "An exponential improvement to edge general position in Lucas cubes",
+          "trigger": "Potential wider partial-cube result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An equality classification answers which optima exist, not just how large they can be. More strongly it identifies the entire optimal face of the natural geodesic LP and shows that no new fractional extreme optimizer occurs. The result holds uniformly across dimensions and capacities and explains the fixed four-cube census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

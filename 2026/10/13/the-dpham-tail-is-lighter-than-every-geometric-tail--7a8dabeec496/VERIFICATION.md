@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The published DPham probability mass function is
-\[
-p_n
-=
-e^{1-\mu^{n^\alpha}}
--
-e^{1-\mu^{(n+1)^\alpha}},
-\qquad n=0,1,2,\ldots,
-\]
-so
-\[
-\Pr(X\ge n)=e^{1-\mu^{n^\alpha}}.
-\]
 
-The proof checks four analytic facts:
+# Independent mathematical audit
 
-1. Since
-\[
-\log\!\left(\frac{\mu^{n^\alpha}}{n}\right)
-=
-(\log\mu)n^\alpha-\log n\to\infty,
-\]
-the survival is lighter than every geometric tail.
+## correctness
 
-2. The mean-value theorem gives
-\[
-\mu^{(n+1)^\alpha}-\mu^{n^\alpha}
-=
-\alpha(\log\mu)\xi_n^{\alpha-1}\mu^{\xi_n^\alpha}\to\infty,
-\]
-so the adjacent survival ratio tends to \(0\).
+PASS
 
-3. For each \(t>0\), eventually \(\mu^{n^\alpha}\ge2tn\), and therefore
-\[
-e^{tn}p_n\le e^{1-tn},
-\]
-proving \(\mathbb E[e^{tX}]<\infty\).
+Telescoping the published PMF gives the inclusive survival. With L=log(mu)>0, the derivative of exp(L x^alpha) has logarithm L x^alpha+(alpha−1)log(x)+log(alpha L), which tends to infinity even when alpha<1. The mean-value theorem therefore gives a divergent adjacent increment and a vanishing tail ratio. Since exp(L n^alpha)/n tends to infinity, the survival is o(exp(−cn)) for every c>0, and the PMF is bounded above by a survival with any desired eventual geometric decay. This proves finiteness of every positive exponential moment and hazard limit one. The stated ceiling is exact for the left generalized inverse, including exact jumps, since F(n)>=1−q iff n+1 reaches the continuous inverse threshold. For maxima, take rounded thresholds n±=(1±epsilon)a_m+O(1); then mu^(n±^alpha)=(log m)^((1±epsilon)^alpha+o(1)). The upper union bound and lower bound via P(M_m<n−)≤exp(−m S(n−)) yield the asserted convergence. No finite check is relied upon for these limits.
 
-4. Exact inversion of
-\[
-F(n)=1-e^{1-\mu^{(n+1)^\alpha}}
-\]
-gives the upper-quantile formula. Applying the same survival expression at \((1\pm\varepsilon)\{\log\log m/\log\mu\}^{1/\alpha}\) gives the maximum concentration theorem.
+## originality
 
-The included script checks the exact finite formulas for representative parameter values, including slow-onset cases. No finite experiment is used to prove an infinite-domain statement.
+PASS
+
+The distinct result is the explicit all-parameter asymptotic correction for the DPham law, particularly the opposite-to-long-tailed adjacent ratio, the all-positive-exponential-moment classification, and the leading iid maximum law. The PMF, unrounded quantile inversion, and finite-sample order-statistic formulas are not original here.
+
+## value
+
+PASS
+
+The short proof settles a substantive modeling distinction raised by the article's wording: arbitrarily slow-looking pre-asymptotic behavior of the fitted family cannot yield conventional heavy or long tails for any admissible fixed parameters. The maximum scale and hazard limit give concrete consequences, rather than only a terminology objection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification
 
-The exact boundary-length quadrature is derived in `RESULT.md` from the radial solutions of a torus–plane intersection. The proof separately factors the critical quartic, derives the weighted hyperbola local model and evaluates its signed arclength defect by complete elliptic integrals. It identifies the two node multiplicities, the angular normalization, the positivity of both coefficients, and the strict monotonic inverse function.
+The exact boundary-length quadrature in `RESULT.md` follows from the radial solutions. Near each node the proof uses exact smooth coordinates for a hyperbola, controls the error from replacing the varying plane metric by its value at the node, and evaluates the signed length comparison using complete elliptic integrals. The corrected conversion from the hyperbola scale to angle uses \(m=R/(ra)\), \(\eta\sim a\sqrt{|k|}\) and \(k\sim 2ra(\beta-\beta_*)\).
 
-Run `python checks/torus_section_checker.py` from the extracted package root, with `numpy` and `scipy` installed. The packaged script passed 174 assertions concerning five independent torus aspect ratios, one-sided coefficient convergence, endpoint lengths, independently polygonized intersections and inverse-order comparisons. Finite-precision tests do not establish an infinite-range theorem, historic novelty or independent certification. The little-oh remainders are pointwise for fixed strictly positive radii with \(R>r\).
+Run `python checks/torus_section_checker.py` from the package root with NumPy and SciPy. The recorded run reports 174 assertions concerning five aspect ratios, one-sided coefficient convergence, endpoint lengths, chord sums from the radial parametrization, and sampled inverse ordering. Quadrature and chord sums use different numerical length estimators for the same radial parametrization. These finite-precision diagnostics do not prove the pointwise limiting law, establish historical priority, or constitute expert or formal certification.

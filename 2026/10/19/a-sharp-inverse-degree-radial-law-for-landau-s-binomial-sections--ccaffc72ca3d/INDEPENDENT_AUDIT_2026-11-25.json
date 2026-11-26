@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:35:06.231116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coefficient recurrence gives the exact sum S_k=(2k+1)a_k. After summation by parts, bounded variation of sqrt(t)*exp(wt) on [0,1] and the summed O((k+1)^(-1/2)) coefficient errors give P_n(exp(w/n))/sqrt(n)=H(w)+O_R(1/n) uniformly on every fixed disk |w|<=R. For Re w<=0 and Im w>0, integration by parts of the sine integral against (1-cos(yt))/y gives a nonnegative endpoint term and a strictly positive integral, because t^(-1/2)*exp(Re(w)t) is strictly decreasing; the term at zero vanishes like t^(3/2). Conjugation and positivity on the real axis finish exclusion. Zero-free exponential type would force H to be an exponential of a linear polynomial, incompatible with H(-R) comparable to R^(-1/2). The differential identity H+2wH'=2exp(w)/sqrt(pi) gives simplicity. The oscillatory term in bounded real-part strips is the nonzero leading Fresnel term exp(i sign(y) pi/4)/sqrt(|y|): subtracting the weight at zero gives an absolutely integrable derivative for the remainder and an O(1/|y|) bound. Thus a zero exists and c_* is a strictly positive attained minimum. Global angular exclusion is decisive: with d_k=a_(k-1)-a_k one has (1-z)P_n(z)=Q_n(z)-a_n*z^(n+1), where Q_n is the truncation of sqrt(1-z). Its unit-circle error is bounded by a_n. At z=rho*u in the candidate collar, rho^k-1<=k(rho-1)rho^(k-1) and sum(k*d_k)=S_(n-1)/2=O(sqrt(n)), so Q_n(rho*u)-Q_n(u)=O_C(n^(-1/2)). At a zero this forces sqrt(|1-u|)=O_C(n^(-1/2)) and a bounded scaled logarithm. Strict coefficient ratios exclude all |z|<=1. Rouché on a circle of radius M/n at a simple minimizing H zero gives a candidate, and on the resulting fixed compact set of possible scaled nearest roots the pointwise bound |H|=O(1/n) forces distance O(1/n) to a simple H zero. Exponentiating yields the claimed O(n^(-2)) radial remainder on both sides. The uploaded checker was inspected, not executed; its Newton solves follow one local branch, and the polynomial coefficient recurrence also uses a Python floating ratio before multiplying the high-precision values. Neither that computation nor a certified numerical value of c_* is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vargas treats normalized sections of linear-fractional functions and separately discusses roots away from 1 for (1-z)^(-2), with a logarithmic-scale displacement. Janson–Norfolk use a varying positive integer exponent in B_(r,n)=sum of binom(n,k)z^k.",
+          "The fixed-parameter beta asymptotic sections examined address function approximation, not a global minimum among the central-binomial section roots."
+        ],
+        "reasoning": "The nearby general techniques or polynomial families cannot be specialized at the level of the inspected results to recover the required fixed negative half exponent and complex root comparison.",
+        "searches": [
+          "arXiv:1208.5186v2 Sec. 2.1.1 Thm. 2.4 and Sec. 4.2",
+          "arXiv:0903.3866v2 pp. 1–2",
+          "NIST DLMF 8.18(ii), offsets 2130–5680"
+        ]
+      },
+      "checked_sources": [
+        "Technau arXiv:2603.24405",
+        "Resultary --7d4580645e3c",
+        "NIST DLMF 8.18(ii)",
+        "arXiv:math/9610225v1, 1208.5186v2, 0903.3866v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Technau defines the same r(n) and proves 1/n << r(n)-1 << log(n)/n. Open Problem 5.7 gives two alternatives and explicitly asks ideally for an asymptotic of n*(r(n)-1). The boxed result proves the ideal asymptotic, with additional error control.",
+          "Local convergence or a unit-disk exclusion cannot establish the absence of an angularly distant zero in the 1/n collar; the difference-coefficient argument supplies that new step. The reported frozen summary of Talbot is not treated as independently verified."
+        ],
+        "reasoning": "A prior fixed-exponent uniform complex result including collar localization could be material, but no inspected available statement establishes it. The inaccessible older sources are genuine remaining priority risks, not grounds for failure on their own.",
+        "searches": [
+          "Technau arXiv:2603.24405 Eq. (1.4), Sec. 5.4, Open Problem 5.7",
+          "Talbot Brunel TR/46 OA PDF and handle attempts",
+          "Love DOI 10.1112/jlms/s1-24.2.112 OA attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalently sqrt(1-z)P_n(z)=I_(1-z)(1/2,n+1) on a consistent branch (first on 0<z<1, then by continuation). H(w) is proportional to erf(sqrt(-w))/sqrt(-w), with the removable value at zero; the radial minimum corresponds to minimizing Re(w), not |w|.",
+          "DLMF 8.18.3–8.18.7 gives fixed-b large-a real-x incomplete-beta expansions in terms of incomplete gamma functions, uniform for x in (0,1]. Temme's Daubechies example uses exponent -N and N terms, not fixed exponent -1/2."
+        ],
+        "reasoning": "These alternate special-function expressions explain related local asymptotic ingredients. The stated uniform real interval range does not include the complex exterior collar or order the polynomial zeros, and the growing-exponent Daubechies polynomial is a different family.",
+        "searches": [
+          "Resultary: r_n=1+c/n+O(n^-2) nearest zero of partial sums of (1-z)^(-1/2) H(w) integral t^-1/2 exp(wt",
+          "Web: \"zeros\" \"incomplete beta function\" Temme fixed parameter large parameter complex partial sums negative binomial nearest zero beta central binomial (1-z)^(-1/2)",
+          "NIST DLMF 8.18(ii), large a fixed b; arXiv:math/9610225v1 Eq. (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--7d4580645e3c uses exactly the same sections B_k, but supplies the Eneström–Kakeya zero bound |z|>=2k/(2k-1), and an asymptotic of a different Fejér–Rogosinski radius as m grows with k fixed.",
+          "No inspected entry gives the minimum over complex zeros of P_n or its relation to the minimum real part of the zeros of H."
+        ],
+        "reasoning": "Matching the polynomial or tabulating individual special-function zeros does not settle the minimizing zero across the whole polynomial. Ranked-search absence is not evidence of global absence.",
+        "searches": [
+          "Resultary query for the asymptotic written above; local RESULT.md for --7d4580645e3c at offsets 0 and 3999",
+          "DLMF 8.18(ii) fixed-b formulas"
+        ]
+      },
+      "rationale": "The supported contribution is the global minimum-modulus asymptotic and its remainder for the precise central-binomial section sequence, not local scaling or an error-function zero in isolation. The same problem appears in Technau with a logarithmic gap, and the available nearby section and incomplete-beta results do not give the uniform complex collar localization needed for the global minimum. The historical priority check is bounded; unresolved same-family older sources are named below without assigning them a noncoverage verdict.",
+      "residual_risks": [
+        "Love (1949) and Talbot Brunel TR/46 were not lawfully accessible for independent full-text comparison. In particular a prior same-family root asymptotic in either would affect historical priority. The positive decision rests on actual available comparisons, not on inaccessibility.",
+        "No certification is given of the indexed minimizing zero of H, nor of an exhaustive check of older section-zero literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same quantity and an explicit asymptotic desideratum, not the claimed solution.",
+          "evidence": [
+            "Technau gives lower and upper bounds differing by a logarithm and asks ideally for an asymptotic formula for (r(n)-1)n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.24405",
+          "material_read": "Eq. (1.4) p. 2 near offset 6255; Sec. 5.4 pp. 11–12 and Open Problem 5.7, around offsets 35000–39260",
+          "method": "OA PDF located by polynomial/section/problem strings and read by offsets",
+          "title": "Shapiro’s problem on polynomials with large partial sums of coefficients",
+          "trigger": "Exact polynomial and nearest-zero problem cited by the finding"
+        },
+        {
+          "assessment": "Only simple zero exclusion for the matching sections; asymptotic pertains to a different radius.",
+          "evidence": [
+            "The Eneström–Kakeya bound is 2k/(2k-1), and m grows with k fixed in the Fejér–Rogosinski result."
+          ],
+          "identifier_or_url": "2026/9/19/SCOPE-higher-neil-fejer-rogosinski-section-radii--7d4580645e3c",
+          "material_read": "RESULT.md at offsets 0 and 3999",
+          "method": "Local Resultary mirror",
+          "title": "Higher Neil–Fejér–Rogosinski section radii",
+          "trigger": "Same central-binomial polynomial in catalogue"
+        },
+        {
+          "assessment": "Recognizable incomplete-gamma mechanism but no exterior complex collar in the stated range.",
+          "evidence": [
+            "Uniformity is expressly for real x in (0,1]; the leading auxiliary function is a^(-b) Q(b,-a log x)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/8.18",
+          "material_read": "Sec. 8.18(ii), large a fixed b, Eqs. 8.18.2–8.18.7 at offsets 2130–5680",
+          "method": "OA website text at bounded offset",
+          "title": "Asymptotic Expansions of I_x(a,b)",
+          "trigger": "Equivalent incomplete-beta formulation, fixed small parameter and large second parameter by symmetry"
+        },
+        {
+          "assessment": "Different section sequence; not a fixed exponent covering this law.",
+          "evidence": [
+            "The polynomial comprises the first N terms of (1-y)^(-N)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/9610225v1",
+          "material_read": "Abstract and Sec. 1 Eq. (1.1), PDF pp. 1–2 from offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotics and Numerics of Zeros of Polynomials That Are Related to Daubechies Wavelets",
+          "trigger": "Incomplete beta used for asymptotics of binomial-section zeros"
+        },
+        {
+          "assessment": "Inspected adjacent results do not give the fixed-half nearest-zero law.",
+          "evidence": [
+            "Linear-fractional section theorem; different calculation for (1-z)^(-2) and zeros away from 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.5186v2",
+          "material_read": "Sec. 2.1.1 Thm. 2.4, pp. 29–30 at offset 139300; Sec. 4.2 pp. 60–61 at offset 192900",
+          "method": "OA dissertation PDF passage inspection",
+          "title": "Zeros of Sections of Some Power Series",
+          "trigger": "Plausible broader fixed-radius section coverage"
+        },
+        {
+          "assessment": "Varying positive integer exponent and independent truncation, not the fixed exponent here.",
+          "evidence": [
+            "B_(r,n)(z)=sum_(k=0)^r binom(n,k)z^k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3866v2",
+          "material_read": "Definition and scope, pp. 1–2 at offsets 0 and 3558",
+          "method": "OA PDF passage inspection",
+          "title": "Zeros of Sections of the Binomial Expansion",
+          "trigger": "Possible broader binomial-section zero theorem"
+        },
+        {
+          "assessment": "Unresolved independent full-text comparison; no assertion of noncoverage.",
+          "evidence": [
+            "Frozen RESULT.md describes unit-disk positive real part; this attribution is not independent confirmation and cannot rule out additional estimates."
+          ],
+          "identifier_or_url": "https://bura.brunel.ac.uk/bitstream/2438/1958/1/TR_46.pdf",
+          "material_read": "Frozen bibliographic reference and author-side report of a positivity result only; not the report itself",
+          "method": "Attempted configured direct/VPN PDF and lawful BURA handle retrieval; timed out",
+          "title": "The Zeros of Partial Sums of a Maclaurin Expansion",
+          "trigger": "Same family according to frozen bibliography; potential decisive older source"
+        },
+        {
+          "assessment": "Unresolved scope and priority; no negative inference.",
+          "evidence": [
+            "Love, JLMS 24 (1949), 112–120; the title alone does not identify the section family or any asymptotic conclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-24.2.112",
+          "material_read": "Bibliographic information only",
+          "method": "Lawful OA search found no repository copy; publisher landing attempt returned 403",
+          "title": "On the Zeros of Partial Sums of a Certain Power Series",
+          "trigger": "Plausible older closest-root source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves Technau’s explicit nearest-zero asymptotic question for a classical family by removing the full logarithmic uncertainty, gives a strictly positive well-defined sharp constant, and improves the radial remainder to second order. The proof isolates why local scaling captures the true global minimum, a useful distinction in section-zero problems. It is not a claim to solve the larger Shapiro coefficient problem or to numerically certify the identity of the extremizing zero.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

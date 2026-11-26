@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:18:53.977392Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 11–77 and 85–86",
+        "VERIFICATION.md lines 19–22",
+        "checker.py lines 5–58 (read, not run)"
+      ],
+      "rationale": "The intensity coefficient of order k is 2 Re(a_k exp(ikφ)) plus a real quadratic term using indices 1 through k−1 only. Back substitution in (Re a_k, Im a_k) therefore gives a real polynomial inverse for every real data vector exactly when the diagonal blocks of determinant −4 sin(kθ) are invertible. The converse addresses genuine injectivity, not just derivative degeneracy: at a resonance the two polynomials 1±iz^k have identical full intensities. Removing any one of the reported data coordinates from a bijection onto all of R^(2N) loses injectivity. The block lower triangular determinant holds for every input, and at p=1 all off-diagonal blocks vanish. The two squared singular values per order are 4(1±|cos(kθ)|). Letting α=θ/π reduces the smallest singular value optimization to maximizing the closest circular distance to zero among kα, 1≤k≤N. A collision gives distance zero. Otherwise the minimum pair distance among the N+1 points equals the smallest circular gap, since all positive arc sums are at least that gap; differences exhaust the kα distances. The gaps sum to one, with equality in the bound only for a uniform grid. With 0 included, α must be a primitive generator of that grid, and every such generator works. The sine product follows from differentiating z^(N+1)−1 at z=1 and taking absolute values of the factors, giving |det|=2^N(N+1). For N=1 the same argument gives the single right-angle optimum. Read the stated sum of squared moduli as the squared Euclidean input norm, as fixed by the real-coordinate Jacobian and Euclidean singular-value calculation.",
+      "residual_risks": [
+        "The verification note overstates primitive-grid sampling: checker.py line 32 chooses the first coprime numerator, always 1, for each tested N. It uses floating-point comparisons, not exact symbolic reconstruction; its resonance test compares jets only. The general arithmetic, exact inverse and full intensity ambiguity are proved analytically, not inferred from those checks.",
+        "The optimum pertains to the specified unweighted Euclidean differential at p=1 only, not global noise stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wellershoff classifies full-modulus ambiguities including at rational angles; Perez proves unrestricted holomorphic uniqueness at irrational angles and discusses polynomial point samples; Liehr uses parallel-line families characterized by arithmetic progressions."
+        ],
+        "reasoning": "Broader full-data uniqueness or ambiguity theorems do not imply that a particular truncation is surjective or specify its Jacobian spectrum. Neither point sampling nor parallel lines are the data map optimized here.",
+        "searches": [
+          "arXiv:2202.03733 Theorems 6 and 8 and Remark 7",
+          "arXiv:2308.05722 Theorem 1.1",
+          "arXiv:2009.02061 Theorem 2.1 and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Four OA primary references and four indexed comparisons above",
+        "Frozen RESULT.md lines 5–33 and 69–86"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full-modulus polynomial fibers identify exactly when complete two-line data are injective but do not assert that throwing away degrees N+1 to 2N preserves information. The earlier angular criterion for two concentric regular polygons has optimum relative offset π/(2d) modulo π/d for its own Nyquist subsystem."
+        ],
+        "reasoning": "The truncated injectivity has a close Taylor precursor; the principal residual result is the onto jet map with its exact differential design optimum. Its uniform-grid proof uses a classical gap bound only after reducing the particular physical measurement differential to all multiples kθ. Neither the earlier point-sample objective nor the full-data ambiguity classification provides that reduction and optimum for the specified jet norm.",
+        "searches": [
+          "Resultary 07160f8e3fce, 12ae1d0f43de and 4bb1fbfc99a6 Findings",
+          "Chalendar–Partington Theorem 2.1 and Example 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier polynomial fibers entry gives full-modulus uniqueness for reduced denominator q>d. Chalendar–Partington's first nonconstant Taylor coefficient exposes the sine resonance; Perez uses Taylor coefficients of logarithmic factors and their real parts."
+        ],
+        "reasoning": "The resonance criterion is materially shared, and reflected/Taylor uniqueness is known. Full intensities include higher orders and their attainable-data subset is different; the square, truncated map here is onto all of R^(2N), so full-modulus uniqueness is not equivalent to the claimed automorphism or local output norm.",
+        "searches": [
+          "Resultary record 07160f8e3fce, degree-bounded rational-angle polynomial phase retrieval",
+          "arXiv:2403.16255 Theorem 2.1 and Example 2.2",
+          "arXiv:2009.02061 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected 07160f8e3fce and 12ae1d0f43de (Oct. 18), 4bb1fbfc99a6 (Oct. 26), and 5391496d3dff (Nov. 8). They respectively concern full-modulus fibers, balanced two-circle samples, local two-circle stability at z^m, and recovery of full intensity polynomials from two-ray point samples."
+        ],
+        "reasoning": "The same-day local spectral theorem was compared on the differential and geometry, not set aside because of date. The later two-ray sample theorem shares the exact nonresonance condition but measures a different object. No exact entry giving the jet automorphism and primitive-angle optimum was identified in the matches read.",
+        "searches": [
+          "Local Resultary comparison for two-line finite polynomial phase retrieval, jet reconstruction and angular design"
+        ]
+      },
+      "rationale": "Earlier work substantially covers the angle-versus-degree resonance criterion for full modulus and the Taylor obstruction behind it. The supported distinct finding is finite truncation to N positive-order jets per line with an onto polynomial inverse and constant determinant, combined with an exact local design theorem and characterization of all optimal primitive angles for this map. Neither full-modulus fiber classification nor the prior two-circle optimizer gives that conclusion.",
+      "residual_risks": [
+        "Bounded statement-level review, not historical priority certification. A specialized finite-jet or phase-shift design paper may have overlapping calculations; the inspected material did not establish equivalent joint coverage of the map and sharp design result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related analytic uniqueness, not truncated-map conditioning",
+          "evidence": "Two intersecting segments at an irrational-π angle identify holomorphic functions up to phase; Taylor real parts occur in the proof. The polynomial point-sample comparison concerns 4n−4 well-chosen magnitudes for degree at most n−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.02061",
+          "material_read": "Theorem 2.1, pp. 4–5, offsets 11294 and 15778; p. 2 near 4550",
+          "method": "OA primary PDF bounded passages",
+          "title": "A Note on the Phase Retrieval of Holomorphic Functions",
+          "trigger": "Irrational-angle phase uniqueness and Taylor comparison"
+        },
+        {
+          "assessment": "Substantial uniqueness-method overlap, not jet design",
+          "evidence": "A first nontrivial Taylor discrepancy at order k forces kθ∈πℤ; the rational-angle example gives a genuine ambiguity.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.16255",
+          "material_read": "Theorem 2.1 and Example 2.2, p. 3 near offset 4739; Taylor lemma and corollary, p. 4 near 5892",
+          "method": "OA primary PDF bounded passages",
+          "title": "Phase Retrieval on Circles and Lines",
+          "trigger": "Closest Taylor-order resonance argument"
+        },
+        {
+          "assessment": "Full-modulus classification, not data-truncation or an angular design theorem",
+          "evidence": "Irrational-angle uniqueness and exact rational-angle finite-order ambiguity framework.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.03733",
+          "material_read": "Theorem 6 and Remark 7, p. 7 near offset 18069; rational-angle section and Theorem 8, pp. 7–8 near 19369",
+          "method": "OA primary PDF bounded passages",
+          "title": "Phase retrieval of entire functions and its implications for Gabor phase retrieval",
+          "trigger": "Full two-line rational-angle ambiguity classification"
+        },
+        {
+          "assessment": "Different geometry and type of data",
+          "evidence": "Parallel-line families yield uniqueness precisely under a non-arithmetic-progression condition on offsets in the specified function spaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05722",
+          "material_read": "Theorem 1.1, p. 2 near offset 5443",
+          "method": "OA primary PDF bounded passage",
+          "title": "Arithmetic Progressions and Holomorphic Phase Retrieval",
+          "trigger": "Angle arithmetic and alternate sampling geometry"
+        },
+        {
+          "assessment": "Prior exact full-modulus overlap, not the jet result",
+          "evidence": "Full modulus on two rational-angle lines is injective up to phase for all degree-≤d polynomials when the reduced denominator q>d.",
+          "identifier_or_url": "Resultary:2026/10/18/07160f8e3fce",
+          "material_read": "RESULT.md, Finding and displayed exact fiber criterion",
+          "method": "Local published-record mirror",
+          "title": "Exact polynomial phase-retrieval fibers on two rational-angle lines",
+          "trigger": "Identical polynomial degree versus rational denominator criterion"
+        },
+        {
+          "assessment": "Related but different angular optimum",
+          "evidence": "4d points on concentric regular polygons, with a Nyquist optimum offset π/(2d) modulo π/d.",
+          "identifier_or_url": "Resultary:2026/10/18/12ae1d0f43de",
+          "material_read": "RESULT.md, Finding and spectral criterion",
+          "method": "Local published-record mirror",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Earlier exact angular design of polynomial phaseless samples"
+        },
+        {
+          "assessment": "Not equivalent, regardless of same-day order",
+          "evidence": "The differential is evaluated at z^m for two-radius profiles; its transitions are driven by the coalescing circles.",
+          "identifier_or_url": "Resultary:2026/10/26/4bb1fbfc99a6",
+          "material_read": "RESULT.md, Finding and differential spectrum statement",
+          "method": "Local published-record mirror",
+          "title": "A sharp stability-mode transition in two-circle polynomial phase retrieval",
+          "trigger": "Same-day sharp local Euclidean intensity stability"
+        },
+        {
+          "assessment": "Material resonance overlap, distinct measured data and later index date",
+          "evidence": "4d point values reconstruct the full intensity polynomials; the sine test is the same but does not give the jet Jacobian or its angle optimum.",
+          "identifier_or_url": "Resultary:2026/11/08/5391496d3dff",
+          "material_read": "RESULT.md, Finding and nonresonance condition",
+          "method": "Local published-record mirror",
+          "title": "Balanced two-ray phase retrieval from 4d intensities with sharp angular resonance",
+          "trigger": "Similar ray geometry, degree-dependent resonance and finite data count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–33, 63–77 and 85–86",
+        "Earlier full-modulus and two-circle angular comparisons above"
+      ],
+      "rationale": "The exact jet map is a natural finite-dimensional measurement model motivated by phase retrieval, and the design target is the worst-direction differential of that specific model. Rational lines, usually discussed as ambiguous in the unrestricted setting, can be not only valid but exactly optimal for any given degree. Identifying all primitive designs and the sharp singular value gives a usable benchmark for local noise amplification at the constant polynomial rather than a qualitative uniqueness restatement.",
+      "residual_risks": [
+        "Exact Taylor data and this Euclidean normalization are essential; no claim is made about noisy point sampling, other metrics or other coefficient-space locations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The RCGLS rule in arXiv:2605.25034v1, Algorithm 1, becomes a projection onto the Gaussian vector after orthogonalizing it against the immediately preceding search direction when the least-squares matrix is the identity. Exact line search preserves orthogonality of the current residual and preceding direction. Conditional rotational invariance in dimensions \(d\) and \(d-1\) yields the independent beta factors. Exact beta means and integrable beta log moments prove the expected and almost-sure rates; the two-dimensional case terminates because the complementary space has dimension one. A packaged exact-rational and numerical checker corroborates the formulas. The arguments cover every deterministic nonoptimal start and all stated integer dimensions in exact arithmetic.
+## correctness
 
-## Originality — PASS (self-review, with residual risk)
-The motivating paper proves a general convergence upper bound rather than the complete exact path distribution, the strict postinitial factor \((d-2)/(d-1)\), and its independent-factor almost-sure exponent. Classical random-pursuit work treats newly sampled directions independently, whereas the current search direction is projected against the previous one. Independent-sketch sketch-and-project theory similarly does not impose that correction. Searches of published mathematical-finding records for randomized CGLS, beta-product laws, and consecutive orthogonal Gaussian directions found no equivalent claim. The possibility of an unlocated exact law for orthogonally corrected random pursuit remains; this review does not establish exhaustive originality.
+PASS
 
-## Value — PASS
-The exact pathwise probability law, rather than only an expected upper bound, determines dimension-dependent finite termination, all positive error moments, and the almost-sure contraction exponent of a recently introduced method in its cleanest benchmark. It isolates the quantitative benefit of its one-step conjugacy mechanism even where the source's uniform parameter bound cannot certify that gain. This is a motivated structural benchmark and does not claim a high-dimensional general convergence theorem or performance improvement in wall-clock time.
+Exact line search makes rᵏ orthogonal to pᵏ⁻¹. If u is the projection of the fresh Gaussian sketch onto (pᵏ⁻¹)⊥, then the corrected direction is (u·rᵏ)u, and the residual update is the orthogonal removal of the u component. At step zero use the unprojected Gaussian. Conditional on all previous sketches, in an orthonormal basis with first vector rᵏ/‖rᵏ‖, the projected sketch has h independent standard normal coordinates, h=d first and h=d−1 thereafter. The ratio is Y/(X+Y), with independent X∼χ²₁ and Y∼χ²ₕ₋₁. For d≥3 this lies a.s. in (0,1), proving by induction that denominators remain nonzero and residuals positive at every finite step. The conditional law is deterministic, so iterated conditioning gives independence including the first factor, not merely equal marginal laws. Means follow by multiplication, and the strong law applies to the subsequent logarithms since the beta density is integrable against |log x|. The one-dimensional complement in d=2 removes the whole residual on the second step, and the first nonparallel sketch leaves a nonzero residual a.s.; d=1 takes one step. Without the correction h=d at every step. Inspected rational checks and Gaussian simulation provide supplementary evidence only; the probability proof does not use a finite simulation.
 
-## Closest coverage and limitations
-Most relevant: Zeng–Cai–Han–Xie, arXiv:2605.25034v1, Algorithm 1 and Theorem 2.4, full HTML examined; Stich–Müller–Gärtner, arXiv:1111.0194v2, independent spherical pursuit algorithm and convergence analysis, PDF examined; Gower–Richtárik, arXiv:1506.03296, independent sketch-and-project framework, abstract and publisher record examined (full paper could not be fetched in this pass). The theorem concerns only a real identity matrix, rank-one independent Gaussian sketches, exact line searches, and nonoptimal deterministic starts. No independent audit or complete historical literature search has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The direction recurrence, spherical projection law, and the finite-termination boundary are not new individually. The supported distinct claim relative to the inspected earlier primary texts is the independent first/later beta-factor process for rank-one Gaussian predecessor-corrected exact line search, including the exact later contraction and logarithmic rate. Two demonstrably equivalent or stronger indexed results postdate the assigned October record; those are material coverage, not evidence of earlier priority.
+
+## value
+
+PASS
+
+The independent product law supplies sharp iteration-by-iteration and almost-sure rates, and distinguishes the correction's effect on the whole error process from the uncorrected method rather than merely repeating a convergence guarantee. The comparison is in exact arithmetic and counts iterations, not practical runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

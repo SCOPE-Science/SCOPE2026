@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:51.514739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified degree-four graph the flip cost is 4J(k−2) with k opposite neighbors. Equality is allowed for weak stability but not for strict freezing. Each triangle has an equal edge and each horizontal edge belongs to only one triangle, so strict freezing forces both rows to alternate, giving four states for even n, none for odd. Independently, order the vertices as (i,0),(i+1,1),(i+1,0),… to obtain C_(2n)^2, then stagger spins to give the periodic ANNNI Hamiltonian −JΣτ_jτ_(j+1)+JΣτ_jτ_(j+2). The corresponding wall word has even weight and two spin lifts. With m walls and a adjacent wall pairs, F=2n−m+2a. For m>n, a≥2m−2n and m−2a≤n−3; for m≤n, m−2a≤m, with equality exactly for isolated walls. Thus the optimum uses n isolated walls when n is even (two alternating wall words), and n−1 when n is odd. The count of cyclic independent (n−1)-subsets is (2n/(n+1)) binom(n+1,n−1)=n², giving 2n² spin configurations. In the original 16-state transfer, the four displayed neighbor entries must be counted as four slots, not as a set of distinct spin values; the physical-neighbor condition and the supplied code both specify that intended count. A separate replay reconstructed the graph and counted all spin configurations at n=4,…,8, matching the graded weak ensemble and the parity and ground formulas. Independent trace computation at n=4,…,11 yielded 62,172,450,1276,3550,9782,27256,75616. Rebuilding the marked transfer gave the exact P and Q factorization and a strictly positive fifth power on the 14-state core. Thus the isolated simple Perron root gives the stated entropy and analytic log moment-generating function near u=1. The spectral gap persists in a small complex neighborhood, so the exponentially small remainder in the log trace can be differentiated there; the variance is O(n). The positive root and derivative give α≈2.776562146292835 and μ≈1.464073732677484. As a different replay, in ANNNI wall bits weak stability excludes precisely 1100,1110,1111,0111,0011; shift overlapping triples and mark each transition by u^(b+1{b=c}) for the middle two bits. The wall transfer gives R(z,u)=z^5−uz^3−(u^3+u^2)z²−u³z−u⁴ as its Perron factor; P(z²,u)=−R(z,u)R(−z,u). The original graph proof and marked transfer establish the all-length results, while the bounded replays corroborate them. The frozen verify.py was inspected, not executed. There is no assertion about time scales or hitting distributions for dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two ANNNI studies analyze dynamical coarsening or persistence rather than uniform weak minima. Dhar–Chaudhuri–Dasgupta treat the triangular antiferromagnet with a different boundary geometry; Newman–Stein use a ferromagnet with no degree-four ties; Pagnani–Parisi–Ratiéville count on random fixed-connectivity graphs."
+        ],
+        "reasoning": "Broader interactions or larger geometries do not specialize those ensembles or time-dependent observables to the marked weak counts. In particular a sampled trajectory with ties explores only the states selected by its transition rule.",
+        "searches": [
+          "Sen–Dasgupta §V; Redner–Krapivsky §2.3, marginal antiferromagnetism",
+          "Dhar–Chaudhuri–Dasgupta cond-mat/9910472, ground-state string sectors",
+          "Newman–Stein cond-mat/9904208, ladder and odd coordination",
+          "Pagnani–Parisi–Ratiéville cond-mat/0210305, metastable-state counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Local frozen Resultary mirror",
+        "arXiv:cond-mat/0411504v1",
+        "Redner–Krapivsky (1998), author-hosted PDF",
+        "arXiv:cond-mat/0105037",
+        "arXiv:cond-mat/9910472",
+        "arXiv:cond-mat/9904208",
+        "arXiv:cond-mat/0210305"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the known commensurate antiphase, strictness follows immediately by checking its flips. The Spirin–Krapivsky–Redner ANNNI connection maps square-ferromagnet stripes to ANNNI ground states at the half-strength coupling, not to weak minima of this equal-strength chain. The κ=1 dynamical domain reactions do not supply a complete marked enumeration of all admissible wall words."
+        ],
+        "reasoning": "The main supported invariant requires resolving all local patterns at equality, imposing periodic wall parity, and marking their energies to get the Perron polynomial and its derivative. It is not the value of a known ground-state or persistence formula under a change of variables.",
+        "searches": [
+          "Redner–Krapivsky equation (1) and §2.3",
+          "Spirin–Krapivsky–Redner cond-mat/0105037, PDF p. 7",
+          "Sen–Dasgupta §§II,V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zigzag order gives nearest and next-nearest cycle edges; staggering matches the Hamiltonians exactly, not merely in thermodynamic limit. Sen–Dasgupta use zero-energy flips at rate/probability 1/2 and study κ=1 persistence on lengths divisible by four. Redner–Krapivsky study the same equal-strength dynamics, identifying reversible zero-cost moves, not the count of all weak minima."
+        ],
+        "reasoning": "The full graph and local flip rules translate to the ANNNI alias. Neither inspected result is the uniform weak-minimum generating function, and weak states need not be absorbing under either dynamics.",
+        "searches": [
+          "Periodic one-dimensional ANNNI chain at κ=1, blocked or absorbing states and antiphase domains",
+          "Sen–Dasgupta arXiv:cond-mat/0411504v1, equation (1), §§II,V",
+          "Redner–Krapivsky DOI 10.1088/0305-4470/31/46/013, equation (1), §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available local match was the same frozen record. The accessible ANNNI primary text explicitly gives fourfold antiphase degeneracy in the commensurate geometry and restricts L to multiples of four. The exact-polynomial lookup did not identify a relevant census, and does not count as negative evidence."
+        ],
+        "reasoning": "Credit the exact known even ground count. The incommensurate L=4q+2 finite count and the marked wall polynomial are not established by the inspected commensurate spectrum or by a wording miss.",
+        "searches": [
+          "Local frozen Resultary mirror: triangular ladder, weakly stable and strict freezing",
+          "Exact weak characteristic-polynomial search; periodic ANNNI blocked-state enumeration search",
+          "Sen–Dasgupta equation (1), §II antiphase degeneracy and §V"
+        ]
+      },
+      "rationale": "The graph is an exact reparametrization of the classical κ=1 periodic ANNNI chain, and the commensurate fourfold antiphase ground state is prior. The distinct supported contribution is the parity-resolved finite count together with the exact marked enumeration and energy law of the uniform weak one-spin-stable ensemble, contrasted with strict absorbing states. No novelty is credited to the Hamiltonian, the commensurate antiphase, the existence of ties, or the Glauber dynamics of this model.",
+      "residual_risks": [
+        "The unread Selke review and uninspected ANNNI enumerations could contain equivalent finite or marked results; a bounded literature search is not a priority proof.",
+        "The even antiphase ground result and the model are known independently of the ladder formulation; the originality assessment is for the distinct parity and weak-ensemble results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and commensurate ground coverage; different dynamical observable",
+          "evidence": "Identical staggered Hamiltonian at κ=1, 4|L for simulated chains, fourfold antiphase degeneracy, and κ=1 persistence and domain decay with neutral flips permitted.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0411504v1",
+          "material_read": "Equation (1) and The Model (offset 6700 onward); antiphase degeneracy and §V, PDF p. 4 (offset about 24850)",
+          "method": "Open-access primary full-text passages",
+          "title": "Persistence and dynamics in ANNNI chain",
+          "trigger": "Exact equal-coupling periodic ANNNI alias and zero-temperature local spin flips"
+        },
+        {
+          "assessment": "Exact Hamiltonian and marginal coupling; no static uniform weak census in inspected passages",
+          "evidence": "Section 2.3 handles J₂=J₁ and the reversible zero-cost domain reaction 3+3+3 ↔ 1 via kinetic rate equations.",
+          "identifier_or_url": "https://sites.santafe.edu/~redner/pubs/pdf/ising.pdf",
+          "material_read": "Equation (1) and antiphase discussion, journal pp. 9229–9230 (text offset about 3000); §2.3, PDF p. 9 (offset about 24745)",
+          "method": "Lawful author-hosted primary PDF",
+          "title": "Slow coarsening in an Ising chain with competing interactions",
+          "trigger": "Earlier primary result specifically cited for same κ=1 dynamics"
+        },
+        {
+          "assessment": "Related mapping, but different geometry and ratio",
+          "evidence": "Ferromagnetic square stripe states correspond to ANNNI ground states at the paper's J₂=−J₁/2, not equal-strength ANNNI weak minima.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037",
+          "material_read": "PDF p. 7 (offset 42500), square stripes and tree count discussion",
+          "method": "Open-access primary text",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Frozen counts and an explicit ANNNI connection"
+        },
+        {
+          "assessment": "Related triangular ground-state sectors, not the same strip",
+          "evidence": "The displayed lattice is periodic in both directions and the dimer/string analysis does not yield the claimed open-width-two weak minima.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9910472",
+          "material_read": "PDF pp. 1,3 (offsets 1150 and 18000)",
+          "method": "Open-access primary text",
+          "title": "The triangular Ising antiferromagnet in a staggered field",
+          "trigger": "Triangular ground states and exact finite geometry comparison"
+        },
+        {
+          "assessment": "Different edge set and coupling",
+          "evidence": "The discussed ferromagnetic odd-degree ladder rules out zero-energy ties.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9904208",
+          "material_read": "PDF p. 3 (offset 10800)",
+          "method": "Open-access primary text",
+          "title": "Blocking and Persistence in the Zero-Temperature Dynamics of Homogeneous and Disordered Ising Models",
+          "trigger": "Ladder and blocking terminology"
+        },
+        {
+          "assessment": "Different graph ensemble",
+          "evidence": "Their fixed-connectivity random graph is not the deterministic κ=1 periodic chain.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0210305",
+          "material_read": "PDF pp. 1–2 (offsets 1400 and 9000)",
+          "method": "Open-access primary text",
+          "title": "Metastable configurations on the Bethe lattice",
+          "trigger": "Comparable local-stability counting and energy discussion"
+        },
+        {
+          "assessment": "Coverage unexamined; not evidence either way",
+          "evidence": "The located text request returned HTTP 403; the same-coupling primary articles above were read directly.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0370157388901408",
+          "material_read": "Citation-level identification only; no original full-text passage available",
+          "method": "Lawful open-access retrieval attempt",
+          "title": "The ANNNI model — theoretical analysis and experimental application",
+          "trigger": "Classical ANNNI review potentially covering exact aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the marginal dynamical coupling of a standard frustrated chain, the exact weak-minimum entropy and marked energy density quantify how an exponentially large set of local minima can lie an extensive energy above equilibrium even when strict absorbing states are absent or number only four. The parity formulas also distinguish geometric frustration from tie-induced local stability. The result is a static comparison, not a claim of dynamical metastable lifetimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

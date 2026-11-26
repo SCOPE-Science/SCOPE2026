@@ -1,15 +1,21 @@
-# Review of exact ternary fibers for the fifth binomial column
+# Independent mathematical audit
 
-## Correctness
-PASS. The period is established by Vandermonde divisibility and sharp failure of its largest proper divisor. Expanding the three residue branches yields one isometry onto all of \(\mathbb Z_3\) and two global normal forms \(\beta_r+3\sigma_r u^2\), each obtained from a simple critical point and a unit square-root isometry. These prove the exact, all-level fiber formula; the root-count formula then gives the singleton and maximal-count statements. Every target up through \(3^{10}\) was also compared with exhaustive integer enumeration of a full period using the standalone script. The finite checks are not used to infer the infinite statement.
+## correctness
 
-## Originality
-PASS on the inspected evidence, with residual bibliographic risk. Fiorot–Gilblas–Tonolo (2023 preprint) provides binomial recurrence and period facts; Sun–Zhang (2008 preprint) provides the dense-image assertion. Neither inspected result gives the target-by-target fifth-column ternary fiber counts. The closest published fifth-column fiber theorem concerns prime two, and the closest published ternary binomial theorem concerns the sixth column's *image*, not the fifth column's fibers. Implications were compared at the level of exact objects and parameters; existing surjectivity and period results are expressly not novelty claims. A previously unindexed exact fiber law may remain undiscovered.
+PASS
 
-## Value
-PASS. Once surjectivity is known, the natural next invariant is how often a given residue is represented in the shortest period. The complete classification distinguishes a unique-preimage majority from exceptional high-collision balls, quantifies the exact \(31/36\) singleton-target density, and identifies two precise worst-collision targets at every level \(k\ge4\). This resolves more than a small finite sample or routine substitution.
+Vandermonde gives period 3^(k+1); in the r=2 branch g_2(t)≡t coefficientwise modulo 3, so it is an onto isometry and shift 3^k in n fails by exact valuation k−1. For r=0,1, h_r=g_r/3 reduces coefficientwise to ±t(t−1); the derivative has just the simple root t≡2. Expanding at its lift gives h_r(α_r+u)−h_r(α_r)=u²B_r(u) with B_r congruent to the respective sign. The principal square root of the unit after division by that sign has difference divisible by 3(u−v) at two arguments; multiplying it by u gives an onto isometry. Thus each quadratic branch contributes a square-root count modulo 3^(k−1), with three lifts per root in the full period. Evaluating at t=2 gives centers 6 and 3 modulo 9. The two full quadratic-branch images do overlap at 0 mod 9, giving 12 extra indices there. Only the critical subimages are disjoint modulo 9: their supports are β_0+27 Z_3² and β_1−27 Z_3², so removing these and all multiples of 9 gives the exact singleton count. The square density 3/8 gives 31/36. For m=k−1≥3, the unique largest root count is at zero for even m or at 3^(m−1) for odd m, and exceeds the overlap's count of four square roots. Each critical branch produces one maximizer. The formula also gives the three stated initial maxima. Independent modular Pascal recurrence and coefficient-derived Hensel centers agreed at every target for k=1–8, including the maxima and their multiplicities.
 
-## Sources and limits
-The source and implication comparisons appear in the structured audit. The theorem is restricted to the fifth fixed binomial column, the prime three, and its least periods. Exact critical residues require Hensel lifting. No claim of all-prime or all-column coverage is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The period and the existence of a preimage everywhere are known; Sun–Zhang in fact implies the one regular-branch preimage for each target. The supported distinct facts are the two remaining branches' all-depth multiplicities and the resulting proportion of singleton targets and maximizing fibers.
+
+## value
+
+PASS
+
+Surjectivity of the classical binomial column leaves its exact inverse-image sizes open. Two distinct critical values and a shared regular output ball account for the disparity between the 31/36 singleton-target proportion and the growing maximum. The exact formulas answer frequency and extremal questions at all depths, not just the already known support and period.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

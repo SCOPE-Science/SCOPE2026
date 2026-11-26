@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python thermal_dimer_check.py` with Python 3, NumPy, SciPy and SymPy. The program independently constructs the four-dimensional Ornstein–Uhlenbeck drift matrix, solves its stationary Lyapunov equation, and compares its measured left-bath heat injection with the closed flux identity. It also solves a representative covariance system over exact rational numbers, compares the analytic joint optimizer to an independently optimized clipped one-dimensional objective for 180 random budget triples, and verifies a closed radical witness.
+## correctness
 
-At creation, the checker reported exact rational covariance PASS, 600 random Lyapunov comparisons PASS, 180 optimizer comparisons PASS, and the \(k=1\), \(P=3\), \(\Gamma=4\) witness PASS. These are finite diagnostics; the universal theorem is proved analytically in RESULT.md. The external literature comparison is necessarily nonexhaustive, and no independent scientific audit has occurred.
+PASS
+
+For both positive dampings the deterministic mechanical energy has negative dissipation except at zero velocity, and positive definite stiffness (determinant ab+kP) makes the origin the largest invariant subset there. The drift is Hurwitz. Reconstructing the stationary moment equations with q=E[x1 v2]=-E[x2 v1] gives Γ E[v1 v2]=(b−a)q. Eliminating the position moments gives k(E[v1²]−E[v2²])=[(a+k)γ2+(b+k)γ1]q+(b−a)E[v1 v2]; the diagonal velocity balances identify J=kq and recover the stated denominator. With the two budgets it is a constant plus δ²+(Γ²/2)δη+4k²/(1−η²). For r=|η| the δ minimizer is the clipped unconstrained minimizer. Before clipping the derivative in r is r[8k²/(1−r²)²−Γ⁴/8]; after clipping it is 8k²r/(1−r²)²−Γ²P/2, strictly increasing and matched at the seam. This covers the symmetric regime even when clipping occurs, proves uniqueness at Γ²=8k, gives the interior or unique clipped optimum with the stated mirror symmetry above threshold, and excludes |η|=1 by divergence. At P=P_c the formulas meet at r_0. In the example the denominators are 40 and 44 with numerator 4, giving 1/10 and 1/11. The real Langevin noise presupposes nonnegative bath temperatures.
+
+## originality
+
+PASS
+
+Pass restricted to the complete optimizer classification under the two simultaneous allocation budgets, not to the known heat-current law. That law supplies the objective; it does not by itself classify the constrained global minimizers. No inspected source states that phase diagram or establishes a stronger optimization result covering it.
+
+## value
+
+PASS
+
+The budgets turn a standard transport model into a natural resource-allocation problem. A complete global symmetric-to-mirror-optimum threshold, followed by a distinct active pinning constraint, answers when equal allocation costs performance and gives the usable allocations, including the boundary and critical regimes. The value is in the design classification, not an extra derivation of the forward formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

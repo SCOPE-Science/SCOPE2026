@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the positive symmetric Fourier projection of angular-frequency half-width \(W\), restricted to the union of two disjoint intervals of lengths \(a\ne b\) and center separation \(D>(a+b)/2\). The exact square-trace identity isolates the off-diagonal Hilbert–Schmidt interaction, a positive two-rectangle integral. The transform \(F(t)=4\sin(at/2)\sin(bt/2)/t^2\) identifies the leading oscillation, its derivative identifies the cubic-order term, and the compact integration range makes all asymptotics and differentiated remainders uniform for fixed positive parameters. A sign-and-curvature argument proves existence and uniqueness of every sufficiently late stationary point when the Fourier moment is nonzero. In the resonant case, \(|2WF'(2W)|<ab\) is proved for **one** zero sine factor, ensuring a strictly negative derivative. The standalone `check.py` independently passed 132 supplementary tests. Numerical samples are not used to establish infinite quantifiers.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The published November 8, 2026 result [*Separation resonance in the quadratic trace of two-band Fourier concentration*](https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-separation-resonance-in-the-quadratic-trace-of-two-band-fourier--90e7f069326c) solves the equal-width case. Neither exchanging time and frequency nor rescaling creates unequal widths from equal ones, so it does not imply the present mixed-resonance criterion. [Azimifard (arXiv:2609.14946)](https://arxiv.org/abs/2609.14946) provides general componentwise cross-boundary and trace identities; those identities are used as foundations and do not explicitly establish the sharp asymmetric derivative dichotomy in inspected sections. [SenGupta et al. (2012)](https://doi.org/10.1007/s00041-011-9197-y) treat symmetric bandpass concentration and numerical spectra, not the present analytic unequal-width classification in inspected sections. Targeted equivalence, asymmetric-width, and spectral-trace published-finding corpus searches located no dominating statement. An unindexed derivation is possible; not all pages of the 2012 paper could be inspected.
+PASS
 
-## Mathematical value — PASS
-Two-window time-frequency concentration is a canonical nonconvex Slepian problem, and the quadratic defect is the sum of the spectral transition penalties \(\lambda_j(1-\lambda_j)\). Separating two unequal windows permits an interference phase diagram unavailable in the symmetric parameter slice. The strict if-and-only-if distinction between a genuine oscillatory regime and monotone convergence is particularly informative because exact resonance of **only one** width suffices. The theorem supplies an exact positive integral, the sharp inverse-square interference envelope, and the unique alternating late extrema. This does not determine individual eigenvalues, higher spectral moments, or a near-resonance uniform threshold. The final step is elementary once the cross-term is isolated; its original value is the complete motivated asymmetric classification.
+The angular-frequency convention gives kernel sin(Wx)/(πx). Restricting the unitary Fourier transform between the finite windows gives a Hilbert–Schmidt factor, so the square trace is the integral of the squared kernel. Its two off-diagonal rectangles give exactly 2J; they have positive integral because the sine zeros occupy a null subset. Writing s=v−u gives an even, compactly supported difference measure with Fourier transform F(t)=4 sin(at/2)sin(bt/2)/t². Taylor expansion of (D+s)^−2 yields the stated leading J, and fixed-phase sequences realize the entire stated cluster interval. In the exact derivative, expanding (D+s)^−2 and (D+s)^−3 uniformly gives the quadratic term WB sin(2WD) and the cubic term −ab+(B+2WB′)cos(2WD), after factoring π^−2; the sign comes from ∫s sin(2Ws)=−F′(2W). A second derivative of the exact compact integral gives leading curvature 2W²B cos(2WD)/(π²D²) with O(D^−3) error. For B≠0 the derivative signs at the ends of fixed small phase neighborhoods of kπ are opposite, curvature there has fixed nonzero sign, and outside those neighborhoods the leading sine is bounded away from zero. This gives exactly one late stationary point per neighborhood, displacement O(1/k), and alternating strict extrema. For B=0, if sin(Wa)=0 then |2WB′|=a|sin(Wb)|/W<ab, symmetrically if the other factor vanishes, and if both vanish B′=0. The uniform negative D^−3 margin makes J′ strictly negative eventually and the defect strictly increasing to the isolated-window sum. Swapping the Hilbert–Schmidt factor and its adjoint transfers the nonzero spectrum to the dual time–frequency setup with the specified convention.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Supported distinct content is the unequal-width large-separation classification, specifically the strict derivative margin under a single resonant width. The trace identity, its dual, and the equal-width classification are covered and not credited here. The strongest matched catalogue analogue uses equal widths and does not address the mixed asymmetry.
+
+## value
+
+PASS
+
+In a canonical two-window concentration problem the summed transition defect does not in general approach independent-window behavior monotonically. The sharp criterion tells when infinitely many separated extrema persist, and proves that tuning only one of two independently variable unequal lengths suffices to remove them eventually, even though a smaller oscillatory derivative term remains. The cluster interval adds quantitative information about the residual coupling independently of any individual eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

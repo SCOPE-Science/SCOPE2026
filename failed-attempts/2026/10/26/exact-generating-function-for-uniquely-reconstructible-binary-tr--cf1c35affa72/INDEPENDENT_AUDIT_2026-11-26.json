@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:17.271533Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The directed de Bruijn edge counts forget endpoints but retain multiplicities. In a balanced feasible graph every active vertex is a possible start, giving distinct words unless there is only one active vertex, when the two constant sequences contribute 2z/(1-z). Unbalanced vectors determine endpoints. Last exits from the nonterminal vertices form a rooted in-tree; conversely a rooted last-exit tree and ordered outgoing lists yield a trail: degree balance permits stopping only at the terminal, and unused edges would then force unused last exits along a tree path into that terminal. For each branch the number of local orders is one exactly when its marked last-exit type has multiplicity one; the terminal may have at most one type. Independently reproduced the exact OGF with python3 /workspace/checks/trigram_certificate.py. The reproduction uses a directed matrix-tree determinant for edge types and deletes forbidden last exits in a second determinant. It checks exact coefficients through window count 48, with a degree-41 numerator bound over (1-z)^3(1-z^2)(1-z^3)(1-z^4) obtained by summing the affine multiplicity ranges; hence this is an all-length certificate, not interpolation or a short-length test alone. Counts match the listed values. Dividing the numerator by the three regular factors at 1 gives value 1 and derivative -29/2; the other poles are simple roots of unity. This gives the stated n^2/2+14n+O(1) after shifting t=n-2. The determination does not cover cyclic words, supplied endpoints, or longer reads.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected trail papers furnish general methods on supplied graphs. The profile and reconstruction papers concern equivalence-class or code constructions; the spectrum-preserving set problem is a different observation task. The checked passages do not sum singleton trigram fibers over all linear binary word lengths."
+        ],
+        "reasoning": "A per-instance uniqueness decision or a code selecting one per spectrum does not itself coincide with the aggregate count of singleton spectra.",
+        "searches": [
+          "arXiv:cs/0507052 uniqueness automata; arXiv:2603.12894 Euler-trail enumeration; arXiv:1410.8837 DNA profile classes; arXiv:1804.04548 binary reconstruction codes; arXiv:2602.19408 spectrum-preserving sets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, derive_gf.py, supports.py, verify.py (inspected)",
+        "Resultary d7f536590d8e and 6866c55548a5",
+        "arXiv:cs/0507052, 2603.12894, 1410.8837, 1804.04548, 2602.19408"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using t=n-2, both OGFs have numerator degree at most 42 over (1-z^12)^3: for the frozen function its denominator (1-z)(1-z^3)(1-z^4) divides that power, and for the indexed series the third lag-12 difference vanishes from t=43 because each residue tail is quadratic from t=7. All coefficients t=0 through 42 agree exactly."
+        ],
+        "reasoning": "Their numerator difference is therefore zero. The two styles of proof and two presentations do not leave a distinct numerical result.",
+        "searches": [
+          "Resultary d7f536590d8e Finding and assumptions",
+          "Exact arithmetic comparison in /workspace/checks/trigram_certificate.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d7f536590d8e concerns precisely linear labeled binary words with the full eight multiplicities and no endpoints supplied. It gives U_n=(n^2+28n+c_(n mod 12))/2 from n=9 and all six initial values. Resultary 6866c55548a5 instead forgets the order inside substrings and counts observations, not singleton fibers."
+        ],
+        "reasoning": "Mapping trigrams to de Bruijn edges preserves the complete multiset observation and word identity, but composition observations and endpoint-anchored profiles do not in general preserve singleton fibers.",
+        "searches": [
+          "Resultary: binary trigram singleton spectra, exact reconstruction, unanchored spectrum; twelve-periodic quadratic law",
+          "arXiv:cs/0507052 and 2603.12894 for Euler uniqueness formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed d7f536590d8e exact formula also supplies U_3 through U_8 as 8,14,26,46,74,92. The OEIS result page could not be read; no negative conclusion is drawn from it."
+        ],
+        "reasoning": "The database match is established by exact rational equivalence, not by short-prefix sequence matching.",
+        "searches": [
+          "Resultary: exact U_n sequence, rational OGF and quasipolynomial forms",
+          "OEIS lookup for initial values"
+        ]
+      },
+      "rationale": "A distinct Resultary finding gives the same unanchored singleton counts for every n>=3 and the same asymptotic, in an exactly equivalent quasipolynomial presentation. This is full mathematical coverage, not a conclusion about historical priority or independent provenance from the later date label.",
+      "residual_risks": [
+        "The 2008 Finite automata for testing composition-based reconstructibility of sequences was visible only through a search excerpt; the full-text route returned 403. Kontorovich's 2004 Uniquely decodable n-gram embeddings was available only as a landing page. Neither was treated as disjoint on that basis.",
+        "The date labels do not resolve independent discovery or historical priority. The originality decision rests on exact indexed coverage, not the inaccessible sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for all lengths n>=3",
+          "evidence": "Provides all six initial terms and twelve residue constants; explicitly uses linear, unanchored multiplicity spectra.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-twelve-periodic-quadratic-law-for-uniquely-reconstructible-bin--d7f536590d8e/RESULT.md",
+          "material_read": "RESULT.md, offset 0, Finding, assumptions and proof opening",
+          "method": "Local Resultary mirror",
+          "title": "A twelve-periodic quadratic law for uniquely reconstructible binary trigram spectra",
+          "trigger": "Exact singleton-fiber count in another form"
+        },
+        {
+          "assessment": "Different invariant and statistic",
+          "evidence": "Counts distinct composition observations of contiguous substrings of lengths 1–3, with quartic growth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-profile-count-for-three-length-binary-substring-compositio--6866c55548a5/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact profile count for three-length binary substring compositions",
+          "trigger": "Same-date binary length-three profiles"
+        },
+        {
+          "assessment": "General test, no aggregate count in the inspected passage",
+          "evidence": "Describes a finite-state test of directed Euler-trail uniqueness.",
+          "identifier_or_url": "https://arxiv.org/abs/cs/0507052",
+          "material_read": "Abstract and introductory passage, p. 1, offset 0",
+          "method": "Lawful OA, targeted passage reading",
+          "title": "Finite automata for testing uniqueness of Eulerian trails",
+          "trigger": "Uniqueness-testing precedent"
+        },
+        {
+          "assessment": "Per-graph trail enumeration",
+          "evidence": "BEST-based counting and an output-sensitive enumeration algorithm, with a multigraph extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.12894",
+          "material_read": "Abstract, p. 1, offset 679",
+          "method": "Lawful OA, targeted passage reading",
+          "title": "Optimal Enumeration of Eulerian Trails in Directed Graphs",
+          "trigger": "Last-exit and trail counting precedent"
+        },
+        {
+          "assessment": "Code constructions, not a singleton-fiber census in the inspected passage",
+          "evidence": "Repeat replacement, redundancy and noisy extensions for binary codebooks.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+          "material_read": "Abstract, p. 1, offset 324",
+          "method": "Lawful OA, targeted passage reading",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same multiset observation model"
+        },
+        {
+          "assessment": "Related equivalence-class and coding framework",
+          "evidence": "Studies classes and codes for sequence profiles, not the frozen formula in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8837",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Lawful OA, targeted passage reading",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Overlap with enumeration of profile classes"
+        },
+        {
+          "assessment": "Different task",
+          "evidence": "Constructs compact sets preserving k-mer presence, not multiplicity singleton fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.19408",
+          "material_read": "Abstract, p. 1, offset 936",
+          "method": "Lawful OA, targeted passage reading",
+          "title": "Variations on the Problem of Identifying Spectrum-Preserving String Sets",
+          "trigger": "Related spectrum problems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The singleton-fiber census is a natural exact reconstruction invariant, but the distinct indexed law already fixes every coefficient and both stated leading terms. Re-expressing that complete count by a rational OGF is not a remaining independent scientific contribution, and no additional structural result is the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

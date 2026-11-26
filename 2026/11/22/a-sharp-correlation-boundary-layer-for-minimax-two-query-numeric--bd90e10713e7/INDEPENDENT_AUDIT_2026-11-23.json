@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:52:25.132987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unbounded constant, linear and quadratic coefficients force exactness on degrees 0–2, hence the only finite-risk predetermined linear designs are central differences. The two signed cubics attain the Taylor bound Mh²/6; the error variance is exactly σ²(1−ρ exp(−2h/ℓ))/(2h²). In normalized variables, q=1−ρ(1+x)exp(−2x) is positive and its derivative ρ(1+2x)exp(−2x) is nonincreasing, so xq′≤q and q/x⁶ is strictly decreasing from infinity to zero, including at ρ=1. This gives uniqueness and strict decrease of both optimal spacing and risk with ρ. Expanding q uniformly as δ+ρx+O(x³), δ=1−ρ, gives x∼[κδ]^(1/6) at fixed δ>0 and x∼κ^(1/5) at δ=0. When δ/κ^(1/5)→α, the ρ=1 root is a lower bound and x⁶≤κ(δ+x) gives an upper bound of order κ^(1/5); the normalized equation has the unique limit z≥1 with z⁶=z+α. Substitution of δ+2x+o(κ^(1/5)) in the risk gives both constants and the stated risk profile. In the outer overlap δ≫κ^(1/5), scaling by (κδ)^(1/6) in the same inequality gives x/δ→0, hence the nugget law. Independent bisection at κ=10⁻⁵ gave 0.146779926762, 0.112272913733 and 0.099879220204 for ρ=0, 0.9 and 1 respectively. Inspected the supplied verification and source without running the uploaded program; the analytic proof, not the finite competitor grid, certifies the theorem. No nonlinear, randomized or adaptive minimax conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam–Li–Zhang cover more evaluations of independent sampling; the exact linear two-call specialization is the ρ=0 case. The all-estimator theorem is a lower-bound/constant-factor comparison.",
+          "The Resultary odd-budget record assumes independent observations and predetermined linear rules."
+        ],
+        "reasoning": "Greater budget or a larger estimator class in the independent oracle does not allow a distance-dependent error covariance. In particular the independent risk has a spacing-independent variance numerator, which cannot yield the endpoint nth-root change or the joint profile.",
+        "searches": [
+          "arXiv:2007.04443, §2.1 Thm. 1 and §3.1 Thm. 4",
+          "2026/11/22/SCOPE-exact-odd-budget-minimax-numerical-differentiation-under-indepen--05359e237394"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the two inspected distinct records",
+        "arXiv:2007.04443",
+        "arXiv:2405.05638"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only the independent specialization is implied; the GP record instead uses a common t satisfying (1+t)exp(−2t)/(1−t)=1+η and yields h_M=t and h_G=√t.",
+          "The audited law has a different defining balance x⁶=κ[1−ρ(1+x)exp(−2x)] and the limit z⁶=z+α."
+        ],
+        "reasoning": "Prior central-difference optimality and bias recovery are established ingredients, not the originality claim. The positive-correlation spatial covariance and simultaneous nugget limit require a new risk/design calculation.",
+        "searches": [
+          "arXiv:2007.04443 §2.1",
+          "arXiv:2405.05638 §§1.1–1.2",
+          "Resultary 8fa1bf0799f4, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The GP record's Finding and scope put Matérn or squared-exponential correlation on the latent signal, with independent measurement noise and posterior derivative variance.",
+          "Cor-FD §§1.1–1.2 builds correlations via transformations of pilot samples."
+        ],
+        "reasoning": "Analyzing the antisymmetric observation mode is shared with the GP record, but its prior and conditional-mean target do not impose a supremum over deterministic functions with bounded third derivative. Neither it nor Cor-FD is a reparameterization of the OU noise variogram with an independent nugget.",
+        "searches": [
+          "Resultary: fixed linear minimax numerical differentiation, correlated two-site noise and two-point GP derivative design",
+          "2026/11/22/SCOPE-a-squared-radius-duality-for-noisy-two-point-gaussian-process-di--8fa1bf0799f4",
+          "arXiv:2405.05638"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen record is indexed and is the same record, not independent overlap. The distinct nearby records were compared through their Findings/scope at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4."
+        ],
+        "reasoning": "The core is an analytic continuous-parameter family, so there is no finite invariant table to check; the analogous exact-entry check is the Resultary formula comparison. Neither distinct indexed statement gives this covariance-dependent optimizer.",
+        "searches": [
+          "Resultary: two-query linear minimax numerical differentiation and two-point noisy derivative design",
+          "Resultary IDs 05359e237394 and 8fa1bf0799f4"
+        ]
+      },
+      "rationale": "The independent-noise specialization is known and acknowledged. The closest two-query and correlation results inspected do not establish the stipulated OU-plus-nugget minimax problem or its joint positive-correlation boundary layer. This is a comparison against inspected evidence, not a publication-priority certificate.",
+      "residual_risks": [
+        "Equivalent exact analyses of OU-noise finite differences could exist outside the material located, including under common-random-number or noise-variogram terminology. No historical priority claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers independent case but not the new covariance family",
+          "evidence": "Thm. 1 yields the even-budget independent central-difference minimax result; Thm. 4 does not introduce OU error covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.04443",
+          "material_read": "§2.1 Thm. 1, PDF pp. 3–4; §3.1 Thm. 4, PDF pp. 10–11",
+          "method": "OA paper text, offsets 9400 and 38000",
+          "title": "Minimax Efficient Finite-Difference Stochastic Gradient Estimators Using Black-Box Function Evaluations",
+          "trigger": "Closest linear minimax theorem, possible dominating estimator result"
+        },
+        {
+          "assessment": "Different way of creating correlation",
+          "evidence": "Transforms pilot samples to construct correlated finite-difference estimators, not a pair of measurements with fixed spatial covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.05638",
+          "material_read": "§§1.1–1.2, PDF pp. 4–5",
+          "method": "OA paper text, offsets 9600–13724",
+          "title": "A Correlation-induced Finite Difference Estimator",
+          "trigger": "Correlation and finite differences"
+        },
+        {
+          "assessment": "Not equivalent; independent noise and odd query count",
+          "evidence": "Treats even independent budget as known, does not supply the correlated boundary layer.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-budget-minimax-numerical-differentiation-under-indepen--05359e237394",
+          "material_read": "RESULT.md opening theorem and scope",
+          "method": "OA Resultary mirror, offset 0",
+          "title": "Exact odd-budget minimax numerical differentiation under independent noise",
+          "trigger": "Distinct nearby Resultary minimax computation"
+        },
+        {
+          "assessment": "Not equivalent; Bayesian risk under signal priors",
+          "evidence": "Independent N(0,η) measurement noise, known centered stationary prior and posterior derivative risk give h_M=h_G² across two signal kernels, not a minimax nugget limit.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-squared-radius-duality-for-noisy-two-point-gaussian-process-di--8fa1bf0799f4",
+          "material_read": "RESULT.md Finding, Assumptions and scope, conditional-variance reduction",
+          "method": "OA Resultary mirror, offset 0–3188",
+          "title": "A squared-radius duality for noisy two-point Gaussian-process differentiation",
+          "trigger": "Distinct nearby Resultary optimum and correlated Gaussian data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful conclusion is not rediscovery of central differences. Under an experimentally meaningful nugget plus spatially correlated noise model, removing the nugget changes the optimal radius and risk exponents. The sharp joint scaling and universal profile specify when the independent-noise rule ceases to be predictive and how to choose spacing through that transition. This is a motivated boundary effect within the stated fixed two-call class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

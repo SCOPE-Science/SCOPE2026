@@ -1,15 +1,21 @@
-# Review of the sharp two-mode circle sampling theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial domain, normalized Haar integral, sampling grid, and relative moment are explicit for all complex coefficient pairs and all integers \(m\ge1\), at fixed \(1<p<2\). The critical coefficient inequality is independently reconstructible from the Chebyshev Rodrigues formula: its positive integral representation proves fixed signs and strict monotonicity of every nonconstant Fourier coefficient in the balance parameter. Pairwise differentiation makes the constant coefficient strictly decreasing. Absolute Fourier summability, exact regular-grid aliasing and signed-harmonic alignment prove both the universal bound and its complete equality family. The beta integral and Gamma reflection formula give the infinite series; summable Gamma-ratio asymptotics give the sharp zeta coefficient. Supplementary standard-library checks passed 1,005 finite diagnostics across three exponents and 21 grid settings. Finite diagnostics are not the proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The principal motivating result, Dai–Kosov arXiv:2611.05930v1 (4 November 2026), concerns independent random sampling of general subspaces and gives order bounds, without the deterministic two-mode exact constants, Gamma series, or zero-on-grid equality geometry in its main theorem and application statements. The Marcinkiewicz-type discretization literature provides general comparison inequalities, and classical trapezoid analysis provides the Fourier aliasing ingredient, but neither inspected accessible claim states the quantified optimization over every complex pair and every regular polygon. Semantic research-record searches for both the statement and its equivalent Fourier and quadrature formulations returned related but noncovering finite-Fourier moment, circle-sampling, and randomized-quadrature results. Sources accessible only as abstracts or snippets were not treated as full-text negative checks. Publication priority remains subject to specialist comparison against older exact extremal quadrature literature.
+PASS
 
-## Mathematical value — PASS
-For a canonical finite-dimensional complex \(L^p\) subspace, the theorem identifies the exact discretization error at every sample count, all complex equality cases, and a sharp rate with explicit zeta/Gamma coefficient. The key issue is not a mere evaluation for one polynomial: the strict Chebyshev coefficient comparison proves that a balanced polynomial with a sampled zero is globally worst among all complex coefficient ratios and phases. This gives a natural, complete, reproducible model for norm discretization distinct from existing dimension-dependent random-sampling guarantees. The result makes no claim of a general-dimensional theorem or optimal design among arbitrary grids.
+RESULT.md 23–69: the squared-modulus normalization gives r in [0,1], with r=1 exactly for equal nonzero moduli. Chebyshev integration by parts gives sign (-1)^(k-1), a strictly increasing absolute coefficient for k>=1 (the derivative factor k+sru is positive), and pairing u,-u gives a strictly decreasing positive mean. The endpoint Rodrigues integrand is proportional to (1-u)^(k-1/2)(1+u)^(s-1/2), integrable. Its beta integral and Gamma duplication give c_k(1)=2^(-s) Gamma(2s+1)/(Gamma(1+s-k) Gamma(1+s+k)); reflection and the Gamma-ratio bound give the stated absolutely summable coefficients and summable domination of the asymptotic series. The regular-polygon Fourier filter therefore applies for every m. Equality requires r=1, all alias cosines at maximal modulus, and no sign cancellation. Making the first alias positive makes the second negative; making the first negative at maximal modulus puts a zero on the grid and makes all aliases negative. At m=1 this gives exactly Q=0 and E=1. CHECKER.py was inspected as finite floating-point corroboration, not needed for the conclusion.
 
-## Closest literature and limitations
-Dai and Kosov (2026) establish probabilistic uniform \(L^p\) discretization; the new theorem fixes a regular grid and resolves a two-dimensional exact extremal problem. Trefethen and Weideman (2014) describe classical Fourier/trapezoidal behavior, and Bass and Gröchenig (2004/05) consider random trigonometric sampling, not the stated global \(L^p\)-moment error formula. Classical exact quadrature and fractional-cosine Fourier coefficient literature can contain an equivalent statement; that is a residual originality risk. The proof is limited to \(1<p<2\) and equal-weight regular polygons; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of checked evidence: the distinct contribution is the sharp normalized error across all complex binomials and the full extremizer classification, not the aliasing identity or the endpoint Fourier coefficient. The identical index entry is this record. Related records address different exponents or randomized grids; no covering theorem was identified in the available materials.
+
+## value
+
+PASS
+
+The canonical complex two-mode space and equal circular grid are natural first instances of deterministic L^p discretization. The exact moment constant determines the sharp finite-m error budget (not only an order of decay); the classification identifies a concrete obstruction, an on-grid zero, and the side of the error. This is useful even without an extension to higher dimensions or arbitrary designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

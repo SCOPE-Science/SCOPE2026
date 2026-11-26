@@ -59,15 +59,29 @@ The coefficient ratio \([z^n]F(z,t/\sqrt n)/[z^n]F(z,0)\) is the characteristic 
 \frac{\rho}{\sqrt n}\left(S_n-\frac n\rho\right)\xrightarrow{d}N(0,1).
 \]
 
-**3. Moment control and the sharp variance.** The reward \(B\) has finite moments of every fixed order, but **does not have a positive exponential moment**. We therefore use only fixed formal derivatives rather than asserting a complex moment-generating function near zero. Let
+**3. Moment control and the sharp variance.** The reward \(B\) has finite moments of every fixed order, but **does not have a positive exponential moment**. For the required moment estimates it suffices to mark a fixed number of reward factors. Let
 \[
-A_j(z)=\sum_{k\ge1}p_k(2^k-1)^jz^k,\qquad W(z)=\frac1{1-A_0(z)}.
+A_j(z)=\sum_{k\ge1}p_k(2^k-1)^jz^k,\qquad W(z)=\frac1{1-A_0(z)},\qquad C_j(z)=\sum_{k\ge1}p_k(2^k-1-k/\rho)^j z^k.
 \]
-Each \(A_j\) is entire for fixed integer \(j\ge0\). Formally marking blocks by \(\exp(uB)\), differentiation to each fixed order yields meromorphic functions with their unique nearest singularity at \(z=1\). The standard simple-pole coefficient expansion, applied coefficientwise to this *finite-order formal perturbation*, yields for every fixed \(j\) the cumulant bound \(\kappa_j(S_n)=O(n)\); specifically \(\mathbb ES_n=n/\rho+O(1)\), \(\operatorname{Var}(S_n)=n/\rho^2+O(1)\), and \(\mathbb E(S_n-\mathbb ES_n)^4=O(n^2)\). To see the leading variance coefficient directly, the formal pole location has logarithmic second derivative \(\mathbb EY^2/\mathbb EK=1/\rho^2\), exactly as in Step 2. The fixed-order argument is legitimate because only the finitely many entire functions \(A_0,\ldots,A_j\) enter each derivative.
+These functions \(A_j,C_j\) are entire for each fixed \(j\). Put \(\mu=\mathbb EK=2\rho\). Near \(z=1\), \(W(z)=\mu^{-1}(1-z)^{-1}+O(1)\); it has no other pole in the closed disk of radius \(R\) from Step 2. In particular, \([z^n]W=1/\mu+O(R^{-n})\).
+
+Write \(\Delta_n=S_n-n/\rho\), which equals the sum of the centered block rewards on the exact-hit event. Expanding the powers of that sum by the multiplicities of the marked blocks gives the renewal-weighted generating functions for its first, second and fourth moments:
+\[
+\begin{aligned}
+&C_1W^2,\\
+&C_2W^2+2C_1^2W^3,\\
+&C_4W^2+(8C_1C_3+6C_2^2)W^3+36C_1^2C_2W^4+24C_1^4W^5.
+\end{aligned}
+\]
+For each term, copies of \(W\) count arbitrary sequences before, between and after the marked blocks; the numerical factors allocate the labeled factors of the moment power to ordered marked blocks. To obtain a conditional moment at size \(n\), divide the coefficient at \(z^n\) by \([z^n]W\). Since \(C_1(1)=0\), the first function has at most a simple pole, the second has double-pole coefficient \(C_2(1)/\mu^2\) in front of \((1-z)^{-2}\), and the fourth has at most a triple pole. Subtracting their principal parts at \(1\) leaves analytic functions on a neighborhood of the closed disk of radius \(R\). Coefficient extraction therefore gives
+\[
+\mathbb E\Delta_n=O(1),\qquad \mathbb E\Delta_n^2=n\,\frac{C_2(1)}{\mu}+O(1)=\frac{n}{\rho^2}+O(1),\qquad \mathbb E\Delta_n^4=O(n^2).
+\]
+In particular \(\operatorname{Var}(S_n)=n/\rho^2+O(1)\). No analytic moment-generating function in a neighborhood of zero is used.
 
 The statistic \(Q_n=\sum_i B_i^2\) has first and second moments \(O(n)\) and \(O(n^2)\): its renewal-weighted generating functions are respectively \(A_2W^2\) and \(A_4W^2+2A_2^2W^3\); dividing the coefficient at size \(n\) by \([z^n]W\) gives these orders by pole orders two and three.
 
-Write \(\Delta_n=S_n-n/\rho\). The deterministic identity in the assumptions becomes
+The deterministic identity in the assumptions becomes
 \[
 T_n=\frac{n^2}{2\rho^2}+\frac n\rho\Delta_n+R_n,
 \qquad R_n=1+2S_n+\frac12\Delta_n^2-\frac12Q_n.
@@ -86,15 +100,16 @@ The accompanying `verify.py` is a standalone Python 3 standard-library program. 
 
 ## Relationship to prior work
 
-The finite-poset ideal/filter type parametrization is classical and appears in Dolinka and Mašulović (2010), Lemma 4.3. Elder et al. (2023), Theorem 3.3, give the closely related interval-closed-set count for ordinal sums of antichains. The indexed result **Quadratic average one-point type growth over random finite weak orders** (2026) establishes the exact finite-base formula, random weak-order expectation generating functions, and \(\mathbb E T_n=n^2/(2(\log2)^2)+O(n)\); its limitations expressly withhold any variance, concentration, or distributional assertion. All those inputs are credited. The present claim gives the previously unaddressed sharp \(n^3\) variance and a central limit theorem for that particular model-theoretic statistic. The general renewal-reward limit theory in Patch–Nazarathy–Taimre (2014) is also relevant; its nonlattice/spread-out formulation is not directly an exact-sum conditioned lattice theorem and does not state the transformed weak-order result or its constant.
+The finite-poset ideal/filter type parametrization is classical and appears in Dolinka and Mašulović (2010), Lemma 4.3. Elder et al. (2023), Theorem 3.3, give the closely related interval-closed-set count for ordinal sums of antichains. The indexed result **Quadratic average one-point type growth over random finite weak orders** (2026) establishes the exact finite-base formula, random weak-order expectation generating functions, and \(\mathbb E T_n=n^2/(2(\log2)^2)+O(n)\); its limitations expressly withhold any variance, concentration, or distributional assertion. All those inputs are credited. The claim here is the sharp \(n^3\) variance and a central limit theorem for that particular model-theoretic statistic. The general renewal-reward results of Patch–Nazarathy–Taimre concern ordinary time-indexed rewards. Zamparo's constrained pinning law includes exact-hit conditioning at zero potential, and his large-deviation results study that setting rather than the fluctuation scale considered here. The novelty claim is not the renewal framework itself.
 
 ## Limitations
 
-The theorem is about uniformly chosen **labelled** finite weak orders and individually named parameter types. It does not give a local limit theorem, large deviations, a rate of Gaussian convergence, or the analogous law for unrestricted uniformly random posets. Positive exponential moments of the block reward do not exist, so a naive analytic moment-generating-function argument would be unjustified; the proof deliberately uses a real-characteristic-function perturbation and finite-order formal moment derivatives. The originality assessment does not rule out an unlocated published specialization of a more general conditional renewal theorem. Independent mathematical audit has not yet been performed.
+The theorem is about uniformly chosen **labelled** finite weak orders and individually named parameter types. It does not give a local limit theorem, large deviations, a rate of Gaussian convergence, or the analogous law for unrestricted uniformly random posets. Positive exponential moments of the block reward do not exist, so the proof uses a real-characteristic-function perturbation and a fixed number of marked reward factors. The comparison with prior work does not rule out an unlocated published specialization of a more general conditional renewal theorem.
 
 ## References
 
 1. I. Dolinka and D. Mašulović, *A universality result for endomorphism monoids of some ultrahomogeneous structures*, arXiv:1009.2892, first posted 2010-09-15, Lemma 4.3, https://arxiv.org/abs/1009.2892.
 2. J. Elder, N. Lafrenière, E. McNicholas, J. Striker, and A. Welch, *Toggling, rowmotion, and homomesy on interval-closed sets*, arXiv:2307.08520, first posted 2023-07-17, Theorem 3.3, https://arxiv.org/abs/2307.08520.
-3. *Quadratic average one-point type growth over random finite weak orders*, publicly indexed research finding (2026), identifier `2026/10/18/SCOPE-quadratic-average-one-point-type-growth-over-random-finite-weak--a2d26ced4e39`, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-quadratic-average-one-point-type-growth-over-random-finite-weak--a2d26ced4e39.
+3. *Quadratic average one-point type growth over random finite weak orders*, publicly indexed research finding (2026), identifier `2026/10/18/SCOPE-quadratic-average-one-point-type-growth-over-random-finite-weak--a2d26ced4e39`, https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-quadratic-average-one-point-type-growth-over-random-finite-weak--a2d26ced4e39/RESULT.md .
 4. B. Patch, Y. Nazarathy and T. Taimre, *A correction term for the covariance of renewal-reward processes with multivariate rewards*, arXiv:1408.1530, 2014, https://arxiv.org/abs/1408.1530.
+5. M. Zamparo, *Large deviations in discrete-time renewal theory*, arXiv:1903.03527, https://arxiv.org/abs/1903.03527.

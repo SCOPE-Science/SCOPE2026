@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:51:07.587289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof, Verification; VERIFICATION.md; verify_cut5.py (inspected, not executed); expected_output.txt",
+        "Independent replay: python3 /workspace/independent-checks/cut_five.py 4 5 6 and python3 /workspace/independent-checks/cut_five.py 7 8; /workspace/independent-checks/results.txt"
+      ],
+      "rationale": "The facets in the actual claim are complements of disconnected induced five-sets in the cycle-plus-antipodal-rungs graph, not complements of independent sets. All facets have dimension 2n−6. I independently generated them by a set-frontier search on each five-set and propagated faces down by cardinality. I reconstructed the vertex-stage matching by simultaneous disjoint toggles at each vertex and rechecked the entire reversed-matching Hasse orientation with a sink-elimination sort, obtaining complete visitation in all five cases. Facet counts are 8,152,672,1862,4208; nonempty face counts are 32,522,3175,14765,62850. The orientation counts are 56,1990,16944,98056,491376. The unmatched faces consist of one vertex in each case and respectively 1,41,216,582,1213 cells in degree 1,4,6,8,10. Each pair is a codimension-one incidence; the vertex-stage toggles are disjoint within a stage and matched faces are deleted from eligibility thereafter. Thus the finite acyclic matching theorem gives a homotopy-equivalent CW complex with exactly the unmatched cells. There is no other positive-dimensional skeleton below the stated degree, so the attachments give a wedge of spheres, including the circle case for n=4. The recorded mod-two computation is corroborative, not the basis for the homotopy conclusion.",
+      "residual_risks": [
+        "Exhausts only n=4 through 8. The collapse in homotopy dimension for M8 does not contradict its pure dimension two. Neither a stability result nor a general Morse matching claim for larger graphs is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "...916dd378cfd3 gives β_{n,5}=binom(2n−1,4)−19n+54 for the rectangular ladder P_n×K2 as part of a general n,k result. The shellability theorem of Chandrakar et al. is for the two-row grid. Bayer et al.'s foundational family table covers cycles, squared cycles and various other graphs; Agarwal–Basak pose work on cut and total-cut complexes in their Möbius/circular ladder setting."
+        ],
+        "reasoning": "The rectangle can be closed with two twist edges to form the Möbius ladder, but adding edges can remove disconnected five-sets. It gives a subcomplex, not an equivalence or any rank transfer. Neither wider n,k quantification on rectangles nor a problem formulation covers the twisted graph claim.",
+        "searches": [
+          "Resultary: all-n,k ordinary ladder cut-complex homotopy and five-cut sphere-rank formula",
+          "Bayer et al. arXiv:2304.13675v2 Table 1; Chandrakar et al. arXiv:2408.07646 Thm. 5.6; Agarwal–Basak arXiv:2608.30601v2 Problem 26"
+        ]
+      },
+      "checked_sources": [
+        "Four nearby Resultary records above via mirror; exact claim search; Bayer et al. arXiv:2304.13675 and 2407.08158; arXiv:2408.07646 Thm. 5.6; Agarwal–Basak Problem 26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected capsule of primary ladder work determines independence and perfect-matching complexes, not cut-complex homotopy. The neighboring cut results do not claim any compatibility under changing k or twisting open ladders."
+        ],
+        "reasoning": "Changing to Δ5 or changing the ambient graph is not a numerical specialization of any inspected theorem. In particular, neither the exceptional circle nor the exact larger integral wedge types mechanically follow from the prior tables, the lower-cut formulas, or the future-work question.",
+        "searches": [
+          "Compare same-graph Δ3/Δ4/total Δ4 findings with the primary grid table and broader rectangular-ladder formula",
+          "Agarwal–Basak arXiv:2608.30601v2 Problem 26, cut complexes of ladders as further work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "...44c11dd77c6b and ...74e8b58d248f classify ordinary cuts of parameter four and three on Möbius ladders. ...1b8923a23d15 is total four-cut, whose removed sets are independent rather than disconnected."
+        ],
+        "reasoning": "The graph match is real but the removed-set size changes facet dimension and the simplicial complex. The independence predicate is not equivalent to disconnectedness. These are not aliases for the assigned object.",
+        "searches": [
+          "Resultary and primary search for ordinary Δ5(M_{2n}), Möbius ladder cut complex and Wagner graph cases",
+          "Compare ordinary/total definitions in arXiv:2304.13675v2 p. 1 and mirror ...1b8923a23d15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the assigned record ...da86d5e097da itself. Table 3 reports 13,85,270,636 for k=5 and n=4,5,6,7, but for open grid graphs."
+        ],
+        "reasoning": "The self-hit verifies identity only. The primary table matches parameter and vertex counts, not adjacency, and its tabulated Betti numbers do not certify any Möbius-ladder homotopy equivalence.",
+        "searches": [
+          "Resultary: exact finite ordinary-five-cut Möbius ladder integral homotopy claim",
+          "Bayer et al. arXiv:2407.08158v1 Table 3, ordinary k-cut Betti numbers of G(2,n)"
+        ]
+      },
+      "rationale": "The distinct claim is the five specified ordinary five-cut integral homotopy types. Direct same-graph comparisons use other cut parameters, or the total convention; broader statements with the same cut parameter concern open two-row ladders, without the two twist-closing edges. The strongest primary sources inspected establish the framework or pose the direction, but do not give these homotopy types by specialization.",
+      "residual_risks": [
+        "A related open-problem landing page was surfaced, but successful OA access to it was unavailable and it was not used as evidence. Equivalent results elsewhere or outside the inspected family statements remain possible; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different cut parameter",
+          "evidence": "Ordinary Δ4 for every n≥5, not Δ5.",
+          "identifier_or_url": "2026/10/18/SCOPE-ordinary-four-cut-complexes-of-m-bius-ladders-form-uniform-spher--44c11dd77c6b",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Ordinary four-cut complexes of Möbius ladders form uniform sphere wedges",
+          "trigger": "Strong broad same-graph theorem"
+        },
+        {
+          "assessment": "Different cut parameter",
+          "evidence": "Ordinary Δ3 for every n≥4.",
+          "identifier_or_url": "2026/10/18/SCOPE-ordinary-three-cut-complexes-of-m-bius-ladders-are-sphere-wedges--74e8b58d248f",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Ordinary three-cut complexes of Möbius ladders are sphere wedges",
+          "trigger": "Same graph family and ordinary functor"
+        },
+        {
+          "assessment": "Different parameter and predicate",
+          "evidence": "Total four-cut for n=6 through 9, using independent four-sets.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-exact-total-four-cut-homotopy-types-of-m-bius-ladders--1b8923a23d15",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Four exact total-four-cut homotopy types of Möbius ladders",
+          "trigger": "Same family, similar finite homotopy classification"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Rectangular two-row ladders P_n×K2 with an explicit five-cut rank formula.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-rational-generating-function-for-the-sphere-ranks-of-ladder-cu--916dd378cfd3",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A rational generating function for the sphere ranks of ladder cut complexes",
+          "trigger": "Potential dominating all-n,k formula"
+        },
+        {
+          "assessment": "Ordinary definition agrees; inspected family scope does not include target",
+          "evidence": "The table includes cycles, squared cycles, trees, multipartite graphs, and prisms over cliques.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675v2",
+          "material_read": "Definition p. 1 and family summary Table 1 p. 2, OA offset 7942",
+          "method": "Primary literature and OA passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational general graph-cut results and definitions"
+        },
+        {
+          "assessment": "Table for open grids, not target graph",
+          "evidence": "G(2,n) k=5 row gives 13,85,270,636 for n=4,5,6,7.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158v1",
+          "material_read": "p. 22 Table 3, OA offset 95200",
+          "method": "OA passage read",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Exact k=5 numerical table for ladder graphs"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Shellability of ordinary Δ_k for G_{2×n}, 3≤k≤2n−3.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.07646",
+          "material_read": "Theorem 5.6, p. 22, OA offset 81000",
+          "method": "OA passage read",
+          "title": "Two-row grid cut-complex results (Chandrakar et al.)",
+          "trigger": "Broader shellability theorem including k=5"
+        },
+        {
+          "assessment": "Motivates cut-complex topology, no such classification in inspected statements",
+          "evidence": "The paper studies independence and perfect matchings; Problem 26 proposes studying cut and total-cut homotopy and homology.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601v2",
+          "material_read": "Abstract and Problem 26, p. 17, OA offset 63200",
+          "method": "Primary literature and OA passages",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graph; possible cut-complex classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and limitations; Agarwal–Basak Problem 26; neighboring ordinary three- and four-cut results; independent matching results"
+      ],
+      "rationale": "The object is a canonical twisted ladder family and the cut-complex topology is explicitly motivated in the primary ladder literature. After the known ordinary three- and four-cut classifications, the next cut parameter changes the picture at the start of the stated range: the pure Wagner-graph complex is a circle, whereas the next four sizes are top-dimensional integral sphere wedges with specific ranks. The boundary example rules out unqualified top-dimensional-wedge behavior and the consecutive exact ranks give concrete tests for a structural five-cut theorem. The value is this finite boundary pattern and its integral homotopy verification, not an extrapolation or a special mathematical role for the upper computational cutoff eight.",
+      "residual_risks": [
+        "No general classification, periodic behavior or prediction of the next rank follows merely from these five exact cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Review of the Stern quadratic-character block theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact 24-state transfer matrix is derived directly from both binary child recurrences. The integer certificate verifies 24 consecutive scalar annihilator values, and Cayley–Hamilton upgrades these to all nonnegative levels. The parity statement, nonvanishing modulo four, complex-root formula and irrational-angle sharpness follow algebraically. Initial values and 14 direct integer Stern row sums were cross-checked by a separate recurrence implementation. Risk: finite checks must be interpreted together with, not instead of, the matrix argument; the embedded checker supplies the required reproducible steps.
+## correctness
 
-**Originality — PASS on inspected evidence.** Reznick, *Regularity properties of the Stern enumeration of the rationals* (2006), §§4–5, already establishes the general finite-state framework and modular pair equidistribution, as well as specific modulus-two/three results and a modulus-five zero count. That work does not evaluate this quadratic-character dyadic-row sum. Its explicit difference of residues one and four is not the quadratic-character difference of residue sets \(\{1,4\}\) and \(\{2,3\}\). Bettin–Drappeau–Spiegelhofer (2017) address a real logarithmic distribution; Lansing (2013) addresses magnitude counts. Searches for the exact character functional, equivalent signed residue histograms and related generating functions did not identify prior full evaluation. Priority risks: general transfer-matrix results imply *computability* and an unevaluated earlier appendix, class note or database table might implicitly contain the special functional; no external independent priority audit has been performed.
+PASS
 
-**Value — PASS.** Finite-level perfect cancellation for one entire parity of dyadic depths, arithmetically forced nonvanishing for the other parity, and a sharp square-root oscillation constant together distinguish a meaningful local number-theoretic phenomenon invisible to a limiting uniformity statement. The specific character is natural—quadratic-residue versus nonresidue values of the Stern sequence modulo the smallest odd prime of this type—and the exact depth parity effect provides structural motivation beyond routine enumeration. Limits: no claims for all moduli, all residue classes, or arbitrary prefixes.
+The complete half-open rows propagate under (a,b)↦(a,a+b),(a+b,b) modulo 5 from (1,1). An exact independent replay produced all 24 zero Cayley–Hamilton defects D_j=B_{j+4}−B_{j+2}+4B_j, j=0,…,23, and the four initial values 1,0,−2,0 (replay: /workspace/branches/205f41a5-0617-4437-8dc1-b6ef0ab5b8b9/replay_24state.py; frozen code not executed). Independently, symmetrize the observable to h=(χ_5(a)+χ_5(b))/2, which gives identical evaluation at the swap-invariant root after any number of steps. Symmetric functions with f(ta,tb)=χ_5(t)f(a,b) are determined by g_0,g_1,g_2,g_4 at (1,0),(1,1),(1,2),(1,4): the missing slope values obey g_∞=g_0 and g_3=−g_2. The backward transfer sends this vector to (g_0+g_1,2g_2,−g_2−g_4,2g_0), of characteristic polynomial X^4−X²+4, and h has coordinates (1/2,1,0,1). Evaluation at the root is g_1. This proves the scalar recurrence and initial values directly and gives the stated rational generating function. Parity follows from its even powers; starting with B_2=−2, reduction of the even recurrence modulo four gives B_{2j}≡2 for every j≥1. The characteristic roots and initial values give c and α as stated. If α/2 were a root of unity, 2Re(α/2)=1/2 would be a rational algebraic integer. Hence the angle is an irrational rotation, so the even normalized values are dense in the interval with endpoints ±2|c|=±sqrt(8/3). The odd values are zero, and the endpoints are limsup and liminf, not asserted to be attained at finite depth.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact character projection on complete dyadic rows, its perfect parity law, and its oscillation constant are distinct from all checked statements. The transfer mechanism, square-root spectral scale and quartic factor are not credited as novel. The full consecutive-pair spectrum on the same modulus is substantive overlapping evidence, but does not identify the active scalar component, its initial values or amplitude.
+
+## value
+
+PASS
+
+The quadratic character directly measures a natural residue bias. Exact equality at every odd depth and nonzero even discrepancies with both sharp signed accumulation endpoints cannot be inferred from equidistribution or from a bound on the growth rate of individual-pair discrepancies. The result separates a parity cancellation law from an active square-root oscillation and supplies the precise finite-row statistic, not merely a recomputation of an eigenvalue modulus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

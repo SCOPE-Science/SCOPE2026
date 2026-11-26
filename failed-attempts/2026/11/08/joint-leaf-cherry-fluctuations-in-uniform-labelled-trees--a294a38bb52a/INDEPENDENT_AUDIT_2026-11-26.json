@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:44:02.466253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Prüfer word proves the two leaf moments. Deleting two prescribed leaves of a cherry leaves a uniform shorter tree conditioned on its center being a leaf, so its other leaves are exactly the absent symbols in an (n−4)-draw sample from n−3 eligible labels. This gives A_n and the mixed moment. Distinct centers and leaf pairs give six disjoint labels for n≥5. For n≥7 the two centers cannot attach to each other, so there are (n−6)^(n−6) extensions via a tree on the remaining labels and two choices of attachment vertex; the ordered unequal-pair contribution is B_n. For n=6 the centers attach directly and reproduce the 0^0 convention. The diagonal is A_n, not 2A_n. The stated finite-size lower bound follows from q_n≥e^(−1), a_n≤e^(−1+3/(2n)+1/n²), and n x_n/(1−x_n)≤30/13 for n≥6; at n=5 the bracket is 11/25. Expanding logs to the first order yields the displayed A_n and B_n corrections, covariance bracket 2−4/e, and the three scaled variance/covariance limits. The determinant and correlation simplify as claimed. For the martingale CLT, reattaching i from j to k changes degrees only at j,k. A changed cherry center is among i,j,k or adjacent to an endpoint crossing leaf status; each such endpoint has at most two neighbors across the before/after trees. This gives a size-independent Lipschitz bound. The affected centers are within distance 1 of {j,k} in the original tree; the adjacent degrees needed to evaluate their change lie within distance 2, with the new edge between two already touched vertices. Two endpoint sets at distance at least 5 therefore give additive changes, as required by the published definition. For any nonzero linear combination the variance is asymptotically a positive constant times n, giving the two criterion terms O(n^(−1/2)) and O(n^(−1/4)); Cramér–Wold applies. Independent replay via python /workspace/reproductions/frozen_checks.py (second check) censuses connected edge subsets at n=5,6,7 and matches all five exact moments without Prüfer decoding. The original checker and recorded verification were inspected, not executed; neither finite enumeration proves the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1b72c9e47cf4 establishes the all-k pendant-star covariance and sign and the normalized limit, together with a stronger marked conditional law. Janson proves joint asymptotic normality of fixed fringe-tree counts with explicit mixed covariances. Isaev et al. provide the general local perturbation criterion and a fixed-pattern CLT. The two other indexed tree records concern fans without a degree-three restriction and all leaf siblings, respectively."
+        ],
+        "reasoning": "The pendant-star theorem directly covers the exact mixed statements in the claimed range. Janson is stronger than a solitary univariate criterion: his formula directly returns the entire proposed joint matrix. Unrestricted-center fans or sibling totals are only related observables and are not used as evidence of this exact implication.",
+        "searches": [
+          "Resultary 1b72c9e47cf4, 138d3fe5058a, 6c93f3f984c0",
+          "arXiv:1312.1211 Corollary 1.8 and Eqs. (1.19)–(1.24)",
+          "arXiv:1912.09838 Theorems 1.1 and 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, REVIEW.md and AUDIT.json",
+        "Resultary 1b72c9e47cf4, 138d3fe5058a, 6c93f3f984c0",
+        "arXiv:1312.1211, 1912.09838, 1911.02952, 2201.07326"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root a uniform Cayley tree at a fixed label and order children uniformly. A given plane rooted shape is then weighted proportionally to the product of reciprocal offspring factorials (each shape has (n−1)! label assignments), the Poisson(1) Galton–Watson distribution conditioned on n. Use the singleton A and the two-leaf fringe tree B in Janson (1.19)–(1.20). Their probabilities are p_A=e^(−1), p_B=e^(−3)/2, offspring variance 1, and B has two A-fringes while A has no B-fringe. The published expressions give p_A−2p_A², p_B−6p_B², and 2p_B−4p_Ap_B. These exactly equal the frozen matrix and imply its correlation. Bounded root corrections and bounded changes in exact centering preserve the joint convergence."
+        ],
+        "reasoning": "This is explicit prior implication, not merely re-use of a general normality test with unknown variance. The finite mixed formula and sign likewise follow by k=2, and the genuine diagonal correction changes no constituent enumeration. None of these comparisons depends on an inaccessible or unread source.",
+        "searches": [
+          "arXiv:1312.1211 Corollary 1.8, pp. 5–6",
+          "Resultary 1b72c9e47cf4 Finding and Proof",
+          "arXiv:1911.02952 Eq. (3.3), with Lemma 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier pendant-star theorem's S_(n,2) is exactly C_n, since a degree-three vertex cannot have three leaf neighbors at n≥5. The relevant rooted fringe shape is the three-vertex tree with two terminal children, and the rooted leaf count is the singleton fringe shape."
+        ],
+        "reasoning": "In a fixed-root Cayley tree the undirected leaf count differs from the rooted leaf count only at the root. The unrooted cherry count equals the two-terminal-child fringe count except for at most the unique cherry whose triple contains the root. These are deterministic O(1) differences, also for the expectations, and are negligible at the asserted scale. The exact indexed same-title result is the frozen item, not independent prior evidence.",
+        "searches": [
+          "Resultary: pendant-star covariance in uniform labelled trees (1b72c9e47cf4)",
+          "degree-three cherry and leaf-count covariance",
+          "arXiv:1312.1211 Corollary 1.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In 1b72c9e47cf4 the exact covariance bracket at k=2 is 2+(n−3)q_n−na_n, with mean A_n, and its sign is positive for n≥5. Junk–Schmidt–Weber's printed subdivision has the correct unequal-pair term B_n but multiplies the diagonal by 2, despite counting each leaf pair once. At n=7 its E C² would exceed 2 E C although C≤2. Ekhad–Zeilberger give degree-count statements, not this neighbor-sensitive statistic."
+        ],
+        "reasoning": "The prior finite mixed formula and sign are exact rather than table coincidences. The printed second moment is not credited as equal to the corrected one; both quantities needed to correct it, the mean and the unequal-pair contribution, were already evaluated.",
+        "searches": [
+          "Resultary 1b72c9e47cf4 Finding",
+          "arXiv:1911.02952 Definition 3.1 and Lemmas 3.5–3.9, especially (3.3)–(3.4)",
+          "arXiv:2201.07326 p. 4"
+        ]
+      },
+      "rationale": "There is verified broader exact coverage of the advertised mixed moment, covariance, strict sign and limiting off-diagonal entry. Moreover, the full stated joint Gaussian limit and every matrix entry are direct specializations of an explicit joint fringe-subtree theorem, up to bounded root effects. The corrected raw cherry second moment fixes a real printed error, but is the identity E C²=E[C(C−1)]+E C applied to two already evaluated counts. No distinct surviving central claim remains.",
+      "residual_risks": [
+        "Other exact finite moment treatments may exist. The negative originality decision is already established by the explicit theorem specializations, not by assuming uninspected sources have any particular content. The issue identified in the older cherry second moment is limited to the inspected version and displayed diagonal term."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger finite mixed-moment and sign coverage, and exact normalized covariance limit; no stated joint CLT",
+          "evidence": "Finding explicitly calls k=2 the degree-three cherry case and gives E S_(n,k)[k+h_(n−k−1)−f_n], positive for k≥2, and the precise limiting coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-two-leaf-threshold-for-pendant-star-covariance-in-uniform-labe--1b72c9e47cf4/RESULT.md",
+          "material_read": "Finding and first proof passage, offsets 0–3426; proof §§2 and 4; relationship and limitations passages",
+          "method": "Resultary search and original local-mirror passages",
+          "title": "A two-leaf threshold for pendant-star covariance in uniform labelled trees",
+          "trigger": "Same statistic as the k=2 instance of a broader exact law"
+        },
+        {
+          "assessment": "Directly implies the leaf–cherry limit and every covariance entry after rooting",
+          "evidence": "The distinct-tree covariance adds the two containment-frequency terms and subtracts (|A|+|B|−1+σ^(−2))p_Ap_B; the same-tree case subtracts (2|A|−1+σ^(−2))p_A². It states joint normality.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.1211",
+          "material_read": "Corollary 1.8 and Eqs. (1.19)–(1.24), PDF pp. 5–6, offsets 14500–16302",
+          "method": "OA primary PDF literal lookup and bounded passage",
+          "title": "Asymptotic normality of fringe subtrees and additive functionals in conditioned Galton–Watson trees",
+          "trigger": "Check explicit stronger joint theorem with evaluated cross covariance"
+        },
+        {
+          "assessment": "The frozen argument meets the general criterion; stronger explicit joint covariance coverage is supplied separately by Janson",
+          "evidence": "Superposability uses distance between sets {j,k} and {b,c} of degree-changing endpoints. The two required ratios involve n, the Lipschitz and distance bounds, and the variance.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.09838",
+          "material_read": "Perturbation definitions and Theorem 1.1, PDF pp. 2–4, offsets 4350–8341 and 8759–9575; fixed-pattern Theorem 2.8 on p. 11",
+          "method": "OA primary PDF and bounded passages",
+          "title": "Distribution of tree parameters by martingale approach",
+          "trigger": "Verify the actual cited analytic step and its broader coverage"
+        },
+        {
+          "assessment": "Same convention and correct one- and two-distinct-cherry counts; the displayed raw second moment has a doubled diagonal",
+          "evidence": "The unequal-pair summation has (n)_6/4 terms, with the same extension count. Equation (3.4) explicitly puts 2 before E ε², even though ε is a once-counted unordered-pair indicator.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.02952",
+          "material_read": "Section 3 Definition 3.1 and Lemmas 3.5–3.9; equations (3.3)–(3.4), PDF offsets 23800–26979",
+          "method": "OA PDF and comparison with bounded exact census",
+          "title": "Almost all trees have quantum symmetry",
+          "trigger": "Exact strict cherry convention and potential second moment coverage"
+        },
+        {
+          "assessment": "Degree counts are related but not this degree-three-with-two-leaves statistic",
+          "evidence": "The inspected discussion concerns joint normality of degree counts, not occurrences with specified degrees of neighboring vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.07326",
+          "material_read": "PDF p. 4, around OA offset 8400",
+          "method": "OA primary passage",
+          "title": "Automated Counting and Statistical Analysis of Labeled Trees with Degree Restrictions",
+          "trigger": "Check joint tree-statistic alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural joint statistic and correction of the printed diagonal are useful exposition. But the submitted contribution adds no independent mixed-moment or fluctuation theorem beyond the stronger exact pendant-star and fringe-tree results. The sole finite correction follows immediately from the earlier distinct-pair count plus the earlier mean; it does not establish a separate mathematical invariant or previously unresolved regime. A standalone note flagging the misprint would be distinct from claiming the frozen joint result as a new finding; no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:20:02.283937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28 and 30–65; original script and saved outputs inspected, not executed",
+        "Independent exact endpoint check: python3 /workspace/branches/ae442be5-cceb-448d-8e70-8ce72bc89db7/triangle_endpoint_replay.py"
+      ],
+      "rationale": "The area is h and each lumped mass is h/3, so with b=h^2 the normalized stiffness is 3/(4b) times the symmetric matrix with rows (1+b,1-b,-2), (1-b,1+b,-2), (-2,-2,4). Its eigenvectors (1,1,1),(1,-1,0),(1,1,-2) give eigenvalues 0,3/2,9/(2b). For the resolvent R(u)=(I+uH)^(-1), put x=3u/(2b). Direct evaluation gives R_12=x(2bx+b-1)/(2(1+bx)(1+3x)), R_13=R_23=x/(1+3x), and R_33=(1+x)/(1+3x). All resolvent diagonals are positive, proving backward Euler's positive-step threshold. For CN use 2R(tau/2)-I. Its off-diagonal lower bound is x>0 with x>=(1-b)/(2b), and the apex diagonal forces x<=1. On that entire range the base diagonals are positive: they equal (1+2x-bx^2)/((1+bx)(1+3x)). This gives the closed interval in physical time, nonempty for b>=1/3, and the stated critical matrix. Zero time is the identity in all cases. In the exponential, only the base transfer can change sign; its numerator is 2+exp(-3z)-3exp(-bz) with z=3tau/(2b). Its derivative is negative before log(1/b)/(3-b), positive after, and the numerator goes from 0 to negative values and then to limit 2. There is exactly one positive recovery root. The angle formula converts b>=1/3 to Theta<=120 degrees. The apex is the diagonal that controls the admissible CN interval; sufficiently large steps can make the base diagonals negative too, which is compatible with the claimed entrywise-positivity classification.",
+      "residual_risks": [
+        "The endpoint calculation is not a verification over a continuum; that follows from the sign algebra. Exact scope is one lumped Neumann triangle with the stated length and diffusion normalization. The positivity criterion does not quantify accuracy or rounding sensitivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang assume Dirichlet boundary values and give sufficient theta-method DMP conditions; their lumped-mass criterion retains a nonobtuse condition. Jin et al. use homogeneous Dirichlet data and analyze all-time semidiscrete nonnegativity and backward-Euler convolution quadrature. Daners et al. give a spectral equivalence implying qualitative eventual strong positivity of the exponential for this generator: its simple dominant eigenspace and the transpose eigenspace contain the all-ones vector."
+        ],
+        "reasoning": "Qualitative eventual positivity of the semigroup is covered, but neither its unique sharp root nor the CN single-step existence and interval follow from that theorem. The Dirichlet theorems do not specialize to a triangle retaining all three vertices, and a sufficient angle condition does not decide the stated iff boundary.",
+        "searches": [
+          "Li–Huang arXiv:1209.5657, Theorems 3.1–3.2",
+          "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825, Theorems 3.1–3.3 and 4.4",
+          "Daners–Glück–Kennedy arXiv:1511.09020, §6.1 Theorem 6.1",
+          "Larsson–Thomée DOI 10.1007/978-3-319-72456-0_35 accessibility check"
+        ]
+      },
+      "checked_sources": [
+        "Jin et al. arXiv:1510.02825; Li–Huang arXiv:1209.5657; Daners et al. arXiv:1511.09020, bounded primary theorem passages",
+        "Larsson–Thomée 2018 and Chatzipantelidis–Lazarov–Thomée clt12.pdf retrieval attempts only; no claim of full-text review",
+        "Relevant local mirror results 938c37dfd595, d475df91cd2a, fed0fef23ca8, 6d19e168e18a, 3b75689e09e8, a7adca9df150"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reversible Markov-chain resolvent criterion assumes the infinitesimal operator has nonnegative off-diagonal entries. The obtuse-angle clipping theory treats clipping/reinterpolation energy, not the sign of a discrete heat propagator. The present CN matrix needs both an off-diagonal resolvent threshold and an apex diagonal threshold."
+        ],
+        "reasoning": "The Cayley-transform identity is standard, but a diagonal test relying on off-diagonal resolvent positivity cannot be applied to the signed generator. The comparison of two distinct sign obstructions yields an angle cutoff not supplied by the inspected earlier statements.",
+        "searches": [
+          "Published Resultary mirror d475df91cd2a, offset 0–7908",
+          "Published Resultary mirror a7adca9df150, offset 0–7225",
+          "Jin et al. and Li–Huang theorem passages above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under row-sum lumping and no Dirichlet elimination this is a symmetric signed-Laplacian problem. Entrywise nonnegative row-stochastic updates are exactly one-step preservation of the nodal data range. The negative off-diagonal sign product of the heat generator on the triangle is invariant under relabeling and diagonal sign changes. The exact target was the top local hit, not an independent prior finding."
+        ],
+        "reasoning": "Any exact criterion for the corresponding signed-resolvent/Cayley family could be equivalent. A criterion only for Markov generators or only for same-angle clipping is not equivalent; one off-diagonal of the heat generator is strictly negative for b<1. The web hits did not establish an exact match; access and retrieval limits remain.",
+        "searches": [
+          "Resultary: single isosceles triangle lumped mass Neumann Crank Nicolson entrywise positivity 120 degree",
+          "Resultary: three node 3x3 heat update mass-lumped Neumann Crank-Nicolson exact timestep positivity triangle",
+          "Primary web: Crank Nicolson positivity \"single triangle\" obtuse Neumann lumped mass \"Thomée\" Larsson 120 degrees positivity timestep heat",
+          "Primary web: \"Crank–Nicolson\" \"120\" \"obtuse\" positivity finite element triangle mass lumped Neumann discrete maximum principle time step Daners Noutsos"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest reflecting three-node path gives CN positivity on [0,1] in its path time variable. Related exact semigroup, periodic CN and graded Dirichlet BE records use one-dimensional consistent mass. The three-node semigroup record uses three interior degrees of freedom and Dirichlet endpoint elimination."
+        ],
+        "reasoning": "The reflecting path's off-diagonal signs, geometry and eigenvalue ratio differ from those of the obtuse triangle, so its exact interval cannot be rescaled to the asserted curve. Other precise tables concern different stiffness and mass operators.",
+        "searches": [
+          "Resultary exact signed three-node heat-update query above",
+          "Published Resultary mirror 938c37dfd595, fed0fef23ca8, 6d19e168e18a and 3b75689e09e8"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint sharp time classification, in particular the 120-degree impossibility threshold and singleton CN interval at equality. Inspected results cover qualitative eventual positivity, sufficient DMP tests, or exact different-matrix thresholds. None inspected gives the necessary-and-sufficient CN interval of the signed three-node Neumann operator. The particularly relevant 2018 Neumann/Robin chapter remains an access limitation.",
+      "residual_risks": [
+        "The 2018 Neumann/Robin chapter is the principal historical-priority uncertainty. An older equivalent signed three-node example with an exact step criterion could also cover the finding. Access failure and lack of a matching indexed result are not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved exact coverage; not a negative comparison",
+          "evidence": [
+            "The cited work is directly about Neumann/Robin heat FEM nonnegativity, and a previously worked exact example remains possible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-72456-0_35",
+          "material_read": "No primary chapter text in this review; frozen source reports consulting abstract only",
+          "method": "OA DOI and Springer chapter/PDF attempts; no readable passage returned",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for the Heat Equation with Non-Dirichlet Boundary Conditions",
+          "trigger": "Most directly relevant boundary conditions and positivity subject"
+        },
+        {
+          "assessment": "Does not cover this operator or exact CN interval in inspected theorems",
+          "evidence": [
+            "It uses homogeneous Dirichlet data, Delaunay conditions, and backward-Euler convolution quadrature rather than the present Neumann CN map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+          "material_read": "p. 1, pp. 7–10, offsets 0–4953, 30624–38943 and 44116–49091",
+          "method": "OA PDF theorem and model passages",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Lumped-mass positivity and fully discrete lower threshold background"
+        },
+        {
+          "assessment": "Different boundary space and sufficient conditions only",
+          "evidence": [
+            "Theorem 3.2 gives a sufficient lumped-mass DMP under geometric and step hypotheses with Dirichlet data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+          "material_read": "p. 1, p. 8, pp. 10–11, offsets 0–4940, 31583–36525 and 44153–49130",
+          "method": "OA PDF model and theorem passages",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Potential general theta-method time/geometric criterion"
+        },
+        {
+          "assessment": "Qualitative eventual semigroup positivity follows, not the sharp recovery time or discrete cutoffs",
+          "evidence": [
+            "The theorem characterizes eventual strong positivity by a dominant geometrically simple spectral bound and strictly positive left/right eigenvectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.09020",
+          "material_read": "§6.1, Theorem 6.1 and proof passage at offset 67200",
+          "method": "OA PDF locate then bounded read",
+          "title": "Eventually Positive Semigroups on Banach Lattices",
+          "trigger": "Broader eventual exponential positivity for signed matrices"
+        },
+        {
+          "assessment": "Not equivalent because the path generator has nonnegative off-diagonals",
+          "evidence": [
+            "Three-vertex path has CN positivity set [0,1] in its scaled variable and path spectrum 0,1,3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–10568",
+          "method": "Local published mirror",
+          "title": "Sharp positivity thresholds for Crank–Nicolson on reflecting paths",
+          "trigger": "Exact three-node no-flux CN comparison"
+        },
+        {
+          "assessment": "Assumption of a Markov generator fails here",
+          "evidence": [
+            "The diagonal-only criterion assumes the off-diagonal probabilities of a resolvent of a finite Markov chain."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Finding, model and proof, offset 0–7908",
+          "method": "Local published mirror",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Potential broader exact resolvent criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest planar Neumann cell with an obtuse angle is a motivated test of whether moving away from small timesteps can restore order preservation. On this symmetric family the complete answer distinguishes BE and heat recovery from CN, which may fail at every nonzero step despite spectral stability. The exact angle marking the loss of feasibility and the singleton boundary matrix make the example useful for testing qualitative mesh and time-step criteria. The value is the precise obstruction and complete window, not the elementary technique of diagonalizing a three-by-three matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

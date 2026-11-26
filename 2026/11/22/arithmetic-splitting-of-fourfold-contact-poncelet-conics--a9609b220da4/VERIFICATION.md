@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`, and `verify_contact4.py` is a standalone executable finite-field cross-check requiring only standard Python 3. `verify_symbolic.py` separately checks the defining polynomial and dual-tangency identities with SymPy.
+## correctness
 
-The script constructs the finite fields \(\mathbb F_3\), \(\mathbb F_5\), \(\mathbb F_7\), \(\mathbb F_{11}\), \(\mathbb F_9\), \(\mathbb F_{25}\), and \(\mathbb F_{49}\); for every \(\lambda\ne0\) it reconstructs the \(q+1\) projective points of the first conic, tests all \(\binom{q+1}{2}\) distinct-point chords by a cross product, evaluates the dual tangency equation, and obtains the full graph components. The component signatures are exactly \((1,0)^{q+1}\) when \(-\lambda\) is nonsquare and \((1,0)(p,p)^{q/p}\) when \(-\lambda\) is square, where the ordered pair specifies vertices and edges. The split and nonsplit coefficient counts are each \((q-1)/2\) in all checked fields. Smoothness counts obtained by enumerating all projective quadratic forms are \(234\) over \(\mathbb F_3\) and \(3100\) over \(\mathbb F_5\), as predicted by \(q^2(q^3-1)\).
+PASS
 
-Reproduction command from the package directory:
+The unique geometric contact point is rational by Frobenius. Normalize the smooth conic with that point to the Veronese model; restriction of the other quadratic form is a nonzero multiple of s⁴, and the restriction kernel is exactly the defining line of quadratic forms for C. Smoothness makes the coefficient of that defining form nonzero. This gives D=XZ−Y²+λX², λ≠0, with determinant 1/4. Every projectivity preserving C and P induces an affine map w↦aw+b; the restriction to C is faithful (four points on a conic form a projective frame), and the displayed Veronese action realizes these maps. It scales the defining form by a², giving exactly two square classes and stabilizer order 2q. Independently, a finite chord has Z=(u+v)Y−uvX; on X=1 its intersection with D has discriminant (u−v)²+4λ. A chord through P has Y=wX, and restriction of D to it is X[Z+(λ−w²)X], with two distinct intersection points. Thus the graph is edgeless or exactly the coset cycles of h𝔽_p for h²=−4λ, with P isolated. This includes p=3, rationality of the unique tangency on a rational tangent line, and counting modulo the two orientations and rotations. The sign over extension is the n-th power of the original sign, since 1+q+⋯+q^(n−1) has parity n. Orbit–stabilizer gives the claimed sizes and equal census. The frozen verification file and both scripts were inspected, not executed; their finite graphs supplement the all-fields argument.
 
-```sh
-python3 verify_symbolic.py
-python3 verify_contact4.py
-```
+## originality
 
-The symbolic checker first prints `ALL SYMBOLIC IDENTITIES PASSED`. Expected final line from the finite checker after the seven field checks and two smooth-conic counts:
+PASS
 
-```text
-ALL EXACT CHECKS PASSED
-```
+The supported distinction is the classification and exact census of ordered rational projective pair-orbits and the identification of their graph/count behavior as an arithmetic orbit invariant. The ground-field normal form, geometric additive porism and incidence discriminant are prior ingredients, and the rational graph count can be extracted from the known incidence equation plus elementary finite-field descent. It is not credited as an independent new tangency equation or porism. The closest finite-field pencil table does not refine the ordered pairs by rational projective orbit. No claim of historical priority is made.
 
-The finite computations do not establish the general theorem or historical priority by themselves. The infinite-field statement follows from the algebraic normal form, direct adjugate tangency calculation, additive cosets, and orbit-stabilizer argument in the proof. No independent mathematical audit has been performed.
+## value
+
+PASS
+
+The invariant of interest is the rational projective type of the ordered pair. A fixed known geometric p-period can arise both from pairs with no rational edge and from pairs with all affine points in rational cycles. Counting the two classes of pairs and identifying that invariant with the graph and its extension behavior gives a useful arithmetic refinement of geometric porism and the finite-field pencil census. Value is not assigned merely for rederiving the geometric period or the known pencil table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — two-erasure positivity threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The mean-penalized periodic Sobolev variational equation yields an explicit periodic piecewise-affine-plus-bubble interpolant and exact weights. The two doubled cells and the four closest-to-zero hats give the leading and next-order terms of the positive-weight threshold. The other hats have an asymptotically larger ratio, and the scalar correction is strictly increasing. The finite independent Gram-system tests are supporting, not a substitute for the analytic proof.
+PASS
 
-## Originality
+For variations vanishing at all nodes, the mean term and derivative term in the norm give S''=4π²γ∫S on each gap. The linear interpolant minus 2π²γ(∫S)Q is exactly that solution; solving for its mean using ∫Q=T/6 and integrating against the density yields the rank-one correction to the hat masses. The sign threshold is therefore a unique scalar crossing for this design once its denominator is positive. Independently, setting h=1/N and x=2πh, integration of the nearest hat on [−h,h] and [h,2h] gives the exact ratio [1+(sin x−sin 2x)/x]/(6h)=(7/9)π²h+O(h³). Ordinary hats have the sine value at the node times sinc²(πh), with smallest ratio 2π²h+O(h³), so exactly the four symmetric nearest sites minimize eventually. Two doubled gaps give T=h²+12h³. On each ordinary gap, the ratio of bubble mass to density mass is exactly (2/k²)(1−(kh/2)cot(kh/2)), k=2π, by integrating the cosine about the midpoint; this is h²/6+O(h⁴). Both doubled gaps carry only O(h²) density mass with an O(h²) bubble. Hence B=h²/6+O(h⁴), and the denominator is π²h²/3−7π⁴h³/27+O(h⁴). Its reciprocal gives the displayed (7/3)N+49π²/27+O(1/N). The strict minimum gap and monotonicity in γ check all three sign cases. The same calculation for the intact even grid has minimum [1−sin x/x]/(2h)=π²h/3+O(h³), giving the stated comparison. For a general density with minimum hat ratio zero, the exact criterion permits no positive γ; the scalar crossing is then at the endpoint γ=0 of the extended correction function, not a positive threshold.
 
-**PASS (qualified).** The motivating periodized lattice paper introduces the method, and the closest published sharp positivity classifications cover the intact uniform grid, not the modified inverse Gram matrix after deleting both antipodal density-zero nodes. Higher-order full-grid positivity, general Bayesian quadrature positivity conditions, and weighted Sobolev optimal quadrature were checked for stronger implications. Neither the sharp \(7/3\) coefficient nor the \(49\pi^2/27\) correction is supplied by the materials examined. General spline interpolants are background, not claimed as new. Broader historical priority remains unverified.
+## originality
 
-## Value
+PASS
 
-**PASS.** Removing exactly two natural low-density sampling sites increases the sharp large-grid kernel-parameter range for positive unconstrained optimal weights by a factor \(7/3\), addressing meaningful robustness of sparse lattice quadrature. The problem is motivated by negative-weight stability and deliberately does not claim that fewer sites improve accuracy.
+The kernel, unconstrained optimization and subsampling prescription are known; the intact-grid threshold is also prior coverage. The supported distinction is the quantitative classification of this specific nonuniform two-erasure design, including the two coefficients and four minimizing sites, derived via the local formula.
 
-## Relationship, limitations and priority risk
+## value
 
-See RESULT.md for precise hypotheses and full proof. Closest literature is Bartel et al. (2026), published first-order full-grid positivity results (2026), higher-order full-grid positivity (2026), Karvonen–Kanagawa–Särkkä (2019), and Novak–Zhang (2016). This is a one-dimensional, asymptotically large even-grid theorem for one specific erasure pattern. It is not an independently audited priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two sites are distinguished by exact density zeros before computation. Erasing them changes both the minimum normalized hat mass and the allowable scale of γ by an exact factor greater than two, and identifies which retained weights lose positivity. This is a quantitative robustness fact about the unmodified quadrature weights, not a recomputation of the intact case or a postprocessed improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

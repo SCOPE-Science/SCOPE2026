@@ -1,15 +1,21 @@
-# Review: sharp one-insertion sphere volumes of layered set partitions
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof separates outputs with and without a new block; for existing-block insertions it proves that any nonlayered output has just one noncontiguous block and that collisions are exactly pairs of singleton blocks in one adjacent chain. This yields the exact triangular-chain correction. Discrete convexity, with the mandatory extra length for each nonsingleton block, yields all fixed-length, fixed-block-count extrema and their counts. The independent `check.py` script verifies every layered input of length at most ten and checks independent reverse enumeration through length seven. The finite check is supplemental to, not a replacement for, the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest related preexisting result is a general pairwise deletion-collision classification for unordered set partitions. That result supplies a structural antecedent but does not give the source-conditional insertion-sphere formula, the sharp fixed-block extrema, or the complete counts of optimal layered compositions. Sagan's 2006 pattern paper and Dahlberg et al.'s 2015 paper characterize layered partition sources, not the insertion ball. Bean, Bell and Ollson's 2026 paper uses a different insertion-encoding notion for language regularity, not unique superpartition-neighbor counts. Direct and alias searches of the available mathematical records did not find an equivalent formula; that absence is not a mathematical proof of priority. Residual risk: an unindexed result or an unrecorded direct evaluation from the earlier collision classification could cover the claim.
+PASS
 
-## Mathematical value — PASS
-A one-element insertion channel on unlabeled partitions is genuinely different from ordinary labeled alphabet insertion because the block names are normalized after the insertion and distinct histories collide. The chain-length formula separates source structures with equal length and block count, while the exact extremal and optimizing-source census determines which layered sources minimize and maximize expansion. It is a natural finite-block synchronization ambiguity invariant, not an arbitrary numerical slice.
+The frozen proof at RESULT.md lines 33–35 is invalid as written: inserting 0 between the two 1s of the layered word 0011 gives 00101, with two noncontiguous blocks, and deleting a member of another block can close a gap. In that example the layered deletion results 0001 and 0011 have different compositions. The replacement at /workspace/repairs/4/RESULT.md proves the required distinction in general and retains the formula, extrema and attainment counts. For two valid old-block deletions from distinct blocks, any noncontiguous block must be one of the two. If either is noncontiguous the other must be as well: its deleted member is an isolated gap between runs of the first, but is in a block of size at least two. The deleted members then must be adjacent and are the interior positions of a segment X^u Y X Y^v; deleting either one gives different ordered compositions (u+1,v) and (u,v+1). Thus distinct-block deletions cannot collide for a fixed source. Same-block collisions require a block of precisely two separated occurrences and contiguous intervening singleton blocks, because the intervening length sequence must agree after moving a part of size one from front to back. Each singleton-run pair yields exactly one such double history and there are no triple histories. The other losses are n for layered old-block insertions and L per run of length L for new-singleton insertions; interior singleton insertions in nonsingleton blocks have unique histories. The repaired optimization uses a strict decrease when borrowing one unit from a part of size at least three to split or shorten a singleton run, balanced lengths for the minimum penalty and strict superadditivity for the maximum including k=1. This reconstructs all boundary cases and optimizer counts. The frozen checker was inspected, not run; its recorded finite evidence covers through n=10 and does not establish the repaired proof.
 
-## Scientific limitations
-Only layered sources and one inserted element are included. This is not an arbitrary multi-insertion code-capacity theorem. Finite enumerations are not used to justify the universal statements. The originality conclusion is qualified by potential unindexed literature and the known deletion-collision structural antecedent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After repair the exact claim is unchanged: a source-conditional one-insertion volume and its complete fixed-(n,k) optimization. The strongest available matching statement is a general equal-deletion-read classification. It is relevant to the mechanism of overcounting but does not give the conditioned volume or characterize and count extremizers in its available description. The full prior text was unavailable and stronger overlap is not excluded.
+
+## value
+
+PASS
+
+The exact size of the set of distinguishable one-insertion outcomes measures one-edit ambiguity in a standard structured family, including the nonlayered outputs that are easy to overlook. The theorem shows a real dependence on the arrangement of same-sized blocks and provides maximizers, minimizers and counts at each n and k. The structural collision analysis, not merely convex optimization of a known penalty, supplies the exact invariant. No capacity claim is required or made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

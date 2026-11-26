@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact conditional increment identity yields a correctly normalized martingale. The deterministic product has exponent \(-1/2\) and a bounded periodic factor; the omitted discrete-to-continuum terms are summable because \(h\) is continuously differentiable. Martingale second moments are \(O(\log n)\), implying an almost-sure finite total predictable-variance correction. The normalized bracket converges uniformly, and bounded jumps give the functional martingale CLT. The physical-time variance ODE and clock inverse are derived, not assumed. The proof specifies the full real sequence, all subsequences and finite time horizons; finite computations serve only as checks.
+## correctness
 
-## Originality — PASS (with residual risk)
-Fan–Qi (arXiv:2610.16065v1) handles arbitrary time-dependent repetition probabilities but states *scalar* limit theorems, rather than the phase-indexed functional limit. Its scalar CLT already implies a marginal Gaussian conclusion once its variance normalization is computed. Tokumitsu (arXiv:2603.13690v1) and Baur–Bertoin (arXiv:1608.01305) give functional limits for the fixed-memory model and cover the zero-forcing specialization; they do not subsume the nonconstant time-dependent covariance clock. James–James–Qi (2008) treats time-varying correlated Bernoulli processes with scalar limits. The distinguishing scientific claim is the whole functional clock family, inversion and nonconvergent phase profile, not any generic martingale FCLT. Equivalent unpublished/less-indexed correlated-Bernoulli or urn statements remain a genuine residual risk.
+PASS
 
-## Mathematical value — PASS
-At the critical reinforcement threshold the smallest logarithmically oscillating changes to the repetition probabilities can be invisible to the pointwise limit \(p_n\to3/4\), yet reshape the entire Gaussian covariance clock. The result gives exact structural dependence, a reconstructible modulation profile, and proves lack of a single physical-time CLT at the standard scale. This is a natural process-level boundary for time-dependent reinforcement, not a routine finite test or parameter substitution. No universal general time-dependent functional theorem or downstream application is claimed.
+Reconstructed the proof for C¹ periodic mean-zero h, with finite critical initialization. The conditional increment mean is a_n S_n/n, so b_n S_n is a martingale and its predictable increment variance is b_(n+1)^2(1−a_n²S_n²/n²). In log b_n, the log-product Taylor remainders are summable and the sum-integral error for h(log log x)/(x log x) converges because the derivative is integrable. The integral is H(log log n) plus a constant, giving the finite positive K and b_n² asymptotic to K²e^(−4H(log log n))/n. Martingale orthogonality gives E[S_n²]≪n log n, hence the nonnegative total random correction to the deterministic bracket has finite expectation (bounded by a sum of log n/n²), and is finite almost surely. For the entire normalized bracket, the deterministically weighted sum can replace these asymptotic coefficients with uniformly o(1) normalized error: split off a fixed prefix and bound the tail error by its supremum times O(log N). The sum-integral discrepancy is bounded, and u=log x/log N yields the phase clock, uniformly on [0,T], including the bounded O(ε) contribution from [0,ε]; floor effects are O(1/log N). On each phase-converging subsequence the clock converges uniformly. Jumps, including the initial normalized value, are O(1/√log N), so the predictable-bracket martingale FCLT identifies the continuous J₁ limit. Integer rounding of exp(exp(2πj+φ)) attains each phase. Differentiating the positive clock density yields the inverse; for h=c sin, equality of clocks would force equality of all translates of the sine. At t=1, inverting b_N gives variance F_h=e^(4H)U where U=∫₀^∞e^(−v)e^(−4H(φ−v))dv and U′=e^(−4H)−U. Differences of periodic ODE solutions are multiplied by e^(−2π) over a period, proving uniqueness. A constant F_h would force constant, thus zero, h. Nonzero h produces an interval of variances and no full-sequence weak limit. The finite checker was inspected, not run; no infinite conclusion relies on it.
 
-## Scientific limits
-Weak convergence in the Skorokhod topology only, no strong coupling. Smooth periodic zero-mean perturbations only. Clock phase labels may coincide for forcing with smaller fundamental period. No exhaustive review of all alternative urn formulations or independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the explicit time-inhomogeneous phase-indexed logarithmic-time path law, clock inversion, and evaluation of the nonconstant physical-time variance profile. The general scalar martingale CLT, constant-critical path law, and generic predictable-bracket FCLT are prior tools/results, not credited as new.
+
+## value
+
+PASS
+
+At the critical memory strength the model has a natural fixed Brownian log-time baseline. A vanishing perturbation with a specified, critical logarithmic amplitude changes the entire covariance clock, and the profile can be recovered from that clock. This supplies a concrete boundary for robustness of the standard critical normalization and an explicit mechanism for distinct Gaussian subsequential limits despite p_n→3/4. It exceeds a marginal CLT or a numerical phase comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:20.618795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 33–149",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "Replay: python3 -I /workspace/branches/frozen_independent_checks.py (edge output labelled 4)"
+      ],
+      "rationale": "On a fixed interval the reflection term gives S_T=A_T-(X_T-X_0), with error at most L pathwise. This proves speed-T exponential equivalence and equality of the SCGFs without any assumption about individual-wall independence. The tilted sign matrix has top eigenvalue -lambda+sqrt(lambda^2+v^2 q^2) with positive stationary overlap; independent Brownian motion adds Dq^2. For D>0 the derivative is onto and its derivative is strictly positive; for D=0 the Legendre formula holds, and the no-flip events supply the endpoint lower bounds separately. For the positive edge, let Q=(lambda^2/(vD))^(1/3), eta=lambda/(vQ), q=Qz. The exact scaled Legendre objective after subtracting lambda is sz-z^2-1/(sqrt(z^2+eta^2)+z). For each bounded s-interval choose fixed positive z_- and z_+ whose limiting scaled derivative F(z)=2z-1/(2z^2) lies strictly outside that s-interval. The exact scaled optimizer equation converges at both brackets, then uniformly between them, and is strictly monotone. This justifies uniform optimizer localization and convergence, not just a fixed-z expansion. Evaluating at s=0 gives z=4^(-1/3) and -3/2^(4/3). Symmetry, mobility scaling and the fixed-N rate by independent products follow. Independent golden-section maximization of the exact scaled objective at v=lambda=1, s=-3,0,3 and D=10^-3,10^-6,10^-9 corroborated convergence; for s=0 the scaled errors were 0.00498425, 0.0000499984, and 0.000000500000.",
+      "residual_risks": [
+        "The positive-D calculations are finite corroboration, not the proof of the compact-uniform limit. The theorem is sequential in T and D, and gives neither an individual-wall LDP nor a joint T,D scaling law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mallmin–du Buisson–Touchette pp. 2, 4 define spatial empirical currents via Stratonovich displacement; Popovic–Zoroddu pp. 2–3 give a general reflected-jump-diffusion additive-functional LDP framework.",
+          "Angelani pp. 2, 8 and Li–Eichhorn–Dabelow abstract concern pressure or mean contact laws."
+        ],
+        "reasoning": "A general method for existence or for setting up a tilted problem is not a theorem about a vanishing-diffusivity edge with a divergent optimizer. A mean law does not determine the signed-current rare-event profile.",
+        "searches": [
+          "arXiv:2102.04846",
+          "arXiv:2012.13223",
+          "arXiv:2206.03123",
+          "arXiv:2610.01287"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 157–173",
+        "arXiv:2302.01158",
+        "arXiv:2405.07032",
+        "arXiv:2508.20473",
+        "arXiv:2102.04846",
+        "arXiv:2012.13223",
+        "arXiv:2206.03123",
+        "arXiv:2610.01287",
+        "Resultary e4c487ffd051"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known/free SCGF supplies the starting convex function, not a uniform asymptotic at q of order D^(-1/3).",
+          "The one-wall and bulk occupation observables in the retrieved works do not have the endpoint identity for the signed regulator difference as their statement."
+        ],
+        "reasoning": "The known zero-noise edge and the Brownian addition do not mechanically give the crossover by substitution: fixed-q limits miss the optimizer escape. The claim needs the distinguished current scale, localization and the limiting variational problem.",
+        "searches": [
+          "arXiv:2302.01158 Sec. 5",
+          "arXiv:2508.20473 pp. 1–2",
+          "arXiv:2012.13223 pp. 2–3",
+          "Resultary e4c487ffd051 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff 2302.01158, Sec. 5, Eqs. (5.5)–(5.10): joint occupation framework for both zero-diffusion contacts.",
+          "Mukherjee–Le Doussal–Smith 2405.07032, abstract: local time at an origin and occupation of a finite interval.",
+          "Bressloff 2508.20473, pp. 1–2: diffusing RTP boundary local time, absorption and a singular zero-noise boundary limit."
+        ],
+        "reasoning": "At D=0 the signed impulse is a signed combination of sticking times, so earlier two-contact occupation methods are genuine overlap. At D>0 the difference is a regulator observable and is exponentially equivalent to Brownian-plus-telegraph displacement. The matched contact or free-process observables do not supply its small-D ballistic-edge Legendre asymptotic.",
+        "searches": [
+          "Literature search on noisy telegraph ballistic-edge LDP and reflected wall-regulator current",
+          "arXiv:2405.07032",
+          "arXiv:2302.01158",
+          "arXiv:2508.20473"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed Finding compares Erlang-2 and memoryless telegraph particles with identical free-displacement LDPs but different finite-time and harmonic-trap statistics."
+        ],
+        "reasoning": "That free-current equivalence is substantive overlap on the unrounded component, not a table or classification of thermal wall-edge profiles. The same date does not determine priority. No table of the exact singular profile surfaced.",
+        "searches": [
+          "Resultary: thermal rounding of a ballistic wall-force large-deviation edge; noisy telegraph regulator difference; free-current large deviations",
+          "2026/11/2/SCOPE-identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051"
+        ]
+      },
+      "rationale": "Credit the free telegraph SCGF, the Brownian addition, the zero-temperature wall-contact setting, and general reflected-process LDP methods as preexisting ingredients. The distinct claim supported by this comparison is the exact singular thermal crossover for the signed wall difference, including its compact-uniform profile and edge constant. Neither a contact-time transform at D=0 nor a free-current or mean-pressure formula states that limit. No verified equivalent or dominating result for the crossover was found.",
+      "residual_risks": [
+        "Bounded literature and index searches cannot exclude an equivalent noisy free-telegraph crossover under other terminology. The source comparisons are limited to the identified passages and do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers zero-noise contact statistics, not the positive-noise crossover in the inspected material",
+          "evidence": "Separate A_0,A_L and propagator depending jointly on them.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+          "material_read": "PDF p. 4 and p. 20, Sec. 5, Eqs. (5.5)–(5.10)",
+          "method": "OA passage reads, offsets 13272 and 64500",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Two reflecting-wall occupations"
+        },
+        {
+          "assessment": "Related LDP with different observables",
+          "evidence": "Origin local time and time spent in a finite interval, not the signed difference of regulators.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.07032",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA passage around offset 1450",
+          "title": "Large deviations of local time and occupation time for a run-and-tumble particle",
+          "trigger": "RTP rare-event observables"
+        },
+        {
+          "assessment": "Relevant noise and wall model; inspected claim is absorption/boundary asymptotics",
+          "evidence": "Boundary SDE and associated equations for local time; no claim there of a long-time signed-current profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.20473",
+          "material_read": "PDF abstract and p. 2 local-time definition",
+          "method": "OA passage reads, offsets 0 and 4617",
+          "title": "Diffusing run-and-tumble particle boundary-local-time model",
+          "trigger": "Thermal diffusion at an RTP wall and a singular D-to-zero limit"
+        },
+        {
+          "assessment": "Broader methodology; different current",
+          "evidence": "Space-resolved Stratonovich empirical displacement current.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.04846",
+          "material_read": "PDF pp. 2, 4, empirical-current definition",
+          "method": "OA passage reads, offsets 5600 and 9200",
+          "title": "Large deviations of currents in diffusions with reflective boundaries",
+          "trigger": "General reflected-current theory"
+        },
+        {
+          "assessment": "General PIDE/LDP formulation, not a crossover calculation in the inspected statement",
+          "evidence": "Additive-functional LDP framework for reflected jump-diffusions.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.13223",
+          "material_read": "PDF pp. 2–3, framework statement",
+          "method": "OA passage reads, offsets 7100 and 9200",
+          "title": "Large Deviations for Additive Functionals of Reflected Jump-Diffusions",
+          "trigger": "General reflected jump-diffusion LDP"
+        },
+        {
+          "assessment": "Unrounded free-displacement overlap only",
+          "evidence": "Same free-displacement LDP for Erlang-2 and memoryless RTPs; disagreement in finite-time variance and trapping.",
+          "identifier_or_url": "2026/11/2/SCOPE-identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051",
+          "material_read": "Finding",
+          "method": "Local Resultary search and passage comparison",
+          "title": "Identical free-current large deviations but different fluctuations",
+          "trigger": "Strongest distinct catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–31 and 117–165",
+        "arXiv:2302.01158 Sec. 5",
+        "arXiv:2508.20473 abstract"
+      ],
+      "rationale": "A reflecting RTP's net wall impulse is a natural force observable, and width-independence alone does not quantify how its ballistic support disappears. The two distinct scaling exponents, full profile and edge amplitude quantify precisely the nonuniform breakdown of the zero-noise approximation where Gaussian central fluctuations are not predictive. The result gives more than the standard SCGF or a simulation fit.",
+      "residual_risks": [
+        "No claimed payoff for interacting particles, soft walls, or the joint fluctuation of individual wall forces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

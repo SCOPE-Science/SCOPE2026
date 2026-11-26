@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:55:42.319553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent global check: for five sphere points in general affine position, the affine dependence partitions the labels into two and three vertices (a singleton would be a convex combination, impossible on the strictly convex sphere). Thus the segment of the two meets the interior triangle of the other three, and the hull is the union of the two pyramids over that triangle. Its volume is the triangle area times the difference of the apex normal projections divided by three. The area is <=3*sqrt(3)/4 because the base plane cuts the sphere in a circle of radius <=1 and an equilateral triangle maximizes area in its circle; the apex projection difference is <=2. Equality requires a great-circle equilateral base and antipodal apices normal to it. The bound and equality analysis also apply to degenerate limits by approximation by generic tuples, selecting a subsequence with the same apex labels, and using continuity of the two factors. This independently establishes V*=sqrt(3)/2 and the equality configurations. Compactness therefore localizes the small deficits to those maximizing orbits. Order the two apex labels by a fixed convention; there are ten pairs and two base orientations, giving twenty distinct labelled rotation orbits. Exchangeability and reflection yield equal weights in symmetric neighborhoods. Near a maximum the apex segment continues to cross the base plane inside the triangle, so the signed determinant volume formula is indeed exact. Fixing one apex by isotropy and removing the common equatorial azimuth give the stated seven coordinates and a local density 2*pi/(4*pi)^4 / sqrt(1-u²-v²). Independently ran `python audit_checks/independent_replays.py 5`, constructing the second-order equatorial point jets and expanding the oriented volume; the quadratic matches every term of H/2, including the u/z and v/z sign pattern. The spectrum is 1/6 twice, 1/3, 2/3 and 1 three times; determinant 1/162. Integration over the small ellipsoids gives 20 times (1/(128*pi³)) times (16*pi³/105) times 2^(7/2)/sqrt(1/162) = 24/7. Positive definiteness bounds x by O(sqrt(epsilon)); in H^(1/2)x/sqrt(2*epsilon) coordinates the sublevel indicators converge a.e. to the unit-ball indicator with a common bounded support and the rescaled density factor tends uniformly to a constant. Normalizing and using dominated convergence gives L1 and thus total variation, not merely weak convergence. The normalized deficit differs from squared rescaled radius by O(sqrt(epsilon)) on the event, yielding the Beta(7/2,1) limit. The submitted symbolic code was inspected; the independent replay checks local algebra, not localization or convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bárány–Fodor–Vígh's abstract uses points uniform in a convex body and studies variance and strong laws for intrinsic volumes.",
+          "Bonnet–O’Reilly's abstract uses sphere-boundary samples but addresses facet heights and expected facet counts in dimension/sample-size regimes.",
+          "Horváth–Lángi cover the deterministic d+2 maximization problem."
+        ],
+        "reasoning": "The first source uses a different sampling measure and limit; the second uses a different hull statistic and asymptotic regime. The third is broad in dimension but only supplies deterministic extremal localization data. None of the retrieved statements yields the explicit fixed-five stochastic limit.",
+        "searches": [
+          "arXiv:0906.0309v1, intrinsic volumes of inscribed random polytopes",
+          "arXiv:1908.04033v1, facets of spherical random polytopes",
+          "arXiv:1402.6496v1, volume maximum with d+2 vertices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.6496v1 (abstract; theorem passage attempted)",
+        "arXiv:0906.0309v1 (abstract)",
+        "arXiv:1908.04033v1 (abstract)",
+        "Resultary b431432af6de, 3c35f6bc52a0, 32bb10986e8d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearest conditional shape benchmark is the four-point tetrahedron law, a simplex with five transverse coordinates, instead of the five-point bipyramid with seven.",
+          "The known maximizer and the generic positive-Hessian sublevel principle reduce the problem to the volume Hessian, local product probability density and labelled branch count; the latter is twenty in this problem."
+        ],
+        "reasoning": "A general quadratic sublevel theorem explains the exponent and the form of the conditional limit once its hypotheses hold, but not the concrete matrix or prefactor. The tetrahedron's own Hessian/density cannot be used in the nonsimplex chart with moving apex and base shape, and the extremizer alone does not give the covariance or total probability.",
+        "searches": [
+          "Resultary: sharp near-regular volume tail and conditional shape law for random tetrahedra; sharp ninth-power upper-volume tail for eight random points",
+          "arXiv:1402.6496v1 Theorem 2 (targeted passage retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The retrieved Horváth–Lángi v1 abstract covers deterministic volume maximization for d+2 inscribed vertices in all dimensions, which includes d=3 and five vertices. Exact Theorem 2 text was not accessible in passage retrieval.",
+          "The relevant stochastic quantity is the product surface measure of a quadratic sublevel tube about labelled SO(3) orbits, with seven transverse coordinates."
+        ],
+        "reasoning": "A theorem phrased as a stochastic tube volume near the regular dipyramid or with an absolute rather than relative deficit could be equivalent after inserting V*; a deterministic extremal theorem alone does not evaluate the tube coefficient or the conditional normalized coordinates.",
+        "searches": [
+          "Resultary: five independent uniform sphere points, triangular bipyramid/dipyramid near-maximum hull volume, 24/7 and seven-dimensional conditional ellipsoid law",
+          "arXiv:1402.6496v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 2026/11/22/SCOPE-sharp-upper-volume-tail-and-seven-dimensional-shape-law-for-five--b431432af6de is the assigned record itself.",
+          "The closest non-self record 3c35f6bc52a0 is for four uniform sphere points with coefficient 128*sqrt(3)/405, exponent 5/2 and five shape dimensions; 32bb10986e8d concerns eight points on S^3 and a ninth-power volume tail."
+        ],
+        "reasoning": "The exact hit is not independent prior coverage. The nearest indexed numerical constants concern different sample sizes and geometries and cannot be substituted into the five-point limit.",
+        "searches": [
+          "Resultary: sharp 24/7 coefficient and 7/2 exponent for volume near maximum of five spherical vertices; fixed-five conditional shape law"
+        ]
+      },
+      "rationale": "The deterministic inscribed maximum is credited as prior, and quadratic sublevel localization is a general method. The supported distinct contribution is the evaluated sharp fixed-five surface-sampling tail coefficient and the seven-coordinate conditional total-variation law. The retrieved nearest statements do not cover this combination; inaccessible passages and unknown prior endpoint calculations remain risks, not evidence of absence.",
+      "residual_risks": [
+        "The key deterministic paper's exact Theorem 2 passage was not independently read, and only the retrieved statements are assessed for overlap; the maximum and equality case were instead proved directly for correctness.",
+        "An older stability computation or unindexed equivalent spherical-polytope volume probability could overlap the finite constant or mark. The catalog comparison is bounded and does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified deterministic problem scope, not independently verified exact theorem wording or whole-text coverage",
+          "evidence": "The abstract says the maximum-volume problem is solved for inscribed polytopes with d+2 vertices in all dimensions; the five-vertex equality classification was separately reconstructed above.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496v1",
+          "material_read": "v1 p. 1 abstract; Theorem 2 passage unavailable after targeted retrieval including alternate same-paper URL",
+          "method": "OA locator and PDF preview; attempted subsequent passage and offset lookups",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Same deterministic maximum and possible equality/stability coverage"
+        },
+        {
+          "assessment": "Retrieved result concerns a different sampling measure and limit",
+          "evidence": "Independent points uniform in a convex body; variance and strong laws for intrinsic volumes.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.0309v1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF preview",
+          "title": "Intrinsic volumes of inscribed random polytopes in smooth convex bodies",
+          "trigger": "Closest cited stochastic intrinsic-volume work"
+        },
+        {
+          "assessment": "Retrieved statements concern facet statistics rather than fixed-five volume tail",
+          "evidence": "Facet heights and expected facet counts under dimension/sample-size asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.04033v1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF preview",
+          "title": "Facets of spherical random polytopes",
+          "trigger": "Same sphere-boundary product sampling law"
+        },
+        {
+          "assessment": "Four-point predecessor, not the five-vertex law",
+          "evidence": "Four uniform sphere points, tail prefactor 128*sqrt(3)/405 and exponent 5/2, and a five-coordinate conditional shape limit.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-near-regular-volume-tail-and-conditional-shape-law-for-ran--3c35f6bc52a0",
+          "material_read": "Indexed Resultary statement",
+          "method": "Local catalog",
+          "title": "Sharp near-regular volume tail and conditional shape law for random spherical tetrahedra",
+          "trigger": "Closest probabilistic tail and conditional shape benchmark"
+        },
+        {
+          "assessment": "Different ambient dimension, vertex count and tail power",
+          "evidence": "Eight points on S^3 and a ninth-power tail.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-ninth-power-upper-volume-tail-for-eight-random-points-on-t--32bb10986e8d",
+          "material_read": "Indexed Resultary statement",
+          "method": "Local catalog",
+          "title": "Sharp ninth-power upper-volume tail for eight random points on the sphere",
+          "trigger": "Related fixed-sample hull endpoint calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The five-vertex triangular bipyramid is the first nonsimplex inscribed volume maximizer in three dimensions, making this a natural fixed-sample stochastic benchmark beyond the tetrahedron. The exact constant combines branch multiplicity, a coupled pose/shape Hessian and the surface probability measure; it does not follow by substituting the maximal volume into a general law. The total-variation conclusion describes the geometry of successful configurations, not just their frequency. No higher-order expansion or result for other sampling laws is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

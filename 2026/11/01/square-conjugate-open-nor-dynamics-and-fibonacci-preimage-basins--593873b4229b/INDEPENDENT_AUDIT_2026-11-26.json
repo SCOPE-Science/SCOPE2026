@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:20.031234Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a bipartition A⊔B the maps f and g test absence of adjacency across the partition. The polarity Y⊆f(X) iff X⊆g(Y) gives fgf=f and gfg=g. The independently variable input sides yield im F=im g × im f; the restrictions of f,g are inverses there. Hence the bijection (X,Y)↦(X,g(Y)) conjugates the image dynamics, not the full Boolean cube, to swap. Since F is involutive on that image, it is precisely the recurrent set. Fixed states are both independent and dominating, precisely maximal independent sets including all isolated vertices. Thus the counts follow from the square and its diagonal. On a path each of two output parities uses disjoint input bits; between successive sites of a parity there is one possible input edge. The parity-dependent stubs come from real path endpoints adjacent to only one site of the output parity. Ones forbid their incident edges, so zero runs separate and each requires an edge cover using internal edges and its available stubs. For length L and t stubs, the L−1+t edge bits have no adjacent pair of zeros, with 2−t endpoint edges forced when those forced edges are distinct. The remaining L−3+2t bits give F_{L−1+2t}; for L=2,t=0 the two endpoint constraints force the same edge, giving one; L=1 has counts 0,1,3, also as stated. Thus multiplication produces all one-step fibers including impossible words. Basins are disjoint unions of the attractor states’ one-step fibers because all states land in the image immediately. The all-zero/all-one basin, path maximal-independent-set recurrence and the two exponential fractions follow from the displayed run and recurrence formulas; both parities in the distinguished basin have leading numerator φ^{n+2}/5. Replay: RESULT.md lines 34–73. Both checker sources, stored outputs and VERIFICATION.md were inspected, not rerun; they are finite examples, not proof. Paths use n≥2, and the square bijection is for finite loopless undirected bipartite graphs, not closed or asynchronous NOR.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen's §2 counts finite spatial blocks in a full infinite-lattice automaton by recurrence in leading input symbols; Rule 5 and its bit-complement conjugate Rule 160 are in the telescoping-recurrence category. The frozen review reports closely related predecessor and fixed-point studies, with closed/self-inclusive formulations among the cited comparisons. Their full primary texts were not recovered in this review."
+        ],
+        "reasoning": "General block preimage recurrences permit computations after the ghost inputs are constrained, but that is an algorithm, not the uniform factorization of all finite-path fibers into scalar Fibonacci factors. For the cited self-inclusive comparison, the open P_2 already has nonzero fixed states; known maximal independent fixed points do not classify individual fibers.",
+        "searches": [
+          "Jen, Enumeration of Preimages in Cellular Automata, §2 and Rule 5 in the Type D list",
+          "Aledo et al. DOI 10.1016/j.cam.2012.06.002, 10.1155/2015/594294, 10.1155/2017/7209762, 10.1155/2020/9708347 and 10.1016/j.cam.2018.08.015",
+          "Aracena–Demongeot–Goles DOI 10.1016/S0166-218X(03)00461-X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, checker.cpp, checker_py.out and checker_cpp.out",
+        "Jen 1989 §§1–3 and Appendix A; bibliographic reference LA-UR-88-3359",
+        "Fukś deterministic Rule 5 entry",
+        "Resultary 4014de6cfb9f and 9b825fd6faf8",
+        "Frozen bibliographic references and lawful DOI access attempts for Aracena and Aledo et al."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The neighbor tests supply a standard nonedge polarity; the survey context and Fukś already explain period behavior in related settings. Jen gives broad one-step count recurrences and the cyclic Resultary record gives an evaluated product for odd rings."
+        ],
+        "reasoning": "Known short recurrence explains how to sum one-step fibers into basins once the fibers are known. Neither that dynamics nor the generic recurrence evaluates the path counts into independent zero-run factors. The proof uses a separate parity split and forces or frees actual endpoint bits, yielding F_{L−1}, F_{L+1}, or F_{L+3} rather than importing a cyclic count. The distinction is formula-level, not a claim of the first possible predecessor-count algorithm.",
+        "searches": [
+          "Jen 1989 introduction, §2, Type D and Appendix A",
+          "Fukś, Deterministic solution formulae for elementary CA rules, Rule 5 entry",
+          "Resultary 4014de6cfb9f Finding and 9b825fd6faf8 Finding/zero-run proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Formal concepts of the bipartite nonedge relation use exactly f and g as their derivation maps. In one dimension the local truth table is Rule 5 (1 on 000 and 010); on P_n both ghost input bits are fixed to zero. Fukś records the alternating iteration law for Rule 5.",
+          "Indexed record 9b825fd6faf8 gives Fibonacci products for odd rings, in a cyclic step-two ordering; 4014de6cfb9f gives exact NOR swap and basin formulas for one-leaf coronas."
+        ],
+        "reasoning": "The polarity and short recurrence are background. The odd-ring predecessor problem has no terminal stubs and a single cyclic parity traversal; it is not the open path with two independent parities. The corona decoration changes the local rule inputs on the original vertices and does not solve arbitrary path fibers. Complementing the output represents NOR as the complement of neighbor disjunction, but complementing the whole state conjugates it to N(V∖T), not to the plain disjunctive map T↦N(T).",
+        "searches": [
+          "Resultary: open neighborhood NOR bipartite graph maximal independent sets square recurrent coordinate swap path Fibonacci predecessor basin",
+          "Resultary: elementary cellular automaton rule 5 Wolfram left right NOR preimage fiber counting finite path null open boundary Fibonacci",
+          "Web: ‘open neighborhood’ NOR dynamics bipartite graph formal concept analysis maximal independent sets Fibonacci path predecessors AND-OR networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jen's printed Appendix A gives formulas for selected symmetric-rule representatives and cites a larger 1988 table, LA-UR-88-3359; a targeted lookup did not recover that report. The printed Type D passage lists Rule 5 but illustrates other rules; the inspected appendix does not give the path formula. The indexed odd-ring record is exact for rings, not an endpoint-stub table or formula."
+        ],
+        "reasoning": "Numerical state tables, iteration formulas and cyclic image counts do not specify every labeled finite-path predecessor multiplicity. Exact formula-level coverage in the unrecovered 1988 report remains possible and is not excluded by the lookup.",
+        "searches": [
+          "Resultary: Fibonacci predecessor fiber formula path open-neighborhood NOR zero-run endpoint stubs edge-cover counts",
+          "Jen 1989 Appendix A and references",
+          "Web: Erica Jen \"Table of Preimage Formulae for Elementary Rules\" \"LA-UR-88-3359\" rule 5 preimages full text"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete finite-path predecessor and basin product with explicit endpoint effects. The square description is a correct direct application of the standard polarity; no separate novelty is assigned to Galois closure, the diagonal maximal-independent-set correspondence, or short recurrence. The strongest retrieved alternate formulations do not establish the same evaluated path product. An older exact-table risk remains explicit.",
+      "residual_risks": [
+        "Jen's full 1988 exact-formula report was not recovered; it could contain a reducible Rule-5 expression.",
+        "The Aledo 2013 and 2019 primary full texts and other relevant cited Boolean-network full texts were not recovered.",
+        "The bounded searches do not prove priority, particularly with equivalent boundary conventions, the classic edge-cover interpretation, and nearby indexed findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material general algorithm and Rule-5 classification; no equivalent evaluated zero-ghost path factorization in the inspected passages",
+          "evidence": "§2 groups preimages by the leading 2r symbols; Type D names 5 and 160; Appendix A cites the larger table LA-UR-88-3359.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Introduction and §2, printed pp. 421–424; Type D, p. 427; Appendix A and references, pp. 452–456",
+          "method": "Bounded OA PDF offsets 1500, 5650, 15160, 72941 and 78600",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Exact local-rule alias and a broader theory of individual word preimages"
+        },
+        {
+          "assessment": "Formula-level historical coverage unresolved",
+          "evidence": "The 1989 article says the full table is available by request and cites this technical report; no original passage was inspected.",
+          "identifier_or_url": "LA-UR-88-3359",
+          "material_read": "Bibliographic reference in Jen 1989, p. 456; original report not recovered",
+          "method": "Targeted public literature lookup by report number and exact title",
+          "title": "Table of Preimage Formulae for Elementary Rules",
+          "trigger": "Primary exact-table risk identified by Jen 1989 reference [9]"
+        },
+        {
+          "assessment": "Explicit iteration law; no fiber count in that entry",
+          "evidence": "The odd iterate is (1−x_{j−1})(1−x_{j+1}) and an even iterate is the given polynomial in x_j,x_{j−2},x_{j+2}.",
+          "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+          "material_read": "Rule 5 entry, offset 1750",
+          "method": "Bounded primary website passage",
+          "title": "Deterministic solution formulae for elementary CA rules",
+          "trigger": "Known Rule-5 dynamics rather than counts"
+        },
+        {
+          "assessment": "Structural overlap on leaf coronas, not coverage of the general bipartite or individual path theorem",
+          "evidence": "For one-leaf coronas W(G), the record has one-step recurrence and a phase-swap parametrization via independent sets of a bipartite double cover, with exact basins.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-attraction-basins-of-nor-leaf-coronas-and-a-cycle-clique-c--4014de6cfb9f/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and bounded mirror passage",
+          "title": "Exact attraction basins of NOR leaf coronas and a cycle-clique construction",
+          "trigger": "Same-day exact open-NOR swap and basin claims"
+        },
+        {
+          "assessment": "Same rule and close method, different finite condition; not evidence of earlier priority",
+          "evidence": "Counts arbitrary fibers on odd cycles in a cyclic step-two order, rather than two open parity sequences with stubs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-fibonacci-fibers-and-the-uniquely-dominant-lucas-basin-for-odd-r--9b825fd6faf8/RESULT.md",
+          "material_read": "Finding, proof §3 near offset 3750, prior-work section offset 7761",
+          "method": "Ranked Resultary search and bounded mirror passages",
+          "title": "Fibonacci fibers and the uniquely dominant Lucas basin for odd-ring Rule 5",
+          "trigger": "Closest exact Fibonacci run formula for the same local rule"
+        },
+        {
+          "assessment": "No full-text noncoverage conclusion",
+          "evidence": "The frozen comparison distinguishes the self-inclusive and closed rules; the actual full historical scopes of the two articles remain unresolved.",
+          "identifier_or_url": "DOIs 10.1016/j.cam.2012.06.002 and 10.1016/j.cam.2018.08.015",
+          "material_read": "Landing/abstract material where accessible and frozen RESULT.md prior-work notes; no recovered paper full text",
+          "method": "Lawful OA route attempts and statement comparison limited to available evidence",
+          "title": "Parallel discrete dynamical systems on independent local functions; Predecessors and Garden-of-Eden configurations in parallel dynamical systems on maxterm and minterm Boolean functions",
+          "trigger": "Close historical Boolean predecessor and NOR comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The evaluated factorization resolves every basin size and every impossible one-step output for a natural finite dynamical system. It exposes precisely how endpoints and runs affect multiplicity, with a linear arithmetic evaluation rather than a census or mere period restriction. Its value is the complete individual-basin information, not the classical diagonal count, short recurrence, or isolated Fibonacci edge-cover identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

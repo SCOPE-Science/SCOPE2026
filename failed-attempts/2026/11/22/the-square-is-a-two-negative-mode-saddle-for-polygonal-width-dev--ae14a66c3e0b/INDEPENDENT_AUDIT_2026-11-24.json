@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:53:57.970421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/branches/independent_checks.py, square(); replay: python -B /workspace/branches/independent_checks.py 2"
+      ],
+      "rationale": "Fixing the average of the diagonal midpoints, the direction of AC and its length removes exactly the four similarity parameters; convexity is open here. The mean is P/pi. The exact edge-pair kernel has adjacent term D+pi*d/2+d^2/D through order two, with D>0; opposite pairs contribute C^2 terms of order |signed angular displacement|^3 and have zero second jet. With half-diagonals (1,0) and (s,1+u), midpoint displacement m=(h,k), the sum of adjacent determinants is 8(1+u), the sum of adjacent dot products is -16|m|^2, and the squared linear parts of those dot products sum to 16u^2+32|m|^2. Independent perimeter series and moment-ratio expansion gave the stated constant, zero linear coefficient, and every quadratic coefficient. The Hessian of the squared statistic has signs +,+,-,-; the cone is exactly its quadratic null cone, not a statement about the full finite-perturbation level set. The two pure negative modes split midpoints; not every displacement having a nonzero midpoint component is negative, as the cone itself shows.",
+      "residual_risks": [
+        "The claim is local in the labeled strictly convex similarity chart and says nothing about the global optimizing quadrilateral or the sign on the quadratic null cone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261122-1a583463a075 explicitly gives the quadratic and cubic offset law for every fixed nondegenerate diagonal ratio t>0; t=1 gives the exact frozen transverse block.",
+          "SCOPE-20261101-c79f5c424519, RESULT.md Proof, gives E W^2=(a^2+b^2)/2+(2ab/pi)[sin(theta)+(pi/2-theta)cos(theta)] for any parallelogram, and E W=2(a+b)/pi.",
+          "Akiyama–Kamae arXiv:2201.06736v1, §2 Theorem 1 and §7, supplies the general kernel and an open problem/numerical kite candidate, not the square-specific Hessian by itself."
+        ],
+        "reasoning": "The two-axis theorem is stronger on the midpoint-displacement slice; the parallelogram formula determines the entire complementary restriction. Neither is merely a neighboring numerical example. The unrestricted quadrilateral kernel alone is not the basis for the coverage verdict.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-universal-two-axis-width-deviation-instability-and-cubic-cusp-of-rhombi",
+          "Resultary: Area-calibrated width-moment tomography of parallelograms, with sharp inverse slope",
+          "Web: Akiyama Kamae \"Width deviation of convex polygons\" Theorem 1 Section 7 quadrilateral square local minimum kite candidate unresolved"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 79–87",
+        "Resultary ae14a66c3e0b, 1a583463a075, c79f5c424519 and dcfda0360928",
+        "arXiv:2201.06736v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In h=k=0, the sides have lengths a=|(s-1,t)| and b=|(s+1,t)|. Writing u=t-1, ab/(a+b)^2=1/4-s^2/16+O(||q||^3) and (pi/2-theta)^2=u^2+O(||q||^3). The parallelogram source's moments give F+1=pi^2/8+[ab/(a+b)^2][(pi/2)(sin(theta)+(pi/2-theta)cos(theta))-pi^2/4]. Substitution gives exactly the frozen s^2 and u^2 coefficients and no mixed term in that block.",
+          "The half-turn about the chart origin followed by A↔C and B↔D replaces (h,k) by (-h,-k) with s,t unchanged and leaves F invariant. The two cross-block second derivatives for each midpoint variable and the midpoint linear terms therefore vanish; the exact square specialization of the rhombus result supplies the remaining block."
+        ],
+        "reasoning": "This is a blockwise implication of evaluated restricted formulas and an immediate symmetry, not a claim that every future derivative of a general formula is already published. The signature and null cone are algebraic readings of the determined Hessian. Relative order of the two same-day papers was not verified.",
+        "searches": [
+          "SCOPE-20261122-1a583463a075, RESULT.md Finding (including Delta(1,s,h))",
+          "SCOPE-20261101-c79f5c424519, RESULT.md Assumptions and scope and Proof",
+          "arXiv:2201.06736v1 §2 and §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261122-1a583463a075, RESULT.md Finding, explicitly expands the same squared directional-width statistic at the square in perpendicular fixed-length diagonal coordinates, with quadratic term -pi(pi-2)(a^2+b^2)/64 in the source's intersection-relative offsets (called s,h there).",
+          "On the frozen slice s=0,t=1 the intersection of the diagonals is (-h,k), and the two midpoints relative to it are (2h,0) and (0,-2k). Hence a=2h, b=-2k."
+        ],
+        "reasoning": "The factor of four from the coordinate change gives exactly the frozen negative quadratic term -pi(pi-2)(h^2+k^2)/16, not just two negative signs. The earlier general angular kernel is for moments of width; the square Hessian is for squared deviation, not the unsquared coefficient of variation.",
+        "searches": [
+          "Resultary: square two-negative-mode saddle quadrilateral polygonal width deviation Hessian",
+          "Resultary: square Hessian squared coefficient variation random directional width quadrilateral midpoint modes",
+          "Resultary: 2026/11/22/SCOPE-universal-two-axis-width-deviation-instability-and-cubic-cusp-of-rhombi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full-Hessian catalogue hit ae14a66c3e0b is the frozen record itself. A distinct entry explicitly prints the negative square coefficient in its own offsets, and the parallelogram source gives an exact first- and second-moment formula rather than tabulated approximations.",
+          "The older c79f5c424519 and dcfda0360928 entries are restricted to parallelograms; the latter is not needed for the coverage argument."
+        ],
+        "reasoning": "No separate entry printing all sixteen frozen chart entries was verified; a four-by-four table in exactly this chart is not necessary once both exact diagonal blocks and the symmetry constraint are identified.",
+        "searches": [
+          "Resultary: square two-negative-mode saddle quadrilateral polygonal width deviation Hessian",
+          "SCOPE-20261122-1a583463a075, RESULT.md Finding square specialization",
+          "SCOPE-20261101-c79f5c424519, RESULT.md Proof"
+        ]
+      },
+      "rationale": "The exact transverse block is already explicit, after translating and rescaling offsets, in a distinct same-day rhombus theorem. The tangent block is a direct expansion of a published exact parallelogram moment formula. A half-turn and cyclic relabeling force all mixed entries between these blocks to vanish. Thus the prior statements together with this elementary symmetry determine the full claimed Hessian, index and null cone. This is demonstrated mathematical coverage, not a determination of publication order or independence between same-day records.",
+      "residual_risks": [
+        "Same-day release order is unresolved. The conclusion is that the mathematical content is covered by the explicit compared statements, not that the frozen author knew of them or that they have priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transverse block under a simple coordinate conversion; stronger cubic information and generality on that slice",
+          "evidence": [
+            "Q_{t,s,h}=conv{(s-1,0),(s+1,0),(0,h-t),(0,h+t)}; square expansion includes -pi(pi-2)(s^2+h^2)/64 for the same normalized squared variance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-two-axis-width-deviation-instability-and-cubic-cusp-of--1a583463a075/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and initial proof of the width support identity; mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and targeted local-mirror passage retrieval",
+          "title": "Universal two-axis width-deviation instability and cubic cusp of rhombi",
+          "trigger": "Distinct published same-day result on the precise square midpoint slice"
+        },
+        {
+          "assessment": "The complementary block is a direct local expansion of these exact moments",
+          "evidence": [
+            "Uniform angular law, mean 2(a+b)/pi, and exact second moment (a^2+b^2)/2+2ab g(theta) with g(theta)=(sin(theta)+(pi/2-theta)cos(theta))/pi."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-area-calibrated-width-moment-tomography-of-parallelograms-with-s--c79f5c424519/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and the moment identities at the start of Proof; mirror offset 0",
+          "method": "Resultary search and targeted local-mirror passage retrieval",
+          "title": "Area-calibrated width-moment tomography of parallelograms, with sharp inverse slope",
+          "trigger": "Exact moment formula potentially covering the complementary positive block"
+        },
+        {
+          "assessment": "Establishes the kernel, not by itself the frozen Hessian",
+          "evidence": [
+            "Theorem 1 gives the exact angular pair kernel; §7 discusses a numerical kite candidate and leaves minimality and infinitesimal deformations for later discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.06736v1",
+          "material_read": "§2 Theorem 1 and §7 Remaining problems in primary HTML",
+          "method": "Focused literature search and primary full-text inspection; OA passage call timed out but the HTML was accessible",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Primary source of the moment kernel and quadrilateral optimization problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24 and 79–87",
+        "SCOPE-20261122-1a583463a075, Finding",
+        "SCOPE-20261101-c79f5c424519, exact moment identities in Proof"
+      ],
+      "rationale": "An exact square saddle would be a worthwhile local result in the quadrilateral optimization problem. Here its distinctive instability and coefficients are already available from the exact rhombus slice; the other block and vanishing cross terms are fixed by existing moments and half-turn symmetry. Expressing the two determined restrictions as a full matrix, Morse index and cone leaves no distinct useful mathematical remainder. The record proves neither the behavior on the cone nor a different shape-optimization theorem that could survive a repair.",
+      "residual_risks": [
+        "This is an assessment of incremental stand-alone value; the local mathematical phenomenon itself is informative, and the assessment does not depend on resolving same-day chronology."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

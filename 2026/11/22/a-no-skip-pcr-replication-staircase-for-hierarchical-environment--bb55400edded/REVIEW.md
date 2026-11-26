@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model's sample miss probability is obtained by conditioning on DNA availability, and independence multiplies it over samples. The strict concavity of the per-sample negative log failure probability produces a single continuous maximum; strictly increasing adjacent-efficiency ratios produce exactly one switch for each integer count above the initial optimum. Strict single-peakedness prevents skipped counts, while expansion at fixed scaled failure \(1-p=k(1-q)^m/m\) yields the sharp asymptotic coefficient. The relaxed logarithmic and log-log terms are independently obtained from the unique stationary equation. The standalone checker reproduced the specified numerical threshold examples and broader finite diagnostics. Numerical checks are not used as proof of universal assertions.
+PASS
 
-## Originality — PASS with provisional historical priority
+Conditioning gives 1-p+pr^m, whose negative log is additive over independent field samples. With y=cm and alpha=ca/b, the relaxed derivative numerator K=(alpha+y)psi'-psi is strictly decreasing, positive at zero and negative at infinity, giving the unique continuous peak and adjacent integer tie restriction. The log derivative of the adjacent ratio in p is the difference of elasticities (e^z-1)/z at two increasing arguments; it is strictly positive. Using the rightmost maximizer at p=0 in the first-order approximation handles a possible low-availability tie: each adjacent ratio before m0 starts at least one and each from m0 starts strictly below one. At p=1 every adjacent ratio is above one since a>0. A descending pair followed by an ascending pair and three consecutive ties both contradict the strict peak, so thresholds are strictly ordered and no indices are skipped. Bounded H_m for fixed p<1 rules out threshold accumulation below one. At 1-p=k r^m/m, the adjacent difference tends to -ca/b+k(r^(-1)-1), yielding the stated switch coefficient by bracketing. The stationary equation R=psi/psi'-y has R_y>0 and R_epsilon=e^y(psi-p(1-e^(-y)))>0 when epsilon=(1-p)/p, so its root increases with p. On the line y=log(1/epsilon)-log log(1/epsilon)+t, K tends to alpha-e^t, which proves the negative log-log correction. The p=1 objective increases to c/b without a finite optimizer. A separate bounded integer-power bisection for a=b=1 and q=1/2 reproduced the three 12-decimal switching examples; it does not establish the parameter-uniform assertions. The bundled checker was inspected, not executed. Integer field-budget floors, imperfect capture independence and false positives remain outside scope.
 
-Schmidt et al. (2013), DOI 10.1111/2041-210X.12052, and Willoughby et al. (2016), DOI 10.1111/1755-0998.12531, provide the motivating hierarchical field-capture/PCR model; the inspected full articles do not give an optimized cost-normalized PCR-replication staircase. Moore et al. (2014), DOI 10.1371/journal.pone.0115345, and Smart et al. (2016), DOI 10.1111/2041-210X.12598, optimize field visits/samples under different time-varying detection models, rather than the present nested Bernoulli laboratory replicate count. Lugg et al. (2018), DOI 10.1111/2041-210X.12951, fit a three-level model with a fixed number of PCRs; they optimize the field/site design rather than the PCR count. The closest accessible published-finding corpus occupancy findings concern coarsened detection or Fisher-information allocation, not this target and objective. No inspected primary source establishes the ordered no-skip switching probabilities or the exact asymptotic \(1-p_m\sim (a/b)c(1-q)^{m+1}/[qm]\). The 2014 work on eDNA replicate levels was available as abstract rather than complete full text, so this remains an explicitly limited originality review, not a historical uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-Field capture and laboratory amplification are different kinds of imperfect detection with different costs. The theorem resolves the exact direction and sequence of PCR-replication changes, and the geometric-over-linear threshold tells how close to certain field DNA capture must become before an additional PCR count is cost-optimal. It refines the qualitative claim that extra PCRs have diminishing returns with a natural, model-specific, experimentally parameterizable phase diagram; the log-log correction identifies the boundary of the high-capture regime. It does not claim instrument realism or a model-independent field recommendation.
+The hierarchical observation model and the tradeoff between fixed collection costs and within-sample effort are already known. The narrow contribution is the all-index phase diagram for the specified log-miss-per-cost loss, the sharp switch accumulation constant, and the matching continuous high-capture asymptotic. Prior applied optimization does vary laboratory replication, but the closest inspected objectives are materially different.
 
-## Closest literature and residual limits
+## value
 
-The three-level observation model predates this analysis, and optimization frameworks for survey effort predate it as well. This result is confined to cost-normalized negative log missed-detection, independently repeated PCRs within each captured sample, and no false positives. Other cost models or posterior-estimation objectives need fresh optimization. Possible earlier analytic treatments of a mathematically equivalent nested Bernoulli efficiency objective were not exhaustively ruled out. The abstract-only Ficetola et al. (2014) replication analysis is a residual literature-access risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A locally diminishing return to laboratory replication does not by itself locate the global integer switches. The full staircase and its calibrated accumulation rate identify when a single additional technical test changes the most efficient allocation in an idealized detection study. The log-log correction explains the rate at which the preferred count grows as the field availability ceiling disappears. This is useful model insight, not a finite-budget recommendation or an operational laboratory protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:14:04.253992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the all-n proof in RESULT.md lines 13–38. Equal-length choices of closed walks would make a useful branching cyclic SCC unbounded; distributing common-length laps excludes comparable cyclic SCCs. For fixed m and a subset of the noncyclic interior states, a fixed cyclic SCC between acyclic endpoints contributes at most one run per entry vertex (the exit is forced by m); the order of the visited SCCs is determined by any fixed topological sort. The bound (1+a)2^(n-a-2) is strict for a>=2; for a=1 the two options for a fixed subset have disjoint length ranges, and for a=0 the count is bounded by one binomial layer. When an endpoint belongs to a cyclic SCC of size c, the known endpoint determines the internal segment in the appropriate time direction and gives the bound 2^(n-c-1) unless both endpoints lie in that SCC, when the count is at most one. Trimness with coinciding endpoints puts every state in their SCC. Equality therefore requires an endpoint loop and every interior subset: empty, singleton and pair subsets force every forward edge in the one total order. Padding at that loop yields exactly 2^(n-2) runs for each m>=n-1 and the distinct labeled graphs number 2(n-2)!. Inspected verify.py and computation.txt without executing the former; the small-graph sweep also includes nontrim graphs and its walk-count cutoff is corroboration, not the proof. The proof wording about choosing vertices between endpoints of an edge is read as choosing just the two interior endpoints, or the corresponding singleton/empty subset.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 gives a 2^O(n) bound for chain NFAs; the introductory general bound is also exponential.",
+          "Weber–Seidl's line 1 concerns all one-symbol NFAs, not singleton endpoints. With all vertices final, the complete forward DAG and sole start loop already achieve 2^(n-1), by selecting any subset of the remaining vertices."
+        ],
+        "reasoning": "Neither a general exponential upper bound nor a broader class with a genuinely larger attainable value implies the sharper singleton-endpoint theorem.",
+        "searches": [
+          "arXiv:2610.08525 Theorem 9",
+          "Weber–Seidl §5 Theorem 5.1/Table 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08525",
+        "Weber–Seidl, doi:10.1016/0304-3975(91)90381-B",
+        "Resultary:666936069a90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 paper calls 2^(n-2) a lower bound, contrasting it with its general upper bound.",
+          "The frozen proof must control fixed-length visits to each cyclic SCC and characterize simultaneous equality over all subsets."
+        ],
+        "reasoning": "The broader upper bounds and the existing unary examples leave this fixed-entry comparison and the necessity of the endpoint loop unproved.",
+        "searches": [
+          "arXiv:2610.08525 §1 and Theorem 9",
+          "Weber–Seidl Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiefer et al. explicitly mention the 2^(n-2) unary lower bound on p. 2.",
+          "The equivalent digraph or 0–1 matrix-power formulation needs one distinguished source and sink and a uniformly bounded (s,t)-entry, not the total of initial/final entries."
+        ],
+        "reasoning": "The existing witness value is the same; the inspected statements do not turn the distinguished-entry upper bound and its equality cases into known conclusions.",
+        "searches": [
+          "arXiv:2610.08525 §1 and Theorem 9",
+          "Weber–Seidl Table 1, unary NFA class"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's nearby record 666936069a90 concerns alphabet thresholds in three-state singleton-component automata, not a unary all-n ambiguity extremum.",
+          "Table 1 is a classwise maximum table, not a table of equality graphs; its unary row concerns the broader class."
+        ],
+        "reasoning": "The exact lower-bound number is prior; no matching full extremum/classification was established in the checked catalogue or table.",
+        "searches": [
+          "Resultary: singleton-endpoint unary finite ambiguity and extremizers",
+          "Weber–Seidl Table 1"
+        ]
+      },
+      "rationale": "Credit the prior unary lower bound; pass the sharp upper bound under both singleton endpoints and the classification of all equality graphs, not the numerical lower bound alone.",
+      "residual_risks": [
+        "A unary digraph or matrix result in different terminology could cover this bound or classification.",
+        "The typography of the unary table maximum was not independently read off the poorly extracted formula; the larger broader-class lower bound is verified directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers numerical lower bound and broader asymptotic upper bound, not exact singleton-endpoint upper bound or rigidity",
+          "evidence": [
+            "PDF extraction offsets approximately 6600 and 29100."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08525",
+          "material_read": "Introduction p. 2 and Theorem 9 p. 7",
+          "method": "OA PDF passage comparison",
+          "title": "Stronger bounds on the degree of ambiguity of finite automata",
+          "trigger": "Exact numeric overlap and potentially dominating upper bound"
+        },
+        {
+          "assessment": "Unary class includes larger endpoint sets; poor extraction of its exponent does not affect the comparison",
+          "evidence": [
+            "Printed pp. 342–343; extraction around offsets 42950–45250."
+          ],
+          "identifier_or_url": "https://fmazowiecki.github.io/course/WS91.pdf",
+          "material_read": "§5, Theorem 5.1 and adjacent unary row in Table 1",
+          "method": "Author-hosted OA PDF passage comparison",
+          "title": "On the degree of ambiguity of finite automata",
+          "trigger": "Class-specific exact unary maximum"
+        },
+        {
+          "assessment": "Different extremal problem",
+          "evidence": [
+            "Alphabet-size thresholds for three states versus a sharp count and rigidity for unary arbitrary n."
+          ],
+          "identifier_or_url": "Resultary:666936069a90",
+          "material_read": "Catalogue finding summary and class qualifiers",
+          "method": "Resultary semantic comparison",
+          "title": "Sharp alphabet thresholds for finite ambiguity in three-state singleton-component automata",
+          "trigger": "Closest catalogue result on finite ambiguity with singleton components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a canonical finite-ambiguity model the result identifies the exact largest growth-independent multiplicity and, more usefully, the two structural equality mechanisms and their exact labeled count. The necessity of the endpoint loop is substantive and not just a re-statement of the older lower construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

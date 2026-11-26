@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:20:20.185732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equation is for fixed total outgoing migration per individual, with generator m(Pᵀ−I); switching to equal rates per edge would change the result. Dividing by m and shifting gives the irreducible Metzler matrix Pᵀ−q e_de_dᵀ. Its positive Perron vector is invariant on vertex orbits; summing its components in the eigen-equation shows z<1 for q>0. The three orbit equations reproduce the cubic and both quadratics. The bracket (√α,1) for the cubic gives positive orbit components and hence identifies the Perron root; analogous positive-component roots lie in (α,1) and (0,1) for clique and hub. At the clique root z, substituting q=(1−z)(z+β)/(z−α) into F_H=z(z+q)−1 gives α(1−z)/(z−α)>0. Then F_L=zF_H−αq gives −αβ(1−z)/(z−α)<0. The hub polynomial increases for positive z and the leaf polynomial is positive at 1, proving the strict ranking without assuming global monotonicity of the cubic. Weak-damage differentiation gives the stationary masses of the damaged patches; dividing the reduced equations by q verifies the strong-damage limits using the positive brackets. At q=0 all exponents agree and n=3 is included in the strict result when q>0. An independent root calculation at n=5,q=1 reproduces (0.933099131255, 0.882782218537, 0.618033988750); the supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reduction principle bounds how the spectral abscissa changes when one fixed dispersal generator is multiplied by a scalar; it applies separately to each graph but does not compare different generators.",
+          "Distinct records address a homogeneous star with a new edge, placement of distinct growth rates on a path, and a general fast-exploration invasion expansion. None of the inspected statements uses this single-killing perturbation across stars and cliques for every q."
+        ],
+        "reasoning": "Broader spectral monotonicity in a scalar migration rate gives no crossing information between different graph families. Resultary's widest graph comparisons concern different dispersal or demographic operators and do not include a specialization giving the stated strict order.",
+        "searches": [
+          "Altenberg arXiv:1108.4546 p. 1 spectral-bound statement",
+          "Resultary f2d1da0235f6, dad1c3c74fb5 and 365eb550e61d",
+          "Nakagiri et al. DOI:10.1016/j.ecocom.2024.101090 exact-title and DOI retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary f8a3f2d31298 (self-hit); f2d1da0235f6, dad1c3c74fb5, 365eb550e61d (distinct)",
+        "Aldous–Fill §5.2; Altenberg arXiv:1108.4546",
+        "Nakagiri et al. DOI:10.1016/j.ecocom.2024.101090 (bibliography and access attempts, not article text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous-star result increases the Perron root of s(cI+A) by adding an edge; that leaves retention fixed and does not conserve a fixed emigration sum in the way P does. The three-habitat linear path result keeps the path graph and changes spatial growth assignments. The explorer result can reverse a corridor's invasion outcome, but with explorer movement and heterogeneous recruitment/extinction, not the stated single damaged patch.",
+          "The cited 2024 title independently establishes a closely related three-lattice corridor question, but its exact equations and conclusions were not accessible. Even a matching n=3 special case would not itself yield the parameter-uniform inequality for all n."
+        ],
+        "reasoning": "The distinguishing comparison is made at the same n,m,δ under normalization, via the strict signs of two killed-root polynomials evaluated at the same clique root. Neither undamaged endpoint facts nor the inspected results on scalar mixing or different migration operators imply those signs.",
+        "searches": [
+          "Resultary f2d1da0235f6, dad1c3c74fb5 and 365eb550e61d original Finding and assumptions",
+          "Aldous–Fill Examples 5.9–5.10",
+          "Exact DOI search and publisher retrieval for the 2024 hub-effect study"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The epidemic-free mathematical model here is equivalently a walk with one-site soft killing; transpose does not change the spectrum and reversibility makes the walk similar to D^(−1/2) A D^(−1/2), with the same diagonal perturbation.",
+          "Classical return probabilities describe the undamaged star and clique and give their stationary masses; indexed habitat path comparisons use per-edge migration rather than this generator."
+        ],
+        "reasoning": "The principal exponent equals the spectral bound of the killed-walk generator plus the same r in each graph. Classical undamaged quantities identify the endpoint slopes, not the sign for every finite q after comparing three different killed matrices.",
+        "searches": [
+          "Resultary one damaged patch, complete graph, star hub or leaf, degree-normalized migration, Perron growth and hub effect",
+          "Aldous–Fill §5.2 Examples 5.9–5.10",
+          "Altenberg arXiv:1108.4546 spectral-bound reduction principle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record itself; the nearest separate records concern different objectives or migration assumptions.",
+          "The available special-graph formulas tabulate undamaged return probabilities and stationary masses, not the strict ranking as a function of damage intensity."
+        ],
+        "reasoning": "The all-q inequality is not a tabulated finite sequence; the exact catalogue and graph-formula checks are relevant. The returns alone leave a rank-one spectral comparison to be made.",
+        "searches": [
+          "Resultary exact and semantic searches for one damaged habitat star–clique Perron order, f8a3f2d31298 and related indexed records",
+          "Aldous–Fill §5.2 special graph formulas for n-stars and complete graphs"
+        ]
+      },
+      "rationale": "Pass for the exact all-n, all-positive-damage leaf–clique–hub ordering under common total outgoing migration, not for the generic observation that adding a corridor can harm a three-patch population, or for the stationary-weight perturbation law. Statement-level comparisons of the accessible results do not establish the uniform ordering. The closest 2024 three-lattice article remains an unresolved risk for n=3, not a basis for a negative assertion about its contents.",
+      "residual_risks": [
+        "The full 2024 hub-effect article could match or imply the n=3 ordering under equivalent normalization; access limitations leave that comparison unresolved.",
+        "Earlier killed-walk spectral or ecological results may encode the all-n ordering under a different alias. The bounded comparison does not certify exhaustive priority or infer order from a same-day catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMIT_PLAUSIBLE_N3_OVERLAP",
+          "evidence": "The title raises the same qualitative corridor issue. Neither the migration equations nor any proposed exact n=3 ordering could be verified from the article.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ecocom.2024.101090",
+          "material_read": "Bibliographic title and DOI; no verified article passage",
+          "method": "Attempted DOI and publisher PII S1476945X24000187 OA retrieval; exact DOI/title lookup did not identify a usable alternate article copy",
+          "title": "Three-lattice metapopulation model: Connecting corridor between patches may be harmful due to ‘hub effect’",
+          "trigger": "Directly plausible n=3 hub/corridor overlap"
+        },
+        {
+          "assessment": "COVERS_UNDAMAGED_RETURNS_AND_WEAK_SLOPE_INPUT",
+          "evidence": "The clique diagonal return probability is 1/n+(1−1/n)(−1/(n−1))^t; the star has masses 1/2 at its hub and 1/[2(n−1)] at each leaf. These are for the walk without soft killing.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S2.html",
+          "material_read": "Example 5.9 Eq. (5.32), offset 12540; Example 5.10, offsets 15070–16501",
+          "method": "Opened original public book passages and compared walk and growth observables",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, §5.2 Special graphs",
+          "trigger": "Classical same graphs, possible exact return-kernel implication"
+        },
+        {
+          "assessment": "BROADER_DISPERSAL_RATE_NOT_COMPARATIVE_TOPOLOGY",
+          "evidence": "The spectral bound of αA+βV is convex in α and its derivative is bounded above by s(A) when it exists. This does not order different A with different distinguished vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.4546",
+          "material_read": "Primary abstract, p. 1 near offsets 680–2190",
+          "method": "Compared the derivative bound's fixed operators with the three changed graphs",
+          "title": "Resolvent positive linear operators exhibit the reduction phenomenon",
+          "trigger": "General growth-versus-dispersal spectral theorem"
+        },
+        {
+          "assessment": "DIFFERENT_EMIGRATION_AND_NO_DAMAGE",
+          "evidence": "The update to a homogeneous star in s(cI+A) fixes retention and uses symmetric edge effects rather than normalized total emigration and a single death increment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-star-network-transition-in-corridor-gains-and-damping-lo--f2d1da0235f6",
+          "material_read": "Local mirror RESULT.md offsets 0–5962, Finding and scope",
+          "method": "Compared growth matrix, parameter normalization and perturbation",
+          "title": "A sharp star-network transition in corridor gains and damping loss",
+          "trigger": "Star topology and exact Perron effects of corridor addition"
+        },
+        {
+          "assessment": "DIFFERENT_PATH_ONLY_PERRON_COMPARISON",
+          "evidence": "It compares placements of three distinct local rates on a path with common per-edge Laplacian dispersal and permits a crossing; there is no clique comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-three-habitat-path-classification-for-dispersal-dependent--dad1c3c74fb5",
+          "material_read": "Local mirror RESULT.md offsets 0–5412, Finding and scope",
+          "method": "Compared network domain and migration rule",
+          "title": "Sharp three-habitat path classification for dispersal-dependent growth rankings",
+          "trigger": "Closest indexed three-patch linear growth and placement classification"
+        },
+        {
+          "assessment": "QUALITATIVE_CORRIDOR_OVERLAP_NOT_EQUIVALENT",
+          "evidence": "The example closes a path within a fast-exploration model with heterogeneous recruitment/extinction and an explorer kernel; it is not the exact killed-walk leaf–clique–hub comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d",
+          "material_read": "Local mirror RESULT.md offsets 0–4286, Finding and scope",
+          "method": "Compared demographic operator, graph modification and asymptotic regime",
+          "title": "A graph-resistance critical window for fast exploration in heterogeneous metapopulations",
+          "trigger": "Same-day distinct result on a corridor reversing a three-patch invasion factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed emigration effort the sign of completing a star depends on the damaged patch, and the signs persist across all relative severities of damage. That is a useful exact benchmark against topology-independent intuitions and is stronger than matching signs at both weak- and strong-damage limits, which would not exclude a crossover. The claim is for principal linear growth, not a statement about nonlinear persistence or extinction risk.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

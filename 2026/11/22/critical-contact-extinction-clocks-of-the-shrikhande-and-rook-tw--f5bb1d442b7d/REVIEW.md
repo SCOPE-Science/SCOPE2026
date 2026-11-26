@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is finite and exactly specified. The disjoint excited/refractory-mask transition follows directly from the three-state update. Two distinct exhaustive methods reproduce all twelve histogram cells across \(2\cdot3^{16}\) initial states: full ternary-code enumeration and independently weighted initial/next-excitation-mask grouping. The latter has an exact multiplicity proof. Explicit witnesses establish sharpness, while independently enumerated affine graph automorphisms give the eight Shrikhande extremal symmetry classes. `sh verify.sh` has passed using sources included with this finding.
+## correctness
 
-**Originality — PASS, qualified.** The closest published same-graph result (*Four-cycle excitation clocks distinguish the Shrikhande and rook graphs*) uses the different threshold-one update and does not imply the three-contact extinction census. The earlier half-degree period-three theorem and general triangle-cover result concern existence/absence of recurrence, not exact first-extinction-time distributions or the eight maximal-shell orbits. Gravner–Lyu–Sivakoff and Doba also use the single-neighbor rule. Targeted searches found no matching threshold-three census. Equivalent unindexed work remains possible.
+PASS
 
-**Value — PASS.** The two graphs are the canonical nonisomorphic strongly regular pair with identical parameters and spectrum, making them a natural controlled test of what spectral data can determine about nonlinear dynamics. A genuine sharp four-versus-five relaxation separation, and the explicit rare 1,088-state final shell split into eight symmetry types, adds useful dynamical information beyond the known universal-extinction fact. These are complete natural invariants, not arbitrary parameter slices.
+The next excited mask is the threshold mask minus the current excited and refractory masks; the next refractory mask is exactly the current excited mask. Independently enumerated every excited mask and every refractory submask of its complement, for each graph, in eight disjoint chunks. After excitation first vanishes an initially nonzero trajectory needs exactly one additional refractory step. Reproduced all six cells on both graphs, including sharp maxima four and five, and reproduced the exact set of 1,088 Shrikhande codes. Independently enumerated all adjacency-preserving permutations by bijection backtracking (no assumption of affinity), obtaining 192, and recovered all eight specified representative-size pairs. The frozen weighted count is valid because each specified next-excited subset fixes the refractory bits exactly on the eligible mask and leaves all other nonexcited bits free; its two group totals were also recomputed. Literal scalar updates give witnesses 7546 → 93932 → 334827 → 354294 → 0 and 563061 → 2947984 → 22795283 → 38268153 → 54 → 0.
 
-**Limitations and risk.** This is a two-graph finite computation, not an infinite-family theorem; the priority check is best-knowledge, and independent external audit is not performed. The general extinction principle is not separately claimed as original.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative extinction is covered by stronger general results; credit is limited to the exact labelled temporal census, the sharp difference in relaxation times, and the full spatial-orbit partition of the last shell. The closest same-pair census uses threshold one. No inspected result gives or mechanically specializes to these transient counts at threshold three.
+
+## value
+
+PASS
+
+Sharp relaxation time and its spatial symmetry classes are natural exact invariants for the standard nonisomorphic strongly regular twins. Their common spectrum predicts identical qualitative extinction under the general obstruction, but not the observed four-versus-five separation. The full labelled distribution and maximal-shell classification are useful reproducible finite benchmarks beyond a witness of graph nonisomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

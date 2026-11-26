@@ -17,7 +17,7 @@ Let \(\mu\) be the number-theoretic Möbius function and let \(a_q(p)=\sum_{d\mi
 \]
 Both series converge absolutely and \(0<K_q<\infty\). In particular, \(K_2=0.823295689936509\ldots\) and the standard deviation of the normalized rate is asymptotic to \(\sqrt{K_q}\,q^{-n/2}\).
 
-There is also a limiting **allocation of this variance among primitive orbits**. Define the least proper self-overlap period of \(w\) as
+There is also a limiting **allocation of this variance among primitive symbolic periods**. Define the least proper self-overlap period of \(w\) as
 \[
 r_n(w)=\min\{1\le p<n: w_0\cdots w_{n-p-1}=w_p\cdots w_{n-1}\},
 \]
@@ -30,7 +30,7 @@ For every fixed positive integer \(p\),
 \boxed{\lim_{n\to\infty}\sum_{w:r_n(w)=p}\pi_n(w)
 =\frac{a_q(p)q^{-2p}}{K_q}.}
 \]
-The limiting weights sum to one. Although holes covering low-period orbits are exponentially rare, they asymptotically account for **all** the variance in escape rates across hole locations.
+The limiting weights sum to one. Holes indexed by words of bounded least period are exponentially rare, yet their share of the total variance tends to one when the period cutoff is sent to infinity after the cylinder depth. These are symbolic periodic cylinders: in the half-open interval convention, the all-\((q-1)\) word corresponds to the periodic expansion at the excluded endpoint \(1\), not to a periodic point lying inside that hole.
 
 ## Assumptions and scope
 
@@ -53,7 +53,7 @@ Let \(h=q^{-n}\), and write \(\lambda_n(w)=\exp(-\gamma_n(w))\). Equivalently \(
 \[
 (1-\lambda)\lambda^{n-1}C_w((q\lambda)^{-1})=h. \tag{1}
 \]
-For \(n\ge3\) the left side minus \(h\) is positive at \(\lambda=1-2h\) because \(2(1-2h)^{n-1}>1\), and negative at \(\lambda=1\). All terms \((1-\lambda)\lambda^{n-1-p}\) for \(p\in P(w)\cup\{0\}\) are strictly decreasing on \([1-2h,1]\): indeed \(2h<1/n\), and the derivative of \((1-\lambda)\lambda^k\) is negative for \(\lambda>k/(k+1)\), with \(0\le k\le n-1\). Thus (1) has a unique solution in this interval. The generating-function denominator is positive for \(0<z\le1/q\); its first positive zero lies in the corresponding interval just above \(1/q\). By nonnegative coefficients and Pringsheim's theorem, this determines the exponential growth of the avoiding-word count and hence the required escape rate. In particular \(1-\lambda=O(h)\) uniformly in \(w\).
+For \(n\ge3\) the left side minus \(h\) is positive at \(\lambda=1-2h\) because \(2(1-2h)^{n-1}>1\), and negative at \(\lambda=1\). All terms \((1-\lambda)\lambda^{n-1-p}\) for \(p\in P(w)\cup\{0\}\) are strictly decreasing on \([1-2h,1]\): indeed \(2h<1/n\), and the derivative of \((1-\lambda)\lambda^k\) is negative for \(\lambda>k/(k+1)\), with \(0\le k\le n-1\). Thus (1) has a unique solution in this interval. The generating-function denominator is positive for \(0<z\le1/q\); its first positive zero lies in the corresponding interval just above \(1/q\), and the numerator is positive there. By Pringsheim's theorem, the pole determines the radius of convergence and hence \(\limsup_m A_m^{1/m}\). Submultiplicativity \(A_{m+k}\le A_m A_k\) gives existence of the limit, proving the claimed escape-rate relation. In particular \(1-\lambda=O(h)\) uniformly in \(w\). The constant word and the unbordered word \(0^{n-1}1\) have different values of the left side of (1) at each interior \(\lambda\), and hence distinct roots; the denominator defining \(\pi_n\) is therefore positive.
 
 **2. Uniform reduction to an overlap polynomial.** Since every \(C_w\) has coefficients zero or one, \(C_w(1/q)\) stays in \([1,q/(q-1)]\). Moreover, uniformly for \(\lambda\in[1-2h,1]\),
 \[

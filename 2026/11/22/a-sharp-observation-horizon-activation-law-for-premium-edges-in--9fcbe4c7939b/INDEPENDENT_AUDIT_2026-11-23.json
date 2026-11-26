@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:19:34.659216Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–108 and 113; VERIFICATION.md; verify.py read, not executed."
+      ],
+      "rationale": "The full trace includes the zero eigenvalues even after deletion. Differentiating the trace exponential twice in a nonzero symmetric direction K gives t² times an integral of squared Frobenius norms of K sandwiched between invertible exponential factors, hence strict convexity; the hub–leaf entries make the conductance parametrization injective. Compactness and ordinary-leaf symmetry give a unique optimizer on rx+(m−1)y=B with a common y. At y=0 the heat-kernel forms are 2E and (3+E)/2, E=exp(−2tB/r); transferring cost to the ordinary spokes is strictly improving. At x=0, the ordinary component has eigenvalues 0,y,my (multiplicities 1,m−2,1) and the isolated leaf adds a zero. The premium form is A=(m+1+(m−1)exp(−mty))/m from the two zero-mode projections and the hub's my projection. On an ordinary spoke the squared y and my projections are (m−2)/(m−1) and m/(m−1), giving C; the budget derivative is tC(r−A/C). Strict convexity proves deletion iff r≥A/C, including zero derivative at equality. Differentiating in s=exp(−z) gives the negative numerator in RESULT.md line 96 on 0<s≤1. R_m(0)=1 and R_m(z) is asymptotic to (m²−1)exp(z)/(m(m−2)); fixed-z convergence to exp(z) for z>0 brackets the growing-m roots. The positive-spoke reduced matrix, in the basis of the hub, premium leaf and normalized ordinary-leaf sum, has nonzero-eigenvalue sum 2x+my and product (m+1)xy, confirming the formula used for the example. Independently bisecting R_4(z)=3 and minimizing that reduced heat trace gave T=2.00413423245 and x≈0.0519481 at t=3.",
+      "residual_risks": [
+        "The numerical example is corroboration only; the proof is specific to symmetric combinatorial diffusion with one higher-priced spoke, fixed budget equality and disconnected designs admitted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prism Finding: the costly matching in K_m□K₂ is deleted through (m−1)log(1+m(r−1))/B.",
+          "Complete-network Finding: priced perfect matching reactivates at finite time for 1<r<2, but not for r≥2.",
+          "Boyd p. 1 supplies the convex spectral framework, not this threshold."
+        ],
+        "reasoning": "Neither matching-priced family contains the stated star design by parameter specialization; the kernel and limiting price behavior differ. General convexity alone does not evaluate either endpoint marginal.",
+        "searches": [
+          "Resultary prism 2c0941455571 and complete-network 82f5b871dfb7",
+          "Boyd 2006, Convex Optimization of Graph Laplacian Eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and mirrored Findings listed above",
+        "Primary literature query and the bounded original-paper passages recorded above",
+        "Frozen RESULT.md cited-prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked results provide standard convexity, optimization of other graphs, or asymptotic gap optimization; the primary comparison criterion here is tC(r−A/C) at a disconnected ordinary star plus an isolated premium leaf."
+        ],
+        "reasoning": "The design framework provides a route to a boundary test, but it neither fixes A/C for this geometry nor supplies its strict monotonicity and inverse-root asymptotics.",
+        "searches": [
+          "Boyd 2006; Sun–Boyd–Xiao–Diaconis 2006; Resultary 2c0941455571, 82f5b871dfb7, 94423c8faa44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Boyd–Xiao–Diaconis (2006), p. 1: maximize λ₂ under a linear rate constraint.",
+          "Square-price transition, Finding: same graph family and price design, but gap optimization keeps all spokes positive.",
+          "Two-conductance stars, Finding: optimizes a Lip→Lip norm, not the trace."
+        ],
+        "reasoning": "The asymptotic rate, the largest norm amplification and the sum of all heat eigenvalues at a fixed time are different functionals. In particular the first comparison has no finite-time deletion regime.",
+        "searches": [
+          "Resultary/local mirror: priced-star heat trace, finite-time activation and weighted-star heat design",
+          "Literature: \"heat trace\" weighted star conductance optimization finite-time edge budget activation threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed identical star theorem is this very record; the closest distinct indexed threshold formulas concern prisms and complete graphs."
+        ],
+        "reasoning": "This is an all-real-parameter law, not a finite tabulated constant. The relevant exact check was for a distinct indexed formula or coverage by a larger family.",
+        "searches": [
+          "Local Resultary search and mirrored Findings for 2c0941455571, 82f5b871dfb7 and 94423c8faa44"
+        ]
+      },
+      "rationale": "No checked statement gives or subsumes this one-premium-spoke heat-trace threshold with its two scaling laws. The two distinct same-day finite-horizon comparisons overlap in objective and active-set method, not in graph or threshold; their dates are not used to infer priority. Prior convex design, spectral-gap star optimization and heat-Lipschitz star optimization do not settle the sign of this finite-time marginal derivative.",
+      "residual_risks": [
+        "The primary keyword query was inconclusive rather than negative evidence. An unindexed equivalent finite-time design calculation may exist; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, not equivalent coverage",
+          "evidence": "K_m□K₂ with matching price; for r>1 deletion through (m−1)log(1+m(r−1))/B, then both classes active.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sided-finite-horizon-edge-activation-in-priced-complete-pris--2c0941455571",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-sided finite-horizon edge activation in priced complete prisms",
+          "trigger": "Same objective and activation question"
+        },
+        {
+          "assessment": "Material analogue, not encompassing the star",
+          "evidence": "Complete graph with priced perfect matching; reactivation for 1<r<2 only.",
+          "identifier_or_url": "2026/11/22/SCOPE-finite-horizon-reactivation-of-costly-matching-edges-in-complete--82f5b871dfb7",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Finite-horizon reactivation of costly matching edges in complete diffusion networks",
+          "trigger": "Same objective and expensive-edge activation"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Maximizes algebraic connectivity and has all rates positive even at arbitrarily high price.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-square-price-transition-for-fastest-mixing-on-a-weighted-sta--94423c8faa44",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The square-price transition for fastest mixing on a weighted star",
+          "trigger": "Closest same-family price design"
+        },
+        {
+          "assessment": "Different functional",
+          "evidence": "Lip→Lip operator norm, not trace design.",
+          "identifier_or_url": "2026/11/01/SCOPE-two-conductance-stars-exact-heat-lipschitz-norm-slow-edge-rigidi--20e568f24dba",
+          "material_read": "RESULT.md, Finding, offsets 36 and 755",
+          "method": "Local Resultary mirror",
+          "title": "Two-conductance stars: exact heat-Lipschitz norm, slow-edge rigidity and a sharp fixed-size amplification envelope",
+          "trigger": "Finite-time heat operator on the same geometry"
+        },
+        {
+          "assessment": "Related background; different objective",
+          "evidence": "Maximizes λ₂ with a linear resource constraint.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "PDF p. 1, OA offset 1040",
+          "method": "Open primary PDF",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Priced conductance optimization"
+        },
+        {
+          "assessment": "Framework, not the model-specific formula",
+          "evidence": "Convex optimization of functions of Laplacian eigenvalues.",
+          "identifier_or_url": "https://people.csail.mit.edu/jrennie/trg/papers/boyd-convex-06.pdf",
+          "material_read": "PDF p. 1, OA offset 640",
+          "method": "Open primary PDF",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "Potential general spectral design result"
+        },
+        {
+          "assessment": "Different objective and network",
+          "evidence": "Algebraic connectivity of interconnected networks.",
+          "identifier_or_url": "arXiv:1510.06785v1",
+          "material_read": "PDF p. 1, OA offset 3100",
+          "method": "Open primary PDF",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Budget transition precedent"
+        },
+        {
+          "assessment": "Different optimization variables",
+          "evidence": "Leader selection to reduce intermediate-state convergence error, not continuous conductance design.",
+          "identifier_or_url": "arXiv:1306.4949v2",
+          "material_read": "PDF p. 1, OA offset 1400",
+          "method": "Open primary PDF",
+          "title": "Minimizing Convergence Error in Multi-Agent Systems via Leader Selection",
+          "trigger": "Finite-time convergence optimization precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–45 and 115–119",
+        "Closest same-objective and same-graph comparisons recorded under originality"
+      ],
+      "rationale": "It gives an exact design rule for when a finite-time mean-square diffusion objective deliberately disconnects a usable vertex. The all-price activation, including the equality and asymptotic scales, distinguishes the criterion from maximizing algebraic connectivity and from the different matching-edge examples. This is a useful active-set classification, not just a spectral calculation for preset weights.",
+      "residual_risks": [
+        "The result does not solve heterogeneous multi-price stars or general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

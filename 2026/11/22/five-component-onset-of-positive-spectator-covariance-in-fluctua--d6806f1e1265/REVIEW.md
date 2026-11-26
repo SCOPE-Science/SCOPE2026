@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance is derived by Poisson shift (Stein) and the exact minimum tail-sum moments, with correct strict-tie handling. The small-loading exponent follows from complete-complex probability and strict unique-minimum probability. The high-loading Gaussian limit has uniform-integrability justification using fourth moments. Gaussian orthant identities reduce the four signs to finite inverse-trigonometric formulas; `verify.py` proves strict signs using rational interval bounds. This is a theorem for fixed species numbers two to five, with no unsupported claim about all positive finite loadings or unique crossings.
+PASS
 
-## Originality — PASS (qualified)
+Expanding the residual covariance gives Var(M)-2 Cov(N1,M). The Poisson shift identity gives Cov(N1,M)=lambda times the probability of a strict unique minimum of species 1; a tie does not change the minimum when one count is increased. The tail sums count E M and E M^2 with weights 1 and 2k-1. At small lambda the M=1 term is lambda^m+O(lambda^(m+1)); the second moment contribution from M>=2 is bounded by E[N1^2; N1>=2] times Pr(N1>=2)^(m-1), hence O(lambda^(2m)). The N1=0 contribution to the strict-minimum probability is lambda^(m-1)+O(lambda^m); the remainder is bounded by Pr(N1>=1)Pr(N1>=2)^(m-1). This gives C_m=-lambda^m+O(lambda^(m+1)). The iid Poisson CLT gives a joint Gaussian limit; bounded fourth moments of the centered/scaled minimum imply convergence of its first two moments. The strict-minimum event has a Gaussian-null boundary and limiting probability 1/m. Integrating the Gaussian minimum density m phi Q^(m-1) by parts gives the stated first and second moments. Normalizing phi^2 and phi^3 makes the residual Q powers equicorrelated orthant probabilities with correlations 1/3 and 1/4. The two-dimensional arcsine formula follows by the angular measure of two intersecting half-planes; in dimension three expansion in signs and central symmetry eliminate all odd terms, leaving the sum of the three pair terms. My separately written rational check /workspace/branches/check1.py confirms all the displayed open enclosures, using the squared mean formula and bounding pi, sqrt(3) and the two arcsines. Finally the Poisson sums are continuous by compact-uniform tail domination, so the five-species sign transition implies at least one zero at positive loading.
 
-The motivating primary paper (Rubinovich–Polak, arXiv:2607.03549, first public July 3, 2026) was inspected in both its main matching analysis and its supplemental section K (equations S82–S88). That section already defines the multicomponent minimum and its mean-deficit monotonicity, but it does not imply the claimed spectator pair covariance or its four-to-five high-loading sign change. Related published two-Poisson extreme results concern marginal extrema rather than covariance after shared subtraction. Gaussian order-statistics literature gives basic marginal moment methodology but no inspected translation to this multicomponent residual-covariance classification. A possible unindexed prior covariance identity remains a priority risk; accessible source checks do not prove uniqueness of publication.
+## originality
 
-## Value — PASS
+PASS
 
-The covariance is a natural second-order observable of leftover fragments in unit-stoichiometric assembly, distinguishable from the previously emphasized *mean* loss of product yield. The change in its sign at the first five-component high-loading case is a structural switch between depletion-dominated and common-bottleneck-dominated fluctuation behavior. The exact minimum-component threshold (among species counts two through five), a countably infinite exact formula, rigorous asymptotics and a negative-to-positive density transition are scientifically meaningful independently of any unproved kinetic extension.
+The capacity model, two-input extrema, and normal order-statistic methodology are prior. The verified two-count minimum results already imply the two-species covariance by a direct reduction. The supported distinct contribution is the multicomponent residual pair covariance and the negative-to-positive high-loading change from four to five required species, together with the low-loading sign. The inspected strongest assembly and extrema results do not imply that multicomponent finding.
 
-## Residual limitations and priority risk
+## value
 
-Full general order-statistics literature was not exhaustively inspected; two matching-adjacent indexed records exposed summaries but not accessible full texts. This does not remove the specifically verified difference from the motivating manuscript. No exact five-component loading cutoff or uniqueness claim is made. The result assumes independent equimolar Poisson loading and immediate maximal assembly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prior capacity model gives a natural, well-defined residual pair rather than an arbitrarily chosen finite statistic. Its covariance measures fluctuations not addressed by a mean product deficit. The opposite asymptotic signs at four and five and the five-component loading crossover distinguish a common-minimum effect from the negative low-loading regime, supplying a useful exact benchmark without requiring kinetic applicability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

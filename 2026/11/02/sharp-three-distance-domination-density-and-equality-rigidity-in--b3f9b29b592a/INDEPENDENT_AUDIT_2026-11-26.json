@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:28:48.448295Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding–Proof",
+        "Frozen VERIFICATION.md, support/potential.json and support/verify.py (source inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/5.py /workspace/source/2026/11/02/sharp-three-distance-domination-density-and-equality-rigidity-in--b3f9b29b592a/support/potential.json"
+      ],
+      "rationale": "Cartesian product distance is horizontal distance plus the change of row. At n>=7 the allowed offsets are exactly same-row ±3 and other-row ±2; the center itself is allowed only because selected vertices are exempt. Consecutive six-column states of every admissible cyclic word form a closed walk, and shift overlap reconstructs the labeled word from its walk; center weights count every selected vertex once. An independent exhaustive reproduction read the frozen potential as data, rebuilt all 15,376 arcs on 4,096 states from seven-mask windows, verified every nonnegative slack and reproduced all entries in 18 simultaneous relaxations. For each of the 3,583 tight arcs I used return-path reachability, not the supplied SCC program, to check it is cyclic iff it is one of the 14 arcs of the stated two disjoint seven-cycles. The telescoped slack gives |D|>=ceil(3n/7), and equality in 7|D|=3n forces only those cyclic arcs. Traversing either cycle with a fixed labeled origin gives seven distinct words, and the row-swapped family is disjoint. A separate primal BFS and subset enumeration agreed at n=7,8,9: (minimum,count)=(3,14),(4,36),(5,72); BFS neighborhoods were checked also at n=10. In the open ladder an existing distance-three witness has horizontal displacement <=3 and retains its exact distance on wrapping when n>=7. Restricting a periodic optimum and filling both boundary strips of three columns costs at most 12 extra vertices and retains all interior witnesses; this proves the stated density limit.",
+      "residual_risks": [
+        "The unbounded result follows from exact certificate telescoping, not small-n enumeration. There is no classification of ceiling-bound equality when n is not a multiple of seven."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das et al. analyze square-grid asymptotics; Hassan et al. prove general statements and examples such as stars and wheels; Bouznif et al. give exact small-height strip results for identifying, locating-dominating and locating-total-dominating codes, including a period-seven identifying result for height two."
+        ],
+        "reasoning": "The two-dimensional limit does not control fixed height two. The cited strip optimization uses a different constraint; requiring separation of coverage signatures is not ordinary domination in the distance-three graph.",
+        "searches": [
+          "arXiv:2607.29648v1 abstract and §5",
+          "Hassan et al., §2, Thm. 2.1 and Cor. 2.2",
+          "arXiv:1708.00758v1 abstract and §5.1.1"
+        ]
+      },
+      "checked_sources": [
+        "Three cited primary papers above",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 568471453275, cc8c39c56161, 96ba1e4eb373, d64ba582ccee, 71e9ef356cdb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior finite-state method computes invariants once local constraints are fixed; in this distance graph separate admissibility and arc weights produce a minimum cycle mean 3/7 and exactly two cyclic tight components. The nearby distance-two record and identifying-code record use other local constraints."
+        ],
+        "reasoning": "A general algorithm supplies the proof strategy but neither the density nor the exact equality structure without a fresh extremal/certificate computation. No logically dominating parameter result was found.",
+        "searches": [
+          "arXiv:1708.00758v1 finite-state strip method and §5.1.1",
+          "arXiv:2607.29648v1 §5",
+          "Compared Resultary 568471453275 and d64ba582ccee findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-distance-three requirement with an exemption at selected vertices is ordinary domination of the graph whose edges join precisely distance-three pairs. Hassan et al. give exactly this unselected-vertex condition; the indexed distance-two result uses the analogous ordinary-domination reduction on the different distance-two graph."
+        ],
+        "reasoning": "The reduction preserves the feasible sets and optimum, so it is an alias, not a new theorem. Results for distance at most three, distance two, or ordinary domination of the original prism do not give the claim.",
+        "searches": [
+          "Resultary semantic searches on exact-distance-three, prism/ladder aliases and domination of distance graphs",
+          "Hassan et al. IJMCS 19 (2024) abstract and §2",
+          "Resultary 568471453275, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched findings give distance-two ladder minima 2ceil(n/5), 11n power-dominating pairs in circular ladders for n>=7, upper ordinary domination number n, a period-seven total identifying-code law with leading coefficient 6/7 per column, and the matching-complex homotopy type of the hexagonal prism, respectively."
+        ],
+        "reasoning": "None is a table of exact-distance-three domination on the distance graph of C_n square K_2 or P_n square K_2. Same periods and overlapping host graphs do not give exact matching entries. The bounded index search does not establish absence elsewhere.",
+        "searches": [
+          "Resultary exact-distance open ladder/prism searches; hits 568471453275, cc8c39c56161, 96ba1e4eb373, d64ba582ccee, 71e9ef356cdb"
+        ]
+      },
+      "rationale": "Exact-distance domination and the strip-state method are prior. The distinct supported claim is the sharp coefficient 3/7 per column, the two-periodic-pattern families exhausting equality at all multiples of seven, and the matching open-ladder density. Inspected literature and matched indexed results concern different invariants or domains.",
+      "residual_risks": [
+        "The bounded search may miss the result under a different presentation of the distance graph. This is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different asymptotic domain",
+          "evidence": [
+            "Square-grid density bounds and conjecture 2/23 at distance three, not fixed height two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.29648v1",
+          "material_read": "Abstract p. 1 and §5 p. 14",
+          "method": "OA PDF passage comparison",
+          "title": "Exact-Distance Domination in Grid Graphs",
+          "trigger": "Same invariant for grids"
+        },
+        {
+          "assessment": "Definition antecedent; inspected statements do not give the prism law",
+          "evidence": [
+            "Same unselected-vertex condition and general examples on other graph families."
+          ],
+          "identifier_or_url": "https://future-in-tech.net/19.4/R-JavierHassan.pdf",
+          "material_read": "Abstract; §2, Thm. 2.1 and Cor. 2.2, printed p. 983",
+          "method": "OA PDF passage comparison",
+          "title": "3-Distance Domination Numbers of Some Graphs",
+          "trigger": "Exact same invariant"
+        },
+        {
+          "assessment": "Method antecedent, other optimization constraints",
+          "evidence": [
+            "The height-two identifying-code result is 6/7 per column asymptotically and requires distinguishing neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.00758",
+          "material_read": "Abstract p. 1 and §5.1.1 p. 17",
+          "method": "OA PDF passage comparison",
+          "title": "Exact values for three domination-like problems in circular and infinite grid graphs of small height",
+          "trigger": "Same thin strip and related methods"
+        },
+        {
+          "assessment": "Different distance",
+          "evidence": [
+            "Two P_n^2 components and 2ceil(n/5) minimum, not the distance-three graph."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-five-residue-exact-distance-two-domination-census-of-open-ladder--568471453275",
+          "material_read": "RESULT.md Finding, offset 0, and stated reduction",
+          "method": "Resultary search; local mirror passage",
+          "title": "Five-residue exact-distance-two domination census of open ladders",
+          "trigger": "Same host ladder and distance-graph formulation"
+        },
+        {
+          "assessment": "Distinct assertion, with no priority ordering inferred from same date",
+          "evidence": [
+            "11n power-dominating pairs for n>=7 under a propagation rule."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-all-minimum-power-dominating-pairs-in-circular-ladder-graphs--cc8c39c56161",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search; local mirror passage",
+          "title": "All minimum power-dominating pairs in circular ladder graphs",
+          "trigger": "Same labeled prism and minimizer count"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Total identifying-code law 6 floor(n/7)+f(n mod 7)."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-seven-periodic-total-identifying-domination-law-for-prism-grap--d64ba582ccee",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search; local mirror passage",
+          "title": "A seven-periodic total-identifying domination law for prism graphs",
+          "trigger": "Period seven and same prism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and finite potential argument",
+        "arXiv:2607.29648v1",
+        "arXiv:1708.00758v1"
+      ],
+      "rationale": "Fixed-height two is a natural strip version of exact-distance grid domination. The exact density gives an asymptotic benchmark, and the complete labeled rigidity at the optimal periodic orders is a distinct structural result, not just a numerical minimum at one circumference.",
+      "residual_risks": [
+        "No higher-width, general-distance, or square-grid claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

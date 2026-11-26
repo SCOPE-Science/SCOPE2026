@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:10:34.806526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A simplex is precisely a triple-family of support size ≤n−3. A fixed r-vertex simplex with o induced orbits contributes (−1)^(o−1) to reduced Lefschetz, also correctly counting the empty face as −1. On the Boolean set of cycles the unrestricted supported-family weight sum is one on stable subsets of size ≤2 and zero otherwise. Inverting gives (−1)^c(1−a+binom(a,2)−b); taking complements of sizes 0,1,2 gives the checked polynomial with the stated sign after converting the Lefschetz trace in degree n−6. Independently, the support map from nonempty faces onto subsets of ranks 3 through n−3 has the order-preserving section U↦binom(U,3), with section after support pointwise ≥identity. These maps commute with relabeling; this gives the same homology representation on the rank-selected order complex. I enumerated fixed-chain contributions there on every conjugacy class for n=7,8,9,10 (15,22,30,42 classes), reproducing the polynomial. For the Pieri sum, λ=(n−k,ν) has k≤4 and first row ≥3, bigger than any input μ first row (≤2), so interlacing depends only on the tail ν. Checking all tails of sizes 0 through 4 gives coefficient one at (1,1,1,1), (2,1,1), (2,2) and zero at the rest, proving stabilization across the full range. Evaluating the small induced characters gives 1−2a+4 binom(a,2)−2b−6 binom(a,3)+2ab+6 binom(a,4)−2 binom(a,2)b+2 binom(b,2), exactly the untwisted polynomial. Sign twist conjugates the three partitions. Neither trivial nor sign appears, so no A_n fixed vectors occur. The frozen checker was inspected, not run, and the finite corroboration is not used as a universal proof.",
+      "replay_paths": [
+        "python3 /tmp/opencode/frozen-review-exact-4.py",
+        "Frozen RESULT.md lines 36–102 and verify.py",
+        "Nilakantan–Singh arXiv:1807.11732v1 Theorem 1.3 for homology concentration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4.4 in Wachs identifies the homology module for arbitrary rank selection with the corresponding skew-hook representation",
+          "Nilakantan–Singh Theorem 1.3 and §4.2 give ordinary homotopy type and rank, while Schultz studies a dihedral action on a stable box complex"
+        ],
+        "reasoning": "For R=[3,n−3] the module is the skew-hook ribbon of that descent set. After sign twist, the complementary descents give composition (1,1,n−4,1,1), whose ribbon coarsening formula gives the nine Schur terms of the frozen proof and then exactly the three irreducibles by Pieri. The reduction using support is checked here; no inspected source was found asserting that exact general equivariant support model. Wedge rank alone and the stable action alone do not imply the character.",
+        "searches": [
+          "Wachs Poset Topology: Tools and Applications §3.4, Solomon's rank-selected Boolean theorem",
+          "Nilakantan–Singh ordinary Kneser wedge-type theorem",
+          "Schultz stable Kneser equivariant topology"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 2026/10/25 complete triple character, same-day two-subset character, 2026/11/1 odd Kneser homology, 2026/10/11 rank-span-two Boolean result",
+        "Wachs arXiv:math/0602226v2, Nilakantan–Singh arXiv:1807.11732v1, Schultz DOI 10.46298/dmtcs.2960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact Resultary polynomial is sign/4 times a⁴−10a³−4a²b+31a²+12ab−30a+4b²−12b+4; other reduced groups vanish and neither trivial nor sign occurs",
+          "Characteristic-zero semisimplicity and the Pieri calculation recover the labels; no independent representation invariant remains"
+        ],
+        "reasoning": "Even without a table of labels, the complete character theorem implies the exact irreducible module via the stated finite Pieri expansion. Both proofs start with a fixed-face oriented trace and cycle Möbius inversion. The additional Boolean-lattice theorem supplies a separate general route, rather than merely an analogous formula.",
+        "searches": [
+          "Complete S_n-homology characters Resultary Finding and Proof §§1–3",
+          "Wachs Theorem 3.4.4 and rank-selection comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For nonempty faces, support and U↦binom(U,3) yield an S_n-equivariant order homotopy equivalence with rank selection [3,n−3]",
+          "2026/10/25 complete-character record uses the same open-neighborhood condition and exact sign polynomial"
+        ],
+        "reasoning": "The support/section maps are natural under permutations; the rank-selection model is equivalent for the module under review. The complete character equality determines the same module, not merely its dimension.",
+        "searches": [
+          "Resultary three-subset Kneser full S_n character and multiplicity-free neighborhood homology",
+          "Wachs rank-selected Boolean homology and skew hook"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/SCOPE-complete-s-n-homology-characters-of-three-subset-kneser-neighbor--ae467830df3a gives the exact character for n≥6",
+          "Same-day 2026/10/18/SCOPE-uniform-symmetric-group-characters-of-kneser-neighborhood-homolo--3149846c6464 treats two-subsets, not three",
+          "2026/11/1/SCOPE-multiplicity-free-symmetric-group-homology-of-odd-kneser-neighbo--d6bd47d26e6c matches the labels at n=7 only within the fixed-triple family"
+        ],
+        "reasoning": "The first match supplies all classes and all n here; the other two show precisely which analogous results do not cover the full claimed range.",
+        "searches": [
+          "Resultary exact three-subset character; same-day Kneser neighborhood character and odd Kneser Specht modules"
+        ]
+      },
+      "rationale": "A distinct indexed Result gives exactly the full rational character of the same ordinary open triple complex in all the claimed degrees and throughout a larger parameter range, by the same fixed-face/Möbius calculation. Rational S_n modules are determined by their characteristic-zero characters, so the explicit labels do not escape this coverage. There is also a direct reduction to Solomon's general rank-selected Boolean representation theorem and a bounded ribbon/Pieri expansion. The exact catalogue match has a later displayed date; this is not an inference about priority or independence.",
+      "residual_risks": [
+        "Solomon's original article was not retrieved; its theorem was checked in Wachs's survey.",
+        "No chronology or dependence is inferred from record path dates.",
+        "Deferred external searches are not evidence of absence. No exact prior equivariant support reduction was located in the inspected primary passages; the proof of the reduction is supplied here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact rational character covers the claim; priority unresolved",
+          "evidence": [
+            "Same ordinary open neighborhood complex and sign polynomial for n≥6; same reduced degree concentration and absence of trivial/sign.",
+            "Invariant faces, augmented signs and Boolean Möbius inversion agree with the frozen proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-s-n-homology-characters-of-three-subset-kneser-neighbor--ae467830df3a/RESULT.md",
+          "material_read": "Finding, assumptions, fixed-face and cycle-inversion proof offsets 0–4523",
+          "method": "Local mirror passage inspection",
+          "title": "Complete S_n-homology characters of three-subset Kneser neighborhood complexes",
+          "trigger": "Exact overlap in object and trace polynomial"
+        },
+        {
+          "assessment": "General ribbon theorem applicable through the support map",
+          "evidence": [
+            "Top homology of the Boolean rank selection is the skew-hook S_n-module whose descent set is the selected ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602226v2",
+          "material_read": "§3.4 Theorem 3.4.4 pp. 62–63 and Solomon reference p. 116",
+          "method": "OA PDF passage inspection",
+          "title": "Poset Topology: Tools and Applications",
+          "trigger": "General rank-selected Boolean representation coverage"
+        },
+        {
+          "assessment": "Nonequivariant homotopy theorem, not full module",
+          "evidence": [
+            "In their notation n=k+6 and spheres occur in degree k; the proof computes the wedge multiplicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.11732v1",
+          "material_read": "Theorem 1.3 p. 2 and §4.2 p. 19",
+          "method": "OA PDF passage inspection",
+          "title": "Neighborhood Complexes of Kneser Graphs, KG_{3,k}",
+          "trigger": "Same ordinary complex and published homotopy input"
+        },
+        {
+          "assessment": "Different graph construction and action",
+          "evidence": [
+            "Dihedral action on the box complex of stable Kneser graphs, not the full S_n action on this ordinary complex."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2960",
+          "material_read": "Introduction/statement, DMTCS Proc. AO p. 873",
+          "method": "OA PDF opening passage inspection",
+          "title": "The equivariant topology of stable Kneser graphs",
+          "trigger": "Potential equivariant precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The symmetry of a natural neighborhood complex is a worthwhile invariant, but the full character is already explicitly covered. The multiplicity-free labels add no new independent information and are mechanically obtainable by standard ribbon/Pieri expansion. The original proof's central fixed-point calculation also overlaps, and the record supplies no additional structural theorem beyond that exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

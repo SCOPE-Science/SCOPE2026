@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:26.830502Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh inversion gives the radial kernel with multiplier 1/(2j). Subtracting adjacent radial heat-integral entries gives the strictly positive integral in RESULT.md line 35. Translation invariance, symmetry and zero row sum then give both exact endpoint norms and the fixed positive Hamming ball in the time-integrated formula. For the lower bound, the ball with radius d/2−2 sqrt(dH), H=log log d, has stationary mass at most exp(−8H) and heat mass at least 1−exp(−8H) up to t_c−(log H)/4−O(1), by Hoeffding. For the upper bound, the central-shell entries are −(log d)/4+O(1) in the rescaled row. If N=d−1 and m=floor(d/2), the ratio of binomial coefficients at m−ell and m is the product of (m−i)/(N−m+i+1) for 0≤i<ell; the denominators are at least d/2 and the relative losses are at most (4i+2)/d. Using log(1−a)≥−2a for a≤1/2 and the central coefficient bound proves the local estimate in line 67. The incomplete-beta increment summed over floor(sqrt(dH)/8) shells is O(sqrt(H) exp(H/4+o(H)))=o(log d), placing the positive ball strictly inside d/2−sqrt(dH)/16. Hoeffding makes its heat mass exp(−cH) after t_c−(log H)/4+O(1) and before t_c, an interval of length O(log H). Beyond t_c the product chi-square bound yields an integrable, dimension-free exponential majorant. Doubling the integrals gives the coefficient −1/2 of log log log d and the bounded remainder. The verification notes and check.py were inspected but not executed; they cover exact finite checks, not these asymptotics. The conclusions use the unnormalized Laplacian on the full endpoint spaces.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellis Theorem 5 applies to products of regular graphs, including the product of d copies of K_2; its formula is for the Green kernel.",
+          "Cox–Peres–Steif identify the cutoff scale (log d)/4 and order-one window for coordinate flips. The DGM abstract likewise concerns convergence to stationarity; its full text was not read."
+        ],
+        "reasoning": "The general spectral formula does not estimate the signed shell sum; fixed-time mixing does not give the signed mass of a single optimizing event integrated over time.",
+        "searches": [
+          "Ellis Cartesian-product Green theorem",
+          "Cox–Peres–Steif arXiv:1408.5122 p. 6 and Diaconis–Graham–Morrison DOI 10.1002/rsa.3240010105"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0309080v2",
+        "arXiv:1408.5122",
+        "10.1002/rsa.3240010105",
+        "Resultary records 5aedd2613976, ff6b31c1982f and bda401cecdc2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The familiar kernel identity and general maximum absolute row-sum rule supply the finite representation.",
+          "The cutoff event can depend on time in a total-variation supremum, whereas a single Hamming ball must be used in the Green norm. The independently checked central-shell estimate and tail comparison move the useful time back by (log log log d)/4."
+        ],
+        "reasoning": "Credit the inherited finite spectral machinery; neither inspected result implies the nonconstant correction by direct substitution or bounding the ordinary cutoff window.",
+        "searches": [
+          "Ellis Theorem 5 versus the sign-boundary estimate in frozen RESULT.md lines 55–76",
+          "arXiv:1408.5122 p. 6 versus frozen RESULT.md lines 39–87"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ellis uses the normalized graph Laplacian; on Q_d its Green operator is d times the unnormalized G_d.",
+          "The rate-one-per-coordinate continuous-time deviation matrix is exactly G_d by the heat integral; the degree-normalized one is dG_d."
+        ],
+        "reasoning": "Changing generator convention only multiplies the norm; it cannot remove the triple-log term. A Poisson factor defined on a centered input unit ball need not equal the full-space induced norm.",
+        "searches": [
+          "Resultary: Boolean cube Poisson inverse, endpoint Green norm and triple logarithm",
+          "Ellis arXiv:math/0309080v2 §2 Eqs. (3)–(4), Theorem 5; hypercube deviation-matrix and Poisson-factor terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-exact-endpoint-cut-cycle-projection-norms-on-line-graphs-of-bool--5aedd2613976 gives edge-space projection norms, not the vertex-space inverse norm.",
+          "2026/10/18/SCOPE-sharp-endpoint-analyticity-on-boolean-cubes-a-two-term-law-and-h--ff6b31c1982 gives derivative-of-semigroup norms; 2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2 treats the Green operator on cycles."
+        ],
+        "reasoning": "None of these exact-invariant records is a table or formula for the cube vertex Green norm; the operators and in the last case the graph differ.",
+        "searches": [
+          "Resultary: cube inverse Laplacian / Green operator exact L1/Linfinity norm; log log log correction"
+        ]
+      },
+      "rationale": "Ellis's product Green theory supplies a prior spectral formula, and fixed-time cube cutoff is established. The supported distinct contribution is the sharp integrated endpoint norm with the triple-log displacement, obtained by controlling the common sign set; no inspected prior theorem supplies that correction.",
+      "residual_risks": [
+        "The DGM article's full text was unavailable. Earlier equivalent deviation-matrix or Poisson-factor asymptotics under other terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Kernel framework covered; endpoint asymptotic not stated in inspected passages",
+          "evidence": "Normalized pseudoinverse and Cartesian product formula.",
+          "identifier_or_url": "https://arxiv.org/html/math/0309080v2",
+          "material_read": "§2 Eqs. (3)–(4), HTML offsets 4200–7484; Theorem 5 near offset 27400",
+          "method": "Lawful OA full-text HTML",
+          "title": "Discrete Green's functions for products of regular graphs",
+          "trigger": "General product Green formula covers the Boolean cube kernel"
+        },
+        {
+          "assessment": "Fixed-time cutoff, different quantity",
+          "evidence": "Cutoff at (log n)/4 with a bounded window for flips at rate one per coordinate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.5122",
+          "material_read": "p. 6, OA offsets 17355–17749",
+          "method": "Lawful OA PDF text",
+          "title": "Cutoff for the noisy voter model",
+          "trigger": "Sharp continuous-time cube mixing compared with integrated inverse"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Abstract describes nearest-neighbor convergence to stationarity, not statement-level coverage of the Green norm.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010105",
+          "material_read": "Available abstract; no accessible theorem passage",
+          "method": "Lawful OA PDF and Stanford/Wiley routes attempted, without readable full text",
+          "title": "Asymptotic analysis of a random walk on a hypercube with many dimensions",
+          "trigger": "Closest historical cube-walk asymptotics"
+        },
+        {
+          "assessment": "Different domain and operator",
+          "evidence": "Edge-space projection on the cube's line graph with n/4 leading growth, using a cube Green dipole in the proof.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-endpoint-cut-cycle-projection-norms-on-line-graphs-of-bool--5aedd2613976",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact endpoint cut–cycle projection norms on line graphs of Boolean cubes",
+          "trigger": "Strongest indexed same-cube endpoint overlap"
+        },
+        {
+          "assessment": "Semigroup derivative rather than integrated centered semigroup",
+          "evidence": "Time-weighted endpoint heat-derivative asymptotic grows as sqrt(d).",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-analyticity-on-boolean-cubes-a-two-term-law-and-h--ff6b31c1982f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp endpoint analyticity on Boolean cubes",
+          "trigger": "Same cube semigroup and endpoint norms"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Cycle kernel, quadratic leading growth and lattice-phase remainder.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp cycle Poisson norm and its irrational lattice phase limit",
+          "trigger": "Indexed exact Green endpoint norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp endpoint estimate for a natural operator on a basic graph family. The divergent negative correction distinguishes the norm from a bare cutoff-time approximation, and the common Hamming sign ball explains why optimizing the Green operator differs from integrating a fixed-time worst-case bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

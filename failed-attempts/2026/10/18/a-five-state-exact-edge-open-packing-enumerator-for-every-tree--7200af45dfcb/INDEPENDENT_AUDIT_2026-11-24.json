@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:20:51.149055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local product condition is equivalent to the third-edge conflict rule, since in a simple graph two witnesses at opposite endpoints cannot be the same edge unless they are the tested edge itself, which is excluded. All five states follow by conditioning on how many other selected edges meet the parent end of each child edge: when the parent edge is absent, zero selected children permits arbitrary absent-boundary states, one permits d+e at the chosen child and only a elsewhere, and at least two permits only a for unchosen and d for chosen. A present parent edge gives d or e under the same local restrictions. The leaf and root cases include the empty packing. For the arithmetic bound, a size-s child merged after p vertices has cost O((s+1)(p+1)); absorb p into sp (s>=1), charge sp to pairs whose LCA is the current vertex in distinct children, and charge s to descendant/ancestor incidences. This corrects the imprecise attribution of both linear terms in RESULT.md line 63. Subtree storage is O(n^2) coefficients and scalar specialization is O(n) operations, not bit bounds. The path and double-star examples also follow from their conflict graphs P3 plus P2 and K2,2 plus an isolated vertex, respectively. The proof, not the frozen test log, establishes the general claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 8c3bbc4f388f sums over every size per component and multiplies terms over arbitrary finite simple forests. The inspected literature discusses scalar optima, equality with induced matching, or maximum-size characterizations."
+        ],
+        "reasoning": "The earlier forest theorem includes the whole enumerative claim on trees. Scalar optimization literature alone would not have supplied this coverage.",
+        "searches": [
+          "Resultary: five-state all-coefficient edge-open packing on forests and unrestricted trees",
+          "arXiv:2403.00750, 2406.04020, 2508.01935"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8c3bbc4f388f",
+        "doi:10.1051/ro/2022171",
+        "arXiv:2403.00750",
+        "arXiv:2406.04020",
+        "arXiv:2508.01935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older tree component formula a*+h*+c* equals a+b+c. Its Step 4 already traverses each child once with constantly many additions, shifts and convolutions and states a coarse O(n^3) from using degree n for every operation."
+        ],
+        "reasoning": "The exact all-tree enumerator and its scalar evaluation are covered. The stated quadratic bound is a more precise analysis, not the bound stated by the earlier record.",
+        "searches": [
+          "8c3bbc4f388f, Finding and proof Steps 3–4",
+          "arXiv:2403.00750, Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In record 8c3bbc4f388f, reading the old states (a*,b*,h*,c*,d*) as (a,d,b,c,e) gives the same polynomial updates. The old Q1 equals J and the old Q>=2 equals Q-P-J. Also E_T is the independence polynomial of the conflict graph, a reformulation rather than a separate result."
+        ],
+        "reasoning": "The display changes how the terms of the same child product are grouped and named, not which configurations they count.",
+        "searches": [
+          "Resultary: all-cardinality tree/forest edge-open-packing polynomial and five-state recurrences; conflict graph and independence polynomial; induced star forests",
+          "doi:10.1051/ro/2022171",
+          "arXiv:2403.00750"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct formula match: 2026/10/13 record 8c3bbc4f388f. Other hits on sunlets and triangular graphs have different domains."
+        ],
+        "reasoning": "A literal table of individual trees is unnecessary when the index contains the exact full recurrence for the broader family.",
+        "searches": [
+          "Resultary: five-state edge-open-packing polynomial recursion for forests and all-cardinality tree coefficient enumeration"
+        ]
+      },
+      "rationale": "An earlier distinct indexed record gives the same full five-state recurrence for all forests. After reindexing states, its three child-selection contributions and exact root polynomial coincide. The present degree accounting sharpens the stated O(n^3) bound to O(n^2) for the same child-by-child products, but does not make the recurrence a distinct new enumerator; scalar evaluation is immediate for the earlier products too.",
+      "residual_risks": [
+        "Priority for the sharper arithmetic analysis is not established by this comparison.",
+        "The exact duplicate recurrence is decisive regardless of further unindexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence overlap on broader domain; coarser complexity statement",
+          "evidence": "Same five algebraic states and child products; forest component product; O(n^3) via global degree bound per convolution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f/RESULT.md",
+          "material_read": "Finding, states and proof including arithmetic complexity; local offsets 0–4881 and 5000–8576",
+          "method": "Local mirrored text, with equation and Step 4 reread",
+          "title": "An exact five-state edge-open-packing polynomial recursion for forests",
+          "trigger": "Exact recurrence hit"
+        },
+        {
+          "assessment": "Different scalar optimum result",
+          "evidence": "Linear-time maximum packing size and optimizer via four auxiliary scalar parameters, not all coefficient counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+          "material_read": "Introduction and Section 3, PDF pp. 1–2 and 5; independent-set reduction discussion pp. 2–3",
+          "method": "OA PDF passage inspection",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Earlier rooted-tree algorithm"
+        },
+        {
+          "assessment": "Known definition and structure",
+          "evidence": "Same third-edge convention and union-of-stars description.",
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "Definition on p. 1 and remark on p. 2",
+          "method": "OA PDF passage inspection",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Definition and star reformulation"
+        },
+        {
+          "assessment": "Different extremal comparison",
+          "evidence": "Equality of induced-matching and edge-open-packing numbers, not coefficient enumeration in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+          "material_read": "p. 3, offset around 9800",
+          "method": "OA PDF passage inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Related tree invariant"
+        },
+        {
+          "assessment": "Different scalar characterization",
+          "evidence": "The passage concerns maximum sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.01935",
+          "material_read": "p. 2, offset around 7500",
+          "method": "OA PDF passage inspection",
+          "title": "Edge open packing: further characterizations",
+          "trigger": "Potential broader characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Complete coefficient counts are worth computing, but the earlier record already supplies the same practical recurrence and the same per-child operations. The remaining gain is a useful implementation-analysis note: standard pair accounting replaces a global degree bound in the unchanged convolution algorithm. The frozen work delivers no faster method, intrinsic lower or bit bound, or additional invariant beyond what the known recurrence yields. That remainder does not justify a standalone new enumerator or a scientific repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

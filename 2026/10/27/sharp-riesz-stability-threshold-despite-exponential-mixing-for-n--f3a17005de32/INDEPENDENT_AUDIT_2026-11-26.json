@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:55.895814Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–92; VERIFICATION.md; CHECKER.py; CHECKER_OUTPUT.txt",
+        "Evdoridou et al. arXiv:2609.31476v1, Theorems A and C, eqs. (1.2), (1.6), (1.7)"
+      ],
+      "rationale": "Positive Fourier moments of the boundary law of a centered inner map vanish, so it preserves Haar measure. Composition on boundary L² agrees with analytic composition for H² functions by first using polynomials and then the Haar-preserving isometry. This reduces the (i,j) Gram entry for i>j to the first Taylor coefficient of the centered tail composition, the product of its derivatives. Subtracting c_nF_{n−1} from F_n annihilates all earlier correlations and leaves squared norm 1−|c_n|²; the triangular change of basis yields both inverse and determinant. If q<1, the row-sum bound gives ||C||≤(1+q)/(1−q); ||L||≤1+q and D≥(1−q²)I give the same bound on ||C⁻¹||. If q=1, normalized two-term innovations tend to zero in norm. The constant-derivative Toeplitz example with constant and alternating vectors reaches both bounds in the limit by summing geometric series; q=0 is orthonormal. In the spike example the product is ≤2^(−N/2), the average deficit tends to 1/2, and all derivatives are ≥1/2. These satisfy the cited Theorems A and C(a), giving the exponential arc-versus-measurable-set rate and positive lower entropy. The paper calls the liminf quantity lower entropy; the example also satisfies C(b) if metric entropy denotes the separate limsup quantity. The last 2×2 block's smaller eigenvalue 2^(−N) at the spikes and the diagonal Rayleigh quotient 1 prove the condition-number claim by interlacing.",
+      "residual_risks": [
+        "The exponential rate is for the specified arc-versus-measurable-set discrepancy, not uniform over two arbitrary measurable sets. The finite source checks were inspected, not rerun; they do not certify the infinite claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The power correlations are broader than the frozen Gram calculation. Nicolau treats a single centered map. Evdoridou et al. allow derivatives arbitrarily close to one and give product-rate mixing and average-deficit entropy criteria. Benini et al. treat shrinking-target recurrence."
+        ],
+        "reasoning": "The broader power calculation covers the Gram ingredient, not a joint sharp Riesz and mixing/entropy statement. Autonomous bounds apply to the sharpness example but do not cover arbitrary derivative sequences, and shrinking-target and mixing/entropy theorems concern different observables.",
+        "searches": [
+          "Ferreira–Nicolau arXiv:2405.06411v1, §3; Nicolau arXiv:2103.07238v1, §1; Evdoridou et al. arXiv:2609.31476v1, Theorems A/C; Benini et al. arXiv:2405.11866, Theorems A–C"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e03594da668d and dc48d8d092db",
+        "arXiv:2405.06411v1; arXiv:2103.07238v1; arXiv:2405.11866; arXiv:2609.31476v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance specializes to standard time-varying AR(1) algebra, and the positive constant derivative gives the classical Toeplitz extremum. Theorem A controls a product and Theorem C controls product roots or averaged deficits; neither imposes derivative supremum below one."
+        ],
+        "reasoning": "The factorization and norm estimates are short consequences of the covariance structure, not credited as new matrix results. The separation combines these facts in a specific sparse derivative sequence that preserves the two dynamical guarantees while making the smallest eigenvalues exponentially small; a product/average criterion cannot be substituted for the supremum criterion.",
+        "searches": [
+          "arXiv:2405.06411v1 Lemma 3.2; arXiv:2103.07238v1 Theorem 1.2 and Corollaries 1.3–1.4; arXiv:2609.31476v1 Theorems A and C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferreira–Nicolau Lemma 3.2 gives the same tail-derivative correlation for every positive monomial power. The closest inspected Resultary matches e03594da668d and dc48d8d092db concern reproducing kernels and exponential vectors, respectively."
+        ],
+        "reasoning": "Exponent 1 and the chain rule give the full Gram law of the frozen record; neither catalogue match even has this orbit family. The matrix identity is prior, but a covariance identity by itself does not assert a Riesz classification or its separation from dynamical mixing.",
+        "searches": [
+          "Resultary: non-autonomous inner orbit derivative-product Gram, Riesz threshold, mixing and sparse spikes",
+          "arXiv:2405.06411v1, Lemma 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue results: e03594da668d is a cyclic Dirichlet-kernel Gram limit; dc48d8d092db is a stretched-scale Laplace exponential Gram threshold. The exact known entries in this record come from the Ferreira–Nicolau formula, not a numerical table."
+        ],
+        "reasoning": "There is no decisive finite table lookup for a uniform criterion for all sequences. The formula-level equivalent was found for the entries, not for the spike separation.",
+        "searches": [
+          "Resultary spectral thresholds and Gram conditioning searches; exact formula compared with arXiv:2405.06411v1, Lemma 3.2"
+        ]
+      },
+      "rationale": "The derivative-product covariance itself has exact prior coverage (Ferreira–Nicolau, Lemma 3.2 with exponent 1). Its precision factorization is the usual first-order innovation algebra, and autonomous estimates are established background. Credit is for the sharp non-autonomous orbit-stability classification as an application of these facts, in particular the explicit separation with exponentially bad conditioning along spikes despite exponential mixing and positive lower entropy. None of the strongest inspected sources supplies that separation or the joint statement. No priority is claimed for the covariance identity, the matrix machinery, or the external dynamical estimates.",
+      "residual_risks": [
+        "The novelty claim is bounded to the sharp non-autonomous stability/separation application. The first covariance step is already known even in non-autonomous form and should be cited explicitly. General matrix results and unindexed sources were not exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the Gram law, even for monomial observables of degree above one",
+          "evidence": "For n>m≥0 the inner product of the two degree-ℓ monomials on the forward orbit is the tail-composition derivative at zero to power ℓ.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06411v1",
+          "material_read": "§3 Lemma 3.2 and start of proof of Theorem 1.2, PDF pp. 6–7, offsets 20050–24624",
+          "method": "OA PDF passage located by Taylor coefficient reference",
+          "title": "Mixing and ergodicity of compositions of inner functions",
+          "trigger": "Direct earlier non-autonomous correlation theorem, cited by Benini et al."
+        },
+        {
+          "assessment": "Exact coverage of dynamical ingredients, not orbit Gram stability",
+          "evidence": "Use λ_n=q_n and a=1/2 for Theorem A, giving exponent 1/18. Positive mean deficit gives both C(a) lower entropy and C(b) metric entropy.",
+          "identifier_or_url": "https://arxiv.org/html/2609.31476v1",
+          "material_read": "§1 Theorem A and eq. (1.2) around offset 4000; Theorem C(a,b) and eqs. (1.6)–(1.7) at offsets 11250–15945",
+          "method": "Direct OA HTML passage inspection",
+          "title": "Non-autonomous dynamics of inner functions: mixing and entropy",
+          "trigger": "Decisive mixing and entropy source"
+        },
+        {
+          "assessment": "Autonomous background, not arbitrary centered sequences",
+          "evidence": "Coefficient-square-sum norm comparisons for iterates of one centered inner function.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.07238v1",
+          "material_read": "§1 Theorem 1.2 and Corollaries 1.3–1.4 (HTML offsets 800–7600)",
+          "method": "Bounded OA primary-text excerpts",
+          "title": "Convergence of linear combinations of iterates of an inner function",
+          "trigger": "Strongest cited autonomous norm estimates"
+        },
+        {
+          "assessment": "Different target-hit problem; pointed to exact earlier correlation lemma",
+          "evidence": "Theorem C uses |f_n′(0)|≤λ<1 for almost-everywhere hitting of a divergent shrinking target; it is not a sharp orbit Gram bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.11866",
+          "material_read": "§3 proofs and statements of Theorems A–C, PDF pp. 9–10, offsets 31800–35072; bibliography [FN24]",
+          "method": "OA PDF passage inspection",
+          "title": "Shrinking targets and recurrent behaviour for forward compositions of inner functions",
+          "trigger": "Cited non-autonomous literature using a uniform derivative cap"
+        },
+        {
+          "assessment": "Different vector families",
+          "evidence": "One concerns a near-boundary equally spaced kernel array, the other normalized Laplace exponentials; neither asserts the inner-composition separation.",
+          "identifier_or_url": "Resultary e03594da668d; dc48d8d092db",
+          "material_read": "Both mirrored RESULT.md §Finding",
+          "method": "Configured Resultary search and bounded mirror inspection",
+          "title": "Critical exponential boundary layer for cyclic Dirichlet Gram spectra; Three spectral regimes for stretched-scale Laplace orbit Gram determinants",
+          "trigger": "Closest apparent catalogue overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 50–89; arXiv:2609.31476v1 Theorems A/C"
+      ],
+      "rationale": "The example gives a precise obstruction to using strong dynamical statistics as proxies for conditioning of the basic orbit observables. At a sparse near-rotation consecutive observables almost coincide, although the cumulative derivative product and averaged deficit have the required decay and positivity. Quantifying the resulting ill-conditioning and identifying the exact uniform threshold are useful beyond the familiar factorization itself.",
+      "residual_risks": [
+        "The separation concerns this distinguished orbit sequence; it is not a spectral or statistical statement for arbitrary observables."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

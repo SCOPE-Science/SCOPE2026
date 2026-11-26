@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:12:59.326324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 21–74; VERIFICATION.md; verify.py and recorded VERIFY.txt inspected, not executed",
+        "Olberding–Walker arXiv:2610.02087v1, Theorems 3.6, 4.3, 5.4, 5.10; Definition 5.5; Lemma 5.8",
+        "Independent exact differentiation: python /workspace/review-check.py 5"
+      ],
+      "rationale": "Theorem 4.3 of Olberding–Walker gives a submersion on the whole quadrangle manifold, including both endpoints. The critical line u=0 has positive rank-one Hessian (in the w=1 chart the normal coefficient is 2/(1+4v^2), and in v=1 it is 2/(w^2+4)); the complementary chart u=1 has precisely one stationary point with Hessian diag(-8,-2). A submersion pulls back the Hessian bilinear form at a critical point, and its kernel is the preimage of the base Hessian kernel. Theorem 3.6 gives the principal-bundle projection: in a local product trivialization s is independent of the group coordinates, so removing those tangent directions preserves cleanness, normal rank and signature. Both aspect levels are nonempty (Theorem 5.4).",
+      "residual_risks": [
+        "The bounded symbolic replay tests form-space derivatives only, not the geometric inputs or global topology. The numerical entries of the form-space Hessian are coordinates, not canonical metric eigenvalues on quadrangle moduli."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a unit column x on G(3,1) and F(x)=x^TBx, the published formulas give 2(I-xx^T)Bx as gradient and 2 δ^T(B−λI)ε on x-perpendicular when Bx=λx.",
+          "For B=diag(1,0,0), at λ=0 the kernel is ker B intersect x-perpendicular and the sole transverse direction is positive; at λ=1 the whole two-dimensional normal is negative."
+        ],
+        "reasoning": "This general formula includes repeated eigenspaces, and gives precisely their tangent kernels and the full signatures. Both pullback and descent follow by the same local product argument for submersions, already supplied by the quadrangle paper.",
+        "searches": [
+          "Edelman–Arias–Smith, §§2.5.3–2.5.4, equations (2.70)–(2.71)",
+          "Olberding–Walker, Theorems 3.6, 4.3, 5.10"
+        ]
+      },
+      "checked_sources": [
+        "Olberding–Walker arXiv:2610.02087v1",
+        "Edelman–Arias–Smith arXiv:physics/9806030 §§2.5.3–2.5.4",
+        "Resultary same-moduli direction-classes record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projective Rayleigh quotient classification fixes both critical values and normal signatures before any pullback. The submersions identify the normal vector spaces and transport the bilinear forms; no extra endpoint rank hypothesis is required."
+        ],
+        "reasoning": "Combining these statements delivers the entire frozen finding for every indicated subgroup, not only resemblance to a known critical-point computation.",
+        "searches": [
+          "Olberding–Walker Theorems 3.6, 4.3, 5.4, 5.10, Definition 5.5 and Lemma 5.8",
+          "Edelman–Arias–Smith equations (2.70)–(2.71)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With x=(a+c,a-c,2b), Eq. (8) is x^T diag(1,0,0)x/(x^Tx), a projective Rayleigh quotient. The normalization is an invertible homogeneous linear coordinate change."
+        ],
+        "reasoning": "The line and point in the Finding are precisely the projectivizations of the kernel and image of the projector. This equivalence includes the clean Hessian, not only the endpoint values.",
+        "searches": [
+          "Olberding–Walker, arXiv:2610.02087v1, §5 and equation (8)",
+          "Edelman–Arias–Smith, arXiv:physics/9806030, Rayleigh quotient and Grassmann Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed record for the same moduli establishes direction cohomology and orientability conclusions for Sim^+, not a sphericity calculation."
+        ],
+        "reasoning": "This is a differential-geometric statement, not a tabulated census. No exact indexed match was established; the rejection rests instead on the mathematical implication from actual prior sources.",
+        "searches": [
+          "Resultary: Olberding–Walker quadrangle moduli, sphericity/aspect, critical loci and Morse–Bott",
+          "Resultary 2026/10/12/SCOPE-six-independent-direction-classes-and-the-orientation-obstructio--1e22086697a1, original RESULT.md"
+        ]
+      },
+      "rationale": "The exact name Morse–Bott is not needed in the prior source. The frozen normal ranks, signs and critical sets are a direct specialization of the published Grassmann Rayleigh-quotient gradient/Hessian to the rank-one orthogonal projector on RP^2, with only an invertible source-coordinate change and submersion pullback/descent. Olberding–Walker supply all the geometry used and already give the two endpoint loci, their codimensions even on the quotient, and the lack of other critical points. No independent geometric claim remains outside that combination.",
+      "residual_risks": [
+        "Whether earlier quadrangle-specific text already names this Morse–Bott consequence was not established. The implication does not depend on an earlier occurrence of that name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometric hypotheses and endpoint sets/codimensions; combined with general Grassmann quotient Hessian, yields frozen ranks and signs",
+          "evidence": "Eq. (8) gives the quadratic-over-quadratic form; Theorem 4.3 is a global Nash submersion; Theorem 3.6 makes each quotient map a principal-bundle submersion; Theorem 5.10 includes the two endpoint codimensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02087v1",
+          "material_read": "Theorem 3.6 and supporting quotient lemmas (pp. 8–11), Theorem 4.3 (pp. 14–17), Definitions 5.1 and 5.5, Theorems 5.4 and 5.10 and Lemma 5.8 (pp. 18–25)",
+          "method": "Bounded OA full-text passage inspection",
+          "title": "The Nash manifold of four-point configurations modulo similarity subgroups",
+          "trigger": "Exact setting, hypotheses and endpoint claims"
+        },
+        {
+          "assessment": "Covers the criticality and Hessian calculation uniformly for symmetric matrices; rank-one application gives the endpoint normal signatures exactly",
+          "evidence": "(2.70) projects the ambient derivative orthogonally to x, and (2.71) subtracts the term proportional to x^TF_x; F_x=2Bx and F_xx=2B give the stated form on tangent vectors.",
+          "identifier_or_url": "https://arxiv.org/pdf/physics/9806030",
+          "material_read": "PDF p. 16, §§2.5.3–2.5.4, equations (2.69)–(2.72), extracted text offsets 65000–68758",
+          "method": "OA literal location, bounded passage read and specialization to one column",
+          "title": "The Geometry of Algorithms with Orthogonality Constraints",
+          "trigger": "General projective Rayleigh-quotient Hessian"
+        },
+        {
+          "assessment": "Different result on the same moduli",
+          "evidence": "Computes mod-two direction classes and w_1(TB), plus a lower bound on H^1, not sphericity or its Hessian.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-six-independent-direction-classes-and-the-orientation-obstructio--1e22086697a1",
+          "material_read": "RESULT.md, offsets 0–4875",
+          "method": "Local published-record mirror, bounded statement read",
+          "title": "Six independent direction classes and the orientation obstruction",
+          "trigger": "Closest same-moduli indexed result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "Olberding–Walker Theorems 4.3 and 5.10",
+        "Edelman–Arias–Smith §2.5.4"
+      ],
+      "rationale": "The endpoint observation is a correct explanatory remark, but the frozen contribution is a routine application of a projective Rayleigh-quotient calculation to level sets whose identification and codimensions are already known. It neither resolves an additional quadrangle-specific Hessian obstruction nor gives a new global or subgroup-specific conclusion beyond automatic submersion transfer.",
+      "residual_risks": [
+        "No assessment of possible applications of the remark to a separate perturbation or global topology question is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

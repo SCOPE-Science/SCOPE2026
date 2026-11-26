@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:58:01.362660Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The path crosses the full range. For each nonnegative continuous test function, integrating its primitive along the path bounds the output-law integral below by the uniform integral divided by L, without monotonicity. Conversely if a=Q(s)<Q(t)=b at interior quantile levels, F(a)>=s and F(b-)<=t, and the mass of (a,b) is at least (b-a)/L. Thus Q(t)-Q(s)<=L(t-s) even in the presence of atoms. Full support gives endpoint traces 0 and 1. The residual is a probability with the prescribed mean, and Jensen and the endpoint chord give its two sharp bounds. For equality with a strictly convex loss, the residual support is finite and specified by the bounds. A decrease f(x)>f(y) at x<y forces three disjoint traversals of an interior band avoiding that support; applying the primitive inequality on [0,x], [x,y], [y,1] contradicts the prescribed density 1/L on that band. The continuous nondecreasing realization is unique. Endpoint means coalesce, and L=1 forces the identity. Independent bounded symbolic variance check: python3 /workspace/review_replay.py, check 2. Neither that check nor the recorded finite tests certify the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recorded comparisons describe curvature/Lipschitz-of-loss bounds, monotone function majorization, and unrestricted random-variable graph convex hulls respectively. The new targeted OA retrieval did not yield text."
+        ],
+        "reasoning": "An unrestricted random-variable convex bound implies the bound for a residual law once identified, but does not establish the forced uniform component, admissible realization, or equality rigidity. Monotone majorization is not the nonmonotone-allowed endpoint/slope-cap constraint.",
+        "searches": [
+          "Frozen RESULT.md lines 66–76: Costarelli–Spigler DOI 10.1186/s13660-015-0591-x; Kleiner–Moldovanu–Strack DOI 10.3982/ECTA18312; Klebanov arXiv:2304.04856",
+          "Targeted OA lookup of the convex-hull bound in https://arxiv.org/html/2304.04856"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, REVIEW.md and checker source",
+        "Resultary 68970a665a19",
+        "Resultary 9a0e700c79d1 summary",
+        "Costarelli–Spigler, Walker, Kleiner–Moldovanu–Strack and Klebanov as bounded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic residual-law extremizers are a point mass and an endpoint Bernoulli law; this part is elementary and not credited as new.",
+          "The distinct BV catalog summary did not give the bound by uniform measure or its realization converse. Walker full text was not confirmed."
+        ],
+        "reasoning": "To pass from arbitrary random-variable Jensen bounds to these sharp path inequalities one must prove dominance, realize every residual law with the endpoint slope cap, and, for path uniqueness, exclude multiple traversals. The available statements do not supply those steps.",
+        "searches": [
+          "Klebanov arXiv:2304.04856; Walker DOI 10.1137/140954015; frozen RESULT.md proof and comparisons; Resultary 9a0e700c79d1 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 68970a665a19 is the assigned record itself.",
+          "The primary search did not yield a pertinent passage establishing an equivalent endpoint-constrained result."
+        ],
+        "reasoning": "In quantile coordinates the domination is equivalent to F(b-)-F(a)>=(b-a)/L; neither a restriction on the Lipschitz constant of the convex loss nor a moment inequality is this characterization.",
+        "searches": [
+          "Resultary semantic lookup for endpoint Lipschitz occupation laws and convex-order bounds",
+          "Primary-literature search for Lipschitz occupation measures, quantiles and fixed-mean convex order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-record result 68970a665a19; distinct indexed same-day hit 9a0e700c79d1 describes a BV-to-L2 bound and two-jump principle in its returned summary."
+        ],
+        "reasoning": "The distinct indexed statement treats two moments and a BV constraint, not complete output laws or all convex losses for endpoint Lipschitz paths. The mirror did not return its full text. There is no numerical table to match for this continuum law theorem.",
+        "searches": [
+          "Resultary semantic lookup for fixed-mean Lipschitz paths and sharp convex envelopes"
+        ]
+      },
+      "rationale": "Credit the general Jensen and chord bounds, quantile realization and one-dimensional crossing arguments as known tools. The supported distinct claim is the exact realizable occupation-law class for the nonmonotone-allowed endpoint/Lipschitz problem, together with strict equality rigidity at the path level. No inspected statement establishes this combination or implies it without the path-law and rigidity arguments; this is not a priority certification.",
+      "residual_risks": [
+        "No independent primary full-text passage was retrieved for the material cited comparisons; in particular Walker and any unindexed equivalent occupation/rearrangement result remain possible.",
+        "The full text of the distinct BV catalog hit was unavailable. No priority or whole-document noncoverage is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same uniform-plus-residual law and sharp envelope.",
+          "identifier_or_url": "Resultary 68970a665a19",
+          "material_read": "Index summary and frozen RESULT.md",
+          "method": "Local catalog and frozen proof",
+          "title": "Sharp convex-order envelope for fixed-mean Lipschitz endpoint paths",
+          "trigger": "Exact semantic hit"
+        },
+        {
+          "assessment": "Indexed statement differs; full-text implications not excluded",
+          "evidence": "BV-to-L2 bound and two-jump structure, no endpoint Lipschitz occupation-law statement in summary.",
+          "identifier_or_url": "Resultary 9a0e700c79d1",
+          "material_read": "Returned summary only; mirror timed out",
+          "method": "Local catalog and mirror attempt",
+          "title": "Sharp two-moment BV-to-L2 inequalities and a weighted two-jump principle",
+          "trigger": "Strongest distinct catalog hit"
+        },
+        {
+          "assessment": "Described gap estimates differ from path class; full-text coverage not independently excluded",
+          "evidence": "Source record identifies curvature and slope of the convex loss, not slope of endpoint-constrained input.",
+          "identifier_or_url": "10.1186/s13660-015-0591-x",
+          "material_read": "Frozen comparison at RESULT.md 66–67; no independently retrieved full-text passage",
+          "method": "Frozen comparison and OA attempt",
+          "title": "How sharp is the Jensen inequality?",
+          "trigger": "Cited Jensen-gap bounds"
+        },
+        {
+          "assessment": "Credit generic envelope step; no independently inspected text for path-law overlap",
+          "evidence": "The unrestricted convex-graph bounds described in RESULT.md line 67 would apply to the residual statistic, not identify its feasible laws.",
+          "identifier_or_url": "arXiv:2304.04856",
+          "material_read": "Frozen description only; targeted OA retrieval timed out",
+          "method": "Frozen comparison and lawful OA HTML lookup",
+          "title": "Graph Convex Hull Bounds as generalized Jensen Inequalities",
+          "trigger": "Potential stronger convex envelope"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of no coverage",
+          "evidence": "The frozen comparison identifies a lower-gap refinement, not an exact joint law/envelope statement.",
+          "identifier_or_url": "10.1137/140954015",
+          "material_read": "Frozen preview comparison only; full text not confirmed",
+          "method": "Frozen source comparison and OA attempt",
+          "title": "On a Lower Bound for the Jensen Inequality",
+          "trigger": "Earlier Jensen-gap lower bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact feasible laws reduce a constrained trajectory problem to a single residual moment for every continuous convex loss. This supplies sharp universal bounds and a mechanism excluding all nonmonotone equality paths despite allowing oscillations, not just a recomputed Jensen bound. The variance example is a usable benchmark under the stated fixed endpoint, mean and slope constraints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:36.164886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dephase the unit-modulus minor to first row and column equal to one. In the remaining 2-by-2 with entries u,v,w,z, determinant vanishing means (u-1)(z-1)=(v-1)(w-1). If a factor equals zero, a factor from the other side is also zero; the four pairings give a normalized repeated row or column. Otherwise conjugate and divide by the common nonzero product to get uz=vw and then u+z=v+w. Equality of the two root multisets forces a repeated column or row. Fourier proportionality is exactly annihilation of all differences on the opposite index set, giving the stated max-plus-min valuation tests. Rank one instead requires annihilation of every difference pair, exactly t_R+t_C>=k. Fine column residue classes have size p^t, and coarse classes have size p^s. The rank-two union comprises triples within a coarse class but not a fine one, plus triples with a fine pair and third point outside that pair's coarse class. These two disjoint counts give B2; this remains valid when s=t. The E_t count chooses three different children of a residue class; I_{t,s} first chooses the unique close pair at valuation s, then the third point exactly valuation t away from either endpoint. This recovers the full row type partition, including p=2 where E_t=0. For a direct replay of the closed form, write Q_v=N(N^2p^{-2v}-3Np^{-v}+2)/6 and sum (Q_v-Q_{v+1})Q_{k-v}. After extracting N^2/36, the summand is N^2a+9Nb-3N^2a p^{-v}+2N^2a p^{-2v}-3Nb p^v-6Nb p^{-v}, with a=1-p^{-2}, b=1-p^{-1}. The three geometric sums yield precisely (N^2a+9Nb)k-(1+6/p)N^2+(-3+6/p)N+4. Dividing by the squared triple count gives the stated O_p(k/N) remainder at fixed p. For p=2,k=2, every row has (t,s)=(0,1), all B1 and B2 vanish, and all 16 minors are rank three. The included checker.py was inspected, not executed; it independently assesses determinant vanishing by cyclotomic coefficient fibers and rank one by congruences, but it does not separately test the simplified rank-one expression and asymptotic. The exact summation above checks those claims without extrapolating from the finite grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal full spark iff uniform distribution over divisors addresses whether all matched-size minors are invertible, not how many minors have each rank in a non-full-spark frame.",
+          "The phase lemma applies to any unit-modulus 3-by-3 matrix; the mass counts in its source concern F_p^2, not the cyclic group. The November 22 later divisor-sum result gives global counts on every cyclic group and therefore specializes globally to prime powers; it does not state the fixed-row census in the inspected Finding."
+        ],
+        "reasoning": "The prior broad rigidity statement supplies the singularity mechanism, not its exact incidence. The later broad cyclic-order count covers global incidence rather than establishing earlier novelty loss.",
+        "searches": [
+          "arXiv:1110.3548v2 Theorem 9",
+          "2026/10/11/SCOPE-complete-three-by-three-fourier-minor-rank-geometry-on-prime-aff--ba0b52ec4cec",
+          "2026/11/22/SCOPE-a-divisor-sum-census-of-every-three-point-cyclic-fourier-minor--48d2ce75d9c6",
+          "Delvaux–Van Barel, KU Leuven TW477"
+        ]
+      },
+      "checked_sources": [
+        "October 4 prime-square census and October 11 affine-plane theorem",
+        "Full Spark Frames arXiv:1110.3548v2",
+        "Delvaux–Van Barel bibliographic/limited access",
+        "November 8 and November 22 Resultary censuses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Phase rigidity directly gives the valuation rank logic, which is credited. It requires additional fine/coarse-class overlap and row-profile counting to determine B_j and another evaluation for the exact rank-one asymptotic. The accessible Full Spark Frames theorem does not count failing partners. Full block-paper comparison could not be established from accessible material."
+        ],
+        "reasoning": "The earlier lemma yields the indicator being counted, not the exact census or its scale. A primary query returning only irrelevant results is not negative evidence about other work.",
+        "searches": [
+          "Prime affine-plane result, Proof Step 1",
+          "Full Spark Frames, Theorem 9 and surrounding definition",
+          "Delvaux–Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At k=2, the earlier type C is t=s=1 and type B is t=0,s=1; the remaining s=t=0 is type A. The frozen criteria give rank one for C/C and rank two for B/C or C/B, reproducing exactly the earlier odd-prime count and classification.",
+          "The later November 8 profiles and rank rule reproduce the fixed-row counts by summing over the column profiles, and state H1=sum_{t+s>=k}T_tT_s. The frozen Q_v-Q_{v+1} is the number T_v of exact-minimum-v triples."
+        ],
+        "reasoning": "Rank counts expressed via profiles rather than residue classes are equivalent after summation. Prime-square coverage is real but does not have the growing depth that drives the logarithmic term.",
+        "searches": [
+          "Resultary: all-depth fixed-row rank census of 3-by-3 cyclic prime-power Fourier minors and logarithmic rank-one incidence",
+          "2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b, Finding",
+          "2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 4 gives exact odd-prime depth-two rank totals, not the growing-depth family. The two November records give later exact all-depth (or all-order) counts. The November 8 asymptotic of the total singular-minor fraction is different from the rank-one asymptotic; its exact H1 can be evaluated to obtain the latter."
+        ],
+        "reasoning": "The distinct contribution concerns additional parameters and exact stratification, not a recomputation of an existing depth-two table or the asymptotic of a different rank union.",
+        "searches": [
+          "Resultary prime-square Fourier minor rank tables",
+          "2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2, Finding",
+          "2026/11/22/SCOPE-a-divisor-sum-census-of-every-three-point-cyclic-fourier-minor--48d2ce75d9c6, Finding"
+        ]
+      },
+      "rationale": "The phase-rigidity lemma and resulting local rank criterion are not original contributions, and the odd-prime-square census is earlier exact coverage. The supported distinct claim is the all-depth conditional rank census with the explicit global rank-one closed form and logarithmic incidence law. Later indexed results give materially overlapping or stronger global formulas, but are not evidence of antecedent coverage. No accessible earlier comparison examined establishes the odd-prime all-depth census or fixed-prime rank-one law.",
+      "residual_risks": [
+        "The Delvaux–Van Barel full result was unavailable for direct comparison, so possible implications of its precise block theorem remain unresolved.",
+        "Earlier dyadic work is mentioned in a later record but its precise coverage was not established here. No exclusivity on the binary specialization is inferred.",
+        "The indexed dating separates later overlapping statements from antecedents; the relationships among the records are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier subclass",
+          "evidence": [
+            "Rank one C/C, rank two C/B and B/C; explicit counts for odd p."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror; match C/B/A to (t,s)",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Same cyclic minor model at depth two"
+        },
+        {
+          "assessment": "Direct coverage of phase rigidity, not of cyclic all-depth counts",
+          "evidence": [
+            "A singular unit-modulus 3-by-3 matrix has proportional rows or columns; ensuing census is in F_p^2."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-three-by-three-fourier-minor-rank-geometry-on-prime-aff--ba0b52ec4cec",
+          "material_read": "RESULT.md Finding and proof Step 1, offset 0 onward",
+          "method": "Local mirror",
+          "title": "Complete three-by-three Fourier-minor rank geometry on prime affine planes",
+          "trigger": "Potential general rank rigidity"
+        },
+        {
+          "assessment": "Qualitative status of all partner minors, not their rank enumerator",
+          "evidence": [
+            "Uniform distribution over divisors is necessary and sufficient for full spark."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1110.3548v2",
+          "material_read": "Theorem 9, HTML offset 44753 and context",
+          "method": "OA HTML",
+          "title": "Full Spark Frames",
+          "trigger": "Broader prime-power Fourier nonvanishing theory"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": [
+            "Frozen comparison mentions maximal rank-deficient blocks, but full statements were not independently accessible."
+          ],
+          "identifier_or_url": "KU Leuven TW477; Linear Algebra Appl. 426 (2007), 349–367",
+          "material_read": "Bibliographic/landing-page material; no usable primary theorem passage",
+          "method": "Lawful OA/DOI and repository attempts; one follow-up timed out",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Potential larger block result implying local counts"
+        },
+        {
+          "assessment": "Later exact profile/global overlap",
+          "evidence": [
+            "H1=sum_{t+s>=k}T_t T_s and valuation-profile counts suffice to derive the conditional counts; its printed asymptotic is for total singularity. Mentions earlier dyadic work without identifying a specific theorem in the inspected passage."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2",
+          "material_read": "Finding at mirror offset 0; Relationship to prior work at offset 7864",
+          "method": "Resultary and focused mirror readings",
+          "title": "Valuation-stratified rank census for three-point Fourier sampling",
+          "trigger": "Same all-depth rank criterion and census"
+        },
+        {
+          "assessment": "Later global result subsumes the prime-power global census",
+          "evidence": [
+            "Exact global counts for every cyclic N include L_N for rank one; fixed-row B_j are not stated in the inspected Finding."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-divisor-sum-census-of-every-three-point-cyclic-fourier-minor--48d2ce75d9c6",
+          "material_read": "Finding at offset 0 and prior-work section at offset 8287",
+          "method": "Resultary and local mirror",
+          "title": "A divisor-sum census of every three-point cyclic Fourier minor",
+          "trigger": "An all-order refinement that includes prime powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full fixed-row conditional rank distribution for the cyclic prime-power Fourier transform measures loss of interpolation rank, not just whether some choice fails. The rank-one degeneration is rarer than ordinary singularity, and its exact fixed-prime asymptotic exhibits the extra factor of depth on the N^{-2} scale. This is a natural all-depth quantitative invariant beyond the already-known rigidity and prime-square slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

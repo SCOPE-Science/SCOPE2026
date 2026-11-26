@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive interruption rate and two strictly positive one-attempt discounted hitting probabilities, the two-dimensional renewal system is strictly invertible, with determinant \(ab+c(a+b-2ab)>0\). The exact inverse gives the stated mean; exact differentiation produces a nonpositive square, with precisely stated strictness. For Brownian motion on a ring, the independent Dirichlet boundary-value problem gives the two probabilities and the complete reflection degeneracy. A standalone checker establishes symbolic algebra identities, 120 exact rational instances and 20 comparisons with an independently constructed killed phase-augmented spatial generator. All universality is proved algebraically, not inferred from finite tests. Residual assumption risks: independently restarted attempts, Poisson interruption clock, zero relocation time, and stationary uniform initial reset phase are essential.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The closest directly inspected primary study is Julián-Salgado et al. (2026), arXiv:2605.08414v1, §II explicitly assuming successive resetting points are iid, while §IV–VI optimize iid resetting mixtures on a ring. Its mean formula is exactly the special case \(c=1/2\), not a formula for Markov-correlated reset sites. The fully inspected Méndez et al. (2024) paper, arXiv:2401.01125, also models independent random restart points. The 2022 discrete resetting model uses one fixed node. A published work on cycling reset sites concerns stationary autocovariance without first-passage killing, while a separate Markov-modulated resetting work switches the alarm *rate* rather than the spatial reset site. Searches by source, alias, protocol and full implication did not reveal the strict global correlation monotonicity. These checks do not prove uniqueness: an unindexed Markov-renewal optimization theorem could cover the result, and independent literature review is pending.
+PASS
 
-## Value — PASS
-The finding isolates a physically controllable resource—negative serial correlation of spatial reset locations—and proves that it *strictly improves mean completion* without increasing reset frequency or changing unconditional site occupancy at any reset index. It is a complete two-state protocol classification for any independent-attempt search law; the Brownian ring identifies the exact geometric exception. An experimental controller needs only alternate between two sites, and the exact gain quantifies whether correlation control is worth implementing. The result is more than an iid-formula substitution: iid marginals alone cannot determine a Markov-renewal completion time.
+With independent fresh attempts and rate r, a fresh attempt at site i succeeds with probability p_i and has mean duration (1−p_i)/r, including an infinite reset-free arrival time. A geometric bound on the probability of reaching each attempt (using min(a,b)>0) gives finite total mean. For x=1−a, y=1−b and d=bx+ay=a+b−2ab, inversion of the two renewal equations gives Δ=ab+cd and M=(d+4cxy)/(2rΔ). The identity d²−4abxy=(bx−ay)²=(a−b)² gives the derivative including its strictness. Subtracting at c=1/2 and 1 using Δ_(1/2)=(a+b)/2 and Δ_1=a+b−ab gives the exact gain. Uniform initialization preserves the unconditioned pre-generated chain marginal, including at c=0 where uniform need not be the unique invariant law; the surviving marginal is not asserted equal. The ring boundary-value problem D u″=r u with unit data at both absorbing ends gives the stated cosh ratio, so equality of transforms holds exactly for coincident or reflected sites. An independent numerical evaluation gave 0.105246747557, 0.102741917381, 0.101382055515 for the three reported protocols. The frozen symbolic, rational and killed-generator test code in verify.py was inspected, not executed; the derivation, rather than the tests, establishes the arbitrary renewal claim.
 
-## Literature and limitations
-Sources: Julián-Salgado et al. (2026), https://arxiv.org/abs/2605.08414 ; Méndez et al. (2024), https://arxiv.org/abs/2401.01125 ; *Discrete space-time resetting model* (2022), https://doi.org/10.1088/1751-8121/ac9765 . Published mathematical index matches on cycling reset-site memory and independently switching reset-rate search are scientifically distinct. No general priority or independent certification claim is made. The result does not compare non-Markov policies, initial phases other than the stationary law, or full hitting-time distributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the distinct exact dependence and strict ordering across the entire symmetric two-site Markov family with fixed uniform initialization, and its quantitative specialization. The iid Brownian-ring baseline is known. The same-day cycle-vs-iid work is material overlap at the endpoints and should temper any claim that the alternation-vs-iid comparison alone is new; no verified coverage of the full interpolation was found.
+
+## value
+
+PASS
+
+At fixed clock rate and fixed proposed one-index site distribution, the result isolates the influence of serial correlation and provides its exact sensitivity, optimizing protocol and strictness criterion for any renewed attempt law. It is not an optimization achieved by changing the sites or their marginal weights. The result concerns only the mean in this family, not optimality over general reset schedules or a full distributional order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

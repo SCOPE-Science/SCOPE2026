@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope of verification
+# Independent mathematical audit
 
-The accompanying `verify.py` requires Python 3 and only its standard library. Run `python3 verify.py` from the directory containing the extracted files. On the actual reviewed content, it completed 46,820 exact finite assertions. It enumerates all binary creation words through ten vertices and compares direct graph edges and a separate maximum-matching dynamic program with the random-walk formula; it computes exact rational covariances of the two graph invariants through sixteen vertices and independently checks the prior marginal matching distribution through fourteen vertices. It also checks the numerical limiting correlation against the elementary Brownian variance formulas.
+## correctness
 
-The finite checker is a reproducibility aid. It does not independently certify any Brownian weak-convergence theorem or mathematical novelty. The analytic steps required for the infinite statement are the common-walk coupling, functional invariance principle, fourth-moment uniform integrability, Gaussian integration by parts and the classical Brownian arcsine argmax law, all laid out in `RESULT.md`. Historical comparison is best-knowledge and not exhaustive. No external mathematical audit has been performed.
+PASS
+
+The fair creation bits can be recovered by ordering the uniform weights by increasing distance to 1/2; the sign of the newest weight relative to 1/2 dominates all sums with earlier weights, and each sign is fair conditional on the distances. Ross's maximum tail excess is exactly the maximum of the reversed sign walk including time 0; for even n the matching deficiency differs from that maximum by at most one. Centering the weighted bit sum for the edges gives exactly minus one half the sum of the same walk's partial sums. Donsker and the sup/integral continuous mapping give the joint limit with the stated centering and sign. The normalized fourth moments are bounded by Doob and the independent weighted-sign moment formula, giving uniform integrability through second moments. Independently, let h(t)=t-t²/2. Then B−3hA is independent of A (joint Gaussian with zero cross-covariance and Var(A)=1/3); one-dimensional Gaussian integration by parts conditional on this residual identifies Cov(M,A) as E[h(T)]. The supremum derivative is h(T) by a.s. uniqueness of the argmax and is bounded; arcsine moments give 5/16. This gives -5/32 after the edge factor, and division by the two nonzero limiting variances in standard-deviation form gives the stated correlation. Conditional monotonicity in each bit gives nonpositive covariance with each bit; changing the last bit when all earlier bits are 1 gives strictly negative covariance even at n=2. VERIFICATION.md and verify.py were inspected, not executed. The finite graph enumeration does not certify the limit or its moments.
+
+## originality
+
+PASS
+
+Pass for the unconditional joint limit for maximum-matching deficiency and the centred edge count in the same graph draw, and the resulting exact asymptotic covariance and correlation. The individual graph representations, matching formula and marginal limits are prior or standard; no standalone priority is assigned to Brownian maximum/area identities as such.
+
+## value
+
+PASS
+
+Edge count and unmatched-vertex count are natural graph invariants measured on the same sample. The exact asymptotic dependence is substantial (correlation near -0.898) despite the very different limiting marginal shapes. The common-walk representation explains the effect at the appropriate two scales and the strict finite-order sign connects it to the original model, not just to an abstract Brownian moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

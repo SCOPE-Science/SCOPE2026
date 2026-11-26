@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:40.933544Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–97; VERIFICATION.md, lines 19–23; reproduce.py, lines 10–79 (inspected, not executed)",
+        "repairs/4/RESULT.md, proof steps 1–5",
+        "Gilles–Wilber arXiv:2601.22344v1, §3.1 Eq. (9), which expressly restricts a sum to nonzero pivots"
+      ],
+      "rationale": "Original RESULT.md line 87 overstates the deterministic minor identity: for A=[[0,1],[1,0]] the only selectable corners each leave a residual of norm 1, whereas the stated right side is 2. The repaired RESULT.md restricts the factor 4 to nonzero entries and gives the exact nonzero-corner count otherwise, by summing the squared pivot cancellation only over selectable pivots. Gaussian inputs have no zero entries almost surely, so this repair does not change the unconditional second moment or main theorem. Independently, for a fixed complement and t>||W|| the tail event is (t^2-||W||^2)x^2+2<W,uv^T>x-||u||^2||v||^2<0; its two roots multiplied by t tend to -h and h, h=||u||||v||. Integrating the x-squared selection weight gives 2 f(0)h^3/(3S). On ||W||≤t/2 the scaled integral is dominated by a constant times h^3/S≤S^2/8, and the Gaussian complement outside this event gives o(t^-3). The Gaussian chi-square Laplace integrals for E[(UV)^(3/2)/S] have total power (mn-1)/2+3, giving the displayed 8/(mn+3) times the gamma ratios. Layer cake and the radial Gaussian second-moment calculation verify the remaining assertions. These are analytic checks, not claims of a new Monte Carlo run.",
+      "residual_risks": [
+        "One exact step, real matrices, fixed dimensions and common strictly positive Gaussian noise scale; no uniform small-noise, multistep, or finite-precision claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Divan–Gilles bounds the pivot-path expected squared residual from prescribed A=A^(0).",
+          "Two closely related Resultary results give T^-2 worst tail laws or envelopes over deterministic families, not a T^-3 asymptotic after averaging over a fixed nondegenerate Gaussian input distribution."
+        ],
+        "reasoning": "Neither a class-uniform deterministic envelope nor expected-square contraction dominates the exact asymptotic order and coefficient for the specified random law.",
+        "searches": [
+          "arXiv:2601.22344v1 §3.1 Eq. (9) and Theorem 3",
+          "arXiv:2609.06287v1 §4 Theorem 4.1",
+          "Resultary 3ec204a30cf5 and 6e9f82141f87"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.22344v1",
+        "arXiv:2609.06287v1",
+        "arXiv:2610.08701v2",
+        "Resultary 3ec204a30cf5 and 6e9f82141f87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (9) already gives the squared-moment premise, with equality in its last bound for entrywise nonzero matrices.",
+          "A fixed matrix has finitely many possible selected nonzero pivots and all finite residual moments. Randomizing that matrix and analyzing the weighted small-pivot region introduces a distinct limiting contribution."
+        ],
+        "reasoning": "The squared mean is covered as a consistency calculation; the cited results lack the information that yields the exact cubic constant or divergence at q≥3.",
+        "searches": [
+          "Gilles–Wilber one-step conditional Gram-matrix identity and upper bound, Eq. (9)",
+          "Divan–Gilles fixed-input expected-square Theorem 4.1",
+          "Resultary 3ec204a30cf5 and 6e9f82141f87, stated theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pivot-weighted density near zero vanishes quadratically rather than approaching a positive constant; an unweighted reciprocal-Gaussian ratio is a different problem.",
+          "Spielman–Yu selects a partial-pivot column maximum, not a squared-entry-distributed random pivot."
+        ],
+        "reasoning": "The equivalent small-denominator formulation must retain the joint complement-dependent tilt; neither a standard unweighted ratio nor largest-entry elimination meets this hypothesis. No directly applicable stronger weighted-ratio theorem was identified.",
+        "searches": [
+          "Resultary comparisons under small-pivot instability, weighted Gaussian denominator and one-step Schur-complement tails",
+          "Gilles–Wilber arXiv:2601.22344v1 §3.1; Spielman–Yu arXiv:2610.08701v2 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3ec204a30cf5 uses fixed real 2×2 inputs with Gaussian sketching and a deterministic-family instability comparison; 6e9f82141f87 has fixed complex unitary inputs optimized for high-threshold pivot tails."
+        ],
+        "reasoning": "The closest indexed formulas are for different laws and neither tabulates nor implies this rectangular real Gaussian-smoothed coefficient. The later-dated comparison is not treated as proof of priority.",
+        "searches": [
+          "Resultary semantic comparison of squared-entry RPLU cubic tail, Gaussian smoothing, gamma coefficient, and third-moment divergence",
+          "Resultary RESULT.md 3ec204a30cf5; RESULT.md 6e9f82141f87"
+        ]
+      },
+      "rationale": "The distinct claim is the unconditional sharp cubic tail for Gaussian-smoothed squared-entry RPLU, including its noncentral coefficient, the centered gamma formula and the corresponding moment frontier. The deterministic correction and Gaussian squared mean are not credited as novel. Inspected fixed-matrix and partial-pivot results do not yield the joint-law asymptotic.",
+      "residual_risks": [
+        "A general weighted ratio theorem, or an equivalent treatment in unindexed work, may give another derivation; the bounded search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pivot rule and one-step squared mean premise, not the Gaussian unconditional tail.",
+          "evidence": [
+            "Eq. (9) explicitly sums the final term over a_ij≠0; the last bound is tight when all entries are nonzero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.22344v1",
+          "material_read": "§3.1 around Eq. (9) and Theorem 3, HTML offset 31500",
+          "method": "Primary full-text interpretation and comparison of nonzero pivot restriction and conditioned moment",
+          "title": "Low-Rank Approximation by Randomly Pivoted LU",
+          "trigger": "Original squared-entry pivot rule and conditional second moment"
+        },
+        {
+          "assessment": "Expected residual bound, not a Gaussian-smoothed tail theorem.",
+          "evidence": [
+            "Starts from A=A^(0) and takes expectation over pivot paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287v1",
+          "material_read": "PDF p. 9 §4 Theorem 4.1, offset 30820",
+          "method": "Compare input and randomness in the bound",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximations",
+          "trigger": "Potentially broader randomized pivot analysis"
+        },
+        {
+          "assessment": "Inspected headline result concerns a distinct partial-pivot rule.",
+          "evidence": [
+            "Gaussian elimination with partial pivoting, not exact squared-entry RPLU."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08701v2",
+          "material_read": "PDF abstract, p. 1",
+          "method": "Pivot-rule and observable comparison only",
+          "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Gaussian Matrices",
+          "trigger": "Random input growth tail comparator"
+        },
+        {
+          "assessment": "Distinct deterministic-family result.",
+          "evidence": [
+            "Fixed real 2×2 input family and a T^-2 worst-tail envelope, not independent Gaussian entry noise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-gaussian-sketch-width-threshold-for-the-mean-square-stab--3ec204a30cf5/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Compare input law and quantifier order",
+          "title": "A sharp Gaussian sketch width threshold for the mean-square stability of randomly pivoted LU",
+          "trigger": "Closest real one-step Gaussian and higher-moment overlap"
+        },
+        {
+          "assessment": "Scientifically related but noncovering.",
+          "evidence": [
+            "T^-2 worst-case tail over fixed complex unitary matrices with pivot randomness alone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-high-threshold-error-tails-of-randomly-pivoted-lu-on-unita--6e9f82141f87/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Compare norm-tail law and deterministic optimization",
+          "title": "Exact high-threshold error tails of randomly pivoted LU on unitary matrices",
+          "trigger": "Closest indexed exact tail for the pivot rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof steps 2–5",
+        "Gilles–Wilber arXiv:2601.22344v1 §3.1"
+      ],
+      "rationale": "The exact coefficient and transition from finite squared error to infinite third moment show a real limitation of a motivated algorithm, even at arbitrarily small positive smoothing variance and in dimension 2×2. Complete pivoting has no such moment failure. This identifies an observable not determined by existing expected-error guarantees.",
+      "residual_risks": [
+        "The result does not determine repeated-pivot behavior or numerical stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

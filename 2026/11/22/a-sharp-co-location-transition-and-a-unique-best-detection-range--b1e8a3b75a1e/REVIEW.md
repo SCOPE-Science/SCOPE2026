@@ -1,19 +1,7 @@
-# Scientific review of two-camera Gaussian coverage
+# Scientific review of the width-dependent optimal spacing
 
-## Correctness — PASS
+**Correctness — PASS.** The credited fixed-width Gaussian solution gives the squared optimal half-spacing as a positive rational factor times a logarithm. The logarithmic derivative reduces its width optimization to a single root: the difference of the logarithm and the comparison rational function decreases and then increases, is negative at the cut-off and diverges positively. The unique interior peak, endpoint limits, and small-$p$ expansions follow analytically.
 
-The conditional at-least-one detection probability integrates exactly over a planar normal activity centre, producing a difference of two Gaussian exponentials in the squared half-spacing. The separation derivative has a monotone exponential ratio and at most one positive crossing. The critical-width optimization reduces to a log-rational equation whose derivative has an exactly factored quartic numerator with a single positive root. The rare-baseline-detection limit is derived from that same unique equation. The standalone `verify.py` and its certificate were replayed from their delivered sources and passed 11,156 tests; no finite sampling is used as a substitute for the analytical global proof.
+**Originality — PASS for the narrowed result.** The frozen result also presented the fixed-width co-location law as a contribution. The published all-dimension detector theorem, record `e434a32821fc`, has exactly that law at $d=2$. The fixed-width law is now a credited input; no priority between same-date records is inferred. The distinct results are strict unimodality of the optimal physical spacing in width and its rare-detection scaling. The inspected theorem supplies the input formula but does not derive this width peak or this planar limit. Other inspected studies concern a finite path with geometric detection decay, a uniform continuous transect, or different design objectives. Historical priority remains provisional; in particular the relevant full section of Efford and Boulanger (2019), DOI `10.1111/2041-210X.13239`, could not be independently accessed.
 
-## Originality — PASS, with provisional priority
-
-Litvak et al. (2008, PDF pp. 89–90) prove an overlap criterion for hard one-dimensional sensor intervals; Rowcliffe et al. (2011) calibrate detector response; Sun et al. (2014) investigate multi-trap estimation performance; Efford and Boulanger (2019) give the general expected-detected-individuals integral. Their mathematical statements do not directly establish the present planar Gaussian symmetric-pair co-location classification, unique peak of the *optimal physical spacing* with detector width, or low-sensitivity scaling. The closest published finite-transect published-finding corpus theorem optimizes geometric decay over uniform discrete sites, not this response and spatial law. The 2019 general integral already subsumes the expectation identity, which is not asserted as new. Relevant facility-location and general probabilistic-coverage literature may contain unnoticed equivalent results. The 2008 report was publicly deposited on 2009-11-09; the original release day was not established.
-
-## Value — PASS
-
-The theorem distinguishes narrow-detector clustering, intermediate-range maximum separation, and wide-detector co-location, which cannot be inferred from a simple always-separate or always-cluster heuristic. It is motivated by distinct-individual coverage and a measurable detection width rather than an arbitrary numeric slice. Its explicit single-root law and rare-detection square-root scaling provide analytic design benchmarks. The result concerns only two symmetrically placed devices under a Gaussian habitat and independent Bernoulli detection; actual camera geometry, animal movement, false positives and abundance-estimator information are outside the model.
-
-## Related work and limits
-
-Primary sources and the checked mathematical theorem are listed in `RESULT.md`, and statement-level comparisons with original source locations appear in `AUDIT.json`. No independent scientific validation has been conducted.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value — PASS.** The analysis identifies where the spacing that maximizes coverage is largest, even though optimal coverage itself is monotone in width. The width turnover and the limiting spacing-to-width ratio supply a parameter-dependent design benchmark beyond the co-location threshold, not a field recommendation or a width that maximizes coverage.

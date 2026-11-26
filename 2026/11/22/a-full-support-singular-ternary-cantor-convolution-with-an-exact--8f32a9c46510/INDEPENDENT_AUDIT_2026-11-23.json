@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:49:31.478917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With an incoming carry of 0 or 1 the next raw sum is 0,1,2,3 or 1,2,3,4 respectively, each equally likely. The three carry updates in RESULT.md follow by reducing modulo 3, and both final carries must be retained for a modular fiber. Both rows admit all output digits. Exactly one input pair out of four yields 2 at either carry, so conditioning on all lower input pairs proves the full independent indicator law, not just its marginals. Its product law gives the exact grouped fiber sum. The digit-frequency event separates the measure from Haar; atomlessness follows by conditioning on Y and using the atomlessness of X. Squaring the three successor row sums gives 6(a+b)^2-2ab, while summing their coordinate products gives (a+b)^2. With the empty row (1,0) this yields the stated collision recurrence and constants. Squared cylinder masses have denominator 16^k, yielding the stated 3-adic correlation dimension. An independent direct enumeration at depths 1 through 8 tested support, energies and every specified pattern of positions with digit 2: these had multiplicities 3^(k-j) and summed to the stated binomial counts. The energies were 6,34,192,1084,6120,34552,195072,1101328. Replay by listing all ternary 0/1 masks, tabulating (x+2y) mod 3^k and grouping those fibers by the digit-2 position mask. The source check.py was inspected, not executed; its reported 9935 counter includes 35 iterations that increment without an exact comparison, so that number is not a count of exact assertions. This does not affect the analytic proof or the independent enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1.3–1.4 give constructive closure of path sets under Minkowski sum and rational multiplication; Theorem 1.1 gives dimension of the support via a standard presentation."
+        ],
+        "reasoning": "A support automaton and its unweighted dimension forget multiplicities. The known construction gives a way to calculate admissible digits, but is not a theorem determining the independent output indicators or the weighted collision dimension.",
+        "searches": [
+          "arXiv:1210.2478, Theorems 1.1, 1.3 and 1.4",
+          "Resultary: 3-adic ternary Cantor X+2Y modular collision energy 3+sqrt7 singular"
+        ]
+      },
+      "checked_sources": [
+        "Abram–Lagarias arXiv:1210.2478",
+        "Abram–Lagarias arXiv:1308.3133",
+        "OEIS A154244",
+        "Resultary threefold ternary Cantor convolution 743aa111efcf (indexed summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arithmetic closure theorem is set-valued; the cited intersection paper computes Hausdorff dimensions of intersections. A154244 supplies the sequence without the modular fiber identity."
+        ],
+        "reasoning": "To transfer these results to the frozen claim one still needs the identity with weighted fibers and their joint second moments, plus the carry-independent output-2 probability. None is a parameter substitution in those sources.",
+        "searches": [
+          "arXiv:1210.2478, Theorems 1.1, 1.3 and 1.4",
+          "arXiv:1308.3133, Sections 1 and 3 scope",
+          "OEIS A154244, comments and formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closely related indexed threefold ternary convolution has output frequency 15/40 for digit 2 and recurrence coefficients 26 and -90, not 1/4 and 6,-2.",
+          "Abram–Lagarias arXiv:1308.3133 uses C and multiplication by 2 in a multiplicative-intersection problem."
+        ],
+        "reasoning": "The equivalent objects are the independent weighted sum, the convolution with the dilation's pushforward, and counts of matching paired outputs modulo 3^k. Neither intersection of a set with a dilation nor three independent summands of weight 1 gives these same random digits; 2Y is not the sum of two independent copies.",
+        "searches": [
+          "Resultary: 3-adic ternary Cantor X+2Y modular collision energy 3+sqrt7 singular",
+          "Web: 3-adic Cantor measure weighted sum X+2Y convolution singular collision energy Stern diatomic 3 sqrt 7 Abram Lagarias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A154244 has E_k=a(k+1), the same recurrence and closed form, and generating function z/(1-6z+2z²) in its one-based indexing."
+        ],
+        "reasoning": "Exact overlap is established for the sequence, its generating function after reindexing, and the leading root. The displayed OEIS interpretations, including six-symbol word avoidance, do not give the weighted modular collision identity or the associated probability law.",
+        "searches": [
+          "https://oeis.org/A154244",
+          "Resultary: 3-adic ternary Cantor X+2Y modular collision energy 3+sqrt7 singular"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the weighted probability convolution and its specific digit and collision laws, not for the abstract recurrence or general carry-automaton method.",
+      "residual_risks": [
+        "Equivalent weighted arithmetic or self-similar measure calculations may exist under other names. The recurrence and its numerical asymptotics are explicitly not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural method and support-dimension framework, not the weighted measure assertions",
+          "evidence": [
+            "Theorem 1.3 is a closure result for Minkowski sums; Theorem 1.4 is closure under p-integral rational multiplication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.2478",
+          "material_read": "Open manuscript abstract, introduction and Theorems 1.1 and 1.3–1.4",
+          "method": "Primary PDF text, compared set-valued conclusions with cylinder masses",
+          "title": "p-Adic Path Set Fractals and Arithmetic",
+          "trigger": "Constructive addition and multiplication of exactly the kind used here"
+        },
+        {
+          "assessment": "Different operation and invariant",
+          "evidence": [
+            "Section 1 equation (1.1) defines intersections of multiplicative translates; Section 3 constructs those intersection automata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.3133",
+          "material_read": "Open manuscript abstract, Section 1 definitions and description of Section 3",
+          "method": "Primary PDF text; compared underlying operations",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets",
+          "trigger": "Same Cantor set and multiplier 2"
+        },
+        {
+          "assessment": "Exact sequence prior art, not evidence of the claimed convolution interpretation",
+          "evidence": [
+            "Index offset 1; entry dated January 5, 2009. Comments identify a binomial transform and a word-avoidance interpretation."
+          ],
+          "identifier_or_url": "https://oeis.org/A154244",
+          "material_read": "Entry, indexing, recurrence, comments and formulas",
+          "method": "Direct sequence-entry comparison",
+          "title": "OEIS A154244",
+          "trigger": "Exact energy sequence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weighted sum has complete residues but is not Haar-like: the exactly independent exceptional-digit process supplies a simple singularity witness, while the intrinsic modular collision rate quantifies the concentration. The result gives both a structural and a quantitative invariant for a natural pair of digit measures; its value is not the known recurrence in isolation. It says nothing about Euclidean convolution density or the full dimension spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

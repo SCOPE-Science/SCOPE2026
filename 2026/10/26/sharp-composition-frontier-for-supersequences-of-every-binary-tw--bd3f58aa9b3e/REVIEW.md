@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim covers all integers \(N\ge0\) and \(m\ge2\). The lower bound requires only the words \(0^a11 0^{N-a}\) and \(1 0^N1\), translates their embeddings into a two-point interval-covering condition and an endpoint-diameter condition, and derives the sharp bound separately for even and odd \(m\). The construction checks a distinct ordered pair of marker positions for every triple \((a,b,c)\) with sum \(N\); the floor inequalities verify all three zero requirements, including boundary cases. An elementary integer minimization supplies the unrestricted length. The independent direct embedding checker completed all stated tests; finite tests alone do not establish the unbounded claim.
+PASS
 
-## Originality — PASS (residual historical-priority risk)
+Reconstructed the lower bound including both parities. With excess e and Q=e+1, every length-Q integer window starting at a=0,…,N must hold two one-occurrences, counted with multiplicity, and the outer markers must span at least N zeros. For odd m=2k+1, disjoint windows force N<kQ. For even m=2k they again force N<kQ; when N≥(k−1)Q, the partitions starting at 0 and at r=N−(k−1)Q each exhaust the markers in ordered pairs, hence the first lies at or beyond r and the last at or before kQ−1. Thus 2N<(m−1)Q in every case. In the construction at h=N/(m−1)>0, the floor levels floor(ih) embed a target using the specified ceiling indices: if a=0 then i=1 and the middle gap bound is direct; if a>0 then ih<a+h and jh≥a+b+h. The available suffix is at least c by (m+1−j)h≥c, also when a+b=0 and j=2. Flooring preserves all required integer gaps. The total telescopes to N+floor(2h). For unrestricted length, the product maximum floor(T²/4)≤2N<floor((T+1)²/4) at T=floor(sqrt(8N+1)) proves the exact minimum of k+floor(2N/k); N=0 gives length two separately as well.
 
-Relevant public mathematical records and scholarly searches for constant-weight-two supersequence minima, marker-budget tradeoffs, equivalent three-gap formulations and fixed-length superpattern bounds identified no result implying the exact full-family frontier. Lagoutte–Tavenas (arXiv:1309.0422, introduction and Lemma 2) prove a different single-marker instance and discuss Middendorf's complexity result for arbitrary selected two-marker inputs; neither statement provides this optimum over the complete two-marker language. Published universal-subsequence counting and insertion-radius results for all binary targets use a larger input language and different optimization quantifiers, without an implication to the present restricted-marker Pareto frontier. Middendorf's 1994 primary full text could not be read, so unrecorded special-case coverage remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The complete constant-weight-two language is a natural minimal nontrivial family in shortest-common-supersequence theory. The result determines both the exact marker-constrained Pareto curve and the unrestricted optimum for all lengths, with balanced constructive witnesses and a sharp square-root additive overhead; it contrasts with the known hardness for arbitrary selected subfamilies. This is a structural all-parameter result, not a small numerical census or straightforward fixed-substitution corollary.
+The inspected close coverage concerns the same layer and already gives its sharp leading overhead and a finite exact table, but does not give either the all-length exact optimum or the fixed-composition law. The latter optimizes using a stronger parity-sensitive packing argument and an attaining gap construction.
 
-## Scope and limitations
+## value
 
-Only two-marker binary targets are covered. The counting and asymptotic statements do not apply to weight three, arbitrary alphabets or contiguous-substring coverage. Historical priority is not independently certified, and no separate proof review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact extremal result for a natural complete target layer. Fixing the number of ones reveals an entire composition tradeoff, gives a short explicit optimal host for each budget, and explains why the square-root asymptotic rounds to a particular exact integer at every length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

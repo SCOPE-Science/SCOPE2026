@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal statement follows from bipartite distance parity and the unique midpoint of a tree geodesic. If the midpoint is outside the selected class, a third branch provides an adjacent selected equalizer unless the midpoint has degree two; a degree-two midpoint produces an obstruction exactly when both adjacent branches continue to another vertex of the unselected class. This proves both directions of the local test. Bipartite parity then characterizes equality in the lower bound, while upward closure and inclusion–exclusion establish the all-set polynomial. Two independently implemented programs test the literal defining condition across labeled and deterministic larger trees; execution records and source are included.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2021 foundation states the bipartite lower bound and solves paths and bistars, not the iff sharpness characterization for arbitrary trees or the full shape-independent polynomial for the reduced/leaf-guarded subclass. The published balanced-spider result instead handles a family where the smaller part fails the local criterion; it does not imply the present all-tree result. The online 2026 tree counterexample discusses a one-way degree-two midpoint obstruction, not the converse or the all-set spectrum. The 2024 lexicographic-product treatment does not specialize to arbitrary tree branching. Relevant record and literature searches did not identify a dominating prior classification; no claim of exhaustive priority is made.
+PASS
 
-**Mathematical value — PASS.** The bipartition lower bound is one of the first structural facts in the equidistant-dimension literature, but whether and when it is sharp on a tree is a natural unresolved structural question. The theorem gives a strictly local linear-time recognizer for all equality cases and, on a broad unbounded tree family, the **complete** cardinality spectrum and all optimizers. The striking insensitivity to branching shape is a meaningful infinite-family classification, not merely a small example or normalization check.
+For a connected bipartite graph, omitted opposite-side vertices have opposite distance parity from every vertex, so an equalizer contains a whole class. For two omitted vertices in the same class of a tree, the projection of a candidate witness to their path must be its midpoint. If this midpoint is in the selected class it is itself a witness; if not, any third branch gives a neighbor in the selected class. The only remaining obstruction is a degree-two midpoint in the unselected class. Its distance to either endpoint is at least two by parity, so neither neighbor is a leaf. Conversely, a degree-two vertex of the unselected class with two nonleaf neighbors is the unique equalizer of the two vertices obtained by continuing one step out each way, so the selected class fails. This covers both a singleton complement and equal part sizes. Parity determines all size-minimizers when the bound is attained, and upward closure plus inclusion–exclusion gives exactly the stated all-set family and polynomial when both classes work. Independently enumerating subsets on P4, P5, and K_{1,3} confirmed the two directions, including P5 (dimension 3 versus bound 2; the midpoint of the endpoints is the unique witness). On P4 the exact counts are 2z²+4z³+z⁴. Replay: /workspace/branches/95c11748-460e-41a7-b023-f3cc976a380f/independent_tree_equalizer_check.py. The frozen checker sources were inspected, not executed; the universal result is proved by the midpoint argument rather than by finite checks.
 
-**Scope/risks.** The theorem does not solve the arbitrary-tree minimum problem outside the sharpness class. The finite programs are corroborative, not proofs of the universal statement. The publication-priority comparison cannot rule out unindexed equivalent claims, and an independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bipartite bound and simple midpoint obstruction are prior. The all-tree local converse and consequent simultaneous all-cardinality characterization were not found in the inspected statements. This is qualified, not absolute priority.
+
+## value
+
+PASS
+
+Distinguishes exactly which tree classes achieve a foundational lower bound by a local test implementable in linear time. On a broad unbounded tree family (including every reduced tree), the answer classifies every equalizer by inclusion and cardinality using only the part sizes. This is useful structural information even though it does not compute the dimension for arbitrary trees outside the sharpness regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

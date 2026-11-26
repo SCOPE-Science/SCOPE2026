@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:04.110579Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–52",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/branches/171a5e97-dd49-4b7d-b5fc-c6a4f3c704b5/independent_check.py"
+      ],
+      "rationale": "For a mixed word, each starting position belongs to one maximal circular run of symbol a and is specified there by its remaining length t. Every row followed by a letter smaller than a sorts before every row followed by a larger letter; t increases in the former class and decreases in the latter. At equal t the post-run continuation determines order, preserved by letter-dependent dilation since the shared prefix is expanded identically. Identical periodic tails determine the backward circular letters too, hence ties cannot affect the output. At t=q h_a the preceding letters form the fixed word B(q); the h_a-1 intervening levels each contribute R(q) copies of a. This proves the entire last-column product, including for periodic words. For h_a>=2 every inserted factor is nonempty, so varying its length cannot change any run head, including across block boundaries. Monochromatic words are immediate, and direct rotation sorting gives BWT(011)=110 versus BWT(0011)=1010, showing sharpness even when just one exponent is 1. An independently written bounded reproduction passed 23,226 comparisons of full last columns and heads, all ternary words of length 1–7 with exponents 2 or 3 on present letters. The uploaded verifier was inspected, not executed.",
+      "residual_risks": [
+        "Proof is for the linear last column of the cyclic, sentinel-free BWT, with constant expansion factor per symbol. The independent reproduction covers only the stated finite test domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. bound output runs by twice the source runs for Lyndon words and show monotonicity under single-letter expansion there.",
+          "Frosini et al. analyze asymptotic run counts under morphism iteration, with bounds for binary purely morphic words and results for specific classes."
+        ],
+        "reasoning": "Neither an upper bound nor asymptotic control implies exponent-two stabilization of a finite transform, much less its exact ordered head sequence or full last column.",
+        "searches": [
+          "Mantaci et al. Theorem 3.3 and Proposition 3.9",
+          "Frosini et al., arXiv:2202.02609v1, morphic BWT run growth"
+        ]
+      },
+      "checked_sources": [
+        "Mantaci et al. (2017), pp. 7, 9–10",
+        "arXiv:2202.02609v1",
+        "Resultary 84b6d8bce159 and 0c35eb394ad7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof keeps the BWT of the parent as a subsequence. Corollary 3.10 gives equality of run counts when the initial clustering ratio is already 2. With subsequence inclusion and equal run counts the heads must match in that case, because the selected runs must hit all runs in order."
+        ],
+        "reasoning": "Credit this restricted prior implication. The proof does not enumerate the intermediate rotations inserted between mapped parent rotations, and the corollary does not treat ratios smaller than 2. The proof reviewed here distinguishes shorter/longer initial runs and shows that intervening groups only change lengths of existing factors once all exponents reach 2.",
+        "searches": [
+          "Mantaci et al. Lemma 3.8, Proposition 3.9 and Corollary 3.10, pp. 9–10, postprint offsets 20500–23818"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 84b6d8bce159 gives exact transport for two specified binary morphisms and the Chacon transform; 0c35eb394ad7 treats a dyadic period-doubling family. Neither inspected statement concerns arbitrary independent letter powers.",
+          "Mantaci Proposition 3.9 proves subsequence inclusion under a single-letter expansion, rather than equality of ordered head words in general."
+        ],
+        "reasoning": "The transport formulas apply to different morphisms or fixed families; a subsequence need not have the same run count or the same heads. The frozen theorem allows all finite alphabets, arbitrary parent words and independent exponents.",
+        "searches": [
+          "Resultary: cyclic BWT run-head saturation, independent letter dilations and exact morphic transport",
+          "Mantaci et al. pp. 9–10, expansion of order r"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected explicit formulas concern two particular binary morphisms or a special period-doubling input family, not the block product parameterized by arbitrary circular run data.",
+          "The proposed finding is a universal word identity rather than a finite sequence or enumeration table."
+        ],
+        "reasoning": "Specific exact BWT columns do not supply the general identity or establish its threshold; finite tests of the identity are not evidence of distinctness.",
+        "searches": [
+          "Resultary exact cyclic BWT and morphic transport entries 84b6d8bce159 and 0c35eb394ad7"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full arbitrary-parent, arbitrary-ordered-alphabet last-column decomposition and the resulting universal saturation of ordered heads from exponent 2. Mantaci et al. supply order preservation and a subsequence argument for Lyndon inputs, with a genuine special equality case when the source ratio is already maximal. The inspected material does not give the general threshold or the full decomposition. The frozen literature paragraph should qualify the cited theorems as statements for Lyndon inputs; this does not affect the proved finding.",
+      "residual_risks": [
+        "Bounded comparison only; an uninspected account of cyclic BWT letter expansion could encode an equivalent factorization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial implication on an already extremal Lyndon class, not the general claim",
+          "evidence": [
+            "The single-letter expansion preserves the parent run count; mapped rotations give a subsequence. Equality at clustering ratio 2 gives head equality in this restricted case."
+          ],
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRSV_TCS2017.pdf",
+          "material_read": "Theorem 3.3 p. 7; Lemma 3.8, Proposition 3.9, Corollary 3.10 pp. 9–10",
+          "method": "Read the author postprint and compared the subsequence proof and equality corollary",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "Same cyclic transform and letter-power expansion"
+        },
+        {
+          "assessment": "Growth bounds for iterates, not independent dilation saturation",
+          "evidence": [
+            "The binary purely morphic word bound is O(log n); the comparison is an asymptotic growth problem, not the stated identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609v1",
+          "material_read": "Abstract and results on pp. 6–7, 9",
+          "method": "Targeted OA primary-PDF reading",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "Morphic BWT run estimates"
+        },
+        {
+          "assessment": "Different binary morphisms",
+          "evidence": [
+            "The transport identities are for two specified binary morphisms, not arbitrary diagonal letter powers."
+          ],
+          "identifier_or_url": "84b6d8bce159",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror and morphism comparison",
+          "title": "Two exact morphic Burrows–Wheeler transport laws and the complete Chacon transform",
+          "trigger": "Closest exact morphic transport catalogue claim"
+        },
+        {
+          "assessment": "Particular period-doubling family",
+          "evidence": [
+            "The transformed input is a fixed morphic family rather than an arbitrary parent word."
+          ],
+          "identifier_or_url": "0c35eb394ad7",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror and scope comparison",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling",
+          "trigger": "Exact periodic-family BWT formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, rotation-order lemma and decomposition",
+        "Mantaci et al. (2017), Proposition 3.9 and Corollary 3.10"
+      ],
+      "rationale": "BWT run counts measure clustering; prior single-letter monotonicity leaves open whether further expansion still changes that clustering. The proof gives an exact, sharp universal cutoff and a stronger ordered invariant, while the full factorization specifies how run lengths can still change. This is useful for predicting cyclic BWT structure without sorting the expanded word.",
+      "residual_risks": [
+        "No complexity improvement for a particular implementation, or extension to sentineled BWT, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

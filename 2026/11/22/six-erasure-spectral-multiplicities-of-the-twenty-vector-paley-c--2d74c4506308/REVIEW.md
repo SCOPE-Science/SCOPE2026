@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Paley skew-conference property is verified by exact integer multiplication, and the projection and erasure normalizations are derived explicitly. All six-by-six skew-sign types follow from a complete and reproducible 1,024-case switching census; the correct characteristic-polynomial identity uses fifteen four-Pfaffians and one six-Pfaffian. The Paley-twenty 38,760-set census is independently computed by exact traces and fraction-free determinants, corroborated by a separate Pfaffian counting implementation. The strict largest-root comparison and erasure-operator identity yield the claimed sharp stability bound. Computation is exhaustive only for the stated finite domains; no all-order frequency formula is asserted.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+For the exact bordered F19 sign convention, the independent integer replay verified skew-symmetry and all 400 conference-identity entries, and classified all 38,760 unordered six-subsets by four- and six-Pfaffian squares. The six counts in the stated order were 1140, 6840, 13680, 6840, 7980, 2280. The same 1140 masks in the first bin became transitive after switching a designated vertex to a source (remaining outdegrees 0,1,2,3,4). This test is invariant for the switching-transitive class: starting from a transitive order, switching an interior vertex to a source just rotates the two blocks of the other vertices. The largest t for the first cubic is 7+4 sqrt(3); the competing maxima are 6+sqrt(33), a root in (10,11) beyond which its cubic is increasing, 5+2 sqrt(5), 7 and 9. The Parseval normalization and equality of nonzero Gram and erased-vector operator spectra give the claimed sharp positive surviving bound and sharp error. The replay is /workspace/branches/3a261c25-3a71-4d81-8d52-bdf2b142412e/replay_six.py (full_run.txt in the same directory); the supplied trace/Bareiss, matching-Pfaffian and universal-sign scripts were inspected, not executed. No conclusion about optimality among frames is needed.
 
-The six possible polynomial forms themselves are **known**, explicitly appearing in Figure 5 of Klanderman et al. (2024), and are acknowledged as prior work. Renes (2004) supplies the base frame, Kalra (2006) discusses cyclic erasures without this six-set census, and Hoffman–Solazzo (2011) focuses on three/four erasures. A published five-column theorem supplies universal two-type counts for smaller erasures, not the six labelled Paley-twenty multiplicities. Searches under six-vertex Seidel spectra, switching classes, Paley order twenty, erasure-mask distributions, and exact counts found no implication establishing the six new frequencies or 1,140 worst masks. Residual risk: an unindexed historical tournament census might already imply the Paley-twenty values.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete finite Fourier-frame recovery invariant rather than an arbitrary numerical slice: the smallest Paley skew-conference order supporting every possible six-sign spectral type has a sharply stratified erasure landscape. The 1,140 worst masks admit an intrinsic switching-transitive characterization; the exact frequencies identify all degradation regimes and yield the attained positive lower reconstruction bound. These facts refine qualitative robustness and smaller-erasure theory without claiming an all-order theorem.
+Best of knowledge, the supported distinct result is the joint characteristic-polynomial multiplicity table on labeled six-subsets of this Paley order, including the exact count of worst masks. Credit prior coverage of the construction and the universal list of six possible polynomials. Comparing the roots of that list and converting a principal spectrum into a sharp error are deductions once the maximizing type is known to occur; the originality case is not those deductions in isolation.
 
-## Boundaries
+## value
 
-No arbitrary-order Paley multiplicity formula, finer automorphism-orbit distribution, weighted-erasure optimum or cross-frame global minimax theorem is asserted. Novelty is a bounded assessment, not a priority certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit Paley conference frame is a standard structured benchmark; principal Gram spectra determine robustness under a natural family of erasures. A complete distribution over equally likely six-erasures gives the full discrete loss distribution, the exact frequency of worst cases, and a structural test for them, information not delivered by a worst-case bound or an arbitrary-six-matrix possibility list. This is a useful exact classification of the fixed frame rather than a new universal frame theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

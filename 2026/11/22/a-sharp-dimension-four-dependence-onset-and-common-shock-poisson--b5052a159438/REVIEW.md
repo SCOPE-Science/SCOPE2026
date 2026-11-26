@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A sink indicator fixes every orientation of a facet-incident edge. Pairwise edge-set intersection determines the exact moments, and an explicit automorphism proves the nontrivial dimension-three independence case. A three-mark decomposition at the shared ridge reduces the joint limit to a published marked Chen–Stein approximation; the neighborhood sums give the stated dimension-uniform total-variation upper bound. The standalone program exhausts all 16 orientations in dimension two and all 4096 in dimension three, plus checks exact covariance constraints through dimension eight and marked-dependence bounds through dimension seven. Such finite tests do not establish the unbounded result; the analytic reduction does.
+## correctness
 
-**Originality — PASS (qualified historical priority).** Arratia, Goldstein and Gordon (1989, Theorem 2 and Example 1) already give the general Poisson process bound and a one-count sink example for an entire oriented hypercube. Those are acknowledged and not claimed new. The distinct geometric phenomenon here is that adjacent induced facets exhibit a three-type common-shock limit with shared rate 1/4, while opposite facets are exactly independent and adjacent-facet independence ends sharply after dimension three. The inspected original papers on sink-free orientation sampling and unique-sink orientations do not state this joint law. Searches for facet sinks, shared-ridge counts, coupling equivalents and dimension thresholds found no covering statement in the consulted records. A general-method corollary and as-yet-unindexed historical literature remain genuine novelty risks.
+PASS
 
-**Value — PASS.** Sinks of induced faces are canonical local observables of directed cubes. The calculation shows how shared ridges leave nonvanishing large-dimensional dependence despite every individual sink event being exponentially rare, and provides both an exact finite threshold and a quantitative joint approximation. This is structurally informative for cube orientations, rather than an arbitrary small finite computation.
+Each vertex in one induced facet is a sink with probability p=2^(1-d). With 2^(d-1) vertices and d-1 ordered neighbors per vertex, the variance is 1-dp; only adjacent sink indicators have negative covariance. Opposite facets use disjoint edges. For adjacent facets the shared vertex can be a sink in both iff all d incident edges point in. The contribution summed over the 2^(d-2) shared vertices is 1/4-2^(-d); the only other overlapping demands are ordered adjacent pairs inside the intersection, giving -(d-2)2^(-d). The sum is positive iff d≥4. At d=2 there are no shared edges; at d=3 conditioning on the sole shared edge leaves independent residual orientations. Reversing that edge preserves each square's conditional sink-count law by reflection, so the mixture is still independent. For the quantitative limit, each intersection vertex supports three mutually exclusive atoms requiring d directions; exterior atoms require d-1. Total atom means are 3/4, 3/4 and 1/4, with common atoms counted in both coordinates. The same-or-neighbor vertex neighborhoods have ≤3(d+1) indices, so b1≤(7/4)·3(d+1)·2^(1-d). Distinct same-vertex atoms are incompatible, and adjacent vertices' requirements overlap in at most one Bernoulli edge; b2≤2b1 and b3=0. The published AGG process bound 2(2b1+2b2+b3) uses doubled TV, yielding ordinary TV ≤63(d+1)2^(-d). The grouping map contracts TV and gives the specified independent Poisson marks, hence the joint no-sink limit e^(-7/4). The opposite pair has independent marginals with the same Poisson(1) limit. Replay: frozen RESULT.md §§1–4 and AGG Theorem 2, printed pp. 10–12. The uploaded checker was inspected, not run; its finite independence calculation reports the Boolean, and the dimension-uniform result rests on the proof, not the finite calculation.
 
-**Closest literature and limitations.** Arratia–Goldstein–Gordon supplies the general dependency-graph approximation and single-cube example; Cohn–Pemantle–Propp treats sink-free orientations; Szabó–Welzl treats constrained unique-sink orientations, a different probability space. The claim is restricted to two coordinate facets of the independently oriented cube. Neither sharpness of its explicit error constant nor an independent specialist priority assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving claim is a joint law and exact dependence classification for two specified induced facets under independent fair orientations. The general Chen–Stein method and its use on the whole-cube sink count are prior. The specific shared-edge covariance/independence analysis and positive limiting common component are not stated or mechanically supplied by the inspected prior claims.
+
+## value
+
+PASS
+
+A natural joint statistic shows a finite independence threshold invisible to either facet marginal and persistent dependence even while each count becomes Poisson. The exact common intensity distinguishes adjacent from opposite facets, for example e^(-7/4) versus e^(-2) for joint absence. The classification and quantitative joint approximation are useful benchmarks for dependence among local optima on cube faces, without requiring the TV prefactor to be sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

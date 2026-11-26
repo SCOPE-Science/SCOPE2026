@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:09:01.135678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By A³=A+I, B=A+A² over the integers and C=B+B² reduces to A² modulo two. Modulo two the irreducible cubic makes A multiplication by a generator of the seven nonzero elements of F_8. For each nonzero v, the three vectors v,Bv,Cv are independent since the field elements 1, α+α², α² are a basis. The first-coordinate row and its A-iterates exhaust the nonzero dual rows, so exactly one r gives (0,1,1). With H=A⁷, H²=I+4C and successive squaring imply H^(2^j)−I≡2^(j+1)C mod 2^(j+2) for j≥1; j=0 uses 2B. Since H acts trivially modulo two, adding 2^j to any index toggles the required bit without changing lower bits. Pairing the two halves of the index interval lifts the bijection from one modulus to the next, starting with the singleton modulo 2. Normalization and multiplication by 2^s give the remaining cases, with the zero triple immediate. The supplied finite checker was inspected, not run. An independent finite implementation independently_check.py checked all 28,672 primitive triples modulo 32 and all 32,767 nonzero triples there including normalized valuation strata; this corroborates the proof, not the infinite quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "dbfa8b1bd442 covers both the even and odd bijective branches in the same proof and derives odd multiplicity of each residue in the whole orbit for k≥3. Brent proves the full primitive state period 7·2^(k−1); 3b25687bed0c also gives mean 3 and variance k−1 for orbit zero counts."
+        ],
+        "reasoning": "Neither a full period nor zero-count moments imply the projected section; the decisive match is the stronger record's explicit branchwise proof, not its full-period headline.",
+        "searches": [
+          "dbfa8b1bd442, Finding and Proof Steps 2–3",
+          "arXiv:1004.5439 Theorem 3",
+          "3b25687bed0c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary dbfa8b1bd442, 3b25687bed0c and ab2bd84778a5",
+        "Brent arXiv:1004.5439; OEIS A104217; Sedaghat 2014; Bravo–Irmak 2024 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For j with (a_j,b_j,d_j)=(0,1,1), the mirror proves ν₂(f_j(t)−f_j(s))=1+ν₂(t−s). At k=1 the unique even class follows immediately from a_j=0; at k=2, t=0,1 differ by 2 mod 4 by b_j=1. Multiplying the primitive result by the common 2^s gives the nonprimitive statement and hence zero coverage."
+        ],
+        "reasoning": "Even if the main whole-orbit assertion of the stronger record is restricted to k≥3, its identities and direct base cases give the frozen all-k theorem with the same selector. Fibonacci prime-field zero avoidance and valuations of particular shifted Padovan/Perrin sequences are not needed for the coverage finding.",
+        "searches": [
+          "dbfa8b1bd442 Proof Steps 1–3",
+          "Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime",
+          "Bravo–Irmak, DOI 10.55730/1300-0098.3568"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror uses Q=A, D=C, e=e₁ᵀ and a_j=eQ^jv, b_j=eBQ^jv, d_j=eDQ^jv mod 2. The displayed seven types include (0,1,1) exactly once. Step 3 states that each branch with b_j=d_j=1 bijects onto all 2^(k−1) outputs of parity a_j."
+        ],
+        "reasoning": "With a_j=0 this is the exact frozen branch, including the unique parity selector; commuting B,C with A only changes the written order of factors. The comparison is against the proof statement, not title similarity.",
+        "searches": [
+          "Resultary: Padovan/Perrin primitive dyadic orbits, step-seven sections, even-residue bijection",
+          "dbfa8b1bd442, Proof Steps 1–3, mirror offsets 1460–4390"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A104217 records periods of the classical Perrin sequence, not arbitrary-seed subsequence counts. The classical-Perrin mirror ab2bd84778a5 gives exact even and odd sections for that particular seed. The odd-fibers mirror gives the all-seed branchwise formula in its proof."
+        ],
+        "reasoning": "The tabulated periods and the exact single-seed section alone do not cover the theorem's seed quantifier; the other indexed analytic result does.",
+        "searches": [
+          "OEIS A104217",
+          "Resultary ab2bd84778a5 and dbfa8b1bd442"
+        ]
+      },
+      "rationale": "The indexed odd-fibers result is stronger than its headline full-period surjectivity: its Proof Steps 2–3 explicitly select the same (a_j,b_j,d_j)=(0,1,1) branch among all seven triples and prove the identical step-seven bijection to even residues for every primitive seed. Small moduli and scaling do not leave an independent claim. This is equivalent coverage by a distinct indexed record, not a determination of historical priority from directory dates.",
+      "residual_risks": [
+        "Historical priority and identity of authors are not established by the distinct catalogue paths.",
+        "The general literature search gave no decisive arbitrary-seed passage. Klaška's cited Tribonacci full text was unavailable; the Bravo–Irmak comparison was limited to its abstract. These limits do not negate the verified branchwise match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader result with explicit identical branchwise lemma",
+          "evidence": "Q, B, D coincide with A, B, C; its unique parity triple (0,1,1) specifies the identical branch and the proof states it is bijective onto the even classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-odd-fibers-and-universal-dyadic-surjectivity-for-primitive-padov--dbfa8b1bd442/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–3 (decisive offsets 1460–4390), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror read, exact matrix and branch substitution",
+          "title": "Odd fibers and universal dyadic surjectivity for primitive Padovan orbits",
+          "trigger": "Universal primitive value distribution hit"
+        },
+        {
+          "assessment": "Aggregate statistic, not the decisive match",
+          "evidence": "Full period and mean/variance of zeros do not specify a bijective step-seven branch.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-zero-hit-variance-for-primitive-padovan-orbits-modulo-powe--3b25687bed0c",
+          "material_read": "Finding and proof passage at offsets 0 and 3184",
+          "method": "Local mirror passage comparison",
+          "title": "Exact zero-hit variance for primitive Padovan orbits modulo powers of two",
+          "trigger": "Same recurrence and arbitrary seed zero counts"
+        },
+        {
+          "assessment": "Exact single-seed overlap",
+          "evidence": "Classical initial values (3,0,2) with even section 7t+1 and odd section 7t+3; no arbitrary-seed claim in that finding.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-exact-dyadic-residue-sections-of-the-perrin-numbers--ab2bd84778a5",
+          "material_read": "Finding at offset 0; trace-matrix passage",
+          "method": "Local mirror statement comparison",
+          "title": "Two exact dyadic residue sections of the Perrin numbers",
+          "trigger": "Exact bijective sections for the named sequence"
+        },
+        {
+          "assessment": "Exact period, not section bijectivity",
+          "evidence": "Primitive degree-r trinomial and a seed with an odd coordinate give period 2^(w−1)(2^r−1), specialized at r=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.5439",
+          "material_read": "p. 8 Theorem 3",
+          "method": "OA primary PDF passage comparison",
+          "title": "On the Periods of Generalized Fibonacci Recurrences",
+          "trigger": "Known maximal period for primitive trinomial recurrences"
+        },
+        {
+          "assessment": "Different invariant and one seed",
+          "evidence": "The entry tabulates period for the named sequence.",
+          "identifier_or_url": "https://oeis.org/A104217",
+          "material_read": "Entry opening, offset 0",
+          "method": "Public entry read",
+          "title": "Period of Perrin sequence mod n",
+          "trigger": "Exact database comparison"
+        },
+        {
+          "assessment": "Different polynomial and ring",
+          "evidence": "Second-order recurrence modulo a prime, not the Perrin cubic over dyadic rings.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/52-1/Sedaghat.pdf",
+          "material_read": "p. 1",
+          "method": "OA PDF passage comparison",
+          "title": "Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime",
+          "trigger": "Zero-avoidance analogue"
+        },
+        {
+          "assessment": "Different observable in abstract; no full-text determination",
+          "evidence": "Author abstract treats valuations of P_n−1 and R_n+1 for particular sequences.",
+          "identifier_or_url": "https://journals.tubitak.gov.tr/math/vol48/iss6/13/",
+          "material_read": "Publisher abstract, not full text",
+          "method": "Lawful public abstract read",
+          "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+          "trigger": "Same named recurrences and dyadic valuations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement independently of coverage, the uniform parity selector and exact step-seven permutation give useful projected-orbit information for a natural recurrence. They resolve zero avoidance and give much more control than a state period or aggregate mean count, uniformly across seeds and precisions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

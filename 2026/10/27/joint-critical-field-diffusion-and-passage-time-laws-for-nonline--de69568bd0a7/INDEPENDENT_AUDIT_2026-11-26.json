@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:37.255445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–106; VERIFICATION.md and verify_critical_qvoter.py inspected as evidence",
+        "Independent exact-rate/detailed-balance numerical replay: /workspace/branches/ead97ea5-f55c-47ce-b470-c50f3e496f70/independent_qvoter_check.py and check-4000.json, check-16000-64000.json"
+      ],
+      "rationale": "The exact rates follow because the updater is of the opposite opinion from the required unanimous sample and is excluded. At s=S_N/N and h=(Z_+−Z_-)/(2N), with y=xN^(-1/4), the log stationary ratio equals 4(q−1/s)y+4qh−(16q(q²−1)/3)y³ plus Taylor and discretization errors that sum to o(1) on compact x-windows. Since s−1/q∼theta N^(-1/2) in the additive scaling sense and h=(eta+o(1))/(2N^(3/4)), the mesh sum gives the displayed potential. For the global bound, first choose a small fixed epsilon. At 0≤y≤epsilon the restoring cubic gives an upper bound −c y³+C N^(-1/2)y+C N^(-3/4) for the log ratio (and for log B/D). Summing on the 1/N y-mesh gives the quartic envelope. On the positive exterior away from the endpoint, the limiting critical log ratio is strictly negative by atanh convexity and compactness; near the endpoint the factor proportional to s/2−y is small while the other ratios stay bounded, since q≥2. The ratios there are uniformly below one and the exterior stationary weights are exponentially small. Reflection gives the other side. These bounds justify normalization, locally uniform stationary mass convergence and polynomial uniform integrability. Expanding N^(-1/4)(B−D) gives linear, field and cubic coefficients 2^(1−q)q theta, 2^(-q) eta, and −2^(3−q)(q²−1)/3, while (B+D)/N→2^(-q)/q. The same restoring bound implies x(B−D)≤0 outside a fixed scaled interval, with the endpoints handled by the vanishing outgoing rate; hence the accelerated generator of x² is bounded above uniformly. Stopping, first on a bounded initial set and then using tightness of the initial laws, gives compact containment. Local generator convergence with vanishing jumps and the well-posed nonexplosive cubic-drift diffusion gives the path limit, also under stationary initialization. Its integrable positive speed density gives the unique invariant law. For the mean passage time, detailed balance telescopes the backward equation with a reflecting endpoint to the listed sums. The local rates divided by N tend to sigma_q²/2, and lattice mass divided by mesh tends to f while stationary cumulatives converge to F uniformly on the threshold interval. After division by sqrt(N) the sums are exactly Riemann sums for the two displayed directions; no weak-limit interchange of expectations is used.",
+      "residual_risks": [
+        "The independent numerical check used q=2, theta=0.2, eta=0.8, and thresholds ±0.3. At N=16000 the two scaled means were about 2.5348,26.4461 versus 2.5342,26.2905 by quadrature; N=64000 gave 2.5019,27.5588, not monotonic under effective integer-rounded parameters. These finite checks do not prove limits. The result asserts limits of directional mean times rather than a separate theorem about the hitting-time distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mellor–Mobilia–Zia give the quartic Landau analogy and corresponding symmetric critical scale in a heterogeneous two-class model, and leave full finite-size and unequal-zealot analysis beyond scope."
+        ],
+        "reasoning": "The symmetric exponent is not new. The analogy neither supplies the tilt and process coefficients in the homogeneous chain nor establishes a directional mean passage theorem.",
+        "searches": [
+          "Resultary: nonlinear q-voter zealots critical quartic stationary density",
+          "Literature: q-voter zealots critical finite-size scaling quartic diffusion N^{-1/4} stationary distribution passage time",
+          "arXiv:1610.06092, §V.E"
+        ]
+      },
+      "checked_sources": [
+        "Mobilia §II and §IV",
+        "Mellor–Mobilia–Zia §V.E",
+        "Two indexed q-voter comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mobilia gives the same transition law up to time convention and the exact stationary product. General birth–death and generator weak-convergence methods supply tools; the inspected literature gives no theorem with the joint field scaling and both directional limits as an automatic specialization."
+        ],
+        "reasoning": "At the pitchfork, a different rescaling is needed because the linear drift vanishes. Extracting the field and cubic terms together, establishing uniform tails and containment in the critical window, and passing the exact two first-passage sums to their limits are substantive extra steps beyond the exact formulas and qualitative switching.",
+        "searches": [
+          "arXiv:1506.04911, §II Eq. (2) and §IV",
+          "arXiv:1610.06092, §V.E",
+          "Literature: q-voter zealots critical finite-size scaling quartic diffusion N^{-1/4} stationary distribution passage time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-control finding's stationary order compares q and balanced commitment at fixed susceptible count, not the tilted critical family."
+        ],
+        "reasoning": "Changing a balanced count and q in a stochastic order does not fix the same joint scaling hypotheses; in particular no field tilt is present. The relevant perturbation here is the absolute difference of the two zealot counts, not either count by itself.",
+        "searches": [
+          "Resultary: complete-graph nonlinear q-voter asymmetric zealots N^{-1/4} critical scaling",
+          "Resultary: critical susceptibility q-voter population N^{-1/2} zealot imbalance quartic law",
+          "2026/11/2/SCOPE-a-sharp-two-control-polarization-order-for-finite-symmetric-q-vo--d68d5b83f49d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The switching finding gives an exponentially large mean full switch with exactly one zealot of each type. The same indexed searches surfaced the stationary order record above, not an exact match for the critical formulas."
+        ],
+        "reasoning": "One zealot per type is outside the order-N zealot populations here; full-switch endpoints are not finite scaled thresholds. The appropriate exact comparison is a symbolic limit and its coefficients, not a table of selected sizes.",
+        "searches": [
+          "Resultary: q-voter zealotry finite-size critical diffusion switching passage time",
+          "2026/11/8/SCOPE-sharp-fixed-zealot-switching-law-for-nonlinear-voter-dynamics--52f8b0a69977"
+        ]
+      },
+      "rationale": "The exact scalar chain and product stationary law, qualitative switching, and the symmetric critical quartic scaling are prior. The supported distinct claim is the simultaneous critical susceptibility and absolute zealot-imbalance tuning with explicit tilted stationary law, path diffusion, and asymmetric finite-threshold mean passage limits in one fixed-q regime.",
+      "residual_risks": [
+        "Bounded searches do not establish priority. A sufficiently explicit generic cusp or near-critical birth–death theorem could cover part of the path or stationary argument; no inspected theorem supplied the combined result. Neither the microscopic rates nor the symmetric critical exponent is credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rates and stationary product are prior; continuum stationary discussion is not the joint critical theorem",
+          "evidence": "Sampling permits repetition, Eq. (2) is the exact chain under its time convention, and §IV gives the exact stationary product and continuum approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.04911",
+          "material_read": "§II p. 2 Eq. (2), OA offset about 12500; §IV pp. 5–6, offsets about 35500–39500",
+          "method": "OA primary PDF",
+          "title": "Nonlinear q-voter model with inflexible zealots",
+          "trigger": "Exact same model with possible stationary and passage overlap"
+        },
+        {
+          "assessment": "Symmetric critical scaling overlap, not the sampled tilted path and passage theorem",
+          "evidence": "The quartic Landau analogy at criticality gives the N^(-1/4) magnetization scale; full finite-size scaling and unequal zealot effects are explicitly outside that treatment.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.06092",
+          "material_read": "§V.E pp. 10–11, OA offsets about 70800–75900",
+          "method": "OA primary PDF",
+          "title": "A Heterogeneous Out-of-Equilibrium Nonlinear q-Voter Model with Zealotry",
+          "trigger": "Closest critical quartic finite-size literature"
+        },
+        {
+          "assessment": "Different stationary question",
+          "evidence": "Compares q and balanced commitments for fixed susceptible count and credits Mobilia's product; no critical path or passage result.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-two-control-polarization-order-for-finite-symmetric-q-vo--d68d5b83f49d",
+          "material_read": "Local RESULT.md Finding and comparison to exact stationary product",
+          "method": "Local mirror",
+          "title": "A sharp two-control polarization order for finite symmetric q-voter models",
+          "trigger": "Closest indexed stationary two-control result"
+        },
+        {
+          "assessment": "Different parameter and endpoint regime",
+          "evidence": "One zealot per opinion and a full-switch crossing of an exponential time scale.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-fixed-zealot-switching-law-for-nonlinear-voter-dynamics--52f8b0a69977",
+          "material_read": "Local RESULT.md Finding and assumptions",
+          "method": "Local mirror",
+          "title": "Sharp fixed-zealot switching law for nonlinear voter dynamics",
+          "trigger": "Closest indexed mean switching formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact-rate proof",
+        "Inspected primary stationary and critical-scaling papers"
+      ],
+      "rationale": "In a canonical noisy critical model the theorem identifies two different finite-size controls, shows their simultaneous effect both on sample paths and the invariant law, and gives directly usable directional switching times for fixed scaled thresholds. The coefficients and directionality quantify behavior not determined by the prior symmetric exponent or qualitative bistability.",
+      "residual_risks": [
+        "The result is not a large-barrier switching estimate, an error bound, or a universality theorem for heterogeneous populations or noncomplete graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

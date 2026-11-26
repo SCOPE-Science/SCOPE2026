@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The reproducible Python script `verify_logchirp.py` uses `mpmath` to cross-check independent consequences of the analytic argument.
+## correctness
 
-It compares nine direct beta integrals with the exactly solvable \(\tau=1\) beta/gamma ratio (weights \(a=0.7,1,2.5\), degrees \(n=0,3,15\)); four subcritical \(\tau=0.6\) gamma-law evaluations; and four complex-contour integrations (weights \(a=1,2\), \(\tau=1.3,1.5\), logarithmic scales \(L=100,500\)) against the predicted moving gamma factor. The result was:
+PASS
 
-`VERIFY_OK 17 beta identities, subcritical phase, and complex-contour gamma ratios`
+Angular orthogonality diagonalizes the stated bounded radial symbol, and the weighted squared monomial norms are a B(n+1,a), giving the normalized beta integral. At x=n(1−t), replacing the beta density by the gamma density on [0,sqrt(n)] has absolute error O_a(n^−1) plus an exponentially small tail; this is uniform for a phase of modulus one on the real interval. Dominated convergence after removing exp(iL^τ) gives the subcritical result. At τ=1 the exact beta quotient has gamma ratio Γ(a−i)Γ(n+a+1)/(Γ(a)Γ(n+a+1−i)); the limiting radius is positive and strictly less than one by strict triangle inequality for the gamma law. In both cases the leading angle tends to infinity with increments tending to zero, so every point of the relevant circle occurs as a cluster point. For 1<τ<2 a real-axis pointwise linearization would not justify an exponentially small relative asymptotic. The clockwise rotation θ=arctan(κ/a) is valid up to R=exp(L/2): L−log x stays in the right half-plane on the sector, its τ-power has nonnegative imaginary part, and the outer arc is polynomial in R times exp(−R cos θ), negligible even relative to the gamma factor. After scaling x=κu exp(−iθ) and removing exp(−κθ), the small-u tail up to κ^−M is o(κ^−1/2): at |x|<1, Im(A+iθ)^τ≥τA^(τ−1)θ≥κθ for A=L−log|x|, using monotonicity of Re(A+iv)^(τ−1) in v≥0. Above u=κ² the exponential amplitude dominates even exp(κθ). In the middle the Taylor remainder is O(L^(τ−2)log² κ)=o(1); its u derivative is O(L^(τ−2)(1+|log(κu)|)/u), and its first two derivatives tend to zero near the saddle. Thus on the nonstationary left the derivative after division by the phase slope has an integrable O(u^(a−1)) bound, and on the right it has an exponential majorant. Integration by parts is O(κ^−1). The nondegenerate saddle u=1/sin θ gives the complex Gaussian factor, including exp(iπ/4); κ cot θ=a and κ(π/2−θ)→a cancel the remaining real amplitude factors exactly to leading order. Stirling at a−iκ supplies the same phase and modulus, and κ=o(L) makes the absolute beta error negligible relative to that modulus. The diagonal therefore vanishes at infinity without being summable to any positive power, and two-sided logarithmic bounds squeeze N_τ(s) without monotonicity of the diagonal. The proof is for fixed a>0 and fixed τ<2; no endpoint or parameter-uniform claim. The frozen verifier was inspected, not executed; its four rotated gamma-law tests are not independent checks of a relative all-parameter beta asymptotic.
 
-The supercritical ratios for \(a=1,\tau=1.3\) were \(1.0368885737226+0.00440039031917i\) at \(L=100\) and \(1.0160035331928+0.00574843819853i\) at \(L=500\). For \(a=2,\tau=1.5\), they were \(1.3204854579815+0.26005465937562i\) and \(1.1797366040089+0.20003925183391i\), respectively. The approach toward the asymptotic factor is visibly slower closer to \(\tau=2\), in accordance with the proof's Taylor remainder.
+## originality
 
-To reproduce, install a standard Python distribution with `mpmath` and execute `python3 verify_logchirp.py` from the folder containing that script. The proof of the infinite statements is in `RESULT.md`; no finite numerical sampling is treated as proof of an asymptotic or a universal Schatten-class assertion.
+PASS
+
+The supported distinct contribution is the relative complex moving-frequency Mellin/Gamma comparison for the exact radial logarithmic chirp, for fixed 1<τ<2. Radial diagonalization, bounded radial compactness criteria and fixed-frequency beta/gamma moments are background. The examined primary and indexed results do not state or imply the required comparison to exponential relative accuracy for this symbol; no exhaustive priority claim is made.
+
+## value
+
+PASS
+
+This natural fixed-modulus family separates boundary oscillation from decay of the symbol itself and has a sharp compactness transition. In the compact regime the complex formula determines not just convergence but the cancellation scale, phase, and logarithmic spectral-counting constant. Compactness outside every finite Schatten class is a substantive contrast with faster boundary chirps. The relative estimate is needed for the quantitative spectral description, not just a routine application of a compactness criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

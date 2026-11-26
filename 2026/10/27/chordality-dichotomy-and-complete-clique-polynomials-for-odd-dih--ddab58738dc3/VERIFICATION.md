@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,12 @@
 
 # Verification
 
-Execute `python3 verify.py` using only the Python 3 standard library. Exact checks include the full quandle endomorphism tables for \(n=3,5\), candidate perfect-elimination orders for prime powers \(3,9,27,5,25\), all maximal cliques for \(3,9,5,25\), every clique-polynomial coefficient for \(3,9\), exact independent edge counts, and one explicit induced four-cycle at modulus \(15\). Observed terminal output: `VERIFY_OK dihedral commuting graph chordality and clique recurrence`.
+Run `python3 verify.py` with Python 3. The script exhausts the quandle homomorphism equation at moduli 3 and 5 and checks equality with the affine family. For moduli 3, 5, 9, 25 and 27 it builds adjacency from affine composition, checks the determinant criterion for all pairs, verifies clique neighborhoods in the proposed elimination order, and checks the maximum clique size from that order. It tests all six pairs of the four Chinese remainder witnesses at each of moduli 15, 21 and 45.
 
-The general proof is mathematical and does not follow from finite enumeration. The verifier checks only the enumerated finite cases. Prior identical determinant graphs and their maximum-clique results are recognized in the proof and are not considered new. Independent mathematical audit has not been performed.
+Observed output:
+
+```
+VERIFY_OK affine=3,5 orders=3,5,9,25,27 cycles=15,21,45
+```
+
+These finite checks concern the listed moduli only. The general theorem uses the affine representation, the complete neighborhoods of the primitive vertices, the lifting argument for the remaining graph, and the induced cycle proof.

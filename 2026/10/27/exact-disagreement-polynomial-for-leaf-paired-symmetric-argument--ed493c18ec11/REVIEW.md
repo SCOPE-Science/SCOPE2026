@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite simple core graph, the forced-private-leaf argument gives a bijection between stable extensions and all independent core sets. Two extensions differ in precisely two vertices per core-position disagreement. Fixing the disagreement support yields proper two-colorings of its induced bipartite graph, together with an independent common set outside its closed neighborhood. This bijectively proves every coefficient. Maximum induced bipartite order establishes the endpoint; deleting one colored vertex at a time realizes every intermediate even distance; a maximal-support argument proves the leading coefficient. Direct exhaustive verification covers all graphs through five vertices plus twenty six-vertex cases. The proof, not the experiments, covers arbitrary finite graphs.
+PASS
 
-## Originality — PASS within inspected literature
+Every stable extension contains exactly one member of each partner pair: conflict-freeness rules out both and the private leaf cannot be attacked if neither is chosen. Every independent core set conversely yields such an extension, so each core disagreement contributes exactly two argument disagreements. For a fixed difference S, the two exclusive core sets are the ordered color classes of G[S]; each bipartite component, including a singleton, gives exactly two choices. The common core set must avoid S and all its neighbors, and every independent set in what remains gives a distinct ordered pair. This includes S empty, giving constant coefficient i(G). Bipartiteness is hereditary, so subsets of a largest induced bipartite set realize all intermediate sizes, and that largest set dominates the complement (an undominated vertex could be added as an isolate). Hence its common-set factor is one and both the endpoint and leading coefficient follow. The argument works with disconnected graphs and isolated vertices and with ordered, identical pairs.
 
-The closest source is Fichte–Hecher–Mahmood–Wang (2026), which defines symmetric-difference extension diversity and proves general complexity results, including proofs in its appendix. It does not give this paired-leaf exact distance polynomial, full support, or maximum-pair count; its shadow-vertex construction is not the same graph. Coste-Marquis–Devred–Marquis (2005) proves the already known stable/preferred/naive equivalence for symmetric attack frameworks. Galby–de Lima–Munaro–Nikabadi (2026) develops odd-cycle-transversal algorithms, not an argumentation distance polynomial in its inspected available description. Levit–Mandrescu (2013) studies ordinary corona independence polynomials. Search comparisons included leaf pairing, corona, odd cycle transversal, induced-bipartite maximization, and independent-set symmetric differences, with no dominating statement identified.
+## originality
 
-## Value — PASS
+PASS
 
-The paired-leaf framework naturally models an explicit fallback decision for each argument and has exponentially many possible stable outcomes. The theorem yields **all** pairwise disagreement counts, proves an unexpected no-gap parity spectrum, and identifies both maximum disagreement and the exact number of maximizing pairs through the established odd-cycle-transversal parameter. It therefore connects a 2026 logical disagreement measure to a independently motivated graph optimization invariant over an entire unbounded family rather than a hand-picked finite instance. It does not claim a new algorithm for general odd-cycle transversal.
+The supported distinct result is the fixed-disagreement-set coefficient formula and the complete ordered stable-extension distance polynomial for private leaves, with its endpoint and ordered multiplicity. The metric, ordinary independence polynomial and odd-cycle-transversal equivalence are background. No inspected earlier statement gives or mechanically specializes to the fixed-S factorization.
 
-## Limitations and residual risks
+## value
 
-A general two-replica hard-core or graph-homomorphism polynomial might implicitly subsume this decomposition; equivalent older terminology remains possible. The full 2026 odd-cycle-transversal paper and the full 2013 corona independence-polynomial paper were not read, and the novelty conclusion is confined to the examined descriptions plus primary full-text comparisons most relevant to argumentation. All statements are for finite simple undirected cores and symmetric paired-leaf attacks; they do not extend automatically to arbitrary argumentation graphs. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Private fallback arguments give a transparent nontrivial class in which all stable-extension distances can be resolved. The formula conditions on the exact disagreement vertices and separates color-class choices from free shared choices. It determines the attainable distances and, unlike merely computing a diameter, counts maximizing ordered pairs; the transversal endpoint connects a semantics invariant to a natural graph parameter. The exponential formula is descriptive rather than an efficient general algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

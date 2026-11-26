@@ -1,15 +1,21 @@
-# Mathematical review: exponentially flat Gaussian-cat Wigner negativity
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized wavefunction and Wigner convention fix all constants. Direct Gaussian integration yields the exact interference formula. The first negative momentum interval has left edge \(t_a=(\pi-\arccos(e^{-a^2}))/(2a)\). All further intervals contribute exponentially less than the first reflected pair. Under \(v=2t_a(p-t_a)\) and \(w=\sqrt{2t_a}\,q\), the negative bracket divided by \(a^2/t_a\) tends to \((\sqrt2v-w^2)_+\). A uniform \(Ce^{-v}v\mathbf 1_{|w|\le C\sqrt v}\) majorant justifies limit exchange. The resulting gamma integral and precise expansion of \(t_a^2\) prove the entire claimed equivalent, including the power and constant. Three separate Wigner integral tests and a high-precision first-fringe quadrature test corroborate, but do not establish, the theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Kenfack–Życzkowski, arXiv:quant-ph/0406015v1, Section III (material inspected) gives the underlying Wigner formula and discusses numerical cat-negativity values and a practical upper approximation, but not an asymptotically equivalent integrated negative mass as the two packets coalesce. Their formula is explicitly treated as prior work. Fiurášek–Ježek, arXiv:1306.0508v1, Sections I–II (material inspected) derives fidelity sampling and Wigner-negativity witnesses rather than integrated-volume asymptotics. Relevant indexed research comparisons concern either different Hermite two-level states, cat-state fidelity, or large-separation behavior; none yields the stated small-separation Gaussian edge law by direct statement or a stronger implication. Equivalence under different phase-space units in older, unindexed quantum-optics literature is a remaining priority risk. Searches are evidence of comparison, not proof of universal novelty.
+PASS
 
-## Mathematical value — PASS
-A directly measurable nonlinear phase-space invariant is resolved with a sharp constant, a fractional algebraic prefactor, and **both** essential-exponential scales. Because the first negative Wigner fringe escapes to momentum of order \(a^{-1}\), ordinary near-Gaussian Taylor approximations do not control its negative mass. The result quantifies a natural extreme-boundary phenomenon, rather than a small numerical improvement or a mere reformulation of the known Wigner formula.
+Direct Gaussian integration gives W=e^(−q²−p²)[e^(−a²)cosh(2aq)+cos(2ap)]/[π(1+e^(−a²))]; the integrated negative part has no further factor of two. Set β=acos(e^(−a²)) and t=(π−β)/(2a). Negative points have bounded position and lie in the stated momentum intervals; at q=0 a negative open region starts immediately to the right of t for every a>0. Lobes beyond the nearest symmetric pair start at |p|≥t+π/a and their total Gaussian tail is exponentially smaller. An alternative scaling p=t+as, q=√a w gives negative bracket divided by a³ tending to 2√2 s−2w² and exponential ratio tending to e^(−πs), with Jacobian a^(3/2). The exact identity for the cosine difference gives a bound C a³s, and the cosh lower bound restricts w²≤Cs; the integrand is dominated by C s e^(−cs) on that support. Integrating the parabolic positive part against e^(−πs), normalizing and accounting for both lobes gives (2^(7/4)/π³) a^(9/2)e^(−t²). The edge expansion t=π/(2a)−1/√2+O(a²) contributes both the positive 1/a exponent and e^(−1/2). Independent scaled Simpson quadrature for the nearest pair (s truncated at 17, 2048 panels, 64 position panels) gave ratios to the stated equivalent near 0.96317, 0.98295, 0.99351, 0.99681 at a=0.10,0.05,0.02,0.01; these corroborate, but do not establish, the analytic limit. The frozen checks/check_cat.py and its recorded results were inspected, not executed.
 
-## Scientific boundaries
-The claim is a positive-separation near-vacuum equivalent for the exact even standing cat only. Remote-fringe negligibility is analytic; finite tests do not justify the asymptotic independently. Publication priority and mathematical correctness have not been validated by an independent reviewer.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the sharp equivalent of the integrated negative part for the full even Gaussian cat. The exact Wigner formula and underlying cat normalization are prior. Neither the prior oscillatory negative-volume integral nor its proxy upper bound exhibits the exact edge-localized rate and prefactor found here.
+
+## value
+
+PASS
+
+For the natural even cat approaching the vacuum the effect is nonperturbatively small. The result quantifies the mass where the fringes actually first become negative, distinguishing physical scale, secondary exponential and prefactor that a weak-amplitude expansion or logarithmic rate alone misses. The precise equivalent is a benchmark for detecting or numerically resolving negativity near the Gaussian limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

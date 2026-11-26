@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each \(N\ge1\), write \(N=M+r\) with \(M\) a power of two and \(0\le r<M\). The first \(M\) Walsh modes are the conditional expectation on \(M\) dyadic cells; the next \(r\) modes are products of the next Rademacher sign with low-level characters. These facts give the exact residual identity for a single step at fractional location \(q\). Completing a square yields the exact maximum \(1/(4N)\) and all maximizing positions. The distributional derivative representation reduces arbitrary interval \(BV\) data to a signed superposition of steps, and the Hilbert-space triangle inequality gives the sharp global estimate. For equality, derivative support lies in the finite argmax set, and distinct maximizing jump residuals are not collinear because their jumps occur off the grid of the corresponding Walsh subspace. Endpoints, the case \(N=1\), and powers of two are included. The extracted exact-rational checker passed 1,658 assertions. Computations are corroboration only.
+PASS
 
-## Originality — PASS, qualified
+For M the dyadic floor of N, the first M characters span cell constants and the r extra orthonormal modes are the next Rademacher times r cell-constant sign characters. The unit jump at relative position q has M-mode residual variance q(1-q)/M; each extra coefficient has magnitude min(q,1-q)/M because whole cells cancel under the Rademacher sign. Thus the squared residual is exactly the stated formula. Its left-half quadratic is (q-(N/M)q²)/M, whose unique maximizer is M/(2N), with its reflection on the right; the maximum is 1/(4N). This includes N=1 and r=0. The derivative-measure representation of real interval BV is a Bochner integral of jumps modulo constants (the jump map is L²-continuous), with total mass in variation equal to TV. Equality for a nonzero signed derivative forces its variation measure onto the finite maximizing set. Triangle equality then requires proportional signed residuals. Distinct maximizing jumps cannot be proportional: every projected function is constant near each maximizer, using the half-cell grid for r>0 and the cell grid for r=0, so any asserted proportionality would leave an uncancelled jump. The sharp equal-cell comparator follows from unit-step cell variance and the same integral bound.
 
-A targeted search compared joint Walsh-tail error, sharp Jackson constants, binary cutoff identities, alias statements in coefficient/Dirichlet-kernel language, exact tables, and nearby dyadic/finite Walsh results. Fine [1] gives individual coefficients and dyadic conditional expectations, but neither entails the *sharp all-cutoff joint residual energy* by its stated coefficient bounds alone. Móricz [2] has coefficient-sequence variation hypotheses and limiting convergence, not an exact interval-variation operator norm. Vyas–Darji [3] bounds individual multiple Walsh coefficients, rather than this one-dimensional projection error. Hytönen–Lacey–Parissis [4] proves a variational Carleson theorem with a different operator/norm output. Relevant prior findings on finite Walsh soft thresholding and Haar variation concern other operators or error norms; none of the inspected statements includes this exact claim or a stronger general theorem implying it. Residual risk: unindexed classical approximation results and the inaccessible full text of Gogoladze–Tsagareishvili [5]; the latter's available abstract describes coefficient decay, not a decisive covering theorem. This is a best-knowledge comparison, not proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The Paley basis is computationally natural but its non-dyadic partial-sum kernels are nonpositive and have different geometry from uniform-cell averaging. Nevertheless **every** rank has precisely the same sharp variation-normalized integrated error as an \(N\)-equal-cell projection. The exact best constant and complete jump-location classification identify the sensitivity of all digital spectral cutoffs to discontinuities, without requiring an arbitrary parameter slice or asserting unproved universal optimality among all subspaces. Fine's single-coefficient bound alone supplies only a weaker generic tail estimate, so the exact joint energy exploits a genuine cross-coefficient structure. The result supplies a natural complete classification and a reproducible best-constant benchmark.
+The inspected comparisons do not cover the exact non-dyadic correction, sharp all-cutoff bound and rigidity for the Paley-ordered joint residual. The dyadic averaging mechanism and its midpoint case are not credited as new.
 
-## Boundaries and historical uncertainty
+## value
 
-The claim is for unweighted \(L^2\), ordinary (not periodic) interval variation, and Paley order. It does not classify nonlinear filters, other Walsh orderings or multivariate cuts. Known analogues for Haar detail energies or other Fourier systems do not imply this result. An unindexed historically stronger theorem remains possible; no independent audit has been done.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Paley partial sums have natural non-dyadic cutoffs not handled by cell averaging alone. The result gives a worst-case BV approximation benchmark at every rank, identifies how the extra block changes the jump response, and locates all extremizers. Equality with the regular equal-cell error is a useful comparison, not a global optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

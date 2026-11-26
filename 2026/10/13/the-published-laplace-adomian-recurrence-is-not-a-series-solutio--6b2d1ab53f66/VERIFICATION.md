@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the first Caputo coefficients symbolically.
 
-For the stated model it uses
-\[
-A_S=\delta-q\beta K_1K_3-q\beta'K_1K_4-\lambda K_1,
-\]
-\[
-A_{I_s}=(1-a)\sigma K_2+\rho_aK_4-(\lambda_s+\lambda+\phi_s)K_3,
-\]
-and
-\[
-A_R=\rho_hK_6+\tau_hK_5-\lambda K_7.
-\]
+# Independent mathematical audit
 
-It verifies
-\[
-A_{I_s}^{(5.9)}-A_{I_s}
-=
-\phi_s(K_3-K_4),
-\]
-\[
-A_R^{(5.9)}-A_R
-=
-\rho_h(K_5-K_6),
-\]
-and
-\[
-A_S^{(5.10)}-A_S
-=
-q(\beta-\beta')K_1(K_3-K_4)+\lambda(K_1-K_2).
-\]
+## correctness
 
-For the exact positive witness, these differences are
-\[
--1,\qquad -1,\qquad -\frac32.
-\]
+PASS
 
-The checker also verifies that the correct susceptible and exposed infection terms cancel in their sum, as required for an internal infection transfer.
+The Caputo integral equation and continuity at the initial state force y(t)=K+F(K)t^α/Γ(α+1)+o(t^α), including α=1. In the publisher PDF, Eq. (5.8) and its definitions of the zeroth products support the frozen comparison. Eq. (5.9) changes the symptomatic loss and recovery input, giving first-coefficient residuals φ_s(K₃−K₄) and ρ_h(K₅−K₆). Eq. (5.10) repeats the symptomatic loss error and uses the exposed instead of susceptible state in the natural mortality term of the susceptible equation; it also swaps the incidence pairings in both rows. The sign of the susceptible residual in the frozen proof is correct. These differences are nonzero as polynomial identities; the non-incidence differences alone suffice. Transfer balance requires consistent pairings but does not distinguish a simultaneous swap; the intended labels are established separately by Table 1 and (5.8). Section 6 explicitly attributes its approximations to (5.10), but this does not establish what the unavailable implementation computed. VERIFICATION.md and verify.py were inspected, not executed; the script checks the transcribed expressions, not their provenance or any trajectory. The analytic first-term comparison is decisive.
 
-No trajectory simulation or finite parameter scan is used.
+## originality
+
+PASS
+
+The distinct claim is the specific first-coefficient failure of Eqs. (5.9)–(5.10) in DOI 10.3934/math.2022877, not the Caputo first-term test or the compartmental model. No equivalent diagnosis was found in the inspected material.
+
+## value
+
+PASS
+
+A leading-order inconsistency in the recurrence explicitly cited as the basis of the numerical figures is a concrete reproducibility defect. It rules out correcting the discrepancy simply by taking more terms of the same formal series, without drawing conclusions about epidemiological predictions or unavailable code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

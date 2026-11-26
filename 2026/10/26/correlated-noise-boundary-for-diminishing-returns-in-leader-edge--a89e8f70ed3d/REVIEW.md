@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The central claim specifies every quantifier: fixed positive-semidefinite correlated-noise covariance, all finite connected undirected positive-weight graphs with fixed leaders, all finite collections of missing leader-to-follower edges. The stationary Lyapunov equation gives exactly half the trace of the grounded inverse times covariance. Its first derivative is nonpositive for every positive-semidefinite covariance; its mixed derivative is the product of an inverse entry and a covariance-weighted inverse entry. Positivity of inverse grounded Laplacians proves the sufficient covariance sign condition. The two-leader large-grounding construction proves necessity for every fixed negative covariance entry. The explicit rational two-follower formula provides an independent sharp sign threshold. The accompanying exact-rational checker passed 8,686 assertions. The proof, not the checker, establishes arbitrary network size and parameter ranges.
+PASS
 
-## Originality: PASS with residual risk
+With at least one grounded leader in a connected graph, extending a follower vector by zero on leaders gives a Dirichlet quadratic form that is positive on nonzero vectors. Thus the stable OU mean decays and the Lyapunov covariance identity gives P=tr(G Sigma)/2, G=A^(-1). Differentiate G by -G E_ii G: the first partial is -(G Sigma G)_ii/2, nonpositive even for singular PSD Sigma; the second partial is G_ij(G Sigma G)_ij. Inverse positivity follows, e.g., by integrating the entrywise-nonnegative semigroup exp(-rA) of the Metzler matrix -A. Entrywise nonnegative Sigma therefore makes all rectangular differences nonnegative, including repeated endpoints via the same-coordinate second derivative; telescoping gives the exact set inequality. Conversely choose the proposed two leaders, all followers grounded at s to the first, and the sole inter-follower edge c between the labels of any negative Sigma_ij. The two absent edges to the second leader are legitimate unit candidates. On their increment square G_ij=c/det of the positive two-by-two block, and sG tends uniformly to I; hence s^2(G Sigma G)_ij tends uniformly to Sigma_ij<0. Integration gives a negative gap for large finite s, even with other noise correlations present. For the exact two-follower boundary take x=s+c and D0=x^2-c^2, D1=x(x+t)-c^2, D2=(x+t)^2-c^2. Inversion yields the gap t/D1 times [x(x+rho c)/D0-(x+t)(x+t+rho c)/D2]; putting over the common denominator gives c t^2 [c(2x+t)+rho(x(x+t)+c^2)]/(D0 D1 D2), the displayed formula. The four stated rational values and negative gap -1/200 follow, and the covariance eigenvalues are 1/5 and 9/5. Replay proofs from RESULT.md lines 51–97; verify.py is supporting finite rational evidence, not the universal proof or an independent certificate.
 
-The strongest direct comparison is Xu--Zhang (2023), arXiv:2308.07008v1, especially its noisy DeGroot equation (3), stationary variance formula (5), and leader-edge supermodularity Theorem 4.3. Its independent-noise objective is a special case, not the iff characterization for fixed correlated forcing. Clark--Bushnell--Poovendran (2012) consider independent link noise and leader-node selection; Summers et al. (2014) treat independent-noise ungrounded coherence edge additions; Mackin--Patterson (2017) treat a leader-node selection formulation. These are substantive stronger-coverage checks, not title matches. Matrix inverse-positivity and second-derivative techniques are standard and may imply some steps from general results. The available literature search did not locate an equivalent general covariance-sign iff or the sharp two-follower correlation frontier. Unindexed or differently described prior theorems remain a priority risk; no publication exclusivity is asserted.
+## originality
 
-## Value: PASS
+PASS
 
-Independent-noise supermodularity is used to justify diminishing-return algorithms for leader-edge interventions. Realistic shared or opposing disturbances change covariance signs, so it matters to know whether that guarantee survives. This result gives a full **universal covariance class**, preserves the monotonic variance-reduction guarantee even outside it, and supplies both an exact small counterexample and a sharp tunable correlation boundary. It is not an arbitrary finite enumeration or mere reparameterization: the iff criterion covers networks of all finite sizes and exhibits the precise failure mechanism of the optimization guarantee. Its limitations concern fixed intervention-independent noise, the chosen variance objective, and undirected positive interactions.
+The nearest prior leader-edge theorem proves inverse-trace supermodularity, i.e. independent equal noise. The inspected indexed records change either what is selected or what is varied. None inspected gives the uniform covariance-sign characterization with necessity for each fixed covariance, or the exact continuous family of two-follower thresholds.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This characterizes exactly when a common edge-selection diminishing-returns guarantee survives correlated noise, rather than just giving a counterexample. The separation from monotonicity and the exact two-node transition make the condition interpretable and give concrete tests for design assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

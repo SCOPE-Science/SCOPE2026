@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:53:15.007479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Uniform compositions are fair independent internal cuts with forced exterior cuts. Interior indicators for size r use r+1 consecutive positions and boundary effects are bounded at fixed m. In the covariance sum for r,s, offsets outside [−s,r] are independent; the two touching offsets give joint density 2p_r p_s, strictly overlapping distinct intervals are incompatible, and coincident intervals add p_r when r=s. This recovers the stated covariance per n. Fixed-width gaps between blocks of length floor(n^(1/4)) leave discarded variance o(n); the centered block bound is o(sqrt n), so the independent-block CLT applies to each projection. Independently, coefficient extraction from the first and mixed marked derivatives gives the exact finite covariance for n>r+s, with n=r+s treated using the constant coefficients, and n<r+s using impossibility of simultaneous occurrence and positive individual means. These three regimes give strict negativity for all distinct r,s≤n, including the marginal singleton-doubleton pair despite its zero limiting off-diagonal coefficient. The quadratic form is (1/2)Var(h(G)−λG) with Geom(1/2) length G, h truncated to the first m values and λ=E[h]/E[G]. A zero variance forces λ=0 on the infinite tail, then h=0. Woodbury with rows p_r(1,r) gives the inverse of the inner 2×2 block [[a_m,−d_m],[−d_m,−e_m]], yielding exactly the displayed precision. Its off-diagonal numerator is minimized at {1,2}, with value 1−(m²+m+2)/2^(m+1), zero at 2 and strictly positive from 3 onward by induction. Rescaling the precision by Δ_m gives entrywise ij/2 for fixed indices including the diagonals, so the normalized negative ratio tends to −1. The provided finite rational script was inspected, not executed; the argument covers the universal claims without it.",
+      "residual_risks": [
+        "These are sequential limits: n grows first at fixed m. No result about growing-dimensional normal approximation or dependence conditional on finite discrete count data is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1(c) covers nondegenerate part-size count vectors. In the unrestricted case the support vectors of the denominator consist of (ℓ, e_ℓ) for ℓ≤m and (ℓ,0) for longer parts; they span. Theorem 3 uses the weighted residual products of centered rewards at its dominant pole r=1/2 and specializes exactly to Σ_m.",
+          "Malandro gives bounded-part expected multiplicities and asymptotics, a different conditioning and not a precision result."
+        ],
+        "reasoning": "The covariance and Gaussian convergence are direct prior coverage, not merely analogous. The printed general covariance formula does not evaluate this inverse or classify its signs and the cutoff limit; computing an inverse in principle is not the exact uniform sign theorem.",
+        "searches": [
+          "DOI 10.37236/1954 / author's UCSD copy, Theorem 1(c), Theorem 3 eq. (2.2)",
+          "arXiv:1108.0337v2, bounded compositions, Abstract and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Bender–Canfield author copy, Example 1, Theorems 1 and 3",
+        "Malandro arXiv:1108.0337v2",
+        "Resultary same-day and exact pattern-count comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generating function encodes finite mixed moments; the covariance limiting expression follows by inserting the geometric part weights in (2.2).",
+          "The evaluated inverse reduces sign to the scalar 1−(m²+m+2)/2^(m+1), and its scaled limit is rank one on each fixed index pair. Neither comparison source provides such a rank-two precision sign law."
+        ],
+        "reasoning": "Woodbury is a standard method, and the finite moment formulas should be credited as explicit specializations of known marking methods. The class-wide inverse sign and limiting partial dependence require identifying the low-rank correction, proving the minimum across all distinct lengths, and controlling the diagonal normalization as the conservation constraint is approached. The closest compared results do not supply those conclusions.",
+        "searches": [
+          "Bender–Canfield Example 1 and eq. (2.2) compared with frozen proof §§1–4",
+          "Resultary same-day word-count and occupancy covariance records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 1 marks each size in the ordinary composition generating function. Setting the total-part mark to 1 and all size marks beyond m to 1 gives the frozen generating function.",
+          "Under i.i.d. fair gaps the size counts are patterns of two cuts enclosing noncuts; exact fixed-pattern count results for this same joint statistic would be equally relevant. The matching catalogue precision record is the frozen record itself."
+        ],
+        "reasoning": "Changing from cuts to part lengths or from precision signs to opposite partial-correlation signs is not novelty. None of the compared distinct catalogue records treats exactly this joint size-count precision and limit under the same measure.",
+        "searches": [
+          "Resultary: uniform integer composition part-size count covariance precision matrix and Gaussian partial correlations",
+          "Bender–Canfield, Locally Restricted Compositions I, Example 1 and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d92df0df777d gives covariance of total part count with a given consecutive part-word count, not pairwise precision of the vector. b21fff941275 gives pairwise frequency covariances for a uniform weak composition with fixed coordinate count, not this measure.",
+          "The examined exact permutation pattern tables concern consecutive triples or four-patterns and have singular Gaussian covariances. They are different from an invertible size-count matrix here."
+        ],
+        "reasoning": "A full precision table in equivalent coordinates, or a symbolic inverse and sign classification covering every cutoff, would materially overlap. The available exact covariance tables have a different statistic or sampling law; the exact matching index item is not independent precedent.",
+        "searches": [
+          "Resultary: part-size precision tables and related covariance tables",
+          "Resultary d92df0df777d, b21fff941275, b3ad3b36c62e, 3a676bebbf63 and f8ca541f3362"
+        ]
+      },
+      "rationale": "The uniform-composition marking function, fixed-dimensional CLT and a general formula specializing directly to the covariance are prior. Exact finite mixed moments are obtainable by coefficient differentiation. The distinguishable result is the explicit evaluated precision and its global off-diagonal sign classification and dependence on the observed size cutoff, rather than the underlying covariance or a new general Gaussian limit theorem.",
+      "residual_risks": [
+        "A prior specialized inverse or uniform sign theorem could remain unindexed. Existing CLT/covariance and marking results are not attributed to this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact marking and direct CLT/covariance coverage; no evaluated precision classification in the inspected material",
+          "evidence": "Example 1 uses (1−∑ t x^k z_k)⁻¹. At r=1/2 equation (2.2) yields (1/2)E[(p_iG−1_{G=i})(p_jG−1_{G=j})] for G geometric with mass 2^(−G).",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ebender/reprints/111.pdf (DOI 10.37236/1954)",
+          "material_read": "Example 1 and Theorem 1(c), journal pp. 3–4; §2 Theorem 3 and eq. (2.2), pp. 6–7",
+          "method": "OA author copy: literal queries and offsets 5280 and 13900",
+          "title": "Locally Restricted Compositions I. Restricted Adjacent Differences",
+          "trigger": "Same ordinary composition statistic and more general joint Gaussian theorem"
+        },
+        {
+          "assessment": "Bounded-part single-size means, not the unrestricted precision comparison",
+          "evidence": "Counts and expected multiplicities are evaluated under a maximum part size k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0337v2",
+          "material_read": "Abstract, p. 1, and Theorem 1.1, pp. 2–3",
+          "method": "OA PDF offsets 0 and 7600",
+          "title": "Integer Compositions with Part Sizes Not Exceeding k",
+          "trigger": "Part-size multiplicities and exact generating functions"
+        },
+        {
+          "assessment": "Different pair of statistics, not an equivalent table; same-day date does not establish precedence",
+          "evidence": "Compares the total number of parts with occurrences of one consecutive part-word, not the vector of all size counts.",
+          "identifier_or_url": "2026/11/8/SCOPE-weight-length-universality-and-sharp-covariance-zeros-for-compos--d92df0df777d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Weight-length universality and sharp covariance zeros for composition pattern counts",
+          "trigger": "Same ambient composition law and exact covariance"
+        },
+        {
+          "assessment": "Different measure and marginal covariance rather than Gaussian precision",
+          "evidence": "Uniform weak composition among a fixed number of coordinates; identifies positive regions for frequency cross-covariances.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-single-positive-covariance-island-for-positive-occupancy-frequ--b21fff941275",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A single positive covariance island for positive occupancy frequencies",
+          "trigger": "Superficially similar frequency/covariance sign law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen precision sign and fixed-pair limit, proof §§3–4",
+        "Prior marking and joint-limit framework for comparison"
+      ],
+      "rationale": "The first m positive part lengths are a natural increasing observation scheme, and the precision asks which dependencies survive after adjusting for all currently observed lengths. The complete sign classification, its two-dimensional exception, and degeneration to −1 show when the fixed-sum constraint becomes visible through Gaussian conditional dependence. That is a sharper structural consequence than any one marginal covariance or a table of a few small dimensions.",
+      "residual_risks": [
+        "Interpret signs as Gaussian linear partial correlations only; they need not describe the discrete conditional associations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

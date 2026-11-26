@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:38.130732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–70 (including full marked statements, line 28)",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "For three unit segments almost surely in distinct projective directions, the boundary has two edges of length one in each of the three directions; the determinant area formula has no extra factor for segments [0,u]. Relative to labelled direction 1 the remaining two angles are iid uniform mod pi, independent of direction 1. Sorting yields constant density 2/pi² in the (X,Y) gap coordinates, with W=pi-X-Y. The determinant sum is sin X+sin Y+sin W. At fixed X=x this is sin x+2 cos(x/2) sin(y+x/2), so solving the sine inequality between its endpoint and midpoint values gives the entire piecewise slice length. Each slice level set has zero length for 0<x<pi, so the law has no atoms. Concavity gives the unique maximum at equal gaps and the closed simplex gives infimum zero at the three corners; continuity and the positive interior density give the whole asserted support. At each corner the two small gaps r,s have A=2(r+s)+O((r+s)^3), sandwiching the sublevel triangle between sizes t/2+O(t^3). Its area is t²/8+O(t^4); the three corners and constant density give the coefficient and symmetric label. The rescaled corner domains converge in area to the same triangle, so the uniform conditional densities converge in total variation, and 2(r+s) on that limiting triangle is Beta(2,1). Near the maximum the quadratic deficit is sqrt(3)(u²+uv+v²)/2. The ellipse at deficit 1 has area 4pi/3; the positive Hessian confines the region to O(sqrt(h)), where the cubic remainder gives O(h^(3/2)) area error and symmetric-difference convergence of the rescaled regions. The normalized quadratic radial deficit is uniform. Finally, at a boundary contact use inward gap r and the other gaps (pi-r)/2±s; the coordinate Jacobian has absolute value one. Here A=sin r+2 cos(r/2) cos s. The local survival integral extended to r<0 is smooth in t near 2 because its normal derivative is positive. Restricting back to r>=0 subtracts the strip only for t=2-h, |2 sin(s/2)|<sqrt(h). With u=2 sin(s/2) its Jacobian tends to one; the inverse normal-coordinate lower limit is of size -(h-u²) times a smooth factor with value 1 at the contact. The strip area is 4h^(3/2)/3 plus O(h²); rescaling u by sqrt(h) gives a smooth bounded coefficient in sqrt(h) and hence a derivative term of order sqrt(h). There are three contacts; the interior level is regular and there are no other boundary crossings at level 2. This gives the negative symmetric-difference coefficient -8/pi² and a continuous first derivative but unbounded one-sided second derivative at 2. Parallelism means a zero gap and boundary area 2 sin x, whose maximum is 2. These are analytic checks of the full claim; the frozen numerical verifier was inspected, not run.",
+      "residual_risks": [
+        "The differentiability conclusion is local to the interior threshold at 2; no global C¹ assertion across the upper support endpoint is needed.",
+        "The supplied numerical checks do not prove conditional total-variation convergence; the rescaled constant-density regions do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier sine-product record gives a general determinant sum, moments and a large-n limit. The perimeter-normalized record applies to equal lengths after scaling but its distributional theorem takes n to infinity and centers about disk area.",
+          "Joós–Lángi describe the classical deterministic volume formula in terms of generators and study deterministic isoperimetry. The inscribed random polygon article abstract matches the sampling model but announces average area and perimeter and rate of convergence, not the cusp or marked probabilities."
+        ],
+        "reasoning": "A deterministic volume formula or the joint gap density provides the starting integral; computing threshold behavior and its marked geometry still requires analysis. Neither average perimeter nor an n→infinity area theorem can be specialized at n=3 to give these exact conditional or cusp results.",
+        "searches": [
+          "Joós–Lángi arXiv:2206.03204 deterministic volume formulas",
+          "Resultary centered-segment sine-product result and perimeter-normalized second-order result",
+          "Primary search: On the Average Perimeter of the Inscribed Random Polygon, DOI 10.1134/S1063454120010070"
+        ]
+      },
+      "checked_sources": [
+        "Three distinct Resultary comparisons of actual findings",
+        "Joós–Lángi original arXiv HTML passages",
+        "Focused perimeter-distribution and Finch searches; publisher landing/abstract evidence and lawful retrieval attempts as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-dimensional inverse-sine quadrature is a short calculation once cyclic-gap coordinates are known. The interior coefficient requires three boundary tangencies and clipping the negative-gap strips; the two conditional limits require different corner and Hessian rescalings."
+        ],
+        "reasoning": "Even though the older representation determines the distribution in principle, there is no automatic moment/asymptotic substitution furnishing the local singularity and the marked laws. These are the supported distinct contributions, not the determinant identity, Dirichlet law, or the alias.",
+        "searches": [
+          "Exact centered-segment determinant law and moment/asymptotic statements; cyclic-triangle perimeter alias; perimeter-normalized finding and random polygon average abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doubling the angles gives three independent uniform points on the circle with side lengths 2 sin X, 2 sin Y, 2 sin W. Thus the exact probability alias is half their perimeter. Their ordinary triangle area is instead 2 sin X sin Y sin W.",
+          "The older centered-segment catalogue finding has exactly four times the present area when specialized to n=3. It is a genuine same-model comparator.",
+          "The distinct smooth-curve inscribed-triangle catalogue law concerns ordinary triangle area and gives a t^(2/3) lower tail, not this statistic."
+        ],
+        "reasoning": "A perimeter distribution with the same independent points would transfer at t ↦ 2t. A distribution for ordinary triangle area, or for triangles with points sampled inside the disk, does not transfer this way. The factor of four for centered segments changes normalizations but not the underlying distribution comparison.",
+        "searches": [
+          "Local Resultary: three-generator isotropic zonogon area, sine product and spacing laws, circular triangle perimeter and area limits",
+          "Primary search for the perimeter distribution of three uniform points on the unit circle",
+          "Finch, Mathematical Constants II, §5.15.2 and author survey title"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-model scaled catalogue entry gives finite moments, not a finite-n CDF or t=2 cusp. The inscribed-triangle entry gives a different exact endpoint law for ordinary area. The Finch Cambridge landing page did not expose §5.15.2 for independent comparison.",
+          "Search returns for perimeter included the interior-of-the-disk model and an average-perimeter article. These are not exact-table evidence for the asserted survival function."
+        ],
+        "reasoning": "The exact object tested is a survival curve at all thresholds, with a cusp and conditional spatial limits. Exact moments, laws of another statistic and unavailable book text are not evidence that it is already covered.",
+        "searches": [
+          "Local Resultary for finite-three-generator exact CDF, interior threshold and endpoint laws; matched sine-product and ordinary inscribed-area records",
+          "Primary distribution lookup by half-perimeter alias and Finch Unit Circumradius"
+        ]
+      },
+      "rationale": "The model, determinant formula, circular-spacing framework, and deterministic extrema are not new. The supported distinction is the finite-three-direction threshold analysis, including the explicit cusp coefficient and marked limits, together with the explicit scalar quadrature. In particular the known equivalence to a triangle model must use its perimeter, not its area. Neither the inspected exact moment results nor large-generator laws give these threshold and marked statements. Historical priority for the quadrature alone is not established.",
+      "residual_risks": [
+        "Did not independently inspect the full Finch §5.15.2 or the full average-perimeter article. An earlier exact circular-triangle perimeter formula or local asymptotics in inaccessible or unindexed material remain possible. The decision does not infer noncoverage from access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scaled model, partial mathematics only",
+          "evidence": [
+            "Centered length-two generators give 4 times the present area at n=3; the published statement gives moments and a limit as n grows."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e/RESULT.md",
+          "material_read": "RESULT.md, offset 0, Finding and normalization",
+          "method": "Local mirror",
+          "title": "A non-Gaussian sine-product law for areas of uniformly directed planar zonogons",
+          "trigger": "Strongest distinct same-model Resultary hit"
+        },
+        {
+          "assessment": "Contains scaled finite model but theorem is large-n",
+          "evidence": [
+            "The perimeter-two normalization is deterministic and equal lengths are included. The area-deficit distribution assumes convergence of the weights and n→infinity."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-perimeter-normalized-random-zonogons-universal-second-order-area--9a9fb17a260f/RESULT.md",
+          "material_read": "RESULT.md, offset 0, definition and diffuse limit statement",
+          "method": "Local mirror",
+          "title": "Perimeter-normalized random zonogons: universal second-order area law and a sharp spike obstruction",
+          "trigger": "General angle model and possible broader area law"
+        },
+        {
+          "assessment": "Ordinary triangle area, not perimeter",
+          "evidence": [
+            "t^(2/3) lower-tail result for ordinary areas of triangles on smooth convex curves; the determinant sum in the frozen record is instead half the perimeter on a doubled circle."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-sharp-small-area-law-for-inscribed-random-triangles-and-the-op--36a2639eeafd/RESULT.md",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Local mirror",
+          "title": "A sharp small-area law for inscribed random triangles and the optimal spacing threshold",
+          "trigger": "Plausible alternate statistic under the cyclic-triangle alias"
+        },
+        {
+          "assessment": "Credit deterministic geometry; not finite sampling law in these passages",
+          "evidence": [
+            "The introduction attributes the generator volume formula to earlier work; Theorem 6 addresses deterministic second intrinsic-volume extremality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2206.03204",
+          "material_read": "Introduction around offset 3586; second intrinsic-volume theorem announcement near offset 56319",
+          "method": "Original arXiv HTML passage inspection",
+          "title": "Isoperimetric problems for zonotopes",
+          "trigger": "Classical generator formula and deterministic extremal estimates"
+        },
+        {
+          "assessment": "Unresolved direct book comparison; do not infer exclusion",
+          "evidence": [
+            "The publisher description covers random triangles generally; the frozen record credits angle law and mean perimeter to §5.15.2, not an independent verification of that section. The separately located 2010 Finch PDF titled Random Triangles V opens with the Poisson–Delaunay model and did not supply the identified section."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/books/mathematical-constants-ii/26A61471A8D9D855A8923116D162DFF2",
+          "material_read": "Cambridge publisher landing description around offset 13397 only; section text not available in the inspected page",
+          "method": "Lawful publisher OA lookup and focused search",
+          "title": "Mathematical Constants II",
+          "trigger": "Exact unit-circumradius triangle model cited in frozen result, section 5.15.2"
+        },
+        {
+          "assessment": "Abstract concerns averages and rates; full-text overlap remains unresolved",
+          "evidence": [
+            "The abstract states iid uniform circle points and asks average perimeter and average area. It does not establish what else the full paper contains."
+          ],
+          "identifier_or_url": "10.1134/S1063454120010070",
+          "material_read": "Indexed publisher abstract only; full text unavailable via bounded OA attempt and DOI recovery",
+          "method": "Focused primary search, then publisher and DOI OA attempt",
+          "title": "On the Average Perimeter of the Inscribed Random Polygon",
+          "trigger": "Same circle-sampling law with n=3 as a specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen threshold and endpoint statements and proofs",
+        "Same-model Resultary moment and large-generator comparisons",
+        "Inscribed-triangle perimeter equivalence"
+      ],
+      "rationale": "The first non-parallelogram fixed-length zonogon gives a natural, small finite case not answered by large-sample limit theory. The largest parallel-pair area provides an intrinsic interior threshold, and the computed cusp shows a specific failure of twice differentiable survival there while excluding an atom. The two different marked endpoint geometries identify the configurations responsible for the tails. Those are useful exact distributional facts beyond a rescaling of a known expectation or an isolated numerical evaluation.",
+      "residual_risks": [
+        "This does not address other generator lengths or counts, and the explicit distribution is quadrature, not a claimed elementary antiderivative."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

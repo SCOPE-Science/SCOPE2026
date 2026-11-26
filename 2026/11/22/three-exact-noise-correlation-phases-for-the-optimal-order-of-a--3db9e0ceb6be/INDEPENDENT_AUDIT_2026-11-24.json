@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:24:48.758341Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/reviews/evidence/noise_order.py (SymPy)"
+      ],
+      "rationale": "Unrolling the update makes the bias (1-x)(1-2x)(1-4x)y0 common to all six orders; temporal zero means eliminate the cross term with this deterministic bias, with no need for Gaussianity or conditional unbiasedness. The chronological innovation coefficients all sum to one minus the common contraction, so the variance differences vanish at rho=1 and their quotients by 1-rho are affine in rho. I reconstructed these coefficients by propagating them step by step and recovered the two stated crossing thresholds. For the proposed winner on each interval, I tested the five other orders at both ends after division by 1-rho. Substitution x=u/[4(1+u)] gives nonnegative coefficients for the oriented numerator and denominator of each nonzero comparison, hence strict positivity for u>0, and x=1/4 was checked separately. This gives 26 strictly positive endpoint comparisons and exactly four zero comparisons (the two boundary pairs counted in both adjacent regions); thus there are precisely the two claimed double ties and no others for -1<rho<1. The same method gives five strict threshold inequalities. An independent exact replay confirms all four quoted variances, the two-step swap identity and the absence of a Gaussian assumption.",
+      "residual_risks": [
+        "The theorem concerns prespecified schedules at three steps under the specified exogenous covariance, not longer schedules, conditional-mean oracle models or adaptive orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cube-optimal reversals have sharp conditions in signal-to-noise ratio and allow arbitrary finite horizons, but assume free choice of rates.",
+          "Markovian finite-time bounds and asymptotic stochastic-input efficiency ordering do not compare six exact fixed-multiset terminal risks."
+        ],
+        "reasoning": "Allowing more horizons or more schedules does not imply rankings under this discrete restriction. Temporal independence in 2f7a38830384 gives the descending order at rho=0 only.",
+        "searches": [
+          "Resultary 7039aaceb5ac and 2f7a38830384",
+          "arXiv:2003.10973, arXiv:2209.07446"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7039aaceb5ac and 2f7a38830384 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:1904.12838, 1909.09785, 2003.10973, 2209.07446",
+        "arXiv:2306.05300 and 2302.01463 (located material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-multiset adjacent exchange theorem requires independence across time, while the other sources analyze step-decay performance or detection of stationarity for an adaptive drop."
+        ],
+        "reasoning": "The independent-noise theorem proves a genuine subcase but cannot capture covariance cross terms or imply thresholds. Neither scheduling motivation nor a bound on convergence implies exact minimum terminal risk and tie multiplicities for these six prescribed orders.",
+        "searches": [
+          "Resultary 2f7a38830384 (fixed multisets with independent noise)",
+          "arXiv:1904.12838, arXiv:1909.09785"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary comparator writes the same Toeplitz noise risk in the chronological innovation weights and optimizes over a simplex.",
+          "Located colored-noise passages address convergence and behavior under correlations, not rate-permutation boundaries."
+        ],
+        "reasoning": "The representation by chronological noise weights is shared, so rewriting the objective this way is not distinct. The six points from a specified stepsize multiset are nonlinear images of permutations and not the feasible simplex of the comparator. Even its unconstrained best weight vector at a common bias would not select the best of these six points without additional comparisons.",
+        "searches": [
+          "Resultary: exact two-ended stepsize reversals under autoregressive gradient noise (7039aaceb5ac)",
+          "arXiv:2302.01463, arXiv:2306.05300 (colored and anticorrelated gradient noise)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-step free-schedule examples use (1/6,1/5,2/17) and (2/5,1/6,1/4), neither a permutation of an x:2x:4x ladder."
+        ],
+        "reasoning": "There is no natural finite-data census here; a relevant existing phase table or exact three-step ordering formula would count as coverage. The retrieved numerical examples do not evaluate the required multiset nor certify a continuum phase table. The identical record is not independent coverage.",
+        "searches": [
+          "Resultary returned the assigned record and the distinct AR(1) reversals and independent-noise schedule results",
+          "Exact three-step examples in the Finding of 7039aaceb5ac"
+        ]
+      },
+      "rationale": "Pass the complete fixed-multiset phase diagram, not the broader observation that AR(1) noise reverses optimal stepsize order. The closest distinct same-day result treats essentially the same loss and covariance and finds initial and terminal reversals, but its global optimum over the step cube is not the optimum over the six points with the prescribed rates. Its signal-to-noise thresholds and examples do not imply the x-dependent switch positions, boundary ties or exclusion of the other orders. The independent-noise fixed-multiset theorem is genuinely applicable at rho=0, and provides no coverage of the other phases. The inspected primary work did not establish this constrained classification.",
+      "residual_risks": [
+        "Same calendar date is not evidence of priority; the identified distinction is in feasible sets and conclusions.",
+        "Follow-on passages in adaptive and colored-noise sources were not available; earlier equivalent derivations in filtering or schedule design are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap but no fixed-multiset dominance theorem.",
+          "evidence": [
+            "Its unique minimizer is over all deterministic 0≤eta_j≤1; the stated risk is D²(1−1ᵀw)²+sigma² wᵀCw on a simplex and the reversal conditions depend on D²/sigma²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-ended-stepsize-reversals-under-autoregressive-gradient--7039aaceb5ac/RESULT.md",
+          "material_read": "Finding, assumptions, proof §1 (offset 0–4033); relationship passage and limitations (8072–9169)",
+          "method": "Resultary search and bounded local-mirror reads",
+          "title": "Exact two-ended stepsize reversals under autoregressive gradient noise",
+          "trigger": "Same-day matched AR(1) schedule reversals with exact three-step examples"
+        },
+        {
+          "assessment": "Covers independent-noise subcase only.",
+          "evidence": [
+            "Descending order minimizes terminal spectral quadratic risk for arbitrary prescribed multisets with temporally independent noise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384/RESULT.md",
+          "material_read": "Finding and adjacent-exchange argument at start of RESULT.md",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "Descending spectral steps minimize every terminal quadratic noise risk",
+          "trigger": "Exact fixed-multiset permutation comparator"
+        },
+        {
+          "assessment": "Motivation, no exact permutation comparison in inspected passages.",
+          "evidence": [
+            "Final-iterate bounds for streaming least squares with step decay."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.12838",
+          "material_read": "Abstract p. 1 and step-decay passage at offset 2850",
+          "method": "Bounded OA PDF reads",
+          "title": "The Step Decay Schedule: A Near Optimal, Geometrically Decaying Learning Rate Procedure For Least Squares",
+          "trigger": "Geometric schedules and final iterate"
+        },
+        {
+          "assessment": "Inspected material is adaptive and does not give the fixed-rate ordering.",
+          "evidence": [
+            "Detects stationarity and drops learning rate adaptively."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.09785",
+          "material_read": "Abstract p. 1; subsequent §3.1 read timed out",
+          "method": "Bounded OA PDF read and §3.1 locator",
+          "title": "Using Statistics to Automate Stochastic Optimization",
+          "trigger": "Possible ordering policy through rate drops"
+        },
+        {
+          "assessment": "Different question: finite-time convergence, not exact permutation optimization.",
+          "evidence": [
+            "Analyzes Markov-sampled stochastic gradients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.10973",
+          "material_read": "Abstract and introduction p. 1 (offsets 0 and 3150)",
+          "method": "Bounded OA PDF reads",
+          "title": "Finite-Time Analysis of Stochastic Gradient Descent under Markov Randomness",
+          "trigger": "Finite horizon with temporal dependence"
+        },
+        {
+          "assessment": "Asymptotic ordering of input processes, not ordering of step lengths.",
+          "evidence": [
+            "Compares limiting covariances under different stochastic inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.07446",
+          "material_read": "Abstract p. 1 and offset 1295",
+          "method": "Bounded OA PDF reads",
+          "title": "Efficiency Ordering of Stochastic Gradient Descent",
+          "trigger": "Dependence and covariance ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20 and 48–68; independent-noise and free-schedule comparator Findings"
+      ],
+      "rationale": "The result pinpoints when the descending-order rule ceases to minimize terminal quadratic noise risk even with equal marginal variances and a fixed total contraction. The signed correlation regimes select two different departures from descending order, and the first horizon at which this is possible is shown by the two-step swap identity. Giving the full continuum boundary and unique-order/tie classification for a canonical factor-two ladder is more useful than isolated reversal examples or a freely tuned schedule when an implementation must use a prescribed set of rates.",
+      "residual_risks": [
+        "No claim for general ladder ratios, larger horizons, nonquadratic objectives or practical performance under estimated covariance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

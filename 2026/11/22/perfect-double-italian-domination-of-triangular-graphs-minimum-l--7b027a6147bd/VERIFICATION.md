@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-The all-orders theorem is proved in `RESULT.md`. The scripts below check small cases and cycle counting independently, without proving the universal quantifier by finite enumeration.
+# Independent mathematical audit
 
-`python3 verify_direct.py`: tested 2,893, 52,224, and 1,141,536 labelings of weight at most 5, 6, and 7 respectively. Feasible minimum counts were 22, 130, and 822; no lower-weight labelings were feasible. This uses direct closed-neighborhood sums on the actual line graph.
+## correctness
 
-`python3 verify_cycles.py`: constructs all disjoint root cycles and doubled edges for orders 5 through 9, and checks each candidate directly. Counts were 22, 130, 822, 6,202, and 52,552, respectively, matching the independently programmed exponential-formula recurrence. The same recurrence gives 499,194 at order 10, 5,238,370 at order 11 and 60,222,844 at order 12.
+PASS
 
-Scientific limitations: the first script does not test all labelings at large order; the second construction checks only the structurally prescribed family. The all-orders converse requires the written degree argument. No independent external mathematical audit has been performed.
+The closed sum at root edge uv is d(u)+d(v)-f(uv), so completeness of K_n forbids two root degrees below 2. A weight at most n-1 then forces the sole low degree to be zero and the others 2, violating the lower bound on an incident edge. At weight n, a zero degree forces the other n-1 degrees to be at least 3, impossible for n>=5. A degree of one forces exactly one degree-three vertex, which must be the endpoint of the sole incident unit edge. Its edges to all n-2 remaining degree-two vertices must be positive to avoid closed sum 5 on a zero edge, but only two units remain. Conversely all degrees 2 give sums 4 and 3 at labels 0 and 1, and a spanning simple cycle realizes weight n. The associated loopless 2-regular multigraph has uniquely determined doubled edges and simple cycles. On j>=3 chosen vertices there are (j-1)!/2 undirected cycles, and a chosen pair gives one doubled edge, so the component series is ux^2/2+sum_{j>=3}x^j/(2j). Exponentiation gives both stated series; logarithmic differentiation gives the recurrence and the analytic factor at x=1 yields the stated e^(-1/4) asymptotic. Independently enumerating low-weight edge multisets and testing closed sums reproduces weights/counts {5:22}, {6:130}, {7:822} among 2893, 52224, and 1141536 assignments respectively, and separate component counts reproduce all listed values through n=12.
+
+## originality
+
+PASS
+
+The strongest verified analogue has the same rule on a different root graph. The verified same-family statements have different neighborhood constraints and matching, not degree-two, optima. The supported distinction is rigidity for the stated perfect double Italian rule on the complete root graph and the resulting optimizer census, not the labeled exponential formula itself. Best-of-knowledge assessment, not historical priority certification.
+
+## value
+
+PASS
+
+This determines the complete minimum space of a local domination invariant on the canonical clique line-graph family, not only its scalar minimum. It supplies a direct construction of every optimum and its refined enumeration by doubled edges, including factorial-scale growth. Odd cycles and the optimizer family are not captured by the bipartite rook analogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

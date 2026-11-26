@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated distribution-free probability order is proved using an explicit stochastic-difference lemma, independent convolution order, and the symmetry of iid background-bundle differences. The exact correspondence between each pair's ex-post envy-free probability and \(p(1-p)\) requires and receives agent-level independence and atomless item laws. An exact checker covers 1,764 first-order-dominance chains with two background models and checks independently derived exponential comparison probabilities and a counterexample to means-only ordering. Finite checks supplement the universal analytical proof; they do not establish its infinite quantifiers.
+## correctness
 
-**Originality — PASS, qualified.** The inspected October 2026 fair-division-of-lotteries manuscript gives common-convolution-power and symmetry-based sufficient conditions for ex-ante envy-free allocations to maximize ex-post envy-free probability, not the exact heterogeneously ordered two-two pairing rule. Its approximation proposition does not determine a maximizing pair. The inspected 2024 random-valuation allocation work optimizes expected envy rather than this probability. Actual exact-claim, alias and parameter searches of research records and external literature did not reveal equivalent or broader coverage. A general rearrangement result not indexed under fair-division terminology is a residual publication-priority risk; search absence is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The heterogeneous four-good two-two split is the first nontrivial fixed-cardinality comparison with three distinct allocations. The result yields a complete distribution-free optimal pairing rule under an economically interpretable stochastic-strength order, accommodates arbitrarily many symmetrically balanced background goods, and demonstrates why sorting by expectations is insufficient. It supplies an exact choice where prior distributional fair-division bounds do not select an allocation; it does not claim a larger market-wide algorithm or optimality over different cardinalities.
+If independent A and B satisfy A≥st B, replace A by an independent copy of B and −B by an independent copy of −A in turn to obtain A−B≥st B−A. For the differences between paired sums, the disjoint item differences are independent and the background difference T=U−V is independent and symmetric. Reversing X₂−X₃ in the comparison for p₁₂ gives p₁₃; reversing both disjoint differences in the comparison for p₁₃ gives its negative in law and hence p₁₃≥1/2. Reversing X₃−X₄ gives p₁₄≤p₁₃, and reversing the other difference in the p₁₄ comparison gives 1−p₁₃≤p₁₄. There are no ties by independence and atomlessness, and the two agents' independent non-envy events have complementary probabilities. The ranking follows from 1/4−(p−1/2)². A fresh exact sign-sum enumeration reproduced 1,764 ordered chains and 3,528 comparisons; a separate Laplace-transform calculation and comparison thresholds −5, 7, 11 in the means-only example reproduced all six stated win probabilities. The jitter in that example cannot change any comparison sign.
 
-**Closest literature and limits.** Igarashi and Oh (arXiv:2610.34906, Theorems 4.2, 4.5, Propositions 5.5–5.6, and section 7) is the central comparison. Aloisio et al. (AAMAS 2024) has a different expected-envy objective. The proof requires independent values, identical per-item marginal laws across agents, atomless items, and an exactly two-two division of the four distinguished goods. General unrestricted allocations, correlated valuations, and atomic ties remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the complete fixed two-two ordering for general FSD-ordered independent atomless laws, with an independent equal-law background and no need for an ex-ante envy-free split. The stochastic-order lemma, the probability product, and examples confined to previously covered law families are not separate novelty claims.
+
+## value
+
+PASS
+
+This solves a natural smallest pairing problem with three distinct choices: a practitioner can rank the fixed allocations from stochastic dominance alone without knowing either bundle-sum distribution or finding an ex-ante fair allocation. The matched-background extension and the strictly means-ordered counterexample clarify when the recommendation is useful and when it is not.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

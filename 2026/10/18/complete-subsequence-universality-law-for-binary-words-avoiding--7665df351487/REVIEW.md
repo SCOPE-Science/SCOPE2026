@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is formulated for all nonnegative integer lengths and indices over the binary language avoiding both constant triples. The four-state arch-and-run recurrence exhausts admissible extensions without suppressing boundary interactions. Algebraic elimination derives the full rational generating function; coefficient extraction proves each finite count. Two inequalities based on arch sizes and explicit word witnesses make the extrema exact. The generating denominator has an isolated simple dominant root near the unweighted point, permitting uniform singularity analysis and a standard characteristic-function proof of the Gaussian law. Separate brute-force pattern checking corroborates lengths at most fourteen, while exact transfer and coefficient calculations agree through length 120. Tests are not used as infinite proofs.
+## correctness
 
-**Originality: PASS, with residual risk.** Barker et al. (2020) give arch universality, not restricted-language enumeration. Adamson et al. (2023) give counting algorithms for every regular language and therefore *enable* each finite coefficient to be computed, but Sections 2–4 do not state this special bivariate rational function, its sharp deterministic range, or the explicit nonzero variance and normal threshold. The closest known unrestricted-binary distribution instead counts a language with all constant run lengths admitted. Targeted searches for run-two/homopolymer-limited, \(000\)/\(111\) avoidance, index, arch counting and normal limits found no identical formulation. Existing generic finite-state methods are a remaining derivability risk, and undiscovered equivalent literature is possible.
+PASS
 
-**Mathematical value: PASS.** Homopolymer limits are a natural constrained-word model, while scattered-subsequence richness quantifies simultaneous recoverability of all short ordered patterns. The result identifies the complete length-and-richness distribution, the exact possible range and its extremizers, and the explicit narrow Gaussian window for typical constrained words. The positive but small linear variance coefficient distinguishes the intrinsic fluctuations of this constrained model from those of unrestricted words. Its infinitely many exact coefficients, closed asymptotic constants and strong probabilistic classification go beyond recomputing a finite known table.
+The last letters of the complete greedy arches, followed by a letter absent from the remaining suffix, give a missing subsequence of length one beyond the arch count: each successive earliest match is the corresponding arch endpoint. For counting, the first complete arch has two choices at length two and two at length three. After any arch the terminal run has length one; there are two possible next arches of length two and one of length three, and the optional incomplete suffix has series 1+2t+t^2. With no complete arch the series is 1+2t+2t^2. Summing gives the displayed rational series. Each arch uses two or three bits and the suffix at most two; alternation and (001)^m followed by at most two zeros attain the endpoints, including the empty word case. At u=1 the simple positive dominant pole is separated from the other roots and its numerator is nonzero; analytic continuation gives a uniform exponential remainder locally. Differentiating its inverse-root equation in log u yields the stated first and positive second cumulant slopes, and the centered characteristic functions yield the normal law and rounded threshold. An independent direct count via run compositions and sets of position-subsequences agrees at n=0 through 14.
 
-No assertion is made for other run bounds or nonuniform sources. The primary full texts were inspected for potentially dominating special-case results; undetected earlier algebraic specializations remain the main residual risk. This is not an independent scientific assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arch characterization and general finite-length counting algorithms are prior work. The distinct claim supported for the frozen record is the joint all-length law with exact extremal and fluctuation behavior for uniform run-two words. No stronger earlier result was established that supplies that law. There are materially equivalent and broader indexed later statements; this judgment is not a claim that the formulas remain unique in the corpus or a conclusive priority ruling.
+
+## value
+
+PASS
+
+For a natural regular constraint and a standard measure of scattered-subsequence coverage, the answer gives the exact law at every length, sharp attainable lengths, and a quantitative threshold for randomly sampled constrained words. In particular the small strictly positive variance constant is useful for distinguishing worst-case and typical coverage; it is not given by the generic finite-length algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

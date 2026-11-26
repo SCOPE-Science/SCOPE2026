@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fort equivalence is proved directly, and the 128-local-state column automaton exactly recognizes nonempty forts disjoint from any seed set. A 926-state product-automaton closure proves the complete template language for **all** grid lengths at least five, while a 245-state closure excludes all one- and two-vertex forcing sets for all lengths at least three. Exhaustive direct adjacency-and-forcing enumeration independently confirms the finite boundary cases and sizes through ten columns. The 13-pattern intersection graph verifies all degree and distance claims. This is an infinite theorem with a finite-state certificate, not an infinite conjecture inferred from small samples.
+## correctness
 
-## Originality
-PASS, with historical qualification. The 2010 zero-forcing paper supplies the basic graph invariant and the 2020 reconfiguration paper supplies the exchange-graph definition and general theory. The latter treats forests, graph constructions, and algorithms, but inspection found no three-row Cartesian-grid component classification. Closest accessible mathematical records about fans, friendship graphs, and grid matching complexes concern other invariants or other graphs. Search for all 26 triples, thirteen-configuration components, boundary templates, and a five-column transition found no directly covering statement. A historical grid-specific classification in sources not recovered or indexed remains possible.
+PASS
 
-## Value
-PASS. The complete classification resolves a natural mobility question for optimal three-row grid forcing sets, a classical minimum-rank/propagation invariant: the number of optimal states stays fixed as the grid grows, but at exactly five columns one connected exchange space splits permanently into two 13-state boundary sectors. The formula includes the full local degree and eccentricity distributions; it is not merely an isolated small graph count or recomputation of the known zero forcing number.
+Ordinary zero forcing is equivalent to meeting every nonempty fort: a stopped white set is a fort, and no first force can enter an initially all-white fort. The two adjacent masks and nonempty flag suffice to certify each candidate fort column once its right mask is known; zero exterior masks impose the exact open boundary conditions. The frozen product closure keeps the blue population exact, rejecting overflow, and saturates length at five, so no accepted extension is lost. An independent implementation with a different parser and an overflow population class closed 811,208 reachable states under all eight column masks; in 2,948 states at population three and length at least five, it found no disagreement with the template language, and in 615 states at smaller population and length at least three none forced. This checks arbitrary lengths and is not a run through finitely many widths. The frozen verifier's reported state totals apply to its smaller representation, not to the replay. The independent direct enumeration found exactly 20,44 (states,edges) at n=3 and 26,56 at n=4, both connected; it also matched the templates at n=5..10. At n>=5 opposite ends overlap in at most one column, which carries at most one marked vertex in each template. Thus a left/right pair can neither coincide nor meet in two marks as required for a token jump. The separately enumerated exchange graph on the thirteen templates is connected, with 24 edges, degrees 2,3,4,6 of respective multiplicities 2,2,8,1 and eccentricities 3,4,5 of multiplicities 5,6,2. Reflection yields the other isomorphic component.
 
-## Limitations and sources
-The proof is a transparent, finite-state computational certificate for every length, with full source and direct small-instance cross-checks. This review is not independent replication by a separate mathematical reviewer. The closest full text inspected is Geneson--Haas--Hogben, arXiv:2009.00220v1, especially the definitions, disconnected examples, forest theorem, and computational section; related original definitions were inspected in Barioli et al., arXiv:1003.2028v1. An equivalent historical treatment in other terminology remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the exhaustive end-template classification of minimum triples and the sharp transition to a specified two-component token-jump geometry. The general parameter Z and the exchange graph are prior definitions; the inspected forest theorem and alternate host-graph results do not cover these path Cartesian products. In particular the same counts of configurations and components in a path-power example do not give the asserted exchange graph.
+
+## value
+
+PASS
+
+This is a natural fixed-width family for minimum zero forcing reconfiguration. Proving that all minimizers localize at the ends explains permanent failure of single-token connectivity even as the grid grows, and identifies n=5 as the exact transition from the two shorter grids. The explicit component, its distances and templates provide reachable-state information beyond the known minimum size or a generic example of disconnection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

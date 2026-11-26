@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Poisson no-capture law yields the exact tilted Laplace objective. Nonzero preference mass on both sides of the midpoint forces strict convexity and an interior unconstrained minimizer, giving the clipped allocation, budget threshold, and absolute-difference invariant. The distribution-free minimax identity follows from endpoint worst cases; beta one-lure polynomial limits follow from boundary Laplace asymptotics. The standalone checker independently evaluated 17,855 supplementary assertions, including exact two-type constants. The universal proof is analytic, not an extrapolation of tests.
+PASS
 
-## Originality — PASS on inspected evidence
+The Poisson zero-count law gives per-individual survival exp[-px-(1-p)y], hence S=e^(-B/2) Phi(x-y) on the feasible interval [-B,B]. For Z=P-1/2, boundedness justifies differentiation and Phi''=E[Z² exp(-zZ)]>0. The hypothesis supplies a set Z<=-epsilon of positive mass for the positive derivative limit at +infinity, and Z>=epsilon for the negative limit at -infinity; the opposite contributions are bounded. The unique zero therefore clips to the budget interval. Its sign agrees with E[P]-1/2, and the less-used lure has zero exposure at the threshold itself, becoming positive strictly above it. If the mean is 1/2, the optimum is equal for all positive budgets under the two-sided mass hypothesis. For minimax the point mass at the lower-hazard endpoint gives the exact worst-case exp[-min(x,y)], uniquely minimized at balance. For either beta endpoint, scaling the Laplace integral by B^a (or B^b at the other endpoint) and splitting the integral at 1/2 gives dominated convergence on the selected half and an exponentially vanishing other half, also for shapes below 1. The two constants and the eventual exact exponential are correct. The two-atom check solves exp(z/2)=2 and yields 2sqrt(2)/3 for Phi at the minimum. Inspected the analytic proof, verification notes and supplementary grid code without executing the upload. The claim is about expected survival with exactly complementary, calibrated, static hazards, not eradication, actual lure performance, or arbitrary dependence of lure preferences.
 
-The first-public motivating ecological paper documents behavioural trap-recalcitrance but does not solve two-lure allocation. The related multi-tool surveillance model optimizes across *pest species*, not a fixed individual's complementary capture hazards. A later multi-lure study assumes independent individual lure attractions and uses scenario simulation, without deriving a finite budget clipping rule, robustness equality, or beta-tail upgrade. Exponential frailty mixtures are established, so the novelty claim is the precise complementary allocation theorem and consequences, not the survival-mixture identity alone. Searches of accessible previous claims and published research records did not find a logically dominating result. Remaining risk: classical convex design or heterogeneous-effort literature may already imply the formulas without similar ecological terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem resolves a motivated mechanistic question left open by single-lure selection effects: how much *extra* trapping effort is needed to begin diversifying lure types, and does an apparently intractable low-catch survivor tail persist? The answer is a universal clipping law, an exact nonparametric minimax guarantee, and a qualitative polynomial-to-exponential improvement for the natural two-endpoint beta preference class. This is a structural allocation and tail classification, not a tiny numerical improvement or arbitrary parameter slice.
+The standard convex and Laplace-transform steps, and survivor selection by heterogeneous risk, are not new. The supported distinct claim is their exact allocation consequence for complementary capture hazards, including the finite activation threshold, invariant absolute effort difference and beta tail comparison. The matched catalogue copy is the assigned result itself. No verified separate result establishes this full allocation theorem; the closest applied paper was not fully readable and remains a specific uncertainty.
 
-## Scope and external review
+## value
 
-Complementary and additive hazards, fixed traits and fixed population, divisible calibrated effort, and mean-survival rather than realized extinction are required. No empirical validation or independent verification is claimed. Scientific historical priority remains provisional beyond the inspected corpus.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The value lies in the exact benchmark, not in differentiation, the minimax endpoint inequality alone, or the use of beta integrals. Preferential removal of easy-to-trap individuals is observed, and lure switching/combination is a meaningful intervention to model. In the idealized strongly complementary case, full knowledge of the trait law can justify starting with a single lure, then spending every incremental unit evenly while keeping a fixed absolute excess. The formula tells when this changes and separates that known-law objective from the distribution-free balance guarantee; the beta comparison quantifies the stakes of persistent near-zero responses. This is a useful limiting case for models of heterogeneity, not evidence of literal complementarity or a field recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

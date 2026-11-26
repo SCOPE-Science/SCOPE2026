@@ -1,19 +1,21 @@
-# Scientific review: exact magnetic Grover revivals on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers every pair of integers \(m,n\ge2\), all real single-edge magnetic phases \(\beta\), and the explicitly defined unitary Grover arc walk. The proof derives the exact determinant identity from a coisometry and a magnetic flip; evaluates the two singular values of the phase-modified all-ones bipartite block; factors the characteristic polynomial; and uses the resulting complete eigenvalue multiset to prove the rank-eight four-step defect, sharp operator/Frobenius norms, and minimal return periods. Both zero flux and maximal-flux eigenvalue collisions follow from the same polynomial identity, with unitary diagonalizability. The density/nullity of the periodic parameter set follows from strict monotonicity of the angle on a half-circle. The provided checker passed 193 counted symbolic and matrix assertions, including three exact characteristic-polynomial reconstructions; numerical checks are supporting evidence and not the proof.
+PASS
 
-## Originality — PASS, with residual risk
+For the given origin-incidence coisometry and phased flip, the determinant lemma and (zI+S)^(-1)S=(zS-I)/(z²-1) yield the full polynomial spectral map including the (z²-1)^(mn-m-n) factor. The off-diagonal m-by-n block B has one special row and all remaining rows equal. The squared singular-value sum is mn before normalization, and the product is (m−1)(n²−|n−1+e^(iβ)|²)=4(m−1)(n−1)sin²(β/2). Writing the normalized pair as cos θ, sin θ yields discriminant eigenvalues ±cos θ, ±sin θ and zeros, thus the mobile quartets i^j e^(±iθ). The proof's rank-two heading refers to B: the full Hermitian Q has rank four at nontrivial phase, rank two at zero phase. The displayed proof correctly uses all four discriminant modes. Unitarity makes the four-step defect rank and norm computations valid even at eigenvalue collisions. The ratio i forces a full period to be 4k; q|2k gives the claimed minimum. At zero flux θ=0 and the period is four. At the K_(2,2), β=π collision, θ=π/4 and all eight arc modes acquire fourth power −1. Strict monotonicity on either half-cycle gives the dense countable null exact-period set, and irrational rotation modulo π gives arbitrary norm revivals. Independent direct constructions gave (z^4+1)^2 and U^4=−I for K_(2,2) at π, and (z²−1)(z²+1)(z^8−(2/9)z^4+1) with defect singular values 4/3 eightfold for K_(2,3) at π/2; the K_(3,4) replay was numerical. The supplied verifier's recorded run was not an independent replay.
 
-The closest scientific source is Sekido and Segawa, arXiv:2607.14797v1 (2026), which introduces the magnetic Grover model and studies small-perturbation effective dynamics, including balanced complete bipartite graphs. The inspected accessible full-text definitions, theorems and Section 5 do not state an arbitrary-strength characteristic polynomial, a universal eight-dimensional exact four-step defect, or a complete rational-angle revival classification for arbitrary \(K_{m,n}\). Chen, arXiv:2211.02752 (2022), treats unmagnetized bipartite-walk spectral criteria. Kubota, arXiv:2609.08315 (2026), studies unmagnetized periodic graph families. General Grover spectral mapping is acknowledged; the finite-flux rank-two evaluation and single-angle arithmetic remain graph-specific additional work. Primary and research-record searches found no directly covering statement, although this is not a uniqueness guarantee. Full text of Chen was not available in the inspected material, and a broad, unlocated weighted-walk spectral result could imply the specialization.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating physics question is whether magnetic flux destroys periodic quantum return. The finding gives the exact answer for the first nontrivial dense bipartite family, without a small-flux restriction: despite \(2mn\) arc amplitudes, precisely eight modes obstruct the unperturbed four-step return. The exact fourth-step error shrinks uniformly with graph size, and dense but measure-zero tuned phases have explicit exact periods. This distinguishes exact revival, approximate revival, and size-dependent robustness quantitatively and applies to every imbalance of the part sizes, not an isolated graph or arbitrary invariant.
+The supported increment is the evaluated finite-flux spectrum, hence exact fourth-step norms and resonance arithmetic for the family including unbalanced parts. The walk, generic spectral map, vanishing-flux case, and elementary magnetized-cycle specialization are not novel claims.
 
-## Scientific limitations
+## value
 
-Only one magnetic edge, standard Grover coin, and finite \(K_{m,n}\) with both parts at least two are covered. Multiple independent fluxes and other coin choices are unproved. The statement does not assert that no broader existing theorem can imply these specialized formulas. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This evaluates a natural finite-flux robustness problem beyond a perturbative generator: the response saturates the size-independent rank bound for every nonzero flux, while its norm can become small with graph size. The exact resonance formula and dense null exceptional set distinguish exact and approximate return for the same family, with explicit bounds on finite-time deviations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

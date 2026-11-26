@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. Python 3.10+ and SymPy are required. The program regenerates the graph and all 21 incidences, its full 336-element graph automorphism group, its 457 nonempty independent subsets, every barycentric simplex and orbit, and six exact integer boundary matrices. It checks every \(\partial^2=0\), all Smith factors and all quotient homology ranks; a nonunit or unexpected invariant aborts execution. It then constructs a spanning tree and verifies that the 149 triangular attaching words eliminate all 51 fundamental-group generators by unit relators.
+## correctness
 
-Observed successful output:
+PASS
 
-```
-HEAWOOD_FULL_AUTOMORPHISM_ORBIT_CONTRACTIBLE_OK
-independent_sets=457 automorphisms=336 quotient_cells= [14, 64, 149, 218, 210, 120, 30]
-integral_boundary_ranks= [13, 51, 98, 120, 90, 30] all_nonzero_Smith_entries=1
-pi1_spanning_tree=13  generators_killed=51  triangular_relators=149
-```
+The connected incidence graph has a unique bipartition up to reversal. Its part-preserving maps are the 168 invertible linear maps: images of a noncollinear basis triple determine the collineation by the Fano lines {u,v,u+v}. Dot-product polarity supplies the other coset. In the barycentric subdivision the strictly increasing face sizes prohibit inversions, and every orbit of open simplices is an open cell of the ordinary quotient. Orientation by inclusion order yields the signed orbit-of-deletion boundary and the corresponding triangular attaching words, with no multiplicity from stabilizers. Finite dimensional exhaustion follows also from the linear incidence equations: one point allows four nonincident lines, a pair allows two, and a triple allows at most one, with the dual bounds for lines. Thus mixed faces have size at most five and pure faces at most seven. An independent Python standard-library enumeration, using line normals and integer Smith operations, reproduced 457 nonempty faces, 336 automorphisms, orbit cell counts (14,64,149,218,210,120,30), boundary ranks (13,51,98,120,90,30), and only unit nonzero Smith factors. Boundary compositions were zero. Primitivity means each image is saturated in the ambient free chain group, hence also in the kernel of the preceding boundary; rank differences then give integral acyclicity, not just rational acyclicity. The independent triangular presentation has a 13-edge spanning tree, 51 generators and 149 relators. Unit eliminations killed all 51, leaving only empty words, so the quotient is simply connected. Hurewicz at a least possible nonzero homotopy degree and Whitehead give contractibility of this finite CW complex.
 
-All calculations are exact finite enumeration and integer reduction, not Monte Carlo and not extrapolation to higher-order incidence graphs. The final homotopy conclusion uses Hurewicz and Whitehead after the finite cellular proof. The verification is reproducible but has not been independently audited.
+## originality
+
+PASS
+
+Prior ambient topology and rational character explain part of the result. In fact, simple connectivity can also be deduced using the standard orbit fundamental group theorem and elementary fixed-point generators; it is not credited as a separate new invariant. The verified absence of integral torsion and the resulting complete ordinary quotient homotopy determination remain distinct on the examined evidence.
+
+## value
+
+PASS
+
+The ordinary symmetry quotient of the canonical Fano-plane independence complex is a natural exact invariant. Establishing that it has no integral obstruction, in contrast to what the ambient type and rational representation could decide alone, answers a concrete topological question about retaining full duality. The distinction is relevant to other geometric independence quotients, where positive-degree torsion can survive. The value is the complete answer for this natural object, not the size of the enumeration or a general family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

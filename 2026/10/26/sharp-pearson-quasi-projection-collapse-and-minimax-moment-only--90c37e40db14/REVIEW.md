@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Pearson divergence is explicitly oriented and normalized, and the generalized family is identified from \((f')^{-1}\) at the uniform reference. Cauchy--Schwarz proves the oracle projection uniquely; exact rational identities give the full divergence, the sharp moment-dependent ratio, and the excess loss. Convexity in the unknown outer mass reduces the robust game to two endpoint branches. Strict monotonicity on either side of their crossing proves a unique minimax rule. The explicit fixed-outer-mass path makes the global quasi-projection constant vanish without any positivity violation. The bundled exact-rational checker passed 3,651 sampled instances and supports, but does not substitute for, the algebraic proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Bec, Le Corre and Garivier, arXiv:2610.21872v1, Sections 2.3 and 5–6, prove KL-only exact projection and display finite Pearson failures. Their conclusion leaves the weaker multiplicative quasi-projection question open. The precise Pearson factor, its zero infimum, and the distinct unique minimax moment-only rule are not implied by simply knowing that exact moment projection sometimes fails. Nielsen and Nock, arXiv:1309.3029v2, compute parametric chi-square distances rather than this minimax reconstruction problem. Similar elementary ternary identities might remain implicit in less directly indexed sources.
+PASS
 
-**Mathematical value — PASS.** The negative result sharply settles the proposed universal multiplicative relaxation for one canonical non-KL divergence at the smallest nontrivial alphabet, while the positive minimax characterization supplies an optimal robust substitute using exactly the available information. Both exact constants, equality, nonattainment, and boundary behavior are relevant to rigorous error comparisons in moment-based distribution reconstruction.
+Writing a=3t and putting the oriented Pearson sum over a common denominator gives exactly D=(3s−2)²/4+3(m−as)²/[4(1−a²)]. The oracle a=m/s is unique and interior for every admissible truth. For the moment matcher a=3m/2, division by the oracle loss for s≠2/3 gives the inverse of c(m) exactly; at s=2/3 both losses are zero, so the inequality also holds there. The fixed s=5/6 witnesses no positive constant uniform in m without sacrificing full support. In the additive problem convexity in s gives the larger endpoint limit even on the open interval. For a<0 the first endpoint alone exceeds 3m²/4. With 0<a≤m the first endpoint dominates, strictly; for a>m the switch is at a=2m/(1+m). The active first branch decreases and the active second branch increases (derivative has sign (a−m)(1−am)). This proves the claimed unique minimizer, its value, and the moment-matching coincidence at m=1/3 in the stated domain. In RESULT.md §4 the phrase 'intersection is unique' means the unique positive crossover: the branches also touch at a=0, which does not affect the argument. The supplied exact-rational script and VERIFICATION.md were inspected, not executed; the identities and sharp endpoints here follow algebraically.
 
-The scope is restricted to Pearson divergence, a uniform ternary reference, and a single known moment. The minimax criterion is additive oracle excess risk, not divergence to the unknown full distribution. A small sample of numerical checks does not certify all real parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matched reconstruction paper asks the relaxed multiplicative question and illustrates a positive Pearson projection gap. Its inspected evidence does not establish collapse of a universal constant, an exact optimal fixed-mean constant, or an exact additive minimax rule. The comparison is specific to Pearson divergence and does not decide all non-KL cases.
+
+## value
+
+PASS
+
+The collapse on three atoms is a sharp, full-support counterexample to a uniform relaxed Pearson projection property, rather than just another example of noncoincidence. The same loss decomposition gives a unique action from exactly the available information and a finite worst-case excess where moment matching becomes arbitrarily bad. The small alphabet isolates the mechanism and makes the formulas useful as benchmark cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:28.291631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–6 of the proof",
+        "VERIFICATION.md; check.py",
+        "Independent review_checks.py, case 5"
+      ],
+      "rationale": "Beta integration and angular orthogonality give the bilateral k-shift weight m_{(a+b)/2}/sqrt(m_a m_b), a=|n|, b=|n+k|. Strict convexity of h=log m gives a single zero mode for even k and none for odd k. The integral for h'' is positive, strictly decreasing and bounded by max(1,p)/(1+s)^2, so the exterior midpoint gap is O_p(k^2/(1+n)^2) and decreases as n increases. Inside, convexity of h(j)+h(k-j) puts the largest gap at an endpoint; the weights tend to one in the tails. This proves trace class, norm one and the exact inverse norm, whose constant follows from m_s~Gamma(p+1)s^{-p}. Uniform gamma-ratio asymptotics away from the finitely many scaled endpoints give the interior profile and two matching exterior profiles; trim endpoint intervals and use the O(1/R) normalized defect-tail bound for Lipschitz tests. For a fixed positive threshold the pointwise tail bound rules out all modes beyond sufficiently large R, and the limit profiles have measure-zero threshold boundaries. With u=(1-tau)^{1/p}, the interior length is 1-sqrt(1-u), and both exteriors together have length 1/sqrt(1-u)-1. Their sum yields the claimed count; integrating in tau gives p B(p+1,1/2). The p=1 square sums yield exactly both terms in the finite trace formula, also for k=1,2. Independent bounded replay: python3 /workspace/branches/review_checks.py 5; uses exact rational rising-product weights for p=1,2,3, k=101,907 and three thresholds, also checking the p=1 interior sum. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Bounded replay corroborates selected weights and counts, not any infinite limit; the analytical tail and profile estimates establish those."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives weighted harmonic Toeplitz boundedness/compactness criteria; the second studies product equivalence and gives the ordinary harmonic quasihomogeneous setup."
+        ],
+        "reasoning": "These recover context and the fixed-symbol action, not a uniform in winding defect-tail estimate or the two-profile spectral distribution.",
+        "searches": [
+          "arXiv:2011.04699 abstract and introduction",
+          "DOI 10.4064/sm219-2-6, introduction and basis passage"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and four mirrored Findings listed above",
+        "Dong–Zhou, DOI 10.4064/sm219-2-6",
+        "Hagger–Liu–Taskinen–Virtanen, arXiv:2011.04699",
+        "RESULT.md, references and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The beta-profile record concerns rank-(N-1) T_{z^N}-(T_z)^N, not the infinite-rank positive I-T_k^*T_k.",
+          "The inverse-power record concerns powers of the inverse of a monomial Toeplitz operator; here the winding of the unimodular symbol itself changes, and the inverse is taken once."
+        ],
+        "reasoning": "Neither finite-rank beta law nor inverse-power formula specializes to this diagonal, profiles, or beta constant. The familiar diagonalization by itself also leaves the distinct asymptotic problem unsolved.",
+        "searches": [
+          "Resultary 40d348d9e385 and caf90698d6e1, Finding sections",
+          "Dong–Zhou, DOI 10.4064/sm219-2-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong–Zhou pp. 163–165, 170–171 uses e^{ikθ} times a radial symbol on the ordinary harmonic space.",
+          "Resultary f5ded80fd11b uses (I-P_alpha)M_{bar z^k} on the analytic disk; afadf5723e21 uses harmonic power-Fock angular symbols."
+        ],
+        "reasoning": "Changing from the analytic to harmonic basis adds the negative frequencies and a nontrivial crossing band; bar z^k also has a radial factor absent from the angular character. The Fock trace uses a different space and logarithmic truncation, not the disk high-winding scale.",
+        "searches": [
+          "Dong–Zhou DOI 10.4064/sm219-2-6",
+          "Resultary local semantic search: harmonic Bergman angular leakage and growing powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding sections of f5ded80fd11b, afadf5723e21, 40d348d9e385, and caf90698d6e1 are distinct catalog comparators; none states this specific leakage law."
+        ],
+        "reasoning": "Same-day parallel records were compared on their actual objects, not dismissed by date; no exact comparison establishes equivalence or resolves priority.",
+        "searches": [
+          "Resultary local semantic search: high-degree leakage, harmonic beta profile, harmonic inverse growth"
+        ]
+      },
+      "rationale": "The fixed-winding quasihomogeneous shift mechanism is known. The distinct supported contribution is the high-winding spectral counting and Lipschitz trace law for angular-character compression on the weighted harmonic disk, with its explicit coefficient and endpoint inverse amplification. The closest inspected catalog and primary sources do not cover that contribution by equivalence or a demonstrated stronger theorem; this is not a priority certificate.",
+      "residual_risks": [
+        "Full text of the 2014 Dong–Liu–Zhou citation was not inspected; the assessment does not exclude broader unlocated high-frequency results or certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known quasihomogeneous background, not demonstrated spectral-law coverage",
+          "evidence": "The introduction defines the angular-times-radial symbols, and the basis passage supports the harmonic shift calculation; the paper's stated problem concerns Toeplitz products.",
+          "identifier_or_url": "https://doi.org/10.4064/sm219-2-6",
+          "material_read": "pp. 163–165 and 170–171, offsets 250, 3050 and 20600",
+          "method": "Targeted primary text inspection",
+          "title": "Product equivalence of quasihomogeneous Toeplitz operators on the harmonic Bergman space",
+          "trigger": "Same operator class at the ordinary weight"
+        },
+        {
+          "assessment": "Broad operator context",
+          "evidence": "The stated conclusions give sufficient boundedness/compactness conditions, not the specific two-sided leakage distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04699",
+          "material_read": "Abstract p. 1 and introduction p. 2, offsets 250 and 2250",
+          "method": "Targeted OA primary text inspection",
+          "title": "Toeplitz operators on the unit ball with locally integrable symbols",
+          "trigger": "Weighted harmonic Toeplitz theory"
+        },
+        {
+          "assessment": "Close but inequivalent parallel",
+          "evidence": "Analytic projection with one-sided modes and bar z^k, not angular-character harmonic compression.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-bulk-edge-transition-for-high-degree-bergman-hankel-leakage--f5ded80fd11b",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A bulk–edge transition for high-degree Bergman Hankel leakage",
+          "trigger": "High-degree threshold and Schatten asymptotics"
+        },
+        {
+          "assessment": "Different limit and space",
+          "evidence": "Logarithmically normalized truncated power-Fock defect trace, rather than a winding-normalized harmonic disk trace.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-sharp-angular-sobolev-leakage-law-for-harmonic-power-fock-pr--afadf5723e21",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "The sharp angular Sobolev leakage law for harmonic power-Fock projections",
+          "trigger": "Angular harmonic leakage and trace"
+        },
+        {
+          "assessment": "Distinct semigroup defect",
+          "evidence": "A rank-(N-1) defect for a radial-amplitude monomial, with a different singular-value law.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-beta-profile-law-for-growing-power-harmonic-toeplitz-semigroup--40d348d9e385",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A beta-profile law for growing-power harmonic Toeplitz semigroup defects",
+          "trigger": "Potentially equivalent harmonic beta trace law"
+        },
+        {
+          "assessment": "Inverse powers of a different compression",
+          "evidence": "Squared norms for powers of the inverse of the ordinary harmonic compression of z^m, not inversion of compression of e^{ikθ}.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-inverse-power-amplification-and-norming-modes-of-harmonic--caf90698d6e1",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Exact inverse-power amplification and norming modes of harmonic Bergman monomial Toeplitz operators",
+          "trigger": "Potential inverse norm overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof §§3–6",
+        "Related Resultary Findings listed under originality"
+      ],
+      "rationale": "The natural positive defect measures energy outside the harmonic subspace. Its full normalized spectral law distinguishes the finite sign-crossing band from the two infinite tails and quantifies how many modes incur serious loss despite bounded invertibility at any fixed winding. The closed coefficient and inverse norm turn those complementary phenomena into usable quantitative invariants; neither follows from fixed-symbol boundedness alone.",
+      "residual_risks": [
+        "Interpretation is confined to fixed radial power weight on the disk and positive integer winding; no uniform-in-weight or noisy inverse guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

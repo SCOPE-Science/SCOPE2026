@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:05:19.879488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive damping shifts the weighted star spectrum to μ, μ+S±√(S²−3uv), distinct for the positive spokes. In modal coordinates the Lyapunov Gramian has entries bᵢbⱼ/(αᵢ+αⱼ). The Cauchy determinant cancels the squared Vandermonde in the Kalman determinant, whose modulus is uv|u−v|, leaving the denominator product stated in (1). Independently, solving the nine Lyapunov equations modulo 1009 for (μ,u,v)=(1,1,2),(2,2,2),(3,5,11),(7,3,17),(2,13,7) gave determinant residues 983,0,522,111,371, agreeing with (1); these checks do not replace the identity. The product x=uv/S² parametrizes unordered positive pairs. The objective is positive between its zero boundary values 0 and 1/4. Its log derivative is −Qτ over a positive denominator. The positive quadratic coefficient, negative constant and Qτ(1/6)>0 give a unique positive root in (0,1/6), with a change from increasing to decreasing. The resulting unequal optimum has exactly two labelled allocations. The log derivative increases strictly with τ at every fixed interior x, forcing the zero rightward. Substituting x=τz and dividing Q by τ² gives limiting polynomial 9z²−12z−16 with a simple positive root c. At large τ the log derivative tends to 2/x−4/(1−4x) with derivative −216 at 1/6, and its first damping correction is −9/(2τ²), giving −1/(48τ²) in the root and O(τ⁻³) remainder. The weaker solution of z(S−z)=S²x is Sx+O(Sx²). Substitution in (1) gives the displayed (5√5−11)/(1152μ²S), whereas any fixed unequal positive pair gives a positive constant times μ⁻¹. The undamped integral itself is not finite. The packaged checker was reviewed, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker et al. tune edges on a fixed topology with polytope constraints, but bound smallest Gramian eigenvalue or inverse-Gramian trace. Chanekar et al. do consider fixed actuation and log-det edge gradients; their log-det boundary result requires diagonal Gramians and is not an exact spoke-sum classification. Cortesi et al. prove actuator-subset submodularity for fixed dynamics."
+        ],
+        "reasoning": "The star Gramian is not diagonal: if it were, the Lyapunov off-diagonals on a positive spoke would force both endpoint diagonal entries to be zero, contradicting the hub equation. Neither a gradient nor the different objective/variable yields the stated roots or monotonicity.",
+        "searches": [
+          "Becker et al. arXiv:1902.04195, design problem and objectives",
+          "Chanekar–Nozari–Cortés, NSF PAR 10293437, abstract and boundary-result scope",
+          "Cortesi–Summers–Lygeros arXiv:1403.6351v1, Section III-D Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8bab5bddfc04, 153d78b01575 and 860ca1cdc9c7",
+        "arXiv:1902.04195 p. 1",
+        "NSF 10293437 abstract and scope",
+        "arXiv:1403.6351v1 §III-D",
+        "arXiv:1308.1201v3 Remark 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put r=w₂/S for the matched spectrum (0<r≤1/2); the star/chain determinant ratio is [1−4r(2−r)/3]/[9(2−r)²]≤1/36 and tends to 1/36 as r→0. The directed-chain small-damping optimum eventually lies in this matched spectral region. Bounding the star maximum by 1/36 times the chain optimum at budget 2S, and testing the matched chain optimum, recovers the leading value (5√5−11)/(1152Sμ²). The matched weak-spoke scale also corresponds to w₂~(3/2) min(u,v)."
+        ],
+        "reasoning": "Do not count the shared weak-damping scaling as a wholly separate mechanism. The comparison does not preserve the finite-damping argmax, since the multiplicative factor is nonconstant and the star permits only r≤1/2. The audited star stationary equation, unique unordered optimum and strict monotonicity require the star-specific calculation.",
+        "searches": [
+          "Resultary 153d78b01575, Finding and scope, offsets 485–2560",
+          "Pasqualetti–Zampieri–Bullo arXiv:1308.1201v3 Remark 1",
+          "Resultary 860ca1cdc9c7, Finding and constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the closest analogue 153d78b01575, match the two directed rates w₁,w₂ to the undamped star λ₊,λ₋, respectively, using the chain budget 2S. They have product 3uv. Cauchy denominators then match, but the chain numerator is w₁⁴w₂² and the star numerator is (uv)²(S²−4uv); their ratio is (S²−4uv)/(9w₁²), varying with the conductances and vanishing for equal spokes."
+        ],
+        "reasoning": "Matching eigenvalues or using input-output duality does not preserve the budgeted determinant optimization. The three-node directed chain has a different site and transfer law, a different feasible spectral range and no equal-spoke loss of rank. The weighted-star sensor result varies the sensor, not edge weights.",
+        "searches": [
+          "Resultary: weak-damping budget concentration, determinant-optimal edge design, weighted diffusion stars",
+          "Primary search: fixed-budget three-node star controllability Gramian determinant; log determinant edge modification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact returned record is the audited 8bab5bddfc04 itself. Distinct 153d78b01575 has w₂/μ→1+√5 and optimum constant (5√5−11)/(16S_chain) for its three-node directed chain, with no all-damping stationary polynomial claimed; 860ca1cdc9c7 classifies single sensors on weighted stars at fixed weights."
+        ],
+        "reasoning": "These are material neighboring results but not an independent listing of the exact optimizer for this model. The catalogue date does not decide within-day priority.",
+        "searches": [
+          "Resultary: three-vertex fixed-budget hub star, stationary quadratic, near disconnection and determinant"
+        ]
+      },
+      "rationale": "Credit the Gramian-volume objective and the general Cauchy/Krylov reduction. The supported distinction is the exact all-damping optimizer and strict monotonicity for an undirected hub-controlled star under the fixed spoke-sum constraint. A directed-chain record also covers the weak-damping mechanism: after spectral matching it can even be used to recover the leading optimum value. It does not give the finite-damping star optimization, because the matching changes the feasible spectrum and multiplies the determinant by a nonconstant factor. No ordering is inferred from the common publication date.",
+      "residual_risks": [
+        "The similar closed-form weak-damping constant has related coverage under spectral matching; no priority claim for that mechanism is made.",
+        "Bounded searches cannot exclude unindexed exact symmetric-star determinant optimization; inspected methods and statements do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared limiting mechanism; distinct feasible spectrum and finite-damping design",
+          "evidence": "Triangular directed dynamics give Kalman modulus w₁²w₂ at n=3; matching spectra involves doubling budget and a design-dependent Kalman square ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-weak-damping-budget-concentration-law-for-controllabilit--153d78b01575/RESULT.md",
+          "material_read": "Finding, determinant and asymptotics, scope, offsets 485–2560",
+          "method": "Local mirror bounded passages",
+          "title": "A sharp weak-damping budget concentration law for controllability on directed chains",
+          "trigger": "Same budgeted infinite-horizon determinant and vanishing edge in three-state case"
+        },
+        {
+          "assessment": "Different design variable and horizon",
+          "evidence": "Finite-horizon observability and sensor site selection with given conductances; scope excludes the infinite-horizon full-state Gramian.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local mirror bounded passages",
+          "title": "A complete D-optimal single-sensor classification on weighted diffusion stars",
+          "trigger": "Weighted star, Gramian determinant and D-optimality"
+        },
+        {
+          "assessment": "Different Gramian metrics and optimization problem",
+          "evidence": "Constrains the smallest eigenvalue or trace of inverse and minimizes weight cost; no star-specific log-volume stationary equation in the inspected statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.04195",
+          "material_read": "PDF p. 1 abstract and stated objectives",
+          "method": "Open primary PDF passage",
+          "title": "Network Design for Controllability Metrics",
+          "trigger": "Design of continuous edge-weight variables on fixed network topology"
+        },
+        {
+          "assessment": "Prior edge-design objective and gradient methods; boundary theorem has different hypotheses",
+          "evidence": "Gradient centrality addresses trace, log determinant and inverse trace inverse; log-det boundary conclusion is for diagonal Gramian systems, unlike the present star.",
+          "identifier_or_url": "https://par.nsf.gov/servlets/purl/10293437",
+          "material_read": "Abstract p. 1 from offset 780 and scope passages pp. 2, 9, 13",
+          "method": "Open NSF primary PDF, located by determinant/diagonal Gramian",
+          "title": "Energy-Transfer Edge Centrality and Its Role in Enhancing Network Controllability",
+          "trigger": "Uses log Gramian determinant for reweighting with fixed actuation"
+        },
+        {
+          "assessment": "Actuator set objective for fixed network",
+          "evidence": "Submodularity is for selection of input columns, not a continuous two-spoke design.",
+          "identifier_or_url": "https://arxiv.org/html/1403.6351v1",
+          "material_read": "Continuous-time Gramian, offset 4937 and §III-D, Theorem 3, offset 21840",
+          "method": "Open primary HTML passages",
+          "title": "Submodularity of Energy Related Observability and Controllability Metrics",
+          "trigger": "Same log determinant objective"
+        },
+        {
+          "assessment": "Established objective, not the star classification",
+          "evidence": "Explains reachable volume and design by selection of nodes; this statement contains no fixed-budget spoke optimizer.",
+          "identifier_or_url": "https://arxiv.org/html/1308.1201v3",
+          "material_read": "Remark 1, offset 18778",
+          "method": "Open primary HTML passage",
+          "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+          "trigger": "Established reachable-volume measure and design context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the smallest undirected star allowing a nontrivial split of a fixed conductance, this fully resolves an explicit determinant design for all damping ratios, not a numerical sample or a fixed-damping slice. It separates volume from intuition based on equal mixing weights and shows the unique unordered optimum approaches disconnection while maintaining controllability. The increasing normalized product and sharp asymptotics quantify the transition and the fixed-design penalty without claiming larger-network optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

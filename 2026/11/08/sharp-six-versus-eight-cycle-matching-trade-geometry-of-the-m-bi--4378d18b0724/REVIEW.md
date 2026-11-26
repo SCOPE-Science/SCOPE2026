@@ -1,9 +1,21 @@
-# Review of the Möbius–Kantor cycle-trade classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph, every perfect matching, every allowed trade and every shortest-path distance are finitely and explicitly defined. Two distinct standalone algorithms count the same \(33\) matchings, and independently derive exactly \(96\) hexagon-only trades, \(36\) octagon-only trades and \(132\) combined trades. All exact degree and distance profiles and the subdivided-double-triangle description are asserted and checked in the programs. Completeness follows from checking all vertex-saturation branches and, independently, all \(8!\) possible bipartite bijections.
+## correctness
 
-**Originality — PASS, qualified.** The earlier perfect-matching count \(33\) is explicitly credited to the 2025 matching-polynomial tabulation. Bryant and Dean's 2014 paper treats a different question on Hamilton decompositions and perfect one-factorizations. Bonamy et al. and Ito et al. formulate different unrestricted or four-cycle reconfiguration models whose theorems do not imply the sharp specific six/eight-cycle graph decomposition. The metric and structural classification was not found in inspected primary works or targeted searches. Risk: equivalent figures might be hidden in unindexed data or early resonance-graph literature.
+PASS
 
-**Value — PASS.** The problem arises canonically from local dimer moves on a small, highly symmetric, nonplanar cubic bipartite graph of girth six. The exact obstruction for hexagon moves, the simple octagon-only model, and the sharp reduction in maximum distance after adding hexagons give a substantive reachability benchmark, beyond the known isolated count of matchings. This does not entail a general family or prove mixing bounds.
+An independent exhaustive edge-subset check used all 8-subsets of the 24 displayed edges, retaining just the 33 disjoint covers. For each pair of covers the symmetric difference is 2-regular on its support; the move test therefore requires cardinality 6 or 8 and one connected component. Floyd–Warshall then gave component sizes (1,1,1,30), (33), (33); distance counts by increasing positive distance (96,216,120,3), (36,198,54,240), (132,342,54); and eccentricity counts 24 at 3 and 6 at 4 in the nontrivial six-only component, 3 at 3 and 30 at 4 for eight-only, and all 33 at 3 for the union. The exact joint counts by complementary type and degrees agree with the claim, including three (8,8) types of degrees (0,12,12). Every octagon-only neighbor of a nonhub is a hub; each hub has eight leaves and there are exactly two length-two paths, via different degree-two states, for each hub pair. The base graph is bipartite by the displayed parts; counting simple 4-, 6- and 8-edge cycles gave 0,24,30, proving girth six and the connectivity cutoff of eight. The included permutation checker has a human-readable 'THREE_COMPONENTS' marker, but its assertion specifies four components (three isolates and one large component), which is what the independent check obtained.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The number of matchings and counts of complementary two-factor types are covered and not credited as new. The closely related coloring/Kempe graphs use different states and are not statements of the length-sensitive matching-trade geometry. The claim's distinct content is the two single-length graphs, their union's geometry, and the exact threshold.
+
+## value
+
+PASS
+
+This is a test case of bounded cycle exchanges where hexagons strand entire matching types, octagons already connect all matchings via an identifiable small core, and both together shorten the diameter and eliminate eccentricity differences. The exact state space and move geometry are useful beyond a recomputation of the known matching census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

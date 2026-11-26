@@ -1,71 +1,49 @@
-# Forty-two branch types and twenty-nine Frobenius spectra for genus-four maximal two-isogeny kernels
+# Frobenius on the two kernel components of a genus-four hyperelliptic Jacobian
 
 ## Finding
 
-Let \(C/\mathbb F_q\) be any smooth projective geometrically connected hyperelliptic genus-four curve over a finite field of odd characteristic. Let \(B\) be the reduced set of ten geometric branch points of its degree-two map to \(\mathbb P^1\), and let \(J=\operatorname{Jac}(C)\). Let \(\mathcal L_C\) denote the finite étale scheme whose geometric points are the maximal Weil-isotropic subgroup schemes of \(J[2]\). Each geometric kernel has \(16\) elements, and its quotient defines a principally polarized two-isogeny of abelian fourfolds, not necessarily an isogeny to another Jacobian.
+Let \(C/\mathbb F_q\) be a smooth projective geometrically connected hyperelliptic curve of genus four in odd characteristic, with ten geometric branch points \(B\). Its finite étale scheme of maximal Weil-isotropic subgroups of \(\operatorname{Jac}(C)[2]\) splits into two finite étale subschemes of degrees \(945\) and \(1350\). The first consists of kernels coming from perfect matchings of the ten branch points; the second is the complementary orbit. The columns `orbit_945` and `orbit_1350` of `kernel_spectra.csv` give their two complete Frobenius cycle spectra for each of the \(42\) possible branch partitions. There are **38 distinct ordered pairs** of component spectra among the \(42\) partitions, compared with 29 aggregate spectra.
 
-The scheme \(\mathcal L_C\) has geometric degree \(2295\). Its Frobenius permutation, including all orbit lengths, depends only on the cycle partition of geometric Frobenius on \(B\). The accompanying `kernel_spectra.csv` gives the **complete 42-row table** for every partition of ten, including the full cycle decomposition and the separate decompositions on the two natural \(S_{10}\)-orbits of lengths \(945\) and \(1350\). Across the \(42\) possible branch partitions there are **exactly \(29\) distinct kernel cycle spectra**. The complete extension-field kernel counts and the zero-dimensional zeta function follow from the table: if there are \(m_d\) cycles of length \(d\), then
+**The component zeta functions contain strictly more information than the total kernel zeta function even together with rational Jacobian two-torsion.** In fact, branch types \(4\,2^3\) and \(4\,2^2\,1^2\) both have eight rational Jacobian two-torsion points and aggregate kernel spectrum \(1^7 2^{64}4^{540}\). Their component spectra differ:
 
+| Branch type | Matching component | Complementary component |
+|---|---|---|
+| \(4\,2^3\) | \(1^7 2^{19}4^{225}\) | \(2^{45}4^{315}\) |
+| \(4\,2^2\,1^2\) | \(1^3 2^{21}4^{225}\) | \(1^4 2^{43}4^{315}\) |
+
+Here \(d^m\) denotes \(m\) cycles of length \(d\). These types are realized over \(\mathbb F_5\) by the smooth projective curves with affine equations
 \[
-Z(\mathcal L_C,T)=\prod_{d\geq1}(1-T^d)^{-m_d}.
+y^2=P Q_1 Q_2 Q_3,\qquad y^2=P Q_1 Q_2 x(x-1),
 \]
-
-In particular, branch patterns \(2^5\) and \(2^4 1^2\) both give \(16\) rational points in \(J[2]\), but they give respectively \(151\) and \(39\) rational maximal isotropic subgroup schemes. Their full kernel profiles are respectively \(1^{151}2^{1072}\) and \(1^{39}2^{1128}\). For the first, the split orbit fixed counts are \(81+70\); for the second, they are \(25+14\).
-
-Both patterns occur over \(\mathbb F_5\). Put \(Q_1=x^2+2\), \(Q_2=x^2+3\), \(Q_3=x^2+x+1\), \(Q_4=x^2+x+2\), \(Q_5=x^2+2x+3\) in \(\mathbb F_5[x]\). Then \(y^2=Q_1Q_2Q_3Q_4Q_5\) and \(y^2=x(x-1)Q_1Q_2Q_3Q_4\) give explicit smooth genus-four curves with the claimed \(151\)-versus-\(39\) distinction. All five quadratics have nonsquare discriminants, hence are distinct irreducible factors.
+where \(P=x^4+2\), \(Q_1=x^2+2\), \(Q_2=x^2+3\), and \(Q_3=x^2+x+1\).
 
 ## Assumptions and scope
 
-The base field has odd characteristic and the curve is smooth, geometrically connected, hyperelliptic and of genus four. The branch divisor \(B\) consists of ten distinct geometric points of the hyperelliptic \(\mathbb P^1\). Factor-degree partitions may be interpreted using a homogeneous degree-ten binary branch form, including a possible point at infinity. For small fields, not every abstract partition need occur; the table states a conditional implication for each realizable partition, not universal realization.
-
-The word *rational kernel* means a Frobenius-stable subgroup scheme, not a subgroup all of whose geometric elements are rational. Each kernel quotient is a principally polarized abelian variety; the theorem makes no claim that the target is the Jacobian of a genus-four curve.
+A rational kernel means a Frobenius-stable subgroup scheme, not a subgroup whose geometric points are all rational. Each kernel has order \(16\), and its quotient is a principally polarized abelian fourfold, not necessarily a Jacobian. A branch partition may include a point at infinity via a binary degree-ten branch form. The table applies whenever the partition occurs; it does not say that every partition is realized over each small field. Geometric and arithmetic Frobenius yield the same cycles up to reversal.
 
 ## Proof
 
-**1. Torsion model.** The classical description of hyperelliptic two-torsion identifies the symplectic \(\mathbb F_2\)-vector space \(J[2](\overline{\mathbb F}_q)\) with
+**The two components.** The standard equivariant model for hyperelliptic two-torsion is the vector space of even subsets of \(B\) modulo complements, with symplectic form given by intersection parity. Its dimension is eight: on the even-weight subspace in ten binary coordinates the dot-product radical is exactly the all-ones line. The maximal isotropic subspaces have dimension four. They are the geometric points of the kernel scheme because two is invertible. The degree is \(\prod_{i=1}^4(2^i+1)=2295\).
 
+A perfect matching partitions \(B\) into five pairwise orthogonal two-element subsets. Their classes span a maximal isotropic subspace: the only nontrivial relation is the sum of all five, which represents the whole branch set. The weight-two classes in this subspace are exactly those five pairs, since any union of pairs has size two or eight precisely when it uses one or four pairs. Thus the map from matchings is injective. All \(9!!=945\) matchings form one orbit under the symmetric group. For the complement, the exhaustive calculation below proves that it is another orbit. Both are Frobenius-invariant, making the decomposition intrinsic over the base field.
+
+**Complete finite calculation.** Represent a two-torsion class by its even binary vector with tenth bit zero. The first eight bits are free and the ninth is their parity. The pairing of free vectors \(a,b\) is the parity of their intersection plus the product of their parities, modulo two. The supplied `verify_kernel_spectra.py` enumerates all \(200787\) four-dimensional subspaces by unique binary reduced row-echelon bases, tests the six pairings of the basis, and gets exactly \(2295\) isotropic subspaces. A separate enumeration by orthogonal extensions gives the same set. Coordinate permutations act by permuting the ten bits, complementing if the tenth bit is one. Using the adjacent transpositions gives exactly two orbits of sizes \(945,1350\). For each of the 42 partitions one representative permutation suffices, because conjugation of branch permutations conjugates the induced actions. Walking every cycle on each orbit verifies both columns of the supplied table. Distinct ordered pairs of columns give the count 38, independently checked by `verify_split_profiles.py`. The two rows in the finding are the rows for \((4,2,2,2)\) and \((4,2,2,1,1)\).
+
+**Independent matching-component calculation.** A preserved matching is a fixed-point-free involution commuting with the branch permutation. For each branch-cycle length \(d\), let \(m\) be its multiplicity. Choose \(2k\) of those cycles and group them into \(k\) unordered pairs; each pair has \(d\) equivariant identifications. A cycle not paired with another must have even length and uses its unique antipodal matching. Thus the fixed-matching factor for length \(d\) is
 \[
-V=\{u\in\mathbb F_2^{10}:\sum_i u_i=0\}/\langle(1,\ldots,1)\rangle.
+\sum_{\substack{0\le 2k\le m\\ d\,\mathrm{even}\ \mathrm{or}\ 2k=m}}
+\frac{m!\,d^k}{(m-2k)!\,2^k k!}.
 \]
+Multiplying over \(d\) gives the fixed matching count. For each positive exponent \(h\) dividing the order of Frobenius on \(B\), replace a length-\(d\) cycle by \(\gcd(d,h)\) cycles of length \(d/\gcd(d,h)\) to apply this formula to the \(h\)-th power. For either component, if \(F(h)\) is the number of fixed points of that power, the number \(m_d\) of cycles of length \(d\) is recovered by inverting \(F(h)=\sum_{d\mid h}d m_d\). Its zeta function is \(\prod_d(1-T^d)^{-m_d}\). In particular the matching fixed counts at the two types of the witness are 7 and 3, although the aggregate has 7 in both cases.
 
-Under this identification, the Weil pairing is \(\langle[u],[v]\rangle=\sum_i u_i v_i\pmod2\). It is well defined since every representing vector has even weight, and it is nondegenerate on the quotient: the radical on the even-weight subspace is generated by the all-one vector. Geometric Frobenius permutes the ten branch points and therefore acts on \(V\) by the induced permutation of coordinates. A maximal isotropic subgroup has dimension four over \(\mathbb F_2\); maximal isotropic subspaces are therefore exactly the geometric points of \(\mathcal L_C\). Finite étaleness follows because two is invertible in the base field.
+**The curves over \(\mathbb F_5\).** The three quadratics are pairwise different and have nonsquare discriminants. The quartic \(P=x^4+2\) has no root since every nonzero fourth power is one. A factorization into monic quadratics would have the form \((x^2+a x+b)(x^2-a x+c)\), with \(bc=2\), \(b+c=a^2\), and \(a(c-b)=0\). If \(a=0\) it gives \(b^2=3\); otherwise \(c=b\) gives \(b^2=2\). Both contradict nonsquareness. The displayed products are therefore squarefree of degree ten. In each type a fixed torsion class has a fixed even-set representative: in the first type a set exchanged with its complement would have odd size five, and in the second there are fixed branch points. In the first type there are 16 even subsets formed from its four even cycles; in the second there are eight unions of even cycles and two ways to include the fixed points with even parity. Quotienting by complements gives eight rational torsion points in both cases.
 
-**2. An eight-coordinate encoding.** Every class has a unique even-weight representative with its last (tenth) bit zero. It is described by eight free bits, the ninth bit being their parity. Thus \(V\) is encoded by integers \(0\) to \(255\). If \(a,b\) are the eight-bit representatives, the pairing becomes
+## Reproduction
 
-\[
-\langle a,b\rangle=\operatorname{parity}(a\mathbin{\&}b)+\operatorname{parity}(a)\operatorname{parity}(b)\pmod2.
-\]
+Run `python3 verify_kernel_spectra.py` and `python3 verify_split_profiles.py` alongside `kernel_spectra.csv`. The former recomputes the complete finite action. The latter checks the perfect matching fixed counts for all relevant powers of all 42 permutations, verifies the ordered count 38 and the two component rows of the witness, and checks the irreducibility of the quartic and quadratics by finite factor tests.
 
-The full ten-coordinate subset is reconstructed, permuted, and complemented if necessary to restore a zero tenth bit. These operations compute the exact Frobenius action for any branch-point permutation.
+## Relationship to prior work and limitations
 
-**3. Exhaustion certificate.** Every four-dimensional subspace of \(\mathbb F_2^8\) has a unique rank-four reduced row-echelon matrix. The accompanying standard-library program `verify_kernel_spectra.py` enumerates all \({8\brack4}_2=200787\) such subspaces, retains precisely those with all six pairwise basis pairings zero, and obtains \(2295\) isotropic subspaces. Independently, it builds isotropic subspaces by successive orthogonal extensions, with distinct counts by dimension \(255,5355,11475,2295\). The two resulting sets of sixteen-element subspaces agree **element for element**. The independent classical symplectic count
+Bernatska–Kopeliovich, [arXiv:2306.14889](https://arxiv.org/abs/2306.14889), §5.2, already give the 2295 geometric Göpel systems and the 945/1350 split. The geometric counts and the standard matching count are not originality claims. Bruin–Kulkarni, [arXiv:2309.01959](https://arxiv.org/abs/2309.01959), study a different genus-four \((2,2)\)-decomposability question; Bruin–Doerksen, [arXiv:0902.3480](https://arxiv.org/abs/0902.3480), describe related arithmetic in genus two.
 
-\[
-\prod_{i=1}^4(2^i+1)=3\cdot5\cdot9\cdot17=2295
-\]
-
-checks the final cardinality. These are exhaustive finite constructions, not random sampling.
-
-**4. Uniform Frobenius table.** Conjugacy classes of permutations of ten points are indexed by the \(42\) partitions of ten. For each such partition, take the permutation consisting of successive disjoint cycles of the stated lengths; compute the induced permutation on the \(2295\) isotropic subspaces; and walk every cycle. Each row in `kernel_spectra.csv` has total weighted cycle size \(2295\). The verifier compares all \(42\) exact stored rows with a fresh recomputation and checks that exactly \(29\) full profiles are distinct. Because conjugating a branch-point permutation simply relabels the points, the answer for each partition applies to every curve with that Frobenius cycle type.
-
-**5. Two canonical pieces.** The adjacent transpositions generate \(S_{10}\). Computing their orbits on the \(2295\) subspaces gives exactly two invariant sets of sizes \(945\) and \(1350\); the independently obtained profiles on the two sets sum to every reported full profile. This agrees with the two classical types of genus-four Göpel systems. The table includes both pieces and proves their separate Frobenius zeta factors.
-
-**6. Distinguishing equal rational two-torsion.** For partition \(2^5\), a Frobenius-fixed even subset must be a union of its five two-cycles; it has \(2^5\) possible representatives, halved by the complement relation to give \(16\) fixed two-torsion classes. A subset exchanged with its complement would have odd cardinality \(5\), hence cannot occur. For partition \(2^4 1^2\), fixed even subsets comprise any union of four two-cycles and either zero or both singleton points; there are \(2^4\cdot2\) representatives, again giving \(16\) classes modulo complements. Complement-exchanged representatives are impossible because the two singleton points are individually fixed. Thus the rational two-torsion counts agree by a direct combinatorial argument independent of the subspace enumeration. The exhaustive subspace computation counts \(151\) and \(39\) Frobenius-fixed isotropic subspaces, respectively, and computes the stated full cycles. In characteristic five, the displayed five quadratics have discriminants \(2\) or \(3\), both nonsquares, giving genuine squarefree degree-ten branch forms with these two patterns.
-
-## Verification
-
-Run `python3 verify_kernel_spectra.py` beside `kernel_spectra.csv` in Python 3 with no third-party dependencies. The program compares independent RREF and orthogonal-extension enumerations; verifies permutation linearity and preservation of the pairing; checks that every cycle partition has total length \(2295\); computes the \(945+1350\) decomposition using adjacent transpositions; checks the stored \(42\) rows, exactly \(29\) distinct spectra, the full rational-kernel count set, the paired \(151\)-versus-\(39\) example, and the finite-field quadratic discriminants. The expected terminal line is `GENUS_FOUR_2295_LAGRANGIANS_42_TYPES_29_SPECTRA_VERIFIED`.
-
-## Relationship to prior work
-
-Bernatska and Kopeliovich (arXiv:2306.14889, version first public 2023-06-26), Section 5.2, already count \(2295\) genus-four Göpel groups and partition their associated wholly even systems into types of sizes \(945\) and \(1350\). **Those counts and the geometric distinction are not claimed as new.** Bruin and Kulkarni (arXiv:2309.01959, first public 2023-09-05) study genus-four Jacobian two-isogeny constructions and decomposability, including their Galois-theoretic interpretation. Their \((2,2)\)-decomposability condition is not the same as asking about all \((2,2,2,2)\) kernels. The added claim here is the complete arithmetic Frobenius table on **all** \(2295\) kernels, its \(29\) possible zeta spectra, the two-component arithmetic refinements, and the explicit example where \(\#J(\mathbb F_q)[2]\) fails to determine the rational-kernel count. The full prior texts' relevant sections were compared; unidentified earlier equivalent calculations remain a priority risk.
-
-## Limitations
-
-This gives the Frobenius arithmetic of the **finite kernel-parameter scheme**, not an explicit rational map for every isogeny or a description of its principally polarized target. Not all partitions are realizable over each very small field. The table is for hyperelliptic genus four in odd characteristic and is not a theorem about non-hyperelliptic curves or characteristic two. It does not enumerate curve isomorphism classes or parameter frequencies in moduli. The result has received no independent mathematical audit, and historical-priority assessment cannot exclude unindexed equivalent tables.
-
-## References
-
-1. J. Bernatska and Y. Kopeliovich, *Igusa's map on modular forms vanishing on the hyperelliptic locus*, arXiv:2306.14889 (first public 2023-06-26), especially §5.2: https://arxiv.org/abs/2306.14889.
-2. N. Bruin and A. Kulkarni, *On (2,2)-decomposable genus 4 Jacobians*, arXiv:2309.01959 (first public 2023-09-05), especially §§1–2: https://arxiv.org/abs/2309.01959.
-3. N. Bruin and K. Doerksen, *The arithmetic of genus two curves with (4,4)-split Jacobians*, arXiv:0902.3480, for the lower-genus arithmetic-isogeny context: https://arxiv.org/abs/0902.3480.
+The distinct same-date record [Frobenius-stable maximal isotropic 2-torsion kernels for genus-four hyperelliptic Jacobians](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-stable-maximal-isotropic-2-torsion-kernels-for-genus-f--70477d357316/RESULT.md) supplies the aggregate fixed counts for all 42 branch partitions. In particular it already states the examples of counts 151 and 39 for types \(2^5\) and \(2^4 1^2\), respectively, both with 16 rational two-torsion points. Moreover the power-partition and fixed-point inversion calculations above reconstruct all aggregate cycle spectra from that fixed-count table; the aggregate columns are included for comparison, not claimed as a distinct theorem here. The added statement is the two-component evaluation and the realized failure of aggregate data to determine it. This does not assert priority solely from the record dates or exclude unindexed equivalent calculations. The result describes the finite kernel scheme, not the polarized quotient targets or the frequencies of branch patterns in moduli.

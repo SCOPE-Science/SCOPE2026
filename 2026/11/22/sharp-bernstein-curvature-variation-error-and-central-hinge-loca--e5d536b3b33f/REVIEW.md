@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact curvature-measure hinge representation and Minkowski reduction hold for every real \(W^{1,1}\) function with distributional second derivative of finite signed variation. Singular support of distributional second derivatives proves all equality cases have one knot. A triangular binomial CLT and an explicit square-integrable majorant justify the Gaussian limit, and a uniform three-interval bound excludes all boundary knot sequences. The normal-tail integral has an analytic integration-by-parts evaluation. The standalone checker tests finite-degree identities and the leading coefficient; it is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-Actual semantic database searches and a comparison of accessible prior claims found first-order Bernstein-BV residual bounds, pointwise kink estimates, second-modulus bounds, and different Bernstein stability objectives. Their published statements do not imply a global sharp \(L^2\) operator norm for the derivative-variation class with hinge equality and knot localization. Full texts of Adell–Lekuona (2015), Gonska–Zhou (1995), and the more recent Adell–Garrancho–Martínez-Sánchez (2024) were inspected for their objects, hypotheses and main results. The closely matched Bojanic–Cheng (1989) full article was inaccessible and represents a genuine residual historical-priority risk. Search failure is not an unconditional novelty certificate.
+PASS
 
-## Value — PASS
-This is a natural normed approximation problem governed by total curvature, not an arbitrary parameter slice. It gives the exact finite-degree optimizing object class and sharp global large-degree error constant for piecewise-smooth curves with corners. The rate \(n^{-3/4}\) and midpoint localization cannot be inferred merely from standard smooth-target \(n^{-1}\) rates or pointwise diagonal-kink bounds; the boundary-layer integration is structurally needed.
+On the affine quotient the second derivative is precisely the hinge-mixture measure, so the unit total-variation ball gives the supremum of the L² kernel norms, attained by an interior atom. Equality in the Hilbert norm of the signed mixture forces a common normalized direction almost everywhere; distinct kernels cannot be proportional since their distributional second derivatives have atoms at different interior knots. The moving-knot CLT uses bounded second moments for the hinge expectation and an integrable square majorant of order min(1,|s|⁻²) after rescaling. For t→0 the three-interval bound is O(n⁻²)+O(t^(3/2)n^(-3/2)); reflection gives the bound at 1. Integration by parts for the Gaussian square profile gives 2(1−1/√2)/(3√π); the boundary-layer Jacobian and squared amplitude supply [t(1−t)]^(3/2). Its unique maximum is 1/8 at 1/2, proving both the sharp coefficient and localization of every maximizing sequence. An independent exact degree-two check gives 37/7290 at t=1/3 versus 1/320 at t=1/2, consistent with the stated finite-degree limitation.
 
-## Scope and limits
-No uniqueness of maximizing knots at a fixed degree is proved. Only Lebesgue \(L^2\) on the unit interval, real inputs and classical Bernstein sampling are considered. The unresolved archival full-text comparison warrants independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the sharp integrated Bernstein error in the second-variation class, with equality rigidity and moving-knot localization. Pointwise kink asymptotics and the hinge-mixture method are not claimed in isolation. The nearest indexed statements change either the operator or the input variation seminorm. Best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+For the natural curvature-variation ball this replaces a pointwise estimate by the sharp global approximation error, identifies all worst inputs, and finds the leading constant and every asymptotically worst knot. The distinction from ordinary BV and the failure of exact finite-degree centering make the localization more than a symmetry argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

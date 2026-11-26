@@ -1,15 +1,21 @@
-# Review: sparse markings of finite vector spaces
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain fixes the field and the marking intensity; all probability is over an independent unary predicate. A new quantitative Ehrenfeucht–Fraïssé invariant counts marked coordinate-row patterns below threshold and matches the linear kernel of complementary pebble components. The induction uses the exact identity \(T_r=sT_{r+1}\), terminates at threshold two and therefore preserves equality and every atomic marking assertion on arbitrary linear terms. Independently, fixed-size sparse marks are almost surely independent, and the marked-set cardinality converges in law to Poisson. The explicit finite representatives give the stated symbolic algorithm. Finite and cofinite count sentences give the reverse spectrum inclusion. Factorial-weight interval coverings prove Hausdorff dimension zero. The standalone finite enumerator returned `VECTOR_SPARSE_FO_FINITE_OK 19 EF2_3 POISSON_GAPS6`; enumeration is supplementary only.
+## correctness
 
-## Originality — PASS, qualified
-St. John (1997), Theorem 1 (full text, pp. 1–3), already proves the *same Poisson numerical spectrum* for sparse randomly marked **linearly ordered sets**. That fact and its immediate factorial-subsums topology are **not** claimed as new. The surviving claim is the strong, quantitative **vector-space EF collapse**, from which the spectrum follows for a different structure that admits linear addition and scalar multiplication in its language. St. John's full proof is order/interval-based and does not supply the vector-coordinate invariant. Full text of Berarducci–Mamino–Mennuni (arXiv:2209.03867, Section 4) concerns infinite unions of independent subspaces, including a finite-field near-model-completeness analysis, not random finite sets of individual marked points; Koponen (arXiv:2610.16163v1) discusses random expansions in a different setting. Searches of published-finding corpus for sparse marked vector spaces, EF ranks, Poisson spectra and comparable interpretations found no identified covering record. A more general unlocated lemma could imply the result; novelty remains self-review, not independent certification.
+PASS
 
-## Value — PASS
-The structural lemma rules out an otherwise plausible source of additional first-order limiting information: additive dependencies involving *unmarked* witnesses and arbitrary linear terms. It gives an explicit (very large but finite) rank-dependent cutoff and decision procedure for every FO sentence in a natural sparse random algebraic structure. This is mathematically stronger than merely reusing the old numerical Poisson formula and is of potential use in logical limit-law classifications for algebraic ambient structures. The closure's zero-dimensionality is a supporting consequence, not separately claimed novel.
+Reconstructed the quantifier-rank lemma. After r moves, compare the counts of each marked-coordinate row modulo truncation at 2s^(R-r) and match the kernel of the unmarked-component tuple. On a move a large parent cell of size at least s times the new threshold has a large child; copying small children leaves enough coordinates to fill all large children, on either side. The unmarked complement has room for each new independent choice. At the last move the row data distinguish zero, one and multiple contributions: all linear term equalities and the condition for a term to equal one marked basis vector are preserved. This also covers R=0. Conditioned on any fixed mark count, the uniform subset is independent with probability tending to one by the sequential span bound, including the possibility of selecting zero. Tightness and the binomial-to-Poisson limit justify truncation and substitution of the finite references. Exact-cardinality sentences and complements realize the entire stated spectrum. The compact subsum image has no isolated points by flipping late digits and admits covers with 2^(m+1) intervals of factorially small length, proving dimension zero and empty interior. Independently checked exact binary two-round types at (k,h)=(8,2) vs (9,3), (2,2) vs (2,3), and (2,2) vs (3,2), including a saturated unequal-count pair absent from the submitted tests. Replay: python3 /tmp/opencode/frozen_independent_checks.py (first output line).
 
-## Scientific boundaries
-All statements are for a fixed finite field and positive intensity; the limit law is a symbolic expression in the parameter. The quantitative EF bound is not asserted optimal. Larger predicate densities, named bases and stronger logics are excluded. Historical priority has not been certified and independent verification remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the bounded-rank collapse and effective convergence in the finite vector-space language, not for the numerical Poisson-subsums form or its immediate topology in isolation. No inspected result was found to imply the marked-vector-space equivalence; this is a best-of-knowledge comparison, not historical priority certification.
+
+## value
+
+PASS
+
+The explicit finite cutoff tells which bounded reference structures suffice for every sentence despite arbitrary nested quantifiers and linear terms. This is useful structural and algorithmic information about adding a sparse predicate to an algebraic host, unavailable from the convergence of the count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

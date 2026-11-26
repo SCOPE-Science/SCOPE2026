@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:23:56.317501Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–49, certificate.json and verification_output.txt; inspected verify.py without running it",
+        "Independent replay: python3 /tmp/opencode/frozen_review_cube.py <frozen certificate.json>",
+        "Repaired RESULT.md Proof, printed list/index-row cross-check"
+      ],
+      "rationale": "Each coordinate matching contracts to 2^(d−1) vertices. The other w−w_i selected edges must span them, so summing gives (d−1)w≥d(2^(d−1)−1); this gives 10 and 19. An independently written depth-first traversal on the original cube, not the frozen union-find script, validated all certificate edges and reached all 16 or 32 vertices respectively for each matching union. It also checked the four seven-edge quotient spanning-tree lists. Both printed repaired edge lists and each printed index row were checked against those traversed lists. The lower bound is independent of the certificates; no test ruled out 19 in dimension five.",
+      "residual_risks": [
+        "Neither the proof nor the certificate determines w₅ exactly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact two-colour formula w=κ(G₁)+κ(G₂)−2 and the proper K₂,₂ formula both give w₂=2",
+          "Dawkins et al. §5 gives product lower bounds only for the relevant families"
+        ],
+        "reasoning": "Both exact older formulas cover the removed square, whereas the product lower bounds give no retained upper witness.",
+        "searches": [
+          "arXiv:2508.06711v1 Theorem 6.4(2)",
+          "arXiv:2610.22142v1 Theorem 4.4 and §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.06711v1 and arXiv:2610.22142v1 at the passages above",
+        "Resultary prism and two-colour records above",
+        "Repaired RESULT.md Finding and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Anders et al. give the general ceiling, hence the prior values 10 and 19 as lower bounds",
+          "The Dawkins product inequality gives only w₄>4 in the square-by-square case"
+        ],
+        "reasoning": "Even the sharper ceiling lower bound cannot by itself prove attainment; the two finite constructive upper witnesses are the genuinely distinct contribution.",
+        "searches": [
+          "arXiv:2508.06711v1 Proposition 5.4 p. 13",
+          "arXiv:2610.22142v1 §5 Proposition 5.4 pp. 18–19 at Q₄=K₂,₂ square K₂,₂"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contraction of each monochromatic coordinate matching reduces the requirement to spanning that quotient",
+          "2026/10/25/SCOPE-sharp-wild-number-of-properly-colored-complete-bipartite-prisms--1118d48ed828 proves w(K_n,n square K₂)=2n+1 for the specified colourings"
+        ],
+        "reasoning": "The prism result includes the coordinate colouring of Q₃ at n=2. It does not include Q₄ or Q₅, which retain four and five coordinates respectively.",
+        "searches": [
+          "Resultary coordinate-coloured hypercube, binary cube and complete-bipartite-prism wild numbers",
+          "arXiv:2508.06711v1 Proposition 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 2026/10/25/SCOPE-exact-wild-number-spectrum-of-two-edge-coloured-complete-biparti--235ddafff04a has singleton spectrum {2} at K₂,₂",
+          "Same-day 2026/10/26/SCOPE-the-complete-two-colour-wild-number-spectrum-of-a-connected-grap--70e766d49ce0 also covers the square, not d≥3",
+          "Retrieved complete-bipartite prism formula gives w₃=5; no retrieved equivalent table contains a four- or five-cube witness"
+        ],
+        "reasoning": "These exact low-parameter consequences were excluded as new; no priority inference is made from the same-day entry. Ranked retrieval is not a uniqueness proof.",
+        "searches": [
+          "Resultary: exact wild number of coordinate-coloured cubes 2–5, exact wild-number spectrum of two-edge-coloured complete bipartite graphs"
+        ]
+      },
+      "rationale": "For the repaired claim, the known lower bound at 10 does not entail attainment, and the known lower bound at 19 does not entail a twenty-edge witness. The prior exact square and three-cube specializations were removed from the contribution; no inspected statement supplies the retained constructive bounds.",
+      "residual_risks": [
+        "Ranked catalogue search does not establish worldwide priority; independently described simultaneous-connector witnesses may be differently indexed. The broad web lookup yielded no evidence usable for exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct lower-bound and square coverage; no retained witnesses in these statements",
+          "evidence": [
+            "General ceiling inequality and two-colour exact component-count formula"
+          ],
+          "identifier_or_url": "arXiv:2508.06711v1",
+          "material_read": "Proposition 5.4 p. 13 (offset 36900); Theorem 6.4(2) p. 19 (offset 53950)",
+          "method": "OA primary text passages",
+          "title": "The wild number of an edge-colored graph",
+          "trigger": "Original method and exact two-colour result"
+        },
+        {
+          "assessment": "Direct square coverage but no upper witness from §5 in the retained cases",
+          "evidence": [
+            "Proper minimum-colour K_m,n theorem; product strict lower bound"
+          ],
+          "identifier_or_url": "arXiv:2610.22142v1",
+          "material_read": "Theorem 4.4 p. 16 (offset 71480), §5 Lemma 5.2 and Proposition 5.4 around offset 73500",
+          "method": "OA primary text passages",
+          "title": "Wild number for spanning trees in complete and complete bipartite graphs",
+          "trigger": "Cartesian products may cover four-cube via square by square"
+        },
+        {
+          "assessment": "Precisely covers w₃=5 under the coordinate colouring",
+          "evidence": [
+            "w(K_n,n square K₂)=2n+1 also for distinct horizontal factorisations"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-wild-number-of-properly-colored-complete-bipartite-prisms--1118d48ed828",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp wild number of properly colored complete-bipartite prisms",
+          "trigger": "Earlier direct exact 3-cube consequence"
+        },
+        {
+          "assessment": "Two-colour coverage only",
+          "evidence": [
+            "Both specialize to the square's exact two-colour value; they do not address the coordinate colourings with at least three colours"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-wild-number-spectrum-of-two-edge-coloured-complete-biparti--235ddafff04a; 2026/10/26/SCOPE-the-complete-two-colour-wild-number-spectrum-of-a-connected-grap--70e766d49ce0",
+          "material_read": "Findings on two-colour spectra",
+          "method": "Resultary and local mirror",
+          "title": "Exact wild-number spectrum of two-edge-coloured complete bipartite graphs; The complete two-colour wild-number spectrum of a connected graph",
+          "trigger": "Alternative exact table for the square"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof",
+        "arXiv:2610.22142v1 §5"
+      ],
+      "rationale": "The four-cube is a canonical product instance with four independent matching requirements. Proving simultaneous saturation of the general lower bound, not merely evaluating it, determines the number of upgrades for that case. The five-cube witness gives a one-edge interval in the next standard coordinate cube. These are specific constructive benchmarks for the product question, not isolated arbitrary sample parameters.",
+      "residual_risks": [
+        "No exact five-cube value or higher-dimensional pattern is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

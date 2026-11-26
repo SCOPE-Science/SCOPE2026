@@ -1,21 +1,21 @@
-# Scientific review: monotone sorting-bottleneck relocation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result takes the existing almost-sure finite-species sorting-time variational formula as a stated hypothesis and does not claim its proof as new. Each scalar objective has strictly positive second derivative and divergent endpoint values, giving a smooth unique minimizer. The envelope derivative is computed with its normalization \(1/K\) intact; ordered adjacent gaps force the strict pairwise derivative inequalities. The four-species limiting inequalities are proved analytically, and two exact-rational certified enclosures place the unique crossing in \((467/500,187/200)\). The standalone checker verifies the rational inequalities. Numerical root estimates are not part of the proof.
+PASS
 
-## Originality
+Maga–Tóth Theorem 1.2 uses N for total particle count; N=Kn gives exactly the frozen a.s. normalization and the 1/K factor at each fixed a. Every cut objective is strictly convex and diverges at both endpoints, so its unique interior minimizer depends smoothly on a, including in the moving first gap. Differentiation at stationarity yields −1/[K(z_m+a)²]; the locations are strictly ordered by their gaps, and the denominators positive. Thus pair differences strictly decrease and maximizing indices cannot fall. At a tie the left and right derivatives of the finite envelope are respectively the least and greatest active slopes, so the strict order gives an upward jump. For the special family, at a=1 the middle value is 4/3 and the two trials give outside values ≤19/15. Monotonicity preserves C₂>C₃ to the left, while C₁≥1/a and C₂ is bounded there, giving the unique crossing. With three species, reflection at equal gaps and strict decrease settle both sides, so four species are minimal for a smallest-gap mismatch. Independently using only two fixed rational trial points (−483/1000 and 501/1000) and F''≥32/gap³, exact outward-rounded bounds on C₁−C₂ in units of 10⁻⁸ were [18551,18635] at 467/500 and [−91926,−91876] at 187/200. The supplied script was inspected, not run. The proof is about fixed-speed asymptotic coefficients, not finite-N or uniform-in-a stochastic limits.
 
-PASS, qualified. Maga and Tóth's arXiv:2610.08135v1 establishes the maximum-over-cuts formula, and therefore supplies the necessary starting point, but the inspected text does not state the global no-reentrance theorem or analyze the single four-species bottleneck switch. Relevant inhomogeneous last-passage shape and permutation-invariance literature was also compared: their general shape frameworks do not directly select the maximum among contiguous species cuts under extreme-speed variation. An older, unlocated parametrized-optimization lemma or specialized sorting analysis could imply the same conclusion. The finding is a new structural consequence of an existing formula, not a new exclusion-process limit theorem.
+## originality
 
-## Value
+PASS
 
-PASS. Which species boundary determines a multispecies sorting time is a canonical observability question because the limit is a maximum over cuts. No-reentrance prevents repeated bottleneck reversals under one-sided speed tuning. The smallest-gap counterexample and transverse cusp establish a meaningful qualitative change in the bottleneck mechanism and clarify why nearest-neighbor speed gaps alone cannot predict sorting time. The three-species reflection argument proves that the four-species counterexample is minimal, not an arbitrary finite enumeration.
+The sorting-time cut variational formula and a central-cut example at equally spaced speeds are old. The inspected literature does not supply the strictly ordered sensitivities for arbitrary remaining speeds or the asymmetric boundary-speed transition with a two-cut tie. The strongest catalogue comparison is a symmetric sweep changing the middle gap, with two permanently tied boundary cuts and a three-way critical point; that does not cover this claim despite the overlapping phenomenon and proof techniques.
 
-## Closest literature, evidence and limitations
+## value
 
-The motivating variational representation is Theorem 1.2 of Maga and Tóth, *Microscopic sorting in a multispecies exclusion process* (arXiv:2610.08135v1, 2026-10-06). The inspected examples and proof do not contain the parameter-ordered derivative inequality or stated four-species phase classification. Emrah–Janjigian–Seppäläinen (arXiv:1908.09319) treats broader inhomogeneous last-passage shapes, and Bates–Emrah–Martin–Seppäläinen–Sorensen (arXiv:2506.12641) concerns LPP permutation invariance; neither inspected statement directly covers this parameter-driven sorting-cut selection. General sensitivity machinery can explain parts of the calculation, so priority is not independently established.
+PASS
 
-The theorem is for strictly increasing, fixed species speeds and a varying slowest speed; no finite-size cutoff, joint speed variation, or fluctuation result is asserted. Independent research-level assessment remains outstanding.
+The strict derivative order is a structural constraint on the entire cut envelope, not just one optimized value. It yields a global no-reentrance rule, strict corners, and a certified minimal-species counterexample to identifying the bottleneck by the smallest gap. The four-species phase diagram is a motivated sharp example of that constraint rather than an arbitrary scalar computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

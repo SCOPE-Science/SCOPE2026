@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The claim concerns the ten-vertex Petersen graph, so all vertex subsets can be enumerated without a numerical approximation. Two different graph constructions are independently implemented.
+## correctness
 
-## Kneser-coordinate verifier
+PASS
 
-Run `python3 census_symbolic.py`. It constructs all ten unordered two-subsets of five ground labels, all fifteen disjoint-pair graph edges and exact edge distances in \(\{0,1,2\}\). It checks the pairwise uniqueness of fifteen edge-signature vectors and checks coverage for all \(1024\) landmark subsets. It independently constructs the \(120\) ground-label permutations and exhausts six orbits of four-sets and six orbits of five-sets. The output matches `symbolic_output.txt` and ends in `PET_X5_SYMBOLIC_OK`. The four-set orbit sizes add to \(210\); the five-set sizes add to \(252\), with exactly four qualifying five-set types.
+In KG(5,2), distinct intersecting root pairs have distance two because their union leaves a common disjoint pair. For a Petersen edge ab its distance-two set is exactly the four cross-pairs between a and b. These are 15 distinct root four-cycles with one isolated ground label; the two missing diagonals recover ab. Domination fails precisely on subsets of these blocks, so is automatic from size five. Independently reproduced the full finite census in a bounded JavaScript calculation: construct GP(5,2) in outer/inner coordinates, take all-pairs Floyd–Warshall distances, and take minima to endpoints for each edge column. For each of the 105 pairs of edge columns mark every submask of their agreement mask as nonresolving; likewise mark all submasks of the 15 far masks as nondominating. There are 40 distinct agreement masks, with maximum size six. Tallying all 1024 masks gives resolving counts (0,0,0,0,15,162,195,120,45,10,1), dominating (0,0,0,60,195,252,210,120,45,10,1), and joint (0,0,0,0,0,162,195,120,45,10,1). The two failed-predicate flags at size four are complementary for every mask, not merely in aggregate. To reconstruct the orbits, assign Kneser labels 01,23,04,12,34 to the outer cycle, and 24,14,13,03,02 to the respective spokes' other endpoints. Permuting the five labels on each supplied representative gives pairwise disjoint complete orbits of sizes 5,10,15,60,60,60 and 60,60,60,30,30,12 in table order, and exactly the stated yes rows and root types. S5 is also the full automorphism group: the five maximum independent sets are the root stars (an intersecting family without a common label has size at most three), and their pairwise intersections determine every vertex. Both provided scripts and both saved outputs were inspected but not executed; the agreement-mask reconstruction independently tests the exact claim.
 
-## Independent Petersen/BFS verifier
+## originality
 
-Run `g++ -std=c++17 -O2 census_bfs.cpp -o census_bfs && ./census_bfs`. The second implementation builds the outer pentagon, spokes and inner pentagram of \(GP(5,2)\) rather than using the two-subset distance formula. It computes every vertex distance by breadth-first search and asserts the exact coefficient array of each of the three counting polynomials over all \(1024\) subsets. Its output matches `bfs_output.txt` and ends in `PET_X5_BFS_OK`.
+PASS
 
-## Exact expected totals
+Current evidence supports the structural four-set incompatibility and complete joint census as distinct from the known scalar edge-metric dimension and the prior definition of the joint invariant.
 
-The edge-resolving cardinality counts at sizes four through ten are \(15,162,195,120,45,10,1\). Vertex–edge dominating counts at sizes three through ten are \(60,195,252,210,120,45,10,1\). Joint feasible counts at sizes five through ten are \(162,195,120,45,10,1\). Both implementations completed these tests successfully.
+## value
 
-## Limits
+PASS
 
-The computations are exhaustive for the Petersen graph but say nothing automatically about arbitrary orders of generalized Petersen graphs. The two programs are independent finite implementations, not independent external audits. External publication priority remains provisional.
+Petersen is a natural small symmetry-rich test for a pre-existing joint edge identification and coverage invariant. Its entire set of ordinary optimal sensors is precisely the set failing coverage, a stronger structural result than a one-unit numerical gap between optima. The four types at the true joint minimum describe the possible optimal layouts and the polynomials quantify redundancy over all sizes. This is useful as an exact benchmark without implying a general theorem for all generalized Petersen graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

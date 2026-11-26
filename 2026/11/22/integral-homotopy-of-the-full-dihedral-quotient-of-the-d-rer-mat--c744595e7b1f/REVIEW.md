@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement has a finite exact chain-to-homotopy proof, not merely a rational character argument. The included verifier independently generates 1037 matching faces and 14313 orbit-flag cells, checks all 6411 genuine elementary free-face collapses, and proves the remaining quotient fundamental group trivial by 329 reversible Tietze eliminations. All 744 homological cancellations have integral unit pivots; the final chain ranks are one in degree zero and two in degree three, with zero differential. Hurewicz and Whitehead then supply the full wedge-of-two-three-spheres conclusion. Risks are limited to implementing the published reproducibility instructions; the critical counts and boundary identities are independently asserted in the executable script.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The closest same-object source determines the original complex \(\bigvee^{22}S^3\) and the dihedral character, hence two **rational** invariant dimensions, not the fundamental group or torsion of the geometric orbit space. The Dürer octahedral-carrier source classifies original integral homology sublattices, not orbit-space attaching maps. The \(3\times3\) grid dihedral quotient is a different complex. The earlier matching-complex survey source concerns complete graphs and chessboards. Exact same-object and equivalent-terminology searches did not identify a dominating full quotient theorem. Residual risk: an unindexed equivalent calculation.
+PASS
 
-## Value — PASS
-The full symmetry orbit space is a canonical topological object attached to a classical cubic polyhedral graph. Its two-dimensional invariant rational homology was already known but did not exclude low-degree integral torsion or nontrivial fundamental groups. The integral homotopy classification settles precisely those unresolved questions, determining whether the quotient genuinely consists of two three-spheres rather than a space with the same rational Betti numbers and different attaching information. This is a natural complete classification for one highly symmetric object, not an arbitrary invariant or a recomputation of the known rational character.
+The inner vertices of GP(6,2) are exactly the triangle vertices; the others induce the outer six-cycle, and each inner vertex is determined by its spoke. Thus the action described really is the full twelve-element simultaneous dihedral action. A flag has distinct matching ranks, and if two points of one closed flag simplex are identified by the group their support ranks and barycentric coordinates match. This proves embedded closed cells in the quotient with distinct rank-subflag facets; face deletion gives the signed boundary and the checked free-face removals are topological. Independent reconstruction produced the exact starting dimensions (117,1219,3949,5338,3090,600), then used a different free-face order (6250 pairs rather than the frozen script's 6411) to reach a valid three-dimensional core (68,447,838,460). Collapse counts and cores are order-dependent; starting counts and homotopy invariants agree. Orienting each remaining edge low to high rank gives the relator low–mid, mid–high, inverse low–high after the tree is contracted. The independent replay gives a connected tree and eliminates all 380 non-tree generators using reversible defining-relation moves; the resulting π1 is trivial. Signed integral unit-pivot cancellation checks boundary-square and gives (67,380,458) pivots, reducing to one zero-chain and two three-chains with zero differential. Each ±1 pivot splits off a contractible two-term integral summand, so the conclusion is torsion-free, not a field-rank inference. The space is simply connected and H_2=0, thus two-connected by Hurewicz. Two S³ maps giving an integral basis of H_3 now give a homotopy equivalence by homological Whitehead.
 
-## Scope and literature limits
-The theorem concerns only the full dihedral quotient of this one graph, not proper subgroups or other generalized Petersen graphs. Research-source access and searches cannot prove global publication priority. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-graph comparisons give the unquotiented integral wedge and rational character, or an integral theorem for the proper rotation subgroup C6. Neither gives the integral homotopy of the ordinary full-dihedral quotient. The checked integral D4 result is for a different graph. No covering statement was found in the inspected evidence; the distinctive content is the full action's integral result, not the rational Betti number or just simple connectivity.
+
+## value
+
+PASS
+
+Full automorphism-group quotient of the ordinary matching complex is a natural fixed target, with a previously known rational rank that leaves an actual integral question. The result identifies the exact integral homotopy type and rules out quotient torsion; this is especially meaningful in light of the same graph's cyclic quotient with 3-torsion. A researcher comparing subgroup orbit topology can use the exact full-group type. The value is not predicated on arbitrary collapse counts or a separate novelty claim for simple connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The constrained two-season recurrence linearizes under reciprocal biomass and admits a globally attracting positive two-cycle exactly when the product of the two seasonal low-density multipliers exceeds one. Substituting that cycle into the actual post-recruitment catches gives the stated rational sustainable-yield formula; its derivative has the sign of a constant minus a strictly increasing fractional-linear function. This proves a unique global optimum in all three endpoint/interior regimes, including equality cases. The exact interior regret follows algebraically from the stationary condition. Independent implementation from the same packaged paths verified 59,764 deterministic assertions, including exact rational checks. Numerical tests are diagnostic, not a substitute for the universal argument.
+PASS
 
-## Originality — PASS, qualified
+The reciprocal biomass map is affine with positive intercept and two-step slope 1/(r₀r₁S). For positive initial data this gives attraction to a unique positive cycle iff Q>0 and extinction otherwise, including linear growth of reciprocal biomass at Q=0. Solving the affine cycle gives the supplied two biomasses; post-recruitment catch equals (1−s_i)x_{i+1}/s_i. Write N(t)=K₁+r₀K₀t and D(t)=r₁SK₁+K₀t. The derivative of normalized catch has the sign of R−N/D, and (N/D)'=QK₀K₁/D²>0. Thus the two clipped cases and the unique interior critical point include endpoint derivative equality; in the interior r₀−R=QK₁/D(t*)>0. For regret, set L=K₀+r₁SK₁ and H=(K₁+r₀SK₀)/S. The normalized yield difference between t and t* is (t−t*)[H/(N(t)N(t*))−L/(D(t)D(t*))]. Insert H/N(t*)²=L/D(t*)² and use N(t*)D(t)−D(t*)N(t)=−QK₀K₁(t−t*) to recover the exact strictly positive prefactor of (t−t*)². The regret identity is for interior t* only; uniqueness is only for Q>0. Independent bounded arithmetic gives 44/7 versus 3.746394253408705 in the endpoint example.
 
-A search of published mathematical findings using the precise fixed-aggregate-mortality, two-season proportional-escapement formulation and its aliases did not reveal a dominating exact result. The closest source is Bohner–Streipert (2016), Theorems 3.8–3.10, which covers periodic equilibria and unconstrained optimal effort, but does not give the constrained fixed-product phase law or the exact regret expression. AlSharawi–Rhouma (2010), sections 2–4, optimizes and compares periodic additive catch quotas rather than effort splits at fixed cumulative proportional mortality. Filar–Qiao–Streipert (2020) uses constant multiplicative harvest for risk assessment, and accessible material did not reveal optimization of two distinct harvest fractions. The latter full publisher text was incompletely accessible, so historical priority remains provisional. The theorem is not advertised as independent of general constrained nonlinear optimization techniques.
+## originality
 
-## Value — PASS
+PASS
 
-The biologically interpretable control constraint is fixed total instantaneous fishing hazard, whose allocation leaves the persistence criterion unchanged but strongly changes sustainable yield. The theorem supplies a complete global policy classification and finite-deviation loss, including sharp transitions to all-effort-in-one-season solutions. A concrete alternating-crowding example improves catch by roughly 67.78% compared with the equal-effort policy. This is a substantive benchmark for seasonal allocation under a specified nonlinear stock-recruitment mechanism, not a general empirical fishery recommendation.
+The underlying periodic recurrence, persistence machinery and unconstrained periodic yield problem are prior work. The inspected closest harvesting theorems either allow the total proportional effort to vary or optimize additive quotas under a different feasibility constraint. The supported distinct claim is the fixed-product constrained optimizer, including both corner regimes, and exact interior regret. This is a bounded best-of-knowledge finding.
 
-## Risks and limitations
+## value
 
-The model assumes exactly two seasons, fixed growth parameters, density-dependent recruitment of Beverton–Holt form, and post-recruitment proportional harvesting. It excludes implementation costs beyond fixed aggregate hazard, parameter uncertainty, stochasticity, minimum biomass constraints, and price discounting. Full examination of all historical fishery-optimization literature was not possible; the closest 2020 article was available mainly through accessible abstract and opening-page material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two seasonal fleets with the same total log mortality can have the same persistence verdict yet appreciably different long-run catches. The explicit allocation boundary distinguishes a genuine corner from an interior split, and an exact all-feasible-deviations loss is more informative than a local second derivative or an unconstrained optimum. The result is a useful deterministic benchmark, not a general harvest prescription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

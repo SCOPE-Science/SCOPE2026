@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:55.103359Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The condition 3 in PF forces positive membership to be closed under translation by 3, leaving a unique threshold in each class. If 2 belongs, closure and 2+3=5 force Frobenius 3; 1 is also excluded. Testing the three minimal sums between nonzero residue classes gives exactly b<=2a, a<=2b+1, c<=a+b+1, with all sums involving the positive zero-residue tail automatic. The last gaps have three distinct residues, and their omissions total a+b+c-1. Fixing the largest gap gives the stated three domains; the fixed a+b slice gives exactly the two endpoints in the coefficient law. For F=3k the two violations are disjoint; with h=floor(N/2), d=floor(N/3), each violation count is d(d+3)/2+(h-d)(N-h-d), for N=k-1 and N=k-2 respectively. Subtraction from k^2-(k-1)(k-2)/2 and evaluation by k mod 6 proves the ceiling count, including k=2. The other two counts are direct interval products. This proves the stated period bound and the two leading constants. An independently written bitmask check (`python3 /tmp/opencode/frozen_checks.py genus` in the review environment) enumerated all subsets below F=4..18, compared the full genus histograms to the displayed formulas and agreed. The check corroborates, not substitutes for, the unbounded proof. Frozen verify.py and its recorded evidence were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hernández-Yanes–Rosales define C(P) with P contained in PF and F=max(P), and Algorithm 4.20 generates fixed-genus strata.",
+          "Moreno-Frías–Rosales treat the larger fixed-F family, including restricted-rank genus information."
+        ],
+        "reasoning": "The first source covers enumeration in the algorithmic sense on exactly the relevant input; neither inspected treatment gives the threshold normal form and evaluated all-parameter counts. The novelty is not the ability to enumerate.",
+        "searches": [
+          "arXiv:2611.09425v1, §1 and §4.4",
+          "DOI:10.1007/s10801-024-01342-x, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and same-record review evidence",
+        "arXiv:2611.09425v1",
+        "DOI:10.1007/s10801-024-01342-x",
+        "arXiv:1505.08111",
+        "Local Resultary 9199e4eaadac, 2adbcffc7460, 747614a0a33e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Running the general algorithm can recover individual coefficients but leaves the parameter region, exact quasipolynomial, and leading coefficients to be derived. The minimum-genus theorem cannot recover other genera even at the coinciding F."
+        ],
+        "reasoning": "The evaluated uniform laws do not result from direct substitution into a stronger closed census in the inspected sources.",
+        "searches": [
+          "arXiv:2611.09425v1, Algorithm 4.20 and its P={9,11} example",
+          "Resultary 2adbcffc7460, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delgado–García-Sánchez–Robles-Pérez require equality of the entire pseudo-Frobenius set; fixing it equal to {3,F} is not the containment family."
+        ],
+        "reasoning": "Changing to exact prescribed pseudo-Frobenius data is a restriction, not an equivalent census; global thresholds and genus distributions were not located under either terminology.",
+        "searches": [
+          "Resultary: genus generating functions with 3 in PF; fixed-Frobenius residue-tail censuses",
+          "arXiv:1505.08111"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9199e4eaadac is the identical record. 2adbcffc7460 has a genuine one-F overlap at F=5, for the minimum genus only; 747614a0a33e is a fixed-multiplicity census of irreducible minimum-genus semigroups."
+        ],
+        "reasoning": "Neither distinct same-day result is dismissed by date; both have narrower or different quantified conclusions. No distinct equivalent table or formula was verified.",
+        "searches": [
+          "Local Resultary searches for the displayed ceiling count, the genus generating function, prescribed-PF covarieties, and fixed-F residue tails"
+        ]
+      },
+      "rationale": "Prior work already contains the exact family as a specialization and computes every fixed-genus stratum algorithmically. The distinct contribution supported here is the uniform explicit classification and evaluated count by genus across all F>=4. No inspected theorem or matching census establishes the same evaluated formulas.",
+      "residual_risks": [
+        "Ranked corpus matches and targeted literature retrieval are not exhaustive; an explicit equivalent census under different residue-coordinate terminology might have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct family and algorithmic overlap; no explicit specialized census in the inspected passages",
+          "evidence": "C(P) fixes F=max(P) with P contained in PF; Algorithm 4.20 outputs the genus stratum.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09425",
+          "material_read": "v1, abstract and §1 (pp. 1–2), §4.4 Algorithm 4.20 and example (p. 14)",
+          "method": "Targeted primary OA text passages",
+          "title": "The covariety of numerical semigroups with some prescribed pseudo-Frobenius numbers",
+          "trigger": "Exact containment framework and genus enumeration"
+        },
+        {
+          "assessment": "Fixed-F context, not this PF condition",
+          "evidence": "A(F) consists of all semigroups of Frobenius number F.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-024-01342-x",
+          "material_read": "Introduction, pp. 556–557",
+          "method": "Targeted OA PDF text",
+          "title": "The covariety of numerical semigroups with fixed Frobenius number",
+          "trigger": "Broader family"
+        },
+        {
+          "assessment": "Exact-set convention differs",
+          "evidence": "It enumerates semigroups whose full PF set equals the input.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.08111",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Primary OA text",
+          "title": "Numerical semigroups with a given set of pseudo-Frobenius numbers",
+          "trigger": "Potentially equivalent prescribed-set census"
+        },
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "Requires odd F with F-2 in PF; only F=5 agrees with this prescribed gap and the source classifies only minimum genus.",
+          "identifier_or_url": "Resultary:2adbcffc7460",
+          "material_read": "RESULT.md, family and minimum-genus statement",
+          "method": "Local Resultary mirror",
+          "title": "Sharp minimum genus for a two-gap pseudo-Frobenius covariety",
+          "trigger": "Same-day near match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Genus strata are a natural invariant of this prescribed-gap family and an explicit target of prior algorithms. The census replaces a separate enumeration at each F and genus with direct coefficient access, across all multiplicities, and exhibits genuinely different leading densities in different Frobenius residue classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(s\ge4\), \(d\ge3\) and \(p\nmid d\), the Jacobian equations have no boundary solution. An explicit cyclic presentation of the character lattice proves that the monomial torus map has kernel \(\mu_{|Q_{s,d}|}\); its fiber is exactly the Jacobian singular scheme. The local group-scheme decomposition gives the exact support count and Tjurina algebras. The logarithmic Hessian computation proves rank \(s-2\), and the normality argument uses only isolated singularities of a reduced projective hypersurface of dimension at least two. Exact finite-field tests corroborate selected cases. Unproved cases \(p\mid d\) are expressly excluded.
+## correctness
 
-## Originality — PASS, with residual risk
-The strongest same-equation source is González-Aguilera–Liendo (2011), Example 3.5. It derives a geometric-series expression in proving complex smoothness; this already motivates the exceptional-prime congruence, so the congruence alone is not treated as novel. Its statement does not give the singular-locus group scheme, exact prime-to-characteristic support count, nilpotent Tjurina length, or uniform Hessian rank in positive characteristic. Roulleau (2010) treats the complex Klein cubic; Heijne (2012 preprint) treats complex Delsarte surfaces. These inspected results do not imply the stated bad-reduction invariants. A differently indexed treatment of loop polynomials remains possible; publication-level uniqueness is not certified.
+PASS
 
-## Mathematical value — PASS
-Classical smoothness over characteristic zero does not describe how a singular special fiber degenerates. The exact \(\mu_{|Q|}\)-torsor controls the number and nonreduced thickness of the singular points for all degrees and dimensions, and the Hessian result determines a uniform quadratic transverse defect. This answers a natural bad-reduction and singularity-structure question for a standard family, not an arbitrary finite computation or a cosmetic rewrite of the characteristic-zero criterion.
+For s≥4, d≥3, and p∤d, a zero coordinate at a Jacobian point forces all its predecessors to vanish. On the projective torus the monomial map's character cokernel has one generator with sole effective relation Q; the Jacobian equations on its target cut out exactly a reduced point when p divides Q and the empty scheme otherwise. Euler's identity eliminates F. The fiber is a μ_|Q|-torsor, yielding m support points with local algebra k[ε]/(ε^{p^v}). At a critical point the ordinary chart Hessian is congruent to the restriction of EᵗDE in multiplicatively rescaled tangent coordinates; its radical in the full space is E⁻¹(k·1), spanned by the radial vector and ker E, so the chart Hessian has rank s−2. The exceptional case is necessarily odd characteristic, so this gives multiplicity two. Finiteness of the singular support excludes any repeated factor as well as intersections of distinct factors; a single smooth point by itself would not prove reducedness. Serre's criterion then applies. An independent enumeration of the normalized torus in the three stated fields gave support counts 1, 1, 3 and ordinary chart Hessian ranks 2, 3, 4. The two displayed Gröbner presentations were checked by substituting their triangular expressions modulo z^5−2 and z^11−4: the t_i are respectively (2,4,3,1)z² and (5,3,4,9,1)z² and satisfy all Jacobian ratios. The already proved lengths give equality of the resulting chart quotients. The supplied script was inspected, not executed; its extra excluded-characteristic finite-field check is not evidence for an all-characteristic result.
 
-## Limitations
-The theorem leaves characteristics dividing the hypersurface degree untreated and does not provide full formal analytic normal forms. Relevant earlier work gives the classical equation and complex theory; the possibility of other equivalent statements remains an originality risk. Computational checks do not replace the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the Klein equation and cyclic recurrence to prior work. The supported distinct contribution is the uniform positive-characteristic singular-fiber scheme, including inseparable thickness, and the uniform projective Hessian computation, not the recurrence or its immediate exceptional-prime test alone.
+
+## value
+
+PASS
+
+For a standard cyclic family, the result gives the entire bad-reduction singular scheme from an integer and distinguishes number of support points, local thickness, and quadratic rank. The distinction is useful in degenerations: point counts and the prime criterion alone miss nonreduced thickness, and a nonzero quadratic term does not determine that thickness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

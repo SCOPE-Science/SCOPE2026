@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction of spectral and optimization checks
+# Independent mathematical audit
 
-With Python 3, NumPy and SymPy available, execute:
+## correctness
 
-```sh
-python verify_gear.py
-```
+PASS
 
-The checker constructs each gear Laplacian independently from its \(3n\) undirected edges, compares the sum of reciprocal positive eigenvalues with the Fourier-block trace, checks the exact endpoint derivative values at \(n=3,4,5,6\), and validates the scalar derivative against centered finite differences. It also numerically locates the unique \(n=3\) interior critical point, verifies the closed-form hyperbolic expression for selected sizes, and checks convergence toward the predicted large-graph constants. On the supplied source it passes 528 finite assertions.
+For L=I−P the regularized inverse trace is strictly convex in the unrestricted edge variables: its second derivative in a nonzero direction H is twice the squared Frobenius norm of A^{-1} H A^{-1/2}. Compactness and divergence at disconnected limits give a unique optimum. Dihedral invariance leaves two weights, and increasing y at fixed x lowers the trace strictly, so y=(1−x)/2. The constant Fourier block has two positive eigenvalues with sum (n+1)x+4y and product 2(2n+1)xy. The nonconstant two-by-two blocks have determinant 2xy+4y² sin²(π j/n) and trace x+4y, giving the scalar objective. At x=1/n the nonconstant derivative contribution has sign given by (3−x)S1−(2−x)S2, where S_k=sum d_j^{-k}. The mean of d_j is (n+2)/(2n); Jensen and Cauchy–Schwarz give the strictly negative sign for n≥7 since n²−7n+2>0. The constant-block contribution is negative there as well. Exact differentiation of full rational inverse matrices confirms all four endpoint derivatives for n=3–6; the n=3 objective is also exactly recovered. Strict convexity implies saturation precisely for n≥4 and the unique interior quartic root at n=3. The cyclic resolvent sums a geometric progression of surviving Fourier coefficients; after removal of the zero grid point it gives the stated coth formula. Its prefactor is 2n+1+1/(n−1), the constant block tends to 3/2, and the coth correction is exponentially small. For the benchmark, the Riemann integral of 1/(2+4 sin²(π u)) is 1/(2√3).
 
-The theorem's unrestricted uniqueness is established by the strict convexity proof in RESULT.md, not by sampling perturbations. The exact all-size endpoint classification depends on the Jensen–Cauchy inequality for \(n\ge7\), exact evaluations for \(n=4,5,6\), and the exact quartic at \(n=3\). The infinite asymptotic claims depend on the derived cyclic resolvent identity and a standard Riemann-sum limit, not on finite numerical ratios. The tests do not provide formal external certification; an independent audit has not occurred.
+## originality
+
+PASS
+
+The identical catalogue entry is the bound finding, not an independent antecedent. The strongest distinct inspected analogues are exact saturated-hub and Kemeny results on wheels and helms; neither has the alternating subdivided rim or the relevant Fourier denominators. The general reversible optimization framework and fixed-conductance index do not give the exceptional size or asymptotic constants. This is a bounded, best-of-knowledge judgment.
+
+## value
+
+PASS
+
+This is a complete allocation and holding classification for a standard graph family, with an actual change of active constraint at n=4. The exact threshold and the change from n² to n^{3/2} show why a natural degree-based symmetric walk is not order-optimal. Neither a fixed-weight index nor a generic solver would supply that structural conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

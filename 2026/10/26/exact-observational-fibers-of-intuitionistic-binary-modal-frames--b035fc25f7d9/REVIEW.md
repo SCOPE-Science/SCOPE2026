@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs both published confluence conditions as monotonicity of coordinatewise row down-closures and upward closure of suffix unions. A one-step existential binary-modal test recovers each down-closure; a complementary universal binary-modal test recovers each suffix union because it is upward closed. Heredity of all formulas follows from the two confluences, enabling the full induction for nested modalities. The mandatory maximal pairs and newly appearing suffix pairs characterize each free row independently and yield the precise Boolean fiber and its sharp extremal size. The boundary \(n=1\) is included. A standalone implementation tests original quantified semantics against the derived record semantics, exhausts \(n\le2\), and independently tests nontrivial \(n=3\) families. Finite tests are not used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected sources
+The two legality clauses are equivalent to increasing row downsets and suffix upsets. Selecting independent upper-tail thresholds a,b in the existential clause tests (a,b) in D_i; selecting a+1,b+1 in the universal clause tests the complement of (a,b) in the upset S_i, including empty tails. Heredity and induction extend depth-one agreement to all formulas; an empty existential input always gives false. The mandatory maximal and last-occurring pairs and the allowed intersection D_i∩S_i are necessary and sufficient: take downward closures row by row and use reverse induction on suffix unions. Each of the n−1 nonlast rows can contribute at most n²−1 free bits, attained by full shadows with the final row fixed to the full product and earlier rows containing the top pair. This covers n=1 (no free rows). Independent direct enumeration of n=2 using the quantified clauses reproduced the common modal/shadow partition and every fiber count, without executing checker.py.
 
-The closest primary article is Kaminski (2026), which introduces the two-operator intuitionistic ternary semantics and the original confluences but does not provide an observational quotient or exact powers-of-two relation fibers. Kaminski (2024) studies associative binary-modal undecidability, while Aloni et al. (2026) work with a classical semilattice-fusion modality rather than unrestricted monotone ternary relations. Searches of published mathematical results and related finite-chain modal classifications found no stronger implication covering the exact quotient and sharp fiber maximum. The abstract complex-algebra connection is acknowledged as standard; priority of the explicit two-shadow characterization and extremal fiber statement is limited to the inspected evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The paired modal operators discard substantial, precisely quantifiable relational information, even when all formulas and all hereditary valuations are allowed. The theorem gives canonical least and greatest presentations, an exact Boolean parameterization of all alternatives, depth-one reconstruction of all observable information, and a sharp \(2^{(n-1)(n^2-1)}\) redundancy bound. This addresses an intrinsic model-representation problem for the new ternary semantics, not an arbitrary small numeric slice. It can reduce relation enumeration to observational signatures without misrepresenting logical distinction.
+The verified distinct claim is the full ternary quotient and exact Boolean presentation interval with sharp maximum, not Kaminski's semantic clauses or the previously indexed count of 67 legal two-world frames. The closest unary observational-fiber result and ternary restricted subclass do not give the asserted invariant for all legal ternary relations.
 
-## Closest literature and limitations
+## value
 
-M. Kaminski, *Intuitionistic logic of a binary modality* (2026), DOI 10.1007/s00153-026-01025-3, is the primary source. Related contexts are Kaminski, *On undecidability of the propositional logic of an associative binary modality* (2024), DOI 10.1007/s00153-024-00921-w, and Aloni et al., *Teams, Truthmakers, Translations* (2026), arXiv:2610.15680. Earlier literature on complex modal algebras may contain equivalent abstract specializations, an acknowledged priority risk. Only fixed labelled chains under all common valuations are covered; validity-theory equivalence and arbitrary posets are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing which accessibility data can actually be recovered from the two operations matters for comparing presentations of the same semantics. The theorem gives explicit least and greatest frames, locates every dispensable tuple, and measures the worst-case ambiguity exactly. This is a natural structural classification, not a two-world census presented as a general contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:45.936104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T>=0 let s=u-T/2 and q=2+i omega. After taking out exp(-qT/2), expand (s+T)^m and use int_0^infty s^j exp(-qs) ds=j!/q^(j+1); this gives m! E_m(qT)/q^(m+1). For T<0 use s=u+T/2 and get the constant gamma integral times exp(qT/2). Neither branch for T<=0 vanishes. The positive branch maps (T,omega) bijectively onto Re z>0 by z=(2+i omega)T with real Jacobian 2T. At a zero the derivative from E_m and the nonzero scalar prefactor multiplies this by a positive squared modulus; E'_m=E_{m-1} and E_m-E_{m-1}=z^m/m! exclude multiple roots. For m<=4 the stated Hurwitz minors are positive (m=0 is constant); the m=5 leading coefficients 1,5,20,60,120,120 give fourth determinant -38400. For m>=6 the third determinant a1 a2 a3-a1^2 a4-a3^2+a1 a5 for descending monic coefficients a_j=(m)_j reduces to -2m^2(m-1)(m-2)(m-5). The strict right-half-plane consequence is valid even with possible imaginary-axis roots: translating z to z+epsilon makes an assumed closed-left-half-plane polynomial strictly Hurwitz, contradicting a negative limiting minor. Positive coefficients exclude positive real roots, yielding conjugate pairs. Independently, /workspace/replay/4_root_disks.py certifies the low-degree signs using exact rational Rouché bounds on five published root disks, and Gauss–Lucas propagates the two base cases. The uploaded checker and recorded output were inspected, not executed. No all-order zero-count claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 stability paper notes the right-half-plane partial-sum roots and a change in geometry for n>4, but the inspected section states stability-region bounds, not the exact zero-existence cutoff.",
+          "The general mixed-window criterion in Bayer–Gröchenig is almost-everywhere nonvanishing for the Hilbert–Schmidt statement, which isolated zeros do not contradict. The GJM general gamma result is for self-ambiguity; Example 4 is the m=1 cross case."
+        ],
+        "reasoning": "The decisive general principle is Gauss–Lucas applied to the derivative chain, not a claim that either time-frequency paper states this family theorem or that stability-region containment alone identifies its roots.",
+        "searches": [
+          "Web: zeros exponential sections partial sums Taylor exponential stable Hurwitz all n greater than four roots open right half-plane",
+          "arXiv:1312.0216 §3 and references",
+          "arXiv:1407.4321 §4",
+          "arXiv:1811.03937 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "Ryoo (2021) primary PDF article 144/135, Table 2",
+        "arXiv:1811.03937",
+        "arXiv:1312.0216",
+        "arXiv:1407.4321",
+        "Resultary a9366ccdb6a1 and 7656437a2785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All roots of E_4 lie strictly left, so its successive derivatives E_3,E_2,E_1 do too by Gauss–Lucas. If any E_m with m>5 had all roots in the closed left half-plane, its derivative of order m-5, E_5, would also; the published quintic pair rules this out after exact sign checking.",
+          "For each such root the cross zero is just a coordinate image. The elementary derivative relation proves simplicity, and multiplication by a nonzero complex scalar preserves the positive orientation of z(T,omega)."
+        ],
+        "reasoning": "This reconstructs the exact threshold and geometry from earlier polynomial data and classical mechanics of polynomial roots and Laplace integrals. It does not assume that the uninspected 1972 full text already presents the entire cutoff.",
+        "searches": [
+          "Ryoo Table 2 rows n=4,5 and Eq. (1.1)",
+          "GJM arXiv:1811.03937 §3 Example 4",
+          "Newman–Rivlin DOI:10.1016/0021-9045(72)90007-X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ryoo's generating function exp(z t)/(1-t) defines exactly E_m(z) as its t^m coefficient. Ketcheson–Kocsis–Lóczi use P_n(z)=E_n(nz), preserving the half-plane signs.",
+          "The ordered mixed transform is nonzero outside T>0; on T>0 it is the polynomial times a nonzero prefactor with z=(2+i omega)T. GJM Example 4 already treats exactly the m=1 ordered gamma/exponential pair, after setting a=1 and replacing usual frequency by angular frequency."
+        ],
+        "reasoning": "The polynomial and its associated sign data coincide exactly after the elementary bijection. The general self-transform uses a different polynomial and is not an equivalent statement.",
+        "searches": [
+          "arXiv:1811.03937, §3 Example 4 and §4",
+          "arXiv:1312.0216, definitions and §3",
+          "Ryoo article view/144, Eq. (1.1) and Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives quartic roots near -1.7294 ± 0.8890i and -0.2706 ± 2.5048i, and a quintic pair near 0.2398 ± 3.1283i, including the root used in the frozen witness.",
+          "Exact replay on radius 1/100 disks centered at the four listed quartic roots and the upper quintic root proves one root in each disk, disjoint and entirely on the indicated side. Its strict rational inequalities compare the linear Taylor term with the sum of the constant and higher terms on each boundary.",
+          "The matching Resultary neighbours a9366ccdb6a1 and 7656437a2785 concern a sech self-ambiguity and a Blaschke extremizer respectively, not this cross cutoff."
+        ],
+        "reasoning": "The finite numerical table is not itself an exact universal theorem. It does already give the decisive sign data; the bounded certification and derivative propagation show exactly why these entries determine the whole cutoff.",
+        "searches": [
+          "Ryoo, Table 2 approximate solutions of e_n(x)=0, DOI not required; primary PDF article 144/135",
+          "Resultary: gamma/exponential cross ambiguity, partial exponential and right-half-plane cutoff"
+        ]
+      },
+      "rationale": "The two sign patterns needed for the entire threshold are in Ryoo's published Table 2, degree four and degree five. The table prints approximations; a short exact disk check validates the signs rather than assuming that a table of decimals is a rigorous proof. Together with the classical derivative identity and Gauss–Lucas, those signs give every degree by immediate implication. The cross transform is the elementary binomial Laplace integral and a diffeomorphic change of variables, already exhibited for the first nontrivial order by Gröchenig–Jaming–Malinnikova. Simple roots and the local orientation are direct implications, not independent geometric phenomena. The checked sources do not assert the full pulse-family theorem in this wording, but the claimed cutoff is the mechanical transfer of the published root data. The inaccessible 1972 paper is not the basis of this decision.",
+      "residual_risks": [
+        "Coverage in the 1972/1976 Newman–Rivlin papers was not verified, and priority for the exact mixed-window wording is not determined. The verified table implication does not depend on those inaccessible passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior root-sign data in degrees four and five, stated as approximations there; no claim that this paper presents the all-order cross theorem.",
+          "evidence": [
+            "Quartic root real parts approximately -1.7294 or -0.2706; degree five contains 0.2398 ± 3.1283i."
+          ],
+          "identifier_or_url": "https://www.eudoxuspress.com/index.php/pub/article/download/144/135",
+          "material_read": "Eq. (1.1) near offset 3300 and Table 2 on printed p. 244, offsets 34720–39020",
+          "method": "OA primary PDF passages, plus exact independent sign certification of the relevant rows",
+          "title": "Differential equations associated with truncated exponential polynomials and phenomenon of scattering of their zeros",
+          "trigger": "Prior tabulation of the identical polynomials"
+        },
+        {
+          "assessment": "Exact m=1 cross case and all-order zero-free self case; the latter is different.",
+          "evidence": [
+            "Example 4 uses f=t eta_a and g=eta_a and proves cross nonvanishing; Theorem 4.2 instead concerns a Bessel-related self polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03937",
+          "material_read": "§3 Example 4, PDF p. 6 near offset 22500; §4 Lemma 4.1 and Theorem 4.2, pp. 8–9",
+          "method": "OA primary PDF passages",
+          "title": "Zeros of the Wigner Distribution and the Short-Time Fourier Transform",
+          "trigger": "Same pulse family and an already matching ordered cross subcase"
+        },
+        {
+          "assessment": "Recognizes the same geometric phenomenon but the inspected region-bound statement alone does not establish the root cutoff.",
+          "evidence": [
+            "P_n(z)=E_n(nz); §3 specifically refers to zeros in the right half-plane and geometry for n>4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0216",
+          "material_read": "Definition and Figures 1–2 caption; §3 opening, offsets about 20840–23264; reference list",
+          "method": "OA primary PDF passages",
+          "title": "On the absolute stability regions corresponding to partial sums of the exponential function",
+          "trigger": "Identical exponential sections, with right-half-plane geometry"
+        },
+        {
+          "assessment": "Functional-analytic context, not a classification of the selected windows.",
+          "evidence": [
+            "Hilbert–Schmidt injectivity condition is almost-everywhere cross-STFT nonvanishing, consistent with finitely many zeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.4321",
+          "material_read": "§4 Theorem 4.2 and Corollary 4.4, p. 15 near offset 39900",
+          "method": "OA primary PDF passage",
+          "title": "Time-Frequency Localization Operators and a Berezin Transform",
+          "trigger": "General mixed-window nonvanishing criteria"
+        },
+        {
+          "assessment": "Unresolved scope; neither positive nor negative coverage inferred.",
+          "evidence": [
+            "Ketcheson–Kocsis–Lóczi cite the 1972 paper and its 1976 correction in their reference list."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(72)90007-X",
+          "material_read": "Bibliographic/title and index-level only; no lawful OA full text obtained",
+          "method": "OA retrieval; publisher copy unavailable",
+          "title": "The zeros of the partial sums of the exponential function",
+          "trigger": "Plausible older exact theorem on the identical polynomials"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A meaningful cross-versus-self cutoff could be valuable if it isolated a new phenomenon. Here the only cutoff is the direct right-half-plane rendering of known low-degree root signs propagated by Gauss–Lucas; simplicity and orientation are automatic from the derivative identity and the explicit coordinate map. A nicer exact proof and a certified rendering of the table do not leave an independently valuable distinct claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

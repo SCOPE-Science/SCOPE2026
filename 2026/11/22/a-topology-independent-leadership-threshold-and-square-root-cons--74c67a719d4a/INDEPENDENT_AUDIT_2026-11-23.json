@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:34:40.322713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and equations (1)–(2), proof steps 1–4",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/checks/structural_reconstructions.md, record 2"
+      ],
+      "rationale": "Reconstructed the signed-mode solution of the actual replicator law with fixed anchors as in equations (1)–(2). Put c=2p, A(v)=c(1−v)+v; the reduced dynamics preserve 0<u≤a and 0<v<1, and the sign of v′ is the sign of ρ−c². A(v)≥min(c,1) makes u track the limiting equilibrium a v∞/A(v∞) by variation of constants. A strictly interior limiting v away from the critical parameter would then have nonzero limiting derivative. At criticality v=η exactly. Subcritically u/v solves a forced linear equation with coefficient tending to c, so u/v→a/c and (v⁻²)′→2(c²−ρ)a²/c². Averaging proves both stated square-root limits. The argument covers p=1 and a=1 without any irreducibility assumption. The uploaded finite checks were inspected, not run; they are not the proof.",
+      "residual_risks": [
+        "No transverse stability or attraction away from the exact opposed-opinion, equal-leadership family is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "June Lemma 3 gives equilibrium conditions and Theorems 1–2 give sufficient criteria for individual leader/follower outcomes.",
+          "March Theorem 3 gives origin instability and conditional convergence to a nontrivial equilibrium for its different law."
+        ],
+        "reasoning": "The June results address a more general network setting, but their statements do not give the necessary-and-sufficient common-cross-mass phase law with critical retained leadership and the exact t⁻¹ᐟ² amplitudes. The broader setting alone is not a stronger implication.",
+        "searches": [
+          "arXiv:2606.05825v1, Lemma 3 and Theorems 1–2",
+          "arXiv:2603.24381v1, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.05825v1",
+        "arXiv:2603.24381v1",
+        "Resultary: 0a05cce9c49b and the self-hit 74c67a719d4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution of (I−W)s=2ps into the June model immediately gives the sign threshold ρ−4p², which is not an independent novelty claim.",
+          "Neither the inspected equilibrium characterizations nor the different-law signed-mode result supply u/v→a/(2p) or the integrated inverse-square law fixing the two amplitudes."
+        ],
+        "reasoning": "The all-time invariant dynamics and the trajectory-level slow/fast estimate are needed; the asymptotic amplitudes are not a specialization of the prior stated sufficient criteria.",
+        "searches": [
+          "arXiv:2606.05825v1 Eqs. (2), (4), Lemma 3 and Theorems 1–2",
+          "Resultary record 0a05cce9c49b, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "June source Eqs. (2), (4) have the same y(1−y) replicator law.",
+          "March source Eq. (1) and Resultary 0a05cce9c49b instead use α(1−y)x²−βy(x−Wx)²; the latter gives exponential signed-mode convergence and a two-agent transverse threshold α=2βκ³."
+        ],
+        "reasoning": "Sharing the signed eigenvector is not equation equivalence: the March law has a nonzero leading source at y=0 for x≠0, while the June law makes both leadership endpoints invariant. It does not transplant the cubic small-leadership relaxation.",
+        "searches": [
+          "Resultary: replicator opinion leadership, opposed communities, signed mode, topology-independent threshold and square-root relaxation",
+          "arXiv:2606.05825v1",
+          "arXiv:2603.24381v1",
+          "Resultary record 0a05cce9c49b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed record 74c67a719d4a is the frozen result itself. The closest distinct located record, 0a05cce9c49b, uses a different law and threshold."
+        ],
+        "reasoning": "This is a continuous-parameter analytic asymptotic, not a numerical table lookup. The relevant exact database check is the indexed mathematical results, including matching-date results; no distinct exact match was identified in the focused returns.",
+        "searches": [
+          "Resultary indexed search for the balanced/equitable two-community replicator law, the leadership threshold, and subcritical consensus amplitude"
+        ]
+      },
+      "rationale": "The model and the individual-leadership sign criterion are prior. The simple threshold calculation alone is not the distinctive contribution. The verified increment is the exact invariant-family three-limit classification, in particular the sharp subcritical rates and amplitudes for the coupled trajectories. The inspected equilibrium/sufficient-condition results and the earlier nonreplicator signed-mode analysis do not provide those asymptotics.",
+      "residual_risks": [
+        "An unindexed analysis of the same replicator invariant family or a more general result deriving these amplitudes could supersede priority; this comparison is limited to the identified sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and equilibrium/individual sufficient criteria, not the claimed joint phase classification and exact rates",
+          "evidence": "The leadership law uses y(1−y)[ρx²−(x−Wx)²]; the cited theorems give sufficient emergence conditions, not subcritical scaling on the prescribed sign mode.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.05825",
+          "material_read": "Original full-text passages at Eqs. (2), (4), pp. 2–3, Lemma 3 p. 4, and Theorems 1–2 pp. 6–7",
+          "method": "Lawful open manuscript; equation and theorem comparison",
+          "title": "On Leadership Emergence in Opinion Dynamics on Social Networks",
+          "trigger": "Same coupled replicator model; strongest general result on the same dynamics"
+        },
+        {
+          "assessment": "Different feedback law",
+          "evidence": "α(1−y)x²−βy(x−Wx)² replaces the replicator equation; origin instability and conditional nontrivial equilibrium in Theorem 3 do not cover follower decay here.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.24381",
+          "material_read": "Eq. (1), p. 2, and Theorem 3, p. 4, in open manuscript",
+          "method": "Compare actual evolution law and convergence theorem",
+          "title": "On a Co-evolving Opinion-Leadership Model in Social Networks",
+          "trigger": "Earlier models by the same authors, with related polarized equilibria"
+        },
+        {
+          "assessment": "Related invariant-mode setup, different law, parameter boundary and asymptotics",
+          "evidence": "Exponential convergence and α=2βκ³ transverse boundary for the linear-in-leadership feedback, not square-root decay for replicator feedback.",
+          "identifier_or_url": "Resultary: 0a05cce9c49b",
+          "material_read": "Mirrored RESULT.md offsets 0–4619, main assumptions, result and dynamics",
+          "method": "Indexed search and bounded original text via local mirror",
+          "title": "A sharp transverse stability boundary for polarized co-evolving opinion leadership",
+          "trigger": "Closest distinct indexed signed-mode result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2606.05825v1, equilibrium and individual leadership results"
+      ],
+      "rationale": "The equitable cross-mass ansatz is a natural network test case rather than an arbitrary numerical slice: it allows directed, unequally sized communities with arbitrary wiring at fixed exposure. The neutral critical family, endpoint selection, and exact nonexponential subcritical relaxation separate dynamical phenomena that equilibrium conditions alone cannot measure. The independence of the leading opinion amplitude from the initial polarization and leadership is a useful precise prediction on that family.",
+      "residual_risks": [
+        "No claim of robustness under imperfect community balance, empirical predictive accuracy, or general network stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:57:50.309266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–56; VERIFICATION.md; verify_squared_path_reversal.py (read only); verification_output.txt",
+        "Bayer et al., arXiv:2407.08158, Theorem 4.4; Zhang–Yang, arXiv:2605.22808, Theorem 1 and Corollary 7",
+        "Independent finite check: node /workspace/branches/check-1.js"
+      ],
+      "rationale": "A face is present exactly when its complement contains a disconnected k-set. A k-set is connected precisely when successive gaps are at most two. For a complement of size k+1, deleting any interior point tests a two-step gap; every k-subset is connected exactly when the k+1 sites are consecutive. In a complement of size at least k+2, choose k+2 sorted sites and delete the second and third: the first gap is at least three, giving a disconnected k-set. This independently verifies both omitted layers. Top homology concentration is the cited squared-path shellability theorem. The augmented simplex differential is contraction by the sum of coordinates, so for the full (r-1)-skeleton the top cycles are the rth exterior power of its kernel (the reduced permutation representation over Q). Taking the signed Euler trace and removing each layer yields the claimed opposite signs; a fixed p-face has sign (-1)^floor(p/2). When r is odd there is exactly one omitted centered interval complement. For a connected symmetric k-set, the only options are paired sites meeting at the two positions nearest the center (even k), or the selected middle site with nearest left site at a or a-1 (odd n and odd k). Counting the admissible choices of size-two gaps gives B in each case. The known dimension and trace determine both multiplicities, even when both vanish. An independent 28-case check used graph reachability and reduced boundary matrices in the signed reversal eigenspaces modulo 101. It found no lower homology and recovered, in particular, (6,5), (12,13) and (31,36) for the three examples.",
+      "residual_risks": [
+        "The modular calculation alone is not a claim about integral torsion or arbitrary characteristic. The general rational assertion follows from the analytic trace and shellability argument, not from finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Yang supply nonequivariant rank and omissions; Bayer et al. supply shellability here and a reversal representation on the ordinary path, not its square. Cyclic-power and squared-cycle records concern different graphs and narrower cut parameters. The exact indexed squared-path theorem covers the full range and includes a derived unbounded-trace subfamily."
+        ],
+        "reasoning": "Neither prior ranks nor path or cycle representations determine the squared-path representation. Exact coverage comes from the separately inspected same-object theorem.",
+        "searches": [
+          "Zhang–Yang arXiv:2605.22808v4; Bayer et al. arXiv:2407.08158, §§4 and 6.2; arXiv:2304.13675; indexed squared-path and squared-cycle reflection results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/1/SCOPE-reversal-character-of-squared-path-cut-complex-homology--6f15f405a3a1 and the two cyclic-family hits",
+        "arXiv:2605.22808v4; arXiv:2407.08158; arXiv:2304.13675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof also uses augmented signed fixed faces, removes the same two types of nonface, and counts the symmetric connected subsets by palindromic short gaps. The motivating Betti and shellability papers alone do not give that trace."
+        ],
+        "reasoning": "The frozen theorem follows from the exact indexed formula by algebraic rewriting; no new case or representation component survives that comparison.",
+        "searches": [
+          "Indexed exact theorem proof Steps 1–6; published/posted predecessors' theorem and scope passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With m=floor(n/2) and t=floor(r/2), the coefficient polynomial is (1-z)(1-z^2)^(m-1) for even n and (1-z^2)^m for odd n. For even k=2j the cutoff m-j is t, giving the indexed S(j-1,t). For odd n and k=2j+1, Pascal's identity combines B(j,m)+B(j,m-1) to S(j,t); for even n and odd k the count is zero."
+        ],
+        "reasoning": "Substituting these evaluations and the same centered-interval correction produces all four parity lines of the indexed theorem. Both then add and subtract the same Betti number to obtain multiplicities.",
+        "searches": [
+          "Resultary: squared path cut complex reversal involution character eigenspace dimensions ordinary Betti number",
+          "Mirrored 2026/11/1/SCOPE-reversal-character-of-squared-path-cut-complex-homology--6f15f405a3a1, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact theorem-level hit: 2026/11/1/SCOPE-reversal-character-of-squared-path-cut-complex-homology--6f15f405a3a1. It includes (n,k)=(10,5) with Betti 67, trace -5 and multiplicities 31,36. Related distinct hits: 2026/10/18/SCOPE-dihedral-reflection-characters-and-quotient-homology-of-cycle-po--dc14cc478a70 and 2026/10/25/SCOPE-reflection-characters-of-squared-cycle-three-cut-homology--4d53e6f40dc5."
+        ],
+        "reasoning": "The example is supplementary; the exact overlap is established by comparing the formulas for every parity and scope. The cycle hits are not coverage.",
+        "searches": [
+          "Resultary indexed search by graph, cut type, reversal trace and eigenspace dimensions"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same full rational C2-representation of exactly the same ordinary squared-path cut complexes, with the same quantifiers. Its parity formula is algebraically identical, not just numerically consistent. The indexed path is later than the assigned source path; equivalence does not determine priority, provenance or dependence. The original journal/preprint references separate known nonequivariant inputs from the reversal calculation, but they do not remove the exact indexed coverage.",
+      "residual_risks": [
+        "The literature search is not exhaustive. The relationship between the two exact records is unresolved; no date-based priority finding is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-parameter theorem; no priority inference",
+          "evidence": "The four parity lines agree by coefficient extraction and Pascal's identity. Same degree, involution, Betti dimension and irreducible multiplicities.",
+          "identifier_or_url": "2026/11/1/SCOPE-reversal-character-of-squared-path-cut-complex-homology--6f15f405a3a1",
+          "material_read": "RESULT.md Finding, assumptions and Steps 1–6, offsets 0–5690",
+          "method": "Resultary and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Reversal character of squared-path cut-complex homology",
+          "trigger": "Exact object, parameters and full rational reversal representation"
+        },
+        {
+          "assessment": "Nonequivariant inputs covered; no same trace found in those passages",
+          "evidence": "Known binomial Betti formula and precisely the skeleton and missing-face layers.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.22808",
+          "material_read": "HTML v4 Theorem 1 around offset 3500; Corollary 7 around 15500; §5.2 around 35900–36535",
+          "method": "Original OA HTML passages",
+          "title": "Betti Numbers of Cut Complexes of Squared Paths and a Recurrence Conjecture",
+          "trigger": "Same squared paths and ordinary cut complexes"
+        },
+        {
+          "assessment": "Squared-path shellability; ordinary-path reversal is analogous but different",
+          "evidence": "The wedge concentration is for the squared path, while the inspected representation results are for P_n.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "§4 Theorem 4.4 around offset 55400; §6.2 Theorem 6.3 and Proposition 6.4 around 132500",
+          "method": "Original OA passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Possible general path-symmetry coverage and shellability input"
+        },
+        {
+          "assessment": "Background, not a same-object representation theorem in the inspected passage",
+          "evidence": "Refers treatment of squared paths to subsequent work.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Concluding passage around offset 181700",
+          "method": "Original OA passage",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational graph-cut-complex results"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Cycle powers and squared cycles with three-cut complexes, not the ordinary cut complexes of squared paths in the assigned family.",
+          "identifier_or_url": "2026/10/18/SCOPE-dihedral-reflection-characters-and-quotient-homology-of-cycle-po--dc14cc478a70; 2026/10/25/SCOPE-reflection-characters-of-squared-cycle-three-cut-homology--4d53e6f40dc5",
+          "material_read": "RESULT.md Finding at offset 0 in each",
+          "method": "Resultary and local mirror",
+          "title": "Dihedral reflection characters and quotient homology of cycle powers; reflection characters of squared-cycle three-cut homology",
+          "trigger": "Nearby indexed character results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof; the inspected Betti and symmetry theorems; the exact indexed comparison"
+      ],
+      "rationale": "The rational action of the canonical graph involution is a natural refinement of ordinary homology, not a reformatted Betti table. Computing both eigenspaces in an infinite family requires the signed corrections and centered-subset count. This is a worthwhile exact invariant and proof as a mathematical result, independently of the verified duplication of coverage.",
+      "residual_risks": [
+        "No integral equivariant classification or application to higher path powers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

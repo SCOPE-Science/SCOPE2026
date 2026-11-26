@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:51:56.308956Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:6–30",
+        "VERIFICATION.md:18–22",
+        "verify.py:5–72"
+      ],
+      "rationale": "Independently partitioned the three informative hash outcomes. All three in one bucket drops rank with probability 1/s²; three distinct buckets preserve rank (that case has probability zero when s=2); a specified pair collides in exactly two buckets with probability (s−1)/s². Write x_i for the perturbed rows and let k be the remaining row. The equal-pair-sign determinant, ignoring row signs, is det(x_i+x_j,x_k)=ε det(v,r_k) exactly because the row sum is εv. Opposite pair signs give determinant of absolute value √3 at ε=0, and hence preserve rank near zero. The failure probabilities are therefore (3s−1)/(2s²) at zero and 1/s² off zero sufficiently nearby. On each equal-sign collision the top squared singular value tends to 2 and the product of the two singular values is the determinant magnitude, so |ε|κ tends to 2/|det(v,r_k)|. All other surviving classes stay bounded. Their finite weighted sum, using the total survivor probability 1−1/s², gives the factor 1/(s+1). The QR factor shares the sketch's singular values; the scaled input Gram tends to identity, sandwiching κ(AεRε^−1)/κ(Rε) between 1/κ(Aε) and κ(Aε). This gives the identical conditional limit for QR. Verified 17/72, 1/36, and (1+2√3)/7 at s=6 and v=(1,1). Read but did not run the frozen verifier: it enumerates discrete outcomes at a few selected parameters, using numerical minor and Gram tolerances, which cannot certify all directions or the limiting coefficient.",
+      "residual_risks": [
+        "Independent uniform hashes and signs, exact arithmetic, fixed s, and direction transversality are required. Conditioning excludes every rank-loss outcome and does not model a safeguarded preconditioner."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted unicyclic theorem gives survival [F_n(s)+K F_(n−1)(s)]/s^n, with K=3−T/2 for the triangle, where T counts equal scale pairs. Chen–Tan give QR bounds under an embedding condition."
+        ],
+        "reasoning": "At the triangle's equal and distinct scales the broader theorem's K=3/2 and 3 reproduce the two Rank-loss probabilities. That theorem does not give singular-value asymptotics, and an embedding guarantee does not bound a mean over every full-rank outcome, since some survivors fail to embed.",
+        "searches": [
+          "Resultary: full-rank CountSketch QR conditioning",
+          "Chen–Tan Lemma 2.1 and Theorems 3.1–3.2",
+          "Li–Liu sparse embedding lower bounds"
+        ]
+      },
+      "checked_sources": [
+        "Two indexed triangle/unicyclic RESULTS",
+        "Three directly cited primary papers",
+        "Clarkson–Woodruff, Woodruff–Kocurek, and Hu et al. passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The birthday collision argument for independent informative rows forces rank loss directly. The indexed fixed-triangle spectrum identifies singular classes only at zero perturbation. Chen–Tan's sufficiently large sketch guarantees are high-probability rather than full-rank conditional statements."
+        ],
+        "reasoning": "In the redundant rank-two input even a pair collision can survive, and the new limit depends on the three transverse determinants in the surviving near-singular classes. Rank survival, qualitative coherence hazards, fixed spectra, and broad embedding bounds do not yield their direction-dependent normalized sum. This is an explicit asymptotic invariant, not a counterexample to guarantees under the prior dimension hypotheses.",
+        "searches": [
+          "Resultary: direction-dependent conditional inverse-determinant pole",
+          "Malik–Becker remarks on rank loss and coherence",
+          "Clarkson–Woodruff and Woodruff–Kocurek collision obstructions",
+          "Hu et al. sparse graph sketches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-08 weighted unicyclic rank-survival result includes weighted triangle incidence. The 2026-11-22 one-collision result includes the fixed whitened triangle, whose column space and tight-frame geometry agree with the Mercedes example up to a coordinate change and scaling."
+        ],
+        "reasoning": "The near-frame rows have a unique dependence with all coefficients c_i positive. A right coordinate change maps c_i x_i to triangle-incidence rows (in two independent coordinates), so the row scales are 1/c_i. At resonance all are equal. Off resonance, equal c_i and c_j would make x_i+x_j collinear with the remaining row, contradicting the exact nonzero determinant. Thus the indexed overlap is a genuine rank equivalence, but a general nonsingular right change does not preserve spectral condition numbers.",
+        "searches": [
+          "Resultary: exact rank formula and title; Mercedes frame and signed collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unicyclic rank-survival law is an exact match to the two probabilities through specialization; the later one-collision result tabulates exact spectra for fixed input including the unweighted triangle."
+        ],
+        "reasoning": "The exact formulas are more relevant than a finite numerical table at a single s. Fixed-frame spectra do not give how the zero singular value lifts in each transverse direction, or its contribution after conditioning on a changing set of survivors.",
+        "searches": [
+          "Resultary: exact CountSketch rank probabilities and triangle one-collision Gram spectra",
+          "Resultary: inverse-determinant pole coefficient"
+        ]
+      },
+      "rationale": "The distinct claim is the explicit direction-dependent reciprocal-distance pole of the full-rank conditional mean, including its transfer to actual QR preconditioning. The two rank formulas are covered by a later indexed weighted triangle specialization and the original frame lies in the fixed-triangle setting of another later record; none of the checked passages gives the perturbed conditional mean. General collision lower bounds and high-probability embedding-based guarantees address different quantifiers.",
+      "residual_risks": [
+        "No exact pole coefficient was located in the checked material; unindexed frame or embedding examples could overlap. Later catalogue dates do not establish actual priority or exclusivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank-law coverage by specialization in a later record; no pole formula",
+          "evidence": "For triangle length n=3, K=3−T/2 in the rank-survival formula gives the stated equal-scale and pairwise-distinct cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-signed-countsketch-rank-survival-for-weighted-unicyclic-in--6f43abc6393e/RESULT.md",
+          "material_read": "Finding and proof offsets 0–3856",
+          "method": "Resultary search and local mirror",
+          "title": "Exact signed CountSketch rank survival for weighted unicyclic incidence matrices",
+          "trigger": "Signed sketch rank of a triangle with equal or distinct scales"
+        },
+        {
+          "assessment": "Later exact fixed-frame comparison",
+          "evidence": "Gives the one-collision Gram spectra and conditions for the whitened unweighted triangle, not perturbation in a general transverse direction or the corresponding full-rank conditional mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-near-isometry-threshold-and-conditioning-reversal-for-o--b899df17f7eb/RESULT.md",
+          "material_read": "Finding and proof offsets 0–4200 and relationship section from offset 6400",
+          "method": "Resultary search and local mirror",
+          "title": "An exact near-isometry threshold and conditioning reversal for one-collision sketches of unicyclic incidence spaces",
+          "trigger": "Exact one-collision conditioning for the fixed whitened triangle"
+        },
+        {
+          "assessment": "Motivation and prior guarantee under an embedding hypothesis",
+          "evidence": "Gives high-probability embedding, rank-preservation and QR conditioning guarantees with a sufficiently large sketch, and reports oversampling experiments; it does not state this fixed-s conditional mean.",
+          "identifier_or_url": "arXiv:2409.15818v1",
+          "material_read": "Lemma 2.1 p. 4, Theorems 3.1–3.2 p. 5, §4.2.1 p. 10; offsets 20697, 22916, 23936, 43300",
+          "method": "Open primary PDF passages",
+          "title": "High-precision randomized iterative methods for the random feature method",
+          "trigger": "CountSketch QR preconditioning and oversampling three"
+        },
+        {
+          "assessment": "Qualitative precedent",
+          "evidence": "Defines the signed one-sparse sketch and discusses semi-coherent inputs and empty sketch rows, not occupied-bucket cancellation and its scaled conditional mean.",
+          "identifier_or_url": "arXiv:1901.10559v3",
+          "material_read": "§1.3 p. 5 and Remarks 1–2 pp. 7–8, offsets 13900 and 23800",
+          "method": "Open primary PDF passages",
+          "title": "Fast Randomized Matrix and Tensor Interpolative Decomposition Using CountSketch",
+          "trigger": "Rank and coherence hazards for signed CountSketch"
+        },
+        {
+          "assessment": "Different quantifiers and statistic",
+          "evidence": "Bounds sketch dimension for oblivious embeddings with one nonzero per column, not sharp signed probabilities or condition means for a specified redundant input.",
+          "identifier_or_url": "arXiv:2112.10987v1",
+          "material_read": "Abstract and §1 pp. 1–2, offsets 0 and 6382–7705",
+          "method": "Open primary PDF passages",
+          "title": "Lower Bounds for Sparse Oblivious Subspace Embeddings",
+          "trigger": "General sparse sketch collision lower bounds"
+        },
+        {
+          "assessment": "General CountSketch background",
+          "evidence": "Defines and analyzes the signed sketch, with no perturbed frame conditional mean in the inspected passage.",
+          "identifier_or_url": "arXiv:1207.6365",
+          "material_read": "Definition and embedding context p. 4, offset 14100",
+          "method": "Open primary PDF passage",
+          "title": "Low Rank Approximation and Regression in Input Sparsity Time",
+          "trigger": "Standard one-sparse signed embedding"
+        },
+        {
+          "assessment": "Related obstruction with independent rows",
+          "evidence": "Collision of two rows out of d independent informative rows forces rank loss; that is not the conditional near-singularity in a redundant three-row frame.",
+          "identifier_or_url": "https://www.cs.cmu.edu/afs/cs/user/dwoodruf/www/teaching/15851-spring24/lec6.pdf",
+          "material_read": "p. 1, offsets 754–1230",
+          "method": "Open course-note passage",
+          "title": "Woodruff and Kocurek course notes on sketching (lecture 6)",
+          "trigger": "Birthday-collision rank obstruction"
+        },
+        {
+          "assessment": "Different sketch construction and guarantee",
+          "evidence": "High-probability embedding results for sparse bipartite-graph sketches, not the exact conditional statistic of independent one-sparse hashing.",
+          "identifier_or_url": "arXiv:2102.05758v1",
+          "material_read": "§3 p. 3, offsets 18000–21908",
+          "method": "Open primary PDF passage",
+          "title": "Hu et al., sparse bipartite-graph sketches",
+          "trigger": "Sparse sketch high-probability conditioning comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–17,20–35",
+        "Chen–Tan §4.2.1 and Theorems 3.1–3.2",
+        "Later weighted unicyclic rank-survival comparison"
+      ],
+      "rationale": "The equiangular three-row frame is the simplest redundant planar tight example, asymptotically perfectly conditioned before sketching. The theorem separates exact rank failure from instability within the apparently successful full-rank sample: the latter mean diverges with a sharp, direction-sensitive coefficient for each fixed oversampling size. This is useful for interpreting rank-only diagnostics or fixed-oversampling experiments, including s=6, and is substantive beyond the known qualitative collision hazard or later rank-only formulas.",
+      "residual_risks": [
+        "Does not imply poor high-probability embeddings at sufficiently large size or failure of regularized, truncated, or resampled methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:31:40.496698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–59 and 64; VERIFICATION.md lines 19–25 and verify_engel_word.py inspected, not executed",
+        "Independent replay: python3 /workspace/audit-evidence/reproduce.py 1 (direct multiplication at every sampled depth, comparison of all fibers and image, nonfaithful and mixed-prime fixtures)"
+      ],
+      "rationale": "Using the specified group law and [x,y]=x⁻¹y⁻¹xy, the first rotation is u⁻ⁱ⁻ʲ[(1−uʲ)a+(uⁱ−1)b]; each further step multiplies it by u⁻ʲ−1. The fixed-(i,j) image is the ideal of the two coefficients, with gcd d_{i,j,k} and kernel size m d_{i,j,k}. All coefficients are multiples of (u−1)^k and i=0,j=1 realizes this ideal if h>1; the h=1 case is trivial. At p^a∥m, a j not divisible by t=ord_p(u) leaves the first coefficient a unit. For t∣j valuation grows by at least s each iteration; when t=1 both coefficients already have valuation ≥s at the first step. This gives the stated ceilings. The bounds are attained prime-locally by i=j=1 when t=1 and s<a; by i=1,j=t when t>1 and s<a (then h>t); and by i=1,j=0 at depth one when t>1 and s=a. The divisors increase by divisibility, so a deficient divisor keeps the identity fiber strictly below its terminal count, proving leastness for the distribution, not just for a sufficient local bound. The terminal divisors give the subset/lcm identity normalization by averaging j modulo h, since all t_p divide h. A primitive unit modulo an odd prime power has t=p−1 and s=1 for exponent a≥2; exponent one is already sharp for the nontrivial action of C₂ on C₃.",
+      "residual_risks": [
+        "The enumerations are finite; the commutator and valuation argument is the universal proof. Scope is split cyclic-by-cyclic groups and ordered pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coprime Resultary entry covers abelian groups A,H and all k≥2 via images B_j=(u^j−1)A in the cyclic specialization. The wreath product paper estimates Engel fibers on a noncyclic base. The metacyclic p-group paper studies word-probability lower bounds and a general coset mechanism."
+        ],
+        "reasoning": "Coprimality kills the p-power part of the image of the action on each p-primary factor. Thus B_j=d_j C_m and the terminal cyclic law agrees exactly there; its argument does not handle the noncoprime lift-dependent delays, which can be arbitrarily large.",
+        "searches": [
+          "Resultary e403ecfc96e0, Higher Engel word laws stabilize on coprime abelian-by-abelian groups",
+          "Camina–Cocke–Thillaisundaram, §2",
+          "De las Heras–Toti–Vannacci 2607.11605, Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e403ecfc96e0 and 1e7e2c91abea; Camina–Cocke–Thillaisundaram; Putignano–Vannacci; De las Heras–Toti–Vannacci; Detomi–Lucchini–Nemmi; Cameron et al. Theorem 6.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putignano–Vannacci compare the identity probability of the 2-Engel word to cube probability. The Engel-graph results give obstructions/classifications for selected groups; the cosetwise homomorphism result provides a route to per-coset fiber uniformity."
+        ],
+        "reasoning": "Even given per-coset uniformity, identifying the exact sizes as functions of k, selecting worst valuations including the j=0 edge case, and showing the aggregate law cannot stabilize earlier are additional steps. Bounds and graph statements do not provide these in the claimed domain.",
+        "searches": [
+          "Putignano–Vannacci 2610.23100, Proposition 1 and p. 6",
+          "Camina–Cocke–Thillaisundaram, §2 eq. (2.1)",
+          "Detomi–Lucchini–Nemmi 2202.13737, Lemma 3.1; Cameron et al. 2408.03879v5, Theorem 6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1e7e2c91abea classifies the zero/identity locus in the fixed-point-free Frobenius family and gives depth-two stabilization there. Camina et al., eq. (2.1), have a cyclic-normal cosetwise homomorphism mechanism for general word fibers."
+        ],
+        "reasoning": "The graph loses the nonidentity output multiplicities. Homogeneous conditional counts from a cyclic module are not by themselves an arithmetic least-depth formula for the unconditional law.",
+        "searches": [
+          "Resultary: split cyclic-by-cyclic metacyclic right Engel word all-depth fiber distribution exact permanent stabilization cutoff prime-power action valuations terminal profile",
+          "Resultary: Engel digraphs abelian-kernel cyclic Frobenius groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue has exact related identity-locus and coprime-law statements, not evidence of the general p-adic cutoff or the arbitrary all-depth divisor sum. The primary query was empty; direct primary materials were checked separately."
+        ],
+        "reasoning": "Neither partial symbolic entry supplies the arbitrary noncoprime parameters, and the frozen finite output counts certify examples only. Empty search output is not a novelty argument.",
+        "searches": [
+          "Resultary exact-target semantic query (30 ranked results inspected for direct coverage)",
+          "Local mirror 1e7e2c91abea and e403ecfc96e0",
+          "Primary literature query: The Amit–Ashurst conjecture for finite metacyclic p-groups Camina Cocke Thillaisundaram word-map fibers Engel probabilities"
+        ]
+      },
+      "rationale": "Credit the distinct contribution in arbitrary, potentially noncoprime cyclic-by-cyclic actions: the sharp valuation-sensitive least plateau and explicit all-depth distribution beyond coprime-action and identity-locus results. Prior cosetwise homomorphism counting, the fixed-point-free depth-two identity locus, and the coprime terminal law are already covered ingredients or cases. The closest inspected sources do not yield the mixed/lift-dependent sharp cutoff. This is a best-of-knowledge scoped pass, not a priority certification.",
+      "residual_risks": [
+        "Lawful full-text access attempts for the related 2013 Erfanian–Farrokhi and 2019 Jafarian Amiri–Rostami identity-probability papers returned HTTP 403; their exact statements were not assessed. An equivalent formulation in earlier module/Engel work is not excluded.",
+        "The dated November 8 indexed entry gives a partial overlap, not a priority finding. The frozen description of the October 4 record as published is not evidence of peer review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close counting antecedent, not full Engel plateau coverage",
+          "evidence": "Lower bound for nonempty fibers and equal fiber counts for the conditional homomorphism; no explicit lift-sensitive Engel cutoff in these statements.",
+          "identifier_or_url": "https://doi.org/10.1007/s40879-023-00644-x",
+          "material_read": "Theorem A and §2 equation (2.1), PDF pp. 3–6",
+          "method": "OA article passage reading",
+          "title": "The Amit–Ashurst conjecture for finite metacyclic p-groups",
+          "trigger": "Closest published metacyclic word-fiber mechanism"
+        },
+        {
+          "assessment": "Exact overlap in the coprime terminal subfamily; noncoprime scope excluded",
+          "evidence": "The distribution for k≥2 is constant on all depths and is described by images of action minus identity; in the cyclic case these are exactly the frozen terminal ideals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-higher-engel-word-laws-stabilize-on-coprime-abelian-by-abelian-g--e403ecfc96e0",
+          "material_read": "RESULT.md Finding from offset 0 and limitations at offset 9443",
+          "method": "Local mirror reading",
+          "title": "Higher Engel word laws stabilize on coprime abelian-by-abelian groups",
+          "trigger": "Closest exact indexed distribution"
+        },
+        {
+          "assessment": "Matched identity locus and cutoff in a special case, not all output counts",
+          "evidence": "Γ=Γ₂ and outside-to-kernel arcs of exact depth 2. This citation is to a public research record, not itself a verified peer-reviewed classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-engel-digraphs-of-abelian-kernel-cyclic-frobenius-groups--1e7e2c91abea",
+          "material_read": "RESULT.md Finding and relationship section (offsets 0, 6616)",
+          "method": "Local mirror reading",
+          "title": "Engel digraphs of abelian-kernel cyclic Frobenius groups",
+          "trigger": "Frozen cited fixed-point-free result"
+        },
+        {
+          "assessment": "Identity probability estimates, not full distributions",
+          "evidence": "The explicit lower bound 2ε²−ε for cube probability ε>1/2 concerns depth 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23100",
+          "material_read": "Proposition 1 and PDF pp. 4–6",
+          "method": "OA PDF passage reading",
+          "title": "Comparing word probabilities in finite groups",
+          "trigger": "Primary 2-Engel comparison"
+        },
+        {
+          "assessment": "Different family and type of estimate",
+          "evidence": "C_p wreath C_{p^k}, with noncyclic base, Engel image and bounds rather than this least cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11605",
+          "material_read": "PDF pp. 1–3, including Theorem A",
+          "method": "OA PDF passage reading",
+          "title": "Engel probability in wreath products of p-groups",
+          "trigger": "Nearby Engel-fiber estimates"
+        },
+        {
+          "assessment": "Narrower graph obstruction",
+          "evidence": "No arcs from nontrivial kernel elements to outside the kernel in the relevant setting; no all-value distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.13737",
+          "material_read": "Lemma 3.1, PDF p. 5",
+          "method": "OA PDF passage reading",
+          "title": "Engel graph obstruction for Frobenius groups (Detomi–Lucchini–Nemmi)",
+          "trigger": "Published source behind related Frobenius comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–33, 49–59, 64; direct lift comparison in independent replay; Resultary e403ecfc96e0"
+      ],
+      "rationale": "Repeated commutation may keep the same eventual law while changing how long it takes to get there. The exact cutoff identifies which prime-power lift delays stabilization and detects a full extra step from a nontrivial residue action, instead of supplying only qualitative eventual behavior or an upper bound. For example, the two C₂₇ actions with complement C₁₈ have the same terminal law but cutoffs 4 and 3. The formula is an independently useful exact invariant of a broad natural family, with the noncoprime regime providing the value beyond the coprime cases already covered.",
+      "residual_risks": [
+        "No implication for nonsplit metacyclic groups or arbitrary finite groups is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

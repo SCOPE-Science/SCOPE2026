@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` in a directory containing the supplied verifier, using Python 3 with only its standard library.
+# Independent mathematical audit
 
-The verifier regenerates the two-sided no-triple window set, checks the degree classification and balanced graph, constructs the two-arc forced-corridor contraction, and confirms all contracted branch states are reachable from the prescribed root. It computes the exact principal cofactor by a fraction-free integer determinant for orders \(4\le n\le11\). As a separate arithmetic check it computes the complete, uncontracted Laplacian cofactor for \(4\le n\le9\). It independently enumerates every labeled-edge Euler circuit, canonically rooted at one fixed starting edge, for \(4\le n\le7\). All three agree wherever their ranges overlap.
+## correctness
 
-Exact results: \(C_4=1\), \(C_5=5\), \(C_6=12\), \(C_7=44\), \(C_8=6720\), \(C_9=1832544\), \(C_{10}=48681971200\), \(C_{11}=4431338775673113600\).
+PASS
 
-These enumerations do not prove an all-length statement on their own. The all-length argument depends on the cited unique optimal-window-support theorem, the forced-corridor in-arborescence bijection, BEST, and the directed matrix-tree theorem. The code does not independently reprove the cited maximum-length and rigid-support theorem.
+In the full no-triple overlap graph, the vertices of out-minus-in degree +1 begin with an equal pair and end with an unequal pair, and the −1 vertices have the reverse predicate. Any balanced edge set omits at least one outgoing edge from each +1 vertex. Equality requires the deletions to run directly from +1 to −1 vertices, forcing precisely the equal-pair-at-both-ends edges: a +1 vertex has only one such outgoing extension. These deletions do balance the graph. Appending alternating bits reaches a branch, and an alternating vertex with an unequal junction to a target can append all its letters while the first pair of each traversed edge differs. This proves attainability and rigid support independently of the cited premise. In the resulting graph, only the 2F_(n−2) vertices unequal at both ends branch (choose the initial bit and compose n−3 into ones and twos). All other vertices have one outgoing edge and reach a branch in at most n−1 shifts. Their forced exits give a bijection of in-arborescences before and after contraction, with parallel arcs kept distinct. The directed last-exit/BEST count with one fixed initial labeled edge counts each rotation class once and has unit factorial factor; the outgoing matrix-tree cofactor is consequently exactly the asserted count. Independent replay: python3 /workspace/review_checks/1.py (SymPy integer determinants) reproduced the table through n=11, with full graph cofactors through n=9 and direct rotation-class optimization at n=4,5. These checks do not replace the all-n proof.
+
+## originality
+
+PASS
+
+Credit the sharp length, canonical support, classical Euler-tour/tree methods, and the strong one-sided methodological antecedent. The distinct result is the explicit branch-sized determinant and maximal-cycle census for the two-sided support. The uncompressed cofactor follows directly from the older support and BEST, so that alone would not justify a pass.
+
+## value
+
+PASS
+
+Knowing one optimal schedule or its window set does not identify how many schedules achieve it. The reduced determinant gives a concrete exact census for the entire natural two-sided run-limited family, with a computational reduction from 2F_n−1 to 2F_(n−2)−1 and exact counts far beyond direct listing. The value is the explicit efficient population count, not an advance in the optimum length or in abstract Euler-tour theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

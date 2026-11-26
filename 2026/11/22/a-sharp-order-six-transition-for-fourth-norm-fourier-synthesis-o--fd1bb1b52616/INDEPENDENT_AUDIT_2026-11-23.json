@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:02:10.376903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unitary convolution and Parseval give ∑|f̂|⁴=N⁻¹∑|f*f|². Modulating a maximizing character to the trivial one and scaling nonzero sum to 1 produces the upper bound (N min Φ)⁻¹/⁴, with Φ the squared convolution energy. It is strictly convex on the complex vector space viewed over the reals because it is the sum of strictly convex fourth powers on the injective Fourier image. It is coercive by finite-dimensional norm equivalence. Conjugation and z→2x+3d−z preserve the affine constraint and energy, hence by uniqueness the minimizer has real weights (t,1/2−t,1/2−t,t). The convolution outputs are at 2x+kd; equality of these sites depends only on k modulo m, so no ambient-group embedding assumption is needed (the original support is a coset, not necessarily the subgroup). Squaring and collecting the seven coefficients leaves only the 4, 5, 6 and ≥7 quartics. The first two derivatives have unique real zero 1/4, and the latter cubics have positive quadratic derivatives by their negative discriminants and strictly opposite signs at 1/4 and 1/2. Thus all weights of the optimal profile are positive, which ensures the trivial character really maximizes the Fourier absolute value and the upper bound is attained. Reversing normalization gives all complex equality cases. Independent bisection and convolution give t₆=0.2748888295956773677… and t∞=0.3104604169623260244…, with relative ratio gains over the indicator of 0.22572947…% and 1.25649476…%, respectively. Replay: RESULT.md Proof §§1–5, including coefficient aggregation at lines 54–58; packaged verification script inspected as text only. Scope: four consecutive distinct sites with step order m≥4 and counting-measure Fourier norms, not all four-point sets or other norm quotients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 proves the indicator extremum under affine transitivity; §9 flags the low-symmetry case. Theorem 5 of arXiv:2508.12194 is a general inequality involving the support indicator's Fourier transform.",
+          "Resultary 87d7ea89b8bb gives a center/arms optimizer for line pencils, not arbitrary supports."
+        ],
+        "reasoning": "Affine transitivity covers the whole four-element coset at m=4 and the co-singleton in a five-element coset at m=5 (reduce to the cyclic group), but does not yield endpoints heavier than 1/4 at m≥6. A general upper bound or a classification on line pencils cannot supply the exact nontransitive minimizers.",
+        "searches": [
+          "Iosevich–Li–Yu arXiv:2609.25404, Theorem 4.1 and §9; Bhowmik–Deodhar–Iosevich arXiv:2508.12194 Theorem 5",
+          "Resultary same quotient on unions of finite-field lines"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25404 v2 and arXiv:2508.12194",
+        "Resultary 65d29718d8f1, 87d7ea89b8bb, 9742e77216af and bf7aed817472",
+        "Ivanshin (2019) and Borwein–Choi–Yazdani (2001)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The line papers optimize the same quotient, with one distinguished center and uniform arm weights; the difference-set paper and four-character sixfold-phase result use coefficient ℓ² normalization.",
+          "At m≥6 the minimizer has two heavier endpoints and two lighter interior points; the exact wrap contribution at order six changes the cubic."
+        ],
+        "reasoning": "Line-pencil convolution multiplicities are not those of the four consecutive terms; forward maximum at fixed coefficient ℓ² is not inverse fourth-norm minimization at fixed Fourier evaluation. Neither supplies the exact weight transition and all character-modulated equality cases.",
+        "searches": [
+          "Compare actual hypotheses, norms and optimizer profiles in arXiv:2609.25404 Theorem 4.1 and Resultary 65d29718d8f1, 87d7ea89b8bb, 9742e77216af, bf7aed817472"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For P(z)=∑_{j=0}³ aⱼzʲ with P(1)=1, the weighted synthesis optimization is fourth-power minimization averaged over m-th roots of unity, times the separate ambient scaling. For m≥7 this average equals the continuous circle mean because |P|⁴ has frequencies −6 through 6.",
+          "Ivanshin §§2.1 and 2.3 optimize L∞ or nonnegative L¹ with prescribed Fourier coefficients; Borwein–Choi–Yazdani's page 1 problem uses ±1 coefficients."
+        ],
+        "reasoning": "The continuous fixed-evaluation degree-three L⁴ minimum would be an exact equivalent of the stable regime and is a genuine priority risk. The inspected extremal problems instead constrain individual coefficients or signs and do not fix only their sum with unrestricted complex weights.",
+        "searches": [
+          "Primary literature: exact low-degree Nikolskii or Christoffel constants for four frequencies, L4 degree-three polynomial with evaluation fixed at 1",
+          "Ivanshin minimal norm with given Fourier coefficients; Borwein–Choi–Yazdani Fekete polynomial extrema"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned the frozen record itself and distinct same-date line-support and difference-set records; the earlier bf7aed817472 uses four consecutive frequencies in Z/6 but gives the forward L4/ℓ² optimum and a different algebraic profile.",
+          "No exact equivalent table was identified in the retrieved literature."
+        ],
+        "reasoning": "Neither identity of the frozen hit nor equality of the support at order six in another norm is independent coverage of these two fixed-evaluation cubics. The distinct same-date line results were compared without inferring priority from date.",
+        "searches": [
+          "Resultary: four-point progression and order-six Fourier synthesis quartic, searched with limit 50; compared 65d29718d8f1, 87d7ea89b8bb, 9742e77216af and bf7aed817472",
+          "Primary literature: low-degree exact L4 extremal-polynomial constants/cubic table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit nonuniform optimal Fourier-evaluation profile at m=6 and m≥7 and its arithmetic transition, not the affine-transitive cases m=4,5 or the use of strict convexity. Strongest same-objective overlaps concern line supports; strongest same-support overlap has a different normalization and objective.",
+      "residual_risks": [
+        "An older degree-three Nikolskii, Christoffel or Banach-space table may contain the equivalent continuous stable optimum under another normalization. No exhaustive priority determination is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly explains affine-transitive boundary cases but not order ≥6 cubics; v2 title differs from the frozen bibliography's title",
+          "evidence": [
+            "The indicator is optimal for affine-transitive support; a nonoptimal indicator is possible at lower symmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25404",
+          "material_read": "OA v2 PDF p. 1, Theorem 4.1 p. 10 and §9 p. 37",
+          "method": "Read theorem hypotheses and low-symmetry discussion",
+          "title": "Iosevich–Li–Yu spectral synthesis preprint (v2: Spectral synthesis, Fourier extension, and arithmetic in Z_N^d)",
+          "trigger": "Same exact quotient and possible general extremizer theorem"
+        },
+        {
+          "assessment": "Bound, not sharp optimizer for this support",
+          "evidence": [
+            "The inequality uses the Fourier transform of the support indicator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.12194",
+          "material_read": "Theorem 5, p. 7",
+          "method": "Read OA PDF passage and compared norm and direction",
+          "title": "On spectral synthesis in Z_N^d",
+          "trigger": "Earlier broader synthesis estimates"
+        },
+        {
+          "assessment": "Same unrestricted complex quotient on other support families, not the progression and its torsion law",
+          "evidence": [
+            "Unions of lines with center/arms optimizer, rather than four consecutive sites with two endpoints."
+          ],
+          "identifier_or_url": "Resultary 65d29718d8f1 and 87d7ea89b8bb",
+          "material_read": "Primary local-mirror RESULT.md passages, support definitions and optimizer theorems",
+          "method": "Compare the support classes, objective and equality profiles",
+          "title": "Sharp fourth-power Fourier synthesis on finite-field coordinate supports; universal sharp fourth-power Fourier synthesis on finite-field line pencils",
+          "trigger": "Strong distinct same-date same-quotient hits"
+        },
+        {
+          "assessment": "Forward Lp with fixed coefficient ℓ² does not cover the inverse point-evaluation problem",
+          "evidence": [
+            "bf7aed817472 gives a different cubic and profile for Z/6; 9742e77216af treats difference sets."
+          ],
+          "identifier_or_url": "Resultary 9742e77216af and bf7aed817472",
+          "material_read": "Primary local-mirror RESULT.md norm definitions, support and main theorem passages",
+          "method": "Compare mathematical optimizations, not title matches",
+          "title": "Sharp higher-moment Fourier synthesis on finite abelian difference sets; sharp fourth-moment amplification and sixfold phase locking",
+          "trigger": "Similar exponent and, in the latter, four consecutive characters at exactly order six"
+        },
+        {
+          "assessment": "Not equivalent to the unrestricted four-coefficient L⁴ problem with a single evaluation fixed",
+          "evidence": [
+            "L∞ or nonnegative L¹ with prescribed Fourier coefficients, versus ±1 coefficient polynomials in the Fekete paper."
+          ],
+          "identifier_or_url": "Ivanshin (2019); Borwein–Choi–Yazdani, Proc. AMS 129 (2001)",
+          "material_read": "Ivanshin p. 1 and §§2.1, 2.3 (pp. 2, 6); Borwein–Choi–Yazdani p. 1",
+          "method": "Read accessible primary passages and compared the constraints",
+          "title": "Functions of Minimal Norm with the Given Set of Fourier Coefficients; An Extremal Property of Fekete Polynomials",
+          "trigger": "Plausible alternate vocabulary for equivalent low-degree extremal table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exactly resolves a canonical four-site family for a motivated sharp synthesis constant beyond the affine-transitive case. The significance is the change from uniform weights to a unique endpoint-heavy profile at the first relevant collision order and its stabilization, including full complex equality classification, rather than the small percentage gain alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

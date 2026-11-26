@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a characteristic-zero dominance theorem. Four explicitly reconstructed \(2401\)-rank Jacobians over \(\mathbb F_8\) produce nonzero cyclotomic minors that lift to \(\mathbb C\). The four input-type representatives cover all \(49\) pairs by scaling and triality. A two-dimensional kernel scaling at each channel gives a strict sixteen-channel dimension upper bound, and constructibility upgrades dominant closure to exact generic width. The self-contained exact verifier passes all field, parameter, orbit, direct-derivative, minor and digest checks. The general deduction does not assume any unproved finite extrapolation.
+## correctness
 
-**Originality — PASS, with priority risk.** The initiating article states the generic-width equality as Conjecture 11.1 and proves filling only through \(q=5\). The closest published report proves \(r\le16\) at \(q=7\) but explicitly excludes the seventeenth filling question; its full mathematical result was read. Baños et al. treat group-based models, but their broad theorem requires at least \(2r+5\) leaves and does not cover a seventeen-mixture tripod. Actual semantic and phrase searches in published records found no equivalent full-rank assertion. Unindexed specialized literature is a residual priority risk; absence from search is not independently sufficient for novelty.
+PASS
 
-**Value — PASS.** The new theorem resolves the first unresolved filling case after the field sizes \(2,3,4,5\) in a recent conjecture, simultaneously across untwisted and noncommutative twisted central types. It determines exact generic, rather than merely border, decomposition width. The previously known penultimate secant has codimension \(81\); filling at the next order is a substantive new threshold rather than a routine parameter substitution.
+In standard UT3 coordinates the induced translation by k has i-row phase zeta^(s k_x(i_y-k_y)). Commuting with it forces the row-k kernel coefficients a_(i-k) with the inverse phase, as in the frozen formula; the output commutant's basepoint row is arbitrary. Dualizing via the invariant pointwise pairing identifies H_s* with H_(-s) and expresses a channel as the diagonal trilinear tensor with independent commutants in its three slots. Thus permutation of the central triple preserves the variety up to linear equivalence. The automorphism (x,y,z) -> (lambda x,y,lambda z) gives the scaling symmetry. The triples split into all zero (1 pair), one zero (18), nonzero with a repeated entry (18), and nonzero with all distinct entries (12, represented by 1,2,4). The 2-dimensional scaling fiber bounds the affine one-channel dimension by 145, hence sixteen have dimension at most 2320 < 2401. Independent NumPy construction, indexed by derivative coordinates, and exact byte-valued F8 elimination reproduced all four rank-2401 minors, their pivot hashes and residues 1,6,6,1. The root of order seven defines reduction from Z[zeta_7] to F8; nonzero residues imply nonzero complex determinants at the integral lifts. Surjective complex differentials imply dominance. Constructibility and removal of the proper sixteen-channel closure yield actual width 17 on a nonempty open set, not just border width.
 
-**Limitations.** Only field order seven and complex generic images are classified; the worst-case width and exceptional targets remain unknown. The certificate is an exact modular nonvanishing computation and needs the algebraic lifting argument. Earlier unindexed work may affect publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The available statements support a distinct result at the first possible filling order for q=7, not a new channel model or new dimensions at orders at most sixteen. The closest indexed same-model result explicitly stops at sixteen. The untwisted model's separate Fourier alias was considered. This is a best-of-knowledge conclusion subject to the specified access risks.
+
+## value
+
+PASS
+
+The first possible filling rank at q=7 is a natural conjecture test and model-complexity invariant. Lower orders, including the known penultimate dimension, cannot decide whether this rank actually fills, much less whether exact generic representability follows. Four exact cross-type certificates resolve this finite but substantive gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

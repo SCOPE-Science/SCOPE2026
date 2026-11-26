@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The result is supported by a self-contained proof and the reproducible standard-library program `verify.py`. Run `python verify.py` to construct literal distinct-subsequence sets for binary words of lengths zero to twelve; cross-check the coprime recurrence and exact modulo-\(m\) fibers for \(2\le m\le24\); compare rational-probability direct enumeration and finite-state dynamic programming in 45 cases; and check nine instances of the nonstationary finite-state convergence numerically.
+## correctness
 
-The program is a finite test, not a proof of statements for unbounded word length or all moduli. Those claims are established by the Chinese remainder argument for primitive lifts, subtractive Euclidean reachability, padding at a self-loop, and Doeblin contraction. The bound is intentionally not optimized. Source independence and a fixed positive probability lower bound must be retained.
+PASS
 
-Only the listed checks have been performed. Independent audit has not been performed.
+Appending a letter replaces, rather than adds to, the class of strings ending in that letter: every old string in that class can use the new last position. Thus the two shifted ending counts start at (1,1), undergo the two determinant-one shears, and D is their sum minus 2. For a primitive residue pair, fix a positive lift of its second coordinate and use CRT to avoid primes outside m that divide this lift; primes dividing m cannot divide both coordinates. Reversing subtractive Euclid on the resulting positive coprime pair proves reachability. Permutation inverses are positive powers, giving strong connectivity. The loop at (1,0) pads paths via that vertex to exactly 2(d_m-1) steps. Independence and the bias bound minorize every entry by δ^K, while every one-step matrix preserves the same uniform law. Splitting off the uniform mass d_m δ^K proves the TV bound including a leftover incomplete block and n=0. For s=r+2, the fiber consists of x with gcd(x,s,m)=1, giving the product and the examples (including m=2). The summable-bias obstruction genuinely rules out convergence to this law. The recorded finite checks are supplementary; I inspected their scope, not reran them. The introductory 'unaffected' refers to the limiting law: already at n=2, D=3 exactly when the letters differ, so the finite-n law does depend on the schedule. The displayed theorem states the correct distinction.
+
+## originality
+
+PASS
+
+Pass restricted to the quantitative extension to every independent uniformly nondegenerate bias schedule, for all fixed moduli. The deterministic correspondence, fair-source arithmetic law, and general contraction mechanism are credited prior mathematics; this is not a priority claim for those ingredients.
+
+## value
+
+PASS
+
+Distinct-subsequence counts are a natural statistic; the question is whether their nonuniform arithmetic frequencies reflect the combinatorics alone or depend on how the source is sampled. The theorem answers this for every fixed modulus and all independent bounded-bias schedules without assuming a limiting bias, including oscillating ones, and gives an explicit source-uniform guarantee and a contrasting degenerating source. The contribution is not a new residue formula for the fair source or a sharp mixing exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim fixes the three-site weighted path, positive conductances, a matched symmetric resolvent splitting and every real nonnegative timestep. The three off-diagonal entries follow from an explicit inverse and a positive common determinant. The scalar multiplier \((1+y^2)/(1+y)^2\) lies in \([1/2,1]\), proving that no diagonal entry can be negative. The two sign-controlling quadratics can never be concave simultaneously and each has a unique positive zero exactly when its own edge is more than twice as strong as its neighbor. Their explicit roots produce the stated unique threshold. The independent exact-rational checker passes 3,586 checks; those checks corroborate, but do not replace, the universal algebraic proof.
+PASS
 
-## Originality (PASS; qualified priority assessment)
+Let x=τ/2, R=(I+xL)^−1. The step equals I+2xR′. Cofactors give D=det(I+xL)=1+2(a+b)x+3abx² and R12=ax(1+bx)/D, R23=bx(1+ax)/D, R13=abx²/D. Differentiation yields the three stated off-diagonals for all x≥0; the remote pair is positive at x>0. The multiplier is (1+y²)/(1+y)² for y=xλ≥0, in [1/2,1], so all diagonals are at least 1/2; symmetry and mass conservation follow from the Laplacian. For a≥b the strong-edge numerator after dropping the positive prefactor is (1+bx)²−b(a−b)x²; the opposite-edge quadratic is positive. It stays strictly positive for every finite x when a≤2b, and for a>2b its decreasing linear factor crosses exactly at x=1/(sqrt(b(a−b))−b), while the other factor stays positive. This gives precisely the stated zeros at the cutoff, permanent negativity only across the stronger edge afterward, strict signs at positive steps for the balanced regime, and I at τ=0. On one edge of weight c the off-diagonal is 2cx/(1+2cx)²>0. The Cayley representation follows from Cτ=2R−I, and exact arithmetic confirms the comparator values −9/2809 and 18/1621 at (3,1,6).
 
-Wu--Shu establish the two-sided filtered step and its energy stability but not this nonnegative-cone classification. Published claims for the same first-order method on unweighted graphs cover the three-vertex unit-edge case and a four-vertex failure, plus a weighted-graph long-step pseudoinverse obstruction; none yields the explicit finite-\(\tau\) interval for a **heterogeneously weighted three-site path**. Records on the two-stage Gauss--Legendre method give the same all-step conductance-ratio dividing line, but use a different rational function; at \((a,b,\tau)=(3,1,6)\) Gauss is positive on the strong edge while the present method is negative. This supplies a concrete nonimplication for the sharper finite-step assertion. The identity with a square of the Crank--Nicolson step is a useful equivalence but alone supplies no sign classification.
+## originality
 
-A residual priority risk remains from unindexed or full-text-inaccessible specialist analyses of the same rational filter. The relevant Gauss record was inspected at the level of its public scientific summary, not its entire underlying manuscript; the comparison does not falsely treat that summary as a full-text exclusion.
+PASS
 
-## Value (PASS)
+Method and norm stability are credited; the unweighted small-graph theorem, weighted eventual obstruction and analogous Gauss classifications are material overlap. Supported distinct content is the exact finite-step horizon and sign/no-reentry classification for unequal weights for this matched resolvent filter, including the sharp all-step weighted condition for that filter. No priority is inferred from catalogue dates. Full access to the closest same-filter records was unavailable, so this does not exclude an uninspected formula-level result.
 
-Three vertices are the smallest connected weighted-path size for which the stable filter can violate nonnegative-cone preservation; two-vertex paths cannot fail. The exact conductance-ratio dichotomy and nonreentrant safe-time interval quantify how heterogeneity, not stepwise energy instability, produces negative numerical heat transitions. This is a complete natural minimal-network classification, and the finite cutoff is operationally meaningful for positivity-sensitive graph diffusion discretizations. No general-PDE positivity, floating-point stability, or arbitrary-graph classification is claimed.
+## value
 
-## Scientific limitations
+PASS
 
-Exact arithmetic; fixed splitting \(S=L\); only weighted three-site paths. Unindexed historical priority remains possible and one relevant public source was accessible only by its abstract-level record. Independent evaluation is outstanding.
+The three-vertex weighted regime is the first possible failure for weighted paths under this natural split. The exact contrast threshold and finite-step ceiling tell a user when a nonnegative state update is safe even though all steps are norm stable, and identify the sole transition responsible. The all-step sign and no-reentry result is more useful than merely an asymptotic obstruction or one counterexample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

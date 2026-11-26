@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:57:17.501446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the four Boolean characters the eigenvalues are 0,2a,2b,2a+2b in the combinatorial normalization. Inverting the character transform gives strictly positive diagonal and original-edge entries for t>0 (C>A,B), and q/4 at one opposite position per row. For alpha<=1 the product (1-exp(-At))(1-exp(-Bt)) is a positive lower bound. For alpha>1 the sign of q' is that of a strictly increasing function starting at A+B-C<0 and tending to infinity, which proves the unique minimum and nonzero root using q(infinity)=1. Unit signed row sum gives the stated absolute row-sum norm. In scaled time the root satisfies tau=Lambda+log(phi(delta*tau)/phi(r^alpha*tau)) with phi(v)=integral_0^1 exp(-sv)ds. Strict decrease and exp(-v)<phi(v)<1 give the two strict bounds. At fixed alpha, delta=alpha*r+O(r^2) and the bracket width is O(r log(1/r)), giving the time and the log(alpha) offset. On compact scaled time intervals Q_r/r tends to -alpha*u*exp(-u), also in first derivative, so the already unique minimum tends to u=1 and its depth gives alpha*r/(2e) in the norm. For fixed a,b the linear and quadratic terms of q near order one are -2H(alpha-1)t and 4ab*t^2, with analytic higher terms. The implicit function theorem applied to q/t and q' gives t_alpha~H(alpha-1)/(2ab), a minimizing time half as large to first order, and peak coefficient H^2/(8ab), with the stated remainders. The bracket also squeezes the joint limit, including eta=0, since delta/r=alpha+O(r) uniformly near one. At t=0 the kernel is the identity; zero conductances are not within the theorem. Read CHECK.py and VERIFICATION.md; the reported 348 finite cases were not independently rerun and are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fixed-weight near-one theorem gives a linear law for distance two. On this square the two length-two path weights sum to 2ab and (L log L)_opp=H/2, giving the same leading H/(2ab) coefficient.",
+          "The two papers treat subunit-order fractional dynamics; their inspected passages do not address the superunit weighted-square profile."
+        ],
+        "reasoning": "Fixed-weight asymptotics do not give joint uniformity as a weight vanishes or the norm excess at its peak. For alpha<=1 general graph positivity is already background; it is not the distinct result.",
+        "searches": [
+          "Resultary bcd2ed2fdb92 fixed positive-weight graph near-order-one onset",
+          "Benzi et al. arXiv:1912.07288 and Benzi–Simunec arXiv:2012.08389"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.07288",
+        "arXiv:2012.08389",
+        "Resultary 8af258cef8b1",
+        "Resultary d37f7dd78e94",
+        "Resultary bcd2ed2fdb92",
+        "Resultary 61512629ac2e",
+        "Resultary 9ff3837d18bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unweighted multipartite formulas specialize to a=b; the fixed-weight theorem specializes to the leading near-one time coefficient for all a,b>0. Neither yields the log(1/r) delay at fixed alpha>1 or convergence to eta when (alpha-1)log(1/r) tends to eta.",
+          "The bipartite size-imbalance analogue separates the peak and recovery in relative scales; it does not vary the conductance of a fixed square or give log(alpha) and alpha/(2e)."
+        ],
+        "reasoning": "Credit the hypotheses under which implication is exact. The uniform scalar control and two different collapsing-conductance scales are the supported remainder.",
+        "searches": [
+          "Exact frozen bracket and coupled limits compared with Results 8af258cef8b1, bcd2ed2fdb92 and 61512629ac2e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted square is a product of two edge generators; at equal rates it is a rescaling of unweighted K_(2,2), also the strongly regular graph (4,2,0,2). Both exact unweighted results give a single nonedge recovery.",
+          "For unequal rates the three nonzero Boolean eigenvalues are distinct, not the common eigenvalue multiplicity used in the unweighted square result."
+        ],
+        "reasoning": "Rescaling the whole operator preserves the conductance ratio and cannot give anisotropy from an equal-rate law. The nearest equivalent representation is the explicit three-exponential antipodal equation; no checked comparator supplies its stated unequal-rate bracket or collapsing-edge laws.",
+        "searches": [
+          "Fractional graph heat and eventual positivity on weighted Cartesian products / alternating four-cycle",
+          "Resultary 8af258cef8b1 and d37f7dd78e94"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8af258cef8b1 and d37f7dd78e94 contain exact profiles covering the unweighted square. 9ff3837d18bf describes a weighted triangle and varies critical order, not square recovery time. 61512629ac2e uses unweighted bipartite size imbalance for squared heat."
+        ],
+        "reasoning": "These are concrete overlapping or adjacent entries, not an exact table for the anisotropic product. Finite graph order by itself is not a match; the precise shape of the parameter family matters.",
+        "searches": [
+          "Resultary exact positivity and norm profiles for complete multipartite, strongly regular, weighted triangle and unbalanced bipartite networks"
+        ]
+      },
+      "rationale": "Pass for the unequal-rate classification and especially the strict anisotropic threshold bracket and weak-edge delay/vanishing peak law with its joint crossover. Credit the known unweighted square special case and the leading fixed-weight near-one coefficient supplied by a separate same-day weighted-graph theorem, without assuming date proves priority.",
+      "residual_risks": [
+        "Other weighted-product or exponential-polynomial results could express the unequal-rate law equivalently. The bounded primary-literature search is not evidence of universal absence.",
+        "No historical precedence for distinct same-day matching components is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subunit-order background",
+          "evidence": [
+            "Lemma treats a normalized random-walk matrix; the corollary treats distance decay for exp(-t L^alpha), alpha in (0,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.07288",
+          "material_read": "Section 3.1, Lemma 3.1 (PDF p. 8) and Corollary 3.1 discussion (pp. 10–11)",
+          "method": "OA passage read (offsets 27553, 32514 and 37475)",
+          "title": "Nonlocal network dynamics via fractional graph Laplacians",
+          "trigger": "Primary fractional graph heat positivity comparator"
+        },
+        {
+          "assessment": "Different order regime and purpose",
+          "evidence": [
+            "Defines the model with 0<alpha<1 and studies numerical approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.08389",
+          "material_read": "Opening model and order assumptions, p. 1",
+          "method": "OA passage read",
+          "title": "Rational Krylov methods for fractional diffusion problems on graphs",
+          "trigger": "Primary graph fractional diffusion comparator"
+        },
+        {
+          "assessment": "Includes unweighted K_(2,2), not unequal weights",
+          "evidence": [
+            "The unweighted connected noncomplete multipartite theorem gives exact recovery and norm profiles."
+          ],
+          "identifier_or_url": "Resultary 8af258cef8b1",
+          "material_read": "Finding and Assumptions, RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Earlier exact square special case"
+        },
+        {
+          "assessment": "Unweighted square only; publication order not assumed",
+          "evidence": [
+            "Parameters (4,2,0,2) give the square and its exact nonedge sign crossing."
+          ],
+          "identifier_or_url": "Resultary d37f7dd78e94",
+          "material_read": "Finding and Proof",
+          "method": "Local mirror",
+          "title": "Sharp positivity recovery for fractional heat on all connected strongly regular graphs",
+          "trigger": "Exact same-day square coverage"
+        },
+        {
+          "assessment": "Covers the leading fixed-weight near-one time; not joint weak-edge or peak law",
+          "evidence": [
+            "For distance two the leading ratio is (L log L)_opp/[(W^2)_opp/2!]."
+          ],
+          "identifier_or_url": "Resultary bcd2ed2fdb92",
+          "material_read": "Finding and Proof of distance-dependent pairwise asymptotics",
+          "method": "Local mirror",
+          "title": "Diameter-dependent fractional heat positivity onset on finite weighted graphs",
+          "trigger": "Stronger fixed-weight order-one asymptotic"
+        },
+        {
+          "assessment": "Different graph/parameter limit",
+          "evidence": [
+            "It studies unweighted K_(m,n), alpha=2, with diverging size ratio."
+          ],
+          "identifier_or_url": "Resultary 61512629ac2e",
+          "material_read": "Finding and Separated scales passages",
+          "method": "Local mirror",
+          "title": "Two timescales of transient amplification and positivity recovery on unbalanced bipartite graphs",
+          "trigger": "Analogous vanishing norm excess and separated scales"
+        },
+        {
+          "assessment": "Different graph and singular quantity",
+          "evidence": [
+            "A logarithmic critical-order law for a weighted triangle does not supply the fixed-order recovery-time law on a four-cycle."
+          ],
+          "identifier_or_url": "Resultary 9ff3837d18bf",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Sharp fractional-order and time positivity frontier on weighted triangles",
+          "trigger": "Close weighted weak-edge comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural fixed-size anisotropic graph separates two operationally different stability measures: weak coupling makes the amplitude of the negative transient vanish linearly while its duration diverges logarithmically for every fixed superunit order. The sharp bracket, peak coefficient and near-one joint limit quantify the separation and its loss; the signed tail alone or the known unweighted result would not show this.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

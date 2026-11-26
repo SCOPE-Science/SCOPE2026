@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:38:27.135265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the frozen result, verification notes and diagnostic code without executing the uploaded code. The orthographic shadow support function in the plane is the restriction of the ellipsoid support function, so S,T are eigenvalues of the compression of diag(A,B,C). Squared normal coordinates have Dirichlet(1/2,1/2,1/2) density with prefactor 1/(2 pi); evaluating the secular numerator at the three eigenvalues inverts the interlacing variables, with Jacobian (S-T)/[(A-B)(A-C)(B-C)]. This verifies the joint density and the t Jacobian in r=s/t. Independently checking the singular integrals, at the corner (B,C) put y=t-C, x=s-B=C(r-B/C)+r y; the marginal integrand is a smooth factor times 1/sqrt(x y), with leading factor C/[2 pi sqrt((A-B)(A-C))]. At (A,B) put y=B-t, x=A-s=-B(r-A/B)+r y and the corresponding factor is B/[2 pi sqrt((A-C)(B-C))]. In each case translate y to its allowed lower endpoint. The resulting integral of 1/sqrt(u(u+const*|r-r0|)) contributes log(1/|r-r0|) divided by sqrt(r0), with bounded remainders. Away from these two corners the interior endpoints have only simple square-root singularities; the two neighborhoods are disjoint even when their ratio levels coincide, so the coefficients add. At s=B+u,t=B-v the endpoint integral over u+v < B*eps uses the beta factor pi and then the integral of u+v, giving B^2/[4(A-B)(B-C)]. At s=A-u,t=C+v the region u/C+A v/C^2<eps gives the stated C^(3/2)/[2 sqrt(A(A-B)(B-C))] coefficient; in both cases rescaling controls the remainder for fixed strict gaps. Substituting the only two squared shapes, (1/p,1/(pq)) and (1/q,1/(pq)), at the higher caustic gives coefficient ratio p sqrt(q)>1. Coincident caustics force B^2=AC and determine the shape already. These are exact pointwise results for the squared visible ratio and recover no absolute scale; the recorded floating-point diagnostics are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ATLAS3D XXIV p. 5 explicitly discusses nonidentifiability of a triaxial population distribution f(p,q) from apparent ellipticity F(epsilon).",
+          "The triangular joint width-brightness record --3c37c58813d8 uses squared width and squared projected area, support vertices and paired observations; the endpoint tomography record --e3183756e2e2 uses squared area ratio of same-normal projection and section."
+        ],
+        "reasoning": "A mixture identifiability result does not give a three-scalar inverse for one fixed shape; using richer width-area observables or a section area is not recovery from the asserted marginal statistics.",
+        "searches": [
+          "Weijmans et al. arXiv:1408.1099v1 pp. 2 and 5",
+          "Resultary: random projections with direction or semiaxis recovery, and paired section/shadow tomography"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and triaxial_shadow_check.py",
+        "Configured Resultary comparison of width-brightness, paired-area and central-section-perimeter results",
+        "Weijmans et al. arXiv:1408.1099v1",
+        "Bounded access checks for Binney–de Vaucouleurs (1981) and Binney (1985)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two locations determine A/C but leave two distinct middle-axis candidates unless they coincide.",
+          "The forward distribution supplies the input to a local collision analysis, not a stated value of its singular strength or a proof that the measured strength distinguishes the candidates. The nontrivial discrimination is the exact factor p sqrt(q)."
+        ],
+        "reasoning": "The classical forward model and peak positions alone do not invert the unlabeled pair. The explicit asymptotic extraction and resulting strict comparison provide the surviving inverse content, subject to the inaccessible-historical-source risk.",
+        "searches": [
+          "Frozen RESULT.md lines 57–84 and 89–93; classical kernel and two preferred ratios compared to the explicit singular-strength and inverse requirement",
+          "Weijmans et al. arXiv:1408.1099 p. 5; Resultary --3c37c58813d8 and --e3183756e2e2 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen result credits the apparent-axis-ratio forward model and its two preferred principal ratios to Binney–de Vaucouleurs. Those old primary passages were not successfully opened.",
+          "An apparent minor/major ratio is R^(-1/2); it maps the two peaks to different coordinates and rescales a logarithmic coefficient by the positive density Jacobian.",
+          "The Resultary central-section perimeter singularity is for a different geometric observable and is not a smooth reparameterization of the projected ratio."
+        ],
+        "reasoning": "A result on conventional apparent axis ratio could cover the exact present amplitudes after the Jacobian; neither a report of maxima alone nor a perimeter singularity establishes that coverage.",
+        "searches": [
+          "Resultary: triaxial ellipsoid orthographic shadow squared aspect ratio / apparent ellipticity logarithmic caustics",
+          "Binney–de Vaucouleurs DOI 10.1093/mnras/194.3.679 §2.2/Appendix and Binney DOI 10.1093/mnras/212.4.767 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This assigned record is the direct exact hit. The same-day width-brightness result does not resolve the present logarithmic amplitude or the two choices of B/A; the other closest records use perimeter or a paired-area statistic."
+        ],
+        "reasoning": "No distinct exact entry supplying these coefficients and recovery for R was confirmed; the identical result is not independent evidence or priority.",
+        "searches": [
+          "Resultary: triaxial caustic amplitude, coincident logarithmic peaks, endpoint tomography and singularity inversion"
+        ]
+      },
+      "rationale": "Pass the explicit normalized two-sided logarithmic strengths and coefficient-based resolution of the two shape candidates, together with the calculation of the endpoint tails in this law. Do not credit the classical forward apparent-shape kernel, projected-ellipse geometry or preferred principal-ratio locations as new. The actual accessible alternatives concern a population mixture or observables other than squared shadow aspect ratio. The old cited primary passages could not be checked in full; this is best-of-current-knowledge, not a priority certification for every amplitude or tail formula.",
+      "residual_risks": [
+        "Cited 1981 §2.2/Appendix and 1985 §2 unavailable in inspected lawful OA attempts; equivalent historical amplitudes or endpoint formulas are not excluded.",
+        "No exhaustive historical or cross-disciplinary priority claim. Exact statistical identification does not establish estimability or robustness at finite sample size or small axis gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit reported forward and peak-location precedent; historical coefficient/tail overlap unresolved",
+          "evidence": [
+            "Frozen relationship passage expressly excludes the forward kernel and peak positions from its novelty claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/mnras/194.3.679",
+          "material_read": "Bibliographic identification and secondary description in frozen RESULT.md and Weijmans et al.; §2.2 and Appendix full text not accessed",
+          "method": "Bounded lawful OA DOI/publisher and ADS alternate retrieval attempts",
+          "title": "The apparent and true ellipticities of galaxies of different Hubble types in the Second Reference Catalogue",
+          "trigger": "Strongest cited same-observable forward kernel and preferred-ratio source"
+        },
+        {
+          "assessment": "Geometry credited; not used to claim noncoverage",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1093/mnras/212.4.767",
+          "material_read": "Identification and contextual citation; §2 full text not accessed",
+          "method": "Bounded lawful OA DOI/ADS attempts",
+          "title": "Testing for triaxiality with kinematic data",
+          "trigger": "Cited triaxial projected-ellipse geometry"
+        },
+        {
+          "assessment": "Different population inverse",
+          "evidence": [
+            "F(epsilon) cannot uniquely determine the triaxial population distribution f(p,q); additional kinematic information is considered."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.1099",
+          "material_read": "v1 pp. 2 and 5, intrinsic shape distribution discussion; offset 36938 onward",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "The ATLAS3D project – XXIV. The intrinsic shape distribution of early-type galaxies",
+          "trigger": "Potential stronger inverse result from apparent shapes"
+        },
+        {
+          "assessment": "Distinct same-day result; not a marginal caustic inverse theorem",
+          "evidence": [
+            "Joint squared width and squared projected area recover semiaxes from support vertices and viewing direction from paired measurements."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-triangular-joint-width-brightness-law-and-directional-recovery-f--3c37c58813d8/RESULT.md",
+          "material_read": "Finding, paired observable and recovery statements",
+          "method": "Configured local Resultary mirror",
+          "title": "Triangular joint width-brightness law and directional recovery",
+          "trigger": "Closest projection-law and inverse comparison"
+        },
+        {
+          "assessment": "Different measurement and ambiguity",
+          "evidence": [
+            "Squared shadow-to-section area ratio, not S/T; uses the maximum and linear endpoint tail and recovers shape only up to polar duality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-endpoint-tomography-from-paired-sections-and-shadows-of-triaxial--e3183756e2e2/RESULT.md",
+          "material_read": "Finding, statistic and inverse statement",
+          "method": "Configured local Resultary mirror",
+          "title": "Endpoint tomography from paired sections and shadows of triaxial ellipsoids",
+          "trigger": "Related endpoint coefficient and shape-recovery claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two natural caustic locations leave a genuine middle-axis ambiguity. A single measurable feature of the same one-dimensional projection law provably resolves it, despite the loss of the orientation and the absolute scale, and the merged case is classified too. The local amplitudes and sharp endpoints also tell how probability concentrates near the geometrically special views. This is a nontrivial fixed-shape inverse theorem, not merely presentation of a known forward density; it asserts neither mixture identifiability nor a practical finite-sample estimator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

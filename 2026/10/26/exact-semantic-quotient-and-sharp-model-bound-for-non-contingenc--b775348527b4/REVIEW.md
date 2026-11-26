@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Seriality guarantees a nonempty successor support. Euclideanness and transitivity imply a common reflexive successor cluster. Propositional non-contingency cut tests distinguish precisely the supports of size at least two while identifying every singleton support. An induction on formula depth proves this is the full quotient; Boolean closure defines every subset of the finite quotient. Canonical clusters establish the model bound, and the explicit full-support formula supplies a sharp witness at every positive number of variables. Independent exact finite checks corroborate the underlying quotient for up to three variables and nested-formula invariance in the enumerated cases.
+PASS
 
-## Originality
+For every successor u of w, transitivity and Euclideanness give R(u)=R(w), with no finite-frame assumption. Consequently the truth of each formula depends inductively only on its current atom valuation and that common successor valuation support. For a singleton support every Δ formula at the point is true regardless of the singleton valuation. For a nonsingleton support, negated Δ of the minterm for b holds precisely when b is in the support, so such supports cannot collapse further. Combining these tests and root literals defines every profile, and Boolean closure defines every subset of the m(2^m−m) profiles. A reflexive cluster with one world per support valuation realizes each required successor support; add an external root only if its valuation is not represented. In that event the support is proper, so |S|+1≤m. The singleton class also admits a one-world realization. The conjunction of negated Δ of all valuation minterms forces every valuation to occur among successors when k≥1, giving a sharp m-world requirement. For Box, testing all valuation minterms with possibility distinguishes every nonempty support, giving the comparison census. An independent finite refinement of formula truth classes on all 442 pointed one-atom models on up to three labelled worlds (/workspace/audit_replay_2.py) stabilized at four Δ theories and six Box theories. The proof, not the finite test, covers all k and infinite frames.
 
-**PASS within the inspected primary literature and mathematical records.** The 2013 *Knowing Whether* study gives prior inexpressibility examples on serial transitive Euclidean frames, which are explicitly acknowledged. The 2026 *Proof Theory for Non-Contingency Logic* develops proof-theoretic machinery rather than the claimed complete pointed profile census or sharp model bound. Comparative searches found no already-covered mathematical statement in the consulted records. A priority risk remains from older algebraic or non-contingency semantic normal-form literature; the 2026 bundled-modalities article was accessible only in abstract form.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result is a complete expressive classification of a natural non-normal modal language on the standard KD45 belief-frame class: it counts all finite-variable equivalence classes, gives explicit bounded-depth representatives, pinpoints exactly what information non-contingency forgets, and supplies an optimal finite-model cutoff. It refines a known expressivity obstruction with a quantitatively exact logical invariant rather than renaming a theorem.
+Credit the earlier exact root/support spectrum, counts, separator family and depth-one expressiveness on terminal rooted stars, and the older knowing-whether singleton and almost-definability results. The supported distinct claim is the exact quotient on arbitrary KD45 frames together with its optimal model-size cutoff. Neither the earlier star proof nor conditional almost-definability supplies nested-formula invariance and the sharp cluster realization in that setting. The numerically identical algebra count is not a new number by itself.
 
-## Limits and literature relationship
+## value
 
-The result is restricted to one agent and finitely many Boolean atoms. Fan--Wang--van Ditmarsch (2013) is the closest semantic predecessor; Wang--Zenger (2026) supplies the current non-contingency setting. The priority comparison cannot rule out a different old algebraic presentation of the same quotient. Finite computational checks do not prove infinite-frame assertions; these follow from the structural proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The world cutoff gives an optimal finite witness size for satisfiability and for the failure of semantic equivalence in a standard belief logic, including satisfiability initially witnessed on infinite frames. The profile proof explains exactly what information is lost by using non-contingency instead of necessity despite the presence of cycles. This utility is distinct from the earlier terminal-star question-count optimization; the repeated numerical census alone would add little.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

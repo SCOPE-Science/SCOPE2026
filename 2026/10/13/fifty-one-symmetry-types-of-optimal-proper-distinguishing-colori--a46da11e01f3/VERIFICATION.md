@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Use `python verify.py --csv orbit_representatives.csv three_color_obstructions.csv` (Python 3.10 or later, standard library only). The script derives 168 linear collineations from the 168 invertible linear transformations on the three-dimensional binary vector space, creates another 168 by polarity, checks the graph edges under all 336 maps, generates every proper restricted-growth class partition with two to four classes, applies every automorphism to test color preservation, and independently constructs the 51 canonical four-class orbits. It regenerates both CSVs deterministically. The exact expected output includes 1, 350, and 29610 proper unlabelled partitions with respectively two, three, and four classes; 13692 distinguishing four-class partitions; and 51 orbits with size multiset 56,84,112,168 repeated 16 times,336 repeated 32 times.
+## correctness
 
-Compile the independently structured palette enumerator with `g++ -std=c++17 -O2 enumerate_cpp.cpp -o enumerate_cpp`. Running `./enumerate_cpp 3` yields zero distinguishing colorings, and `./enumerate_cpp 4` yields 719052 proper colorings, of which 328608 are distinguishing. Its automorphism tables are literal data in `heawood_aut.h` and have no external dependency. The two methods enumerate different spaces, respectively color-class partitions and palette-labelled colorings, and agree after multiplication by 24 for the successful four-class solutions.
+PASS
 
-This is an exhaustive finite computation, not probabilistic testing. The graph automorphism completeness relies on the linear-collineation and polarity proof in `RESULT.md`. No independent third-party audit or machine-checked proof has been conducted, and possible historical unindexed priority is not excluded.
+The connected incidence graph has a unique bipartition up to swap. A side-preserving point permutation preserves the third point on every line, hence XOR after extending it by zero; the induced automorphisms are GL(3,2) of order 168. Orthogonal complementation for the nondegenerate F_2 pairing supplies the side-swapping polarity and hence 336 maps in total. A proper restricted-growth word encodes each unlabeled partition once; its distinguishing criterion tests pointwise fixation of the classes, not the residual class permutations allowed in an orbit stabilizer. Fresh bounded adjacency-backtracking replay at /workspace/branches/e46d8460-f74c-4b6c-b62c-6d574a6821d2/heawood_check.py, with independent_check.json in that directory, found 336 graph automorphisms, 1/350/29610 proper partitions into 2/3/4 classes, none distinguishing below four, and 13,692 distinguishing four-class partitions. Each gives 24 color namings, hence 328,608 fixed-palette colorings. The orbit census is 51 with sizes 56,84,112 and 168 (16),336 (32). All 51 frozen orbit rows matched, including canonical representatives, profiles, counts and class-permutation stabilizer data. Stabilizers act faithfully on the four classes because the kernel would preserve each named class; the exceptional orders 6,4,3 follow from 336 divided by orbit size. These are exact finite graph claims, not a formula for general incidence graphs.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the exact census of the optimal proper distinguishing color partitions of the Heawood graph and their orbits. The existence of a proper distinguishing four-coloring and the graph-coloring framework are already established and not treated as new.
+
+## value
+
+PASS
+
+The Heawood graph is the natural highly symmetric Fano incidence graph, and the least proper palette is a canonical threshold. A complete classification of its optimal symmetry-breaking colorings records nonuniform stabilizers invisible to existence, and the reproducible representative set gives precise examples for further use. The orbit distribution is not an arbitrary parameter slice or a check of a known chromatic-polynomial value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

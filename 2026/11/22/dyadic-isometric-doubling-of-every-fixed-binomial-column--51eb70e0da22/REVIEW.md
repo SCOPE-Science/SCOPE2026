@@ -1,11 +1,21 @@
-# Scientific review: dyadic binomial-column doubling
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is an all-index theorem proved from a uniquely closest integer root in each dyadic input ball. Its algebraic telescoping identity isolates one factor of strictly smallest two-adic valuation, producing exact scaled-isometry depths for every binomial column. At twice the column index, the two parity branches have the same depths, and the center congruences agree because the paired binomial coefficients have identical valuations and these valuations lie at most one step below their branch depths. Each pair of branch maps is thus bijective onto the same output ball; their composition constructs the claimed input-class-preserving isometry. The derivation covers all positive lower indices, all binary classes, every two-adic input and all modular depths. The standalone exact checker passed 30,890 assertions but is not a substitute for the unrestricted proof.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The Sun–Zhang article proves complete residue-image coverage but not this all-column distributional conjugacy. Barat–Grabner studies the triangular population of binomial coefficients, not two fixed columns. An inspected published fifth-column formula provides one finite lower-index law, and the published sixth-column three-adic result concerns a different prime. Neither source states an isometric equivalence at *every* positive lower index. Lucas' theorem and Kummer's valuation criterion do not alone imply the full prime-power unit-residue distribution or isometric input reparametrization. Searches for doubling of fixed binomial columns, dyadic Haar-pushforward equality and odd-part invariance did not identify a covering published theorem. An unindexed general p-adic polynomial-image equivalence remains an originality risk.
+PASS
 
-**Mathematical value — PASS.** This is an infinite-parameter structural theorem rather than a table computation or small improvement: it identifies the dyadic probability laws of all fixed binomial columns along their entire doubling orbits, with a stronger conjugacy that preserves each sufficiently fine input congruence class. As a consequence, infinitely many a priori different prime-power residue-count problems reduce to one representative at each odd lower index; for example, the known three-level fifth-column law transfers exactly to all lower indices of the form \(5\cdot2^a\). It supplies a natural nontrivial invariant beyond the classical valuation-level invariance and applies at every modular depth.
+Fix a=floor(log2 m), L=a+1 and representatives 0<=r<2^L. The roots cover all residues mod 2^a and are distinct mod 2^L, so the closest j_* is unique: if two roots agree with r mod 2^a exactly one agrees mod 2^L. Write e=v2(r-j_*) and S_r for the sum of the other root valuations. On the branch all the other valuations stay fixed and are below min(e,L). In the telescoped divided difference the term omitting j_* is the unique one of valuation S_r. Thus differences on the branch have valuation d_r+v2(t-s), d_r=L+S_r-v2(m!), with d_r>=0 by integrality. The normalized branch is an isometry onto Z_2 because each finite reduction is bijective and the reductions are compatible. In the doubled branch the same-parity roots add m-1 to S_r, opposite-parity roots contribute zero, and v2((2m)!) adds m to the denominator valuation, so the scale is unchanged. Centers are all zero for r<m; for r>=m the common center valuation is d_r+e-L>=d_r-1. At the only potentially smaller valuation d_r-1 all centers have the same odd unit modulo two, hence are congruent modulo 2^d_r. This also covers d_r=0 and m=1. Inverting one branch on the common output ball constructs the desired bijective branch isometry. Because different branches retain their residues, the assembled isometry is global and Haar preserving; each finite branch permutation gives precisely the asserted local multiset equality. Iteration gives odd-part invariance, not an assertion that different odd parts always yield different laws.
 
-**Closest prior work and limits.** Sun and Zhang (arXiv:0812.3089, initially posted 2008-12-16), Barat and Grabner (2001), and the published fifth-column dyadic and sixth-column ternary special-case results are compared in RESULT.md and AUDIT.json. The theorem does not evaluate every common law, characterize the joint law under the unmodified input, or assert an analogue for odd primes. Its priority is provisional pending independent scholarly comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The meaningful distinct claim is the all-column, class-preserving isometric reparametrization in each parity branch, with localized complete residue laws. Existing dyadic support and individual-column laws receive full credit. The closest exact comparisons do not cover the cross-column theorem.
+
+## value
+
+PASS
+
+The theorem replaces infinitely many full fixed-column residue-law problems by the odd-index cases. It transports both global and conditional counts at arbitrary depths by explicit local inverse maps; that is materially stronger than transferring a few valuations, proving surjectivity, or reproducing the fifth- and sixth-column tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

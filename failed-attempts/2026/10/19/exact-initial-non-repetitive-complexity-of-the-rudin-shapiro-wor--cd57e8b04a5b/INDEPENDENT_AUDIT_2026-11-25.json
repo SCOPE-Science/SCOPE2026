@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:55:29.286708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4",
+        "Frozen VERIFICATION.md and verify_rs_first_repetition.py (inspected, not executed)",
+        "Fresh replay: python3 /workspace/branches/rudin_shapiro_replay.py"
+      ],
+      "rationale": "Fresh arithmetic generation reproduces the exact bases n=1..10, and the eight realized augmented pairs are closed under substitution and contain the seed. Their third iterates cover every length-eight window, with 24 even and 32 odd words and no shared word. A collision of length n>=8 must have equal start parities. Even starts project to equal length-ceil(n/2) half-index factors. For odd starts, the even comparison at offset 1 and odd comparison at offset 2 force equal parity of the half-indices; then all comparisons give a contiguous equal block of length floor(n/2)+1 at the half-indices. Thus j<2R(ceil(n/2)) is impossible. Conversely, the earlier match at the origin doubles by the bit recurrence since the base repetition position is even, and this persists through induction for n>=11. At a first collision uniqueness follows because two earlier matches would already collide. The closed form follows by halving, and powers of two and lengths one greater give the two ratio extrema.",
+      "residual_risks": [
+        "The replay establishes the finite bases and synchronization certificate only; the proof checks supply the unrestricted induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem is unrestricted in n and uses the same binary word. Nicholson–Rampersad's abstract and Theorem 6 concern initial non-repetitive complexity of other words, not an all-length theorem for Rudin–Shapiro."
+        ],
+        "reasoning": "This finding is already covered at every length by the indexed theorem; no inference from Abelian complexity or another word is needed.",
+        "searches": [
+          "Resultary hit 71ca47bc8958 Finding and proof §§1–4",
+          "Primary literature query for Rudin–Shapiro initial non-repetitive complexity; inconclusive as a discovery search",
+          "Nicholson–Rampersad, arXiv:1507.08206v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71ca47bc8958",
+        "Nicholson–Rampersad arXiv:1507.08206v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At powers of two B>=8 it proves first collision 4B for B+1<=n<=2B, repeating the start at zero, and provides an exact initial table."
+        ],
+        "reasoning": "These intervals tile n>=9 and yield the frozen formula and both extremal ratios; the base table handles the rest. The alternate proof proves the same theorem.",
+        "searches": [
+          "Resultary 71ca47bc8958, proof §§1 and 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record defines I_r(n) as the least repeated start j from zero and gives 4*2^floor(log2(n-1)) for n>=6; the conventional count of distinct starts before j is exactly j."
+        ],
+        "reasoning": "For integer n>=2, ceil(log2(n))=1+floor(log2(n-1)); both definitions and formulas coincide, not merely up to an index shift.",
+        "searches": [
+          "Local Resultary, Rudin–Shapiro first repetition/initial non-repetitive complexity; exact hit 71ca47bc8958",
+          "Nicholson–Rampersad, arXiv:1507.08206v3, definition on p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed theorem gives the earlier index zero at n>=6 and ratios 2 and 4; §4 table shows 0,0,1,1,1,0,0,0 for lengths 1..8."
+        ],
+        "reasoning": "The table settles all exceptional cases; minimality makes every stated earlier index unique.",
+        "searches": [
+          "Local Resultary 2026/10/26/SCOPE-exact-initial-non-repetitive-complexity-of-the-rudin-shapiro-wor--71ca47bc8958/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same exact all-length invariant, limiting ratios, and earlier starting indices. Its dyadic-block proof differs from the frozen decimation proof after the common parity certificate, but does not distinguish the claimed theorem. This is verified equivalent coverage, not a judgment of authorship, priority or dependence.",
+      "residual_risks": [
+        "Index dates do not establish priority or dependence.",
+        "The primary discovery query did not settle what other sources may say; the positive coverage determination relies on the statement and proof actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same all-length claim",
+          "evidence": [
+            "Dyadic formula and initial table are identical after integer-log rewrite; four-letter lift and parity windows agree under relabeling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-initial-non-repetitive-complexity-of-the-rudin-shapiro-wor--71ca47bc8958/RESULT.md",
+          "material_read": "Finding and proof §§1–4, base table and verification (offsets 0–6309 and 6200–9737)",
+          "method": "Local mirrored full-text passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact initial non-repetitive complexity of the Rudin–Shapiro word",
+          "trigger": "Exact local indexed hit"
+        },
+        {
+          "assessment": "Same invariant, results for other words in inspected passages",
+          "evidence": [
+            "Abstract names Thue–Morse, Fibonacci and Tribonacci formulas; Theorem 6 is for Thue–Morse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.08206",
+          "material_read": "v3 abstract p. 1, definition p. 2, Theorem 6 p. 8",
+          "method": "Open-access paper text",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Primary source on the exact invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Nicholson–Rampersad arXiv:1507.08206v3, abstract and definition"
+      ],
+      "rationale": "An all-length classification for a canonical automatic word identifies the exact collision, its predecessor and the dyadic jump behavior. The parity-decimation proof explains the jumps by a small synchronization certificate and a recurrence rather than long prefix scans. This is mathematically useful content even though the theorem is covered elsewhere.",
+      "residual_risks": [
+        "No result for shifted scans or generalized substitutions is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

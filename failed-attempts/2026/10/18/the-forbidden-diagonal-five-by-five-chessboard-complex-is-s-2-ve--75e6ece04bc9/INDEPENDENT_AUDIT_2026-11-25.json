@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:14:11.871273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–31",
+        "VERIFICATION.md, artifacts/verify.py and artifacts/verification_output.txt (inspected; uploaded code not executed)",
+        "/workspace/branches/audit-evidence/chess.py (executed)"
+      ],
+      "rationale": "A fresh tuple-based enumeration gave face counts 20,130,320,265,44. The prescribed sequence gives 382 discrete-Morse pairs, one critical vertex, one critical 2-cell and thirteen critical 3-cells; an independent topological sort visited all 779 nonempty faces with all 2,500 incidences. Fraction-free integer elimination gave rational ranks 19,111,208,44, so b_3=13. The only possible nonzero Morse CW differential is the integer row from the thirteen 3-cells into the single 2-cell. Its rational rank is zero, hence it vanishes integrally. The two-skeleton is S²; each attaching map has degree zero and is nullhomotopic. This proves the wedge, not just its homology.",
+      "residual_risks": [
+        "No conclusion about larger off-diagonal boards, symmetry-equivariant homotopy, or the inclusion into the full board is required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8.1 yields (nu_10−1)=1-connectivity for D_5. Theorem 8.3 addresses bottom-degree nonvanishing. The full board's Z/3 in degree two is Jonsson's different result for M_{5,5}."
+        ],
+        "reasoning": "Simple connectivity on the deleted board is the precise general topological input needed when combined with its tabulated bottom integral homology and elementary top-dimensional collapse. Full-board torsion alone has no such implication.",
+        "searches": [
+          "arXiv:math/0409054, Theorems 8.1 and 8.3",
+          "arXiv:1203.5644v1, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0409054, §8 and Table 8.1",
+        "arXiv:1203.5644v1",
+        "arXiv:2209.11319",
+        "Resultary: 223bbad446ab, 2c83cecae788, 790ee52a5d2d, 2f46336da7fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each size-4 matching has at most one completion, so the top 4-simplices collapse independently along one face each. The number of k-rook matchings is sum over j=0..k of (−1)^j binom(5,j) binom(5−j,k−j)^2 (k−j)!; for k=1..5 this gives chi=−11. Published simple connectivity and H_2=Z then determine H_3=Z^13, and the relative Hurewicz argument makes the homology basis spherical."
+        ],
+        "reasoning": "The prior statements are sufficient for the exact wedge via the short deduction in the rationale, without any new Morse search or rank computation. The claimed torsion change from the full board was itself already determined by the two integral H_2 results.",
+        "searches": [
+          "arXiv:math/0409054, §8, pp. 40–41, Theorem 8.1 and Table 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published definition M(D_n) uses every non-taking rook set on the square board with its diagonal removed, exactly the frozen ordinary matching complex.",
+          "The perfect-matching-generated result instead gives a wedge of 33 two-spheres for subsets of perfect matchings; this omits the 45 maximal four-rook matchings with the identical omitted row and column.",
+          "The later 790ee52a5d2d record explicitly gives the same ordinary wedge."
+        ],
+        "reasoning": "The published table is for the exact graph and functor, with no issue of terminology. The perfect-matching-generated complex is not equivalent by definition, and the later exact match is not used as proof of earlier publication.",
+        "searches": [
+          "Shareshian–Wachs, arXiv:math/0409054, §8",
+          "arXiv:2209.11319",
+          "Resultary: 2f46336da7fa, 790ee52a5d2d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=5 column of Table 8.1 is Z in degree nu_10=2, for the exact ordinary complex. The same-day symmetry-character record 223bbad446ab covers rational Betti numbers in degrees 2 and 3 and the rational character; later 2c83cecae788 covers integral homology, and 790ee52a5d2d explicitly covers the wedge."
+        ],
+        "reasoning": "The older primary table is decisive for H_2; the additional catalogue overlap is credited without inferring an order from the shared date or making any of the later records establish priority.",
+        "searches": [
+          "arXiv:math/0409054, Table 8.1, printed p. 41; ar5iv offset 131250",
+          "Resultary: 223bbad446ab, 2c83cecae788, 790ee52a5d2d"
+        ]
+      },
+      "rationale": "The advertised wedge is true but is a routine consequence of published results for the very same ordinary complex, not just a match to a nearby complex. In Shareshian–Wachs §8, Theorem 8.1 gives simple connectivity at n=5 (nu_10=2), and Table 8.1 explicitly gives integral H_2=Z, attributing both to Björner–Welker. Every 4-simplex has free 3-faces: a four-rook matching has at most one possible completion to five rooks. Collapsing each 4-simplex along one such face leaves a simply connected 3-complex. Inclusion–exclusion over forbidden diagonal squares gives the f-vector and chi=−11, hence H_3=Z^13 because it is a subgroup of the free top chain group. Choose a sphere representing the H_2 generator by Hurewicz. The pair of the complex and this sphere (included by mapping cylinder) is 2-connected; relative Hurewicz and the homotopy exact sequence give a surjection pi_3(X) onto H_3(X), since pi_2(S²) maps isomorphically onto pi_2(X). Representatives of an H_3 basis and the H_2 sphere give a homology equivalence from the asserted wedge, and simple connectivity gives a homotopy equivalence. Thus the exact homotopy result follows from the existing table and connectivity theorem by a free-face observation, elementary counting and standard topology. This is an implication judgment, not an assertion that the old paper prints the wedge verbatim.",
+      "residual_risks": [
+        "Whether an older source also prints the wedge verbatim and the chronology of same-day catalogue records are unresolved; neither affects the explicit prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior premises for the frozen wedge; explicitly covers H_2 and simple connectivity",
+          "evidence": [
+            "M(D_n) includes all rook placements; Theorem 8.1 gives (nu_2n−1)-connectivity; Table 8.1 gives Z for n=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0409054",
+          "material_read": "§8, printed pp. 40–42, Theorems 8.1 and 8.3 and Table 8.1; PDF offsets 90800–92595 and matching ar5iv table markup at offset 131250",
+          "method": "Lawful primary PDF and mirrored table layout comparison; implication reconstructed separately",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "Same off-diagonal chessboard and exact integral homology table"
+        },
+        {
+          "assessment": "Both prior facts are confirmed in the reproduction; no claim about the original paper's other contents",
+          "evidence": [
+            "Shareshian–Wachs expressly attribute Theorem 8.1 and the Table 8.1 computations to Björner and Welker."
+          ],
+          "identifier_or_url": "Björner–Welker [BjWe], as cited and reproduced in arXiv:math/0409054, §8",
+          "material_read": "Original DOI copy inaccessible; theorem and table read in the accessible Shareshian–Wachs reproduction",
+          "method": "Lawful availability check and materially read published reproduction",
+          "title": "Björner–Welker connectivity and exact small-board computation",
+          "trigger": "Original source attributed for both decisive premises"
+        },
+        {
+          "assessment": "Correct comparison but not a result on D_5",
+          "evidence": [
+            "Integral H_2 of the full M_{5,5} is Z/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1203.5644v1",
+          "material_read": "Theorem 3.1, HTML offset 28350",
+          "method": "Primary OA theorem inspection",
+          "title": "On the 3-torsion Part of the Homology of the Chessboard Complex",
+          "trigger": "Comparator for the undeleted board"
+        },
+        {
+          "assessment": "Counts perfect matchings, not the ordinary complex's homotopy type",
+          "evidence": [
+            "Perfect matchings are identified with fixed-point-free permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+          "material_read": "PDF p. 2, offset 5550, graph and derangement definitions",
+          "method": "Primary OA passage inspection",
+          "title": "Deranged matchings: proofs and conjectures",
+          "trigger": "Same underlying crown graph"
+        },
+        {
+          "assessment": "Homology and exact wedge overlap on the ordinary object; separate 33-sphere wedge is for a different complex",
+          "evidence": [
+            "790ee52a5d2d states S² wedge thirteen S³; 2f46336da7fa explicitly restricts to faces extendible to perfect matchings."
+          ],
+          "identifier_or_url": "Resultary: 223bbad446ab, 2c83cecae788, 790ee52a5d2d, 2f46336da7fa",
+          "material_read": "Mirrored original statements defining the complexes and giving the ranks, character or homotopy types",
+          "method": "Local Resultary search and statement comparison",
+          "title": "Five-crown homology characters and homotopy types",
+          "trigger": "Same board and size under ordinary and perfect-generated definitions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–36",
+        "arXiv:math/0409054, Theorem 8.1 and Table 8.1"
+      ],
+      "rationale": "The board and its comparison with full-board torsion are mathematically natural, but the changed bottom group was already tabulated. The remaining exact wedge classification follows mechanically from the same board's published connectivity, routine enumeration, and standard topology as above. An independent computational certificate confirms it but does not supply a surviving distinct mathematical invariant, general theorem, or equivariant refinement in the frozen claim.",
+      "residual_risks": [
+        "This value finding is specific to the frozen claim, not to larger deleted-board complexes or maps out of D_5."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:58.633192Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The return mean u solves u''+b2 u' = −1 with u(1)=0 and the stated scale-speed derivative; in the far negative tail the scale-speed ratio is at most 1/(c2 |x|) by integrating the dissipativity bound between y≤x and x. Thus u grows at most logarithmically there and (b1−b2)u' is bounded on x≤1, justifying the stopped Dynkin and renewal computations, whose success probability is positive. They give M_r−u(0)=N_r/p_r exactly. From |b1(x)|≤L|x|, a Gronwall bound by the Brownian running maximum gives the exponentially small short-time probability of hitting 1 and all needed moment bounds; comparison to sqrt(2)B_t in L1 gives E X_t^+=sqrt(t/pi)+O(t^(3/2)), and Itô gives E X_t²=2t+O(t²). Killing and fixed-neighborhood localization contribute errors smaller than every power after Laplace weighting. Near zero h(x)=x^+/S2+O(|x|³), so p_r=1/(2 S2 sqrt(r))+O(r^(−3/2)). With delta=b1'(0)−b2'(0), u''(0)=−1 and symmetry of unrestricted search eliminates odd terms, giving N_r=−2 delta r^(−2)+O(r^(−3)). Dividing gives the sign, factor 4 and O(r^(−5/2)) remainder in the claimed normalization; the exact identity gives equality when the drifts coincide. The finite mesh file was inspected, not executed or used as a continuum certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas–Kundu–Pal's Eq. (4) is a general target-active renewal ratio, including arbitrary search/return and clock laws.",
+          "Dubey–Pal state the harmonic return-only value approached at high rates."
+        ],
+        "reasoning": "The general renewal identity subsumes the frozen renewal formula but not the quantitative theorem; the latter needs the additional stopped Dynkin identity, symmetry and short-time analysis, and extends beyond the harmonic dynamics.",
+        "searches": [
+          "arXiv:2307.16294v3, General framework, Eq. (4)",
+          "arXiv:2610.18814v1, high resetting rates and harmonic trap model"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.16294v3",
+        "arXiv:2610.18814v1",
+        "arXiv:2511.14646v1",
+        "arXiv:2406.08975v1",
+        "Resultary 1c82f789b3f9, 225188b13814 and 498e0c3e1b07"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frydel identifies the free-search/harmonic-return plateau. Biswas et al. treat U(x)=lambda |x|. The later-indexed OU clock result gives the exact harmonic coefficient, not the nonlinear slope-only law."
+        ],
+        "reasoning": "The plateau, a nonsmooth special case, and a formula for harmonic pairs with arbitrary clocks do not entail a smooth nonlinear r^(−3/2) law with the claimed error. The exact drift-comparison identity resolves cancellations not explicit in the renewal formula.",
+        "searches": [
+          "arXiv:2511.14646v1, Eqs. (54)–(55)",
+          "arXiv:2406.08975v1, cusp return and active target",
+          "arXiv:2307.16294v3, Eq. (4)",
+          "1c82f789b3f9, Finding offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 1c82f789b3f9 gives an OU mean correction with arbitrary clock and finite second moment; the exponential-clock coefficient is 4(k1−k2)S2, matching b_j(x)=−k_j x.",
+          "Record 498e0c3e1b07 instead expands for k→0 with fixed reset rate; record 225188b13814 treats a fixed-positive-Laplace-parameter transform for OU."
+        ],
+        "reasoning": "The identified exact coefficient overlap is a harmonic subfamily; the weak-trap and fixed-positive-Laplace-parameter regimes are not equivalent to the uniform-in-rate-order statement for each fixed nonlinear pair.",
+        "searches": [
+          "Resultary: high-rate mean target time correction stochastic return odd confining drifts curvature contrast r^-3/2",
+          "Resultary: rapid stochastic return high reset rate target active return harmonic search mean time r^{-3/2} first passage",
+          "Primary literature: stochastic resetting stochastic return target active during return high resetting rate harmonic traps general potential mean first passage correction asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed symbolic OU result, rather than a finite table, is the strongest exact numerical-coefficient match.",
+          "The frozen mesh program treats two nonlinear example pairs and an equal-drift control at three rates, not a table for general drifts."
+        ],
+        "reasoning": "A finite database or table cannot decide the expansion of a mean for all fixed admissible drift functions; comparison must be to exact symbolic results at closest assumptions.",
+        "searches": [
+          "Resultary high-rate and rapid stochastic-return queries above; inspect indexed OU match 1c82f789b3f9"
+        ]
+      },
+      "rationale": "Pass for the quantified correction for arbitrary odd, smooth, globally Lipschitz and strongly confining drift pairs, not for the known plateau or the general renewal identity. A catalogue result gives exactly the exponential-clock OU specialization, but its arbitrary-clock generality does not cover nonlinear drifts. The general published renewal formula identifies the stopped-cycle ratio; it does not expose the signed drift discrepancy, parity cancellation or expansion of the ratio. The harmonic paper and free/harmonic plateau do not imply the nonlinear theorem.",
+      "residual_risks": [
+        "No readable full text was obtained via doi:10.1088/1751-8121/abcf0b; it is not used as negative evidence.",
+        "An uncatalogued general high-rate expansion or other passages in the harmonic literature could cover part of the result; no claim of historical priority for the plateau or harmonic coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the base renewal ratio, not the local-curvature high-rate expansion in this passage",
+          "evidence": [
+            "Eq. (4) expresses the MFPT through E min(T,R), a mean return exit time, and a return splitting probability averaged against the killed search propagator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.16294v3",
+          "material_read": "General framework and Eq. (4), PDF pp. 2–3, offset 16300 through 23107",
+          "method": "OA primary PDF, locator then bounded passage",
+          "title": "Stochastic-return general renewal framework",
+          "trigger": "General arbitrary dynamics could subsume the frozen result"
+        },
+        {
+          "assessment": "Establishes harmonic model and plateau, not general smooth drift correction",
+          "evidence": [
+            "The large-rate MFPT saturates when search is suppressed and the particle searches solely under the return potential k2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18814v1",
+          "material_read": "Model around offset 1024 and discussion of Figures 2–3 at offsets 31800–33938",
+          "method": "OA primary HTML by bounded passages",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Same two-trap protocol in the harmonic case"
+        },
+        {
+          "assessment": "Prior limiting value for free search and harmonic return",
+          "evidence": [
+            "As the search interval tends to zero the harmonic trap becomes permanent; the harmonic hitting-time integral is given."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.14646v1",
+          "material_read": "PDF p. 10, offset 76900, Eqs. (54)–(55)",
+          "method": "OA arXiv PDF retrieved through abstract record",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+          "trigger": "Prior return-only high-reset mean"
+        },
+        {
+          "assessment": "Specialized nonsmooth return potential",
+          "evidence": [
+            "U(x)=lambda |x|, with target detection in either phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.08975v1",
+          "material_read": "PDF pp. 1–2, offsets 0 and 9350",
+          "method": "OA arXiv PDF retrieved through abstract record",
+          "title": "Drift-diffusive resetting search process with stochastic returns: Speedup beyond optimal instantaneous return",
+          "trigger": "Target-active stochastic return with exact mean"
+        },
+        {
+          "assessment": "Exact harmonic overlap; no nonlinear-drift coverage",
+          "evidence": [
+            "Two OU stiffnesses and an arbitrary positive clock; an exponential clock recovers the frozen harmonic coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp r^(-3/2) clock-moment law for stochastic return with Ornstein–Uhlenbeck phases",
+          "trigger": "Direct match to the high-rate exponent and harmonic coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction distinguishes approach from above and below to an otherwise common return-only mean; it separates the local slope contrast from a global return scale integral and explains why the linear spatial perturbation cancels. The controlled error and the extension to nonlinear confining drifts make the law useful beyond a harmonic benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

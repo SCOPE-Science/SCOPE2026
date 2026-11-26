@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:05:29.708589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47, VERIFICATION.md, verify_aronhold.cpp, minimum_degrees.csv and class_profiles.csv (supplied code inspected, not executed)",
+        "Independent replay: python3 /workspace/audit_evidence/3_symplectic_classes.py --probe; python3 /workspace/audit_evidence/3_symplectic_classes.py (NumPy). Outputs: /workspace/audit_evidence/3_probe.txt and /workspace/audit_evidence/3_symplectic_classes.txt",
+        "ATLAS S6(2) order-12 rows, https://brauer.maths.qmul.ac.uk/Atlas/v3/clas/S62/"
+      ],
+      "rationale": "In odd characteristic the parity-preserving theta torsor of a smooth plane quartic is equivariantly identified with quadratic refinements of its 2-torsion Weil pairing. Labeling a refinement by Q_0+B(a,·) gives parity Q_0(a) and affine triple-sum index a+b+c. Thus the unordered seven-sets with all even triple sums are exactly the specified heptads. A set is fixed by Frob^d iff its orbit length under Frob divides d; the least such positive d over all sets is the shortest cycle. I wrote an independent NumPy enumeration: construct the heptads by preserving the triple condition at each adjunction, enumerate ordered symplectic bases by choosing a symplectic pair and a basis of its complement, compute actual conjugacy orbits by conjugating with eight transvections (verified their orbit of one direction gives all 63, hence generates all transvections), and evaluate the three permutations per class. The probe gave 288 heptads and 23,040 bases with a fixed first vector. The full run gave 1,451,520 matrices in 30 actual classes, all 30 frozen profiles matched as a multiset, and the eight totals agreed exactly. The unique minimum-12 class has size 120,960 and profiles odd 1¹·3¹·12², even 6²·12², heptad 12²⁴. Its order is 12 from the heptad cycle and the symplectic theta action; its centralizer is 12. The ATLAS order-12 rows have centralizers 24, 24, 12, identifying it as 12C. The enumeration uses no assumed partition by paired theta signatures. This proves the asserted abstract spectrum and the necessary universal bound for curves, not the geometric sharpness of 12.",
+      "residual_risks": [
+        "Setwise rationality does not give seven individually rational bitangents. The computations say nothing about which listed classes are realized over a given finite field or whether degree 12 is attained by an actual curve."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ATLAS lists explicit standard-generator permutation representations and supplies standard-generator words for every class representative, including ab² for 12C. Bergvall identifies the odd-, even-, and heptad-action permutation characters (φ1a+φ27a, φ1a+φ35b, and the 288-dimensional sum).",
+          "Elsenhans–Jahnel's construction under an invariant-Cayley-octad subgroup hypothesis is over infinite fields of characteristic different from two and is not a heptad spectrum theorem. Bergvall Cor. 3.6 counts marked pairs, not realization of an individual class."
+        ],
+        "reasoning": "The prior permutation data determines full cycles in the relevant actions, rather than just the minimum requested here: the standard words are evaluated in the corresponding permutations. The additional geometry in the papers does not supply missing geometric realizability for this record; importantly the frozen claim relies only on the abstract actions.",
+        "searches": [
+          "ATLAS S6(2) representation and conjugacy tables: degree 28, 36 and 288; standard class words",
+          "arXiv:2106.13072 §§3.1–3.3, induced trivial characters of stabilizers",
+          "Elsenhans–Jahnel arXiv:1710.07279 Thm. 1.2"
+        ]
+      },
+      "checked_sources": [
+        "ATLAS S62 class and S62G1-p288B0 representation pages",
+        "Bergvall arXiv:2106.13072 §§2.4, 3.1–3.3 and Cor. 3.6",
+        "Elsenhans–Jahnel arXiv:1710.07279 Thm. 1.2",
+        "Local Resultary be0b52c88fb6 and 7ea27d5e8181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published coset character χ determines #Fix(g^d)=χ(g^d) for each divisor d of the class order. If desired, the full cycle count at d is (1/d)∑_{e|d} μ(d/e)χ(g^e). The standard generators plus class words give another direct way to compute the same quantities, not requiring a character-table endpoint.",
+          "For 12C, the class word ab² has order 12 and orbit lengths on the known three actions determine exactly the cross-comparison. The conversion to a universal extension-degree bound uses only the usual Frobenius setwise descent criterion."
+        ],
+        "reasoning": "The abstract counts, the exceptional comparison, and the bound for all curves are direct evaluations/consequences; a different exhaustive implementation validates them but cannot confer originality. An independent geometric result constructing 12C Frobenius, or obstructing it, would be a different claim and is not present.",
+        "searches": [
+          "Bergvall §3.3 S7 character and §§3.1–3.2 theta characters",
+          "ATLAS class words, centralizers and explicit generators of the 288-point representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact match is the same record (suffix be0b52c88fb6); an earlier incidence-lattice entry 7ea27d5e8181 has a different invariant in the available synopsis.",
+          "Bergvall identifies Aronhold heptads with the transitive S7-coset action and gives its permutation character φ1a+φ27a+φ35b+φ105b+φ120a."
+        ],
+        "reasoning": "The least d fixing a heptad is the smallest d for which that permutation character is positive on g^d, equivalently the shortest cycle in the explicit S7-coset action. This is not obtained from ATLAS subgroup suborbit lengths, which are different data.",
+        "searches": [
+          "Resultary: Aronhold heptads, least extension/Frobenius orbit degrees, exceptional 12C and theta cycle spectra",
+          "Bergvall arXiv:2106.13072 §§2.4, 3.1–3.3",
+          "ATLAS S62G1-p288B0 transitive S7-coset action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-288 page lists the stabilizer S7 and concrete generator files, not a class-wise minimum column. The conjugacy page lists class representative words and centralizers. It gives 12C centralizer 12 and thus size 120,960 exactly. The abstract aggregate tuple list was not located as a printed table in these passages."
+        ],
+        "reasoning": "Evaluate each published class word on the published 288-point generators, take min of the cycle lengths, increment the class count by 1 and the element count by |G|/|C_G(g)|. This is a direct finite transformation of the existing tables, not a new proof about heptads or quartics. The 12C profiles similarly come from the single word on the prescribed three actions.",
+        "searches": [
+          "ATLAS public representation table S62G1-p288B0 and conjugacy table S62, including the download links for permutation generators and class words",
+          "Resultary exact class-degree spectrum/12C, plus incidence heptad record 7ea27d5e8181"
+        ]
+      },
+      "rationale": "The exact aggregate list was not located verbatim. Its whole abstract content is nevertheless mechanically determined by prior explicit action data: the ATLAS standard-generator actions and standard words for all class representatives (and equivalently all three permutation characters identified by Bergvall together with standard class data). This supplies more than an abstract existence theorem for an action. Computing a cycle minimum by reading the cycles of each of 30 specified permutations, and summing their printed class weights, leaves no new mathematical invariant to determine beyond that routine evaluation. Geometric realizability, which could distinguish an arithmetic theorem from the table, is explicitly not supplied.",
+      "residual_risks": [
+        "The explicit eight-row table was not located verbatim. The character-table web endpoint attempted separately did not load, and the incidence-lattice local mirror text was unavailable; neither limitation is the basis of rejection. The generator and class-word data provide the direct implication independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior direct input table for all classwise computations; confirms identity of the exceptional class",
+          "evidence": "|G|=1,451,520, class words in a,b, 12C represented by ab² with centralizer 12, and degree-28/36/288 action links using standard generators.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/clas/S62/",
+          "material_read": "Standard generators, degree 28/36/288 representation list (offset 0–1850), conjugacy table and order-12 rows (offsets 2200–end)",
+          "method": "Bounded OA website reading",
+          "title": "ATLAS: Symplectic group S6(2)",
+          "trigger": "Class representatives, names, masses, power data and representations"
+        },
+        {
+          "assessment": "Exact action given, although no literal table of shortest cycles on the page",
+          "evidence": "Transitive degree-288 S7-coset action, standard permutation generators available. Printed suborbit lengths are not the orbit lengths of a class element.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p288B0",
+          "material_read": "Representation/stabilizer data and generator links (page beginning)",
+          "method": "Bounded OA website reading",
+          "title": "ATLAS: S6(2) permutation representation on 288 points",
+          "trigger": "Exact permutation representation determining the minimum heptad degrees"
+        },
+        {
+          "assessment": "Prior characters for all three actions, not claimed to print aggregate minima or geometric 12C examples",
+          "evidence": "Odd, even and heptad stabilizer characters are respectively 1a+27a, 1a+35b and 1a+27a+35b+105b+120a; Cor. 3.6 counts marked pairs over finite fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13072",
+          "material_read": "§2.4 (p. 6); §§3.1–3.3 including the character computations (pp. 13–15; text offsets 40500 and 43750–48498), and Cor. 3.6 (p. 16)",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Arithmetic and topology of classical structures associated to plane quartics",
+          "trigger": "Identification of the relevant permutation actions and explicit characters"
+        },
+        {
+          "assessment": "Different realization setting, not a heptad spectrum theorem",
+          "evidence": "Prescribed action in the invariant-Cayley-octad subgroup setting over an infinite field of characteristic not 2; the text cautions about finite fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.07279",
+          "material_read": "§1 Thm. 1.2 and qualifications on p. 2 (near text offset 4800)",
+          "method": "Bounded OA primary PDF reading",
+          "title": "On plane quartics with a Galois invariant Cayley octad",
+          "trigger": "Potential geometry of finite-field realizability and related Galois actions"
+        },
+        {
+          "assessment": "Synopsis concerns a different invariant; no conclusion about uninspected full text",
+          "evidence": "Incidence lattice of the 288 heptad sums with cokernel Z/7Z, not a conjugacy-cycle count in the synopsis.",
+          "identifier_or_url": "Resultary 2026/11/2, suffix 7ea27d5e8181",
+          "material_read": "Indexed synopsis only; local source mirror file unavailable",
+          "method": "Resultary semantic lookup and local mirror attempt",
+          "title": "Aronhold heptads span the full degree-seven congruence lattice of bitangents",
+          "trigger": "Same geometric heptads and symplectic incidence data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29, 38–53",
+        "ATLAS standard generator and representative-word passages; Bergvall stabilizer character calculations"
+      ],
+      "rationale": "The least extension degree is a natural question and the evaluated summary is convenient reference data. Here, however, its complete abstract answer and exceptional comparison are routine extractions of already specified small permutation data, and the transfer to curves neither realizes the exceptional class nor eliminates it geometrically. The independent computation is an effective correctness check, not a distinct substantive contribution beyond that extraction.",
+      "residual_risks": [
+        "This does not deny potential value for a new geometric realizability theorem or for a comparable finite invariant not determined by existing action data."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The normal form \(tn+r=(t-r)n+r(n+1)\) is unique for \(0\le r<n\) and \(t\ge r\). The proof counts all ordered summand pairs in both the no-carry and one-carry cases and thereby obtains a closed formula for every \(\nu_n\) value. Its finite-difference analysis separately handles interior and end-of-block transitions, proving no unexamined decreases remain. The independent reachability/convolution checker passes for \(2\le n\le48\), but no finite test is used as a substitute for the universal proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence.** The most relevant primary source, Bras-Amorós (arXiv:2307.16448, Sections V–VII), determines the terminal descent of the sequence, not its full location-and-magnitude distribution. Delgado et al. (arXiv:1306.2862, Sections 2–3 and Theorem 43) determine generalized Feng–Rao numbers of two-generator semigroups rather than this complete adjacent-step spectrum. The earlier manuscript on Feng–Rao numbers treats stable higher-weight quantities. Published mathematical-record searches for the full triangular descent spectrum and its equivalent ordered-pair formulation did not return a stronger covering statement. The main residual risk is that an older Hermitian-code formula or unindexed finite-difference calculation may imply the histogram without using the same terminology. This search result is not proof of priority.
+PASS
 
-## Mathematical value
-**PASS.** The descending transitions of the Feng–Rao multiplicity sequence are the precise obstruction to its local monotonicity and determine where termwise shortcuts may fail. The literature has studied the final such transition; a complete exact list of all earlier transitions and their sizes is a natural, structurally informative refinement. The result covers an infinite arithmetic family, gives a sharp triangular multiplicity law, and identifies the aggregate total decrease, not an arbitrary finite calculation.
+The final statement clarifies that the list is complete on both sides of the conductor, not that no listed descents are past it. The canonical form for s=nt+r is (t−r)n+r(n+1), so membership is t≥r. Splitting the summands' canonical residues produces a no-carry contribution (t−r+1)(r+1) and a one-carry contribution (n−1−r)max(t−r−n,0), with no other residue sums. For an interior successor, subtraction yields t−2r−1 through t=n+r and +1 from t=n+r+1, including at the carry change. A block ends at r=min(t,n−1); the next residue is zero and the difference is +1 both before and from t=n−1. Thus a drop occurs exactly for 1≤r≤n−2 and r+1≤t≤2r; for fixed r these drop sizes are r through 1. Summing gives the count, histogram and total drop. The largest t,r give the final descent 2n²−3n−2, which exceeds n(n−1) by n²−2n−2>0 when n≥3; n=2 has none. For the smallest nontrivial case, conductor 6 and ν_3(7)=4, ν_3(8)=3 explicitly witness the distinction.
 
-## Scope and risk
-No claim about concrete code minimum distances, all two-generator semigroups, or external independent validation is made. The proof and checker are supplied; only self-review was completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence the entire exact location-and-magnitude spectrum is distinct, not the last descent or the underlying divisor-count definition. The repaired prior-work comparison explicitly credits the last descent to Bras-Amorós's June 2004 publication; the 2023 date is for its arXiv copy. The mathematical statement retains only the clarified original scope.
+
+## value
+
+PASS
+
+For this natural consecutive-generator family, the result identifies precisely where monotone reasoning on the Feng–Rao divisor-count sequence breaks and how large each failure is. The complete triangular spectrum and aggregate variation are global exact information not supplied by the terminal index. The result is not a claim of a new minimum-distance bound or novelty for the already known last drop.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

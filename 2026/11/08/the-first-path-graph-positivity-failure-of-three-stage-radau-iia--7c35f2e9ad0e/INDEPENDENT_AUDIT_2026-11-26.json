@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:29:51.406736Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completed [2/3] Padé step uses P(hL)/Q(hL), with Q positive on the nonnegative spectrum of the full path Laplacian. In a spectral basis, det(Q) times this step has eigenvalues P(h lambda_j) times the product of all other Q factors. The unique zero Laplacian eigenvalue shows the degree is at most 3(n−1) both for the zero mode and for each nonzero mode. Independent replay with python3 /workspace/reproductions/3.py (SymPy) reconstructed every numerator from exactly 3(n−1)+1 integer evaluations using exact determinant/inverse arithmetic and Newton interpolation, rather than the frozen log-trace recurrence. It confirmed nonnegative coefficients and a positive coefficient for every entry after the stated degree elevations for n=2 through 13. Degree elevation uses a strictly positive factor and proves the full positive-real-step assertion, not just positivity at the interpolation nodes. T_n(0)=I and L_1=0 handle the endpoints. A separate bordered determinant at n=14 and h=5/2 gives exactly the stated negative fraction. No larger sizes, Dirichlet restriction or stage signs are inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed RESULT.md 414ee797c218 gives counterexamples with a three-state pure-birth generator and a distinct reversible generator at h=5.",
+          "Frozen AUDIT.json records Zappavigna et al. Section III as dealing with diagonal [p/p] maps; the independent retrieval timed out."
+        ],
+        "reasoning": "Failure within a larger class of generators does not locate a first failure in the much smaller unit-conductance path class. Sufficient step-size thresholds are not in themselves all-step path cutoffs, and diagonal rather than subdiagonal Padé results change the rational map.",
+        "searches": [
+          "Resultary: fifth-order Radau IIA positivity Markov generators reversible pure birth",
+          "Horváth DOI 10.1016/j.apnum.2004.08.026",
+          "Zappavigna et al. author-posted Padé paper"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and cited comparison in AUDIT.json",
+        "Resultary 7c35f2e9ad0e, 01757ab0b97c, ec7630f7d0e5, 414ee797c218",
+        "Horváth, Wade et al. and Zappavigna et al. OA attempts with limits above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Boolean-cube result evaluates the same stability function but tests coordinate-product Laplacians instead of the full path Laplacian; its negative entry is adjacent at h=1.",
+          "The frozen source describes the Wade et al. article as concerned with Padé smoothing; the primary body could not independently be retrieved."
+        ],
+        "reasoning": "No reduction of Boolean-cube entry signs to the complete n≤13 path family or to its n=14 endpoint was established by the inspected statements. Nor does a nonpositive entry for a non-path generator give the required two-sided sharp boundary.",
+        "searches": [
+          "Resultary RESULT.md 01757ab0b97c, ec7630f7d0e5, 414ee797c218",
+          "Wade et al. DOI 10.1002/num.20039"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed RESULT.md 7c35f2e9ad0e is the same frozen finding, not a prior distinct result.",
+          "Indexed RESULT.md 01757ab0b97c is two-stage third-order Radau IIA, with path cutoff 5/6."
+        ],
+        "reasoning": "The completed three-stage step and the [2/3] Padé exponential evaluated on minus the combinatorial Laplacian are the same map. The lower-stage method with a different rational function is not an equivalent formulation. Neither internal-stage positivity nor a stencil with Dirichlet killing has the frozen hypotheses.",
+        "searches": [
+          "Resultary: three-stage Radau IIA full unweighted path first failure n=14",
+          "Resultary: fifth-order [2/3] Padé positivity path heat update, 13/14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aside from the assigned record, the inspected exact cutoffs include the two-stage path/cycle result 01757ab0b97c and the three-stage Boolean-cube dimension cutoff 8/9 in ec7630f7d0e5."
+        ],
+        "reasoning": "The cube record is distinct even though indexed on the same date. Its statement does not evaluate this path family; no exact path-size value was found in the compared distinct records. A ranked search is not exhaustive.",
+        "searches": [
+          "Resultary: exact P13 P14 positivity cutoff and endpoint counterexample h=5/2",
+          "Resultary: graph family dimension cutoff for fifth-order Radau IIA"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact all-step cutoff on symmetric unit-weight full paths. The strongest inspected related indexed findings change the rational map or graph family/generator. No distinct exact match or dominating theorem was established. Some historical primary text could not be retrieved, a limitation rather than negative evidence.",
+      "residual_risks": [
+        "The three cited primary papers were not independently available in full in this review; the Padé smoothing paper is a plausible remaining access risk.",
+        "The date shared by the cube and path findings does not settle their priority, but the statements compared do not cover the same family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different stability function and path cutoff",
+          "evidence": [
+            "Two-stage third-order, all-step path positivity through order five and small-step failure from six."
+          ],
+          "identifier_or_url": "01757ab0b97c",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp Radau IIA positivity cutoffs on finite paths and cycles",
+          "trigger": "Same path graph family and named method"
+        },
+        {
+          "assessment": "Different graphs, independent dimension invariant",
+          "evidence": [
+            "Cube map is positive through dimension eight and fails in dimension nine at h=1."
+          ],
+          "identifier_or_url": "ec7630f7d0e5",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "The nine-dimensional Boolean cube is the first Radau IIA fifth-order failure",
+          "trigger": "Same rational map; exact all-step graph cutoff"
+        },
+        {
+          "assessment": "Counterexamples are not unit-weight full paths",
+          "evidence": [
+            "Pure-birth generator plus a reversible generator; the latter fails at h=5."
+          ],
+          "identifier_or_url": "414ee797c218",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp three-state positivity window for fifth-order Radau IIA",
+          "trigger": "Possibly stronger completed-map counterexample"
+        },
+        {
+          "assessment": "Coverage limit remains; no independently read theorem from this article used",
+          "evidence": [
+            "Frozen AUDIT describes its abstract as general positivity thresholds and invariant-set analysis."
+          ],
+          "identifier_or_url": "10.1016/j.apnum.2004.08.026",
+          "material_read": "Citation and frozen source description; no primary passage retrieved independently",
+          "method": "Lawful OA attempt at publisher (403)",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "General positivity thresholds may specialize to this step"
+        },
+        {
+          "assessment": "Full text inaccessible; path theorem not ruled out by access failure",
+          "evidence": [
+            "Frozen AUDIT describes positivity-preserving smoothing combined with diagonal schemes, which is not the frozen completed unfiltered step."
+          ],
+          "identifier_or_url": "10.1002/num.20039",
+          "material_read": "Citation and frozen source's abstract summary only",
+          "method": "Publisher OA attempt (403) and OA repository lookup",
+          "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+          "trigger": "Historically related positivity for Padé parabolic updates"
+        },
+        {
+          "assessment": "Frozen evidence concerns diagonal schemes; not a fresh independent full-text inspection",
+          "evidence": [
+            "The recorded Section III comparison identifies [p/p] rather than [2/3]."
+          ],
+          "identifier_or_url": "https://www.hamilton.ie/shravan/pade_MTNS10_long.pdf",
+          "material_read": "Frozen AUDIT's discussion of Section III, Theorems 1–4; independent PDF attempt did not return text",
+          "method": "Author-posted OA PDF attempt (timeout)",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Padé preservation results may bound or provide a counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An unweighted path is the canonical conservative finite diffusion test with no boundary killing. The completed step's positivity determines whether nonnegative data can become negative even on this minimal kind of domain. The exact 13/14 boundary and strict all-step positivity below it are useful sharp facts not supplied by generic positivity restrictions or failure on a different generator. The finite certificates settle the invariant for real h, not just representative step sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

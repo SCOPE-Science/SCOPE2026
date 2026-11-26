@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:20.652639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding asserts two strict global maxima above threshold. They are distinct and tied by reflection, so neither is a strict global maximum. For example, b=2, N=6 gives 3−4/√5 and 3+4/√5 at the same value 25/64. They are both global maximizers and each is a strict local maximum. The proof also incorrectly says the threshold cubic is negative at 2√3 for all b≥0; it equals −8b there and vanishes at b=0. The underlying classification with these corrections checks out: with u=x(N−x), the denominator is positive, the derivative numerator G decreases from a positive value, and its right-endpoint sign is the sign of 12N+8b−N³. At equality J′=0 and J″<0, so reflection yields a negative quartic. With M=N²/4, differentiation of G(N,u*)=0 yields (N²−4u*)′=4(d/dN)G(N,M)/G_u at the threshold, giving 3(L_b²−4)/(2L_b). Expanding the explicit root gives the asserted large-N terms. The supplementary independent replay `python3 /workspace/independent_checks.py 3` checks the rational reduction, onset, high-load coefficient and exact example. It also finds 14,392 in-range derivative trials rather than the 14,400 candidates printed as tests by the frozen checker. The finite checks do not certify the theorem.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cascade paper's §2 equations couple time-dependent states and its stability analysis concerns critical points of those dynamics. Fazel–Chiang treats broad nonconcave optimization and discusses sigmoidal utilities, not a solved fixed-sum Haldane split."
+        ],
+        "reasoning": "Those two sources do not yield the same problem by freezing a parameter or supply the exact theorem. The decisive overlap is the distinct catalogue statement, not the general ability to optimize a rational function.",
+        "searches": [
+          "DOI:10.1007/s40314-022-01807-4, two-tank Haldane cascade",
+          "Fazel–Chiang, Network Utility Maximization With Nonconcave Utilities Using Sum-of-Squares Method"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: eddb13bade10, RESULT.md",
+        "DOI:10.1007/s40314-022-01807-4",
+        "Fazel–Chiang open manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=|x−N/2| the other proof gives F′=4d P(d²)/(D_-²D_+²). Its P is −G/2 after u=m²−d². Hence the same derivative signs give the endpoint minima, the stationary types and the critical quartic since P(0)=0 and P′(0)=−2m_c B_c<0. The formulas are regular at α=0 and the signs extend with m_c=√3. The other record states that x_min tends to 1, not the frozen N⁻² coefficient or the maximum-response expansion."
+        ],
+        "reasoning": "The derivative analysis implies the local classification, not only the global branch. The added higher-order terms follow by expanding the already explicit branch and substituting into the same objective. Removing the duplicated phase diagram and fixing the strictness language leaves no separate substantive result supported by these files; no repair is being delivered.",
+        "searches": [
+          "Catalogue entry eddb13bade10, Proof: F′ and P; threshold and large-m expansions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the matched record take α=b, m=N/2 and x=m±d. The objectives are the same up to the factor μ_max α. With L=2m_c its cubic m_c³−3m_c−α=0 is exactly L³−12L−8b=0. Its d_*²=m²−u_* gives the same two allocations. Its onset coefficient for d_* yields the frozen coefficient for d_*/N by substitution."
+        ],
+        "reasoning": "This is the same fixed-total, identical-compartment optimization in different units; both the optimizing profiles and the sharp transition match, not just the terminology.",
+        "searches": [
+          "Resultary: cubic threshold, fixed-total Haldane allocation, normalized substrate-inhibited response, onset and large-budget behavior",
+          "RESULT.md of catalogue entry eddb13bade10, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact optimizer and onset are found in the indexed RESULT.md eddb13bade10, not in a table of numerical examples. Its record date is 2026-11-22, distinct from the assigned 2026-10-26 record."
+        ],
+        "reasoning": "A different b,N benchmark in the catalogue does not separate two theorems whose complete solution formulas coincide. The dates distinguish the records; they do not turn the later entry into evidence of earlier publication.",
+        "searches": [
+          "Resultary: exact fixed-budget symmetry breaking, two compartments with Haldane/substrate-inhibited kinetics"
+        ]
+      },
+      "rationale": "A distinct indexed finding supplies the same constrained allocation theorem, explicit maximizing branches and onset under equivalent coordinates, with a derivative proof that also yields the local types. This is established mathematical coverage in the current catalogue, not evidence that the other record was publicly first: its listed date is later than the frozen record's. The remaining distinctions are the regular b=0 limiting case and extra high-load Taylor terms of the same explicit solution, not a separately substantive, uncovered classification. The negative verdict concerns distinct content as reviewed, not an allegation about authorship or historical priority.",
+      "residual_risks": [
+        "The review does not establish historical priority for either equivalent catalogue statement. Older foraging and biochemical sources, including the full 2014 type-IV functional-response article (DOI:10.1111/ele.12379), were not comprehensively checked in this comparison. This is not the reason for the failure: exact positive overlap was inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable equivalent coverage for the substantive bifurcation theorem; no inference of earlier publication.",
+          "evidence": [
+            "Same instantaneous equal-biomass objective, cubic, exact branches, and onset for positive constants. The primary difference in explicit high-load statements is limit versus extra Taylor coefficients."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-sharp-symmetry-breaking-for-two-fixed-budget-compartments-with-s--eddb13bade10/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof, and the beginning of Verification (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, text offsets 0–6217).",
+          "method": "Compared the published formulas, parameters, assumptions and derivative sign proof under α=b and N=2m.",
+          "title": "Sharp symmetry breaking for two fixed-budget compartments with substrate-inhibited kinetics",
+          "trigger": "Same fixed-sum two-compartment theorem and normalized response."
+        },
+        {
+          "assessment": "The inspected claims concern a coupled cascade, not the frozen allocation theorem.",
+          "evidence": [
+            "The equations include flow and tank-to-tank coupling. Critical-point stability is for the dynamical system, not maximization over pairs at fixed total."
+          ],
+          "identifier_or_url": "DOI:10.1007/s40314-022-01807-4",
+          "material_read": "Model equations in §2, p. 4 (text offset 11250), and critical-point stability on p. 10 (offset 29950).",
+          "method": "Read bounded primary PDF passages and checked state variables and conserved quantities against the instantaneous fixed-total model.",
+          "title": "Analysis of a continuously stirred two tank reactor cascade with Haldane kinetics",
+          "trigger": "Two-compartment Haldane kinetics with possible optimization or stability overlap."
+        },
+        {
+          "assessment": "General optimization method, not a statement of this specific phase law in the inspected material.",
+          "evidence": [
+            "An increasing sigmoid example lacks the single-unit inhibitory decline; no P or G sign-based Haldane threshold is supplied by those passages."
+          ],
+          "identifier_or_url": "https://www.princeton.edu/~chiangm/nonconcaveNUM.pdf",
+          "material_read": "Problem and approach on p. 1 and the sigmoidal-utility discussion (PDF text offsets 0 and 3208).",
+          "method": "Compared optimization scope and studied response examples in the primary PDF passages.",
+          "title": "Network Utility Maximization With Nonconcave Utilities Using Sum-of-Squares Method",
+          "trigger": "Potential broader closed-form or global nonconcave allocation coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the full fixed-total classification addresses a natural nonconcave optimization: inhibition changes the optimizer from equal loading to two interior unequal allocations, with a sharp onset and a useful high-load interpretation for a static model. The value of that full classification is separate from its lack of distinctness here. Extra terms of the same optimizer or the regular zero-parameter boundary do not support a separate repair on their own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

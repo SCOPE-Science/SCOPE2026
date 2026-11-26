@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's Lemma 4 uses the normalization \(1+\sum_{p\le X}Z(p)/p=Z(X)\). When \(X\ge k\), the centered prime indicator in its remaining tail equals an average of nonprincipal Dirichlet characters, including for composite moduli because tail primes do not divide the modulus. The paper's uniform GRH estimate gives \(O(\log^2(kX)/\sqrt X)\), which at \(X=k^{2+\delta}\) is \(o(\log k/\varphi(k))\). Mertens, the decreasing large-prime weight, and \(\log\varphi(k)\sim\log k\) yield the normalized lower margin. Prime counting then gives the stated lower cardinality, and the source's published Theorem 5 gives the upper.
+## correctness
 
-**Originality — PASS, with residual risk.** Thakur's Theorem 5 is an upper bound on the number of nonnegative constants, and does not state the positive initial-prime band, a positive lower count, or the sharp order of the exceptional set. The source's Lemma 4 and GRH estimate are acknowledged as inputs; the new claim requires a tail cutoff above quadratic size and a uniform comparison of prime weights. Searches for the prime-class lower sign bound, equivalent sign-count order and related arithmetic-progression constants did not identify a covering statement. The possibility of an implicit equivalent in older literature is unresolved.
+PASS
 
-**Value — PASS.** Thakur's problem asks about signs of its leading constants and shows most are negative. It is mathematically substantive to determine whether the exceptional positive set has the same order as the published upper estimate, rather than being sparse or empty. The positive-prime band is a structural, uniform explanation for the matching lower count, not an arbitrary finite slice.
+Under GRH for every Dirichlet L-function, the claimed envelope and count follow with the stated normalization. The product jump at p is Z(p)/p, so 1+sum_{p<=X} W(p)=Z(X). For p>X>=k every tail prime is coprime to k, and character orthogonality with weight 1/phi(k) cancels the principal character. The uniform nonprincipal bound in Thakur's equation (2) survives the average without a modulus-size multiplier. At X=k^(2+delta) the normalized error is O(log k/k^(delta/2)), and the subtracted product tends to 2+delta after division by e^gamma log k. The eligible prime r contributes at least 1/c-o(1) on the normalized scale: use Mertens with an arbitrary fixed relative tolerance and monotonicity of log u/u for large u, treat the finitely many small primes by their fixed positive weights, and use log phi(k)~log k. Taking delta to zero after the liminf yields 1/c-2. The primes represent different classes; PNT and omega(k)=O(log k)=o(phi(k)/log k) give the lower count, then c increases to 1/2. Thakur's nonnegative-class bound supplies the upper bound on strict positives.
 
-**Limitations.** The result assumes GRH for Dirichlet \(L\)-functions, does not identify a limiting leading constant, and does not establish optimality of the \(1/2\) lower coefficient. Independent mathematical examination remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The series, analytic tail estimate and upper bound are prior. The supported distinct result is the uniform positive lower envelope in small prime classes and its matching lower order for the exceptional sign count. The bounded searches did not find prior statement-level coverage of that lower result.
+
+## value
+
+PASS
+
+The cited upper estimate says most signs are negative but leaves the scale of the exceptional positive set undetermined. The lower envelope identifies a uniform family of positive classes for composite as well as prime moduli and establishes that the positive exceptional set attains the scale of the upper bound. This answers a structural question about the signs without claiming a limiting count constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

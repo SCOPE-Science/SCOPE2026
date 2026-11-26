@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-orientation Fokker–Planck system yields the normalized, nonnegative stationary position density and wall contact formula. Cartesian independence gives exact dimension-wise pressures. A monotonicity identity for \(\tanh z/z\) proves strict convexity and majorization; exact one-form integration proves path independence. Coercivity and the precise second variation prove existence of the symmetry-broken minimizers and the small-stiffness limit. The standalone checker reproduces 1670 deterministic consistency tests; the global assertions rely on proof, not sampling.
+## correctness
 
-## Originality — PASS (qualified best-knowledge)
-The 2026 Li–Eichhorn–Dabelow paper contains the exact one-dimensional RTP wall law and a high-dimensional AOUP **approximation** with dimension-wise pressure. We neither claim the one-dimensional law nor its pressure form as new. The exact product-telegraph high-dimensional model plus the strict all-shape ordering, null cycle work, unbounded aspect law and elastic threshold are not stated in the inspected main text or supplementary equations. Nikola et al. (2015) address flexible-wall modulations on curved interfaces, and Ezhilan et al. (2015) address confinement of athermal swimmers between plates. Searches across available research records found no dominating claim. The main residual risk is that the new conclusions could be considered readily implied by tensorizing the known one-dimensional result or in literature on finite-volume active containers not retrieved here.
+PASS
 
-## Value — PASS
-At fixed volume, passive gases perform no net mechanical work under shape deformation. The studied driven gas instead has a universal strictly ordered shape-work landscape, an explicitly positive loss of equal-shape stability against finite Hookean elasticity, and a sharp inverse-stiffness log-aspect growth. This specifies a physical mechanism of shape selection and a mechanical design threshold, not merely a recomputed density or a change of notation.
+The two orientation-resolved currents vanish separately at both ends. Adding the stationary equations gives Dρ′=vm, and subtracting gives Dm″−vρ′−2αm=0 and endpoint identity D²ρ″=v²ρ. The stated symmetric density solves these equations, normalizes to one, and gives nonnegative orientation densities: the possibly negative excess from the hyperbolic terms in ρ±Dρ′/v is bounded by q(Dκ/v−1)=1/(√(1+1/q)+1)<1. The mean reflecting regulator rate on a wall is D times its contact density, giving k_BT times that density as the force; independence of reflected coordinate processes justifies the exact tensorization. The displaced volume cancels the V in the pressure, giving the exact work differential. Since tanh(z)−z sech²(z) has positive derivative for z>0, F′>0 and the sum of the H terms is strictly Schur-convex at fixed log-volume. Anisotropy here is ordered by log-majorization, not by arbitrary scalar measures of shape. The even two-axis perturbation gives the stated quadratic coefficient; its derivative differs from q at positive infinity by an integrable exponential error. The Hessian is K−2nk_BT aF′(a); below threshold, evenness and coercivity give nonzero paired global minima. A trial t of order 1/K drives the minimum to minus infinity, so all positive minimizers diverge and stationarity yields Kt_K→nk_BTq. No uniqueness, critical-stiffness classification or dynamical instability is required. The frozen check.py and check_output.json were inspected, not executed. The script's counters sum to 1670, as in RESULT.md and the recorded JSON; VERIFICATION.md's prose gives 356, an inconsistent diagnostic count, not a defect in the analytic argument.
 
-## Boundaries
-A compliant-box force balance is analyzed only under quasistatic stationarity and the specified Hookean potential; full stochastic wall dynamics are unproved. The product-telegraph orientation is intentionally different from isotropic multidimensional RTP orientation. The hard-wall point-particle divergence need not persist at microscopic wall thicknesses. Independent mathematical or priority auditing is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact one-dimensional density and pressure are prior, and endpoint path independence is an immediate consequence of Li–Eichhorn–Dabelow's separable higher-dimensional approximate work law. Tensorization of the exact one-dimensional law in the stated Cartesian model and the convex-order implication of separability should not be presented as new pressure formulas or an exact spherical-RTP result. The supported distinct finding is the exact fixed-volume shape law in the diffusive Cartesian product, taken with its compliant-box consequences: the sharp instability threshold of the force-balance potential, existence of global distorted minima, and the quantified weak-stiffness law. The nearby discrete-cardinal model covers similar shape optimization but not the same dynamics or compliant law.
+
+## value
+
+PASS
+
+A diffusive product model is a motivated exact test of runaway distortion at fixed volume. It distinguishes zero work on closed cycles from positive work along increasing anisotropy, and the elastic calculation gives both a finite, parameter-explicit onset and the scale of globally preferred large distortions. This goes beyond reusing the pressure formula alone, without claiming general dynamical buckling or behavior for spherical reorientation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

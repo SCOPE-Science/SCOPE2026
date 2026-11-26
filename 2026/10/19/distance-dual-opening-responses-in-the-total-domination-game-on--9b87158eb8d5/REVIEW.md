@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The mathematical state is the set of vertices totally dominated via **open** neighborhoods and the identity of the next player. Every admissible move enlarges this set, so the minimax recurrence is a well-founded exact proof by induction on its complement. The full twenty-bit state calculation and a separately implemented recursive game solver agree for both graphs. Dodecahedron adjacency and five-set containment constructions are related to the generalized Petersen presentations by explicitly checked isomorphisms. All twenty first choices and all 380 ordered distinct second choices have been checked in both starting conventions. These arguments and replayable programs establish the finite claim, without extrapolation to additional graphs.
+## correctness
 
-## Originality — PASS, with residual risk
-Henning–Klavžar–Rall's foundational full text proves the general continuation principle and starting-player bound; it does not give these named-graph game values or a five-shell forced-response table. Dorbec–Henning's complete available text concerns cycles and paths. Zhao and coauthors analyze static total domination on generalized Petersen graphs, not the alternating minimax game. Published mathematical-record comparisons of aliases, stronger general bounds and recent summaries did not uncover a logically covering result. Previous accessible claims in the same mathematical collection about the dodecahedron or Desargues graph concern different invariants, so they do not imply the present two-player game classification. An unindexed or inaccessible equivalent specialized game computation remains possible; negative search results alone are not a novelty proof.
+PASS
 
-## Value — PASS
-Two canonical twenty-vertex cubic graphs even have the **same** distance shell sizes, but exhibit qualitatively different optimal game-opening behavior. The dodecahedron has a unique antipodal minimizing reply versus an entire distance-two class of maximizing replies, while the Desargues graph has total second-move neutrality. This complete natural benchmark for adversarial total domination exposes a strategic invariant not determined by degree, order or distance-shell counts, and can be used to test proposed structural principles for highly symmetric graphs. The finite computation is motivated by a nontrivial classification of all opening options, rather than a chosen numerical increment.
+Open-neighborhood union is the only needed history: any previously played vertex has no new neighbor, and at any nonterminal state some undominated vertex has a neighbor that can cover it. Thus taking the min/max over strictly increasing dominated sets is exact. I independently solved the equivalent deadline game on uncovered sets by testing whether Dominator can ensure completion in h further moves: at his turn one legal successor must suffice, at Staller's every successor must suffice. The terminal state is successful and a nonempty state with more than 3h uncovered vertices fails. With interleaved Petersen labels and Floyd–Warshall distances, the independent computation checks all 380 distinct ordered opening pairs per graph, each second move's legality and every first move under both conventions. It gives (11,10) and (10,10); by distance 1 through 5 the dodecahedron yields (10,11),(11,11),(10,11),(10,11),(10,10), and the Desargues graph gives (10,10) throughout. The common distance-shell sizes are (1,3,6,6,3,1). Taking the appropriate extremum proves exactly the stated optimal reply sets. The frozen programs use two graph constructions with fixed isomorphisms and have byte-identical recorded outputs. Independent replay: python3 /workspace/branches/independent_game.py. This establishes only the stated two graphs and rules.
 
-## Prior work and limitations
-Foundational total-domination-game sources: Henning, Klavžar and Rall (2014 online; DOI 10.1007/s00373-014-1470-9), Dorbec and Henning (2016; DOI 10.1016/j.dam.2016.03.014). Static generalized-Petersen total domination: Zhao et al. (2020; DOI 10.1155/2020/5473675). Scope is limited to two named graphs. Computation and self-review do not amount to external independent validation; some literature may not be indexed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected Resultary findings use closed neighborhoods and give different values and second-response geometry, even on the same graphs. Inspected primary material gives general total-game bounds and exact-results context, not the forced-pair shell table. The distinct comparison is supported to best current knowledge, with explicit limits on external retrieval and on possible coverage under the equivalent hypergraph game.
+
+## value
+
+PASS
+
+Matching distance-shell cardinalities, sizes and degrees make these two canonical graphs a controlled comparison. The exact opening classification shows that those shell sizes do not determine the strategy: one graph distinguishes sharply between distance two and the antipode depending on who starts, while the other is completely indifferent at move two. This is an independently useful exact strategic invariant, not just an isolated optimum or a claim about static total dominating sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

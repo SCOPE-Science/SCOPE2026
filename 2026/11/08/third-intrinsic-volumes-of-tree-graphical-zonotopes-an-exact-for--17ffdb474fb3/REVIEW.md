@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces the intrinsic third volume to Euclidean three-generator parallelotope volumes using a published general intrinsic-volume formula. The determinant classification \(4,6,8\) is independently reconstructed from tree incidence minors; a double count of disjoint edge pairs derives the exact matching–path expression. The lower extremizer follows from the least possible triple-volume and a disconnected witness in every nonstar. The upper extremizer follows from a leaf-deletion matching inequality valid for every forest and from an exact positive deficit in the two-matching/path statistic. The finite checker independently constructs incidence Gram matrices for 40,821 edge triples over 428 nonisomorphic trees, and reproduces all strict inequalities for orders six through eleven. Residual correctness risk is chiefly an undetected mathematical argument error, rather than unverified large-scale computation.
+## correctness
 
-**Originality — PASS, historically provisional.** The general wedge-product intrinsic-volume formula is prior art and explicitly acknowledged. The closest published geometric papers studied general zonotope isoperimetric questions and vector-valued inequalities; sections inspected do not state the tree-specific three-edge-forest identity, the two-sided unique extremizers, or the same-degree witness. A separate known tree graphical-zonotope width-variance result depends on incident edge pairs only; the present invariant does not, as the same-degree witness verifies. Known near-top surface area formulas address a different index for the dimensional range claimed. Search under parallelotope, graphical zonotope, tree, matching and intrinsic-volume terminology did not identify a stronger covering result. Residual historical priority risk from alternative graph or matroid terminology remains.
+PASS
 
-**Mathematical value — PASS.** The theorem establishes a natural geometric quantity beyond mean width and the adjacent-edge-controlled second intrinsic volume, gives a complete sharp extremal classification over all trees, supplies an exact gap and limiting ratio, and separates fixed-degree tree types. The bridge between metric intrinsic volumes and matchings/path counts offers a reusable combinatorial reduction rather than an arbitrary small finite evaluation.
+Under the stated Steiner normalization the generator-wedge sum gives V_3. By Cauchy–Binet, each forest component contributes its vertex count to the Gram determinant, since every maximal incidence minor obtained by deleting a row has determinant ±1. The only triple determinants are 4,6,8. Counting disjoint edge-pairs inside triples gives (m−2)M_2=P_4+2b+3M_3, where b counts triples with two components. Any nonstar has a three-edge path; taking its end edges and an edge outside that path gives a disconnected triple and hence strict star minimality. Leaf deletion bounds the three-matching count by the path value, and the strict path advantage in D=(m−2)M_2−P_4 is (m−2)(Σ_v binom(deg(v)−1,2)−1)+P_4(T)>0 for nonpaths (separate star case). The positive coefficients, path run counts, gap, ratio and two spider counts all check. `python3 /workspace/reviews/evidence/reproduce.py 4` independently enumerated 1,296 and 16,807 labeled trees of orders 6 and 7 by Prüfer codes, checked the determinant counts and detected exactly the labeled stars and paths at equality. This finite replay supplements the proof; the supplied checker was read, not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Supported for the matching/path reduction together with the sharp strict third-intrinsic-volume tree comparison and the resulting degree-sequence separation, not for the classical zonotope wedge formula or incidence-minor method. The strongest indexed neighbors treat different invariants or dense graphs, and the general zonotope theorem does not yield the strict tree comparisons without the additional structural argument.
+
+## value
+
+PASS
+
+The third intrinsic volume is a natural Euclidean invariant. Three familiar graph counts replace an exponential-search-style pattern description by a short exact formula, yield sharp extremizers with a strict equality criterion, and show degree data alone do not determine it. The structural maximum, rather than the finite spider computation alone, gives the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

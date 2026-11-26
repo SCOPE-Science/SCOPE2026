@@ -69,12 +69,20 @@ B=rI+(1-r)vv^{\mathsf T},\qquad
 v=(\sqrt t,\sqrt{1-t})^{\mathsf T},\quad
 u=\sqrt{t(1-t)},\quad0\le t\le1.
 \]
-Substitution yields the **exact identity**
+Substitution, using \(2x+z=1+r+x\), yields the exact identity
 \[
-C_d(B)=C(t)-4rt(1-t+u)-r^2(1-t)(3-2t+2u),
-\quad C(t)=-2t^2-t+2(1+t)u.
+ C_d(B)=C(t)+a(t)r-D(t)r^2,
+ \quad C(t)=-2t^2-t+2(1+t)u,
+ \quad a(t)=2u(1-2t-2u),\quad D(t)=(1-t)(3-2t+2u)+2u.
 \]
-Both correction terms are nonpositive. The row with interchanged coordinates corresponds to \(t\mapsto1-t\). Therefore the global maximum of all diagonal contributions equals \(\max_{0\le t\le1}C(t)\), reached at the rank-one spectral boundary \(r=0,s=1\) for any maximizing \(t\).
+For \(3/20\le t\le 1/2\), we have \(t(1-t)\ge51/400>1/8\), so \((1-2t)^2<4u^2\); for \(1/2\le t\le1\), we have \(1-2t\le0\). Thus \(a(t)\le0\) on \([3/20,1]\), and with \(D(t)\ge0\), the maximum over \(r\) there is \(C(t)\).
+
+It remains to rule out an improved maximum in \([0,3/20]\), where the linear term can be positive. On this interval \(u\le\sqrt{51}/20<9/25\), \(D(t)\ge(17/20)(27/10)>2\), and \(a(t)\le18/25\). The derivative formula in Step 5 implies \(C\) is increasing there: \(1+t-4t^2\ge1\) and \((4t+1)u\le(8/5)(9/25)<1\). Therefore
+\[
+ C_d(B)\le C(3/20)+\frac{(18/25)^2}{8}
+ < \frac{633}{1000}+\frac{81}{1250}<\frac{7}{10}<C(1/4)=\frac{5\sqrt3-3}{8}.
+\]
+The quadratic bound follows by completing the square in \((18/25)r-2r^2\). The other diagonal row corresponds to \(t\mapsto1-t\). Hence the maximum is \(\max_{0\le t\le1}C(t)\), reached at the rank-one spectral boundary \(r=0,s=1\); at the maximizing \(t\), \(D(t)>0\).
 
 **5. Uniqueness and exact algebraic coefficient.** For \(0<t<1\), differentiation gives
 \[

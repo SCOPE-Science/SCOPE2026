@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of exact rotating-cubic escape laws
+# Independent mathematical audit
 
-## Analytic critical checks
+## correctness
 
-1. Substituting the Cartesian system into polar coordinates gives exactly \(\dot r=\lambda r+(\sigma+\kappa\cos2\theta)r^3\) and \(\dot\theta=\omega r^2\), with no angular singularity away from the origin.
-2. Differentiation of \(R/F_\sigma\) with respect to lifted angle gives the constant positive source \(2\lambda/(\omega F_\sigma)\), and the relation \(dW/dt=2\lambda W\) gives the physical-time inversion without an asymptotic clock substitution.
-3. The uniformly periodic Laplace average is \(I_0(\kappa/\omega)\) in both the negative-parameter cycle limit and positive-parameter blow-up-time limit. The two factors are the same because changing the direction of phase translation does not change the circular average.
-4. The phase blow-up function is everywhere positive and solves \(P'=\{2\sigma/\omega+2\kappa\cos(2\theta)/\omega\}P-1/\omega\). This precludes a constant \(P\) when \(\kappa\ne0\).
+PASS
 
-## Independent numerical consistency checks
+The polar equations give R'=2λ/ω+(2σ/ω+2β cos(2θ))R in the lifted angle. W=R/F stays positive at every finite forward angle and satisfies dW/dt=2λW. Its endpoint is finite positive exactly for σ>0; there R diverges as F grows, so the inverse clock gives the maximal physical time. For σ<0, the past-tail particular solution is positive and periodic, and every radial difference is a multiple of F tending to zero. The one-period Laplace sum is I₀(β)/ε+O(1) uniformly in phase, giving both stated threshold constants. At σ=0, the primitive of the periodic integrand is I₀(β)θ+O(1); the exact W law gives the angular coefficient, and the unbounded angle forbids convergence of the oscillating rescaled radius. For σ>0, with u=1−W/W∞, (T−t)R/P=(1−u)(−log(1−u))/u→1. P'=(2σ/ω+2β cos(2θ))P−1/ω rules out constancy for κ≠0, and each phase is attained indefinitely. RESULT.md, VERIFICATION.md and check.py were inspected; none of the universal conclusions relies on execution of the supplied checks.
 
-Run `python3 check.py` with Python 3, NumPy, SciPy and SymPy installed. The checker differentiates the reduction symbolically, compares direct ODE integration against the exact physical-time angular relation for three regimes, evaluates the positive-side escape-clock asymptotic for a decreasing parameter sequence, confirms the negative-side cycle scaling, and tests the phase-profile ODE and nonconstancy. Output `all checks passed` indicates these finite numerical consistency checks, not a machine proof of an infinite-domain theorem.
+## originality
 
-## Limits
+PASS
 
-The proof is analytic. Quadrature convergence, finite test arrays and symbolic simplifications do not establish originality or independent verification. No formal proof assistant, independent human review or publication-priority certificate is asserted.
+Pass for the explicit physical-time trichotomy and the matched threshold constants, not for the angular linearization, qualitative cycle criterion or existence of oscillatory type-I profiles. The strongest inspected analogous results cover strict contraction/backward time or conditional periodic-balance existence. Neither supplies the exact all-initial-data forward escape time or its matched Bessel normalization near zero mean radial drift.
+
+## value
+
+PASS
+
+The transition across zero mean radial drift is natural even when the instantaneous radial drift changes sign. The explicit endpoint distinguishes completeness from orbital behavior and resolves both the critical delay and the whole range of physical-time blow-up coefficients. The matched amplitude constants quantify the large-cycle/escape transition, rather than simply repeating the known phase portrait.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

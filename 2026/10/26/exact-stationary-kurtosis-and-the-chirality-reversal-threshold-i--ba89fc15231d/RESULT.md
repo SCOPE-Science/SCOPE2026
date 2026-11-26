@@ -1,112 +1,62 @@
-# Exact stationary kurtosis and the chirality-reversal threshold in a trapped active Brownian swimmer
+# The unique rotational-diffusion onset of reentrant kurtosis in a trapped chirality-switching swimmer
 
 ## Finding
-Consider a planar active Brownian swimmer in an isotropic harmonic trap whose angular drift reverses sign at independent Poisson times. Its stationary Cartesian excess kurtosis admits an exact rational formula and a complete sign classification. In particular, the sign of the large-angular-speed kurtosis changes precisely when the chirality-switching rate equals one quarter of the trap relaxation rate. Above this rate there is exactly one kurtosis zero for every rotational diffusivity; below it, a genuine negative–positive–negative reentrant sequence occurs for sufficiently strong rotational diffusion.
 
-In dimensionless parameters \(d\geq0\), \(g>0\), \(w>0\), write \(u=w^2\), \(a=1+d+2g\), and
+Consider a planar active Brownian swimmer in an isotropic harmonic trap of relaxation rate \(\kappa>0\). Its angular drift switches between \(\pm\omega\) at symmetric rate \(\gamma>0\) and there is angular Brownian diffusion of strength \(D\ge0\), with no translational Brownian diffusion. Write \(d=D/\kappa\), \(g=\gamma/\kappa\), and \(u=(\omega/\kappa)^2\). In the regime \(0<g<1/4\), there is exactly one critical diffusivity \(d_c(g)>1\) for the onset of reentrance of stationary Cartesian excess kurtosis as \(u\) increases. Below \(d_c(g)\) the excess is always negative. At \(d_c(g)\) it touches zero at a single positive \(u_c\). Above \(d_c(g)\) there are exactly two positive zeros, between which the excess is positive and outside which it is negative.
+
+The onset curve \(d_c(g)\) is real analytic and **strictly decreasing** on \((0,1/4)\). Put
 \[
-\begin{aligned}
-L_1&=(1+d)a+u,\\
-L_2&=u+d^2+2dg+6d+6g+9,\\
-L_3&=u+4d^2+2dg+4d+g+1,\\
-A&=(7d+3)a^2(d+2g+3)(2d+g+1),\\
-B&=-a(10d^2-7dg-2d-14g^2-27g-10),\\
-P(u)&=A+Bu+(1-4g)u^2.
-\end{aligned}
+ c=1-4g,\quad a=1+d+2g,\quad
+ Q(d,g)=10d^2-(7g+2)d-14g^2-27g-10,
+ \quad S(d,g)=(7d+3)(d+2g+3)(2d+g+1).
 \]
-The normalized excess kurtosis of either stationary Cartesian coordinate is
+The unique critical diffusivity is the solution of \(Q=2\sqrt{cS}\). Define
 \[
-\boxed{\mathcal K(d,g,w)=-\frac{3P(w^2)}{2a^2L_2L_3}.}
+ d_\star=\frac{15+\sqrt{11505}}{80},\qquad S_\star=S(d_\star,1/4),\qquad a_\star=1+d_\star+1/2.
 \]
-All denominators here are strictly positive. Therefore:
-
-1. If \(g>1/4\), there is exactly one positive zero, located at
-   \[
-   u_* = \frac{B+\sqrt{B^2+4(4g-1)A}}{2(4g-1)},
-   \]
-   with \(\mathcal K<0\) for \(0<w<\sqrt{u_*}\) and \(\mathcal K>0\) for \(w>\sqrt{u_*}\).
-2. If \(g=1/4\), a positive zero exists exactly when \(B<0\), in which case \(u_*=-A/B\) and the sign changes from negative to positive. Otherwise \(\mathcal K<0\) at every finite positive \(w\).
-3. If \(0<g<1/4\), two distinct positive zeros exist exactly when \(B<0\) and \(\Delta=B^2-4(1-4g)A>0\). Between these zeros \(\mathcal K>0\), and outside them \(\mathcal K<0\). If \(B<0\) and \(\Delta=0\), the kurtosis touches zero at one positive \(u\) but never becomes positive. In all other cases it is negative throughout.
-
-For every fixed \(0<g<1/4\), sufficiently large \(d\) produces two positive zeros satisfying
+As \(g\uparrow1/4\), the two-zero onset approaches the quarter-rate boundary with the scalings
 \[
-\frac{u_-}{d^2}\longrightarrow\frac75,
-\qquad
-\frac{u_+}{d^3}\longrightarrow\frac{10}{1-4g}
-\qquad(d\to\infty).
+ d_c(g)=d_\star+\frac{2\sqrt{S_\star}}{\partial_d Q(d_\star,1/4)}\sqrt{1-4g}+O(1-4g),
+ \qquad
+ u_c(g)\sim\frac{a_\star\sqrt{S_\star}}{\sqrt{1-4g}}.
 \]
-At fixed \(d\) and \(g\), the exact high-chirality limit is
+Thus the threshold in diffusivity stays finite but the angular speed at which the two zeros meet diverges as \((1-4g)^{-1/4}\) in trap-rate units.
+
+## Model and kurtosis identity
+
+In trap-rate time and with length scaled by propulsion speed divided by the trap rate, \(z\in\mathbb C\) obeys \(dz=(-z+e^{i\theta})\,dt\), \(d\theta=\sqrt{u}\,\sigma\,dt+\sqrt{2d}\,dW\), where the independent symmetric telegraph process \(\sigma\) has jump rate \(g\). The stationary rotationally invariant law is given by the stable position convolution of a two-sided stationary angular process; \(|z|\le1\). Its second radial moment is positive. For Cartesian excess \(\mathcal K=\mathbb E[(\operatorname{Re}z)^4]/\mathbb E[(\operatorname{Re}z)^2]^2-3\), the stationary moment identity reads
 \[
-\boxed{\lim_{w\to\infty}\mathcal K(d,g,w)=\frac{3(4g-1)}{2(1+d+2g)^2}.}
+ \mathcal K=-\frac{3(a^2 S-aQu+cu^2)}{2a^2 L_2 L_3},\quad
+ L_2=u+d^2+2dg+6d+6g+9,\quad L_3=u+4d^2+2dg+4d+g+1.
 \]
-These results distinguish chirality *reversal* (flipping angular velocity) from propulsion-direction reversal (flipping the active velocity), which defines a different stochastic process.
-
-## Assumptions and scope
-The dimensional dynamics are
+To recover the identity, let \(M^{(b)}_{pq}=\mathbb E[z^p\bar z^{q} e^{i(q-p)\theta}\sigma^b]\), \(b=0,1\), and put \(k=q-p\), \(n=p+q+dk^2\). The stationary generator gives, for \(p+q>0\),
 \[
-\mathrm d Z_t=(-\kappa Z_t+v e^{i\theta_t})\,\mathrm dt,\qquad
-\mathrm d\theta_t=\omega\sigma_t\,\mathrm dt+\sqrt{2D}\,\mathrm dW_t.
+ (n+2bg)M^{(b)}_{pq}-ik\sqrt{u}\,M^{(1-b)}_{pq}
+ =p M^{(b)}_{p-1,q}+q M^{(b)}_{p,q-1}.
 \]
-Here \(Z_t\in\mathbb C\), \(\kappa,v,\omega,\gamma>0\), \(D\geq0\), \(W_t\) is standard Brownian motion, and the independent, symmetric two-state Markov chain \(\sigma_t\in\{-1,1\}\) flips sign at rate \(\gamma\) from either state. There is no translational Brownian noise. Work in dimensionless time \(\tau=\kappa t\) and dimensionless position \(z=(\kappa/v)Z\), with \(d=D/\kappa\), \(g=\gamma/\kappa\), and \(w=\omega/\kappa\).
+Omit negative indices, with \(M_{00}^{(0)}=1\) and \(M_{00}^{(1)}=0\). The determinant \(n(n+2g)+k^2u\) is positive. Iterating through total degree four gives \(M_{11}^{(0)}=a/((1+d)a+u)\) and \(M_{22}^{(0)}/(M_{11}^{(0)})^2=2-(a^2 S-aQu+cu^2)/(a^2 L_2L_3)\). Rotational averaging gives \(\mathcal K=\tfrac32M_{22}^{(0)}/(M_{11}^{(0)})^2-3\).
 
-Take the stationary rotationally invariant law, which exists by the exponentially stable position convolution. In that law \(\theta\) is uniform modulo \(2\pi\), chirality is symmetric, and \(|z|\leq1\) almost surely. The Cartesian excess kurtosis is well-defined because the second moment is strictly positive. The statements concern this stationary law and the specified linear trap, not transient motion, nonlinear confinement, or higher spatial dimensions.
+## Proof of the onset curve
 
-## Proof
-**Stationary construction and symmetries.** In rescaled time the bounded stationary convolution is
+The denominator of \(\mathcal K\) is positive. For \(c>0\), the numerator's quadratic \(a^2S-aQu+cu^2\) has a negative interval on \(u>0\) exactly when \(Q>0\) and \(Q^2>4cS\). Equality with \(Q>0\) gives a double zero. Thus the sign of \(\Phi(d,g)=Q-2\sqrt{cS}\) distinguishes the three cases in the finding.
+
+For fixed \(g\), \(Q\) has precisely one positive zero \(d_0\), with \(d_0>1\) since \(Q(1,g)<0\). For \(d>d_0\) one has \(d\partial_d Q-2Q=(7g+2)d+2(14g^2+27g+10)>0\), whereas \(d\partial_d\log S<3\) because each of the three factors is affine with positive intercept. Consequently \(\partial_d\log(Q/\sqrt S)>1/(2d)\). The ratio goes from zero to infinity (its leading behavior is \((10/\sqrt{14})\sqrt d\)). Hence it meets \(2\sqrt c\) once. At that point \(\Phi_d=\sqrt S\partial_d(Q/\sqrt S)>0\), giving a real analytic graph by the implicit function theorem.
+
+To order that graph with respect to \(g\), at every \(d\ge1\) one has \(S_g/S=2/(d+2g+3)+1/(2d+g+1)\le5/6\). Thus
 \[
-z_0=\int_{-\infty}^0 e^s e^{i\theta_s}\,\mathrm ds.
+ \Phi_g=-(7d+28g+27)+(4-cS_g/S)\sqrt{S/c}
+ \ge -(7d+28g+27)+\frac{19}{6}\sqrt{S(d,0)}(1+2g),
 \]
-Its absolute value is at most one. The stationary angular process with positive switching rate and positive angular speed has a uniform angular marginal and is rotation invariant jointly with the convolution. Thus \(\mathbb E[z]=0\) and \(\mathbb E[(\operatorname{Re}z)^2]=\mathbb E[|z|^2]/2\), while \(\mathbb E[(\operatorname{Re}z)^4]=3\mathbb E[|z|^4]/8\).
+where \((1-4g)^{-1/2}\ge1+2g\). The ratio \(S(d,0)/(7d+27)^2\) strictly increases: its logarithmic derivative is \(7/(7d+3)+1/(d+3)+2/(2d+1)-14/(7d+27)>0\) since the first and third positive terms each exceed \(7/(7d+27)\). At \(d=1\), \((19/6)\sqrt{S(1,0)}=(19/6)\sqrt{120}>34\). Hence the lower bound on \(\Phi_g\) is strictly larger than \(-(7d+28g+27)+(7d+27)(1+2g)\), which is nonnegative. Therefore \(d_c'(g)=-\Phi_g/\Phi_d<0\).
 
-**Exact moment recursion.** Define, for integers \(p,q\geq0\) and \(s\in\{0,1\}\),
+For the endpoint set \(\varepsilon=\sqrt{1-4g}\), so \(g=(1-\varepsilon^2)/4\). At \(\varepsilon=0\), the onset equation becomes \(Q(d,1/4)=0\) with positive root \(d_\star\), where \(Q_d>0\). Its analytic solution near this point has first derivative \(2\sqrt{S_\star}/Q_d\); uniqueness for small positive \(\varepsilon\) identifies it with the onset curve. At the double root \(u_c=a Q/(2c)=a\sqrt{S/c}\), giving the stated divergence. At fixed subcritical \(g\), the two roots genuinely split at onset: with \(R=Q^2-4cS\), one has \(R_d(d_c,g)=2Q(d_c,g)\Phi_d(d_c,g)>0\), and
 \[
-M_{pq}^{(s)}=\mathbb E\big[z^p\overline z^{\,q}e^{i(q-p)\theta}\sigma^s\big].
+ u_\pm(d,g)=u_c(g)\ \pm\ \frac{a(d_c,g)}{2c}\sqrt{R_d(d_c,g)}\sqrt{d-d_c}+O(d-d_c).
 \]
-Set \(k=q-p\) and \(c=p+q+dk^2\). Applying the stationary Markov generator to these bounded observables gives
-\[
-\begin{aligned}
-cM_{pq}^{(0)}-ikwM_{pq}^{(1)}&=pM_{p-1,q}^{(0)}+qM_{p,q-1}^{(0)},\\
-(c+2g)M_{pq}^{(1)}-ikwM_{pq}^{(0)}&=pM_{p-1,q}^{(1)}+qM_{p,q-1}^{(1)}.
-\end{aligned}
-\]
-A term with a negative index is omitted, and \(M_{00}^{(0)}=1\), \(M_{00}^{(1)}=0\). For \(p+q>0\) the determinant is
-\[
-c(c+2g)+k^2w^2>0,
-\]
-so this triangular system uniquely computes every mixed moment of bounded order. Iterating to \((p,q)=(1,1)\) and \((2,2)\) yields the exact identities
-\[
-\mathbb E|z|^2=\frac{a}{L_1},\qquad
-\mathbb E|z|^4=\frac{2a^2L_2L_3-P(u)}{L_1^2L_2L_3}.
-\]
-Consequently
-\[
-\mathcal K=\frac{\mathbb E[(\operatorname{Re}z)^4]}{\mathbb E[(\operatorname{Re}z)^2]^2}-3
-=\frac32\frac{\mathbb E|z|^4}{(\mathbb E|z|^2)^2}-3
-=-\frac{3P(u)}{2a^2L_2L_3}.
-\]
-The exact rational identities are independently replayable with the attached symbolic checker `verify.py`.
+Further above threshold, for fixed \(g\), their sum and product and the leading terms of \(Q,S\) give \(u_-\sim(7/5)d^2\) and \(u_+\sim(10/c)d^3\).
 
-**Root classification.** Since \(A>0\), the polynomial \(P\) is positive at \(u=0\). For \(g>1/4\), its leading coefficient is negative and the product of its two roots is negative, so it has exactly one positive root, as displayed. At \(g=1/4\), it is linear. For \(0<g<1/4\), the leading coefficient is positive and both roots are positive and distinct precisely when their sum is positive (\(B<0\)) and their discriminant is strictly positive. Equality in the discriminant gives a double root. The signs of \(\mathcal K\) are opposite those of \(P\), proving the full classification.
+## Verification and relation to prior work
 
-**Asymptotic reentrance.** At fixed \(0<g<1/4\), as \(d\to\infty\), direct expansion gives
-\[
-A=14d^5+O(d^4),\qquad B=-10d^3+O(d^2),\qquad
-\Delta=100d^6+O(d^5)>0.
-\]
-Therefore two positive roots exist eventually. Their sum is \(-B/(1-4g)\) and their product is \(A/(1-4g)\); comparison of orders gives the two asymptotic formulas. Finally \(L_2L_3\sim u^2\) proves the high-frequency limit.
+The accompanying `verify.py` checks the rational radial moments and excess formula with SymPy, as well as finite sign examples. The graph of critical diffusivities and its endpoint and splitting laws are established by the inequalities and implicit differentiation above, not by those finite examples.
 
-## Verification
-Run `python verify.py` with Python 3 and SymPy. It rebuilds the Markov-generator recurrences, simplifies their second and fourth stationary moments exactly, and checks the claimed kurtosis polynomial as an identity in all three parameters. Exact-rational sign checks verify a reentrant example \((d,g)=(10,1/10)\) at \(w=0,30,200\) (the \(w=0\) value is only a continuous boundary test) and a single-crossing example \((d,g)=(0,1)\) at \(w=5,10\). An independent event-driven numerical check for \((d,g,w)=(0,1,10)\), using 150,000 independent paths over 20 relaxation times, gave sample excess kurtosis about \(0.213\), against the exact stationary value about \(0.205\); finite sampling does not constitute the proof.
-
-## Relationship to prior work
-Das and Basu (2023) introduced chirality-reversing active Brownian motion and investigated its unconfined displacement laws and time regimes. The present result adds isotropic harmonic confinement and determines an exact stationary fourth-moment sign diagram. Chaudhuri and Dhar (2020) computed trapped nonchiral active Brownian moments. Pattanayak and collaborators (2025, 2026) analyze non-switching chiral or torque-driven particles in harmonic traps and report kurtosis crossovers, including reentrant phenomena. Therefore neither reentrance *per se* nor the non-switching-chirality limit is claimed as new. The mathematical distinction is the positive-rate Markov switching of the angular drift and its \(g=1/4\) threshold.
-
-## Limitations
-The classifications concern a stationary **Cartesian** kurtosis, not a global distribution-shape theorem or a thermodynamic phase transition. The position support is compact; positive excess kurtosis is relative to a Gaussian baseline, not evidence of power-law tails. Finite simulation does not prove exact identities. The full text of one closely related 2025 constant-chirality paper could not be examined; its accessible abstract and later full-length account identify a non-switching model, but this leaves a residual literature-equivalence risk. Higher moments, translational noise, anisotropic traps, and nonlinear forces are not covered. Independent mathematical review has not been performed.
-
-## References
-1. S. Das and U. Basu, *Chirality Reversing Active Brownian Motion in Two Dimensions*, arXiv:2301.11194v1 (first public 2023-01-26), https://arxiv.org/abs/2301.11194.
-2. D. Chaudhuri and A. Dhar, *Active Brownian particle in harmonic trap: exact computation of moments, and re-entrant transition*, arXiv:2005.14234v2 (2020), https://arxiv.org/abs/2005.14234.
-3. A. Pattanayak, A. Shee, D. Chaudhuri, and A. Chaudhuri, *Impact of chirality on active Brownian particle: Exact moments in two and three dimensions*, arXiv:2404.09650 (2024), https://arxiv.org/abs/2404.09650.
-4. A. Pattanayak, A. Shee, D. Chaudhuri, and A. Chaudhuri, *Chirality, confinement and dimensionality govern re-entrant transitions in active matter*, arXiv:2509.03448 (2025), https://arxiv.org/abs/2509.03448.
-5. A. Pattanayak, A. Shee, A. Chaudhuri, and D. Chaudhuri, *Exact dynamics and dimensional effects in torque-driven trapped active Brownian particles*, arXiv:2603.26967v2 (2026), https://arxiv.org/abs/2603.26967.
+The [one-quarter chirality-flip boundary](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-one-quarter-chirality-flip-boundary-for-stationary-k--7bd960c68958) gives the equivalent fourth-cumulant polynomial and the complete pointwise quadratic sign conditions, even in the presence of independent translational diffusion. No novelty is claimed here for that polynomial, the flip-rate boundary, or the discriminant test. The onset result resolves how the test depends on the rotational diffusivity and orders its boundary with the switching rate, including the singular approach to the quarter-rate boundary. This is distinct from free angular-velocity reversal (Das and Basu, arXiv:2301.11194), trapped propulsion-direction reversal (Santra, Basu and Sabhapandit, arXiv:2107.12640), and trapped fixed angular drift (Pattanayak et al., arXiv:2509.03448).

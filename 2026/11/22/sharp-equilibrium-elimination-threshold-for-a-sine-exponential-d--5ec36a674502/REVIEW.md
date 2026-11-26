@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact root census is proved by reducing the left fixed-point equation to the single-peaked function \(A_b\). Strict monotonicity follows from the elementary inequality \(\sin(2u)<2u\), and the right-branch exclusion follows from strict convexity. The nondegenerate fold and strict increase of the threshold follow by differentiation. The standalone numerical checker probes distinct parameter regimes; it is not used as an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating 2023 article (Example 3, Figure 10) uses numerical fixed-point-absence diagrams and says analytic parameter determination can be difficult; it does not derive the critical curve, exact root count, and square-root splitting. Searches of the published mathematical-finding index for the same sine–exponential map and aliases found no covering result. A nearby result on the cosine-skewed map uses a different branch (unsquared cosine, with degenerate right arm), so its critical curve does not imply this theorem. Generic saddle-node theory alone does not establish this global parameter-specific boundary. Residual risk: unindexed analytical treatment.
+PASS
 
-## Mathematical value — PASS
-This exactly resolves a stated numerical parameter-chart problem for a natural three-parameter model proposed to eliminate equilibria. It identifies the precise admissible no-fixed-point region, its stable/unstable pair below threshold, the nonhyperbolic boundary, and the quadratic small-partition scale; these govern which parameter choices can inadvertently create an attracting equilibrium. No unverified claims about chaos or security are made.
+On the branch open at b, the exponential lies below the chord from (b,0) to (1,c), which is strictly below the diagonal even at its endpoints. At b the sine branch gives 1, and at 0 it gives a>0. On [0,b), divide F(x)-x by cos²(kx) to get a-A_b(x), where A_b=x-(1-x)tan²(kx). Its derivative has the sign of 1-2kE_b(x), with E_b=(1-x)tan(kx). The numerator of E_b' is k(1-b)+u-sin(2u)/2>0, u=π/2-kx, so E_b runs from 0 to infinity. At b/2 it is 1-b/2>b/π. Hence A_b has exactly one maximum x_*<b/2; it starts at 0, rises to a_*>0, and ends at minus infinity. Also A_b(x)≤x<b, so a_*<b. This proves the 2/1/0 census. At a root F'-1=-cos²(kx)A_b', and F'>0 in the interior, giving the two multipliers. The double root has positive second derivative 2(1-a_*)k²cos(2kx_*); the increasing map with positive displacement on each side attracts locally from the left and repels on the right. Dividing the Taylor expansion by the coefficient of z² gives z²=K(b)²δ+O(δ^(3/2)) (the nondegenerate maximum first gives z=O(√δ)), yielding the stated splitting. At fixed x>0, A_b increases with b, so evaluating at the smaller-b maximizer proves strict monotonicity. The critical equation first gives kx_*=O(b) and x_*=O(b²), then kx_*=b/π+O(b³), which gives the stated small-b expansion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact phase boundary and its root and multiplier classification distinguish this result from the original example, generic sign criteria and analogous phase diagrams. No equivalent or dominating statement was established in the bounded comparison.
+
+## value
+
+PASS
+
+This settles an analytic parameter-selection question for the very map the source introduced as an equilibrium-free example. The exact boundary eliminates c from that decision and tells which parameter choices inadvertently introduce a stable equilibrium. The root census, multipliers and small-b scale give information absent from the numerical slices. The value is specific to equilibria and does not rely on claims about chaos or security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

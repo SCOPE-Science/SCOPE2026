@@ -1,19 +1,21 @@
-# Scientific review: adjacent-cycle rendezvous clocks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relative-position walk has Fourier eigenvalues \(\lambda_k=(1-p+p\cos(2\pi k/n))^2\). Solving the Dirichlet Poisson equation gives \(H_n(p)=\sum_{k=1}^{n-1}[p(2-p(1-\cos(2\pi k/n)))]^{-1}\) at distance one. The Poisson-kernel expansion sums this exactly. Every reciprocal summand is strictly convex; the boundary analysis establishes unique interior optima, including odd cycles. Uniform differentiable geometric-error bounds near \(p=2/3\) give the first-order optimizer correction. Wald's identity gives the move count, and its derivative is strictly positive. The independent finite killed-chain checker passed 193 assertions. The experiments are corroboration, not a substitute for the full proof.
+PASS
 
-## Originality — PASS, with material source-access risk
+The difference walk has eigenvalues (1−p+p cos θ_k)². The Fourier Dirichlet solution with value zero at 0 has numerator 1−cos(xθ_k); at separation one it cancels the corresponding factor in 1−λ_k. Aliasing the absolutely convergent Poisson series for (2−p+p cos θ)^(-1) onto multiples of n gives the signed parity factor and the k=0 subtraction −1/(2p). Summands 1/(2p−a_k p²) have positive second derivative. At p↓0 the mean diverges; at p=1 for even n parity is invariant and rules out meeting. For odd n, division by 2 mod n maps the relative walk to a half-lazy nearest-neighbor walk starting at distance coordinate (n±1)/2, with mean 2x(n−x)=(n²−1)/2. The general interior bound at p=2/3 beats this for odd n≥5; the explicit triangle mean does so for n=3. Uniformly near p₀=2/3 the closed form has exponentially small parity error (also after differentiation), giving H′=nG′+1/(2p²)+O(n²ρ^n). The derivative sign brackets the optimizer, and G″(p₀)=81√3/16 gives the stated displacement and mean with their remainders. The event T≥t is determined before tick t and independent of that tick's move count; summing its expected reward gives 2pH. Differentiating then proves strict increase and the unattained limit n−1. Independent checks solved the killed chain rationally for 3≤n≤8 at four rational probabilities each and checked n(2/3−p_n) towards 2√3/27 by derivative bisection for n through 1920. Replay and output: /workspace/branches/47465195-6b34-4c40-b915-ab68e89b7c95/independent_check.py and independent_check.log in that directory. The frozen CHECK.py was read, not run.
 
-This is **not** a first proof of symmetric Markovian cycle meeting optimization or of the relative-chain construction. Alpern (1995) and Alpern–Gal (2003, Section 15.4.1) treat that classical problem for random initial placements, and Zhang–Tan–Krishnamachari (2014) furnish a Fourier/eigenvalue framework for uniformly started independent walkers. The 2022 treatment also includes the three-vertex optimum. The claim distinguished here is an *adjacent-start*, all-size exact formula together with the \(n^{-1}\) correction to its common-clock optimal rate and the opposite optimization criterion when actual moves are counted. These are not entailed merely by the quoted uniform-start expected value or finite small-graph optimizers without fresh asymptotic analysis. The 1995 original's full text was inaccessible, while the 2003 retrospective chapter was materially read; historical priority remains unverified and a broader implication could be missed. published-finding corpus searches compared collision, reset, and rendezvous aliases with no exact matching published result in the retrieved items.
+## originality
 
-## Value — PASS
+PASS
 
-Adjacent initial separation is a natural local encounter experiment, unlike random-start rendezvous whose mean is quadratic in cycle length. Its clock-time mean grows linearly in size, so identifying the sharp universal interior time optimum and the sign-reversed actual-motion cost is a meaningful efficiency distinction: faster ticks and fewer mechanical moves optimize incompatible objectives. The finite-size correction is relevant to calibrating moderate cycles; it is not only a textbook restatement of a known return-time formula.
+Pass for the fixed-adjacent all-size optimization with explicit finite-size correction and opposing move-count objective, not for the relative-chain/spectral machinery, generic convexity method, or triangle optimizer. The strongest available Fourier comparison averages over initial separations. The closest exact cycle-strategy source, Alpern (1995), and the cited Alpern–Gal chapter remain material priority risks because their decisive pages were not recovered independently. The frozen Alpern–Zeng characterization is imprecise: its cited triangle optima are for three-agent objectives, and it points to Alpern (1995), §5 for the two-agent rendezvous problem. The independent evidence supports the distinct quantitative finding; it does not certify historical priority.
 
-## Limitations
+## value
 
-No all-start, unequal-clock, adaptive-clock, edge-crossing or general-graph assertion is made. Older rendezvous research could contain an earlier exact all-size adjacent-start calculation not indexed here. Finite checks cover only the specified cases and do not establish infinite claims; the proof addresses the general case. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed adjacent start is a natural local benchmark, distinct from a uniform-start quadratic-time search. The exact parity-sensitive formula explains an order-n optimized time and supplies a finite-size correction; the strictly conflicting movement objective shows why optimal calendar time does not optimize actual activity. The joint quantitative comparison is useful beyond the routine spectral reduction and the small-cycle examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central-section parametrization gives an exact ellipse-arc-plus-chord perimeter. The integral triangle inequality reduces its global optimization to a one-variable function with no interior minima, proving all equality cases. Direct Taylor expansions establish both local endpoint thresholds, and an explicit missing-arc integral gives the cap-contact \(3/2\) coefficient. A Python-standard-library checker performs 1344 numerical assertions, including polygonal boundary lengths calculated without the elliptic-integral formula. Numerical checks supplement rather than certify the analytic proof.
+PASS
 
-## Originality — PASS (provisional historical assessment)
+With t=tan(theta) and k=min(1,h/t), the boundary is four ellipse arcs plus two chords of total length 4R sqrt(1-k²). In the clipped regime the quarter arc is the integrated norm of (t,(1-x²)^(-1/2)) on [0,k]. Its strict integrated-norm bound gives P/(4R)>sqrt(h²+alpha²)+cos(alpha), alpha=arcsin(k). The derivative has the sign of alpha cot(alpha)-h, a strictly decreasing test; the bound's minimum is at an endpoint. At h=pi/2-1 the lower endpoint bound is pi/2; monotonicity in h and the full-ellipse strict inequality give exactly the claimed minimizers. Near the axial angle, the integral in the vertical coordinate gives w and w² coefficients 2Rh(1-h) and R(2h³/3-h/2-h⁴/2), so h=1 is already a strict local maximum. The full-ellipse expansion at zero angle starts with +pi R theta²/2. At contact, the missing arc minus chord is (2R/3)(1+t²)a³+O(a⁵), a²=1-h²/t². The quotient by a³ extends analytically in a² and t; substitution into theta gives the stated 3/2 coefficient and C¹ but not C² regularity, without differentiating an arbitrary error term. Strictness is for the angle variable, not for azimuthal motion among rotationally equivalent planes. Independent high-precision diagnostics agreed; the analytic proof, not those tests, establishes the theorem.
 
-The most relevant archival reference checked in material detail is Finch (arXiv:1212.5946, December 24, 2012), whose cylinder discussion concerns surface area, mean width, and the perpendicular elliptical perimeter of oblique cylinders. That does not imply the optimum over central plane sections of finite right cylinders. Dirksen (arXiv:1602.07854v1), inspected in full, supplies the sharp centered-cylinder **area** section formula and area maximum (Lemma 2.1, Theorem 3), but neither a perimeter extremum nor its equality and regularity classification. Published random-cylinder work instead studies affine cap incidence; a separate least-perimeter theorem concerns central sections of a **cuboctahedron**, not a cylinder. These full-text and claim-level comparisons distinguish the new functional and exact object. These do not dominate the present section-perimeter/equality/endpoint classification. Searches for alternative wordings and dominating results found no exact match, but an unlocated elementary or classical source remains a genuine priority risk. No external independent assessment is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete global minimization problem in finite-cylinder stereometry. Its two different sharp aspect-ratio transitions distinguish global optimality from local angular stability. The explicit nonanalytic onset at end-cap contact explains the geometry responsible for the change of boundary type. The claim does not rely on a contrived numerical slice or unsupported prospective applications.
+The available evidence supports a distinct central perimeter theorem with equality, axial stability and cap-contact regularity. Adjacent results about area, cap-incidence probabilities or complete ellipse circumference do not establish that theorem. Assessment is best-of-knowledge, not a guarantee of priority.
 
-## Limits
+## value
 
-Only centered finite right circular cylinders; no general classification of interior stationary points, oblique cylinders, noncentral sections, or experimental robustness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural orientation optimization is not settled by comparing the obvious disk and rectangle: a clipped oblique section also competes. Ruling it out, proving that local and global changes occur at different aspect ratios, and quantifying the loss of contact smoothness give usable geometric information beyond an ellipse formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

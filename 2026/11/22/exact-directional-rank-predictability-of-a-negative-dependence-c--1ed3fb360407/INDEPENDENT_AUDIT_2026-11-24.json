@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:36:00.238765Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–105, VERIFICATION.md, check_directional.py (read only)",
+        "GBF arXiv:2102.05386 §2 pp. 3–4, Eqs. (1)–(3); p. 10 Prop. 2.5",
+        "/workspace/review_evidence/correctness.md §2; python3 -B /workspace/review_evidence/independent_checks.py 2"
+      ],
+      "rationale": "Independently reconstruct the GBF ranks using X~Exp(1), Z~Exp(theta) independent, Y=exp(Z−X), b=theta/(1+theta), R=exp(−X)=1−U. Y's rank is b*y below y=1 and 1−(1−b)y^(−theta) above. Given R=r the survivor of V is 1 below br, (br/v)^theta from br to b, and (1+theta)(1−v)r^theta above b. Given V=v, R has CDF (r/w)^(1+theta) on [0,w], w=min(v/b,1), from the transformed exponential density. These conditional distributions have no boundary atoms. Integrating the squared forward CDF over r gives 2 theta v/(1+2 theta) below b and v²+theta²(1−v)²/(1+2 theta) above. The reverse squared CDF integrates to w*2(1+theta)²/[(2+theta)(3+2 theta)] and E[w]=1−b/2. Centering by the uniform margins gives exactly the claimed two directed formulas. Their difference is positive and has derivative with sign opposite to the strictly increasing 8 theta³+12 theta²−3; endpoint decay and independent 45-digit checks confirm the unique sharp maximum and both decimals. For two observations, |Delta X| is Exp(1), and the independent symmetric Laplace difference Delta Z gives conditional concordance exp(−theta*|Delta X|)/2. This proves tau=−theta/(1+theta) and the stated reparameterizations.",
+      "residual_risks": [
+        "The four independent quadrature cases supplement exact integration. The claims are population statements, not causal or finite-sample claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GBF gives the CDF and Kendall tau; the general conditional-CDF variance identity requires integration in each direction. The random-reflection relation tracks xi after an independent coin flip using the original xi and a folded-response xi, so it assumes rather than supplies base-model values.",
+          "The publisher copy of the general copula survey was not readable, and the focused lookup for an OA alternate did not identify one."
+        ],
+        "reasoning": "A general formula for computing directional xi and a transformation law requiring it are not evaluated all-family results here. No negative inference is drawn about the unread table.",
+        "searches": [
+          "GBF arXiv:2102.05386 §2 and Prop. 2.5; Ansari–Rockel DOI:10.1515/demo-2024-0002; Resultary random reflection c5a9445b3b9a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published mirror records identified above",
+        "arXiv:2102.05386; DOI:10.1515/demo-2024-0002 (unread); DOI:10.1002/sta4.276 (unread)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the common |tau| parameter does not imply identical xi: the earlier Marshall–Olkin result itself varies one of the directional xi values within a fixed-t fiber.",
+          "The GBF conditional CDF moments use its moving support and a continuous power law, not the support jump of the singular boundary copula. An all-theta calculation of two different squared conditional CDFs is needed to establish the equality of those invariant values for GBF."
+        ],
+        "reasoning": "The GBF coefficient pair is not supplied by a change of parameters in the older model table. Its equality to the known numerical profile and its gap analysis become justified only after the independently evaluated GBF functionals.",
+        "searches": [
+          "arXiv:2102.05386 §2 and Prop. 2.5; 86500b4e25f2 Marshall–Olkin boundary calculation; 61a603520710 exact population functional setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GBF uses mu=theta*lambda in the transformed exponential construction; transposing swaps directions and reflecting either coordinate leaves both population xi values unchanged by conditioning information and the response threshold substitution.",
+          "The earlier Marshall–Olkin formula 2 alpha² beta/(3 alpha+beta−2 alpha beta) and its transpose yield exactly 2t/(3−t) and 2t²/(1+t) at (alpha,beta)=(1,t), Kendall tau=t. But C(u,v)=min(v,u*v^(1−t)) there has a conditional atom of mass u^((1−t)/t) at v=u^(1/t) given 0<u<1. GBF is absolutely continuous, as are its rank reflections and transpose."
+        ],
+        "reasoning": "The equality of the two coefficients and of the absolute Kendall parameter is real, not a coincidence to dismiss, but it is equality of selected invariant values, not a reduction of the models that evaluates the GBF coefficient. Do not credit the abstract gap function separately from evaluating it in GBF.",
+        "searches": [
+          "GBF arXiv:2102.05386 §2, Eqs. (1)–(3) and survival relation, Prop. 2.5",
+          "Resultary: Chatterjee xi directional dependence coefficients asymmetric Ghosh Bhuyan Finkelstein copula exponential difference exact Kendall negative dependence conditional copula rank correlation two directions",
+          "Marshall–Olkin 86500b4e25f2 Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1ed3fb360407 is the frozen claim itself. The earlier Marshall–Olkin catalogue gives the exact invariant pair at its singular natural boundary, not for GBF.",
+          "In same-date 61a603520710 the one-variable-power CDF u*v^[1+beta(1−u^alpha)] is positive throughout the open square, unlike the nonempty GBF zero-CDF wedge. The strictly positive normal-mode densities in e13a318382d7 likewise cannot match GBF's density zero on an open wedge under reflection, transpose or increasing rank changes. The read formulas and cited source domains of these hits differ."
+        ],
+        "reasoning": "Compare the table's object and hypotheses rather than just formulas or dates. The strongest verified table reproduces the numerical signature in a different copula; the same-date records are not redundant by date and are ruled out by actual model definitions.",
+        "searches": [
+          "Resultary exact xi for GBF and possible alternative copula-family parameters; published mirror IDs 1ed3fb360407, 86500b4e25f2, 61a603520710, e13a318382d7, c5a9445b3b9a",
+          "Web: Ansari Rockel Dependence properties of bivariate copula families 2024 preprint arxiv open PDF Chatterjee Ghosh Bhuyan Finkelstein copula table"
+        ]
+      },
+      "rationale": "The supported distinct claim is the evaluation for the absolutely continuous GBF model. The two formulas as functions of |tau| already occur together, with reversed coordinate assignment, at the boundary of the Marshall–Olkin family; accordingly neither those bare rational functions nor their ensuing numerical gap maximum should be claimed model-independently as new. The boundary Marshall–Olkin copula has a singular component and is not GBF or its transpose/reflection. The inspected GBF primary source supplies the model, conditional laws and Kendall coefficient, not the pair of Chatterjee integrals in the passages read. Other materially close catalogue claims have different copulas or random reflection; the unread Ansari–Rockel table remains a specific risk, not negative evidence.",
+      "residual_risks": [
+        "An indexed survey under the same DOI or a source under alternative model names could contain the GBF evaluation; direct access to the Ansari–Rockel table and 2020 life-distribution paper was not obtained. Search misses do not certify historical priority.",
+        "The numeric profile agrees with the Marshall–Olkin boundary and should not be advertised as a novel pair of rational functions independent of the GBF evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct model and Kendall formula; no inspected evaluation of the two Chatterjee coefficients",
+          "evidence": "H,F,G formulas, reparameterization mu=theta lambda, and tau=−theta/(1+theta).",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.05386",
+          "material_read": "OA §2, pp. 3–4, Eqs. (1)–(3), offsets 8500–13675 and 13000–15277; p. 10 Prop. 2.5",
+          "method": "Primary PDF passages",
+          "title": "On a Bivariate Copula for Modeling Negative Dependence: Application to New York Air Quality Data",
+          "trigger": "Exact primary source for the base copula, its conditional laws and existing dependence measures"
+        },
+        {
+          "assessment": "Table coverage unresolved, no inference about omission",
+          "evidence": "Publisher routes returned HTTP 202/403; focused lawful OA lookup did not surface an alternate.",
+          "identifier_or_url": "https://doi.org/10.1515/demo-2024-0002",
+          "material_read": "No primary text; publisher article and PDF attempts unsuccessful",
+          "method": "Lawful OA publisher attempts and focused search for the same paper",
+          "title": "Dependence properties of bivariate copula families",
+          "trigger": "Plausible published table of exact population Chatterjee coefficients"
+        },
+        {
+          "assessment": "Earlier construction is background, no direct claim about unread contents",
+          "evidence": "Publisher returned 403. The normalized exponential representation can be independently derived to recover the GBF copula.",
+          "identifier_or_url": "https://doi.org/10.1002/sta4.276",
+          "material_read": "No direct primary text; attribution and resulting H,F,G read in GBF §2, p. 3",
+          "method": "Lawful OA publisher attempt and later primary corroboration of the model distribution",
+          "title": "A bivariate life distribution and notions of negative dependence",
+          "trigger": "Earlier raw model before the copula paper"
+        },
+        {
+          "assessment": "Both numerical profiles already recoverable at the singular boundary; not the same copula",
+          "evidence": "The directional alpha,beta formula and transpose, at alpha=1 and beta=t, reproduce the target pair with response labels re-ordered.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-sharp-directional-predictability-range-inside-the-marshall-olk--86500b4e25f2",
+          "material_read": "RESULT.md Finding, scope, and beginning proof, offsets 0–3590",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp directional-predictability range inside the Marshall–Olkin copula family",
+          "trigger": "Overlapping exact rational directional functions, same Kendall scale"
+        },
+        {
+          "assessment": "Different reflection operation; no GBF evaluation",
+          "evidence": "Independent Bernoulli reflection formula uses the original and folded-response coefficients.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-rank-reflection-attenuation-and-sharp-capacity-for-bivaria--c5a9445b3b9a",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Published local mirror",
+          "title": "Exact rank-reflection attenuation and sharp capacity for bivariate copulas",
+          "trigger": "General reflection identity possibly transfers an exact directional value"
+        },
+        {
+          "assessment": "Different copula family and weak-dependence theorem",
+          "evidence": "The one-variable-power CDF is strictly positive in the interior; the critical 9/2 exponent is not a GBF parameter or tie.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-local-direction-reversal-boundary-for-power-copula-predi--61a603520710",
+          "material_read": "RESULT.md Finding, assumptions, and proof opening through population formulas, offsets 0–3516",
+          "method": "Published local mirror",
+          "title": "A sharp local direction-reversal boundary for power copula predictability",
+          "trigger": "Same-date strongest negative-dependence directional reversal hit"
+        },
+        {
+          "assessment": "Different smooth strictly positive-density parameter family",
+          "evidence": "Both xi formulas depend on response frequencies; density bounded below by 1−theta, unlike GBF's zero wedge.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-fixed-information-vanishing-rank-dependence-law-for-normal-mod--e13a318382d7",
+          "material_read": "RESULT.md Finding, scope and proof opening, offsets 0–3600",
+          "method": "Published local mirror",
+          "title": "A fixed-information, vanishing-rank-dependence law for normal-mode copulas",
+          "trigger": "Same-date exact formulas for both xi directions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46 and 98–105; GBF model and closest exact comparisons above"
+      ],
+      "rationale": "GBF is an established asymmetric negative-dependence model; symmetric concordance alone does not say which response ranks are more predictable. These exact directional invariants answer that question at every model parameter, distinguish an order-theta from an order-theta² coefficient near independence, and calibrate the maximum asymmetry. They also allow a meaningful comparison with the same numerical profile in a singular copula, which could not be inferred from concordance alone. The value is the evaluation for the established continuous model, not a claim to a new general dependence measure or empirical prediction method.",
+      "residual_risks": [
+        "No causal, inferential or estimator-efficiency conclusion; the exact invariants are for the stated copula family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

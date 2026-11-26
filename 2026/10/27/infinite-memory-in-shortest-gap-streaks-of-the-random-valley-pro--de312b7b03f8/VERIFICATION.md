@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the valley-gap streak theorem
+# Independent mathematical audit
 
-`verify_valley_streak.py` is a Python 3 standard-library program. Running `python verify_valley_streak.py` generates `verification_output.txt` contents. The program independently enumerates strict alternating orderings through nine sites, computes higher Euler numbers from a separate exact integer recurrence, and uses rational fractions to check finite streak probabilities and strict inequalities. It computes the comparison limit to 100-digit precision using Machin's arctangent identity rather than machine-precision rounding.
+## correctness
 
-The recorded run passed 108 assertions. This is a finite diagnostic only. The analytical ingredients needed for every streak length are the elementary bijection between successive minimum gaps and alternating permutations, the classical tangent generating function and cosine product, strict Cauchy–Schwarz for \(S_s\), and the stationary Markov contradiction. Historical priority and independent correctness validation have not been externally certified.
+PASS
+
+Adjacent valleys are impossible, so exactly the required cylinder is enforced by valleys at 0,2,…,2k. Together these impose a single alternating orientation on 2k+3 iid atomless priorities. Their relative orders are uniform, and dividing its probability by P(0 is a valley)=1/3 gives the Euler-number expression, also for k=0. The tangent partial fractions yield the displayed coefficient 2(2/π)^(2k+4)S_(2k+4) before conditioning. The two sequences in the Cauchy–Schwarz step are square summable and not proportional; this gives strict increase, and S_s→1 by domination gives the limit and tail equivalent. Transport to the next valley preserves the conditioned law because each valley receives mass from its unique predecessor; the bi-infinite existence follows from independent three-site tests. Under an order-m homogeneous gap law, conditioning on k≥m copies of 2 would leave a common one-step transition for all k, while order zero would give r_0=r_1. Both contradict strict increase. The recorded finite checks are consistent but are not the basis of the all-k conclusion.
+
+## originality
+
+PASS
+
+Credit is for the all-k stationary shortest-gap continuation analysis and the resulting exclusion of every finite homogeneous Markov order, not for the zigzag coefficients, their asymptotic in isolation, or the low-order gap laws. The closest inspected results do not supply the stochastic-memory conclusion.
+
+## value
+
+PASS
+
+The all-orders formula is used to answer a structural modeling question about a natural stationary point-process spacing sequence: no fixed finite history describes its transitions. Testing a single simple cylinder family yields an exact strict obstruction at arbitrarily large orders and a quantitative limiting benchmark, not just a computation of a classical coefficient or a check of the first few joint probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

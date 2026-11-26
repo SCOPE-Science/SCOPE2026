@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:38.964932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding and proof, especially projected dephasing, Lyapunov entries and dissipative identity",
+        "VERIFICATION.md, verify.py and requirements.txt; inspected construction of the residual, numerical Lyapunov comparison and dense generator; not executed"
+      ],
+      "rationale": "In reflection coordinates, the bright amplitude block is strictly stable: a neutral eigenvector must vanish at site 0, and the nonzero tridiagonal hoppings then force it to vanish everywhere. Hence the only unperturbed peripheral operator blocks are the dark Hamiltonian-frequency sectors; they are semisimple. The first-order compression of site dephasing onto the dark block is minus the identity plus one-half of the diagonal projection in the antisymmetric position basis. Its Rayleigh quotient on every frequency subspace is at most -1/2; equality requires a diagonal matrix. The only nonzero diagonal eigenoperators of the connected dark Hamiltonian commutator are scalar multiples of the dark projector at frequency zero, also for L=1. This gives a simple first-order eigenvalue and a uniquely dominant analytic branch at small positive gamma by reducing the semisimple zero block and dividing its reduced matrix by gamma. Complex conjugation of eigenvalues follows from Hermiticity preservation, making the isolated branch real. With right vector P_-/L and fixed left normalization Tr(P_-X)=1, the first-order eigenvector equation has bright component T/(2L), where A_+T+TA_+^*=-B. The true eigenvector derivative can differ from this candidate by a dark zero-frequency component, but that component has zero dark trace and does not contribute to the second-order pairing: Tr(P_-D(K))=-Tr(K)/2 there. The eigenvalue's quadratic coefficient is therefore Tr(BT)/(4L). For the displayed T, write beta_j=L+1-j with the missing endpoint beta_(L+1)=0. The adjacent imaginary entries give diagonal flux beta_(j+1)-beta_j=-1; at the center the incoming flux L cancels kappa T_00. For interior equal-parity off-diagonals the imaginary-entry contributions cancel by the second difference of beta. For opposite parity the real entries cancel by the linear index and beta differences, with the common diagonal constants canceling for adjacent indices. In row 0 the even columns cancel by the beta recurrence with the weighted first edge, and the odd columns cancel against the sink term (at column 1 the hopping uses T_11-T_00). This verifies the Lyapunov residual and gives the diagonal sum L^2/kappa+kappa L(L+1)(L+2)/(48g^2). Negating the eigenvalue gives the stated expansion. For any gamma>0 the real-part dissipative identity would force a neutral eigenmatrix to be site-diagonal with zero center, and then commute with the connected hopping matrix, forcing it to be zero. The dominant spectral projector tends to X mapped to Tr(P_-X)P_-/L; its survival-trace amplitude tends uniformly to one on normalized dark initial states.",
+      "residual_risks": [
+        "The equation defines kappa as a population absorption rate, or kappa/2 in the amplitude equation; read the informal reference to amplitude removal in Assumptions in this convention.",
+        "Replay with python verify.py using the frozen requirements.txt. The finite floating-point checks do not prove dominance, the cubic remainder or the identity at untested lengths.",
+        "The expansion fixes L, g and kappa before gamma tends to zero; it is not uniform in L or singular parameter limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-graph local-dephasing result describes the persistent sector. The selective-path gcd criterion entails eventual capture when all sites on this path dephase. The foundational transport work studies noise lifting dark subspaces and motivates noise-assisted trapping."
+        ],
+        "reasoning": "These comparisons cover qualitative capture, not the asymptotic rate or its Taylor coefficient at fixed coherent and sink parameters.",
+        "searches": [
+          "Resultary: broader finite-graph dark-space capture with prescribed local dephasers",
+          "Published findings 0b79f725d099 and 95ce1aa7e8eb, Finding and Assumptions",
+          "arXiv:0901.4454, noise-assisted excitation transfer"
+        ]
+      },
+      "checked_sources": [
+        "Ranked Resultary results and four closest mirrored theorem sections cited above",
+        "arXiv:1201.5202, arXiv:0901.4454 and doi:10.1063/1.1786922 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The terminal-path result assumes coherent evolution without site dephasing; the bright block here also has an exceptional first hopping of sqrt(2)g. The cycle's leading integral clock does not evaluate the bright Lyapunov trace or compare the competing peripheral eigenvalue branches."
+        ],
+        "reasoning": "Neither statement mechanically gives L/(4 kappa)+kappa(L+1)(L+2)/(192g^2). Generic perturbation theory supplies the reduction, not the evaluated coefficient.",
+        "searches": [
+          "Published findings 5f817ec7069b and 983573e1e359, theorem statements",
+          "Primary lookup for central traps and Haken–Strobl effective trapping rate; arXiv:1201.5202 pp. 2, 4, 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kassal–Aspuru-Guzik use an odd chain with a middle trap and the same inversion protection, but calculate trapping efficiency with background loss, not the sink-only generator's slow eigenvalue. Their dephasing convention damps off-diagonal entries at twice their parameter. The indexed cycle clock is an integrated survival limit proportional to dark mass."
+        ],
+        "reasoning": "The geometry and qualitative mechanism are shared. A mean or integrated trapping response, even one with an inverse-noise leading term, does not give a unique slow pole and its quadratic correction, and the cycle is not the open path.",
+        "searches": [
+          "Resultary: mirror-protected weak-noise absorption clock, central trap, integrated survival and decay exponent",
+          "arXiv:1201.5202, Eq. (4) and §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-dated indexed exact path result 5f817ec7069b uses a terminal trap with no site dephasing; its exact operator integrates survival. The inspected finite-chain trapping examples in Kassal–Aspuru-Guzik concern efficiency, not a table of the proposed spectral coefficients."
+        ],
+        "reasoning": "The best exact results located have different observables or trap/graph hypotheses; exact numerical or formula coverage is not inferred absent merely from a search miss.",
+        "searches": [
+          "Resultary: exact path absorption-time operators, weak-dephasing clocks, and central reflection",
+          "arXiv:1201.5202, §2.4 finite-chain trapping calculations"
+        ]
+      },
+      "rationale": "A symmetry-center dark component and its dephasing-assisted escape are established mechanisms, including for this geometry. The supported distinct claim is the uniquely dominant weak-dephasing spectral branch and its explicit all-length quadratic coefficient. Neither a trapping-efficiency study of this geometry nor the inspected exact path/cycle absorption and dark-space results supplies that spectral evaluation.",
+      "residual_risks": [
+        "The Haken–Strobl paper of Gaab–Bardeen could not be compared at full-text level.",
+        "An unlocated explicit slow-eigenvalue or generic dark-space expansion specialized with an evaluated bright trace could reduce distinctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage of physical setup and mechanism, not the evaluated spectral expansion",
+          "evidence": [
+            "Odd central-trap chain has a protected component and dephasing removes its protection; trapping efficiency is studied with uniform loss and a distinct dephasing normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.5202",
+          "material_read": "Abstract p. 1, related work p. 2, Eq. (4) p. 4, and §2.4 p. 7 (extracted offsets near 0, 4950, 9500 and 24500)",
+          "method": "Targeted lawful OA primary PDF passages",
+          "title": "Environment-assisted quantum transport in ordered systems",
+          "trigger": "Same odd chain, center trap and noise-assisted release from inversion protection"
+        },
+        {
+          "assessment": "Different observable and hypotheses",
+          "evidence": [
+            "Coherent terminal-sink path, no dephasing; integrated survival operator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-absorption-time-operator-and-size-independent-sink-optimum--5f817ec7069b/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Targeted local-mirror extract",
+          "title": "Exact absorption-time operator and size-independent sink optimum on quantum paths",
+          "trigger": "Exact analytical survival-time observable on open quantum paths"
+        },
+        {
+          "assessment": "Leading integrated clock on cycles only",
+          "evidence": [
+            "The dephasing rate times the integrated survival tends to twice the initial odd-sector mass; no path quadratic spectral coefficient is stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-universal-weak-dephasing-absorption-clock-on-finite-quantum-cycl--983573e1e359/RESULT.md",
+          "material_read": "Finding and scope, mirror offset 0; prior work and limitations near offset 3888",
+          "method": "Targeted local-mirror extracts",
+          "title": "Universal weak-dephasing absorption clock on finite quantum cycles",
+          "trigger": "Universal leading rate scale for a reflection-odd dark sector"
+        },
+        {
+          "assessment": "Qualitative surviving-subspace theorem",
+          "evidence": [
+            "Identifies the surviving sector under dephasers and absorbers rather than a weak-dephasing rate expansion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-localized-dephasing-is-an-asymptotic-absorber-a-spectral-equival--0b79f725d099/RESULT.md",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Targeted local-mirror extract",
+          "title": "Localized dephasing is an asymptotic absorber: a spectral equivalence and arithmetic ring law",
+          "trigger": "Potentially stronger finite-graph result about long-time decay"
+        },
+        {
+          "assessment": "Covers eventual capture, not rate",
+          "evidence": [
+            "The gcd condition excludes survival when all sites are dephased; it does not evaluate eigenvalue derivatives."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arithmetic-dark-subspace-and-capture-law-for-selectively-dephase--95ce1aa7e8eb/RESULT.md",
+          "material_read": "Finding and Assumptions, mirror offset 0",
+          "method": "Targeted local-mirror extract",
+          "title": "Arithmetic dark-subspace and capture law for selectively dephased quantum paths",
+          "trigger": "Broader dephaser placement on uniform open paths"
+        },
+        {
+          "assessment": "Motivational antecedent; not evidence of the target coefficient",
+          "evidence": [
+            "Dephasing opens transport pathways by suppressing destructive interference in excitation transfer models."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4454",
+          "material_read": "Abstract/introductory passage p. 1, offset near 1500",
+          "method": "Targeted lawful OA primary passage",
+          "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+          "trigger": "Physical motivation and established noise-assisted dark-state mechanism"
+        },
+        {
+          "assessment": "Rate-level overlap unresolved",
+          "evidence": [
+            "The citing passage describes an environment-enhanced effective trapping rate, but does not identify the observable with this spectral abscissa or supply its coefficient."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.1786922",
+          "material_read": "Cited description in Kassal–Aspuru-Guzik p. 2 only; no full text obtained",
+          "method": "DOI retrieval attempts and lawful alternate-copy check; OA citing source",
+          "title": "The effects of connectivity, coherence, and trapping on energy transfer in simple light-harvesting systems studied using the Haken–Strobl model with diagonal disorder",
+          "trigger": "Ordered-system effective trapping rates could overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md operational survival statement and quadratic expansion",
+        "arXiv:1201.5202 §2.4 and arXiv:0901.4454 introductory motivation"
+      ],
+      "rationale": "The model is an established example of symmetry-protected transport, where eventual capture or mean trapping time alone does not identify the long-time survival rate. The theorem identifies the mode that actually controls survival, gives the same leading slope across all finite lengths, and separates the inverse-sink and coherent length-dependent parts of the first correction. This is a useful exact benchmark for weak-noise trapping rather than a numerical recalculation or a light-harvesting performance claim.",
+      "residual_risks": [
+        "The result does not supply a finite-time optimum, a thermodynamic limit, or quantitative predictions for an asymmetric, multi-excitation or correlated-noise model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:07.667493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For j≥1 Jacobsthal's modulus at a=q^{t+1}p^{j−1}, b=q^t p^{j−1} has valuation at least 3j. Thus the binomial limit exists, whether or not it is a unit, and its precision at B_j is at least p^{3(j+1)}. LTE gives a p^{m+1} tail for q^{p^m}→ω_p(q), so the p-part is precisely r≤ν_p(β−ω_p(q)^{q^t}), with infinity interpreted as equality. For r≤3 use B_0 and q^{p^{r−1}} at that precision. Legendre's valuation simplifies to s_q((q−1)p^r)/(q−1), and CRT gives the equivalence. At t=1 the positive digit sum is a positive multiple of q−1, including q=2. The frozen verifier and saved output were inspected, not executed. A fresh standard-library computation (branches/f5b0c272-e7a0-4375-a059-f39e3ea0c4b8/independent_check.py and independent_check.txt) directly checked both examples: at (31,5,1) B_0=B_1=251 mod 625, the target lift is 1, and 31^4=21 mod 25; the direct congruences agree through layer 3 and give residues 11501 versus 3751 at layer 4. At (19,7,2) the residues 215 and 19 mod 343 differ by 196, giving H=2, and both allowed digit sums are 18<36. The valuation argument, not finite enumeration, excludes all later layers in the examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier pure tower is n=p^r and compares its binomial limit to ω_p(q); its cubic condition is higher Wieferichness.",
+          "Meštrović's Jacobsthal congruence treats arbitrary binomial dilation parameters a,b, not the target q^n or the digit-sum obstruction."
+        ],
+        "reasoning": "The pure result's method extends, but taking t>0 changes the unscaled binomial, the target Teichmüller power and the possible cutoff; the p-adic height need not track base-q Wieferichness. Moreover the q^t requirement is not present at t=0.",
+        "searches": [
+          "Resultary: Structured Solutions of Prime-Base Binomial Congruences Guedes Machado Theorem 3.1 q^t p",
+          "arXiv:1301.0252 eq. (7); arXiv:2606.30232v1 Theorems 3.1 and 6.2; October 4 pure-tower Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification-output.txt",
+        "arXiv:2606.30232 and arXiv:1301.0252",
+        "October 4 and October 26 Resultary records above",
+        "Independent bounded arithmetic check and output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 4 result expressly has n=p^r; the motivating theorem expressly has n=q^t p. Neither is a theorem for r,t≥1 together.",
+          "In the later mixed record, the compressed modular test is equivalent at each layer to the frozen valuation test; it is not independent corroboration of novelty."
+        ],
+        "reasoning": "The new content defensible against the earlier sources is the structural synthesis for mixed towers and the certified, qualitatively different boundary examples, not CRT, Jacobsthal, the Teichmüller limit, the pure tower, or the first mixed layer.",
+        "searches": [
+          "October 4 pure-tower proof; arXiv:2606.30232v1 Theorem 3.1; October 26 mixed-prime-power Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2606.30232v1 Theorem 3.1: exact r=1 criterion with the same digit sum and B_0≡q^{q^t} mod p.",
+          "October 26 mixed-prime-power Finding and Proof: with j=floor((r−1)/3), require C_t≡q^{q^t} mod p, B_{t,j}^{p−1}≡1 mod p^r and the same digit inequality."
+        ],
+        "reasoning": "The first two October 26 requirements say exactly that B_{t,j} is the unique Teichmüller root lifting q^{q^t} modulo p^r. Because 3(j+1)≥r, this is equivalent to r≤H. In contrast, the earlier r=1 paper cannot determine deeper layer membership from only that first-layer information.",
+        "searches": [
+          "Resultary: mixed prime power tower binomial congruence q^t p^r digit sum Teichmuller beta",
+          "Resultary: Prime-power towers for the prime-base binomial congruence n=p^r mixed q^t p^r",
+          "Web: arXiv:2606.30232 Guedes Machado ‘Structured Solutions of Prime-Base Binomial Congruences’ Theorem 3.1 n=q^t p binomial congruence; exact statement and prior mixed prime-power cases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 26 Finding lists n=775 and n=3875 as solutions, also checked in the present record. The inspected Finding does not state the (31,5,1) all-layer sharp cutoff and (19,7,2) erasure as a pair of sharp examples.",
+          "The earlier mixed theorem is at r=1; fixed examples and bounded tables cannot determine H or exclude all r≥4."
+        ],
+        "reasoning": "The finite positive instances overlap, but they are not themselves a certificate of the exact infinite tower cutoff or the obstruction after filtering.",
+        "searches": [
+          "Resultary mixed prime power tower query above; October 26 exact Finding examples",
+          "arXiv:2606.30232v1 Theorem 3.1 and §6"
+        ]
+      },
+      "rationale": "Earlier coverage includes the exact r=1 mixed layer, the pure p^r tower, and the general dilation tool. These do not state a mixed higher-layer classification or the sharp arithmetic examples. A later published catalogue record gives an equivalent finite-compressed criterion on the same mixed family and includes the positive cubic example; this is substantive duplicate coverage of the criterion as currently indexed and is not to be counted as a distinct theorem. It is dated October 26, after the frozen October 13 record; the comparison does not adjudicate authorship or infer independent discovery. The earlier evidence checked does not give the complete mixed-tower statement with the sharp non-Wieferich cutoff and a separate p-adically allowed tower erased by the digit filter.",
+      "residual_risks": [
+        "The searches do not exclude an earlier unindexed mixed formulation. The close October 26 equivalence does not establish independent provenance or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier coverage of r=1 and the separate pure square case.",
+          "evidence": "Theorem 3.1 requires p | (binom(q^{t+1},q^t)−q^{q^t}) and the same digit inequality for n=q^t p; Theorem 6.2 gives the pure n=p² Wieferich test.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.30232",
+          "material_read": "Theorem 3.1, PDF pp. 2–3, offsets 8500–12026; Theorem 6.2, p. 6, around offset 27000.",
+          "method": "Lawful OA bounded primary PDF passages.",
+          "title": "Structured Solutions of Prime-Base Binomial Congruences",
+          "trigger": "Named motivation and an exact mixed congruence."
+        },
+        {
+          "assessment": "Known general tool establishes the needed binomial precision, not the target congruence classification.",
+          "evidence": "For p≥5 the dilation exponent is at least ν_p(p³ab(a−b)).",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.0252",
+          "material_read": "PDF p. 4, offsets 9300–11575, equation (7).",
+          "method": "Lawful OA bounded primary PDF passage.",
+          "title": "Variations of Lucas' Theorem Modulo Prime Powers",
+          "trigger": "Independent source for the decisive dilation lemma."
+        },
+        {
+          "assessment": "Covers pure p^r only; gives prior method, not mixed boundary behavior.",
+          "evidence": "The scope explicitly excludes mixed support and gives its first nontrivial pure thresholds in terms of higher Wieferichness.",
+          "identifier_or_url": "2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+          "material_read": "Finding, assumptions and relevant limit proof at offset 0.",
+          "method": "Resultary lookup and local mirror bounded reading.",
+          "title": "Prime-power towers for the prime-base binomial congruence",
+          "trigger": "Strongest earlier catalogue match, same p-adic height construction."
+        },
+        {
+          "assessment": "Equivalent classification for the same mixed parameters in the statement's scope; later catalogue date and actual overlap are recorded separately.",
+          "evidence": "Same digit test plus the compressed binomial test and a Teichmüller characterization, with the three-layer simplification and n=775,3875 examples.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-mixed-prime-power-criterion-for-the-prime-base-binomial-congru--53a352a98cb4",
+          "material_read": "Finding, assumptions and both modular proofs at offset 0.",
+          "method": "Resultary lookup and local mirror bounded reading.",
+          "title": "A mixed prime-power criterion for the prime-base binomial congruence",
+          "trigger": "Near-exact alternative formulation in later catalogue."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a motivated congruence, the result explains what survives prime-power lifting and what is removed by the independent digit condition. It gives a sharp cubic tower despite failure of the ordinary Wieferich condition, unlike the earlier pure-prime cubic criterion, and a separate genuine digit obstruction that deletes all layers allowed by the p-adic criterion. The value is this mixed behavior with exact boundaries, not a general bound on H or a re-computation of previously listed positive cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

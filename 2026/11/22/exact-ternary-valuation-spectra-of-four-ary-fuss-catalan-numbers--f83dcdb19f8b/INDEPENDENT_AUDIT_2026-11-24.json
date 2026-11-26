@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:02.059922Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117; VERIFICATION.md and verify.py inspected as author evidence, not executed",
+        "Independent exact symbolic and integer replay: python3 /workspace/branches/exact_reproduction.py 3 (SymPy)"
+      ],
+      "rationale": "Integrality follows from binom(4n,n)-3 binom(4n,n-1) with the out-of-range binomial zero. The denominator 3n+1 is a 3-adic unit, so Kummer gives the carries in n+3n. Lump states to s=previous digit plus incoming carry. Each digit a sends s to a+floor((s+a)/3) with weight t to that floor. Initial state is zero; only terminal state 3 has weight t for the extra high digit of 3n. Independent exact inversion of this four-state transfer verifies the stated numerator and denominator. Its first and second t-derivatives at t=1 agree identically with the generating series for the stated factorial moments, and normalization by 3^r gives the mean and variance (also at r=0,1). The first input digit cannot carry. Equality at r requires the first two digits to sum to at least three, all later neighboring pairs to sum to at least two, and last digit two, realized by all digits two for r>=2. Exact inversion of this separate adjacency count verifies the maximum multiplicity GF and recurrence. At t=1 the reachable transfer is primitive, with simple Perron eigenvalue 3 and remaining eigenvalues of modulus at most one. Its analytic perturbation gives a leading analytic exponential times an analytic nonzero amplitude, with exponentially small relative remainder uniformly near t=1. At t=exp(w), the log-eigenvalue has derivatives 1/2 and 2/3 from the moment slopes. Taylor expansion at imaginary w of order r^(-1/2) proves convergence of the normalized characteristic functions to the stated Gaussian. Independent direct integer histograms agree through r=6.",
+      "residual_risks": [
+        "The normal limit is proved via spectral separation, not finite checks, and gives no uniform approximation error or tail estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited congruence papers' relevant sections treat arities 2^h with modulus a two-power, or arity p^h at the same p. Arity four is not a power of three.",
+          "Sury's prime-p divisibility test is for arity p (arity three when p=3).",
+          "Barat–Grabner study digit methods for distributions over pairs in Pascal's triangle, not this constrained ray."
+        ],
+        "reasoning": "Changing p in the prime-power arity theorems changes the available arities. Aggregation over all Pascal-triangle entries does not imply an exact generating function for the constrained pairs (4n,n) at these cutoffs. General methodology may transfer, but an evaluation in the required parameter regime is not supplied by the inspected statements.",
+        "searches": [
+          "Stănică arXiv:math/0010148 abstract; Sury JIS 09.7.5 Theorem 2",
+          "arXiv:1107.2015 §13 and arXiv:1508.02580 §7",
+          "Barat–Grabner, Distribution of Binomial Coefficients and Digital Functions, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fca5ba9f3d60, 38f9bdc99cfd, 792e92580bb4",
+        "Stănică math/0010148; Sury JIS Article 09.7.5; arXiv:1107.2015 and 1508.02580; Barat–Grabner OA manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arity-three law concerns binom(3n,n)/(2n+1), has variance r/6+O(1), and a unique maximizing index. It is not the r-scale law with variance 2r/3+O(1) and multiple maximizers.",
+          "The dyadic law concerns a different valuation of the same numbers on binary blocks, with a different top layer; no passage implies the ternary law.",
+          "The same-parameter nondivisibility theorem supplies the t=0 specialization only."
+        ],
+        "reasoning": "Neither the zero carry regime nor either different spectrum yields the full evaluated law by algebraic specialization. The two neighboring positive-valuation theories differ in index arity or arithmetic base, and the broader congruence theorem excludes the target arity at prime three. No order of priority is inferred for same-day records.",
+        "searches": [
+          "Read Findings of fca5ba9f3d60, 38f9bdc99cfd, 792e92580bb4; compare exact statistic and block-length variable",
+          "arXiv:1508.02580 §7, exact arity hypothesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fca5ba9f3d60 defines F_p(n)=binom((p+1)n,n)/(pn+1), so F_3 is exactly C_4, and its adjacent-digit inequality characterizes p-nondivisibility.",
+          "The denominator is a 3-adic unit, so the equivalent weighted statistic is the full count of carries in n+3n, not the no-carry test."
+        ],
+        "reasoning": "The same-parameter digit inequality yields P_r(0) and does not specify the exponents for the remaining indices. A criterion for avoiding carries does not evaluate the frequency of all possible carry counts.",
+        "searches": [
+          "Resultary exact arity-four ternary valuation histogram and n+3n carry law",
+          "Stănică arXiv:math/0010148 p. 2",
+          "Resultary fca5ba9f3d60 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-sequence same-prime Resultary nondivisibility census gives only the exponent-zero class.",
+          "38f9bdc99cfd gives a complete ternary spectrum for arity three; 792e92580bb4 gives a complete dyadic spectrum, with moments and a maximum law, for arity four."
+        ],
+        "reasoning": "Those are evaluated frequency laws but not a table of this spectrum over ternary index blocks. The same-day dyadic record is a substantial analogue and not coverage of the triadic law. No exhaustive table search is inferred.",
+        "searches": [
+          "Resultary full Fuss–Catalan valuation spectra by prime and arity; records fca5ba9f3d60, 38f9bdc99cfd, 792e92580bb4"
+        ]
+      },
+      "rationale": "The strongest exact same-parameter precedent proves the valuation-zero census alone; the closest full spectra change the prime or the arity. The classical carry equivalence and known digit rules are not novel. The contribution supported by the comparisons is the complete evaluated ternary-block law for arity four, including its exact moments, Gaussian fluctuations and exact top stratum. General finite-state and congruence machinery are not themselves counted as new.",
+      "residual_risks": [
+        "A different general carry theorem or unindexed exact specialization may yield the same evaluated law. The general primary search did not yield a decisive new match and does not prove absence.",
+        "Targeted comparisons with primary passages do not exclude every application elsewhere in the complete documents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the valuation-zero count only",
+          "evidence": [
+            "F_p(n)=binom((p+1)n,n)/(pn+1); a digit condition for p not dividing F_p(n), and dimension of the nondivisible set."
+          ],
+          "identifier_or_url": "Resultary fca5ba9f3d60 (2026-11-08)",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Published catalogue and corresponding local source comparison",
+          "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and p-adic dimension",
+          "trigger": "Exact same arithmetic object at p=3"
+        },
+        {
+          "assessment": "Different sequence and laws",
+          "evidence": [
+            "Arity three; variance r/6+O(1); unique maximum."
+          ],
+          "identifier_or_url": "Resultary 38f9bdc99cfd (2026-11-08)",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Published catalogue and corresponding local source comparison",
+          "title": "Exact ternary valuation spectra of ternary Fuss–Catalan numbers",
+          "trigger": "Fully weighted ternary histogram for a nearby arity"
+        },
+        {
+          "assessment": "Same sequence but different prime and blocks; no priority inferred",
+          "evidence": [
+            "Exact GF, moments, Gaussian limit and different maximum law for nu_2 on binary blocks."
+          ],
+          "identifier_or_url": "Resultary 792e92580bb4 (2026-11-22)",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Published catalogue and corresponding local source comparison",
+          "title": "Exact dyadic valuation census and sharp extremal layers for quaternary Fuss–Catalan numbers",
+          "trigger": "Exact same sequence and distributional objective, same day"
+        },
+        {
+          "assessment": "Four-Catalan divisibility at prime two in the inspected scope",
+          "evidence": [
+            "Studies s=p^q and residues modulo p^q for q=1,2; the four-Catalan case is mod four."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0010148",
+          "material_read": "Abstract, PDF p. 2 near offset 1100",
+          "method": "Primary OA PDF passage",
+          "title": "p^q-Catalan Numbers and Squarefree Binomial Coefficients",
+          "trigger": "Four-ary divisibility and prime-power arity"
+        },
+        {
+          "assessment": "Prime arity equals divisor prime and divisibility only",
+          "evidence": [
+            "Characterizes p dividing C_p(n), not positive valuation frequencies of C_4 at p=3."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Sury/sury31.pdf",
+          "material_read": "Definition p. 2 near offset 3107 and Thm. 2 p. 3 near offset 6500",
+          "method": "Primary OA PDF theorem comparison",
+          "title": "Generalized Catalan Numbers: Linear Recursion and Divisibility",
+          "trigger": "Prime-arity Fuss–Catalan valuation prerequisite"
+        },
+        {
+          "assessment": "Mod powers of two, not prime three",
+          "evidence": [
+            "Arity 2^h includes four at h=2, but modulus is a power of two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.2015",
+          "material_read": "§13, Thm. 33, pp. 51–52 near offset 185900",
+          "method": "Primary OA PDF theorem hypothesis comparison",
+          "title": "A method for determining the mod-2^k behaviour of recursive sequences, with applications to subgroup counting",
+          "trigger": "Arity-four congruences at powers of a prime"
+        },
+        {
+          "assessment": "Arity k=p^h excludes k=4 at p=3",
+          "evidence": [
+            "Treats F(n;k)=binom(kn,n-1)/n under prime-power arity at the congruence prime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.02580",
+          "material_read": "§7, pp. 24–27 near offset 91700",
+          "method": "Primary OA PDF, Fuss–Catalan section and arity restriction",
+          "title": "A method for determining the mod-p^k behaviour of recursive sequences",
+          "trigger": "Potential broader odd-prime version"
+        },
+        {
+          "assessment": "General methodological precedent; Pascal array counts in inspected material",
+          "evidence": [
+            "Studies distributions of binomial coefficients modulo prime powers and their valuations using block-digital methods, with the introductory census over Pascal-triangle pairs."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Abstract and introduction pp. 1–2 near offset 200",
+          "method": "Primary OA manuscript passage",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Broad valuation distributions and digit transfer methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proofs of moments and extrema; Resultary fca5ba9f3d60 and 38f9bdc99cfd"
+      ],
+      "rationale": "The statistic counts prime divisibility of a standard family of tree enumeration integers; powers of three are the natural blocks for its digit structure. The full law gives frequency information about arbitrarily high divisibility, exact finite fluctuations and a nontrivial sharp maximum multiplicity, rather than only a divisibility predicate or a handful of test values. These quantities distinguish the four-ary sequence from its closest ternary-arity analogue.",
+      "residual_risks": [
+        "No all-prime, arbitrary-interval, or unit-residue classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

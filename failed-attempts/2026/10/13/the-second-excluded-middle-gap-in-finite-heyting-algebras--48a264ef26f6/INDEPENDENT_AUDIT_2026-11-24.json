@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:14:05.223475Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–103; VERIFICATION.md and verify_second_excluded_middle_gap.py (inspected, not executed); /workspace/reproduction/independent_3.py (executed)."
+      ],
+      "rationale": "Under finite duality a Heyting algebra is an upset lattice. The complement of an upset is an upset exactly when no comparability crosses its boundary, i.e. when it is a union of comparability components. Hence the degree is the product of 2/u(Q) over comparability components Q, where u(Q) counts upsets. Singleton components contribute 1. A component with m points has at least m+1 upsets by suffixes of a linear extension; a nonchain admits different linear extensions and has an extra upset. Thus any two nonsingleton components give at most 4/9. If there is one, it gives 2/u(Q), where u(Q)=3 occurs exactly for a two-chain and u(Q)=4 exactly for a three-chain. This proves the excluded cases, sharp second gap, both directions of equality and, by size 4·2^k, uniqueness of k. An independent forward-relation enumeration with relabelling and exact ideal-complement tests reproduced all 4473 labelled posets through five points and 0,0,6,24,60 second-rung cases. The symbolic argument is not bounded by five points.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proof of Thm. 6.1, journal p.550, displays the product of trivial-center factors and controls their sizes by 2/|H_i|. Prop. 1.9 supplies exact product multiplicativity. Prop. 1.13 separately bounds ratios when EM and DN differ.",
+          "The November 2 joint spectrum gives p=2^c/|J(P)| and q=2^m/|J(P)| and the stronger defect-sensitive ceiling for m>c."
+        ],
+        "reasoning": "The conditional 2/5 bound alone does not settle the zero-defect case. The general factor-size rule in the published proof does yield the second rung. The later indexed joint spectrum gives a parallel implication; priority is not inferred from indexing.",
+        "searches": [
+          "Bumpus–Kocsis Props. 1.9, 1.13 and Theorems 2.2, 6.1; Resultary joint EM/DN spectrum 221ee3578598"
+        ]
+      },
+      "checked_sources": [
+        "Bumpus–Kocsis, DOI 10.1017/jsl.2024.2 / arXiv:2110.11515",
+        "Resultary c513ef9ec162 and 221ee3578598"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Thm. 6.1 proof explicitly factors H into trivial-center H_i and translates degree bounds into size bounds. The same-day top equality proof expressly gives 2/|H_i|, C2 factors, a 2/3 single-factor maximum, and the two-factor estimate 4/9."
+        ],
+        "reasoning": "Among ratios ≥1/2 only one non-Boolean factor can remain. With C3 removed its minimum size is four, and the only four-element bounded distributive non-Boolean lattice is C4. This is a direct reading of the factor sizes under the earlier product formula, not a new structural lemma.",
+        "searches": [
+          "Bumpus–Kocsis published Theorem 6.1 proof, p.550, PDF offset 65480 onward and 'trivial center' match at 68314; Proposition 1.9; Theorem 2.2",
+          "Resultary c513ef9ec162 proof, local mirror offset 1320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 1.11 identifies excluded-middle solutions with the center.",
+          "The October 13 equality record and November 2 joint-spectra record give the equivalent component count 2^c under finite duality."
+        ],
+        "reasoning": "Complemented upsets are unions of comparability components; this translates the very same ratio into product factors 2/u(Q). Second largest and the claimed equality family are not a different invariant from the one controlled by the published decomposition.",
+        "searches": [
+          "Finite Heyting excluded-middle second-largest degree 1/2; Boolean center; C4 × Boolean factor; complemented/clopen upset components",
+          "Bumpus–Kocsis DOI 10.1017/jsl.2024.2, Def. 1.10 and Prop. 1.11; Resultary c513ef9ec162 and 221ee3578598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date c513ef9ec162 proof contains the exact intermediate quantities 2/|H_i| and 4/9, and its census tabulates the 2/3 family. The later 221ee3578598 states an exact spectrum formula, not a table specifically naming the next extremal isomorphism types."
+        ],
+        "reasoning": "A census cannot alone certify the infinite theorem. These exact indexed formulas are the relevant data rather than an integer-sequence match, and the required extremal deduction comes from structural formulas.",
+        "searches": [
+          "Resultary top equality, second-rung and EM/DN-spectrum records; c513ef9ec162 RESULT.md offset 1320; 221ee3578598 RESULT.md offsets 0–5194 and 5500–10791"
+        ]
+      },
+      "rationale": "The second bound is not stated verbatim in the published paper, but it is mechanically implied by its explicit center-trivial product decomposition and factor-size proof, already expanded with the same 4/9 estimate in the distinct indexed two-thirds equality record. In Bumpus–Kocsis, Theorem 6.1's proof explicitly uses the factorization obtained by iterating Theorem 2.2, and the exact factor degree 2/|H_i|. Applying their published product rule, every algebra of degree at least 1/2 has at most one non-Boolean factor, since two give at most (2/3)^2. The sole non-Boolean factor then has at most four elements. Its only center-trivial possibilities at sizes three and four are C3 and C4, since the only other bounded lattice of size four is the Boolean square. This gives both the claimed ceiling and rigidity by inspection of the already published factor-size criterion. The indexed October 13 result also expressly gives 4/9 and 2/|H_i|; its shared date does not decide priority and is not needed for the implication from the earlier journal proof.",
+      "residual_risks": [
+        "No assertion is made about who first stated the second-rung formula explicitly. The negative assessment is for implication coverage by the earlier published factor-size proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact second rung is not named, but the proof of Thm. 6.1 and product rule mechanically give it.",
+          "evidence": "Theorem 6.1 proof invokes the Thm. 2.2 iteration to write H as a product of trivial-center factors and uses factor sizes via 2/|H_i|.",
+          "identifier_or_url": "https://www.its.caltech.edu/~matilde/DegreeSatisfiabilityHeytingAlgebras.pdf ; DOI 10.1017/jsl.2024.2",
+          "material_read": "Prop. 1.9; Def. 1.10 and Prop. 1.11; Prop. 1.13 and note; Thm. 2.2 proof; Thm. 6.1 proof on journal p.550.",
+          "method": "Lawful author-hosted published PDF; located and read decisive passages.",
+          "title": "Degree of Satisfiability in Heyting Algebras",
+          "trigger": "Original excluded-middle gap and potentially covering factor-size bound."
+        },
+        {
+          "assessment": "Overlapping proof-level implication; no same-day priority claim.",
+          "evidence": "Gives the trivial-center factor formula 2/|H_i| and the estimate 4/9 when two factors are non-Boolean, and classifies C3 × C2^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-equality-cases-for-the-two-thirds-excluded-middle-bound--c513ef9ec162/RESULT.md",
+          "material_read": "Finding, proof at offset 1320, and dual verification discussion.",
+          "method": "Resultary lookup and local-mirror passage inspection.",
+          "title": "Equality cases for the two-thirds excluded-middle bound",
+          "trigger": "The distinct same-day preceding endpoint and proof estimate."
+        },
+        {
+          "assessment": "Broader formula gives a parallel derivation; later displayed date is not used as earlier-priority evidence.",
+          "evidence": "The joint pair is (2^c/|J(P)|,2^m/|J(P)|) for c comparability components and m minimal points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-excluded-middle-and-double-negation-spectra-of-finite-heyt--221ee3578598/RESULT.md",
+          "material_read": "Finding and component/defect formulas, offsets 0–5194 and 5500–10791.",
+          "method": "Resultary lookup and local-mirror passage inspection.",
+          "title": "Joint excluded-middle and double-negation spectra of finite Heyting algebras",
+          "trigger": "Potentially stronger joint characterization of the same invariant."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Bumpus–Kocsis proofs of Theorems 2.2 and 6.1; c513ef9ec162 proof."
+      ],
+      "rationale": "The next extremum is a natural question, but the assigned theorem takes only the next factor size in an already explicit product decomposition and inspects the two bounded lattices of size four. The finite verification is sound but does not supply a distinct structural advance beyond that deduction, and no harder remaining spectrum claim is made.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

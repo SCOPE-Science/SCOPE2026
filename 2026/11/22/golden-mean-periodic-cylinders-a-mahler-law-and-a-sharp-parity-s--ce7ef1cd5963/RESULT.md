@@ -2,7 +2,7 @@
 
 ## Finding
 
-In the golden-mean one-sided subshift, forbid the block `11`. Sample uniformly from all admissible length-\(n\) words, and let \(\eta_n\) be the least period of an infinite periodic admissible sequence beginning with the sampled word. For every \(n\ge2\), \(\eta_n\le n\); moreover, the exact probability \(P_n=\Pr\{\eta_n=n\}\) has the following effective generating law and asymptotic:
+In the golden-mean one-sided subshift, forbid the block `11`. Sample uniformly from all admissible length-\(n\) words, and let \(\eta_n\) be the least period of an infinite periodic admissible sequence beginning with the sampled word. The full-period atom \(P_n=\Pr\{\eta_n=n\}\) has a sharp parity-dependent correction to its limiting probability. For \(n\ge2\), it equals the unbordered-word proportion; the scalar generating law below is the weight-one specialization of [6] and is included as the starting point for the refinement:
 
 \[
 P_n=\frac{2t_n}{F_{n+2}},\qquad
@@ -27,7 +27,7 @@ Then \(A,p_*,K_0,K_1>0\), and, as \(n\to\infty\) through integers,
 \boxed{P_n=p_*+K_{n\bmod2}\,\varphi^{-n/2}+O(\varphi^{-3n/4})}.
 \]
 
-Numerically \(p_*=0.1556298471279007\ldots\), \(K_0=0.1259071911584468\ldots\), and \(K_1=0.2591385329674485\ldots\). The two corrections have the same exponential rate but different, strictly positive coefficients: \(K_1/K_0=\varphi^{3/2}>1\). Additionally, the circle \(|z|=1\) is a natural boundary for meromorphic continuation of the enumerator \(T\).
+Numerically \(p_*\approx0.1556298471279007\), \(K_0\approx0.1259071911584468\), and \(K_1\approx0.2591385329674485\). The two corrections have the same exponential rate but different, strictly positive coefficients: \(K_1/K_0=\varphi^{3/2}>1\). The pole argument also explains why the unit circle is a natural boundary for meromorphic continuation of \(T\).
 
 ## Assumptions and scope
 
@@ -39,7 +39,7 @@ The space is \(X=\{x\in\{0,1\}^{\mathbb N_0}:x_jx_{j+1}\ne11\ \forall j\}\), wit
 
 **2. Unique shortest-border decomposition.** In an unbordered binary word of length at least two, the endpoints differ. Reversal preserves the no-`11` constraint and swaps the two endpoint orientations. Define \(t_n\) to be the number of unbordered, admissible length-\(n\) words beginning in `0` and ending in `1`. The total number of unbordered admissible words is \(2t_n\). There are \(F_{n-1}\) admissible length-\(n\) words with those prescribed endpoints (count the \(n-2\) interior symbols, using the forced `0` before the terminal `1`).
 
-A bordered word with endpoints `0`, `1` has a **unique shortest nonempty border** \(u\), which must itself be unbordered, begin in `0`, end in `1`, and have length \(2\le k\le\lfloor n/2\rfloor\). The bound follows because a shorter-than-half overlap would otherwise give a proper border of \(u\). The original word is uniquely \(u v u\), with \(|v|=n-2k\). The join after the first \(u\), ending in `1`, requires \(v\) to begin with `0` when it is nonempty; the join into the second \(u\), beginning with `0`, imposes no additional restriction. Hence the admissible fillings of length \(m\) number \(F_{m+1}\), including the empty filling \(m=0\). Conversely, any \(u v u\) so formed has shortest border \(u\), since a shorter border would also be a border of \(u\). Therefore
+A bordered word with endpoints `0`, `1` has a **unique shortest nonempty border** \(u\), which must itself be unbordered, begin in `0`, end in `1`, and have length \(2\le k\le\lfloor n/2\rfloor\). Indeed, a border of length \(k>n/2\) induces a period \(n-k<k\) on the whole word, hence also on its length-\(k\) prefix; that would give a proper border of \(u\). The original word is uniquely \(u v u\), with \(|v|=n-2k\). The join after the first \(u\), ending in `1`, requires \(v\) to begin with `0` when it is nonempty; the join into the second \(u\), beginning with `0`, imposes no additional restriction. Hence the admissible fillings of length \(m\) number \(F_{m+1}\), including the empty filling \(m=0\). Conversely, any \(u v u\) so formed has shortest border \(u\), since a shorter border would also be a border of \(u\). Therefore
 
 \[
 \boxed{t_n=F_{n-1}-\sum_{k=2}^{\lfloor n/2\rfloor}t_k F_{n-2k+1}}\quad(n\ge2).
@@ -85,7 +85,7 @@ Finally \(F_{n+2}=\varphi^{n+2}/\sqrt5+O(\varphi^{-n-2})\). Divide \(2t_n\) by t
 
 ## Verification
 
-The standalone Python 3 program `checks/verify.py` requires only the standard library. It tests the shortest-period/unbordered equivalence and the exact count for **every admissible word of lengths \(2\) through \(15\)**, checks \(220\) integer coefficient identities for the Mahler equation, and independently checks high-precision finite-length approximations to both parity coefficients. It prints \(t_2,\ldots,t_{16}=1,1,1,2,2,4,5,9,12,21,31,52,79,131,205\). With \(220\) terms, the neglected positive tail in \(T(q^2)\) is bounded by \(q^{222}/(1-q)<1.1\times10^{-46}\). These finite checks do **not** prove the infinite theorem; the combinatorial identity and complex-analytic pole argument above do.
+The Python 3 program `checks/verify.py` requires only the standard library. It enumerates every admissible word at lengths \(2\) through \(15\), tests the ordinary-period/unbordered equivalence and the exact counts, checks the \(219\) integer coefficient identities of degrees \(2\) through \(220\), and evaluates finite-length approximations to both parity coefficients. It prints \(t_2,\ldots,t_{16}=1,1,1,2,2,4,5,9,12,21,31,52,79,131,205\). Truncating \(T(q^2)\) at degree \(220\) leaves a positive tail bounded by \(q^{222}/(1-q)<1.1\times10^{-46}\). The finite checks do not prove the asymptotic or the continuation statement.
 
 ## Relationship to prior work
 
@@ -93,16 +93,19 @@ Pannipitiya's November 2026 analysis defines periodic-orbit penetration times an
 
 Holub and Shallit (2016), Section 4.1, give exact recurrences and unbordered probabilities for uniformly sampled **unrestricted** \(q\)-ary words (including the independent binary case). Their Theorem 7 is not the recurrence for the adjacent-`11`-avoiding language, and their limit \(0.2677868402\ldots\) differs from the constrained value here. Régnier (1992), Sections 1–3, develops shortest-border generating functions for unrestricted \(q\)-ary words; the constrained transition weights, Fibonacci normalization, and two square-root pole coefficients do not occur in its statement.
 
-A published general finite-type result, *Entropy-sharp periodic-cylinder closure and parity-oscillating short-period counts* (2026), proves exponential tail bounds for the shortest-period deficit and an exact **expectation of the number of qualifying periods**. It explicitly does not determine the full deficit law. The current calculation resolves one natural probability atom in the golden-mean presentation; it is not implied by the expectation or those two-sided tail inequalities. There are also results for the **individual morphic Fibonacci word**, which is not the full golden-mean language of all admissible words.
+A general finite-type result [4] proves exponential tail bounds for the shortest-period deficit and an exact expectation of the number of qualifying periods, not an exact atom asymptotic. The individual morphic Fibonacci word [5] is also different from the full language of `11`-avoiding words.
+
+The closest counting result is [6]. Its bivariate enumerator \(U(z,t)\), at weight \(t=1\), is \(2z+2T(z)\); its equation, unweighted recurrence and limiting constant are exactly the baseline used here, including a bound \(P_n-p_*=O(\varphi^{-n/2})\). The refinement here extracts the two actual nonzero leading coefficients from the poles at \(\pm\sqrt q\), and separates them from the next pole shell with a smaller error. The limiting constant and recurrence are not presented as distinct contributions, and the natural boundary is an accompanying consequence of the meromorphic pole cascade.
 
 ## Limitations
 
-This result concerns the single binary one-step shift forbidding `11`, uniform finite-word sampling, and the full-length penetration atom \(\Pr\{\eta_n=n\}\). It does **not** give the entire distribution of \(\eta_n\), nor a universal formula for arbitrary finite-type shifts or nonuniform Gibbs sampling. Numerical constants are derived from a convergent series, not asserted to be rational or algebraic. A formal independent mathematical audit remains unperformed. The publication comparison is not an exhaustive priority certificate; unpublished or poorly indexed work may cover some assertions.
+This result concerns the single binary one-step shift forbidding `11`, uniform finite-word sampling, and the full-length penetration atom \(\Pr\{\eta_n=n\}\). It does **not** give the entire distribution of \(\eta_n\), nor a universal formula for arbitrary finite-type shifts or nonuniform Gibbs sampling. Numerical constants are derived from a convergent series, not asserted to be rational or algebraic. The comparison does not establish exhaustive publication priority.
 
 ## References
 
 1. D. N. Pannipitiya, *Local Periodic Orbit Penetration in Dynamical Systems*, arXiv:2611.13416v1 (first publicly posted 10 November 2026), especially Proposition 2.27, https://arxiv.org/abs/2611.13416.
 2. Š. Holub and J. Shallit, *Periods and Borders of Random Words*, STACS 2016, LIPIcs 47, art. 44, DOI:10.4230/LIPIcs.STACS.2016.44, https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.STACS.2016.44.
 3. M. Régnier, *Enumeration of bordered words, le langage de la vache-qui-rit*, RAIRO 26(4) (1992), 303–317, https://www.numdam.org/item/ITA_1992__26_4_303_0/.
-4. *Entropy-sharp periodic-cylinder closure and parity-oscillating short-period counts* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-entropy-sharp-periodic-cylinder-closure-and-parity-oscillating-s--22e18f2d92a1.
+4. *Entropy-sharp periodic-cylinder closure and parity-oscillating short-period counts* (2026), https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-entropy-sharp-periodic-cylinder-closure-and-parity-oscillating-s--22e18f2d92a1.
 5. H. Mousavi, L. Schaeffer, and J. Shallit, *Decision Algorithms for Fibonacci-Automatic Words, I: Basic Results*, RAIRO 50 (2016), 39–66, DOI:10.1051/ita/2016010 (the morphic Fibonacci-word setting).
+6. *A weight-refined border-free spectrum for Fibonacci-admissible binary words* (2026), https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-weight-refined-border-free-spectrum-for-fibonacci-admissible-b--491b08dec094, equations (1)–(4).

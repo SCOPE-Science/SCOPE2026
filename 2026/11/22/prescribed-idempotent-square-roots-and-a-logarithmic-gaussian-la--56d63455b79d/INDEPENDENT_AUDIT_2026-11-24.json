@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:10.762240Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof (lines 34–85)",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/evidence/partial_injections_check.py; captured output /workspace/evidence/partial_injections_output.txt"
+      ],
+      "rationale": "If f²=e_S, strict increase excludes nontrivial 2-cycles, so f fixes S and no other point. A moving image lies outside the domain, and strict increase at points of S confines moving arrows to individual gaps. Within a gap, every pair of disjoint, equicardinal domain and image subsets specifies a unique increasing bijection. This gives the multinomial sum T_m and the product, including n=0, empty S, and zero gaps. The probability generating calculation uses 2^{-n} times [z^n] of B_t(z)/(1-z B_t(z)), where B_t(z)=sum T_m^t z^m and t is the log-fiber moment parameter. On a fixed circle 1/2<R<1 the series is analytic for small complex t, by T_m<=3^m. At t=0 the denominator has one simple zero inside R; uniform perturbation and residue subtraction produce the stated analytic exponential approximation. The first two derivatives of the pole equation are the stated constants since the mean geometric block length is 2; the second derivative is positive because log T_m is not proportional to m+1. Cauchy estimates give the O(1) cumulant errors and the Taylor expansion at t=O(n^{-1/2}) proves the CLT. At t=1 the unnormalized generating function has a simple pole at 1/(1+sqrt(5)), with coefficient 1/sqrt(5) in the normalized principal part, and the branch points lie farther away. Dividing coefficients by 2^n proves the arithmetic mean; its rate is strictly greater than the typical rate. An independent replay composed all 184756 maps at n=10 and checked all 1024 targets (58558 roots in total), also checking n=0. The constants computed by repeated trinomial convolution at cutoff 120 are 0.252931378211030114406007 and 0.304190135280173835045576, with analytic truncation/substitution error bounds below 2.53e-35 and 3.61e-33, respectively. These bounded checks corroborate the proof, not the convergence by themselves.",
+      "residual_risks": [
+        "Exhaustive replay is only at n=0 and n=10; all-size and limiting statements rest on the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Laradji–Umar's accessible abstract gives generating functions for nilpotents and their frequency asymptotics. The DOI/publisher requests did not yield full text; metadata identifies no OA PDF. The web search returned irrelevant results, not evidence of absence.",
+          "Resultary f03924d534c3 proves a log-Gaussian law for inverse-partner counts of total isotone maps sampled uniformly at fixed proportional rank."
+        ],
+        "reasoning": "Nilpotent enumeration may cover the empty-target ingredient; the abstract does not determine whether it gives even that square-zero specialization. The inverse-partner result does not give the required independent Bernoulli gaps or this reward function. Generic renewal-reward and simple-pole limit theorems cover probabilistic proof techniques but require identifying the reward from this prescribed semigroup fiber.",
+        "searches": [
+          "Web search: \"Combinatorial results for semigroups of order-preserving or order-reversing subpermutations\" Laradji Umar full text pdf nilpotent",
+          "DOI:10.1080/10236198.2015.1005080; OpenAlex W1979978544; Semantic Scholar fc6f6c98bb7ca0b009acfae35896e535e4c39fcd",
+          "Resultary: uniform random target semigroup roots logarithm root multiplicity Gaussian limit"
+        ]
+      },
+      "checked_sources": [
+        "Alvarez (2016), Theorem 3.1",
+        "Laradji–Umar (2015), abstract and lawful access/availability metadata only",
+        "OEIS A111960/A111961",
+        "Resultary records d449e4ff8b1b, f03924d534c3, dadd0ab54d91, 2f21d1369b49, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existence criterion controls only nonemptiness; a rank aggregate does not identify the weights of ordered gaps of a particular target. Knowing the square-zero count would supply T_m, but passing to individual prescribed identities still requires proving that a root fixes S and its moving arrows cannot cross S. A geometric-gap renewal CLT then applies to log T_m, not directly to the OEIS scalar mean or to the other semigroup law."
+        ],
+        "reasoning": "The distinctive step is the semigroup-to-positional-reward identification and its specific distributional consequences. No checked result supplies that complete identification. The state-dependent weights are needed even to formulate the particular logarithmic variance.",
+        "searches": [
+          "Alvarez 2016 Theorem 3.1",
+          "Laradji–Umar DOI:10.1080/10236198.2015.1005080 accessible abstract",
+          "OEIS A111960/A111961",
+          "Resultary d449e4ff8b1b and f03924d534c3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alvarez, p. 130, gives square-root existence for POI(n) with n<=7, not an all-n prescribed count.",
+          "d449e4ff8b1b has Motzkin per-gap factors in the extensive-only partial-injection monoid, and a Rayleigh limit sampling roots, not uniform targets. The two same-date neighboring records concern total order-reversing maps and total maps respectively."
+        ],
+        "reasoning": "Increasing partial permutations is an equivalent name for the assigned objects. However, the restricted, one-sided or total-map statements do not transport to the fiber law allowing both directions of motion within gaps. The identical indexed assigned result was not counted as overlap, and same-date distinct results were compared without inferring priority.",
+        "searches": [
+          "Resultary: kth roots order-preserving partial permutation semigroup prescribed idempotent fibers counting criterion",
+          "Alvarez 2016 PDF: Theorem 3.1",
+          "Resultary records d449e4ff8b1b, dadd0ab54d91, 2f21d1369b49"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A111960 labels itself the renewal array for central trinomial numbers; A111961 gives the row sums, generating function and asymptotic. The A111960 n=5, k=1 total 61 is split as 19,7,9,7,19 by the assigned fiber."
+        ],
+        "reasoning": "The renewal weights are known as combinatorial data. The table does not identify the semigroup root counts with the individual weights or supply the law under uniform idempotent sampling. Its row-sum asymptotic is exactly known and excluded from the distinct claim.",
+        "searches": [
+          "OEIS A111960 (page from offset 0; locator A(n,k))",
+          "OEIS A111961 (page from offset 0; locator asymptotic)",
+          "OEIS A002426 (the assigned record's central trinomial identifier)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the individual positional fiber and its uniform-target logarithmic law, with explicit constants and bounded cumulant errors. No novelty is credited to the central trinomial sequence, aggregate coefficient triangle, arithmetic-mean asymptotic, or general analytic/renewal CLT methods. The strongest exact-scope sources actually read either give existence in restricted dimensions, aggregate rather than individual data, or count a different class of maps under a different sampling law. The 2015 enumerative paper's unresolved full-text comparison is a real access risk, not proof of absence or a reason alone to fail.",
+      "residual_risks": [
+        "Full Laradji–Umar article was not accessible and may establish additional overlap, especially for square-zero maps.",
+        "Unproductive literature search does not exclude unlocated semigroup or renewal applications to the identical reward. No historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence criterion in the inspected statement, not the proposed all-n fiber census",
+          "evidence": [
+            "The stated domain is POI(n) for n<=7; some OCR is imperfect, so only legible scope and theorem type were used."
+          ],
+          "identifier_or_url": "https://www.fullerton.edu/nsmssc/_resources/pdfs/2016_dimensions.pdf",
+          "material_read": "p. 130, Theorem 3.1 and its context (text offset 5548696)",
+          "method": "Lawful OA PDF, literal theorem locator and passage read",
+          "title": "On kth Roots in Semigroups of Order-preserving Partial Permutations",
+          "trigger": "Same underlying monoid and power map"
+        },
+        {
+          "assessment": "Exact coverage unresolved",
+          "evidence": [
+            "Abstract explicitly mentions generating functions for nilpotent subpermutations and frequency asymptotics; no checked passage settles prescribed nonempty partial identities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2015.1005080",
+          "material_read": "Accessible abstract and access metadata; no article body",
+          "method": "DOI and publisher full-text/abstract routes tried; checked OpenAlex and Semantic Scholar for lawful copy",
+          "title": "Combinatorial results for semigroups of order-preserving or order-reversing subpermutations",
+          "trigger": "Same objects, published nilpotent enumeration"
+        },
+        {
+          "assessment": "Exact overlap for aggregate data only",
+          "evidence": [
+            "A111961 is the expansion of 1/(sqrt(1-2x-3x²)-x), asymptotic to (1+sqrt(5))^n/sqrt(5)."
+          ],
+          "identifier_or_url": "https://oeis.org/A111960 ; https://oeis.org/A111961",
+          "material_read": "Sequence descriptions, sample rows, cross-reference and row-sum formula/asymptotic",
+          "method": "Lawful website passage reads",
+          "title": "Central-trinomial renewal array and row sums",
+          "trigger": "Exact matching numerical data"
+        },
+        {
+          "assessment": "Structural analogue, materially different monoid and probability law",
+          "evidence": [
+            "Extensive-only fibers have Motzkin factors; the Rayleigh distribution samples roots whose squares are idempotent."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-motzkin-square-root-fibers-and-a-rayleigh-fixed-point-law-in-inj--d449e4ff8b1b",
+          "material_read": "Finding: product factors and Rayleigh sampling assumptions",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Motzkin square-root fibers and a Rayleigh fixed-point law in injective partial Catalan monoids",
+          "trigger": "Nearest gap-factorized semigroup count"
+        },
+        {
+          "assessment": "Analogue of log law, not its specialization",
+          "evidence": [
+            "Counts inverse partners of total isotone maps at fixed proportional rank, not square roots of Bernoulli-selected partial identities."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-inverse-partner-degree-law-and-gaussian-logarithmic-fluctuat--f03924d534c3",
+          "material_read": "Finding and sampling assumptions",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Inverse-partner degree law and Gaussian logarithmic fluctuations",
+          "trigger": "Logarithmic Gaussian law for a semigroup count"
+        },
+        {
+          "assessment": "Neither gives the assigned partial-map theorem",
+          "evidence": [
+            "The first uses total order-reversing maps over total isotone idempotents; the second uses total maps and kernel-fiber matchings."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-order-reversing-square-roots-of-chain-idempotents-paired-rail-fa--dadd0ab54d91 ; 2026/11/22/SCOPE-weighted-matching-census-of-square-roots-of-arbitrary-idempotent--2f21d1369b49",
+          "material_read": "Finding and domain of both results",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Order-reversing square roots and weighted-matching census of idempotent square roots",
+          "trigger": "Same-date indexed neighboring root-fiber classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, prescribed fibers and logarithmic law",
+        "Alvarez Theorem 3.1 and OEIS A111960/A111961 for nonemptiness and aggregate baselines"
+      ],
+      "rationale": "The exact gap rule distinguishes same-rank idempotents that rank counts cannot distinguish, and makes it possible to separate typical multiplicity from arithmetic average in a natural monoid. The explicit fluctuation scale and variance concern uniformly chosen targets rather than roots and are usable without enumerating partial maps. This is a substantive application to a prescribed-target statistic, not a claim of new renewal theory or a restatement of a numerical table.",
+      "residual_risks": [
+        "Not a classification over general nonidempotent targets or a priority claim for known aggregate data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

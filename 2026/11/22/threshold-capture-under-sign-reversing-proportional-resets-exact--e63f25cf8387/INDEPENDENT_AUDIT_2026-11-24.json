@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:13:20.189930Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–97",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 17–179 (read only)",
+        "Independent replay: OPENBLAS_NUM_THREADS=1 python3 /tmp/opencode/reset_resolvent_check.py"
+      ],
+      "rationale": "In scaled position y and unit reset rate, the equations on (−β/q,β) are u''−u+u(−qy)=−1 and p''−p+p(−qy)=0. To the left the reset gives zero future time and jump-capture payoff one, so both outer equations have right side −1, and boundedness gives the same Robin condition F'(−β/q)=F(−β/q)−1. Matching the factorial-series odd homogeneous and negative even particular solutions with F(β)=0 reproduces both formulas and gives 0<p(0)<1. Piecewise C¹ matching does not create a local-time term. The uniform block capture bound is valid also for q=1 and identifies the bounded solutions as the expectations. Independently, the first-reset renewal equation has kernel (exp(−|x−y|)−exp(x+y−2β))/2 in pre-reset position y<β. It restricts continuing starts to [−qβ,β], on which Brownian capture before reset has probability bounded below by exp(−(q+1)β); this gives a contraction and an alternative uniqueness check. Integrating this kernel with piecewise linear interpolation reproduced (u,p)=(1.2462091261,0.1144004837) at q=1/2,β=1 on a 640-panel grid, within 1.3e−6 of the reference; at q=1,β=2.5 both values were within 2.1e−5 of the elementary expressions. For fixed q<1 the normalized odd and even factorial weights escape to large indices, giving the coefficient-product limits and two equal leading contributions d_q exp(β)/2 to u(0). The bounds by sinh and cosh with multiplicative factors between 1 and the limiting odd coefficient, which tends to 1 as q↓0, are uniform at β/q and give the other rare-jump limit. At q=1 the even series terminates and the odd series is elementary, proving the finite mean limit and positive limiting jump fraction.",
+      "residual_risks": [
+        "Renewal quadrature is numerical corroboration, not a certificate or a uniform-error theorem. Neither fixed-parameter limit is a joint q↑1, β→∞ crossover result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice et al. pp. 1–2 study a discrete-time iid-increment walk with restart and threshold crossing",
+          "Pierce p. 1 sets a positive reset fraction between zero and one and derives transport equations, moments and steady-state results"
+        ],
+        "reasoning": "The discrete barrier computation does not include the Brownian sign-reversing model, and a positive reset fraction never sends a subthreshold position into the absorbing half-line. General generator and renewal tools are applicable but do not themselves supply the stated series or singular endpoint.",
+        "searches": [
+          "Radice–Cristadoro–Thapa arXiv:2410.05835v1; Pierce arXiv:2204.07215v1; proportional-reset and barrier-first-passage comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.08387v1 pp. 5–6, 2410.05835v1 pp. 1–2, 2204.07215v1 p. 1",
+        "Resultary findings 638f1e8ee738, 06fe2a2cb477, 6963419da67c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At y<−β/q the half-line boundary problems have the immediate-killing continuation terms zero for time and one for jump classification",
+          "The indexed exact-hit laws continue evolution beyond the point and do not apply the resulting left Robin condition"
+        ],
+        "reasoning": "A point-hit mean cannot by substitution yield a two-channel absorption law with a different continuation payoff. The compact inner nonlocal problem with the outer Robin condition is the additional calculation producing both exact formulas and a different fixed-q versus reflection limit.",
+        "searches": [
+          "Point-hit Fourier resolvent 638f1e8ee738 and certified point-hit series 06fe2a2cb477; Biroli et al. negative-reset backward equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli et al., pp. 5–6, Eqs. (23)–(27), use a target at x=L and an actual-hit condition",
+          "638f1e8ee738 and 06fe2a2cb477 both expressly exclude jumps over L"
+        ],
+        "reasoning": "Both stopping rules use the same free process. They are not equivalent: from x<−L/q the half-line process is immediately captured at its next reset if the pre-jump position remains in that region, whereas the exact-point process typically lands above L and continues. This distinction changes the mean and adds a nonzero channel probability.",
+        "searches": [
+          "Resultary: reflected partial resetting; Brownian reflection–rescaling; threshold/overshoot capture",
+          "Biroli et al. arXiv:2406.08387v1, negative rescaling first passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two strongest indexed formula records, 638f1e8ee738 and 06fe2a2cb477, report an exact-point mean",
+          "6963419da67c uses collectively reset Brownian particles sent to their current rightmost position and an inward-drift criterion"
+        ],
+        "reasoning": "None of these indexed families computes the same capture observable for the same process. The date of the distinct same-day result was not used as evidence of priority.",
+        "searches": [
+          "Resultary: sign-reversing proportional reset, exact threshold capture, jump-capture probability",
+          "Compared distinct same-day threshold finding 6963419da67c"
+        ]
+      },
+      "rationale": "The closest inspected works share the sign-reversing mechanism but expressly count only exact visits. The half-line stopping event instead has a positive jump channel, which changes the outer boundary-value problem and the resulting mean. Other inspected overshoot work studies a different random walk and reset mechanism. The distinct supported claim is the pair of explicit half-line capture laws with their limiting regimes, not the resetting process or pantograph method in isolation.",
+      "residual_risks": [
+        "Primary-source comparison was bounded to the accessible close sources. An unindexed half-line calculation or a reflection-only equivalent is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important overlap in the dynamics; not equivalent",
+          "evidence": "Actual target visit at x=L; the equations impose T(L)=0 as a point-target boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.08387",
+          "material_read": "v1 PDF pp. 5–6, offsets 30279 and 32754; Eqs. (23)–(27)",
+          "method": "Primary OA PDF",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Same Brownian sign-reversing reset rule"
+        },
+        {
+          "assessment": "Different stopping rule",
+          "evidence": "Uses inf{t:X_t=L} and explicitly excludes jump overshoots.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-simulation-free-resolvent-for-reflected-partial-reset-first-pa--638f1e8ee738",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "A simulation-free resolvent for reflected partial-reset first passage",
+          "trigger": "Same dynamics and exact mean formula"
+        },
+        {
+          "assessment": "Not a half-line series",
+          "evidence": "The convolution series and bounds apply to an actual visit to L.",
+          "identifier_or_url": "2026/11/2/SCOPE-certified-first-passage-series-for-brownian-reflection-rescaling--06fe2a2cb477",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Certified first-passage series for Brownian reflection–rescaling",
+          "trigger": "Same dynamics and certified series"
+        },
+        {
+          "assessment": "Different dynamics and jump mechanism",
+          "evidence": "Barrier crossing of an iid-increment discrete-time random walk with restart.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.05835",
+          "material_read": "v1 PDF pp. 1–2, offsets 0 and 10000",
+          "method": "Primary OA PDF",
+          "title": "Optimal conditions for first passage of jump processes with resetting",
+          "trigger": "Threshold/overshoot first passage with resetting"
+        },
+        {
+          "assessment": "Prior methodological setting only",
+          "evidence": "The reset fraction is positive and less than one.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.07215",
+          "material_read": "v1 PDF p. 1, offset 2500",
+          "method": "Primary OA PDF",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "Proportional-reset pantograph framework"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": "Resets collective positions to the current rightmost particle and classifies capture versus escape with drift.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-inward-drift-threshold-for-survival-under-rightmost-part--6963419da67c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "A sharp inward drift threshold for survival under rightmost particle resetting",
+          "trigger": "Distinct same-day Brownian threshold/reset finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46 and 85–97",
+        "Prior exact-point statements compared above"
+      ],
+      "rationale": "A detector that records leapovers measures a genuinely different first-passage law from exact-point detection. The exact channel fraction quantifies when reset captures matter, and the two strong-reset regimes show an important boundary effect: abolishing contraction at q=1 changes a mean growing exponentially in β to a finite Brownian-scale mean and restores a positive limiting fraction of reset captures. This is more than a change of convention or computation of one sample rate.",
+      "residual_risks": [
+        "The formulas concern this single deterministic multiplier and half-line; they do not classify general reset laws, optimal rates, or the endpoint crossover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

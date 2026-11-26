@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The bundled `CHECKER.py` runs with Python 3.10+ and the standard library; no network, third-party package, or externally persisted intermediate state is needed. The expected complete output is included in `CHECKER_OUTPUT.txt`.
+## correctness
 
-Verified by exact integer arithmetic: all twenty-seven exceptional classes; all forty-five tritangent triples; all 135 incidence edges; exact reduced Laplacian determinant; full Weyl permutation group of size 51,840; twenty-five conjugacy classes with sizes summing to the group order; twenty-five prime-local coinvariant Smith decompositions using each of two independently deleted roots; twenty-three distinct fixed-group isomorphism types; and the order-three equal-line-cycle contrast.
+PASS
 
-Finite arithmetic is sufficient here because the Weyl group is finite and the modulus cutoffs exceed every nontrivial elementary-divisor valuation, as checked against the exact reduced determinant. The graph pairing lemma is proved in the result text. There is no independent mathematical audit, no unconditional Néron-model interpretation, and no assertion that every Weyl type is realized over every finite field.
+The anticanonical-sum triples give the 27-by-45 incidence matrix B, with line and plane degrees 5 and 3. For the line-intersection graph A, BBᵗ=5I+A and the eigenvalues of BBᵗ are 15, 6, 0 with multiplicities 1, 20, 6. The nonzero Laplacian eigenvalue product is 8·9^20·5^6·3^24; division by 72 gives the reduced determinant 3^62·5^6. In the degree-zero divisor basis the reduced Laplacian presents the critical group, and adjoining columns of G_r−I presents coinvariants. The inverse reduced Laplacian gives a perfect pairing modulo integers; its intrinsic description via degree-zero divisors and potentials shows automorphism invariance. Thus the fixed group is dual to the computed coinvariant group. Independent exact reconstruction enumerated 51,840 Weyl elements in 25 conjugacy classes, compared all 25 lines/planes cycle rows and invariant-factor decompositions with two roots, and found exactly the collisions 12/16 and 23/24. The determinant restricts possible primes to 3 and 5, and the local reductions exclude saturation at either modulus cutoff; determinant size alone would not prove the valuation bounds. Rows 6 and 8 both have line cycles 3^9 but 5-primary fixed ranks 0 and 2. The classification is of all abstract Weyl classes, not a realization theorem over each field. The reference to 135 as an elementary divisor should be read as an invariant factor, as the group table correctly uses it.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the full fixed-critical-group classification and the line-cycle counterexample for this invariant, not the ordinary group, the 25 Weyl classes, the conjugacy-class detection problem, or the monodromy pairing. The strongest related indexed statements were compared with the actual graph and integral action, not excluded by date or title.
+
+## value
+
+PASS
+
+The abstract graph and its Frobenius action arise canonically from a classical incidence configuration. A researcher comparing integral equivariant invariants needs the group structures, not just the order, a cycle table, or ordinary Smith factors. The exhaustive natural parameter set and concrete distinction invisible in the line splitting supply a reusable exact classification and a clear limit of the simpler datum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

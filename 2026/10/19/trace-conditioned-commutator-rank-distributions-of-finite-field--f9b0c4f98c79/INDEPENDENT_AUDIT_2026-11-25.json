@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:06:36.511462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent count: fix F projecting onto U along W, with dimensions s and n−s, and write a varying rank-one E as (x,y)(α,β), modulo the q−1 scalar rescalings, with α(x)=a and β(y)=1−a. The commutator rank is the sum of the indicators for xβ and yα being nonzero, since the two blocks land in different summands. For a=0, y and β must be nonzero and have (q^{n−s}−1)q^{n−s−1} choices together. The orthogonal pairs (x,α) contributing ranks 0, 1 and 2 have counts 1, 2(q^s−1) and (q^s−1)(q^{s−1}−1). For a=1 swap the two summands. For other a both off-diagonal products are nonzero, with (q^s−1)(q^{n−s}−1)q^{n−2} parameter choices. Multiplying by I_q(n,s)/((q^n−1)q^{n−1}) transports this pair census to fixed E; the factor for rank zero at a=0 becomes J_0 by the Gaussian-binomial recurrence, and the complementary calculation gives J_1. Summing yields T(a), and subtraction the stated exceptional rank-two counts, including zero counts when the relevant summand is one-dimensional. Independently, for coordinate E the commutator has off-diagonal blocks b,−d with bd=a(1−a). It is square-zero at rank one; at exceptional rank two it has nonzero C² from db and C³=0, forcing precisely one 3-block. If bd≠0, its cyclic two-dimensional restriction has polynomial t²+bd, with kernel as complementary space, including repeated-root cases in characteristic two. This also proves the field-size distinction and the dimension-four example follows from the counts. Independent replay: python3 /workspace/independent_checks_oct19.py (field_check), exhaustive enumeration in GF(4) for n=2,3 including scalar values not in the prime subfield; all strata agreed with the incidence count. The supplied code was inspected, not executed; its extension-field checks are arithmetic rather than extension-field enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferraz et al. provide the fixed-rank total via left ideals and generator counts, not the joint trace/rank fibers.",
+          "Drnovšek gives criteria for representing matrices or operators as commutators, not labeled finite-field multiplicities for one fixed rank-one factor.",
+          "3c6fd019df5a works with both factors of arbitrary ranks, but records ranks of EF and FE, not the trace or commutator rank."
+        ],
+        "reasoning": "Coverage in more dimensions, more ranks, or more general rings is not dominating unless the conclusions carry the counted invariants.",
+        "searches": [
+          "arXiv:1711.09289v1 Theorems 2.3–2.4 and 3.3",
+          "arXiv:2311.16724v1 Theorems 2.1–2.2",
+          "Resultary 3c6fd019df5a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search with the four compared catalogue records",
+        "Ferraz–Polcino Milies–Taufer, arXiv:1711.09289v1",
+        "Drnovšek, arXiv:2311.16724v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In dimension two the earlier matrix form plus bc=a(1−a) immediately implies all cells, but gives no higher-dimensional fiber sizes.",
+          "When a=1 the product ranks remain (1,1) for both F=E and, in dimension three, F=uv^T with u=(1,1,0), v=(1,0,1); their commutator ranks are 0 and 2. The product-rank refinement therefore does not by itself resolve the cells.",
+          "The two later catalogue results collectively yield the full fixed-factor rank ranges by double-counting and complementation."
+        ],
+        "reasoning": "The all-dimension joint multiplicities, not the underlying identities or low-dimensional cells in isolation, are the surviving distinction versus verified earlier results.",
+        "searches": [
+          "Resultary 158f1d5d0025, 3c6fd019df5a, 42456512d337, c2210ad45951",
+          "arXiv:1711.09289v1",
+          "arXiv:2311.16724v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2×2 rank-one parametrization in 158f1d5d0025 yields (1,2(q−1),0) for each exceptional trace and rank-two count q−1 for each other trace.",
+          "The fixed-rank-r versus fixed-rank-one conventions in c2210ad45951 are equivalent after pair double-counting; their counts differ by I_q(n,r)/I_q(n,1). Complementing F sends (a,C,s) to (1−a,−C,n−s)."
+        ],
+        "reasoning": "Neither exchanging the fixed factor nor complementing is a mathematical novelty. The equivalent later records were compared on their statements and proofs, not treated as distinct merely because of convention.",
+        "searches": [
+          "Resultary: finite-field idempotent pair and commutator rank/orbit counts",
+          "Resultary 158f1d5d0025, 42456512d337, c2210ad45951",
+          "arXiv:2311.16724v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The product-rank table 3c6fd019df5a does not distinguish the desired strata; in particular, at a=1 both product ranks equal one regardless of commutator rank.",
+          "158f1d5d0025 implies the exact n=2 table. The later catalogue entries dated October 25 and November 2 give exact similarity/trace coverage for boundary and interior ranks, respectively."
+        ],
+        "reasoning": "The earlier exact coverage found is either the dimension-two restriction or a different table. The later exact tables overlap materially but were not established as prior.",
+        "searches": [
+          "Resultary 3c6fd019df5a, 158f1d5d0025, 42456512d337, c2210ad45951"
+        ]
+      },
+      "rationale": "The distinct contribution supported by comparison is the uniform joint trace/commutator-rank distribution for arbitrary partner rank and dimension, plus the resulting similarity counts. The total idempotent count, basic block structure, and the complete dimension-two case must be credited as covered. Later dated catalogue records separately reproduce the boundary-rank and interior-rank counts up to changing which factor is fixed; they are material equivalents in those regimes, not evidence of antecedence or of the relationship between the records.",
+      "residual_risks": [
+        "Older pair-orbit or association-scheme intersection-number formulas could imply additional cases. A focused literature search did not supply another useful primary source; that is not evidence of absence.",
+        "The cited 2023 Özdin–Gümüşel full text was not independently inspected; the frozen record had only journal metadata. No priority inference is made from later overlap alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical total covered, no trace-conditioned census in the cited formulas",
+          "evidence": [
+            "Counts the relevant left ideals and q^{s(n−s)} idempotent generators per ideal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1711.09289v1",
+          "material_read": "Theorems 2.3–2.4 and 3.3, PDF pp. 2–3, 6–7, extracted offsets 4400 and 14400",
+          "method": "Targeted OA PDF passages",
+          "title": "Left ideals in matrix rings over finite fields",
+          "trigger": "Known total rank distribution"
+        },
+        {
+          "assessment": "Representability, not enumerative implication",
+          "evidence": [
+            "Theorem 2.1 assumes 2 invertible; Theorem 2.2 is a complex Banach-space block criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.16724v1",
+          "material_read": "Theorems 2.1–2.2, PDF pp. 2–4, starting near extracted offset 4300",
+          "method": "Targeted OA PDF passages",
+          "title": "On commutators of idempotents",
+          "trigger": "Directly related commutator classification"
+        },
+        {
+          "assessment": "All n=2 cells implied",
+          "evidence": [
+            "The 2×2 rank-one partner has lower diagonal 1−a and off-diagonal entries with product a(1−a)."
+          ],
+          "identifier_or_url": "158f1d5d0025",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Resultary mirror",
+          "title": "Frobenius-degree and orbit laws for pairs of idempotents in finite matrix rings",
+          "trigger": "Closest earlier rank-one pair orbit formulas"
+        },
+        {
+          "assessment": "Different invariants; does not settle the joint cells",
+          "evidence": [
+            "Counts by rank E,F,EF,FE, not by trace EF and rank of EF−FE."
+          ],
+          "identifier_or_url": "3c6fd019df5a",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Resultary mirror",
+          "title": "Joint rank distribution for products of two finite-field idempotents",
+          "trigger": "Exact pair table for arbitrary ranks"
+        },
+        {
+          "assessment": "Material coverage at s=1 and by complement s=n−1; later listed record",
+          "evidence": [
+            "Nonexceptional trace fibers and exceptional nilpotent strata are counted in the proof."
+          ],
+          "identifier_or_url": "42456512d337",
+          "material_read": "Finding and Proof at offsets 0 and 4000",
+          "method": "Resultary mirror",
+          "title": "Similarity spectra of commutators of primitive idempotents over finite fields",
+          "trigger": "Exact rank-one commutator similarity distribution"
+        },
+        {
+          "assessment": "Interior-rank equivalence via changing the fixed factor; later listed record",
+          "evidence": [
+            "For fixed rank-r Q, gives a joint trace/similarity table for rank-one P in every characteristic."
+          ],
+          "identifier_or_url": "c2210ad45951",
+          "material_read": "Finding and Proof at offsets 0 and 3900",
+          "method": "Resultary mirror",
+          "title": "Mixed-rank projection commutators over finite fields: an exact similarity distribution",
+          "trigger": "Same mixed-rank pair and invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Trace and commutator rank are natural simultaneous-conjugacy invariants, and their joint probabilities distinguish nilpotent behavior that the usual total or product-rank counts miss. The uniform finite-field formulas resolve how often all possible commutator types occur, including maximal nilpotency index and characteristic-two effects. This is a complete useful refinement across dimensions, not a recomputation of the known 2×2 case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

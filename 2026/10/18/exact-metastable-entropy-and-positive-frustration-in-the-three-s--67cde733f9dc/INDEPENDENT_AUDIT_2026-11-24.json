@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:59.763940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, pp. equivalent lines 26–77; VERIFICATION.md and artifacts/verify.py and requirements.txt inspected, not executed",
+        "Independent replay: python3 /workspace/branches/independent_checks.py potts; output /workspace/branches/parent-potts.txt"
+      ],
+      "rationale": "On the simple cubic prism, a recoloring changes the energy in units of J by the difference of two neighbor-color multiplicities. Checking the middle rung of a compatible pair transition tests exactly this condition. The trace fixes the column labels, checks each rung once and counts each transverse and horizontal edge once even for n=3. Independent sparse integer construction reproduced all three characteristic polynomials and nontrivial SCC sizes 48,3,3, and confirmed length-4 and length-5 returns in the 48-state SCC. The stated strict Rouché bounds check exactly, so the only root outside radius 3 is simple and real in (3,4); the smaller components cannot contain it (row sums at most 3). The proper-rung eigenvalues give the stated positive ground count. For strict proper colorings, at each rung the missing third color must appear in both rows among the two neighboring rungs. A swapped rung provides it in neither row; the two cyclically color-shifted rungs provide it in opposite rows. The neighbors must therefore be opposite cyclic shifts, forcing a constant shift around the ring and giving 6 times 2 solutions precisely when 3 divides n. Weighting each transition by z to its edge contribution gives the energy enumerator. The positive-energy edge in the primitive block makes the Perron derivative strictly positive; the simple eigenvalue and spectral separation control the remaining trace uniformly near t=0, yielding linear mean and O(n) variance, hence the claimed probability limit for the uniform ensemble, not a quench distribution. The independent calculation gave alpha 3.6730996940923, entropy per spin 0.65051795444237, energy/J per rung 0.21744173751868. Edge-based enumeration for n=3,4,5 gave weak counts 36,294,660 and summed weak energies 36,360,930; these are cross-checks, not the all-n proof.",
+      "residual_risks": [
+        "Displayed energy and entropy decimals are numerical evaluations; the exact descriptors are the sextic root and Perron derivative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact equilibrium Potts partition functions count configurations by energy, not by their single-site recoloring neighborhoods.",
+          "Zero-temperature coarsening concerns probabilities of dynamical outcomes after quenching, not a uniform measure on weakly stable configurations."
+        ],
+        "reasoning": "An energy histogram alone is not the weakly stable subensemble; different individual local recoloring patterns can share the same energy.",
+        "searches": [
+          "arXiv:cond-mat/0001389v1",
+          "arXiv:cond-mat/9903233v1",
+          "arXiv:1305.1038v4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0001389v1",
+        "arXiv:cond-mat/9903233v1",
+        "arXiv:1607.08453v3",
+        "arXiv:1305.1038v4",
+        "Resultary fe442305d1ec, 3cb90da9e8be and 0f8914252c1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chromatic special case gives only zero energy, a proper subfamily of the weak ensemble; n=4 already gives 114 versus 294.",
+          "The fall condition covers the interpretation of strict proper minima; it does not characterize positive-energy weak minima or the weighted 81-state transfer."
+        ],
+        "reasoning": "A transfer-matrix method is precedent, not an implication of this model's allowed transitions or of its Perron spectral and energy laws.",
+        "searches": [
+          "Shrock–Tsai equations (2)–(7)",
+          "Silva, definition and graph-product results",
+          "Resultary: fe442305d1ec, 0f8914252c1b, 3cb90da9e8be"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minority fixed states on C_n square K_3 (fe442305d1ec) use binary spins; weakly blocked ANNNI spins (0f8914252c1b) are binary on a chain; the Ising-wheel transfer (3cb90da9e8be) concerns another graph and spin model.",
+          "Silva's fall-coloring definition equals strict stability restricted to proper colorings, not weak stability with neutral moves."
+        ],
+        "reasoning": "These changes of graph, spins, or minimum criterion change the counted configurations. No equivalent weak-minimum census was verified among these matching formulations.",
+        "searches": [
+          "Resultary: weak one-spin metastability, antiferromagnetic three-state Potts prism and cyclic ladder",
+          "Primary literature search: metastable Potts antiferromagnet ladder counts",
+          "arXiv:1607.08453v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At k=2 and q=3, Shrock–Tsai have c0=1, c1=D4=3, c2=0 and c3=-2, so their formula gives exactly 3^n+1+2(-2)^n.",
+          "The closest indexed exact entropy is a different cubic root near 3.669079 for binary states on C_n square K_3, not this sextic or energy census."
+        ],
+        "reasoning": "Credit the exact ground-state sequence; the inspected exact counts/coefficients do not match the weak census or typical excess energy.",
+        "searches": [
+          "Resultary: exact local-stability counts and entropy on cyclic antiferromagnetic strips (fe442305d1ec, 0f8914252c1b, 3cb90da9e8be)",
+          "Shrock–Tsai cyclic-strip coefficients, equations (2)–(7)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact weak-minima census and entropy, and the positive typical excess energy on the labeled ternary antiferromagnetic prism. The proper-coloring formula is already covered by the cyclic-ladder chromatic polynomial, and the strict proper constraint is the classical fall-coloring condition; neither is credited as the novel phenomenon. Closest indexed local-stability transfers and prior thermodynamic or dynamical results count different ensembles or graphs.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison; an equivalent finite-width metastability calculation may be unindexed or use different terminology. The result does not assert priority for chromatic or fall-coloring facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equilibrium and proper-coloring comparison",
+          "evidence": [
+            "Zero-temperature antiferromagnetic partition function is the chromatic polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0001389v1",
+          "material_read": "Abstract and p. 2 zero-temperature discussion, offsets 0 and 9600",
+          "method": "OA PDF",
+          "title": "Exact Potts Model Partition Functions on Ladder Graphs",
+          "trigger": "Same cyclic-ladder geometry and Potts model"
+        },
+        {
+          "assessment": "Exactly covers this proper-coloring count, not the weak-minimum census",
+          "evidence": [
+            "The cyclic-ladder k=2 specialization at q=3 is 1+3^n+2(-2)^n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9903233v1",
+          "material_read": "p. 2, equations (2)–(7), offsets 5450–9666",
+          "method": "OA PDF and direct substitution",
+          "title": "Ground State Entropy of the Potts Antiferromagnet on Cyclic Strip Graphs",
+          "trigger": "Potential direct ground-state formula"
+        },
+        {
+          "assessment": "Exact constraint match on the proper subensemble; no weak-minimum census in the passages read",
+          "evidence": [
+            "A fall coloring is proper and every vertex sees every color class but its own."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.08453v3",
+          "material_read": "Definition, p. 1 and graph-product discussion pp. 3–4, offsets 0 and 9000",
+          "method": "OA PDF",
+          "title": "Fall-colorings and b-colorings of graph products",
+          "trigger": "Equivalent proper strict-stability constraint"
+        },
+        {
+          "assessment": "Different (dynamical) ensemble",
+          "evidence": [
+            "Static and blinker states are reached with probabilities under a quench."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.1038v4",
+          "material_read": "Abstract and opening, p. 1",
+          "method": "OA PDF",
+          "title": "Zero-Temperature Coarsening in the 2d Potts Model",
+          "trigger": "Potential metastability comparison"
+        },
+        {
+          "assessment": "Different family and spin alphabet",
+          "evidence": [
+            "Binary minority fixed states on C_n square K_3, cubic growth base about 3.669079."
+          ],
+          "identifier_or_url": "Resultary fe442305d1ec",
+          "material_read": "RESULT.md Finding and local fixed-state argument, offsets 0–5049",
+          "method": "Resultary and bounded mirror reading",
+          "title": "Exact minority fixed-state census and entropy on triangular cylinders",
+          "trigger": "Closest exact transfer census in the catalogue"
+        },
+        {
+          "assessment": "Both scientifically distinct regardless of catalogue ordering",
+          "evidence": [
+            "Binary Ising wheel versus cyclic Potts prism; neutral-move-allowed binary ANNNI ring versus ternary prism."
+          ],
+          "identifier_or_url": "Resultary 3cb90da9e8be; 0f8914252c1b",
+          "material_read": "The two Findings, offsets 0–4537 and 0–4522 respectively",
+          "method": "Resultary and bounded mirror reading",
+          "title": "Antiferromagnetic Ising-wheel blocking and marginal entropy for weakly blocked ANNNI chains",
+          "trigger": "Same-day indexed weak-stability analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and energy-concentration proof",
+        "Shrock–Tsai eqs. (2)–(7) for baseline"
+      ],
+      "rationale": "This is an exact solvable local-optimality ensemble on a natural bounded-width graph, rather than a tabulation of tiny sizes. The entropy distinguishes it from the classical proper-coloring ensemble; the energy law proves an extensive excess even though the ground energy is zero. The energy statement is about uniformly weighted weak minima, not geometric frustration of the ground state or quench behavior.",
+      "residual_risks": [
+        "No conclusion for other widths, colors, coupling conventions or dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

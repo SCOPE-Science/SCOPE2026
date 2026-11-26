@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:00.659516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof lines 5–87; VERIFICATION.md; checker.py"
+      ],
+      "rationale": "The two schedules have the same duration 2m per two pulses, so their comparison is the centered second difference of F(t)=e^(−bt)[1−(1+at)e^(−at)]. Writing c=a+b and J=cosh(cd)−1, the normalized difference is B−H with B=cosh(bd)−1 and H=e^(−am)[(1+am)J−ad sinh(cd)]. The derivative has the sign of d sinh(cd)−mJ, giving the interior peak m*=d coth(cd/2). For z=cd/2, log(sinh(z)/sinh(bz/c))=∫ from bz/c to z of coth(v) dv, strictly greater than a m*/2 by strict decrease of coth. This proves H(m*)>B, while H tends to zero at infinity. Hence one upper root always exists, and the lower one is admissible exactly when F(2d)>2F(d). For G(x)=1−(1+x)e^(−x), its elasticity xG′/G is x²/(e^x−1−x), strictly decreasing because its reciprocal has a positive-coefficient power series with positive linear term. Therefore e^(−bd)G(2ad)/G(ad) strictly decreases from 4 to 0, giving the unique threshold. At equality m=d itself is excluded and there is only the upper admissible root. With a single stage the normalized gap is strictly increasing from a negative value to B>0. Independent decimal bisection of the original differences reproduced d_c=0.425304912003236…, the roots 0.372551797020654… and 2.16039402036334… for a=b=1,d=0.2 and all three illustrated percentages. Finite diagnostics are supplementary; uploaded code was not run.",
+      "residual_risks": [
+        "The conclusion is exact for positive a,b,C,d and m>d, under a fresh independently initialized cohort and an instantaneous reward at rewetting. It does not extend to arbitrary maturation, survival or cycle-memory laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manzoni et al. use a stochastic rainfall/soil-moisture state and a pulse determined by antecedent moisture and moisture change. Fierer–Schimel compare experimentally controlled frequencies using evenly spaced cycles."
+        ],
+        "reasoning": "Empirical frequency effects and state-dependent pulses do not give the stated fresh-cohort reward. The exponential-polynomial shape or a zero-count bound explains why two crossings are possible but does not establish the strict peak comparison or the admission threshold at m=d.",
+        "searches": [
+          "Manzoni et al., doi:10.5194/bg-17-4007-2020, §§2.1.1 and 2.1.3",
+          "Fierer–Schimel, doi:10.1016/S0038-0717(02)00007-X, §2.2",
+          "Resultary finite-gap exponential/Erlang query above"
+        ]
+      },
+      "checked_sources": [
+        "Manzoni et al. 2020 §§2.1.1, 2.1.3",
+        "Fierer–Schimel 2002 §2.2",
+        "Resultary --61b2c557ec44, --ba77b5717d0f, --3c65cbe0a6b7, --4d124dc381af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fish-passage result integrates passage-time densities weighted by survival only up to completion, and compares one- and two-stage designs at a single deadline. Here survival must continue through rewetting and the one- and two-stage models are each compared at three lags m−d,m,m+d."
+        ],
+        "reasoning": "The survival-weighted integral cannot be substituted for a survival-at-deadline product; it can converge to a positive probability, while the stated pulse tends to zero. Its mortality threshold and root disappearance do not imply the dry-spell half-gap threshold or signs. The inspected soil models likewise do not specify that comparison.",
+        "searches": [
+          "Fish-passage Resultary --4d124dc381af, Finding and Proof",
+          "Manzoni et al., §2.1.3",
+          "Fierer–Schimel, §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal average duration means comparing the two-point symmetric average to the value at its midpoint; its sign is exactly the sign of D_d F(m), where F=e^(−bt)−(1+at)e^(−(a+b)t). The direct indexed match is the assigned record."
+        ],
+        "reasoning": "The algebraic centered-difference formulation removes the ecological terminology without changing the claim. Exact equivalence was not established with a distinct indexed entry; the search miss alone does not justify novelty.",
+        "searches": [
+          "Resultary: exact number of zeros of central second difference for exponential decay times Erlang two cumulative distribution, comparing alternating equal-mean intervals, two reversals special half-gap threshold one-stage crossover",
+          "Configured local match to the frozen dry-spell theorem --61b2c557ec44"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula entry --61b2c557ec44 is a self-hit. Same-date entries compare pulsed buffered Monod species rankings, periodic versus Poisson disturbance exposure, or mortality-censored fish passage at a deadline."
+        ],
+        "reasoning": "No finite table determines this continuous four-parameter sign law. The exact catalogue comparison is about admissible crossover branches and their defining equations. None of the compared distinct entries specifies this centered difference or F(2d)/F(d)=2.",
+        "searches": [
+          "Resultary local mirrors --61b2c557ec44, --ba77b5717d0f, --3c65cbe0a6b7 and --4d124dc381af",
+          "Resultary centered finite-difference formulation listed above"
+        ]
+      },
+      "rationale": "The supported contribution is the full finite-gap sign diagram and exact endpoint threshold for the stated Erlang-survival centered difference, with a one-stage obstruction within that family. Standard renewal division by time or curvature/zero-count methods alone do not give the claimed count, transition and strict signs. The strongest inspected pulse/deadline analogues use different kernels or comparisons.",
+      "residual_risks": [
+        "Zhang et al. primary text remains unread. Broader equivalent finite-difference shape theorems may be unindexed, and bounded searches do not certify first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different soil-moisture dynamics and pulse law.",
+          "evidence": [
+            "Pulse depends on antecedent moisture and its increment, not a two-stage Erlang cohort surviving an entire dry spell."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/bg-17-4007-2020",
+          "material_read": "Abstract p. 4007, §2.1.1 p. 4009, §2.1.3 p. 4012",
+          "method": "OA primary passages, offsets 0, 8367 and 32858",
+          "title": "Rainfall intensification increases the contribution of rewetting pulses to soil heterotrophic respiration",
+          "trigger": "Primary pulse-statistics model for changes in rainfall timing."
+        },
+        {
+          "assessment": "Frequency motivation, not the equal-mean alternating comparison.",
+          "evidence": [
+            "Experimental cycling was evenly spaced at each frequency."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0038-0717(02)00007-X",
+          "material_read": "Abstract p. 777 and methods §2.2 p. 778",
+          "method": "OA primary text, methods offset 8208",
+          "title": "Effects of drying–rewetting frequency on soil carbon and nitrogen transformations",
+          "trigger": "Experiments controlling rewetting frequency."
+        },
+        {
+          "assessment": "Same-date distinct result, but a different event and integral, not mathematical coverage.",
+          "evidence": [
+            "P_R integrates 4s e^(−(2+a)s) up to a deadline; its comparator P_E integrates e^(−(1+a)s)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mortality-threshold-for-two-deadline-reversals-in-fish-p--4d124dc381af",
+          "material_read": "Finding, Assumptions and the success probability integrals and derivative in Proof",
+          "method": "Local-mirror primary RESULT.md, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp mortality threshold for two deadline reversals in fish-passage timing",
+          "trigger": "Positive exponential mortality, Erlang-two and a sharp double reversal."
+        },
+        {
+          "assessment": "Not assessed for exact coverage; not used as negative evidence.",
+          "evidence": [
+            "No verified model passage from this article was available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2014GL061399",
+          "material_read": "No primary passage retrieved",
+          "method": "OA direct and configured alternate route attempts returned HTTP 403",
+          "title": "Assessing five evolving microbial enzyme models against field measurements from a semiarid savannah—What are the mechanisms of soil respiration pulses?",
+          "trigger": "Cited plausible mechanistic soil-pulse overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and one-stage comparison",
+        "Fierer–Schimel §2.2 and Manzoni et al. §2.1.3 for application context"
+      ],
+      "rationale": "Under a natural equal-mean, equal-event-count control, a response requiring maturation and survival creates two finite sign reversals, which a one-stage model does not allow. The all-parameter diagram shows exactly when that second reversal is lost and whether it is lost through the schedule boundary; neither a local curvature heuristic nor a numerical plot settles those questions. This is useful as a diagnostic benchmark for idealized cycle-pulse modeling, not as a quantitative field prediction.",
+      "residual_risks": [
+        "The simple kernel may not be field calibrated; total soil respiration, substrate carryover and variable precipitation intensity are outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The finite Stone–von Neumann dimension and regular multiplicity counts give the full representation decomposition. The nondegenerate symplectic projection guarantees uniformly distributed one-dimensional character pairs. Primitive-root quantum binomial and trace vanishing prove the exact nonabelian characteristic polynomial; the cyclic recurrence proves geometric nullity one at the singular boundary, even when the characteristic polynomial has a multiple root. The all-prime and all-dimension proof is symbolic; 15 exact independent modular full-matrix ranks corroborate the two sources of nullity.
+## correctness
 
-**Originality (PASS, residual risk).** The published Heisenberg representation framework and general Cayley-digraph representation factorization do not evaluate the specific weighted noncommuting three-tap spectrum or provide the exact geometric kernel formula. Exact comparisons were made with published cyclic/abelian three-term Fourier uncertainty results; those lack the nonabelian irreducible sector, so neither implies the new formula. The unweighted characteristic-three instance is only one specialization of the all-prime, all-weight theorem. Searches have not found direct exact coverage, but old quantum-torus literature could contain an equivalent formulation; search absence alone is not a priority certificate.
+PASS
 
-**Value (PASS).** This is a complete natural singular-weight classification for the minimum support allowing noncommutativity in finite Heisenberg group convolution. It distinguishes discrete abelian phase resonances from a continuous Fermat hypersurface, includes their simultaneous occurrence, identifies precise rank jumps in every dimension, and explains the change in the unweighted filter between characteristic three and larger odd primes. The quantity has a direct operational interpretation as lost Fourier information.
+Independently, K=⟨g,h⟩ has order p³ since [g,h] generates the center and the two projections are independent. Left translation splits the regular space into p^(2n−2) copies on right cosets Kx. In coordinates g^i h^j [g,h]^k on K, Fourier transform in j and k makes h diagonal and g a cyclic shift in i. At zero central frequency a further Fourier transform gives each ordered pair of p-th roots once per coset. At each nonzero central frequency the h-diagonal runs through the p distinct roots of unity, with one clock–shift copy for each of the p j-frequencies. The two determinant permutations of a cyclic bidiagonal matrix give ∏_j(λ−a−cζ^j)−b^p=(λ−a)^p−c^p−b^p. For b≠0 the kernel recursion determines every coordinate from one, including the multiple-root case; if b=0 at a singular block then c≠0 and the diagonal entries are distinct. This establishes geometric nullity separately from algebraic multiplicity. The two-circle intersection bound, zero-coefficient strata and equilateral equal-weight case check directly. The three separation examples follow from equality in the triangle inequality, the cyclotomic degree obstruction to 2^(1/p), and the unique equilateral ordering permitted by a p-th-root phase, respectively. The packaged modular rank checker was inspected, not run. Independent phase-count arithmetic on its 15 inputs confirms a minor reporting limitation: none has Z=0 and F=0, contrary to the prose saying it tests a purely nonabelian case. It does not check characteristic polynomials or the all-n theorem; the analytic reconstruction checks the omitted stratum.
 
-**Limitations.** Only odd primes, noncommuting pairs and three coefficients are covered. The formulas are complex-geometric; separate modular rank checks are not an infinite proof. Historical priority remains subject to specialist inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ternary unweighted nullity is already covered and is not individually novel. The supported distinct claim is the full weighted, all-odd-prime factorization together with its geometric rank strata and how the two singular loci intersect, rather than the known Heisenberg representations or Cayley decomposition.
+
+## value
+
+PASS
+
+For the minimal support with genuinely noncommuting generators, the theorem gives all singular weights and exact information loss (the geometric kernel dimension), even at defective blocks where a spectral multiplicity is misleading. The combination of phase resonances and a separate Fermat condition, with examples of both mechanisms occurring separately and together, provides a useful complete classification rather than another evaluation of the unweighted ternary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

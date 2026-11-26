@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,6 @@
 
 # Reproducibility and verification
 
-Run `python3 verify.py` from the directory containing the standalone Python script. It requires no external packages or downloaded data. The exact-rational checker constructs the unnormalized graph Laplacian of each complete multipartite graph, grounds one vertex, inverts the grounded matrix using fractions, builds the canonical edge projection, and checks every predicted row formula and the maximizing-part reduction. The observed output was:
+The fixed-part-count extremum follows from the cited per-edge formula and the strict discrete optimization in `RESULT.md`. As a bounded check, for each \(2\le N\le30\) one can generate nondecreasing integer partitions of \(N\), with at least two parts, by recursively appending a part between the previous part and the remaining sum. For each partition, compute the maximum of \(2+f_N(u)+f_N(v)\) over distinct part indices using rational arithmetic. Group the partitions and their maxima by part count, retaining all ties for the largest value; each of the 435 \((N,r)\) groups has exactly the maximizing multiset in the Finding. This finite check uses the per-edge formula as input and does not prove it or the arbitrary-size result.
 
-```text
-MULTIPARTITE_GRADIENT_EXACT_OK 174858 configurations 128 edge_rows 2926
-```
-
-The tests enumerate all unordered positive part-size vectors with \(2\le N\le10\), not all graphs with arbitrary numbers of vertices. They also verify symmetry, a projection identity, and the closed form for every tested entry. Their success does not establish the all-\(N\) theorem; the latter rests on the explicit Poisson solution, algebraic row-sum identities, monotonicity factorization, and strict concavity proved in `RESULT.md`. The only external data in the research are cited published mathematical sources; the checker does not retrieve literature. Independent validation has not been performed.
+The unchanged `verify.py` also computes the underlying canonical projectors from grounded graph Laplacians using exact rational arithmetic for \(2\le N\le10\). This is a separate check of finite examples of the per-edge formulas, not a priority claim for them. Its previously recorded output was `MULTIPARTITE_GRADIENT_EXACT_OK 174858 configurations 128 edge_rows 2926`.

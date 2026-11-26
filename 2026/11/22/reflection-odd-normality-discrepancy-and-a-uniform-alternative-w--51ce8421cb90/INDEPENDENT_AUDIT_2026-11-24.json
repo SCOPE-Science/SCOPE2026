@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:54:27.894849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The v4 raw-input statistic has exactly the stated pair kernel and variance normalization. Writing h=( (x-y)^2-g )/2, with g=(x+y)|x-y|, cancels the empirical squared-difference term against the unbiased sample variance and the subtractive half; the remaining ratio is -U_g/(4 S_n^2). Sorted pairs give y^2-x^2, including ties, which yields the stated coefficients 2j-n-1. Joint reflection makes the population contrast zero, and square integrability from the fourth moment gives the first-order Hoeffding projection 2g_F(X) for U_g. Slutsky gives variance Var(g_F)/(4 sigma^4), permitting a point mass at zero. The statistic is only defined when S_n^2>0; that event has probability tending to one by consistency at positive variance. Independently, pairing Y with -Y gives g_F(x)=E[(x^2-Y^2)_+] for x>=0 and odd extension. This recovers 2x^3/3 on the unit half-interval and the stated normal projection by a truncated second-moment integral. Scale invariance and E[X^6]=1/7 for the unit uniform give nu_F=1/7. Separate bounded quadrature (`python /workspace/branches/926bb4dc-83e3-47e6-9d34-48c623c92778/independent_numeric_check.py`) reproduces nu_0=0.44233111437756269142… and limiting uniform rejection 0.000563036470104841576…. The normal limit is continuous at the positive critical value, so the result applies to consistent exact-null quantile calibration or the stated Gaussian cutoff; it does not assert equivalence for a fixed finite simulation bank.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Betsch–Ebner treats squared weighted distances using standardized residuals; its limit theorem does not concern cancellation of a signed scalar integral.",
+          "Kattumannil's v4 null and motivating discrepancy are exactly relevant, but the pointwise Stein characterization does not imply discrimination after signed integration."
+        ],
+        "reasoning": "A general test with zero-bias language is not a dominating theorem about all scalar summaries of that characterization. Standard U-statistic theory requires identifying the actual variance-estimation cancellation and kernel-specific projection.",
+        "searches": [
+          "arXiv:1803.07069v1 Eqs. (5)–(6), Theorem 3.1",
+          "arXiv:2001.07932v4 §2 and Corollary 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof and Relationship to prior work; VERIFICATION.md; CHECK.py",
+        "arXiv:2001.07932 versions 1–4",
+        "arXiv:1803.07069v1",
+        "Resultary 51ce8421cb90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kattumannil's Eq. (10) uses sigma^{-4} Var(E[h(X,Y)|X]); at the normal law this gives nu_0+1/2 rather than nu_0, because its projection retains the even centered X^2 term orthogonal to the odd projection. The ratio calculation cancels that term. The paper's separately reported simulation calibration should not be identified with using Eq. (10).",
+          "The prior kernel makes the parity identity accessible, but neither the given prior variance expression nor squared-distance asymptotics gives the quantified uniform limiting power."
+        ],
+        "reasoning": "The new conclusion is a concrete systematic blind class and a calibrated counterexample using the actual statistic, not a renamed test or an implication of the prior quoted variance.",
+        "searches": [
+          "arXiv:2001.07932v4 §2 Eqs. (4), (5), (10), Monte Carlo calibration; v1–v3 presentations",
+          "arXiv:1803.07069v1 §2 and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The v4 functional is the signed scalar min-squared contrast, with the raw pair average divided by 2 S_n^2; the half-kernel and unscaled expression of earlier versions are not silently substituted for it.",
+          "Subtracting the exact squared-difference component reduces the v4 estimator to an odd signed order-statistic contrast. A squared L^2 norm of zero-bias errors and a separately recentered sample are not equivalent to this raw ratio."
+        ],
+        "reasoning": "The relevant equivalence is the ratio with the signed rank contrast, not the general use of Stein's zero-bias identity. Compare statements bearing on this exact normalization.",
+        "searches": [
+          "Kattumannil arXiv:2001.07932 v1–v4, especially v4 §2 Eqs. (4)–(5), (10) and Remark 1",
+          "Betsch–Ebner arXiv:1803.07069v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact record SCOPE-reflection-odd-normality-discrepancy-and-a-uniform-alternative-w--51ce8421cb90 is the assigned finding, including the 1/7 variance and 0.000563… rejection limit."
+        ],
+        "reasoning": "The exact hit is a self-match. No distinct indexed hit establishing the same witness and failure was identified in the focused search.",
+        "searches": [
+          "Resultary: reflection-odd Kattumannil signed normality discrepancy, symmetric alternatives and uniform power"
+        ]
+      },
+      "rationale": "Pass for the reflection obstruction of the cited scalar procedure, the normalized-statistic asymptotics for its blind class and the explicit uniform witness together. The parent test, general projection theory and other zero-bias tests are prior. The cited paper states the kernel and an order-statistic formula but does not establish these consequences in the located passages, and its variance expression differs materially for the ratio actually used.",
+      "residual_risks": [
+        "Historical priority and any separately circulated correction remain uncertain; equivalent observations might occur in older signed dispersion, L-statistic or unindexed testing literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the defined statistic, not the asserted blind-class/power result; material difference in printed variance.",
+          "evidence": "Zero-mean null; min-squared kernel with U_h/(2 S_n^2)-1/2; separately discusses centering and simulation calibration. Eq. (10) is a conditional h-projection variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.07932v4",
+          "material_read": "§2 pp. 3–6, offsets 5600 and 9000–14912; Remark 1 and Corollary 2 Eq. (10)",
+          "method": "OA versioned PDF locator and bounded passages",
+          "title": "A new goodness of fit test for normal distribution based on Stein's characterization",
+          "trigger": "Exact target discrepancy, estimator and prior result"
+        },
+        {
+          "assessment": "Version changes in presentation and normalization; no assertion that these constitute a labeled erratum.",
+          "evidence": "v1/v2 use the half-kernel without the explicit sample-variance ratio shown in v3/v4.",
+          "identifier_or_url": "arXiv:2001.07932v1, v2, v3",
+          "material_read": "v1 p. 5, v2 pp. 5–6 (offset 6900), v3 pp. 4–5 (offset 7600)",
+          "method": "OA versioned PDFs, bounded passages",
+          "title": "A new goodness of fit test for normal distribution based on Stein's characterization (earlier versions)",
+          "trigger": "Potential correction or equivalent earlier normalization"
+        },
+        {
+          "assessment": "Related method, mathematically different from the signed scalar ratio.",
+          "evidence": "Uses squared weighted L^2 zero-bias deviations of standardized residuals and corresponding limits.",
+          "identifier_or_url": "https://arxiv.org/html/1803.07069v1",
+          "material_read": "§2 Eqs. (5)–(6) offsets 9000–15200; Theorem 3.1 offsets 17400–20577",
+          "method": "OA primary text, bounded sections",
+          "title": "Testing normality via a distributional fixed point property in the Stein characterization",
+          "trigger": "Strongest related zero-bias omnibus procedure"
+        },
+        {
+          "assessment": "Identical assignment, not independent prior coverage.",
+          "evidence": "Same signed kernel, reflection obstruction and numerical witness.",
+          "identifier_or_url": "2026/11/22/SCOPE-reflection-odd-normality-discrepancy-and-a-uniform-alternative-w--51ce8421cb90",
+          "material_read": "Indexed summary and bound Finding with normalization and alternatives scope",
+          "method": "Local Resultary search and frozen source comparison",
+          "title": "Reflection-odd normality discrepancy and a uniform alternative with vanishingly small limiting power",
+          "trigger": "Exact indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The obstruction changes the scientific interpretation of a published normality statistic: exact cancellation leaves every centered symmetric alternative on the null scale, even though many are plainly nonnormal. A continuous uniform example has limiting rejection far below nominal under correct null calibration, quantifying the practical consequence beyond noting parity or a normalization discrepancy. The result remains confined to the signed scalar test, not Stein's characterization or the squared-distance procedures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:30:54.020801Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating F=x²+z²-1 gives 2czF, so H=e^(-cx/a)F is conserved by xdot=2az. The same xdot yields the integrating-factor identity for J everywhere without dividing by z; J_y=e^(-Bx)>0 and the planar gradient of H does not vanish on the circle. For the local geometry and period derivative, independently use x=r cos u, z=-r sin u. At H=0 the radial implicit function has nonzero derivative, so for every fixed c there is a smooth periodic r=r(u,h) near 1 for sufficiently small |h|. This produces an annular family of full levels uniform in the angular variable; J determines y uniquely for every real J. The angular speed is 2a-c h exp((c/a)r cos u)cos u/r, uniformly positive on a sufficiently small annulus. The projection must make a full turn for a return, and the axial variable returns at that same time. Differentiating the integral of inverse angular speed gives T(0)=pi/a and T'(0)=c/(4a²) times the circular integral of exp((c/a)cos u)cos u, exactly the stated Bessel expression. Pairing cos u with -cos u proves the sign, and c=0 makes the speed exactly constant. Phase and the two integrals give the local flow as a phase translation with frequency depending only on h: its fixed-period derivative is triangular with all diagonal entries one but with a nonzero shear entry when T' is nonzero. Independent replay `python /workspace/branches/independent_audit_replay.py` compares the polar-period finite difference and the Bessel integral at c<0, c>0, and c=0. This only corroborates the analytic local result; neither global periodicity nor a statement uniform in parameters follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Springer normal form covers the vector field, and its restricted analyses yield period annuli on invariant cylinders. Its conclusion explicitly does not make an off-cylinder claim for nonzero cofactor. Llibre–Serantola have a polynomial-radius first integral and rigid circular projection."
+        ],
+        "reasoning": "Coverage of the family is not coverage of the three-dimensional dynamics claimed here. The earlier circular projection describes the zero-cofactor mechanism, and does not provide nearby nonzero-cofactor orbits and their nonconstant physical-time period.",
+        "searches": [
+          "10.1007/s40435-026-02300-0 §2 and §5",
+          "10.17398/2605-5686.40.1.121 Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and verify_period.py",
+        "10.1007/s40435-026-02300-0 §§2, 4, 5; 10.17398/2605-5686.40.1.121 Theorem 6",
+        "Resultary 53bc43872133, c19471e10093 and 9c369fcd7aa3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cofactor and x equation allow the nonzero cofactor to be canceled by an integrating factor on this subfamily; the cited on-cylinder theorem has h=0 and offers no cross-level derivative."
+        ],
+        "reasoning": "The methods for obtaining two first integrals and perturbing a period are familiar, but one must establish family closure off the cylinder and compute a derivative at distinct transverse levels. The on-cylinder rotations alone do not imply either piece; even identity transverse return does not imply absence of physical-time shear.",
+        "searches": [
+          "10.1007/s40435-026-02300-0 Theorem 1, system (2), and §5",
+          "Llibre–Serantola Theorem 6 and potential-coordinate comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned field is Theorem 1 system (2) with the two angular couplings set to zero; an h-oval is equivalently the fixed-energy oscillator with potential 2a²x²-2a²h exp((c/a)x). The cited rotating-hoop reduction instead has c=0 and an axial angular-velocity coupling, and is on the unit cylinder."
+        ],
+        "reasoning": "These are genuine coordinate or family relationships. The cited hoop dynamics do not reduce to this off-cylinder exponential-potential family, and no equivalent period derivative for that potential was located.",
+        "searches": [
+          "10.1007/s40435-026-02300-0 §2, §4 and §5",
+          "Resultary: reversible cylinder ambient foliation, first integrals and Bessel period shear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The periodic-cylinder hit gives two disjoint periodic cylinders for a different explicit polynomial system, with a zero-drift Hamiltonian mechanism. The Bessel-themed hit concerns cubic-flow escape clocks, while the parity-split hit concerns periodic numerical smoothing."
+        ],
+        "reasoning": "The Bessel function is a known special function; the coefficient here is a specific derivative of a physical period on a nonpolynomial first-integral level. None of the inspected matches lists that derivative or foliation for this field.",
+        "searches": [
+          "Resultary: periodic cylinders, first integrals and Bessel-normalized dynamics; records 53bc43872133, c19471e10093 and 9c369fcd7aa3",
+          "Springer §5, p. 14"
+        ]
+      },
+      "rationale": "The polynomial normal form, its cofactor, on-cylinder periodicity, and the isochronous circular case are credited to the literature. In the checked sources, ambient periodicity with nonzero cofactor, the explicit real first-integral pair on this slice, and the physical-time period shear are distinct. Standard integrating factors and period-perturbation methods are not claimed as new.",
+      "residual_risks": [
+        "Period-function literature phrased in terms of an exponential perturbation to an oscillator may contain a directly equivalent derivative not caught by these searches.",
+        "The close matches and interpretation are based on actual statements, not on a chronology inferred from catalogue dates; this is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Normal form and restricted period results; rotating-hoop example different; no off-cylinder result in the cited nonzero-cofactor discussion.",
+          "evidence": [
+            "Theorem 1 system (2) reduces to this field at constant angular coefficient. The conclusion excludes limit cycles contained in the distinguished cylinder without a claim about dynamics outside it."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40435-026-02300-0",
+          "material_read": "§2 p. 3 offsets 11200–11503; §4 pp. 12–13 offsets 69023–76689; §5 p. 14 offset 79166",
+          "method": "Lawful OA PDF text",
+          "title": "Time-reversal symmetric quadratic differential systems having an invariant cylinder: global dynamics and mechanical application",
+          "trigger": "Same normal form and potential stronger theorem on ambient periods"
+        },
+        {
+          "assessment": "The rigid circular subsystem corresponds to c=0, not the exponential-level shear.",
+          "evidence": [
+            "Theorem 6 contains Xdot=A Y, Ydot=-A X and first integral X²+Y²."
+          ],
+          "identifier_or_url": "https://doi.org/10.17398/2605-5686.40.1.121",
+          "material_read": "Theorem 6, pp. 130–131, offsets 23365–27812",
+          "method": "Lawful repository PDF text",
+          "title": "The easiest polynomial differential systems in R3 having an invariant cylinder",
+          "trigger": "Potential exact prior result for a circular projection"
+        },
+        {
+          "assessment": "Different system and foliation mechanism.",
+          "evidence": [
+            "Periodicity on two disjoint cylinders follows from zero drift on Hamiltonian levels."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-two-simultaneous-periodic-cylinders-in-a-nilpotent-jacobian-poly--53bc43872133",
+          "material_read": "RESULT.md Finding and model statement",
+          "method": "Lawful local mirror text",
+          "title": "Two simultaneous periodic cylinders in a nilpotent-Jacobian polynomial flow",
+          "trigger": "Potential indexed ambient periodic structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an invariant cylinder with a nonzero algebraic cofactor one should not infer an ambient period annulus or original-time isochrony from the flow restricted to the cylinder. The exact integrals resolve off-cylinder closure and the derivative quantifies the shear that persists despite all multipliers being one. This addresses a specific question left open by the restricted result, on a motivated constant angular coefficient slice, without suggesting that nearby normal-form parameters retain integrability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

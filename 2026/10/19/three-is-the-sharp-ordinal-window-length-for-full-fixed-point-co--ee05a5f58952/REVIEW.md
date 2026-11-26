@@ -1,23 +1,21 @@
-# Scientific review: sharp covariance-rank threshold for ordinal windows
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A uniform permutation conditioned on a single positional fixed point leaves a uniform injection into the remaining values. Exact counting gives the published covariance expression with one combinatorial choice for each prescribed small/large value set; there are no spurious factorial multipliers. Non-overlap gives zero covariance by exchangeability. The length-two rank follows from the bidiagonal support and two-direction pivot argument. At length three, two within-window pattern swaps give a strictly nonzero two-by-two determinant \(2(n-2)(3j^2-3jn+n^2-1)\), forcing all three local coefficients to vanish. Covering the coordinate set with consecutive triples yields full rank; summing the indicators of extending patterns embeds the triple-pattern row span in every longer window space. These arguments hold for every integer \(n\ge2\) and \(1\le k\le n\), with all edge cases included.
+PASS
 
-The standalone standard-library checker produced PASS: \(482,297\) exact covariance cells by exhaustive permutation enumeration through \(n=8\), \(41\) rational rank calculations for sizes through \(n=12\), and \(124,251\) integer determinant checks through \(n=500\). Finite tests corroborate the general proof; they do not prove its infinite range.
+Conditioning on π(j)=j leaves a uniform injection into the other values. Off-window this leaves every pattern equiprobable. In-window, if j has prescribed rank r, choose r−1 smaller and k−r larger values; each choice has exactly one assignment consistent with the prescribed pattern, so division by (n−1) falling to k−1 and centering gives the displayed kernel. Length one is constant. For length two the scaled descent rows enforce (2i−n−1)a_i=(2(i+1)−n−1)a_{i+1} on a null vector. This gives exactly one free scalar when n is even and exactly one unconstrained middle coordinate when n is odd, including n=2,3. For length three, swapping ranks 1 and 2, and 2 and 3, at the first two positions while holding the third rank fixed yields a 2×2 system in the first two null coordinates. Expanding the two scaled rank contrasts at h gives (n−h)(n−3h+1) and (h−1)(2n−3h+2). The adjacent determinant is 2(n−2)[3(j−n/2)²+n²/4−1]>0. The third column cannot be identically zero: the contrasts cannot both vanish at an interior h, and one is nonzero at each boundary. Each consecutive triple annihilates only zero there, and the triples cover all columns. For longer windows, summing indicators of patterns extending the prescribed triple includes each three-window covariance row in the longer row span. This proves the full rank classification, not merely a finite check. Independent replay: python3 /workspace/independent_checks_oct19.py (permutation_check), enumerating 7658 joint-event cells for every k up to n for n=2,…,6 and testing maximal rank modulo 1009 on the scaled integer matrix (the exact zero and n−1 upper bounds follow analytically). The supplied checker was inspected, not executed.
 
-## Originality — PASS, subject to stated priority risk
+## originality
 
-The strongest directly comparable prior public note, “Boundary localization of fixed-point–descent dependence in a uniform permutation” (2026), proves the length-two coordinate covariance law. Its first-order descent covariances do not determine the covariance of the two-descent conjunctions specifying three-position patterns, and do not state full rank for \(k\ge3\). The earlier formula is explicitly treated as covered here, with no new priority claimed for it.
+PASS
 
-Diaconis–Evans–Graham's full arXiv manuscript (2013) is about the random fixed-point set and *consecutive-value* adjacency equivalence, not relative-order triple patterns. Désarménien–Wachs' 1993 full text, including Theorem 5.1 and Section 6, tracks the **number** of fixed points in descent classes rather than each fixed point's location. Eriksen–Freij–Wästlund (2008) tracks fixed-point restrictions under specified descent sets, again without the displayed ordinal-pattern/fixed-position covariance matrix. Janson–Nakamura–Zeilberger (2013) gives joint pattern-count limit laws, not the finite full-rank comparison with labeled fixed points. Searches for equivalent local ordinal-pattern or anchored fixed-point formulations did not establish dominating earlier coverage. Absence of a result in these searches is not proof of first priority; an implicit older identity could exist.
+The k=2 law is already known, and its rank follows mechanically from those entries. The supported distinct structural contribution is the all-length position-resolved calculation together with the sharp full-rank change at k=3 and its extension to every longer window. Later listed results give the same local kernel or length-four specialization but use it for summed covariances rather than rank. Priority is not claimed from catalogue dates alone.
 
-## Mathematical value — PASS
+## value
 
-The result resolves a natural *minimal local information* question: how many consecutive order observations are needed before the complete family of fixed-point-position indicators is visible to linear covariance? The answer is the sharp universal threshold three, valid at every finite size and every longer window. The unexpectedly strong change from an \((n-1)\)-dimensional cross-covariance row space to full dimension arises from joint three-position order structure, not from a mere reindexing of descents. The closed kernel permits exact finite-size comparisons. It does not promise samplewise fixed-point reconstruction or a conditioning bound.
+PASS
 
-## Sources and remaining limits
+This gives a sharp minimal observation window for joint rank information about all labeled fixed points. Two-position comparisons leave a specific blind direction, while the full three-position pattern resolves it at every finite size and all longer lengths. The statement is stronger than a total fixed-point covariance and gives a useful benchmark for local ordinal observations, without promising conditioning bounds or samplewise recovery from rank alone.
 
-Primary motivating source: Diaconis, Evans, Graham (Berkeley Report 822, 2013-08-01; arXiv:1308.5459), with primary MSC 60C05. Directly relevant earlier sources: Désarménien and Wachs (1993), Eriksen et al. (2008), Janson et al. (2013), and the public 2026 fixed-point/descent note. Potential implicit coverage by more general refined permutation-enumeration machinery remains a scientific priority risk. The sole acceptance claim is the formula and the \(0,n-1,n\) rank classification as stated, not novelty of the earlier descent law.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

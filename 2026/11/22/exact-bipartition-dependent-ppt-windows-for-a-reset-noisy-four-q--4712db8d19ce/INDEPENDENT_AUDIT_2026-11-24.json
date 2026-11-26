@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:58:59.473843Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent local depolarization the Pauli string of weight j decays at j*gamma. On trace-one states the full Poisson reset adds r(rho_D-rho); solving each coefficient gives x/(x+j), including the preserved identity, and uniqueness for r>0. Independent symbolic reproduction (independent_pt.py, Python 3 and SymPy) sums signed Pauli expectations on the six computational Dicke components; only weights 0, 2 and 4 survive. Partial transpose on the leading k qubits negates precisely the strings with an odd number of Y factors there. With Q=(x+2)(x+4), automatic component factorization of the two exact matrices scaled by 12Q gives all factors and multiplicities in RESULT.md §§2–3. In particular, for k=1 the possibly negative scaled roots are 6-9x-6x^2=3(x+2)(1-2x) once and 6-x twice; the remaining linear roots and both roots of the quadratic are positive for x>0. For k=2 the possible negative scaled roots are 6-7x-4x^2 twice and 6-4x-2x^2=2(1-x)(x+3) once. In each sector the residual quadratic has two real roots (Hermiticity), positive root sum and strictly positive product for x>0. Dividing by 12Q and summing negative magnitudes checks both negativity laws. Negative counts are 0/1/3 on (0,1/2], (1/2,6], (6,infinity), and 0/2/3 on (0,beta], (beta,1], (1,infinity), where 1/2<beta=(sqrt(145)-7)/8<1. This verifies the half-open cut-dependent window, including the zero eigenvalues at transition points. Symmetry gives four cuts of type 1|3 and three of type 2|2. The unreset limit is I/16 and the pure-state limits give negativities 1/2 and 5/6. This proof establishes PPT and NPT, not separability of PPT cuts or a multipartite entanglement classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Majumdar §II Eq. (3) gives the generic stationary age integral in its closed-system setting.",
+          "Campbell–Tame–Paternostro pp. 3 and 8 discuss Dicke witnesses and class discrimination for local noise, including locally depolarized D4(2).",
+          "Full Chen–Jiang text was not obtained through the checked DOI/publisher paths."
+        ],
+        "reasoning": "The prior renewal operator supplies coefficient weights but not the cut factorizations. The witness and discrimination passages do not give a theorem of the required all-rate spectral strength for an age mixture. The inaccessible paper is explicitly not cleared as a whole.",
+        "searches": [
+          "arXiv:2307.07485v2, stationary renewal integral",
+          "arXiv:0903.3939, local Dicke depolarization",
+          "APS DOI 10.1103/PhysRevA.101.012308"
+        ]
+      },
+      "checked_sources": [
+        "10.1103/PhysRevA.101.012308 (access checked, full text unread)",
+        "arXiv:0903.3939",
+        "10.1007/s11128-025-04994-1",
+        "arXiv:2307.07485v2",
+        "Resultary 2c64fa0531df, 8eaaf4adb073, 867c58f80465, 25a4a404999e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "W_n is fixed to one excitation and its theorem treats 1 versus rest, not the balanced two-excitation seed and its 2|2 cut.",
+          "The two-qubit bit-flip reset example uses a coupled pair and product reset, whereas the inspected Dicke PPT theorem assumes white-noise mixture."
+        ],
+        "reasoning": "There is no target parameter specialization of those seed-specific or admixture-specific theorems. The reset integral and partial transpose are linear but their eigenvalues do not in general commute with mixing. The reset-age matrix and two spectral factorizations are additional work, rather than a direct consequence of the reported witnesses, static thresholds, or renewal identity.",
+        "searches": [
+          "Resultary 2c64fa0531df, Finding and assumptions",
+          "Resultary 25a4a404999e, Finding and assumptions",
+          "Kulkarni–Majumdar §II Eqs. (3)–(4) and Nawareg §3.1.2 Eqs. (16)–(19)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nawareg Eq. (8) is y rho_D+(1-y)I/2^N, and §3.1.2 studies PPT thresholds on that curve.",
+          "The stationary family reviewed here multiplies nonzero weight-two and weight-four Pauli coefficients by x/(x+2) and x/(x+4), respectively."
+        ],
+        "reasoning": "Both weight sectors are present, so a common white-noise amplitude cannot reproduce the reset path at finite positive x. A fixed depolarization time is not an equivalent reparametrization either: time attenuation obeys (weight-two factor)^2=weight-four factor, whereas [x/(x+2)]^2<x/(x+4).",
+        "searches": [
+          "Resultary: two-excitation Dicke state, global Poisson reset, local depolarization and signed partial-transpose spectra",
+          "Nawareg DOI 10.1007/s11128-025-04994-1, white-noise PPT thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "867c58f80465 tabulates static Pauli magnitudes; it does not tabulate eigenvalues after weighted mixing and partial transpose.",
+          "2c64fa0531df gives a one-qubit cut threshold for the one-excitation W_n family. 8eaaf4adb073 treats a GHZ genuine-multipartite concurrence threshold."
+        ],
+        "reasoning": "Pure-state Pauli magnitudes are not the signed cut-spectrum data; signs and new block diagonalization matter. No identical stationary D4(2) signed spectrum was identified in these closely matching records.",
+        "searches": [
+          "Resultary 867c58f80465, signed or absolute Pauli data for two excitations",
+          "Resultary 2c64fa0531df and 8eaaf4adb073, reset threshold tables or formulas"
+        ]
+      },
+      "rationale": "The checked nearest results share the noise-plus-reset model for other initial states, or the Dicke state for other noise or invariants. The supported distinct claim is the pair of complete stationary cut spectra and their distinct exact PPT and inertia transitions. Neither generic renewal weights nor a Dicke witness gives those eigenvalues. Chen–Jiang full-text coverage remains unresolved; the verdict is bounded by the sources actually inspected.",
+      "residual_risks": [
+        "Chen–Jiang may contain a broader four-qubit criterion not available for a definitive implication comparison.",
+        "A stronger uninspected multi-qubit spectral theorem might implicitly include the specific age-mixture model. The bounded search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unavailable; unresolved implicit coverage",
+          "evidence": [
+            "Publisher paths did not yield full text or a decisive passage; no whole-document coverage judgment is made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.101.012308",
+          "material_read": "Citation/title found; no primary paper passage read",
+          "method": "Primary literature search; attempted OA DOI, publisher and PDF retrieval",
+          "title": "Noise tolerance of Dicke states",
+          "trigger": "Closest plausible earlier Dicke noise criteria"
+        },
+        {
+          "assessment": "Material overlap with state and noise, but different tested invariant and no reset in the inspected comparison",
+          "evidence": [
+            "Collective-spin witness for locally depolarized D4(2); noisy Dicke/GHZ-class discrimination."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3939",
+          "material_read": "Printed pp. 3 and 8, witness and discrimination passages",
+          "method": "Open primary PDF passages",
+          "title": "Characterizing multipartite symmetric Dicke states under the effects of noise",
+          "trigger": "Same state and local depolarization"
+        },
+        {
+          "assessment": "Different density-operator family",
+          "evidence": [
+            "Mixes the Dicke projector with I/2^N at one common weight; Eqs. (16)–(19) concern the smallest eigenvalue under that assumption."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-025-04994-1",
+          "material_read": "PDF p. 6 Eq. (8) and pp. 8–9 §3.1.2",
+          "method": "Open primary PDF passages",
+          "title": "Entropic analysis of non-separability in noisy Dicke states",
+          "trigger": "Noisy Dicke partial-transpose threshold"
+        },
+        {
+          "assessment": "Prior reset structure, not the target diagonalization",
+          "evidence": [
+            "Gives exponentially weighted stationary renewal integral and Hamiltonian energy-basis expression; the exact application is a two-spin system."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+          "material_read": "Abstract and §II Eqs. (3)–(4)",
+          "method": "Open primary PDF passages",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "General renewal formula and exact entanglement after reset"
+        },
+        {
+          "assessment": "Distinct excitation count and cut result; no same-day priority inference",
+          "evidence": [
+            "Single-excitation W_n reset with one-qubit versus rest PPT threshold and large-n limit."
+          ],
+          "identifier_or_url": "2c64fa0531df",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary RESULT.md source passages",
+          "title": "Exponentially small reset-rate threshold for partial-transpose entanglement",
+          "trigger": "Strongest same-day overlap: global reset, local depolarization and PPT"
+        },
+        {
+          "assessment": "Distinct seed and invariant; date alone does not order results",
+          "evidence": [
+            "GHZ states and genuine multipartite concurrence."
+          ],
+          "identifier_or_url": "8eaaf4adb073",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary RESULT.md source passages",
+          "title": "A sharp linear reset-rate threshold for genuine GHZ entanglement",
+          "trigger": "Same channel and reset setup on a different seed"
+        },
+        {
+          "assessment": "Static magnitude data, not reset PT spectra",
+          "evidence": [
+            "D_n(2) Pauli-expectation magnitudes and Rényi behavior."
+          ],
+          "identifier_or_url": "867c58f80465",
+          "material_read": "Finding",
+          "method": "Resultary RESULT.md source passage",
+          "title": "Three-sector Rényi crossover in the two-excitation Dicke Pauli spectrum",
+          "trigger": "Same static state data"
+        },
+        {
+          "assessment": "Different model and optimization of entanglement criterion",
+          "evidence": [
+            "Two interacting qubits, product reset, local bit flips and concurrence."
+          ],
+          "identifier_or_url": "25a4a404999e",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary RESULT.md source passages",
+          "title": "A sharp geometric-mean noise threshold for entanglement under global quantum resetting",
+          "trigger": "Exact global resetting threshold under local noise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal noise on all sites need not produce the same PPT behavior on cuts of different sizes. This exact stationary example identifies the sharp interval where all one-versus-three cuts are NPT but every balanced cut is PPT, and locates additional inertia changes invisible to a single witness. The resource state and channel are independently motivated; the full cut-resolved profile is useful for comparing robustness in this reset model without claiming separability or multipartite entanglement beyond the spectral conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

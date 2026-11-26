@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:22:36.438716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–32 and 38–68; frozen VERIFICATION.md, verify.py and verification.json inspected without executing the source script",
+        "Independent exact enumeration of the two supplied edge lists: at p=1/2 mean 13/8 and variances 27/64 and 31/64; at k=4 mean 9/5 and variances 32/75 and 14/25; equal quota variances at k≤3 and k=6."
+      ],
+      "rationale": "Pointwise, the induced component count is X−Y+Z, with X the retained vertex count, Y the retained edge count and Z the indicator of full cycle retention. For exchangeable site choices the second moments of X−Y depend on n and the number of incident edge pairs Σ_v binom(d_v,2); Var Z and Cov(X,Z) depend only on n, ℓ and the inclusion probabilities a_j. The only varying term is −2Cov(Y,Z): the two-, one- and zero-cycle-endpoint edges are counted by ℓ, B and n−ℓ−B, respectively, yielding the stated difference. In the quota case the difference vanishes up to ℓ and at the full census, while a_{ℓ+1}−a_{ℓ+2}=a_{ℓ+1}(n−k)/(n−ℓ−1)>0 for the asserted internal interval. At order at most five there are at most two noncycle vertices; in the two-vertex case the two possible attachment types differ in the number of leaves, so cannot be degree-matched. Direct exact enumeration corroborates the exhibited six-vertex pair and its moments.",
+      "residual_risks": [
+        "The witness checks do not establish the all-order formula on their own. The theorem is restricted to the stated matched unicyclic hosts and retention protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "acb940dd3309 supplies the full Bernoulli variance, not just its difference. The component polynomial Q(G;x,y) counts all retained-set sizes by number of induced components. The related tree entry 54bd12285874 concerns a third-moment distinction."
+        ],
+        "reasoning": "The general component polynomial encodes the observable in both protocols but is not the decisive explicit B comparison. The stronger all-p moments on the identical unicyclic class are decisive.",
+        "searches": [
+          "Resultary acb940dd3309 and 54bd12285874",
+          "Tittmann–Averbouch–Makowsky arXiv:0812.4147"
+        ]
+      },
+      "checked_sources": [
+        "Resultary acb940dd3309 and 54bd12285874",
+        "arXiv:0812.4147 and arXiv:1910.04552",
+        "Keitt–Urban–Milne article; Hoyle and Inoue–Aki access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the number retained in a Bernoulli sample, the retained set is a uniform fixed-quota sample. The all-p mean is the degree-n Bernstein expansion of the quota means. The two graphs' means agree for all p, so uniqueness makes their quota means agree at each k. Total variance then makes the all-p variance gap the Bernstein expansion of the quota gaps."
+        ],
+        "reasoning": "For 0≤j≤n, the binomial identity p^j=Σ_k binom(n,k)p^k(1−p)^(n−k)·binom(k,j)/binom(n,j) gives the quota coefficients a_j. The known gap −2ΔB(p^(ℓ+1)−p^(ℓ+2)) therefore has coefficients −2ΔB(a_{ℓ+1}−a_{ℓ+2}); the known mean similarly gives k−na_2+a_ℓ. When ΔB≠0 there must be at least two noncycle vertices; when ΔB=0 the variance comparison is identically zero by uniqueness. The exact positive-coefficient range and the quoted quota values follow, so no distinct valuable quota remainder survives.",
+        "searches": [
+          "Resultary acb940dd3309, all-p expectation and variance formulas; arXiv:0812.4147, definition of q_ij"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding sets h=Σ_{v on C}(d_v−2), exactly B, and states the same all-p variance difference for matched n, degree multiset and cycle length."
+        ],
+        "reasoning": "In a simple unicyclic graph, every cycle vertex has exactly two incident cycle edges; every other incident edge is counted once in h. Thus the definitions, probability laws and signs agree.",
+        "searches": [
+          "Local Resultary search for degree-matched unicyclic habitat component variance; hit acb940dd3309",
+          "Targeted public literature search for the same comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entry gives the same two labeled edge sets with G and H interchanged, the same minimum order six and the p=1/2 variance gap 1/16."
+        ],
+        "reasoning": "The closed formula is not a table lookup, but the precise minimal witness is already covered even at the level of edge lists.",
+        "searches": [
+          "Resultary acb940dd3309, Finding, including sharpness construction"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the identical all-p Bernoulli comparison and the same minimal witness, and its all-p means and variances determine the entire fixed-quota comparison by Bernstein coefficient uniqueness. Consequently the quota threshold and its witness are covered as implications, not merely adjacent work. This is a statement-coverage decision; the later catalogue label does not establish priority or provenance.",
+      "residual_risks": [
+        "No assertion of publication priority or of derivational dependence between the two catalogue records. Their mathematical coverage is directly checkable.",
+        "Hoyle and Inoue–Aki were not read in full; neither access gap determines the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct duplicate of Bernoulli comparison and witness; implies fixed-quota claims",
+          "evidence": [
+            "Exact all-p mean and variance displayed, including −2(h_G−h_H)p^{ℓ+1}(1−p).",
+            "Same six-vertex minimum and same edge sets with label order reversed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-cycle-root-attachments-control-the-fragmentation-variance-of-uni--acb940dd3309/RESULT.md",
+          "material_read": "Finding, scope, and proof of full Bernoulli moments, mirror offset 0–4396",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Cycle-root attachments control the fragmentation variance of unicyclic habitats",
+          "trigger": "Same graph class, observable, attachment count and six-vertex witness"
+        },
+        {
+          "assessment": "Encodes both sampling distributions, no explicit matched B comparison in inspected passage",
+          "evidence": [
+            "q_ij counts i-vertex sets inducing j components; their generating polynomial is Q(G;x,y)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+          "material_read": "PDF definition on p. 3, offset about 12407",
+          "method": "Bounded primary text inspection",
+          "title": "Counting Connected Sets and Connected Partitions of Graphs",
+          "trigger": "General induced component-count distribution"
+        },
+        {
+          "assessment": "Tree-only third-moment comparison, not decisive",
+          "evidence": [
+            "Degree-matched trees have equal Bernoulli means and variances but can differ in fragmentation law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874",
+          "material_read": "Catalogue Finding",
+          "method": "Local Resultary comparison",
+          "title": "Degree-matched habitat trees conceal fragmentation in the first two moments, but not the third",
+          "trigger": "Degree-matching and six-vertex habitat comparison"
+        },
+        {
+          "assessment": "Ecological graph/percolation context, not the matched variance law in the inspected passage",
+          "evidence": [
+            "Discusses landscape graph connectivity, lattice occupancy and bond percolation with distance-dependent connection probabilities."
+          ],
+          "identifier_or_url": "https://ecologyandsociety.org/vol1/iss1/art4/",
+          "material_read": "Abstract and Connectivity measures passage, HTML offset about 11865",
+          "method": "Public article passages",
+          "title": "Detecting Critical Scales in Fragmented Landscapes",
+          "trigger": "Earlier habitat percolation model"
+        },
+        {
+          "assessment": "Different component statistic",
+          "evidence": [
+            "Studies counts of connected induced subgraphs themselves, rather than components in a randomly retained induced subgraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.04552",
+          "material_read": "Primary PDF p. 1, offset about 619",
+          "method": "Bounded open primary text",
+          "title": "Cut and pendant vertices and the number of connected induced subgraphs",
+          "trigger": "Unicyclic induced-subgraph enumeration"
+        },
+        {
+          "assessment": "Unresolved full-text access, not evidence of noncoverage",
+          "evidence": [
+            "DOI returned HTTP 403; bounded recovery yielded no public copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2656.2005.00930.x",
+          "material_read": "No primary passages obtained",
+          "method": "DOI and lawful copy lookup",
+          "title": "Experimentally fragmented communities are more aggregated",
+          "trigger": "Cited ecological context"
+        },
+        {
+          "assessment": "Primary theorem extent not verified",
+          "evidence": [
+            "Full text not available in bounded retrieval; no unicyclic B claim established from this source."
+          ],
+          "identifier_or_url": "Inoue and Aki (2010), Statistics & Probability Letters 80, 874–885",
+          "material_read": "Landing page and bibliographic/abstract material only",
+          "method": "DOI and lawful copy lookup",
+          "title": "On the conditional and unconditional distributions of the number of success runs on a circle with applications",
+          "trigger": "Classical circular runs under sampling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof and exact witness; acb940dd3309 all-p comparison"
+      ],
+      "rationale": "The underlying structural comparison is scientifically informative: it extracts an exact attachment statistic invisible to the mean and shows its effect with a minimal matched witness. The explicit quota form is useful for interpretation, but it does not give a distinct scientific result in light of the all-p comparison and coefficient transfer.",
+      "residual_risks": [
+        "Population variance under idealized retention is not an estimator or a claim about real ecological dynamics. Value of the comparison does not overcome coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

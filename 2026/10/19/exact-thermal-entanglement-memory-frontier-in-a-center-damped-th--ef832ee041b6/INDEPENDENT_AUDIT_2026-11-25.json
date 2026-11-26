@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:23:05.124897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44, 48–76",
+        "Frozen VERIFICATION.md and check.py (inspected; supplied numerical counts are not used to prove convergence)",
+        "Independent commutant and spin-flip calculation in this review"
+      ],
+      "rationale": "The number operator N commutes with H, and q^N/(1+q)^3 is faithful and stationary: its center populations obey γ₋q=γ₊. End swap commutes with all parts of the generator, so sector projection yields two normalized stationary states with center marginal τ₂ and end weights 1:q:q² in the triplet and pure singlet in the other sector. For any imaginary-axis adjoint eigenoperator, the stationary trace of the dissipative commutator identity is zero. Faithfulness and positivity of each rate force commutation with both center ladders, hence identity on site 2. The independent center ladder terms in [H,X] then force the end part to commute with both collective ladders (J≠0). The ladders connect |00⟩, |T⟩, |11⟩ with nonzero coefficients, and their common kernel is exactly the singlet; using their commutator also separates the end-excitation weights. The resulting two-dimensional commutant is spanned by the sector projectors, both fixed. Uniform boundedness excludes imaginary-axis Jordan blocks, so the arbitrary-state limit follows with the two conserved sector weights. As a separate check of concurrence, the spin flip exchanges |00⟩ and |11⟩ and preserves the singlet/triplet projectors. The square-root eigenvalues entering Wootters are therefore w,b,b,b with b=(1−w)q/(1+q+q²), giving max(0,w−3b) even when w<b. For |100⟩, w=1/2, so concurrence is positive exactly when positive q differs from 1, and at q=e^(-βω) approaching 1 it is (βω)²/6 to leading order. Equality at the threshold gives zero.",
+      "residual_risks": [
+        "Both jumps strictly positive, mirror-symmetric nonzero hopping, three sites and strictly local center dissipators. No claim at zero pump, asymmetry, or with energy-resolved global dissipators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 ensures invariant operator blocks and at least as many stationary states as the strong symmetry has eigenvalues; the authors leave possible extra degeneracy and off-diagonal zero modes open.",
+          "Huang–Guo–Yi attach two baths to the ends at different temperatures and use system-energy jump operators."
+        ],
+        "reasoning": "The strong-symmetry theorem guarantees at least two stationary states here, not the exact peripheral classification. The two-end-bath model is not a broad theorem whose parameters specialize to the center-only local generator.",
+        "searches": [
+          "arXiv:1203.0943v3 Appendix §4, Eq. (12), Theorem 4.1 and following comments",
+          "arXiv:0908.0592v2, Eqs. (1)–(4), pairwise steady-state concurrence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.18707v1/v2",
+        "arXiv:1203.0943v3",
+        "arXiv:0908.0592v2",
+        "Resultary 360eeddfd849 and 4ae5bab31ead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Çakmak et al. describe finite-temperature raising moving the loss-only states out of the dark sector, with ‘no non-trivial DFS’ in that sense; their explicit edge-concurrence discussion concerns the loss-only setting.",
+          "Buča–Prosen gives the fixed-point multiplicity lower bound; it does not exclude extra fixed states or oscillatory coherences in these blocks."
+        ],
+        "reasoning": "Neither disappearance of a vector DFS nor existence of two mixed fixed points decides whether all initial states relax into just the two sector equilibria. Strong symmetry supplies necessary structure, while the faithful-state commutant calculation, sector weights and spin flip establish the claimed limit and q-dependent boundary.",
+        "searches": [
+          "arXiv:2604.18707v1 HTML offsets about 11,357, 14,328 and 25,972; v2 about 10,100",
+          "arXiv:1203.0943v3 HTML offsets about 27,330, 30,612 and 33,400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Çakmak et al.'s loss-only DFS count gcd(m,N+1)−1 gives one dark excitation at N=3,m=2, the end-antisymmetric mode.",
+          "Buča–Prosen's strong symmetry is commutation of a unitary with H and each jump individually, which the end swap satisfies here."
+        ],
+        "reasoning": "This identifies the known singlet geometry and mechanism, not an equivalence with loss-only dark-vector dynamics. A mixed fixed sector at positive rates can retain the singlet weight without any noiseless Hilbert-space vector for the middle spin.",
+        "searches": [
+          "arXiv:2604.18707v1/v2, DFS structure and finite-temperature amplitude damping",
+          "arXiv:1203.0943v3 Appendix §4, strong symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed thermal three-spin findings 360eeddfd849 and 4ae5bab31ead concern static XXX rings (uniform-field and impurity cases). Their Findings do not use dynamical initial-state sector memory.",
+          "The nearby three-qubit XX steady-concurrence paper is the end-bath system of arXiv:0908.0592."
+        ],
+        "reasoning": "An exact same-generator stationary-state or concurrence formula is the appropriate table analogue for this parametric problem. The inspected thermal concurrence entries are for different Hamiltonians or jump locations, so their numerical and symbolic claims cannot be substituted for this frontier.",
+        "searches": [
+          "Resultary: frozen title, center-only thermal pumping, singlet weight and concurrence",
+          "Focused primary-literature lookup for the same model"
+        ]
+      },
+      "rationale": "Credit prior work for the center-loss dark mode, the strong-symmetry memory mechanism and Wootters' concurrence. The independently supported distinct claim is the explicit positive-rate center-only attractor for arbitrary initial states and its exact entanglement frontier, including product-state entanglement generation; no inspected prior result gives or specializes to that conjunction.",
+      "residual_risks": [
+        "Bounded comparison cannot exclude an older same-generator calculation. General fixed-point theorems may provide alternative proofs of parts of the state classification; no structural symmetry principle is credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap at zero pump through the dark mode, not positive-rate sector relaxation",
+          "evidence": [
+            "DFS mode count is gcd(m,N+1)−1; adding raising rules out the loss-only DFS vector construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.18707v2",
+          "material_read": "v1 ‘The model and its DFS structure’ and edge concurrence at HTML offsets about 11,357, 14,328 and 25,972; corresponding v2 finite-temperature passage about 10,100",
+          "method": "Lawful arXiv HTML inspection",
+          "title": "Synchronization in a dissipative quantum many-body system",
+          "trigger": "Same chain and damping location; most relevant loss-only and finite-temperature discussion"
+        },
+        {
+          "assessment": "Does imply at least two fixed points; not exactly two peripheral modes or explicit limiting concurrence",
+          "evidence": [
+            "It guarantees at least n_S fixed points, allowing internal degeneracy and leaving off-diagonal zero modes open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1203.0943v3",
+          "material_read": "Appendix §4 Eq. (12), Theorem 4.1 and following discussion",
+          "method": "Lawful arXiv HTML inspection",
+          "title": "A note on symmetry reductions of the Lindblad equation: transport in constrained open spin chains",
+          "trigger": "Broad strong-symmetry Lindblad result"
+        },
+        {
+          "assessment": "Different system–bath location and jump construction",
+          "evidence": [
+            "Two end baths and system-energy-resolved dissipators do not implement the local middle raising/lowering model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0908.0592",
+          "material_read": "Printed pp. 1–3, Eqs. (1)–(4) and concurrence discussion around PDF text offset 28,700",
+          "method": "Lawful OA PDF inspection",
+          "title": "Nonequilibrium thermal entanglement in three-qubit XX model",
+          "trigger": "Three-site XX steady thermal concurrence"
+        },
+        {
+          "assessment": "Neither is the open XX initial-state memory problem",
+          "evidence": [
+            "Both concern static thermal concurrence of an XXX ring, respectively in a uniform field and with an impurity."
+          ],
+          "identifier_or_url": "Resultary 360eeddfd849 and 4ae5bab31ead",
+          "material_read": "Finding and model in local RESULT.md files",
+          "method": "Local Resultary mirror reads",
+          "title": "Two-scale low-temperature crossover in field-induced entanglement; Universal impurity-temperature curve and endpoint laws",
+          "trigger": "Nearest indexed thermal three-qubit concurrence comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 67–76",
+        "arXiv:2604.18707 finite-temperature DFS discussion",
+        "arXiv:1203.0943 strong-symmetry theorem"
+      ],
+      "rationale": "The smallest chain with a dissipative center and two ends already distinguishes loss of noiseless vectors from the persistence of mixed-state memory. The quantitative threshold predicts whether the surviving memory is actually entangled, not merely whether multiple fixed points exist. It also settles the sign and near-balanced-rate scale of entanglement generated from a concrete product state. These predictions are not supplied by the existence bound from symmetry alone.",
+      "residual_risks": [
+        "No broader chain-length, convergence-rate, robustness or thermalization theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

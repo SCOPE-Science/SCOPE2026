@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:39:01.521149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74",
+        "Frozen VERIFICATION.md, icosa_exact.py, crosscheck_numeric.py and volume_spectrum.json, inspected as source evidence; the supplied scripts were not executed",
+        "Completed independent replay: python /workspace/icosa_centroid_replay.py /workspace/source/2026/11/01/complete-volume-spectrum-and-bernoulli-thinning-law-of-a-regular--2e20beaa33ab/RESULT.md"
+      ],
+      "rationale": "Independently re-enumerated all 4096 masks with exact determinant arithmetic in Z[sqrt(5)] on doubled coordinates. A mask is three-dimensional exactly when at least one affine four-point determinant is nonzero. For each full-dimensional hull, sign-homogeneous supporting triples identify the facets, deduplicated by their planar vertex sets. The common circumsphere excludes three collinear vertices. Taking any selected off-plane point as a witness, exact determinant signs identify the perimeter edges of each facet. A fan from a facet vertex gives the boundary triangles; coning these to the strict interior barycenter of the selected vertices yields tetrahedra with disjoint interiors. Summing their absolute affine determinants avoids the source verifier's oriented volume sum about the origin. The replay checks each boundary edge has two incident facets and the Euler count, reverses the factor of eight from doubling, and converts exactly to six-volume pairs in 1,phi. All printed census rows and expectation coefficients agree, including the 29 values, coefficient divisibility, and the separate mask identities for 12 five-neighbor rings, their 60 distinct planar four-subsets, and 15 additional antipodal-pair planes. No six-or-larger mask has zero volume. An individual labelled mask of size k has weight p^k(1-p)^(12-k), so the exact mass and expectation polynomials, including their deterministic endpoint cases, follow by summation. At p=1/2 exact arithmetic independently gives 3710 full-dimensional masks, E[V]=(4601+7113 phi)/3072, and relative volume (2089+2512 phi)/20480.",
+      "residual_risks": [
+        "This is exact exhaustion of the specified twelve fixed vertices, not a certificate about free points on the surface or other polyhedra. The frozen numeric check is supplementary only; no floating-point decision is used in the independent replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newman defines the general binomial vertex-retention model B(P,p). Aichholzer et al. study extrema for antipodal configurations, not a fixed all-subset census. Jacobson's icosahedron example simplifies by deleting supporting halfspaces, producing enclosing shapes."
+        ],
+        "reasoning": "General vertex retention covers the experiment, not its exact probabilities; extremal antipodal selections do not count unrestricted hulls; deletion of supporting halfspaces and deletion of vertices change the hull in opposite directions.",
+        "searches": [
+          "arXiv:2006.07000",
+          "arXiv:1301.6667v1",
+          "10.1111/cgf.70518 and its OA copy arXiv:2604.14468"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 801a8f440668, bf118805f790 and b09ff7e0dbde",
+        "arXiv:2006.07000, 1301.6667v1 and 2604.14468v2",
+        "Bounded public exact-census query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tetrahedron record supplies aggregate four-point volumes; it does not identify higher-mask facet incidence. The transversal record assigns volumes only when all antipodal pairs contribute one vertex. The weighted probability sum follows immediately from the census and common p."
+        ],
+        "reasoning": "A tetrahedron table does not specify which tetrahedra triangulate each higher hull, and unrestricted masks need not be transversals. Computing the leftover masks and their multiplicities is not a parameter substitution. The expectation and mass function themselves are straightforward consequences once those exact coefficients are known.",
+        "searches": [
+          "Resultary 801a8f440668, bf118805f790 and b09ff7e0dbde",
+          "arXiv:2006.07000, B(P,p) sampling definition",
+          "arXiv:2604.14468, Figure 1 and icosahedron/Figure 17 example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier tetrahedron-volume record covers all k=4 masks. The earlier antipodal-choice record covers the 64 masks choosing one from each of six antipodal pairs.",
+          "The exact Bernoulli face–volume catalogue analogue is for a cross-polytope, not the icosahedron."
+        ],
+        "reasoning": "An all-mask census and the p-parametrized mass function encode one another via the independent degree-12 Bernstein basis, up to its binomial normalization. Neither the subfamily tables nor the distribution of a different polytope supplies those coefficients for the full icosahedral configuration.",
+        "searches": [
+          "Resultary: full all-subset regular-icosahedron volume spectrum",
+          "Resultary: 4096-subset volume by retained count",
+          "Resultary: Bernoulli thinning of icosahedral vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 801a8f440668: counts 75,30,180,180,30 agree with the complete k=4 layer. Resultary bf118805f790: the six-vertex transversal pairs (8,4),(8,12),(8,16),(12,16) occur there with counts 12,20,20,12, not the unrestricted counts.",
+          "The public keyword search returned basic icosahedron references and generic polyhedral material, not a comparable joint census."
+        ],
+        "reasoning": "The first table fully covers one layer and the second exactly covers a proper subfamily of another. No inspected table supplies the remaining layers or the entire 29-level union. Searches are bounded and ranking misses do not exclude a different index or formulation.",
+        "searches": [
+          "Resultary: 4096-subset all-cardinality census and hull volumes of k≥5 icosahedron subsets",
+          "regular icosahedron all vertex subsets convex hulls subpolyhedra enumerate volume 4096 29 volumes icosahedral vertex induced Bernoulli census"
+        ]
+      },
+      "rationale": "Two previously indexed tables are exact subfamily overlaps: the entire four-vertex layer and the 64 six-vertex transversals of the antipodal pairs. These data and the general Bernoulli sampling model are credited. The supported distinct result is the complete joint cardinality–volume census on all masks, especially the uncovered parts of layers k≥5, which determines the entire Bernoulli volume law. The novelty is the specific exact data, not the hull algorithm or probability reweighting.",
+      "residual_risks": [
+        "Older unindexed classifications of icosahedral subpolytopes or an equivalent all-mask dataset may exist. The matching earlier k=4 and restricted k=6 tables are genuine overlap, not residual speculation. No claim of exhaustive historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already covers the entire k=4 row; no higher-cardinality census in the inspected statement",
+          "evidence": [
+            "All 495 four-vertex sets classified into the same five levels with the same multiplicities."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-tetrahedron-volume-spectrum-and-continuous-maximum-fami--801a8f440668",
+          "material_read": "Mirrored RESULT.md Finding/table at offset 0",
+          "method": "Resultary search and local-mirror claim comparison",
+          "title": "Complete tetrahedron-volume spectrum and continuous maximum families in the regular icosahedron",
+          "trigger": "Direct exact volume-spectrum match for the same vertex configuration"
+        },
+        {
+          "assessment": "Exact overlap for the six-vertex antipodal transversals, not the unrestricted layer",
+          "evidence": [
+            "The selection includes exactly one vertex from each antipodal pair; its 64 volumes lie on four of the unrestricted k=6 levels."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-volume-spectrum-of-antipodal-vertex-selections-in-the-regu--bf118805f790",
+          "material_read": "Mirrored RESULT.md Finding/table at offset 0",
+          "method": "Resultary search and local-mirror claim comparison",
+          "title": "Exact volume spectrum of antipodal vertex selections in the regular icosahedron",
+          "trigger": "Direct indexed higher-cardinality overlap"
+        },
+        {
+          "assessment": "Different vertex geometry, no coverage of icosahedral masks; later catalogue date",
+          "evidence": [
+            "The exact joint law is for cross-polytopes."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-face-volume-law-and-annealed-typical-gap-for-bernoul--b09ff7e0dbde",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary search and local-mirror claim comparison",
+          "title": "Exact joint face–volume law and annealed–typical gap for Bernoulli-thinned cross-polytopes",
+          "trigger": "Same finite probability-law formulation on a regular polytope"
+        },
+        {
+          "assessment": "Covers the sampling model, not the frozen census",
+          "evidence": [
+            "Defines B(P,p) and studies approximation and asymptotic combinatorial complexity in a random-polar model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.07000",
+          "material_read": "PDF p. 1 offsets 448 and 3193, abstract and introduction",
+          "method": "Targeted primary OA passages",
+          "title": "Doubly random polytopes",
+          "trigger": "General Bernoulli vertex-sampling model"
+        },
+        {
+          "assessment": "The inspected results concern extrema and higher-dimensional limitations, not all subsets of one icosahedron",
+          "evidence": [
+            "Studies extremal area for antipodal selections and extensions of the planar characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.6667v1",
+          "material_read": "PDF pp. 1 and 4, offsets 0 and 11845",
+          "method": "Targeted primary OA passages",
+          "title": "Extremal antipodal polygons and polytopes",
+          "trigger": "Potential broader antipodal-polytope classification"
+        },
+        {
+          "assessment": "Different hull operation and computed quantities",
+          "evidence": [
+            "The algorithm removes halfspaces with the least increase in volume. The icosahedron example studies four-face enclosing outputs and trials under rotations of the input, not hulls of retained vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.14468 (OA copy for 10.1111/cgf.70518)",
+          "material_read": "arXiv v2 Figure 1 caption, offset 0–2097; discussion of Figure 17, pp. 8–9, offsets 54997 and 58000–60621",
+          "method": "Identified lawful arXiv alternate after publisher retrieval returned HTTP 403; targeted primary passages",
+          "title": "Progressive Convex Hull Simplification",
+          "trigger": "Published icosahedron volume/simplification example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57; independent all-mask replay; earlier four-vertex and transversal tables"
+      ],
+      "rationale": "Vertex retention is a natural model and the whole icosahedron, rather than a handpicked slice, gives a complete exact small-solid benchmark for volume under thinning. The joint data distinguish masks with the same retained count but different volumes and masks of different counts with equal volume; they supply exact atoms, expectation and the dimension-collapse probability for every p. Neither the isolated tetrahedral spectrum nor the antipodal-transversal layer gives these probabilities. The geometric description of all lower-dimensional exceptions is useful beyond a numerical hull histogram.",
+      "residual_risks": [
+        "This is a finite benchmark and geometric classification, not a general random-polytope asymptotic theorem or a new enumeration algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

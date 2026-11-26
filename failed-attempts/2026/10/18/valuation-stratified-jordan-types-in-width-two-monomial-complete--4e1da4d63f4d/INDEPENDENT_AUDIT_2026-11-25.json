@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:57:21.870635Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(6), index witnesses and m=3 examples",
+        "VERIFICATION.md and verify_jordan.py: inspected direct polynomial multiplication, modular rank elimination and histogram comparisons; not executed"
+      ],
+      "rationale": "In the (1,x) basis over k[y]/(y^m), the t-th power has both diagonal entries f^t and its sole off-diagonal entry t f^(t-1) g. Lift f and g to k[[y]], using y^m for a zero element; reduction recovers the actual multiplication matrix, also for t=1 and f=0. If t vanishes in k the two Smith exponents are t alpha. Otherwise the smaller is min(t alpha,(t-1)alpha+beta) and their sum is 2t alpha. This follows either by eliminating the other entries using a pivot of least valuation, or by the entry ideal and determinant. Reduction turns each exponent d into rank max(m-d,0); this gives exactly both branches of (1), without needing any roots of units. Taking second differences of the ranks gives the block counts; independent counting of f and g in their valuation layers proves (3) and yields q^(2m-1) in total. The bound at m+1 follows from the radical powers, while a^m=m x f^(m-1)g. The witnesses x+y if m is nonzero in k and y otherwise attain the respective bounds. At m=3, (alpha,beta)=(1,0) gives (4,2) unless characteristic 3; (2,0) gives (3,2,1) unless characteristic 2, with the stated weights.",
+      "residual_risks": [
+        "Replay with python verify_jordan.py for the stated exhaustive prime-field cases. The supplied computation is not evidence for extension fields or arbitrary m; those are covered by the proof.",
+        "No scheme-theoretic description or automorphism-orbit enumeration is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Lefschetz sources address strong or weak Lefschetz behavior and linear forms. Tensor-product Jordan partitions capture multiplication by x+y in the truncated algebra, not the nonlinear and nonhomogeneous population."
+        ],
+        "reasoning": "The classical generalities cover distinguished forms or Lefschetz properties but not the all-element census; the separate indexed record covers the census itself.",
+        "searches": [
+          "arXiv:1111.4979, Theorem 7.1",
+          "arXiv:1604.06820, Remark 4.6",
+          "arXiv:1810.00716, Example 1.2",
+          "arXiv:1401.2748, algebra description of Jordan products"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed matches and strongest distinct mirrored result 6fd6b605a52d",
+        "arXiv:1111.4979, 1604.06820, 1802.07383, 1810.00716, 1401.2748; targeted primary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common ranks vanish at m+1, are positive at m on x+y if p does not divide m, and otherwise vanish everywhere at m, with y attaining index m. In the earlier 2018 article, Definition 2.52 ranges over the maximal ideal and Example 3.37 lists only three partitions. This list arises from the displayed linear forms but is not correct as an all-radical list: xy has square zero and rank two at m=3, so has partition (2,2,1,1)."
+        ],
+        "reasoning": "The older example is not a valid covering classification, while the indexed full rank formula directly implies the index and census. The dates do not establish earlier priority for the indexed match.",
+        "searches": [
+          "Published finding 6fd6b605a52d, rank formula and top-stratum law",
+          "arXiv:1802.07383, Definition 2.52 and Example 3.37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record writes the element as lambda+a(y)+xb(y) and counts the Jordan sizes of multiplication by a(y)+xb(y). Its first Smith exponent is the capped smaller entry valuation and the second exponent is capped using the same determinant. If t alpha>=m the second capped exponent is m in both formulas; otherwise replacing the off-diagonal valuation by its cap cannot change the minimum with t alpha. Thus truncating before or after the minimum gives the same ranks."
+        ],
+        "reasoning": "A scalar shift changes only the eigenvalue, not Jordan sizes, and the power ranks under comparison are those of the identical nilpotent operator.",
+        "searches": [
+          "Resultary: all-element Jordan-type distributions in k[x,y]/(x^2,y^n), two valuations and characteristic",
+          "Published finding 6fd6b605a52d, RESULT.md Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For the same valuation pair, the published polynomial uses the same weights and second rank differences. Its coefficient for each partition is q times the frozen radical multiplicity, because constants are unrestricted."
+        ],
+        "reasoning": "Dividing the published polynomial by q (equivalently holding the scalar equal to zero) gives all frozen counts exactly, not merely sample values.",
+        "searches": [
+          "Resultary: complete finite-field Jordan multiplicities for k[x,y]/(x^2,y^m)",
+          "Published finding 6fd6b605a52d, counting polynomial J_{n,q}"
+        ]
+      },
+      "rationale": "The complete finite-field partition census and its valuation mechanism are demonstrably covered by a distinct indexed result, Complete Jordan-type distribution on k[x,y]/(x^2,y^n) over finite fields. Its nilpotent parts are exactly the elements in the frozen theorem. Its ranks agree after capping exponents, and removing the free scalar factor q gives the identical partition generating polynomial for the radical. It also yields the sharp index in positive characteristic. The characteristic-zero case adds no distinct census or rank phenomenon: the common expression for all relevant powers is the case p>m+1, in which none of the relevant integer multipliers vanishes, and the same Smith reduction works unchanged. This is an existing-coverage finding, not an attribution of earlier publication: the distinct indexed record is dated November 2, after the October 18 frozen record, and the evidence does not establish derivation or historical priority. The earlier Lefschetz and Jordan-type sources inspected do not provide the general valuation census.",
+      "residual_risks": [
+        "No claim of bibliographic completeness or historical priority. The relationship between the frozen and later indexed versions is not established.",
+        "The earlier m=3 example's intended scope may be narrower than its defined notation; this does not affect the exact indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent census and ranks in positive characteristic, plus free scalar coordinate and detailed top multiplicities; historical priority not inferred",
+          "evidence": [
+            "J_{n,q}=q times the valuation-weighted monomial sum; r_t computed from the same truncated matrix exponents for the nilpotent part."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-jordan-type-distribution-on-k-x-y-x-2-y-n-over-finite-f--6fd6b605a52d/RESULT.md",
+          "material_read": "Finding through Verification, mirror offsets 0–6872; relationship to prior work and limitations thereafter",
+          "method": "Targeted reading in lawful local mirror",
+          "title": "Complete Jordan-type distribution on k[x,y]/(x^2,y^n) over finite fields",
+          "trigger": "Exact same parameters, invariant and valuation stratification"
+        },
+        {
+          "assessment": "Example value and antecedent, not all-element classification",
+          "evidence": [
+            "Definition uses the whole maximal ideal; the three listed example types miss the nonlinear xy witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.07383",
+          "material_read": "Definition 2.52, p. 31, and Example 3.37, p. 48",
+          "method": "Targeted lawful OA PDF extracts",
+          "title": "Artinian algebras and Jordan type",
+          "trigger": "Same algebra at m=3 and broader meaning of Jordan-type poset"
+        },
+        {
+          "assessment": "Linear-form special case",
+          "evidence": [
+            "Three linear-form types for (x^2,y^3); the adjacent example with (2,2,1,1) is for another algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.00716",
+          "material_read": "Example 1.2, p. 4",
+          "method": "Targeted lawful OA PDF extract",
+          "title": "Complete intersection Jordan types in height two",
+          "trigger": "Same height-two algebra example"
+        },
+        {
+          "assessment": "Lefschetz criterion, not census",
+          "evidence": [
+            "Characteristic-two criterion for strong Lefschetz in monomial complete intersections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.4979",
+          "material_read": "Theorem 7.1, p. 16",
+          "method": "Targeted lawful OA PDF extract",
+          "title": "The Lefschetz properties of monomial complete intersections in positive characteristic",
+          "trigger": "Possible modular rank classification"
+        },
+        {
+          "assessment": "No all-radical rank distribution in the compared result",
+          "evidence": [
+            "Two-variable weak Lefschetz in arbitrary characteristic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06820",
+          "material_read": "Remark 4.6, p. 13",
+          "method": "Targeted lawful OA PDF extract",
+          "title": "On the structure of monomial complete intersections in positive characteristic",
+          "trigger": "Possible broader two-variable Lefschetz implication"
+        },
+        {
+          "assessment": "Covers x+y specialization, not general f+xg",
+          "evidence": [
+            "The Jordan partition of J_r tensor J_s is realized by multiplication by x+y on the corresponding monomial complete intersection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.2748",
+          "material_read": "Abstract, p. 1, and truncated polynomial algebra discussion, p. 5",
+          "method": "Targeted lawful OA PDF extracts",
+          "title": "Decomposing modular tensor products, and periodicity of Jordan partitions",
+          "trigger": "Tensor-sum form of the linear-form case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(4) and m=3 instances",
+        "arXiv:1802.07383, Example 3.37 and missing nonlinear type"
+      ],
+      "rationale": "As a mathematical result, an all-element valuation-stratified census of this standard family is useful: it separates nonlinear partitions from the classical linear-form cases, exposes where prime divisibility changes the top block size, and permits exact enumeration without traversing the whole field-sized algebra. The result's intrinsic classification value does not resolve the duplicate-coverage issue or give this version distinct content.",
+      "residual_risks": [
+        "The census is for the specified regular module only; its finite valuation sum does not establish Jordan-stratum geometry or general height-two results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

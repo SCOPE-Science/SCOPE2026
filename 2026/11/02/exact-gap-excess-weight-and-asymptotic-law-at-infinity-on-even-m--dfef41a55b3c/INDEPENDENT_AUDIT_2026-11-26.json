@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:32:48.278536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact gap enumeration at (q,n)=(3,4),(4,4) and symbolic reduction of the Dedekind moment"
+      ],
+      "rationale": "The factors A0 and B0 have q and b=q(q-1) disjoint simple roots, respectively; B0 has nonzero derivative at a root because A0 is then nonzero. With N=br+q+1 and r=1 mod q+1, both r and the degree N-1 of the Kummer right-hand side are coprime to N. The extension is tame and infinity and all q+b finite roots are totally ramified, yielding genus (q^2-1)(N-1)/2. The functions z^j/B0^floor(jr/N) have no finite poles, with pole orders w_j=qj+b(jr mod N) at infinity. They cover all residues modulo N and generate a union with exactly the geometric genus many missing orders, proving completeness. Summing each gap progression gives the two Apéry moments plus the stated constant. The cross moment is the Dedekind sum for r,N; using N=br+q+1 and r=1 mod q+1 in reciprocity gives 12s=b(q+2)/(q+1)-b(r^2+1)/((q+1)N). Substituting r=(d-q)/b and removing g(g+1)/2 produces the stated polynomial; independent symbolic reduction also gave zero residual. Its B and C coefficients are positive for q>=3, proving strict decrease and both limits. The blockwise maximum of w_j is achieved at s=q+1 because b ceil(r/(q+1))<d, giving the stated conductor. Exact residue-by-residue replay gave (g, conductor, W)=(324,594,12906) at (3,4) and (1920,3648,449280) at (4,4), with no execution of supplied code.",
+      "residual_risks": [
+        "The two finite replays only corroborate the symbolic result. Rationality over the finite field pertains to the finite-field model; the main geometric gap calculation for arbitrary nonzero c is unaffected by rescaling z over the algebraic closure.",
+        "W is the gap-defined excess, not a Wronskian coefficient in arbitrary positive characteristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kummer one-place-at-infinity and totally ramified point theorems apply with q exponents 1, b exponents r, Kummer index N and total exponent N-1; the infinity exponent is coprime to N.",
+          "The aggregate asymptotic theorem in arXiv:2506.19169 uses characteristic zero or characteristic at least 2g-2 and sums over totally ramified points."
+        ],
+        "reasoning": "The broader gap theorems already cover the entire one-point gap set. The aggregate asymptotic theorem has a different invariant, characteristic regime and scope and does not dominate the one-point normalized law.",
+        "searches": [
+          "Mendoza, arXiv:2208.09729, Theorem 3.2",
+          "Cotterill–Mendoza–Speziali, arXiv:2506.19169, Theorems 3.2 and 4.1",
+          "Zhang–Zhao, arXiv:2605.14583, Proposition 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 2fa86936e6d0",
+        "arXiv:2609.19546",
+        "arXiv:2208.09729",
+        "arXiv:2506.19169",
+        "arXiv:2605.14583",
+        "arXiv:1612.02730"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any complete prior gap or Apéry formula implies an unevaluated sum for W. The closed evaluation must handle sum_j j(jr mod N), a nontrivial joint moment even though each marginal is a permutation.",
+          "The two Euclidean divisions specific to this family give an explicit reciprocity reduction and produce positive correction coefficients for all q>=3; this is what establishes strict decrease."
+        ],
+        "reasoning": "Award no originality to obtaining the semigroup by another valuation argument. The surviving invariant is an evaluated moment and qualitative law, not the already-known data or their mechanically stated unevaluated sum.",
+        "searches": [
+          "2fa86936e6d0, explicit Apéry set in Finding and semigroup examples",
+          "arXiv:2506.19169, Theorems 3.2 and 4.1",
+          "Frozen RESULT.md, gap-sum and Dedekind steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed maximal model has the identical right-hand side shape; its restriction c^(q^n)=-c does not change the geometric semigroup because nonzero constants are removed by scaling z over the algebraic closure.",
+          "A gap-excess sum can be expressed through the first and second Apéry moments. It is not automatically the canonical ramification coefficient in small characteristic, or a higher-order weight for a separable superelliptic equation."
+        ],
+        "reasoning": "Normalize the curve constant and the meaning of weight before comparison. The exact indexed Apéry data match, but weights in the nearby formalisms need not measure the same invariant.",
+        "searches": [
+          "Resultary: even Ma–Wang infinity Weierstrass semigroup, gap excess and weight; 2fa86936e6d0",
+          "Ma–Wang, arXiv:2609.19546, even-n Kummer model",
+          "Shor, arXiv:1612.02730, higher-order branch-point Weierstrass weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed record gives the identical w_j list, a stronger minimal-generator description, conductor and genus. The finding and its worked numerical examples give g and conductor but not W. Its literal weight occurrences concern a linear pole-order map and shortest paths in the residue graph.",
+          "With K=q(q^(n-2)-1)/(q^2-1), r=1+(q+1)K, so floor(qr/(q+1))=qK and the frozen conductor defect matches the indexed q^2(q-1)K exactly."
+        ],
+        "reasoning": "The contextual semigroup and conductor are established overlap, including equivalent formulae. A complete gap specification is not an already-evaluated second moment or normalized asymptotic formula.",
+        "searches": [
+          "2026/10/18/SCOPE-the-complete-weierstrass-semigroup-at-infinity-of-the-even-ma-wa--2fa86936e6d0",
+          "Resultary queries for same infinity weight, gap excess and asymptotic law"
+        ]
+      },
+      "rationale": "The complete semigroup, exact Apéry representatives, conductor and genus have direct prior coverage, including a matching indexed result for the same curve. Only the evaluated gap-excess polynomial and the strict normalized law survive as the distinct claim. They require evaluating a correlated Apéry second moment using two-step reciprocity; a general gap algorithm or a matching genus/conductor does not supply this evaluation or monotonicity. No inspected primary source or indexed record gives that polynomial or normalized law.",
+      "residual_risks": [
+        "An unindexed evaluation of the same Dedekind moment or numerical semigroup gap sum would narrow originality. The comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct contextual overlap, not the evaluated weight",
+          "evidence": "It gives identical Apéry representatives and equivalent conductor/genus, plus a minimal-generator formula. The inspected weight contexts refer to a linear map and graph shortest paths, not the gap-excess statistic.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-complete-weierstrass-semigroup-at-infinity-of-the-even-ma-wa--2fa86936e6d0",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2085; weight contexts at 4896–5496 and 6528–7253",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The complete Weierstrass semigroup at infinity of the even Ma–Wang maximal curves",
+          "trigger": "Strongest exact match for the same family and point"
+        },
+        {
+          "assessment": "Family, genus, valuations and some nongaps are established",
+          "evidence": "The even-model results and Riemann–Roch functions locate infinity and give pole data, not the evaluated gap excess in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19546",
+          "material_read": "Section 2.1, Lemma 2.2 and Proposition 2.3 (PDF pp. 5–6); Section 3.2, Lemma 3.3 and (3.4) (p. 11)",
+          "method": "Open primary PDF, targeted passages",
+          "title": "A new family of maximal curves not covered by the Hermitian curve",
+          "trigger": "Originating theorem for the curve family"
+        },
+        {
+          "assessment": "Direct gap/semigroup coverage",
+          "evidence": "The hypotheses p not dividing the Kummer index and coprimality with the exponent sum hold for N and N-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.09729",
+          "material_read": "Theorem 3.2, p. 7",
+          "method": "Open primary PDF, targeted passage",
+          "title": "On Kummer extensions with one place at infinity",
+          "trigger": "General theorem giving the same infinity semigroup"
+        },
+        {
+          "assessment": "Direct gap coverage, not the claimed one-point law",
+          "evidence": "The gap formula applies at total ramification. The weight asymptotic is an aggregate with a classical-characteristic hypothesis, not this intrinsic small-characteristic excess sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.19169",
+          "material_read": "Theorem 3.2, pp. 5–6; Theorem 4.1, pp. 18–19",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On gap sets in arbitrary Kummer extensions of K(x)",
+          "trigger": "Broader gap set and plausible related weight asymptotics"
+        },
+        {
+          "assessment": "Direct generic gap result, not evaluated Ma–Wang weight",
+          "evidence": "The stated gap set applies when the local exponent is coprime to the index, as at infinity here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14583",
+          "material_read": "Section 3, Proposition 3.6, p. 13",
+          "method": "Open primary PDF, targeted passage",
+          "title": "Weierstrass semigroups at totally ramified places of degree one on Kummer extensions",
+          "trigger": "Potentially dominating totally ramified point result"
+        },
+        {
+          "assessment": "Distinct weight and separable-polynomial setting",
+          "evidence": "The theorem is for higher-order weights in the stated superelliptic setup, which does not include the given repeated-exponent equation as a case of that formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.02730",
+          "material_read": "Setup, pp. 1–3, and Theorem 3",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Higher-order Weierstrass weights of branch points on superelliptic curves",
+          "trigger": "Explicit branch-point weight formula at infinity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, weight formula and normalized law",
+        "Resultary record 2fa86936e6d0",
+        "arXiv:2506.19169, Theorem 4.1 for the contrasting invariant"
+      ],
+      "rationale": "For a naturally occurring maximal-curve family, the gap excess measures how far the entire infinity gap sequence departs from the ordinary gap sequence, rather than measuring just its length or endpoint. A quadratic expression uniform in q^n makes quantitative comparison possible without enumerating a growing gap set. It gives the strict finite-parameter trend, positive limiting proportion and large-q behavior; the two-step rotation moment explains these features structurally. The contribution is this evaluated invariant, not a new semigroup algorithm or a generic ramification theorem.",
+      "residual_risks": [
+        "The result describes only this infinity point and this even-exponent family; it makes no claim about the Weierstrass locus or global canonical weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

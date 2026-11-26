@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:59:47.222724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed iid draws independent of the initial disagreement, the rank-one endpoint projections give trace(P_e P_f)-1=n-3+(b_e^T b_f)^2/4, so the matrix is A=(1/2)I+(1/4)C^TC=I+(1/4)Adj(L(G)), positive definite even if C is rank deficient. Thus there is one simplex minimizer. The interior condition Ap=lambda*1 gives p proportional to C^T w with (2I+CC^T)w=1. The vertex fixed point sends [0,1/3]^V into itself, with maximum row contraction 3/5 at degree 3. On an edge, each endpoint equation with other neighbors moved to the right is >=1/3; adding gives 6(w_u+w_v)>=2/3, and Z<=2m/3 proves the positive bound. Independently, substituting a=(1-b)/(2k) into the balanced double-star quadratic gives (k+3)/(8k)+(k-3)b/(4k)+(5k+3)b^2/(8k). Its minimum over 0<=b<=1 yields exactly the two cases in the theorem; at k=3 the excess is 3b^2/4. Symmetry of the unique optimizer justifies uniform leaf probabilities. The frozen rational checker was inspected, not run. A separate mask count gave 1, 4, 38 and 472 labeled connected subcubic graphs at orders 2–5, consistent with the 526 counted cases after the three extra graphs and eight double-stars. The theorem is proved for arbitrary size, not by that count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Boyd et al. SDP minimizes a second eigenvalue for fastest convergence, not the two-update expected trace.",
+          "c93f751b4cab treats arbitrary initial states and sharp finite-horizon modes of uniform iid gossip on bicliques, without optimizing a probability vector."
+        ],
+        "reasoning": "All-horizon or all-graph models may be broader in one dimension while omitting the optimization or isotropic criterion. The exact general positivity criterion in the path record does not show its hypothesis holds throughout the subcubic class.",
+        "searches": [
+          "Boyd–Ghosh–Prabhakar–Shah 2004 §IV and 2006 article landing text",
+          "Resultary c93f751b4cab RESULT.md offset 0; 91d0f3171cfc offset 469"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof; VERIFICATION.md and check.py by inspection",
+        "Resultary 91d0f3171cfc, 220fa7b627dd and c93f751b4cab",
+        "Boyd et al. 2004 §IV",
+        "Leinster 1401.4623v1 p. 5",
+        "Finite-horizon and line-graph-weighting literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evaluating positivity of the general inverse for all subcubic graphs requires an additional argument; a path-specific evaluation is not enough.",
+          "The spectral-width record minimizes lambda_max(L)-lambda_2(L), whereas the trace objective is a positive definite edge-overlap quadratic. Matching the k>=3 weights does not show that the minimizers must coincide, nor imply the boundary penalty."
+        ],
+        "reasoning": "The extra fixed-point estimate is uniform over the subcubic class. The boundary follows from a distinct scalar quadratic, giving not only the same support in this family but also probabilities for k=1,2 and a precise penalty at k=3 under the fixed-iid two-update objective.",
+        "searches": [
+          "91d0f3171cfc offset 469 and 220fa7b627dd offset 0 against frozen proof Steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "91d0f3171cfc RESULT.md offset 469 gives the same centered quadratic and line-graph inverse criterion on all simple graphs.",
+          "Leinster's graph magnitude, arXiv:1401.4623v1 p. 5, equation (4), uses q to the shortest-path distance, not a weighting that vanishes beyond immediate adjacency."
+        ],
+        "reasoning": "C^TC=2I+Adj(L(G)), and A(2C^T w)=1 from (2I+CC^T)w=1. Hence the path record's unconstrained criterion and the present resolvent are equivalent. Graph magnitude includes nonzero longer-distance entries for nonzero q and is not this same weighting.",
+        "searches": [
+          "Local Resultary: two-contact isotropic gossip, line graph, signless resolvent, balanced double-star support",
+          "Literature: randomized gossip optimize edge probabilities finite horizon two iterations two contacts isotropic initial mean square disagreement line graph strictly convex signless Laplacian full support balanced double star",
+          "Literature: simplex quadratic minimum I plus adjacency matrix line graph 4 diagonal edge weighting magnitude 2I signless Laplacian positivity subcubic graph inverse solution full support",
+          "Literature: graph magnitude positive weighting exponential adjacency matrix maximum degree similarity positive inverse row sums line graph effective diversity graph Leinster"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91d0f3171cfc supplies the shared general objective and explicit path law; 220fa7b627dd supplies the identical bridge-deletion cutoff and optimal boundary weights for a Laplacian spectral-width problem."
+        ],
+        "reasoning": "These distinct same-day findings materially overlap, but neither provides the all-subcubic support decision or the balanced double-star optimizer table for this exact functional. Same-day dates alone do not establish priority.",
+        "searches": [
+          "Local Resultary 91d0f3171cfc, 220fa7b627dd and c93f751b4cab"
+        ]
+      },
+      "rationale": "The general finite-horizon objective, uniqueness and interior inverse criterion have an exact counterpart in a distinct same-day path record. The comparable double-star result has a different objective despite the same family and sharp cutoff. The verified surviving content is the graph-class positivity theorem with quantitative bound and the sharp boundary for this particular objective, not the quadratic reduction or a generic inverse formula.",
+      "residual_risks": [
+        "The frozen comparison should explicitly credit the same-day path record's general-graph inverse criterion, not imply that the quadratic formulation and uniqueness had only been derived for a path.",
+        "A prior subcubic positivity theorem for an equivalent line-graph inverse in a different setting may exist. The inaccessible 2013 source was not classified by its full text.",
+        "The trace calculation uses draws independent of the initial field, the fixed sampling interpretation, not just a pair of marginally correct edge choices coupled with that field."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT OVERLAP FOR REDUCTION AND INTERIOR CRITERION; NOT THE GRAPH-CLASS THEOREM",
+          "evidence": [
+            "Gives n-3+p^T(I+Adj(L(G))/4)p, strict convexity and positive-inverse criterion; explicit evaluation is path specific."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-contact-isotropic-gossip-favors-path-boundaries-unlike-spect--91d0f3171cfc",
+          "material_read": "RESULT.md offset 469, general setup, quadratic reduction and path application",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Two-contact isotropic gossip favors path boundaries unlike spectral optimization",
+          "trigger": "Exact same objective and matrix under the line-graph alias"
+        },
+        {
+          "assessment": "SAME BOUNDARY WEIGHTS FOR A DIFFERENT PROBLEM",
+          "evidence": [
+            "Minimizes lambda_max(L)-lambda_2(L) over conductances with total one. For k>=3, bridge zero and leaves 1/(2k), not a statement about isotropic trace risk."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-leaf-bridge-deletion-transition-for-laplacian-spec--220fa7b627dd",
+          "material_read": "RESULT.md offset 0, objective and boundary solution",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A sharp three-leaf bridge-deletion transition for Laplacian spectral width",
+          "trigger": "Exact same graph family, disappearance of the bridge, and cutoff at three leaves per hub"
+        },
+        {
+          "assessment": "UNIFORM SAMPLING AND WORST-CASE OBJECTIVE",
+          "evidence": [
+            "Uses uniform edge draws on K_{p,q} and controls worst-case modes, not the choice of p for an isotropic initial field."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-horizon-disagreement-modes-and-a-continuous-aspect--c93f751b4cab",
+          "material_read": "RESULT.md offset 0, objective, topology and sampling assumptions",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp finite-horizon disagreement modes and a continuous aspect ratio",
+          "trigger": "Finite-horizon iid mean gossip on a nontrivial graph class"
+        },
+        {
+          "assessment": "ASYMPTOTIC SPECTRAL OBJECTIVE",
+          "evidence": [
+            "The SDP designs fastest mixing through the second-largest eigenvalue of the expected gossip matrix."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+          "material_read": "§IV, PDF p. 4, offset about 23006; the 2006 companion landing text at offset 968 was also checked",
+          "method": "Open-access primary conference passage and companion article page",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "Foundational optimization with the same random edge updates"
+        },
+        {
+          "assessment": "DISTINCT MATRIX",
+          "evidence": [
+            "Weighting solves sum_y q^(d(x,y)) w(y)=1, so distances beyond one contribute."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.4623v1",
+          "material_read": "p. 5, equation (4) and Lemma 2.3, extracted offsets 13808 and 14239",
+          "method": "Open-access primary PDF, located excerpts",
+          "title": "The magnitude of a graph",
+          "trigger": "Inverse-row-sum graph weighting alias"
+        },
+        {
+          "assessment": "INACCESSIBLE; NOT USED AS NEGATIVE EVIDENCE",
+          "evidence": [],
+          "identifier_or_url": "https://www.researchgate.net/publication/261162372_Towards_optimal_convex_combination_rules_for_gossiping",
+          "material_read": "Full text unavailable at the attempted source (HTTP 403)",
+          "method": "Bounded lawful open-access retrieval attempt",
+          "title": "Towards optimal convex combination rules for gossiping",
+          "trigger": "Cited nearby optimization of averaging rules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal support is an operationally meaningful invariant: subcubic graphs retain every interaction with a quantitative guarantee, but the smallest permitted maximum-degree increase can yield a uniquely optimal disconnected support. The exact double-star solution distinguishes a boundary equality from a strictly active bridge constraint and illustrates why a two-contact optimum does not guarantee long-run consensus. These are structural conclusions beyond the standard quadratic reduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

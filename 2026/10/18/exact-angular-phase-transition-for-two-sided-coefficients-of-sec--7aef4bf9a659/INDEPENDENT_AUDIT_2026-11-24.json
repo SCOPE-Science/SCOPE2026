@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:42:24.763747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63",
+        "Frozen VERIFICATION.md lines 19–26 and verify_sector.py lines 14–66"
+      ],
+      "rationale": "The L² boundary-trace reduction works in both directions by Fourier–Poisson representation and convexity of the closed sector. In the real L² pairing, the two independently chosen coefficient phases give K=2 exp(−iτ) cos(nt+δ). The pointwise projection residual is polar to the cone and orthogonal to the projection, so the exact maximum for a fixed K on the unit cone is ||PβK||₂, attained only by positive multiples of the projection for nonzero optimum. Each cosine half-wave has squared mass 1/4. For 0≤τ≤π/2 the squared norm is u²+v², where u=1 up to β and then cos(τ−β), and v=max(0,−cos(τ+β)). If β<π/4, the one-wave exterior branch is strictly below 1 and the two-wave branch has value 1+cos(2τ)cos(2β)<1. If π/4<β<π/2, the portion with u=1 is at most 1+cos²(2β)<1−cos(2β), and on the remaining branch the latter bound is attained only at π/2. At β=π/4 all phases maximize; at β=π/2 use u²+v²=1+sin²τ directly, and β=0 is the one-ray case. This proves the stated constants and all equality cases by the equality condition in Cauchy–Schwarz and reflection symmetry. The bundled trace tests were inspected, not executed; no limiting or exhaustiveness claim depends on them.",
+      "residual_risks": [
+        "Only the Hilbert norm and one coefficient pair are covered; the reported finite Fourier tests do not address completeness of the optimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al., Theorem 1.3, unrestricted harmonic h^p, gives √2 at p=2 for every order and has a rotated cosine sharpness construction.",
+          "Resultary 2026/10/11/SCOPE-sharp-logarithmic-stability-of-the-harmonic-hardy-coefficient-ex--723bd47894d9, Finding: 4/π endpoint stability for bounded harmonic maps. The external query yielded no useful comparison."
+        ],
+        "reasoning": "The broad theorem bounds the sector problems but cannot give the strictly smaller value for β<π/2 or the sector equality cases in that range. The value at β=π/2 is already accounted for by its imaginary cosine extremal.",
+        "searches": [
+          "Resultary: positive-real-part harmonic Hardy Fourier coefficient sharp extremizer convex sector cone projection",
+          "Web: \"Sharp constant problems for harmonic mappings\" Chen Huang Jin Li Theorem 1.3 harmonic Hardy coefficient sector-valued cone Fourier extremal"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Huang–Jin–Li arXiv:2609.33159v1",
+        "Resultary records 16ebd1a33be1, 3926fe608e2b and 723bd47894d9",
+        "Frozen RESULT.md lines 68–76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted p=2 extremizers are constant phase multiples of cos(nt+δ). With both signs present, a nonzero trace of this form fits the sector only for β=π/2, in the imaginary direction."
+        ],
+        "reasoning": "Restricting the known equality family gives the half-plane endpoint but misses the smaller-angle optimizers. The new norm competition of the two projected half-waves and its full maximizing set at π/4 are not implied by that restriction.",
+        "searches": [
+          "arXiv:2609.33159v1, Theorem 1.3 and §2",
+          "Resultary 2026/10/4/SCOPE-extremizer-spectrum-and-index-rigidity-for-sharp-harmonic-hardy--16ebd1a33be1, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. arXiv:2609.33159v1, equations (2.13)–(2.20), use the two-phase Fourier/cosine reduction, then an unrestricted Hölder step.",
+          "Resultary 2026/10/25/SCOPE-sharp-fixed-center-two-sided-fourier-coefficient-envelope-for-bo--3926fe608e2b, Finding: a pointwise disk bound and fixed center modulus, with unimodular extremizers."
+        ],
+        "reasoning": "Equivalent Fourier-boundary language is important, but the disk plus fixed mean constraint and the sector plus L² constraint are different feasible sets. The unrestricted dual step does not compute the projected cone norm.",
+        "searches": [
+          "Resultary: harmonic functions values in convex cone Fourier coefficient extremal projection",
+          "Resultary: cone-valued harmonic boundary trace Fourier coefficient Hilbert norm metric projection extremal sector angle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result, 2026/10/4/SCOPE-extremizer-spectrum-and-index-rigidity-for-sharp-harmonic-hardy--16ebd1a33be1, Finding and equality statement, gives the unrestricted sharp coefficient and phase-rotated cosine powers, with no sector parameter."
+        ],
+        "reasoning": "The nearby indexed law does not tabulate or classify the constrained profile. The bounded search did not surface an exact constrained formula; absence from these results does not certify priority.",
+        "searches": [
+          "Resultary: sector-valued harmonic Hardy coefficient sharp constant sector angle",
+          "Resultary: angular phase transition pi/4 two-sided harmonic coefficients",
+          "Resultary: sector-constrained harmonic Hardy coefficient pi/4 sqrt(2) sin beta projection optimizer"
+        ]
+      },
+      "rationale": "The unrestricted coefficient estimate, dual cosine test, and rotated-cosine equality examples are known. The supported distinction is the sector-dependent sharp law for the specified harmonic L² problem, including the sharp whole family of optimizers at the critical sector. Neither the closest published coefficient theorem nor the closest indexed equality classification supplies that constrained result.",
+      "residual_risks": [
+        "The ranked database search is bounded and the external query was unproductive. Earlier cone-constrained Fourier extremal work under different terminology is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted bound and half-plane endpoint, not the angular profile",
+          "evidence": [
+            "Gamma-formula constant specializes to √2; independent phase dualization and signed cosine-power sharpness are already present."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.33159v1",
+          "material_read": "PDF p. 5, Theorem 1.3; §2 pp. 10–13, equations (2.13)–(2.20) and sharpness",
+          "method": "Lawful OA PDF passages",
+          "title": "Sharp constant problems for harmonic mappings",
+          "trigger": "Cited sharp coefficient theorem for exactly the two Fourier coefficients"
+        },
+        {
+          "assessment": "Unrestricted classification only",
+          "evidence": [
+            "The p=2 specialization is a rotated cosine in harmonic h², without a sector constraint."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-extremizer-spectrum-and-index-rigidity-for-sharp-harmonic-hardy--16ebd1a33be1",
+          "material_read": "Finding, assumptions and prior-work passage at offset 5651",
+          "method": "Local indexed record and mirror text",
+          "title": "Extremizer spectrum and index rigidity for sharp harmonic Hardy coefficients",
+          "trigger": "Closest indexed equality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 46–63",
+        "Chen–Huang–Jin–Li, Theorem 1.3"
+      ],
+      "rationale": "The sector is a natural quantitative restriction interpolating from a nonnegative real trace to a half-plane. The result tells when coefficient maximizers require both signs of the dual cosine and exactly which boundary rays they occupy. The full critical equality family, not simply an improved numerical constant, identifies where support ceases to be rigid. This is useful information for sector-constrained harmonic coefficient problems even at a single exponent.",
+      "residual_risks": [
+        "No quantitative stability, multiple-coefficient, or p≠2 result follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

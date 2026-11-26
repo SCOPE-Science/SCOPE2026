@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all integers \(m\ge2\), every continuous folded-angle probability density, and every centered nondegenerate axis-aligned rectangle, the spectral identity \(\lambda_{\min}(X^{\mathsf T}X)=(m-|\sum_j e^{2i\theta_j}|)/2\) is exact. Rank loss occurs only on the common-angle diagonal. Orthogonal diagonal/tubular coordinates have Jacobian \(\sqrt m\); the quadratic expansion has coefficient one, proving the constant \(\sqrt m\,\omega_{m-1}\int f^m\). Jensen's equality conditions give the unique continuous-density minimizer. Positive leading coefficient gives the sharp inverse-moment threshold, and conditional Gaussian ordinary least-squares risk converts it into the four-observation threshold. Cauchy–Binet and the nonnegative imaginary part of \(\int e^{2it}\,\nu(dt)\) prove the unique mean-determinant optimizer and its discrete rank-loss probability. Exact two-observation CDF and standalone computational tests corroborate, but do not establish, the universal results.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Dostert–Jochemko, *Learning polytopes with fixed facet directions*, arXiv:2201.03419, sections 1, 3.2, 4 and 5, establishes regression architecture, combinatorial uniqueness and convergence, not the exact folded-angle conditioning coefficient or the opposed determinant-versus-tail law. Rudelson–Vershynin (2009) and Dabagia–Fernandez (arXiv:2408.14389) give random-matrix least-singular-value probability bounds under different entry models, rather than exact constants for perfectly correlated trigonometric design rows. Published geometry results on unlabeled widths or moment-based orthotope reconstruction do not determine the claimed finite-sample spectral tail. A classical or unindexed equivalent calculation in circular-regression/optimal-design or coarea/tube formulas remains a genuine risk; general design and small-singular-value phenomena are not claimed to be new.
+PASS
 
-**Mathematical value — PASS.** The natural inverse problem is reconstructing the two dimensions of a rectangle from random directional support measurements. Almost-sure identifiability after two draws conceals infinite expected squared error until the fourth observation, explained quantitatively by an exact all-densities collapse law. Across smooth designs the uniform angular law uniquely optimizes that collapse constant, whereas optimizing expected determinant forces an atomic law with positive probability of total nonidentifiability. This sharp, explicit incompatibility between average information volume and finite-sample stability is useful for support-sampling design rather than an arbitrary unmotivated finite invariant.
+Cauchy–Binet gives the sum of squared pair sines. Write theta=t·1+z with sum z=0; then the sum of squared pair differences is m||z||². On the folded interval, |sin u|≥2|u|/π, and the larger Gram eigenvalue is at most m, so the small-eigenvalue event is globally confined to ||z||≤πε/2. Near that diagonal the determinant is m||z||²+O(||z||⁴) and the larger eigenvalue is m+O(||z||²), giving the claimed transverse unit ball. The Jacobian is sqrt(m); after rescaling, dominated convergence applies for every interior t even if f vanishes, and endpoints have zero longitudinal measure. In the uniform m=2 case λ=1−cos|θ1−θ2|, and triangular integration gives leading coefficient 2sqrt(2)/L, an exact normalization check. Strict Jensen gives the unique continuous minimizer. Integrating the positive tail coefficient gives the strict inverse-moment cutoff for s>0, including divergence at equality; conditional OLS risk is σ² times the sum of the two inverse eigenvalues, so it is finite exactly for m≥4. The iid pair expectation follows from the double-angle cosine; zero mean of e^(2it) forces support on the endpoints by its positive interior imaginary part, and then equal masses. The singular probability is the probability all endpoint draws agree.
 
-**Scientific limits.** No lower-tail claim for atomic designs, no squared-risk claim for positivity-constrained or regularized estimators, and no assertion of unknown-position or unknown-orientation recovery. Potential pre-existing equivalent tube/circular-regression results remain a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact folded-angle coefficient for arbitrary continuous densities and the associated finite-sample conditioning and design conclusions. The nearest circular-sketch result uses the same transverse mechanism, and the expected-determinant optimum itself is ordinary two-regressor D-optimality; neither is credited as a new general principle.
+
+## value
+
+PASS
+
+The smallest eigenvalue controls noise amplification in this minimal support-reconstruction model. Its exact design-dependent tail distinguishes rank almost surely from finite mean-square error and singles out a continuous optimum. The contrast with the D-optimal design, which creates a positive singular mass, is substantive and interpretable even though the expected-determinant calculation alone is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

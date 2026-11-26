@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:51:14.923975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 26–81",
+        "Frozen verify.py and verification_output.json",
+        "/workspace/repairs/4/RESULT.md",
+        "/workspace/branches/audit_cube.py",
+        "/workspace/branches/audit_cube.log"
+      ],
+      "rationale": "Independently enumerated the 4096 edge subsets and 44 forbidden disjoint triples. Verified 601 augmented faces, 295 ordinary Morse pairs and exactly one critical vertex and nine critical 3-cells. Traversed the entire oriented ordinary Hasse graph by depth-first cycle detection on 600 faces. Hence the ordinary Morse CW model implies the integral wedge and supports degree-three concentration. Recomputed Lefschetz traces by summing over unions of edge-permutation cycles rather than by scanning signed stable faces; the contribution is minus one to the power of the number of cycles selected. Compared with the proposed character on each of the 48 elements, obtaining identical character values and hence the same rational module. The antipodal case has counts (1,6,12,4), trace 3, and multiplicities 6 and 3 by rank and involutivity. Replay: python3 /workspace/branches/audit_cube.py.",
+      "residual_risks": [
+        "The reduced integral homotopy type is nonequivariant; the character argument determines a rational module only, not the integral module or cell-level equivariant type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edge addition gives top-degree injection and a cycle gives nonvanishing. The complete-bipartite tensor theorem is equivariant under S4×S4 for this size. The link-vanishing theorem is not a character theorem."
+        ],
+        "reasoning": "The inclusion becomes a rational isomorphism at equal ranks; the supplied ambient module acts only under the subgroup preserving both parts, not under bit flips that exchange them.",
+        "searches": [
+          "arXiv:2609.02621 Theorem 2.1 and Corollary 2.3",
+          "arXiv:2003.11270 Theorem 1.2",
+          "Resultary f6ab14dd0ec4 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3f5c353dbcef and f6ab14dd0ec4",
+        "arXiv:math/0410345, 2609.02621, 2003.11270",
+        "/workspace/repairs/4/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The antipodal flip exchanges the bipartition classes. Twisting the module by the part-exchange sign leaves its part-preserving restriction unchanged but changes the antipodal trace from 3 to -3."
+        ],
+        "reasoning": "Neither the equal-rank comparison nor the ambient part-preserving tensor theorem selects between those actions. The explicit comparison on all cube automorphisms supplies the missing information.",
+        "searches": [
+          "arXiv:2609.02621 Theorem 2.1",
+          "Resultary f6ab14dd0ec4 Finding and orientation calculation",
+          "arXiv:math/0410345 Conjecture 1.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cube is the crown K4,4 minus its antipodal perfect matching. The filtration finding at threshold three is the same complex, not the ordinary matching complex. It explicitly does not claim equivariance."
+        ],
+        "reasoning": "The nonequivariant wedge result is covered; an abstract wedge does not determine the representation of the cube action.",
+        "searches": [
+          "Resultary 3f5c353dbcef, 3-non-matching cube filtration",
+          "arXiv:math/0410345 Theorem 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The filtration table includes 600 nonempty threshold-three faces, 295 matched pairs, one critical vertex and nine critical 3-cells; the ambient tensor result gives a complete-bipartite module."
+        ],
+        "reasoning": "The cube critical-cell table is exact but not equivariant, and the complete-bipartite result contains no full cube character.",
+        "searches": [
+          "Resultary 3f5c353dbcef Finding and critical-cell table at offset 4025",
+          "Resultary f6ab14dd0ec4 Finding"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired full rational B3 module. The later filtration record explicitly covers the nonequivariant topology. Ambient comparison and the complete-bipartite hook theorem identify the part-preserving restriction via inclusion and equality of ranks; that restriction alone does not identify the part-exchanging action. The cube character determines both cosets, including a nonzero antipodal trace fixing the actual rather than part-swap-twisted action.",
+      "residual_risks": [
+        "A distinct uninspected extension of the complete-bipartite tensor theorem to part exchange or an exact cube character calculation could overlap; the closest inspected statements do not specify that extension. No priority inference from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers topology, not full action",
+          "evidence": "Includes wedge of nine S^3 at k=3 as a filtration term; scope explicitly excludes equivariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-non-matching-homotopy-filtration-of-the-three-dimension--3f5c353dbcef/RESULT.md",
+          "material_read": "Finding and scope offsets 0–2668; critical-cell table about 4025",
+          "method": "Local mirror statement and table comparison",
+          "title": "Complete non-matching homotopy filtration of the three-dimensional cube",
+          "trigger": "Exact cube complex and threshold"
+        },
+        {
+          "assessment": "Covers complete case for part-preserving permutations only",
+          "evidence": "The equivariant isomorphism is for S_r×S_s. Interchange of two rows is computed, not transpose of the bipartition.",
+          "identifier_or_url": "Resultary f6ab14dd0ec4",
+          "material_read": "Finding offsets 0–2999; row-orientation calculation about 4121; prior-work discussion about 9225",
+          "method": "Local mirror compare action and hypotheses",
+          "title": "The integral hook-tensor theorem for bipartite three-matching avoidance",
+          "trigger": "Ambient rational representation may restrict to cube"
+        },
+        {
+          "assessment": "Complete bipartite graph, not matching-deleted cube",
+          "evidence": "The binomial wedge count gives nine for K4,4; the hook prediction is Conjecture 1.14 in this text.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0410345",
+          "material_read": "Theorem 1.4 p.3 and Conjecture 1.14 p.6",
+          "method": "Primary PDF passage comparison",
+          "title": "Complexes of graphs with bounded matching size",
+          "trigger": "Ambient exact topology and equivariance"
+        },
+        {
+          "assessment": "Transfer requires ambient full-action information",
+          "evidence": "Natural top-degree injection and nonvanishing. Equality of ranks is extra information; no part-exchanging character is specified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02621",
+          "material_read": "Theorem 2.1 p.4, around offset 11432; Corollary 2.3 p.5, around 14190",
+          "method": "Primary PDF comparison of inclusion, coefficient field and implications",
+          "title": "Homology of non-matching complexes under edge additions and applications to their Stanley–Reisner ideals",
+          "trigger": "General theorem may transfer ambient action"
+        },
+        {
+          "assessment": "General vanishing, not character or exact classification",
+          "evidence": "Bounds link homology for bipartite non-matching complexes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.11270",
+          "material_read": "Theorem 1.2 p.2 near offset 8095",
+          "method": "Primary PDF theorem comparison",
+          "title": "Leray numbers of complexes of graphs with bounded matching number",
+          "trigger": "General bipartite homology bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/4/RESULT.md and SLOGAN.txt",
+        "/workspace/branches/audit_cube.log",
+        "Resultary 3f5c353dbcef and f6ab14dd0ec4"
+      ],
+      "rationale": "The first cube beyond a cycle is a natural crown graph on which the full symmetry genuinely exchanges the two bipartition classes. The exact action distinguishes modules with the same ordinary homology and even the same part-preserving restriction; the antipodal splitting gives concrete equivariant information not encoded by the wedge type.",
+      "residual_risks": [
+        "No general crown graph module theorem, integral refinement or equivariant homotopy statement is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:59:46.721638Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The journal PDF confirms the exact ODE in Eq. (2.1), the printed denominator μ(B+μ) in Eq. (2.4), the no-positive-equilibrium assertion immediately following it, and the global stability assertion in Theorem 4.1. The I row of the full Jacobian at (B/η,0,0) has only the diagonal entry MB/η−(μ+η), giving the threshold in the Finding. For the full perturbation the remainder includes a mixed I(S−B/η) term; the proof's O(I²) notation is valid along S=B/η and does not affect the Jacobian argument. Summing the equations gives N'=B−ηN. At an endemic equilibrium R=μI/(α+η) and S=(μ+η)/[M(1+γI)], so N=B/η gives exactly the reported quadratic. For 0<ℛ<1 its leading and constant terms are positive. Positivity of the root sum and discriminant require z=Bγ/k>1 and (z−1)²>4z(1−ℛ)/ℛ; the upper discriminant root gives the strict reported bound (equality gives one double root). S and R are positive upon back-substitution. At the witness both thresholds are 1/2. In coordinates (N,I,R) the independently checked characteristic factors are (x+1)²(x+2), (x+1)(36x²+43x−42)/36, and (x+1)(5x²+12x+14)/5: respectively all negative eigenvalues, opposite-sign quadratic roots, and a conjugate pair with negative real part. The two attracting equilibria are local statements; even the constant trajectory at either positive equilibrium refutes global attraction. Replay: `python3 /workspace/branches/independent-checks.py 3` (SymPy exact substitutions); the uploaded checker was read, not run. No general basin or phase portrait follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related Resultary findings 448387d66fe7, 6e8f848e6da8 and dbb1e88411f5 have different equations. General nonlinear-incidence and saddle-node phenomena are prior art; the cited Ruan–Wang full text was not retrieved in this check."
+        ],
+        "reasoning": "Results for rumor dynamics, a larger vaccination model, or saturated treatment in a vector–host model do not specialize to Eq. (2.1) as stated. No broader theorem was found that gives the printed-model correction.",
+        "searches": [
+          "Resultary: subthreshold equilibrium multiplicity and local bistability",
+          "Ruan–Wang, DOI 10.1016/S0022-0396(02)00089-X"
+        ]
+      },
+      "checked_sources": [
+        "ud Din et al. §§2 and 4, journal PDF",
+        "Four Resultary comparators in the source inspections",
+        "Ruan–Wang DOI (access limitation)",
+        "Focused literature and Resultary searches documented above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source explicitly asserts both absence of positive equilibria and global asymptotic stability at the disease-free state for its R0<1. At the witness the printed and corrected values agree, so this is not a case of testing a different subthreshold region."
+        ],
+        "reasoning": "The ODE is prior input, but the source's claimed consequences do not imply the correction. The independent equilibrium and stability proof contradicts them on their own hypotheses.",
+        "searches": [
+          "Compare Eq. (2.4), the assertion following it and Theorem 4.1 with the same-system operator in Eqs. (2.1)–(2.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The article uses the exact convex incidence and positive-equilibrium equations, but its stated reproduction number is MB/[μ(B+μ)] and its ensuing classification explicitly excludes the witness. The closest SIR Resultary hit (0d1657e414f8, Finding) analyzes an endemic Lyapunov function in a behavior–climate model above threshold."
+        ],
+        "reasoning": "Using total mass and rescaling the positive-equilibrium quadratic exposes the mismatch; the correction is not a change of variable in the source's claimed thresholds. The related Lyapunov counterexample is not equivalent under a labeling change.",
+        "searches": [
+          "Resultary: exact record title; author/formula search around ud Din et al. and the printed threshold",
+          "Websearch: motivating article title with the printed formula",
+          "ud Din et al. Eqs. (2.1)–(2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-model correction surfaced in ranked results; the source's printed classification is the opposite of the exact subthreshold witness."
+        ],
+        "reasoning": "No natural table is assumed: the meaningful exact lookup is a correction or rational witness for this same published equation. Related stable–saddle–stable triples concern different systems and do not cover it.",
+        "searches": [
+          "Resultary: exact title and correction/erratum for the convex incidence paper",
+          "ud Din et al. §2 and Theorem 4.1"
+        ]
+      },
+      "rationale": "This is a source-specific correction of the printed positive-parameter ODE, not a claim to discover backward bistability or discriminant methods. The cited article has the model but gives conflicting threshold and equilibrium conclusions. The inspected related records have different state equations. No examined result supplies the corrected threshold and sharp root criterion together with this exact stable–saddle–stable witness for the printed system.",
+      "residual_risks": [
+        "No exhaustive priority claim. A poorly indexed same-model correction might exist, and the cited nonlinear-incidence comparator could not be checked in full. Originally unavailable landing-page text was resolved for the decisive primary paper by reading its journal-hosted PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary-source attribution confirmed; direct contradiction, not prior coverage of correction",
+          "evidence": "(2.4) uses μ(B+μ); preceding model is the recorded ODE. §2(i) excludes positive equilibrium at R0<1 and Theorem 4.1 asserts global asymptotic stability there.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2020/6/PDF/math-05-06-483.pdf (doi:10.3934/math.2020483)",
+          "material_read": "pp. 7550–7551, Eqs. (2.1)–(2.5) and equilibrium claims (offsets 10000–14628); p. 7556 §4 including Theorem 4.1 (offsets 27200–29417)",
+          "method": "Lawful journal PDF, literal locate and bounded offset reads",
+          "title": "Mathematical study of SIR epidemic model under convex incidence rate",
+          "trigger": "Same model, exact published claims being corrected"
+        },
+        {
+          "assessment": "Phenomenon-level overlap only",
+          "evidence": "Rumor record does not show bistability; recovered-vaccination record has a different eight-compartment system; vector–host record corrects saturated-treatment root count without stability; behavior–climate record concerns an above-threshold Lyapunov inequality.",
+          "identifier_or_url": "Resultary/SCOPE: 448387d66fe7, 6e8f848e6da8, dbb1e88411f5, 0d1657e414f8",
+          "material_read": "Local RESULT.md Findings at offset 0 and rumor record limitations near offset 5900",
+          "method": "Local mirror passage inspection",
+          "title": "Resultary comparators for subthreshold multiplicity and SIR stability",
+          "trigger": "Closest indexed mathematical corrections and bistability pattern"
+        },
+        {
+          "assessment": "No whole-paper noncoverage inferred",
+          "evidence": "The frozen comparison identifies a different model and does not claim novelty of nonlinear-incidence bifurcations.",
+          "identifier_or_url": "doi:10.1016/S0022-0396(02)00089-X",
+          "material_read": "Citation and description in frozen RESULT.md; primary full text unavailable in retrieval attempts",
+          "method": "DOI and publisher OA retrieval attempted; access denied at publisher",
+          "title": "Dynamical behavior of an epidemic model with a nonlinear incidence rate",
+          "trigger": "Prior nonlinear-incidence bifurcations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It corrects a consequential qualitative claim in a published ODE and separates the bad invasion formula from genuine subthreshold bistability. The all-positive exact witness with both thresholds equal eliminates a natural alternative explanation of the contradiction. The sharp multiplicity condition gives more than an isolated example; the result is mathematical and does not assert a real-world transmission conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

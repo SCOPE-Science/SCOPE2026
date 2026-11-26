@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:40.771276Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84; VERIFICATION.md lines 19–23; verify_cycle.py and requirements.txt inspected without running",
+        "Independent replay method: over Q(h), form A=6I-4hQ+h^2 Q^2 and B=6I+2hQ, multiply B by adj(A), then divide each first-row offset j numerator by h^j and verify row-sum numerator det(A); test rational signs and positive root counts with exact Sturm sequences."
+      ],
+      "rationale": "Since the spectrum of h(S-I) lies in the closed left half-plane and both poles are in the right half-plane, the map exists for every h>=0. Applying it to the constant vector yields row sum R(0)=1. The residue at 2+i sqrt(2) is 1-5i sqrt(2)/2; expanding the inverse in cyclic powers gives the stated numerator formula over |(h+2+i sqrt(2))^n-h^n|^2>0. Circulant shifts occupy disjoint positions in each row, so at h>0 each offset sign is exactly its reduced numerator sign. Independent exact symbolic matrix inversion and Sturm checks reproduced the polynomials and classifications for 2<=n<=8. For 2–5 all reduced numerators have nonnegative coefficients and positive constants. For 6 and 7 the diagonals stay positive and the last offset threshold dominates; the required roots are isolated in (0.208,0.209) and (0.663,0.664), respectively. At 8, offsets 5–7 each have one positive root, with the offset-7 root alpha largest. The diagonal has exactly two positive roots, with rational brackets (3.297,3.298) and (7.042,7.043) and sign changes + to - and - to +. Thus the admissible positive steps are exactly [alpha,beta] and [gamma,infinity), including all three endpoints by nonnegativity. At h=0 the map is the identity in every dimension. The independent check was exact, not timestepping on a numerical grid.",
+      "residual_risks": [
+        "Endpoint entrywise nonnegativity is not strict positivity of every entry at a boundary, internal-stage positivity, or a time-discretization accuracy guarantee. The complete classification stops at n=8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-map records establish small-step loss and large-step recovery beyond n=5. General absolute-monotonicity theory is relevant but this R has a negative z^5 coefficient, -1/108, and hence zero absolute-monotonicity radius."
+        ],
+        "reasoning": "Neither a general loss/recovery theorem nor a zero absolute-monotonicity radius specifies the fixed-cycle transition points, the topology of intermediate step regions, or whether n=7 has one component.",
+        "searches": [
+          "Resultary all-dimension small-step loss and recovery, 24a51aae20d9 and e93226b24c15",
+          "Lóczi–Ketcheson arXiv:1303.6651v1; Blanes–Iserles–Macnamara arXiv:2102.08242v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 24a51aae20d9 and e93226b24c15, decisive passages",
+        "Zappavigna et al. pp. 13–14; arXiv:1303.6651v1 pp. 1, 3, 26; arXiv:2102.08242v2 p. 1",
+        "Bounded exact literature and Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inequalities at 2<4<20 alone force at least two positive components at n=8. The closest overlap explicitly limits its n>=7 scope, leaving open the exact seven-cycle set, the number and boundaries of eight-cycle components, and the comparison needed to certify the first split."
+        ],
+        "reasoning": "Credit that record with demonstrating the split phenomenon. The frozen theorem adds the global polynomial sign laws on all h>0, not merely another witness for the same split. Same-day dates do not adjudicate priority.",
+        "searches": [
+          "e93226b24c15, RESULT.md Finding, admissibility witnesses and limitations",
+          "24a51aae20d9, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both closest Resultary records use the directed cycle and the same two-stage Radau IIA rational endpoint ([1/2] Padé). The nilpotent chain in Zappavigna et al. uses [2/2] Padé, and the undirected graph heat hit uses a different generator."
+        ],
+        "reasoning": "The same rational map on the same generator is a genuine equivalence; matching only the dimension or a generic use of the term positivity does not suffice. Stochasticity here reduces to entrywise nonnegativity because the row sum is one.",
+        "searches": [
+          "Resultary same-map Radau IIA directed-cycle positivity checks: 24a51aae20d9 and e93226b24c15",
+          "Primary literature on positivity for Padé discretizations and absolute monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "24a51aae20d9 matches the complete n=2–6 rows. e93226b24c15 gives exact matrix-sign tests at h=2,4,20 for n=8, not the full sets for n>=7. The focused literature query returned general Radau references rather than an exact comparison table."
+        ],
+        "reasoning": "The exact six-state threshold is covered. Exact witness values in dimension eight only suffice for a separation, not an endpoint table or proof that the two demonstrated components are the only ones.",
+        "searches": [
+          "Resultary exact six-state recovery threshold, 24a51aae20d9",
+          "Resultary eight-cycle witness and limitation passages, e93226b24c15",
+          "Focused literature websearch for the exact Radau directed-cycle window"
+        ]
+      },
+      "rationale": "There is substantial existing coverage: the n<=6 phase diagram and the fact that n=8 has disconnected positive-step regions are not supported as distinct contributions. The frozen finding also makes the materially stronger exact classification at n=7 and n=8, including the least split dimension and all three algebraic eight-cycle endpoints. The strongest inspected same-problem records do not establish that classification or imply its exact boundaries and absence of further components. The pass is for this distinct strengthened classification, not for the already matched components or for historical priority.",
+      "residual_risks": [
+        "Exact specialist results outside the inspected corpus may exist; no chronological priority assigned for the overlapping published records. The frozen separate [2/2] absorbing-chain comparison was not relied on for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap through n=6, not the n=7 and n=8 classification",
+          "evidence": [
+            "All steps through n=5, exact recovery for n=6, and small-step loss and large-step recovery for n>=6."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-six-state-recovery-of-markov-positivity-for-radau-iia-on-d--24a51aae20d9",
+          "material_read": "Mirrored RESULT.md, Finding and scope of dimensions",
+          "method": "Published record mirror",
+          "title": "Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+          "trigger": "Same model, integrator, and sharp six-state threshold"
+        },
+        {
+          "assessment": "Covers disconnectedness at n=8, not complete classification or least split dimension",
+          "evidence": [
+            "Positive at h=2 and h=20 and a negative diagonal at h=4. The record explicitly does not enumerate all boundary points or classify all timesteps for n>=7."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-six-state-positivity-barrier-and-recovery-for-two-stage-ra--e93226b24c15",
+          "material_read": "Mirrored RESULT.md offsets 0, 5600 and 8200, including the exact witness and the limitation, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record mirror",
+          "title": "Sharp six-state positivity barrier and recovery for two-stage Radau IIA on directed cycles",
+          "trigger": "Strongest same-map eight-cycle overlap"
+        },
+        {
+          "assessment": "Different rational map and generator",
+          "evidence": [
+            "The eight-dimensional counterexample uses diagonal [2/2] Padé on a nilpotent open chain, not two-stage Radau IIA on a directed recurrent cycle."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+          "material_read": "Manuscript PDF pp. 13–14, OA offsets 38400–45539",
+          "method": "Original lawful OA full-text passages",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Cyclic-feedback and eight-dimensional positivity counterexample"
+        },
+        {
+          "assessment": "General rational absolute-monotonicity theory, not the fixed-cycle sign classification",
+          "evidence": [
+            "The general radius notion does not distinguish these fixed cycle offsets from arbitrary generators."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651v1",
+          "material_read": "Original pp. 1, 3, 26, OA offsets 0, 13000, 123600",
+          "method": "Original OA PDF passages",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General positivity/monotonicity theorem that might subsume cycle windows"
+        },
+        {
+          "assessment": "General positivity context only in the material checked",
+          "evidence": [
+            "Addresses positivity-preserving methods for ODEs; no exact same-map boundaries evidenced by this passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242v2",
+          "material_read": "Original p. 1, OA offset 0",
+          "method": "Original OA PDF introductory passage",
+          "title": "Positivity-Preserving Methods for Ordinary Differential Equations",
+          "trigger": "Nearby positivity-preserving method literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md classification and rational isolations",
+        "Resultary e93226b24c15 exact witnesses and scope; independent exact sign computation"
+      ],
+      "rationale": "An exact sign phase diagram for a canonical method on directed Markov cycles distinguishes a genuine two-window domain from a few illustrative sample steps. Certifying that the immediately smaller cycle has one recovery interval settles where the first nonmonotone phase diagram occurs; the three precise boundaries tell which timesteps actually preserve stochasticity in that first dimension. This provides useful fixed-generator information not supplied by a general loss-of-positivity test.",
+      "residual_risks": [
+        "Does not address nonuniform generators, cycles above eight, other integrators, stages or accuracy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

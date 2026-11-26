@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:51:52.885062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "VERIFICATION.md",
+        "verify.py inspected, not executed",
+        "Independent direct slot-load and four-corner checks, including separate all-width construction sampling through 120"
+      ],
+      "rationale": "Every rectangle is counted once by the two columns belonging to its row-pair/color slot. Each column contributes at least four slot incidences, with equality at weights two and three. Pairwise balancing of integer loads proves R≥20 binom(q,2)+4qr at b=5q+r. When b=5q is odd, an unbalanced column adds at least two incidences and hence at least 2q to this bound. Otherwise the sum of deviations from q is zero and the defect is one-half the sum of their squares. An independent form of the parity argument: let e_i be the parity of ones in row i; then the number s_ij of same-color agreements is odd precisely when e_i=e_j, since b is odd. At least four of the ten pairs are within the two parity classes (the minimum is the 2+3 split). Each odd pair forces at least one nonzero integer deviation, so defect ≥2. Independently recomputed the B, C, W slot histograms as {2:20}, {0:4,1:16}, {0:2,1:16,2:2}. In B the two-one masks form a 5-cycle and the two-zero masks its complement; regularity explains the uniform loads. C is a subset of B with no repeated slot. W has exactly two rectangles, from mask pairs (24,12) and (24,18). Add copies of B, append a prefix of C or remove it from the next copy, or append W at residue five; the corresponding distributions give the stated equality and exceptional defect for all widths, including b<5. Independent direct counts through width 120 are supporting checks rather than the universal proof.",
+      "residual_risks": [
+        "Two labeled colors and repeated columns are permitted; the theorem is an optimum count, not a classification or enumeration of all minimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alm–Miller give the general convexity bound and explicitly ask for the optimum and equality cases, noting nonattainment at 5×5.",
+          "The earlier general integer optimization is for fixed dimensions and provides a structure, not an evaluated five-row family."
+        ],
+        "reasoning": "An unevaluated general optimization, or a generally valid lower bound whose tightness is not known, is not an existing stronger theorem implying the sharp periodic formula.",
+        "searches": [
+          "arXiv:2611.19635v1 p. 14 Problem 4",
+          "arXiv:0810.3019v1 §7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary semantic lookup and closest distinct hit 34f830ed8504",
+        "Alm–Miller arXiv:2611.19635v1 Definition 3.1, Table 2 and Problem 4",
+        "Cooper–Fenner–Purewal arXiv:0810.3019v1 §7",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available prior bound certifies L_b but not an excess for every odd multiple of five. The finite table and optimization are compatible with the new statement without specifying all-width incidence certificates."
+        ],
+        "reasoning": "The sharp periodic statement needs a parity obstruction surviving arbitrarily many columns and a uniform block that balances all twenty slots with useful deletion patterns. Neither follows from reading off the prior table or the generic integer-program statement.",
+        "searches": [
+          "arXiv:2611.19635v1 Table 2 and Problem 4",
+          "arXiv:0810.3019v1 Proposition 7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alm–Miller's ρ(a,b) is the same quantity at a=5.",
+          "Cooper–Fenner–Purewal encode a width-b coloring by multiplicities of its 2^5 possible column types and optimize an integer quadratic objective."
+        ],
+        "reasoning": "The labelled row and column vertices of a bipartite edge-colored graph correspond to grid rows and columns; each monochromatic C4 corresponds to one rectangle. The column-multiplicity formulation captures the same optimization up to the source's directed-pair normalization, but stating the optimization does not evaluate it.",
+        "searches": [
+          "Resultary five-row minimum monochromatic rectangles / monochromatic C4 in K_{5,b}",
+          "arXiv:2611.19635v1 Definition 3.1",
+          "arXiv:0810.3019v1 §7 Definition 7.2 and Proposition 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 already gives the exact entries ρ(5,5)=2, ρ(5,6)=4, ρ(5,7)=8 and ρ(5,8)=12. These are prior-covered points.",
+          "Figure 3 concerns guaranteed dimensions of three-dimensional colored grids, not an all-width five-row minimum. The indexed distinct same-day rank-incidence result counts ranks of finite Fourier restrictions, not monochromatic C4s."
+        ],
+        "reasoning": "Agreement at four widths, including the first exception, does not identify how the defect repeats or how to extend attaining configurations. The assigned record appearing as its own exact indexed match is not distinct prior evidence.",
+        "searches": [
+          "arXiv:2611.19635v1 Table 2 p. 4",
+          "arXiv:0810.3019v1 Figure 3 §7",
+          "Resultary five-row monochromatic rectangle minimum",
+          "Resultary 34f830ed8504"
+        ]
+      },
+      "rationale": "The counting identity, convexity lower bound, and several small exact widths are known. The inspected closest primary source explicitly poses the broader exact evaluation and equality problem and notes the 5×5 exception. The new content supported by the comparison is the symbolic evaluation for every width at height five, including the precise odd-multiple obstruction and matching constructions.",
+      "residual_risks": [
+        "An differently indexed older fixed-part-size two-color supersaturation or design result is not excluded. No priority is assigned from dates or search failure, and the small published table entries are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact small entries and general lower bound, no comparable stated all-width evaluation",
+          "evidence": "Table entries at widths 5–8 are 2, 4, 8, 12; Problem 4 asks to determine ρ(a,b) and sharpness of the convexity bound and draws attention to 5×5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19635v1",
+          "material_read": "Definition 3.1, p. 3 at text offset 7950; Table 2, p. 4 at 8750; p. 14 near 33200, Problem 4",
+          "method": "Located and read bounded OA PDF passages and table",
+          "title": "Constructive and computational methods for extremal and near-extremal box colorings",
+          "trigger": "Identical ρ parameter, exact five-row entries and sharpness question"
+        },
+        {
+          "assessment": "Equivalent optimization structure, not a symbolic five-row solution",
+          "evidence": "The optimization is over multiplicities of maps [r]→[2] summing to s. Its proof notes the quadratic expression after removing self-pairs counts twice the rectangles; only the structural reduction is used in the comparison. The nearby table is about a different, three-dimensional invariant.",
+          "identifier_or_url": "https://arxiv.org/pdf/0810.3019v1",
+          "material_read": "§7, Definition 7.2 and Proposition 7.3, p. 16, text offset 43500, alternate HTML passage near 46766; Figure 3 p. 15, near 44564",
+          "method": "Located and read bounded OA PDF and HTML passages",
+          "title": "Monochromatic Boxes in Colored Grids",
+          "trigger": "Equivalent colored-column optimization and possible prior exact values"
+        },
+        {
+          "assessment": "No scientific equivalence",
+          "evidence": "The object is the distribution of ranks of 5×5 submatrices of a ten-point Fourier matrix, not two-color rectangles or bipartite four-cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-five-frequency-rank-incidence-census-for-the-ten-po--34f830ed8504",
+          "material_read": "Original mirrored RESULT.md finding near offset 70",
+          "method": "Local Resultary search and mirror passage",
+          "title": "The complete five-frequency rank-incidence census for the ten-point Fourier matrix",
+          "trigger": "Distinct same-day near-title hit in focused Resultary lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Alm–Miller arXiv:2611.19635v1 Problem 4 and Table 2"
+      ],
+      "rationale": "This gives a complete one-parameter solution of a natural small-height case of a published exact-minimum and sharpness question. The bounded parity effect is not an isolated improvement: it characterizes exactly an infinite congruence class where the otherwise sharp convexity bound fails, and comes with portable finite constructions certifying all other widths as well.",
+      "residual_risks": [
+        "No larger-height or three-dimensional generalization is supplied; value is the exact fixed-height family and sharpness characterization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

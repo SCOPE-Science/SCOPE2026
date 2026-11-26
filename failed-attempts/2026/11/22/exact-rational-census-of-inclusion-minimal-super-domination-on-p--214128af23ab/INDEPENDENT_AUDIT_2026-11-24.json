@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:08.971273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complementation relates super domination to an external private-neighbor witness for every vertex in the complement, and the latter property is hereditary: deleting selected vertices leaves old witnesses external and private. Thus maximality is tested by single additions. A private witness is decided within distance two; adding a vertex changes status only within distance two, so checking old feasibility and testing an addition require a radius-four window. A sentinel is never a witness but correctly represents the absence of its other neighbor. The four appended sentinels complete the last ordinary positions; no artificial vertex is tested, giving one empty word at n=0. The fixed binary extension is linear on all suffix vectors, as is the fixed end functional. The independent replay, python3 -B /workspace/evidence/check_3.py, verified the critical exact coordinate identity at 18 on the union of 111 states, the early scalar identities from 12 to 18, and all numerator coefficients. Applying the same extension to the zero vector and then closing proves the recurrence for every n>=18; the smaller checked indices close the gap. Independently testing graph-level subsets agreed at n=0..15, corroboration rather than extrapolation. The result counts labeled path subsets without size refinement, not minimum-cardinality sets or reversal orbits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-set forest census is not minimal-filtered. The cyclic transfer at 16bec2bc3654 gives the same denominator under unweighted specialization but not the path numerator.",
+          "The primary papers inspected compare extremal sizes or coalition partitions, not total path counts.",
+          "The actual all-words finite acceptor in 5a93dfe1022b is strictly stronger than an extremal value and carries both length and, through weights 7a−2, size information."
+        ],
+        "reasoning": "A forest cardinality profile lacks minimal subset incidence, and a cyclic trace lacks path boundary vectors. In contrast, the other path record already fixes the complete path boundaries and accepts all and only the target words, not just extremizers.",
+        "searches": [
+          "Resultary: all super-domination polynomials for forests",
+          "Resultary: inclusion-minimal cycle transfer",
+          "Resultary: path extremal super-domination and maximal open irredundance",
+          "arXiv:2611.23464 and arXiv:2607.22686"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, bundled verify_path_census.py inspected statically",
+        "Independent path vector and graph replay",
+        "Resultary 5a93dfe1022b, 16bec2bc3654 and dcd6d20229b7",
+        "arXiv:2611.23464, arXiv:2607.22686",
+        "OEIS bounded prefix query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other path result starts with a specified sentinel state, has one edge per permitted appended bit and one sink edge exactly for the permitted four-sentinel finish, with one accepted path per word.",
+          "If M has one entry contribution per bit edge, b is the sink-incidence column and e is the start row, its exact accepted length OGF is e(I−zM)^(-1)b. Add 1+z for the excluded boundary orders. Original edge costs are ignored, not minimized, in this specialization.",
+          "The cycle expression D=(1−w)(1−uv)−uw specializes to the denominator; a cyclic logarithmic derivative would not by itself determine the open-path numerator."
+        ],
+        "reasoning": "The standard walk generating function followed by rational reduction yields the entire claimed path OGF, not just initial values. The exact vector check here verifies that reduction. The other record's language therefore mechanically implies the claim even though its prose gives neither the reduced polynomial nor a table of a_n.",
+        "searches": [
+          "Mirrored 5a93dfe1022b RESULT.md, Proof Step 2",
+          "Mirrored 16bec2bc3654 RESULT.md §3 around offset 3719"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complements are exactly maximal open-irredundant sets by hereditary private-witness feasibility.",
+          "The other same-day path finding specifies the same nine-symbol local criterion at every real center and a start-to-sink bijection with those words. Its length cap excludes only n=0 and n=1."
+        ],
+        "reasoning": "Different initial sentinel conventions and the capped length counter do not change accepted words of length at least two. The accepting-language statement, not the extremal value alone, covers the same objects exactly.",
+        "searches": [
+          "Resultary: labeled path census of inclusion-minimal super-dominating sets",
+          "Resultary: counts of maximal open-irredundant sets of paths",
+          "5a93dfe1022b Proof §§1–2, read from offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS reported no match for the bounded prefix query. The exact path census hit is the assigned record itself.",
+          "The table in arXiv:2611.23464 reports upper super-domination numbers with representatives, not the total number of minimal sets."
+        ],
+        "reasoning": "The inspected database/table evidence does not duplicate the expression verbatim. The known accepting language, rather than a numeric table hit, is decisive. A prefix no-match is not proof of absence.",
+        "searches": [
+          "OEIS exact prefix 1,1,2,3,2,6,7,10,16,21,32,47,67,99",
+          "Resultary: exact path OGF and recurrence",
+          "arXiv:2611.23464 p. 3"
+        ]
+      },
+      "rationale": "Distinctness from a material exact same-day overlap is not established. The upper-super-domination record 5a93dfe1022b does not merely report an extremal value. Its Proof §§1–2 fully specify a finite acceptor, in bijection with every configuration in this census for n>=2. The target OGF is the unweighted length specialization of that exact acceptor. Converting a known finite autonomous acceptor to its length generating function is a mechanical matrix calculation. The verified reduced numerator and recurrence are useful computations, but do not supply a new enumeration condition or boundary model beyond that alphabet, initial state and terminal test. This is an exact mathematical implication, not an assertion that either same-day record was published first, and not a finding that the path formula is false. The cycle and forest comparisons alone would not justify this verdict.",
+      "residual_risks": [
+        "No ordering or direction of derivation is established between same-day records. The fail is for lack of a supported distinct mathematical increment, not a historical priority determination.",
+        "The 2008 irredundance full text and unindexed equivalent terminology remain unresolved historical risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact implication by weighted-to-unweighted specialization; priority between same-day records not established",
+          "evidence": [
+            "Step 2 gives a start-to-sink correspondence with every maximal open-irredundant word for n>=2 and the explicit suffix update and acceptance condition. Its directed automaton has 232 nonsink states and 58 sink edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-upper-super-domination-number-of-every-path-via-a-finite-l--5a93dfe1022b/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof Steps 1–4, offsets 0–5923",
+          "method": "Resultary match followed by bounded local mirror read",
+          "title": "Exact upper super-domination number of every path via a finite local certificate",
+          "trigger": "Exactly the same path definitions and a potentially covering finite language"
+        },
+        {
+          "assessment": "Exact denominator overlap, but not the open-path numerator",
+          "evidence": [
+            "Setting the size marker to one in (1−w)(1−uv)−uw gives the denominator in the assignment."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-inclusion-minimal-super-domination-on-cycles-a-five-gap-census-a--16bec2bc3654",
+          "material_read": "RESULT.md §3, offset 3719, cyclic transfer and denominator",
+          "method": "Resultary and local mirror",
+          "title": "Inclusion-minimal super domination on cycles: a five-gap census and sharp seven-period upper spectrum",
+          "trigger": "Same minimality under cyclic rather than path boundaries"
+        },
+        {
+          "assessment": "Different subset family",
+          "evidence": [
+            "Cardinality polynomial counts all super-dominating sets, not the inclusion-minimal subclass."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-an-explicit-eight-state-enumerator-for-all-super-dominating-sets--dcd6d20229b7",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An explicit eight-state enumerator for all super-dominating sets of forests",
+          "trigger": "Broader graph class including paths with a size enumerator"
+        },
+        {
+          "assessment": "Extremal-size evidence only in the compared passage",
+          "evidence": [
+            "The P₂ through P₂₁ entries are upper super-domination numbers, not counts of all inclusion-minimal sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23464",
+          "material_read": "PDF p. 3, offset 9033, upper-parameter table and examples",
+          "method": "OA PDF bounded passages",
+          "title": "Minimal super dominating sets of maximum cardinality",
+          "trigger": "Same path objects and potentially stronger classification"
+        },
+        {
+          "assessment": "Different coalition and minimum-size parameters",
+          "evidence": [
+            "The path minimum is ceil(n/2); the path coalition number is bounded between 3 and 4 for n>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.22686",
+          "material_read": "PDF pp. 4 and 10, offsets 12511 and 26421",
+          "method": "OA PDF bounded passages",
+          "title": "Super Coalition Number in Graphs",
+          "trigger": "Motivating paper on paths and super domination"
+        },
+        {
+          "assessment": "Additional historical risk; access was not the basis for failure",
+          "evidence": [
+            "The landing material was insufficient to decide whether an earlier exact path enumeration appears."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2007.10.002",
+          "material_read": "Landing page and abstract only; no full text in bounded access attempt",
+          "method": "Lawful DOI/OA attempt",
+          "title": "Open irredundance and maximum degree in graphs",
+          "trigger": "Earlier equivalent terminology for the counted family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Minimal-set counts on a natural graph family are useful, and a reduced recurrence makes them convenient to compute. But the exact boundary-sensitive acceptor for the same paths already gives the whole sequence by unweighted transfer, so this record's scope does not establish a further worthwhile exact invariant beyond its mechanical evaluation. No cardinality refinement, new structural description, or other distinct mathematical result is established here. The negative judgment is about the incremental contribution over the stronger acceptor, not about the independent correctness check.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

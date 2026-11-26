@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object, normalization, pinned-vertex convention, and all quantifiers are explicit in RESULT.md. All unordered leader pairs belong to six automorphism orbits; the Schur-complement formula gives their exact inverse-square trace without an approximation. Five positive-coefficient bivariate numerators after the shift to three or more pages prove global strict domination for all positive rung weights. Two-page comparison factors, an exact unique-positive-root quartic, and separate positive-polynomial proofs eliminate all rival orbits. `checker.py` reproduces every symbolic identity and uses independent full grounded-matrix spectra for smaller cases. Strict positivity of the grounded blocks ensures every inverse exists. The numerical checks do not substitute for the infinite polynomial argument.
+PASS
 
-## Originality — PASS on available evidence, with a recorded priority risk
+The full Laplacian's degree diagonals survive deletion; pinning yields a positive definite principal submatrix. Simultaneous layer reversal and rung permutation exhaust the six leader-pair types. The stated inverse-block trace formula is obtained by squaring the block inverse, and the hub-pinned blocks have eigenvalues 1 and 1+2t. Independently reproduced every sign certificate via grounded characteristic determinants in /workspace/checks/book_determinants.py: compress the m-2 ordinary rungs to their constant mode, adding m-3 copies of the two-rung-block eigenvalues on the difference subspace. At m=2, the representative ordinary block is triangularly decoupled and its extra factor cancels. Use the first three determinant coefficients to obtain the inverse-square trace, rather than the frozen inverse-block formula. The shifted numerator term counts/minima are 21/1,21/1,32/1,22/4,32/4; all five are explicitly nonzero and positive at m=3 too. Denominators have positive coefficients. At m=2 the exact HH–LLd comparison, elimination of HS/LLs/LLc, both HO polynomials and the endpoint t=3/5 reproduce. Descartes and the sign bracket give a unique positive crossing at 0.622700872736214..., with only HH and the two LLd placements tied. At (3,1) the first-order HO cost 95/24 beats the hub cost 4, whereas the second-order unique hub optimum costs 10/3. The uploaded checker was inspected, not run; the all-parameter evidence is symbolic, not finite sampling.
 
-Actual archive searches compared the same object under the names quadrilateral book, book graph, Cartesian star–edge product, two perfect leaders and squared inverse grounded Laplacian, including aliases for second-order coherence. The closest indexed earlier first-order book theorem concerns the trace of the inverse, with a different optimum at three pages and unit rung conductance. The full book-graph coherence article of Chen, Li and Sun computes nonzero, ungrounded first-order spectral moments, not a pinned inverse-square optimal allocation; the first-order grounded leader literature and general second-order coherence framework do not logically determine the present phase boundary. The closest same-graph first-order record was statement-accessible but not full-text-accessible, and an unindexed equivalent could still exist.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem determines every minimizer on a natural infinite graph family for every strictly positive rung weight. Its absence of any phase change once the page count exceeds two contrasts with the sharp low-page transition and with the already established first-inverse-power placement at three pages. This gives a concrete all-parameter design distinction rather than a routine fixed-size calculation or an unsupported marginal gain.
+The exact second-order two-leader phase diagram for common positive rung conductance is distinct from the existing same-graph inverse-first-power placement, and from other inverse-square classifications on different graph families. No credit is assigned to the coherence objective itself, the same-graph orbit decomposition alone, or the prior first-order classification.
 
-## Limitations
+## value
 
-Only two perfect leaders, unit common hub and spoke conductances and common rung weight are treated. No classification for unequal rung weights or finite-gain actuation is established. Symbolic computations are reproducible but not independently audited. The closest indexed first-order book record lacked accessible full text, so scientific priority has residual uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly two pins and common rung weight define a natural one-parameter symmetry-preserving comparison. The persistent hub-pair optimum on every larger book and the exact exceptional two-rung tie and switch replace repeated optimization over vertex pairs. The verified reversal from the first-order three-rung objective shows concretely why solving a different coherence order is worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

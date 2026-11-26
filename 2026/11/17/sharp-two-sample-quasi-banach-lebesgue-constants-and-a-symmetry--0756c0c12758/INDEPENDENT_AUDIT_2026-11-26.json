@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:20:57.042328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–99; VERIFICATION.md and check.py inspected, not executed; Wang–Song–Zhang, arXiv:2611.08032v1, Theorem 27.",
+        "Independent bounded replay: python3 /workspace/reviews/laplace_asymptotic_check.py. For p=0.2, 0.5, 0.8, at h−h_c=10^−14 the ratio to the claimed onset constant agrees within 10^−11; at h=46 both large-separation ratios agree within 10^−4. This is diagnostic, not continuum validation."
+      ],
+      "rationale": "Gram inversion gives the nonnegative hyperbolic cardinal coefficients inside the interval and one decaying coefficient outside. The inward derivative at the endpoint is +infinity, so both the exterior and the endpoints lose. With L(x)=log(cosh x)+(p−1)log(sinh x), the derivative of the objective has the sign of H(x)=L(x)−L(h−x). On the left half H is strictly convex because L'' is positive and strictly decreasing; H tends to +infinity at 0, vanishes at the midpoint, and has midpoint slope 2L'(h/2). This classifies all maximizers including at the zero-slope threshold. Strict decrease in h follows by evaluating at the larger-h maximizer with the relative offset fixed, since z coth z is strictly increasing. As h approaches the threshold from above, compactness and the threshold sign imply the off-center node converges to the midpoint (the near-zero divergence excludes an endpoint limit). Expanding the centered stationarity equation then gives delta²∼−6 L''(u0)(h/2−u0)/L'''(u0), with the derivatives in the source. At large h the left root tends to 0 by comparing L(x) with L(h−x) at every fixed positive x. The root equation gives x∼2^{p/(1−p)} exp(−ph/(1−p)); writing A,B for the small and large cardinal coefficients, it also gives A^p/B^p=tanh x/tanh(h−x)∼x while B^p=1−px+o(x), yielding the stated excess. At p=1/2 the unequal root is characterized by sinh x sinh(h−x)=1, which gives the offset and both agreeing branches. Coefficient p-subadditivity proves sufficiency of the factor, the maximizing single atom proves sharpness on interpolants, and the general representer-penalty criterion applies in this injective coefficient model. For necessity with finite continuous losses one can also enforce the atom's two target values with increasingly weighted squared loss, taking the finite-dimensional sample-span minimum to the interpolant penalty.",
+      "residual_risks": [
+        "Asymptotics are for fixed p strictly between 0 and 1. The frozen diagnostic is finite and does not include a controlled asymptotic-ratio test at large h; the analytic argument and independent replay address that claim separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general quasi-Banach theorem covers penalty factors and gives a size-uniform exponential-decay bound, not a sharp two-site separation profile. The Matérn result is on scaled grids and ordinary L-infinity constants."
+        ],
+        "reasoning": "Neither inspected broader result has equality information for this coefficient cost at two fixed sites. Matérn kernel nomenclature does not convert the sample/grid domain or the norm.",
+        "searches": [
+          "Wang–Song–Zhang, arXiv:2611.08032v1, §§3–4, PDF pp. 20–24; Bejancu, arXiv:2009.00711, PDF pp. 1 and 9."
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and exact mirror match; open passages in arXiv:2611.08032v1 and arXiv:2009.00711."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a center displaced epsilon from a sample the example computes excess epsilon^p/(sinh h)^p+o(epsilon^p)>0. It fixes neither the global maximizing center nor its separation dependence."
+        ],
+        "reasoning": "Positivity somewhere arbitrarily near the endpoint is compatible with either midpoint or split optimizers. The exact classification uses a further strict convexity comparison of reflected logarithmic derivatives, and the constants require the critical and endpoint balance analysis.",
+        "searches": [
+          "Wang–Song–Zhang two-point Laplace example, PDF p. 20 (open-text offset approximately 65200), plus their §4 bound and Theorem 27."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The authors' p-powered norm of K[x]^{-1}K_x(t) is exactly the frozen factor after supremizing, and their theorem identifies it with the smallest relaxed penalty multiplier."
+        ],
+        "reasoning": "Novelty is the sharp evaluation, not identification or definition of the constant. The generalized coefficient p-power cost is not an ordinary interpolation operator L-infinity Lebesgue constant.",
+        "searches": [
+          "Resultary: Laplace two-point quasi-Banach coefficient interpolation, generalized p-Lebesgue factor, symmetry breaking, half-power formula; arXiv:2611.08032v1, Eq. (18) and Theorem 27."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Laplace mirror match is the assigned frozen source itself. The Gaussian record concerns a different kernel and collision-limit optimizer displacement."
+        ],
+        "reasoning": "There is no finite table that would certify the continuum result. The half-power closed form is an exact specialization and was checked for indexed equivalent coverage; the identified hits supply no independent Laplace value at that exponent.",
+        "searches": [
+          "Resultary factor/bifurcation/asymptotic and half-power lookups; matched entry ending 0756c0c12758 and nearby Gaussian entry ending 982a248adcd7."
+        ]
+      },
+      "rationale": "The factor definition, its exact representer interpretation, the Laplace two-site coefficients and the qualitative violation of a unit factor are known and credited. The inspected sources do not fix the sharp maximum as a function of separation and p, classify its maximizers, or supply the asymptotics and half-power expressions.",
+      "residual_risks": [
+        "The external discovery query supplied no additional relevant paper; that is not proof of absence of an equivalent under another interpolation terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior norm criterion and near-endpoint counterexample; not the sharp classification",
+          "evidence": "The two-point obstruction shows a local excess above 1, whereas the exponential-decay analysis supplies a bound.",
+          "identifier_or_url": "arXiv:2611.08032v1",
+          "material_read": "PDF p. 16 Eq. (18), p. 20 Laplace example, p. 21 Thm. 27, p. 24 §4",
+          "method": "Lawful open arXiv primary text",
+          "title": "Reproducing Kernel (Quasi-)Banach Spaces with the ℓ^p Coefficient Norms",
+          "trigger": "Same norm, kernel and two-sample obstruction"
+        },
+        {
+          "assessment": "Different setting and invariant",
+          "evidence": "Scaled cardinal interpolation and its ordinary supremum-norm Lebesgue constants.",
+          "identifier_or_url": "arXiv:2009.00711",
+          "material_read": "PDF pp. 1 and 9, open-text offsets 0 and 27600",
+          "method": "Open primary text",
+          "title": "Uniformly bounded Lebesgue constants for scaled cardinal interpolation with Matérn kernels",
+          "trigger": "Related kernel and Lebesgue constant terminology"
+        },
+        {
+          "assessment": "Different kernel and asymptotic regime, not used to claim broader negative coverage",
+          "evidence": "Gaussian collision factor and optimizer displacement.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-gaussian-two-sample-quasi-banach-collision-law-and-displac--982a248adcd7",
+          "material_read": "Resultary search synopsis",
+          "method": "Local index comparison",
+          "title": "Sharp Gaussian two-sample quasi-Banach collision law and displacement",
+          "trigger": "Indexed two-sample threshold/optimizer near-hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59 and 63–99; Wang–Song–Zhang's two-point obstruction and representer theorem."
+      ],
+      "rationale": "This quantifies a known failure of the unit sample-span penalty by giving the exact multiplier, when the worst atom is no longer at the midpoint, and how fast amplification decays for well-separated sites. The bifurcation and sharp constants give a tunable quantitative benchmark for a standard kernel and sparse coefficient geometry.",
+      "residual_risks": [
+        "No multi-site threshold, noisy prediction guarantee, or other kernel follows automatically."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

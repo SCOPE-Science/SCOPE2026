@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:29.047640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frobenius factors the Laurent polynomial by digits; a zero exponent forces the lowest signed digit to be zero since its magnitude is at most four, and then iteratively forces all to be zero. The five single-digit values yield weights (1,1,3,2,4). Equivalently to the character argument, their counting measure is the sum of a point mass at 1 and the all-ones measure on the four-unit group; convolution raises the total mass to 5^j and leaves the coefficient of the point mass equal to 1. A carry through exactly t fours contributes (-1)^t in the old residue, and the unique next digit is determined by the ratio v/u since the four digit quotients are 1,3,4,2 for even t and their negatives for odd t. The resulting distinguished old residues reconstruct both printed lookup vectors. Summing the uniform prefix terms gives the stated baseline; the separate endpoint is ((−1)^L,1), not an additional free-prefix case. For L≥2 the eight parity-adjusted cells are distinct, include the endpoint, and each has positive deviation since floor(L/2)>(4L+1)/16. Their positive deviations sum to (4L+1)/2 and normalization yields the claimed TV. The unadjusted baseline is at least 1 for L≥2; L=0 has one occupied cell and L=1 has five distinct occupied cells, giving TV 15/16 and 11/16. Independent direct polynomial multiplication modulo five through n=625, with no use of digit products for the observed counts, recovered all cells and the exact TV for L=0 through 4 (`python3 -B /workspace/branches/bounded_review_checks.py 4`). The packaged check through L=7 was inspected, not executed; the unrestricted result follows from the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kohen establishes an offset/carry decomposition for linear combinations of nearby constant-term sequences of degree-one Laurent polynomials. Rowland–Yassawi treat more general congruence automata."
+        ],
+        "reasoning": "Both are prior tools that can be applied to this pair; neither inspected theorem evaluates the finite-window joint distribution or its TV distance without additional counting.",
+        "searches": [
+          "arXiv:2411.03681v2, Lemma 8 (shifted constant terms)",
+          "arXiv:1310.8635v2, §§4.2,5.1 (modular automatic sequences)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.8635v2",
+        "arXiv:math/0407326",
+        "arXiv:2411.03681v2",
+        "OEIS:A002426"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The offset-carry structure from Lemma 8 is prior; Proposition 14 recovers the mod-five asymptotic equality density. Rowland–Yassawi explicitly state the general-prime Lucas rule, while the inspected Deutsch–Sagan preprint Theorem 4.7 is a mod-three characterization."
+        ],
+        "reasoning": "Even starting from the known digit product and carry partition, an all-L result must derive the uniform-plus-singleton prefix product count, the carry-parity bonuses and the signs of the resulting sixteen deviations. The inspected literature does not supply that exact classification.",
+        "searches": [
+          "arXiv:2411.03681v2 Lemma 8 and Proposition 14",
+          "arXiv:math/0407326 Theorem 4.7",
+          "arXiv:1310.8635v2 §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi give a Lucas product for the one-index sequence. Kohen’s representation 2s_n=T_{n+1}−T_n captures the two-index equality event; Proposition 14 gives its limiting density 1/4 modulo five."
+        ],
+        "reasoning": "Knowing the limiting total diagonal mass is not equivalent to the finite census of the sixteen cells, even for diagonal cells taken individually. Neither the equality formulation nor individual residue automata were credited as novel here.",
+        "searches": [
+          "central trinomial neighboring coefficients joint distribution modulo prime consecutive residues frequency",
+          "arXiv:1310.8635v2 §§4.2,5.1",
+          "arXiv:2411.03681v2 §3.1 Proposition 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A002426 lists central trinomial numbers as a one-index sequence, so it enables finite brute-force checks but is not a table of the scaled sixteen-cell law. No local published catalog was available for independent lookup."
+        ],
+        "reasoning": "The underlying sequence and its values were already known. The asserted exact law varies with unbounded L and includes the carry correction and endpoint, neither of which follows from a finite table.",
+        "searches": [
+          "OEIS A002426; literal text lookup ‘mod 5’",
+          "Local published-catalog resource discovery"
+        ]
+      },
+      "rationale": "Pass for the explicit sixteen finite-window ordered counts and exact TV, not for the prior Lucas digit product, offset-carry method or limiting equality density. Kohen gives the closest direct mathematical overlap: an adjacent equality event and a general carry decomposition. Neither supplies the prefix-product frequency correction that resolves all sixteen cells at finite scale in the inspected passages.",
+      "residual_risks": [
+        "An exact prior specialization of an adjacent automatic-sequence theorem may not be indexed under central trinomial terminology.",
+        "No local published-catalog lookup was available; the bounded source comparison does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers digit factorization and individual sequence congruences, not the explicit pair law in inspected passages",
+          "evidence": [
+            "§5.1 explicitly states that central trinomial coefficients modulo p have a Lucas product."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1310.8635v2",
+          "material_read": "§4.2 and §5.1, HTML offsets 98983 and 113372",
+          "method": "Bounded open-access full-text passages",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Prior Lucas and automatic-sequence machinery for the same coefficients"
+        },
+        {
+          "assessment": "The inspected preprint passage is specific to modulo three; the direct general-prime Lucas comparison relies on Rowland–Yassawi",
+          "evidence": [
+            "Theorem 4.7 characterizes the mod-three behavior, not mod-five neighboring pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0407326",
+          "material_read": "§4, Theorem 4.7, HTML offset 29111",
+          "method": "Bounded open-access full-text passage",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Earlier cited congruence predecessor"
+        },
+        {
+          "assessment": "Substantial method and one-event overlap, not the finite sixteen-cell count",
+          "evidence": [
+            "Lemma 8 handles carries for shifted constant terms; Proposition 14 uses 2s_n=T_{n+1}−T_n and gives density 1/(p−1) at p=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.03681v2",
+          "material_read": "Lemma 8 and §3.1 Proposition 14, HTML offsets 26492 and 47969",
+          "method": "Bounded open-access full-text passages",
+          "title": "Density and Symmetry in the Generalized Motzkin Numbers mod p",
+          "trigger": "Broader shifted-coefficient method and adjacent equality"
+        },
+        {
+          "assessment": "Univariate sequence listing, not the claimed ordered-pair law",
+          "evidence": [
+            "The record lists T_n itself."
+          ],
+          "identifier_or_url": "https://oeis.org/A002426",
+          "material_read": "Entry heading and initial values at offset 0",
+          "method": "Open public database entry",
+          "title": "Central trinomial coefficients",
+          "trigger": "Exact reference database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical arithmetic sequence the digit product alone does not give rates for adjacent pairs. The exact count measures correlation induced by base-five carries at every digit scale, shows full support already at length 25, and gives the precise finite-scale discrepancy rather than just a limit. This is a complete natural two-point classification within the stated modulus and windows, not a finite numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

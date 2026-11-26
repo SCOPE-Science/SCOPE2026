@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:21:50.164976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof 1–3",
+        "Frozen VERIFICATION.md and verify_socle.py (inspection, not execution)"
+      ],
+      "rationale": "For t=rank(ω|M), lift a basis of ωM to vectors v_i. The map R^t→M given by the v_i is injective on Soc(R^t)=(kω)^t. Every nonzero submodule meets this socle: its last nonzero maximal-ideal power is annihilated by the maximal ideal. Thus the map is injective and dim_k M≥st, with equality exactly when it is an isomorphism; a free module has the required image rank. The case t=0 gives equality only for the zero module. At saturation there is therefore just the free-module orbit, with stabilizer GL_r(R); reduction onto GL_r(k) has kernel 1+M_r(𝔪) of order q^((s−1)r²). The target is attained since regular multiplication by ω has rank r, squares to zero, and hence has the unique target Jordan type. With block sizes (r,h,r), h=(s−2)r, the target centralizer has diagonal (A,H,A) and free upper blocks of combined size r²+2rh. Restricting transport from the regular action to the prescribed target gives exactly the centralizer/stabilizer quotient. The order is q^((s−2)r²)|GL_h(k)|, including s=2, and it counts labeled maps, not orbits of such maps.",
+      "residual_risks": [
+        "The script tests three small fibers over F₂, not all algebras or ranks; the general claim is established by the proof. The result is only about saturated k-points and not scheme-theoretic structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hua's exact matrix counting concerns a single polynomial equation with zero output, via modules over a univariate quotient. Levy concerns geometry over an algebraically closed field of characteristic two. Kokol Bukovšek et al. give feasibility of commuting nilpotent products.",
+          "Essentiality of the socle for finite modules already gives the rank bound by lifting a basis, independent of the counting question."
+        ],
+        "reasoning": "The first three statements are not dominating fixed-socle-image counts for arbitrary split local algebras. Standard socle rigidity and centralizers apply as ingredients; their use here is assessed separately under value.",
+        "searches": [
+          "Resultary: finite local Artinian Gorenstein module socle action rank dimension free module equality rank socle multiplication",
+          "Primary literature: Artin local Gorenstein rank socle maximal free summand finite field fixed socle matrix representations fiber quotient centralizer prescribed matrix roots nilpotent",
+          "Levy arXiv:math/0609180; Kokol Bukovšek et al. DOI 10.13001/1081-3810.1199"
+        ]
+      },
+      "checked_sources": [
+        "Resultary originals c8a4349a84d7, 415af50377ac and 3219b3540ac0",
+        "Hua (1999), DOI 10.1017/S0004972700032603",
+        "Levy arXiv:math/0609180",
+        "Kokol Bukovšek et al. (2007), DOI 10.13001/1081-3810.1199"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting X^s=0 includes many socle-image ranks and does not isolate a prescribed nonzero C without selecting the saturated Jordan type and dividing by the target conjugacy orbit.",
+          "The paired-square-zero and univariate counts yield the same cardinality on their restrictions but do not range over arbitrary multiplication laws. For the full theorem the essential-socle test collapses the representation locus to one standard orbit, whose size over C is the ratio of two elementary group orders."
+        ],
+        "reasoning": "Credit exact overlap where definitions and parameters agree. The arbitrary-algebra fixed-output statement was not found in a stronger explicit theorem; its exact value is nevertheless a direct consequence of standard free-orbit and centralizer calculations, limiting its mathematical value.",
+        "searches": [
+          "Hua (1999), published paper p. 1",
+          "Kokol Bukovšek et al. (2007), Theorem 2.3",
+          "Resultary c8a4349a84d7 saturated case; 415af50377ac minimum dimension case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For R=k[u]/(u^s) the fiber is X^(s−1)=C together with X^s=0. At r=1,n=s the nonzero square-zero output forces one size-s Jordan block and makes the latter condition automatic; Resultary 415af50377ac agrees on this specialization.",
+          "For k[x,y]/(x²,y²) the fiber is the ordered commuting square-zero pair with exact product, the model of c8a4349a84d7."
+        ],
+        "reasoning": "The matrix-root and commuting-pair aliases are exact for those presentations. Neither presentation comparison establishes the count for all algebras of length s.",
+        "searches": [
+          "Resultary: fixed exact matrix image socle generator algebra homomorphisms finite local Gorenstein algebra representation fiber cardinality",
+          "Resultary: truncated polynomial ring matrix representations prescribed power T^d equals fixed square-zero matrix count",
+          "Hua DOI 10.1017/S0004972700032603"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later c8a4349a84d7 counts exact common products of commuting square-zero pairs; its n=4t case is q^(2t²)|GL_(2t)(k)|, exactly s=4,r=t. It notes previous establishment of n=4,t=1.",
+          "Later 415af50377ac yields q^(s−2)|GL_(s−2)(k)| in the minimum univariate dimension. Later 3219b3540ac0 studies product incidence for elements of the algebra, not its matrix representations."
+        ],
+        "reasoning": "An exact theorem lookup by output constraint is relevant; a finite table of small q or length cannot address the arbitrary-algebra formula. The exact matching statements have narrower algebra or rank hypotheses. Their later dates do not establish prior coverage of the universal claim.",
+        "searches": [
+          "Resultary: centralizer orbit square-zero matrices rank fixed target commuting nilpotent pair fiber cardinality",
+          "Resultary originals c8a4349a84d7, 415af50377ac and 3219b3540ac0"
+        ]
+      },
+      "rationale": "The statement-level evidence supports a distinction for the exact fixed-output formulation over all split commutative local Artinian Gorenstein algebras. It does not support originality for essential-socle rigidity, the square-zero centralizer, or the orbit–stabilizer principle. The inspected catalog results match exact specializations but not the full arbitrary-algebra theorem and postdate the frozen result; the checked primary statements treat univariate zero-output counting, pair-variety geometry, or product feasibility. The absence of a found dominating exact statement does not make the derivation nonroutine or prove historical priority.",
+      "residual_risks": [
+        "An earlier equivalent Frobenius/free-module orbit formulation or full finite-field fiber theorem was not excluded. Exact specializations do not establish the priority of the general result; the earlier elementary machinery is not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later exact specialization s=4, not arbitrary R",
+          "evidence": "For n=4t, the formula q^(3t²)I_q(2t,t)|GL_t(k)| equals q^(2t²)|GL_(2t)(k)| by the frame count.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7",
+          "material_read": "Original RESULT.md at offset 0, including saturated count",
+          "method": "Local Resultary mirror",
+          "title": "Complete finite-field product fibers for pairs of commuting square-zero matrices",
+          "trigger": "Exact fixed-output count for a two-generator Gorenstein algebra"
+        },
+        {
+          "assessment": "Later exact univariate r=1 specialization",
+          "evidence": "Setting m=s−1 and n=s in the root count forces one size-s Jordan block, whose centralizer quotient is the claimed univariate count.",
+          "identifier_or_url": "2026/11/8/SCOPE-rank-resolved-finite-field-power-roots-of-the-minimal-nonzero-ni--415af50377ac",
+          "material_read": "Original RESULT.md offsets 0 and 1023",
+          "method": "Local Resultary mirror",
+          "title": "Rank-resolved finite-field power roots of the minimal nonzero nilpotent",
+          "trigger": "Same fixed nonzero square-zero target in a univariate presentation"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "A product-incidence matrix of elements in a four-dimensional algebra, rather than an exact count of matrix representations.",
+          "identifier_or_url": "2026/10/25/SCOPE-socle-product-matrix-spectra-detect-witt-type-in-four-dimensiona--3219b3540ac0",
+          "material_read": "Original RESULT.md offsets 1261 and 2731",
+          "method": "Local Resultary mirror",
+          "title": "Socle-product matrix spectra detect Witt type in four-dimensional Gorenstein algebras",
+          "trigger": "Same algebra class and nonzero socle target"
+        },
+        {
+          "assessment": "Univariate zero-output equation, not the arbitrary fixed-output fiber",
+          "evidence": "Counts solutions of E(A)=0 using representations of F_q[x]/(E).",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700032603",
+          "material_read": "Published text p. 1, OA offset 476",
+          "method": "Targeted OA primary text",
+          "title": "Polynomial equations for matrices over finite fields",
+          "trigger": "Earlier finite-field count via univariate representations"
+        },
+        {
+          "assessment": "Geometry over algebraically closed characteristic two; no finite-field exact fiber count in the material checked",
+          "evidence": "Study of the variety of commuting square-zero pairs as a module variety.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0609180",
+          "material_read": "PDF p. 1 abstract, OA offset 0",
+          "method": "Targeted OA primary text",
+          "title": "Varieties of Modules for Z/2Z × Z/2Z",
+          "trigger": "Earlier work on the same two-square-zero-generator representation variety"
+        },
+        {
+          "assessment": "Existence/feasibility, not fixed-output finite-field cardinality",
+          "evidence": "Characterizes when a product can occur, rather than how many pairs realize a labeled target.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1199",
+          "material_read": "PDF p. 1 abstract (offset 272) and p. 4 Thm. 2.3 (around offset 15075)",
+          "method": "Targeted OA primary text",
+          "title": "Products of commuting nilpotent operators",
+          "trigger": "Earlier constraints for prescribed products of commuting nilpotents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof 1–3 and Limitations",
+        "Exact commuting-pair and power-root specialization comparisons above"
+      ],
+      "rationale": "The saturated fiber is a natural object, and the cardinality is correct, but the proposed exact invariant is a routine consequence of the saturation choice. Basis lifting into the essential socle forces the entire module to be free, so there is no representation-type census left. The map from the single free-module orbit to the single Jordan orbit is the standard homogeneous projection G/H→G/K, and the fiber order is forced by the usual nilpotent centralizer and the reduction kernel for GL_r(R). Both orders depend only on dimensions, so multiplication-independence and the simplified power of q are bookkeeping consequences, not an additional rigidity phenomenon. The record gives no nontrivial range in which different module types must be reconciled, no additional invariant of the saturated fiber, and no application requiring more than that standard homogeneous-space computation. This is a value failure of the frozen claim, not a mathematical error or a priority verdict, and narrowing to one presentation would not fix it.",
+      "residual_risks": [
+        "This judgment is confined to the cardinality and extremal rank statements as submitted; there is no assessment of possible new results on lower-rank strata or geometric structure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

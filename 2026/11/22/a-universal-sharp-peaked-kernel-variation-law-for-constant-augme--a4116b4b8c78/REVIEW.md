@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Strict positive definiteness makes the augmented saddle-point system invertible, and constant reproduction follows exactly. Every data vector is a sum of a constant and adjacent single-jump steps, so the induced variation norm is the maximum of finitely many step-response variations for each scale. As kernel scale increases, the Gram matrix approaches identity, the fitted constant approaches the data mean, and the radial coefficients approach the centered data. Splitting the interval at the Voronoi midpoints controls cross-peak variation by the profile tail, proving the weighted peak-variation formula uniformly over normalized data. Direct evaluation on step data yields the exact sharp coefficient and its center-index maximizers. These implications do not rely on finite numerical tests.
+PASS
 
-## Originality
+Strict PD makes the augmented system invertible by testing a null vector against its constrained coefficient vector. Constants are reproduced exactly. On the mean-zero coefficient subspace, applying the mean-removal projection P gives PK_εc=Py; PK_ε is identity there up to O_n(φ(εh)). Thus c_i=y_i−mean(y)+O_n(φ(εh)V_d(y)), and the scalar term is mean(y)+O_n(φ(εh)V_d(y)). For the upper TV bound, each monotone translate contributes at most 1 flank for an endpoint and 2 for an interior node. For the lower TV bound use the partition alternating nodes and midpoints. Nodal values are exact; each midpoint differs from the scalar term by at most φ(εh/2)||c||_1, since every node is at least h/2 away. Comparing this partition variation with the endpoint/interior weighted sum confirms the stated uniform rate without differentiation or any assumption on extrema between nodes. Modulo constant input, differences are ℓ¹ coordinates and the unit coordinate vectors are the nodal steps, so subadditivity proves exact finite-ε reduction. A step at j has limiting weighted gain 4j(n−j)/n−1. The integer maximum and strict gap to noncentral steps (when such steps exist) prove the claim; for odd n the theorem does not require both eligible steps to tie. n=2 has norm 1, consistent with directly monotone interpolation. Read VERIFICATION.md and checker.py; the code uses one narrow effective width per grid and sampled partitions, which only lower-approximate continuous TV. It was not executed and is not needed for the proof.
 
-**PASS, with historical-priority risk.** The archived Platte–Driscoll technical report and author-hosted journal full text treat Gaussian interpolation, Runge phenomena, potential theory, and uniform-norm Lebesgue stability, rather than the present constant-augmented one-dimensional variation norm. Yarotsky's accessible Gaussian-interpolation paper treats analytic interpolation-error formulas and convergence, not peaked constant-reproducing BV amplification. Specialized geostatistical or BV operator-norm literature remains a possible uninspected route to prior coverage. Searches and comparisons are recorded in the structured review. No originality conclusion is based on merely different terminology; no broader result was identified that implies the exact central-step factor for the stated scheme.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Constant augmentation is a natural correction for the failure of unaugmented peaked interpolants to preserve constants. The exact value of its variation-stability cost is not given by conditioning or a Lebesgue constant. The result is a sharp asymptotic operator norm for every site count and every fixed irregular grid, and is universal across monotone decaying strictly positive definite kernels. Its central-step extremizer and linear growth identify a concrete instability mechanism in increasingly localized interpolation.
+The old constant-trend construction and generic ℓ¹ step reduction are not the originality claim. The distinct result supported by the comparison is the uniform fixed-grid localized TV law, hence the sharp norm and eventual central eligibility for all stated monotone profiles.
 
-## Checks and limitations
+## value
 
-The analytical proof establishes the infinite-parameter limit; the standalone checker provides finite-scale numerical corroboration for Gaussian and exponential kernels on irregular meshes. The result does not claim a finite-scale closed formula or simultaneous uniformity in mesh size and scale. The historical-priority question is not independently certified and additional full-text specialty literature may be relevant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The law quantifies a real stability distinction: constants are reproduced and the fixed-grid kernel matrix tends to the identity, yet the sharp variation amplification of the interpolated function grows linearly with the number of nodes. The exact universal coefficient and central perturbations identify a worst-case edge phenomenon not measured by conditioning or sup error. This assesses a fixed-grid peaked limit, not simultaneous scaling with node count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

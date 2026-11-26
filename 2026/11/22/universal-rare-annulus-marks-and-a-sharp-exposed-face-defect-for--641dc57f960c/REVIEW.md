@@ -1,20 +1,21 @@
-# Scientific assessment: rare annular marks and exposed-face defect
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies the invariant Crofton plane measure and rigorously converts a published fiber criterion into the exact conditional density (3). For arbitrary compact convex meridians the support-function directional derivative is the exposed top-face half-width. A uniform-in-mark expansion then gives the universal triangle density, the exact first-order total-variation coefficient, and the annulus probability scale. The zero-face case and the smooth second-order estimate are treated separately. For a circle, a uniform Taylor expansion and an explicit beta integral give the sharp second-order coefficient. A standalone numerical and symbolic checker passed 109 assertions, including independent quadrature for rectangular and elliptic meridians. Finite testing is supporting evidence, not a substitute for proof.
+## correctness
 
-## Originality — PASS against inspected sources
-Finch (arXiv:2611.15546v1, §§4–7) proves the unmarked circular disk probability and the slicing classification. A published convex-meridian Crofton theorem (published-finding corpus, 2026-10-18) already gives the exact unmarked three-topology law for this geometry, while a separate published central-section theorem treats area singularities. The earlier scalar laws and event criterion are acknowledged, not claimed. This result asks a different conditional question and identifies the sharp face-width coefficient in total variation for nonsmooth as well as smooth meridians, which the inspected statements do not present. Boukharfane (2015, pp. 177–178) was inspected in full; its inclination-weighted integral is a scalar probability result, not a conditional mark theorem. Search cannot establish absolute historical novelty: independent priority review and broader stereological literature remain outstanding.
+PASS
 
-## Value — PASS
-Annular slices occur with probability of order \(R^{-3}\), so their conditional orientation is not captured by typical-plane or unmarked topology probabilities. The limiting \(\operatorname{Beta}(2,2)\) law supplies the natural shape of this rare-event conditioning for all convex symmetric meridians. More importantly, the sharp first-order rate recovers the exposed top-face half-width and makes a mathematically meaningful distinction between faceted and smooth meridians; the circular sharp second-order law exhibits the faster regime. This is a motivated structural boundary invariant rather than a numerical instance or a reformulation of the old scalar probabilities.
+In a nonvertical slicing plane, projection sends each azimuthal meridian fiber to an interval along the corresponding radial ray. Its upper and lower plane-support levels increase with cos(azimuth) since R>a; away from the null transition set, annularity is exactly feasibility with nonempty interior at every azimuth, i.e. m<H−R sin θ. Haar cos θ and folded Lebesgue offset give the Jacobian b³xW_R/R², and the common hit conditioning cancels in the conditional density. The supports stay in a fixed bounded x-range. The vertical exposed face gives H′(0+)=q by taking limits of supporting maximizers, so uniformly G_R=1+qx/R+o(R⁻¹), W_R=1+O(R⁻²), and J_R=1/6+q/(3R)+o(R⁻¹); the sliver near x=1 has width and height O(R⁻¹). For q>0 the old triangle is contained in the enlarged support and the normalized density is strictly smaller throughout it, so TV equals the new mass outside, with leading term 6q∫₀¹x²dx/R=2q/R. For q=0 the support symmetric difference and density error are both o(R⁻¹); a C² support gives O(R⁻²). The hit mass is πR/4+O(1) and the annulus mass b³J_R/R². For the unit circle, independent expansion of the fixed-support normalizer gives 1/6+1/(40R²), and integrating the absolute centered second-order density at the sign change x=√(3/10) gives 27/400−9√30/2500. Inspected RESULT.md lines 41–126, VERIFICATION.md and check_marks.py. The 109 recorded checks, including numerical rectangle and ellipse cases, were not rerun; they do not certify arbitrary meridians. The bounds are for each fixed meridian.
 
-## Closest literature and residual limits
-- Steven R. Finch, *Slicing a Doughnut at Random*, arXiv:2611.15546v1, first posted 2026-11-11. Full text examined, including the invariant measure, fiber criterion, main theorem and topology exercises.
-- *A three-topology Crofton law and inverse support tomography for convex-meridian toroids*, published 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-three-topology-crofton-law-and-inverse-support-tomography-for--8cf34e87984a . Complete RESULT.md examined. This is the closest geometric input and is explicitly credited.
-- R. Boukharfane, *Slicing a Torus*, *American Mathematical Monthly* 122 (2015), 177–178, DOI 10.4169/amer.math.monthly.122.02.175. Both pages examined.
-- *Logarithmic area cusp and Haar topology law at the Villarceau transition*, published 2026-11-01, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-logarithmic-area-cusp-and-haar-topology-law-at-the-villarceau-tr--3f2e0b5e194a . Complete RESULT.md examined; its offset-zero area result does not determine the present affine conditional mark law.
+## originality
 
-The proof is for the specified convex, doubly symmetric fixed meridian. It does not assert a uniform theorem for moving meridians, arbitrary nonsymmetric sections or topologies other than annuli. A vanishing exposed-face width alone does not imply the circular second-order coefficient. Historical priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the earlier exact offset criterion, invariant measure and unmarked probabilities, and treat the finite marked density as their direct change-of-variables consequence. The distinct claim assessed here is the sharp conditional marked-TV law with nonsmooth exposed-face coefficient and the explicit circular second-order constant. These are not stated or supplied as probability bounds by the strongest reviewed sources.
+
+## value
+
+PASS
+
+Conditioning on a rare topology gives a natural geometric observable with a universal mark law. The TV coefficient is a quantitative diagnostic of a face of the meridian even when no smooth boundary expansion is available. The zero-face and circular regimes both show why scalar rarity alone is an inadequate description of the convergence of conditional marks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

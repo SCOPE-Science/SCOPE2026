@@ -1,21 +1,21 @@
-# Scientific review: three-path random-cluster third cumulants
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The connected three-edge cumulant of the weighted random-cluster law on a three-path theta graph has the exact explicit formula given in RESULT.md. The graph's cycle rank equals \(\max(R-1,0)\), where \(R\) counts fully open paths. Product Bernoulli reference weights at edge probabilities \(v_e/(q+v_e)\) therefore acquire precisely the \(q^{\max(R-1,0)}\) tilt. The eight-state generating function gives the displayed factorization for path-completion cumulants. Conditional independence of edges in separate paths, conditioned on each path-completion indicator, transfers the factorization to any choice of three marked edges. For \(1<q\le2\), elementary symmetric bounds make the sign factor positive. For \(q>2\), that factor has one negative constant and positive nonconstant coefficients, yielding exactly one zero along any common positive activity-scaling ray. The strictly positive finite-activity prefactors exclude accidental extra zeros.
+PASS
 
-An independent direct random-cluster state enumerator implemented in `check_theta.py` passed **972 exact rational cases** across five theta graph geometries, all placements of one marked edge per path, four cluster weights and three activity scales, with separate opposite-sign witnesses on the six-edge network. Exhaustion of these finite cases is supplementary evidence and not the proof for arbitrary lengths.
+Every cycle uses complete terminal paths, so the exact cycle rank is max(R-1,0) for R completed paths. Factoring the independent Bernoulli normalizers leaves the stated multi-affine H_q. For distinct marks, the joint cumulant is the mixed log partition derivative with respect to log v at those edges; the independent factors have zero mixed derivative, so the chain rule multiplies the mixed log H_q derivative in (a_1,a_2,a_3) by e_3 times the product of (1-p_f). Independently expanding (H_123 H^2 - H sum H_ij H_k + 2 H_1 H_2 H_3) gives -(q-1)F_q; this symbolic identity and the illustrative threshold v=1.18042205579496... are replayable with `python /workspace/branches/audit_checks.py theta`. For an additional sign check put U=product(1+(q-1)a_i), V=product(1-a_i); exactly q H_q=U+(q-1)V and F_q=U-(q-1)V. Thus H_q>0 and U/V increases strictly from 1 to infinity under any prescribed common scaling, so F_q>0 for 1<q<=2 and has a unique negative-to-positive crossing for q>2. The cumulant has the opposite sign; at q=1 it is zero by independence. The crossing depends on path completion probabilities, not the particular mark choices. The packaged exact enumerator was inspected, not executed. These arguments do not address arbitrary activity trajectories, other mark placements, or thermodynamic transitions.
 
-## Originality — PASS on examined evidence, provisional
+## originality
 
-Grimmett's classical random-cluster framework gives the bond measure and pairwise positive association for \(q\ge1\). Pairwise FKG inequalities do not imply the sign of a third connected cumulant. Shrock's 2011 Potts/Tutte treatment explicitly includes **hammock networks** in Section IX, so it is a relevant close primary source, but the inspected uniform-activity formulas do not state the all-weight three-marked-edge cumulant, the sign criterion, or the unique \(q>2\) reversal. Related indexed reports about \(q<1\) forest edge correlations or cactus connectivity covariances do not imply the \(q>2\) three-path result: their measures, graph cycles, observables, and order of cumulant differ. Exact graph/parameter equivalences and stronger-family coverage were searched by mathematical content. An unindexed earlier derivation of derivatives of the hammock partition function remains possible.
+PASS
 
-## Value — PASS
+The weighted theta partition function is obtainable from classical multivariate series and parallel reductions; no novelty is credited for it or for taking a log derivative to define a cumulant. What is distinct on checked evidence is the explicit factorized mixed response and its sharp sign and uniqueness law in the specified heterogeneous three-path geometry. Same-day findings show genuine related sign phenomena under different hypotheses, not priority or exact coverage.
 
-The result gives a sharp universal distinction between the two-state boundary and higher-state ferromagnetic random-cluster systems in a natural smallest multicyclic series-parallel network. It predicts a third-order response sign reversal for arbitrary path lengths, positive heterogeneous edge activities, and arbitrary selection of one edge per path; the threshold is explicitly computable and independent of marked-edge choice. This captures information absent from pairwise FKG correlation signs and is more than a numerical fixed-size observation.
+## value
 
-## Limits and closely related sources
+PASS
 
-Grimmett, *The Random-Cluster Model*, first public 2002-05-23, arXiv:math/0205237. Shrock, *Exact Results on Potts/Tutte Polynomials for Families of Networks with Edge and Vertex Inflations*, first public 2011-01-30, arXiv:1101.5826, especially its Section IX on hammock networks. There is no claim about higher connected cumulants, arbitrary series-parallel graphs, negative activities, or thermodynamic transitions. The literature search cannot prove absolute historical novelty; independent scientific review remains outstanding.
+Gives a strict third-order response classification in a natural graph with overlapping cycles, where pairwise positivity does not predict the result. A single mark-independent crossing criterion across heterogeneous activity rays is a structural statement, not a numerical example or a mere partition-function recomputation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The standalone program `verify_modal_compression.py` requires only Python 3.9+ standard library, and is executable with `python verify_modal_compression.py`. It enumerates all node colorings of complete trees of parameter triples \((q,a,h)\) equal to \((2,2,3)\), \((3,2,2)\), \((2,3,2)\), \((2,2,2)\), and \((3,1,2)\). For each coloring it compares recursive descendant-type equality with an independent fixed-point partition-refinement computation of greatest bisimulation; it verifies cross-height separation, the type census and the level upper bound. It also tests the Sylvester recurrence separately through five iterations.
+# Independent mathematical audit
 
-Actual output:
+## correctness
 
-```
-CASE_OK q=2 a=2 h=3 valuations=32768 root_types=1806 max_quotient=9 level_upper_bound=9 quotient_sizes={4: 16, 5: 176, 6: 1152, 7: 5504, 8: 18048, 9: 7872}
-CASE_OK q=3 a=2 h=2 valuations=8192 root_types=82 max_quotient=6 level_upper_bound=6 quotient_sizes={3: 8, 4: 888, 5: 4656, 6: 2640}
-CASE_OK q=2 a=3 h=2 valuations=2187 root_types=513 max_quotient=6 level_upper_bound=6 quotient_sizes={3: 27, 4: 162, 5: 1026, 6: 972}
-CASE_OK q=2 a=2 h=2 valuations=128 root_types=42 max_quotient=5 level_upper_bound=5 quotient_sizes={3: 8, 4: 24, 5: 96}
-CASE_OK q=3 a=1 h=2 valuations=1 root_types=1 max_quotient=3 level_upper_bound=3 quotient_sizes={3: 1}
-VERIFY_OK 43276 exhaustive valuations binary Sylvester steps 5
-```
+PASS
 
-Each parameter case is genuinely exhaustively enumerated, not sampled; the tests are nevertheless restricted to small finite heights and cannot establish the general asymptotic bounds. Those rest on the mathematical proof in RESULT.md. No independent external review or machine-checked infinite proof is claimed.
+Under immediate-child accessibility, induction on remaining height identifies greatest ordinary bisimulation exactly with equality of (color, set of child descriptors); different remaining heights are separated by a sufficiently long iterated diamond. Any nonempty set of at most q available child types is realizable independently, with repeats filling any unused slots. This proves the exact type and level-count formulas. The recurrence gives t_(k+1)≥a t_k; after t_k is large, the q-element subsets give log t_(k+1)≥q log t_k−q log(2q). Subtracting the fixed affine threshold yields log t_k≥c q^k, while counting all colorings gives log t_k≤C q^k. Splitting levels at q^k comparable to h with a sufficiently small constant bounds the lower-height terms by O(log h·q^(h/4)) and the upper-height tail by O(q^h/h). At q^k comparable to h with a sufficiently large constant there are at least q^(h−k) types, realized on disjoint height-k subtrees to attain Ω(q^h/h). Thus the lower bound concerns the maximum, not every coloring. The one-color and unary cases have exactly h+1 classes; t_k+1 in the binary sequence means addition of one, not the successor index. Independent greatest-relation pruning over all 32,768 binary height-three colorings found maximum nine classes. The frozen Python verifier and its recorded five small cases were inspected, not run; the asymptotic estimate is analytic.
+
+## originality
+
+PASS
+
+Credit prior ordered-DAG and graded upper bounds, the classical sequence, and material binary two-color coverage from the companion catalogue result. The distinct claim is the exact ordinary type census and sharp ordinary extremum in the genuinely set-valued regime q≥3 (with arbitrary fixed palette); neither the binary coincidence nor large graded quotients establishes that ordinary lower bound. The binary case and Sylvester recognition are a specialization and context, not independently cleared contributions.
+
+## value
+
+PASS
+
+The invariant is the actual space remaining after ordinary modal minimization on a canonical family. The matching lower bound shows what unordered, multiplicity-free model reduction really cannot compress, rather than relying on the order-sensitive or graded counts that can overestimate it substantially. The finite type census explains why the transition occurs near remaining height log_q h.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

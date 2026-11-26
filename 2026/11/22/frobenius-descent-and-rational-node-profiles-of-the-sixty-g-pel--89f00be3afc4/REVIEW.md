@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the Galois-compatible two-division model, symplectic pairing, fifteen isotropic planes and sixty affine cosets, using the classical geometric identification in Dolgachev–Keum, Section 4. The standalone exact checker also reconstructs the trope-incidence tetrads independently and validates the Frobenius cycles and rational-node distributions for all 720 six-point permutations. The fixed-coset and fixed-node formulas prove that this exhaustion applies to all smooth genus-two curves over odd finite fields; the finite check by itself would not prove that reduction.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Both the original table and the repaired rational-node profiles are correct. For odd-characteristic genus two the even-subset/two-torsion model is Galois-equivariant, and trope incidence selects exactly affine maximal isotropic planes. Directions correspond to perfect matchings. In an origin-containing tetrad, count 0 and each individually stable edge; in another coset mark the third matching edge and count fixed crossing pairs of the two remaining edges. If the two blocks are preserved separately, only pointwise fixation of their union contributes; if exchanged, the two potential crossing pairs are fixed exactly when Frobenius squared is trivial on them. I independently enumerated the no-three-on-a-trope supports, the powers of each of the eleven class representatives, and the fixed marked-matchings calculation; all rows agree, including the original full orbit table (python3 /workspace/branches/independent_arithmetic.py). The repaired table works over extensions by taking powers, requires no genericity, and does not claim rationality of a Cremona map or realization of every type over each fixed field. The uploaded checker was inspected, not executed.
 
-Dolgachev–Keum already give the underlying six-label symplectic representation; Kumar and Dolgachev give the Göpel geometry. These stronger geometric descriptions are expressly treated as prior results, not as novel. The new contribution is the eleven-row arithmetic orbit table together with the distribution of rational nodes in invariant four-node sets and all-extension zeta functions. A superficially close arithmetic classification of 60 Segre-cubic node–plane flags is not equivalent: a transposition fixes 12 Göpel tetrads but no Segre node–plane flags. An indexed integral Göpel lattice result computes a different invariant. Web and indexed-record checks did not locate the same table. As the class calculation is derived from known symplectic input, unindexed equivalent statements remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The six branch-point factorization type is a standard arithmetic datum for genus-two curves. This complete natural classification answers when the canonical Kummer Göpel configuration descends and how many of its nodes descend with it. It distinguishes rationality of unordered tetrads from rationality of their elements, and produces the exact finite-scheme zeta function uniformly for all extensions. These are finer invariants than the known geometric count 60 and can be used when studying marked two-torsion configurations and rational Göpel coordinate choices. No unsupported claim of automorphism descent is made.
+PASS applies only to the repaired node-incidence refinement. The frozen bundle fails originality insofar as it claims as a contribution the complete unweighted Göpel spectrum/zeta: a distinct indexed result gives all eleven of those same rows under the same hypotheses. No relative priority is inferred from the common date. The repair removes that covered claim, explicitly credits the exact overlap, and proves the additional distribution of fixed nodes within each invariant tetrad.
 
-## Limits
+## value
 
-Only the finite configuration is addressed; the historical novelty conclusion is search-based and should be checked independently. Characteristic two and counts of curves with each Frobenius type are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired classification measures rational nodes available in a descended Göpel structure, not merely which structures descend. For instance a transposition gives six stable structures with no rational node as well as six wholly rational ones, and two three-cycles give exactly one rational node in each stable structure. Those are useful differences for working with arithmetic marked two-torsion configurations; this is a complete incidence distribution across the prescribed Frobenius types, not a recomputation of the already covered zeta table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

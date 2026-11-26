@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:53:59.841009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the calculation independently by conditioning on the stationary reset age T~Exp(r) and on the angular path. With I_c and I_s the integrals of cos(2Θ) and sin(2Θ) over that age, the conditional position is Gaussian with Σ_xx=2D̄T+2δI_c, Σ_yy=2D̄T−2δI_c, Σ_xy=2δI_s. The stationary angular correlations are (1/2)exp(−ω|u−v|), ω=4q, so E I_c²=E I_s²=1/[r(r+ω)] after the age average. Gaussian fourth moments give V=4D̄² Var(T)+4δ²(2E I_s²−E I_c²)=4D̄²/r²+4δ²/[r(r+ω)]. The age integral similarly gives E[X_0² cos(2Θ_0)]=δ/(r+ω). The future initial y² term survives with probability e^(−rt); instantaneous future y variance at time s survives with probability e^(−r(t−s)), with mean angular harmonic e^(−ωs)cos(2Θ_0). Taking covariance gives e^(−rt)[V−A∫_0^t e^((r−ω)s)ds], A=2δ²/(r+ω). The backward construction yields stationarity and finite moments; uniqueness follows from the unique uniform angular invariant law and loss of initial position at the first reset. For nonzero δ, the bracket is strictly decreasing; for r<ω its limit is V−A/(ω−r), and negativity is equivalent to (2+3b²)(r/ω)²−2b²(r/ω)−2>0. At equality the tail is exactly V e^(−ωt); for r≥ω the bracket is unbounded below, with crossing V/A at resonance. The quadratic root lies in ((1+√11)/5,1), decreases in b² (since the root exceeds 2/3), and has the stated endpoint limits. The log root gives r t_*→log(3+2/b²); when δ=0 the covariance is V e^(−rt). A boundary replay is D̄=ω=1, r=9/10, b²=38/63, which gives V=400/63 and A=40/63, hence the strictly positive critical tail. Reviewed the supplied scripts and their recorded outputs as diagnostic evidence only; did not execute them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equations (41)–(43) are retained-heading renewal/conditional one-time moment identities from the origin; (45) gives the conditional y² response explicitly.",
+          "The shared-bath temporal covariance matrix uses common scalar Brownian diffusivity and joint resets, with positive cross-coordinate entries proportional to e^(−rs)(13+6rs)."
+        ],
+        "reasoning": "The propagator is applicable machinery, including the angular forcing response, but does not give the mixed initial coordinate/orientation weight and its stationary lagged competition with V. The scalar shared bath has no orthogonal opposite-sign angular harmonic. Neither is a covering stationary sign theorem.",
+        "searches": [
+          "arXiv:2406.17550, §IV (41)–(46)",
+          "Resultary 2026/10/25 SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof §§1–3; VERIFICATION.md and verification artifacts",
+        "arXiv:2406.17550 §IV",
+        "Resultary --4289f97988e1, --20953d731b6d, and --5448ec682adf at the passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known y² response started at the origin extends by adding e^(−rt)y² from the initial position. The stationary projection record supplies V, but one still needs E[X_0² cos(2Θ_0)] for the lagged stationary contraction and a sharp sign analysis of the resulting two modes."
+        ],
+        "reasoning": "Credit the response and V rather than treating them as new. The covariance mixes a specific stationary joint angular-spatial projection with the conditional response and identifies the rate where its late-time sign reverses; it is not a renamed one-time result or an instance of the positive temporal covariances inspected.",
+        "searches": [
+          "arXiv:2406.17550, Eq. (45)",
+          "Resultary 2026/10/26 SCOPE-hidden-stationary-anisotropy-under-position-only-resetting--4289f97988e1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model hidden-stationary-anisotropy record gives every one-dimensional projected fourth moment. Rotational symmetry gives E[X²Y²]=E[X⁴]/3, exactly recovering V at t=0.",
+          "The synchronous harmonic-diffusion record gives positive temporal cross-energy exponentials, for a different generator and partial contractions."
+        ],
+        "reasoning": "Projection/kurtosis is an equivalent route to the equal-time statistic only; it neither specifies retained angular memory across later resets nor the sign of its contribution to the other coordinate. Temporal energy covariance in the harmonic record is not equivalent under a variable change.",
+        "searches": [
+          "Resultary (50): position-only Poisson resetting anisotropic Brownian motion stationary squared-coordinate moments covariance lagged orthogonal squared positions sharp threshold",
+          "arXiv:2406.17550, §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected the same-model stationary-moment record, the lagged shared-bath result, and the distinct same-day fourth-order harmonic time-arrow record at their decisive passages. The first covers the initial value, the latter two compute temporal energy covariances in different models."
+        ],
+        "reasoning": "There is partial exact overlap at zero lag, not an exact indexed evaluation of the retained-heading nonzero-lag covariance or its single-zero threshold in the inspected material. No ordering is inferred from the same-day date.",
+        "searches": [
+          "Resultary (50): position-only Poisson resetting anisotropic Brownian motion stationary squared-coordinate moments covariance lagged orthogonal squared positions sharp threshold"
+        ]
+      },
+      "rationale": "The equal-time moments and much of the conditional second-moment propagator are known. The supportable increment is the stationary nonzero-lag orthogonal square covariance and its exact sign classification under retained orientation. No inspected source supplies the same stationary mixed fourth-order temporal law or a result covering the sign threshold. This is a best-of-knowledge assessment, not certification of priority.",
+      "residual_risks": [
+        "The targeted primary-literature lookup did not add a useful source; this does not establish absence of general hidden-state resetting covariance results or unindexed equivalents.",
+        "The cited one-time conditional response supplies substantial machinery. Do not claim the underlying response or equal-time fourth moments as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the protocol and the finite-time conditional response from the origin, not the stationary nonzero-lag mixed square statistic.",
+          "evidence": "Eq. (45) is E[y(t)²|Θ_0] from a reset state; Eq. (46) is simultaneous signed xy, not X_0²Y_t².",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.17550",
+          "material_read": "§IV, pp. 10–11, equations (41)–(46); relevant extraction starts at 38343",
+          "method": "Lawful OA PDF, bounded full-text reading",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Same passive model with position-only resets"
+        },
+        {
+          "assessment": "Exactly covers equal-time moments used as input; not the lagged claim.",
+          "evidence": "E[Z⁴]=24D̄²/r²+12δ²/[r(r+4q)] for every projection gives V by rotational symmetry and subtracting the product of second moments.",
+          "identifier_or_url": "2026/10/26/SCOPE-hidden-stationary-anisotropy-under-position-only-resetting--4289f97988e1",
+          "material_read": "Finding and Moment generator, offsets 0–4024 and 3915–6107",
+          "method": "Local Resultary mirror, bounded original passages",
+          "title": "Hidden stationary anisotropy under position-only resetting",
+          "trigger": "Exact same stationary model and fourth-order quantities"
+        },
+        {
+          "assessment": "Different diffusion tensor dynamics and reset mechanism.",
+          "evidence": "Common fluctuating scalar diffusivity, joint resets and covariance matrix proportional to e^(−rs)(13+6rs+28 1_{i=j}).",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d",
+          "material_read": "Finding, offsets 0–3224",
+          "method": "Local Resultary mirror",
+          "title": "Exact shared-bath energy memory under Poisson resetting",
+          "trigger": "High-ranking overlap on lagged square covariance"
+        },
+        {
+          "assessment": "Different oscillator and reset dynamics, no delayed sign reversal.",
+          "evidence": "Harmonic coordinates under common partial contractions have cross-energy covariances C_0 e^(−L_j t) and C_0 e^(−L_i t), both positive.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-fourth-order-time-arrow-and-exact-shock-inversion-in-synchrono--5448ec682adf",
+          "material_read": "Finding and assumptions, offsets 0–3171",
+          "method": "Local Resultary mirror",
+          "title": "A fourth-order time arrow and exact shock inversion in synchronously reset harmonic diffusion",
+          "trigger": "Distinct same-day temporal cross-energy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A rotationally invariant stationary position marginal and positive simultaneous squared-coordinate covariance conceal a strictly negative delayed covariance above a quantitative threshold. The transition picks out retained orientational memory rather than signed coordinate correlation; the exact anisotropy-dependent boundary and the single crossing make this a usable temporal diagnostic. No statistical inference rate or other reset protocol is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,22 +1,21 @@
-# Scientific review: seven Jones-monoid multiplication-fiber strata
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-\(n-2\) diagrams have exactly one adjacent cap and cup, with \(n-1\) choices each; product gluing splits by whether their middle cap indices have distance at most one. For distance at least two, the explicit upper-half and lower-half branch bijections give the four exact prescribed-fiber formulas. The four indicator coincidences for the disjoint/disjoint case obey a closure condition (any three force the fourth), so seven is impossible. The one-, two-, three-, four-, five-, six-, and eight-fiber multiplicities are obtained by a complete intersection count, and their weighted sum plus the \(3n-5\) rank-preserving fibers equals the total \((n-1)^4\) ordered pairs. The independent standard-library diagram-gluing checker confirms all individual fibers for \(3\le n\le10\), and all candidate factors against a complete Catalan diagram enumeration for \(3\le n\le8\). The general claim rests on the combinatorial bijection, not on finite enumeration.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+A one-cap half has adjacent endpoints; after removing it the propagating identification is the increasing bijection between the two ordered complements. If |j−k|≤1, the two middle arcs coincide or meet and do not create new exterior caps, giving 3n−5 middle choices at each rank-(n−2) target. If disjoint they each pull back to a cap in an exterior half, so the rank falls exactly two. A two-cap half is disjoint adjacent D or nested consecutive N, as no unmatched strand can pass under a cap; the propagating strands then match uniquely in order. Transfer along the ordered complements gives four branches for D, two for N; substitution of the other middle index gives the complementary inequality pairs in the proof and hence the four target formulas. More explicitly, the correction is the equality count between multisets {a,b−2} for D and {a} for N, and the constant is the product of their sizes. For D,D any three of four equality matches force the fourth; the two crossed equalities together require b=a+2, d=c+2, and a=c. The other five pair intersections each have d=m(m+1)/2 elements; one- and two-equality incidences then give the full histogram. Positivity proves that all target diagrams of both ranks occur; the sum of the lower counts is [n(n−3)/2]^2 and their weighted sum is (n−3)(n−2)(n−1)^2. Independent ordered-complement transfer reproduced every lower target and the census for 4≤n≤20. The size 7 is absent only in the rank-decreasing class (the rank-preserving fiber is 7 at n=4). There are four lower targets at n=4, six occupied fiber sizes at n=5, and seven occupied sizes exactly for n≥6; the zero entries of the displayed table handle the small n cases. The all-n result is combinatorial, not extrapolated from the checks.
 
-East and Gray, *Diagram monoids and Graham–Houghton graphs* (arXiv:1404.2359, first posted 2014-04-09), Section 9 and Lemma 9.7, provide the Jones class structure, rank-preserving adjacency and ideal-generation work. The present theorem credits that adjacency and contributes the full rank-decreasing prescribed target law and its multiplicity spectrum, which are not furnished by that Section 9 analysis. Dolinka et al., *Enumeration of idempotents in planar diagram monoids* (arXiv:1507.04838, first posted 2015-07-17), classify and count *idempotents*, whereas the current factors range over every rank-\(n-2\) diagram without an idempotency condition. Semantic searches of a published mathematical-record index returned nearest Jones results about power stabilization and commuting idempotents, not the unrestricted two-factor fibers; other published mathematical summaries did not exhibit this statement. These are implication comparisons, not a proof that no unindexed equivalent exists. The relevant research risk is an unindexed general diagram-product coefficient or an inaccessible document implying this precise spectrum.
+## originality
 
-## Value — PASS
+PASS
 
-The first singular Jones rank is the smallest nontrivial multiplication layer. Its exact prescribed multiplication structure constants are natural invariants of the entire Green class, rather than an arbitrary finite slice: for all \(n\ge4\) they distinguish two rank outcomes, resolve every target, and reveal a genuinely noninterval spectrum with forbidden fiber seven. Counting this spectrum is useful for multiplication operators and aggregate diagram-product statistics; the result does not claim a general theorem for all ranks or arbitrary-length products. The enumeration is parameter-uniform and not a known-table recomputation.
+Supported distinct content is the full Jones lower-target law, including nested halves and their contribution to the seven-stratum census. The rank-preserving part is credited to existing adjacency. The disjoint/disjoint law and its four-stratum distribution are exactly algebraically equivalent to the near-unit partial-bijection law in a distinct same-date record; do not assign that shared subcalculation separate priority. That overlap does not give the Jones nested branches, rank-preserving count or combined seven-stratum table. Relative publication ordering of the same-date records is not established.
 
-## Sources and scientific limits
+## value
 
-- J. East and R. D. Gray, *Diagram monoids and Graham–Houghton graphs: idempotents and generating sets of ideals*, arXiv:1404.2359, first public 2014-04-09, especially Section 9 and Lemma 9.7 (full relevant HTML section inspected).
-- I. Dolinka et al., *Enumeration of idempotents in planar diagram monoids*, arXiv:1507.04838, first public 2015-07-17, especially Sections 2–4 (relevant full PDF text and diagrams inspected).
-- Supporting independent computation: `check_jones.py`, with captured `CHECK_OUTPUT.txt` ending in `ALL_CHECKS_PASS`.
-- Residual risks: unknown older equivalent in the Temperley–Lieb structure-constant literature; computational checks stop at \(n=10\); independent mathematical audit not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first singular rank is a natural full multiplication layer. The shape-sensitive law resolves each rank-lowering product across all sizes; the nested branch calculation materially changes the spectrum and census from the four strata already present in the disjoint part. This is useful as exact planar multiplication data, not a claim of general structure constants for arbitrary ranks or loop-weighted multiplication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -89,7 +89,7 @@ Finally let \(S_n(k)=\sum_{j=1}^k C_{n+j}^4\). For each \(a\ge1\), the condition
 \[
 C_{n+k+1}^4\equiv C_{n+1}^4\pmod{5^a}\quad\text{for all }n\ge0,
 \]
-so \(k\) is a period of the quartic sequence modulo \(5^a\). For \(a=1\), all terms equal one and this condition is precisely \(5\mid k\). For \(a\ge2\), the period lemma forces \(k=m\cdot3\cdot5^{a-1}\). Break the window into \(m\) blocks of that length. Their sum is \(3m5^{a-1}\pmod{5^a}\). Thus
+so \(k\) is a period of the positive-index tail modulo \(5^a\). To include index zero, apply the difference congruence at the positive index \(P_a\), then use the already established period \(P_a\) to reduce \(P_a+k\) and \(P_a\) to \(k\) and zero. For \(a=1\), all terms equal one, so the window sum condition is precisely \(5\mid k\). For \(a\ge2\), the period lemma forces \(k=m\cdot3\cdot5^{a-1}\). Break the window into \(m\) blocks of that length. Their sum is \(3m5^{a-1}\pmod{5^a}\). Thus
 \[
 5^a\mid G_4(k)\quad\Longleftrightarrow\quad3\cdot5^a\mid k\qquad(a\ge2).
 \]
@@ -101,7 +101,7 @@ The included `checker.py` independently verifies the fifth-order integral recurr
 
 ## Relationship to prior work
 
-Mbirika, Schrader and Spilker (2023) posed questions on GCDs of translated **squared** balancing and associated-sequence windows, motivating higher-power analogues. Rayaguru and Panda (2019) established quartic summation identities for balancing and Lucas-balancing numbers. The present statement is instead an exact five-adic classification of translated **quartic** Lucas-balancing windows, including sharp all-power periods and fixed block means; neither cited statement evaluates this invariant. Previously reported results for higher powers of the different balancing sequence concern the prime seventeen, and fourth-power Pell companion studies address primes two and three. These related objects and primes do not themselves imply the present five-primary formula; an earlier implicit derivation from general summation methods remains possible.
+Mbirika, Schrader and Spilker (2023, §6.1) posed questions on GCDs of translated **squared** balancing and associated-sequence windows, motivating higher-power analogues. Rayaguru and Panda (2019) established quartic summation identities for balancing and Lucas-balancing numbers. The present statement is instead an exact five-adic classification of translated **quartic** Lucas-balancing windows, including sharp all-power periods and fixed block means. In associated-Pell notation \(C_n=Q_{2n}\) (Mbirika, Schrader and Spilker, §2), so these are stride-two quartic windows, not consecutive windows of the full associated-Pell sequence. Results at other primes, or for the zero-initialized balancing numbers, do not evaluate this invariant; a broader derivation from general summation methods remains possible.
 
 ## Limitations
 

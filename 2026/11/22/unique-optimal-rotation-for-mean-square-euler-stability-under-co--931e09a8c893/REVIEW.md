@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem reduces a two-coordinate multiplicative-noise Euler recurrence to a positive rank-one update of a covariance propagator. The exact return-gain series is evaluated by two geometric sums. Its rational form and two derivatives were independently checked symbolically from the stated matrices in `verify.py`. Strict positivity of the timestep derivative holds for all admissible parameters by an explicit positive-coefficient expression; fixed-timestep frequency-profile unimodality holds because the frequency-derivative numerator is a strictly increasing cubic in the squared-frequency variable. Compactness and the unimodality comparison prove one global optimal frequency when the dimensionless noise variance lies between 2 and 4. Finite spectral tests corroborate, but do not certify, these quantified statements.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Lang, Petersson, and Thalhammer (2017) give the underlying general covariance spectral-radius method, and Song, Geng, and Liu (2020) prove sufficiently-small-step stability equivalences. Neither inspected statement supplies the specific rational stability frontier and uniqueness of the optimal frequency in the coordinate-noise damped-rotation family. Senosiain and Tocino (2023) provide explicit continuous-time stochastic stability regions for different, nonnormal drift test systems; these do not imply the discrete-frequency optimization. Buckwar and Sickenberger (2009) develop scalar multiple-noise test equations, not the noncommuting planar model. Closely ranked published numerical findings concern random shear splitting, covariance aliasing with additive noise, or stochastic rounding, not this Itô multiplicative-noise recurrence. Absence of matching searches cannot establish exhaustive historical priority; a specialist older literature overlap remains possible.
+PASS
 
-## Value — PASS
-At noise-to-damping ratios strictly between 2 and 4, zero rotation has no mean-square stable Euler step, but a finite interval of nonzero rotations restores a positive stable step. The theorem gives an exact robust stability test, proves that excessively rapid rotation again shrinks the usable step, and uniquely characterizes the optimal frequency. This frequency-design consequence is not the generic no-reentry property of Euler-type Lyapunov arguments. The conclusion is sharply scoped to the stated normal planar drift, rank-one multiplicative noise and constant-step explicit Euler method. It is a stability statement, not a proof of finite-time accuracy or superiority of a numerical solver.
+The second-moment map is T(V)=CVC^T+tau*x*P V P with C=(1-x)I+sqrt(s)xJ. Testing every deterministic vector is equivalent to decay for all PSD starts by their finite rank-one decompositions. If q=(1-x)^2+s*x^2>=1, the noiseless second moment already fails to decay and positivity gives necessity. Otherwise put R=(I-T0)^(-1). If tau*x*(R(P))_11>=1, the nonzero PSD matrix R(P) satisfies T(R(P))>=R(P), including equality at the threshold. If the gain is <1, the positive rank-one resolvent gives V=(I-T)^(-1)I>=I, with T(V)=V-I<=rV for some r<1, proving decay by domination. I independently formed the symmetric-basis update and recovered F_s from the determinant ratio, including exact checks of both cleared derivative identities (`python /workspace/branches/review_recomputation.py`). In the transformed step coordinate t in (0,1), F_x is strictly positive, also at s=0, with the stated limits; thus strict inequalities give the entire stable interval. At fixed x, the numerator of F_s's frequency derivative is twice G_x, whose positive-degree coefficients are strictly positive and constant nonpositive. It yields at most one stationary point and makes any interior stationary point the strict profile minimum. For 2<tau<4 the continuous step ceiling vanishes at both s0 and infinity and attains a positive interior maximum. At its step, the fixed-step frequency profile is uniquely minimized; no larger step can be stable anywhere, by step monotonicity and the deterministic domain shrinking with step. This also establishes uniqueness of the stationary pair. The independent tau=3 sample gives x=0.0422474914026233618188663, s=5.00825714726004962531281 and sqrt(s)=2.23791357010498723713038. The frozen code and recorded output were read, not run; the numerical example is not the basis for uniqueness.
 
-## Closest literature and limitations
-1. Lang, Petersson and Thalhammer, arXiv:1702.07700 (2017), Sections 2–3: general covariance-operator conditions and sufficient forward-Euler estimates; direct general framework, no exact claimed oscillator optimization.
-2. Song, Geng and Liu, arXiv:2001.05203 (2020), Theorems on stability equivalence for small steps: no exact normalized noise/rotation horizon.
-3. Senosiain and Tocino, DOI:10.1007/s11075-022-01478-6 (2023), Sections 2–4: continuous-time noise destabilization for nonnormal Jordan drifts.
-4. Buckwar and Sickenberger, arXiv:0912.1968 (2009): a scalar linear test with multiple multiplicative noise terms, outside the matrix noncommuting case.
+## originality
 
-Independent historical priority and proof validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The covariance criterion and rank-one feedback technique are not new. The inspected prior results give a route to the stability inequality by model-specific specialization but do not supply the unique quantitative rotation optimum and its global two-equation characterization for this planar scheme.
+
+## value
+
+PASS
+
+The natural contrast between normal rotational damping and anisotropic noise yields a usable stability trade-off: for 2<tau<4 no unrotated step works, while enough rotation restores stability, yet faster rotation eventually drives the sharp step to zero. The exact ceiling, its unique intermediate optimum and characterization resolve this trade-off beyond a generic spectral test or eventual small-step existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

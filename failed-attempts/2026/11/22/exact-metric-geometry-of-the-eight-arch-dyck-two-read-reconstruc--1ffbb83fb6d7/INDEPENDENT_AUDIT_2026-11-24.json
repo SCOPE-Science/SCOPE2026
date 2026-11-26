@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:33:29.447402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions, and Proof (lines 3–29)",
+        "VERIFICATION.md; verify_dyck_A.py; verify_dyck_B.py",
+        "/workspace/branches/6492a7d5-b370-47ee-b14a-23b7c62ffd37/dyck_metric_reproduction.py and dyck_metric_reproduction.txt"
+      ],
+      "rationale": "The direct replay generated exactly the labeled semilength-eight Dyck words, deduplicated each set of one-position deletion outputs, tested every unordered pair for at least two shared strings, and ran BFS from every vertex. This verifies connectivity and the actual definition without relying on the alternating-flip characterization. It reproduced 1430 vertices, 6733 edges, radius 6, diameter 12, the unique center 1101010101010100, all seven eccentricity counts, all twelve unordered distance counts (summing to 1,021,735), and the exact labeled peripheral vertices and two diametral pairs. There is no multiset or symmetry quotient. The frozen verifiers were inspected, not executed.",
+      "residual_risks": [
+        "The reproduction establishes only the fixed semilength-eight theorem, not the suggested all-order patterns."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-semilength vertex-marked theorem gives an exact edge law and a sharp maximum-degree classification.",
+          "The triangle–edge cumulative theorem gives T_(n+1)-T_n=2E_n and an edge generating function."
+        ],
+        "reasoning": "These are same-family stronger results for local data, not broader radius, diameter, center, or distance-distribution laws. The targeted literature lookup did not yield a relevant all-order metric theorem.",
+        "searches": [
+          "Resultary: radius, diameter, and eccentricity of the Dyck two-read graph",
+          "Targeted literature lookup on Dyck two-read deletion graph radius and diameter",
+          "Resultary …3635f93f657f and …268e2a51ec42, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Cai et al., arXiv:2001.01376, Proposition 9",
+        "Resultary …3635f93f657f, …268e2a51ec42, …1ffbb83fb6d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing the earlier edge-law terms 1, 5, 21, 84, 330, 1287, 5005 gives 6733.",
+          "The earlier unique maximum-degree word 1(10)^7 0 is the center word in this census, but the earlier statement concerns degree."
+        ],
+        "reasoning": "Credit the edge count as a direct prior corollary. The full invariant is algorithmically obtainable from the known adjacency rule by an extra exhaustive search, but no inspected theorem gives those shortest-path conclusions or bypasses that new computation. The routine nature and choice of cutoff affect value separately.",
+        "searches": [
+          "…3635f93f657f, all-order edge and degree law; …268e2a51ec42, triangle–edge law; Cai et al., Proposition 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai et al.'s two-read characterization bounds the number of common single-deletion descendants by two for distinct words; the prior Dyck graph's equality-to-two predicate and this record's at-least-two predicate therefore define the same edges.",
+          "Resultary 2026/11/8 …3635f93f657f identifies Dyck edges through alternating blocks and gives the same vertex as the degree maximizer."
+        ],
+        "reasoning": "Binary single deletions and alternating flips are equivalent descriptions here, not novel graph definitions. Being the degree maximizer is not equivalent to being the unique minimum-eccentricity vertex.",
+        "searches": [
+          "Resultary: Dyck two-read deletion ambiguity and semilength-eight graph metrics",
+          "Cai et al., arXiv:2001.01376, Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact metric table hit …1ffbb83fb6d7 is the assigned record itself.",
+          "The independent triangle table has T_8=4628 and T_9=18094, giving E_8=6733, but does not list the metric census."
+        ],
+        "reasoning": "The overlap is an already recoverable edge total, not a second listing of the distance or eccentricity table.",
+        "searches": [
+          "Resultary: semilength-eight Dyck deletion ambiguity metric census; local Finding passages …1ffbb83fb6d7, …3635f93f657f, and …268e2a51ec42"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the previously unstated metric census only. The graph, its full adjacency criterion, its order, its edge count, and the degree extremizer are not new. For these same labeled words, the exact metric requires an additional shortest-path census, not evaluation of the prior degree or edge formulas.",
+      "residual_risks": [
+        "Unindexed equivalent metric computations or a broader metric classification not located by the bounded search are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying adjacency fact, not the Dyck metric data.",
+          "evidence": [
+            "The common single-deletion outputs of distinct equal-length binary words number at most two; alternating types distinguish the double-overlap case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "PDF p. 7, Proposition 9 and surrounding text (OA offsets 34750 and 37500)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Equivalent overlap criteria for the same words"
+        },
+        {
+          "assessment": "Covers edge count and degree extremizer, not the metric extremizer or census.",
+          "evidence": [
+            "All-order edge law, and unique maximum-degree word 1(10)^(n-1)0 for n≥3."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+          "trigger": "Same graph at every semilength"
+        },
+        {
+          "assessment": "Confirms the edge count indirectly; the displayed result does not supply the metric table. Same-day date does not settle priority.",
+          "evidence": [
+            "T_(n+1)-T_n=2E_n; at n=8 the listed triangle numbers give 6733 edges."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-triangle-edge-cumulative-law-for-dyck-word-two-read-deletion-a--268e2a51ec42",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A triangle–edge cumulative law for Dyck-word two-read deletion ambiguity",
+          "trigger": "Same-day exact same-family data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 6–17, 22–29, and 34–38",
+        "Resultary …3635f93f657f: all-order adjacency, edge count and degree comparison"
+      ],
+      "rationale": "This is a correct, complete census of a natural graph, but the choice of semilength eight is justified only as the first graph with more than a thousand vertices. That decimal threshold is not a mathematical boundary. The record does not specify a conjecture that first becomes distinguishable here, exhibit a boundary or witness that requires this size, or give another reason a researcher would need this particular table rather than a smaller or larger routine BFS census of the already characterized graph. The agreement of the metric center and the known degree maximizer is an interesting observation, but the record does not explain why its occurrence in this instance resolves a meaningful question. The stated benchmark motivation therefore does not establish value for this particular cutoff; this is not a rejection of finite exact classifications in general.",
+      "residual_risks": [
+        "A documented metric conjecture, competing laws, or an actual first exceptional phenomenon could motivate a different claim; none is established in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

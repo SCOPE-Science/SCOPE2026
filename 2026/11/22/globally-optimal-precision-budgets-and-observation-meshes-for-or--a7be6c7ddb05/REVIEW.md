@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated Gaussian mean-square risk is the exact Schur complement, and optimizing freely distributed independent measurement precision gives the squared-total-variation penalty by Cauchy–Schwarz. The positive Markov interpolation coefficients and inverse-positivity of the exponential kernel precision matrix establish positive optimal weights. The endpoint variation and strict point-splitting argument exclude boundary or unused sensors. At the remaining interior optimum the residual-potential ODE and derivative jumps enforce uniform quadrature weights, interior spacing and symmetric margins. The scalar design equation has a unique root for every permitted parameter. The explicit risk and budget transition follow. A separate standalone program reproduced 656 formula/design assertions and 4,788 numerical competitor comparisons; finite checks are not a continuous-space proof.
+PASS
 
-## Originality — PASS, qualified
+Gaussian projection reduces risk to a quadratic kernel energy plus noise. Cauchy–Schwarz eliminates the precisions with equality for allocation proportional to absolute weight, leaving the squared l1 penalty divided by P; compact sites and uniform coercivity in the weights give a minimizer. For distinct active sites the Markov interpolation integrates to a strictly positive vector Qb, with Q=K_T^{-1}. The inverse of the Stieltjes matrix I+N^(1/2)QN^(1/2) is entrywise nonnegative with positive diagonal, so the noisy weights are strictly positive for every active set. Aggregate coincident readings by adding precisions. At an active endpoint the inward variation strictly decreases the energy; at any distinct interior site a symmetric split gains λw²ε+O(ε²) while leaving the noise penalty unchanged. These exclude endpoints and unused or duplicate sites and give strict improvement with an additional site. On each open gap the residual solves r''−λ²r=−2λ, with r(t_i)=c=Σw/P; the average of one-sided site slopes vanishes and the jump is 2λw_i. Hence adjacent weights coincide, the inner gaps coincide, and the two Robin boundary conditions give equal margins and the stated weight equation. Its sides are strictly monotone in opposite directions, so existence plus uniqueness of the root proves global optimality. At g=d the sign of the difference is the sign of P−n. The separate n=1 case is maximization of the positive kernel mean at 1/2. Evaluating the normal equations gives the stated risk and geometric sum.
 
-The inspected published noiseless exponential-kernel theorem identifies symmetric margins and equal interior gaps under exact observations, which is not the present finite-noise resource-allocation problem. Pronzato–Zhigljavsky (2018) provide Gaussian kernel-energy foundations; Karvonen–Kanagawa–Särkkä (2018) address quadrature weight positivity; Cai–Lam–Scarlett (2022) address noisy convergence rates, without this joint all-sensor-count optimum. A previously recorded two-sensor exponential-kernel noisy design is covered as a special case and is not claimed as new. The related Brownian and Brownian-bridge all-n precision-budget theorems concern different covariances and boundary behavior. No accessible source inspected directly established this theorem or implied its budget threshold. Historical priority remains conditional on older unavailable integral-design material.
+## originality
 
-## Value — PASS
+PASS
 
-Freely dividing a finite sensor-precision budget while choosing all measurement locations is a natural design objective, not an arbitrary low-dimensional slice. The classification identifies a unique globally optimal rule for every finite sensor count, demonstrates that every extra sensor is strictly useful, and finds an exact budget at which all gaps become uniform independently of kernel length scale. This is a structural completion beyond the familiar noiseless and two-sensor cases.
+The assessed distinction is the finite-P, all-n free allocation theorem. The exact noiseless design and the fixed-equal-variance two-site geometry, risk and transition are already covered by indexed records. Neither includes the all-n optimization over freely allocated precisions, the finite-budget margin law for n≥3, or strict improvement in sensor count at fixed total precision. Other primary passages give the quadrature/energy framework, weight positivity, error rates, or different OU criteria; they do not supply this joint-design theorem.
 
-## Closest literature and limitations
+## value
 
-Primary references: Pronzato–Zhigljavsky, arXiv:1808.10722v1; Karvonen–Kanagawa–Särkkä, arXiv:1812.08509v1; Cai–Lam–Scarlett, arXiv:2202.10615v1; the published noiseless exponential-kernel design theorem at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba. The 2003 Mukherjee integral-estimation article and related older dissertation could be examined only at abstract level, leaving a specific residual priority risk. The theorem assumes known stationary exponential covariance and continuously divisible independent Gaussian measurement precision. It does not address adaptive sampling, unknown parameters, integer replicate costs or other kernels.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-n result resolves whether it is preferable to concentrate a fixed sensing budget or spread it among extra sites: the exponential cusp strictly favors splitting and the global mesh is computable by one scalar root. The co-variation of boundary margins with budget and the exact P=n transition for n≥3 are useful predictions beyond the already solved noiseless and two-site regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

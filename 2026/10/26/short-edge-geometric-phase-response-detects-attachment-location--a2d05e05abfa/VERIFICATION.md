@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,7 @@
 
 ## Checks and limits
 
-- Reconstructed the short-edge integral from the scaled eigenfunction normalization: \(E_1(\varepsilon)=-\varepsilon|\psi_0(v)|^2/6+O(\varepsilon^2)\).
-- Checked the path limit using the normalized Neumann interval eigenfunction \(\sqrt{2/S}\cos(\pi x/S)\).
-- Checked the star limit using \(\tan(k\varepsilon)+\tan(ka)+\tan(kb)=0\), the identity \(\tan(ka)+\tan(kb)=\sin(kS)/(\cos(ka)\cos(kb))\), and the simple-root condition for \(a\ne b\).
-- The ratio is an asymptotic result for fixed positive \(a,b\) with \(a\ne b\), not a finite-\(\varepsilon\) identity or a complete graph-identification theorem.
-- The external independent-audit channel has not been performed.
+- The limit uses the pole-free star determinant; its simple roots near zero and \(\pi/(a+b)\), together with uniform convergence on the intervening compact interval, isolate the first positive branch.
+- The short-edge normalization supplies a factor of \(\varepsilon\), and the scaled moment weight integrates to \(-1/6\). Real analyticity justifies differentiating the expansion.
+- The quadratic functional coefficient follows by periodic integration by parts in Eq. (47) of arXiv:2210.14652v1. It is not a coefficient of the Berry phase of the final article.
+- The ratio is asymptotic for fixed positive unequal \(a,b\), not a finite-length identity or a complete graph-identification theorem.

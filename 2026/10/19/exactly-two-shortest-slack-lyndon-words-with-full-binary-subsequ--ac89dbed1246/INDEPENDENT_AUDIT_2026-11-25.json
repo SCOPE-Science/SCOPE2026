@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:26.627042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–56",
+        "Frozen VERIFICATION.md lines 19–23 and CHECK.py lines 8–69"
+      ],
+      "rationale": "The greedy arch criterion gives the length bound: the last letters of successive arches are matched first at the successive arch ends, so appending a symbol absent from the remainder gives a missing subsequence. A binary Lyndon word containing both symbols starts with 0 and ends with 1 (a trailing zero-run would extend its leading zero-run under rotation). At length 2k the arches are pairs; the initial 01 forbids all 00, so the only candidate is (01)^k, strict only for k=1. At length 2k+1 an initial 01 likewise forbids 00, hence k zeroes delimit k positive one-runs with one doubled run. Lexicographic minimality puts the doubled run last. An initial 00 forces a first arch 001 and pair arches thereafter, ending in 01. If any 10 occurs, rotate from the second letter of the last 10; with b trailing 01 arches the new prefix is 001(01)^(b-1)00. Compare with the original prefix 001(01)^a10 up to its first 10: the rotation wins whether b-1<a or b-1>=a. Thus all suffix arches are 01. Both resulting words pass the strict rotation comparison, are reverse-complements, and contain k arches. The disjoint arch/remainder counts are 2^(k+1) and k2^k, including k=1. Inspected RESULT.md §§1–5 and the finite-check design in CHECK.py; no supplied code was executed.",
+      "residual_risks": [
+        "The finite checks in the package are recorded evidence only; the universal quantifier is supported by the rotation and arch proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unbordered classification includes both formula words via the zero vector and reverse-complement, but also permits other words; its finding does not select the strict rotation minima.",
+          "The regular-language treatment concerns finite-automaton constraints, not a closed classification for the Lyndon language."
+        ],
+        "reasoning": "Lyndon implies unbordered, so the unbordered theorem gives a threshold lower bound and an overfamily where applicable. Even with that theorem one must apply a substantive comparison of rotations to prove that exactly two members survive. Its later catalog date is not the basis for distinguishing the statements.",
+        "searches": [
+          "Resultary: Lyndon binary k-subsequence universal words length 2k+1",
+          "2026/11/8/SCOPE-sharp-unbordered-subsequence-universality-thresholds-and-binary--59b60432d935",
+          "arXiv:2311.10658"
+        ]
+      },
+      "checked_sources": [
+        "Resultary unbordered and three circular records identified above",
+        "Barker et al. arXiv:2003.04629v1",
+        "Adamson arXiv:2304.04583v1",
+        "Bannai et al. arXiv:2201.06773v1",
+        "Adamson et al. arXiv:2311.10658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamson's Theorems 2.4 and 3.9 and ranking procedure give tools for universal words without the strict least-rotation condition.",
+          "The unbordered prior covers the broader shortest-length phenomenon and the existence of these words as unbordered words. The unrestricted count follows directly from the established arch decomposition."
+        ],
+        "reasoning": "Credit these implications. They do not count or explicitly identify the entire Lyndon intersection; the proof has to exclude all remaining choices even after restricting the arch types or the unbordered class.",
+        "searches": [
+          "arXiv:2304.04583v1 §§2–4",
+          "arXiv:2003.04629v1 §4",
+          "Resultary unbordered classification 59b60432d935"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. quantify over the existence of some universal rotation, not universality of the strict least rotation.",
+          "Bannai et al. seek a Lyndon subsequence of a given host; here the host must be Lyndon and carry all short binary subsequences."
+        ],
+        "reasoning": "Neither changing the cut nor finding Lyndon subsequences in an arbitrary host preserves the tested constraint; reverse-complement relates the two witnesses without enlarging the family.",
+        "searches": [
+          "Resultary: Lyndon binary k-subsequence universal words length 2k+1",
+          "Resultary: Lyndon representative linear cut",
+          "arXiv:2003.04629v1 §4 Definition 3",
+          "arXiv:2201.06773v1 abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The near-minimal circular record gives (2k+1)2^k labeled words and 2^k primitive necklaces at odd length 2k+1; the two distribution records also yield the labeled count there."
+        ],
+        "reasoning": "Even knowing that each circular class is primitive only ensures one Lyndon representative per class. It does not identify which representatives are universal as written; no exact table for that filter was located in these comparisons.",
+        "searches": [
+          "Resultary: binary circular subsequence universality odd length necklaces",
+          "2026/11/2/SCOPE-near-minimal-binary-circular-subsequence-covers-parity-classific--a2fd261dc341",
+          "2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f",
+          "2026/10/26/SCOPE-exact-circular-subsequence-universality-distribution-of-binary-w--8b750033b0cb"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact classification of lexicographically least strict rotations that are themselves linearly universal, not arch theory, unrestricted counting, circular counts, or priority for the related unbordered threshold and witnesses. The strongest indexed comparisons materially overlap but do not supply the two-word Lyndon filter.",
+      "residual_risks": [
+        "Bounded source comparison is not a priority determination; an unindexed or unstated equivalent may remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related criterion; not the Lyndon-cut statement",
+          "evidence": "Circular universality requires a universal conjugate and the binary theorem relates the index to universality of powers.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629v1",
+          "material_read": "§4 Definition 3 and Theorem 4.3",
+          "method": "OA full-text HTML passages at offsets about 18369 and 61276",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational linear/circular notion and potential rotation equivalence"
+        },
+        {
+          "assessment": "Underlying arch/counting tools; no exact filtered classification in the examined results",
+          "evidence": "Counts and ranks universal words of a fixed length without the Lyndon constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583v1",
+          "material_read": "§2 Theorem 2.4, §3 Theorem 3.9, §4 ranking",
+          "method": "OA full-text HTML passage review",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Could already give short-length counts or a consequence for special hosts"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The Lyndon condition is imposed on a selected subsequence, not the host.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.06773v1",
+          "material_read": "Abstract and §1",
+          "method": "OA full-text HTML",
+          "title": "Computing Longest (Common) Lyndon Subsequences",
+          "trigger": "Shared Lyndon and subsequence terminology"
+        },
+        {
+          "assessment": "Finite-automaton framework does not establish this filter",
+          "evidence": "Decides universality properties of regular languages and counts/ranks accepted universal words.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+          "material_read": "Abstract and §1 formulation",
+          "method": "OA full-text HTML",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Potential broader language restriction"
+        },
+        {
+          "assessment": "Strong partial coverage; not the exact Lyndon intersection",
+          "evidence": "T(0) is 001(01)^(k-1), whose reverse-complement is (01)^k1; the family describes unbordered words.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-unbordered-subsequence-universality-thresholds-and-binary--59b60432d935/RESULT.md",
+          "material_read": "Finding and T(c) witness family",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Sharp unbordered subsequence universality thresholds and binary classification",
+          "trigger": "Same short length and both witnesses"
+        },
+        {
+          "assessment": "Circular class counts, not linearly universal least cuts",
+          "evidence": "(2k+1)2^k labeled circular words and 2^k primitive necklaces.",
+          "identifier_or_url": "2026/11/2/SCOPE-near-minimal-binary-circular-subsequence-covers-parity-classific--a2fd261dc341/RESULT.md",
+          "material_read": "Finding",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Near-minimal binary circular subsequence covers and parity classification",
+          "trigger": "Same odd length and universality under rotations"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Matching characterization and circular distribution; not universality of the representative itself.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f/RESULT.md",
+          "material_read": "Circular-index finding and odd-length specialization",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact circular subsequence universality spectrum of binary words",
+          "trigger": "Candidate exact count in the near-minimal range"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts words whose circular index is k, including (2k+1)2^k at the odd length in question.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-circular-subsequence-universality-distribution-of-binary-w--8b750033b0cb/RESULT.md",
+          "material_read": "Finding for circular indexes",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact circular subsequence universality distribution of binary words",
+          "trigger": "Candidate exact circular count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20, 28–56 and the circular/unbordered comparisons in the originality assessment"
+      ],
+      "rationale": "There is a natural extremal question: for a canonical primitive rotation representative, what is the least length that can carry the full linear subsequence spectrum, and which representatives attain it? The result eliminates all but two out of an exponential first-slack linear family. It separates a genuine least-cut constraint from merely counting admissible rotation classes, and gives exact test cases for that distinction at all k.",
+      "residual_risks": [
+        "The value is in the sharp Lyndon boundary and complete classification, not in a new unrestricted counting formula or a general alphabet theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

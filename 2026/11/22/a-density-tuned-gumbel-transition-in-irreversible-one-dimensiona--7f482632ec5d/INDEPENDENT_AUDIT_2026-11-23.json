@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:58:45.626629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5) and proof steps 1–5; reconstructed from the site-clock rule."
+      ],
+      "rationale": "Independently reconstructed the run law, the random-prefix maximum argument, all normalizations, and the transfer to sweeps. On a ring of L >= 3 with a nonempty initial plus set, different minus runs use disjoint site clocks and cannot merge. Given length k, a run has k-1 independent rate-2 waits followed by one independent rate-1 wait, including the k=1 case. Mixing over geometric(p) lengths gives H = E + BW in law with independent E ~ Exp(1), B ~ Bernoulli(1-p), W ~ Exp(2p), so its Laplace transform is p(s+2)/[(s+1)(s+2p)]. The survival function is [p exp(-t)-(1-p) exp(-2pt)]/(2p-1) for p != 1/2 and exp(-t)(1+t/2) at equality. To avoid conditioning marks on the renewal count, embed successive complete runs in an infinite iid marked prefix. Their count divided by L tends in probability to p(1-p), or to 1/4 in the triangular case by bounded second moments of the geometric cycles. Sandwich the maximum pathwise between fixed-prefix maxima of (p(1-p) +/- epsilon)L marks on the count event, then send epsilon to zero. Runs meeting the cut and omitted from the prefix are bounded by the two geometric-tailed boundary fragments; they contribute o(1) at any threshold tending to infinity. The all-plus configuration has time zero, and conditioning away the all-minus event, of probability (1-p)^L, does not affect the limits. For p<1/2 the center is [log L+log(p(1-p)^2/(1-2p))]/(2p), with multiplier 2p; for p>1/2 it is log L+log(p^2(1-p)/(2p-1)), with multiplier 1. At p=1/2 the center is log L+log log L-log 8. In the window p_L=1/2+a/log L, exp[-(2p_L-1)t] tends to exp(-2a) at the stated thresholds, and the leading survival factor is exp(-t)(log L)w(a)/2, where w(a)=(1-exp(-2a))/(2a), w(0)=1. Adding log w(a) to the critical center gives Lp_L(1-p_L)R_{p_L}(t) -> exp(-x); the fixed-density centers give the same intensity at their scaled thresholds. The iid maximum formula then gives exp(-exp(-x)). For de-Poissonization, the first L prefix marks and the boundary lifetime have a uniform positive exponential-moment bound for each fixed p or near p=1/2 (choose the moment parameter also below the geometric-fragment bound). Their union bound gives conditional E[T_L]=O(log L). Independent rate-L interattempt gaps have conditional time-error variance J_L/L^2, with E[J_L]=L E[T_L] under the same conditioning, so the sweep error is o_P(1). The argument is analytic; the uploaded checker was not executed.",
+      "residual_risks": [
+        "The window statement is pointwise for each fixed finite a; no uniformity over growing a or quantitative convergence rate was established.",
+        "An unconditional finite-L mean would be infinite because of the all-minus atom; the sweep error estimate is conditional on nonempty initial plus set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ertul's theorems are interval mixing/cutoff results, including a Gaussian-window result under its stated assumptions, rather than order-one absorption profiles conditional on an iid nonempty seed set on a periodic ring.",
+          "Shcherbakov identifies the cooperative filling class; the growth theorem inspected concerns multiple occupancy and localization rather than the completion time for saturated one-site filling.",
+          "Evans was accessible only at abstract level; broad coverage of adsorption is not evidence for or against an exact finite-ring completion law."
+        ],
+        "reasoning": "A mixing theorem for the interval is not a Bernoulli-initial ring absorption theorem, and the inspected growth/localization theorem has a different state space and observable. Standard iid extreme-value theory gives the limiting form after the effective tail and count have been derived; it does not supply those model-specific inputs.",
+        "searches": [
+          "Ertul, arXiv:2103.00019v2, §2 Theorems 2.1–2.2",
+          "Shcherbakov, arXiv:2312.13731v1, §§2–3",
+          "Evans, DOI 10.1103/RevModPhys.65.1281, random and cooperative sequential adsorption"
+        ]
+      },
+      "checked_sources": [
+        "Cao–Jiang–Zhang, arXiv:2610.36829, §IV.B and Appendix C",
+        "Ottino-Löffler–Scott–Strogatz, Phys. Rev. E 96, 012313, §II Eq. (2)",
+        "Ertul, arXiv:2103.00019v2, §2",
+        "Shcherbakov, arXiv:2312.13731v1, §§2–3",
+        "Evans, Rev. Mod. Phys. 65, 1281 (abstract only)",
+        "Resultary indexed records 4fedaca5b99e and 0335952f8ba4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cao et al. provide the rate-2/rate-1 stages in random-sequential form (success probabilities 2/L and 1/L) for a single fixed run in (C3), and (C4) gives the sweep mean for an arbitrary deterministic length vector. Equation (21) compares the logarithmic mean for fixed short runs with the linear mean for a fixed long run.",
+          "The common decay factor (1-1/L)^k noted in §IV.B is a fixed-L, fixed-preparation tail statement. It does not capture the competing 2p exponential rate or a resonance when the run lengths are randomized while L increases.",
+          "Ottino-Löffler et al. obtain a Gaussian one-seed cycle limit with infected-source/neighbor updates; Ertul treats interval mixing rather than the iid ring statistic."
+        ],
+        "reasoning": "Credit the identical generator and the fixed-length lifetime mechanism to Cao et al. A deterministic-vector mean recursion is not a distributional implication, and passing from the deterministic-run stage laws to the claimed profile requires mixing the geometric length, controlling the renewal prefix and the cut, and evaluating the competing tails at the L-dependent normalization. The inspected prior results do not entail the stated law by a direct specialization.",
+        "searches": [
+          "Cao et al., arXiv:2610.36829, revised HTML §IV.B and Appendix C",
+          "Ottino-Löffler et al., §II Eq. (2)",
+          "Ertul, §2 Theorems 2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In cooperative monomer filling use plus = occupied and rates (0,1,1) according to the number of occupied neighbors. This preserves the rate of the final isolated vacancy; an additive edge infection with rates (0,1,2) does not.",
+          "In FA-1f notation use plus = vacancy and set the dynamical refresh parameter q=1; the facilitator constraint is then the same local rule. The p in the reviewed theorem is instead an initial density.",
+          "Cao et al. §IV.B explicitly define the identical random-sequential ring rule. Ottino-Löffler et al. §II use a different update and a single seed."
+        ],
+        "reasoning": "Checked exact alternative descriptions as well as a superficially similar cycle infection. Equivalent generators do not transfer a theorem unless the observable, domain and initialization are covered; the inspected FA-1f and adsorption results did not give the Bernoulli ring profile. The edge-based rule changes the last-site waiting time and hence cannot identify its rate collision with this one.",
+        "searches": [
+          "Cao, Jiang and Zhang, arXiv:2610.36829, Q^(1)(0,2)",
+          "Shcherbakov, arXiv:2312.13731v1, cooperative sequential adsorption / monomer filling",
+          "Ertul, arXiv:2103.00019v2, FA-1f",
+          "Ottino-Löffler, Scott and Strogatz, DOI 10.1103/PhysRevE.96.012313, network infection takeover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 4fedaca5b99e matches the crossover factor (1-exp(-theta))/theta but is a directed two-population epidemic, not erosion of geometric runs on a ring. That comparison uses the index summary, not an independently read full proof.",
+          "Indexed record 0335952f8ba4 is a dimer-jamming problem with a different blocking rule, not last-minus absorption under threshold-one monomer filling.",
+          "The closest exact data in Cao et al. are passage-time laws or means for fixed run patterns: the means H_(L/2) and L/8+1/2, the two attempt-count generating functions, and a general deterministic-vector mean recursion. They do not tabulate the Bernoulli centers or crossover."
+        ],
+        "reasoning": "Neither the matching function, the jamming analogue, nor an exact fixed-pattern value identifies the claimed law with a catalogued one. Index searches are not exhaustive and are not treated as full-text exclusions.",
+        "searches": [
+          "Resultary / published SCOPE: geometric spin domains, Bernoulli ring absorption, log-log Gumbel resonance; results 4fedaca5b99e and 0335952f8ba4",
+          "Cao et al., Eq. (21), Appendix C Eqs. (C3)–(C4)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact Bernoulli-initial ring absorption law: the density-dependent rate and center, the critical log log L term with its constant, and the fixed-detuning 1/log L crossover. The exact kinetic rule and deterministic run staging are prior work. Neither exponential resonance as a general mechanism nor the Gumbel maximum argument is original.",
+      "residual_risks": [
+        "Evans was not inspected in full text; older cooperative adsorption or irreversible filling literature may use other terminology or derive related finite-size laws.",
+        "The two Resultary comparisons are limited to the indexed statements, not full-text comparisons.",
+        "The priority assessment is best of knowledge, and does not extend to the generator, fixed-domain passage mechanism, generic resonance factor, or iid maximum argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the process and deterministic-run ingredients, not the reviewed Bernoulli absorption theorem",
+          "evidence": [
+            "§IV.B Eq. (21): H_(L/2) and L/8+1/2 for ++-- repeats and a single L/4 down run; fixed-pattern decay factor in the closing paragraph",
+            "Appendix C Eq. (C3): geometric-stage attempt-count PGFs; Eq. (C4): first-step recursion for the mean given a run-length vector"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2610.36829",
+          "material_read": "§IV.B ordering and Appendix C, in particular the fixed-run generating functions and deterministic-vector recursion",
+          "method": "Direct inspection of rendered full-text passages and equation labels",
+          "title": "Kinetic Sectors and Nonequilibrium Dynamics in the δ-Ising Model",
+          "trigger": "Identical kinetic sector and exact ring passage results"
+        },
+        {
+          "assessment": "One-seed cycle theorem with different update and asymptotics",
+          "evidence": [
+            "Infected-source/neighbor mechanism and Gaussian cycle limit in Eq. (2)"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217517/",
+          "material_read": "§II cycle dynamics and Eq. (2)",
+          "method": "Direct accessible full-text comparison of rule, initialization and limit",
+          "title": "Takeover times for a simple model of network infection",
+          "trigger": "Cycle fixation under a nearest-neighbor irreversible update"
+        },
+        {
+          "assessment": "Interval mixing theorems do not cover the stated Bernoulli ring absorption distribution",
+          "evidence": [
+            "Same local facilitation in the q=1 specialization; interval mixing formulation and different initial/boundary hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.00019v2",
+          "material_read": "§2 definitions and Theorems 2.1–2.2",
+          "method": "Direct full-text inspection of generator and theorem hypotheses",
+          "title": "Cutoff for the Fredrickson-Andersen one spin facilitated model",
+          "trigger": "One-spin facilitation is equivalent at dynamical q=1 after relabeling"
+        },
+        {
+          "assessment": "The model class contains the equivalent rule; the growth result inspected does not give the Bernoulli ring profile",
+          "evidence": [
+            "§2 rates by occupied-neighbor count allow (0,1,1); §3 concerns growth with multiple occupancy and localization"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.13731v1",
+          "material_read": "§2 cooperative monomer model and §3 growth theorem",
+          "method": "Direct full-text comparison of rates and observable",
+          "title": "Probabilistic models motivated by cooperative sequential adsorption",
+          "trigger": "Equivalent monomer-filling description"
+        },
+        {
+          "assessment": "Coverage unresolved at full-text level; no negative conclusion drawn",
+          "evidence": [
+            "The abstract establishes topical relevance, not whether a Bernoulli-initial ring absorption result is present."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+          "material_read": "Abstract only",
+          "method": "Accessible abstract; full text not reached after access denial",
+          "title": "Random and cooperative sequential adsorption",
+          "trigger": "Broad survey of an equivalent model family"
+        },
+        {
+          "assessment": "Positive evidence for prior coverage of the resonance mechanism, not full-text exclusion of other related results",
+          "evidence": [
+            "Directed two-population mechanism, not the threshold-one nearest-neighbor spin ring; matching crossover factor is expressly credited."
+          ],
+          "identifier_or_url": "Resultary 4fedaca5b99e",
+          "material_read": "Published index summary only",
+          "method": "Statement-level comparison from Resultary indexing",
+          "title": "A log-log extinction delay and a near-resonant Gumbel crossover in a directed epidemic",
+          "trigger": "Same log-log delay and crossover factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4); Cao et al. §IV.B Eq. (21) for the deterministic preparation contrast."
+      ],
+      "rationale": "The natural quantity is the time for the last minus domain to disappear, not the time for a typical site to flip. Its effective decay rate changes from 2p to 1 as the seed density crosses one half. Equal rates change the polynomial multiplier in the tail, leading to a log log L delay, and the order-one crossover constant describes which finite-size normalization applies near that density. This supplies an exact collective passage-time benchmark for a standard kinetic constraint and distinguishes iid preparation from the known deterministic patterns. The scientific contribution is this model-specific classification and window, not the general Gumbel method.",
+      "residual_risks": [
+        "No claim for correlated seeds, nonmonotone dynamics, higher dimensions, or fast finite-size convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

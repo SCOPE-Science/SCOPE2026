@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns precisely rotation-distinct ternary order-three de Bruijn cycles. The proof identifies each cycle bijectively with a nine-permutation successor system whose induced permutation is a single \(27\)-cycle. Each BWT has nine alphabet-permutation blocks, giving exact boundary formulas for both run counts. A complete \(6^9\) enumeration and an independent anchored Euler-tour enumeration give identical \(18\)-cell integer tables, both summing to the known \(373248\) cycles. Two standalone source files with exact assertions were compiled and executed successfully. The computation is exhaustive for the specified finite domain.
+## correctness
 
-**Originality — PASS, qualified.** Higgins (2012, Section 3) proves the BWT permutation-block structure and Fici–Gabory (2025, Section 3 and Table 1) prove the general Hamiltonian correspondence and tabulate the total \(373248\). These prior results are credited and do not provide the run-count distribution or extremal frequencies. Date–Zatesko (2025) proves bounds for related endmarked and binary settings, not these ternary sentinel-free counts. A prior binary order-five run spectrum uses a different alphabet/order. Exact alias, parameter, sequence-number and broader-result searches have not exposed this joint table; this is **not** a proof of historical uniqueness. The strongest residual risk is an unlocated earlier specialized enumeration, especially one described as a distribution of BWT alphabet-permutation boundary agreements.
+PASS
 
-**Value — PASS.** BWT run counts directly control run-length compression and related indexing parameters. At the first short ternary de Bruijn order with a substantial nontrivial population, the result provides complete—not sampled—compression-cost statistics under both ordinary and cyclic conventions, as well as sharp minima and exact numbers of optimizers. The refinement from the known total \(373248\) to \(18\) joint types is a natural, precisely motivated finite invariant rather than an arbitrary restriction. It does not claim a general-order theorem.
+A length-27 de Bruijn necklace has distinct triples, hence distinct rotations, ordered by their triples. For each two-letter prefix the three predecessors are a permutation of the three letters, since all triples ending in that prefix occur once. Thus the 18 within-block changes are forced; the eight inter-block changes and the wrap comparison give r and c as claimed. Independently enumerated last-column blocks with the predecessor/LF map i -> 9*L[i]+floor(i/3). It is injective already on assigned rows, and an irrevocably closed proper cycle cannot extend to a single cycle. At a leaf all 27 rows return on one cycle, and reversing the predecessor walk spells the cycle with precisely the 27 row triples; that gives one necklace and no extra quotients by reversal or alphabet relabeling. Exact output from `python3 /workspace/review-evidence/02_lf.py` (full log `02_lf.csv` in that directory) matches all 18 cells, total 373248, both marginals and the extrema including the wrap-sensitive minima. Both supplied C++ certificates were inspected as text rather than executed. This establishes only the specified sentinel-free finite case.
 
-**Closest sources and limitations.** Higgins, *Burrows–Wheeler transformations and de Bruijn words*, 2012; Fici and Gabory, *Generalized De Bruijn Words, Invertible Necklaces, and the Burrows-Wheeler Transform*, 2025; Date and Zatesko, *On the near-tightness of \(\chi\le2r\)*, 2025. A related published binary order-five BWT-spectrum record is distinct. The proof is reproducible finite enumeration; no external independent audit or general asymptotic claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the BWT block theorem, orbit correspondences and total count. The supported distinct claim is the exact joint run distribution and its extremal multiplicities. The closest inspected primary and indexed results neither give that distribution nor resolve its run-refined count by specialization of their statements.
+
+## value
+
+PASS
+
+This is a natural first ternary case with nine independent local permutation blocks before imposing global connectivity. The joint distribution quantifies both attainment/rareness of the compression-extremal cases and the effect of the wrap comparison, which is lost in a linear-only spectrum. It is a reproducible benchmark for run-enumeration and extremal constructions, not just a recomputation of the de Bruijn total or a new general run law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

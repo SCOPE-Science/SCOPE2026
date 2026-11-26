@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:16.786389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–47 and 49–90",
+        "VERIFICATION.md",
+        "check.py",
+        "/workspace/branches/frozen_review_checks.py"
+      ],
+      "rationale": "With the normalized measure, the four nontrivial real-conjugate character coefficients have exactly seven unordered quartic resonances. The two mixed non-pairing contributions are 8 Re(u^3 v) and 8 Re(v^3 conjugate(u)); M inserts the two distinct real multipliers a>0>b. With r>0 the norm quotient is strictly decreasing in each resonance cosine (negative numerator slope, positive denominator slope, and numerator and denominator both positive). The phase map has determinant 10, so both cosines can be -1 and this is necessary at any two-mode optimizer. The resulting N/D derivative has the stated sextic numerator; the interval substitution 4t/(1+t) yields six positive coefficients then one negative, and P(4+t) has only negative coefficients. The resulting unique root is a strict global maximum, including the limiting one-mode endpoints; r=4 already beats b^4>a^4. The angles solving the two congruences are indexed modulo ten, reached by translations (increment two) and sign (increment five). Delta is onto the real mean-zero space by its four nonzero Fourier multipliers and M Delta is the stated difference. Independent `python3 /workspace/branches/frozen_review_checks.py` (section 4, passes) enumerates the resonance counts, certifies the algebra and signs exactly, and evaluates the norm as 0.863476459984369237616776... and r as 3.62064679016703604.... The source's displayed norm decimal is illustrative and differs in its last quoted digit, not in its exact specification. The bundled checker was inspected, not executed.",
+      "residual_risks": [
+        "The certificate is exact for the algebra and sign argument. The numerical evaluation is supplementary; the real-phase optimization supplies the global proof, not numerical tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 bounds product-of-cycles convolution with a dimension-independent constant, not exact modulus-specific norms.",
+          "Resultary 4bb94785b883 covers all real centered Z/4 cyclic convolutions, not Z/5. The former has a two-dimensional rotation-dilation block and a scalar sign-frequency sector, rather than two conjugate pairs with the two order-five phase resonances."
+        ],
+        "reasoning": "Neither a stronger group-uniform upper bound nor arbitrary multipliers on a different group imply an exact Z/5 real operator norm with its equality classification.",
+        "searches": [
+          "Resultary: every four-state cyclic convolution; order-five cyclic Hilbert-transform fourth-power norm",
+          "arXiv:2609.15768 Theorem 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records fef7f487f3a2 (self), 4bb94785b883, b6627f6ff641",
+        "arXiv:2609.15768 (recorded Theorem 2.5 comparison)",
+        "Frozen AUDIT.json lines 75–115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hilbert multiplier uses -i,-i,+i,+i on the four nonzero frequencies, all of the same modulus. The neighboring average is a,a,b,b by conjugate pairs, with unequal moduli; translation, global phase and scalar multiplication preserve equal moduli and do not turn the prior optimizer into a solution.",
+          "The quartic resonance identity is common to both Z/5 problems; it does not itself determine the maximum. Here the two real multipliers create distinct amplitude weights and a sextic stationarity equation.",
+          "The source's spectral benchmark 0.809016994... is a two-norm value, not the four-norm sharp answer."
+        ],
+        "reasoning": "The known extraction of order-five resonances is credited as technique. The phase and amplitude optimization for this particular natural multiplier is not a parameter reading from the compared exact statements.",
+        "searches": [
+          "Compare b6627f6ff641 and 4bb94785b883 Fourier multipliers and optimizing equations with RESULT.md lines 51–86",
+          "Compare arXiv:2609.15768 Theorem 2.5 with the exact one-coordinate inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delta has range equal to the mean-zero subspace, so the centered two-lag versus one-lag difference inequality in RESULT.md lines 38–43 is mathematically equivalent to the operator-norm problem.",
+          "The product-of-cycles theorem uses the same symmetric average and centered difference, but supplies a nonsharp p=4 bound 3 (frozen AUDIT.json lines 75–82)."
+        ],
+        "reasoning": "The equivalent difference formulation is genuinely in the prior theorem's scope as an inequality, but the prior bound does not identify its best constant or equality cases.",
+        "searches": [
+          "Resultary: exact order-five mean-zero L4 neighboring-average norm and sharp one-coordinate convolution inequality",
+          "Jiao–Luo–Zanin–Zhou arXiv:2609.15768, section 2 E_j and D_j"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Z/5 neighboring-average hit fef7f487f3a2 is the assigned finding itself. The distinct earlier exact records are 4bb94785b883 on Z/4 and b6627f6ff641 for an order-five sign multiplier. The frozen comparison gives the latter's quartic 3t^4-12t^2+8t-9 and norm 1.202320949439...."
+        ],
+        "reasoning": "Neither indexed exact value is a table entry for the present neighboring average. No distinct exact entry for the same multiplier was evidenced by this comparison; lack of a hit is not a proof of priority.",
+        "searches": [
+          "Resultary search for exact Z/5 and Z/4 cyclic convolution norms and exact order-five cyclic Hilbert-transform norm"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for this real five-state neighboring-average optimum and its equality profile, not for the Fourier resonance method or convolution inequality generally. The two closest indexed sharp norms differ by modulus or by multiplier. The actual statements available in the frozen comparisons supply neither this root nor the scale ratio of its equality profile.",
+      "residual_risks": [
+        "No new readable full texts were obtained from the cited retrievals, and the literature search did not return usable results. Earlier unindexed exact circulant or finite-chain norm computations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general bound, no equality or sharp constant for this instance in compared material",
+          "evidence": [
+            "E_j=(T_j+T_j^-1)/2; D_j=(T_j-T_j^-1)/2; p=4 bound 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.15768",
+          "material_read": "Definitions, Theorem 2.5 and section 3 comparison recorded in frozen AUDIT.json lines 75–82; exact paper retrieval timed out in this review",
+          "method": "Compare the available recorded theorem statement against the one-coordinate sharp claim",
+          "title": "The Strong Naor–Schechtman Convolution Inequality on the Product of Cyclic Groups",
+          "trigger": "Same convolution and centered difference"
+        },
+        {
+          "assessment": "Different cyclic order; no comparison of unseen portions asserted",
+          "evidence": [
+            "Exact norm formula is for real mean-zero Z/4."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11, 4bb94785b883",
+          "material_read": "Indexed summary and concrete full-statement comparison recorded in frozen AUDIT.json lines 84–94; linked full text unavailable on this retrieval",
+          "method": "Compare modulus, Fourier blocks and exact statement",
+          "title": "Exact real ell4 contraction factors for every four-state cyclic convolution",
+          "trigger": "Earlier exact real fourth-power circulant norm"
+        },
+        {
+          "assessment": "Earlier fifth-order resonance method, but a different multiplier and optimum",
+          "evidence": [
+            "Unit-modulus signed imaginary multipliers and a quartic critical equation versus the neighboring average's unequal-magnitude real multipliers and sextic."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11, b6627f6ff641",
+          "material_read": "Indexed summary and concrete theorem/formula comparison recorded in frozen AUDIT.json lines 95–105; linked full text unavailable on this retrieval",
+          "method": "Compare the two multipliers, critical equations, and identified equality data",
+          "title": "Exact fourth-power norm of the order-five cyclic Hilbert transform",
+          "trigger": "Exact norm, same modulus and exponent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–47, 63–94",
+        "arXiv:2609.15768 Theorem 2.5 comparison",
+        "Resultary b6627f6ff641 comparison"
+      ],
+      "rationale": "This is a natural first odd cyclic modulus with distinct nonconstant spectral magnitudes, in an established neighboring-average inequality. The exact L4 value, not merely contractivity, exhibits a strict nonlinear versus spectral gap and distinguishes a rigid mixed-frequency worst profile from individual eigenfunctions. The precise finite-state coefficient and extremizer remain independently useful without a claim about the general product constant.",
+      "residual_risks": [
+        "The result does not quantify higher moduli, multiple steps, or the sharp dimension-independent product-group constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

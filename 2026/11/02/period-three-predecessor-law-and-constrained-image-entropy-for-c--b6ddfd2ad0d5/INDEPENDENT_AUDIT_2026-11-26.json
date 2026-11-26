@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:49:56.479902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exactly-one neighborhoods yield the three-cycle 00→01→10→00 of 1-edges. Immediately before an isolated zero only 00 and 10 can both follow a 1 and start a 0-edge that permits the next 1. Following that 0-edge and the next a steps of the three-cycle gives the stated two-state partial permutations. Closed walks represent same-length indexed inputs, including n=1,2 with repeated neighbors. A projector forces at most one fixed start; a pure product of swaps fixes both states precisely at even gap count. All-ones has the three cyclic starts exactly when 3 divides n. The determinant of I-U has factors (1+z)(1-z-z^3)/(1-z^3); counting marked zeros gives n/m, even for words with smaller least period. At n=3k the duplicate contribution is Σ_{m≥2 even}(3k/m)binom(k-1,m-1)=3(2^(k-1)-1), confirming the subtraction and rational OGF independently of its log expression. The recurrence t_n is the sum of nth powers of the three roots of x^3-x^2-1 by Vieta; the conjugate pair has modulus λ^(-1/2), so the error bound and unit leading coefficient follow. All cyclic 00-avoiding words have count φ^n+(-φ^(-1))^n by the two-state adjacency trace, which gives the stated rate. No proof for unrestricted outputs is inferred.",
+      "replay": "python3 /workspace/branches/frozen_replay.py 5 independently enumerates exact Rule-22 updates using cyclically rotated masks, via XOR of the three inputs with the triple-one case removed. For n=1..18 the counts, doubled counts and all-ones fibers match; at n=18 there are 879 reachable targets, 93 doubled fibers and one triple fiber. The frozen Python was inspected without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martínez et al., pp. 153–155, Table 6 and Fig. 20 identify ancestor-free strings using the subset graph. Gravner–Griffeath, p. 168, study dynamics of finite seeds on the infinite lattice."
+        ],
+        "reasoning": "A nonempty endpoint relation for a word is not necessarily a closed path at the same ring length. A general labeled graph can calculate it, but the two-state reduction, special collision class and resulting exact unweighted count are not supplied by these results.",
+        "searches": [
+          "Rule 22 preimage enumeration cyclic periodic configurations predecessor multiplicity",
+          "Martínez et al. (2019), Garden-of-Eden and subset-graph sections",
+          "Gravner–Griffeath DOI 10.1007/s10955-010-0103-9, scope"
+        ]
+      },
+      "checked_sources": [
+        "Jen (1989) pp. 428–429",
+        "Voorhees (1997) pp. 381–382",
+        "Gravner–Griffeath, opening p. 168",
+        "Martínez et al. (2019) pp. 153–155",
+        "Resultary 581a19c619de, 000091ce92bc, 69d1bf4d5b54, d4f1725c3486, 66161a322c8d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the all-zero fiber graph the isolated 00 loop contributes 1 and the other component gives the t_n power sum. In this manuscript the same cubic occurs as the numerator factor of the determinant of the *gap* transition matrix; the pure-swap products necessitate a different factor for the distinct count."
+        ],
+        "reasoning": "The known cubic and all-zero count make the growth constant an expected overlap, but neither fixes which 00-avoiding cyclic targets have duplicate fibers. The exact B_n and fiber characterization require the gap analysis and the parity-sensitive trace-to-distinct correction.",
+        "searches": [
+          "Resultary: period-three predecessor law constrained image entropy Rule 22",
+          "Jen (1989), Rule-22 preimage recurrence, pp. 428–429",
+          "Resultary 581a19c619de, exact all-zero fiber and modal result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen (1989), pp. 428–429, gives period-dependent Rule-22 finite-sequence preimage formulas and path methods. Resultary 000091ce92bc, Finding, studies allowing n-, 2n-, or 3n-ring lifts."
+        ],
+        "reasoning": "Linear paths allow endpoint pairs not admitted by a closed ring. Allowing larger period can close a permutation without a fixed point at length n. Neither formulation supplies the constrained same-ring multiplicity or the indexed distinct count.",
+        "searches": [
+          "Rule 22 cyclic predecessor counts outputs avoiding adjacent zeros same ring indexed distinct image size",
+          "Rule 22 run lengths between isolated zeros modulo three same-ring predecessor fibers",
+          "Rule 22 constrained image entropy no adjacent zeros distinct indexed outputs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Voorhees, pp. 381–382, reports λ≈1.46557 for the zero-label de Bruijn fragment. Distinct same-day Resultary 581a19c619de gives the all-zero fiber 1+t_n with precisely the same t_n. Resultary d4f1725c3486 instead lists full-shift spatial image entropy, whose Rule-22 growth factor is about 1.91717."
+        ],
+        "reasoning": "There is concrete prior coverage of the auxiliary sequence and eigenvalue, not of the sequence B_n: on lengths 3k the correction grows like 2^k and depends on equal-length fiber collisions of different target words. Same date does not imply order of publication.",
+        "searches": [
+          "Rule 22 cyclic outputs no adjacent zeros reachable count generating function B_n",
+          "Rule 22 indexed cyclic image avoiding 00 distinct output counts entropy",
+          "Voorhees (1997), Rule 22 d0 example"
+        ]
+      },
+      "rationale": "Qualified to the same-length isolated-zero fiber law and exact distinct indexed image census, including its duplicate correction. Neither the Rule-22 de Bruijn graph, period-three behavior in previous preimage problems, the auxiliary recurrence, nor λ in isolation is credited as new.",
+      "residual_risks": [
+        "Jen's formula extraction is imperfect; exact overlap of particular linear block formulas with the local gap reduction is not excluded. A broader literature treatment of periodic regular-language images might include the same specialized count. No historical priority guarantee is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior periodic finite-sequence machinery, not an established coverage of cyclic distinct counts",
+          "evidence": "Rule 22 appears with a recurrence F_k=F_(k-1)+F_(k-3), and finite-sequence preimages are interpreted via labeled paths.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Printed pp. 428–429, Rule-22 passage around extracted offset 17592",
+          "method": "OA primary PDF, bounded passage; formula OCR imperfect",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Rule-22-specific periodic block-boundary preimage counts"
+        },
+        {
+          "assessment": "Verified prior eigenvalue, not B_n",
+          "evidence": "Rule-22 d0 maximum eigenvalue is reported as approximately 1.46557.",
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/02/11-5-3.pdf",
+          "material_read": "Printed pp. 381–382, around extracted offset 22000",
+          "method": "OA primary PDF",
+          "title": "Some Parameters Characterizing Cellular Automata Rules",
+          "trigger": "Exact numerical overlap in Rule-22 growth factor"
+        },
+        {
+          "assessment": "Substantial methodological overlap, different reachability question",
+          "evidence": "Subset diagram and regular expressions describe Garden-of-Eden strings, not indexed constrained fibers of exactly the same ring length.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2019/06/28-2-1.pdf",
+          "material_read": "Garden-of-Eden section, printed pp. 153–155 including Table 6 and Fig. 20",
+          "method": "OA primary PDF",
+          "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+          "trigger": "Potential stronger Rule-22 reachability characterization"
+        },
+        {
+          "assessment": "Different scope of inspected statements",
+          "evidence": "Infinite lattice with finite seeds; focus is dynamics, not one-step same-ring constrained counts.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-010-0103-9",
+          "material_read": "Abstract and opening, printed p. 168",
+          "method": "Public article copy",
+          "title": "The One-Dimensional Exactly 1 Cellular Automaton: Replication, Periodicity, and Chaos from Finite Seeds",
+          "trigger": "Published exactly-one automaton with periodicity results"
+        },
+        {
+          "assessment": "Material overlap in auxiliary recurrence; different invariant",
+          "evidence": "It counts the all-zero fiber, whose target violates cyclic 00 avoidance. It gives 1+t_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-all-zero-word-is-the-unique-modal-output-of-rule-22-on-every--581a19c619de/RESULT.md",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Indexed local mirror",
+          "title": "The all-zero word is the unique modal output of Rule 22 on every binary ring",
+          "trigger": "Same-day distinct match for the recurrence and same ring length"
+        },
+        {
+          "assessment": "Lifting existence, not exact fixed-length fibers or counts",
+          "evidence": "The result studies preimage periods n, 2n or 3n for periodic infinite outputs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-threefold-periodic-lifting-for-the-rule-22-image--000091ce92bc/RESULT.md",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Indexed local mirror",
+          "title": "Sharp threefold periodic lifting for the Rule 22 image",
+          "trigger": "Possible coverage of ring reachability by periodic inverses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shortest forbidden-word constraint on zeros is natural and isolates a structured high-density target class in a canonical rule. An exact same-ring existence test becomes a complete fiber size law; it distinguishes when counting paths overcounts targets, and the exact image census quantifies the loss of reachable configurations at every length. The value lies in this joint characterization and the distinct count, not in recomputing a spectral radius.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

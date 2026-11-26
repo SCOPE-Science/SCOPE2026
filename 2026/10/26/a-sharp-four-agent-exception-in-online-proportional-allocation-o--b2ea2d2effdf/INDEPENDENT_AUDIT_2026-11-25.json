@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:51:49.681167Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each unit chore adds one to load and total share, hence the discrepancies sum to zero, and Prop1 is exactly max discrepancy <=1. An empty bundle has nonpositive discrepancy; a singleton eligibility simply leaves the discrepancy vector unchanged. An independent Fraction-based enumeration on permutation orbits (python /workspace/checks/1.py, output /workspace/checks/1.txt) constructs the closed greedy class for n=1,2,3, checks every entry of the three-agent transition table, and includes every eligible subset and tied choice. Closure starting at zero proves the all-horizon result. At n=4 the depth 0–4 nonsingleton orbit counts 1,3,14,43,87 give labeled counts 1,28,187,617,1405 by permutation multiplicities and maxima 0,3/4,3/4,1,1. Deleting singleton chores transfers this to every four-arrival prefix. In units of 1/12 the adaptive obstruction forces sorted states (-3,-3,-3,9) and (-7,-7,5,9), then either immediate failure with 13 or (-11,1,1,9); choosing the equal pair forces (-11,-5,7,9), then choosing the two positive agents forces a 13 or 15. The all-response minimax calculation independently confirms the first loss at 5 for four agents. For n>=5 two full sets either overload the same recipient or produce two distinct recipients, whose subsequent pair share is 2/n+1/2<1. No n can be forced to fail in two arrivals: use a different recipient when possible; otherwise the first recipient's singleton share alone pays for load minus one. The textual 'self-review' in RESULT.md line 74 is a typo for 'same agent', unambiguous from the stated load and the next sentence. The packaged checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biburger–Megow–Shahkarami §§2–3 give the same shares and unit-chores bounds of order sqrt(m), with an adaptive targeted-agent lower bound.",
+          "Sun–Wang–Li Theorem 3.3 is offline; Resultary 0d999fb57001 restricts sets to pairs and d043cc4feb2b to two known sets."
+        ],
+        "reasoning": "An approximation theorem does not give the exact Prop1 horizon, and an offline solution may reallocate with future data. Restricting to pairs or two known eligibility sets leaves out the larger eligible subsets used in the small-population obstruction.",
+        "searches": [
+          "arXiv:2610.08064v1 §§2–3 and Appendix B",
+          "arXiv:2602.18098 Theorem 3.3",
+          "Resultary: online pair eligibility frontier; two known eligibility types"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08064v1",
+        "arXiv:2602.18098",
+        "Resultary 130275cfe9ce, 0d999fb57001, d043cc4feb2b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7 starts with all-eligible jobs and then targets loaded machines, directly anticipating the simple large-n construction.",
+          "Appendix B.1's negative approximation scaling is not an all-horizon invariant for three agents or an exact forced horizon at four; the later duplicate does establish both."
+        ],
+        "reasoning": "Credit the earlier construction and rule. The surviving distinct claim against the earlier inspected literature is the sharp small-population theorem, not an inference from asymptotic bounds.",
+        "searches": [
+          "arXiv:2610.08064v1 Theorems 4,7 and Appendix B.1",
+          "Resultary 130275cfe9ce Finding and four-agent proof",
+          "Resultary 0d999fb57001 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix B.1 Prop1 slack PS_i-L_i+p_max equals a common additive constant minus discrepancy for unit chores eligible for the arriving item, so its candidate ordering is the same rule.",
+          "Resultary 130275cfe9ce Finding gives the identical infinity/5/3 frontier under the same unit-chore online model."
+        ],
+        "reasoning": "Discrepancy-greedy and unit-job hypothetical-slack greedy are not different algorithms for purposes of originality. The matched November theorem is an actual duplicate of the claim, not just a title match.",
+        "searches": [
+          "Resultary: online unit-chore Prop1 arbitrary eligibility and adaptive horizon",
+          "Resultary: minimum discrepancy small population",
+          "arXiv:2610.08064v1 Appendix B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 130275cfe9ce, RESULT.md Finding and proof offsets 0–6245 onward, states the exact populations and first forced horizons. Its METADATA.json gives publication_date 2026-11-08, distinct from the assigned 2026-10-26 package. Both records' first_public_date of 2026-10-06 corresponds to the cited paper and is not evidence that the theorem was disclosed then."
+        ],
+        "reasoning": "Use the actual matching statement, not the apparent difference in proof certificates, to recognize equivalence. The dated catalogue entries do not determine how the match arose or establish historical priority beyond the checked publications.",
+        "searches": [
+          "Resultary: sharp population and arrival thresholds for online unit-chore Prop1",
+          "Resultary: four-agent five-arrival eligibility-aware proportionality"
+        ]
+      },
+      "rationale": "Supported distinct contribution at the frozen October 26 publication is the sharp four-agent cutoff together with the all-horizon three-agent guarantee, not the discrepancy-greedy ordering itself or the general targeted-adversary idea. There IS a separately indexed record stating the same complete theorem, with a November 8 publication date. It is equivalent coverage in the present catalogue, not evidence of earlier publication than the frozen record. No order of derivation or independence is established. The verified earlier primary literature and earlier restricted-family catalogue result do not imply the two exceptional small-population cases.",
+      "residual_risks": [
+        "The provenance of the exact November 8 duplicate is not known; no priority or independence conclusion is drawn from matching mathematics.",
+        "Other equivalent earlier small-instance results under discrepancy or restricted assignment terminology may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same benchmark and important partial overlap, not exact small-n horizons",
+          "evidence": "Section 2 proportional share and Prop1 definition; §3.1 approximation; B.1 hypothetical slack PS_i-L_i+p_max.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08064v1",
+          "material_read": "§2 pp. 3,7; §3.1 Theorems 4,7; Appendix B.1 p. 22",
+          "method": "original arXiv PDF passages",
+          "title": "Online Fair Division under Eligibility Constraints",
+          "trigger": "same online unit-chore model and greedy rule"
+        },
+        {
+          "assessment": "equivalent theorem in later dated publication, provenance of overlap not established",
+          "evidence": "Same all-population infinity/5/3 thresholds and minimum-discrepancy guarantees; separate four-arrival certificate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-population-and-arrival-thresholds-for-online-unit-chore-ma--130275cfe9ce",
+          "material_read": "RESULT.md Finding, assumptions, three-agent invariant and four-agent proof; METADATA.json publication_date",
+          "method": "local catalogue and mirrored original text",
+          "title": "Sharp population and arrival thresholds for online unit-chore Prop1 with eligibility constraints",
+          "trigger": "exact catalogue match"
+        },
+        {
+          "assessment": "offline, not an online guarantee",
+          "evidence": "Polynomial-time PROP1/fPO orientation using offline fractional shares and rounding.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.18098",
+          "material_read": "Theorem 3.3 p. 9",
+          "method": "original arXiv PDF passage",
+          "title": "Fair Orientations: Proportionality and Equitability",
+          "trigger": "possible stronger eligibility-aware Prop1 existence"
+        },
+        {
+          "assessment": "pair-only model",
+          "evidence": "All-horizon feasibility through five agents and loss at eight arrivals for six under pair eligibility.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-five-agent-and-eight-arrival-boundary-for-online-pair-elig--0d999fb57001",
+          "material_read": "Finding",
+          "method": "local published-record comparison",
+          "title": "Sharp five-agent and eight-arrival boundary for online pair eligibility",
+          "trigger": "analogous prior exact discrepancy frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact population threshold and the four-agent failure at five rather than three pin down when a natural exact fairness benchmark can be promised at every prefix. The finite cutoff separates a genuinely perpetual guarantee from delayed impossibility and provides a useful test of stronger eligibility-aware online fairness claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

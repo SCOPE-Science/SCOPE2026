@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator diagonalizes on matrix units with eigenvalues in \([1,\kappa]\); a Frobenius lower bound gives a unique global minimum. The full rank-one coordinate chart yields the exact Hessian threshold and the negative quartic at equality. A determinant-multiplier calculation exhausts all real dimension-two rank-one stationary points. Every continuous escape path must cross a fixed diagonal coordinate, where an arithmetic–geometric bound yields the exact saddle height, attained by an explicit rank-one path. Exact symbolic identities are independently recomputed by the included verifier; finite tests are not substituted for the topological or infinite-parameter proofs.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest motivating article, Bioli–Kressner–Robol (arXiv:2408.16416, 2024), formulates the fixed-rank SPD energy and algorithms but does not state the threshold, exhaustive critical-point bifurcation, or mountain-pass value in its inspected text. Manton–Mahony–Hua (IEEE TSP 2003) already establish the broad weighted low-rank problem and show that local minima can be nonglobal, so that phenomenon itself is not presented as new. Zhu–Li–Tang–Wakin (arXiv:1703.01256) prove geometry results for unweighted factorization and for weighted-like general problems under assumptions not established for this example; their accessible abstract is not a decisive coverage comparison. Targeted mathematical-record searches and 106 accessible preceding mathematical claims found no implication covering the combined sharp theorem. Special-purpose weighted \(2\times2\) formulas might exist unindexed; independent priority review remains necessary.
+PASS
 
-**Value — PASS.** This is a natural two-term SPD generalized-Sylvester energy with rank-two forcing regardless of matrix dimension. The exact criterion \(\kappa>a/b\) measures the competition between the operator's anisotropy and the data singular gap; the positive barrier quantifies a local optimizer's trap. It shows that good ambient conditioning alone cannot exclude false rank-one minima when the singular gap is small, even in arbitrarily large matrix dimensions. The result is a compact benchmark, not a generic convergence theorem.
+Reconstructed the argument on the real rank-exactly-one manifold. The entrywise weights are in [1,kappa] and attain both endpoints, so Eckart–Young plus the nonnegative added weight establishes the unique global minimum at X_a. The X_22 nonzero chart makes the only potentially indefinite quadratic block the pair (X_12,X_21), with Hessian eigenvalues kappa±a/b. At equality setting both to z and X_22=b-kappa z^2/b cancels the quadratic and yields quartic coefficient (1-kappa^2)/(2b^2)<0. In dimension two, det is a regular constraint off the zero matrix. A critical matrix with a nonzero off-diagonal must have multiplier ±kappa. The plus sign gives two negative diagonals and uv=-u^2, contradicting their positive product. The minus sign gives the stated x_*,y_*, with u=v and xy>0 precisely in the asserted strict regime; the restricted Hessian on the positive-diagonal branch has both signs. For the barrier, every continuous path crosses X_11=x_* with 0<x_*<b/kappa<a. There uv=x_*y and weighted AM–GM gives the lower bound at that slice; minimizing over signed y yields y_*=b-kappa x_*>0. The path y=(b-kappa x)_+ with both off-diagonals sqrt(xy) stays nonzero and rank one, and its two quadratic pieces peak globally at x_*. The peak increment over f(X_b) is exactly (kappa b-a)^2/(2(kappa^2-1)). This proof excludes lower-cost bypasses outside the leading block, including nonsymmetric or signed paths.
 
-**Closest sources and limitations.** Bioli, Kressner, Robol (2024), Manton, Mahony, Hua (2003), and Zhu, Li, Tang, Wakin (2017/2021). Critical-point exhaustion is restricted to \(N=2\); the operator is a special diagonal two-term construction, the forcing has rank two, and the assertion does not concern any particular iterative trajectory. A fuller comparison with specialized weighted rank-one literature may change the publication-priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general existence of nonglobal minima in weighted low-rank approximation and the SPD multiterm fixed-rank formulation are prior. The supported distinct content is the explicit gap-versus-conditioning bifurcation including the degenerate equality case, the 2×2 stationary census, and the exact attained all-dimensional barrier in the specified two-term model.
+
+## value
+
+PASS
+
+The exact relationship between conditioning and the two leading singular values shows why nearly ideal conditioning alone does not prevent trapping in a rank-underfit SPD matrix equation. The quartic at equality and the exact barrier, provably not lowered by going through extra coordinates, distinguish this from a routine witness of one nonglobal stationary point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

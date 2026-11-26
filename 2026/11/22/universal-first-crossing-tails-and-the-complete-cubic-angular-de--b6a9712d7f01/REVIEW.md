@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a statement about original-time first crossing, not about orbital occupation or passage in a reparametrized angular clock. The exact polar calculation gives \(\dot v=-2p\lambda v+2pa(\theta)\) with \(v=r^{-2p}\); strict radial contraction places \(v\) uniformly in a compact positive interval for all positive times and all permitted initial radii. As the angular offset tends to zero, bounded physical-time equilibration establishes \(v\to a(\theta_a)/\lambda\) before the long delay is completed. Integration of \(dt/d\theta=v/g\) uniformly gives the sharp logarithmic and inverse-power crossing constants. Continuity of the positive source-boundary density transfers the uniform clock to sharp ensemble tails and the exact integral moment criterion. A homogeneous quartic angular polynomial bounds cubic finite-zero multiplicity by four. Four explicit cubic vector fields satisfy strict contraction and provide exact multiplicities one through four. The standalone checker produced `VERIFY_OK`; its samples are diagnostics, not proofs.
+## correctness
 
-## Originality — PASS within the inspected scientific evidence
-The primary Alarcón–Castro–Labouriau full text establishes the invariant circle, angular polynomial, and phase-portrait taxonomy, including high-multiplicity zeros. Those structural existence and classification statements are credited, not newly claimed. The full Kuehn text discusses parameter-induced saddle-node bottleneck delays but does not give the specified two-dimensional initial-annulus first-crossing distribution or its leading coefficients. Three relevant published quantitative results were read in full: they treat nonvanishing angular drift and limit-cycle returns or stationary original-time sampling in the vanishing-drift limit, rather than first crossing from a true invariant source ray. A general initial-ensemble passage theorem not indexed by the inspected searches is a residual priority risk. Search absence alone is not treated as novelty proof; the distinction rests on hypotheses and mathematical implications.
+PASS
 
-## Mathematical value — PASS
-At a policycle, the topological orbit census cannot tell whether a population of nearby initial conditions crosses an observable ray on a typical short timescale or has infinite mean crossing time. The exact tails resolve that measurable dynamical question uniformly over radial annuli and give sharp finite-versus-infinite moment boundaries. The cubic example is complete across all finite angular-zero orders, with physically distinct exponential, \(t^{-1}\), \(t^{-1/2}\), and \(t^{-1/3}\) regimes. This does not purport to establish a new phase portrait or a generic scalar bottleneck law.
+Variation of constants bounds v=r^(-2p) in a strictly positive compact interval [L,U]; the forward target is reached in finite time for every admissible positive offset. The identity T=(1/lambda) integral a/g dtheta minus (1/(2p lambda)) log(v(T)/v(0)) follows from the exact polar equations, and its endpoint term is uniformly bounded by log(U/L)/(2p lambda). Only the source integral diverges, yielding the stated limits uniformly. No radial monotonicity is needed to sandwich the survival probability by angular intervals; their masses are asymptotic to q0 times length, and tail integration gives the sharp moment cutoff. The repaired sample wedge has width pi/4 and permits h equal to the target separation, with zero hitting time at the endpoint if included. Positive g through that target follows from the exact tan^k/(1+tan^2)^2 formula; the cubic a bounds and a0=c=1 check algebraically. The angular-marginal formulation also legitimately handles arbitrary compact radial laws, including atoms. The unchanged verification and script were inspected but not executed; the four RK4 diagnostic offsets are all below pi/4 and do not sample the ensemble.
 
-## Closest prior work and limits
-The key comparisons are the 2023 source preprint arXiv:2307.16020v2 and Section 5, Kuehn arXiv:0807.1546v2 Sections 2–3, and the three mathematical findings explicitly referenced in `RESULT.md`. The proof requires a finite positive-order angular zero, positive angular drift on the chosen sector, nonzero compact initial radii, and positive boundary density. An exact exponential-tail multiplicative prefactor, stochastic noise, general initial densities vanishing at the source and global invariant measures are not asserted. The findings have not undergone independent external mathematical verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the uniform annular first-crossing asymptotics in original physical time at a genuine angular zero, and the resulting normalized initial-ensemble constants and moment cutoffs, illustrated by explicit cubic examples. The repair credits the log-radius derivative and cubic taxonomy, and claims neither general bottleneck exponents nor a simple-zero exact exponential prefactor as new.
+
+## value
+
+PASS
+
+The result isolates precisely which radial and sampling data survive in the coefficient of a first-passage tail. It distinguishes deterministic finite hitting for each trajectory from divergence of ensemble moments and supplies exact thresholds and realized cubic regimes. The sampling repair is essential for the claimed coefficients, not a cosmetic qualifier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -32,7 +32,7 @@ For every \(\varepsilon>0\), complete eventual absorption occurs and \(T_\vareps
 +\frac{n}{\beta}\operatorname{tr}(Q_B\rho).}
 \]
 
-Equivalently, the difference between \(T_\varepsilon(\rho)\) and the displayed coefficient divided by \(\varepsilon\) is bounded as \(\varepsilon\downarrow0\), uniformly over all density matrices at fixed model parameters.
+More precisely, the difference between \(T_\varepsilon(\rho)\) and the displayed coefficient divided by \(\varepsilon\) is bounded as \(\varepsilon\downarrow0\), uniformly over all density matrices at fixed model parameters.
 
 For a particle localized at the trap, a different vertex of \(A\), or a vertex of \(B\), respectively, the three limiting coefficients are
 
@@ -54,7 +54,7 @@ Consequently the lifetime stays bounded in the weak-dephasing limit **if and onl
 
 All parameters \(m,n,J,\gamma,\alpha,\beta,\eta\) are fixed while \(\varepsilon\) tends to zero. The factors are normalized so that, when \(\alpha=\beta=\eta=1\), every off-diagonal density-matrix element has direct dephasing rate exactly \(\varepsilon\). The sink term \(-\gamma\{E_0,\cdot\}\) gives population-loss rate \(2\gamma\) at vertex \(0\). The geometry is the complete bipartite **adjacency** Hamiltonian, not a graph Laplacian.
 
-The claim applies to arbitrary fixed mixed or coherent initial states, including states with amplitude on both classes. The \(O(1)\) bound is not uniform as \(m,n\to\infty\), \(\gamma\to0\), or either nontrap dephasing weight tends to zero.
+The claim applies to arbitrary fixed mixed or coherent initial states, including states with amplitude on both classes. No uniformity as \(m,n\to\infty\) or \(\gamma\to0\) is claimed. At fixed \(m,n,J,\gamma\), the bounded remainder can be taken uniform as either or both positive nontrap rates tend to zero with all weights bounded. The singular term itself need not remain bounded when a nontrap rate tends to zero. Eventual absorption is asserted only for strictly positive nontrap rates.
 
 ## Proof
 
@@ -106,9 +106,28 @@ Because \(\int_0^\infty e^{t\mathcal L_\varepsilon}\,dt=-\mathcal L_\varepsilon^
 
 Taking the trace against \(\rho\) proves the central formula. Direct evaluation of the diagonal entries of the two projections proves the localized-state coefficients. The identity \(l\sum_i|z_i|^2-|\sum_i z_i|^2=\sum_{i<j}|z_i-z_j|^2\) proves the pure-state expression. Positivity of the two projection terms shows that a zero coefficient is equivalent to support entirely in \(\operatorname{ker}P\), proving the bounded-versus-divergent dichotomy.
 
+**5. Uniformity near zero class rates.** Put \(\rho_t=e^{t\mathcal L_\varepsilon}\rho\), let \(q_t\) be its compression to the ordered bright basis in step 1, and write \(d_A(t)=\operatorname{tr}(Q_A\rho_t)\), \(d_B(t)=\operatorname{tr}(Q_B\rho_t)\). Denote the three bright coordinates by \(0,a,b\) and their coordinate projections by \(F_0,F_a,F_b\). Taking the trace against each dark projection gives
+\[
+\dot d_A=\frac{\varepsilon\alpha}{k}((k-1)(q_t)_{aa}-d_A),\qquad
+\dot d_B=\frac{\varepsilon\beta}{n}((n-1)(q_t)_{bb}-d_B).
+\]
+Indeed, hopping and trapping do not change these two dark populations, and the diagonal of each dark projector is constant on its class. The off-diagonal bright coherences inherit the dephasing rates of their respective pairs of classes. On the two class-uniform diagonals the dephasing contributions are exactly \(-\dot d_A\) and \(-\dot d_B\), since dephasing preserves total population in each class. Thus
+\[
+\dot q_t=\mathcal L^{\rm br}_\varepsilon(q_t)-\dot d_A F_a-\dot d_B F_b,
+\]
+where \(\mathcal L^{\rm br}_\varepsilon\) is the three-site generator with \(H_{\rm br}\), the original trap, and site dephasing weights \((\eta,\alpha,\beta)\). Integrating and using decay for positive class rates gives
+\[
+\int_0^\infty q_t\,dt=-(\mathcal L^{\rm br}_\varepsilon)^{-1}\big(q_0+d_A(0)F_a+d_B(0)F_b\big)
+\]
+for sufficiently small \(\varepsilon\). Integrating the dark-population equations in turn shows that the exact remainder after subtracting the singular term in the finding is
+\[
+\operatorname{tr}\left[\operatorname{diag}(1,k,n)\int_0^\infty q_t\,dt\right].
+\]
+The matrix in parentheses on the right of the inverse formula is positive of trace one. The bright generator at \(\varepsilon=0\) is invertible by step 1. Its perturbed inverse is bounded uniformly for weights in a fixed bounded set and sufficiently small \(\varepsilon\), by the Neumann series. This proves the claimed uniformity without assuming a lower bound on the positive class weights.
+
 ## Verification
 
-Run `python verify_bipartite.py` with NumPy installed. The program reconstructs the complete Lindblad superoperator independently in column-major vectorization, solves the integrated survival equation numerically, and compares the resulting weak-noise coefficients to the theorem. It also performs exact rational projector checks and numerical tests of strict slow-space dissipation. With NumPy 2.0-compatible operations, the supplied run recorded 648 or more exact rational assertions, 80 projected/spectral checks and 160 finite-parameter small-dephasing comparisons; the largest absolute discrepancy between \(\varepsilon T_\varepsilon\) at \(\varepsilon=0.001\) and the predicted limit was approximately \(0.042418482\). Such differences are expected at finite \(\varepsilon\); neither these observations nor finite enumeration establishes the limit. Steps 1–4 above constitute the all-size proof.
+Run `python verify_bipartite.py` with NumPy installed. The program reconstructs the complete Lindblad superoperator in column-major vectorization, solves the integrated survival equation numerically, and compares the resulting weak-noise coefficients to the theorem. It also performs exact rational projector checks and numerical tests of strict slow-space dissipation. With NumPy 2.0-compatible operations, the supplied run recorded 648 or more exact rational assertions, 80 projected/spectral checks and 160 finite-parameter small-dephasing comparisons; the largest absolute discrepancy between \(\varepsilon T_\varepsilon\) at \(\varepsilon=0.001\) and the predicted limit was approximately \(0.042418482\). Such differences are expected at finite \(\varepsilon\). The finite checks do not establish the limit or test the uniformity near zero class rates; those conclusions follow from the proof above.
 
 ## Relationship to prior work
 
@@ -118,7 +137,7 @@ The quantified contribution is the exact \(\varepsilon^{-1}\) coefficient for **
 
 ## Limitations
 
-The statement concerns fixed finite complete bipartite networks, identical cross-edge hopping, site-basis Markovian dephasing, one trap, and an infinite-time integrated observable. It does not give a time-resolved absorption distribution, a uniform large-size/noise scaling, a theorem for arbitrary multipartite or disordered networks, or an exact formula for finite positive \(\varepsilon\). An especially relevant historical trapping paper by Gaab and Bardeen could only be checked through its abstract; substantive full-text overlap remains an originality risk.
+The statement concerns fixed finite complete bipartite networks, identical cross-edge hopping, site-basis Markovian dephasing, one trap, and an infinite-time integrated observable. It does not give a time-resolved absorption distribution, a uniform large-size/noise scaling, or a theorem for arbitrary multipartite or disordered networks. The finite-noise remainder in step 5 is expressed by a three-site resolvent rather than a closed scalar coefficient. An especially relevant historical trapping paper by Gaab and Bardeen could only be checked through its abstract; substantive full-text overlap remains an originality risk.
 
 ## References
 

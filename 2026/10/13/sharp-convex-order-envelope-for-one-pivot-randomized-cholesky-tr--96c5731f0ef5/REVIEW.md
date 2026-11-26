@@ -1,15 +1,21 @@
-# Review of the sharp one-pivot trace-loss envelope
+# Independent mathematical audit
 
-## Correctness — PASS
-The pivot formula, joint eigenmode-and-pivot coupling, and both marginal laws are explicit. The identity \(T_K\overset{d}{=}\mathbb E[S-\lambda_I\mid J]\) gives the convex-order inequalities by two rigorous Jensen applications. The real zero-diagonal basis is established by induction using the trace of a compression, and yields a positive-definite orthogonal conjugate with constant trace error for every spectrum. A diagonal matrix supplies the upper endpoint. The strict-Jensen equality cases, closed variance formula and endpoint values follow directly. A continuous orthogonal-conjugate path fills the variance interval. Exact and numerical checks in `verify.py` passed; they are auxiliary, not substitutes for the all-dimension proof. The argument assumes strictly positive eigenvalues and exactly one pivot.
+## correctness
 
-## Originality — PASS, with stated search risk
-The 2026 motivating primary source gives multistep trace-error expectations, high-probability bounds and a Jensen inequality for \(\operatorname{tr}f(R)\), not the convex-order distribution of \(f(\operatorname{tr}R)\) under all real orthogonal conjugations. The earlier one-pivot identity \(\mathbb ER=K-K^2/\operatorname{tr}K\) and related randomized pivot analyses imply the mean but not the sharp lower and upper convex-order distributions. Published mathematical-result index searches for single-pivot Cholesky trace-loss convex order, size-biased eigenvalues, hollowized traceless polynomials, and spectral-orbit variance yielded nearby column-subset error, pivot-selection, and residual-growth findings but no statement implying the complete claim. These negative searches do not prove novelty. A prior statistical reinterpretation as conditional expectation/Rao–Blackwellization remains a realistic residual risk.
+PASS
 
-## Value — PASS
-The trace norm of the residual is a principal accuracy measure for positive-definite kernel and Nyström approximations, where single-pivot sampling is a basic building block. The theorem establishes *simultaneous sharp distributions* of this error over a complete fixed-spectrum class, not only a numeric second moment. It distinguishes invariant expected performance from arbitrarily different variability, proves an exact maximal variance and an attainable zero-variance orientation for every spectrum, and supplies a concrete \((9,1)\) illustration. These are useful exact boundaries for interpreting risk from single-column pivot selection, though they do not constitute a multistep performance guarantee.
+With K=U diag(λ)Uᵀ, the weights λ_i U_ji²/S have the required pivot and size-biased spectral marginals. The conditional expectation of S−λ_i given j is exactly S−(K²)_jj/K_jj. Two applications of Jensen give the whole convex-order statement; all outcomes lie in [0,S]. Under strict convexity the upper equality requires one distinct eigenvalue on the support of each row of U, i.e. every coordinate vector is an eigenvector of K, including for repeated eigenvalues. Lower equality is exactly constant trace error. For lower attainability, the symmetric matrix diag(λ_i²−(M₂/S)λ_i) is traceless. An isotropic unit vector exists by interpolating between opposite-sign eigenvectors (or choosing any vector for the zero matrix); the perpendicular compression is again traceless. Induction gives a real orthonormal basis with zero diagonal quadratic form, hence all pivot trace errors equal m. The diagonal matrix attains the upper bound. Variance is continuous in the conjugation, and a column sign flip yields representatives of both extremizers in SO(n), giving every intermediate value. An independent check at spectrum (2,5,6) gives the constant-error matrix with diagonal (4,5,4) and entries K₁₃=K₃₁=2: each diagonal ratio is 5, hence trace error 8. The diagonal input has outcomes (11,8,7) and variance 24/13. Read RESULT.md §§Proof–Verification, VERIFICATION.md, verify.py and requirements.txt; the 28 rational and 490 numerical cases are recorded checks, not rerun or used for the universal proof. Single-pivot exact SPD only; convex order does not assert pointwise tail domination.
 
-## Closest literature and limits
-Sources compared: arXiv:2608.20633v1, §§1 and 4; arXiv:2207.06503v6, §5.1; arXiv:2404.11487v1, §§1–2; arXiv:2410.03969v3. Remaining risk: older equivalent convex-order/conditional-expectation results under statistical names or unindexed specialized Cholesky results. The theorem is real, strictly positive-definite and single-pivot, and no independent audit has been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known results supply the pivot rule, exact mean and standard proof ingredients. The supported distinct claim is the sharp fixed-spectrum scalar convex-order envelope with both endpoint laws realizable over the real orthogonal orbit and strict-convexity equality criteria.
+
+## value
+
+PASS
+
+The prior mean is exactly orientation-independent, so it cannot measure reliability across pivot coordinates. These sharp laws separate deterministic one-step error from its maximum possible convex dispersion with the whole spectrum unchanged, uniformly for all convex losses; the variance range quantifies the discrepancy. The exact coordinate extremizers and separate equality tests add useful diagnostics without promising a multistep or arbitrary-tail ordering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

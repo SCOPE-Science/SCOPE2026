@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone `check.py` is run using Python 3 standard libraries only. It constructs, independently of the analytic polynomial proof, the transient generator for each target degree, including independent neighbor deletions and full resets. Exact rational Gaussian elimination is applied to the backward mean equation and Laplace equations.
+## correctness
 
-The reported command was `python check.py`; the observed output was `PASS 1296 exact generator, resolvent, strict-curvature and polynomial checks`. Tested rate pairs use exact rational values; targets through 11 are compared by independent generator inversion, and finite curvature and polynomial identities are also checked at larger thresholds.
+PASS
 
-These checks are finite. The all-parameter proof is the renewal identity plus the three-term recurrence and falling-factorial difference identities in `RESULT.md`. Reproduction does not require a network simulator, and the program does not establish a theorem about finite networks or continuous target interpolation.
+For a fixed absorbing threshold n, let T_k be the expected time from k and D_k=T_k−T_0. The backward equation for k<n is α(D_{k+1}−D_k)−r[(k+1)D_k−kD_{k−1}]=−1, with no downward term at zero. Summing from 0 through k telescopes to αD_{k+1}=−(k+1)+(k+1)rD_k. With D_0=0 and D_n=−M_n this proves the finite sum and recursion directly, without assuming the renewal identity. Independent reset trials have positive probability of n consecutive births, and trial durations are bounded in mean by 1/r, so the finite expectation is justified. Two falling-factorial differences give the stated positive coefficients and the uniform j=2 lower bound. Reindexing P_n(0) by n−j gives the partial exponential sum and the stated fixed-rate factorial asymptotic. For the transform, the direct discounted backward recurrence, after dividing all state values by the value at zero, has initial values W_0=1,W_1=1+s/α and recurrence W_{k+1}=[1+(s+(k+1)r)/α]W_k−krW_{k−1}/α−r/α. Substitution verifies W_k=(sP_k(s)+r)/(s+r); imposing the terminal value at n gives the stated transform, including s=0. The displayed means at α=2,r=1/2 agree with the recurrence.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the solved exact matched-rate degree-threshold mean and its uniform strict integer-target curvature for the process left to continuum approximation by Artime. Neither the catastrophe process nor the generic reset renewal identity is credited as new.
+
+## value
+
+PASS
+
+The exact integer-target profile supplies both a finite computable mean and a definitive test of the continuum curvature interpretation in the model that prompted the question. The strict bound on ordinary second differences rules out a rate-dependent curvature transition for every integer target, not just low-degree examples or asymptotic data. The explicit matched-rate simplification and factorial growth also give useful benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

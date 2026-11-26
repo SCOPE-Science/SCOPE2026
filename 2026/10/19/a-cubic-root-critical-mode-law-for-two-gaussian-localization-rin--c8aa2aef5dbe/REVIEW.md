@@ -1,15 +1,21 @@
-# Scientific review — two-ring critical spectral modes
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed positive width and ring separation, the displayed Hermite eigenvalue integral follows from radial Gaussian localization. A uniform gamma/Stirling expansion with controlled derivatives produces the Gaussian-mixture leading profile and odd skewness term. Off-critical stationary points give the two outer regimes; at the quartically degenerate critical separation, comparison on the \(a^{1/3}\) scale yields the unique cubic-root coefficient. Poisson tail bounds exclude escaping maximizers. The accompanying checker passed 10 finite corroborations; no infinite statement depends on those finite tests.
+## correctness
 
-## Originality — PASS (provisional priority)
-The 1988 radial diagonalization, 2012 annular inverse-geometry theorem, and 2020 radial annulus/Cantor results do not state this two-ring critical spectral-mode law. The standard equal-Gaussian-mixture threshold supplies only the leading degeneracy; it does not imply the signed \(a^{1/3}\) displacement without Poisson/Gamma skewness analysis. Published-record semantic searches for two-ring cusp, cubic-root Poisson mode selection and variants yielded no equivalent statement. Hidden earlier results on near-critical Poisson mixtures remain possible; publication priority has not been independently certified.
+PASS
 
-## Mathematical value — PASS
-A natural symmetric pair of remote annuli has a sharp change in the maximizing frequency geometry exactly at two Poisson standard deviations. At criticality, the maximizer moves on the unexpectedly fractional \(a^{1/3}\) scale with an explicit universal coefficient; off criticality the global optimizer switches between a near-central and a lower separated branch. This resolves an exact degeneracy not captured by leading Gaussian approximation and directly governs spectral concentration of a canonical localization operator.
+For R=sqrt(a), all integer maximizers have bounded x=(n-a)/R: for each Poisson integrand the ratio of successive terms is t/(n+1), which forces monotonicity outside the extreme endpoints of the two intervals. The radial Gaussian diagonalization has the given t=pi r^2 normalization. Stirling expansion gives the displayed cubic correction Q and a uniform O(R^-2) remainder after normalization by sqrt(2 pi) R/w; averaging over the symmetric fixed widths leaves the order-R^-1 term unchanged. For d<1 the strict quadratic maximum and the Lipschitz first correction, comparing to the integer nearest a, bound |x| by O(R^-1). For d>1 the two nondegenerate maxima solve x=d tanh(dx); their height difference from the odd correction is positive in favor of the lower index, since H_d(x_d)/F_d(x_d)=x_d(x_d^2-d^2-3)/6<0. Local optimization and lattice rounding affect that comparison only at O(R^-2). For d=1 the quartic loss and linear term bound maximizing |x| by O(R^-1/3), and the rescaled polynomial -y^4/6-4y/3 has unique maximizer -2^(1/3). The rescaled lattice mesh tends to zero. This proves the law for all maximizers, not finite-index uniqueness.
 
-## Closest literature and limitations
-Abreu–Dörfler (arXiv:1202.5841, inspected full text) treats inverse localization geometry, while Knutsen (JFAA 2020, inspected radial eigenvalues and annulus estimates) treats a different forward norm regime. The calculation applies only to fixed \(w,d\), Gaussian windows and asymptotic \(a\), and may have hidden Poisson-mixture predecessors. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinction: the fixed-area-width law, including its bounded subcritical drift and explicit fixed-width thresholds and peaks. The negative cubic-root coefficient and lower-branch selection as phenomena are already explicitly established in the closely related October 18 record and must not be credited here as new phenomena.
+
+## value
+
+PASS
+
+Fixed area is a natural localization constraint and makes the normalized annuli shrink, with peak eigenvalues on a different scale from the earlier macroscopic-width theorem. Knowing the preferred Hermite degree and resolving its quartic-critical scale and the leading-order tie gives information the leading Gaussian limit cannot supply. The contribution is the fixed-area classification, not discovery of the universal coefficient in all settings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

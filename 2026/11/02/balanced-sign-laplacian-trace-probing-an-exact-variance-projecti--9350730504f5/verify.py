@@ -1,94 +1,73 @@
-"""Exact verification of balanced graph-Laplacian trace probing identities.
-
-Uses only Python's standard library. Every comparison of moments is rational.
-This finite verification complements, but does not replace, the general proof.
-"""
-from fractions import Fraction as R
+"""Exact finite support checks for permutation edge-count degeneracy."""
 from itertools import combinations
 from random import Random
 
-CHECKS = 0
 
-def check(condition):
-    global CHECKS
-    CHECKS += 1
-    assert condition, 'exact check %d failed' % CHECKS
-
-
-def quantities(n, w):
-    W = sum(w.values())
-    Q = sum(t*t for t in w.values())
-    d = [0] * n
-    for (i, j), t in w.items():
-        d[i] += t
-        d[j] += t
-    u = [R(d[i] - R(W, n-1), n-2) for i in range(n)]
-    residual = {e: R(t) - u[e[0]] - u[e[1]] for e, t in w.items()}
-    res2 = sum((t*t for t in residual.values()), R(0))
-    formula = R(4*(n-1), n*(n-3)) * (
-        (n-2)*Q - sum(t*t for t in d) + R(2*W*W, n-1)
-    )
-    projection = R(4*(n-1)*(n-2), n*(n-3)) * res2
-    return 2*W, formula, projection, u, residual
+def masks(n, pairs, k):
+    ans = []
+    for a in map(set, combinations(range(n), k)):
+        first = sum(1 << i for i, (x, y) in enumerate(pairs) if x in a and y in a)
+        second = sum(1 << i for i, (x, y) in enumerate(pairs) if x not in a and y not in a)
+        ans.append((first, second))
+    return ans
 
 
-def enumerate_balanced(n, w):
-    vals = []
-    for plus in combinations(range(n), n//2):
-        P = set(plus)
-        cut = sum(t for (i, j), t in w.items() if (i in P) != (j in P))
-        vals.append(R(4*(n-1), n)*cut)
-    mean = sum(vals, R(0))/len(vals)
-    var = sum(((t-mean)**2 for t in vals), R(0))/len(vals)
-    return mean, var
+def check_stats(values, k, ell, regular, additive):
+    # Covariance is singular iff centered (equivalently, anchored) points have rank < 2.
+    a, b = values[0]
+    d = [(x-a, y-b) for x, y in values]
+    u, v = next(((x, y) for x, y in d if x or y), (0, 0))
+    singular = all(u*y == v*x for x, y in d)
+    assert singular == (regular or additive)
+    assert all(x == y for x, y in d) == regular
+    assert all((ell-1)*x+(k-1)*y == 0 for x, y in d) == additive
+    if k == ell:
+        assert all(x+y == 0 for x, y in d) == additive
 
 
-def exact_tests():
-    rng = Random(649291)
-    for n in (4, 6, 8, 10):
+def unweighted():
+    total = 0
+    for n in (4, 5, 6):
         pairs = list(combinations(range(n), 2))
-        for _ in range(150):
-            w = {e: rng.randrange(6) for e in pairs}
-            expected_mean, v1, v2, u, residual = quantities(n, w)
-            mean, var = enumerate_balanced(n, w)
-            check(mean == expected_mean)
-            check(var == v1)
-            check(var == v2)
-            check(sum((residual[e] for e in pairs if i in e), R(0)) == 0 for i in range(n))
-            check(all(R(w[e]) == residual[e]+u[e[0]]+u[e[1]] for e in pairs))
-        # Weighted additive matrices, including signed potentials with nonnegative edges
-        for _ in range(50):
-            potential = [rng.randrange(7) for _ in range(n)]
-            w = {e: potential[e[0]]+potential[e[1]] for e in pairs}
-            check(quantities(n, w)[1] == 0)
-            check(enumerate_balanced(n, w)[1] == 0)
+        full = (1 << len(pairs))-1
+        stars = {sum(1 << i for i, e in enumerate(pairs) if j in e) for j in range(n)}
+        additive = {0, full} | stars | {full ^ s for s in stars}
+        for k in range(2, n//2+1):
+            partitions = masks(n, pairs, k)
+            for g in range(full+1):
+                ds = {(g & s).bit_count() for s in stars}
+                vals = [((g & x).bit_count(), (g & y).bit_count()) for x, y in partitions]
+                check_stats(vals, k, n-k, len(ds) == 1, g in additive)
+                total += 1
+    return total
 
-    # Exhaustive classification for all simple graphs on four and six vertices.
-    for n in (4, 6):
+
+def weighted():
+    rng = Random(22205)
+    total = 0
+    for n in (4, 5, 7, 8):
         pairs = list(combinations(range(n), 2))
-        zero_count = 0
-        for mask in range(1 << len(pairs)):
-            w = {e: (mask >> k) & 1 for k, e in enumerate(pairs)}
-            variance = quantities(n, w)[1]
-            if variance == 0:
-                zero_count += 1
-                edge_set = {e for e, t in w.items() if t}
-                empty = len(edge_set) == 0
-                complete = len(edge_set) == len(pairs)
-                star = any(edge_set == {e for e in pairs if v in e} for v in range(n))
-                clique_plus_isolate = any(
-                    edge_set == {e for e in pairs if v not in e} for v in range(n)
-                )
-                check(empty or complete or star or clique_plus_isolate)
-        check(zero_count == 2*n+2)
+        for k in range(2, n//2+1):
+            partitions = masks(n, pairs, k)
+            for run in range(80):
+                u = [rng.randrange(-5, 7) for _ in range(n)]
+                if run % 3 == 0:
+                    w = [u[i]+u[j] for i, j in pairs]
+                elif run % 3 == 1:
+                    w = [u[min(j-i, n-(j-i))] for i, j in pairs]  # circulant
+                else:
+                    w = [rng.randrange(-5, 7) for _ in pairs]
+                degrees = [sum(z for e, z in zip(pairs, w) if i in e) for i in range(n)]
+                W = sum(w)
+                additive = all((n-2)*(n-1)*z == (n-1)*(degrees[i]+degrees[j])-2*W
+                               for (i, j), z in zip(pairs, w))
+                def dot(mask):
+                    return sum(z for i, z in enumerate(w) if (mask >> i) & 1)
+                vals = [(dot(x), dot(y)) for x, y in partitions]
+                check_stats(vals, k, n-k, len(set(degrees)) == 1, additive)
+                total += 1
+    return total
 
-    # Explicit nonzero Hutchinson variance on every nonempty star.
-    for n in (4, 6, 8, 10):
-        w = {e: (1 if 0 in e else 0) for e in combinations(range(n), 2)}
-        check(quantities(n, w)[1] == 0)
-        check(4 * sum(t*t for t in w.values()) == 4*(n-1))
-    print('PASS:', CHECKS, 'exact assertions; 600 random weighted graphs;'
-          ' 200 additive weighted graphs; exhaustive simple graphs n=4,6')
 
 if __name__ == '__main__':
-    exact_tests()
+    print('PASS:', unweighted(), 'simple graph/size cases;', weighted(), 'weighted cases.')

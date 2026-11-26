@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:39.572297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At depth one the first cell is the event of rank at most one among three references, or being below their median. The contrast 2 times this indicator minus one therefore gives h(u)=1−6u²+4u³. Under X∼G and Y∼F, U=F(X) has CDF Q and F(Y) is uniform, so the expectations are ∫h dQ and ∫h(Q) du. Integration by parts plus the exact cubic expansion gives the two perturbation identities. Q(0)=0, Q(1)=1; the degree-three Bernstein coefficients on the three stated subintervals are positive (replay by expressing Q'(a+(b−a)t)=∑c_i t^i; coefficient j is ∑_{i≤j} c_i binom(j,i)/binom(3,i)). Thus Q' is strictly positive and the Gaussian-composed densities are positive real analytic and distinct. Independent exact coefficient integration reproduces a=1/250, b=45549381047/5150145000000 and −ab=−45549381047/1287536250000000. Replay: set T=700Q; expand 700³−6·700·T²+4T³, integrate coefficient of u^j by dividing by j+1 (common multiplier 360360), and divide by 700³. For a use h T'/700 and the same monomial integration. Strong laws give the negative alternative limit; equivalently use uniform empirical CDF convergence and the O(1/n) replacement error for three references. In the null, E h=0, E h²=17/35, and fixing a reference uniform u gives 2E median(u,V,W)−1=−h(u)/3. The first projections are therefore exactly opposite, with higher-order degenerate terms of variance O((m+n)^−2) in the stated balanced regime. The CLT gives the scaled chi-square law, so the exact continuous-rank null's fixed-level upper-tail quantile tends to zero, giving zero limiting power against the fixed negative alternative. For the finite mean, neither overlap has mean product zero; exactly one gives −17/105, and if both distinguished draws are shared, conditioning on x<y gives the two factors 1−2x² and 1−4y+2y². Integrating their product over that triangle and doubling gives −17/45. Weighting the cases by the independent inclusion probabilities 3/m and 3/n and negating gives 17(m+n+1)/(35mn). The frozen checker and notes were inspected, not executed. No general statement at higher depth or at fixed finite sample size follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The journal article gives asymptotics and population cell probabilities at general depth; its sign example/proposition concerns separated samples, not arbitrary overlapping laws.",
+          "The supplement derives the general asymptotic machinery and moment sensitivity, not a same-sign pair of scalar population signals."
+        ],
+        "reasoning": "The general convergence theorem covers how to turn such a pair into a limiting score, conditional on constructing one; it does not assert or supply existence of the necessary positive same-sign pair.",
+        "searches": [
+          "DOI 10.51387/23-NEJSDS54, §2.3 Proposition 1 and §4 Theorem 3",
+          "AUGUST Supplement §§0.2–0.4, including Theorem 0.8",
+          "arXiv:2109.14013v1, Theorem 5 and §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2109.14013v1",
+        "10.51387/23-NEJSDS54 and appendix file 1257",
+        "Resultary b375eb8fdc28 and 570951d13f26"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first preprint describes negative alignment and reasons that larger alternative norms make the statistic larger; the journal uses the qualified description 'typically'. The location-separation proposition is not contradicted.",
+          "The population probability expressions imply the integrals and convergence, but do not give a witness with positive a and b. The finite-null result uses a two-shared-observation correction absent from first-order asymptotics."
+        ],
+        "reasoning": "The record disproves an unrestricted reading of the early sign/power intuition, not a proved universal consistency theorem. Exact certification of a valid distinct smooth pair is not a mechanical consequence of the published asymptotic formula.",
+        "searches": [
+          "arXiv:2109.14013v1, §2.3 pp. 9–10 and alternative limit p. 23",
+          "DOI 10.51387/23-NEJSDS54, journal §2.3 and Theorem 3, supplementary §§0.2–0.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The depth-one median U-kernel is exactly the published hypergeometric/Hadamard construction specialized to three reference observations, and the dot product is then a scalar product.",
+          "The same-day Resultary 570951d13f26 is a one-sample uniformity U-statistic whose population discrepancy is zero for a polynomial family, rather than two positive AUGUST contrasts pointing away from a right tail."
+        ],
+        "reasoning": "The kernel rephrasing is not new. A nonzero negative limiting signed score is not equivalent to a vanishing population signal after recasting the test, nor to a general moment-matching alternative.",
+        "searches": [
+          "arXiv:2109.14013v1, §2.3 depth-one negative inner product and §2.4 resolution",
+          "Brown–Zhang journal article DOI 10.51387/23-NEJSDS54, §2.3 and Proposition 1",
+          "Resultary b375eb8fdc28 and 570951d13f26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is this frozen result, not an independent predecessor. The distinct inspected smooth-alternative result concerns a different U-statistic and a nonzero limiting rejection probability.",
+          "The inspected primary null asymptotics and projected covariance give framework, not a matching all-size expectation. The literal constant search supplied no matching passage and is not negative evidence by itself."
+        ],
+        "reasoning": "A table of critical values or a limiting chi-square value would not determine the finite-null expectation with its 1/(mn) term. No matching exact source or equivalent formula surfaced in the compared material.",
+        "searches": [
+          "Resultary exact claim match b375eb8fdc28 and related 570951d13f26",
+          "Literal search for 17/35 in arXiv:2109.14013v1, journal article and journal supplement"
+        ]
+      },
+      "rationale": "The original statistic, its population formula and its U-statistic asymptotics are clearly prior. The two strictly nonzero same-sign population signals, their explicit positive-analytic witness, the resulting wrong-tail failure, and the separate finite-null mean were not covered by the compared primary statements.",
+      "residual_risks": [
+        "The comparison is bounded to the relevant original procedure's primary versions and inspected catalogue records. A separately published example or exact rank-covariance calculation not indexed under AUGUST could remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier statistic and convergence theory, not a same-sign alternative",
+          "evidence": "The early sign/norm explanation advocates a positive-tail statistic. At depth one, larger norms alone do not guarantee its direction when population signs agree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14013v1",
+          "material_read": "§2.3, PDF p. 10, offsets 23450–27238; Theorem 5 and alternative limit pp. 20 and 23",
+          "method": "Open primary v1 PDF, relevant passages",
+          "title": "The AUGUST Two-Sample Test: Powerful, Interpretable, and Fast",
+          "trigger": "First public statistic and sign rationale"
+        },
+        {
+          "assessment": "Exact procedure credited; separated-samples proposition and general limit do not cover the polynomial witness",
+          "evidence": "Negative inner product, 'typically' opposite signs, and a vector U-statistic population formula; the sign proposition is scoped to complete sample separation.",
+          "identifier_or_url": "https://doi.org/10.51387/23-NEJSDS54",
+          "material_read": "§2.3 and Proposition 1, PDF p. 4 offsets 22200–25178; §4 Theorem 3, PDF p. 6 offsets 36950–42875",
+          "method": "Open journal primary full text, targeted passages",
+          "title": "AUGUST: An Interpretable, Resolution-based Two-sample Test",
+          "trigger": "Journal definition, sign claim and general asymptotic theorem"
+        },
+        {
+          "assessment": "General moment/limit methods, no inspected matching exact mean or witness",
+          "evidence": "Population vector limits and U-statistic projections; §0.4 Theorem 0.8 concerns moment sensitivity.",
+          "identifier_or_url": "https://nejsds.nestat.org/journal/NEJSDS/article/64/file/1257",
+          "material_read": "§§0.2–0.4, PDF pp. 6–18, offsets 10000, 13600, 30800, 35400, 41400",
+          "method": "Open primary supplement PDF",
+          "title": "Supplementary Material for AUGUST",
+          "trigger": "Detailed proofs for null, alternatives and moment sensitivity"
+        },
+        {
+          "assessment": "Different problem, mechanism and power; same-day date does not establish priority",
+          "evidence": "For the Sreedevi–Kattumannil uniformity statistic a polynomial family has zero discrepancy and a subnominal but positive limiting rejection probability.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-smooth-blind-manifold-for-a-uniformity-u-statistic-with-subnom--570951d13f26",
+          "material_read": "RESULT.md Finding and kernel, offsets 0–1508",
+          "method": "Catalogue local full-text mirror",
+          "title": "A smooth blind manifold for a uniformity U-statistic with subnominal limiting power",
+          "trigger": "Same-day smooth low-power U-statistic witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A continuous positive-analytic counterexample to the intuitive sign of an established two-sample test identifies zero asymptotic power, not merely reduced sensitivity or two vanishing coordinates. The wrong-side signal gives a concrete reason the one-sided combination can fail. The exact rank-null mean is a useful calibration check alongside, not the main reason to accept the result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

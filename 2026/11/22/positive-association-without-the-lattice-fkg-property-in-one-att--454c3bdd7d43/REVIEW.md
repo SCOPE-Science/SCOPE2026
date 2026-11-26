@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-attempt model is exactly encoded by independent color-specific exponential clocks, since the minimum has rate one and an independent species label with probability \(p\). An earliest-violation argument proves that earlier \(A\) clocks and later \(B\) clocks can only add accepted \(A\) and remove accepted \(B\). Harris' product-measure inequality therefore gives full same-species association and cross-species negative association for increasing Boolean observables. The triangle formula follows by conditioning on the first arrival and integrating the remaining independent proposal times. Its lattice determinant is \(-p^4(1-p)t^5[3-(p+2)t]/9\), strictly negative for all \(p,t\) in the stated open-positive domain. Exact two-site calculations prove the minimal graph order, and the earliest-proposal rule proves the all-size complete-graph law. A separate exact enumeration replayed 297 finite-law assertions and 28,944 monotone clock-order checks. These calculations corroborate, but do not substitute for, the analytic arguments.
+PASS
 
-## Originality — PASS, with publication-priority qualification
+Reconstructed from RESULT.md §§1–4. The minimum of the independent rate-p and rate-(1-p) clocks is rate one and independent of its winning label. In the coupling that advances A clocks and delays B clocks, a first lost A acceptance would have had an A proposal no later in the favored system. Its rejecting B neighbor there would also have been B earlier in the original, a contradiction. The dual earliest-event argument rules out a gained B. The permanent one-attempt rule is respected, since the relevant winning labels cannot flip against the comparison. Harris applies to the independent signed clocks, with the two species ordered oppositely. On a clique condition instead on the attempted set: for a fixed nonempty A-set of size k and l outside B-proposals, the A-set is realized iff the earliest of these k+l proposals lies in it, probability k/(k+l). Summing over the outside proposals gives the claimed triangle and edge laws, their minors (negative on the triangle because 3-(p+2)t >= 1-p; positive on the edge), and the saturation formula. The edgeless case factors, and one or zero vertices have no incomparable sets. Independent exact enumeration on 2–4 vertex cliques at nine rational bias/time combinations reproduces these minors and saturation probabilities; replay `python3 /workspace/audit_checks/frozen_reconstruction.py`. These checks do not establish graph-universality; the order argument does. Ties have probability zero and strictness excludes p=0,1 and t=0.
 
-Do Amaral and dos Santos (arXiv:2306.09786, 2023) define the one-attempt antagonistic process and derive single-site densities, but do not state a graph-universal association theorem or an FKG obstruction. Their arXiv:2210.05627 concerns a single-species exclusion mechanism. The classical Harris/FKG theory supplies the general product-measure inequality and the definition of the lattice condition but not the color-specific monotonic construction or the explicit triangle minor. An indexed previously published distance-two covariance result for the one-shot two-color model establishes a special correlation, not association for all increasing observables and not a counterexample to log-supermodularity. Indexed repeated-attempt results concern a different adsorption protocol. A relevant published result's full repository text was unavailable for inspection; its indexed claim was compared, not treated as a whole-paper exclusion. Implicit consequences of broader monotone particle-system theory remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The distinction between positive association and FKG log-supermodularity matters because the former controls all increasing same-species events, whereas many conditional and lattice inequalities require the latter. This work identifies a universal order-preserving graphical construction for the competitive irreversible process and a sharp minimal graph-size obstruction that holds at every positive time and every nontrivial color bias, not a single isolated numerical exception. The exact complete-graph family shows the failure persists in natural finite-size systems. This is structural dependence information not supplied by marginal density or one pair-correlation calculation.
+Supported distinctive content is full-field same-color association with the mixed sign for finite one-attempt graphs, separated from output log-supermodularity by an explicit, minimal all-parameter obstruction. The original one-dimensional model, classical product-measure inequality and earlier distance-two sign are credited; the identical indexed record is not a distinct antecedent. No inspected distinct claim gives the obstruction or dominates the combined finding.
 
-## Scope and residual risks
+## value
 
-Only independent single-attempt site proposals and finite simple graphs are proved. The lattice condition is not claimed for a whole three-state field, and positivity of uncolored occupancy correlations is not asserted. Priorities in unindexed competitive-adsorption literature or unpublished work remain unresolved; formal independent validation and a complete publication-priority assessment are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction changes what can be inferred about the physical output law: monotone events of one color are associated on arbitrary graphs, but arguments needing lattice log-supermodularity or monotone conditioning cannot assume it. A triangle gives the sharp graph-size threshold throughout the interior bias range and all positive times, not an isolated numerical counterexample. The complete-graph specialization shows the mechanism persists with size. This says nothing about total uncolored occupancy or repeated proposals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

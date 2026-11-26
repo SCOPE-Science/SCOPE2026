@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns one explicit reduced degree-nine curve over the complex numbers. Its seven linear factors are distinct, and the quadratic factor has nonsingular Hessian. The eleven line-intersection points are exhaustively listed using all 21 unordered pairs. The conic contains exactly four line-double and two line-triple points; these account for all 14 conic–line intersections and the line restrictions have nonzero discriminants. Hence the asserted ordinary incidence counts and total Tjurina number are exact. The two supplied quartic syzygies satisfy their Jacobian relations identically, and their determinant is exactly \(-243F\). Saito's criterion gives freeness and exponents \((4,4)\), rather than merely a numerical guess. The accompanying exact-arithmetic verifier was executed successfully.
+PASS
 
-## Originality — PASS (subject to bibliographic limitations)
+The nonproportional linear factors and conic Hessian determinant -6 give the distinct reduced components over C. Independent exact calculation of all cross products and memberships gave six line-double points (four on the conic) and five line-triple points (two on the conic), exhausting the 21 line pairs. The restrictions of q to the seven line equations have discriminants 4,4,4,1,1,1,1 in the coordinate bases used for replay, so intersections with q are transverse on every line. The shared points exhaust the 14 line–conic Bézout incidences, leaving only two ordinary nodes, seven ordinary triple points and two ordinary quadruple points. For local multiplicity d=2,3,4 the leading homogeneous product h of distinct tangents has gradient a homogeneous regular sequence of degree d-1. Its Jacobian quotient vanishes above degree 2d-4, so all terms of order d+1 or more lie in the square of the maximal ideal times J(h). The sufficient analytic right-determinacy criterion makes h d-determined, and the local Tjurina numbers are (d-1)^2 in this specific range (ordinariness alone would not justify a blanket statement for every multiplicity). The two frozen quartic triples were independently substituted into the integer polynomial gradient and their determinant with the Euler row expanded, giving exactly 0,0,-243F. Saito's criterion gives the free logarithmic basis over C; since the Euler derivation sends F to 9F and the quartic triples annihilate F, the latter are an AR(F) basis. The free-curve identity (9-1)^2-4*4=48 also checks the same global Tjurina number. All equations have rational coefficients.
 
-The closest source is Pokora, arXiv:2312.13052, especially degree-seven candidates and Remarks 3.2–3.3. It lists \((2,7,2)\) as a numerical possibility but does not provide a working realization, and it diagnoses a specific older proposed diagram as failing to put six chosen points on one conic. Its three displayed seven-line constructions have different multiplicity vectors and cannot imply existence for this vector. Relevant published summaries of degree-eight nearly-free conic–line arrangements and of two-conic/three-line stabilizers concern different component counts or singularity types. A search of available earlier research claims found no seven-line–one-conic realization with the stated singularities. The unavailable original Neusel thesis and unindexed realizations remain risks; no global priority or uniqueness assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies the explicitly missing geometric realization in a degree-wise classification of free conic–line arrangements, using small rational coefficients and a complete freeness certificate. It answers a mathematically motivated realizability question where the numerical conditions and an older suggested diagram were inconclusive, not a cosmetic parameter change or computation of a known table value. No downstream general theorem is required to make this precise constructive existence fact valuable.
+The verified distinct claim is an explicit rational-coefficient realization with (2,7,2) and a freeness certificate. The cited classification previously identified this type as numerically admissible, not explicitly realized in its seven-line examples. Its discussion of the Neusel picture identifies a failure of that particular candidate. The closely matching distinct catalogue record concerns a different line arrangement and excludes the relevant multiple points by hypothesis.
 
-## Scope limits
+## value
 
-The theorem is for the specified complex curve only. General moduli, all weakly equivalent arrangements, positive-characteristic reductions, and possible earlier alternate constructions are not classified here. The cited old thesis was not fully available for direct inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers an explicit realization question for a numerical type in a prior classification. A small rational-coefficient example with a checkable freeness basis moves this profile from numerical possibility to demonstrated realizability without claiming to classify other arrangements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:43:21.328641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–63; VERIFICATION.md and verify_gp25.py inspected",
+        "Replay: python /workspace/replay/review124.py",
+        "arXiv:1507.00881, p. 10, Corollary 1 and Open Problem 1"
+      ],
+      "rationale": "Independent distance-layer construction on the stated 50-vertex graph and testing endpoint neighborhoods gives 175 mutually maximally distant pairs, with outer offsets {5,7,9,11,12}, inner offsets {9,11}, and no mixed pairs. An MMD pair can only be strongly resolved by one of its endpoints: otherwise a geodesic through that endpoint continues to a neighbor farther from the other endpoint. Thus any omission set is independent in the MMD graph. Translating an outer omitted vertex to 0 leaves five cliques partitioning its permissible companions, so at most six outer omissions are possible. Five disjoint pentagons give at most ten inner omissions. I independently computed both maxima by maximum-clique search in the component complements; they are six and ten. I also checked the proposed complement of the 16 omissions directly against all 1225 shortest-path betweenness tests, so the upper bound does not rely on the converse MMD theorem. At k=6 the proposed equality predicts 35, so exactly 34 is a counterexample without contradicting the proved upper bound.",
+      "residual_risks": [
+        "The result is for one graph, not a corrected family formula. In the inspected arXiv version the conjecture is Open Problem 1 at the end of Section 2, not in Section 3 (Conclusions); this is a locator correction, not a change to the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kratica et al. give exact formulas in the n=4k and n=4k+2 cases and an upper bound in the n=4k+1 case. Raza and Ji's formula is for mixed metric dimension, which distinguishes vertices and edges."
+        ],
+        "reasoning": "Neither a different congruence case nor a formula for mixed metric dimension applies. The general vertex-cover reformulation as cited provides a method, not the two independence numbers for this particular graph.",
+        "searches": [
+          "arXiv:1507.00881 abstract, Corollary 1 and Section 3",
+          "Oellermann–Peters-Fransen DOI 10.1016/j.dam.2006.06.009",
+          "Raza–Ji DOI 10.3389/fphy.2020.00211"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.00881, DOI 10.2298/AADM161110032K (submitted version read)",
+        "DOI 10.3389/fphy.2020.00211",
+        "Resultary exact later record listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proved inequality gives <=35 at k=6, and the open problem suggests equality; no lower or upper bound of 34 at that order is given."
+        ],
+        "reasoning": "The exact minimum 34 both sharpens the special-case bound and rejects the conjecture. Deriving it requires the finite geometry of the MMD graph, not a specialization of the prior bound.",
+        "searches": [
+          "Kratica et al. arXiv:1507.00881, Corollary 1, Open Problem 1, Table 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At k=6 the conjecture for n=4k+1 gives 35. The later Resultary record gives the same value 34, the same counterexample and also 125 minimum strong resolving sets."
+        ],
+        "reasoning": "The conjecture in the primary paper is not an earlier statement of the exact value. The later match is genuine equivalent coverage, distinguished from its publication timing and from its additional basis classification.",
+        "searches": [
+          "Resultary: sdim(GP(25,2)) = 34 exact strong metric dimension",
+          "arXiv:1507.00881 Open Problem 1 and Corollary 1; strong metric bases and resolving graph formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected early paper explicitly says these computations cover n<=19. The direct indexed match is 2026/11/22/SCOPE-a-sharp-counterexample-and-all-strong-metric-bases-of-gp-25-2--d77d7a0f3f14, later than the frozen record."
+        ],
+        "reasoning": "The early exact computations do not reach n=25. The later indexed exact value is not evidence that 34 was available before the frozen record.",
+        "searches": [
+          "arXiv:1507.00881 p. 10 and Table 4",
+          "Resultary searches for GP(25,2), sdim=34, and exact GP(n,2) tables"
+        ]
+      },
+      "rationale": "The defining source gives the upper bound 35 at this order and explicitly conjectures equality, not 34. Its exact computations do not reach this order. A distinct later-dated Resultary record substantially overlaps and extends the result, but does not establish earlier coverage of this frozen finding.",
+      "residual_risks": [
+        "Publisher version of the conjecture paper could not be inspected; the submitted version was read at the decisive location. The full Oellermann–Peters-Fransen paper was not obtained. Earlier unindexed computations are not excluded. The later exact match does not settle priority beyond the observable catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms exact conjecture, but not 34",
+          "evidence": "The paper proved <=5k+5 for k>=3 and conjectured equality for k>=5; computations described for n<=19.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.00881",
+          "material_read": "p. 10 Corollary 1, Open Problem 1 and computational scope around OA offset 28120; p. 11 Conclusions",
+          "method": "OA full-text submitted-version inspection",
+          "title": "The strong metric dimension of some generalized Petersen graphs",
+          "trigger": "Original formula and exact small-order table"
+        },
+        {
+          "assessment": "Different invariant; no comparable strong dimension value",
+          "evidence": "Mixed metric dimension involves both vertices and edges.",
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2020.00211",
+          "material_read": "Abstract, p. 1",
+          "method": "OA passage inspection",
+          "title": "Computing the Mixed Metric Dimension of a Generalized Petersen Graph P(n,2)",
+          "trigger": "Same graph family and adjacent metric-dimension invariant"
+        },
+        {
+          "assessment": "Direct value/counterexample match, with an extension and later catalogue date",
+          "evidence": "Exactly 34 landmarks, and a classification of 125 minimum strong resolving sets.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-counterexample-and-all-strong-metric-bases-of-gp-25-2--d77d7a0f3f14",
+          "material_read": "Finding and minimum-basis claim",
+          "method": "Resultary local mirror",
+          "title": "A sharp counterexample and all strong metric bases of GP(25,2)",
+          "trigger": "Exact overlap returned by local semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kratica et al. Corollary 1 and Open Problem 1; frozen proof and independent distance and independence checks"
+      ],
+      "rationale": "The graph order and invariant are motivated by an explicit published family conjecture. An exact counterexample outside the published computational range determines that the conjecture is false, with a structural optimality certificate and a reproducible witness. The claim does not need a corrected family formula to be useful.",
+      "residual_risks": [
+        "No generalization to other orders or enumeration of all bases is attributed to the frozen record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

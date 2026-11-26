@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:21:39.548190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–79",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Anchor the cyclic ordering at a labeled sample point so that rotating to that point gives Dirichlet(1,...,1) gaps. The minimum of the two incident arc gaps equals a point's nearest-neighbor distance; a local-minimum gap is necessarily shorter than a semicircle. Thus the mutual pairs are exactly the strict cyclic gap minima. With independent Exp(1) gaps before normalization, the Gamma total is independent of the normalized vector and both gap ranks and mutual-pair labels survive normalization. Consequently the raw mixed covariance divides by E[S^alpha], not by (E[S])^alpha. Put m=Gamma(alpha+1)/3^(alpha+1). Per index, the diagonal 2m/3 cancels the two adjacent terms -m/3. At offset two there are exactly five distinct gaps even for n=5. Integrating the first marked gap out of exp(-2x-2y-max(x,y)) gives (1/2)exp(-3y)-(1/6)exp(-5y); multiplication by y^alpha and subtraction of m/3 gives Gamma(alpha+1)(3^(-alpha-1)-5^(-alpha-1))/6. Both offsets contribute, and larger offsets use disjoint exponential variables. This proves the mean and covariance, including the alpha=0 extension, the alpha=1 constants and the scale change via the gamma ratio. The supplied rational rank-order code was inspected, not executed; its finite integer-power cases are not the all-real proof.",
+      "residual_risks": [
+        "The theorem uses intrinsic distance on a circle of circumference one and n>=5; no assertion for chords or smaller samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Wade give all-power moments and spacing-product calculations for total directed nearest-neighbor length on an interval. Bahadır–Ceyhan give reflexive-pair count moments on an interval."
+        ],
+        "reasoning": "Those marginal or differently marked moments cannot identify this joint covariance. Their useful spacing machinery is prior work, but the local-minimum mark and overlapping marked moment require additional calculation.",
+        "searches": [
+          "arXiv:math/0603561, Theorem 2.3 and Section 5, equations 86–88",
+          "arXiv:1605.01940v1, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "The six primary or indexed sources in source_inspections",
+        "Local search returned the identical bound record, excluded as independent evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The interval power-one formula is (64n+105)/(2700(n+1)), tending to 16/675, and its proof contains the related interior spacing computation."
+        ],
+        "reasoning": "This is direct overlap at the limiting power-one constant, not the exact finite-n circle covariance. Identifying the boundary-free circular law and the marked moment for all powers is not a substitution into that stated interval identity.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-count-length-coupling-of-mutual-nearest-neighbor-pairs-on--58929be679e6, Finding and Joint Gaussian limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October circular record has Cov(R,L)=-1/36, but L comprises all outgoing arcs. It counts the reciprocal edges twice and includes outgoing arcs not in any reciprocal pair."
+        ],
+        "reasoning": "Even at power one the difference L-2W is a nonempty unreciprocated contribution, with no known vanishing covariance. The reported directed covariance does not determine the mutually marked one.",
+        "searches": [
+          "Resultary: circular reciprocal/reflexive/mutual nearest-neighbor count and weighted lengths",
+          "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the bound record itself and distinct same-day records. One proves independence of the count and the unordered gap multiset; the other computes log-nearest-neighbor covariances."
+        ],
+        "reasoning": "The bound record is not separate corroboration or priority evidence. An unmarked symmetric gap sum is measurable with respect to the multiset, whereas the target sum uses cyclic positions of gaps. The log-covariance matrix does not specify the mixed statistic. Same-day dates were not used to infer order.",
+        "searches": [
+          "Local Resultary, reciprocal count–power covariance and circular spacing records",
+          "2026/11/22/SCOPE-exact-independence-of-nearest-neighbor-pairs-and-multiscale-conn--41299bfd168a",
+          "2026/11/22/SCOPE-exact-circular-nearest-neighbor-log-covariance-and-finite-entrop--1f8ab0fd9718"
+        ]
+      },
+      "rationale": "The finite-n circular covariance for the mutually marked power sum differs materially from the inspected directed, unweighted, and interval results. Credit the interval power-one constant and the shared distance-two computation rather than treating either as new. The bounded comparisons do not establish historical priority.",
+      "residual_risks": [
+        "A broader marked spacing theorem not found in this bounded comparison could imply the result.",
+        "A focused primary-literature search returned unrelated results and supplies no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different length statistic",
+          "evidence": [
+            "Sum of all outgoing lengths; covariance -1/36 for n>=5."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8",
+          "material_read": "RESULT.md, offset 0, Finding and length definition",
+          "method": "Local mirror passages",
+          "title": "Exact negative motif–length covariance in the circular nearest-neighbor graph",
+          "trigger": "Exact same-model covariance"
+        },
+        {
+          "assessment": "Material overlap in the power-one limiting constant, not finite circular law",
+          "evidence": [
+            "Interval formula (64n+105)/(2700(n+1)); limit 16/675."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-count-length-coupling-of-mutual-nearest-neighbor-pairs-on--58929be679e6",
+          "material_read": "RESULT.md offsets 0 and 5400, Finding and joint limit",
+          "method": "Local mirror passages",
+          "title": "Exact count–length coupling of mutual nearest-neighbor pairs on an interval",
+          "trigger": "Same reciprocal-edge mark at power one"
+        },
+        {
+          "assessment": "Whole directed length on an interval, not mutual count–length moment",
+          "evidence": [
+            "The weight is a sum involving endpoint spacings and minima of two adjacent spacings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0603561",
+          "material_read": "Theorem 2.3 (PDF p. 8); proof section and equations 86–88 (PDF p. 22)",
+          "method": "OA primary-text passages",
+          "title": "Limit theory for the random on-line nearest-neighbour graph",
+          "trigger": "Potential general power-weighted spacing moment theorem"
+        },
+        {
+          "assessment": "Unweighted interval count",
+          "evidence": [
+            "The theorem supplies the mean and variance of the reflexive pair count, not a length-marked joint moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+          "material_read": "Abstract and Theorem 3.1, offsets 582 and 13282",
+          "method": "OA primary-text passages",
+          "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+          "trigger": "Reflexive terminology and count moments"
+        },
+        {
+          "assessment": "Symmetric unmarked statistics only",
+          "evidence": [
+            "Independence from the unordered gap multiset does not give independence from cyclic marked lengths."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-independence-of-nearest-neighbor-pairs-and-multiscale-conn--41299bfd168a",
+          "material_read": "RESULT.md offsets 0 and 4800, Finding and rank/multiset statement",
+          "method": "Local mirror passages",
+          "title": "Exact independence of nearest-neighbor pairs and multiscale connectivity",
+          "trigger": "Distinct same-day structural coverage"
+        },
+        {
+          "assessment": "Log-distance covariance, not reciprocal-marked count–power covariance",
+          "evidence": [
+            "The covariance matrix is for pointwise logarithmic nearest-neighbor distances."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-circular-nearest-neighbor-log-covariance-and-finite-entrop--1f8ab0fd9718",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local mirror passage",
+          "title": "Exact circular nearest-neighbor log covariance and finite entropy",
+          "trigger": "Distinct same-day nearest-neighbor covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Compared circular directed-length and interval mutual-length results"
+      ],
+      "rationale": "Mutual edges are a natural subgraph and powers are a standard one-parameter family of length costs. The exact covariance shows how using that subgraph reverses the sign of the ordinary-length directed result and identifies precisely which length cost has order-one count coupling as sample size changes. The power-one limiting constant alone would not add the same value; the finite-sample result for every positive power makes a useful benchmark for marked geometric-graph moments.",
+      "residual_risks": [
+        "This is a fixed-size one-dimensional uniform model, not a claim about higher-dimensional graphs or joint limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

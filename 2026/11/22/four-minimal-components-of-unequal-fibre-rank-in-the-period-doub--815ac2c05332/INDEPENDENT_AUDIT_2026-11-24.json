@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:30:50.734753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A base sequence and six initial bits give a unique bilateral lift, with all coordinates depending on only finitely many base coordinates and those bits. The four shifted second-substitution images cover the minimal base: their union is nonempty, closed and shift invariant. Their forced zeros and ones distinguish different-parity phases and distinguish equal-parity phases by exclusion of the alternating point from the minimal base. Thus the phase normalization is continuous. Its only change under a left shift is zero or a four-step shift of the normalized lift; the latter acts on the even triple by R(e)=(e_2,e_0+1,e_1+1). The even triples have orbit sizes 1,1,3,3, yielding disjoint clopen invariant parts of the stated ranks. The two concatenation parities and the offset state repeat at levels 2 and 6, so deterministic iteration proves period four from level 2 rather than just a sampled repetition. In the two even level classes the resulting prefix maps have the same even action R. Their quotient and its conjugates give all even-weight odd-coordinate translations, while cubing P gives the odd-weight translation (1,1,1). These operations give full transitivity on each part of the reference fibre. The bilateral valuation base is realized by shifting a bilateral extension of the fixed right tail by the even powers of two in the level exponent; each fixed coordinate with j+1 nonzero eventually has unchanged valuation, and j=-1 is fixed by the even valuation parity. Both return families therefore converge back to that base. A minimal set in each clopen part maps onto the base and contains a point over the reference base, hence contains the entire orbit class of its reference fibre by the convergent returns. Shifting transports these whole fibre subsets over a dense orbit, and their closure is the full part by the local product coordinates and clopenness. This directly checks minimality and exhaustion, also without needing to assume pointwise almost periodicity. The fresh /workspace/branches/2d9c2d30-8e81-4445-a821-2d253863ee5b/recur_check.py reproduced explicit residue parities through level 10, recurrence states through level 30 and both permutations on all 64 prefixes. The uploaded checker was inspected, not executed; the computation is bounded and does not replace the topological argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.13 is a general rank criterion using invariant classes and transitivity of appropriate return-permutation groups; Theorem 4.1 and Corollary 4.2 supply almost periodicity and an upper bound.",
+          "The dyadic law covers lags 4 and 8 and higher powers of two; the general modulus law in a7e0bd7bb899 applies at lag 2."
+        ],
+        "reasoning": "The general criterion does not output ranks without an input partition and transitivity computation for the concrete cocycle. The dyadic and three-block hypotheses do not contain lag six; their uniform ranks cannot be transferred by changing notation or setting the modulus to two alone.",
+        "searches": [
+          "Kang–Jäger Theorem 4.1, Corollary 4.2 and Theorem 4.13",
+          "Resultary dyadic law 1a88abe12d32 and general-modulus three-block law a7e0bd7bb899"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and check_lag_six.py",
+        "Kang–Jäger arXiv:2609.01140v1, selected sections",
+        "Resultary original statements 1a88abe12d32, a7e0bd7bb899 and 6bdfa6f0eaf5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.9 uses the period-doubling even skeleton in its nonminimality proof, so the use of that skeleton itself is not new. Theorem 4.13 is particularly close methodology and could be applied once the class preservation and transitivity are proved.",
+          "The frozen argument supplies those extra lag-specific facts via the four-phase label, the deterministic parity recurrence and two return permutations whose group fills precisely the claimed classes."
+        ],
+        "reasoning": "The earlier theorem establishes what a suitable return calculation would imply, but not the result of that calculation nor the class sizes. The six-specific input is substantive; citing Theorem 4.13 explicitly would improve attribution of the general method without changing the proved claim.",
+        "searches": [
+          "Kang–Jäger arXiv:2609.01140v1 Proposition 4.9 and ranked-partition Theorem 4.13",
+          "Resultary 1a88abe12d32 relative to non-dyadic lag six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang–Jäger p. 4 defines the endpoint difference at distance ell-1; ell=7 and binary modulus gives exactly this lag-six lift. Their Theorem 1.7 covers nonminimality at those parameters.",
+          "The proof of Proposition 4.9, p. 16, separates two lifts by their subsequences on even and odd indices to exclude minimality, not to give the full orbit classification."
+        ],
+        "reasoning": "The equivalent formulation covers an important part of the result and was credited. Failure of minimality and separation of two lifts do not specify four components, require their union to have this particular partition, or determine the rank of any class.",
+        "searches": [
+          "Resultary period-doubling six-step difference, seven-symbol endpoint code and component fibre ranks",
+          "Kang–Jäger, arXiv:2609.01140v1, endpoint code and Theorem 1.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact catalogue record is the assigned one, not independent coverage. The compared rank formulae give rank 2 at their stated dyadic or stride-two parameters. The same-day 6bdfa6f0eaf5 concerns counts of finite periodic lifts rather than fibres of a minimal-component decomposition."
+        ],
+        "reasoning": "The relevant exact-table test is for a rank or component enumeration over the aperiodic base at lag six. None of the distinct inspected formulae gives that enumeration. Finite word or period spectra do not settle an entire minimal component or its rank above every point.",
+        "searches": [
+          "Resultary focused exact-component count and ranks 8,8,24,24 for binary period doubling at lag six",
+          "Original Findings of 1a88abe12d32, a7e0bd7bb899 and 6bdfa6f0eaf5"
+        ]
+      },
+      "rationale": "Nonminimality at this very lag and the general return-permutation approach are established prior work. The distinct result is the specific invariant partition, transitive returns within each fibre class, and the resulting heterogeneous ranks at lag six. The inspected closest published results do not compute or mechanically imply that partition and those ranks. Match by stride rather than by name or source date; the same-day finite cyclic comparison covers another setting. This is a best-of-evidence assessment.",
+      "residual_risks": [
+        "Bounded comparisons cannot exclude an earlier unindexed application of the general rank criterion or an equivalent skew-product determination.",
+        "Best-of-evidence novelty is specifically at lag six, not for nonminimality, the period-doubling skeleton, or the general method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct nonminimality coverage and close general rank criterion, not the specific lag-six classification in the inspected passages",
+          "evidence": "Proposition 4.9 excludes one lift from another's forward orbit closure at odd ell>=5. The general partition theorem converts return-permutation invariance and transitivity into fibre ranks but does not determine the partition at ell=7.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01140v1",
+          "material_read": "p. 4 code and Theorem 1.7 at offsets 17582 and 18825; p. 9 Theorem 4.1 and Corollary 4.2 at offsets 39955–40287; p. 16 Proposition 4.9 near offsets 71300–74700; pp. 17–18 Theorem 4.13 near offsets 79200–84182",
+          "method": "OA primary PDF, bounded statements and proof passages",
+          "title": "On Lifts of Strictly Ergodic Subshifts by Permutative Sliding Block Codes",
+          "trigger": "Exact same lag and base in prior work; plausible stronger theorem"
+        },
+        {
+          "assessment": "Does not include non-dyadic lag six",
+          "evidence": "At lag D=2^r, r>=2, there are 2^(D-1) components of rank 2.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimal-component-counts-for-dyadic-period-doubling-differ--1a88abe12d32/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimal-component counts for dyadic period-doubling difference lifts",
+          "trigger": "Closest earlier exact component and rank law for the binary base"
+        },
+        {
+          "assessment": "Different stride, not broader in the relevant parameter",
+          "evidence": "Three-symbol block stride two; binary case two rank-two components.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact component and fibre-rank law for the three-block period-doubling lift",
+          "trigger": "General-modulus result for the same base and related endpoint difference"
+        },
+        {
+          "assessment": "Finite periodic lift data, not the same aperiodic dynamical claim",
+          "evidence": "Computes period spectra and counts for finite periodic targets, not the minimal components of the period-doubling lift.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-period-inflation-and-jordan-totient-laws-for-cyclic-d--6bdfa6f0eaf5/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic period inflation and Jordan totient laws for cyclic differences",
+          "trigger": "Strongest distinct same-day topical comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six is the first nondyadic even lag, and prior nonminimality alone leaves its topological decomposition and the way the fibre splits unknown. The binary example produces two genuinely different ranks in the same extension, in contrast to the uniform ranks in the neighboring dyadic cases. The clopen invariant and exact return permutations explain the difference and determine the components over every base point, not just over a sampled periodic approximation. This is a natural test case for rank heterogeneity, without asserting a law at all nondyadic lags.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

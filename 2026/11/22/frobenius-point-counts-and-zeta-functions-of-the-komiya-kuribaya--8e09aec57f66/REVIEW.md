@@ -1,15 +1,21 @@
-# Scientific review: arithmetic zeta function of the Komiya–Kuribayashi bitangent divisor
+# Independent mathematical audit
 
-## Correctness — PASS
-The 28 explicit bitangent equations are checked as exact square binary-quartic restrictions and exhaust the 28 geometric bitangents on every smooth characteristic-at-least-seven fiber. Determinant norms of the 3276 unordered line triples have exactly the listed rational prime support. Finite-field reductions at all seven potentially exceptional primes give complete incidence supports, each independently satisfying the 378-pair identity. Two-sign Frobenius permutations and incident-line subsets determine every rational crossing and the resulting inclusion–exclusion count for each field-extension parity. A separate brute-force projective-plane enumeration checks seven prime fields. These completed computations are exact finite certificates supplemented by a proof that the sieve covers infinitely many primes.
+## correctness
 
-## Originality — PASS, provisional
-The nearest exact published source on the same Ciani pencil already supplies the complex characteristic-zero triple-concurrence discriminant, and its polynomial values at parameter three detect the same seven candidate primes. Consequently the exceptional-prime list by itself is covered by an elementary arithmetic specialization and is **not** the newly claimed contribution. The new contribution is the full Frobenius-fixed crossing computation, rational-point formula over every extension, and rational Hasse–Weil zeta function of the reduced 28-bitangent divisor, including bad-incidence but good-curve reduction. Published finite-field Ciani results specify rational bitangent counts but not rational points on the *union*, and the 2023 bitangent-arrangement paper expressly works over the complex numbers. Relevant primary materials and these stronger statements were inspected. Historical priority remains provisional because unindexed complete zeta computations could exist.
+PASS
 
-## Mathematical value — PASS
-The divisor is a canonical complete configuration attached to a highly symmetric smooth genus-three plane quartic. The zeta classification detects arithmetic incidence information invisible to geometric bitangent counts, and identifies an exceptional phenomenon at seven where geometric triple crossings arise without affecting the prime-field point count. The classification covers every prime at least seven and every finite extension, not a cherry-picked small-field census. The formula is a natural exact invariant of a singular projective curve and determines the dimensions and Frobenius signs in its point-count profile.
+The quartic is smooth for p≥7: on any nonempty subset of nonzero coordinates the derivative equations reduce to the corresponding invertible submatrix of the 4-diagonal, 6-off-diagonal system in the squares. I independently obtained the lines as the signed coordinate permutations of z=((1+2i)r/5)y, x+y+z=0, and x+y+2iz=0, where i²=−1 and r²=5. For the first seed, s²=(−3+4i)/5 satisfies 5s⁴+6s²+5=0, precisely the square condition on the binary restriction. The latter two restrictions are 5(x²+xy+y²)² and (5/16)(x−y)⁴. Thus the identities persist in all stated characteristics. The exact standalone replay /workspace/branches/kk_crossings_audit.py, run with Python 3, regenerates the 28 triples from these symmetry families, computes the 3276 determinants by coefficient convolution, and verifies the complete norm support by division to 1. It gives 36 identically zero determinants. Outside the support no triple changes status; the baseline triple pattern has no pair in 26 concurrent triples, so collision of any two components would contradict that pattern. At every exceptional prime the replay checks distinctness directly and normalizes the pairwise cross products in a genuine quadratic finite field. It tallies crossings and rational components by their normalized coordinates, rather than the frozen incident-set determinant test. The seven exceptions and the four generic sign representatives reproduce every multiplicity row, the fixed-incidence corrections, and (ell,b,c). The two sign actions are inherited from the same line permutations for every prime outside the sieve, and the triple patterns determine the crossing label sets. Each rational crossing adds 1−s_P after summing rational lines, including s_P=0 for crossings on conjugate nonrational lines. Frobenius squares to the identity on lines and crossings, so extension degree parity suffices. Expanding the logarithms of the four displayed factors gives the even/odd counts and checks the zeta signs and exponents. No assertion is made below p=7 or about the quartic's own zeta.
 
-## Scope and risk
-The result does not assert novelty of the complex incidence profile, the universal Ciani triple-concurrence factorization, or the bitangent splitting field. There is no independent mathematical audit. Numerical finite tests are not used as substitutes for the norm sieve and Frobenius-sign exhaustion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing complex line configuration, the Ciani specialization of the exceptional-prime support, and finite-field component splitting. On the inspected evidence the distinct result is the complete arithmetic crossing and point-count classification of the reduced 28-line union, especially the corrections at bad-incidence primes where the quartic remains smooth. Priority is bounded by the accessible literature and indexed evidence, not asserted absolutely.
+
+## value
+
+PASS
+
+This is a natural exact arithmetic invariant of the canonical full bitangent arrangement of a symmetric quartic. It separates good reduction of the quartic from changes in the line arrangement, and at p=7 separates changes visible over the quadratic extension from those visible over the prime field. The coverage of every prime and every extension, including changes to rational crossing incidence, is the useful classification, not a recomputation of the complex row or the exceptional prime list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

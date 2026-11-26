@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. It prints `VERIFY_OK_EXTERIOR5_COMMUTATOR_FIBERS` only after the checks complete.
+## correctness
 
-The checker enumerates all \(3^{10}\) ordered linear-input pairs over \(\mathbb F_3\); constructs a literal exterior multiplication table; determines the linear span of fourth-degree outputs; computes representative fiber cardinalities by rank-nullity; and verifies them against the formula. It also examines \(18750\) selected pairs over \(\mathbb F_5\), constructs two hundred fifty random complete thirty-two-coordinate pairs in each tested prime field, and compares literal associative commutators with the degree-two/four decomposition. The output-mass identity is evaluated at four field orders, including nine as a polynomial check.
+PASS
 
-These computations independently test normalization, signs, exceptional targets, and fiber weights in finite cases. They neither exhaust all \(\mathbb F_5\) inputs nor independently prove the formula for every odd field. The algebraic proof is in RESULT.md. No independent audit has been performed.
+Independently checked the degree and count argument. Even parts and both top-degree odd parts are free, giving q^34; the commutator is twice the sum of the degree-(1,1) and degree-(1,3)/(3,1) wedge products. For leading vectors spanning S, the degree-four image is the kernel of the exterior quotient to Λ^4(V/S), so its dimension is 0, 4 or 5 according as dim S is 0, 1 or 2. The domain of the degree-four equation has dimension 20. A prescribed nonzero degree-two target fixes a two-plane and area, realized by (q²−1)q ordered bases: q²−1 possible first vectors, then q solutions to the area equation for the second vector. This yields the stated (q²−1)q^50 fiber for all degree-four targets. When the leading wedge vanishes, each nonzero leading pair spans a unique line, with q²−1 pairs per line. At a nonzero four-form only the lines in its four-dimensional wedge-annihilator are allowed, whereas all lines and the zero leading pair contribute when both target components vanish. The determinant-one count, Gaussian-binomial image count and mass q^64 check the exponents; this argument uses only invertibility of 2 and applies to all odd prime powers. The frozen code was inspected, not run: representative fiber totals are asserted at q=3, not at q=5; the q=5 loop is selected-pair sampling with repeat entries and the q=9 test is conservation only. None is needed for the universal proof.
+
+## originality
+
+PASS
+
+Pass applies to the joint ordered-pair classification and evaluated nonzero fibers, not parity, the degree-two Plücker locus or the zero-target consistency check. The local catalogue includes a later full material match and a later match to the zero fiber; neither establishes earlier coverage. The frozen statement's assertion of previous availability of the zero count remains uncited and was not independently substantiated as an earlier result. No inspected earlier theorem supplies the complete joint law.
+
+## value
+
+PASS
+
+This is the complete distribution of a canonical map on a classical finite algebra, not a single representative or a recount of commuting pairs. Five generators allow nondecomposable leading targets while independent leading vectors already span all fourth-form output directions. The evaluated multiplicities exhibit a distinct hyperplane-incidence stratum at pure nonzero degree four, giving a useful exact baseline for additive commutator distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

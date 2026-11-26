@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-With independent all-or-nothing sample viability, the two-taxon union-detection probability is the expectation of \((1-e^{-\lambda S})^2\). For two positive unequal efforts, fixing their total reduces the varying objective to a strictly convex quadratic in the sum of their exponential survival factors; at least one of equalizing the pair or setting one effort to zero is strictly superior. This proves the all-global-optimizers equal-active form. The exact factorization of the three-sample score difference and the strictly positive rationally bounded third-versus-second score gap prove the discontinuous support transition. All essential arithmetic identities were checked from the standalone package; exhaustive global optimality comes from the proof, not numerical experiments.
+## correctness
 
-## Originality: PASS on inspected evidence
-The 2024 biological-replication paper is empirical and studies different procedures; the 2016 stochastic ecological survey model primarily evaluates single-target detection, and the 2013 identical-sigmoid knapsack corollary covers separable additive utilities, not the cross-sample coupled event of jointly detecting both taxa. Research-record comparisons included separately reported independent-Hill activation staircases and survey-visit optimization; neither contains this statement or a stronger result shown to imply it. Exact coverage by a broad theorem for nonseparable stochastic optimization was not established, so the priority assessment is provisional, not a claim of exhaustive literature absence.
+PASS
 
-## Value: PASS
-Replication versus concentration is a motivated ecological monitoring-design choice, and union-based detection of both taxa is a natural alternative to expected richness or one-taxon detection. The finite reduction avoids nonconvex continuous search, while the exact one-to-three jump shows that intermediate replication counts can be inefficient even without per-bottle overhead. This is more than a routine restatement of the identical-separable-utility theorem because its coupled objective admits a different support transition.
+Given the viability flags, the two total counts are independent Poisson variables with identical mean λS, S=ΣG_i x_i. Their conditional distribution depends only on S, so conditioning on S preserves the stated product detection probability (1−e^(−λS))². The Laplace transforms of S give the two products in the objective, which attains its maximum by compactness. For a pair of efforts x,y with positive fixed sum, the both-viable and both-failed cases are constant. In the exactly-one-viable cases, put u=e^(−λx), v=e^(−λy), r=uv, s=u+v; the varying conditional expectation, up to the positive multiplier p(1−p), is 2−2As+C(s²−2r), with C=E[e^(−2λR)]>0. Its strict convexity in s excludes every interior s, which corresponds precisely to unequal positive pair efforts. Endpoints are equal split or one zero. Thus every optimizer has all its positive entries equal; the finite maximum includes all such possibilities, including n=1. Independently recomputed the exact F3−F1 factorization −(12/125)(z²−1)²(3z⁴−1)(z⁴+2z²+2) at p=4/5, z=e^(−λB/6). At the sole interior crossing z=3^(−1/4), the F3−F2 gap is (8/675)(54z³−18z²−13). The bracket is strictly increasing for z>2/9 and is 120898933/500000000 at z=759/1000, below the crossing z. The sign reversal and strict gap, by continuity, prove the claimed local 1-to-3 jump and exactly the stated support sizes at the tie (up to permuting labels). Scope is two known-present targets with the same λ, shared within-sample viability, independent samples, and no opening charge; it neither assumes laboratory pooling nor claims absence of k=2 optima at all budgets. RESULT.md lines 15–47, VERIFICATION.md and check.py were inspected. The exact crossing calculation did not execute the frozen checker; the finite code tests cannot prove the global optimization statement.
 
-## Closest literature and scientific boundaries
-Courtaillac et al. (2024), Moore and McCarthy (2016), and Srivastava and Bullo (2013) provide the most directly inspected empirical and mathematical context. Older stochastic allocation and nonseparable utility theory remain possible undiscovered priority risks. Equal rates, fixed known viability, independent sample processing and absence of fixed costs limit the claim; no validation on real water samples has been attempted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is strict equal-active reduction for the nonseparable Bernoulli-viability joint detection objective together with the skipped-support transition. Equal active allocations are known for additive sigmoid models and equal stakes also appear in Bernoulli weighted-sum threshold problems. The strongest examined precedents optimize different functions or assume laws that exclude Bernoulli variables; neither the strict reduction nor the crossing is mechanically implied. Same-day neighbor records were compared by their findings, without inferring priority from date.
+
+## value
+
+PASS
+
+The proof turns a coupled continuous allocation problem into an exact finite choice, while the minimal three-sample case shows that equal active efforts do not imply consecutive activation. This matters for the design decision of how many replications to use when targeting joint detection under shared failures. The strict gap and signs certify a robust local transition rather than a numerically selected tie. The value is mathematical and conditional on the model, not empirical guidance for particular taxa or assays.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

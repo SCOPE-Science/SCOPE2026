@@ -1,80 +1,26 @@
-# Universal short-period circular runs and the exact order-five de Bruijn run spectrum
+# Short-period circular runs in de Bruijn cycles are cycle-independent
 
 ## Finding
-
-Let \(W\) be a \(q\)-ary de Bruijn cycle of order \(n\), with \(q\ge2\), so \(W\) has length \(q^n\) and contains each length-\(n\) word exactly once as a circular factor. A *circular run* is a maximal finite periodic interval in the periodic extension of \(W\), counted by its starting position modulo \(q^n\), whose length is at least twice its least period. Let \(R_{n,p}(W)\) denote the number of these runs having least period \(p\).
-
-Define the primitive-root count
+Let \(W\) be a \(q\)-ary de Bruijn cycle of order \(n\), with integers \(q\ge2,n\ge1\). A circular run is a finite periodic factor of length at least twice its least period, maximal against a one-symbol left or right period-preserving extension. Count each run by its positioned interval, taking the starting position modulo \(q^n\). Put \(P_q(p)=\sum_{d\mid p}\mu(d)q^{p/d}\), the number of primitive words of length \(p\). For every positive \(p\) with \(n\ge2p+1\), there are exactly
 \[
-P_q(p)=\sum_{d\mid p}\mu(d)q^{p/d},
+(q-1)P_q(p)q^{n-2p-1}
 \]
-where \(\mu\) is the classical Möbius function. For every \(p\ge1\) and \(n\ge2p+1\), the run count is independent of the chosen de Bruijn cycle:
-\[
-\boxed{R_{n,p}(W)=(q-1)P_q(p)q^{n-2p-1}.}
-\]
-More precisely, for every integer length \(L\) with \(2p\le L\le n-2\), exactly
-\[
-\boxed{(q-1)^2P_q(p)q^{n-L-2}}
-\]
-period-\(p\) runs have length exactly \(L\); the number of such runs with length at least \(n-1\) is exactly \((q-1)P_q(p)\). All circular runs, of any period, have least period strictly smaller than \(n\).
-
-The first nonrigid short-period boundary is visible in the full binary order-five family. Among its exactly \(2{,}048\) cycles up to rotation, every cycle has eight period-one runs and two period-two runs. The entire profile \((R_{5,1},R_{5,2},R_{5,3},R_{5,4})\) has the following complete distribution:
-
-| Period profile | Number of cycles |
-|---|---:|
-| \((8,2,2,0)\) | 768 |
-| \((8,2,2,1)\) | 608 |
-| \((8,2,2,2)\) | 304 |
-| \((8,2,1,1)\) | 224 |
-| \((8,2,1,2)\) | 128 |
-| \((8,2,0,2)\) | 16 |
-
-Consequently the total number of circular runs is precisely \(12\), \(13\), or \(14\), realized by \(1{,}008\), \(736\), or \(304\) cycles, respectively. No other run count or period profile is possible. This is a finite exact classification of the first sizable binary de Bruijn family, adjoining a uniform infinite-family short-period law.
+circular runs of least period \(p\), independently of the chosen cycle. For every \(2p\le L\le n-2\) exactly \((q-1)^2P_q(p)q^{n-L-2}\) of them have length \(L\); exactly \((q-1)P_q(p)\) have length at least \(n-1\), including the case with no shorter lengths to sum. All circular runs have least period \(p<n\), whether or not \(n\ge2p+1\).
 
 ## Assumptions and scope
-
-A circular position is an element of \(\mathbb Z/(q^n)\mathbb Z\). For a start \(i\) and length \(L\), the corresponding factor consists of \(W_i,W_{i+1},\ldots,W_{i+L-1}\), with indices read cyclically. Its least period \(p\) is the smallest positive integer such that \(W_{i+j}=W_{i+j+p}\) for all \(0\le j<L-p\). It is a run if \(L\ge2p\) and neither extending the factor by one symbol on the left nor extending it by one on the right preserves period \(p\). Runs are counted as positioned intervals, not as distinct factor strings. Repetitions spanning a displayed linear cut are retained.
-
-An interval of period \(p\) with \(p<q^n\) cannot have length \(n+p\) or more, since it would contain two equal length-\(n\) blocks at distinct circular starts separated by \(p\). Thus all considered runs are finite; a run of period \(p\) has length at most \(n+p-1\). Since its length is at least \(2p\), necessarily \(p<n\). No artificial period exceeding the whole cycle is counted.
-
-The infinite-family formula applies when \(2p+1\le n\), not for every period below \(n\). The order-five table concerns binary cycles and exact circular maximal repetitions, rather than the unrelated number of runs in a Burrows–Wheeler transform or runs in a cut linear string.
+The cycle is read in its bi-infinite periodic extension, so a displayed linear cut does not truncate repetitions. Period \(p\) for a factor of length \(L\) means equality of letters at distance \(p\) wherever both positions are in the factor. This concerns positioned maximal repetitions and not the symbol-run count in a transformed word or a repetition-compression cost. The formulas do not claim cycle independence outside the given short-period range.
 
 ## Proof
+The whole extension has period \(q^n\), so the least period of any finite interval is at most \(q^n\). If it equals \(q^n\), then both extensions preserve this period, so the interval cannot be a run. For \(p<q^n\), a period-\(p\) interval of length at least \(n+p\) would duplicate an \(n\)-word at starts separated by \(p\), contradicting de Bruijn uniqueness. A run thus has \(2p\le L\le n+p-1\), forcing \(p<n\).
 
-**1. Local primitive-square criterion.** A word \(u\) of length \(p\) is primitive when it is not an integer power of a shorter word. Its square \(uu\) has least period exactly \(p\): if it also had a smaller period \(r\), the Fine–Wilf periodicity lemma would make \(\gcd(p,r)\) a period, because the square length \(2p\) is at least \(p+r-\gcd(p,r)\). This would make \(u\) a proper power, a contradiction. Conversely, if a factor of length \(2p\) has least period \(p\), its first \(p\) symbols form a primitive word.
+Call a word primitive if it is not a power of a shorter word. A square \(uu\) with \(|u|=p\) has least period \(p\) exactly when \(u\) is primitive. In fact a shorter period \(r<p\) and Fine–Wilf give period \(\gcd(p,r)\), because \(2p\ge p+r-\gcd(p,r)\); the gcd divides \(p\) and would make \(u\) a proper power. The converse follows immediately from a shorter root. The same criterion applies to the first \(2p\) letters of a period-\(p\) run: if those two blocks were powers of a shorter root of length dividing \(p\), the entire \(p\)-periodic interval would continue that root, contradicting minimality.
 
-A circular run of least period \(p\) begins precisely at an occurrence of a length-\((2p+1)\) word \(a uu\), where \(u\) is primitive of length \(p\) and \(a\) differs from the last letter of \(u\). The occurrence is located at the first symbol of \(u\), not at \(a\). Indeed, this condition gives a least-period-\(p\) square which cannot extend left. Extending it right as long as period \(p\) remains valid produces exactly one maximal run; this process terminates by the de Bruijn uniqueness bound in the preceding section. Conversely, every run contains its first \(2p\) letters as such a primitive square, and the preceding letter differs from the period-\(p\) continuation. Both directions preserve the positioned starting point, so the correspondence is bijective.
+A run of least period \(p\) therefore starts exactly at a primitive square \(uu\) preceded by a letter \(a\) different from the last letter of \(u\). Such a square is left-maximal. Extend it right with period \(p\) until the first mismatch; the length bound above ensures termination, and the original square forces least period \(p\). This is a bijection of positioned starts; no extension choice is counted twice. For \(2p+1\le n\), each detecting word \(auu\) occurs \(q^{n-2p-1}\) times, since length-\(n\) windows exhaust its completions. There are \(q-1\) choices for \(a\) for each of the \(P_q(p)\) primitive roots (obtained by Möbius inversion of the unique primitive-root decomposition). This gives the total formula.
 
-**2. Universal short-period count.** Every prescribed word of length \(t\le n\) occurs exactly \(q^{n-t}\) times as a circular factor of a de Bruijn cycle of order \(n\), since the \(n\)-factors beginning with it are distinct and exhaust its \(q^{n-t}\) completions. There are \(P_q(p)\) primitive words of length \(p\); Möbius inversion of the identity that every length-\(p\) word is a power of a unique primitive root gives \(P_q(p)=\sum_{d\mid p}\mu(d)q^{p/d}\). For each primitive \(u\), exactly \(q-1\) preceding letters differ from its final symbol. When \(2p+1\le n\), the bijection from part 1 and uniform short-factor frequencies yield \((q-1)P_q(p)q^{n-2p-1}\) runs, proving the first formula.
+For \(2p\le L\le n-2\), specify the first \(L\) letters of the periodic repetition of \(u\), and place one mismatching extension letter on each side. Each choice of \(u\) has \((q-1)^2\) distinct pairs of boundary letters, and each resulting length-\((L+2)\) word occurs \(q^{n-L-2}\) times. It detects precisely a run of that length and period, giving the exact-length count. Summing over those lengths yields \((q-1)P_q(p)(q^{n-2p-1}-1)\) and subtracting from the total gives the tail at length \(n-1\).
 
-**3. Exact shorter lengths.** Fix \(2p\le L\le n-2\). A period-\(p\) run of exact length \(L\) is detected by the \((L+2)\)-letter factor consisting of the run, preceded and followed by one letter. Its interior is the first \(L\) letters of the infinite periodic repetition of a primitive word \(u\) of length \(p\). For maximality, the preceding and following letters must each differ from their respective period-\(p\) continuations. These are independent choices of \(q-1\) symbols, hence there are \((q-1)^2P_q(p)\) detecting words. Each appears \(q^{n-L-2}\) times, giving the stated length formula. Summing this geometric progression over \(L=2p,\ldots,n-2\) gives \((q-1)P_q(p)(q^{n-2p-1}-1)\). Subtraction from the total in part 2 leaves exactly \((q-1)P_q(p)\) runs of length at least \(n-1\); this includes the empty-sum boundary \(n=2p+1\).
-
-**4. Exhaustive, bijective order-five classification.** Write a five-bit state uniquely as \((b,s)\), where \(b\in\{0,1\}\) is its first bit and \(s\in\{0,\ldots,15\}\) is its final four-bit suffix. In any de Bruijn cycle the map advancing a five-bit window is a permutation, so states \((0,s)\) and \((1,s)\), whose successors share the same four-bit prefix, must append different bits. Consequently there is a unique Boolean function \(g:\{0,\ldots,15\}\to\{0,1\}\) for which the appended bit in state \((b,s)\) is \(b\oplus g(s)\). Conversely each of the \(2^{16}\) such functions defines a permutation of the 32 states. It gives a de Bruijn cycle exactly when the orbit of the all-zero five-bit state has length 32. Each cyclic de Bruijn word has exactly one occurrence of the five-zero block, hence this fixes a canonical origin and the feedback function uniquely. It follows that exhaustive testing of these \(65{,}536\) functions gives a bijective census with no rotation overcounting.
-
-For each valid cycle, any run period is at most four by the uniqueness bound. For each \(p\in\{1,2,3,4\}\), form the circular equality vector \(E_p(i)=[W_i=W_{i+p}]\). Maximal consecutive one-blocks of length at least \(p\) correspond to maximal period-\(p\) factors. An explicit test that no smaller period exists retains precisely the runs of least period \(p\). The complete 65,536-function enumeration yields exactly 2,048 valid cycles and the six profile counts stated in the Finding. Periods one and two independently agree with the formulas in part 2: \(P_2(1)=P_2(2)=2\), giving \(R_{5,1}=8\) and \(R_{5,2}=2\).
-
-For a second enumeration, treat each five-bit word as a directed edge between its first and last four-bit words in the order-four de Bruijn digraph. For every possible ordering of the two outgoing edges at each of its sixteen vertices, Hierholzer's algorithm produces a 32-edge Euler circuit. Taking the first bit of each successive edge and rotating to the unique five-zero window yields 2,048 distinct cycles, *identical as a set* to the valid feedback cycles. Independently, direct testing of all factor intervals of lengths 2 through 8, their least periods, and both extension boundaries reproduces every run located by the equality vectors, and therefore every listed count. The upper length 8 is exact since every order-five run has \(L\le n+p-1\le8\). All algorithms and asserted totals are in `checker.py`.
-
-## Verification
-
-Run `python3 checker.py` with a standard Python 3 interpreter. A successful execution prints `VERIFY_OK` after checking both independent cycle enumerations, all run sets, the six-profile table, total-count table, the period–length totals, and small binary/ternary de Bruijn instances against the universal formula. The two cycle enumerations both return 2,048 equal canonical strings, and the period-equality and direct-interval detectors agree on every one of those strings.
-
-The aggregate positioned run totals by (least period, length), summed over all 2,048 cycles, are: \((1,2):8192\), \((1,3):4096\), \((1,5):4096\), \((2,4):1536\), \((2,5):1024\), \((2,6):1536\), \((3,6):1792\), \((3,7):1920\), \((4,8):1728\). Their sum is 25,920. The finite table is an exhaustive computation with a mathematically justified finite search space, not a claimed consequence of sampling; the infinite-family law is a symbolic proof, not an extrapolation of these tests.
+## Examples, verification and limits
+In binary order five, the formula gives eight period-one and two period-two runs in every cycle. The complete period-three/four profile census at that order is an existing result, not part of the claim of novelty here; the finite `checker.py` also checks that known census. The proof of the general law does not depend on that computation. Cycle dependence can occur already at binary order four: both `0000100110101111` and `0000101100111101` contain all sixteen length-four cyclic factors. In the first word `1010` and `0101` occur at adjacent zero-based starts 8 and 9, sharing one alternating run. In the second word they are at starts 13 and 3 and yield two separate alternating runs. Thus the binary order-five example is not asserted to be the first order with any variation.
 
 ## Relationship to prior work
-
-Bannai, I, Inenaga, Nakashima, Takeda and Tsuruta's 2014 preprint on the runs theorem supplies the classical maximal-periodicity definition and a global bound for ordinary linear strings; it does not tabulate circular runs of de Bruijn cycles or force the six order-five profiles. Ilie, Yu and Zhang (2004), Section 7, establish a lower bound for a different invariant, *repetition complexity* of de Bruijn words; their Theorem 17 is not a count of positioned maximal runs. Fredricksen's 1982 survey describes full-cycle shift-register generation, rather than exact period-resolved run multiplicities. The familiar uniform count of shorter de Bruijn factors makes the first universal formula accessible by the primitive-square bijection; its simplicity should not be confused with a new general upper bound for arbitrary words. The distinctive exhaustive result is the precise distribution at the first boundary where period-three and period-four run counts can vary.
-
-No matching exact order-five circular-run table was found in the inspected sources or targeted bibliographic searches. This absence is not proof of historical priority, and full-text coverage of some older sequence-generation literature was incomplete.
-
-## Limitations
-
-The distribution \((1008,736,304)\) concerns all circular runs of binary order-five cycles; it is not a universal distribution at other orders or alphabet sizes. The closed-form law applies only to periods satisfying \(2p+1\le n\), and the exact length formula only to lengths \(L\le n-2\). It does not determine individual counts in the nonrigid long-period region for general \(n\). No independent mathematical audit or all-literature priority certification has been performed.
-
-## References
-
-1. H. Bannai, T. I, S. Inenaga, Y. Nakashima, M. Takeda and K. Tsuruta, *The “Runs” Theorem*, arXiv:1406.0263, first posted 2014-06-02, https://arxiv.org/abs/1406.0263 (full public text inspected).
-2. L. Ilie, S. Yu and K. Zhang, *Word Complexity and Repetitions in Words*, International Journal of Foundations of Computer Science 15 (2004), 41–55, https://doi.org/10.1142/S0129054104002297 and author manuscript https://www.csd.uwo.ca/~ilie/IJFCS04.pdf (relevant de Bruijn section inspected).
-3. H. Fredricksen, *A Survey of Full Length Nonlinear Shift Register Cycle Algorithms*, SIAM Review 24 (1982), 195–221, https://doi.org/10.1137/1024041 (abstract consulted; full text not inspected).
-4. N. G. de Bruijn, *A Combinatorial Problem*, Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen 49 (1946), 758–764 (historical definition and enumeration).
-5. N. Fine and H. Wilf, *Uniqueness Theorems for Periodic Functions*, Proceedings of the American Mathematical Society 16 (1965), 109–114 (periodicity lemma).
+The definition and ordinary finite-string bounds are treated by H. Bannai et al., [*The “Runs” Theorem*, arXiv:1406.0263](https://arxiv.org/abs/1406.0263). Fine–Wilf periodicity and the uniform occurrence of short words in a de Bruijn cycle are standard; the contribution is their use in a locally detectable, exact period-and-length count on the circular family. Ilie, Yu and Zhang's repetition complexity is a different invariant. The exact binary order-five maximal-repetition census was already recorded in [*Exact circular maximal-repetition runs in order-five binary de Bruijn cycles*](https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-circular-maximal-repetition-runs-in-order-five-binary-de-b--0ff31e943bf5/RESULT.md); the compared finding and analysis there do not give the all-alphabet formulas above. This comparison does not certify historical priority for the general law.

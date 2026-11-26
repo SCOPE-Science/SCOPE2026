@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:56:40.052596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every distinct 0/1 imset is exposed by the signed coordinate functional maximizing agreement with that vector. For each candidate pair, holding equal coordinates fixed gives an exposed face, and complementing differing coordinates puts the two endpoints at all-zero and all-one. A zero-sum normal strictly separating all other vertices there proves an edge, also an edge in the containing polytope. Conversely an exact convex combination of other vertices giving the midpoint refutes adjacency: every positive contributor would have to belong to any exposing face of the segment. These are sufficient tests, not an unsupported assumption that all nonedges admit midpoint witnesses. An independent checker (/workspace/branches/95ffbd82-42fe-449d-8eea-c01bd8d8562b/replay_imsets.py, with full_replay.out beside it) read the frozen imset_certs.json as data, independently reconstructed 443 admissible DAGs and 150 distinct imsets from all 729 ternary possibilities, and checked exact witnesses for all 11,175 unordered pairs (2,508 edges, 8,667 nonedges). BFS reproduced (2508,7666,1001) for distances 1–3, eccentricity 3 at all 150 vertices, Wiener index 20843, and the entire 13-class degree spectrum. The replay checks, but does not independently discover, the supplied witnesses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Restadh's ambient diameter bound is 2n-2; its exact n-1 for n≤4 is on unrestricted CIM_n. The fixed-skeleton bound by |E(G)| and internal-vertex tree bound are for CIM_G.",
+          "Theorem 3.9 classifies, in particular, path edges by v-structure addition, shift, or split after restricting both imsets to the same path skeleton."
+        ],
+        "reasoning": "Neither ambient bounds nor these special skeleton results give all edges across the mixed skeletons of the bounded-indegree face or its complete metric.",
+        "searches": [
+          "Restadh arXiv:2302.03647v2, Propositions 2.6 and 2.14",
+          "Linusson–Restadh–Solus arXiv:2209.07579, Theorem 3.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09633v1",
+        "arXiv:2302.03647v2",
+        "arXiv:2209.07579",
+        "Resultary 95e4ef40632d (indexed summary) and f742b0701af7 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior edge total determines the distance-one count; it gives no separation of the 8667 nonadjacent pairs into distance two and three, and only fixes the sum, not the spectrum, of degrees.",
+          "A full ambient adjacency table, if previously available, could be restricted to the face and searched. The inspected unrestricted diameter statement is not such a table."
+        ],
+        "reasoning": "The certified classification of all vertex pairs on the face is the additional decisive computation. Radius, diameter and Wiener index are consequences of this metric information, not separate priority claims.",
+        "searches": [
+          "Compare Example 3.9 with Restadh Propositions 2.6 and 2.14 and Linusson–Restadh–Solus Theorem 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bounded face is given by zero four-set coordinate in the full four-node polytope; deleting that identically zero coordinate leaves the ten-coordinate model. Restadh's exact diameter 3 is for the unrestricted 11-coordinate CIM_4, where the complete DAG is allowed."
+        ],
+        "reasoning": "The projection of the face through a redundant coordinate is equivalent to the frozen model, but distances in the unrestricted graph are not distances in the face graph. Shortest ambient paths can use vertices not in the face.",
+        "searches": [
+          "Focused literature lookup on bounded-indegree characteristic-imset skeleton diameter and distance census",
+          "Coons–Hollering–Paul Example 3.9; Restadh Proposition 2.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The f-vector in Example 3.9 is (1,150,2508,14387,39913,61686,56250,30463,9416,1495,94,1), not an incidence table.",
+          "f742b0701af7 is the assigned record itself. The separate 95e4ef40632d indexed summary reports inradius and incenter locus for the same polytope, without its graph profile; the latter full text was not reached."
+        ],
+        "reasoning": "Face totals do not identify any specific adjacency or the distribution of graph distances. The known first two counts are credited, and no distinct exact table of the target graph was identified.",
+        "searches": [
+          "Resultary: CIM_{4,2}, adjacency and incidence data, exact graph diameter and distance distribution",
+          "Coons–Hollering–Paul Example 3.9, arXiv:2611.09633v1"
+        ]
+      },
+      "rationale": "The f-vector and hence the counts of 150 vertices and 2508 edges are explicitly prior. The supported exact metric and degree profiles are not implied by that vector, by the same numerical diameter on the unrestricted polytope, or by fixed-skeleton diameter/edge statements. No complete earlier adjacency list or metric census of this face was identified in the inspected material.",
+      "residual_risks": [
+        "A separate unindexed metric enumeration or previously distributed complete adjacency data could subsume the calculation; the bounded search did not identify it.",
+        "The inradius record's full text was not reached, so only its indexed claim was compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers vertex and edge counts, not pair distances in the inspected example",
+          "evidence": "Face vector starts 1,150,2508; Example describes full-dimensional ten-variable bounded polytope versus eleven-variable unrestricted one.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09633v1",
+          "material_read": "Example 3.9, offset 32700–36083",
+          "method": "OA HTML primary text",
+          "title": "Polyhedral Geometry of Degree-Bounded Characteristic Imset Polytopes",
+          "trigger": "Exact same polytope and published face vector"
+        },
+        {
+          "assessment": "Ambient and fixed-skeleton results do not give this face metric",
+          "evidence": "Unrestricted n≤4 diameter n-1 is attained by empty and complete DAGs; fixed-skeleton tree and general bounds have different scope.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.03647v2",
+          "material_read": "Proposition 2.14 pp. 9–10 (offset 30236), p. 2 and Proposition 2.6 pp. 5–6 (offsets 5886,15104)",
+          "method": "OA PDF relevant passages",
+          "title": "Diameters of the Characteristic Imset Polytopes",
+          "trigger": "Exact diameter for four vertices and possible face bounds"
+        },
+        {
+          "assessment": "Path/cycle restricted statement, not the full mixed-skeleton face census",
+          "evidence": "Same-skeleton hypotheses for I_p or C_p; local v-structure moves in the path clause.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.07579",
+          "material_read": "Theorem 3.9 p. 21, offset 72181",
+          "method": "OA PDF focused passage",
+          "title": "On the Edges of Characteristic Imset Polytopes",
+          "trigger": "A potentially broader adjacency classification"
+        },
+        {
+          "assessment": "Inspected summary concerns a different invariant; fuller potential overlap unresolved",
+          "evidence": "Its summary lists 150 vertices, 94 facets, exact inradius and incenter locus.",
+          "identifier_or_url": "Resultary 2026/11/17 record 95e4ef40632d",
+          "material_read": "Indexed summary only; primary text was not reached",
+          "method": "Resultary search and local mirror lookup",
+          "title": "Exact Euclidean inradius and a five-dimensional incenter locus",
+          "trigger": "Earlier entry for the identical polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first four-node case with a proper in-degree-two restriction is a natural exact benchmark for polyhedral edge walks. Its graph is self-centered but nonregular, and exactly 1001 pairs require all three steps. These facts quantify connectivity beyond the known face totals and provide explicit checks for adjacency computations. They do not measure monotone score paths or imply a general size bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-The theorem concerns only the 105 perfect matchings of the labeled eight-vertex complete graph. Integer arithmetic exhausts all reduced sign assignments, not merely randomly sampled examples.
+## correctness
 
-Run `python3 verify.py`: the code reconstructs all 105 matching masks, verifies uniqueness, performs all 21 layers of the integer Walsh–Hadamard transform on the complete \(2^{21}\)-element space, compares the entire 23-level histogram with fixed reference counts, computes the first two even spectral moments, and derives the fourth moment independently from matching-mask XOR differences. It checks the exact rational endpoint norm and prints `K8_MATCHING_WALSH_CERTIFICATE_PASS` on success.
+PASS
 
-Compile `cc -O3 -std=c11 hafnian_direct.c -o hafnian_direct`, then run `./hafnian_direct`. This separate direct method reconstructs the matchings recursively and sums all 105 monomial signs at every reduced edge assignment, without a Walsh transform. It checks all 106 possible nonnegative absolute levels (including absent levels), second and fourth moments, and the absolute first moment. It prints `DIRECT_HAFNIAN_CENSUS_PASS` on success.
+Every matching uses each vertex once, so vertex switching multiplies all terms by the same sign. Fixing the seven incident signs at one vertex picks one point per orbit of size 128; with the switch fixed to zero at that vertex, even and odd switches pair the signs in each orbit. Fourier inversion gives kernel H/2^28. Its absolute sum is attained on a delta for the counting-measure ℓ¹ norm, and by the reflected kernel sign for ℓ∞. Independently, on every one of the 2^21 normalized assignments I evaluated the sum of the seven six-vertex principal hafnians (conditioning on the partner of the star vertex). Each six-vertex hafnian expands by a fixed vertex into five signed four-vertex hafnians, evaluated by their three products. Exact bounded integer arithmetic reproduces all 23 table entries and all absent levels, with first absolute sum 16854180, second sum 220200960, fourth sum 84777369600, and norm 4213545/524288. Oddness excludes zero. For magnitude 105, comparing the three ways of matching the star vertex and any triple while fixing a matching on the four other vertices forces the three signs on that triple equal; hence the two normalized matrices with all other signs constant are exactly the extremizers, giving 256 full points. The frozen Python and C certificates were inspected, not executed.
 
-Mathematical inspection additionally verifies the factor \(128\) in vertex-switching orbits, the normalization \(2^{-28}\) in the convolution kernel, the equality cases for its \(\ell^1\) and \(\ell^\infty\) norms, and the fact that sums of 105 signs cannot vanish. No external dataset or nondeterministic computation is used. These are finite-case certificates; independent mathematical audit is not yet performed and no general larger-order assertion is made.
+## originality
+
+PASS
+
+The evidence supports the distinct exact histogram and its absolute first moment for the K8 perfect-matching orbit. The matching identity, switching, and endpoint convolution reduction are background, not novelty. The nearest inspected results use Gaussian estimators or materially different matching supports. No global publication-priority claim is made.
+
+## value
+
+PASS
+
+Perfect matchings form a canonical nonbipartite frequency orbit. Its projection's exact endpoint amplification is a meaningful invariant not recovered by cardinality, nonvanishing or Parseval. The entire order-eight law is reusable for exact comparison with other matching supports and for checking analytic bounds or higher-order censuses; the value does not depend on extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

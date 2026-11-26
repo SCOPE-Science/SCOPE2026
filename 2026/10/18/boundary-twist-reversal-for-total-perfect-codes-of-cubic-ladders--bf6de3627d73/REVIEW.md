@@ -1,11 +1,21 @@
-# Scientific review: total perfect codes in cubic ladders
+# Independent mathematical audit
 
-**Correctness — PASS.** The selected-vertex equations follow directly from three neighbors per vertex; their sum/difference recurrence forces a six-column period. The two possible three-column occupancy multisets give precisely three vertical and six horizontal words. Ordinary and row-swapped seam constraints yield the stated exact code numbers. Direct finite disjointness checks of the displayed nine words establish the partition numbers, with the seam equivalence proved. The complete verifier enumerates all subsets at small widths; it is supporting evidence, not the infinite proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** The exact cardinalities and all-code/all-partition classification were compared with Kuziak–Peterin–González Yero (2014, Cartesian-prism existence), Wang–Xu–Zhou (2023, general Cayley regular subsets), Dejter (2025–2026, constructions of Möbius total-perfect-code color classes), and Lekshmi–West (2020, perfect matchings). Their relevant material was read; none of those stated the alternating complete multiplicities or the exhaustive nine-pattern classification. Known existence and construction results are not presented as new. Equivalent unindexed enumerations remain possible.
+PASS
 
-**Value — PASS.** This is a natural complete solution classification for two elementary but topologically different cubic graph families. The exact reversal of the \(3/9\) solution counts and the \(1/6\) decomposition counts under a boundary twist sharpens known existence results, quantifies alternative exact open-neighborhood covers, and exhibits a nontrivial parity/holonomy effect.
+Lifting across the seam yields the stated neighbor equations even at n=3. Adding gives a three-periodic sequence with period sum two, and subtracting gives a difference recurrence whose third shift negates it. The (2,0,0) column sums force a rung pattern; a zero followed by two singleton columns forces those two bits to have equal nonzero difference, followed in three columns by the opposite sign. This proves exactly the listed words, with genuine periods three and six. The first three columns determine the lift, so finite restriction creates no phase collision and the seam gives the claimed reversal. Counting incidences yields size 2n/3. The frozen partition table is also correct: exact covers of the graph by codes recover the six explicit triples wherever all nine codes occur; with only rung patterns there is exactly one triple. Independent check 1 in /workspace/independent_checks.py tested 26 graph profiles and recovered the six explicit triples for five width/boundary pairs. The replacement python3 /workspace/repairs/1/CHECK.py passed all 26 full-code-set comparisons using neighborhood exact covers; neither check substitutes for the proof.
 
-**Scope and limitations.** Vertex labels are fixed, and only \(n\ge3\) is considered. Symmetry-orbit counts and arbitrary cubic graphs are outside scope. The three-code-partition test is an explicit finite check of nine six-column patterns; the word classification makes that check valid at every width. Bibliographic priority cannot be established merely by absence of matches in searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the repaired classification and labeled census of all individual codes. The exact partition-count columns have an equivalent catalogued census; they were removed as contributions. The catalogue date does not determine priority. Earlier inspected existence theorems and the full coloring census do not classify individual sets without a separate exhaustiveness argument.
+
+## value
+
+PASS
+
+The repair gives a complete pattern-level inventory of a standard cubic-graph invariant in both natural closures of the strip. It explains exactly which extra code family a twist admits or excludes and works without having to know whether a selected set extends to a partition. This determines the actual sets, not only existence or sample counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

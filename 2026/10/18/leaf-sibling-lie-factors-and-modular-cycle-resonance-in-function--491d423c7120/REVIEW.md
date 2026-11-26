@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation property is reconstructed from every distinct-basis product and every basis square, giving the necessary-and-sufficient equations \(a_{wv}e_{f(w)}+a_{vw}e_{f(v)}=0\) and \(D(e_{f(v)})=2a_{vv}e_{f(v)}\). The square equations force columns indexed by \(f(V)\) to be diagonal. Hence all off-diagonal entries are exactly the signed pairs within indegree-zero sibling fibers. If two is invertible, the diagonal recurrence yields one central degree of freedom per cycle satisfying \(2^L=1\) and no others, and scalar action on each sibling block. In characteristic two, image diagonals vanish while leaf diagonals are free, so the blocks are symmetric matrices under commutator. The converse verifies that all displayed matrices are genuine derivations. A separately implemented finite-equation checker completed 1164 configurations across four prime fields; this corroboration is not the arbitrary-field proof.
+PASS
 
-## Originality — PASS, with unresolved priority risk
+In the natural basis, Leibniz on e_v² gives D(e_f(v))=2a_vv e_f(v), forcing every image-indexed column to be diagonal. On e_v e_w=0, independence of distinct target basis vectors forces both cross coefficients to vanish unless v,w have the same target; for equal targets they are negatives of one another. Thus both vertices must be leaves for a nonzero off-diagonal entry. In characteristic different from two the diagonal recurrence has exactly one free parameter per cycle with 2^L=1, determines all incoming values uniquely, and makes each sibling leaf block scalar on its diagonal. Hence the diagonal subalgebra centralizes the skew blocks and different supports commute. In characteristic two the image diagonals vanish and leaf diagonals are free; transpose of a commutator of symmetric matrices is its negative, equal to itself here. These conditions are also sufficient by bilinearity. Dimensions and finite-field cardinalities follow, including the cases of empty leaf sets, singleton blocks and fixed points. In the star/chain comparison, eliminating noncycle coordinates in leaf-to-root order gives k[T]/(T²−T) in both cases, whereas sibling block sizes four and one give the stated distinct derivation dimensions.
 
-Camacho et al. (arXiv:1004.1936v1) provide the equations and rank-based complex classification. Cadavid–Rodiño Montoya–Rodríguez (arXiv:1807.02493) address undirected adjacency evolution algebras in characteristic zero. Cabrera Casado et al. (arXiv:1912.06925v1), Section 2, prove directed twin-block restrictions **in characteristic zero**. Elduque–Labra (arXiv:1902.02191), Theorem 4.1, already cover the *perfect* (bijective endofunction) modular cycle case; that special case is expressly prior. Cabrera Casado–Cadavid–Reis (arXiv:2203.13657), Proposition 3.1, supply broader necessary-and-sufficient equations in arbitrary characteristic and give rank-one-square special cases; these are also prior.
+## originality
 
-The assessed result is the **closed all-characteristic Lie-algebra factorization for arbitrary functional graphs with nonempty attached trees**, with explicit central resonance, characteristic-two matrix type, and exact dimensions. Published general equations are not identical explicit descriptions and require nontrivial specialization and solution to yield the stated global decomposition. Direct searches of published literature revealed no exact matching theorem. Nevertheless the possibility of a previous equivalent explicit functional-graph specialization remains a concrete risk; absence from searches alone is not proof of priority.
+PASS
 
-## Value — PASS
+Credit the simultaneous explicit Lie classification on nonbijective unweighted endofunctions over arbitrary fields. Earlier work covers the general Leibniz equations, characteristic-zero sibling mechanisms (including acyclic functional-square formulas), some rank-one cases in odd characteristic, and the perfect/bijective cycle result. None of the inspected statements covers the combined nonperfect cyclic case and characteristic-two symmetric blocks. The strongest apparent all-field rank-one comparison has a characteristic-two error as printed and does not cover image ranks greater than one even aside from that error.
 
-It determines a natural functorial invariant—derivations and their bracket—of every finite deterministic one-outgoing-edge evolution algebra over every field. The different characteristic-two and odd-characteristic Lie types and the independent cycle-versus-leaf contributions are not merely isolated numeric instances. Exact dimensions and the star-versus-chain construction demonstrate that derivations see attached-tree information that cycle-determined element-idempotent schemes omit. The claim does not require a downstream classification of all evolution algebras to have mathematical value.
+## value
 
-## Limits of the review
+PASS
 
-The proof treats no weights or multi-arrow structure. Only selected finite prime-field cases were exhaustively checked; no independent mathematical audit or full historical-priority determination has been conducted. Some equivalent prior derivation descriptions could be hidden behind other terminology.
+The derivation Lie algebra is a natural structural invariant. The decomposition reads it directly from the functional graph, distinguishes the actual Lie bracket from a mere rank of Leibniz equations, and identifies a substantive characteristic-two change, not only a parameter substitution. It also explains why the star and chain can have the same idempotent scheme but different derivation dimensions. No priority is claimed for that example in isolation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact positive two-cycle is reconstructed directly from the two scalar update equations: its phase ratio is the unique positive solution of \(r^2-(a-b)r-1=0\). For \(ab>1\), the phase squares are positive and yield the identity \(\overline{x}^{\,2}=(Q+1)(h-Q)/2\). Every positive initial state converges to this cycle because each season's logarithmic-coordinate derivative is \(-\tanh z\), giving strict contraction on an invariant compact interval surrounding the phase fixed point. When \(ab\le1\), a strictly decreasing even-season trajectory converges to zero. Subtracting the constant-survival fixed point \(x_*^2=h-1\) proves the threshold and the fixed-mean contrast switch. The bundled standard-library verifier confirms rational identities and representative trajectories but is not substituted for these universal arguments.
+PASS
 
-## Originality — PASS (subject to identified risks)
+This assesses the repaired claim. The frozen threshold paragraph overstates accessibility: for fixed R and h, its stated full persistence interval omits the cap δ≤R−h. For example R=6 and h=5 allow δ≤1, so the algebraic threshold √8 cannot be reached even though it is below the extinction amplitude. The repaired files retain the exact sign identity and give the actual feasible set and both threshold endpoints. To check the dynamics, write ρ=v/u. The two orbit equations imply ρ²−(a−b)ρ−1=0, with sole positive root r=Q+d. Substitution gives u²=(h−Q)/r and v²=r(h−Q), both positive precisely for ab>1, and verifies the original equations. In log abundance each season has derivative −tanh z; the positive two-step fixed point traps every starting point in the compact log interval of its initial distance from that point. On this interval the composition has derivative uniformly below one in modulus, so phase-wise convergence and the arithmetic time average follow. For ab≤1 the two-step ratio is strictly below one at every positive state; any positive limiting even state would, by continuity, give a limiting ratio strictly below one, impossible. This includes ab=1. At the positive orbit uv=h−Q, u²+v²=2Q(h−Q), giving the squared-arithmetic-mean identity after subtracting h−1. For unequal seasons and h>3 its zero occurs at δ_c=sqrt((h−2)²−1), strictly below the extinction amplitude. Since a,b=h±δ must be in (0,R], the tie is accessible iff R−h≥δ_c and both signs occur iff R−h>δ_c. At equality only the tied endpoint is added; for R=h there is no contrast. With h≤3 and persistence the sign is strictly negative for unequal seasons. The two R=10 examples straddle the threshold and their exact radical comparisons have the asserted signs.
 
-The principal close precedent is Franke and Yakubu (2006), DOI:10.1007/s11538-006-9086-8: its §5.5 gives a Smith-model small-forcing signature relative to mean seasonal carrying capacity, not an exact arbitrary-amplitude comparison with the fixed policy having mean survival fraction. Franke and Yakubu (2005), DOI:10.1080/10236190500386275, treat additive survival with constant/monotone Beverton–Holt recruitment, a different dynamical model. The original full texts and relevant sections were inspected. Semantic searches of published mathematical findings for the exact map, comparison, aliases and resonance threshold returned no direct corresponding theorem; the closest published Ricker-cycle and ecological threshold records use different objects. Brauer and Sánchez (2003), DOI:10.1111/j.1939-7445.2003.tb00113.x, is an older harvesting background source whose complete text was not inspected; an unrecognized general implication is a residual coverage risk. Similar words, absent search hits or a distinct model alone do not establish novelty; the material distinction is the global finite-contrast sign classification and fixed-survival benchmark.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Periodic survival and mean biomass comparisons are explicitly motivated by the classical ecological resonance/attenuance literature. This exact boundary shows that a local small-amplitude inference can reverse at larger contrast without extinction. With fixed \(R=10\) and fixed mean survival \(1/2\), survival pairs \((7/10,3/10)\) and \((8/10,2/10)\) produce opposite signs despite both having globally attracting positive cycles. The sharp crossover, closed-form phase orbit and persistence boundary provide a reusable nonlinear population benchmark rather than an arbitrary parameter table. The result is a model-specific mathematical conclusion, not a recommendation about catches or welfare.
+The assessed distinct claim is the exact feasible finite-contrast boundary for mean survival held fixed, with the square-of-mean identity and global persistent/critical dynamics for this quadratic map. Franke and Yakubu's Smith family does contain the map on the part with both seasonal multipliers above one, including the crossover, so a different model name is not evidence of novelty. Their inspected result gives a local small-forcing criterion and a different benchmark; no inspected result gives this finite boundary, accessibility, and mean identity.
 
-## Scientific boundaries
+## value
 
-Proofs cover only deterministic, quadratic density-dependent recruitment with survival applied multiplicatively after recruitment, period two, positive initial populations and matched arithmetic mean survival. There is no claim about arbitrary periodicity, uncertainty, equal harvesting yield or optimal policies. Originality remains open to human comparison of additional specialized work; verification is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-amplitude result supplies a motivated boundary for when changing contrast while keeping arithmetic survival fixed can reverse a population-mean comparison. It separates local enhancement, feasibility of reaching the tie, suppression and extinction, with a globally reached census mean rather than a possibly unstable orbit. The survival cap adds a meaningful difference between an algebraic zero and an attainable contrast.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

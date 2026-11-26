@@ -1,15 +1,21 @@
-# Three-fold correspondence-colouring census of \(K_{3,n}\): scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every partial DP matching can be completed to a perfect matching without creating a new independent transversal. Right-fibre relabelling sets the first left-to-right matching to identity. The two other left-fibre relabellings normalize a first right vertex, while permutation of indistinguishable right-vertex positions sorts the other types. Hence the 36-type weak multiset search is exhaustive and its 27-term product expression counts all configurations without overcounting colour assignments within any selected cover. Two independently written exact-integer enumerators return minima \(24,18,14,6,5,0\) at \(n=1,\ldots,6\) after enumerating all \(1,36,666,8436,82251,658008\) normal forms. The six specifically chosen cyclic-shift types exclude each of the 27 left-colour triples, proving the unbounded zero case without extrapolation. All six witnesses are independently enumerated directly. These finite and symbolic arguments together cover all quantifiers in the claim.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The primary full-text bipartite DP colour-function study arXiv:2608.02335 derives exact formulas for \(K_{2,n}\) and general methods, without an exact \(P_{DP}(K_{3,n},3)\) sequence. The older complete-bipartite DP chromatic work arXiv:1803.09141 and covering-family work arXiv:2609.33966 supply existence thresholds, including six right vertices for failure of three-colourability, but not this exact pre-threshold enumeration. Targeted DP-function, complete-bipartite, and exact-sequence searches and comparison against accessible research claims did not find the stated census. These differences are about mathematical implications: the threshold only asserts zero beyond six, and \(K_{2,n}\) is a different graph family; neither determines the positive values for \(K_{3,n}\). Unindexed prior computations or a theorem with stronger implied counts remain possible and warrant independent literature assessment.
+PASS
 
-## Mathematical value — PASS
-The exact minimum number of DP colourings is a natural quantitative strengthening of DP-chromatic feasibility, especially immediately before the known sharp noncolourability threshold. The values \(6\) and \(5\) for \(K_{3,4}\) and \(K_{3,5}\) resolve a structured finite optimization over all correspondence assignments, not an arbitrary numerical instance. Along with the exact small cases and full zero tail, they determine the entire three-fold colour-function specialization for the infinite family \(K_{3,n}\). The result supplies exact benchmarks for worst-cover counting and exposes a sharp quantitative drop not explained by the threshold alone.
+Completing each edge matching to a permutation only removes colorings, so minimizing over full covers is exact. Relabeling each right fibre normalizes its u_0 edge, and then the two other left fibres normalize any one chosen right vertex to type (id,id); the other types can be sorted. Fixed left representatives forbid exactly the three listed images, counted as a set, and right choices multiply. For an independent replay I did not normalize the first right vertex: I enumerated all weakly increasing n-multisets of the 36 types after normalizing the u_0 edges alone. For each type form bit masks U,V on the 27 left triples for which it allows one or two choices. Start with all bits in G_0; adjoining that type replaces G_k by (G_k AND U) OR (G_(k-1) AND V), with nonexistent G_j zero. Sum 2^k times popcount(G_k) to count a cover. The exact numbers of evaluated covers for n=1..6 were 36, 666, 8436, 82251, 658008, 4496388 (=binom(35+n,n)); minima were 24,18,14,6,5,0. This bypasses dependence on the frozen anchor normalization or on the implementations in verify.cpp and verify.py (both inspected). For all n>=6, the six types of cyclic shifts given in RESULT.md line 46 block every left triple: choose a first shift 0 or 1 to avoid the first chosen color, then the second shift to hit the third residue. Extra vertices cannot restore a blocked assignment. This establishes the exact result for all n>=1, not just the finite census, and makes no claim about counting cover isomorphism classes.
 
-## Sources and remaining limitations
-The most relevant primary comparisons are arXiv:2608.02335, arXiv:2609.33966, and arXiv:1803.09141. Exhaustive computation is limited to six right vertices but is complete there; the infinite tail is established separately by an analytic construction. No stronger-palette formula, all-minimizer classification, or independent historical priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete table adds the exact n=3,4,5 positive minima to known or immediate cases. In particular the n=2 entry is already an exact corollary of Kaul–Mudrock–Sharma–Ullyot by exchanging the bipartition shores, n=1 is the standard tree count, and the zero tail is known. These entries are not credited as novel. The examined evidence does not cover 14, 6, and 5 as exact minima for n=3,4,5, respectively.
+
+## value
+
+PASS
+
+The DP color function is a standard quantitative worst-cover invariant. The last three positive cases just before the independently known uncolourability threshold are a natural cutoff, not an arbitrary selection of graphs. In particular the exact 14-to-6-to-5 descent supplies sharp benchmarks where positivity alone leaves the number of available extensions undetermined. The value rests on those distinct minima, not on recomputing the tree, the two-vertex shore, or the zero tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

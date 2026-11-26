@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite domain consists of all 32,768 sixteen-bit words with bit zero fixed at one. Exact successor computation under a fully specified synchronous tie-retaining rule, indegree-elimination cycle classification and an alternate path-based classification agree on all states. The counts 425 fixed points, 301 primitive temporal two-cycles, 9,383 all-one basin states, 3,696 single-positive basin states, and the eleven nonzero first-entry/period cells are independently reproduced by two implementations. The sharp six-step entry bound has an explicit six-step witness, with exactly 24 maximum-depth inputs. Coordinatewise monotonicity proves the comparison has no lost consensus states; exhaustive comparison gives exactly 1,154 newly consensus-bound inputs.
+PASS
 
-## Originality — PASS, qualified
+Independent replay /tmp/opencode/check_majority_independent.py built all transitions by bitboard swaps along the four XOR dimensions and strict majority of the five bitboards (self plus four neighbors); then tested the first t with X_(t+2)=X_t separately for each word, and distinguished p=1 by X_(t+1)=X_t. Exhaustion found every pinned word in the eleven cells (t=0..6, counts by p=1:425,5490,12713,5171,1224,198,24; by p=2:602,3187,3562,172,0,0,0). There are 425 fixed points and 602/2=301 two-cycle orbits, with no others. All 24 words first entering at t=6 land at word 1: the wording 'attainable at time six' is read in its first-entry census context, not as a claim about the image of P^6. The witness 35537->35025->32977->209->81->17->1 certifies P^7 != P^5 and exhaustion gives P^8=P^6. All-one and word-1 basins have sizes 9383 and 3696. Unpinned replay gave max t=4 both for all 65536 starts and for the same 32768 odd starts, which have all-one basin 8229. The matched sets have difference 1154 and reverse difference zero. The order-preservation proof compares both iterates starting at the same x, because clamping dominates an ordinary update and the ordinary map is increasing. No inference about eventual fixedness of two-cycle starts or time to consensus.
 
-The closest exact published four-cube computation studies the unpinned map, and its 702 fixed points, 885 two-cycles and sharp four-step cutoff do not imply the pinned 425/301 result or paired consensus basins. General deterministic majority period bounds supply no graph-specific basin sizes. Stochastic stubborn-agent work studies a different update mechanism. No matching numerical table was found in the identified indexed results, after searches for pinned/stubborn/zealot four-cube majority, paired consensus basins, equivalences and prior exact censuses. Residual historical-priority risk from unindexed or inaccessible earlier tabulations remains.
+## originality
 
-## Value — PASS
+PASS
 
-Fixing one opinion is a natural local intervention in a canonical, even-degree, vertex-transitive communication graph. Exact matched-input comparison reveals a mathematically sharp gain-versus-delay phenomenon: a consensus basin gains 1,154 inputs and loses none while the worst transient rises from four to six. A second stable, highly polarized equilibrium still attracts 3,696 inputs. The exact finite classification is a reusable benchmark for deterministic intervention versus attraction-basin questions, not an arbitrary enumeration or a small change to an already known number.
+The credited unpinned four-cube census and general majority theory cover the baseline, not the specific pinned transient, two basin sizes, or exact matched gain. Different pin graphs and stochastic stubborn-agent models are meaningful context but do not specify the pinned Q4 map used here. The evidence supports the distinct paired gain-and-delay result without a global priority claim.
 
-## Scope and limits
+## value
 
-All numerical counts are for the labelled sixteen-vertex four-cube under the defined synchronous majority rule, not for all hypercubes, random updates or alternative tie rules. The numerical certificates are exhaustive but not independent external peer review. An earlier unindexed complete pinned-cube enumeration cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-vertex permanent forcing and the canonical even-degree cube make a specific natural intervention/relaxation test. On the same starts this intervention increases the all-one basin by exactly 1154 without loss yet lengthens the worst first-periodic-entry time from four to six, while a highly polarized equilibrium still attracts 3696. It is a sharp finite witness that monotone improvement of consensus attraction does not imply faster worst relaxation, with a full reusable entry-period census; not an empirical social claim or an all-dimensional result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

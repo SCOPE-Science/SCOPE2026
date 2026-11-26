@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to the stated disk, kernel normalization and parameter ranges. The identity \(1-|\varphi|^2=c(1-|z|^2)+c(1-c)|1-z|^2\) is exact, and the small perturbation condition keeps both symbols inside the disk. The Hilbert–Schmidt kernel integral follows by orthonormal-basis summation. The uniform ratio \(|\psi-\varphi|/(1-|\varphi|^2)=O(|1-z|^{\gamma-2})\) validates the differentiated-kernel expansion even along tangential approaches. Exact angular conversion, beta integration and uniform control of the endpoint yield the density and the normalization constant. The critical pole follows from uniformly integrable remainders. The standalone verifier supplies supplementary exact and finite numerical checks; it is not a substitute for these steps.
+## correctness
 
-## Originality — PASS, with risk
-The closest original source is Lo–Loh (2022), Example 3.8, which treats the same affine/fractional-contact Bergman example but provides only a restricted sufficient parameter window. Lo–Loh (2020), Example 3.5, already contains a Hardy-space sufficient result at contact order greater than \(5/2\). Choe–Hosokawa–Koo (2010) supply a general integrability characterization, rather than the present calculated sharp local asymptotic and constants. These similarities are credited. The contributions assessed here are the precise weighted Bergman necessity/sufficiency, the coefficient of the critical singularity, its norm residue, and the limiting tangential beta-prime measure. No decisive exact coverage appeared in the inspected published work or the searched mathematical records. General characterization theorems might admit unindexed exact specializations; this remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-Tangential contact at one boundary point is a natural limiting mechanism for weighted composition differences. The sharp boundary tells exactly how vanishing multipliers compensate for a fractional contact order, across all allowed Bergman weights. The explicit singular-energy coefficient and its beta-prime localization quantify a phenomenon left implicit by broad integral criteria; in particular the vanishing-order threshold is independent of the Bergman parameter even though its leading coefficient is not. This is a motivated all-parameter classification and a reusable local asymptotic, not a numerical one-off.
+Writing r=|1−z|, ρ=1−|z|², p=α+2 and κ=1−c gives the exact gap R=1−|φ(z)|²=c(ρ+κr²). The perturbation changes this by at most (4|ε|c²+16|ε|²c⁴)r², strictly below cκr², so the disk self-maps are uniformly inside the disk away from contact. Standard boundedness of composition on the weighted Bergman disk and boundedness of the multiplier give a bounded D. Tonelli and Parseval give its extended squared kernel energy. Along the symbol segment the gap is comparable to R; the first kernel derivative has squared norm asymptotic p(p+1)R^(−p−2), and the second derivative has Hilbert-space norm O(R^(−(p+4)/2)) by mixed differentiation of the reproducing kernel. Taylor's relative error is O(|δ|/R)=O(r^(γ−2)) uniformly, which is decisive at tangential approaches. Each angular arc contributes Jacobian r/(2√(1−r²(v+1)²/4)) at v=ρ/r². The angular weight v^α/(v+κ)^(α+4) has integrable error O(r²)(v+1)² times the weight up to v=1/r; the remaining singular endpoint has total O(r³). The slice integral is continuous at each 0<r<2 by setting v=u(2/r−1), with local domination by u^α(1−u)^(−1/2). The limiting integral κ^(−3)B(α+1,3) cancels the factors (α+1)p(p+1), giving 2|ε|²c^(2γ−α−4)/(πκ³) as the coefficient of r^(2s−6). It also gives the stated normalized angular law, with equal limiting arc masses even for complex ε. Integrating gives the power and logarithm, exactly s>5/2 for membership, and residue 𝒜/2 from ∫₀^r₀ r^(2(s−5/2)−1)dr. The error bound is uniform as β approaches the stated pole with 2<γ<5/2 fixed, because the β weight is constant on a slice.
 
-## Remaining limitations
-Only the Hilbert–Schmidt class is classified; the parameter \(\gamma=2\) and the full Schatten scale remain outside the claim. Historical-priority claims are qualified; external expert validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The affine/fractional contact pair, the appearance of 5/2 as a Hardy-space sufficient threshold and general Hilbert–Schmidt criteria are prior. The supported distinct content is the weighted-Bergman tangential energy evaluation, giving an exact coefficient, the full sharp β+γ threshold, the critical pole in its stated scope, and the limiting conditional angular distribution. The closest inspected same-map result does not contain these statements. A plausible general criterion source remains only indirectly verified.
+
+## value
+
+PASS
+
+For a previously studied family, a sufficient membership range leaves the border and divergence unexplained. The exact tangential calculation determines necessity, the logarithm and pole, and the transverse layer where local squared energy concentrates. These conclusions go beyond just obtaining membership from an abstract criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

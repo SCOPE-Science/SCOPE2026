@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact game is the one-point-extension rank of López-Callejas–Navarro-Castillo, restricted to the hereditary partial-transversal equivalence class. The proof enumerates all four possible one-point-extension kinds, derives the relative separation lemma for every marked induced structure by induction, and then derives the empty-position peeling criterion, sorted rooted-capacity formula, minimum-host rigidity, and size-optimal maximum-rank formula. Both new-class requests (rooted and unrooted) are explicitly represented. An independently implemented literal marked-subset game and a component-profile game agree with the formula on 1,215 unlabelled hosts through ten vertices and on 2,325,866 marked-state/threshold checks. The size-rigidity argument uses the exact minimum two-point residual and is not inferred from finite experiments.
+PASS
 
-The finite computations corroborate but cannot prove the all-size formula. They have no bearing on independent mathematical validation.
+One-point extensions over a fixed induced position F ask for an ordinary point or an admissible root in a specified active class, or for either colour in a fresh class. For rank ≥t each active class must actually have a host root: either already marked or required by a legal root challenge. An ordinary move in that class requires capacity t by induction at t−1. Fresh moves reduce to the untouched union U, since the other active classes play no role in these options. Conversely old moves preserve the relative conditions at t−1, and for fresh moves the winning responses in U combine with those conditions. At t=1 the two fresh colours can be realized independently and the active classes require a root and one spare ordinary point; this starts the induction for (R). For t≥2 a fresh ordinary challenge forces a rooted class with at least t ordinary points and remaining rank ≥t−1; the same class can answer a fresh root challenge, proving sufficiency. Peeling thresholds t down to 2 can use the largest rooted capacities: substituting a larger unchosen class leaves a rooted class of positive ordinary capacity behind, so the terminal rank-one requirement is preserved. The unused rooted and ordinary witnesses give b≥t and u_t+z≥1. Equality in the resulting size sum requires exact peeled capacities and a two-point terminal pair of different colours, together or apart. This gives exactly the two isomorphism types, also at t=1. Adding points to a fixed induced host cannot decrease rank because the old strategy remains available; the formula at exact order n follows, including the empty host.
 
-## Originality — PASS within the inspected evidence
+## originality
 
-The motivating 2026 paper (arXiv:2604.14461v1) defines the rank and treats linear orders, tournaments and free-amalgamation classes but does not compute the root-constrained equivalence partition rank. The nearest accessible published classifications of one unary predicate with an equivalence relation, pure equivalence structures, and idempotent unary structures concern **ordinary quantifier-rank theory spectra**, not the single-host one-point-extension minimax rank. The older \(\mathbf K\)-rank of Guingona–Parnes concerns partial-type coding and differs even in its input objects. The uncoloured equivalence-class extension game also has different allowable types, different thresholds and a single rather than a double minimum extremizer. Searches of aliases and stronger candidate results revealed no theorem implying the claimed sorted-capacity classification.
+PASS
 
-The absence of accessible coverage is not proof of global priority; unindexed and inaccessible treatments remain a risk. No external historical-priority audit was performed.
+The game is prior and its uncoloured finite-partition specialization has a known staircase. The rooted predicate changes both mandatory moves in active classes and the terminal supply in fresh classes. The inspected work does not yield (R), the mixed terminal condition u_t+z≥1, or the two sharp extremizers; the older quantifier-rank tables and K-rank concern different invariants. This is a best-knowledge comparison, not certified priority.
 
-## Value — PASS
+## value
 
-The hereditary partial-transversal class is a natural rooted-partition model in finite model theory. The result gives a complete finite-host invariant, a relative criterion for all marked substructures, the exact threshold \(t(t+3)/2\), and two structurally distinct sharp host types at every positive rank. Rootless ordinary points can supply the final necessary witness without supplying an additional rooted class, a structural effect invisible after forgetting the unary predicate. This nontrivial interaction between marked roots, ordinary-class capacities, and one-point games motivates the precise fact beyond a routine restatement of an existing table.
+PASS
 
-## Limitations
+The problem asks for a complete evaluation of a motivated extension-game invariant on a natural hereditary class. The answer determines the rank at every marked position as well as the sharp minimum and both extremal configurations; it exposes exactly how an unrooted class contributes at the last step without substituting for a rooted class earlier. This is more information than an isolated rank threshold or an uncoloured restatement.
 
-No countable-host rank spectrum is asserted. All full family conclusions depend on the inductive proof, not on the bounded checker. The originality claim is a best-knowledge comparison with inspected accessible literature and published records; historical priority is not independently certified.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:32:58.112926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–125; VERIFICATION.md lines 19–25; verify.py (inspected, not executed)."
+      ],
+      "rationale": "Subtracting and averaging the monomer equations gives independent noise drivers of variances 4D and D in q and R, respectively. The q diffusion has potential V=a|q|²/2+b(|q|−ℓ)²/2 and diffusivity 2D, so its stationary reversible path law depends only on the stiffness sum. For ℓ>0 the bounded directional perturbation of the linear drift is locally bounded including at zero; localization and absolute continuity to planar Brownian motion make zero polar from the stationary initial law. On a finite interval away from that point the Stratonovich chain rule applies. Transforming the work in velocity units gives exact energy differentials plus 2δ F(q)·dR, with zero cross variation. Multiplication by γ/(kBT)=1/D yields σ=(2δ/D) E[F·(δF−aR)]. The stable causal center filter gives E[F·R]=δ〈F,(a−Lq)⁻¹F〉; the center noise convolution is independent of q. The remaining quadratic form has multiplier λ/(a+λ), strictly positive for the nonzero mean-zero F in L²(π), with constants the sole zero modes. At ℓ=0, each q component has variance 2D/(a+b) and cov(R_i,q_i)=δ cov(q_i,q_i)/(2a+b), giving σ=8δ²/(2a+b) as claimed. All identities use the fixed equal-bath, equal-friction model and the physical heat normalization.",
+      "residual_risks": [
+        "The entire force is not globally bounded; the directional perturbation is, and the full force has linear growth. The spectral calculation needs F in L², not a square-integrable force gradient at the origin. Radial finite differences are not used as a proof of positivity or convergence for all parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Garcia-Millan give a barometric pair-separation law from aggregated potentials and exact pair entropy production for a periodic ring.",
+          "Loos–Klapp give stationary quadratic heat/covariance expressions for linear nonreciprocal networks."
+        ],
+        "reasoning": "The ring has no stable harmonically trapped center and does not supply the lag filter a(a−Lq)⁻¹. The linear-network result includes the Gaussian limit ℓ=0 but its linearity excludes ℓ>0.",
+        "searches": [
+          "Zhang–Garcia-Millan arXiv:2209.09721, Two-particle system, Eq. (4)",
+          "Loos–Klapp arXiv:2008.00894, §IV Eqs. (21)–(24)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27740; arXiv:2209.09721; arXiv:2008.00894; indexed records 8e558034cb4c and 0b2306697c41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model equations directly imply the autonomous bond path, and standard covariance heat identities recover the linear limit.",
+          "The finite-length force is nonlinear in q, although the conditional R equation is linear. The exact nonlinear coefficient uses the spectral measure of that force under the reversible q generator."
+        ],
+        "reasoning": "Applying the center causal filter to stationary nonlinear forcing, converting physical work and proving strict positivity do not follow from just the earlier Gaussian stationary law or the ring heat formula. General filtering and stochastic thermodynamics are prior methods; the assessment credits the exact joint claim, not those methods.",
+        "searches": [
+          "arXiv:2607.27740v1 §VI; arXiv:2209.09721 Eq. (4); arXiv:2008.00894 §IV Eqs. (21)–(24)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2607.27740v1, abstract and §VI: explicit zero-rest-length joint Gaussian steady state and current, positive-rest-length results by numerical integration.",
+          "Resultary 8e558034cb4c, Finding: entire observed OU path at a tuned two-bath ratio despite joint dissipation. Resultary 0b2306697c41, Finding: exact covariance, not full path law, in a switching trap."
+        ],
+        "reasoning": "Same-model finite-rest-length calculations are the principal comparison. An equilibrium-like marginal or covariance is weaker than bond path-law identity; the matched full-path indexed result involves a linear two-temperature model and one observed coordinate rather than an entire nonlinear reversible relative diffusion at fixed sum.",
+        "searches": [
+          "Resultary: trapped nonreciprocal dimer autonomous relative path; hidden EPR finite rest length resolvent",
+          "Primary literature: Pramanik–Dutta–Saha trapped nonreciprocal dimer finite-rest-length entropy production"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed findings inspected give different exact statistics in different models; the same-model primary source provides numerical positive-rest-length results, not a table of exact all-length coefficients."
+        ],
+        "reasoning": "There is no natural numerical coefficient table for a continuum of rest lengths and other parameters; the relevant indexed match is an exact operator identity. No match for that identity was located in the searched set.",
+        "searches": [
+          "Resultary: exact all-rest-length nonreciprocal dimer heat, hidden dissipation, nonlinear resolvent coefficient; 8e558034cb4c and 0b2306697c41"
+        ]
+      },
+      "rationale": "The same-model predecessor solves the zero-length Gaussian case and simulates the nonlinear case; autonomous bond reduction and hidden dissipation as a general phenomenon are not credited as new. The supported contribution is the parameter-sharp combination of identical stationary bond path laws and an exact, strictly positive all-rest-length heat coefficient for this particular trapped nonlinear model. The closest ring formula eliminates the center lag and the linear-network formula assumes Gaussian dynamics; neither inspected result evaluates this resolvent coefficient or supplies its full nonlinear claim as a corollary.",
+      "residual_risks": [
+        "Bounded passage-level search. A broader exact formula for stationary heat under nonlinear one-way forcing of a linear center could reduce the contribution further; none implying the full frozen claim was identified in the compared sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive physical precedent; inspected finite-length passage studies the full dynamics numerically.",
+          "evidence": "The steady-state density and current are explicit at zero rest length; §VI states nonlinear dynamics at positive length and treats them by simulation.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27740",
+          "material_read": "OA HTML abstract and §VI, offsets 0 and 23068",
+          "method": "Primary literature search and OA article passage comparison",
+          "title": "Non-reciprocity drives a Brownian dimer out of equilibrium",
+          "trigger": "Same dimer and finite rest length"
+        },
+        {
+          "assessment": "Exact barometric law in different, periodic untrapped geometry.",
+          "evidence": "Eq. (4) weights separation by exp[−(V1(x−y)+V2(y−x))/(D1+D2)], with periodic positional integration, not a harmonic center filter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09721",
+          "material_read": "Main text, Eq. (3) and Two-particle system Eq. (4), PDF p. 2, offset 15035",
+          "method": "OA PDF passage comparison",
+          "title": "Entropy production of non-reciprocal interactions",
+          "trigger": "Exact nonreciprocal pair separation and heat with a nonlinear potential"
+        },
+        {
+          "assessment": "General background for the linear case; those covariance formulas are for linear networks.",
+          "evidence": "Heat/EPR is expressed via linear-coupling stationary covariance identities.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.00894",
+          "material_read": "§IV, Eqs. (21)–(24), OA offsets 43250–50196",
+          "method": "OA article passage comparison",
+          "title": "Irreversibility, heat and information flows induced by non-reciprocal interactions",
+          "trigger": "Candidate broader heat formula for nonreciprocal networks"
+        },
+        {
+          "assessment": "Strong conceptual analogue, not the same assumptions or nonlinear model.",
+          "evidence": "A scalar observed stationary OU path is obtained for a reciprocally coupled two-temperature linear pair at a particular ratio.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-two-bath-tuning-makes-a-dissipative-gaussian-dimer-exac--8e558034cb4c",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary plus local-mirror RESULT.md inspection",
+          "title": "A unique two-bath tuning makes a dissipative Gaussian dimer exactly equilibrium-like",
+          "trigger": "Complete hidden-dissipation path-law match"
+        },
+        {
+          "assessment": "Matches covariance, not path law, in a switching model.",
+          "evidence": "Equilibrium-OU-like position covariance at every lag coexists with positive position/environment EPR.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-equilibrium-like-covariance-with-hidden-dissipation-in-a-t--0b2306697c41",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary plus local-mirror RESULT.md inspection",
+          "title": "Exact equilibrium-like covariance with hidden dissipation in a switching trap",
+          "trigger": "Exact equilibrium-like observation with hidden EPR"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; arXiv:2607.27740v1 §VI."
+      ],
+      "rationale": "The constraint is observational rather than just a thermal-density identity: all equilibrium bond path statistics persist under asymmetry, while the heat changes by a positive computable coefficient times asymmetry squared. The result gives a route to that coefficient from a reversible bond generator without having to solve the nonlinear four-dimensional stationary density, filling a precise gap in the positive-rest-length model.",
+      "residual_risks": [
+        "The resolvent is not an elementary closed form and does not support inference of asymmetry from the bond alone. No claims for unequal baths, general trapping, or arbitrary interactions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

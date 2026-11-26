@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:30:55.384999Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43 and 47–80",
+        "Frozen verify.py and VERIFICATION.md",
+        "Independent symbolic check: /workspace/branches/7c5341fd-ddcb-495e-8965-c2f8bf35589c/record3_audit.py"
+      ],
+      "rationale": "For independent fair digits and independent hole choices at each observation, the allowed weight on edge ij is w_ij, one of 1-p, p, or 1. Summing weighted digit paths gives S_n=(1/2,1/2)(w/2)^n(1,1)^T, including n=0, and S_1=3/4. At fairness the two same-type cases have constant row sum; in a mixed pair the two decreased entries share a row or column, making the matrix rank one with trace 3/4. For bias, complementation and transpose preserve survival, or one can directly compute trace and determinant of every orientation. Cayley–Hamilton then gives the table of recurrences, the generating functions, and S_2. The S_2 gaps factor as (2p-1)(1-p)/8, (2p-1)^2/8, (2p-1)(1-p)/8. The resultants are nonzero on the whole open bias interval: the A/B and C/D polynomial differences have sole zero at (2-p)/2, and the B/C difference has sole zero at 1-p+p². Substitution gives the reported resultants. At p=3/4 the listed radicals satisfy λA>25/32>λB>3/4>λC>7/10>λD by squaring positive rational bounds. Continuity and nonvanishing resultants give strict ordering everywhere stated. Positivity of the matrices, starting and ending vectors gives nonzero Perron contributions and the survival-root limits. Unequal S_2 off fairness and hole-label interchange prove uniqueness of the all-pair fair law. The simultaneous-relabeling language in the proof does not by itself identify the two opposite loop/cross orientations, but transpose or direct substitution does; it does not alter any claimed result.",
+      "residual_risks": [
+        "No quenched, deterministic schedule, longer-word or endpoint-bias claim. Frozen verifier inspected, not executed; strict ordering was also justified without the floating-point ordering check in that verifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General annealed transfer results allow this two-point distribution; shrinking-hole rates, random interval-map examples and quenched thermodynamics are also available. The all-position example uses a scalar multiple of the closed-system transfer matrix."
+        ],
+        "reasoning": "The general matrices give a representation, but not the pairwise cancellations at fairness or the comparison of all bias classes. Quenched trajectories involve a realization-dependent matrix product rather than a power of an averaged matrix.",
+        "searches": [
+          "arXiv:1207.7000, average transfer matrix",
+          "arXiv:1405.0361, §5.2",
+          "arXiv:1206.3654, random-hole escape rates",
+          "arXiv:2103.04712, random/quenched holes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.7000, 1405.0361, 1206.3654, 1905.11767, 2103.04712",
+        "Local Resultary 664f1ab42552 and 91c8d26540fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general averaged-transfer law immediately gives M and the Perron-root characterization, not that all six fair matrices either preserve the constant vector or satisfy M²=(3/4)M. The cited Resultary theorem excludes depth two and does not concern mixed endpoint and cross words."
+        ],
+        "reasoning": "Equal one-step survival is automatic but does not in general fix every horizon. The rank-one alternatives, the distinct biased trace/determinant classes and sign certification for all adjacent Perron roots are extra calculations expressing real differences between these subcases.",
+        "searches": [
+          "arXiv:1207.7000, pp. 3–4 (fixed-location averages vs per-step averaged matrix)",
+          "arXiv:1405.0361, §5.2 (Markov/interval examples)",
+          "Resultary 664f1ab42552, frozen Finding comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-state matrix is equivalently a weighted binary de Bruijn adjacency matrix on overlapping digrams. Georgiou–Dettmann–Altmann allows averaging over any law of resampled position. The fixed-union correlation analysis weights words by hard avoidance, not by independent hole draws at each occurrence."
+        ],
+        "reasoning": "A weighted word-avoidance law on the two specified digrams with each hit penalized by the corresponding survival probability would be equivalent. Fixed union and fixed schedule results use different weights or products and do not establish the biased sequence law. With two holes the fair hazard is nonconstant pointwise, unlike the all-position calculation in the older work.",
+        "searches": [
+          "Resultary: iid switching of two length-two binary cylinder holes, annealed survival and biased root classes",
+          "arXiv:1207.7000 p. 4, time-dependent holes and averaged matrix",
+          "arXiv:1905.11767, equal-length cylinders and correlation functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 664f1ab42552 deals with complementary endpoints at depth k≥3, while 91c8d26540fd treats deterministic schedules for 00 and 11. The older all-position exact geometric survival uses all Markov positions."
+        ],
+        "reasoning": "Same escape base 3/4 in the special all-position calculation does not identify the two-hole sequences. None of these are an exact table of the four biased classes or an equivalent two-hole formula. Ranked results are not exhaustive.",
+        "searches": [
+          "Local Resultary for all pairs of length-two binary holes under fair and biased redraws",
+          "arXiv:1207.7000, fixed-location and random-location cases"
+        ]
+      },
+      "rationale": "The known annealed transfer operator covers exactly this kind of two-hole ensemble. Credit that method and the earlier uniform-leak calculation. The distinct result is the complete two-cylinder classification: exact fair universality without pointwise constant leakage, and the explicit four different biased sequences together with strict orderings on the full bias interval. None of the inspected stronger or equivalent formulations supplies these conclusions as a stated result or direct instance of the existing constant-leak law.",
+      "residual_risks": [
+        "An explicit small-word equivalent could be in weighted pattern-avoidance or automata literature. Targeted public websearch gave no responsive evidence and is not a finding of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mechanism and all-position special case known; not equivalent table",
+          "evidence": "Distinguishes average over fixed positions from per-step averaged matrix; uniform all-position sampling makes that matrix a scalar multiple of closed T.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.7000",
+          "material_read": "pp. 3–4, OA offsets 15500 and 22200",
+          "method": "Primary OA PDF passages",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "Same length-scale escape protocol and geometric leakage example"
+        },
+        {
+          "assessment": "Framework, not the stated two-cylinder classification",
+          "evidence": "Weighted transfer for random holes and Markov interval-model examples.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.0361",
+          "material_read": "p. 1 and §5.2 p. 9, OA offset 22000",
+          "method": "Primary OA PDF passages",
+          "title": "On Transfer Operators and Maps with Random Holes",
+          "trigger": "General random-hole transfer method"
+        },
+        {
+          "assessment": "Different rate estimates",
+          "evidence": "Treats random holes and first-order asymptotic approximations.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.3654",
+          "material_read": "pp. 1–2, OA offsets 0 and 5800",
+          "method": "Primary OA PDF passages",
+          "title": "Escape Rates Formulae and Metastability for Randomly Perturbed Maps",
+          "trigger": "Random-hole rate results"
+        },
+        {
+          "assessment": "Fixed union, different survival protocol",
+          "evidence": "Uses fixed holes formed by a union of equal-length cylinders and compares correlation-based rates.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11767",
+          "material_read": "pp. 1–2, OA offsets 0 and 2000",
+          "method": "Primary OA PDF passages",
+          "title": "Cheriyath–Agarwal, escape through cylinders",
+          "trigger": "Equivalent symbolic-correlation method candidate"
+        },
+        {
+          "assessment": "Quenched results not equivalent",
+          "evidence": "Random environment and associated quenched thermodynamic framework.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.04712",
+          "material_read": "pp. 1, 5, OA offsets 0 and 16600",
+          "method": "Primary OA PDF passages",
+          "title": "Atnip et al., quenched random holes",
+          "trigger": "May share random holes but different conditioning"
+        },
+        {
+          "assessment": "Different depths or hole-selection laws",
+          "evidence": "First concerns complementary endpoints at k≥3; second prescribes schedules for 00 and 11 rather than independent bias.",
+          "identifier_or_url": "Resultary 664f1ab42552; 91c8d26540fd",
+          "material_read": "Actual Findings in both catalog records",
+          "method": "Configured local Resultary and mirrored passages",
+          "title": "Fair switching maximizes annealed escape through complementary binary cylinders; Sharp moving-hole escape envelopes",
+          "trigger": "Closest local catalogue protocol and geometric cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, fair and biased classifications",
+        "arXiv:1207.7000, all-position leakage comparison"
+      ],
+      "rationale": "Length two is the first binary cylinder scale where adjacent observations share a digit. At that scale the result separates an exact ensemble survival law from a constant spatial leakage law, and shows that its degeneracy is genuinely broken by bias into different finite-time and asymptotic profiles, with strict order throughout the whole bias interval. This is a natural complete test case for annealed escape, not merely a computation of one sample spectral radius.",
+      "residual_risks": [
+        "No ordering asserted at every n>2, and no demonstrated extension to longer cylinders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:45.085194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, and Proof",
+        "Frozen VERIFICATION.md and check_hessian.py (inspected, not executed)",
+        "Replay: from /workspace, python3 review-checks/records-2-5.py, section 2 (NumPy and SymPy)"
+      ],
+      "rationale": "On trace-free quadratics the intrinsic Hessian is twice the tangent restriction of P_x A P_x minus f_A P_x. Its squared norm divided by four is ||A||_F^2−2||Ax||^2+(d+2)|f_A|^2. Full sphere moments give global Hessian energy 4||A||_F^2. The three symmetry types exhaust the space and remain orthogonal for the regional form, including in d=3 and after complexification. Conditioning on u=x_d^2 gives the beta density in the proof; each difference of the three conditional energy polynomials integrates to its stated linear-factor boundary expression. Their simple zeros are in the stated order. The ranks sum as claimed at ties, analyticity excludes eigenvalues zero and one at interior cutoffs, and the maximum/minimum ratio is the squared observation condition number. An independent symbolic check of the gap identities and a d=3 tangent-frame Gram calculation corroborate the proof.",
+      "residual_risks": [
+        "Pure degree two and full continuous intrinsic Hessian only; the finite d=3 check does not prove the all-dimensional statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The scalar double-cap kernel is for bandlimited scalar field energy. The rank-two tensor concentration construction uses spin-weighted blocks on S²."
+        ],
+        "reasoning": "The arbitrary tensor-field spectrum is not the compression to the scalar Hessian image, and these passages do not give the all-dimensional thresholds. The decisive coverage instead comes from combining the two exact same-degree forms.",
+        "searches": [
+          "Simons–Dahlen DOI 10.1111/j.1365-246X.2006.03065.x, §4.2",
+          "Michel–Plattner–Seibert arXiv:2103.14650v1, §§4.2–4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6162fab5602a and 984cac538af7, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Simons–Dahlen 2006, §4.2",
+        "Michel–Plattner–Seibert, arXiv:2103.14650v1, §4.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With C the common beta boundary factor, S_Z−S_M=(d+2)C(dt−1)/(d−1), while G_Z−G_M=(d+2)C(1−2t)/(d−1); the normalized difference gives the Hessian gap 2C((d+2)t−2)/(d−1). Subtracting the M−T data gives 2C(d+3−2(d+2)t)/((d−1)(d+1)); adding yields the Z−T gap."
+        ],
+        "reasoning": "The identity fixes all eigenvalues, equalities and active branches. This is a stronger comparison than noticing that scalar values alone have a different transition.",
+        "searches": [
+          "984cac538af7 RESULT.md Finding, scalar gap equations",
+          "6162fab5602a RESULT.md Finding and projected gradient identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gradient record's |x_d| cutoff a corresponds to t=a², and its Z/M/T split is the same. The scalar record's transverse E is T; its real forms extend by polarization."
+        ],
+        "reasoning": "Neither alternative observation alone is equivalent to Hessian measurement. Together their normalized quadratic forms determine it through the pointwise intrinsic Hessian identity.",
+        "searches": [
+          "Resultary 6162fab5602a (tangential-gradient concentration) and 984cac538af7 (scalar Slepian quadrupole)",
+          "spherical Slepian concentration covariant Hessian observations pure degree two spherical harmonics antipodal polar caps tensor field exact eigenvalues crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both accessible indexed findings contain branch formulas and exact gap identities, not just rankings. The frozen bibliography's November 8 link did not resolve; the October 26 scalar record is independently identifiable."
+        ],
+        "reasoning": "An indexed Hessian table is unnecessary for coverage here: the two exact tables supply every entry of the target spectrum by the same normalization identity.",
+        "searches": [
+          "Resultary indexed scalar and gradient branch tables, 984cac538af7 and 6162fab5602a; inspected both Finding sections",
+          "Frozen bibliography's reported November 8 scalar reference, 979df7aea2e4"
+        ]
+      },
+      "rationale": "The complete crossing classification is mechanically determined by the exact scalar-value and tangential-gradient branch formulas in two distinct indexed findings, not just similar titles or extremal thresholds. On the same quadrupoles, ||Hess f||²/4=||A||_F²+d|f|²−|grad f|²/2. Normalizing the integrals gives H_J=area(E_t)+2(S_J−G_J)/(d+2) for every sector J. Inserting the published branch differences gives all three frozen gaps, zeros and crossing multiplicities without a new cap spectral calculation. The gradient comparison is dated the same day; this is established mathematical overlap and failure to establish a distinct claim, not a determination of publication order or attribution.",
+      "residual_risks": [
+        "Intraday priority is not resolved.",
+        "Frozen November 8 scalar citation did not resolve; no identity with the October 26 entry is asserted.",
+        "An earlier tensor treatment could contain additional related coverage; the disposition does not rely on its absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Jointly covers the Hessian finding with the scalar-value record; dates alone do not establish priority",
+          "evidence": "Exact gradient gaps and |grad f|²=4(||Ax||²−|f|²).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-dimension-free-optimizer-switch-for-tangential-gradient-concen--6162fab5602a/RESULT.md",
+          "material_read": "Finding, assumptions, projected-gradient identity and branch derivation",
+          "method": "Indexed result and bounded primary mirror passages; independently checked the exact Finding",
+          "title": "A dimension-free optimizer switch for tangential-gradient concentration of spherical quadrupoles",
+          "trigger": "Same degree, geometry and three sectors; possible exact reduction"
+        },
+        {
+          "assessment": "Supplies the scalar term of the exact Hessian reduction",
+          "evidence": "Scalar Z−M and M−E boundary factors and all three exact integrals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7/RESULT.md",
+          "material_read": "Finding, scope and sector/gap formulas",
+          "method": "Indexed result and bounded primary mirror passages; independently checked the exact Finding",
+          "title": "A sharp quadrupole Slepian transition for antipodal spherical caps",
+          "trigger": "Same pure quadrupoles and cap cutoff"
+        },
+        {
+          "assessment": "Background, not the all-d intrinsic Hessian classification",
+          "evidence": "Scalar bandlimited double-cap concentration with order/parity decomposition.",
+          "identifier_or_url": "https://geoweb.princeton.edu/people/simons/PDF/reprints/GJI-2006.pdf",
+          "material_read": "PDF p. 1 and §4.2, equations (64)–(68)",
+          "method": "OA primary PDF",
+          "title": "Spherical Slepian functions and the polar gap in geodesy",
+          "trigger": "Classic double-cap concentration"
+        },
+        {
+          "assessment": "Broader S² tensor machinery, not a statement of the coupled pure-degree-two Hessian gaps in all dimensions",
+          "evidence": "Nine tensor harmonic blocks organized by spin; no such Hessian constraint in the inspected concentration problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14650v1",
+          "material_read": "Abstract, §§4.2–4.3, especially Definition 4.4, Problem 4.6 and equation (21)",
+          "method": "OA primary PDF/HTML passages",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "General tensor counterpart could include the Hessian image"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, branch and conditioning claims",
+        "Exact two-record implication in the originality assessment"
+      ],
+      "rationale": "The intrinsic Hessian observation problem and the worst-mode switches are meaningful, but the submitted narrow exact invariant is entirely recoverable from the existing matched scalar and gradient spectra by a pointwise norm identity and linear subtraction. Its value as a useful explicit corollary does not meet the independent exact-invariant criterion for the frozen claim. No distinct surviving result in the submitted scope was established for repair.",
+      "residual_risks": [
+        "No judgment about the value of new Hessian results for other degrees, masks or data models."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

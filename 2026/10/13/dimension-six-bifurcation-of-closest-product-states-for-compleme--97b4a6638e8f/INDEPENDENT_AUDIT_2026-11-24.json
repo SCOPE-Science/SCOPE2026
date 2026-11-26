@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:58:11.096982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hübener et al. §II Lemma 1 applies to the nonzero symmetric complex multilinear form for n≥4 and forces proportional local factors at every maximum, not merely the existence of a symmetric maximizer. For any interior latitude both Dicke amplitudes are nonzero, and the phase of their ratio is (n−2)φ up to sign. The only optimal phases modulo 2π are 2πj/(n−2). The two poles have zero overlap. With x=(1+tanh t)/2, the phase-maximized squared overlap is n·2^(1−n) cosh²(at)/coshⁿ(t), a=(n−2)/2. For a>1 the logarithmic derivative of tanh(at)/tanh t is negative by sinh(2at)>a sinh(2t), so the ratio strictly decreases from a to 1 on t>0. Comparing with n/(n−2) proves no positive root for n=5 and exactly one for n≥6, with the indicated change from increasing to decreasing. For n=4 the log-overlap derivative is −2 tanh t. This gives the complete latitude and phase counts. At n=6, z=tanh t gives z²=1/3, cosh(2t)=2 and cosh⁶t=27/8, hence 2/9. On x≤1/2 the contribution squared of the minority Dicke term is at most 2^(−n), using x(1−x)≤1/4, while the dominant term is bounded by its value at x=1/n; symmetry and testing x=1/n give the same limiting lower and upper bound 1/(2e). The inspected verifier was not executed; its finite grids do not establish this optimizer classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The symmetry lemma applies to every maximizer. Chen–Xu–Zhu give a scalar optimization for every symmetric state with positive or zero Dicke coefficients, hence also this state."
+        ],
+        "reasoning": "These results remove the tensor and phase optimization for the value, but do not solve the remaining parameter-dependent scalar problem or count all its maximizing rays. The strict monotonicity across all n supplies the additional conclusion.",
+        "searches": [
+          "arXiv:0905.4822 §II Lemma 1",
+          "arXiv:0911.1493 §II.A Eqs. (5)–(7)",
+          "arXiv:1003.5643 symmetric-state Majorana and closest-product framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0905.4822",
+        "arXiv:1407.1738",
+        "arXiv:1003.5643",
+        "arXiv:0911.1493",
+        "arXiv:0712.4085",
+        "Resultary b23c11a55197, 29cf6b55a794 and d3b9c1dc25ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-qubit GHZ reduction and dipyramid examples cover the early branch behavior; the general positive-Dicke recipe only specifies the objective. The W–GHZ study covers a different superposition and K-partition dependence. The one-qubit marginal result for the same state does not determine maximum n-partite product overlap."
+        ],
+        "reasoning": "The remaining classification does not follow by substituting n into a solved prior formula: the crossing and uniqueness needed at unbounded n and the asymptotic bound are additional arguments. The early cases are consistency checks, not separate discoveries.",
+        "searches": [
+          "arXiv:1003.5643 pp. 10–11 and arXiv:0911.1493 §II.A",
+          "arXiv:1407.1738 §§II.A and IV.A",
+          "arXiv:0712.4085 Eqs. (43)–(45), Fig. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same states occur as complementary Dicke pairs, and their Majorana sets are an equatorial regular (n−2)-gon and two poles. Aulbach–Markham–Murao write the exact five- and seven-qubit states and rotate the minus-sign octahedron presentation to the positive six-qubit state. Ψ₄=(X⊗I⊗I⊗I)H⊗⁴ GHZ₄."
+        ],
+        "reasoning": "In these equivalent forms the special cases are genuinely covered. Logarithmic geometric entanglement log₂(1/Λ²) has to be converted to 1−Λ² for comparison.",
+        "searches": [
+          "Balanced W plus spin-flipped W and complementary Dicke family in Resultary",
+          "arXiv:1407.1738 §II.A Eqs. (8)–(9) and §IV.A",
+          "arXiv:1003.5643 qubit case study, trigonal bipyramid, octahedron and pentagonal dipyramid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary case study gives three equatorial closest products and log₂(16/5) for n=5, eight cube-face-direction closest products and log₂(9/2) for n=6, and ten closest products on two circles for n=7. The same-day Resultary record b23c11a55197 studies QFI under phase damping for the identical state; the other two records concern a single W state and an incoherent mixed Dicke-edge state, respectively."
+        ],
+        "reasoning": "The exact small cases, including the six-qubit overlap and both latitudes, are covered, not merely suggested. Neither the cited exact cases nor the other catalogue observables determine the all-n theorem.",
+        "searches": [
+          "Resultary b23c11a55197, 29cf6b55a794 and d3b9c1dc25ce, Findings",
+          "arXiv:1003.5643 pp. 10–11, Figs. 5–7 and Eq. (35)"
+        ]
+      },
+      "rationale": "Pass is for the uniform all-n classification and limit. The scalar optimization framework and the individual n=4,5,6,7 cases must not be counted as novel: the four-qubit state is locally equivalent to GHZ, and Aulbach–Markham–Murao treat the same tri-, square-, and pentagonal dipyramid states. Those examples already show the observed switch from equatorial rays to two circles at six qubits; they do not prove the two-latitude branch persists at every larger n or the limit. The same-day Resultary hit uses the same state but a different observable. No inspected statement covers the uniform branch theorem.",
+      "residual_risks": [
+        "An unlocated general solution under an alternative symmetric tensor or Majorana dipyramid formulation remains possible. The individual case overlap is verified, not merely a risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly supplies the required symmetry lemma",
+          "evidence": "For N≥3 every normalized maximizing tuple of a nonzero symmetric form on complex vectors has equal factors up to phase.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.4822",
+          "material_read": "p. 2, §II, Eq. (4), Lemma 1",
+          "method": "Open primary PDF, targeted passages",
+          "title": "The geometric measure of entanglement for symmetric states",
+          "trigger": "All-maximizers reduction for complex symmetric tensor"
+        },
+        {
+          "assessment": "Same family known; four-qubit case follows by local equivalence; no verified uniform optimizer theorem here",
+          "evidence": "Complementary pairs give maximally mixed one-qubit reductions; GHZ overlap is 1/2 squared in the four-qubit analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1738",
+          "material_read": "p. 2, §II.A Eqs. (8)–(9); p. 6, §IV.A Eqs. (29)–(34)",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Multiqubit symmetric states with maximally mixed one-qubit reductions",
+          "trigger": "Same complementary Dicke family and low-dimensional entanglement"
+        },
+        {
+          "assessment": "Exact n=5 and n=6 cases, and the n=7 two-latitude ten-point pattern, already covered; inspected cases do not prove persistence at all higher n",
+          "evidence": "Ψ₅=(|S₁⟩+|S₄⟩)/√2, three equatorial CPPs; positive Ψ₆=(|S₁⟩+|S₅⟩)/√2, eight CPPs with latitudes of Eq. (35) and log₂(9/2); Ψ₇=(|S₁⟩+|S₆⟩)/√2, ten CPPs on two circles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5643",
+          "material_read": "pp. 10–11, Fig. 5 and triagonal case passage (offsets 74540–76904), octahedron and pentagonal dipyramid passages with Figs. 6–7 and Eqs. (34)–(36) (offsets 82780–89457)",
+          "method": "Located bipyramid, octahedron and dipyramid in the open primary PDF and read the surrounding case analyses",
+          "title": "The maximally entangled symmetric state in terms of the geometric measure",
+          "trigger": "Majorana dipyramids are the same states at five, six and seven qubits"
+        },
+        {
+          "assessment": "Supplies the general scalar recipe but not the solved branch theorem in material read",
+          "evidence": "Maximization over one real angle after choosing nonnegative local amplitudes.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.1493",
+          "material_read": "p. 3, §II.A, Eqs. (5)–(7) and subsequent optimization discussion",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Geometric measure of entanglement for pure multipartite states",
+          "trigger": "General positive-Dicke optimization"
+        },
+        {
+          "assessment": "Different family and problem",
+          "evidence": "W–GHZ instead of W–spin-flipped-W, with entanglement across K-partitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.4085",
+          "material_read": "p. 8, Eqs. (43)–(45), and p. 9, Fig. 3",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Hierarchies of geometric entanglement",
+          "trigger": "Nearby symmetric two-component W-family result"
+        },
+        {
+          "assessment": "Same state but different observable; date does not decide novelty",
+          "evidence": "Fixed-axis quantum Fisher information under phase damping, not closest product overlap.",
+          "identifier_or_url": "2026/10/13/SCOPE-unique-phase-damping-crossover-of-w-spin-flipped-w-and-ghz-probe--b23c11a55197",
+          "material_read": "RESULT.md Finding",
+          "method": "Original file through local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unique phase-damping crossover of W-spin-flipped-W and GHZ probes",
+          "trigger": "Same state and same catalogue date"
+        },
+        {
+          "assessment": "Does not cover the coherent cat",
+          "evidence": "Single W-state squared overlap ((n−1)/n)^(n−1) and block-product relaxation.",
+          "identifier_or_url": "2026/10/12/SCOPE-w-states-make-the-block-product-relaxation-loss-order-one-over-q--29cf6b55a794",
+          "material_read": "RESULT.md Finding",
+          "method": "Original file through local mirror",
+          "title": "W states make the block-product relaxation loss order one over q",
+          "trigger": "Product overlap of one component of the cat"
+        },
+        {
+          "assessment": "Different state type and objective",
+          "evidence": "Incoherent mixed Dicke edge and relative entropy, not pure-state maximization over product rays.",
+          "identifier_or_url": "2026/10/12/SCOPE-uniqueness-and-minimal-product-length-of-the-closest-separable-s--d3b9c1dc25ce",
+          "material_read": "RESULT.md Finding",
+          "method": "Original file through local mirror",
+          "title": "Uniqueness and minimal product length of the closest separable state on a Dicke edge",
+          "trigger": "Nearby Dicke extremization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-dimension solution for a natural symmetric entangled family turns known small-dimensional configurations into a sharp global branch theorem. The uniqueness of the latitude, full phase-resolved count at every n and limiting overlap give information beyond observing the transition in low dimension or reporting numerical stationary points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

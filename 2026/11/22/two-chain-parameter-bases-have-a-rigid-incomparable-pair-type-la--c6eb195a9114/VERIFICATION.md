@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable `verify.py` is a standalone Python 3 program with no external dependencies. Running `python3 verify.py` checks the candidate formulas for \(N,C,I\) on the \(5\times5\) positive interpolation grid, along both axes and at the empty base, then on seven outside-grid cases. It separately constructs transitive closures of all two-new-point diagrams when each old chain has at most two elements, checking 2,367 feasibility decisions. The saved output ends in `VERIFICATION_OK`.
+# Independent mathematical audit
 
-The infinite assertion uses a separate mathematical fact: each pair type over two chains is specified by four cut coordinates on each old chain; its status depends only on their weak order and boundary incidences. For each fixed order pattern with \(k\le4\) distinct interior cut values, there are \(\binom{m-1}{k}\) realisations on a positive-length chain. Consequently both pair-profile functions are polynomials of degree at most four in each positive chain length, and are similarly univariate polynomials on an axis. The finite grid uniquely determines those polynomials. Finite tests alone would not justify an all-size statement.
+## correctness
 
-No independent mathematical validation, external formal certification or claim of historical uniqueness has been performed.
+PASS
+
+The frozen Finding is correct, but its proof line 23 incorrectly prints binomial(a+1,2)+binomial(b+1,2): at a=b=1 that line would give 9 instead of 7. The corrected complete RESULT.md at /workspace/repairs/2/RESULT.md uses binomial(a,2)+binomial(b,2). Both bounds nonempty force both onto one chain of length m, with 1≤p≤q≤m−1; the one-sided types number 2(a+1)(b+1)−1. For the pair count, homogeneity means each consistent finite induced diagram gives exactly one complete type. Downsets, upsets and lower-to-upper comparisons characterize the single-point diagrams. For x<y, lower sets must nest forward and upper sets backward; these inclusions already close paths through x<y. For incomparable x,y, the two lower/successor intersections must be empty, preventing any newly forced x–y comparison via the base. With either relation all other paths close using those conditions and the unary ones. Independently compressed each chain's four cuts to endpoint flags and k used interior ranks, each contributing binomial(m−1,k). Combined the two chains by excluding opposite nonempty lower/upper flags between them for each variable. The resulting two Newton-basis coefficient arrays agree exactly with the Finding's polynomials; checked each single-chain axis and the empty base separately (62 equalities in all; symmetry gives the second axis). This certifies the identity for all lengths, not just samples. Finally H−N is strictly positive and O((a+b+1)^3), whereas N² grows quartically, giving the claimed fraction and uniform limit. The corrected unary line changes neither the Finding nor the pair proof or certificate inputs.
+
+## originality
+
+PASS
+
+Best of the inspected evidence: only the independent two-length pair spectrum and its incomparable-count factorization and uniform-in-balance comparison survive as the contribution. Unary counts, single-chain counts, generic extension machinery and the qualitative comparable-fraction phenomenon on a different parameter family are not new. The repaired prose now explicitly identifies the strongest same-date comparison.
+
+## value
+
+PASS
+
+The marked disjoint-two-chain class is distinguished by a pre-existing extremal unary equality. The new structural fact is that the incomparable pair channel over this entire class reduces to its unary count, although full pair counts require more information. It also supplies an exact comparable comparison and a limit without balance assumptions. These are useful checks for type-spectrum and order-diagram work, not arbitrary small poset counts. Correcting the unary derivation preserves that contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

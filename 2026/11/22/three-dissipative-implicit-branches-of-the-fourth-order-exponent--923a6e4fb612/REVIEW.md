@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update is exactly the scalar exponential completion of [1, Theorem 6]. The AVF chain rule confines all real roots to the strict energy sublevel interval. The normalized implicit equation, three alternating sign brackets, and derivative reduction imply precisely three roots: the transformed degree-six polynomial has all-positive coefficients on the left half interval and exactly one Descartes sign change on the right. The asymptotic branch statements follow by direct scaling brackets and an exponentially small remainder bound. Exact polynomial arithmetic and high-precision numerical checks are included in `verification.py`; the analytic argument, not the numerical samples, proves the infinite family. Risk: numerical root selection and branch continuation are not analyzed.
+PASS
 
-## Originality — PASS, with limits
+Theorem 6 really gives the midpoint-dependent exponential in the scalar constant-R case. With x>0 and h>0 the exact AVF chain rule gives strict energy loss: a zero discrete gradient would force y=x, incompatible with H'(x)>0. Thus all possible real roots are in |y|<x, and z=(1+y/x)/2 is an equivalent parametrization on (0,1). The signs of G_t−1 at 0, 3/t, 1/2 and the right endpoint limit are −,+,−,+ for every t≥20; in particular the lower bound at 3/t is 606579/544000>1. Independently differentiated log G_t and checked the polynomial controlling the single minimum of T in the proof by exact rational remainders: the Sturm variations at z=0 and z=1 are 4 and 3, and the polynomial endpoint signs are + and −. Thus G_t has at most two critical points and by Rolle at most three level-one roots. The first two z-roots are below 1/2. Comparing G_t(c/t) to c/2 brackets the first; log G_t(C t^(-1/2)(log t)^(1/4))/log t tends to 1/2−3C^4/4 and brackets the second. For the last, the exact equation bounds 1−z by (t/2)exp(−3t²/64), so t²(1−z) vanishes and its exponential can be replaced to relative o(1) by exp(−3t²/4). The three expansions and the exact flow comparison follow. Exact derivative/critical-point calculation replay: /workspace/calculations/algebra_checks.py, avf(). The submitted decimal bisection was inspected, not executed; it is only a single-step example, not evidence for the universal count. No minimal onset or solver convergence is claimed.
 
-The exact new assertion is the three-root classification and three distinct large-step asymptotics for the newly introduced midpoint-Hessian exponential AVF completion. The full pertinent section of [1] proves energy consistency and fourth-order local accuracy but does not treat three real roots on the convex quartic. Full-text §5.1 of [2] proves fixed-multiplier AVF uniqueness; that theorem is inapplicable because the exponential completion has an endpoint-dependent multiplier. Targeted literature and mathematical-record searches on exponential completion, quartic implicit branches, nonlinear root uniqueness and related aliases did not produce a covering statement. Historical priority outside inspected texts is not independently established. The nearest accessible records on scalar auxiliary-variable freezing concern different update equations and are not logically stronger than this result.
+## originality
 
-## Value — PASS
+PASS
 
-High-order, unconditionally dissipative implicit integrators can be used with coarse steps in stiff dissipative subflows. The smallest canonical nonlinear convex energy exposes an exact *global definition* issue: three legitimate energy-decreasing endpoints with physically incompatible large-step behavior. A structural root-count argument and asymptotic classification show this is not a numerical solver tolerance artifact and identify distinct branches a root-selection algorithm may encounter. This fact motivates explicit uniqueness/branch selection safeguards, without purporting to disprove the established small-step order result.
+The scalar equation and dissipation mechanism are specializations of the published method. The distinct content is the exact all-t≥20 root count and its three asymptotic scales for that exponential completion; neither the method's energy/order theorem nor fixed-multiplier AVF uniqueness covers them. The exact indexed hit is this frozen record, not separate evidence of priority.
 
-## Scope and limitations
+## value
 
-The theorem is confined to exact scalar exponential completion and \(hx^2\ge20\), not an optimal step threshold, other completions or a general numerical root finder. The method, dissipative energy identity and AVF definition are prior work. A complete universal literature search or independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical scalar convex quartic isolates a practical well-definedness issue in an energy-consistent high-order implicit method. The three solutions are certified for a whole unbounded step range and have distinct nonphysical limits/rates despite strict energy loss. This supplies a branch-selection benchmark and tests the reach of energy consistency, without questioning small-step order or claiming practical failure of a particular solver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

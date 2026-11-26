@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:14.445552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–42",
+        "Frozen VERIFICATION.md, forest_type_check.py and verification_output.txt"
+      ],
+      "rationale": "A legal profile consists of a downset L below the new point and an upset U above it with every member of L strictly below every member of U; this is necessary and sufficient for transitivity without new comparisons on the parameters. Fraïssé extension realizes every profile; homogeneity fixes its complete type over named parameters, and any finite number of mutually incomparable copies realize the same profile, so the type is nonalgebraic. One independent count splits profiles with an empty side, giving 2D−1 since ideals and filters are in bijection by complement. If both sides are nonempty, choosing u in U shows L is contained in the strict ancestor chain of u. Its greatest element v determines L uniquely as the principal ideal of v. Then U is any nonempty filter of the strict descendant forest of v (automatically a filter in P); its count is the number of ideals of that forest minus one, namely product of the child d-values minus one = d_v−2. The standard empty-or-containing-root split gives d_v and product over components gives D. Thus the sum is exactly 2D+sum d_v−2n−1. This includes the empty case D=1 and t=1. Substitution gives the chain, star and antichain expressions. One postorder pass multiplies once per child and per component and sums once per vertex; every counted integer has O(n) bits, so polynomial bit complexity follows, not linear bit complexity. This is an analytic replay for all sizes. The supplied direct-transitivity checker and its 874-encoding and 24-example recorded output were inspected, not executed.",
+      "residual_risks": [
+        "The proof needs ancestor orientation; arbitrary orientations of acyclic cover graphs are outside this formula.",
+        "The finite forest test counts encodings, not 874 pairwise nonisomorphic forests, and is not the all-size proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "23742e530543 handles connected tree cover graphs with arbitrary orientation, with explicit lower and upper recurrences, an ideal count, and O(n) arithmetic. 3b955f4020e1 gives general profile coding and unrestricted #P-completeness. The inspected Jochemko passages treat order polynomials and group actions, not a new exact mixed-profile formula."
+        ],
+        "reasoning": "The unrestricted coding and complexity result does not by itself give a linear-time forest count. The stronger tree-cover enumeration does, with a simple connectedization to cover disconnected forests.",
+        "searches": [
+          "Resultary 23742e530543, Finding and proof; 3b955f4020e1, Finding",
+          "Jochemko arXiv:1310.0838, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 23742e530543, 3b955f4020e1 and fde0938143fa",
+        "Dolinka–Mašulović DOI:10.1017/S0013091510001161",
+        "Jochemko arXiv:1310.0838"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let a_v be the prior lower recurrence minus 1; on an outward-rooted tree a_v is depth(v)+1. Its upper recurrence U_v is d_v. The prior correction terms combine to sum_v [a_v(U_v−1)−1−sum_{v→w}a_v(U_w−1)]. Telescoping gives sum_v (U_v−2), since a_root=1 and a_v−a_parent=1, yielding the exact frozen scalars on a tree.",
+          "For any forest P adjoin a single minimum z below its roots to form a rooted tree Q. The ideal count of Q is D+1, and d_z=D+1. There are t(P) profiles with x>z, D profiles with x incomparable to z (empty lower side in P, arbitrary filter), and one with x<z. Hence t(Q)=t(P)+D+1; substituting into the specialized prior tree formula gives exactly t(P)=2D+sum_v d_v−2n−1, including the empty forest."
+        ],
+        "reasoning": "The only algebraic simplification is cancellation along parent edges plus the elementary added-minimum identity. This recovers the stated count and one-subtree-scalar O(n) evaluation, not just an alternative higher-cost solution for some instances.",
+        "searches": [
+          "Resultary 23742e530543, displayed formula and scope, local-mirror offsets 75–3320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3b955f4020e1 explicitly identifies these complete types with compatible ideal/filter pairs. The primary Dolinka–Mašulović proof describes the lower and upper sets of a strict one-point extension. Both the frozen result and 23742e530543 count the corresponding profiles over individually named points."
+        ],
+        "reasoning": "Insertion positions and the compatible-pair count are equivalent here; neither renaming the invariant nor the generic-poset realization yields a difference from the covering theorem. The separate Pretzel comparison remains unresolved, not evidence of coverage or noncoverage.",
+        "searches": [
+          "Resultary 3b955f4020e1 and 23742e530543, Finding; one-point extensions, insertion positions, ideal/filter pairs",
+          "Dolinka–Mašulović DOI:10.1017/S0013091510001161, Lemma 4.3",
+          "Pretzel DOI:10.1016/0012-365X(80)90100-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3b955f4020e1 includes the chain and antichain values binom(n+2,2) and 2^(n+1)−1. fde0938143fa includes the height-two star equality value 3·2^(n−1). 23742e530543 gives the broader exact directed-tree recurrence; it does not print the frozen expression verbatim."
+        ],
+        "reasoning": "The chain, antichain and star numbers are verified special-case overlaps, already disclaimed as novel. For the actual unbounded forest result, the indexed formula is an exact computation even without a literal table row or identical symbolic presentation.",
+        "searches": [
+          "Resultary 3b955f4020e1, fde0938143fa and 23742e530543, Finding passages; rooted forest, chain, star, antichain and exact one-type counts"
+        ]
+      },
+      "rationale": "A distinct indexed theorem (23742e530543) gives an exact linear-arithmetic formula for the same named nonalgebraic types on arbitrarily oriented cover trees. Its outward-root specialization telescopes to the frozen formula itself, and adjoining one minimum transfers it to every forest without changing the arithmetic complexity or the surviving scalar recurrence. The explicit expression need not be printed in the prior source for this to be mechanical coverage. This determination is about mathematical implication, not priority inferred from catalogue dates.",
+      "residual_risks": [
+        "Pretzel’s full text was unavailable and the separate mention of pre-existing forest recurrences in the tree-cover record remains unresolved. Neither affects the explicit tree-theorem implication.",
+        "Catalogue chronology alone does not establish priority or independence of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Displayed formula implies the whole frozen claim after specialization and connecting the forest",
+          "evidence": [
+            "The formula includes both directed subtree recurrences and an explicit branching correction.",
+            "The O(n) arithmetic bound and O(n)-bit bounds are in its Finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-linear-arithmetic-exact-one-type-counting-on-oriented-tree-cover--23742e530543/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 75–3320; related-work reference at offset 7406",
+          "method": "Primary Resultary local-mirror file, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Linear-arithmetic exact one-type counting on oriented tree covers",
+          "trigger": "Exact tractability for broader cover-tree orientations"
+        },
+        {
+          "assessment": "General encoding and chain/antichain values; not by itself the forest algorithm",
+          "evidence": [
+            "Admissible ideal/filter pairs with every lower element strictly below every upper element; unrestricted #P-completeness."
+          ],
+          "identifier_or_url": "Resultary 3b955f4020e1",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Primary Resultary local-mirror passage",
+          "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+          "trigger": "General count of exactly the same named types and exact basic families"
+        },
+        {
+          "assessment": "Covers the displayed star example, not the arbitrary forest formula",
+          "evidence": [
+            "Height-two stars realize the stated equality value."
+          ],
+          "identifier_or_url": "Resultary fde0938143fa",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Primary Resultary local-mirror passage",
+          "title": "Sharp one-comparability gap for finite-parameter types of the random poset",
+          "trigger": "Rooted-star special case"
+        },
+        {
+          "assessment": "Supports the underlying extension framework, not an exact enumeration theorem",
+          "evidence": [
+            "Its strict one-point extension argument defines lower and upper parameter sets."
+          ],
+          "identifier_or_url": "DOI:10.1017/S0013091510001161",
+          "material_read": "Publisher PDF p. 14, Lemma 4.3, offset 74487",
+          "method": "OA primary PDF passage",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Classical one-point-extension formulation"
+        },
+        {
+          "assessment": "Adjacent context, not a matching cut-pair formula in the read passage",
+          "evidence": [
+            "The passage counts order-preserving maps and orbits."
+          ],
+          "identifier_or_url": "arXiv:1310.0838",
+          "material_read": "PDF pp. 1–3, offset 8454",
+          "method": "OA primary PDF passage",
+          "title": "Order polynomials and Pólya’s enumeration theorem",
+          "trigger": "Order-ideal and order-preserving map enumeration as a possible equivalent"
+        },
+        {
+          "assessment": "Unresolved additional comparison, not a reason for the disposition",
+          "evidence": [
+            "The frozen record describes an abstract concerning insertion positions in a height-two setting; this review could not independently verify full-text coverage."
+          ],
+          "identifier_or_url": "DOI:10.1016/0012-365X(80)90100-4",
+          "material_read": "Bibliographic identification; no independently accessible substantive passage in the attempted retrieval",
+          "method": "Lawful DOI and publisher retrieval attempts; no full text returned",
+          "title": "A construction for partially ordered sets",
+          "trigger": "Historical insertion-position construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact formula and complexity scope",
+        "Resultary 23742e530543, Finding and specialization above"
+      ],
+      "rationale": "The tractability of a natural type-count invariant on these forests is mathematically useful, and the frozen proof is concise. But the exact scalar expression and arithmetic complexity are already recoverable by elementary cancellation from the broader formula. This leaves an expository simplification, not a distinct exact invariant, stronger complexity bound, or other motivated scientific remainder.",
+      "residual_risks": [
+        "No general bit-complexity improvement or extension beyond the prior tractable problem is assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

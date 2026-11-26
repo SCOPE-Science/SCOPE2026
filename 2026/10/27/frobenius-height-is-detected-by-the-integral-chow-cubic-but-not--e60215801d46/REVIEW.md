@@ -1,19 +1,21 @@
-# Review of the integral Chow-ring separation result
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projective-bundle realization is scheme-theoretic: the three Frobenius-power sections generate \(\mathcal O(q)\) at every point, so their kernel is a rank-two bundle. The integral projective-bundle formula gives an explicit free \(\mathbb Z\)-algebra presentation. Intersections can also be obtained directly from the hypersurface class \(qh+u\) in \(\mathbb P^2\times\mathbb P^2\): \(h^2u=1\), \(hu^2=q\), and the cubes of individual divisor generators vanish. The unmarked binary-cubic discriminant is \(81q^2\); its invariance under \(\mathrm{GL}_2(\mathbb Z)\) and possible sign change of the top-degree generator proves the full integral isomorphism classification. Explicit coordinate changes establish all residue-prime and rational comparisons. Fiberwise point counting proves the zeta formula. The exact integer script provides a finite regression test, not an infinite proof. No missing normalization or characteristic exception was found.
+PASS
 
-## Originality — PASS, with priority limits
+The three degree-q sections have no common zero, so their kernel E in O³→O(q) is locally free of rank two and the incidence hypersurface is its projective bundle of lines. The relative hyperplane in this convention gives u²+c₁(E)u+c₂(E)=0, with c(E)=1−qh+q²h². The base and relative hyperplanes give the projective-bundle basis 1,u over Z[h]/(h³). Independently, multiplying by the ambient hypersurface class qh+u on P²×P² gives deg(h²u)=1 and deg(hu²)=q on X, with h³=u³=0. The integral degree-one and degree-three parts permit only a GL₂(Z) change of variables and a sign on the top form. The cubic 3ab(a+qb) has discriminant 81q², unchanged under both operations; equivalently the primitive factor determinant multiset is {1,1,q}. Hence q and, for fixed p, m are recovered. For ℓ=p all relations reduce to the same u²=0 relation since m≥1, including at p=2 or 3; elsewhere u/q is allowed and gives z²−hz+h²=0, also over Q. Over each F_{p^r} the base and fibre counts multiply to (1+p^r+p^{2r})(1+p^r), proving the zeta function. The frozen script was inspected, not run: its top-product helper encodes the expected products rather than proving them; its substitution checks are finite. A fresh count confirms 104 test matrices in its stated coefficient range.
 
-The closest same-object source, Brion–Maccan–Srimathy (2026), states the Frobenius-incidence family, its Picard generators, and geometric pairwise nonisomorphism, but not the complete unmarked graded Chow-ring classification or simultaneous blindness of all prime-field coefficient reductions. Geometric nonisomorphism alone cannot imply nonisomorphism of Chow rings. Srinivasan (2017) studies exactly this class of pseudo-homogeneous varieties, including a height-one incidence example, but proves additive motivic equivalence with finite coefficients, which does not preserve the ring product. Shimada (2011) treats an incidence with two simultaneous Frobenius conditions and different dimension. The projective-bundle formula itself is classical and the computation is short; the assessed new statement is the exact coefficient-sensitive distinction for the entire natural family, not the underlying formula. Bibliographic information was available for Haboush–Lauritzen (1993), but the paper was not readable, leaving a nonzero risk of an implicit earlier special case. Search failures alone are not taken as proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-These are minimal-dimensional rank-two-Picard examples of a geometrically motivated family of non-smooth-parabolic homogeneous varieties. The complete infinite classification of the **unmarked integral multiplicative** intersection rings supplies a natural invariant absent from the new source's Picard classification. The contrast is structural: rational coefficients, reduction modulo *every* prime, and all finite-field point counts are each individually incapable of recovering the height, while the integral ring determines it. This shows precisely why knowing all residue-field Chow rings is insufficient to reconstruct the integral one for this family. It is not an arbitrary parameter slice, a standalone numerical recomputation, or a claim to have solved general parabolic classification.
+The supported distinction is the height classification by the unmarked graded integral Chow ring together with its coefficient contrast. The exact varieties, geometric nonisomorphism, projective-bundle machinery, and additive comparisons are not claimed as new. No inspected result supplies the unmarked integral multiplicative classification or an equivalent invariant distinguishing the heights; the older uninspected reference leaves the historical conclusion qualified.
 
-## Remaining limitations
+## value
 
-This review assesses one threefold family only. It asserts neither a classification of motives as algebra objects nor independent historical priority, and the earlier 1993 full text remains unread. The finite test is corroborating evidence. No independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this natural family of homogeneous flag-type varieties, the cubic provides a concrete answer to which integral multiplicative information survives after forgetting the generators. It separates every height even though the rational and all prime-field rings and the zeta function cannot. That comparison is useful independently of the already known geometric classification, and goes beyond applying a projective-bundle formula in a fixed basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

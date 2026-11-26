@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:01:20.853532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent local coefficient replay: node /workspace/evidence/1-vector-series-replay.js"
+      ],
+      "rationale": "Azimuthal equivariance reduces the two discrete schemes to scalar height maps. Using the spherical exponential C p+S(e3×p), with C=cos(tρ), S=sin(tρ)/ρ and ρ²=p_x²+p_y², I checked the sixth-degree vector Taylor coefficients in exact rational arithmetic, using the squared norm of the sum for the normalized midpoint and (2−||q_f−q_c||²)q_f−q_c for the extrapolation. With m=1−c², the two height multipliers are 1+m(2m−1)t⁴/8+m²(2−m)t⁶/24 and 1−m(1−m)t⁴/8+m²(1−m)t⁶/24, where t=ωh. Reflection reverses t without changing height, so the analytic remainders start at order eight. Uniformity near fixed interior c permits scalar telescoping over N=T/h. The per-step deviation satisfies |δ_{n+1}|≤(1+C h⁴)|δ_n|+O(h⁴) generally, with forcing O(h⁶) at c²=1/2 because the fourth-degree coefficient vanishes there. This gives δ_n=O(h³) or O(h⁵), respectively, and proves all three stated limits. Differentiating u³(1−u²)/8 gives the maximum at u²=3/5 and value 3√15/500 after factoring out Tω⁴. At the poles the vector field vanishes, and at the equator the stages and the local geodesic remain in the equatorial plane.",
+      "residual_risks": [
+        "Replay checks local coefficients only; the proof supplies the fixed-time limits. No higher-order global position claim and no arbitrary-step sign claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Publisher descriptions identify the STVDRK algorithm framework and spherical Richardson extrapolation, respectively. Frozen RESULT.md lines 52–53 distinguishes the papers' method-order results from the height calculation."
+        ],
+        "reasoning": "Spherical norm preservation is not height preservation; state order does not give the sign, vanishing or leading order of error in a particular scalar first integral.",
+        "searches": [
+          "Resultary: geometric spherical integrators, rotation, conserved height, and Richardson extrapolation",
+          "Leung–Chau–Lee 2024, doi:10.1007/s10915-024-02702-2; Lee–Leung 2026, doi:10.1007/s10915-026-03318-4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Resultary exact and broad searches",
+        "Two identified primary publisher descriptions; attempted full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published descriptions provide the algorithmic building blocks. The frozen fourth-degree coefficient for STVDRK2 vanishes at c²=1/2, at which its nonzero sixth-degree local coefficient must be retained; the other scheme has no such interior cancellation."
+        ],
+        "reasoning": "One can compute the result starting from published algorithms, but their general order results do not imply this coefficient or its degeneracy by specialization. This distinction is preserved in the novelty assessment.",
+        "searches": [
+          "Both identified J. Sci. Comput. method papers; targeted article/PDF attempts for rigid rotation and extrapolation sections",
+          "Frozen RESULT.md lines 25–47 and 52–53"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue match ending e7d5153ffb35 is the same finding; the distinct planar Haar-sketched Euler record ending 33340664eb63 concerns random radius and phase fluctuations."
+        ],
+        "reasoning": "On a unit sphere the invariant is the rotation-axis component (latitude is a smooth monotone reparametrization off the poles). Planar random radius drift is not that spherical invariant error, even though both use rotation.",
+        "searches": [
+          "Resultary: STVDRK2 and SRKRE[1,2], latitude/height drift on rigid-axis rotation, coefficient and fifth-order cancellation",
+          "Primary literature: exact method names with rigid rotation and height drift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed summary at e7d5153ffb35 is a self-match. No distinct coefficient entry was returned."
+        ],
+        "reasoning": "The exact quantities are observable-specific asymptotic coefficients, not standard method-order table entries. Catalogue absence does not rule out a prior exact curve or formula.",
+        "searches": [
+          "Resultary searches with both method labels, both coefficient factors and the exceptional latitude c²=1/2"
+        ]
+      },
+      "rationale": "The methods themselves and their position convergence are prior. The supported distinct claim is the invariant-specific leading coefficient and sign contrast for rigid rotation, with the exact exceptional fifth-order term. No available matching statement covers those claims; the most relevant primary full texts could not be confirmed, so this is a bounded assessment.",
+      "residual_risks": [
+        "A hidden rigid-rotation invariant calculation in the method papers or another unindexed source may change priority. Full-text retrieval was unsuccessful; descriptions cannot establish whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known scheme; exact height coverage not established from the material read",
+          "evidence": "Description develops STVDRK via spherical exponential and SLERP. The frozen record reports a rigid-rotation stability discussion, not independently full-text confirmed.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-024-02702-2",
+          "material_read": "Publisher/search description, not the article body; frozen citation comparison at lines 52–53",
+          "method": "Focused literature lookup and OA article/PDF attempts",
+          "title": "SLERP-TVDRK (STVDRK) Methods for Ordinary Differential Equations on Spheres",
+          "trigger": "Origin of STVDRK2 and possible same rigid-axis example"
+        },
+        {
+          "assessment": "Known extrapolation algorithm; no exact height statement established",
+          "evidence": "Available description introduces spherical extrapolation methods; frozen RESULT.md lines 52–53 identifies section 3.2 and distinguishes the invariant error.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-026-03318-4",
+          "material_read": "Publisher/search description; article body and section 3.2 not independently confirmed",
+          "method": "Focused lookup and lawful OA attempts",
+          "title": "High-Order Spherical Runge-Kutta Schemes Based on Spherical Linear Extrapolation",
+          "trigger": "Origin of SRKRE[1,2]"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23, 30–47 and 52–56",
+        "Independent local coefficient replay"
+      ],
+      "rationale": "Height is a natural exact first integral for the canonical rigid-axis flow. The result distinguishes two norm-preserving, second-order schemes in a property that their position order leaves undecided, quantifies the largest Richardson drift, and resolves a nontrivial cancellation latitude including its first surviving term. This supplies a precise benchmark for invariant preservation, not a claim of better position order.",
+      "residual_risks": [
+        "Single vector field on S² and fixed-time asymptotics; no claim for general spherical fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

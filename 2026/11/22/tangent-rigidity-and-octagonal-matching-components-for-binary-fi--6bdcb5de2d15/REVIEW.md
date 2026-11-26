@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact \(16\)-dimensional section space and complete rational Jacobian enumeration reduce the geometric question to \(288\) sections. Two explicit transvection orbits and independent projective-chart Gröbner tests identify the \(144\) smooth sections. Complete rational tangent and perfect-matching enumeration yields the \(10296\)-pair overlap spectrum and the \(36\) octagonal components with four-cycle chords; the equivalence of shared tangent and singular pencil sum follows from the characteristic-two Jacobian criterion.
+## correctness
 
-**Originality — PASS with residual risk.** The 144-smooth-section orbit, its ordinarity, and the general single-curve tangent matching were already known and are not new claims. Their full statements do not imply the particular pairwise overlap values without a new pairwise incidence calculation, and none of the inspected works states a no-smooth-pencil theorem for this cubic. The nearest analog for filling curves on the split quadric is a different surface and genus. The published 288-matching octagon-flip distance graph uses different adjacency and does not imply the 36-component octagonal disjointness graph. Because a published exact mask census can be used to recover the answer computationally, a differently phrased older pairwise calculation remains a meaningful priority risk.
+PASS
 
-**Value — PASS.** Smooth simultaneous members of a minimal-degree space-filling linear system are a natural finite-field Bertini-type question. This theorem proves a sharp zero-pencil obstruction on a highly symmetric cubic surface with many individually smooth sections, and explains that obstruction through a maximum intersecting family and a complete disjointness-graph decomposition. It goes beyond verifying smoothness or repeating an existing orbit census.
+The corrected Finding and scope require a nonzero class, so that the intersection is a curve. Independently formed the rational evaluation and differential-restriction matrices on all 35 quartic monomials. Evaluation has rank 15; the 20-dimensional kernel has differential image of rank 16, with the four multiples of G exactly the remaining kernel. Enumerating its tangent data and separately backtracking over graph matchings gave the same set of 288 vectors bijectively. Acting directly on matchings by symplectic transvections gave two 144-element orbits. Lifted representatives gave four unit Jacobian ideals for the smooth orbit and nonunit ideals for the other. Independent pairwise comparison reproduced all nine histogram entries for the 10,296 distinct smooth pairs, with no zero agreement. At a rational point, a tangent kernel identifies its nonzero binary linear functional on the surface tangent space, so agreement is equivalent to the sum having zero differential there. The matching graph's cross-edges give exactly 36 connected alternating 8-cycles, and the two extra neighbors of each singular vertex make a 4-cycle within that component. Each spanning 8-cycle bounds its independence number by four, attained by the smooth part. These checks use the repaired nonzero/proper-section convention throughout and verify the unchanged spectrum and pencil and graph assertions.
 
-**Limitations.** Exhaustive finite arithmetic is exact but does not imply a uniform larger-field result. No claim of a new 144-count or of a new Tutte–Coxeter 288-count is made. Independent review and exhaustive historical priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim is about the exact pairwise tangent spectrum, the induced pencil obstruction, and disjointness components of whole matchings. The condition excluding zero is a correction of scope, not a novelty claim. Prior work supplies the section and matching counts and the identification of the smooth orbit. The nearest graph records either impose distinct adjacency or study exchanges on other graphs; the nearest pencil statement is for a different ambient system. No compared statement supplies the exact proposed pairwise invariants.
+
+## value
+
+PASS
+
+The corrected nonzero quartic section system is the natural system for testing if two individually smooth filling sections extend to a smooth binary pencil. The exact spectrum gives a pointwise obstruction and the full matching graph explains its sharpness through a maximum intersecting family, a stronger structural fact than the old one-section census. Both facts may be used in comparing pencil obstructions or extremal matching families on small symplectic quadrangles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

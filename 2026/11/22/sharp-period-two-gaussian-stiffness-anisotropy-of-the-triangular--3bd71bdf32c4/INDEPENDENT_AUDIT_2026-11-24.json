@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:47:36.486453Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof (1)–(5) and asymptotics",
+        "VERIFICATION.md and verification/check.py inspected without running the source checker"
+      ],
+      "rationale": "The ordered per-point energy has one within-lattice sum and one cross-coset sum (the two cross orientations agree by reflection and are averaged over the two representatives). Gaussian summability justifies the thermodynamic limit: truncate separations first, use vanishing boundary fraction, then control the summable tails. The cross term is F_A(v_a)F_B(v_b); evenness kills the mixed derivative. Poisson summation and two log derivatives of the theta product give K_T=F_T''(0)/F_T(0)=(8π²/T²) Σ_{j≥1}q^(2j−1)/(1−q^(2j−1))², q=exp(−π²/(αT²)). The derivatives converge locally uniformly, the curvatures are positive, and each product factor minimizes strictly at the half-cell phase modulo T. With x=π²/(αT²), K_T/T² is a positive common factor times a sum of [x/sinh((2j−1)x/2)]². Each summand decreases strictly with x, since u cosh(u)−sinh(u)>0 for u>0, giving λ_A/λ_B> A²/B²=3. In real space the two nearest terms give K_T=α²T²−2α+O(α² exp(−2αT²)); dividing at A²=3B² gives 3+4/(αB²)+O(α⁻²), including sharpness. The first term in the dual sum gives the stated broad-Gaussian exponential and prefactor 1/3. The mixture inequality follows by adding diagonal Hessians with positive weights.",
+      "residual_risks": [
+        "The energy identity is for distinct cosets; its continuation at a coset coincidence is not the single-coset energy.",
+        "Only fixed-lattice relative displacements and finite positive mixtures are assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardin–Tenpas cover qualitative two-point optimality; Faulhuber–Petersen give periodic Gaussian optimality and rigidity; Leblé covers general bounded local perturbations.",
+          "Translated-theta and centered/alternating-theta statements address minimizers (or shape extremization), not the two directional Hessian entries at physical shift zero."
+        ],
+        "reasoning": "A global strict minimum or general local lower bound does not order the two principal curvatures by the specified factor.",
+        "searches": [
+          "arXiv:2307.15822 §1 and §2.5",
+          "arXiv:2611.06278 Theorem 1.2",
+          "arXiv:2511.03353 Theorem 1",
+          "arXiv:1809.00473 and arXiv:2007.15977"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match 3bd71bdf32c4 and distinct record b6b1d4d08ccf",
+        "Hardin–Tenpas, arXiv:2307.15822",
+        "Faulhuber–Petersen, arXiv:2611.06278",
+        "Leblé, arXiv:2511.03353",
+        "Bétermin arXiv:1809.00473, abstract and shifted definition",
+        "Bétermin–Faulhuber arXiv:2007.15977, Theorem 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 10 is monotonicity in the spatial cosine argument at fixed nome, not a comparison across nomes. The lift proof compares phases at a single t, bounding Var_{1/2,t} below by Var_{0,t}.",
+          "The target compares normalized terms x/sinh((2j−1)x/2) at x_A=x_B/3, which varies the nome at fixed phase; this extra termwise comparison produces the sharp factor."
+        ],
+        "reasoning": "Neither earlier monotonicity gives this ordering by substitution. The physical Hessian uses known factorization, but the quantitative two-scale inequality needs a separate comparison and its own two asymptotic calculations.",
+        "searches": [
+          "arXiv:2307.15822 §2.5, Proposition 10 and rectangular factorization",
+          "b6b1d4d08ccf, proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact self-match is 3bd71bdf32c4; b6b1d4d08ccf treats the curvature of a normalized lift with a minimum over spatial phase, then optimizes widths.",
+          "At t=αT² the target normalized curvature is K_T/T²=4α²(Var_{1/2,t}−1/(2t)); the indexed lift theorem instead studies 4t² Var_{0,t}."
+        ],
+        "reasoning": "Removing the quadratic numerator from the normalized lift and evaluating the denominator at a half-shift changes the curvature by an additive term and changes the phase. Unimodality of the integer-phase moment is not monotonicity of the shifted curvature combination.",
+        "searches": [
+          "Resultary: Gaussian shift theta stiffness for the triangular index-two sublattice; rectangular theta curvature",
+          "arXiv:2307.15822 §2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ratio match is the assigned record itself. The distinct indexed envelope gives a scalar maximum near 3.5502766, not values of the target ratio.",
+          "The primary theta identities provide exact potential series; no inspected table or statement supplies the two-nome comparison or limiting ratio correction."
+        ],
+        "reasoning": "The theta-product data are prior ingredients; sampling or differentiating one such series does not decide its strict ordering against a second, rescaled series for all α.",
+        "searches": [
+          "Resultary: period-two Gaussian stiffness anisotropy; sharp theta-curvature envelope",
+          "Hardin–Tenpas, arXiv:2307.15822, equations (20)–(25)"
+        ]
+      },
+      "rationale": "The qualitative period-two and broader optimality statements are already covered. The specific comparison of two physical directional curvatures, with sharp factor and width asymptotics, was not found in the inspected primary or indexed statements. The closest distinct indexed curvature theorem controls a different scalar function and a different optimization.",
+      "residual_risks": [
+        "The comparison does not rule out a prior two-scale inequality expressed in theta-derivative or discrete Gaussian variance terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares rectangular Gaussian curvature, not the same optimization or monotonicity",
+          "evidence": [
+            "Var_{z,t}≥Var_{0,t}, and A(t)=4t²Var_{0,t} is unimodal; the lift uses exp(−tz²)/H_t(z)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-theta-curvature-envelope-for-gaussian-lifts-of-rectangular--b6b1d4d08ccf/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–3 beginning; mirror offset 0–4456",
+          "method": "Local Resultary search and mirror statement/proof comparison",
+          "title": "Sharp theta-curvature envelope for Gaussian lifts of rectangular lattices",
+          "trigger": "Closest distinct indexed exact theta-curvature theorem"
+        },
+        {
+          "assessment": "Qualitative optimality and exact analytic ingredients are known; fixed-nome monotonicity differs from the claimed two-scale comparison",
+          "evidence": [
+            "Proposition 10 fixes c>0 and compares derivatives in t∈[−1,1], the cosine variable; the rectangular potential factors as in (24)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.15822",
+          "material_read": "§1 pp. 3–4; §2.5 pp. 11–12, especially Proposition 10 and (20)–(25)",
+          "method": "Lawful open primary PDF, bounded passages",
+          "title": "Universally Optimal Periodic Configurations in the Plane",
+          "trigger": "Exact two-point base configuration and product formulas"
+        },
+        {
+          "assessment": "Global minimum and equality rigidity, not a directional Hessian ratio",
+          "evidence": [
+            "Periodic unit-density configurations have Gaussian energy at least that of the hexagonal lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.06278",
+          "material_read": "Theorem 1.2, p. 2 (PDF offset about 6750)",
+          "method": "Lawful open primary passage",
+          "title": "Uniqueness of the hexagonal lattice's universal optimality",
+          "trigger": "Broader Gaussian optimality"
+        },
+        {
+          "assessment": "General perturbations, no stated sharp directional ratio",
+          "evidence": [
+            "Gaussian local minimality applies to sufficiently small bounded perturbations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.03353",
+          "material_read": "Theorem 1, p. 2 (PDF offset about 4000)",
+          "method": "Lawful open primary passage",
+          "title": "The hexagonal lattice is universally locally optimal",
+          "trigger": "Broader local stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (3)–(5), both limiting regimes",
+        "Hardin–Tenpas §2.5 and Leblé Theorem 1 for context"
+      ],
+      "rationale": "The smallest nontrivial two-coset relative motion has two natural polarizations, so the exact ratio addresses the directional content left open by qualitative stability. The proof exposes a strict comparison for any rectangular pair A>B, and the sharp factor here and its exponential broad-regime enhancement quantify how far the two physical responses separate.",
+      "residual_risks": [
+        "No inference about the full phonon spectrum or arbitrary shape deformations follows from this restricted mode."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:46:55.451353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The closed neighborhoods have size six and intersect pairwise in two vertices (two adjacent endpoints, or two common neighbors for nonadjacent vertices), so a triple covers at most 14 vertices. The displayed four-set covers all 16. The finite result was independently reconstructed with `python3 /workspace/branches/independent-checks/record3.py`: vertices are subsets of a five-set modulo complements; distance-one cube edges fold to the stated graph. A candidate is rejected exactly when it is contained in the complement of a closed neighborhood, and all valid pairs are linked by intersection size k−1. The two four-set orbits each have size 40 (empty and 4-cycle) with no edges. At five the replay yielded 1056 states and 10320 edges, with 960 of degree 19 and 96 of degree 25. Coordinate permutations of the five-set and all folded translations give the same 1920 automorphisms as the Cayley generators. A stabilizer of the zero vertex embeds in S5: the other ten vertices are uniquely identified by the pairs of zero's neighbors with which they are adjacent. Thus the enumerated orbits are full, not merely subgroup orbits. The orbit sizes 16,80,160,320,480 have respective sorted induced degrees [0,0,0,0,0], [1,1,1,1,4], [0,1,1,1,3], [0,0,0,1,1], [1,2,2,2,3], which identify the stated types because the graph is triangle-free. Layer expansion from one vertex of each full orbit exhausts J5; both degree-25 orbits have shell profile (1,25,130,250,570,80), and all three degree-19 orbits have profile (1,19,94,316,507,119). Hence every vertex has eccentricity five and the graph is connected. Frozen verifiers were inspected, not executed. A replay-documentation caveat: although the original advertises Python 3.8, its Python checker uses int.bit_count(), which requires Python 3.10 or newer. This does not affect the scientific result or independent replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suzuki–Mouawad–Nishimura study an add/delete graph with a size cap. The same-Clebsch locating-domination result reports 416 states, 2960 edges and diameter six, for a strictly more constrained state space. The total-domination threshold concerns the ordinary five-cube and its total-dominating eight-sets; the triple-domination result concerns closed-neighborhood triple domination and ten-sets."
+        ],
+        "reasoning": "No stated diameter or orbit classification in these comparisons specializes to the fixed five-set ordinary domination layer. Distances in a constrained state graph need not equal distances in the full graph.",
+        "searches": [
+          "arXiv:1401.5714v1 p. 1; arXiv:2003.05956v1 §4.3 p. 14",
+          "Resultary 891539ac1265, ced0a2e287bb and e8f33fee1009"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b2c4cb32b46, 891539ac1265, ced0a2e287bb and e8f33fee1009, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1401.5714v1, 2003.05956v1 and 1209.5138v2",
+        "OEIS A355227"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior face calculation enumerates all masks and certifies 401088 directed Hasse incidences for a discrete Morse matching. Its matching-pair and critical-face lists can recover the feasible face labels. Its homotopy and f-vector conclusions do not measure single swaps, and the stated symmetry limitations do not supply the orbit classification."
+        ],
+        "reasoning": "This overlap is more than a shared graph name: it provides inputs for a replay of the exchange calculation. One must still determine which equal-size faces share the requisite intersection (including for four-sets), build the equal-rank graph, and determine shortest paths and group orbits. The actual prior reported quantities are not a shortcut to those conclusions. The current work makes that distinct finite calculation.",
+        "searches": [
+          "Resultary 0b2c4cb32b46, finite face predicate, Morse matching and full Hasse-cover proof; limitations regarding symmetry",
+          "Resultary 891539ac1265, displayed locating-domination finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey and Haas–Seyffarth distinguish minimum-set arbitrary replacement from one addition or deletion. The dominance-complex source uses exactly the same XOR generators and defines a face by its complement being dominating."
+        ],
+        "reasoning": "J4 is the standard jump-γ graph; J5 is the next layer. By complement these are Johnson-type adjacency graphs on dimensions 11 and 10 of the earlier complex. A Hasse cover changes face size, unlike the equal-size one-replacement relation.",
+        "searches": [
+          "Resultary searches for Clebsch/folded five-cube ordinary domination, fixed-cardinality jump exchange, metrics and orbit data",
+          "arXiv:2003.05956v1 §§1 and 4.3",
+          "arXiv:1209.5138v2 p. 2",
+          "Resultary 0b2c4cb32b46, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dominance-complex face vector has 1056 and 80 entries in dimensions 10 and 11 and no higher dimensions. By complement it already gives both claimed state counts and γ=4. OEIS A355227 instead tabulates independent-set counts 120 and 16 at sizes four and five."
+        ],
+        "reasoning": "Credit all three ordinary domination counts to the earlier exact tabulation. The independence polynomial is not a domination polynomial. Neither reported vector gives the jump graph's edge count, distance profiles, or orbit partition.",
+        "searches": [
+          "Resultary 0b2c4cb32b46, Proof, local-mirror offsets 0–4257",
+          "OEIS A355227, definition and n=5 example (OA HTML offsets 467 and 1341)",
+          "Resultary exact jump-metric and orbit searches"
+        ]
+      },
+      "rationale": "Pass only for the exchange threshold, exact jump metrics, and state-orbit classification, not for the feasible-state counts or minimum cardinality. An earlier Resultary dominance-complex result already tabulates 80 and 1056, and gives enough explicit data to reconstruct feasible states. Its reported invariants do not compute the equal-rank exchange connectivity, distances, and induced-type orbits; obtaining those from its files still requires a separate exact exchange analysis.",
+      "residual_risks": [
+        "Bounded catalogue and relevant original passages, not an exhaustive literature or supplementary-data priority claim. Broader web results were unavailable; they were not counted as evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both sizes and the domination number, but not the exchange invariants",
+          "evidence": [
+            "Face test: V minus S dominates; f_10=1056 and f_11=80; no higher faces. Matching and oriented incidences are Hasse covers used to deduce a wedge of spheres."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-dominance-complex-of-the-five-folded-cube-is-a-wedge-of-131--0b2c4cb32b46",
+          "material_read": "Finding, Assumptions, proof of face vector and matching, and symmetry limitation; original mirror offsets 0–4257 plus limitation passage",
+          "method": "Original local-mirror passages and complement/Hasse versus equal-rank comparison",
+          "title": "The dominance complex of the five-folded cube is a wedge of 131 nine-spheres",
+          "trigger": "Same graph and exact complement model of the feasible subsets"
+        },
+        {
+          "assessment": "Standard model, not the Clebsch exchange calculation",
+          "evidence": [
+            "J(G,γ) exchanges one vertex of a minimum dominating set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.05956v1",
+          "material_read": "PDF p. 3 §1 and p. 14 §4.3, offsets 7888 and 42072",
+          "method": "Original PDF definition and relevant survey passages",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Ordinary jump-γ standard and broader comparison"
+        },
+        {
+          "assessment": "Different adjacency and state sizes",
+          "evidence": [
+            "D_k permits sizes up to k and a single addition or deletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.5714v1",
+          "material_read": "PDF p. 1, offset 590, model passage",
+          "method": "Original PDF passage",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Possible size-cap reconfiguration implication"
+        },
+        {
+          "assessment": "Distinguishes the minimum exchange γ-graph from the varying-size D_k model",
+          "evidence": [
+            "Arbitrary one-vertex exchange for γ-graph, add/delete for D_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.5138v2",
+          "material_read": "Accepted manuscript, p. 2, offset 4681",
+          "method": "Original PDF passage",
+          "title": "The k-Dominating Graph",
+          "trigger": "Potential equivalent minimum or near-minimum exchange model"
+        },
+        {
+          "assessment": "Independent sets, not ordinary domination exchanges",
+          "evidence": [
+            "The n=5 polynomial is 1+16t+80t²+160t³+120t⁴+16t⁵."
+          ],
+          "identifier_or_url": "https://oeis.org/A355227",
+          "material_read": "Public entry definition and n=5 example, HTML offsets 467 and 1341",
+          "method": "Original public table comparison",
+          "title": "Folded-cube independent-set enumerator",
+          "trigger": "Exact small-cardinality tabulation for the same graph"
+        },
+        {
+          "assessment": "Additional locating constraint gives a different graph of states",
+          "evidence": [
+            "416 minimum locating-dominating five-sets and a 2960-edge exchange graph of diameter six."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-locating-domination-and-relocation-geometry-of-the-five-regular--891539ac1265",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Original hypothesis and invariant comparison",
+          "title": "Locating domination and relocation geometry of the five-regular Clebsch graph",
+          "trigger": "Closest graph-specific fixed-size exchange analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-size move limit is a natural stability question on this symmetric classical graph. A researcher already knowing how many feasible states there are still needs to know whether local exchanges connect them, how much slack is needed, and the maximum number of moves. The complete four-to-five threshold and exact self-centered diameter and profiles distinguish frozen optima from mobility; the orbit classification identifies which configurations have which profiles. This value does not rest on retabulating the earlier face counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

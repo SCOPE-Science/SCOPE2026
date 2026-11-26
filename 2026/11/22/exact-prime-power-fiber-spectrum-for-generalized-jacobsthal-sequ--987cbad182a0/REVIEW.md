@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The closed form \(J_n=(a^n-(-1)^n)/(a+1)\) and the primitive-root order establish the least period \(\varphi(p^r)\). The even and odd index branches exhaust the square and nonsquare units, respectively; each contributes at most one preimage. The overlap character sum is evaluated by the identity \(\sum_{z\bmod p}\chi_p(z^2-1)=-1\) and yields \(c_p\). The three histogram entries follow by counting branch sizes and their intersection. This is a proof for all \(p\ge5\) and \(r\ge1\), not extrapolation from finite data. The included independently programmed check passed 76 cases, 583,944 targets and 566,784 sequence terms.
+## correctness
 
-## Originality — PASS
-Al-Kateeb (arXiv:1911.11515, 2019) and Bród–Michalski (2022) already provide the generalized recurrence and its Binet formula; the present claim does not repackage these as new. Griffiths–Bramham (2015) and the published 2026 complete-modulus and local-isometry classification establish residue-completeness statements but not the primitive-root, nonsurjective prime-power fiber multiplicities. A differently parameterized 2023 Jacobsthal article is inapplicable. The supplied structured review records exact search formulations, implication comparisons and material inspected. Classical Legendre-symbol calculations are credited. An undiscovered general result about Lucas recurrence fibers could still subsume this theorem.
+PASS
 
-## Value — PASS
-This result resolves the natural first-coordinate multiplicity question beyond binary completeness: every target gets an exact count, the entire histogram is independent of the generating parameter, and an explicit \(p\bmod8\) bias persists unchanged at every prime-power level. The scope is natural and infinite while the required proof remains self-contained.
+The recurrence and initial values give (a+1)J_n=a^n−(−1)^n. Since the image of a primitive root modulo p^r generates modulo p, it is neither zero nor −1 there for p≥5; thus a+1 is a unit. The even order T is a period, and any period d must return both J_0 and J_1. Those two congruences force a^d=(−1)^d=1 modulo p^r, hence T divides d. Over the least period the even and odd exponent branches run once through square and nonsquare units respectively. Unit squareness is determined by the reduction modulo p, so their translated, invertibly scaled images give exactly the two indicator terms, with zero character contributing neither branch. To count overlap set z=(a+1)y and omit z=±1. The sums of χ_p(z+1) and χ_p(z−1) there are −χ_p(2) and −χ_p(−2). The product sum is −1 by the bijection (z−v,z+v) with reciprocal pairs when z²−v²=1, and the omitted product terms vanish. The overlap is therefore (p−1−χ_p(2)+χ_p(−2))/4 at p, giving the stated mod-8 cases; each class contributes p^{r−1} lifts. Counting targets and occurrences proves the zero-, single- and double-fiber totals. A fresh recurrence-only run tested all 236 primitive roots for p² with p in {5,7,11,13,17}, all 50,732 targets, the histogram and the period state. These finite tests are corroboration, not the proof or coverage of other moduli.
 
-## Limitations
-The result only treats primes \(p\ge5\) at which the fixed parameter is a primitive root modulo the stated prime power. It neither classifies arbitrary parameters nor proves a fixed base works at infinitely many primes. Bibliographic priority is qualified by the residual search risks above. Machine verification checks finite examples and is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact recurrence, its Binet expression, prior completeness criteria and the character-correlation component are not new. The supported distinct result is the residue-by-residue prime-power multiplicity law under the full generator hypothesis, together with its period normalization and parameter-independent histogram. None of the strongest inspected statements enumerates this sequence's two affine parity images and combines them into that distribution.
+
+## value
+
+PASS
+
+Completeness of modular Jacobsthal sequences is an established question. In the important generator regime where completeness fails, a count of all targets by multiplicity, or whether a specified residue occurs zero, one or twice without iterating the period, is a substantially stronger exact invariant. Identifying the two translated cosets explains both where repetitions occur and why the prime-level distribution lifts without change in proportions. The value is the modular classification, not a new character sum or standalone Binet or period formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

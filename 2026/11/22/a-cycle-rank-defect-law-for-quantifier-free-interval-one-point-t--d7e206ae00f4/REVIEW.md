@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof shows that witness intersections are simultaneous prefix/suffix inequalities, yielding a consecutive block. For an interior block, avoiding its flanks is equivalent to disjointness of those flanking intervals; the converse chooses an interval endpoint immediately beyond each flank. Missing blocks correspond bijectively to nonconsecutive edges. Proper ordering makes the number of consecutive edges exactly \(m-c\), proving the cycle-rank identity for every \(m\ge1\). Chordality and absence of claws yield the path-forest equality criterion. The verifier corroborated the complete graded identity over 544 finite tests, but only the proof covers every size.
+PASS
 
-## Originality — PASS within inspected evidence
+A new interval [u,v] meets precisely the intersection of the suffix r_i≥u and prefix l_i≤v. To realize an interior block [i,j] one needs r_(i−1)<u<v<l_(j+1), along with u≤r_i and v≥l_j. Necessity of the flank bounds follows from hitting i and j and monotonicity; if the flanks are disjoint, take u strictly between r_(i−1) and min(r_i,l_(j+1)), and then v strictly between max(u,l_j) and l_(j+1). This proves sufficiency with a positive-length witness; a free end handles a boundary block, and a distant interval realizes the empty type. The absent blocks are in bijection with edges (a,b) spanning at least two index steps, with exponent b−a−1. An absent consecutive edge partitions the entire graph across that cut, so the consecutive edges form a spanning path in each component and number m−c. The defect is therefore e−m+c, and zero defect means exactly that the consecutive paths are all the edges. This last argument proves the equality case without a claw-free or chordality lemma. The singleton base is covered, and the extension count excludes equalities to named vertices; no re-representation or propriety of the enlarged graph is required.
 
-The 2015 interval-graph identifying-code bounds already give consecutive-block behavior and the quadratic extremal count; no novelty is claimed for either. The 2026 papers give general first-order type bounds and neighborhood-complexity results. The new claim is the precise failure criterion for each block and the nonconsecutive-edge bijection, including the graph-intrinsic cycle-rank defect and grade-by-grade polynomial. A mathematically equivalent earlier statement could remain in older interval-neighborhood work, so historical priority is provisional.
+## originality
 
-## Value — PASS
+PASS
 
-One-point quantifier-free type counts are a basic finite-model invariant; here all attainable type cardinalities and the exact obstruction to maximum capacity can be computed from one fixed proper interval representation. The cycle-rank identity is a structural, natural refinement of known quadratic growth and determines all equality cases within the proper-base family.
+The distinct contribution, under the inspected evidence, is the exact fixed-base obstruction, its degree refinement and cycle-rank defect, not the existence or sharpness of a quadratic bound. No priority certification is made.
 
-## Scope and residual limitations
+## value
 
-The extension vertex may be any interval, so adding it need not preserve properness. Existing vertices and higher-rank complete types are not counted. Only the ungraded cardinality is expressly representation-independent. No independent mathematical or historical-priority audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This refines a motivated trace bound from an extremal number into an exact obstruction for each labelled candidate block. For a fixed base it gives both the realizable types of each cardinality and a graph-intrinsic obstruction to saturation, and resolves all equality cases within the proper-base family. The cycle-space defect captures information the general VC dimension and the extremal count lose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

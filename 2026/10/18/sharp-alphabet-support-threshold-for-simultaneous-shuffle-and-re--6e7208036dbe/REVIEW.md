@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** From each ordinary shuffle witness, matching equal-position subsequence letters yields a non-nesting perfect matching. From each reverse-shuffle witness, paired positions necessarily straddle the midpoint, and their right-endpoint permutation has no increasing triple because two decreasing subsequences cover it. Any three shared edges would be simultaneously increasing (forced by non-nesting) and forbidden (by increasing-triple avoidance). An alternating-component count bounds the number of distinct letters. The explicit palindromic construction supplies equality for every integer half-length; surjective relabeling proves the exact full-support threshold, and injective relabeling proves the asymptotic exponent. A standalone verifier checks 2,248,355 matching pairs, and an independent word-level enumeration checks binary and ternary cases up to length eight. These tests are finite; the all-length result follows from the combinatorial proof.
+PASS
 
-## Originality
+Use the two witness partitions independently. In the ordinary matching both minima and maxima of the paired positions increase in pair-rank, excluding a nested pair. In the reverse matching paired subsequence ranks sum to n+1. If both endpoints were in one half, their prefixes or suffixes would require n+1 distinct positions there. With left ends partitioned by witness side, the right ends decrease on each side, so no increasing triple exists. Shared edges cross the midpoint and have increasing right ends by non-nesting, hence there are at most two. In the two-colored multigraph, a shared pair yields a size-two component and every other alternating cycle has at least four positions. Thus c≤floor((n+h)/2)≤floor(n/2)+1, and equality labels on edges give support at most c. For n=1 the argument allows the one shared edge. The explicit word aPaP with P a palindrome on the maximum number of letters uses both ordinary equal halves and reverse subsequences aP,Pa, giving equality for all n. Merging symbols proves exact full-support feasibility for smaller q, and injecting labels in the maximum-support pattern proves the lower counting exponent; finitely many equality patterns prove the upper one. For an alphabet fixed too small for the first unrestricted maximum, the actual maximum is min(q,floor(n/2)+1), as the relabeling argument shows. Independent replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 4 directly enumerated equality partitions with even multiplicities for n=1..5 (1, 4, 31, 379, 6556 cases) and tested bipartitions without relying on the matching encoding, finding the claimed maxima 1,2,2,3,3. Uploaded checker and recorded support were inspected, not executed. The proof, not the replay, handles arbitrary n.
 
-**PASS, with residual risk.** The 2021 primary source arXiv:2109.12455 establishes the separate graph encodings and their one-language alphabet growth. Its inspected sections on ordinary and reverse shuffle squares do not state an extremal support theorem for the **intersection** or analyze the two matchings' shared-edge bound. The 2023 arXiv:2308.13882 studies variant shuffles and does not supply that joint threshold. The 2025 paper arXiv:2503.22043 discusses nest-free graph encodings and reverse shuffles without an equivalent support result in its inspected material. Related mathematical records were compared for literal and implied coverage, including other shuffle problems, but no stronger covering statement was identified. An unindexed equivalent theorem, particularly in matching-pair language, remains possible. No claim is made to independent novelty of the characterizations used as premises.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Shuffle squares and reverse shuffle squares are standard distinct families, and asking whether a word can satisfy both with many different symbols is a natural intersection problem. The exact support ceiling settles this question for *every* length; the sharp full-alphabet length threshold and halved large-alphabet counting exponent give useful consequences that cannot be read off from separate-language counts. The shared-edge obstruction isolates the structural reason for the reduction. Exact fixed-length enumerators and a classification of all maximizers remain open here.
+The known separate matching encodings and separate asymptotic counts are credited. What survives comparison is the coupled bound on shared edges, the sharp component/support ceiling for simultaneous membership, and its full-support and counting consequences. In the relevant retrieved primary passages and indexed records, no equivalent or stronger mixed-family classification was found. This is a bounded comparison, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This asks a natural compatibility question about two standard word languages, and resolves it for every length rather than a finite census. The exact drop in admissible letters and in the counting exponent, with a sharp full-support threshold and an independent structural explanation via shared edges, are useful even without the exact joint enumerator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

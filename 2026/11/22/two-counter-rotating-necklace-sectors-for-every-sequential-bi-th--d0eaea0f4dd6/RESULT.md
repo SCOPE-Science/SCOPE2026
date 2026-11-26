@@ -2,112 +2,79 @@
 
 ## Finding
 
-Let \(n\ge3\) and give the labelled undirected cycle \(C_n\) the Boolean bi-threshold rule with activation threshold one and persistence threshold three on the **closed** neighborhood. At each sweep, visit every vertex once in an arbitrary fixed permutation order \(\pi\), in place, and repeat this same sweep indefinitely. Write \(p(i)\) for the position of vertex \(i\) in this order, with all indices modulo \(n\). Set
-
+Let \(n\ge3\) and give the labelled undirected cycle \(C_n\) the Boolean bi-threshold rule with activation threshold one and persistence threshold three on the **closed** neighborhood. At each sweep, visit every vertex once in an arbitrary fixed permutation order \(\pi\), updating in place, and repeat this same sweep. Write \(p(i)\) for the position of vertex \(i\) in the order, with all indices modulo \(n\). Define
 \[
 A=\{i:p(i)<p(i+1)\},\quad B=\{i:p(i)>p(i+1)\},\quad a=|A|,\quad b=|B|=n-a.
 \]
-
-Both \(a\) and \(b\) are strictly positive. Define the two families
-
+Both \(a\) and \(b\) are positive. Let
 \[
-H_A=\{x\in\{0,1\}^n:x_i=x_{i+1}\text{ for every }i\in B\},\qquad
-H_B=\{x\in\{0,1\}^n:x_i=x_{i+1}\text{ for every }i\in A\}.
+H_A=\{x\in\{0,1\}^n:x_i=x_{i+1}\ \text{for all }i\in B\},\qquad
+H_B=\{x\in\{0,1\}^n:x_i=x_{i+1}\ \text{for all }i\in A\}.
 \]
 
-**Theorem.** The entire recurrent set of the sweep map \(F_\pi\) is \(H_A\cup H_B\). Each of these two invariant sets is conjugate to binary rotation of length \(a\) or \(b\), respectively. They intersect exactly in the two constant configurations. In particular,
-
+**Theorem.** The recurrent set of the sweep map \(F_\pi\) is \(H_A\cup H_B\). The two invariant sets are conjugate to rotations of binary words of lengths \(a\) and \(b\) in opposite directions. They intersect exactly in the two constant configurations. Consequently
 \[
-|\operatorname{Per}(F_\pi)|=2^a+2^b-2,
+|\operatorname{Per}(F_\pi)|=2^a+2^b-2,\qquad
+P_d:=|\{x:F_\pi^d(x)=x\}|=2^{\gcd(a,d)}+2^{\gcd(b,d)}-2\quad(d\ge1).
 \]
-
-and, for **every** positive integer \(d\),
-
-\[
-P_d:=|\{x:F_\pi^d(x)=x\}|=2^{\gcd(a,d)}+2^{\gcd(b,d)}-2.
-\]
-
-Thus the exact number of primitive temporal \(d\)-cycle **orbits** is
-
+The number of temporal orbits of least period \(d\) is
 \[
 N_d=\frac1d\sum_{e\mid d}\mu(d/e)\left(2^{\gcd(a,e)}+2^{\gcd(b,e)}-2\right).
 \]
+The possible least periods are exactly the positive divisors of \(a\) or \(b\); the maximal period is \(\max(a,b)\). These counts depend on the schedule only through \(a\), while the labelled configurations in the sectors depend on the ascent-edge set \(A\).
 
-The possible least temporal periods are exactly the positive divisors of \(a\) or \(b\), and the largest possible period is \(\max(a,b)\). The classification depends on a schedule only through its cyclic ascent count, although the labelled recurrent configurations themselves depend on the edge positions.
-
-There are exactly \(n\left\langle {n-1\atop a-1}\right\rangle\) labelled schedules with a given \(a\), where brackets denote Eulerian numbers. Let \(A_m(z)=\sum_{j=0}^{m-1}\left\langle{m\atop j}\right\rangle z^j\) for \(m\ge1\) and \(A_0(z)=1\). For uniformly random \(\pi\),
-
+There are \(n\left\langle{n-1\atop a-1}\right\rangle\) permutation schedules with \(a\) ascents, where the brackets denote Eulerian numbers. Let \(A_m(z)=\sum_{j=0}^{m-1}\left\langle{m\atop j}\right\rangle z^j\) for \(m\ge1\) and \(A_0(z)=1\). For a uniformly sampled schedule \(\pi\), held fixed during the dynamics,
 \[
-\mathbb E_\pi|\operatorname{Per}(F_\pi)|
-=\frac{4A_{n-1}(2)}{(n-1)!}-2
-\sim\frac{2}{(\log2)^n},\qquad
-\mathbb E_\pi\frac{|\operatorname{Per}(F_\pi)|}{2^n}
-\sim\frac2{(2\log2)^n}.
+\mathbb E_\pi |\operatorname{Per}(F_\pi)|=\frac{4A_{n-1}(2)}{(n-1)!}-2\sim\frac{2}{(\log2)^n},\qquad
+\mathbb E_\pi\frac{|\operatorname{Per}(F_\pi)|}{2^n}\sim\frac{2}{(2\log2)^n}.
 \]
-
-This is a **recurrent-set and order-statistics classification**, not a formula for all transient entrance times or individual attraction basins under arbitrary orders.
 
 ## Assumptions and scope
 
-The graph is the simple cycle with labelled vertices \(0,1,\ldots,n-1\), edges from \(i\) to \(i+1\pmod n\), and no loops. At the vertex being updated, let \(\ell,c,r\in\{0,1\}\) be the **current** left, center and right bits (some neighbors may already have been updated during the sweep). The local replacement is
-
+The graph is the simple cycle on labelled vertices \(0,\ldots,n-1\), with edge \(i\) joining \(i\) to \(i+1\). The neighbors remain distinct for \(n=3\). If \(\ell,c,r\) are the current left, center and right bits when a vertex is visited, the local replacement is
 \[
 T(\ell,c,r)=\begin{cases}\ell\lor r,&c=0,\\\ell\land r,&c=1.\end{cases}
 \]
-
-Thus an inactive vertex activates if at least one neighbor is active, while an active vertex persists exactly if both neighbors are active. For \(n=3\), the two neighbors are distinct. Neither simultaneous updating nor a randomly resampled order is considered.
-
-An edge \(i\) is the pair \(\{i,i+1\}\). The adjective 'ascent' concerns **visit times** \(p(i)\), not the numerical vertex labels. A configuration is *periodic* if some positive iterate returns to it; a primitive temporal orbit is one entire cycle of distinct states, counted once.
+An ascent is a comparison of the two visit times along the chosen cyclic direction. A configuration is periodic if a positive number of sweeps returns to it, and a temporal orbit is a cycle of distinct configurations counted once. Simultaneous updating and randomly resampled sweeps are not considered.
 
 ## Proof
 
-**1. Domain-wall transfer and annihilation.** Write the wall on edge \(i\) as \(w_i=x_i\oplus x_{i+1}\). Consider the pair of walls adjacent to a vertex about to update, in the order left, right. Direct substitution into \(T\) gives exactly
-
+**1. Domain walls and two trajectories.** Put \(w_i=x_i\oplus x_{i+1}\). At a vertex visit the pair of walls in the adjacent left and right slots evolves as
 \[
 (0,0)\mapsto(0,0),\quad(1,0)\mapsto(0,1),\quad
 (0,1)\mapsto(1,0),\quad(1,1)\mapsto(0,0).
 \]
+Thus we can first draw fictitious wiring that swaps two slots at every vertex visit and then impose the rule that if both incoming slots hold a wall, they both become empty instead. The total wall count drops by two at each such collision and cannot increase.
 
-In other words, walls traverse the vertex as if the two incident edge slots were exchanged, **except** that two occupied slots mutually annihilate. No update can create walls; every collision lowers the total wall number by two.
+At sweep start give slots their edge labels \(A\) and \(B\), and exchange these labels at a visit even when no walls are present. The incoming left slot at any vertex visit has label \(B\); the incoming right slot has label \(A\). To see this inductively, an incoming left edge not previously visited has its right endpoint earlier and hence starts as \(B\). If previously visited at its left endpoint, it was that endpoint's outgoing right slot and received label \(B\) there. Likewise an incoming right edge either starts as \(A\) or received label \(A\) as the outgoing left slot at its earlier right endpoint. After both endpoint visits, each edge has its original label: for an \(A\)-edge the second visit is at its right endpoint, and for a \(B\)-edge the second visit is at its left endpoint.
 
-To label the two classes of possible wall trajectories, temporarily ignore annihilation and draw the *swap wiring* through every vertex visit. At the start of a sweep, label the edge slots in \(A\) by \(A\), those in \(B\) by \(B\). Whenever either endpoint is visited, its two incident slot labels exchange; the claim that the labels reaching a vertex from its **left** and **right** at that visit are respectively \(B\) and \(A\) follows by considering its two incident edges separately: an edge whose left endpoint is visited first starts as \(A\), then changes label at that first visit, whereas an edge whose right endpoint is visited first starts as \(B\), then changes label. Hence at each local update the entering left edge slot has label \(B\), and the entering right slot has label \(A\). All labels return to their original edge classes after a full sweep, since each edge exchanges labels at both endpoints.
+An \(A\)-wall moves left at every crossed vertex, and a \(B\)-wall moves right. In the absence of collisions an \(A\)-wall on edge \(i\in A\) first crosses vertex \(i\). After a leftward move the next vertex is still to be visited exactly when that new edge is in \(B\); at the first edge in \(A\) the wall stops until the next sweep. Thus each sweep moves it to the preceding \(A\)-edge, including a full turn when \(a=1\). Symmetrically the \(B\)-wiring moves a wall to the next \(B\)-edge. Collisions require walls of opposite labels.
 
-Thus occupied \(A\)-slots are transported **leftward** and occupied \(B\)-slots **rightward**, and a wall collision can only happen between opposite classes. The action of a complete sweep on the disjoint \(A\)-slots is a one-position cyclic rotation of these \(a\) slots, with the opposite cyclic rotation on the \(b\) disjoint \(B\)-slots. The latter assertion can also be seen by following an occupied slot through the updates: it travels along consecutive edges until it reaches the next slot of its own class, then stops for that sweep.
+**2. Mixed wall classes cannot recur.** Suppose both classes are occupied and that no annihilation occurs for \(ab\) sweeps. Choose one wall from each class and lift their positions to integer edge coordinates on the universal cover of the spatial cycle. After \(a\) sweeps the \(A\)-wall has made one leftward turn; after \(b\) sweeps the \(B\)-wall has made one rightward turn. Their relative displacement therefore changes by \(n(a+b)\) over \(ab\) sweeps. Without collisions each vertex update moves at most one of the chosen walls, so relative displacement changes by at most one at a time. It must hit a multiple of \(n\), which would put two walls on the same slot. This is impossible: an attempted exchange through one vertex with both slots occupied would instead annihilate both. Hence a mixed configuration must lose walls within \(ab\) sweeps. Because walls cannot be created, every orbit eventually reaches a configuration supported on a single class, and a periodic point cannot start with both classes occupied.
 
-**2. Mixed wall classes cannot recur.** Suppose a configuration has at least one wall in each class. As long as no collision occurs, the total number of each class stays positive and the swap wiring transports the two classes in opposite directions. Choose one particle from each class and lift their edge positions to the universal cover of the spatial circle. After \(ab\) complete sweeps, the \(A\)-particle has travelled \(b\) full spatial turns left and the \(B\)-particle \(a\) full turns right. Their relative displacement changes by \(n(a+b)\) edge steps. On a circle, two particles occupying different slots cannot exchange their cyclic order or acquire a nonzero relative winding through a sequence of single-vertex swaps without meeting in one such vertex event: it would force both incoming slots of that event to be occupied. Such an event is precisely a collision. Consequently any interval of \(ab\) sweeps that begins with both classes occupied contains an annihilation. Since there are at most \(n\) walls and annihilation strictly decreases their number, after finitely many sweeps every orbit has walls of at most one class. This argument proves eventual entry, without asserting an optimal transient bound.
+**3. The two rotations on bits.** In \(H_A\) there are only \(A\)-walls and thus no collisions. At each vertex visit the incoming left slot has no wall, so \(\ell=c\) and \(T(\ell,c,r)=r\). Contract the \(B\)-edges, giving \(a\) constant-bit blocks in cyclic order. In each block the visit times decrease from left to right along \(B\)-edges. Its rightmost vertex is visited before the first vertex of the next block, across an \(A\)-edge, so it copies that block's old bit. The remaining vertices of the first block are visited from right to left and propagate this bit. Thus each block gets the old bit of its next block, also when the only block is the whole cycle. For \(H_B\), reverse left and right, so each block gets the old bit of its preceding block. These rotations are bijections on their respective sectors, making all configurations in both sectors periodic. A point in both has no walls, so the intersection consists of the two fixed constants. This proves the recurrent-set description.
 
-**3. The two rotation sectors and their intersection.** In \(H_A\) there are no \(B\)-walls, and hence no annihilations. Contract the \(B\)-edges to obtain exactly \(a\) constant-bit blocks in cyclic order. At the vertex updates, the absence of a left \(B\)-wall reduces the local rule to copying the current right-neighbor bit, so the sweep cyclically shifts the block values once. Similarly, absence of \(A\)-walls reduces the local rule to copying the left-neighbor bit, rotating the \(b\) blocks of \(H_B\) in the opposite orientation. Both restricted maps are bijective, so every configuration in each sector is already periodic. The sectors meet iff no edge carries a wall, i.e. at the all-zero and all-one configurations, both fixed. Since a periodic point cannot lose walls and later recover them, step 2 excludes periodic points outside these sectors. The union is therefore the full recurrent set.
+**4. Orbit counts.** A rotation of \(m\) cyclic positions by \(d\) has \(\gcd(m,d)\) cycles of positions, each of which must have a constant bit in a fixed word. The two sectors give the two summands in \(P_d\), less their two common fixed states. Möbius inversion of \(P_d=\sum_{e\mid d}eN_e\) gives the orbit count. For every divisor \(d\ge2\) of a rotation length, repeating the length-\(d\) word with just one 1 gives a least-period-\(d\) point. The constants have period one.
 
-**4. Exact orbit counts.** A binary word of cyclic length \(m\) fixed by its \(d\)-fold rotation is constant on the \(\gcd(m,d)\) rotation classes and has \(2^{\gcd(m,d)}\) choices. Apply this independently to the length-\(a\) and length-\(b\) sector rotations, subtracting their two common fixed states. This yields \(P_d\) and \(|\operatorname{Per}(F_\pi)|\). Möbius inversion of \(P_d=\sum_{e\mid d}eN_e\) yields \(N_d\). A primitive binary word of every length \(d\ge2\) exists (for example, one 1 followed by \(d-1\) zeros), giving every divisor of either sector length; the only period-one words are the two common constants.
+**5. Counting schedules, not orientations.** Read the visit times around the labelled vertex cycle and fix the position of the largest time, which has \(n\) possibilities. The edge entering it contributes one ascent and the edge leaving it contributes none. The other \(n-1\) visit times, read as a linear order starting immediately after the largest, therefore have \(a-1\) ascents. This gives \(n\left\langle{n-1\atop a-1}\right\rangle\) schedules. In contrast, orienting edges from earlier to later visits gives \(\binom na\) different acyclic orientations with \(a\) forward edges: any subset of \(a\) forward edges is allowed for \(1\le a\le n-1\). Each such orientation has one or more compatible schedules, and it is the schedules that are sampled uniformly here.
 
-**5. Order frequencies and the asymptotic.** For each permutation, rotate its sequence of visited labels cyclically to put vertex \(0\) first. This rotation does not affect the cyclic ascent-edge count, since cyclic comparisons of rank positions have the same number of ascents as comparisons in a single linear order after choosing the vertex visited earliest. Equivalently, the number of acyclic orientations of \(C_n\) with \(a\) ascent edges is \(n\left\langle{n-1\atop a-1}\right\rangle\); each can be realized by the corresponding number of compatible visit orders. A direct counting argument is to fix the position of the numerically largest time stamp on the circular ordering of vertex indices: there are \(n\) choices, and after cutting there, the other \(n-1\) distinct time stamps have \(a-1\) ascents. Thus exactly \(n\left\langle{n-1\atop a-1}\right\rangle\) permutations have ascent count \(a\).
-
-The Eulerian polynomials satisfy
-
+Reversal of all visit times interchanges \(a\) and \(b\). Hence the expectation of \(2^a+2^b\) is twice that of \(2^a\), which by the schedule law equals \(2A_{n-1}(2)/(n-1)!\). The Eulerian exponential generating function at \(2\) is
 \[
 \sum_{m\ge0}A_m(2)\frac{z^m}{m!}=\frac1{2-e^z}.
 \]
-
-The expected sector population over the schedules is \(4A_{n-1}(2)/(n-1)!\), before subtracting the duplicated constant states. The generating function has a unique smallest-modulus singularity at \(z=\log2\), a simple pole with principal part \(1/[2(\log2-z)]\). Its other poles are \(\log2+2\pi i k\) for nonzero integers \(k\), which are further away. Therefore \(A_{n-1}(2)/(n-1)!\sim 1/[2(\log2)^n]\), proving the asserted expectations.
+Its unique closest pole is \(L=\log 2\); the principal part is \(1/[2(L-z)]\) and the other poles are \(L+2\pi i k\), \(k\ne0\). Subtracting the principal part leaves a function analytic in a disk of radius greater than \(L\), so \(A_{n-1}(2)/(n-1)!\sim1/(2L^n)\). Subtracting the two common fixed states and, for the fraction, dividing by \(2^n\) yields the asserted asymptotics.
 
 ## Verification
 
-The included `checks/check_all_orders.cpp` independently computes the actual in-place bi-threshold map on every bitstring, for all \(n!\) update permutations and \(3\le n\le8\). It decomposes each finite functional graph and checks periodic-state membership, recurrent counts and period-dividing-\(d\) populations for every \(1\le d\le n\). This is 46,230 permutation schedules and 11,017,392 schedule-state pairs.
+The C++ source `checks/check_all_orders.cpp` evaluates the in-place map on all bitstrings and schedules for \(3\le n\le8\), classifies recurrent states by their actual functional graph, and compares recurrent membership and the period-dividing-\(d\) counts for \(1\le d\le n\). Its saved output records 46,230 schedules and 11,017,392 schedule–state pairs. The Python source `checks/check_sampled.py` tests invariant sectors and return after the corresponding sector length, and tests for a wall loss within \(ab\) sweeps from mixed states. It covers all schedules through \(n=6\) and seeded samples for \(7\le n\le10\), with all states for each selected schedule. These checks corroborate but do not replace the all-schedule proof.
 
-The separately implemented `checks/check_sampled.py` checks direct updates against both one-class rotation properties and the mixed-wall annihilation bound for all permutations through \(n=6\), plus specified random samples for \(7\le n\le10\), using exhaustive states for each sampled order. Results from both scripts are included. These checks are finite corroboration; the proof above, not extrapolation from experiments, establishes the theorem for all \(n\).
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Macauley and Mortveit's *Cycle Equivalence of Graph Dynamical Systems* (first deposited February 29, 2008) proves order-equivalence principles for sequential systems and counts orientation classes on cycles, but does not classify this concrete threshold rule's attractor sectors or the complete period distribution as a function of ascents. Kuhlman, Mortveit, Murrugarra and Kumar's *Bifurcations in Boolean Networks* (first arXiv deposited August 15, 2011) studies the exact \((1,3)\) rule and exhibits long cycles for a natural scanning order, but does not provide the arbitrary-order recurrent-set decomposition. A published single-scan classification, *Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles*, determines the binary necklace and basin laws for the specific order \(0,1,\ldots,n-1\); that result corresponds here to \((a,b)=(n-1,1)\), so it does not entail the two-sector formula for general permutations.
-
-The exact cyclic ascent-count law and its Eulerian average make the new result more than a relabelling of the natural-order classification. The cycle-equivalence results constrain how update orders may be related, but do not alone supply the present explicit invariant-set and period formulas.
-
-## Limitations
-
-Only sequential in-place updating on simple cycles, with one fixed permutation repeated, and the exact closed-neighborhood thresholds \((1,3)\), are considered. The complete transient-depth census and each individual attraction basin for arbitrary permutations are not classified here. The proof provides a finite-time eventual-entry mechanism but not a claimed sharp entry bound. Prior-work searches and accessible full-text comparisons cannot rule out an undiscovered equivalent formulation; the result has no independent external mathematical audit.
+Macauley and Mortveit [1] relate update orders and acyclic orientations and give general cycle-equivalence principles. These do not identify the recurrent sectors or periods for this local rule. Kuhlman et al. [2] study long cycles for bi-threshold systems, including the \((1,3)\) rule. The known natural-scan classification [3] gives a single rotation sector of length \(n-1\), the case \((a,b)=(n-1,1)\), and goes further for that scan in describing basins. The cyclic-ascent schedule count also appears in the different sequential Rule 170 setting [4]; the count is a permutation statistic, not specific to this rule. The claim here is the recurrent classification for all fixed permutation schedules and its period and schedule-population consequences, not an arbitrary-schedule basin formula or a sharp transient-time bound.
 
 ## References
 
-1. M. Macauley and H. S. Mortveit, *Cycle Equivalence of Graph Dynamical Systems*, first public arXiv deposit 2008-02-29. https://arxiv.org/abs/0802.4412
-2. C. Kuhlman, H. Mortveit, D. Murrugarra and V. S. A. Kumar, *Bifurcations in Boolean Networks*, first public arXiv deposit 2011-08-15. https://arxiv.org/abs/1108.2974
-3. *Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles*, published 2026. https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794
+1. M. Macauley and H. S. Mortveit, *Cycle Equivalence of Graph Dynamical Systems*, https://arxiv.org/abs/0802.4412.
+2. C. Kuhlman, H. S. Mortveit, D. Murrugarra and V. S. A. Kumar, *Bifurcations in Boolean Networks*, https://arxiv.org/abs/1108.2974.
+3. *Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles*, Resultary, https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794/RESULT.md.
+4. *Eulerian necklace clocks and uniform basins for sequential Rule 170*, Resultary, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eulerian-necklace-clocks-and-uniform-basins-for-sequential-rule--4683274af27b/RESULT.md.

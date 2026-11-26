@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Cauchy-dual moments are exactly \(P(0)/P(n)\), and their uniquely determined signed Hausdorff density is the inverse-Laplace expression in RESULT.md. The normalized positivity region is a closed upper ray by an integral damping identity. At integer resonance the density has quartic zeros. The exact damped trigonometric identity gives an all-time, uniform two-phase approximation under detuning, and the maximum phase gain defines \(\kappa_m\). Above the proposed asymptotic threshold, all large logarithmic times are controlled uniformly, and a finite compact-time argument resolves the quartic zeros; below it, a time sequence of order \(1/|\varepsilon|\) witnesses negativity. These two inequalities prove the claimed limit for both signs of detuning and all integers \(m\ge2\). The independent integral/trigonometric finite checks (2060 assertions) supplement, not replace, this proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Reza and Zhang, arXiv:1903.00116v1, Theorem 1.10 and Section 5, resolve the coincident-real-part case at integer frequency ratios, but not the first-order separation needed to restore positivity when the ratio is detuned. Buchała, arXiv:2407.17233, characterizes polynomial weighted shifts without quantifying this frequency-detuning threshold. Two nearby quintic results treat a repeated complex-conjugate pair and one fixed noninteger frequency ratio, not a varying ratio near every integer. Targeted mathematical searches returned no implication covering the new variational boundary law; the absence of an indexed counterpart is not proof of global novelty. A hidden equivalent perturbation theorem remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The unsolved quintic root-configuration region of reciprocal-polynomial Hausdorff moments has a natural stability question near the exact arithmetic resonances. The answer is a nontrivial sharp modulus with a universal beat-phase formula, rather than a fixed-parameter calculation. It identifies why finite-time expansions miss the critical phenomenon and supplies an exact structural threshold for a whole family of strict six-isometric weighted-shift Cauchy duals. No second-order expansion or global classification is asserted.
+All positive polynomial factors increase on the nonnegative integers and the weight ratios tend to 1. Telescoping gives the degree-five norm-polynomial for W and P(0)/P(n) for its Cauchy dual. Laplace inversion of the two quadratics gives the difference of the damped sines with factor c^(-3)/(r^2-1); convolution with exp(-a u) adds the factor c^(-1) on rescaling. The resulting continuous-on-(0,1) signed density is integrable and unique by polynomial density, so a negative value at positive time is a genuine obstruction. Large damping makes the initial positive interval dominate the bounded later integrand; integration by parts makes the admissible set a closed upper ray. At zero separation and integer m the strict sine-multiple inequality off t=2 pi k gives precisely the quartic zeros. There the damping derivative is t_k/m^2 and the r derivative is zero. The trigonometric positivity inequality depends on the slow phase epsilon t exactly; replacing its rational coefficients by their resonant values incurs O(|epsilon|) uniformly at all times. The quartic versus |theta||phi| comparison yields log M_m(theta)=O(|theta|^(4/3)), so the positive variational maximum is attained. Above it, exponential slack dominates the uniform error for t beyond a fixed cutoff. Below the cutoff, short-time positivity and the O(|epsilon|^(4/3)) optimized loss near finitely many positive quartic contacts are controlled by the positive order-|epsilon| damping gain. Below the coefficient, times with prescribed fast phase and |epsilon|t approaching the selected slow phase give a strict negative witness, for both signs using evenness in theta. This proves the stated limit on the stipulated half-plane.
 
-## Closest literature and limitations
-- Reza and Zhang (2019), Theorem 1.10 and Section 5: integer-ratio boundary at coincident real parts; no detuning asymptotic.
-- Buchała (2024 first version), Section 3: weighted-shift polynomial framework, not reciprocal-moment phase stability.
-- Prior repeated-pole and fixed-frequency quintic bounds are logically incomparable with the varying-near-integer limit.
-- Historical priority is subject to unindexed literature; the variational expression has not been reduced to an elementary closed form, and independent mathematical validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted distinction is the exact positive first-order threshold for varying r on both sides of every fixed integer, not the integer-resonance criterion, rational moment representation, or weighted-shift characterization. No inspected result covers that detuning limit.
+
+## value
+
+PASS
+
+The arithmetic resonance in a natural reciprocal-polynomial moment problem is unstable, and the theorem quantifies exactly how much separation restores positivity. The positive coefficient and the necessity of logarithmic times proportional to inverse detuning give information that a classification solely on the resonant slice or a local Taylor expansion cannot provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

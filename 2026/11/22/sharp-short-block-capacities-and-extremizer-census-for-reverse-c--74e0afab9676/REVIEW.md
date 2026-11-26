@@ -1,11 +1,21 @@
-# Review of the exact reverse-complement-closed binary code census
+# Independent mathematical audit
 
-**Correctness — PASS.** Every closed code is a disjoint union of fixed or paired reverse-complement orbits. The orbit-filtered non-overlap graph represents *exactly* the allowable codes as cliques with weights one or two. Complete maximal-clique enumeration with positive weights and strict tie-preserving pruning gives the finite maximum and all labeled maximizing subsets for every length \(1\) through \(12\). Two independently written whole-universe implementations agree on the twelve pairs of integers, and an explicit length-\(12\) witness meets weight \(42\). The code's finite guarantee is not extrapolated beyond length \(12\).
+## correctness
 
-**Originality — PASS, qualified.** The closest public research paper explicitly answers feasibility and asymptotic rate but not exact finite optimum \(M_n\), and does not count optimizer multiplicities. Foundational unrestricted code constructions (Chee et al.; Blackburn) and maximum unrestricted enumerations (Stanovnik et al.) do not impose \(\rho(C)=C\) and do not entail these equality counts. Targeted indexed-record searches did not identify this same \(12\)-length distribution or the count of \(1134\) optima; they cannot rule out unindexed or archival computations. The exact statement-to-statement comparisons and source inspections appear in `AUDIT.json`.
+PASS
 
-**Value — PASS.** Finite optimal block codes under reversal-complement closure have independent meaning as strongly self-synchronizing, paired-strand dictionaries; the result quantifies achievable code sizes and the number of choices, not merely feasibility. The sharp nonmonotonicity around lengths \(8\)–\(11\), and the complete length-\(12\) optimum layer, provide useful benchmarks for constructions, enumeration and synchronization constraints. The finite cutoff is the full initial range for which a 12-length maximal-clique census is supplied, rather than an arbitrarily selected isolated instance.
+Closure means choosing whole reverse-complement orbits. Testing every ordered overlap within an orbit and between compatible orbits gives a bijection between admissible literal codebooks and cliques, with codebook cardinality equal to the sum of orbit sizes. Positive weights imply every maximizer is inclusion-maximal. The independently written integer enumeration retained all ties and returned M=(2,1,0,1,0,2,0,5,2,14,10,42), T=(1,2,1,2,1,2,1,2,4,6,96,1134) for n=1,...,12. The empty clique counts once when there are no eligible orbits, and n=1 has no proper nonempty overlap. All 1134 length-12 optima have 16 pairs; weight 42 then forces 10 fixed words. Separately, direct checks of the displayed length-12 witness found 42 distinct binary words, closure, 10 fixed words, and zero prohibited matches in 19404 ordered prefix/suffix comparisons.
 
-**Closest literature and limits.** The principal comparison is *Reverse-complement-invariant binary synchronization: exact feasibility and full asymptotic rate* (https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-reverse-complement-invariant-binary-synchronization-exact-feasib--0c804986fafb/RESULT.md). Classical papers arXiv:1209.0236 and arXiv:1303.1026 study larger unrestricted domains; the later maximum-code survey/analysis has a different optimization constraint. An equivalent unindexed constrained-code table remains a residual historical risk. Exact capacities and optimizer counts beyond length \(12\) are not established; the exhaustive certificate is executable rather than a short closed-form combinatorial classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+To the extent supported by inspected evidence, the distinct result is the exact weighted capacity and labeled equality-case census through length 12, including the length-12 composition. Nonempty feasibility and asymptotic rate are credited to the known strand-closed binary result, and ordinary non-overlap bounds and constructions are background. No inspected result supplies the claimed joint census by specialization.
+
+## value
+
+PASS
+
+Short block lengths matter for synchronization under explicit two-orientation closure. The census gives exact achievable cardinality where asymptotic rate does not help, a concrete drop from 14 to 10 when length goes from 10 to 11, and an equality-case constraint shared by all 1134 optima at length 12. These are useful benchmarks for constructions and for explaining the role of fixed versus paired words, not just another witness to known existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

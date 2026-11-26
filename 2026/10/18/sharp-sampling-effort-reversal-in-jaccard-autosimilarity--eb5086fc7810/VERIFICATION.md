@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify_jaccard.py` with the supplied `census_n_le_6.csv` in the same directory. The program computes the complete rational census table from inclusion–exclusion and independently enumerates all labeled sample pairs; the two implementations agree at all 135 sample-size/profile cells for census sizes one through six. It reproduces 29 integer-partition profiles, with a single strict decrease for \((1,5)\) between sizes two and three.
+## correctness
 
-It also checks the analytic singleton/dominant family at the listed finite parameter values and separately enumerates all feasible ordered disjoint pairs through the specified small sizes. These tests confirm the code calculations only; the unrestricted formulas and the disjoint-protocol gap are established by the algebraic argument in the main result. No experiment is used to establish a claim about all integer population sizes.
+PASS
 
-The first-publication date for the cited 2002 autosimilarity study is stated by its publisher. The technical full text of that study was not accessible for complete statement-by-statement novelty comparison, and independent validation has not been performed.
+The expectation is of the Jaccard ratio on detected species, not individual overlap or a ratio of expectations. Inclusion–exclusion counts exactly those size-m subsets whose support is S, and independence multiplies two support counts. A separate replay generated every composition via cuts among N−1 gaps, sorted to exhaust the abundance partitions, and averaged the rational similarity over every ordered pair of labeled size-m samples. It agrees with the frozen CSV on all 135 cells of all 29 profiles through N=6. Its only strict drop is (1,5) from 7/9 to 3/4, at m=2 to 3. For general (1,N−1), both m≥2 samples always include the dominant species, so a similarity loss of 1/2 occurs precisely on singleton detection disagreement. Under independence the disagreement probability is 2(m/N)(1−m/N); under disjoint sampling the singleton cannot appear twice, giving 2m/N. At m=1 the ratio is exactly the species-match indicator. The initial increase is 2/N² and the forward difference thereafter is (2m+1−N)/N², which also gives the asserted integer minimizers on the stated domain (including the odd-N tie when both nearest integers are in it). Analytic arguments, not extrapolation, support the arbitrary-N results.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact finite-census minimality and uniqueness together with the sampling-design gap. Sample-size dependence and Jaccard undersampling bias are established prior phenomena. The closest exact indexed analogue has different sampling assumptions; the Cao body could not be checked.
+
+## value
+
+PASS
+
+The sharp obstruction answers whether expected within-community Jaccard can serve as a monotone diagnostic of greater sampling effort under a standard finite sampling design. Smallest-census uniqueness is a natural endpoint, not an selected profile after the fact. The two protocols preserve equal marginal effort but differ in how singleton detections pair, reaching a 1/4 expectation gap at half the census; this gives the phenomenon quantitative and design relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

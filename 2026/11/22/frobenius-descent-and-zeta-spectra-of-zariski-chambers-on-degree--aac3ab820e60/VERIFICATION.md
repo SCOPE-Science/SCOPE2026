@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Invoke `python3 verify_chamber_spectrum.py` in a directory containing this document and the script. The script is self-contained and depends only on the Python standard library. The observed terminal marker was `DEGREE5_CHAMBER_FROBENIUS_ALL_120_OK`.
+## correctness
 
-The calculation constructs all ten exceptional classes in the integral intersection lattice, independently identifies their Petersen adjacency, enumerates all candidate supports via geometric intersection testing and via a separate complete edge-star/triangle classification, and checks identity of the two 76-element sets. It then applies all 120 five-label permutations and checks all seven stated orbit profiles and their fixed support-size coefficients. Exact combinatorial formulas check each fixed-point number and the first two full periods of extension-field counts.
+PASS
 
-The code does not enumerate degree-five del Pezzo surfaces over finite fields. The universal surface statement instead uses the known classification of their geometric exceptional curves and Frobenius action, the negative-definite-support criterion, and the explicit arithmetic rational-divisor construction written in the proof. The all-degree zeta identities follow algebraically from complete cycle decompositions, not a bounded numerical search. No independent mathematical audit or formal proof-assistant certification is asserted.
+Adjunction and anticanonical ampleness force every negative integral curve to have square -1 and anticanonical degree one. The ten standard blowup classes realize the Kneser labeling, and an intersecting pair already gives a singular two-by-two principal submatrix. The six mutually exclusive sorts of independent sets give the claimed 76. For an invariant disjoint support B, D=-K+2B is defined over the base; its positive part -K+B is nef by the exceptional generators of the Mori cone, has square 5+|B|, and vanishes exactly on B, while N=B has all coefficients positive. These strict conditions away from B and the linear projection orthogonal to B give a class in the chamber interior. Independently counted fixed edge pairs, label triangles and stars with a fixed center for every power of each class representative, and inverted fixed counts to orbit counts; all seven vectors and orbit spectra agree (python3 /workspace/branches/independent_arithmetic.py). All types occur even over F2: blow up the split projective frame; its four-point permutations give S4 and standard Cremona at three of the frame points lifts and induces (4 5) in the given labeling. These automorphisms are defined over the base and generate S5, so finite-field twisting realizes every assigned permutation (its inverse has the same type). This independently supplies the cited finite-field realizability. The cycle-count argument, not the sample, proves all extension counts. The frozen script was inspected, not run; its advertised Python 3.8 minimum is a minor replay typo (int.bit_count requires 3.10+).
+
+## originality
+
+PASS
+
+Best of current knowledge, the explicit all-type chamber action, fixed-support size refinement and arithmetic realization quantify a different invariant from both the geometric chamber total and the published classifications of forms and arithmetic cones. It is a short finite refinement of known structural inputs, not priority for 76, the Petersen action itself, or realizability of the del Pezzo forms.
+
+## value
+
+PASS
+
+This is a complete classification of actual ground-field negative-part regimes on a natural family of all finite-field forms, not just a graph count with no arithmetic meaning. For instance a four-cycle has a rational non-nef chamber with four conjugate negative curves and no rational exceptional curve, whereas a five-cycle leaves no non-nef chamber. The all-power table determines exact extension degrees for descent of the chamber data, together with support cardinality at the ground field. The geometric count and known arithmetic cone/lattice invariants alone are not the claimed census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

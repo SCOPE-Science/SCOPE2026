@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The exact symbolic proof is in `RESULT.md`: Gaussian convolution and a two-by-two linear solve yield the weights, an integral derivative inequality yields a unique maximum, and a comparison with \(2q-1-q^4\) gives the sharp universal nugget. A strictly negative second derivative yields the fold expansion. No approximate computations are needed for the infinite-family statements.
+## correctness
 
-`verify.py` is a self-contained Python 3 standard-library checker. Run `python verify.py` and expect a `PASS` line reporting 7,203 tests and the universal bound. It compares independently solved three-by-three systems against analytic weights for 6,000 randomized finite Gaussian mixtures and checks global-one-peak and sharpness patterns in 1,203 additional cases. It does not exhaust parameter space; the printed numbers are reproducibility checks, not an independent mathematical audit.
+PASS
 
-The kernel amplitude is one; changing it scales the physical noise variance. The result concerns prescribed symmetric locations, and it does not establish minimum integration error, global optimal location design, stable floating-point inversion at near-coincident sites, or that noisy measurements are nonnegative. Independent review remains unperformed.
+Gaussian convolution and the positive tilt give m(a)/m₀=Eν[q^β], with 0<β≤1 and positive tilted mass below 1. The even Gram block has determinant (1−q²)²+η(2+q⁴)+η²>0; the outer numerator is strictly positive and the center numerator is m₀(η−H(q)). The derivative H′/(4q³) is strictly decreasing from +∞ to (Eνβ−1)/2<0. Local differentiation is bounded uniformly in β on compact positive q-intervals, so no moment of the target scale is needed. Because H(0)=−1 and H(1)=0, the unique stationary point is a positive maximum, and each level gives precisely the stated count of crossing spacings, with their order reversed by q=e^(−a²/(2ℓ²)). Pointwise H(q)<2q−1−q⁴, maximized at 2^(−1/3); already evaluating at that q for single Gaussian targets as s/ℓ→∞ proves sharpness. At the stationarity point H″=4q_*²(E_*β−3)<0, where E_* tilts by (1+β)q_*^β. Taylor expansion and the nonzero derivative of spacing in q give the stated fold. The exact proof is sufficient; the finite checker was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct result is the global spacing diagram under a fixed Gaussian kernel for arbitrary centered Gaussian scale-mixture targets: one maximum, sharp universal nugget and nondegenerate fold. The pointwise sign reduction is shared and is expressly not claimed as original.
+
+## value
+
+PASS
+
+For a whole target family without moment restrictions, the result determines both an exact universally sufficient nugget and the only possible nonpositivity window at smaller noise. These are useful global properties not furnished by the pointwise Gram solve, and the fold quantifies how the window closes. No accuracy improvement or positivity of realized noisy outputs is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

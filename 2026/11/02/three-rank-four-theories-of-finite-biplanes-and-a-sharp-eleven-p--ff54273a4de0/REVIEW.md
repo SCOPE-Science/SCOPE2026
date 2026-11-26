@@ -1,11 +1,21 @@
-# Scientific review: rank-four theories of biplanes
+# Independent mathematical audit
 
-**Correctness — PASS.** For a symmetric \(2\)-\((v,k,2)\) design the point and block pair intersections are both exactly two; the eight triple-cell formulas and the mixed-triple extension formulas exhaust all fourth-move atomic patterns. For \(k\ge5\) their zero/nonzero profiles depend only on a Boolean triple-concurrence flag that realizes both values over any pair. This proves the four-round back-and-forth theorem without extrapolation from experiments. The two explicit rank-four sentences separate \(k=3\), \(k=4\), and \(k\ge5\). Independent direct recursive first-order computation for actual designs with \(k=3,4,5,6\) supports the proof. The class of \(k\ge5\) is nonempty, witnessed by the \(2\)-\((11,5,2)\) Paley biplane.
+## correctness
 
-**Originality — PASS, qualified.** Martinjak (arXiv:1401.5441; PDF sections on definitions, main theorem and examples, and conclusion inspected) analyzes association schemes inside canonical biplanes, not rank-four equivalence of the original whole structures. Kaski–Östergård (DOI 10.1002/jcd.20145; abstract, metadata and bibliography inspected) classifies the finite \(k=11\) order, without a logical theorem in the accessible material. Rank-four projective-plane or generalized-quadrangle results concern different incidence axioms and cannot imply the biplane statement. Targeted scholarly literature and indexed-result comparisons revealed no dominating result. Full-text access to Kaski–Östergård was unavailable; unindexed results could still anticipate the theorem. The novelty conclusion is qualified accordingly.
+PASS
 
-**Value — PASS.** Biplanes are a rigid but incompletely classified family: already at \(k=6\) multiple nonisomorphic biplanes exist, while further orders have unresolved existence/classification questions. The theorem gives a complete exact logical invariant for every existing biplane at depth four, independent of these classification difficulties, together with a sharp universal 11-point representative and the first quantifier depth detecting the order-two-to-order-three boundary. It exhibits a mathematically meaningful transfer from design intersection numbers to bounded-depth definability, rather than an arbitrary finite enumeration.
+The square incidence matrix identity MM^T=(k-2)Id+2J and equal row and column sums give the dual pair counts. For k>=5, a distinct same-sort triple has all seven non-triple extension cells nonempty; the remaining cell is present iff its triple overlap t is 1. Each distinct same-sort pair permits both t values (choose inside one of its two common blocks but outside their intersection, or outside both); mixed triple cells stay nonempty after exclusions, and equalities are answered by the corresponding named object. Recursing on sets of extension types gives uniform rank-two pair types by atomic diagram, uniform rank-three singleton types by sort, and the common rank-four empty-tuple type. For rank three the four opposite-sort pair cells are all positive already at k>=4. The point outside a block pair separates k=3 at rank three; the rank-four formula asserting exactly one such point separates k=4, since u(k)=(k-2)(k-3)/2. The k=3 design is all 3-subsets of four points; at k=4 complementing blocks gives the unique Steiner triple system on seven points: label a noncollinear triple a,b,c and their pair completions d,e,f. For the seventh point g the remaining lines through a,b,c are respectively afg,beg,cdg, and the last line is def. For the Paley representative D={1,3,4,5,9} mod 11, the ten unordered pairs have circular distances 1 through 5 exactly twice each, giving the required directed difference multiplicities. Monotonicity of v(k) proves minimality within biplanes, not among arbitrary relational structures. Inspected both C++ sources and the recorded rank-three/rank-four transcripts; they compare four examples and were not executed or used as proof of the arbitrary-parameter conclusion.
 
-**Limits.** The proof does not establish priority, classify higher quantifier rank, or extend to counting logic. One potentially related biplane classification source was not available in full text. External independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rank-three collapse tail materially overlaps a same-day stronger three-variable result, and is not credited here as a distinct contribution in isolation. The supported distinct claim is the sharp rank-four classification in the specified biplane language and its eleven-per-sort representative bound. The strongest inspected comparisons do not give the four-move extension profiles or this cutoff.
+
+## value
+
+PASS
+
+For a standard design class the theorem pins down the first rank that sees the k=4 boundary, handles arbitrary quantifier alternation in the specified language, and yields a sharp constant-size representative within biplanes, including those at unknown parameters if they exist. This is more than recomputing the types of familiar small designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

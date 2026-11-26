@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the mathematical statement
+# Independent mathematical audit
 
-Execute `python3 verify_subdivided_star.py` using Python 3. The attached program has no third-party dependencies. The executed output includes `BIVARIATE_POSITIVE_DEFECT_IDENTITY_PASS`, six `INDEPENDENT_FORCING_SUBSET_CENSUS_PASS` lines for arm counts \(2\) through \(7\), `EXACT_COEFFICIENT_STRICT_LOG_CONCAVITY_PASS m=2..200`, and the terminal line `VERIFY_OK`. The independently enumerated subset count is \(43,680\). The program verifies the bivariate polynomial identity by interpolation on a grid exceeding the stated bidegrees, all exact coefficients and strict inequalities for the tested arm counts, and ordinary forcing on the stated finite graphs.
+## correctness
 
-The proof for all \(m\ge2\) is the arm-state classification and algebraic positivity argument in `RESULT.md`. Finite checking is corroboration only; it does not prove all-order claims. The publication-priority comparison is incomplete for the inaccessible full spider thesis. No independent audit was performed.
+PASS
+
+Two initially empty arms can never receive a first blue vertex: only the center could act, and it would see both interiors white. If the center starts blue, all nonempty arms can be completed, after which the center starts the possible empty arm. If it starts white, an initially blue leaf is necessary to initiate a move and sufficient to make the center blue. Counting the two cases with A=2z+z² gives (1+z)(A^m+mA^(m−1))−(z^m+mz^(m−1)). Independently expanding with falling factorials confirms the coefficient formula and endpoint degrees. At every interior index the binomial log-concavity defect E expands in j−1,L−1 with positive coefficients and constant 48. The factor m+j preserves strictness. Decreasing q1 helps at j=2, and at j=1 the correction adds 1 plus a nonnegative factor proportional to m−2. This covers m=2 and the entire contiguous support. Replay: python /workspace/audit_checks/reconstruct.py 3; exact algebra and a separately implemented sequential forcing census for m=2,…,5, corroborative only for the census. Frozen code was inspected, not executed.
+
+## originality
+
+PASS
+
+Pass for the full-support strict log-concavity theorem on equal length-two arms. The earlier evidence found concerns general coefficient comparisons, a list of minimal sets, or different graph families/invariants; it does not establish the strict inequalities. The closed form goes with the proof, but its independent priority is less secure and is not the basis of this pass.
+
+## value
+
+PASS
+
+Strict log-concavity of all ordinary zero-forcing counts on a natural tree family of unbounded branching is more than an exact small instance or a minimum-size computation. The exact polynomial and treatment of its two low-degree corrections give a complete positive case of the tree-unimodality question. No general tree result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

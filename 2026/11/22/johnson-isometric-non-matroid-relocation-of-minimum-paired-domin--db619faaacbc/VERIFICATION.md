@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-Both included Python-standard-library scripts were run from their own package directory and produced `ALL CHECKS PASSED` output, retained in the two JSON output files.
+# Independent mathematical audit
 
-`verify_lcf.py` reconstructs the twelve-vertex LCF graph, enumerates all smaller even-sized candidates and all six-sets, tests exact domination and perfect matching, checks all legal exchanges, verifies all ordered target-increasing exchanges, computes every finite distance with BFS, and determines the complete 48-element automorphism group and eight set orbits. The paired-domination predicate is implemented as an exact recursive matching decision, not inferred from a pre-existing table.
+## correctness
 
-`verify_bipartite.py` uses a different six-by-six incidence matrix, a direct permutation matching test, an explicit isomorphism, exhaustive balanced choices and independent all-sources BFS. It obtains the same 184 optima, 984 exchange edges, distance spectrum, and eccentricity spectrum, and checks the explicit failure of matroid basis exchange.
+PASS
 
-The exhaustive checks cover 66 size-two sets, 495 size-four sets and 924 size-six sets in the LCF calculation, the independent 400 possible balanced size-six sets in the incidence calculation, 33,672 ordered target-improving pair queries and 16,836 unordered shortest-path pairs. These are exhaustive because every six-set is among the enumerated bitmasks and every feasible paired set in a bipartite graph selects the same number from each shore.
+Reconstructed the Franklin graph from the specified cycle and chords, and independently enumerated the paired dominating sets with an exact perfect-matching predicate. Domination is the union of closed neighborhoods. Recursing by the least remaining vertex and each possible partner exhausts perfect matchings, so the finite tests cover the whole predicate. Sizes 0,2,4 give no optima; complete six-set enumeration gives 184. Every one of 33,672 distinct ordered pairs has a target-improving exchange; induction gives the Johnson upper bound and each exchange changes overlap by at most one, giving the lower bound. Independent all-source BFS agrees including zero distances. The exhaustive results are 984 edges; degrees {10:120,12:64}; distances 1–6 with counts 984,3900,6640,4512,768,32; eccentricities {4:24,5:96,6:64}. Connected bipartiteness forces each automorphism to preserve or swap shores; distinct neighbor signatures on each shore make enumeration from one shore complete, giving group order 48 and orbit sizes 8,8,12,12,24,24,48,48. In the stated witness, adding 1 after removing 2 violates shore balance; adding 6 leaves both 0 and 6 with only the neighbor 11 in the selected opposite shore, violating Hall's condition. The two original sets are dominating and have matching witnesses (0,11),(2,3),(10,9) and (0,1),(6,11),(10,9), respectively. Frozen artifacts were inspected, not run.
 
-The theorem has no dependence on random sampling, external code, a networked oracle or an assumed infinite pattern. Its limitations are the finite specified graph and the unresolved possibility of an unindexed equivalent published description. No independent external review is asserted.
+## originality
+
+PASS
+
+The Franklin minimum size is already a published exact value; the independently supported distinctive claim is its optimum family, complete exchange metric and non-matroid witness. The strongest inspected same-object census and the structurally closest isometry results do not determine these facts.
+
+## value
+
+PASS
+
+Franklin is distinguished before enumeration as the order-twelve cubic bipartite equality graph; its optima furnish a constrained natural example separating Johnson isometry from the matroid-basis axiom. The exact metric and explicit obstruction are independently useful for comparing exchange models, rather than merely re-counting the known minimum size. The census makes the example replayable and quantifies its path geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

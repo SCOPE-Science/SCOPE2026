@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the full valuation constraints and proves that suffix-minimal profiles can always be saturated to nondecreasing opposite-complement profiles. This is the critical completeness lemma; all irreducible components then follow by explicit inclusion comparison. Pairwise index symmetry fixes their dimensions, and standard inclusion–exclusion gives the exact finite-field point polynomial. The unit-group statement follows from annihilator dimensions rather than guesswork about triangular matrices. `CHECK.py` independently validates the new claim with actual truncated-polynomial products in small cases; no finite experiment is substituted for the proof.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Gardella–Thiel (arXiv:2210.07891, especially Example 2.16) supplies a close prior valuation method for a related nonunital radical, but not the new reduced all-operator component arrangement or its central-binomial count. Li–Tsai–Wang–Wong (arXiv:2003.05317) classifies preservers of full matrix algebras and does not automatically restrict to the local Toeplitz subalgebra; Słowik (2017) covers bilateral bijections of all triangular matrices. Related published finite-field studies address zero products of elements and other operator identities rather than this locus. Earlier covering theorems could still exist, so historical priority is not certified.
+PASS
 
-**Value — PASS.** A natural moduli space for all linear zero-product preservers of an infinite family is classified completely, and its distinct geometric components are nontrivially equidimensional, growing in a central-binomial law. The Borel/weighted index supplies a concrete structural distinction between preservers and weighted homomorphisms, including a sharp tiny-field exception; exactly one component contains invertible maps, and their large-field density is the reciprocal component count.
+Over any field, lowest nonzero coefficients multiply without cancellation, so the valuation sum criterion for zero products holds. Testing t^i,t^j with i+j>=n then suffices by expansion of any zero-product pair. Suffix minima w_i preserve the index-pair inequalities because the minimizing indices are no smaller. Keeping the upper half, replacing the lower half by complementary reflected values, and choosing n/2 at the even midpoint gives a nondecreasing feasible profile below w; at the odd midpoint w_(m+1)>=ceil(n/2) ensures monotonicity. Conversely each complementary profile satisfies all inequalities by monotonicity. Distinct profiles are incomparable by equal total codimension, n(n-1)/2, and the covering and linearity over an algebraic closure prove exactly the reduced geometric components. The lower halves are multisets of the specified lengths in {0,...,floor(n/2)}, giving the central-binomial count. Component intersections take coordinatewise maxima, proving the finite-field polynomial and its highest term. An invertible preserver cannot decrease annihilator dimensions, hence preserves the entire valuation flag; conversely invertible flag-preservers preserve every valuation exactly. The dimension and index follow from triangular invertibles and the independent choices of T(1) and the image of t in a weighted automorphism. Only the identity profile component contains such invertibles; the finite-field equality cases and limiting proportion follow. The saved finite output and inspected code corroborate small cases (the matrix test tests the monomial-zero pairs using actual multiplication); the supplied code was not executed. Neither field point enumeration alone nor the Jacobian/quadratic equation scheme is asserted to establish a reduced scheme.
 
-**Limits.** This is a reduced-locus result, not a scheme-theoretic theorem about nilpotents in the defining ideal; it does not extend automatically to nonprincipal Artinian rings, nonlinear preservers or different coefficient rings. All-first-principles proof steps and independent small-case checks are included; global historical priority and independent mathematical validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full reduced arrangement of all linear maps on the unital truncated polynomial ring, including singular maps, its exact component count and distribution of invertibles. Valuations and annihilator dimensions are established ingredients; neither is claimed as new. The closest inspected structural results have a different domain or a balance hypothesis that fails here.
+
+## value
+
+PASS
+
+The classification determines a natural preserver moduli space, including the many singular-only components omitted by invertible preserver theory. Equal dimensions and the number of minimal profile spaces give a geometric explanation of the leading finite-field count and of the limiting fraction of invertibles. The distinction from weighted automorphisms makes the structure observable even on the unit group. These are exact structural results, not just evaluation of a few examples or the routine triangular-group count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

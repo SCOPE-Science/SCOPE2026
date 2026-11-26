@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:48:53.834579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a real even radius-n symbol, y=(1-cos θ)/2 gives all degree-at-most-n polynomials r with r(0)=1; Fourier positivity is exactly r≥0 on [0,1]. Plancherel gives 2^k times the weighted y^{k/2} norm. Setting K=k/2 and Q(z)=K^n r(1-z/K) yields the endpoint constraint Q(K)=K^n. Vandermonde evaluation at fixed distinct bounded z controls every coefficient of every minimizer: the weights at those points stay positive, and a rescaled monic limiting competitor gives a uniform upper bound using (1-z/K)^K≤e^(-z). The endpoint constraint forces limiting monicity, pointwise evaluation gives the lower bound, and positivity persists on every bounded interval. Alternation on the half-line is legitimate: the nonzero norm contact set is compact, and if there are at most n ordered sign groups one can subtract a small polynomial of degree ≤n-1 with a root in each sign gap; the exponentially decaying tail stays strictly below the norm. Uniqueness follows by applying alternation to the midpoint of two minimizers, which forces agreement at n+1 contacts. Hence the signed minimizer changes sign and the attained positive minimum is strictly larger. The leading coefficient tends to 1 and all lower rescaled terms vanish in r, giving (1-y)^n and the centered binomial. The uniform bound C(1+z)^n e^(-z) excludes all distant maximizing points, yielding the stated Nyquist scale. For n=2 the weighted derivative has just the two roots t,t+d; matching the three signed contacts gives the stated uniquely solvable equations. In the positive class every monic quadratic with intercept b≥0 dominates (z-√b)^2 on the half-line; minimizing the maximum of its endpoint and right hump gives the Lambert-W value. The extraneous remark about an additional critical point for s>2 is not needed: the endpoint alone excludes s>2. Independent bisection gives d=2.399357280515468, t=0.610348711840214, c₂=0.2169154712561674, c₂⁺=0.3101700063005356 and ratio 1.429911866149182. The frozen checker was inspected, not executed; finite grids are not evidence for the infinite-order limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Table 2 lists finite derivative orders and leaves other orders open; the general squaring relation does not solve the signed extremum.",
+          "The indexed all-order asymptotic 2^(k+1)W(e^(-1))/k is expressly for support radius one."
+        ],
+        "reasoning": "Neither the radius-one result nor the finite-order framework implies the signed higher-radius constants, coefficientwise binomial limit, or uniform localization of all maximizing frequencies.",
+        "searches": [
+          "arXiv:2604.25074, pp. 8–9, especially Theorem 1.10 and Table 2",
+          "Resultary radius-one/all-order smoothing lookup: 97ecaa4cd5e9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Local Resultary ec4a8b1168c3 and 97ecaa4cd5e9",
+        "Gaitán–Garzón–Madrid arXiv:2604.25074",
+        "Novello–Schiefermayr–Zinchenko DOI 10.1007/978-3-030-75425-9_18 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C_(k,n,1)^2=C_(2k,2n,2) by Fejér–Riesz. At n=1, multiplying the squared prior asymptotic by k²2^(-2k) gives 4W(e^(-1))², the even-order positive radius-two limit.",
+          "The frozen relationship-to-prior-work section explicitly credits this reduction."
+        ],
+        "reasoning": "The positive radius-two evaluation is credited as implied, not as original. The identity does not imply the unrestricted radius-two norm or higher-radius signed asymptotic; nor is a general weighted alternation theorem a computation of those constants.",
+        "searches": [
+          "arXiv:2604.25074 Theorem 1.10 and proof pp. 22–23",
+          "Resultary 97ecaa4cd5e9, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ec4a8b1168c3 is the target record, with the same rescaled norm and limiting optimizer.",
+          "Gaitán–Garzón–Madrid formulate finite-order weighted polynomial extremal problems for the same differences; using y=(1-cos θ)/2 is not a distinct problem."
+        ],
+        "reasoning": "The distinction is the k→∞ rescaled endpoint problem at fixed radius, not the choice of Fourier or polynomial coordinates. The limiting signed constant is the monic exponential-weighted Chebyshev norm.",
+        "searches": [
+          "Resultary title/claim lookup for fixed-radius high differences, binomial optimizer, and exponential weighted minimax",
+          "arXiv:2604.25074, Lemma 5.2 and Theorem 1.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded catalogue matches supplied the target and radius-one precedent, not a distinct exact unrestricted half-line quadratic entry.",
+          "Table 2 is for finite derivative orders, not an exp(-z) minimax table. The weighted Chebyshev chapter could not be inspected; its title/citation supplies no evidence about an exact quadratic entry."
+        ],
+        "reasoning": "No separate exact entry was established. The bounded search and inaccessible chapter do not prove absence.",
+        "searches": [
+          "Resultary half-line exponential-weighted monic quadratic / exact constant lookup",
+          "arXiv:2604.25074 Table 2",
+          "DOI 10.1007/978-3-030-75425-9_18 (retrieval unsuccessful)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the fixed-radius n≥2 high-difference limit with its limiting-kernel and worst-frequency statements and the unrestricted radius-two evaluation. The signed finite-order variational formulation, alternation tools, and positive radius-two constant via squaring are not independent novelty claims. No inspected prior statement covered the supported fixed-radius limit or supplied the unrestricted radius-two value.",
+      "residual_risks": [
+        "A prior exact half-line exponential-weighted quadratic calculation under another normalization could overlap the radius-two evaluation; the cited chapter was not available for statement-level comparison.",
+        "Bounded checks do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finite-order problem; positive radius-two evaluation follows by squaring the known radius-one asymptotic; no inspected statement supplies the signed general limit",
+          "evidence": [
+            "C_(k,n,1)^2=C_(2k,2n,2)",
+            "The table leaves unlisted derivative orders open."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.25074",
+          "material_read": "Theorem 1.10 (PDF p. 8), Table 2 (p. 9), proof pp. 22–23",
+          "method": "OA PDF passages, offsets 25674, 78888 and 79634 and p. 9 table",
+          "title": "The smoothest average and some extremal problems for polynomials",
+          "trigger": "Exact problem and a possible support/order reduction"
+        },
+        {
+          "assessment": "Same scaling at radius one, not general radius",
+          "evidence": [
+            "Radius-one asymptotic is 2^(k+1)W(e^(-1))/k."
+          ],
+          "identifier_or_url": "97ecaa4cd5e9",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-order sharp three-point smoothest averages",
+          "trigger": "Nearest earlier all-order indexed theorem"
+        },
+        {
+          "assessment": "Identical target, not independent precedence",
+          "evidence": [
+            "Same constants and fixed-radius limit."
+          ],
+          "identifier_or_url": "ec4a8b1168c3",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror and frozen original",
+          "title": "Sharp high-difference binomial limits for fixed-radius discrete Fourier smoothers",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Exact overlap unresolved; no negative inference",
+          "evidence": [
+            "Frozen RESULT.md lines 56 and 65 credit weighted-Chebyshev tools and identify the chapter."
+          ],
+          "identifier_or_url": "10.1007/978-3-030-75425-9_18",
+          "material_read": "Bibliographic citation only; no original passage retrieved",
+          "method": "OA DOI retrieval attempt",
+          "title": "Weighted Chebyshev Polynomials on Compact Subsets of the Complex Plane",
+          "trigger": "Possible exact exponential-weighted polynomial precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural regime of the discrete smoothing minimax problem left out by finite low-order formulas. The minimizers in two genuinely distinct classes share a binomial kernel limit, yet their normalized worst-case errors have a strict gap; a kernel limit alone consequently misses the sharp smoothing loss. The rescaled invariant and frequency window explain this and the signed five-tap evaluation makes the gap concrete.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

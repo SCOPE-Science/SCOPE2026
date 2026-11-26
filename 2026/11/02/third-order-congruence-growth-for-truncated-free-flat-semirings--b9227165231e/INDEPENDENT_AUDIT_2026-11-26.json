@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:07.810633Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–59",
+        "Frozen VERIFICATION.md, check_congruences.py and check_output.txt (inspected, uploaded code not run)",
+        "Replay: python3 -I /workspace/branches/frozen_independent_checks.py (output labelled 5)"
+      ],
+      "rationale": "Flat addition forces any class with two distinct words to merge into the zero class; multiplicative ideals containing zero give the converse, with their nonzero parts exactly the contiguous-factor upsets. For F of size m at length k-1, each length-k word is forced iff its prefix or suffix of length k-1 is in F: this covers also any word forced by a chosen shorter factor. Thus the forced count is the union of incoming and outgoing arcs, 2nm-e(F). No shorter word can be in an ideal with m<=2 for k>=3, since its length-(k-2) extension has at least 2n-1 distinct one-letter extensions (left/right sets intersect in at most one). Singletons get a factor 2 on exactly the n constant vertices. For two vertices, there is at most one arc per ordered pair. Two distinct constants cannot be adjacent, and a nonconstant neighbor of a constant has exactly one incidence direction because k-1>=2. Among nonconstant vertices two arcs require a reciprocal pair, forcing alternating distinct letters and giving one pair per unordered alphabet pair. Thus the two-arc counts are binom(n,2), 2n(n-1), and binom(n,2) in the three disjoint classes. Total arc incidence summed over unordered pairs is 2n(N-1), so 2^e=1+e+binom(e,2) gives Q_k exactly. Every admissible shorter word must be a factor of some member of F and each vertex has at most c_k proper nonempty factors, hence w(F)<=2^(c_k m). Using e(F)<=min(m^2,nm) yields O_k(N^3 2^-6n) for m=3 and O_k(N^4 2^-8n) for m=4, then a geometric tail with ratio N 2^(c_k-3n/2) for 5<=m<=n/2 and one with ratio N 2^(c_k-n) for m>n/2. Both tails are absorbed for fixed k. At k=2, m letters in the ideal leave (n-m)^2 independent top words, giving the exact sum and the same tail argument with N=n,c_k=0,e(F)=m^2. The probability statement follows by dividing the positive nonempty-lower-layer contribution by the total. A distinct top-down enumeration of uncollapsed factor-closed sets reproduced counts 21, 567, 390 and 130315 for (n,k)=(2,2),(3,2),(2,3),(2,4).",
+      "residual_risks": [
+        "The expansion is for fixed k, not uniform in growing truncation length. The finite enumerations corroborate the specified small cases but do not prove the asymptotic or the exact general pair classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Ren–Zhao treat finite identity bases of these flat semirings and also record the congruence–ideal correspondence.",
+          "Bailey–Finn-Sell–Snocken stratify congruences by number of classes for infinite free semigroups and study an index/free-rank growth regime.",
+          "The general finite-poset sources treat other enumeration regimes, including Dedekind numbers and extension counts."
+        ],
+        "reasoning": "Identity bases do not count congruences. Finite-index stratum counts in an infinite semigroup do not directly isolate congruences containing all over-length words, nor the rare lower-layer corrections in this finite quotient. A general finite-poset enumeration procedure is not an explicit evaluation of these overlap statistics.",
+        "searches": [
+          "arXiv:2608.12284v1 abstract and p. 6",
+          "arXiv:1409.2444 pp. 2, 22–23 §7.2",
+          "arXiv:2206.10293 and arXiv:1802.01419"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 61–70",
+        "arXiv:2610.20308v1",
+        "arXiv:2608.12284v1",
+        "arXiv:1409.2444",
+        "arXiv:2206.10293",
+        "arXiv:1802.01419",
+        "Resultary 947bfbda31fe and 5fca16b684c0 (indexed summaries)",
+        "ScienceDirect S0166218X08004071 (description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known correspondence gives a count of factor upsets as the target. At the second layer the correction involves not only total arc count but incidence with loops and all reciprocal alternating pairs.",
+          "The frozen local classification gives exactly 3n(n-1) two-vertex sets carrying two arcs, which combines with 2n(N-1) total pair incidences. Bounding larger sets additionally uses the factor multiplicity and two arc-density bounds."
+        ],
+        "reasoning": "An abstract ideal-count or generic downset algorithm does not evaluate these graph-specific weighted terms or bound the high-layer tail at the stated scale. Both the explicit second coefficient and the controlled error are substantive beyond the known correspondence.",
+        "searches": [
+          "arXiv:2610.20308v1 pp. 2–3",
+          "arXiv:2608.12284v1 p. 6",
+          "arXiv:1409.2444 §7.2",
+          "arXiv:2206.10293 and arXiv:1802.01419 abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Zhou define S(W) using nonempty contiguous subwords and give the inclusion-preserving correspondence between multiplicative ideals and semiring congruences.",
+          "The complementary uncollapsed-word sets are precisely downsets in the bounded contiguous-factor poset, or factorial languages with maximum word length <=k under the nonempty-word convention. At k=2 they are binary relations on a chosen vertex subset, loops allowed.",
+          "arXiv:2206.10293 and arXiv:1802.01419 give generic downset/antichain enumeration tools in their abstracts, not word-factor overlap coefficients."
+        ],
+        "reasoning": "The equivalence relocates the counting question but does not supply the three-term expansion. At k=2 the exact sum follows immediately by choosing the vertices of an arbitrary binary relation; originality is not credited to that reduction alone.",
+        "searches": [
+          "enumeration asymptotics of downsets (factorial languages) in the contiguous substring or factor poset of all words over an n-letter alphabet of length at most fixed k; de Bruijn graph subset expansion, coefficient counting binary relations on subsets and second-order overlap coefficients",
+          "arXiv:2610.20308v1 pp. 2–3",
+          "arXiv:2206.10293",
+          "arXiv:1802.01419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed summary of 947bfbda31fe describes a nine-class census of finite noncommutative nilpotent semigroups with nonfinitely based full power semirings; full local record could not be retrieved.",
+          "The indexed hit 5fca16b684c0 concerns Brandt power semigroup nilpotency-index counts. The supplied table here gives totals and pair-arc histograms for finitely many cases."
+        ],
+        "reasoning": "These same-day indexed summaries suggest different operations and invariants, not tabulation of the word-factor counts; that assessment is limited to the summaries and not a full-text exclusion. No external exact table for the k>=3 expansion surfaced. The internal finite table is corroboration, not priority evidence.",
+        "searches": [
+          "Resultary title, coefficient and word-factor/flat-semiring searches",
+          "2026/11/2/SCOPE-nine-minimal-noncommutative-nilpotent-obstructions-for-full-power-semirings--947bfbda31fe",
+          "2026/11/2/SCOPE-exact-nilpotency-index-census-of-finite-brandt-power-semigroups--5fca16b684c0",
+          "Targeted bounded-factor and binary-relation query above"
+        ]
+      },
+      "rationale": "The congruence–ideal correspondence and the family itself are established, and the k=2 relation count is an elementary consequence. The distinct contribution is the exact de Bruijn-layer count and resulting second overlap coefficient with fixed-k remainder for k>=3. The strongest accessible flat-semiring, free-semigroup-growth and finite-poset enumeration sources inspected do not give that bounded-factor result or a theorem that fixes its coefficient without the graph-specific comparisons.",
+      "residual_risks": [
+        "The bounded comparison does not establish historical priority. The factorial-language terminology hit could not be read in full, and the closest same-day semiring hit was assessed from its indexed summary. A previous bounded-factor enumeration with the same exact coefficients under other terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known correspondence, no claimed growth expansion in the inspected statements",
+          "evidence": "Inclusion-preserving correspondence between multiplicative ideals and semiring congruences on S(W).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20308",
+          "material_read": "PDF pp. 2–3 definition and congruence statements",
+          "method": "OA passage at offset 7300, especially offsets 7536–7791",
+          "title": "Equational theories of flat semirings S(W)",
+          "trigger": "Exact flat-semiring family, contiguous subwords and congruences"
+        },
+        {
+          "assessment": "Identity-basis classification, not a congruence count in these passages",
+          "evidence": "Finite-basis scope and known congruence–ideal bijection.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.12284",
+          "material_read": "PDF abstract and p. 6 correspondence",
+          "method": "OA passage reads at offsets 0 and 18370",
+          "title": "The finite basis problem for the flat semirings S(W)",
+          "trigger": "Treats the specific S(X^k) family"
+        },
+        {
+          "assessment": "Different growth quantity",
+          "evidence": "Stratifies the infinite free semigroup's congruences by number of classes, rather than counting all congruences in the fixed truncation.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2444",
+          "material_read": "PDF p. 2 and §7.2 pp. 22–23",
+          "method": "OA passage reads at offsets 7600 and 74450",
+          "title": "Subsemigroup, ideal and congruence growth of free semigroups",
+          "trigger": "Most relevant growth comparison by title and objects"
+        },
+        {
+          "assessment": "General enumeration tool; not an identified explicit expansion",
+          "evidence": "Introduces a finite-poset downset method and applies it to Dedekind numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.10293",
+          "material_read": "PDF p. 1 enumeration scope",
+          "method": "OA passage at offset 500",
+          "title": "A Flexible Approach for the Enumeration of Down-Sets and its Application on Dedekind Numbers",
+          "trigger": "Equivalent bounded-poset downset problem"
+        },
+        {
+          "assessment": "Different stated enumeration problem",
+          "evidence": "General finite-poset formulas and counts of extensions with specified minimal points.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.01419",
+          "material_read": "PDF p. 1 enumeration scope",
+          "method": "OA passage at offset 750",
+          "title": "Exponential functions of finite posets and the number of extensions with a fixed set of minimal points",
+          "trigger": "General downset and antichain counting formulas"
+        },
+        {
+          "assessment": "Snippet does not settle full-text coverage",
+          "evidence": "The search description concerns families of intermediate complexity, not an identified fixed-depth total count.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X08004071",
+          "material_read": "Search description only; full text unread",
+          "method": "Targeted websearch followed by OA retrieval returning HTTP 403",
+          "title": "On intermediate factorial languages",
+          "trigger": "Alias factorial language for the complementary factor downset"
+        },
+        {
+          "assessment": "Different asserted invariant and family in the indexed summary; full text not adjudicated",
+          "evidence": "Census of nine classes selected by finite-basis failure for full power semirings.",
+          "identifier_or_url": "2026/11/2/SCOPE-nine-minimal-noncommutative-nilpotent-obstructions-for-full-power-semirings--947bfbda31fe",
+          "material_read": "Indexed summary only; matching local-mirror path unavailable",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Nine minimal noncommutative nilpotent obstructions for full power semirings",
+          "trigger": "Closest same-day semiring census hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–56",
+        "arXiv:2610.20308v1 pp. 2–3",
+        "arXiv:2608.12284v1 abstract"
+      ],
+      "rationale": "The truncation family is natural in flat-semiring theory. The first nontrivial correction beyond independently selecting maximal words detects interactions between collapsed words. The exact coefficient classifies those interactions by loop, incidence and period-two behavior, and the remainder shows that more complicated zero classes do not contribute at that scale for any fixed truncation. This is an informative enumeration of the congruence structure, not only a table of small totals or the elementary k=2 sum.",
+      "residual_risks": [
+        "No uniform k-growth regime or explicit evaluated formula at general finite n,k is claimed, beyond the exact subset sum and the fixed-k expansion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:28:00.394063Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–84; VERIFICATION.md and verify.py inspected only"
+      ],
+      "rationale": "Let P swap x and z and let F=P∘T be extended affinely from Q₄. The branch return is F², since the Q₂ branch is the swap-conjugate of the Q₄ branch. Direct determinant expansion gives the linear part K of F the polynomial r³+a²r−2ab; det(I−K²)=(1+a²−2ab)(1+a²+2ab)>0 for 0<b<1. The fixed point of F is therefore the only possible fixed point of the formal return, even if it falls outside the itinerary. Its sum and difference coordinates satisfy y=b(x+z), x−z=(2b−a)(x+z), x+z=a(x−z)+2, giving exactly the stated points and strict condition a<2b−1. For a≠0 the real root s has the sign of a and 0<|s|<1. Polynomial division gives the remaining roots −s/2±i sqrt(a²+3s²/4), whose squares are the nonreal return pair and have modulus a²+s². For a²<1 compare the increasing function t³+a²t at t=|s| and at t=sqrt(1−a²), where it equals t; this gives the claimed crossing at a²(1+4b²)=1. If a²≥1 the pair is expanding; at a=0 the return linear part is nilpotent and the existing cycle is a sink. At equality, s=2ab≠0 and K restricted to the center plane in basis (v,Kv) acts by (ξ,η)↦(−η,ξ−sη). Substitution preserves H=ξ²−sξη+η², which is positive definite since |s|<1. The invariant ellipses are exact for the affine return, not an approximation. The two strict quadrant visits hold on a neighborhood of U; small invariant neighborhoods for the return are obtained from sublevels of H plus a squared stable coordinate, which contracts by s². The first iterate stays near V on its affine branch and maps the center ellipses to nondegenerate companion ellipses because det K=2ab≠0 there. This gives Lyapunov stability and excludes attraction. Above the boundary the expanding real subspace is two-dimensional, with one transverse stable dimension.",
+      "residual_risks": [
+        "Uploaded exact finite tests and floating-point diagnostics were not rerun. The proof covers strict quadrants only, not switching surfaces, unequal outer coefficients, or global attraction. In the saddle case the two expanding directions are the dimensions of a real unstable plane, not distinct real eigenlines."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lozi includes unequal outer coefficients and gives a general branch-equation solution, but the eigenvalue polynomial nearby is for fixed points. Bilal–Ramaswamy use a lifted absolute-value delay recurrence and shift coordinates, not this sign-coupled map. Related Resultary hits concern a quadratic map, a delayed Lozi period-two census, or period four of the classical planar Lozi map."
+        ],
+        "reasoning": "The broader orbit solution covers the orbit's positions, but the checked stability statements either concern fixed points or change the map or the itinerary. None supplies the cycle multipliers here.",
+        "searches": [
+          "Lozi §4.3 Eqs. (41)–(46) and §4.4",
+          "Bilal–Ramaswamy arXiv:2005.01849 coordinate recurrence and §II.B",
+          "Resultary records ending 9d694fa2e0cd, 61b734b81bc7 and 6c38d491d93d"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/dynamics3020019 accessible via HAL; arXiv:2005.01849; Resultary record ending 37fa6309f5c1 and related returned records ending 9d694fa2e0cd, 61b734b81bc7, and 6c38d491d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The swap and branch equations make the coordinate and existence calculations accessible from prior work. In the stability result, their further use factors the return as K², with cubic r³+a²r−2ab, from which the crossing and the affine neutral rotation are obtained."
+        ],
+        "reasoning": "The coordinate specialization is covered or readily implied. The new portion needs the return's spectral analysis and an invariant form on the center plane, which are not consequences of the cited fixed-point spectrum or numerical unstable-manifold examples. An invariant ellipse for a planar linear rotation is standard; its exact realization for this local return and critical curve is the map-specific result.",
+        "searches": [
+          "Lozi §4.3 two-cycle branch equations, Eq. (39) symmetry, §4.4 examples",
+          "Resultary record ending 37fa6309f5c1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lozi's sign-coupled map becomes the assigned map at c=a and has the same coordinate-swap symmetry. The primary paper constructs the matching quadrant-switching orbit with boundary-inclusive quadrants and a branch-sign condition. It discusses unstable manifolds of the cycle in examples."
+        ],
+        "reasoning": "The orbit is the same after specializing coefficients and restricting to the strict branches; it is not an independent novelty. The cited discussion does not give a stability condition for the strict orbit across this parameter domain.",
+        "searches": [
+          "Resultary: thread–sheet Lozi, symmetric quadrant-changing two-cycle and exact elliptic center",
+          "Lozi DOI:10.3390/dynamics3020019 Eqs. (35), (39), (45)–(46); §§4.3–4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lozi lists the matching symmetric cycle examples at (a,b)=(−1.25,0.1), (−1,0.2) and (−1.25,0.2); the listed eigenvalues there concern fixed points. The related Resultary result gives a complete period-two census and a golden-ratio sink boundary in b(1−c) for a different map with components ay², by(1−z), c(1−x)."
+        ],
+        "reasoning": "The examples overlap exactly on selected cycle locations, not on an all-parameter Floquet boundary or the neutral return. A sharp period-two boundary for a distinct map does not cover this one; the date does not settle the comparison.",
+        "searches": [
+          "Lozi §4.4.1–.3 pp. 337–340",
+          "Resultary: sharp three-dimensional period-two sink boundaries and exact cycle censuses; same-day record ending 37fa6309f5c1"
+        ]
+      },
+      "rationale": "The map, symmetry, cycle equations and example positions are prior work, and specializing the formal orbit coordinates is routine. The supported distinction is the sharp local Floquet trichotomy for the strict symmetric cycle and the resulting exact invariant ellipses with local stability at neutral parameters.",
+      "residual_risks": [
+        "A focused literature and Resultary search is not an exhaustive priority search. Earlier unstated computations or analyses of the same branch return may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior map and orbit; fixed-point eigenvalues and numerical cycle examples, not the stated Floquet trichotomy",
+          "evidence": "Eqs. (45)–(46) solve the branch equations; examples show the matching coordinates and discuss unstable manifolds. The spectral calculations in the checked section concern fixed points.",
+          "identifier_or_url": "https://doi.org/10.3390/dynamics3020019; lawful full text https://hal.science/hal-04542935/document",
+          "material_read": "Eqs. (35), (39); §4.3 Eqs. (41)–(46), pp. 335–337; §4.4.1–.3 pp. 337–340",
+          "method": "OA PDF passage inspection via HAL, decisive sections around offsets 80730–99397",
+          "title": "Coexistence of Thread and Sheet Chaotic Attractors for Three-Dimensional Lozi Map",
+          "trigger": "Same map, orbit, and possible cycle stability coverage"
+        },
+        {
+          "assessment": "Different lifted recurrence and stability scope",
+          "evidence": "First component 1−a|x_k|−(1−ν)x_d with coordinate shifts; §II.B treats fixed-point stability.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.01849",
+          "material_read": "Lifted map definition and §II.B",
+          "method": "OA paper passage inspection",
+          "title": "A higher-dimensional generalization of the Lozi map: Bifurcations and dynamics",
+          "trigger": "Possible broader Lozi bifurcation theorem"
+        },
+        {
+          "assessment": "Related question for a different three-dimensional map",
+          "evidence": "The polynomial map (ay², by(1−z), c(1−x)) has its boundary expressed through b(1−c), not the sign-coupled symmetric map or its center ellipses.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-golden-ratio-sink-boundary-and-complete-primitive-two-cycle-ce--37fa6309f5c1",
+          "material_read": "RESULT.md finding and map definition",
+          "method": "Local mirror passage inspection",
+          "title": "A golden-ratio sink boundary and complete primitive two-cycle census",
+          "trigger": "Closest Resultary exact period-two local boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and return proof; Lozi §§4.3–4.4"
+      ],
+      "rationale": "The stability of a previously identified cycle is a natural dynamical invariant. The exact parameter criterion distinguishes a two-dimensional unstable saddle from a sink, and resolves the neutral case with actual invariant ellipses rather than treating unit multipliers as inconclusive. This supplies a local dynamical statement beyond recomputing the orbit or fitting numerical bifurcation examples.",
+      "residual_risks": [
+        "No global basin or attractor claim follows from the local classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

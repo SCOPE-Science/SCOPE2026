@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:26:54.802731Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the full no-triple overlap graph, the vertices of out-minus-in degree +1 begin with an equal pair and end with an unequal pair, and the −1 vertices have the reverse predicate. Any balanced edge set omits at least one outgoing edge from each +1 vertex. Equality requires the deletions to run directly from +1 to −1 vertices, forcing precisely the equal-pair-at-both-ends edges: a +1 vertex has only one such outgoing extension. These deletions do balance the graph. Appending alternating bits reaches a branch, and an alternating vertex with an unequal junction to a target can append all its letters while the first pair of each traversed edge differs. This proves attainability and rigid support independently of the cited premise. In the resulting graph, only the 2F_(n−2) vertices unequal at both ends branch (choose the initial bit and compose n−3 into ones and twos). All other vertices have one outgoing edge and reach a branch in at most n−1 shifts. Their forced exits give a bijection of in-arborescences before and after contraction, with parallel arcs kept distinct. The directed last-exit/BEST count with one fixed initial labeled edge counts each rotation class once and has unit factorial factor; the outgoing matrix-tree cofactor is consequently exactly the asserted count. Independent replay: python3 /workspace/review_checks/1.py (SymPy integer determinants) reproduced the table through n=11, with full graph cofactors through n=9 and direct rotation-class optimization at n=4,5. These checks do not replace the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al. bound runs of zeros only and give one-sided support/length corollaries and constructions. Sawada–Williams–Wong use rotation-closed languages in the inspected construction passage; 0010→1000 witnesses failure of that condition here. The earlier exact no-11 count applies the same contraction technique, but to branch cardinality F_(n−1), not 2F_(n−2), and does not give the two-sided branch-transition graph."
+        ],
+        "reasoning": "The construction and one-sided theorems do not encompass the exact branch graph of this two-sided case. Generic corridor contraction is familiar; the specific all-order classification and resulting smaller determinant are the contribution.",
+        "searches": [
+          "arXiv:2403.01454 pp. 2, 9, 13, 17",
+          "doi:10.37236/5517 p. 1",
+          "Resultary no-adjacent-ones enumeration, contraction proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.01454",
+        "doi:10.37236/5517",
+        "Resultary aa3ac12cc70f, 19257b27b2ec, f40c1b2102e9, 8c9cf33f292b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior canonical support plus BEST and matrix-tree already yields the full 2F_n−1 cofactor. The smaller 2F_(n−2)−1 recipe requires identifying the unequal-at-both-ends states, proving the alternating forced paths terminate, and computing the two reduced destinations with multiplicity. The one-sided proof contains the technique but its concrete rule is not a result for this other language."
+        ],
+        "reasoning": "Only the two-sided compressed count, including its explicit graph and census, is credited; neither an abstract determinant nor the general method is credited as a new finding.",
+        "searches": [
+          "Resultary two-sided support, theorem and limitations",
+          "Resultary no-adjacent-ones count, forced-corridor proof",
+          "Standard BEST and directed matrix-tree theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rotation-only census is equivalent to counting edge-distinguished Euler tours of exactly E_n modulo cyclic shift. The prior two-sided support record ends with that graph and expressly does not count its tours. The no-adjacent-ones record counts Euler tours but for the one-sided no-11 graph, not for E_n; its values already differ at n=5."
+        ],
+        "reasoning": "Matching tour-count formulations are significant only when the underlying graph/language and equivalences agree. Minimum cyclic covers, admissible necklaces, and counts of constructed cycles are not this full optimal population.",
+        "searches": [
+          "Resultary: two-sided no-triple run-limited de Bruijn maximizers, optimal tours, forced-corridor tree determinant",
+          "arXiv:2403.01454, definition and §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-constraint table gives lengths 8,14,22,36,58, not counts. The no-11 census starts 1,2,2,28,216, whereas this census starts 1,5,12,44,6720. The separate same-day ternary record counts 288 in one fixed span-three negation-avoidance model, not the binary family."
+        ],
+        "reasoning": "No compared table gives this sequence for the defined invariant; a length column or a different alphabet/forbidden language is not an exact census match.",
+        "searches": [
+          "Resultary same-constraint support, exact no-adjacent-ones count, optimal cyclic covers, and same-day ternary census"
+        ]
+      },
+      "rationale": "Credit the sharp length, canonical support, classical Euler-tour/tree methods, and the strong one-sided methodological antecedent. The distinct result is the explicit branch-sized determinant and maximal-cycle census for the two-sided support. The uncompressed cofactor follows directly from the older support and BEST, so that alone would not justify a pass.",
+      "residual_risks": [
+        "An unlocated two-sided exact census or equivalent degree-one elimination specialized to the same graph could cover the reduced rule.",
+        "The external discovery lookup was not materially informative; no negative inference is drawn.",
+        "Much of the method is prior and the uncompressed determinant is an immediate corollary of known support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers maximum and support; not the compressed count.",
+          "evidence": [
+            "Table enumerates lengths and the limitations exclude enumeration of maximizers."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f",
+          "material_read": "RESULT.md, Finding and rigidity proof, offsets 0–6404; subsequent Limitations",
+          "method": "Resultary local mirror",
+          "title": "Sharp Fibonacci capacity and canonical window set for doubly run-limited de Bruijn cycles",
+          "trigger": "Same optimal cycles and exact window support"
+        },
+        {
+          "assessment": "Different one-sided language and smaller graph; strong methodological overlap.",
+          "evidence": [
+            "Uses F_(n−1) branches and the same sequence of arborescence contraction, BEST and matrix-tree steps; numerical census differs."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-count-of-all-maximum-length-no-adjacent-ones-de-bruijn-cyc--19257b27b2ec",
+          "material_read": "RESULT.md Finding and table from offset 0; proof offsets 2966–6805",
+          "method": "Resultary local mirror",
+          "title": "Exact count of all maximum-length no-adjacent-ones de Bruijn cycles",
+          "trigger": "Closest count and the same contraction technique"
+        },
+        {
+          "assessment": "One-sided zero-run condition; no matching two-sided all-maximizer count in inspected results.",
+          "evidence": [
+            "Defines the restriction for zeros; generating 2^K sequences in a construction does not give the present population."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.01454",
+          "material_read": "Definition p. 2, corollaries 2.12 and 2.14 p. 9, construction p. 13, Section 4 opening p. 17",
+          "method": "Open primary paper passages",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Published run-limited de Bruijn optimization and enumeration"
+        },
+        {
+          "assessment": "Rotation-closed construction scope does not deliver this census.",
+          "evidence": [
+            "The target language is not rotation-closed: 0010 is allowed, 1000 is not."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5517",
+          "material_read": "EJC PDF p. 1, construction scope",
+          "method": "Open primary paper passage",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "General constrained universal cycles"
+        },
+        {
+          "assessment": "A minimum-cover problem allowing repetition, not the count of maximum distinct-window cycles.",
+          "evidence": [
+            "Its goal is minimum covering length and it does not count shortest covers."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Optimal cyclic covers without three equal consecutive symbols",
+          "trigger": "Same forbidden triples under a related optimization"
+        },
+        {
+          "assessment": "Different alphabet, constraint and fixed span.",
+          "evidence": [
+            "Counts 288 cycles for its own ternary problem."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-census-of-maximal-ternary-span-three-negative-avoiding-cyc--8c9cf33f292b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact census of maximal ternary span-three negative-avoiding cycles",
+          "trigger": "Same-day exact optimal-cycle census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Knowing one optimal schedule or its window set does not identify how many schedules achieve it. The reduced determinant gives a concrete exact census for the entire natural two-sided run-limited family, with a computational reduction from 2F_n−1 to 2F_(n−2)−1 and exact counts far beyond direct listing. The value is the explicit efficient population count, not an advance in the optimum length or in abstract Euler-tour theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

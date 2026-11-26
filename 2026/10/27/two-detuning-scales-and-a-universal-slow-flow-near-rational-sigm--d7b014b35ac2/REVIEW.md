@@ -1,11 +1,21 @@
-# Scientific review: rational sigmoid detuning
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite \(q\)-grid permutation gives an exact branchwise return displacement. The two nearest sites supply the hyperbolic-sine term with a uniform \(O(a\epsilon^2)\) return error; direct differentiation yields the multipliers. Compact-variable Euler convergence follows from a uniform local truncation error and discrete Grönwall inequality. The two outer limits follow from one dominating logistic tail on opposite sides of the grid cell, with local return contraction. The embedded code checks 12 critical- and 16 outer-scale instances; it is not a substitute for the analytic proof.
+## correctness
 
-**Originality — PASS under self-review.** The closest available publication, “Singular half-grid selection and exponentially weak attraction in rational EOS maps,” derives the rational half-grid and attraction gap only with \(b=p/q\) fixed. Its statement cannot imply the parameter-dependent nonlinear slow flow or the order-one shifts at the larger exponential detuning. The motivating papers discuss rational attraction and bifurcation hopping but do not supply these crossover laws. Searches for equivalent logistic-rational-resonance and exponential-detuning formulations found no dominating result. Equivalent theory under different terminology remains possible.
+PASS
 
-**Value — PASS.** The new two-scale theorem explains why exponentially small perturbations of the rotation parameter lead first to a universal slow flow and ultimately to macroscopic phase changes while the cycle remains locally attracting. Both regimes are motivated by numerically reported hopping in the source's bifurcation diagrams, not arbitrary parameter slicing.
+Reconstructed (1)–(4) from the q-step sign itinerary. For x in a compact subinterval of (0,1/q), the reference orbit visits x+j/q for p−q≤j≤p−1, each once, with exactly p positive visits. At the critical centers the true visits differ by O(ε) over the fixed q steps; the nearest negative and positive tails are −ε exp(y) and +ε exp(−y), with errors O(aε²), and all others are O(ε³). The q detunings sum to 2εξ. The product of derivatives gives 1−2aε cosh(y)+O(a²ε²), hence the unique fixed point in a compact scaled bracket is attracting and has the stated phase and multiplier. The q distinct visited cells give primitive period and exactly one phase of that cycle in (0,1/q), not global uniqueness of cycles. The scaled update is an Euler step with an O(h_a²) perturbation; on compact forward time intervals an inward-pointing bracket and the Lipschitz error recursion give uniform O(h_a) trajectory error, including time rounding. For the outer positive sign, the visit at x−1/q dominates with tail −d exp(z−aτ) at phase 1/q−τ+(log d+z)/a; the nearest positive site is farther by 1/q−2τ>0. The increment is d exp(−aτ)(1−exp(z))+o(exp(−aτ)), with multiplier 1−ad exp(z−aτ)(1+o(1)). The negative sign interchanges the near sites and gives exp(−z)−1 instead. These opposite endpoint signs and monotonicity give a zero with z→0, including q=2. Constants are for fixed p,q and the stated parameter ranges. The inspected CHECKS.txt reports 12 central and 16 outer finite tests; they were not rerun and do not establish the limits.
 
-**Limitations and priority risk.** Fixed rotation numerator and denominator; local periodic solutions only; no global uniqueness or uniformity over growing denominator. Classical smoothing/Arnold-tongue asymptotics could contain equivalent parameter windows. The review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior rational attraction and fixed-resonance half-grid calculation. The October 27 finding adds uniform detuning, the driven slow-time evolution, and a distinct signed outer law. Two later Resultary records substantially overlap the critical calculation, and the later general return expansion also implies the slow flow by Euler stability for its q range; they are not evidence of prior coverage at the date of this finding. No prior inspected source gives or implies the fixed-τ outer law or the forced critical-scale statement as a whole.
+
+## value
+
+PASS
+
+This quantifies the phase hopping motivating the problem. The same two closest sites control a bounded-time nonlinear forced flow on one scale; suppression of one tail on a larger but exponentially small scale selects opposite order-one phases and a different attraction rate. These are meaningful, testable dynamical statements rather than a standalone reparameterization or a claim to classify the global bifurcation diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

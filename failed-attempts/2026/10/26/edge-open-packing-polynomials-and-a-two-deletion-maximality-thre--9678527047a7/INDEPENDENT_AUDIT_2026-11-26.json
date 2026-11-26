@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:12:08.108974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49",
+        "VERIFICATION.md and verification/verify_eop_matching.py, inspected, not executed",
+        "Definition-level reproduction, replay: node /workspace/branches/frozen_review_checks.js (packings output)"
+      ],
+      "rationale": "Incident edges are always compatible in the bipartite graph. Disjoint edges are compatible precisely when their two cross edges are missing, which makes them a unique reciprocal pair. A third compatible edge would have to intersect both, hence be one of the missing cross edges. All other packings of size at least two are subsets of a star with unique center, and minimum degree two rules out empty or singleton maximal packings. This proves both polynomials and the exact extrema on substituting p=q. Inclusion-maximal sizes first differ at one deletion; it takes two deletions for the minimum to drop to two when n>=4. An independent definition-level compatibility search matched both polynomials in all 78 triples with 3<=p,q<=6 (15,961 sets). For (4,4,2) the coefficient lists from degree zero are [1,14,37,20,4] and [0,0,1,4,4].",
+      "residual_risks": [
+        "Finite computation is a regression check only; the argument gives all sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result adds the entire homotopy type of the packing complex to the two exact enumerators and classification.",
+          "The inspected literature pages deal with scalar maximum and deletion bounds or scalar characterizations, not an exact distribution of maximal sizes for this family."
+        ],
+        "reasoning": "The indexed theorem includes all of the frozen structural and enumerative results; the neighboring scalar results are not the basis for rejection.",
+        "searches": [
+          "Resultary local mirror: 179ef9fc8450, Finding and Proof",
+          "Brešar–Samadi arXiv:2403.00750, first page",
+          "Pandey–Santra arXiv:2508.01935, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact records 179ef9fc8450 and 68d40fe5e7c1",
+        "arXiv:2403.00750 and arXiv:2508.01935, only the recorded passages",
+        "DOI 10.1051/ro/2022171, bibliographic identification/attempted access only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting m=n=k in F gives 2(k−t)z^k+2tz^(k−1)+binom(t,2)z^2 for all k>=3."
+        ],
+        "reasoning": "Reading off the least and greatest exponents yields the complete frozen n>=4 result, even though the other record highlights missing sizes for k>=6. This also proves first failure of equicardinality at t=1 and first occurrence of reciprocal pairs at t=2.",
+        "searches": [
+          "Resultary mirror 179ef9fc8450, displayed F and subsequent balanced-shore paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror Finding defines the same third-edge predicate and labeled graph and gives exactly P and M after m=p, n=q, A_d=S_d and F=M."
+        ],
+        "reasoning": "Identical families, parameters, normalization and coefficients, rather than a similarly named packing predicate.",
+        "searches": [
+          "Resultary semantic lookup: all and maximal edge-open-packing polynomials, reciprocal pairs and threshold on matching-deleted bicliques",
+          "Resultary local mirror: 2026/11/22/SCOPE-edge-open-packing-polynomials-and-circle-wedge-topology-after-de--179ef9fc8450/RESULT.md, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "179ef9fc8450 gives both exact all-parameter enumerators, stronger than a finite coefficient table.",
+          "68d40fe5e7c1 treats subdivision graphs and overlaps the all-packings count for G_(3,3,3) isomorphic to C6=S(K3), not the family at large."
+        ],
+        "reasoning": "The first indexed record is exact coverage; the isolated instance in the second is not substituted for family-wide comparison.",
+        "searches": [
+          "Resultary semantic lookup of the matching-deficient biclique polynomials and of edge-open-packing decomposition",
+          "Resultary mirrors: 179ef9fc8450 and 68d40fe5e7c1"
+        ]
+      },
+      "rationale": "The entire frozen claim is covered by a distinct indexed Resultary record, not merely by the scalar maximum literature. Its exact enumerators and proof include the reciprocal-pair classification on the same domain, and the displayed maximal polynomial immediately gives the balanced threshold even in sizes not highlighted by its prose. This is a finding of equivalent coverage and no surviving distinct contribution here, not an inference of chronological priority from catalog dates.",
+      "residual_risks": [
+        "Distinct catalog overlap does not establish relative priority or provenance.",
+        "No exhaustive synonym search or inspection of inaccessible 2022 full text; neither could undo the verified equivalent indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers entire frozen claim with the same normalization; also supplies a distinct topology theorem",
+          "evidence": [
+            "Displayed P and F have the same five kinds of terms; the proof gives only stars and reciprocal pairs; balanced threshold is explicitly noted and otherwise follows from F."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-edge-open-packing-polynomials-and-circle-wedge-topology-after-de--179ef9fc8450/RESULT.md",
+          "material_read": "Finding, assumptions, pair compatibility, classification and beginning of counting proof, offset 0–5143, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and exact local mirror passage",
+          "title": "Edge-open packing polynomials and circle-wedge topology after deleting a matching from a biclique",
+          "trigger": "Exact match of object and both enumerators"
+        },
+        {
+          "assessment": "Other family; one common graph",
+          "evidence": [
+            "Its graph construction is subdivision; deleting the full matching from K_(3,3) gives S(K3), a six-cycle."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-edge-open-packing-decomposition-and-exact-polynomial-for-complet--68d40fe5e7c1/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search and mirror text",
+          "title": "Edge-open packing decomposition and exact polynomial for complete-graph subdivisions",
+          "trigger": "Closely related open-packing enumerator"
+        },
+        {
+          "assessment": "Inspected material concerns scalar maximum, not the two enumerators",
+          "evidence": [
+            "Bounds on changes of the edge-open packing number under removing one edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+          "material_read": "p. 1, definition and abstract on deletion",
+          "method": "OA primary passage",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Edge deletion and bipartite packing"
+        },
+        {
+          "assessment": "Scalar characterization, not complete labeled enumeration in inspected passage",
+          "evidence": [
+            "Theorem 3 addresses equality involving the maximum packing number."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.01935",
+          "material_read": "pp. 1–2, definition and Theorem 3",
+          "method": "OA primary passage",
+          "title": "Edge open packing: further characterizations",
+          "trigger": "Possible general scalar coverage"
+        },
+        {
+          "assessment": "Uninspected scope is an access risk, not a reason for rejection",
+          "evidence": [
+            "Frozen RESULT.md lines 55–67 attributes the complete multipartite scalar result to this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful direct and VPN access returned 403; no alternate full text recovered",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Earlier complete multipartite packing-number treatment cited by the record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–25 and 45–49",
+        "Resultary mirror 179ef9fc8450: identical maximal polynomial and threshold"
+      ],
+      "rationale": "The maximal-size distribution is naturally motivated by the large gap between maximum and smallest maximal packings after just two deletions. However, as an additional result the threshold and the enumerators add no exact invariant or structural witness beyond the already covered identical indexed theorem; the balanced gap is a direct reading of its maximal polynomial.",
+      "residual_risks": [
+        "No assessment of historical first contribution is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

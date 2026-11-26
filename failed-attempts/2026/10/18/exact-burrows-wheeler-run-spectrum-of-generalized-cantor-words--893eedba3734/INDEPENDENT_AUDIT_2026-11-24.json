@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:19:26.312706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 1–5",
+        "Frozen verify.py and VERIFICATION.md, inspected without executing",
+        "Independently generated words and direct cyclic rotation sorts"
+      ],
+      "rationale": "The recursion C_{b,k}=C_{b,k−1}0^{(b−2)b^{k−1}}C_{b,k−1} gives circular gap g_i=(b−2)b^{ν₂(i)} for 1≤i<2^k and g_{2^k}=0. The unique largest gap ensures distinct cyclic rotations. Descending leading-zero groups have one row per gap long enough; each row's predecessor is one exactly when the gap length equals the leading-zero count. In the group h_j=(b−2)b^j, eligible gap indices are multiples of 2^j; the gap sequence agrees through the first 2^j−1 offsets. At the next offset the nonterminal odd multiples have a longer gap, the even multiples have gap h_j, and the terminal odd multiple has the zero wrap gap. These order classes have sizes 2^{k−j−1}−1, 2^{k−j−1}−1 and 1, with predecessors 1, 0 and 1. At j=k−1 only the last class exists. Distinct special groups are separated by at least one all-zero group; the final one-start group has one 1 and, for k≥2, a zero at each end. Thus there are 2k one-runs with the stated lengths, each followed by a zero-run, and the original word has 2^{k+1}−1 runs. Direct rotation sorts confirmed examples at (b,k)=(3,2),(3,4),(5,4),(7,3), including 101010100 at (3,2) and the identical spectrum [1,1,1,3,1,7,1,1] at both tested bases at k=4. At level one the exact transform is 1 0^{b−3} 1 0, giving the stated exceptions.",
+      "residual_risks": [
+        "The notation h_{j+1} at j=k−1 is in an empty class and has no bearing on the proof. The bounded tests are corroboration; the valuation and ordering proof establishes the unbounded claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frosini et al. §4.2 Theorems 23–24 give Θ(k) runs in this class (use a=1, repeated letter d=0, internal word 0^{b−2}, trailing count zero, and exponent b for the image of 0).",
+          "Gil and Scott describe classical BWT before treating a different bijective transform. The Brlek et al. plausible morphic-BWT source was not available in full on the routes tried."
+        ],
+        "reasoning": "The broad Θ(k) theorem covers the same family but does not yield a coefficient or ordered spectrum. The decision instead rests on exact gap-order transport from the fully inspected Cantor comparator.",
+        "searches": [
+          "Frosini et al., Logarithmic equal-letter runs for BWT of purely morphic words, arXiv:2202.02609v1",
+          "Brlek et al., Burrows–Wheeler Transform of Words Defined by Morphisms, DOI 10.1007/978-3-030-25005-8_32",
+          "Gil and Scott, arXiv:1201.3077"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Resultary 99391dfe86b4 and 84b6d8bce159",
+        "arXiv:2202.02609v1",
+        "arXiv:1201.3077",
+        "Brlek et al., DOI 10.1007/978-3-030-25005-8_32 (full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's gap after the i-th one (counting from 1) is 3^{ν₂(i)} except for the zero wrap gap; in the frozen family it is (b−2)b^{ν₂(i)} with the same wrap zero."
+        ],
+        "reasoning": "For a special leading-zero count t, a gap contributes a row iff its length is at least t; its predecessor is one iff its length is t. The relabeling preserves both relations and maps each special group bijectively to its corresponding group. For rows sharing the same leading prefix, lex order compares the next complete gaps at their first difference, with larger gap first; this is preserved under the relabeling, including for the one-start group. Distinct special groups still have at least one all-zero group between them, since (b−2)(b−1)b^j≥2, and the one-start group still starts and ends in zero even if an extra all-zero group precedes it. Hence the full claimed ordered one-run spectrum, total 4k, and special-group strings follow from the comparator. Counting separated ones gives the unchanged denominator of the ratio. This does not imply that full zero-run lengths are base invariant, nor that the Θ(k) result alone suffices.",
+        "searches": [
+          "Resultary 99391dfe86b4, Finding and proof sections on exact cyclic gaps and decomposition by leading zeros"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "99391dfe86b4 explicitly uses 1↦101, 0↦000, alphabet order 0<1, indexed cyclic rotations without sentinel, and linear runs. Its Finding gives 4k, the same special-group strings for t=3^a, all-zero other groups and final group 0^A10^B with A,B>0.",
+          "84b6d8bce159 gives Chacon exact runs for the different 0↦0010, 1↦1 morphism and two transport identities for separately specified substitutions."
+        ],
+        "reasoning": "The first is precisely the b=3 instance under the same conventions. The two exact Chacon transport laws do not by themselves map between the Cantor families. The appropriate equivalent formulation here is the order type of the list of circular gaps, which is identical at each base.",
+        "searches": [
+          "Resultary: Cantor morphisms 101/000, cyclic BWT, exact logarithmic/four runs per level",
+          "Resultary 99391dfe86b4 and 84b6d8bce159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator's block strings and run formula hold for all k≥2 at b=3, not just a finite table. The frozen bounded experiments check examples but make no census claim."
+        ],
+        "reasoning": "A dominating finite cutoff is inapplicable to the unbounded claim. The comparator is stronger than a table in the level parameter, and its exact block description is what makes base transfer possible.",
+        "searches": [
+          "Resultary 99391dfe86b4, exact theorem and group formula",
+          "Frozen verification cases, bases 3–9"
+        ]
+      },
+      "rationale": "The exact indexed ternary Cantor case includes the full special-group strings and final block property, not merely the run count 4k. All the asserted statistics for general b are mechanistically transported by the strictly increasing relabeling of gap lengths 0↦0 and 3^j↦(b−2)b^j. It changes the number or widths of all-zero groups without changing the ordered special strings, their separation, or the final block. Thus the broader base quantifier does not supply independent content at the claimed run and group resolution. The comparator's displayed date is later than the frozen date; this is demonstrable mathematical coverage, not historical priority.",
+      "residual_risks": [
+        "Displayed record dates do not determine discovery priority. The decision relies on verifiable current Cantor coverage plus exact mathematical transport, not the inaccessible 2019 full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct match at base 3; all frozen statistics at other bases follow by monotone gap relabeling.",
+          "evidence": [
+            "The nontrivial block is 1^{2^{k−a−1}−1}0^{2^{k−a−1}−1}1 precisely at t=3^a; final block is 0^A10^B, with A,B>0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-four-runs-per-level-law-for-the-binary-cantor-word-under-t--99391dfe86b4",
+          "material_read": "RESULT.md Finding and Assumptions at offsets 0–1767; Proof cyclic-gap and leading-zero group passages near offsets 1570–3461.",
+          "method": "Local mirror full-text excerpts and explicit gap-order transport.",
+          "title": "Exact four-runs-per-level law for the binary Cantor word under the Burrows–Wheeler transform",
+          "trigger": "Exact same transform and level law at a special base, with stronger block evidence."
+        },
+        {
+          "assessment": "Covers the asymptotic growth order, not the exact ordered strings. The theorem numbers here are version-specific.",
+          "evidence": [
+            "The nonprimitive class a u a d^q, d^ℓ has O(k) upper and corresponding Ω(k) lower bounds in the regime used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609v1",
+          "material_read": "§4.2, Lemmata 21–22 and Theorems 23–24, pp. 9–10, offsets approximately 27950–32197.",
+          "method": "OA primary PDF, comparing morphism parameters, run convention and bounds.",
+          "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+          "trigger": "Broad primary result explicitly including this growing nonprimitive binary family."
+        },
+        {
+          "assessment": "Exact coverage by this paper is unresolved and not relied on.",
+          "evidence": [
+            "No primary theorem text from this paper was accessible for comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-25005-8_32",
+          "material_read": "Bibliographic/abstract material only; author-repository file returned 403 and the Springer PDF route redirected repeatedly.",
+          "method": "Lawful retrieval of the publisher and identified institutional copies attempted.",
+          "title": "Burrows–Wheeler Transform of Words Defined by Morphisms",
+          "trigger": "Plausible earlier exact morphic-BWT formulas."
+        },
+        {
+          "assessment": "Different morphism and different transport identities; not the decisive comparator.",
+          "evidence": [
+            "Iterates of 0↦0010, 1↦1 have 2k runs; the transport rules apply to specifically stated τ and η substitutions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-exact-morphic-burrows-wheeler-transport-laws-and-the-complet--84b6d8bce159",
+          "material_read": "Finding and Assumptions at offsets 0–2264.",
+          "method": "Local mirror and comparison of substitution rules and scope.",
+          "title": "Two exact morphic Burrows–Wheeler transport laws and the complete Chacon transform",
+          "trigger": "Nearby exact symbolic BWT and run-spectrum result."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and gap decomposition",
+        "Resultary 99391dfe86b4, exact block formulas"
+      ],
+      "rationale": "An exact ordered spectrum for growing nonprimitive words is intrinsically informative, and is sharper than an asymptotic count. But relative to the exact supported ternary result, the audited base extension merely changes the magnitudes of ordered gaps and the lengths of zero padding. The claimed one-run statistics already follow without new case analysis, and the record does not claim an additional nontrivial zero-run invariant or a theorem for gap families of different order type.",
+      "residual_risks": [
+        "This does not reject the usefulness of the common exact spectrum, and does not assert priority for either presentation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

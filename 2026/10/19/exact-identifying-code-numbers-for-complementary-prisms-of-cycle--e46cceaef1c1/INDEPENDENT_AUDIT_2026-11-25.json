@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:13.592746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3 and seed table",
+        "Frozen VERIFICATION.md, finite_lower.cpp, upper_and_direct.cpp, lower_output.txt and direct_output.txt (inspected, not executed)",
+        "Fresh replay: python3 /workspace/branches/prism_replay.py, exact lift and nine reduced minima, direct closed-neighborhood checks of every seed"
+      ],
+      "rationale": "The four window tests are the closed-neighborhood domination mask for a cycle vertex and the symmetric differences for cycle distances one and two and complement distance two. Two complement vertices not at distance two have disjoint pairs of excluded complement indices, so their separation is equivalent to at least one not being a defect; defects at distance two violate the fourth test. Cycle vertices farther than two have disjoint neighborhoods; at least four selected complement vertices ensure every complement trace contains at least two complement vertices, separating both layers. In the lifted graph any identifying code gives a path from (q,0,0) to (q,e,n mod 9), e<=1, with cost 9|S|-7n. The fresh replay regenerated the transitions from actual neighborhood masks, verified a feasible integer potential on all 14706 lifted arcs, and computed the minimum over all 256 starting states and both final defect counts. The nine costs are (0,2,-5,6,-1,1,3,5,-2)=9a_r-7r. This is an unrestricted path optimization, not enumeration through a trial length. The nine seeds have their required weights, at least four complement selections, the right defect budgets, and close at state 19. The length-nine seed has no defects; adding copies at the common state preserves every local test and defect budget. This gives equality at all lengths 9k+r with k>=1.",
+      "residual_risks": [
+        "Short or empty closed walks can minimize some unrestricted lifted distances; this is legitimate for the lower bound and does not assert an identifying code at those lengths. The construction and scope remain n>=9."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest readable same-family bounds are 7n/9-12 <= gamma_ID(P_n) <= n-2 floor(n/9). The indexed nine-cycle exchange theorem expressly restricts itself to that one graph."
+        ],
+        "reasoning": "An asymptotic theorem with additive slack cannot force the all-n offsets; the exact one-graph classification cannot dominate the infinite parameter family. A plausible inaccessible source is a residual risk, not a negative finding.",
+        "searches": [
+          "Cappelle et al., arXiv:1507.05083, Lemmas 2, 3 and 5",
+          "Local Resultary all-n complementary cycle prism code minima",
+          "Targeted alternate-copy discovery for On Identifying Codes in Complementary Prisms"
+        ]
+      },
+      "checked_sources": [
+        "Cappelle et al. arXiv:1507.05083, §2",
+        "Resultary 5763a9e3887b",
+        "Targeted access check for ResearchGate listing 376636947"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old upper bound equals 7k+r. It agrees numerically with the new value at r=0,1,3 but without a matching exact lower bound; at r=8 it is two larger. At n=9k the old lower bound is 7k-12, not 7k."
+        ],
+        "reasoning": "The prior conditions enable the finite-state formulation but do not state or establish its minimum reduced costs. The unrestricted shortest-path bounds and period-nine splice are additional steps; the n=9 exact value alone implies neither step.",
+        "searches": [
+          "Cappelle et al., Lemmas 2, 3 and 5; comparison to frozen reduced-cost computation",
+          "Resultary 5763a9e3887b, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper and indexed case use closed neighborhoods in the same graph, with the cycle and its complement joined by corresponding labels. Their separation condition is unequal traces for all pairs.",
+          "Locating-domination separates only vertices outside the chosen set and thus is not this invariant."
+        ],
+        "reasoning": "Closed-neighborhood conventions and layer/index relabelings give the same identifying-code problem in the pertinent sources; locating-domination would only impose a weaker condition, not an exact equivalent.",
+        "searches": [
+          "Local Resultary for cycle complementary prisms and identifying-code numbers; case hit 5763a9e3887b",
+          "Cappelle et al., arXiv:1507.05083, §2 Lemma 2",
+          "Primary literature query for exact complementary prism identifying codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding explicitly gives gamma_ID(P_9)=7 with 90 labeled optima, and its assumptions exclude any infinite-period classification."
+        ],
+        "reasoning": "This covers the r=0, k=1 numerical case, not the r=0 family or any of the other offset classes. No covering indexed table was found in the comparison.",
+        "searches": [
+          "Local Resultary, exact identifying-code cardinalities in complementary prisms of cycles; hit 5763a9e3887b"
+        ]
+      },
+      "rationale": "The closest inspected primary work establishes 7/9 as the leading coefficient and gives local conditions and constant-error bounds. Its bounds do not determine the exact offsets, even at general multiples of nine. A same-graph indexed result covers n=9 only. The supported distinct claim is the all-length residue classification, not novelty of gamma_ID(P_9)=7, the local characterization, or the leading coefficient.",
+      "residual_risks": [
+        "The similarly titled inaccessible work could not be compared at theorem level. Unindexed equivalent results remain possible.",
+        "The database finding at n=9 establishes case overlap, not a priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the characterization, upper construction and asymptotically matching bounds, not exact offsets in the inspected results",
+          "evidence": [
+            "Lemma 3 gives n-2 floor(n/9); Lemma 5 gives 7n/9-12, allowing more values than the exact table."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05083",
+          "material_read": "Abstract PDF p. 1 and §2, Lemma 2 p. 3 (text near offset 6092), Lemma 3 p. 4 and Lemma 5 p. 5 (near offset 12282)",
+          "method": "Open-access PDF text passages",
+          "title": "Identifying Codes in the Complementary Prism of Cycles",
+          "trigger": "Primary work on the identical graph family and invariant"
+        },
+        {
+          "assessment": "Exact overlap at n=9 only",
+          "evidence": [
+            "States the minimum seven, 90 labeled optima and the exchange graph; expressly restricts scope to the eighteen-vertex prism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-twenty-seven-minimum-code-exchange-components-in-the-complementa--5763a9e3887b/RESULT.md",
+          "material_read": "Finding, assumptions and proof opening, text offsets 0–2500",
+          "method": "Local mirrored full-text passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Twenty-seven minimum-code exchange components in the complementary nine-cycle prism",
+          "trigger": "Same graph at the first covered length"
+        },
+        {
+          "assessment": "Coverage not determined; not treated as evidence of noncoverage",
+          "evidence": [
+            "Title names the general invariant and graph construction but does not establish a cycle theorem or a parameter range."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/376636947_On_Identifying_Codes_in_Complementary_Prisms",
+          "material_read": "Title/listing only; full text not accessible in the lookup",
+          "method": "Discovery result and attempted lawful retrieval (403); targeted search for an alternate copy returned no match",
+          "title": "On Identifying Codes in Complementary Prisms",
+          "trigger": "Near-exact title with plausible same-family coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact residue formula, certificate and constructions",
+        "Cappelle et al. arXiv:1507.05083, Lemmas 3 and 5"
+      ],
+      "rationale": "The theorem replaces constant-error asymptotic bounds for a natural graph family by exact optimum sizes at every length in scope, including a strictly better upper bound for several residues. The period-nine seed splice and global finite-state lower certificate explain why the small per-residue offsets persist without any trial-length cutoff. It is not merely a computation of the n=9 case or a rederivation of the leading coefficient.",
+      "residual_risks": [
+        "This classifies optimal sizes, not all optimal codes or their exchange graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

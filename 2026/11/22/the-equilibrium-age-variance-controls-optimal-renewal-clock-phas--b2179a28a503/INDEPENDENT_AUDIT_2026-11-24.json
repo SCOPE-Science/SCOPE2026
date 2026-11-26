@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:16:52.734245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In stationary renewal occupation, a cycle of dimensionless length S contributes one unit of age density at each v<S; division by E S=1 gives f_V(v)=Pr(S>v), including for a deterministic clock with equilibrium random phase. The selected square wave has first-harmonic amplitude 4B/pi; at observation the phase is shifted by the age, and visibility restricts v to at least d=r tau. Thus H is the magnitude of the truncated age transform at z=omega/r. Integration of the tail gives E V=E S^2/2 and E V^2=E S^3/3. The omitted integral equals d+o(d), with imaginary or phase error bounded by |z|d^2/2; expanding the full transform and its modulus gives the joint loss d+Var(V) z^2/2+o(d+z^2). For each fixed positive omega the transform is continuous in r, vanishes at infinity by the age tail and at zero by Riemann–Lebesgue plus the vanishing omitted mass. A rate proportional to omega^(2/3) achieves loss O(omega^(2/3)). Any optimizer then has omitted mass O(omega^(2/3)), hence r=O(omega^(2/3)) since f_V tends to one at zero. The full transform has magnitude within O(omega^(2/3)) of one by the triangle inequality. Its absolute continuity, strict modulus below one away from zero and decay at infinity force z to zero, then its positive quadratic modulus deficit gives z^2=O(omega^(2/3)). This puts every optimizer on a common compact interval after rescaling r by omega^(2/3). The uniform joint expansion there reduces the limit to the unique minimum of tau y+Var(V)/(2 y^2), with the stated optimizer and loss coefficients. Cauchy–Schwarz gives E S^3 >= (E S^2)^2 and E S^2 >= 1 with equality of the latter only for S=1; thus Var(V) >= 1/12 with precisely that equality case. The exponential and Erlang moments give the stated benchmarks. Read the numerical checker without executing it; its finite grid/local optimization is not a certificate for the all-global-optimizers assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Majumdar–Schehr §2.8, Eq. (2.47) gives stationary mixing against the survival function normalized by its integral for independent identically distributed reset intervals.",
+          "f5406bec8733 and 1ee39cc9ce47 analyze fixed-mean renewal clocks for other observables; they do not optimize this first harmonic."
+        ],
+        "reasoning": "The general renewal occupation framework is a prior ingredient and supports deriving a harmonic transform. It does not provide the simultaneous cutoff/low-frequency asymptotic, optimization, or sharp inequality over fixed clock laws.",
+        "searches": [
+          "arXiv:1910.07993, Non-Poissonian resetting, §2.8",
+          "Resultary: stationary renewal age distribution optimal reset rate slow driving arbitrary inter-reset waiting times stochastic resonance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_resonance.py",
+        "Wang et al., arXiv:2611.01991",
+        "Evans–Majumdar–Schehr, arXiv:1910.07993",
+        "Resultary 44b415aa0d29, f5406bec8733, 1ee39cc9ce47, ef4feb831e3e and b2179a28a503 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exponential S the frozen transform is exp(-r tau)r/sqrt(r^2+omega^2); with x=r tau and w=omega tau the prior deterministic-maturation equation x(x^2+w^2)=w^2 is exactly its stationary optimum condition and supplies the low-frequency Poisson benchmark.",
+          "The prior Poisson balance has unit age-variance coefficient, whereas the general renewal theorem needs the age transform modulus deficit, handles each fixed interval law (including atomic ones), and localizes every global maximizing rate.",
+          "The known survival-weighted occupation identity is used, not claimed as a new result."
+        ],
+        "reasoning": "These are exact ingredient and special-case implications. Neither the gamma gate under Poisson resets nor the general stationary renewal representation alone entails the distinct global leading-order optimization and equality condition across fixed reset-interval laws.",
+        "searches": [
+          "44b415aa0d29, Finding and proof §§2–5",
+          "Wang et al. Eq. (11), Supplementary Eqs. (S30)–(S45)",
+          "Evans–Majumdar–Schehr Eq. (2.47)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. main Eq. (11) and Supplementary Eqs. (S30)–(S45) give the Poisson weak-drive balance and rate scaling with an effective relaxation time.",
+          "44b415aa0d29 gives an exact deterministic-maturation result under Poisson resetting, equivalent to this model when S is exponential."
+        ],
+        "reasoning": "A deterministic maturation interval imposes a gate on visibility, whereas deterministic renewal intervals make the reset process periodic with randomized stationary phase. These operations are not interchangeable. The Poisson case is covered under the stated matching of the clocks, not novel by changing notation.",
+        "searches": [
+          "Resultary: Poisson reset resonance gamma-distributed maturation latency renewal clock phase-selected step response",
+          "Web: periodic forcing stochastic resonance renewal resetting non Poisson waiting time equilibrium age characteristic function optimum reset rate maturation harmonic frequency",
+          "arXiv:2611.01991, ropt and S29a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b2179a28a503 is the assigned result, not independent evidence. 44b415aa0d29 proves unique finite-frequency Poisson-rate optimization with gamma maturation and includes a deterministic-maturation comparison.",
+          "f5406bec8733 is a level-crossing problem in randomly accelerated motion. 1ee39cc9ce47 treats stationary sign autocorrelation. ef4feb831e3e treats correlations of stationary renewal age and residual life."
+        ],
+        "reasoning": "The exact Poisson case is a meaningful catalogue match. In the remaining matches, optimizing another statistic or discussing the same equilibrium age does not imply the exact resonance coefficient. No priority is inferred from the same-day records.",
+        "searches": [
+          "Resultary: Poisson reset resonance gamma-distributed maturation latency renewal clock phase-selected step response",
+          "Resultary: stationary renewal age distribution optimal reset rate slow driving arbitrary inter-reset waiting times stochastic resonance"
+        ]
+      },
+      "rationale": "The equilibrium-age identity and Poisson balance are known, and the prior gamma-maturation result covers the fixed-delay Poisson special case exactly. The inspected sources do not give the sharp arbitrary fixed renewal law optimization, its all-maximizers localization, or the exact comparison of inter-reset laws by the age-variance coefficient. The decision is about the stated step-response model, not a broader claim for nonlinear trajectories or frequency-dependent clock selection.",
+      "residual_risks": [
+        "Targeted, not exhaustive priority assessment; a general harmonic-response result under another renewal convention could overlap.",
+        "The exact Poisson fixed-delay optimum and the survival-weighted renewal kernel are prior coverage. The comparison does not claim finite-frequency uniqueness for general laws, uniformity over frequency-dependent laws, or an equivalent result for actual quartic-well trajectories."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial equivalent scaling in Poisson case; not arbitrary renewal clocks",
+          "evidence": "Loss balance omega^2/(2r^2)+r times effective relaxation gives the same Poisson scaling; the treatment allows response-dependent and phase-dependent relaxation.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.01991",
+          "material_read": "Main p. 4 Eq. (11), text offset 23941; supplementary passages near offsets 82400, 87100 and 89500, Eqs. (S30)–(S45)",
+          "method": "OA literal queries and bounded PDF sections",
+          "title": "Weak-Signal Amplification through Stochastic Resetting",
+          "trigger": "Poisson phase-selected step-response benchmark cited by the result"
+        },
+        {
+          "assessment": "Exact coverage of the constant-maturation Poisson special case",
+          "evidence": "Clock remains Poisson; the deterministic gate has unique optimum from x(x^2+w^2)=w^2. The gamma generalization varies maturation rather than inter-reset intervals.",
+          "identifier_or_url": "2026/11/8/SCOPE-unique-poisson-reset-resonance-with-gamma-distributed-maturation--44b415aa0d29",
+          "material_read": "Mirrored RESULT.md offsets 0 and 3900, Finding, scope and proof through the deterministic-maturation comparison",
+          "method": "Resultary search and local mirror",
+          "title": "Unique Poisson-reset resonance with gamma-distributed maturation latency",
+          "trigger": "Strongest exact overlapping catalogue theorem"
+        },
+        {
+          "assessment": "General stationary age-mixing ingredient, no matching harmonic optimization in inspected result",
+          "evidence": "The stationary propagator mixes the unreset propagator against survival divided by the mean interval.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.07993",
+          "material_read": "§2.8, arXiv PDF pp. 15–16, bounded offset 47000, Eqs. (2.43)–(2.48)",
+          "method": "OA literal search then bounded passage",
+          "title": "Stochastic Resetting and Applications",
+          "trigger": "Prior non-Poisson reset occupation formula"
+        },
+        {
+          "assessment": "Different optimization objective",
+          "evidence": "The stationary observable is continuous level-crossing frequency, not periodic-drive harmonic amplitude.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-fixed-mean-renewal-clock-transition-for-random-accelerat--f5406bec8733",
+          "material_read": "Mirrored RESULT.md offset 0, Finding and assumptions",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp fixed-mean renewal-clock transition for random acceleration",
+          "trigger": "Comparison of deterministic and random renewal clocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies one interpretable clock statistic that controls both the optimal rate and amplitude loss, and gives a sharp deterministic bound across fixed clocks. It improves on guessing the rate from a Poisson expansion by establishing that no competing global maxima occur on other scales for an arbitrary fixed law under a finite third moment. This is useful for comparing renewal protocols within the stated, reproducible response model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

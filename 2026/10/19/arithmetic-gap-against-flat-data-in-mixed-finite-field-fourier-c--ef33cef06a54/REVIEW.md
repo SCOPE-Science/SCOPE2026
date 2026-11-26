@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed Gram identity follows from a direct sum-representation count. Each distinct ordered hyperbola-parameter pair contributes exactly one off-diagonal collision because the two linear equations uniquely determine the parabola parameters in odd characteristic. The resulting integer Gram row sum is \(2(q-1)^2\), not divisible by \(q\). The variance minimization and positive-semidefinite Rayleigh bound prove the stated gap for every field size in scope. Exact-integer checker results on six prime fields corroborate, but do not replace, the proof.
+## correctness
 
-**Originality — PASS (best knowledge).** The closest inspected primary work, González-Riquelme–Oliveira e Silva, arXiv:2405.16647 (2024), calculates *self*-convolutions and proves flat-input extremality for particular single parabola/paraboloid Fourier-extension problems. The present result is an integrality obstruction and quantitative gap for a *mixed* parabola–inverse-hyperbola Gram operator. Published findings and semantic searches on mixed convolution, bilinear finite-field restriction, and integer Gram matrices returned no result implying the explicit gap. Residual risk: an equivalent mixed-convolution construction indexed under alternate geometry or matrix terminology.
+PASS
 
-**Mathematical value — PASS.** The two curves are canonical curved finite-field frequency sets. A natural analogy from sharp single-surface extension would suggest testing flat coefficients in the mixed operator. The result rules them out for *every* odd field, proves nonstationarity without estimating eigenvalues or Gauss sums, and quantifies a strict improvement uniform in the field family. The nondivisibility is substantive only together with the geometric off-diagonal collision calculation; it is not presented as a general-purpose integer-matrix observation.
+Use the translate-incidence Gram A=T*T for Tf=f_P*1_H. Each diagonal is q−1. For ordered u≠v in F× the collision equations force s−t=u−v and s+t=−1/(uv), with exactly one solution because 2 is invertible. Equal hyperbola parameters force equal parabola parameters. Thus S=1*A1=2(q−1)^2 and Q(1)=S/[q(q−1)]. Since S≡2 (mod q), the integral row sums are unequal, so the constant vector is nonstationary on the normalized sphere and not a local maximum. Balancing integer row sums gives ||A1||²≥S²/q+2(q−2)/q (the balanced floor/ceiling counts are q−2 and 2). Applying A²≤λ_max(A)A to 1 and dividing the resulting eigenvalue bound by q−1 gives the claimed gap. This includes characteristic three for q≥9, and claims neither the sharp value nor a two-variable norm. The frozen checker tests only prime fields; independent replay /workspace/branches/frozen-review-replay.py directly groups pairs by their output and checks exact Gram sums/variance in q=5,7,9,25, with numerical top-eigenvalue corroboration only.
 
-The actual sharp norm and maximizing vectors are not determined. No assertion is made for characteristic two or simultaneous optimization of both factors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed contribution is the mixed Gram collision count and its uniform quantitative obstruction to flat-input extremality. The closest inspected records and primary theorems apply to self-convolution or single-surface extension, not to this mixed operator. The integer-variance and spectral inequalities used thereafter are standard, not claims of originality.
+
+## value
+
+PASS
+
+This is not an improvement of a sharp numerical constant by a tiny amount alone. It establishes that constants are not even stationary throughout a natural mixed problem juxtaposed with single-surface flat extremizers, with an exact count and a size-uniform arithmetic certificate valid even in characteristic three. The small explicit lower bound certifies that qualitative separation; the theorem does not claim to optimize the gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:27:33.033342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 8–68, 73, 78–79",
+        "VERIFICATION.md, reproducibility body",
+        "verify_gaussian_design.py lines 10–100, inspected without execution"
+      ],
+      "rationale": "Independent reconstruction: convolution with the target gives m_a = ell/sqrt(S) exp(-a^2/(2S)) and Var(J) = (1+2 tau^2/ell^2)^(-1/2). Multiplying the noisy covariance inverse's numerator and denominator by p_-p_+ gives the quotient (P+2(1-k)z)/(1+P+(1-k^2)z) with k=exp(-2a^2/ell^2), z=p_-p_+. At z=0 this is the exact one-channel answer. At a=0 it is independent of z; for a>0 the sign of its derivative is the sign of (1-k)(2+P(1-k))>0, so the balanced split is unique there. With that split the log-gain derivative in s=a^2 has sign (ell^2+2 tau^2)exp(-2s/ell^2)-ell^2(1+2/P). The sign decreases strictly and is already nonpositive at s=0 precisely for P<=ell^2/tau^2. At equality it vanishes only at the boundary. Otherwise its unique zero gives the stated a_* and, by subtraction from Var(J), the stated risk. Expanding the root at P_c gives a_*^2/(P-P_c) -> tau^4/(ell^2+2 tau^2); sending P to infinity gives the stated limit. Finite-budget risk is positive because an exact Gaussian linear prediction from active channels would have nonzero independent noise variance unless all prediction coefficients were zero. An independent 40-digit decimal evaluation of sqrt(log(5/2)/2) gives 0.67686436302783553519 for the stated P=10 example.",
+      "residual_risks": [
+        "Proof is restricted to nonadaptive reflection-paired sites and independent Gaussian noise with total precision P. Numerical grid tests do not prove a continuous optimum; the derivative arguments do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OU record optimizes n sensors under a budget, with an OU-specific P=n change in the relation of boundary margins to interior gaps. Cai–Lam–Scarlett state average-case error bounds for noisy squared-exponential/Matérn quadrature rather than a finite two-sensor threshold. Fully symmetric weight construction takes fixed node sets; the scaled Gauss–Hermite Theorem 2.2 concerns weights/exactness at prescribed nodes."
+        ],
+        "reasoning": "More general node counts, symmetric weight algorithms, or rate bounds do not supply an exact risk-minimization theorem for these continuous reflection-pair locations and unequal precisions.",
+        "searches": [
+          "Resultary OU precision-budget record a7be6c7ddb05",
+          "arXiv:2202.10615, 1703.06359, 1803.09532, 1812.08509 and 2107.09597"
+        ]
+      },
+      "checked_sources": [
+        "Frozen references and novelty discussion",
+        "Four published Resultary mirror records identified in source_inspections",
+        "arXiv sources identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-location common/contrast reduction under equal noise can simplify the covariance. It does not compare unequal precision allocations or optimize a. The frozen claim needs strict monotonicity in p_-p_+ and a sign-changing derivative in a^2 under the Gaussian target."
+        ],
+        "reasoning": "Known conditioning and symmetry are inputs rather than dominating results; neither the Matérn threshold nor the OU optimizer implies the Gaussian solution by parameter substitution.",
+        "searches": [
+          "arXiv:1703.06359 fixed symmetric-node weight statement; arXiv:1803.09532 Theorem 2.2; Resultary ca4d80c46fdc and a7be6c7ddb05 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the equal-split design, noise variance per observation is 2/P; the claimed threshold is equivalently 2 tau^2/ell^2 on that scale. The Matérn mirror record has threshold 8 sqrt(e)-12 for a different covariance and uniform integration on [0,1], equal noise from the start, and linear onset. The cosine landmark record changes both kernel and loss and exhibits a t^(1/4) regime."
+        ],
+        "reasoning": "Conversion to equal-noise variance preserves the threshold but neither makes the models equivalent nor supplies the unconstrained split optimum. The Gaussian risk and square-root onset are not inherited from the analogues.",
+        "searches": [
+          "Resultary mirror comparisons: 19a27b2e304d, ca4d80c46fdc, 98c56c92dae5",
+          "arXiv:1703.06359; arXiv:2202.10615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 19a27b2e304d reproduces the frozen finding and its formulas; it is the same record, not independently matching evidence. The three other exact-result records give the distinct models and thresholds described above."
+        ],
+        "reasoning": "The benchmark a_*(10) is only an evaluation of a parameterized optimization; the relevant exact lookup is for the formula/phase diagram, not an isolated numerical constant. No distinct inspected result tabulates it.",
+        "searches": [
+          "Resultary mirror statements of 19a27b2e304d, ca4d80c46fdc, a7be6c7ddb05 and 98c56c92dae5"
+        ]
+      },
+      "rationale": "Pass the exact joint allocation and placement phase diagram for the specified Gaussian kernel and Gaussian integration measure. Do not credit generic Gaussian conditioning, equal weights at fixed symmetric equal-noise sites, or the existence of a collision transition as such. The strongest same-day different record has a genuine collision transition and different onset, not equivalent coverage; the common date does not settle priority. No compared source established the full claim or a stronger result implying it.",
+      "residual_risks": [
+        "The comparison is best-of-knowledge, not priority certification; a broader external priority search or an uninspected exact optimal-design result could change it.",
+        "Cai–Lam–Scarlett was compared on the inspected contribution statement, not all appendices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned result",
+          "evidence": "Identical threshold, risk, onset, and scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-replication-to-separation-transition-in-symmetric-gaussian--19a27b2e304d",
+          "material_read": "Mirrored RESULT.md finding from offset 0",
+          "method": "Local mirror original passage",
+          "title": "Sharp replication-to-separation transition in symmetric Gaussian-kernel quadrature",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Material phenomenon overlap, distinct theorem",
+          "evidence": "Matérn-3/2, uniform integration on [0,1], equal measurement variances, threshold 8 sqrt(e)-12 and linear onset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-finite-noise-collision-transition-for-symmetric-two-site-m--ca4d80c46fdc",
+          "material_read": "Mirrored RESULT.md finding, model and threshold",
+          "method": "Local mirror original passage",
+          "title": "Sharp finite-noise collision transition for symmetric two-site Matérn quadrature",
+          "trigger": "Closest same-day replication/separation overlap"
+        },
+        {
+          "assessment": "Different covariance and location optimization",
+          "evidence": "OU kernel, n sensors, equal precisions and a transition at P=n for boundary vs interior gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local mirror original passage",
+          "title": "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck quadrature",
+          "trigger": "Freely divisible precision and optimal sites"
+        },
+        {
+          "assessment": "Different loss, kernel and transition regime",
+          "evidence": "Integrated posterior residual for a rank-three cosine circle kernel, with a t^(1/4) collision law in one regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-landmark-design-for-a-cosine-kernel-a-noise-independen--98c56c92dae5",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local mirror original passage",
+          "title": "Exact two-landmark design for a cosine kernel",
+          "trigger": "Exact two-location collision analogue"
+        },
+        {
+          "assessment": "Weights at fixed node sets, not location/precision optimization",
+          "evidence": "Assumes fully symmetric kernels, measure and node sets to compute efficient weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.06359",
+          "material_read": "p. 1, contribution passage at offset 593",
+          "method": "OA original passage",
+          "title": "Fully Symmetric Kernel Quadrature",
+          "trigger": "Symmetric kernel quadrature construction"
+        },
+        {
+          "assessment": "Fixed scaled Gauss–Hermite nodes and approximate weights, not the noisy-budget transition",
+          "evidence": "Theorem 2.2 concerns exactness against selected Mercer eigenfunctions.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.09532",
+          "material_read": "Theorem 2.2, pp. 8–9, offset 23559",
+          "method": "OA original passage",
+          "title": "Gaussian Kernel Quadrature at Scaled Gauss–Hermite Nodes",
+          "trigger": "Same Gaussian integration/kernel setting"
+        },
+        {
+          "assessment": "Fixed-design weight properties rather than finite-noise joint optimization",
+          "evidence": "Studies positivity and magnitude for given design points.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509",
+          "material_read": "p. 2, offset 7226",
+          "method": "OA original passage",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Bayesian quadrature design comparisons"
+        },
+        {
+          "assessment": "Different criterion/material considered",
+          "evidence": "Convex-weight rules selected from i.i.d. samples for worst-case error control.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09597",
+          "material_read": "Abstract, p. 1",
+          "method": "OA original passage",
+          "title": "Positively Weighted Kernel Quadrature via Subsampling",
+          "trigger": "Alternative kernel quadrature design criterion"
+        },
+        {
+          "assessment": "Inspected results are bounds/algorithms, not exact finite-budget phase diagram; not a whole-paper exclusion",
+          "evidence": "The contribution statement gives noisy average-case error bounds for squared-exponential and Matérn kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+          "material_read": "Abstract/introduction, p. 1, offset 326; attempted additional targeted theorem retrieval timed out",
+          "method": "OA original contribution passage",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy BQ with squared-exponential kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and scope",
+        "Matérn finite-noise collision analogue ca4d80c46fdc",
+        "Cai–Lam–Scarlett arXiv:2202.10615"
+      ],
+      "rationale": "The tradeoff between measurement accuracy and spatial separation under a common budget is operationally meaningful; a finite threshold, full boundary/equality classification, and different leading response just above the threshold are more informative than noiseless weights or a rate bound. The answer resolves a complete optimization over all allocations, including omitted channels, in a natural symmetry-reduced family. It is an independently useful exact design benchmark, not a claim about unrestricted two-point designs.",
+      "residual_risks": [
+        "Contribution is model-specific; it does not establish robustness to covariance misspecification or applicability to unrestricted placements."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

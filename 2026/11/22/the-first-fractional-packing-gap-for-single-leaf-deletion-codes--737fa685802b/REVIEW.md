@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-leaf projection packing bound is a direct count and the uniform rational assignment saturates it. The four-, five-, and six-leaf witness codebooks are explicitly supplied, with complete checking of every output. At seven leaves, the source/receiver incidence is constructed by both split restriction and graph deletion, checked to have 945 sources, 735 outputs and degree nine on every output. Two independent exhaustive exact-cover search implementations each rule out a covering of the 735 outputs, both visiting 2,561,709 recursive search states on the delivered data. No time cutoff is present. The proof does not assert an unverified exact seven-leaf integer maximum.
+PASS
 
-## Originality
+For each missing label, subdividing any of the 2n−5 edges of an (n−1)-leaf output and adding that label produces a different extension; deletion and suppression recover that edge. Summing the constraints for one fixed label bounds the objective by (2n−7)!!, and the uniform weight 1/(2n−5) attains it. The witnesses at n=4,5,6 cover every output exactly once; the n=6 construction pairs the unique noncherry leaf of each five-leaf receiver with the missing label. Independently generated all topologies by taking the smallest leaf as an anchor to an unordered binary hierarchy on all other labels; constructed the receiver by literally deleting the leaf, contracting and rerooting at the smallest surviving label. Compared all 945×7 incidences with incidence7.txt, and validated the smaller codebooks. For n=7 a 105-word code must cover all 735 receivers exactly once, with seven receivers per source and nine sources per receiver. Independent bitmask exact cover partitions possible covers by the unique selected row covering receiver 0, then recursively chooses an uncovered receiver with minimum support among eligible rows; the children select each covering row in turn and discard all overlapping rows. A branch with an unsupported receiver is impossible and an empty residual receiver set is success. All nine initial slices returned false, with 1,630,010 recursive calls across the slices; the rule scans all residual columns for a zero rather than stopping at the first unit, so the count need not match the frozen solvers. Replay with python3 /workspace/branches/replay3.py; completed slice logs replay3-012.txt, replay3-345.txt and replay3-678.txt in /workspace/branches. No uploaded code was executed. This confirms the first strict optimum-value gap, not a classification of all vertices of the packing polytopes.
 
-PASS, qualified. Martin–Thatte (2012) study maximum agreement *subtree sizes*, and Vakati–Fernández-Baca (2014) study agreement *existence and compatibility* of tree profiles. Neither implies a family of 105 pairwise one-deletion-distinguishable seven-leaf trees or its impossibility. A published six-taxon quartet-tomography result addresses a different observation and cannot bound tree-deletion packing without an additional reduction. Searches of comparable descriptions, the research index and accessible existing claims disclosed no identical or stronger relevant result. There is a residual possibility of unindexed historical code-packing computations.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Tree restrictions under loss of one taxon are a natural information channel in comparative phylogenetics. The result finds the first exact, structurally motivated boundary of a standard packing relaxation, rather than merely a codebook of arbitrary size: equality holds through six taxa, but fails at seven even while the fractional solution remains uniform. The seven-leaf obstruction is finite and reproducible, and the exact value of the seven-leaf integer optimum is explicitly left open.
+Leaf restriction as an operation and the counting/packing argument are not novel. Neither same-object statistics nor adjacent tree-channel results checked yield the seven-taxon nonattainment in this known-missing-label channel. The visible exact hit ending 737fa685802b is the assigned record itself, not independent coverage.
 
-## Scope and remaining risks
+## value
 
-The finite certificate is computer-exhaustive, not a conceptual all-length no-go theorem. It assumes labeled unrooted bifurcating phylogenies and exactly one missing taxon. No exhaustive literature search proves historical uniqueness, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first failure of the natural per-missing-label counting bound for a standard family, not a computation at an arbitrarily selected size. For every earlier feasible size in scope there is simultaneous perfect decoding, including the structural three-cherry construction. Seven taxa still have exactly regular nonempty fibers, but these cannot be satisfied simultaneously. The precise transition provides a finite obstruction and a benchmark for any general capacity argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

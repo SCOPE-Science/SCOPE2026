@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes a pure-equilibrium cube vertex and uses the three Hamming-distance layers to give every profile a strict best-response path to *some* equilibrium of length at most four; this is valid even if other equilibria exist. The displayed twelve arcs form precisely one orientation of every cube edge and yield a forced four-step shortest route from profile \(2\) to the unique sink \(4\). Inclusion–exclusion, using the independent sets of the cube, gives \(3134\) orientations with at least one sink. The complete integer enumeration and independent breadth-first/Floyd–Warshall checks yield the distance histogram \((258,644,1512,720)\) and \(2492\) connected orientations. The package includes and successfully replays the actual verification program. These finite checks do not purport to prove a larger-player theorem.
+PASS
 
-## Originality — PASS, subject to source-access uncertainty
+For the corrected statement, the four-layer argument holds (the antipode reaches a sink in at most three steps and any layer-two vertex can use it in at most one extra step), and the listed witness forces four. Independently exhausted 4096 orientations using forward reach-set growth to depth seven; recovered 962 with no sink, 3134 with a sink, radius counts 258, 644, 1512, 720 and 2492 passing the all-sink test. Recomputed the denominator by inclusion–exclusion and checked the conditional ratios. The frozen text incorrectly equated independent continuous payoffs with fair orientations: independent disjoint action-dependent payoff supports can orient all edges upward almost surely. The repair requires iid atomless entries or fair independent comparisons for the probabilistic interpretation and preserves the deterministic theorem and counts.
 
-The 2011/2013 Fabrikant–Jaggard–Schapira weak-acyclicity theorem for strict two-by-two-by-two games is known and expressly excluded as a novelty claim. That existence theorem supplies no numeric sharp distance, distribution, or exact count of connected orientations. The complete primary text of Johnston–Savery–Scott–Tarbush, including its Appendix H, reports approximate simulations and asymptotic results rather than this exact three-player census or universal four-step bound. The fully accessible Heinrich et al. 2023 article discusses stochastic/clockwork activations and asymptotic convergence instead. Searches for exact counts, dimension-three oriented-cube shortest paths, and stronger coverage in published research records and primary literature did not find the same formula. The potentially relevant 1993 Bollobás–Gotsman–Shamir paper was accessible only at abstract level; an undocumented earlier tabulation is an explicit residual priority risk, not something silently treated as inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The length-four bound answers a precise worst-case accessibility-time question at the smallest multi-player binary scale where best-response cycles can coexist with a pure equilibrium. The exact count and distance spectrum turn a motivating small-game simulation question into an exhaustive conditional probability law, separating existence, distance and strong connectivity. This is not a rephrasing of weak acyclicity: the latter asserts some finite path without its sharp universal length, distribution of maximum distances, or every-equilibrium reachability frequency. The calculation is natural for benchmark testing of adaptive equilibrium methods, while making no claim about actual convergence times under exogenous playing sequences.
+The supported distinct contribution is the sharp existential access bound and complete labeled nearest-sink radius distribution. Weak acyclicity and the connectivity definition are known; a distinct Resultary record gives the same exact sink-positive and connectivity totals, expressly credited in the repair. Its indexed date is later and is not used to assert absolute priority. Neither the known existence result nor that qualitative census specifies shortest distances.
 
-## Closest literature and limits
+## value
 
-Main comparison: Johnston et al., arXiv:2309.10609 (2023), especially §3 and Appendix H. Essential known special case: Fabrikant et al., arXiv:1108.2092, Lemma 4.6 (2011 preprint). Other comparison: Heinrich et al., DOI 10.1007/s00182-023-00837-4 (2023). Access-limited risk: Bollobás et al., DOI 10.1007/BF02784059 (1993), abstract only. The result concerns independently oriented best-response comparisons for exactly three labeled binary players and existential improvement paths, not arbitrary update schedules.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural finite benchmark for random-game dynamics and refines the known existence theorem: the cutoff is schedule-independent in its existential sense, and the exact distribution measures how much length is needed at the worst starting state under best choice of updates. Unique-sink games already separate lengths three and four, showing why mere reachability counts do not supply it. The witness and census give reference cases for quantitative work on larger cubes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

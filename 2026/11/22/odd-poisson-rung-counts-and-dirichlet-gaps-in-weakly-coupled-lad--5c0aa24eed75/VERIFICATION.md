@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_critical_ladder.py` in this directory using Python 3 and the standard library. The reference execution returned `VERIFY_OK: 627 exact assertions / bounded numerical checks`.
+## correctness
 
-The program independently enumerates all spanning-tree edge subsets of open ladders with one through seven rungs, comparing every admissible rung-set multiplicity with the gap-product formula and checking the total coefficient by rung count. For ladder lengths up to five, it calculates exact-rational transfer-current matrices at conductances \(1/2,1,3/2,3\), and compares all \(2^n\) inclusion events against independently weighted enumerations. Further bounded numerical diagnostics compare the finite weighted rung law with odd-conditioned Poisson probabilities, compare its mean with the finite spectral Bernoulli sum, and check the two-rung Dirichlet-gap second moment. These computations are finite cross-checks, not an exhaustive proof of asymptotic convergence.
+PASS
 
-The all-size evidence is the proof in `RESULT.md`: selected-rung cycle deletion; exact weighted enumeration; factorial dominated convergence and discrete total-variation convergence; conditional Riemann-sum convergence and independent cut marks; discrete path-Laplacian spectral convergence with a uniform summable tail; and extreme-scale separation from the finite determinantal eigenvalues. The continuum kernel is trace class, with an eigenvalue equal to one, so the limiting count is always positive. No external mathematics certification has been performed.
+For nonempty ordered rung columns, each consecutive pair forces a rail cut in its gap; edge count permits exactly one there and no others. Conversely, the uncut rail in each gap connects the bounding rungs, and both portions of the cut rail reach a bounding rung; tails are intact. Thus the multiplicity is the product of twice each gap length. Summing over the two boundary offsets and positive gaps gives 2^(k−1) binom(n+k−1,2k−1). At c=t/n² the masses multiplied by n tend to 2^(k−1)t^k/(2k−1)!, dominated by 2^(3k−2)t^k/(2k−1)!. Normalization yields the stated odd-Poisson, total variation convergence, pgf and mean. The conditional position weights give the product-of-gaps density by midpoint Riemann sums, normalized by the Dirichlet integral. Independent uniform discrete cuts in each gap couple to independent uniform continuum cut positions, with independent fair rail labels. Equivalently, conditional on k, the ordered unlabelled rungs and cuts alternate as 2k−1 uniform order statistics. The antisymmetric rail sector gives the weighted rung kernel 2c(L+2cI)^−1. Its normalized midpoint cosine modes give the stated Neumann kernel: after step embedding the bounded mode functions converge for fixed m and the summable O(m^−2) bound controls the kernel tails uniformly. The Fredholm series for the step-kernel process therefore converges to that for the limiting kernel; rounding points in the cells to their midpoints shifts positions by at most 1/n. The count eigenvalues give the two sharp-scale ends by a vanishing nonconstant-mode sum or by any fixed number of modes tending to certainty, respectively. Independent edge-subset checks at n≤6 agree with all rung-set multiplicities.
+
+## originality
+
+PASS
+
+Credit the joint, open-boundary critical marked limit, including its different parity and boundary-gap parameters, not the known finite kernel, finite enumerator or generic fair-cut mechanism. In isolation the Neumann spectral limit and count asymptotics are direct consequences of known finite inputs after the critical scaling calculation; the evidence supports distinct content in identifying the full boundary-sensitive geometry and its crossover, not new transfer-current or count techniques.
+
+## value
+
+PASS
+
+The critical-scale result tells when this finite connected model has a nontrivial finite rung process and specifies a complete boundary-sensitive spatial law, including the positions and rails of missing edges. These are not determined by a count distribution alone. The difference between open-interval odd interlacing and cyclic even interlacing is a meaningful geometric effect. The value is the joint scaling description, not recomputing the known finite kernel or applying a Poisson identity in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

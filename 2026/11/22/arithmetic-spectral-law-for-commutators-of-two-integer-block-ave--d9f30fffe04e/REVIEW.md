@@ -1,19 +1,21 @@
-# Scientific review: arithmetic block-average commutator spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The block projections are precisely the orthogonal range projections of the normalized weighted-composition isometries. Greatest-common-divisor factoring is an exact tensor decomposition. On a common cell the two-value variance identity computes the compressed defect as a positive modular weighted-path Laplacian, with every nonconstant eigenvalue strictly between zero and the larger reduced block size. Classical two-projection principal-angle blocks then give every pair of imaginary commutator eigenvalues. Polynomial triangularization yields the complete \(k(k+1)/m\) Jacobi spectrum in the two congruence classes, including the scale threshold in the sharp norm formula. Infinite repetition, rather than a limit of finite computations, gives essential spectrum and noncompactness. The standalone NumPy checker passed 396 finite tests as auxiliary evidence.
+PASS
 
-## Originality — PASS, with historical-priority limits
+After ordering p,q (reversal only negates the commutator), tensoring with the rank-one constants projection on g coordinates gives the gcd reduction. For coprime m<n both projections are identical from cell to cell of length mn. On the n-block range in a cell, the squared defect from E_m is a sum over the distinct m-blocks straddling the boundaries jn. In each such block the two values have multiplicities r_j and m−r_j and are scaled by 1/√n, giving L/n exactly. The path has kernel the constants and simple eigenvalues by the first-row tridiagonal recurrence; independently, the weights are at most m/4 and the sum of squared nearest-neighbor differences is at most 4‖u‖², so μ_max≤m<n. For t=1−μ/n in (0,1), a unit range vector v of the compressed projection and (E_m v−tv)/√(t(1−t)) give one two-dimensional block, whose commutator eigenvalues are ±i√(t(1−t)). The other directions commute and constants ensure zero occurs. Repetition gives infinite multiplicities and essential norm equal to the finite-block norm. For n≡±1, the finite differences on degree k have leading coefficient k(k+1)/m, giving the stated spectrum; maximizing in the indicated scale regime uses monotonicity up to η=1/2. At fixed residue the same path works for every n, so the limit follows directly. The verification record, check.py and NumPy dependency were inspected; the finite diagnostics were not executed.
 
-Manzur–Noor–Santos (arXiv:2111.05398, full HTML Sections 1–6 examined) derive the individual normalized isometries and adjoints, not the paired range-projector spectra. Loring (arXiv:1306.1923, full accessible text examined) supplies generic principal-angle geometry, but no modular arithmetic path. Shabtai (arXiv:2008.00221, full accessible text examined) treats spin spectral projections; Bailey–Cameron–Praeger–Schneider (2020 preprint, partition discussion examined) concerns compatibility of finite partitions without the spectral formulas here. Semantic searches of published mathematical records found general two-projection and other coarse-graining results, but no arithmetic block-averaging path formula. The unpublished-or-inaccessible specialist priority risk is real, and record summaries alone cannot establish whole-document noncoverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paired range projections are canonical in a studied semigroup of Hardy weighted-composition isometries. The theorem classifies their compatibility, gives all spectral points and exact sharp essential norms for every integer pair, and exposes a modular arithmetic effect through an elementary weighted-path model. In particular, it produces explicit closed norms on two infinite congruence families and a residue-dependent sharp \(n^{-1/2}\) scale-separation law. This is a structural spectral classification rather than an arbitrary finite table or a general two-projection tautology.
+The distinct contribution is the residue-weighted path reduction for arbitrary coprime aligned widths, its modulus-only dependence, the full ±1 congruence families beyond adjacency, and the resulting residue-wise scale-separation law. The generic principal-angle law, the finite cross-Gram spectral prescription, its adjacent-base specialization and the underlying Hahn eigenvalues are not credited as distinct results. In particular, the different operator in the strongest same-day comparison does not make the overlap disappear.
 
-## Limitations and residual risk
+## value
 
-Weights are uniform on unshifted consecutive blocks, and the arbitrary-residue norm is encoded in a finite Jacobi spectrum rather than radicals. The general principal-angle relation is classical and not claimed as new; the mathematical contribution is the arithmetic path identification and its closed diagonalization. Full underlying documents of two close published-record summaries were not accessible through their linked pages. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The residue path is useful for understanding relative position of these canonical block averages. In particular it separates the residue from a scalar 1/n, exposes the large-width decay constant without recomputing growing overlap arrays, and gives sharp norms throughout two residue classes, not just adjacent lengths. Value lies in this structural reduction and its consequences, not in recomputing a Hahn table or merely applying the generic projection norm formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

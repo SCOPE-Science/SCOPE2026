@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact bound and endpoint asymptotic for the specified centrally symmetric polytope. Its global maximum is obtained from containment of each central section in the orthogonal projection, Cauchy's monotone planar perimeter, the tetrahedral-generator zonotope identity, and the tight-frame Cauchy--Schwarz bound. Equality forces an axial normal, and that section reaches the bound. The local formula follows by intersecting an oblique plane with the three explicit pair-sum inequalities: the reference diamond has four disjoint vertex cuts whose endpoints and lengths are written exactly. The expansion therefore has a uniform linear \(\ell_1\) term with coefficient \(8(\sqrt2-1)\); the six axial charts then give the exact quadratic Haar tail coefficient. Numerical checks verify geometry and coefficients but do not substitute for the proof. Risk: the local clipping argument requires the stated neighborhood \(a>u+v\), not an arbitrary oblique direction; the proof uses it only locally.
+PASS
 
-## Originality — PASS, subject to historical priority
+The tetrahedral segment sum has exactly the required hull: in the positive orthant the pair-sum inequalities give the axis vertices and (1,1,1), besides points already in their signed hull. Width gives section perimeter at most projection perimeter; the projected segment lengths have sum of squares 8, so twice their sum is at most 8√2. Equality requires all four squared scalar products to equal 1; their expansion in the four tetrahedral signs gives ab=ac=bc=0. Axis sections are diamonds attaining the bound. In the local chart with nonnegative u,v, the corner at (y,z)=(2,0) loses adjacent edge lengths asymptotic to 2√2u each and gains a chord of length 4u, with errors O(u(u+v)); the z corners exchange u and v. The cuts on adjacent opposite-sign edges are disjoint since the sum of their edge parameters divided by 2 is [a(u+v)−(u−v)^2]/[a^2−(u−v)^2]<1, and same-sign edges are immediate. The lift changes edge metrics by O(u²+v²). Reflection gives the uniform absolute-value cusp. Continuity follows locally by writing the section radial function in a continuous orthonormal plane frame as 2 divided by the maximum of the three pairwise absolute coordinate sums on each unit ray, and applying perimeter continuity for planar convex bodies. Compactness then localizes the tail to six charts. Each contains asymptotically a diamond of area 2(ε/C)^2 with C=8(√2−1), and the sphere chart Jacobian tends to 1. Division by 4π gives 3(3+2√2)/(64π), without a further antipodal factor.
 
-Živaljević (arXiv:1307.5138v1, Section 3) constructs the regular tetrahedral \(\Delta\)-zonotope and studies its illumination complexes, but does not state a section-perimeter maximum or distribution. Makai--Martini (arXiv:1507.01467v1) study variational section-quermassintegral symmetry for smooth perturbations, rather than the fixed polyhedral object or its Haar endpoint tail. König--Koldobsky (arXiv:1806.08659v1) prove sharp *cube* section-perimeter bounds, not the result for this different zonotope. Published geometric records concerning rhombic-dodecahedral illumination, lattice Voronoi properties, and exact planar section counts concern different invariants. Source-index coverage is incomplete; obscure older section-perimeter or stereological tables remain a priority risk. These searches do not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The rhombic dodecahedron is the three-dimensional regular simplex-generated zonotope and a canonical face-centered-cubic Voronoi cell. Its section-perimeter maximum is an intrinsic extremal measurement, while the complete sharp upper-endpoint probability coefficient detects nonsmooth directional geometry that is invisible from a maximum alone. A tight-frame projection bound identifies every extremizer, and a geometric local corner formula supplies a reproducible exact rarity law. Neither the endpoint exponent nor its constant is implied by the general cited central-section results without further geometric analysis.
+The inspected material covers the tetrahedral zonotope representation, cube perimeter optimization and an analogous cube cusp/tail, and Haar side-count laws for the same rhombic dodecahedron. It does not establish the stated solid-section perimeter endpoint, equality set and local law together, or the rhombic-dodecahedron cusp and its tail constant. This is a best-of-knowledge assessment of the specified claim, not of priority for projection-width methods.
 
-## Scope and audit limitations
+## value
 
-No entire distribution, stability inequality away from maximal normals, or extension to unequal generators is asserted. The computational checker tests finite samples only. Historical equivalence may remain unrecognized; independent scientific and priority review have not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives an exact metric statistic of a canonical polyhedron under the natural isotropic law, not just a finite list of large examples. The linear and anisotropic deficit explains why rare near-maximal orientations in this two-dimensional orientation space have a quadratic probability with a calculable prefactor, rather than the leading behavior of a smooth quadratic maximum. Side counts and projection perimeter cannot replace this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

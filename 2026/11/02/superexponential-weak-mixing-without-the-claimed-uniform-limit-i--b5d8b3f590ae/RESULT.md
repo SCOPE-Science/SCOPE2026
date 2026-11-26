@@ -56,7 +56,7 @@ Every second-column entry of \(B_{0,n}\) lies in \([1/16,3/16]\); every such ent
 Thus the chain has superexponential weak mixing but no single fixed-start-time-independent uniform limit, and certainly not the claimed \(P\).
 
 ## Verification
-A standalone `check.py` uses Python `fractions.Fraction` only. Running `python check.py` tests the two-state matrix formula, nonvanishing second-column bounds, preservation \(P_nP=P\), normalization, and exact Dobrushin products for 152 finite rational pairs \((k,n)\). These tests check implementation and specializations; the displayed general inequalities and infinite limits are proved analytically above.
+A standalone `check.py` uses Python `fractions.Fraction` only. Running `python3 check.py` tests the two-state matrix formula, both second-column bounds \(4^{-(k+1)}/4\) and \(3\cdot4^{-(k+1)}/4\), preservation \(P_nP=P\), normalization, and exact Dobrushin products for the 124 rational product checks with \(0\le k\le7\), \(k+1\le n\le19\). These tests check implementation and specializations; the displayed general inequalities and infinite limits are proved analytically above.
 
 ## Relationship to prior work
 Souissi and Mukhamedov, *Nonlinear Stochastic Operators and Associated Inhomogeneous Entangled Quantum Markov Chains* (2024), Section 3, define the **reverse-ordered** product in their displayed formula immediately before Theorem 3.4; Theorem 3.5 claims uniform ergodicity for every summably controlled \(F\)-stochastic operator. The counterexample satisfies its exact hypotheses and contradicts this specific conclusion. The authors' separate Theorem 3.6 asserts only weak ergodicity, which the construction confirms.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Choosing any two sampled powers forces the Mersenne normalization and its exact integer witness. An index-spacing divisibility lemma cuts off unbounded exponent gaps for three-or-more-one words, while the separate high-gap construction realizes all two-one patterns with a one at position zero. The odd-divisor counting argument proves the explicit linear upper bound and the disjoint baseline families prove the lower bound. Boundary lengths and both directions of the equality are addressed. Checker-produced arithmetic progressions reproduce every generated candidate through length 40, and many further progressions lie in the generated language. These finite checks are corroboration, not the basis of the infinite theorem.
+## correctness
 
-## Originality
-PASS, with priority risk. Konieczny--Müllner's arithmetical-complexity theorem supplies a subexponential general envelope for effective alphabet size one but neither the exact language nor a linear bound for this characteristic sequence. Avgustinovich--Cassaigne--Frid's low-complexity classification presupposes uniform recurrence, absent here, and Frid's Toeplitz examples concern a different construction. Targeted searches for dyadic indicator arithmetic factors and published mathematical research records found no equivalent statement. An unindexed equivalent or broader theorem specializing to it remains a risk.
+PASS
 
-## Mathematical value
-PASS. This closes a natural growth-class gap for a canonical sparse automatic word and gives a uniform exact membership/generation procedure for every arithmetic-factor length. The explicit Mersenne-divisor normal form is structural and enables exact finite computations, not merely isolated numerical entries. The linear constant is not claimed sharp and the normalized complexity limit is unresolved.
+For two hits at a<b with exponent difference t, the identity h d=2^u(2^t-1) and n>=0 give exactly the odd-divisibility and inequality conditions; all such progressions give the same word after power-of-two normalization. Conversely the frozen n,d are integral and attain the word, allowing n=0. For three hits the odd first Mersenne factor is coprime to 2^t, forcing 2^t to divide the spacing after b. Above the cutoff t=floor(log_2 k), this excludes a third hit and the start constraint forces a=0. Each exceptional pair {0,b} is realizable by an arbitrarily large t divisible by the order of 2 modulo odd(b) (with modulus 1 separate). The printed divisibility argument is read precisely as: q/gcd(q,2^s-1) divides b for an intermediate exponent s; that actual divisor is at least (2^t-1)/(2^(t/2)-1)>b, not that the lower bound itself divides b. This establishes the claimed contradiction without changing the theorem or construction. Zero and singleton words come from unbounded gaps. The divisor estimates for a=0 and a>=1 each cost at most 4k/(1-1/sqrt(2)); first three families contribute precisely 2k distinct words, including the k=1 case. In the first estimate, 1+log_2 k<=2sqrt(k) follows by applying the tangent bound for log to sqrt(k) at 2. The all-length proof is analytic; the uploaded finite checker was inspected, not executed, and is not used as exhaustion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest corpus overlap studies the same support up to an index shift and gives sharp occupancy and a quadratic upper bound, but not the exact full factor language or the linear bound in base two. The primary general automatic-sequence theorem gives a subexponential bound here, not a linear one. The exact language prescription and linear bound are distinct on the inspected evidence; no priority claim is made beyond that comparison.
+
+## value
+
+PASS
+
+Powers of two form a canonical sparse automatic support. The finite generator replaces an unbounded progression search with explicit bounded parameters, handles arbitrary factor length and can certify attainable masks and exact counts at a chosen length. Linear growth is a significant refinement of the general subexponential or specific quadratic estimates and follows from structural constraints on several hits, not from a table of small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

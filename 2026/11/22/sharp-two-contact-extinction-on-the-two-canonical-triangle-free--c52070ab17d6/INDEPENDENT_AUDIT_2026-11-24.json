@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:49:01.659412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, graph_data.json, counts.json, VERIFICATION.md, verify_reverse.py and verify_forward.cpp (not executed)",
+        "Independent replay: python3 audit-evidence/excitation-bitmask.py source/2026/11/22/sharp-two-contact-extinction-on-the-two-canonical-triangle-free--c52070ab17d6/graph_data.json",
+        "NetworkX generators.small source, chvatal_graph adjacency dict, OA offset 4700, https://networkx.org/documentation/stable/_modules/networkx/generators/small.html"
+      ],
+      "rationale": "Independently exhaustively reproduced the three-state synchronous two-contact dynamics from the exact edge lists, without executing the supplied programs. In the audit, disjoint bit sets E and R encode excited and refractory vertices; the next state is (A(E) minus (E union R), E) where A(E) consists of vertices with at least two neighbors in E. Enumerating all E and every submask of its complement for R visits each labeled state exactly once. Iteration to the absorbing empty pair gives first-rest histograms (1,2047,51361,87116,36202,420) of 177147 states and (1,4095,117272,237555,151450,20160,908) of 531441 states. The largest nonempty bins 5 and 6 give the sharp times, and a nonzero periodic orbit is impossible. The independently recovered least base-three sharp witnesses 1089 and 120 give trajectories (1089,67792,153098,43767,54,0) and (120,9232,254180,492804,40825,2,0). At threshold one, the respective cycles are (448,88769,176502,448) and (448,265916,530796,448); the K4,4 cycle has the four displayed distinct states and the verified closing transition at threshold two. Checked the Grötzsch construction directly from C5 and its twins; checked the exact labeled Chvátal edges against the independently published graph generator. Both are triangle-free and four-chromatic by checking edge-neighborhood intersections and possible three/four covers by maximal independent sets. The finding concerns precisely these two labeled graphs; the Chvátal graph's extremal description should be read with four-regularity, not as another unqualified minimum-order example.",
+      "residual_risks": [
+        "This is an exact finite calculation for the synchronous, undirected, three-state rule and these labelled edge sets, not a theorem about threshold monotonicity, a generic graph family, or asynchronous updating."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved half-degree theorem requires a proper three-coloring for initial primitive period three at threshold two on connected 4-regular graphs. Chvátal fails that condition; Grötzsch is irregular."
+        ],
+        "reasoning": "Even after specialization to Chvátal this excludes only one nontrivial period. It cannot supply a sharp zero-map power or first-rest-time census.",
+        "searches": [
+          "Resultary 7c3fe196f42d, Finding and Proof",
+          "Durrett–Griffeath arXiv:patt-sol/9303002, Duke reprint pp. 183–185 (retrieval attempted)",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1, §§1–4/Theorem 3 (retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 05c6ca769af2, c135e8bc2320, 924e4654e069, 7c3fe196f42d, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Frozen RESULT.md lines 69–73; primary retrieval limitations recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period-three exclusion for Chvátal follows from half-degree rigidity alone; the first hitting times and absence of all other periods do not. The threshold-one records overlap in the ability to sustain nonzero excitation, not in the extinction claim."
+        ],
+        "reasoning": "Accepted advance is the paired exhaustive threshold-two classification, not discovery of either graph, of one-contact oscillation in general, or of a new update rule.",
+        "searches": [
+          "Resultary 7c3fe196f42d, 05c6ca769af2, c135e8bc2320 and 924e4654e069, Findings and scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest three-state records give recurrent periods and periodic-entry data at threshold one; they exhibit recurrent nonzero states under that other map."
+        ],
+        "reasoning": "A global zero-map power or first-rest basin is equivalent to a particular full first-entry classification only under the same map. Changing contact threshold or number of states changes the successor, so neither a table of periods nor a periodic-entry time there is an alias for this result.",
+        "searches": [
+          "Local Resultary comparison: synchronous three-state threshold-two GHM, Grötzsch/Mycielski pentagon and Chvátal, global extinction and first-rest histograms",
+          "Resultary 05c6ca769af2, c135e8bc2320, 924e4654e069"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct entries were 05c6ca769af2, c135e8bc2320 and 924e4654e069; their Findings specify different rule parameters. Indexing of the bound record itself is not corroborating prior coverage."
+        ],
+        "reasoning": "No inspected earlier or same-day distinct matching table has the same graph, number of states, contact threshold and first-rest statistic. This is a bounded catalogue comparison, not a completeness claim.",
+        "searches": [
+          "Local Resultary searches for both named graphs and threshold-two excitation/extinction, including exact extinction histograms"
+        ]
+      },
+      "rationale": "The strongest same-graph records concern threshold one (including a three-state Grötzsch record indexed on the same day) or a four-state rule. The strongest threshold-two overlap is a theorem only on initially primitive-three states at half degree, which excludes that period on Chvátal but not other periods or long transients. None of these actual statements gives the paired threshold-two zero-map identities, sharp transients, or first-rest distributions.",
+      "residual_risks": [
+        "An unindexed same-rule exact enumeration remains possible; primary full-text access limitations are explicit. No general priority inference, and no ordering inferred among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different threshold; does not cover two-contact extinction.",
+          "evidence": [
+            "With threshold one it reports periods 1,3,4,7,10,11, eight primitive 11-cycles and sharp 10-update first periodic entry."
+          ],
+          "identifier_or_url": "Resultary 05c6ca769af2",
+          "material_read": "Mirrored RESULT.md, Finding and scope, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Excitation on the Chvátal graph: a unique symmetry class of eleven-cycles",
+          "trigger": "Exact Chvátal graph and three total states"
+        },
+        {
+          "assessment": "Threshold one; genuinely different map, irrespective of same-day order.",
+          "evidence": [
+            "Reports primitive periods 3,4,7,10, sharp nine-update periodic entry and 13,887 states reaching rest."
+          ],
+          "identifier_or_url": "Resultary c135e8bc2320",
+          "material_read": "Mirrored RESULT.md, Finding and scope, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Exact excitable-wave spectrum and basin geometry on the Grötzsch graph",
+          "trigger": "Same-day distinct record; exact Grötzsch graph, three states, and rest counts"
+        },
+        {
+          "assessment": "Four total states at threshold one, not the present three total states at threshold two.",
+          "evidence": [
+            "29,602 primitive four-cycles and sharp 12-update periodic entry with 48 maximizers."
+          ],
+          "identifier_or_url": "Resultary 924e4654e069",
+          "material_read": "Mirrored RESULT.md, Finding and scope, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Four-state Chvátal excitation: period collapse and six extremal symmetry classes",
+          "trigger": "Exact Chvátal graph and exhaustive dynamics"
+        },
+        {
+          "assessment": "Covers lack of initial primitive three-periodicity for Chvátal by the coloring condition; not general extinction, sharp times or counts on either graph.",
+          "evidence": [
+            "On connected even-regular graphs at half degree, the initially primitive-three classification requires a proper three-coloring."
+          ],
+          "identifier_or_url": "Resultary 7c3fe196f42d",
+          "material_read": "Mirrored RESULT.md, Finding, scope and Proof, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "General same-threshold rigidity may already imply part of the assertion"
+        },
+        {
+          "assessment": "Access limitation, not negative priority evidence. The positive comparison rests on the exact retrieved Resultary sources.",
+          "evidence": [
+            "The frozen citations distinguish threshold-dependent lattice theory and one-contact arbitrary-graph theory; their full-text passages were not independently inspected here."
+          ],
+          "identifier_or_url": "arXiv:patt-sol/9303002; arXiv:1610.07320v1",
+          "material_read": "No fresh primary full-text passage retrieved; frozen RESULT.md lines 69–71 records the comparison",
+          "method": "Targeted lawful OA attempts using cited Duke reprint and arXiv HTML/PDF routes; timed out",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata; Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Threshold model and finite-graph theory are closest cited primary antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof, exact independent histograms and comparison trajectories",
+        "Same-graph threshold-one and different-state Resultary studies"
+      ],
+      "rationale": "The two graphs are standard extremal chromatic benchmarks, including the regular case. Exact finite extinction on both is not forced by triangle-freeness, four-regularity, or initial-three-cycle exclusion. The sharp unequal cutoffs and full first-rest distributions provide useful finite-network benchmarks for the effect of contact threshold, and the oscillating biclique shows a concrete boundary of the phenomenon.",
+      "residual_risks": [
+        "Finite benchmark value only; neither typical behavior for larger networks nor a general extinction mechanism is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

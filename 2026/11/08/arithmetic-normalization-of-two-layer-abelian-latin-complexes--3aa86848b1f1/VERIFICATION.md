@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Mathematical and computational checks
-The construction has \(3N\) vertices, \(3N^2\) edges, and \(2N^2\) triangles for any nonzero shift; the proof partitions it into \(d^2\) sheets indexed by ordered coset pairs. Each edge belongs to exactly one sheet; each sheet has \(3m\) vertices, \(3m^2\) edges, and \(2m^2\) triangles. Its links are single \(2m\)-cycles, and the alternating triangle orientation provides an integral fundamental class. The graph of sheet-vertex incidences has \(d^2+3N\) vertices and \(3Nd\) edges and is connected. Its cycle rank is \(3N(d-1)-d^2+1\). These exact steps imply the integral homotopy type; no Smith-normal-form guess or finite sampling is used as an infinite proof.
+# Independent mathematical audit
 
-`verify.py` separately constructs the original full simplicial complex, checks the vertex-link cycle structure and the sheet and incidence counts, and calculates complete mod-two chain ranks for ten finite examples, including noncyclic groups. The recorded output is `verify_output.txt`; the final line must be `ALL_TWO_LEVEL_CHECKS_OK`. No external dependencies are required.
+## correctness
 
-## Scope of verification
-Computational ranks test only the supplied finite examples. The integral torsion-free conclusion and arbitrary finite-abelian-group classification follow from the sheet normalization and graph-of-spaces proof, not from mod-two ranks. The source comparisons inspect the current claim's implication relative to the flabby-inflation theorem, the Latin-array single-layer theorem, the published unit-difference homology theorem, and classical connected regular Latin biembeddings. Unindexed equivalent treatments of singular Latin bitrades remain a possible overlap risk. No independent audit has been performed.
+PASS
+
+For any colorful edge the two fixed cosets force the third; all sheets therefore meet only at vertices. Choosing lifts of the first two cosets and the negative of their sum for the third gives exactly the cyclic generator-shift model on H, even for a nonsplit extension. Alternating the two distinct matching edges translates by ±t, giving one 2m-cycle per sheet vertex, including m=2. Opposite signs on the two triangle layers give a coherent orientation and χ=3m−m². Each original vertex belongs to d sheets. The replacement by attachment intervals collapses along disjoint contractible CW stars to X; the attaching maps from points can alternatively be moved to sheet basepoints up to homotopy by the homotopy-pushout description. Sheet nodes with common first or second coset connect through an original vertex, so a spanning tree leaves 3Nd−3N−d²+1 loops. This proves the integral wedge; for Z/6 the shifts 2,3 give respectively (four tori,15 circles) and (nine spheres,28 circles). The archived F2 checks are illustrative only and were not executed.
+
+## originality
+
+PASS
+
+The connected constituent is classical, and the point-gluing lemma is standard; the contribution is the arithmetic identification of all sheets and the exact glued homotopy type for proper shifts. Best of knowledge, without a complete bitrade literature or corpus search.
+
+## value
+
+PASS
+
+The shift order alone organizes the singularities and entire homotopy type. On the same 18–108–72 face vector it distinguishes surface-group factors from sphere sheets and determines the exact additional free factors; this is a natural boundary of connected Latin-square biembedding theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 check_gp.py`, `python3 check_cayley.py`, and `python3 check_symmetry.py` using Python 3.9 or later. They require only the standard library; run from the directory containing the scripts. Machine-readable expected summaries are `gp_output.json`, `cayley_output.json`, and `symmetry_output.json` respectively. Each checker independently recomputes its assertions, so the saved summaries are not the source of correctness.
+## correctness
 
-`check_gp.py` enumerates all 24 singletons, 276 pairs and 2,024 triples, computes the exact power-domination closure, constructs both configuration graphs, verifies their connectivity by complete BFS, and inspects all 165,600 unordered pairs. `check_cayley.py` independently presents the same graph on permutations of four values, verifies its isomorphism with the generalized Petersen model, computes the closure by sequential forcing, and constructs edges by pairwise comparison. `check_symmetry.py` verifies all 144 relabelling-and-coordinate automorphisms and the exact orbit of 72 diametral pairs.
+PASS
 
-The scripts establish a finite theorem for this exact graph and move model. They do not certify results for other graph sizes or independent external review.
+In GP(12,5) the graph built from outer step 1, inner step 5 and the spokes has 24 vertices of degree three. Starting from N[S], unique-neighbor forcing computes a well-defined closure: enlarging the observed set cannot invalidate a force to a vertex still unobserved. Exhaustion of 24 singletons, 276 pairs and 2024 triples gives 0,0,576 successes. On precisely these minimum triples, an exchange generates a jump and an exchange of adjacent vertices generates a slide; the latter always changes the occupancy parity in one part of the bipartite base graph. Independent all-source distance calculations on both graphs cover all 165600 unordered pairs, including the full paired-distance penalty profile. They confirm 6660 and 1152 edges, slide degree four, radius/diameter 4/4 and 9/10, slide eccentricities 432 of nine and 144 of ten, and exactly 396 maximum-penalty pairs split by (slide,jump) lengths (8,1):324 and (10,3):72. In the permutation-star presentation, symbol permutations and permutations of positions 1–3 preserve star edges; the two commuting actions have trivial common kernel since the center of S4 is trivial. The checked explicit adjacency-preserving bijection maps those 144 automorphisms to the GP labels. The orbit computation gives the five stated triple orbits; separate GP automorphism enumeration verifies that the displayed pair generates exactly all 72 diametral pairs and these cover each eccentricity-ten vertex once. Since the displayed subgroup already has 144 elements, the independent group enumeration applies to the stated subgroup too.
+
+## originality
+
+PASS
+
+Existing reconfiguration definitions, cubic power-domination bounds, the classical Nauru graph and its symmetry are background. The supported distinct result is the exact minimum-configuration jump and slide metric comparison, in particular the distance-ten orbit and its perfect pairing of the eccentricity-ten configurations. Related results on different cubic graphs share some exact numbers or orbit phenomena but do not give the Nauru values or pair structure.
+
+## value
+
+PASS
+
+This is a natural symmetric cubic benchmark for the difference between unrestricted exchange and graph-local movement at the optimum. The 4-regular slide graph is not vertex-transitive: only one configuration orbit is eccentricity ten, and a unique diametral partner pairs precisely that orbit. Even a single jump sometimes requires eight optimality-preserving slides. The paired metric and symmetry certify these distinct obstructions, rather than just adding another graph's count of optimum triples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

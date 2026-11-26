@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:45:34.910997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the conditional binomial transition after the Bernoulli new draw. The affine regression gives μ_n=q_n/(1−a_n), n(1−a_n)=1+c−c/n, and the exact lag multiplier a_n^h. An independent shortcut checks the fluctuation scale: stationary total variance gives (1−a_n²)Var(K)=E V_n(K), and V_n≤c+1/4. Thus Var(K)=O(n), K/n concentrates at x=1/(1+c), and the bounded continuous-density variance formula gives E V_n→H=cx+x(1−x). Therefore Var(K)/n→H/[2(1+c)], agreeing with the subset recursion. The losses' binomial domination bounds fourth centered moments uniformly (use factorial moments up to order four); the scaled jumps vanish and the conditional Lindeberg sum tends to zero in L¹. Uniform-in-time bracket convergence follows by summing the stationary mean absolute variance errors. The bounded bracket rate controls the martingale increments at stopping times by O(δ+1/n); Doob and the linear drift give the needed supremum bound. Passing the martingale problem to continuous limits yields OU, whose initial law must be invariant: equality of its marginal with time zero for any single positive time in a finite horizon can be iterated by the OU semigroup. Uniqueness then gives the stated Gaussian and independence of the Brownian innovation. The explicit finite covariance kernel also converges directly. Independently checked n=2,p=1/2 by expanding the transition and verifying the invariant vector (5/12,1/2,1/12), mean 2/3, variance 7/18 and lag-one covariance 7/72. Frozen checker.py inspected, not executed; its finite checks do not establish process convergence. Replay RESULT.md:27–110.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The abstract reviews the general finite-time approximation by a drift ODE and the diffusion approximation of √N fluctuations for density-dependent processes."
+        ],
+        "reasoning": "This is methodological coverage, not an existing model-specific stationary trajectory theorem. To use it here one still must identify the centered equilibrium initial family and its limit, and compute the discrete-time new-draw and thinning covariance under this protocol. Neither a deterministic-start CLT nor tightness of one-time marginals alone gives the result.",
+        "searches": [
+          "arXiv:1312.5788 density-dependent processes and Kurtz approximation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.20705",
+        "arXiv:2605.14511",
+        "arXiv:1312.5788",
+        "two local Resultary exact stationary-law records above",
+        "frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact m1,m2 give Var(K)/n by elementary substitution, and the lag multipliers themselves follow from the known transition.",
+          "The new claimed law is convergence in D with stationary OU initialization, proved using a conditional martingale bracket, Lindeberg and stationarity (RESULT.md:69–108)."
+        ],
+        "reasoning": "Even Gaussian-looking variance and exponential lag covariances do not identify a process limit; the limit argument supplies Gaussian finite-dimensional laws and process tightness at equilibrium. The prior concentration, exact static law and standard method do not by themselves supply that complete result in the inspected statements.",
+        "searches": [
+          "arXiv:2602.20705 density concentration",
+          "arXiv:2605.14511 Thm. 5.13",
+          "Resultary prior exact inclusion-law findings",
+          "arXiv:1312.5788 density-dependent diffusion background"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cruciani–Dudeja define draw first, then thin independently including the newly drawn coupon; their abstract and metastability summary address concentration near 1/(1+c).",
+          "Long explicitly uses a post-loss observation and Theorem 5.13 gives an exponential hitting-time law at fixed p."
+        ],
+        "reasoning": "These are the same count convention, not merely similar coupon models. Concentration just controls K/n and a hitting-time law for K=n controls a different random object and scale; neither identifies the joint finite-time √n fluctuation law.",
+        "searches": [
+          "Cruciani–Dudeja arXiv:2602.20705 post-loss model at p=c/n",
+          "Long arXiv:2605.14511 same protocol stationary-entry law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 2 Finding and proof give the identical product of jq^j/[n(1−q^j)+jq^j] for a fixed subset.",
+          "The Oct. 13 Finding and stationary factorial recursion give the exact stationary joint law and negative pair covariance."
+        ],
+        "reasoning": "These are direct overlaps for the exact finite inputs and the variance comparison that follows algebraically. They do not enumerate or establish a path-space invariant. The opaque earlier recursion reference in the frozen record is not assumed to identify either exact entry.",
+        "searches": [
+          "Resultary: stationary critical careless coupon collector OU and subset inclusion moments",
+          "2026/11/2/SCOPE-exact-stationary-coupon-subset-moments-and-sharp-critical-loss-c--15d75278690c",
+          "2026/10/13/SCOPE-exact-stationary-law-and-critical-synchronization-exponent-for-t--870ace5234fa"
+        ]
+      },
+      "rationale": "For the frozen post-loss convention and p=c/n, the surviving contribution is the stationary path-space Gaussian limit with explicit parameters. The model, the density concentration, the stationary inclusion identities and algebraic consequences for the variance are not independent novelty; the general diffusion method is also prior. The closest inspected same-model results did not determine the stationary fluctuation process. This is a best-of-knowledge assessment against the passages below.",
+      "residual_risks": [
+        "A broader equilibrium process CLT or another explicit same-model fluctuation theorem may exist outside the inspected statements.",
+        "A targeted search supplied no useful extra source; it is not evidence of absence. The source contains no rare full-collection or fixed-p fluctuation conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and metastable density concentration, not a centered process limit in the inspected statements.",
+          "evidence": [
+            "Uniform draw followed by thinning; when p=c/n the retained fraction concentrates near 1/(1+c)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.20705",
+          "material_read": "Abstract and formal definition at text start; metastability summary around offset 4997",
+          "method": "Open-access HTML passages",
+          "title": "The Careless Coupon Collector's Problem",
+          "trigger": "Same draw-then-thin dynamics and critical scale"
+        },
+        {
+          "assessment": "Rare full-collection and stationary-entry scales; no matching assertion in passages read.",
+          "evidence": [
+            "Exponential hitting time from empty at fixed p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+          "material_read": "Post-loss comparison pp. 4–5, offset around 15001; Theorem 5.13 p. 31, offset around 97493",
+          "method": "Open-access PDF passages",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Stationarity and distributional asymptotics for the same count"
+        },
+        {
+          "assessment": "Direct finite-moment overlap; functional fluctuation is not its stated finding.",
+          "evidence": [
+            "Exact product indexed by size of the fixed subset."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-stationary-coupon-subset-moments-and-sharp-critical-loss-c--15d75278690c",
+          "material_read": "Finding and Proof §1, at start of RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Exact stationary coupon-subset moments and sharp critical-loss completion exponent",
+          "trigger": "Near-exact match for finite critical-loss theory"
+        },
+        {
+          "assessment": "Prior joint law and pair covariance, not a stationary path limit in those statements.",
+          "evidence": [
+            "Identical stationary factorial recursion; negative occupancy covariance."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-stationary-law-and-critical-synchronization-exponent-for-t--870ace5234fa",
+          "material_read": "Finding and Stationary factorial recursion at start of RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Exact stationary law and critical synchronization exponent",
+          "trigger": "Earlier exact occupancy law"
+        },
+        {
+          "assessment": "General method context only; not used to rule out articles beyond material read.",
+          "evidence": [
+            "Describes density-dependent diffusion approximation around a deterministic path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.5788",
+          "material_read": "PDF page 1, abstract",
+          "method": "Open-access PDF passage",
+          "title": "Escape from the boundary in Markov population processes",
+          "trigger": "General diffusion-approximation precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The typical equilibrium dynamics at the critical loss scale are a natural question not answered by rare completion or macroscopic density concentration. The path law quantifies persistence of fluctuations on the n-step time scale and gives a usable Gaussian limit for repeated equilibrium observations. Its explicit noise law distinguishes the model from the independent-coupon surrogate despite the same mean density. This value attaches to the process-level result, not to recomputing the known stationary factorial recursion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

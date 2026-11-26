@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:43.453146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–29 and 31–73; VERIFICATION.md and proofcheck.py, inspected as supporting evidence only."
+      ],
+      "rationale": "Conditional on the renewal age A, the OU mean is zero and the variance is (D/κ)(1−exp(−aA)), a=2κ. Write H(s)=∑_{k=0}^{m−1}r^k/(s+a+r)^{k+1} for the shifted survival transform. Summing over the last renewal gives the independently reconstructed age transform H(s)/[1−(r/(s+r))^m], initially for Re s>0. Its residue at zero is (r/m)H(0). The nonreal leading roots are s=r(z−1), z=exp(2πi/m) and its conjugate. The first root's residue is (rz/m)H(s); cancellation would require (a+rz)^m=r^m. For m≥4, |a+rz|>r. For m=3, equality of moduli is possible only at a=r, but then (a+rz)^3=−r^3. For m≥4 the pair has real part at least −r and strictly beats −(a+r); for m=3 it beats that real exponent exactly at r<2a. At r≥2a the cubic-pole coefficient in the age transform is r²a³/(a³+r³), so the negative variance deviation is led by (D/κ) times its negative inverse-Laplace contribution, including equality where the t² factor dominates the sinusoid. The nonzero leading sinusoid in the complementary phase gives opposite signs along successive extrema. Shapes 1 and 2 have only real poles, even if they coincide; the last nonzero exponential-polynomial mode fixes the eventual sign. Exponential-polynomial analyticity and V(0)<V∞ exclude accumulating zeros at finite times in every eventually one-sided case. These checks prove the dichotomy and constants without relying on the bundled finite tests.",
+      "residual_risks": [
+        "Read 'Below the boundary in the nonoscillatory region' at proof line 71 as the strict nonoscillatory region r>2a. The formulas and theorem already say this. At s=−a only the displayed factor is removable; a separate renewal pole can coincide there (e.g. m=2, a=2r). The summed H(s) form makes this distinction and preserves the proof.",
+        "The analysis is for integer shape, strictly positive parameters, and a reset at initialization; it makes no monotonicity claim for early times or for a stationary-age initial law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eule–Metzger consider arbitrary waits and explicitly discuss Gamma examples. Radice uses Gamma waits and a finite-speed return toward the origin rather than instantaneous resets of harmonically confined diffusion."
+        ],
+        "reasoning": "The arbitrary-renewal theory contains the transform method, but the surviving rightmost complex pair and its competition with the displaced third-order real pole require further parameter-dependent analysis. Finite-speed return also changes the observable's evolution.",
+        "searches": [
+          "arXiv:1510.07876, Eq. (6) and Gamma examples",
+          "arXiv:2201.01829, p. 24"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.07876",
+        "arXiv:2301.12304",
+        "arXiv:2201.01829",
+        "Resultary 991b947a8ac2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general formula supplies renewal denominators and the Poisson model covers one nonoscillatory shape. The refractory catalogue result has resting stages rather than Erlang resets during ongoing OU evolution."
+        ],
+        "reasoning": "A general renewal equation does not establish that a pole survives the numerator or whether a real multiple pole wins a tie in real parts. None of the inspected specific statements provides the all-shape threshold or its leading constants.",
+        "searches": [
+          "arXiv:1510.07876, Eq. (6)",
+          "arXiv:2301.12304, Eq. (11)",
+          "Resultary refractory Brownian crossing Finding, 991b947a8ac2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The variance is an affine function of the backward renewal-age Laplace observable. Eule–Metzger give arbitrary renewal waits; Trajanovski et al. specify stochastic Poisson resetting in the harmonic OU model."
+        ],
+        "reasoning": "The age formulation is mathematically equivalent to the proposed sign test. General renewal representations yield its transform but not the final sign test; the specific Poisson OU model gives only m=1.",
+        "searches": [
+          "arXiv:1510.07876, pp. 1–3 and Eq. (6)",
+          "arXiv:2301.12304, p. 3, Eq. (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby catalogue entry gives r=q or 2q≤r<4q for free Brownian motion with complete Poisson resets followed by two consecutive exponential resting stages."
+        ],
+        "reasoning": "The claimed phase diagram is continuous in positive rates, rather than a finite table lookup. The closest inspected exact catalogue threshold concerns a different generator and cannot supply the OU/Erlang phase diagram.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-resonant-stationary-crossings-under-two-stage-refractory-brownia--991b947a8ac2, local RESULT.md Finding"
+        ]
+      },
+      "rationale": "The distinct result supported by the comparison is the full harmonic Erlang crossing classification and leading asymptotics, not the general renewal transform or the Poisson harmonic model. The closest explicit catalogue crossing result uses a different motion/rest process and has a different boundary; primary antecedents do not determine this classification without the mode and noncancellation analysis.",
+      "residual_risks": [
+        "An earlier explicit OU specialization or a renewal-age spectral classification not located in the bounded comparison could cover the same phase diagram. The comparison does not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general construction, not the sharp OU transient in the compared passages",
+          "evidence": [
+            "General solution for processes with arbitrary reset waiting-time distributions; Eq. (6) generalized master equation for such clocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07876",
+          "material_read": "PDF p. 1 model summary, p. 2 Eq. (6), and p. 3 Gamma discussion",
+          "method": "Lawful OA PDF passages",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "Broader renewal law with Gamma-reset examples"
+        },
+        {
+          "assessment": "Covers the Poisson subcase",
+          "evidence": [
+            "The model specifies stochastic Poissonian resetting to x=x₀ and gives the Poisson-reset Fokker–Planck equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.12304",
+          "material_read": "PDF p. 3 resetting model and Eq. (11)",
+          "method": "Lawful OA PDF passage",
+          "title": "Ornstein–Uhlenbeck process and generalizations: particle's dynamics under comb constraints and stochastic resetting",
+          "trigger": "Same harmonic excursion, possible exact transient"
+        },
+        {
+          "assessment": "Different excursion and return process",
+          "evidence": [
+            "The return is motion at constant velocity toward the origin, not instantaneous OU center resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01829",
+          "material_read": "PDF p. 24 discussion of diffusion and return mechanism",
+          "method": "Lawful OA PDF passage",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Same Gamma family, potential broader coverage"
+        },
+        {
+          "assessment": "Different model and boundary; not equivalent coverage",
+          "evidence": [
+            "Active free Brownian motion alternates with two post-reset resting stages; the stated boundary is r=q or 2q≤r<4q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonant-stationary-crossings-under-two-stage-refractory-brownia--991b947a8ac2",
+          "material_read": "Local RESULT.md, Finding and assumptions",
+          "method": "Resultary search and local-mirror read",
+          "title": "Resonant stationary crossings under two-stage refractory Brownian resetting",
+          "trigger": "Close exact stationary-crossing classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md asymptotics and compared Poisson OU and arbitrary-renewal antecedents."
+      ],
+      "rationale": "The integer clock shape controls whether a natural transient observable crosses its own equilibrium infinitely often, despite monotone variance growth within each excursion. The exact threshold, exceptional equality case, and oscillation frequency and damping distinguish relaxation mechanisms that the equilibrium moment alone cannot diagnose.",
+      "residual_risks": [
+        "Late crossings can be exponentially small; no empirical detectability or extension to fractional shape is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

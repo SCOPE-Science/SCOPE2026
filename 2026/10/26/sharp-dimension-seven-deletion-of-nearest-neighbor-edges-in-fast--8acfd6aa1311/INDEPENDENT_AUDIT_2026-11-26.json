@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:57:43.088758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–95, VERIFICATION.md, verify.py and verification_output.txt",
+        "/workspace/branches/independent_finite.py (independent finite reproduction)"
+      ],
+      "rationale": "Convexity of the centered spectral norm and invariance under the translations and coordinate permutations reduce the optimum to two nonnegative edge weights with nonnegative holding probability. On the weight-j Fourier character the distance-three term equals the elementary symmetric polynomial of degree three in d signs. Cubing their sum shows that the repeated-index terms are (3d−2)(d−2j), giving the stated cubic and entire spectrum. For d=3,4, averaging the complete bipartite graph fixes total moving mass 2/3 by balancing 1−mass and 1−2 mass. This step alone does not prove uniqueness under just translations and coordinate permutations: at d=3 it gives 3a+b=2/3 and the j=1 and j=2 upper bounds 1/3 force a≤1/6 and a≥1/6; at d=4 it gives a+b=1/6 and j=1,3 force equality of a and b. At d=5 and 6 the displayed positive convex combinations of signed modes cancel both edge coefficients exactly; equality fixes the three active contacts and the two weights, whose entire spectra satisfy the bound. In d≥7 the j=1,d identity bounds the optimum below by (d−3+4da)/(d+3); equality needs a=0 and fixes b. The character-sum bound gives the lower spectral envelope; for the upper envelope the factored difference has a quadratic strictly positive for d≥8, and at d=7 the factor 2(j−5)(2j−9) is nonnegative at every integer j. The resulting feasible optimum and equality conditions are therefore universal. Nonnegative orbit averages can be zero only if each corresponding original entry vanishes, which proves the unrestricted assertion. I also enumerated feasible linear-program vertices with exact rationals and independently counted the signed row terms by binary parity in d=3 through 7, confirming each exact table entry and uniqueness in the invariant LP.",
+      "residual_risks": [
+        "The unrestricted optimizer statement concerns edge deletion or positive orbit mass as specified, not general optimizer uniqueness or another mixing objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd–Diaconis–Xiao give the general SDP with stochastic, nonnegative, symmetric, graph-supported matrices; Boyd–Diaconis–Parrilo–Xiao prove averaging over graph automorphisms reduces variables to edge orbits.",
+          "Their explicit hypercube and Hamming examples use exactly one-coordinate disagreements. Karlin–Lindqvist–Yao was not retrievable in full."
+        ],
+        "reasoning": "The general framework gives a computable optimization problem, not the active modes, exact thresholds or optimal weights. The explicit one-shell solutions do not test whether adding distance-three transitions leads all optimizers to remove the distance-one shell.",
+        "searches": [
+          "doi:10.1137/S0036144503423264 §2.3",
+          "doi:10.1137/070689413 Theorem 2.1 and §§3.2.2, 3.3.2",
+          "doi:10.1002/rsa.3240040102"
+        ]
+      },
+      "checked_sources": [
+        "Two Boyd papers; Karlin–Lindqvist–Yao bibliographic and retrieval lead",
+        "Named Resultary mirror statements; same-day Nine rank-three theories of mixed Hamming graphs checked as a logic result, not FMMC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The automorphism theorem provides an invariant optimizer, not that its one-bit coordinate is zero. The binary two-hop record requires positive aggregate one-bit mass; the nonbinary two-coordinate record deletes distance-one entries in its generic regime."
+        ],
+        "reasoning": "A zero orbit average does force zero individual probabilities, but in the frozen graph the premise a=0 must first be forced by a sharp spectral bound and an all-mode feasibility proof. Neither analogous support transition in a different feasible family supplies that premise.",
+        "searches": [
+          "doi:10.1137/070689413 Theorem 2.1",
+          "SCOPE-a-sharp-rigidity-transition-and-optimal-face-dimension-for-two-h--20328f74e74c",
+          "SCOPE-sharp-two-coordinate-fastest-mixing-on-nonbinary-hamming-network--f60fab55c4f0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SDP objective in Boyd–Diaconis–Xiao is exactly the centered norm used here; minimizing the one-orbit or other-shell problem uses different constraints.",
+          "The third-distance parity-map record treats deterministic linear dynamics over the binary field, not real nonnegative stochastic optimization."
+        ],
+        "reasoning": "Hamming relation algebra can compute the modal coefficients, but identifying the optimum and which nonnegative shell variable is forced to vanish is a separate minimax problem. The distance-shell parity map does not supply that real optimization.",
+        "searches": [
+          "Resultary and primary literature: symmetric fastest mixing on a binary cube, two permitted jump sizes 1 and 3, SLEM, distance shells and Krawtchouk spectra",
+          "SCOPE-complete-binary-dynamics-of-third-distance-hamming-cube-parity-m--0ad046200340"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected distance-one hypercube formula is µ*=(d−1)/(d+1), not the result for the two shells. The mirrored binary two-hop formula is (d−3)/(d+1) for d≥4 and pertains to shells one and two.",
+          "The nonbinary table permits one- and two-coordinate transitions for q≥3 and gives a different support-deletion regime."
+        ],
+        "reasoning": "The found exact values are for different feasible sets, not earlier entries of the frozen {1,3} table. The one-coordinate and two-hop analogues do not yield the exceptional d=5,6 values or the all-dimensional two-shell formula.",
+        "searches": [
+          "Resultary searches for {1,3} binary FMMC and its dimension threshold",
+          "doi:10.1137/070689413 §§3.2.2 and 3.3.2",
+          "Binary two-hop and nonbinary two-coordinate FMMC mirror records"
+        ]
+      },
+      "rationale": "General FMMC, its SDP and its edge-orbit reduction are established, and the d=3,4 complete-bipartite results are not the substantive novelty. The supported distinct contribution is the exceptional optimizers in dimensions five and six and the sharp dimension-seven transition for the two-shell graph, including mandatory deletion of the entire one-bit shell by every optimizer.",
+      "residual_risks": [
+        "The inaccessible 1993 hypercube spectral majorization paper may contain stronger or equivalent coverage; search absence does not exclude it or another specialized exact result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established general optimization, not closed-form two-shell result",
+          "evidence": "Minimizes the centered norm under symmetry, nonnegative stochasticity and permitted-edge support; includes holding probabilities.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Primary text pp. 667–668 and §2.3 p. 673",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Exact objective and graph constraints"
+        },
+        {
+          "assessment": "General reduction plus different exact support",
+          "evidence": "Averaging preserves optimality; the tabulated cube and Hamming examples use edges of distance one only.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Theorem 2.1 pp. 797–798; §§3.2.2, 3.3.2 pp. 800, 802",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Strongest plausible covering symmetry theorem and exact hypercube/Hamming formulas"
+        },
+        {
+          "assessment": "Named residual priority risk, no conclusion about its full results",
+          "evidence": "The frozen RESULT.md reports an abstract on spectra and majorization inadequate to resolve equivalence.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240040102",
+          "material_read": "Bibliographic identification and frozen report of an abstract; no independent full-text or abstract reading",
+          "method": "Lawful DOI/Wiley and open-copy lookup, inaccessible",
+          "title": "Markov Chains on Hypercubes: Spectral Representations and Several Majorization Relations",
+          "trigger": "Older potentially overlapping spectral majorization theorem"
+        },
+        {
+          "assessment": "Later; distinct support and conclusion",
+          "evidence": "Allows jumps of sizes one and two and requires positive aggregate one-bit mass.",
+          "identifier_or_url": "SCOPE-a-sharp-rigidity-transition-and-optimal-face-dimension-for-two-h--20328f74e74c",
+          "material_read": "Mirrored RESULT.md finding and scope",
+          "method": "Local catalogue and mirror",
+          "title": "A sharp rigidity transition and optimal-face dimension for two-hop hypercube walks",
+          "trigger": "Closest exact binary-cube FMMC analogue"
+        },
+        {
+          "assessment": "Later; distinct alphabet and permitted jumps",
+          "evidence": "Permits distance at most two with q≥3, and in a generic regime deletes loops and distance-one entries.",
+          "identifier_or_url": "SCOPE-sharp-two-coordinate-fastest-mixing-on-nonbinary-hamming-network--f60fab55c4f0",
+          "material_read": "Mirrored RESULT.md finding and scope",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp two-coordinate fastest mixing on nonbinary Hamming networks",
+          "trigger": "Closest analogous all-optimizer deletion result"
+        },
+        {
+          "assessment": "Different mathematical object and problem",
+          "evidence": "Studies deterministic parity dynamics over the binary field.",
+          "identifier_or_url": "SCOPE-complete-binary-dynamics-of-third-distance-hamming-cube-parity-m--0ad046200340",
+          "material_read": "Mirrored RESULT.md finding and scope",
+          "method": "Local catalogue and mirror",
+          "title": "Complete binary dynamics of third-distance Hamming cube parity maps",
+          "trigger": "Earlier work on the same distance-three relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact optimum and all-optimizer claim; adjacent Hamming optimizations compared above"
+      ],
+      "rationale": "The cube with one- and three-coordinate flips is a natural distance-shell network. The optimum does not merely favor three-bit jumps asymptotically: at a sharp finite dimension every optimizer stops using the entire nearest-neighbor orbit. This is a structural support rule with a complete exact spectrum-based classification, not merely a recomputation of the low-dimensional complete-bipartite cases.",
+      "residual_risks": [
+        "The result uses symmetric stochastic SLEM and does not automatically address total-variation mixing or nonreversible chains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

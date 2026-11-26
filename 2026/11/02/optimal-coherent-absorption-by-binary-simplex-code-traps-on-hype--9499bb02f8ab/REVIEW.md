@@ -1,19 +1,21 @@
-# Scientific review: optimal coherent absorption by binary simplex-code traps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies energy-shell restriction ranks exactly with subset-XOR syndromes, then establishes a uniform upper bound using only the weight-zero, weight-one and weight-two shells. For the simplex code, the constant off-diagonal Gram kernel and its two eigenvalues are derived from the uniform pairwise distance. A binomial-ratio argument verifies strictly positive eigenvalues at all interior weights for \(m\ge3\). The direct-sum dark-mode characterization uses positivity of all trap rates. These are analytical steps for the whole family, not extrapolations from finite enumeration. The independent executable tests include full small-case matrix and Krylov rank calculations; see `VERIFICATION.md`.
+PASS
 
-## Originality — PASS on inspected evidence; historical priority remains provisional
+Walsh characters diagonalize adjacency by weight. On an affine trap set each restricts to a nonzero phase times a parameter character indexed by the syndrome consisting of the XOR of its selected columns. The restricted rank is therefore the number of distinct syndromes, independent of translation. Complement preserves rank. At weights 0,N the rank is one. If r1≤N−1, the symmetric deficits at 1,N−1 alone give B≤N²−3. If r1=N all columns are distinct (zero need not be excluded), so no two sum to zero, r2≤N, and the combined low- and high-shell deficits give the same bound. For simplex, the shell Gram diagonal is c=binom(N,w) and the common off-diagonal is b_w=[z^w](1−z)(1−z²)^(L−1), L=(N+1)/2. By the displayed decreasing successive ratios within each parity, c/|b_w| on the interior is at least the endpoint ratio N(N−2)/3>N, including the two interior weights at N=7. Both Gram eigenvalues are positive there. The endpoint ranks follow from actual size-one and size-two syndrome sets and complement. The dark subspace is a direct sum of shell kernels (a vector in the sum need not itself be a single eigenvector); it is reducing, Gamma vanishes there, and a real-energy eigenvector anywhere would have zero Gamma expectation and hence lie in a shell kernel. The complementary finite-dimensional semigroup therefore decays even without diagonalizability. The captured fraction for arbitrary density matrix is its bright projection weight, so for the maximally mixed state it is B/2^N. `python3 /workspace/review-evidence/reproduce.py 5` derives physical Walsh rank lower bounds matching the analytic upper bounds at N=7, tests exact syndrome enumerators for m=3 through 7, and exhausts the 2696 spanning column multisets at m=3, obtaining 176 attainers. These finite checks do not replace the proof for all m.
 
-Equivalences as binary subset-sum images, Fourier restriction/observability ranks, and non-Hermitian quantum-walk dark dimensions were compared. Moore–Russell's hypercube walks, Krovi–Brun's dark hitting-time modes, Varbanov–Krovi–Brun's continuous hitting times, and Krapivsky–Luck–Mallick's trap survival establish the surrounding formalism but do not imply the sharp bound for arbitrary affine absorber sets in the material examined. Published records on Fourier restriction to Hamming shells, a systematic simplex-LCD code, and a one-corner Cartesian walk have different mathematical objects. An earlier specialist coding/controllability formulation could conceivably subsume the claim, so this assessment is evidence-limited rather than a global assertion of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a fixed trap budget of \(2^m\) points chosen as a natural affine code, the sharp all-placement bound is a meaningful optimization of eventual coherent absorption, with an explicit maximizer and energy-shell accessibility profile. It quantifies how code geometry interacts with extremely degenerate hypercube energy levels; the objective concerns an infinite natural physical family rather than an arbitrary finite slice. Maximizing capture does not establish fastest decay, and a general unrestricted trap optimum is not claimed.
+The distinct claim supported here is the sharp optimum across ALL affine dimension-m placements with the specified trap budget, attained by simplex. The simplex shell profile is the support of a classical Hamming-code coset weight enumeration; it is a coding-theory consequence after translating the observable, not an independent priority claim about those ranks or enumerators. Dark spaces and algebraic walk frameworks also predate this theorem. Neither the exact enumerator for one code nor the inspected prior studies of other support families provide the universal upper bound.
 
-## Scientific boundaries
+## value
 
-Only binary hypercubes with uniform hopping, affine dimension-\(m\) traps, positive sink rates, and one-particle dynamics are covered. The source comparison and this review do not constitute an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result optimizes an operationally defined total capture probability under a natural affine-placement constraint, not merely evaluates a standard code table. The forced low-weight deficits explain why even the best affinity-constrained layout fails to saturate the naive rank bound, and an explicit physical layout reaches the sharper bound for all m. No interpretation as fastest decay or optimum among unconstrained trap sets is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

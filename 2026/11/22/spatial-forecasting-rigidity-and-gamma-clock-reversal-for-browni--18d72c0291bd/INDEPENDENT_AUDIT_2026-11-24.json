@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:01:37.835277Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Length bias followed by a uniform inspection point gives the joint age/residual density f_T(b+f)/μ; multiplying by the Brownian heat kernel and integrating gives (1). Finite mean controls the large-age integral, b^{-1/2} the origin, and dominated convergence supplies continuous conditional tails in x, including zero. For independence at each fixed u, the signed mixture with density weight S(b+u)−P(F>u)S(b) is integrable, so Fourier transformation in x gives its Laplace transform at every s=Dξ²≥0. Uniqueness and continuity make its weight zero for every b; b=0 identifies P(F>u)=S(u). This forces the continuous multiplicative survival to be positive and then exponential (finite mean rules out zero rate); the converse follows by substitution. In Gamma cases the posterior age density ratio at larger versus smaller |x| is strictly increasing, and the positive full-support posteriors therefore give strictly different expectations for a bounded strictly monotone residual tail. The reciprocal hazard integral changes strictly in the requisite direction at k≠1, giving precisely the stated ordering. Strictly increasing costs, or nondecreasing costs genuinely nonconstant on (0,∞), inherit strict order by tail integration when finite; constant costs are not strict. For the far field, write J_m=∫b^{k−3/2−m} exp(−λb−x²/(4Db))db. The Bessel integral gives J_m/J_0=b_x^{−m} K_{k−1/2−m}(a)/K_{k−1/2}(a)=b_x^{−m}(1+O(a^{−1})), with b_x=|x|/(2√(Dλ)) and a=2λb_x. On any sufficiently large fixed half-line the Gamma survival relative to the leading kernel contributes a factor 1+O(b^{−1}); its weighted moment errors are controlled by J_{m+1}. Below that half-line, the Gaussian suppression is exp(−c x²) up to polynomial factors, negligible compared to the saddle exp(−a), also for the inverse moments. This verifies (3) for the actual posterior. The fixed-u Gamma tail ratio has first correction (k−1)u/b. For the mean, independently set z=λb and use λm(b)=k−z+z^k e^{−z}/Γ(k,z); expansion through the second relative Gamma coefficient gives 1+(k−1)/z+O(z^{−2}), so no uniform-in-u assumption is needed. The small-age residual mean is bounded on compact ages. The heat resolvent and its first two λ derivatives give the quoted Erlang formulas (the k=3 denominator before scaling is (a²+7a+15)/8). The k=1 correction is zero and independence exact. The supplied checker was inspected as supplementary numerical evidence, not executed or used as an infinite-case proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice Eqs. (31)–(34) gives the Gamma hazard regimes (its shape is α+1/2), in a model with non-instantaneous returns. Monotonicity of the hazard gives the direction for the age-conditioned residual, not directly the strict spatial order for every horizon.",
+          "The indexed Gamma ballistic-return ordering varies return speed and orders stationary absolute-position tails; the neighboring threshold-reset record varies position for age and position–remaining-life covariance under a different reset rule."
+        ],
+        "reasoning": "The known conditional density permits these quantities to be calculated but is not itself an order or asymptotic theorem. The strict posterior likelihood-ratio step concerns Brownian age at different observed displacements; neither varying return speed nor ordering latent ages alone proves the same observed forecast.",
+        "searches": [
+          "arXiv:2201.01829v3, §§3–4",
+          "arXiv:2205.01613v1, §IV.2",
+          "Resultary: SCOPE-sharp-likelihood-ratio-ordering-of-gamma-reset-brownian-excursio--950bd5a9485e; SCOPE-a-sharp-age-position-reversal-and-conditional-age-minimum-under--093d59af14c1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.01613v1 §IV.2",
+        "arXiv:2201.01829v3 §§3–4",
+        "DOI:10.15559/24-VMSTA266 Introduction",
+        "Resultary 5c356dfeaeaf, dfa7ae68742e and indexed comparisons 950bd5a9485e, 093d59af14c1, 2a4c114152a4",
+        "Frozen RESULT.md, VERIFICATION.md and verify_forecast.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior representation is compatible with all finite-mean renewal laws; the new converse uses that the heat-mixture transform has no null space for integrable age weights. The classical age/residual criterion applies only after undoing that mixing.",
+          "The older rare-excursion result conditions on X>x and on the diffusing phase of a finite-return model. Its leading alarm law is related, but neither identifies the point-conditioned coefficient nor supplies error control and mean convergence at that order."
+        ],
+        "reasoning": "Deduct the standard renewal criterion, Gamma hazard, exponential sufficient case, and related leading rare-event limit. The additional proofs resolve genuinely different observational and quantitative statements rather than merely renaming those facts.",
+        "searches": [
+          "arXiv:2205.01613v1 Eqs. (57)–(59)",
+          "DOI:10.15559/24-VMSTA266",
+          "Resultary finite-speed extreme Gamma resetting 5c356dfeaeaf and temporal identifiability dfa7ae68742e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Masó-Puigdellosas et al. give the position-conditioned forward-time density in Eq. (57) and an x-independent exp-clock law in Eq. (58). Tail integration yields the review's starting representation, and exponential sufficiency is already there.",
+          "Losidis et al. discuss the classical Poisson-only independence of age and residual, not independence after observing position instead of age."
+        ],
+        "reasoning": "Integrating the known conditioned density is an equivalent representation, not a contribution. Brownian position is a noisy mixture over ages; its independence from residual time implies the stronger latent age independence only after the injectivity argument, not from the classical renewal statement alone.",
+        "searches": [
+          "arXiv:2205.01613v1 §IV.2, Eqs. (50)–(60)",
+          "DOI:10.15559/24-VMSTA266, Introduction",
+          "Resultary: stochastic resetting Gamma forward recurrence and independence from position"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related finite-speed Gamma calculation gives a leading exponential residual alarm in the diffusing phase conditional on an extreme exceedance. The examined finding and proof summary do not give the inverse-distance coefficient for the instantaneous-reset survival or its mean.",
+          "Different exact findings characterize independence of coordinates in comb diffusion or identify renewal laws from a two-time covariance. Neither is a tabulation of the one-time Brownian/residual conditional observable."
+        ],
+        "reasoning": "The full claim is not a finite table entry. Exact continuous-family residual formulas and their asymptotic coefficients would count as coverage, but a related weak limiting law does not determine a correction or imply a first-moment expansion. The Erlang calibrations are particular evaluations of the known kernel and not credited separately.",
+        "searches": [
+          "Resultary: SCOPE-universal-hidden-phase-and-gaussian-age-laws-for-extreme-gamma-r--5c356dfeaeaf",
+          "Resultary: SCOPE-a-universal-gamma-clock-correlation-reversal-and-poisson-indepen--2a4c114152a4; SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e",
+          "arXiv:2205.01613v1 and arXiv:2201.01829v3"
+        ]
+      },
+      "rationale": "The established conditional forward-density representation and exponential sufficiency are prior work; Gamma hazard monotonicity and the classical age/residual characterization are also prior. The verified distinct results are the converse for the Brownian observation, the strict all-horizon Gamma spatial order, and the first nonzero spatial corrections to the survival forecast and mean at k≠1. In a related return model, the leading exponential residual-time limit is already known; it is not credited as independent novelty. This comparison is bounded and does not certify priority.",
+      "residual_risks": [
+        "Bounded targeted literature and catalogue review, not a historical priority certification.",
+        "A more general observation-kernel completeness theorem applied to renewal residuals, an uninspected total-positivity treatment of the spatial order, or unpublished higher-order rare-excursion expansions could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the kernel and exponential sufficiency; the inspected passages do not assert the converse or Gamma spatial order/correction.",
+          "evidence": [
+            "Eq. (57) integrates over elapsed time to obtain the conditioned forward density; Eq. (58) gives the exponential clock law independent of position."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.01613",
+          "material_read": "Original §IV.2, Eqs. (50)–(60), especially (57)–(59).",
+          "method": "Lawful arXiv HTML original and equation-by-equation comparison.",
+          "title": "Conditioned backward and forward times of diffusion with stochastic resetting: a renewal theory approach",
+          "trigger": "Same position-conditioned residual reset clock."
+        },
+        {
+          "assessment": "Hazard signs are prior; statements about stationary position and return speed do not order the position-conditioned residual clock.",
+          "evidence": [
+            "The Gamma shape is α+1/2 and the exponential case is α=1/2. The original works with an explicit return phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01829",
+          "material_read": "Original §§3–4, Eqs. (31)–(34) and (49)–(59).",
+          "method": "ArXiv HTML full-text sections and comparison of shape convention and return dynamics.",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Gamma resetting, exact stationary integrals, and hazard classification."
+        },
+        {
+          "assessment": "Classical renewal-variable condition, not the observation-kernel converse.",
+          "evidence": [
+            "Independence is between forward and backward recurrence times; the conditioning variable is not a Brownian position."
+          ],
+          "identifier_or_url": "https://doi.org/10.15559/24-VMSTA266",
+          "material_read": "Original open article Introduction, especially the statements on forward/backward recurrence times.",
+          "method": "Lawful full article page and comparison of observable variables.",
+          "title": "Bivariate dependence, stochastic orders and conditional tails of the recurrence times in a renewal process",
+          "trigger": "Potential general independence and conditional renewal order theorem."
+        },
+        {
+          "assessment": "Material overlap in the leading exponential alarm law in the diffusing phase, not the present point-conditioned inverse-distance terms.",
+          "evidence": [
+            "Under exceedance conditioning and in the diffusive phase, the remaining alarm converges to independent Exp(r); during return the traversed distance instead has its stated exponential limit."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-universal-hidden-phase-and-gaussian-age-laws-for-extreme-gamma-r--5c356dfeaeaf",
+          "material_read": "Local mirror RESULT.md passages at offsets 0 and 6360, finding and related proof passage.",
+          "method": "Exact local mirror retrieval and comparison of conditioning and observable.",
+          "title": "Universal hidden-phase and Gaussian age laws for extreme Gamma-reset diffusion with finite-speed returns",
+          "trigger": "Closest leading-order rare-position residual clock result."
+        },
+        {
+          "assessment": "Identifies the clock from a different observable.",
+          "evidence": [
+            "Uses temporal positional covariance rather than one-time position and residual-clock dependence."
+          ],
+          "identifier_or_url": "Resultary 2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e",
+          "material_read": "Local mirror RESULT.md finding.",
+          "method": "Local Resultary lookup and original statement comparison.",
+          "title": "Temporal spectroscopy and renewal-law identifiability in a synchronously reset Brownian gas",
+          "trigger": "Related exact clock identifiability from Brownian observations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scientific observable is the predictive value of a current displacement for the timing of the next reset. The independence converse identifies the exponential clock among arbitrary admissible renewal clocks under this observation; the Gamma order resolves the direction for every horizon and the asymptotic terms quantify the effect on far excursions. The result is not a stationary marginal, a return-speed comparison or a single special-shape computation. It addresses equilibrium instantaneous resetting only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

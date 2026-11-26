@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:09.082278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the base minimization, the smooth competitors and the nonsmooth perturbation argument. With fixed side normals one may tighten to polygon supports. A bounded tightened four-normal configuration has gaps <π; all 511 such choices, with feasibility of all consecutive intersections, were checked exactly. The seven minimizing choices tie exactly with R*=4/7+3/(7 cos(2π/7)); the incircle gives a strict three-side exclusion (moving lines to tangency and applying Jensen to tan of half the normal gaps). The seven edge-supported competitors are smooth and feasible nearby. Cyclic symmetry forces the full-space derivative of their sum to have coefficients a v_j+b Jv_j, and scale and rotation invariance kill both. Independent replay is python3 /workspace/branches/heptagon_exact.py (SymPy exact cubic-field arithmetic, rational root isolation for signs). It uses y scaled by sin(π/7) and directional coefficients from recursively solving the support-line intersections rather than interval jets. It verifies exact zero gradient sum, a nonzero six-row minor (−4.5458439150×10⁻⁶ in scaled coordinates) and a negative definite mean Hessian on the two-dimensional kernel (first diagonal −0.2793676660, determinant 0.0087125651 in the scaled basis). The geometric and exact algebraic checks are consistent with the frozen numbers after undoing the coordinate scaling. Off the kernel the minimum linear variation is uniformly negative on a complementary unit sphere. For complementary size ≥ L times kernel size squared the negative linear term absorbs the quadratic remainder; otherwise the averaged Hessian gives the required quadratic deficit, with mixed terms of smaller order. This proves a local result only, without claiming an explicit radius or sharp c.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vígh proposes a global chord bound with extremal pentagons, not a heptagon-local sharp bound. The Fodor–Grundbacher theorem bounds the unrestricted minimum enclosing quadrangle."
+        ],
+        "reasoning": "An upper bound above the heptagon value, or a bound on the minimum over a larger competitor class, does not yield the sharper local chord-restricted result.",
+        "searches": [
+          "Vígh arXiv:2610.08168v1 §§2,5; Fodor–Grundbacher arXiv:2506.05185v1 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Vígh 2610.08168v1",
+        "Fodor–Grundbacher 2506.05185v1",
+        "Resultary b36995da578f, 8caa008cc219, 09da1e55d859",
+        "Regular heptagon/octagon spectral local-minimality candidate README"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior base value cos²(a)(tan(a)+3 tan(2a))/(7 sin(a)cos(a)), a=π/7, simplifies to R*. Its support gaps do not control derivatives of the tied competitors when vertices move."
+        ],
+        "reasoning": "A finite gap to nonwinners tells which branches may be active near the base but supplies neither their rank-six first variation nor the sign of the common-kernel curvature, both decisive to this perturbation result.",
+        "searches": [
+          "Vígh numerical experiments and closing discussion; Resultary base polygon rigid-support gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vígh defines the same quantity and reports that the affine-regular heptagon appears to be a local maximum, numerically.",
+          "The heptagon/octagon repository instead treats area times first Dirichlet eigenvalue, minimized modulo similarities (README opening)."
+        ],
+        "reasoning": "Neither a local minimum for an unrelated spectral functional nor numerical local evidence for the same affine-invariant objective establishes strict local maximality with a quadratic gap.",
+        "searches": [
+          "Chord-restricted circumscribed quadrilateral ratio / Kuperberg heptagon local maximum in primary literature and Resultary",
+          "Vígh arXiv:2610.08168v1 §§2,5",
+          "ipitchford/regular-heptagon-octagon-local-minimality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All give the same exact regular value and seven minimizing supports. The same-day record b36995da578f also gives a 511-configuration comparison; 09da1e55d859 explicitly separates its discrete support gap from arbitrary perturbation stability."
+        ],
+        "reasoning": "The exact base calculation is covered. No priority is inferred from the same-day date; the comparison is by mathematical scope.",
+        "searches": [
+          "Resultary exact chord quadrilateral regular heptagon records b36995da578f, 8caa008cc219, 09da1e55d859"
+        ]
+      },
+      "rationale": "Credit the known exact regular-heptagon ratio and the seven support minimizers, including the matching same-day base-point computation. The distinct result is the quadratic stability inequality for actual chord-eligible enclosures under arbitrary small affine-normalized perturbations. Available strongest comparisons are numerical local evidence or discrete gaps at the single base polygon; neither gives the common-kernel computation or the resulting local perturbation theorem.",
+      "residual_risks": [
+        "Bounded priority check; no claim of exhaustive literature coverage. No publication order inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local question, numerical not proved in inspected passages",
+          "evidence": "Reports ratio 1.2588… and says appears to be a local maximum; reports numerical local examples without excluding others.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08168",
+          "material_read": "§2 pp. 2–3 (OA PDF text offsets 8241,11915) and §5 p. 8 (33041)",
+          "method": "OA primary PDF passages",
+          "title": "A note on Kuperberg's quadrilateral conjecture",
+          "trigger": "Same quantity, same local candidate"
+        },
+        {
+          "assessment": "Exact regular value and support minimizers covered; perturbation result not covered by these claims",
+          "evidence": "Statement fixes the reference polygon and compares discrete support choices, not nearby heptagons.",
+          "identifier_or_url": "b36995da578f; 8caa008cc219; 09da1e55d859",
+          "material_read": "Regular-case Findings, finite 511-configuration comparison of b36995da578f, and discrete-gap scope of 09da1e55d859",
+          "method": "Local Resultary mirror",
+          "title": "Exact chord-quadrilateral enclosure and rigid support gaps of the regular heptagon; two earlier exact-enclosure records",
+          "trigger": "Exact ratio and seven winning supports"
+        },
+        {
+          "assessment": "Different competitor class",
+          "evidence": "Global unrestricted quadrangle approximation bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.05185",
+          "material_read": "Theorem 1.1, p. 2, OA text offset 6580",
+          "method": "OA primary PDF passage",
+          "title": "On the minimal area of quadrangles circumscribed about planar convex bodies",
+          "trigger": "Potential broader approximation theorem"
+        },
+        {
+          "assessment": "Different objective and equivalence group",
+          "evidence": "Strict local minimizers of area times first Dirichlet eigenvalue modulo similarities.",
+          "identifier_or_url": "https://github.com/ipitchford/regular-heptagon-octagon-local-minimality",
+          "material_read": "README opening statement, offset 0–2276",
+          "method": "Public repository page in website mode",
+          "title": "Regular heptagon and octagon: certified local minimality",
+          "trigger": "Potential near-title overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Proves a local observation in the literature for a natural constrained version of a circumscription problem, and distinguishes actual geometric stability from the already known discrete gap at a fixed polygon. The common kernel has two genuine non-affine directions, so the second-order argument addresses perturbations not separated by first variation; the result is a quantitative strict local maximum, not an exact-value recomputation or a global conjecture claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

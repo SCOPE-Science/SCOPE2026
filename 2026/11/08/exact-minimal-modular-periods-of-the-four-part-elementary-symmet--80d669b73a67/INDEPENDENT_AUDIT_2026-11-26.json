@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:06:51.906682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75, frozen VERIFICATION.md, artifacts/verify_periods.py and its recorded output, all read as evidence",
+        "Repaired RESULT.md and SLOGAN.txt under /workspace/repairs/4",
+        "python3 /workspace/branches/independent_frozen_checks.py 4: degree-bound GF certificate, multiplicities and resultants, companion shift witnesses 2,4,3 at positions 1,1,0 for shifts 48,96,108, independent first returns at eleven moduli, and the two table witnesses"
+      ],
+      "rationale": "The original formulas are mathematically supported; the repair changes scientific scope and credit, not period values. I checked the repaired rank-22 companion recurrence, ring stabilizer criterion and exact low-prime cases. A common denominator C=∏(1−q^w)^3 (w=1..4) gives deg(CG)≤24 by the moments in gap coordinates. Thus C(DG−N) has degree at most 46, and an independent direct partition sum through n=46 verifies the entire identity. Modulo 2 and 3 the reduced denominators give orders 48 and 54. The shift of 48 fails modulo 4, but 96 succeeds; for 3² and higher, the remainder 24 modulo q²+1 rules out every multiple of 54 not divisible by 4. The independently confirmed primitive coefficients at shifts 96 and 108 survive successive squaring or cubing after the proper powers of the corresponding primes are divided out; prime-to-p multipliers preserve primitivity. This yields the exact two lifting laws, not extrapolation. The CRT gives 1296 modulo 18 and the independently evaluated difference at index 0 is 6 modulo 18. Pure periodicity propagates that counterexample arbitrarily far.",
+      "residual_risks": [
+        "Finite base certificates and sample first returns are not the proof for all exponents; the binomial argument is required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coprime-to-six finding covers all m≥2 with gcd(m,6)=1: 12m unless 5 divides m, and 60m then. Its domain excludes the exceptional-prime lifts. The classical cited partition problems concern an unweighted count according to the motivating paper; the companion elementary symmetric partitions paper studies a partition map and its image."
+        ],
+        "reasoning": "The coprime-to-six result subsumes the original p≥5 formulas. Unweighted counts and image-part multiplicities do not determine the weighted numerator's valuations or cancellations at 2 and 3.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2",
+          "arXiv:2408.13346 introduction and references regarding Nijenhuis–Wilf and Kwong",
+          "arXiv:2409.11268v3 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.13346 and journal version",
+        "arXiv:2409.11268v3",
+        "Four distinct Resultary matches described above",
+        "Focused Resultary recheck of 2^r and 3^r cases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-period formula modulo 3 cancels (q²+1)^3 altogether; modulo 9 the q²+1 remainder of N is −12, so the component imposes an order-four constraint. Modulo 4 the older theorem shows the shift 96 works; it gives no primitive valuation at 96 nor control of all higher two-power divisibility."
+        ],
+        "reasoning": "The new exact lifts need the specific witnesses and the uniform binomial propagation. In particular, multiplying the ternary prime period by 3 would give the wrong period at 9. CRT reconstruction from already known coprime-to-six periods and the new prime-power periods is separated from novelty.",
+        "searches": [
+          "October 18 exact prime Finding; October 18 coprime-to-six Finding; Ballantine–Beck–Merca Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "'Four-part pair-product partition sum' and e₂p₄(n) are the identical weighted sequence. The paper prints the order-22 recurrence conjecturally and proves congruence shifts for 2, 3, 4.",
+          "The October 18 exact prime-period entry has the same rational numerator and denominator and exact primes 2, 3, 5, ≥7."
+        ],
+        "reasoning": "Credit the same generating function and prime periods under either terminology. Distinguish proving a shift works from proving its minimality and a prime congruence from its higher-power lift.",
+        "searches": [
+          "arXiv:2408.13346 for e₂p₄(n), recurrence, Table 1 and Theorem 2",
+          "Resultary query: second elementary symmetric four positive parts partition sum modulo powers 8 9 27 96 108 p-adic lifting minimum period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior prime entries cover various prime ranges; the October 18 pair of records together cover all original r=1 cases, the coprime-to-six cases, and N/D. The published table gives 1150 and 1246 for 10 and 18, explicitly conjecturally. The searches returned the frozen record itself for the higher 2- and 3-power laws, not a separate exact match among the passages inspected."
+        ],
+        "reasoning": "Neither the conjectural table nor the matched prior prime formulas supply 1296. The repair does not emphasize the modulus-10 correction, since T(10)=1200 is already implied by the earlier exact prime formulas and the CRT.",
+        "searches": [
+          "Resultary query: e2p_4 four part weighted partition minimal periods powers of two three 2^r 3^r 324 1296 1246",
+          "Resultary October 18 prime and coprime-to-six records; both November 2 matching prime-period records",
+          "Published conjectural table, DOI:10.1007/s11139-024-01001-6"
+        ]
+      },
+      "rationale": "The original broad originality framing does not survive: the explicit generating function, prime cases, and every modulus coprime to six have demonstrable earlier catalogue coverage. The corrected finding credits those results and isolates the new two- and three-power lifts, especially reappearance of an order-four component beyond mod 3 and the modulus-18 correction. Neither the known prime cases nor the paper's modulo-4 congruence entails these lifts. The CRT itself is not a new claim.",
+      "residual_risks": [
+        "Original Nijenhuis–Wilf and Kwong full texts were not obtained; the scope comparison uses the motivating paper's account.",
+        "No claim of global publication priority; broader inaccessible or unindexed coverage remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior conjectural recurrence and table; proved base congruence shifts",
+          "evidence": "Table gives 1150 and 1246; Theorem 2 proves 48, 54, 96 as shifts for 2, 3, 4.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.13346; https://doi.org/10.1007/s11139-024-01001-6",
+          "material_read": "arXiv PDF pp. 2–3 offsets 6800–8600; journal PDF pp. 33–34 about offset 6500",
+          "method": "Lawful OA comparison of original statements",
+          "title": "Partitions and elementary symmetric polynomials: an experimental approach",
+          "trigger": "Identical e₂-weighted sequence and motivating conjecture"
+        },
+        {
+          "assessment": "Exact coverage for all coprime-to-six moduli and GF",
+          "evidence": "12m or 60m on that domain, with the identical N/D.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimal-periods-of-a-four-part-weighted-partition-statisti--30a02e351eb2",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Local Resultary passage read",
+          "title": "Exact minimal periods of a four-part weighted partition statistic at moduli coprime to six",
+          "trigger": "Broader exact coverage of p≥5"
+        },
+        {
+          "assessment": "Covers primes but not higher powers",
+          "evidence": "Exact 48,54,300,12p and the same rational generating function.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-prime-periods-of-the-second-symmetric-four-part-partition--9727064bcc24",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Local Resultary passage read",
+          "title": "Exact prime periods of the second-symmetric four-part partition statistic",
+          "trigger": "Earlier exact small-prime periods"
+        },
+        {
+          "assessment": "Overlap with p≥5 prime cases and GF",
+          "evidence": "Same statistic, 300 modulo 5 and 12p for p≥7; no exceptional prime-power law in those findings.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-prime-modulus-periods-of-four-part-elementary-symmetric-pa--76fb58708fc7; 2026/11/2/SCOPE-exact-prime-modulus-periods-for-the-four-part-pair-product-parti--e55a38220999",
+          "material_read": "First Finding offset 0; second Finding and GF at offsets 0–1554 and 1350–3140",
+          "method": "Local Resultary statement comparisons",
+          "title": "Exact prime-modulus periods of four-part elementary-symmetric partition sums; Exact prime-modulus periods for the four-part pair-product partition statistic",
+          "trigger": "Further exact catalogue matches"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Map from a partition to a partition made of elementary symmetric summands; it studies image-part behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.11268",
+          "material_read": "v3 PDF pp. 1–2, offsets 2500–6421",
+          "method": "OA abstract and introduction comparison",
+          "title": "Elementary symmetric partitions",
+          "trigger": "Same family of weights, different statistic possible"
+        },
+        {
+          "assessment": "Reported unweighted regime; stronger independent scope not fully checked",
+          "evidence": "The motivating paper distinguishes the unweighted p_m(n) results from its e₂-weighted sequence.",
+          "identifier_or_url": "Nijenhuis–Wilf, J. Number Theory 25 (1987), 308–312; Kwong, Utilitas Math. 35 (1989), 3–8",
+          "material_read": "Descriptions and citations in arXiv:2408.13346 pp. 2, 17; original papers not obtained",
+          "method": "Bounded OA attempts and secondary scope comparison",
+          "title": "Periodicities of partition functions and Stirling numbers modulo p; Minimum periods of partition functions modulo M",
+          "trigger": "Potential older general periodicity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md and SLOGAN.txt; motivating paper's table and Theorem 2; earlier coprime-to-six and exact prime findings"
+      ],
+      "rationale": "The repair solves the part left open by prime and coprime-to-six formulas for a published sequence and divisibility table. The precise ternary discontinuity (the order-four factor missing modulo 3 reappears modulo 9) is mathematically relevant, not reformatting. It also supplies a counterexample to a published conjectural period at 18 and the actual least period, while the two lifts complete the missing input for mixed moduli.",
+      "residual_risks": [
+        "Neither the companion recurrence nor the CRT is credited as new; nothing here asserts higher-weight or other part-count generality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

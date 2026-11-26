@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:21:40.729703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, cell model and proof; frozen verify.py, exact pivot and residual assertions",
+        "Babson–Kozlov, Definition 1.2 and Proposition 4.5",
+        "Independent exact replay: /workspace/branches/cb65c190-e73a-4bea-8839-aa006e771dc5/independent_hom_quotient_check.py, with INDEPENDENT_CHECK.md in the same directory"
+      ],
+      "rationale": "In the three ordered nonempty disjoint target blocks, a rotation fixing an interior point must preserve all blocks. Only the half-turn has enough color orbits: its three opposite pairs must be the three blocks. It fixes exactly six cube centers in two C₆-orbits. The Babson–Kozlov wedge theorem makes X simply connected with H₂(X)=0. Remove small equivariant open balls about the six centers to obtain W. Attaching the balls with simply connected boundaries does not change π₁, so W is simply connected. The free quotient W/C₆ has π₁=C₆; filling its two boundary copies of RP² with cones kills exactly the order-two subgroup by van Kampen, giving π₁(Y)=C₃ without needing the inaccessible Armstrong citation. An independent check of H₂ uses the map H₃(X)→H₃(X,W)=ℤ⁶. For any specified fixed cube with opposite pair in block i, allow one color of that pair in slots {i,i+1} and the other in {i,i+2}, modulo three. Sum all top cells allowed by these choices with orientation sign equal to the sign of the concatenated block permutation, times (−1) to the sum of the slot indices, times the product of opposite signs for each color's two choices. Each facet leaves one color unassigned and its two extensions cancel: the product-boundary deletion sign at concatenated index p in slot i is (−1)^(p−i), and permutation deletion contributes (−1)^(p+a) for color a, so the only extension-dependent sign left is that color's choice. This cycle has coefficient ±1 on the specified fixed cube and zero on the other five, because each opposite pair has only one allowed common slot. Thus the map to ℤ⁶ is onto, giving H₂(W)=0. By Hurewicz, lifting π₂ to W, and the Hopf sequence with H₂(C₆;ℤ)=0, H₂(W/C₆)=0. The relative H₂ from filling the two cones is (ℤ/2)²; both generators map to the half-turn in H₁(W/C₆), so H₂(Y)=ℤ/2. Subdivided flags are valid oriented orbit cells because strict dimensions order their vertices and stabilizers cannot invert them. An independent exact flag replay verified ∂²=0, chain ranks (351,3060,5940,3240), and nonzero Smith lists (1×350), (1×2709,3), and (1×3229,2), with residual rank-one tests establishing exact orders. These give H₀=ℤ, H₁=ℤ/3 and H₃=ℤ¹⁰, agreeing with the topological torsion check and Euler characteristic −9. Nothing occurs above degree three.",
+      "residual_risks": [
+        "The result is about the ordinary orbit space under target rotation. It does not determine the Borel quotient, a block-permuting action, the full homotopy type, or higher composite-color cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babson–Kozlov give the underlying sphere wedge. The prime quotient record requires a free target C_p action for odd prime p≥5 and explicitly excludes composite color counts. The rational target-color character record explicitly limits its conclusions to rational representations."
+        ],
+        "reasoning": "Simple connectivity of the original complex is a useful input, but says little about integral homology of a nonfree geometric quotient. Transfer over ℚ and the character can give free ranks, not integral torsion. The prime theorem's free-action hypothesis fails at the half-turn and cannot be specialized to six.",
+        "searches": [
+          "Babson–Kozlov, Complexes of graph homomorphisms, Proposition 4.5",
+          "Resultary prime cyclic color-quotient record f8d3097763b9",
+          "Resultary rational target-color character record 50c1a3944425",
+          "Focused literature lookup on composite-color Hom quotients"
+        ]
+      },
+      "checked_sources": [
+        "Babson–Kozlov Definition 1.2, subdivision and Proposition 4.5",
+        "Resultary prime quotient, rational character and two partition quotient comparisons",
+        "Armstrong citation (bounded access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A standard orbit π₁ theorem can supply the fundamental group once the half-turn stabilizers are identified; the cited Armstrong full text was not recovered. Rational characters cannot distinguish H₂=ℤ/2 from H₂=0, and a free cyclic color quotient calculation does not account for the two RP² links."
+        ],
+        "reasoning": "Credit the free rank and π₁ methods as background. The nonfree integral H₂ needs a new calculation of the integral boundary or, equivalently here, the link classes and the homology of the free complement. None of the inspected broader claims gives those data by substitution.",
+        "searches": [
+          "Resultary prime target-rotation record, integral homology theorem and composite-color exclusion",
+          "Resultary rational character record, statement and limitations",
+          "Armstrong DOI 10.1017/S0305004100038974, attempted comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Babson–Kozlov identify the disjoint-block cell model and face-poset subdivision. The six-point partition order complex catalogue records use partitions and refinement, not ordered disjoint nonempty Hom blocks with unused colors permitted."
+        ],
+        "reasoning": "The oriented orbit flags present the same geometric quotient as the Hom cell model. A partition complex has different cells and incidences, while a rotation of source blocks or a Borel construction changes the quotient under examination. None is an equivalent statement of this integral result.",
+        "searches": [
+          "Resultary: Hom(K₃,K₆)/C₆ target-color rotations and six-point cyclic quotient torsion",
+          "Focused primary literature lookup on geometric C₆ target-color Hom quotients and composite-color coverage",
+          "Babson–Kozlov Definition 1.2 and barycentric description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact search returned the assigned record itself. The adjacent C₆ partition quotient has trivial π₁, H₂=(ℤ/3)² and H₃=ℤ²⁰; the C₃ partition quotient has trivial π₁, H₂=(ℤ/3)³ and H₃=ℤ³⁸."
+        ],
+        "reasoning": "Same color count, cyclic symmetry and torsion language do not make these equivalent tables: the posets differ, the latter subgroup differs as well, and the reported groups are distinct.",
+        "searches": [
+          "Resultary exact lookup for the six-color cyclic Hom quotient",
+          "Resultary adjacent six-point partition quotient entries 850ac7b4ac85 and 080a9e0a8bd0"
+        ]
+      },
+      "rationale": "The underlying complete-graph Hom theorem, the orbit fundamental-group method, and rational rank methods are existing inputs, not novel claims. The supported distinct result is the integral classification of this first nonfree target-cycle case, especially the order-two H₂ alongside order-three H₁. The strongest inspected prior statements change the action or the complex, or only control rational data.",
+      "residual_risks": [
+        "The focused primary search did not produce a relevant exact or stronger article; this is limited coverage, not proof of absence. An unindexed integral equivariant calculation could cover the same quotient.",
+        "The exact statement of the cited Armstrong formulation was not inspected; this does not affect the direct fundamental-group proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior underlying complex and subdivision, not the target-rotation orbit result",
+          "evidence": "Cells use nonempty subsets subject to the edge condition, with order given by shrinking blocks; the order complex is the barycentric subdivision. Proposition 4.5 establishes the complete-graph sphere-wedge theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0310056",
+          "material_read": "PDF p. 2 Definition 1.2 and subdivision, offsets 4061 and 5017; pp. 15–16 Proposition 4.5, offset 47775",
+          "method": "Bounded OA PDF passages",
+          "title": "Complexes of graph homomorphisms",
+          "trigger": "Primary Hom cell model and potential broader topology theorem"
+        },
+        {
+          "assessment": "Closest family-level comparison, outside hypotheses at six",
+          "evidence": "Odd prime p≥5, free action, and ℤ/p in positive odd degrees below p−3; explicitly excludes composite colors.",
+          "identifier_or_url": "2026/11/17/SCOPE-prime-cyclic-color-quotients-of-triangle-coloring-hom-complexes--f8d3097763b9",
+          "material_read": "RESULT.md offsets 123–5020, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror passage",
+          "title": "Prime cyclic color quotients of triangle-coloring Hom complexes",
+          "trigger": "Same Hom construction and target-cycle action"
+        },
+        {
+          "assessment": "Rational coverage only",
+          "evidence": "States a rational character, with explicit warning that rational acyclicity need not be integral acyclicity.",
+          "identifier_or_url": "2026/10/18/SCOPE-color-permutation-characters-of-complete-graph-hom-complexes--50c1a3944425",
+          "material_read": "RESULT.md offsets 1074–3474 and 8185–9351",
+          "method": "Bounded local mirror passages",
+          "title": "Color-permutation characters of complete-graph Hom complexes",
+          "trigger": "Broad target-color representation theorem"
+        },
+        {
+          "assessment": "Different order complex, and different acting subgroup in the second case",
+          "evidence": "Both use the proper six-point partition complex with trivial orbit fundamental group and exclusively 3-primary torsion in H₂; neither uses three ordered Hom blocks.",
+          "identifier_or_url": "850ac7b4ac85; 080a9e0a8bd0",
+          "material_read": "First RESULT.md offsets 60–1697; second RESULT.md offsets 68–2177",
+          "method": "Bounded local mirror passages",
+          "title": "Two 3-torsion Moore summands in the cyclic six-point partition quotient; Three Moore summands in the order-three quotient of the six-point partition complex",
+          "trigger": "Closest six-color cyclic quotient torsion hits"
+        },
+        {
+          "assessment": "Historical text comparison unresolved; no inference from access",
+          "evidence": "The fundamental group in the reviewed case was verified directly by cutting out the fixed neighborhoods and using van Kampen.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100038974",
+          "material_read": "Bibliographic identification only; precise paper hypotheses not verified",
+          "method": "Bounded OA attempts through DOI and website mode timed out",
+          "title": "On the fundamental group of an orbit space",
+          "trigger": "Cited general orbit fundamental-group method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen cell action and stabilizer census",
+        "Independent geometric and integral boundary checks",
+        "Prime cyclic quotient and rational-character statements"
+      ],
+      "rationale": "Six is the smallest number of colors admitting a nontrivial cyclic rotation with at least three color orbits, hence the first number at which three nonempty disjoint ordered blocks can support fixed points for the full cyclic target rotation. This is a motivated boundary of the free-action examples. The exact integral invariant exposes what fails there: the two singular links kill the order-two element in π₁ but their link classes have a nonzero order-two relation in H₂, which the rational top character does not record. This supplies a useful finite test of any proposed composite-color extension.",
+      "residual_risks": [
+        "The calculation is for one first nonfree case and does not assert a general composite-color homology formula or cup products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

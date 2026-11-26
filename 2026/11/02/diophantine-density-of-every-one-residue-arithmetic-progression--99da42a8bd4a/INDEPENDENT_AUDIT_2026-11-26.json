@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:28.280951Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–48",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "python3 /workspace/branches/reproduce_finite.py 4: direct modular minima on 19800 pairs for density-one cases with nontrivial cutoffs and 756 reduced obstruction pairs"
+      ],
+      "rationale": "The claim uses all sufficiently large denominators q, every numerator prime to q, v strictly below q, and fixed cutoff L. If r=0, restrict to positive multiples of M=m ceil(L/m) and apply pigeonhole to floor((q-1)/M)+1 circle points to get error at most M/q. For odd v an inverse or its negative has an odd representative; if it is below L, an odd multiplier bounded by L+2 reaches L without reaching q for sufficiently large q. These give exponent 1, which is maximal since every nonzero modular distance is at least 1/q. For m>=3, take p=t, q=mt-1 for r=1 and q=mt+1 for r>=2. The fractional part for every admissible v lies respectively in (1/m,2/m) or ((r-1)/m,r/m), both contained in [1/m,1-1/m]. The pairs are reduced and unbounded in q, ruling out every positive exponent; zero is admissible once the progression is nonempty below q. The two mod-4 classes partition the odd class, as claimed.",
+      "residual_risks": [
+        "Finite replay is diagnostic; the uniform arithmetic argument proves the quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 5 covers mN; Prop. 6 covers 2mN+m for m>=2. The covering-set record gives arbitrary density pairs covering N, hence already yields maximal general non-subadditivity at (0,0), by alternating superexponential blocks."
+        ],
+        "reasoning": "The broader existential result does not constrain the witnesses to periodic sets or compute every individual residue class. The positive odd class and uniform classification remain distinct.",
+        "searches": [
+          "Sanford arXiv:2610.27497v1 §2 Propositions 5–6 and §7",
+          "Resultary 2026/10/26/SCOPE-prescribed-diophantine-densities-for-two-covering-sets-of-upper--790d86c7f372"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue on progression density and periodic/covering sets",
+        "Sanford arXiv:2610.27497v1 and arXiv:2606.02620v1",
+        "Resultary 2026/10/26/SCOPE-prescribed-diophantine-densities-for-two-covering-sets-of-upper--790d86c7f372"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sanford's mt+1-type obstruction in Prop. 6 overlaps with the current technique and family; extending it to residue 1 at m>=3 requires the other sign to keep the entire fractional-part interval away from integers. The exceptional m=2 proof uses parity of inverses. §7 only asks the union question and sketches a conditional construction."
+        ],
+        "reasoning": "Neither the partial arithmetic families nor the existential union result imply the complete classification and its periodic witness as stated. The frozen result already disclaims general subadditivity priority.",
+        "searches": [
+          "Sanford arXiv:2610.27497v1 pp. 4–5, 14",
+          "Resultary covering-set record, Finding and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October Definition 1 has the same uniform, strict v<q quantifier; the May note uses v<=q and not this supremum formulation."
+        ],
+        "reasoning": "The comparison is to the October invariant itself, not to a renamed invariant, a natural-density calculation or a statement about a single irrational. No complete one-residue classification was located.",
+        "searches": [
+          "Resultary semantic lookups for restricted rational approximation density of periodic sets, progression classes and periodic unions",
+          "Sanford arXiv:2610.27497v1 Definition 1; arXiv:2606.02620v1 Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The family evaluated in Proposition 6 is the half-modulus residue, not a table or parametrization of all moduli and residues. The closest catalogue match constructs two covering sets by blocks."
+        ],
+        "reasoning": "No existing exact table or classification supplying the claimed full pattern or the mod-4 witness was found in the inspected evidence.",
+        "searches": [
+          "Resultary semantic lookup for progression density and periodic unions",
+          "Sanford Proposition 6; inspect translated-progression family"
+        ]
+      },
+      "rationale": "The supported addition is the complete one-class classification and the explicitly periodic maximal subadditivity counterexample, not the density definition, the previously covered progressions or failure of subadditivity as such.",
+      "residual_risks": [
+        "A prior unindexed elementary calculation or periodic example may exist. Bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": "Uniform strict v<q density; multiples have density 1; 2mN+m has density 0 for m>=2; §7 asks about unions.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27497v1",
+          "material_read": "§2 Definition 1 p. 2 and Propositions 5–6 pp. 4–5; §7 p. 14",
+          "method": "Bounded OA primary text inspection",
+          "title": "On a Notion of Density Related to Restricted Diophantine Approximation",
+          "trigger": "Origin of the identical invariant and closest progression results"
+        },
+        {
+          "assessment": "Precursor, different formulation",
+          "evidence": "Uses v<=q, not the later strict supremum definition.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.02620v1",
+          "material_read": "§2 Definition 1 p. 2",
+          "method": "Bounded OA primary text inspection",
+          "title": "A Note on Diophantine Approximation with Restricted Denominators",
+          "trigger": "Earlier version of the invariant"
+        },
+        {
+          "assessment": "Covers general non-subadditivity, not periodic realization or classification",
+          "evidence": "Densities (0,0) are attained by disjoint sets covering N via blocks, not by single residue classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-prescribed-diophantine-densities-for-two-covering-sets-of-upper--790d86c7f372/RESULT.md",
+          "material_read": "Finding and alternating-block construction",
+          "method": "Local Resultary semantic search and mirrored result inspection",
+          "title": "Prescribed Diophantine densities for two covering sets of upper density one",
+          "trigger": "Strongest catalogue match for maximal failure of subadditivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and scope",
+        "Sanford Propositions 5–6 and §7",
+        "Resultary earlier covering-set construction"
+      ],
+      "rationale": "A single residue class is a natural first test of the uniform approximation density; the exact classification resolves all moduli, including noncoprime residues and fixed cutoffs. The odd exception and the mod-4 partition expose behavior hidden by the separate aperiodic non-subadditivity construction.",
+      "residual_risks": [
+        "Does not classify arbitrary periodic sets or sparse subsets of a residue class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

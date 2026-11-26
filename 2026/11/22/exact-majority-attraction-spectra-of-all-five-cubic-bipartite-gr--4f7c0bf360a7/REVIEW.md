@@ -1,19 +1,21 @@
-# Scientific review: all connected cubic bipartite twelve-vertex majority dynamics
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is a finite complete-class result. The proof exhaustively enumerates all connected cubic bipartite graphs on twelve vertices as six-by-six degree-three matrices, proves the normalization and isomorphism relation, and verifies that precisely five types remain. For all five types, every one of 4096 states is checked against the exact binary majority rule. Two different implementations agree on the sharp identity \(F^4=F^2\), every first-entry/period count, and every orbit-basin multiplicity. Each class has states first becoming periodic at step two. The graph names are verified with explicit isomorphism searches. All scripts and graph data are included.
+PASS
 
-## Originality: PASS (historical-priority qualification)
+Equal shore degree sums force a 6-by-6 biadjacency matrix. I independently enumerated matrices by adding one column of weight three at a time, keeping high-bit row prefixes sorted and only pruning when residual row sums are impossible. This represents every graph up to left relabelling. It yields 550 sorted-row matrices, 540 connected, 147 with a row mask 7. The five listed representatives produce disjoint complete orbits of sizes 90,180,60,180,30 under permutations of both shores and transpose, exhausting the 540. Connectedness makes the bipartition unique up to reversal. The minimal tuples and the independent prism and Franklin constructions match. For dynamics I formed all 4096 outputs per graph by expanding winning neighbor pairs to supersets, then traversed the reverse graph from exact fixed and 2-periodic states. Every initial state is reached and the largest depth is two in each case, proving F^4=F^2 and excluding longer periods; in order B1–B5, masks 5,5,6,6,5 give depth two. Independent counts match every first-entry/period cell, all individual-attractor basin size multiplicities in GRAPH_DATA.json, and all stated extrema and square counts. The 3516 states eventually oscillating on the prism give 879/1024; its 231 primitive two-cycles and Franklin's basin maximum 722 are the claimed unique extrema. The held-fixed graph labels and temporal orbit quotient were used exactly as defined. The authored programs were inspected, not executed.
 
-Goles and Olivos give a general eventual two-period theorem. Kaaser, Mallmann-Trenn and Natale provide general upper bounds on majority voting time, including their bound 13 for the present graph order and degree, but not the two-update equality or the complete five-class basin census. A published five-graph domination classification concerns a different invariant. Relevant search results for Heawood and dodecahedral majority dynamics concern other graphs. Searches for Franklin, hexagonal-prism and cubic-bipartite majority basins yielded no covering table. An unindexed equivalent or inaccessible graph-specific full text remains a risk, not a claim of guaranteed priority.
+## originality
 
-## Value: PASS
+PASS
 
-The five connected cubic bipartite graphs of the same minimal natural order provide a complete controlled comparison of local degree and graph order under identical majority dynamics. The precise clock is universal but orbit/basin populations vary by more than thirtyfold (six to 231 primitive two-cycles), and two graphs with the same number of squares have distinct attraction spectra. The hexagonal prism uniquely maximizes oscillation likelihood, while the Franklin graph uniquely maximizes the largest individual basin; these are exact, interpretable finite dynamical invariants, not arbitrary isolated samples.
+The complete order-twelve graph classification and the prism's own recurrent population were already known; the fully flipping prism subpopulation was also separately known. Pass for the distinct sharp two-update bound on all five, the complete entry and basin spectra, and the resulting dynamical comparisons across the entire class. Those are not obtained from known recurrent populations, graph-class counts or generic voting-time bounds.
 
-## Closest sources and limitations
+## value
 
-Relevant references: Goles–Olivos (1980), DOI 10.1016/0012-365X(80)90121-1; Kaaser–Mallmann-Trenn–Natale (2015), arXiv:1508.03519v1, inspected definitions, theorems, general bounds and appendix passages; MathWorld's Franklin-graph description; and a recent published comparison on five cubic bipartite graphs addressing paired domination rather than majority. The general majority results have a broader graph domain but do not imply the new exact finite table. Mathematical scope is exactly twelve vertices. Historical-priority and external-validation uncertainties are retained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete isomorphism class at a fixed small cubic bipartite order is a natural controlled comparison. All classes share the same sharp entry clock while actual oscillation probabilities and largest basins differ; the graph with the most oscillatory orbits is not the graph with the largest basin. Two graphs even share the square count but not these spectra. The exact tables are useful for checking stronger convergence or attractor predictions and add information beyond the prior classification and B3's recurrent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

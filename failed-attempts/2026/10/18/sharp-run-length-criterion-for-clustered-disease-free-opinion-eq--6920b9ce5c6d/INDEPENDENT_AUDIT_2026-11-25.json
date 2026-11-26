@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:28:33.181749Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86, VERIFICATION.md and verify.py (inspected only)",
+        "Roy et al., doi:10.1038/s41598-026-53331-8, pp. 3–4 Eqs. (1)–(3), (6)–(8)",
+        "/workspace/reviews/evidence/replay.py 2; /workspace/reviews/evidence/2.txt"
+      ],
+      "rationale": "The published deterministic opinion–infection–vaccination equations agree with the frozen update on the physical state space. The extra probability clips are inactive there: gamma and q are probabilities and the sum of the two new transition shares of the susceptible mass is at most that mass. Every clique vertex has a strictly positive same-sign neighbor surplus, at least 3−2=1 at a portal. For every finite omega and positive epsilon the opinion update is constant in a relative neighborhood of each such corner. The vaccination fixed values follow from phi V=(1−V)gamma. The full Jacobian has a zero opinion row block; in the remaining coordinates the infection blocks are triangular with diagonal factors (1−alpha) on positive nodes and (1−alpha)Id+lambda A_MM on negative nodes, while vaccination factors are −phi and 1−phi, respectively. For a strict subthreshold radius the infection multipliers have modulus less than one, including alpha=1, so smooth extension to a neighborhood and an adapted norm give exponential attraction relative to the state space. For instability, the presence of a feasible positive eigenvector needs a boundary argument: on the negative component with largest radius, while a trajectory stays sufficiently close, susceptibility is uniformly near one and the pressure is bounded below by (1−delta)lambda times the infection sum over neighbors in that component, with delta arbitrarily small (expand 1 minus the product by telescoping). After shrinking the neighborhood, the inner product of infection with the positive component Perron vector therefore grows by a uniform factor greater than one. Arbitrarily small nonnegative seeds in that component must exit. The induced components are precisely the negative runs; eliminating the three satellites gives r−3/(r−2)=2 cos(pi/(ell+1)) for the positive Perron eigenvector. Its larger root is increasing in ell, and the empty case has radius zero. The word count follows by splitting according to the trailing negative run, and 12/25<1/2<2(3+sqrt(13))/25 proves the four-community witness. Independent replay checked the 254 words through seven communities, the run-count recurrence and the exact strict witness inequality; the arbitrary-size statements rest on the proof. Equality is not classified, and no stochastic assertion follows.",
+      "residual_risks": [
+        "Only block-constant equilibria on the prescribed graph and strict stability regimes are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4241e10db284 states the pinned-equilibrium and strict spectral criterion for all strict same-sign-majority assignments on connected simple undirected graphs, not just this chain; it includes opposite stability verdicts at equal coverage.",
+          "Godsil–McKay Theorem 2.1 evaluates the characteristic polynomial of arbitrary rooted products in terms of the factor polynomials.",
+          "Roy's published threshold is for the all-negative state; general majority clique partitions and heterogeneous SIS vaccination are relevant but are not by themselves the exact frozen theorem."
+        ],
+        "reasoning": "The general same-map threshold truly covers the frozen stability criterion once the induced component radius is inserted. The classical graph theorem determines that radius for this exact graph class. Neither mere similarity to other epidemic models nor a citation-access problem supplies the failure reason.",
+        "searches": [
+          "Resultary 4241e10db284, Finding and clique–path family",
+          "Roy et al. doi:10.1038/s41598-026-53331-8, Eqs. (9)–(12)",
+          "Godsil–McKay 1978 Theorem 2.1",
+          "Benjamini–Zakharov–Zhukovskii Stable partitions; Delmas–Dronnier–Zitt spectral vaccination papers"
+        ]
+      },
+      "checked_sources": [
+        "Roy et al. doi:10.1038/s41598-026-53331-8",
+        "Resultary 4241e10db284",
+        "Godsil–McKay doi:10.1017/S0004972700007760",
+        "Benjamini–Zakharov–Zhukovskii doi:10.1002/rsa.70092",
+        "Delmas–Dronnier–Zitt arXiv:2211.15463 and doi:10.4171/JEMS/1431",
+        "Zhai et al. doi:10.1016/j.physa.2026.131676 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the equal-factor case the rooted-product formula is det(p_4(r)Id−p_3(r)A_path), where p_4=(r−3)(r+1)^3 and p_3=(r−2)(r+1)^2 are the complete-graph adjacency polynomials before and after root deletion. For r>2, the quotient is p_4/p_3=r−3/(r−2), increasing there. Substituting the path eigenvalue 2 cos(pi/(ell+1)) and taking the larger root yields exactly r_ell in the frozen Finding.",
+          "The disjoint induced components have radius equal to their largest block radius, so the longest run is the only needed statistic. Applying 4241e10db284 gives both strict verdicts; counting trailing runs and inserting lengths one and two yields the remaining recurrence and example."
+        ],
+        "reasoning": "This is a direct implication of the checked stronger results plus standard path eigenvalues, a two-term polynomial substitution and elementary word counting. It establishes substantive coverage without imputing chronological priority or making any claim about unavailable full texts.",
+        "searches": [
+          "Resultary 4241e10db284, mirrored RESULT.md offsets 0–2426 and clique–path proof locator near 7851",
+          "Godsil–McKay 1978 Theorem 2.1 pp. 21–22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual strict-majority theorem of 4241e10db284 uses the same clipped Roy model and induced negative adjacency matrix. A frozen labeling satisfies its hypothesis since every portal has three internal and at most two external neighbors.",
+          "Godsil–McKay Definition 1.1: a rooted product identifies the root of each rooted factor with its corresponding base vertex. A negative run is exactly the rooted product of a path on ell vertices by ell rooted K4 copies, with the portal as root."
+        ],
+        "reasoning": "The change from community labels to a strict-majority vertex assignment and from a portal chain to a rooted product is exact, not an analogy. The reference's separate example uses a clique joined to a path and is not the same graph, but its theorem applies to this chain as written.",
+        "searches": [
+          "Resultary: Roy clipped opinion epidemic threshold, equal coverage, and chain of K4 clusters",
+          "Godsil McKay rooted product of graphs characteristic polynomial path complete graph adjacency spectrum complete graph rooted product clique chain eigenvalues formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue result is 4241e10db284; its six-vertex example and its K_m-to-P_m bridge family are different from the K4 chain.",
+          "The rooted-product determinant gives the exact radius even without a precomputed table of K4 runs. The all-word sequence is the standard recurrence for avoiding a single forbidden run."
+        ],
+        "reasoning": "No identical word-count table or four-clique witness was located. Exact antecedent coverage is via formulas that compute the same quantities, not an assertion of an identical table or of source priority.",
+        "searches": [
+          "Resultary: longest unvaccinated run, clique-chain spectral radius and equal coverage",
+          "Godsil–McKay 1978 Definition 1.2 and Theorem 2.1"
+        ]
+      },
+      "rationale": "The finding is mathematically correct, but the complete classification is covered as a corollary of the available comparison results. The general strict-majority theorem in Resultary 4241e10db284 covers the same map and includes every labeled corner on this chain, as well as the qualitative equal-coverage reversal itself. The remaining explicit spectral calculation is a direct substitution into the classical rooted-product theorem of Godsil–McKay; the count is its immediate bounded-run word enumeration and the numerical witness is a substitution. Thus no scientifically distinct remainder is established against the checked corpus. This is an assessment of demonstrable coverage now, not a finding that the later-catalogued general record predates the frozen result or evidence about the direction of derivation.",
+      "residual_risks": [
+        "The strongest same-model record has a later catalogue date; its relationship to the frozen record does not determine priority, authorship or dependence.",
+        "The full text of the Zhai and Salathé–Bonhoeffer papers was not available in the inspected sources; this is not the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model matches; stated threshold covers all-negative configuration",
+          "evidence": [
+            "Opinion clipping, multiplicative pressure and deterministic infection/vaccination equations; threshold alpha divided by the largest adjacency eigenvalue at the entirely negative equilibrium."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-026-53331-8",
+          "material_read": "pp. 3–4 Eqs. (1)–(3), (6)–(8) and all-negative threshold Eqs. (9)–(12)",
+          "method": "Lawful primary article inspection",
+          "title": "Opinion-Driven Vaccination and Epidemic Dynamics on Heterogeneous Networks",
+          "trigger": "Exact source model and possible same-model threshold"
+        },
+        {
+          "assessment": "Matches the spectral mechanism as a stronger theorem and the qualitative reversal; does not state this chain's detailed count",
+          "evidence": [
+            "General strict-majority pinning and strict lambda rho(A[G_-]) versus alpha criterion. Its examples compare a negative clique with a negative path on the same connected host; the general theorem, not these examples, supplies the implication."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-equal-vaccination-coverage-opposite-invasion-verdicts-a-sharp-si--4241e10db284/RESULT.md",
+          "material_read": "Finding offset 0–2426; clique–path comparison and proof locator near 7851, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror, decisive Finding directly read",
+          "title": "Equal vaccination coverage, opposite invasion verdicts: a sharp six-vertex construction",
+          "trigger": "Strongest indexed match and exact same-map implication"
+        },
+        {
+          "assessment": "Provides the exact spectral ingredient as a specialization",
+          "evidence": [
+            "The rooted-product characteristic polynomial is the determinant in factor characteristic polynomials; for identical rooted cliques it reduces to the determinant described above."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700007760",
+          "material_read": "Definitions 1.1–1.2 and Theorem 2.1, pp. 21–22, publisher OA offsets 3020–5265 and author copy offsets 1600–6551",
+          "method": "Lawful publisher and author-hosted primary PDFs",
+          "title": "A new graph product and its spectrum",
+          "trigger": "Exact spectrum of the portal clique chain under a standard graph-product formulation"
+        },
+        {
+          "assessment": "Stable partition construction, not a coupled epidemic threshold",
+          "evidence": [
+            "Uses five-clique modules to obtain exponentially many stable opinion partitions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70092",
+          "material_read": "arXiv p. 40, Stable partitions",
+          "method": "Lawful primary preprint inspection",
+          "title": "Majority Dynamics on Finite Trees",
+          "trigger": "Prior stable opinion partitions"
+        },
+        {
+          "assessment": "Heterogeneous SIS background, no evidence of the Roy clipped-corner theorem",
+          "evidence": [
+            "Vaccination profiles based on a maximal endemic equilibrium for a generalized SIS model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.15463",
+          "material_read": "Primary preprint abstract, p. 1",
+          "method": "Lawful OA preprint inspection",
+          "title": "Vaccinating According to the Maximal Endemic Equilibrium Achieves Herd Immunity",
+          "trigger": "Broader vaccination spectral threshold"
+        },
+        {
+          "assessment": "Spectral vaccination background; frozen reference DOI ending 1429 should be 1431",
+          "evidence": [
+            "The first page gives the correct DOI and describes the spectral radius for general vaccination strategies."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/JEMS/1431",
+          "material_read": "Publisher PDF first page",
+          "method": "Lawful primary PDF inspection",
+          "title": "The Effective Reproduction Number: Convexity, Concavity and Invariance",
+          "trigger": "Heterogeneous vaccination spectral thresholds and citation verification"
+        },
+        {
+          "assessment": "Related SAIS model; equation-level comparison not resolved",
+          "evidence": [
+            "The abstract uses two layers with opinion or alertness modulating infection and recovery and reports multiple stable equilibria."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2026.131676",
+          "material_read": "Available RePEc abstract only",
+          "method": "Lawful abstract access",
+          "title": "Coevolution of Epidemic Spreading and Opinion Dynamics in a Two-Layer Network with Media Influence",
+          "trigger": "Related coupled opinion–epidemic dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 44–82",
+        "Resultary 4241e10db284 Finding",
+        "Godsil–McKay 1978 Theorem 2.1"
+      ],
+      "rationale": "The public-health motivation and the structural effect of equal coverage with different clustering are worthwhile. But the claimed increment is an exact family instance of an available stronger same-model threshold, whose needed radius is supplied by the known rooted-product formula; the count and example are routine deductions from those statements. The bounded replay and the accessible presentation do not supply a distinct scientific contribution under the value standard for exact facts. No independently valuable remainder or repair is established.",
+      "residual_risks": [
+        "The result remains a useful explanatory example; no real-world outbreak or policy conclusion is assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

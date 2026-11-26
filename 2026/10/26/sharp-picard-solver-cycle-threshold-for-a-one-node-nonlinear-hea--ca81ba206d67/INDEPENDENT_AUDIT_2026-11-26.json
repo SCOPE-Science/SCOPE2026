@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:38:01.176402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Squaring the specified average y/2 at either face and taking the centered flux divergence gives −y³/(2h²), so freezing the coefficient in backward Euler gives exactly F_T after division by b. The cubic z+Tz³−1 is strictly increasing and has one positive root s. Expanding F_T∘F_T verifies the factored displacement in RESULT.md; its denominator is positive and the quadratic changes root count at T=4. For T≤4 the displacement points toward s on both sides. For T>4 the two roots p_± satisfy p_++p_−=1 and Tp_+p_−=1 and are exchanged by F_T, hence straddle s. The displacement points toward p_− below s and p_+ above s; because F_T² is increasing, iterates are trapped between the start and the attracting fixed point of F_T² on that side. This clarifies the proof's shorthand 'bounded by fixed points': an outer bound can be the starting value, not another fixed point. Chain differentiation on the cycle gives 4/T. At T=4 the quadratic is 4v² for v=z−1/2, the cubic is 4v+O(v²), and the denominator is 8+O(v); thus v advances to v−2v³+O(v⁴) per two steps. The inverse-square increment tends to 4, so jv_(2j)²→1/4, and the odd-to-even deviation ratio tends to −1. The full-index limit is 1/2 for every nonfixed positive start, including the assigned start 1. The damped multiplier is 1−ω(3−2s), with s→0 as T→∞; precisely 0<ω≤2/3 gives strict local linear stability at every finite T. This proves no globally damped convergence assertion. The supplied verification files were inspected; the frozen code was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Botchev's Eq. (10) is a vector frozen-coefficient backward-Euler iteration following the quadratic-conductivity PDE and centered spatial differences. The focused DOI retrieval did not yield a lawful accessible primary text for the Hill-equilibrium analogy."
+        ],
+        "reasoning": "The vector form does not imply this precise face convention or quantitative nonlinear convergence conclusions; analysis of equivalent stationary equations alone cannot determine the full-index discrete critical coefficient or the uniform damping ceiling.",
+        "searches": [
+          "Botchev arXiv:2610.14884v1 §4 Eqs. (6), (7), (10)",
+          "Literature search for symmetric Hill reciprocal-square equilibrium/bifurcation; candidate DOI 10.1038/35002131"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2610.14884v1",
+        "Resultary bf663838cf18",
+        "Focused rational-map literature lookups and candidate DOI retrieval noted above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching theorem includes supercritical attraction and the exact multiplier; Botchev supplies the solver form but not the scalar model's critical or stiff-relaxation constants."
+        ],
+        "reasoning": "Existence and linear stability of an emerging two-cycle do not specify the leading nonlinear term of the critical second iterate. The critical solver error requires the cubic coefficient and iteration asymptotic, while uniform local damping requires optimizing over the full stiffness family of fixed-state derivatives. Exact coverage of the other components is credited rather than treated as a mere similar title.",
+        "searches": [
+          "Resultary bf663838cf18 Finding and proof of the cycle/multiplier",
+          "Botchev §4 discretization and iteration jointly"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary bf663838cf18 states x_(j+1)=(g+2)/[2(1+x_j²)], threshold g=2, and multiplier 16/(g+2)². The focused external search did not find an equally exact discrete critical-asymptotic result."
+        ],
+        "reasoning": "The substitution x_j=√T z_j, g=2√T−2 gives equality of maps in the overlap domain, in particular the entire supercritical regime. It transfers the threshold and multiplier exactly. The continuous Hill-equilibrium analogy found in search is not evidence for the discrete critical rate or for the heat solver's damped iteration.",
+        "searches": [
+          "Local Resultary exact reciprocal-quadratic Picard two-cycle/threshold comparison",
+          "Literature search: one-dimensional map 1+x^2 period two rational decreasing recurrence critical inverse square root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue has an exact formula for the cycle transition and product of slopes under another application and parameterization; the matched theorem does not give the critical coefficient or the local damping ceiling."
+        ],
+        "reasoning": "This is demonstrable exact coverage for part of the theorem, not an absent match. The comparison is with a distinct record about a wave step, not a copy of the frozen heat finding.",
+        "searches": [
+          "Local Resultary Picard forcing threshold / two-cycles / reciprocal-quadratic map; bf663838cf18"
+        ]
+      },
+      "rationale": "There is exact catalogue coverage of the undamped threshold, attracting cycle and multiplier after rescaling; those features are not credited as distinct recurrence results. The supported contribution in the bound heat-solver statement is the critical relaxation constant in the physical normalization and the sharp stiffness-uniform local damping ceiling, with the exact reduction for this centered-flux heat step. The matching wave record and the broader primary iteration do not supply those quantitative boundary/stabilization results. This is not a priority judgment based on catalogue dates.",
+      "residual_risks": [
+        "Known indexed partial coverage is exact and should be credited. Earlier independent treatments of critical reciprocal-quadratic maps or uniform local damping are not excluded by the focused search. No priority ordering is inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared iteration template; no exact centered-face scalar classification in inspected section",
+          "evidence": [
+            "Eq. (6) is a 2D quadratic-conductivity heat PDE; Eq. (7) is its vector ODE after centered discretization; Eq. (10) uses (I+τA(y^(m)))^−1 applied to the backward-Euler right-hand side."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.14884v1",
+          "material_read": "§4, text offsets 23070–31065, Eqs. (6), (7), (10)",
+          "method": "Targeted OA HTML reading",
+          "title": "Are implicit schemes needed in adaptive time stepping for PDEs?",
+          "trigger": "Prior quadratic-conductivity heat equation and frozen-coefficient solver"
+        },
+        {
+          "assessment": "Exact rescaled overlap for the undamped phase transition and cycle; distinct application and no checked critical coefficient or damping result",
+          "evidence": [
+            "x_(j+1)=(g+2)/(2(1+x_j²)); threshold g=2; attracting positive two-cycle and multiplier 16/(g+2)². x=√T z and g=2√T−2 identify the maps."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-forcing-threshold-for-picard-two-cycles-in-a-conforming--bf663838cf18",
+          "material_read": "Local mirror RESULT.md, Finding and exact normalized recurrence, threshold and cycle comparison (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "A sharp forcing threshold for Picard two-cycles in a conforming Kirchhoff wave step",
+          "trigger": "Exact symbolic match to reciprocal-quadratic Picard iteration"
+        },
+        {
+          "assessment": "Unresolved equilibrium analogy, not evidence of discrete-rate coverage",
+          "evidence": [
+            "The inspected access result gave no article text from which to infer a result."
+          ],
+          "identifier_or_url": "10.1038/35002131",
+          "material_read": "No primary-text passage successfully retrieved",
+          "method": "Lawful DOI and repository-copy lookup",
+          "title": "Construction of a genetic toggle switch in Escherichia coli",
+          "trigger": "Possible algebraic overlap of symmetric reciprocal-square steady-state equations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact positive heat-step diagnosis distinguishes failure of a practical nonlinear iteration from loss of positivity or failure of the implicit update itself. The nonhyperbolic rate explains slow convergence at the threshold even when the iteration converges in exact arithmetic. The parameter-independent damping ceiling gives a sharp local remedy for the entire stiffness range without claiming global behavior. These are meaningful solver distinctions beyond a reparameterized cycle threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

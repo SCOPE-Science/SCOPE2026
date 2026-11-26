@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:25:46.176605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–21,23–63",
+        "VERIFICATION.md:19–23",
+        "verify.py (frozen source, not executed)",
+        "Fresh exact mask-and-cut replay described above"
+      ],
+      "rationale": "On each closed segment the coefficient secant slopes lie in [0,1] away from DC; equivalently the map difference is an average of spectral masks applied to the input difference, with DC fixed. Every mask occurs on an open strict chamber, so the upper operator bound is attained by a small step perturbation. Modulo constants the path first-difference coordinates have l¹ norm; their unit vectors are cuts h_k, giving the exact max_mask,max_cut reduction. In Haar band j, Walsh characters of the specified least significant frequency bit change sign between the halves of each dyadic block and span the 2^j block detail space. A cut has at most one nonzero Haar coefficient per band, bounded by √(ℓ_j)/2. For masked details, l² contraction and the within- and between-block jumps give V≤4∑|a_b|≤4√(2^j/ℓ_j)‖u‖₂, producing the claimed geometric sum. In the random-mask calculation the first edge has expected difference 1/2, and at every other edge both endpoints are nonzero so the deterministic part is zero; the n/2 separating characters give independent signs scaled by 1/n. The exact even Rademacher absolute moment gives the stated mean and Stirling gives √(n/π); the unit-variation impulse makes the mean a lower bound on the maximum, not equal to it. At n=2 the only nontrivial mask is the identity. Fresh integer Walsh-character enumeration checked all masks and cuts at n=4,8 (8×3 and 128×7), giving maxima 3/2, 11/4 and exact impulse means 1, 13/8. Replay with entries χ_r(i)=(-1)^(r·i), summing the products χ_r(i)χ_r(j) over retained frequencies for each projection numerator; take adjacent differences and divide by n. The frozen verifier was not executed.",
+      "residual_risks": [
+        "The finite maxima do not identify a large-n leading constant; the upper and lower bounds prove the exponent, not convergence of K_n/√n.",
+        "Natural binary order and the open, unweighted path are essential to the stated cut and Haar-band argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed DCT-II path growth uses a sine-transform projection identity. Indexed finite-Haar path analyses give logarithmic growth and include a same-day result, not a resolved priority claim. Available literature descriptions concern graph-shift variation recovery, sparse Walsh recovery, and WHT thresholding in neural-network layers."
+        ],
+        "reasoning": "A single cut component per Haar band becomes a vector which can be redistributed across blocks by a Walsh subprojection; deletion of Haar coefficients does not model that operation. The DCT projection identity is basis-dependent. The other available statements have different objectives and do not yield this finite-order Walsh operator result.",
+        "searches": [
+          "Resultary DCT-II record ending 5000fe7c11db",
+          "Resultary Haar records ending 8271a7c110ab and 8b0a2f2d1e98",
+          "arXiv:1411.7414, arXiv:1504.07648, arXiv:2104.07085"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:65–77",
+        "Resultary comparisons ending 0b2aff0e8d4f, 5000fe7c11db, 8271a7c110ab and 8b0a2f2d1e98 (index)",
+        "arXiv:2104.07085 (search excerpt)",
+        "arXiv:1411.7414 and arXiv:1504.07648 (frozen attribution)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new upper bound uses simultaneous Walsh masking within natural-order block Haar bands. The lower law distinguishes the one impulse-incident path edge from the other n−2 edges."
+        ],
+        "reasoning": "A more general known edge-wise impulse calculation could imply the mean; the available cube index summary does not establish one. Even that implication would not prove the path upper bound, since cube coordinate differentiation does not commute with a natural-order path jump.",
+        "searches": [
+          "Boolean-cube Walsh indexed statement ending 0b2aff0e8d4f",
+          "DCT-II and Haar indexed statements ending 5000fe7c11db and 8271a7c110ab",
+          "RESULT.md:34–60 versus 65–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct index hit describes attained two-input Walsh gain of order 2^(d/2) in Boolean-cube graph TV. The exact ordered-path match is the assigned record itself."
+        ],
+        "reasoning": "Same transform and exponent do not identify the seminorm: the highest coordinate-bit character has path variation 2 but cube variation n. Natural consecutive integers involve carries. A cube inequality with cube TV in both numerator and denominator does not give the stated ordered-path estimate or its mean.",
+        "searches": [
+          "Resultary 2026/11/17/SCOPE-walsh-spectral-soft-thresholding-has-sharp-boolean-cube-variatio--0b2aff0e8d4f",
+          "Resultary exact ordered-path Walsh record ending e2f49f8b7f06 (self-match)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The absolute Rademacher moment is the central-binomial expression via elementary telescoping; the frozen finite mask results are their own verification, not an independent prior table."
+        ],
+        "reasoning": "A binomial-moment table supplies an edge expectation after the reduction, not which edges contribute which terms or all-mask path gains. No independent exact table of these path-mask maxima or means surfaced in the bounded comparisons.",
+        "searches": [
+          "Resultary exact ordered-path Walsh random-mask/impulse claim (self-match ending e2f49f8b7f06)",
+          "RESULT.md:10–16,44–60,62–63; VERIFICATION.md:19–23"
+        ]
+      },
+      "rationale": "The supported contribution is the ordered-path Walsh bound with the exact Bernoulli-mask impulse law. The general mask and cut reduction is a shared piecewise-linear method, and the Rademacher moment is classical. Neither the available Boolean-cube Walsh comparison nor the ordered-path comparisons for other bases cover these two path-specific conclusions.",
+      "residual_risks": [
+        "Closest indexed full texts were not retrievable; a general impulse-edge calculation or an earlier unconditionality result for this specific finite Walsh path norm could narrow the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest overlap but different total variation and no exact path law in retrieved statement",
+          "evidence": [
+            "Boolean-cube graph edges versus consecutive integer path edges"
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-walsh-spectral-soft-thresholding-has-sharp-boolean-cube-variatio--0b2aff0e8d4f",
+          "material_read": "Indexed statement and comparison in RESULT.md:65–66; full mirror unavailable",
+          "method": "Resultary search and attempted mirror passage access",
+          "title": "Walsh spectral soft thresholding has sharp Boolean-cube variation amplification",
+          "trigger": "Same transform, two-input ratio and growth exponent"
+        },
+        {
+          "assessment": "Analogue for DCT-II; no Walsh spectral mask formula",
+          "evidence": [
+            "Sine-transform projection identity for DCT-II"
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-square-root-variation-instability-of-discrete-cosine-soft-thresh--5000fe7c11db",
+          "material_read": "Indexed statement",
+          "method": "Resultary search; attempted mirror access",
+          "title": "Square-root variation instability of discrete-cosine soft thresholding",
+          "trigger": "Same open-path type of gain and exponent"
+        },
+        {
+          "assessment": "Direct Haar shrinkage rather than selection of Walsh vectors inside each Haar band",
+          "evidence": [
+            "Logarithmic path growth and exact finite-Haar computation"
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-nine-state-computation-and-logarithmic-path-variation-inst--8271a7c110ab",
+          "material_read": "Indexed statement",
+          "method": "Resultary search",
+          "title": "Exact nine-state computation and logarithmic path-variation instability of finite Haar soft thresholding",
+          "trigger": "Haar detail spaces used in the present upper bound"
+        },
+        {
+          "assessment": "The retrieved statement concerns neural-network binary layers, not open-path variation",
+          "evidence": [
+            "WHT and smooth-thresholding layers in neural networks"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.07085",
+          "material_read": "Search excerpt, not full text",
+          "method": "Targeted literature search",
+          "title": "Fast Walsh-Hadamard Transform and Smooth-Thresholding Based Binary Layers in Deep Learning",
+          "trigger": "Literature hit combining Walsh transform and thresholding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–21,23–60,68–69"
+      ],
+      "rationale": "Open-path TV is a natural signal roughness measure. The attained two-input gain shows quantitatively that coordinatewise contraction in Walsh coefficients does not control variation uniformly in signal length. The explicit random-mask benchmark identifies typical impulse amplification on the same scale and gives a rigorous lower bound with exact normalization; the result is not just a pair of small-dimensional maxima.",
+      "residual_risks": [
+        "No exact general formula for K_n, application-specific noise model, other ordering, or worst-case leading constant is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

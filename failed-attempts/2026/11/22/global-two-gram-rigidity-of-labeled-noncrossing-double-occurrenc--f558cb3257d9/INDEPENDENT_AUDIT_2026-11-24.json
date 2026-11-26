@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:35:19.189309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose a shortest matched interval in the noncrossing source. An interior letter would have its other occurrence inside the interval, contradicting minimality, so there is an adjacent doublet aa. Its loop forces the same doublet in any doubled-label competitor. The possible unique exterior predecessor p and successor q, including their absence at a boundary, are read from the spectrum. Removing aa deletes its loop and exterior edges and adds pq when both neighbors exist; the reduced spectra still match, and the reduced source is noncrossing. Induction on the number of labels gives identical reduced words. A noncrossing doubled word has no repeated directed bigram: an equal-letter loop cannot repeat with two copies, and a repeated distinct-letter bigram would force interlacing. Thus the edge pq determines a unique reinsertion, even when p=q; missing neighbors determine the appropriate boundary, with the one-label word as base case. This proves the decoder and uniqueness also against unrestricted competitors. Dyck matchings with labeled pairs give n!C_n; because all are distinguishable the whole source is optimal. The six words at n=2 are distinct in spectrum, and 311232 and 323112 have identical spectra and equal last letter, so appended fresh doublets preserve a collision. One-letter counts are fixed and fail already for n=2. Independent bounded replay `python /workspace/review_replay.py 5` enumerated full fibers through four labels by position-pair assignments and checked the displayed collision; the induction is the all-order evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalogue a4b2c35d85dd proves uniqueness among all words for every noncrossing source with letter multiplicity <=2k-2, from the full contiguous spectrum through length k. At k=2 this includes all frozen sources and the extra length-one counts impose no extra restriction on the fixed doubled competitor class.",
+          "Catalogue 548b5bcbdca0 treats a different class forbidding abba rather than abab; it is not the covering result."
+        ],
+        "reasoning": "The first comparator has the same labeled linear conventions and strictly weaker hypotheses on both source multiplicities and competitor. The second merely shares the readout, and the Bresler et al. sampled-read obstruction is not itself the deterministic theorem.",
+        "searches": [
+          "Resultary a4b2c35d85dd, Finding and Proof Steps 1–5",
+          "Resultary 548b5bcbdca0, distinguish nonnesting and noncrossing",
+          "Ukkonen-style repeats, complete vs sampled readout"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a4b2c35d85dd",
+        "Resultary 548b5bcbdca0",
+        "arXiv:1301.5104",
+        "Şaşoğlu–Tse (2014), Section II.A",
+        "DOI 10.1186/1471-2105-14-S5-S18",
+        "DOI 10.37236/6728",
+        "DOI 10.1007/s00373-024-02751-2",
+        "arXiv:1811.11739"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent proof in the stronger catalogue record uses identified endpoints and Euler trails, not the frozen doublet-deletion induction. Restriction to k=2 and exactly two letters per label gives the singleton-fiber implication verbatim.",
+          "Under the published cyclic criterion, the marked cyclic word at read length two has no triple repeat of length at least one and no pair of interleaved repeats: distinct one-letter repeats are nonalternating, and a repeated distinct-letter bigram would already alternate its symbols. The possible equal-letter loop occurs just once. Thus cyclic uniqueness up to rotation implies linear uniqueness by cutting at the marker.",
+          "The Cruz et al. abstract studies insertions and equivalence under symbol maps, not fixed-label directed bigram fibers."
+        ],
+        "reasoning": "The central mathematical implication holds regardless of whether it was previously expressed using exact doublets, full contiguous spectra, or endpoint-marked cycles. The frozen recursive proof is a useful alternative argument, but no distinct research result follows from its particular deletion order.",
+        "searches": [
+          "Resultary a4b2c35d85dd complete theorem and linear-endpoint trail proof",
+          "Şaşoğlu–Tse Section II.A absence of triple and interleaved repeats",
+          "Cruz et al. arXiv:1811.11739 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here directed bigram equality is 2-Abelian equivalence because all one-letter counts are fixed. For symbol a, 2 minus bigram indegree is its indicator as first letter, and 2 minus outdegree its indicator as last letter, including when both endpoints coincide.",
+          "The toric single-read comparison has wraparound, unlike the frozen readout; adjoining one fresh sentinel between the inferred end and start makes these cyclic length-two counts determined by the linear data. Rotation is then fixed by the sentinel."
+        ],
+        "reasoning": "Neither reversal nor relabeling is factored out. The endpoint adjustment bridges the observation conventions; the singleton sentinel adds neither a triple repeat nor an alternating pair of repeated letters.",
+        "searches": [
+          "Karhumäki–Saarela–Zamboni arXiv:1301.5104 Section 2.1, Definition 2.1 and Lemma 2.3",
+          "Resultary: noncrossing double-occurrence bigram, k-Abelian singleton, de Bruijn Euler-trail reconstruction",
+          "Şaşoğlu–Tse Section II.A, complete single-read spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The broader record's displayed cardinality counts restricted-growth encodings of partitions with bounded block size, not the precise labeled all-doublet subclass. Restricting to blocks of size two yields classical noncrossing matchings; their distinct label assignments multiply the Catalan count by n!.",
+          "Known noncrossing partition/quasi-Stirling interpretations account for this source class; none of the observed small-order tables is the all-order rigidity proof."
+        ],
+        "reasoning": "The exact code size follows mechanically once general rigidity is specialized: every labeled noncrossing pairing may be used. It need not be printed in an earlier capacity table to be covered.",
+        "searches": [
+          "Resultary noncrossing contiguous-read rigidity and code capacity; a4b2c35d85dd exact source and capacity",
+          "Lin–Fu DOI 10.37236/6728; Brualdi–Dahl DOI 10.1007/s00373-024-02751-2"
+        ]
+      },
+      "rationale": "The central rigidity claim, including uniqueness against arbitrary doubled-label competitors, is a direct special case of a distinct stronger catalogue result and is also in the scope of the classical repeat criterion after encoding the endpoints. The exact subclass count is the labeled Catalan count applied to that rigidity. Distinct same-day records show coverage without settling publication order.",
+      "residual_risks": [
+        "Exact writing or publication order of the same-day records is not established.",
+        "The precise earliest publication of the linear, fully doubled formulation was not determined; unavailable external comparison texts do not undermine the demonstrated stronger statement and standard reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BY_K_EQUALS_2_SPECIALIZATION",
+          "evidence": "Multiplicity bound 2k-2, noncrossing true source, all same-alphabet rivals, and independently argued linear-spectrum uniqueness. The relationship section also describes the fully doubled case as subsumed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-contiguous-read-reconstruction-of-noncrossing-words-with-b--a4b2c35d85dd/RESULT.md",
+          "material_read": "Original Finding, Assumptions, and Proof Steps 1–7, offsets 0–7146; relationship passage near offset 7177",
+          "method": "Resultary lookup and bounded read of mirrored primary record",
+          "title": "Sharp contiguous-read reconstruction of noncrossing words with bounded symbol multiplicities",
+          "trigger": "Direct stronger source-class and competitor theorem"
+        },
+        {
+          "assessment": "DISTINCT_FORBIDDEN_PATTERN_CLASS",
+          "evidence": "Nonnesting forbids abba and is not the noncrossing class that forbids abab.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-global-two-gram-singleton-boundary-for-nonnesting-double-occurre--548b5bcbdca0/RESULT.md",
+          "material_read": "Classification and nonnesting/noncrossing comparison near offset 7943",
+          "method": "Mirrored source passage inspection",
+          "title": "Global two-gram singleton boundary for nonnesting double-occurrence words",
+          "trigger": "Same readout and doubled-label source family"
+        },
+        {
+          "assessment": "ESTABLISHES_EQUIVALENT_INVARIANT",
+          "evidence": "k-Abelian equivalence fixes counts through length k, with an equivalent characterization using endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "Section 2.1, p. 4, Definition 2.1 and Lemma 2.3, around offset 11100",
+          "method": "OA primary PDF statement comparison",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Equivalent invariant and endpoint conventions"
+        },
+        {
+          "assessment": "CYCLIC_CRITERION_APPLIES_AFTER_ENDPOINT_MARKING",
+          "evidence": "For the single-read spectrum, absence of interleaved or triple repeats of length at least L-1 is the uniqueness criterion. The frozen response is linear, but with equal inferred endpoints the marker supplies equal cyclic spectra for L=2.",
+          "identifier_or_url": "Şaşoğlu and Tse (2014), Section II.A",
+          "material_read": "Section II.A, p. 2, OA offsets around 9200 and 12800",
+          "method": "OA original statements compared to linear spectra using a fresh marker",
+          "title": "DNA Assembly From Paired Reads as 2-D Jigsaw Puzzles",
+          "trigger": "Possible dominating reconstruction criterion in cyclic format"
+        },
+        {
+          "assessment": "SAMPLED_READ_OBSTRUCTION",
+          "evidence": "Its unbridged-repeat obstruction has read-coverage hypotheses, unlike the frozen deterministic spectrum.",
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-14-S5-S18",
+          "material_read": "pp. 5–6, Theorem 1 and surrounding material",
+          "method": "OA published-text passage inspection",
+          "title": "Optimal assembly for high throughput shotgun sequencing",
+          "trigger": "Nearby general repeat conditions"
+        },
+        {
+          "assessment": "SOURCE_CLASS_BACKGROUND",
+          "evidence": "The 1212-avoiding restricted growth functions correspond to noncrossing partitions.",
+          "identifier_or_url": "https://doi.org/10.37236/6728",
+          "material_read": "pp. 1–2 near offset 2300",
+          "method": "OA original source passage",
+          "title": "On 1212-avoiding restricted growth functions",
+          "trigger": "Noncrossing source encoding and count background"
+        },
+        {
+          "assessment": "SAME_CLASS_DIFFERENT_STATISTIC",
+          "evidence": "Avoidance of 1212 and 2121 describes quasi-Stirling 2-permutations; the identified comparison concerns inversion parity rather than the observed directed bigram counts.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-024-02751-2",
+          "material_read": "p. 18 near offset 51000",
+          "method": "OA original passage inspection",
+          "title": "Multipermutations and Stirling Multipermutations",
+          "trigger": "Exactly doubled quasi-Stirling source alias"
+        },
+        {
+          "assessment": "ABSTRACT_INDICATES_DIFFERENT_EQUIVALENCE",
+          "evidence": "Repeat/return insertions and symbol-to-symbol images, not statistical digram fibers as described in the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.11739",
+          "material_read": "Abstract, p. 1 near offset 1334",
+          "method": "OA primary abstract inspection",
+          "title": "Insertions Yielding Equivalent Double Occurrence Words",
+          "trigger": "Potentially equivalent double-occurrence reconstruction problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The main phenomenon is a worthwhile reconstruction property but already covered. Its labeled capacity is then an immediate Catalan count. The doublet decoder is a short alternative to the broader construction, without a demonstrated material algorithmic or structural improvement; the small unrestricted collision and its padding are a routine boundary check rather than a separate surviving finding. No new and independently valuable claim was established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

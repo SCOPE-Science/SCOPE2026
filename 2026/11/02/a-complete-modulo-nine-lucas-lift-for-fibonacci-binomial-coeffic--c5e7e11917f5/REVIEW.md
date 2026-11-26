@@ -1,11 +1,21 @@
-# Review of the modulo-\(9\) Fibonomial congruence
+# Independent mathematical audit
 
-**Correctness — PASS.** The matrix identity \(Q^4=-I+3B\) supplies explicit unit congruences for every Fibonacci index; the omitted binomial-expansion tail has \(3\)-adic valuation at least two after normalization. Multiplication over four-term blocks gives a complete Fibotorial unit identity. Combining with the exact valuations and checking both remainder-carry cases proves the claimed congruence for all indices. The embedded verifier recomputes \(13{,}041\) coefficient pairs by exact integer arithmetic; this is corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** DeBellevue–Kryuchkova (2018), Theorem 4.6, proves the exact \(\bmod3\) signed Lucas law; Chen–Sagan (2013) treat prime-modulus fractals. Neither gives the displayed \(\bmod9\) unit correction or valuation-one branch. Southwick (2016) focuses on divisibility and other primes; Chand (2025) encodes valuations rather than unit residues. Targeted full-text comparisons, mathematical-record searches, and accessible prior research records gave no equal or dominating modulo-\(9\) statement. Unlocated congruence literature remains a risk.
+PASS
 
-**Mathematical value — PASS.** The first higher-power lift of a natural digit-fractal congruence determines every residue, not just divisibility or nonzero signs. Both carry regimes are classified by a short explicit formula, including valuation-one Fibonomial coefficients that disappear in reduction modulo \(3\). The proof identifies a useful periodic unit-factor structure of the Fibonacci factorial.
+The Fibonacci matrix satisfies Q⁴=−I+3B. After dividing the (1,2) binomial expansion by 3u with its indicated sign, the j=2 term is a multiple of 9, the j=3 term is 3(u−1)(u−2) modulo 9, and v₃(3^{j−1}/j)≥2 for every j≥4. Thus the surviving unit is 7 when 3 divides u and 1 otherwise, with v₃(F_{4u})=1+v₃(u). For the three other residues expansion modulo 9 gives only units; multiplying them gives exactly the tail R_h, and multiplying a full block gives 2 times the unit of u+1 times the exceptional factor 7 when 3 divides u+1. Combining valuations and units before reducing gives 6^δ 7^η W m!/(a!b!), with δ the sole possible radix-4 carry. For δ=1 the remaining factorial quotient is (b+1) binom(m,a) and 6 absorbs 7^η. For δ=0, η=1 only when the least ternary digits carry, which makes binom(m,a) divisible by 3 and again absorbs the factor 7. The derivation uses only inverses of units modulo 9 and covers k=0,n and n=0 by empty products. Independently the Fibonacci addition identity gives a Pascal recurrence modulo 9 without division; its rows through 512 agreed with the final simplified two-branch formula.
 
-Independent reproduction and broader literature review remain outstanding. The theorem is limited to modulus \(9\) and the classical Fibonacci sequence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed Lucas-type congruence modulo 3 and the prime-adic valuation are covered. The distinct supported claim is the all-index unit-sensitive residue rule modulo 9, including cases in which the ordinary binomial or the Fibonomial is a nonunit. The checked sources do not supply a Fibonacci factorial unit formula of the needed precision.
+
+## value
+
+PASS
+
+Modulo 9 is the first prime-power refinement of the established modulo-3 structure for a canonical generalized Pascal triangle. The rule reduces every Fibonomial coefficient to ordinary-binomial arithmetic and small unit factors, separating valuative and unit behavior even when the coefficient is 3 or 6. The natural lift and exact unit distinctions are useful arithmetic information beyond a divisibility table or extra finite rows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

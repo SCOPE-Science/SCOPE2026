@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:53:58.770512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–27; VERIFICATION.md and both supplied verifiers inspected, not executed.",
+        "Independent replay: python3 /tmp/opencode/frozen_combinatorial_replay.py 1."
+      ],
+      "rationale": "For a support of at least three points the full trace forces an unused symbol in every coordinate; omitting a single point forces that point to have a private coordinate. A binary-valued coordinate can be private for at most one point, and choosing the excluded points' private symbols in their distinct coordinates realizes every trace. Thus the largest possible supports have size three. In each of the 27 binary boxes the eight triangles are precisely the triples in the two parity tetrahedra, and each triple uses both symbols on every axis, fixing its box uniquely. Every pair is shattered; the 162 distance-two pairs each lie in four triangles and the other 189 are maximal. I independently enumerated traces through size four, generated the triangle set via box parity, and eliminated the sparse mod-2 equations on triangle coefficients. Counts were (1,27,351,216,0), with boundary rank 133. The connected complete one-skeleton has boundary rank 26, giving 351−26−133=192 and 216−133=83, with no other reduced homology.",
+      "residual_risks": [
+        "Exact finite mod-2 result only; neither torsion nor integral homotopy type is determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 4.6–4.7 give VC dimension three in the distance-one Hamming case at the present parameters.",
+          "Resultary c5e2fc9d07c6 gives homology of ordinary three-cut complexes of binary hypercubes, with a cubical collapse, not trace shattering."
+        ],
+        "reasoning": "Neither the distance-one theorems nor the cut-complex collapse implies the exact-distance-three trace or rank claims. The relation differs, even where the numerical VC dimension coincides.",
+        "searches": [
+          "Adler–Benediktsson–Macpherson arXiv:2007.16042, Hamming section; Resultary box polarity and binary hypercube coverage searches."
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb1dfb6efa7e, c2c444ddd1a2, 1cff9a7bdac5, 13c7ac4ec974, f98167fe7255, c5e2fc9d07c6",
+        "arXiv:2007.16042",
+        "Targeted public search yielded no usable candidate; this is not evidence of no literature."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distance-one classification supplies the triangle supports as a geometric family. The box-polarity classification supplies the same incidence and a larger lattice of extents, with different ranks."
+        ],
+        "reasoning": "Given the target's independently established equality of triangle loci, the old triangle list can be used to form the target boundary matrix. But neither the trace equality for these centers, the remaining pair traces, nor the exact matrix rank is a stated or implied rank theorem in these sources. Lattice rank cannot substitute for a simplicial boundary computation.",
+        "searches": [
+          "Resultary c2c444ddd1a2 type-C proof and cb1dfb6efa7e box-polarity Finding; binary-cube covering/rank search."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary cb1dfb6efa7e treats exactly the nonmatching-in-every-coordinate incidence relation, but classifies its polarity-closed extents.",
+          "Resultary c2c444ddd1a2 type C consists of three axis neighbors of one center; for H(3,3) this gives the same triangle locus, with 243 rather than 351 shattered pairs."
+        ],
+        "reasoning": "Closed extents are not the fixed family of one-center traces. Equal-distance-two binary-box triples have a coordinate-majority point with each triple vertex a neighbor in a different axis, which explains the actual shared degree-three locus. The different extents and edge counts prevent equivalence of the full shattering classifications.",
+        "searches": [
+          "Resultary: exact-distance-three ternary Hamming VC classification; antipodal Hamming concepts; private-coordinate and binary-box triples.",
+          "Public search: Hamming graph, exact distance, VC dimension, shattering spheres, distance-3."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distance-two sphere record 1cff9a7bdac5 gives VC dimension four and reduced ranks 570 and 1489 in degrees two and three.",
+          "The ternary three-cut record 13c7ac4ec974 gives integral ranks in degrees 22 and 23; the radius-two Rips record f98167fe7255 gives rational H_3 dimension 46."
+        ],
+        "reasoning": "These are exact results about the same space with different face definitions, not tabulations of the target boundary matrix or Betti numbers. No distinct exact entry for the target ranks was located.",
+        "searches": [
+          "Resultary: (192,83), ternary exact-distance-three shattering topology, and H(3,3) finite homology comparisons."
+        ]
+      },
+      "rationale": "The antipodal incidence relation, its box structure, and even the geometric set of 216 triples as distance-one shattered supports have antecedents. The distinct contribution evaluated here is the full shattering complex for fixed exact-distance-three spheres, in particular its different one-skeleton, nonpure facet census and binary homology, not the invention of that geometric triple family or a new generic box principle. No inspected stronger statement settles these claims for the exact-distance-three system.",
+      "residual_risks": [
+        "Inspection was bounded; further finite topology or shattering results under incidence/box terminology could give deeper coverage.",
+        "The same-day distance-two record was not treated as evidence of priority in either direction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same incidence and box structure, but closure classification rather than shattering topology.",
+          "evidence": "xIy iff x_i differs from y_i on every axis; closed extents are bottom, top and nonempty proper Cartesian boxes.",
+          "identifier_or_url": "Resultary cb1dfb6efa7e",
+          "material_read": "RESULT.md Finding and assumptions, mirror offset 0.",
+          "method": "Local Resultary mirror.",
+          "title": "Antipodal Hamming concepts: box polarity, symmetry collapse, and sharp Horn arity",
+          "trigger": "Same antipodal relation, plausible stronger box characterization."
+        },
+        {
+          "assessment": "Material overlap for triangles, different shattering complex.",
+          "evidence": "1+27z+243z²+216z³; eligible triples use three axes around a common center.",
+          "identifier_or_url": "Resultary c2c444ddd1a2",
+          "material_read": "Finding and type-C proof, mirror offsets 0 and 4400.",
+          "method": "Local Resultary mirror.",
+          "title": "Coefficientwise VC-shattering census of open neighborhoods in Hamming graphs",
+          "trigger": "Same Hamming parameters and triple count."
+        },
+        {
+          "assessment": "Distance-one open neighborhoods only in these results.",
+          "evidence": "Adjacency requires exactly one differing coordinate; VC dimension three for these parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Definition p. 2; §4 Theorems 4.6–4.7, pp. 21–22.",
+          "method": "OA PDF passages.",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Primary Hamming VC result."
+        },
+        {
+          "assessment": "Material neighboring study, not equivalent.",
+          "evidence": "Uses exactly distance two, with a four-dimensional maximum shattered support and different Betti ranks.",
+          "identifier_or_url": "Resultary 1cff9a7bdac5",
+          "material_read": "RESULT.md Finding, offset 0.",
+          "method": "Local Resultary mirror.",
+          "title": "Exact-distance-two spheres in the ternary three-cube",
+          "trigger": "Same-day exact-distance shattering and topology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–24; independent trace and binary rank replay.",
+        "Distance-one comparator c2c444ddd1a2 and same-space distance-two comparator 1cff9a7bdac5."
+      ],
+      "rationale": "This is a natural exact maximal-distance concept class on a basic nonbinary Hamming graph. The private-coordinate structure explains why all pairs but only selected parity triangles are faces. The Betti ranks give a topological comparison beyond equal VC dimension or the shared triangle pattern of a different relation, and the maximal-edge result exhibits nonpurity. These findings do not rely on treating the already known geometric triple pattern as novel.",
+      "residual_risks": [
+        "Small exact instance; no general dimension formula or downstream theorem is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

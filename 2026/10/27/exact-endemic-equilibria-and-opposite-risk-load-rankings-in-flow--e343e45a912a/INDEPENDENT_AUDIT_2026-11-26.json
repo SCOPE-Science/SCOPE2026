@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:03.423208Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For this deterministic graph ODE, at a stationary point recovery rules out x_i=1; a zero load would propagate to neighbors and contradict B>0, and a zero infection coordinate forces all infection coordinates to vanish. Hence the only branches are disease-free or strictly positive. Dividing the load variables by 1-x_i produces a Laplacian with positive edge weights (1-x_i)(1-x_j); its stationary nullspace on a connected graph is exactly constants. This gives the uniform disease-free load and forces within-part equality on a biclique via strict monotonicity of x/(1-x)^2. Independently, multiplying the two positive infection balances gives c(1-x_L)(1-x_R)=gamma/sqrt(mn); substituting into either balance shows that the infection odds are in the ratio sqrt(n):sqrt(m). Their common positive scale fixes the two loads, with total B an affine function of that scale of strictly positive slope and intercept B_c, so there is precisely one positive equilibrium for B>B_c and none at equality or below. Back-substitution and exact residual checks corroborate this, including star and balanced cases: python3 /workspace/branches/frozen_math_recheck.py 1 ran 96 rational cases; the frozen script was read, not executed. Opposite rankings follow strictly from the explicit odds and opposite ordering of the complementary susceptible fractions, and the loads are affine in B. On the fixed-mass tangent space the linearization is block triangular with infection block B A/(m+n)-gamma I and load block -L on zero-sum vectors. The latter is strictly stable, and the former has largest eigenvalue B sqrt(mn)/(m+n)-gamma. This proves only the stated below/above-threshold local assertions; no conclusion at equality about decay, or about endemic dynamical stability, is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior model's Lemma 3 gives the stationary weighted-Laplacian condition on general graphs, §4 provides threshold analysis and Theorem 2 states a supercritical global stability result. The exact consensus formula in §5.3 requires balance and constant degree; §5.2 provides approximations."
+        ],
+        "reasoning": "For an undirected biclique balance is automatic in the paper's sense, but the degrees are n and m, so constant degree is false for m≠n. The general dynamics and load identity cover important components, not the explicit unequal profile.",
+        "searches": [
+          "Punzo §§3–5, especially Lemma 3, §4, Theorem 2 and §5.3",
+          "Resultary: flow-regulated equilibrium classification for equitable classes and endogenous load"
+        ]
+      },
+      "checked_sources": [
+        "Punzo DOI 10.1016/j.automatica.2021.110107, primary published-version passages",
+        "Resultary 949ad0e7afb0 Finding; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3 implies beta_i proportional to 1-x_i on connected undirected graphs, hence anti-ranking wherever x differs. The source spectral radius threshold reduces to B_c on bicliques."
+        ],
+        "reasoning": "Neither the nullspace relation nor the regular formula fixes the two unequal infection levels. The nonregular proof uses injectivity in the per-vertex infection balance and solves two coupled scalar equations with mass conservation; assuming consensus instead would be wrong. No separate novelty is assigned to already implied properties.",
+        "searches": [
+          "Compare Punzo Lemma 3, §4, Theorem 2, and §5.3 directly to the Finding for unequal K_{m,n}",
+          "Resultary 949ad0e7afb0 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen ODE is exactly the undirected specialization of Punzo's model. The closest indexed two-equitable-cell result 949ad0e7afb0 uses a discrete-time product-form map with fixed scalar rates."
+        ],
+        "reasoning": "Equitable two-cell graphs and class-wise infection ranking alone do not give an equilibrium of this flow ODE: scalar-rate maps omit the conserved endogenous load. The exact regular consensus solution for Punzo's ODE covers K_{m,m} but not unequal stars or bicliques.",
+        "searches": [
+          "Resultary: flow-driven SIS exact equilibrium on unequal complete bipartite graphs",
+          "Punzo, DOI 10.1016/j.automatica.2021.110107, Eqs. (3)–(4) and §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed Finding 949ad0e7afb0 concerns a different model and gives rankings, not a tabulation of equilibrium infection and load. Punzo's explicit uniform stationary value pertains to the regular case only."
+        ],
+        "reasoning": "No checked entry gives these exact two-class odds and load values as functions of the conserved mass for m≠n; search coverage is bounded.",
+        "searches": [
+          "Resultary semantic searches for exact flow-driven SIS and unequal complete-bipartite endemic formulas (inspected ranked results)",
+          "Punzo §5.3 exact expression"
+        ]
+      },
+      "rationale": "The distinct claim is the exact stationary profile and full mass-parametrized stationary classification for unequal bicliques. The defining model, stationary load law, spectral threshold, supercritical stability/uniqueness context, and equal-part solution are prior. In particular, merely reversing the nodal ordering is not distinct from the prior load identity.",
+      "residual_risks": [
+        "Bounded literature/index coverage cannot exclude unindexed exact specializations. A comparable exact solution may be expressed in terms of two equitable cells rather than bicliques."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers defining model, load relation, threshold, and regular exact solution; no exact explicit nonregular biclique formula in compared results",
+          "evidence": [
+            "Lemma 3 gives the receiver-health-weighted Laplacian nullspace; §5.3 requires constant degree in addition to balance."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178189/13/1-s2.0-S0005109821006361-main.pdf",
+          "material_read": "Published-version PDF: §2 Eqs. (3)–(4), §3 Lemma 3, §4, §5.1 Theorem 2, §§5.2–5.3; central passages pp. 2–4",
+          "method": "Lawful OA primary PDF, statement-level comparison",
+          "title": "An SIS network model with flow driven infection rates",
+          "trigger": "Same defining equations and strongest plausible governing theorem"
+        },
+        {
+          "assessment": "Different time law and fixed scalar rates; no conserved endogenous load profile",
+          "evidence": [
+            "Discrete-time product-form SIS map with scalar beta and delta."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-total-degree-ranking-of-endemic-infection-on-two-equitable-commu--949ad0e7afb0",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror comparison",
+          "title": "Total degree ranking of endemic infection on two equitable communities",
+          "trigger": "Closest indexed class-wise equilibrium ranking result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest strongly degree-heterogeneous connected family is a natural test of the conservation-coupled graph ODE beyond the known regular case; it includes stars of arbitrarily many leaves. Exact coordinates and exclusion of hidden asymmetric or boundary stationary branches give an analytical reference for approximations, rather than only restating the spectral threshold or the load identity. No real-world inference follows from this abstract model calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

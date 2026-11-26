@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The 23-word witness is checked by independent enumeration of six-position subsequences in `artifacts/verify_witness.py`. Every received six-bit word is compatible with at most three selected eight-bit words. The same program checks a 48-support rational primal feasible point with denominator \(35865\) and exact value \(1082/45\), plus all 256 integer dual inequalities, whose equal objective \(3246/135\) proves LP optimality; the slack distribution is 54 zero, 4 of value two, 4 of value three, 12 of value four, and 12 of value six.
+# Independent mathematical audit
 
-Compile and execute `artifacts/verify_upper.cpp` using a C++17 compiler. It independently reconstructs the 256-by-64 incidence matrix, checks the rational dual exactly using integers, enumerates all 113 permitted positive-slack subsets, and searches for a feasible 24-word code over the 54 zero-slack words. Expected terminal status: `INFEASIBLE_24_EXACT cases=113 total_sets=113 nodes=30578 tight=54 other=32` and exit code zero. A found 24-word code, an exceeded node limit, or a failed prerequisite returns a nonzero exit code.
+## correctness
 
-The finite enumeration proves only the stated eight-bit two-deletion three-list parameter; no other alphabet, length or list size is certified. Independent scientific audit: not performed.
+PASS
+
+I independently rebuilt all incidences by inserting two binary symbols in each length-six output, deduplicating each (word,output) pair. The 23 distinct witness words give an output-load distribution of 1 zero, 2 ones, 20 twos and 41 threes. I checked the nonnegative integer dual on all 256 words, and the 48-support rational primal on all 64 rows and every source unit cap. Their objectives coincide at 1082/45, so 24 is the rounded upper bound. Equality with 24 would leave an exact budget of 6 for selected slacks, omissions of the two 36-weighted constant words and unused weighted row capacity. This forces both constants and only slack-at-most-six words. Instead of replaying the supplied 113-case search, I branched directly on individual word inclusions and exclusions over all such candidates. Every discard uses the three-list capacity, remaining size, insufficient remaining defect budget, or forced saturation of a row whose weight exceeds that budget. For a row needing d occurrences to saturate, if fewer than d candidates remain its unavoidable deficit bounds the budget from below, and if exactly d remain in a mandatory row they must all be selected. No fractional or floating test enters this search. It exhausted 18,941 nodes without a 24-word completion. The construction and the exclusion together establish 23, not just a bound.
+
+## originality
+
+PASS
+
+The closest exact table at length eight is for list cap two; the closest list-cap-three entry is at length seven. Neither implies 23 or the cap-three fractional optimum. The closest published inequalities apply to the model but do not determine its integral or fractional value at this parameter.
+
+## value
+
+PASS
+
+The cap-three regime is a natural list-decoding problem, and the result exhibits an explicit failure of the rounded incidence LP bound at a reproducible short-block instance. Even with optimal fractional weights, rounding gives a number unattainable by any actual code. The exact witness and integral exclusion give a benchmark for stronger packing converses and exhaustively checked code designs, beyond an isolated numerical best candidate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

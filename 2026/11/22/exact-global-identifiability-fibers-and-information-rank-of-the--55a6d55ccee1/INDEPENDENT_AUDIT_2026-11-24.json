@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:27:14.428429Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:27–78",
+        "VERIFICATION.md:3–21",
+        "check_identifiability.py:8–42"
+      ],
+      "rationale": "The beta moments give the specified positive normalizer. The left endpoint factor is never zero. The right endpoint vanishes only at (rho,delta)=(0,1), where absorbing (1-x)^2 adds exactly two to the right shape. After this reduction, equality of endpoint orders fixes alpha and the canonical right shape b; the factor with constant term one is then uniquely fixed. For its nonzero linear/quadratic coefficients p,q, delta=-2q/p and rho=4q/p^2-1. A constant factor gives exactly the reported beta fibers, including the strict cutoff b>2. Density zeros inside the interval do not affect this argument. At rho>0, delta=0 the rho score vanishes, and the other scores are multiples of centered log(x), log(1-x), x. A putative constant linear combination, differentiated and multiplied by x(1-x), has all three coefficients zero. The scores are square integrable, so this proves the exact Gram rank. Identical laws at every sample size give the stated consistency obstruction. The frozen SymPy checker was inspected, not executed; its algebraic checks do not prove exhaustiveness or Fisher rank.",
+      "residual_risks": [
+        "No unconstrained information-rank assertion is made at the boundary rho=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The journal text restricts the identifiable mixture class to pairwise-distinct right shapes and notes lack of identifiability for unrestricted beta mixtures. The constrained quadratic tilt shares its right shape across displayed mixture terms."
+        ],
+        "reasoning": "The invoked mixture result cannot recover the complete constrained fibers, nor does it give the zero-tilt information rank.",
+        "searches": [
+          "arXiv:2108.07934v1 §4.3, Definition and Proposition 4.4",
+          "DOI:10.1080/02664763.2022.2146661 §4.2, Definition and Proposition 4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.07934v1",
+        "DOI:10.1080/02664763.2022.2146661",
+        "Resultary:55a6d55ccee1",
+        "Resultary:a854baff1a18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model's known delta=0 beta law supplies the rho lines. The explicit collision (2,1,0,1) and (2,3,7,0) gives Beta(2,3) with two distinct baseline beta shapes, and the endpoint factorization rules out all remaining collisions."
+        ],
+        "reasoning": "The zero-tilt reduction does not settle whether any other parameter strata join a fiber or whether the remaining score directions are independent. The unrestricted preprint formulation is false, not a stronger valid theorem implying this one; the journal qualifier should not be read as full-domain injectivity.",
+        "searches": [
+          "arXiv:2108.07934v1 Proposition 4.4",
+          "Journal Proposition 4.2, author-hosted full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers formulate identifiability through finite beta mixtures; their displayed terms have a shared right shape within a triplet. The earlier v1 asserts one-to-one parametrization, not a quotient by the beta fibers."
+        ],
+        "reasoning": "The endpoint-normalized quadratic representation is equivalent to the density parametrization, but not to a beta mixture with pairwise distinct component right shapes. The full fiber relation is not equivalent to either injectivity proposition.",
+        "searches": [
+          "arXiv:2108.07934v1 §4.3",
+          "DOI:10.1080/02664763.2022.2146661 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "55a6d55ccee1 is the identical assigned finding and is not a separate hit for priority.",
+          "a854baff1a18 treats binomial dispersion and rare counts for the discrete bimodal beta-binomial law."
+        ],
+        "reasoning": "The distinct same-day record evaluates a different distributional construction and different invariants, not equality of continuous-density parameterizations or score rank. No chronology within the day is inferred.",
+        "searches": [
+          "Local Resultary semantic lookup for bimodal-beta identifiability and Fisher rank",
+          "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The beta reduction at zero tilt and the model itself are known. The reviewed contribution is the exhaustive collision classification, the resulting reconstruction criterion and the exact zero-tilt rank, not rediscovery of the beta reduction. The preprint's injectivity assertion is contradicted by an admissible collision; the journal's mixture restriction does not imply the reviewed result. No independent equivalent was verified in the bounded source comparison.",
+      "residual_risks": [
+        "Searches are bounded and do not exclude unindexed equivalent derivations. The journal proposition has an ambiguous qualifier; the conclusion here does not depend on a particular interpretation of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping but contradicted unrestricted assertion; not coverage of the fiber result",
+          "evidence": [
+            "Proof calls the class of finite beta mixtures identifiable and splits the tilt into components with a shared beta shape."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.07934v1",
+          "material_read": "§4.3, definition, Proposition 4.4 and proof, extracted offsets 45661–52427",
+          "method": "OA full-text targeted passage and bounded context",
+          "title": "A Model for Bimodal Rates and Proportions (preprint)",
+          "trigger": "Same density and an explicit injectivity assertion"
+        },
+        {
+          "assessment": "Qualified overlap, not coverage; scope of the qualifier is ambiguous",
+          "evidence": [
+            "Proposition 4.2 adds ‘where the β’s are pairwise different’; the displayed expansion has common right shape within each density."
+          ],
+          "identifier_or_url": "https://andrmenezes.github.io/pdf/papers/2022__beta_bimodal.pdf",
+          "material_read": "§4.2, p. 11, extracted offsets 30900–35848; DOI 10.1080/02664763.2022.2146661",
+          "method": "Lawful author-hosted full-text passage",
+          "title": "A model for bimodal rates and proportions (journal version)",
+          "trigger": "Later identifiability proposition for the same model"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": [
+            "Same fibers and zero-tilt rank as the frozen source."
+          ],
+          "identifier_or_url": "Resultary:55a6d55ccee1",
+          "material_read": "Statement of fiber classification and rank",
+          "method": "Local Resultary mirror",
+          "title": "Exact global identifiability fibers and information rank of the bimodal beta family",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Not coverage of the claim",
+          "evidence": [
+            "Discrete beta-binomial dispersion and a limit law, not continuous density fibers or score geometry."
+          ],
+          "identifier_or_url": "Resultary:a854baff1a18",
+          "material_read": "Statement on dispersion and rare-count asymptotics",
+          "method": "Local Resultary mirror",
+          "title": "Sharp binomial dispersion spectrum and rare-count Bernoulli transition",
+          "trigger": "Different same-day record using the bimodal beta construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–25,38–78",
+        "Vila et al., preprint Proposition 4.4 and journal Proposition 4.2"
+      ],
+      "rationale": "The result tells which model parameters can be recovered from arbitrarily many observations, corrects an unrestricted published-preprint inference, and distinguishes the globally nonidentifiable fibers from the exactly three first-order identifiable directions on the interior beta submodel. The boundary collision and complete off-fiber reconstruction are useful beyond the trivial zero-tilt degeneracy.",
+      "residual_risks": [
+        "This is a result for the stated unconditional density; it does not settle inference for covariate-dependent versions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

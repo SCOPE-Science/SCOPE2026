@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:52:24.920781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–73; independent Perron first-return, pole and quadratic-root calculation",
+        "VERIFICATION.md lines 19–25 and verify.py lines 7–61, inspected only",
+        "Independent bounded tests: indexed binary rings N=3,…,12 and rational critical-renewal recurrence through r=30; e.g. Z_12=3z^4+24z^5+2z^6"
+      ],
+      "rationale": "The cyclic constraints are exactly avoidance of 11 and 000, including N=3. The stated pair-state matrix appends the new symbol with its occupation weight and its closed walks count indexed words once. It is primitive by strongly connected returns of lengths 2 and 3. In the limiting Perron-transformed Markov chain, state 01 records an occupied site; its first returns have raw path weight z and lengths 2 and 3. Perron-vector factors telescope on a return, giving probabilities z/λ² and z/λ³ independently on successive returns. Put p=z/λ³=1/(1+λ). Then ρ=1/(2+p), and the conditioned occupation series is U(s)=1/[1−(1−p)s²−ps³]=1/[(1−s)(1+s+ps²)]. The connected series ρ[U(s)−ρ/(1−s)] removes the Perron pole and no other pole. Cauchy–Hadamard yields the stated limsup decay even with zero coefficients on subsequences. The two nontrivial normalized transfer roots solve t²+t+p=0. The dominant modulus is √p for p>1/4 and (1+√(1−4p))/2 for p<1/4, yielding the unique minimum at λ=3 and z=27/4, as well as the stated phase angle. At p=1/4 partial fractions have coefficients 4/9 at (1−s)^−1, 2/9 at (1+s/2)^−1 and 1/3 at (1+s/2)^−2. Thus C(r)=4(3r+5)(−1/2)^r/81, including r=0 and 1. The repeated eigenvalue −3/2 has one eigenvector direction by the first two equations of (T+3I/2)v=0; the double pole confirms a Jordan contribution to this observable. The primitive eigenvalue stays simple and analytic; λ∼z^(1/3) at zero and λ∼√z at infinity give the two endpoint scales. Independent finite cyclic enumeration for N=3,…,12 agreed with (N/k)binom(k,N−2k) at occupancy k, obtained by marking an occupied starting site and ordering the gaps, then dividing by k. The critical renewal recurrence was independently checked through r=30.",
+      "residual_risks": [
+        "The finite checks are not the arbitrary-z or arbitrary-separation proof. Uploaded code was not executed. The covariance is for the infinite-volume law, not a finite cycle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-b weighted enumeration is an exact free concatenation 1+s_b e_b/(1−p_b) with p_b=x∑_{j=b+1}^{2b+1}y^j; the end blocks do not enter the limiting conditioned gaps.",
+          "Luck §3.4 Eqs. (3.37)–(3.41) calculates correlation via renewal poles, gives ξ from the nearest nontrivial pole, and explicitly states the polynomial-in-distance modification at multiplicity ≥2. The model sections restrict configuration weights to the uniform ensemble. Appendix A Eqs. (1.4)–(1.11) gives the renewal geometric-sum mechanism in an iid-spacing setting (stated there for a continuous distribution).",
+          "The cited maximal-hard-core/recoverable-system literature supplies equivalent definitions and higher-dimensional ordering problems, not the closest spectral coverage."
+        ],
+        "reasoning": "The exact bulk block kernel is covered for arbitrary occupation weight, and the method converting a renewal kernel to correlations and repeated-pole terms is covered. The unit-weight case alone would not establish the activity crossover. The comparison uses the weighted earlier kernel as well, without treating a continuous-density statement as a literal discrete theorem.",
+        "searches": [
+          "arXiv:2302.08791v2 Lemma 2.1, variable definitions and proof",
+          "arXiv:2311.14393v2 §2.1, §§3.4 and 6.1, Appendix A",
+          "arXiv:2610.11042 definitions and examples; arXiv:2510.19746 and arXiv:2602.18310 recoverable systems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.14393v2 §§2.1, 3.4, 6.1 and Appendix A",
+        "arXiv:2302.08791v2 Lemma 2.1",
+        "arXiv:2610.11042; arXiv:2510.19746; arXiv:2602.18310",
+        "Resultary self-hit and distinct Findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let y_*=1/λ normalize the prior block polynomial, so z(y_*²+y_*³)=1. Its normalized gap kernel p_1(z,y_* s) yields the prior renewal geometric resolvent 1/[1−p_1(z,y_* s)]. Factor off (1−s) and write p=z y_*³: the remaining denominator is 1+s+p s².",
+          "With normalized roots t²+t+p=0, the prior pole-to-length rule gives the two displayed modulus branches directly by the quadratic formula. Each is monotone on its respective interval, and the coalescence point p=1/4 means y_*=1/3 and z=27/4.",
+          "At p=1/4 the resolvent is 1/[(1−s)(1+s/2)²]; the critical law is just coefficient extraction of this one rational function after the density subtraction. The polynomial factor in distance is already predicted by the repeated-pole rule."
+        ],
+        "reasoning": "The two primary sources jointly reduce the frozen quantitative claim to direct quadratic algebra and partial fractions. Neither paper is credited with a printed fugacity minimizer. It is the mechanical derivation from the existing exact same-model kernel and correlation framework that defeats the originality of the frozen finding.",
+        "searches": [
+          "Compare Došlić et al. Lemma 2.1 exact block polynomial with Luck §§3.4 and 6 and Appendix A, and frozen equations for ξ and C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luck arXiv:2311.14393v2 §6, Eq. (6.1), has one occupied site per block and a neutral run of length b through 2b. At b=1 these are exactly the gaps 2 and 3 of the frozen model; §6.1 calculates the structure factor of this case at unit occupation weight.",
+          "Došlić et al., arXiv:2302.08791v2, Lemma 2.1 proof, uses occupation marker x and length marker y in the same blocks. The b=1 polynomial is x(y²+y³) before optional endpoint factors.",
+          "The Resultary random-order greedy cycle-MIS record shares the support but not the Gibbs probabilities."
+        ],
+        "reasoning": "With b=1 and x=z, the four descriptions (maximal hard-core gas, jammed blockade with occupation weight, binary shift forbidding 11 and 000, and a weighted renewal of gaps 2/3) describe the same bulk law after Perron normalization. Greedy random adsorption is not assumed to induce that law.",
+        "searches": [
+          "Jean Marc Luck Krapivsky structure factor jammed particle configurations one dimensional lattice nearest neighbor exclusion Edwards ensemble correlations cubic 2 3 gaps",
+          "one dimensional jammed blocked dimers Rydberg atoms two gap renewal correlation disorder line critical density 4/9 staggered complex eigenvalues Edwards ensemble correlations density dependent",
+          "Resultary: maximal cycle independent sets, 2/3 gaps, covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-exact-disorder-crossover-and-minimal-correlation-length-in-the-o--1a77dfa1a824 is the exact self-hit, not independent coverage.",
+          "2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5 Finding/scope at offset 0 studies uniformity and a likelihood ratio for greedy maximal independent sets on cycles.",
+          "2026/10/25/SCOPE-canonical-hard-core-path-and-cycle-correlations-have-distinct-sq--2ba6fd783632 Finding at offset 0 treats a site-pair covariance threshold for fixed-cardinality independent sets without maximality.",
+          "Distinct same-date 2026/11/8/SCOPE-a-pell-indexed-covariance-phase-diagram-for-run-length-spectra-o--96bab7375d9e Finding at offset 0 has Pell-indexed thresholds for bounded run-count covariances in fixed-composition words."
+        ],
+        "reasoning": "None of the distinct catalogue hits is an exact match. Same date does not settle priority. The adverse comparison is mathematical implication from the weighted jammed-block formulation and prior renewal correlation analysis, not an exact table hit.",
+        "searches": [
+          "Resultary: maximal hard-core correlation length/crossover, cycle MIS gap and covariance records"
+        ]
+      },
+      "rationale": "The known blockade-one jammed-atom model is the identical constrained lattice gas, not just a related higher-dimensional model. Published work already gives its exact occupation-weighted independent block polynomial z(y²+y³), and the earlier renewal correlation calculation for the same jammed configurations gives the pole/modulus criterion and repeated-pole behavior (worked at unit activity). Normalizing the published block weights to probabilities and applying the renewal formula leaves precisely one quadratic. The critical fugacity and length minimum are the coalescence and minimum modulus of that quadratic; the all-r covariance is the direct coefficient evaluation at the double pole. This is prior-ingredient coverage by explicit routine implication, not an assertion that a source was found printing the value 27/4 or the same covariance in this notation.",
+      "residual_risks": [
+        "This comparison does not determine historical priority for the literal numerical threshold or law. Search hits on irreversible parking/RSA are not evidence about the Gibbs measure. Some broader lookups were unproductive and were not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and correlation mechanism overlap; explicit b=1 example is at unit activity",
+          "evidence": "Blockade-one structure factor, exact renewal correlation formula and nearest-pole decay, multiplicity correction, and the iid-gap geometric-resolvent derivation.",
+          "identifier_or_url": "https://arxiv.org/html/2311.14393v2",
+          "material_read": "§2.1 around offset 8510 (uniform ensemble); §3.4 around 32800–38400, Eqs. (3.36)–(3.41) and repeated-pole discussion; §6–6.1 around 55868–63857, Eqs. (6.1)–(6.8); Appendix A around 66000–70351, Eqs. (1.4)–(1.11)",
+          "method": "OA HTML full-text passages",
+          "title": "On the structure factor of jammed particle configurations on the one-dimensional lattice",
+          "trigger": "Exact equivalent 2/3-gap model and correlation/pole analysis"
+        },
+        {
+          "assessment": "Exact weighted-block antecedent, not itself a displayed crossover calculation",
+          "evidence": "Uses occupation marker x and length marker y, independently concatenates block weights p_b(x,y), giving p_1=x(y²+y³) with endpoint corrections separate.",
+          "identifier_or_url": "https://arxiv.org/html/2302.08791v2",
+          "material_read": "Lemma 2.1 and its proof around offsets 15200–20898",
+          "method": "OA HTML full-text passage",
+          "title": "Complexity function of jammed configurations of Rydberg atoms",
+          "trigger": "Earlier occupation-weighted kernel for the same chain"
+        },
+        {
+          "assessment": "Definition overlap and examples in higher dimension",
+          "evidence": "Nearest-neighbor version uses maximal independent sets; inspected examples include ℤ^d for d≥2.",
+          "identifier_or_url": "arXiv:2610.11042",
+          "material_read": "PDF pp. 2–4, offsets 8839 and 14584",
+          "method": "OA full-text passages",
+          "title": "A general framework for crystallization in maximal hard-core models",
+          "trigger": "Cited model definition and high/low activity context"
+        },
+        {
+          "assessment": "Different lattice/claim in inspected passage",
+          "evidence": "Triangular-lattice model and high-/low-activity coexistence, not one-dimensional correlation-length minimization.",
+          "identifier_or_url": "arXiv:2510.19746",
+          "material_read": "PDF p. 30, offset 114318",
+          "method": "OA full-text passage",
+          "title": "The maximal hard-core model as a recoverable system: Gibbs measures and phase coexistence",
+          "trigger": "Recoverable-system alias and Gibbs phase comparison"
+        },
+        {
+          "assessment": "Equivalent local constraint, not decisive spectral coverage",
+          "evidence": "Recoverability and maximal independent sets, including one-dimensional recoverable systems.",
+          "identifier_or_url": "arXiv:2602.18310",
+          "material_read": "PDF p. 19, offset 63765",
+          "method": "OA full-text passage",
+          "title": "Recoverable systems and the maximal hard-core model on the triangular lattice",
+          "trigger": "Equivalent recoverability formulation"
+        },
+        {
+          "assessment": "Same gap support but different probability mechanism",
+          "evidence": "Uniformity of greedy output and likelihood-ratio obstruction, not fugacity-dependent Gibbs correlations.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact uniformity and a local likelihood ratio obstruction for greedy maximal independent sets",
+          "trigger": "Closest exact same-support distinct catalogue hit"
+        },
+        {
+          "assessment": "Different constraints and regime",
+          "evidence": "Fixed-cardinality independent sets and a site-pair covariance threshold, without maximality.",
+          "identifier_or_url": "2026/10/25/SCOPE-canonical-hard-core-path-and-cycle-correlations-have-distinct-sq--2ba6fd783632",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "Canonical hard-core path and cycle correlations have distinct square-root thresholds",
+          "trigger": "Closest hard-core correlation threshold catalogue hit"
+        },
+        {
+          "assessment": "Different variable and ensemble",
+          "evidence": "Covariance of bounded run-count statistics in fixed-composition words with Pell-indexed thresholds.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-pell-indexed-covariance-phase-diagram-for-run-length-spectra-o--96bab7375d9e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "A Pell-indexed covariance phase diagram for run-length spectra",
+          "trigger": "Distinct same-date phase-diagram/covariance hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–28 and 46–73",
+        "arXiv:2302.08791v2 Lemma 2.1 proof and arXiv:2311.14393v2 §3.4"
+      ],
+      "rationale": "The leading oscillation mode and the activity minimizing the correlation length are meaningful observables; the exact numbers can be useful as reference values. But for this frozen claim the prior same-model free-block kernel and established renewal pole analysis mechanically supply them by evaluating a quadratic and extracting a double-pole coefficient. No independently useful non-routine spectral or Gibbs result remains beyond that specialization. This is a value decision on the submitted result, not on the motivation of disorder crossovers.",
+      "residual_risks": [
+        "Does not assess refinements for other blockade ranges, interactions or boundary ensembles; those need separate mathematical claims."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

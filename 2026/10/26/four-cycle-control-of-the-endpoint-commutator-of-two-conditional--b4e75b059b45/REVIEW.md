@@ -1,19 +1,21 @@
-# Review of the four-cycle endpoint commutator theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With uniform measure on graph edges, both conditional expectations are orthogonal projections in \(L^2\). The proof writes their ordered compositions explicitly, obtains a skew matrix, and counts the nonzero entries of every row through four-cycles containing the row's edge. This establishes the exact finite-dimensional \(L^1\) and \(L^\infty\) norm by full row and column sums and sign extremizers. The equality classifications follow from the maximum possible local four-cycle count and from perfect-matching decompositions of projective-plane incidence graphs. The separate Hilbert norm uses the projective-plane incidence Gram matrix and two-projection principal-angle blocks. The standalone exact checker replayed with `ALL_CHECKS_OK 44523`; its finite cases are corroboration, not a proof of all degrees.
+PASS
 
-## Originality
+PASS for repairs/1/RESULT.md. The frozen Finding's unqualified sign-extremizer sentence overstates the result for L1. In C6, row j has entries ±1/4 at j−2,j+2 and zeros elsewhere; on a sign input each three-index parity class has at most two unequal pairs, so the normalized L1 output is at most 1/3, strictly below the L1 norm 1/2. Independent exact enumeration of the 64 six-cycle sign vectors also gave maximum 1/3. The corrected statement restricts the sign construction to L∞ and gives a point mass at a maximizing column for L1. For both norms the count follows from subtracting equal-sized supports of size d^2 with common support of size 2d−1+c4(e), and using skew-symmetry. If all rows vanish, each edge's two neighborhood sets form a saturated K_{d,d} component; the reverse follows from the same intersection count. Hall decomposition of a larger prime-plane incidence graph preserves four-cycle-freeness and attains the sharp bound for every degree. On the plane, normalized endpoint indicator bases have cross-Gram matrix A/(q+1), with AA^T=qI+J. Each nonconstant two-projection block gives s sqrt(1−s^2) at s=sqrt(q)/(q+1), yielding the stated exact Hilbert norm and separation. The supplied verifier was inspected, not run: direct composition is restricted to examples of at most 60 edges; exact row sums and the incidence Gram checks are finite evidence. The repaired proof independently covers the universal statements and the six-cycle counterexample.
 
-**PASS within inspected evidence, with priority risk.** Walters' arXiv:1604.00699v1 was inspected in full HTML, including the Hilbert-space commutator estimates, and Abiad–Dalfó–Fiol's arXiv:1205.5913v1 was inspected through its available complete HTML. Neither states the four-cycle identity for edge-supported conditional expectations. Comparable research records on numerical radius and conditional-expectation chains were inspected at the title/summary level, with no assertion of complete full-text noncoverage. An earlier exact result for a single excluded product rectangle concerns generally irregular support; another graph-edge result concerns an orthogonal gradient projector, a different operator. The full all-regular-graph equivalence and its projective-plane endpoint/Hilbert contrast were not found in the actual checks, but historical novelty is not certified by search alone.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem solves an all-degree exact operator-norm question using a local graph invariant and characterizes both maximal noncommutation and exact commutation. Its prime-power incidence examples exhibit qualitative non-equivalence of Hilbert and endpoint stability even though the same two conditional expectations are used throughout. The result is a natural structural classification, not an arbitrarily selected numerical graph case.
+PASS for the corrected graph-specific claim. Prior records already establish the qualitative endpoint-versus-Hilbert separation for these kinds of conditional expectations. They do not establish the exact uniform regular-graph four-cycle norm, its extremal classification across degrees, or the projective-plane specialization. The repair withdraws a false extremizer reading rather than asserting a new originality claim for extremizer theory.
 
-## Closest prior literature and limits
+## value
 
-Walters (2016) treats operator norms of anticommutators and bounds for commutators on Hilbert space; the present endpoint norm is not a Hilbert commutator inequality. Abiad, Dalfó and Fiol (2012) analyze regular bipartite graph spectra and distance-regularity rather than conditional averaging commutators. Source summaries of related conditional-expectation records were not substitutes for complete primary-document review. The present statement requires regular degree and uniform edge mass; weighted or irregular generalizations are not proved. Independence of external scientific review and exhaustive historical priority are not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The corrected exact invariant identifies which local subgraph count controls the order defect of two endpoint heat-bath averages, with a sharp classification of extremizers and commuting components at each degree. The explicit incidence family connects this combinatorial criterion to a different Hilbert-scale behavior on the same operator. The reusable graph invariant, not the already known qualitative separation or the false sign claim, carries the mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

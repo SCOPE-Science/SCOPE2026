@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rank-one Nyström identity, diagonal preconditioner, independent minibatch distributions, and conditional second-moment recursion were reconstructed. Direct enumeration of all curvature/stepsize minibatches gives the four gains \(\alpha,\alpha t,\alpha,\alpha/t\). Exact arithmetic separately enumerated gradient minibatches and checked finite-horizon identities for 1575 parameter/horizon comparisons. Sharp boundaries follow from elementary strict inequalities and a unique real root; the enumeration is supplemental, not a proof of infinite-horizon claims.
+## correctness
 
-## Originality — PASS
-Frangella et al. (arXiv:2211.08597, equation (3), Algorithm 1, Sections 4 and Appendix A) specify the spectral step and preconditioner but do not characterize the exact one-example two-feature cached-vs-refreshed mean-square law; their theoretical convergence result uses a distinct fixed stepsize and stage averaging. Vaswani et al. (arXiv:1910.04920, Section 3) treat different conservative subsampled-Newton steps. Lacotte and Pilanci (arXiv:1911.02675, Theorem 4.1) give a broad exact inverse-moment formula for full-gradient IHS with sketch-independent step coefficients; it does not reduce to stochastic-gradient SketchySGD's step tied to an independent curvature minibatch. Searches of indexed research records and accessible prior findings located related covariance and refresh phenomena, but not a covering implication. Residual risk: an unindexed equivalent finite-sample calculation could exist.
+PASS
 
-## Value — PASS
-The source recommends reusing a curvature preconditioner on constant-Hessian objectives. The theorem reveals a genuine stability-design trade-off in the elementary interpolation setting: a cached environment and refreshed environment have identical one-step expected errors but different long-run mean-square stability, with sharp rational and algebraic cutoffs. The exact phenomenon is not just a normalization mistake or arbitrary finite numeric example; it distinguishes averaging of powers from powers of averages under the actual curvature-guided stepsize. It does not purport to prove failure of the complete finite-precision default implementation.
+A nonzero projection of the exact rank-one sketch onto e_S recovers H_S; P_S is diagonal and the independently sampled spectral estimator gives eta=alpha(P_S)_{TT}. For each coordinate the four equiprobable environments yield gains alpha, alpha, alpha t, alpha/t. Conditioning on the held environment and averaging the gradient sample gives Q(g)=(1+(1−g)^2)/2. With independent gradients over time the cached law therefore averages Q(g)^k, whereas fresh environments average Q(g) before the kth power. Summing the two coordinate squares requires no coordinate independence and includes k=0 and zero initial coordinates. Only alpha/t can reach 2, giving the cached boundary rho=alpha/(2−alpha) with residual weight 1/4 there. For alpha=1/2 the refreshed factor is (s²−4s+24)/32 with s=t+1/t>2; monotonicity on t in (0,1) yields the stated unique cutoff and its equality/divergence cases. Independently, at rho=1/4, alpha=1/2 the exact Q-values are 5/8, 181/200, 13/8, with fresh weighted average 189/200. The cached divergence is consistent with decaying conditional means since the mean multipliers 1−g/2 have modulus below one. This is conditional mean decay, not an absolute first-moment or almost-sure claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact finite-environment phase boundaries for this particular spectral-step/gradient-sampling mechanism are distinct in the inspected material. The qualitative principle that sampling reuse can change second-moment stability is already known and is not credited as new.
+
+## value
+
+PASS
+
+The two-coordinate interpolating system isolates a specific pitfall of the existing spectral-step design: perfect conditioning of the full Hessian and decaying mean iterates do not preclude mean-square divergence when both sampled quantities are reused. The exact nonempty stability gap supplies a useful counterexample and quantitative boundary for the prescribed comparison, rather than an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

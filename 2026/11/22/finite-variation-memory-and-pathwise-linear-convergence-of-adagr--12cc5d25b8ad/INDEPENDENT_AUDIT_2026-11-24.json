@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:06:46.096349Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the scalar deterministic lemma, if S_n diverges, choose N with w_n≥ηL for n≥N. The step multiplier then is 1−t with 0≤t≤1, and the drop in x² is at least t x²≥ηg²/(Lw). Thus the weighted gradient-energy sum converges. With B_n=Σ_{j=N}^n g_j² and C=ε+sqrt(S_{N−1}+2g_{N−1}²), the difference-square bound gives w_n≤C+2sqrt(B_n). If B diverges then g_n²/(C+2sqrt(B_n))≥[sqrt(B_n)−sqrt(B_{n−1})]/3 once sqrt(B_n)≥C, contradicting weighted summability. B bounded instead forces S bounded, completing the contradiction with no a priori iterate bound. In the Bernoulli case disjoint zero-to-active blocks occur infinitely often almost surely. If w_∞≤ηL/2, every active multiplier has modulus at least one (including equality), and each such block contributes at least L²x_0² to S on a nonzero path, impossible. Above the strict threshold the active multipliers eventually lie in a compact subinterval in modulus below one; the strong law for activations gives exponential decay and squared-gradient summability. For the exact log rate, sum only over active times. If the terminal multiplier is nonzero, its active-step logarithms converge to the stated constant, so Cesàro averaging in the active index and the strong law give the product with p. If it is zero but the path does not hit zero, an arbitrary negative bound eventually holds for all active logarithms and gives rate −∞. This does not assert that such a terminal weight must occur. A coordinate that hits zero has finitely many remaining nonzero gradient differences and stays zero. Each event is coordinatewise; finite intersection requires no within-time independence. Unbiasedness and the variance identity follow by independent current sampling and summing coordinatewise square deviations, without cross terms. Consecutive sampled curvatures are independent, not generally the observed gradients themselves.",
+      "replay": "Analytic check of RESULT.md, proof §§1–3, including the square-root telescoping bound and the equality threshold. The frozen verify.py was inspected but not executed: its rational grid tests and seeded paths are finite diagnostics only (its square-root check uses floats), not proof of finite memory or an exact stochastic rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former admits stochastic interpolation-type variance but its stochastic Theorem 3.8(i) bound involves the maximum iterate displacement; subsection discussion and future work explicitly ask about summability without boundedness. Its deterministic smooth-gradient case yields finite variation.",
+          "The latter supplies expected-error guarantees under a feasible diameter condition for its own variation-adaptive method."
+        ],
+        "reasoning": "The fixed deterministic objective case does not control a bounded time-varying curvature sequence: independent resampling changes the gradient even if x is unchanged. Neither expected finite-step optimization theory nor a high-level variance condition alone gives the pathwise statement under these unconstrained hypotheses.",
+        "searches": [
+          "arXiv:2602.13112 Assumption 3.4 and Theorems 3.8, 3.12",
+          "arXiv:2406.06398 Algorithm 3.1 and Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.13112",
+        "arXiv:2406.06398",
+        "Resultary aa4bf1ea51f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-algorithm deterministic smooth fixed-quadratic case follows from the prior results and its limiting multiplier. The AdaGrad-Norm threshold is already explicit in the different deterministic algorithm."
+        ],
+        "reasoning": "Neither predecessor gives the deterministic bounded-varying-curvature lemma. In the stochastic recursion one must force strict stability via repeated 0→L transitions and then count active steps, producing the factor p; these deductions are not consequences of the fixed-quadratic theorem or magnitude accumulation. No priority is claimed for the deterministic constant-curvature analogue.",
+        "searches": [
+          "arXiv:2602.13112 Theorem 3.8(ii), Theorem 3.12 and stochastic interpolation discussion pp.26,30",
+          "aa4bf1ea51f1 RESULT.md offsets 0 and 5100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 3.6 uses the same successive-sampled-gradient difference accumulator.",
+          "aa4bf1ea51f1 uses AdaGrad-Norm, accumulating gradient magnitudes squared, and proves a strict terminal window for a deterministic scalar quadratic."
+        ],
+        "reasoning": "The formula for the scalar update multiplier has the same form in both algorithms, but the weights evolve differently. In AdaGrad-Diff an inactive step can add the previous gradient squared, even though the current gradient is zero; norm accumulation cannot be substituted for it.",
+        "searches": [
+          "arXiv:2602.13112 Algorithm 3.6, p.11",
+          "Resultary: AdaGrad-Diff stochastic interpolation finite variation and strict terminal-step window",
+          "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact Bernoulli factor in Resultary is in the assigned record itself. The distinct October 4 hit gives a deterministic per-step multiplier limit and b∞>ηλ/2 for AdaGrad-Norm. The focused literature search returned the cited AdaGrad-Diff paper."
+        ],
+        "reasoning": "The earlier exact factor concerns a different accumulator, a different terminal state, and deterministic rather than Bernoulli observations; it is not an indexed value for this model. These are bounded results, not a claim of absence from all literature.",
+        "searches": [
+          "Resultary: AdaGrad-Diff Bernoulli interpolation exact logarithmic rate and terminal weight",
+          "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1",
+          "arXiv:2602.13112"
+        ]
+      },
+      "rationale": "The same update and deterministic finite variation are prior. The pathwise argument for bounded arbitrary time-varying nonnegative scalar curvature and its stochastic Bernoulli consequences on an unbounded domain are distinct from the strongest compared same-algorithm theorems and the deterministic AdaGrad-Norm threshold analogue.",
+      "residual_risks": [
+        "The bounded inspection does not rule out an earlier general time-varying scalar adaptive-recursion result or a later equivalent specialization. No claim for generic stochastic interpolation or coupled Hessians."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes deterministic smooth-gradient bounds and analyzes stochastic variance; does not give unconstrained Bernoulli finite variation or the random terminal rate",
+          "evidence": [
+            "Theorem 3.8(ii) has deterministic O(n^(1−ν)), O(1) at ν=1",
+            "Theorem 3.8(i) uses expected maximal iterate displacement",
+            "Text asks whether σ=0 suffices without boundedness"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.13112",
+          "material_read": "Assumption 3.4, p.10 offset 37700; Algorithm 3.6, p.11 offset 42400; Theorems 3.8 and 3.12, p.12 offsets 45400/48600; discussion pp.26 and 30 offsets 114900/134000",
+          "method": "Targeted open-access PDF text comparison",
+          "title": "AdaGrad-Diff: a Corrected Version of the Adaptive Gradient Algorithm for Composite Optimization",
+          "trigger": "Same update and the strongest stochastic finite-variation comparison"
+        },
+        {
+          "assessment": "Feasible-diameter expected objective bound, not this unconstrained pathwise theorem",
+          "evidence": [
+            "Diameter-dependent setup and expected-error guarantee"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.06398",
+          "material_read": "Algorithm 3.1, rule 3.2, p.6 offset 22800; Theorem 4.2, p.7 offset 27000",
+          "method": "Targeted open-access PDF text comparison",
+          "title": "Universality of AdaGrad Stepsizes for Stochastic Optimization: Inexact Oracle, Acceleration and Variance Reduction",
+          "trigger": "Variation-adaptive stochastic method using successive observations"
+        },
+        {
+          "assessment": "Substantial analogue, but on a deterministic scalar AdaGrad-Norm update rather than AdaGrad-Diff with Bernoulli curvatures",
+          "evidence": [
+            "b∞>ηλ/2 and scalar ratio limit for magnitude accumulation"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1",
+          "material_read": "RESULT.md offsets 0 and 5100",
+          "method": "Compared published local-mirror text to the bound recursion",
+          "title": "Sharp terminal step window and rate nonuniformity for scalar AdaGrad-Norm",
+          "trigger": "Earlier strict terminal stability inequality and exact per-step factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary paper flags an unconstrained interpolation summability question. This restricted positive answer is mathematically useful because the deterministic lemma gives a mechanism for finite difference memory without bounded-domain assumptions, and the Bernoulli structure gives a precise almost-sure threshold and logarithmic rate for any positive step and denominator floor. It does not purport to solve the generic open problem or to give an expected or uniform rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:31.584445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68",
+        "Frozen VERIFICATION.md and verify_cantor.py (inspected, not executed)"
+      ],
+      "rationale": "For N=3^k, write W=μ^k(1). It is palindromic with endpoint ones, and distinct W blocks in C=μ^k(C) have at least one whole zero block between them because C has no consecutive ones. A length-N window therefore has ones from at most one W and is either all zero or a zero-padded prefix or suffix of W (including the whole W). Every needed representative is realized inside μ^k(010)=0^N W 0^N, since 010 occurs. At positive weight j the zero-padded prefixes all yield the same necklace and the suffixes give its reversal. With zero-based positions p_i of the ones, the internal gap p_(i+1)−p_i is 2·3^r−2(1+3+⋯+3^(r−1))=3^r+1 with r=v_2(i), by the binary-to-ternary digit carry. Every internal gap is even, while the circular closing gap N−p_j is positive and odd. Thus a rotation identifying a necklace with its reversal must align that unique closing gap, equivalently reverse the internal gap list onto itself. For j=2^a the valuation list is symmetric under i↦j−i. Otherwise, for j>1, the unique largest internal gap occurs at i equal to the largest power of two at most j−1. A palindrome would put that gap at i=j/2, forcing j to be a power of two. The empty internal list at j=1 is symmetric, including k=0. This gives one all-zero class, two candidates at each positive weight and exactly k+1 identifications, for 2^(k+1)−k.",
+      "residual_risks": [
+        "The recorded Python checks are finite; the argument above, not their pass marker, establishes all k.",
+        "A class is counted when some representative occurs, not only when all rotations occur."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abelian complexity at 3^k is 2^k+1; the general bounds put cyclic complexity between abelian and ordinary factor complexity. The Cantor Lie-complexity formula applies to all lengths, but to full rotation orbits only."
+        ],
+        "reasoning": "Broader coverage in length does not imply the count when the criterion or equivalence is different. The abelian lower bound allows both one and two necklaces at a weight, the question settled here.",
+        "searches": [
+          "arXiv:1402.5843 general complexity bounds",
+          "Chen–Lü–Wu arXiv:1703.04063 §2 and k-abelian framework",
+          "Bell–Shallit Example 7.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.5843",
+        "doi:10.1016/j.tcs.2015.12.022 abstract only",
+        "arXiv:1703.04063",
+        "arXiv:2102.03821",
+        "Resultary 1c52709974f8 and 99391dfe86b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abelian recurrence specifies which weights occur, not whether the reverse necklace is a second class. A scattered-01 count is not invariant under cyclic rotation (already 01 and 10 differ). Ordinary factor counts, even if known exactly, do not give the rotation identifications."
+        ],
+        "reasoning": "The additional marked circular gap and maximum-gap symmetry argument are not parameter substitutions in those results. The unconfirmed precise attribution of the ordinary factor formula is not needed by the proof or the originality distinction.",
+        "searches": [
+          "Abelian recurrence arXiv:1703.04063 §2",
+          "Lie-complexity formula arXiv:2102.03821 Example 7.3",
+          "Resultary 1c52709974f8 Finding and assumptions",
+          "Lü–Chen–Guo–Wen DOI 10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cassaigne et al. define exactly the equivalence used here, but the inspected treatment has no located Cantor-specific triadic profile. Bell–Shallit §2 explicitly requires all rotations for Lie complexity and contrasts this with the some-rotation criterion."
+        ],
+        "reasoning": "Conjugacy and binary necklaces match; Lie, factor, permutation, abelian, and finite-word circular BWT run complexities do not measure this invariant.",
+        "searches": [
+          "Cantor sequence cyclic, circular, necklace and conjugacy complexity",
+          "Cassaigne–Fici–Sciortino–Zamboni arXiv:1402.5843",
+          "Bell–Shallit arXiv:2102.03821, Cantor example",
+          "Resultary: binary Cantor word at ternary lengths and rotation statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1c52709974f8 gives a complete one-count/scattered-01 profile at the same lengths, not an orbit table. Resultary 99391dfe86b4 counts circular transform runs of finite iterates, not necklaces of contiguous factors of the infinite word. Bell–Shallit tabulate a different invariant in closed form."
+        ],
+        "reasoning": "Neither moment-binned factor counts nor transform run statistics amount to the partition by cyclic equivalence. The inspected exact profiles therefore do not reproduce this table.",
+        "searches": [
+          "Resultary: ternary-length 2-binomial spectra of the binary Cantor word",
+          "Resultary: circular Burrows–Wheeler run count of finite Cantor iterates",
+          "Cyclic-complexity literature and Cantor Lie-complexity example"
+        ]
+      },
+      "rationale": "The supported distinct claim is the triadic cyclic class count refined by weight and the exact palindrome criterion on the gap lists. The closest same-word results cover other equivalence relations or require a whole cyclic class rather than an occurring representative. The judgment concerns the inspected evidence, not exhaustive publication priority.",
+      "residual_risks": [
+        "The inaccessible Lü et al. full text could contain relevant ancillary results; the exact attribution of ordinary factor complexity was not verified.",
+        "An unindexed cyclic Cantor theorem or equivalent gap-profile table could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational equivalent definition and general bounds, no located same-word formula",
+          "evidence": "The paper counts conjugacy classes of factors and places this count between abelian and ordinary complexites; a keyword miss alone is not proof of absence.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "Definition and bounds, PDF pp. 2 and 4 (offsets about 7000 and 13700); Cantor literal lookup",
+          "method": "Primary OA PDF",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Same invariant and terminology"
+        },
+        {
+          "assessment": "The abstract discusses permutation complexity; the exact factor-count attribution and notation remain unverified",
+          "evidence": "The abstract's stated invariant concerns permutations, not rotation classes; no unsupported whole-document noncoverage conclusion is drawn.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Publisher abstract only; full text not accessed",
+          "method": "Publisher and DOI lookup, followed by a bounded alternate-copy attempt; ScienceDirect and ResearchGate full-text attempts returned 403",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Same word and cited ordinary factor-count attribution"
+        },
+        {
+          "assessment": "Establishes the abelian weight count, not the number of cyclic classes per weight",
+          "evidence": "P^(1)(1)=P^(1)(2)=2 and P^(1)(3n)=2P^(1)(n)−1 imply P^(1)(3^k)=2^k+1.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "§2 p. 3, offset about 8685",
+          "method": "Primary OA PDF passage",
+          "title": "On the k-abelian complexity of the Cantor sequence",
+          "trigger": "Same word, possible triadic weight coverage"
+        },
+        {
+          "assessment": "Different quantifier over rotations",
+          "evidence": "The Cantor Lie count is 3 at n=4, 2 at n=0,1,3 and twice powers of three, and 1 otherwise; it needs every rotation to occur.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821",
+          "material_read": "§2 p. 3 and Example 7.3 p. 11, offsets about 7850 and 35400",
+          "method": "Primary OA PDF passages",
+          "title": "Lie Complexity of Words",
+          "trigger": "Exact Cantor formula for a closely related cyclic statistic"
+        },
+        {
+          "assessment": "Different equivalence; the profile does not give necklace classes",
+          "evidence": "It counts factors by weight and scattered-01 number and computes 2-binomial complexity.",
+          "identifier_or_url": "1c52709974f8",
+          "material_read": "Finding and assumptions, mirrored RESULT.md offsets 0–4383",
+          "method": "Bounded local mirror inspection",
+          "title": "Ternary-length 2-binomial spectra of the binary Cantor word",
+          "trigger": "Strongest same-object and same-length exact local table"
+        },
+        {
+          "assessment": "Different object and statistic",
+          "evidence": "The 4k invariant counts runs of a transform of a single finite iterate, not conjugacy classes of length-3^k factors.",
+          "identifier_or_url": "99391dfe86b4",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact four-runs-per-level law for the binary Cantor word under the circular transform",
+          "trigger": "Closest alternative rotation-based local terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Cassaigne et al. general bounds",
+        "Chen–Lü–Wu abelian recurrence",
+        "Bell–Shallit Example 7.3"
+      ],
+      "rationale": "The scale 3^k is intrinsic to the substitution, not an arbitrary slice. The result settles a natural cyclic invariant at every such scale, quantifies how far it is from the abelian count, and gives a structural criterion identifying exactly the weights with one rather than two necklaces. The marked-gap technique explains the counting law rather than just listing computed values.",
+      "residual_risks": [
+        "No all-length cyclic-complexity formula or full-rotation multiplicity theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

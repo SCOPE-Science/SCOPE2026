@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:21:04.840934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–50 and 54",
+        "Frozen VERIFICATION.md, line 20",
+        "Frozen verify.py, lines 6–55 (read only)",
+        "Almirón, DOI 10.1007/s00009-023-02458-3, §3 (Jacobian power bound context)"
+      ],
+      "rationale": "Separated Jacobians yield the tensor product of finite Milnor algebras. Rank-nullity equates the Tjurina cokernel dimension with the kernel of the Kronecker sum. The square-zero operator has c length-two and s length-one blocks. The diagonal raising operator on k standard sl2 factors has one kernel vector per irreducible, counted in weight 0 for even k and weight 1 for odd k. This gives the exact sum, including k=0 and c=0. The sum of the two middle coefficients equals the integral with amplitude 1+cos(theta); near zero the normalized base is 1-(c/mu)theta^2+O(theta^4), so the leading Gaussian integral is sqrt(mu/(pi c r)) and the absolute remainder is O_h(r^(-3/2)). If s=0, the contribution near pi is O(r^(-3/2)) because the amplitude vanishes quadratically, so there is no missing parity factor. The plane-curve square-zero conclusion follows from h being integral over its Jacobian ideal and the Jacobian-ideal Briancon–Skoda bound in two variables; the zero-defect case is the classical quasihomogeneity criterion. Direct substitution reproduces 226 and 1363 for the two examples.",
+      "residual_risks": [
+        "The finite modular rank tests are not a characteristic-zero proof. The checker does not explicitly assert the advertised 1363 benchmark (the formula gives 1000+300+60+3=1363); this is a discrepancy in the verification description, not in the theorem. No uploaded code was executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day catalogue Finding allows all nilpotent Jordan lengths and gives sqrt(2/(pi sigma_h^2 r)) with relative O_h(r^-1) error. Almirón and Zheng–Zuo treat a pair of summands in the inspected theorems."
+        ],
+        "reasoning": "For square-zero, sigma_h^2=(1/(3mu))·6c=2c/mu. Nilpotent-zero gives ratio one in both. The catalogue covers d>=2; for a one-variable germ with isolated critical point, h(0)=0 implies h belongs to (h') by orders, so the d=1 case adds only the classical zero-defect branch.",
+        "searches": [
+          "Resultary: repeated Thom–Sebastiani sums and Jordan lengths",
+          "arXiv:2610.08290v1, Theorem B and Corollary 5.2",
+          "DOI 10.1007/s00009-023-02458-3, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary records 933c972baf56 and ba84d23737be",
+        "Almirón (2023), DOI 10.1007/s00009-023-02458-3",
+        "Zheng–Zuo, arXiv:2610.08290v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise tensor/cokernel formulas and the two-square-zero correction occur in prior journal/preprint sources. The broader catalogue theorem supplies the full coefficient and asymptotic formulas."
+        ],
+        "reasoning": "The two-factor square-zero formula alone does not iterate under the same hypothesis because the first join can have length three. In contrast, direct substitution into the catalogue theorem implies the complete frozen claim without new estimates.",
+        "searches": [
+          "Almirón (2023), Theorem 1 and §2",
+          "Zheng–Zuo (2026), Theorem B Eq. (5) and Corollary 5.2",
+          "Catalogue 933c972baf56, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue formula extracts the coefficients of z^0 and z^1 from P_h(z)^r. A length-one block contributes 1 and a length-two block contributes z+z^-1."
+        ],
+        "reasoning": "With P_h=s+c(z+z^-1), expansion by the number of length-two factors selects exactly binom(k,floor(k/2)) in the relevant middle degree, not merely a matching numerical benchmark.",
+        "searches": [
+          "Resultary: iterated Thom–Sebastiani Tjurina numbers, square-root law and Jordan characters",
+          "SCOPE-a-universal-square-root-law-for-iterated-thom-sebastiani-tjurina--933c972baf56/RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two distinct indexed research records state the repeated-join law; the 10/18 record suffices. The 11/2 record also gives the square-zero plane-curve specialization."
+        ],
+        "reasoning": "This is exact indexed theorem coverage of the invariant for every r, not a table hit limited to one (mu,tau) pair. The identical assigned record is not used as evidence against itself.",
+        "searches": [
+          "Resultary: square-root Tjurina decay and repeated Thom–Sebastiani joins",
+          "Resultary IDs 933c972baf56 and ba84d23737be"
+        ]
+      },
+      "rationale": "A distinct same-day indexed record states the stronger arbitrary-Jordan-length repeated-sum formula and the identical relative error. Specializing gives both the exact square-zero formula and its sharp asymptotic, including the zero case; the frozen result is therefore covered. This is an equivalence/coverage decision, not a claim about order of publication within the day.",
+      "residual_risks": [
+        "The coincident path date fixes no within-day order. The primary-literature search was bounded and does not determine historical priority. Neither limitation negates the demonstrated stronger indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by direct specialization",
+          "evidence": "Exact two-coefficient count and sharp asymptotic for arbitrary block lengths; specialize lengths to 1 and 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-square-root-law-for-iterated-thom-sebastiani-tjurina--933c972baf56/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2110; proof of tensor and coefficient reduction also inspected",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal square-root law for iterated Thom–Sebastiani Tjurina numbers",
+          "trigger": "Closest same-day match on exact law and decay"
+        },
+        {
+          "assessment": "Additional coverage; later path date, not relied on to establish priority",
+          "evidence": "The general Jordan-character formula and decay are stated and specialized to the square-zero case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-k-1-2-law-for-tjurina-numbers-of-repeated-thom-sebas--ba84d23737be",
+          "material_read": "RESULT.md Finding and square-zero specialization, offset 174 onward",
+          "method": "Resultary and local mirror",
+          "title": "A universal k^-1/2 law for Tjurina numbers of repeated Thom–Sebastiani sums",
+          "trigger": "Second indexed matching claim"
+        },
+        {
+          "assessment": "Relevant pairwise formulas; no repeated-law assertion established by inspected passages",
+          "evidence": "Two-factor formula and bounds; tensor product and cokernel formulation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02458-3",
+          "material_read": "Theorem 1 and §2, PDF text offsets about 3923 and 6000",
+          "method": "OA primary PDF",
+          "title": "The Tjurina Number for Sebastiani–Thom Type Isolated Hypersurface Singularities",
+          "trigger": "Ordinary Tjurina formulas for disjoint sums"
+        },
+        {
+          "assessment": "Exact pairwise defect and the two-factor specialization, not the full frozen law in those statements",
+          "evidence": "Sum of products of Jordan defects; square-zero correction (mu_f-tau_f)(mu_g-tau_g).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08290",
+          "material_read": "Theorem B Eq. (5), pp. 4, 13 Jordan discussion, and p. 14 Corollary 5.2",
+          "method": "OA primary PDF",
+          "title": "Hodge–Tjurina Numbers, Tjurina Spectra, and Thom–Sebastiani Formulas",
+          "trigger": "Ordinary Tjurina defect and Jordan treatment within filtered results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–21, 31–50 and 56–62",
+        "Catalogue 933c972baf56, Finding (scope comparison)"
+      ],
+      "rationale": "As mathematics the exact count and the sharp decay law answer a natural structural question: how much of the Milnor algebra survives the Tjurina quotient under repeated joins. The decay distinguishes the nonquasihomogeneous plane-curve case from equality for every tensor power, with a coefficient depending on the Tjurina defect and a parity-robust error. This assessment of the significance of the general structural statement does not credit duplicate coverage as a new contribution.",
+      "residual_risks": [
+        "No separate valuable novel remainder was established for a repair. The same-day stronger result already captures the structural information."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

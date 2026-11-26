@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:21.970673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the universal proof, not just the low-prime enumeration. Split the six distinct low-index cyclotomic factors into A from (X−1,X+1,X²+1) and B from (U,U_−,V). The ℓ¹ norm of every A is ≤4, and the residue-slice norm of AB is bounded by a convolution with |A|'s coefficient weights. Six B-products (including 1) have at most one coefficient ±1 per residue, using UU_−=ΣX^(2j), UU_−V=ΣX^(4j) and odd q. X→−X reduces the other choices to B=UV. Factors X−1 and X²+1, when present, telescope with U and V respectively, giving the stated slice bound (in the both-present case four terms in residue zero, with an optional disjoint copy in residue one). UV itself is flat by the alternating consecutive-index coefficient formula, with at most three slots per residue. For W=(1+X)UV and q=2k+1, each middle-block coefficient (q≤n≤2q−1) has k+1 alternating summands with exactly one endpoint of weight one and all other weights two. Its absolute value is 1. In the low block n<q, the magnitude is 1 at even n and at most 2 at odd n. Reciprocity about degree 3q−2 pairs the outer coefficients of residue r≤q−2 with low indices r and q−2−r, of opposite parity, proving 4; the final residue has only two slots. The argument includes q=3. The three q²-index factors are precisely U,U_−,V evaluated at X^q by cyclotomic factorization; their subset products are flat before substitution. In each output coefficient the lifted factor can then draw only from a single slice of F, proving height ≤4. The proposed witness divides as the specified four distinct factors, and its coefficient of X³ is 4. Inspected verify.py and VERIFICATION.md but did not execute the frozen script; the finite checks are not needed to establish the quantified bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Decker–Moree classify coefficient sets for p²q exponents. Wang gives height 2 for 2q^b. Kaplan's theorem as reported by RWW gives B(pq²).",
+          "Neither a prime square on just one factor nor arbitrary powers on one factor with the other factor remaining prime supplies an upper bound for 4q²."
+        ],
+        "reasoning": "The available stronger-in-other-directions results do not include the exponent pair (2,2); divisibility monotonicity of B from lower exponents would go in the wrong direction for the necessary upper bound. Kaplan full text was not available from the lawful lookup, so no whole-paper exclusion is claimed.",
+        "searches": [
+          "arXiv:1010.3938, Theorem 5",
+          "arXiv:1312.3108, Theorem 1.5",
+          "DOI:10.1016/j.jnt.2009.04.015, Kaplan Theorem 6 via arXiv:1009.5970 p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1009.5970",
+        "arXiv:1010.3938",
+        "arXiv:1312.3108",
+        "RWW citation passage on Kaplan DOI:10.1016/j.jnt.2009.04.015",
+        "Resultary:0258f72ce52e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RWW prove B(p^a q^b)≥min(p^a,q^b), hence already prove the required lower bound 4, and conjecture maximality among two products; they do not prove the conjecture in the inspected source.",
+          "The degree-fiber theorem does not upper-bound coefficients even on its overlapping n=4q² cases."
+        ],
+        "reasoning": "The witness and lower bound are not new. The lift uses the residue-by-residue coefficient mass bound to control cancellations and additions not constrained by neighboring height formulas or degree spectra.",
+        "searches": [
+          "arXiv:1009.5970, Theorem 3.1 and Conjecture 3.3",
+          "arXiv:1312.3108, Theorem 1.5",
+          "Resultary:0258f72ce52e, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RWW's second conjectural extremal product specializes to Φ₂Φ₄Φ_qΦ_(q²), exactly the displayed witness.",
+          "RWW's C(n) controls the total coefficient ℓ¹-length, not each separate coefficient progression modulo q at exponent 4q."
+        ],
+        "reasoning": "The exact height claim is indeed the p=2 conjectural specialization, not a new formulation of the same already-proved inequality. The residue-slice strengthening differs mathematically from a whole-divisor coefficient norm.",
+        "searches": [
+          "Resultary: B(4q²), cyclotomic-divisor height, residue-slice ℓ¹ bound",
+          "arXiv:1009.5970, Conjecture 3.3 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RWW verified 463 prime pairs 2≤p<q<60 for the conjecture, covering only finitely many p=2 cases.",
+          "An indexed degree-fiber and missing-degree result includes n=4q² for q≥7, but tabulates degree rather than coefficient statistics."
+        ],
+        "reasoning": "Credit the finite height checks, but they do not establish a general upper bound. Exact degree-fiber coverage cannot determine the maximal absolute coefficient or its residue-slice norms.",
+        "searches": [
+          "arXiv:1009.5970, Table 1 and Conjecture 3.3",
+          "Resultary: exact height, exponent pair 4q², modulo-q residue-slice bound",
+          "Resultary:0258f72ce52e, Finding"
+        ]
+      },
+      "rationale": "The established lower bound and proposed witness are prior work. The all-prime upper bound in the p=2 specialization and the uniform residue-slice lemma are the distinct contributions supported by the comparison. Neither a different exponent family nor a degree statistic at the same exponent constitutes coverage of height. The bounded search does not certify priority.",
+      "residual_risks": [
+        "Kaplan full text was not obtained; the comparison to his relevant theorem is limited to RWW's description.",
+        "An unlocated subsequent result stated in an alternative arithmetic formulation could still cover the claim. No novelty claim for the already known lower bound or individual tabulated values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior sharp witness and lower bound; tested rather than universally proved conjecture",
+          "evidence": [
+            "Thm. 3.1 provides the minimum-of-powers lower bound. Conj. 3.3 gives the larger of two prescribed heights as a conjecture; the second witness coincides at p=2. C(n) refers to total length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5970",
+          "material_read": "Table 1 p. 3; Thm. 3.1 p. 4; Conj. 3.3 p. 5; §5 p. 7, offsets 6393, 8453, 10900, 15500",
+          "method": "Open-access PDF text",
+          "title": "Some Conjectures on the Maximal Height of Divisors of x^n−1",
+          "trigger": "Exact conjecture and tables for the exponent pair, plus related norm"
+        },
+        {
+          "assessment": "Different exponent family",
+          "evidence": [
+            "Classifies coefficient sets for 64 products at n=p²q, not all divisors at n=p²q²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.3938",
+          "material_read": "Thm. 5 p. 2, offset 6600",
+          "method": "Open-access PDF text",
+          "title": "Coefficient convexity of divisors of X^n−1",
+          "trigger": "Explicit divisor-by-divisor coefficient sets at a nearby exponent"
+        },
+        {
+          "assessment": "First power of 2 only",
+          "evidence": [
+            "Result includes B(2q^b)=2, not B(4q²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3108",
+          "material_read": "Thm. 1.5 p. 2, offset 5000",
+          "method": "Open-access PDF text",
+          "title": "Maximal height of divisors of X^(pq^b)−1",
+          "trigger": "All b with p=2 may superficially look covering"
+        },
+        {
+          "assessment": "Cited theorem is for pq², not p²q²; remainder not excluded",
+          "evidence": [
+            "RWW describe a formula for B(pq²) and treat the p²q² claim separately as their conjecture."
+          ],
+          "identifier_or_url": "10.1016/j.jnt.2009.04.015",
+          "material_read": "Full text not obtained; RWW p. 5 cites Theorem 6 explicitly",
+          "method": "Lawful OA lookup and citation passage in RWW",
+          "title": "Bounds for the maximal height of divisors of x^n−1",
+          "trigger": "Prior maximal-height classifications in nearby families"
+        },
+        {
+          "assessment": "Same divisor family where q≥7, different statistic",
+          "evidence": [
+            "Degree multiplicities and gaps for n=2^a p^b with p>2^a+1. These do not bound heights or slice norms."
+          ],
+          "identifier_or_url": "Resultary:0258f72ce52e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact divisor-degree fibers, gap lengths, and a Cantor limit",
+          "trigger": "Strongest indexed match with the same exponent for part of the prime range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a uniform specialization of a concrete maximal-divisor-height conjecture, rather than adding instances to its table. The slice inequality is motivated by the q-dilation of the remaining factors and controls precisely the coefficient mass that can combine at a single exponent. It supplies the missing upper bound and is stronger than knowing a height bound for the factors alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

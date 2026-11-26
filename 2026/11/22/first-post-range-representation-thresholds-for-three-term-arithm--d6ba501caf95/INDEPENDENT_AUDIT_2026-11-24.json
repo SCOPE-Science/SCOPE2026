@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:08:59.690679Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py (read, not run)"
+      ],
+      "rationale": "The total length u=x+y+z and offset v=y+2z recover x,y from z, whose allowed interval is [max(0,v−u),floor(v/2)]. For N=as+dt all possibilities are (u,v)=(s−dℓ,t+aℓ) with ℓ≥0 since t∈[0,a−1]. At s=a+d+k, k=−1,0 and k=1 only for even a and odd t, ℓ≥2 would require 2d+t≤2, impossible. For ℓ=1 the upper branch a+2k−t of the minimum applies because k≤t; when k=−1,t=a−1 it is −1 and the formula correctly returns zero. The ℓ=0 contribution is 1+floor(t/2). The two floors give p+1 at the claimed threshold and p one period earlier, including the smallest a. Monotonicity under adjoining a proves both the first-crossing claim and absence of later gaps. The maximum is at t=a−1 even in the parity-jump case, where that index is odd. Subtracting a gives the greatest gap; summing (M_t−(dt mod a))/a gives the genus including zero. Independent replay using the exact increment R(n)−R(n−a) from representations with x=0 (via a linear congruence, not the uploaded DP) confirmed 708 coprime pairs and 27576 threshold residues, their immediate predecessor counts, and both global invariants.",
+      "replay_paths": [
+        "/workspace/branches/denumerants_replay.py"
+      ],
+      "residual_risks": [
+        "The replay is bounded corroboration; the proof gives the universal claim only at the stated threshold and under coprimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying Theorem 1 allows all coprime d but stops at p=floor(a/2) and the paper expressly raises the higher-threshold question.",
+          "Theorem 2 formally claims all-p power sums, but its staircase specialization fails at the target level: for (a,d,p)=(6,5,4) its eight candidates include 96 and 107 in addition to the six actual thresholds 66,77,76,87,86,97. Using these eight values in the moment identity gives 56983/12 instead of the actual sum 3128, checked by direct coefficient-triple enumeration.",
+          "Komatsu–Hyun–Song studies variable-length consecutive-odd families, not the specified fixed triple with variable d."
+        ],
+        "reasoning": "No sound inspected explicit theorem has the combined multiplicity range and progression family to imply this result. The general moment identity does not supply its own input thresholds, and the seemingly stronger printed specialization fails on an admissible example. An inaccessible thesis remains a plausible coverage lead, not negative evidence.",
+        "searches": [
+          "Komatsu–Ying Theorem 1 and final comments; published Theorem 2 pp. 12–13",
+          "Haji Mohammed 2017 thesis search and Cardiff full-text retrieval",
+          "Komatsu–Hyun–Song arXiv:2608.14053 Theorems 1.2–1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13052",
+        "DOI:10.3390/sym15071328",
+        "arXiv:2608.14053",
+        "Haji Mohammed Cardiff thesis record 98161 (identified but not accessible in full)",
+        "SCOPE-20261018-6dc430dbb315",
+        "SCOPE-20261122-c1e32fc93396",
+        "SCOPE-20261122-a40c79c05b6e",
+        "SCOPE-20261122-fd1945b86510"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent affine phase a(p+floor(a/2)−1)+(2a−1)d extrapolates to this g_p but starts at p=floor(a/2)+2, imposes d≤floor(a/2), and supplies neither the genus nor all first crossings.",
+          "The standard Apéry maximum and sum identities give the requested invariants from the thresholds, not the explicit thresholds themselves."
+        ],
+        "reasoning": "Neither a lower-range result, an out-of-domain specialization, nor a one-level extrapolation establishes the new two-layer and parity analysis. The contribution is not the standard identities or the example values alone.",
+        "searches": [
+          "SCOPE-20261122-fd1945b86510 Finding and Assumptions; SCOPE-20261018-6dc430dbb315 Finding; Komatsu–Ying Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The p-gap complement in Komatsu–Ying uses the same ordered nonnegative solutions; minimum admitted values in each class are equivalent to complete gap sets via adding a.",
+          "SCOPE-20261122-c1e32fc93396 classifies exactly the first-post-threshold complete gap sets at d=1; SCOPE-20261122-a40c79c05b6e includes the odd d=1 case."
+        ],
+        "reasoning": "Those are direct special-case overlaps when one specializes outside the frozen domain to step one, not equivalent answers for steps d≥3. The comparison includes the dual description via complete gaps.",
+        "searches": [
+          "Resultary: first post-range p-Apéry sets, complete gaps and denumerant thresholds in arithmetic triples",
+          "Komatsu–Ying arXiv:2206.13052 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261018-6dc430dbb315 gives a three-phase g_p theorem through p≤2a, but only for consecutive denominations; SCOPE-20261122-c1e32fc93396 and SCOPE-20261122-a40c79c05b6e cover exact gaps/genus at step one.",
+          "SCOPE-20261122-fd1945b86510 treats related exact g_p values in the adjacent higher-p regime."
+        ],
+        "reasoning": "The indexed exact classifications were checked at statement level. The shared level in step-one results or adjacent levels for restricted d do not give the threshold arrays in this domain. The same day is not used as a priority or exclusion criterion.",
+        "searches": [
+          "Resultary: exact p-Frobenius phases, parity bifurcations and genus in arithmetic progressions"
+        ]
+      },
+      "rationale": "The supported advance is the full explicit first-post-range Apéry classification for all coprime steps d≥3 and the resulting invariants. Results for d=1 and the known earlier p-range do not give that classification. Best-of-knowledge decision with a material thesis access risk.",
+      "residual_risks": [
+        "The 2017 thesis could not be inspected at theorem level; broader implied coverage there or in other unindexed denumerant work remains possible. No claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same convention and all steps; valid explicit earlier p formulas, with a false extrapolation in the printed all-p moments",
+          "evidence": "Theorem 1 restricts 0≤p≤floor(a/2); the concluding question asks about the complementary range. Theorem 2 at (6,5,4) uses eight entries rather than the six Apéry elements; its underlying staircase does not give the actual moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "Definitions pp. 1–2, Theorem 1 p. 5, final comments p. 21 (OA offsets 3500, 12600 and 60500); journal Theorem 2 pp. 12–13 (offset 71620)",
+          "method": "Primary arXiv and journal OA full-text passages, and exact test in the frozen range",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Identical triple and representation threshold problem"
+        },
+        {
+          "assessment": "Unresolved hypotheses and coverage; no negative inference",
+          "evidence": "Repository title and year identify the relevant thesis; no theorem or representation convention could be read",
+          "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/98161/1/Final%20Thesis.pdf",
+          "material_read": "Bibliographic identification via focused search; no theorem text accessible",
+          "method": "OA retrieval from both available routes and Cardiff record lookup (HTTP 403)",
+          "title": "Generalised Frobenius numbers: geometry of upper bounds, Frobenius graphs and exact formulas for arithmetic sequences",
+          "trigger": "2017 thesis title suggests earlier exact arithmetic-sequence coverage"
+        },
+        {
+          "assessment": "Distinct variable-length, step-two families",
+          "evidence": "A_a^- and A_a^+ contain a+1 and a+2 consecutive odd generators",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.14053",
+          "material_read": "Definitions and main theorems on pp. 1–2 (OA offsets 0 and 5600)",
+          "method": "Primary arXiv PDF through OA reader",
+          "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+          "trigger": "More recent arithmetic-progression threshold formulas"
+        },
+        {
+          "assessment": "Adjacent levels; extrapolation is not stated or proved there",
+          "evidence": "p≥floor(a/2)+2, 2≤d≤floor(a/2); g_p only for the compared phase",
+          "identifier_or_url": "SCOPE-20261122-fd1945b86510",
+          "material_read": "Finding and Assumptions at start of mirrored RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "A sharp affine p-Frobenius phase for three-term arithmetic progressions",
+          "trigger": "Exact affine endpoint formula for overlapping arithmetic triples"
+        },
+        {
+          "assessment": "First post-range Frobenius number at d=1 only",
+          "evidence": "The second regime includes the target p, for (a,a+1,a+2) exclusively",
+          "identifier_or_url": "SCOPE-20261018-6dc430dbb315",
+          "material_read": "Finding and Assumptions at start of mirrored RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Higher representation thresholds in arithmetic triples"
+        },
+        {
+          "assessment": "Exact first-post-threshold gap sets for d=1, outside the assessed domain",
+          "evidence": "The even case adds a/2 isolated gaps after [0,a(a+1)−1]; the odd case is that interval alone",
+          "identifier_or_url": "SCOPE-20261122-c1e32fc93396",
+          "material_read": "Finding and Assumptions at start of mirrored RESULT.md",
+          "method": "Resultary and local mirror",
+          "title": "Parity bifurcation at the first post-Apéry representation threshold",
+          "trigger": "Direct matching first-threshold title and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Komatsu–Ying final comments",
+        "Frozen complete threshold theorem and independent check"
+      ],
+      "rationale": "This is the first level excluded by a precisely bounded published result that poses the higher-threshold problem. It answers that first case for an infinite variable-step family, not an isolated example, and gives the complete residuewise crossing rule useful for membership queries as well as both global invariants. The parity effect identifies why the threshold is not generally a uniform one-layer shift.",
+      "residual_risks": [
+        "Does not purport to resolve the higher-p problem beyond the first excluded level."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

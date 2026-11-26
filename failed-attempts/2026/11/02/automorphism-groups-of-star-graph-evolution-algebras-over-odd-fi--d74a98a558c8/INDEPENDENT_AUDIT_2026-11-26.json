@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:24:41.792040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–56; VERIFICATION.md and verify.py inspected without execution",
+        "Replay: python3 /workspace/independent_checks.py 1 (all images of the algebra basis via the multiplication constraints, no block restriction; counts 6,12,36,72,48; nonorthogonal-complement witness)"
+      ],
+      "rationale": "The general automorphism identification and order formulas are correct with U=(ks+kt)^perp as in the proof, but the Finding's assertion for any nondegenerate complement of the hyperbolic plane is false without 'orthogonal'. For q=3,m=6, take s=(1,1,1,1,1,1), t=(2,1,1,1,1,1) and w=(0,1,2,0,0,0). The first two are a hyperbolic pair; w is orthogonal to them and has norm 2. In the orthogonal complement replace its line kw by k(w+s+t), leaving its orthogonal three-space unchanged. This is still a nondegenerate direct complement, but the new line has norm 1, so the determinant changes by the nonsquare 2 and swaps the even-dimensional orthogonal order used in the formula. For the intended orthogonal interpretation: Ann(E^2)=s^perp has product span ka (the form rank there is m-1 or m-2, always positive), and Ann(a)=W. Thus automorphisms are precisely block pairs with multiplier u and g(s)=u^2s. A nonisotropic s forces u^3=1; rescaling by u^-2 gives an independent isometry on s^perp of discriminant 1/m. An isotropic s gives an orthogonal hyperbolic splitting; the t-coordinate of g(t) is u^-1 and its U-coordinate is arbitrary; isotropy and the mixed pairings uniquely force the remaining coefficients. The GO(U) multiplier image is all units in even dimension (decompose into hyperbolic planes and a possible norm plane, whose norm map is surjective) and the squares in odd dimension (determinants and scalar maps). This proves the intended formulas with the correct signs and orders. The ambiguity is repairable in isolation but not enough to rescue originality or value.",
+      "residual_risks": [
+        "Independent enumerations are bounded low-dimensional checks. The all-field proof uses standard orthogonal group order formulas; characteristic two and m<=2 are excluded."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-bipartite multiplier-fibre computation uses only that a nonisotropic line splits off, or an isotropic vector lies in a hyperbolic plane. The nonisotropic size-one case has the zero-dimensional isometry group of order one.",
+          "The twins paper treats derivations; the idempotent-algebra exact sequence requires E=E^2, which fails here."
+        ],
+        "reasoning": "It is the rank/fibre lemmas, not merely the broad-sounding title or adjacency of parameter ranges, that make this a mechanical endpoint of the indexed treatment.",
+        "searches": [
+          "Resultary ID 79c475fcec77, Finding and proof at offset 2322",
+          "arXiv:1807.02493 false-twin classes; doi:10.1007/s00009-025-02924-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79c475fcec77 (decisive proof comparison)",
+        "arXiv:1312.4685, 2505.15604, 1710.10516, 1807.02493",
+        "doi:10.1007/s00009-025-02924-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed fibre with target scale u^2 and multiplier u is empty in the nonresonant case unless u=(u^2)^2; its nonempty restriction is the scaled orthogonal group. In the resonant case the fibre is independent of the target scale, with q^(m-2) parameters and the even/odd multiplier restriction.",
+          "The block composition in the indexed full-group equations already gives the automorphism group, not just its size. Its isotropic-fibre pairing equations give the same parametrization by solving for the last hyperbolic vector."
+        ],
+        "reasoning": "The special case gives the direct product and exact gcd(3,q-1) factor or q^(m-2) times the appropriate multiplier count. No comparison assumes a graph symmetry hypothesis; the graph-permutation theorem is materially weaker.",
+        "searches": [
+          "Resultary 79c475fcec77 proof offset 2322–5842",
+          "Rodiño Montoya et al. Thm. 2.20 and Examples 2.19–2.21, 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed complete-bipartite proof has two lines in E^2 separated by the ranks of scalar-valued multiplication forms; for sizes 1 and m the ranks differ.",
+          "In the coupled equations A^T A=bI and D^T D=aI with A(s_1)=a s_1 and D(s_m)=b s_m, put A=(u). The equations reduce exactly to b=u^2 and D(s_m)=u^2 s_m with multiplier u."
+        ],
+        "reasoning": "Twin-class graph permutations alone are not equivalent to the full group, but the two-form pencil description is. The one-dimensional norm constraint handles that part completely.",
+        "searches": [
+          "Resultary local: odd finite field star/complete-bipartite evolution algebra automorphisms and twin classes",
+          "arXiv:1312.4685; arXiv:2505.15604; arXiv:1710.10516"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed complete-bipartite entry is distinct from the assigned star record and has the same date path; its stated range excludes the size-one part. Rodiño Montoya et al. explicitly count K_(1,2) over C, and for K_(1,4) only discuss the diagonal subgroup in the pertinent passage."
+        ],
+        "reasoning": "No priority or exact literal table match is asserted. The absence of the star row in the broader indexed record does not remove the proved implication.",
+        "searches": [
+          "Resultary local exact star title and complete-bipartite graph family",
+          "Complete-bipartite entry 2026/11/2/SCOPE-automorphisms-of-complete-bipartite-evolution-algebras-over-odd--79c475fcec77"
+        ]
+      },
+      "rationale": "The closest indexed full complete-bipartite treatment proves a rank-pencil separation and two coupled similitude-fibre counts. The published range m,n>=2 formally excludes a size-one part, but the actual lemmas and proof specialize to that part without any new mathematical input, proving the same full-group structure and both counts. This is demonstrable implication, not a claim that the star result was published later. The simpler star-specific characteristic-subspace proof does not add a distinct final theorem.",
+      "residual_risks": [
+        "Historical order of the same-day records was not established. Published-literature searches were bounded; the verdict rests on a demonstrated mathematical implication of the distinct indexed work, not on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formally states sizes >=2; actual proof and fibre lemmas imply the exact size-one endpoint. Same-day priority unresolved.",
+          "evidence": [
+            "Scalar-form Gram determinant beta^m alpha^n shows intrinsic blocks, with exchange only at equal ranks. Coupled similarities and vector images give full group. Isotropic vector fibres have q^(d-2) choices and parity restriction independent of vector scale."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-automorphisms-of-complete-bipartite-evolution-algebras-over-odd--79c475fcec77/RESULT.md",
+          "material_read": "Finding at offset 0 and Proof at offsets 2322–5842",
+          "method": "OA local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Automorphisms of complete-bipartite evolution algebras over odd finite fields",
+          "trigger": "Strongest indexed same-family match, including characteristic divisibility regimes"
+        },
+        {
+          "assessment": "Perfect-algebra result and a different nonperfect example; not star coverage.",
+          "evidence": [
+            "Finiteness is under E=E^2; Example 4.1 illustrates a different real three-dimensional algebra with orthogonal symmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4685",
+          "material_read": "PDF pp. 1–2 and Example 4.1 p. 7",
+          "method": "OA PDF passages",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Published framework and orthogonal automorphisms"
+        },
+        {
+          "assessment": "Not covering full odd-field m>=3 group in these passages.",
+          "evidence": [
+            "Full P3 example over C is excluded size two; K_(1,4) adjacency result is diagonal-only; theorem requires every automorphism to be induced by a graph symmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.15604",
+          "material_read": "PDF pp. 13–16, Examples 2.19/2.21, Theorem 2.20, Example 3.3",
+          "method": "OA PDF passages",
+          "title": "Group actions and automorphisms of evolution algebras associated to finite graphs",
+          "trigger": "Explicit star examples and a graph automorphism formula"
+        },
+        {
+          "assessment": "Nonsingular structure matrix hypothesis excludes stars.",
+          "evidence": [
+            "The proposition requires nonsingularity; the adjacent and random-walk algebras are distinguished."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.10516",
+          "material_read": "Abstract and §3, Proposition 3.3, p. 15",
+          "method": "OA PDF passages",
+          "title": "On the isomorphisms between evolution algebras of graphs and random walks",
+          "trigger": "Published graph algebra automorphism description"
+        },
+        {
+          "assessment": "Different invariant: derivations rather than group of automorphisms.",
+          "evidence": [
+            "The twin classes agree with the graph parts in complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.02493",
+          "material_read": "PDF pp. 1–3, Theorem 2.3 p. 5, p. 6 discussion",
+          "method": "OA PDF passages",
+          "title": "Characterization theorems for the spaces of derivations of evolution algebras associated to graphs",
+          "trigger": "Twin classes of complete multipartite graphs"
+        },
+        {
+          "assessment": "The exact sequence read is for idempotent algebras.",
+          "evidence": [
+            "The star is nonperfect; E^2 has dimension two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-025-02924-0",
+          "material_read": "OA pp. 1–2, offset 0",
+          "method": "OA PDF passage",
+          "title": "Permutation Representations and Automorphisms of Evolution Algebras",
+          "trigger": "Possibly broader automorphism exact sequence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary 79c475fcec77, rank-pencil and fibre proof"
+      ],
+      "rationale": "Full automorphism groups of singular graph evolution algebras and their characteristic-divisibility behavior are natural invariants. Here the exact numerical and group conclusions are obtained by taking the size-one part in the existing rank-pencil and fibre calculation; the application and low-dimensional checks do not supply another independent exact fact or a new structural lemma. A corrected complement statement alone would preserve this scientific redundancy.",
+      "residual_risks": [
+        "A motivated new application of the intrinsic-line argument beyond the two-product-form setting was not claimed or assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

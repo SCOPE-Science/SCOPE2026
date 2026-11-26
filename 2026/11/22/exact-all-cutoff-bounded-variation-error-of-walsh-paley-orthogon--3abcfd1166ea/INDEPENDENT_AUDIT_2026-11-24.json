@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:35:46.518715Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For M the dyadic floor of N, the first M characters span cell constants and the r extra orthonormal modes are the next Rademacher times r cell-constant sign characters. The unit jump at relative position q has M-mode residual variance q(1-q)/M; each extra coefficient has magnitude min(q,1-q)/M because whole cells cancel under the Rademacher sign. Thus the squared residual is exactly the stated formula. Its left-half quadratic is (q-(N/M)q²)/M, whose unique maximizer is M/(2N), with its reflection on the right; the maximum is 1/(4N). This includes N=1 and r=0. The derivative-measure representation of real interval BV is a Bochner integral of jumps modulo constants (the jump map is L²-continuous), with total mass in variation equal to TV. Equality for a nonzero signed derivative forces its variation measure onto the finite maximizing set. Triangle equality then requires proportional signed residuals. Distinct maximizing jumps cannot be proportional: every projected function is constant near each maximizer, using the half-cell grid for r>0 and the cell grid for r=0, so any asserted proportionality would leave an uncancelled jump. The sharp equal-cell comparator follows from unit-step cell variance and the same integral bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Móricz assumes variation of the coefficients; the Carleson variation theorem concerns r-variation of partial sums for Lᵖ input; the Haar result concerns weighted scale energies and includes the variance/midpoint case at s=0."
+        ],
+        "reasoning": "None of these hypotheses and outputs supplies a sharp ordinary-BV residual at every partial Paley rank, with equality locations.",
+        "searches": [
+          "DOI 10.1017/S144678870003319X, Theorems 1–2",
+          "arXiv:1209.3383, abstract and introduction",
+          "Resultary 2ef03f40fa78, 0–5902"
+        ]
+      },
+      "checked_sources": [
+        "Fine (metadata only)",
+        "Móricz DOI 10.1017/S144678870003319X",
+        "arXiv:1209.3383",
+        "arXiv:2602.17627v1",
+        "Resultary 3abcfd1166ea (same record), fe0e230e2ac3, 2ef03f40fa78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dyadic averaging fixes only r=0. The cumulative dyadic bound has extremizers at 1/3 and 2/3; the non-dyadic response removes exactly r min(q,1-q)²/M²."
+        ],
+        "reasoning": "Scale sums or single-coefficient bounds do not specify that removed joint energy and cannot determine its optimization or exclude multijump extremizers. Fine's unread pages remain an access risk, not negative evidence.",
+        "searches": [
+          "Fine, 1949, supplied PDF and AMS copy",
+          "Resultary fe0e230e2ac3, Finding and proof passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record itself (3abcfd1166ea). Lakey §1.1 considers L² bounds for linearized partial-sum operators."
+        ],
+        "reasoning": "The exact statement is an operator norm from the TV seminorm modulo constants to an L² orthogonal residual, including maximizing derivative measures. A linearized maximal or partial-sum L² operator estimate concerns different operators or norms.",
+        "searches": [
+          "Resultary: sharp BV-to-L² Walsh–Paley projection tail and jump extremizers",
+          "Fine, On the Walsh Functions",
+          "arXiv:2602.17627v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue distinguishes the identical finding from a sharp cumulative dyadic residual result and a weighted Haar-energy result."
+        ],
+        "reasoning": "The relevant exact database is the theorem catalogue, not a finite numerical table. Neither adjacent entry tabulates the non-dyadic rank dependence or the two maximizing locations per cell.",
+        "searches": [
+          "Resultary: sharp Walsh–Paley all-cutoff BV error, and dyadic approximation",
+          "Resultary fe0e230e2ac3 and 2ef03f40fa78"
+        ]
+      },
+      "rationale": "The inspected comparisons do not cover the exact non-dyadic correction, sharp all-cutoff bound and rigidity for the Paley-ordered joint residual. The dyadic averaging mechanism and its midpoint case are not credited as new.",
+      "residual_risks": [
+        "Fine's mathematical pages could not be read in the attempted lawful copies. Older sharp Walsh approximation or differently indexed equivalent results may have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "unresolved against the mathematical pages, no whole-paper inference",
+          "evidence": [
+            "Metadata identifies Fine, Trans. AMS 65(3), pp. 372–414 (1949)."
+          ],
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/fine1.pdf",
+          "material_read": "bibliographic wrapper; mathematical pages unavailable from the supplied extraction and the AMS alternate returned 403",
+          "method": "targeted OA and lawful publisher alternate",
+          "title": "On the Walsh Functions",
+          "trigger": "foundational same-system primary source"
+        },
+        {
+          "assessment": "different use of variation",
+          "evidence": [
+            "Variation conditions are imposed on coefficient sequences for convergence results."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S144678870003319X",
+          "material_read": "abstract and Theorems 1–2, pp. 458–459",
+          "method": "OA full text",
+          "title": "Walsh-Fourier series with coefficients of generalized bounded variation",
+          "trigger": "Walsh and variation"
+        },
+        {
+          "assessment": "different operator and norm",
+          "evidence": [
+            "Estimates concern variation over partial sums on Lᵖ inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.3383",
+          "material_read": "abstract and introduction",
+          "method": "OA HTML",
+          "title": "Variation norm Carleson theorem for vector-valued Walsh-Fourier series",
+          "trigger": "Walsh variation bounds"
+        },
+        {
+          "assessment": "different sharpness question",
+          "evidence": [
+            "Linearized dyadic operators in L², not an ordinary-BV projection residual."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.17627v1",
+          "material_read": "abstract and §1.1",
+          "method": "OA HTML",
+          "title": "Lakey, arXiv:2602.17627v1",
+          "trigger": "sharp Walsh operator estimates"
+        },
+        {
+          "assessment": "related dyadic cumulative invariant, not an arbitrary-rank identity",
+          "evidence": [
+            "Optimizes summed dyadic residuals, with jumps at 1/3 and 2/3."
+          ],
+          "identifier_or_url": "fe0e230e2ac3",
+          "material_read": "RESULT.md, offsets 0–5584",
+          "method": "local mirror",
+          "title": "A sharp two-scale resonance law for multiscale dyadic approximation",
+          "trigger": "strongest distinct adjacent exact catalogue hit"
+        },
+        {
+          "assessment": "variance/midpoint overlap but no arbitrary Paley cutoff",
+          "evidence": [
+            "Studies weighted Haar energy over scales."
+          ],
+          "identifier_or_url": "2ef03f40fa78",
+          "material_read": "RESULT.md, offsets 0–5902",
+          "method": "local mirror",
+          "title": "Sharp bounded-variation Haar energy",
+          "trigger": "possible domination by weighted Haar-energy bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Paley partial sums have natural non-dyadic cutoffs not handled by cell averaging alone. The result gives a worst-case BV approximation benchmark at every rank, identifies how the extra block changes the jump response, and locates all extremizers. Equality with the regular equal-cell error is a useful comparison, not a global optimality claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

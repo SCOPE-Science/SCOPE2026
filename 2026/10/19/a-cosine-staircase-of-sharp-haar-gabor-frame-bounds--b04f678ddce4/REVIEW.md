@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Walnut identity with modulation step \(b\) carries factor \(1/b\). Exact support geometry leaves two translates at every point, and only the two nearest frequency overlaps for \(1<b<2\). The resulting operator is a direct integral of finite path Jacobi matrices of length at most \(L=\lceil b/(2-b)\rceil\), with positive-measure fibers having that length. Their complete sine spectra prove both endpoints, not merely inequalities. The independent standalone script checks exact overlap coefficients and representative rational-fiber path geometry; finite sampling is not used to certify the theorem for all real parameters. The endpoint \(b=2\) is handled separately by the bilateral Laplacian.
+## correctness
 
-## Originality — PASS (best knowledge)
-Dai--Zhu (arXiv:2205.06479) supply the full qualitative Haar frame set, but not the sharp spectral constants or the step-function condition numbers on the half-translation slice. Faulhuber--Shafkulovska (arXiv:2204.02917) study exact bounds for different exponential and hyperbolic-secant windows at integer redundancy. Searches across the published research record and the specifically matched literature found no formula equivalent to the claimed all-real modulation spectrum. The strongest residual risk is an unindexed older exact Haar/Janssen-type calculation or a straightforward re-expression of a historic fiber-matrix example; no independence from such work is claimed.
+PASS
 
-## Mathematical value — PASS
-The fixed half-translation is canonical for the two Haar steps. The result provides a full real-parameter spectrum rather than isolated rational lattices, exact optimal conditioning, infinitely many jump thresholds, and the leading critical-density rate \(\pi^2/8\). These are spectral details absent from a qualitative frame-set criterion and matter for deterministic reconstruction stability. The window is discontinuous; extrapolation to smooth Gabor windows is not justified.
+With d=1/b and a=1/2, periodization of modulation coefficients gives the Walnut factor 1/b. Exactly two translates contribute to the diagonal; the b<=1 case has no off-diagonal overlaps. When a<d<2a, only shifts +/-d overlap, and the forward shift contributes -1 precisely when the residue t of the starting point lies below a-(d-a). Residues along a fiber advance by d-a mod a; edges are exactly the advances without a wrap. Each component begins at t0 in [0,d-a) and has ceil((a-t0)/(d-a)) vertices. The maximal length L=ceil(a/(d-a)) occurs on an open interval of positive length contained in the direct-integral base [0,d), also when a/(d-a) is an integer. The sine eigenvectors of the finite Dirichlet path give the extreme spectral values on these fibers, so the two bounds are truly optimal. The jumps follow from the one-sided ceiling change, the critical limit from L~2/(2-b), and the b=2 fiber is the bilateral discrete Laplacian divided by 2, with zero spectral infimum. This proof uses no rationality hypothesis.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit is limited to the exact sharp spectral endpoints for the fixed half-translation slice in the overlapping regime, and their jump and critical laws. The qualitative frame set, the painless tight branch and the Jacobi eigensolve in isolation are not credited as new.
+
+## value
+
+PASS
+
+The half-translation equals the length of one Haar step and is a natural parameter rather than a fitted slice. The exact norm and conditioning on that lattice, discontinuous thresholds at noncritical densities, and the sharp constant determining instability near b=2 provide spectral information a frame-set criterion alone cannot give.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

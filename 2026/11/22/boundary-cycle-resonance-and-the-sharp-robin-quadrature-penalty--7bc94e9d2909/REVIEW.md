@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The general boundary-trace classification is a direct invertible recurrence on cyclic affine edge values, including the sign constraint for odd cycles. Positive definiteness and finite-dimensional energy convergence prove the exact all-load Dirichlet limit criterion. Exact symbolic matrices independently establish the square model's load, stiffness, rank defect and integrated-boundary comparison. A transverse-mode Schur/energy argument proves the sharp two-parameter window and its infinity endpoint. The standalone exact symbolic verifier returns `VERIFY_OK 64`; finite checks supplement, rather than replace, the proof of arbitrary cycle lengths and asymptotic limits.
+## correctness
 
-## Originality — PASS, with historical priority risk
-Han and Wu (arXiv:2606.16675) analyze mesh-refinement error rates for elliptic FEM with boundary quadrature, rather than fixed-mesh boundary-penalty resonances. Their available full public HTML text was inspected at introduction, numerical-integration assumptions, principal estimates, lower bounds, experiments and conclusions. Chiba and Saito (arXiv:1905.01605) analyze a Robin-to-Dirichlet penalty framework without the one-point cycle product or square-element sampling crossover. Oden's underintegration analysis supplies a wider qualitative setting of spurious modes; its general warning does not imply the boundary-cycle criterion or the coefficient \(1/(24+9\tau)\). Published mathematical-record queries for alternate wordings and implicit special cases returned unrelated Robin quantum-graph results, interior heat-mass sign phenomena and generic mesh quadrature work, with no evidence of the exact theorem. Since complete historical indexing is impossible, an earlier equivalent specialized treatment remains a risk.
+PASS
 
-## Value — PASS
-This result supplies a mathematically decisive boundary between an invertible Robin discretization for every finite penalty and convergence of that discretization to the intended Dirichlet limit as the penalty grows. A single geometry- and weight-based rank test detects the obstruction on arbitrary polygon boundary cycles, and an exact quadratic scaling window quantifies how accurately a nominal midpoint must be positioned to retain or remove it. Such a check is meaningful when constructing or testing quadrature-based boundary penalties; the result does not claim universal downstream solver failure.
+Positive edge weights reduce the sampled kernel to edge equations. Their signed cyclic recurrence has one free initial value exactly for an even cycle with equal products of fractions and complements; independent nodal values lift these traces. K plus the sampled penalty is positive definite because no nonzero constant is in the sampling kernel. Uniform boundedness and testing on the sampling kernel give convergence to the unique restricted stiffness solution. With resonance, a nonzero K-orthogonal complement to the zero-trace space gives a load annihilating the Dirichlet space but not that complement. For the unit-conductivity square, independently assembling in the tensor basis (1,1-2x,1-2y,f) gives diagonal stiffness (0,4,4,8/3) and load (0,0,0,1/9). Exact inversion gives the f coefficient as [eps^2 lambda^2+6 eps^2 lambda+2 lambda^2+8 lambda+8]/[6(3 eps^2 lambda^3+28 eps^2 lambda^2+60 eps^2 lambda+8 lambda^2+32 lambda+32)]. Dividing by lambda^2 gives 1/(24+9 tau) for every finite joint-limit sequence, including tau=0; the other three coefficients vanish. In the infinite-product regime the same quotient and transverse terms vanish (also det C=eps/4 and the simple defect yields sigma_min~|eps|/2 near zero). The integrated trace of f squared is 4/3 and reflection symmetry decouples f, giving the stated exact-integration coefficient. The own symbolic replay was /workspace/branches/independent-replays.py 2; frozen verify.py and recorded output claims were inspected, not executed. The numerical constant is for the assembled unit-conductivity, unit-weight square, not arbitrary stiffness or boundary weights.
 
-## Scope and comparison limits
-The theorem assumes conforming affine boundary traces, full positive edge sampling, exact volume integration, connected domain, and a fixed mesh. Its quantitative window is proved on one bilinear square element. No independence of the review is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact all-load fixed-mesh result for independently sampled affine boundary traces together with the quantified one-node crossover of the square assembly, not generic penalty convergence, a cyclic linear recurrence in isolation, or the known possibility of underintegration-induced mechanisms.
+
+## value
+
+PASS
+
+The all-load iff is a reusable, exact diagnostic: positive definiteness at every finite penalty does not guarantee enforcement of the intended trace at large penalty. The square profile distinguishes load responses below, on, and above a concrete scale rather than merely demonstrating a zero mode. The result neither claims a refinement estimate nor generalizes the single-element coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

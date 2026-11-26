@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The path-product identity was reconstructed from the original evolution-algebra multiplication, the field nilness-to-acyclicity implication was checked against the cited 2010 result, and the ring-valued path bound follows from a length/valuation pigeonhole argument. Saturation forces each maximal unit run to traverse all vertices and hence forces one common Hamiltonian order and a valuation-one return. The inclusion–exclusion recurrence counts based residue matrices, and the disjoint unique-order argument counts extremal ring lifts. Independent exhaustive computations across ten distinct configurations corroborate the proof, including residue characteristic two, odd characteristic, higher chain length, and a non-prime residue field.
+## correctness
 
-**Originality — PASS on the comparisons completed, with publication-priority risk.** The cited field nilness and DAG criteria, the ring path criterion, and the field ordinary-nilindex classification are antecedents, not new claims. The new combination is the arbitrary-chain-ring sharp right-nilindex threshold, exact Hamiltonian-return characterization, and two infinite-family enumeration formulas. The closest identified full-text originals do not state or directly imply these numerical/classification results without the new saturation and counting arguments. Mathematical-record and published-results searches included both right/ordinary index aliases, ring arithmetic and extremal digraph formulations. An unnoticed historical counting theorem remains possible.
+PASS
 
-**Value — PASS.** The maximal possible right-power extinction time is a natural invariant for the ring-valued evolutionary model; it can increase linearly with the ring length even at fixed module rank. The theorem determines its exact sharp value and the structure/number of all extremizers, while also counting all nil labeled multiplication tables uniformly across distinct chain rings. This is a substantive generalization of the base-field DAG criterion rather than a single numerical example.
+Left-associated products of natural basis vectors select coefficients along an index walk, so the right power at r is nonzero iff a length-(r−1) walk has nonzero product. Reduction preserves elementwise nilness. Independently, if the residue digraph has a directed cycle, a shortest cycle has no extra arcs on its vertex set; the sum of its basis vectors never has a zero left-associated power, as multiplication by that sum updates its cycle coordinates cyclically by nonzero coefficients. Conversely, acyclicity bounds a unit run by n−1, so a walk with t nonunit edges has length at most n(t+1)−1. A length-ns walk therefore has zero product. At length ns−1 a nonzero product forces s−1 valuation-one breaks and s Hamiltonian unit runs in the unique forced topological order. Each break is the same return entry, and its (s−1)-fold product times units is nonzero; when s=1 there are no breaks, and at n=1 the return is diagonal. Clauses 2–3 are on the finite-index (nil-table) domain of ν; a Hamiltonian path in a cyclic residue graph does not suffice. Source inclusion–exclusion counts residue DAGs, every residue has q^(s−1) lifts, and the unique Hamiltonian order avoids overcounting: n−1 unit entries, one valuation-one return when s≥2, freely chosen other forward entries and nonunit backward/diagonal entries give the stated exponents. An independently written exhaustive rank-two Z/4 check verified 48 nil and 16 index-five tables among 256, checking principal powers and right-power submodules directly. Private replay: /workspace/branches/fed4ad06-f650-4e7a-92f3-e205ba643cd9/bounded_check_n2_z4.py. The frozen script and recorded runs were inspected rather than executed; they supplement but do not prove the arbitrary-ring statement.
 
-**Limitations and closest literature.** The counts distinguish labeled multiplication tables, not isomorphism types. Right nilindex differs from ordinary nonassociative nilindex. Primary comparators are arXiv:1004.1050v1, arXiv:1208.1709v1, arXiv:1312.4685v1 and arXiv:1404.5523v1. A broad unindexed enumeration or equivalent stronger theorem could affect priority. Independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novelty credit is for the supported sharp classification over finite chain rings of length s≥2 and the valuation-sensitive extremal table count. The field triangularity/path ingredients and the DAG polynomial or its independent lift are not claimed as standalone new combinatorics; the ordinary-index field extremal support is also antecedent. The strongest inspected comparisons do not identify the saturated valuation-one return structure and corresponding finite-chain-ring extremal census.
+
+## value
+
+PASS
+
+Keeping the residue support fixed can hide all nonunit information. The classification identifies exactly the one return entry and valuation needed for the longest nonzero right powers, and counts how frequently this extremal behavior occurs in labelled lifts across finite chain rings. This supplies a meaningful sharp boundary and an exact census without conflating ordinary and right nilindices or isomorphism classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

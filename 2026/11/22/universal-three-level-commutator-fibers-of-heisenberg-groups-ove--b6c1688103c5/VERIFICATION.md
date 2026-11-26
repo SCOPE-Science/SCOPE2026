@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The theorem is proved from direct Heisenberg multiplication, additive-character orthogonality, the three cardinalities of the character annihilator ideals, and explicit finite character sums. These steps apply to every finite commutative local ring \(R\) with \(\mathfrak m^2=0\) and \(\dim_{R/\mathfrak m}\mathfrak m\ge2\), irrespective of a coefficient-field splitting.
+## correctness
 
-`check.py` is a standalone standard-library Python 3 script. Reproduce by executing `python3 check.py` from the directory containing the embedded files. It exhaustively enumerates the rank-one horizontal commutator map for seven finite ring models, including a mixed-characteristic ring; all target counts are compared with the three formulas. It checks larger symplectic ranks two and three using exact convolution of the independently enumerated rank-one distribution. An additional full enumeration over the principal ring \(\mathbb Z/8\mathbb Z\) checks the distinct four-level comparator and zero-determinant count \(736\). The expected final line is `PASS: all exhaustive tests and convolution comparisons`, recorded in `check_output.txt`. The largest exhaustive test considers \(531441\) quadruples over a ring of cardinality \(27\). Finite computations corroborate, rather than prove, the unbounded mathematical theorem.
+PASS
 
-Further internal consistency checks are: the three target strata partition the coefficient ring, the strictly positive fiber sizes sum with their multiplicities to \(t^{4h}\), the central-coordinate factor is \(t^2\), and the zero-target probability equals the displayed conditional-concentration formula. No higher-radical, nonlocal, or noncommutative coefficient-ring theorem follows. No independent audit or certified global literature-priority validation was performed.
+The commutator is the standard alternating dot product and the independent central coordinates contribute exactly t^2. An independent count avoids splitting the ring or using a generating character. Set n=2h, regroup into a pairing of two n-tuples, and fix the first tuple. The image of the pairing is its generated ideal and each target in the image has t^n divided by the ideal size preimages. If the tuple has a unit, this contributes (t^n-v^n)t^{n-1}=A-B to every target. Otherwise the image is the residue-field span of its coordinates in the radical, since the radical squares to zero. For a uniform radical tuple regarded as a linear map F_q^n to the radical, E(q^{-rank})=q^{-n}(1+(q^n-1)/v), by counting vectors in the kernel (each nonzero vector is sent to zero with probability 1/v). The zero fiber then receives the additional t^n v^n E(q^{-rank})=qB+(t-q)C. All nonzero radical targets receive the same additional weight by the GL_d action on the radical tuples and targets; their additional total, together with that at zero, is t^n v^n, giving q(B-C) for each nonzero target. Thus the precise three stated levels hold also in mixed characteristic. The level gaps tC and q(B-C) are positive and the unit level is positive. Pairing with coordinate unit vectors identifies the center; it equals the image and hence the derived subgroup. Dividing the zero count by t^{4h} gives the displayed commuting probability, and (v/t)^{4h}=q^{-4h} of all pairs have both horizontal vectors in the radical and automatically commute. The limiting fraction is conditional, not a claim that ordinary commuting probability tends to one. The provided checker and recorded output were inspected, not executed. Independently `python /workspace/branches/audit_checks.py heisenberg` checked rank one and two over the eight-element split ring by product-distribution convolution and verified the four-level Z/8 determinant comparator by direct enumeration.
+
+## originality
+
+PASS
+
+The inspected fixed-determinant work covers principal rings, including the Z/8 comparison, not the nonprincipal square-zero family. Work covering the same coefficient rings studies other invariants. The contribution is the evaluation for all central targets and symplectic ranks in this nonprincipal class, not the general character-sum method, determinant counts for principal rings, or mere centrality of commutators.
+
+## value
+
+PASS
+
+Prescribed commutators refine ordinary commuting probability and connect directly to a natural determinant-counting question for local rings outside the classical principal class. The theorem computes every fiber in the nonprincipal square-zero class rather than just detecting that all targets are reached, and identifies an entire conditional commuting concentration regime. The exact comparison with Z/8 illustrates that the shape of this invariant, not just a normalization, can change at fixed ring size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

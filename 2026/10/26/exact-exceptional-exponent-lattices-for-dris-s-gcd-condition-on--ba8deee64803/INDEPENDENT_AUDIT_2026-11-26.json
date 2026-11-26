@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:07.650545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=2^ap^b, factor σ(m²)=(2^{2a+1}−1)(1+p+⋯+p^{2b}). Both factors are odd and the latter is 1 mod p, so equality of the GCDs is exactly ν_p(2^{2a+1}−1)≤b. If d is even it does not divide L=2a+1; in the odd-order case the valuation is zero unless d|L, and then odd-prime LTE gives c+ν_p(L/d). This yields the exact failure criterion also at c=b+1 and c>b+1. Each odd modulus M_b cuts out one residue class, of density 1/M_b. In fact, the count in a∈[1,N] is floor((floor((2N+1)/M_b)+1)/2), since L ranges over odd values 3 through 2N+1 and M_b≥3. Columns 1≤b<c supply (c−1)N/d+O_p(1) for large N. For b≥c the modulus is dp^k, k=b+1−c; at most O_p(log(2N)) moduli are at most 2N+1, and the constraint b≤N eventually includes all of them. Rounding costs O(1) per column and extending the truncated geometric main-term sum costs O_p(1). Its sum is N/[d(p−1)], giving the stated square count and vanishing relative frequency among exponent pairs. An independent divisor sum and floor-count check (review_evidence/reproduce.py 2) checks bounded prime/exponent grids and the odd-order Wieferich case p=3511, d=1755, c=2: at a=877 the tested b=1 fails and b=2,3 belong. The infinite proof is not inferred from those tests. The passage saying the global conjecture is not resolved should be read as a limitation of this theorem, not as a claim about the later or independently indexed literature.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two October Resultary records state ambient natural density zero for the full equality set. The November record systematizes quantitative decay, including O(X/√log log log X) for the number of equality integers up to X. Dris's original §5 instead proves a less-than-one bound and conjectures zero."
+        ],
+        "reasoning": "Those stronger ambient statements concern a different counting measure and do not dominate the exponent-box estimate: all 2^a p^b up to X form a set of size at most O_p((log X)^2), much smaller than the quantitative upper bound, and arbitrary changes on this support preserve ambient density.",
+        "searches": [
+          "Resultary ambient density zero and quantitative GCD-ratio bounds, records ending a21f964946e9, 1a0f5da13c3d and 315c109eb2f1",
+          "arXiv:2202.08116v1 §5 Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "arXiv:2202.08116v1 §5",
+        "Targeted Resultary searches and the four compared mirror records",
+        "Indexed Math Stack Exchange question title; forum-answer access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dris's exclusion mechanism in §5 concerns a three-prime obstruction, and the squarefree membership theorem omits variable exponents. The broader density-zero and GCD-ratio theorems count ambient integers."
+        ],
+        "reasoning": "One needs the mixed-support factorization, exact order-parity split, and a two-variable truncated residue-class sum to turn general order/LTE into this classification and main term. Even assuming the ambient results, they do not give it.",
+        "searches": [
+          "arXiv:2202.08116v1 §5 three-prime obstruction and density result",
+          "Resultary a21f964946e9, 1a0f5da13c3d, 315c109eb2f1 and 3181e476c480"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Failure is equivalent to p^{b+1}|2^{2a+1}−1. LTE gives the generic valuation for powers of 2; it does not state the Dris-set count. The primary §5 and inspected Resultary claims use the same underlying condition but do not give this valuation lattice for all a,b≥1."
+        ],
+        "reasoning": "The valuation re-expression permits a concrete comparison beyond the name of the GCD set. Neither overlapping definitions nor a generic tool for the valuation supplies the exponent-square result as stated. The closest forum discussion itself remained unavailable.",
+        "searches": [
+          "Resultary: Dris GCD equality, mixed support 2^a p^b, odd multiplicative order/LTE, failure lattice and square count",
+          "Dris, arXiv:2202.08116v1 §5",
+          "Math Stack Exchange question 3628078 on exceptions to the exact GCD equality; StackPrinter alternate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dris lists finite examples of failure; the squarefree record gives a sufficient family of members with relevant GCD 1. No inspected entry gives the exclusion frequencies or an exact exponent-square table for the variable prime powers."
+        ],
+        "reasoning": "Finite integer lists and a squarefree family neither enumerate this sparse support in two exponent coordinates nor give the odd-order and valuation dependence.",
+        "searches": [
+          "Resultary exact divisibility and exponent-square count queries including c−1+1/(p−1)",
+          "Dris §5 finite examples",
+          "Resultary squarefree 2 mod 3 subfamily, 3181e476c480"
+        ]
+      },
+      "rationale": "Pass for the mixed-support exponent classification and the exact linear exponent-box main term with logarithmic remainder, not for the ambient Dris condition or ambient-density results. Order and LTE are standard and do the local valuation work. The combined classification and the count were not supplied by the most relevant statements inspected. This is an evidence-limited priority assessment.",
+      "residual_risks": [
+        "Relevant Math Stack Exchange answers and a MathOverflow discussion cited by the finite-CRT record remained inaccessible; their coverage is unknown.",
+        "The proof uses standard order and LTE, so an earlier specialization under a different divisor-sum/cyclotomic formulation remains plausible. Ranked searches do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the set, gives examples and an ambient density bound; no corresponding mixed-support box formula in the section.",
+          "evidence": [
+            "Theorem 5.1 gives less than one; Conjecture 5.1 is density zero for the full integer set."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.08116v1",
+          "material_read": "Primary §5, OA offsets 13695–20278, with examples, Theorem 5.1 and Conjecture 5.1.",
+          "method": "Checked hypotheses, quantifiers and geometry of the actual exclusion and counting statements.",
+          "title": "A new approach to odd perfect numbers via GCDs",
+          "trigger": "Original exact condition and possible prime-support classifications."
+        },
+        {
+          "assessment": "Prior indexed ambient zero-density statement, not the exponent-box law.",
+          "evidence": [
+            "Addresses the full equality set without support restrictions; its cited forum discussion could not be accessed."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-finite-crt-proof-of-zero-density-for-the-divisor-sum-gcd-equal--a21f964946e9",
+          "material_read": "Local mirror RESULT.md, Finding at offset 381 and prior comparison at offsets 5615–7915.",
+          "method": "Compared the statement of ambient density and its exact counting domain.",
+          "title": "A finite CRT proof of zero density for the divisor-sum GCD equality",
+          "trigger": "Stronger-looking result on the identical set, potentially subsuming the new count."
+        },
+        {
+          "assessment": "The inspected theorem does not resolve GCD failure rates along a fixed prime-support lattice.",
+          "evidence": [
+            "Asserts divergence on a density-one subset of the integers, which can omit the entire sparse support."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-density-zero-gcd-equality-and-divergence-of-the-square-divisor-g--1a0f5da13c3d",
+          "material_read": "Local mirror RESULT.md, Finding at offset 498.",
+          "method": "Compared the density-one ambient result and corresponding ambient zero-density statement.",
+          "title": "Density-zero GCD equality and divergence of the square divisor GCD ratio",
+          "trigger": "Potential earlier exact support classification from stronger GCD-ratio divergence."
+        },
+        {
+          "assessment": "Broader global count but not a bound of the required precision on the sparse restricted support.",
+          "evidence": [
+            "The equality count is a special case of the ratio-threshold bound O(X/√log log log X)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-quantitative-triple-logarithmic-decay-for-dris-s-gcd-ratio--315c109eb2f1",
+          "material_read": "Local mirror RESULT.md offsets 0–1250.",
+          "method": "Compared the ambient variable X and fixed-ratio threshold with the square in a,b.",
+          "title": "Quantitative triple-logarithmic decay for Dris’s GCD ratio",
+          "trigger": "Quantitative result on the same equality, possibly a dominating count."
+        },
+        {
+          "assessment": "A squarefree subfamily rather than a classification of both membership and failure with varying a,b.",
+          "evidence": [
+            "Establishes relevant GCD equal to 1 for the indicated squarefree support family."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-squarefree-2-bmod-3-subfamily-in-dris-s-gcd-set--3181e476c480",
+          "material_read": "Local mirror RESULT.md offsets 0–1445.",
+          "method": "Compared the range of valuations and membership criterion.",
+          "title": "A squarefree 2 mod 3 subfamily in Dris’s GCD set",
+          "trigger": "Closest support-restricted sufficient membership result."
+        },
+        {
+          "assessment": "Establishes that the question was asked, not that its answers do or do not contain this classification.",
+          "evidence": [
+            "Same equality and broad question about exceptions in the indexed title."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/3628078/when-does-gcdm-sigmam2-equal-gcdm2-sigmam2-what-are-the-exce",
+          "material_read": "Indexed question title; no answers or body reliably accessible.",
+          "method": "Public OA/site and identified StackPrinter alternate attempts; answers remained unavailable.",
+          "title": "When does gcd(m,σ(m²)) equal gcd(m²,σ(m²))? What are the exceptions?",
+          "trigger": "Exact motivating equality with a direct request for exceptions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mixed support on 2 and one odd prime is a complete naturally defined family in a preexisting problem, not a selected numerical instance. Its exact exceptional lattice distinguishes the order-parity and Wieferich regimes and yields the contrast between positive column densities and a linear, hence sparse, square count. These explicit facts can be used for arithmetic membership tests and for comparisons with other support families. The argument is elementary, but the exact combined classification and two-dimensional count are not a restatement of LTE or of ambient zero density. No global advance is attributed to this local theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

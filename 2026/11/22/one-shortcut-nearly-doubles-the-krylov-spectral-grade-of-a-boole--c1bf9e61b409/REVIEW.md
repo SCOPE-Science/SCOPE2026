@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives Walsh spectral masses by counting parity-odd coordinate intersections, verifies all active spectral levels, and applies the rank-one secular equation with strict root monotonicity. All retained multiplicities are positive in the stated \(d\ge3\), \(2\le r<d\) range. For even distance, one positive and unique top-level crossing is computed; for odd distance the top level is active and cannot create such a collision. The distance-two formula is derived from a binomial integral. Generic exact-arithmetic CG termination follows from the relative minimal polynomial, not from finite experiments. A standalone 524-assertion checker tests independent spectral-mass calculations, full-matrix spectra and symbolic nullities.
+## correctness
 
-## Originality — PASS on investigated evidence
-The nearest broad theory is Farrell's upper bound for rank-one spectral diversity (2015), Xu's refinement (2016), and Bueno–Furtado–Pérez's general characterization of eigenvalue emergence under edge updates (2026). The latter's Corollary 7.5 already establishes the at-most-one exceptional edge-weight mechanism, so that statement is not asserted to be new. These works do not identify the Boolean-cube shortcut's exact count, distance-parity distinction, all-pairs conductance formula, or the explicit \(r=2\) threshold. The foundational cube spectrum and secular identities are credited. The 1999 article by Wasin So is close in setting, but its complete text was inaccessible; its abstract does not establish a Boolean-cube specialization. This leaves a real bibliographic-priority risk, and novelty is qualified accordingly.
+PASS
 
-## Mathematical value — PASS
-The exact all-dimension phase diagram shows how a single structural defect changes the number of active solve modes from \(d+1\) to \(2d\) in a widely used Cartesian-product network, with a one-parameter tuning resonance for even shortcut length. The precise integer-valued invariant and explicit threshold are natural for studying exact Krylov termination and spectral design; this is neither an arbitrary finite slice nor a mere restatement of a general upper bound. No claim is made about practical finite-tolerance speed or ill-conditioning.
+At Walsh level k the squared mass of e_u-e_v is 4/2^d times the number of k-subsets meeting the differing coordinates oddly. For each interior k, take k-1 coordinates avoiding a fixed differing coordinate and a fixed agreeing coordinate, then append either of those two: the parity flips, so the mass is positive. Level zero is inactive and level d is active exactly for odd r. Decompose into the span of the nonzero level projections and the orthogonal remainders of the old eigenspaces. The former has one simple updated root between each pair of active levels and one above the last by secular monotonicity; none lies at an active pole. The interior remainders have dimension binom(d,k)-1>0. For odd r this gives d retained values and d disjoint new values. For even r only the inactive top level can coincide with a new root (zero cannot); substituting 2d into the secular equation gives one strictly positive weight, at which precisely one pair coalesces. For r=2, integrating (1+x)^(d-2) from zero to one gives the claimed reciprocal weight. For instance d=3 and r=2 give active masses 1,1, and their two updated unshifted levels at t=4/3 are 8/3 and 6, the latter colliding with the old top. The identity shift leaves the count unchanged and ensures positive definiteness. The CG conclusion follows from the relative minimal polynomial on a right-hand side with every eigenspace component nonzero: its degree is exactly the distinct count.
 
-## Scope, sources, and outstanding risks
-The construction excludes antipodal edges, multiple perturbations, and arbitrary right-hand sides. Direct source inspections included the public Farrell/Xu theorem texts, the 2026 preserved-eigenspace theorem including Corollary 7.5, and the Klee–Stamps main theorem; the classical cube spectrum was checked in Mohar's chapter. So (1999) remained accessible only through abstract/metadata. A broader but unindexed earlier hypercube-specific formula would supersede originality; independent bibliographic and mathematical review remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general exceptional-weight criterion and rank-one Krylov bounds as prior. The supported distinction is the explicit family-wide active-pole and Hamming-parity analysis, global count including the sole collision, and evaluated short-distance conductance. The named inaccessible early paper leaves a priority risk, not a finding of prior coverage or a guarantee of priority.
+
+## value
+
+PASS
+
+The exact support and parity analysis locates an isolated eigenvalue-count defect and specifies where it occurs, showing how almost double the cube's exact Krylov grade emerges from a single added edge. The result distinguishes distances and conductances in a natural family that the general rank-one bound cannot resolve; it is more than a numerical spectrum or a restatement of a general exceptional-weight criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

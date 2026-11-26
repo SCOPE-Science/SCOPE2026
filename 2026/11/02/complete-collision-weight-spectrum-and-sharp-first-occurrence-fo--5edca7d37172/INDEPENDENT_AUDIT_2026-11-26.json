@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:15.360593Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–79",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/c39457bb-a9c2-47a7-a3e2-bd65a9c841b6/independent_graph_check.py"
+      ],
+      "rationale": "A based closed de Bruijn walk determines the indexed input and vice versa, also at n=1 and n=2: closure enforces the repeated bits. Matching one common output label per edge gives the pair weight, not twice the weight. The local equation determines the preceding bit from the next two and the output, so agreement on one pair-state forces equality around the ring. Thus distinct-input pairs correspond exactly to the off-diagonal closed walks, and their enumerator is the logarithmic derivative of the off-diagonal determinant. A separate exact polynomial calculation on all 12 off-diagonal states and 20 edges reproduced R=1-2z+z^2-2u^3z^3+2u^3z^4+(u^6-u^4)z^6. It reproduced all ten simple cycles and the two minimizing cycles with a common vertex, verifying the finite inputs of the proof. Independently, using a=z^3/(1-z), R=(1-z)^2(1-a(u^3+u^2))(1-a(u^3-u^2)). The log expansion adds the two signed m-th powers, leaving exactly an even number 2b of u^2 choices. Writing m=c+2b gives positive weight k=3c+4b with first exponent n=3m=k+2b. Minimizing over b congruent to k mod 3 gives the stated formula and excludes exactly 1,2,5. The factor (1-z)^2 gives two zero-weight collisions at each n>=1, starting with the ordered pair 0,1 and its reverse.",
+      "residual_risks": [
+        "The replay certifies the exact finite graph calculation and witnesses. It is the trace and formal-series argument, not a bounded range of rings, that certifies the universal claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thesis p. 50 represents arbitrary prescribed-target preimages by a trace of a product, p. 51 gives a Rule 30 example, and §9.3 uses periodic products for heterogeneous targets. Section 10.3's distribution is Hamming change between consecutive configurations, not collision-output Hamming weight.",
+          "Powley–Stepney's inspected abstract concerns homogeneous targets. Full text of that article and the relevant full passages of Jen and Wolfram were not available in the retrievals."
+        ],
+        "reasoning": "General fixed-target trace machinery supplies a computational method. Obtaining the joint moment requires matching two predecessor paths and marking their common label; the exact factorization and sharp optimization are the results assessed, not the trace machinery.",
+        "searches": [
+          "Powley, Global properties of cellular automata, Theorem 4.7, §§9.3 and 10.3",
+          "Powley–Stepney York abstract",
+          "Jen technical report and Wolfram direct URLs"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 3077d0947284, 752b67e32224, e6d6f623e250",
+        "Powley thesis pp. 50–51, 117, 141; Powley–Stepney official abstract; MathPages passages; Jen and Wolfram access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day image proof's automaton can be assigned a terminal weight f(y)(f(y)-1) using fixed-point counts of the transformation state and a label weight u for output 1. This gives an unevaluated finite-state series for the same coefficients; the published scalar recurrence loses those data. The compact R and sharp first-support law require a calculation/structural argument, not a scalar specialization of that result.",
+          "From the later signed quotient table, the ordered lift splits into the two swap sectors. In sector sign s=+1 or -1 the determinant is 1-z-s u^2(1+s u)z^3. Their product is exactly R. The later language characterization also independently implies the sharp positive support, whereas the later unweighted multiplicity series gives only the sum over k."
+        ],
+        "reasoning": "Distinguish recoverability by a general or unevaluated model from a mechanically specialized exact evaluated theorem. The later signed quotient is an exact compact equivalent after determinant evaluation; the same-day image recurrence and fixed-target results do not contain the evaluated weighted spectrum or identify the global obstructions.",
+        "searches": [
+          "3077d0947284, Proof §1, backward maps and labelled 41-state closure",
+          "752b67e32224, Proof §2 orientation table",
+          "e6d6f623e250, Finding and Second moment proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient is the sum of m(y)(m(y)-1) over indexed outputs of weight k; the ordinary second moment includes the single-predecessor trace. Image size and unweighted degree counts are different invariants.",
+          "The later signed-block theorem gives k=3q-e for q blocks and an even number e of zero-ending blocks, and n>=3q, achieved with all internal zero runs empty. Minimizing q under these conditions proves the exact positive-weight support law."
+        ],
+        "reasoning": "The signed-block language is not merely same-rule subject matter: it is stronger for positive-weight support. Homogeneous-target counts and counts modulo rotation are not equivalent to the weighted indexed moment.",
+        "searches": [
+          "Resultary cyclic Rule 30 collision outputs, output-Hamming-weight spectrum, and predecessor multiplicity searches",
+          "752b67e32224, Finding and Proof §2",
+          "Powley thesis Theorem 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 3077d0947284 states image size and its length recurrence; later e6d6f623e250 gives exact counts by multiplicity and the unique possible triple-predecessor output 1^n, but not their output-weight table.",
+          "MathPages treats specific all-one outputs at n=9 and n=5, not all possible circumferences for k=5. The later 752b67e32224 lists the complete signed weighted-graph input in equivalent form."
+        ],
+        "reasoning": "No earlier inspected exact evaluated two-variable table was identified; no priority conclusion is drawn from missing tables or from the common date of the image result.",
+        "searches": [
+          "Resultary 3077d0947284, 752b67e32224 and e6d6f623e250, Findings and relevant Proof passages",
+          "MathPages Global Reversibility of Cellular Automata, offsets 6400 and 7150"
+        ]
+      },
+      "rationale": "Credit the explicit evaluated two-variable ordered-collision series and the sharp global support law, not the use of backward pair propagation, trace methods, per-target predecessor counts, or the unweighted image law. A same-day exact Rule 30 image record includes the labelled transformation automaton: its fixed-point counts allow a weighted terminal-state calculation, but the stated image recurrence and unevaluated automaton do not give the explicit reduced polynomial or the all-weight support/minimum without further analysis. The later signed-block record goes further: its theorem entails the positive-weight support law, and its actual proof gives the signed quotient from which the exact R can be evaluated. This very strong later overlap is not credited as an independent corroboration of priority or as evidence of coverage before the frozen entry.",
+      "residual_risks": [
+        "Relevant portions of Powley's thesis were read, not the whole thesis; uninspected technical passages of Jen, full Powley–Stepney, and the Wolfram note leave a historical-priority risk. The later exact graph overlap and same-day model are substantive; no assertion of independent discovery is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material common automaton/method; evaluated invariant is different",
+          "evidence": "T_0 and T_1 on four pair-states, 41 transformations, final indicator that a fixed point exists, and exact indexed image size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284/RESULT.md",
+          "material_read": "Finding and Proof §1 through the state closure and matrix representation",
+          "method": "Local Resultary mirror, opening passage",
+          "title": "Exact periodic image law for elementary cellular automaton Rule 30",
+          "trigger": "Distinct same-day exact Rule 30 length series and automaton"
+        },
+        {
+          "assessment": "Later strong overlap: language implies support and quotient evaluates to the same R",
+          "evidence": "Even sign flips on blocks 11 0^m b; lifted quotient distinguishes ordered closed pairs and records both weight and swap sign.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-signed-block-characterization-of-collision-outputs-of-cyclic-r--752b67e32224/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, including the seven-edge orientation table",
+          "method": "Local Resultary mirror, opening passage",
+          "title": "A signed-block characterization of collision outputs of cyclic Rule 30",
+          "trigger": "Closest exact collision-language and graph match"
+        },
+        {
+          "assessment": "Later scheme for the unweighted specialization only",
+          "evidence": "Gives numbers of images of multiplicity j, no output weights, and shows the only possible triple-predecessor output is all ones.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-preimage-multiplicity-distribution-of-elem--e6d6f623e250/RESULT.md",
+          "material_read": "Finding, maximum-multiplicity proof, Second moment section opening",
+          "method": "Local Resultary mirror, opening passage",
+          "title": "Exact cyclic one-step preimage multiplicity distribution of elementary cellular automaton Rule 30",
+          "trigger": "Exact same-rule multiplicities and pair trace"
+        },
+        {
+          "assessment": "Strong primary antecedent to method, different evaluated statistics in inspected passages",
+          "evidence": "Per-target trace, periodic matrix products, and transition Hamming distance rather than the output-weight collision moment.",
+          "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+          "material_read": "Theorem 4.7 p. 50 and Rule 30 example p. 51; §§9.3 p. 117 and 10.3 p. 141",
+          "method": "OA PDF targeted passages",
+          "title": "Global properties of cellular automata",
+          "trigger": "Earlier full thesis on per-target and periodic preimages; potential Hamming-weight equivalent"
+        },
+        {
+          "assessment": "Abstract has homogeneous scope; unread full text is a risk",
+          "evidence": "Abstract counts predecessors of homogeneous configurations.",
+          "identifier_or_url": "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+          "material_read": "Official abstract, offsets 482–900",
+          "method": "OA web passage, not article full text",
+          "title": "Counting preimages of homogeneous configurations in 1-dimensional cellular automata",
+          "trigger": "Earlier homogeneous Rule 30 counts by de Bruijn methods"
+        },
+        {
+          "assessment": "Specific homogeneous cases, not global weight support",
+          "evidence": "Length-nine rotations of 001 give all ones; all ones at length five has no predecessor.",
+          "identifier_or_url": "https://www.mathpages.com/home/kmath439/kmath439.htm",
+          "material_read": "Passages at offsets 6400 and 7150",
+          "method": "OA website passage",
+          "title": "Global Reversibility of Cellular Automata",
+          "trigger": "Earlier same-rule short-ring all-one examples"
+        },
+        {
+          "assessment": "Technical scope unresolved, not negative evidence",
+          "evidence": "Retrieval timed out; no assertion made about uninspected results.",
+          "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc1189848/",
+          "material_read": "Citation and description in frozen record; technical text not retrieved",
+          "method": "Attempted lawful OA report retrieval on two routes",
+          "title": "Rule matrices, degree vectors, and preimages for cellular automata",
+          "trigger": "Plausible earlier general exact predecessor count"
+        },
+        {
+          "assessment": "Uninspected in this retrieval",
+          "evidence": "HTTP 406, not evidence of noncoverage.",
+          "identifier_or_url": "https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/",
+          "material_read": "Citation and description in frozen record; note not retrieved in review",
+          "method": "Attempted lawful OA website retrieval",
+          "title": "Cryptographic Properties of Rule 30",
+          "trigger": "Earlier same-rule cyclic inversion and multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Same-day image law, earlier per-target methods, and later signed-block exact comparison"
+      ],
+      "rationale": "The output weight makes the indexed predecessor ambiguity sensitive to density instead of only image size or total degree. The compact exact series and its support detect a global weight-five obstruction on all ring lengths, and determine the first possible circumference for every attainable weight. These structural consequences are not read off from a generic per-target counting method, one homogeneous example, or the known unweighted image law.",
+      "residual_risks": [
+        "One-step indexed cyclic dynamics only; no cryptographic or multi-step inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

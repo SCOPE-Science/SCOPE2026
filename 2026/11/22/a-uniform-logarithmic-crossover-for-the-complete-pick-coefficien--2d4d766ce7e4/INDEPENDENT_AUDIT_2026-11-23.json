@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:28:26.300019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–79; VERIFICATION.md; check_coefficients.py (inspected, not executed)",
+        "NIST DLMF 25.12.12, principal slit expansion and radius |log z|<2π"
+      ],
+      "rationale": "Independently reconstructed the exact positive coefficient measure and the two asymptotic regimes. Let F=1-1/K. The Stieltjes integral for K gives a strictly positive imaginary part in the upper half-plane and positivity on the real line below 1. Thus F is a Herglotz function analytic off [1,∞). Its representing measure has density Im F(x+i0)/π for x>1 by local continuity of the boundary values. There is no atom at 1: Re K(1+iy) tends to infinity by Fatou's lemma. There is no linear term: y Im K(iy)=∫ y²t/(1+y²t²) dν(t)↑∫ dν(t)/t=∞ for the given Stieltjes weight ν, hence F(iy)/y→0. This supplies the n=1 justification as well as all higher coefficients without relying on the sketched outer-arc estimate. For x=e^u the density is x u^(α-1)/(Γ(α)|Li_α(x+i0)|²), against x^(-n-1) dx for coefficient n. The exponent after substitution is therefore -(n-1)u. Positivity is strict, and F(r)↑1 proves normalization. For fixed α<1 the singular Li term and the Laplace integral give Γ(2-α)/(Γ(α)Γ(1-α)^2), the claimed constant by reflection. In the crossover, put L=log n and H=(u^(-ε)-1)/ε, interpreted as log(1/u) at zero. The principal upper-bank expansion gives Re Li=H+O(1+u^(-ε)), uniformly for small ε, with u^(-ε)=1+εH. Thus Re Li ≥ cL on u≤n^(-1/2), for large n at any fixed S. At u=v/n and compact positive v the normalized Li tends uniformly to (e^s-1)/s (continuously 1 at s=0), and the numerator u^(-ε)/Γ(1-ε) to e^s. The scaled integrand for v≤sqrt(n) is bounded by C_S exp(-v/2)(1+v^(-1/4)); the exact imaginary part bounds the rest by an exponentially vanishing tail times log² n. Integrating yields e^s s²/(e^s-1)², including the endpoint. The reconstruction, not the frozen finite floating-point recurrence, checks the uniform quantifier. α=0 is explicitly excluded and has the different reciprocal stated in the record.",
+      "residual_risks": [
+        "No uniform error rate asserted. Numerical diagnostics are not a certificate of the limiting statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luo–Rydhe show the complete Pick property under concavity of the shift, not quantitative reciprocal-coefficient asymptotics.",
+          "The inspected renewal theorems fix a single law, including the separate infinite-mean endpoint. The DLMF provides the underlying function expansion, not a uniform reciprocal coefficient theorem."
+        ],
+        "reasoning": "The broader kernel and renewal results cover structural facts and tools. They do not supply the uniform inverse coefficient transfer where the gamma and zeta pole terms both matter.",
+        "searches": [
+          "Luo–Rydhe arXiv:2611.12778v1, Theorem 1.2",
+          "Kevei–Terhesiu arXiv:2005.11121v2, Theorems 4 and 6",
+          "DLMF 25.12.12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its matching Resultary mirror",
+        "Kevei–Terhesiu arXiv:2005.11121v2",
+        "Luo–Rydhe arXiv:2611.12778v1",
+        "DLMF §25.12(ii)",
+        "Classical Gregory generating-function identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inserting ε=s/log n into the fixed-α expression formally gives s²e^(-s), while the true answer is s²e^(-s)/(1-e^(-s))²."
+        ],
+        "reasoning": "The mismatch exhibits a real obstacle to specialization of the fixed-order result. The uniform cancellation and coefficient tail bounds are extra steps beyond the checked prior implications.",
+        "searches": [
+          "Fixed-order polylog expansion (DLMF 25.12.12); fixed-order renewal comparison (Kevei–Terhesiu)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F=1-t/Li_α(t) is an interarrival generating function, whereas K=1/(1-F) generates the renewal mass.",
+          "At α=1, F(t)=1-G(-t) for G(x)=x/log(1+x); this is exactly the classical endpoint problem."
+        ],
+        "reasoning": "The inverse-renewal reformulation is equivalent to the target, but the checked strong renewal theorem estimates renewal mass, not interarrival mass. The Gregory equivalence does not vary α.",
+        "searches": [
+          "Resultary: reciprocal Dirichlet kernel / infinite-mean renewal crossover (exact frozen mirror retrieved)",
+          "Kevei–Terhesiu arXiv:2005.11121v2, Theorems 4 and 6",
+          "Gregory generating function x/log(1+x) at x=-t"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact hit is the same RESULT.md, not a second record. The tabulated special-function formula and endpoint identification supply inputs but not the varying-order Φ law."
+        ],
+        "reasoning": "This is an asymptotic function on a continuum of scale parameters, not a finite tabulated constant or sequence identification; the exact endpoint can already be identified without determining the transition.",
+        "searches": [
+          "Resultary frozen-mirror record SCOPE-a-uniform-logarithmic-crossover-for-the-complete-pick-coefficien--2d4d766ce7e4; DLMF 25.12, reciprocal-logarithm/Gregory identification"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the specified uniform reciprocal-coefficient crossover and its scaling function only. The endpoint, positivity framework and fixed-parameter asymptotics are not credited as independently new. The closest checked prior covers a different statistic or a non-uniform regime.",
+      "residual_risks": [
+        "A broader uniform Tauberian or inverse-renewal theorem may contain an equivalent varying-order statement not retrieved in this bounded review.",
+        "Chalmoukis–Hartz DOI access failed; no priority conclusion rests on that failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical frozen record, not independent prior",
+          "evidence": "Same coefficients, same compact crossover regime and same Φ.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-uniform-logarithmic-crossover-for-the-complete-pick-coefficien--2d4d766ce7e4",
+          "material_read": "Mirrored RESULT.md offsets 372 and 3641; frozen Finding and uniform proof",
+          "method": "Local Resultary search and mirrored source text",
+          "title": "A uniform logarithmic crossover for the complete-Pick coefficients of Dirichlet kernels",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Related, does not cover the crossover",
+          "evidence": "The estimates concern u_n=Σ_k Pr(S_k=n); the fixed endpoint estimate is L(n)u_n→1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.11121v2",
+          "material_read": "Definition of u_n and Theorems 4 and 6, pp. 9–10 (OA offset 27400)",
+          "method": "Primary OA PDF text",
+          "title": "Strong renewal theorem and local limit theorem in the absence of regular variation",
+          "trigger": "Broader infinite-mean renewal theorem might imply the result"
+        },
+        {
+          "assessment": "Structural coverage only",
+          "evidence": "Concavity of the forward shift implies complete Pick; intro names Dirichlet-type D_α.",
+          "identifier_or_url": "https://arxiv.org/html/2611.12778v1",
+          "material_read": "Abstract and Introduction, Theorem 1.2 (OA offsets 0 and 6717)",
+          "method": "Primary OA text",
+          "title": "Concave shifts and the complete Nevanlinna–Pick property",
+          "trigger": "Cited structural result on the relevant kernels"
+        },
+        {
+          "assessment": "Analytic input, not the claimed coefficient law",
+          "evidence": "Γ(1-s)(log(1/z))^(s-1) plus the ζ(s-j) series, for |log z|<2π and nonintegral order in this regime.",
+          "identifier_or_url": "https://dlmf.nist.gov/25.12.E12",
+          "material_read": "§25.12(ii), Eq. 25.12.12, offset 9470",
+          "method": "OA locate and bounded page read",
+          "title": "NIST DLMF: Polylogarithms",
+          "trigger": "Check whether classical formula is already a reciprocal crossover"
+        },
+        {
+          "assessment": "Not directly assessed; positivity not counted as new",
+          "evidence": "The access failure does not adjudicate the paper's contents.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12617",
+          "material_read": "No text at the DOI route (HTTP 403); §2.1 scope reported in the frozen record only",
+          "method": "Lawful DOI route; no negative evidence inferred",
+          "title": "Totally null sets and capacity in Dirichlet type spaces",
+          "trigger": "Cited for background positivity of reciprocal coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–3; direct comparison of fixed-order extrapolation and uniform profile"
+      ],
+      "rationale": "The result identifies the boundary layer between two different asymptotic regimes for a natural coefficient distribution attached to the canonical complete-Pick representation (equivalently an interarrival law). It supplies a quantitative profile for scale-dependent kernels, with an explicit normalization and a demonstrably different answer from fixed-order extrapolation. The useful new content is the entire uniform transition, not a recomputation of a fixed endpoint.",
+      "residual_risks": [
+        "Scope is this coefficient family for bounded ε log n; the record does not provide arbitrary-kernel universality or rate of convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

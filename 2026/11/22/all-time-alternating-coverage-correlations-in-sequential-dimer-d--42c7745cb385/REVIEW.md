@@ -1,19 +1,21 @@
-# Scientific review: dimer-covering spatial covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The accepted-edge criterion follows from the first Poisson arrival at each edge: it is successful if and only if at least one neighboring edge has not already arrived. This yields a local four-clock representation for each site multiplicity. Exact conditioning/integration gives the accepted-edge covariances at separations zero, one and two, from which the displayed site covariances and sharp three-step dependence follow. The strict signs and strictly positive asymptotic variance are certified by positive Bernstein coefficients. A bounded stationary three-dependent central limit theorem establishes the Gaussian law. The independent, exhaustive rational checker in `verify.py` confirmed the polynomial coefficients and terminal values.
+PASS
 
-## Originality — PASS, with residual priority risk
+The frozen opening specified oriented nearest-neighbor clocks, whereas its assumptions and proof used one clock per unordered bond. If both orientations have unit rate, the mean starts as 4t rather than the printed 2t, so the distinction changes finite-time formulas. The complete replacement fixes one clock per unordered bond, explicitly gives p=1−exp(−2t) for the two-direction convention, and leaves the polynomial laws intact. On the repaired model, site coverage is decided by the first incident arrival and K_i depends only on four clocks. Writing A=R−M for an arrived clock minus a thresholded local maximum gives a=p−p³/3; adjacent maxima are disjoint, and the shared-neighbor joint maximum probability at distance two is the integral of x y min(x,y) over the square [0,p]². Twice the integral of x²y over 0≤x≤y≤p gives 2p⁵/15. Thus edge covariances at lags 0,1,2 are a(1−a), −p³(p³−6p+6)/9, p⁵(6−5p)/45, yielding the four site polynomials by K_i=A_{i−1}+A_i. The Bernstein certificates give the three claimed strict inequalities for the factored polynomials and hence the covariance signs and V>0. Three sites discarded between blocks of length floor(n^(1/3)) make the main sums independent; their variance is nV+o(n), their normalized sizes vanish, and the bounded-degree covariance of discarded sites gives variance o(n). The same argument applies at saturation. The frozen rational order enumerator was inspected, not executed, and remains applicable to the repaired formulas.
 
-Krapivsky (2022, arXiv:2209.03992, Sections II–III and VI A) contains the deposition model, total deposited-count statistics and one-site dimer probabilities, but not the all-time pair-multiplicity covariance table. Viot and Krapivsky (2024, arXiv:2410.12373, Sections 2 and 7) focus on selected joint states sufficient for one-site occupation densities and explicitly identify pair correlations as future work. A separate published 2026 trimer result gives *terminal triple-coverage indicators*, not the all-time dimer multiplicity counts, so neither its quantified laws nor its Gaussian variance dominate the present claim. The generic first-arrival localization and finite-dependence CLT are older tools and are not represented as new. Relevant sources were inspected and exact semantic overlap compared; unindexed literature may still contain the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source literature identifies spatial correlations as a natural missing observable. Here a complete time-uniform positive–negative–positive correlation profile and sharp dependence range give information absent from single-site coverage probabilities. The exact covariance sum determines macroscopic fluctuation noise at any fixed deposition time, rather than only the final mean. The spatial sign pattern is non-obvious and physically distinguishes shared-edge positive coupling from intermediate-range anticorrelation; the fact remains informative even without an extension to longer rods.
+The repaired claim credits prior one-site and saturated aggregate information and explicitly narrows the distinct content to the complete temporal dimer profile, including the previously unevaluated inner lags, joint sign theorem, and explicit finite-time window fluctuation coefficient. There is demonstrable overlap on the outermost lag and sharp cutoff, not evidence of coverage of the whole claim.
 
-## Limitations
+## value
 
-The result is about a single observation time and multiplicity counts under homogeneous independent Poisson proposals on the infinite integer line. It is not a general result about all deposition geometries or binary covered/uncovered events. Saturated total-count fluctuations were studied previously, and priority against all unindexed research remains unverified. The checker certifies finite algebraic identities; the infinite-volume and Gaussian arguments are proved mathematically, not by sampling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete spatial covariance law addresses the two-point observable left open by the single-site theory. The evaluated inner lags and the nontrivial uniform sign pattern, together with the exact time-dependent extensive variance, distinguish the spatial fluctuation mechanisms. They are useful even after setting aside the already-covered outer lag, one-site law and saturated variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

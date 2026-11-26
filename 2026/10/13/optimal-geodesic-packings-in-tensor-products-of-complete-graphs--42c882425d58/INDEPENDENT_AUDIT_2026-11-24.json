@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:07:05.014882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54; VERIFICATION.md, verify.py and recorded verification_output.txt inspected, not executed",
+        "/workspace/review_checks.py, record4 (run via python3 /workspace/review_checks.py); checks the six displayed certificates themselves"
+      ],
+      "rationale": "If both coordinates differ, vertices are adjacent. If only one differs, a vertex whose two coordinates avoid both endpoints exists using the size-at-least-three hypotheses; this proves diameter two. Each edge extends at either end to a two-edge geodesic by repeating the opposite endpoint's row and taking a third column. No singleton is maximal either. Thus all maximal geodesics contain exactly three vertices and an induced P_3 is always a maximal geodesic in the full graph. Independently parsing the arrays from the frozen statement, every label occurs on three distinct cells and exactly one of the three unordered cell pairs shares a coordinate. Thus the block sizes 3×3, 3×4, 3×5, 4×4, 4×5, 5×5 yield 3,4,5,5,6,8 paths and 0,0,0,1,2,1 uncovered cells, respectively. Transposition and translation preserve within-triple relations. Each size at least three splits into threes and at most one four or five; only one block can have neither side three. The global holes number at most two and is congruent to mn modulo three, proving that the packing attains the universal counting bound. Edges between different triples are allowed by the definition. The argument extends to every admitted rectangle, independently of the frozen output's finite board sample.",
+      "residual_risks": [
+        "No extension inferred for a dimension below three, other graph products, or other invariants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first article gives a general upper bound using the shortest maximal-geodesic length and discusses Cartesian rook graphs. The second studies induced matchings and edge-open packings for direct products."
+        ],
+        "reasoning": "The general bound gives only the upper inequality. Edge-open sets and induced matchings restrict edge interactions and count edges, unlike vertex-disjoint P_3 components with unrestricted cross-edges. An all-orders induced-P_3 near-factor theorem for this graph class would cover the lower bound, but none was identified in the passages inspected.",
+        "searches": [
+          "arXiv:2210.15325v3 §2 Lemma 2.3 and Prop. 2.6",
+          "arXiv:2406.04020v2 §4 Thms. 4.1–4.2",
+          "Complement-of-rook near induced-P3-factor terminology"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.15325v3 §2",
+        "arXiv:2406.04020v2 §4",
+        "Resultary records 5d79b7fec594 and c00dbc4c5ae6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking d=2 in the general maximal-geodesic bound gives floor(mn/3), but not attainability. The older Cartesian application uses an upper bound even there. The local rook-graph equality uses different triples, which become one-edge triples after complementation."
+        ],
+        "reasoning": "The exact lower bound requires a packing in the target product, not simply plugging the order into the known upper bound or transplanting the Cartesian templates. None of the inspected results yields that lower bound as a specialization.",
+        "searches": [
+          "arXiv:2210.15325v3 §2 Lemma 2.3 and Cartesian application",
+          "arXiv:2406.04020v2 §4",
+          "Resultary 5d79b7fec594 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here maximal-geodesic packing is exactly vertex-disjoint induced-P_3 packing. The closest local Finding 5d79b7fec594 treats K_m square K_n and proves the same rounded count by right-angle bricks."
+        ],
+        "reasoning": "The Cartesian graph's induced P_3 has two rook edges; the same triple in the direct product has only one edge. Therefore complementation does not carry over its packing, and neither the equal numerical answer nor the common brick idea establishes equivalence.",
+        "searches": [
+          "Web: \"geodesic packing\" \"direct product\" complete graphs induced P3 packing",
+          "Resultary: direct/categorical product, complement-rook induced-P3 packing and tiling",
+          "arXiv:2210.15325v3 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two strongest local Findings, 2026/10/13 records 5d79b7fec594 and c00dbc4c5ae6, were read at offset 0. The first gives floor(mn/3) for the Cartesian rook graph (m,n>=2); the second is an edge-open-packing polynomial in that Cartesian graph. No exact direct-product duplicate surfaced in the returned hits."
+        ],
+        "reasoning": "Identical count and shared date do not make the first a duplicate; the second differs in graph and invariant. The bounded local result set does not prove database completeness or priority.",
+        "searches": [
+          "Resultary: geodesic packing of a direct or categorical product of complete graphs; complement of rectangular rook graph P3 factor; edge-open packing"
+        ]
+      },
+      "rationale": "The counting upper bound is prior; the distinct claim is attaining it with induced-P_3 bricks for every rectangular complement of a rook graph. The closest same-day record has the same formula and a six-brick strategy but in the Cartesian rook graph, not its complement. Neither it nor the primary packing results inspected supplies the target lower bound. The decision is bounded by the inspected evidence and does not decide priority.",
+      "residual_risks": [
+        "An equivalent induced-path near-factor could be indexed under older tiling or path-factor terminology.",
+        "The same-day Cartesian record is close but its relationship does not establish priority or within-day order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers upper bound but not exact tensor-product value",
+          "evidence": [
+            "General upper bound floor(|V|/(d+1)); square Cartesian-rook estimate uses only the upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.15325v3",
+          "material_read": "§2 Lemma 2.3 and Prop. 2.6; OA passages at offsets 8500–10698 and 14000–17800",
+          "method": "OA primary article passages",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Original invariant and rook-graph application"
+        },
+        {
+          "assessment": "Different invariants",
+          "evidence": [
+            "Product bounds concern induced matchings and edge-open sets, not a vertex-disjoint P_3 near-factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+          "material_read": "Abstract, and §4 Theorems 4.1–4.2, OA offsets 83403–92791",
+          "method": "OA primary article passages",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Same graph operation and nearby packing invariants"
+        },
+        {
+          "assessment": "Strongly related distinct graph, not equivalent under complement",
+          "evidence": [
+            "K_m square K_n, both orders at least two, tiled by right-angle geodesics."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 record 5d79b7fec594",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and source mirror",
+          "title": "Sharp geodesic packing of rectangular rook graphs by six local bricks",
+          "trigger": "Exact rounded count, same invariant, and similar construction"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": [
+            "Counts edge-open sets in the Cartesian rook graph using single-edge and right-angle blocks."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 record c00dbc4c5ae6",
+          "material_read": "Mirrored RESULT.md at offsets 0–3392",
+          "method": "Local Resultary search and source mirror",
+          "title": "Edge-open packing polynomial of rook graphs via three local blocks",
+          "trigger": "Similar graph tiling terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49; arXiv:2210.15325v3 Lemma 2.3"
+      ],
+      "rationale": "The direct product of two complete graphs is a basic graph-product family. Having established diameter two, attaining the generic packing bound throughout that family is a natural exact invariant question, not settled by diameter or rounding alone. The certificates give an explicit construction and exact coverage of all but the residue number of vertices at all admitted side lengths, including both exceptional residues.",
+      "residual_risks": [
+        "Does not count packings or quantify their stability, nor establish relevance beyond the stated family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

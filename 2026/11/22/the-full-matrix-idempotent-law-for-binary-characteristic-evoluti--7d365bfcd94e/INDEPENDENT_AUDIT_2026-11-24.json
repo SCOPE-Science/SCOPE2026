@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:01.288025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T(x)=M^T x^[2], the fixed set is binary-linear. In a minimal K-linear dependence of binary-independent fixed vectors, normalize the coefficient of one vector to one. Applying T and subtracting the original relation forces each remaining coefficient to satisfy a²=a by minimality. This contradicts binary independence, including when M is singular. Thus ordered independent fixed k-tuples are exactly the fixed K-frames. Their Frobenius images are frames; each prespecified map from such a frame to its unsquared image imposes nk independent entry constraints and costs q^(-nk) for the unrestricted model. Counting frames gives H_{n,q}(k). Dividing by G_k gives the binary subspace moments, and Gaussian inversion by the finite q-binomial identity gives exactly the stated mass function. The diagonal 0/1 examples exhaust possible D values. The first two frame moments are E[N] and E[N(N−1)], yielding the asserted variance, including n=1 where the latter factorial moment is zero. In the invertible model each K-frame has uniform image among frames, so the fixed-frame moments are identically one, matching GL_n(F2) without assuming a law for singular maps. For the uniform error, 1−H_{n,q}(k)≤2^(k−n) and the absolute inversion coefficients decay faster than exponentially in k. For k=d+j, their magnitude is 2^(-dj−j(j+1)/2) divided by G_d and by the product of (1−2^(-r)) for 1≤r≤j. Euler's product therefore yields the stated limiting mass; the error from summing the omitted and perturbed terms is bounded by a constant depending only on d times 2^(-n). Tightness also follows from E[N]≤1. Total probability gives the singular formula, with invertibility probability c_{n,q}; for fixed q the limiting denominator is positive. Full fixed dimension forces an invertible M, as the squared frame is a basis. The frozen finite script and output were read, not run. The fresh bounded replay /workspace/matrix_replay.py exhausted 65,536 matrices at n=2 over GF(16), obtaining counts by D=0,1,2 of [20656,34680,10200] unrestricted and [256,4080,0] singular, agreeing with exact frame-moment inversion and conditioning. The finite replay is not the proof of uniform asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dempwolff–Fisher–Herman p. 1 states a normal-form theorem for semilinear transformations, not a uniform sampling law for singular matrices.",
+          "The survey's mean-one calculation in Remark 23 explicitly samples invertible structure matrices. The exact classical GL_n(F2) fixed-space law also conditions on invertibility."
+        ],
+        "reasoning": "A classification or normal form without sampling weights does not give a random fixed-space law here. In the invertible ensemble frame moments equal one; unrestricted sampling has the distinct factors H_{n,q}(k).",
+        "searches": [
+          "Dempwolff–Fisher–Herman: Semilinear transformations over finite fields are Frobenius maps",
+          "arXiv:2610.22248v1 Question 22 and Remark 23",
+          "Fulman–Stanton Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Fulman–Goldstein exact nullity law",
+        "Fulman–Stanton Theorem 2.1",
+        "arXiv:2610.22248v1",
+        "DOI:10.1017/S0017089500020164",
+        "Resultary/SCOPE 3591a9c3116b, ad0fd667aaa5, faf601f777b5, 6c834a318056, 2a40cd6a7961, and identical record 7d365bfcd94e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior binary corank and GL_n(F2) counts jointly recover the q=2 singular law by subtracting the invertible mass. The same limiting product is already known in both binary models.",
+          "For q>2, the known invertible idempotent law lacks the unrestricted moments; at fixed q the excluded singular mass is bounded away from zero. The unrestricted frame count and quantitative error give the missing information, after which singular conditioning is elementary."
+        ],
+        "reasoning": "Credit the binary special case, the limit constant and the conditional subtraction mechanism. The new part is the support and census under all extension-field matrices, with uniform asymptotic control and the derived singular limit, not an implication of the perfect theorem alone.",
+        "searches": [
+          "Fulman–Goldstein Eqs. (1)–(2)",
+          "Fulman–Stanton Theorem 2.1",
+          "Resultary/SCOPE 3591a9c3116b and 6c834a318056 RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fulman–Goldstein p. 1 Eqs. (1)–(2) give the uniform rectangular-matrix nullity law. In the exact binary square case, D=dim ker(M^T−I), which has that nullity law by the affine bijection.",
+          "For q>2 the Frobenius map is not the identity; an ordinary random matrix nullity or the rank of M does not determine the binary-linear fixed space."
+        ],
+        "reasoning": "The translated corank formulation identifies actual prior coverage at q=2, but not at arbitrary extension field size. The general equivalent formulation is the binary dimension of the fixed space of a random Frobenius-semilinear map, without an invertibility constraint.",
+        "searches": [
+          "Fulman–Goldstein: rank distribution of uniform finite-field matrices",
+          "Fulman–Stanton: fixed-space law for GL_n(F2)",
+          "Resultary/SCOPE: unrestricted idempotent counts and random singular evolution algebras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalog record 7d365bfcd94e is the assigned record. The distinct 3591a9c3116b and ad0fd667aaa5 are perfect-only, faf601f777b5 restricts further to invertible upper-triangular matrices, and 6c834a318056 proves automorphism rigidity rather than idempotent count.",
+          "Same-day 2a40cd6a7961 gives an exact nullity census for a structured symmetric split-pattern ensemble, not the full Frobenius-semilinear map ensemble. Fulman–Goldstein's general table formula does cover the ordinary q=2 specialization."
+        ],
+        "reasoning": "A same-day date is neither priority nor a reason to exclude a match. The actual exact census uses different matrices and a different statistic; the unrestricted frozen match is a self-match.",
+        "searches": [
+          "Resultary/SCOPE: field-independent perfect idempotent count, triangular perfect laws, random singular evolution algebras, and full-matrix nullity census",
+          "Fulman–Goldstein exact nullity formula"
+        ]
+      },
+      "rationale": "Pass for the unrestricted extension-field law, uniform field-size limit and resulting singular-conditioned law, not for the binary ordinary corank case, the perfect-only law or the limiting probability constant itself. The comparison found no covering random-singular semilinear fixed-space theorem in the inspected literature and catalog.",
+      "residual_risks": [
+        "Older or unindexed probability laws for random finite-field semilinear maps might encode the extension-field census under different terminology.",
+        "The exact cited perfect-algebra mirror entry f7b48d77ae66 was unavailable. The earlier inspected perfect claim and the direct fixed-frame argument suffice to establish the relevant invertible comparison, but do not exclude extra content in that unavailable record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted q=2 by translation, not extension-field Frobenius fixed spaces",
+          "evidence": "Exact distribution and limit for the nullity of uniform rectangular matrices, including the square binary case.",
+          "identifier_or_url": "Fulman–Goldstein, exact finite-field nullity law, Eqs. (1)–(2)",
+          "material_read": "p. 1 equations (1)–(2), OA offset 2055",
+          "method": "OA primary PDF text",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Exact binary specialization and possible broader rank-law coverage"
+        },
+        {
+          "assessment": "Prior invertible fixed-space law and limiting product",
+          "evidence": "The theorem is for uniform elements of GL_n(F_q); setting q=2 gives the reference Q_n, not the all-matrix model.",
+          "identifier_or_url": "https://dornsife.usc.edu/jason-fulman/wp-content/uploads/sites/224/2023/06/fulman-stantonfinal.pdf",
+          "material_read": "p. 3 Theorem 2.1, OA offset 6882",
+          "method": "OA primary PDF text",
+          "title": "On the distribution of the number of fixed vectors for the finite classical groups",
+          "trigger": "Exact binary general linear group law and limit"
+        },
+        {
+          "assessment": "Mean-one calculation restricts to invertible structure matrices",
+          "evidence": "Remark 23 specifies uniformly random invertible structure matrices, whereas the unrestricted first moment here is 1−q^(-n).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248v1",
+          "material_read": "Question 22 and Remark 23, OA offsets 81356 and 68960",
+          "method": "OA primary PDF text",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Motivating statistics question and earlier mean"
+        },
+        {
+          "assessment": "Normal form, not the random singular fixed-space distribution",
+          "evidence": "The result concerns conjugacy to Frobenius over an algebraic closure; it does not give counts of the matrices in this ensemble by fixed dimension.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500020164",
+          "material_read": "p. 1 theorem and introduction, offsets 0–4211",
+          "method": "OA primary text",
+          "title": "Semilinear transformations over finite fields are Frobenius maps",
+          "trigger": "Closest cited semilinear normal-form antecedent"
+        },
+        {
+          "assessment": "Exact law for the invertible model only",
+          "evidence": "Identifies the perfect-algebra distribution with that of uniform GL_n(F2).",
+          "identifier_or_url": "2026/10/25/SCOPE-field-independent-idempotent-count-law-for-characteristic-two-pe--3591a9c3116b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Field-independent idempotent-count law for characteristic-two perfect evolution algebras",
+          "trigger": "Same equation over the same fields with restricted sampling"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The conclusion is automorphism rigidity, not a distribution for idempotents.",
+          "identifier_or_url": "2026/10/26/SCOPE-random-singular-evolution-algebras-are-asymptotically-rigid-over--6c834a318056",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Random singular evolution algebras are asymptotically rigid over finite fields",
+          "trigger": "Unrestricted sampling and singular conditioning for the same type of algebra"
+        },
+        {
+          "assessment": "Different ensemble and observable",
+          "evidence": "Structured symmetric split-pattern nullity does not specialize to unrestricted semilinear fixed spaces.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-nullity-census-and-a-gaussian-invertibility-threshold-f--2a40cd6a7961",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Complete nullity census and a Gaussian invertibility threshold",
+          "trigger": "Distinct same-day exact matrix census"
+        },
+        {
+          "assessment": "Unavailable at exact path; not conflated with the separately indexed triangular record",
+          "evidence": "An earlier accessible exact perfect-model statement and the GL fixed-space theorem support the invertible comparison; this particular item was not independently compared in full.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-field-size-universal-idempotent-law-in-characteristic-two-perf--f7b48d77ae66",
+          "material_read": "No primary passage retrieved at the cited path",
+          "method": "Exact local mirror lookup",
+          "title": "A field-size-universal idempotent law in characteristic-two perfect evolution algebras",
+          "trigger": "Distinct exact bibliography entry for the prior perfect law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform full matrices give the natural unrestricted labeled ensemble and include a positive limiting singular fraction at every fixed field size. The exact law separates finite-size field dependence from limiting field universality, even for growing field sizes in the unconditioned model, and shows persistence of that limit in the singular sector at fixed q. This is more than recomputing the classical binary corank constant or the perfect-algebra expectation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

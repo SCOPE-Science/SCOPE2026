@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is quantified for every moving exponent tending to one, with no requirement that its logarithmically rescaled detuning converge. The positive Perron root and its renewal identity are the exact established inputs. The critical proof inequalities are (i) summation by parts for the truncated renewal first moment; (ii) a uniform sum--integral bracket even when rescaled detuning diverges; (iii) the positive exponential Taylor remainder bounded by the small factor \(n\gamma_n\); and (iv) a differentiable convergent sum--integral discrepancy whose value at the critical exponent is Euler's constant. The second-moment estimate verifies the stated \(O_C((\log n)^{-2})\) relative remainder on compact detuning sets. Rational-arithmetic identities and finite numerical roots were replayed with `verify.py` and returned `VERIFY_OK`, but the infinite result rests on the analytical inequalities, not on the finite runs.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** Knight--Munday, the closest primary source, derives the polynomial escape-rate identity and fixed-exponent cases; it does not derive the simultaneous \(\theta_n\to1\), \(n\to\infty\) profile or first uniform Euler correction. Bonanno--Chouari discuss smooth Farey-map holes, and Bonanno--Tikekar's fixed-index escape theorems do not control this moving-exponent family uniformly. A fixed-index trichotomy is not logically sufficient for a joint critical-window limit, and no exact prior data table giving the moving-window law was identified. A parameter-uniform renewal theorem or unindexed calculation might nonetheless imply this profile, so absolute priority is not claimed.
+PASS
 
-**Value — PASS.** This is a mathematically natural transition: the source explicitly distinguishes finite, critical and infinite invariant-measure regimes but leaves the finite-size passage between them unquantified. The uniform crossover \(\Phi\), including detunings beyond compact windows, and the Euler bias determine how fast the system must approach the borderline for fixed-regime predictions to fail. They are nontrivial quantitative information for comparison of intermittent escape data and singular perturbations.
+In branch mass coordinates for A_1 through A_(n−1), column 1 of the open transfer matrix consists of a_j, and column j>1 shifts mass to j−1. This verifies the finite Perron polynomial directly: λm_j=a_j m_1+m_(j+1), with m_n=0, implies Σa_j λ^(−j)=1. The root above 1 in z=1/λ is unique; summation by parts gives S_n=Σk^(−θ)−n^(1−θ), with the sum up to n. With δ=θ−1 the integral I=log(n) Ψ(δ log n) diverges for δ→0, and e^(−c)/I≤|δ|+1/log n for either sign (by e^v−1≥v). Thus S_n/I→1 and nγ≤e^(−c)/S_n→0. The power-series remainder relative to γ S_n is bounded by nγ exp(nγ)/2, proving the leading result without bounded c. For bounded c, subtract the integral from the sum cell by cell: the discrepancy series is locally differentiable at δ=0 with summable derivative, so S_n=log(n) Ψ(c)+γ_E−e^(−c)+O_C(1/log n). The exact second moment is O_C(n) by a_k≤θk^(−θ−1), giving relative exponential remainder O_C((log n)^(−2)). This establishes the stated coefficient, error and continuous c=0 limit. The proof concerns the finite branch spectral rate, not arbitrary survivor distributions.
 
-**Closest literature:** Knight and Munday, arXiv:1411.3515 (sections 2--4, equation (12)); Bonanno and Chouari, arXiv:1512.04432; Bonanno and Tikekar, arXiv:2601.15908 (theorem 3.6, example 3.3). The exact Markov transfer identity and standard Euler--Maclaurin discrepancy are acknowledged. Residual risk concerns unpublished or unindexed uniform renewal arguments. The result concerns spectral escape rates, not arbitrary initial survival laws, and the higher-order correction is limited to bounded critical detuning.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the joint, all-sequences leading equivalent and the uniform bounded-window first correction for the true finite-matrix spectral root. Knight–Munday already give the root equation, the fixed-parameter asymptotics and the harmonic denominator at θ=1; those are not credited. The strongest apparent coverage, Bonanno–Tikekar's claimed exact induced-to-original rate formula instantiated on the identical branch model, is not an identity for that root. It gives the same near-critical coefficients as an approximation, but transferring those to the actual root requires accuracy estimates not provided by that exact identity. Thus no verified prior implication supplies the moving-parameter result.
+
+## value
+
+PASS
+
+The finite/infinite invariant-measure boundary makes this joint limit natural. It quantifies the failure of interpolating the two fixed-parameter limits, gives relative control even when the scaled rate vanishes or diverges, and distinguishes the finite-hole correction from a mere replacement of the harmonic series by an integral. The proof provides accuracy control for the actual clock-time spectral observable, not just the induced rate divided by mean return time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

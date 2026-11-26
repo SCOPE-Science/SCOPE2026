@@ -1,19 +1,21 @@
-# Scientific review: density-TP2 region of the two-mode Legendre copula
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The polynomial copula density, its mixed logarithmic derivative numerator, the exact density-nonnegativity envelope and its boundary witnesses have been independently reconstructed. The identity \(c c_{xy}-c_xc_y=a[1+b(1+3x^2)(1+3y^2)]+36bxy\) is checked symbolically. For negative second-mode coefficients monotonicity localizes the worst case to a corner; for positive coefficients the AM–GM reduction and an explicit derivative bound do the same. The necessary positivity constraints rule out all coefficients outside the stated closed region. Strict interior positivity permits integration of log-supermodularity, with continuity extending to boundary rectangles. The standalone checker passed 12,141 rational grid checks plus symbolic boundary identities. Those finite tests are support, not proof of the continuum statement.
+PASS
 
-## Originality (PASS, best-knowledge assessment)
+Independently differentiated the copula, checked the scale a=3λ1, b=5λ2/4 and reconstructed the two inequalities on density and minors. Dividing the small-rectangle TP2 minor by the two side lengths and taking the limit gives D=c c_xy−c_x c_y≥0 even at a density zero; continuity takes this to the boundary. Nonnegativity at corners and (1,0) gives |a|≤1+4b, −1/4≤b≤1/2, and D(0,0) forces a≥0. D at the appropriate corner requires b>−1/16 and a(1+16b)≥36|b|. For b<0 combining with a≤1+4b gives the stated radical cutoff. For b>1/8 the edge x=1 bounds a by 2√(6b(1−2b)); its incompatibility with the corner condition follows from the factor 24b(8b−1)^3, also covering b=1/2 by the limiting edge bound. For sufficiency fix t=|xy| and use 2t≤x²+y²≤1+t² to minimize the density bound, giving a≤1+4b and strict positivity inside, including on the axes. For negative b the worst D occurs at the corner; for nonnegative b the bound follows from the monotonicity of t/[1+b(1+3t)^2], whose derivative has numerator 1+b−9bt²≥0 in range. Integrating D/c² proves interior TP2, then continuity handles every boundary rectangle. Spearman is a/3 by integration; the admissible segment b=0 followed by the upper boundary a=1+4b for 0≤b≤1/8 realizes the full range, with unique a=3/2 at b=1/8. Independent symbolic replay: python3 /workspace/branches/legendre_algebra.py passed the density transform, D, feasibility identities, monotonicity numerator and rank integral. This is algebra corroboration; the continuous inequalities above prove the universal claim. The frozen checker was inspected, not executed.
 
-The first public Longla preprint is dated 21 August 2023. Its open-access 2024 journal text and a 2025 estimation follow-up contain the two-mode Legendre construction, rank formulas and sufficient copula-admissibility conditions, but no density-TP2 phase diagram. The published 2026 result *Exact admissibility and sharp rank-correlation ranges for the two-mode Legendre copula* establishes the larger **copula-valid** domain and unrestricted correlation maxima; it does not establish the narrower **log-supermodular density** domain. In fact an admissible coefficient pair \((a,b)=(0,1/16)\) fails density-TP2. Fuchs and Tschimpke's general dependence hierarchy supports the definition without covering this polynomial calculation. The earlier Sarmanov one-parameter Legendre construction is acknowledged as an ancestor, not treated as a novelty claim. The most important residual risk is an unindexed earlier two-parameter treatment or a stronger equivalent classification under different parameter names. No independent publication-priority certification is claimed.
+## originality
 
-## Value (PASS)
+PASS
 
-The known broad copula-admissibility region does not characterize positive likelihood-ratio dependence, a substantially stronger condition with stochastic-order consequences. The newly solved strong-positive-dependence region has a nontrivial algebraic negative-coefficient cutoff, a sharp positive-coefficient wall, and an attained rank-correlation maximum of \(1/2\), compared with \(1/3\) for classical FGM copulas. The classification makes a natural, widely used orthogonal-polynomial dependence model usable under an exact structural constraint, rather than an arbitrary finite parameter slice.
+Credit the established family, rho identity, full copula-validity region and general dependence criteria. The supported distinct result is the closed density-TP2 coefficient region and its restricted rank envelope, not any of those antecedents. No exact or dominating covering result was established by the inspected comparisons.
 
-## Limitations and closest sources
+## value
 
-The claim is restricted to two independent diagonal shifted-Legendre coefficients, and does not supersede previously published general admissibility or rank formulas. The monograph description of Sarmanov's single-parameter precursor was available only as a publicly indexed excerpt, not its complete original 1974 article. Historical priority can be affected by inaccessible or differently parameterized publications. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp structural condition for positive likelihood-ratio dependence in a previously studied two-parameter model is useful beyond basic validity. It settles admissible negative and positive second-mode limits, handles exact zero-density boundary cases, and gives an attainable Spearman ceiling of 1/2 rather than the one-mode limit 1/3 or the unrestricted two-mode ceiling. No claim about more modes or all copulas is supported.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:51:46.801789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof (1)-(5); frozen VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: python /workspace/branches/review5_exact_check.py. Exact symbolic differentiation in n=3,4,5,6 at every nonempty support checks the equation, all derivatives and the dehomogenized Hessian determinant (-1)^(k-1) 6^(n-1) k^(2n-3). It checked 7,15,31,63 points respectively, with row counts (3,3,1), (4,6,4,1), (5,10,10,5,1), (6,15,20,15,6,1)."
+      ],
+      "rationale": "At a projective point, dependence of the gradients of G and H forces every nonzero coordinate to be equal, so G cannot vanish there. Thus the smooth degree-(2,3) base complete intersection has local equation u^3+tv^2, including exactly six reduced base points in the plane. Off the base, substituting t=-G^3/H^2 gives Xi(H-GXi)=0; a support of size k therefore gives precisely t=-k. The homogeneous Hessian has radial kernel, eigenvalue -6k^2 on the supported sum-zero tangent space and +6k^2 in the unused coordinates, also when either space is zero. In the plane all singularities are isolated so the sextic is reduced. Different components cannot intersect at a cusp (one branch), and could intersect only transversely at the at most three nodes; a decomposition of degrees d and 6-d would require d(6-d) >= 5 intersections by Bezout. This provides an independent integrality argument. A factorization in higher dimension would restrict to a nonzero positive-degree factorization on the coordinate plane. The genera are 10-6 minus the node count, giving 4,1,1,3. Two genus-one fibers means two distinct parameter values, not a claim of different j-invariants.",
+      "residual_risks": [
+        "The finite replay does not exhaust projective singular points, prove integrality or extend to all dimensions; the proof supplies those steps. No assertion on t=0 or infinity or on the full Jacobian scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The odeco theorem allows arbitrary nonzero diagonal weights, basis and tensor order and gives a support-by-support complex eigenvector list.",
+          "The isolated eigenpair degree theorem counts 2^n-1 with multiplicity for order three; there are already that many distinct listed points. Cartwright–Sturmfels section 5 records the relation between normalized eigenvectors and singularity equations of parameterized polynomials."
+        ],
+        "reasoning": "All projective eigenpoints are therefore simple, not merely distinct. The sphere G=1 maps locally isomorphically to projective directions, and the critical equations for H on that sphere are the eigenpoint equations (the Lagrange multiplier is uniquely determined). Simplicity gives a nondegenerate critical Hessian, and H is nonzero there, so each critical fiber of 1+tH^2 has a quadratic node.",
+        "searches": [
+          "Literature: diagonal complete intersection Fermat cubic quadric equal coefficients singularities Morse critical values symmetric orthogonally decomposable tensors Kozhasov p2 p3",
+          "Robeva arXiv:1409.6685 Theorem 2.3, Remark 2.4; Cartwright-Sturmfels arXiv:1004.4953 Theorem 1.2 and section 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.6685",
+        "arXiv:1004.4953",
+        "arXiv:math/0201035v1",
+        "arXiv:2507.15814",
+        "arXiv:2611.25767v1 abstract, on Jacobian syzygies of pencil-type curves rather than the exact wall census",
+        "Resultary c6a2ab748385 and frozen self-hit f5538e86f750"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each known support-k eigenvector, after unit normalization, has H^2=1/k. No eigenpoint is isotropic, and simplicity was obtained from the published exact count with multiplicity. The plane has only the ordinary base cusps and at most three outer nodes."
+        ],
+        "reasoning": "Direct evaluation gives t=-k with binomial multiplicity, and the simple critical scheme gives nodes. No eigenpoint on G=0 means transverse G=H=0 and hence the ordinary cusp model. In the plane no split of the sextic could have its required at least five pairwise intersections at the at most three ordinary nodes, and the genera then follow from delta=1 at each point. Restricting a high-dimensional factorization to the coordinate plane rules it out. These are routine implications of the older eigenstructure, not independent missing discriminant or moduli data.",
+        "searches": [
+          "Robeva arXiv:1409.6685 Theorem 2.3 and Example 2.5; Cartwright–Sturmfels arXiv:1004.4953 Theorem 1.2",
+          "Oka–Pho arXiv:math/0201035v1 section 6.1; Resultary related c6a2ab748385 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Robeva, Theorem 2.3 and Example 2.5: specializes to exactly the binary-indicator projective directions; the theorem is about complex eigenvectors even for real odeco coefficients.",
+          "Resultary c6a2ab748385, Finding: a different pencil (XY-Z^2)^3+s(X^3+Y^3+lambda Z^3)^2, with comparable 1/3/3 node walls. The frozen record's own indexed entry f5538e86f750 is the same record, not an independent source."
+        ],
+        "reasoning": "Outside G=H=0, the singularity equations are precisely Xi^2 proportional to Xi together with t=-G^3/H^2. The related indexed pencil is not the same full plane pencil under projective change of variables: its triple conic and double cubic must be preserved by multiplicity, leaving only parameter scaling, and its one-node value plus one three-node value equals the other three-node value. No such relation holds for the marked values -3,-1,-2; the crossing regime has a different wall profile altogether. No date ordering was assumed.",
+        "searches": [
+          "Resultary: symmetric torus sextic pencil sum squares cube sum cubes square power sums binomial nodal walls t=-k two genus-one elliptic fibers",
+          "Resultary: p2^3 p3^2 power-sum hypersurface symmetric sextic singularity discriminant torus-type pencil indicator nodes",
+          "Literature: singular members symmetric torus sextic pencil power sums Fermat eigenvectors sum squares cubed sum cubes squared nodal t discriminant integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "nt1 lists 6A2+A1, genus 3; nt19 lists 6A2+3A1, genus 1. The indexed neighboring pencil has the same three genus drops when its walls do not cross but at different marked values."
+        ],
+        "reasoning": "The torus-sextic table is not a table of these parameter values; it confirms that the baskets and genera per se are not innovations. The exact marked values are inferred from the stronger eigenvector result, not from that table.",
+        "searches": [
+          "Resultary exact-family and power-sum queries above",
+          "Oka–Pho arXiv:math/0201035v1 section 6.1 Table 1, nt1 and nt19"
+        ]
+      },
+      "rationale": "Not a verbatim duplicate, but the exact new-content claim is a direct consequence of previously enumerated simple tensor eigenvectors, with standard local and plane-curve consequences. The diagonal tensor of order 3 with unit coefficients has vector map x -> (Xi^2), so its projective eigenvectors directly determine the entire outer discriminant of the pencil, not merely its total number of points. On G=1 the finite nonzero pencil is 1+tH^2: the only possible critical points are the known indicator directions, H^2=1/k there, and the critical scheme is locally the simple eigenvector scheme. There is no eigenvector at G=0, which also gives base transversality; the cusps, integrality and genera are then forced as in the implication check.",
+      "residual_risks": [
+        "No historical priority inferred for indexed records of the same date. A direct earlier algebraic-geometry statement of the identical pencil may exist; this decision rests on sourced implication, not an unsuccessful search or the journal access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage of the critical directions, not an explicit torus-pencil statement",
+          "evidence": "Theorem 2.3 gives the projective eigenvector on every support with inverse weights when d=3; Example 2.5 explicitly treats a three-variable Fermat polynomial.",
+          "identifier_or_url": "https://arxiv.org/html/1409.6685",
+          "material_read": "Theorem 2.3, Remark 2.4 and Example 2.5, OA offset 17121–21417",
+          "method": "OA literal locator and bounded offset read",
+          "title": "Orthogonal Decomposition of Symmetric Tensors",
+          "trigger": "The gradient-map formulation of the exact outer wall problem"
+        },
+        {
+          "assessment": "Supplies the total multiplicity and normalized eigenvalue interpretation",
+          "evidence": "Theorem 1.2 applies whenever the eigenpair classes are finite; in order three its count with multiplicity is 2^n-1.",
+          "identifier_or_url": "https://arxiv.org/html/1004.4953",
+          "material_read": "Theorem 1.2 at offset 4640 ff.; (5.1), Proposition 5.2 and Corollary 5.3 at offset 31100 ff.",
+          "method": "OA literal locator and bounded offset read",
+          "title": "The Number of Eigenvalues of a Tensor",
+          "trigger": "Whether the exact eigenvector enumeration implies local nodality"
+        },
+        {
+          "assessment": "Exact basket and genus coverage, no evidence of marked pencil wall parameters in those passages",
+          "evidence": "Table 1 records genera 3 and 1 for 6A2+A1 and 6A2+3A1 respectively.",
+          "identifier_or_url": "https://arxiv.org/html/math/0201035v1",
+          "material_read": "Section 6.1 Table 1, offsets 133120 and 134140, through entries nt1 and nt19",
+          "method": "OA literal locator and bounded offset read",
+          "title": "Classification of sextics of torus type",
+          "trigger": "Prior table of the exact plane baskets"
+        },
+        {
+          "assessment": "Close plane analogy, not projective reparametrization of the whole pencil or higher-dimensional coverage",
+          "evidence": "The outer walls are 1/lambda^2, -1/4, 1/lambda^2-1/4 and have counts 1,3,3 when distinct.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-nodal-walls-and-a-bielliptic-canonical-model-for-a-symmetr--c6a2ab748385/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3037",
+          "method": "Local mirror offset read",
+          "title": "Exact nodal walls and a bielliptic canonical model for a symmetric torus-sextic family",
+          "trigger": "Closest distinct indexed record, similar genus-drop profile"
+        },
+        {
+          "assessment": "What was read concerns complement groups of generic fiber-type curves. No whole-document exclusion or inference from the absent locator.",
+          "evidence": "Corollary 4.5 addresses a generic member with at most one multiple fiber; Example 4.6 discusses the groups of an A17 Zariski pair.",
+          "identifier_or_url": "https://arxiv.org/html/2507.15814",
+          "material_read": "Abstract excerpt, section 4 around Corollary 4.5 and Examples 4.6–4.7, section end around Remark 4.9; the named Example 5.5 was not located in the accessible rendering",
+          "method": "OA literal and bounded offset reads; journal route returned 403",
+          "title": "The fundamental group of the complement of a generic fiber-type curve",
+          "trigger": "Frozen comparison to generic fiber-type curves"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; Robeva Theorem 2.3; Cartwright–Sturmfels Theorem 1.2; Oka–Pho Table 1"
+      ],
+      "rationale": "The symmetric pencil is natural and the short correct calculation can be useful exposition. However, the proposed exact invariant is already mechanically determined by the classified simple diagonal tensor eigenvectors and elementary local and plane-curve facts. No further independent invariant of the exceptional fibers, such as their moduli, is established; naming the two forced genus-one parameters is not a distinct scientific contribution.",
+      "residual_risks": [
+        "This finding is not being assessed as a claim about elliptic moduli or family monodromy."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

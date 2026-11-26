@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:49:17.878625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=3, n>=1 and 3<=t<=q, diagonal translates over the cyclic alphabet partition the words into q^(n-1) full cliques, each meeting a K_t-free set in at most t-1 vertices. The one-coordinate cylinders attain the bound. At equality every full transversal is saturated: relabel symbols independently in each coordinate to make that transversal a member of a diagonal partition, then apply equality in the sum of the per-clique bounds. For n>=2, the two tuples (a,u),(b,v) with coordinatewise-different u,v, and their swap (b,u),(a,v), can be completed by the identical remaining q-2 tuples by filling each column with its unused symbols. Subtracting the two saturation equalities gives the same coordinate increment at u and v. The disagreement graph on the remaining coordinates is connected by a common neighbor chosen coordinatewise outside the two given symbols. Increments therefore do not depend on context. Telescoping from a base tuple proves additivity. If two coordinate functions were nonconstant, choosing a low and high input in each gives a strictly increasing chain of three values by changing the two coordinates successively, impossible for a Boolean function. The nontrivial cardinality forces exactly one relevant coordinate and t-1 selected symbols. The descriptions are distinct for different coordinates since varying one while fixing the other changes membership in only one cylinder. For n=1 the complete graph gives the same classification directly. The frozen proof handles all parameters including t=q and requires no field; the supporting verify.py and recorded small checks were inspected but not executed and do not prove the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee §4.1 gives the strength-one relaxation dimension q^n-1-n(q-1); §4.3, around offset 55050, expressly attributes the full axial dimensions to Appa–Magos–Mourtos Theorem 9 for alphabet orders at least three, not just prime powers. Filmus–Ihringer §7 Theorem 7.1 explicitly gives the one-coordinate conclusion for Boolean sums of one-coordinate functions, and notes that the proof is valid on all product domains."
+        ],
+        "reasoning": "The affine-hull result controls every real constant-transversal-sum weight, with no Boolean or forbidden-clique hypothesis. In contrast Brakensiek's independent-set results, and the fixed lower-distance endpoint in Csajbók–Mukkamala–Nagy, are not broader coverage of this rigidity claim.",
+        "searches": [
+          "Web: On multi-index assignment polytopes Appa Magos Mourtos pdf axial Theorem dimension repository",
+          "arXiv:2611.12780 §§4.1 and 4.3 Known cases",
+          "Web: Filmus Ihringer Boolean degree 1 functions Hamming scheme depends one coordinate arxiv"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Appa–Magos–Mourtos DOI:10.1016/j.laa.2005.11.009 via Lee's full-text account",
+        "arXiv:2611.12780 and arXiv:1801.06034",
+        "arXiv:2610.32789, arXiv:2609.32903 and Brakensiek DOI:10.4230/LIPIcs.APPROX-RANDOM.2017.33",
+        "Resultary 0fd1a098450f and focused transversal/matching queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine hull of the perfect-assignment indicators is given by M z=1, where M has rows 1{x_i=a}: the dimension q^n−1−n(q−1) is the dimension of this affine system, so containment is equality. The row span has dimension 1+n(q−1) by separating constants and the q−1 zero-mean functions of each coordinate. A linear functional constant on the hull has coefficient vector in the row span. Theorem 7.1 reduces the resulting additive Boolean function to dependence on one coordinate."
+        ],
+        "reasoning": "For f=1_S, each transversal sum is at most t−1, and its mean over uniform full transversals is q|S|/q^n by uniform vertex incidence. This gives the bound and, at equality, constancy. The affine-hull theorem then puts f in row-span M, and the Boolean theorem makes f a one-coordinate indicator. Its density determines t−1 symbols; these cylinders are feasible and distinct, giving n binom(q,t−1). The trivial n=1 case is direct. This proves mechanical prior coverage of the entire conclusion, not just the scalar bound.",
+        "searches": [
+          "Appa–Magos–Mourtos, On multi-index assignment polytopes, Theorem 9 as localized in Lee arXiv:2611.12780 §4.3; §4.1 marginal equations",
+          "Filmus–Ihringer arXiv:1801.06034 §7, Theorem 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Represent a tuple as an edge through n disjoint q-symbol parts; coordinatewise disagreement is disjointness of edges. Thus a K_t is a t-matching and a full q-clique is a perfect matching. Lee arXiv:2611.12780 §4.1 defines strength-one index-one arrays exactly as sets of q rows using each symbol once in each coordinate, and defines the axial polytope as the convex hull of their incidence vectors."
+        ],
+        "reasoning": "Prohibiting K_t is precisely forbidding t-matching edges; the full transversals paired in the frozen proof are precisely the vertices of the axial assignment polytope for alphabet order q and tuple length n (Lee uses n and k respectively). A constant transversal intersection is exactly a constant linear functional on that polytope.",
+        "searches": [
+          "Resultary: matching-free families in direct products, constant-sum Boolean transversal functions, exact maximum-distance Hamming triangles",
+          "Web: Erdős matching conjecture multipartite direct product matching-free equality for families of tuples extremal Wang Zhang Frankl",
+          "Web: axial multi index assignment polytope affine dimension all dimensions order q n-index transversals n-partite hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected Resultary overlap, 0fd1a098450f, concerns the ternary distance-one Cartesian power and its stability; it does not give the target's distance-n classification. The target is an all-parameter theorem rather than a finite table; the exact relevant general data located are the axial dimensions for all orders q>=3."
+        ],
+        "reasoning": "Agreement in the ternary scalar maximum does not identify the host or extremizers; the index did not supply an exact duplicate in the bounded search. The affine-hull theorem, rather than a recycled finite table, gives the actual coverage.",
+        "searches": [
+          "Resultary: exact-distance Hamming triangle-free maximum and rigidity, matching-free tuples, coordinate cylinders, categorical powers of complete graphs",
+          "Resultary 0fd1a098450f Finding"
+        ]
+      },
+      "rationale": "The rigidity is a direct consequence of the known full dimension of the axial multi-index assignment polytope (Appa–Magos–Mourtos, 2006, Theorem 9, as specifically identified and described with scope in Lee §4.3) and the standard Boolean degree-one classification on product domains (Filmus–Ihringer Theorem 7.1). The equivalence is exact: a full transversal clique is a strength-one index-one orthogonal array, i.e. an axial assignment. The per-coordinate marginal equations give the full affine hull by the axial dimension theorem. Consequently, any real weight with constant sum on every full transversal is a linear combination of coordinate marginals, which is stronger than the target's additivity step for Boolean weights. Uniform averaging over transversals gives the elementary bound and forces these constant sums at equality. Applying the Boolean theorem and counting selected symbols gives exactly the target's rigidity and count. This is not an inference from the same numeric maximum in a distance-one graph or from the date of Lee's exposition. The original 2006 full text could not be retrieved, but the exact all-order theorem is described in an accessible mathematical source, and the implication is exhibited below.",
+      "residual_risks": [
+        "The 2006 theorem's original PDF was unavailable by the DOI, repository and published-copy attempts; the scope and locator are from Lee's full text. This verdict is about mathematical implication of the older axial result, not a claim that the original paper states the graph extremum verbatim or that precedence of specific proof wording is settled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known stronger theorem per the explicit account, not an abstract-only inference that the new finding is absent",
+          "evidence": "The early paper treats entire families of assignment polytopes; Lee specifies Theorem 9 for (k,1) at alphabet orders at least three, all orders rather than prime powers.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2005.11.009",
+          "material_read": "Bibliographic/abstract material; Theorem 9 precise attribution and scope in Lee §4.3, but not the original full text",
+          "method": "DOI OA resolution and LSE repository check; identified Academia copy inaccessible; exact theorem checked via the OA mathematical exposition",
+          "title": "On multi-index assignment polytopes",
+          "trigger": "Axial assignment affine dimension for the full transversal incidence vectors"
+        },
+        {
+          "assessment": "Provides the exact formulation and identifies the relevant stronger 2006 theorem independently of catalogue dates",
+          "evidence": "Defines orthogonal arrays, gives their linear marginal equations and the dimension of the relaxation, and distinguishes the already settled axial case from deficits possible at higher strengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.12780",
+          "material_read": "Relation to previous work around offset 11350; §4.1 pp.9–10 around 40850–44912; §4.3 Known cases p.12 around 55050",
+          "method": "OA arXiv PDF text",
+          "title": "The dimension of multi-index assignment polytopes and Latin squares",
+          "trigger": "Full-text definition, equations and exact scope of older axial dimension result"
+        },
+        {
+          "assessment": "Exact covering statement for the second rigidity step",
+          "evidence": "A Boolean sum of one-coordinate functions on a product of cyclic groups is a function of one coordinate; proof applies to all product domains.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.06034",
+          "material_read": "§7 Theorem 7.1 and proof p.17, offsets 69450–71397",
+          "method": "OA arXiv PDF text",
+          "title": "Boolean degree 1 functions on some classical association schemes",
+          "trigger": "The known additivity-to-rigidity step"
+        },
+        {
+          "assessment": "The inspected distance-one theorem does not give the distance-n case",
+          "evidence": "Theorem 1.3 gives 2q^(n−1) at distance one, not the maximum-distance host for n>1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32789",
+          "material_read": "Definition 1.1 and Theorem 1.3 around offsets 4457 and 11392",
+          "method": "OA full-text passages",
+          "title": "Triangle-Free Sets in Exact-Distance Hamming Graphs",
+          "trigger": "Same named exact-distance triangle-free invariant"
+        },
+        {
+          "assessment": "Same graph but the inspected independent-set problem is K_2-free",
+          "evidence": "Studies vertex isoperimetry and stability of independent sets in categorical powers, not the given t>=3 rigidity.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2017.33",
+          "material_read": "Abstract and opening host definition, p.1",
+          "method": "OA conference PDF passage",
+          "title": "Vertex Isoperimetry and Independent Set Stability for Tensor Powers of Cliques",
+          "trigger": "Same tensor graph and equality/stability terminology"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "The Cartesian power has edges differing in one coordinate; its near-extremal stability is not the present maximum-distance classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-defect-one-triangle-free-stability-in-ternary-hamming-graphs--0fd1a098450f",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Defect-one triangle-free stability in ternary Hamming graphs",
+          "trigger": "Same-day near-title and matching ternary scalar maximum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph endpoint and extremizer question are natural. The numerical bound is a one-line averaging or partition argument; the rigidity and count follow immediately once the known axial-affine-hull and Boolean degree-one results are translated. The swap proof is a valid self-contained presentation of the needed additivity fact, but this record establishes no stronger result beyond those known ingredients and their routine application. No distinct new exact or structural contribution remains to preserve in a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

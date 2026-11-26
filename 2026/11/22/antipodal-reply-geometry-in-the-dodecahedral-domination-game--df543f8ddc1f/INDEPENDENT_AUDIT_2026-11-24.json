@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:11:48.917333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the ordinary game on GP(10,2), the covered set and next mover are sufficient: a previous move's whole closed neighborhood is covered, so no repeated move can be legal. Every proper set admits a move and each legal move strictly enlarges it. With terminal D=S=0, the exact recurrence is D(U)=1+min S(U∪N[v]) and S(U)=1+max D(U∪N[v]) over legal v. The independent reachable-set DAG run used 11,846 dominated masks and checked all openings and all 760 conditional scores for distinct ordered opening/reply pairs under both conventions. It returned roots (9,8), uniform opening values, and distance-1-through-5 totals (9,8,8,8,9) and (9,9,8,9,9). The shell counts are (3,6,6,3,1); distinct closed neighborhoods have the same cardinality four so all nineteen distinct replies are legal. Hence S's optimal replies are neighbors and the antipode (four), while D's are precisely distance three (six). Frozen replay sources and logs are artifacts/game_dp.cpp, game_dp.py, cpp_output.txt and python_output.txt in the record directory; they were inspected, not executed. Independent replay: /workspace/branches/0a2fa392-a5ad-47f5-a702-3f2fd5f52e46/gp102_game_check.py and companion gp102_game_check_output.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The founding proof discusses a six-cycle starting effect and related construction on pp. 9–10. The Kinnersley–West–Zamani full text was not available on the attempted direct and lawful alternate routes; no theorem-level exclusion is asserted for it."
+        ],
+        "reasoning": "A starting-player comparison or existence example does not determine the exact dodecahedral root scores, much less the conditional table over all distance classes.",
+        "searches": [
+          "Brešar–Klavžar–Rall, doi:10.1137/100786800",
+          "Kinnersley–West–Zamani, doi:10.1137/120884742"
+        ]
+      },
+      "checked_sources": [
+        "Brešar–Klavžar–Rall author PDF",
+        "November 22 four exceptional cubic graphs Resultary record",
+        "Kinnersley–West–Zamani DOI access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day record treats Heawood, Möbius–Kantor, Pappus and Desargues. The dodecahedral model is a different graph of girth five. Its conditional minimax states require a new evaluation on that graph."
+        ],
+        "reasoning": "Vertex transitivity can account for root uniformity, but it does not fix the root values or the distance-class scores. A recurrence that can be applied to every graph does not supply the solution of this instance without computing or proving it.",
+        "searches": [
+          "Founding domination-game definition and start comparison; same-day cubic girth-six tables and graph assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The founding paper pp. 2–3 gives the same closed-neighborhood legal move and min/max stopping-time objectives. The same-day four-graph match names and defines Desargues as a two-/three-subset incidence graph."
+        ],
+        "reasoning": "This is the ordinary domination game, not static, power, total, or matching-saturation domination. The Desargues comparison shares several numbers but is not a relabeling of the dodecahedron.",
+        "searches": [
+          "Resultary: dodecahedral GP(10,2) standard domination game, both starts and second replies",
+          "GameDomFinal.pdf literal lookup: dodecahedron; GP(10,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected four-graph Finding (offset 0–3480) gives Desargues (9,9), a Dominator-first table exactly (9,8,8,8,9), and a Staller-first table with all entries 9. The assigned record itself was also returned and does not count as another source."
+        ],
+        "reasoning": "Shared shell sizes and one identical table do not certify the dodecahedral game. The exact Staller-first table separates the two objects. No same-object table was located in the sources inspected.",
+        "searches": [
+          "2026/11/22/SCOPE-game-domination-minimax-and-second-response-geometry-on-four-exc--f42713ee9731",
+          "Resultary: dodecahedral dominance-game exact score and response tables"
+        ]
+      },
+      "rationale": "The standard game, its general bounds and starting-player effects are prior. The closest same-day record has an exactly matching Dominator-first response profile on the Desargues graph, but Desargues is bipartite, whereas GP(10,2) contains five-cycles, and its Staller-first profile and value differ. No inspected statement for the dodecahedral graph gives the complete two-convention profile or a theorem forcing it. This is a best-of-knowledge judgment on the specific dodecahedral result, not priority of the minimax recurrence or of starting disadvantage in general.",
+      "residual_risks": [
+        "The Kinnersley–West–Zamani full text and a focused external lookup were unavailable. An earlier graph atlas, code repository, or unindexed computation could contain the scalar values or more; the exact profile assessment is limited to the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior rules and disadvantage example, not exact dodecahedral profile in inspected material",
+          "evidence": "Closed-neighborhood legal-move rule and the C₆ example.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/GameDomFinal.pdf",
+          "material_read": "Pages 2–3 (offsets 3983 and 5518) and pp. 9–10; bounded literal lookups",
+          "method": "Author OA PDF",
+          "title": "Domination game and an imagination strategy",
+          "trigger": "Original definition and starting-player comparisons"
+        },
+        {
+          "assessment": "Partial numerical match on a nonisomorphic graph; no date-based priority inference",
+          "evidence": "Desargues is bipartite and has uniform Staller-first score 9. Dodecahedron has inner five-cycles and distance-three reply score 8 under that start.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-game-domination-minimax-and-second-response-geometry-on-four-exc--f42713ee9731/RESULT.md",
+          "material_read": "Finding, all tables, and graph assumptions at offsets 0–3480",
+          "method": "Local mirror and graph comparison",
+          "title": "Game-domination minimax and second-response geometry on four exceptional cubic graphs of girth six",
+          "trigger": "Exact response terminology and a 20-vertex cubic graph, same-day"
+        },
+        {
+          "assessment": "Access risk only, not evidence of absence or overlap",
+          "evidence": "Full-text access did not succeed; no claim is made about contents beyond what was read.",
+          "identifier_or_url": "https://doi.org/10.1137/120884742",
+          "material_read": "No independently accessible full-text passage; frozen record reports consulting an abstract",
+          "method": "Direct and lawful alternate access attempts",
+          "title": "Extremal problems for game domination number",
+          "trigger": "General bounds and starting conventions cited by source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical cubic Platonic graph gives a natural test of the difference between starting conventions. The full distance profile explains which replies are responsible, distinguishing neighbors and the antipode from intermediate distances under one start and singling out only distance three under the other. This exact invariant is usable to benchmark strategies and compare other cubic symmetric graphs; it is not just a recomputed scalar or a claim that the starting disadvantage itself is new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

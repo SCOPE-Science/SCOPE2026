@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:33:42.594455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At size t the sum of the outdegrees is t−1, hence the total weight is D_t=t+a(t−1). Given the activation history, each eligible nonroot label has probability 1/D_t; the root is already ineligible at size two and the newborn enters as a leaf. Per step an independent proposal of each nonroot label with probability 1/[a(t−1)] followed by acceptance at rate a(t−1)/D_t for eligible labels exactly reproduces this complete history. The rejection probability is t/(aD_t)+(H_t−1)/D_t with H_t the number of already active vertices including the root. The expectation of H_t−1 is at most (t−2)/a, by counting all earlier positive proposals. The two numerators sum in expectation to at most 2(t−1) over a common denominator aD_t, yielding 2/a² per step, even at t=2; for n=2 the two empty histories agree. This is a total-variation bound on the labelled joint law, not just the count law. In the stated triangular array n/a_n² tends to zero. Taking logs of the independent reference Laplace functional incurs an O(n/a_n²) error, and the mark inside each time slice is uniform on the label grid j/t. The grid Riemann sums converge uniformly away from t/n=0; the bounded integrand and the vanishing relative fraction of early times complete the limit on the compact square including λ=0. The root-star event is exactly zero nonroot activations and its reference probability is (1−1/a_n)^(n−2). The source VERIFICATION.md, checker.py and checker_output.txt were inspected without execution; the reported exact finite checks are source evidence, not independent execution or a certificate of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recursive-tree fringe-defect record yields Poisson component-size counts after independent cuts; the growing-color urn record gives activation count regimes under time-dependent reinforcement; the root-degree/leaf-count record treats fixed offset.",
+          "The cover-time theorem has fixed a, not a triangular array. The distinct fringe-subtree paper treats types of fringe subtrees, not a labelled history."
+        ],
+        "reasoning": "Cut components, urn activations with reinforcement changing within a trajectory, and fixed-parameter leaf or root observables do not dominate this constant-within-tree critical history theorem. The exact affine occupancy construction is the strongest genuine overlap and is treated separately.",
+        "searches": [
+          "Resultary: strong reinforcement, parental diversity and rare recursive-tree innovations",
+          "Resultary 147a5a736601, 15c4fbd7595a and 028f883a4793",
+          "Seelbach Benkner–Wagner, DOI 10.1007/s00453-022-01013-y"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "Resultary a7dc7d80a3de, 147a5a736601, 15c4fbd7595a and 028f883a4793",
+        "Angel–Goldschmidt–Michaeli arXiv:2611.18353v1",
+        "Seelbach Benkner–Wagner (2022)",
+        "Holmgren–Janson survey abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact leaf-process proof up to ghost conditioning gives independent raw proposals and exact labelled survival probabilities in the target law.",
+          "The reference probability per eligible label is 1/[a(t−1)], independent of eligibility in the reference experiment. The target proposal probability after conditioning is 1/D_t before repeat deletion. The claimed error simultaneously bounds this rate change and all repeat deletions.",
+          "The other checked Poisson defects are marked by component sizes, and root-degree deficit counts repeated nonroot attachments as well as first ones."
+        ],
+        "reasoning": "The exact occupancy law is reusable and makes the route short, but specializing its parameters does not state a total-variation approximation to the new reference or bound accumulated errors uniformly in n and a. Those estimates, and the joint scaling of the time-dependent empirical label grids, are the verified added conclusions. The star limit is a corollary and not a separate originality claim.",
+        "searches": [
+          "Resultary a7dc7d80a3de, affine case and independent occupancy proof",
+          "Angel–Goldschmidt–Michaeli, Theorem 1",
+          "Resultary: rare-innovation marked recursive-tree limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine leaf-repulsion result constructs the entire label-specific leaf-set history via independent categorical proposals; this is the correct alias for first-child events.",
+          "The cover-time paper uses exactly the weight 1+a outdegree, whereas the leaf-repulsion theorem uses an edge seed and ordinary degree."
+        ],
+        "reasoning": "The seed difference can be bridged. Start the undirected affine model with a ghost leaf joined to the root, use c=a and d=1−a, and condition the ghost to remain a leaf through the observation horizon. At real size t after the root has acquired its first real child, every real vertex has ordinary degree outdegree+1, and the full normalizer is D_t+1. Ghost survival excludes exactly its proposal at each step under the exact leaf-set construction; the conditional nonroot proposal probability is 1/D_t. At real size one the first real attachment is forced by that conditioning. Thus this comparison accounts for the exact eligible-label dynamics and the latent independent proposals, but those proposals have a different rate from the independent reference stated in the finding and only first proposals generate activations.",
+        "searches": [
+          "Resultary: first nonroot activation and birth-labelled leading edges in strongly reinforced attachment",
+          "Resultary a7dc7d80a3de, affine leaf-survival theorem and proof §1",
+          "Angel–Goldschmidt–Michaeli arXiv:2611.18353v1, model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact matching bound was the assigned record itself. The different leaf-repulsion record provides an exact product for joint finite leaf survival, not a table of the stated approximation errors.",
+          "The frozen rational checker only covers finitely many orders and parameter values."
+        ],
+        "reasoning": "There is no fixed numeric invariant to identify in a table. The exact theoretical product is relevant and transfers by conditioning; no finite catalogue of values or survival table by itself establishes the uniform approximation and scaling claim.",
+        "searches": [
+          "Resultary: exact labelled activation-history law, strong-reinforcement star, and finite total-variation bound",
+          "Resultary a7dc7d80a3de, exact leaf-survival product"
+        ]
+      },
+      "rationale": "The complete affine leaf-set occupancy construction in the distinct same-date leaf-repulsion result covers more of the mechanism than a change in seed wording suggests: a ghost-leaf conditioning reduction transfers its exact finite leaf-history law to this model. Credit that overlap fully. The supported distinct increment is the uniform whole-history approximation by a particular independent reference with explicit error 2(n−2)/a² and the joint critical birth-time and birth-label law, rather than the exact finite leaf kernel, the fact that proposals can be taken independently, or the star probability alone. The approximation requires bounding repeat and rate errors; it is not a statement of the exact occupancy theorem. The date supplies no ordering between the two records.",
+      "residual_risks": [
+        "The same-date exact occupancy overlap is substantial; no order or priority can be inferred.",
+        "An explicit leading-edge approximation in an unlocated rare-innovation or affine-leaf source could cover the incremental bound; the focused literature search was low-yield, not evidence of absence.",
+        "The Holmgren–Janson full text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact occupancy/leaf-history mechanism applies after ghost-leaf conditioning; no quantitative reference approximation or marked triangular-array conclusion found in these passages",
+          "evidence": "The independent categorical J_t assigns w/W_t to each label, erases it only if still a leaf, and reproduces the entire leaf-set history. Conditioning a ghost to survive restricts each of these independent proposals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-affine-leaf-repulsion-and-its-sharp-five-vertex-nonlinear-bounda--a7dc7d80a3de/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, mirror offsets 0–5850",
+          "method": "Local Resultary search and bounded mirrored source inspection",
+          "title": "Affine leaf repulsion and its sharp five-vertex nonlinear boundary",
+          "trigger": "Strongest distinct first-leaf-loss / labelled activation overlap"
+        },
+        {
+          "assessment": "Same base model with different asymptotic regime and observable",
+          "evidence": "Theorem 1 fixes a and concerns random-walk cover times.",
+          "identifier_or_url": "https://arxiv.org/html/2611.18353v1",
+          "material_read": "Model definition and Theorem 1, HTML offsets 0–2983 and 6400–9385",
+          "method": "OA primary arXiv passages",
+          "title": "Cover times of random recursive trees and linear preferential attachment trees",
+          "trigger": "Exact rooted affine model"
+        },
+        {
+          "assessment": "Different fringe-type observable",
+          "evidence": "Inspected results track distinct fringe subtree types in tree families, not a labelled first-child history approximation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-022-01013-y",
+          "material_read": "PDF pp. 1 and 3, offsets 65–2146 and 6050–9340",
+          "method": "OA primary paper passages",
+          "title": "Distinct Fringe Subtrees in Random Trees",
+          "trigger": "Increasing-tree representation and activated-vertex aliases"
+        },
+        {
+          "assessment": "Related Poisson phenomenon in a different model",
+          "evidence": "Independent recursive-tree cuts give nonroot component-size counts of means λ/[k(k+1)] and a compound-Poisson root-component deficit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-poisson-fringe-defects-and-a-sharp-near-complete-reinforcement-m--147a5a736601",
+          "material_read": "Mirrored RESULT.md finding and surrounding passages, offsets 0, 540 and 1039",
+          "method": "Local Resultary search and source mirror",
+          "title": "Poisson fringe defects and near-complete reinforcement",
+          "trigger": "Rare-innovation / sparse nonroot defects alias"
+        },
+        {
+          "assessment": "Different within-run reinforcement schedule and unmarked observable",
+          "evidence": "Reinforcement grows as ct^α within the run, and the theorem addresses activation-count regimes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-logarithmic-to-finite-activation-transition-in-growing-color-r--15c4fbd7595a",
+          "material_read": "Mirrored opening, offsets 0–2500",
+          "method": "Local Resultary search and source mirror",
+          "title": "A logarithmic-to-finite activation transition in growing-color reinforcement",
+          "trigger": "Parental activation and diversity terminology"
+        },
+        {
+          "assessment": "Unresolved full-text coverage",
+          "evidence": "Available material is survey-level; it does not justify ruling out an applicable result elsewhere in the full paper.",
+          "identifier_or_url": "https://doi.org/10.1214/16-PS272",
+          "material_read": "Landing page and abstract only after bounded full-text retrieval attempts",
+          "method": "Lawful public retrieval",
+          "title": "Fringe trees, Crump–Mode–Jagers branching processes and m-ary search trees",
+          "trigger": "Potential general branching-process reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A quantitative approximation for the full finite birth-labelled experiment is useful for arbitrary joint first-parent queries and need not reconstruct the reinforced tree. Its vanishing-error range a≫√n is broader than the fixed finite-intensity critical window; the critical limit then gives the interpretable independent fractional birth labels and event times. The finite-survival formula and zero-event limit in isolation would support a much smaller contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

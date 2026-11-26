@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem is for exactly two distinct singleton-colored markers and nonbinary alphabet. The orbit parameterization follows from Cartesian-product automorphisms. At refinement round \(d-1\), the marker distances are known, and a joint-decrement neighbor statistic recovers the shared-coordinate mismatch count, completing reconstruction of the orbit parameters. A pair of remote but orbit-distinct vertices remains undistinguished through round \(d-2\), so the bound is sharp. The proof separately handles dimension one. Direct and quotient computations pass but are not relied upon for infinite quantifiers.
+## correctness
 
-**Originality: PASS, with residual risk.** Searches for two-marked Hamming-graph color refinement, exact round counts, and stabilizer orbits did not reveal the claimed full-dimension nonbinary formula. Primary color-refinement papers by Kersting et al. (2014) and Arvind et al. (2015) were read in relevant sections, with whole-text term searches for Hamming graphs; the inspected arguments concern general color refinement, not this exact application. The nearest accessible related statements concern binary marked pairs (whose strict count depends on separation), arbitrary marked ternary words (an orbit-recovery upper bound), and three marked words for larger alphabets (an upper bound); none states the exact \(d-1\) law for exactly two marks and all \(q\ge3\). Implicit or unindexed earlier coverage remains possible.
+PASS
 
-**Mathematical value: PASS.** The exact uniform iteration count resolves a natural sharp convergence question for a canonical distance-regular graph family and gives its full stabilizer-orbit class sizes. Unlike the binary alphabet, all nonbinary alphabets exhibit the same distance-independent convergence threshold; the explicit joint-distance decrement statistic explains this rigidity. The result supplies more than a small parameter table or a routine transcription of an orbit count.
+The narrowed finding is exact synchronous stopping at d−1. Round r distinguishes each marker distance truncated at r+1. At round d−1 the distances are exact; a distance d forces s=d−t, otherwise the needed simultaneous-decrement neighbor pair is visible at round d−2 (the count is zero if a target distance is negative). Recovering s recovers the whole triple, and these are orbits of a color-preserving subgroup, so the partition is equitable. For the lower bound the pairs (d,d) and (d−1,d) are indistinguishable through d−2 by regular-graph locality but split in the next round. The complete-graph case d=1 starts equitable. A separate direct-graph replay corroborated the stopping round and orbit data in 24 nonbinary cases (up to 243 vertices) and reproduced the antipodal binary exception. The frozen finite outputs are recorded evidence, not a proof; the uploaded script was not executed.
 
-The theorem is a self-review, not an independently validated publication claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original broad package presented two already published conclusions alongside the stopping law: stabilizer orbit recovery and the accompanying class count and sizes. The repaired statement claims only exact nonbinary stopping from the three-color start and explicitly credits the earlier invariant and formulas. The previous general orbit result explicitly excludes exact round count from that start; its proof gives no d−1 stopping claim. The binary timing classification does not dominate q≥3. No covering statement for the narrowed stopping law was established in the inspected evidence.
+
+## value
+
+PASS
+
+Exact synchronous iteration count for this canonical two-marker seed is a separate algorithmic invariant from the stable partition. The boundary shortcut removes an otherwise needed round, and the locality example proves that no faster round bound is possible for any separation in the nonbinary case. This is a sharp timing classification, not a reassertion of the known orbit table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

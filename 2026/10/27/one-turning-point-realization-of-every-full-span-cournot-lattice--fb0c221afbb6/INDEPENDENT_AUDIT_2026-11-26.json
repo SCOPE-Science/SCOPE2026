@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:00.149427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58",
+        "Frozen VERIFICATION.md and unimodal_lattice_checker.py (inspected, not executed)",
+        "Fresh replay: python3 /workspace/branches/54d45d76-21af-4a29-b9d7-544383e8a0c7/fresh_exact_rational_diag.py; passed for m=1..12 and 1,735 rational test arguments"
+      ],
+      "rationale": "For d=2^(2m)+1 the 2m distinct coordinates a_j=2^(j+1)/d lie below 1/2 except the last, 1-1/d. The tent map doubles up to the last and sends it back to a_0. This includes m=1. Increasing PL homeomorphisms h and k map the even and odd subsequences to the respective sorted prescribed points, with endpoints fixed. Thus k T h^(-1) and h T k^(-1) are onto, strictly unimodal PL, and have the specified endpoints and peaks. The return maps are conjugate to T^2, whose powers have full branches at arbitrarily fine dyadic scales, proving exactness on the whole interval. For a countable basis, the union of iterated preimages of each basis interval under the second return map's m-th power is open and dense, by exactness, even if any prescribed finite initial segment is removed. Baire therefore gives a coordinate y with every orbit tail dense under that power. On each even residue phase mod m the first coordinate is fixed at p_i and the second coordinate has dense tails by the corresponding surjective iterate; hence the even omega set is exactly P×I. Continuity and compactness give the odd omega set as the image of the even one, I×Q. There is no requirement that P and Q be disjoint, and the construction does not impose one.",
+      "residual_risks": [
+        "The finite exact-rational diagnostic checks interpolation and identities only. Universal exactness and infinite orbit density are proved analytically.",
+        "The theorem concerns full-span lattices of interior prescribed points; no proper-subspan or logistic-family claim was established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem C and §7 cover arbitrary equal-cardinality lattice data, proper supports allowed, and exact return maps on those supports. The discussion specifies many turning points in the construction and leaves unimodal reactions open.",
+          "Kalies–Wehbe Example 4.6 shows product-map attractor structure beyond factor attractor lattices, not a Cournot realization with shape constraints."
+        ],
+        "reasoning": "A theorem broader in admissible support is weaker in its guarantee on the number of turning points. Specializing its support does not enforce the missing restriction.",
+        "searches": [
+          "arXiv:2610.27229v1, Theorem C, §7 construction and Problem 4",
+          "arXiv:2606.30925, Example 4.6"
+        ]
+      },
+      "checked_sources": [
+        "García Guirao arXiv:2610.27229v1",
+        "Linero Bas and Muñoz Guillermo DOI 10.3390/math9040452 (access limitation above)",
+        "Kalies and Wehbe arXiv:2606.30925",
+        "Resultary H-shape obstruction 8b11bd3988c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two homeomorphisms preserve the shape of each individual reaction. They cannot eliminate turning points of the many-branch realization or add a turning point to an identity reaction.",
+          "The bound claim instead builds an alternating period-2m orbit for two tent reactions, and then independently positions both sets while keeping exactly one turning point in each reaction."
+        ],
+        "reasoning": "Neither the existing general PL existence statement nor the reported tent/identity example directly implies the constrained full-span statement. The construction adds a phase orbit with the uniform unimodality constraint.",
+        "searches": [
+          "García Guirao §7, Problem 4 and report of the 2021 example",
+          "Kalies–Wehbe Example 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "García's Example 7.1 describes the earlier same-point-set lattice with a tent reaction and an identity reaction, up to coordinate swap.",
+          "Independent increasing changes of coordinates can move the ordered point sets, but they preserve monotonicity of the identity reaction and thus cannot make it strictly unimodal."
+        ],
+        "reasoning": "The same geometric lattice under conjugacy does not give the required two one-turning-point reactions from a tent/identity example. Different turning-point counts mark a real difference between the constructions.",
+        "searches": [
+          "Resultary: exact finding title and semantics of Cournot/unimodal cross-lattice realization",
+          "García Guirao §7 Example 7.1 and Theorem C, arXiv:2610.27229v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct inspected index hit, 2026/11/2/SCOPE-cyclic-segment-balance-rigidity-excludes-the-h-shaped-cournot-li--8b11bd3988c7, gives an obstruction for a different axial set, not strict-unimodal realization.",
+          "García's Table 1 summarizes support/point-set data and alternating combs, not a classification of the realization by one-turning-point reactions."
+        ],
+        "reasoning": "The all-parameter existence statement is not an entrywise numerical lookup. The pertinent scope table and matching indexed claims were compared at the level of the realizability guarantee, not just data or titles.",
+        "searches": [
+          "Resultary: exact-title and Cournot/unimodal cross-lattice queries",
+          "arXiv:2610.27229v1, Table 1 and the corresponding construction"
+        ]
+      },
+      "rationale": "Pass only the simultaneous strict unimodality restriction for both reactions, with arbitrary independently prescribed full-span geometry. García Guirao already covers arbitrary (even proper-subspan) lattices and exact return maps when the reactions are unrestricted PL, and explicitly asks about the unimodal restriction. The strongest inspected matches do not supply the restricted conclusion; the 2021 access limitation and bounded search are noted, not treated as evidence of absence.",
+      "residual_risks": [
+        "The 2021 original full text was not accessible through the attempted lawful routes. The specific example assessment is based on the later primary paper's description.",
+        "The targeted index and literature checks are not exhaustive; the originality pass is to the best of the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted full-span and more; not the claimed turning-point guarantee",
+          "evidence": "General PL realization with exact return maps on the supports; construction has many turning points and the unimodal restriction is explicitly open there.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27229",
+          "material_read": "v1 Theorem C p. 4; §7 including Example 7.1 pp. 14–15; Table 1 p. 17; Problem 4 p. 22",
+          "method": "Lawful OA PDF passages, offsets 9400, 35100, 39700, 59000",
+          "title": "Connected ω-limit sets of Cournot maps: periodic orbits, realization and almost every point",
+          "trigger": "Strong exact-lattice realization overlap and cited unimodality problem"
+        },
+        {
+          "assessment": "Whole-paper coverage unresolved; reported example does not establish target",
+          "evidence": "Reported lattice uses a tent and identity reaction with a common point set. This is secondary evidence and does not justify a whole-document negative finding.",
+          "identifier_or_url": "https://doi.org/10.3390/math9040452",
+          "material_read": "Example 1 as described by García's Example 7.1; not the original full text",
+          "method": "MDPI OA webpage and PDF attempts and identified UPCT repository bitstream did not yield readable full text",
+          "title": "A Full Description of ω-Limit Sets of Cournot Maps Having Non-Empty Interior and Some Economic Applications",
+          "trigger": "Reported earlier tent/identity example"
+        },
+        {
+          "assessment": "Related context, not an implication in that example",
+          "evidence": "Product attractors not generated by a factor coproduct, rather than a Cournot cross-lattice under unimodal reactions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.30925",
+          "material_read": "Example 4.6, pp. 15–16",
+          "method": "Lawful OA PDF passage at offset 45600",
+          "title": "Compositionality of Global Dynamics in Product and Skew-Product Systems",
+          "trigger": "Cited product dynamics comparison"
+        },
+        {
+          "assessment": "Distinct negative obstruction, not a realization",
+          "evidence": "Equal maximal-segment counts under strong invariance rule out an H shape; this does not construct admissible full-span lattices.",
+          "identifier_or_url": "2026/11/2/SCOPE-cyclic-segment-balance-rigidity-excludes-the-h-shaped-cournot-li--8b11bd3988c7",
+          "material_read": "RESULT.md Finding and obstruction",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclic segment balance rigidity excludes the H-shaped Cournot limit set",
+          "trigger": "Closest distinct Resultary Cournot hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "García Guirao Theorem C and Problem 4"
+      ],
+      "rationale": "This settles a natural full-span case of the explicit unimodality question, uniformly for arbitrary locations and cardinality, with the least possible number of turning points for onto reactions having both endpoints zero. The alternating orbit and independent PL changes of coordinates give a reusable realization technique without the many branches of the unrestricted construction. It does not settle proper-support or logistic-family realization.",
+      "residual_risks": [
+        "Value is in the proved full-span restriction, not in the known unconstrained realization or in a resolution of the full open problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

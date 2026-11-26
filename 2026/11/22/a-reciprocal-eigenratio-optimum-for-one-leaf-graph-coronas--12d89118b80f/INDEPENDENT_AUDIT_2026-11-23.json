@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:58.283564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging uses the minimum Rayleigh quotient on the mean-zero complement and the largest Rayleigh quotient to improve the ratio in the asserted directions, preserving the priced equality. The leaf/core block gives determinant a^2 z and trace a(z+2), hence f_-(sx) and f_+(ell x) give the two relevant eigenvalues after division by a. The strictly increasing elasticity of F=f_+ and F(4/z)=2F(z)/z give one stationary point x=2/sqrt(s ell) and a strict global minimum; the budget fixes scale and substitution gives the stated minimum. For a cyclic optimizer equality in both averaging bounds holds, since neither inequality can strictly improve the ratio at an optimum. The complex first Fourier mode, with corresponding leaf amplitudes, has constant squared edge differences on each orbit and thus the original Fiedler Rayleigh energy even under any other optimizer. Equality in the Rayleigh minimum makes it an eigenvector; the leaf equation fixes each leaf weight and the imaginary part of the core equation forces equality of consecutive rim weights, since sin(2 pi/n) is nonzero for n>=3. Independently, maximizing f_-(sx)/(1+x) for the unit-price gap gives y=f_-(sx) with s=y^2/(1-y)^2 using sx=y+y/(1-y); this gives the cited gap ratio. With Lambda=sqrt(ell/s), x=c x_* and c bounded away from zero and infinity, expansion gives R(x)=2 Lambda^2+Lambda(c+c^-1)+O(1). Thus c=1 gives the stated optimal expansion and c=2+O(1/n) gives the n/(2 pi) gap-allocation regret. Inspected RESULT.md, VERIFICATION.md and verify.py; the supplied finite tests were not run and are not needed for these conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kempton et al. give a broad graph weight optimization setup with per-node degree upper bounds; Du et al. derive weighted-corona spectra and address coherence. The transitive-corona mixing result solves the other objective lambda_2."
+        ],
+        "reasoning": "A general optimization method and a fixed-weight characteristic polynomial do not provide the exact optimum or the equality characterization in this regime. A theorem about maximizing one spectral endpoint does not control the quotient.",
+        "searches": [
+          "arXiv:1505.07279",
+          "doi:10.3389/fphy.2022.948247",
+          "doi:10.1137/050624029",
+          "Resultary eed5b428788a and 9e788ca7bde4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 12d89118b80f (self-match)",
+        "Resultary eed5b428788a",
+        "Resultary 638ad6225b9e",
+        "Resultary 9e788ca7bde4",
+        "Resultary 23cc3948d013",
+        "arXiv:1505.07279",
+        "doi:10.3389/fphy.2022.948247",
+        "doi:10.1137/050624029 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior gap formula gives the competing x_gap, asymptotically twice x_*; the wheel formula balances affine upper branches while the corona proof balances two reciprocal quadratic spectral branches."
+        ],
+        "reasoning": "The explicit discrepancy between designs rules out transferring the gap optimizer; adapting an averaging or rigidity method is not a theorem implication. The graph join in the wheel case cannot be identified with the leaf corona and has different feasible degrees and formulas.",
+        "searches": [
+          "Resultary eed5b428788a and 638ad6225b9e, original Findings",
+          "Resultary 23cc3948d013, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio is exactly the 2-norm condition number on the constants' orthogonal complement, and unconstrained scalar gradient-step contraction is (R-1)/(R+1). The inspected SLEM theorem requires entrywise nonnegative stochastic matrices, unlike unrestricted scalar scaling."
+        ],
+        "reasoning": "SLEM with nonnegative holding weights is not an equivalent reformulation: on the triangle sunlet, x_*=2/3 and optimal unrestricted scaling is 1/(2a), while each core weighted degree is 7a/3, giving a negative holding probability. Mere monotone reparametrization of R does not make these feasible sets coincide.",
+        "searches": [
+          "Resultary: exact optimal positive Laplacian spectral condition number eigenratio lambda maximum over algebraic connectivity one leaf graph corona sunlet unrestricted edge weights reciprocal ratio cycle",
+          "arXiv:1505.07279, mean-zero spectral design",
+          "Resultary 9e788ca7bde4, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 12d89118b80f is the frozen result itself. A distinct same-day hit 23cc3948d013 was opened; it gives b/a=m/S_m on K_1 join C_m with one shared hub, not private leaves. The closest same-object records 638ad6225b9e and eed5b428788a explicitly optimize lambda_2."
+        ],
+        "reasoning": "The indexed wheel theorem has the same objective but a different vertex and spectral block structure; the sunlet exact solutions have the same object but different objectives. No distinct exact match was found among the passages searched.",
+        "searches": [
+          "Resultary: exact optimal positive Laplacian spectral condition number eigenratio lambda maximum over algebraic connectivity one leaf graph corona sunlet unrestricted edge weights reciprocal ratio cycle",
+          "Resultary: Exact price-optimal continuous-time mixing on transitive one-leaf coronas and rigid cyclic sunlets eed5b428788a"
+        ]
+      },
+      "rationale": "The exact same-host priced spectral-gap solutions and the general eigenratio setup are prior. Same-day wheel eigenratio optimization is a different graph family. No inspected theorem covers the one-leaf-corona reciprocal optimizer and cyclic rigidity for the unconstrained positive Laplacian eigenratio.",
+      "residual_risks": [
+        "Unindexed exact conditioning or weighted-frame scaling results may exist; catalogue ranking is not exhaustive.",
+        "Classical corona-spectrum article was not available in full text in this review; only the objective distinctions established from inspected passages are asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the spectral-gap comparison input, not the eigenratio optimizer",
+          "evidence": [
+            "With c=dP/(2 lambda), rates are t_*/lambda times (2+sqrt(Q/c)) on core edges and t_* times (1+sqrt(c/Q)) on leaves for maximum lambda_2; cyclic uniqueness is for this objective."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-price-optimal-continuous-time-mixing-on-transitive-one-lea--eed5b428788a",
+          "material_read": "Original RESULT.md, Finding, characters 110–1805",
+          "method": "Resultary local mirror",
+          "title": "Exact price-optimal continuous-time mixing on transitive one-leaf coronas and rigid cyclic sunlets",
+          "trigger": "Exact same family and independent priced allocations"
+        },
+        {
+          "assessment": "Related exact spectral-gap result",
+          "evidence": [
+            "The displayed maximum is lambda_2; pendant and rim rates depend on sqrt(s t) where t is pendant price."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-unique-price-optimal-fastest-mixing-on-sunlet-networks--638ad6225b9e",
+          "material_read": "Original RESULT.md, Finding and scope, characters 110–2210",
+          "method": "Resultary local mirror",
+          "title": "Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Same cyclic family and unrestricted uniqueness"
+        },
+        {
+          "assessment": "Stronger leaf multiplicity but different constraints and objective",
+          "evidence": [
+            "Minimizes SLEM over entrywise nonnegative symmetric stochastic matrices; core holding is forced to zero."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "material_read": "Original RESULT.md, Finding and scope, characters 110–2195",
+          "method": "Resultary local mirror",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex- and edge-transitive leaf coronas",
+          "trigger": "Closest SLEM objective under scalar step sizing"
+        },
+        {
+          "assessment": "Same objective, non-equivalent host",
+          "evidence": [
+            "W_m=K_1 join C_m has a single shared hub, with exact optimizer ratio m/S_m."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-unique-eigenratio-optimal-conductances-on-wheel-networks--23cc3948d013",
+          "material_read": "Original RESULT.md, Finding, characters 0–2099",
+          "method": "Resultary local mirror",
+          "title": "Unique eigenratio-optimal conductances on wheel networks",
+          "trigger": "Same-day exact eigenratio and cycle-based graph"
+        },
+        {
+          "assessment": "Provides general eigenratio methodology, not exact corona formula in inspected formulation",
+          "evidence": [
+            "Minimization of lambda_n/lambda_2 or maximization of lambda_2 under nonnegative weights and per-node degree upper bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.07279",
+          "material_read": "Original PDF, formulation passages located at OA offsets 917 and 6146",
+          "method": "Open-access primary PDF",
+          "title": "Self-organization of weighted networks for optimal synchronizability",
+          "trigger": "General graph eigenratio weight optimization"
+        },
+        {
+          "assessment": "Spectral background and first-order coherence, not the stated optimizer in the inspected scope",
+          "evidence": [
+            "Derives a weighted-corona Laplacian polynomial for first-order coherence analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2022.948247",
+          "material_read": "Original scope passage, p. 1, OA offset 2001",
+          "method": "Open-access primary article",
+          "title": "Consensus analysis of the weighted corona networks",
+          "trigger": "Closest primary weighted-corona spectrum and design"
+        },
+        {
+          "assessment": "Unresolved at full text, no whole-document exclusion asserted",
+          "evidence": [
+            "The spectral block needed for the review was derived directly independently of this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/050624029",
+          "material_read": "Bibliographic citation; OA full text not retrieved",
+          "method": "Original DOI access attempted; HTTP 403",
+          "title": "The Spectrum of the Corona of Two Graphs",
+          "trigger": "Classical corona spectral background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact unrestricted conditioning optimum compresses a many-edge allocation into the two spectral edges of the core, while proving cycle rigidity rather than presuming symmetry of all optima. Exact placement and the order-n gap-design penalty distinguish two plausible network objectives on a natural infinite family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

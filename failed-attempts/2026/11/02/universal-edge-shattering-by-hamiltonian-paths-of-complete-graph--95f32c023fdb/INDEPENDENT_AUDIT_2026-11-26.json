@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:50:48.473868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-positive trace forces a linear forest. In the other direction, contracting the required positive components leaves a simple linear forest of forbidden block adjacencies. For four or more blocks an even-then-odd ordering along a spanning path completing the quotient avoids every forbidden pair, including the junction. For two or three blocks, any unavoidable forbidden pair can be made unique and incident to a nontrivial block; reversing that block permits the join. One block needs no join. The small orders, n!/2 maximum-support count, and marked component generating function check. Static shattering yields the adaptive lower bound, and predicting negative on unseen queries makes at most n−1 errors. The stored enumeration is corroborative only: the code checks all supports through n=6 and candidate forests through n=7; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle result covers every edge support in K_N and expressly includes an isolated vertex plus a path of order at least four.",
+          "Mofidi's all-spanning-tree theorem uses acyclicity and non-cut-set, but does not restrict its witnesses to paths."
+        ],
+        "reasoning": "The cycle theorem dominates after restriction to an induced K_n; the spanning-tree theorem alone would not suffice.",
+        "searches": [
+          "2026/11/2/SCOPE-complete-edge-trace-shattering-classification-and-polynomial-for--3fab3bb139ff",
+          "10.22108/TOC.2021.127880.1832, Theorem 3.3(1)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Hamiltonian-cycle classification 3fab3bb139ff",
+        "Mofidi, doi:10.22108/TOC.2021.127880.1832",
+        "Kranakis et al., doi:10.1016/S0166-218X(96)00137-0 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N=n+1 the cycle theorem splits the desired forests into |S|≤n−2 and the two components of orders 1 and n, exhausting all possibilities."
+        ],
+        "reasoning": "The restriction recovers the whole all-label theorem, rather than only n−1. The VC dimension, maximum count, known forest enumerator and adaptive dimension follow by elementary counting and the generic positive-label predictor. The unavailable 1997 full text is not a basis for failure.",
+        "searches": [
+          "Hamiltonian-cycle RESULT.md, Finding offset 0, cases 1–2",
+          "10.1016/S0166-218X(96)00137-0, Hamiltonian paths / set systems defined by graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed Hamiltonian-cycle theorem defines the same edge-trace shattering predicate on K_N (RESULT.md offset 0)."
+        ],
+        "reasoning": "Adding and deleting one fixed vertex gives an exact trace-family restriction, not just similarity between two classes.",
+        "searches": [
+          "Resultary: Hamiltonian path shattering supports linear forests forbidden edges completion",
+          "Resultary: Hamiltonian paths complete graph edge shattering linear forest all positive and negative edge labels",
+          "Primary literature: Hamiltonian path edge shattering linear forests forbidden edges completion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record provides a symbolic all-orders classification and shattering polynomial, not merely matching low-order counts."
+        ],
+        "reasoning": "A separate numerical table is inapplicable to coverage of the uniform structural claim; it is the exact indexed theorem that gives coverage.",
+        "searches": [
+          "Resultary Hamiltonian-path shattering queries above; local mirror of the Hamiltonian-cycle classification and polynomial"
+        ]
+      },
+      "rationale": "The distinct indexed Hamiltonian-cycle theorem already supplies the entire support classification by restriction. Add a new vertex x to K_n. Adding the two edges from x to the endpoints bijects spanning path edge sets of K_n with spanning cycle edge sets of K_{n+1}, and deleting x preserves every trace on E(K_n). For a forest with at most n−2 edges, the cycle theorem at N=n+1 applies in its |S|≤N−3 case. For n−1 edges the forest is a spanning path and, with x isolated in the support, is exactly the cycle theorem's (a,b)=(1,n) case. The converse follows from the same classification. This is statement-level coverage, not an inference about chronological priority from two same-day directory dates.",
+      "residual_risks": [
+        "Chronological priority between distinct same-day records is not established; the demonstrated implication is independent of it.",
+        "The early path-VC article was not available in full and is not used to establish coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS by exact trace restriction",
+          "evidence": [
+            "Forests with |S|≤N−3; also two paths of orders a≤b with a=1 and b≥4, or a≥4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-edge-trace-shattering-classification-and-polynomial-for--3fab3bb139ff/RESULT.md",
+          "material_read": "Finding, offset 0 through 1415, definition and both cases",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; locate linear forest, then read by offset",
+          "title": "Complete edge-trace shattering classification and polynomial for labeled Hamiltonian cycles",
+          "trigger": "Indexed all-support edge-trace classification in complete graphs"
+        },
+        {
+          "assessment": "Does not itself imply the path claim",
+          "evidence": [
+            "Acyclic non-cut-set supports are shattered by all spanning trees; the proof extends positive edges in the graph with the negative edges deleted."
+          ],
+          "identifier_or_url": "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+          "material_read": "Theorem 3.3(1) and proof, printed pp. 34–35, extracted offset 19119",
+          "method": "Open primary PDF, literal theorem locator",
+          "title": "On the VC-Dimension, Covering and Separating Properties of the Cycle and Spanning Tree Hypergraphs of Graphs",
+          "trigger": "All-label edge completion for spanning structures"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": [
+            "Available material does not resolve edge traces for spanning paths in complete graphs."
+          ],
+          "identifier_or_url": "10.1016/S0166-218X(96)00137-0",
+          "material_read": "Bibliographic and abstract context only; no full text obtained",
+          "method": "OA DOI lookup for Hamiltonian paths and set systems defined by graphs",
+          "title": "The VC-Dimension of Set Systems Defined by Graphs",
+          "trigger": "Early path-induced VC theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete trace classification would be worthwhile as new information, and the constructive proof is valid. In the inspected corpus it adds only a vertex-restriction corollary of the cycle classification; the generating function is classical and the adaptive dimension and counts are routine consequences. No distinct valuable theorem remains for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

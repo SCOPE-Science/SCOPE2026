@@ -1,11 +1,21 @@
-# Scientific review — strong-resolving sets of projective planes
+# Independent mathematical audit
 
-**Correctness (PASS).** The reduction from strong resolution to vertex covers of mutually maximally distant pairs is proved directly for finite connected graphs. For a projective-plane incidence graph, distances \(1,2,3\) show the MMD pairs are exactly point–line nonincidences. Its independent complements are counted using the uniqueness of a line through two points and duality, with the double-counted incident pairs subtracted. Maximal admissible complements give precisely the claimed inclusion-minimal strong-resolving sets. The complete proof handles every finite projective plane of order \(q\geq2\). Reproducibility code independently checks the direct strong-resolution definition for all \(2^{14}=16384\) subsets of the fourteen-vertex plane of order two; an additional exhaustive incidence-based count covers the plane of order three.
+## correctness
 
-**Originality (PASS, qualified).** Oellermann–Peters-Fransen and the Kratica et al. survey provide the general MMD/vertex-cover reduction, not the incidence-specific counting theorem. Héger–Takáts analyze ordinary metric and semi-resolving sets, not all strong metric generators. The fully inspected projective nonincidence result studies total dominating sequences, which neither determine nor are determined by the independent-set polynomial. Searches of source titles, exact and equivalent parameter terms, algebraic dual formulations, published research records, and archived claim descriptions identified no result implying the all-size polynomial and minimal-generator gap. This is not a claim of exhaustive global priority: an unindexed result may exist, and the foundational 2007 full text was not accessible.
+PASS
 
-**Value (PASS).** This resolves the complete strong metric generator family for all finite projective planes, including non-Desarguesian examples, without enumeration of the planes. It separates optimum strong landmark sets from substantially larger inclusion-minimal ones by the exact gap \(q^2-1\). Its closed all-size polynomial is structural and not inferable from a minimum metric-dimension result alone.
+A strong-resolving set must hit each MMD pair: a non-endpoint landmark would extend a geodesic past one of the pair's maximally distant endpoints. Conversely a shortest path through any prescribed pair extends to a geodesic with MMD endpoints; a chosen endpoint resolves the original pair. In a plane incidence graph the nonincident point–line pairs are at diameter three, whereas same-side pairs and incident pairs have neighbors witnessing failure of maximality. Thus a complement is allowed exactly when all its selected points lie on all its selected lines. Two points have only one common line, so every mixed complement has a singleton side. Counting the pure sides and both mixed orientations, subtracting the duplicated empty set and duplicated incident pairs as appropriate, yields the displayed polynomial. The mixed stars have size at most q+2<n and are inclusion-maximal exactly when the entire pencil or row is present. The two full pure sides are also maximal. Complementation gives the two bases, the 2n larger inclusion-minimal resolvers, and their size gap q²−1. The argument uses only the plane axioms. Independent computations matched the full distributions at q=2 and q=3 and checked strong resolution directly on all 16,384 subsets at q=2.
 
-The primary proof is a mathematical theorem; finite checks are corroborative and do not establish the universal quantifier. External independent mathematical assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The MMD/vertex-cover reduction is standard and not credited as new. The claim supported as distinct is the full all-order enumerator and exact classification of inclusion-minimal strong resolvers for arbitrary finite projective planes. The closest same-auxiliary-graph theorem gives domination-sequence invariants, and the closest same-enumerator result concerns a different incidence family. No inspected statement covers the bound claim.
+
+## value
+
+PASS
+
+Strong metric dimension alone cannot distinguish the two pure minimum configurations from the much larger inclusion-minimal ones. The full structural census on a canonical graph family gives both every cardinality and an unbounded q²−1 gap between minimum and merely inclusion-minimal certificates. Its dependence only on the plane order, without a field or coordinate hypothesis, gives a useful all-plane invariant and exact check for other methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

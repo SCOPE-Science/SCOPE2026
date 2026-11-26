@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:09:54.919204Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariance, exactly rank one, root formula, and directions of the signs are correct. Marking a fixed r-subset as an exact block factors its EPPF into the probability of that event and the shifted complement EPPF. Averaging the two occupied-pair cases gives the bracket in RESULT.md lines 50–54, including empty or singleton remainders where the complement term vanishes. The endpoint F_n(1)=(n-1)[(n-2)q-np]<0 also proves nonzero rank, and F_n(n)=n(n-1)(1-p)>0. The quadratic has precisely one root in (1,n), the displayed plus root; the limit and Ewens specialization follow directly. But line 19 as written asserts uniqueness of a real threshold by its signs tested only at integer r, which in general does not identify a unique real number. For n=2, alpha=0, theta=1, the root is 5/3 and every real number in (1,2) separates the same two integer signs. Defining the threshold as the unique real zero and then deducing the integer signs is the correct statement, and is what the proof establishes. The covariance itself was independently corroborated by exact sequential seating with signed weights through n=7 at three parameter pairs, including negative theta. Replay the analytic argument at RESULT.md lines 42–56. The frozen check.py was inspected, not executed; it checks finite moments on four unweighted graph families, not the threshold uniqueness wording.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 32 states independent residual PD(alpha,theta+alpha) after deletion and renormalization of a size-biased atom, and beta(1-alpha,theta+alpha) for the deleted mass. Proposition 33 gives the inverse insertion. This applies to all alpha, theta in the frozen domain.",
+          "The same report gives the joint frequency law, while the related Ewens cumulant record only works on alpha=0 and employs distinct cycle-size factorial moments."
+        ],
+        "reasoning": "The prior conditional remainder law is stronger than the conditional pair mean required by the reviewed result. The frequency distribution is a separate route via the covariance of weighted block counts.",
+        "searches": [
+          "Pitman–Yor Technical Report 433 §§6.1, 9.2, Propositions 32–33 and 49",
+          "arXiv:math/0412494 Eq. (2)",
+          "Resultary 502128e50e90 Finding and Proof (Ewens factorial moments)"
+        ]
+      },
+      "checked_sources": [
+        "Berkeley Technical Report 433, §§6.1 and 9.2",
+        "arXiv:math/0412494",
+        "arXiv:1304.4309",
+        "Resultary 8198e77842ad",
+        "Resultary 502128e50e90",
+        "Resultary 00c844d9af13",
+        "Resultary 5d1498b0cfb4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With one label of a fixed r-set as the first draw, the probability that the block consists of exactly that set is the beta moment E[X^(r-1)(1-X)^(n-r)], precisely the displayed ratio of rising factorials. Outside labels are still draws from the independent shifted PD frequencies. Pair agreement there is q; unconditional pair agreement is p.",
+          "The known deletion theorem therefore supplies the entire marked-block calculation: two labels are both in, both out, or split, with respective agreement probabilities 1, q and 0. Uniform averaging over exact r-sets and centering gives the formula; one quadratic yields the sign boundary."
+        ],
+        "reasoning": "This is an immediate projection of a previously proved conditional law, including the full parameter range; neither passing to all edge weights nor solving the scalar quadratic adds a distinct mathematical theorem of the claimed kind.",
+        "searches": [
+          "Technical Report 433 Proposition 32 (p. 33, PDF offset 63955), complement independence",
+          "arXiv:math/0412494 §1, Eq. (2), pair probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any exchangeable partition, conditioning on the size vector gives a fixed pair co-clustering probability sum_s s(s-1)T_s/[n(n-1)]; thus graph weights contribute solely their sum and all rows agree.",
+          "Uniform Bell-distributed levels are the same path-edge statistic under a different law. The Pitman–Yor total-block-count sign boundary considers the same law but a different linear functional of the size spectrum."
+        ],
+        "reasoning": "The effective statistic is the ordered within-block pair count against one size frequency. The rank upper bound is simply exchangeability, not a law-specific phenomenon.",
+        "searches": [
+          "arXiv:math/0412494 §1 Eq. (2) (EPPF and sampling consistency)",
+          "Technical Report 433 §6.1, literal 'deletion'",
+          "arXiv:1304.4309 §2 (set partition statistics)",
+          "Resultary 5d1498b0cfb4 (Pitman–Yor covariance signs)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior joint size-frequency law contains every finite size spectrum probability and hence all weighted mixed moments by summation.",
+          "The Resultary comparisons evaluate a uniform-Bell richness covariance, a random-graph cross-size covariance, and a two-parameter partition richness covariance, respectively. None is an exact table for the target pair score."
+        ],
+        "reasoning": "No verified verbatim matching table; exact coverage is by the prior deletion theorem and its moment implication, not by matching titles or parameters.",
+        "searches": [
+          "Technical Report 433 §9.2, Eqs. (175)–(177), Proposition 49",
+          "Resultary 8198e77842ad Finding Eqs. (1)–(8)",
+          "Resultary 00c844d9af13 Finding Eqs. (1)–(2)",
+          "Resultary 5d1498b0cfb4 Finding and Proof"
+        ]
+      },
+      "rationale": "The exact covariance and sign root follow directly from the prior size-biased deletion and insertion theorem, not merely from knowing the name or density of the model. Pitman–Yor Technical Report 433, §6.1, Propositions 32–33, gives a beta-distributed distinguished mass independent of the normalized residual PD(alpha,theta+alpha) frequencies. Mark any specified r-set using one member as the distinguished first sample; conditional on the distinguished mass, membership of the other labels is Bernoulli and their outside draws use the independent residual frequencies. This is the exact conditional theorem needed for the calculation, throughout the claimed parameter domain. Only hypergeometric pair incidences, linearity/exchangeability, and the quadratic formula remain. No prior verbatim printed threshold is asserted.",
+      "residual_risks": [
+        "No exhaustive claim about verbatim older covariance or threshold statements; Ewens (1972) could not be read in full through lawful access. This does not affect the independently demonstrated implication from Pitman–Yor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies the beta first atom and independent shifted residual frequencies; stronger than the needed conditional pair probability",
+          "evidence": [
+            "The normalized frequencies after size-biased deletion are PD(alpha,theta+alpha) independently of the deleted beta mass",
+            "Exact joint size-frequency distribution"
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/433.pdf",
+          "material_read": "§6.1, p. 33, Propositions 32–33 (PDF offset 63955); §9.2, pp. 52–53, Eqs. (175)–(177), Proposition 49 (offsets 106000–110485)",
+          "method": "Primary OA full-text bounded passages",
+          "title": "The two-parameter Poisson–Dirichlet distribution derived from a stable subordinator",
+          "trigger": "Potential dominant deletion theorem and block-frequency law"
+        },
+        {
+          "assessment": "Known EPPF and sampling consistency",
+          "evidence": [
+            "Restricting to two labels gives (1-alpha)/(1+theta)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0412494",
+          "material_read": "§1, printed pp. 1–2; EPPF Eq. (2), PDF offset near 6283",
+          "method": "Primary OA bounded passages",
+          "title": "Exchangeable Gibbs partitions and Stirling triangles",
+          "trigger": "Exact EPPF and pair probability"
+        },
+        {
+          "assessment": "Different, uniform Bell law",
+          "evidence": [
+            "Product closure and shifted Bell aggregate formulas"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.4309",
+          "material_read": "§2 pp. 3–5, Theorems 2.2 and 2.4",
+          "method": "Primary OA bounded passages",
+          "title": "Closed expressions for averages of set partition statistics",
+          "trigger": "Levels and block-size count moments"
+        },
+        {
+          "assessment": "Different statistic and partition law",
+          "evidence": [
+            "Covariance of total block count and size count for uniform set partitions"
+          ],
+          "identifier_or_url": "Resultary 8198e77842ad",
+          "material_read": "Finding Eqs. (1)–(8)",
+          "method": "Original RESULT.md via local mirror",
+          "title": "Block-size counts switch covariance sign at the Lambert-W scale",
+          "trigger": "Exact size-count covariance sign change"
+        },
+        {
+          "assessment": "Related factorial moments, different evaluated invariant",
+          "evidence": [
+            "Third mixed cumulant of C_1,C_2,C_3 for alpha=0"
+          ],
+          "identifier_or_url": "Resultary 502128e50e90",
+          "material_read": "Finding and Proof",
+          "method": "Original RESULT.md via local mirror",
+          "title": "Two exact sign reversals in the third joint cumulant of Ewens small-block counts",
+          "trigger": "Ewens frequency moment reduction"
+        },
+        {
+          "assessment": "Different underlying law and statistics",
+          "evidence": [
+            "G(n,p) component count covariance block"
+          ],
+          "identifier_or_url": "Resultary 00c844d9af13",
+          "material_read": "Finding Eqs. (1)–(2)",
+          "method": "Original RESULT.md via local mirror",
+          "title": "Shape-universal covariance sign reversals for random-graph component counts",
+          "trigger": "Rank-one covariance sign boundary"
+        },
+        {
+          "assessment": "Marked-block proof for a different covariance functional",
+          "evidence": [
+            "Size-r block count versus total block count, not pair coincidence"
+          ],
+          "identifier_or_url": "Resultary 5d1498b0cfb4",
+          "material_read": "Finding and Proof",
+          "method": "Original RESULT.md via local mirror",
+          "title": "Sharp covariance sign boundary for Pitman–Yor block-size spectra",
+          "trigger": "Same partition family and nearby threshold claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Edge-weighted co-clustering is a useful statistic, and the formula is a convenient explanatory example. But the graph generality here is only linearity and exchangeability, the covariance is a mechanical conditional mean from the existing deletion law, and the boundary adds the roots of that same elementary quadratic. Correcting the threshold wording would not leave a distinct substantive claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

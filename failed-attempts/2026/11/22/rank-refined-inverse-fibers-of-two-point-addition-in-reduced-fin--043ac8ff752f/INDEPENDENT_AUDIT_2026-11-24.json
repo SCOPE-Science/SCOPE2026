@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:38:34.747646Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34; VERIFICATION.md and verify.py inspected, not run",
+        "/workspace/branches/0b1cf9ac-798e-4549-8c0d-8eddd8b54e48/independent_minkowski_enumeration.txt: independent literal Minkowski unions for a 1D window [0,5] and a 3x3 window, 544 target/step configurations and 13,365 candidate input sets"
+      ],
+      "rationale": "For 0 in Y and Y+{0,v}=T, every admissible y is in T with y+v also in T. Associate y with the edge joining these two points. The graph on T of all such edges is a disjoint union of paths: every vertex has at most one predecessor and successor, and v nonzero excludes cycles. Exact coverage is precisely an edge cover. The vertex 0 has no predecessor in the nonnegative orthant, so its edge must be chosen and the origin condition is automatic (or the fiber is empty if it is isolated). For a run of length ell the endpoint edges are forced and no two omitted edges may be adjacent. With r chosen edges the ell-1-r omissions occupy distinct gaps among the r-1 interior gaps, giving the stated binomial, including the forced single edge at ell=2. Runs are independent and singleton runs yield zero, including |T|=1. Joining any two runs by an unused bridge gives a rank-preserving injection into the covers of the longer path. A disconnected nonzero fiber with s runs has maximal degree t-s rather than t-1, proving strict inequality of the polynomials and of their evaluations at 1. The single path must start at 0, and counting binary interiors with no consecutive omissions gives F_{t-1}, including t=2. The first paragraph's 'simultaneously' is interpreted as the later explicit polynomial equality criterion, not separate rank-by-rank uniqueness: for v=1, T={0,1,3,4} has z^2 and ties h_4=z^2+z^3 at rank 2.",
+      "residual_risks": [
+        "The finite census only corroborates those windows. The exact theorem is for nonzero nonnegative v, finite targets in the nonnegative lattice and the unique target attaining all coefficients simultaneously; individual ranks can tie."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akbari–Oboudi Theorem 7 establishes coefficientwise dominance of paths among all trees of the same vertex count, with equality in all coefficients only for the path. Rago Lemma 4 and Xu–Wong Lemma 3.4 cover well-separated four-point runs and their proofs give the rank refinement (z^2+z^3)^|X|."
+        ],
+        "reasoning": "The tree theorem is a broader graph extremum, though not formally a statement about disconnected forests; those are covered by embedding their components into a single path. The semigroup lemmas alone are only special cases and are not the basis for rejection.",
+        "searches": [
+          "published graph theory \"edge cover polynomial\" path P_n disjoint union multiplicative theorem",
+          "Xu Wong Lemma 3.4 2^|X| factors Y+{0,w}=X+{0,w,2w,3w}"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion lines 40–54; the graph-theory theorem and equation directly inspected; power-monoid prior lemmas and distinct Resultary Boolean records inspected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definition and equation (2) give the arbitrary disjoint-union product immediately, whether or not multiplicativity is stated as a named proposition. Appending a bridge between two endpoint vertices of disjoint paths preserves every original edge cover of each fixed cardinality. The forest has t-s edges, whereas the connected path has t-1 and its full edge set is a cover."
+        ],
+        "reasoning": "The target formulation requires no new extremal lemma: the claimed concatenation is the usual injection for adding edges, strictness is the degree, and containing the origin pins the translation of the maximizing path. The total maximum is the z=1 specialization. No supported nonroutine remainder survives.",
+        "searches": [
+          "published graph theory \"edge cover polynomial\" path P_n disjoint union multiplicative theorem",
+          "rank-refined inverse fibers two-point Minkowski addition {0,v} arbitrary target run lengths polynomial coefficientwise extremizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akbari–Oboudi define E(G,z) by cardinalities of edge covers and give zero for an isolated vertex. Associate y with {y,y+v}. Each edge cover represents exactly one input Y of the same cardinality, and the forced edge incident to 0 handles the reduced-monoid condition. The equivalent Boolean formula is 1_T(i)=1_Y(i) OR 1_Y(i-1) along each v-line."
+        ],
+        "reasoning": "The exact graph-polynomial equivalence applies to every finite target and all the stated d and v, not merely a small subset of parameters.",
+        "searches": [
+          "edge-cover polynomial path binary OR preimages dilation finite sets inverse Boolean convolution",
+          "published graph theory \"edge cover polynomial\" path P_n disjoint union multiplicative theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Akbari–Oboudi equation (2) is exactly the claimed binomial polynomial h_n in the path graph variables; their Corollary 5 at z=1 is the ordinary Fibonacci recurrence. The exact Resultary target-fiber self-hit is the assigned record, not prior evidence. Related indexed cyclic three-neighbor OR and constrained adjacent AND findings use different local rules."
+        ],
+        "reasoning": "An exact general polynomial exists in the equivalent graph language; this is stronger than a table of isolated numerical values. The neighboring Boolean records neither duplicate nor rescue the novelty claim.",
+        "searches": [
+          "rank-refined inverse fibers two-point Minkowski addition {0,v} arbitrary target run lengths polynomial coefficientwise extremizer",
+          "Fibonacci number of subsets Y such that Y union (Y+1) equals target binary strings no consecutive zeros path covers",
+          "DOI 10.1016/j.ejc.2012.05.005 equation (2)"
+        ]
+      },
+      "rationale": "The full rank-polynomial claim is covered by an exact and direct edge-cover reduction, not merely by the four-point examples credited in the frozen text. Akbari–Oboudi give the identical path polynomial and the coefficientwise path extremum among trees. Disjoint unions give the target polynomial by independent choices across components; joining path components end-to-end reduces dominance and strictness to immediate edge-cover monotonicity and the top degree. This is known mathematics applied under a direct one-to-one relabeling, even though the graph-theory article does not state the finite-set target formulation.",
+      "residual_risks": [
+        "No assertion is made about who first wrote the exact power-monoid wording. Further morphology or automata priority evidence could exist, but the demonstrated graph-theoretic coverage suffices independently of inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local polynomial and explicit tree extremum; direct implications give the complete frozen path-forest result",
+          "evidence": "E(P_n,z)=sum_{i=1}^{n-1} binom(i-1,n-i-1) z^i; Theorem 7 bounds e(T,i) by e(P_n,i) for every i and characterizes simultaneous equality. No claim that the paper explicitly states the lattice problem or the forest extension.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2012.05.005; lawful copy https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+          "material_read": "Definition and isolated-vertex convention p. 3 around offset 7364; Corollary 5, Theorem 7 and equation (2), pp. 8–9, offsets 21130–24483 of the hosted PDF",
+          "method": "OA text of the lawful hosted PDF; journal page inaccessible",
+          "title": "On the edge cover polynomial of a graph",
+          "trigger": "Exact path-edge-cover reformulation of two-point inverse fibers"
+        },
+        {
+          "assessment": "Restricted four-block specialization",
+          "evidence": "For sufficiently large displacement, solutions are X union a^{2n}X union Z with Z a subset of the separated block a^nX, giving sizes 2|X|+|Z| and the special rank polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.22469v1",
+          "material_read": "Lemma 4, PDF p. 5 offset 14045",
+          "method": "OA PDF text",
+          "title": "The isomorphism problem for reduced finitary power monoids",
+          "trigger": "Earlier two-point power-monoid fiber formula"
+        },
+        {
+          "assessment": "Exact special-family antecedent; not arbitrary targets",
+          "evidence": "Under pairwise separation modulo Zw, a four-block gives independent solutions of sizes two and three, so both the unrefined 2^|X| and the special weighted product follow.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13956v1",
+          "material_read": "Lemma 3.4 and proof, PDF p. 6, passage opened at offset 18117",
+          "method": "OA PDF text",
+          "title": "Automorphisms of the Reduced Finitary Power Monoid of N^d",
+          "trigger": "Frozen cited antecedent of separated length-four runs"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "Three-neighbor OR, cyclic boundary and inputs with no adjacent ones, unlike the finite two-neighbor unconstrained OR dilation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-inverse-fibers-and-output-capacities-of-cyclic-rule-254-on--626495165f76",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact inverse fibers and output capacities of cyclic Rule 254",
+          "trigger": "OR preimage product over runs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and run-merging proof; Akbari–Oboudi definition, Corollary 5, Theorem 7 and equation (2); comparison by rank-preserving graph bijection and bridge addition"
+      ],
+      "rationale": "Inverse fibers are a natural question, but here the full computation and extremum are recovered by the standard path edge-cover polynomial, disjoint-union multiplication and ordinary monotonicity under edge addition. The graph reformulation preserves all the data, leaving neither an unknown exact invariant nor a structural or arithmetic consequence requiring a new argument. The Fibonacci evaluation and the polynomial equality case add no independent remainder.",
+      "residual_risks": [
+        "This judgment is limited to the two-point result as stated. It does not assess other Minkowski factors, other base monoids or new consequences of the reduction not proved in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

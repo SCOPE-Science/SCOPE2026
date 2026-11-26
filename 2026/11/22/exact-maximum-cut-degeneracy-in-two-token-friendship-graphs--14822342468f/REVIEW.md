@@ -1,15 +1,21 @@
-# Scientific review: exact maximum-cut degeneracy in two-token friendship graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-Every edge of the token graph lies in exactly one lifted triangle. Equality in the tight two-edges-per-triangle bound is equivalent to satisfying the nonmonochromatic constraint on each such triangle. Fixing hub-token colors makes all remaining variables independent by petal or petal-pair. An independently enumerated \(4\times4\) compatibility matrix has rows \((7,5,5,2)\), \((5,6,6,5)\), \((5,6,6,5)\), and \((2,5,5,7)\). The resulting state sum, grouping and division by two prove the exact enumerator for all integers \(q\ge1\). The normalized three-class estimate explicitly bounds every nonconstant hub pattern and proves both the claimed asymptotic and concentration. Direct full-graph enumeration confirms the first three values, and an independent formula checker covers the first six. These finite checks are not substituted for the all-order proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Apte, Parekh and Sud (arXiv:2506.03441v1, public June 3, 2025) motivate studying physical token graphs through spectral energy and frustration; they do not count maximum cuts. Alejandro-Soto et al. (arXiv:2611.25153v1), examined in its HTML full text including Sections 2 and 3.2, subsequently give the triangle-decomposition upper bound and parity-lift lower bound. Its general results **already imply the scalar maximum-cut value**, which is therefore deliberately not claimed original. It does not provide the complete count of optimum cuts, the petal compatibility matrix or the dominant \(7^{\binom q2}\) entropy and concentration for the friendship family. The 2020 2-token graph article was located but not fully retrievable in this round; relevant accessible portions describe structural properties rather than an equivalent optimum count. Related database and prior-record searches did not identify covering statements. Older unindexed or non-English formulations remain a residual risk; no search absence establishes unique priority.
+PASS
 
-## Value — PASS
-The exact size of a maximum cut does not determine how many maximizers exist or what typical maximizers look like. On a natural increasing family of connected, highly triangular token graphs, the theorem gives a complete labeled optimum-count formula and an exact limiting entropy with overwhelmingly one hub-token behavior. This supplies information not contained in the already-known scalar optimum, and the proof identifies the local constraints responsible for the global count. It is motivated by the recent token-graph maximum-cut/phase-frustration literature rather than a selected numerical coincidence.
+The cover of token edges by q(2q−1) lifted triangles is an edge partition: the moved parent edge determines its petal and the common token determines the external-token lift or the within-petal lift. The hub–leaf coloring lifted by pair parity saturates every triangle; maximum cuts are therefore exactly the colorings with no monochromatic lifted triangle. Fix the two hub-token colors per petal. The within-petal color has one completion for a pure hub pair, two for a mixed pair. Each cross-petal 2×2 array is independent and must obey its two row and two column forbidden-constant constraints. For two equal pure states the array has no zero row/column after color symmetry (2 permutation, 4 three-one, 1 all-one); opposite pure states force exactly the two permutations. Pure/mixed has 9 row-admissible arrays and subtracts 1+4−1 invalid arrays; mixed/mixed has 9 and subtracts 2+2−1, giving 5 and 6. Grouping hub states gives mixed site weight 4 and the displayed multinomial sum. The 1/2 quotient is free color reversal, not a quotient by petal permutations. For the asymptotic, the two all-equal pure states contribute 2 to the ordered normalized sum. A positive fraction of mixed petals, or positive fractions of both pure types as in the proof, incurs an exp(−Ω(q²)) penalty against the exp(O(q)) total site weights. Otherwise a pure majority with d defects contributes at most binom(q,d)8^d(5/7)^(dq/2) for either color. Summing over d≥1 tends to zero by the binomial bound. This proves both asymptotic and uniform-optimum concentration. Independent direct enumeration fixing one token color gave (value, count)=(2,3),(12,97),(30,17239) for q=1,2,3; a separate hub-completion sum matched the six listed counts, not a substitute for the asymptotic proof.
 
-## Limits
-The theorem covers unweighted two-token friendship graphs and is not a result about all token graphs, all weights or orbit-counted cuts. Published priority is not independently established. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar cut value and the underlying triangle-lift method are covered. Pass only the distinct optimizer multiplicity and concentration: exact local weights and all-q evaluation of the nonmonochromatic-coloring count, and dominant-state asymptotics. The most closely matched inspected records concern distinct hosts or the scalar value. The assigned record's own catalogue hit is not independent corroboration.
+
+## value
+
+PASS
+
+A natural frustrated graph family already has an accessible scalar optimum; the labelled maximum-cut multiplicity measures an independent feature. The exact solution captures a large number of optimal cross-petal colorings together with strong concentration on a single unordered hub pattern, information not given by the cut value. This is an all-parameter ground-configuration benchmark, not a small-instance rerun.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

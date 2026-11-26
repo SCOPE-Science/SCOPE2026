@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every hypothesis and quantifier is explicit. The reduction of cell signatures to bipartite incidence components is proved separately for common-row, common-column and disjoint-coordinate pairs. The two EGF factors follow from labelled component removal, with the single-edge difference proved again by deletion-and-reinsertion. The exact minimum is obtained by a sharp component/tree bound; equality forces forest structure. A C++ exhaustive checker tested the direct locating-total predicate against the independent incidence characterization on all boards with \(2\le m\le4\), \(m\le n\le6\), and at most twenty vertices. A second executable independently checked ordinary locating and its one-isolated-edge criterion. An exact integer coefficient checker reproduced all enumerations the minimum formula and the independent rooted-tree optimum census on recorded small boards. Infinite claims rely on the symbolic proof rather than experiments.
+## correctness
 
-## Originality
-**PASS, provisional.** The 2018 ordinary rook locating-domination theorem gives the known scalar \(\gamma^{LD}\), not the paired generating polynomials or the forest-optimal enumeration. The 2022 locating-total paper develops general bounds on other families. The 2024 rook polynomial concerns domination without location. The closest indexed finding is a complete polynomial for the two-row clique prism; this covers a proper subfamily and is not separately claimed as new. Indexed searches for the all-rectangle formula, isolated component characterization and its coefficient/exchange consequences found no dominating theorem. The complete two-row source and some potentially relevant literature remain inaccessible or unindexed. A missing source is not treated as proof of uniqueness.
+PASS
 
-## Value
-**PASS.** The theorem simultaneously solves the full all-cardinality enumeration and optimum-sensor problem for a natural two-parameter family, connects locating-total codes to forbidden tiny connected components of labelled bipartite graphs, and classifies every optimal configuration as a forest. It gives an exact polynomial relation between ordinary and total locating codes and a nontrivial congruence-dependent one-sensor penalty. The bipartite-tree coefficient count provides an explicit labelled census of all optimum codes, beyond a scalar domination bound.
+In the incidence graph, an outside cell sees the union of its two incident-edge stars, while a selected cell has d(row)+d(col)−2 selected neighbors. Opposite-part isolates obstruct domination; same-part isolates obstruct location through two cells in a common other coordinate. For distinct rows and columns equal nonempty signatures can use only the two cross edges, and any such edge is a single-edge component. One cross edge alone forces an isolated row and column; both give the ambiguity directly. Thus ordinary LD permits at most one isolate and at most one single-edge component, and totality excludes every single-edge component. This also accounts for a one-row complete graph and the zero LTD polynomial on 1×1. Two-sort labelled component removal and allowed reinstatement prove the EGFs and deletion of the unique single-edge component proves the factor mnz. For r+c nonisolated vertices, the maximum number of allowed components is min(r,c,floor((r+c)/3)); this is attained by starting with a row–column pair in each component, distributing one extra vertex to each and connecting each part as a tree. The edge lower bound is sharp for any permitted (r,c). The minimum is reached at (m,n−1), using m≤n and, when m=n, ceil(2(2m−1)/3)≥m. At any other support attaining the global minimum, equality in the edges-versus-components bound forces trees too. The bipartite tree formula then gives the exact optimum coefficient. For ordinary LD, allowing one component of size two gives floor((r+c+1)/3) in the component bound, attainable whenever it exceeds floor((r+c)/3) and r,c permit that many parts (one pair left unaugmented). This independently yields the stated one-cell penalty, including n=2m. Direct independent open-neighborhood enumeration on twelve small boards verified both predicates, coefficients in the 3×3 and 4×4 examples, and polynomial differences where both board sizes were included. For 5×5, a minimum has exactly one isolate and three 3-vertex components. The two part sizes force two stars of one type and one of the other; the count is 10·5!·4!/(2!^4)=1800.
 
-## Scientific limitations
-No result on higher Cartesian powers or on locating selected vertices is claimed. The polynomial formulas are formal generating functions, not low-complexity algorithms for arbitrary large boards. The reported computational checks are finite. Publication priority and independent mathematical validation remain unsettled.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The retained distinct claim is the all-rectangle incidence structure and paired size enumerators with the polynomial difference and forest-optimum census, beyond the known ordinary minimum and the two-row LTD subfamily. Both inspected two-row polynomial records genuinely cover the two-row portion and are credited. No inspected statement supplies the needed general incidence-plus-forest classification.
+
+## value
+
+PASS
+
+A complete two-parameter signature characterization gives all-size counts and a deletion bijection between the two notions, not just a minimum. The sharp tree equality class explains every optimum and yields exact labelled counts with a precise condition for paying one cell for totality. These are reusable structural and enumerative results on a canonical product, beyond the known two-row tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

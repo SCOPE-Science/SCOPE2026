@@ -1,11 +1,21 @@
-# Self-review — mixed odd-power value sets
+# Independent mathematical audit
 
-**Correctness (PASS).** The unit-group power map is a permutation for each odd exponent; multiplying by a suitable power of two gives exactly the claimed valuation shells. The proof exhaustively separates equal-valuation pairs, unequal-valuation pairs, and zero summands. An explicit translation of valuation \(d\) embeds the second image in a translate of the first, attaining the universal \(|B_k|\) bound. The sharp zero-displacement threshold and odd-target minima follow from independent shell inclusion and cardinality bounds. The standalone package verifier passes 14,637 exact assertions. This is a self-review, not independent verification.
+## correctness
 
-**Originality (PASS, qualified).** The closest full-text source gives exact ordered pair counts for one exponent's power-value set; it actually covers any same-exponent variant, which is not claimed. The mixed two-exponent cross-convolution and translation extremum are different objects; neither input-root results nor published support cardinalities determine these fibers. Closest relevant sources are Broughan (2004), Arias–Borja–Anaya (2023), the 2026 Galois-ring power-value work, and the 2026 dyadic odd-power root-count result. General character-convolution formulas and other unindexed literature remain a priority risk.
+PASS
 
-**Value (PASS).** The result gives an exact, naturally motivated mixed additive invariant, with a sharp maximizing-translation transition determined by whether one exponent divides the other and the modulus has passed the larger exponent's first even shell. It is more than a same-exponent reparametrization or a support-only observation. The full mixed energy is computed in finitely many valuation sums at every depth.
+Odd exponentiation is bijective on dyadic units (the group has 2-power order), and reduction to the needed precision after taking out a power of two is surjective. This gives precisely the exponent-multiple valuation shells plus zero. At target valuation v, two lower equal shells give exactly one complementary partner per element, and an unequal-shell pair must have minimum valuation v; zero summands and the zero target give the stated extra terms. Squaring and summing by shell gives the energy. The |B_k| cap is attained at zero for k≤d and throughout shell d for k>d: subtraction of an odd b leaves an odd value; subtraction of an even b or zero preserves valuation d. Zero attains the cap exactly when B_k⊆A_k, equivalently k≤e or d divides e. Odd targets have exactly the sum of the two even-part sizes, bounded above by 2+2^k/7, strictly below the common odd-plus-odd contribution 2^(k−1) for even targets when k≥3. All odd targets already come from an odd and zero; every even target for k≥1 comes from two odd values. k=0 is the singleton case. Independent bounded enumeration corroborated all fibers, energy and extremal statements on seven exponent pairs and depths through 10; local replay: python3 /workspace/branches/review_replay.py 3. The frozen checker was inspected, not executed. Its 14,637 marker increments for two conditional assertions even when skipped, so it is an accounting marker, not a literal assertion count; the general proof does not use it.
 
-**Limitations.** Only distinct odd exponents and dyadic moduli are treated. The output counts values once, not input roots. The maximizing valuation-\(d\) shell is certified, but no exhaustive classification of all maximizing shells is claimed. Historical coverage by broad character identities cannot be ruled out completely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known unit-shell structure and general convolution/character methods are not new. The supported distinct result concerns mixed unweighted ordered values and the sharp maximizing-fiber displacement with depth, particularly attainment of the cardinality cap when the two images are not nested.
+
+## value
+
+PASS
+
+Ordered convolution of the two natural dyadic power-value images measures concentration beyond mere coverage. The sharp cap being attained even without nesting, and the exact transition at which zero permanently loses optimality, are structural facts useful for diagnosing the concentration of these arithmetic sets. The shell formula provides depth-based computation of an arbitrary fiber and energy without residue enumeration; the value is not in a finite checker or reformulating energy alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

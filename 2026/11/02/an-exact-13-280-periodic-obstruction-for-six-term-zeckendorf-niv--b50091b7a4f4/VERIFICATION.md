@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,4 @@
 }
 ---
 
-The exact standalone checker `verify.py` reproduces the local congruence results. It verifies Fibonacci modulo-p period invariance over two consecutive full index periods, then tests three prime cutoffs. Its expected terminal message is:
-
-```
-VERIFY_OK period=1680 counts=210,112,78 final_density=13/280 local_sieve_only=YES
-```
-
-All computations use standard Python integer arithmetic. The mathematical argument that a residue classification modulo 1680 proves a statement for all indices is supplied in RESULT.md. The published two-shape structural premise is not independently re-proven by the program. Local admissibility is strictly weaker than existence of a six-term Zeckendorf–Niven progression.
+Run `python3 verify.py` from this directory with Python 3.9 or newer. It finds the Fibonacci periods by first return of the residue pairs; applies the stated divisibility implications to one complete period of index classes; and verifies the counts and overlaps in the table, the prime-3 classes modulo 24, and the odd parity of all survivors. The program uses only integer arithmetic and the Python standard library. The Zeckendorf weight identities, even-index exclusion for the second shape, and reduction to a periodic predicate are proved separately in `RESULT.md`. The script does not check full divisibility of the terms or existence of runs.

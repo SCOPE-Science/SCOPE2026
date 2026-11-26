@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:01:12.301140Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Corrected repairs/2/RESULT.md and SLOGAN.txt",
+        "Frozen RESULT.md, VERIFICATION.md, archimedean_majority.py, archimedean_independent.cpp, reference_census.json and verify.py (inspected, not executed)",
+        "Independent full replay: python3 /tmp/opencode/frozen_review_replay_1to5.py 2",
+        "Cuboctahedral benchmark Resultary 5a66d90d9da0, Finding and first-entry census"
+      ],
+      "rationale": "Independently built the two graphs and indexed all 4096 states of each by bit masks. The update threshold on neighbor ones is floor(d/2)+1 at an incumbent zero and ceil(d/2) at an incumbent one, including degree-four ties. Computing every successor and flagging F²(s)=s identifies exactly the states with period dividing two, and following every initial state to its first flagged state proves the claimed cutoff and absence of other periods. On T, the fixed destination row is (16,238,468,720,216,72), the two-cycle destination row is (478,1264,528,96,0,0). Thus 239 primitive orbits attract 2366 states (1888 transient), sharp time three within that basin and five globally. The unanimous basins each contain 680 states. On benchmark C the rows are (146,1606,1200,1008,96,0) and (40,0,0,0,0,0); the unanimous basins each have 1032 states, and no oscillator has a transient predecessor. Witnesses 310 on T and 348 on C attain the global times. Independent adjacency-preserving bijection backtracking found groups of orders 24 and 48 and applying them gave respectively (5,26) and (14,3) fixed/two-cycle spatial counts. The structural symmetry arguments in the corrected result agree. Global sharpness of the iterate identity follows because F^(r+2)(x)=F^r(x) exactly when F^r(x) is already of period dividing two. All figures and claims in the corrected files were checked against this exhaustive replay or against the explicitly credited benchmark statement.",
+      "residual_risks": [
+        "The computation exhausts these labelled state spaces only. No generalized graph-family rule or formal certificate is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical theorem gives eventual periods at most two, with no graph-specific basins. Equal parity of endpoint degrees is a hypothesis of the line-graph recurrence result; the subdivided-K4 base edges join degrees two and three. The inspected Tošić–Agha Lemma 5 states a cycle-isolation result for threshold cellular automata; its applicability to these graph maps is not established, and literal application to the truncated graph contradicts the independently exhaustive census under the stated update rule."
+        ],
+        "reasoning": "A period classification does not determine predecessor multiplicities and entry times. Neither an inapplicable endpoint-parity hypothesis nor an unresolved generic qualitative isolation statement computes the demonstrated truncated-tetrahedral basin.",
+        "searches": [
+          "Resultary 61b3de3ad47a, half-factor law for line-graph majority",
+          "Goles–Olivos DOI:10.1016/0012-365X(80)90121-1; arXiv:1405.2486, p. 2",
+          "Tošić–Agha DOI:10.1007/978-3-540-30479-1_89, Lemma 5 and threshold definitions"
+        ]
+      },
+      "checked_sources": [
+        "Corrected RESULT.md and SLOGAN.txt",
+        "Resultary 5a66d90d9da0, 61b3de3ad47a, 6c938bef9545, b3a0f5aeae0d",
+        "arXiv:1405.2486; DOI:10.1016/0012-365X(80)90121-1 (landing level); DOI:10.1007/978-3-540-30479-1_89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published cube isolation and comparison numbers supply the benchmark as stated. The general line-graph result concerns recurrent states and does not apply to the mixed endpoint parity in the natural base of T; even an available recurrence census would not supply its transient distribution. The classical theorem has no sharp finite entry time for the particular graph here."
+        ],
+        "reasoning": "The remaining calculation classifies all transient destinations and least entry times for T. The selected prior statements do not imply the 2366-state attractor population, its stratification, or the sharp times on T.",
+        "searches": [
+          "61b3de3ad47a, Finding and hypotheses at offsets 0 and 1700",
+          "5a66d90d9da0, basin and first-entry statements at offset 0",
+          "arXiv:1405.2486, period theorem reproduction at offset 4253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a66d90d9da0 uses exactly L(Q3) and the same degree-four incumbent tie retention; these benchmark facts are now credited. Resultary 6c938bef9545 uses precisely the truncated tetrahedron but a three-state Greenberg–Hastings map, with periods 1,3,4,6,8 and sharp entry ten."
+        ],
+        "reasoning": "The line-graph alias detects genuine identity on the cube side. Equality of the truncated-tetrahedral ground graph does not equate the binary majority and excitation dynamics.",
+        "searches": [
+          "Resultary: truncated tetrahedral graph and line graph of once-subdivided K4, synchronous binary open-neighbor majority, 239 primitive cycles, 2366 basin and 1888 transient states",
+          "Resultary: cuboctahedral graph as L(Q3), tie retention, oscillator isolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5a66d90d9da0 explicitly contains the same 40 isolated cuboctahedral phases, time-four cutoff, entry table, and 14/3 spatial classes. The Tietze graph record uses the same binary rule and has the same vertex count and sharp time five but gives 137 cycles and 2444 oscillatory starts. Its graph replaces one Petersen vertex by a triangle; it is not the four-triangle truncation of K4."
+        ],
+        "reasoning": "The repaired claim credits the exact duplicate benchmark table. The different-graph Tietze table and the excitation table do not cover the truncated-tetrahedral binary-majority data. The hit for the assigned finding itself is not an independent precedent.",
+        "searches": [
+          "Resultary: exact majority-basin tables for twelve-vertex Archimedean graphs, truncated-tetrahedral aliases, 239, 2366, sharp five-step cutoff",
+          "Resultary 5a66d90d9da0 and b3a0f5aeae0d, Findings and scopes"
+        ]
+      },
+      "rationale": "For the repaired claim only: the established cuboctahedron census is a reference point, including the no-transient-predecessor result itself. The distinct contribution is the exact truncated-tetrahedral binary-majority attraction and entry census, not eventual period-two theory, a recomputation of the cuboctahedron, or a general isolation claim. No inspected statement gives or implies the new truncated-tetrahedral census.",
+      "residual_risks": [
+        "No absolute historical priority is claimed. An unindexed exact T majority census could change the assessment.",
+        "The reported scope issue in the threshold cellular-automata lemma remains unresolved; it is not used to infer noncoverage or correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct full cuboctahedral coverage, not just recurrent counts; not truncated-tetrahedral coverage.",
+          "evidence": [
+            "Each two-cycle phase has exactly one immediate predecessor; all 40 phases enter at t=0; sharp time four and 14/3 spatial classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-cuboctahedral-majority-dynamics-an-exact-basin-and-three-geometr--5a66d90d9da0/RESULT.md",
+          "material_read": "Finding, entry table and assumptions at offsets 0–3543; additional proof passage at offset 5394",
+          "method": "Resultary query and local-mirror inspection",
+          "title": "Cuboctahedral majority dynamics: an exact basin and three-geometry oscillation census",
+          "trigger": "Direct identical graph, rule, and possible exact transient overlap"
+        },
+        {
+          "assessment": "Relevant to C's recurrence; stated parity assumption fails for the mixed-degree base of T, and the theorem is not a basin theorem.",
+          "evidence": [
+            "Equal endpoint-degree parity on base edges; classifies recurrent states under synchronous majority."
+          ],
+          "identifier_or_url": "Resultary 61b3de3ad47a",
+          "material_read": "Finding and hypotheses, offsets 0 and 1700",
+          "method": "Resultary local-mirror passage inspection",
+          "title": "Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics",
+          "trigger": "Possible stronger theorem covering both graphs as line graphs"
+        },
+        {
+          "assessment": "Same object, different dynamical state space and map.",
+          "evidence": [
+            "Threshold-one three-state Greenberg–Hastings; 531441 states, sharp entry time ten."
+          ],
+          "identifier_or_url": "Resultary 6c938bef9545",
+          "material_read": "RESULT.md Finding, offsets 0–1609",
+          "method": "Resultary local-mirror passage inspection",
+          "title": "Exact excitation clocks and tetrahedral symmetry on the truncated tetrahedral graph",
+          "trigger": "Exact dynamical census for the same graph"
+        },
+        {
+          "assessment": "Different natural graph despite matching several parameters; no chronological inference from same-day indexing.",
+          "evidence": [
+            "Petersen-vertex replacement by a triangle, 137 orbits and 2444 oscillatory starts."
+          ],
+          "identifier_or_url": "Resultary b3a0f5aeae0d",
+          "material_read": "Finding and graph definition, offsets 0–2363",
+          "method": "Resultary local-mirror passage inspection",
+          "title": "A sharp five-update majority clock and complete attraction basins on the Tietze graph",
+          "trigger": "Same order, degree and cutoff under the identical majority rule"
+        },
+        {
+          "assessment": "Establishes period context but not the exact sharp time or basin volumes of these graphs.",
+          "evidence": [
+            "States the Goles–Olivos eventual period-divides-two theorem for finite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "p. 2, offset 4253",
+          "method": "Open primary paper passage; Goles–Olivos DOI landing page as bibliographic context",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Accessible statement of the foundational symmetric-threshold period bound"
+        },
+        {
+          "assessment": "Scope of the lemma for these precise graph dynamics is not established; the narrow repaired T census does not rely on a general isolation conclusion.",
+          "evidence": [
+            "A statement of no incoming transients to cycle states in the stated threshold cellular-automaton setting; indiscriminate substitution would contradict the reproduced T transitions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-30479-1_89",
+          "material_read": "Available threshold definitions p. 4 (offset 12300) and Lemma 5 p. 8 (offset 27766); alternate public retrieval was unavailable",
+          "method": "Open-passage comparison and lawful alternate-copy attempt",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Plausible broader qualitative isolation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected repairs/2/RESULT.md, especially Finding, entry table and last prior-work paragraph",
+        "Resultary 5a66d90d9da0 and b3a0f5aeae0d benchmarks"
+      ],
+      "rationale": "The repaired contribution determines the exact distribution of recurrent destinations and times for a canonical twelve-vertex Archimedean majority network, motivated by comparison with the already established cuboctahedral isolation standard. The substantive contrast is that a uniformly random start usually oscillates on T, with 1888 nonperiodic starts converging to two-cycles, not simply that the graphs have different recurrent-state totals. The independent sharp times for reaching any attractor and for reaching an oscillator, plus symmetry-resolved counts, make the model a precise finite benchmark. This is not presented as the first existence of transients entering oscillations in general.",
+      "residual_risks": [
+        "This is a two-network comparison; the result does not identify which structural feature causes the contrast or predict any wider Archimedean family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

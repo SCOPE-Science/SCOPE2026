@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The files `checker.py` and `morse_pairs.json` are a self-contained exact-arithmetic proof certificate. Run them together using `python checker.py`; no third-party Python packages are required.
+## correctness
 
-The checker regenerates every three-cycle on six symbols, all distinct ordered subsequences, all incidences and all signs, and then checks the pairing certificate against the freshly built cells. It checks every cellular boundary-square identity, the uniqueness and unit incidence of all \(311\) pairs, a complete \(637\)-vertex topological sorting of the reversed Hasse graph, and the vanishing of all \(48\) Morse boundary entries from degree four to degree three.
+PASS
 
-Successful replay reports:
+Generating both orientations on each three-element support gives 40 permutations. Their distinct ordered subwords form a regular CW complex with simplex face posets and f-vector (6,30,120,247,194,40). Reconstructing the oriented face incidences and applying a separate topological sort verifies the 311 disjoint reversed Hasse edges are acyclic, with critical counts one vertex, six 3-cells and eight 4-cells. Independently computing integer Smith forms of the unreduced boundaries (including checking their composition) gives ranks (5,25,95,146,40) and Betti numbers (1,0,0,6,8,0). Thus the critical 4-to-3 differential has rank zero over Q, hence is zero over Z; this confirms the needed conclusion without relying on the uploaded signed recurrence. In that Morse CW model the 3-skeleton is a wedge of six S³, and the Hurewicz isomorphism makes each vanishing cellular boundary equivalent to a null attaching map. Purity is dimension five, so nonzero lower-degree homology obstructs pure shellability.
 
-```
-PASS: 40 three-cycles; f-vector (6,30,120,247,194,40)
-PASS: full signed cellular boundary squares to zero
-PASS: 311 distinct unit-incidence matches; 637-cell matching DAG acyclic
-PASS: critical cells 1 in degree 0, 6 in degree 3, 8 in degree 4
-PASS: all 48 signed integer Morse boundary coefficients are zero
-CONCLUSION: X_6 is homotopy equivalent to 6 S^3 wedge 8 S^4
-```
+## originality
 
-The last line invokes the mathematical discrete Morse and Hurewicz arguments in `RESULT.md`, not an additional automated test. The finite certificate is complete for this \(637\)-cell complex, not for other alphabet sizes. Independent mathematical review has not been performed.
+PASS
+
+The supported distinct claim is the specific mixed-dimensional integral wedge and hence nonshellability for this 40-generator ordered-word complex. The strongest same-alphabet examples use different facet sets and give distinct invariants. The indexed general conjugacy-class bound or a theorem on fundamental groups is not a calculation of the two higher-dimensional wedge counts.
+
+## value
+
+PASS
+
+Using the whole three-cycle class selects a natural generator family, rather than arbitrary permutations. The result gives a pure five-dimensional example with lower homology in two different degrees and an actual two-connected integral wedge type. It distinguishes homology, homotopy and shellability for a specific natural complex beyond the general low-connectivity bounds and Euler-characteristic data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

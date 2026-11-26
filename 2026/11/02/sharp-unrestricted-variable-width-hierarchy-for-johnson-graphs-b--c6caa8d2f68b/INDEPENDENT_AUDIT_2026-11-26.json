@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:29.186549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent proof reconstruction of RESULT.md: one replacement changes overlap with the target by at most one, and successive replacements reach it in r minus the overlap. The normalized order guarantees disjoint pairs, so diameter equals normalized rank and distinguishes unequal ranks. A fixed-distance test has two free endpoints and reuses a third name for its recursively scoped helpers. At each move, first restrict the cell matching to the retained sets (merge the old patterns that now coincide, and discard the all-zero cell). Their union uses at most (p−1)r points. Both ground sets have at least r fresh points when their orders are at least pr, so a response can match exactly the number selected from every cell and from outside the union. The matched profiles preserve equality and adjacency, indefinitely, including repeated pebbled vertices. For each 2r<t≤pr write t=jr+i with 1≤i≤r and 2≤j≤p−1. Witnesses consisting of j pairwise disjoint bases and one r-set disjoint from all but the first, meeting the first in r−i points, exist exactly at orders at least t. Each distance test locally shadows an unused endpoint name from the j+1 outer names. Applying t=n+1 separates every smaller order n<pr from every larger one. This gives the count and minimum representative within the family. The least-width claim is restricted to 3r≤n<m; the game works at width 3 as well and hence rules out all smaller widths there. Inspected VERIFICATION.md and the bundled logic/Venn source and output pairs: pair refinement corroborates width 3, while higher-width samples check the stronger cell-profile invariant, not a general FO^p enumeration. The proof, not those outputs, establishes the unrestricted claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distance-regular result characterizes FO^3 via common diameter and supports (not values) of intersection numbers. It applies to Johnson graphs at width three.",
+          "Grohe–Otto Theorem 2.1 and Pikhurko–Verbitsky §3 give the general pebble-game machinery, not a Johnson-specific exact order threshold."
+        ],
+        "reasoning": "The three-variable support does not track extensions of three or more retained sets, and a general game characterization does not determine which side wins at pr−1 or pr. The higher-width claim supplies both.",
+        "searches": [
+          "Resultary b3c9c3696e77: distance-regular distance-intersection support",
+          "Grohe–Otto arXiv:1204.1990 §2",
+          "Pikhurko–Verbitsky arXiv:1003.4865 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d6ced804d9da",
+        "Resultary b3c9c3696e77",
+        "Resultary 57b74c10ad27",
+        "arXiv:1204.1990",
+        "arXiv:1003.4865",
+        "arXiv:1503.04047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Width-three equivalence collapses orders from 3r on, whereas the present theorem separates 3r and 3r+1 at width four for r≥3. Quantifier rank three is a depth cap rather than the variable-width setting.",
+          "No inspected general theorem supplies a replacement for both the retained-union matching proof and the exact intermediate-order distance witnesses."
+        ],
+        "reasoning": "Prior statements supply background or proper restrictions. The exact stable cutoff and all smaller singleton orders for higher widths are the distinct claims supported here.",
+        "searches": [
+          "Resultary b3c9c3696e77 and 57b74c10ad27",
+          "Grohe–Otto arXiv:1204.1990, Theorem 2.1",
+          "Chepoi arXiv:1503.04047, opening page"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d6ced804d9da, RESULT.md Finding: J(n,2) under FO^p truncates the ground order at 2p and has the corresponding least-width criterion.",
+          "Chepoi, opening page: distance-preserving embeddings into Johnson graphs use the same subset metric, but do not identify unbounded-depth FO^p theories."
+        ],
+        "reasoning": "The triangular/line-graph formulation is the exact r=2 specialization, not a reparameterization of rank r≥3. Metric definability alone does not settle the pebble equivalence cutoff.",
+        "searches": [
+          "Resultary: Johnson graphs, triangular graphs, noncounting finite-variable equivalence and exact order cutoff",
+          "Chepoi, arXiv:1503.04047"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d6ced804d9da and b3c9c3696e77 are distinct entries with exact restricted-scope statements. Neither enumerates the higher-rank higher-width theories in this claim.",
+          "57b74c10ad27 catalogs seven theories at quantifier rank at most 3, without a variable cap."
+        ],
+        "reasoning": "The quantifier-rank table and unrestricted-width equivalence classify different sentence fragments; none of these tables gives the higher-width census. Same-date entries were compared on their statements, not used to infer order of discovery.",
+        "searches": [
+          "Resultary: exact Johnson/triangular finite-variable theories",
+          "Resultary d6ced804d9da, b3c9c3696e77, 57b74c10ad27"
+        ]
+      },
+      "rationale": "The strongest catalog matches give an exact rank-two analogue and a general width-three criterion, respectively. Neither entails the sharp cutoff for p≥4 and r≥3; no inspected general pebble-game or Johnson-graph work gives that classification. This pass is for that higher-width, higher-rank content, not for its special cases or for historical priority.",
+      "residual_risks": [
+        "A stronger unlocated theorem on bounded-variable interpretations of uniform subset systems could cover part or all of the result; catalog matches and statement inspections are not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": "Truncation at 2p for J(n,2), with least distinguishing width floor(n/2)+1 when n is the smaller order within its scope.",
+          "identifier_or_url": "Resultary d6ced804d9da",
+          "material_read": "RESULT.md Finding and limitations (opening and offset about 7200)",
+          "method": "Local Resultary mirror",
+          "title": "Exact width-depth coincidence for finite triangular graphs",
+          "trigger": "Same Johnson family at rank two"
+        },
+        {
+          "assessment": "Covers width three; not the stated higher widths",
+          "evidence": "Exact characterization by diameter and zero/nonzero distance-intersection support in FO^3.",
+          "identifier_or_url": "Resultary b3c9c3696e77",
+          "material_read": "RESULT.md Finding and comparison (opening and offset about 5600)",
+          "method": "Local Resultary mirror",
+          "title": "Non-counting three-variable logic sees exactly the support of distance-intersection numbers",
+          "trigger": "Broader distance-regular family"
+        },
+        {
+          "assessment": "Different logical fragment",
+          "evidence": "Quantifier depth at most 3, without a variable cap; almost all normalized ranks at least three fall in one of the seven classes.",
+          "identifier_or_url": "Resultary 57b74c10ad27",
+          "material_read": "RESULT.md Finding and limitations (opening and offset about 7600)",
+          "method": "Local Resultary mirror",
+          "title": "Seven rank-three theories of balanced finite Johnson graphs",
+          "trigger": "Exact census on the same graphs"
+        },
+        {
+          "assessment": "Framework, not family-specific cutoff",
+          "evidence": "General correspondence between k-variable logic and the k-pebble game.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "§2, p. 3, Theorem 2.1",
+          "method": "Open primary text",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "Potential general game theorem"
+        },
+        {
+          "assessment": "General game machinery",
+          "evidence": "Pebble characterization of bounded-variable equivalence; no Johnson cutoff in the inspected comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "§3, pp. 12–13",
+          "method": "Open paper text",
+          "title": "Logical Complexity of Graphs: A Survey",
+          "trigger": "General logic over graph families"
+        },
+        {
+          "assessment": "Metric ingredient, not logical classification",
+          "evidence": "The object is isometric embeddings into Johnson graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.04047",
+          "material_read": "Opening page",
+          "method": "Open primary text",
+          "title": "Distance-preserving subgraphs of Johnson graphs",
+          "trigger": "Same object and metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural family of uniform-matroid basis graphs, the result specifies exactly what a fixed number of reusable variables can recover even with unlimited depth. Both the threshold and the intervening order distinctions matter: an eventual equivalence bound alone would not identify the least width or the smallest Johnson representative. The construction gives an explicit unbounded hierarchy at a fixed rank without invoking counting, and does not assert minimum representatives in arbitrary graph families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

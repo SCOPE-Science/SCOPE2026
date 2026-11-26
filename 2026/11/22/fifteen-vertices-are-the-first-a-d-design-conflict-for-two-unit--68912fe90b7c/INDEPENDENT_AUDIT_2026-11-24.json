@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:39:38.761360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the zero-sum subspace the oriented path unit-current response has potential differences one on the chord's spanned path edges and zero elsewhere, so the 2x2 transfer matrix has diagonal entries equal to chord lengths and off-diagonal equal to overlap length. The determinant lemma and matrix-tree normalization give (1). Subtracting the rank-two inverse correction and taking n times the trace gives (2) with exactly the stated centered-vector scaling. Independently, I built the grounded Laplacian directly for every graph, used exact determinant and rational inverse (FLINT), and compared all ties using the pairwise resistance formula R_ij=G_ii+G_jj-2G_ij with the grounded vertex extended by zeros. Summation is n*tr(G)-sum(G). Candidate completeness follows by choosing an unordered pair of distinct nonedges (including shared endpoints, excluding repeated chords and path edges); the 12 per-order counts sum to 13,104. The argopt sets coincide through 14 and are disjoint at 15, with precisely the two A and three D designs listed in the finding. All A designs give (tau,Kf)=(75,1004/5); all D designs give (85,3420/17); the gap is 32/85. At n=4 all three feasible pairs tie for both objectives; no case n>15 is inferred. Replay: python3 /workspace/repro/record5.py; output /workspace/repro/record5.out. This directly checks all candidates without the frozen scan's rank-two formulas or executing its supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al. covers selecting a k-set to maximize weighted spanning-tree count but that statement supplies no A criterion or exact path comparison.",
+          "Ghosh et al. optimizes over nonnegative real conductances with a normalized sum, rather than fixing this binary feasible set.",
+          "The uninspected global bicyclic minimization theorem cannot give the reported A shape as a global minimizer at 15: the 15-vertex star has Kirchhoff index 196, and adding two nonedges between leaves strictly decreases it. This yields a simple bicyclic graph below 1004/5, not in the path design space (its many degree-one vertices forbid a Hamiltonian path)."
+        ],
+        "reasoning": "Broad frameworks on one objective do not determine joint optimizers. An unconstrained minimization theorem whose optimum is strictly better at n=15 cannot imply constrained optimality merely by specializing its extremizer. Other constrained theorems or data remain possible and were not inferred from inaccessible snippets.",
+        "searches": [
+          "Khosoussi et al., arXiv:1604.01116v2, §4.1",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, formulation (2)",
+          "Primary literature: minimum Kirchhoff index of bicyclic traceable graphs; PII S0166218X15003236"
+        ]
+      },
+      "checked_sources": [
+        "580810ed58cd",
+        "b65b2ff40797",
+        "60416c4dd674",
+        "66b8a5ac1a02",
+        "01ff0b7f256c",
+        "arXiv:1604.01116v2",
+        "Ghosh–Boyd–Saberi MTNS 2006 opening formulation",
+        "68912fe90b7c (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perfect-matching support gap in b65b2ff40797 assumes priced continuous weights on complete bipartite graphs; it is genuine earlier A/D disagreement on another design space.",
+          "The balanced-diameter statement in 580810ed58cd studies an even-cycle base, not a path. Same date does not resolve priority or change the feasible-set mismatch.",
+          "No decisive theorem statement could be read in the Tseng–Wang source or the named complete bicyclic minimum paper. D-only classification, even if it gives the D values here, does not alone imply coincidence with A through 14 or disjointness at 15."
+        ],
+        "reasoning": "The contribution is the sharp comparison of complete optimizer sets. Neither prior evidence for objective disagreement elsewhere nor one exact objective on this family yields that comparison; the exact scores in a single witness likewise do not prove minimality.",
+        "searches": [
+          "Resultary b65b2ff40797, Finding; 580810ed58cd, Finding and assumptions",
+          "Tseng–Wang, DOI 10.1080/00207168908803727; Complete characterization of bicyclic graphs with minimal Kirchhoff index, PII S0166218X15003236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "68912fe90b7c was an exact self-match, not a distinct result.",
+          "580810ed58cd concerns diametric chords on an even cycle and alignment only in that placement family.",
+          "The traceable simple bicyclic graphs admit exactly the unlabelled shape formulation of the present family: the complement of a chosen spanning Hamiltonian path in such a graph consists of exactly two distinct edges. A graph-level classification in this same feasible family would still have to be mapped back to all labelled chord placements."
+        ],
+        "reasoning": "Trace/Kirchhoff and determinant/tree-count are equivalent objective formulations under the specified unit weights; neither even-cycle diameter placement nor global optimization on all bicyclic graphs is the same feasible family.",
+        "searches": [
+          "Resultary: 15-vertex two unit nonedges on a path, Kirchhoff index versus spanning-tree count, exact optimizer sets",
+          "Primary literature: minimum Kirchhoff index of bicyclic traceable (Hamiltonian-path) graphs / path with two chords, extremal theta graphs with few leaves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked catalogue match for the tie sets is the assigned record itself.",
+          "60416c4dd674 gives one unit link on a path; 66b8a5ac1a02 selects two cross-links between disjoint parallel paths; 01ff0b7f256c gives a D-only greedy result for three cycle chords."
+        ],
+        "reasoning": "Those tables or exact laws have different feasible universes or criterion and do not give both sets on the 13,104-path-design universe. No distinct exact same-universe table was located in checked material.",
+        "searches": [
+          "Resultary: path with two added chords 75 vs 85 spanning trees and Kf 1004/5 versus 3420/17; n=15, exact ties",
+          "Resultary 60416c4dd674, 66b8a5ac1a02 and 01ff0b7f256c, Finding and scope"
+        ]
+      },
+      "rationale": "The exact all-ties comparison on binary two-edge path augmentations, including first separation and its witness values, is distinct from the inspected results. The D-only extremum, generic A/D disagreement and the Laplacian update method are not treated as novel. A named literature access risk remains for constrained bicyclic results, but unrestricted global bicyclic minima cannot already characterize the A-optimal shape at 15 as an unrestricted minimizer.",
+      "residual_risks": [
+        "The potentially relevant bicyclic extremal papers and Tseng–Wang's D-side source were not inspected in full. An uninspected exact theorem with a Hamiltonian-path or related restriction, or an equivalent optimizer table, may partially or wholly overlap.",
+        "This judgment is for the joint finite comparison and not for independent novelty of the maximum spanning-tree sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted even-cycle placements, not the path result",
+          "evidence": [
+            "Both objectives favor balanced placements among pairs of diameters."
+          ],
+          "identifier_or_url": "580810ed58cd",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1961",
+          "method": "Local mirror statement passage",
+          "title": "Exact A–D alignment for two diametric chord placements on an even cycle",
+          "trigger": "Closest same-day two-chord A/D comparison"
+        },
+        {
+          "assessment": "Different feasible space and separation parameter",
+          "evidence": [
+            "Different thresholds for deleting a marked matching with priced continuously allocated conductances."
+          ],
+          "identifier_or_url": "b65b2ff40797",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement passage",
+          "title": "An A versus D support gap for a priced perfect matching in complete bipartite graphs",
+          "trigger": "Earlier exact A/D separation"
+        },
+        {
+          "assessment": "One unit shortcut and no D criterion",
+          "evidence": [
+            "Optimizes the placement of one unit shortcut by resistance."
+          ],
+          "identifier_or_url": "60416c4dd674",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Optimal one-link resistance repair of a path: an exact eight-step law",
+          "trigger": "Exact path A-design optimization"
+        },
+        {
+          "assessment": "Cross-links between two paths, not chords on one path",
+          "evidence": [
+            "Two cross-rungs and a different resistance optimization universe."
+          ],
+          "identifier_or_url": "66b8a5ac1a02",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Optimal placement of two cross-links between parallel paths",
+          "trigger": "Exact two-link A-design optimization"
+        },
+        {
+          "assessment": "Three chords on cycles, D-only greedy comparison",
+          "evidence": [
+            "The algorithmic failure statement does not concern the path A/D sets."
+          ],
+          "identifier_or_url": "01ff0b7f256c",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror passage",
+          "title": "Nine vertices are the first tie-robust failure of greedy three-chord augmentation",
+          "trigger": "Sharp finite chord-augmentation boundary"
+        },
+        {
+          "assessment": "Broader D formulation, not the joint classification",
+          "evidence": [
+            "Choose a k-set of new candidate edges to maximize weighted spanning-tree count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116v2",
+          "material_read": "§4.1 p. 7, PDF offset 18042",
+          "method": "OA source PDF passage",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "General discrete D-optimal edge augmentation"
+        },
+        {
+          "assessment": "Continuous allocation, different feasible set",
+          "evidence": [
+            "Minimizes over g≥0 with 1^T g=1."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "p. 1, PDF offset 1886",
+          "method": "OA source PDF passage",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General A-optimal resistance design"
+        },
+        {
+          "assessment": "Unrestricted optimum cannot yield the constrained n=15 A-optimal shape as a global minimizer; additional coverage not resolved",
+          "evidence": [
+            "Abstract advertises minimum Kirchhoff index for all bicyclic graph orders n≥4; theorem text could not be retrieved."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X15003236",
+          "material_read": "Indexed abstract snippet only, not theorem or appendix",
+          "method": "Focused literature search and lawful article/PDF retrieval attempts",
+          "title": "Complete characterization of bicyclic graphs with minimal Kirchhoff index",
+          "trigger": "Potential stronger result about order-by-order minimal Kirchhoff index of bicyclic graphs"
+        },
+        {
+          "assessment": "No statement-level judgment about specific constrained optima",
+          "evidence": [
+            "No decisive theorem was available from the attempted PDF read."
+          ],
+          "identifier_or_url": "MATCH Communications in Mathematical and in Computer Chemistry 61(3), pp. 697–712",
+          "material_read": "Indexed introductory snippet only",
+          "method": "Focused literature search; PDF retrieval timed out",
+          "title": "Bicyclic graphs with extremal Kirchhoff index",
+          "trigger": "Potential stronger extremal result"
+        },
+        {
+          "assessment": "Unresolved D-only overlap; result not used to decide joint A/D coverage",
+          "evidence": [
+            "No decisive theorem available from the attempted retrieval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207168908803727",
+          "material_read": "Bibliographic hit only in independent retrieval",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Maximizing number of spanning trees based on cycle basis representation",
+          "trigger": "Potential exact bicyclic D-optimal precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both design criteria are standard, and adding just two unit shortcuts to a path is a natural minimal discrete augmentation family in which chord interactions matter. The precise first size where no design is optimal for both is a meaningful structural benchmark. Proving equality of complete optimizer sets before that, rather than comparing selected representatives, rules out tie artifacts. The exact resistance penalty calibrates the mismatch; its small numerical size is not the reason for scientific value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

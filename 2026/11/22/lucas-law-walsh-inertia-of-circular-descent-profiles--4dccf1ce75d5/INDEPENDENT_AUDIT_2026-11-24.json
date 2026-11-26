@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:32:11.913118Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each character is an eigenfunction of counting XOR convolution with eigenvalue n! times its mean under the uniform descent law; the characters are a full basis even when eigenvalues coincide. For a proper frequency an unmarked edge cuts the cycle into a path; different marked runs involve disjoint blocks of positions. Independent continuous labels yield a uniform rank permutation and prove independence of the within-block rank permutations, including for consecutive runs separated by just one unmarked edge. A run of length r therefore gives A_{r+1}(−1)/(r+1)! in the expectation. The Eulerian series specializes to 1+tanh z. The odd coefficients alternate and are all nonzero: in f'=1−f² for f=tanh z, the contributing products at each positive even order all have the same sign, opposite to the sign of the next odd coefficient. The constant and all even positive degrees are as stated. For the full frequency, rotate the maximal element to the final position; the wrap contributes one descent and the n rotations are distinct, so that multiplier is −n A_{n−1}(−1). This checks the normalization, all signs and both parity cases. The supported proper masks are uniquely covered by matching within each even run (an end vertex forces the next edge). The full mask at even n is the only collision, of the two perfect matchings. The two-state edge indicator matrix gives the ordinary matching enumerator as its trace-power, with roots of x²−x−t; at t=1 the trace is L_n and at t=−1 it is 2 cos(nπ/3). Subtract the excess full-cover term at even n, with its correct sign (−1)^{n/2} at t=−1; sum and difference then give the two nonzero inertia counts, and the complementary dimension gives nullity. L_n~φ^n, yielding the stated fraction. Independent exact enumeration agreed on all 504 multipliers at n=3,…,8; the separate checker and logs are `independent_circular_descent_check.py`, `check_3_5.txt`, and `check_6_8.txt` in `/workspace/branches/3a015977-3acf-41ae-8106-385f368efda7/`. This is a finite cross-check, not the basis for the all-n assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petersen's structure polynomial is in the symmetric-group algebra, and its theorem is about multiplication there. The closely named circular-permutation Fourier catalog entry b20ad0bab9d9 concerns modular successions, not descents."
+        ],
+        "reasoning": "Group-algebra identities are not spectrum or inertia identities for Boolean counting convolution. Linear local factorization addresses essentially all single proper frequencies, but it does not give the periodic signed multiplicity law or double-count correction. No inspected stronger cyclic Walsh statement was found.",
+        "searches": [
+          "Petersen Cyclic Descents and P-Partitions, arXiv:math/0405479 Prop. 1.1 and Thm. 1.2",
+          "Resultary 241a4544ed1f, linear Walsh result",
+          "Resultary b20ad0bab9d9, circular-permutation Fourier inertia"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Independent permutation/Walsh comparison and two logs",
+        "Resultary 241a4544ed1f, b20ad0bab9d9, 4dccf1ce75d5",
+        "arXiv:math/0405479",
+        "arXiv:0806.0433",
+        "arXiv:0906.2795"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linear Eulerian-factor/even-run result applies without change to any proper cyclic mask rotated so the omitted closing edge is unmarked. Petersen, crediting Fulman, proves the cyclic descent polynomial from a fixed largest-entry representative and its n rotations; with ordinary descents enumerated by t^des, the identity reads n t A_{n−1}(t)."
+        ],
+        "reasoning": "Do not claim the local Walsh or full-mask formula as independent new facts. The cyclic support geometry and its signed enumeration require identifying frequencies across a cycle and removing exactly one duplicated full mask at even order; this is not obtained by substituting n in the Fibonacci rank or the cyclic Eulerian polynomial.",
+        "searches": [
+          "Resultary 241a4544ed1f, Finding",
+          "Petersen arXiv:math/0405479 §1.1 Proposition 1.1 (pp. 2–3, text at offset 9706 ff.)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Petersen uses the same positional cyclic descent set. Chang–Ma–Yeh's statistic records the larger values at descents; Elizalde instead restricts the permutation to a single cycle. The indexed linear Walsh record uses ordinary descent positions, so the factorization aligns with the proper-mask boundary after cutting."
+        ],
+        "reasoning": "XOR convolution is equivalent to the matrix indexed by pairs of Boolean masks with entry depending on their symmetric difference and to the Walsh diagonal of that matrix. Descent values or cycle-type involvements do not turn into that positional spectrum by relabelling the Boolean coordinates.",
+        "searches": [
+          "Resultary: circular and linear positional descent Walsh Fourier rank, spectrum and inertia",
+          "Petersen arXiv:math/0405479 §1.1",
+          "arXiv:0806.0433 p. 2 and arXiv:0906.2795 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match 4dccf1ce75d5 is the assigned record. The strongest distinct nearby rank concerns the linear model on a path and is Fibonacci. The cyclic Eulerian count is by total number of descents, not by individual positional masks."
+        ],
+        "reasoning": "An ordinary or cyclic Eulerian table has aggregated coefficient totals; it determines the empty and full frequencies, but not how the remaining frequencies contribute to the three inertia counts. No independent exact inertia table was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: circular descent profiles, exact Lucas rank and signed inertia",
+          "Resultary 4dccf1ce75d5, 241a4544ed1f and b20ad0bab9d9",
+          "Petersen arXiv:math/0405479 §1.1 cyclic Eulerian enumeration"
+        ]
+      },
+      "rationale": "The positional linear Walsh result already gives the proper-mask formulas by rotation to an unmarked edge. The full-mask multiplier is the classical circular Eulerian identity at −1. The supported distinct claim is the resulting cyclic spectral assembly, especially the single double-cover correction and exact all-n positive, negative and zero multiplicities. The strongest inspected prior sources do not supply that inertia. No priority certification is inferred from identical or same-day catalog hits.",
+      "residual_risks": [
+        "The cited Petersen thesis copy was not retrieved; the relevant base identity was verified in his accessible primary article instead.",
+        "A prior multivariate theorem or complete signed spectrum under an equivalent description could change the assessment. The bounded comparison does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic; covers full character, not Boolean Walsh inertia",
+          "evidence": [
+            "Definition is the set of cyclic comparison positions. Proposition 1.1 counts all rotations of permutations with maximum at the last position (ordinary Eulerian convention shifted by one in the paper). Theorem 1.2 concerns group-algebra multiplication."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0405479",
+          "material_read": "§1.1, Proposition 1.1 and proof, Theorem 1.2, pp. 2–3, offset 6710 ff.",
+          "method": "OA PDF located by topic and read by offset",
+          "title": "Cyclic Descents and P-Partitions",
+          "trigger": "Same position statistic and reported prior full-character relation; accessible alternate primary paper by thesis author"
+        },
+        {
+          "assessment": "Implies all proper frequencies by cutting; no cyclic signed-multiplicity census",
+          "evidence": [
+            "Linear position masks have products of Eulerian factors, even-run support and Fibonacci rank on a path."
+          ],
+          "identifier_or_url": "241a4544ed1f",
+          "material_read": "Original Finding for linear-position descent counts",
+          "method": "Local Resultary original comparison",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "Closest indexed signed-positional-transform analogue"
+        },
+        {
+          "assessment": "Different value-based coordinate statistic",
+          "evidence": [
+            "The set contains σ(i), not i, when σ(i)>σ(i+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.0433",
+          "material_read": "p. 2, definition, text offset 2098",
+          "method": "OA original excerpt",
+          "title": "Enumerations of Permutations by Circular Descent Sets",
+          "trigger": "Potential exact circular-descent-set enumeration equivalents"
+        },
+        {
+          "assessment": "Permutation cycle type restricted; not this cyclic-position statistic",
+          "evidence": [
+            "Studies ordinary descent sets of permutations consisting of a single cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0906.2795",
+          "material_read": "p. 1, problem statement, offset 2162",
+          "method": "OA original excerpt",
+          "title": "Descent Sets of Cyclic Permutations",
+          "trigger": "Potentially overlapping cyclic descent enumeration"
+        },
+        {
+          "assessment": "Identical assigned record, not independent prior coverage",
+          "evidence": [
+            "Same frequency-by-frequency theorem and exact inertia formulas."
+          ],
+          "identifier_or_url": "4dccf1ce75d5",
+          "material_read": "Original Finding and scope",
+          "method": "Indexed identity and frozen original",
+          "title": "Lucas-law Walsh inertia of circular descent profiles",
+          "trigger": "Exact ranked match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic Fourier-diagonal operator is natural and is not specified by the distribution of total cyclic descents. Its exact support and inertia determine recoverable and lost directions and quantify the sign imbalance, including a specific even-cycle correction and an arithmetic periodicity absent from the path rank count. This is a complete usable spectral classification of the stated invariant, not a small-order curiosity or only a reformulation of an Eulerian identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

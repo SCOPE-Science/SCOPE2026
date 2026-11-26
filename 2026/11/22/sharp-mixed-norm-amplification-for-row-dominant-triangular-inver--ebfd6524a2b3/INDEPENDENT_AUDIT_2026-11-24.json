@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:56:35.613610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In B=(I-G)^(-1), row i is the sum of its new coordinate vector and a combination of earlier rows, whose supports lie strictly before coordinate i. The Euclidean squared norm is therefore 1 plus the square of the row defect. The triangle inequality and the absolute budget give a defect bound of tau^2 times the largest earlier squared row norm. Inductively that is at most sum_{h=1}^{i-1} tau^(2h), attained simultaneously by the bidiagonal chain, also for n=1 with empty defect. This bounds the full class, not just parent forests. The bound ||B||_2<=1+||B-I||_F gives the limsup on division by sqrt(n). The first k+1 columns of each of n-k-1 leaf rows in the comb are identical, with squared norm sum_{h=1}^{k+1} tau^(2h); the normalized input proportional to those coefficients certifies the matching liminf as k tends to infinity with k/n tending to zero. Orthogonality and the absolute budget work over both fields. Unbounded inverse gain gives unbounded condition numbers as ||T||_2>=1 by its diagonal. Independent replay `python /workspace/branches/independent_replay.py 3` checks 585 exact Gaussian-grid matrices and three exact projected lower bounds; the spectral result is asymptotic and no exact finite spectral maximizer is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Echeverría–Liesen–Nabben give inverse bounds with a block-tridiagonal localization hypothesis. Dargaville–Pain use a tunable fine-fine row dominance ratio and discuss transient behavior of powers despite zero spectral radius."
+        ],
+        "reasoning": "The first restricts the matrix geometry rather than encompassing these arbitrary triangular row patterns; the second motivates the parameter without stating these precise inverse-norm extrema.",
+        "searches": [
+          "arXiv:1712.05662v2 abstract and §2",
+          "arXiv:2611.00552v1 §§4 and 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Higham (2021), triangular inverse comparison",
+        "Varah classical infinity-norm bound (original text not retrieved)",
+        "DOI:10.1137/060677562",
+        "arXiv:1712.05662v2",
+        "arXiv:2611.00552v1",
+        "SCOPE-2b7ae97c3b61",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing universal separate power bounds by the triangle inequality produces an ordinary sum of powers of tau, not the square-summed sharp coefficient. Infinity-to-Euclidean norm comparison alone gives at best an O(sqrt(n)) estimate here with a different constant."
+        ],
+        "reasoning": "The target's Pythagorean row recursion and alignment of the entire defect across the leaves are distinct simultaneous-power information. Neither follows as the asserted sharp inverse optimization from the retrieved one-power or row-sum bounds.",
+        "searches": [
+          "Higham Theorem 1 and classical infinity-norm bound",
+          "SCOPE-sharp-sparse-branching-transient-law-for-diagonally-dominant-tri--2b7ae97c3b61 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higham describes the comparison-matrix hierarchy |T^(-1)|<=M(T)^(-1)<=W(T)^(-1)<=Z(T)^(-1).",
+          "Classical strict row diagonal dominance gives ||T^(-1)||_infinity <= 1/(1-tau), independent of n. The named Peña paper concerns componentwise/Skeel conditioning.",
+          "Inverse defects sum powers of G, whereas Jacobi residual propagation involves a power of G (or a similar iteration matrix in general scaling)."
+        ],
+        "reasoning": "The comparison and row-norm estimates are not an equivalence to the extremal Frobenius or Euclidean quantities; maximizing an elementwise bound or a single power does not settle optimization of the norm of the inverse.",
+        "searches": [
+          "Higham, Bounds for the Norm of the Inverse of a Triangular Matrix, Theorem 1",
+          "DOI:10.1137/060677562 Skeel condition number",
+          "Resultary: row-budget triangular powers versus inverse norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed finding SCOPE-sharp-sparse-branching-transient-law-for-diagonally-dominant-tri--2b7ae97c3b61 gives the exact k-sweep residual amplification tau^k sqrt(M_(n,d,k)) and a threshold tau sqrt(d)<=1, with a bound d on nonzeros per column and equality by parent forests."
+        ],
+        "reasoning": "Although this shares the branching mechanism and the publication date, its observable and column-degree hypothesis differ. The comb here permits a growing terminal fan-out. Neither a match nor an order of priority follows from the common date.",
+        "searches": [
+          "Resultary semantic lookup: sharp triangular row dominance inverse gain; sparse branching Jacobi transient"
+        ]
+      },
+      "rationale": "Classical row and comparison-matrix inverse bounds do not give these sharp mixed-norm laws. The closest distinct indexed result has an exact Euclidean forest extremum for residual powers, not inverse summation. No inspected result gives or implies the squared Frobenius defect extremum together with the sharp coefficient of inverse growth.",
+      "residual_risks": [
+        "Peña's full theorem was inaccessible; a componentwise result with a non-obvious sharp inverse-norm implication is not ruled out.",
+        "An older extremal matrix result under different notation, or a stronger tree/shift norm result with the same finite-dimensional quantifiers, may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Elementwise comparison bound, not the row-budget optimization",
+          "evidence": "Hierarchy from comparison matrix to weaker majorants, applies to lower triangular matrices with adapted conventions.",
+          "identifier_or_url": "https://nhigham.com/2021/03/30/bounds-for-the-norm-of-the-inverse-of-a-triangular-matrix/",
+          "material_read": "Theorem 1 and remarks on the comparison hierarchy (locate offset 2742)",
+          "method": "Open website full-text passage",
+          "title": "Bounds for the Norm of the Inverse of a Triangular Matrix",
+          "trigger": "Direct triangular inverse bounds with matching norm terminology"
+        },
+        {
+          "assessment": "Named componentwise metric differs; indirect overlap cannot be fully excluded",
+          "evidence": "The advertised bound concerns the Skeel condition number.",
+          "identifier_or_url": "https://doi.org/10.1137/060677562",
+          "material_read": "Bibliographic identity and topic only; original theorem not inspected",
+          "method": "Direct and alternate OA lookups did not yield readable full text",
+          "title": "Strict diagonal dominance and optimal bounds for the Skeel condition number",
+          "trigger": "Sharp dominance-conditioned triangular factor estimates"
+        },
+        {
+          "assessment": "Localized block tridiagonal problem, different norm and extremal scope",
+          "evidence": "Defines row block diagonal dominance and imposes block tridiagonal structure for its inverse estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.05662",
+          "material_read": "Abstract offset 1199 and §2 offset 4307",
+          "method": "Open full-text passages",
+          "title": "Block diagonal dominance of matrices revisited",
+          "trigger": "Broader inverse bounds under normalized row dominance"
+        },
+        {
+          "assessment": "Direct motivation, but no checked sharp mixed-norm law",
+          "evidence": "The user-specified dominance target and nonnormal transient powers are discussed.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00552v1",
+          "material_read": "Offsets 5716 and 13234, contribution statement and §4",
+          "method": "Open full-text passages",
+          "title": "A comparison of parallel iterative methods for ILU triangular solves",
+          "trigger": "Same tunable dominance budget in triangular solves"
+        },
+        {
+          "assessment": "Substantive shared mechanism, different observable and admissible class",
+          "evidence": "Sharp residual amplification by one-parent forests under a column sparsity constraint, not Frobenius defect or inverse singular value.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sparse-branching-transient-law-for-diagonally-dominant-tri--2b7ae97c3b61",
+          "material_read": "RESULT.md, beginning at offset 0",
+          "method": "Published local mirror",
+          "title": "Sharp sparse-branching transient law for diagonally dominant triangular Jacobi solves",
+          "trigger": "Strongest indexed overlap in extremal Euclidean gain and forest witnesses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies exactly how a dimension-free row budget controls one norm while allowing an inverse gain of sharp order sqrt(n) in another. Exact chain attainment and the different comb construction expose two distinct optimization mechanisms for a motivated triangular-solve design constraint. The result does not claim this worst-case gain for actual ILU factors or convergence of a complete solver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

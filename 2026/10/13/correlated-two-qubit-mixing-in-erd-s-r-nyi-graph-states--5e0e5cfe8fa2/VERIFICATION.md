@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of exact two-qubit marginal covariance
+# Independent mathematical audit
 
-## Reproducible calculation
-The included `verify.py` uses only the Python 3 standard library. Run `python verify.py` from the directory containing this file. The executable enumerates every labeled simple graph on four, five, and six vertices: 64, 1024, and 32768 samples. For each graph, it forms two-row binary cuts and counts maximally mixed two-site marginals; it separately calculates isolated vertices. Accumulated expectations, second moments, mixed defect-isolation moments, and representative overlapping/disjoint pair covariances are compared with the closed formulas using exact rational arithmetic.
+## correctness
 
-A distinct direct-quantum calculation constructs graph-state computational-basis signs and performs exact reduced-density-matrix sums on all 64 four-vertex graphs plus 100 five-vertex and 100 six-vertex graphs. It compares each marginal's equality to the maximally mixed density matrix with the cut-rank prediction. The documented execution result was `VERIFY_OK`.
+PASS
 
-## Scope of the checks
-Exact finite enumeration is not a proof for arbitrary qubit counts, and computational checks are not independent validation. The complete all-size proof is in `RESULT.md`, including conditional independence for two event-pair overlap types and the separate isolation covariance calculation. The asymptotic statements follow from explicit symbolic polynomial identities with \(t=2^{-(n-3)}\). Reproduction requires no downloaded datasets or external dependencies.
+Computational-basis tracing cancels the nontrivial binary characters of the external bits and leaves a nonzero off-diagonal precisely when the two-row cut has a nonzero left kernel. Two independent uniform rows yield the claimed p. I independently expanded the joint success probabilities by inclusion-exclusion on the three possible nonzero left-kernel vectors of each cut. For each intersection pattern the resulting linear constraints on shared/internal edges contribute 2^(-rank), and each outside column supplies an independent copy of the external constraint rank. In ascending powers of t the joint polynomials are (1,-11/4,11/4,-1,0) for overlap and (1,-3,11/2,-6,4) for disjointness. Subtracting p² gives both strictly positive claimed covariances, also at n=4. The factors of 6 in the variance double the three unordered choices per triple or quadruple. For the mixed isolation moment, a specified isolate inside the pair guarantees deficiency, and one outside removes an independent column, giving conditional deficiency 3t−2t². An isolate has probability t/4 and two have probability 2(t/4)². Hence the respective coefficients of t in Var(Y), Var(Z), Cov(D,Z) are n(n−1)(n+1)/4, n/4, and n(n−1)/4. This gives n(n−1)/2 in the residual variance, with all higher terms and the squared residual mean bounded by O(n⁴t²). Substituting t=8·2^(−n) yields the announced leading variance and expectation and the one-third mean share.
+
+## originality
+
+PASS
+
+Cut rank is established and the connection to low-weight stabilizers is substantive. The distinct contribution surviving the inspected comparisons is the exact two intersection-type covariances across sampled graphs and the quantitative fluctuation decomposition. The known first moments of the low-weight sectors are not the needed joint moments.
+
+## value
+
+PASS
+
+Independently sampled edges do not make disjoint pair tests independent. The exact intersection-type covariances quantify that dependency and supply the variance of a natural count of maximally mixed marginals. The sharper residual distinguishes two facts that a one-site expectation misses: isolates account for the leading variance but only a third of the leading mean. This supports exact fluctuation estimates for the canonical dense graph ensemble without extrapolating to circuits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

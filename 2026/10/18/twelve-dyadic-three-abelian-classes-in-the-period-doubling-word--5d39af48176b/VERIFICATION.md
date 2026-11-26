@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_period_doubling.py` with Python 3 (standard library only). A completed direct run returned:
+## correctness
 
-```
-VERIFY_OK independent_generation=262144 dyadic_scales=10 other_even_lengths=63
-```
+PASS
 
-The script independently constructs the first 262,144 bits both from the substitution and the parity of the exponent of two dividing the index plus one. It counts every length-three factor with independent sliding counters for even lengths \(4,6,\ldots,128\) and at dyadic lengths \(8,16,\ldots,4096\). For all checked even lengths, complete frequency signatures correspond bijectively to the triple of ones count and two-symbol endpoints. For each checked dyadic length at least 16, it also checks that all exactly twelve predicted signatures and no others occur, as well as the explicit formula for the 101 count.
+The repaired theorem is for even n at least four only. Ones are on odd positions and there are no runs 0000, so internal gaps of zeros have lengths one or three. The opposite endpoint parities give L+R=1+2[a=00]+2[b=00], whence the 101 count from the two gap equations. Pair counts and the other allowed triples follow by extending pairs and subtracting the correct one-sided boundary indicator. Conversely failure to extend a pair at each end recovers that end, and one-letter multiplicity recovers K. The independent complete-language factor enumeration covers 65 even lengths and confirms both directions; the gap proof is what establishes all lengths.
 
-Reconstruction identities, the base witnesses, and the substitution induction in RESULT.md—not these finite checks—establish the theorem for all claimed lengths. The finite sample does not prove the factor language is exhausted beyond the checked prefixes. No independent scientific audit was performed.
+## originality
+
+PASS
+
+Distinct only for the repaired all-even, including nondyadic, exact equivalence theorem. The strongest distinct indexed match fully covers the frozen dyadic classification but its two-block rotation and bridge argument requires a dyadic length. The inspected two-Abelian and tentative three-block results do not determine the three-letter counts from just weight and two-letter ends at general even length.
+
+## value
+
+PASS
+
+This is a structural compression for an established complexity invariant on a standard automatic word, applicable across all even lengths. It gives sufficiency of a single one-letter count plus ordered ends, removing all interior triple counters even for nondyadic enumeration. The gain relies on the word's gap geometry and is not the generic fact that equivalence preserves ends.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For nonzero scalar multiplicative oracles the clipped mean field is continuous, odd and piecewise affine, with breakpoint values \(H(c/a_1)=c\mu/a_1\), \(H(c/a_2)=c(s_1p_1+s_2p_2+s_3p_3a_3/a_2)\), and \(H(c/a_3)=cS\). The signs and linearity prove the exact support-minimality and sign-pattern threshold. The explicit oracle has an exact four-branch field, so its equilibrium locations and deterministic mean-map basins are proved without limiting experiments. For genuine clipped SGD, a stopped-square supermartingale and the exact square-summable steps establish the \(1-\pi^2/24\) lower probability of convergence to the wrong stable point. Unclipped SGD is an eventual nonnegative squared-error supermartingale with a vanishing mean. The rational checker tests finite specializations only; the proof handles all required quantifiers. Boundary equality is a touching zero, not falsely called a double simple root.
+PASS
 
-## Originality — PASS (qualified)
+At the first clipping knot the value is μ times the knot, and at the last it is cS. With at most two nonzero magnitudes positivity follows by interpolation; an atom at zero contributes nothing. With three distinct magnitudes a zero requires a nonpositive middle value. If the largest multiplier is negative, μ>0 makes the middle value strictly positive; if the smallest is negative, S>0 does the same. The remaining negative case has signs (+,−,+); the middle value c(p1−p2+p3a3/a2) gives the strict and touching cases, and solving on the two adjacent affine pieces gives the stated roots and stability by the drift sign. In the sample, scaling x by c gives successive positive-half slopes 7/5, −1, 1/5 and 0, with the claimed zeros. The complete clipped mean is globally 7/5-Lipschitz, so the mean update with η≤5/7 is nondecreasing, preserves intervals bounded by fixed points, and the signs give monotone convergence to the stated endpoints. For the sample recursion stopped at distance c/2 from c, the conditional drift is −η_n(X_n−c)/5 and the square increment budget is c²η_n²; the square and deterministic tail budget form a nonnegative supermartingale. Exit probability is at most 4 sum η_n²=π²/24 and the finite accumulated negative drift forces convergence on nonexit since sum η_n diverges. In the unclipped recursion E[A²]=65/2 and eventual squared-error contraction is at most 1−(7/5)η_n, yielding zero expectation limit and hence an almost-sure zero limit by supermartingale convergence. The frozen verifier is supplemental rational testing, not a stochastic proof; it was inspected, not executed.
 
-Nekrasova et al. (2026), Appendices H.4 and H.5, give respectively a unique shifted attractor under additive noise and an outward-escaping two-point multiplicative oracle. Koloskova et al. (2023), Section 3.1/Appendix C.5, present additive Bernoulli fixed-point bias. The earlier Faw et al. (2023) oracle is the two-point construction identified by the 2026 paper, and its two-point multiplicative failure is not the balanced inward-field, minimal-three-atom bistability statement. Searches for clipped-gradient multiple equilibria, aliases, signed curvature phase diagrams, and stochastic wrong attractors found no stronger theorem implying the result. This is a best-knowledge novelty judgment, not proof of historical uniqueness; the relevant primary Faw proposition and proof were inspected directly in the 2023 PMLR PDF, although unindexed material remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a sharp **minimal stochastic-oracle complexity threshold** separating two-atom inward clipping from three-atom multistability. Its coherent exact five-zero phase diagram makes the pathology visible even though the optimum is locally attracting and the far-field clipped drift is inward; the positive-probability Robbins–Monro wrong-limit theorem shows the phenomenon is not only an expectation-map artifact. The unclipped comparison isolates clipping as the mechanism. The constraints \(\mu,S>0\) and strict atom ordering make this a structural boundary, rather than a routine restatement of generic clipping bias.
+Credit prior clipping bias and divergence examples. The distinct conjunction supported here is the minimal nonzero support classification with inward mean descent at both ends, and a concrete bounded wrong-limit event for diminishing steps with an almost-sure unclipped contrast. The available comparisons support this distinction provisionally, not publication priority.
 
-## Scientific limitations and closest related literature
+## value
 
-The support-minimality classification is restricted to scalar signed multiplicative curvatures and nonzero distinct magnitudes in the three-atom representation. Sampled losses need not each be convex. No complete distribution of the stochastic limit is established. Closest literature: Nekrasova et al. (2026, arXiv:2610.28107, Appendix H.4–H.5); Koloskova et al. (2023, arXiv:2305.01588, Sections 3.1 and C.5); Faw et al. (2023, arXiv:2302.06570, via the two-point example reproduced in the 2026 paper). The source search and full-text access do not eliminate historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp support minimality under positive curvature and positive signed mass separates transient clipping bias or far-field divergence from a genuine competing bounded attraction basin. The explicit same-oracle clipped/unclipped comparison makes the failure relevant even for a strongly convex true objective and decreasing steps. The signed sample curvature and specified oracle/steps are essential scope restrictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

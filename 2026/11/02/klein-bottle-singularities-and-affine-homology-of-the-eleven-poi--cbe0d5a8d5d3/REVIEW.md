@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns exactly the finite Paley tournament on eleven field elements. The standalone checker enumerates all subsets and verifies the full simplex incidences, each surface link and the orientation obstruction, rather than extrapolating from a sample. It computes boundary ranks over \(\mathbb F_3\) equal to \((10,45,55)\); chain-complex inequalities force exactly these ranks over \(\mathbb Q\). The character proof separately uses the fixed-point Lefschetz calculation and the fact that a transitive tournament has no nonidentity automorphism. Rational quotient homology follows from finite-group coinvariants. Reexecution succeeds with the stated marker. Critical conditions and their proof are contained in the result, not inferred from a program log.
+## correctness
 
-## Originality — PASS against inspected literature and indexed claims
-Govc's Proposition 3.4 already supplies the exact nonequivariant homotopy type, with ten rational degree-two generators and \(\mathbb Z/2\) torsion. It does not provide the vertex-link classification or the action of the affine group on these generators. McCarthy–Springfield already supplies the transitive triple and quadruple counts, but counting simplices does not determine the topology of their incidence links or the rational module. Targeted searches of indexed mathematical findings located related affine homology for the Paley-19 directed flag complex, a Paley-29 graph Rips complex with Klein-bottle links, and distinct Paley-11 out-neighborhood/Hom constructions; none implies this theorem. Inaccessible or unindexed specialized finite classifications remain a residual novelty risk.
+PASS
 
-## Value — PASS
-The links reveal eleven explicit isolated nonmanifold singularities in the natural small torsion example from Govc's classification. The ten-dimensional rational homology space receives a complete natural order-fifty-five symmetry decomposition and quotient consequences; these are not determined by the already-known ten-dimensional Betti number. The contrast between translation quotients and the dilation quotient gives a concrete geometric use of the new representation. Neither the link identification nor the quotient distinction is an arbitrary parameter slice.
+The repaired claim is only that the directed flag complex is a normal 3-pseudomanifold with exactly its eleven vertices as singularities and a Klein bottle at each vertex link. Exhaustive source-deletion applies to sizes 1–5, and absence of a transitive 5-set excludes all larger faces. The exact incidence check gives purity, exactly two tetrahedra per triangle and connected tetrahedron adjacency. It reconstructs the entire link at zero, including all lower faces, with counts (10,30,20), two triangles per edge, connected triangle adjacency and a single six-cycle at each link vertex. Thus it is a connected closed surface with Euler characteristic zero. On the closed dual walk 268–267–257–157–178–189–689–268 the orientation constraints have five negative products, so no consistent orientation exists. This identifies the surface as the Klein bottle. Translation transfers the certificate to each vertex. Edge links are circles, triangle links are pairs of points, and the tetrahedra have interior manifold charts. All required links for normality are connected, and each vertex has nonzero degree-two rational local homology from its Klein-bottle link, excluding even a manifold-with-boundary neighborhood. The corrected checker was written anew and run with Python 3, returning PALEY11_KLEIN_BOTTLE_LINKS_OK. This verifies the decisive finite inputs in the revised proof, without running any uploaded code.
 
-## Boundaries and status
-No claim is made to a new Moore-space decomposition, to integral representation theory, or to a general Paley-tournament family. Independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reassessed only the repaired local statement. The most decisive overlap is the earlier affine-quotient record on the exact complex, which explicitly covers the global equivariance and quotient data and is now cited for them, not presented as part of the finding. The named primary work establishes global homotopy and known face counts. None of the strongest inspected sources supplies the Klein-bottle link identification or singular-locus conclusion for this complex.
+
+## value
+
+PASS
+
+The repaired result supplies local PL geometry of an established small, highly symmetric tournament complex. It determines exactly where the complex fails to be a manifold and identifies every link surface, information not determined by the known global homotopy type or homology and useful when studying strata or local homology of the complex. The concrete orientation obstruction supplies an explanation of the nonorientable link, not just an additional face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

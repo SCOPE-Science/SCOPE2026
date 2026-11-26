@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:48:38.018053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The increment-first-letter boundary rule gives all ordered pairs, so for n <= 9 the length-nine second-substitution blocks over those pairs supply the whole language. Independently, the adjacent differences in the two-block window are D, wildcard, D with D=(0,1,-1,0,1,0,0,1); the wildcard is arbitrary because both block letters range freely. Reversal negates and reverses the differences. Comparing templates for n=3,...,9 uses only the distinguishable constants -1,0,1 modulo q>=3; there are 54,27,15,7,3,1,0 matches respectively, every match fixes every difference, and their integrated normalized signatures reproduce the stated table. The distinct signatures remain distinct modulo every q>=3. Directly reversing them gives 2,1,1,1,1,1,0 palindromic types. Lengths 1 and 2 are elementary; above length 9 any reversible factor would give one at length 9, and the length-eight palindrome makes the barrier sharp. Replay paths: /workspace/branches/audit-2-differences.py (difference-template reconstruction, also independently evaluated) and the exact weighted-disjoint-set enumeration /workspace/branches/7d5b45f9-3fe3-47f9-81d0-ea2796f3c76d/audit_certificate.py (executed and independently corroborated at q=3,4,5). The frozen graph and direct-prefix scripts and captured outputs were inspected, not executed; finite-prefix sampling is not used to establish the universal claim. The result does not cover q=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche et al. analyze the ternary three-repeat rule for abelian complexity; the same-day two-letter-factor cutoff record really contains the entire r=2 family but concerns bounded alphabet size of factors.",
+          "Frid–Laborde–Peltomäki derive a regularity consequence conditional on finitely many palindromes."
+        ],
+        "reasoning": "A theorem about few letters cannot count reversals in this language, and a theorem conditional on finiteness of palindromes cannot establish the antecedent or exclude nonpalindromic reversible factors.",
+        "searches": [
+          "arXiv:2610.03837v1, Lemma 3 and Remark 4",
+          "arXiv:2009.02934, Theorem 11",
+          "Resultary record 3f49855d5bf1"
+        ]
+      },
+      "checked_sources": [
+        "Rowland–Yassawi, DOI 10.4153/S0008414X19000488",
+        "Allouche et al., arXiv:2610.03837v1",
+        "Frid–Laborde–Peltomäki, arXiv:2009.02934",
+        "Resultary 3f49855d5bf1 and 2fe09ee974cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pair completeness fixes exactly the short pair case; the same-family cutoff restricts low-alphabet factors; Theorem 11 concerns prefix palindromic length given finitely many palindromes."
+        ],
+        "reasoning": "None of those implications compares reversed difference templates or supplies the sharp length-eight/length-nine boundary. The audit credits the known word and pair case, not the distinct spectrum.",
+        "searches": [
+          "Rowland–Yassawi Examples 5.7 and 5.11",
+          "Same-family cutoff 3f49855d5bf1, Finding",
+          "Frid–Laborde–Peltomäki Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 5.7 gives 001/112/220, exactly the q=3 digit-two-count substitution; Example 5.11 has every length-two word.",
+          "The ternary reflection-barrier record uses 01/21/0, and its cutoff and length-seven witness differ."
+        ],
+        "reasoning": "Counting ternary digit twos modulo q is an equivalent description of the word and not a new construction. Ordinary reversal is not reversed-complement equivalence; the previously known pair completeness supplies only n=2, and the other substitution does not have the audited language.",
+        "searches": [
+          "Rowland–Yassawi DOI 10.4153/S0008414X19000488, Examples 5.7 and 5.11",
+          "Resultary search for the cyclic repeated-letter substitution and its reversal/palindrome spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is this assigned result itself. The mirror’s two-letter-factor cutoff 3f49855d5bf1 and ternary reflection table 2fe09ee974cf were inspected at offset 0; neither tabulates these reversal and palindrome counts."
+        ],
+        "reasoning": "The catalogue contains a genuine family overlap and a genuine reversal-table analogue, but not a demonstrated second table for the same word and observable. The focused lookup's lack of a direct hit is not a proof of absence.",
+        "searches": [
+          "Resultary search for the cyclic repeated-letter substitution and its reversal/palindrome spectrum",
+          "Focused literature search combining the substitution with reversals and palindromes"
+        ]
+      },
+      "rationale": "The q=3 substitution and its pair completeness are known, as are related substitution families and sharp barriers for other words. The evidence does not establish prior equivalent coverage of this family’s ordinary reversal/palindrome spectrum and sharp common cutoff. The distinct same-day same-family record concerns a different property and no priority is inferred from dates.",
+      "residual_risks": [
+        "An unindexed factor-language calculation under another digit-count description could give an equivalent table; no exhaustive historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object and pair-completeness coverage at q=3; no spectrum in the inspected results",
+          "evidence": [
+            "The three displayed images are 001,112,220; Example 5.11 gives all length-two words in each fixed point."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S0008414X19000488",
+          "material_read": "Examples 5.7 and 5.11, PDF pp. 22 and 25, OA offsets 87259 and 98432",
+          "method": "OA PDF passage inspection",
+          "title": "Automaticity and Invariant Measures of Linear Cellular Automata",
+          "trigger": "Exact ternary substitution"
+        },
+        {
+          "assessment": "Same family including r=2, different invariant",
+          "evidence": [
+            "a maps to a^r(a+1), q>=3, r>=2; theorem is about factors using at most two letters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-two-letter-factor-cutoff-for-cyclic-repeated-letter-subs--3f49855d5bf1/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary discovery and local mirror full-text passage",
+          "title": "A sharp two-letter factor cutoff for cyclic repeated-letter substitutions",
+          "trigger": "Same family in distinct same-day record"
+        },
+        {
+          "assessment": "Different fixed point and a count of reversal classes",
+          "evidence": [
+            "The images are 01,21,0; maximum reversible length is seven with witness 1012101."
+          ],
+          "identifier_or_url": "Resultary 2fe09ee974cf, 2026/10/25",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Exact reflection spectrum and a sharp reversal barrier for a ternary morphic word",
+          "trigger": "Near-identical reversal question"
+        },
+        {
+          "assessment": "Different repetition count and invariant",
+          "evidence": [
+            "Ternary a maps to aaa(a+1); the paper analyzes abelian complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03837v1",
+          "material_read": "Lemma 3 and Remark 4, OA offset 9000",
+          "method": "OA article passage",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Repeated-letter morphism framework"
+        },
+        {
+          "assessment": "Conditional regularity, not this language classification",
+          "evidence": [
+            "The hypothesis is finitely many distinct palindromes, not a conclusion counting them."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.02934",
+          "material_read": "Section 3, Theorem 11, OA offset 13789",
+          "method": "OA article passage",
+          "title": "On prefix palindromic length of automatic words",
+          "trigger": "Possible general automatic-word theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This fixed point is a recognized automatic construction. The exact transition from a sharp length-eight palindrome to absence of every reversible factor at length nine is a strong directional property, beyond just nonclosure under reversal or a finite experimental cutoff. The table distinguishes palindromes from reversible nonpalindromes and its modulus-independent certificate makes it useful across the whole family, not merely at a single small alphabet.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

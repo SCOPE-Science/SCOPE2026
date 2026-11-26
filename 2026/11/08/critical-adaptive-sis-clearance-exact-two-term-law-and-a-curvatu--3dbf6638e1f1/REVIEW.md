@@ -1,19 +1,21 @@
-# Review of critical adaptive SIS clearance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem begins with the exact two-equation published deterministic model and explicitly restricts to positive \(C^3\) monotone response functions at \(\mathcal R_0=1\). The upper contact comparison supplies a global algebraic prevalence bound. The precise link expansion follows from stable forcing and the subexponential slow-variation estimate; substituting its first two response jets produces \(K\) and \(B\). The derivative of the residual \(1/y-Kt-B\log t\) is integrable, proving a finite constant rather than only an \(O(1)\) bound. Exact algebra, a symbolic invariant-graph defect check and full-system numerical diagnostics passed. Computation is not used to assert global convergence or convergence of the finite remainder.
+PASS
 
-## Originality — PASS on the inspected record
+Reassessed complete replacement /workspace/repairs/3/RESULT.md. Inward boundary signs and y'=y times a bounded coefficient give forward invariance and finite-time positive prevalence. Scalar comparison gives (z−z0)_+ exponentially small and y'≤−y²+g(t)y with integrable nonnegative g; the integrating factor gives y=O(1/t). Stable linear forcing for z−z0 tends to zero, so (log y)'→0. Forcing O(y^j) in a stable scalar equation implies response O(y^j) by choosing a late relative-variation rate ε with jε below the eventual damping, then convolving the exponentials. In succession this gives w=O(y), w−h1 y=O(y²), and w−h1 y−h2 y²=O(y³). Matching y² in w' gives A2−L1 h1−L0 h2=−Kh1. Thus r'=K+KB/r+O(r⁻²), r∼Kt, then r−Kt=O(log t); the derivative of r−Kt−B log t is absolutely integrable. Exact substitution gives h2=−κ/4−1/16 and B=κ/3−1/4, including zero at κ=3/4. Original lines 129–130 incorrectly said no lower-order constant changes with curvature if read for the finite asymptotic constant C. Indeed take common initial data y=s, z=z0+h1 s, with s small. Here y≤(1/s+t)⁻¹ and the stable expansion, now with initial quadratic defect O(s²), leaves r'=K+KB/r+O(r⁻²+s exp(−ηt)) with constants uniform in small s for each fixed κ (the log-variation bound is O(s)). Integrating (r−B log r)'−K gives C=1/s+B log(Ks)+O(s); for κ=0 and 1 the difference is nonzero for sufficiently small s. The repair removes this assertion and clarifies model dependence without changing the valid finding. Replay: repaired proof §§1–5 and this comparison; frozen verify.py was inspected but not run. Deterministic ODE only, no uniform-in-model or stochastic claim.
 
-The initiating paper [1] defines the flow, invasion threshold and Jacobian, but leaves the equality case unresolved. The later same-author multigroup paper [2] proves global stability strictly below threshold and provides qualitative network results; it does not claim this equality-case critical coefficient. Two existing nearby results concern respectively the *supercritical* endemic damping spectrum when baseline link breaking is zero and a *multigroup critical leading* law when baseline link breaking vanishes. Neither implies the new positive-baseline, second-order coefficient law. The closest indexed logarithmic-relaxation work deals with a bullying-index threshold, not this adaptive SIS system. Relevant original articles and their key sections were read, with an explicit literature-access risk retained for earlier link-rule classifications and unindexed publications.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a naturally nonhyperbolic epidemic-control boundary for a broad class of risk functions, then quantifies finite-time clearance at the level beyond the usual \(1/t\) asymptotic. Specifically, the identical leading coefficient \(K=3/2\) at every curvature in the increasing breaking family masks an exact sign reversal of \(B\) at \(\kappa=3/4\). This has a model-internal interpretation—curvature in reactive distancing changes the next-generation depletion correction while not changing basic invasion or its leading amplitude. It is not merely a renamed center-manifold expansion, an arbitrary computational slice, or a finite experiment.
+Pass for the model-specific critical global law with explicit positive-baseline response-jet logarithmic term, finite remainder, and curvature crossing. Neither the adaptive SIS equations, the threshold, the generic critical normal form, nor all first-order critical behavior are claimed new. The repaired text adds no priority claim.
 
-## Closest literature and limits
+## value
 
-[1] M. A. Achterberg and M. Sensi, *A minimal model for adaptive SIS epidemics*, arXiv:2209.01224v1 (2022-09-02), *Nonlinear Dynamics* 111 (2023), DOI:10.1007/s11071-023-08498-4. [2] M. A. Achterberg, M. Sensi and S. Sottile, *A minimal model for multigroup adaptive SIS epidemics*, arXiv:2407.17639v3. The theorem is deterministic and assumes \(C^3\), strictly positive monotone link responses. It has no direct stochastic, supercritical, or parameter-uniform implication. An equivalent unindexed prior result remains a publication-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result resolves nonlinear clearance at the critical boundary left by a zero Jacobian eigenvalue for every physical infected initial state. Its leading and logarithmic jet formulas distinguish response curvature at the same equilibrium and leading decay rate, including a sharp sign boundary; the finite remainder makes this distinction precise. This is a deterministic mathematical prediction, not a stochastic or empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

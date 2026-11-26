@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:09.921159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The staggered gauge t_i=(−1)^i s_i is compatible with the periodic edge for even n and gives Δ_iH=2t_i[h−J(t_{i−1}+t_{i+1})]. For 0<h<2J the bracket is negative exactly when both neighbors are +1 and positive otherwise. Hence defects are independent and every aligned site has a defect neighbor: this is precisely a maximal independent subset of the labeled cycle. The interdefect distances are 2 or 3. For k defects exactly n−2k of the gaps are long, and marking a defect gives n times the binomial count with k-mark multiplicity, irrespective of rotational symmetry. The three-state gap automaton counts labeled closed paths, with characteristic polynomial x³−x−1 and initial traces 3,0,2. Its nonreal roots have common modulus ρ^(−1/2), yielding log ρ along the even lengths. At h=2J the energy is −nJ+4J times the number of adjacent defect pairs, so all independent sets are ground states and the Lucas comparison is correct; the domination condition is lost. A separately written exact physical-flip census at J=1,h=3/4 tested every spin assignment for n=4,6,…,18, the individual stability equivalence, and every k coefficient; totals were 2,5,10,17,29,51,90,158. Replay: branches/aa7d57d7-bcca-4481-9276-5311771a405f/independent_census_check.py and independent_census_results.txt. The single sampled field does not prove the open-interval assertion; the sign classification does. The supplied verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first indexed theorem gives the full weighted partition and exponential rate, allowing odd rims too.",
+          "The related uniform-field wheel record explicitly has a weak-field hub sector with maximal-independent rim states; its full field-dependent theorem is on a different graph.",
+          "The De Smedt et al. passage uses kinetically constrained chains and does not supply this Hamiltonian's partition."
+        ],
+        "reasoning": "Fixed-hub specialization and gauge identify the earlier wheel theorem for every nontrivial even case n≥6; the omitted n=4 case consists of the two alternating defect words by the same local test. Different constrained dynamics are not needed for this implication.",
+        "searches": [
+          "Antiferromagnetic Ising wheel record, one-spin theorem for all rim lengths n≥5",
+          "Magnetic-field collapse and critical enhancement of single-spin blocking on the wheel, mirror weak-field sector",
+          "De Smedt–Godrèche–Luck, arXiv:cond-mat/0202465, blocked-state setting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_staggered.py",
+        "Resultary semantic index and two wheel result mirrors",
+        "Bisdorff–Marichal arXiv:math/0701647",
+        "Castorene et al. arXiv:2511.01646v2",
+        "De Smedt et al. arXiv:cond-mat/0202465",
+        "Yi–Baek arXiv:1506.01098",
+        "Masui–Southern–Jacobs DOI:10.1103/PhysRevB.39.6925 (abstract-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel proof explicitly derives the same two forbidden patterns and the automatically nonnegative hub flip. Its relationship section notes an equivalent staggered-field chain coding without identifying a primary citation."
+        ],
+        "reasoning": "The supported implication uses the published equation and local stability proof, not the uncited remark: freeze the hub, apply the even-cycle spin gauge, and vary h inside the interval of unchanged flip signs. Then the identical weighted combinatorial model yields the entire census and asymptotic; the only length not in the wheel theorem is the elementary C4 case.",
+        "searches": [
+          "Wheel mirror offsets 0–3292 (Finding and assumptions), 3292–4997 (one-spin proof), 9220–10820 (relationship and limitations)",
+          "Bisdorff–Marichal, cycle gap decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel has energy J(Σ_i t_i t_{i+1}+s_h Σ_i t_i) and exact weighted one-spin census Z_n^(1)(y)=2 Σ_m (n/m) binom(m,n−2m)y^m.",
+          "The wheel proof forbids adjacent hub-aligned spins and three consecutive hub-opposed spins; these conditions guarantee hub stability, with hub flip cost 2J(n−2m)."
+        ],
+        "reasoning": "Set the hub to −1. Its rim is exactly the gauged ring at h=J and m=k; the additional hub test is automatic for every admissible rim. Spin reversal exchanges the hub sectors without changing the weight, so one sector gives Z/2. All weak-field rim increments retain their sign for 0<h<2J.",
+        "searches": [
+          "Resultary: staggered-field ferromagnetic ring / uniform-field antiferromagnetic rim, weak-field one-spin blocking and Perrin maximal independent sets",
+          "Exact three-spin cooperative blocking on the antiferromagnetic Ising wheel, mirror Finding, Hamiltonian and Proof step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The wheel match gives each coefficient and the plastic-constant rate, not just the sequence of totals.",
+          "The cycle graph paper states the labeled maximal-independent-set Perrin total and uses 2/3 gaps in orbit enumeration.",
+          "Castorene et al. give the Lucas ground-state count at critical field."
+        ],
+        "reasoning": "The known Perrin total alone would not prove the model reduction or the k-resolved count; the wheel's exact weighted partition does. The critical Lucas result concerns a larger independent-set family and does not cover weak-field blocked states.",
+        "searches": [
+          "Wheel mirror Finding, weighted one-spin table and generating function",
+          "Bisdorff–Marichal, arXiv:math/0701647, p. 2 and Proposition 3.1",
+          "Castorene et al., arXiv:2511.01646v2, Eq. (10)"
+        ]
+      },
+      "rationale": "The weighted one-spin partition is exactly the fixed-hub sector of the inspected antiferromagnetic wheel theorem, after the staggered gauge. The reduction works across the entire open weak-field interval because changing h to J does not change any local flip sign. Earlier graph theory also already covers the Perrin and 2/3-gap ingredients. This is a mathematical coverage decision, not an inference from catalogue dates or the wheel record's uncited comment about an equivalent chain coding.",
+      "residual_risks": [
+        "The full Masui–Southern–Jacobs recursion remains uninspected; it might provide additional earlier coverage, but the verdict does not depend on it.",
+        "The primary source for the wheel record's remark about an equivalent staggered-field coding was not identified. Historical priority is not decided by that remark or by the catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-spin coverage via fixed hub and weak-field sign invariance, except the trivial smallest cycle case.",
+          "evidence": "Weighted partition, Hamiltonian, AA and BBB exclusions, and automatic hub stability.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-three-spin-cooperative-blocking-on-the-antiferromagnetic-i--3cb90da9e8be/RESULT.md",
+          "material_read": "Finding, assumptions, one-spin proof and relationship passage; offsets 0–4997 and 9220–10820",
+          "method": "Bounded local publication mirror reads",
+          "title": "Exact three-spin cooperative blocking on the antiferromagnetic Ising wheel",
+          "trigger": "An exact earlier-indexed one-spin weighted census on a potentially equivalent Hamiltonian"
+        },
+        {
+          "assessment": "Related hub-sector overlap; graph and full field-dependent theorem differ.",
+          "evidence": "One weak-field sector is Perrin-counted via maximal independent rim sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-magnetic-field-collapse-and-critical-enhancement-of-single-spin--c3fe616689b5/RESULT.md",
+          "material_read": "Mirror passages around offsets 46 and 3314",
+          "method": "Local publication mirror",
+          "title": "Magnetic-field collapse and critical enhancement of single-spin blocking",
+          "trigger": "Weak uniform field with antiferromagnetic rim and hub"
+        },
+        {
+          "assessment": "Established combinatorial input, not itself a statement about the physical Hamiltonian.",
+          "evidence": "Perrin enumeration and cyclic gap compositions with entries two and three.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701647",
+          "material_read": "p. 2 around offset 3838; Proposition 3.1, p. 6 around offset 17035",
+          "method": "OA PDF passage inspection",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Exact cycle counts and 2/3-gap coding"
+        },
+        {
+          "assessment": "Exact endpoint Lucas comparison; not coverage of the strict weak-field interval.",
+          "evidence": "No adjacent up spins and Lucas degeneracy of periodic-ring ground states at B/J=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.01646v2",
+          "material_read": "p. 1 around offset 1074; p. 4, Eq. (10), around offset 24463",
+          "method": "OA PDF passage inspection",
+          "title": "Exact Combinatorial Density of States for the Critical 1D Ising Model",
+          "trigger": "Same gauged ring at its critical field"
+        },
+        {
+          "assessment": "Different dynamics in inspected passage.",
+          "evidence": "Defines one-spin blocked states for kinetically constrained models.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0202465",
+          "material_read": "p. 3, offset around 6820",
+          "method": "OA PDF passage inspection",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Exact blocked-state counts in one dimension"
+        },
+        {
+          "assessment": "Temporal modulation, not the stated static staggered landscape.",
+          "evidence": "A spatially homogeneous field oscillates in time, with neutral flips allowed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.01098",
+          "material_read": "p. 3, offset around 5673",
+          "method": "OA PDF passage inspection",
+          "title": "Interrupted coarsening in the zero-temperature kinetic Ising chain driven by a periodic external field",
+          "trigger": "Ising metastability in a periodic field, potentially a terminology match"
+        },
+        {
+          "assessment": "Residual risk only; not evidence of exact coverage or absence.",
+          "evidence": "Studies metastable spin-glass and random-ferromagnet local minima; exact recursion and hypotheses could not be inspected.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.39.6925",
+          "material_read": "Abstract-level information only; no primary full text recovered",
+          "method": "DOI and lawful alternate-copy retrieval attempt",
+          "title": "Metastable states of Ising spin glasses and random ferromagnets",
+          "trigger": "Possible general recursion for one-dimensional metastable states in a field"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The model's local-minimum census is a meaningful observable, but this frozen result reproduces an existing weighted partition after taking a hub sector and changing a field without changing any local flip sign. It adds neither a new stability mechanism nor a different counting problem; the endpoint comparison is already known and the only leftover size is elementary. As a standalone contribution it is a routine specialization rather than a new useful exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

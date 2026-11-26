@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:02:43.828217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–36; supporting VERIFICATION.md, verification_output.txt and verify_leaf_pruning.py inspected without executing the frozen script.",
+        "Fresh check: python3 /workspace/branches/764b8fc9-f473-4d80-bd64-d5f7007a71c5/independent_leaf_check.py; output alongside it. Checks both collapse pairs in a cyclic defect with d=3 and mod-two reduced Betti numbers for four forest examples."
+      ],
+      "rationale": "The mixed edge e={v,w} has cofaces exactly e∪T for T⊆N_F(w)∖{v}: the leaf cannot see another vertex across its shore, while the other endpoint sees exactly those additional neighbours. Fixing one of the d−1 extra neighbours as an apex pairs all 2^(d−1) cofaces including e; removing the pairs in descending order of the subset size makes each lower face free with precisely its designated codimension-one coface. The remaining subcomplex deletes exactly the faces forbidden by adding vw to H_F. Forest pruning preserves the number c of edge-containing components and reduces to a matching; the two contractible shore simplices then give S^0 for c=0 or two vertices with c joining edges after contraction for c≥1. Pendant pruning and failure of the deletion at a single isolated defect edge also follow.",
+      "residual_risks": [
+        "The fresh checks are finite and the mod-two outputs cannot establish the general integral statement; the explicit collapse and matching calculation establish it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SoCG text says that a dominated-simplex deletion decomposes into elementary simple collapses and induces a strong deformation retract. Its flag-complex lemma also tests domination by closed neighbourhood containment.",
+          "Barmak's star-cluster suspension covers the homotopy type abstractly for bipartite independence complexes, while the cited fold deletes a vertex."
+        ],
+        "reasoning": "Any one of the d−1 extra neighbours is an apex contained in the unique facet containing e. Nothing about global cycles enters that general theorem, so the arbitrary-F and pendant-to-core scope is covered as well.",
+        "searches": [
+          "SoCG 2020 DOI 10.4230/LIPIcs.SoCG.2020.19, §2 and Lemmas 1–3",
+          "Barmak arXiv:1007.0418, §3 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Boissonnat–Pritam, SoCG 2020, §§2; Barmak arXiv:1007.0418 §§3–4",
+        "Resultary 636cc79caa35 and related entries listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A simplex-link cone makes e dominated by any link vertex. Exactly 2^(d−1) faces change in the fixed-shore target. Each elementary free-face pair removes exactly two faces. The earlier forest proof evaluates the same matching complement."
+        ],
+        "reasoning": "Thus every codimension-one pair sequence to that target must have exactly 2^(d−2) pairs; there is no separate optimisation or new count. Sorting the standard apex pairing by descending size is a direct implementation, not a new collapse criterion. Both parts of the composite finding are covered.",
+        "searches": [
+          "Boissonnat–Pritam definition and Lemma 1; Resultary 636cc79caa35 proof steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boissonnat–Pritam 2020, §2, PDF pp. 4–5, defines removal of a 1-simplex with conical link as edge collapse; Lemma 1 characterizes domination by its maximal cofaces.",
+          "The independence complex is a flag complex on the complement of H_F. In it lk(e) is the full simplex on N_F(w) minus v, not the link of a deleted vertex."
+        ],
+        "reasoning": "The link is a cone for precisely the stated d≥2 case. Removing the dominated edge deletes it and all its cofaces while fixing all vertices, exactly the claimed inclusion in the original graph language. The ordinary dominated-vertex fold is a different operation, so it is not the reason for local coverage.",
+        "searches": [
+          "Boissonnat Pritam edge collapse persistence flag complexes dominated edge link cone elementary simplicial collapse arxiv",
+          "Barmak, Star clusters in independence complexes of graphs, §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "636cc79caa35, RESULT.md proof steps 3–4 near offset 4800, treats exactly the bipartite forest base complex and gives the matching, S^0 and wedge of c−1 circles. 5b2398037c0d is the assigned self-match. 6e43077a0a25 treats regular cyclic bands; bf4d87cacd9e treats Alexander duals of three-cut complexes; f6e42b155b01 is a three-clique-free join result."
+        ],
+        "reasoning": "The earlier forest proof is exact coverage despite its broader multipartite headline and different elementary operation. The cyclic-band and three-cut statements are related but not substitutes for the local edge theorem; the exact collapse count has no separate catalogue match in this bounded check.",
+        "searches": [
+          "Resultary semantic search for leaf-edge pruning, bipartite defect independence complexes, explicit collapses and forest classifications"
+        ]
+      },
+      "rationale": "The fixed-shore deletion is directly covered by the general dominated-edge collapse of Boissonnat and Pritam; the specific pair count is forced by the number of deleted faces. The complete bipartite-forest homotopy classification is also explicitly present in the proof of earlier Resultary 636cc79caa35. This is demonstrated coverage, not a failure to retrieve literature.",
+      "residual_risks": [
+        "Other historical attributions are not exhaustive. The attempted Jonsson/Nagel–Reiner literature routes did not yield passages, which does not qualify the positive prior-coverage findings here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general coverage of the local move",
+          "evidence": "A simplex with simplicial-cone link is dominated; a 1-collapse removes such an edge and expands into elementary simple collapses. Lemma 1 says an apex lies in every maximal coface.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2020.19",
+          "material_read": "§2 dominated simplex and k-collapse, Lemmas 1–3, PDF pp. 4–5, text offset 14700",
+          "method": "Original OA Dagstuhl PDF",
+          "title": "Edge Collapse and Persistence of Flag Complexes",
+          "trigger": "Exact fixed-shore edge collapse in flag language"
+        },
+        {
+          "assessment": "Exact prior coverage of forest homotopy conclusion",
+          "evidence": "Explicitly forms Ind(K_{A1,A2} minus F), prunes to isolated matching edges, derives S^0 for no defects and a wedge of c−1 circles otherwise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-forest-defects-in-multipartite-clique-avoidance-a-shape-invarian--636cc79caa35/RESULT.md",
+          "material_read": "Proof steps 3–4, offset 4800 onward",
+          "method": "Local Resultary mirror",
+          "title": "Forest defects in multipartite clique-avoidance: a shape invariant",
+          "trigger": "Same bipartite forest classification inside a more general proof"
+        },
+        {
+          "assessment": "Background, not the main coverage",
+          "evidence": "Suspension theorem applies to a vertex in no triangle; the neighbourhood fold deletes a vertex, not a fixed-shore edge.",
+          "identifier_or_url": "arXiv:1007.0418",
+          "material_read": "§3 suspension at offsets 7090 and 19734; §4 vertex fold near offset 25700",
+          "method": "Original OA PDF",
+          "title": "Star clusters in independence complexes of graphs",
+          "trigger": "Relevant general suspension and domination results"
+        },
+        {
+          "assessment": "Analogues, not exact matches",
+          "evidence": "Regular bands, a three-cut Alexander dual, and a three-clique-free join complex differ from the claimed local edge move.",
+          "identifier_or_url": "Resultary 6e43077a0a25, bf4d87cacd9e, f6e42b155b01",
+          "material_read": "Individual RESULT.md findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cyclic-band bipartite independence complexes collapse to a two-sphere; Star-edge deletion in bipartite three-cut complexes; Triangle-free graph joins",
+          "trigger": "Related collapse counts and defect-edge deletions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–36",
+        "Boissonnat–Pritam §2 and Resultary 636cc79caa35 proof steps 3–4"
+      ],
+      "rationale": "The original would be useful as a worked example, but the scientific deliverables proposed as new are an immediate instance of the general dominated-edge criterion with an unavoidable face-count calculation and an already established forest classification. There is no surviving independently useful new invariant, strengthened hypothesis range, or sharper collapse bound in the frozen result.",
+      "residual_risks": [
+        "This verdict concerns the existing fixed-shore move and forest claim, not the merits of studying more general defect patterns or different collapse invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

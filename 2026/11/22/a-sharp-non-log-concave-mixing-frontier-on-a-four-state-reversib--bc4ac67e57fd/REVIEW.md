@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the low-mass regime, a fixed mass-orthogonal Rayleigh test vector produces a universal upper bound for the Laplacian gap, saturated by the stated eigenvector and stochasticity constraints. Parity interlacing and a trace inequality confirm SLEM attainment, while equality forces both interior rows to saturate and fixes every edge weight. For the high-mass regime, a single antisymmetric endpoint-vector norm supplies a sharp global operator-norm lower bound and a quadratic stability remainder; its equality conditions force the outer flows, then the central flow. Symbolic and numerical replay supplements the analytic all-parameter proof. Boundary equality at unit mass is checked.
+PASS
 
-## Originality
+Detailed balance parametrizes the whole feasible set by unnormalized flows a,b,c and the two interior row caps. A disconnected chain has SLEM 1 and is immediately excluded from equality; in the Rayleigh step one may uniformly use the smallest generalized eigenvalue on the M-orthogonal complement of constants, including zero. For 0<t≤1, q=(r,1,−1,−r), r=1+√2, has Rayleigh quotient (a+c+2b)/(r²+t)≤2t/(r²+t)=γ*. Equality forces both interior caps tight and q to be an eigenvector, hence a=c=γ*r/(r−1) and b=t−a. At that feasible candidate, the even nonzero Laplacian eigenvalue e=a(1+1/t) exceeds γ*, and the odd characteristic polynomial at e is −2ab/t². Thus γ* is the smallest nonzero Laplacian eigenvalue, and the odd trace 2+a(1−1/t)≤2 controls the negative end of the transition spectrum. For t≥1, the endpoint antisymmetric unit vector gives a square-norm lower bound 1/(1+t) plus two squared deviations from a=c=t/(1+t). At those outer flows, saturation of the norm requires the odd block squared to have zero off-diagonal entry; the odd block's positive off-diagonal therefore forces its trace zero and b=t/2. Those weights give odd block square I/(1+t) and even nonstationary eigenvalue zero. The two branches agree at one, with derivatives −1/4 and −1/(4√2), and both interior holding rates change from zero to (t−1)/(2(t+1)). Independent sample t=1/2 (replay /tmp/opencode/frozen_math_samples_a91d.py): flows 0.2697521433898179 and 0.2302478566101821, SLEM 0.8419828528814565. Frozen verify.py was inspected, not executed.
 
-**PASS on inspected evidence, subject to publication-priority risk.** The known harmonic stationary-flow formula applies to this mass family only for \(t\geq1\). The 2006 uniform-path result covers \(t=1\), not the new low-mass regime. The 2007 symmetry reduction does not compute the present non-log-concave branch. The 2019 degree-proportional path treatment fixes a different stationary-law family. The new claim distinguishes the full \(0<t<1\) boundary optimizer, an unrestricted uniqueness certificate, and a sharp cusp at the interface. Full-text inspection of the 2020 treatment includes the path section and its appendix; the 2019 path study was available in abstract only. Earlier theses or unindexed work could still contain an equivalent special case.
+## originality
 
-## Value
+PASS
 
-**PASS.** The family is the smallest reflected four-state birth–death chain where an interior mass valley violates the established log-concavity premise. The result supplies a complete, explicitly implementable transition-probability design rather than a numerical SDP solution, identifies exactly when nonzero interior holding becomes optimal, quantifies the regime switch, and excludes symmetry-breaking competitors. The low-mass formula is not an immediate specialization of the available harmonic-flow theorem.
+Pass the exact capacity-saturated branch 0<t<1, its proof of uniqueness without reflection restrictions, and the sharp interface with the harmonic regime. The convex SLEM formulation, uniform point and the reported t≥1 harmonic weights are not new. The strongest accessible general and exact indexed comparisons do not supply an exact low-mass branch; unavailable parts of the highly relevant path literature remain an explicit risk.
 
-## Scope and limitations
+## value
 
-The proof assumes a four-state path and the two-level reflected stationary distribution. It does not extend the boundary solution to arbitrary asymmetric stationary masses or higher-order paths. Symbolic and sampled checks are not substitutes for analytic global proof. Published indexing is incomplete; a separate independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The interior-mass valley makes the standard harmonic walk infeasible and creates a natural active-constraint problem. The complete explicit design, certificate excluding asymmetric ties, and the first-derivative break at the switch provide an exact benchmark for discrete-time prescribed-mass path design beyond uniform stationarity. This is not a claim about arbitrary non-log-concave mass profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

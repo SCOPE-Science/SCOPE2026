@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Unit outward facet normals are computed explicitly, yielding all three families of dihedral angles. Their exact minimax reduces to an increasing scalar function competing with a strictly decreasing one. The crossing condition is a quadratic inequality and detects both attained and unattained branches. The sole unconstrained extremizer is equidihedral. A finite direct-coordinate numerical checker confirms 172,040 assertions, but the real-parameter and all-order conclusions depend on the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The nearest primary work (Li, Wang, Yu, arXiv:2611.09021) proves a qualitatively different existence result for infinitely many polytopes with bounded maximum dihedral angles. Older dihedral identities for regular pyramids give individual angle formulas, while nearby studies of bipyramids optimize solid angles, shadows, or mechanical equilibria. No retrieved published record or search result implied the combined equidihedral rigidity and the constrained asymmetry attainment transition. The earlier local-angle paper was not readable in full, and an unknown equivalent statement remains a genuine risk.
+PASS
 
-**Mathematical value — PASS.** The natural geometric-quality optimization is solved with unique equality, a new sharp existence threshold, and an explicit stability slope. The result distinguishes a rigid family from general constructions with near-right-angle bounds and is not merely a numerical table or one selected example.
+The outward facet normals have horizontal component cos(theta) along the base-edge outward bisector and vertical component ±sin(theta). Adjacent same-sign faces have dot product 1−2s²cos²(theta); opposite faces on an equatorial edge enclose the normal angle theta_++theta_-. Thus minimizing the largest interior angle is maximizing min(2m,g(m+D/2)), with g(x)=2 asin(s cos x) and D/2<m<pi/2−D/2. The latter term is strictly decreasing and tends to zero at the upper endpoint; the increasing term can cross it in the open interval only if D<g(D). Solving the latter condition gives exactly the positive root of 2s z²+z−s=0 for z=sin(D/2), and solving the crossing gives the stated tangent formula. At equality of the endpoint values the objective already decreases strictly on the open interval, so the second branch, including the transition, is not attained; the smaller elevation tends to zero and its height to infinity. At D=0 the crossing is at arctan(s). At any other m the symmetric objective is already strictly smaller, and at m=arctan(s) a positive D strictly decreases the g term, proving global uniqueness. The equality heights are Rc/s, and both equatorial and spoke angles then agree. Differentiating the crossing gives beta'(0+)=s²/(1+s²).
 
-**Limitations.** Only finite positive heights and coaxial regular bases are considered. The fixed-asymmetry measure is the difference in normal elevation, and the branch at or above its threshold is an *infimum*, not a minimum. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The best-matching inspected sources share either the objective or the bipyramid family, but do not cover this simultaneous scope. Standard local angle identities are not credited as new. Particularly distinct is the loss of finite attainment and the exact optimum at fixed positive normal-elevation difference.
+
+## value
+
+PASS
+
+The comparison is meaningful within a natural polyhedron family: controlling the largest dihedral angle selects one similarity class and makes every edge angle equal, while imposing a geometric asymmetry gives an exact price and a threshold beyond which no finite optimizer exists. These are usable benchmarks for dihedral-angle extremal geometry, not just a numerical angle at a prescribed height.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

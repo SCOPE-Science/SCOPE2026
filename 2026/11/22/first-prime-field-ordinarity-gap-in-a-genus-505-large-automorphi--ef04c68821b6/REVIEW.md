@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely stated smooth curve and prime field, the proof derives the Cartier–Manin coefficients and their diagonal form, checks the genus and rank transfer from the published quotient proposition, and establishes nonordinarity by the polynomial divisibility \(Q\mid P_2P_5P_7P_9P_{11}\), where the roots of \(Q\) are exactly the 21 permitted rational parameters. The independent recurrence and binomial expansions agree for all finite-field parameters. The first-prime comparison and explicit quadratic-field ordinary witness also pass the exact checker. All claims concern finite fields of the specified sizes and do not extrapolate finite enumeration to arbitrary extensions.
+PASS
 
-## Originality — PASS (with qualified priority)
+The repaired statement correctly identifies the quotient over the ground field. The frozen plus-sign equation need not be that quotient over F_23: s=x+y and v=x-y give (s^p-s)^2=v^(2p)-2λv^(p+1)+v^2, so w=(s^p-s)/v gives the minus sign. At λ=2 the two models have 4 and 48 F_23 points respectively, including the two points at infinity. Trace-zero scaling of v identifies the models over F_(p^2); no geometric ranks change. The corrected proof independently establishes the genus and rank transfer: only the two infinities ramify, each remaining a simple pole after Artin–Schreier reduction, so the different exponents are 2(p-1) and Deuring–Shafarevich gives γ(X)=pγ(F)+p−1. Squarefreeness fails exactly at λ=±1. The Cartier coefficient extraction is diagonal since p≡1 mod p−1 and the basis indices differ by less than p−1. The diagonal agrees with the Legendre coefficients through degree p−2, by the binomial generating series in characteristic p. Inverse-Frobenius roots and iterates preserve the pattern of zero diagonal entries, giving geometric p-rank. Independently replayed all smaller-prime sets, the 21 rank assignments at 23, the 527-parameter distribution (1,2,24,10,490 in ranks 10,17,19,20,21), and the witness H(3ω)=ω. Checked divisibility separately by multinomial evaluation: the roots of P_2,P_5,P_7,P_9,P_11 in F_23 are respectively {10,13}, {0,6,11,12,17}, {0,7,9,14,16}, {0,4,19}, {0,2,3,5,8,15,18,20,21}, covering every simple root of Q. The repair distinguishes introducing new marked parameters from extending the base of an already nonordinary fiber.
 
-The general Legendre description of these Cartier matrices is credited to Novoselov (2017), Theorem 9, and the large-automorphism pencil, Sylow quotient and rank transfer to Borges–Korchmáros–Speziali (2022), Propositions 8.5 and 8.13. Their Remark 8.14 explicitly leaves ordinary members for investigation. The new contribution is not the general formula, but the previously unreported **first-prime arithmetic obstruction**, its complete 21-parameter rank classification, the 527-parameter quadratic contrast, and a short exact polynomial divisibility certificate. The 2017 paper only tabulates a different odd-degree family at genus 2–7, not this genus-21 finite-field specialization. Closest related work on a Klein-four quotient treats a different quotient, and characteristic-seven rank classifications do not imply the characteristic-23 obstruction. A non-indexed equivalent finite calculation remains possible; the original 1972 Miller paper could not be read directly, though the inspected 2022 paper identifies a hypothesis that excludes the case under discussion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural and rather sharp arithmetic boundary in a family already singled out for its unusually large \(\mathrm{PGL}_2\) symmetry. A general ordinary geometric fiber exists, yet every smooth marked member over the first obstructed prime field has a rank deficit, while 490 quadratic-field parameters are ordinary. The explicit rank strata of the corresponding genus-505 curves and the minimal-prime qualification resolve a meaningful finite-field version of an ordinarity question raised for this family, rather than merely exhibiting a single nonordinary curve.
+The genus, geometric quotient, rank transfer and Cartier-to-Legendre reduction are prior results. The supported distinct contribution is the arithmetic first-prime gap, the exact rank distributions and explicit certificate for the specified marked families. Neither the repair to ground-field terminology nor the already known structural formulas are needed as originality claims.
 
-## Remaining scientific limits
+## value
 
-No claim is made to a universal prime classification, to abstract isomorphism counts, or to independent review. The all-extension p-rank distribution is uncomputed, and full historical priority remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This quantifies an arithmetic obstruction in the ordinary-fiber problem explicitly raised for a large-automorphism pencil: the first prime with no smooth ordinary rational marked fiber contrasts with 490 ordinary marked fibers over the quadratic field. The precise marked rank distributions and short divisibility certificate are useful beyond a lone example, and were not supplied by the generic Cartier formula. The repaired quotient clarifies the field of definition without changing the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

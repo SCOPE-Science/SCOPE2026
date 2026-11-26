@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:38:15.477887Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parameter identity gives v=1+k+k(k-1)/2. Symmetry of incidence lets neighborhoods of query points count centers for each trace. All-positive open pairs are exactly nonedges; all closed pairs have two positive centers. The remaining pair traces are available from degree and v-2k>0. A triple inside an open neighborhood is independent, and its common center is unique by codegree two. Each pair then has a second center missing the third; open singleton traces have k-3>0 choices and closed singleton traces are witnessed by the query points themselves. An all-positive closed triple is either of that kind or an induced path: the middle witnesses the full trace, each end witnesses its incident edge, and the second common neighbor of the ends witnesses the missing pair. Triangle-freeness gives the singleton path traces by selecting the stated other neighbors. The empty traces follow from the exact triple-union sizes 3k-5 open or 3k-2 closed, both strictly below v. Any four-point all-positive support contains three neighbors of the witness, which cannot have an alternate center for the three-positive trace, even for closed concepts. Hence those four and every larger support fail. Counting by unique center or path middle proves both polynomials and VC dimension 3. The adjacency cochain vanishes on each triangle boundary (zero or two graph edges); an adjacent pair and a vertex outside both closed neighborhoods make a triangle cycle with odd pairing. The independent bounded Clebsch calculation (check_clebsch_independent.py and .txt in /workspace/branches/c26af3f5-2952-4232-aa8f-2244c26525a4/) reproduced f-vectors and boundary-two ranks 65 and 104. The two 1-skeleta are connected: any adjacent vertices of G share a nonneighbor since v-2k>0, so the open nonedge graph is connected, and the closed skeleton is complete. Thus boundary-one rank is 15 and the reduced ranks are (0,95) and (1,216). Gewirtz values are parameter substitutions, not claims of an independently enumerated census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For primitive SRGs of order at least 6401 Theorem 30 rules out VC dimension 2 for mu=2 and provides a shattered triple; it does not bound that dimension above by 3 nor count supports for either class.",
+          "Square-completion supplies a homotopy splitting for ordinary closed-neighborhood complexes of all connected triangle-free graphs of codegree at most two."
+        ],
+        "reasoning": "The stronger topological result applies to the ordinary complex and controls first homology after the new 2-skeleton identification; it does not assert that its low faces shatter, nor failure of all higher traces.",
+        "searches": [
+          "arXiv:2609.10330v2 Thm. 30 p. 14",
+          "Resultary 006bbbe8a937, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10330v2",
+        "Resultary 006bbbe8a937",
+        "Resultary 1bb0041e8b37",
+        "Resultary 1dc11cc6574a",
+        "Resultary 670b6697d463"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the broad square-completion setting, graph edge parity annihilates square boundaries, and in this SRG an adjacent pair together with a vertex nonadjacent to both gives an odd length-five walk by replacing the two nonedges with two-step paths.",
+          "Once the 2-skeleton agreement is known, prior Clebsch ordinary-complex H^1 computes shattering H^1, and face counts and Euler characteristic give the two-dimensional Betti ranks."
+        ],
+        "reasoning": "Credit these topological consequences of existing results together with the identified skeleton; do not claim new Clebsch homotopy or novelty of edge parity on a square-filled graph. No inspected theorem gives the uniform trace availability and exclusion necessary for the exact open and closed shattering complexes.",
+        "searches": [
+          "Resultary 006bbbe8a937 Proof §§1–5",
+          "Resultary 1bb0041e8b37 and 1dc11cc6574a Findings",
+          "arXiv:2609.10330v2 pp. 14,25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shattered supports must occur in a neighborhood, but a face of the ordinary neighborhood complex only guarantees the all-positive trace.",
+          "The reviewed theorem identifies both shattering complexes as the 2-skeleta of their corresponding neighborhood complexes for this family.",
+          "Byrne–Byrne–Cioabă use open neighborhoods and give Clebsch scalar VC dimension 3."
+        ],
+        "reasoning": "The ordinary neighborhood complexes are related but not equivalent without showing all proper traces and the four-point obstruction. Scalar dimension likewise does not recover the membership criterion.",
+        "searches": [
+          "arXiv:2609.10330v2 §4.5 and Theorem 30",
+          "Resultary 006bbbe8a937, 1bb0041e8b37, 1dc11cc6574a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Clebsch closed full complex has the indexed f-vector starting 16,120,320 and homotopy type RP^2 wedge 55 two-spheres; the full open complex is a wedge of 31 two-spheres.",
+          "The indexed closed shattering polynomial for the Shrikhande and rook graphs gives different cubic coefficients 224 and 288 for graphs with (16,6,2,2)."
+        ],
+        "reasoning": "The first entries provide instance-specific ordinary-complex data, not exact Boolean trace coverage for this family. The shattering catalogue hit concerns nonzero adjacent codegree, which changes the decisive incidence counts.",
+        "searches": [
+          "arXiv:2609.10330v2 §4.5 p. 25",
+          "Resultary 1bb0041e8b37, 1dc11cc6574a, 670b6697d463"
+        ]
+      },
+      "rationale": "The supported contribution is the parameter-wide equivalence between shattering and low-dimensional open or closed neighborhood incidence, with a uniform obstruction starting at four points. The scalar Clebsch VC result and existing full neighborhood-complex topology are credited; the Clebsch ranks are not a separate novelty claim. The adjacency class is also consistent with square-completion theory and gets its concrete significance here through the identification of the shattering complex.",
+      "residual_risks": [
+        "Earlier exact trace enumerations under alternative graph-learning terminology have not been exhaustively excluded. The closest strongly regular VC paper was available for decisive passages despite the frozen report's access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar Clebsch result and general lower-bound overlap, not both full polynomials",
+          "evidence": [
+            "The (16,5,0,2) row has VC dimension 3; for primitive SRGs of order at least 6401 VC dimension is 2 iff mu=1, using open neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10330",
+          "material_read": "v2 §4.5 printed p. 25 offset 73900; Theorem 30 and its proof, p. 14 offset 43600",
+          "method": "Direct OA primary PDF passages",
+          "title": "The VC-dimension of strongly regular graphs",
+          "trigger": "Closest published work by graph parameters and VC statistic"
+        },
+        {
+          "assessment": "Existing first-homology approach after 2-skeleton identification, no Boolean trace result",
+          "evidence": [
+            "The closed-neighborhood complex collapses to the graph plus tetrahedral boundaries for its squares and splits as the square completion wedged with a two-sphere per square."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-square-completion-splitting-of-closed-neighborhood-complexes-wit--006bbbe8a937/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–5; decisive model and theorem at offsets 0–2835",
+          "method": "Read primary local-mirror record",
+          "title": "Square-completion splitting of closed-neighborhood complexes with codegree at most two",
+          "trigger": "Stronger topology in a broader graph class"
+        },
+        {
+          "assessment": "Covers ordinary-complex f-vector and topology; yields instance H^1 after skeleton agreement",
+          "evidence": [
+            "Ordinary complex starts (16,120,320) and has homotopy type RP^2 wedge 55 two-spheres."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-projective-plane-wedge-in-the-clebsch-closed-neighborhood-comp--1bb0041e8b37/RESULT.md",
+          "material_read": "Finding and Proof §1, offset 0",
+          "method": "Read primary local-mirror record",
+          "title": "A projective-plane wedge in the Clebsch closed-neighborhood complex",
+          "trigger": "Exact closed Clebsch data and cohomology"
+        },
+        {
+          "assessment": "Ordinary open-neighborhood topology, not a shattering result",
+          "evidence": [
+            "The full open complex is a wedge of 31 two-spheres, implying its H^1 vanishes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-5-regular-clebsch-neighborhood-complex-is-a-wedge-of-31-2-sp--1dc11cc6574a/RESULT.md",
+          "material_read": "Finding and Proof §1, offset 0",
+          "method": "Read primary local-mirror record",
+          "title": "The 5-regular Clebsch neighborhood complex is a wedge of 31 2-spheres",
+          "trigger": "Exact open Clebsch homology overlap"
+        },
+        {
+          "assessment": "Neighboring but nonapplicable strongly regular parameters",
+          "evidence": [
+            "Different cubic counts 224 and 288 for two graphs with lambda=2 and mu=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Read primary local-mirror record",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Closest other indexed exact shattering-polynomial result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlike a scalar VC dimension or singleton census, the theorem tells which supports can realize every Boolean trace and computes exact polynomials throughout a canonical strongly regular family for both neighborhood conventions. It establishes a direct bridge between trace shattering and ordinary neighborhood topology in dimension two, including the induced path distinction and a concrete odd pairing. No full integral topology or new Clebsch homotopy type is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

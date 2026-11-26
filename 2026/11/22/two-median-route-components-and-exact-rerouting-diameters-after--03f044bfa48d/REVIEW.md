@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every pair of positive rectangle side lengths at least two and every strict interior fault, the proof identifies a unique split into two interval-defined path classes using the visit criterion \(h_j\le i\le h_{j+1}\). It reconstructs all allowed local moves, proves coordinatewise \(\ell_1\) geodesics inside each interval, derives sharp diameters and binomial counts, and verifies finite cases with a standalone route-graph checker. No extrapolation from finite experiments is needed.
+PASS
 
-## Originality — PASS (qualified)
+Independently checked RESULT.md §§Assumptions and Proof and inspected VERIFICATION.md and VERIFY.py without executing the supplied code. Both boundary extreme routes survive, so the Manhattan lower bound is attained and all shortest routes are monotone. A route visits the failed vertex exactly when h_j <= i <= h_(j+1); alternatively, on the diagonal i+j the east coordinate is strictly below or strictly above i. A one-vertex move changes that diagonal coordinate by at most one and swaps adjacent unlike steps, so cannot cross the deleted level. The two allowed profile sets are the claimed order-ideal intervals. Removing and adding differing cells through the intersection gives exact Hamming/L1 length, and majority membership is an ideal in the interval and is the unique metric median. The cube on the difference of the extreme ideals gives an upper dimension bound, and the distance between the extremes gives the same lower bound for every isometric cube embedding; this proves the diameter and dimension formulas even for singleton components. Splitting at the north step from height j (upper) or the east step from abscissa i (lower) gives exactly the stated two binomial products in each sum; splitting forbidden paths at the failed vertex checks their total. At a=b=2, i=j=1 both intervals have one route and diameter zero. The proof is all-size; the recorded BFS is only finite corroboration.
 
-Asplund et al. explicitly treat the intact rectangular grid as a staircase graph. Bonsma gives a general planar reachability algorithm and topological obstructions which can imply a sector separation; Bousquet et al. give parameterized complexity results; Gajjar et al. give general graph-class results. The reviewed precise fault-separated median components, their all-pairs metric and sharp parameterized diameters are not stated in the inspected material. The known staircase representation considerably reduces the proof, and an unindexed or implicit corollary remains possible; there is no claim of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a standard shortest-route network under one failed internal routing site. Reachability alone is insufficient: the theorem determines the sharp failure-induced split, gives exact size of both surviving route families, and supplies optimal rerouting distances, maximum relocation budgets and minimal cube coordinates for every failure location. These are structurally natural fault-tolerance invariants, not arbitrary isolated parameter cases.
+Credit the staircase representation to intact-grid work and credit equivalent coverage of the structural and metric part by the arbitrary-fault sign-fiber theorem. The distinct supported contribution is the explicit simultaneous enumeration and geometry for an arbitrary single interior hole, particularly the individually resolved component-size formulas; these counts are not supplied by the broader theorem or by planar reachability. The overlapping same-day text itself credits a previously available one-fault classification with these sizes and diameters and does not name an independent earlier source for them. The snapshot does not establish within-day priority; no priority claim is made for the structural assertions.
 
-## Residual limitations
+## value
 
-Only strictly interior single-vertex failures and opposite-corner terminals are addressed. The comparison to broader planar reconfiguration literature is not an exhaustive history of all possible local-fault deductions. Independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one strict interior fault is the smallest change that separates feasible shortest routes while preserving their length. Exact separate route populations and move budgets at an arbitrary location quantify how that single change fragments the routing problem, including extreme asymmetric and singleton cases. The concrete all-position classification is useful independently of novel median-graph theory; neither a reachability algorithm nor the total number of avoiding routes answers these separate sector questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

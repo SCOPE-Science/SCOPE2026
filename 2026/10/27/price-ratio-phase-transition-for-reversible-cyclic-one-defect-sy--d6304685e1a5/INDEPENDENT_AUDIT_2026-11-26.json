@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:35:10.261753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint of a trajectory from q is q+A−C+kH_q modulo n. For d=gcd(n,k)>1 the starting residue differences modulo d are preserved. For d=1 and a reset, the H_q exhaust the residues modulo n, forcing some trajectory to meet at least n−1 effective b's. Each of its at least n−2 gaps goes from k to 0; ineffective b's do not move that trajectory and positive-price rotations cannot improve on either simple directed arc. Independently the image rank drops by at most one per b. The sum of the two lower bounds is attained: after the j-th b the deleted states are 0,−k,…,−(j−1)k, and translation by −k then b extends the list since k is still present. Equality forces exactly n−1 b's, all effective on the selected trajectory, no outer rotations, and one cheapest arc per gap. The arcs are distinct literal words at a tie, and n=2 has zero gaps and just b. This holds for all positive real prices, not just tested integers. The frozen verifier was inspected, not executed. An independent reverse multi-source shortest-path and path-count computation (python3 reproductions/frozen_math_checks.py, automata) agreed for 162 priced cases and 9 unreachable cases with n≤9; it does not prove the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper treats partial binary automata in a Černý family; the second gives a generic shortest-word search algorithm. The inspected local exact-threshold result is binary and unweighted."
+        ],
+        "reasoning": "Neither the statements on partial transitions nor an algorithm for finding a shortest word establishes this symbolic cost or tie-count formula.",
+        "searches": [
+          "Cambie–de Bondt–Don arXiv:2108.13927v1, pp. 1–3",
+          "Szykuła–Zyzik arXiv:2207.05495v1, p. 1",
+          "Local Resultary search for unitary cyclic reset thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 7ea017efeb25 and 982722496edf",
+        "arXiv:1812.04050, 2108.13927v1 and 2207.05495v1, passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-way results recover the forward pattern in their setting. The restricted schedule result does not even optimize across extra b's; the exact one-way threshold does not bound mixed-direction words."
+        ],
+        "reasoning": "Taking the smaller of two one-direction optima would give an upper bound only; equality and factorization of all optimum words require the effective-hit lower bound and its equality conditions. The dates of mirror records do not by themselves establish priority.",
+        "searches": [
+          "Local Resultary 7ea017efeb25 and 982722496edf",
+          "Don–Zantema arXiv:1812.04050, introductory classical case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest local records are one-direction cycle-plus-merge automata. Don–Zantema's objective counts switches, not letter costs."
+        ],
+        "reasoning": "Replacing c by a^{n−1} preserves the transition but not its independent price or the multiplicity of literal optimum words. Switch cost is not the additive three-price objective either.",
+        "searches": [
+          "Local Resultary search for reversible weighted cyclic one-defect synchronizers and one-direction reset thresholds",
+          "Don–Zantema arXiv:1812.04050, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former counts schedules with the minimum number of defect letters and gives a conditional forward-word optimum; the latter gives an exact one-way threshold and unique word."
+        ],
+        "reasoning": "These are the relevant formula-level comparisons. There is no finite-table claim to certify; counts of one-way or restricted schedules are not counts of literal optimal words allowing both rotations.",
+        "searches": [
+          "Local Resultary matches 7ea017efeb25 and 982722496edf, Findings"
+        ]
+      },
+      "rationale": "Pass the exact bidirectional positive-price optimum and the classification of all literal minimizers together. The gcd obstruction and the forward-only word are not the novelty; the cited and closest mirrored statements inspected do not imply the optimization over words with two independently priced directions. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "A prior theorem on differently named priced bidirectional cyclic unitary automata may have escaped the bounded comparisons.",
+        "The archival citation for the record's arbitrary-coprime-k one-way historical statement was not verified in the cited PFA passages; the one-way mathematics is independently accounted for by the proof and the indicated mirror result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related restricted one-way optimum",
+          "evidence": "Unique b(a^{n−d}b)^{n−2} among reset words containing the minimum n−1 b's; not an unrestricted bidirectional classification.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25",
+          "material_read": "Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror text",
+          "title": "Sharp counts of strict collapse schedules in cyclic defect-one automata",
+          "trigger": "Same cycle and one defect"
+        },
+        {
+          "assessment": "Covers the one-way threshold, not the weighted three-letter model",
+          "evidence": "Gcd criterion and unique shortest word for two letters, without an inverse letter or independently variable rotation prices.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Exact jump-distance reset thresholds and unique shortest words",
+          "trigger": "Exact cyclic unitary reset threshold"
+        },
+        {
+          "assessment": "Different objective in the inspected passage",
+          "evidence": "Defines switch count and recalls the classical shortest word.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.04050",
+          "material_read": "p. 1, offset 1170",
+          "method": "OA PDF text",
+          "title": "Counting symbol switches in synchronizing automata",
+          "trigger": "Cited comparison and classical Černý case"
+        },
+        {
+          "assessment": "Inspected claims concern binary PFAs, not this weighted classification",
+          "evidence": "The introduction defines partial transitions and poses binary Černý-family threshold problems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13927v1",
+          "material_read": "pp. 1–3, offsets 0 and 5784",
+          "method": "OA PDF text",
+          "title": "Extremal Binary PFAs in a Černý Family",
+          "trigger": "Closest cited family with binary reset thresholds"
+        },
+        {
+          "assessment": "Generic algorithm, not the claimed exact invariant",
+          "evidence": "The introductory statement presents a shortest-synchronizing-word algorithm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.05495",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF text",
+          "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+          "trigger": "Cited general baseline for shortest reset words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural inverse-generator extension of the cycle-plus-one-merge family. The optimum is not just a unit-cost threshold: it determines when the cheaper letter need not give the cheaper arc, and identifies precisely when and how the set of optimum words grows exponentially. The same exact lower bound rules out cheaper interleavings or extra merges across all parameters and prices in the family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:12.179484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently use normalized cell coordinates u,v in [0,1] going from each outer endpoint toward the knot. The unit-cell polynomial kernel is F(u,v)=1+3(2u-1)(2v-1)+5(6u^2-6u+1)(6v^2-6v+1). Each half has mass 1/2, giving uncoupled kernel 2F, and enforcing equality of the traces removes the one-dimensional Riesz normal for their difference. Its squared norm is 36, so the correction is -F(u,1)F(v,1)/9 on the same cell and +F(u,1)F(v,1)/9 on the opposite cell, in agreement with the endpoint polynomials in physical coordinates. Direct Gram inversion also recovered the full frozen kernel. At x=0 each piece has two simple roots strictly in its half; the two negative masses computed from discriminants 2784 and 96 are 29 sqrt(174)/625 and sqrt(6)/25. Reproduction of 1 yields the stated constant. For global control, quadratic Bernstein interpolation on ten intervals covers the entire left half. Independently bounded each nonzero-endpoint control occurrence using a second Bernstein subdivision in the integration variable, integrating the sum of absolute control coefficients against its positive basis functions, with the cell weight 1/2. All 29 upper bounds were at most 30089/13824 < 9/4, while the exact endpoint value is >9/4 (replay: python3 /workspace/branches/frozen_math_recheck.py 4). Here all occurrences other than the distinguished K(0,*) row are bounded; grid points are not being used as a proxy for untested x. Convexity with the Bernstein coefficients forces strict inequality off x=0 on the left and off x=1 on the right by reflection. The output is continuous, so essential and ordinary output suprema coincide; the sign of the endpoint row attains the norm for measurable inputs and is approximable for this integral by continuous bounded inputs, smoothing around the simple roots. At equality a continuous input would have to match the sign up to a single phase almost everywhere on the nonzero set of the maximizing row. A sign change makes that incompatible with continuity, for both real and complex inputs. The frozen checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shadrin's lower-continuity corollary covers uniform boundedness for the class, not an exact fixed-mesh value. Passenbrunner–Shadrin prove arbitrary-knot convergence/inverse-Gram estimates. Kayumov's second-order L-spline analysis concerns different exponential and trigonometric families."
+        ],
+        "reasoning": "A uniform upper bound or a decay result does not identify equality at both finite-domain endpoints or the four sign changes of the maximizing rows. The mesh, order, and continuity must agree for a fixed-space sharp equality to imply this claim.",
+        "searches": [
+          "Shadrin Acta Math. 187 (2001) §0.2, Theorem I and multiple-knot corollary; §4.5",
+          "Passenbrunner–Shadrin arXiv:1308.4824 pp. 1–3",
+          "Kayumov arXiv:math/0408418 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Shadrin DOI 10.1007/BF02392832, selected OA sections",
+        "arXiv:math/0408418",
+        "arXiv:1308.4824",
+        "Resultary cce5840473e1, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected cardinal record expressly does not claim the full projector norm. General estimates do not compare the finite kernel rows strictly. The attained sign and continuous nonattainment follow here from the exact global maximizers plus the sign geometry, not just finite dimensionality or boundedness."
+        ],
+        "reasoning": "Finite dimensionality of the range does not force a maximizing continuous input. The equality case of the row functional needs a separate sign argument, and the strict global classification needs more than the existing uniform bounds.",
+        "searches": [
+          "Compare Shadrin §0.2/§4.5 to the two-cell global maximum and nonattainment",
+          "Resultary cce5840473e1 Finding, offset 0; arXiv:1308.4824 main statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is the quadratic continuous piecewise-polynomial projection on two equal cells (a double knot in order-three notation), equivalently a two-element C0 quadratic finite-element mass-matrix projection. Its norm is the maximum kernel integral, not a prescribed evaluation row. The closest indexed result cce5840473e1 concerns one fixed evaluation of an infinite cardinal-spline projection."
+        ],
+        "reasoning": "A pointwise bound on a cardinal kernel over the real line does not fix the finite-space projection with its outer-endpoint conditions and a different knot multiplicity. Even a row norm on the same domain would not identify the global maximizers without an inequality for all rows.",
+        "searches": [
+          "Resultary: exact L-infinity norm of quadratic spline projector on two equal cells with one double midpoint knot, endpoint kernel and nonattainment",
+          "Shadrin DOI 10.1007/BF02392832 §0.2 and §4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked §4.5 material concerns general constants and other special meshes or inverse-Gram quantities. The closest indexed value is a 1.75676378–1.75676379 bracket for a midpoint evaluation of a different projector, not this exact radical operator norm."
+        ],
+        "reasoning": "None of these entries gives the claimed sharp bound for the finite continuous quadratic midpoint-knot space. This assessment is limited to inspected comparisons, not a statement about all tables.",
+        "searches": [
+          "Resultary: two equal intervals with midpoint knot, quadratic L2 spline projector sharp Lebesgue constant and continuous nonattainment",
+          "Shadrin §4.5 bounds/table passages, pp. 132–134"
+        ]
+      },
+      "rationale": "The checked distinct result is the sharp global operator norm, exact maximizers and attainment distinction for the finite two-element continuous quadratic projection. Knot-sequence-independent boundedness and related spline kernel bounds are prior; no exact covering result for this space was verified.",
+      "residual_risks": [
+        "A focused wider literature lookup was unavailable, and unindexed historical finite-mesh constants remain possible. The accessible primary and indexed statement comparisons give no matching exact theorem; no exhaustive priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General upper bounds and related exact/special-mesh discussion, not the finite two-cell equality in inspected passages",
+          "evidence": [
+            "Theorem I and multiple-knot corollary bound a class uniformly; §4.5 addresses general constants."
+          ],
+          "identifier_or_url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6612-11511_2006_Article_BF02392832.pdf",
+          "material_read": "§0.2 pp. 61–62, offset 9962; §4.5 pp. 132–134, offset 165800",
+          "method": "Bounded passages in the OA primary PDF",
+          "title": "The L-infinity-norm of the L2-spline projector is bounded independently of the knot sequence: A proof of de Boor’s conjecture",
+          "trigger": "Strongest plausible broader spline norm theorem, including reduced continuity"
+        },
+        {
+          "assessment": "Different second-order L-spline families",
+          "evidence": [
+            "Uniform bounds concern exponential/trigonometric second-order L-spline projectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "p. 2, offset about 1800",
+          "method": "OA primary text passage",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Potential exact bounds in closely named spline projection problem"
+        },
+        {
+          "assessment": "General convergence and kernel estimates, no sharp constant here for this space",
+          "evidence": [
+            "Arbitrary-knot projection convergence and inverse-Gram decay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+          "material_read": "pp. 1–3, offsets 511 and 8500",
+          "method": "OA primary PDF passages",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "Same family of general orthogonal spline kernel bounds"
+        },
+        {
+          "assessment": "Different domain, knot convention and observable",
+          "evidence": [
+            "Fixed midpoint evaluation for the cardinal spline projector on the line, with no full projector norm assertion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-midpoint-evaluation-norm-for-quadratic-cardinal-spline-pro--cce5840473e1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror read",
+          "title": "Exact midpoint evaluation norm for quadratic cardinal spline projection",
+          "trigger": "Closest indexed quadratic spline norm result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first symmetric two-element C0 quadratic space is a natural finite-element stability benchmark fixed before computation. Its sharp norm quantifies the largest possible excursion of a projected bounded input, and the strict endpoint classification and continuous nonattainment describe how such excursions can be approached. In particular, by preservation of constants, the norm fixes the sharp overshoot (C-1)/2 for inputs in [0,1], useful without any extrapolation to other knots or continuity orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

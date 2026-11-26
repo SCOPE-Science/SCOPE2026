@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:48:20.582260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–71; explicit analytic counterexample to the clause at line 51",
+        "/workspace/repairs/5/RESULT.md (complete corrected proof and exact replay example)",
+        "Frozen VERIFICATION.md lines 1–23 and verify.py lines 12–51 (inspected, not executed)"
+      ],
+      "rationale": "Pass for the complete corrected RESULT.md in /workspace/repairs/5. The frozen proof at line 51 falsely said that the quotient two-term transform with separation M/2 vanishes on half the frequencies whenever the two coefficients have equal magnitude. At N=8 take f(0)=f(4)=1, f(2)=f(6)=i and all other coefficients zero. Then F1=0 while the transform of F0 is 2+2i(−1)^j, nonzero at all four quotient frequencies. The replacement uses the necessary and sufficient condition u=±v: the exact expression u+v(−1)^j either vanishes on one parity or nowhere. It retains the correct main theorem and equality description. Independent replay of the final proof: after factoring out the largest common dyadic spacing, a three-term polynomial has a singleton parity, so it cannot vanish at both ±z; the two-term count follows from the kernel of the cyclic power map. Parseval and equality in the triangle and Cauchy inequalities give |B|≥N/4; at equality B−B lies in the annihilator of the span of A−A, forcing exactly four elements in that span and character phases on its coset. The even and odd Fourier indices are exactly the transforms of F0,F1 with the stated phases. One antipodal pair gives two folded supports of size 2 or 3; two pairs with both branches nonempty give two supports of size at most 2; both yield at least M total nonzeros. For two pairs and one vanishing branch, a nonopposite separation has gcd≤M/4, and the opposite separation has the corrected explicit dichotomy. With no pairs and noncoset projected support, induction applies to both size-four folds (this subcase cannot occur at M=4). For a projected order-four coset each support count is a positive multiple of M/4; a total below 3M/4 forces both to be character extrema. The ratio of their folded coefficients between consecutive coset points would have fourth power 1, whereas the ratio from the original lifts has fourth power −1. At all N the example has distinct exponents and disjoint zero sets at odd k and k≡4 mod 8, proving 3N/8 is attained.",
+      "residual_risks": [
+        "No numerical threshold behavior follows from the proof. The original reported NumPy tests are samples in the coefficient variable and use a tolerance; they neither prove the gap nor certify the corrected phase condition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam's divisor interpolation at a divisor k=4 gives N/4 and no bound on the next support. Bonami–Ghobber study minimum-spectrum equality in groups including cyclical prime-square orders, not uniformly all 2^m for the second minimum. cf7d7124f263 gives the three-spike result, not the four-spike bound."
+        ],
+        "reasoning": "Neither minimum uncertainty nor an equality classification alone rules out support between N/4 and 3N/8 for nonextremizers. The order-four coset obstruction and phase consistency supply additional control.",
+        "searches": [
+          "Meshulam arXiv:math/0312407 Theorem 1.2",
+          "Bonami–Ghobber arXiv:1003.5060 cyclic prime-square section",
+          "Resultary cf7d7124f263"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 68cf8ce2dd05, 78caf4d7929b, cf7d7124f263, d844f172dad8",
+        "arXiv:math/0312407; arXiv:1003.5060; arXiv:math/0611493; arXiv:2303.17203",
+        "DOI:10.1016/j.laa.2008.04.043 (abstract only)",
+        "/workspace/repairs/5/RESULT.md, Relationship to prior work and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known endpoint examples are indicators. Uniform arbitrary-phase exclusion instead uses the folded supports and the incompatible fourth powers of the ratio of putative quotient characters. Meshulam's bound admits all support sizes at and above N/4; finite order-eight data and shell counts do not control that quotient ratio at higher orders.",
+          "A classification of the largest rank-deficient restrictions at all prime-power orders would be relevant, but the accessible Delvaux–Van Barel abstract does not establish the needed cutoff for four columns after excluding the character extremizers."
+        ],
+        "reasoning": "No established implication from the inspected statements yields the unrestricted all-dyadic gap. The named rank-paper risk remains unresolved by the available material, not evidence of either coverage or its absence.",
+        "searches": [
+          "Meshulam Theorem 1.2, Krahmer–Pfander–Rashkov Proposition 3.4 and Lemma 3.5",
+          "Resultary 68cf8ce2dd05 and 78caf4d7929b Findings",
+          "Delvaux–Van Barel DOI:10.1016/j.laa.2008.04.043"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gap is equivalently a restriction on zeros of four-monomial polynomials on dyadic root groups, or on admissible kernels of Fourier restrictions with four columns. 68cf8ce2dd05 solves the shell version only for coefficient-one polynomials.",
+          "Krahmer–Pfander–Rashkov provide rank criteria for support pairs, not the dyadic bound on the ranks in this range. The Delvaux–Van Barel abstract makes a relevant prime-power rank/Hamming-number connection; exact coverage is unverified."
+        ],
+        "reasoning": "Translations, modulations and scalar multiples of indicators cannot convert arbitrary complex coefficients into indicators. A restriction admitting a kernel is relevant only if it realizes the required four-atom support; a general criterion for testing this is not a table or extremal theorem excluding the intermediate sizes.",
+        "searches": [
+          "Local Resultary: dyadic Fourier zero shells, four-term support uncertainty, support-pattern incidence",
+          "arXiv:math/0611493 Proposition 3.4 and Lemma 3.5; DOI:10.1016/j.laa.2008.04.043"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "78caf4d7929b gives the exact arbitrary-complex case at N=8 (8 support pairs of sizes (4,2), 32 of sizes (4,3)), beyond the earlier uncertainty diagram on that order. 68cf8ce2dd05 gives exact dyadic shell counts for indicators, including the same second support. d844f172dad8 counts 4×4 ranks of the order-16 DFT, not all rank defects of four-atom signals over larger zero sets."
+        ],
+        "reasoning": "These exact finite tables or restricted coefficient classes are credited as prior coverage. They do not enumerate the unrestricted all-order profile; in particular the order-eight integer gap cannot answer whether order 16 has a size-five spectrum.",
+        "searches": [
+          "Resultary 78caf4d7929b, 68cf8ce2dd05, d844f172dad8",
+          "Yang et al. arXiv:2303.17203 Figure 1"
+        ]
+      },
+      "rationale": "Reassessed for the repaired theorem. Credit only the exclusion of intermediate supports for arbitrary nonzero complex coefficients across all dyadic cyclic orders, not the indicator gap, order-eight case, product lower bound/equality description or three-atom bound. Those genuine overlaps are acknowledged. The phase correction leaves the scope of the gap unchanged and is not itself credited as a new theorem.",
+      "residual_risks": [
+        "The inaccessible Delvaux–Van Barel prime-power rank results may contain an exact implication beyond what can be read from the abstract.",
+        "Historical priority is not established, particularly under alternative zero-set or rank-deficient-minor terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same gap for indicators only",
+          "evidence": "Largest nonextremal zero count 5N/8 for coefficient-one signals; arbitrary coefficients explicitly outside scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Published local mirror",
+          "title": "Dyadic shell classification of Fourier zeros for four-point indicators",
+          "trigger": "Identical endpoints and all dyadic orders"
+        },
+        {
+          "assessment": "Covers N=8 and more positional data",
+          "evidence": "Exact ranks over Q(ζ8) give counts 8 and 32 at sizes (4,2) and (4,3).",
+          "identifier_or_url": "78caf4d7929b",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Published local mirror",
+          "title": "Support-pattern incidence refinement of the order-eight Fourier uncertainty diagram",
+          "trigger": "Exact unrestricted small-order table"
+        },
+        {
+          "assessment": "Three-atom overlap and finite rank-table comparison",
+          "evidence": "Three-atom bound N/2 at dyadic orders; ranks of square 4×4 restrictions at order 16.",
+          "identifier_or_url": "cf7d7124f263; d844f172dad8",
+          "material_read": "RESULT.md Findings at offset 0",
+          "method": "Published local mirror",
+          "title": "Exact three-point Fourier uncertainty on every cyclic group; Complete fourth-order rank incidence for the cyclic 16-point Fourier matrix",
+          "trigger": "Sublemma and related rank table"
+        },
+        {
+          "assessment": "Implies minimum lower bound only",
+          "evidence": "Divisor interpolation equals N/4 at k=4.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0312407",
+          "material_read": "Theorem 1.2, PDF p. 2, offset 3605",
+          "method": "OA PDF passage",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "General divisorial support bound"
+        },
+        {
+          "assessment": "Does not furnish the claimed all-dyadic second threshold",
+          "evidence": "Covered group families include prime-square cyclic groups and products of prime-order groups.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5060",
+          "material_read": "Abstract and group scope pp. 1, 3–4; cyclic p² section p. 13, offset 51984",
+          "method": "OA PDF passages",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Minimum-support equality cases"
+        },
+        {
+          "assessment": "General criterion, not the specific cutoff",
+          "evidence": "Relates support-set pairs to rank/minors; displayed count examples there concern orders 5 and 6.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Proposition 3.4 and Lemma 3.5, pp. 6–7, offsets 21250–24683",
+          "method": "OA PDF passages",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Rank formulation of admissible support pairs"
+        },
+        {
+          "assessment": "Finite-order comparison",
+          "evidence": "Rank criterion and an order-eight support-size diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.17203",
+          "material_read": "Lemma 2 p. 2, Figure 1 p. 4",
+          "method": "OA PDF passages",
+          "title": "Characterizing Kirkwood-Dirac nonclassicality and uncertainty diagram based on discrete Fourier transform",
+          "trigger": "Known order-eight uncertainty diagram"
+        },
+        {
+          "assessment": "Exact-profile implication unresolved; no unsupported full-paper exclusion",
+          "evidence": "Abstract addresses maximal rank-deficient submatrices at prime powers and links to uncertainty/Hamming numbers.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2008.04.043",
+          "material_read": "Abstract only; full text not obtained through publisher/author landing pages or identified lawful copies",
+          "method": "Accessible record and lawful OA retrieval attempts (ScienceDirect, LIRIAS, CORE and Academia)",
+          "title": "Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Strongest plausible broader prime-power rank result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/5/RESULT.md Finding and induction",
+        "Meshulam Theorem 1.2",
+        "Resultary 68cf8ce2dd05 and 78caf4d7929b"
+      ],
+      "rationale": "The repaired gap quantifies how far any nonextremal four-spike complex spectrum must be from the uncertainty minimum in every dyadic cycle. This is an exact structural invariant of the unrestricted complex problem: the known indicator example attains the bound, but unrestricted coefficient cancellations could have made it false. The correction preserves the sharp separation and minimum-equality geometry without claiming robustness or complete second-level classification.",
+      "residual_risks": [
+        "Restricted to exact four-point support and exact zeros; no claim on stability to perturbations or on other prime-power cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

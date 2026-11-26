@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a minimum over single class-alternating circular words. The proof converts circular windows to a closed walk in the full directed alternating overlap graph. For even window length, the mandatory edge set is already Eulerian. For odd window length, every vertex in the lower-outdegree class has exactly the same positive deficit, so summing deficits gives the rigorous lower bound on additional edge occurrences. The rotation permutation \(v_1\cdots v_{2r}\mapsto v_2\cdots v_{2r}v_1\) matches all deficit vertices bijectively to complementary surplus vertices by existing edges; multiplying those edges by the class-size difference gives a balanced strongly connected graph and an Euler circuit. No asymptotic approximation or unchecked numerical certificate is required. The standalone construction tests pass in 80 small families, plus eight exhaustive small-case sharpness checks. Finite tests are supporting evidence only.
+## correctness
 
-## Originality — PASS, qualified
-Champlin–Godbole–Tomlinson (arXiv:1303.3323, 2013, Theorem 4) already identify the odd-length indegree/outdegree imbalance and establish existence of exact-one-factor universal cycles in balanced cases. The new claim explicitly does not appropriate that antecedent. It determines the sharp shortest length and a realizable minimum repeated-window multiset in the unequal-size odd case, which the inspected original theorem does not imply. Kreitzer–Nica–Pereira (arXiv:2306.01498, 2023, Definitions 4–6 and Theorem 3) prove existence of an asymmetric alternating sequence covering only one of the two possible odd-window starting classes; their Example 6 has missing windows of the other class. Even when their sequence length numerically matches this optimum, the previously stated weaker covering property does not entail the stronger simultaneous coverage here. Indexed comparisons with run-limited and different forbidden-factor cyclic-cover results are not directly applicable. Earlier unindexed equivalent Eulerizations remain possible.
+PASS
 
-## Mathematical value — PASS
-An earlier feasibility theorem leaves a natural incomplete quantitative problem precisely in the unbalanced odd regime: how much repetition suffices if a universal exact-once cycle is impossible? The exact minimum surplus \((ab)^r|a-b|\), its parity dependence and an explicit all-parameter optimal construction provide a useful complete solution for class-alternating universal-factor scheduling and constrained-word superstrings. The result goes beyond an isolated numerical value or cosmetic reformulation of a prior existence statement.
+Every alternating circle has the same number of starts in each phase. For n=2r the two required counts are (ab)^r; for n=2r+1 they are a(ab)^r and b(ab)^r, giving both lower bounds directly, even with wrap or repeated windows. The overlap digraph is strongly connected: append the destination vertex after zero or one filler symbol to match the phase. When n is even the two degrees at a vertex are equal. When n is odd and a>b, the B-first vertices have incoming excess a-b, and the A-first vertices have the opposite deficit. Appending the first B letter rotates a B-first vertex bijectively onto an A-first vertex; duplicating precisely these edges a-b times balances every vertex without deleting any edge. The reverse roles and a=b follow identically or need no addition. An Euler circuit gives one circular host, not a disconnected cycle cover: successive edges share n-1 symbols, so reading their first symbols gives the edge label at each cyclic start. This also covers n=2 and singleton alphabets. Independent replay `python3 /workspace/reproduce_frozen.py 2` finds shortest closed covering walks by breadth-first search on vertex and covered-edge set for 11 small families. The frozen script was inspected, not executed; finite optima are corroboration, not the unbounded proof.
 
-## Closest literature and limitations
-1. Champlin, Godbole, Tomlinson (2013), *Universal Cycles of Complementary Classes*, Theorem 4, https://arxiv.org/abs/1303.3323 .
-2. Kreitzer, Nica, Pereira (2023), *Using alternating de Bruijn sequences to construct de Bruijn tori*, Section 2.3 and Section 3, https://arxiv.org/abs/2306.01498 .
+## originality
 
-The result does not count optimal covers or analyze linear covering hosts; an older unindexed theorem could have an equivalent shortest-cover formulation. No outside independent mathematical validation is represented by the checks here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the known exact-once balanced cases and their degree obstruction. The distinct supported claim is the imbalanced odd optimum for coverage of both phases and its explicit minimal repeated-factor multiset. The closest one-phase theorem has the same number at an appropriate choice of designated phase, but allows missing opposite-phase targets. No equivalent or dominating coverage for the imbalanced contribution was established in the bounded checks.
+
+## value
+
+PASS
+
+The earlier feasibility obstruction leaves a natural optimization question once exact-once coverage fails. The exact surplus and feasible single-cycle multiset solve that question for all sizes and lengths; in particular they allow one to size and construct a schedule that covers both phases. The claim does not address the number of optimal hosts or linear covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

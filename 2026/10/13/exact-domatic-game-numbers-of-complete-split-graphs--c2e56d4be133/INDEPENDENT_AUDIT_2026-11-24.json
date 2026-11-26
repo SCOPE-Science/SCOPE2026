@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:27.086712Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A color dominates exactly if it meets the universal clique U or occupies all of the independent part I. For the lower bounds, prioritize U in the cases requiring only floor(u/2) Alice turns there; for odd u in the Bob-first game, if Alice gets only (u−1)/2 such turns under that policy then Bob has already supplied the first clique color, so Alice takes a fresh clique color on every turn that still needs one. For even u=2q in the higher-value cases, Alice can play second in every same-zone pair (opening in I first if Alice starts and m is odd): Bob supplies the first clique color and her q replies give q more. For the upper bounds, Bob copies a represented color on clique replies, and uses either a repeated clique color in I or two different colors in I to kill the exceptional dominating independent set. When Bob starts in U, the remaining U has u−1 vertices, with at most ceil((u−1)/2) Alice turns there under the reply rule. The same count applies after an initial Alice U move and Bob’s same-color response, with one fewer U vertex if that response is in U; for u=1 the response instead goes to I. A first unpaired Alice move in I due to odd residual size can force one Bob initiation in U; this is allowed in the even-u Alice-first odd-m bound, and m≥3 ensures there is an earlier I pair to make bichromatic. When Bob starts in I and m is odd, both residual zones are even. Each upper strategy works at the first excluded palette size and any larger size (it needs at most two colors for the obstruction). This recovers q versus q+1 exactly when u is even, and (u+1)/2 for both starts when u is odd. The independent exact symmetry-reduced minimax (`python3 /workspace/checks/finite.py 3`) checked both palette thresholds for 100 profiles with u≤8, m≤8 and u+m≤13. It is regression evidence; the same-zone argument treats all allowed sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Observation 9 gives both values ≥ceil(u/2) using universal vertices, and Lemma 6 gives both ≤(δ+2)/2 for even δ, ≤(δ+3)/2 for odd δ. Here δ=u.",
+          "English–Swan gives a general lower bound of order δ/log n and general comparisons between starting conventions."
+        ],
+        "reasoning": "The strongest simple general bounds leave two possible values in either parity of u, and neither assigns the higher even-u value by parity of m. General start comparisons do not substitute for the family-specific strategy.",
+        "searches": [
+          "Hartnell–Rall arXiv:2508.10754, §4 Lemma 6 and Observation 9",
+          "English–Swan arXiv:2603.13522, Theorems 2.3 and 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/4 K_{1,1,n} finding and proof",
+        "Hartnell–Rall arXiv:2508.10754",
+        "English–Swan arXiv:2603.13522",
+        "Frozen verification materials (inspected only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026/10/4 proof invokes δ=2 to cap the palette at two, then uses the same or opposite color on the unique universal pair and makes the independent zone mixed when needed."
+        ],
+        "reasoning": "The one-pair argument supplies the strategy idea, not the full result by parameter substitution. The new classification controls q or q+1 distinct clique colors at general thresholds, accounts for unmatched clique or independent-zone moves, and separately blocks the possibility of a missing clique color dominating through I.",
+        "searches": [
+          "Resultary K_{1,1,n} record, RESULT.md Proof, offsets 1680–4845",
+          "Hartnell–Rall, minimum-degree bound and universal-vertex lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_u ∨ overline(K_m) is K_{1,…,1,m} with u singleton parts. The 2026/10/4 finding gives exactly the same Alice-first and Bob-first values for K_{1,1,m}."
+        ],
+        "reasoning": "That match is exact at u=2 and explicitly credited. It does not include u≥3, much less multipartite graphs with more than one nonsingleton part.",
+        "searches": [
+          "Resultary: domatic number game complete split graphs; K_u joined to an independent set; complete multipartite with singleton parts",
+          "2026/10/4/SCOPE-starting-player-parity-reversal-in-the-domatic-game-on-k-1-1-n--08304aa3dec8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed K_{1,1,n} finding tabulates the parity reversal for u=2. The tree theorem gives the known star case u=1; the proposition for complete graphs concerns the excluded m=1 boundary."
+        ],
+        "reasoning": "These exact slices cannot supply the classification when the clique size and winning palette size both grow. No general table was established from the inspected material.",
+        "searches": [
+          "Resultary: exact A/B values on complete split graphs; K_{1,1,n}",
+          "Hartnell–Rall arXiv:2508.10754, Proposition 10 and Theorem 12"
+        ]
+      },
+      "rationale": "The supported distinct claim is the two-parameter classification for the complete split family, excluding novelty credit for the star or the already exact K_{1,1,m} slice. The strongest indexed exact overlap has only two universal vertices and decides a two-color game. Its parity pairing is a genuine antecedent, but its statements and proof do not handle increasing palette size or the odd-clique and unmatched-reply cases. The primary universal-vertex and degree theorems do not select the starting-player thresholds.",
+      "residual_risks": [
+        "This is a bounded best-of-knowledge result; a more general exact multipartite theorem outside the inspected sources could cover it. Palette downward closure is not required for this audit’s upper argument, which works at every excluded palette size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact strict subcase; related pairing mechanism with a two-color cap",
+          "evidence": [
+            "Two universal vertices, δ=2, and only one universal pair to control.",
+            "For odd n Alice opens I and pairs the rest; in the lower-value games Bob uses a common universal color and eliminates the opposite-color independent class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-starting-player-parity-reversal-in-the-domatic-game-on-k-1-1-n--08304aa3dec8/RESULT.md",
+          "material_read": "Finding; Proof, text offsets 1680–4845",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Starting-player parity reversal in the domatic game on K_{1,1,n}",
+          "trigger": "Exact parity reversal on the closest indexed subfamily"
+        },
+        {
+          "assessment": "Prior general bounds and exact boundary values, not the parity classification",
+          "evidence": [
+            "The universal-vertex lower bound and degree upper bound leave a one-color gap.",
+            "The tree criterion gives both star values 1 for m≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.10754",
+          "material_read": "§4 Lemma 6, Observation 9 and Proposition 10; §5 Theorem 12",
+          "method": "Targeted primary text passages",
+          "title": "The domatic number game played on graphs",
+          "trigger": "Initiating paper and exact graph-family results"
+        },
+        {
+          "assessment": "General lower bounds and start comparisons, not the exact split family thresholds",
+          "evidence": [
+            "Theorem 3.7 gives inequalities between starts rather than an exact choice for each parity of m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.13522",
+          "material_read": "Theorems 2.3 and 3.7",
+          "method": "Targeted primary text passages",
+          "title": "On the Domatic Game",
+          "trigger": "Broader comparisons of starting conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural class where dominating colors have just two possible forms. The exact pair of game numbers for all clique and independent-set sizes resolves both the one-color slack in the general degree bound and when changing the opening player changes the value. It shows the previously known parity reversal persists for every even clique size and disappears for every odd one. This is a family classification, not a recomputation of the two-universal-vertex table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

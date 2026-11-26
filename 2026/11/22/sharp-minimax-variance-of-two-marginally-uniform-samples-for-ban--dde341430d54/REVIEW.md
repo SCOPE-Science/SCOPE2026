@@ -1,28 +1,21 @@
-# Scientific review: two-node periodic Fourier minimax quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every integer \(m\ge1\), every joint Borel law of individually Haar-uniform circle variables, and every real zero-mean Fourier polynomial supported on frequencies \(1,\ldots,m\). Normalized sine/cosine testing lower-bounds worst-direction cross-correlation by the largest cosine moment of the relative displacement. The nonnegative square of a geometric sum forces that largest moment to be at least \(-1/m\), and therefore forces risk at least \((m-1)/(2m)\). The exhibited independent random nonidentity root shift has all first \(m\) complex Fourier moments equal to \(-1/m\), which implies exactly isotropic risk and proves attainment. Equality in the kernel also forces any optimal pair's difference onto the nonidentity roots; positive Fejér weights force every cosine moment to equal \(-1/m\). The two-frequency double-angle argument proves the claimed constant-offset rigidity. Every use of positivity and every endpoint is covered, including \(m=1\).
+PASS
 
-A standalone finite checker passed 2,341 supplementary checks, including periodic phase integration, exact triangular sums and Fourier cancellation. It is a stress test rather than a certificate for unrestricted couplings.
+Uniform marginals make each normalized test function centered with second moment one. For the √2-normalized sine and cosine at frequency k, the average cross-covariance is c_k=E cos(2πk(Y−X)); therefore the worst-direction variance is at least (1+max c_k)/2 even for nonstationary couplings. The nonnegative squared geometric sum of length m+1 has expectation m+1+2 sum_{k=1}^m(m+1−k)c_k. Since the positive weights sum to m(m+1)/2, max c_k≥−1/m. With a uniform independent nonidentity root offset the discrete Fourier sum gives −1/m in every occupied frequency, so the cross-covariance quadratic form is −||f||²/m, proving isotropic attainment. An optimal law has every c_k≤−1/m; strict positivity of the Fejér weights forces equality for each k and almost-sure vanishing of the kernel. Its zeros are exactly the required nonidentity roots. These are necessary constraints, not an asserted classification of all nonstationary couplings. For a constant shift at m≥2 the first two moment identities give 2/m²−1=−1/m, requiring m=2. At m=1 the half-turn annihilates the band, and at m=2 the 1/3 and 2/3 shifts attain the value. The uploaded diagnostic was inspected, not run. An independent check of the exact without-replacement variance representation for selected zero-sum populations is reproducible with python3 /workspace/reviews/evidence/reproduce.py, output 5; the all-coupling theorem is analytic.
 
-## Originality — PASS, subject to historical-priority qualification
+## originality
 
-Kritzer–Kuo–Nuyens–Ullrich (2017) study random-number-of-nodes rank-one lattice algorithms and smoothness-space rates; Dick–Goda–Suzuki (2021) study component-by-component randomized rank-one lattice construction, and Casarin–Craiu–Frattarolo–Robert (2021) develop general antithetic-dependence constructions and application comparisons. Their inspected abstract, introduction, theorem statements and relevant sampling sections do not state the equal-marginal, exactly-two-observation, all-coupling finite-Fourier minimax constant and its displacement-support necessity. Their broader frameworks do not alone imply the exact \((m-1)/(2m)\) result without a frequency-specific Fejér/duality argument. Searches for equivalent root-of-unity and antithetic spectral formulations did not locate a directly dominating statement; absence of a search result is not proof of novelty.
+PASS
 
-Residual risk: both the Fejér kernel and classical cyclic sampling are established mathematics. A general harmonic moment or group-based antithetic minimax result could cover this as a corollary even without matching terminology. No independence or peer validation is claimed.
+The rotated root-grid sampler and its variance are recoverable from exact periodic-grid integration and classical finite-population correction; do not credit these in isolation. The distinct, supported result is that no Borel coupling of the two Haar marginals can do better for the entire real finite band, with a necessary root-support and cosine-moment condition for every optimizer. Nearby studies of spherical function recovery, Bayesian quadrature, and randomized lattices do not imply this minimax/rigidity claim.
 
-## Mathematical value — PASS
+## value
 
-Two uniform marginal sampling sites with free dependence form a natural exact-design question. The solution is a complete, bandwidth-uniform minimax value over all joint laws, not merely a better example than iid sampling. Its attaining construction makes all \(2m\) target directions equally difficult and the equality argument forces every optimal relative shift into a finite algebraic support. The sharp fact that a single constant shift ceases to be optimal at bandwidth three distinguishes ordinary shifted lattices from randomized mixtures at fixed evaluation budget. The fractional variance saving \(1/m\) is substantive for small bandwidth and becomes small as \(m\) grows; no broad speedup claim is made.
+PASS
 
-## Closest literature and scope
+The exact tradeoff is useful at a fixed two-evaluation budget where independent samples are the natural baseline. It shows that changing dependence alone reduces worst-direction variance, quantifies the saving as 1/m of that baseline, and proves that beyond bandwidth two a fixed shift cannot attain it. The universal restrictions on optimal displacements add structural content even when the saving is small. The finding does not claim comparable gains outside the band or for other weighting schemes.
 
-- Kritzer, Kuo, Nuyens, Ullrich (2017), https://arxiv.org/abs/1706.04502 : randomized lattice convergence rates with a random number of nodes, not fixed-budget copula minimax.
-- Dick, Goda, Suzuki (2021), https://arxiv.org/abs/2109.11694 : rank-one lattice construction and smoothness-space worst-case/rms rates, not two-node arbitrary-coupling exact value.
-- Casarin, Craiu, Frattarolo, Robert (2021), https://arxiv.org/abs/2110.15124 : general antithetic designs, dependence order, simulations, and integration applications; no inspected exact bandlimited minimax theorem.
-- Roach and Wright (1977), https://doi.org/10.1080/00949657708810144 : general antithetic sampling-plan optimization framed as a transportation assignment for a given model; only its abstract and bibliographic record were accessible, so overlap with a broad equivalent formulation remains a priority risk.
-
-Limitations include equal weights, exact uniform marginals, no observation noise, and no guarantee outside the designated bandwidth. The historical-priority caveat remains material.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

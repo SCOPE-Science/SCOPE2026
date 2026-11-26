@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:21:26.600697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent algebra: python /tmp/opencode/frozen-review-math.py, predator()",
+        "Finite diagnostic: python /tmp/opencode/frozen-review-ode.py"
+      ],
+      "rationale": "Reconstructed the positive equilibrium and all four equations for the total deviations Z=(A,B) and contrasts (X,Y). In the entropy derivative the matching interaction cancels, leaving -c A²-(pγ/ρ) B². Entropy sublevels are compact inside the positive orthant. On A=B=0, staying there requires XY=0; the nonzero harmonic-oscillator flow does not stay on either axis. LaSalle gives convergence. The exactly symmetric plane is invariant and its remaining linearization J has negative trace and positive determinant. A nonsymmetric solution never reaches that plane by uniqueness. An independent tracking argument avoids any ambiguity about the choice of center manifold: the contrast equations give |(log R)'|+|θ'-ω|=O(|Z|), which tends to zero. The stable Z equation has constant linear part J, quadratic remainder in Z, and forcing R²F sin(2θ). After a sufficiently late time, variation of constants (absorbing the small coefficient multiplying Z) bounds |Z| by O(R²), since R(s)/R(t)≤exp(ε(t-s)) for s≤t and ε can be taken below a quarter of a stable decay exponent. The residual of R² Im(W exp(2iθ)) in this equation is then O(R⁴); another stable convolution yields Z=R² Im(W exp(2iθ))+O(R⁴). The entropy is R²/(4u)+O(R⁴) by the cancellation of pure cubic contrast terms between opposite types. Thus (1/V)'=16u² G(θ)+O(R²), with angular mean of G equal to D/2, and θ'→ω makes the time mean equal to this angular mean. It follows that tR²→1/(2uD). The inverse defining W is nonsingular and F≠0, giving strict D>0. Independently recomputed the symbolic ODE and entropy and the unit response (-19/260+11i/130,17/260-3i/130), hence D=9/520 and limit 260/9. Two finite integrations at a distinct parameter set approached 30.53888017 progressively, giving 30.06715369 and 29.74237062 at t=24000; these are finite-time diagnostics only.",
+      "residual_risks": [
+        "Deterministic positive coexistence theorem only; no stochastic, uniformly-in-initial-data, or strictly boundary-initial-condition rate is checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Lotka–Volterra stability criterion needs positive definite symmetrized prey competition; equal entries give rank one here. General critical-Hopf rate theory requires a nonzero cubic mean with known sign; it does not supply that model coefficient or global convergence."
+        ],
+        "reasoning": "The degenerate competition prevents specialization of the cited stability hypotheses; the model-specific stable response is needed even after applying general center/oscillatory theory.",
+        "searches": [
+          "arXiv:1407.3069, §3 Assumption C.1",
+          "Resultary: critical-Hopf ringdown and inverse-time oscillatory damping"
+        ]
+      },
+      "checked_sources": [
+        "Resultary, including the identical target and indexed IDs 25f7dd6d5ac7, 5de4e8122350",
+        "arXiv:2609.04834",
+        "arXiv:1407.3069",
+        "Frozen RESULT.md relationship and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact dissipation in the originating work vanishes on the entire totals-zero plane. The indexed comparators calculate the asymptotic coefficient from different nonlinear systems."
+        ],
+        "reasoning": "Global attraction and the Lyapunov identity alone do not fix a contrast rate: the needed link is the forced second harmonic of the stable totals with its model-specific constant and positive average.",
+        "searches": [
+          "arXiv:2609.04834, Proposition 2.4 and Appendix A.2",
+          "Resultary IDs 25f7dd6d5ac7 and 5de4e8122350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched ODE and semidefinite Lyapunov derivative are prior. The indexed Volterra replicator has a parallel t times squared-contrast law with a different flow and coefficient; the indexed Allee ringdown treats a two-dimensional local flow."
+        ],
+        "reasoning": "Using total/contrast coordinates or elliptically rescaling the contrast does not transform either indexed analogue into the four-population ODE. The matching primary theorem establishes convergence, not the limit.",
+        "searches": [
+          "Resultary: matching-type predator–prey, four-type coexistence, algebraic contrast damping and critical-Hopf ringdown",
+          "arXiv:2609.04834, Eq. (2), Proposition 2.4 and Appendix A.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct local index match is the same frozen record, and the matched model's theorem and proof do not list the resolvent limit. Related exact indexed coefficients concern other equations."
+        ],
+        "reasoning": "A catalog of equilibria or convergence does not give this parameter-dependent asymptotic law; no separate relevant tabulation of this model's damping constant was identified.",
+        "searches": [
+          "Resultary matching-type, contrast and ringdown searches; originating primary model §2 and Appendix A.2"
+        ]
+      },
+      "rationale": "The same model, Lyapunov calculation and global attraction are already in the originating work; these are not distinct claims. Neither the matched source nor the closer structural analogues inspected supply the explicit harmonic-resolvent constant, or the exact contrast envelope for this flow from all strictly positive initial states off its symmetry plane. The verdict is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Comparison focused on the exact model sources and strongest indexed structural analogues, not a comprehensive review of uncited literature or all normal-form applications. Equivalent unpublished or unindexed calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and global attraction, not the stated sharp coefficient",
+          "evidence": "The model and entropy proof yield dissipation of totals only, followed by global convergence.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04834",
+          "material_read": "Eq. (2), PDF p. 4; Proposition 2.4, p. 7; Appendix A.2, pp. 37–38",
+          "method": "OA full-text passage inspection (offsets 16766, 26064, 135892)",
+          "title": "Eco-evolutionary cycles in a matching type predator-prey interaction",
+          "trigger": "Identical ODE and likely strongest rate overlap"
+        },
+        {
+          "assessment": "Does not directly cover degenerate competition",
+          "evidence": "Positive-definite symmetrized prey competition fails for the rank-one matrix here.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.3069",
+          "material_read": "§3, Assumption C.1, PDF p. 10",
+          "method": "OA full-text passage inspection at offset 34600",
+          "title": "Stochastic eco-evolutionary model of a prey-predator community",
+          "trigger": "Plausibly stronger stability theory"
+        },
+        {
+          "assessment": "Structurally similar but different dynamical system",
+          "evidence": "Four-species biased Volterra replicator, different contrasts and bias-dependent coefficient.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-global-bias-selection-and-inverse-time-oscillatory-damping--25f7dd6d5ac7",
+          "material_read": "RESULT.md finding and rate calculation, offsets 0 and 3600",
+          "method": "Local Resultary and indexed full-text passages",
+          "title": "Sharp global bias selection and inverse-time oscillatory damping",
+          "trigger": "Closest indexed global rate and exponential exceptional set"
+        },
+        {
+          "assessment": "Different model and local scope",
+          "evidence": "Two-dimensional Allee dynamics, not matching-type ecological coexistence with two stable total modes.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-critical-hopf-ringdown-and-a-universally-negative-logarith--5de4e8122350",
+          "material_read": "Indexed mathematical finding",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp critical Hopf ringdown and a universally negative logarithmic phase correction",
+          "trigger": "Related exact predator–prey amplitude calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and proof",
+        "Originating model, Proposition 2.4 and Appendix A.2"
+      ],
+      "rationale": "The established persistence and convergence leave open whether contrasts damp exponentially when the totals are dissipative but the contrast linearization is purely imaginary. The universal nonzero prefactor and the exact exceptional plane quantify this gap in a deterministic ecological model. It is not just an example of the general Hopf exponent: the computed prefactor and its strict positivity for every positive parameter choice resolve the model question.",
+      "residual_risks": [
+        "No claims about stochastic populations, phase correction, or numerical equilibration time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

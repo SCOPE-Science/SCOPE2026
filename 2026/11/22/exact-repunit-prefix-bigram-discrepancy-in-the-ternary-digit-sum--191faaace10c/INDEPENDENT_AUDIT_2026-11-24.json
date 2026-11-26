@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:03:39.688115Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–67",
+        "VERIFICATION.md, verify_repunit.py, verification_output.txt (supplied checks, not re-executed)",
+        "Independent replay: /workspace/branches/9b5fb50c-a866-4434-b37f-80dcb4cc395a/independent_direct_check.py and independent_check_r12.txt; verified through N_12=265720"
+      ],
+      "rationale": "The count is over N_r starting positions in a prefix of length N_r+1. A carry through c trailing twos changes the ternary digit sum by 1-2c, so a 01 start requires c=0 modulo 3 and initial digit sum 0 modulo 3. Partitioning below the repunit by the highest first-different digit j (necessarily a zero), the bulk case with c<=j-2 leaves an unrestricted digit and gives 2·3^(j-c-2). When c=j-1 the lone stopping digit is 0 or 1 and exactly one choice works iff j=1 modulo 3 and r is not 0 modulo 3; when c=j there is only one candidate, admissible iff j=0 and r=1 modulo 3. The geometric bulk sum and the two boundary counts give the stated three discrepancies. Independently, exact c with c=0 modulo 3 gives density 2/3^(c+2): the stopping digit has two choices and the remaining higher digit sum modulo 3 is uniformly distributed, by the aligned three-letter blocks. Summing over c gives frequency 3/13; truncating the c sum has uniform tail density at most 3^(-K) plus one possible boundary start in a window for c>=K. Bounded factor balance would put every length-N+1 factor count within a fixed bound of N·3/13, by averaging over translates; the repunit deviations contradict this. Each aligned triple contains every letter once, so four prefix errors of magnitude at most 2/3 bound the integer difference of equal-length single-letter counts by 2. The length-two examples 00 at 44 and 11 at 8 show sharpness. A separate direct digit-sum recurrence test matched every cutoff r=1,…,12; the infinite claims follow from the carry count and frequency argument, not these finite checks.",
+      "residual_risks": [
+        "The law is for the contiguous pair 01 and repunit cutoffs only; it does not give maximal discrepancy at arbitrary lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balková's generalized t_(b,m) factor frequency formula specializes at b=m=q=3 to 3/13, where q is the period parameter in the lemma.",
+          "Espinoza–Popoli–Stipulanti's discrepancy criterion then implies non-factor-balance once unbounded 01 discrepancy is independently established. It is not an exact finite prefix formula.",
+          "Spiegelhofer gives an O(log N) transducer and discrepancy values in one-third integers for the binary word, not the ternary word."
+        ],
+        "reasoning": "The general frequency theorem and balance criterion are credited as prior coverage for the facts they imply, but determine neither signs nor exact discrepancies of ternary repunit prefixes.",
+        "searches": [
+          "arXiv:1107.5033 Lemma 4.3",
+          "arXiv:2602.03746 §3.3 Lemma 3.4",
+          "arXiv:2102.01018 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 72–81",
+        "arXiv:1107.5033",
+        "arXiv:2602.03746",
+        "arXiv:2102.01018",
+        "Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known frequency fixes the linear term 3N_r/13, and the existing balance lemma converts a proven unbounded error to failure of factor balance.",
+          "The three corrections -k, k+10/13 and 1/13 come from exact carry stoppages at the highest first-different digit and cancellation of geometric sums. The prior frequency and balance results give none of these corrections."
+        ],
+        "reasoning": "The exact profile, not the frequency or balance implication alone, is the distinct mathematical claim. In particular no prior statement compared yields the three distinct signed behaviors at the natural base-three cutoffs.",
+        "searches": [
+          "arXiv:1107.5033 Lemma 4.3",
+          "arXiv:2602.03746 Lemma 3.4",
+          "arXiv:2102.01018 Theorem 1.2",
+          "RESULT.md lines 23–53"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed point of a→a(a+1)(a+2) modulo 3 is t_(3,3), whose adjacent-pair discrepancy is a summatory automatic-sequence problem, not a Parikh count of single letters.",
+          "Spiegelhofer's primary Theorem 1.2 gives a binary Thue–Morse 01 discrepancy transducer; its base, digit-sum modulus and frequencies differ.",
+          "The targeted primary query could not be serviced; it carries no negative evidentiary weight."
+        ],
+        "reasoning": "An exact ternary prefix automaton with the relevant output could cover the claim; an analogous binary calculation is not a reparametrization of this count. No such ternary automaton was established in the statements inspected.",
+        "searches": [
+          "Resultary: ternary digit-sum word contiguous factor discrepancy balancedness",
+          "Resultary: generalized Thue-Morse ternary word factor discrepancy automaton",
+          "Primary literature: `s_3(n) mod 3` contiguous `01` prefix discrepancy repunit generalized Thue-Morse automaton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "191faaace10c is the identical assigned record, not independent prior coverage.",
+          "881f35acc52f covers scale-stationary centered Parikh-vector laws at lengths 3^(e+1) in the ternary case, not counts of the ordered contiguous pair 01.",
+          "29efb4b8c4fd gives sharp logarithmic 01 discrepancy constants for the binary Thue–Morse word. d6bfcaf54f1b covers a different binary word in base 3/2, with transition frequency 2/5."
+        ],
+        "reasoning": "None of the compared distinct exact profiles changes the assessed word and observation simultaneously. The same-day match is compared on mathematics, not treated as later or earlier.",
+        "searches": [
+          "Resultary: base three digit sum modulo three adjacent 01 occurrence discrepancy",
+          "Resultary records with suffixes 191faaace10c, 881f35acc52f, 29efb4b8c4fd and d6bfcaf54f1b"
+        ]
+      },
+      "rationale": "The distinct result is the exact signed 01 discrepancy at every ternary repunit cutoff for t_(3,3), including its three residue classes. The frequency 3/13 and the implication from unbounded discrepancy to failure of factor balance are credited to prior results; sharp single-letter balance is elementary context, not the basis for an originality pass. The nearest binary discrepancy transducer, generalized ternary Parikh-vector result, and binary rational-base transition result do not supply the ternary adjacent-pair profile. Bounded evidence does not settle historical priority.",
+      "residual_risks": [
+        "The focused external query was unavailable; any earlier equivalent ternary automatic-prefix calculation outside the inspected papers and indexed records remains unresolved. This access limitation is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage of frequency, not the finite discrepancy",
+          "evidence": [
+            "At b=m=q=3 the 01 factor frequency reduces to 3/13."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.5033",
+          "material_read": "Definition and setup pp. 1, 5; Lemma 4.3 p. 8, OA offset 26000",
+          "method": "Read bounded primary PDF passages",
+          "title": "Factor Frequencies in Generalized Thue–Morse Words",
+          "trigger": "Includes the exact same ternary word and factor"
+        },
+        {
+          "assessment": "Covers inference from unbounded discrepancy to failure of factor balance, not the formula for this pair",
+          "evidence": [
+            "If a factor is C-balanced its frequency exists uniformly and its discrepancy is bounded by C."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.03746",
+          "material_read": "§3.3, Lemma 3.4, PDF p. 9; OA offsets 28500 and 29200",
+          "method": "Read the bounded primary theorem passage",
+          "title": "Factor-balancedness, linear recurrence, and factor complexity",
+          "trigger": "Generic stronger discrepancy/balance criterion"
+        },
+        {
+          "assessment": "Covers binary Thue–Morse only",
+          "evidence": [
+            "Base-2 transducer with O(log N) discrepancy and values in (1/3)Z."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.01018",
+          "material_read": "Theorem 1.2, p. 4, OA offset 8200",
+          "method": "Read bounded primary PDF passage",
+          "title": "Gaps in the Thue–Morse word",
+          "trigger": "Exact 01 discrepancy transducer in related word"
+        },
+        {
+          "assessment": "Letter counts at different cutoffs",
+          "evidence": [
+            "Centered Parikh-vector laws for factor lengths 3^(e+1), not adjacent pair counts at N_r."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-scale-stationary-parikh-laws-for-divisible-base-generalized-thue--881f35acc52f",
+          "material_read": "Local mirror RESULT.md statement",
+          "method": "Read the indexed statement",
+          "title": "Scale-stationary Parikh laws for divisible-base generalized Thue–Morse words",
+          "trigger": "Same generalized word at base and modulus 3"
+        },
+        {
+          "assessment": "Binary problem only",
+          "evidence": [
+            "Extrema and sharp logarithmic constants for binary Thue–Morse 01 discrepancy."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-logarithmic-discrepancy-constants-for-thue-morse-01-occurr--29efb4b8c4fd",
+          "material_read": "Local mirror RESULT.md statement",
+          "method": "Read the indexed statement",
+          "title": "Sharp logarithmic discrepancy constants for Thue–Morse 01 occurrences",
+          "trigger": "Strong exact 01 discrepancy analogue"
+        },
+        {
+          "assessment": "Different base, word and frequency",
+          "evidence": [
+            "The binary base-3/2 word has transition frequency 2/5 and logarithmic prefix discrepancy."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-logarithmic-transition-discrepancy-in-the-base-3-2-digit-p--d6bfcaf54f1b",
+          "material_read": "Local mirror RESULT.md statement",
+          "method": "Read the indexed statement",
+          "title": "Sharp logarithmic transition discrepancy in the base-3/2 digit-parity word",
+          "trigger": "Same-day indexed digit-word transition discrepancy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–20 and 23–67",
+        "Balková Lemma 4.3 and Espinoza–Popoli–Stipulanti Lemma 3.4 for the baseline"
+      ],
+      "rationale": "The repunit cutoffs are natural repeated-digit, half-scale prefixes of this substitution word. The exact profile gives negative and positive deviations growing in magnitude on two interleaved logarithmic subsequences and a bounded deviation on the third. It quantifies a concrete separation between bounded single-letter fluctuations and unbounded adjacent-pair fluctuations that neither a limiting frequency nor a qualitative balance criterion resolves.",
+      "residual_risks": [
+        "The result does not identify the global logarithmic constant or a discrepancy law for other factors or bases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

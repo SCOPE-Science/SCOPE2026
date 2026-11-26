@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orthogonal reducing decomposition is valid because the operator is symmetric and the selected subspace invariant. The two preconditioned spectra, endpoint formulas, and the reciprocal-parameter minimization can be reconstructed directly. The borderline cases \(c=a\), \(b=d\) and repeated eigenvalues are covered. The analytical proof is universal; 153,030 deterministic verification comparisons corroborate but do not replace it.
+PASS
 
-## Originality — PASS with residual bibliographic uncertainty
+Invariance and self-adjointness reduce A and S into the same orthogonal blocks. After dividing by alpha, the Type-I extreme quotient is max(b+s,d)/min(a+s,c), s=1/alpha>0. If c<=a, the denominator stays c and a plateau at the limiting value exists exactly for 0<s<=d-b when d>b. If c>a, the quotient strictly decreases up to c-a: d/(a+s) decreases, and (b+s)/(a+s) also decreases unless b=a, in which case it is 1 and the former dominates to the breakpoint. To the right, the denominator is fixed, with the optimum attained exactly through max(c-a,d-b). Type II leaves one normalized block value 1 and the range [alpha c,alpha d] on the other block; equality with d/c is exactly inclusion of 1. These arguments include singleton spectra and all endpoint equalities. For A=diag(K,1), the condition numbers are K+1/alpha and, at alpha=1 for Type II, 1. Independent exact rational checks: 784 endpoint quadruples and 28,224 reciprocal parameter comparisons of both methods; replay: python3 /workspace/branches/independent_checks.py 2. The finite check does not replace the proof.
 
-Fan, Hu, and Zhang introduce the two inverse preconditioner families and prove nonsingularity and Richardson estimates; they do not give the all-scalar exact invariant-subspace spectral minimax formulas or improvement iff criterion in the sections inspected. Pasetto et al. study a differently constructed ROM preconditioner and numerical spectral profiles. González analyzes a general Frobenius-optimal approximate-inverse framework, not the specific scalar pair in the accessible abstract. Related spectral boost work addresses angle misalignment and not the all-endpoint Type-I ridge classification. The scalar endpoint calculus is elementary after the model-specific reduction; a preexisting equivalent classification elsewhere remains a real risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Scalar tuning of a singular reduced inverse is intrinsic to the new proposed preconditioner, not an arbitrary slicing parameter. The theorem separates invertibility from useful spectral conditioning, gives the exact minimizer and a necessary/sufficient improvement boundary, and proves that adding the ridge across retained modes can be arbitrarily worse than adding it only on the complement. It is intended as an ideal invariant-subspace diagnostic, not a claim about noninvariant production solvers.
+Credit the preconditioners and invariant-block spectral reduction as known methods. The defensible distinct claim is the joint exact scalar classification for this objective, in particular the sharp Type-I improvement and attainment conditions versus Type II; no equivalent or stronger coverage was established in the material inspected. The Type-II spectral band inclusion by itself is an elementary observation, not a standalone novelty claim.
 
-## Closest literature and limitations
+## value
 
-Fan, Hu, Zhang (2026), arXiv:2609.11097v1, equations (4),(7), Section 3; Pasetto et al. (2017), DOI 10.1002/nme.5320, Sections 4–5; González (2006), DOI 10.1137/S0036144504431905, abstract only. Standard invariant-subspace spectral calculus is background. No independent audit or general noninvariant result is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These are two existing algorithmic choices on a naturally spectral benchmark. The full classification answers when ridge tuning actually helps, identifies when its best value is only a limit, and supplies an unbounded quantitative separation from complement-only tuning even for a two-eigenvalue SPD system. The decision boundary and failure witness, not the routine spectral decomposition, give this narrow comparison its use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The original two-harmonic recurrence is specified exactly. A trigonometric identity forces the cubic zero at the shape \(\beta_*=\pi-\arctan(3/5)\). A smooth center reduction at the neutral fixed point produces the strict fifth-order restoring drift \(-3C\mu c^2x^5/(1-\mu)\), and the inverse-fourth-power asymptotic follows by a telescoping increment. The strong-stable exceptional line is identified explicitly. Two small-polynomial root calculations classify the local stationary split and Jacobian spectra. Uniform memory contraction, Euler consistency and discrete Grönwall estimates establish the fixed-horizon detuning limit. The included exact-symbolic and finite numerical checker returned `VERIFY_OK`.
+PASS
 
-## Originality
+With u=sin x the coefficients of u,u^3,u^5 in sqrt(pi) times the wave are 3cos(beta)+5sin(beta), -4cos(beta)-20sin(beta), and 16sin(beta). At the claimed angle these give a cubic coefficient c=-40/sqrt(34*pi) and a derivative with respect to shape of the linear coefficient of -sqrt(34/pi). At the critical shape the center graph h starts at order x^2; its invariance gives h(x)=mu*c*x^3/(1-mu)+O(x^5) since the position displacement is initially O(x^4), making h(x_next)-h(x)=O(x^5). Substituting gives the reduced map x_next=x-K*x^5+O(x^7), K=3*C*mu*c^2/(1-mu). Its reciprocal-fourth increments tend to 4K, giving the stated coefficient. Local center stability and exponential tracking apply to the smooth locally invertible map with transverse multiplier mu. The vertical invariant line is exactly the local strong-stable manifold; the position displacement is less than |x|/2 sufficiently near zero off that line. On detuning, the two quadratics in u^2 for a wave zero and an extremum have unique small positive roots only for negative detuning, with leading coefficients 17/20 and 17/60, respectively. The wave-zero Jacobian has determinant mu*(1+C*Psi'^2) and satisfies the strict Schur tests for sufficiently small nonzero detuning; the extrema have one multiplier mu and one greater than one since Psi*Psi''<0. Under x=sqrt(epsilon)*X and w=epsilon^(3/2)*W, the memory error from mu*A_sigma(X)/(1-mu) is bounded by mu^n times the initial error plus O(epsilon) on bounded X sets. The step size for X is epsilon^2; the cumulative consistency error is O(epsilon) on a finite slow interval plus a summable O(epsilon^2) transient. The confining squared wave polynomial bounds the limit ODE, and a stopped discrete Gronwall bound extends convergence throughout the interval. This also gives memory convergence away from slow time zero. The frozen verifier was read, not run; its recorded numerical diagnostics are not used as proof.
 
-**PASS, subject to historical-priority uncertainty.** Gilet (2014, model equation (9), wave equation (20), figure 2) already derived the fixed-point families and plotted their shape variation; neither an unexplored number of fixed points nor a new general center-manifold theorem is being claimed. Rahman and Blackmore (2015 preprint) analyzed Neimark–Sacker crossings, typically away from a zero spatial slope. Rahman and Blackmore (2017 preprint) analyzed homoclinic/heteroclinic interactions and invariant curves while varying coupling, not this critical wave-shape detuning. The sharp critical inverse-fourth coefficient together with the \(\sqrt\varepsilon\)-space, \(\varepsilon^{-2}\)-time gradient-limit law is not covered by the inspected source statements or by the closest indexed comparisons. Related quintic critical exponents in other dynamical systems are not stronger coverage of this map. Unindexed earlier work on the same shape remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural local singularity of the exact two-harmonic family introduced to study confinement-induced walker dynamics. The source's hyperbolic stability criteria become inconclusive when its basic wave slope vanishes; the theorem resolves the boundary without stopping at numerical simulation or generic exponent identification. It determines the exact relaxation amplitude, both sides of the fixed-point transition and a finite-time observable process limit resolving metastable behavior over diverging physical iteration counts. The original source plots stationary branches, but does not give their critical time-law or gradient crossover. The scope stays local and does not claim new experimental hydrodynamics.
+Credit the published map, test family, stability conditions and qualitative fixed-point branches, as well as generic quintic relaxation in other systems. The supported distinct content is the sharp exact-map critical relaxation off the identified strong-stable set together with the finite-time detuning-scale gradient limit and slaved-memory statement. Neither the critical angle nor the fixed-point count is relied on as a stand-alone novelty.
 
-## Sources and limitations
+## value
 
-The closest primary sources are T. Gilet, *Physical Review E* 90 (2014), 052917, DOI: 10.1103/PhysRevE.90.052917; A. Rahman and D. Blackmore, arXiv:1507.08057 (2015); and A. Rahman and D. Blackmore, arXiv:1708.07593 (2017). Their model definitions, results, and relevant comparison sections were inspected. The formal demonstration uses standard smooth center manifold and stable foliation results. The standalone script checks algebra and finite trajectories, not the infinite theorem. Independent literature priority confirmation and an independent audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the physically specified wave shape, the usual linear stability test is inconclusive. The exact coefficient gives a local relaxation benchmark and distinguishes exponentially decaying memory on the vertical line from generic algebraic position decay. The detuning limit explains the neighboring one- and three-sink configurations dynamically with an explicit slow timescale and controls actual trajectories, not just equilibrium locations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

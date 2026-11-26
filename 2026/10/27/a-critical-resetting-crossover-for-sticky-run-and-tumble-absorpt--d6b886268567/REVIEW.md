@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the critical joint scaling \(r=R\theta^2\), \(\theta\downarrow0\), with a positive half-index bound-time coefficient. The telegraph first-hit transforms are obtained from the two backward equations and the right-moving wall return. Conditioning on the first Poisson reset gives an exact transform for each excursion, including the original-state restart shared by both protocols. The geometric number of bound visits produces the exact absorption transform. Expanding these identities at \(s=\theta^2z\) yields the proposed nonnegative Laplace limit; the Laplace continuity theorem proves distributional convergence. An explicit positive Lévy measure supports the subordinator representation, and a Tauberian theorem supplies the two different tail amplitudes. The standalone verifier passed 158 checks. Its finite calculations are supporting evidence, not substitutes for the proof.
+PASS
 
-## Originality — PASS, with residual risk
+The telegraph backward equation has decaying spatial eigenvalue −sqrt(s(s+2α))/v, and normalization in the left-moving wall state fixes the right/left amplitude ratio α/[s+α+sqrt(s(s+2α))]. Its small-s expansion gives A_wall=sqrt(2/α), A_home,−=(x₀/v)sqrt(2α), and their sum for A_home,+. Conditioning on the first independent exponential bulk reset, with any excursion start transform g and bare home transform a, gives the exact deficit 1−F_r,P(s)=s(1−g(s+r))/(s+r a(s+r)). At s=θ²z,r=Rθ² with z>0 and R≥0 fixed, this deficit is θ A_P z/sqrt(z+R)+O(θ²). Sum the independent geometric visits, including the initial home leg and the successful final wait: the numerator is θF_home φ and the denominator is 1−(1−θ)φF_P. Dividing by θ and using the square-root waiting deficit gives the claimed law, continuous at z=0, including R=0. Independent check of the Lévy measure: its tail is A_P e^(−Rt)/sqrt(πt), whose Laplace transform times z equals A_P z/sqrt(z+R). Differentiating that tail gives the stated positive density. Adding the independent stable component and sampling both at one independent mean-one exponential time gives the resolvent transform. Karamata's theorem for monotone survival yields c/sqrt(π) for R>0 and (c+A_P)/sqrt(π) for R=0 as the t^(−1/2) amplitudes. Pointwise continuity as R decreases to zero, strict Laplace-transform ordering at fixed z>0, and the orientation threshold all follow from the transform. This assumes no resetting during binding and independent waiting and absorption. The uploaded verifier was inspected, not run. A separate bounded Pareto-transform replay for both orientations and protocols at R=0 and 0.7 showed the maximum absolute error fall by about a factor of four from θ=0.04 to 0.01 in each reset regime; it is corroboration, not an asymptotic certificate.
 
-The original 2026 sticky run-and-tumble work gives the finite-parameter renewal formula and adsorption/return transforms. A closely related 2025 diffusion paper already contains the general heavy-tail minimum-exponent and equal-exponent principles, and these are not claimed. The assessed statement is the coupled rare-absorption, vanishing-bulk-reset regime yielding the specific \(z/\sqrt{z+R}\) crossover, the positive Lévy density, two protocol coefficients and discontinuous far-tail constant at \(R=0\). Targeted literature and mathematical-record searches did not identify this exact scaling law. The finite-parameter source transforms encode the model and might allow the asymptotics to be recovered; implicit coverage by general geometric-renewal scaling results is the principal unresolved priority risk. The earlier Brownian sticky-escape paper treats a different bounded-domain model.
+## originality
 
-## Value — PASS
+PASS
 
-The wall-return first-passage exponent \(1/2\) is physically singled out by run-and-tumble recurrence on a half-line, and an equally heavy bound-time law produces a genuine competition. In the joint scaling, bulk resetting changes an entire limit law, not just one moment. The result quantifies a singular noncommutation between weak-reset convergence and extreme survival times, identifies when different detachment protocols become statistically equivalent, and separates the binding and bulk-excursion mechanisms in an explicit Lévy representation. These address rare completion delays unavailable from mean first-passage statistics, which are infinite under the stated bound-time assumption.
+The exact two-protocol renewal calculation and finite-parameter protocol comparison are materially prior. The contribution supported here is the fixed-R joint scaling law, the explicit bulk-excursion Lévy component, and the noncommuting zero-reset and far-tail limits. The known exact transform is a strong starting point, but the inspected prior analyses do not give the simultaneous critical scaling or the resulting reset-dependent tail behavior. Neither the general heavy-tail rule nor the protocol threshold taken in isolation supports this pass.
 
-## Evidence and limitations
+## value
 
-Primary comparisons: Bressloff–Linn, arXiv:2602.02446v1, sections II–IV and Appendix A; Bressloff, arXiv:2503.01308v1, section 3.3 (notably equations (3.34)–(3.36)); Scher–Reuveni–Grebenkov, arXiv:2305.08701v1. The result assumes independently sampled bound durations and outcome decisions, renewal after each adsorption, Poisson tumbles/resets, and fixed parameters other than \(\theta\) and \(r\). The transform ordering is not first-order stochastic dominance. No uniform limit for diverging \(R\) and no extension to state-dependent clocks is claimed. The work has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical law identifies when bulk resetting alters the limiting excursion contribution without truncating the independent binding tail. The limiting distribution is continuous at zero scaled reset rate but its far-tail amplitude is not, a meaningful diagnostic for using the zero-reset approximation. The two protocol coefficients and the explicit Lévy measure make that distinction testable without assuming a finite binding mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

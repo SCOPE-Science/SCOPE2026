@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:44:25.207094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a=A(U), differentiation gives h'_U=C(a-Q)/(A-a)^2 and Q'=B(1-BE/C^2). Strict tilted Cauchy–Schwarz gives B^2<AC and C^2<BE for a nondegenerate positive-rate law, so Q is positive and strictly decreasing. A decreases from 1 to 0; Q(0)=H and Q(U)<A(U) give the unique threshold and both cases, including equality (zero right derivative only at 0). The minimizer increases with U and tends to zero as U decreases to U_c. One-sided Taylor expansion of Q at zero and A at U_c proves the onset coefficient; an open-domain implicit-function theorem at x=0 is unnecessary. For a fixed finite mixture, AC-B^2 is exactly the sum over i<j of w_i w_j (r_i-r_j)^2 exp(-(r_i+r_j)x). The (1,2) term uniquely dominates; dividing by C~w_1 r_1^2 exp(-r_1x) gives the claimed Q asymptotic. Equating at x_* with A(U)~w_1 exp(-r_1U) gives both the U coefficient and the logarithmic constant. The point-mass case gives Q=0 and strictly increasing slope. A bounded independent check solved the two-rate example via a quadratic in exp(-x), reproducing the threshold, minimum, and both slopes. The frozen script was inspected but not executed. Finite third moment is sufficient and gives the stated finite derivative at zero; the verification note's wording 'indispensable' is stronger than justified for the shape classification alone (finite second moment still gives the needed continuous Q at zero).",
+      "replay": "python3 /workspace/audit_checks/frozen_examples.py (record 3 check); the finite-mixture asymptotic and arbitrary-mixture conclusions are analytic",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Block et al. p. 262 use a Glaser condition for bathtub-shaped eta=-f'/f, in an unbounded gamma-plus-exponential-mixture model. Their introduction treats the untruncated exponential mixture as DFR and its slowest-rate tail.",
+          "The public Navarro abstract uses an increasing-hazard and an exponential component in a generalized mixture. The exact finite-support assumptions in Glaser's own full text could not be inspected."
+        ],
+        "reasoning": "A genuinely general finite-support theorem with eta strictly decreasing and positive terminal density would give the shape and initial-derivative sign test here. The actual inspected restatement concerns a different eta condition and model, so that prior statement is not verified. Neither shape theorem would alone provide the minimizer asymptotics.",
+        "searches": [
+          "Glaser (1980) finite-support hypothesis and Block et al. restatement, p. 262",
+          "Navarro–Guillamón–Ruiz generalized bathtub mixtures, DOI 10.1002/asmb.750"
+        ]
+      },
+      "checked_sources": [
+        "Godano, Lippiello and de Arcangelis (2014) accessible abstract",
+        "Glaser (1980) abstract and Block's limited restatement",
+        "Block et al. (2008) primary text",
+        "Navarro et al. (2009) public abstract",
+        "Gutenberg and Richter (1944) metadata",
+        "Local Resultary Omori and right-truncation records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For finite support with f(U)>0, h'=h(h-eta), each zero of h-eta crosses upward if eta'<0, and h diverges positively near U. With f proportional to B, eta=C/B has eta'<0 and the initial sign compares m_1/(1-A(U)) with m_2/m_1. This independent generic argument already gives the shape and threshold.",
+          "The frozen large-cutoff minimum uses cancellation in AC-B^2, leaving cross-rate term (1,2) after division by C. It concerns location as cutoff varies, not the classical slowest-rate limit of the untruncated hazard."
+        ],
+        "reasoning": "A broad finite-endpoint shape result, if verified, would mechanically cover part of the frozen theorem. The exact moving-minimum analysis and its second-rate asymptotics are not consequences of the inspected shape conditions, the untruncated tail limit or the empirical upturn reports.",
+        "searches": [
+          "Glaser hazard-shape criterion and Block et al. p. 262 against A(U)<1-m_1^2/m_2",
+          "Block et al. slowest-rate tail statement against frozen two-slowest-rate asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The differential log-survival slope of X conditional on X<U is precisely its hazard. An empirical b-value estimated over a thresholded sample is not in general that derivative.",
+          "Conditioning the whole exponential mixture is equivalent to mixing right-truncated components only with weights w_i(1-exp(-r_i U))/(1-A(U)). A construction with the original unchanged weights is generally different."
+        ],
+        "reasoning": "Either hazard or differential-magnitude language can express the same result; a thresholded fitted exponent and an arbitrary bathtub-mixture construction cannot be identified with this exact one-parameter family without accounting for density, cutoff, and weights.",
+        "searches": [
+          "Godano, Lippiello and de Arcangelis DOI 10.1093/gji/ggu359",
+          "Glaser DOI 10.1080/01621459.1980.10477530",
+          "Block et al. DOI 10.1239/jap/1208358966"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected 10/13 right-truncated exponentiated Ailamujia record gives hazard endpoint divergence, not a minimum criterion. The 10/25 apparent Omori theorem concerns an offset/contrast threshold for sums of inverse-time intensities. A further 10/18 truncation result concerns a generalized mean residual life property, not a hazard gap.",
+          "Godano's accessible abstract reports decreasing then increasing estimated slopes over a range of thresholds; no table or exact threshold equation is available in that material."
+        ],
+        "reasoning": "The catalogue comparisons use different families, observables or endpoints and do not tabulate this exact formula. Upturn phenomena and endpoint blow-up are shared qualitative effects, not the all-rate cutoff classification or the finite-mixture location formula.",
+        "searches": [
+          "Local Resultary: right truncation, hazard blow-up, apparent Omori slope transition and mixed Gutenberg–Richter slope",
+          "Godano et al. DOI 10.1093/gji/ggu359 quantitative cutoff comparison"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the quantitative minimum law under a fixed upper conditioning cutoff: the exact heterogeneity test, movement from onset and, especially, the large-cutoff asymptotic with cancellation of the slowest rate and a second-rate logarithmic shift. The qualitative slope shape can be obtained by a generic finite-endpoint log-convex-density argument and is not credited as a new generic hazard-shape principle. No inspected source gives the quantitative package or mechanically yields the minimum-location asymptotic. A plausible older statement of the shape/threshold implication remains unresolved, not treated as evidence against or for priority.",
+      "residual_risks": [
+        "Glaser's uninspected primary theorem or other older reliability work may already cover finite-endpoint log-convex hazards and hence the initial sign test by substitution.",
+        "Godano's inaccessible full text could contain a closer finite-cutoff analysis than the abstract; the abstract cannot settle that.",
+        "Bounded review does not exclude older equivalent asymptotics; no verified source supplied them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical context; primary text unresolved",
+          "evidence": "No full-text inference made from the metadata.",
+          "identifier_or_url": "Gutenberg and Richter, BSSA 34 (1944), pp. 185–188",
+          "material_read": "Bibliographic record only",
+          "method": "Caltech discovery record without usable paper link; identified CORE PDF route HTTP 403",
+          "title": "Frequency of earthquakes in California",
+          "trigger": "Classical magnitude distribution cited in the claim"
+        },
+        {
+          "assessment": "Qualitative overlap; exact full-text coverage unresolved",
+          "evidence": "Estimated b decreases then increases over ranges of magnitude threshold and differs between event types.",
+          "identifier_or_url": "https://doi.org/10.1093/gji/ggu359",
+          "material_read": "Accessible abstract and bibliographic result; not equations 1,2,6 or Figure 2",
+          "method": "Abstract search; OUP and identified alternate full-text routes returned access errors",
+          "title": "Variability of the b value in the Gutenberg–Richter distribution",
+          "trigger": "Closest named earthquake-mixture and cutoff phenomenon"
+        },
+        {
+          "assessment": "Related construction, not verified equivalent,",
+          "evidence": "Applies a generalized mixture to an increasing-hazard and an exponential model to obtain bathtub shapes.",
+          "identifier_or_url": "https://doi.org/10.1002/asmb.750",
+          "material_read": "Public RePEc abstract, offset 0",
+          "method": "Abstract read; identified Wiley and alternate full-text routes inaccessible",
+          "title": "Generalized mixtures in reliability modelling: Applications to the construction of bathtub shaped hazard models and the study of systems",
+          "trigger": "Bathtub hazard construction by mixing"
+        },
+        {
+          "assessment": "Unbounded mixtures and shape implication, not finite cutoff movement",
+          "evidence": "Untruncated rate mixtures are decreasing; Theorem 1 gives a bathtub hazard for mixture of an IFR gamma component and a continuous mixture of exponentials. In the Glaser discussion, bathtub eta gives IFR or bathtub hazard.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1208358966",
+          "material_read": "Introduction p. 260 (offset about 132), Theorem 1 and Glaser argument p. 262 (offset about 9471), reference [9] p. 270",
+          "method": "Lawful OA primary Cambridge PDF passages",
+          "title": "Continuous mixtures with bathtub-shaped failure rates",
+          "trigger": "Continuous exponential rate mixing; accessible statement invoking Glaser"
+        },
+        {
+          "assessment": "Support endpoint unresolved; no primary scope inference made",
+          "evidence": "Excerpts note sufficient shape conditions, but do not give finite endpoint hypotheses. The accessible Block restatement uses bathtub eta in an unbounded-support model.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1980.10477530",
+          "material_read": "Abstract/search excerpts and an attributed limited restatement in Block et al. p. 262; no primary theorem assumptions",
+          "method": "Publisher/JSTOR lookups; lawful OA and identified DTIC routes did not return the full paper",
+          "title": "Bathtub and Related Failure Rate Characterizations",
+          "trigger": "Possible broad shape theorem for finite support and log-convex density"
+        },
+        {
+          "assessment": "Analogy, not the same model",
+          "evidence": "Rise–fall–rise of local apparent exponent for sums of inverse-time aftershock intensities.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-offset-contrast-threshold-for-reentrant-apparent-omori-d--3f001ca0ae7a",
+          "material_read": "Finding and scope",
+          "method": "local publication mirror",
+          "title": "A sharp offset–contrast threshold for reentrant apparent Omori decay",
+          "trigger": "Earthquake mixture local-slope threshold"
+        },
+        {
+          "assessment": "Different distribution and endpoint effect",
+          "evidence": "Hazard is asymptotic to (1-x)^(-1) for a truncated exponentiated Ailamujia distribution.",
+          "identifier_or_url": "2026/10/13/SCOPE-right-truncation-forces-a-universal-tea-hazard-blow-up--9f38807432e0",
+          "material_read": "Finding and scope",
+          "method": "local publication mirror",
+          "title": "Right truncation forces a universal TEA hazard blow-up",
+          "trigger": "Exact right-truncated hazard result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Right conditioning creates a competition between rate heterogeneity and endpoint divergence. The exact threshold identifies when the observed local slope has an interior minimum without fitting a single exponent. The motion and asymptotic location explain why the second slowest class controls the minimum even though the slowest class dominates the mixture tail. This is a motivated distributional result, not an empirical earthquake-risk claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

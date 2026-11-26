@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:03.545005Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–94, frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/review_evidence/4.md (spectral polynomial replay and exact bracket)"
+      ],
+      "rationale": "Reconstructed the scalar multipliers and orthogonal projections of the wheel. Spectral cross-multiplication in the two coefficient coordinates for √5 verifies all twelve stated off-diagonal class formulas for m=3,4,5,6. For W6 the two nonadjacent rim classes and hub–rim class are positive at every positive step; the adjacent numerator changes sign at the sole positive root by Descartes and the endpoint signs. Rational outward-rounded Horner intervals certify both requested bracket signs. Periodizing the Green kernel of 3I−adjacency and including the hub–rim eigenvector in the pseudoinverse gives the claimed eventual adjacent negativity via the uniform positive bracket, since 5·147²−325²=2420. The scalar numerator is everywhere positive and the zero mode gives row sums one. At zero step the map is the identity; at the W6 cutoff only the adjacent off-diagonal class is zero.",
+      "residual_risks": [
+        "No classification for all steps at m≥7 and no unequal-weight conclusion. The bundled verifier also imports NumPy for its optional numerical tail, although the frozen software note lists only SymPy; the independent checks do not require that script."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sufficient Padé bounds apply in a Hurwitz Metzler setting; −L is singular and the inequalities are not necessary cutoff characterizations.",
+          "The strongly regular result requires connected noncomplete strongly regular graphs; W3 is complete and larger wheels have unequal hub and rim degrees. The complete-multipartite result covers W3 and W4 but not any W_m with m≥5."
+        ],
+        "reasoning": "The known sufficient conditions and other graph classifications do not supply the remaining wheel-family result.",
+        "searches": [
+          "Zappavigna et al. 2010 Theorem 2; 2012 Theorem 3, Sec. 4 and Comment 6",
+          "Resultary:4defdf9c32e5, 3b12f25d4b2d and a8ca5b261d22"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:3b12f25d4b2d, 98f4ce42b84c, 164458fb3547, 4defdf9c32e5 and a8ca5b261d22",
+        "Zappavigna et al. 2010 and 2012",
+        "Mednykh 2015"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel eigenvalues themselves are known, but the cutoff requires a sign comparison among projected multipliers. Projectors yield a distinct hub term; the missing wheel signs are not statements about the cycle multipliers."
+        ],
+        "reasoning": "W3 and W4 follow by parameter substitution; W5 and the W6/all-larger results require separate sharp rational inequalities and a rim Green-kernel obstruction.",
+        "searches": [
+          "Mednykh 2015 Exercise 1.6",
+          "Resultary:98f4ce42b84c and 164458fb3547 cycle cutoffs",
+          "Resultary:4defdf9c32e5 and 3b12f25d4b2d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The completed two-stage Gauss–Legendre endpoint multiplier is the same diagonal Padé rational function. W3 is K4 and W4 is complete multipartite K_{1,2,2}; the exact same-part and different-part formulas specialize to their claimed entries."
+        ],
+        "reasoning": "Method aliases and uniform conductance rescaling are true equivalences. Cycles are not equivalent to wheels: joining the hub shifts nonconstant rim eigenvalues and adds a distinct projection to the rim entries.",
+        "searches": [
+          "Resultary: Gauss–Legendre endpoint map, fourth-order diagonal [2/2] Padé, wheel/graph join, exact positivity horizon",
+          "Resultary:3b12f25d4b2d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two cycle results give an exact C6 quartic 5h⁴−12h³−102h²−144h−72; the multipartite result gives exact all-step positivity and formulas for W3 and W4. No exact match on the W6 polynomial surfaced in the bounded lookup."
+        ],
+        "reasoning": "The two small complete-multipartite cases are genuine prior coverage, while a quartic threshold for a different operator is not the degree-six wheel threshold.",
+        "searches": [
+          "Resultary wheel and degree-six cutoff searches",
+          "Resultary:98f4ce42b84c, 164458fb3547 and 3b12f25d4b2d"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp wheel-family cutoff, including W5, the W6 degree-six positivity horizon and the all-m≥6 obstruction. W3=K4 and W4=K_{1,2,2} are already exact special cases of the complete-multipartite record, including their off-diagonal formulas. The cycle threshold shares the first failing rim lengths but is not the wheel map. No priority claim is made for the generic Gauss–Padé scheme, spectral facts, or the covered special cases.",
+      "residual_risks": [
+        "The bounded primary search was low-yield; other specialized work could exist. The comparisons do not establish publication priority, including between distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "direct exact coverage for W3 and W4",
+          "evidence": "All nonempty part sizes are admitted; the explicit same-part and different-part formulas reproduce the W3 and W4 entries.",
+          "identifier_or_url": "Resultary:3b12f25d4b2d",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2481",
+          "method": "local mirror",
+          "title": "Unconditional fourth-order Gauss–Padé positivity on complete multipartite diffusion graphs",
+          "trigger": "stronger theorem directly covers small wheels"
+        },
+        {
+          "assessment": "same theorem pattern for cycles, not wheels",
+          "evidence": "C6 is the first failure, with the quartic threshold and adjacent-entry sign change.",
+          "identifier_or_url": "Resultary:98f4ce42b84c and 164458fb3547",
+          "material_read": "local RESULT.md findings and threshold statements",
+          "method": "local mirror",
+          "title": "Six-cycle threshold and all-size positivity dichotomy; The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "earlier analogous sharp cutoff theorems"
+        },
+        {
+          "assessment": "related methods, not a classification of the remaining wheels",
+          "evidence": "The former requires noncomplete strongly regular graphs; the latter concerns clique-blade windmills with a quartic boundary.",
+          "identifier_or_url": "Resultary:4defdf9c32e5 and a8ca5b261d22",
+          "material_read": "local RESULT.md findings and domains",
+          "method": "local mirror",
+          "title": "Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs; A sharp Gauss–Legendre positivity horizon on windmill graphs",
+          "trigger": "similar exact horizon in related graph families"
+        },
+        {
+          "assessment": "sufficient only; Hurwitz hypothesis differs",
+          "evidence": "The bound uses A and A² and is not an exact wheel horizon.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Theorem 2, p. 3, offsets 15200–16260",
+          "method": "OA author PDF",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "general positivity step criteria"
+        },
+        {
+          "assessment": "related failure and sufficient conditions, not wheel sharpness",
+          "evidence": "Displays a chain failure and an entrywise sufficient bound in the stable setting.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Sec. 4 chain example p. 14 offset 39900; Theorem 3 p. 17 offset 49380; Comment 6 p. 18 offset 52780",
+          "method": "OA author PDF",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "strong general Padé positivity candidate and exact failures"
+        },
+        {
+          "assessment": "spectrum known, entrywise cutoff not supplied",
+          "evidence": "Records the wheel Laplacian eigenvalues.",
+          "identifier_or_url": "https://conferences.matheo.si/event/10/attachments/79/161/Lecture_1_Laplacian_Mednykh_Rogla_2015.pdf",
+          "material_read": "Exercise 1.6, p. 28, offset 25394",
+          "method": "OA PDF",
+          "title": "Laplacians of Graphs, Spectra and Laplacian Polynomials",
+          "trigger": "possible prior statement of the spectral reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md spectral, finite wheel and Green-kernel arguments",
+        "/workspace/review_evidence/4.md",
+        "Cycle thresholds and complete-multipartite comparisons"
+      ],
+      "rationale": "For a natural hub-coupled geometry, the theorem distinguishes positive definite row-preserving timesteppers from entrywise positive ones and identifies precisely where unconditional positivity breaks. The exact first failure matters for choosing a positivity-preserving timestep, and the pseudoinverse argument explains all larger wheels without finite extrapolation. The result is useful independently of the previously covered complete-multipartite cases.",
+      "residual_risks": [
+        "Applies to the completed endpoint map of this one Padé scheme, not its stages or higher-order methods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

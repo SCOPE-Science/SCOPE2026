@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:29.830692Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equality of the full-circle squared Fourier magnitudes is equivalent to equality of every aperiodic autocorrelation, and coordinate magnitudes fix the support. After fixing the first coefficient to A>0, the outermost lag fixes the last coefficient C, giving immediate uniqueness for one or two nonzero points. For three points with unequal successive gaps, one lag isolates the middle coefficient. For equal gaps, middle candidates B,D obey A(D−B)+C·conj(D−B)=0 and |D|=|B|. Unequal endpoint magnitudes force equality; equal endpoint magnitudes reduce to a prescribed real part on a circle after a rotation. The other possible point gives precisely conjugate reflection times a unimodular scalar. For the four taps, expansion gives coefficientwise conjugates, all nonzero, and on the full circle the two quadratic factors have modulus |2cos(theta)±i s|. The shared support permits no nonidentity shift, the first tap fixes the scalar, and unequal endpoint magnitudes exclude conjugate reflection. These checks cover all s,t in the stated range. As a direct exact replay, the witness at (1,2) has nonnegative-lag autocorrelations (15,−8,5,−2) for each signal, obtained by summing the lagged products. The algebra in RESULT.md lines 24–79 is an all-parameter verification; the supplied finite-grid verifier was not executed as part of this audit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 constructs full consecutive-support ambiguities at every length N>3 for the same continuous-torus Fourier magnitudes plus all time magnitudes. Theorem 2.2 classifies all finite Fourier-magnitude partners by reciprocal-conjugate root choices and Lemma 2.3 identifies full reversal of those choices with conjugate reflection.",
+          "Novikov–Xu treat the discrete joint-data problem and have a difference-operator construction whose form contains the proposed factor switch; equal time magnitudes for this specific switch follow by coefficientwise conjugation. Friedman describes the equivalent finite autocorrelation formulation and calls the small dimensions n<3 straightforward."
+        ],
+        "reasoning": "The 2016 theorem is already stronger in support length for existence, and its proof yields the exact proposed family at length four. The separate general Fourier-partner theorem supplies the needed lower-bound reduction. The other works help identify the same data model but are not needed to conclude coverage.",
+        "searches": [
+          "arXiv:1604.04493v1 Theorem 3.6 (all N>3), Theorem 2.2 and Lemma 2.3",
+          "arXiv:2604.25662v1 discrete Problem 2, Theorems 1–2 and Example 1",
+          "Friedman 1989 DOI 10.1017/S033427000000624X, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification notes",
+        "Resultary 5454fe769fbc",
+        "arXiv:1604.04493v1",
+        "arXiv:2604.25662v1",
+        "Friedman DOI 10.1017/S033427000000624X",
+        "arXiv:1308.3058v2",
+        "Related Pauli and equicorrelation passages: arXiv:2308.07467v3, arXiv:2410.12065, DOI 10.1017/S0334270000001569"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For three support points, only equal successive gaps cause a repeated positive difference. For unequal gaps, the outermost lag and an isolated lag adjacent to the first support point force all phases once its phase is fixed. One- and two-point cases are even simpler.",
+          "For equal gaps both polynomial signals can be translated and compressed by the common step: the variable z^d still ranges over the full circle, reducing the case to degree two. In Theorem 2.2 the leading magnitude is proportional to (|beta_1||beta_2|)^(-1/2) at fixed autocorrelation. Switching one root beta to 1/conj(beta) preserves that coordinate magnitude only when |beta|=1, hence leaves the root unchanged. Switching both is conjugate reflection by Lemma 2.3. This includes coincident roots, viewed as multisets. Together with Theorem 3.6 at N=4, this yields the sharp cutoff."
+        ],
+        "reasoning": "The lower bound is not credited as an explicitly stated theorem of the cited paper; it is a direct specialization plus the isolated-lag case. No separate unexplained three-point rigidity remains after taking account of the known spectral-factor classification.",
+        "searches": [
+          "arXiv:1604.04493v1 Theorem 2.2 equation (3), Lemma 2.3 and Theorem 3.6",
+          "arXiv:1308.3058v2 p. 6, distinct-difference context",
+          "Targeted literature lookup on three-point position magnitudes and aperiodic autocorrelation (unavailable)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For N=4, the earlier polynomials are X(z)=C(z−a)(z+1/a)(z−i b) and Y(z)=C(z−1/a)(z+a)(z−i b), with a,b>1. X(iz)/(C i b) and Y(iz)/(C i b) are exactly the frozen pair at s=a−1/a>0 and t=1/b in (0,1). The common substitution z→iz only rotates the angle and changes coordinate phases. The endpoints have unequal magnitudes, so the nontriviality notion in the frozen result holds as well.",
+          "Partner exchange changes the sign of s; z→−z changes the signs of both parameters; common scaled reversal P(z)→−z³P(1/z)/t sends t to 1/t for both polynomials. Together these reach all the frozen parameters."
+        ],
+        "reasoning": "The earlier construction ranges over the entire family after explicit transformations preserving joint magnitude equality and nontriviality. Neither a Gaussian-integer instance nor writing the construction in different factors changes that coverage.",
+        "searches": [
+          "Resultary: four-tap Pauli ambiguity, joint coordinate amplitudes and full-circle Fourier modulus",
+          "Beinert–Plonka arXiv:1604.04493v1 Theorem 3.6, p. 11, offset 33807"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue record 5454fe769fbc states an exact existence criterion for positive magnitudes (A,B,C,D) on four consecutive positions: |AC−BD|<|A²−D²|<AC+BD. It also studies the number of nontrivial partner classes.",
+          "For the frozen family, take A=1, D=|t|, x=AC=√(1+s²t²), y=BD=|t|√(t²+s²). Then |x²−y²|=|1−t⁴|, so |x−y|=|1−t²|(1+t²)/(x+y)<|1−t²| since x+y>1+t². The right inequality follows from x+y>1+t²≥|1−t²|."
+        ],
+        "reasoning": "The exact catalogue criterion supplies existence over the family's whole amplitude range, not its exact partner formulas or the arbitrary-support lower bound. Its path is later-dated than the frozen record; mathematical coverage on that domain is separate from priority. The assessment of the exact family relies on the primary 2016 text.",
+        "searches": [
+          "Resultary: sharp support threshold, four consecutive taps, ambiguity fiber and fixed amplitudes",
+          "Mirrored record 5454fe769fbc, statement of the sharp amplitude criterion"
+        ]
+      },
+      "rationale": "Beinert and Plonka's 2016 Theorem 3.6 directly covers the four-tap existence and constructs exactly this entire two-parameter family up to data-preserving frequency shifts, exchange, and common reversal/scaling. It is not just an example with the same support cardinality. Their Theorem 2.2 and Lemma 2.3 also give the only potentially nontrivial lower-bound case by a short degree-two specialization; the other gaps have isolated autocorrelation terms. No claim that the earlier paper explicitly states the arbitrary-location cutoff theorem is needed for the failure: the lower bound and the exact construction follow mechanically from those comparisons.",
+      "residual_risks": [
+        "The bounded comparison does not determine which source, if any, first stated the arbitrary-location cutoff explicitly. The targeted public search on that wording was unavailable; the failure relies on positive mathematical coverage, not that interruption.",
+        "The relative provenance of the two catalogue records and the indicated later survey example were not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The whole four-tap family is equivalent to the N=4 construction; lower bound follows by degree-two specialization plus the unequal-gap observation",
+          "evidence": "Two switched reciprocal-conjugate roots with the same third root, and classification of all root choices with a leading-magnitude factor.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.04493v1",
+          "material_read": "PDF p. 5, equation (3), Theorem 2.2 and Lemma 2.3 (offsets 15885–17780); p. 11, Theorem 3.6 and its explicit factorization proof (offsets 33500–38687)",
+          "method": "Primary OA PDF text, bounded passage reads and exact polynomial comparison",
+          "title": "Enforcing uniqueness in one-dimensional phase retrieval by additional signal information in time domain",
+          "trigger": "Exact joint magnitude model and closest full-support constructions"
+        },
+        {
+          "assessment": "Material overlap of construction mechanism; not needed for decisive family coverage",
+          "evidence": "Finite difference-operator partners and an additional equal-position-magnitude condition; the palindromic quadratic filter on a real two-term input is of this form.",
+          "identifier_or_url": "arXiv:2604.25662v1",
+          "material_read": "Problem 2, pp. 1–2, offsets 3900 and 8300; Theorem 1 and Example 1, p. 3, offset 13291; Theorem 2, p. 4, offset 16487",
+          "method": "Primary OA PDF text passages",
+          "title": "On Phase Retrieval for Continuous and Discrete Fourier Transforms",
+          "trigger": "Cited discrete joint-data constructions"
+        },
+        {
+          "assessment": "Same finite-data formulation and low-dimensional context, not an explicitly stated arbitrary-location cutoff",
+          "evidence": "Coordinate magnitudes together with aperiodic autocorrelations and a remark on n<3.",
+          "identifier_or_url": "https://doi.org/10.1017/S033427000000624X",
+          "material_read": "Section 3, journal p. 302, OA text offset 9988",
+          "method": "Primary OA text passage",
+          "title": "Some remarks on Pauli data in quantum mechanics",
+          "trigger": "Historical finite-dimensional Pauli problem"
+        },
+        {
+          "assessment": "Covers four-tap existence on the frozen amplitude range, not the lower bound or exact formula by itself",
+          "evidence": "Strict triangle criterion in the positive amplitudes and further conditions for threefold fibers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-amplitude-triangle-and-threefold-fibers-for-four-tap-fouri--5454fe769fbc/RESULT.md",
+          "material_read": "Mirrored amplitude-triangle existence theorem and fiber claims, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror theorem comparison and substitution of the frozen amplitudes",
+          "title": "Sharp amplitude triangle and threefold fibers for four-tap Fourier magnitude",
+          "trigger": "Strongest exact catalogue comparison for the four-coordinate existence claim"
+        },
+        {
+          "assessment": "Different Fourier-only problem; related collision-free setting",
+          "evidence": "Turnpike uniqueness for distinct differences except the specified six-point family. The frozen joint-data lower bound already fixes support, so no turnpike reconstruction is needed.",
+          "identifier_or_url": "arXiv:1308.3058v2",
+          "material_read": "PDF p. 1 and p. 6, Theorem 1 and distinct-difference discussion (offsets 45250–47647)",
+          "method": "Primary OA PDF text passages",
+          "title": "Phase Retrieval for Sparse Signals: Uniqueness Conditions",
+          "trigger": "Possible nonconsecutive support coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The least-support question is natural and the treatment is a clear exposition, but the exact example and full proposed family are a reparameterized known construction. After that coverage is credited, the lower-bound remainder is a two-root specialization of the known general classification plus the elementary fact that unequal gaps isolate the relevant lag. No substantively new obstruction, ambiguity phenomenon, or classification survives in the original claim; making the known example an integer witness does not supply one.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

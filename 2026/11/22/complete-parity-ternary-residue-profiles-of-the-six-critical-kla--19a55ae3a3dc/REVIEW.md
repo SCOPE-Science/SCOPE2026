@@ -1,23 +1,21 @@
-# Mathematical review: Complete parity–ternary residue profiles of the six critical Klarner affine orbit sets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each triple, the proof first identifies the exact image modulo every power of three. It proves 2 is a generator of the ternary unit groups via v_3(2^(2*3^j)-1)=j+1; four ternary images are full and the two others exclude exactly one class modulo three. Separating parity by the last odd- or even-producing generator gives every listed congruence condition, including the k=1 exceptions. The numbers 4*3^(k-1), (3^(k+1)+1)/2, and 8*3^(k-2) are counted from disjoint residue classes, not inferred from experiments. The extracted checker independently confirms all 54 complete image-set equalities for k=1..9. Limitation: no claim about ordinary asymptotic density.
+PASS
 
-Critical proof steps checked: the valuation identity for the multiplicative order of \(2\pmod{3^k}\); exact projections to powers of three; parity-based last-map decomposition; disjoint counting at \(k=1,2\); and breadth-first-search set comparisons for all six coefficients through \(k=9\). The finite test is independent supplementary evidence, not an infinite certificate.
+Reduction from the integer orbit agrees with finite modular reachability because each reachable state comes from a finite word. The valuation of 4^(3^j)-1 is j+1 (cubing raises this valuation by exactly one), hence 2 has order 2*3^(k-1) modulo 3^k and generates the units. The unit seeds 10 and 2 for the first two listed triples, and the A-orbits A^j(0)=(2^j-1)a when a is nonzero, cover the claimed ternary classes except for the missing class in each of the four surjective cases. The displayed B or C in each such case maps the full projection at level k-1 onto the missing class at level k; in the two restricted cases all generators preserve the allowed classes. Splitting parity then gives the first pair directly from A and B, and the middle two shell laws from the last parity-resetting C followed solely by B. The identities are B^t(C(x))+1=2*3^t(3x+2) and B^t(C(x))=2*3^t(3x+1), respectively. They yield the special residues at t>=k; the remaining shells have exactly 3^(k-t-1) terms. In the two restricted cases the leading parity comes from A, and the opposite one from C followed by B, with mod-18 classes 9/15 and 0/6 preserved by B. For (1,6,0), words consisting only of B starting at 0 are also covered, since C(0)=0 can be inserted first. The special classes merge modulo 6 exactly as stated. Independent set saturation compared against arithmetic progression shell sets for all six triples at levels 1 through 10: 60 exact equalities, with sizes [4,5,3,5,4,3] at k=1 and [12,14,8,14,12,8] at k=2 in listed triple order. Replay: python3 -I /workspace/branches/independent-checks/record3.py; record3.log in that directory. Frozen checker inspected, not executed.
 
-## Originality — PASS, with documented priority risks
+## originality
 
-The 2025 primary article explicitly enumerates the six critical tuples and proves orbit-size lower bounds, but its inspected sections do not give the six complete parity–ternary image laws or the three 2/3, 3/4 and 4/9 local fractions. Earlier exact local-image results already cover the (0,2,3) row; this covered case is expressly credited, not claimed as new. The genuinely new part covers the other previously unclassified coefficients, in particular four tuples with 2/3 and 4/9 outcomes. Semantic research-index searches using names, all six coefficients, exact moduli, modular images and equivalent affine-orbit language found no matching statement, which alone cannot prove novelty. Uninspected original 1982 and full 2016 texts remain a priority risk.
+PASS
 
-Most relevant inspected primary source: Shamazov and Talambutsa, arXiv:2507.06875 (first posted July 9, 2025), Sections 1–4, especially Theorems 4 and 6 and formula (17). The six free triples were already known. An existing exact local-image result for \((0,2,3)\) is credited as prior coverage; the mathematical novelty concerns the other cases, especially the distinct \(2/3\) and \(4/9\) branches. Available Lagarias and Klarner material did not support a decisive whole-document comparison, which remains a limitation. No absence-of-search-hits inference is treated as proof of novelty.
+Credit the exact fixed-coordinate six-triple comparison through its distinct 2/3 and 4/9 profiles; do not claim five unrelated novel laws. A distinct same-day Resultary record already supplies the entire (0,2,3) row by specialization, and (1,0,2) follows from that exact image by affine conjugation with a finite-quotient seed argument. All six profiles form three pairs under affine residue bijections. The two other profile laws are not covered by the inspected catalog entries or literature. No priority order is inferred within the same date.
 
-## Value — PASS
+## value
 
-The six triples are the complete natural critical free family singled out in the 2025 source, and their integer-orbit density problem is mathematically motivated. Exact finite-quotient classifications provide local arithmetic obstructions and distinguish three genuinely different limiting modular occupancy fractions; they are not an arbitrary sample, a single tiny numerical improvement, or a merely renamed known case. The new 4/9 and 2/3 branches refine the qualitative obstruction information available for the related 3/4 case. The result does not settle natural density; this is a meaningful limitation, not an asserted application.
+PASS
 
-## Limitations and scientific integrity
+The six coefficient choices are the canonical critical free affine-semigroup bases, not a slice chosen after seeing numbers. Their exact local obstructions distinguish the two additional laws 2/3 and 4/9 from the known 3/4 branch, and the residue formulas determine where the missing mass lies, including the exceptional first level. Exact orbit images are usable in further modular and density-bound investigations; rephrasing the known middle law alone would not warrant this verdict.
 
-Only the residue images modulo \(2\cdot3^k\) are classified. Ordinary natural densities, general moduli and multiplicities of semigroup words are outside scope. Earlier full-length historical primary sources were only partially accessible or inaccessible, so an implicit priority issue cannot be excluded. No independent mathematical audit has been carried out.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

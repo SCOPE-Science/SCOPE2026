@@ -1,81 +1,49 @@
-# Transition matchings and the joint subsequence-universality law for binary words
+# Subsequence universality at a prescribed binary transition density
 
 ## Finding
-For a finite binary word \(w=w_1\cdots w_n\), let \(t(w)\) be its number of unequal adjacent pairs, and let \(\iota(w)\) be the largest \(k\) such that every binary length-\(k\) word is a scattered subsequence of \(w\). Define a graph \(G_w\) on the positions \(1,\ldots,n\), retaining path edge \(\{i,i+1\}\) exactly when \(w_i\ne w_{i+1}\). Then
-\[
-\boxed{\iota(w)=\nu(G_w),}
-\]
-where \(\nu\) is the maximum-matching cardinality. Equivalently, if the maximal consecutive runs of unequal-adjacency indicators have lengths \(\ell_1,\ldots,\ell_s\), then \(\iota(w)=\sum_{j=1}^s\lceil\ell_j/2\rceil\). The empty word has index zero.
 
-Let \(N_{n,t,k}\) count indexed length-\(n\) binary words with exactly \(t\) transitions and universality index \(k\). The complete joint distribution is
-\[
-\boxed{\sum_{n,t,k\ge0}N_{n,t,k}z^ny^tu^k
-=1+\frac{2z(1+zyu)}{1-z-z^2yu(1+y)}.}
-\]
-For \(n\ge1\), \(k\ge1\), the coefficient formula is
-\[
-\boxed{N_{n,t,k}=2\left[\binom{k-1}{t-k}\binom{n-k}{k}
-+\binom{k-1}{t-k-1}\binom{n-k-1}{k}\right],}
-\]
-using zero for out-of-range binomial coefficients. The remaining cases are \(N_{0,0,0}=1\), \(N_{n,0,0}=2\) for \(n\ge1\), and zero otherwise. For \(n\ge2\) and \(1\le t\le n-1\), the attainable indices are **exactly** the integers
-\[
-\left\lceil\frac t2\right\rceil\le k\le\min\left(t,\left\lfloor\frac n2\right\rfloor\right).
-\]
+Fix integers \(n\ge2\) and \(0\le t\le m=n-1\). Choose an indexed binary word uniformly among those having exactly \(t\) unequal adjacent pairs. Write \(K\) for its binary scattered-subsequence universality index, namely the largest \(k\) for which every binary word of length \(k\) occurs as a subsequence. The alphabet remains binary even if the sampled word is constant.
 
-For a uniformly sampled length-\(n\) word conditioned to have exactly \(t\) transitions, put \(m=n-1\ge1\). Its exact conditional mean is
+The mean under this constraint is
 \[
-\boxed{\mathbb E[\iota\mid t]=(m-t+1)
-\sum_{\substack{1\le r\le t\\r\text{ odd}}}\frac{\binom tr}{\binom mr}.}
+\mathbb E[K\mid t]=(m-t+1)\sum_{\substack{1\le r\le t\\r\ \mathrm{odd}}}\frac{\binom{t}{r}}{\binom{m}{r}}.
 \]
-If \(t=t_n\) is any deterministic transition budget such that \(t_n/(n-1)\to\rho\in[0,1]\), then the conditional random-word universality index obeys
+Put \(d=\min(t,m-t)\). If \(d>0\), then for every \(s>0\),
 \[
-\boxed{\frac{\iota(W_n)}n\ \longrightarrow\ \frac{\rho}{1+\rho}
-\quad\text{in probability}.}
+\Pr\bigl(|K-\mathbb E[K\mid t]|\ge s\mid t\bigr)\le 2\exp\!\left(-\frac{s^2}{2d}\right).
 \]
-The conditional concentration has exponential tails on the \(\sqrt n\) scale.
-
-## Assumptions and scope
-The ambient alphabet is exactly \(\{0,1\}\), including when a word uses only one letter. Scattered subsequences preserve order but need not be contiguous. Words are indexed, not identified under cyclic shifts, reversal, or complementation. The graph \(G_w\) has all \(n\) positional vertices, including isolated ones. The conditional ensemble fixes the exact number of unequal adjacent pairs, not the number of zeros or ones. In the length-zero case only the empty word occurs. For the conditional mean assume \(n\ge2\) and \(0\le t\le n-1\).
+For \(d=0\) the index is deterministic. In particular, if \(t=t_n\) is any deterministic sequence with \(t_n/(n-1)\to\rho\in[0,1]\), then under these conditional distributions
+\[
+\frac{K}{n}\ \xrightarrow{\mathbb P}\ \frac{\rho}{1+\rho}.
+\]
+Thus the limit \(1/3\) from the ordinary uniform binary-word model is replaced by a density-dependent law when the transition budget is fixed. The deviation bound uses the size of the smaller of the two edge sets, rather than the length of the word, so it also gives sub-\(\sqrt n\) concentration when the minority of edge indicators is sublinear.
 
 ## Proof
-**Greedy arches and matchings.** Cut a binary word repeatedly at the earliest next appearance of both symbols, leaving a final suffix containing at most one symbol. Each complete arch uniquely has the form \(a^r\bar a\), with \(r\ge1\). If there are \(h\) complete arches, then every length-\(h\) target embeds by choosing its successive symbols from the respective arches. Conversely, write \(b_j\) for the final letter of arch \(j\) and choose a letter \(c\) absent from the residual suffix. The greedy leftmost embedding of \(b_1\cdots b_h\) ends precisely at the \(h\)-th arch boundary, since \(b_j\) does not occur in its arch before the final position. Therefore \(b_1\cdots b_hc\) does not embed. Hence \(\iota(w)=h\).
 
-An arch always closes on an unequal-adjacency edge, and a further arch cannot close on an edge sharing an endpoint with the preceding closing edge. It does close on the earliest subsequent nonoverlapping unequal-adjacency edge. This is precisely the left-to-right maximum-matching greedy rule for a path: choose its first present edge and skip the next edge. On a component consisting of \(\ell\) consecutive present edges this rule selects \(\lceil\ell/2\rceil\), which is optimal because the component has \(\ell+1\) vertices. Summing over components proves the displayed graph identity and run formula.
+The known binary path-matching identity [1] says that \(K\) is the maximum matching size on the positional path with edges at precisely the unequal adjacent pairs. Indeed, the binary greedy arch decomposition is the standard subsequence-universality criterion [2]. Every complete arch ends in an unequal adjacent pair, and those pairs are disjoint; conversely any left-to-right list of vertex-disjoint unequal adjacent pairs supplies one copy of each letter per pair, hence supports every subsequence of length equal to the list size. A run of \(L\) present edges forms a path on \(L+1\) vertices and contributes \(\lceil L/2\rceil\) to the maximum matching size.
 
-**Generating function and exact coefficients.** After the initial symbol, use two states: \(P\) is the ongoing, not-yet-complete arch; \(E\) means that the latest letter closed an arch. Let \(P(z,y,u)\) and \(E(z,y,u)\) enumerate possible remaining suffixes from these states, with \(z\) marking letters, \(y\) marking transitions, and \(u\) marking completed arches. From \(P\), a repeated bit leaves state \(P\), whereas an opposite bit closes an arch and enters \(E\). From \(E\), either bit starts a new arch; the opposite bit additionally contributes one transition. Thus
+**Exact mean.** Every indicator vector with \(t\) present edges has two possible initial bits, so the indicators are uniform over binary vectors of length \(m\) and weight \(t\). Split the vector at its \(m-t\) zeros, allowing empty runs of ones, to obtain a uniform weak composition \((L_1,\ldots,L_q)\) of \(t\) into \(q=m-t+1\) parts. The number of such compositions is \(\binom mt\); for \(r\le t\) subtracting \(r\) from the first part shows that exactly \(\binom{m-r}{t-r}\) have \(L_1\ge r\). Thus
 \[
-P=1+zP+zyuE,\qquad E=1+z(1+y)P.
+\mathbb E\!\left[\sum_{i=1}^q\left\lceil\frac{L_i}{2}\right\rceil\right]
+=q\sum_{r\ \mathrm{odd},\,1\le r\le t}\Pr(L_1\ge r)
+=q\sum_{r\ \mathrm{odd},\,1\le r\le t}\frac{\binom tr}{\binom mr}.
 \]
-Solving gives \(P=(1+zyu)/(1-z-z^2yu(1+y))\). There are two choices for the first bit, so the full series is \(1+2zP\), proving the rational formula. For \(k\ge1\), the coefficient of \(u^k\) is
-\[
-\frac{2z^{2k}y^k(1+y)^{k-1}(1+zy)}{(1-z)^{k+1}},
-\]
-which expands to the stated two-binomial expression. The allowed powers of \(y\) and \(z\) in these two terms give the exact feasible range \(\lceil t/2\rceil\le k\le\min(t,\lfloor n/2\rfloor)\); every integer in that range has a strictly positive coefficient (the endpoint cases follow from whichever binomial term is nonzero).
+The empty sum is zero when \(t=0\); for \(t=m\) the sole part is \(m\) and the formula gives \(\lceil m/2\rceil=\lfloor n/2\rfloor\).
 
-**Exact fixed-transition mean.** A binary word is determined by its first bit and its \(m=n-1\) transition indicators. Conditioned on \(t\) transitions, the indicator set is uniformly distributed over all \(t\)-subsets of \(\{1,\ldots,m\}\). The matching greedy algorithm selects the first, third, fifth, and subsequent odd-positioned edges in each maximal run of present edges. Fix an odd positive integer \(r\le t\). The probability that the first \(r\) edge indicators are present is \(\binom tr/\binom mr\). For any later position, the event that its indicator is the \(r\)-th consecutive present indicator since the most recent absent indicator has probability \((m-t)\binom tr/((m-r)\binom mr)\), whenever \(r<m\). There are \(m-r\) such later positions; for \(r=m=t\), only the initial-position term exists. Thus the expected number of selected edges in odd offset \(r\) is \((m-t+1)\binom tr/\binom mr\). Sum over odd \(r\) to obtain the stated exact conditional expectation.
+**Concentration.** Replacing one present edge by one absent edge changes the matching number by at most one: remove the swapped edges to obtain a common subgraph and note that adding either back changes the optimum by zero or one. Represent the smaller of the present and absent edge sets by an ordered sample of \(d\) labels from the \(m\) positions without replacement. For two possible next revealed labels with a fixed history, the remaining completions can be coupled by transposing the two labels. The resulting indicator sets either agree or differ by the single swap just considered, whether the sampled labels are present or absent. The conditional expectations over different next labels therefore have range at most one. Each difference of the Doob martingale has absolute value at most one, since its previous value averages those alternatives. Two-sided Azuma–Hoeffding yields the stated bound for \(d>0\); no sampling is required when \(d=0\).
 
-**Limit law.** Suppose first \(0<\rho<1\). For every fixed \(r\), \(\binom{t_n}r/\binom{m}r\to\rho^r\), and the ratio is at most \((t_n/m)^r\). A geometric dominating sequence therefore gives
-\[
-\frac{\mathbb E[\iota\mid t_n]}m\longrightarrow
-(1-\rho)\sum_{j\ge0}\rho^{2j+1}=\frac{\rho}{1+\rho}.
-\]
-For \(\rho=0\), use \(0\le\iota\le t_n\). For \(\rho=1\), use \(\lceil t_n/2\rceil\le\iota\le\lfloor n/2\rfloor\), giving a limit of \(1/2\).
+**Density limit.** At \(0<\rho<1\), for each fixed \(r\) the ratio in the mean formula tends to \(\rho^r\), and the ratios extended by zero above \(t_n\) are bounded by \((t_n/m)^r\). For sufficiently large \(n\) a fixed geometric summable bound applies. As \((m-t_n+1)/n\to1-\rho\), the normalized mean tends to \((1-\rho)\rho/(1-\rho^2)=\rho/(1+\rho)\). The concentration bound makes \((K-\mathbb E[K\mid t_n])/n\) tend to zero in probability. At \(\rho=0\) the deterministic bound \(0\le K\le t_n\) suffices. At \(\rho=1\), the run formula and the total number of path vertices give \(\lceil t_n/2\rceil\le K\le\lfloor n/2\rfloor\), proving the endpoint by squeezing.
 
-It remains to pass from the mean to convergence in probability. Sample the uniform \(t\)-element edge set as the first \(t\) values of a uniform permutation of the \(m\) path-edge labels. Swapping a chosen and an unchosen edge changes the graph's maximum-matching number by at most one: remove both exceptional edges to obtain a common subgraph, and observe that adding either one increases its matching number by at most one. In the permutation-revelation martingale, conditioning on two possible next choices is coupled by such a swap, so its successive conditional expectations differ by at most one (a weaker constant two also suffices). Bounded martingale differences yield, for example, \(\Pr(|\iota-\mathbb E\iota|\ge s\mid t)\le2\exp(-s^2/(8m))\). Taking \(s\) proportional to \(n\) proves the limit in probability for every prescribed transition-density sequence.
+## Relationship to prior work and scope
 
-## Verification
-Run `python3 verify.py` with the standard library only. The verifier compares (i) the defining collection of scattered subsequences, (ii) direct greedy arch counts, and (iii) a separate maximum-matching dynamic program for every binary word of length at most ten. It then enumerates every indexed binary word through length sixteen and checks the joint counts and exact index ranges. An independent two-state polynomial transfer recurrence checks the coefficient formula through length ninety. Enumerating all subsets of transition positions through eleven positions checks the exact conditional-mean identity. Expected successful output: `TRANSITION_MATCHING_UNIVERSALITY_PASS direct_n<=10 words_n<=16 transfer_n<=90 means_m<=11`. These finite checks corroborate the proof; they do not certify its infinite quantifiers.
+The linear path-matching identity is explicitly stated in [1, Proof §1], even though the main result there concerns circular words. The reset-at-zero transfer matrix in [1, Proof §2] also gives the joint linear enumerator by starting in state zero, leaving the final state free, and omitting the cyclic parity projection. The unrefined binary law is studied in [3]. Neither the structural identity nor the joint enumeration is claimed as new. The focus here is the exact-budget mean representation and the resulting fixed-transition limit and concentration, in an ensemble where the indicators are not independent. The result addresses linear binary words only; it does not imply a conditional central limit theorem or give an optimal deviation constant.
 
-## Relationship to prior work
-The greedy arch theorem is foundational, not claimed as new; see Barker, Fleischmann, Harwardt, Manea, and Nowotka. Adamson's 2023 study counts subsequence-universal words with algorithmic methods and raises closed-form enumeration questions. Schnoebelen and Veron study arch factorization and circular and compressed-word universality. The already published *Closed-form law for binary subsequence universality* determines precisely the \(y=1\) specialization of the joint generating function above, namely \((1+z)/(1-z-2uz^2)\). That unrefined count is explicitly prior work. The present result concerns the **joint** transition-index distribution, the matching interpretation, the exact fixed-transition law, and its transition-density limit. General methods for counting regular-language universality do not by themselves state these exact refinements.
+## Reproducibility
 
-## Limitations
-The theorem concerns binary words and exactly their adjacent unequal-pair count, not symbol counts, q-ary words, or cyclic transition counts. The first-moment formula and limit law condition on transitions, not on a Bernoulli parameter. Classical enumerations of path-subgraph maximum matching numbers, possibly under different graph terminology, may overlap with the joint formula; available source comparisons do not establish absolute uniqueness. The proof and finite verifier do not constitute an independent external audit.
+Run `python3 verify.py` (standard library only). It uses a path matching recurrence to enumerate all subsets through eleven edge positions for the conditional means, and directly checks the single-swap bound for all subsets through eight positions. These finite computations corroborate the proof; the infinite density limit and the martingale deviation inequality are analytic.
 
 ## References
-1. Laura Barker, Pamela Fleischmann, Katharina Harwardt, Florin Manea, Dirk Nowotka, *Scattered Factor-Universality of Words*, arXiv:2003.04629v1, March 10, 2020. https://arxiv.org/abs/2003.04629
-2. Duncan Adamson, *Ranking and Unranking k-Subsequence Universal Words*, arXiv:2304.04583v1, April 10, 2023. https://arxiv.org/abs/2304.04583
-3. Philippe Schnoebelen, Julien Veron, *On Arch Factorization and Subword Universality for Words and Compressed Words*, arXiv:2304.11932v1, April 24, 2023. https://arxiv.org/abs/2304.11932
-4. Pamela Fleischmann, Jonas Höfer, Annika Huch, Dirk Nowotka, *α-β-Factorization and the Binary Case of Simon's Congruence*, arXiv:2306.14192v1, June 25, 2023. https://arxiv.org/abs/2306.14192
-5. Duncan Adamson, Pamela Fleischmann, Annika Huch, Tore Koß, Florin Manea, Dirk Nowotka, *k-Universality of Regular Languages*, arXiv:2311.10658v1, November 17, 2023. https://arxiv.org/abs/2311.10658
-6. *Closed-form law for binary subsequence universality*, publicly available mathematical finding, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37
+
+1. *Exact circular subsequence-universality spectrum of binary words*, [record 412ee9869e0f](https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f), Proof §§1–2.
+2. L. Barker, P. Fleischmann, K. Harwardt, F. Manea, and D. Nowotka, *Scattered Factor-Universality of Words*, [arXiv:2003.04629](https://arxiv.org/abs/2003.04629), arch factorization.
+3. *Closed-form law for binary subsequence universality*, [record e77c4e8d9f37](https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37).

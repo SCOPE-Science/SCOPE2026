@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is formulated for every positive real pair of conductances and positive integer multiplicities, including coincident weights and the three-vertex boundary. The proof explicitly separates two dark contrast spaces from a three-dimensional bright sector when the weights differ; shows the bright spectrum is disjoint from the dark eigenvalues; derives and signs an exact three-by-three diagonal-moment determinant; and computes all dark-sector contrast eigenvalues. The equal-weight case uses the merged-leaf spectral decomposition, and an explicit kernel vector treats the small boundary. Separate finite full-Hamiltonian numerical checks and rational determinant checks agree. Finite verification is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, residual risk recorded
-Published general average-mixing projector and commutant methods, and published uniform-star results, do not themselves supply the two-conductance weighted-Laplacian rank/nullspace statement. The relevant Laplacian-star work [3] focuses on a trace extremum in its abstract, rather than rank for split conductances. Related adjacency-star and Cartesian-product calculations concern different Hamiltonians or graph constructions, so no implication to this weighted-Laplacian classification was identified. published-finding corpus and local-prior comparisons found no statement that implied this theorem. Nevertheless, no search can prove uniqueness, and the full text of [3] was not accessible: a stronger theorem may subsume the classification.
+PASS
 
-## Value — PASS
-Long-time quantum mixing on heterogeneous hub-and-spoke networks is natural, and invertibility of the average-mixing matrix is a structural observable. The theorem gives an all-size phase diagram, explains a discontinuous loss of rank under arbitrarily small conductance splitting when a class contains exactly two leaves, identifies its precise symmetry-supported null directions, and distinguishes the three-vertex boundary. The sharp class-size-two obstruction does not follow solely from knowing the unweighted star or general projector identities.
+With a≠b the contrast projectors on each leaf class have eigenvalues a,b respectively when the respective contrasts exist. The cell-constant Laplacian has simple spectrum consisting of 0 and the roots of z²−[(p+1)a+(q+1)b]z+(p+q+1)ab. Its discriminant is ((p+1)a−(q+1)b)²+4pqab>0 and evaluation at a,b gives the stated nonzero quantities. Thus full spectral projectors do not mix bright and dark sectors. Squared profiles of the three rank-one bright projectors have the rank of the scaled diagonal-moment matrix because the spectral Vandermonde is invertible. The restriction in orthonormal cell coordinates uses multiplicity-square-root factors on the profiles (the rank statement is unchanged). Subtracting the center row in the displayed moment matrix and expanding gives ab[a(p−1)(p+1−q)−b(q−1)(q+1−p)]. Its first term determines the strict sign if p>q (the second is nonnegative after subtraction), likewise the second when p<q; p=q≥2 leaves (p−1)(a−b). Therefore the bright block is positive definite for all unequal a,b with at least three leaves. Dark Schur squares act on their contrasts by 1−2/m, so exactly the two-leaf contrasts survive in the kernel. For a=b one must first merge full projectors: the two independent uniform-star bright profiles and the dark contrast eigenvalue 1−2/(p+q) give positive definiteness when p+q≥3. For p=q=1 all three Laplacian eigenvalues are simple also at a=b (0,a,3a). The proposed vector annihilates all three diagonal moment columns and hence all squared profiles; a real eigenvector orthogonal to the constant vector on the three vertices cannot have three equal nonzero squared coordinates, so at least two profiles are independent. The frozen checker was inspected, not executed; the independent `python3 /workspace/checks/frozen_math_checks.py 2` passed the symbolic determinant identity and full-Laplacian checks on nine representative profiles, including equal weights, two contrasts, and the weighted boundary. Numerical projectors are not a certificate for near coincidences or arbitrary conductances; the exact argument handles those regimes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-References: [1] arXiv:2208.08971; [2] arXiv:1709.03591; [3] arXiv:2608.20739 (abstract only).
+PASS
+
+Distinct earlier local records mechanically cover the uniform case and exhibit the size-two dark contrast mechanism for adjacency double-stars. Do not credit these as new. The supported distinct result is the exact rank and complete kernel classification for unequal conductances of the combinatorial-Laplacian star, including its unequal three-vertex boundary; the earlier results do not imply that classification.
+
+## value
+
+PASS
+
+Rank and the visible zero modes are natural spectral invariants of the long-time walk, not arbitrary statistics. Splitting one conductance into two strictly introduces exactly the contrasts of size-two classes, independent of the contrast magnitude in conductances; exact equal-weight coalescence changes the projector structure and can remove the nullspace. The theorem specifies when class symmetry causes a genuine loss of average-mixing rank and rules out hidden bright modes, a useful exact benchmark beyond the already covered uniform star.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

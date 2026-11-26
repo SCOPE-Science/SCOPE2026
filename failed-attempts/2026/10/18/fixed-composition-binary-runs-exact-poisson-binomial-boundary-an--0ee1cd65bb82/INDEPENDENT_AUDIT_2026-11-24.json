@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:53:01.537266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statistic is R−1 for R runs in a uniform word of fixed composition. When both counts are positive, two monochromatic blocks attain the minimum 1. Alternating the runs gives maximum M=2m for h>m and 2m−1 for h=m. Each intermediate value is possible by choosing alternating positive run lengths with the required totals. Sampling without replacement gives single-indicator probability 2ab/[N(N−1)], successive-pair probability ab/[N(N−1)], and disjoint-pair probability 4a(a−1)b(b−1)/[N(N−1)(N−2)(N−3)] when such pairs exist. Counting the two kinds of pairs gives the stated mean and V=μ(μ−1)/(N−1). A Bernoulli representation with endpoints 1,M has exactly one constant-one summand and M−1 nondegenerate summands. At that mean its variance ceiling is attained by 1+Binomial(M−1,(μ−1)/(M−1)); this follows by completing the square in the Bernoulli parameters. Subtracting the ceiling from V leaves (μ−1) times [μ/(N−1)−(M−μ)/(M−1)]. For h>m, the numerator of the bracket on denominator (N−1)(M−1) is 2m(m−1)(h−m)/N. For h=m, V=m(m−1)/(2m−1) while the ceiling is (m−1)/2. Both give the claimed positive gaps. A monochromatic word, including N=1, gives T=0; for m=1 the minority position gives the stated shifted Bernoulli, including the deterministic two-letter case. A fresh bit-word enumeration compared exact support, moments and gaps for all 119 compositions with 1≤N≤14. It corroborates the proof but does not replace it. The supplied checker was inspected, not run; its replay entry point is python3 verify.py in the frozen package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong gives a joint generating function for rises, falls and runs under a fixed multiset; binaries arise by specializing the multiset, and runs by setting the rise and fall markers to one.",
+          "The indexed iid approximation result has a finite nonrepresentability statement for nonuniform iid categories, not for fixed composition."
+        ],
+        "reasoning": "The multiset formula already contains the entire input distribution. The iid conclusion cannot be transferred by conditioning on the composition: mixtures and their conditional laws need not have the same representability.",
+        "searches": [
+          "arXiv:2405.01748, Introduction and Corollary 3.3",
+          "Resultary d8ab8e4fb6e2: iid independent-transition approximation barrier"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kong, arXiv:2405.01748",
+        "Resultary c6b28ad6d93d, 358f9a90bdb3 and d8ab8e4fb6e2",
+        "Wald–Wolfowitz (1940), attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoints read from the classical distribution are 1 and 2m−1{h=m}, and the classical moments reduce to μ=2ab/N and V=μ(μ−1)/(N−1).",
+          "At those endpoints any Bernoulli sum is a deterministic unit plus M−1 trials. The elementary nonnegativity of the sum of squared deviations of their parameters from (μ−1)/(M−1) gives the exact universal ceiling. For h>m the residual bracket in V−U has numerator 2m(m−1)(h−m)/N; for h=m the subtraction gives (m−1)/(2(2m−1))."
+        ],
+        "reasoning": "So the gap is an algebraic corollary of the exact classical inputs and the standard fixed-mean binomial variance extremum, whether or not the same proposition was previously printed. The known support also settles m=0 and m=1 directly.",
+        "searches": [
+          "Resultary c6b28ad6d93d, eq. (6) and fixed-composition scope",
+          "arXiv:2405.01748, fixed-multiset run-count generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The number of transitions is ordinary runs minus one. Since the latter is at least two for positive counts, this shift just removes a deterministic unit from a putative Bernoulli representation.",
+          "The PGF factorization criterion is equivalent: after removing the forced zero at the origin, the remaining roots must be strictly negative real numbers. A normalized polynomial with those roots factors into Bernoulli PGFs.",
+          "The related 358f9a90bdb3 calculation is for single-pattern counts under iid Bernoulli letters."
+        ],
+        "reasoning": "Neither an iid real-rooted result for a single pattern nor dependence among the original transition indicators resolves the existence of an alternative sum representation. The variance contradiction rules out the equivalent real-rooted formulation for this fixed-margin law.",
+        "searches": [
+          "Resultary: fixed-composition run transitions, independent Bernoulli representation, Poisson–binomial and real-rootedness",
+          "Resultary 358f9a90bdb3: binary adjacent-pattern counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed equation (6) records the exact classical fixed-composition variance for the same statistic.",
+          "Kong's result and worked example supply exact joint counts for a fixed multiset, including the complete run law after marginalization. Neither inspected passage tabulates the variance gap or directly states the representation boundary."
+        ],
+        "reasoning": "This is exact coverage of the data from which the gap is calculated, not a direct exact match for the gap or dichotomy. Exact antecedent data plus the universal variance comparison suffice here.",
+        "searches": [
+          "Resultary c6b28ad6d93d, fixed-composition run-transition covariances, eq. (6)",
+          "arXiv:2405.01748, Corollary 3.3 and the n_1=2,n_2=3 example"
+        ]
+      },
+      "rationale": "No direct earlier statement of this exact boundary was verified. The failure is instead by mechanical implication: the classical fixed-margin runs distribution already gives both endpoints, the mean and the variance, and the sharp variance ceiling for a sum of Bernoullis with those endpoints is immediate from equalizing the parameters at fixed mean. Their subtraction gives the exact gap without a new distributional calculation or inequality. At the two exceptional minority sizes the same distribution is deterministic or has consecutive two-point support. Neither of the similar same-day iid records is used as exact coverage.",
+      "residual_risks": [
+        "The 1940 full text was unavailable and a direct historical statement of the exact gap or dichotomy was not established.",
+        "The related same-day iid entries are treated solely as mathematical comparisons; their dates establish no priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact run distribution in general form, not a stated factorization boundary",
+          "evidence": "The Figure-free generating-function formula is for fixed multiplicities and tracks total runs jointly with rises and falls. Evaluating the latter markers at one yields the classical binary runs PMF in the two-symbol case.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.01748",
+          "material_read": "Introduction pp. 3–4 and Corollary 3.3 p. 9, with the n_1=2,n_2=3 example",
+          "method": "Open-access author PDF passage inspection",
+          "title": "Joint distribution of rises, falls, and number of runs in random sequences",
+          "trigger": "Stronger fixed-multiset enumeration, cited in the frozen record"
+        },
+        {
+          "assessment": "Same classical variance and underlying law, different principal claim",
+          "evidence": "The calculation treats pairwise covariances among adjacent-change indicators and gives the classical variance, not an explicit independent-summand dichotomy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "RESULT.md, model and variance in equation (6)",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Closest indexed match for the same random variable and moments"
+        },
+        {
+          "assessment": "Different sampling model and different statistic",
+          "evidence": "It treats each pattern separately under iid Bernoulli sampling, not the sum N_01+N_10 conditional on both letter counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-complete-poisson-binomial-dichotomy-for-binary-adjacent-patter--358f9a90bdb3",
+          "material_read": "RESULT.md, finding for N_01, N_10, N_00 and N_11",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "A complete Poisson–binomial dichotomy for binary adjacent patterns",
+          "trigger": "Same representation question for binary adjacent statistics"
+        },
+        {
+          "assessment": "Iid result does not classify conditional laws",
+          "evidence": "The nonuniform-category condition concerns iid letter probabilities, not a minority multiplicity in a deterministic composition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-asymptotic-independent-transition-approximation-barrier-fo--d8ab8e4fb6e2",
+          "material_read": "RESULT.md, iid sampling assumptions and finite nonrepresentability statement",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Sharp asymptotic independent-transition approximation barrier",
+          "trigger": "Similar transition-count representability question"
+        },
+        {
+          "assessment": "Exact historical wording unverified, not negative evidence",
+          "evidence": "The classical fixed-composition data used for the disposition were available via the inspected fixed-multiset and exact-moment sources; the decision does not depend on this access failure.",
+          "identifier_or_url": "Wald and Wolfowitz, Annals of Mathematical Statistics 11 (1940), pp. 147–162",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Lawful Project Euclid full-text and PDF access attempted; access denied",
+          "title": "On a test whether two samples are from the same population",
+          "trigger": "Original runs-test context and potential historical coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "There is a natural question here—dependent transition indicators may still have an independent-sum law—and the support-matched comparison is a useful explanation. But the exact gap and minority boundary follow routinely from the already available exact support and moments via a one-step sharp variance bound. The frozen claim does not establish a further structural result or a nonmechanical exact invariant; packaging the subtraction or its real-rootedness consequence does not meet that bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

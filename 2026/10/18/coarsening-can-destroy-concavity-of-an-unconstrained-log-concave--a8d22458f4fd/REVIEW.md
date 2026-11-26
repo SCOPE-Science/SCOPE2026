@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The five weights are exact hat-function moments under an explicitly strictly concave log spline, so the fine score vanishes and strict convexity modulo additive constants gives its uniqueness. The tent-envelope argument extends this to the full log-concave MLE. The coarse score is an exact expectation difference; rational Taylor enclosures prove each score coordinate is below one millionth in magnitude at the rational trial point. The centered Gram matrix has rigorously positive principal minors and gives a local Hessian lower bound, forcing the unique global optimizer into a radius-one-hundredth ball. Its upward slope jump is then greater than 0.1952996. All relevant calculations and bounds are checked by the included standalone script. Limitation: this is a weighted, not equal-count, data example; no statement about concavity-constrained coarse maximization is made.
+## correctness
 
-## Originality — PASS on accessible evidence
-The open question following the subdivision example in Grosdos et al. (arXiv:2003.04840 / 2023 journal paper, Section 2) predicts exactly the opposite implication for a subdivision coarser than the optimum. The full original source was inspected rather than relying only on its abstract. The earlier paper of Robeva–Sturmfels–Uhler proves realizability of subdivisions after varying sample weights and does not assert shape preservation on *fixed* weights after deleting knots. Searches for coarsening, constrained/unconstrained spline projection, equivalent curvature obstructions and related published claims yielded no encompassing result. The later corrigendum's full text was not obtained; possible unindexed or inaccessible prior work is a residual risk. The negative search is not considered proof of uniqueness.
+PASS
 
-## Value — PASS
-This explicitly answers a research question posed by the motivating paper, showing that a natural knot-simplification heuristic need not retain the shape constraint even when the initial maximum-likelihood log-density is strictly concave at every interior fine knot. The evidence is an exact, reproducible, nonasymptotic certificate, not an arbitrary isolated shape test.
+The fine nodal slopes 3, 0, −1/4, −1/2 are strictly decreasing at the knots. The fine score vanishes by construction and the log-normalizer's hat covariance is positive definite modulo constants. For the full log-concave class, restriction to the data interval and replacement by the secant interpolant through the log values at the sites cannot increase the normalizing integral; positive mass outside or a positive gap from the interpolant on a set of positive measure makes the likelihood comparison strict. This proves uniqueness of the normalized density (up to null sets). Coarse hat moments are exactly the corresponding fine-density moments, since every coarse hat is its own fine-grid interpolant. An independent rational integration using the Bernstein expansion of each affine power enclosed the three coarse score coordinates at the trial point (approximately 5.096e−9, −4.360e−9 and −2.799e−9); each interval lies inside (−10⁻⁶,10⁻⁶). Direct integration of the centered Gram matrix reproduced leading minors 27/80, 457/7200, 257/108000 after subtracting I/10. The density lower bound 1/40 on the radius-1/100 ball multiplies the Lebesgue variance lower bound (minimize the squared deviation over constants), yielding Hessian >I/400. The objective increases by more than 21/200000000 on the sphere, giving an interior critical point, unique globally by strict convexity. The slope jump is strictly greater than 488249/2500000 after bounding the trial-point displacement, and normalization does not change the jump. Replay: python /workspace/branches/independent_replay.py 2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+On the inspected evidence this is a distinct counterexample on the fixed-weight implication explicitly left open by Grosdos et al. Their old nonconcave fit is on an incompatible, not coarser, subdivision. Realizability of another subdivision by changing the weights cannot refute or settle the fixed-weight claim. The inaccessible corrigendum leaves a concrete priority risk, not evidence of coverage.
+
+## value
+
+PASS
+
+The witness answers a precise published question about a natural knot-deletion heuristic. It shows that even starting with strictly decreasing slopes at every fine interior knot does not ensure a concave unrestricted reduced fit, and the failure can occur at a retained knot away from the removed one. The exact certificate resolves that substantive issue without a numerical concavity tolerance or a change of weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The nearest-match selection agrees with the first occurrence of each symbol except at two sample indices; this is a direct deterministic implication of earliest-index tie resolution. The ergodic pair-frequency law gives almost-sure convergence. A complete first-two-symbol partition and first-hit independence prove independence of the two anchor successors, yielding the stated four-atom distribution and moment formulas. Exact rational computational checks and sampled tests corroborate the derivation. Zero-over-zero and boundary probabilities are explicitly treated.
+## correctness
 
-**Originality (PASS, subject to historical-priority risk).** The November 2026 FNN convergence paper treats typical smooth observables on smooth systems and does not state an exact atom law for discrete observations and earliest-index ties. The 2003 symbolic-FNN work uses a different state-space partition diagnostic, not the tested scalar-delay ratio. Relevant searches for quantized FNN ties, Bernoulli limits, discrete symbolic observations and first-occurrence anchor laws did not identify this four-atom theorem. Keyword absence is not proof of priority; unindexed or differently named exact antecedents remain possible.
+PASS
 
-**Mathematical value (PASS).** This is a natural obstruction in an established state-reconstruction diagnostic: even for an invertible ergodic symbolic system, discrete readings and fixed nearest-neighbour tie semantics generate asymptotic estimator randomness instead of concentration. The exact law identifies a sharp fairness boundary, separating deterministic saturation from bias-induced non-self-averaging and quantifying its variance. It is not merely a numerical example or a routine restatement of the existing smooth-observable theorem.
+For almost every sequence both symbols eventually have at least two occurrences within the n candidate indices (the last observation X_n is used only as a successor). Deleting the first occurrence of each symbol from the anchor comparison affects the fraction by at most 2/n. At all remaining indices the early anchor has zero current distance; the explicitly specified quotient conventions make the flag exactly the successor mismatch, including the amplitude test (nonzero numerator already passes the first test; zero numerator passes neither). Frequencies of each of the four adjacent pairs converge almost surely to their product probabilities, e.g. by applying the iid SLLN separately to even and odd disjoint pairs; the convergence holds simultaneously so random anchor choices require no conditional SLLN. To compute their law, condition on X₀=b. The anchor successor for b is X₁, Bernoulli(p); the first (1−b) occurs at a finite stopping time τ≥1, whose successor is fresh Bernoulli(p) independent of the stopped history, which contains X₁ even if τ=1. This gives independent Bernoulli(p) anchor successors under either conditioning and hence unconditionally. Substituting into L=p+(q−p)(qA₀+pA₁) gives the four stated masses and E L=2pq, Var L=pq(p−q)²(p²+q²). If p≠q the two inner atom values are strict convex combinations of p,q, distinct by (p−q)²; at p=q they all coincide. Boundedness also makes the mean and variance of the statistic converge to the limiting moments. The packaged code is supporting finite evidence, not needed for these claims. This applies only to the explicit one-delay, exact binary, earliest-index, zero-distance-retaining protocol.
 
-**Limitations.** The tie rule and exact quantization are essential, the parameter range is \(0<p<1\), and no theorem for general noisy sensors, arbitrary nearest-neighbour conventions or all delay lengths is asserted. Independent mathematical validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge, the distribution is new for the specified exact protocol, not a new definition of FNN, a general result about all ties, or a new first-hit independence theorem. The closest rigorous source explicitly treats zero distances and tie quantifiers, but its smooth/prevalent hypotheses and conclusions do not compute this anchor-dependent statistic. The source on symbolic FNN addresses partition construction rather than this scalar observable calculation.
+
+## value
+
+PASS
+
+The exact binary observation is a natural limiting case of quantized time-series data. The earliest-index rule is deterministic and reproducible yet preserves sample-start randomness even for a mixing iid source. The full law, not just a nonzero mean mismatch, identifies when a long-series fraction is reproducible and gives its variance for arbitrary bias; it can calibrate interpretation of this specific tie rule. It neither critiques all FNN implementations nor implies a general delay-embedding failure theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

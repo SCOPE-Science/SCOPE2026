@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible checks and their scope
+# Independent mathematical audit
 
-Run `python3 verify.py` in the package directory. It requires Python 3 standard library only. The program constructs the literal wheel graph, validates properness and open-neighbourhood witness multiplicities for every rim assignment from three named rim colours, builds the single-vertex recolouring adjacency, and determines connected-component sizes for every rim length from 3 through 11. It also separately validates the singleton-rim criterion on all proper rim assignments.
+## correctness
 
-Actual replay produced the following numbers (the reconfiguration graphs have four hub-colour components with the same structure):
+PASS
 
-```
-RIM=3 PCF4=24 COMPONENTS=24 SIZES=Counter({1: 6}) EDGES=0
-RIM=4 PCF4=48 COMPONENTS=48 SIZES=Counter({1: 12}) EDGES=0
-RIM=5 PCF4=120 COMPONENTS=8 SIZES=Counter({15: 2}) EDGES=120
-RIM=6 PCF4=144 COMPONENTS=24 SIZES=Counter({6: 6}) EDGES=144
-RIM=7 PCF4=168 COMPONENTS=168 SIZES=Counter({1: 42}) EDGES=0
-RIM=8 PCF4=192 COMPONENTS=192 SIZES=Counter({1: 48}) EDGES=0
-RIM=9 PCF4=216 COMPONENTS=216 SIZES=Counter({1: 54}) EDGES=0
-RIM=10 PCF4=240 COMPONENTS=240 SIZES=Counter({1: 60}) EDGES=0
-RIM=11 PCF4=264 COMPONENTS=264 SIZES=Counter({1: 66}) EDGES=0
-VERIFY_OK
-```
+The hub colour is absent from the rim, so the rim vertices automatically have a neighbourhood witness; the hub needs a colour used exactly once on the rim. Three named colours do not suffice (an odd rim is not 2-colourable and a properly 2-coloured even rim has two equally sized parts of size at least two). Giving one rim site its own colour and alternating two others off it proves that four suffice. For n≥5 at most one rim colour is a singleton, since n−2 occurrences of a third colour exceed the rim independence number. Thus the fixed-hub states consist of a chosen singleton site and colour, and one of two alternating orders. There are 6n per hub. A non-singleton can only move to the singleton colour away from its neighbours, and must leave another singleton behind; a singleton move would leave no witness. This freezes every state for n≥7. For n=5, encoding the state by the singleton site p and the cyclically ordered tuple (singleton, next colour, following colour), one allowed move advances p by 1 and rotates the tuple by one, and the other is its inverse. Each orbit has length lcm(5,3)=15; the 30 states per hub give two cycles. For n=6 the thrice-used colour stays fixed, and a move advances p by 2 or −2 and swaps the other colour roles; the orbit has length lcm(3,2)=6. This yields six cycles per hub. At n=3 every assignment is frozen by properness, and at n=4 two singleton colours and one opposite repeated pair give 12 states per hub; changing a singleton destroys both witnesses. The hub itself cannot move. Independent direct enumeration of all four-palette assignments for 3≤n≤7 confirmed state counts 24,48,120,144,168 and the component sizes and degrees. Replay: python3 /workspace/review-evidence/2/exhaustive_check.py 3 4 5 6 7. The frozen verify.py and VERIFICATION.md were inspected, not executed. Finite enumeration is not the all-n proof.
 
-A value such as `SIZES=Counter({15: 2})` counts components for one fixed hub colour; `COMPONENTS=8` counts all four hub choices. This distinction is intentional. The finite execution verifies the small exceptional cases and several larger instances; only the structural argument in `RESULT.md` proves the claim for arbitrary rim order. The literature comparison and the proof have received self-review, not independent certification.
+## originality
+
+PASS
+
+The all-order optimal PCF transition classification is distinct from scalar PCF chromatic-number results and from wheel state or seed counts. Credit the known universal-hub PCF mechanism and ordinary 3-colouring where it coincides: the pentagonal fixed-hub case is exactly ordinary three-colour reconfiguration of C5 and is not in itself a new PCF mechanism. The six-cycle components at n=6 and universal freezing for n≥7 are where preservation of the singleton imposes additional structure.
+
+## value
+
+PASS
+
+The connected-component structure, not just a count of states or the known optimum, answers when two optimal wheel colourings can be joined without losing a conflict-free witness. It identifies the exact mobile heaps of states at the two exceptional lengths and a permanent freezing boundary. This is a natural full-family reconfiguration benchmark with precise invariants, restricted to named colours and elementary moves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

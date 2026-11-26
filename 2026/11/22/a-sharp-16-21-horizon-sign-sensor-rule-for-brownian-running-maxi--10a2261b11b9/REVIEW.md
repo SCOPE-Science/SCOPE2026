@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem concerns all deterministic nonadaptive zero-threshold sign measurement times and all measurable decoders, without assuming Gaussian conditional linearity (the observation has only two values). The reflection-principle density \(2(a+d)\phi(a+d)\), its exchangeability, and the independent future reflected maximum give the exact mixed moment \(\mathbb E[M\operatorname{sgn}(W_s)]\). The Gaussian integrations defining \(I_b\) and \(K_b\) are explicitly evaluated and checked independently with quadrature. The derivative \(q'(s)\) changes sign exactly once at \(s=16/21\). The risk therefore has one unique global minimum. The supplied verifier passed 27 assertions. Numerical checks confirm identities at sampled times but are not relied upon for the continuum theorem. Limits: no arbitrary threshold/encoder claim.
+PASS
 
-## Originality (PASS, with historical-priority risk)
+The conditional-mean decoder is the L² projection onto the span of 1 and the fair sign, so the risk is the half-normal variance minus the squared mixed moment. To check that moment, write a=√s, b=√(1−s), and U=1−Φ. The reflection principle gives the surviving density at x≤m up to time s as p_s(x)−p_s(2m−x); survival after s contributes 1−2U((m−x)/b). Integrating the signed exceedance probability over m≥0 and changing variables d=m−x in the x≤m part gives a/√(2π)+4∫₀^∞[U(d/a)−U(2d/a)]U(d/b) dd. In this calculation the x>m contribution is a/√(2π), and the integrated signed reflection term with future survival replaced by 1 is zero. The integral of U(d/A)U(d/B) equals (A+B−√(A²+B²))/(2√(2π)); it is the expectation of the minimum of the positive parts of two independent scaled standard normals, computed in polar coordinates. This recovers the stated mixed moment, with b=0 covered directly or by continuity. The radical numerator is positive for s>0 and its derivative has the sign of 16−21s; the limit at zero is zero, so the minimizer is uniquely interior. Substitution, an independent high-precision arithmetic check, and Brownian scaling agree with the reported risks and percentages.
 
-Published-record searches for the nonterminal sign-sensor/maximum problem, its \(16/21\) parameter and Gaussian conditioning aliases found no matching theorem. The exact published maximum–endpoint odd-transform theorem gives the **terminal sign case** but says nothing about the interior time curve. The cyclic-bridge maximum–position theorem concerns a different stochastic process (pinned bridge), and hence does not imply this free-Brownian optimum. Inspecting the available full texts of Bisewski–Crommelin–Mandjes (2017), Grill–Valko–Munos (2019) and Riedel (2019), their subjects are respectively barrier-crossing probability, full-valued adaptive maximum optimization, and reverse conditional estimation of Brownian trajectories given extrema. The central one-bit Bayes-risk/timing result is not stated or implied by the assessed claims. Aksenov et al. (2019) could be assessed only through summaries, and another equivalent result under a different title may exist; independent exhaustive historical priority is not certified.
+## originality
 
-## Value (PASS)
+PASS
 
-The precise information budget (one 0-threshold sign, fixed in advance), natural numerical target (running maximum), and exact risk permit a sharp sensor-placement policy. The unique rational location \(16/21\) is counterintuitive relative to using the terminal sign: it improves Bayes MSE by \(8.8164\ldots\%\), while recovering \(48.7534\ldots\%\) of prior maximum variance. The result determines a complete one-bit design problem in a natural constrained class, rather than a fixed arbitrary numerical slice. Its mathematical scope is deliberately restricted to Brownian motion and zero-threshold bits.
+The substantive step is the exact interior-time mixed moment for the free Brownian maximum and the sign at the observation time. The endpoint case is covered. No distinct source inspected supplies the interior curve or a theorem from which it and the optimum follow by substitution; known joint-law ingredients still require a signed integration over both parts of the path.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+With a fixed information budget of one zero-threshold bit, choosing a time before observing a path is a natural design problem. The exact decoder, strict interior optimum and about 8.82% advantage over terminal sensing solve that design problem and give a benchmark for richer sensors. This conclusion depends on the nonterminal mixed moment, not just the known terminal normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Verification of the return-gap sign law
+# Verification of the equal-moment opposite-sign witness
 
-The mathematical proof is in RESULT.md: strict convex order yields two positive Laplace-excess factors, and the expected-response difference is a positive fast exponential minus a positive slow exponential. Dividing by the slow exponential produces a strictly decreasing expression with exactly one real zero. The pair of gap distributions has equal first and second moments by explicit finite sums, but its exponential moments give opposite rational response differences.
+The proof in `RESULT.md` is exact: for the given finite-support laws it evaluates the excess exponential moments and reduces the differences from the fixed-gap response to two affine numerators in \(x=e^\mu\). Their ordered zeros prove the entire claimed interval, including strict positivity of the physical gaps because \(x>9/2>4\). The two response changes at \(x=5\) are exact rational numbers.
 
-The standalone Python-standard-library `checker.py` evaluates the exact finite sums as rational numbers; running `python3 checker.py` prints a PASS message. It checks support positivity, first two moments, four exponential excesses, both signs, and crossover thresholds. These checks support the finite witness only. The general convex-order assertion is not established by running code.
-
-Limitations: only a nonnegative, two-exponential response index is proved; no empirical calibration, biological validation, external expert validation, or independent external audit has been performed. The theorem concerns two episodes with an exogenous random gap, not an arbitrary long event series.
+Run `python3 checker.py`. It uses standard-library rational arithmetic and checks the probabilities, mean and variance in units of \(J=\log2\), exponential excesses, thresholds and endpoint signs, witness differences, and the strict positive-gap bound. The script is not an empirical validation or a claim about arbitrary gap laws.

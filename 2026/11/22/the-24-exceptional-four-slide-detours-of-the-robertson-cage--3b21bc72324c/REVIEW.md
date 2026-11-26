@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is a fully specified 19-vertex graph with 38 edges. There are exactly 19 singleton sets, 171 pairs and 969 triples to check for minimum cardinality, and each forcing process is deterministic under the stated simultaneous rule. The two different executable checks exhaust these classes and all 283,128 unordered optimum-configuration pairs, establishing 753 minimum triples, complete jump/slide distances, connectedness, eccentricities and sharp excess. The orbit is verified by 24 explicit automorphisms generated and checked against every graph edge. These computations are exhaustive finite proofs, not statistical evidence. A representative maximum-cost pair is \(\{1,3,8\}\) and \(\{11,14,15\}\).
+PASS
 
-## Originality — PASS, with residual risk
+Reconstructed the labelled graph from RESULT.md's cycle and chords, matched each edge to the packaged list, and directly checked quartic degree and girth five on 19 vertices. The observation sets are monotone; a proper stationary set cannot later be completed. Using synchronous set propagation with initial closed neighborhoods at round one, independent enumeration found no successful size-zero, singleton or pair candidate, and 753 successful triples, with rounds 2–5 having counts 109,320,204,120. Independently built the two graphs by explicit single-vertex replacements restricted to those triples, retaining a replacement for slides exactly when the removed and inserted vertices are adjacent in the base graph. Breadth-first search from each vertex gives exact distance by discovery layer, and reached all states in both graphs. It reproduced both complete distance tables, the 14,538 and 3,452 edges, jump eccentricity three throughout, slide eccentricities 717 at six and 36 at seven, and excess counts 29,788, 131,574, 109,054, 12,688, 24. The test is pairwise: either slide distance seven or excess four forces the joint distances (3,7), disjointness and two four-round optima. The stated example belongs to the exceptional set. An independent bijection backtrack preserving adjacency and nonadjacency enumerated the complete 24-element automorphism group and recovered exactly the same 24 pairs from that example, with union of endpoints exactly the 36 states of eccentricity seven. These checks exhaust the specified graph and states, not general power domination instances.
 
-The 2022 first-public power-domination reconfiguration source (Bjorkman et al., arXiv:2201.01798; full accessible 2026 journal text examined) defines the general transformation framework and leaves token sliding as a direction; it gives no Robertson-specific census, exact metric or 24-pair result. Indexed mathematical records and targeted literature searches using the graph name, cage alias, optimum size, and distance parameters found no equivalent or stronger result. Fiorini's thesis and MathWorld concern the graph's construction and classical invariants. The closest same-object indexed study concerns stochastic monomer adsorption, not optimum propagation and relocation. The original-result record's full manuscript was not retrieved, but its indexed subject is nonoverlapping. An unindexed historical equivalent remains possible; absence from indexes is not proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The Robertson graph is the smallest possible quartic graph of girth five, giving a canonical non-vertex-transitive cage benchmark. Determining which minimum sensor placements remain mobile under physical edge constraints, and the exact penalty for optimal relocation, is a natural network-monitoring question. The 24 exceptional, symmetry-equivalent pairs give a sharp and interpretable obstruction: each needs seven slides although three unrestricted replacements suffice, while all 753 states remain reachable. This is a motivated complete finite classification rather than an arbitrarily sliced data table.
+The proposed distinct finding is the complete minimum-configuration and relocation metric on the Robertson cage. The graph identity, definition of power domination and general reconfiguration models are established. The closest inspected same-object works address a different process, while the closest same-parameter catalogue result addresses a different graph. No compared theorem or table supplies the Robertson metrics.
 
-## Limitations
+## value
 
-The theorem is finite and does not generalize automatically to other cages. The reconstruction depends on the embedded exact edge data and reproducible enumeration. Absolute historical originality is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unique quartic girth-five cage and minimum configurations give a natural finite monitoring benchmark. Comparing the two complete metrics isolates the cost of enforcing local moves while never using extra sensors. The sharp four-move separation, its incidence with diameter seven and exact single symmetry orbit provide more than a raw sensor count or a specially selected example. The exact data are useful for testing how relocation constraints interact with feasibility and monitoring latency, without claiming a general cage theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

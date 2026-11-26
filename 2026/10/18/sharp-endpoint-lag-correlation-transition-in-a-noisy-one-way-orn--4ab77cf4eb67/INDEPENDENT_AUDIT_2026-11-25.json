@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:51.381691Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, covariance, optimizer and asymptotics; VERIFICATION.md; verify.py and checks.txt",
+        "Separate bisection and binomial recurrence: at m=300 the peak/leading ratios for h=0.6,1,1.4 were 0.99808,0.99745,0.99741 and window ratios for theta=-1,0,1.5 were 0.99532,0.99639,0.99611"
+      ],
+      "rationale": "For A=-aI+gL the nilpotent shift gives finite-chain stability and entrywise impulse responses exp(-as)(gs)^k/k!. Itô isometry adds the independent site contributions to the sink variance (D/a)S_m(h). Only source noise enters the endpoint cross-covariance: its forward lag integral is proportional to exp(-at) times the integral of exp(-2as)(s+t)^m over s>=0, yielding E_m(2at); the reverse replaces (s+t)^m by s^m. Differentiating the normalized profile gives the falling-factorial equation, whose ratio decreases strictly from infinity to zero, including m=1. Expanding at lambda=2m+c gives 1-(c+2)/m+O(m^-2), uniformly for c in a compact interval about -2: for ell<=m^(1/3) the term remainder is bounded by O((1+ell)^4 2^-ell/m^2) and the other terms are geometrically small. Evaluating at c=-2±C/m brackets the optimizer. At the root Stirling yields a peak asymptotic sqrt(2/(pi m))*h^m/sqrt(S_m(h)), with a relative error independent of h. Below one the generating function gives S_m→(1-h^2)^-1/2; at one S_m=(2m+1) binom(2m,m)/4^m; above one, the tail ratios are dominated by C sqrt(k+1)h^-2k and converge to h^-2k, giving the geometric multiplier. In the exp(theta/m) window, the first epsilon*m indices contribute O(sqrt(epsilon)) to the rescaled sum, so the bulk Riemann integral gives the stated crossover. The checks log and a separate root/recurrence calculation are consistent with the proof, not substitutes for it.",
+      "residual_risks": [
+        "Uploaded program inspected but not run. The source's phrase about checks for 1<=m<=250 describes the span, not exhaustive root testing: the actual script and log sample nine depths and print phase ratios rather than asserting their convergence.",
+        "Finite homogeneous chains only; no infinite-chain stationary law or heterogeneous-noise extension established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Gupta provide the full covariance ingredients in the exact one-way specialization. Hennequin et al. treat triangular covariance and random-network amplification. Browning et al. use only one noisy input with noiseless downstream sites."
+        ],
+        "reasoning": "The exact profile is a specialization of the two-time formula, but a one-noise variance cannot generate the partial central-binomial sum and the established covariance formulas alone do not extract the sharp normalized maximum regimes.",
+        "searches": [
+          "Pal–Gupta Eq. (37)–(39), (83)–(84)",
+          "Hennequin–Vogels–Gerstner Appendix A",
+          "Browning et al. Eqs. (1)–(3), (11), (14)"
+        ]
+      },
+      "checked_sources": [
+        "Named OA primary passages, DLMF, Resultary index and two decisive mirrored Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal mesoscopic limit at y=z=0 with zeta=-theta gives the OU crossover denominator (the m=N-1 and N scalings agree). The resetting peak supplies the common scalar numerator asymptotic. The exact Pal–Gupta covariance specializes to S_m(h), but the fixed-coupling peak constants require the separate stationary variance analysis on both sides."
+        ],
+        "reasoning": "Credit the covariance and common pulse and the immediate combination in the critical window. The quantitative distinction between the two off-critical maxima and the integrated phase law remain supported distinct content.",
+        "searches": [
+          "Mesoscopic covariance mirrored Finding, offset 0",
+          "Nested resetting mirrored Finding, offset 0",
+          "arXiv:2609.05391, p. 13 Eq. (84)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Time rescaling sets the forward coefficient to one and site reversal identifies the one-sided model. The peak equation is Q(m,lambda)=exp(-lambda)lambda^m/m!, or Poisson lower-tail probability equal to the mass at m. The resetting record explicitly solves that same root with lambda=2 z_m."
+        ],
+        "reasoning": "The distinction is the OU normalized amplitudes, not an unfamiliar scalar function, lag convention, or naming of the directed chain.",
+        "searches": [
+          "arXiv:2609.05391, Model III at nonreciprocity parameter zero",
+          "NIST DLMF §§8.2,8.4 (integer incomplete gamma)",
+          "Resultary one-way OU endpoint cross-correlation and directed covariance pulse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-08 mirrored record gives the same equal-time kernel and endpoint variance scaling in the detuning window. The 2026-11-02 resetting record gives the same polynomial-exponential lag kernel, maximum and lag expansion, but a normalized peak of order n^-1."
+        ],
+        "reasoning": "These are substantive component matches, not exact tables or theorems for all three OU peak regimes. Dates do not establish priority.",
+        "searches": [
+          "Resultary: mesoscopic spatial covariance at the OU exceptional-point threshold",
+          "Resultary: ballistic Gaussian covariance pulse in nested stochastic resetting"
+        ]
+      },
+      "rationale": "Pass for the sharp normalized OU peak law as a whole, especially the distinct dependence on coupling across the three regimes. The underlying OU model and exact covariance ingredients are covered by Pal–Gupta; the frozen relationship paragraph understates this because the relevant primary PDF is now available. A separate indexed resetting model gives the same time kernel, optimizer root and lag asymptotic, not a distinct scalar optimizer here. Another indexed paper yields the same OU critical variance integral and hence, with the peak numerator, the crossover constant. Neither states or supplies the full three-regime OU normalized endpoint-peak amplitudes: the supercritical and subcritical stationary normalizations differ in order as well as in coefficient, and neither follows from rescaling the resetting correlation or from the mesoscopic critical-window statement. The pass does not assert priority for the model, covariance formulas, scalar pulse, or the crossover denominator in isolation.",
+      "residual_risks": [
+        "The additional general search wave was deferred and yields no negative evidence; the assessment is bounded to the retrieved primary passages and indexed comparisons. Unindexed exact peak laws remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model at the one-way exceptional point; stationary and two-time formulas cover the profile ingredients",
+          "evidence": [
+            "With their reverse link set to zero, the drift is -kI plus a unit shift, the noise covariance is 2DI, and Eq. (84) gives central-binomial terms on the diagonal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.05391",
+          "material_read": "PDF pp. 5,7,8,13: Eqs. (13)–(14), (30)–(31), (37)–(39), (83)–(84)",
+          "method": "Lawful OA primary PDF, targeted offsets 30200,49300,58200,97400",
+          "title": "Non-reciprocally interacting Ornstein–Uhlenbeck processes",
+          "trigger": "Closest motivating paper and potentially identical model"
+        },
+        {
+          "assessment": "Related method and observable, not sharp OU endpoint-lag peak",
+          "evidence": [
+            "Stationary Lyapunov recursion for random triangular couplings; averaged non-normal amplification."
+          ],
+          "identifier_or_url": "https://cbl.eng.cam.ac.uk/publications/hennequin-pre-2012.pdf",
+          "material_read": "PDF p. 1 and Appendix A p. 9 (offsets 0,68700)",
+          "method": "OA primary passages",
+          "title": "Non-normal amplification in random balanced neuronal networks",
+          "trigger": "General triangular OU covariance"
+        },
+        {
+          "assessment": "Different noise placement and time-lag observable",
+          "evidence": [
+            "One OU input, noiseless subsequent compartments and a single-compartment autocorrelation."
+          ],
+          "identifier_or_url": "https://people.maths.ox.ac.uk/maini/PKM%20publications/528.pdf",
+          "material_read": "PDF pp. 2–4, Eqs. (1)–(3), (11), (14)",
+          "method": "OA primary passages",
+          "title": "Smoothing in linear multicompartment biological processes subject to stochastic input",
+          "trigger": "Linear one-way cascade with covariance calculations"
+        },
+        {
+          "assessment": "Standard reformulation only",
+          "evidence": [
+            "Q(m,lambda)=exp(-lambda)E_(m-1)(lambda)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/8.4",
+          "material_read": "§§8.2 and 8.4, equations 8.2.2, 8.2.4, 8.4.10–11",
+          "method": "OA reference pages",
+          "title": "NIST DLMF: Incomplete Gamma Functions",
+          "trigger": "Equivalent peak equation"
+        },
+        {
+          "assessment": "Exact stationary covariance and critical-window denominator coverage, not normalized lag maxima across regimes",
+          "evidence": [
+            "At y=z=0 the critical covariance contains the same integral, with the detuning sign reversed."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-mesoscopic-spatial-covariance-at-the-exceptional-point-threshold--9b29bc31ff0c",
+          "material_read": "Mirrored Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Mesoscopic spatial covariance at the exceptional-point threshold of a noisy directed chain",
+          "trigger": "Exact same OU model and detuning scale"
+        },
+        {
+          "assessment": "Scalar optimizer covered; different stationary normalization",
+          "evidence": [
+            "Same e^-z E_m(2z), z_m=m-1+O(1/m); sink variance nV, giving Pearson peak of order 1/n, not the OU laws."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-ballistic-gaussian-covariance-pulse-in-nested-stochastic-reset--f892536eb06c",
+          "material_read": "Mirrored Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A ballistic Gaussian covariance pulse in nested stochastic resetting",
+          "trigger": "Exact same scalar lag kernel and root"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md peak formulas and phase derivation; Pal–Gupta covariance and the two related indexed findings"
+      ],
+      "rationale": "The result separates a persistent directional delay from observability: the peak moves linearly with depth, yet normalized signal strength has three different attenuation rates despite unchanged finite-chain drift stability. The exact crossover and distinctions between m^-3/4 and m^-1/4 depend on local independent noise accumulated along the chain; the known scalar pulse or a calculation of total variance alone does not communicate that quantitative distinction.",
+      "residual_risks": [
+        "No measured signal, intervention guarantee, or extension to nonlinear or infinite chains is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:17:55.981279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–32 and 36–80",
+        "VERIFICATION.md lines 3–13 and 19 onward",
+        "CHECK.py lines 7–48; inspected, not executed"
+      ],
+      "rationale": "Translation retains the frequency set and uniform convergence. On [-pi,pi], the normalized moments against 1 and cos(t) are a sin(pi alpha)/(pi alpha) and a alpha sin(pi alpha)/(pi(1-alpha^2)); the integer modes n>=2 and all sine terms make no contribution. A continuous nonnegative nonzero restriction has strictly positive integral against 1-cos(t), so its first cosine moment must be strictly less than its mean. The computed ratio is at least one precisely on the asserted oscillatory side, including the endpoint. If the whole restriction is zero, the mean forces a=0 and the sin(t) moment has nonzero coefficient sin(pi alpha)/(pi(1-alpha^2)) for b; the remaining integer coefficients then vanish by orthogonality. Applying the same argument to -f yields both signs. Below the threshold, the normalized displaced cosine has mean one and nth cosine coefficient 2(-1)^n alpha^2/(alpha^2-n^2). Subtracting it from the Poisson kernel with r=alpha^2/(1-alpha^2) removes exactly the constant and first harmonic; the continuous periodic difference has absolutely summable coefficients and hence equals its Fourier series, including at the matching endpoints. Poisson positivity follows from 0<r<1. Continuity also gives strict signs in the open window whenever both signs occur on its closure. The proof uses the stated uniform convergence and covers irrational as well as rational alpha.",
+      "residual_risks": [
+        "Numerical comparisons in the supplied checker are supplementary; the strict critical conclusion follows from the integral, not floating-point comparisons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison reports a sufficient squared-displacement bound of 1/(8 pi^2) for Haraux; it requires alpha>1-1/(2 sqrt(2) pi) in this family. The older-work comparison identifies positive orthogonal functions or bounds for periodic/anharmonic subspaces, rather than a retrieved exact one-defect theorem."
+        ],
+        "reasoning": "The cited sufficient bound does not reach all alpha in [1/sqrt(2),1). General dual-weight methodology, without a statement evaluating the boundary and matching it by admissible witnesses, does not by itself furnish both directions. The inaccessible sections are not certified non-covering.",
+        "searches": [
+          "Haraux arXiv:2611.04738v1 and arXiv:2610.06515v1",
+          "Haraux–Komornik DOI 10.4171/RMI/18 and https://ems.press/journals/rmi/articles/10768",
+          "Delage arXiv:1510.04911"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and prior-work section",
+        "Resultary exact match and separate cosine-kernel hit",
+        "Primary Haraux and Haraux–Komornik citations located by focused query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decisive moment ratio is alpha^2/(1-alpha^2), and the reported general perturbation condition applies only to a narrower subinterval. The sharp negative direction requires finding a strictly positive continuous window function with the forced ratio and representing it by the allowed Fourier modes."
+        ],
+        "reasoning": "The prior sufficient theorem cannot entail the subcritical witness or the missing above-threshold parameters. The positivity framework offers a method, but neither an evaluated threshold nor the Poisson synthesis was established as covered by the examined evidence.",
+        "searches": [
+          "Haraux one-defect specialization",
+          "Haraux–Komornik positive dual methodology and Delage positive orthogonal functions",
+          "Primary exact-threshold/Poisson query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct near-title Resultary hit is about positive definiteness of cosine-modulated circle kernels. The exact target hit is the assigned record itself. The proof can equivalently be formulated as asking whether the nonnegative continuous window cone intersects the kernel of the signed moment M_1-r M_0, with the first sine projection matched separately."
+        ],
+        "reasoning": "Positive definite kernels and positivity of a function on an interval are different requirements. The present cone test is tied to one exact displaced mode and its allowable window moments, rather than a circle multiplier positivity test.",
+        "searches": [
+          "Resultary: sharp sign oscillation, single displaced fundamental, 2 pi window",
+          "Primary query: Haraux Komornik oscillation anharmonic Fourier series one shifted fundamental single noninteger frequency threshold 1/sqrt(2) interval length 2 pi Poisson kernel",
+          "2026/11/22/SCOPE-sharp-sign-cone-and-spectral-collapse-for-cosine-modulated-fract--e14b214a4013"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen record, not another source. The primary search identified Haraux and Haraux–Komornik, not an independently located exact table of thresholds."
+        ],
+        "reasoning": "The quantified problem changes a single frequency over a continuum; a tabulation of particular oscillation lengths or examples would not by itself give the claimed iff law.",
+        "searches": [
+          "Resultary: exact single-mode displacement threshold and positive Poisson witness",
+          "Literal threshold and frequency replacement in primary query"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp necessary and sufficient classification for one replaced fundamental at the exact length 2 pi, with an explicit strictly positive subcritical series. A positive dual test and oscillation estimates for other frequency sets are not being credited as new. No examined statement establishes both the full sharp range and its positive-side construction.",
+      "residual_risks": [
+        "Primary text access did not resolve an older equivalent single-defect theorem or all auxiliary Haraux and Delage claims; no global priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The sufficient condition as reported specializes to a strictly narrower interval; full-text comparison limited",
+          "evidence": [
+            "Squared displacement condition reported as (1-alpha)^2<1/(8 pi^2) for this family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.04738",
+          "material_read": "Frozen RESULT.md line 90 and indexed citation; decisive primary passage not retrieved",
+          "method": "OA citation and identified versioned PDF passage attempts",
+          "title": "An oscillation result for slightly perturbed trigonometric series",
+          "trigger": "Main perturbation antecedent"
+        },
+        {
+          "assessment": "Relevant framework; older one-defect coverage remains unresolved at source level",
+          "evidence": [
+            "Frozen record describes oscillation bounds for periodic-function subspaces and use of positive dual weights."
+          ],
+          "identifier_or_url": "https://ems.press/journals/rmi/articles/10768",
+          "material_read": "Indexed citation and frozen comparison, RESULT.md lines 92–96; no decisive original passage retrieved",
+          "method": "Targeted lawful OA attempts using DOI and publisher article URL",
+          "title": "Oscillations of Anharmonic Fourier Series and the Wave Equation",
+          "trigger": "Older dual and oscillation framework, plausible equivalent"
+        },
+        {
+          "assessment": "Topic overlap without independently established implication",
+          "evidence": [
+            "Frozen comparison associates the work with sums of periodic subspaces with three periods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.04911",
+          "material_read": "Frozen RESULT.md lines 92 and 103; no decisive primary passage retrieved",
+          "method": "OA title and passage lookup",
+          "title": "Positive orthogonal functions",
+          "trigger": "Dual formulation alias"
+        },
+        {
+          "assessment": "Summary states a different object and positivity property",
+          "evidence": [
+            "Positive definiteness for cosine-modulated kernels, not the two signs of a one-defect Fourier space on windows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sign-cone-and-spectral-collapse-for-cosine-modulated-fract--e14b214a4013",
+          "material_read": "Index summary only",
+          "method": "Resultary; local original retrieval did not succeed",
+          "title": "Sharp sign cone and spectral collapse for cosine-modulated fractional kernels",
+          "trigger": "Closest separate indexed sign/oscillation terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–26, 36–80 and 88–96"
+      ],
+      "rationale": "A one-mode perturbation at the integer period is the natural minimal test of general small-perturbation sign-oscillation theorems. The exact threshold separates oscillation from strict positivity, closes the borderline case, and shows how far a general sufficient bound can be improved in a canonical slice. The explicit witness and dual obstruction have complementary uses when studying further missing modes or observation lengths.",
+      "residual_risks": [
+        "The improvement is for the single-replacement family only; no claim about arbitrary perturbations follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

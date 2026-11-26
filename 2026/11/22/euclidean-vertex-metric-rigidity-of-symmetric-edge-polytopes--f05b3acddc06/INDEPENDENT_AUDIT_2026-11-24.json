@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:42:32.858006Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15, 25–49 and VERIFICATION.md",
+        "sep_metric_reconstruction_check.py (inspected, not executed)",
+        "python3 /workspace/review_checks.py 2 (exact ranks of both six-point cases)",
+        "Corrected RESULT.md and REVIEW.md under /workspace/repairs/2",
+        "Whitney (1932), connected line-graph theorem"
+      ],
+      "rationale": "Reassessed the narrowed decoder in repairs/2/RESULT.md. The original Finding incorrectly assigns 2 and 3 to the raw squared-distance submatrix ranks. Since the six roots have center zero and norm squared 2, D = 4*11^T - 2G with G1=0. The raw ranks are 3 and 4, while the centered ranks are 2 and 3, also confirmed by independent exact matrix arithmetic. The corrected statement and proof distinguish both. The common sphere exposes every signed root; squared distances 8 pair antipodes uniquely, and cross-shells {2,6} versus {4} reconstruct incidence of distinct edges. Apply Whitney componentwise, resolving its sole connected ambiguity by Gram rank: incidence span has dimension v-1 in a connected component. A single edge presents no ambiguity. The decoder is invariant under point permutation, and nearest-even rounding is exact under the strict bound; it cannot detect isolates.",
+      "residual_risks": [
+        "Only complete consistently indexed squared-distance tables of the unweighted canonical realization; neither missing data nor distance histograms are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unimodular SEP equivalence detects graphic matroids; nonisomorphic Whitney twists can share that equivalence.",
+          "Symmetric root subsets need not be root subsystems; root-subsystem classification alone therefore does not cover arbitrary selected edge roots.",
+          "The cosmological-polytope decoder uses 3|E| vertices and repeated midpoint classes, not 2|E| signed incidence roots."
+        ],
+        "reasoning": "None of these broader-looking statements gives the explicit metric-shell inverse for the SEP. The unitary classification above is stronger than a connected uniqueness statement, but not the repaired algorithm.",
+        "searches": [
+          "arXiv:2307.04933, Theorem 4.6, Corollary 4.7 and Remark 4.8",
+          "arXiv:2206.03779, type-A root subsystems",
+          "Resultary: Euclidean distance reconstruction of graphs from polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and matching local mirror",
+        "arXiv:2507.18846v2",
+        "arXiv:2307.04933",
+        "arXiv:2206.03779",
+        "Whitney, AJM 54 (1932), 150–168"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Whitney determines a connected simple graph from its line graph apart from the triangle/claw pair. Theorem 3.8 provides SEP uniqueness for each connected component.",
+          "The positive-inner-product-magnitude adjacency of distinct antipodal pairs separates nontrivial components in the metric, allowing application of the prior classification to each."
+        ],
+        "reasoning": "Neither standard theorem alone is the proposed direct procedure. Whitney presumes the line graph and cannot select its exceptional inverse; Theorem 3.8 states equivalence rather than a shell-based construction. The repaired claim supplies shell adjacency, the exceptional Gram-rank step and an exact error-tolerant decoder. Rounding alone is elementary and is not the basis of the value assessment.",
+        "searches": [
+          "Whitney DOI:10.2307/2371086",
+          "arXiv:2507.18846v2, Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.8 equates graph isomorphism, coordinate permutation and unitary equivalence for connected simple graphs in the canonical embedding.",
+          "The full vertex metric determines affine Euclidean congruence by double centering."
+        ],
+        "reasoning": "Different terminology does not save the connected classification: an intrinsic congruence preserves the center and extends orthogonally in equal ambient dimensions. Keep it only as a credited consequence. The proof in Theorem 3.8 uses the full type-A lattice spanned by vertices, not the rank-resolved line-graph decoder.",
+        "searches": [
+          "Resultary: unlabeled Euclidean vertex distances and symmetric edge polytope metric rigidity",
+          "arXiv:2507.18846v2, Lemma 3.7 and Theorem 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 2026/11/22/SCOPE-euclidean-vertex-metric-rigidity-of-symmetric-edge-polytopes--f05b3acddc06 is the frozen result itself.",
+          "Distinct hit 2026/11/17/SCOPE-unlabeled-euclidean-distances-reconstruct-every-simple-graph-cos--4255f7d04380 is a cosmological-polytope theorem with different input and inverse."
+        ],
+        "reasoning": "The exact self-match is not distinct prior evidence; the closest separate catalogue result is a related inverse problem, not a table or theorem of these SEP metrics.",
+        "searches": [
+          "Resultary: symmetric edge-polytope vertex metric and unlabeled graph reconstruction"
+        ]
+      },
+      "rationale": "PASS is for the repaired distance-table decoder with exception handling and deterministic rounding guarantee, not for the original framing of the Euclidean classification. Cuchilla et al. Theorem 3.8 directly covers the connected classification. After splitting the intrinsic metric into components, its result also yields the disconnected uniqueness consequence; that consequence is no longer presented as original. The distinct output is a direct reconstruction procedure in the squared-distance table through line-graph inversion and a six-point test, without constructing root coordinates or a lattice.",
+      "residual_risks": [
+        "Whitney original full text not available in checked lawful routes. Another prior construction of the explicit distance-table inverse is not excluded by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of connected equivalence; proof uses an ambient lattice, not the repaired decoder",
+          "evidence": [
+            "Theorem 3.8 lists graph isomorphism, coordinate permutation equivalence and unitary equivalence as equivalent for connected simple graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.18846v2",
+          "material_read": "Definition, pp. 1 and 7–9, Lemma 3.7 and Theorem 3.8 with proof (text offsets 22200–29649)",
+          "method": "OA PDF text passages",
+          "title": "Unitary Actions and Equivariant Volumes of Symmetric Edge Polytopes",
+          "trigger": "Same embedding and Euclidean congruence claim"
+        },
+        {
+          "assessment": "Different equivalence relation",
+          "evidence": [
+            "Isomorphic graphic matroids characterize unimodular equivalence; the Whitney-twist example separates it from graph isomorphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.04933",
+          "material_read": "PDF p. 12, Theorem 4.6, Corollary 4.7 and Remark 4.8, near offset 40850",
+          "method": "OA PDF text",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "Matroidal SEP reconstruction"
+        },
+        {
+          "assessment": "Different closure hypotheses",
+          "evidence": [
+            "Symmetric subsets need not be root systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.03779",
+          "material_read": "PDF pp. 3–4, offset about 7200",
+          "method": "OA PDF text",
+          "title": "A colourful classification of (quasi) root systems and hyperplane arrangements",
+          "trigger": "Potential root-system generalization"
+        },
+        {
+          "assessment": "Conceptually close, mathematically different configuration",
+          "evidence": [
+            "Repeated midpoint classes in a three-points-per-edge configuration, not metric shells on two antipodal points per edge."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-unlabeled-euclidean-distances-reconstruct-every-simple-graph-cos--4255f7d04380",
+          "material_read": "Finding in RESULT.md (offset 0)",
+          "method": "Resultary and local mirror",
+          "title": "Unlabeled Euclidean distances reconstruct every simple graph from its cosmological polytope",
+          "trigger": "Strongest distinct Resultary hit"
+        },
+        {
+          "assessment": "Classical inversion theorem used and credited; prior passage unavailable",
+          "evidence": [
+            "The decoder explicitly addresses the classical K3 versus K1,3 exceptional connected pair."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2371086",
+          "material_read": "Bibliographic identification; original proof not retrieved",
+          "method": "Lawful OA DOI and identified JSTOR PDF attempts",
+          "title": "Congruent graphs and the connectivity of graphs",
+          "trigger": "Connected line-graph inversion dependency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof",
+        "arXiv:2507.18846v2, Theorem 3.8"
+      ],
+      "rationale": "The repair gives a usable exact decoder for unlabeled SEP distances, not just a test of isometry or an injectivity theorem. It avoids fitting an ambient realization or enumerating graph candidates: the pairwise shells supply a standard line-graph inversion instance, with a local fixed-size exception test and an immediately usable deterministic input tolerance. This is a natural reconstruction task even when connected uniqueness is already known.",
+      "residual_risks": [
+        "No claim about optimal noise tolerance among all possible decoders, missing entries, or complexity of recovering a graph from face-lattice data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For substitutions of first nonlinear depth \(d\), the leading-term identity \((\phi-I)(t^i)=i a_{d+1}t^{i+d}+O(t^{i+d+1})\) gives independent pivots as long as \(m\le p+d\). At \(m=p+d+1\), Frobenius kills \(t^p\) and the whole ideal \(t^pA_m\); the remaining pivots give the stated exact rank formula at every power. Nilpotent-power ranks determine Jordan forms. Explicit second-power comparisons prove the sharp similarity-collision condition. A separate direct finite-field matrix program checked 3,487 examples and ten depth-pair comparisons, including small extension fields; the proof is valid over arbitrary fields of characteristic \(p\).
+## correctness
 
-## Originality — PASS against inspected sources
-The 2020 Nottingham automata paper analyzes formal-series depth and break sequences, not these finite natural-module Jordan ranks; its introduction, relevant ramification sections and finite-order constructions were inspected. A published Nottingham-brace result computes socle filtrations for a different group action. A 2026 substitution-group preprint deals with quotient exponents; its public abstract was accessible, but not its full text. Previous results covering fixed-subalgebra dimensions in short truncations were identified and are not counted as new: the asserted advance is the complete higher-power/Jordan profile, the optimal \(m=p+d\) boundary, and its precise similarity collision. Targeted published-finding corpus and literature searches revealed no equivalent or dominating statement; search absence alone is not a priority proof.
+PASS
 
-## Value — PASS
-This is a classification of a natural modular representation of finite Nottingham quotients, rather than an arbitrary finite parameter slice. It shows exactly when ramification depth controls every Jordan block, locates the first characteristic-driven failure, and characterizes when two different depths collapse into the same natural-module similarity class. The finite-field enumeration gives the full short-truncation similarity spectrum. These data refine fixed-space dimensions and abstract group-exponent information.
+For a first nonlinear term a t^{d+1}, N sends t^i into degrees ≥i+d, with coefficient i a at i+d. In a j-fold iterate the coefficient at i+jd is a^j times the product of i+hd for h=0,…,j−1; terms of higher filtration cannot contribute there. In the tame range, if that degree survives, all factors lie in [1,m−1−d]⊆[1,p−1], giving one independent pivot per surviving i and no other nonconstant inputs. At m=p+d+1, N kills t^p by Frobenius since p(d+1)≥m, and kills t^{p+1} and higher by filtration. At power j, any input with i+(j−1)d≥p is therefore killed; all remaining positive i give distinct nonzero pivots by the same product. This reproduces both ranks and the fixed ideals with constants; the one-rank loss is relative to the tame prediction only when that prediction is positive, as specified in the Finding, not for already zero powers. The ranks identify the two shift partitions by chains in residues 1,…,d and the extra singleton blocks. At the common truncation the depth-(d+1) map is tame. The two ranks at j=1 are p−1, while at j=2 they are max(p−1−d,0) and max(p−2−d,0); when both are zero all later powers vanish, proving the exact collision criterion. This works also in characteristic 2. Counting the first nonzero and later coefficients gives the stratum sizes and, in the short tame range, fixed dimension d+1 and distinct ranks for distinct depths. Static inspection of artifacts/verify.py:39–153 and VERIFICATION.md:19–26 confirms direct finite matrix-power checks in the specified regimes and selected comparisons, not a proof for arbitrary truncations. No frozen code was executed.
 
-## Remaining limits
-No classification is asserted beyond the first wild truncation for each depth. The full text of the 2026 exponent paper was not accessible; equivalent treatment under representation-theoretic terminology remains a residual originality risk. Exhaustive publication priority and independent confirmation are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the complete natural-module rank profiles, sharp first loss, and first-wild collision criterion. Substitution matrices, their filtration estimate and Frobenius support restrictions are known; the short-range fixed-space count is included as context rather than credited as novel. Exact statement comparisons did not supply the higher-power ranks or the different-depth natural-module similarity criterion. In particular the previously inaccessible exponent paper was retrieved and inspected at its relevant matrix and ramification lemmas. Its aim and results use p-power matrices to track compositions, not all natural-module ranks.
+
+## value
+
+PASS
+
+The natural module is a canonical representation of these truncated groups. The formula finds the exact boundary of coefficient-independent shift ranks and shows exactly when this representation first fails to distinguish consecutive depths. It yields full similarity information, not merely group order or fixed-space size. The all-characteristic transition and its sharp collision criterion provide substantive structure beyond a routine enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

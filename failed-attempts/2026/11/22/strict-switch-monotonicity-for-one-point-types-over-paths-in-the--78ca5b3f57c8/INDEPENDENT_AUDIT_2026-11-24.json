@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:23:00.909895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–47",
+        "Frozen VERIFICATION.md, check.py and verification_output.txt",
+        "6db160410a0c, proof §§1–3, local mirror offset 2670"
+      ],
+      "rationale": "A free homogeneous limit of the stated finite relational age realizes every compatible one-point extension over the named path, with infinitely many realizations by free amalgamation. Homogeneity and the finite language identify these with complete nonalgebraic types, one per allowed relation word. The only constraint on an occupied adjacent pair is (+,−) on a forward edge or (−,+) on a reverse edge. Thus each connected occupied block of length at least two has exactly one labeling if its edges alternate and none otherwise, with two choices per occupied singleton. Toggling one switch removes exactly one forbidden triple of occupied vertices without losing any support or weight; choosing that triple alone gives a strict increase, including at either end and for n=3. The frozen prefix/suffix calculation agrees: with forward old edges the gain is (L₋−L₊)R₋, where L₋−L₊ is a positive preceding-prefix count, and with reverse edges the signs swap. I checked the two transition matrices and their characteristic polynomials; in moving coordinates the alternating matrix is AJ (for a forward first edge and relabeling on the initial prefix, J fixes the all-ones vector). A and AJ have strictly positive squares via state 0; the initial and terminal vectors have nonzero positive Perron projections. This verifies the recurrences, initial values and ratio asymptotic.",
+      "residual_risks": [
+        "The submitted integer enumeration was inspected, not executed; it reports bounded checks only. The all-length proof is independent of those checks. No claim is made for another forbidden tournament, unnamed parameters, or arbitrary named bases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6db160410a0c proof §§1–2 states and proves the count support by support, before summation and separately from its parity analysis.",
+          "23742e530543 instead counts one-types in the universal poset, including fence examples.",
+          "arXiv:2206.05517 concerns oriented-poset rank matrices. arXiv:1404.6178 Theorem 1.2 concerns typical global structure of forbidden-tournament-free orientations."
+        ],
+        "reasoning": "It is the support-level information in the cycle result, not global oriented-graph counts or poset transfer, that covers the path after excluding the added vertex.",
+        "searches": [
+          "Resultary: one-point types path orientations forbidden transitive triangle",
+          "Resultary: fence poset one-point types homogeneous poset transfer matrix",
+          "Web: \"fence poset\" orientation paths transfer matrix word walk enumeration one-point types"
+        ]
+      },
+      "checked_sources": [
+        "6db160410a0c (decisive primary proof passage)",
+        "330be2c351ec",
+        "23742e530543",
+        "arXiv:2206.05517",
+        "arXiv:1404.6178"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle proof §2: every support S contributes 2^s(S) if it contains no forbidden centered triple, and zero otherwise. §3 compares counts when one defect set contains another.",
+          "An induced path is obtained from the cycle of length n+1 by deleting one vertex, even for n=3."
+        ],
+        "reasoning": "Supports avoiding the deleted vertex cannot contain a triple that used it; the remaining triples are precisely the path's internal directed-through defects. Therefore the support formula implies the path inequality and indeed its coefficientwise version, with the triple support forcing strictness. This is more than sharing a transfer technique.",
+        "searches": [
+          "6db160410a0c RESULT.md, support passage, proof §§1–3, offset 2670",
+          "arXiv:1404.6178 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "78ca5b3f57c8 is the assigned record itself.",
+          "6db160410a0c counts nonzero support placements with weight 2^(number of singleton components) in the identical forbidden-transitive-triangle setting.",
+          "In that record a directed-through defect is equal consecutive signs, i.e. a zero switch here."
+        ],
+        "reasoning": "Whole-graph arc reversal does not change the switch bits. Converting the defect convention and conditioning the support off one cycle vertex gives the relevant path formulation.",
+        "searches": [
+          "Resultary: strict switch monotonicity one-point types oriented paths",
+          "Resultary: one-point types path orientations forbidden transitive triangle",
+          "Resultary: 6db160410a0c parity frustrated coefficientwise extremality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "330be2c351ec tabulates/classifies collisions of degree-graded path counts in the directed-three-cycle-free class, not the transitive-triangle-free class.",
+          "6db160410a0c supplies an exact formula, more informative than a numerical table for the present counting problem when restricted to supports on the path."
+        ],
+        "reasoning": "An endpoint-count table alone would not establish coordinatewise strictness; the exact support formula does. Swapping which tournament is forbidden changes the allowed pairs, so the path collision census is not an equivalent table.",
+        "searches": [
+          "Resultary: strict switch monotonicity one-point types oriented paths",
+          "Resultary: one-point types path orientations forbidden transitive triangle"
+        ]
+      },
+      "rationale": "A distinct available Resultary record, 6db160410a0c, proves the exact conditional count for every support of an oriented named cycle in the same homogeneous graph, not merely a cycle extremum. Embed the n-vertex path as the n consecutive retained vertices of a cycle on n+1 vertices (n≥3), orient the retained edges as prescribed and the two extra edges arbitrarily, and restrict to supports not containing the omitted vertex. Equivalently the new point has no incident arc with that extra parameter. This gives exactly the allowed words of the original path, and preserves singletons and all internal forbidden triples. The cycle source's support-wise count therefore gives the path count with the same positive weight per support, and the path switch removes one forbidden triple. Taking that triple alone is a strict witness; the entire extremizer assertion follows. This conclusion does not use a logically invalid one-switch change around a fixed cycle: it compares two path orientations after restricting supports, independent of cycle closure at the added vertex. The two cubic recurrences then follow by standard three-state transfer and Cayley–Hamilton; they do not supply a separate substantive remainder. This is verified overlapping coverage, not a claim that the same-day cycle record has proven historical priority.",
+      "residual_risks": [
+        "The publication order of distinct same-day path and cycle records was not established. The disposition concerns verifiable mathematical coverage, not attribution of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Support-wise theorem directly covers restricted path calculation",
+          "evidence": "Every occupied singleton contributes two labels; an occupied component with an edge has unique labeling exactly when it contains no directed-through defect triple. This applies support by support, including those omitting the added cycle vertex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-frustrated-coefficientwise-extremality-of-one-point-types--6db160410a0c/RESULT.md",
+          "material_read": "Finding; proof §§1–3, offsets 2670–5652",
+          "method": "Local published mirror",
+          "title": "Parity-frustrated coefficientwise extremality of one-point types over oriented cycles",
+          "trigger": "Identical ambient oriented graph and support-based coefficientwise extremality"
+        },
+        {
+          "assessment": "Different excluded tournament and conclusion",
+          "evidence": "The forbidden tournament is the directed 3-cycle. The result concerns polynomial collisions.",
+          "identifier_or_url": "330be2c351ec",
+          "material_read": "Finding and assumptions at offset 0, prior-work comparison offset 6500",
+          "method": "Local published mirror",
+          "title": "Sharp eight-parameter collision of degree-graded types over directed paths",
+          "trigger": "Types over named oriented paths"
+        },
+        {
+          "assessment": "Not the same structures",
+          "evidence": "The age and local constraints are those of the universal poset.",
+          "identifier_or_url": "23742e530543",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Linear-arithmetic exact one-type counting on oriented tree covers",
+          "trigger": "Broader tree-shaped type-counting family including fences"
+        },
+        {
+          "assessment": "Method antecedent only",
+          "evidence": "Linking oriented posets multiplies rank matrices, but these count poset ideals, not the stated graph one-types.",
+          "identifier_or_url": "arXiv:2206.05517",
+          "material_read": "PDF p. 1, offsets 0 and 1050",
+          "method": "OA primary PDF passage inspection",
+          "title": "Oriented Posets, Rank Matrices and q-Deformed Markov Numbers",
+          "trigger": "Oriented fences counted by transfer matrices"
+        },
+        {
+          "assessment": "Not a local type count",
+          "evidence": "The theorem is asymptotic about typical finite forbidden-tournament-free oriented graphs, not extensions of a fixed named base.",
+          "identifier_or_url": "arXiv:1404.6178",
+          "material_read": "Theorem 1.2, PDF p. 2, offset 6800",
+          "method": "OA primary PDF passage inspection",
+          "title": "On the structure of oriented graphs and digraphs with forbidden tournaments or cycles",
+          "trigger": "Potential general result for the underlying class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:21–47",
+        "6db160410a0c proof §§1–3"
+      ],
+      "rationale": "A local orientation monotonicity theorem for one-types is naturally motivated and would be worthwhile in isolation. Here the support-restricted cycle result gives exactly the useful information, even with degree grading. The remaining explicit all-zero/all-one transfer recurrences and numerical Perron rates are routine consequences of the local transition matrices, with no separate scientific need or application established for those constants.",
+      "residual_risks": [
+        "This does not deny the usefulness of the theorem itself as a statement about paths. It judges the incremental content of the frozen finding; no substantive repair was made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

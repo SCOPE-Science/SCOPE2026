@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:36:38.825375Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed excursion time t, conditional Gaussianity of X given the transverse path makes the mixed square moment 2D_x E[L_t Y_t²]. With the occupation-normalized local time, the Markov transition from Y_s=0 contributes 2D_y(t−s) and the density at Y_s=0 is (4πD_y s)^(−1/2). Integrating gives 8D_x√D_y t^(3/2)/(3√π); the product of the single-coordinate second moments is 4D_x√D_y t^(3/2)/√π. Complete independent resets give a positional marginal averaged over the equilibrium age A, not over S or over time since initialization. With a_p=E[A^p], the ratio to be tested is 2a_(3/2)/(3a_(1/2)a_1)−1. The survival integral gives a_p=Γ(k+p+1)/[(p+1)Γ(k+1)λ^p], reducing the ratio to (1−k)/(5(k+1)); the open endpoint bounds and sign claims follow. Nonzero square covariance excludes independence for all k≠1. For k=1, the equilibrium age is exponential and the decaying stationary Fourier resolvent in y has form c_ξ exp(−√(λ/D_y)|y|), where the jump at zero yields c_ξ=λ/(D_xξ²+2√(λD_y)). Its inverse is the product of normalized Laplace densities. All moments used are finite for k>0. I inspected the supplied quadrature script, without executing it; the conclusion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Domazetoski et al. give a Poisson resolvent with separable factors, and Sec. V explicitly maps the 2D globally reset comb to the y,z coordinates of the resetting-to-backbone model governed by Eq. (38). Eq. (4) itself is the 3D global-reset transform; Sec. V is not simply a specialization of that equation.",
+          "Masó-Puigdellosas et al. allow more general reset survival functions but Eqs. (31)–(37) evaluate longitudinal MSD, including exponential and power-law examples, rather than the joint two-axis square moment."
+        ],
+        "reasoning": "Broader clock assumptions for a marginal and stronger joint information at only the Poisson clock are different directions of coverage. Neither states the Gamma-family mixed moment or the independence obstruction away from k=1.",
+        "searches": [
+          "Domazetoski et al. DOI 10.1103/PhysRevResearch.2.033027 §§II, IV–V, Eqs. (3), (4), (38)",
+          "Masó-Puigdellosas et al. DOI 10.3390/e25111529 §3.3, Eqs. (31)–(37)",
+          "10.1103/PhysRevE.101.022135, Tateishi fractional comb"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a4c114152a4 (self)",
+        "DOI 10.1103/PhysRevResearch.2.033027",
+        "DOI 10.3390/e25111529",
+        "DOI 10.1103/PhysRevE.101.022135 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Poisson factorization recovers the independence boundary case but does not apply to the stationary Gamma age at k≠1. The renewal MSD calculation supplies expectation of the local time, not of its product with the endpoint square.",
+          "The extra free-comb input needed in a joint renewal calculation is E[δ_0(Y_s)Y_t²]=2D_y(t−s)(4πD_y s)^(−1/2); the Gamma equilibrium-age integral then yields the stated closed sign law."
+        ],
+        "reasoning": "The Gamma result is a short evaluation from standard ingredients, but the inspected longitudinal formulas do not supply that distinct joint observable. The mixed moment and the sign obstruction are not obtained by replacing the Poisson rate by the reciprocal of the Gamma mean.",
+        "searches": [
+          "10.1103/PhysRevResearch.2.033027 Eq. (38) and Sec. V",
+          "10.3390/e25111529 Sec. 3.3, Eqs. (31)–(37) and text checks for covariance, joint, mixed and fourth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 2a4c114152a4 is the frozen result itself. Other retrieved entries were not distinct instances of the same Gamma comb classification.",
+          "The Poisson product law is equivalent to factorization of the credited stationary joint resolvent in the two retained coordinates. Its overlap is exact at k=1."
+        ],
+        "reasoning": "The claim is about normalized covariance of squares and independence of positions, not ordinary cross-covariance of the signed coordinates (zero by symmetry) or a single longitudinal MSD. Erlang clocks are the integer-shape special cases of the claimed Gamma formula, not an independently broader class.",
+        "searches": [
+          "Resultary: Gamma renewal resetting comb diffusion squared displacement covariance mixed fourth moment equilibrium age gamma shape independence Poisson",
+          "comb diffusion renewal resetting Gamma inter-reset intervals mixed fourth moment covariance squared coordinates Poisson reset resolvent factorized density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue match is the bound entry. The probability and moment tables implicit in the inspected reset papers are for the Poisson joint law or for the general-clock backbone marginal, not an explicit all-Gamma squared-covariance law."
+        ],
+        "reasoning": "Finite tabulations could check shapes but could not establish the all-real-k sign law or prove independence at its exceptional point; the credited exponential resolvent already does the latter. No separate exact database result for the full law was identified.",
+        "searches": [
+          "Resultary: Gamma renewal resetting comb diffusion squared displacement covariance mixed fourth moment equilibrium age gamma shape independence Poisson",
+          "comb diffusion renewal resetting Gamma inter-reset intervals mixed fourth moment covariance squared coordinates Poisson reset resolvent factorized density"
+        ]
+      },
+      "rationale": "The exponential product resolvent, free-comb framework and renewal-age averaging are preexisting. The supported distinct result is the complete Gamma-shape mixed-square dependence law and the use of its strict signs to exclude independence at every nonexponential shape. No independent consulted statement contains that all-shape classification. The full free propagator plus generic renewal mixing can encode the answer before evaluation; they are not themselves an evaluated mixed-square or independence theorem for Gamma resetting.",
+      "residual_risks": [
+        "Tateishi et al.'s full text could not be assessed. An unlocated all-clock joint law or a mixed-moment treatment could yield the same classification; the bounded search does not establish priority.",
+        "The finite quadrature checks are reproducibility evidence only, not a proof or an originality certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poisson factorization is covered; no Gamma-shape comparison established here",
+          "evidence": [
+            "Eq. (4) gives 3D global Poisson reset factors; the explicit two-coordinate mapping in Sec. V uses the model with the transform in Eq. (38). DOI 10.1103/PhysRevResearch.2.033027."
+          ],
+          "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2009/05/115.pdf",
+          "material_read": "PDF pp. 2, 6, 8; Eqs. (3), (4), (38), Sec. V; OA offsets 8000–14995, 40400–46872 and 58500–64875",
+          "method": "Lawful institutional primary PDF passages",
+          "title": "Stochastic resetting on comblike structures",
+          "trigger": "Same Poisson comb and a stationary joint resolvent"
+        },
+        {
+          "assessment": "Generality in reset survival, but only longitudinal-MSD coverage in the inspected formulas",
+          "evidence": [
+            "Eqs. (31)–(33) set up longitudinal MSD; (34)–(37) cover exponential and power-law choices. DOI 10.3390/e25111529."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/entropy/entropy-25-01529/article_deploy/entropy-25-01529.pdf",
+          "material_read": "Sec. 3.3 including PDF p. 9, Eqs. (31)–(37), OA offsets 44200–50660",
+          "method": "Lawful publisher PDF passages and bounded text checks",
+          "title": "Random Walks on Comb-like Structures under Stochastic Resetting",
+          "trigger": "Same geometry with general renewal resetting"
+        },
+        {
+          "assessment": "Exact model/equations not checked; no negative coverage conclusion from access failure",
+          "evidence": [
+            "The publication record identifies a fractional-operator comb study, Phys. Rev. E 101, 022135. Its full text was not obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.101.022135",
+          "material_read": "Institutional author bibliography identifies the exact work; primary PDF and APS abstract retrieval denied",
+          "method": "Publisher access attempts and lawful author-publication bibliography lookup",
+          "title": "Quenched and Annealed Disorder Mechanisms in Comb-Models with Fractional Operators",
+          "trigger": "Earlier 2D comb cited by the Poisson reset paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gamma family changes clock dispersion around a natural Poisson baseline. A scale-free fourth-order observable separates the negative dependence at a fixed comb excursion age from positive dependence induced by age mixing, with a sharp sign reversal at the only independent shape. This provides a two-coordinate diagnostic not available from signed-coordinate covariance or a backbone MSD alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

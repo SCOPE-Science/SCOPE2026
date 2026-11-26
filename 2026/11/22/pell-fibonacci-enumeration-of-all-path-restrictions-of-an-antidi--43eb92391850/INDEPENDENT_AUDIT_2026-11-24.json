@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:10:02.609385Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I checked the continuous-path classification, including ties and endpoints, in RESULT.md lines 27–59. Present labels form an interval by intersecting the two threshold inequalities. At a first entrance, an interior label strictly between two newly present labels would have both threshold inequalities strict at that time and would have been present earlier by continuity. Thus the first block has size one or is a consecutive pair. Once the interval is nonempty, a new label to either side is unlocked by just the coordinate serving that side; continuity forces distinct integer thresholds on a given side to be met at distinct times. A double event adds the two outside neighbors, which need not themselves be consecutive. The first straight segment and subsequent unit horizontal, vertical, or diagonal moves realize each allowable block exactly, including n=1, and constant segments introduce no extra births. Reindexing entrance times identifies precisely the ordered labelled blocks. Essential degree-zero multiplicities after reindexing record only the ordered block sizes. Choosing left or right at each post-initial singleton and moving both sides at every post-initial pair determines the initial interval uniquely from the final interval [1,n], proving the fiber size. Independently of the Delannoy identity, peeling the last block for n≥3 gives two copies of S_{n−1} and one of S_{n−2}; S₁=1, S₂=3, yielding the stated closed form. The ordered compositions of 1s and 2s give the Fibonacci count and asymptotic ratio. VERIFICATION.md and check_antichain.py describe finite exact regression evidence; the script was inspected, not executed, and grid enumeration alone would not cover all continuous paths. Definitions 4.3 and 4.10 of the source support the order/multiplicity interpretation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed-cubical framework defines the extended fibered barcode on directed paths; its discussion of the entrance subcomplex distinguishes mixed cubes from that subcomplex, and Conjecture 7.1 proposes counting with mixed-cube representatives as needed.",
+          "The rectangular-closure record concerns strict orders and obtains distinct degree-labelled barcode types for a wedge of spheres."
+        ],
+        "reasoning": "The general framework supplies definitions but the inspected enumeration direction is a conjectural program rather than a theorem giving these counts. Strict grade orders cannot account for a diagonal that crosses both relevant thresholds simultaneously. The degree-labelled wedge model has a different barcode equivalence structure than isolated vertices whose only bars are essential H₀ bars.",
+        "searches": [
+          "arXiv:2611.00261v1 §§3, 5–7; Def. 5.2, Cor. 5.3, Conj. 7.1",
+          "Resultary 810ca8e87e74, RESULT.md offsets 0–8108"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_antichain.py",
+        "arXiv:2611.00261v1",
+        "Resultary 810ca8e87e74",
+        "10.1137/S0895480101387406 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the all-singleton fiber the frozen count is exactly the strict antidiagonal count already found. With ties, mixed-square diagonals add events unavailable in strict orders; unlabelled H₀ diagrams then quotient by ordered event multiplicities."
+        ],
+        "reasoning": "A strict-order result cannot be applied to tied classes without proving which consecutive events can be merged geometrically and how different merged orders map to the same H₀ diagram. The continuous-path realization and exact fiber bijection are the non-covered steps.",
+        "searches": [
+          "Resultary 810ca8e87e74, strict-order statement and wedge construction",
+          "arXiv:2611.00261v1, Definitions 4.3 and 4.10 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belton et al. encode path restrictions by the order of entrance thresholds and reindex filtrations and persistence diagrams using distinct coordinates.",
+          "Resultary 810ca8e87e74 describes strict antidiagonal grade orders by one-endpoint interval extensions, and obtains 2^{n−1}.",
+          "The frozen proof explicitly reduces each choice of initial block and final interval to three-step Delannoy paths."
+        ],
+        "reasoning": "Rectangle-accessible orders and interval histories coincide for the strict antidiagonal case. A Delannoy walk counts allowed moves after a start but does not on its own establish that tied vertex entrances are attainable by continuous paths or identify the quotient that forgets vertex labels while retaining tied multiplicities.",
+        "searches": [
+          "Resultary: labelled antidiagonal grades, rectangular closure orders and extended fibered barcode class counts",
+          "arXiv:2611.00261v1, §3 and Definitions 4.3 and 4.10",
+          "10.1137/S0895480101387406"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue record gives the exact all-singleton count 2^{n−1} for strict antidiagonal orders. It does not give the tie-inclusive count, H₀ quotient, or fibers in the actual passages read.",
+          "The resulting numerical sequences are classical counts; matching them does not tabulate the filtration/barcode map."
+        ],
+        "reasoning": "There is verified coverage for a specific fiber, not for the full exact invariant. Novelty is the geometric and persistence correspondence rather than the numbers in isolation.",
+        "searches": [
+          "Resultary 2026/11/22, 810ca8e87e74",
+          "Delannoy and Fibonacci count identities in frozen RESULT.md lines 39–59"
+        ]
+      },
+      "rationale": "Pass for the tie-inclusive class enumeration, the isolated-vertex Fibonacci barcode quotient, and the full ordered-composition fiber formula. The same-day rectangular-closure result really does cover the strict all-singleton restriction of the claim; no priority is inferred within the day, and that special case is not credited separately. The Delannoy and Fibonacci arithmetic is classical.",
+      "residual_risks": [
+        "Earlier interval-order formulations could give other overlaps; the strict overlap is already explicitly credited. Full text of the Delannoy citation was not reachable, and the broader literature query did not return usable results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same framework, no inspected tie-inclusive family census",
+          "evidence": [
+            "Definitions 4.3/4.10 operate by reindexing distinct coordinates/entrance events. Section 6 distinguishes mixed cubes from the entrance subcomplex; Conjecture 7.1 discusses counting simplicial classes with representatives through mixed cubes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.00261v1",
+          "material_read": "§3.1–3.2 and Definitions 4.3, 4.10 (PDF pp. 12, 16, 19); Definition 5.2/Corollary 5.3 and §6 (pp. 23–26); Conjecture 7.1 (HTML offset 80700)",
+          "method": "Targeted OA PDF/HTML passages",
+          "title": "A Directed Cubical Framework for k-critical Bipersistence Modules",
+          "trigger": "Exact definitions, directed path space and class-enumeration question"
+        },
+        {
+          "assessment": "Exact strict subcase; tie-inclusive and H₀ quotient conclusions differ",
+          "evidence": [
+            "The statement requires all antidiagonal grade events to be distinct and gives 2^{n−1} by end extensions. The wedge-of-spheres construction labels events in distinct degrees instead of quotienting isolated vertex labels."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 810ca8e87e74",
+          "material_read": "RESULT.md offsets 0–4508 and 4508–8108, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured catalogue and targeted local mirror read",
+          "title": "Rectangular closure orders and an exponential gap in extended fibered barcodes",
+          "trigger": "Exact strict antidiagonal overlap"
+        },
+        {
+          "assessment": "Unresolved full-text coverage; classical step-count arithmetic not credited as new",
+          "evidence": [
+            "The accessible frozen proof defines the three kinds of steps and the corresponding recurrence explicitly; no passage from the inaccessible original is asserted."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895480101387406",
+          "material_read": "Citation only; full text not retrieved",
+          "method": "Lawful bounded OA direct and alternate-route attempts; HTTP 403",
+          "title": "On Generalized Delannoy Paths",
+          "trigger": "Possible equivalent step count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete test family for the motivating extended-barcode class-enumeration problem. It isolates why allowing continuous paths with simultaneous births changes both the class count and which class distinctions survive persistence. The exact fibers and explicit representatives quantify a loss of labelled information that strict-path counts alone would miss. It does not resolve the general directed-cubical conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

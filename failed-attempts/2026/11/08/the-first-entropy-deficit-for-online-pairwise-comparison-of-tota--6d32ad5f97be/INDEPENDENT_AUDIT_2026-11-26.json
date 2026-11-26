@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:25.377137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shattered depth-d tree exists exactly when some comparison leaves two depth-(d-1) shattered version spaces; each branch must have at least 2^(d-1) orders. I tested this recurrence independently using complete comparison-sign patterns filtered by the queried sign constraints. The 2,520-order branch for 1<2 passed depth 10 and failed depth 11; all pairs and both outcomes at the unrestricted root are isomorphic by relabeling, so the unrestricted dimension is 11. For n=1 through 6 the independent search reached 0,1,2,4,6,9, and the cardinality bound certifies the respective upper bounds. Routing each permutation separately through the attached tree, with outcome 0 first, reached all 2,048 leaves with minimum occupancy 1. Replay: python3 /workspace/branches/audit_comparison.py with the frozen permutation_comparison_witness.json path as its argument. The check says nothing about ranks beyond seven.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed 6c4de5b628dc summary gives the entire exact rank sequence through seven and also a block-concatenation extension.",
+          "The frozen literature discussion reports general learning bounds in the cited papers; decisive full text was not retrieved."
+        ],
+        "reasoning": "The overlapping indexed record covers the whole tested range directly. No conclusion about uninspected general literature is needed for the fail.",
+        "searches": [
+          "Resultary 6c4de5b628dc and 46afcffa9b81",
+          "arXiv:2209.01366 §5.2 Theorems 25–26 and DOI:10.1137/0222062; primary retrieval and focused literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verifier source and tree",
+        "Resultary 6c4de5b628dc and 46afcffa9b81 summaries",
+        "arXiv:2209.01366, DOI:10.1137/0222062 and Goldman 1990 thesis retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Indexed rank 11 holds for all seven-element orders; each of the 21 possible root comparisons has two isomorphic child spaces, each also isomorphic to the branch 1<2."
+        ],
+        "reasoning": "Taking the maximum over roots of the minimum child depth gives 11=1+rank(1<2), with no further enumerative input. Thus the conditional rank is mechanically implied.",
+        "searches": [
+          "Resultary 6c4de5b628dc; frozen RESULT.md recurrence and comparison symmetry, lines 19–31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6c4de5b628dc explicitly reports ranks 0,1,2,4,6,9,11 for all orders under the same pair-query convention, with the first failure of the entropy ceiling at seven.",
+          "Resultary 46afcffa9b81 treats two internally ordered chains with cross-comparisons, not all orders."
+        ],
+        "reasoning": "Adaptive comparison-tree depth in 6c4de5b628dc is the frozen Littlestone dimension. The fixed-chain family differs and is not needed for the overlap judgment.",
+        "searches": [
+          "Resultary: all seven-element total orders, pairwise comparison Littlestone rank 11, first entropy deficit",
+          "Frozen RESULT.md lines 5–15 and 19–33"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c4de5b628dc returned the exact ranks and first-deficit statement, with finite certificates, not a generic title match."
+        ],
+        "reasoning": "The full numerical census and its interpretation are already present at statement level. The unavailable mirror leaves proof-level comparison open, not overlap of the main numerical claims.",
+        "searches": [
+          "Resultary exact rank series 0,1,2,4,6,9,11 and seven-item entropy obstruction; local mirror request for 6c4de5b628dc"
+        ]
+      },
+      "rationale": "A distinct indexed finding already gives rank 11 on all seven-element total orders and explicitly identifies seven as the first cardinality deficit. With unrestricted pair queries every root comparison and outcome are relabelings, so the comparison-root recurrence gives rank(unrestricted)=1+rank(1<2). The conditional 10 is therefore covered by implication even if not stated separately. This is a coverage judgment, not a priority judgment from path dates. The witness does not salvage a distinct mathematical claim, and the available evidence does not establish that the two witness trees are identical.",
+      "residual_risks": [
+        "The earlier record's exact proof and tree are not compared because its mirrored full text was unavailable.",
+        "The classical paper, thesis, and 2022 full text did not yield decisive passages; they could supply additional coverage. Neither uncertainty undoes the indexed overlap and mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the rank and first-deficit claims; implies the conditional rank",
+          "evidence": [
+            "Exact ranks through seven and the seven-item failure of the entropy ceiling; finite certificates and a block-concatenation extension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-seven-item-entropy-obstruction-for-adaptive-permutation-comp--6c4de5b628dc",
+          "material_read": "Resultary indexed scientific summary; no mirrored full text retrieved",
+          "method": "Configured Resultary search and bounded local mirror attempt",
+          "title": "The seven-item entropy obstruction for adaptive permutation comparison",
+          "trigger": "Same comparison family and exact seven-item threshold"
+        },
+        {
+          "assessment": "Different hypothesis class",
+          "evidence": [
+            "Two ordered chains of four with cross-comparison queries, rank 5 versus ceiling 6."
+          ],
+          "identifier_or_url": "46afcffa9b81",
+          "material_read": "Resultary indexed summary",
+          "method": "Configured Resultary search",
+          "title": "A nested balanced split obstruction for four-by-four interleavings",
+          "trigger": "Closely related entropy deficit under comparison queries"
+        },
+        {
+          "assessment": "Exact finite coverage in these texts unverified",
+          "evidence": [
+            "The frozen source reports general mistake bounds for this setting, not an explicit seven-element rank in the abstract."
+          ],
+          "identifier_or_url": "DOI:10.1137/0222062; https://people.csail.mit.edu/rivest/student-theses/phd-1990-goldman.pdf",
+          "material_read": "Citations and reported scope in frozen RESULT.md, lines 41, 45, 50–51; no primary full text recovered",
+          "method": "Bounded DOI and open thesis PDF retrieval and focused primary lookup",
+          "title": "Learning Binary Relations and Total Orders; Learning Binary Relations, Total Orders, and Read-once Formulas",
+          "trigger": "Classical online total-order comparison literature; lawfully available related thesis sought"
+        },
+        {
+          "assessment": "General bounds as described by the frozen work; no independent negative whole-document finding",
+          "evidence": [
+            "Frozen RESULT.md lines 39–49 identifies the parameter r=1 and the general nature of the cited bounds."
+          ],
+          "identifier_or_url": "arXiv:2209.01366",
+          "material_read": "Frozen citation to §5.2, Theorems 25–26; bounded OA PDF and alternate HTML attempts did not yield the relevant text",
+          "method": "Targeted primary retrieval and frozen citation comparison",
+          "title": "Sharp bounds on the price of bandit feedback for several models of mistake-bounded online learning",
+          "trigger": "Same binary comparison problem at r=1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first deficit is a meaningful test of the information bound for adaptive comparison trees, but this record supplies no distinct useful exact invariant after accounting for the indexed exact census and the immediate conditional-rank implication. The particular reproduced witness and rerun of the exact recurrence substantiate correctness, not an additional valuable finding or a new method relative to the indexed finite certification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

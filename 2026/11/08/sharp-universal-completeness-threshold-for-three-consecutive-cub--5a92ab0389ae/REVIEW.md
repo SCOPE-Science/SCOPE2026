@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each target ternary word the cubic-character indicator product counts occurrences exactly away from three excluded residues. The three exceptions contribute between zero and 27 to the unnormalized sum. The polynomial character-sum expansion has 12 two-root terms, bounded individually by \(\sqrt p\), and 8 three-root terms, bounded individually by \(2\sqrt p\). Its six one-root terms vanish. These yield the proven uniform inequality \(27N_t(p)\ge p-28\sqrt p-27\), strictly positive for every \(p\ge841\). For the finite range, the included `verify.py` gives an exhaustive exact-integer census and mutually checks subgroup and primitive-root constructions. Replayed execution ends with `VERIFY_OK`. Scope and normalization are consistent, and finite computation is not presented as an infinite proof.
+## correctness
 
-## Originality — PASS with residual risk
-The 1962 primary paper proves only that the last prime without a triple of cubic residues is \(283\). It does not assert all mixed ternary patterns. Indeed, at \(151\) and \(163\), the all-residue triple occurs while the word \((2,0,2)\) does not, showing the mixed-word conclusion is strictly stronger as a statement. The 1970 Rabung–Jordan theorem concerns monochromatic power-residue runs. The inspected 2020 and 2022/2023 cubic-residue counting papers address other argument configurations. Targeted indexed-result and literature searches found no dominating complete-language statement; no absence of unindexed work is claimed. The 1983 Emma Lehmer article was available only through its bibliographic review, not a full text, and remains a specific residual risk. As always, publication priority cannot be certified by search alone.
+PASS
 
-## Mathematical value — PASS
-The complete \(3\)-letter language over all three cubic-coset colors is a natural first three-position mixed-coset analogue of the classical triple-of-cubes question. The theorem establishes simultaneous realization and the exact last obstruction for an infinite class of primes. A character-sum tail bound and the finite intermediate census close the entire threshold question. This is not merely a recalculation of the classical all-residue threshold, because all mixed words are additionally proved and small-prime examples distinguish the statements. No assertion is made for longer words or exact frequencies.
+For each target color and nonzero argument the root-of-unity filter is exactly 3 or 0, and at zero it is 1. Removing starts 0,−1,−2 from the field sum subtracts at most 27 before division by 27. The 27-term expansion has constant term p; the six one-support terms vanish by character orthogonality; the twelve two-support and eight three-support terms are bounded by √p and 2√p respectively. In the last two cases the polynomial is not a cube because its distinct linear factors have exponents 1 or 2, so the distinct-root version of the Weil bound applies. The error phases all have modulus one, giving 27N≥p−28√p−27. For √p≥29 the lower bound is (√p−29)(√p+1)+2>0. Independently reran the entire finite interval by an Eratosthenes sieve and direct Euler-character values x^((p−1)/3), identifying the first nontrivial value with color 1. This reproduced the 70 eligible primes through 840, all 42 successes between 307 and 840, the full list of thirteen failing primes, and the last failure 283 with just (0,0,0) missing. It also confirmed (2,0,2) is absent at 151 and 163 while (0,0,0) occurs. The next eligible prime is 307. The proof is for eligible prime fields and ordinary starts 1,…,p−3, not a least integer lower bound or a claim for proper extensions. Replay: python3 /workspace/audit_evidence/05-cubic.py. The frozen dual-enumeration script and its recorded output were inspected, not executed.
 
-## Closest literature and limitations
-D. H. Lehmer et al. (1962) is the closest predecessor and provides the already-known all-residue exceptional set; J. R. Rabung and J. H. Jordan (1970) addresses monochromatic runs. The earliest motivating middle-period source is J. Hu and Z. Chen, *AIMS Mathematics* (2020-07-23). Additional cubic-residue statistics literature uses different special integer sets. The exact proof is the stated result; computational checks concern the finite interval only. The 1983 potentially relevant older paper could not be read in full, so originality retains that explicit exposure.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The last failure 283 for the all-cube word is classical, as is the general character-sum method. The distinct statement is simultaneous occurrence of all 27 words already at every eligible prime beginning at 307, with 000 the sole omission at the preceding eligible prime. The decisive earlier results inspected concern one homogeneous word or a narrower subset of one word, not all mixed words. Priority remains qualified by the inaccessible 1983 full text.
+
+## value
+
+PASS
+
+Simultaneous occurrence of all coset words on three consecutive nonzero positions is the natural mixed-color strengthening of the classical first triplet question. The finite threshold is meaningful because the lone classical obstruction could have been overtaken by a mixed-word obstruction; smaller primes show those conditions really differ. The proved all-word tail and complete finite interval resolve this sharp boundary rather than just listing examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

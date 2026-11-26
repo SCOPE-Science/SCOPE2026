@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete 5142-face covering complex is enumerated with all 15 graph-edge simplex vertices. The toggle matching is checked acyclic by topologically sorting all oriented Hasse edges, with 2561 pairs and critical vector (five 3-cells, fifteen 4-cells). Exact signed boundaries of all six natural 3-cycles vanish; their Morse image matrix has rank five and one alternating relation. Fifteen explicit 4-cycles have unimodular Morse projection determinant -1 and force the only possible 4-to-3 Morse differential to vanish. Thus H3 is five dimensional and the exterior-power quotient identifies its equivariant action. Independently all eleven S6 conjugacy-class traces satisfy the claimed character through invariant-face Lefschetz enumeration. Thirty adjacent-transposition tests verify the cycles transform equivariantly at chain level. The standalone verify.py code was run and ended VERIFY_OK.
+PASS
 
-## Originality — PASS
+I independently enumerated the 5142 augmented faces by cover containment and performed sparse exact rational elimination directly on simplicial boundaries, without relying on the packaged Morse rank calculation: ranks of d3,d4,d5 are 349,771,780, so H3 and H4 have dimensions 5 and 15. For each omitted ground point, I used one orientation of each of the 60 undirected Hamilton paths, whose signs are unaffected by reversal (both relevant reversals are even). Each chain is a cycle; adjoining them to im(d4) raises rank by five and their alternating deletion sum reduces to zero exactly modulo im(d4). The printed projected matrix matches the computational convention with rows T6,T5,…,T1 and critical cells in mask order; the four-subset projection determinant is -1. This row convention clarifies the presentation without changing the alternating relation. The path construction is covariant with the sign of the induced five-point ordering, yielding the exterior-fifth permutation module modulo the alternating deletion line. The sign-twist identification then gives precisely sgn ⊗ Std6 and its full trace formula. The calculation concerns rational homology at six points, not integral primitivity. Replay python3 -B /workspace/audit_math.py 2; the uploaded verifier was inspected, not run.
 
-This is the degree-three module with its alternating five-subset generator system, not Jonsson’s known rank theorem, Biswas’s non-equivariant homotopy count, or the degree-four four-subset permutation module in the closest public research record. Actual source/alias/dominating-parameter searches, full corresponding public degree-four research result inspection, and the Biswas primary preprint substantiate the distinction. The inaccessible complete Jonsson text and unindexed equivariant literature remain explicit risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first six-point covering complex has third Betti rank five, the first genuinely higher-dimensional low-degree representation case; specifying the irreducible sign-twisted standard action determines every symmetry trace and identifies canonical Hamilton-path cycles with the unique relation. This is structural equivariant topological information not recoverable from the classical nonequivariant Betti and wedge counts, and directly addresses the recent Čech model.
+The known ranks and degree-four permutation result do not identify the degree-three S6 action. The substantive same-day transposition calculation gives the restriction to one transposition subgroup, not the full module or the six Hamilton-path generators and their relation. The inspected equivalent Čech model covers homotopy ranks nonequivariantly. The pass is bounded by the named unresolved primary-source access risk, not a historical priority assertion.
 
-## Closest literature and limitations
+## value
 
-Jonsson, DOI 10.1137/S0895480104443680 (known ordinary homology ranks); Biswas, arXiv:2609.32786v1 (nonequivariant Čech complex); published public research record `2026/10/11/SCOPE-four-subset-sphere-cycles-give-the-rational-top-homology-permuta--d06d65e27c16` (degree-four permutation module). The old Jonsson full text was not retrievable, creating a specific possible-coverage risk. The statement is confined to \(m=6\), degree three and rational coefficients. Independent validation has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural symmetric covering complex whose scalar rank is known, the first six-point full action distinguishes the signed-standard module from other five-dimensional possibilities and determines every group-element trace. The explicit path-cycle quotient also gives geometric representatives and their only relation, beyond tabulating Betti dimensions or a transposition restriction. This is useful finite equivariant information in the stated rational scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

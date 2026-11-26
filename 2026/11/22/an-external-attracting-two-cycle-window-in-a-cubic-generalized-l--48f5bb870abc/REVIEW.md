@@ -1,15 +1,21 @@
-# Review of exact primitive-two-cycle census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof exhausts negative, zero and positive states. The negative half-line is strictly ordered, excluding swapped pairs. All positive swapped pairs satisfy a sign-sensitive product identity and split exhaustively into same-side and cross-side cases. Each case is reduced to an explicit polynomial and every resulting pair is checked in the original recurrence. Threshold equalities and neutral multipliers are treated separately. A symbolic expansion proves the complete factorization of \(f_\eta^2(t)-t\), and the multiplier identities and root threshold were independently recomputed within the same mathematical review. The standalone symbolic checker provides reproducible calculations; it does not replace the infinite-domain proof.
+PASS
 
-## Originality — PASS under available-source comparisons
+Independently used the sum and divided difference of the swap equations. For a distinct pair with sum s and product p the difference gives p=(s-1)^2+1/eta; substituting into the sum equation gives -2(s-1)[eta(s-1)(s-2)+2]=0. The sum and difference equations together suffice for swapping. At s=1 the roots are real distinct iff eta>4. The other branch forces 1<s<2 and p=s(s-1)/2, giving discriminant s(2-s)>0 and (1-x)(1-y)<0, with positive roots and one root above 1. This gives 0/1/2/3 orbits on the four stated regimes, including one distinct external pair at the fold eta=8 and none from the repeated inner root at eta=4. The derivative product eta^2(1-s+p)(1-3s+9p) yields the stated inner and both external multipliers, including +1 at the fold. The minus multiplier exceeds 1 for eta>8; the plus decreases strictly from 1, reaching -1 at the only admissible root of 2 eta^2-13 eta-25=0, obtained by squaring with 8<eta<10. The inner multiplier has modulus <1 exactly for 4<eta<5. Maximizing x(1-x)^2 on [0,1] gives 4/27, consistent with the claimed phase-space limitation. Inspected the frozen symbolic checker and independently derived the identities; no reliance on samples or nonlinear attraction at neutral endpoints.
 
-The 2024 originating article (https://doi.org/10.28919/afpt/8562, Section 4) gives numerical period-two examples for the \(n=2\) branch, not an exact all-real census or the \(\eta>8\) external attracting branch. The full text was read in the relevant construction, fixed-point and numerical-cycle sections; exact parameter and period searches found no equivalent theorem. Franco-Medrano and Solis (https://doi.org/10.1155/2015/680970, Sections 2.1–2.2 and conclusions) analyze cubic fixed-point stability and explicitly say period-two points cannot generally be calculated by their method. Their general setting contains cubic maps, but their **stated conclusions** do not imply these explicit orbit counts and multipliers. Indexed closely related cubic Allee-logistic classifications require nonnegative growth coefficients and cannot be specialized to a factor with coefficient \(-1\). Other indexed results concern distinct maps. Risks: unseen preprints or full-text passages in other cubic-map references may establish equivalent parameter-dependent formulas; novelty is evidence-relative, not proved by search failure.
+## originality
 
-## Value — PASS
+PASS
 
-The full real-line phase space is expressly studied in the originating family. The complete period-two census reveals an external saddle-node at \(\eta=8\), an exact narrow attracting interval after the familiar inner attractor loses stability, and a geometric explanation for why this window is absent from simulations limited to \([0,1]\). The two window boundaries and the cycles themselves are exact natural invariants, not arbitrary sample parameters. No claim is made that the external attractor models nonnegative population dynamics within a carrying-capacity interval.
+The bounded comparisons support the distinct exact whole-line census and external hyperbolic window. Credit the prior generalized-logistic family, its numerical inner period-two behavior, and standard polynomial stability tests. Neither a name match, a different cubic with a domain restriction, nor abstract period-doubling implies the external result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete exact classification in a previously studied polynomial family identifies a second attracting two-cycle window, created at a distinct external fold after the inner branch has lost attraction. This is a useful whole-line versus population-interval distinction, not just a restatement of first period-doubling or an approximate bifurcation plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

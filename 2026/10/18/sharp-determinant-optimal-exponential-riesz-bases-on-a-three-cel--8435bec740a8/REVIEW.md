@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The fiber Parseval identity identifies the squared frame singular values with the eigenvalues of \(VV^*\). The generalized Vandermonde identity is independently known and directly checked. The angular reduction maps a pair of independent cosine variables onto the full compact square; all four boundaries and all nonzero interior stationary points are enumerated. Their values are exactly \(D_+\) and \(D_-\), with \(D_+>D_-\). Equality geometry is traced through all stationary configurations. The direct-exponential and fiber-normalization numerics confirm the formulas to floating-point precision but are not relied on for globality.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-Frederick–Okoudjou's general fiber-matrix criterion and Lundengård–Österberg–Silvestrov's \(\{0,1,3\}\) determinant factorization are pre-existing and intentionally excluded. The closest generalized-determinant paper optimizes real coordinate vectors on a Euclidean sphere; the present sharp extrema are for three complex unit-circle nodes, a distinct feasible set. Weighted Fekete systems with fixed external-field weights do not imply the coupled symmetric-sum factor. No equivalent exact global maximum or equality classification appeared in the checked relevant mathematical records or four accessible primary sources. A residual possibility of an older equivalent circle-optimization proof remains.
+PASS
 
-## Mathematical value — PASS
-Three equal-length integer cells with one missing cell provide a natural first nonconsecutive sparse multittile. The general Riesz-basis construction does not prescribe which three phase cosets maximize sampling volume, even though no orthogonal three-coset choice exists. This theorem solves that entire continuous design problem sharply, including an algebraic exact determinant and a rigid, non-equilateral optimal geometry. It supplies a reproducible design rule for three-band nonuniform Fourier reconstruction rather than a routine substitution or isolated small numerical value.
+Repaired repairs/1/RESULT.md corrects frozen RESULT.md line 11: for a regular phase triple based at tau the exponent-three row is e^(6πi tau) times the exponent-zero row, not literally identical at arbitrary tau. The zero determinant and the optimal theorem do not change. Fiber Parseval with raw squared norm 3 identifies VV* as the analysis Gram matrix; synthesis is invertible precisely for det V!=0. Expanding the generalized Vandermonde after rotating z_0 to 1 gives the polynomial F on the whole cosine square. Y=±1 gives zero; at X=1 the nonzero critical values come from 6Y²+4Y−1=0 and the opposite edge is equivalent. Every positive interior maximum has Y!=0 and X=−(1+2Y²)/(6Y). Substitution reduces F to 4(1−s)(1+8s)^3/(27s) at s=Y²>0; its derivative vanishes only when 24s²−16s+1=0. Both branches give the same two candidate values D_± as the edge. D_+ is attained and positive, so restricting to distinct phases or invertible bases does not lose it. At an interior D_+ maximizer X=4Y³−3Y and Y²=cos²(t_*/2), so u=±3v modulo 2π and the nodes are a rotation or permutation of the symmetric edge triple. At unit z the factor 1+z+z³ cannot vanish: 1 and the other two unit terms would have to be the cube roots of unity, incompatible with z³=1 for primitive z. This excludes orthogonality and tightness. Inspected frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt without executing the supplied script; independent numeric evaluation of the four edge/interior critical candidates agrees, but the exact derivative and boundary enumeration establish the maximum. The repair also describes the recorded eigenvalue-product calculation as a reported discrepancy and the fiber test as a pointwise matrix check, not as a rerun or formal proof.
 
-## Closest literature and limitations
-See Frederick–Okoudjou (arXiv:1910.09257), Frederick–Yacoubou Djima (DOI:10.1007/s44007-023-00078-7), Lundengård–Österberg–Silvestrov (arXiv:1312.6193), and Dubickas–Pritsker (arXiv:1902.08348). Only determinant optimality in the specified coset class is claimed. No global priority or independent audit is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp unrestricted three-node unit-circle optimization for modes {0,1,3}, with the full rotation/permutation orbit and determinant-optimal fiber interpretation. The factorization and finite Riesz fiber framework are known. The strongest actual catalogue overlap matches the value and geometry for one regime of a related, later maximin design, but has a narrower phase family and a different objective; it does not establish the unrestricted stationary classification.
+
+## value
+
+PASS
+
+Determinant measures the product of the exact squared analysis singular values for a natural minimal nonconsecutive fiber. The complete exact optimizer has two equal short gaps while the usual equidistributed triple is singular, a useful concrete distinction in sparse Fourier basis design. The global unrestricted identification, not just calculation at a candidate or Hadamard's coarse ceiling, supplies the scientifically meaningful result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

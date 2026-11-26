@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:54:51.138527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 5–63",
+        "Frozen VERIFICATION.md and verify.py were inspected, not executed",
+        "Independent rational enumeration: 686 exact covariance/profile comparisons for 2<=n<=5 and 2<=k<=min(4,n), over all patterns, starts and values j"
+      ],
+      "rationale": "Swapping the consecutive values j,j+1 flips D_j and preserves the window pattern whenever at most one is in the window. Otherwise their window ranks are consecutive and the two binomial factors count exactly the sets realizing those ranks; conditional ordering contributes 1/k!. This proves the signs, normalization and window-start invariance, including k=n and j=1,n-1. The first k-1 columns of the kernel are triangular with positive diagonal, and the identity signature and its single adjacent-value reversals span the signature space. Every signature occurs (orient the chain on ranks and take a linear extension). The binomial leading terms give the Bernstein scaling; the two three-letter peak signatures are opposite. The scope's caveat on independence must be read as concerning the full vector: the peak indicator and each single D_j are in fact independent because both are Bernoulli, whereas the all-zero D vector forces the identity and hence no peak.",
+      "residual_risks": [
+        "The all-size claims rest on the proof. The independent finite enumeration is reproducible by tallying the pattern and joint event over S_n and comparing the exact rational covariance with (1); the separately supplied verify.py is the source's larger, unexecuted replay path."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petersen formulates the value and position transpositions and studies the distributions of left and right descent numbers. Gessel–Zhuang study two-sided aggregate statistics. Even complete ordinary and inverse descent sets of a permutation do not determine the local reduced pattern, as 1324 and 3412 both have the same two descent sets but give different initial triples."
+        ],
+        "reasoning": "These formulations supply related machinery and special aggregate consequences; no inspected general theorem outputs the signed hypergeometric kernel for arbitrary reduced patterns. The example distinguishes the underlying data; it is not a claim that the aggregate identities could never be used in a separate derivation.",
+        "searches": [
+          "Petersen arXiv:1209.6273, introduction on left and right descents (OA offsets 4050–7608)",
+          "Gessel–Zhuang arXiv:2306.15785, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 600c70231432 and 1960e1013c0b",
+        "Petersen arXiv:1209.6273",
+        "Gessel–Zhuang arXiv:2306.15785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity C=EK/(2 k! binom(n,k)) needs conditioning on whether two consecutive values are simultaneously present in one window. The aggregate comparisons do not isolate that event, and do not give the triangular minor or the pattern classification."
+        ],
+        "reasoning": "No direct specialization of the inspected results gives the all-parameter claim. Rank and limit are consequences of the covariance kernel, not claimed as unrelated discoveries.",
+        "searches": [
+          "Read the Resultary Findings and primary passages listed under source_inspections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.6 and Table 2 give joint distributions for total peak count and total inverse-descent count, not a profile indexed by value j for a specified pattern at one window."
+        ],
+        "reasoning": "Aggregate moments are not equivalent to individual covariance cells. The complete profile distinguishes inverse-descent signatures of patterns, not just peak or descent counts.",
+        "searches": [
+          "Resultary searches for local permutation-pattern, inverse-descent and rank/profile covariance formulations",
+          "Gessel–Zhuang arXiv:2306.15785, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date 600c70231432 covariance table is for cycle count and fixed triple patterns; 1960e1013c0b concerns the aggregate ordinary major index and pattern occurrences. The published peak/ides table is indexed by aggregate counts."
+        ],
+        "reasoning": "None is a table of these profile values, with either the same indices or an equivalent indexing; the same-date catalogue hit is distinct by mathematics, not presumed priority.",
+        "searches": [
+          "Resultary local mirror 600c70231432 and 1960e1013c0b, RESULT.md Findings",
+          "Gessel–Zhuang, Table 2"
+        ]
+      },
+      "rationale": "The inspected matches cover two-sided aggregate descent or peak statistics, or organize local covariances with different partner statistics. None establishes the all-k fixed-window, fixed-value covariance factorization and signature classification. The judgment is for that structural statement, not the general idea of two-sided statistics or the adjacent-transposition argument.",
+      "residual_risks": [
+        "Bounded comparison of catalogue matches and original passages, not exhaustive historical priority; earlier equivalent fixed-pattern correlation identities could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate overlap, no cellwise theorem in inspected result",
+          "evidence": "Bivariate distributions use total pk and ides.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15785",
+          "material_read": "§3.3, Theorem 3.6 and Table 2, PDF pp. 18–19, OA offset 66018",
+          "method": "Locate and read relevant primary PDF passage",
+          "title": "Two-sided permutation statistics via symmetric functions",
+          "trigger": "Strongest published match relating peaks and inverse descents"
+        },
+        {
+          "assessment": "Known framework; narrower statistics in the inspected formulation",
+          "evidence": "Ordinary and inverse descents are obtained from right and left simple transpositions; the stated distributions concern their numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.6273",
+          "material_read": "Introduction, PDF pp. 2–3, OA offsets 4050–7608",
+          "method": "Locate then read by offset",
+          "title": "Two-sided Eulerian numbers via balls in boxes",
+          "trigger": "Left/right descent equivalence and two-sided Eulerian formulas"
+        },
+        {
+          "assessment": "Different covariance partner",
+          "evidence": "Cycle count versus local triples, not a value-indexed family of inverse descents.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-rank-two-positional-dependence-law-for-permutation-cycles-and--600c70231432",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A rank-two positional dependence law for permutation cycles and local patterns",
+          "trigger": "Local triple covariance, rank, and same-date overlap"
+        },
+        {
+          "assessment": "Different covariance partner and aggregation",
+          "evidence": "Ordinary position-weighted major index and total pattern counts.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-major-index-covariance-extremizers-for-consecutive-permuta--1960e1013c0b",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp major-index covariance extremizers for consecutive permutation patterns",
+          "trigger": "Pattern-resolved covariance with a descent statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3) and the peak example",
+        "Primary and catalogue comparisons above"
+      ],
+      "rationale": "The mixed covariance matrix couples two naturally different coordinates, local positional order and adjacent numerical labels. Its exact rank and its equivalence classes give information not supplied by aggregate correlations: they identify every pattern contrast that disappears from these measurements, and show that moving the window cannot change those measurements. The finite boundaries and the explicit scaling are useful for treating fixed pattern length across n.",
+      "residual_risks": [
+        "Pairwise covariance profiles do not characterize the full joint law; no nonuniform law is covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:59:27.435146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 5–65, VERIFICATION.md, verify.py (read-only)",
+        "/workspace/review-evidence/quartic-replay.js (independent exact trial-division and order enumeration; rows are indexed by weights 2 through 5)"
+      ],
+      "rationale": "The full F_8 table is correct, but the unqualified statement that this is the first field with a genuinely mixed quartic layer containing trinomials is false. Already over F_3, ord_80(3)=4 and Phi_80 has four trinomial quartics and four five-term quartics. I independently enumerated all monic quartics with nonzero constant term by trial division by every monic linear and quadratic with nonzero constant term, then checked root orders by testing the divisors of q^4-1 in increasing order, excluding divisors of q^2-1. This verifies the F_3 counterexample, all 18 F_8 rows with total 1008, the two 1:4:7 rows, and the displayed three order-test remainders. The cyclotomic layer enumeration follows from the elementary factorization of 4095, and the frozen gcd test is also sound: every proper quartic factorization has a factor of degree at most two. For the trace criterion, L(y)=y^4+y has image the kernel of the absolute trace on F_8, since ker L={0,1}. In F_64 the corresponding image consists of elements of trace zero to F_4; on t in F_8 this trace is t+t^4+t^16=t+t^4+t^2. Thus absolute trace one excludes both linear and quadratic factors. The characteristic-two-only reading of 'first' is correct (the replay found no mixed layer with trinomials for q=2,4), but that qualification is absent from the claim as written.",
+      "residual_risks": [
+        "The false claim is the unqualified field minimum, not the finite F_8 counts. Restricting the minimum to characteristic two would not address the independent originality/value failures."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem gives exact irreducible factors through q-spins of binomials. For every listed n, n divides 8^4-1, ord_rad(n)(8)=4, and n is odd, giving s=4 and d^(s)=n in that formula."
+        ],
+        "reasoning": "All factors specialize to the 8-spins of X minus a primitive n-th root; the four-root products give the exact coefficients, not just the number or degrees of the factors.",
+        "searches": [
+          "Graner arXiv:2306.11183v2, cyclotomic factorization Theorem 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Graner Theorem 2.6",
+        "Zhu–Wu Theorems 1.3, 5.2, 8.4 and Proposition 8.5",
+        "Cheng Theorem 1.3",
+        "Configured Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each primitive exponent, multiply the four linear factors indexed by its multiplication-by-8 orbit and count nonzero coefficients once per orbit. This is precisely the frozen second enumerator after specialization of Graner’s theorem. Zhu–Wu separately gives 56 total trinomial quartics and the characteristic-two bound of 1/2 for mixed layers at these parameters."
+        ],
+        "reasoning": "The 1:4:7 ratios and strictness at these orders are read-offs from mechanically evaluated expressions. The frozen statement provides no structural ratio theorem or independently nonmechanical claim beyond those computations.",
+        "searches": [
+          "Graner Theorem 2.6 exact factor formula",
+          "Zhu–Wu Theorem 5.2, Theorem 8.4, Proposition 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu–Wu Theorem 5.2 gives the all-trinomial layers at orders 15s for this case, and Theorem 8.4 treats mixed quartic layers in characteristic two. Cheng classifies when every factor of X^n-1 is 3-sparse."
+        ],
+        "reasoning": "Cheng’s global predicate is not a partial histogram; the Zhu–Wu all-trinomial classification does cover n=15,105, while its mixed bound alone does not give the listed ratios.",
+        "searches": [
+          "Zhu–Wu arXiv:2611.00647v2, all-trinomial and mixed quartic cyclotomic layers",
+          "Cheng arXiv:2507.10779v2, 3-sparsity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked Resultary match is the frozen record itself. No separate table was located in bounded searches, and the accessible Zhu–Wu statements give classifications, bounds and totals, not this table."
+        ],
+        "reasoning": "No independent exact database hit was identified. This does not negate explicit general coverage or establish priority; the additional broad search was unavailable.",
+        "searches": [
+          "Resultary: F_8 quartic cyclotomic coefficient-weight spectrum, mixed 585 and 4095",
+          "Zhu–Wu full text targeted terms 585 and 4095"
+        ]
+      },
+      "rationale": "The main exact census is mechanically implied by Graner’s existing explicit factorization theorem. There is no evidence here of a separately printed identical table, but the complete factors, hence each row and the two ratios, come from direct evaluation of the prior expressions at q=8. The all-trinomial orders and total trinomial count also specialize directly from Zhu–Wu. The characteristic-two minimum, if intended as a separate claim, is a check of the two smaller fields by the same existing formulas, not a surviving nonmechanical result.",
+      "residual_risks": [
+        "Independent exact prior publication was not established. The failure rests on positive mechanical coverage, not the unsuccessful separate table search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader mechanical coverage of the table",
+          "evidence": "The q-spin factors specialize to the four-term Frobenius orbit products of linear factors for every row; all coefficients are thereby explicit before counting weights.",
+          "identifier_or_url": "https://arxiv.org/html/2306.11183v2",
+          "material_read": "Theorem 2.6, extracted HTML offset 92868",
+          "method": "OA targeted theorem passage",
+          "title": "Closed formulas for the factorization of X^n-1, the n-th cyclotomic polynomial, X^n-a and f(X^n) over a finite field for arbitrary positive integers n",
+          "trigger": "Exact broader factorization could mechanically cover all coefficient weights"
+        },
+        {
+          "assessment": "Covers all-trinomial layers and aggregate/trace claims; not exact mixed ratios",
+          "evidence": "Theorem 5.2 yields n=15,105 at q=8, and Proposition 8.5 yields q(q-1)=56. The mixed theorem applies in characteristic two; it does not assert the unqualified field minimum.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00647v2",
+          "material_read": "Introduction Theorem 1.3, §5 Theorem 5.2 and §8.3 Theorem 8.4 and Proposition 8.5; offsets 0, 35152 and 54604",
+          "method": "OA targeted primary passages",
+          "title": "Cyclotomic polynomials with trinomial irreducible factors over finite fields",
+          "trigger": "Exact all-trinomial layers, mixed bound and aggregate count"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies all-factor 3-sparsity of X^n-1, not mixed quartic coefficient weights by exact root order.",
+          "identifier_or_url": "https://arxiv.org/html/2507.10779v2",
+          "material_read": "Theorem 1.3, offset 4055",
+          "method": "OA targeted corrected-version passage",
+          "title": "The 3-sparsity of X^n-1 over finite fields, II",
+          "trigger": "Potential equivalent classification of sparsity"
+        },
+        {
+          "assessment": "Identical record, not an independent prior",
+          "evidence": "Same 18 layers and exact 1:4:7 ratios.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-quartic-cyclotomic-coefficient-weight-spectrum-over-mat--bc18e1e77d72",
+          "material_read": "Catalogue summary and frozen finding",
+          "method": "Configured Resultary search and direct frozen-file comparison",
+          "title": "Complete quartic cyclotomic coefficient-weight spectrum over F_8",
+          "trigger": "Exact ranked table match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, Graner Theorem 2.6, Zhu–Wu §8.3, independent trial-division replay"
+      ],
+      "rationale": "Coefficient sparsity in mixed layers is a natural subject, and an exact finite table could be useful if it filled a nonmechanical gap. Here the complete five coefficients of every factor are already supplied by a general formula, and the table and highlighted ratios are immediate finite tabulations at one small field. The claim of special significance as the first field fails without a characteristic-two restriction; with the restriction it is a small check rather than a substantive independent boundary result. A new certificate or a narrowing to the correct table would not repair this.",
+      "residual_risks": [
+        "This is not a judgment on larger structural questions about coefficient weights or sharp mixed-layer proportions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

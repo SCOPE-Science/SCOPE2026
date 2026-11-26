@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:47.275543Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Split the two part-vectors into constant and zero-sum components, then into equal and opposite signs across the parts. The four Laplacian eigenvalues are 0,u=na,v=(n−2)a+2b,and u+v, valid even when u=v. The Gauss scalar factor is positive everywhere on the nonnegative axis, so the diagonal is positive, and the zero mode fixes the row sums. Write f(z)=12z/(z²+6z+12). Up to a factor 1/(2n), the same-part numerator is f(uh)+f(vh)−f((u+v)h), positive for h>0 because f(z)/z is strictly decreasing. The two cross numerators are f(uh)−f(vh)+f((u+v)h) and (n−1)(f(vh)−f(uh))+f((u+v)h). With t=uh, r=v/u and denominators A=t²+6t+12, B=r²t²+6rt+12, C=(1+r)²t²+6(1+r)t+12, clearing the common positive factor gives Y=BC−rAC+(1+r)AB and X=(n−1)(rAC−BC)+(1+r)AB. Expansion yields the stated quartics. The positive lower coefficients of Y leave only the sign of r²+r−1. In X the constant and linear coefficients are nonnegative since nr≥n−2; the quadratic coefficient divided by 12 is increasing in r and equals 4(n−2)(n−1)/n² at r=(n−2)/n. The quartic sign is that of (n−1)(1−r²)+r. Its positive zero lies below n/(n−2), because that expression at n/(n−2) equals −[3(n−1)²+1]/(n−2)². Hence the cubic coefficient of X is positive up through the quartic's zero. Above that zero there is one coefficient sign change regardless of the cubic sign. In either exterior regime the failing polynomial starts positive for sufficiently small t>0 and goes negative at infinity; Descartes' rule gives one positive root. The other cross type remains positive since the two exterior regimes are disjoint. Identity at h=0 and positive lower coefficients at each closed boundary verify the endpoint rules. At b=0 the golden-ratio test is met exactly for integer n≥6, and expansion of the upper root gives limiting b/a=5/4. The numerical examples agree with the spectral entry formulas. The source verification note and exact-rational checker were inspected, not executed; finite matrix checks are not the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general linear-positive-system arguments give sufficient factor or sparsity conditions, not the two necessary and sufficient inequalities for this Laplacian family.",
+          "The multipartite claims are unweighted; the two-community matches have uniform crossing weights, and the complete-graph exceptional-matching match has within-part edges. The crown [3/3] comparison uses a different rational filter."
+        ],
+        "reasoning": "More general system scope or equally many projectors does not establish a dominating theorem with the same hypotheses and sharp output. In particular, the distinguished crossing weight cannot be selected independently in the complete multipartite criterion.",
+        "searches": [
+          "Resultary: complete multipartite scalar-filter positivity and fourth-order Gauss–Padé positivity",
+          "Resultary: two-community networks and exceptional matching Gauss–Legendre positivity",
+          "Zappavigna et al. MTNS 2010 pp. 2–3; 2012 preprint Theorem 1 and Comment 6"
+        ]
+      },
+      "checked_sources": [
+        "Four focused Resultary comparisons, including weighted, cycle, multipartite, and same-day crown matches",
+        "Zappavigna et al. 2010 and 2012 institutional PDFs",
+        "2011 CDC–ECC scaling-and-squaring paper p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A large-timestep resolvent expansion explains why leading cross-entry coefficients are necessary. To obtain sufficiency and a unique finite failure step one needs the signs of the lower coefficients in both numerators over the physical r-domain.",
+          "The same-day indexed crown record concerns cut/cycle projection constants rather than rational-update signs."
+        ],
+        "reasoning": "Neither the sign of the leading term nor the earlier graph special cases mechanically imply all finite-timestep positivity up to the closed endpoints or a unique positive root on each exterior side.",
+        "searches": [
+          "Resultary October 13 unweighted complete multipartite RESULT.md and cycle RESULT.md",
+          "Zappavigna et al. 2012 Theorem 1, Comment 6",
+          "Resultary same-day sharp cut and cycle complementability on crowns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=3,b=0,a=1 the graph is C6 and Y_(1/3)(3h)=−4(5h⁴−12h³−102h²−144h−72), exactly the earlier cutoff polynomial.",
+          "Uniform b=a gives an ordinary complete bipartite graph, in the prior complete multipartite family. Scalar stability, entrywise positivity of the completed update, and positivity of internal stages are not interchangeable."
+        ],
+        "reasoning": "Those are genuine specializations, not different problems or evidence of priority for the full matched-weight class. The time rescaling t=nah accounts for harmless conductance normalizations.",
+        "searches": [
+          "Resultary: matched bipartite weighted Gauss diffusion, [2/2] Padé positivity, crown and even cycles",
+          "Resultary October 13 Six-cycle threshold RESULT.md",
+          "Zappavigna et al. institutional Padé papers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact n=3,b=0 cutoff matches by substitution. The two multipartite entries cover all n on b=a. No inspected entry tabulates or states the full continuous conductance window or both weighted exterior quartics."
+        ],
+        "reasoning": "Credit the exact matching entries only within their stated domain; a finite or homogeneous slice is not the two-sided weighted interval.",
+        "searches": [
+          "Resultary: exact six-cycle cutoff, crown n≥6, weighted matching admissible interval, complete multipartite positivity",
+          "Matched family compared against October 13 and October 25 exact Findings"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp two-sided interval in a continuous perfect-matching conductance, both exterior horizons and the all-size crown transition. The homogeneous K(n,n) line and the six-cycle crown endpoint are already covered by independent exact statements; the latter is an exact uncredited overlap at n=3,b=0, not new here. Neither of those results, nor the inspected general Padé sufficient conditions, supplies the two-sided anisotropic if-and-only-if result.",
+      "residual_risks": [
+        "The bounded search cannot exclude an unindexed structural-positivity treatment with this exact weight pattern.",
+        "The C6 cutoff and uniform complete bipartite family are established overlaps and should not be described separately as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier exact special case",
+          "evidence": "Unique positive zero of 5h⁴−12h³−102h²−144h−72; matches Y at r=1/3, t=3h up to a constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "material_read": "Mirrored RESULT.md Finding, offset 2",
+          "method": "Configured local mirror",
+          "title": "Six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion",
+          "trigger": "Crown at n=3 is C6"
+        },
+        {
+          "assessment": "Covers b=a, not weighted anisotropy",
+          "evidence": "Unweighted complete multipartite scalar-filter criterion explicitly specializes to the Gauss [2/2] step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "material_read": "Mirrored RESULT.md Finding, offset 78",
+          "method": "Configured local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "All-timestep positivity in complete bipartite graphs"
+        },
+        {
+          "assessment": "Unweighted equivalent on b=a, later indexed date",
+          "evidence": "All-step strict positivity for unweighted complete multipartite graphs under Gauss [2/2].",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-unconditional-fourth-order-gauss-pad-positivity-on-complete-mult--3b12f25d4b2d",
+          "material_read": "Mirrored RESULT.md Finding, offset 97",
+          "method": "Configured local mirror",
+          "title": "Unconditional fourth-order Gauss–Padé positivity on complete multipartite diffusion graphs",
+          "trigger": "Strong same-integrator overlap"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "States cut and cycle projection constants, not a Gauss update or entrywise positivity horizon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-cut-and-cycle-complementability-after-deleting-a-perfect-m--6319a2a73e78",
+          "material_read": "Mirrored RESULT.md Finding, offset 136",
+          "method": "Configured local mirror",
+          "title": "Sharp cut and cycle complementability after deleting a perfect matching",
+          "trigger": "Same-date, same crown graph geometry"
+        },
+        {
+          "assessment": "General sufficient conditions, not an exact matched-graph classification",
+          "evidence": "Discusses loss of positivity under Padé and sufficient conditions for diagonal approximants in Metzler/Hurwitz settings.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "pp. 1–3, offsets 587, 9882 and 15433",
+          "method": "Lawful institutional PDF",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "General primary theorem that might imply all-step positivity"
+        },
+        {
+          "assessment": "Does not provide the exact interval in inspected passages",
+          "evidence": "Factor conditions for preserving a common copositive Lyapunov function and a matrix sparsity interpretation.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Abstract; Theorem 1 p. 10, offset 26745; Comment 6 p. 18, offset 52748",
+          "method": "Lawful institutional preprint after publisher access failure",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "General Padé preservation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification gives the exact admissible conductance imbalance for a familiar fourth-order scheme, rather than merely asserting possible positivity failure. The two opposite edge-type failures and unique finite horizons yield actionable timestep restrictions, and the size-six crown transition is a natural structural consequence. These are useful beyond the known homogeneous case and previously solved six-cycle cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

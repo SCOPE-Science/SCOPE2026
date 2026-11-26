@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:40:14.602809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–60 and 64",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)"
+      ],
+      "rationale": "Set p=ℓ². Then (1/p)'=2−2α/p gives the stated positive reciprocal formula, including α=0. More directly, h=g/ℓ satisfies h'=1−αh and h(0)=0, proving the exact coefficient and uniqueness on the full stated domain. The reciprocal formula gives 0≤(p(T)−α)T≤1/2, also at α=0. Φ is decreasing and (log Φ)'' is the variance under exponential tilting, so the ratio Φ(αT+1/2)/Φ(αT) is smallest at αT=0. Taking s=1, α=T⁻² as T→∞ gives p(T)T→1/2, proving sharpness at positive pivots. Squaring the exact ratio gives the rank-one fraction, attained in the limit with the given nonzero-residual PSD examples. For α>0, αg²≤(1−exp(−αT))/(1+exp(−αT))<1; comparison with the ordinary Schur complement preserves PSD. For α=0, the off-diagonal residual vanishes by PSD. The verification text's reference to ‘indefinite-stage recursion’ is a wording error; neither proof nor Finding covers indefinite matrices.",
+      "residual_risks": [
+        "Exact arithmetic and the decoupled surrogate only; no numerical stability, reconstruction-error or coupled-flow claim.",
+        "The sharp lower bound is an infimum, not equality at a finite positive horizon."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper analyzes the pivot-free recursion with its displayed coefficient; the distinct indexed matches address randomized diagonal pivot power and trace-optimal pivot selection, respectively."
+        ],
+        "reasoning": "Neither a perturbation/contraction result for a different pivot procedure nor well-definedness for the paper's smaller coefficient is a theorem for the corrected update.",
+        "searches": [
+          "arXiv:2611.09706v2 §2.2 coupled/decoupled flow and §2.3 Theorems 2.1–2.2",
+          "Resultary Cholesky pivoting and Nyström matches 2bb9e4395f06 and 9e500fe4ae37"
+        ]
+      },
+      "checked_sources": [
+        "Manavalan–Schönlieb arXiv:2611.09706v2",
+        "Resultary de001a8daf1e (same record), 2bb9e4395f06 and 9e500fe4ae37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known equations immediately permit the substitution g/ℓ, so the formula alone is a short correction. The primary PSD argument gives g_fr²<1/α and uses r=0 at α=0."
+        ],
+        "reasoning": "A bound for the smaller g_fr does not bound g_exact² by 1/α. Integration alone likewise gives no optimal uniform lower ratio. Both require estimates on p(T) and the comparison requires a sharp limiting sequence.",
+        "searches": [
+          "Manavalan–Schönlieb, arXiv:2611.09706v2, Eq. (2.11), Eq. (2.13), §2.3 Theorems 2.1 and 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their Eq. (2.13) is (1−exp(−p(T)T))/ℓ(T)=Tℓ(T)Φ(p(T)T); it is not Tℓ(T)Φ(αT) away from p(T)=α.",
+          "Resultary de001a8daf1e is the frozen finding itself."
+        ],
+        "reasoning": "Changing the displayed expression to integral notation exposes the different rate arguments. For strict p(T)>α, monotonicity of Φ makes the frozen expression strictly smaller.",
+        "searches": [
+          "Resultary: exact logistic surrogate Cholesky off-diagonal coefficient, frozen terminal rate, sharp comparison",
+          "Manavalan–Schönlieb, arXiv:2611.09706v2 §2.2, equations (2.10)–(2.14) and Algorithm 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected local-mirror findings: the first is the same record, while the others give a rank-two pivot boundary and two-pivot greedy/optimal trace ratios, not a coefficient-deficit table or exact q.",
+          "Primary paper Eq. (2.13) is an exact formula for the comparator, with no such sharp comparison in the inspected passages."
+        ],
+        "reasoning": "Search exact formulas and constants rather than a numerical table: this claim is a continuous uniform extremum. The nearby exact values measure different quantities.",
+        "searches": [
+          "Resultary: sharp frozen-rate deficit / Cholesky logistic comparison; strongest hit de001a8daf1e and distinct hits 2bb9e4395f06, 9e500fe4ae37"
+        ]
+      },
+      "rationale": "The closest primary paper gives exactly the surrogate ODE, initialization and the terminal-frozen expression, presenting the latter as a solution. The proposed exact formula differs from that expression when the rate varies. The primary treatment of Schur complements concerns the frozen coefficient, not the larger exactly integrated one. The strongest matching Resultary item is the assigned item itself; two inspected distinct Cholesky entries address different objectives. The supported distinct content is the correction, sharp uniform deficit and PSD compatibility of the corrected update, not the ODE model or Schur-complement technique.",
+      "residual_risks": [
+        "Bounded literature and index inspection does not exclude earlier equivalent sharp estimates in unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, initialization, frozen formula and general positivity strategy; not the sharp corrected comparison",
+          "evidence": "Algorithm 2.1 evaluates the terminal-rate expression; the PSD proof uses the ordinary Schur complement for that expression.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09706v2",
+          "material_read": "PDF pp. 6–7, §2.2 equations (2.10)–(2.14) and Algorithm 2.1; §2.3 Theorems 2.1 and 2.2, pp. 9 and 12",
+          "method": "OA PDF passage inspection",
+          "title": "Finite-time Cholesky factorization",
+          "trigger": "Primary source of the exact same surrogate and algorithm"
+        },
+        {
+          "assessment": "Different quantity and recurrence",
+          "evidence": "One-step pivot probabilities and Frobenius contraction, not a time-integrated coefficient.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-rank-two-exponent-boundary-for-power-diagonal-cholesky-p--2bb9e4395f06",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary and local-mirror text inspection",
+          "title": "A sharp rank-two exponent boundary for power-diagonal Cholesky pivoting",
+          "trigger": "Distinct indexed sharp Cholesky boundary"
+        },
+        {
+          "assessment": "No mathematical equivalence to the ODE result",
+          "evidence": "Ratios 5/4 and 5/3 for two-pivot greedy versus trace-optimal Nyström subsets concern a different objective.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-pivot-greedy-trace-penalties-for-highly-correlated-exp--9e500fe4ae37",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary and local-mirror text inspection",
+          "title": "Sharp two-pivot greedy trace penalties for highly correlated exponential kernels",
+          "trigger": "Distinct same-day Cholesky comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, PSD proof and Limitations",
+        "arXiv:2611.09706v2, Algorithm 2.1 and §2.3"
+      ],
+      "rationale": "The paper's terminal freezing can lose over a fifth of a nonzero off-diagonal coefficient and nearly 38.1% of its squared update in the sharp limit. Quantifying that discrepancy and proving the same pivot-free PSD recursion can use the corrected coefficient answers a specific algorithmic question that solving the scalar ODE alone does not. The comparison is useful without a downstream reconstruction-error theorem.",
+      "residual_risks": [
+        "No demonstrated overall accuracy gain, execution-time gain, or floating-point robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:48:58.861410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Corrected files: /workspace/repairs/5/RESULT.md, VERIFICATION.md, SLOGAN.txt and check_six_orbits.py",
+        "Repaired theorem replay: python3 /workspace/repairs/5/check_six_orbits.py",
+        "Frozen RESULT.md lines 5–56, VERIFICATION.md and three supplied checkers inspected",
+        "Independent frozen-law replay: python3 /workspace/review_evidence/replay_5.py"
+      ],
+      "rationale": "Final claim audited: a six-edge maximal matching leaves a nonincident point and line, and the count d of matching edges between their two neighborhoods is a complete full-automorphism invariant. For a fixed nonincident pair, the binary plane splits as ker(lambda) plus the span of the unmatched point p. On the three nonzero vectors x_i of the kernel and their translates p+x_i, the remaining line forms separate into y_i and y_i+lambda. Only x_i and p+x_i can use y_i after deleting the two unmatched vertices. Choosing x_i–y_i for i in D forces exactly a fixed-point-free permutation on D for the unmatched translated points and shifted forms; outside D the choices are forced. Thus d=0,2,3 gives 1,3,2 completions per pair. The pair stabilizer contains the entire S_3 acting on these three vectors and conjugating their derangements, hence is transitive within each type. The incidence count is preserved even by graph automorphisms interchanging vertex types, so no full-group orbit can merge two types; 28 nonincident pairs give orbit sizes 28,84,56. By invariance of the priority law each orbit has constant weight. The three known distinct size-six weight classes have exactly those distinct multiplicities, so the assignment of weights to orbit types follows. A separate replay enumerating all bijections on remaining vertices confirmed all 28 residual matchings censuses and the representative weights. The frozen broader law was also confirmed by forwarding exact rational mass through each partial labelled matching and explicitly generating 336 binary-plane graph automorphisms; it was not rejected for a numerical error.",
+      "residual_risks": [
+        "The repaired structural theorem classifies only size-six maximal matchings. The probability identification requires an automorphism-invariant priority law for constancy and the specified i.i.d. continuous law for the listed weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury introduces edge-arrival adsorption and the equal-order law; Gamarnik–Goldberg treats the general available-edge greedy matching algorithm and performance, not the geometric classifications of its outputs.",
+          "Skupień's abstract concerns induced matchings and strong chromatic index of two graphs and mentions sizes 3,4,5 of maximal matchings of the Petersen graph, not the Heawood size-six completion types."
+        ],
+        "reasoning": "General stochastic machinery does not classify perfect completions of a residual two-vertex-deleted incidence graph. Induced matchings and proper strong edge colorings are distinct problems from the needed near-perfect maximal matching classes.",
+        "searches": [
+          "Penrose–Sudbury arXiv:math/0503519v1 Dimer RSA",
+          "Gamarnik–Goldberg arXiv:0807.1277v1 §1.1",
+          "Primary search: Heawood graph Fano plane maximal matchings automorphism orbits six edges classification nonincident unmatched point line",
+          "Skupień, DOI 10.7151/dmgt.2394, repository abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact output law ...538d2c590718 and its verifier",
+        "Static Heawood data and other Resultary orbit searches",
+        "Primary sources and locators in source_inspections",
+        "Repaired RESULT.md: statement and proof of structural distinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching-output work proves the three size-six weight counts and exact values but does not define D or relate the weights to a neighborhood edge count. The frozen verifier constructs symmetry orbits but does not identify them by a geometric invariant. The graph table's transitivity on uncovered pairs contains no stabilizer classification of completions."
+        ],
+        "reasoning": "Symmetry implies equal weights, not the converse. Identical numerical weight classes can in principle be split into multiple symmetry orbits. The repaired theorem establishes both the fixed-pair combinatorial bijection and full-orbit recognition without probability or matching-output enumeration; that mechanism is not a corollary of the aggregate table alone. Its probability column then uses the known table with attribution.",
+        "searches": [
+          "Resultary ...538d2c590718, RESULT.md Finding and Proof, VERIFY.py grouping",
+          "Heawood graph table, Subgraphs",
+          "Frozen check_orbits.py lines 68–92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph of Resultary ...538d2c590718 is the same Fano incidence graph with different point and line labels. Uniform permutation of edges and i.i.d. continuous priorities are the same order law. Its Finding states all three exact mass values and the full weight-class table.",
+          "The Heawood graph table identifies this incidence graph and lists the crossing nonedges in one orbit."
+        ],
+        "reasoning": "The alternate formulation is a genuine duplicate of the census, not merely a related stochastic model. The orbit of the two uncovered vertices alone does not tell which completions are equivalent under their stabilizer; the repaired theorem distinguishes those completions.",
+        "searches": [
+          "Resultary: Heawood graph random sequential dimer adsorption exact terminal probabilities",
+          "Resultary: Fano incidence graph random priority greedy matching exact distribution terminal matching probabilities",
+          "Resultary: Heawood graph maximal matchings enumeration automorphism orbits terminal matchings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact overlap ...538d2c590718 enumerates all 234 matchings and tabulates all size/weight classes; VERIFY.py groups by (size, probability). The static graph table already lists 24 perfect matchings and 28 crossing nonedges in one orbit.",
+          "Focused nearby Resultary hits ...d06e4ce1cb54 and ...7539b3d3a7fb classify maximal mutual-visibility sets and locating-dominating sets, respectively, not size-six edge matchings."
+        ],
+        "reasoning": "The census is credited and not claimed new. The static pair count and known output weights do not identify each matching by a local incidence type or classify the completions of any fixed pair.",
+        "searches": [
+          "Resultary: Heawood graph random sequential adsorption dimer jamming probability orbit census and focused fixed-pair orbit/completion searches",
+          "Heawood graph table at jaanos.github.io/tables/graphs/Heawood.html",
+          "Primary search: Heawood graph matchings derangements Fano six matching automorphism near-perfect maximal orbits"
+        ]
+      },
+      "rationale": "This PASS applies only to the repaired structural claim. The frozen claim's principal numerical contribution fails originality: distinct same-day Resultary record 538d2c590718 gives the exact same pushforward law for the same i.i.d. edge-order process, all 234 terminal counts and all five probability classes with their exact weights. The classes are grouped by size and probability in its verifier (despite a comment about orbit-class weights); its proof does not establish the neighborhood-count invariant or derangement description. The repair credits the entire numerical census and limits the claim to the point–line completion geometry that explains the three near-perfect classes. Same-day catalogue dating does not establish priority for either record.",
+      "residual_risks": [
+        "Historical order of the two exact law records is unresolved; the observed material coverage is independent of that order.",
+        "An unlocated residual-incidence or near-perfect matching classification may exist. The bounded search and unavailable early full text do not settle worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen numerical census; not the repaired fixed-pair derangement theorem and local invariant",
+          "evidence": "Identical masses 19/330, 497/792, 1247/3960, same 234 labelled terminal outputs and all five weights, with uniform edge orders on the same incidence graph. Code classifies by (size, exact probability).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-random-priority-dimer-jamming-and-matching-output-weights--538d2c590718/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof and Verification, offsets 0 and 3850; VERIFY.py class grouping offset 2905",
+          "method": "Configured local index and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact random-priority dimer jamming and matching-output weights on the Heawood graph",
+          "trigger": "Distinct same-day result with exact model and fractions"
+        },
+        {
+          "assessment": "Covers orbit of nonincident pairs and perfect matching count, not matching completions of each pair",
+          "evidence": "Lists one orbit of 28 crossing nonedges and 24 perfect matchings.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Heawood.html",
+          "material_read": "Graph description and Subgraphs, offsets 0 and 1064",
+          "method": "OA public table passages",
+          "title": "Heawood graph",
+          "trigger": "Exact Heawood graph and orbit tables"
+        },
+        {
+          "assessment": "Same stochastic model, no structural classification in inspected passages",
+          "evidence": "Independent edge arrivals, acceptance iff both vertices are empty, and equally likely orders for i.i.d. continuous times.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519v1",
+          "material_read": "Dimer RSA, pp. 3–4, offsets 8755 and 12333",
+          "method": "OA arXiv PDF passages",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Established general dimer model"
+        },
+        {
+          "assessment": "Greedy process and performance background",
+          "evidence": "Successively takes a highest-weight available edge and removes incident edges, consistent with the same ordering model under i.i.d. weights after reversing order.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1277v1",
+          "material_read": "§1.1, offset 2999",
+          "method": "OA primary passage",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+          "trigger": "General random greedy matching and finite-girth precedent"
+        },
+        {
+          "assessment": "Different stated matching objective; assessment limited to the abstract",
+          "evidence": "States strong chromatic indices and an induced 3-matching decomposition of Petersen; recalled maximal matching counts in the abstract also concern Petersen.",
+          "identifier_or_url": "https://badap.agh.edu.pl/publikacja/149514",
+          "material_read": "AGH repository abstract, offset 630",
+          "method": "OA public page",
+          "title": "The Petersen and Heawood graphs make up graphical twins via induced matchings",
+          "trigger": "Primary search hit for Heawood matching structure"
+        },
+        {
+          "assessment": "Vertex-set problems, not matchings",
+          "evidence": "First classifies maximal mutual-visibility sets; second classifies minimum locating-dominating codes.",
+          "identifier_or_url": "Resultary record suffixes d06e4ce1cb54 and 7539b3d3a7fb",
+          "material_read": "RESULT.md Finding of each, offset 0",
+          "method": "Local index and mirror passages",
+          "title": "Mutual-visibility faces and four symmetry orbits; four symmetry types of minimum locating-dominating codes",
+          "trigger": "Adjacent Heawood orbit classifications"
+        },
+        {
+          "assessment": "Limited access; no assertion of noncoverage based on it",
+          "evidence": "No primary passage available to support a comparison.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Citation only; primary text not retrieved",
+          "method": "Lawful OA retrieval attempt; direct and alternate network route returned HTTP 403",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Cited early model precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Derangement description and Orbits",
+        "Existing exact matching-output table ...538d2c590718 as the baseline the invariant explains"
+      ],
+      "rationale": "The valuable remainder explains why three equiprobability classes occur at the same terminal occupancy and supplies a graph-local way to tell them apart. Six dimers are the unique near-perfect case, naturally leaving exactly one point and one line, so the fixed-pair completion problem is intrinsic rather than a parameter slice invented from the table. A researcher can now determine the orbit and read off the already known deposition weight from a single neighborhood-edge count, without enumerating matchings, automorphisms or histories. The explicit derangement model also describes all completions of any fixed uncovered pair. The original numerical recomputation is not the basis for this value finding.",
+      "residual_risks": [
+        "No corresponding orbit classifier for larger incidence planes or other graph symmetries is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

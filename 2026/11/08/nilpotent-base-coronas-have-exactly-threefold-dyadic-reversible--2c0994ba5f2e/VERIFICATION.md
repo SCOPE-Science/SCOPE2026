@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 checks/check_matrix.py` and `python3 checks/check_orbits.py` from the directory containing this document. Both programs require only a standard Python 3 installation. The corresponding `.out` files capture exact standard output from the tested scripts.
+## correctness
 
-The matrix checker enumerates every labelled simple graph on one through five vertices, tests whether its binary adjacency is nilpotent, and for each eligible base graph constructs the corona adjacency and its reversible wave companion. It checks the exact operator order by matrix powers and checks the fixed-space nullities for updates \(k\in\{1,2,3,4,6,12,24,48,96\}\). It reports 1,099 simple graphs, 278 nilpotent-base graphs, and additional specific tests of \(P_3,P_7,P_{15},C_4,Q_4\).
+PASS
 
-The separate state checker does not call the matrix-power checker; it enumerates 69,648 binary two-time-level states of the three coronas based on an isolated vertex, \(P_3\), and \(C_4\), advances the local wave rule, and independently compares the first return time with the claimed formula. Both programs finished successfully and their output matches the packaged `.out` files. They test finite cases only; correctness for all finite base graphs and all characteristic-two extension fields rests on the written algebraic proof.
+The corona block over one size-s nilpotent base block has characteristic polynomial (z+1)^(2s) and one-dimensional 1-eigenspace, giving one size-2s block. Lifting that block to the wave gives characteristic polynomial (z²+z+1)^(2s) and a one-dimensional eigenspace for each primitive cube root, hence two size-2s blocks over the splitting field. Their unipotent orders are the least powers of two at least 2s. Raising to a power divisible by three gives each block nullity min(2s,2^v2(k)): after extracting the 2-part the odd exponent gives an invertible cofactor of the linear term. Otherwise neither eigenvalue can give a fixed vector. Rank is invariant under field extension. The kernel dimensions strictly increase at the dyadic thresholds up to saturation, and subtraction gives the claimed POPULATIONS of states, not numbers of cycles. For the converse, T+T^−1=diag(A,A) excludes wave eigenvalue 1 since A is invertible, so if the odd part is three then all A eigenvalues equal 1. A+A^−1=diag(B,B) then forces nilpotence. The tree determinant is the parity matching polynomial; Lucas parity and the endpoint recurrence give the single path block, and the odd-coordinate cube layer squares to I, giving exactly n/2 size-two base blocks. The displayed family counts follow from the same nullities, including saturation at the last path threshold.
 
-No independently conducted audit or validation is represented by these checks.
+## originality
+
+PASS
+
+Credit the already known corona-adjacency doubling and first-order period theorem, as well as standard second-order matrix formalism. The supported distinct result is the general second-order corona-wave odd-part criterion, exact fixed spaces and state-period census, with contrasting connected families. The closest exact wave records treat prisms and open ladders; their assumptions and Jordan/spectral data do not give the leaf-corona result. Priority is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+The exact order criterion decides when a natural reversible graph dynamics has only the stated nontrivial odd part; the full kernel and primitive population refinements are useful beyond deciding the order. Unbounded connected path and cube families separate growth of clock length from growth in graph size. These are substantive outputs for the wave rather than new branding for first-order Jordan doubling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

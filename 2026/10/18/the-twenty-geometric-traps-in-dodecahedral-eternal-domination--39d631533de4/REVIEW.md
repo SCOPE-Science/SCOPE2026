@@ -1,11 +1,21 @@
-# Scientific assessment: dodecahedral guard-state classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim uses the ordinary collision-free simultaneous-movement game: each occupied vertex has one labelled guard, each guard stays or crosses one edge, exactly one guard enters the previously unoccupied attacked vertex, and the resulting placements dominate. A perfect matching between source and destination placements characterizes all legal moves. Complete enumeration of \(\binom{20}{6}\) and \(\binom{20}{7}\) candidate subsets finds exactly ten and \(780\) dominating configurations, respectively. All ten six-configurations have two immediate fatal attacks. Among seven-configurations, precisely twenty have exactly one immediate fatal attack and are the described distance-shell sets; the other \(760\) are closed under arbitrary attacks, with a minimum of \(26\) good successor placements. The included Python and C++17 programs implement distinct enumeration methods; the independent certificate checker replays each of the \(9880\) selected positive witnesses. Finite full enumeration suffices for this finite domain. No larger graph assertion is made.
+## correctness
 
-**Originality — PASS, with residual risk.** The 2014 Klostermeyer–Mynhardt source establishes game definitions and general domination bounds. The especially close 2021 Shaheen–Kassem full-text treatment gives a seven-guard defense construction for \(\operatorname{GP}(10,2)\) as part of the family \(\operatorname{GP}(n,2)\); it does not list all \(780\) dominating seven-placements, identify all \(20\) losing states, or prove that the remaining \(760\) are winning with \(26\) distinct safe responses at worst. That sufficiency construction and the known six-vertex domination number are credited, not claimed as wholly new. Targeted literature and mathematical-record queries yielded no covering classification, although unindexed or inaccessible materials may overlap.
+PASS
 
-**Value — PASS.** The central natural question in an infinite-attacker defense game is not just whether the defender can place enough guards but which placements are viable. The complete exact classification shows a precise geometry for every strategically fatal placement and verifies that every other seven-guard placement is not merely one-step defendable but indefinitely robust with at least \(26\) winning replies. This sharp local-to-infinite safety distinction on a highly symmetric graph supplies a concrete finite test case for strategy synthesis and viability counting, beyond the known minimum-guard upper bound.
+A legal move is a matching of all source guards into distinct vertices of an equal-sized dominating destination, with closed neighborhoods giving allowed edges and the attacked vertex required in the destination. I reconstructed the labeled graph and enumerated every subset of sizes 0–7, with counts (0,0,0,0,0,0,10,780). For each unordered equal-size dominating pair A,B, an independent Hall test exhausts all nonempty X⊆A and requires |B∩⋃ₐ∈ₓN[a]|≥|X|; this tests all responses, including impossibility, and reversibility gives both directions. All 10 six-sets have two fatal attacks, and the seven-set histogram is 20 with one fatal attack, 760 with none. Independent all-pairs distances yield the sphere profile (1,3,6,6,3,1) and the trap-to-fatal-vertex bijection. Restricting targets to the 760 survivors gives a response for each of 9,880 source/attack pairs; the minimum number of distinct destination sets is 26, attained for instance at source mask 19621 and attack 8. Because the survivor set is closed under at least one response to every legal attack, choosing a safe response at every turn is a perpetual strategy; by contrast the other 20 and all six-sets can be defeated immediately. The exact 26 counts destination sets, not different bijections to a single set, as the proof specifies.
 
-No independent external validation of mathematical novelty or correctness is asserted. The exact theorem depends on the standard no-collision model and the specified graph; its calculation does not imply analogous properties for other graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete viable-state classification, the geometric single-attack traps, and the sharp number of distinct safe destinations. The domination number and reportedly known seven-guard construction do not carry this originality decision.
+
+## value
+
+PASS
+
+This natural finite game instance distinguishes minimum guard budget from the exact set of viable positions. The distance-shell obstruction gives a succinct description rather than a list of masks, and the positive sharp reply count shows that every other one-step-safe configuration is indefinitely safe with multiple distinct choices. This makes it an informative exact benchmark for safety-region enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_split3.py` with Python 3, standard library only. This file reports the finite computations actually completed; the proof for all sizes and positive shifts is in `RESULT.md`.
+## correctness
 
-Observed output:
+PASS
 
-```
-PASS 9808 rational score comparisons, 760 independent inverse/variance comparisons, 47 exact critical identities
-```
+With n=q+2 the Laplacian is zero on the constants, 2 on leaf contrasts and n on the remaining two dimensions. In the spectral resolvent the distinct-vertex constant contribution is c; for two leaves the contrast subtracts (1/(μ+2)−1/(μ+n))/q=1/((μ+2)(μ+n)), leaving 2c/(μ+2). Products of different unordered pairs of independent signs are uncorrelated. Each unordered same-class pair contributes 4B_ij² to the summed variance. Dividing by 4c² gives the stated class-count energy. For separate hubs with u≤v attached leaves, when u≥1 the move (u,v)→(u−1,v+1) followed by merging the second hub into the first class has energy difference −(1−β)(v−u+1) and leaves three nonempty classes. If u=0 and v≥2, simply merging gives 1−v. The leftover one-attached-leaf profile exceeds the balanced merged, zero-attached-leaf profile by β(H_q−q+1)=β(floor(q/2)−1)(ceil(q/2)−1)>0. With joined hubs, fixing x leaves in their class forces balance of the other classes by pair convexity, and ΔF=2+β[x−floor((q−x−1)/2)] is strictly increasing; this accounts for possible adjacent ties below the transition. The proper profile exceeds the balanced merged profile by βH_q−1. At β≤1/H_q the first ΔF is positive, so no further profile ties. This proves the threshold, uniqueness statements up to the stated symmetries and minimum variance for all q≥4, μ>0, including μ_c=2 for q=4.
 
-The program independently constructs the full rational shifted graph Laplacian and inverts it by Gauss-Jordan elimination. It checks the distinct-vertex entries and the variance from actual same-color off-diagonal squared entries, not only the reduced objective. In a separate independent enumeration it searches all two-hub class profiles (separated or joined) at several rational weight parameters for sizes \(4\) through \(15\). The exact algebraic-threshold checks are performed using the rational squared-weight value \(1/\lfloor q^2/4\rfloor\) without floating approximations.
+## originality
 
-Boundary and scope: these are finite checks only; the universal statements, uniqueness, and treatment of arbitrary positive real \(\mu\) rely on the proof. No independent external audit was performed.
+PASS
+
+The distinct claim is the exact transition and complete extremizer classification for the two-adjacent-hub, three-nonempty-class problem. Credit the general variance objective, the existing proper-color probing designs, and analogous switches for other specific graph families. The evidence inspected does not show this classification following from those analogues.
+
+## value
+
+PASS
+
+This is an exact design benchmark at a fixed three-query cost: full proper coloring can be beaten by deliberately placing adjacent universal vertices together, and the exact parameter and equality cases determine when this happens. The competing topologies and their uniqueness are substantive information beyond a pair-sum formula or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

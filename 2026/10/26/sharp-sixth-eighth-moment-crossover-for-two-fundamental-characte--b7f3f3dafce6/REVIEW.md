@@ -1,15 +1,21 @@
-# Scientific review: sharp sixth–eighth character moments on \(\mathrm{USp}(4)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes normalized Haar measure, ordinary irreducible trace characters \(u,v\), arbitrary complex coefficients, and only moment orders six and eight. The type-\(C_2\) constant-term integral gives all required mixed moments exactly; the attached checker rebuilds those tables from the four positive roots rather than trusting quoted integer lists. Positivity of the even mixed moments reduces complex phases to relative sign, and exact single-variable derivative signs establish both unique interior maximizing magnitude profiles. The algebraic inequalities \(365>19^2\) and \(h(1/2)=-3/8\) prove opposite-side optimizer weights. No finite numerical experiment is used to justify an infinite or continuum quantifier.
+PASS
 
-## Originality — PASS, best-knowledge literature comparison
+For ordinary irreducible traces under probability Haar, Schur orthogonality gives exactly |a|²+|b|² for the squared L² norm. The primitive exterior square has weights (±1,±1) and one zero weight after removing the invariant line. The four positive C₂ roots give kernel constant term 8; independent exact integer Laurent convolution yielded rows (3,0,2,0,3), (14,0,11,0,10,0,15), and (84,0,75,0,73,0,75,0,105) in degrees 4, 6, 8. Central parity kills odd indices; every retained mixed term in F^m times its conjugate has a positive moment. In interior magnitudes the (i,j)=(0,2) term and its conjugate force relative phase 0 or π at equality, and this suffices for all terms. Binomial expansion gives H₆=15+105p−90p²−16p³ and H₈=105+1680p−560p²−2240p³+1099p⁴. The first derivative H₆′ decreases strictly and is positive at 1/2; H₈′/28 decreases strictly by h′≤−9p−40 and has h(1/2)=−3/8. Both derivatives change sign from positive at 0 to negative at 1, proving unique interior maximizers and the strict change of dominant mass. The degree-four row gives 3+6p(1−p). Independent evaluation gives K₆≈43.019700544257631 and K₈≈593.699634602355104; the last printed digits in the source are approximate, and the exact definitions H₆(p₆), H₈(p₈) are confirmed.
 
-The closest primary precursor is Lee–Oh (arXiv:2006.06116), which supplies general symplectic-character autocorrelation expressions; Costa–Fité–Sutherland (arXiv:1910.00518) motivates the centered Sato–Tate coefficients, while Assiotis–Gunes–Keating–Wei (arXiv:2508.09910) treats different joint derivative statistics and large-rank asymptotics. These texts were materially read. Nine targeted mathematical-results index searches, using USp4/Spin5/C2 and coefficient-statistic aliases, did not surface the exact optimized \(L^6\)/\(L^8\) packet or dominance reversal. Previously recorded mathematical claims on \(SU(2)\), \(SU(3)\), and \(SU(4)\) concern different groups, supports, and fourth moments, and do not imply this result. Existing moment formulae can recover *inputs* to the optimization, so the novelty assertion is strictly the sharp norms, complete equality families, and sixth-to-eighth crossover, not an assertion that the mixed moments themselves were unknown. An indexed Sato–Tate marginal table was observable but its full site returned HTTP 502; unindexed equivalences remain possible. A bibliographic search is not proof of first discovery.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two irreducible characters give canonical orthonormal genus-two characteristic-polynomial coefficient statistics. Extremal normalized higher moments of their linear mixtures are natural Fourier-norm and tail-moment quantities. A strict reversal of the dominant optimizing component between moment orders six and eight is a structural phenomenon, not a trivial rescaling or a known single-channel table computation. The result gives algebraic sharp constants and a complete complex equality classification. No extension to other irreducibles, ranks, exponents, or Sato–Tate subgroups is claimed.
+The best located analogue already shows a change of optimal mass in a different fundamental-character pair, and symplectic autocorrelations supply underlying moment data. The supported distinct result is the sharp sixth/eighth optimization and sign of the crossover for this particular compact symplectic pair, not the first crossover phenomenon or a new method for calculating mixed moments.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The span is the natural packet of the first two centered fundamental characteristic-polynomial coefficients. At fixed coefficient energy the optimal allocation is balanced at order four, favors one coefficient at six, and favors the other at eight. This gives an exact test of exponent-dependent extremizers and classifies all complex optimizers. The signs depend on mixed moments and are not a consequence of positivity, representation dimension, or the existence of a moment table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

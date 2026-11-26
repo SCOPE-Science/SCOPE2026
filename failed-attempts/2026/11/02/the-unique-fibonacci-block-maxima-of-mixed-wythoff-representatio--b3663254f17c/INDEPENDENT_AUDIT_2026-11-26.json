@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:00.499667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive Beatty complementarity gives r(n)=floor(n/β) minus the number of positive upper summands below n with upper complement, where β=φ². Put j=m+1, t=F_{j-2}, and ε=φ^{-(j-2)}. Binet gives tβ=F_j+ε for odd j and F_j−ε for even j; tε<1 and ε<=φ^{-3}. A sum of two upper terms has value floor((k+l)β) or one less. For odd j, totals k+l<t give sums at most F_j−3 and totals k+l>=t give at least F_j−1. For even j only k+l=t could yield F_j−2, and it would require a carry, hence 0<e=ceil(kβ)−kβ<ε for 0<k<t. The integer t ceil(kβ)−kF_j=te−kε would have absolute value <1 and hence be zero, contradicting gcd(t,F_j)=1 and 0<k<t. Thus r(F_j−2)=floor((F_j−2)/β)=t−1. The estimate floor((F_j−3)/β)<=t−2 applies to all earlier points of the block. At F_j−1 the cited mixed complement theorem gives zero, verified in Shallit Theorem 5. For j=5 the target equals the left endpoint F_4 and t−1=1, so the same uniqueness argument applies. The frozen script was inspected, not run. A fresh exact audit reproduced its finite checks through F_17, and the separate 24-case replay `/workspace/reproductions/4.py` is used below with the published recognizer. Neither bounded count on its own proves the infinite result. The upper-sum exclusion is a separate fact used to attain the maximum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 gives a 12-state recognizer for all positive upper-plus-upper sums, on Zeckendorf words. Theorem 5 gives the exact complement of positive mixed sums as {F_j−1}",
+          "Theorem 9 counts distinct U+U elements below a Fibonacci cutoff, not representations. The rank-19 representation in §11.2 computes mixed r(n) in general but is not needed for the decisive implication"
+        ],
+        "reasoning": "Exact recognition of the upper sumset covers the intermediate assertion on the two fixed-suffix word families. Combined with the known mixed-zero endpoint, the elementary capacity floor turns it into the stated extremum. The proof does not assume that every optimization problem for a regular counting function is automatically covered.",
+        "searches": [
+          "Shallit Theorem 5, §10 Theorem 8 Fig. 7, §11 Theorems 9–10 and §11.2 mixed linear representation",
+          "Kawsumarng et al. DOI 10.1007/s10998-020-00343-0 (OA attempt and Shallit restatement)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Shallit arXiv:2006.04177v1",
+        "Ashburn arXiv:2610.04842v1",
+        "Kawsumarng et al. via Shallit's restatement where accessible",
+        "OEIS A259598, A335229",
+        "Resultary 0b9b21d5d3f1 and 2746c2ea7769",
+        "Independent replay `/workspace/reproductions/4.py`"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Zeckendorf words for F_{5+2k}−2 and F_{6+2k}−2 are (10)^k100 and (10)^k1001: the base words are 100 and 1001, and F_{j+2}−2=F_{j+1}+(F_j−2) prepends 10",
+          "In the 12-state graph make reading 10 a single edge and mark states from which the fixed suffix accepts. If acceptance is possible, a shortest such path does not repeat a state, and has at most 11 edges. The exact replay excludes all these cases for both suffixes",
+          "Consequently the bound r(n)<=floor(n/β) is saturated at F_j−2; floor((F_j−3)/β)<=F_{j-2}−2 handles every earlier n and Theorem 5 handles F_j−1"
+        ],
+        "reasoning": "This is a finite-state specialization of an exact known result followed by two floor inequalities and the published endpoint exclusion. It recovers the full claim for arbitrary j, rather than presuming a direct theorem or an automatic optimization result not present in the source. The frozen arithmetic proof differs, but the Finding does not assert a stronger arithmetical separation or a reusable new lemma.",
+        "searches": [
+          "Shallit arXiv:2006.04177v1 Theorem 8 and Fig. 7 (PDF p. 9; HTML offset about 14000); Theorem 5 §7 (HTML offset about 10986)",
+          "Exact replay for the two fixed-suffix families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact distinct Resultary max theorem was identified in the bounded search. Records 0b9b21d5d3f1 and 2746c2ea7769 concern the same positive r(n) but state phase profiles and limit laws, not exact optima",
+          "Shallit Theorem 10 gives lower-plus-lower counts at F_j−1, not mixed counts at F_j−2; Ashburn Theorem 1 classifies r(n)=0,1,2 only"
+        ],
+        "reasoning": "The numerical resemblance to Theorem 10 and the limiting laws do not establish an equivalent prior theorem. The material equivalent in the proof is Beatty complementarity: saturation of the elementary upper bound at the target is exactly nonmembership in V+V.",
+        "searches": [
+          "Resultary semantic searches for mixed Wythoff maxima and exact Fibonacci-interval extrema",
+          "Shallit arXiv:2006.04177v1 §§7,10–11",
+          "Ashburn arXiv:2610.04842v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A259598 lists mixed representation counts; A335229 lists positive upper sums with a reference to the automaton. The entries inspected do not explicitly give the block-maximum theorem",
+          "Exact two-pointer test in `/workspace/reproductions/4.py`: all F_j−2 for 5<=j<=28 are outside V+V; the test uses integer square roots and exact positive Beatty indices"
+        ],
+        "reasoning": "The 24 base cases are not extrapolation from a sequence table: they exhaust the witnesses to acceptance on either word family by a state bound from a published recognizer. For each fixed suffix, if some repeated-prefix word accepts then some such word with at most eleven repetitions accepts.",
+        "searches": [
+          "OEIS A259598 and A335229, definitions and linked classification notes",
+          "Shallit Theorem 8 bounded 12-state recognition test for Zeckendorf words of F_j−2"
+        ]
+      },
+      "rationale": "No inspected source explicitly phrases the mixed Fibonacci-block extremum. Nevertheless it is a mechanical corollary of the exact 12-state upper-sumset recognizer in Shallit Theorem 8 plus the earlier endpoint theorem, not merely something a general counting algorithm might help investigate. The decisive implication is given below, including a complete finite test of the only regular word families needed. This conclusion does not rely on the inaccessible Kawsumarng full text or same-day dating.",
+      "residual_risks": [
+        "The exact-extrema bibliographic linkage in the same-day record is unresolved, and Kawsumarng primary full text was unavailable. The bounded search is not proof of historical priority. The scientific coverage finding is by the explicit earlier recognizer and endpoint theorem, not by an assumed exact bibliographic match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems 5 and 8 give a direct finite-state route to all block optima; no explicit mixed block-extremum statement located",
+          "evidence": "The sumset U+U is accepted by the 12-state automaton; mixed sums miss precisely the numbers F_j−1. Theorem 9 concerns distinct sums; the explicit representation statement Theorem 10 is for lower-plus-lower.",
+          "identifier_or_url": "https://arxiv.org/html/2006.04177v1",
+          "material_read": "§7 Theorem 5, HTML offset about 10986; §10 Theorem 8 and the Fig. 7 statement, offset about 14000, cross-checked PDF p. 9; §§11.1–11.2, offsets about 14500–18500",
+          "method": "Bounded primary HTML/PDF passages plus exact fixed-suffix consequence using the announced state count",
+          "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+          "trigger": "Exact mixed and upper sumset classifications, and numerical Fibonacci representation formulas"
+        },
+        {
+          "assessment": "Partial: exact low-count level sets only",
+          "evidence": "Characterizes r(n)=0,1,2, not maxima with unrestricted Fibonacci block index.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04842v1",
+          "material_read": "§3 Theorem 1, HTML offsets about 7350–7578",
+          "method": "Bounded primary HTML passage",
+          "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+          "trigger": "Same mixed representation count"
+        },
+        {
+          "assessment": "Direct article comparison limited by access",
+          "evidence": "The mixed-sum complement is stated and proved in Shallit Theorem 5. No inference about additional Kawsumarng results is made from access failure.",
+          "identifier_or_url": "https://doi.org/10.1007/s10998-020-00343-0",
+          "material_read": "DOI access attempt; no primary full-text passage recovered. Shallit §§7,10 restate or discuss the relevant results",
+          "method": "Lawful OA and alternate-copy attempt; use Shallit's own theorem statements for the implication",
+          "title": "Sumsets associated with Wythoff sequences and Fibonacci numbers",
+          "trigger": "Source attributed with the endpoint theorem and prior upper-sum results"
+        },
+        {
+          "assessment": "Exact sequences, not an explicit block optimum",
+          "evidence": "A259598 is the same count; A335229 is upper-plus-upper membership and notes the 12-state recognizer.",
+          "identifier_or_url": "OEIS A259598 (https://oeis.org/A259598); A335229 (https://oeis.org/A335229)",
+          "material_read": "Definitions, data and low-count/automaton notes",
+          "method": "Bounded public-entry inspections",
+          "title": "Mixed Wythoff representations and upper Wythoff sumset",
+          "trigger": "Potential exact sequence/tabular coverage"
+        },
+        {
+          "assessment": "Distinct thematic result; undated linkage to the exact-maxima study unresolved",
+          "evidence": "Uniform rotation-profile approximation and limit law, not an exact extremum. The separate interval-maxima mention lacks an identifying link; the date alone proves nothing about priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-atomic-limit-law-for-normalized-mixed-wythoff-representation--2746c2ea7769/RESULT.md",
+          "material_read": "Finding and prior-work passage, offsets 0 and 3900",
+          "method": "Bounded local mirror inspection",
+          "title": "An atomic limit law for normalized mixed Wythoff representation counts",
+          "trigger": "Same exact r(n), same catalog date and a reference to block maxima"
+        },
+        {
+          "assessment": "Asymptotic, not exact block optimum",
+          "evidence": "Describes phase fluctuations and a limit law for the same counts, but not identification or uniqueness of the block maximizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-phase-resolved-fluctuations-of-mixed-wythoff-representation-coun--0b9b21d5d3f1/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Phase-resolved fluctuations of mixed Wythoff representation counts",
+          "trigger": "Earlier catalog hit on the same count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact extrema on natural Fibonacci blocks are a sensible invariant, and the elementary exclusion proof is transparent. But the stated fact is mechanically obtainable from the two published sumset descriptions via a fixed two-suffix state test and elementary floor bounds. The paper does not establish a stronger structural tool or an additional unknown exact invariant that survives this coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

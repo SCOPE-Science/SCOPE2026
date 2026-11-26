@@ -1,19 +1,21 @@
-# Scientific assessment: two-mode ADI residual-shift bifurcation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Lyapunov ADI rank-one residual factorization is verified by direct multiplication. Equal spectral forcing masses reduce its Frobenius norm to the sum of two squared real Cayley factors. An explicit bijective Cayley coordinate and a derivative with affine sign determine every critical point globally, including a quartically flat uniqueness boundary. The claimed factor-two supremum follows from a strictly positive rational derivative. The exact witness has rational entries and radical minimizers. The executable confirms 3,722 algebraic/numeric assertions; finite probes are not substituted for the exact proof.
+PASS
 
-## Originality — PASS, with limited publication-priority risk
+The first-step residual is ww^T with w=(H-pI)(H+pI)^(-1)u, so its Frobenius norm is ||w||^2, not ||w||^4. Orthogonality and equal forcing masses give the sum of two squared Cayley factors, independent of eigenspace multiplicities. On writing x=c^2 in (0,1), z=(p-g)/(p+g) in (-1,1), the derivative with respect to z of the objective divided by sigma^2 is 4z(1-x)[1-3x+x(3-x)z^2]/(1-x z^2)^3. As a function of z^2 it increases from zero coordinate when x<=1/3 (the derivative vanishes at the endpoint only at equality); above this it first decreases and then increases, with its unique turning point at (3x-1)/(x(3-x)) strictly in (0,1) since x^2<1. This gives precisely the two shifts with product ab and a strict local maximum at g. The critical x is equivalent to kappa=(2+sqrt(3))^2. Substitution gives the stated minimum; differentiating 8x^2/(6x-x^2-1) gives a positive derivative for x>1/3, and the limit 2 at x=1 is unattained. The worst-factor minimax solution instead balances the opposite signed spectral factors for a<=p<=b; no shift outside that interval improves it. In the independent bounded check (`python3 /workspace/branches/independent_checks.py 4`, SymPy), differentiating the two Cayley terms symbolically reproduced the full derivative, the kappa=49 witness 527/576, and the critical quartic coefficient 16/27. The proof, not any finite shift grid, establishes the global classification. Scope: real first shift, zero starting approximation, SPD two-mode operator and balanced rank-one forcing.
 
-Established ADI residual factorization and the **general** data-dependent residual minimization problem are credited to the motivating and earlier literature. The examined 2018 shift-optimization full text formulates a general numerical minimization but does not state the two-active-mode balanced-mass threshold \(7+4\sqrt3\), a geometric-mean *local maximum*, the two reciprocal global minimizers, or the sharp ratio approaching \(2\). The examined 2014 article differentiates classical spectral minmax shifts and residual-sensitive heuristics without the exact bifurcation. The examined 2024 ADI framework concerns derivations and connections of ADI-like algorithms, not this exact global shift classification. Related indexed mathematical-record queries did not locate a covering theorem; failure to retrieve a result is not proof of absence, and an unindexed equivalent calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-First-step residual minimization is a central algorithmic component of large-scale Lyapunov ADI. The theorem reveals a nontrivial global bifurcation exactly where the classical geometric-mean spectral-minimax shift ceases to be merely suboptimal and becomes locally maximally bad for the measured residual. The precise condition-number threshold, two optimizers, and sharp near-twofold penalty are meaningful analytic guidelines and adversarial benchmarks for adaptive shift strategies; they are not a cosmetic reformulation of the general optimization objective.
+The residual factor and general data-dependent objective, including the possibility of multiple local minima, are established. The distinct claim supported here is the explicit balanced two-mode global bifurcation, reciprocal minimizers and sharp first-step loss; the strongest examined formulation poses the objective but does not solve that special case. No claim of bibliographic priority beyond these comparisons.
 
-## Scope and remaining risks
+## value
 
-One step, real negative shift, exactly two distinct active eigenvalues and balanced rank-one forcing, with arbitrary eigenspace multiplicities. Full-text priority comparison was performed for the highly relevant 2024 and 2018 arXiv papers and the 2014 published article. Other unindexed treatments of the same special case remain a possible priority limitation. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact case uses a standard physically realizable rank-one forcing model, rather than an arbitrary matrix entry. A practitioner choosing between spectral minimax and residual-aware shifts needs to know that the minimax shift can be a strict local maximum, with a nearly twofold penalty in the norm being optimized. The threshold, explicit replacement shifts and worst-case limit give a useful analytic benchmark, without implying anything about later iterations or unbalanced data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

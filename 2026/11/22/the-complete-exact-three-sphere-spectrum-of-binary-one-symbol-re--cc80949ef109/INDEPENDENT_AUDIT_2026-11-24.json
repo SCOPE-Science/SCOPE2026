@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:18.364395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Track the descendants of the prefix x and the appended symbol b in separate consecutive blocks. In one step two positions i<j give different symbols at output position j+1. Writing c for the complement of b, the word xbc is reachable from x in two steps exactly when x is not all b: append bc if x ends in c, or insert a b at the last cb transition then append c; from an all-b source the initial b-run cannot grow. This gives the stated exact-two recurrence, whose base size is 2. At three steps the ending classes b, bc and cc isolate the three disjoint main families, and D_1(x)bcb lies in D_3(x)b because every one-step descendant is nonconstant. Of the four final single-symbol-block outputs, xbccc is always new; the other three are old if x is not all b by the two-step criterion plus one duplication, and new otherwise because they start with n+1 copies of b (and the bc-ending word would require xbc in D_2(x)). Thus the size increase is binom(n+2,2)+r+3·1_(x=b^n), the increase of the displayed formula. The n=1 base, strict difference n+2−r, binary frequency count, and extrema agree. Fresh direct enumeration, not the frozen scripts, checked all 510 binary sources of lengths 1–8; that is corroboration, not the proof. Both frozen checkers were inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2609.00779v2 gives general multiple-error code bounds and an exact-two maximum for even k. The Sun–Ge abstract gives code constructions at length one for q≥4. Theorem 5 of Yohananov–Schwartz generalizes the common-descendant criterion using alphabet-pair signatures."
+        ],
+        "reasoning": "Neither specializing a broader code bound nor the common-descendant criterion supplies a fixed-source sphere enumerator, and even duplication lengths exclude k=1.",
+        "searches": [
+          "binary one-symbol reverse-complement duplication fixed-source sphere size exact t initial run formula exact three",
+          "arXiv:2609.00779v2",
+          "arXiv:2602.01151",
+          "DOI:10.1007/s10623-025-01627-7, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s10623-025-01627-7",
+        "arXiv:2609.00779v2",
+        "arXiv:2602.01151",
+        "arXiv:2112.11811",
+        "Resultary:48668939e9cc",
+        "Resultary:58e555e1f0ef",
+        "Resultary:a03a87770ec6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-two fixed-point-free alphabet count n(n+3)/2−λ reduces to binom(n+1,2)+r by λ=n−r. Lemma 1 in the paper controls single-letter descendants while Theorem 2 controls whether two cones meet."
+        ],
+        "reasoning": "An exact-two cardinality alone does not determine overlap among its one-step expansions. The new count requires controlling these collisions for the fixed source; even the one-bit cone lemma does not count collisions between distinct multi-bit block decompositions.",
+        "searches": [
+          "Resultary: 48668939e9cc, 58e555e1f0ef, a03a87770ec6",
+          "DOI:10.1007/s10623-025-01627-7, §3.1 pp. 3288–3289"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yohananov–Schwartz give the descendants of an individual bit starting with the bit then its complement, and a criterion for two binary words to have a common descendant. Ben-Tolila–Schwartz define t-descendants but focus on single-error correction in the cited passage."
+        ],
+        "reasoning": "A common-descendant criterion concerns intersection over unrestricted lengths, not distinct outputs at length n+3. A factorization into single-bit descendants still leaves collisions between different block splits. No equivalent model with the exact count was found in these comparisons.",
+        "searches": [
+          "Resultary: reverse-complement duplication fixed-source descendant sphere model collision count binary",
+          "DOI:10.1007/s10623-025-01627-7, §3.1 Lemma 1 and Theorem 2",
+          "arXiv:2112.11811, p. 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-three top hit is the assigned record cc80949ef109, not a separate source. Distinct Finding records 48668939e9cc and 58e555e1f0ef both specialize to the same binary exact-two law; a03a87770ec6 treats the exact-two maximum for odd k."
+        ],
+        "reasoning": "These matches were compared by count and error regime, not screened out by date. None of the distinct matches covers the exact-three spectrum.",
+        "searches": [
+          "Resultary: exact-three sphere formula binary one-symbol reverse-complement duplication source-specific count",
+          "Resultary: binary reverse-complement length-one duplication exact two sphere initial run formula",
+          "Resultary: three sequential reverse-complement duplications distinct descendants fixed source sphere cardinality"
+        ]
+      },
+      "rationale": "The supported distinction is the exact source-dependent three-duplication sphere law. The closest indexed formulas give the source-dependent two-duplication count or an exact-two maximum. Published results on common descendants, single-symbol descendants, and correcting multiple errors have materially different conclusions from counting distinct exact-three descendants of an arbitrary fixed source. No assertion of priority is made for the embedded two-step formula.",
+      "residual_risks": [
+        "A bounded search and bounded full-text comparisons cannot exclude an unindexed equivalent finite-error enumerator. Abstract-level comparison of Sun–Ge is not a whole-document novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-bit reachability and common-descendant equivalence, not fixed-source exact-three enumeration",
+          "evidence": "For two nonempty binary words Theorem 2 tests equality of their first bits to decide whether their unrestricted cones intersect. Theorem 5 generalizes that test by signatures.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-025-01627-7",
+          "material_read": "Abstract; §3.1 Lemma 1 and Theorem 2, pp. 3288–3289 (offset 15400); §3.2 Lemma 4 and Theorem 5, pp. 3290–3291 (offset 20471)",
+          "method": "Lawful OA paper PDF, bounded text passages",
+          "title": "On the coding capacity of reverse-complement and palindromic duplication-correcting codes",
+          "trigger": "Most plausible stronger claim on length-one binary descendant cones"
+        },
+        {
+          "assessment": "Exact prior coverage of the two-step ingredient, not the three-step claim",
+          "evidence": "|D_2(x)|=n(n+3)/2−λ(x); in binary λ(x)=n−r(x).",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-two-step-sphere-distribution-for-single-symbol-reverse-com--48668939e9cc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-step sphere distribution for single-symbol reverse-complement duplication",
+          "trigger": "Closest fixed-source formula"
+        },
+        {
+          "assessment": "Broader alphabet but exact-two only; no date-based priority inference",
+          "evidence": "The C(x) statistic specializes to n−r(x), giving the same exact-two binary law.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-complete-two-step-reverse-complement-sphere-law-over-fixed-poi--58e555e1f0ef",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "A complete two-step reverse-complement sphere law over fixed-point-free alphabets",
+          "trigger": "Potential broader enumerator for the same channel"
+        },
+        {
+          "assessment": "Odd block lengths include one, but invariant is an exact-two maximum",
+          "evidence": "Constant sources attain the stated two-step maximum; it does not give the fixed-source three-step count.",
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-sharp-two-step-sphere-maximum-for-odd-length-reverse-complement--a03a87770ec6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "Sharp two-step sphere maximum for odd-length reverse-complement duplication",
+          "trigger": "Possible exact finite sphere overlap at duplication length one"
+        },
+        {
+          "assessment": "General error-correction results and even-length exact-two maximum do not cover the claim",
+          "evidence": "The stated exact sphere maximum is after two errors for even k; general t results address code redundancy.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "v2 Abstract and §1 Introduction (offset 0); p. 2 discussion of odd/even conjugacy",
+          "method": "Lawful OA paper PDF, bounded text passages",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Same sequential model and exact sphere maxima"
+        },
+        {
+          "assessment": "Different stated conclusion and alphabet regime; not a whole-text exclusion",
+          "evidence": "The abstract advertises length-one constructions for q≥4, not binary source-specific sphere sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.01151",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA paper PDF, abstract comparison",
+          "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+          "trigger": "Fixed-error constructions for length one"
+        },
+        {
+          "assessment": "Same model, focus on one-error correction in the inspected passage",
+          "evidence": "Defines t-descendants, then specifies the single-error-correction focus.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.11811",
+          "material_read": "p. 14 (offset 71506), definition and error-correction scope",
+          "method": "Lawful OA paper PDF, bounded text passage",
+          "title": "On the Reverse-Complement String-Duplication System",
+          "trigger": "Foundational definition of t-descendants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct received-word counts are basic sphere-packing data for the existing multiple reverse-complement error model. The fixed-source law gives every attainable three-error volume, not just a larger constant-source example: code-size arguments sensitive to source-dependent volume can now distinguish all initial run lengths. The nontrivial overlaps first appearing beyond the established exact-two enumeration make this a natural exact case, without claiming a new optimal code bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

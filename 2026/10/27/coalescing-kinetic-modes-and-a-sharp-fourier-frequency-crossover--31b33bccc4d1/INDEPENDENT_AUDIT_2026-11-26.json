@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:16.424293Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the first Poisson refresh of the uniform momentum gives the Bessel renewal equation with initial Fourier mass one. In the shifted Laplace variable u=s+λ, rationalization splits the credited kernel into 2λ/(u²−(λ²−κ²)) and 1/(sqrt(u²+κ²)+λ). Independently checked the inverse of the latter: Laplace-transform the proposed truncated sine integral and then remove the truncation (the decreasing 1/y tail gives a uniform bound by splitting at y=1/t). Substituting x=sqrt(y²−κ²) yields (2/π) times the integral of x²/[(x²+λ²)(x²+u²+κ²)] over x>0, which is exactly 1/(λ+sqrt(u²+κ²)) for real u>0. At the lower edge the amplitude equals (sqrt(2κ)/λ²) z^(1/2) plus a term z^(3/2) times a locally smooth factor. The endpoint Fourier expansion has phase 3π/4 and Γ(3/2); retaining the z^(3/2) term gives an O(t^(-5/2)) correction and the remaining endpoint term may be integrated three times, since its third derivative is locally integrable. Away from the edge, the amplitude tends to zero and all positive-order derivatives are integrable, uniformly on compact positive κ sets, so repeated integrations produce no competing term. The t^(-2) window fixes the entire-function argument exactly and division by t gives the uniform t^(-5/2) error. The root terms refer to the analytic continuation in the scalar Fourier response, not a claim that both are isolated eigenvalues of the kinetic generator. At κ=0 mass is conserved; errors remain absolute at oscillation zeros. The original script was inspected, not run. Independent angular evolution and direct oscillatory quadrature agree in 18 split tests to a maximum scaled discrepancy of 1.55e−12, with separate finite critical-window and phase-controlled edge checks.",
+      "replay": "python3 reproductions/kinetic_review.py (NumPy and SciPy); output in reproductions/kinetic_review.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Romatschke has kinetic pole and branch-cut reorganization, with a pole merging with the cut at kτ_D=π/2 in another relaxation-time model. Its velocity law/transform is not the arcsine square root with this pair of coalescing poles.",
+          "Coppola's inspected long-time discussion is ballistic-to-diffusive spatial density, not a compact positive-wave-number edge expansion."
+        ],
+        "reasoning": "General cut/pole observations are old; the inspected stronger exact density solution permits further analysis but does not supply the asserted asymptotic estimates explicitly.",
+        "searches": [
+          "Romatschke arXiv:1512.02641, §III.A, Eq. (37) and discussion",
+          "Coppola arXiv:2501.12155, §IV, Appendix A and long-time discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.12155",
+        "arXiv:1512.02641",
+        "Resultary 5353c27bb6f5 and dfa7ae68742e (indexed summaries only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rationalization of Coppola's kernel directly gives the two roots and the double pole; balancing t sqrt(λ²−κ²) explains the t^-2 scale. These facts are not relied on alone as the distinct result.",
+          "The model-specific sinusoidal coefficient with an absolute uniform remainder requires isolating the complementary transform and computing its branch endpoint contribution; the uniform crossover error then follows without linearizing its argument."
+        ],
+        "reasoning": "Derivation from an available exact solution is acknowledged; the additional analysis produces the coefficient and quantitative signed crossover, not a change of variables in a prior asymptotic theorem.",
+        "searches": [
+          "Coppola arXiv:2501.12155, equations IV.5–IV.10 and A.5–A.6",
+          "Romatschke arXiv:1512.02641, Eq. (37)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coppola has velocity sin p and Poisson renewal; the arcsine free-flight transform is 1/sqrt((s+λ)²+k²), and its geometric renewal sum is the frozen response transform for the same momentum-uniform preparation.",
+          "The closest retrieved indexed summaries (5353c27bb6f5 and dfa7ae68742e) concern reset Kuramoto or Brownian covariance, not the Fourier density mode of this BGK model."
+        ],
+        "reasoning": "The prior kernel is exactly the same in another notation, not independent evidence of novelty. The searched covariance results involve different response observables and models.",
+        "searches": [
+          "Resultary: arcsine BGK Fourier–Laplace kernel, two-mode/branch separation, cut-edge coefficient and critical window",
+          "Coppola arXiv:2501.12155, equations IV.2, IV.9–IV.10, A.3 and A.5–A.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared exact inputs are symbolic kernels, not tabulations; the closest numerical threshold in the latter paper is for a different kernel. No inspected exact entry supplies sqrt(2κ/π)/λ², phase 3π/4, and the compact-uniform profile in this setting."
+        ],
+        "reasoning": "A coincident rational power or another crossover scale does not match this invariant. Indexed hits were bounded, and this is not a claim of exhaustive table or literature absence.",
+        "searches": [
+          "Resultary exact-title and cut-coefficient / t^-2 frequency-window searches",
+          "Coppola Appendix A; Romatschke §III.A"
+        ]
+      },
+      "rationale": "The transform and its renewal interpretation are prior, and the elementary root threshold is already algebraically encoded by that transform. The supported distinct result is the explicit cut-edge amplitude and phase with compact-uniform control, used together with the exact split to give the signed, time-tuned critical profile and error. The record does not claim a new kernel or the general kinetic phenomenon of a pole/cut crossover.",
+      "residual_risks": [
+        "The targeted broader primary search did not return usable evidence; this is not negative evidence. Alternative representations of the same response, including projected velocity-jump flights, could contain an equivalent asymptotic statement.",
+        "Exact local source files for the two conceptual reset-covariance hits were unavailable, so no whole-record negative claim is made about them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Entails the starting scalar kernel and thereby its algebraic poles; inspected asymptotics do not supply the sharp fixed-frequency edge and critical-window estimate",
+          "evidence": [
+            "Velocity sin p, Poisson factor λ exp(−λt), renewal factor λ/sqrt(k²+(s+λ)²), and long-time Gaussian density are explicitly described."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.12155",
+          "material_read": "PDF pp. 3–6, Eqs. III.2, IV.2, IV.9–IV.10 and A.3, A.5–A.6; p. 6 long-time discussion",
+          "method": "Bounded reading of OA primary PDF",
+          "title": "Exact solution to a Bhatnagar–Gross–Krook-type equation for quantum lattice gases with dephasing noise",
+          "trigger": "Same exact renewal problem and kernel"
+        },
+        {
+          "assessment": "Establishes precedent for a different model, not this critical window",
+          "evidence": [
+            "A pole meets the cut at kτ_D=π/2, not the coalescing pair of this scalar arcsine kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.02641",
+          "material_read": "PDF pp. 9–10, §III.A, Eq. (37), around offset 50300",
+          "method": "Bounded reading of OA primary PDF",
+          "title": "Retarded correlators in kinetic theory: branch cuts, poles and hydrodynamic onset transitions",
+          "trigger": "Prior kinetic pole/cut transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-frequency late-time Fourier observable makes a natural distinction invisible in a spatial diffusion limit. The result quantifies the transition from real decay to damped oscillation, controls when the oscillatory leading term vanishes, and supplies an explicit signed crossover with an error estimate valid on both sides of the threshold. The branch coefficient and uniform estimate add information beyond reading the two algebraic roots from the known kernel; no statement of validity for the microscopic chain is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

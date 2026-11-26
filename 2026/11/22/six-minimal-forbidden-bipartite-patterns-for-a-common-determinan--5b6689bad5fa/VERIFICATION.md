@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python 3 and standard-library `math` only. Run `python3 verify.py` in this directory. It checks all sixteen finite alphabet rectangles up to size four on each shore, all inclusion-minimal failure sizes and six pattern labels; tests direct lax-split semantics on all rectangular teams with both dimensions at most three; and tests the full two-fiber binary rectangle. The final printed line is `VERIFY_OK 16 alphabet pairs; all 2x2x2 team subsets; raw split semantics through 3x3`.
+## correctness
 
-The proof is a general finite combinatorial argument, rather than an extrapolation from the tested sizes. It depends on the classical matching–vertex-cover theorem for bipartite graphs. There is no external formal proof assistant or independent mathematical audit. The underlying first public source date for the subject is 22 August 2025 (arXiv:2508.16146v1); the source has also appeared in CSL 2026.
+PASS
+
+For each fixed x, a witnessing lax split supplies at most one chosen row and one chosen column; conversely assign edges on the row to the first atom and the remaining covered edges to the second. Choices in different fibers are independent. Thus a minimal failure has exactly one nonempty fiber, and containment here means edge-subgraph, not induced-subgraph, containment. A three-edge matching is a minimal failure; every nonmatching three-edge set can be covered using a repeated endpoint and an opposite-shore endpoint of the third edge. With no three-edge matching, König's theorem gives a vertex cover of size at most two. A non-cross-coverable graph then needs two same-shore cover vertices, each of degree at least two. Choosing two edges at each yields a failure because one opposite vertex can cover at most one edge at the unchosen center. The neighbor-pair intersections of size zero, one or two give precisely the two-star, path and cycle cases with named shores. Deleting one edge leaves one full center and one opposite endpoint that together cover everything. This also clarifies the abbreviated wording at RESULT.md:58: the chosen center alone misses both edges there; the full cross necessarily misses at least one. Direct labeling gives 3! for the matching bijection, 2 for assigning the ends of an oriented-shore path, and C(4,2)=6 for allocating leaves to two fixed labeled centers, with the cycle counted once. The example pairs (0,1), (6,45), (96,396) and vanishing terms for undersized shores follow. This is a general proof for finite nonempty alphabets, not a continuation of the finite checks in the support file.
+
+## originality
+
+PASS
+
+The supported distinct result is the full named-shore minimal-obstruction basis. The coherence cutoff and cross criterion already have prior coverage; the binomial census is a direct count once the basis is proved, and even the aggregate coefficients potentially follow from the earlier satisfying-team enumerator with a matching correction. The exact obstruction types, not the mere cutoff or the coefficients alone, support the pass.
+
+## value
+
+PASS
+
+The result gives a precise obstruction language for a canonical two-atom dependence split already studied for coherence. It identifies exactly which small witnesses are irredundant, including asymmetry of the two named shores, and enables recognition by one of six explicit subgraph types at any finite alphabet sizes. This structural certificate is useful beyond knowing a failing fragment has at most four assignments; the routine arithmetic alone would not justify value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

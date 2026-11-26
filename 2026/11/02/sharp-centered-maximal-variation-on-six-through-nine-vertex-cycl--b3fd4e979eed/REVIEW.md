@@ -1,19 +1,21 @@
-# Scientific review of the six- through nine-vertex cycle bound
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization uses only the inequalities \(\operatorname{Var}(|f|)\le\operatorname{Var}(f)\), translation equivariance for nonnegative inputs, and rotation symmetry. The sign expansion of edge variation and the positive-radius/negative-majorant decomposition are identities at fixed input, not relaxations. The primal programs contain every branch and exactly encode the variation unit ball. All \(53860\) rational dual vectors were verified by reconstructing the matrices and testing \(1039232\) integer-scaled dual coordinate inequalities. Weak duality proves the uniform upper bounds, and direct point-mass calculations prove sharpness. Numerical linear programming was used to discover certificates, but is not an assumption of their verification.
+PASS
 
-## Originality — PASS, qualified
+Taking absolute values cannot increase the input edge variation; if the absolute values are constant the output variation is zero. For nonnegative data subtraction of the minimum, rotation, and scaling give f₀=0 and variation at most one. The signed edge expression has vertex coefficients σᵢ₋₁−σᵢ. At its positive vertices expand the radius choice, and at its negative vertices use a majorant of every average, which attains the optimum at the maximum. This gives the exact LP decomposition; weak duality requires both nonnegative multipliers and one inequality for each nonnegative variable. I wrote and ran a separate checker using shortest-arc graph distances and direct t, z, and f coordinate inequalities rather than the frozen matrix builder. It exhausted branches 730, 2186, 12032, 38912 and respectively checked 9494, 33514, 213760, 782464 dual coordinates, in addition to each dual objective and each witness. The least radius containing the point mass gives 1/min(2k+1,n) at distance k, so the values telescope around both arcs, attaining the upper bound. Exact replay: python3 /tmp/opencode/scope_independent_cycle_audit.py; it reads the frozen JSON data, not the supplied executable checker.
 
-Closest inspected work is González-Riquelme, Kovač and Madrid (arXiv:2603.12462), which explicitly completes four-vertex graphs and tabulates five-vertex cases. Its general graph theorem concerns complete graphs, not cycles. González-Riquelme and Madrid (arXiv:2005.03146) treat complete and star graphs and general lower bounds, and Bober et al. (arXiv:1005.3030) treat the integer lattice rather than finite cycles. A numerical formula \(1-1/n\) in another graph family does not imply the claimed upper bound for the centered operator on \(C_n\). Searches also considered equivalent graph-ball maximal formulations and the existing finite-cycle historical claims; none retrieved the four new upper bounds. Search incompleteness and possible older unindexed special-case computations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies sharp, attained finite-graph variation constants for two complete nontrivial cycle diameter levels: \(C_6,C_7\) of diameter \(3\), and \(C_8,C_9\) of diameter \(4\). This is a natural extension of the documented complete graph-size \(\le5\) census and tests the point-mass sharpness mechanism where several distinct centered ball radii compete. The exact dual certificates resolve the problem for every real-valued input on these graphs; these are not isolated examples or numerical guesses. The result is a finite cutoff, not a theorem for all cycles.
+Best-of-knowledge pass for the four upper bounds on arbitrary real centered cycle data, not for the point-mass lower bound or the formula in general. The strongest indexed overlap gives the identical formula after equal-weight specialization, but only for cycles of length three through five; the strongest literature graph census also stops at five. Neither these nor the other inspected statements justify the four upper bounds by specialization. The same-day relationship is not a priority determination.
 
-## Limits and prior sources
+## value
 
-The checker has been replayed from the included files. Its finite coverage is logically sufficient only because the proof supplies an exhaustive case reduction. General-size cycles, weighted measures and nonunit variation exponents remain untreated. Most relevant primary sources: arXiv:1005.3030, arXiv:2005.03146 and arXiv:2603.12462. The exact date of the first listed source is verified on its arXiv submission-history page.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycles are the natural periodic analogue of paths for one-dimensional maximal variation, and the optimal contraction rather than any bound is a meaningful benchmark. These are the two full next diameter levels beyond the five-vertex census, including both even and odd saturation of graph balls. The result tests the same point-mass conjectural mechanism across those next levels and certifies the precise arbitrary-data invariant rather than repeating a numerical or witness-only computation. No general-cycle theorem is needed to make those exact benchmarks useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

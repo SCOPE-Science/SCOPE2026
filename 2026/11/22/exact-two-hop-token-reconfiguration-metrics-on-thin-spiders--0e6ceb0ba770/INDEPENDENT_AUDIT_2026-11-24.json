@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:55.781525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–48; VERIFICATION.md and CHECK.py inspected, not executed",
+        "/workspace/branches/2c7681fa-06b7-40ff-956a-1f11b269efaa/independent_repro.py and independent_repro.log: direct host-graph and state-graph BFS over all 35 pairs 2≤r≤8, 1≤k≤r; all distances, degree classes, counts, diameters and connectivity matched."
+      ],
+      "rationale": "Two different leaves have host distance three, all leaf–clique pairs have distance at most two, and all distinct clique vertices have distance one. A mixed state forbids its own private leaf and any second clique token. These facts give exactly the stated adjacency. Project to the inclusion graph on the two consecutive Boolean ranks k and k−1: each lower-rank vertex is a clique of r−k+1 copies with identical upper-rank neighbors. Different projected endpoints have unchanged distances, by deleting fiber steps on projection and freely lifting inclusion paths with the specified endpoints. Within one mixed fiber the distance is zero or one. In the inclusion graph the Hamming difference gives a lower bound; same-rank paths attain it by replacing each mismatched element with two steps via the other rank (remove then insert in the upper rank; insert then remove in the lower rank). To finish at a lower-rank target T from S in the upper rank, first reach T plus an element of S outside T, then delete that element. These realizations give the three formulas and connectivity. Minimizing intersections for the three pair types gives respective maxima 2 min(k,r−k), 2 min(k−1,r−k)+1, and, for distinct lower labels when k≥2, 2 min(k−1,r−k+1). Comparing these yields the claimed diameter; k=1 is covered by upper pairs and k=r gives the star. Counting upper vertices, the lower fibers and their incident edges gives the stated sizes and degrees.",
+      "residual_risks": [
+        "The finite BFS corroborates the proof but is not needed to extrapolate to larger r. The metric is for host distance at most two, not exactly two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 is a polynomial-time reachability result for 2-Jump on split graphs. The primary spider-tree work concerns distance-one sliding. Full text for the cited split-graph sliding article was unavailable from the DOI and journal PDF."
+        ],
+        "reasoning": "General split-graph reachability decides whether a distance is finite and leaves exact distance, degrees and geodesics undetermined. A spider tree is not the family of clique coronas.",
+        "searches": [
+          "arXiv:2407.11768, Theorem 2 and §4",
+          "arXiv:1806.08291, shortest token sliding on spider trees",
+          "10.1007/s00224-020-09967-8, split-graph token sliding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.11768",
+        "arXiv:1806.08291",
+        "Frozen RESULT.md lines 50–59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inclusion projection forgets the clique index and has identical attachment sets only because every clique vertex can receive every leaf token at hop radius two, subject to final independence."
+        ],
+        "reasoning": "The distances do follow readily once the new state-graph identification has been made. The inspected reachability or Johnson facts alone do not supply that identification or the metric on both state types.",
+        "searches": [
+          "arXiv:2407.11768, shortest variant and 2-Jump reachability theorem",
+          "arXiv:1806.08291, shortest sliding theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is a one-sided clique blow-up of the inclusion graph between ranks k−1 and k; the upper rank two-step graph is Johnson J(r,k). The lower rank is not just an edge subdivision except when its unblown vertices have degree two."
+        ],
+        "reasoning": "A prior identifying this blow-up as the same reconfiguration graph would cover most of the result, since the quotient metric is elementary. The Johnson graph alone omits mixed states, odd cross distances and fiber edges.",
+        "searches": [
+          "Bounded-hop token jumping, arXiv:2407.11768",
+          "Thin spider / 2-Jump / shortest independent-set reconfiguration / clique corona",
+          "Set-inclusion graph / consecutive ranks / distance / Johnson graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact source for this one-sided clique blow-up as a thin-spider state graph was verified. A few isomorphism classes or diameter examples would not by themselves cover all r and k."
+        ],
+        "reasoning": "An indexed general state-graph characterization, or a full all-parameter table, could cover the result. The catalogue was inaccessible, not checked clear; search limitations are not novelty evidence.",
+        "searches": [
+          "Local Resultary discovery (unavailable)",
+          "Focused thin-spider and consecutive-rank incidence searches (no usable matching primary result retrieved)",
+          "Frozen RESULT.md lines 50–59"
+        ]
+      },
+      "rationale": "The supported contribution is the structure and exact geodesic metric for the bounded-hop independent-set graph on the clique corona, not the elementary Johnson metric or bounded-hop reachability. The strongest inspected primary comparison gives reachability on a superclass, not distances. The consecutive-rank inclusion and fiber description is an exact alternate presentation; no accessible theorem identifying this structure for the bounded-hop family or directly covering its full metric was verified.",
+      "residual_risks": [
+        "Local Resultary search was not exposed; an equivalent incidence-blow-up identification or a stronger shortest-path theorem may be unlocated.",
+        "No priority inference follows from inaccessible primary text or inconclusive search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same 2-Jump model; reachability rather than exact lengths",
+          "evidence": "Theorem 2 gives polynomial-time reachability for split graphs; the shortest-variant discussion does not evaluate the clique-corona metric.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11768",
+          "material_read": "PDF pp. 1–3 (including shortest definition and Theorem 2) and p. 6 §4",
+          "method": "OA PDF passage inspection",
+          "title": "Independent Set Reconfiguration Under Bounded-Hop Token Jumping",
+          "trigger": "Exact move rule on the superclass of split graphs"
+        },
+        {
+          "assessment": "Different host family and move radius",
+          "evidence": "The shortest-sequence result is for token sliding on spider trees.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.08291",
+          "material_read": "PDF p. 1 (definition) and p. 4 (shortest-sequence theorem)",
+          "method": "OA PDF passage inspection",
+          "title": "Shortest Reconfiguration Sequence for Sliding Tokens on Spiders",
+          "trigger": "Highly similar title and shortest-path question"
+        },
+        {
+          "assessment": "Exact primary coverage not independently verified",
+          "evidence": "The frozen account identifies distance-one sliding, a different move rule. No broader statement is inferred from the title or access failure.",
+          "identifier_or_url": "https://doi.org/10.1007/s00224-020-09967-8",
+          "material_read": "Frozen RESULT.md lines 50–58 only; cited article text not retrieved",
+          "method": "DOI and journal OA PDF route attempted",
+          "title": "Token Sliding on Split Graphs",
+          "trigger": "Same split-graph superclass, related move"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; arXiv:2407.11768 shortest-variant discussion"
+      ],
+      "rationale": "A clique with private leaves is a canonical split-graph family separating leaf exchanges, clique moves and mixed states. Its exact two-hop geodesic metric, even at maximum occupancy, gives more than a reachability algorithm and furnishes a concrete benchmark for the shortest variant. The transition to a two-rank incidence graph explains the whole distance and diameter profile; the value is this model-specific identification and complete invariant, not the standard subset distance by itself.",
+      "residual_risks": [
+        "Does not settle shortest two-hop reconfiguration for arbitrary split graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

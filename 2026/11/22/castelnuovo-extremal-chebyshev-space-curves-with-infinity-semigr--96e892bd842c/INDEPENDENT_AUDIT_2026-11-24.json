@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:47:20.347496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84 and repaired /workspace/repairs/3/RESULT.md, including the amended conventions and degree proof",
+        "Frozen VERIFICATION.md lines 19–23; verify.py lines 13–76 (finite checks inspected, not executed)"
+      ],
+      "rationale": "Pass applies to the corrected RESULT.md in /workspace/repairs/3/. The frozen text defined the conductor using every strictly greater integer, which instead picks the last gap when gaps exist; e.g. <3,5,7> has last gap 4 but conductor 5. The repaired definition explicitly requires all integers at least c to belong to the semigroup and gives c=0 at the smooth boundary m=2. It also expresses map degree via the pullback of O(1), distinct from the birational degree. Over algebraically closed characteristic zero, the distinct nonzero roots of T_n pair by ±u, giving squarefree h_m with h_m(−1)≠0. In Z²=(X+1)h_m(X)²/2 the double roots give distinct tangents and exactly m ordinary nodes. The inverse Z/h_m(X) and the basepoint-free degree-n system on P¹ give the normalization, degree and only point at infinity. Independently, the cone has coordinates W=A², X=AB, Y=2B²−A², Z=T from weights (1,1,2); the closure is cut in this weighted coordinate ring by the primitive irreducible polynomial A^(n−4)T²−(A+B)(A^m h_m(B/A))²/2 of weight n. Its even Veronese Hilbert function for d≥m is (d+1)²−(d−m)(d−m+1), verifying p_a=m(m−1) and the cone computation. The normalization has one point over infinity; coordinate orders there are n,n−2,n−4. For a=n−4, the residue minima for <a,a+2,a+4> are a ceil(j/2)+2j for 0≤j<a, obtained by using the fewest increments of size 1 or 2 to reach j. The gap count is m(m−2), which equals the local delta from genus minus the m finite node contributions. The inclusion of this semigroup in the actual value semigroup is then equality, by the length/gap identity for a unibranch completed local ring. The largest Apéry value minus a plus one yields the stated conductor in the corrected convention, and the a=1 case is smooth.",
+      "residual_risks": [
+        "The recorded SymPy/range checks are not an independently observed run and are not used as a proof. The family is over algebraically closed characteristic zero and the asserted semigroup is for the indicated ordinary projective model only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mascarin Proposition 5.2 gives a generally strict inclusion of the affine singular locus in a set computed from the parametrization. The pairwise-coprime hypothesis of the Chebyshev smoothness result fails since gcd(2,4)=2.",
+          "The Chebyshev embedding criterion explains nonembedding in this family, but does not give the affine node count and the projective infinity type. The Lissajous-variety framework under comparison is affine.",
+          "For integral degree-n curves on this cone the classical divisor class/Hilbert polynomial method already determines p_a, hence Castelnuovo equality for odd n. Abstract progression-semigroup results already calculate the candidate gaps and conductor."
+        ],
+        "reasoning": "These results cover constituent affine tests and numerical or genus calculations. They do not state the actual value semigroup of this projective model, or supply all the model-specific hypotheses required to identify it.",
+        "searches": [
+          "Mascarin arXiv:2611.15725v1 §5",
+          "Bel-Afia–Meroni–Telen arXiv:2401.12140v1 §3.2 Theorem 3.12",
+          "Freudenburg–Freudenburg arXiv:0902.3440v1 §4 Proposition 4.1",
+          "Mascarin–Telen arXiv:2509.06844v2 introduction",
+          "Resultary standard cone/extremal genus and arithmetic-progression semigroups"
+        ]
+      },
+      "checked_sources": [
+        "Mascarin arXiv:2611.15725v1; Bel-Afia–Meroni–Telen arXiv:2401.12140v1; Freudenburg–Freudenburg arXiv:0902.3440v1; Mascarin–Telen arXiv:2509.06844v2",
+        "Resultary 1a98ce07f8f0, 220c66f72277, 29dda6286b6e and a729d2da9fd4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local coordinate valuations alone show only containment of the candidate semigroup; cancellation in local functions could produce extra values. The abstract numerical result supplies its gap count, not the local ring or equality.",
+          "The Chebyshev-specific affine calculation proves m nodes and no other finite singularities, and the degree and one-point normalization allow the cone genus to bound infinity delta exactly. This is the ingredient that makes the gap comparison force equality."
+        ],
+        "reasoning": "The audited claim does not get originality credit merely for substituting a=n−4 in known formulas. What survives is proving that the actual local ring has no additional values and obtaining the resulting exact singularity description for the whole family; no inspected stronger theorem covers that claim.",
+        "searches": [
+          "1a98ce07f8f0, exact Apéry data at mirror offset 0",
+          "Mascarin Proposition 5.2 and Example 5.8",
+          "220c66f72277, assumptions at mirror offset 0",
+          "Frozen and repaired RESULT.md, proof of genus defect and equality of semigroups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Chebyshev record hit 96e892bd842c is the assigned result itself. Example 5.8 gives the three affine singular locations for n=7, matching the specialization but giving no projective infinity semigroup.",
+          "Distinct same-day 220c66f72277 identifies the infinity semigroup for finite-field projections of curves with smooth hyperelliptic normalizations, not this characteristic-zero rational family. Matching its first two generators with g=m+1 gives the third generator 2m+3, not 2m+1.",
+          "29dda6286b6e studies the dual of a coprime plane Chebyshev curve, and a729d2da9fd4 concerns generic phase-shifted plane Lissajous curves with two branches at infinity and excludes the unshifted special locus."
+        ],
+        "reasoning": "These comparisons distinguish affine from projective singularities and the actual value semigroup in the normalization from an abstract semigroup with the same shape. The same-day records are neither identical findings nor dated priority evidence.",
+        "searches": [
+          "Resultary: Mascarin Example 5.8; (2,4,odd) Chebyshev infinity semigroup; one-point completion of y²=(x+1)h(x)² on the cone",
+          "Mascarin arXiv:2611.15725v1, Proposition 5.2 and Example 5.8",
+          "Resultary 220c66f72277, 29dda6286b6e, a729d2da9fd4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1a98ce07f8f0 gives the full residue minima as well as g=s(s+2) and F=(a²+a−4)/2 for a=2s+1≥3. This covers the abstract gap count and c=F+1 at a=n−4, m≥3, by substitution.",
+          "Example 5.8 is an exact affine-location list for (2,4,7); 220c66f72277 gives exact (delta,c) data for different projected hyperelliptic models."
+        ],
+        "reasoning": "The abstract numerical data and the small affine list are genuine exact prior evidence, but neither gives the geometric realization at infinity in this family. No distinct table asserting that realization was verified.",
+        "searches": [
+          "Resultary 1a98ce07f8f0 Finding and Proof §1; 220c66f72277 Finding; exact Chebyshev curve search",
+          "Mascarin Example 5.8"
+        ]
+      },
+      "rationale": "Supported for the geometric identification of the actual local value semigroup at the unique infinity branch and the full singularity data of the projective zero-phase (2,4,2m+1) family. Known abstract Apéry and conductor facts, the standard cone genus formula, and the known affine locations for n=7 are not credited as new. The repaired text explicitly cites the overlap in the abstract semigroup calculation.",
+      "residual_risks": [
+        "The search does not rule out a broader or earlier treatment of rational projective completions on the quadric cone or equivalent singularity realizations. The novelty judgment is restricted to the geometric identification and is not a historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact affine overlap in the example; broader proposition supplies a generally strict affine inclusion, not the uniform projective result.",
+          "evidence": [
+            "At (2,4,7), b=0, the affine singular points occur at (cos(πk/7), cos(2πk/7),0), k=1,3,5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15725v1",
+          "material_read": "§5 Proposition 5.2 near offset 95280; Example 5.8 near offsets 119873–125831",
+          "method": "Bounded primary OA HTML passage reads",
+          "title": "Intersections, Equations, and Singularities of Lissajous Varieties",
+          "trigger": "Same zero-phase n=7 curve and potentially broader singular-locus coverage"
+        },
+        {
+          "assessment": "The pairwise-coprime hypothesis excludes (2,4,n).",
+          "evidence": [
+            "Theorem is affine and its smoothness hypothesis requires three pairwise-coprime frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.12140v1",
+          "material_read": "§3.2, Theorem 3.12 at offsets 33246–39709",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Chebyshev Varieties",
+          "trigger": "Broader Chebyshev space-curve smoothness"
+        },
+        {
+          "assessment": "Same type of parametrization; no asserted infinity classification for the target curve.",
+          "evidence": [
+            "The triple defines an affine-line embedding iff the maximum pairwise gcd is 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0902.3440v1",
+          "material_read": "§4, Proposition 4.1 at offsets 35213–39068",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Curves Defined by Chebyshev Polynomials",
+          "trigger": "Affine Chebyshev nodes and embedding criteria"
+        },
+        {
+          "assessment": "The reviewed scope is affine.",
+          "evidence": [
+            "Introduces the family as affine algebraic varieties."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.06844v2",
+          "material_read": "Abstract and introduction, offsets 0–4997",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Lissajous Varieties",
+          "trigger": "General Lissajous geometry"
+        },
+        {
+          "assessment": "Prior coverage of the abstract semigroup computation; cited in the repair.",
+          "evidence": [
+            "For odd a=2s+1≥3 the genus is s(s+2), the last gap is (a²+a−4)/2, and the residue minima match the reviewed proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-isolated-gaps-of-the-three-term-progression-langle-a-a-2-a-4-ran--1a98ce07f8f0/RESULT.md",
+          "material_read": "Finding and proof of residue minima at offset 0",
+          "method": "Resultary lookup and direct local-mirror passage",
+          "title": "Isolated gaps of the three-term progression <a,a+2,a+4>",
+          "trigger": "Exact overlapping Apéry, genus and conductor formulas"
+        },
+        {
+          "assessment": "Different model, hypotheses and actual semigroup; no relative priority inferred.",
+          "evidence": [
+            "Requires a squarefree odd-degree hyperelliptic model over a finite field and a projection from an admissible degree-two point; generators are 2g−5,2g−3,2g+1."
+          ],
+          "identifier_or_url": "220c66f72277",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Resultary lookup and direct local-mirror passage",
+          "title": "The exact infinity semigroup and conductor of projected hyperelliptic space curves",
+          "trigger": "Material same-day overlap in a projective infinity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/3/RESULT.md, Finding and Proof; Mascarin Example 5.8; Resultary 1a98ce07f8f0 and 220c66f72277."
+      ],
+      "rationale": "The low frequencies (2,4) force a natural quadric cone relation in the Chebyshev family. The uniform computation shows exactly how an explicit rational family attains extremal arithmetic genus: the affine nodes and one very different infinity branch account for every unit of genus defect. The precise local value semigroup, rather than just a numerical lower bound or an abstract semigroup calculation, is usable for normalization and local singularity comparisons. This value survives the conductor-definition repair and does not depend on claiming the classical Castelnuovo calculation as new.",
+      "residual_risks": [
+        "No extension to other frequency triples, phase shifts, or embedded resolution data is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

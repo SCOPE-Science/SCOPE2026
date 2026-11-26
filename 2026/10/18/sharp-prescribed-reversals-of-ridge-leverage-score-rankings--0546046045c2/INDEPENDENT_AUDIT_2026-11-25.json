@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:39:30.202051Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof and example",
+        "VERIFICATION.md",
+        "verify.py",
+        "requirements.txt"
+      ],
+      "rationale": "For each row a, every component on ker(A^T A)=ker A is zero. Each distinct positive eigenspace therefore contributes one simple pole with numerator equal to the squared norm of the projected row. Combining the q poles gives a polynomial of degree at most q−1 over a denominator positive for λ>0; the identically zero numerator is a separate case, and a simple positive zero changes sign. For sharpness, let P and Q be the prescribed monic numerator and pole denominator. Evaluating the cleared rational identity at −d_k gives residues P(−d_k)/Q'(−d_k); both sides of the cleared identity have degree ≤q−1 and agree at q points. Split the residues divided by d_k into positive and negative parts, scale by ε and take square roots to obtain the first two rows x and y of U. The frozen strict bound on ε makes I−xx^T−yy^T positive definite. Its square root completes U to q orthonormal columns with q+2 rows, so A=U diag(sqrt(d_k)) has the required spectrum and the required difference of two scores for that same A. This covers repeated positive modes in the upper bound, q=1, and the rank-deficient case, without using λ=0. In the frozen three-mode example the mass of the two rows is 28/45 and the signed residues are (5,−18,14)/30, giving the two stated simple crossings. The separate replay `python /workspace/review_checks/frozen_probes.py` checks that identity at rational points and an exact alternative two-mode isometry crossing at λ=2. No frozen checker was executed.",
+      "residual_risks": [
+        "Finite exact probes do not replace the general proof; the theorem is about pairwise order and does not assert a minimal number of rows or a full sorting-path bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meier–Nakatsukasa reuse information to precondition Tikhonov problems for multiple parameter values. Cohen–Musco–Musco compare scores under changes to the data matrix. The same-day E-optimal Krylov result controls the ratio of two selection objectives by an unregularized leverage imbalance in an orthonormal two-column basis."
+        ],
+        "reasoning": "These are broader or adjacent algorithmic questions, but none constrains or realizes crossings for two scores as λ varies at fixed A. The same-day record is distinct and noncovering by statement, not because of its date.",
+        "searches": [
+          "arXiv:2203.07329 abstract and introduction",
+          "arXiv:1511.07263 §4",
+          "Resultary 2026/10/18/4a7f7106cd4e, Finding at offset 0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.06010",
+        "arXiv:2203.07329",
+        "arXiv:1511.07263",
+        "Resultary 4a7f7106cd4e",
+        "Resultary d902a2f6104f",
+        "Resultary 1ab03774ff37",
+        "Resultary 4a650e7d51b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 sorts at a given parameter and gives a deterministic column subset. Tikhonov preconditioning and ridge-score monotonicity under matrix modification establish no common-Gram signed-residue realization."
+        ],
+        "reasoning": "Pointwise ranking and individual score monotonicity do not imply pairwise order monotonicity or the exact maximum number of reversals. Neither scalar interpolation nor those guarantees alone imposes the shared Gram constraints and gives the sharp prescribed-crossover matrix.",
+        "searches": [
+          "arXiv:1803.06010, Algorithm 1",
+          "arXiv:2203.07329, introduction",
+          "arXiv:1511.07263, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Transposition converts the row statement to the column statement. In SVD coordinates it is a signed discrete Cauchy/Stieltjes transform with residues d_k times contrasts of squared singular-vector entries.",
+          "The PageRank record treats two damping-dependent reversals on trees, the Landweber record treats one variance-order swap per pair of covariance eigenmodes, and the real-shift approximation record uses signed residues to approximate an exponential."
+        ],
+        "reasoning": "An unconstrained signed transform captures the zero bound and locations at the scalar level. It does not itself identify those residues as contrasts between two rows of one isometry with the prescribed singular spectrum. The neighboring path results use different matrices, parameters or dependent quantities.",
+        "searches": [
+          "Resultary: ridge leverage-score ranking reversals and prescribed resolvent crossings",
+          "arXiv:1803.06010, §2.1",
+          "Resultary: 2026/11/8/d902a2f6104f (PageRank)",
+          "Resultary: 2026/10/25/1ab03774ff37 (Landweber)",
+          "Resultary: 2026/11/2/4a650e7d51b6 (signed-residue resolvents)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected nearby records include the same-day two-row Krylov selection statement (4a7f7106cd4e) and the later two-PageRank-reversal size theorem (d902a2f6104f)."
+        ],
+        "reasoning": "The former compares objective optima without a ridge path; the latter is a sharp graph-size threshold for two reversals, not a table or realization theorem indexed by an arbitrary ridge spectrum and crossing list. No equivalent indexed entry was verified in this bounded check. A fixed table of instances would not establish the continuum realization assertion.",
+        "searches": [
+          "Resultary: fixed-spectrum ridge leverage ranking reversals, arbitrary positive crossings",
+          "Resultary: pairwise regularization/damping path and real-shift resolvent comparisons"
+        ]
+      },
+      "rationale": "Best of current knowledge for the precise ridge-row theorem, especially fixed-spectrum realization with arbitrary prescribed simple positive crossings. The pole-count bound is elementary after spectral decomposition and interpolation of a signed Cauchy transform is classical; those observations are not standalone originality claims. The inspected papers and indexed records do not supply the joint realization of both rows of one real data matrix with the stated spectrum and row budget.",
+      "residual_risks": [
+        "A genuinely equivalent simultaneous-diagonal resolvent realization could be indexed under Cauchy systems, signed Stieltjes transforms, or interpolation rather than ridge leverage. This comparison is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Sorts ridge scores at one parameter then takes a subset by threshold; no order-path theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.06010",
+          "material_read": "§2.1, p. 4, Algorithm 1 (extracted offset 17700)",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Ridge Regression and Provable Deterministic Ridge Leverage Score Sampling",
+          "trigger": "Fixed-λ deterministic ranking application"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The multiparameter object is reusable preconditioning for solves, not the sign of a pairwise score difference.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07329",
+          "material_read": "Abstract p. 1 and introduction p. 2 (offsets 373 and 6150)",
+          "method": "Open primary PDF, relevant passages",
+          "title": "Randomized algorithms for Tikhonov regularization in linear least squares",
+          "trigger": "Explicit multiparameter regularization"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The monotonicity compares index scores under matrix modification; it is not a fixed-matrix ordering along λ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.07263",
+          "material_read": "§4, p. 15 (offset 61050)",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Input Sparsity Time Low-Rank Approximation via Ridge Leverage Scores",
+          "trigger": "Ridge score monotonicity"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "ρ is the max/min unregularized leverage ratio of a fixed two-column orthonormal Q; result compares σ_min-optimal with κ_2-optimal row subsets and has no ridge parameter.",
+          "identifier_or_url": "Resultary 2026/10/18/4a7f7106cd4e",
+          "material_read": "Finding, mirror offset 0–2141",
+          "method": "Read published mirror passage",
+          "title": "Dimension-free leverage control of E-optimal two-row Krylov sketch distortion",
+          "trigger": "Strong same-day two-row leverage match"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "A PageRank tree-size extremum does not prescribe arbitrary crossover roots for two rows of a common Gram resolvent.",
+          "identifier_or_url": "Resultary 2026/11/8/d902a2f6104f",
+          "material_read": "Published theorem on two damping-dependent reversals and graph size",
+          "method": "Published mirror statement comparison",
+          "title": "Eleven vertices are sharp for two PageRank ranking reversals on trees",
+          "trigger": "Pairwise ranking path analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Score-based deterministic selection motivates an exact question: can a ranking obtained at one penalty be reused as the penalty varies? The sharp bound depends on spectral diversity rather than row count. The thin common-matrix realization provides an explicit obstruction to assuming even a single reversal, or that reversal locations are constrained once a singular spectrum is fixed. That converse, not just counting polynomial zeros, gives a usable exact boundary. No whole-sort, runtime, or statistical improvement is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

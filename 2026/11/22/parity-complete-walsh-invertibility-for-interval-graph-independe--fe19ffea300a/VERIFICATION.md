@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses the exact prefix property of intervals sorted by right endpoints, followed by a two-term signed independent-set recurrence. Every intermediate signed partial sum can be kept in \(\{-1,0,1\}\), and parity is independent of the signing. The resulting zero or unit magnitude proves the infinite-family theorem.
+# Independent mathematical audit
 
-`python3 verify.py` was run against the complete standalone artifact with no external dependencies. It passed 996 randomized-interval/path-power input cases and all 64 octahedral Walsh characters. These computations are corroborative rather than a substitute for the uniform induction. The full octahedral signed spectrum was independently enumerated as \(-2\) (27), \(2\) (27), \(6\) (9), \(10\) (1).
+## correctness
 
-No independent external mathematical audit was performed. The universal statement is restricted to interval graphs; no corresponding general-graph sufficiency is claimed.
+PASS
+
+For closed intervals in nondecreasing right endpoint order, an earlier interval is disjoint from interval i exactly if its right endpoint is strictly less than the left endpoint of i. The earlier intervals eligible to accompany i thus form exactly the first k_i vertices (also with tied endpoints). Splitting independent sets by inclusion of i gives Z_i=Z_{i-1}+s_i Z_{k_i}. Choose each new sign to cancel the two terms if both are nonzero; induction from Z_0=1 keeps every prefix in {-1,0,1}. Every signed summand is odd, so this construction attains the least permitted magnitude, including for the empty graph. Walsh characters diagonalize the unnormalized convolution; the maximum magnitude is the unsigned count and the unit minimum in the invertible case gives the claimed norm and condition number. The sign scan is linear with predecessors given; sorting and strict predecessor searches take O(n log n). For the path power, [i,i+h] realizes the required edges and gives the stated predecessor index. For K_{2,2,2}, a nonempty independent set stays in one part, so the multiplier is 4t-2 where t counts parts having both signs positive; each other part has three sign patterns. This yields the claimed spectrum, and two parts induce a 4-cycle, outside interval graphs.
+
+## originality
+
+PASS
+
+Credit prior Walsh zero/unit criteria on path squares and clique windmills, and unsigned path-power recurrences. Pass the distinct all-interval prefix cancellation and sharp lower multiplier result, not the prior special cases, Walsh diagonalization, or ordinary independent-set counting by themselves. No inspected statement covers that general signed extension.
+
+## value
+
+PASS
+
+The minimum multiplier decides whether exact recovery is possible and, when it is, gives its sharp spectral conditioning. The predecessor-based construction supplies a uniform, efficiently findable witness across arbitrary interval graphs, replacing special-purpose periodic signings. The even-count invertible octahedron isolates why the easy general parity argument cannot give the converse without structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

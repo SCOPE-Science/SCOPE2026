@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_direct.py` and `python3 verify_algebra.py` using Python 3's standard library. Both run without input files or third-party packages.
+## correctness
 
-The first constructs explicit undirected grid adjacency arrays, runs synchronous counting colour refinement until colour class counts cease to grow, and checks exactly \(R(m,n)=n+\lfloor m/2\rfloor-2\) iterations and the claimed corner-fixing automorphism orbits. It covers 345 pairs with \(2\le m\le16\) and \(m\le n\le31\).
+PASS
 
-The second does not construct any graph: it checks the path-boundary formal power series coefficients and their separation of reflection classes, the reversal-coefficient inequality outside four small cases, the root-geodesic binomial distinctness up to the proposed depth, and a sharpness witness. It covers 912 pairs with \(2\le m\le33\) and \(m\le n\le45\).
+The claimed depth counts the first equality of consecutive synchronous partitions, starting at round zero with one uniquely marked corner. The degree deficit first becomes available at round one; applying the Laplacian k times uses k additional rounds. Its separated path resolvent satisfies both endpoints (after removing the common prefactor, the left endpoint equation reduces to (1-r^q)/(1-r)) and the interior recurrence for z=-r/(1-r)^2. The change of parameter preserves order of vanishing. The cross-multiplied numerator is anti-reciprocal in degree m+n-1; the R initial zero coefficients force all coefficients to vanish except in the four expressly handled small cases. At a primitive q-th root, the reflected-position amplitudes have distinct cosine factors on the near half of the path, so a nonzero difference of reflection types has least period q. Thus the shorter and longer path differences cannot cancel unless both vanish; for squares, coefficient multiplicities distinguish unordered pairs of reflection types. A root-distance d at most R gives a shortest-walk count binom(d,i) with just the swap ambiguity. An unequal swap cannot preserve both rectangle reflection types because it would require i+j=m-1=n-1. Outside radius R, only the far-far position in a reflection orbit remains, modulo swap on a square. The reflected witness in the final column has distances R and greater than R, is indistinguishable before R, and splits at R. Direct small-case refinement gives round depths 1, 2, 2, 3 for (2,2), (2,3), (3,3), (3,4); in the last case round two leaves only the doubletons {(0,3),(2,3)} and {(2,1),(2,2)}, both split by their neighbors in round three. An independent in-memory implementation using retained vertex color and sorted neighbor colors checked depth and orbit partition on 63 pairs, 2<=m<=10 and m<=n<=12. The supplied direct/algebra scripts and recorded outputs were inspected, not executed. The bounded replay corroborates the finite cases; the proof establishes the universal depth.
 
-Expected terminal lines appear in `direct_output.txt` and `algebra_output.txt`. These are finite corroborating checks, not a machine proof of the universal result; the universal argument is given in `RESULT.md`. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Pass concerns the exact first stabilization round for the single-corner initialization. The stable singleton/swap partition is supported here but is not a distinct contribution: same-object catalogue records already give that partition, and the frozen result acknowledges overlap on eventual orbits. The closest quantitative catalogue result is for uniform initialization and differs in actual value. No inspected same-object statement gives the marked stopping time or makes it an immediate corollary. This is a bounded source comparison, not a priority determination.
+
+## value
+
+PASS
+
+A single initial marker is a natural individualization of rectangular grids. The exact synchronous depth explains when boundary information and the marker together finish refinement, rather than simply giving eventual identifiability or an order-of-growth bound. The reflected far-column pair certifies a sharp obstruction, and the even/odd short-side dependence is useful when comparing refinement depths across initializations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:56.947973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Laplacian is invertible on the zero-sum hyperplane and has precisely the hub-versus-rim eigenvector with eigenvalue m+1 together with the nonconstant cycle frequencies 3−2cos(2πk/m). The two squared projected pseudoinverse column norms are as in (1); barycentric gradients give each facet area as m times volume times the corresponding norm. For the volume, the standard coordinate simplex lies in the sum-one hyperplane (the phrase ‘inside 1-perp’ in the proof should read ‘translated into 1-perp’); its volume is √(m+1)/m!, unaffected by this translation. The determinant of the restriction is (m+1) times the tree count; replacing each cycle factor by ρ⁻¹(1−ρz)(1−ρ/z) for z an m-th root of unity gives ρ⁻ᵐ+ρᵐ−2. Summing facet-distance inequalities gives the unique insphere. The squared lengths m(m+1), 12 and hub-rim product −(m+1) give the common circumradius at the stated t_m. This center has all barycentric weights strictly positive (also at m=4); the weighted squared-distance identity proves global minimum and uniqueness over all centers, without assuming an axial solution. The rim norm tends to √(3/(5√5)) by the periodic Riemann sum, evaluating the integral by differentiation in its constant term. Since ma_m→1 and t_m→1/2, all limits in (6)–(7) follow. A reviewer-written bounded check used exact Gram determinants and a full circumcenter linear system for m=4,5,6. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "841b23980b76 gives the radii under vertex transitivity and a general pseudoinverse-normal identity.",
+          "fce010f93d91 compares prism and Möbius graph families, both vertex transitive.",
+          "The separate ac6d13296de7 statement treats complete bipartite K_{p,q} with 2≤p≤q; the exact cited e213ee1cfdd8 note was not retrieved."
+        ],
+        "reasoning": "The hub and rim degrees differ for m≥4, excluding vertex transitivity. Complete multipartite may give an overlap at m=4 if singleton parts are allowed, but no wheel m≥5 lies in that class. The bipartite result does not cover the exceptional tripartite case.",
+        "searches": [
+          "Resultary: spectral Laplacian simplex radii, complete multipartite and complete bipartite contact strata",
+          "Resultary:841b23980b76, fce010f93d91, e213ee1cfdd8, ac6d13296de7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "python3 /workspace/branches/independent_math_checks.py (review-authored finite exact Gram and contact checks)",
+        "Resultary:8bacc337ff7c, 841b23980b76, fce010f93d91, 13f88e3d79e2, ac6d13296de7, 1d4cc8b8e3fb",
+        "Resultary:e213ee1cfdd8 (attempted, not retrieved)",
+        "arXiv:1706.07085, arXiv:1809.02960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general facet-gradient identity gives the starting point, but the inspected prior statements do not give the wheel's two-class norms and positive circumcenter coordinates together.",
+          "The normal-cone and edge-polytope results do not express either of the two coupled quantities for Laplacian wheel simplices."
+        ],
+        "reasoning": "The asymptotic uses the nonconstant cycle spectral average and the separate positive minimax certificate. It is not a parameter substitution into an inspected radius formula or a consequence of the normalized volume alone.",
+        "searches": [
+          "Resultary:841b23980b76, 1d4cc8b8e3fb and 13f88e3d79e2",
+          "Braun–Meyer Proposition 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wheel edge-polytope record 13f88e3d79e2 uses the edge vectors e_i+e_j and a different inball geometry.",
+          "The same-day windmill finding 1d4cc8b8e3fb gives a limiting 1/2 for the Gaussian hub normal-cone probability."
+        ],
+        "reasoning": "The wheel edge points are not the Laplacian columns. A Gaussian cone probability is different from the unique positive barycentric weights expressing the minimum-ball center; the windmill graph family is also different.",
+        "searches": [
+          "\"Laplacian simplex\" wheel graph inradius circumsphere facet area hub contact measure",
+          "Resultary: wheel simplex inradius/incenter and hub half-contact",
+          "Resultary:13f88e3d79e2 and 1d4cc8b8e3fb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8bacc337ff7c is the self-match.",
+          "Braun–Meyer Proposition 3.4 gives normalized volume nκ; Meyer–Pllaha also reports this ingredient."
+        ],
+        "reasoning": "The known exact tree/volume quantities are credited and not the facet area fractions or the barycentric enclosing-sphere weights; the catalogue self-match is not independent evidence.",
+        "searches": [
+          "Resultary: wheel Laplacian simplex hub-facet area and minimum-enclosing contact",
+          "Resultary:8bacc337ff7c",
+          "arXiv:1706.07085; arXiv:1809.02960"
+        ]
+      },
+      "rationale": "The supported distinct result is the wheel family's coupled area/contact asymptotic and its explicit finite-size certificate, not an originality claim for tree counts, normalized simplex volume, general pseudoinverse normals, or a single small wheel. The plausible close matches inspected give a different polytope, hypothesis, or measure. The complete-multipartite comparison needs the finite-case qualification W4≅K1,2,2; even potential coverage of that case does not cover the family asymptotic.",
+      "residual_risks": [
+        "The exact cited complete-multipartite note was unavailable; W4, unlike larger wheels, is complete multipartite and could overlap if singleton parts are in scope.",
+        "The limited search does not rule out prior equivalent formulas for cones over regular graphs or a separate wheel specialization.",
+        "The result uses the canonical Euclidean metric; normalized lattice metrics and normal-cone probabilities are not interchangeable with the two measurements here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finding",
+          "evidence": "Same wheel, metric and two coupled limits.",
+          "identifier_or_url": "Resultary:8bacc337ff7c",
+          "material_read": "Frozen RESULT.md Finding and scope",
+          "method": "Resultary search and frozen text comparison",
+          "title": "Vanishing hub-facet area versus half-weight sphere contact in wheel Laplacian simplices",
+          "trigger": "Strongest exact catalogue hit"
+        },
+        {
+          "assessment": "Credited ingredient, distinct hypotheses",
+          "evidence": "Pseudoinverse barycentric normals; radius theorem for vertex-transitive graphs.",
+          "identifier_or_url": "Resultary:841b23980b76",
+          "material_read": "Mirrored RESULT.md offsets 670 and 6674",
+          "method": "Local mirror passage inspection",
+          "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+          "trigger": "Closest Laplacian simplex spectral radius theorem"
+        },
+        {
+          "assessment": "Different families and invariant",
+          "evidence": "Compares spectral inradii in vertex-transitive cubic families.",
+          "identifier_or_url": "Resultary:fce010f93d91",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "An exponentially small inradius gap between prism and Möbius Laplacian simplices",
+          "trigger": "Nearby cycle-based Laplacian simplex geometry"
+        },
+        {
+          "assessment": "Different realization",
+          "evidence": "Hull of edge vectors, including an exceptional m=4 incenter locus.",
+          "identifier_or_url": "Resultary:13f88e3d79e2",
+          "material_read": "Mirrored RESULT.md finding and scope at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "An exceptional rectangle of incenters for ordinary wheel edge polytopes",
+          "trigger": "Same wheel and inball vocabulary"
+        },
+        {
+          "assessment": "Unresolved finite-case overlap; unavailable text is not negative evidence",
+          "evidence": "The potentially relevant singleton-part hypothesis could not be verified.",
+          "identifier_or_url": "Resultary:e213ee1cfdd8",
+          "material_read": "Exact text unavailable in searched mirror",
+          "method": "Local Resultary exact title and mirror lookup",
+          "title": "Water-filling contact strata of complete multipartite Laplacian simplices",
+          "trigger": "Cited possible finite coverage of W4≅K1,2,2"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "K_{p,q} with 2≤p≤q cannot include the tripartite W4, let alone the wheel family.",
+          "identifier_or_url": "Resultary:ac6d13296de7",
+          "material_read": "Statement of complete bipartite scope and contact result",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Sharp vertex-contact transition for complete bipartite Laplacian simplices",
+          "trigger": "Nearby non-vertex-transitive enclosing-contact theorem"
+        },
+        {
+          "assessment": "Known normalization ingredient",
+          "evidence": "Normalized volume equals the graph order times the spanning-tree count.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+          "material_read": "Proposition 3.4, PDF p. 6, OA offset 22365",
+          "method": "OA PDF passage inspection",
+          "title": "Laplacian Simplices",
+          "trigger": "Known volume and realization baseline"
+        },
+        {
+          "assessment": "Volume credited; coding rather than metric contacts",
+          "evidence": "Restates the volume in its lattice/coding context.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.02960",
+          "material_read": "PDF p. 1, OA offset 2206",
+          "method": "OA PDF passage inspection",
+          "title": "Laplacian Simplices II: A Coding Theoretic Approach",
+          "trigger": "Same construction and known volume"
+        },
+        {
+          "assessment": "Different family and measure; no date-based priority inference",
+          "evidence": "Limit 1/2 is a Gaussian probability of a normal cone, not a minimum-ball support weight.",
+          "identifier_or_url": "Resultary:1d4cc8b8e3fb",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp hub-angle deficits for clique-windmill Laplacian simplices",
+          "trigger": "Distinct same-day half-weight analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wheels are a canonical non-vertex-transitive Laplacian family with one exceptional vertex. The exact distinction between a hub-opposite facet with only order m⁻² of total area and a hub vertex with half the minimum-ball support weight is a usable quantitative demonstration that the two boundary measurements need not track each other. The positivity and uniqueness certificate makes the distinction intrinsic, rather than a choice among support weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

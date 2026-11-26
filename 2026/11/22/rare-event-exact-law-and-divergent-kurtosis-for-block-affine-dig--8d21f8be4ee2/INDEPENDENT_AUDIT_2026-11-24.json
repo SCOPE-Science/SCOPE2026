@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:02:02.736805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected statement, invertibility balances the full prefix and independence of unrestricted restricted rows gives independent signed activations of probability 1/N. The geometric first activation divided by N tends to Exp(1); unless the next two positions activate (probability O(1/N)), the remaining tail changes the magnitude by at most one quarter of its first term. Exact cancellation would require an infinite maximal opposite-sign tail and has probability zero. Quantile convergence gives the stated absolute median scale. Independent uniforms within disjoint nested-scramble strata give variance 1/(12N³), a Gaussian standardized limit and zero limit on the scaled logarithmic axis. The supplied verify.py was inspected, not executed; the recorded VERIFY_OK 96 supports finite digit distributions and moments only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan–Owen Theorem 5.6 bounds a single error at a superpolynomial threshold in N and Section 5 studies median estimators. It gives no matching lower-side law for a single replication at thresholds of order N⁻¹2^(−cN).",
+          "Suzuki's gain-coefficient formula weights Walsh bands for the variance, not a log-absolute-error distribution."
+        ],
+        "reasoning": "Superpolynomial high-probability bounds can accommodate quite different limiting laws for −log₂(2N|E_N|)/N. They do not furnish the repaired benchmark's rate and distribution.",
+        "searches": [
+          "Pan Owen Super-polynomial accuracy of one dimensional randomized nets using the median of means Walsh error random linear scrambling arXiv exponential magnitude first nonzero f(x)=x",
+          "Suzuki Theorem 2.17 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Pan–Owen arXiv:2111.12676",
+        "Suzuki arXiv:2510.02111v1",
+        "Resultary exact indexed match 8d21f8be4ee2",
+        "Owen DOI 10.1145/937332.937335 (metadata/access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pan–Owen already explains the first zero suffix row as a rare coherent shift (Section 3) and cites variance equality with nested uniform scrambling (p. 6). Applying the exact series gives the frozen kurtosis by straightforward moments.",
+          "Their exact series and bounds do not state the geometric first-active-digit limit for this integrand or the necessary signed-tail comparison on the log scale."
+        ],
+        "reasoning": "Credit coverage of direct algebraic implications. The surviving limit uses a geometric waiting time together with a two-sided high-probability tail bound; this is an asymptotic use of the known representation rather than a renamed formula.",
+        "searches": [
+          "Pan–Owen arXiv:2111.12676, §§2–3, 5",
+          "Owen, 10.1145/937332.937335"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Pan–Owen (3.1)–(3.2), f(x)=x has only singleton nonconstant binary Walsh terms; its coefficient for digit ℓ is −2^(−ℓ−1). Their Section 2 makes the row tests and shift signs independent across suffix positions.",
+          "At aligned complete block prefixes Suzuki's construction has exactly the same restricted suffix row law, so the distinct prefix randomization cannot distinguish the original series from this special case."
+        ],
+        "reasoning": "The series, variance and fourth moment cannot support originality. The logarithm of the absolute error reduces to the first activation only after controlling signed cancellation, a limit not given by the equivalent exact expansion as a statement.",
+        "searches": [
+          "Pan–Owen, arXiv:2111.12676, Section 2 and Theorem 3.1",
+          "Suzuki, arXiv:2510.02111v1, Definition 2.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest relevant indexed hit was the exact assigned 8d21f8be4ee2 record itself, whose Finding contains the log law. The bounded lookup supplied no distinct equivalent statement."
+        ],
+        "reasoning": "The identical mirror is the record tested here, not external priority evidence; no separate numerical table would certify the asymptotic result.",
+        "searches": [
+          "Resultary semantic searches: exact block-affine law; random-linear exact laws; Walsh/gain variance; affine-scramble tails"
+        ]
+      },
+      "rationale": "Passes only for the repaired logarithmic limit and typical-scale comparison, not for the supporting series, direct moments, rare-outlier mechanism, or prior variance comparisons. The closest full-text exact expansion covers the distributional input, but its generic probability and median bounds do not give the two-sided limit at scale N; the repair analyzes the first active singleton and cancellation on that scale.",
+      "residual_risks": [
+        "Historical priority is not exhaustive; a separate exact single-shot linear-integrand quantile calculation could exist.",
+        "Owen full text was not accessible and the frozen Liu v1 retrieval did not succeed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen series under equivalent row law, not the repaired exponential log-scale statement",
+          "evidence": [
+            "Section 2 specifies iid subdiagonal bits and independent digital shift; (3.1) tests vanishing row sums, with shift signs in (3.2); (5.5) is a one-sided probability bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12676",
+          "material_read": "Section 2 pp. 5–6; Section 3 pp. 6 and 8, Theorem 3.1 (3.1)–(3.2); p. 13 Theorem 5.6",
+          "method": "Lawful OA PDF, literal location followed by passage inspection",
+          "title": "Super-polynomial accuracy of one dimensional randomized nets using the median of means",
+          "trigger": "Exact ordinary affine expansion and possible coverage of single-shot log scale"
+        },
+        {
+          "assessment": "Same construction; second-order overlap, not logarithmic law",
+          "evidence": [
+            "Definition 2.14 specifies uniform unrestricted off-diagonal blocks and an affine shift; Theorem 2.17 expands variance with gain coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.02111v1",
+          "material_read": "Definitions 2.12 and 2.14, Lemma 2.15, Theorem 2.17 and Appendix A",
+          "method": "Lawful OA PDF",
+          "title": "Coarse scrambling for Sobol’ and Niederreiter sequences",
+          "trigger": "Same scramble definition and variance theory"
+        },
+        {
+          "assessment": "Full-text scope unresolved; not used as negative evidence",
+          "evidence": [
+            "Reference on p. 19 of Suzuki; full text returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/937332.937335",
+          "material_read": "Bibliographic entry in Suzuki only; publisher full text inaccessible",
+          "method": "DOI/publisher OA access attempt and inspected reference",
+          "title": "Variance with alternative scramblings of digital nets",
+          "trigger": "Cited antecedent for alternative scramble variance"
+        },
+        {
+          "assessment": "Identical item, not a distinct source",
+          "evidence": [
+            "Matches the exact signed series, log law and nested comparator."
+          ],
+          "identifier_or_url": "Resultary:8d21f8be4ee2",
+          "material_read": "Finding and assumptions",
+          "method": "Local catalogue and frozen copy",
+          "title": "Rare-event exact law and divergent kurtosis for block-affine digital quadrature",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At matched exact RMS the benchmark distinguishes an exponential-in-N median magnitude from the ordinary polynomial nested-scrambling scale. This is a concrete and reproducible statement about typical replication error, for which a high-probability upper bound or a fourth moment alone does not determine even the median scale. The repair does not count a standard moment calculation as a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

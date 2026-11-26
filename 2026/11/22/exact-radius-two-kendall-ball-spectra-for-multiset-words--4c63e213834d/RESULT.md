@@ -12,14 +12,14 @@ C(x)=\#\{i\in[1,m-1]:x_i=x_{i+1}=x_{i+2}\},
 A(x)=\#\{i\in[1,m-1]:x_i=x_{i+2}\ne x_{i+1}\}.
 \]
 
-The **exact center-specific radius-two ball size** is
+The center-specific identity used below is a consequence of the support partition in *Complete maximizers of exact-two adjacent-swap spheres over nonbinary alphabets* (see Relationship to related work). In the present shorthand it gives
 
 \[
 \boxed{|B_2(x)|=\binom{m-K(x)}2+2m-K(x)-C(x)-2A(x).}
 \tag{1}
 \]
 
-The **complete all-length ball-size distribution** is encoded by the following two-state polynomial. For \(n\ge2\), let
+The contribution here is the **complete all-length ball-size distribution over labeled words**, with binary extremal counts and fluctuation limits. For \(n\ge2\), let
 
 \[
 G_{q,n}(u,v,w)=q\,(u,\ q-1)
@@ -36,7 +36,7 @@ The coefficient \([u^k v^c w^a]G_{q,n}\) counts exactly the words with \((K,C,A)
 \tag{3}
 \]
 
-For \(q\ge3\), the sharp maximum is \(\binom m2+2m\), attained by exactly \(q(q-1)(q-2)^{n-2}\) length-\(n\) words: precisely those with pairwise different symbols in every consecutive triple. For the binary alphabet, the maximum ball size is \(2,3,6,8\) at lengths \(2,3,4,5\), with respectively \(2,6,2,6\) labeled maximizing words; for every \(n\ge6\), the maximum equals \(2+\binom{n-1}{2}\) and is attained only by the two alternating words.
+For \(q\ge3\), a direct consequence of (1) is that the sharp maximum is \(\binom m2+2m\), attained by exactly \(q(q-1)(q-2)^{n-2}\) length-\(n\) words. The maximizing words have every adjacent pair unequal and every consecutive triple pairwise distinct; in particular at \(n=2\) the two letters must differ. For the binary alphabet, the maximum ball size is \(2,3,6,8\) at lengths \(2,3,4,5\), with respectively \(2,6,2,6\) labeled maximizing words; for every \(n\ge6\), the maximum equals \(2+\binom{n-1}{2}\) and is attained only by the two alternating words.
 
 For a uniformly random word \(X\in\Sigma_q^n\), write \(p=(q-1)/q\). The exact mean is
 
@@ -70,7 +70,7 @@ A word is labeled by its positions and letters. A legal step exchanges two conse
 
 ## Proof
 
-**Two-swap classification.** Write \(b_i=\mathbf 1_{x_i\ne x_{i+1}}\), \(t=\sum_{i=1}^m b_i=m-K\), and \(H=\sum_{i=1}^{m-1}b_i b_{i+1}\). There are exactly \(t\) nonidentity one-swap outputs. For two swaps with disjoint swapped pairs, both original boundaries must be unequal. The result differs from the source at all four swapped positions, so different disjoint pairs give different outputs, not obtainable with overlapping swaps. Their count is \(\binom t2-H\).
+**Center-specific identity.** For completeness, write \(b_i=\mathbf 1_{x_i\ne x_{i+1}}\), \(t=\sum_{i=1}^m b_i=m-K\), and \(H=\sum_{i=1}^{m-1}b_i b_{i+1}\). There are exactly \(t\) nonidentity one-swap outputs. For two swaps with disjoint swapped pairs, both original boundaries must be unequal. The result differs from the source at all four swapped positions, so different disjoint pairs give different outputs, not obtainable with overlapping swaps. Their count is \(\binom t2-H\).
 
 Two overlapping swaps act on a unique consecutive triple. A triple with three distinct symbols gives two distinct three-cycle outputs; a triple with exactly one unequal boundary gives one genuinely new output; a triple of the form \(aba\) with \(a\ne b\) gives no new output after two legal swaps; a constant triple gives none. These outputs have minimal changed interval of length three and are distinct from disjoint-pair outputs and from those belonging to other triples. Thus the total number from overlapping swaps is
 
@@ -123,16 +123,19 @@ Now \(K\sim\operatorname{Bin}(m,1/q_n)\) tends to \(\operatorname{Poisson}(\lamb
 
 The included standalone Python program `verify.py` computes each ball independently by breadth-first adjacent swapping, compares it against (1), and independently counts the \((K,C,A)\) coefficient distribution through the two-state transfer. It exhausts alphabets of size \(2\) through length \(10\), size \(3\) through length \(8\), and size \(4\) through length \(7\), a total of \(33{,}730\) labeled source words. It also checks the exact mean and the maximizer counts. Run it with `python3 verify.py`. The mathematical proofs above, rather than the finite checks, justify all lengths, alphabet sizes, and limits.
 
-## Relationship to prior work
+## Relationship to related work
+
+*Complete maximizers of exact-two adjacent-swap spheres over nonbinary alphabets* uses the same word model but counts outputs of exactly two swap operations, allowing equal-letter swaps as no-ops. Its support partition gives \(|T_2|=1+\binom{t}{2}+a+h-2A+s\), where \(a\) counts successive pairs of active boundaries, \(h\) counts successive pairs with exactly one active boundary, and \(s\) counts the distinct one-effective-swap outputs present in \(T_2\). Every zero-distance or distance-two output of the closed ball is already present in \(T_2\). Passing from \(T_2\) to the closed ball therefore adds \(t-s\) one-swap outputs. Using \(a+h=m-1-C\) yields (1). This identity is used as input for the transfer distribution and its consequences rather than claimed as an independent enumeration of the same two-swap structure.
 
 Buzaglo–Yaakobi–Etzion–Bruck (2013) establish foundational Kendall-distance properties for multipermutations, give the radius-one ball size in terms of runs, and state bounds for radius-two ball volumes in a fixed-multiplicity family. Their stated bounds do not determine every center-specific volume or the all-alphabet two-state enumerator. Bereg and collaborators (2023) study distance bounds for *permutations without repeated labels*. Their framework yields the familiar distinct-letter specialization but not the repeated-letter correction terms. Adamson–Flaherty–Potapov–Spirakis (2023) investigate arbitrary-position swaps, for which their configuration graph has markedly different local structure; adjacent-only two-step balls are not covered by their results. Gregor–Merino–Mütze (2023) treat star-transposition Gray codes rather than radius-two adjacent-swap ball distributions.
 
 ## Limitations
 
-The claim is confined to graph distance at most two, not larger error radii, nearest-neighbor decoding algorithms, or optimal codebook sizes. The all-length distribution (3) is given by an explicit coefficient transform, not a single univariate rational generating function in ball size. The asymptotics are under uniformly distributed labeled words, not fixed multiplicity-vector sampling. Although inspected sources do not state the theorem, a prior equivalent or stronger center-specific ball enumeration may remain unidentified; this does not establish external priority or independent validation.
+The claim is confined to graph distance at most two, not larger error radii, nearest-neighbor decoding algorithms, or optimal codebook sizes. The all-length distribution (3) is given by an explicit coefficient transform, not a single univariate rational generating function in ball size. The asymptotics are under uniformly distributed labeled words, not fixed multiplicity-vector sampling. No priority is asserted for the center-specific identity.
 
 ## References
 
+- *Complete maximizers of exact-two adjacent-swap spheres over nonbinary alphabets*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52/RESULT.md , especially Finding and Proof §1.
 - S. Buzaglo, E. Yaakobi, T. Etzion, J. Bruck, *Error-Correcting Codes for Multipermutations*, IEEE ISIT 2013, https://www.paradise.caltech.edu/~yaakobi/publications/multipermutations_isit13.pdf .
 - S. Bereg, W. Bumpass, M. Haghpanah, B. Malouf, I. H. Sudborough, *Improved Permutation Arrays for Kendall Tau Metric*, arXiv:2301.11423 (first public 2023-01-26), https://arxiv.org/abs/2301.11423 .
 - D. Adamson, N. Flaherty, I. Potapov, P. G. Spirakis, *Structural and Combinatorial Properties of 2-swap Word Permutation Graphs*, arXiv:2307.01648 (first public 2023-07-04), https://arxiv.org/abs/2307.01648 .

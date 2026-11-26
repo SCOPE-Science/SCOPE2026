@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:22:56.099631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and all supporting files; verify.py statically inspected, not executed",
+        "Private replay: python3 -B /workspace/reviews/check_1.py"
+      ],
+      "rationale": "At fixed sum s, the invertible change u=x−y gives 4t=s³+3su². If g=gcd(3s,p^k), a necessary condition is g|4t−s³; after division, there are g lifts of each root mod p^k/g. The singular case g=p^k gives one t and p^k pairs; it occurs once for p≠3 and three times for p=3, even at k=1. For a nonzero reduced target with valuation d, the valuation must be even (d=2h), and a unit root mod p has exactly one lift at each successive step by its derivative 2u; two roots each acquire p^h lifts when restoring the factored p^h. For the zero target the root count is p^floor(j/2). Counting attainable unit squares at the even valuations gives Q_p(j). At fixed nonsingular s the admissible quotient residues c range over all p^j values; only the square residues have nonzero fiber. The sum of their squared root counts equals Σ_{a mod p^j} gcd(a,p^j)=p^j+j(p−1)p^{j−1}, by the invertible (u−v,u+v) change. There are (p−1)p^{j−1} sum coordinates with quotient exponent j for p≠3 and 2·3^j for p=3; multiplying these counts by the square of the lift factor yields the printed energy polynomials. Direct CRT on pair parameters proves all factorizations, and summing additive characters over both dual coordinates introduces q², exactly canceled in the formula. Bounded independent replay check_1.py checked 280221 targets across 13 moduli, comparing all, including zero fibers, by direct x at fixed s and independently counting reduced squares and product-zero pairs. Examples (modulus, support, energy): (3,3,27), (27,87,8019), (243,5703,1436859), (315,4875,3974211).",
+      "residual_risks": [
+        "Finite replay is diagnostic beyond the separately reconstructed proof. The proof's phrase ‘support targets correspond bijectively to the c’ should refer to the divisibility-eligible targets, only some of which are in the support; all remaining terms in the moment sum vanish."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hickman–Wright Problems 1.1, 2.2 and 2.3 situate general modular polynomial graphs in weighted Fourier restriction and ask for uniform norm estimates; the opening theorem is about paraboloids."
+        ],
+        "reasoning": "General norm inequalities over a broader class compare sizes of moments, not exact targetwise fibers. The normalization and CRT setting are established background; no stronger count was identified in the parts inspected.",
+        "searches": [
+          "arXiv:1801.03176v2 Introduction and §2",
+          "Literature query: cubic Weyl sum complete modulo prime powers exact fourth moment x x^3 additive energy sum ordered pair fibers 3s square roots prime power (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Primary papers and exact repository records above",
+        "Resultary ranked neighboring summaries, with scope distinguished above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-field identity gives the field moment directly at g≡1, E_p=3p²−3p+1 for p≠3. In the field, at s≠0 one also recovers the count by the discriminant of the known product and sum.",
+          "The three-coordinate result shares the inner zero-product count, but imposes 2ab=0 as well as 3sab=0. At odd modulus (0,0) and (1,−1) have the same two graph coordinates but distinct sums of squares."
+        ],
+        "reasoning": "Neither antecedent extends the field calculation to sums that are nonzero zero divisors. Removing the extra second-moment equation changes the local singular strata; one must recalculate the quotient exponents, lift multiplicities and all distinct attained targets.",
+        "searches": [
+          "Finite-field cubic-graph extension RESULT.md, 2db777d1e47b, Proof",
+          "Modular three-moment closure RESULT.md, 7fe52001e4e6, Steps 1–3",
+          "Hughes–Wooley §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-sum formulation is the complete quadratic-congruence census 3su²=4t−s³, including nonunits rather than standard unit Hensel lifting alone.",
+          "Hughes–Wooley §2 uses an equivalent cubic collision factorization over the integers, analyzing c₂(0) and c₂(l) in a bounded interval."
+        ],
+        "reasoning": "Integer identities and square-root lemmas are shared. Their cited applications do not count all pairs for prescribed modular targets; dividing by a nonzero sum is not valid over prime-power residue rings without valuation analysis.",
+        "searches": [
+          "Resultary: cubic graph x cubed pair sum ordered representation fibers exact additive energy odd prime powers residue rings quadratic congruences",
+          "arXiv:1911.12262v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the same record. The complete distinct ternary cube-residue sum census (53ef647f172e, summary, later record) omits the first coordinate and counts distinct residues, not labeled graph pairs. The prime-square spectra record (a783058468ac, summary) classifies orthogonal bases, not pair-sum fibers."
+        ],
+        "reasoning": "The similarly named modular moment-curve exact formula counts collisions satisfying a further quadratic equation. It is not a table for these invariants. The older finite-field result does cover the specialization in characteristics other than two and three.",
+        "searches": [
+          "Resultary: cubic graph x cubed pair sum ordered representation fibers exact additive energy odd prime powers residue rings quadratic congruences",
+          "Resultary full RESULT.md: 7fe52001e4e6; 2db777d1e47b"
+        ]
+      },
+      "rationale": "Qualified for the combined exact target census, support and unweighted energy over all odd moduli. The cubic collision identity, square-root arithmetic and prime-field specialization are not new; prior identities motivate but do not state or give the full prime-power fiber census and singular-prime moment.",
+      "residual_risks": [
+        "General literature search unavailable; no negative evidence from the failure.",
+        "An older exact congruence-density calculation or a stronger Fourier result may contain the full arithmetic special case. The finite-field arithmetic and product-zero lemma should not be claimed as new. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares factorization but absolute interval divisibility bounds are not local ring counts",
+          "evidence": [
+            "§2 c₂(0) distinguishes zero/nonzero fixed sum over integers; c₂(l) factors an integer product, then uses a divisor bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12262v1",
+          "material_read": "Primary preprint Introduction, §2 up to the c₂ and c₃ estimates",
+          "method": "Compare equations and domain of summation",
+          "title": "Discrete restriction for (x,x³) and related topics",
+          "trigger": "Same formal graph and collision factorization"
+        },
+        {
+          "assessment": "General estimates in the portions read, not target fiber data",
+          "evidence": [
+            "Problems 2.2–2.3 concern uniform restriction bounds for polynomial graphs"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.03176v2",
+          "material_read": "Primary preprint opening and §2 problem formulations",
+          "method": "Compare analytical object, hypotheses and strength; not an exhaustive appendix audit",
+          "title": "The Fourier Restriction and Kakeya Problems over Rings of Integers Modulo N",
+          "trigger": "Same residue-ring setting with polynomial graphs"
+        },
+        {
+          "assessment": "Covers nonsingular field case but not nonfield prime powers or p=3",
+          "evidence": [
+            "Q(g)=2S²−P₄−2R+|g(0)|⁴+|B|²; proof uses division by nonzero s in a field"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b",
+          "material_read": "Full RESULT.md via public repository contents",
+          "method": "Specialize its explicit Q(g) to the unweighted case",
+          "title": "Exact sharp finite-field cubic-graph L² to L⁴ extension norm and extremizers",
+          "trigger": "Same fourth moment at p≠2,3"
+        },
+        {
+          "assessment": "Counts a different, strictly smaller collision set at odd moduli",
+          "evidence": [
+            "Steps 1–3 impose both 2ab=0 and 3sab=0; odd factor p^(2k−1)(p+k(p−1))"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-three-moment-closure-and-exact-energy-of-the-modular-c--7fe52001e4e6",
+          "material_read": "Full RESULT.md via public repository contents",
+          "method": "Compare collision equations and exhibit strict difference",
+          "title": "Universal three-moment closure and exact energy of the modular cubic curve",
+          "trigger": "Exact cubic energy over prime powers, possible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; comparison with the finite-field extension result and the modular three-coordinate result"
+      ],
+      "rationale": "The fixed-sum singular strata change both support and energy, including dramatically in characteristic 3 and nonreduced rings. Knowing the exact fibers, not merely a moment estimate, answers every representation query and yields the complete normalized fourth moment uniformly across odd moduli. The unified prime-power and CRT formulas are independently useful in modular additive and restriction calculations even though the ingredients are elementary.",
+      "residual_risks": [
+        "Value is in the exact combined arithmetic output, not in a new lifting method, even-modulus result, or weighted sharp bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

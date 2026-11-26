@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:09.691110Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81 and verify.py, inspected without executing",
+        "Replay: python3 /workspace/branches/independent_repro.py 3. Enumerate arbitrary assignments of images of (0,b) (not the normal form), extend using (a,b)=(0,b)▹(0,b−a), and directly test all operation pairs and idempotence. The 16-point case has 24 distinct four-point retracts, each with multiplicity eight, alongside 16 constants and the identity."
+      ],
+      "rationale": "Preservation implies the second-coordinate map is constant on each fiber because every horizontal shift there occurs as a right translation. The first-coordinate equation then identifies all differences as those of that second-coordinate function. Composing shifts shows each difference function is additive; taking base coordinate zero gives a common F_p-linear u and an arbitrary translation in the first coordinate on each fiber. For idempotence u must be a projection onto U along W and v∈W. Put B=v+U. The U-component of the first-coordinate translation is zero on B and free off B; the W-component is free on B and pulled back through b↦u(b)+v. Thus the image has exactly |U| rows, each one affine U-coset. Conversely choosing W and the unique v∈W∩B, lifting the prescribed cosets to W, and choosing the free U-components constructs exactly all retractions onto that image. There are p^{r(f−r)} choices of W and p^{r(p^f−p^r)} free U-component choices. The Gaussian count of U times the independent choices of B and its fiber cosets gives the stated embedded-image count, and the product gives the polynomial. Subtracting the fiber representatives and translating B gives the same quandle operation on U². The endpoints give the constants and the identity; for instance a two-point subset with fixed second coordinate is a subquandle but not a retract.",
+      "residual_risks": [
+        "The frozen verifier compares image counts and computes a rank-level average multiplicity; the independent replay counts each actual image's multiplicity in the bounded instances. Neither replaces the proof for all p and f."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semisimple census assumes a squarefree minimal polynomial; here m_T=(X−1)². The homomorphic-images paper gives criteria for being an affine-quandle image; the medial-quandle paper gives an affine-mesh structure theorem."
+        ],
+        "reasoning": "Those structural results do not by themselves provide an exact retraction census in this nonsplit setting. The stronger theorem used for coverage is instead the matched explicit normal form over the same prime-field vector space, for all endomorphisms rather than just the idempotents.",
+        "searches": [
+          "Resultary 117335b68a3e, squarefree scope",
+          "arXiv:2006.05946v1, §3 Theorem 3.3",
+          "arXiv:1409.8396, Theorem 3.14"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 86b84ad88c25, 288df6733df1, 117335b68a3e",
+        "arXiv:2006.05946, arXiv:1409.8396",
+        "Abstract-level checks: arXiv:2210.16763, arXiv:2406.01074, arXiv:2311.03708 and DOI 10.1016/j.jalgebra.2011.06.027"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For F(a,b)=(La+t(b),Lb+s), comparing F² and F gives L²=L, Ls=0 and t(b)=L t(b)+t(Lb+s). For U=im L and W=ker L the equations are t_U|_B=0 and t_W=t_W∘(L+s) on V with B=s+U. Every prescribed image fixes the quotient fibers on B."
+        ],
+        "reasoning": "At dimension r, count U by the Gaussian coefficient, B by p^{f−r}, and fiber coset functions by (p^{f−r})^{p^r}. For a fixed image, each complement W has one s and one choice of t_W; choosing t_U off B yields p^{r(p^f−p^r)} additional maps. The fiber-coordinate translation is plainly an isomorphism to U². All of the claimed refinements thus follow by direct splitting and multiplication even though the matched record does not state them verbatim.",
+        "searches": [
+          "86b84ad88c25, Finding at offset 0 and limitations around offset 8200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operation in 86b84ad88c25 is exactly (a,b)▹(c,d)=(a+b−d,b) on V² with V=F_p^f. The identification uses the additive vector space of F_{p^f}; its normal form allows every F_p-linear L and every set function t.",
+          "288df6733df1 counts all embedded subquandles described by base supports and unions of cosets, including ones that cannot be retraction images."
+        ],
+        "reasoning": "Replacing a prime-field vector space by the additive group of an extension field is not a new family; the two normal forms coincide. The all-subquandle result alone cannot replace the retraction calculation, but the explicit unrestricted maps provide the necessary information.",
+        "searches": [
+          "Resultary 86b84ad88c25; square-zero unipotent Alexander quandle complete endomorphism spectrum",
+          "Resultary 288df6733df1; all subquandles of the rank-one unipotent quandle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first gives the all-endomorphism polynomial and explicitly does not enumerate maps onto every prescribed subquandle. The second tabulates all subquandles but not the retract-only statistic. No literal duplicate table is needed for the implication shown below."
+        ],
+        "reasoning": "Neither aggregate table is the claimed rank polynomial of idempotents. Coverage follows from the stronger pointwise normal form, not from merely matching possible image sizes or looking up small cases.",
+        "searches": [
+          "Resultary 86b84ad88c25 endomorphism image spectrum Finding",
+          "Resultary 288df6733df1 subquandle-size census Finding and proof"
+        ]
+      },
+      "rationale": "A distinct same-day result, 86b84ad88c25, already gives the exact all-endomorphism normal form on the identical quandle. Its unrefined endomorphism-rank counts do not by themselves pick out idempotents, but its explicit element-by-element parameterization does mechanically supply all of the frozen retraction statements. Composing the supplied map once with itself forces L²=L and Ls=0; resolving the remaining equality in im L and ker L gives precisely one unrestricted quotient-coset choice on each projected fiber and unrestricted L-image corrections off that affine base. The embedded-image and prescribed-image formulas then follow by counting these independent choices, not by recovering unrecorded fiber data from the unrefined polynomial. This is verified implication, not an inference of priority from the common date.",
+      "residual_risks": [
+        "The shared date does not order the two Resultary records. Hou's 2011 full text was not inspected; the decision relies on the verified same-quandle matched theorem rather than possible older parallels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical implication of the retraction classification and counts",
+          "evidence": "All set-theoretic endomorphisms have unique data L,s,t with arbitrary t:V→V. The aggregate ordinary image spectrum alone would not suffice, but the parameterization allows testing idempotence directly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-endomorphism-image-spectrum-of-square-zero-unipotent-al--86b84ad88c25/RESULT.md",
+          "material_read": "Finding from offset 0, proof from about 3825 and limitations from 8200",
+          "method": "Matched Resultary source via local mirror; decisive normal form directly inspected",
+          "title": "Complete endomorphism image spectrum of square-zero unipotent Alexander quandles",
+          "trigger": "Distinct same-day exact match for all maps on precisely the same operation"
+        },
+        {
+          "assessment": "Counts all subquandles, not retractions",
+          "evidence": "The base support can be arbitrary nonempty and each fiber can be a union of cosets, not necessarily one coset of the direction of an affine base.",
+          "identifier_or_url": "Resultary 288df6733df1",
+          "material_read": "Finding at offset 0 and proof from offset 3883",
+          "method": "Matched local mirror",
+          "title": "Complete subquandle size distribution for rank-one unipotent Alexander quandles",
+          "trigger": "Same quandle and embedded subobjects"
+        },
+        {
+          "assessment": "Not applicable to the nonsemisimple map",
+          "evidence": "Squarefree minimal polynomial required; the present nonidentity unipotent operator has minimal polynomial (X−1)².",
+          "identifier_or_url": "Resultary 117335b68a3e",
+          "material_read": "Finding at offset 0 and squarefree assumption near offset 3219",
+          "method": "Matched local mirror",
+          "title": "Semisimple Alexander-quandle retractions: a transformation–affine factorization and exact image ranks",
+          "trigger": "Related exact retraction-rank census"
+        },
+        {
+          "assessment": "General structural criterion, not this census",
+          "evidence": "Characterizes being a homomorphic image of an affine quandle, not the number of retractions to a given fibered image.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.05946",
+          "material_read": "§3 Theorem 3.3, offset 11171",
+          "method": "OA theorem passage",
+          "title": "Homomorphic images of affine quandles",
+          "trigger": "Potential general classification of affine-quandle homomorphic images"
+        },
+        {
+          "assessment": "Structural precursor rather than the specific counting statement",
+          "evidence": "Provides the affine-mesh representation of medial quandles.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.8396",
+          "material_read": "Theorem 3.14, PDF p. 8 at offset about 30627",
+          "method": "OA PDF passage",
+          "title": "The structure of medial quandles",
+          "trigger": "Possible general affine-mesh reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–30 and 54–72",
+        "Resultary 86b84ad88c25, unrestricted endomorphism form"
+      ],
+      "rationale": "The retract-only statistic is well motivated and more precise than a census of all subquandles. However, in this exact square-zero family the prior elementwise parameterization makes the idempotence constraint split into two independent component rules. The exact per-image and aggregate multiplicities then follow from freely choosing complements and function values, leaving no nonroutine distinct structural or enumeration claim in the frozen scope to repair.",
+      "residual_risks": [
+        "This decision is not about the difficulty of census problems for other nonsemisimple Alexander quandles, where this direct splitting need not apply."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:53.343000Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, lines 34–109; VERIFICATION.md and inspected verify.py (not executed).",
+        "Independent replay: python3 -B /workspace/branches/independent-replay.py 5."
+      ],
+      "rationale": "For each middle-bit pair bc, the endpoints a,d give a 2×2 probability block with both row and column sums h=1/8, so its two diagonal entries equal a free q_bc and its two off-diagonal entries equal h−q_bc. Reversal transposes the endpoints and swaps bc with cb. The equal-middle-bit blocks are invariant; the other two yield four linked reversal differences, up to sign, of J=q_01−q_10. Thus τ=4|J|<1/2. In the frozen coordinates x=q_01, the derivative of D4 has the sign of 2x−h−J for J≠0. It vanishes at the sole minimizing x=(h+J)/2, with the advertised 2τ artanh(2τ); the other two block parameters are free. For either sign of J the logarithmic cost diverges at the ends of the feasible open x-interval, and continuity yields every finite cost at or above the minimum. Positive transitions p4/h give an irreducible history chain with the uniform stationary law. Cancellation of the initial h and stationarity of each local quadruple give the exact D_n identity and reversibility when J=0. This is a population path-law statement. The origin is the only point at τ=0, not a topologically isolated point (the lower curve tends to it); RESULT states the former correctly. Nonzero arrow forces minimal Markov order three, since lower order with uniform triples forces IID fair bits, and the origin also has exact-order-three representatives by choosing q_00≠h/2 on J=0. Independent replay gave exact TV and normalization plus direct numerical KL block sums on 35 signed-current tables, including both signs, equality and the reversible case; it is finite corroboration, not proof.",
+      "residual_risks": [
+        "Fairness concerns consecutive triples, and the rate is observed-path relative entropy rather than microscopic heat. The isolated-endpoint wording in ancillary material should be read only as uniqueness at zero arrow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sason Proposition 4 gives the sharp half-Jeffreys bound ε log((1+ε)/(1−ε)), with ε the half-L1 total variation. The KL–TV comparison for arbitrary pairs in Berend et al. is less specific."
+        ],
+        "reasoning": "The two active middle blocks have total mass 1/2 for both p4 and its reversal. Conditioning doubles TV and scales the conditional divergence by 1/2; reversal makes the two directional KL values equal. Thus Sason directly supplies the lower bound after this reduction, but not the flow classification, attainable fibers, or necessity and realizability of the likelihood-ratio equality condition within positive chains.",
+        "searches": [
+          "Sason arXiv:1403.7164, §II.D, equations (17)–(19)",
+          "Berend–Harremoës–Kontorovich arXiv:1206.6544, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.11868",
+        "arXiv:1403.7164",
+        "arXiv:1206.6544",
+        "arXiv:1004.2831",
+        "Resultary mirror records 175b83a021f9, 741ee1f18a68, 3014bbfa6bdd, 67e1fbd0a28d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-order Markov plateau of the block-KL increments immediately yields D_n=(n−3)D4 once D3=0. Conditional sharp Jeffreys gives the lower curve; the fixed-current two-block fiber and its boundary singularities furnish saturation and all higher costs."
+        ],
+        "reasoning": "Neither prior ingredient fixes the family of admissible positive tables or answers its full attainability and equality questions without the model-specific calculation.",
+        "searches": [
+          "Roldán–Parrondo arXiv:1004.2831, equations (3)–(6) and Markov plateau discussion",
+          "Compare Sason Proposition 4 with frozen RESULT proof §§2, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arola-Fernández–Lacasa classify the binary no-arrow threshold and trivial/nontrivial reversal pairs; the record adds the uniform-triple compatible law, τ=4|J| and the exact cost at every feasible arrow."
+        ],
+        "reasoning": "Naming the channels that can carry a current does not fix both middle-block budgets or characterize laws with equal pairwise likelihood ratios and every excess cost.",
+        "searches": [
+          "Resultary: binary stationary memory-three/four-word reversal, uniform consecutive triples and sharp entropy/TV frontier",
+          "arXiv:2303.11868, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 175b83a021f9 (2026-10-18) and 741ee1f18a68 (2026-11-22) give different visibility thresholds. Same-day records 3014bbfa6bdd and 67e1fbd0a28d concern three-state zero-diagonal flow or a two-state reversible lag tradeoff, respectively."
+        ],
+        "reasoning": "The inspected findings neither enumerate the stipulated four-word distributions nor give their KL/TV region. A bounded index comparison is not an exhaustive priority claim; same-day dates are not an ordering.",
+        "searches": [
+          "Local Resultary ranked searches for locally fair four-gram reversal, entropy–arrow region and stationary binary circulation"
+        ]
+      },
+      "rationale": "The distinct supported content is the constrained positive de Bruijn-flow classification and its full sharp attainable region with equality. The binary detection threshold and path-KL rate identity are prior; the sharp divergence inequality itself reduces to prior Jeffreys bounds after deriving the active mass constraint. No inspected comparison supplies that constraint together with the realization, equality and unbounded upper fibers in this class.",
+      "residual_risks": [
+        "Primary comparison was targeted. The admissible-table classification or its full constrained range may appear under differently indexed binary flow terminology; bounded searches do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers detection and pair classification, not the uniform-triple attainable region",
+          "evidence": [
+            "No detection in stationary binary words of length 1–3; length four distinguishes trivial from potentially irreversible pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.11868",
+          "material_read": "PDF pp. 4–5, offsets 27000 and 27800",
+          "method": "Open primary PDF passages",
+          "title": "Irreversibility of symbolic time series: a cautionary tale",
+          "trigger": "The same length-four binary reversal channels"
+        },
+        {
+          "assessment": "The lower-envelope inequality is covered after the mass-1/2 reduction, not the constrained full region",
+          "evidence": [
+            "Equations (17)–(19) give the normalized Jeffreys definition and its tight binary TV bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.7164",
+          "material_read": "§II.D p. 5, PDF offset 20160, definition 7 and Proposition 4",
+          "method": "Open primary PDF passage",
+          "title": "Tight Bounds for Symmetric Divergence Measures and a Refined Bound for Lossless Source Coding",
+          "trigger": "Exact TV lower envelope for reversal-symmetric KL"
+        },
+        {
+          "assessment": "Arbitrary distribution-pair envelope does not encode uniform triple marginals",
+          "evidence": [
+            "Uses V=||P−Q||_1 and discusses Vajda’s sharp generic lower envelope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.6544",
+          "material_read": "p. 2, offsets 900 and 3700",
+          "method": "Open primary PDF passages",
+          "title": "Minimum KL-divergence on complements of L1 balls",
+          "trigger": "Possible broader KL/TV determination"
+        },
+        {
+          "assessment": "Implies rate and finite-block identity; not flow-constrained realization",
+          "evidence": [
+            "Equations (3)–(4) define block KL and its limiting rate; equation (6) and following discussion give the Markov increment plateau."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2831",
+          "material_read": "pp. 1–2, offsets 2700 and 13900",
+          "method": "Open primary PDF passages",
+          "title": "Estimating dissipation from single stationary trajectories",
+          "trigger": "Possible prior coverage of exact finite-block rate"
+        },
+        {
+          "assessment": "Different models and invariants",
+          "evidence": [
+            "Detection at length five, a continuous-time hidden ring, three-state steady flow, and reversible binary lag are distinct from an order-three binary flow with uniform histories."
+          ],
+          "identifier_or_url": "Resultary IDs 175b83a021f9, 741ee1f18a68, 3014bbfa6bdd, 67e1fbd0a28d",
+          "material_read": "Finding and scope at the start of each RESULT.md",
+          "method": "Local published record mirror",
+          "title": "Related exact symbolic-arrow and steady-flow findings",
+          "trigger": "Indexed exact results with hidden arrows, currents, or dissipation frontiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§1–5; Sason Proposition 4 for the generic baseline."
+      ],
+      "rationale": "At the first observable word length for a binary time arrow, uniform triples remove all shorter-window signals. An exact characterization of what four-frame TV can certify about the information rate, when that certificate is tight and whether TV caps the rate at all, is useful beyond the general sharp KL inequality. The half-mass and one-current restrictions quantify a natural local-observation regime rather than an arbitrary numeric slice.",
+      "residual_risks": [
+        "No physical dissipation calibration or finite-sample detection guarantee follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

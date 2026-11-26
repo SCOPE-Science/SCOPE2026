@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:30.437515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An indexed embedding maps position i to the window [i,i+2]. Candidate sets for distinct i are disjoint: intersecting windows have source distance at most two and the matching symbol would have to be equal. A host with an embedding has all m sets nonempty and at most two surplus positions. Consequently a host with at least three embeddings has one size-three set or two size-two sets; every host position is then in a candidate set. A size-three set occupies the whole three-site window; any other singleton must occur on the correct side of the window (some embedding exists and no singleton is inside it). This is exactly tripling one occurrence of a source letter, even if that letter recurs elsewhere. Two size-two windows at distance at least two cannot invert their picks because their ranges meet at most in a single position and the sets are disjoint. Compatibility with fixed singleton neighbors therefore factors, yielding four embeddings exactly when both duplicated positions have both choices available, forcing adjacent copies by exhaustion of host positions. At distance one the four positions fill one block starting with a and ending with b; aabb has four indexed choices and abab has three. The locations in each constructed host are uniquely retrievable from its surplus-candidate indices, so none of these host families overcounts. This includes m=1, where only tripling occurs, and m=2, where distance two is vacuous. Greedy scanning counts the ordinary insertion sphere S; double-counting pairs (host, embedding) gives Z=q^2*binom(m+2,2). Thus Z-S=N2+2N3+3N4 proves the remaining histogram, including zeros, by algebra. Uniform input and uniformly chosen masks give posterior weight e/Z. The entropy correction numerator is 2q*m^2+O_q(m) and denominator (q^2/2)*m^2+O_q(m), so the limit correction is 4/q with the stated uniformity. Sequentially choosing distinct next letters gives q(q-1)(q-2)^(m-2) targets for m>=2 and forces period-three continuation for q=3. No global entropy extremum follows or is claimed.",
+      "reproduction": "Independent exhaustive finite check, without running the source checker: for each q=3,4,5 use all host words for target lengths 1 through 6,5,4 respectively. For every such x loop over all m retained-position combinations, obtain y by reading those positions, and accumulate one unit in the table indexed by (y,x) when y is locally distinct (also retain the two specified boundary targets in the ternary length-three case). Derive N0 by subtracting the number of observed compatible hosts from q^(m+2); compare every histogram and the two high-multiplicity host sets to the formulas. This enumerates 51,152 hosts and 930,789 masks and checks 482 locally distinct targets. Ternary 010 had counts by r=0,1,2,3,4 of (192,23,21,3,4); 001 had (192,31,8,9,1) and two multiplicity-six hosts. All matched. The frozen verifier and output were inspected as evidence; its published 484,024 counts distinct full-host/target evaluations in its grid, not literal function calls, since its filter recomputes the positive counts. None of the finite checks is used as an unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruda gives an earlier exact formula that directly covers N1: with target length and run count both m, his Appendix A.2 gives N1=[z^2](1-(q-1)z)^(-2)(1-(q-2)z)^(-(m-1)). Multiplying the first three coefficients gives the same row. Section 4.1 discusses a broader sufficiently-long-host polynomial-exponential shape for general multiplicity and mentions an in-preparation proof, not the short-host evaluated coefficients.",
+          "Singhvi et al. Theorem 3 uses a structural run/alternating-segment enumeration but is explicitly binary, while their Lemma 2 is q-ary and already provides the general entropy normalization. Tavakoli et al. Proposition 1 is an arbitrary-word recursion and Lemma 3 the exact column sum."
+        ],
+        "reasoning": "The N1 formula is genuinely covered, not merely superficially related, and should be credited in any later public exposition. The prior recurrence requires enumerating hosts unless supplemented with structural analysis; the asymptotic form does not supply the values at n=m+2 or identify every host of multiplicity three or four.",
+        "searches": [
+          "arXiv:2407.10026v2 Section IV Theorem 3",
+          "arXiv:2607.19559 Proposition 1 and Lemma 3",
+          "arXiv:2607.02578v1 Section 4.1 and Appendix A.2",
+          "Valentino Vito m-ary words fixed subsequence frequency Bruda Conjecture counts q ary skeleton exact generating function"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.10026v2",
+        "arXiv:2607.02578v1",
+        "arXiv:2611.01064",
+        "arXiv:2607.19559v2",
+        "Resultary: nearby exact two-deletion output sphere and variance records (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary run analysis already includes the analogous operations of adding two to a run and adding one to two separate runs. The q-ary formulas for S, Z, N1 give three aggregate constraints, not the high-multiplicity partition. Even also knowing an upper bound e<=4 leaves a degree of freedom among N2,N3,N4 after those constraints.",
+          "The candidate proof requires distinctness at offsets one and two to separate candidate-position ownership and to show exactly when the adjacent abab option yields three and when two copies yield four. Binary alternation cannot be specialized to this property at lengths >=3."
+        ],
+        "reasoning": "Earlier ingredients reduce the amount of genuinely new work, but do not mechanically give the multiplicity cutoffs and exact nonbinary structural partition. The entropy constant is a consequence of the full evaluated counts, not an independent novelty claim.",
+        "searches": [
+          "arXiv:2407.10026v2 Section IV Lemmas 2,4 and Theorem 3 proof",
+          "arXiv:2607.02578v1 Proposition 4.1 and Appendix A.2",
+          "arXiv:2607.19559 Sections II–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The object is equally the subsequence-occurrence frequency distribution across length-(m+2) hosts, the embedding distribution in the two-insertion sphere, or the conditional host-value mass spectrum after two deletions.",
+          "Ma–Zhang's binary alternating words repeat at distance two for m>=3 and are not in this family. Resultary's nearby q-ary output-sphere fluctuation results fix the host and vary surviving words, the other direction of the embedding array."
+        ],
+        "reasoning": "An insertion-sphere histogram is indeed the same mathematical object as the posterior spectrum after rescaling, but taking row degrees rather than column multiplicities, or renaming binary alternation, does not give the claim.",
+        "searches": [
+          "subsequence frequency q-ary alphabet exact multiplicity histogram fixed pattern two deletions locally distinct no repeated symbols Bruda Menon Singh embedding completions two insertions",
+          "Resultary: two-deletion embedding multiplicity histogram locally distinct nonbinary q ary word entropy",
+          "arXiv:2611.01064 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary hit exactly matching the whole histogram is the record under review, not prior. Other close hits concern distribution of counts of distinct deletion descendants or variance, not the fixed received-word column.",
+          "Bruda tabulates the exact k=1 generating function for the broader q-ary occurrence model; Ma–Zhang give exact binary alternating counts. Neither gives the additional nonbinary N3/N4 exact host classes."
+        ],
+        "reasoning": "The matching single row and the binary tables are scoped overlaps, not a covering complete nonbinary histogram. The relevant exact table would have to control all target lengths, all q>=3, including N3/N4 in the locally distinct family. None was identified in the bounded check.",
+        "searches": [
+          "Resultary: two-deletion embedding multiplicity histogram locally distinct nonbinary q ary word entropy",
+          "q ary locally distinct words two symbol insertion equivalence classes counts indexed embeddings three four deletion subsequence posterior entropy rainbow",
+          "arXiv:2611.01064",
+          "arXiv:2607.02578v1 Appendix A.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete nonbinary locally distinct histogram and its exact high-multiplicity structural classification. The one-embedding row has an earlier exact derivation, and insertion-sphere size, history normalization, and the general posterior-entropy identity are prior. These are not separate novelty claims.",
+      "residual_risks": [
+        "An earlier unpublished or unindexed arbitrary-alphabet structural extension may cover these exact classes. Bruda mentions Vito on the asymptotic form; no primary statement covering the finite coefficients or the short-host partition at n=m+2 was located in the attempted lookup. This is a bounded assessment, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad q-ary entropy identity; structural two-deletion theorem limited to binary words",
+          "evidence": [
+            "Lemma 2 gives log normalization minus sum of embedding counts times their logarithms. Theorem 3 explicitly assumes y in the binary alphabet and its proof lists the two run-extension cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.10026v2",
+          "material_read": "Sections III–IV definitions, Lemmas 1–2 and 4, Theorem 3 statement and its case-by-case proof",
+          "method": "ArXiv PDF opening plus targeted full HTML theorem and proof",
+          "title": "Conditional Entropies of k-Deletion/Insertion Channels",
+          "trigger": "Same entropy and possible prior run multiplicity classification"
+        },
+        {
+          "assessment": "Directly covers the N1 row for all alphabets, otherwise the relevant nonbinary discussion does not give the present short-host N3/N4 formulas",
+          "evidence": [
+            "Appendix A.2 gives the exact length generating function with two exponents determined by target length and run count.",
+            "Theorem 1.4 is binary and sufficiently large n; Conjecture 1 and the remark about the proposed resolution concern the sufficiently large n form."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.02578v1",
+          "material_read": "Introduction and Theorems 1.4/1.8; Section 4.1 through Conjecture 1 and subsequent remark about Vito; Appendix A.2 proof of Proposition 4.1",
+          "method": "ArXiv PDF opening and targeted full-text HTML sections",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Exact same fixed-pattern frequency statistic, possible nonbinary generalization"
+        },
+        {
+          "assessment": "Binary-only histogram/entropy comparison, not a renaming of the nonbinary locally distinct pattern",
+          "evidence": [
+            "Section 2 fixes the alphabet to {0,1}; Theorem 2.2 gives the binary alternating maximizers and exact entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01064",
+          "material_read": "Abstract, Introduction and Section 2 including Lemma 2.1 and Theorem 2.2, beginning of Section 3",
+          "method": "Targeted PDF text inspection",
+          "title": "Maximal input entropy for binary two-deletion and two-insertion channels",
+          "trigger": "Prior binary radius-two spectrum and exact entropy"
+        },
+        {
+          "assessment": "Prior recurrence and normalization only for the fixed-target distribution under review; examined entropy formulas address channel aggregates or fixed host",
+          "evidence": [
+            "Proposition 1 recursively skips or matches the first symbol; Lemma 3 reduces the fixed-output column sum by choosing the omitted positions and free symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.19559",
+          "material_read": "Introduction and Sections II–IV (definitions, Proposition 1, Lemma 3, entropy corrections)",
+          "method": "Targeted PDF text inspection",
+          "title": "Combinatorial Capacity Bounds for the q-ary Deletion Channel",
+          "trigger": "Same q-ary embedding counts, possible stronger recursion or exact formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed received-word embedding spectrum is the actual posterior uncertainty in the exact-two-deletion channel. A locally distinct target is a natural nonbinary way to suppress short repeats while still allowing repeated symbols later. The exact support and high-multiplicity classes quantify what ambiguity remains, including the adjacent alternating insertion and a posterior entropy deficit of 4/q bits in the long-target limit. This is more than recalculating the prior sphere size or the prior single-embedding count and does not assert entropy maximization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

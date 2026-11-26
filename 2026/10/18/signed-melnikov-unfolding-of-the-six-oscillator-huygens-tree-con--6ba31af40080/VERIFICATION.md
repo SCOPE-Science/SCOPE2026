@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The verifier is self-contained, uses only standard Python, and checks exact edge-matrix reduction relations and numerical scalar-orbit Green-series implementations at three independent fixed step sizes. The proof in `RESULT.md` is the basis for the infinite, parameter-uniform theorem. Truncated series and floating-point checks do not certify the infinite statement.
+## correctness
 
-The critical independent analytic checks are: endpoint multipliers \(1+2h,1-h\) and \(1-2h,1+h\); cancellation of the longitudinal variation in the normal recursion; geometric convergence of the positive series; smooth dependence of the stable/unstable intersections on central weight; and nonzero positive first-order separation. Limitations include lack of a globally uniform detuning radius and no full-dimensional transversality conclusion.
+PASS
+
+On z=(u,v,v,v,v) the weighted matrix gives the displayed two rows exactly. The largest eigenvalue of the full positive definite edge Gram matrix is (5+√17)/2 (the complementary eigenvalues to the two-coordinate restriction are 3,1,1). The derivative of the full lift is similar to I+h K_*^{1/2} diag(α,1,1,1,1) diag(cos z) K_*^{1/2}; the stipulated strict bound keeps it invertible for α near one. The torus map is homotopic to the identity and hence its local diffeomorphism has degree one. In w=u−v−π coordinates the exact update is w⁺=w+h[sin v−α sin(v+w)]. At α=1 the map on w=0 is v⁺=v+2h sin v, increasing on [0,π], with tangent multipliers 1+2h and 1−2h and normal multipliers 1−h and 1+h at the two endpoints, respectively. The local manifolds are smooth graphs over v; near each persistent endpoint the parameter derivative of the graph vanishes at the endpoint, and the derivative in v at α=1 is zero. This justifies the decaying boundary condition on the derivative along the moving perturbed half-orbit. Moving v makes no term in the normal derivative. Iterating W_{j+1}=a_jW_j−h sin(v_j) from the past gives a negative unstable contribution and solving backward from the future gives a positive stable contribution; the endpoint multipliers yield geometric tails. Smooth continuation to a transverse section gives a quadratic Taylor remainder with the indicated sign and order of subtraction.
+
+## originality
+
+PASS
+
+The unit-weight connection on this exact tree and its scalar dynamics are known. The supported distinct claim is the signed nonvanishing derivative under central-edge-only detuning, at each fixed interior section. Neither the unit-weight result, the inspected weighted criteria, nor the nearby catalogue results supply that derivative or its sign.
+
+## value
+
+PASS
+
+This is a motivated perturbation of a known nontransverse obstruction, not another example of the same exact arc. A single physical edge-weight change has an explicitly oriented nonzero effect without assuming small step size beyond the original invertibility range. The two-sided series explains why cancellation cannot occur and supplies an actionable prediction at a chosen section.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

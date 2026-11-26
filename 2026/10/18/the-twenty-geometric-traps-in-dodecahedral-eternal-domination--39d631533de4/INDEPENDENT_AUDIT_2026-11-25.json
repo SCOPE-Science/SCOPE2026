@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:14:57.625855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md model and proof; VERIFICATION.md; frozen generator, C++ matching checker and witness-checker sources and recorded outputs",
+        "Fresh replay: python3 /tmp/opencode/reproduce_dodeca.py, which implements the all-subsets Hall conditions and Floyd–Warshall distances without trusting the supplied move tables",
+        "Frozen certificate.json size 117503 and SHA-256 8ce3213814565ac2cf419def755809fb0d6915876e4c17262214d7a84ae9f162 both verified"
+      ],
+      "rationale": "A legal move is a matching of all source guards into distinct vertices of an equal-sized dominating destination, with closed neighborhoods giving allowed edges and the attacked vertex required in the destination. I reconstructed the labeled graph and enumerated every subset of sizes 0–7, with counts (0,0,0,0,0,0,10,780). For each unordered equal-size dominating pair A,B, an independent Hall test exhausts all nonempty X⊆A and requires |B∩⋃ₐ∈ₓN[a]|≥|X|; this tests all responses, including impossibility, and reversibility gives both directions. All 10 six-sets have two fatal attacks, and the seven-set histogram is 20 with one fatal attack, 760 with none. Independent all-pairs distances yield the sphere profile (1,3,6,6,3,1) and the trap-to-fatal-vertex bijection. Restricting targets to the 760 survivors gives a response for each of 9,880 source/attack pairs; the minimum number of distinct destination sets is 26, attained for instance at source mask 19621 and attack 8. Because the survivor set is closed under at least one response to every legal attack, choosing a safe response at every turn is a perpetual strategy; by contrast the other 20 and all six-sets can be defeated immediately. The exact 26 counts destination sets, not different bijections to a single set, as the proof specifies.",
+      "residual_risks": [
+        "The certificate of one selected response per pair alone would not establish the negative moves or the sharp count; those were independently recomputed. The result is for the stated collision-free placement rule, not a model with intermediate collision constraints or with only one guard moving."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source credits the GP(n,2) paper with a seven-guard construction at n=10. OA recovery of that paper did not produce readable full text; the exact theorem and move convention are not independently resolved. The accessible survey establishes the model and general framework."
+        ],
+        "reasoning": "A seven-guard strategy from some configurations gives an upper bound, not all winning starts or a minimum number of replies after each attack. Potential exact scalar overlap is left open and is not claimed as new here.",
+        "searches": [
+          "Shaheen–Kassem DOI 10.1155/2021/6627272, Wiley/Hindawi and same-paper DOI recovery; Klostermeyer–Mynhardt pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.5235, DOI:10.1155/2021/6627272 (access-limited), Resultary df543f8ddc1f, MathWorld named-graph lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed classification includes the complete set Bₓ=S₁(x)∪S₄(x)∪S₅(x) and an attained worst-case 26 distinct viable destinations. The accessible comparison sources provide neither this set identity nor the attack-indexed destination count."
+        ],
+        "reasoning": "Existence of a winning strategy or a numerical bound alone does not imply all winning states, an exact losing state's fatal attack, or sharp robustness over every such state and attack.",
+        "searches": [
+          "Klostermeyer–Mynhardt model and general framework; Shaheen–Kassem upper-bound lead; Resultary df543f8ddc1f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klostermeyer–Mynhardt distinguish the all-guards-move game from one-guard eternal domination. The Resultary record df543f8ddc1f solves ordinary domination-game values 9 and 8 on the same graph."
+        ],
+        "reasoning": "The exact comparison requires an occupied subset that is updated by a one-edge matching after each unoccupied attack and must continue indefinitely. An ordinary domination game or a one-guard-only variant does not imply this safety region.",
+        "searches": [
+          "Resultary: dodecahedral/GP(10,2) eternal dominating sets, collision-free mobile guards, traps and safe replies; Klostermeyer–Mynhardt arXiv:1407.5235"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue result, df543f8ddc1f, is a different game. The inspected named-graph lookups did not furnish a table of winning configurations or replies. The frozen result cites the Braga–de Souza–Lee benchmark as random-graph instances; its coverage was not independently confirmed here."
+        ],
+        "reasoning": "The coefficients of a domination polynomial, if tabulated, could cover static counts such as 10 and 780, but would not identify fatal attacks or safe reply counts. No independent exact table of those move-dependent data was found in the inspected sources.",
+        "searches": [
+          "Resultary: dodecahedral counts 10/780/760, shell traps and sharp response count; MathWorld Dodecahedral Graph and Domination Number named-graph lookups"
+        ]
+      },
+      "rationale": "Pass for the complete viable-state classification, the geometric single-attack traps, and the sharp number of distinct safe destinations. The domination number and reportedly known seven-guard construction do not carry this originality decision.",
+      "residual_risks": [
+        "The closest generalized Petersen paper remains unavailable in readable original text. Unindexed implementations/supplements and domination-polynomial tables may overlap; this verdict does not establish historical priority of scalar counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies the all-guards-move variant; inspected passages are not a dodecahedral state classification.",
+          "evidence": "PDF text offsets 1260, 5671 and 6406.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5235",
+          "material_read": "pp. 1–2 model passages",
+          "method": "OA PDF passage retrieval",
+          "title": "Domination, Eternal Domination, and Clique Covering",
+          "trigger": "Same standard game and general bounds"
+        },
+        {
+          "assessment": "Potential scalar overlap; no conclusion on exact theorem or game convention from inaccessible text.",
+          "evidence": "Wiley/Hindawi attempts returned access errors or timeout; the attribution is at RESULT.md lines 45–47.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/6627272",
+          "material_read": "Bibliographic identification and frozen attribution; no readable original passage retrieved",
+          "method": "OA publisher/archival endpoint and same-paper recovery attempts",
+          "title": "Eternal Domination of Generalized Petersen Graph",
+          "trigger": "Same GP(n,2) family; closest claimed upper bound at n=10"
+        },
+        {
+          "assessment": "Ordinary Domination Game, not eternal mobile guards.",
+          "evidence": "Finding near offset 47 gives γ_g=9 and γ′_g=8.",
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-reply-geometry-in-the-dodecahedral-domination-game--df543f8ddc1f",
+          "material_read": "RESULT.md Finding and game identification",
+          "method": "Local Resultary mirror",
+          "title": "Antipodal reply geometry in the dodecahedral domination game",
+          "trigger": "Exact same graph and reply-geometry title"
+        },
+        {
+          "assessment": "No relevant exact passage located; not a whole-database exclusion.",
+          "evidence": "Both requested literal lookups had no match.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DodecahedralGraph.html ; https://mathworld.wolfram.com/DominationNumber.html",
+          "material_read": "Literal lookups for domination number and dodecahedral respectively; no corresponding result passages located",
+          "method": "OA website lookup",
+          "title": "Dodecahedral Graph; Domination Number",
+          "trigger": "Named-graph database comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and closed-response proof; independent matching and distance enumeration"
+      ],
+      "rationale": "This natural finite game instance distinguishes minimum guard budget from the exact set of viable positions. The distance-shell obstruction gives a succinct description rather than a list of masks, and the positive sharp reply count shows that every other one-step-safe configuration is indefinitely safe with multiple distinct choices. This makes it an informative exact benchmark for safety-region enumeration.",
+      "residual_risks": [
+        "The single graph and two relevant guard counts do not imply a family-wide theorem or any analogous robustness bound in a different rule set."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

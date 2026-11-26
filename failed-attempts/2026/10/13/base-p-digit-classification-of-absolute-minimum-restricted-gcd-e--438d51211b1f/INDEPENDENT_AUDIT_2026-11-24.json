@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:56.700883Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–79",
+        "Fairfax-Ball arXiv:2610.01328v1, Thm. 4.3 and §5",
+        "VERIFICATION.md, verify.py and verify_output.txt inspected, not executed"
+      ],
+      "rationale": "The Finding follows under its exact hypotheses from Fairfax-Ball Theorem 4.3 and Kummer. The first admissible row is 2m and k=m is its only selected index. Thus the row is extremal iff the central binomial valuation equals r. In the doubling of an r-digit m there are at most r outgoing carries, one at each occupied position; the final leading digit cannot generate another. Equality is exactly an outgoing carry at the units position with input zero and at every higher position with input one. This proves the two digit thresholds and the binary all-ones case. For odd p the permitted top digit is nonzero automatically, and multiplication of the choices gives precisely the stated count, including r=1 and m>=2. The all-(p-1) digits of p^a-1 obey both thresholds. Independent comparison using sums of floor quotients for the factorial valuations agreed in 369 parameter cases (p=2,3,5,7,11, 2<=m<=100, p not dividing m); 16 odd-prime digit-length counts also agreed.",
+      "residual_risks": [
+        "The finite replay tests only its stated grid; it does not prove the maximum over all rows.",
+        "The Finding is correct, but the contextual p^a+1 formula in the relationship paragraph drops the cited result's a>=2 restriction (cf. Prop. 6.1). Taken unqualified, it would even give 9 for T_2(3), contradicting T_2(3)=6. This is not a premise of the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fairfax-Ball proves the premise globally and defines T. McTague's p=1 mod m case only covers an overlap (p=m+1 at an extremal 2m); Fairfax-Ball's p=-1 mod m theorem includes p=2m-1 and (2,3). Wu gives fixed-row results under additional hypotheses."
+        ],
+        "reasoning": "The congruence-restricted theorems are not the unrestricted classification. The broader exact carry theorem, together with the known extremal target, has no congruence restriction beyond the stated domain and directly covers all central rows.",
+        "searches": [
+          "arXiv:2610.01328v1: Theorem 4.3, §5; arXiv:1510.06696v5: Theorem Q; arXiv:2609.37754v1: Theorem 1.1; arXiv:2606.20940v2: g(m,n), mixed case"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01328v1, arXiv:1510.06696v5, arXiv:2609.37754v1, arXiv:2606.20940v2",
+        "Kummer's classical carry theorem",
+        "Resultary records 5bfb1fd719eb, 1da8f5b9bad4, 8a8c31acbe70, 1302d88350d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extremality is the known target r; the least candidate leaves k=m alone. Kummer counts carries exactly. A single base-p position carries iff its doubled digit plus the incoming carry reaches p."
+        ],
+        "reasoning": "There is no selection minimization remaining at 2m, nor any new constraint on a higher row. For equality every position must carry, giving independent inequalities and an immediate product count. This is mechanically implied, regardless of whether the combined corollary was separately stated.",
+        "searches": [
+          "Direct comparison of arXiv:2610.01328v1 Thm. 4.3 with the exact Kummer central-coefficient valuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fairfax-Ball arXiv:2610.01328v1, Thm. 4.3 and §5; Kummer's carry theorem.",
+          "Wu's g(m,n) is G(mn;m), so the row in question is exactly n=2 in that notation."
+        ],
+        "reasoning": "The proposition T_p(m)=2m is exactly v_p(binomial(2m,m))=r_p(m), since the selection at 2m is a singleton and no earlier row is admissible. The latter criterion is exactly all outgoing carries in doubling, not merely an analogy.",
+        "searches": [
+          "Resultary: least row T_p(m)=2m sharp maximum restricted binomial gcd base-p digit classification",
+          "Resultary: least extremal row equals twice modulus central binomial valuation all base p carries",
+          "restricted binomial gcd least extremal row central binomial digit classification prime valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McTague's v_2(G(6;3))=2 is an exact prior input. Resultary 1da8f5b9bad4 explicitly gives T_2(3)=6 and an odd-prime complementary formula for m=p+1. Indexed record 8a8c31acbe70 gives T_2(5)=65, not 10. Same-day record 5bfb1fd719eb covers overlapping two-digit rows where m divides p+1."
+        ],
+        "reasoning": "These exact entries are partial overlaps or complementary values, not a duplicate unrestricted table. The same date is not used to infer their release order.",
+        "searches": [
+          "Resultary: restricted binomial gcd exact least row at N=2m maximum p-adic valuation all carries digit inequalities",
+          "McTague PDF pp. 1–2, Theorem Q and remarks"
+        ]
+      },
+      "rationale": "No inspected source states the full classification in this exact wording. Nevertheless it is a mechanical corollary of the known maximum, the definition of the first extremal row, and Kummer's exact valuation theorem: at the first row only a single coefficient exists. The identified restricted-GCD subcases already cover some inputs explicitly. No claim is made that an earlier paper printed the whole digit-count formula.",
+      "residual_risks": [
+        "The literature search does not establish priority for the exact wording or count. Failure relies on the mathematical implication, not on inferential absence from searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the sharp target and least-row definition; the cited p^a+1 companion problem is under a>=2",
+          "evidence": [
+            "The maximum is r_p(m) over precisely the admissible rows; equality rows exist. Prop. 6.1 makes the restriction a>=2 explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01328v1",
+          "material_read": "Thm. 4.3 (p. 6), Props. 3.1 and 4.1–4.2, §5, and Prop. 6.1",
+          "method": "OA PDF bounded theorem and proof passages",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Exact premise and terminology used by the Finding"
+        },
+        {
+          "assessment": "Congruence-restricted overlapping formulas",
+          "evidence": [
+            "p=1 mod m hypothesis for Theorem Q; the valuation of the unique coefficient at (p,m,N)=(2,3,6) is two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06696v5",
+          "material_read": "PDF pp. 1–2, Thm. Q and remarks",
+          "method": "OA PDF bounded passage",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Same restricted-row GCD and isolated binary extremum"
+        },
+        {
+          "assessment": "Direct fixed-row coverage for p=-1 mod m, not arbitrary inputs",
+          "evidence": [
+            "Plugging in N=2m covers the p=2m-1 and (2,3) examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37754v1",
+          "material_read": "Thm. 1.1, PDF pp. 1–2",
+          "method": "OA PDF bounded passage",
+          "title": "Restricted Binomial GCDs at Primes Congruent to -1",
+          "trigger": "Uncited overlapping valuation theorem"
+        },
+        {
+          "assessment": "Same family, exact formulas with extra conditions",
+          "evidence": [
+            "The definition identifies g(m,n)=G(mn;m); the inspected theorem does not classify the general least row."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.20940v2",
+          "material_read": "§1 and Thm. 2, PDF pp. 1–2",
+          "method": "OA PDF bounded passage",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients binom(mn,mk)",
+          "trigger": "Equivalent GCD notation and exact formulas"
+        },
+        {
+          "assessment": "Partial direct coverage, not the unrestricted classification; same-day order unresolved",
+          "evidence": [
+            "At s=0,t=1,m=(p+1)/2 (and separately p=2,m=3) the row is extremal at 2m."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-minimum-valuation-multiplicities-in-restricted-two-digit-b--5bfb1fd719eb",
+          "material_read": "Finding: rows p^s+p^t, odd t-s, m dividing p+1",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact minimum-valuation multiplicities in restricted two-digit binomial rows",
+          "trigger": "Same-day match for some 2m extremal rows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md proof lines 48–79",
+        "arXiv:2610.01328v1, Thm. 4.3 and §5"
+      ],
+      "rationale": "The least extremal row is a natural invariant, but this particular branch collapses just by evaluating the unique coefficient at the first permitted row, then applying the standard carry rule and multiplying independent digit choices. The result gives no new mechanism for finding a first extremal row beyond the already decided singleton case. This is a routine deduction, not a further exact obstruction or a resolution of a nontrivial part of the least-row problem.",
+      "residual_risks": [
+        "This does not assess the difficulty or value of classifying T_p(m) when the first admissible row is not extremal."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:18.894022Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–78",
+        "VERIFICATION.md lines 19–25 and check.py (inspection only)"
+      ],
+      "rationale": "The beta integral gives the scalar resolvent representations for exponents s and -s with 0<s<1, hence the matrix representations by spectral calculus. Sherman–Morrison factors (A+tI)^(-1)-(B+tI)^(-1) as tau/(1+tau u^T R_t u) times (R_t u)(R_t u)^T, where R_t=(A+tI)^(-1). Subtract the positive-power formulas using X(X+tI)^(-1)=I-t(X+tI)^(-1); subtract the negative-power ones in the opposite order. The two resulting weights are positive and proportional to t^s and t^(-s). Integrability follows from bounded R_t near zero and O(1/t) decay at infinity. Nonnegative continuous quadratic forms under the integrals vanish precisely when x^T R_t u vanishes for every t>0. Multiplying by the product of distinct denominators and evaluating at each negative eigenvalue then shows x orthogonal to each P_lambda u. Polynomial interpolation gives equality of their span with K(A,u), and spectral orthogonality gives exactly the stated active count even with repeated eigenvalues. Symmetry gives the common range and the endpoints s=1 give the rank-one forms directly. The square-root example checks by Cayley–Hamilton, (B+3I)^2=13B, and det(D)=5-18/sqrt(13)>0 since 325>324. The checker was inspected, not executed; its tolerance-based ranks are corroborative, not exact certificates for the theorem.",
+      "residual_risks": [
+        "PASS applies to the frozen Finding at ±s, 0<s<1, and the specified difference signs. The slogan's unqualified 'every noninteger fractional power' should not be read as a claim outside that interval.",
+        "The theorem concerns exact algebraic rank, with no tolerance, conditioning or eigenvalue tail guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "59dd505db1fb includes every nonzero real tau for which B remains SPD, plus a sharp positive-residue rational-function rank law min(r,m+delta).",
+          "The inspected academic sources concern a rational-degree upper bound, polynomial Krylov exactness, or eigenvalue decay and approximate rank, not the fractional strictness clause."
+        ],
+        "reasoning": "The broader indexed fractional theorem directly dominates the positive-update restriction. The approximate-rank and rational-degree literature is not used as a substitute for this exact evidence.",
+        "searches": [
+          "Resultary 59dd505db1fb, signed-update hypotheses and positive-residue pole-budget theorem",
+          "arXiv:2008.11501, Section 3.3 Theorem 3.5",
+          "arXiv:1707.03045, abstract",
+          "arXiv:2201.13156, abstract",
+          "One focused literature lookup for strict operator-monotone equality / exact fractional-power active rank (provider unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary query and mirrored 59dd505db1fb original theorem/proof",
+        "arXiv:2201.13156",
+        "arXiv:1707.03045",
+        "arXiv:2008.11501"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both statements count distinct nonzero projections and include nonsimple spectra. Both give rank-one endpoint corrections and exact full rank for cyclic update directions, independent of approximation quality.",
+          "The indexed proof uses the rank-one resolvent, positive integrals and the span of active spectral projections."
+        ],
+        "reasoning": "Restriction to positive tau and negation of the inverse difference take the dominant theorem to the frozen result. The alpha-I case is r=1 and the exact 2-by-2 witness is an instance at r=2 and p=1/2, not an independent new theorem.",
+        "searches": [
+          "Local mirror 59dd505db1fb, Finding, Assumptions and Proof §§1–3 compared to frozen RESULT.md lines 3–76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its theorem 'fractional-power saturation' states rank(B^p-A^p)=rank(B^{-p}-A^{-p})=r for 0<p<1, with r the number of distinct active eigenvalues and K the span of their projected update directions.",
+          "The two differences normalized by tau are respectively strictly positive and strictly negative on K and both vanish on K-perp."
+        ],
+        "reasoning": "Taking tau>0 and p=s, and reversing the sign of the inverse correction, gives the two PSD operators with exactly the claimed common range and kernel. The earlier statement also explicitly identifies the Krylov span.",
+        "searches": [
+          "Local Resultary search for exact active-spectrum rank, common kernel/range, and positive rank-one fractional matrix-function updates",
+          "Local mirror, SCOPE-exact-active-spectrum-rank-and-pole-budget-for-rank-one-matrix-f--59dd505db1fb, RESULT.md, Finding and Assumptions, offsets 0–4159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is a general theorem rather than a numerical table. Its Finding records the same active-count formula for both corrections and both endpoint first-power ranks."
+        ],
+        "reasoning": "An exact entry in the literature index exists, and its read statement, not the search summary, resolves coverage. There is no finite instance table required for the universal claim.",
+        "searches": [
+          "Local Resultary query for exact rank of fractional-power updates, active spectrum and Krylov space; followed by local mirror of 59dd505db1fb"
+        ]
+      },
+      "rationale": "The distinct Resultary record for exact active-spectrum rank and pole budget states the very same fractional-power saturation, with strict definiteness after sign normalization on K and vanishing on K-perp, under weaker signed-update assumptions. It also states the endpoint ranks and the full-rank simple-spectrum consequence. Thus this is demonstrated substantive coverage, not a negative literature search or an inference based merely on dates.",
+      "residual_risks": [
+        "The comparison demonstrates equivalent/dominating catalogue coverage, not external publication priority, chronology of discovery or dependence.",
+        "The unsuccessful external lookup gives no negative evidence; no independent earlier strict-Loewner theorem was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially stronger direct coverage",
+          "evidence": [
+            "The fractional corrections both have rank r for 0<p<1, are strictly signed on K after normalization by tau and vanish on K-perp.",
+            "The endpoint first-power and inverse-first-power ranks are one; positive as well as admissible negative updates are included."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-active-spectrum-rank-and-pole-budget-for-rank-one-matrix-f--59dd505db1fb/RESULT.md",
+          "material_read": "Local-mirror RESULT.md Finding, Assumptions and Proof §§1–3; exact theorem in offsets 0–4159, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Compared sign convention, active subspaces, exponent interval and update assumptions; restricted the stronger theorem",
+          "title": "Exact active-spectrum rank and pole budget for rank-one matrix-function updates",
+          "trigger": "Exact same observable and potentially dominating signed rank-one hypotheses"
+        },
+        {
+          "assessment": "Approximate rank and eigenvalue decay in the inspected material",
+          "evidence": [
+            "Provides low-rank approximations to square-root and inverse-square-root updates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.13156",
+          "material_read": "OA PDF abstract, p. 1",
+          "method": "Compared stated goal and rank/eigenvalue-decay assertions",
+          "title": "Low-Rank Updates of Matrix Square Roots",
+          "trigger": "Potential prior square-root full-rank or approximate-rank theorem"
+        },
+        {
+          "assessment": "Polynomial exactness is not the fractional rank rigidity statement",
+          "evidence": [
+            "Polynomial exactness up to the Krylov degree, and approximation otherwise in the stated method."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.03045",
+          "material_read": "OA PDF abstract, p. 1",
+          "method": "Checked the class of functions for which the computation is exact",
+          "title": "Low-rank updates of matrix functions",
+          "trigger": "Potential general exact Krylov result"
+        },
+        {
+          "assessment": "Rational-update result is related but not a fractional active-count equality",
+          "evidence": [
+            "The exact Bernstein–Van Loan rational formula bounds rank by rational degree for rank-one updates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.11501",
+          "material_read": "OA PDF §3.3 Theorem 3.5, pp. 8–9",
+          "method": "Compared rational degree hypothesis and bound with noninteger fractional powers",
+          "title": "Low-rank updates of matrix functions II: Rational Krylov methods",
+          "trigger": "Possible exact formula or rank theorem dominating noninteger powers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–18, 52–86",
+        "59dd505db1fb, Finding and Assumptions"
+      ],
+      "rationale": "The structural invariant is meaningful for exact versus approximate rank, but the existing active-spectrum theorem already supplies it with broader hypotheses and the same boundary ranks. No noncovered useful portion was established: the scalar-matrix and square-root examples are direct parameter substitutions and the closed-form two-dimensional witness only illustrates already established saturation. A certificate or exposition change does not create a new exact invariant.",
+      "residual_risks": [
+        "Potential mathematical interest of a different extension is not evidence of a surviving result in the frozen record; no repair is submitted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

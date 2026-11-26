@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:57.183886Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "Dolgachev arXiv:2302.13101 §2 Eq. (2)",
+        "/workspace/independent/weddle_census.py exact run"
+      ],
+      "rationale": "No four coplanar makes the first four a projective basis, and the fifth has no zero coordinate in that basis. Scaling the four basis vectors uniquely fixes the fifth at [1:1:1:1] projectively. The forbidden planes for the sixth point are the four coordinate planes and the six equality planes obtained from two coordinate points and the all-ones point. Thus a unique normalized ordered sixth entry is (1,b,c,d) with four distinct nonzero coordinates, giving 120 and 2184 classes. Dolgachev §2 Eq. (2) is the defining determinant in the frozen convention. I independently enumerated the zero locus by Gaussian elimination on the actual 4×4 matrices, with no use of the six-term expansion or the uploaded script. For each field the reproduction uses reciprocal irreducible polynomial moduli with an inverse check for every nonzero element, and covers 585 or 4369 projective points by last-nonzero-coordinate normalization. Permutations of b,c,d permute the corresponding projective coordinates and determinant rows, preserving counts; the 20 or 364 sorted triples therefore exhaust all configurations with weight six each. Replay with `python3 /workspace/independent/weddle_census.py` (NumPy) returned {145:120} and {417:1440,433:144,449:600} exactly, with representative chart counts. All counts concern rational points on the singular quartic, with no resolution contribution. F8 and F16 are successive admissible sizes of extensions of F2, not an extension of F8 by F16.",
+      "residual_risks": [
+        "The computation certifies only F8 and F16, ordered configurations modulo projectivities, and the singular-quartic point count; it does not identify isomorphism classes or count rational points on resolutions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolgachev identifies the additional D4 singularity and the minimal nonsingular model as a supersingular K3 surface of Kummer type, index 6.",
+          "The same-day 816320a9bf98 gives a local length-eight Jacobian/fixed-point scheme, with ideal (u²,v²,t²), not a classification of Frobenius or counts of global rational points."
+        ],
+        "reasoning": "Neither the geometric type nor the support and length of the local scheme determines the arithmetic multiplicities. Those facts apply to a larger family, but no inspected broader statement specializes to the census.",
+        "searches": [
+          "arXiv:2302.13101 §2 Proposition 2.1",
+          "Resultary 2026/10/26/SCOPE-wild-fixed-point-thickening-equals-the-weddle-jacobian-scheme-in--816320a9bf98",
+          "Weddle quartic characteristic two F8 F16 exact census point counts ordered six-point configurations 145 417 433 449 multiplicities general formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13101 §2",
+        "Resultary 78e3cb19c644 and 816320a9bf98",
+        "Focused primary-literature lookup for characteristic-two Weddle finite-field census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant specifies membership of each projective point, not computed population counts. The two indexed examples evaluate one configuration per extreme, and the local-scheme record supplies no missing orbit weights."
+        ],
+        "reasoning": "The earlier equation makes enumeration possible but the histogram is not a substitution in a published counting formula. An exhaustive field computation across normalized frame classes, or a new arithmetic classification that supplies the same multiplicities, is needed to infer it. The two-example overlap is credited without inferring priority from catalogue order.",
+        "searches": [
+          "arXiv:2302.13101 §2 Eq. (2) and Prop. 2.1",
+          "Resultary 78e3cb19c644 Finding and Exact projective enumeration",
+          "Resultary 816320a9bf98 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-example record uses the same singular Weddle equation and finds counts 417 and 449 at F16 for (1,8,2,7) and (3,11,1,15). The latter can be rescaled to first coordinate 1 and both meet general position.",
+          "It explicitly distinguishes the resolution counts 545 and 609 from the singular counts."
+        ],
+        "reasoning": "This is an exact overlap on two examples, not a disagreement caused by K3 desingularization, field encoding, or scaling. Unordered frame or surface counts would use a different weighting and cannot be equated to the frozen histogram without orbit and stabilizer information.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-two-frobenius-splitting-types-and-a-maximal-weddle-k3-surface-ov--78e3cb19c644",
+          "arXiv:2302.13101 §2 Eq. (2) and Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "78e3cb19c644 checks 4369 projective points for each of two configurations and supplies a witness for each of counts 417 and 449, not a population table.",
+          "The focused primary query returned no results; this is not negative evidence of nonexistence."
+        ],
+        "reasoning": "Those examples certify that the distribution is not a singleton but do not give 433, the 120-class F8 assertion, or the frequencies 1440/144/600. No retrieved exact table covers the complete weighted census.",
+        "searches": [
+          "Resultary exact Weddle point-count comparison; strongest hit 78e3cb19c644",
+          "Weddle quartic characteristic two F8 F16 exact census point counts ordered six-point configurations 145 417 433 449 multiplicities general formula"
+        ]
+      },
+      "rationale": "The distinct conclusion is the complete two-field histogram on the singular quartic, including the middle F16 stratum and all multiplicities. Dolgachev's equation, normal form and type-D4 geometry are not new. The strongest exact indexed overlap gives two concrete F16 point counts under the same convention, but does not establish the remaining stratum or any complete distribution. This is a best-of-knowledge decision, not an exhaustive novelty certification.",
+      "residual_risks": [
+        "An unindexed finite-field table or a stronger arithmetic count theorem could exist; the bounded comparison is not exhaustive. No priority ordering is inferred from the indexed catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same Weddle surfaces; the inspected geometry does not give the first-field histograms",
+          "evidence": [
+            "Normalizes the first five points and excludes the sixth from their triple planes.",
+            "Eq. (2) is the defining determinant; the characteristic-two additional point is type D4 and the minimal nonsingular model is a supersingular K3 of index 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.13101",
+          "material_read": "§2 PDF pp. 4–5, Eq. (2), extra singularity and Proposition 2.1; OA text near offset 13800",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "K3 surfaces of Kummer type in characteristic two",
+          "trigger": "Defining Weddle quartic and plausible stronger geometric coverage"
+        },
+        {
+          "assessment": "Partial exact overlap, not complete ordered-frame histogram",
+          "evidence": [
+            "Provides singular counts 417 and 449 for two explicit general-position parameter vectors, with corresponding resolution counts 545 and 609.",
+            "Exact enumeration uses all projective points for those two configurations, not all configurations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-two-frobenius-splitting-types-and-a-maximal-weddle-k3-surface-ov--78e3cb19c644",
+          "material_read": "RESULT.md Finding, Assumptions and scope, and Exact projective enumeration, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, extraction from offset 0",
+          "method": "Resultary semantic search and bounded local-mirror passages",
+          "title": "Two Frobenius splitting types and a maximal Weddle K3 surface over F16",
+          "trigger": "Closest quantitative indexed overlap in the same field and Weddle convention"
+        },
+        {
+          "assessment": "Same objects, different invariant; no distribution implied",
+          "evidence": [
+            "Identifies the local Jacobian scheme with the Hutchinson fixed-point scheme, with local ideal (u²,v²,t²) and length 8."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-wild-fixed-point-thickening-equals-the-weddle-jacobian-scheme-in--816320a9bf98",
+          "material_read": "RESULT.md Finding and Relationship to prior work, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, extraction from offset 0",
+          "method": "Resultary semantic search and bounded local-mirror passages",
+          "title": "Wild fixed-point thickening equals the Weddle Jacobian scheme",
+          "trigger": "Same-day indexed structural Weddle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and normal form",
+        "Dolgachev §2",
+        "Resultary 78e3cb19c644",
+        "Independent exact census output"
+      ],
+      "rationale": "Projective rational-point count is a standard arithmetic invariant of these geometrically specified singular quartics. The bounds are intrinsic: the smallest admissible field and the next admissible size, where the constant census splits into exactly three count values. The full multiplicities, particularly the middle stratum missing from the two known examples, give a usable benchmark for finite-field algorithms or a proposed explanation of the Frobenius strata. This is a complete natural baseline, not a claim of a new geometric classification or an arbitrarily selected sample.",
+      "residual_risks": [
+        "No structural identification of the strata, zeta-function computation, or coverage of larger fields is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

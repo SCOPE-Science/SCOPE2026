@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:20:28.357127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and CHECK.py (read, not executed)"
+      ],
+      "rationale": "Counted all cliques directly: each insertion adds k new cliques, exactly k−1 through a marked selected vertex, and k−2 through a selected pair. The increments for the marked counts therefore have conditional joint success probability B/M and marginal A/M. Expanding their products gives the two moment recurrences; substituting the P_s solutions verifies both forcing terms using 2a−b=k and 2a−a=a, and the seed values verify the integration constants. After centering, covariance forcing has sign β−μ²/M. The ratio μ²/(Mβ) starts above 1 and multiplies at each insertion by 1+1/[(M+k)(M+b)] because a lies exactly between b and k with spacing 1. Thus all forcing terms are strictly negative; the first-step law is equivalently omission of one uniform seed vertex and gives −1/(k+1)^2. Normalizing the centered recurrences by P_(2a), the covariance forcing summands are O((j+1)^−2), all negative, while the variance summands are positive and O((j+1)^(-1−a/k)). The latter sign follows also from the deterministic presence of an initial clique missing each seed vertex. This rules out zero leading coefficients; taking gamma-product ratios gives the stated constants. Substitution of k=2 gives the displayed finite formulas and (3−π)/(4−π), including its numerical sign. The k=2 example of late positive conditional covariance is consistent with the unconditional proof. The checker enumerates actual graphs for finite inputs and is not the proof for all k,m.",
+      "residual_risks": [
+        "Uniform conditional selection, retained cliques, and two seed vertices are essential to the proof. No claim for arbitrary later vertices or a joint weak limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao's page-one abstract states the power-law degree-distribution result. Darrasse et al.'s page-one abstract describes profile asymptotics; the frozen comparison identifies a one-root limit in Theorem 7, not directly retrieved.",
+          "Four clique types suffice for the pair (both, each alone, neither); the recurrence uses the evolution of the jointly incident category as well as marginals."
+        ],
+        "reasoning": "Generic urn representation or a single-vertex limit does not provide the strict sign or exact constants. Ordered increasing k-trees also do not automatically have the record's uniform conditional selection law.",
+        "searches": [
+          "Gao arXiv:0808.0202 and UBC draft; Darrasse et al. arXiv:0910.3639, particularly cited Theorem 7; plausible multitype balanced urn formulation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9468cdaa267d and 3469578c4e97",
+        "Gao arXiv:0808.0202 and UBC author draft",
+        "Darrasse et al. arXiv:0910.3639 p. 1; frozen bibliography and model comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-face parameter grows with increment k−2, whereas a single marked face count grows with increment k−1. The pair-specific recurrence and its strict sign involve both exponents."
+        ],
+        "reasoning": "Marginal laws do not specify the joint mixed moment. Even a prior joint weak limit, if identified, would need moment convergence for the correlation and would not by itself prove every finite-size sign. No identified stronger theorem was shown to imply the specific pair claims.",
+        "searches": [
+          "Gao draft abstract (power-law degree law); Darrasse et al. abstract and frozen Theorem 7 locator; comparison to pair-specific moment equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9468cdaa267d is the assigned record itself. Related 3469578c4e97 instead concerns a cross-tree outdegree-count kernel for two correlated grown trees."
+        ],
+        "reasoning": "The adjacent indexed result uses two random trees and random profile counts; it gives neither the named-vertex within-graph moments nor an equivalent sign result.",
+        "searches": [
+          "Local Resultary: uniform random k-tree seed degree covariance; uniform clique growth pair dependence and limiting correlation",
+          "Published literature search for joint moments/dependence of seed degrees in uniformly grown k-trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only 9468cdaa267d was an exact indexed match among those returned. No independent exact table of joint normalized moments was identified."
+        ],
+        "reasoning": "Classical tables of graph degree counts or gamma ratios are inapplicable to this temporal mixed moment; even exact k=2 finite tabulation would not settle the all-k sign.",
+        "searches": [
+          "Local Resultary: exact and limiting covariance for two vertices of the initial clique; e.g. random edge-grown 2-tree seed covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-size strict sign and explicit strictly negative limiting correlation in the stated growth model. One-vertex degree histograms and root limit results are credited and do not give these joint quantities. The general urn representation is not claimed as new.",
+      "residual_risks": [
+        "Relevant Gao proof pages and Darrasse's Theorem 7 not independently retrieved; unidentified joint urn moments could narrow novelty. No whole-paper claims made from abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected statements are about the marginal degree distribution; no whole-paper exclusion",
+          "evidence": "Author draft p. 1 says 'A power law degree distribution is established for a graph evolution model based on the graph class of k-trees.'",
+          "identifier_or_url": "https://arxiv.org/abs/0808.0202; https://cmps-people.ok.ubc.ca/yongg/research/papers/random-ktree-draft.pdf",
+          "material_read": "arXiv p. 1 abstract; lawful author copy abstract and start of introduction",
+          "method": "Primary PDF text previews; tried OA for theorem pages",
+          "title": "The Degree Distribution of Random k-Trees",
+          "trigger": "Source of the same graph growth law"
+        },
+        {
+          "assessment": "Abstract establishes profile scope only; direct Theorem 7 comparison limited by access",
+          "evidence": "PDF preview lines 22–26 emphasize connectivity-profile asymptotics. Frozen account identifies the relevant theorem as a one-root degree limit.",
+          "identifier_or_url": "https://arxiv.org/abs/0910.3639",
+          "material_read": "Primary PDF p. 1 abstract; frozen locator to Theorem 7",
+          "method": "Lawful PDF preview and attempts to retrieve decisive theorem and alternate presentation",
+          "title": "The connectivity-profile of random increasing k-trees",
+          "trigger": "Same/closely related model and possible root degree limits"
+        },
+        {
+          "assessment": "Different observable and ensemble",
+          "evidence": "Cross-covariance of outdegree-count profiles in two correlated trees, not of two seed degrees within one k-tree.",
+          "identifier_or_url": "Resultary 3469578c4e97",
+          "material_read": "Indexed result summary",
+          "method": "Local Resultary search",
+          "title": "A rational cross-tree covariance kernel for correlated uniform growth",
+          "trigger": "Distinct next closest indexed covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and conditional example; independent centered recurrence and limiting coefficient checks"
+      ],
+      "rationale": "A resolved dependence question for two natural distinguished vertices of a standard growth process. Simultaneous attachment is possible and conditional covariance can even be positive, so the strict unconditional sign at every size is not a one-step exclusion argument. The nonzero limiting correlation distinguishes persistent dependence from a transient initialization effect and gives a usable baseline for pair moments.",
+      "residual_risks": [
+        "Does not establish negative association of all seed degrees or extend to other k-tree ensembles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

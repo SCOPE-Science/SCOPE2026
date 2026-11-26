@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification limits
+# Independent mathematical audit
 
-Run `python CHECKER.py` after installing `mpmath` from `requirements.txt`. The checker was executed against this same standalone source, and its recorded output is supplied as `CHECK_OUTPUT.txt`. It tests three direct oscillatory Gaussian integrals against the independently assembled closed form at 55-decimal precision; tests four distinct interior-ray roots against both the exact formula and the first exponential phase correction; verifies the two endpoint-ray coefficient tests; and checks representative parameters in each coalescing-width regime.
+## correctness
 
-These are finite numerical tests, not numerical proofs of the full cone, the infinite zero count, or the limiting power laws. Analytic justification is in `RESULT.md`, Steps 1–5. The tests require the real angular-frequency convention used there. Nonstandard steps needed by the proof are the exact Gaussian identity (checked independently by direct integral at sample points), exterior-sector exponential domination, cosine-root uniqueness at large index, the first-root bracket, and the small-width equal-amplitude tangency estimate.
+PASS
+
+Completing the square in the two mixed products shifts the Gaussian centers by ±(q-p)T/[2(p+q)]. The Fourier phases therefore combine into cos(κTω) with positive prefactor 2c sqrt(2π/(p+q)) exp[-(pqT²+ω²)/(2(p+q))]. The diagonal products give the two stated positive exponential ratios. The axes are strictly positive. Outside either separated sector one ratio grows exponentially in T²+ω² uniformly, ruling out distant zeros. On an interior ray the ratios and their derivatives decay exponentially in t=T². Disjoint fixed neighborhoods of the cosine nodes have a derivative bounded away from zero and opposite signs at the ends for late nodes; the complement has no late roots. The first-order Taylor equation gives the stated (-1)^k sign and quadratic remainder, and real analyticity and positivity at t=0 rule out infinitely many early roots. Counting nodes gives the stated O(1) error. Choosing progressively more distant roots on interior slopes tending to either boundary gives sharpness even when that boundary ray has no zeros. On a boundary ray one ratio is a positive constant, so its being below one is necessary and sufficient for sign changes at late oscillations; equality leaves a strictly positive decaying term. On the balanced ray the ratios add to B exp(-δt), with B>1 by AM–GM. There can be no root before log(B)/δ, and the next cosine minimum supplies the other bracket endpoint, including equality. At q=p+ε, δ~ε²/(8p), β~ε/4; for c≠1 their time scales are separated and B tends to (c+c⁻¹)/2. At c=1, log B=3ε²/(32p²)+O(ε³), whereas πδ/β is of order ε. In phase coordinates the function is uniformly positive away from π on the first half-cycle and strictly negative at π for small ε, giving the asserted 4π limit. The degenerate Gaussian is zero-free. No extension to general mixtures, shifted centers, or all finite zero components is proved.
+
+## originality
+
+PASS
+
+The distinct supported content is the centered unequal-width escaped cone with exact boundary tests, interior root asymptotics, and the two first-root escape laws. Gaussian cross-ambiguity, hyperbolic Gaussian interference and positive-window zero examples are prior, not credited as original.
+
+## value
+
+PASS
+
+This natural positive-window model separates pointwise positivity of the window and its Fourier transform from positivity of the ambiguity function. The exact allowed escape directions, endpoint-amplitude cuts and sharp ray census tell where nulls persist, while the two asymptotic scales explain quantitatively how nulls disappear in the approach to a single zero-free Gaussian. These are useful geometric and singular-perturbation conclusions beyond plotting the known interference pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

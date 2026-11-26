@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(a\notin\mathbb F_q\), expand the twice-iterated map in the \(\mathbb F_q\)-basis \(1,a\). A nonzero two-periodic point forces two scalar equations; their combination forces trace zero and its norm to satisfy a nonzero quadratic equation. Conversely those same equations establish period two, and each of the two admissible norms has precisely \(q+1\) preimages. Odd-characteristic character sums give the exact coefficient census. The permutation specialization invokes the exact coefficient classification in Zieve's Corollary 2.3. Independent direct enumeration over selected finite fields supports each branch. Remaining scientific scope risk: none in the stated algebraic argument; the verifier does not establish unrestricted universality by itself.
+## correctness
 
-**Originality — PASS with residual risk.** The full texts of Zieve's 2013 work, Ding–Xiong–Zieve's later general coefficient classification, and Gerike–Kyureghyan's distinct cycle-structure study were compared by mathematical implication, not by title. Zieve proves which coefficients yield permutations, not how many two-cycles or norm fibers they have. Ding–Xiong–Zieve's classification is broader in polynomial forms but does not give the second-iterate classification. Gerike–Kyureghyan's dynamics act on a different trace-translation family and cannot be substituted for this norm-multiplication family. Targeted scientific literature and mathematical-record searches did not reveal an equivalent count. A referenced Tucker–Zieve 2000 preprint was not obtained, and unindexed equivalent coverage cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** Exact low-period orbit structure is a natural but generally nontrivial invariant of permutation polynomials. The result completely determines the second-period spectrum for an entire quadratic-extension binomial family, including nonpermutation coefficients, and isolates a sharp difference between characteristic three and the other permissible permutation fields. It gives full cycle locations by norm fibers and an exact density of coefficients exhibiting them, not merely a small numerical example or reformulation of the permutation criterion.
+For x nonzero let t=N(x), u=N(F_a(x)), c=Tr(a), d=N(a). Independence of 1,a and a²=ca−d make F_a²(x)=x equivalent to t+u+c=0 and tu=d+1. These force t²+ct+d=−1, so the norm recursion gives u=−t and hence c=0. Conversely c=0 and t²=−d−1 imply the two equations. Trace zero is impossible for outsiders in characteristic two; otherwise a²=−d is a nonsquare, so a²−1 is nonzero and has two distinct nonzero square roots exactly in the stated case. The corresponding fibers have q+1 points each and are exchanged; 0 is the unique fixed point because a=1−N(x) would put a in K. Independently, the conic s²−t²=1 has q−1 points by factoring, so sum_t χ(t²+1)=−1. There are 1+χ(−1) zeros of t²+1, and therefore (q−χ(−1))/2 values of t where it is a nonsquare, all t≠0. Pairing ±t and taking the two outsider square roots of each t²+1 gives the same number of active coefficients. Zieve's exact permutation parameters have trace 3μ≠0 for q≡2 mod 3 and trace zero in characteristic three; any nonzero base-field coefficient would kill the norm fiber N(x)=−a, so no permutation cases were dropped. The packaged verification/verify_cycles.py was inspected, not executed: its main loops test fixed and exact two-period counts on explicit finite fields and compare exponentiation on a subset, not permutation necessity or all prime powers. Its header mentions a stale filename; RESULT.md gives the actual replay path.
 
-**Limits.** This is not a full functional-graph classification, does not treat base-field coefficients, and does not establish independent validation. Published priority remains subject to further historical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact period-two point and coefficient census, not for the permutation classification. The two strongest available sources on the same binomial and on its broader family settle bijectivity, not whether the lifted second iterate fixes a point. No equivalent census was identified in the inspected evidence.
+
+## value
+
+PASS
+
+This classifies the first nontrivial periodic orbits of a known norm-lift family even outside the bijective cases. It identifies the exact fibers and their exchange, and quantifies how many parameters exhibit it, splitting a family whose prior bijectivity classification does not distinguish these dynamics. The result is uniform in the field and goes beyond a small-field cycle check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

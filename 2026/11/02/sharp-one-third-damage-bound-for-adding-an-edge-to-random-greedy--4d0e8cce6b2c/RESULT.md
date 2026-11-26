@@ -73,9 +73,9 @@ For the upper bound, (1) gives \(1+\mu(G-\{u,v\})-\mu(G)\le1\), while the \(q\) 
 (m+1)\Delta(G,e)\le1+q\le m+1.
 \]
 
-If \(k\le1\), at least one of \(u,v\) is isolated. By the improved deletion bound, the first three terms of (2) together satisfy \(1+\mu(G-\{u,v\})-\mu(G)\ge0\). The isolated endpoint remains isolated in every graph \(G-V(f)\) occurring in (2); therefore every summand is nonnegative by the stronger induction hypothesis. Hence \(\Delta(G,e)\ge0\).
+If at least one of \(u,v\) is isolated (regardless of the other endpoint's degree), the improved deletion bound gives \(1+\mu(G-\{u,v\})-\mu(G)\ge0\). The isolated endpoint remains isolated in every graph \(G-V(f)\) occurring in (2); therefore every summand is nonnegative by the isolated-endpoint part of the induction hypothesis. Hence \(\Delta(G,e)\ge0\).
 
-If \(k\ge2\), (1) gives \(1+\mu(G-\{u,v\})-\mu(G)\ge-1\). Every summand is at least \(-1/3\) by induction, and therefore
+Otherwise both endpoints have positive degree, so \(k\ge2\). By (1), \(1+\mu(G-\{u,v\})-\mu(G)\ge-1\). Every summand is at least \(-1/3\) by induction, and therefore
 
 \[
 (m+1)\Delta(G,e)\ge-1-\frac q3
@@ -92,7 +92,9 @@ A standalone standard-library Python checker, `verify_greedy_matching.py`, evalu
 
 ## Relationship to prior work
 
-Random-edge greedy matching is a standard procedure: Miller and Pritikin (1997) study expected sizes and worst-case approximation ratios, and Arnosti (first publicly available November 2, 2021) studies RANDOM-EDGE on random bipartite graphs and compares distinct greedy policies. The present assertion concerns a different axis: an **adversarial single-edge insertion into an arbitrary fixed graph** and its sharp change in expected matching size. In the checked material, no stronger published theorem was found to imply the exact interval or the isolated-endpoint refinement. This is a qualified novelty assessment, not a claim of exhaustive priority. The complete 1997 Miller–Pritikin article could not be examined, and may contain a closely related comparison.
+Random-edge greedy matching is a standard procedure: Miller and Pritikin (1997) study expected sizes and worst-case approximation ratios, and Arnosti (first publicly available November 2, 2021) studies RANDOM-EDGE on random bipartite graphs and compares greedy policies. The complete 1997 paper could not be examined here.
+
+The separate, same-date [wheel matching result](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-bernoulli-hub-gain-for-edge-greedy-dimer-matching-on-growing-w--6bc819eb2b23/RESULT.md) proves the deterministic one-vertex stability lemma for arbitrary graphs by a common-order coupling. That lemma already implies the isolated-endpoint assertion (delete the originally isolated endpoint from the enlarged graph). It also implies the upper bound of one by comparing both graphs to the common graph with either endpoint deleted. These are not claimed as distinct contributions. The [special complete bipartite insertion law](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-single-intra-part-adsorption-channel-creates-an-imbalance-driv--60a216f03efb/RESULT.md) gives an exact change after adding one edge within a part; at equal clock rates it has the same priority convention. The distinct assertion here is the universal sharp lower bound of \(-1/3\) for inserting any absent edge in an arbitrary fixed graph. Comparisons do not settle historical priority.
 
 ## Limitations
 

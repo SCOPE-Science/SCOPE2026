@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:45.835821Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27 and 32–64",
+        "Frozen verify_narayana.py lines 18–102 and VERIFICATION.md lines 21–23 (packaged, not executed; replay: python3 verify_narayana.py from the record directory)",
+        "Independent finite check: truncate the falling-factorial series at j<20 for precision 3^8 after division by 9, differentiate coefficientwise, lift the roots digit by digit, and count squares and recurrence values directly for k=1–8"
+      ],
+      "rationale": "The M^8=I+3B interpolation gives linear coefficients modulo 3 of (A_r−a_r)/3 equal to (0,1,0,0,1,1,1,2). This yields the five regular balls and b(y). To check the remaining coefficient reductions independently, let C_j=e_1^T B^j M^r v. In F_r, the j=1,2,3 terms modulo 3 are (C_1/3)t+C_2 t(t−1)/2+C_3 t(t−1)(t−2)/2; j≥4 vanish coefficientwise by j−v_3(j!)≥3. They give 2t+2t², 2t+t²+2t³, t+2t³ for r=0,2,3 respectively. The regular F_0 discs both hit 0 mod 3 and the regular F_2 discs hit 0 and 2. F_3 is constant as a function mod 3, but its derivative is 1 mod 3; all three discs are separately isometries. Restoring the output factor 9 and the input disc scale produces 6,3,12 extra preimages at 0,19,1 mod 27. The simple critical roots at 1 and 2 lift uniquely. Their center residues mod 81 are a_8=9 and a_18≡1, since shifting the critical input within its mod-3 disc changes the original output by a multiple of 81. After t=τ+3u the Taylor units are 2 and 1 mod 3, giving the stated scaled squares after taking the principal unit square root. The parameter u runs modulo 3^(k−2), so each root modulo 3^(k−4) lifts nine times. At k=3 each critical disc contributes three, and at k≤2 the singular branches are constant on their full index classes. The initial mod-3 block has least period eight, and a regular isometry forces the multiplier 3^(k−1). An independent falling-factorial coefficient and digit-lift calculation gave centers (3249,4051) mod 6561; a direct modular recurrence reproduced every fiber and the first state return at k=1–8.",
+      "residual_risks": [
+        "The bounded check does not replace the all-depth analytic proof. Unbounded growth holds at the two critical centers; the formula need not grow at every fixed target in a singular branch's image."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-power period result addresses periods. The all-state cycle theorem gives a longest period of 8·3^(k−1). The five-isometries theorem already proves the least period, coverage and singleton classes for this initial condition."
+        ],
+        "reasoning": "State cycles and the five regular balls do not determine how the three other branches distribute their scalar outputs. The new contributions are the two critical square terms and the other singular-disc counts.",
+        "searches": [
+          "Kuloğlu–Özkan–Shannon, The Narayana Sequence in Finite Groups, §2",
+          "Resultary 9ad248be318f and 738e45a097e0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.06187 and arXiv:2206.09174",
+        "The Narayana Sequence in Finite Groups, §2",
+        "Resultary 738e45a097e0, 9ad248be318f and 6cf95f0aa11e",
+        "Frozen RESULT.md lines 57–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work determines valuations for targets 0, −1 and 1, and the five linear branch contributions. The new formula additionally depends on y−β_0 and y−β_2 for unrestricted y, with two distinct square normalizations."
+        ],
+        "reasoning": "Fixed-target counts are recovered from valuation distributions at those targets, but cannot be reindexed into counts for arbitrary target y. The remaining discs require an explicit coefficient calculation and critical-point analysis not supplied by the regular-branch theorem.",
+        "searches": [
+          "arXiv:2112.06187 Theorem 1.1",
+          "arXiv:2206.09174 Theorems 3.5–3.6",
+          "Resultary 738e45a097e0 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guadalupe and Ismail–Rihanaa–Anwar use the same initial values and recurrence in the form a_n=a_(n−1)+a_(n−3). Resultary 6cf95f0aa11e instead analyzes a Narayana triangle polynomial."
+        ],
+        "reasoning": "Rewriting the recurrence index is an exact equivalence that makes the specific-target results real overlap; a Narayana triangle column is a distinct object. Shifts in the index do not turn fixed shifts of the values into all targets.",
+        "searches": [
+          "Resultary: Narayana recurrence exact ternary fiber, five isometries and state cycle census",
+          "Primary search for Narayana 3-adic valuations and shifted targets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed entries 738e45a097e0 (least period, surjectivity, singleton targets), 9ad248be318f (state cycle lengths and counts), and 6cf95f0aa11e (different Narayana object) were compared at statement level."
+        ],
+        "reasoning": "Neither a least-period or cycle census nor the singleton classification is an exact whole-target multiplicity table for the scalar recurrence.",
+        "searches": [
+          "Resultary meaning search for exact Narayana residue census, singular branches and singleton fibers"
+        ]
+      },
+      "rationale": "The least period, regular-branch mechanism, full support and singleton classes are not original contributions here. Prior one-target and shifted-target valuations furnish overlapping special cases. The supported distinct contribution is the exact singular-branch correction for arbitrary targets at all depths, not those background facts.",
+      "residual_risks": [
+        "The search is bounded and does not rule out an unindexed equivalent all-target result. The same-day catalogue dates do not establish the priority order of the distinct indexed findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the zero target only",
+          "evidence": "Theorem 1.1 gives v_3(a_n) for the recurrence with initial state (0,1,1).",
+          "identifier_or_url": "https://arxiv.org/abs/2112.06187",
+          "material_read": "Definition and Theorem 1.1, PDF p. 2, OA offset 7791",
+          "method": "OA arXiv PDF extraction",
+          "title": "On the 3-adic valuation of the Narayana numbers",
+          "trigger": "Same recurrence with exact 3-adic valuation"
+        },
+        {
+          "assessment": "Covers shifted valuations, not all targets",
+          "evidence": "The two theorems give v_3(a_n+1) and v_3(a_n−1) for the same normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.09174",
+          "material_read": "PDF pp. 1, 4–5; abstract, definition and Theorems 3.5–3.6; OA offsets 0, 12900, 18400",
+          "method": "OA arXiv PDF extraction",
+          "title": "Narayana Sequence and The Brocard-Ramanujan Equation",
+          "trigger": "Same recurrence with shifted value targets"
+        },
+        {
+          "assessment": "Period comparison only",
+          "evidence": "Defines N_0=0, N_1=N_2=1 and proves a prime-power period-lifting theorem.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/60-5/kologlu.pdf",
+          "material_read": "First-page definition and §2, including Theorem 2.5, OA offsets 0 and 8050",
+          "method": "OA publisher PDF passages",
+          "title": "The Narayana Sequence in Finite Groups",
+          "trigger": "Period-lifting theorem for this recurrence"
+        },
+        {
+          "assessment": "Substantial overlap, not the remaining exact multiplicities",
+          "evidence": "Proves five scaled isometries, the least period, all-residue coverage and singleton fibres precisely at y≡2 mod 3; does not classify singular contributions.",
+          "identifier_or_url": "Resultary 738e45a097e0",
+          "material_read": "Mirrored RESULT.md statement and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Five 3-adic isometries and singleton residue fibres for Narayana",
+          "trigger": "Strongest distinct same-sequence fibre result"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": "Counts cycles of the transition on all triples; longest cycle 8·3^(k−1). No scalar-output multiplicity formula for the conventional orbit is stated.",
+          "identifier_or_url": "Resultary 9ad248be318f",
+          "material_read": "Mirrored RESULT.md statement and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-adic cycle census for the Narayana recurrence",
+          "trigger": "Potential complete modular orbit classification"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "The object is the polynomial n(n−1)²(n−2)/12, not the cubic Narayana recurrence.",
+          "identifier_or_url": "Resultary 6cf95f0aa11e",
+          "material_read": "Mirrored RESULT.md statement and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary residue fibers and singular valuation layers of a Narayana triangle column",
+          "trigger": "Same name and structurally similar square-root classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27 and 47–64",
+        "Resultary 738e45a097e0 for the background comparison"
+      ],
+      "rationale": "Exact frequencies refine both the known full support and the known singleton class. They separate the regular background, the disc-dependent congruence spikes, and unbounded growth at two different critical values. In particular they give distribution information at every target and depth that cannot be read from the period or from tests at 0 and ±1 alone.",
+      "residual_risks": [
+        "The result pertains only to powers of three and the stated initial condition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

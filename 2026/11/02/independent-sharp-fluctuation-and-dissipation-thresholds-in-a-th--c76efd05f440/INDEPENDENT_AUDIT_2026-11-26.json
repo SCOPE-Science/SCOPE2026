@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:06.476068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–63",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/review_evidence/check_5.py (independent symbolic replay)"
+      ],
+      "rationale": "For b,q>0 and h>=0 the symmetric part of the drift is negative definite, so the unit-diffusion Lyapunov solution exists and is positive definite. Eliminating the three diagonal entries first, I independently solved a 3-by-3 system for the off-diagonal entries and verified the covariance equation. The Lyapunov identities give V=3-h S11 and tr(S^-1)=-tr(M); the all-even current integral then reduces to tr(M S M^T)+tr(M), without covariance inversion. This reproduces the rational EPR, its factored derivative, the minimum and endpoints, and all variance derivative numerator coefficients. The independent exact check is replayable with Python 3 and SymPy at /workspace/review_evidence/check_5.py. For B=b^2<=1 the variance derivative numerator T is strictly positive (c4 may be zero); for B>1 its leading coefficient is negative and c0,c1 are positive. The only problematic c2<=0 requires Q=q^2<1 and B>25, forcing c3<0, so there is exactly one sign change in every case with B>1. Descartes plus the opposite endpoint signs gives the unique positive root and minimum. For q=2 the first EPR derivative factor becomes a positive constant, not zero; for q>2 only this factor crosses once at the claimed h. The limiting values are 2 and 2q^2. Scope is the stated isotropic all-even OU family, not a parity-independent thermodynamic result.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kharbanda–Burnet–Sabass give the residual EPR mechanism, directional approach and a four-dimensional example. Godrèche–Luck give multivariate OU steady-state methods and a three-site asymmetric Gaussian chain."
+        ],
+        "reasoning": "Asymptotic residual-current theory does not establish global uniqueness or all four regimes, and the three-site Gaussian spin-chain drift is not the one-parameter extra-damping skew chain.",
+        "searches": [
+          "arXiv:2610.37030v1, strong-coupling EPR, §IV.5",
+          "arXiv:1807.00694, §§4.2 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary feedback reversal record 729fdc9bb6c2",
+        "Kharbanda–Burnet–Sabass arXiv:2610.37030v1",
+        "Godrèche–Luck arXiv:1807.00694",
+        "Dadhichi–Kroy DOI:10.1103/PhysRevE.107.044106 (metadata/access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing methods compute stationary covariance/EPR and explain approaches to the strong-coupling residual. The closest exact reversal theorem treats the separate feedback drift."
+        ],
+        "reasoning": "The limiting mechanism and general Gaussian formulas are inputs, but they do not mechanically supply the independent global thresholds: in particular the variance numerator can have mixed coefficient signs, and uniqueness requires excluding multiple positive roots throughout the parameter domain.",
+        "searches": [
+          "Kharbanda–Burnet–Sabass §IV.5 Eqs. (31)–(36)",
+          "Godrèche–Luck §4.4",
+          "Resultary feedback record Finding/Assumptions/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The feedback record gives the unique EPR minimum at k*=(5−2h)/(2(h−1)) for 1<h<5/2. Its damped-to-residual cross block in the symmetric part of its printed drift is nonzero; the skew chain's corresponding block is zero."
+        ],
+        "reasoning": "An orthogonal change of coordinates preserving unit diffusion and carrying the rank-one damping projector to the new damped axis preserves whether this cross block vanishes. Thus the feedback theorem is not this family in different orthonormal coordinates, even allowing parameter rescaling. It also gives no variance threshold.",
+        "searches": [
+          "Resultary three-coordinate OU damping, entropy-production reversal and variance comparison",
+          "Resultary 2026/11/2/SCOPE-sharp-dissipation-reversals-in-a-three-coordinate-linear-feedbac--729fdc9bb6c2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary match has a different exact minimum; the tabulated three-site EPR of Godrèche–Luck uses K,V for a fixed-diagonal asymmetric chain. The cited Dadhichi–Kroy full text was not verified."
+        ],
+        "reasoning": "No inspected exact formula or table covers both observables over the stated two-coupling family; inaccessible material remains an access risk, not negative evidence.",
+        "searches": [
+          "Resultary three-coordinate EPR damping and variance",
+          "Godrèche–Luck §4.4, Eqs. (4.18)–(4.20)",
+          "DOI:10.1103/PhysRevE.107.044106"
+        ]
+      },
+      "rationale": "The supported increment is the joint global monotonicity and minimum classification for this skew nearest-neighbor family, especially the independent sharp thresholds, not the first example of EPR re-entrance or the first three-dimensional EPR formula. The strongest indexed exact EPR theorem is still a substantial precedent; its drift and conclusion are different, and same-day dating does not resolve priority.",
+      "residual_risks": [
+        "The cited Dadhichi–Kroy comparison is not full-text verified.",
+        "Same-day feedback result makes any broad first three-coordinate EPR-minimum claim unsupported; no priority claim is made here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material EPR precedence; distinct drift and no joint variance result",
+          "evidence": "One tunable diagonal damping, but M21=0 and M31=−1 where the corresponding skew-chain entries would be −b and 0; minimum formula and parameter regime differ.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-sharp-dissipation-reversals-in-a-three-coordinate-linear-feedbac--729fdc9bb6c2",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp dissipation reversals in a three-coordinate linear feedback model",
+          "trigger": "Closest indexed exact damping-minimum claim"
+        },
+        {
+          "assessment": "Mechanism and asymptotic precedence, not exact joint classification",
+          "evidence": "Residual-correction alignment governs approach; explicit example is four-dimensional.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.37030",
+          "material_read": "Abstract; §IV.5, Eqs. (31)–(36)",
+          "method": "OA full-text passages",
+          "title": "Residual dynamics determine dissipation in strongly coupled linear Langevin systems",
+          "trigger": "General residual-current mechanism could subsume the example"
+        },
+        {
+          "assessment": "General formulas and different exact chain",
+          "evidence": "Three-site EPR 4K²V²(2+K²V²)/(2−K²(1−V²)), with different drift, no one-axis extra-damping sweep.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "§4.2 Eq. (4.5), §4.4 Eqs. (4.18)–(4.20)",
+          "method": "OA full-text passages",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein-Uhlenbeck processes",
+          "trigger": "An exact three-site OU EPR calculation"
+        },
+        {
+          "assessment": "Access risk, no statement-level exclusion",
+          "evidence": "DOI/APS HTTP 403; recovery did not verify an alternate copy of the same paper.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.107.044106",
+          "material_read": "Bibliographic identification only; no verified primary passage",
+          "method": "DOI and publisher retrieval attempts and alternate-copy identification attempt",
+          "title": "Time-reversal symmetries and equilibriumlike Langevin equations",
+          "trigger": "Frozen related-work citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the global variance and EPR classifications",
+        "Kharbanda–Burnet–Sabass §IV.5",
+        "Resultary three-coordinate feedback result"
+      ],
+      "rationale": "This natural small driven chain disentangles response of a fluctuation measure from that of stationary current, without changing diffusion normalization or stability. Its exact dividing lines and unique-minimum theorem realize all four regimes while varying independent couplings, strengthening the general observation that dissipation can rise toward its residual limit. The variance sign/uniqueness result is the substantive extra constraint, not mere evaluation of a stationary Gaussian formula.",
+      "residual_risks": [
+        "Value is model-specific and does not imply a general thermodynamic relation between total variance and entropy production."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

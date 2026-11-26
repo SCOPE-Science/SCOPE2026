@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The orthonormal Takenaka–Malmquist representation yields the exact upper-triangular quotient matrix. The covariance identity and its tridiagonal inverse give all singular values. Piecewise-constant operators converge in Hilbert–Schmidt norm to the Volterra integral, giving every fixed top rank; a separate sign-adjusted row-reversed inverse converges in Hilbert–Schmidt norm to a rank-one geometric matrix, proving the sharp bottom singular value. These are genuine infinite-dimensional arguments. The package's standalone rational checker passed 2,796 exact assertions. The proof explicitly fixes \(0<a<1\) before \(N\to\infty\) and handles \(N=1\).
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Bellavita–Dellepiane–Mashreghi, arXiv:2410.18623v1, Sections 2, 4, and 9, gives ordinary spectra, operator-norm bounds and the Dirichlet connection, but not the all-rank singular matrix formula or sharp upper/lower spectral asymptotics. Bellavita–Dellepiane, arXiv:2310.03604v1, establishes qualitative embedding, not approximation spectra. Greenbaum–Kyanfar–Salemi, arXiv:2501.07686v1, discusses large nonnormal Toeplitz/Jordan resolvents and rank-one behavior but does not cover the present analytic model or constants. The generic fixed-rank Volterra leading term is also accessible from published nilpotent-shift inverse asymptotics by an order-one affine perturbation, so that ingredient is not asserted as separately novel. Literature searches under difference-quotient, compressed-shift, singular-value, Toeplitz and local Dirichlet terminology found no statement dominating the complete finite singular law together with the sharp least-singular coefficient; finite Toeplitz results under an alternative normalization remain a residual risk. Ordinary eigenvalue information is acknowledged as established.
+PASS
 
-**Mathematical value — PASS.** The motivating gap is quantitative control of the local Dirichlet embedding of a canonical increasing sequence of finite model spaces. The exact tridiagonal law determines all best finite-rank approximation errors. The simultaneous linear growth of the largest singular values and exponentially small last singular value, with explicit sharp constants, exposes a nonnormal conditioning phenomenon invisible from the established ordinary spectrum and qualitative norm estimates. This is not a mere parameter renaming or a finite table computation.
+The orthonormal Takenaka–Malmquist basis gives the compressed multiplication operator (aI+J)(I+aJ)^(-1) with J the forward nilpotent shift. For the restricted backward shift X, if g=(I-X)f then g(1)=f(0) and the quotient of g is Xf. This gives Q=A*/(1-a), A=(aI+J)(I-J)^(-1). The shifted Gram identity AA*+aI=(1+a)^2 U, U_ij=min(i,j)+a/(1+a), holds entrywise. Applying the invertible first-difference map to U yields diagonal variances a/(1+a),1,...,1, proving the stated inverse tridiagonal including N=1. The nonzero subdiagonal makes its eigenvalues simple and det(A)=a^N gives strict positivity, the singular-value product and, by triangularity, the stated ordinary spectrum. Embedded in L2 via isometric step functions, A/N converges in Hilbert–Schmidt norm to (1+a) times Volterra, whose squared singular modes satisfy mixed Dirichlet–Neumann conditions. At the other edge the row-reversed and sign-adjusted a^N A^(-1) has geometric entries (1+a)a^(r+t) up to r+t=N-2; the omitted tail and the antidiagonal of norm sqrt(N)a^(N-1) vanish in Hilbert–Schmidt norm. The rank-one limit has norm (1+a)/(1-a^2), giving exactly s_N/a^N→1 and the condition number. The local Douglas identity adds I to the Gram operator for the embedding, so only the quotient seminorm loses coercivity, not the full embedding norm. An independent rational monomial-numerator calculation verified the quotient matrix, Gram identity, tridiagonal inverse and inverse of A for 27 parameter/dimension pairs; the spectral limits are analytic, for fixed real 0<a<1, with the top limit at fixed rank only.
 
-**Limits.** Fixed real \(0<a<1\), boundary point \(1\), repeated single zero, top fixed ranks and bottom rank asymptotics; no uniform parameter limit, general inner functions, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established ordinary spectrum and the materially covered fixed-top-rank leading law. No inspected stronger result gives both the finite fixed-a singular spectrum and the sharp least-singular coefficient in this model operator; those are the supported distinct contribution. The embedding list follows algebraically from the spectrum, not from a separately new embedding criterion.
+
+## value
+
+PASS
+
+In a canonical repeated-zero model space the exact formula solves a finite approximation-number problem, with a simple positive Jacobi matrix and a sharp a^N lower scale that the nonzero ordinary eigenvalue and qualitative embedding results conceal. The contrast with the linear top scale is significant for norm conditioning. The supported value rests on the finite list and sharp lower coefficient, not rediscovery of the leading Volterra law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

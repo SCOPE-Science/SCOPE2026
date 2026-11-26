@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:51.853991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The j-th generation mean density is q^j times the Erlang(mj,β) density by convolution; summing gives the stated transform and absolutely convergent series, with total mass q/(1−q). In dimensionless time the m=1 exponential is strictly decreasing and the m=2 derivative changes sign once at tanh(sqrt(q)τ)=sqrt(q). For m=3, the three cube-root poles give the stated damped sine/cosine expression. Its time derivative equals β²a(1+a)exp(−(1+a/2)τ)/3 times the frozen F(θ), with a=q^(1/3). For θ>0 the divisor exp(sqrt(3)θ)−cosθ is positive; h has limit 1 at zero and cannot exceed the positive level δ on nonpositive-sine intervals. On each positive half-wave the numerator H in h′ has derivative −4 exp(sqrt(3)θ) sinθ, strictly negative. Hence the first lobe is decreasing, and every later lobe has one strictly nondegenerate maximum d_j. Two crossings when δ<d_j add exactly one strict peak; equality is a quadratic zero of the rate derivative with negative coefficient, so the rate has a stationary inflection, not a maximum. Shift by 2π strictly decreases h on positive-sine angles, proving strict ordering; exponential decay gives finiteness for each q<1. The maximum angle is 2πj+π/6+O(exp(−2πsqrt(3)j)) from the root equation near its simple undamped zero. Thus d_j is asymptotic to (sqrt(3)/2) exp(−sqrt(3)(2πj+π/6)); 1−q_j is asymptotic to 6d_j. This holds for the ensemble descendant rate excluding the seed, not for realized catalog peaks.",
+      "replay": "python3 /workspace/review-evidence/bounded_checks.py 1 uses high-precision bisection of a rescaled maximum equation and a stable formula for 1−q_j, on j=1–6 only. The first two q values are 0.99996060180549372590648 and 0.99999999926014997572713, bracketing 0.99999. The proof, not this sample, establishes the whole staircase.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duarte–Löcherbach–Ost treat sums of Erlang kernels, Markovian cascades and stability, including a unique invariant law and Wasserstein contraction under conditions.",
+          "Cui–Wu–Yin's gamma-kernel moments paper is directly relevant, but its full text was unavailable. Cui–Hawkes–Yi's abstract describes first/multiple moment methods, not a verified extremum classification."
+        ],
+        "reasoning": "Cascades can include the relevant triggering kernel, but equilibrium and moment frameworks do not by themselves determine the crossings or their equality cases for the single-seed defective resolvent. No whole-document exclusion is asserted for unread sources.",
+        "searches": [
+          "Web literature: Erlang Hawkes renewal mean intensity oscillatory peaks multiple local maxima gamma kernel aftershock",
+          "arXiv:1610.03300v3, model and Theorem 1",
+          "DOI 10.1007/s11009-020-09840-8; DOI 10.1017/apr.2019.53"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.03300v3",
+        "OpenAlex W204495298 (abstract)",
+        "DOI 10.1007/s11009-020-09840-8 (OA attempt)",
+        "DOI 10.1017/apr.2019.53 (abstract)",
+        "Resultary 5659a83fdb9d, 934b8edf4525, 5fb4df709da8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circulant-semigroup staircase compares exp(aθ) with the maximum of fixed-amplitude cosine lobes over successive cells, varying the exponential slope a. The Erlang derivative after division by δ compares exp(sqrt(3)θ) with cosθ+(sqrt(3)/δ)sinθ, so the slope is fixed and the amplitude and phase both vary with q. The exact semigroup test is not a specialization yielding these thresholds.",
+          "An explicit Hawkes/renewal mean expression alone still requires a global extremum argument and a threshold inversion over every positive-sine lobe."
+        ],
+        "reasoning": "Threshold tangencies and a growing count are shared mechanisms, not evidence that one result implies the other. The closest moment literature is acknowledged; any exact stronger peak theorem in unavailable material remains unresolved.",
+        "searches": [
+          "arXiv:1610.03300v3 Theorem 1 and model",
+          "5fb4df709da8 RESULT.md offsets 0–6773",
+          "W204495298 abstract and lawful primary text attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same mean response is the q-weighted renewal density sum over generations. Ordinary Erlang renewal theory gives the unweighted q=1 comparison; the indexed Varsei–Samimi abstract concerns renewal count probabilities, expectation and tabulations.",
+          "The exact spectral-coalescence entry 5659a83fdb9d classifies maxima of a frequency spectrum, with two algebraic thresholds, not this time-domain derivative with infinitely many thresholds."
+        ],
+        "reasoning": "One must compare the defect parameter q and modes of the time-domain mean, not match on Erlang stages or on any three-state peak problem. The inspected ordinary-renewal abstract alone cannot resolve what its full generating formulas may imply.",
+        "searches": [
+          "Resultary: three-stage Erlang renewal Hawkes descendant intensity echo staircase exact peak-count thresholds q_j strict local maxima",
+          "Resultary: Hawkes Erlang gamma renewal peak echo aftershock",
+          "OpenAlex W204495298; defective Erlang renewal density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved published records give either spectral mode thresholds, a finite optimal recording-window gap in an Erlang renewal process, or positivity-time intervals for a circulant semigroup. The renewal abstract's tabulations concern an ordinary renewal process."
+        ],
+        "reasoning": "None of these actual tabulated or classified objects matches the complete q_j sequence for derivative sign changes. A bounded catalogue search is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary: linear subcritical branching aftershock Erlang descendant mean rate strict local maxima thresholds",
+          "Resultary 5659a83fdb9d, 934b8edf4525, 5fb4df709da8",
+          "W204495298 indexed abstract"
+        ]
+      },
+      "rationale": "The supported distinct statement is the exact infinite classification of strict peaks for the subcritical Erlang-three single-seed mean descendant rate, including threshold equality and geometric accumulation. Erlang cascades, renewal densities, and Hawkes moment calculations are prior frameworks. The inspected analogous three-state threshold classifications are not this peak law. Several relevant full texts remain unavailable; priority is provisional.",
+      "residual_risks": [
+        "Full-text noncoverage is not asserted for Varsei–Samimi or the gamma Hawkes moment paper. A stronger defective-renewal or mode-count result there or in unindexed work could affect priority.",
+        "No result of a bounded indexed search establishes global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Erlang modeling and stability, not the compared descendant-mode result",
+          "evidence": "Theorem 1 gives Wasserstein contraction and a unique invariant distribution under its subcriticality hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.03300v3",
+          "material_read": "Abstract PDF p. 1 offset 809; model p. 4 offset 11200; Theorem 1 p. 11 offset 39078",
+          "method": "OA PDF bounded passages",
+          "title": "Stability, convergence to equilibrium and simulation of non-linear Hawkes processes with memory kernels given by the sum of Erlang kernels",
+          "trigger": "Strong general Erlang-cascade antecedent"
+        },
+        {
+          "assessment": "Potential stronger implication unresolved; primary paper not read",
+          "evidence": "Abstract describes ordinary Erlang renewal-count probabilities, mean and tabulations. The attempted copies did not yield full text.",
+          "identifier_or_url": "OpenAlex W204495298",
+          "material_read": "Indexed abstract only",
+          "method": "Metadata comparison; lawful journal PDF and identified CiteSeerX copy attempted",
+          "title": "Some Results on Renewal Process with Erlang Interarrival Times",
+          "trigger": "Closest ordinary-renewal antecedent to the defective renewal density"
+        },
+        {
+          "assessment": "Named material priority risk; no noncoverage finding",
+          "evidence": "Full text was not accessed and no lawful repository copy was identified.",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-020-09840-8",
+          "material_read": "Bibliographic metadata, no readable primary passages",
+          "method": "DOI/publisher and lawful OA repository lookup",
+          "title": "Moments for Hawkes Processes with Gamma Decay Kernel Functions",
+          "trigger": "Gamma Hawkes moment law includes Erlang-type kernels and could contain a close result"
+        },
+        {
+          "assessment": "Moment machinery; specific overlap not established from abstract",
+          "evidence": "Describes moment/intensity methods for Markovian and some non-Markovian Hawkes processes.",
+          "identifier_or_url": "https://doi.org/10.1017/apr.2019.53",
+          "material_read": "Crossref abstract only",
+          "method": "Metadata read and lawful full-text attempt",
+          "title": "An elementary derivation of moments of Hawkes processes",
+          "trigger": "Broader Hawkes moment formula antecedent"
+        },
+        {
+          "assessment": "Different observable and model; date not used to discard the hit",
+          "evidence": "Frequency spectrum of a reversible model has three, two or one maxima as exchange changes, with two algebraic thresholds and quartic flatness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-exact-spectral-coalescence-thresholds-in-symmetric-three-sta--5659a83fdb9d/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3837",
+          "method": "Resultary semantic retrieval and local mirror",
+          "title": "Two exact spectral coalescence thresholds in symmetric three-state spectral diffusion",
+          "trigger": "Same-day three-state exact maxima/threshold hit"
+        },
+        {
+          "assessment": "Same stage number, different quantity and sampling",
+          "evidence": "Stationary renewal model for animal calls proves a unique finite optimal gap between observation windows at three phases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-renewal-stages-are-the-sharp-onset-of-a-finite-optimal-gap--934b8edf4525/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–3730",
+          "method": "Resultary semantic retrieval and local mirror",
+          "title": "Three renewal stages are the sharp onset of a finite optimal gap",
+          "trigger": "Same Erlang stage count and sharp onset in a renewal model"
+        },
+        {
+          "assessment": "Different equation, free parameter, event and asymptotics",
+          "evidence": "Entrywise negativity exists when exp(aθ) is below a fixed-amplitude cosine envelope; the number of intervals is proportional to 1/a as a decreases to zero. The frozen q varies a sine coefficient at fixed exponential slope, and counts strict maxima of a mean rate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-positivity-time-staircase-for-three-state-circulant-semi--5fb4df709da8/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–4, offsets 0–6773",
+          "method": "Resultary semantic retrieval and direct local-mirror comparison",
+          "title": "A sharp positivity-time staircase for three-state circulant semigroups",
+          "trigger": "Strong closest formal analogue: exact infinite staircase plus tangencies in a three-mode response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mode count for a delayed branching mean intensity is a natural qualitative question; the proof finds the first integer stage supporting a secondary peak and classifies all additional peaks, including the equality boundary. It also quantifies how close to critical the effect first occurs, an important constraint on practical interpretation. It supplies neither a seismic catalog fit nor a prediction of sample-path peaks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

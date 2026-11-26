@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact finite canonical marginal follows from pairwise detailed balance and stars-and-bars. A geometric-sum representation reduces the critical window to the lattice local central limit theorem with mean \(M/(a-1)\) and variance \(Ma/(a-1)^2\). The exact negative-binomial mass ratio bounds the entire left tail of that bulk sum by a uniform sub-Gaussian envelope, including arbitrary fixed-rate weak tilts, so normalization and moment convergence follow rigorously. The orthant-to-simplex change of variables yields the independent Dirichlet allocation and the \(\chi_r\) total at exact criticality. The standard-library checker passed independent stationary-generator, exact-marginal, and limiting-mean comparisons. It verifies only finite examples and does not certify the infinite theorem independently.
+PASS
 
-## Originality: PASS with residual risk
+Detailed balance holds for a transfer from i to j because moving one particle multiplies the product occupancy weight by w_j/w_i, exactly compensating the departure rates; the symmetric destination factor cancels. Positive rates and complete routing give irreducibility. Counting ordinary-site compositions gives the finite slow marginal, including s=N_M. Factoring out a common constant represents it as exp(c·h/√M) times the probability that an iid geometric sum equals N_M−s; its site mean and variance are 1/(a−1) and a/(a−1)^2. The span-one local CLT, with floor error at most one, gives the asserted Gaussian on compact rescaled lattices. The log successive-mass ratio has derivative −(M−1)/[(k+M)(k+1)], bounded above by −constant/M over the relevant lower tail; summing from the mode at M/(a−1)+O(1) gives a discrete Gaussian envelope times O(M^−1/2). The maximum mass bound also covers points above the mode. At fixed total s there are binom(s+r−1,r−1) lattice points; hence the Gaussian envelope still dominates any polynomial test and the bias exp(||c||∞s/√M), after Riemann rescaling. This justifies normalization, weak convergence and every mixed polynomial moment. In simplex coordinates x=tp the Jacobian gives t^(r−1); at c=0 the direction is independent uniform Dirichlet for all δ, and it is only at δ=0 that the radius is σ chi_r (Rayleigh for r=2). With arbitrary c the simplex law conditional on t is weighted by exp(tc·p), with no angular effect when all biases are equal. Independent finite canonical evaluations agree with the predicted tied r=3 and biased r=2 limits; these are diagnostics, not the justification of the asymptotics.
 
-The general canonical factorization and single-defect phase transition are established by Angel–Evans–Mukamel (2004) and Evans–Hanney (2005); they are used as background and are not asserted as new. Armendáriz–Grosskinsky–Loulakis (2009) treat a different homogeneous occupancy-dependent condensation mechanism. Mailler–Mörters–Ueltschi (2015) treat random weak disorder above criticality, not the deterministic finite-defect joint window. Comparisons of primary material and research records did not disclose the complete \(r\)-site chi/Dirichlet/weak-splitting theorem. A specialized published calculation or a broadly stated conditional-local-limit result could nevertheless imply it; historical priority is uncertain.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The number of nearly degenerate slow sites changes the shape of critical fluctuations, not only a multiplicative constant: the full \(\chi_r\) family and independent simplex allocation identify a multi-site critical response. The \(\sqrt M\) excess-mass and \(M^{-1/2}\) weak-mobility windows are intrinsic to competing Gaussian bulk fluctuations, and the explicit tilted law quantifies how small microscopic advantages bias the finite-size onset of macroscopic localization. This is a finite-size stationary theorem, not a dynamic or infinite-density condensation classification.
+The finite composition marginal, critical density and the conditional product framework follow from established zero-range theory and are not original components. The supported distinct contribution is the full deterministic fixed-r joint critical-window evaluation with weak rate splitting and moment convergence, including the exact critical chi/Dirichlet factorization for general r. There is demonstrable two-site overlap with another, later-dated catalogue result despite the different routing; this and the unresolved older thesis are explicit limitations, not priority findings. No inspected earlier claim supplies the general fixed-r window evaluation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Resolves how competing deterministic defects share the critical excess: the total and proportions have distinct, explicit laws, and a rate perturbation of precisely the stated scale changes the proportions by a nontrivial tilt rather than automatically selecting a single site. The joint law and all-moment convergence supply a quantitative reference for finite-defect competition, beyond the known stationary product weights or a critical-density threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

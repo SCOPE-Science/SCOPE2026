@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is a scalar autonomous SIS epidemic with baseline infection \(\beta>\delta>0\), quadratic adaptation \(\dot g=\alpha x^2\), positive infected seed, and \(1\le g_0<\beta/\delta\). The proof first establishes invariance, finite limiting gain, and infection extinction independently of the cited global theorem. The exact projective derivative \(dz/d\tau=z(\delta-\beta z+\alpha z^2)\) then classifies all cases by a quadratic discriminant and the initial ratio. When the ratio stays bounded the reciprocal-gain identity proves both \(1/t\) constants. When the ratio diverges the integrals for projective and physical crossing times prove **finite-time** passage through the static threshold with positive infection, after which the gain is strictly supercritical and infection decays exponentially. The equality ray is included explicitly. Exact rational identities and an original-ODE integration are reproduced in `verify.py`; numerical integration is not used as an infinite-time proof.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual priority risk)
-Walsh et al., arXiv:2305.16658v1, Section 3.2 and Theorem 3, analyze the same recovery adaptation family and prove eradication with finite gain. The inspected full-length 2023 preprint does not state a quadratic-discriminant phase boundary or an initial-burden separatrix. Their Proposition 3 is for infection-rate adaptation, and its strict-spectral-margin result is for exponent one. The indexed relevant sections of the 2025 Automatica publication discuss parameter exponent effects and leave finer convergence-rate classification open. Relevant published-finding corpus semantic queries returned epidemic threshold and nonlinear relaxation findings for **different** systems, not an equivalent quadratic recovery-gain phase diagram. Fifty-two accessible previously recorded claims were compared for direct statement overlap; none treated this model's gain-rate separatrix. Searches cannot prove worldwide priority. The complete 2025 journal PDF was inaccessible through attempted public routes, despite relevant searchable text being available, and an unindexed independent solution remains a risk.
+PASS
 
-## Value — PASS
-In the original adaptive-control setting, elimination alone leaves a materially important question unanswered: does control end exactly at a marginal reproduction number or with a strict margin and exponential recovery? This result supplies a necessary-and-sufficient design/initial-state rule for that distinction, sharp rate bounds, and a same-parameter example in which changing initial infection alone changes the limiting margin. It shows that the power-two controller is **not** uniformly critical; adaptation strength above \(\beta^2/(4\delta)\) guarantees exponential control regardless of seed. This is a natural complete classification in the smallest nontrivial member of a network-epidemic controller family, not a numerical case or arbitrary parameter slice.
+The interval 0≤x≤1 is forward invariant, x is positive at finite time, and g is monotone. If g were unbounded, once δg≥2β the exponential bound on x would make the remaining gain integral finite, a contradiction. Finite g∞ gives integrability of x² and bounded x′, hence x→0; the log equation excludes g∞<β/δ. Before threshold set y=β/δ−g and z=x/y. Direct differentiation gives dz/dt=x(δ−βz+αz²); in time τ with τ′=y this is dz/dτ=zQ(z), Q(z)=δ−βz+αz². For Δ≥0 and z₀≤z₊ the sign chart (including the double root) keeps z between positive bounds; (1/y)′=αz² then precludes a finite crossing, makes y comparable to 1/t and implies τ→∞. The attracting or fixed projective root gives both recorded constants by integration and averaging. In the remaining cases Q>0 along the increasing z branch. As z→∞ the integral of d log x/dz=(δ−βz)/(zQ(z)) converges, so x→x_*>0 and y→0. The physical travel time integral ∫dz/[xQ(z)] is finite, and g′>0 there makes the crossing strict. The logarithmic exponential rate follows by averaging (log x)′. The invariant ray gives the recorded equality solution, and both same-parameter seeds are on the claimed sides. The supplied finite checks were inspected, not executed; they are not used as proofs of extinction or strict asymptotic separation.
 
-## Limits and priority risks
-No extension is claimed to multiple interacting populations or other gain exponents. Critical \(1/t\) decay does not imply a strict reproduction-number gap. General exact ODE theory is pre-existing; only the model-specific phase classification is assessed as new. Full publication priority and independent replication remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work includes this quadratic recovery controller, eradication with finite limiting gain, and a limiting reproduction-number bound. The supported distinction is the exact division between critical and strict control for this scalar recovery feedback, including the initial-state threshold, its equality cases, and sharp physical-time constants. The nearest indexed exact critical-clearance results concern adaptation of contact links rather than recovery; their critical trajectories do not give this gain classification.
+
+## value
+
+PASS
+
+Eradication alone does not distinguish exactly critical recovery from a strictly subcritical frozen reproduction ratio. This classification gives the sharp adaptation boundary, the additional initial-burden boundary and physical-time rates for a natural member of an established feedback family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

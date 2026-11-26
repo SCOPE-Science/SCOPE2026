@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:53:01.728578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With permutations viewed as functions from positions to symbols and T the identity plus the five cyclic position transpositions, B(g)=gT has size six. A perfect code is an exact cover by these balls and has 20 centers. Branching on one uncovered vertex exhausts every compatible ball that could cover it, discarding only intersections with a chosen ball. An independently written enumeration generated the 120 tuples, made the five position swaps including (4,0), and recursively chose an uncovered point of least compatible degree. It yielded 254 nodes and exactly six covers of size 20. Direct construction of all left cosets of the order-20 affine subgroup gave exactly the same sets, with disjoint balls and full coverage. The stabilizer under left multiplication of A is A, since gA=A is equivalent to g∈A. Frozen verification/verify.py was inspected but not executed. The result is limited to degree five, radius one, and the cyclic position-swap metric.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buzaglo–Etzion §VI explicitly asks whether there are more perfect codes under the cyclic Kendall metric.",
+          "The indexed ordinary Kendall census 01233b6e774d reports 3,192 ordinary distance-three optimal codes and uses the graph without the wraparound edge."
+        ],
+        "reasoning": "The original construction is not an all-code classification; the ordinary-Kendall count also does not state the cyclic enumeration. The distinct exact cyclic result, rather than either near match, is decisive.",
+        "searches": [
+          "arXiv:1310.5515v1 §§IV, VI",
+          "Local Resultary ordinary Kendall S5 distance-3 equality census 01233b6e774d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7b31d21a4b95 and 01233b6e774d",
+        "arXiv:1310.5515v1 §§IV and VI",
+        "Targeted primary-literature search by metric, degree, and affine classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof steps 1–3 of the distinct result give B(g)=gT, affine tiling, and normalization of a chosen center to the identity; the remainder certifies the single normalized solution. Its metadata lists normalized Python/C++ exact-cover implementations. The frozen proof searches the unnormalized graph."
+        ],
+        "reasoning": "Both claims classify the same exact covers. The stabilizer is a coset-action identity, so the different enumeration and explicit stabilizer count do not distinguish the theorem. The later catalogue entry is not the frozen record itself, and equivalent coverage under review does not imply historical precedence.",
+        "searches": [
+          "7b31d21a4b95, RESULT.md and METADATA.json; frozen METADATA.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7b31d21a4b95, Finding and Assumptions, defines perfect codes by the closed one-swap balls for the five cyclic position swaps, and states precisely six labeled codes, the left cosets of the affine subgroup under ordinary composition.",
+          "Buzaglo–Etzion §IV uses the same metric and lists the four nonzero slopes and cyclic shifts giving the twenty affine words."
+        ],
+        "reasoning": "Efficient domination by one-swap balls is the same predicate; relabeling symbols is left multiplication. The matching indexed statement agrees even on coset sidedness and the distinction from the ordinary Kendall graph.",
+        "searches": [
+          "Local Resultary: perfect cyclic Kendall S5 codes; affine cosets; cyclic adjacent-swap exact covers",
+          "Buzaglo Etzion cyclic Kendall metric S5 perfect permutation codes affine subgroup all perfect codes enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original displayed code is one affine code; the indexed result is an all-code census, six with 20 words per code, via a normalized exact-cover search."
+        ],
+        "reasoning": "Twenty codewords in one example is not the count of codes. The indexed theorem identifies the complete six-set family, not just six named examples.",
+        "searches": [
+          "Local Resultary 7b31d21a4b95, Finding and Proof",
+          "arXiv:1310.5515v1 §IV displayed code"
+        ]
+      },
+      "rationale": "The exact classification is already covered by distinct indexed Resultary record 7b31d21a4b95: same graph, radius, labeled count and six affine left cosets; the orbit and stabilizer are automatic from that statement. The earlier Buzaglo–Etzion paper instead supplies the affine example only in the passages inspected. This is a finding of demonstrable equivalent coverage in the available record, not a finding that that indexed result has historical priority. The distinct records have different proof organizations and catalogue dates, which alone do not establish the order of the discoveries.",
+      "residual_risks": [
+        "No chronology of the two exact proofs is established; catalogue dates and the shared foundational source date do not settle priority. Other references may contain earlier exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage in a distinct record; historical priority unresolved",
+          "evidence": [
+            "The theorem says exactly six labeled perfect codes, precisely φH using ordinary composition, and no nonaffine code exists.",
+            "The proof normalizes to a solution containing e before its exhaustive search."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exactly-six-perfect-cyclic-kendall-codes-on-five-symbols--7b31d21a4b95/RESULT.md",
+          "material_read": "Finding, assumptions, proof (offsets 0–5797) and METADATA.json",
+          "method": "Indexed search, original passages via local mirror",
+          "title": "Exactly six perfect cyclic Kendall codes on five symbols",
+          "trigger": "Local exact theorem match"
+        },
+        {
+          "assessment": "Exact affine existence example, not equality classification in the inspected material",
+          "evidence": [
+            "Rows [0,α,2α,3α,4α] and cyclic shifts are the affine subgroup's words.",
+            "The concluding section asks whether there are more perfect codes for cyclic Kendall τ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.5515v1",
+          "material_read": "§IV (PDF p. 3, OA text offsets 16500–22534) and §VI (p. 5, offsets 32000–34937)",
+          "method": "Targeted OA original PDF passages",
+          "title": "Perfect Permutation Codes with the Kendall's τ-Metric",
+          "trigger": "Original construction in the same cyclic metric and degree"
+        },
+        {
+          "assessment": "Different metric; its stated census is not the cyclic equality characterization",
+          "evidence": [
+            "The stated count 3,192 is in ordinary Kendall distance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-equality-census-for-optimal-s-5-kendall-tau-codes-at-distance-3--01233b6e774d",
+          "material_read": "RESULT.md opening statement",
+          "method": "Indexed search and original statement via local mirror",
+          "title": "Equality census for optimal S5 Kendall τ codes at distance 3",
+          "trigger": "Nearby all-code census at the same group order and nominal distance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a first result the natural finite equality classification would resolve the first cyclic instance of the original question. As reviewed, it is an alternative exhaustive replay of an already covered classification; the unnormalized search supplies no distinct structural or algorithmic gain, and the orbit and stabilizer add no mathematical content to the established coset description.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:36:41.507557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A real circular BV derivative is a finite zero-mass signed measure; any antipodal atom difference has a semicircle step as its primitive. The Jordan product representation with the factor V/2 makes the BV quotient bounded by the maximum probability TV distance of two kernel translates, and two atoms attain it. The Jacobi product gives k_t'(u)<0 for 0<u<π, so for separation h the positive region of the density difference is the semicircle (h/2−π,h/2), with TV derivative k_t(h/2)−k_t(π−h/2)>0 for 0<h<π. At h=π this gives the semicircle mass formula and integrating the Fourier heat density gives the alternating odd series. Equality requires that almost every pair sampled independently from the two normalized Jordan parts is antipodal; hence both parts must be opposite singleton atoms. Strict time decrease follows by differentiating the semicircle integral to get 4k_t'(π/2); strict submultiplicativity follows because an attaining semicircle step becomes nonconstant and smooth after any positive time and so cannot attain the second quotient. Positivity and K<1 follow from strict radial decrease and strict kernel positivity. For a=π/2 the wrapped Gaussian differs from the unwrapped two-sided outside tail only on |u|≥3a, so 1−K(t)=4Φ(−a/√(2t))+O(exp(−9a²/(4t))). The first two Mills terms give the stated constants; the first two odd Fourier modes and the exponentially smaller tail give the large-time expansion. Replay: RESULT.md lines 33–71. VERIFICATION.md and verification/check_heat_bv.py were inspected, not run; their finite samples are not a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Von Mises record 1d37d027bdbd Proof §§2–3, offsets 2700 and 3451: for any such smooth positive even strictly decreasing circular density h, the unique maximizing shift is π and the BV equality cases are semicircle indicators.",
+          "Alonso-Orán et al. Theorem 2 supplies strict radial monotonicity for the circle heat kernel.",
+          "Neumann record 6f50c9ea61c0 Proof §§2–4 gives the killed survival maximum and its strict time composition for interval BV."
+        ],
+        "reasoning": "The arbitrary strictly decreasing radial-density proof applies directly with h=k_t and gives both the sharp arc formula and all normers. The Neumann interval claim does not imply the circle normers, but at zero drift and Brownian scaling its midpoint survival profile is the same exact scalar function. The same-day dates do not establish priority between distinct records.",
+        "searches": [
+          "Resultary: circular antipodal-TV optimization for von Mises BV contraction",
+          "Resultary: drifted Neumann heat BV and killed survival",
+          "Alonso-Orán et al. Theorem 2 radial heat-kernel monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check_heat_bv.py",
+        "Aldous–Fill §13.1 Eq. (13.6)",
+        "Gaubert–Qu arXiv:1307.4649",
+        "Alonso-Orán et al. Theorem 2",
+        "Resultary 4f6e1d65bde8, 1d37d027bdbd, 6f50c9ea61c0",
+        "Connor–Merli arXiv:2203.14791"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial-density proof applies before its specialization to von Mises; its §5 uses smoothing to get strict submultiplicativity.",
+          "The earlier heat profile provides the full odd series and the Gaussian tail at the same half-circle cutoff."
+        ],
+        "reasoning": "The product Jordan coupling forces opposite atoms once pairwise strictness is known; integrating the atoms gives precisely the semicircle normer. Strict composition then follows immediately from smoothing (also from positive killed transition densities and strictly maximizing midpoint survival). The strict derivative is a direct boundary-flux evaluation. The displayed next correction terms follow by taking the next Mills term and the next Fourier mode; no independent new time regime or optimizer phenomenon survives these implications.",
+        "searches": [
+          "Aldous–Fill §13.1 exact circle profile",
+          "Resultary 4f6e1d65bde8 Proof §5 and 1d37d027bdbd Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aldous–Fill §13.1, (13.6) at HTML offset 6540: reflection coupling is an equality for circle pairwise TV, with worst start x=1/2 on the unit circle and profile equal to the Brownian exit survival from (−1/4,1/4).",
+          "Gaubert–Qu p. 1 Eq. (1) gives the pairwise-row TV characterization for a Markov matrix; the same measure proof is the frozen Jordan decomposition."
+        ],
+        "reasoning": "Every real zero-mass circle measure is a BV derivative, and derivative commutes with heat. The BV operator norm is exactly worst-start Markov TV. If Aldous–Fill use unit circle and standard variance-one Brownian motion at time τ, then τ=t/(2π²) under the frozen 2π-circle variance-2t normalization. Thus (13.6) is the same K(t), not a different norm after this identification.",
+        "searches": [
+          "Aldous–Fill §13.1, Brownian motion on the circle and variation distance",
+          "Gaubert–Qu arXiv:1307.4649 Dobrushin coefficient",
+          "Resultary: circular heat / fractional Lipschitz profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct earlier Resultary 4f6e1d65bde8 Proof §§2–3, offset 2922: for α=1, the identical semicircle integral and alternating odd heat series; §5 and Relationship to prior work, offset 5913, give the leading small-time scale and credit the classical antipodal TV result."
+        ],
+        "reasoning": "This is a continuous-time closed-form profile rather than a finite table entry. The earlier entry gives an exact analytical match to the numerical function for all times, although the Lipschitz extremizers are different. The Aldous–Fill identity gives the matching invariant directly through the zero-mass BV isometry.",
+        "searches": [
+          "Resultary: Lipschitz phase transition fractional heat on circle and sharp heat BV",
+          "Aldous–Fill circle worst-start variation profile §13.1 Eq. (13.6)"
+        ]
+      },
+      "rationale": "The principal claimed coefficient is an established exact result under an equivalent formulation: Aldous–Fill §13.1 explicitly identifies the worst pair of circle Brownian transition laws as antipodal and gives their exact total-variation profile in (13.6). Differentiation identifies circular BV modulo constants isometrically with the real zero-mass measures, under which heat acts by precisely that transition kernel. The known Dobrushin formula then identifies the two norms, not just a bound. The earlier fractional-circle Lipschitz entry explicitly gives the same semicircle integral and odd series at α=1 and credits Aldous–Fill. The semicircle normer classification and strict submultiplicativity are direct consequences of the uniquely maximizing separation and smoothing, and an overlapping general radial-density derivation is explicit in the von Mises entry. The further terms retained in the two expansions are routine evaluations of the known profile. This is shown coverage and implication, not failure due to access or uncertainty about same-day priority.",
+      "residual_risks": [
+        "Exact prior wording of the complete circle-BV package was not established; the failure is based on demonstrable equivalent coverage of the profile and direct implications for the rest.",
+        "The same-day source dates do not resolve priority; this is not needed for the Aldous–Fill equivalence.",
+        "The cited MathOverflow page was not available through the attempted access; no inference relies on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the central profile in an equivalent invariant",
+          "evidence": "Pairwise TV equals reflection-coupling survival, worst starting point x=1/2 on the unit circle, exact survival profile G(16τ).",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch13.S1.html",
+          "material_read": "§13.1 circle reflection coupling and Eq. (13.6), HTML offset 6540",
+          "method": "Lawful public HTML, literal locate followed by bounded passage",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Earlier exact antipodal Brownian TV result cited by the fractional heat record"
+        },
+        {
+          "assessment": "General norm principle; circle specialization uses a measure Jordan decomposition",
+          "evidence": "The classical finite Markov kernel formula is half the maximum pairwise row L1 distance.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+          "material_read": "p. 1, Eq. (1), OA offset 0",
+          "method": "Lawful OA paper, bounded passage",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "Exact norm reduction to pairwise kernel deviations"
+        },
+        {
+          "assessment": "Known strict radial decrease includes the circle",
+          "evidence": "Strict geodesic radial decrease of the heat kernel from a pole on the specified compact surfaces of revolution.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13163-021-00417-8",
+          "material_read": "Theorem 2, pp. 207–208, OA offset 0",
+          "method": "Lawful OA paper, bounded pages",
+          "title": "Pointwise monotonicity of heat kernels",
+          "trigger": "The strict angular optimization input"
+        },
+        {
+          "assessment": "Exact numerical profile under Lip seminorm at α=1; explicitly credits prior antipodal Brownian TV result",
+          "evidence": "Identical central semicircle integral and alternating odd modes; the leading Gaussian deficit follows from the same outside tail. Triangular wave normers there are for the different seminorm.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-lipschitz-phase-transition-for-fractional-heat-on-the-ci--4f6e1d65bde8",
+          "material_read": "RESULT.md Finding; Proof §§2–3 at offset 2922; Proof §5 and Relationship to prior work at offset 5913; ref. 3",
+          "method": "Local mirror, bounded passages",
+          "title": "A sharp Lipschitz phase transition for fractional heat on the circle",
+          "trigger": "Exact matching ordinary heat profile and onset"
+        },
+        {
+          "assessment": "The general radial-density steps specialize to heat; no order inferred for the two same-day results",
+          "evidence": "For any such even strictly decreasing density, δ′(h)>0 below the antipode, and the Jordan argument forces the semicircle normers; §5 proves strict composition by smooth output.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sharp-circular-variation-decay-under-iterated-von-mises-sm--1d37d027bdbd",
+          "material_read": "RESULT.md Proof §§2–5, offsets 2700 and 3451",
+          "method": "Local mirror, bounded passages",
+          "title": "Exact sharp circular variation decay under iterated von Mises smoothing",
+          "trigger": "General radial-kernel BV equality and strict semigroup improvement"
+        },
+        {
+          "assessment": "Scalar profile and strict composition overlap after zero drift and rescaling; distinct interval BV extremizers",
+          "evidence": "The coefficient is the maximal survival probability of the killed diffusion, and strict composition follows from positive kernel and a unique maximum.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-real-bv-contraction-for-drifted-neumann-heat-and-migration--6f50c9ea61c0",
+          "material_read": "RESULT.md Proof §§2–4, offset 3414",
+          "method": "Local mirror, bounded passage",
+          "title": "Sharp real BV contraction for drifted Neumann heat and migration",
+          "trigger": "Killed Brownian survival and exact unforced heat profile"
+        },
+        {
+          "assessment": "Process with extra jumps; not the primary source for ordinary heat",
+          "evidence": "A maximal coupling from antipodal starts is discussed for a process with jumps to the antipode.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.14791",
+          "material_read": "Abstract and §1, OA text offset 0",
+          "method": "Lawful OA mirror, bounded passage",
+          "title": "Optimal Coupling of Jumpy Brownian Motion on the Circle",
+          "trigger": "Possible exact Brownian-circle coupling match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp heat TV profile is a useful quantity, but the frozen contribution is essentially its repackaging on the isometric BV quotient. The residual equality follows from unique antipodal separation, strict composition from smoothing, and the extra asymptotic terms are the next terms of standard expansions of the already known exact function. These are useful explanatory details, but no substantive new mathematical result remains in the frozen scope. No distinct valuable corrected claim is established here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

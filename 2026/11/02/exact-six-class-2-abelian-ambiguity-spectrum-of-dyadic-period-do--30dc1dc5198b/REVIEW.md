@@ -1,15 +1,21 @@
-# Scientific review: dyadic period-doubling 2-Abelian ambiguity spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The factor parity identity supplies every factor, and disjointness is proved from the absence of `11` in the fixed point. Endpoint-count matrices transform by an exact two-parameter recurrence, giving a parity-separated closed table. Three distinguishable digram signatures per zero-content stratum have sizes \(a+b,a+b,2b\); the two strata yield the six formulas. The proof handles all \(k\ge3\), does not extrapolate finite tests, and lists the smaller scales only as excluded boundaries. The standalone checker constructs genuine finite prefixes, directly enumerates all distinct factors through length \(2^{10}\), recomputes full 2-Abelian signatures, and cross-checks an independently implemented factor desubstitution.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-Parreau, Rigo, Rowland and Vandomme (arXiv:1405.3532, Section 5, Propositions 34–35 and Corollary 41) studied 2-Abelian *complexity* of the same period-doubling word, determining signatures and regularity but not the exact sizes of each signature class. Karhumäki, Saarela and Zamboni (arXiv:1302.3783, Section 4) computed its 1-Abelian complexity and studied 2-Abelian complexity of a different sequence. The proposed six-class size multiset strengthens a class-count invariant by resolving every class fiber. Searches for dyadic 2-Abelian factor multiplicities, equivalence aliases and broader period-doubling classifications found no covering claim. The strongest primary work was read at the relevant section's full-text level; priority remains uncertain outside the sources accessed. The structured comparison in AUDIT.json lists exact scope and residual risks.
+PASS
 
-## Value — PASS
-The result quantifies information loss under digram-statistical observation of a canonical morphic word. Its exact two-scale ambiguity profile, including linear minimum and maximum fiber sizes, is a complete infinite-family structural invariant not supplied by known 2-Abelian complexity. The desubstitution and endpoint proof provides a reusable mechanism for studying higher local-observation spectra.
+The fixed-point identity p[2i]=0, p[2i+1]=1−p[i] gives exactly the two parity images of every distinct half-length factor, at all starting positions. Both maps are injective; their intersection would require an all-zero image from an all-one preimage, impossible at half-length at least two. Starting from 00,01,10 gives 3N/2 distinct factors. At length 2 the two zero-count strata have endpoint census pairs (a,b)=(0,1),(1,0), for matrices [[a,b],[b,0]]. Doubling sends z to 2m−z and (a,b) to (2b,a+b); it interchanges the high and low strata, which remain floor(2m/3) and its successor. Substituting m=6q+2 or 6q+4 in the endpoint table verifies each induction transition exactly. With no 11 in an image, its number of ones is z, and the mixed-pair counts are (z,z−1), (z−1,z), or (z,z); the count of 00 is then fixed by length. The disjoint-image census gives the respective fiber sizes a+b,a+b,2b, all positive after the length-four preimage stage. Swapping the parity of the preimage exponent yields precisely the claimed odd/even multisets and the two linear asymptotics. Independently enumerating a prefix from the valuation formula for the letters and counting overlapping factors reproduced the spectra for k=3 through 10, including (170,171,171,341,341,342) at 1024. The full-length proof is the recursion, not the prefix experiment.
 
-## Verification limits
-The checker's finite direct enumeration is a reproducibility test, not an infinite proof; the induction is presented in RESULT.md. The theorem is restricted to distinct dyadic factors with \(k\ge3\), with no claim about positional frequencies, non-dyadic lengths, or higher-order Abelian equivalence. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The number six of 2-Abelian classes at these lengths is already implied by the published complexity recurrences. The supported distinction is the full multiset of their distinct-factor cardinalities, which neither the strongest inspected literature nor the inspected catalogue overlaps supply for this word and equivalence relation.
+
+## value
+
+PASS
+
+The exact cardinalities answer a distinct question from 2-Abelian complexity: how unevenly distinct factors occupy the six classes. The census distinguishes two linear size scales and exact parity corrections at every tested theorem length, and it gives the input for collision counts among distinct factors. Dyadic length is the natural self-similar scale of the binary substitution. This is a complete nontrivial invariant on that scale, not a recomputation of the six-class count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

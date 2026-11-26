@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact all-parameter formulas are proved in `RESULT.md`, especially the three-case extension partition, downset count, and simultaneous-permutation orbit normal form. The standalone `verify.py` runs with Python 3 standard library only and requires no reference file or network access.
+# Independent mathematical audit
 
-It directly tests each of the \(3^{2n}\) possible ternary statuses of the one new point with respect to the \(2n\) named old points. Each status is checked by brute-force transitivity on the enlarged relation, independently of the theorem's downset decomposition. For \(2\le n\le6\), all \(597861\) assignments and \(1367\) valid extension types are covered; for \(2\le n\le5\), all simultaneous index permutations are used to compute \(88\) orbit types. The measured output is reproduced without modification in `verification_output.txt` and has final line `ALL_CHECKS_OK assignments=597861 valid_profiles=1367 checked_orbits=88`.
+## correctness
 
-These checks do not prove the all-size statement, and they do not constitute independent mathematical peer review. Historical priority remains provisional. One known published general height-two counting identity already entails the unrefined named-type count; the new claim is the full bivariate and orbit classification.
+PASS
+
+A fresh vertex is specified by a downset L and an upset U with L strictly below U pairwise. These conditions handle every transitivity clause, and the generic poset realizes each profile, with ultrahomogeneity identifying the complete types. If both are nonempty they use only minima for L and maxima for U, with disjoint index sets. If only L can be nonempty, the downset has no maxima, has precisely one maximum and its n−1 mandatory minima, or has all minima and a nonempty subset of maxima. These disjoint cases give the displayed T_n after accounting for the all-incomparable profile. The base group preserves layers, including for n=2, and must preserve the unique missing matched relation, so it permutes the indices simultaneously. In the one-sided exceptional case there is a second orbit of degree n; in the two-sided case the ordered disjoint index sizes determine the orbit. This yields J_n and O_n, with the empty profile counted only once. Each base automorphism extends and equal profiles fixing the base are conjugate by ultrahomogeneity. The term 'orbit-size polynomial' refers to the two type cardinalities, not the cardinality of an orbit; the displayed definition is unambiguous. An independently written bit-row transitivity test and paired-state orbit classification compared every coefficient for n=2 through 6: label counts 19,47,119,315,867 and orbit counts 12,18,25,33,42. Replay: python3 -B /workspace/repro/2.py; output /workspace/repro/2.log. This is finite corroboration, not the general proof.
+
+## originality
+
+PASS
+
+The scalar named total is already a corollary, and neither the named-profile formalism nor the bivariate invariant for general bases is new. The supported content is the exact bivariate evaluation and all-n base-automorphism orbit profile for the standard examples. The closest same-day comparisons concern general invariant definitions, another graph family, or an exact small-parameter overlap, not this full evaluation. No temporal priority is inferred from same-day dates.
+
+## value
+
+PASS
+
+Standard examples are a canonical dimension-unbounded family; placement of an exterior point, including its orbit under the base stabilizer, is a natural model-theoretic invariant. The all-n coefficient formulas and complete orbit normal forms, in particular the quadratic-versus-exponential scale and the one-sided degree-n multiplicity, provide usable information beyond the known scalar named total. No general model-theoretic machinery or application to multi-point extensions is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

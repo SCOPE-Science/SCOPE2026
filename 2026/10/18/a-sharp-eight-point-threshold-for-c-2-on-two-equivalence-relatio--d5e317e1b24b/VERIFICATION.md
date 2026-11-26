@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-equivalence threshold
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory. The program has no dependencies outside Python's standard library. A successful complete run reports the isomorphism counts `1,4,10,33,91,298,910,3017`, the corresponding \(C^2\)-type counts `1,4,10,33,91,298,910,3016`, a single ambiguity at eight, the two explicit matrices, and `VERIFIED: full sharp C2 threshold and unique first pair`.
+## correctness
 
-The code proves exhaustive coverage by starting from the unique one-element intersection matrix, performing all four one-element extensions and reducing by all row/column permutations after sorting invariant column sums. Independently, labeled pairs of set partitions are enumerated through order five as a cross-check. For each order, logical signatures are computed synchronously for all canonical structures, counting each combination of the two binary relations and previous colors. No external database or randomness enters the computation.
+PASS
 
-The count of isomorphism classes at each order agrees with OEIS A007716, a previously known enumeration; the counted logical equivalence classes are the independently evaluated invariant here. The two witnesses are nonisomorphic because their bipartite incidence graphs have different numbers of connected components, and are \(C^2\)-equivalent because every element receives the same refinement color at every round. The logical correspondence and matrix encoding are justified in RESULT.md.
+Verified for finite nonempty structures with two named equivalences and no other symbols, with comparisons restricted to that class. The intersection matrix is a complete isomorphism invariant modulo independent row and column permutations. Removing one element reverses one of the four extensions; the orbit selector fixes invariant column sums, examines every within-group order, and sorts rows. Counting refinement uses the four ordered relation channels and previous colors; equality is recovered by splitting out exactly one point of the current color from the (1,1) channel. Unary color formulas follow by counting quantifiers, and induction on formulas using the atomic pair type and endpoint colors gives completeness of the stabilized color histograms. Different cardinalities are distinguishable by a counting sentence. A separate reproduction fixing one partition by block sizes and generating every second partition by restricted-growth strings, followed by synchronized refinement, gave iso counts 1,4,10,33,91,298,910,3017 and logical counts 1,4,10,33,91,298,910,3016. It found just the displayed two matrices in the non-singleton class at eight. The pair is nonisomorphic by incidence connectivity and has identical uniform profiles (1,1,1,5), so its equivalence also follows without the census. Replay: python3 /workspace/branches/bac2aa1c-df52-40c9-904d-e8700b725c4d/census_independent.py 8; see census-output.txt in the same directory. The frozen program was inspected but not executed.
 
-Limits: exhaustive computation proves the finite cutoff only insofar as the generator, canonicalization, and counting-logic correspondence are mathematically correct. This verification neither establishes an infinite extrapolation nor constitutes an independent audit or a comprehensive historical priority certification.
+## originality
+
+PASS
+
+The replacement RESULT.md credits material overlap: the exact eight-point witness, including its whole two-matching fibre in the unrestricted class, is covered by a distinct Resultary record. The total isomorphism-count column is known. Originality credit is confined to the unrestricted logical census, its no-collision assertion through seven, and exclusion of every other collision at eight. The shared date does not establish relative priority.
+
+## value
+
+PASS
+
+A natural relational class already has a known orbit count and a natural logical invariant. Determining precisely when that invariant ceases to distinguish types, and showing the known matching fibre is the sole discrepancy among all 3,017 types at the first order, gives an independently useful obstruction and exact test benchmark. It is not merely recomputing the known orbit column or confirming the matching example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

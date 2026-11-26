@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses unique length-three factors for the nine-position lower bound, characterizes all nine- and ten-position candidates by the geometry of consecutive length-three windows, and reduces the full attractor condition to covering the three letters and nine digrams. The bundled enumerator fixes the unique edge `000`, traverses every Eulerian circuit once, and checks each of 27 cuts of all 373248 cycles. Direct brute-force factor checking for the displayed example provides a separate boundary check. Finite exhaustive enumeration proves only this stated finite classification, not other orders.
+## correctness
 
-## Originality — PASS
-Whittington (arXiv:2407.15599v1, Section 5 and Theorem 29) provides one nonoptimal ternary unfolding, a special Lyndon-generated optimal unfolding, and explicitly asks whether every de Bruijn cycle has an optimally unfoldable cut. The finding gives a decisive negative answer to that particular universal question for ternary order three and exact counts for all cycles/cuts. Mantaci et al. (arXiv:1907.04660, de Bruijn section) obtain general bounds but no such rank distribution. No covering result emerged from targeted full-text, keyword, and published mathematical-record comparisons. An unindexed equivalent complete census remains possible.
+PASS
 
-## Value — PASS
-The first small nonbinary order-three instance is a natural test of the general de Bruijn attractor question. Classifying all cycles resolves the universal-existence question in this instance (and provides explicit counterexamples), separates full from sharp attractors, and supplies exact finite multiplicities and witnesses without a higher-order conjecture.
+Every trigram occurs at exactly one of the 27 linear starts. A nine-element hitting set must cover exactly three starts per mark without overlap, forcing marks 2,5,…,26. Hitting all such windows hits every occurrence of every longer factor, so the only further tests are the three letters and nine digrams. I independently enumerated all 2·6^8 local exit orders of the Euler graph with 000 fixed first. Every complete tour uniquely determines and is reproduced by its orders. All ten-subsets were filtered by explicit bit-mask coverage of the 27 starts, yielding 275, and each of the 27 linear cuts per tour was tested directly, without the source's residue shortcut. The seven disjoint chunks in /workspace/audit-evidence/2/census.py and totals.txt give 373248 cycles, 8274096 cuts of size nine, 1803600 of size ten and none unresolved; the cycle histogram is 0:1632, 9:19968, 18:155568, 27:196080. Direct all-factor checking confirms the displayed witness's ten marks; all its cuts fail nine. A second independent symbol-recursion run agreed. The source C++ was inspected but not executed, and no claim for other orders follows.
 
-## Limitations and references
-The finite certificate is essential; the conclusions do not cover binary or higher-alphabet, higher-order families. Primary sources: arXiv:2407.15599v1, Section 5; arXiv:1907.04660, de Bruijn section; arXiv:1803.01695 for definitions and verification background. An earlier independently derived finite census remains a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An unfavorable cut and examples of favorable recuts were known. The inspected sources do not settle which labeled ternary order-three cycles lack a favorable cut at every rotation, or give the 9/10 counts and distribution. The result answers the universal-cycle question negatively, not the separate existence question.
+
+## value
+
+PASS
+
+The finite domain is the natural small nonbinary case of a published universal unfolding question. The verified all-rotation obstruction gives a clean counterexample, and the complete labeled distribution quantifies how often cut selection can or cannot recover the lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

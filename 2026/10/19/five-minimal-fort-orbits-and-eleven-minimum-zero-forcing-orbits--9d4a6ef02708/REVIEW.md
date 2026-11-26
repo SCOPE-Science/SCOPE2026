@@ -1,19 +1,21 @@
-# Scientific review: Five minimal-fort orbits and eleven minimum-zero-forcing orbits of \(Q_4\)
+# Independent mathematical audit
 
-## Correctness (PASS)
-For the precisely labelled 4-cube, prove the fort duality, all-subset recurrence, upward-closure of forcing, and complete automorphism description. The fort algorithm checks each of 65536 masks (348 minimal forts: 28,32,288) while a separate direct synchronous forcing algorithm independently checks each mask (2360 minimal zero forcing sets, all size eight), and a third verifier checks all 65536 Boolean decisions for exact equality. The explicit five and eleven group-orbit representatives are tested against all 384 automorphisms and exhaust their respective sets. This is an exhaustive finite proof with standalone checked programs; it is not extrapolated to Q_d for other d.
+## correctness
 
-The fort predicate checks all neighbors outside each candidate set. Its all-proper-subset recurrence is necessary because fortness is not inclusion-monotone. The direct black-coloring checker and the independent fort-complement checker agree on **every one of 65536 cases**; all group images and sizes are checked from explicit generators. The proof is finite and exact, and no claim is made beyond \(Q_4\).
+PASS
 
-## Originality (PASS; priority risk remains)
-The retained claim is orbit-resolved structural classification, not the known scalar Z(Q4)=8 or known total 348 minimal forts. The 2025 closest full text explicitly states 348 in the conclusion but does not supply the two new orbit tables or well-forcedness, and states complete enumeration of minimum zero forcing sets remains unresolved. The 2023 thesis contains an exact probability plot for 16-vertex cube, mathematically encoding the polynomial, which is fully acknowledged rather than ignored. The novel conjunction of five and eleven orbit decompositions and well-forcedness is not implied by those covered scalar/probability results, nor by the 2018 zero-forcing polynomial framework. An unindexed source or dataset may still supersede the structural classification.
+Repaired claim: the monotone parallel color-change map reaches all vertices exactly when an ordinary forcing process can. A synchronous batch can be sequentialized by skipping already black targets, and the synchronous terminal set is closed under every possible legal force, so no sequential solution can escape it. Upward closure makes successful single-vertex deletions the exact test against inclusion-minimality. Xor translations and coordinate permutations give all 384 automorphisms: once 0 and its neighbors are fixed, each higher-layer vertex is forced by its predecessor supports. An independent exact replay in `/workspace/branches/0963b538-613f-4568-a887-077afec5d42b/q4_independent_check.py` inspected all 65,536 subsets and agreed mask-by-mask between direct forcing and the complement-fort test, including the original five fort orbits and the forcing polynomial. Its saved `q4_independent_check.json` lists the 11 least forcing representatives, their sizes and times, and confirms exactly 2360 inclusion-minimal sets, all size 8. Inspected the frozen proof, verification scripts and representative table without running the frozen scripts. The corrected package `/workspace/repairs/1/` narrows the finding to the forcing-side census and omits the fort theorem and the aggregate polynomial. Its new checker, `python3 /workspace/repairs/1/verify_minimum_orbits.py`, was executed: 'Checked 65536 subsets: 2360 minimum sets, 11 orbits.' It additionally checks constant synchronous time throughout each orbit, validates the complete corrected table, and gives the four totals 8, 816, 1152 and 384. This is exact finite exhaustion for Q4, not a proof for all cubes. No mathematical falsity was found in the original claim.
 
-Closest inspected primary full texts: AIM's foundational paper (doi:10.1016/j.laa.2007.10.009); Boyer et al. (arXiv:1801.08910); Becker et al. (arXiv:2404.05963); Brimkov–Cameron–Grubbs (arXiv:2507.10826); and Lawrence's 2023 thesis (Chapter 5). **The total \(348\) minimal forts is not original**, nor is the zero-forcing number \(8\). A published exact probability graph also implicitly represents the polynomial. The new finding is the complete **five- and eleven-orbit structure and well-forcedness** with exact certificates. Earlier unindexed supplementary computations may exist.
+## originality
 
-## Value (PASS)
-The four-cube is the exceptional hypercube with two types of minimum forts and is explicitly the small open complete-structure test case in the 2025 primary paper. Resolving all five minimal-fort and eleven minimum-forcing orbits, including 288 large minimal forts, the uniform size-eight inclusion-minimality and propagation profile gives a natural complete classification rather than a gratuitous slice or only a recomputed aggregate. The five orbit generators form a compact exact obstruction certificate, useful for future hypercube and fort-transversal questions without asserting a downstream theorem.
+PASS
 
-## Limitations and inspection
-The result is not a dimension-independent hypercube classification. Exhaustive finite verification and this assessment are not a substitute for an independently conducted mathematical audit or historical-priority check. Reproduce with the three standalone programs and compare `CLASSIFICATION.json`.
+For the repaired finding only. The original combined claim cannot pass as a distinct contribution in full: the exact five-orbit minimal-fort classification is also covered, with identical masks and orbit sizes, by the distinct indexed record 4b4a85b72c98. Its later catalogue label does not settle historical priority and is not used to infer priority. Remove that component and the already encoded aggregate size polynomial as findings. The exact eleven-orbit forcing census, its time multiplicities, and the absence of larger inclusion-minimal forcing sets survive the comparisons below.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired finite census answers the published question of enumerating minimum sets on a natural symmetry-rich graph. It supplies automorphism classes and exact times per class, information not delivered by the scalar minimum, aggregate polynomial or examples exhibiting a range. The proof that no larger inclusion-minimal set occurs makes the eleven classes exhaustive also for inclusion-minimal forcing, not just for one selected cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:43.060493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4 and assumptions, VERIFICATION.md and check_rotation_taper.py inspected without execution",
+        "Independent bounded quadrature using composite Simpson rule (65536 panels on [0,pi]), testing scalar blocks l=0,1,2,3,4,12 at b=-8/23 and b=-8/23-0.01 directly against (2/pi) sin(theta/2) sin((l+1/2)theta)/(2l+1). Boundary l=2 was -1.04e-16 (quadrature error); below the boundary it was -0.0001618324460954. The independent radial quadrature was -0.0968867418142768 at frequency radius 3."
+      ],
+      "rationale": "Multiplying the normalized Haar angle density by the degree-l character gives [cos(l theta)-cos((l+1)theta)]/pi, and the scalar Fourier coefficient is its profile integral divided by 2l+1. Two integrations by parts give F0=pi/3 and Fk=2/(pi k^2); cosine modulation shifts F by plus/minus one, with the separate k=0 case. B_l is positive for l>=2 term by term as the difference of consecutive inverse squares; the first two B_l are positive by the displayed pi bounds. For l>=2, set y=l(l+1); simplifying the ratio gives A_l/B_l=(y-2)^2/(y^2+2y-2), strictly increasing for y>=6 since its derivative is 6y(y-2)/(y^2+2y-2)^2. At y=6 the ratio is 8/23; direct substitution gives positive boundary coefficients for l=0,1. This proves both directions and the sole vanishing degree. The character series converges uniformly (character coefficients O(l^-3) and sup norm 2l+1), so zero energy implies vanishing measure coefficients in all positive degrees. Any remaining degree-two measure is a finite matrix-coefficient density by Fourier uniqueness, whereas a finite atomic measure cannot be nonzero and absolutely continuous with respect to Haar. The missing sector has dimension 5^2. For the Euclidean check, integration by parts gives J_n=integral of r(1-r/pi)^2 sin(nr) on [0,pi]=(4+2(-1)^n)/(pi n^3). Thus (4pi/3)[J3-(4/23)(J2+J4)]=8/81-9/46=-361/3726, within the specified Fourier convention.",
+      "residual_risks": [
+        "Quadrature is only a check of the normalizations and witness. Infinite-degree minimization, exact sign at the boundary, and strictness follow from the analytic argument, not numerical zero testing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first catalogue record covers a broader exponent and cutoff family without the cosine factor; the second treats an exponential times 1+b cos(theta) on S^2.",
+          "Ge's result transfers compactly supported Euclidean-positive radial functions to odd spheres."
+        ],
+        "reasoning": "Changing the exponent or cutoff does not supply this oscillatory multiplier. The modulated spherical exponential has different Fourier weights. Transfer from Euclidean positivity is inapplicable to a profile with the negative Euclidean witness.",
+        "searches": [
+          "Resultary 60360624bd93 and 509c2a9eeeb8",
+          "Xu Theorem 2.4; Lu power.pdf pp. 1–3; Ge arXiv:2608.22173 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 60360624bd93 and 509c2a9eeeb8",
+        "Erb–Filbir pp07-23.pdf, Xu arXiv:1701.00787, Lu power.pdf, Gneiting arXiv:1111.7077, Ge arXiv:2608.22173"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior coefficients can be shifted by the elementary product-to-sum identity, but then require a discrete global ratio minimization including exceptional degrees.",
+          "Neither the unmodulated strict-PD statement nor a product-closure result supplies strictness with one degree missing or necessity for a signed modulation."
+        ],
+        "reasoning": "The same-space base overlaps materially, but the signed family and Euclidean witness are not specializations of the prior stated results.",
+        "searches": [
+          "Resultary same-space Finding plus coefficient proof 60360624bd93 and distinct cosine analogue 509c2a9eeeb8",
+          "Gneiting eqs. (27), (32); Erb–Filbir §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rotation angle corresponds to twice the usual real-projective angle in RP^3; projective truncated-power results cover the unmodulated base.",
+          "Erb–Filbir give the central Fourier test in this geometry."
+        ],
+        "reasoning": "Rescaling the projective variable turns the multiplier into cos(2 times the angle); the unmodulated theorem remains a b=0 statement. The Fourier criterion is equivalent but not the evaluated threshold.",
+        "searches": [
+          "Resultary SO(3) quadratic taper and signed cosine modulation",
+          "Erb–Filbir §4; Xu arXiv:1701.00787 Theorem 2.4; Lu author PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest SO(3) catalogue record gives exact unmodulated quadratic coefficients and covers b=0. Gneiting gives exact coefficients for a different cutoff product.",
+          "No inspected source tabulates the signed -8/23 boundary, missing degree, or transform value here."
+        ],
+        "reasoning": "Exact coefficients of the base facilitate the calculation but do not identify the controlling degree of the signed family; lack of a found entry is not proof of absence.",
+        "searches": [
+          "Resultary formula- and geometry-targeted searches for signed cosine modulation, cutoff and SO(3)",
+          "Focused primary-literature query; Gneiting arXiv:1111.7077 pp. 13, 15"
+        ]
+      },
+      "rationale": "Prior same-space work already covers b=0 and its exact character-integral framework; another catalogue result already classifies a signed cosine modulation of a different base on a different space. Neither result or inspected primary source implies this signed threshold and its exact boundary spectral and Euclidean conclusions.",
+      "residual_risks": [
+        "Bounded source inspection is not a priority proof. An equivalent Jacobi/projective-space signed-product result or a less-indexed direct calculation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exactly the unmodulated member up to scale; not the signed classification",
+          "evidence": "The kernel (R-theta)_+^alpha is characterized by alpha>=2. The degree coefficients are differences of consecutive cos integrals, including the quadratic case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-quadratic-cutoff-is-sharp-for-rotation-angle-covariance-on-s--60360624bd93",
+          "material_read": "Finding, coefficient proof and prior-work scope, RESULT.md offsets 0–7773 and 7773–10290",
+          "method": "Bounded local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The quadratic cutoff is sharp for rotation-angle covariance on SO(3)",
+          "trigger": "Same space and quadratic cutoff, exact coefficients"
+        },
+        {
+          "assessment": "Structural analogue, not a covering statement",
+          "evidence": "e^(-a theta)(1+b cos(theta)) on S^2, with an a-dependent threshold selected from two Legendre degrees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-two-frequency-schoenberg-test-for-cosine-modulated-geodesic-ex--509c2a9eeeb8",
+          "material_read": "Finding at RESULT.md offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "A two-frequency Schoenberg test for cosine-modulated geodesic exponentials",
+          "trigger": "Same first-cosine modulation and sharp threshold type"
+        },
+        {
+          "assessment": "General criterion, not a formula for the signed taper",
+          "evidence": "Projective parameterization and Peter–Weyl coefficient positivity for central functions.",
+          "identifier_or_url": "https://math.hawaii.edu/~erb/images/pp07-23.pdf",
+          "material_read": "§4 pp. 9–10, offsets 23659, 25591",
+          "method": "Located OA author PDF passages",
+          "title": "Approximation by positive definite functions on compact groups",
+          "trigger": "Primary SO(3) central kernel framework"
+        },
+        {
+          "assessment": "Covers an unmodulated projective truncated power",
+          "evidence": "Strict positivity above the dimension-dependent exponent, without a signed cosine parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.00787",
+          "material_read": "§2 Theorem 2.4 p. 4, offset 11106",
+          "method": "Located OA PDF passage",
+          "title": "Positive Definite Functions on the Unit Sphere and Integrals of Jacobi Polynomials",
+          "trigger": "Potential equivalent Jacobi and projective formulation"
+        },
+        {
+          "assessment": "Unmodulated base, not the signed family",
+          "evidence": "Sphere and real-projective-space results on strictness of truncated powers.",
+          "identifier_or_url": "https://www.math.wichita.edu/~lu/resume/power.pdf",
+          "material_read": "Abstract and pp. 1–3, offsets 0, 992, 6283",
+          "method": "Located author OA PDF passages",
+          "title": "Strictly positive definite functions on spheres",
+          "trigger": "Primary truncated-power results on spheres and projective spaces"
+        },
+        {
+          "assessment": "Adjacent exact computations on spheres",
+          "evidence": "Unmodulated truncated powers for S^3 and an exact cosine computation for a different quadratic cutoff product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "p. 13 equation (27), p. 15 Lemma 2/equation (32)",
+          "method": "Located OA PDF passages",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Cutoff products and explicit cos coefficient precedents"
+        },
+        {
+          "assessment": "Different hypothesis and target geometry",
+          "evidence": "Transfer from compactly supported Euclidean-positive radial inputs to odd-dimensional spheres, not an intrinsic SO(3) positive input with a negative ambient transform.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22173",
+          "material_read": "Theorem 1.1, p. 2, offset 5555",
+          "method": "Located OA PDF passage",
+          "title": "Isotropic Positive Definite Functions on Spheres: Even-Dimensional Gneiting’s Problem",
+          "trigger": "Potential ambient-to-intrinsic transfer covering the example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, sharp degree test, strictness argument and Euclidean witness",
+        "Compared unmodulated and signed-cosine analogues in Resultary"
+      ],
+      "rationale": "The first cosine is a natural intrinsic modulation of the quadratic rotation cutoff, and a signed parameter calls for more than positive-kernel product closure. The exact threshold with a single absent Fourier sector distinguishes spectral positivity from strict finite-set positivity. The explicit negative Euclidean witness also rules out explaining this boundary kernel by restriction of its corresponding ambient compactly supported radial profile.",
+      "residual_risks": [
+        "The witness is at one b and one radius; it does not classify Euclidean admissibility or give thresholds for other spaces or modulation degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:24:17.621953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The m-th monomial alone has changed squared norm m!(1+τm!), giving e^t−qt^m for t=z conjugate(w), q=τ/(1+τm!). At a fixed radius s the real phase function mθ−s sin θ has largest attained admissible multiple of 2π equal to (m−1)π in the upper half-plane: it is strictly convex, its endpoint values are 0 and mπ, and it increases after the unique crossing in ((m−1)π/m,π). This crossing maximizes the angle among phase candidates and minimizes s^(−m) exp(s cos θ). Since cos θ_m<0 and θ_m increases, C_m decreases strictly from infinity to zero. The scalar modulus equation then excludes every s<r_* and allows exactly the phase-extremal pair at r_*; a multiple scalar root would have to be t=m. Realizability of products precisely for |t|<R² gives the inclusive threshold R²≤r_* for the open bidisk. The strict radial gap follows from C_m(r)>r^(−m) exp(−r). Writing δ=π−θ_m gives mδ+r sin δ=π, so δ=O(r^(−1)) and δ=π/(r+m)+O_m(r^(−3)). Thus log C_m(r)=−r−m log r+π²/(2r)+O_m(r^(−2)). Both defining radii are L−m log L+O_m(log L/L); the mean-value theorem on r+m log r gives the coefficient and stated remainder for their difference. The independent finite bisection/Lambert-W diagnostic at m=3,5,7,9 and τ=10^(−6),0.03,1,200 confirmed the pair and gap in a branch window −8 to 8 (replay: /workspace/branches/695fcd85-98e9-4b08-b4ec-f88e3deb2a28/independent_check.py; output independent_check_results.txt alongside it). It does not establish the all-branch cutoff; the phase comparison does. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general sources give the principal-branch domain, logarithmic sheets, a principal-branch series or branch asymptotics. Cohen uses the same real modulus/phase identities but tests monotonicity with a phase held fixed, to identify solutions on that branch.",
+          "Corless references Hayes/Wright for computation and bounds of branch real parts; that reference is a plausible related antecedent, not a verified statement of the equal-modulus angular ranking and radial gap."
+        ],
+        "reasoning": "General inverse-function formulas do not themselves compare the solutions over the discrete set of angles or give an all-penalty optimum. The proof instead optimizes phase at fixed candidate radius and then makes a two-radius expansion whose leading terms cancel.",
+        "searches": [
+          "Cohen arXiv:2012.11698v2, Proposition 1.1 and Lemma 1.2",
+          "DLMF §4.13",
+          "Beardon DOI 10.1007/s40315-020-00329-6, pp. 307–308",
+          "Corless et al. On the Lambert W Function, pp. 7 and 23"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Local Resultary even-jet record 5341e28cb9dd and catalogue summaries",
+        "Cohen arXiv:2012.11698v2",
+        "Beardon DOI 10.1007/s40315-020-00329-6",
+        "DLMF §4.13",
+        "Corless et al. Waterloo W paper",
+        "Cho–Choe–Koo arXiv:1307.2670",
+        "Escudero–Haimi–Romero PMC7886767 and Hayes DOI 10.1112/jlms/s1-25.3.226 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the even construction the reverse-triangle equality is attained at t=−r. For odd m, t^m is negative there, so that equality cannot give a zero. The mirrored result expressly excludes odd orders.",
+          "The Fock–Sobolev source uses global weights; the available derivative-sampling material does not establish the exact odd-kernel zero comparison; its full content was not obtained."
+        ],
+        "reasoning": "The even-profile statement cannot be continued by substituting an odd order, and solving each W branch is not yet selecting the nearest zeros. The nonzero π²/(2L) loss specifically measures departure from the unattainable negative-axis alignment.",
+        "searches": [
+          "5341e28cb9dd Finding and Limitations",
+          "Cohen's polar branch construction and DLMF asymptotics",
+          "Cho–Choe–Koo arXiv:1307.2670; Escudero–Haimi–Romero PMC7886767"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing t by −m w rewrites the scalar zero equation as w exp(w)=−q^(−1/m) exp(2π i j/m)/m. Thus nearest roots minimize |W_k| across all these equal-modulus inputs and all branches; by the modulus identity that is also a largest-real-part selection in w.",
+          "Cohen's Proposition 1.1 and Lemma 1.2 solve the general polar equations one logarithmic phase at a time; branchwise existence and uniqueness are known."
+        ],
+        "reasoning": "The polar inversion and uniqueness for an individual phase are not claimed as new. The claim compares all phases for a specific odd constellation, identifies which two reach the smallest radius and compares that radius to the phase-zero surrogate, rather than merely representing the solutions.",
+        "searches": [
+          "Local Resultary query on odd-jet Fock zeros",
+          "Focused literature query on odd-jet Gaussian Fock zeros and Lambert W",
+          "Lambert W complex argument principal branch largest real part all branches Hayes Wright solution z exp z minimal modulus theorem",
+          "Cohen arXiv:2012.11698v2 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "edb35de8b1d3 is the assigned record itself. 5341e28cb9dd indexes the even-order sharp profile, with first zero on the negative real axis. The catalogue summary of 004936b83577 concerns first-jet sampling radii, not a minimal odd-jet kernel zero."
+        ],
+        "reasoning": "Neither the indexed even-order radius nor generic W branch entries give these odd-order radii or identify their phase-relative gap; different observation and parity constraints matter.",
+        "searches": [
+          "Local Resultary search on penalized Gaussian Fock zeros and minimum-modulus profiles; hits edb35de8b1d3, 5341e28cb9dd, 004936b83577",
+          "DLMF §4.13 Lambert W branch definitions"
+        ]
+      },
+      "rationale": "The kernel modification and Lambert-W parametrization are established methods. The even-jet result addresses a closely related but parity-distinct extremum. General W branch geometry gives phase equations and branchwise uniqueness, but the assessed distinct claim is the sharp comparison across the phase candidates for every admissible penalty and its quantified improvement over the radial bound. No inspected source states or directly supplies the combined global selection and sharp gap. This is not historical priority certification.",
+      "residual_risks": [
+        "No full comparison was possible with the inaccessible Escudero–Haimi–Romero or Hayes passages. Wright's broader historical treatment was identified through Corless but was not independently read.",
+        "Earlier complex W modulus or real-part ordering results could imply parts of the branch selection. The inspected statements do not give the complete uniform selection with the quantified odd-jet radial gap; lookup misses are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest corpus overlap; covers the opposite parity",
+          "evidence": "The closest zero is negative real at an even order and attains the radial bound. Odd orders are expressly excluded because the sign of (−r)^m changes.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-minimum-modulus-profile-for-even-jet-fock-kernels--5341e28cb9dd",
+          "material_read": "Finding at offset 0 and Limitations around offset 5758",
+          "method": "Local Resultary mirror",
+          "title": "Sharp minimum-modulus profile for even-jet Fock kernels",
+          "trigger": "Same isolated jet penalty and sharp first-zero radius"
+        },
+        {
+          "assessment": "Strong overlap in polar inversion and uniqueness on each phase; no equal-radius ranking over the odd constellation or radial-gap comparison in the inspected statements",
+          "evidence": "The equations are ρ sin θ+θ=μπ and ρ cos θ+log ρ=a; eliminating ρ yields a decreasing function in θ at the prescribed phase.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.11698",
+          "material_read": "§1, Proposition 1.1, Lemma 1.2 and Corollary 1.3, OA offsets 0–10960",
+          "method": "Direct open PDF passage inspection",
+          "title": "Lambert W-Function Branch Identities",
+          "trigger": "General branch geometry could supply the odd phase comparison"
+        },
+        {
+          "assessment": "Principal-branch geometry and representation, not the stated global radius comparison",
+          "evidence": "The paper describes the conformal cut-plane image and gives a convergent series for W_0 on its domain.",
+          "identifier_or_url": "https://doi.org/10.1007/s40315-020-00329-6",
+          "material_read": "Introduction and Theorem 1, pp. 307–308",
+          "method": "Direct open publisher PDF",
+          "title": "The Principal Branch of the Lambert W Function",
+          "trigger": "Plausible broader principal-branch extremum"
+        },
+        {
+          "assessment": "Standard branch definitions and asymptotics",
+          "evidence": "The logarithm index yields W_k(z)=ln_k(z)−ln(ln_k(z))+o(1); this leading formula does not assert a uniform modulus ordering or the sharp small-gap asymptotic in the kernel problem.",
+          "identifier_or_url": "https://dlmf.nist.gov/4.13",
+          "material_read": "Principal and other branches; equation 4.13.1_1 and Fig. 4.13.2 discussion",
+          "method": "Public reference-page passage inspection",
+          "title": "DLMF §4.13 Lambert W-Function",
+          "trigger": "Standard formulas for the equivalent branch problem"
+        },
+        {
+          "assessment": "Relevant route to older branch theory; no exact covering rightmost-root statement in these passages",
+          "evidence": "The text attributes complex-root calculations and bounds on real parts to Hayes and further all-branch calculations to Wright. The attempted lawful DOI route for Hayes did not yield full text.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/research/tr/1993/03/W.pdf",
+          "material_read": "Delay-equation discussion p. 7 and references to Hayes and Wright p. 23; reference entries 36 and 71",
+          "method": "Open PDF passage inspection",
+          "title": "On the Lambert W Function",
+          "trigger": "Plausible prior rightmost-root comparison for complex W arguments"
+        },
+        {
+          "assessment": "Different weighting and question",
+          "evidence": "The work concerns global fractional weighted Fock–Sobolev spaces rather than one altered Taylor coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.2670",
+          "material_read": "PDF p. 1",
+          "method": "Open PDF passage inspection",
+          "title": "Fock-Sobolev spaces of fractional order",
+          "trigger": "Cited weighted Fock-space antecedent"
+        },
+        {
+          "assessment": "Access limitation; no statement-level exclusion",
+          "evidence": "The landing material is not evidence excluding an isolated-coefficient result; the attempts did not supply a readable decisive passage.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7886767/",
+          "material_read": "Landing page only; no decisive full-text passage obtained",
+          "method": "PMC route and lawful direct PDF/alternate retrieval attempts",
+          "title": "Multiple Sampling and Interpolation in Weighted Fock Spaces of Entire Functions",
+          "trigger": "Cited derivative-sampling context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first-zero bidisk is a natural observation-domain invariant for this deformation of the Gaussian kernel. The result shows why the radial estimate is not attained at odd orders, locates the actual critical pair without an arbitrary branch cutoff, and quantifies the leading loss in that estimate as the penalty vanishes. This is a sharp parity-sensitive boundary, not just another Lambert-W notation for the roots.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

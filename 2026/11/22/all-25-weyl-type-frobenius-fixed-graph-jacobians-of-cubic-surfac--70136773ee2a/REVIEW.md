@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact 27-line Picard-lattice model gives forty-five anticanonical tritangent triples, a 72-vertex, 135-edge graph, and reduced determinant \(3^{62}5^6\). A full 51,840-element Weyl enumeration produces twenty-five conjugacy classes; exact coinvariant Smith reductions at primes three and five, independently using two deleted roots, reproduce all tabulated fixed groups. The pairing lemma and finite modular cutoffs are explicitly justified in RESULT.md, and the self-contained checker is bundled.
+PASS
 
-## Originality — PASS (provisional priority)
+The anticanonical-sum triples give the 27-by-45 incidence matrix B, with line and plane degrees 5 and 3. For the line-intersection graph A, BBᵗ=5I+A and the eigenvalues of BBᵗ are 15, 6, 0 with multiplicities 1, 20, 6. The nonzero Laplacian eigenvalue product is 8·9^20·5^6·3^24; division by 72 gives the reduced determinant 3^62·5^6. In the degree-zero divisor basis the reduced Laplacian presents the critical group, and adjoining columns of G_r−I presents coinvariants. The inverse reduced Laplacian gives a perfect pairing modulo integers; its intrinsic description via degree-zero divisors and potentials shows automorphism invariance. Thus the fixed group is dual to the computed coinvariant group. Independent exact reconstruction enumerated 51,840 Weyl elements in 25 conjugacy classes, compared all 25 lines/planes cycle rows and invariant-factor decompositions with two roots, and found exactly the collisions 12/16 and 23/24. The determinant restricts possible primes to 3 and 5, and the local reductions exclude saturation at either modulus cutoff; determinant size alone would not prove the valuation bounds. Rows 6 and 8 both have line cycles 3^9 but 5-primary fixed ranks 0 and 2. The classification is of all abstract Weyl classes, not a realization theorem over each field. The reference to 135 as an elementary divisor should be read as an invariant factor, as the group table correctly uses it.
 
-Prior cubic-surface sources describe 27 lines, 45 tritangents, the 25 Weyl conjugacy types, finite-field traces and Picard cohomology; the earlier ordinary critical-group computation is excluded. Neither the relevant full texts nor targeted public-record queries supplied the twenty-five integral fixed critical-group decompositions. A potentially unindexed prior table remains a risk; absence from search is not a priority proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete, geometrically natural twenty-five-class arithmetic refinement provides twenty-three fixed-group types. Crucially, two order-three classes with identical \(3^9\) line cycle patterns are distinguished by their five-primary graph Jacobian invariants, which the classical splitting census alone misses.
+The supported distinct contribution is the full fixed-critical-group classification and the line-cycle counterexample for this invariant, not the ordinary group, the 25 Weyl classes, the conjugacy-class detection problem, or the monodromy pairing. The strongest related indexed statements were compared with the actual graph and integral action, not excluded by date or title.
 
-## Scope and limitations
+## value
 
-The claim concerns graph Jacobians, not the Néron component group of a constructed semistable curve. No general realizability for a prescribed type over every finite field or complete historical priority guarantee is asserted. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The abstract graph and its Frobenius action arise canonically from a classical incidence configuration. A researcher comparing integral equivariant invariants needs the group structures, not just the order, a cycle table, or ordinary Smith factors. The exhaustive natural parameter set and concrete distinction invisible in the line splitting supply a reusable exact classification and a clear limit of the simpler datum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

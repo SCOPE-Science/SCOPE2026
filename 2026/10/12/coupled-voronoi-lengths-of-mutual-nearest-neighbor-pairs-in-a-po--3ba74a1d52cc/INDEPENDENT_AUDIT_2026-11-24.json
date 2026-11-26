@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:19:31.269899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under point Palm, A,B,C are independent rate-λ gaps and mutuality to the right is exactly B<min(A,C), ignoring zero-probability ties. Condition first on B=b: acceptance weights its density by e^(−2λb), and memorylessness makes the two excesses, conditional on acceptance and b, independent iid rate-λ variables with distribution not depending on b. Normalization is 1/3 and gives B|M rate 3λ. Half-excesses are rate 2λ, giving the claimed common-summand law and product Laplace transform. Its means, variance, covariance and correlation follow from the independent summands; before selection only B/2 is shared, giving correlation 1/2. The smaller selected length is a sum of independent exponentials of rates 3λ and 4λ (the latter from the smaller half-excess), which gives the printed diagonal survival directly. Independently check the posterior by conditioning on the sum A+B=2v: B is uniform on (0,2v), the right event is B<v and C>B, and the disjoint left event has equal probability. Thus P(J|V=v)=(1/v)∫_0^v e^(−λb)db, a strictly decreasing continuous version with the claimed limits. P(J)=2/3. All statements are under the specified sampling law, including at u=0; no numerical simulation is needed for the formulas. The frozen numerical verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baumstark–Last Theorem 1.1(ii)–(iii) gives a gamma law for the radius variable and a Poisson exterior under face Palm, conditional on the radius",
+          "Calka–Chenavier treat extreme inradii or circumradii of cells sampled in windows"
+        ],
+        "reasoning": "The full face-Palm input supplies unselected gap information in d=1, k=0. It does not compare the two sampling laws or evaluate MNN-selected cell-length and size-posterior functionals. Extreme window statistics are not point-Palm pair statistics.",
+        "searches": [
+          "Baumstark–Last DOI 10.1239/aap/1175266467 Theorem 1.1, typical-face and typical-edge sections",
+          "Calka–Chenavier arXiv:1304.0170, main extreme-value regime"
+        ]
+      },
+      "checked_sources": [
+        "Baumstark–Last DOI 10.1239/aap/1175266467",
+        "Rohrmann–Zurbriggen arXiv:1109.6664",
+        "Járai-Szabó–Néda arXiv:cond-mat/0406116",
+        "Calka–Chenavier arXiv:1304.0170",
+        "Resultary 58929be679e6, 2133366397a2 and da76bf39a963"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d=1,k=0 the typical boundary has two nuclei at ±R and Poisson exterior; displacement of each point to its right midpoint can be used to relate these adjacent gaps to point Palm",
+          "The MNN pair statistics cited for available volumes constrain the central gap B, not the full-cell excesses or the conditional point-level selection by V"
+        ],
+        "reasoning": "The face-Palm theorem gives a broad model from which to derive the result, not a law conditional on reciprocal nearest neighbors. The extra acceptance event weights the central gap by the probability of two exterior empty intervals with lengths depending on that gap; the left and right outer excesses then enter the actual cell formula. The posterior answers a different conditional question and takes an additional conditioning calculation. The comparison credits all spacing and marginal inputs rather than claiming novelty for Poisson memorylessness or for a general Palm theorem.",
+        "searches": [
+          "Baumstark–Last Theorem 1.1(ii)–(iii), p. 18",
+          "Rohrmann–Zurbriggen Section V-D, including Eq. (5.22)",
+          "Járai-Szabó–Néda Section 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "58929be679e6 treats the count and total edge length of mutual pairs for fixed-size uniform points on an interval",
+          "Rohrmann–Zurbriggen's available volume is the ball with radius equal to a site's nearest-neighbor distance",
+          "Same-day da76bf39a963 treats order in a vector of common-shock Poisson counts"
+        ],
+        "reasoning": "Two mutual nuclei have the same nearest-neighbor distance, but their full 1D Voronoi cells depend on two different outer gaps. Their pair of full lengths cannot be obtained by scalar geometric renormalization of two radii. An aggregate count/length coupling and a Poisson-count common-shock comparison are mathematically different statistics.",
+        "searches": [
+          "Resultary terms for mutual-nearest-neighbor pairs, conditional Poisson–Voronoi cell lengths and common-shock laws",
+          "Rohrmann–Zurbriggen arXiv:1109.6664, Sections II and V-D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In dimension one the cited Tables II–III give fraction 2/3 and mean MNN separation 1/3 of the mean spacing",
+          "The Poisson Voronoi size paper gives the ordinary normalized marginal 4y exp(−2y)",
+          "2133366397a2 treats exceedance-indicator covariance for circular fixed-size uniform spacings without MNN conditioning"
+        ],
+        "reasoning": "These are exact prior formulas in the nearest plausible catalogues, but they do not tabulate the conditional joint lengths, their 4/13 correlation, or the size-conditioned probability of belonging to an MNN pair. The known frequency, gap results and unconditioned marginal are not claimed as original.",
+        "searches": [
+          "Rohrmann–Zurbriggen arXiv:1109.6664 Section V-D Tables II and III",
+          "Járai-Szabó–Néda arXiv:cond-mat/0406116 Section 2 equations (5)–(9)",
+          "Resultary 58929be679e6 and 2133366397a2"
+        ]
+      },
+      "rationale": "The distinct portion is the bias caused by mutual-neighbor selection in the law of actual adjacent full cell lengths and in the point-Palm posterior given cell length. The selection frequency, shared-gap law, marginal typical-cell law and exponential input are prior or immediate baselines. The strongest inspected prior pair results use a different notion of volume; the strongest general face-Palm theorem describes the configuration before MNN selection and does not evaluate the selected full-cell or size-dependent statistics.",
+      "residual_risks": [
+        "Focused general search lookups were deferred, so no negative inference is drawn from them. Full relevant Baumstark–Last passages were available in this review, unlike the frozen review's note. An older unindexed exact evaluation or already worked-out specialization of its Palm theorem could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full-configuration input for a typical face, not the selected full-cell law",
+          "evidence": "Theorem 1.1(ii) gives the radius law and (iii) gives conditional Poisson exterior of the ball; no MNN acceptance condition occurs in those statements.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1175266467",
+          "material_read": "Introduction and Theorem 1.1, pp. 16–19, offsets 561 and 5155–12859; typical-face pp. 27–29 and typical-edge pp. 31–34, offsets 44912, 57617 and 63898",
+          "method": "Lawful OA Cambridge primary PDF, bounded passages including the actual theorem",
+          "title": "Some distributional results for Poisson–Voronoi tessellations",
+          "trigger": "Frozen access risk and strongest potential general Palm antecedent"
+        },
+        {
+          "assessment": "Covers MNN frequency and nearest-neighbor pair observables, not full cells",
+          "evidence": "Tables II and III give one-dimensional f^(i)=2/3 and mean separation 1/3 in normalized units. Available volume has nearest-neighbor radius.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.6664",
+          "material_read": "Sections II and V-D, PDF pp. 2–3 and 12, offsets 13994, 17396 and 72400–79187",
+          "method": "Bounded OA primary PDF, including tables and definitions",
+          "title": "Conditional pair distributions in many-body systems",
+          "trigger": "Exact Poisson MNN fractions, separations and pair-volume law"
+        },
+        {
+          "assessment": "Prior marginal, not selection or joint law",
+          "evidence": "The normalized ordinary 1D cell has Gamma density 4y exp(−2y).",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0406116",
+          "material_read": "Section 2, pp. 5–6, equations (5)–(9), offset 11650",
+          "method": "Bounded OA primary PDF",
+          "title": "On the size-distribution of Poisson Voronoi cells",
+          "trigger": "Exact 1D full-cell statistics for the same underlying process"
+        },
+        {
+          "assessment": "Different space-window extreme-value quantities",
+          "evidence": "The statistics are characteristic inradii and circumradii, not the two actual lengths on point-Palm mutual acceptance.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.0170",
+          "material_read": "PDF p. 4, offset 13129",
+          "method": "Bounded OA primary PDF",
+          "title": "Extreme values for characteristic radii of a Poisson-Voronoi tessellation",
+          "trigger": "Cited Poisson–Voronoi conditional-geometry context"
+        },
+        {
+          "assessment": "Distinct samples or observables",
+          "evidence": "Fixed-size uniform-interval count versus total MNN edge length; fixed-size circular exceedance covariance; and common-shock counts, respectively.",
+          "identifier_or_url": "Resultary 58929be679e6, 2133366397a2 and da76bf39a963",
+          "material_read": "Mirrored RESULT.md claim and scope for each, beginning at offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Indexed MNN edge lengths, adjacent circular cells and common-shock comparison",
+          "trigger": "Closest MNN, adjacent-cell and same-day common-shock hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nearest-neighbor selection rule is canonical, and a pair of genuine cells is different from the more easily measured shared edge length. The exact joint law quantifies how selecting mutual pairs changes the dependence between adjacent cells. The strictly decreasing posterior further gives a continuous and explicit ascertainment bias for selection by mutuality as a function of cell size, which cannot be read off from the fraction of selected points or the unconditional typical-cell law. These quantities provide a usable exact baseline for selected tessellation statistics; no novel technique or general-dimensional consequence is needed or asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

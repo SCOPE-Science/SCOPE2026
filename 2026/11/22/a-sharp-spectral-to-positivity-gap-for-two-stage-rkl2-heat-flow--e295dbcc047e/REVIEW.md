@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS (same-model).** The source RKL2 polynomial, direct graph-matrix entry classification, Laplacian spectral bound and triangular-graph incidence spectrum constitute a complete analytic proof. A negative edge entry is calculated exactly at the stable step \(h=7/30\) for \(J(5,2)\). A sign input proves the nonlinear cube failure. The standalone exact-rational checker is a finite diagnostic, not an infinite proof.
+## correctness
 
-**Originality: PASS (qualified).** The original stabilized method and its one-dimensional maximum-principle proof are prior work. Full published comparisons show that an earlier degree-two Taylor theorem is restricted to complete multipartite graphs, and a broader triangle-count theorem concerns products of *real* Euler factors, which cannot equal the RKL2 second-order polynomial. The new exact all-regular spectral-to-positivity criterion and triangular-graph all-n ratio are not logical corollaries of those statements. A related 2025 full text and unindexed specialist literature remain historical-priority risks.
+PASS
 
-**Value: PASS.** Positivity and energy stability govern different numerical safety properties. The precise \(3/2\) asymptotic gap on natural strongly regular graphs, the finite witness and the exact Allen–Cahn Strang counterexample help identify how a stable explicit solver may violate a discrete maximum principle. Applicability is limited to the stated two-stage network setting; no efficiency or general PDE claim is made.
+The cited RKL2 polynomial with two stages reduces to I−hL+h²L²/2. Its diagonal entries 1−dh+d(d+1)h²/2 are positive, the nonedge entries are nonnegative, and the ij edge entry is h[1−h(2d−(A²)ij)/2]; an edge minimizing (A²)ij stays negative at every h>2/(2d−t). The connected d≥1 condition excludes an empty edge set. The symmetric Laplacian gives Euclidean contraction exactly for hΛ≤2, since its multipliers are [1+(1−hλ)²]/2. The rows and columns sum to one at all h. For J(n,2), counting common neighbors gives t=n−2, and the unsigned vertex–edge incidence matrix of K_n gives A=BᵀB−2I, BBᵀ=(n−2)I+J. The latter is nonsingular, while B has a nonzero null space for n≥4, so Λ=d+2=2(n−1); the two cutoffs, equality at n=4, strict gap thereafter, and ratio follow. The n=5 edge arithmetic at 7/30 yields −7/600 exactly. The nonlinear necessity argument is not an inference from linear stability: matching the signs of a negative-entry row gives heat output equal to its absolute row sum, greater than one. In this example it is 57/50 before the last half-flow. The reaction fixes input signs, preserves the cube, and cannot bring an outside coordinate back into it at finite time. Uploaded verify.py was inspected only; its rational finite checks do not support an all-graph inference without the proof.
 
-Closest comparisons: Tan–Aslam–Bertozzi (2026 and 2025), exact degree-two Taylor positivity on complete multipartite graphs (2026), and optimized two-forward-Euler positivity on regular graphs (2026). See `RESULT.md` and `AUDIT.json` for source URLs, material inspected, implications and residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The completed scheme, its scalar stability radius, the triangular-graph spectrum and the forward sufficiency of a monotone heat step are not new. The distinct claim is the graph-dependent exact positivity criterion and consequent exact stable-but-not-positive interval, including an unbounded family and the corresponding necessary and sufficient cube condition. The strongest inspected results cover particular discretizations, particular graph families or different polynomials, not this combination.
+
+## value
+
+PASS
+
+The cutoff is an exact step-size test depending on a local graph statistic, rather than a generic sufficient bound. The triangular graphs show a constant-factor gap approaching 3/2 and give an explicit stable one-step failure of the nonlinear maximum principle. This is a substantive distinction for a completed diffusion step even though the spectral calculation and graph entry expansion are elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

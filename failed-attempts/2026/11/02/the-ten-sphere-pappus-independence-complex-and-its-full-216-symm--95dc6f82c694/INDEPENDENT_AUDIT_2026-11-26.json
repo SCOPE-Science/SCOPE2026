@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:29:55.164668Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The specified adjacency is exactly the Hamiltonian 18-cycle plus the Pappus chords (5,7,−7,7,−7,−5) repeated three times. Enumeration by subsets of one bipartition side and allowed subsets of the other gives 2597 nonempty faces. The replay verifies 1293 disjoint matching pairs and exhaustively topologically sorts 11430 directed covers, leaving one vertex and ten 4-cells. The resulting Morse CW complex is a wedge of ten 4-spheres because the only attaching targets are the single vertex. For automorphisms, connectedness and bipartiteness fix the image side of the odd vertices once the image side of the evens is chosen. Enumerate both choices and all even-side bijections, extending only when each distinct neighborhood triple is transported to one on the other side. This exhausts 216 graph automorphisms. The signed fixed-face formula follows from chain-level trace equal to homological Lefschetz trace, with one subtracted for H0. The independent character replay sums over compatible permutation orbits: each orbit in a fixed face contributes one factor −1 in the reduced Euler sign convention, with the overall sign reversed. It reproduces the full histogram, trace sum 0 and square sum 432, so invariants vanish and the squared norm is two. After barycentric subdivision the quotient rational chains identify with coinvariants, and averaging identifies their homology with invariants. Thus the rational acyclicity conclusion is supported; the ordinary wedge equivalence need not be equivariant.",
+      "replay": "python3 /workspace/reproductions/23.py 3; output /workspace/reproductions/3.log",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsukuda gives a general incidence-graph suspension reduction. The indexed November 1 result gives the full character and additionally handles invariants under the index-two bipartition-preserving subgroup. The October 25 result gives irreducible dimensions 4 and 6."
+        ],
+        "reasoning": "The general suspension reduction is not alone an explicit classification here. The indexed exact and stronger full-group statements are directly applicable.",
+        "searches": [
+          "Tsukuda Cor. 4.11 and Rem. 4.12; Resultary 03b67feab9d4 and ec074610e68c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03b67feab9d4, b463fdedb517, ec074610e68c and ea65a5211f31",
+        "Tsukuda 2017 Cor. 4.11 and Rem. 4.12",
+        "Berghoff arXiv:2008.06267 Example 6.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 03b67feab9d4 the acyclic matching yields the identical Morse CW wedge as a proved premise; norm two, zero invariants and rational quotient acyclicity are explicit. The October 11 note gives only (10,−2,−2) under the cyclic shift by 6."
+        ],
+        "reasoning": "That a prior record treats the wedge as a premise rather than its own novelty claim does not make the repeated proof original. The three-element subgroup calculation alone would not imply the full character, but the indexed full-group records remove that potential gap.",
+        "searches": [
+          "03b67feab9d4, homology concentration proof and full-group invariants; ea65a5211f31 proper-subgroup restriction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "03b67feab9d4 uses an LCF specification; its Hamiltonian cycle plus repeated chords exactly reproduces the frozen checker edge list. Its character is specified by conjugacy class for the full graph automorphism group."
+        ],
+        "reasoning": "The representation and the complex are the same, including automorphisms exchanging the bipartition classes. A class table and an elementwise trace rule describe the same character.",
+        "searches": [
+          "Local Resultary Pappus independence homology, ten S^4, full 216-symmetry character"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "03b67feab9d4 determines the character on all 13 classes; the two fixed-point-free order-three classes have centralizers of orders 18 and 108 and traces −2 and 1. Its table sums to the exact six frequencies of the frozen result. The October 18 record also states the same histogram and gives the character on each element."
+        ],
+        "reasoning": "Classwise information is stronger than the histogram and gives the same complete representation character.",
+        "searches": [
+          "Resultary 03b67feab9d4, b463fdedb517 and ec074610e68c, full-group trace tables"
+        ]
+      },
+      "rationale": "A distinct indexed November 1 result verifies the same integral wedge and gives the entire same group character by conjugacy class, including the invariant and quotient statements. The October 18 and 25 full-group records are further substantive overlaps, not just the acknowledged order-three restriction. The frozen alternative pivot order or algorithm does not give a new mathematical invariant.",
+      "residual_risks": [
+        "The primary search was low-signal. Indexed statement-level coverage suffices, without adjudicating authorship or first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT COVERAGE",
+          "evidence": [
+            "Acylcic matching leaves one vertex and ten four-simplices, proving a wedge of ten four-spheres; all full-group character values are given by the class table and the quotient conclusion is explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-rational-homology-character-of-the-pappus-independence--03b67feab9d4/RESULT.md",
+          "material_read": "Offsets 250–4323: class table, assumptions, homology concentration, group enumeration",
+          "method": "Local-mirror original text",
+          "title": "The full rational homology character of the Pappus independence complex",
+          "trigger": "Same labeled graph, complete character, integral topology and quotient"
+        },
+        {
+          "assessment": "FULL-CHARACTER OVERLAP",
+          "evidence": [
+            "Action of 216 automorphisms, same histogram and a character value specified on each element."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-full-pappus-independence-homology-symmetry-irreducible-dimension--b463fdedb517/RESULT.md",
+          "material_read": "Finding around offset 150",
+          "method": "Local-mirror original text",
+          "title": "Full Pappus independence homology symmetry and irreducible dimensions",
+          "trigger": "Full-group homology action rather than proper subgroup"
+        },
+        {
+          "assessment": "FULL-CHARACTER OVERLAP",
+          "evidence": [
+            "All 13 conjugacy classes, a 4+6 split and rational acyclicity of the full quotient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-full-rational-automorphism-character-of-pappus-independence-homo--ec074610e68c/RESULT.md",
+          "material_read": "Finding around offset 180",
+          "method": "Local-mirror original text",
+          "title": "Full rational automorphism character of Pappus independence homology",
+          "trigger": "Conjugacy-class character and quotient"
+        },
+        {
+          "assessment": "PROPER-SUBGROUP COVERAGE",
+          "evidence": [
+            "Character (10,−2,−2) for the subgroup generated by the shift by 6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-order-three-symmetry-on-pappus-independence-homology--ea65a5211f31/RESULT.md",
+          "material_read": "Cyclic shift and subgroup character around offset 2150",
+          "method": "Local-mirror original text",
+          "title": "Order-three symmetry on Pappus independence homology",
+          "trigger": "Frozen record's acknowledged baseline"
+        },
+        {
+          "assessment": "GENERAL REDUCTION",
+          "evidence": [
+            "Incidence-graph suspension reduction, not this calculation of the Pappus wedge or its character."
+          ],
+          "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v12i1.62277",
+          "material_read": "Cor. 4.11 and Rem. 4.12, PDF p. 14, extracted offset near 35600",
+          "method": "OA primary PDF passage inspection",
+          "title": "Independence complexes and incidence graphs",
+          "trigger": "Applicable primary general reduction"
+        },
+        {
+          "assessment": "DIFFERENT EXAMPLE",
+          "evidence": [
+            "The inspected example computes for the Petersen graph, not the Pappus full-group action."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.06267",
+          "material_read": "Example 6.2, PDF p. 15, extracted offset near 54150",
+          "method": "OA primary PDF passage inspection",
+          "title": "On the homology of independence complexes",
+          "trigger": "General homology method and example comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The topology and rational representation of this natural Levi graph would be worthwhile invariants if unknown. Here both were already computed, in particular with an explicit stronger class table and the same wedge, and the frozen alternative certificate does not resolve an additional equivariant or structural question.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

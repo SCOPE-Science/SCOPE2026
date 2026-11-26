@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The zero-fiber exponent follows from the integrable logarithm of the positive sine average and the ergodic theorem. A strict leave-one-out Jensen inequality proves monotonicity in dimension. Abel-regularized Fourier integration gives the two-dimensional Apéry constant. The high-dimensional Taylor expansion is justified by exact centered moments, Hoeffding concentration and a logarithmic AM–GM bound. The strict threshold staircase follows by inversion of the asymptotic expansion. The bundled numerical checker tests coefficients and special cases, not infinitely many dimensions.
+## correctness
 
-## Originality
-PASS within inspected literature, subject to unindexed priority risk. The integral representation for the zero-fiber exponent itself is **not new**: it appears in Remo–Fuhrmann–Jäger (arXiv:2210.15292). Gröger–Jäger (arXiv:1111.6574, Example 4.1) studies this same higher-dimensional sine-forced family at large forcing. The new assertion is the quantitative strict dimension-ordering, the exact two-dimensional threshold, the two-term large-d expansion, and the resulting unique sign transition for fixed coupling. Neither inspected source states or derives these comparisons; the technical existence threshold in the earlier geometry paper is not identified with the zero-fiber exponent threshold. The pre-1996 Keller reference was accessible only as an abstract and may contain related general ingredients. Full-publication priority cannot be certified by search.
+PASS
 
-## Value
-PASS. Dimension is a natural parameter of the originating quasiperiodically forced model. Identifying when the invariant zero graph changes transverse stability for a fixed forcing strength is a motivated dynamical question. The first two critical dimensions are quantitatively nontrivial (the second includes Apéry's constant), and the high-dimensional expansion predicts a sharply moving critical dimension close to the universal limiting threshold. The result is neither a single arbitrary parameter substitution nor merely a finite computation.
+For Z=sin(pi U), log Z is square-integrable (near the endpoints it has only logarithmic singularities). Thus AM–GM gives a uniform L2 bound for the log of the sample mean and log forcing is integrable. Birkhoff applies to the Haar-ergodic translation; away from the null orbit of the pinch the product of fiber derivatives gives the exponent. The tanh inequality gives the claimed subcritical upper rate simultaneously for all permitted positive initial heights. Leave-one-out means differ unless all samples coincide, so strict Jensen orders the thresholds; ordinary strict Jensen bounds every threshold below by pi/2. For K2, reflecting one uniform angle sends cos((u-v)/2) to sin((u+v)/2). The triangular law of the angle sum reduces the average log to (16/pi^2) times the integral of s log(sin s) on [0,pi/2]. The Abel expansion integrates each cosine with coefficient [((-1)^n-1)/(4n^2)], giving -2 log 2+7 zeta(3)/pi^2 with dominated convergence for the log singularity. For large d, raw moments 2/pi, 1/2, 4/(3pi) give v and tau in the paper; tau=(48-5pi^2)/(3pi^3)<0, so both Taylor coefficients are positive directly. Centered-index partitions give moments of orders 5 and 6 of size O(d^-3), and order 8 of size O(d^-4), implying the stated seventh absolute-moment bound. The exponential tail and uniform log L2 bound justify discarding the complement of the Taylor interval. The adjacent-dimension inequalities at the first strict crossing sandwich delta between threshold values at d_* and d_*-1, yielding c1/d_*+O(d_*^-2), including equality at an earlier dimension. The fresh one-dimensional quadrature gives K2≈1.70529405808, and moment quadrature gives c1≈0.11685027495 and c2≈0.05968448804. Source checker inspected, not executed: its grid refinements are all at d=2, and a2>a1 checks the sign of c2 rather than the accuracy of the asymptotic at higher d. The printed K2 in VERIFICATION.md is the finite odd-series sum, not the exact value at its last digits. The analytic proof, not those checks, validates the all-dimension claims.
 
-## Scope and limitations
-The theorem concerns the zero graph and its Haar-typical transverse Lyapunov exponent, not the existence/uniqueness of a nonzero physical measure, all nonlinear dynamics at the neutral threshold, or quantitative finite-time positive exponent probabilities. The sine-log integral and elementary Fourier/logarithmic Taylor tools are acknowledged prior mathematics. Searches cannot exclude an unindexed equivalent phase diagram.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is the same forcing family and the same exponent integral as in the antecedents. K1=2 and the general integral criterion are covered, and the integral techniques are classical. The assessed increment is the exact dimension comparison, the quantitative K2 and large-d evaluations for this model, and their combined dimension threshold. Literature search for a matching evaluation was unavailable; the allowance is bounded by the primary texts actually compared, not by negative search evidence.
+
+## value
+
+PASS
+
+Dimension already parametrizes a standard forcing model, but it was not merely a fixed label here: every intermediate coupling selects a unique last nonpositive/first positive boundary in dimension. Strict ordering, the explicit two-dimensional benchmark and the small-delta crossover scale provide quantitative guidance unavailable from a generic integral criterion. The result is scoped to zero-graph transverse exponents rather than oversold as a classification of all attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

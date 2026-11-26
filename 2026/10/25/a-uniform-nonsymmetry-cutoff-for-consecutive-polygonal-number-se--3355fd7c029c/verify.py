@@ -1,52 +1,57 @@
-#!/usr/bin/env python3
-"""Finite independent checks of polygonal-semigroup cutoff and boundary family."""
-import heapq
-from math import gcd
+"""Bounded arithmetic and Apéry checks for the nontriangular cutoff."""
 
-def poly(m,n): return n*((m-2)*n-m+4)//2
+from heapq import heappop, heappush
+from math import gcd, inf
 
-def apery(a,b,c):
-    d=[10**30]*a; d[0]=0; heap=[(0,0)]
-    while heap:
-        v,r=heapq.heappop(heap)
-        if v!=d[r]:continue
-        for w in (b,c):
-            j=(r+w)%a
-            if v+w<d[j]:d[j]=v+w;heapq.heappush(heap,(v+w,j))
-    F=max(d)-a
-    g=sum(d)//a-(a-1)//2
-    return F,g
 
-def triangular_f(n):
-    k=n//2
-    if n%2==0:
-        return (2*k+1)*(k*k-k-1)+2*k*(k+1)*(2*k+3)
-    return (2*k+3)*(k*k+k-1)+(2*k+2)*(k+1)*(2*k+1)
+def polygonal(m, n):
+    return n * ((m - 2) * n - m + 4) // 2
 
-for m in range(3,18):
-    t=m-2; M=(t+2)*(3*t-2)
-    for n in list(range(2,45))+[12*M+1,12*M+2,12*M+17]:
-        a,b,c=[poly(m,n+j) for j in range(3)]
-        assert a<b<c and gcd(gcd(a,b),c)==1
-        assert b-a==t*n+1 and c-a==2*t*n+t+2
-        assert (2*t*a-(t-1))%(b-a)==0
-        assert (8*t*a-M)%(c-a)==0
-        if t>=2:
-            assert gcd(a,b)<=t-1
-            assert gcd(b,c)<=t-1
-            assert gcd(a,c)<=M
-        if n>12*M:
-            assert c*M<a*(M+1) and c<2*a
-            assert c-a>M
-for n in range(2,55):
-    a,b,c=[poly(3,n+j) for j in range(3)]
-    F,g=apery(a,b,c)
-    assert F==triangular_f(n), (n,F,triangular_f(n))
-    assert 2*g==F+1,(n,F,g)
-# Small region nonsymmetry examples, independent Apéry computation.
-for m in range(4,12):
-    for n in range(2,21):
-        a,b,c=[poly(m,n+j) for j in range(3)]
-        F,g=apery(a,b,c)
-        if n>12*m*(3*m-8):assert 2*g!=F+1
-print('VERIFY_OK: 15 polygonal families, 930 gcd/cutoff cases, 53 triangular Apéry identities, 160 nontriangular Apéry cases')
+
+def apery_invariants(a, b, c):
+    distances = [inf] * a
+    distances[0] = 0
+    queue = [(0, 0)]
+    while queue:
+        weight, residue = heappop(queue)
+        if weight != distances[residue]:
+            continue
+        for step in (b, c):
+            target = (residue + step) % a
+            candidate = weight + step
+            if candidate < distances[target]:
+                distances[target] = candidate
+                heappush(queue, (candidate, target))
+    assert all(d != inf for d in distances)
+    return max(distances) - a, sum((d - r) // a for r, d in enumerate(distances))
+
+
+def main():
+    checked = 0
+    for m in range(4, 18):
+        t = m - 2
+        M = m * (3 * m - 8)
+        for n in (*range(2, 45), 12 * M + 1, 12 * M + 2, 12 * M + 17):
+            a, b, c = (polygonal(m, n + j) for j in range(3))
+            u, e = b - a, c - a
+            assert gcd(gcd(a, b), c) == 1 and gcd(u, e) == 1
+            assert u == t * n + 1 and e == 2 * u + t
+            assert 2 * t * a - (t - 1) == u * (t * n - t + 1)
+            assert 8 * t * a - M == e * (2 * t * n - 3 * t + 2)
+            assert (t - 1) % gcd(a, b) == (t - 1) % gcd(b, c) == 0
+            assert M % gcd(a, c) == 0
+            if n > 12 * M:
+                assert a < b < c < 2 * a and e * M < a and e > M
+            checked += 1
+    assert checked == 644
+
+    cases = {193: (17990103, 9011712), 194: (14677843, 7343724)}
+    for n, expected in cases.items():
+        assert n > 12 * 4 * (3 * 4 - 8)
+        F, g = apery_invariants(*(polygonal(4, n + j) for j in range(3)))
+        assert (F, g) == expected and 2 * g != F + 1
+    print(f"VERIFY_OK: {checked} arithmetic cases, {len(cases)} above-cutoff Apéry checks")
+
+
+if __name__ == "__main__":
+    main()

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone Python program `hexagonal_prism_perfect_matching_character.py` requires Python 3.10+ and no third-party libraries. Run `python3 hexagonal_prism_perfect_matching_character.py`.
+## correctness
 
-The program reconstructs the graph from the 12 labeled vertices and 18 edges; enumerates all twenty perfect matchings without external data; forms all 822 faces including the empty face; constructs the augmented integer simplicial boundary; verifies all initial boundary-square-zero identities; performs 408 integral unit-pivot cancellations with additional intermediate checks; and verifies that precisely six free degree-two generators remain with zero differential. These exact integer operations establish the reduced integral homology as \(\mathbb Z^6\) in degree two and zero otherwise.
+PASS
 
-The program then constructs the graph automorphisms representing all 24 elements of \(D_6\times C_2\), computes signed fixed-simplex traces on the augmented chain complex, and checks each trace against the asserted rational character formula. The printed four six-entry rows exhaust all group elements. The finite computation completely covers the graph and group stated in the claim; it does not extend to arbitrary prism lengths or establish unknown literature absence.
+I enumerated every six-edge subset of the eighteen graph edges and accepted exactly those covering all twelve vertices, giving 20 perfect matchings and 822 augmented faces. An independent unit-pivot order split off 408 contractible integral pairs, leaving six free degree-two generators and zero differential. For each group element I generated the complex of its edge-orbits whose unions lie inside perfect matchings. A setwise-fixed simplex of k edges formed from j orbits has permutation sign (−1)^(k−j), so its signed Lefschetz contribution is (−1)^(j−1); the empty face contributes −1. The four orbit-complex reduced Euler rows were (6,0,0,0,0,0), (2,2,2,−4,2,2), and two copies of (0,−2,0,−2,0,−2), reproducing all 24 traces without using the supplied fixed-face parity calculation. The rational planes can each be realized on Q(ζ₆), with multiplication by ζ₆^j and conjugation as the generators; their characters and those of the lines give exactly the proposed decomposition. Semisimplicity and equality of characters in characteristic zero identify the rational module. Replay: python3 /workspace/branches/audit-2.py.
+
+## originality
+
+PASS
+
+Accept the complete joint character, not the nonequivariant rank and not the isolated cyclic or layer-swap restrictions already covered by exact indexed claims. The closest broader equivariant record omits n=6 for a material degree-separation reason. Neither the already known rotation character nor the separately known layer-swap trace determines which frequency plane is layer-odd, still less the reflection characters of the residual lines. The combined action including the half-turn times layer swap is genuine exact information absent from these inspected results.
+
+## value
+
+PASS
+
+The perfect-matching complex and its full geometric symmetry action are natural before choosing a computation. Six rungs are the meaningful boundary where the two homological contributions of the circular-ladder theorem merge in one degree. The result identifies both layer orientations of the frequency planes and the reflection-sensitive lines, information needed to analyze invariant subspaces or compare symmetry-respecting reductions. It is not just the known rank or a single numerical trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

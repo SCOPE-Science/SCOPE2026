@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_census.py` beside `maxima.json` using Python 3.9 or later; no third-party packages are required. This generates every balanced binary length-\(n\) candidate for \(n\in\{4,6,8,10\}\), discards the `000`/`111` forbidden triples, computes all exact length-\(n-1\) deletion descendants, and constructs the compatibility graph. A second descendant-to-parent construction validates every graph edge.
+## correctness
 
-The checker then enumerates all maximal cliques by a bitset Bron–Kerbosch recursion with pivot, rechecks each stored maximum's deletion-shadow disjointness, compares the complete list of stored maximum codebooks in `maxima.json`, and verifies the length-eight/ten syndrome counts and length-ten reversal/complement orbit decomposition. The recorded observed terminal line is `VERIFY_OK`.
+PASS
 
-The observed universe sizes are \(6,14,34,84\), maximum clique sizes \(2,4,8,15\), counts of maximum cliques \(4,4,1,20\), and counts of all maximal cliques \(4,16,520,675239\), respectively. Independently, NetworkX `find_cliques` reproduced these counts on separately generated graphs; this is optional cross-checking and not an unrecorded requirement of the standalone verifier.
+This is a finite unrestricted-subset problem on noncyclic words, not a linear-code problem. The explicit graph criterion is equivalent to pairwise shadow disjointness. In the frozen pivot recursion, any unreported maximal clique must either use the pivot (if eligible) or contain a vertex not adjacent to it; otherwise the pivot extends it, or it was already excluded by X. Removing each processed branch from P and putting it in X prevents duplicates. Independently, I treated each candidate as a set of descendants and branched on the parent group of a descendant: a packing uses exactly one of that group or none, and choosing a word forbids all parents of its descendants. A partition of the remaining candidates into such conflict groups gives an upper bound of one per group. The independent search discards only branches strictly below the current best, so it counts ties and certifies exhaustiveness. It gives (admissible words, maximum size, labeled maxima)=(6,2,4),(14,4,4),(34,8,1),(84,15,20), agrees with every literal codebook and ordering in maxima.json, and obtains syndrome 3 modulo 5 at length eight and exactly syndromes 3,4 modulo 6 at ten. Applying the four reversal/complement maps gives six two-element and two four-element orbits at ten.
 
-# Limits
+## originality
 
-The computation is exhaustive for the four designated lengths, not for larger lengths. Its proof of exhaustive coverage uses the recursion invariant and complete vertex generation; a partial sample or arbitrary timeout would not certify the result. Biological sequence constraints and arbitrary symbol errors are not modeled. Independent validation has not been performed.
+PASS
+
+Modified-VT validity and the deletion-conflict graph model are known, as is the length-four optimum size from the identical balanced layer. The supported distinct result is the exact optimum and equality census of the intersection of balance and run ceiling two, particularly the labeled maximizers and orbit structure at lengths eight and ten. Neither of the closest exact broader-domain tables yields that census.
+
+## value
+
+PASS
+
+The balanced layer and symmetric run restriction define a natural intersection of two distinct constrained-code regimes. The exact equality census distinguishes whether the standard algebraic construction merely attains the optimum or classifies all optimal codes. Length eight gives uniqueness, whereas length ten exposes substantial structure outside the syndrome construction, still with eight inequivalent classes under the two natural symmetries. This is a concrete benchmark for future constrained packing or classification algorithms, not a claim that VT codes lose optimal size here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

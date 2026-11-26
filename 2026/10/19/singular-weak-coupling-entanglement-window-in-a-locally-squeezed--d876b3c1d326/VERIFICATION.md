@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification
 
-The analytic proof in `RESULT.md` establishes all infinite-range results, including uniqueness, strict boundary inequalities and the nonattained supremum. The source's physical squeezed-bath normalization was independently reconstructed using a four-dimensional stationary Lyapunov equation and a partial-transpose symplectic-eigenvalue calculation.
+The exact square identity in `RESULT.md` proves the bound, its unique equality condition for finite positive squeezing, and the strict finite-squeezing entanglement criterion. The stationary model, covariance convention, and eigenvalue formula follow from the cited phase-locked squeezed-bath solution.
 
-Execute `python verify.py` with dependencies declared by `requirements.txt`. The program checks the exact derivative factorization, the stationary Gaussian covariance from an independent Lyapunov solver, the partial-transpose eigenvalues, optimizers and scaled thresholds. Its completed execution passed 1057 assertions. Finite tests are not an infinite proof and no independent external audit has been performed.
+The retained checker `python verify.py`, with dependencies in `requirements.txt`, includes finite numerical checks of the stationary covariance, its partial-transpose symplectic eigenvalues and the optimal value at selected squeezing levels, as well as auxiliary checks outside the statement in `RESULT.md`. The checker is not a proof of parameter-uniform inequalities.

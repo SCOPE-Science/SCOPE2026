@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact substitution \\(x=-(v+dy)/h\\) produces two quadratics, convex on the nonnegative half-line and concave on the nonpositive half-line. Their vertex conditions \\(v<K\\) and \\(v>-K\\) are necessary and sufficient for active folds. Exhaustive root counts on each strict interval and endpoint give the stated one-, two- and three-predecessor census, including the switching line. The origin's three predecessors are directly evaluated; differentiability at the origin follows because \\(x|y|=o(\\sqrt{x^2+y^2})\\), and the other two have positive Jacobian determinant. The signed multiplicity follows from the identity between the determinant and the scalar derivative. The checker independently reconstructs actual roots and map outputs for rational boundary cases and randomized targets; it is corroborative rather than a substitute for the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Each target height v fixes x=−(v+dy)/h. The remaining graph g_v(y) tends to minus and plus infinity at the respective ends, so it is onto. It is concave left of 0 and convex right of 0. For v≤−K the levels in increasing y-order are B at the crease and L at the active minimum; for −K<v<K they are U,B,L; for v≥K they are U,B. Counting open monotone intervals plus each endpoint once yields the claimed strict three-root intervals, two roots at the interval endpoints, and one outside. At v=±K the zero-slope vertex is at the crease and is counted once. In the middle region at u=B there are two nonzero roots in addition to y=0. Completing squares gives the stated quadratic separations. Off the crease det DF=h g_v′, so regular triples have signs +,−,+ and regular singletons have positive sign. For the origin the nonsmooth term x|y| is of second order at (0,0) and the determinant there is −ad; the two remaining determinants are +ad. Thus the signed count applies to regular targets, not to the nonsmooth central switching-image targets away from the origin. A separate exact rational monotone-interval count corroborates representative thresholds and fold/crease levels; the uploaded root solver uses floats and is only regression evidence.
 
-The original 2021 article studies forward-time attractors, fixed points, amplitude rescaling and control, rather than a complete global one-step predecessor classification. A previously reported theorem for the same map gives forward-orbit escape and asymptotic clocks, which does not imply the inverse-sheet geometry. Indexed inverse-sheet results for a coupled cubic map, a four-partition absolute-value map and a quadratic sine-circle map have nonconjugate defining equations, different inverse degrees and different fold structures. Targeted searches and a detailed equation comparison found no stronger source covering these specific inequalities or the meeting of the crease line and the two fold curves. Equivalent unindexed work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The map was introduced to describe amplitude control and coexisting chaotic attractors, making the one-step ambiguity of state reconstruction a natural structural question. The theorem gives the exact global valence, the two sign-sensitive opening thresholds, the complete boundary multiplicities, a robust three-to-one observation region through the switching image and a signed inverse degree. In particular, the source's negative-coupling regime has three regular predecessors of the origin for every positive \\(a,k,h\\). The quadratic fold–crease separation is sharp, not a sample-dependent numerical threshold. The result does not imply any property of encryption security, forward attractors or general parameter-sign regimes.
+Zhou et al. define exactly this map family and study this sign sector in forward dynamics, without giving this inverse classification in the inspected relevant sections. General critical-curve theory and related exact counts explain the vocabulary and generic pair-merger mechanism, not these particular crease and fold levels or their changes across v=±K.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Global state-reconstruction ambiguity is a natural invariant of this published map. The count at every target, the merger thresholds, and the crease segment that lies inside rather than on the three-sheet boundary distinguish the geometry more sharply than detecting a local fold or giving a single multi-preimage target. The complete classification has a use in backward observation; it is not evidence about encryption or forward attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

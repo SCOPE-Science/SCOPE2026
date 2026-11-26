@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:01.717697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rank standardization gives exactly the set of distinct outputs for a deletion; inserting the erased rank into the standardized survivor word is the inverse relation. Thus pairwise disjoint decks are exactly cliques in the compatibility graph. Inspection of checker.py confirms its pivot recursion visits every maximal clique: an unreported maximal extension must contain a candidate outside the pivot's neighborhood or it could be enlarged by the pivot, and an already used pivot excludes rather than duplicates that extension. The separate JavaScript replay rebuilt the 61-source, 480-conflict graph by both deletion and insertion and obtained all 33,202 maximal cliques (777, 10498, 16495, 5033, 393, 6 at sizes 6 through 11). In a finite graph every clique extends to a maximal one. The six largest cliques exactly match the six codebooks; their seven-word intersection also matches. For even source length the reversal-complement map preserves the up-down signature and commutes with deletion up to the analogous length-five reversal-complement, so its four fixed codebooks and swapped pair really give five orbits. Replay notes: /workspace/branches/ba6a0dcd-e510-409c-bbaa-fbdeaa3352ed/record5_replay.md. Supplied checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md 43–44 identifies the general permutation single-deletion construction and describes its inverse-signature VT syndrome class. Independent computation of that syndrome within the fixed signature gives the size-eleven third codebook outright."
+        ],
+        "reasoning": "A general family of correctors covers existence here and has been credited. It is not an upper bound on non-syndrome codebooks; general unrestricted asymptotic bounds, as described in the frozen comparison, do not give this finite restricted optimum and all equality cases.",
+        "searches": [
+          "Gabrys et al., Single-Deletion-Correcting Codes over Permutations, Construction 1 as reported in the frozen comparison",
+          "Local Resultary: rank-standardized one-deletion alternating signature capacity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Local Resultary exact and neighboring code searches",
+        "Gabrys et al. DOI metadata and cited OA-copy attempts (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independently confirmed size-11 syndrome class supplies only a lower bound. The independent exact clique replay rules out every larger class and recovers five additional maxima not given by the unique size-11 syndrome class of this construction under that fixed input signature."
+        ],
+        "reasoning": "The capacity upper bound must control arbitrary packings in the fixed signature, not just a construction's classes. No compared accessible statement establishes that upper bound plus the complete census or implies these as a specialization. Full-text historical coverage beyond the credited construction could not be independently checked.",
+        "searches": [
+          "Gabrys et al., DOI 10.1109/ISIT.2014.6875337 and author OA copy",
+          "Frozen RESULT.md 43–44 for the existing lower-bound specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary title and summary are the assigned result, with the same six labeled codebooks, seven-word core and five orbits. The inverse relation between rank-standardized deletion and insertion gives the same code problem, and deck disjointness is the independent-set formulation in the resulting restricted confusability graph."
+        ],
+        "reasoning": "These are genuinely equivalent formulations; the signature restriction, rank normalization, and deletion model cannot be dropped when matching an allegedly equivalent classification. The matching indexed item is the record being audited.",
+        "searches": [
+          "Local Resultary: six-letter alternating permutations rank-standardized single deletion code maximum size 11 equality cases",
+          "Gabrys et al. DOI 10.1109/ISIT.2014.6875337 (rank-standardized deletion and insertion, as described at frozen RESULT.md 43–44)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target alone matched the exact codebook census in the bounded queries. The indexed d9197115424c statement concerns complete two-deletion set-decks on unrestricted S6; c768d5e232e7 concerns swap errors on zigzag permutations."
+        ],
+        "reasoning": "Neither related table concerns the same collision predicate on these 61 sources, so their equality classes cannot be identified with this census. No distinct indexed matching classification was found; this is not a global negative search result.",
+        "searches": [
+          "Local Resultary: alternating one-deletion size 11 and exact equality-census terms",
+          "Local Resultary related entries d9197115424c and c768d5e232e7"
+        ]
+      },
+      "rationale": "Best of knowledge, the supported distinct contribution is a matching finite upper bound and a complete equality classification for the one fixed alternating source signature, not the existence of an 11-word code. Crediting the earlier construction is conservative and agrees with an independent syndrome calculation: for inverse ascent bits, the six syndrome class sizes modulo 6 are 10,10,10,11,10,10 and the residue-3 class is exactly the listed third codebook.",
+      "residual_risks": [
+        "The primary 2014 text was not independently accessible in the bounded attempts; credit for Construction 1 rests on the frozen comparison plus the directly checked syndrome class, not a whole-paper priority assessment.",
+        "Unindexed tables could contain the restricted equality census; no such table was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the existing construction for the lower bound; cannot certify the full paper's scope.",
+          "evidence": "Independent syndrome computation gives codebook 3 as the residue-3 class and no second size-11 syndrome class in this source signature; the exact equality census concerns all codes.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875337",
+          "material_read": "Bibliographic metadata and the frozen record's Construction 1 comparison (RESULT.md 43–44), not original paper text",
+          "method": "Bounded OA retrieval at https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf and lawful DOI/author-copy checks; independent inverse-ascent syndrome calculation",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Same rank-standardized deletion channel and cited construction already reaching eleven"
+        },
+        {
+          "assessment": "Different error model and unrestricted source; no implication established.",
+          "evidence": "Complete two-deletion set-decks on S6 are not one-deletion disjointness on the up-down signature.",
+          "identifier_or_url": "Resultary d9197115424c",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary search",
+          "title": "Exact two-deletion set-deck code capacity and exceptional fibers",
+          "trigger": "Nearby six-letter exact-capacity/deck table"
+        },
+        {
+          "assessment": "Different error relation.",
+          "evidence": "Swap confusability is not rank-standardized deletion confusability.",
+          "identifier_or_url": "Resultary c768d5e232e7",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary search",
+          "title": "Sharp one-swap capacity and a 42-edge plateau for zigzag permutations",
+          "trigger": "Same type of source language, exact code capacity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alternation is a natural complete fixed-signature class in the rank-deletion construction, not a selected handful of favorable permutations. Even when a standard syndrome already supplies eleven words, it does not tell a researcher whether that size is maximal, how much freedom an optimal design has, or which words are unavoidable. The exhaustive classification answers all three for the 61-word instance and supplies an exact benchmark for alternative constructions. No extension to other lengths or to other channels is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

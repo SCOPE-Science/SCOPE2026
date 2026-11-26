@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:01.157673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identity-started node is mu=(N^3+3N)/(N^3+2); the tangent remainder is (x-mu)^2/(mu^2 x). The only random coordinate pair for sign probes has coefficient 1/(4N) in the inverse and (1-2N^2/mu^2)/(4N) in the remainder. This verifies the centered samplewise identity for shared probes, baseline variance 1/(4sN^2), strict inflation for N>=2, and ratio asymptotic 4N^4. The eigenvalue remainders at 1,N,2N are O(N^-4), asymptotic to N, and asymptotic to 2N, respectively. With multiplicities N^3,1,1 this gives squared remainder norm asymptotic to 5N^2, inverse squared norm asymptotic to N^3, and Gaussian variance ratio asymptotic to 5/N. Direct trace subtraction verifies relative discrepancy asymptotic to 3/N^2. For two eigenvalues a<b the projector decomposition gives exact sign ratio (1-ab/mu^2)^2, bounded by (b/a-1)^2 when the denominator variance is positive. Frozen RESULT.md lines 44–84 is an algebraic replay; supplied verify.py was inspected, not executed. 'Vanishing Frobenius residual' is only relative to the inverse norm; the absolute remainder norm grows. Exact actions are assumed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former studies Hermite and Lagrange remainder Frobenius errors; the latter uses singular-vector deflation and discusses the dependence on the singular-vector structure."
+        ],
+        "reasoning": "A Frobenius estimate does not characterize the off-diagonal fraction. Deflation is a different spectral correction from subtracting the Lanczos Hermite tangent and supplies neither of the joint rates for it.",
+        "searches": [
+          "Rinelli–Simunec–Vermeiren, section 4.2: residual and Frobenius comparison",
+          "Gambhir–Stathopoulos–Orginos arXiv:1603.05988, p. 20: Hermitian deflation variance increase"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18864",
+        "arXiv:1603.05988",
+        "Resultary: 2dcf9faad8a8",
+        "Resultary: f9f9bab46b35"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General variance formulas verify the witness once the matrix is supplied but do not give a choice that separates off-diagonal from total residual energy this way.",
+          "The exact two-level formula and its elementary condition-number bound are credited to the existing comparison, not an independent novelty claim."
+        ],
+        "reasoning": "The added construction packs inverse Frobenius mass onto diagonal unit modes while exposing a high-eigenvalue pair off-diagonally. This is the material extra argument, not an equivalent restatement of a general probe identity.",
+        "searches": [
+          "Rinelli–Simunec–Vermeiren eqs. (3.3), (4.1)–(4.5)",
+          "Resultary dimension-seven comparator, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dimension-seven comparator gives 625/576 in dimension seven and the exact two-level formula; the two-node comparator concerns revival after increasing the node count.",
+          "The preprint's eqs. (3.3), (4.1)–(4.5) give the same estimator and variance expressions."
+        ],
+        "reasoning": "Neither a two-level off-diagonal proportionality example nor a two-node effect is the one-node three-level simultaneous limit; the two-level ceiling precludes quartic growth in the same conditioning parameter.",
+        "searches": [
+          "Resultary: one-step global Lanczos inverse trace, Hermite stochastic correction and Rademacher variance reversal",
+          "Rinelli–Simunec–Vermeiren arXiv:2611.18864, sections 3.1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact example indexed is SCOPE-dimension-seven-variance-reversal-in-one-step-global-lanczos-inv--2dcf9faad8a8, for two spectral values."
+        ],
+        "reasoning": "The exact finite example is related, but its formula and ceiling distinguish it from the asymptotic three-level family. An entry giving general probe formulas alone does not tabulate the separation.",
+        "searches": [
+          "Resultary: one-node inverse-trace variance reversal, three-eigenvalue and two-eigenvalue SPD examples"
+        ]
+      },
+      "rationale": "Credit the existing estimator, variance formulas, the warning for spectral deflation and the two-spectrum formula. The distinct finding is an exact three-spectrum one-node inverse family with quartic sign-variance inflation and a simultaneously vanishing Gaussian ratio and relative deterministic bias. The inspected strongest comparisons do not establish this joint separation.",
+      "residual_risks": [
+        "Historical priority not certified; other matrix control-variate examples may be relevant.",
+        "The two-level comparison is shared existing coverage; no priority is inferred from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Estimator, variance identities and residual analyses covered; explicit three-level separation not established in these statements",
+          "evidence": "Gaussian variance depends on the full Frobenius norm, Rademacher variance on the off-diagonal part; the Hermite remainder is the matrix to which the probes are applied.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18864",
+          "material_read": "Section 3.1 p. 10, eq. (3.3); sections 4.1–4.2 pp. 12–15, eqs. (4.1)–(4.5) and residual comparisons",
+          "method": "Primary full text, bounded sections",
+          "title": "Global Lanczos with stochastic error correction for trace estimation of matrix functions",
+          "trigger": "Identical algorithm and variance formulas"
+        },
+        {
+          "assessment": "Related warning with a different correction",
+          "evidence": "Hermitian singular-vector deflation can increase variance, unlike the compared non-Hermitian case with the same spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.05988",
+          "material_read": "Conclusion p. 20, text near offset 114650",
+          "method": "Primary PDF, bounded offset",
+          "title": "Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse",
+          "trigger": "Prior warning of sign-variance growth under a correction"
+        },
+        {
+          "assessment": "Material overlap on two spectra, not on the central three-spectrum finding; same date does not establish priority",
+          "evidence": "Two-level multiplier 1-ab/mu^2 and finite variance ratio 625/576.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-dimension-seven-variance-reversal-in-one-step-global-lanczos-inv--2dcf9faad8a8",
+          "material_read": "RESULT.md, two-level exact result and dimension-seven witness",
+          "method": "Local Resultary mirror",
+          "title": "Dimension-seven variance reversal in one-step global Lanczos inverse trace estimation",
+          "trigger": "Strongest exact overlap for the algorithm and inverse function"
+        },
+        {
+          "assessment": "Different algorithmic comparison",
+          "evidence": "Changes node count rather than comparing probe laws against their respective baselines at one fixed node.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-node-stochastic-variance-revival-after-zero-variance-globa--f9f9bab46b35",
+          "material_read": "RESULT.md, finding on the one- to two-node change",
+          "method": "Local Resultary mirror",
+          "title": "A two-node stochastic variance revival after zero-variance global Lanczos",
+          "trigger": "Related Hermite variance reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example isolates why relative Frobenius or deterministic trace accuracy is not a sufficient diagnostic for sign-probe improvement, while directly checking that Gaussian variance does improve against its own baseline. The quadratic two-level ceiling makes the quartic three-level effect structurally meaningful. No claim about equal cost, absolute Gaussian versus sign variance, or finite-tolerance actions follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

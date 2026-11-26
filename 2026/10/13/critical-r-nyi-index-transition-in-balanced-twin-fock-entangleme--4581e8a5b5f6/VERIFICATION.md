@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The verifier independently checks the central-binomial representation against the factorial formula, exact rational normalization and endpoint maximality for integer input photons from \(n=1\) through \(n=17\). It also computes finite-\(n\) consistency checks for the von Neumann entropy shift, logarithmic-negativity coefficient, bulk Rényi moment, logarithmically corrected critical moment and edge Rényi moment. On its tested environment it produced:
+## correctness
 
-`VERIFY_OK exact_distribution_n=1..17 mass_normalization=passed endpoint_max=passed`
+PASS
 
-`VERIFY_OK negativity_linear_coefficient=0.914218823 target=0.913893162`
+The balanced mode transformation multiplies the two input factors to give (c†²−d†²)^n. Distinct output occupations are orthogonal on each side; including their factorial normalizations gives p_{n,k}=a_k a_{n-k}, whose sum is one by convolution. On k<=n/2 the scaled bulk endpoint mass is bounded by C n^{q/2−1} times the sum of (k+1)^(-q/2) through δn, so uniform interior Stirling and then δ→0 give the beta integral for 0<q<2. At q=2 replacing a_{n-k}² by 1/(πn) on either half produces total error O(1/n), since (k+1)a_k² is bounded; the harmonic sums give the coefficient 2/π². For q>2 the two reflected half-sums each converge by a summable majorant C a_k^q, with no midpoint contribution. The integrable endpoint bound for f_n log f_n establishes the von Neumann constant without interchanging the n limit and a q derivative; the expectation of log x under the arcsine density is −2 log 2. The partial transpose trace norm equals F_n(1/2)²; the beta evaluation gives the stated gamma constant and subtracting 1 does not change the limiting slope. The increasing successive ratios of a_k put the largest weight at either edge. The frozen script and its stated observations were inspected, not executed; the limit verification is analytic.
 
-`VERIFY_OK entropy_constant=-0.237012554 target=-0.241564475`
+## originality
 
-`VERIFY_OK q2_logarithmic_trend=passed q3_edge_scaling=passed`
+PASS
 
-The slowly convergent critical quotient is checked only for improvement toward its theoretical limit, not incorrectly certified equal at finite sample size. These checks are supporting finite evidence; the infinite limits are proved in RESULT.md via uniform binomial-coefficient bounds, harmonic sums and dominated convergence. No external validation has been performed.
+The supported distinct claim is the combined sharp fixed-order asymptotics of the balanced twin-Fock Schmidt law, including the edge constant and the mode-entropy distinction. The number distribution, its bulk envelope, and the general pure-state negativity identity are not new. The isolated critical purity asymptotic also admits a classical special-function derivation, so it should not on its own carry a priority claim.
+
+## value
+
+PASS
+
+The formula gives sharp weights of three different asymptotic mechanisms in a standard optical entanglement source. It quantifies when the continuum arcsine law is usable and when the lattice edges must be kept, and separates the leading von Neumann and min-entropy coefficients. The useful result is this fixed-order classification and its constants, not a rediscovery of the photon-count probabilities or the q=2 calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof of the universal theorem is an explicit bijection. A nonempty equilibrium's producer-induced subgraph is a union of cycles, and each must have at least the graph girth. Below twice the girth only one component is possible. The two independent short-cycle inequalities prohibit a chord and an external vertex with two cycle neighbors whenever the cycle length is less than \(2g-4\). The theta construction meets that boundary and fails the equilibrium test exactly there. The Python verification program independently checked equilibrium constraints and simple-cycle counts on 16 graph instances, including both boundary and natural regular examples. Tests do not substitute for the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Gilboa and Nisan's 2022 paper sets up strict homogeneous binary public-goods games and establishes decision-complexity results. Gilboa's 2023 classification covers nonmonotone pattern complexity, not exact producer-number coefficients. Klimm and Stahlberg's 2023 work includes a cycle-based active-set observation for a different pattern in which production at zero active neighbors is allowed. These facts do not imply the present sharp coefficient identity for the exact-two-only pattern without a new graph argument. Earlier exact-two enumerations for prism/Möbius families have girth at most four; zero-or-two-neighbor obstruction work changes the game. Targeted searches for equivalent fixed-point and girth statements, broader theorems and existing tables found no direct coverage. General short-cycle properties themselves are standard, and equivalent high-girth formulations may be unindexed.
+PASS
 
-## Mathematical value — PASS
-For costly positive contribution, the least possible number of producers and their multiplicity are natural equilibrium invariants. Here both are exactly determined for an infinite class encompassing every graph of girth at least five. The result additionally determines a complete, sharp initial polynomial segment, identifying the first length at which an external two-neighbor shortcut can invalidate a cycle. These are motivated structural statements rather than isolated small-graph counts. It does not characterize large-support equilibria or welfare/dynamics.
+For T(j)=1 exactly at j=2, the empty set is an equilibrium and each nonempty equilibrium induces a 2-regular graph, so supports of positive size below 2g induce one cycle. A chord of a k-cycle forces k+2>=2g; a two-edge path between distinct cycle vertices through an external vertex forces k+4>=2g. Hence below 2g-4 each cycle is induced and every external vertex sees at most one producer. Cycle vertex sets give the asserted bijection, including the absence of positive supports below g and the multiplicity at g. The simple theta graph with path lengths g-2,g-2,2 has cycles of lengths g,g,2g-4, and the internal vertex of the short path blocks its unique long cycle. The one-cycle necessity excludes another support at that boundary. An independent bounded enumeration of cycles and profiles on the theta graphs g=5 through 9 agreed. The frozen verify.py was inspected, not executed; its reported 16-graph run is finite corroboration only.
 
-## Limits and status
-Sources: https://arxiv.org/abs/2207.04238, https://arxiv.org/abs/2301.11580, https://arxiv.org/abs/2301.11849. The checks are self-review technical review only, not an external novelty certification or independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same exact-two rule was previously treated on specific periodic graph families. The examined sources do not give or imply this initial coefficient law for all graphs of a given girth, or its universal sharp boundary. This is a statement-level conclusion bounded by the comparisons below, not a global priority claim.
+
+## value
+
+PASS
+
+The result converts a strategy-profile count into ordinary cycle counts over an entire sharp low-support range on arbitrary high-girth graphs. It identifies both the smallest positive support and its multiplicity. The exact cutoff explains why the local graph shortcut, not merely the possible appearance of unions of cycles, limits the correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

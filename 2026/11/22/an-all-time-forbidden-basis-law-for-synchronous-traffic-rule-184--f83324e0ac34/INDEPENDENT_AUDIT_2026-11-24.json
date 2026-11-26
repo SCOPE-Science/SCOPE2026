@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:21:09.624353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the bilateral shift an A=11 bond followed by a consecutive B=00 bond bounds exactly 11(01)^j00, of gap 2(j+1). The local tables give A motion left and B motion right, with only separation-two B,A pairs deleted. Surviving defects preserve order: only B,A gaps shrink, and at the smallest possible gap their defects disappear rather than cross. For consecutive output A,B, their ordered ancestors bracket at least one consecutive input A,B transition, so the ancestral gap is at least 2(t+1) on X_t and the output gap at least 2(t+2). Conversely the Rule-226 reflected branch G moves A right and B left; there are no collisions on an output avoiding 1100, and the remaining gaps after G meet X_t's bound. The five-bit discrepancy table shows F(Gy)=y on that shift. Thus F(X_t)=X_{t+1}, including t=0, and induction gives every stage. Basis words are pairwise noncontaining because their only 11 and 00 are the terminal defects. Every finite avoiding word can be extended by a constant zero left tail and constant one right tail without creating an A-to-B defect pair. Therefore the avoiding-word languages are actual bilateral image languages, the basis is exactly minimal, and W_t is in Y_t but not Y_{t+1}, the first difference at length 2t+4. The independent bounded replay script independent_check.py checked the full four- and five-bit tables and 32 finite-block cases through t=4 (largest input block length 14); those checks supplement the all-time induction. The shipped verifier was inspected, not executed. No finite-ring or asynchronous generalization is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Zhang's Theorem A uses h_G(Σ)<h_top(Σ) to derive measure-of-maximal-entropy conclusions for subshifts.",
+          "Fukś's defect model and single-word preimage proposition do not state a nested complete language classification."
+        ],
+        "reasoning": "A general entropy result that takes forbidden-language information as input does not supply such information for Rule 184; the relevant earlier defect argument supplies dynamics, not both inclusions for the whole range. No substantive absence judgment is made for the inaccessible process-graph paper.",
+        "searches": [
+          "arXiv:2611.03758v1, Theorem A",
+          "arXiv:comp-gas/9703001, §II",
+          "DOI 10.1002/cplx.21686, Section 4.1 / Figures 8–13 locator in frozen reference"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:comp-gas/9703001",
+        "arXiv:2611.03758v1",
+        "DOI 10.1002/cplx.21686 (bibliography/access attempts only)",
+        "Resultary:5a87e3038c99",
+        "Resultary:be3c887106f0",
+        "Resultary:f4c5d1d3d2a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-step right inverse is valid only on the first image, so one cannot iterate it on arbitrary outputs without controlling which intermediate backwards iterates stay in its domain.",
+          "The all-time proof tracks ancestral gaps through collision deletion in the forward direction, and shrinks every consecutive A-to-B gap by exactly two under the collision-free inverse."
+        ],
+        "reasoning": "Combining the earlier local ingredients into an arbitrary-depth reachability theorem needs the preserved gap/order invariant and both direction arguments. Neither the first two spaces nor the local inverse identity alone implies the claimed exact finite-time schedule.",
+        "searches": [
+          "Resultary:5a87e3038c99 Finding and Proof §§1–2",
+          "Resultary:f4c5d1d3d2a1 Finding and Proof §§1–3",
+          "arXiv:comp-gas/9703001, §II Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relabeling equal bonds gives the equivalent consecutive A-to-B gap bound 2(t+1).",
+          "Fukś describes traffic-defect motion and gives the partial-sum characterization for n-step preimages of the single word 00.",
+          "Relevant DOI and alternate full-text routes were attempted but did not yield an inspectable Section 4.1."
+        ],
+        "reasoning": "A preimage count or admissibility theorem for 00 is not a characterization of the simultaneous occurrence of separated 11 and 00 and all other blocks. A limit language, even if it avoids the whole family, need not identify which word is lost at which finite iteration.",
+        "searches": [
+          "Resultary searches for Rule 184, all-time finite images, forbidden words, reachability and inverse",
+          "arXiv:comp-gas/9703001, §II Proposition 1 and defect discussion",
+          "DOI 10.1002/cplx.21686, process-graph language complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5a87e3038c99 gives the one-step cyclic forbidden word 1100 and Rule 226 as a predecessor branch.",
+          "be3c887106f0 gives the exact bilateral t=2 forbidden pair 1100 and 110100, with finite-state equivalence.",
+          "f4c5d1d3d2a1 gives that same pair for cyclic t=2 and a Rule-226-squared predecessor."
+        ],
+        "reasoning": "These are material exact subcase overlaps, including distinct same-day records; their dating alone does not determine precedence. They cover one or two iterates only. None of these exact presentations is a table of the arbitrary-depth bases.",
+        "searches": [
+          "Resultary:5a87e3038c99",
+          "Resultary:be3c887106f0",
+          "Resultary:f4c5d1d3d2a1"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact bilateral minimal forbidden basis at arbitrary finite t and the sharp first-loss clock. Previously stated t=1 reachability and inverse, and the separately recorded t=2 list, are credited and are not new. Accessible prior statements give local dynamics, individual-block preimages, or small-time languages, not the all-time two-inclusion classification. The main inaccessible process-graph source remains an explicit priority risk.",
+      "residual_risks": [
+        "The matching process-graph paper was inaccessible through publisher and identified alternate routes; an equivalent finite-time characterization in its full text remains possible.",
+        "Older traffic-defect or symbolic range formulations may encode the same invariant; the bounded searches and same-day catalogue entries do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Preimage classification of 00 and known cluster dynamics; not an all-word finite-image statement",
+          "evidence": [
+            "The first two input bits must be 00 and partial sums with initial capital 2 stay positive. The two defect clusters move one site per time in opposite directions and each shrinks by one upon collision."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001",
+          "material_read": "PDF p. 2, §II Proposition 1 and surrounding paragraphs, including OA text offset 11460",
+          "method": "Original OA PDF, original proposition and discussion",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Same traffic defects, possible all-depth preimage coverage"
+        },
+        {
+          "assessment": "Plausible close prior, unresolved full-text comparison",
+          "evidence": [
+            "The cited locator is explicit in the original; purported first-two-graph and limit coverage was not independently confirmed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+          "material_read": "Bibliography and locator Section 4.1/Figures 8–13; no original section or figures were available",
+          "method": "DOI/publisher and identified Academia manuscript page 82479983 attempted by lawful OA routes",
+          "title": "Advances in the study of elementary cellular automata regular language complexity",
+          "trigger": "Exact Rule-184 finite process-graph topic"
+        },
+        {
+          "assessment": "Entropy theorem, not a calculation of Rule-184 images",
+          "evidence": [
+            "Theorem A compares generator entropy with topological entropy for maximal-entropy measures."
+          ],
+          "identifier_or_url": "arXiv:2611.03758v1",
+          "material_read": "OA PDF p. 2, offset 6050, Theorem A",
+          "method": "Original OA PDF passage",
+          "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+          "trigger": "Generating forbidden words framework"
+        },
+        {
+          "assessment": "Covers indexed rings at t=1 and the common local inverse identity",
+          "evidence": [
+            "Cyclic 1100 avoidance and Rule-226 antecedent."
+          ],
+          "identifier_or_url": "Resultary:5a87e3038c99",
+          "material_read": "RESULT.md Finding and Proof §§1–2",
+          "method": "Local published-record mirror",
+          "title": "Exact one-step reachability, inversion, and density spectrum of the cyclic traffic automaton",
+          "trigger": "Exact one-step overlap and shared inverse"
+        },
+        {
+          "assessment": "Exact t=2 special case, distinct same-day row",
+          "evidence": [
+            "The image is precisely the shift avoiding 1100 and 110100, proved by finite-state equivalence."
+          ],
+          "identifier_or_url": "Resultary:be3c887106f0",
+          "material_read": "RESULT.md Finding and proof, beginning at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The exact second spatial image of synchronous traffic Rule 184",
+          "trigger": "Exact two-step bilateral overlap"
+        },
+        {
+          "assessment": "Cyclic t=2, distinct same-day row; not arbitrary-time bilateral result",
+          "evidence": [
+            "Avoids the same pair cyclically; applies Rule 226 twice for a predecessor."
+          ],
+          "identifier_or_url": "Resultary:f4c5d1d3d2a1",
+          "material_read": "RESULT.md Finding and Proof §§1–3",
+          "method": "Local published-record mirror",
+          "title": "The exact two-step image and density spectrum of cyclic traffic Rule 184",
+          "trigger": "Exact two-step language and iteration of the predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimal bases for a standard number-conserving cellular automaton characterize all finite-time reachable words on the bilateral full shift, not just the entropy or an isolated early image. The new obstruction's sharp length at every step gives strict descent and quantifies what can be distinguished by a fixed observation window. The inverse construction is a finite-depth reachability method; neither the t=1 nor the t=2 computation alone supplies the invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the colored-equivalence classification
+# Independent mathematical audit
 
-The pure Python 3 artifact `verify.py` uses no external dependencies. It enumerates nonempty set partitions as labeled equivalence relations and all complete unary colorings for the tested sizes. It independently computes the proposed two-level truncated profile and a semantic signature at quantifier rank six: signatures are iteratively refined on states with zero, one, or two assigned variables using both possible existentially rebound variables. Within each test universe the resulting sentence-signature classes coincide exactly with the classes given by the proposed profile; no false merges or splits occur.
+## correctness
 
-Run `python3 verify.py`. The output includes:
+PASS
 
-```
-FORMULA {'q': 1, 'local_profiles': 2, 'theory_count': 8, 'maximum_minimal_size': 6}
-FORMULA {'q': 2, 'local_profiles': 8, 'theory_count': 6560, 'maximum_minimal_size': 36}
-FORMULA {'q': 3, 'local_profiles': 26, 'theory_count': 2541865828328, 'maximum_minimal_size': 162}
-EF {'q': 1, 'n': 6, 'structures': 278, 'profiles': 8, 'qrank': 6, 'rank_states': 64}
-EF {'q': 2, 'n': 5, 'structures': 1954, 'profiles': 71, 'qrank': 6, 'rank_states': 1087}
-COLORED_EQUIVALENCE_FO2_VERIFY_OK
-```
+The two nested existential quantifiers defining two members of a color may shadow the first variable: transitivity keeps the witnesses in the same class. The two outer witnesses in the global test then distinguish one class from two. In the other direction, match the moved pebble by its color and exact local vector; if no pebble is stationary, h(t)>0 suffices. With a stationary pebble, equality, a different member of its class, and a member of a different class require respectively no new choice, local counts capped at two, and class counts capped at two. This invariant works also on infinite structures. Keeping h(t) classes with exactly t_C survivors of each color is induced and realizes the same profile; conversely every nonzero profile is realized. The all-two profile forces at least 2 times the sum of all local vector weights, namely 2q3^q, in the stated class of structures. The uncolored and one-predicate theory counts and bounds follow. An independent rank-four semantic refinement on all isomorphism types through size six found 8 profiles in 29 models for one color and 124 profiles in 274 models for two colors, with exactly matching truth-signature partitions.
 
-The finite checker covers only the listed carrier sizes and six rounds, not all structures. The all-arity theorem is instead proved by a complete infinite-duration two-pebble back-and-forth argument and characteristic formulas in `RESULT.md`. The exact upper and lower bounds follow from an explicit finite construction and a forcing sentence, independently of any sampled cases. No independent audit has been performed.
+## originality
+
+PASS
+
+The exact fixed-signature all-sentence FO² classification and sharp induced core survive the comparison. A distinct same-day rank-two record already enumerates the capped profiles for one predicate, but quotients them into 207 rank-two theories instead of distinguishing them all in unbounded-rank two-variable logic. There is no relative priority inference from the shared date.
+
+## value
+
+PASS
+
+For a standard signature and logic, it gives a minimal concrete equivalence invariant and the worst-case size of an actual induced theory-preserving core, not just an upper bound on a replacement model. The characteristic sentences permit theory separation and certify the exact lower bound. This is useful for comparing finite-variable fragments and compressing arbitrary structures even though the proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

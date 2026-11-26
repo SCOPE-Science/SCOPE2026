@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:25:22.375719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructing the path proof, every bracket entry at distance one vanishes, so consecutive steps in a nonzero product must jump at least two positions. At odd size 2h+1 the sole path of length h uses disjoint consecutive pairs of first-superdiagonal vectors; each determinant is nonzero with probability a=(1-q^(-2))(1-q^(-1)). At even size 2h, set m=h-1. The two all-length-two path products survive with union probability 2a^m-b_h: their intersection requires a first nonzero vector followed by 2m vectors outside the preceding span. The third entry is a sum of paths with a single length-three step at position j. Its coefficient is nonzero precisely when all earlier odd and all later even determinants survive. If the odd list is not wholly nonzero, partition on its first failure j; the earlier odd tests, the failed test, and the later even tests use disjoint vector pairs. This yields total activity a^m+m(1-a)a^(m-1). Given the first-superdiagonal vectors, each active third-diagonal entry is an independent linear functional of a disjoint pair of second-superdiagonal vectors. An active term's functional is zero exactly when both odd endpoint vectors are zero. These two zeros force failure of both central determinants and exclude every other active index. The disjoint exceptional events thus remove m q^(-4)a^(m-1). Either all-short path surviving implies there is an active nondegenerate functional (use the last odd or first even position). Outside that union, the remaining entry is uniform exactly on the nondegenerate activity event and otherwise identically zero. This proves the stated even probability. All arguments are finite-field arguments, including in characteristic two; the index bound is attained with positive probability. The ratio divides by a^(h-1), and b_h/a^(h-1) decays at geometric base q/(q+1), leaving the stated positive linear coefficient. Independently enumerating all pairs of n=4 matrices by their six strictly upper entries and calculating XY-YX entry by entry gave 3072/4096 and 489888/531441 nonzero brackets for q=2 and q=3; a nonzero bracket at n=4 has index two. This is bounded corroboration, not a proof for general q. The supplied code and recorded checks were inspected without executing the supplied code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyko et al., p. 3, describe real/complex upper-triangular nilradicals and coadjoint invariants of solvable algebras.",
+          "The supplied comparison describes Fuchs–Kirillov's Jordan-type measure as a uniform single matrix; primary full text was not recovered."
+        ],
+        "reasoning": "Coadjoint invariants are not a distribution of powers of brackets. Moreover, a single-matrix uniform law would not by itself give the bracket pushforward law: already n=3 gives C_(1,3) nonzero with probability a rather than 1-1/q for the uniform element of the radical square. The inaccessible Jordan-type paper remains a comparison limitation, not evidence of noncoverage.",
+        "searches": [
+          "Boyko–Patera–Popovych, arXiv:0706.2465",
+          "Fuchs–Kirillov, DOI 10.1007/s40598-022-00214-1",
+          "Resultary: random triangular commutators and maximum Jordan block laws"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches for exact additive brackets, products, and maximal nilpotency",
+        "Resultary 384549b5164b, af32176533eb, 3038b4056c47",
+        "arXiv:0706.2465",
+        "Fuchs–Kirillov and cited bracket finding b92d2e107407: retrieval attempted, theorem not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest distinct same-day finding treats AB with A,B independently uniform in the very same strict triangular radical. It has the same maximum index and a linear even-to-odd ratio, but its odd probability base is (1-q^(-1))^2 and its even probability is product-specific."
+        ],
+        "reasoning": "At distance two, products use products of scalar entries while brackets use determinants of adjacent vector pairs. Adjacent determinant nonvanishing and the zero-endpoint degeneracy of the next diagonal enter the even law, so the product formula is not a specialization or substitution for the bracket formula. Dating does not decide priority.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-parity-dependent-maximal-nilpotency-in-products-of-triangu--af32176533eb",
+          "2026/11/2/SCOPE-maximal-nilpotency-index-in-products-of-random-upper-triangular--3038b4056c47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026/10/12 finding counts the zero fiber of the n=4 additive bracket as 2q^9+q^8-2q^7 of q^12 pairs.",
+          "At n=4 every bracket squares to zero, so the exact n=4 maximal-index probability is the complement of that fiber, 1-2q^(-3)-q^(-4)+2q^(-5). This is exactly the specialization under review."
+        ],
+        "reasoning": "The all-dimensions event is equivalently a count of bracket outputs with a largest Jordan block of size ceil(n/2), under the bracket pushforward measure. The zero-fiber equivalence covers the initial even case only; from n=5 onward a nonzero bracket need not attain the upper index bound. The other cited fiber record could not be read, and we did not assume it to be the same record.",
+        "searches": [
+          "Resultary: additive commutator fiber sizes, adjoint ranks and bracket nilpotency",
+          "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b",
+          "Cited 2026/11/8 bracket-fiber finding ending b92d2e107407"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-by-four bracket-fiber record supplies an exact matching small-size count. The November 2 record gives probabilities for products in the full upper triangular algebra conditional on nilpotence, with maximum index n."
+        ],
+        "reasoning": "The small tabulation must be credited; it gives no values for higher bracket powers. The conditional full-triangular product has a different support and maximum index. No matching all-dimensions table was established in this bounded corpus check.",
+        "searches": [
+          "Resultary: exact bracket fibers and triangular maximal-index probabilities",
+          "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b",
+          "2026/11/2/SCOPE-maximal-nilpotency-index-in-products-of-random-upper-triangular--3038b4056c47"
+        ]
+      },
+      "rationale": "The all-dimension additive-bracket law, especially its even-dimensional exceptional term and resulting comparison with odds, is the distinct contribution supported by the inspected evidence. The n=4 case is already covered by an exact bracket-fiber count, and the parity phenomenon itself has a very close strict-radical product analogue. Neither is credited as independently new here.",
+      "residual_risks": [
+        "The cited November four-by-four fiber record and Fuchs–Kirillov primary text were not recovered. The separate October four-by-four theorem establishes finite-case coverage regardless.",
+        "Unindexed finite-field bracket or Jordan-type enumerations might give wider coverage. The bounded search is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proven special-case coverage",
+          "evidence": "Zero fiber 2q^9+q^8-2q^7, giving the exact n=4 maximum-index probability by complementation.",
+          "identifier_or_url": "2026/10/12/SCOPE-three-exact-additive-commutator-fibers-distinguish-the-central-s--384549b5164b",
+          "material_read": "RESULT.md Finding, starting at offset 0",
+          "method": "Local publication mirror",
+          "title": "Three exact additive commutator fibers distinguish the central stratum",
+          "trigger": "Exact counts for the same additive bracket, n=4"
+        },
+        {
+          "assessment": "Unresolved; not identified with the October finding",
+          "evidence": "Cited title indicates n=4, but no target theorem passage was available.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-stratum-lie-bracket-fibers-and-adjoint-ranks-of-strictly-u--b92d2e107407",
+          "material_read": "Frozen bibliographic citation only; target finding not retrieved",
+          "method": "Checked cited link, identified owner variant and local mirror path; no accessible target found",
+          "title": "Three-stratum Lie-bracket fibers and adjoint ranks of strictly upper triangular four-by-four matrices",
+          "trigger": "Frozen reference cites the same bracket model in n=4"
+        },
+        {
+          "assessment": "Strong analogue, different operation and probabilities",
+          "evidence": "Product of independent radical elements, odd base (1-q^(-1))^2, distinct even law and ratio.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-parity-dependent-maximal-nilpotency-in-products-of-triangu--af32176533eb",
+          "material_read": "RESULT.md Finding, starting at offset 0",
+          "method": "Local publication mirror",
+          "title": "Sharp parity-dependent maximal nilpotency in products of triangular radicals",
+          "trigger": "Same radical and parity-split maximum-index question"
+        },
+        {
+          "assessment": "Different operation and measure",
+          "evidence": "Product of full triangular matrices conditioned on nilpotence, maximum index n.",
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-nilpotency-index-in-products-of-random-upper-triangular--3038b4056c47",
+          "material_read": "RESULT.md Finding, starting at offset 0",
+          "method": "Local publication mirror",
+          "title": "Maximal nilpotency index in products of random upper triangular matrices",
+          "trigger": "Cited as an exact product comparison"
+        },
+        {
+          "assessment": "Adjacent structure, not the probability problem",
+          "evidence": "Coadjoint invariants over the real or complex numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/0706.2465",
+          "material_read": "PDF p. 3, passage at OA offset 9609",
+          "method": "Lawful OA PDF",
+          "title": "Invariants of solvable Lie algebras with triangular nilradicals and diagonal nilindependent elements",
+          "trigger": "Same underlying triangular Lie algebra"
+        },
+        {
+          "assessment": "Single-matrix distinction not independently checked in the paper",
+          "evidence": "Article requests timed out or redirected; no result passage was available to confirm or exclude a corresponding bracket statement.",
+          "identifier_or_url": "https://doi.org/10.1007/s40598-022-00214-1",
+          "material_read": "Frozen citation and scope characterization only; no primary full text",
+          "method": "Lawful Springer article and PDF retrieval attempts",
+          "title": "Jordan Types of Triangular Matrices over a Finite Field",
+          "trigger": "Possible broader Jordan-law coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal Jordan-block attainment is a natural extremal statistic for a nonuniform Lie-bracket distribution. The all-dimension answer is useful beyond the small zero-fiber case and exhibits a sharp parity contrast in consecutive dimensions with equal attainable index. The even formula resolves overlapping determinant tests and an exact characteristic-independent degeneracy correction rather than transferring the known product parity phenomenon by analogy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

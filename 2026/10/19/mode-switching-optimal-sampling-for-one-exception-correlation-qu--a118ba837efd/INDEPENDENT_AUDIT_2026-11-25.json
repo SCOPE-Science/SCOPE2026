@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:08.234601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–98",
+        "Frozen VERIFICATION.md, lines 19–27",
+        "VERIFY.py, lines 19–126"
+      ],
+      "rationale": "Exact minimization in coordinate i subtracts (Ce)_i² from C-energy, so the sharp one-step mean decrease ratio is λ_min(C^(1/2)diag(p)C^(1/2)). The ordinary-coordinate contrast eigenvalue of C is β>0, and the remaining block determinant is δ=α−ms²=β+m(ρ−s²)>0. Concavity and permutation averaging reduce existence to symmetric p, and no boundary probability can be optimal. With r=q/v the transverse branch is β/(m+r); the coupled branch is ℓ/(m+r), where r=ℓ(α−ℓ)/(δ−ℓ) increases from 0 to ∞ on 0<ℓ<δ. The derivative of the coupled branch has sign (δ−(1+s)ℓ)(δ−(1−s)ℓ), hence a single peak at ℓ=δ/(1+s), r=(α+ms)/(1+s). The branch crossover occurs at ℓ=β, r=βρ/(ρ−s²). The unique symmetric optimum is at the lesser r; the order changes precisely when ms²+βs−mρ=0, with its positive root strictly inside the domain. Both formulas agree there. For any unrestricted optimum the probability sums by class equal those of the unique symmetric one. A coupled minimizing eigenvector z there gives the same Rayleigh value at the unrestricted optimum because C^(1/2)z is constant on each class. Both class entries are nonzero by the nonzero coupling. Equality forces z to be an eigenvector at both probabilities, and subtracting the equations forces equality of every probability, even at the tie. The negative inverse-sign triangle is also correct. The supplied checker was inspected, not executed; its stated assertion count agrees with a separate count of its loops, not a rerun of the checks.",
+      "residual_risks": [
+        "Finite numerical tests do not prove a strict optimum or uniqueness; those were checked by the analytic arguments. No claim about multi-step optimality, timing or adaptive sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former SDP maximizes the same smallest eigenvalue over probabilities. With design vectors C^(1/2)e_i the problem is also saturated E-optimal design, on linearly independent points. Richtárik–Takáč §4 optimizes a convergence bound. The highly relevant Pukelsheim–Torsney primary full text was not obtained from Project Euclid or the bounded lawful alternate-copy search."
+        ],
+        "reasoning": "A general spectral optimization formulation is not a theorem evaluating both branches. The saturated-design literature could supply tighter coverage, but inaccessible text is not negative evidence or a reason to defer the review.",
+        "searches": [
+          "Gower–Richtárik arXiv:1506.03296v1 §5.1",
+          "Richtárik–Takáč arXiv:1310.3438v1 §4",
+          "Pukelsheim Torsney exact-title PDF/Augsburg search and DOI 10.1214/aos/1176348265"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 809fa13c87b2, 4e38fb84c26f, 82c9d23eb995",
+        "arXiv:1506.03296v1 §5.1",
+        "arXiv:1310.3438v1 §4",
+        "Pukelsheim–Torsney bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general optimum can be cast as min trace(D) for diagonal D≽C^(-1); its dual maximizes Tr(C^(-1)X) over correlation matrices X. After symmetrization, an exceptional-to-ordinary correlation t and an ordinary off-diagonal correlation a obey a≥(mt²−1)/(m−1). The objective favors the lower a; the remaining concave quadratic has maximizer t=−βs/[m(ρ−s²)] clipped at −1."
+        ],
+        "reasoning": "This reduction explains the transition as saturation of a correlation constraint. The SDP alone does not mechanically give the two branches for this family, and unrestricted uniqueness further needs equality information. A genuinely earlier equivalent evaluation would cover the finding, but none was established by the available source comparisons.",
+        "searches": [
+          "Gower–Richtárik §5.1 exact E-optimal SDP; inverse-positive Resultary 82c9d23eb995; later equivalent 809fa13c87b2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kaczmarz record uses the unit-row Gram matrix C after relabeling, taking its α=ρ and β=s; its all-probability spectral objective, threshold and two-branch weights match. Its upper s bound sqrt(ρ+(1−ρ)/m) is strictly wider. The frustrated three-coordinate record specializes to m=2 and does not deliver unrestricted uniqueness."
+        ],
+        "reasoning": "For row vectors C^(1/2)e_i, row projections act on the Euclidean errors C^(1/2)e and exactly reproduce coordinate updates in C-energy. The Kaczmarz match is therefore genuine equivalent coverage, not a superficial parameter resemblance. Both catalog matches are dated 2026-10-26, after the 2026-10-19 frozen path, and neither demonstrates prior coverage.",
+        "searches": [
+          "Resultary: optimal sampling equicorrelated block exceptional coordinate; Kaczmarz one exceptional row and spectral sampling phase transition",
+          "Resultary 809fa13c87b2; 4e38fb84c26f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier inverse-positive formula is p∝C^(-1)1 under entrywise nonnegative inverse, whereas this C^(-1) has a negative triangle. The exact later catalog matches are recorded above."
+        ],
+        "reasoning": "A signed diagonal conjugation preserves the sign of that triangle, so the earlier formula cannot be invoked even with sign switching. The catalog check did find exact later formulas, not a prior applicable table.",
+        "searches": [
+          "Resultary 82c9d23eb995 (inverse-positive optimal coordinate sampling)",
+          "Resultary 809fa13c87b2 and 4e38fb84c26f exact Findings"
+        ]
+      },
+      "rationale": "The exact spectral objective and its general SDP are known. The supported distinct contribution is the analytic two-regime evaluation with unrestricted uniqueness in this family, not the objective or generic existence of optimal probabilities. There is a formula-level equivalent catalog result for a wider range in the Kaczmarz formulation, catalogued a week later; it is not evidence that the frozen statement was covered earlier. The earlier items inspected do not establish this transition and full optimizer.",
+      "residual_risks": [
+        "The linearly independent design paper's full text was not obtained; equivalent earlier design coverage is possible.",
+        "The later exact Kaczmarz equivalence is real; no independent dating or priority beyond the available record dates is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same exact formulas and unrestricted uniqueness, wider domain, later catalog date.",
+          "evidence": [
+            "Unit-row Gram matrix up to relabeling, α=ρ and β=s, gives the same two active-mode phases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-optimal-kaczmarz-sampling-for-an-equicorrelated-block-with--809fa13c87b2/RESULT.md",
+          "material_read": "Finding, assumptions and relevant proof, offsets 0–4884 and 4884–8273",
+          "method": "Local mirrored Resultary text",
+          "title": "Exact optimal Kaczmarz sampling for an equicorrelated block with one exceptional row",
+          "trigger": "Strongest exact equivalent via row projections"
+        },
+        {
+          "assessment": "Later m=2 specialization; no unrestricted uniqueness claim.",
+          "evidence": [
+            "Exact two-phase law after relabeling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f/RESULT.md",
+          "material_read": "Offsets 0–4968 and 4968–7468",
+          "method": "Local mirrored Resultary text",
+          "title": "Sharp sampling phase transition for a frustrated three-coordinate quadratic",
+          "trigger": "Exact small-dimensional overlap"
+        },
+        {
+          "assessment": "Earlier theorem outside the present parameter regime, even after sign switching.",
+          "evidence": [
+            "Invokes an entrywise nonnegative inverse for the p proportional to C^(-1)1 formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md",
+          "material_read": "Finding and inverse-positivity hypothesis, offset 0 onward",
+          "method": "Local mirrored Resultary text",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Earlier closed-form theorem in the same criterion"
+        },
+        {
+          "assessment": "General SDP contains the objective but does not state this analytic regime law in the inspected section.",
+          "evidence": [
+            "Optimizes λ_min over a sampling simplex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03296v1",
+          "material_read": "§5.1, PDF pp. 14–15, offsets 42655–49568",
+          "method": "Lawful arXiv PDF text passages",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "General equivalent exact spectral design"
+        },
+        {
+          "assessment": "Optimizes a convergence bound, not this exact spectral law.",
+          "evidence": [
+            "Objective is expressed through the paper's bound constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.3438v1",
+          "material_read": "§4, PDF p. 4 around offset 14330",
+          "method": "Lawful arXiv PDF text passage",
+          "title": "On Optimal Probabilities in Stochastic Coordinate Descent Methods",
+          "trigger": "Prior coordinate-sampling optimization"
+        },
+        {
+          "assessment": "Potential general prior coverage remains unresolved.",
+          "evidence": [
+            "Title and bibliographic identity confirmed; no conclusion about uninspected sections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176348265",
+          "material_read": "Bibliographic record only; no primary full text",
+          "method": "Project Euclid lawful access attempt and bounded alternate-copy web search",
+          "title": "Optimal Weights for Experimental Designs on Linearly Independent Support Points",
+          "trigger": "Exactly the saturated-design setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 54–98",
+        "Gower–Richtárik §5.1"
+      ],
+      "rationale": "With identical coordinate Lipschitz constants, a practitioner using only those constants cannot tell which coordinate to sample more often or when the active error modes change. The formulas give the sharp conditional rate and the unique attainable probability law without repeatedly solving a numerical design problem. The phase boundary identifies precisely when control of the transverse errors ceases to constrain that law.",
+      "residual_risks": [
+        "The significance is for the exact one-step criterion, not for finite-horizon or wall-clock performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

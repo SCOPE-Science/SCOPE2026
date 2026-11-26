@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the boundary-phase minimal-nonface theorem
+# Independent mathematical audit
 
-The standalone Python 3 program `verify.py` uses a separate recursive perfect-matching search on the full grid after fixing each proposed edge. For each \(n\in\{2,3,\ldots,18,20,25,30,40\}\), it builds all sixteen prescribed matchings, confirms that exactly the eight equal-phase configurations extend, checks that the eight opposite-phase configurations do not extend, and verifies extension after removal of **every** selected domino in those eight configurations.
+## correctness
 
-To replay: `python3 verify.py`, with the script in the same directory. No third-party dependencies or external data are needed. The observed output was:
+PASS
 
-```
-PHASE_CLASSIFICATION_PASS 21 strip widths
-EIGHT_DISTINCT_MINIMAL_BAD_MATCHINGS_EACH_WIDTH_PASS 168
-EVERY_SINGLE_DELETION_EXTENDABLE_PASS
-VERIFY_OK
-```
+With the spine fixed, each remaining middle-row end can only be matched vertically in its own column. A boundary horizontal edge forces the vertical to the other outer row. The left free intervals (top start, bottom start) then have parity (even, odd) for A and (odd, even) for B; the right ends have parity (odd, even) for A and (even, odd) for B. Opposite parities give even lengths, including any empty row interval; same parities give odd lengths. Hence exactly 8 of the 16 proposed matchings do not extend. Removing one boundary edge permits the compatible vertical at that end. For an A-left/B-right obstruction with d_j removed, column 2j is available in the top even-to-even interval and column 2j+1 in the bottom odd-to-odd interval. Using verticals there splits both intervals into even lengths. For B-left/A-right the rows are exchanged. In each even-to-even interval column 2j lies between the left start 2 and right end at least 2n-2, and in each odd-to-odd interval column 2j+1 lies between the start at most 3 and end 2n-1, which checks both extreme j and n=2. Every one-edge deletion extends, so every proper subset extends. The eight sets are distinct and have n+1 edges, giving eight distinct squarefree minimal generators of that degree, not a complete global enumeration. Replay is by RESULT.md lines 13–33. The attached exhaustive finite solver was inspected, not executed; the proof supplies the all-n result without relying on that solver.
 
-The proof of the unbounded \(n\)-parameter result is a parity argument and an explicit construction of completion tilings after one-edge deletion, not extrapolation from these computations. This is a self-review only; independent audit and external certification have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sixteen-pattern boundary classification and the eight minimal obstructions of size n+1 for all n>=2. The same-grid preprint already uses the identical alternating spine and notes that three-edge bad matchings occur. That overlap does not furnish the boundary classifications or a family of unbounded size.
+
+## value
+
+PASS
+
+The theorem exhibits a structural jump from width two, where minimal forbidden patterns have size two, to fixed width three with growing minimal-generator degree. The examples are boundary obstructions along a standard spine; every selected domino matters. This identifies genuinely nonlocal constraints on completion without overstating their global census or maximum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

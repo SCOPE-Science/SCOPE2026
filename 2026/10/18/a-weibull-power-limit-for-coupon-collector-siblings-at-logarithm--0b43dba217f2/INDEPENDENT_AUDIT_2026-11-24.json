@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:34:50.939209Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final claim and proof checked in repairs/4/RESULT.md. The original Step 4 claimed uniform convergence of the denominator factor on a fixed relative neighborhood of L=log N. At t=(1−ε)L with fixed ε>0 it instead tends to 1/(1−α/(1−ε)), so that step was not justified as written. The replacement uses [L−sqrt(L),L], on which k/(t−log W) tends uniformly to α, and an explicit exponential upper bound on the complementary power mass. The claim and scope are unchanged. In the simultaneous gap representation S_l−log l converges almost surely by summable centered gap variances; l exp(−S_l) has the exponential limit by the exact maximum law, giving the same W across all coordinates. For m=j−1, k=m−1, the tail series divided by its last term converges uniformly to the geometric sum when k/S_l is bounded below 1. Choose α<δ<β=α(1−log α) so l≤N^δ contributes o(b_N) and the other l stay in that uniform tail regime. The repaired cell derivative bound and window estimate give conditional mean b_N W^(1−α)/(1−α) to relative o(1) almost surely; conditional variance ≤ mean and a finite union bound give the asserted convergence in probability. As a cross-check, conditional on the largest first-arrival time t=L+g, each nonlast type is missing independently with probability Pr(1≤Pois(t)≤m)/(1−e^(−t)); dividing the conditional mean by b_N gives exp(−(1−α)g)/(1−α)+o(1) uniformly for compact g, matching the shared Gumbel amplitude. For expectations the repaired proof sums the Gamma(m,1) arrival tail against the S_l laws, getting E[M_N^m]/m! exactly. The bound Pr(M_N−L>x)≤e^(−x) and pγ<1 for some p>1 and α<γ<1 give uniform integrability. The mean Γ(1−α) and the marginal CDF then follow by the exponential law. This replay is analytic; frozen verify.py was inspected, not executed, and its finite checks alone do not test the growing-index conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8e4db68d2f3c requires j=floor(log N+x sqrt(log N)) and studies its centered rank-one Gumbel fluctuations.",
+          "6b49f29f70db draws fixed-size subset packets and estimates unseen counts at a sampling horizon.",
+          "Doumas–Papanicolaou's inspected section gives exact and asymptotic expected deficits, with the leading asymptotic for fixed index."
+        ],
+        "reasoning": "Fixed critical-window x forces the index ratio to 1; using x diverging like a negative multiple of sqrt(log N) is outside that result. Packet sampling is not this completion stopping rule or the hand-down model. Expectation results do not give this joint distribution.",
+        "searches": [
+          "Resultary 8e4db68d2f3c",
+          "Resultary 6b49f29f70db",
+          "arXiv:1412.4346v1 §1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected repairs/4/RESULT.md",
+        "arXiv:2606.29635v1, 1412.4346v1, 2005.05270v2",
+        "Resultary 0d3ee5e36129, 8e4db68d2f3c and 6b49f29f70db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long's common-amplitude fixed-index result and the known exact expectation are explicit inputs; the critical-window record uses central Poisson scaling with different centering.",
+          "The final proof uses a tail estimate uniform in k/s≤ρ<1 and retains both the geometric factor 1/(1−α) and the power correction (1−log W/log N)^m."
+        ],
+        "reasoning": "The mean constant is accessible from the exact known expression via the Gumbel moment estimate, and is not the main originality basis. The distinct claim is the joint law at a moving subcritical cutoff: it requires the uniform tail and concentration to identify amplitude and dependence, not just substitution in a fixed-index formula.",
+        "searches": [
+          "arXiv:2606.29635v1 pp. 1–2",
+          "arXiv:1412.4346v1 Eqs. (1.4)–(1.5)",
+          "Resultary 8e4db68d2f3c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Long's abstract gives a fixed finite vector of fixed album indices with a common exponential limit; Papanicolaou–Doumas gives the first sibling's exponential limit.",
+          "Resultary 0d3ee5e36129 fixes J and treats the fixed-index exponential limit and centered Gaussian fluctuations."
+        ],
+        "reasoning": "Replacing constant indices by m_N∼α log N is not a reindexing of those convergence statements. The pathwise limits at distinct subcritical ratios are different powers of the same variable, not copies of one shared exponential limit. Poissonization preserves the marked sequence and hence is the same model, but the moving-index asymptotics are different.",
+        "searches": [
+          "arXiv:2606.29635v1, fixed sibling indices and common exponential",
+          "arXiv:2005.05270v2",
+          "Resultary 0d3ee5e36129"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact alternating-binomial formula for the mean occurs in the primary work and in Long's introduction.",
+          "The two closest catalog statements give fixed-index and critical-window distributions, respectively."
+        ],
+        "reasoning": "There is exact published coverage of the finite expected deficit, but a finite count or a scalar expected value cannot encode the shared random amplitude. The closest indexed actual distributions have incompatible scaling assumptions.",
+        "searches": [
+          "Resultary 0d3ee5e36129 and 8e4db68d2f3c",
+          "arXiv:1412.4346v1 Eq. (1.4)",
+          "arXiv:2606.29635v1, exact uniform expectation"
+        ]
+      },
+      "rationale": "The repaired result retains the distinct subcritical logarithmically moving-index joint limit. Fixed-index coupling and means are recognized inputs, not contributions. Neither the exact expectation formula nor the critical-window fluctuation theorem supplies the shared Weibull-power distribution at fixed subcritical ratios.",
+      "residual_risks": [
+        "The indexed and primary comparisons are bounded; an uninspected growing-index occupancy theorem could contain an equivalent statement. The bounded literature lookup did not establish absence.",
+        "No priority order is inferred from catalog dates, and no conclusion at α=1 is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-index precedent; exact mean input",
+          "evidence": "Abstract keeps the indices fixed for the joint common-W theorem; introduction gives the exact expected deficit and fixed-index asymptotic.",
+          "identifier_or_url": "arXiv:2606.29635v1",
+          "material_read": "PDF pp. 1–2, text offsets 1200 and 5400",
+          "method": "Lawful OA full-text passages",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Closest primary same-model common-exponential law"
+        },
+        {
+          "assessment": "Exact finite mean covered; inspected asymptotic is fixed-index, not moving-index joint law",
+          "evidence": "Alternating-binomial sum in the uniform case; the leading equivalent is stated with fixed j.",
+          "identifier_or_url": "arXiv:1412.4346v1",
+          "material_read": "Abstract, §1.2 p. 3 around offset 7600, Eqs. (1.4)–(1.5), p. 4 discussion",
+          "method": "Lawful OA full-text passages",
+          "title": "The Siblings of the Coupon Collector",
+          "trigger": "Same-model exact mean and large-N asymptotics"
+        },
+        {
+          "assessment": "Fixed first sibling only in the stated comparison",
+          "evidence": "U_N/log N tends to an exponential variable for the first sibling.",
+          "identifier_or_url": "arXiv:2005.05270v2",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Lawful OA paper text",
+          "title": "The Coupon Collector's Brother",
+          "trigger": "Earlier sibling distributional limit"
+        },
+        {
+          "assessment": "Different index regime and fluctuation scale",
+          "evidence": "Fixed J and centered Gaussian residuals after common exponential first-order behavior.",
+          "identifier_or_url": "Resultary 0d3ee5e36129",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Resultary local mirror",
+          "title": "Observable-centered Gaussian fluctuations of coupon-collector siblings",
+          "trigger": "Closest indexed joint sibling law at fixed indices"
+        },
+        {
+          "assessment": "Critical central window, not subcritical large-deviation regime",
+          "evidence": "j=floor(log N+x sqrt(log N)) with fixed x, Poisson centering and rank-one Gumbel fluctuations.",
+          "identifier_or_url": "Resultary 8e4db68d2f3c",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Resultary local mirror",
+          "title": "A rank-one Gumbel fluctuation law for logarithmically indexed coupon-collector siblings",
+          "trigger": "Strongest indexed moving-index comparator"
+        },
+        {
+          "assessment": "Different drawing and stopping mechanism",
+          "evidence": "Counts unseen types for independent equal-size subset packets at a logarithmic sampling horizon.",
+          "identifier_or_url": "Resultary 6b49f29f70db",
+          "material_read": "Mirrored RESULT.md statement",
+          "method": "Resultary local mirror",
+          "title": "Sharp normal Wasserstein rates for uniform group coupon drawings",
+          "trigger": "Distinct same-day coupon result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The subcritical logarithmic scale is a natural moving threshold in the sibling model: its Poisson cutoff is a fixed fraction of the completion-time scale. The final theorem gives the exact normalizer and a nonexponential law, with the same latent amplitude but different powers across sibling levels and matching mean. That is a useful regime classification between fixed indices and the critical window, rather than a finite-binomial recomputation or a normalizer change without a distributional effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

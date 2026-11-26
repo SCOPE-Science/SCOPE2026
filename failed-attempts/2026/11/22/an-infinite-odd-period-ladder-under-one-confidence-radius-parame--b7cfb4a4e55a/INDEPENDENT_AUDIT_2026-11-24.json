@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:56:30.736862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formula for u_{m,j} defines the later nu_{m,j} (an evident notation mismatch). On the diagonal 0<t<2 the distances are 3t and 9+t; the origin is always seen and all outer anchors switch together at t=r. The anchors see only themselves at each listed phase. The full-then-half map is H(t)=(t+9)/10; H^m(nu_0)=2 nu_0 gives the unique displayed orbit. All low phases increase strictly below 1 and the m high phases are distinct above 1, giving primitive period 2m+1. The exact strict inequalities reduce to nu_{m,m-1}<r<nu_{m,m}, independently of the non-strict switching convention. Inside this interval the neighborhood branches in three dimensions are affine with linear parts I/5 or I/2, so the exact return multiplier and local exponential attraction in the fixed-anchor fiber follow. The window lengths and disjointness follow by direct subtraction; nothing is implied about unrestricted attraction or equality cases. The frozen rational checker was read and not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proskurnikov–Zabarianska Theorem 8 varies geometry; Corollary 10 chooses common radii for periods in a finite range but different anchor configurations. Neither theorem alone is the exact overlap.",
+          "Granados–Alsedà–Krupa Theorem 2.13(i) gives period adding with both slopes positive; its period-incrementing clause has a negative right slope and is not the applicable case.",
+          "Laurent–Nogueira go beyond that qualitative description: their Theorems 1 and 3 give explicit two-slope rational plateaux and a conjugacy evaluating every periodic phase. Resultary 0e81d27382bb and 03f12edbe035 have set-based scalar confidence varying with period, not this embedding."
+        ],
+        "reasoning": "The decisive broader theorem is the exact two-slope one combined with the published diagonal geometry, not the arbitrary-period HK existence result or the analogous scalar opinion constructions.",
+        "searches": [
+          "arXiv:2611.21656v1 Example 1, Theorem 8 and Corollary 10",
+          "arXiv:1407.1895 Theorem 2.13",
+          "arXiv:1907.08655 Theorems 1 and 3",
+          "Resultary: HK fixed-geometry radius-only periods and arbitrarily long attracting opinion cycles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.08655 / DOI:10.3934/jmd.2021002",
+        "arXiv:2611.21656v1",
+        "arXiv:1407.1895",
+        "Resultary:0e81d27382bb",
+        "Resultary:03f12edbe035"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 1 fixes 0 and 9e_i in the l1 metric and uses a diagonal fifth state. For 0<t<2 its geometric distances remain valid as r varies; the new switch threshold is t=r. Taking the smaller 1/10 anchor radii preserves all stationary-anchor neighbor sets along the cycles.",
+          "Theorem 3(ii) gives the period-(2m+1) cycle on the strict interior, with phase coordinates via its conjugation function. Equivalently after fixing the rotation word, the left/right affine maps force the same coordinates by the first-order recurrence and its closing equation. The ambient fiber multiplier multiplies the same constant slopes, 1/5 m times and 1/2 m+1 times."
+        ],
+        "reasoning": "This combination mechanically implies the displayed exact windows and cycles in the previously used geometry. The stability lift is the elementary affine derivative on the same strict cells; it is not a new result about arbitrary geometries or unrestricted stability.",
+        "searches": [
+          "arXiv:2611.21656v1 Example 1, p. 2",
+          "arXiv:1907.08655 Definition 1, Definition 3 and Theorems 1(i), 3(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the invariant scalar interval [r/2,(r+9)/5], take x=(t-r/2)/((r+9)/5-r/2). Then eta=5r/(18-3r), delta=(18-4r)/(18-3r), and the branches become x/5+delta and (x-eta)/2. These are literally Laurent–Nogueira's two branches with lambda=1/5, mu=5/2, eta=(1-delta)/lambda, and lambda*mu=1/2. Their equality convention does not affect any strictly switching phase.",
+          "The frozen word (LR)^m R has m+1 right-branch wraps and period 2m+1, hence is the rational rotation plateau rho=(m+1)/(2m+1). The rotation coding has the alternating word with one extra R, up to phase."
+        ],
+        "reasoning": "The affine conjugacy places all radii in the relevant strict windows inside the domain of the explicit general theorem, rather than comparing only qualitative features.",
+        "searches": [
+          "web: piecewise affine increasing contractions two branches period incrementing alternating odd periods contracted rotation formula threshold period windows Granados Alseda Krupa Hegselmann Krause",
+          "web: Dynamics of 2-interval piecewise affine maps and Hecke-Mahler series arxiv exact rotation number parameter intervals Laurent Nogueira",
+          "arXiv:1907.08655 Definition 1 and Theorems 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit b7cfb4a4e55a is the frozen record itself and does not count as independent. The relevant exact prior formula is Laurent–Nogueira's closed-form plateau in Theorem 1(i).",
+          "For h=10^-m and rho=(m+1)/(2m+1), the theorem's S sum is sum_{j=0}^{m-1}(1/5)10^-j=(2/9)(1-h): only odd k contribute. Its two endpoints for delta are (14-5h)/(15-6h) and (28+26h)/(30+15h). The inverse affine-map parameter relation is r=18(1-delta)/(4-3delta), which reverses order and gives r=2(1-h)/(2-h) and (2-11h)/(2-h), respectively. These are exactly nu_{m,m} and nu_{m,m-1}."
+        ],
+        "reasoning": "The matching endpoints, all widths and accumulation are obtained by a geometric sum and a rational substitution in a pre-existing formula; no literal table at these particular numbers is needed.",
+        "searches": [
+          "Resultary: fixed anchors one confidence radius infinite odd-period ladder",
+          "arXiv:1907.08655 Theorem 1(i), finite sum for rational rotation intervals"
+        ]
+      },
+      "rationale": "The key exact content is a specialization of Laurent–Nogueira's explicit rational plateaux and cycles, not just a qualitative analogy to period adding. The fixed geometry and diagonal invariant setup already occur in Proskurnikov–Zabarianska's Example 1. Their special radius produces period two; using their same three distance formulae at a variable radius identifies the two-branch map to which the exact plateau theorem applies. Lowering the anchor radii simply preserves their self-neighbor property. No independent scientific remainder was established in the phase formulas or fiber multiplier, which are affine itinerary and slope calculations on those same branches.",
+      "residual_risks": [
+        "There may be a separately published direct HK derivation; the rejection does not require one. The source comparisons here make no claim about equality-case cycles, where conventions can differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact scalar coverage",
+          "evidence": [
+            "Branches lambda*x+delta and mu*(lambda*x+delta-1), explicit rational rotation plateau endpoints and conjugacy to the rational rotation on the cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.08655; DOI:10.3934/jmd.2021002",
+          "material_read": "Definition 1 and Figure 1, pp. 1–2; Theorem 1(i), pp. 3–4; Definition 3 and Theorem 3(ii), pp. 4–5 of arXiv PDF",
+          "method": "OA primary PDF, text passages and explicit substitution in endpoint formula",
+          "title": "Dynamics of 2-interval piecewise affine maps and Hecke-Mahler series",
+          "trigger": "Potential dominating explicit plateau and periodic-orbit theorem for unequal affine slopes"
+        },
+        {
+          "assessment": "The exact geometry overlaps; its other existence statements alone do not give radius-only windows",
+          "evidence": [
+            "Example 1 uses the same four anchors and a period-two diagonal orbit with anchor radii 2, mobile radius 21/2. Corollary 10 allows geometry to change across a finite family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.21656",
+          "material_read": "Example 1 p. 2; Theorem 8 p. 5; Corollary 10 p. 6, OA offsets 11187, 23479, 27357 and 27973",
+          "method": "OA primary PDF passages",
+          "title": "Cycles of Arbitrary Period in Multidimensional Heterogeneous Hegselmann–Krause Dynamics",
+          "trigger": "Identical HK model and anchors"
+        },
+        {
+          "assessment": "Qualitative period-adding precedent; exact coverage follows from Laurent–Nogueira instead",
+          "evidence": [
+            "Part (i) covers positive right slope; part (ii) negative right slope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1895",
+          "material_read": "Theorem 2.13 and discussion, pp. 13–14",
+          "method": "OA primary PDF passage at offset 32970",
+          "title": "The period adding and incrementing bifurcations: from rotation theory to applications",
+          "trigger": "General theory of two-branch discontinuous contractions"
+        },
+        {
+          "assessment": "Different set-based confidence models; not the decisive coverage",
+          "evidence": [
+            "The scalar confidence sets vary with the desired period; they are not ordinary l1 confidence radii about the frozen anchors."
+          ],
+          "identifier_or_url": "Resultary:0e81d27382bb; Resultary:03f12edbe035",
+          "material_read": "Findings and hypotheses",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Arbitrarily long attracting opinion cycles with only three agents; Arbitrarily long attracting cycles with seven confidence intervals",
+          "trigger": "Closest indexed attracting opinion-cycle witnesses"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit intervals make a correct worked example, but their potentially valuable precision is already mechanically available from the published exact affine model on the published HK geometry. The manuscript supplies no substantively new boundary, invariant, stability property, or quantitative comparison beyond the radius reparameterization, the standard affine composition and the restriction to fixed anchors. No distinct valuable claim can be rescued by changing novelty wording alone.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

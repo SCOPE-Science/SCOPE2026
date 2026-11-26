@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:05:47.923872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md; verify_wendt_binary.py (inspected, not run)",
+        "Independent replay: python3 /workspace/checks/review_1.py (Python 3.12.3, SymPy 1.14.0)"
+      ],
+      "rationale": "The circulant, up to transpose, is multiplication by a=(1+X)^n−1 in the odd-order quotient Z₂[X]/(X^n−1). One can verify the Smith conclusion without a splitting field. For n=2^r−1 the factors X−1 and H=(X^n−1)/(X−1) are coprime modulo two since H(1)=n is odd, giving an integral 2-adic product. At X=1 the multiplier is odd. On the H factor, 1+X is a unit; repeated squaring modulo four gives (1+X)^(2^r)≡1+X^(2^r)+2X^(2^(r−1)). As X^(2^r)=X there, (1+X)a≡2X^(2^(r−1)) modulo four. Thus multiplication by a on the rank n−1 summand is twice an invertible integral map. At n=1 that summand is absent. For n=2^r+1, a reduces modulo two to 1+X+X^(−1) in the cyclic quotient (using Frobenius and X^n=1). Its only possible common factor with X^n−1 is X²+X+1, occurring exactly when 3 divides n, i.e. r odd. The cyclic polynomial is squarefree modulo two. In that case split off the integral cubic-root factor X²+X+1; on its rank-two summand a=(−X²)^n−1=−2, and a is a unit on the complement. These integral arguments give the exact elementary divisors, nonzero determinants and their valuations for all exponents. An independent integer resultant/binary gcd replay equated determinant valuation and binary nullity for both families at 1≤r≤6 (orders through 65). The replay is a check of small cases, not the all-exponent proof.",
+      "residual_risks": [
+        "Only the prime two and the two stated odd-order families are classified; no full Smith form or other-prime claim is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frame's odd-order square-factor relation with the odd factor 2^n−1 imposes an even two-adic valuation but does not give its exact magnitude throughout either family.",
+          "Tang–Fan's inspected material addresses finiteness of prime characteristics for permutation binomials. The abstract/landing material from Helou–Terjanian is not a full-theorem comparison, and Helou's full text was not obtained."
+        ],
+        "reasoning": "An even valuation is consistent with higher powers of two and cannot prove all positive Smith exponents equal one. The known broader framework does not settle the claim at the level established by the available passages.",
+        "searches": [
+          "Frame 1980, printed pp. 9–11; Helou 1997 and Helou–Terjanian 2005 DOI/identified OA routes; Tang–Fan arXiv:2610.18584 Abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frame, Fibonacci Quarterly 18(1), 9–23 (inspected passages)",
+        "OEIS A048954",
+        "Tang–Fan arXiv:2610.18584 (Abstract/Introduction)",
+        "Resultary e01655deee8e, 7c1079d4f4c4, 15426f93cc7a",
+        "Helou DOI 10.1090/S0025-5718-97-00870-3 and Helou–Terjanian DOI 10.1016/j.jnt.2004.09.003 (limited access as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equality of the determinant valuation and the binary nullity would force every positive elementary exponent to be one. On the frozen families the necessary exact pairs are (n−1,n−1), (2,2) for odd-r plus, and (0,0) for even-r plus.",
+          "The inspected parity and factorization relations and finite scalar tables do not supply these pairs uniformly."
+        ],
+        "reasoning": "The uniform equality depends on exact divisibility and rules out all elementary divisors of order four or more at two; knowing the prime divisors of the determinant is not enough. The inaccessible congruence literature remains a specific overlap possibility, not a positive finding of coverage.",
+        "searches": [
+          "Frame determinant relation and tables, pp. 9–11; OEIS A048954 entries; Helou / Helou–Terjanian determinant-congruence source access checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frame identifies the same circulant D_n and expresses it as a product over roots of unity. OEIS A048954 gives the scalar determinant sequence. Tang–Fan uses the Wendt resultant in a prime-characteristic obstruction.",
+          "For a finite integral cokernel at two, the number of nonunit factors is the mod-two nullity; the sum of their exponents is the determinant valuation."
+        ],
+        "reasoning": "With the binary nullity supplied by the cyclic-polynomial gcd, exact valuations n−1 in the minus family and 0 or 2 by parity in the plus family are equivalent to the claimed elementary factors. A known resultant representation or divisibility criterion alone is not the exact valuation statement.",
+        "searches": [
+          "Local Resultary search for Wendt/binomial circulant two-primary Smith form, power-of-two neighbors and equivalent determinant valuations",
+          "Frame, equations (1.5)–(1.6); OEIS A048954; Tang–Fan arXiv:2610.18584"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS list and Frame tables provide finite scalar values or their factors. The Resultary exact Smith match e01655deee8e is the frozen record itself.",
+          "7c1079d4f4c4 and 15426f93cc7a concern individual indices 13 and 11, with Wendt factorizations and admissible permutation-binomial characteristics; neither index is of the claimed neighbor forms."
+        ],
+        "reasoning": "Finite scalar data can imply finite Smith checks when paired with binary nullities, but do not give the arbitrary-r result. The exact catalogue self-match is not earlier independent evidence.",
+        "searches": [
+          "OEIS A048954; Frame odd-order prime-factor tables; local Resultary e01655deee8e, 7c1079d4f4c4, 15426f93cc7a"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the uniform exact two-primary lattice classification at both power-of-two-neighbor orders. The circulant, the determinant resultant, older parity/factorization relations, and finite determinant entries are not new. Since exact determinant valuations together with the easily recoverable mod-two nullity would imply the Smith factors, the comparison included scalar determinant literature rather than requiring prior work to use Smith terminology. No inspected source establishes the two-family formula or a theorem implying it; access to two relevant determinant papers limits historical priority claims.",
+      "residual_risks": [
+        "Relevant full determinant/congruence results in the 1997 and 2005 papers were not available to this review. An earlier uniform valuation identity combined with binary nullity would be substantive prior coverage even if not labeled a Smith result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known determinant identity and parity relation, finite factorizations, not an established exact infinite-family valuation implication",
+          "evidence": [
+            "Product over roots of unity. The square relation with the factor 2^n−1 gives even valuation for odd n."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/18-1/frame.pdf",
+          "material_read": "Printed pp. 9–11, equations (1.5)–(1.6), square-factor relation and odd-order table (PDF text offsets 0 and 5000)",
+          "method": "OA primary PDF passages",
+          "title": "Factors of the Binomial Circulant Determinant",
+          "trigger": "Classical factorization of the same circulant determinant and exact scalar data"
+        },
+        {
+          "assessment": "Scalar list, not a uniform valuation formula or full Smith data",
+          "evidence": [
+            "Lists determinant numbers for individual n."
+          ],
+          "identifier_or_url": "https://oeis.org/A048954",
+          "material_read": "Sequence definition and listed entries, text offset 137",
+          "method": "Public sequence entry",
+          "title": "Wendt determinant of n-th circulant matrix",
+          "trigger": "Exact sequence potentially encoding claimed valuations"
+        },
+        {
+          "assessment": "Inspected result uses W_g for finiteness of characteristics",
+          "evidence": [
+            "Permutation-binomial characteristic restrictions, not the stated 2-primary Smith classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18584",
+          "material_read": "Abstract and Introduction, text offset 0",
+          "method": "OA primary passages",
+          "title": "Wendt's determinant and finiteness of prime characteristics for permutation binomials",
+          "trigger": "Recent primary result on the same resultant"
+        },
+        {
+          "assessment": "Different individual indices and permutation-binomial conclusions",
+          "evidence": [
+            "At index 13 the characteristics are 3 and 53, and at index 11 the characteristic is 23."
+          ],
+          "identifier_or_url": "7c1079d4f4c4; 15426f93cc7a",
+          "material_read": "Findings in mirrored RESULT.md at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Resultary Wendt determinant comparisons",
+          "trigger": "Exact factorization claims on the same determinant"
+        },
+        {
+          "assessment": "Unresolved potential determinant overlap, not evidence against coverage",
+          "evidence": [
+            "No full theorem text retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-97-00870-3",
+          "material_read": "Bibliographic identification only; AMS PDF and identified mirror not accessible",
+          "method": "Lawful primary PDF and identified mirror access attempts",
+          "title": "On Wendt's Determinant",
+          "trigger": "Same-object determinant and exact congruence literature"
+        },
+        {
+          "assessment": "Abstract-level only; exact theorem implications remain unresolved",
+          "evidence": [
+            "Arithmetic determinant scope; no accessible theorem passage establishing or excluding the required formulas."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2004.09.003",
+          "material_read": "Landing/abstract material only; identified alternate copy unavailable",
+          "method": "Lawful DOI and alternate-copy access attempts",
+          "title": "Arithmetical Properties of Wendt's Determinant",
+          "trigger": "Broader congruences or norms could imply the valuations at odd neighboring orders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Independent local-ring reconstruction",
+        "Frame's determinant baseline"
+      ],
+      "rationale": "The natural orders next to powers of two give exact lattice information for a classical determinant family. The classification tells not merely whether two divides, but exactly how many independent order-two cokernel summands occur and that no order-four or higher summands survive, uniformly in r and with the parity contrast between the families. The integral proof explains why binary root overlap never lifts to a higher valuation in these cases.",
+      "residual_risks": [
+        "No claim to classify two-adic behavior at arbitrary odd orders or to refine the odd-primary factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

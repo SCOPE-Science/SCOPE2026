@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:54:01.121001Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(9), proof §§1–5 and depth example (lines 69–132)",
+        "Frozen VERIFICATION.md and checker.py, inspected but not executed; independent bounded example check used 160 rational bisections followed by high-precision evaluation"
+      ],
+      "rationale": "The Fourier coefficients at k≠0 are E X^|k|, so Parseval contributes exactly 2 times the sum of squared differences of positive-frequency coefficients. Geometric summation gives (7). The mixture coefficients are bounded by R^k with R<1, justifying differentiation on compact t intervals and divergence at t→1. The derivative has the sign of 1-H(t), with H(t)=E[X(1-t²)^2/(t(1-tX)^2)]. For every x>0, the log derivative of the integrand is bounded above by -4t/(1-t²)-1/t+2/(1-t)=(t-1)/(t(1+t))<0. Positive mean and support away from one give endpoint limits infinity and zero, proving one strictly minimizing crossing; a point mass is fitted exactly, including at zero. The positive first and second derivatives of g_t(x)=x/(1-tx)^2 give the strict mean/support bounds at t=m and t=sup supp μ. For fixed t>0, strict convex-order improvement follows also by integrating g_t''(z)>0 against the difference of the two call functions E[(X-z)_+]; those continuous functions are ordered and cannot agree identically for distinct laws. Ordered decreasing crossings give the strict radius order. At (m,0) the stationary equation derivative in t is (1+m²)/(1-m²)^3 and its second derivative in δ is -2m(2+m²)Var(Y)/(1-m²)^4; the centered first derivative is zero. Uniform smoothness for bounded Y gives the quadratic coefficient and cubic remainder. In the boundary limit ε² times the equation has denominators τ(2-ετ) and τ+A-ετA, and τ stays in the positive compact depth interval by the radius bounds. The limiting 4τ² E[(τ+A)^(-2)] increases strictly from 0 to 4 with positive derivative. The implicit-function estimate gives τ_ε-τ_ν=O(ε). At the actual lower support endpoint the expression is strictly below one for a nonpoint law, and at τ=E A it is strictly above one by Jensen. The three terms in (7) give, respectively, the coefficients 1/τ, -4 E[1/(τ+A)], and 2 E[1/(A+A′)] at order 1/ε. Their combination is the squared-Laplace-transform integral with factor 2, so the constant is zero only for the exact-fit point mass. Independent rational bisection of 2τ²[(τ+1)^2+(τ+3)^2]=[(τ+1)(τ+3)]^2 on [1,3], with risk formula 1/τ-2/(τ+1)-2/(τ+3)+7/12, reproduced τ=1.601135942871122 and leading risk 0.0043198140280341 for the example.",
+      "residual_risks": [
+        "The depth lower bound is strict at inf supp ν for a nonpoint law even if the enclosing a is not tight. No extension to varying depth laws, other metrics, or unrestricted fitted angles was needed or inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day record 67718666ce63 studies equal-weight regular-polygon sources optimizing the fitted angle, not the radial-depth distribution theorem. Record 24d362b94140 gives a sharp boundary law for two equal-strength sources at fixed angular separation with free fitted center and radius.",
+          "Same-day record ef5e05ae5838 has L2 uniqueness and a sharp short-time error for a heat target, not a positive mixture of common-center Poisson kernels. Record f6f1e712f5ef concerns curvature/inflection points of mixtures, not least-squares radii."
+        ],
+        "reasoning": "These results solve structurally related fitting or mixture questions but do not range over the target family of arbitrary fixed common-center radial mixing measures. In the angular boundary comparisons, permitting center optimization does not broaden the source model to arbitrary radial depths.",
+        "searches": [
+          "Resultary single-Poisson projection, angular/regular-polygon mixture, boundary-layer fitting, heat calibration and Poisson semigroup mixture comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Relationship to prior work and Limitations",
+        "Accessible primary passage arXiv:2302.02468, p. 5",
+        "The five related mirrored Findings described above; comparison mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record credits the exact loss and stationary equation for two wrapped-Cauchy components. A critical-point equality alone does not establish one global crossing or strict increase under convex order of compact positive-mean laws.",
+          "The angularly separated two-peak boundary law has a different separation/source regime, so its common 1/ε error scale does not give the asserted τ_ν or its optimized Laplace-risk coefficient."
+        ],
+        "reasoning": "The contribution requires an additional global single-crossing argument, strict order comparison, and a separate singular limit with a different governing equation. No claim is made that unread thesis passages are free of stronger statements.",
+        "searches": [
+          "Bailey thesis Appendix C2 equations (6.10) and (6.12) as cited by frozen RESULT.md line 136; lawful retrieval attempted",
+          "Published near-boundary and projection records 24d362b94140, ef5e05ae5838; arXiv:2302.02468"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circle Poisson kernel is the wrapped-Cauchy density up to the reference measure normalization; Fourier matching is the same optimization when the angular center is fixed.",
+          "Frozen attribution identifies Bailey Appendix C2 equations (6.10) and (6.12) as two-component antecedents. No access to those passages was obtained in this audit.",
+          "arXiv:2302.02468, primary p. 5, discusses maximum-likelihood estimation in a projected directional model, not the fixed-center Fourier projection of a radial mixture."
+        ],
+        "reasoning": "The change of name/normalization does not make the two-component loss or stationarity new. A different directional fitting objective also cannot supply the squared-L2 minimizer and its comparative statics.",
+        "searches": [
+          "Resultary concentric/radial Poisson mixture, wrapped-Cauchy projection and Fourier least-squares comparisons",
+          "Primary web query: J D Bailey 2019 Essex Modelling and Analysis of Individual Animal Movement thesis 26383 wrapped Cauchy Appendix C2 PDF open full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact arbitrary-depth/convex-order match is the assigned result, not a distinct record. The inspected related Findings optimize for prescribed angular symmetry, use a heat target, or give a BV-to-L2 operator-error extremum.",
+          "The independent two-depth bisection is a correctness check of an illustration, not evidence on an earlier table or priority."
+        ],
+        "reasoning": "No exact independent table or published-record statement of the same minimizer mapping and risk law was identified among the evaluated results. The retrieved records' same day is not used to order their priority.",
+        "searches": [
+          "Resultary same-day and prior Poisson projection/near-boundary comparisons, including 67718666ce63, 24d362b94140, ef5e05ae5838 and 8e1e09f82c1d"
+        ]
+      },
+      "rationale": "Exclude the already credited two-component wrapped-Cauchy Fourier objective and stationary equation. The inspected comparisons do not cover the arbitrary common-center mixture's one-crossing uniqueness, strict convex-order law and local variance coefficient, or the sharp radius and optimized risk for a fixed compact positive depth distribution. Unavailable Bailey primary text remains an explicit priority risk, not negative evidence.",
+      "residual_risks": [
+        "Bailey Appendix C2 and the rest of the thesis were not accessible, nor was the Bailey–Codling primary article; the exact searches found no identified alternate open copy.",
+        "An older equivalent moment-curve, rational approximation, or wrapped-Cauchy formulation could be outside the bounded search. The overlapping two-component loss and stationarity formulas are not credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unavailable for independent full-text comparison; credited antecedents not claimed novel",
+          "evidence": [
+            "Frozen attribution: exact Fourier least-squares loss and formal stationarity for two wrapped-Cauchy components.",
+            "The retrieval failures do not establish absence of further coverage."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf",
+          "material_read": "No primary passage retrieved; frozen RESULT.md line 136 supplies the attribution to Appendix C2 equations (6.10) and (6.12)",
+          "method": "Lawful OA PDF and landing-page attempts including direct and VPN; targeted search for an alternate open copy returned the same repository and an author page, not an alternate PDF",
+          "title": "Modelling and Analysis of Individual Animal Movement",
+          "trigger": "Strongest historical overlap on the exact wrapped-Cauchy projection; Appendix C2 cited"
+        },
+        {
+          "assessment": "Unavailable for primary comparison; no whole-paper exclusion",
+          "evidence": [
+            "Frozen account distinguishes a family comparison for wrapped-normal source mixtures from the common-center radial Poisson theorem."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/28875/",
+          "material_read": "No primary passage retrieved; scope comparison in frozen RESULT.md lines 136–138",
+          "method": "Lawful OA repository website request; direct and VPN both failed certificate validation",
+          "title": "Emergence of the wrapped Cauchy distribution in mixed directional data",
+          "trigger": "Closely related directional-mixture fit cited by the frozen record"
+        },
+        {
+          "assessment": "Different model-fitting objective in the inspected passage",
+          "evidence": [
+            "The authors use maximum likelihood and discuss numerical optimization of directional-model parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.02468",
+          "material_read": "PDF p. 5 at extracted offset 21100, modes and maximum-likelihood paragraph",
+          "method": "Open primary PDF, located and read by offset",
+          "title": "Circular and spherical projected Cauchy distributions",
+          "trigger": "Possible overlap with directional wrapped-Cauchy fitting literature"
+        },
+        {
+          "assessment": "Different source family and freely fitted center",
+          "evidence": [
+            "Equal regular-polygon mixture with angular separation, not an arbitrary common-center law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-three-four-cluster-threshold-for-single-poisson-appr--67718666ce63",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp two-three-four cluster threshold for single-Poisson approximation",
+          "trigger": "Closest angular single-Poisson L2 fit"
+        },
+        {
+          "assessment": "Materially related boundary scaling, but distinct geometry and parameters",
+          "evidence": [
+            "Two equal-strength angular sources with fixed separation, with fitted angle and radius both free."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-two-peak-boundary-layers-in-circular-poisson-kernel-co--24d362b94140",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Universal two-peak boundary layers in circular Poisson-kernel fitting",
+          "trigger": "Strongest same-day sharp boundary-risk analogue"
+        },
+        {
+          "assessment": "Heat target, not a radial Poisson mixture result",
+          "evidence": [
+            "Uniqueness and short-time risk are stated for a heat kernel target."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-heat-to-poisson-calibration-on-the-circle-uniqueness-str--ef5e05ae5838",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Optimal heat-to-Poisson calibration on the circle",
+          "trigger": "Related circular L2 unique fit and asymptotic law"
+        },
+        {
+          "assessment": "Different objective and optimization domain",
+          "evidence": [
+            "BV-to-L2 operator-error norm, not projection onto one Poisson kernel."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-antipodal-extremizers-and-a-half-order-crossover-for-p--8e1e09f82c1d",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Universal antipodal extremizers and a half-order crossover for Poisson mixtures",
+          "trigger": "Positive Poisson-mixture optimization comparison"
+        },
+        {
+          "assessment": "Curvature rather than projection",
+          "evidence": [
+            "Classifies inflection transitions for real-line mixtures."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-a-sharp-2-sqrt5-curvature-threshold-for-mixed-poisson-semigroup--f6f1e712f5ef",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp curvature threshold for mixed Poisson semigroups",
+          "trigger": "Nearby general positive-mixture result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (2)–(6) and Relationship to prior work",
+        "Related single-kernel projection and boundary fitting Findings 67718666ce63 and 24d362b94140"
+      ],
+      "rationale": "The result isolates a systematic and orderable bias in a concrete mixture approximation problem: at the same mean radius, a mean-preserving spread strictly raises the fitted concentration. The boundary law quantifies when the best fit nevertheless has diverging residual with an explicit strictly positive coefficient, distinguishing genuine heterogeneity from an exactly fitted point source. These conclusions are useful beyond the prior formal stationarity equation.",
+      "residual_risks": [
+        "The interpretation is specific to concentric fitting with squared boundary L2 loss, not to likelihood or other fitting metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

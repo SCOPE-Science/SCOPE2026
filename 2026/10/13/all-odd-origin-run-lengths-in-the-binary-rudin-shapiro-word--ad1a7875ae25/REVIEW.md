@@ -1,15 +1,21 @@
-# Scientific review: all odd origin-run lengths in Rudin–Shapiro
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-change index exists for all differences by Sobolewski Theorem 1.4 for \(d\ge3\) and direct checks for \(d=1,2\); it cannot be even because appending a zero does not change the parity of binary adjacent \(11\) pairs. For each width \(L\), the number \((2^L+1)x\) concatenates two identical \(L\)-bit blocks whenever \(0\le x<2^L\), so its output parity is exactly the product of the end bits. For every odd prescribed \(k\ge3\), the specified odd multiplier \(a\) satisfies \((k-2)a<Q\le ka<2Q\); consequently all earlier progression terms have output zero and term \(k\) has output one. The \(k=1\) case and infinite multiplicity are handled explicitly. The stated cubic witness bound follows from choosing the least admissible power of two. The standalone checker independently recomputes outputs from digit strings and checks numerous finite cases, but the proof, not the tests, establishes all quantifiers.
+PASS
 
-## Originality — PASS
+With r(0)=0 the length equals the first mismatch index, not one less. Since r(2t)=r(t), a first mismatch cannot be even. Existence for arbitrary d also has a direct check: write d=2^s u with u odd, choose L>=3 with 2^L congruent to 1 modulo u (arbitrary L>=3 if u=1), and form 2^s times the sum of u copies of 3 at shifts 0,L,...,(u-1)L. This is a positive multiple of d with exactly u separated 11 occurrences. For prescribed odd k>=3, padded duplication at width L with 2^L=2Q leaves just the boundary pair, so r((2Q+1)x) is 1 exactly for odd Q<=x<2Q in that width. The largest odd a<=Q/(k-1) satisfies a>Q/(k-1)-2. Thus (k-2)a<Q<=ka<2Q, using Q/(k-1)>=2k; all earlier odd multiples stay below Q and even multiples have parity zero. The least admissible Q is <4k(k-1), giving a<4k and d<32k^3. Larger dyadic Q give strictly increasing differences as a is positive and nondecreasing. k=1 is checked by 3 times powers of two. This proves all quantifiers in RESULT.md:5–53.
 
-Sobolewski, arXiv:2204.05287, Section 6 Problem 8 explicitly asks for the attained fixed-origin lengths and conjectures all odd lengths occur for patterns ending with one. Its Proposition 5.4 already uses duplicated binary blocks and establishes a fixed-multiplier asymptotic, so that mechanism is fully credited. The new contribution is the exact all-odd attainment theorem and the controlled multiplier/width choice giving a cubic bound and infinitely many witnesses per length. Theorem 1.4 gives difference-dependent maxima, not the complete range. Joshi–Rust, arXiv:2501.05830, Section 3.3 and the OEIS records A364995/A380593 concern the supremum over all starting positions, not this fixed-origin spectrum. Targeted published-finding corpus searches returned no equivalent result; similarity matches about unrelated Shapiro Fourier constants and Rudin–Shapiro string attractors do not imply this theorem. Residual risk: an unindexed earlier elementary corollary of Sobolewski's doubled-block calculations may exist; search absence is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The exact range resolves the Rudin–Shapiro component of a concrete published open problem, not an arbitrary slice or a known-table recomputation. Both exclusion and construction are genuinely uniform in the prescribed length. The explicit polynomial witness bound additionally makes every attainable length efficiently realizable. No result is claimed for the broader family of patterns or the extremal starting-position invariant.
+The exact all-odd spectrum for 11 and its polynomial witness bound are distinct on the inspected evidence. Sobolewski posed the matching attainment conjecture and already supplied the duplicated-block formula. Here the multiplier is solved for as a function of the target length, with control of the first mismatch and of the difference size, rather than held fixed to bound lengths as the width increases.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Resolves a concrete published open question for the classical pattern 11 with exact attainable values, not just unboundedness; gives explicit witnesses of cubic size and infinitely many distinct differences per length. The construction for k>=3 in fact supplies infinitely many odd differences, beyond the trivial rescaling by powers of two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

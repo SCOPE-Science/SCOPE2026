@@ -26,8 +26,8 @@ Then
 
 \[
 x_C=\frac{(1-s_C)-v(1-s_L)}{1-b/a},\qquad
-x_L=\nu x_C,\qquad
-y_L=\frac{(1-s_L)-\nu(1-s_C)}{1-b/a},\qquad
+x_L=u x_C,\qquad
+y_L=\frac{(1-s_L)-u(1-s_C)}{1-b/a},\qquad
 y_C=v y_L.
 \]
 
@@ -120,9 +120,9 @@ and at \(m=2\), \(a=3\), \(b=2\) it yields \((5/18,1/5,2/3,5/9,1/6,2/15)\). Both
 
 ## Relationship to prior work
 
-The 2014 Sahneh–Scoglio paper establishes general competition/survival thresholds on arbitrary overlaid layers, and the 2021 Doshi–Mallick–Eun paper establishes broad qualitative global convergence and coexistence criteria. Their general existence criteria can, in principle, be specialized to this topology; the existence *of a coexistence region itself* is not claimed as new. The 2022 Doshi–Hu–Eun work derives quantitative upper bounds for general graphs, and explicitly lists star/line topologies as directions for future quantitative analysis. The present theorem goes beyond general bounds by solving **each infection coordinate exactly**, eliminating the implicit network equilibrium, and making the entire positive-equilibrium parameter region elementary and sharp on one natural infinite family of overlaid graphs.
+The 2014 Sahneh–Scoglio paper establishes general competition/survival thresholds on arbitrary overlaid layers, and the 2021 Doshi–Mallick–Eun paper establishes broad qualitative global convergence and coexistence criteria. Specializing the latter paper's sufficient mutual-invasion criterion to the star and clique yields the same open sufficient region. The distinct claim is that this region is also necessary in this family and that the unique positive coexistence state has explicit vertexwise coordinates, with leaf symmetry proved rather than assumed. The 2022 Doshi–Hu–Eun work derives quantitative upper bounds for general graphs, and explicitly lists star/line topologies as directions for future quantitative analysis.
 
-The 2019 Liu–Paré–Nedić–Tang–Beck–Başar analysis discusses star, clique, and other structures in same-layer computational examples, rather than the star-versus-clique exact solution. The 2022/2023 Anderson–Ye work studies general equilibrium counts and stability and does not give these star–clique coordinates. Earlier work may still contain an equivalent under different notation; this is a residual bibliographic risk, not evidence of mathematical independence.
+The 2019 Liu–Paré–Nedić–Tang–Beck–Başar analysis discusses star, clique, and other structures in same-layer computational examples, rather than the star-versus-clique exact solution. The 2022/2023 Anderson–Ye work studies general equilibrium counts and stability and does not give these star–clique coordinates in the cited equilibrium count. Earlier work may still contain an equivalent under different notation; this is a residual bibliographic risk, not evidence of mathematical independence.
 
 ## Limitations
 

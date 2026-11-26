@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:32:01.793834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derived ideal is R because T is invertible. The resulting condition is [B,T]=aT and composition idempotence adds a=0 or 1, B²=B, Bu=(1−a)u. In the zero branch the cyclic commutant is the local ring k[x]/(x^N). In the one branch, T shifts the projection eigenvalues by one; outside characteristic two it annihilates the one-eigenspace, an impossibility, and in characteristic two it exchanges the two eigenspaces, giving N=2m. The Euler derivation in y=1+x descends in exactly the required even characteristic-two case and is idempotent; other commutator solutions differ by multiplication. Squaring gives the stated quadratic equation. With z=x² and c=A+yC, this is A²+A+(1+z)C²=0; the constant coefficient is eliminated by a₀=(a₀+b₀)², and every higher a_j is determined by earlier indices. This gives polynomial inverse coordinates and does not need a perfect field. Rank m+1 and the bracket equality follow from T(E₁)=E₀ and im D=k(t+u)⊕E₁. Over F_q there are q^m choices each of c and u; at N=2 the contributions occupy the same rank. An independent bounded replay (python3 /workspace/independent_sanity.py) exhausted raw matrices at (q,N)=(2,2),(3,2),(2,3), giving respectively {0:1,2:8}, {0:1,2:9}, {0:1,3:8}, and checked the exceptional brackets against the kernel at (2,2). The frozen verification note overstates the supplied checker: it tests the derivation equation and rank but does not separately assert the image-bracket identity. The independent proof establishes that identity for the entire stated range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives the linear block equations for arbitrary almost-abelian derivations; the latter gives structural nilpotency results from polynomial identities of derivations."
+        ],
+        "reasoning": "Neither inspected theorem provides the intersection with the projection equation and its characteristic-two affine normal form or all-dimensional rank distribution.",
+        "searches": [
+          "Avetisyan arXiv:1610.05365, Proposition 13",
+          "Burde–Moens arXiv:2009.05434, Theorem 3.10 and Remark 3.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.05365",
+        "arXiv:2009.05434",
+        "Resultary 60892767b421 (identical record), 37cc08327af2, 5243394a1762, 8657fd9e3772"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 8657fd9e3772 treats a free class-two nilpotent Lie algebra and nonabelian/non-ideal images. Here ad_t is invertible on the derived ideal, so a free class-two nilpotent theorem does not specialize to L_N."
+        ],
+        "reasoning": "Credit the known block reduction. The eigenvalue exchange, affine solution of the operator equation, and exact bracket/kernel identification are additional, not a census obtained by merely substituting parameters into the cited statements.",
+        "searches": [
+          "Resultary 8657fd9e3772, modular idempotent derivations and nonabelian images",
+          "Avetisyan arXiv:1610.05365, Proposition 13 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avetisyan, Proposition 13, gives the block commutator equation.",
+          "Resultary 5243394a1762 states a Nijenhuis classification in a related Jordan-block setting."
+        ],
+        "reasoning": "For an idempotent Lie Nijenhuis operator both eigenspaces close under brackets. Here a nonzero kernel is exactly the bracket span of the image in the exceptional branch, so those derivations cannot simply be relabeled as Nijenhuis projections.",
+        "searches": [
+          "Resultary: composition-idempotent ordinary Lie derivations, single invertible unipotent Jordan block, characteristic-two affine locus",
+          "Resultary: rank spectra of idempotent Nijenhuis projections on almost-abelian Lie algebras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary match 60892767b421 is this very record. The inspected toral-derivation entry 37cc08327af2 classifies f(t)d/dt on the associative truncated local ring, with a different rank and equation."
+        ],
+        "reasoning": "The associative derivation classification does not count the Lie maps on kt⊕R with an independent image of t and a zeroth-order term M_c. Same-date records are distinguished by mathematical content, not assumed publication ordering.",
+        "searches": [
+          "Resultary: unipotent almost-abelian idempotent derivation rank polynomial and affine characteristic-two stratum"
+        ]
+      },
+      "rationale": "Verified prior work supplies the general linear derivation reduction, not the single-unipotent-block composition-idempotent classification, exceptional affine locus and labeled rank census. Closely indexed results change the algebra or operator identity. The scoped distinction is supported on the inspected evidence, without a global priority claim.",
+      "residual_risks": [
+        "Bounded literature searches did not establish historical priority; a general classification under different terminology could overlap. The external query yielded no relevant further source and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the block equation, not the idempotent classification",
+          "evidence": "(Δ−α I) ad(e₀)−ad(e₀)Δ=0; for invertible T the derived ideal equals R.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.05365",
+          "material_read": "Proposition 13, p. 15, offset near 46900",
+          "method": "OA primary PDF passage",
+          "title": "The structure of almost Abelian Lie algebras",
+          "trigger": "General derivation theorem may specialize to target"
+        },
+        {
+          "assessment": "Structural results, not labeled projection census",
+          "evidence": "The conclusions concern nilpotency from derivation identities, not the exceptional coefficient or rank loci.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.05434",
+          "material_read": "Theorem 3.10 and Remark 3.11, p. 9, offsets 29800–30450",
+          "method": "OA primary PDF passages",
+          "title": "The structure of Lie algebras with a derivation satisfying a polynomial identity",
+          "trigger": "Polynomial identity D²=D"
+        },
+        {
+          "assessment": "Different multiplication/derivation problem",
+          "evidence": "Associative derivations f(t)d/dt and rank floor(N/2), not Lie derivations on kt⋉R with a multiplication correction on R.",
+          "identifier_or_url": "2026/11/22/SCOPE-toral-derivations-of-one-variable-truncated-local-algebras-parit--37cc08327af2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Toral derivations of one-variable truncated local algebras",
+          "trigger": "Characteristic-two affine family on a truncated polynomial ring"
+        },
+        {
+          "assessment": "Different operator identity",
+          "evidence": "Rank census for idempotent Nijenhuis projections, whose image must be a subalgebra.",
+          "identifier_or_url": "2026/11/8/SCOPE-rank-spectra-of-idempotent-nijenhuis-projections-on-almost-abeli--5243394a1762",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Rank spectra of idempotent Nijenhuis projections on almost-abelian Lie algebras",
+          "trigger": "Same almost-abelian Jordan-block setting"
+        },
+        {
+          "assessment": "Different Lie algebra family",
+          "evidence": "Free class-two case, not a nonnilpotent unipotent-action semidirect product.",
+          "identifier_or_url": "2026/11/8/SCOPE-modular-rank-spectra-and-nonabelian-images-of-idempotent-derivat--8657fd9e3772",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Modular rank spectra and nonabelian images of idempotent derivations",
+          "trigger": "Same projection equation and nonabelian image"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single invertible Jordan block is the natural indecomposable unipotent action. The all-dimension rank census identifies an extra family of the same population as the ordinary nonzero branch under a sharp characteristic/parity switch, and explains how a projection derivation can have brackets spanning its entire kernel. These structural and labeled-count conclusions go beyond the general block equation or a small-dimensional example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

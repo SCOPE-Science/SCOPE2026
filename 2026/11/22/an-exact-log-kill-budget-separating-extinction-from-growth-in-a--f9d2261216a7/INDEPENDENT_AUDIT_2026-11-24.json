@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:49:04.552243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive E=e^(τA), fixing s1*s2=q fixes the determinant qd and leaves trace ux+qv/x on [q,1]. The positive discriminant and determinant make the Perron root strictly increasing in the trace. The unique trace minimum is the projected square-root critical point (q=1 is a singleton); sqrt(q) is interior for q<1, where it is stationary exactly when u=v. For the example, independently reducing the exponential via eigenvalues 1 and −3 gives u=53/64, v=83/64, d=1/4 and ρ(E)=2. On the balanced branch the minimum is sqrt(q)(sqrt(uv)+sqrt(uv−d)). Its unit crossing is interior and gives the smaller root of 64q²−3887q+1024; the other branch cannot recross because scaling any feasible larger-product optimum down gives a strictly smaller multiplier at the smaller product. Equal treatment crosses at 1/4. The rational witness checks by determinant 13/200 and characteristic polynomial at 1 equal to 59/9600. Long et al.'s hypotheses for fixation are satisfied; upper comparison with full resistance proves extinction, and eventual lower comparison with a common factor (1−ε) of full resistance proves growth under strict inequalities. The analysis does not classify neutral nonlinear dynamics; the multiplier at the optimum is 1 at q_c, not necessarily for every split. Inspected but did not execute the uploaded checker: verify.py lines 28–68 locate the exact witness and algebraic diagnostic; lines 67–76 sample alternative splits only for the displayed E.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel and De Leenheer keep D fixed while varying τ; their convexity theorem does not optimize D at fixed τ.",
+          "Generic Perron convexity/GP is acknowledged; no exact constrained split or ecology reversal was established from the accessible material."
+        ],
+        "reasoning": "A convex formulation of a wider optimization problem is not itself a closed-form optimizer and does not determine the crossings for this model. The optimization step is a simple two-dimensional consequence of fixed determinant, not a general new convexity principle.",
+        "searches": [
+          "Patel and De Leenheer, arXiv:2310.07616v1, pp. 1, 6",
+          "Boyd and Vandenberghe, Convex Optimization §4.5.4",
+          "Friedland, Convex Spectral Functions, doi:10.1080/03081088108817381"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary records f9d2261216a7 (self) and 46a2c19db0e7",
+        "arXiv:2609.10581v1",
+        "arXiv:2310.07616v1",
+        "Boyd–Vandenberghe §4.5.4 and Friedland DOI (attempted; not read in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former implies the ecological outcome once a particular multiplier has been bounded, but neither minimizes the multiplier nor constructs two equal-budget policies.",
+          "The latter varies a different parameter and cannot give the fixed-τ optimizer by substituting this A."
+        ],
+        "reasoning": "The contribution requires a positive-survival feasibility analysis and two distinct attainable unit crossings. It is not another statement of the already established fixation/fate theorem.",
+        "searches": [
+          "Long et al., arXiv:2609.10581v1, Theorems 5–7",
+          "Patel and De Leenheer, arXiv:2310.07616v1, convexity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day distinct Resultary record 46a2c19db0e7 classifies fixation rates at zero and positive dominance, not a control variable at fixed product.",
+          "Theorems 5–7 in arXiv:2609.10581v1 fix the survival parameters and classify resistance and fate."
+        ],
+        "reasoning": "Post-pulse Floquet radius is the same object in the established model; the constrained minimization and comparison between two admissible matrices at the same cost are not equivalent to the source's fixed-policy classification.",
+        "searches": [
+          "Resultary: fixed log-kill/survival-product stage treatment, pulsed resistance, Perron multiplier",
+          "Long et al., arXiv:2609.10581v1, pp. 4–6 and 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f9d2261216a7 is the identical frozen result; 46a2c19db0e7 is the closest distinct indexed stage-resistance record inspected and has no budget threshold."
+        ],
+        "reasoning": "An exact priority database for such model-specific algebraic thresholds is not known in this comparison. The indexed self-match is excluded; same-day dating of the distinct record does not decide priority.",
+        "searches": [
+          "Resultary: log-kill budget, resistant two-stage diagonal survival, extinction/reversal"
+        ]
+      },
+      "rationale": "Pass is for the exact positive-survival constrained allocation and explicit strict same-budget population-fate reversal in the stated stage model, not for the Perron criterion, resistance fixation, diagonal-scaling convexity, or the elementary trace minimization as a standalone result. Checked the closest indexed same-day sibling separately; it studies a dominance-rate transition, not a budget allocation. The inspected primary results supply tools and the biological interpretation but do not give this allocation or reversal by specialization of their conclusions. This is a bounded evidence judgment, not priority certification.",
+      "residual_risks": [
+        "The generic two-dimensional optimizer may appear in diagonal-scaling literature, including incompletely accessible material; the bounded search does not establish global priority.",
+        "The explicit window is a constructed density-independent example under a defined mathematical cost, not a biological calibration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixation and fate criterion, not the fixed-product split or policy reversal.",
+          "evidence": [
+            "Theorem 5 requires positive selection, positive abundances and nonzero initial resistance; the frozen condition is stronger.",
+            "Theorems 6–7 distinguish radius below/above one under the applicable hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.10581",
+          "material_read": "v1 pp. 4–6 (OA offsets 9559–16677), p. 13 Theorems 5–7 (39260–45142), p. 18 mutation discussion (58640)",
+          "method": "Lawful OA primary text, bounded passages",
+          "title": "On the formulation and analysis of a stage-structured eco-evolutionary model with pulsed disturbances",
+          "trigger": "Same pulsed stage-resistance model and claimed population-fate interpretation"
+        },
+        {
+          "assessment": "Varies the impulse interval, not the diagonal allocation at fixed interval.",
+          "evidence": [
+            "The convexity result takes D positive diagonal and fixed and assumes diagonal symmetrizability of A."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.07616",
+          "material_read": "v1 introduction p. 1 (offsets 0–4987) and convexity argument p. 6 (19050–22686)",
+          "method": "Lawful OA primary text, bounded passages",
+          "title": "On the spectral radius properties of a key matrix in periodic impulse control",
+          "trigger": "Same matrix product and control setting"
+        },
+        {
+          "assessment": "Different scientific conclusion within the same stage-structured model.",
+          "evidence": [
+            "Contrasts 1/k and exponential susceptible-fraction convergence, not equal-cost stage allocation."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/22 record 46a2c19db0e7",
+          "material_read": "RESULT.md offsets 0–4598 and 4598–8581, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary query and local mirror reading",
+          "title": "An exact dominance transition in stage-structured pulsed resistance",
+          "trigger": "Nearest distinct indexed model match"
+        },
+        {
+          "assessment": "Unresolved general-method overlap; no negative inference from access failure.",
+          "evidence": [
+            "The frozen record cites §4.5.4 as generic background, not evidence that the clipped solution is unprecedented."
+          ],
+          "identifier_or_url": "https://web.cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/min_spec_rad_ppl_dynamics.html",
+          "material_read": "No substantive passage retrieved from the cited page or identified author PDF",
+          "method": "Lawful page and author PDF attempts",
+          "title": "Convex Optimization",
+          "trigger": "Generic positive-system Perron optimization may specialize to the matrix problem"
+        },
+        {
+          "assessment": "Full-text scope unresolved; ordinary log-convexity is weaker than the explicit classification.",
+          "evidence": [
+            "No exact fixed-product reversal was established from the accessible sources."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081088108817381",
+          "material_read": "No full text retrieved; related diagonal-scaling background in arXiv:2310.07616v1 introduction",
+          "method": "Cited DOI retrieval attempt and comparison to accessible related primary text",
+          "title": "Convex Spectral Functions",
+          "trigger": "Potential broader diagonal-scaling spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The point is not the square-root arithmetic or merely a better multiplier. At the same aggregate survival product, targeting and equal allocation make opposite long-run predictions over a sharp open interval, even after resistance fixation. The exact feasible minimizer and rational witness make the reversal independently usable as a benchmark; neither the cost model nor the example is promoted to field advice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

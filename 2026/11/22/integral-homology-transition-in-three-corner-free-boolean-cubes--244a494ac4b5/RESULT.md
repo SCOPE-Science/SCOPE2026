@@ -1,58 +1,60 @@
-# Integral homology transition in three-corner-free Boolean cubes
+# Integral homology of the two-independence complex of the five-cube
 
 ## Finding
-Let \(V_n=\{0,1\}^{n}\) be the vertex set of the standard \(n\)-cube. Define the three-corner complex \(L_n\) to consist of all subsets \(S\subseteq V_n\) such that every coordinate square of the cube meets \(S\) in at most two vertices. For every integer \(2\le n\le5\), its complete reduced integral homology is
+
+Let \(Q_5\) be the graph on \(\{0,1\}^5\) in which two vertices are adjacent when they differ in one coordinate. Let \(L_5\) be the simplicial complex of sets meeting each coordinate square in at most two vertices. This is the two-independence complex \(\operatorname{Ind}_2(Q_5)\). Its complete reduced integral homology is
 \[
-\widetilde H_j(L_n;\mathbb Z)\cong
+\widetilde H_j(L_5;\mathbb Z)\cong
 \begin{cases}
-\mathbb Z^{3},& (n,j)=(2,1)\text{ or }(3,2),\\
-\mathbb Z^{16},&(n,j)=(4,3),\\
-\mathbb Z,&(n,j)=(4,4),\\
-\mathbb Z^{681},&(n,j)=(5,7),\\
-0,&\text{otherwise}.
+\mathbb Z^{681},&j=7,\\
+0,&j\ne7.
 \end{cases}
 \]
-In particular every listed homology group is torsion-free, and the mixed-dimensional reduced homology at \(n=4\) is followed by concentration in dimension seven at \(n=5\). The claim concerns integral homology, not a complete homotopy type.
+In particular, it has no integral torsion. This computes the next dimension after the known mixed-dimensional case \(\operatorname{Ind}_2(Q_4)\simeq \bigvee^{16}S^3\vee S^4\) and shows that mixed-degree homology does not persist at dimension five.
 
 ## Assumptions and scope
-A coordinate square is a subset of \(V_n\) obtained by fixing \(n-2\) coordinates and allowing the other two to vary. A *forbidden triple* is any three of its four vertices. The complex \(L_n\) is the ordinary simplicial independence complex of the three-uniform hypergraph of forbidden triples. There are \(4\binom n2 2^{n-2}\) listed triple incidences before deduplication, and in fact each forbidden triple determines its square uniquely. Faces include the empty face, used for the augmented chain complex. All enumeration and homology assertions are restricted to the four stated dimensions \(n\); no extrapolation is claimed.
+
+A coordinate square is obtained by varying two coordinates and fixing the remaining three. Every three vertices of a coordinate square form a path of length two in \(Q_5\). Conversely, the two edges of any path of length two flip distinct coordinates, so its triple lies in a coordinate square. A subset avoids such triples if and only if its induced graph has maximum degree at most one, or equivalently each induced connected component has at most two vertices. Thus the identification with \(\operatorname{Ind}_2(Q_5)\) is equality on the given vertex set. We include the empty face in the augmented chain complex.
 
 ## Proof
-A face is generated recursively by traversing binary vertices in ascending numeric order, adding a new vertex only if it completes none of the explicitly enumerated forbidden triples with two earlier selected vertices. This checks every possible face and no nonface. Its enumerated face totals, including the empty face, are \(11,77,3055,3302633\) for \(n=2,3,4,5\), respectively. For \(n=5\), the counts by cardinalities \(0,1,\ldots,16\) are
+
+Use the unsigned binary integers from \(0\) to \(31\) as vertex labels and sort face vertices by this order to orient them. Generate each face recursively in ascending vertex order by adding a vertex only when no forbidden triple is completed with two earlier selected vertices. A triple is forbidden exactly when it is one of the four triples of a coordinate square; it determines that square uniquely. Enumeration gives the following counts in cardinalities \(0,1,\ldots,16\), and no larger faces:
 \[
 (1,32,496,4640,28520,118656,337200,650784,841860,719040,404064,149952,38064,7680,1440,192,12).
 \]
 
-We apply an acyclic matching to the *augmented* face poset: at each vertex \(v\) in increasing order, pair every currently unmatched face avoiding \(v\) with its also-unmatched coface formed by adding \(v\), whenever that coface is a face. To see acyclicity, view each stage as the standard elementary toggle matching in the residual subposet, with matched cofaces deleted before the next stage; a hypothetical closed gradient path has a least toggle stage, and along that stage its indicator cannot change in the direction necessary to return. Equivalently, this is the iterated toggle/patchwork discrete Morse construction, with the empty face included algebraically.
+On the augmented face poset, go through the vertices in label order. At vertex \(v\), match each still-unmatched face not containing \(v\) with its still-unmatched coface formed by adding \(v\), whenever it exists. These pairs are disjoint within each stage because the toggle is an involution. Orient matched incidences upward and other incidences downward. A directed cycle would have to alternate up and down: upward edges cannot occur consecutively, and their number equals the number of downward edges. At the least toggle stage \(v\) occurring on such a cycle, an upward edge adds \(v\), so some downward edge must delete it. Both endpoints of that downward edge were still unmatched at the start of stage \(v\) (each is matched by an upward edge of the cycle at stage \(v\) or later). Thus this edge would have been matched at stage \(v\), contrary to its orientation. The matching is acyclic.
 
-The resulting critical-cell vectors \((\text{dimension}:\text{multiplicity})\) are
+The resulting signed integral Morse complex has chain ranks
 \[
-\begin{array}{c|l}
- n&\text{critical cells}\\\hline
-2&(1:3)\\
-3&(2:3)\\
-4&(3:17),(4:6),(5:4)\\
-5&(5:1),(6:16),(7:757),(8:73),(9:12),(10:1),(11:1).
+\begin{array}{c|rrrrrrr}
+ j&5&6&7&8&9&10&11\\\hline
+ \operatorname{rank}C_j&1&16&757&73&12&1&1
 \end{array}
 \]
-
-The signed integral Morse differential is obtained from the simplicial boundary by eliminating every matched pair with its signed incidence coefficient \(\pm1\). For an upper partner \(\sigma\), its lower partner \(\tau\), and any remaining codimension-one faces \(\rho\), this substitution reads
+and no other generators. To compute the Morse differential, for a lower matched face \(\tau\) with upper partner \(\sigma\), use the relation in the signed boundary of \(\sigma\) to replace its \(\tau\)-term using
 \[
-[\tau]=-\epsilon(\tau,\sigma)\sum_{\rho\ne\tau}\epsilon(\rho,\sigma)[\rho].
+[\tau]=-\epsilon(\tau,\sigma)\sum_{\substack{\rho\text{ a facet of }\sigma\\\rho\ne\tau}}\epsilon(\rho,\sigma)[\rho],
 \]
-Recursive expansion terminates by acyclicity and yields explicit integral matrices between critical cells. A separate checker verifies all successive compositions vanish, applies actual unimodular integer row and column operations at each \(\pm1\) pivot, and verifies the residual matrix is identically zero. The nonzero differential ranks are \(1,4\) in degrees \(4,5\) for \(n=4\) and \(1,15,61,12,1\) in degrees \(6,7,8,9,11\) for \(n=5\); all other differential ranks vanish. Every nonzero Smith invariant is one, so all integral homology is free. Subtracting adjacent ranks from the critical-cell counts gives exactly the displayed reduced homology groups, including the \(681\) degree-seven classes for \(n=5\).
+where \(\epsilon\) is the usual simplicial incidence sign. Acyclicity ensures the expansions terminate. The resulting matrices are the signed gradient-path differential, i.e. the differential after eliminating the matched unit pairs in the augmented integer chain complex.
+
+The computed differential ranks are \(\operatorname{rank}d_6=1\), \(\operatorname{rank}d_7=15\), \(\operatorname{rank}d_8=61\), \(\operatorname{rank}d_9=12\), and \(\operatorname{rank}d_{11}=1\); all other ranks are zero. Consecutive boundary compositions vanish exactly. Reducing each boundary by unimodular integer row and column operations at unit pivots leaves a zero residual matrix. Therefore every nonzero Smith invariant is one. The cokernel of \(d_{j+1}\) has the same torsion as homology in degree \(j\), since their quotient is the free image of \(d_j\). There is thus no torsion, and subtracting adjacent ranks from the chain ranks gives \(757-15-61=681\) in degree seven and zero in all other degrees.
 
 ## Verification
-Run `python3 verify.py` in the same directory as `corner_morse.cpp` with a C++17 compiler (`g++`) available. The checker recompiles the source, enumerates every face independently of the recorded counts, generates signed Morse boundaries, verifies consecutive boundary compositions are zero, reduces every boundary by explicit integral unit Smith pivots, asserts zero residuals and checks the resulting reduced Betti ranks for every \(2\le n\le5\). Its success marker is `CUBE_THREE_CORNER_INTEGRAL_HOMOLOGY_OK`.
 
-The complete degree-seven rank calculation for \(n=5\) uses the actual \(73\)-by-\(757\) and \(757\)-by-\(16\) adjacent integral boundaries, rather than a field-only calculation or Euler characteristic alone. Euler characteristics independently agree with the face counts.
+Run the accompanying `python3 verify.py` with `corner_morse.cpp` in the same directory and a C++17 `g++` compiler available. It compiles the face and signed Morse boundary generator, checks consecutive boundary compositions, and performs integral unit Smith reduction, requiring zero residual matrices. The \(n=5\) run enumerates 3,302,633 faces including the empty face and computes the two adjacent boundaries of sizes \(757\times73\) and \(16\times757\). The lower-dimensional cases in the checker are consistency tests, not part of the new finding.
 
 ## Relationship to prior work
-Conant and Thistlethwaite's 2008 cubical theta complexes investigate avoidance of *complete square faces* (all four square vertices), whereas \(L_n\) forbids each *three-vertex* subset of a square; these are distinct hypergraphs and their face complexes are not interchangeable. Their general hypergraph/discrete-Morse viewpoint motivates considering this natural stronger local threshold. The ternary-coordinate cube hypergraph appearing in 2024 work on independent sets in hypercubes is also a different construction: its vertex set is ternary and its hyperedges are coordinate lines, rather than triples in binary coordinate squares. The published topology of \(\operatorname{Ind}_2(Q_4)\) concerns three-vertex-path avoidance in the cube's graph and is not an implication of the present square-corner avoidance statement.
+
+This is the higher-independence complex of Deshpande and Singh at \(r=2\), not a new cubical simplicial functor. Their cycle formulas include \(Q_2=C_4\); their rectangular grid treatment does not supply the five-cube calculation. The Resultary record *The first mixed-dimensional two-independence homotopy in the cubical sequence* already gives the stronger homotopy results for dimensions one through four. Those results motivate checking the next member and are not claimed here. Conant and Thistlethwaite use hyperedges consisting of all four vertices of a square in their cubical square-face construction, unlike the three-corner hyperedges here. The cube hypergraph of Cooley, Machata and Pasch has ternary vertices and coordinate-line hyperedges, also different.
 
 ## Limitations
-No integral or equivariant homotopy equivalence is asserted. No formula for \(n\ge6\) is established, and neither the apparent concentration at \(n=5\) nor the absence of torsion is extrapolated. The exact numerical calculation is reproducible and finite, not a theoretical general-family classification. Complete exclusion of equivalent unpublished or unindexed work is not possible.
+
+The result gives integral homology, not a homotopy or equivariant classification of \(L_5\). It makes no prediction for \(n\ge6\). The priority comparison is bounded; a possible older source, Salvetti's *Some Combinatorial Constructions and Relations with Artin Groups* (DOI 10.1007/978-3-319-20155-9_22), was not available for full-text comparison.
 
 ## References
-- J. Conant and P. Thistlethwaite, *Boolean Formulae, Hypergraphs and Combinatorial Topology*, arXiv:0808.0739, version 1 publicly posted 2008-08-05, https://arxiv.org/abs/0808.0739.
-- O. Cooley, J. H. M. Machata and M. Pasch, *Independent sets in hypercubes*, arXiv:2406.00401, 2024, https://arxiv.org/abs/2406.00401. Its 3-uniform cube hypergraph is structurally different.
+
+- P. Deshpande and A. Singh, *Higher independence complexes of graphs and their homotopy types*, https://arxiv.org/abs/2001.05448.
+- *The first mixed-dimensional two-independence homotopy in the cubical sequence*, Resultary record [8cb5673474da](https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-mixed-dimensional-two-independence-homotopy-in-the-cub--8cb5673474da).
+- J. Conant and P. Thistlethwaite, *Boolean Formulae, Hypergraphs and Combinatorial Topology*, https://arxiv.org/abs/0808.0739.
+- O. Cooley, J. H. M. Machata, and M. Pasch, *Independent sets in hypercubes*, https://arxiv.org/abs/2406.00401.

@@ -1,19 +1,21 @@
-# Scientific review: exact two-read deletion ambiguity of `010`-free binary words
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Cai–Kiah–Nguyen–Yaakobi, Proposition 9 (arXiv:2001.01376), establishes the alternating-interval premise for two shared one-deletion outputs. The forbidden triple rules out both opposite phases of any length-three or longer alternating interval, leaving only legal adjacent swaps. The context-language factorization proves the edge series. Exact eleven-state polynomial identities (not numerical extrapolation) prove the isolated-word generating function. Direct descendant enumeration through length 13, separate finite-state edge checks through length 17, and an independent zero-degree test through length 14 all pass. All hypotheses and the length-zero convention are explicit.
+PASS
 
-## Originality — PASS (qualified)
+The source counts distinct outputs for distinct length-n linear words, not deletion locations. Type A requires opposite alternating phases on the differing interval; length ≥3 forces 010 in one endpoint. The two triples crossing either side of the surviving swap give the stated context tests. The oriented 01 endpoint determines the edge uniquely; each context has OGF U=(1−z)/(1−2z+z²−z³), from 1+z+z² A(z), where A counts 010-avoiders. Padding makes every permitted context two adjacent ones before and after the pair, and a matched pair must lie inside the original word. Beyond inspecting the eleven-state polynomial certificate, I independently checked the all-length isolate series via runs. In the padded word containing a zero, the 1-runs all have length ≥2; a singleton zero is allowed only between two runs of length exactly 2. Classify 1-runs as length 2 or length ≥3, set b=z/(1−z), a=z²/(1−z), v=(1,b)^T, D=z² diag(v), and R=[[b,a],[a,a]]. With boundary pads subtracted the series is (1−z)^−1 + v^T R(I−DR)^−1 v, which reduces to the claimed numerator and denominator. A swap changes the inversion parity; the matching consequence follows from König's theorem. Independent distinct-output enumeration at n=0–12 matched the neighbors and both reported sequences; replay /workspace/branches/06ec2142-f343-4801-bdd5-192a9e7ae3f2/reproduce_counts.py. That run corroborates finite values only.
 
-The full-space Type-A theorem and the published unrestricted edge census are recognized as prior and cannot be called novel. Neither gives the complete two-read zero-degree series on the induced `010`-free finite-word graph. The closest similarly constrained published three-gram census measures *circular three-gram profiles* of necklaces, not linear single-deletion read intersections. The 2012 alternating-pattern article works with a further symbol-count balance restriction and no deletion channel. Full-text comparisons are recorded in the accompanying structured review. An earlier unindexed exact computation remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The isolated-word count is a natural all-length structural invariant of constrained two-read reconstruction: each counted word needs no exclusion of any other permitted source due to this reconstruction channel. The regular padded forbidden-factor characterization and rational series make this invariant constructive and exactly enumerable. The result also explains why a shortest forbidden alternating triple transforms the general nonlocal ambiguity graph into a bipartite adjacent-swap graph. This does not claim the exact optimum code size or generalize beyond the specified channel and language.
+The Type-A test and its adjacent-swap restriction here are prior structure and an immediate specialization, respectively. The supported distinct contribution is the exact induced-graph edge and isolate census, especially the padded local isolation criterion and its complete rational series. No inspected separate result covers those counts.
 
-## Boundaries and reproducibility
+## value
 
-All proofs apply to finite linear binary strings of every nonnegative length, with deletion defined only at positive length. The three complete Python scripts use standard-library integers and have no outside dependencies. The isolated-series identity is certified by explicit eleven integer polynomials. The publication-priority assessment is limited to accessible literature and mathematical records; it is not a proof of global uniqueness or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural memory-two constrained source, edges measure precisely which source pairs are ambiguous from two distinct reads, and isolates can be included in every maximum independent code without consuming a conflict. A complete boundary-aware isolate criterion and exact isolate and edge series answer those motivated questions uniformly in length. The result does not claim the optimal code-size formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Exact reproducibility
 
-Execute `python VERIFY.py` from the directory containing `CERTIFICATE.json`. It requires a current standard installation of SymPy, and uses only exact integer/rational symbolic arithmetic, not floating-point approximate matrices. The expected final line is `VERIFY_OK: 11 graph orders; 60 rational entry certificates; fifth-order witnesses checked.`
+The cycle blocks of `CERTIFICATE.json` contain 26 rational entries: the representative at each cyclic distance for each \(C_n\), \(3\le n\le9\). A numerator is nonzero and has nonnegative coefficients in every block; denominators have nonnegative coefficients with positive constant terms. The seven blocks exhaust the necessary entries by symmetry and rotation. To reproduce them, construct each combinatorial Laplacian and compute \((I+2hL/3+h^2L^2/6)^{-1}(I-hL/3)\) over the rational-function field, then cancel each representative fraction with positive leading denominator coefficient.
 
-The source code directly creates the combinatorial path/cycle Laplacians, calculates `Q.inv(method='DM')*A` in the exact rational-function field, cancels and normalizes each fraction, and checks that the resulting numerator and denominator coefficient arrays match the certificate. The checked rows span every path upper triangle and every cyclic distance. It verifies the coefficient of \(x^5\) of the Radau filter is \(1/108\), and the distance-five powers in \(P_6\) and \(C_{10}\) equal \(-1\) and \(-2\), respectively.
-
-The uniform all-size negative conclusion is the short-walk proof in `RESULT.md`, not an extrapolation from the two boundary tests. Polynomial coefficient sign checks prove positivity at all real positive step sizes for the finite listed graphs. The verifier is same-package reproducibility evidence, not an independent external mathematical audit. It does not test weighted graphs or nonlinear systems.
+The attached `VERIFY.py` performs this computation using SymPy and compares ascending coefficient arrays. Its full output count includes additional path certificates retained in the source package. The checker also verifies the fifth-order coefficient \(1/108\) and the distance-five witness \((L^5)_{0,5}=-2\) on \(C_{10}\). The exclusion for arbitrary \(n\ge10\) follows from the five-edge walk argument, not extrapolation from the boundary test.

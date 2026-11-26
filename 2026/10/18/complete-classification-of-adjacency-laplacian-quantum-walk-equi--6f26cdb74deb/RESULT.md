@@ -1,18 +1,24 @@
-# Complete classification of adjacency–Laplacian quantum-walk equivalence on complete split graphs
+# The clique-start obstruction to adjacency–Laplacian quantum-walk equivalence on complete split graphs
 
 ## Finding
-For every pair of integers \(a,b\ge1\), form the graph \(G_{a,b}=K_a\vee\overline K_b\), with a clique \(C\) of size \(a\) joined to an independent set \(I\) of size \(b\). Starting at a single vertex \(v\), let \(p_A(w,t)=|\langle e_w,e^{itA}e_v\rangle|^2\) and \(p_L(w,t)=|\langle e_w,e^{itL}e_v\rangle|^2\), where \(L=A-D\). Then
+For integers \(a,b\ge1\), form the graph \(G_{a,b}=K_a\vee\overline K_b\), with a clique \(C\) of size \(a\) joined to an independent set \(I\) of size \(b\). Starting at a single vertex \(v\), let \(p_A(w,t)=|\langle e_w,e^{itA}e_v\rangle|^2\) and \(p_L(w,t)=|\langle e_w,e^{itL}e_v\rangle|^2\), where \(L=A-D\). For **every clique start \(v\in C\)**, the return-probability difference is
+\[
+p_A(v,t)-p_L(v,t)=-\frac{b(b-1)(2a+b-3)}{12}t^4+O(t^6).
+\]
+In particular it is strictly negative for sufficiently small nonzero real \(t\) whenever \(b\ge2\). This uniform clique-start obstruction is the contribution of the result.
+
+Combining it with the established independent-set-start criterion from *Exterior-state adjacency–Laplacian equivalence on weighted split joins* (reference 3, at unit weights) gives the complete classification:
 \[
 (\forall w\in V(G_{a,b}))(\forall t\in\mathbb R)\quad p_A(w,t)=p_L(w,t)
 \]
 holds if and only if **either** \(b=1\) (the graph is complete, with arbitrary initial vertex) **or** \(a\ge2\), \(b=2a-1\), and \(v\in I\).
 
-For the irregular family in the second case, the stronger amplitude relation is
+For context, the exterior-start equality in the irregular family can be expressed in the signed amplitude form
 \[
 e^{itL}e_v=e^{-iat}S\,\overline{e^{itA}e_v},\qquad
 S_{ww}=\begin{cases}+1,&w\in I,\\-1,&w\in C.\end{cases}
 \]
-The bar denotes entrywise complex conjugation in the vertex basis. The theorem is a full necessary-and-sufficient classification **within complete split graphs**, not among arbitrary graphs.
+The bar denotes entrywise complex conjugation in the vertex basis. This relation follows from the invariant blocks used in the established exterior-start criterion; it is included for a self-contained proof, not as a separate novelty claim. The classification is **within complete split graphs**, not among arbitrary graphs.
 
 ## Assumptions and scope
 All graphs are finite, unweighted, undirected, loopless, and labeled; the join contains all edges between \(C\) and \(I\). The parameters \(a,b\) are arbitrary positive integers. Time is an arbitrary real number, and the same time and edge weight are used in both unitary evolutions. The initial state must be a localized vertex vector, not an arbitrary superposition. The negative-Laplacian convention \(L=A-D\) agrees with the primary quantum-walk reference. The result concerns all vertex-resolved **position probabilities**, not equality of amplitudes without complex conjugation, equality for arbitrary initial states, or mixing times.
@@ -75,11 +81,12 @@ When \(a\ge1\) and \(b\ge2\), this coefficient is strictly negative. Therefore e
 The standalone standard-library script `verify.py` constructs each full adjacency and negative-Laplacian matrix, independently of the bright decomposition. It checks exact rational fourth-order coefficients for each orientation of a cross-part transition and for every clique return, across all \(72\) pairs \(1\le a\le8\), \(1\le b\le9\). It independently checks the predicted yes/no classification by vertex-resolved matrix-exponential power series for all \(42\) pairs \(1\le a\le6\), \(1\le b\le7\), for both source types and three nonzero times. Run from this directory with `python3 verify.py`. The script uses no external packages. The infinite-parameter conclusions rest on the explicit algebraic proof, **not** on these finite computations or on a numerical tolerance.
 
 ## Relationship to prior work
-Wong and Lockhart, *Equivalent Laplacian and Adjacency Quantum Walks on Irregular Graphs* (2021), analytically establish two small examples and numerically report their eighth family: \(K_a\vee\overline K_{2a-1}\), with the walk localized in the independent part (Section IV, PDF page 17). Their discussion explicitly characterizes this as a numerical indication, not a proof for every size; it does not provide an if-and-only-if classification across all complete split graphs, nor the universal clique-start obstruction. The present result **does not claim to originate that family**, but proves its all-size equivalence and establishes the sharp converse over all \(a,b\ge1\) and both source types. Kirkland, Monterde, and Plosker (2022/2023) study transfer between twin vertices, including adjacency and Laplacian dynamics and cones, but the considered transfer/periodicity properties are not all-time equality of full position distributions on complete split graphs. The all-parameter frequency obstruction and clique-return coefficient differentiate the present statement from those works.
+Wong and Lockhart (2021) analytically establish two small examples and numerically report their eighth family: \(K_a\vee\overline K_{2a-1}\), with the walk localized in the independent part (Section IV). Reference 3 proves the independent-set-start criterion in greater generality: for clique size \(r\), exterior size \(s\), clique edge weight \(\alpha>0\), and join edge weight \(\eta>0\), equivalence from an exterior vertex holds exactly when \(\alpha(r-1)=\eta|r-s|\). This gives the criterion used here by taking unit weights. Changing the sign of a real symmetric Laplacian conjugates amplitudes and preserves transition probabilities. The weighted result does not classify clique starts; the distinct result here is the explicit clique return difference for every irregular unit-weight split graph, which completes the source classification. Kirkland, Monterde, and Plosker study transfer and periodicity of twin vertices, which are different observables from equality of all position probabilities across two Hamiltonians.
 
 ## Limitations
-This is a classification only for the join of a clique and an independent set; no classification of arbitrary irregular graphs, arbitrary source superpositions, weighted joins, or transfer/mixing-time behavior is implied. Although the checked literature contains no proof of this precise full statement, an unindexed later treatment could overlap; independent literature review and independent audit have not been performed. The numerical script tests finite sizes and times only; its results are consistency checks rather than an independent infinite proof.
+The clique-return result is for unweighted complete split graphs with localized starts; no obstruction for arbitrary weighted joins, irregular graphs, arbitrary source superpositions, or transfer/mixing-time behavior is asserted. The comparison with existing work is limited to the sources inspected. The numerical script tests finite sizes and times only; its results are consistency checks rather than an infinite proof.
 
 ## References
 1. T. G. Wong and J. Lockhart, *Equivalent Laplacian and Adjacency Quantum Walks on Irregular Graphs*, arXiv:2107.05580 (first public 2021-07-12), https://arxiv.org/pdf/2107.05580 ; specifically Section IV and the concluding open questions.
 2. S. Kirkland, H. Monterde and S. Plosker, *Quantum state transfer between twins in weighted graphs*, arXiv:2201.02720 (first public 2022-01-08), https://arxiv.org/pdf/2201.02720 ; in particular the distinctions among adjacency, Laplacian, periodicity and transfer.
+3. *Exterior-state adjacency–Laplacian equivalence on weighted split joins*, Resultary record d7a52b140b8f, Finding and boundary/unit-weight cases, https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exterior-state-adjacency-laplacian-equivalence-on-weighted-split--d7a52b140b8f/RESULT.md .

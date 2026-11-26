@@ -1,19 +1,21 @@
-# Scientific review: quadratic multiplication-rank spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial complete intersection is Gorenstein. Its lower multiplication blocks are injective and its upper blocks dual-surjective, leaving only the central tridiagonal Toeplitz determinant. The continuant recurrence and root-ratio analysis prove both the sharp one-rank drop and the exact count of exceptional coefficient triples for every field characteristic. The independent executable direct-multiplication checks agree in all tested cases. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+For nonzero Q, multiplication blocks below the middle inject since no degree-m relation has yet entered, and the complementary blocks surject by the perfect monomial socle pairing. The order-(m-1) middle block is tridiagonal with diagonal b and off-diagonals a,c. With either off-diagonal nonzero an end-to-end kernel recurrence leaves at most one free coordinate; with both zero the nonzero form is invertible on the block. The total maximal rank is (m-1)^2; xy attains it, and x^2 attains one less. For ac=0 the determinant vanishes just when b=0. For ac≠0 the characteristic-root calculation gives a zero for unequal roots iff their ratio is a nontrivial m_0-th root of unity, and for equal roots iff p divides m. The parameter b²/(ac)=2+xi+xi^(-1) identifies exactly each inverse pair, and Frobenius fixes its value iff xi^(q-1)=1 or xi^(q+1)=1. The two groups intersect exactly at the inversion-fixed roots in their union. This accounts for the half-sum and the deleted identity when p does not divide m. The t=0 fibers take b=0 and arbitrary nonzero a,c; at t≠0 arbitrary nonzero a,b determine c. This works also in characteristic two. Independent ungraded matrix multiplication ranks matched the enumerator in all 21 exhaustively enumerated (m,q) pairs tested over F_2, F_3, F_5 and F_9; for example (m,q)=(8,9) yielded multiplicities (1,272,456) at ranks (0,48,49).
 
-Cook (arxiv:1111.4979), Boij–Migliore–Miró-Roig–Nagel (arxiv:1609.00952) and Marangone (arxiv:2404.16238) address related Lefschetz phenomena but not the all-finite-field binary quadratic operator-rank distribution. Jitman–Sricharoen (DOI:10.1515/spma-2023-0114) counts other tridiagonal matrix families. Numata (arxiv:2002.12649) is a particularly close predecessor establishing a determinant formula for products of linear forms in these algebras; its full text was not obtained, so mathematical implication overlap beyond its abstract remains a specific residual risk. The tridiagonal recurrence is classical and not claimed as new. Published searches and earlier records did not identify the precise rank-fiber count, but the search does not prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines a complete natural invariant, the rank distribution of all degree-two multiplication maps on a canonical infinite Artinian Gorenstein family. Its dependence on the two Galois torus orders and on inseparable repeated roots is a meaningful arithmetic refinement not supplied by the existence of Lefschetz elements. This does not imply broader geometric or representation-theoretic results.
+The general-m count is the supported distinct claim. The m=3 count is already a mechanical rank projection and homogeneous slice of a same-day indexed Jordan census, with no priority conclusion from that date. The central determinant is also covered at the level of a prior general multiplication determinant after splitting the quadratic. Neither comparison covers the all-m finite-field coefficient enumerator.
 
-## Verification limits
+## value
 
-The dependency-free verifier exhaustively checks coefficient triples in numerous finite fields and exponents, and independently builds the full multiplication map for small cases. Neither independent audit nor unrestricted machine certification was performed. The strongest remaining bibliographic risk is an uninspected full determinant predecessor.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies the full multiplication-rank distribution in the complete space of homogeneous quadratic multipliers, a natural family of Lefschetz operators. It supplies the exact frequency of failure and shows which arithmetic data control it even for nonsplit forms and nonseparable characteristic. The exact formula across all m and q is useful beyond either an isolated census or a determinant test for one form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

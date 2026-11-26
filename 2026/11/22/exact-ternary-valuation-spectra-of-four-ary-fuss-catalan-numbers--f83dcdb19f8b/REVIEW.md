@@ -1,19 +1,21 @@
-# Scientific review: ternary valuations of four-ary Fuss–Catalan numbers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact divisibility interpretation follows because \(3n+1\) is a three-adic unit. Kummer's theorem then reduces \(\nu_3(C_4(n))\) to the carries in \(n+3n\). The six-state transfer explicitly records the preceding input digit and incoming carry, with the terminal high carry included. Direct symbolic inversion gives the displayed bivariate rational function. Exact derivatives give the mean and variance. The extremal multiplicities follow separately from a three-state adjacency matrix; spectral isolation gives the Gaussian limit. The standalone checker supports these steps via exhaustive finite, large-index, and polynomial-identity tests. The proof, not the finite tests, supplies arbitrary-depth quantifiers.
+PASS
 
-## Originality — PASS (qualified)
+Integrality follows from binom(4n,n)-3 binom(4n,n-1) with the out-of-range binomial zero. The denominator 3n+1 is a 3-adic unit, so Kummer gives the carries in n+3n. Lump states to s=previous digit plus incoming carry. Each digit a sends s to a+floor((s+a)/3) with weight t to that floor. Initial state is zero; only terminal state 3 has weight t for the extra high digit of 3n. Independent exact inversion of this four-state transfer verifies the stated numerator and denominator. Its first and second t-derivatives at t=1 agree identically with the generating series for the stated factorial moments, and normalization by 3^r gives the mean and variance (also at r=0,1). The first input digit cannot carry. Equality at r requires the first two digits to sum to at least three, all later neighboring pairs to sum to at least two, and last digit two, realized by all digits two for r>=2. Exact inversion of this separate adjacency count verifies the maximum multiplicity GF and recurrence. At t=1 the reachable transfer is primitive, with simple Perron eigenvalue 3 and remaining eigenvalues of modulus at most one. Its analytic perturbation gives a leading analytic exponential times an analytic nonzero amplitude, with exponentially small relative remainder uniformly near t=1. At t=exp(w), the log-eigenvalue has derivatives 1/2 and 2/3 from the moment slopes. Taylor expansion at imaginary w of order r^(-1/2) proves convergence of the normalized characteristic functions to the stated Gaussian. Independent direct integer histograms agree through r=6.
 
-Stănică (arXiv:math/0010148, 2000) studied prime-power arities at the corresponding prime; the specific prime-three, arity-four valuation distribution is not stated. Sury (2009) studies arity equal to a prime. Kauers–Krattenthaler–Müller (2011) is primarily a two-adic congruence framework, and Krattenthaler–Müller (arXiv:1508.02580, 2015) treats arity powers of the modulus prime. Barat–Grabner (2001) develops general digital-block distribution methods but does not report the claimed exact one-ray enumerator and fluctuation laws. The closest published prime-relative arity-four result explicitly covers \(p=3\) but only the **absence** of carries (valuation zero). Published arity-three valuation spectra have structurally distinct formulas and do not imply the claimed arity-four rational function or extremal recurrence. Historical-priority uncertainty remains for unknown exact specializations of general digit-automaton methods.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-adic divisibility of this naturally enumerated family has a previously identified, sparse valuation-zero set. This new result determines every higher valuation and its exact finite-block frequency, revealing a variance growth coefficient \(2/3\) (instead of \(1/6\) in the nearest ternary-arity analogue), an exact Gaussian limit, and a sharply characterized nonconstant count of maximum-valuation indices. The cubic extremal recurrence is a meaningful structural refinement rather than a minor fixed-modulus table or a rephrasing of the zero-carry criterion. No implication for arbitrary moduli or non-block cutoffs is claimed.
+The strongest exact same-parameter precedent proves the valuation-zero census alone; the closest full spectra change the prime or the arity. The classical carry equivalence and known digit rules are not novel. The contribution supported by the comparisons is the complete evaluated ternary-block law for arity four, including its exact moments, Gaussian fluctuations and exact top stratum. General finite-state and congruence machinery are not themselves counted as new.
 
-## Limitations and closest comparisons
+## value
 
-The proof covers only prime three, arity four, and full ternary index blocks. An implicit predecessor under digital carry statistics or a stronger unlocated specialization is possible; the prior art search cannot prove absolute uniqueness. The explicit full formula, rather than the classical valuation identity or known zero-valuation classification, is the unit assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statistic counts prime divisibility of a standard family of tree enumeration integers; powers of three are the natural blocks for its digit structure. The full law gives frequency information about arbitrarily high divisibility, exact finite fluctuations and a nontrivial sharp maximum multiplicity, rather than only a divisibility predicate or a handful of test values. These quantities distinguish the four-ary sequence from its closest ternary-arity analogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

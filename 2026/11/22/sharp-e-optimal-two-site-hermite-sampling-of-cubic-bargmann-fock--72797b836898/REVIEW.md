@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The displayed parity Gram matrices follow from direct evaluation of the standard orthonormal Gaussian monomials at opposite sites and covariant first derivatives. Each trace/determinant is explicit; the global optimization is bounded by the smaller odd-sector eigenvalue. The odd-sector stationary equation factors as the cubic times the explicit sextic. Exact rational Sturm root counting, rational isolation and branch-sign certificates from `CHECKER.py` establish a unique lower-branch stationary maximum. At its sextic root, both parity lower eigenvalues coincide, making the upper bound attained. The result is valid for every complex cubic, every nonzero site radius and arbitrary common rotation; it does not assert unconstrained two-site optimality.
+## correctness
 
-## Originality: PASS, best-knowledge
-The fully inspected 2020 Fock multiple-sampling density paper and 2024 polynomial-array paper establish existence/density and asymptotic array results, rather than this finite four-measurement E-optimal extremum. The 2019 shift-invariant derivative-sampling paper addresses a different model. Published finding searches for coherent first-jet cluster collision asymptotics, cubic tight point-only Fock sampling and paired point-only Gaussian sampling did not yield the finite cubic antipodal Hermite frame optimization or algebraic parity crossing. A classical finite Hermite design or exact conditioning result might nevertheless be indexed differently, so historical priority is provisional.
+PASS
 
-## Value: PASS
-This is the minimal square Hermite sampling configuration for cubic polynomials, with two data types at two sites. The problem addresses worst-case stability, a different and more stringent criterion than invertibility or determinant maximization. The determinant for the same two-site data is maximized at squared radius \(1\), at which the lower squared frame bound is only \(e^{-1}\); the true E-optimum improves this bound by about 32%. The unique optimal node spacing is an algebraic, nonsymmetric spectrum-balance point where two parity error modes tie; the complete equality space and exact sharp bound make it a reusable finite benchmark for Fock sampling.
+Recomputed the Gram matrix from the actual value and derivative rows, including the rotation and Gaussian factor. Its parity traces and determinants agree. If the lower odd branch weighted by exp(-x) is stationary, then the displayed rational expression is forced (its numerator and denominator have no common positive zero). Exact independently generated Sturm sequences counted two positive sextic roots and one positive cubic root, one in each given interval. Rational branch signs put only the first candidate below half the odd trace; the positive lower-odd objective vanishes at both endpoints and hence has a unique interior maximizer. The common-eigenvalue polynomial identity and signed isolating intervals put the tie strictly below both half-traces, proving attainment of the odd ceiling and a two-dimensional minimum eigenspace. Independent higher-precision evaluation confirms the corrected decimal. The original checker's floating-point comparison does not certify trailing digits.
 
-## Boundaries
-The certified optimum is restricted to antipodal pairs with canonical Gaussian value/covariant-derivative normalization. There is no general assertion about arbitrary-site E-optimality, higher-degree polynomial spaces, weighted channel choices or uniqueness among other design families. Historical novelty is subject to independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cyclic spectrum and determinant optimum are directly covered by a distinct same-day Resultary finding. The supported distinct claim is the finite global minimum-gain optimization, with isolated sextic solution, branch selection, and parity tie, not the model or its Gram spectrum. None of the inspected works solves that optimization or gives a stronger theorem directly entailing it. No priority order is inferred from the same date.
+
+## value
+
+PASS
+
+This is the minimal square Hermite recovery problem for cubics, with a natural robustness objective fixed before optimization. Its exact unique stability design and even/odd worst-direction tie distinguish it from the independently natural determinant design at x=1. The tie and single stationary branch are informative finite invariants, not a sample grid or arbitrary parameter slice. The repair changes only trailing numerical digits and coverage wording, leaving that value intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

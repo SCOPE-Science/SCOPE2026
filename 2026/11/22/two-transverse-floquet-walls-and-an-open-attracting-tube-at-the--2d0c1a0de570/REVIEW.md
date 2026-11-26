@@ -1,11 +1,21 @@
-# Scientific review of the axial-flip Floquet theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The invariant-axis flip is exact. The full three-dimensional two-step derivative decomposes into a neutral eigenvalue and a two-dimensional block; the block has amplitude-independent trace and an exactly quadratic determinant. The strict Schur inequalities and the sign of the characteristic polynomial at \(\pm1\) give both index changes with no unexamined branches. The local attracting tube is established with a contracting equivalent norm and summable quadratic drift. The two small-step scales follow from exact factorization. `verify.py` reconstructs the algebra, benchmark and local composition from the described map. Risk: near the neutral walls, only linear transverse crossings are established; nonlinear wall dynamics is not claimed.
+## correctness
 
-**Originality — PASS within inspected sources.** The 2023 discrete Chen article treats flip and Neimark–Sacker bifurcations at equilibria rather than a one-parameter period-two axis family. The 2022 discrete Lü predecessor has a different transverse Jacobian and gives no implication for the Chen-specific thresholds. General Schur/Floquet and stable-family methods supply proof techniques, not the two derived amplitudes or their different singular scales. Multiple exact and semantic literature searches found no direct coverage. Risk: inaccessible equation renderings and unindexed or unpublished equivalent analyses limit priority confidence.
+PASS
 
-**Value — PASS.** Fixed-point stability analyses do not describe the large-amplitude, step-induced oscillatory family that occurs precisely at the axial Euler stability boundary. Here the whole family is classified into an attracting continuum, a saddle continuum and a normally repelling continuum by two noncoincident exact amplitude walls. The open tube exhibits a positive-volume set selecting periodic states, while the \(h^{-1}\) versus \(h^{-2}\) separation gives a structural asymptotic beyond a single numerical example. The effect depends on a resonant discretization and is not asserted for the continuous flow.
+At hb=2 the axis map is z↦−z and every nonzero axial point belongs to a primitive two-cycle. In the return block M(−A)M(A), the term linear in A is a commutator and the quadratic matrix term vanishes; the determinant is the product (m−h²aA)(m+h²aA). The continuous transverse generator has negative trace and positive determinant under a>2c>0, giving Schur stability for sufficiently small h and 0<T<2. The Schur margins at +1 and −1 decrease strictly with A², and 1−D stays positive; the signs of the characteristic polynomial at ±1 establish the one- and two-expanding-root regimes with simple transverse crossings. In even time the axial drift is exactly h(x′y′−xy) and the transverse nonlinear error is cubic. A norm contracting the return at the chosen A also contracts in a small compact amplitude interval; choosing the initial transverse radius so that the geometric sum of the drift fits inside that interval closes the forward-invariance argument and gives geometric convergence to a possibly different nonzero amplitude. The wall scales follow from det(I−M₀²)=det(I−M₀)det(I+M₀) and 1+T+m²→4. A direct rational product check gives T=79/50 and D=(6889−9A²)/10000 at the benchmark. In the flow an off-axis equilibrium would require both z=2c−a<0 and z=x²/b≥0, so the stated contrast is valid.
 
-Closest literature: Rana et al. (2023), DOI 10.1155/2023/7795246; Rana–Uddin (2022), DOI 10.28919/cpr-pajm/1-7; Lü–Zhang (2007), DOI 10.1142/S0218127407018725. Independent verification and priority adjudication remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the Chen-specific two-wall transverse classification, its exact singular scales and open local attraction to a member of the family. A same-day different quadratic map has a materially similar resonant geometry, so neither the generic idea nor within-day priority is credited. No coverage of this Chen result was established by the inspected statements; the closest same-map paper remains an access risk, not negative evidence.
+
+## value
+
+PASS
+
+The scalar Euler stability boundary bh=2 motivates the parameter choice independently of the result. The two exact cutoffs distinguish all transverse regimes and separate h⁻¹ from h⁻² excursions. The open set converging to a family of periodic states is materially stronger than the axial flip or a numerical orbit: it identifies behavior robust to small transverse perturbations and distinguishes discretization effects from the continuous equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

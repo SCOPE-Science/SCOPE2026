@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:06:29.372371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed; correctness was checked by the explicit counting reduction."
+      ],
+      "rationale": "A direct counting proof gives the same polynomial without a magnetic determinant. A core matching of j edges covers j vertices of each color; its 2j attached leaves must be unmatched and supply x^(2j). Each remaining core vertex and its leaf give x²−a or x²−b according to color. With m_j the ordinary cycle's j-matching count and U=(x²−a)(x²−b), this gives Σ_j(−1)^j m_j x^(2j) U^(m−j), equivalently x^(2m) times the even cycle matching polynomial at sqrt(U)/x (interpreted polynomially). The cycle polynomial is p_(2m)−p_(2m−2), where p_n is the path matching polynomial, p_0=1, p_1=z and p_n=z p_(n−1)−p_(n−2); hence it is 2T_(2m)(z/2). Its paired roots give factors U−x²(2+2cos((2k+1)π/(2m))). Thus each quadratic in y=x² has B_k>a+b≥2sqrt(ab), two positive distinct roots, and no shared root with any other factor. Both a and b lie strictly between the two y-roots. Monotonicity of the roots in B_k puts the bracketing pair at the minimum B_k, and their sum and product give the squared gap and both limits. The limiting bands are the continuous images of the cosine midpoint grid; perfect matching also gives the nonzero constant (ab)^m. This checks all m≥2, including equal weights, and does not interpret the x gap as a gap of the same width in dimer activity.",
+      "residual_risks": [
+        "No corresponding result is asserted for m=1, nonalternating weights or different boundary conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The gain-graph result is stated for unit gains, not alternating edge magnitudes; the Robin crossover record concerns a half-line Jacobi recurrence with possible gap-entry zeros and does not supply the periodic sunlet bands.",
+          "The counting reduction is actually valid for pendant decoration on any balanced bipartite core with a constant pendant weight on each part: class counts after j core edges depend only on j."
+        ],
+        "reasoning": "No equivalence to the Robin edge-root problem or general real-rootedness is needed; the ordinary matching polynomial already controls this balanced decoration. Indexed pendant spectral papers are plausible additional coverage but their full statements could not be assessed.",
+        "searches": [
+          "Mandal 2008 pendant-edge-weighted cycles, DOI 10.1246/bcsj.81.956",
+          "Formulas for the characteristic polynomial coefficients of the pendant graphs of linear chains, cycles and stars",
+          "arXiv:2312.17152 Corollary 4.1; Resultary 36fadd7efde6 full Finding"
+        ]
+      },
+      "checked_sources": [
+        "MathWorld Matching Polynomial",
+        "Samanta–Kannan arXiv:2312.17152",
+        "Mandal DOI 10.1246/bcsj.81.956 (indexed only)",
+        "Formulas for the characteristic polynomial coefficients of the pendant graphs of linear chains, cycles and stars (indexed only)",
+        "Resultary 4fbb574d316b (same item) and 36fadd7efde6 (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The smallest squared cycle matching root is 4sin²(π/(4m)). The substitution gives y+a b/y=a+b plus that squared root at the inner pair. The squared gap is therefore a+b−2sqrt(ab) plus the already known smallest squared cycle root."
+        ],
+        "reasoning": "The full roots, gap and critical crossover are mechanical consequences of the classical finite cycle spectrum once each core matching is grouped by its size; there is no additional finite-boundary root-selection problem to solve.",
+        "searches": [
+          "MathWorld Matching Polynomial cycle family; Samanta–Kannan arXiv:2312.17152; Resultary 36fadd7efde6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 4.1 supplies the unweighted gain-determinant/matching correspondence when the real part of each cycle gain is zero.",
+          "The weighted sunlet polynomial is x^(2m) times the even cycle polynomial at sqrt((x²−a)(x²−b))/x. This follows exactly by counting the matched core vertices of each color."
+        ],
+        "reasoning": "An ordinary periodic adjacency spectrum is not the same as the frozen matching spectrum. The decisive equivalence is instead to the ordinary cycle's matching polynomial by a scalar substitution, with both branches explicitly retained.",
+        "searches": [
+          "Resultary: alternating sunlet matching-root dimerization gap and gap crossover",
+          "Mandal DOI 10.1246/bcsj.81.956; Samanta–Kannan arXiv:2312.17152, Corollary 4.1",
+          "MathWorld Matching Polynomial cycle and sunlet entries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld lists both cycle and sunlet graph families in its matching-polynomial and recurrence tables; the extracted text does not establish an alternating-weight entry. The standard cycle row is independently recoverable by removing the closing edge, giving p_(2m)−p_(2m−2)=2T_(2m)(z/2).",
+          "The exact Resultary 4fbb574d316b hit is this same record, not independent prior evidence."
+        ],
+        "reasoning": "The exact cycle roots needed for the reduction are classical, even though an alternating-weight gap table was not located.",
+        "searches": [
+          "MathWorld Matching Polynomial, exact-family and recurrence tables",
+          "Resultary: exact alternating weighted sunlet polynomial, gap and finite-size crossover"
+        ]
+      },
+      "rationale": "The alternating sunlet result reduces directly to the standard exact cycle matching polynomial: each core matching removes the same number of each pendant type, so the weighting changes only the single cycle monomer variable. The band's two endpoint roots and their separation then follow from the lowest squared cycle matching root and elementary quadratic identities. This is mathematical coverage by a classical exact polynomial and the matching rule, not a finding that the spectral comparators print the formula verbatim or that inaccessible papers cover it.",
+      "residual_risks": [
+        "The Mandal full text and the pendant-graph coefficient paper were not available; no claim is made about their exact hypotheses or conclusions.",
+        "The rejection is by direct implication, not a priority claim about the exact phrasing of the gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lists the ordinary cycle and sunlet families; not evidence of a published alternating-weight table",
+          "evidence": "The standard recurrence solved above controls the exact cycle matching roots, which are all that the color-balanced substitution requires.",
+          "identifier_or_url": "https://mathworld.wolfram.com/MatchingPolynomial.html",
+          "material_read": "Exact-family and recurrence table rows, extracted page around offsets 1900–3400; the extraction does not render every formula",
+          "method": "Bounded public reference-page inspection and separate derivation of the cycle recurrence",
+          "title": "Matching Polynomial",
+          "trigger": "Exact graph-family tables and the standard cycle recurrence comparator"
+        },
+        {
+          "assessment": "Covers unweighted cycle cancellation, not the evaluated alternating-weight gap",
+          "evidence": "When real parts of cycle gains vanish, the gain characteristic polynomial is the unweighted matching polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17152",
+          "material_read": "Gain definition, p. 2; Corollary 4.1, p. 12",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Bounds and extremal graphs for the energy of complex unit gain graphs",
+          "trigger": "Same phase-to-matching determinant mechanism"
+        },
+        {
+          "assessment": "Unresolved potential coverage; no non-coverage inference",
+          "evidence": "The indexed scope includes pendant-weighted cycles; no decisive statement about the matching polynomial or a π/2 twist was available.",
+          "identifier_or_url": "https://doi.org/10.1246/bcsj.81.956",
+          "material_read": "Indexed bibliographic record and scope descriptions only; full paper unavailable",
+          "method": "DOI and a possible J-STAGE PDF route checked; alternate ResearchGate route also unavailable",
+          "title": "Eigenspectral Analysis of Pendant Vertex- and Pendant Edge-Weighted Graphs of Linear Chains, Cycles, and Stars",
+          "trigger": "Closest primary title; includes pendant-weighted cycles"
+        },
+        {
+          "assessment": "Different operator, boundaries and root question; not equivalent coverage",
+          "evidence": "It has a half-line Jacobi recurrence with gap-entry threshold q>1+1/k and Robin crossover, not the sunlet matching polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-sharp-finite-degree-gap-entry-threshold-and-robin-edge-crossov--36fadd7efde6/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2732",
+          "method": "Local-mirror passage inspection",
+          "title": "A sharp finite-degree gap-entry threshold and Robin edge crossover for two-periodic orthogonal polynomials",
+          "trigger": "Closest distinct indexed central-gap and two-periodic crossover result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limiting bands",
+        "Ordinary cycle matching polynomial and the exact balanced-decoration substitution above"
+      ],
+      "rationale": "The finite-size separation of two bands in a decorated graph is naturally motivated. Here, however, the exact gap is only the known smallest squared cycle matching root plus the squared pendant contrast, as the elementary color-counting substitution shows. The stated scaling law is the immediate sine limit; it resolves no additional boundary effect beyond that inherited from the cycle. The result is a useful illustration of the substitution, not a distinct unknown invariant in the frozen scope.",
+      "residual_risks": [
+        "This does not assess general shade patterns, open boundaries or nontrivial perturbations of the sunlet."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

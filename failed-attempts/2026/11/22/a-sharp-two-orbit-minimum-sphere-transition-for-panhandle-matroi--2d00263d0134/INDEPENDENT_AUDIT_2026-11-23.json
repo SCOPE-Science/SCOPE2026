@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:52.533468Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–72",
+        "Frozen VERIFICATION.md and verify_panhandle.py, especially lines 54–63"
+      ],
+      "rationale": "The indicators all have squared norm r; each is a vertex (a 0/1 vector cannot be a nontrivial convex combination of different 0/1 vectors). For the minimum-norm point c of their hull, ⟨c,v−c⟩≥0 for every vertex v. Any convex representation of c therefore has positive coefficients only on vertices with equality. Those are precisely the contacts at squared distance r−||c||²; their weighted squared distances to any candidate y average to r−||c||²+||y−c||², proving unique optimality. For handle mass h the within-block means minimize the squared norm and attain (r−h)²/p+h²/t; they are in the hull for every 0≤h≤1 by interpolation between the two orbit barycenters. This strictly convex quadratic has unconstrained minimum at rt/(p+t), so h=min(rt/(p+t),1). This gives both stated centers, the two radii, and the squared-radius deficit by completing the square. In the capped regime, the inner products of the two types differ by (r−1)/p−1/t, giving the exact positive squared-distance clearance. At equality c is uniform and both orbits contact, including the orbit not needed to support c. Orbit sizes and parameter scope are correct. The supplement contains four off-center probes and one centered probe, rather than five off-center probes as described; this has no bearing on the analytic theorem. The supplement was inspected read-only.",
+      "residual_risks": [
+        "The statement uses the canonical Euclidean indicator realization; it is not an affine-invariant result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanely et al. give precisely P={x∈[0,1]^(p+t): Σx_i=r, Σ_B x_i≤1}.",
+          "Tsang et al. state the general minimum-ball dual, recovered primal variables, and the constant-diagonal simplification. The inspected Deligeorgaki et al. abstract is about Ehrhart theory, not an enclosing ball."
+        ],
+        "reasoning": "With the linear kernel κ=r, the published dual is minimized in squared norm by two block means; no coordinate-box bound can bind for the resulting mean vector in the stated domain. Just one published handle-sum constraint can clip the scalar optimum.",
+        "searches": [
+          "https://www.jmlr.org/papers/volume6/tsang05a/tsang05a.pdf, equations (1)–(6)",
+          "arXiv:2201.12442, §4 Definition 4.1 and Proposition 4.4",
+          "arXiv:2311.01640v3, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Hanely et al. Definition 4.1 and Proposition 4.4",
+        "Tsang et al. §§3.1–3.2",
+        "Resultary minimal, ellipsoid and inball statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h=Σ_B x_i, Cauchy–Schwarz in the blocks reduces the prior dual to minimizing (r−h)²/p+h²/t over 0≤h≤1. Equality is attained at the componentwise block means. The optimizer is min(rt/(p+t),1), and the radius deficit is ((r−1)t−p)_+²/(pt(p+t)) by completing the square.",
+          "Below or at the switch the block means agree, so all vertices contact. Above it the pure-pan inner product exceeds the handle-orbit inner product by (r−1)/p−1/t; this gives the asserted departing orbit and its exact clearance. The p=r catalogue formula has cutoff rt=r+t and supercritical squared radius 2−(r+t)/(rt), both agreeing with the specialization, but alone it does not imply p>r."
+        ],
+        "reasoning": "The published general optimization identity and the exact published polytope description recover all stated formulas and regimes as a two-block projection. No unknown extremal or structural ingredient remains. The equal boundary in the ellipsoid paper is not taken as an implication of one metric problem from the other.",
+        "searches": [
+          "Hanely et al., Proposition 4.4, combined with Tsang et al., equations (2)–(5)",
+          "Resultary minimal-matroid outer ball and same-day Löwner ellipsoid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-norm outer-ball problem is exactly Euclidean minimum-norm optimization over the convex hull; the linear-kernel case of the published dual has objective r−||Σα_i v_i||² on the simplex. This is a continuous minimum-norm base-polytope point, not a discrete minimum basis.",
+          "The resulting contact set consists of the bases on the supporting hyperplane ⟨c,v⟩=||c||²."
+        ],
+        "reasoning": "The published dual recovers both c=Σα_i v_i and R²=r−||c||². The identity ||v−c||²=R²−2⟨c,v−c⟩ gives the complete contact predicate and clearance for any equal-norm finite input, without requiring a matroid-specific theorem.",
+        "searches": [
+          "Tsang, Kwok and Cheung, constant-diagonal minimum enclosing ball, §§3.1–3.2",
+          "Resultary: panhandle enclosing spheres, minimum norm, and contact orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical self record is excluded as independent prior evidence. The older minimal-matroid outer-ball entry (82125c812c6f) has the same formula at p=r, not p>r; the inball entry (3e805ae8aac8) gives a facet-distance construction. The closest same-day ellipsoid entry (a486f9d503b4) has the same contrast boundary in its design weights, but all its vertices contact a minimum-volume ellipsoid."
+        ],
+        "reasoning": "A numerical table is not needed for these continuous geometric formulas over unbounded parameters. The exact indexed formula lookup gave a boundary subfamily and distinct optimization objects, not an earlier table for this outer-ball family. Those distinctions make the broader implication, not catalogue coincidence, decisive.",
+        "searches": [
+          "Resultary: minimum enclosing radius/center and contact transition of canonical panhandle or minimal matroid base polytopes, with inball/ellipsoid variants"
+        ]
+      },
+      "rationale": "The exact formula and contact criterion are a direct specialization of the published constant-norm minimum-enclosing-ball dual combined with the published two-block inequality description of panhandle polytopes. This is demonstrated broader coverage by a mechanical scalar constrained quadratic calculation, not a claim that an earlier panhandle paper printed the formula for p>r.",
+      "residual_risks": [
+        "No comprehensive claim about the first publication of this explicit formula. A bounded literature lookup did not identify a printed p>r outer-ball formula; the failure is based on actual mechanically dominating coverage, not no results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general geometric optimization identity needed for the exact frozen result",
+          "evidence": "Equation (3) recovers the center as the optimal convex combination and the squared radius as the dual value; equations (4)–(5) drop the constant diagonal term leaving −αᵀKα.",
+          "identifier_or_url": "https://www.jmlr.org/papers/volume6/tsang05a/tsang05a.pdf",
+          "material_read": "JMLR pp. 367–368, §§3.1–3.2 equations (1)–(6), text offsets 14000–18637",
+          "method": "Lawful publisher PDF; locate dual and inspect bounded original passage",
+          "title": "Core Vector Machines: Fast SVM Training on Very Large Data Sets",
+          "trigger": "Exact published minimum-ball/minimum-norm equivalence for constant squared norms"
+        },
+        {
+          "assessment": "Supplies exact constraints but does not explicitly compute the outer ball in the inspected passages",
+          "evidence": "Bases meet [p] in at least r−1 elements and the base polytope is the rank-r slice of the cube cut by Σ_B x_i≤1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12442",
+          "material_read": "§4, Definition 4.1 and Proposition 4.4, PDF pp. 7–8, offsets around 28062 and 33125",
+          "method": "Open original PDF, bounded passages",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+          "trigger": "Same family and exact feasible region"
+        },
+        {
+          "assessment": "Inspected scope concerns Ehrhart positivity and enumeration, not minimum-ball computation",
+          "evidence": "The abstract frames the results as Ehrhart bounds via chain-forest enumeration.",
+          "identifier_or_url": "arXiv:2311.01640v3",
+          "material_read": "Abstract, p. 1, offset around 325",
+          "method": "Open original PDF, bounded passage",
+          "title": "Ehrhart Bounds for Panhandle and Paving Matroids Through Enumeration of Chain Forests",
+          "trigger": "Same panhandle family"
+        },
+        {
+          "assessment": "Agrees at p=r; not direct coverage of p>r",
+          "evidence": "The exceptional orbit at p=r consists of a single basis and the contact cutoff is rt=r+t.",
+          "identifier_or_url": "2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f",
+          "material_read": "Mirrored RESULT.md finding and formula",
+          "method": "Resultary index and local mirror bounded read",
+          "title": "Minimal-matroid base polytopes have a one-exception minimum-sphere transition",
+          "trigger": "Exact outer-ball formula for boundary parameter p=r"
+        },
+        {
+          "assessment": "Same threshold for a different quantity; not the Euclidean outer ball",
+          "evidence": "Design weights change at t/p=1/(r−1) in corresponding notation, but every vertex contacts the enclosing ellipsoid.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-all-contact-l-wner-ellipsoids-and-a-three-scale-design-tra--a486f9d503b4",
+          "material_read": "Mirrored RESULT.md opening finding and design boundary",
+          "method": "Resultary index and local mirror bounded read",
+          "title": "Exact all-contact Löwner ellipsoids and a three-scale design transition",
+          "trigger": "Distinct same-day record, same canonical family and contrast threshold"
+        },
+        {
+          "assessment": "Different optimization (largest inscribed ball)",
+          "evidence": "Incenter locus is controlled by facet distances for r≥3, p>r, t≥2.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-euclidean-inball-phases-of-panhandle-matroid-base-polytope--3e805ae8aac8",
+          "material_read": "Mirrored RESULT.md passages at offsets 0, around 4300 and 8314",
+          "method": "Resultary index and local mirror bounded read",
+          "title": "Three Euclidean inball phases of panhandle matroid base polytopes",
+          "trigger": "Close indexed metric result for the same family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen statement and proof",
+        "Published constant-norm ball dual and panhandle polytope inequalities"
+      ],
+      "rationale": "The canonical Euclidean invariant is a legitimate question, and the contact pattern is stated accurately, but its computation is a routine equal-norm-ball conversion and a one-constraint scalar projection. The sharp threshold, departures, and deficit are direct consequences of the already available geometry and constraints; the frozen record adds no independent obstruction, mechanism, or unknown exact invariant beyond that calculation.",
+      "residual_risks": [
+        "The formula can still be useful as a worked example or reference value; that is distinct from meeting the bar for a new finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

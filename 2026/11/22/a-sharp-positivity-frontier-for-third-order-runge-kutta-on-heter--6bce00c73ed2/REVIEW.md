@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed stability polynomial yields explicit expressions for all nine entries, and exact row stochasticity follows from \(Q\mathbf1=0\). The forward-entry quadratic has a strictly negative discriminant; reverse entries have the single sign cutoff \(3/S\). Strict monotonicity of \(r\) locates the limiting diagonal at the largest departure rate. A positive Bernstein basis on the full reverse-safe interval and the one-sign-change cubic after substitution \(t=u/(1+u)\) establish the precise single-crossing alternative, including endpoints. The one-parameter transition is derived by exact algebra. `verify.py` supplies 11,797 exact checks over 343 integer-rate triples but does not replace the analytical proof.
+## correctness
 
-## Originality
-PASS on inspected material, with residual historical priority uncertainty. Gottlieb–Shu–Tadmor supply a universal SSP sufficient bound, not the all-rate exact endpoint classification. Horváth's complete 16-page paper addresses positivity thresholds uniformly over IVP classes and specialized cones, not this rate-dependent three-cycle. The adaptable-weight three-state pure-birth result concerns a different scheme with different quantifiers; a published heterogeneous directed-cycle Crank–Nicolson frontier uses a different rational update. Complete multipartite RK3 results use undirected diffusion and do not contain these cyclic cubic transition formulas. Searches for equivalent directed-triangle/RK3 positivity statements revealed no dominating theorem; that absence is not a proof of uniqueness in all literature.
+PASS
 
-## Value
-PASS. A three-cycle is the smallest nontrivial irreducible one-way circulating Markov network. The exact family-wide positivity frontier gives a sharp algorithm-design rule, distinguishes reverse-edge and diagonal failures, reveals a genuine rate-imbalance phase boundary, and identifies a strict end-step benefit over the established universal SSP CFL bound in every nonuniform case. This is a natural complete classification for an unbounded continuous family of positive rates, rather than a single numerical example.
+The cubic is the fixed SSPRK(3,3) end-step for a linear generator, with row sum one since Q1=0. Expanding Q as a forward cyclic shift with rate weights minus the diagonal exit-rate matrix, a predecessor entry gets its quadratic term xy and its cubic term −xy(x+y+z); a successor gets x, −x(x+y), x(x²+xy+y²). On a diagonal the cubic return walk gives +abc in addition to −x³. The successor quadratic multiplier has negative discriminant, predecessors become strictly negative together after H=3/S, and r′<0 makes the maximum-rate diagonal the minimum for all h>0. Independently of the Bernstein proof, set z=Mh and k=abc/M³: G(h)/z³=z⁻³−z⁻²+1/(2z)−(1−k)/6 has derivative −((z−2)²/2+1)/z⁴. Thus G can cross only once and does so strictly when G(H)<0. If G(H)=0 the endpoint is still admissible. When rates are equal, H=1/M; otherwise H>1/M and all entries are strictly positive at 1/M, including G=1/3+abc/(6M³). The t-family polynomial follows by substitution and has exactly one crossing for t≥1 since its derivative increases there, changing sign once, while the polynomial starts negative and diverges to +∞.
 
-## Limitations and nearby work
-The claimed improvement is for the completed linear step only, not for internal stages or general SSP theory; the result excludes more states and networks with reverse arcs. The historical literature on positivity polynomials could contain an unindexed equivalent specialization. Publication priority should be assessed independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct finding is an all-positive-rate necessary and sufficient endpoint horizon with an explicit branch criterion for the three-cycle. The fixed polynomial, the general SSP guarantee, and the known fastest-exit idea alone are not priority claims. The closest inspected fixed-RK3 directed-cycle theorem excludes n=3 for a reason the algebra makes material: a length-three diagonal return adds an abc term absent for n≥4.
+
+## value
+
+PASS
+
+A three-cycle is the smallest closed one-way Markov network with a missing reverse edge and a full three-step return. This makes it a motivated test of when stage-independent SSP bounds are conservative. The result gives the exact completed-step positivity limit for arbitrary heterogeneity, distinguishes return-diagonal and reverse-edge obstructions, and proves why the answer cannot be obtained simply from the SSP bound or the longer-cycle formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

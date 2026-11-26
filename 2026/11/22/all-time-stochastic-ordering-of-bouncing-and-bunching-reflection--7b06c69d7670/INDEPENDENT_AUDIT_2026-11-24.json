@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:08:56.509725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the wall rows: only the outward forward move from w=(1,-1) changes, from a self-loop to u=(1,+1), with the same one-step absorption vector. Subtracting the first-step equations gives z f (I-zQ_B)^(-1)_{i,w}(F^U_u-F^U_w). The two bunching wall exit laws are geometric with parameters f and b and share the same continuation H from (2,+1), or H=1 for N=2. Their PGF difference has numerator z(f-b)(1-z)H; the 1-z cancels for cumulative probabilities. The remaining product has nonnegative coefficients. For N>=3 a leftward run reaches w, using a reverse step first if needed; a right-facing walker at site 1 can first move to site 2 and reverse. H has a positive coefficient from a rightward run. For N=2 only w reaches w, and equality at f=b is of hitting laws, not of transition kernels. Positive probabilities of finite rightward runs give almost-sure absorption. Inspected VERIFICATION.md and the finite exact replay path python3 check.py in the frozen directory; did not execute the uploaded program. The infinite proof is algebraic, not based on the reported 40 systems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior propagator framework supplies first-passage distributions, not an ordered kernel comparison or uniform sign theorem.",
+          "The separate reversal thresholds concern conditional moments of reversal counts, a different random variable in a different dynamics."
+        ],
+        "reasoning": "A formula for distributions or their means is not a dominance theorem; the coefficientwise sign needs the shared continuation and cancellation at this particular wall.",
+        "searches": [
+          "arXiv:2404.13360v2 §§VI–VII; first-passage formulas and mean and reflection comparisons",
+          "Resultary 2026/11/22/SCOPE-two-nested-reversal-count-fluctuation-thresholds-for-finite-inte--13632ddb5c13"
+        ]
+      },
+      "checked_sources": [
+        "Marris–Giuggioli arXiv:2404.13360v2 / NJP 26 073020",
+        "Resultary records 7b06c69d7670 (identical) and 13632ddb5c13 (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wall transitions are prior. The nonnegative PGF factor after cancellation is not the displayed propagator or the reported peak observation."
+        ],
+        "reasoning": "Neither a higher mass peak nor an ordering of means implies stochastic order. The rank-one CDF calculation supplies the missing sign argument, including antipersistence and start-state strictness.",
+        "searches": [
+          "Marris–Giuggioli, arXiv:2404.13360v2 Eq. (34) and Figure 9(c)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marris–Giuggioli Eq. (34) uses (delta,sigma,omega)=(b,f,0) for bunching and (b,0,f) for bouncing, a model-level match.",
+          "The exact-title Resultary hit has the frozen record's own identifier, not an independent antecedent; the distinct nested-reversal-count record studies a continuous-time escape count."
+        ],
+        "reasoning": "Changing notation or taking tail rather than CDF probabilities does not change the ordering question. Comparison on the matched conventions found no equivalent universal stochastic-order statement.",
+        "searches": [
+          "Persistent and anti-persistent motion in bounded and unbounded space, arXiv:2404.13360v2 §§III.2 and VII",
+          "Resultary: bouncing/bunching reflection, persistent walk and stochastic first-passage order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 9(c) and its discussion identify differing intermediate second peaks in first-hit masses in an example, not cumulative inequalities.",
+          "The numerical examples and indexed comparisons do not encode the universal dichotomy for continuously variable f,b and arbitrary size and horizon."
+        ],
+        "reasoning": "No identifiable exact sequence or table is asserted; the relevant tabulated/graphical comparison concerns the wrong statistic and finitely many instances.",
+        "searches": [
+          "arXiv:2404.13360v2 Figure 9(c) and accompanying discussion",
+          "Resultary frozen record 7b06c69d7670 and distinct nearby record 13632ddb5c13"
+        ]
+      },
+      "rationale": "The predecessor has the same reflection conventions and general first-passage machinery, but the distinct supported contribution is the coefficientwise CDF order, including its sign reversal, equality and start-dependent strictness. The nearby catalogue records examined do not cover that theorem.",
+      "residual_risks": [
+        "An unindexed equivalent stochastic comparison remains possible.",
+        "The arXiv PDF retrieval timed out; the decisive wall and figure passages were available in HTML."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model covered; uniform CDF sign theorem not found in inspected material",
+          "evidence": [
+            "Near HTML offsets 22200 and 90000: direction preserved versus changed and corresponding wall transition parameters.",
+            "Near offset 97947: comparison of an intermediate second peak in first-passage probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.13360v2",
+          "material_read": "§III.2 reflection definitions, §VII Eq. (34), Figure 9(c) and its discussion; compared the first-passage and mean framework",
+          "method": "Lawful OA arXiv HTML, relevant passages located and read",
+          "title": "Persistent and anti-Persistent Motion in Bounded and Unbounded Space: Resolution of the First-Passage Problem",
+          "trigger": "Same protocols and first-passage setting"
+        },
+        {
+          "assessment": "Different statistic and dynamics",
+          "evidence": [
+            "Conditional reversal count moments in continuous time, not reflection-ordering of absorption times."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-nested-reversal-count-fluctuation-thresholds-for-finite-inte--13632ddb5c13",
+          "material_read": "Result statement and corresponding scope",
+          "method": "Configured Resultary lookup and local source comparison",
+          "title": "Two nested reversal-count fluctuation thresholds for finite intervals",
+          "trigger": "Closest distinct indexed hit on persistent escape thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The law-level comparison determines one protocol for every deadline and increasing hitting-time cost for a natural transport model, rather than choosing by a mean or a single peak. The reversal threshold and the sharp two-site exception explain when the choice actually changes a deadline probability. It does not assert pointwise mass ordering or extend to partially absorbing targets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

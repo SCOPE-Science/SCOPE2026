@@ -1,93 +1,41 @@
-# A sharp three-prime obstruction for adjacent coprime pairs
+# The extremal prime support for runs without adjacent coprime pairs
 
 ## Finding
 
-Let \(N\) be a positive odd integer with exactly three distinct prime factors, and define
+Let \(N\) be a positive odd integer with exactly three distinct prime factors. For an integer start \(a\), call the pair \((a,a+1)\) good if \(\gcd(a(a+1),N)=1\). Let \(L(N)\) be the longest run of consecutive starts that are not good. The only possible prime support for a run of length fourteen is \(\{3,5,7\}\); this support does attain fourteen, and none of its runs goes beyond fourteen. Thus
 \[
-L(N)=\max_{a\in\mathbb Z}\max\{\ell\ge0:\gcd((a+i)(a+i+1),N)>1\text{ for }0\le i<\ell\}.
+L(N)\le14,\qquad L(N)=14\quad\Longleftrightarrow\quad\operatorname{rad}(N)=105.
 \]
-Then \(L(N)\le14\), and equality holds if and only if \(\operatorname{rad}(N)=105\).
-For any such \(N\) with radical \(105\), the complete set of starts attaining fourteen is
-\[
-a\equiv2\quad\text{or}\quad a\equiv89\pmod{105}.
-\]
-In particular exactly \(2N/105\) residue classes modulo \(N\) attain the bound, and for all other odd moduli with three distinct prime factors the maximum is at most thirteen.
+For this support the fourteen-run starts are precisely \(2,89\pmod{105}\), a consequence also obtainable from earlier paired-Jacobsthal data. There are \(2N/105\) such classes modulo \(N\). The new part established here is the classification over **all** odd three-prime supports for the fixed offset one, not the fourteen-run calculation on the smallest support alone.
 
-## Assumptions and scope
-
-Here \(\operatorname{rad}(N)\) is the product of distinct primes dividing \(N\). A start \(a\) is *good* if both \(a\) and \(a+1\) are individually coprime to \(N\), equivalently \(\gcd(a(a+1),N)=1\). The function \(L(N)\) counts the largest run of consecutive starts that are not good. Only odd positive \(N\) with exactly three distinct prime factors are considered. Prime powers are allowed. We make no assertion for even moduli or four or more distinct prime factors. As the condition depends only on \(\operatorname{rad}(N)\), the maximum is finite and periodic.
+The coprimality test depends only on the distinct primes of \(N\). A good start exists by the Chinese remainder theorem (CRT), since for each odd prime one can avoid the residues \(0,-1\). Thus the maximum is finite. Prime powers are allowed. No analogous claim is made for even moduli, other offsets or a different number of prime factors.
 
 ## Proof
 
-**Local sieve.** Consider fourteen consecutive indices \(I=\{0,1,\ldots,13\}\). For any odd prime \(p\mid N\), the index \(i\in I\) has \(p\mid(a+i)(a+i+1)\) precisely if
-\[
-i\equiv-a-1\quad\text{or}\quad-a\pmod p.
-\]
-Consequently, if \(r\equiv-a-1\pmod p\), that prime covers the mask
-\[
-B_p(r)=\{i\in I:i\bmod p\in\{r,r+1\}\},\qquad 0\le r<p.
-\]
-By the Chinese remainder theorem, choices of \(r\) for distinct primes correspond bijectively to starts modulo their product. A bad run of fourteen exists if and only if the union of three corresponding masks equals \(I\).
+Suppose there is a bad run of fourteen. Write \(I=\{0,\ldots,13\}\) for the index set. At each prime \(p\mid N\), the covered indices are those congruent to \(-a-1\) or \(-a\pmod p\), a pair of adjacent residues. For distinct primes the phases can be set independently by the CRT.
 
-**Reduction from infinitely many primes to twenty-six classes.** The primes below fourteen that can divide odd \(N\) are exactly \(3,5,7,11,13\). For any prime \(p\ge17\), since \(14<p\), its mask on \(I\) can only be empty, a singleton, or two neighboring indices. It is therefore contained in the *permissive* family
-\[
-\mathcal B_{\mathrm{large}}=\{\varnothing\}\cup\{\{i\}:0\le i<14\}\cup\{\{i,i+1\}:0\le i<13\}.
-\]
-Some members of this permissive family may not be attainable for a fixed large prime; this is an over-approximation used only to prove an upper bound. Every three-distinct-prime support is represented by an unordered three-class multiset from \(3,5,7,11,13,\mathrm{large}\), with each small prime occurring at most once, and with any number of large slots. There are exactly twenty-six such multisets.
+**Supports not containing 3.** The maximum numbers of covered indices for \(p=5,7,11,13\) are respectively \(6,4,4,3\), since each mask consists of two adjacent residue classes in \(I\). For \(p\ge17\) the maximum is two. The only triple of distinct primes not containing 3 whose maxima sum to at least fourteen is \(5,7,11\), whose sum is exactly fourteen. Its masks would have to be disjoint and simultaneously maximal. For \(p=11\), a four-index mask must use adjacent residues among \(0,1,2\), the only classes with two representatives. Thus its indices are either \(\{0,1,11,12\}\) or \(\{1,2,12,13\}\). Both masks hit residues 1 and 2 modulo 5. A six-index mask for \(p=5\) must choose one of \(\{0,1\},\{1,2\},\{2,3\}\) modulo 5, since only \(0,1,2,3\) occur three times. It necessarily intersects the 11-mask, which rules out full coverage.
 
-**Exact exhaustive certificate.** Encode each local mask by its fourteen-bit indicator integer. For each of the twenty-six class multisets enumerate the Cartesian product of the respective local mask sets and compute the bitwise union. The table records the largest number of covered indices and the number of full fourteen-index coverings. For large slots these are upper bounds and potentially spurious coverings; for small-prime-only slots they are exact.
+**Supports containing 3.** The 3-mask leaves one congruence class modulo 3 uncovered. Its indices form a step-three progression in \(I\) of length four or five. Each other prime is at least 5, and the progression has distinct residues modulo that prime (its step is invertible), so each other prime covers at most two of its indices. Therefore the uncovered class must have four indices, namely \(2,5,8,11\); equivalently \(a\equiv 2\pmod3\). If an additional prime were at least 11, the possible positive differences \(3,6,9\) among the four indices could not be congruent to \(0,1,-1\) modulo that prime. It would cover at most one of the four, a contradiction. This forces the support \(\{3,5,7\}\).
 
-| Odd-prime classes | Largest covered subset of the 14-index window | Full coverings |
-|:--|--:|--:|
-| 3, 5, 7 | 14 | 2 |
-| 3, 5, 11 | 13 | 0 |
-| 3, 5, 13 | 13 | 0 |
-| 3, 5, large | 13 | 0 |
-| 3, 7, 11 | 13 | 0 |
-| 3, 7, 13 | 13 | 0 |
-| 3, 7, large | 13 | 0 |
-| 3, 11, 13 | 12 | 0 |
-| 3, 11, large | 12 | 0 |
-| 3, 13, large | 12 | 0 |
-| 3, large, large | 12 | 0 |
-| 5, 7, 11 | 11 | 0 |
-| 5, 7, 13 | 11 | 0 |
-| 5, 7, large | 11 | 0 |
-| 5, 11, 13 | 11 | 0 |
-| 5, 11, large | 11 | 0 |
-| 5, 13, large | 10 | 0 |
-| 5, large, large | 10 | 0 |
-| 7, 11, 13 | 10 | 0 |
-| 7, 11, large | 10 | 0 |
-| 7, 13, large | 9 | 0 |
-| 7, large, large | 8 | 0 |
-| 11, 13, large | 8 | 0 |
-| 11, large, large | 8 | 0 |
-| 13, large, large | 7 | 0 |
-| large, large, large | 6 | 0 |
-
-The finite operations can be reproduced by running `python3 verify_paired_sieve_14.py` (Python standard library only). The code explicitly computes every local mask from the displayed congruences, every permitted class triple, and every union; it asserts there are twenty-six cases and exactly two full coverings, both in the class \((3,5,7)\). This computation is logically exhaustive for **all** odd three-prime moduli by the reduction above, not a bounded experiment on moduli.
-
-**Extremizers and maximality.** Direct enumeration of the full residue period \(0\le a<105\), using \(\gcd((a+i)(a+i+1),105)\) for \(i=0,\ldots,13\), yields exactly the starts \(a=2,89\). For both starts, the preceding and succeeding starts are good: \(\gcd((a-1)a,105)=\gcd((a+14)(a+15),105)=1\). Every hypothetical bad run of fifteen contains a bad run of fourteen; by the unique-class result its radical must be \(105\), but neither extremal run extends. Thus \(L(N)\le14\), with equality and the stated start multiplicities exactly as claimed. ∎
+Write the four indices as \(i=3q-1\), \(q=1,2,3,4\). The two covered residues in \(q\) for each of 5 and 7 differ by \(\pm 3^{-1}\). The prime 7 must take \(\{1,3\}\) or \(\{2,4\}\). The prime 5 must take the complementary pair, and either such pair is possible for 5. The two residue pairs for each prime are \(\{-a/3,(1-a)/3\}\) modulo the corresponding prime. Solving them and \(a\equiv2\pmod3\) gives \(a\equiv2,89\pmod{105}\). Both assignments cover all fourteen indices. A run of fifteen would require consecutive starts of runs of fourteen, but the two allowed residues modulo 105 are not consecutive. This proves the bound, sharpness, and complete support classification.
 
 ## Verification
 
-The self-contained script `verify_paired_sieve_14.py` was executed successfully. It generated all twenty-six table rows, found exactly two full coverings in the \((3,5,7)\) class, independently scanned all \(105\) start residues, and verified that both extreme runs cannot be extended in either direction. As additional non-exhaustive checks, it directly scanned six sample prime supports. No sample scan is invoked to justify the theorem for arbitrary primes; the finite-mask reduction justifies that quantifier.
+The accompanying `verify_paired_sieve_14.py` (Python standard library) gives an alternative exact exhaustion. It represents the masks for \(3,5,7,11,13\) by their actual congruence classes and any prime at least 17 by the permissive family consisting of the empty set, singleton indices and neighboring two-index sets. In a window of fourteen, no other mask is possible for a prime at least 17. Exactly twenty-six class triples arise, with no repeated small-prime slot. The verifier computes all their mask unions and checks that the only fully covered windows arise in the \((3,5,7)\) triple, in two phases. It independently checks both start residues modulo 105; sample scans at other prime supports are illustrative only. The argument above does not require executing the certificate.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Ziller and Morack (arXiv:1706.00317v1, 1 June 2017) define a paired Jacobsthal function for progressions whose coordinate difference is **even** and consider the uniform maximum over such differences. Their companion computation (arXiv:1706.03668v1, 12 June 2017) tabulates that function for primorial moduli. Our pairs have the **fixed odd difference one** and our modulus is odd with exactly three distinct prime divisors; neither definition nor primorial table implies the sharp fourteen-window bound or the exact two extremizers.
+Ziller and Morack's paired Jacobsthal function \(j_2(N)\) uses pairs with an even integer difference. When \(N\) is odd, any offset has an even representative modulo \(N\); in particular \(1+N\) represents offset one. Thus \(L(N)\le j_2(N)-1\). Their 2017 computation gives \(j_2(210)=30\); Lemma 1.1 of its `full_details.pdf` gives \(j_2(2M)=2j_2(M)\) for odd \(M\), hence \(j_2(105)=15\). Lemma 1.2 similarly implies \(j_2(3M)=3j_2(M)\) for \(3\nmid M\), which bounds \(L(3pq)\) by fourteen for distinct primes \(p,q\ge5\): two primes cover at most four indices in a window of length five.
 
-Kalmynin and Konyagin (arXiv:2302.00459, first public 1 February 2023) study divisibility of \(x+f(i)\) under *additive output translation*. Our condition is divisibility of \((a+i)(a+i+1)\) under *input translation* and is not the same invariant. OEIS A072753 permits arbitrary pairs of forbidden classes for each prime, rather than requiring the two classes to be consecutive; its listed values do not directly determine our restricted three-prime extremal classification. Nguyen's 2026 finite-window CRT study treats symmetric pairs about a fixed center and finite lifted windows, not this universal adjacent-pair three-prime classification. A literature comparison does not constitute absolute proof of publication novelty.
+For support \(\{3,5,7\}\), the earlier `remainders_2.txt` block at \(n=4\) contains all six maximal coverings of \(q=1,\ldots,4\) by two arbitrary residue classes for each of 5 and 7. Filtering with class differences \(\pm 3^{-1}\) keeps exactly rows 2 and 5, the two complementary pairs above. Matching the remaining residue modulo 3 and applying CRT gives the same starts \(2,89\pmod{105}\). The difference between that prior computation and this fixed-offset question is not parity: it is the requirement that all phases come from the same offset one, together with the universal quantifier over distinct prime supports. The primorial data do not by themselves rule out fixed-offset equality at other supports. OEIS A072753 tabulates the arbitrary-class version on the primorial range of primes starting at 5, not the universal fixed-offset classification.
 
-## Limitations
-
-The claim concerns only a fixed number (three) of distinct odd prime divisors and the adjacent pair offset one. The table is a complete finite exact certificate conditional on the elementary local-mask reduction; it is not a general formula for longer offsets or for more prime factors. The prime-class `large` is a deliberately permissive **superset**, not an assertion that every mask in it occurs for every large prime. The originality assessment covers sources inspected and known nearby results but cannot eliminate unindexed or inaccessible publications. Independent validation has not been performed.
+The polynomial Jacobsthal function of Kalmynin–Konyagin concerns additive output shifts \(x+f(i)\), whereas the present translation changes the polynomial input. A fixed-center symmetric-pair calculation can be relevant, because \((C-q,C+q)\) has the same divisibility test as \((q-C,q+C)\), with offset \(2C\). The inspected bibliographic material for Nguyen's finite-window study does not settle whether its full text contains a matching special case. The coverage comparison does not prove historical priority.
 
 ## References
 
-- M. Ziller and J. F. Morack, *Divisibility in paired progressions, Goldbach's conjecture, and the infinitude of prime pairs*, arXiv:1706.00317v1 (first posted 2017-06-01), https://arxiv.org/html/1706.00317v1.
-- M. Ziller and J. F. Morack, *A short note on the computation of the generalised Jacobsthal function for paired progressions*, arXiv:1706.03668v1 (first posted 2017-06-12), https://arxiv.org/html/1706.03668v1.
-- A. Kalmynin and S. Konyagin, *A polynomial analogue of Jacobsthal function*, arXiv:2302.00459 (first posted 2023-02-01), https://arxiv.org/html/2302.00459v2.
-- OEIS A072753, *Maximum gap in two-stage prime-sieves*, https://oeis.org/A072753.
-- T. T. K. Nguyen, *Finite-Window Noncovering on Primorial Wheels: Higher-Order CRT Bounds and Shift Correlations*, posted 2026-08-19, https://www.preprints.org/manuscript/202608.1299.
+1. M. Ziller and J. F. Morack, *Divisibility in paired progressions, Goldbach's conjecture, and the infinitude of prime pairs*, [arXiv:1706.00317v1](https://arxiv.org/html/1706.00317v1), §2.
+2. M. Ziller and J. F. Morack, *A short note on the computation of the generalised Jacobsthal function for paired progressions*, [arXiv:1706.03668v1](https://arxiv.org/html/1706.03668v1), Table 1; ancillary [full_details.pdf](https://arxiv.org/src/1706.03668v1/anc/full_details.pdf), §§1 and 3.3; ancillary [remainders_2.txt](https://arxiv.org/src/1706.03668v1/anc/remainders_2.txt), \(n=4\) block.
+3. A. Kalmynin and S. Konyagin, *A polynomial analogue of Jacobsthal function*, [arXiv:2302.00459v2](https://arxiv.org/html/2302.00459v2), §1.
+4. [OEIS A072753](https://oeis.org/A072753), *Maximum gap in two-stage prime-sieves*, comments and formula.
+5. T. T. K. Nguyen, *Finite-Window Noncovering on Primorial Wheels: Higher-Order CRT Bounds and Shift Correlations*, [DOI 10.20944/preprints202608.1299.v1](https://doi.org/10.20944/preprints202608.1299.v1) (full text not inspected).

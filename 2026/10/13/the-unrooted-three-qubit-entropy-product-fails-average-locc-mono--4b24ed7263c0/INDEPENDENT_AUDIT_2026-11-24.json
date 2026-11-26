@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:44:24.450144Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reducing sqrt(p)|000>+sqrt(1-p)|111> to any qubit kills the cross terms, giving eigenvalues p,1-p. The proposed diagonal instrument is complete, with squared diagonal sums (1+0,1/7+6/7)=(1,1). For p=1/8 the first output has two squared amplitudes 1/8 and 1/8, so its probability is 1/4 and its three marginal entropies are all 1 bit after normalization. The second output is proportional to |111>, with squared norm (7/8)(6/7)=3/4 and all marginal entropies zero. Independently evaluating the input entropy, h_2(1/8)=3-(7/8)log_2 7 < 5/8 since 524288=2^19<7^7=823543. Cubing gives a product less than 125/512, which is less than the output average 128/512. This exact arithmetic suffices without executing the frozen checker or using a floating entropy. A complete local instrument is already an LOCC protocol with known outcome, so this disproves the universal pure-state average inequality. It neither proves violation under deterministic pure-to-pure LOCC nor addresses a mixed-state extension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Matsumoto–Imai define their top bipartite concurrence as the product of Schmidt probabilities. SCOPE-20261012-f0a72f244dcf shows average failure for that product in dimension d>=3.",
+          "Li–Shang Theorem 1 proves strong monotonicity of a geometric mean of bipartite concurrences."
+        ],
+        "reasoning": "Different factors and powers matter under outcome averaging; neither the bipartite product result nor the geometric-mean theorem yields the specific raw entropy-product failure.",
+        "searches": [
+          "Resultary: top concurrence hierarchy raw product strong monotonicity",
+          "arXiv:quant-ph/0204041v5, Eq. (13) and deterministic LOCC argument",
+          "arXiv:2112.10509, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0705.3904v4",
+        "Cao et al., Sci. China Ser. G 49, 606 (2006), attribution only",
+        "arXiv:quant-ph/0204041v5",
+        "SCOPE-20261012-f0a72f244dcf",
+        "SCOPE-20261013-baa40db1c0b6",
+        "arXiv:2112.10509"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu et al. call the product a good measure for pure three-qubit systems and list LOCC nonincrease among measure requirements; the inspected text is not a selective average comparison for the raw product.",
+          "The earlier indexed concurrence witness compares a product of d Schmidt eigenvalues, not h_2(p)^3. The Cao full text was not located by the checked route."
+        ],
+        "reasoning": "The proposed witness refutes the raw product under the strong, selective-outcome interpretation. An argument based on deterministic conversion, or on concavity after taking the root, cannot settle that interpretation. This is not a claim about the historical intent of the source's wording.",
+        "searches": [
+          "arXiv:0705.3904v4, p. 1, entanglement-measure requirements and Eq. (1); p. 2, Eq. (3)",
+          "Cao, Liu, Pan and Long, Sci. China Ser. G 49, 606 (2006), identified via Liu et al. ref. [25]; attempted targeted lookup",
+          "SCOPE-20261012-f0a72f244dcf, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Zhao–Long give the identical unrooted S_E in Eq. (1), but S_1 in Eq. (3) is its cube root on three qubits.",
+          "Same-day SCOPE-20261013-baa40db1c0b6 concerns a four-qubit cluster state and an arithmetic aggregate of pairwise mutual information, not a product of marginal entropies."
+        ],
+        "reasoning": "Strong monotonicity is not invariant under taking the cube of a monotone. In the frozen witness the root has input h_2(1/8)>3/8 and average output 1/4, opposite to the raw product comparison. Mutual information across pairs is a different input functional.",
+        "searches": [
+          "Resultary: raw product of one-qubit entropies, strong/average LOCC failure, generalized GHZ filter",
+          "arXiv:0705.3904v4 around Eq. (1) and Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source specifies the product and discusses GHZ entanglement, but the inspected product/measure passages do not give the state with weight 1/8 and a filter increasing its expected raw product to 1/4. Checked indexed neighbors involve different functionals."
+        ],
+        "reasoning": "An earlier exact witness or classification of which pure-state products violate the average inequality could cover the finding; no such entry for this product was verified.",
+        "searches": [
+          "Resultary: entropy product h_2(1/8), generalized GHZ probabilistic concentration and LOCC counterexample",
+          "arXiv:0705.3904v4, Eq. (1) and GHZ discussion"
+        ]
+      },
+      "rationale": "The unrooted functional and generic local-concentration ideas are not new. The specific conclusion that this functional is not a strong LOCC monotone, with a single-qubit filter and exact branch comparison, is not established in the comparable indexed and primary passages inspected. The strongest earlier catalogue analogue is for a bipartite product of Schmidt probabilities rather than three marginal entropies. The 2006 antecedent cited for the entropy product is an unresolved access risk, not negative evidence or a verdict.",
+      "residual_risks": [
+        "Cao et al.'s original 2006 text was not retrieved; it could contain an earlier discussion of average monotonicity.",
+        "A differently phrased generalized-GHZ concentration example could imply the result if it compares the same raw product; the bounded search cannot exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same functional; does not establish the selective failure in checked passages",
+          "evidence": "Describes unrooted product as a good measure for three qubits and attributes it to Cao et al.; S_1 is the geometric mean, a different functional under averaging.",
+          "identifier_or_url": "arXiv:0705.3904v4; doi:10.1088/0253-6102/54/5/09",
+          "material_read": "p. 1, Eq. (1) and surrounding requirements, PDF text offset about 3900; p. 2, Eq. (3) and monotonicity discussion, offsets about 9700 and 12800; reference [25]",
+          "method": "OA primary-text statement comparison",
+          "title": "Multiple Entropy Measures for Multipartite Quantum Entanglement",
+          "trigger": "Primary discussion of the exact unrooted product"
+        },
+        {
+          "assessment": "Unresolved full-text access, not a whole-document exclusion",
+          "evidence": "Liu et al. identify this reference as the entropy-product source; whether it analyzes selective outcomes was not verified.",
+          "identifier_or_url": "W. C. Cao, D. Liu, F. Pan and G. L. Long, Science in China Ser. G 49, 606 (2006)",
+          "material_read": "Liu et al., p. 4, ref. [25], text offset about 27800, and surrounding attribution at Eq. (1); no original passage available",
+          "method": "Primary citation inspection and targeted source lookup (unavailable)",
+          "title": "2006 entropy-product antecedent (article title not verified)",
+          "trigger": "Original product attribution in Liu et al."
+        },
+        {
+          "assessment": "Bipartite Schmidt-probability functional and deterministic argument",
+          "evidence": "The top concurrence is a product of Schmidt probabilities, not one-qubit entropies.",
+          "identifier_or_url": "arXiv:quant-ph/0204041v5",
+          "material_read": "p. 3, Eq. (13), and p. 4, Nielsen-criterion argument",
+          "method": "OA primary-text statement comparison",
+          "title": "Quantify Entanglement by Concurrence Hierarchy",
+          "trigger": "Closely analogous unrooted product monotonicity claim"
+        },
+        {
+          "assessment": "Analogous mechanism only",
+          "evidence": "For d>=3, the claimed gain factor 3^(d-1)/(2d+1) concerns the product of bipartite Schmidt eigenvalues.",
+          "identifier_or_url": "SCOPE-20261012-f0a72f244dcf",
+          "material_read": "Finding and Proof",
+          "method": "Local Resultary mirror exact passage comparison",
+          "title": "Raw top concurrence hierarchy fails average LOCC monotonicity",
+          "trigger": "Closest earlier indexed raw-product counterexample"
+        },
+        {
+          "assessment": "Different state and functional; no statement-level coverage",
+          "evidence": "Four-qubit cluster state and arithmetic aggregate of pairwise mutual information, not three marginal entropies.",
+          "identifier_or_url": "SCOPE-20261013-baa40db1c0b6",
+          "material_read": "Finding and Proof",
+          "method": "Local Resultary mirror exact passage comparison",
+          "title": "An endpoint cluster measurement increases a proposed pairwise mutual-information measure",
+          "trigger": "Same-day indexed local-measurement counterexample"
+        },
+        {
+          "assessment": "Geometric-mean result does not transfer to the raw product",
+          "evidence": "Uses geometric-mean concavity and strong monotonicity of concurrence factors.",
+          "identifier_or_url": "arXiv:2112.10509; doi:10.1103/PhysRevResearch.4.023059",
+          "material_read": "Theorem 1 and proof, p. 2, text offsets about 12400–17500",
+          "method": "OA primary-text implication comparison",
+          "title": "Geometric mean of bipartite concurrences as a genuine multipartite entanglement measure",
+          "trigger": "Strong monotonicity for a related mean"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strong LOCC monotonicity is independently motivated because selective local operations and classical outcomes are basic to interpreting a resource measure. A two-outcome filter on one qubit shows that using legitimate marginal entropies as factors does not make their product a strong monotone. The exact counterexample directly tests a published suggested quantifier, while retaining the distinction between the raw product and its geometric mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Compile and run from the unpacked finding directory:
+## correctness
 
-```
-c++ -std=c++17 -O2 checks/verify_dihedral.cpp -o check_d
-./check_d 1
-./check_d 3
-c++ -std=c++17 -O2 checks/verify_local.cpp -o check_l
-./check_l
-```
+PASS
 
-`verify_dihedral.cpp` independently enumerates all binary group-algebra elements for dihedral groups of orders 8 and 24. For each it multiplies actual group basis elements, verifies \(x^2=0\), and determines the left regular rank by exact binary elimination. For \(m=1\) the rank counts are \(0:1,1:1,2:6,4:40\) (total \(48\)). For \(m=3\), they are \(0:1,1:1,2:15,3:9,4:172,5:78,6:996,7:168,8:4512,9:384,10:9024,12:15360\) (total \(30720\)). These agree with the stated products.
+In characteristic two, odd m makes T^m-1 square-free and splits the rotation algebra into field factors tensored with F_q[t]/t^4. Inversion swaps the reciprocal-pair blocks; in the nonsplit orbit its order-two action is nontrivial on K=F_(q^{2d}). For theta of relative trace one, w=t+theta(t²+t³) is fixed because inversion fixes t² and t³ and adds t²+t³ to t. As w is a uniformizer, the involution in the w-coordinate acts only on coefficients. The twisted algebra is M2 over F_(q^d)[w]/w^4 by the faithful quadratic Galois action with multiplication; this descent works even in characteristic two. In D8 direct expansion forces a0=b0, a1=0, b1(b0+b1)=0; for b0 nonzero the b-component exhibits an injective four-dimensional column. Otherwise the induced matrix on the t²-layer over F_q[t]/t² is invertible if a2+b2 is nonzero, and has a unit pivot and vanishing determinant if a2=b2 is nonzero. The remaining t³-layer is an ordinary two-dimensional rank calculation. These cases give exactly H_q. In the matrix block L_X acts by X on each column (the 'right multiplication' wording in the proof is a slip). For valuation at least two, ranks follow from the reduction and a single complementary entry. For valuation one, after reducing to J=E12, B=bI+cJ and the pivot t leaves complementary entry t³(C21+b²), giving regular ranks six or eight. For nonzero reduction J, the upper-right entry is a unit; square zero is then exactly zero trace and zero determinant, so x11 in tS and x12 in 1+tS give Q^6 choices per J, and the image has maximum rank. This verifies P_Q coefficient by coefficient. Direct products add ranks, with scalar-degree conversion, so degree 4m and the top coefficient follow with the stated acyclicity criterion. The two frozen C++ checkers were inspected, not executed; their reported exhaustive counts for the named small cases agree and are not the proof for arbitrary parameters.
 
-`verify_local.cpp` independently enumerates \(\mathbb F_4[D_8]\) and all \(2^{16}\) two-by-two matrices over \(\mathbb F_2[t]/t^4\), using exact finite-field and polynomial-ring arithmetic and direct linear rank. The observed counts are \(D_8\) over \(\mathbb F_4\): \(0:1,1:3,2:60,4:1728\); and the matrix block: \(0:1,2:9,4:78,6:168,8:384\). The checks completed successfully.
+## originality
 
-These are finite tests only. The unbounded theorem uses explicit crossed-product descent and exhaustive symbolic valuation cases in the written proof; neither numerical tests nor a software log is an infinite proof. No independent audit has been performed. The claim is limited to characteristic two and odd \(m\).
+PASS
+
+Pass applies to the complete characteristic-two dihedral element-level rank enumerator, not to the length-four local P_Q polynomial in isolation. A distinct same-day indexed all-length result demonstrably covers P_Q; priority for that component is unresolved. The inspected results do not cover the D8 rank factor together with the reciprocal-orbit global product.
+
+## value
+
+PASS
+
+Square-zero left multiplication makes the labeled regular algebra a chain complex, and its rank determines the dimension of its homology. The all-q and all-odd-m enumerator gives actual multiplicities for every homology dimension and the acyclic case, not just numbers of codes, or isolated ranks from a small experiment. The reciprocal-orbit organization explains how the global census changes with the field and odd part of the group order. No extension to even m or classification up to conjugacy is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

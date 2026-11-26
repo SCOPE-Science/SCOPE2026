@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state space, rate convention and positivity predicate are explicit. The exact Schur complement of \(I-sQ\) gives two rational diagonal formulas; the Cayley relation and irreducible \(M\)-matrix property eliminate off-diagonal positivity as a competing issue. Each diagonal numerator has one allowed crossing, the equality comparison is algebraic, and strict monotonicity of the hub and leaf crossing times proves global uniqueness of the return-rate optimum. The included verifier confirms the critical polynomial identities and 1,513 finite assertions. The analytical argument covers every integer \(m\ge2\) and positive real \(a,b\).
+## correctness
 
-## Originality — PASS on inspected evidence, qualified
-Fekete–Ketcheson–Lóczi (arXiv:1610.00228) concern explicit RK positivity for convective semidiscretizations; Higueras–Roldán (2007) concern positivity of implicit RK implementations, especially stage predictors. The earlier open Markov-resolvent result gives a general scalar diagonal test but no sharp optimization over inward/outward rate contrast. The open weighted-star result assumes symmetric edge rates and gives hub-first failure, whereas the present non-symmetric generator has a genuinely different leaf-first regime. Direct claim comparisons found no coverage of the exact crossover \(b/a=m^2/(2m-1)\) or the uniquely maximizing back-rate. Risk: an unindexed Markov-Cayley calculation or another specialized birth–death formula might imply the same claim.
+PASS
 
-## Value — PASS
-The result is an exact timestep feasibility design rule for a natural class of reversible yet directionally asymmetric continuous-time Markov systems. It distinguishes the first endangered state, identifies a rate choice where competing positivity obstructions balance, and quantifies an attainable \(2-1/m\) gain over equal inward/outward rates. These are structurally motivated rather than arbitrary parameter evaluations. It does not imply a better accuracy or mixing rate.
+With A=ma and s=h/2, the resolvent is the exponential-time average of the Markov semigroup, strictly positive for s>0 by irreducibility; the completed step is 2 times the resolvent minus the identity. An independent decomposition uses the hub/aggregate-leaf two-state chain with decay rate A+b and the leaf differences with decay rate b. It gives resolvent hub return b/(A+b)+[A/(A+b)]/[1+s(A+b)], and leaf return (1-1/m)/(1+sb)+(1/m){A/(A+b)+[b/(A+b)]/[1+s(A+b)]}. These yield diagonal numerators 1+s(b-A) and 1+As-b[b+(m-2)a]s^2 over positive denominators. For b<A the hub threshold is increasing in b; substitution there makes the leaf diagonal 1-(2m-1)b/(am^2). The unique positive leaf zero decreases strictly with b because the coefficient of -s^2 increases strictly. Thus the two thresholds coincide only at b*=m^2 a/(2m-1)<A, the positivity interval increases up to this switch and decreases after it, and for b>=A the hub imposes no restriction. Inserting b* and b=a respectively gives the claimed maximum and factor 2-1/m. At the switch all diagonals vanish; h=0 gives the identity. For instance m=3,a=1 gives b*=9/5 and h*=5/3; the boundary step sends the hub uniformly to leaves and each leaf to the hub with probability 3/5 and to each other leaf with probability 1/5, with no diagonal mass. This is for the completed step and the stated two-direction homogeneous family only. The frozen SymPy script was inspected, not run.
 
-## Limitations
-The theorem covers common rates within each class and the completed Crank–Nicolson step only. Full scholarly exhaustiveness and independent validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the separate inward-rate design theorem: the unique non-symmetric maximizer, exact simultaneous binding and gain relative to the equal-rate chain. The full-chain diagonal criterion, the fact that positivity holds on one interval, and the symmetric-star law are covered by prior principles and special cases and are not counted as novel. The retrieved sources do not give or imply the optimizer from a stronger rate-design statement.
+
+## value
+
+PASS
+
+The star isolates a natural hub-versus-leaf tradeoff in a positivity-preserving Markov discretization. With outward rates fixed and inward rates a modelling choice, the exact switch gives a design rule and nearly doubles the safe step relative to symmetric rates. The switching mechanism and quantitative gain are more informative than applying the generic diagonal test to one fixed generator. Varying b changes the underlying chain and stationary law, so this is not a method for improving the accurate timestep of an unchanged generator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

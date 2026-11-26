@@ -1,19 +1,21 @@
-# Review of the three-eigenvalue Hermite-correction variance separation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the stated sparse positive-definite family the last two coordinates form an explicit block with eigenvalues \(N\) and \(2N\), alongside \(N^3\) unit eigenvalues. The one-node full-size global-Lanczos Rayleigh quotient and Hermite tangent are therefore exact. A single offdiagonal coordinate pair determines the entire Rademacher quadratic-form noise. Its scalar multiplier is \(1-2N^2/\mu_N^2\), giving a pathwise identity for every finite probe sequence. The variance is consequently amplified by a factor asymptotic to \(4N^4\). Spectral formulas for the inverse and the Hermite remainder prove that the Gaussian corrected-to-baseline variance ratio tends to zero like \(5/N\). The exact trace formula proves the deterministic relative-bias limit. The two-eigenvalue bound follows by spectral-projector decomposition. The included exact-rational script passed 2,501 assertions, complementing but not replacing the algebraic proof.
+PASS
 
-## Originality
+The identity-started node is mu=(N^3+3N)/(N^3+2); the tangent remainder is (x-mu)^2/(mu^2 x). The only random coordinate pair for sign probes has coefficient 1/(4N) in the inverse and (1-2N^2/mu^2)/(4N) in the remainder. This verifies the centered samplewise identity for shared probes, baseline variance 1/(4sN^2), strict inflation for N>=2, and ratio asymptotic 4N^4. The eigenvalue remainders at 1,N,2N are O(N^-4), asymptotic to N, and asymptotic to 2N, respectively. With multiplicities N^3,1,1 this gives squared remainder norm asymptotic to 5N^2, inverse squared norm asymptotic to N^3, and Gaussian variance ratio asymptotic to 5/N. Direct trace subtraction verifies relative discrepancy asymptotic to 3/N^2. For two eigenvalues a<b the projector decomposition gives exact sign ratio (1-ab/mu^2)^2, bounded by (b/a-1)^2 when the denominator variance is positive. Frozen RESULT.md lines 44–84 is an algebraic replay; supplied verify.py was inspected, not executed. 'Vanishing Frobenius residual' is only relative to the inverse norm; the absolute remainder norm grows. Exact actions are assumed.
 
-**PASS, subject to historical-priority risk.** The full motivating preprint by Rinelli, Simunec and Vermeiren (arXiv:2611.18864v1) contains the algorithm, the Hermite remainder, and Gaussian/Rademacher variance expressions; those are used rather than re-proposed. Published spectral-deflation literature, including Gambhir, Stathopoulos and Orginos (arXiv:1603.05988), already recognizes that reducing some spectral errors need not reduce stochastic sign-probe variance. The present three-point-spectrum quantitative separation, its exact all-probe law, the contrasting Gaussian asymptotics, and the two-versus-three-eigenvalue conditioning gap were not established by the closest inspected statements. The previously established two-level inverse-trace scalar formula cannot supply quartic growth at condition \(2N\). No claim is made that a failed literature search proves worldwide novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** In matrix-function trace estimation, the same Hermite approximation can look excellent in relative Frobenius error and in deterministic trace while being unreliable with sign probes. A sparse three-eigenvalue construction makes this mismatch exact and arbitrarily large, identifying a concrete spectral-and-coordinate mechanism rather than an unexplained numerical failure. The two-eigenvalue bound gives a meaningful minimum spectral-complexity contrast. This can inform the choice of residual estimator and variance assessment but does not establish performance or cost advantages.
+Credit the existing estimator, variance formulas, the warning for spectral deflation and the two-spectrum formula. The distinct finding is an exact three-spectrum one-node inverse family with quartic sign-variance inflation and a simultaneously vanishing Gaussian ratio and relative deterministic bias. The inspected strongest comparisons do not establish this joint separation.
 
-## Closest literature and limits
+## value
 
-Rinelli, Simunec and Vermeiren, arXiv:2611.18864v1 (2026); Gambhir, Stathopoulos and Orginos, arXiv:1603.05988 (2016); Hallman and Troester, arXiv:2103.10516 (2021). The conclusion applies only to exact inverse actions, a one-step full-size Hermite correction, and the specified family. The finite tests do not certify all dimensions, while the proof does. Historical priority is open to independent checking. An independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example isolates why relative Frobenius or deterministic trace accuracy is not a sufficient diagnostic for sign-probe improvement, while directly checking that Gaussian variance does improve against its own baseline. The quadratic two-level ceiling makes the quartic three-level effect structurally meaningful. No claim about equal cost, absolute Gaussian versus sign variance, or finite-tolerance actions follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

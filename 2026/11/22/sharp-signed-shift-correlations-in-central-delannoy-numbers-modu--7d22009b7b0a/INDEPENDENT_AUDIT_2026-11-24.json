@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:09:13.384420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–75",
+        "VERIFICATION.md lines 3–13, 19–22",
+        "verify_delannoy7.py lines 7–128; inspected, not executed",
+        "Independent replay /tmp/opencode/frozen-digit-correlations.py"
+      ],
+      "rationale": "Lucas' theorem splits the binomial sum digitwise, including the 2^j factor since 2^(7^i) is 2 modulo 7. The seven character weights are (1,-1,-1,0,-1,-1,1), so the support size is 6^r. Reconstructing the two-state ordinary-addition transfer gives the displayed matrices. The zero shift digits contribute diag(6,1), and the final extra digit has weight -1, not +1, for carry one. This proves the exact noncyclic formula for r at least the length of h and the limit after division by 6^r. Divide each matrix by 6: after the first nonzero digit the row has infinity norm at most 1/3. Any later digit 1 through 5 contracts by at least a factor of two; if there are only later digits 0 or 6, a 6 strictly attenuates the coordinate that enters the answer. The first coordinate has magnitude 1/3 precisely for first nonzero digits 3 and 5, with opposite signs, giving both and only the claimed equality classes. Zero shift has normalized value one and is excluded from the inequality. An independently written standard-library replay, /tmp/opencode/frozen-digit-correlations.py, computed actual Delannoy characters via constant terms of (3+x+2/x)^n mod 7 and matched all 396 noncyclic blocks tested at lengths 7, 49 and 343. The universal proof is the carry and contraction argument, not finite enumeration.",
+      "residual_risks": [
+        "No mathematical gap identified; the proof does not treat other primes, varying shifts, or cyclic blocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Lucas congruence supplies the digit factorization; its specialization follows directly from the defining polynomial sum. The cited q-Delannoy work concerns Lucas congruences and the automatic-congruence paper concerns construction of residue automata. The focused search did not surface the exact result, and primary retrieval failed."
+        ],
+        "reasoning": "A congruence or general automaton algorithm can supply a digit law or transfer but does not, on the available evidence, imply the specific signed sharp bound with its exhaustive equality classes.",
+        "searches": [
+          "Deutsch–Sagan arXiv:math/0407326v1 Theorem 5.9",
+          "Pan arXiv:1508.02046v1 Introduction and Theorem 1.1",
+          "Rowland–Yassawi arXiv:1310.8635v1",
+          "Focused primary-literature search for Delannoy mod-seven signed shift correlations and digital autocorrelation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source proof and references",
+        "Resultary exact match, mod-five Delannoy, mod-seven cyclic Apéry and mod-five Domb entries",
+        "OEIS A001850 as identified by the frozen references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Delannoy mod-five index reports a five-branch law with quartic character and powers of five, rather than the mod-seven quadratic two-carry contractions. Independently checked terminal factor is exactly -b_h."
+        ],
+        "reasoning": "A common transfer method does not transport those arithmetic weights or their sharp equality patterns to this problem. The full claim needs both the noncyclic boundary evaluation and the strict continuation/equality reasoning. Same-day dates were not used to infer priority.",
+        "searches": [
+          "2026/11/22/SCOPE-positive-all-lag-quartic-character-correlations-of-central-delan--45e3d7d4c052",
+          "Deutsch–Sagan Theorem 5.9",
+          "Resultary cyclic Apéry mod-seven and Domb signed mod-five comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Apéry index describes cyclic mod-seven quadratic-character correlations on Apéry numbers. The Domb index concerns mod-five signs on a third sequence."
+        ],
+        "reasoning": "Compare digit-character correlation/transfer formulations rather than the presence of the word Delannoy. The same-prime cyclic hit uses another base sequence and a cyclic boundary; a cyclic transfer uses the terminal weight (1,1), while the target uses (1,-1). No sequence identification or transfer conjugacy implying the target extremizers was evidenced.",
+        "searches": [
+          "Resultary: signed Delannoy character, all-shift correlation, digit carries",
+          "2026/11/22/SCOPE-sharp-cyclic-quadratic-character-correlations-of-ap-ry-numbers-m--c5933e2cfaf5",
+          "2026/11/22/SCOPE-exact-pair-sign-laws-and-sharp-autocorrelation-extremizers-for-d--43552c627a5d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary match was the assigned record itself. A001850 is the underlying integer sequence; the joint-fiber hit is about mod-five statistics of two sequences."
+        ],
+        "reasoning": "A table of one-point coefficients gives the digit seeds, not the normalized all-shift signed invariant or its attaining shifts. The duplicate hit does not count as independent coverage.",
+        "searches": [
+          "Resultary exact frozen record and parallel Delannoy records",
+          "OEIS A001850",
+          "2026/11/22/SCOPE-exact-mod-five-joint-fibers-and-sharp-quadratic-correlation-of-c--4871e6608db9"
+        ]
+      },
+      "rationale": "The distinct supported result is the evaluated mod-seven signed noncyclic block law together with the sharp all-lag range and complete signed extremizers. The one-point Lucas congruence and the use of a finite-state carry computation are not credited as new. No stronger matching statement was established in the evidence examined.",
+      "residual_risks": [
+        "Relevant primary and catalogue full-text access was incomplete; a generic digital-correlation theorem or unlocated earlier evaluated equivalent cannot be ruled out. No absence or priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit digit factorization; no independent full-text coverage verdict",
+          "evidence": [
+            "Theorem 5.9 as cited; D_n mod 7 factors over digits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+          "material_read": "Frozen RESULT.md lines 44–57 and 80–87; no primary passage retrieved",
+          "method": "OA passage attempt; independently reconstructed the needed specialization from Lucas' theorem",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Known Lucas antecedent"
+        },
+        {
+          "assessment": "Methodological antecedents; exact coverage not established",
+          "evidence": [
+            "No examined statement classifies mod-seven noncyclic extremizing lags."
+          ],
+          "identifier_or_url": "arXiv:1508.02046v1; arXiv:1310.8635v1",
+          "material_read": "Citations and scope in frozen RESULT.md lines 80–89; no primary passage retrieved",
+          "method": "OA passage requests timed out",
+          "title": "A Lucas-type congruence for q-Delannoy numbers; Automatic congruences for diagonals of rational functions",
+          "trigger": "Possible general implication"
+        },
+        {
+          "assessment": "Stated prime and character differ; no implication established",
+          "evidence": [
+            "Mod-five quartic law and power-of-five extrema rather than the two mod-seven signed families."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-positive-all-lag-quartic-character-correlations-of-central-delan--45e3d7d4c052",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary; original not retrieved",
+          "title": "Positive all-lag quartic character correlations of central Delannoy numbers modulo five",
+          "trigger": "Closest same-sequence all-shift index hit"
+        },
+        {
+          "assessment": "Indexed claim uses a different sequence and cyclic convention; no full-text exclusion asserted",
+          "evidence": [
+            "Cyclic Apéry blocks do not have the Delannoy terminal carry sign under the ordinary shift definition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cyclic-quadratic-character-correlations-of-ap-ry-numbers-m--c5933e2cfaf5",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary and targeted local-mirror Finding request (timed out)",
+          "title": "Sharp cyclic quadratic-character correlations of Apéry numbers modulo seven",
+          "trigger": "Closest same-prime and character result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 21–41, 59–75 and 80–84",
+        "Resultary near-match summaries for related arithmetic and cyclic settings"
+      ],
+      "rationale": "The central Delannoy numbers are a natural digit-factorable sequence. The signed two-point statistic on the natural sparse support scale answers a different question from nondivisibility or density. Exact noncyclic correction and full positive/negative extremal families distinguish both boundary effects and the structure of long-lag agreement or anticorrelation. These precise results are useful for comparison with other residue-character correlations; the strict equality analysis is not supplied by writing down a transfer alone.",
+      "residual_risks": [
+        "Value is a concrete exact invariant at one prime; no broader uniformity over primes or windows is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

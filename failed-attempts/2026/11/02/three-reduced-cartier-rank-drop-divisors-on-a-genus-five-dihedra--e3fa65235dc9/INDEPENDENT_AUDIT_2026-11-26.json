@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:34:30.988140Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p≥13 the sextic-in-x substitution gives a squarefree degree-twelve polynomial exactly off A=±2, so the smooth projective model has genus five. In the basis x^(j−1)dx/y the unrooted coefficient at row i, column j is [x^(pi−j)](x^12+A x^6+1)^((p−1)/2). Its support is j=i for p≡1 mod 6 and j=6−i for p≡−1 mod 6. Dividing the first three exponents by six and reflecting the other two by reciprocity gives degrees (r,2r,3r) and (r−1,2r−1,3r−1), respectively. Truncating the binomial series to degree m=(p−1)/2 is valid modulo p, giving the coefficient (−1)^d P_d(A/2). Inverse Frobenius is an automorphism of the algebraically closed ground field; on each matched one- or two-dimensional orbit Cartier is bijective when its coefficient is nonzero and zero otherwise, so 2,2,1 are stable-rank weights. The reversal in dimension five is even, leaving the determinant sign (−1)^d3. The Legendre leading coefficient 4^(−d)·binom(2d,d) is nonzero, and L_d(±2)=(±1)^d. The differential equation with leading factor A²−4 rules out a double root by successive differentiation because d<p. Hence all divisor and determinant degrees and the additivity of multiplicities at intersections follow on the smooth parameter line. Independent replay in branches/cartier_check.py used Rodrigues' formula and repeated bivariate multiplication for p=13,17,19,23, checking every symbolic entry and squarefreeness. The monic pairwise gcds in order (1,2),(1,3),(2,3) were (1,1,1) at 13 and (1,A,1) at 19. Thus the stated rank counts are correct: six of rank three and six of rank four at 13; one of rank two and eight each of ranks three and four at 19. The bounded checks corroborate the proof, not replace it; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Novoselov's theorem is for general g over finite fields, and its proof is an identity of coefficient polynomials in ρ. Equality on all finite extensions also implies the polynomial identity, so it applies to A in every algebraically closed field of the given characteristic.",
+          "Ohashi–Kudo give Jac(H) isogenous to E1×E2×E3×E4² via genus-two and genus-three quotients, and their Proposition 4.11 tests the simultaneous vanishing of three truncated series in a transformed parameter δ.",
+          "The cited generalized Legendre manuscript was identified bibliographically, but its text was not obtained."
+        ],
+        "reasoning": "The general Novoselov coefficient theorem dominates the genus and parameter regime. Ohashi–Kudo's isogeny also reduces p-rank to elliptic ordinarity, but their simultaneous-vanishing criterion considered alone does not enumerate intermediate ranks or give the determinant in the original basis.",
+        "searches": [
+          "Novoselov Theorem 9, broader even-degree C₂,ρ",
+          "Ohashi–Kudo arXiv:2603.21569v1 §4.3, equation (4.13) and Propositions 4.9, 4.11",
+          "Ohashi, Superspecial curves of generalized Legendre form"
+        ]
+      },
+      "checked_sources": [
+        "Novoselov 2017 DOI:10.17223/20710410/37/2, §2.2",
+        "Ohashi–Kudo arXiv:2603.21569v1 §4.3, Algorithm 3 and Tables 2–3",
+        "Ohashi generalized Legendre manuscript (bibliographic and citing passage only)",
+        "Resultary 01ebc719d5ee and 9338ce39847f (indexed claims)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Upon specialization the prior matrix has orbits {1,5},{2,4},{3} with equal entries within each pair (separate equal diagonal entries when p≡1 mod 6). Nonzero scalar orbits are invariant and bijective after Frobenius twisting; zeros remove the whole corresponding weight. The reversal has sign +1.",
+          "The already determined P_d factors have d≤(p−1)/2, so 4^(−d)·binom(2d,d) is nonzero and ±2 are not roots. A double root elsewhere contradicts the Legendre differential equation and d<p. The determinant therefore has precisely the stated weighted reduced divisors with additive overlaps."
+        ],
+        "reasoning": "The prior theorem fixes the entire normalized matrix; all-prime rank, determinant and reduced degrees are direct consequences with classical polynomial properties. No new criterion for intersections at general p is established; the remaining finite examples use low-degree Euclidean algorithms on the same polynomials.",
+        "searches": [
+          "Novoselov Theorem 9 proof, pp. 28–29",
+          "Ohashi–Kudo Propositions 4.9 and 4.11, pp. 13–14",
+          "Classical Legendre differential equation, normalization and leading coefficient as applied in RESULT.md Proof Step 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Novoselov computes w_ij from the coefficient of x^(pi−j), supported on pi≡j mod (g+1), and gives P_((pi−j)/(g+1))(ρ) modulo p with reciprocal symmetry. Theorem 9(2) prints mod (g+1), but the displayed coefficient identity in its proof explicitly reads mod p and is the comparison used here.",
+          "The indexed characteristic-seven record 01ebc719d5ee addresses the same family at p=7; 9338ce39847f concerns a different genus-three Legendre pencil."
+        ],
+        "reasoning": "The substitution (g,ρ)=(5,−A/2) is exact, not an analogy. The first three supported indices specialize to the displayed degrees, and parity gives P_d(−A/2)=(−1)^d P_d(A/2). The same coefficient convention fixes the sign, not just the determinant's vanishing locus.",
+        "searches": [
+          "Novoselov, DOI:10.17223/20710410/37/2, §2.2 Theorem 9(1)–(6) and proof, pp. 28–29",
+          "Resultary: exact dihedral genus-five family, Legendre Cartier–Manin arithmetic strata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ohashi–Kudo Algorithm 3 computes the common gcd of three superspecial polynomials in δ, and Tables 2–3 count superspecial isomorphism classes, not A-parameters of intermediate ranks.",
+          "Novoselov's comparison tables are for C₁,ρ, the odd-degree family, not these genus-five intersections. The exact p=13 and p=19 pairwise gcds were not found as tabulated values in the checked sources."
+        ],
+        "reasoning": "Neither table answers the claimed low-prime parameter counts verbatim. The low-prime counts here are evaluations of the covered coefficient formula, not evidence of a new general rank-stratification theorem.",
+        "searches": [
+          "Ohashi–Kudo Algorithm 3 and §6 Tables 2–3",
+          "Novoselov conclusion and Tables 1–2",
+          "Resultary: p=13 and p=19 intersections of the three genus-five Legendre divisors"
+        ]
+      },
+      "rationale": "Novoselov (2017), §2.2 Theorem 9(1)–(6) and proof, already gives the same coefficient matrix for the general even-degree family y²=x^(2g+2)−2ρx^(g+1)+1. Setting g=5 and ρ=−A/2 gives precisely the three Legendre entries with the same diagonal or antidiagonal arrangement and repetition. The exact determinant and geometric p-rank follow by multiplication and immediate counting of the nonzero Frobenius-permuted blocks. The reduced factors, degrees and multiplicities then follow from classical Legendre identities; allowing transcendental A changes nothing because the matrix formula is polynomial. The two small-prime gcds are correct worked instances, not a distinct uniform intersection result. This is demonstrated prior coverage of the principal finding, not a verdict based on unavailable sources.",
+      "residual_risks": [
+        "The full generalized Legendre manuscript and same-family characteristic-seven record were not obtained, so they could provide additional coverage. They are immaterial to the demonstrated implication from Novoselov.",
+        "No priority conclusion is made about the two finite gcd evaluations in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the matrix and mechanical coverage of the main stratification and divisor formulas",
+          "evidence": [
+            "Proof computes [x^(pi−j)](x^(2g+2)−2ρx^(g+1)+1)^((p−1)/2)=P_((pi−j)/(g+1))(ρ) in characteristic p on the allowed indices.",
+            "Parts (3), (5), (6) give centrosymmetry and the relevant diagonal and antidiagonal cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.17223/20710410/37/2; open author PDF https://crypto-kantiana.com/semyon.novoselov/publications/hec_CM.pdf",
+          "material_read": "Abstract p. 20, §2.2 Theorem 9 and its proof and conclusion, pp. 28–29 (PDF pp. 9–10); conclusion identifies scope of tables",
+          "method": "Open author PDF, layout extraction and page image comparison",
+          "title": "Hyperelliptic curves, Cartier–Manin matrices and Legendre polynomials",
+          "trigger": "Broader even-degree family with exact Legendre coefficient matrices"
+        },
+        {
+          "assessment": "Exact family, decomposition and superspeciality criterion; the inspected superspecial tests alone do not give the claimed intermediate counts or a normalized determinant",
+          "evidence": [
+            "Jac(H)∼E1×E2×E3×E4², with E3: Y²=X(X²+AX+1) and E4: Y²=X³−3X+A.",
+            "Proposition 4.11 imposes simultaneous vanishing and Algorithm 3 computes the common gcd; its output is superspecial isomorphism classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.21569v1",
+          "material_read": "§4.3 pp. 13–14 equations (4.13)–(4.14), Propositions 4.9–4.12; Algorithm 3 p. 19; §6 Tables 2–3 captions",
+          "method": "Primary open arXiv PDF section and equation layout extraction",
+          "title": "On superspecial hyperelliptic curves of genus 5 whose automorphism groups contain (Z/2Z)^3",
+          "trigger": "Same genus-five family and isogeny or hypergeometric comparison"
+        },
+        {
+          "assessment": "Possible additional coverage not assessed; not used to decide originality",
+          "evidence": [
+            "Ohashi–Kudo §4.3 states that its superspecial criterion follows from Theorem 3.9 with g=5."
+          ],
+          "identifier_or_url": "Ohashi; [13] in arXiv:2603.21569v1",
+          "material_read": "Bibliographic listing and citing proposition; no full text",
+          "method": "Author publication listing and primary citation",
+          "title": "Superspecial curves of generalized Legendre form",
+          "trigger": "Proposition 4.11 invokes its general Theorem 3.9"
+        },
+        {
+          "assessment": "Same-family overlap outside the audited prime range, no conclusion about unread material",
+          "evidence": [
+            "Summary lists ranks 2,3,4,5 in characteristic seven and special Prym or quotient fibers."
+          ],
+          "identifier_or_url": "Resultary:01ebc719d5ee",
+          "material_read": "Indexed summary only; local passage retrieval timed out",
+          "method": "Local Resultary catalogue",
+          "title": "Prym superspeciality and the complete characteristic-seven rank stratification",
+          "trigger": "Same genus-five pencil"
+        },
+        {
+          "assessment": "Methodological analogue, not the same curve family",
+          "evidence": [
+            "The indexed result concerns the genus-three x^8 pencil."
+          ],
+          "identifier_or_url": "Resultary:9338ce39847f",
+          "material_read": "Indexed summary only",
+          "method": "Local Resultary catalogue",
+          "title": "Uniform Legendre-polynomial arithmetic strata in a dihedral genus-three family",
+          "trigger": "Legendre strata in another dihedral pencil"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family and its geometric p-rank are mathematically natural, but the central result is an index specialization of a known explicit matrix followed by direct orbit counting and standard Legendre facts. Its two low-degree gcd examples illustrate how an overlap changes rank but do not establish a new intersection criterion, boundary or independently motivated exact gap. The correct specialization and examples are useful exposition, not a separate research finding here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

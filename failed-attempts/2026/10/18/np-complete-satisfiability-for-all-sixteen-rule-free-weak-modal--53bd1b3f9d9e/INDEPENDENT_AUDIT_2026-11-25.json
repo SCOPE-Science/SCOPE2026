@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:01:12.657626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Nishimura arXiv:2610.01433v1, Definitions 2.1, 2.3, 2.5 and 3.7"
+      ],
+      "rationale": "Independently verified locality for the fixed syntax. Let Q be the restricted saturation. If C is present, close Q under arbitrary binary conjunction trees. This intersects the support S exactly in Q: a constructed conjunction in S has both children in S, and induction on its construction followed by restricted C gives membership in Q. M on a new conjunction returns its children, and on an old one returns subformulas already in Q. An implication premise for K cannot be a newly constructed conjunction, so it is in Q; its antecedent and consequent are in S, so its antecedent in the tree closure must be in Q and K works within Q. N is accounted for at the seed, and with no C use Q itself. The result is closed and contains the generators, giving equality by leastness. This applies to primitive conjunction or Nishimura's usual non-implication-headed negation/implication abbreviation, and to formulas measured in the fixed syntax used for saturation. A one-world model with the least closure of guessed positive bodies realizes the guesses exactly when no guessed-negative body enters the saturation. Every existing model supplies such guesses since its closed H contains this least closure. N does not require necessitation. There are linearly many subformulas and bits, linearly many strict rounds, and each round can enumerate premises and compare ordinary syntax trees in polynomial time. Modal-free SAT and tautology are identity reductions, and negation interchanges invalidity and satisfiability. The same verifier works with four selection bits. The frozen checker was inspected, not executed; its bounded comparisons do not establish unrestricted locality.",
+      "residual_risks": [
+        "No RE or Gen, no equivalence quotient, no succinct inputs, and no claim for arbitrary alternative macros that alter the closure rules' syntactic interactions. For instance, replacing conjunction by the implication-headed macro top→¬(A→¬B) would let C followed by K create ¬(A→¬B) via an implication outside its subformula set; the same locality proof would not apply. That is not the fixed usual conjunction abbreviation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nishimura's per-target support recipe applies to G, the arbitrary target ψ and top, using only subformulas.",
+          "Dalmonte–Mazzullo use replacement of equivalents; Kudinov–Rybakov's reported classes also contain replacement and the theorem is for variable-free formulas; Kogure–Kurahashi use necessitation for their N."
+        ],
+        "reasoning": "The latter three sources do not cover this rule-free domain. For an arbitrary finite subformula-closed S containing G, ψ and top, the support in Nishimura is contained in S; enlarging it is sound and cannot lose an existing derivation. Applying the prior membership recipe to each ψ in S yields exactly the stated intersection lemma.",
+        "searches": [
+          "Nishimura Corollary 3.14",
+          "Dalmonte–Mazzullo DOI:10.1007/978-3-031-43513-3_17",
+          "Kudinov–Rybakov arXiv:2507.09136",
+          "Kogure–Kurahashi arXiv:2607.08730"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01433v1",
+        "DOI:10.1007/978-3-031-43513-3_17",
+        "arXiv:2507.09136v1",
+        "arXiv:2607.08730v1",
+        "Resultary 700dd8e5e5b0 and 03c335126520"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 3.14 states that it suffices to perform Definition 3.7 within the finite set of subformulas of G(Δ)∪{ψ,top}. Definition 3.5 adds at most one boxed variant and one signed variant per subformula, so Sub* remains linear.",
+          "In Lemma 3.9 the paper also uses the key observation that clause (b) introduces only conjunctions, so an implication in the closure comes from a generator's subformulas."
+        ],
+        "reasoning": "A monotone saturation on s allowed formulas has at most s proper rounds and scans at most s² pairs per round. There are at most linearly many box queries to evaluate at a guessed Δ; all are therefore polynomial. Looking for a countermodel nondeterministically gives coNP-validity, and negation gives NP-satisfiability. Modal-free lower bounds apply uniformly. The frozen proof provides a clean justification of locality, but its semantic lemma and complexity consequence are directly implied by the existing membership recipe. A stated future direction does not negate these explicit hypotheses and bounds.",
+        "searches": [
+          "arXiv:2610.01433v1, Lemma 3.9, Definitions 3.5/3.7 and Corollary 3.14 proof, and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nishimura's candidate is a singleton whose boxed bodies are generated from a subset Δ of Sub*(φ), and whose atom valuation is determined by the same subset.",
+          "The modal truth clause is membership in clΛ(G(w)); replacing the pair (G,cl) by H(w) is explicitly discussed just after Corollary 3.14."
+        ],
+        "reasoning": "A subset choice in that construction is a bit certificate. The frozen split into atom bits and body bits is a streamlined encoding of the same one-world search and does not change the semantics or complexity. Here N is the axiom Box top and both present formulations omit RE and Gen.",
+        "searches": [
+          "Local Resultary: rule-free weak modal closure satisfiability and validity NP/coNP; one-world countermodels",
+          "Nishimura arXiv:2610.01433v1, Definitions 2.1, 3.5, 3.7 and Corollary 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "700dd8e5e5b0 gives singleton completeness with additional D/4 choices but expressly gives no complexity bound.",
+          "03c335126520 gives equality and inclusion among 64 theorem sets rather than an exact complexity table."
+        ],
+        "reasoning": "The exact theorem-set table does not itself give uniform complexity. The same-date lattice record was evaluated on its content, not discarded by date. The decisive coverage is instead the effective procedure in Nishimura.",
+        "searches": [
+          "Local Resultary: singleton completeness with M C N K D 4; exact weak modal logic lattice"
+        ]
+      },
+      "rationale": "Nishimura does not label the rule-free problem NP/coNP-complete and explicitly mentions complexity as a direction. However, Corollary 3.14 already states the decisive exact finite-support membership computation and specifies the one-world candidate to which it applies, for the very same sixteen systems. Definitions 3.5 and 3.7 make the support linear and the restricted fixed-point computation polynomial by a direct count. Guess the subset in Corollary 3.14 rather than loop over it, and use the modal-free classical fragments for hardness. This yields the frozen classification without a new premise. It is verified implication by prior text, not a claim that the complexity labels appear there verbatim.",
+      "residual_risks": [
+        "Bounded comparison, not a universal priority claim. The finding is covered by an actual implication from the inspected primary literature, not rejected for another paper being unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rule-free domain, linear candidate representation and finite-support procedure; direct complexity corollary without explicit NP/coNP wording in the prior source",
+          "evidence": [
+            "Corollary 3.14: 'it suffices to perform the construction of Definition 3.7 within the finite set of subformulas' of the generators, target and top.",
+            "Lemma 3.9 observes conjunction formation by C does not introduce implications."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01433v1",
+          "material_read": "Definitions 2.1, 2.3 and 2.5, pp. 4–6; Definitions 3.5–3.8 and Lemma 3.9, pp. 9–10; Theorems 3.12–3.13 and Corollary 3.14, pp. 11–12; §5 p. 24",
+          "method": "Lawful OA primary PDF locating and reading bounded passages",
+          "title": "Closure Semantics for Weak Modal Logics: Completeness and Representations",
+          "trigger": "Closest rule-free model theory and possible direct complexity implication"
+        },
+        {
+          "assessment": "Different rule set",
+          "evidence": [
+            "The systems use the modal congruence rule taking A↔B to Box A↔Box B."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-43513-3_17",
+          "material_read": "Introduction and §2, pp. 303–304",
+          "method": "Lawful OA primary text passage inspection",
+          "title": "CoNP Complexity for Combinations of Non-normal Modal Logics",
+          "trigger": "Close non-normal complexity theorem"
+        },
+        {
+          "assessment": "Different rule and input fragment",
+          "evidence": [
+            "Variable-free coNP results for E, EM, EN and EMN; E includes replacement of equivalents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.09136v1",
+          "material_read": "Definition on p. 2 and result on p. 6",
+          "method": "OA primary PDF passage inspection",
+          "title": "Complexity of the variable-free fragments of non-normal modal logics",
+          "trigger": "Possible E/M/C/N complexity overlap"
+        },
+        {
+          "assessment": "Different modal inference rule hypothesis",
+          "evidence": [
+            "N in this paper is the pure logic with necessitation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.08730v1",
+          "material_read": "Abstract and Definition 2.3, p. 4",
+          "method": "OA primary PDF passage inspection",
+          "title": "Modal logics of conjunctively closed provability predicates",
+          "trigger": "C with an apparently similarly named N"
+        },
+        {
+          "assessment": "Broader model result, no complexity bound",
+          "evidence": [
+            "Extends singleton completeness across M/C/N/K/D/4 selections without E/G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-serial-consistency-and-positive-introspection-preserve-one-world--700dd8e5e5b0",
+          "material_read": "Finding and limitations (offsets 0 and 8450)",
+          "method": "Local Resultary search and mirror",
+          "title": "Serial consistency and positive introspection preserve one-world completeness",
+          "trigger": "Broader singleton-model result"
+        },
+        {
+          "assessment": "Theorem-set equality and inclusion, not decision complexity",
+          "evidence": [
+            "Classifies the 64 selections under equality and inclusion, in syntax-sensitive conventions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirty-distinct-logics-from-six-weak-modal-principles-an-exact-i--03c335126520",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Thirty distinct logics from six weak modal principles: an exact inclusion classification",
+          "trigger": "Same-day exact classification of overlapping weak modal systems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Nishimura Corollary 3.14 and Definitions 3.5, 3.7"
+      ],
+      "rationale": "The decision-complexity question is natural and the proof exposition is useful, especially for readers wary of infinite conjunction closure. However, relative to the existing exact support recipe and already specified enumerable singleton candidates, the gain is the routine polynomial fixed-point count, guessing the explicitly described subset instead of enumerating it, and modal-free SAT/tautology hardness. The general intersection statement is already implicit per target in that recipe. The record does not supply a new structural ingredient or a distinct valuable complexity claim beyond that direct deduction.",
+      "residual_risks": [
+        "A proof for a different structural rule set could require a genuine new lemma; no such extension is claimed or inferred here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

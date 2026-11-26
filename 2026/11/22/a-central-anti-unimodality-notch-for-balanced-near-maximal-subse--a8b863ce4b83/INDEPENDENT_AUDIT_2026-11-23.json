@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:14:30.705684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, supporting review, verifiers and captured outputs",
+        "branches/98417b04-aa41-41f0-9a29-d0e09948f57f/ordinal1_findings.md",
+        "branches/98417b04-aa41-41f0-9a29-d0e09948f57f/ordinal1_reproduction.py"
+      ],
+      "rationale": "The greedy terminal letters followed by a missing suffix letter give the obstruction when the number of arches is too small. Exact balance then forces one surplus of each letter when there are k arches; a length-four arch or a length-two monochromatic rest cannot occur. Thus the disjoint cases are k+1 ordinary arches, one length-three arch plus the opposite surplus letter in the rest, and two length-three arches with opposite repetitions. In the last two cases direct cross-pair accounting gives shifts j−1 and 2k−j+3, or k−d+1 and k+d+2, respectively, over the baseline binomial(k,2); k−d position pairs realize gap d. This yields the three polynomials without multiple counting. Reversal gives reciprocity, and the low, middle and reflected high blocks cover the stated integer support. Taking adjacent coefficient differences reduces the ordinary block to one binomial difference, the flat shifted block to its boundary binomials, and the gap-weighted block to a telescoping boundary term and unweighted binomial sums. Independent symbolic reduction confirms the resulting parity-specific deficits; both are positive on the stated range and reciprocity forces a later rise. Independently authored finite checks compared full arch histograms through k=8, checked direct subsequence universality on all 4,704 balanced words through k=6, and verified each component gap through k=100. These do not replace the unrestricted symbolic argument. Frozen scripts were read as evidence, not run.",
+      "residual_risks": [
+        "Balance and the two-letter surplus are essential; there is no general composition or higher-alphabet claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The saturated-symbol weighted product requires a multiplicity equal to k, violated by both counts k+1.",
+          "The primary decision results and fixed-pattern approximation do not yield the exact weighted total for simultaneous containment of all 2^k patterns. The balanced-index series sums out the pair count."
+        ],
+        "reasoning": "None of those stronger-looking results in fact retains the claimed pair statistic under both spare letters, or implies its central shape. The saturated formula does include the ordinary-arch subfamily when applied at index k+1, not all words at index at least k.",
+        "searches": [
+          "arXiv:2003.04629 Definition 6 and Remark 7",
+          "arXiv:2610.06717 Theorems 3.3 and 4.4 and §5",
+          "Resultary balanced exact spectrum lookup above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.06717v1",
+        "arXiv:2003.04629",
+        "Resultary: saturated-symbol, balanced-index, circular-index and first-gap synopses",
+        "Frozen comparative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thm. 3.3 with A=B=k+1 directly gives the precise support C and AB−C at least binomial(k,2). The balanced-index series already determines F_k(1). The arch framework is prior."
+        ],
+        "reasoning": "Do not count these consequences as original. The old arch criterion does not supply how the repeated symbols in two distinct nonordinary arches interact in the pair count, and the exact gap-weighted coefficient contribution requires additional enumeration. The positive central deficit is not a consequence of the support or either known marginal.",
+        "searches": [
+          "arXiv:2610.06717 Thm. 3.3 and §5",
+          "arXiv:2003.04629 arch criterion",
+          "Resultary saturated-symbol exact Parikh-pair synopsis and balanced-index synopsis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relabel a,b as 0,1: exact coefficients count the k-universal members in each binary Parikh-matrix/2-deck fiber. Reversing changes the statistic to the complementary ba count.",
+          "Theorem 3.3 of Fazekas–Huang–Mercaş is a criterion for a nonempty restricted fiber, not a per-fiber count. The ranked circular-index results concern a different index."
+        ],
+        "reasoning": "The exact coefficient must be distinguished from existence, universal membership, the unfiltered Gaussian binomial coefficient and circular universality. The external search was unavailable, not a negative result; the direct primary and Resultary comparisons supplied actual scope evidence.",
+        "searches": [
+          "Resultary: balanced binary words exact subsequence-universality spectrum fixed Parikh-pair distribution first balanced two-surplus",
+          "balanced binary words subsequence universality arch factorization Parikh matrices number of 01 subsequences near maximal k universal 2k+2 unimodality anti unimodality",
+          "arXiv:2610.06717 §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Gaussian binomial gives counts before imposing universality. The prior balanced-index generating function gives counts after summing over all C. The frozen comparison identifies a prior exact fixed-order-three fiber count, expressly excluded by k≥4."
+        ],
+        "reasoning": "Neither marginal table determines the joint histogram; the fixed-order result and earlier special cases do not supply every order k≥4. Some cited corpus items were not reread as full texts.",
+        "searches": [
+          "Resultary balanced exact spectrum lookup above",
+          "arXiv:2610.06717 §5 partition-box coefficient and §4 length-three characterizations",
+          "Frozen references [3]–[7] and prior-work notes"
+        ]
+      },
+      "rationale": "Best-of-knowledge contribution is the all-order weighted histogram and central nonunimodality at exact balance (k+1,k+1), k≥4. The arch criterion, the coefficient support as an existence statement, the aggregate count and fixed k=3 information are prior or already implied by prior work.",
+      "residual_risks": [
+        "An independently published weighted formula under different wording is not ruled out. The targeted primary web search failed; primary reading was via cited texts and the relevant corpus theorem statements were checked separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies exact support, not the per-fiber multiplicities or notch",
+          "evidence": [
+            "Theorem 3.3 gives the two lower bounds on C and AB−C.",
+            "The Gaussian binomial in §5 counts the whole fiber, not just k-universal members."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06717v1",
+          "material_read": "Definitions, Lemma 2.1, §3 including Theorem 3.3, §4 length-three criteria and §5 fixed-pattern and Gaussian-binomial passages",
+          "method": "Primary HTML and specialize the hypotheses at A=B=k+1",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Exact same binary Parikh fibers with subsequence universality"
+        },
+        {
+          "assessment": "The framework is known; inspected results do not tabulate the weighted double-surplus families",
+          "evidence": [
+            "Arch factorization is attributed to Hébrard and yields the universality index."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "Definitions 2 and 6, Remarks 3 and 7 and statement of the arch findings",
+          "method": "Primary PDF text, scope and definitions comparison",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Primary arch-framework reference"
+        },
+        {
+          "assessment": "Stated theorem requires one letter saturated at index k",
+          "evidence": [
+            "Both multiplicities k+1 in the target are outside that hypothesis at index k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-parikh-pair-distribution-of-maximally-subsequence-universa--5c8faf99c146",
+          "material_read": "Indexed formula and hypotheses",
+          "method": "Resultary lookup and parameter substitution",
+          "title": "Exact Parikh-pair distribution of maximally subsequence-universal binary words",
+          "trigger": "Potentially dominating all-order weighted formula"
+        },
+        {
+          "assessment": "Covers the unweighted tally; no pair-count variable",
+          "evidence": [
+            "At semilength k+1 sum the two admissible index coefficients, k and k+1, to recover the total."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-balanced-binary-words-exact-subsequence-universality-spectrum-an--307f63e05203",
+          "material_read": "Indexed exact generating function",
+          "method": "Resultary lookup and comparison of marked statistics",
+          "title": "Balanced binary words: exact subsequence-universality spectrum and a Gaussian law",
+          "trigger": "All balanced compositions and all indices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen arch-polynomial and central-gap theorem",
+        "arXiv:2610.06717 binary fiber formulation",
+        "Resultary saturated and unweighted theorem synopses"
+      ],
+      "rationale": "The first balanced relaxation that allows surplus on both symbols is a natural boundary beyond saturated-letter formulas. Its exact joint count resolves how universal words populate fixed pair-count fibers; the strict central drop at every k≥4 is a structural change from the unimodal one-surplus setting. Neither that shape change nor the exact fiber sizes can be inferred from the previously known support or total.",
+      "residual_risks": [
+        "No higher-surplus formula and no assertion about unimodality of normalized conditional proportions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

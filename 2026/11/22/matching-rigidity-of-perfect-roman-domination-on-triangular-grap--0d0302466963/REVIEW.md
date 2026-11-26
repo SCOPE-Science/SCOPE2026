@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The vertex-to-root-edge identification gives an exact necessary-and-sufficient characterization of eligible zeros in terms of root degree zero versus degree one. The degree-sum inequality and the neighboring-even-cardinality argument strictly eliminate every nonmatching label-two support. A discrete strictly convex quadratic has a unique integer optimum and factorial matching count. Two genuinely different exhaustive algorithms and an explicit construction validator were executed with the included outputs; no finite test is used as the infinite proof.
+## correctness
 
-**Originality — PASS (with residual priority risk).** Direct searches addressed standard perfect Roman domination on triangular/Johnson and complete line graphs, perfect edge Roman domination of complete graphs, ordinary Roman domination, and equivalent matching formulations. The 2019 and 2023 standard-parameter sources give general complexity/enumeration information, not this exact family classification. The related existing triangular-graph ordinary Roman result uses the weaker at-least-one-two condition; its sharp minimum does not imply the claim. The 2024 edge version on the same root cliques adds a stronger condition that the entire label sum in a zero's neighborhood equals two. Its complete-graph assertion therefore does not cover the standard exactly-one-two parameter. The PDF mathematical display was not fully readable; this priority risk is recorded rather than silently dismissed.
+PASS
 
-**Value — PASS.** A canonical infinite family of dense line graphs has a sharply different standard perfect-Roman optimum from ordinary Roman domination; the geometry is rigid at every order, determined entirely by matchings of a fixed size, and the exact number of optimal placements is closed form. The zero-label support is a complete bipartite cut between matched and unmatched root vertices. This yields structural insight and an exact benchmark rather than a small single-instance computation.
+For a fixed label-two support H in K_n with t edges, the exact best weight is N_n+t-ab, where a and b count root vertices of degree zero and one: an edge outside H sees d_H(u)+d_H(v) defenders and all ab eligible edges must be zero at optimum. Let c=n−a−b. If c>0 and b is even, 2t≥b+2c makes ab−t at least c(b+1) below the value Q_n(b)=b(n−b)−b/2 from a matching on b vertices. If b is odd, integrality gives an extra 1/2 loss; b−1 and b+1 are feasible even sizes and the two changes from Q_n(b) sum to −2, so one matching loses at most 1 and still strictly wins. Thus every optimum support is a matching. The matching weight is N_n+4r²+(1−2n)r, with unique nearest feasible integer to (2n−1)/8, namely floor((2n+3)/8); no ties occur because 2n−1 is odd. The labels are forced by the conditional optimum, so counting labelled partial pairings gives exactly the factorial formula. This covers n=3 and the entire permitted range. An independent direct original-adjacency check agreed for all supports through n=6, also testing every ternary labelling through n=5.
 
-**Limits.** The result is for \(n\ge3\), and the stronger total-neighbor-weight definition is deliberately not conflated with the stated one. Publication priority and the proof have not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected overlaps use a materially different admissibility condition or a comparison that does not preserve weight. No equivalent determination of the standard perfect parameter, optimum matching support, and exact optimizer count was found in the bounded checks.
+
+## value
+
+PASS
+
+Triangular graphs are a canonical highly symmetric family, and imposing uniqueness of the defending neighbor changes the order of the minimum from ordinary Roman’s linear value to quadratic. The degree-class argument proves an actual rigidity result, not just an example giving the optimal weight: every optimizer has a unique matching support with a forced labelling. This yields an exact count usable independently of the scalar parameter and identifies why ordinary-Roman polynomial information is inadequate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

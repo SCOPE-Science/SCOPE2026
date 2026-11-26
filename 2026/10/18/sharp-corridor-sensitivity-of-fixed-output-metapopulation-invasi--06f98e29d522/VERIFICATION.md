@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is self-contained. To corroborate the matrix calculations, install NumPy for Python 3 and run `python verify_capacity.py` in the same directory. The script assembles the symmetric matrix \(H_G\) directly from adjacency, degrees and patch qualities, evaluates its Perron root with `numpy.linalg.eigvalsh`, and compares the original graph with the graph after one edge addition. It checks seven values of the exact three-vertex formula, then exhausts all connected labelled graphs with \(3\le n\le5\), their nonedges, and each assignment from \(\{1/3,1,3\}^n\); the independently calculated total is 769,905 comparisons. The program concluded with `All numerical tests passed.`
+## correctness
 
-The finite tests do **not** prove the universal lower bound or exhaustion of the real attainable interval. Those statements follow from the positive Perron vector/Rayleigh argument and the analytical three-vertex family. No independent external audit or stochastic simulation has been performed. The main remaining risk is equivalent prior literature under another formulation of degree-normalized patch movement; some plausible sources were accessible only in part.
+PASS
+
+For a positive Perron vector w of K, the empty-state Jacobian obeys J(c)w=(cρ(K)−1)diag(m)w. Irreducible Metzler bounds give the asserted stability sign on either side of 1/ρ(K). Conjugation by diag(sqrt(q_i d_i)) yields the symmetric weights sqrt(q_i q_j/(d_i d_j)). Because the inserted edge was absent, no old edge has both endpoint degrees changed. Each old weight is multiplied by 1 or sqrt(d/(d+1))≥1/sqrt(2). The new positive edge improves the Rayleigh quotient strictly on the old positive Perron vector. For q=(1,b,1), the transpose reduced to the invariant (end,center) subspace has characteristic polynomials x²−b before and x²−x/2−b/2 after insertion, and symmetry places the Perron vector in this subspace. This recovers R(b)=(b^{-1/2}+sqrt(8+b^{-1}))/4. It is strictly decreasing, with the stated endpoint limits; equivalently each R>1/sqrt(2) is realized by b=(2R−1/R)^{-2}. Equality is impossible for any allowed instance, and two or fewer vertices cannot furnish a missing edge in a connected simple graph. Thus the reciprocal critical-rate factor is always strictly below sqrt(2). Independent symbolic reduction and combinatorial counts 81+6,804+763,020=769,905 for the stated finite grid are replayable via python /workspace/branches/independent_checks.py. The numerical grid minimum was not needed for the theorem and was not independently recomputed.
+
+## originality
+
+PASS
+
+The supported distinction is the exact strict lower bound and full attainable capacity-ratio range for degree-renormalized fixed exports at unchanged positive extinctions. The nearest indexed path-to-triangle invasion reversal uses a different operator. Known spectral-capacity and edge-perturbation theory supplies the method or motivation, not the exact range under this intervention.
+
+## value
+
+PASS
+
+Fixed per-patch dispersal gives a clear mathematical reason why a new edge may be adverse, unlike adding independent per-edge export. The strict uniform downside ceiling and lack of an upside ceiling answer how large that tradeoff can be. Exact attainability already on the minimal network supplies a controlled benchmark. Interpret it only as deterministic linear invasion, not stochastic survival or a measured habitat effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

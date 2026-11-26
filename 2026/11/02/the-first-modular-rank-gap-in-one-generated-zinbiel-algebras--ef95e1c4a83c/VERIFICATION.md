@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The self-contained `zinbiel_joint_census_check.py` program requires Python 3 and only the standard library. Execute:
+## correctness
 
-```sh
-python zinbiel_joint_census_check.py
-```
+PASS
 
-It constructs binomial structure constants, uses actual finite-field additions and multiplications (not integer residue arithmetic for extension fields), builds both multiplication matrices directly, and computes ranks of all powers by elimination. It checks every tested Zinbiel identity coefficient without taking characteristic-dependent inverses of integers. The expected Jordan power-rank sequences and joint rank multiplicities are compared to the independent matrix computations.
+In total degrees at most p, all on-leading-degree binomial coefficients are nonzero, and the first n−hd columns of the h-th power (when positive) give all pivots, so both ranks are max(n−hd,0). At n=p+1 the only surviving product into the last coordinate is e1∘ep. Writing right multiplication as the p-dimensional truncated operator T plus the final-coordinate row a_p e1*, that row does not increase the first-power rank for d≤p−1: the first column has a unique leading pivot and all columns beyond p−d vanish. In higher powers the correction vanishes because e1* T=0. The row alone gives a single length-two chain when d=p. For the left operator, d=1 has nonzero consecutive pivots through e_{p+1}; for d≥2 there is no last-coordinate output at all. This proves all the stated power ranks (including p=2) and thus the Jordan table over any ground field of characteristic p. Counting the first nonzero coordinates gives the displayed census and rank strata, including the q vectors with only the last coordinate possibly nonzero; the annihilator statements follow from the zero ranks. A fresh explicit-matrix computation independently checked the positive-power ranks on seven exhaustive configurations, including F4 and (p,q,n)=(5,5,6), whose joint multiplicities matched the stated 5,20,100,500,2500,12500.
 
-Eleven configurations are exhaustive: \((p,q,n)=(2,2,2),(2,2,3),(2,4,2),(2,4,3),(2,8,3),(3,3,3),(3,3,4),(3,9,3),(3,9,4),(5,5,5),(5,5,6)\). Three additional configurations are sampled with a deterministic seed: \((7,7,7),(7,7,8),(11,11,12)\), with 2500 vectors each. For \(\mathbb F_4\), \(\mathbb F_8\), and \(\mathbb F_9\) the program uses degree-2 or degree-3 polynomial quotients and validates multiplicative inverses; no prime-field shortcut is used.
+## originality
 
-The recorded final marker is `ZINBIEL_FIRST_MODULAR_JOINT_JORDAN_OK 14`. The exact captured output is embedded as a separate text artifact. Finite verification is not a proof of the infinite-family claim. The mathematical proof in `RESULT.md` supplies the all-characteristic argument, including both exceptional boundary cases and the possible extra right-multiplication top-degree entry.
+PASS
+
+The binomial model and the p=2, n=3 example with unequal annihilators are prior. The supported distinction is the complete all-element both-handed type and rank classification in arbitrary prime characteristic through n=p+1, including the uniform forbidden rank and the joint point counts. The strongest inspected same-family works concern ideals, examples, or orbits, and the closest all-element census records concern different products.
+
+## value
+
+PASS
+
+This identifies the precise first dimension where division-free binomial structure changes handed multiplication, and distinguishes a missing left rank, the exceptional last-coordinate action, and the complete joint strata. The uniform all-element type table is a natural invariant and informs both finite-field and arbitrary-field questions; counting examples only at p=2 would not supply this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

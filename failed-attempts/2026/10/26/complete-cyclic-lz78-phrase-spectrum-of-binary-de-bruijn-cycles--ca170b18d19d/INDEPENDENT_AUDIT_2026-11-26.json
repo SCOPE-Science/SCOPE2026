@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:44.855115Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each binary four-bit vertex has two incoming and two outgoing edges, so a cyclic Euler traversal determines one of two local bijections at each vertex. Conversely any set of these choices gives a permutation of the 32 edges, and a single orbit is exactly a de Bruijn cycle; its unique 00000 factor gives one canonical start per rotation class. The terminal convention counts a repeated final suffix once and is implemented consistently. An independently written exhaustive Euler traversal rooted at 00000, checking all 32 circular factors on every representative, yielded 2,048 cycles. Independent set and trie parses agreed on the complete phrase sequences of all 65,536 cuts. The six bins in displayed order were (6,44,746,1172,30,50), and the canonical counts for 11–14 phrases were (18,480,1508,42). The regenerated sorted 2,048-row certificate matched the attached file byte for byte. Replay: branches/6e838f3b-fbd3-44ff-94c0-0497be5e9f33/audit.py and audit-order5.txt. This establishes the exact finite findings, not any other order or end convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed checker traverses each canonically anchored word and hashes rows containing the word and all 32 parse counts in order. Köppl concerns algorithms for substring factorization; Ziv identifies the LZ78 terminal exception in an asymptotic compression context."
+        ],
+        "reasoning": "The exact ordered per-rotation census dominates the minimum/maximum and anchored summaries; the general algorithms alone do not give finite numeric histograms. The hash itself is not used as an invertible summary: the inspected checker constructs the underlying rows before hashing.",
+        "searches": [
+          "80a175d8f1ba/RESULT.md offsets 3980–6478 and verify.py offsets 3020–4367",
+          "Köppl DOI:10.3390/a14020044",
+          "Ziv arXiv:1409.1323 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.tsv",
+        "Resultary 80a175d8f1ba, 64bb4c490273 and 9bb94f66cf28",
+        "DOI:10.1109/TIT.1978.1055934 (limited access)",
+        "arXiv:1409.1323",
+        "DOI:10.3390/a14020044",
+        "DOI:10.1109/TIT.1984.1056933"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rooted record canonicalizes at the unique factor 00000; its main loop fills vals for i=0,…,31 and uses min(vals), max(vals). Etzion–Lempel's complexity is defined by linear recursion, not phrases."
+        ],
+        "reasoning": "Use one tally at vals[0] per row to recover the last displayed histogram, and take extrema per row for the rest. It is a direct marginal/projection of the stronger existing census rather than a distinct result. This comparison is separate from historical priority.",
+        "searches": [
+          "80a175d8f1ba/RESULT.md proof and verification",
+          "80a175d8f1ba/verify.py canonical() and main()",
+          "Etzion–Lempel (1984) DOI:10.1109/TIT.1984.1056933, p. 611"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "80a175d8f1ba counts the same cycles modulo rotation, evaluates the same LZ78 rule on every root and counts a terminal dictionary match once. Inserting a residual into a dictionary after exhaustion has no effect on the count. The LZ76 and LZ77 records concern different parsers."
+        ],
+        "reasoning": "Rooting at every cut gives the same collection of parser inputs as rotating a canonical cycle. The LZ78 figures are equivalent; LZ76 exhaustive-history and LZ77 source-reference statistics are not.",
+        "searches": [
+          "Resultary ranked lookup for rooted or cyclic LZ78 phrase spectra of order-five binary de Bruijn cycles",
+          "80a175d8f1ba/RESULT.md Finding and assumptions",
+          "64bb4c490273/RESULT.md and 9bb94f66cf28/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record states the six exact frequencies 6,44,746,1172,30,50 in the same bins and the all-root marginal (80,7586,55690,2180). The two other Resultary findings report different tables for LZ76 and LZ77."
+        ],
+        "reasoning": "The joint table is already stated verbatim as mathematics; the anchored table need not be stated separately when the canonical rotation appears at position 0 in every computed row.",
+        "searches": [
+          "80a175d8f1ba/RESULT.md Finding, offsets 0–3421",
+          "80a175d8f1ba/verify.py, offsets 3020–4367",
+          "64bb4c490273/RESULT.md Finding, offsets 0–3163",
+          "9bb94f66cf28/RESULT.md Finding, offsets 0–3031"
+        ]
+      },
+      "rationale": "A distinct indexed record, 80a175d8f1ba, has the exact same six cycle-level bins and computes the stronger data of all 32 counts in rotation order from each canonical 00000 cut. The anchored histogram is a projection of those rows. This is demonstrated equivalent and stronger coverage in the existing catalogue. The overlapping entry's displayed path date, 2026-11-02, is later than the frozen path date, 2026-10-26; the evidence does not establish earlier publication, independent origin, or direction of provenance. The decision is about distinct scientific coverage, not credit for priority.",
+      "residual_risks": [
+        "Historical priority and provenance between catalogue entries are not established by displayed dates.",
+        "The 1978 pages were not readable by the attempted extraction. Earlier unindexed work is possible; this access limitation is not the basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in the main table; ordered counts for every root imply the anchored table",
+          "evidence": [
+            "The six joint bins coincide. The code builds vals starting with the unique 00000-rooted word; hashed rows contain the canonical word and the complete ordered list of counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-rooted-lz78-phrase-spectrum-of-binary-order-five-de-bru--80a175d8f1ba",
+          "material_read": "RESULT.md Finding offsets 0–3421, proof/verification 3980–6478; verify.py canonicalization near offset 267 and main loop offsets 3020–4367",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; checker inspected only",
+          "title": "Complete rooted LZ78 phrase spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Exact match in order, cycle equivalence, parser and target statistics"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Full-component LZ76 with exhaustive history yields different joint bins (8,10):1228, (8,11):502, (9,10):226, (9,11):92."
+          ],
+          "identifier_or_url": "64bb4c490273",
+          "material_read": "RESULT.md Finding and parser, offsets 0–3163",
+          "method": "Local Resultary mirror",
+          "title": "Rotation-resolved Lempel–Ziv complexity of order-five binary de Bruijn cycles",
+          "trigger": "Earlier same-order, rotation-resolved Lempel–Ziv finding"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Greedy LZ77 uses pair references with overlapping or disjoint sources."
+          ],
+          "identifier_or_url": "9bb94f66cf28",
+          "material_read": "RESULT.md Finding and parser, offsets 0–3031",
+          "method": "Local Resultary mirror",
+          "title": "Exact rooted LZ77 overlap-cost spectrum for binary order-five de Bruijn cycles",
+          "trigger": "Same cycle class and rooted compression spectrum"
+        },
+        {
+          "assessment": "No negative statement about the inaccessible passages",
+          "evidence": [
+            "Available material concerns variable-rate coding; PDF extraction was insufficient for the definition comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1978.1055934",
+          "material_read": "Title and bibliographic/abstract material; pp. 531–533 were not successfully extracted",
+          "method": "Lawful OA attempts on cited public scan and alternate copy",
+          "title": "Compression of individual sequences via variable-rate coding",
+          "trigger": "Foundational parsing definition"
+        },
+        {
+          "assessment": "Parser precedent, not this census",
+          "evidence": [
+            "Phrases are distinct except perhaps the last; extension by one symbol gives new phrases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.1323",
+          "material_read": "p. 2, offset 10693",
+          "method": "OA PDF",
+          "title": "A Constrained-Dictionary version of LZ78 asymptotically achieves the Finite-State Compressibility for any Individual Sequence with a Distortion measure",
+          "trigger": "Possibly repeated terminal phrase convention"
+        },
+        {
+          "assessment": "General algorithmic results, not numeric de Bruijn spectra",
+          "evidence": [
+            "Gives bounds for substring LZ78 factorization after preprocessing."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/a14020044",
+          "material_read": "p. 2, offset 6754",
+          "method": "OA journal PDF",
+          "title": "Non-Overlapping LZ77 Factorization and LZ78 Substring Compression Queries with Suffix Trees",
+          "trigger": "Prior LZ78 factorization under substring queries"
+        },
+        {
+          "assessment": "Linear complexity, not LZ78",
+          "evidence": [
+            "The statistic is defined through the degree of a linear recursion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1984.1056933",
+          "material_read": "printed p. 611, offsets 0 and 2448",
+          "method": "Lawful accessible paper",
+          "title": "On the distribution of de Bruijn sequences of given complexity",
+          "trigger": "Plausible distribution for a complexity statistic on the right objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a meaningful finite benchmark in principle: all cycles have the same circular five-bit frequencies, yet the parsing count can change when the root changes. Order five is the first of orders 1–5 with nonconstant cycle maxima (the separate lower-order benchmark in review_evidence/lz78_orders_1_to_4.mjs gives only maxima 2, 3, 5 and 8 respectively). However, as a separate finding the precise frozen outputs are covered by the existing all-root data; the extra anchored histogram is a single-coordinate tally, not an independently valuable uncovered remainder. No repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS — self-review.** The unit-row Kaczmarz progress expansion gives the exact positive quantity \(\beta(2-\beta)r_i^2\). Choosing the least favorable pair of multiplicative residual errors maximizes the odds of sampling the weaker row, giving the displayed rational progress ratio. Its loss logarithmic derivative is strictly decreasing in the residual ratio and changes sign exactly once. The proof of the high-power limit uses fixed-ratio upper bounds and a compactness/subsequence lower bound; it does not replace an infinite argument by finite enumeration. The independent-row assumption realizes arbitrary residual pairs. The packaged standard-library checker returned 18,098 passing assertions, including exact-rational nonorthogonal Kaczmarz examples.
+PASS
 
-## Originality
+Use the exact selected current correction: for unit rows the squared-error drop is β(2−β)r_i². For z<1, the normalized mean 1−s+sz² decreases strictly in the weaker-row probability s, whose odds are maximized by the coordinatewise extreme stale multipliers e^(−ε), e^ε. No statistical independence of stale errors is used. Fresh and stale normalized means give the reported ratio. The loss equals (U−1)z^p(1−z²)/[(1+Uz^p)(1+z^(p+2))] and vanishes at 0 and 1. Its logarithmic derivative times z is the displayed strictly decreasing F on (0,1), which ranges from p to −∞; hence the unique zero gives the unique minimum. Invertibility realizes any prescribed nonzero residual pair for each fixed row system, without trajectory claims. With a=e^(−2ε), fixed z in (a,1) gives limit z² and thus limsup≤a². Any subsequential limit of minimizing z below a gives limiting ratio 1 because both weaker-row probabilities tend to zero; any limit at or above a gives liminf≥a² because the stale mean is at least z² and fresh at most 1. Both residuals zero is excluded as a zero-over-zero comparison; one zero gives ratio 1; p=0 or ε=0 is not in strict uniqueness scope. Independent replay: python3 /workspace/branches/independent_checks.py 5 gives 108 exact perturbation/ratio comparisons using different nonorthogonal unit rows, and reproduces z₄≈0.563449509, C₄≈0.541816883 at e^ε=1.5; increasing-p values are diagnostics only. Frozen CHECK.py inspected, not executed.
 
-**PASS — best-knowledge, qualified.** Full accessible material from Coleman, and full primary results for three strongly related published frozen-snapshot Kaczmarz findings, was compared by implication. Coleman addresses empirically measured selection/read delays but does not give the robust two-row conditional-progress ratio; the three related results accumulate stale corrections rather than use one fresh correction after noisy selection. Steinerberger's primary theorem and proof establish exact fresh-residual selection, while the available Gower et al. summary describes broader current-residual adaptive methods. No exact covering ratio, unique finite-exponent minimizer, or sharp large-power limit was located in the searched literature or mathematical records. This remains subject to an unindexed robust-importance-sampling equivalent or other earlier work. A search failure is not a priority certificate.
+## originality
 
-## Value
+PASS
 
-**PASS.** Multiplicative residual accuracy is a natural dimensionless control on noisy or asynchronously maintained row-selection scores. The sharp constant gives a calibrated lower bound on useful one-step progress for every pair of normalized independent equations, without assumptions on their mutual angle; the unique extremal imbalance identifies the genuinely adverse state, and the limiting \(e^{-4\varepsilon}\) factor describes the worst impact of growing aggressiveness. This is a conditional numerical reliability benchmark, not an asynchronous convergence guarantee.
+The supported new content is the optimized exact finite-power one-step progress ratio with uniqueness and the sharp high-power barrier, for a selection-only coordinatewise uncertainty set. Neither the basic row progress identity, exact-residual selection nor a generic multiplicative-weight bound is claimed as new.
 
-## Closest literature and residual risks
+## value
 
-Coleman (2026), arXiv:2607.08313; Steinerberger (2020), arXiv:2007.02910 (theorem and proof inspected); Gower et al. (2019), arXiv:1909.03604; published numerical findings on common-snapshot Kaczmarz collisions (2026). Generic likelihood-ratio perturbation theory and older specialist works not located by the searches might imply overlapping competitive bounds. Only one-step fresh-correction effects are assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural robustness benchmark for adaptive row choice with imperfect relative scores and exact correction, separating a real source of progress loss from collisions or stale corrections. The unique worst imbalance and exact high-power limit give actionable quantitative meaning to the error budget in the smallest nontrivial system. It makes no unsupported asynchronous stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

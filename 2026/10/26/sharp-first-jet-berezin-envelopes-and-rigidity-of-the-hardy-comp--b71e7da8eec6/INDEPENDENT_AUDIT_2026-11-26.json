@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:35.263864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the nonzero center b by simultaneous rotation, which preserves each circle maximum and the modulus of the derivative. For the normalized symbol phi use (phi-t)/(1-t phi)=zh(z), with |h(0)|=c. Schwarz–Pick on h gives |zh|<=u_c(r); the inverse disk automorphism has maximal modulus at the positive real point on each modulus circle, and |1-zbar phi|>=1-r|phi|. The symbol using h_c(z)=(c+z)/(1+cz), with h_1=1, makes all of these inequalities exact for every positive real r and rotates back to center b. Both u_c and E as a function of u are nondecreasing, so an upper bound, not just equality, on the normalized derivative gives the stated constrained optimum. The profile is at most 1+tr; its limit at r=1 is 2(1+t)(1+c)/[(1+t)(1+c)+2(1-t)], strictly below 1+t for t>0 and c<1. Thus an extremizing sequence at the universal bound requires c=1. The resulting Möbius map phi=(t+tau z)/(1+t tau z) extends continuously across the circle. A subsequential boundary limit zeta of the extremizing sequence must be a fixed point, and comparison with (1-r^2)/(1-r|phi|) gives a limiting deficit ratio at most (1-t)/(1+t). The automorphism identity gives the ratio (1-t^2)/|1+t tau zeta|^2, forcing tau zeta=1 and then zeta=tau=1. Conversely the aligned map gives 1+tr on its distinguished radius. At t=0, Schwarz's lemma and evaluation at 0 give radius 1 for every such symbol. The Finding uses the correct supremum over r<1; the term ‘maximum’ in the limitations should not be read as attainment in the open interval (e.g. c=1, t>0). A separate bounded replay, python3 /workspace/branches/bb7b8615-8deb-411b-9e00-d27255140560/reproduce_jet_envelope.py --steps 25, passed 81900 exact-rational and 178750 complex sample checks; the universal argument does not rely on sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourdon–Le–Thompson give the universal bound and study boundary-fixed affine symbols; Augustine–Garayev–Shankar study convexity for elliptic and particular automorphic symbols."
+        ],
+        "reasoning": "These claims do not yield all analytic selfmaps' exact first-jet profile or distinguish the aligned nonzero-center Möbius map among automorphisms attaining the universal bound.",
+        "searches": [
+          "arXiv:2610.17634v1 Proposition 2.1 and Corollary 3.4",
+          "arXiv:2302.12547v2, introductory result description and Section 4 subject"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_berezin_envelope.py",
+        "arXiv:2610.17634v1",
+        "arXiv:2302.12547v2",
+        "Resultary 620a82480e45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.1 bounds the supremum and already gives equality whenever the symbol fixes zero. The affine corollary concerns a different family of symbols and their Berezin disks."
+        ],
+        "reasoning": "The nonzero-center converse requires excluding c<1 even on sequences escaping to the boundary, then ruling out automorphisms with a nonaligned phase. Neither step is a parameter substitution in the inspected prior results.",
+        "searches": [
+          "arXiv:2610.17634v1 p. 3 Proposition 2.1",
+          "arXiv:2610.17634v1 p. 11 Corollary 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior universal bound equals the derivative-unconstrained branch c=1 of the envelope; it has no jet parameter.",
+          "The sharper modulus bound on the normalized map follows from taking the first Schur iterate. For the Berezin transform one must also achieve phase alignment in |1-zbar phi(z)|, which the exhibited symbol does on a single whole radius."
+        ],
+        "reasoning": "Neither the two classical modulus inequalities by themselves nor the stated prior upper bound is a declaration of simultaneous operator extremizers or an analysis of the boundary equality case. The underlying disk-map estimate is a classical-method consequence, not a new Schwarz–Pick principle.",
+        "searches": [
+          "Resultary exact title: Sharp first-jet Berezin envelopes and rigidity of the Hardy composition radius",
+          "Resultary: joint radial first-jet Berezin envelope and terminal equality",
+          "arXiv:2610.17634v1 Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed record gives closed convex hulls and areas for symbols (1-mu)z+mu z^2, which have t=0."
+        ],
+        "reasoning": "An exact hull for a single origin-fixing family is not a table or theorem giving the sharp radial modulus over fixed-jet classes; the t=0 family cannot test the claimed nonzero-center rigidity. The common catalog date is not evidence of priority.",
+        "searches": [
+          "Resultary: radial first-jet Berezin envelope",
+          "Resultary: equality in the Hardy composition Berezin radius",
+          "2026/10/26/SCOPE-exact-berezin-convex-hulls-for-boundary-fixed-quadratic-composit--620a82480e45"
+        ]
+      },
+      "rationale": "Distinct to the best of the inspected evidence for the sharp simultaneous Berezin profile at fixed modulus of the center and bounded normalized derivative, and for the nonzero-center equality characterization. The transform formula, the universal 1+t bound, the origin-fixing endpoint, and the Schur/Schwarz–Pick reductions are not new.",
+      "residual_risks": [
+        "Bounded search and comparison cannot rule out earlier equivalent first-jet operator applications of Schur interpolation or a prior boundary-rigidity formulation; no priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the transform, upper bound and zero-center case, not the asserted jet profile or nonzero-center converse in these passages",
+          "evidence": "Generalized Schwarz lemma bounds the radius; the affine corollary computes Berezin disks of boundary-fixed affine symbols.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17634v1",
+          "material_read": "p. 2 formula (offset 6400), p. 3 Proposition 2.1 (11600–14562), p. 11 Corollary 3.4 (38000)",
+          "method": "Bounded OA PDF passages",
+          "title": "Berezin ranges of composition operators on H^2",
+          "trigger": "The same transform and universal 1+t inequality"
+        },
+        {
+          "assessment": "The inspected Hardy results target range convexity, not a jet-constrained extremal profile or the 1+t converse",
+          "evidence": "The result description concerns elliptic symbols and particular automorphic cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.12547v2",
+          "material_read": "p. 2 result description, offset 6635",
+          "method": "Bounded OA PDF passage",
+          "title": "Composition operators, convexity of their Berezin range and related questions",
+          "trigger": "Hardy-space Berezin ranges including automorphic symbols"
+        },
+        {
+          "assessment": "Different invariant and origin-fixing family",
+          "evidence": "The one-parameter family has zero center; the result computes its closed hull and area, not a bound over all symbols at each (t,c,r).",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-berezin-convex-hulls-for-boundary-fixed-quadratic-composit--620a82480e45",
+          "material_read": "RESULT.md claim for the boundary-fixed quadratic family",
+          "method": "Local search and mirror full-text passage",
+          "title": "Exact Berezin convex hulls for boundary-fixed quadratic composition symbols",
+          "trigger": "Closest Resultary overlap on exact Hardy Berezin range and radial circles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first derivative refines a natural operator-radius bound. Rather than just transplanting a single disk-map inequality, the result supplies one extremizing operator for a whole radial profile and identifies exactly when the universal operator bound can be approached at the boundary without assuming boundary regularity. That phase-sensitive global equality conclusion and the sharp constrained profile are useful even though the initial Schur step is standard.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

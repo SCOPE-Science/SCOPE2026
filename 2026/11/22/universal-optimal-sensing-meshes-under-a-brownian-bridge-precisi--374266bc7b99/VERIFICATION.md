@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` after installing NumPy. The script checks 42 exact rational normal-form identities, 36 independent conditioning-matrix cases, 4,500 random candidate designs, and two rational examples, giving a total of 4,578 automatic checks plus the two examples. The computation was executed successfully in the scientific review of this theorem.
+## correctness
 
-These tests verify algebraic consequences on specified rational/finite domains. They do not enumerate the continuum of nodes, noise budgets or sensor counts. The continuum claim follows from the rearrangement, concavity, Jensen and scalar strict-convexity proof in RESULT.md. The cited literature comparisons concern published claims and their scope; absolute historical priority and independent review have not been established.
+PASS
+
+Reconstructed RESULT.md lines 28–75: the Gaussian conditional mean is the minimum-risk linear estimator. The Wiener representation turns its signal error into the L² distance of 1/2−s from a centered step function; the noise penalty minimizes to (sum |w_i|)²/P by Cauchy–Schwarz. After aggregating coincident jumps and ignoring endpoints, decreasing rearrangement uses no additional sites, cannot increase variation, and strictly improves the signal error for any inversion on positive-length cells. If the decreasing range exceeds 1, clipping then recentering strictly improves the error. For W≤1 the sorted-site objective has Hessian −2(diag(w)−wwᵀ), so the stated stationary nodes are global maximizers of variance reduction, strictly for W<1 with positive weights. Independently, with S_k the cumulative weights, the residual on cell k is (1−W)/2+S_k−s; its zero is w_i/2 on either side of jump i and its outer lengths at the endpoints are (1−W)/2. Integrating the squared residual gives [(1−W)³+sum w_i³]/12. Strict Jensen, including zero padding to n effective jumps, forces n distinct positive-weight jumps at any optimum with W>0; this excludes boundary, coincident and inactive original channels. Cauchy–Schwarz then forces p_i=P/n. The scalar objective is strictly convex, its derivative is negative at 0 and positive at n/(n+1), and its stationary equation gives the stated root, including n=1. Evaluating the objective for n+1 at the old positive minimizer gives strict risk improvement; the scalar equation also gives the stated budget limits. The rational example n=3,P=18 gives both sides of the root equation 2/9 and risk 11/432. The frozen numerical verifier was inspected, not rerun.
+
+## originality
+
+PASS
+
+Credit the known noiseless equally spaced limit and the verified two-site equal-noise overlap. The distinct content established here is the all-n finite-P global result with freely allocated precision, including proof of uniqueness against unequal, inactive and repeated channels. Neither the two-site location result nor the related all-n designs for different covariances gives this joint conclusion.
+
+## value
+
+PASS
+
+The design problem is a nontrivial joint finite-budget optimization even with a fixed Gaussian prior. Its scalar risk law and rigidity translate limited precision directly into a contracted mesh and equal allocation, and exclude all degenerate or asymmetric alternatives. The exact noise-to-noiseless transition, and strict value of adding a sensor even at unchanged total precision, are useful consequences rather than isolated numerical optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

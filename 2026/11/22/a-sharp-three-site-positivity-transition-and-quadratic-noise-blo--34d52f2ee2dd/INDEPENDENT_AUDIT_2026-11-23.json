@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:00.899090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normalized circle integration and odd N, the N mutually distinct nodes give an invertible Fourier interpolation system (multiply each interpolant by e^{imx} and use ordinary polynomial unisolvence on the unit circle). At u=0 the weights are uniform. For 0<u<1, sum the two uniform-grid Dirichlet cardinal evaluation identities at the changed sites: the coefficient on the sum of old endpoint values is sin(πu)S_N(u)/N. Solving gives the two identical positive weights, and for the stationary middle site the sum of cardinal evaluations is 2 sin(πu)f(1−u)/N, giving w₁=(1−R_N)/N. At other fixed sites the numerator relative to the moving coefficient is a signed translate of the convex cosecant difference. For N≥5, f(v)−f(v+2(1−u)) strictly decreases in v and the two outermost relevant translates, j=3 and j=N−1, are opposite by reflection; their common absolute value is strictly smaller than S_N. There are no other sites when N=3. Thus the nonmiddle weights stay positive. Independently, putting s=π/N and z=1−u, the product-to-sum identity gives R_N=(sin²s−sin²(sz))/(cos(s)sin²(sz)), strictly increasing from 0 to ∞ in u. The crossing is below 1/2 by R_N(1/2)>2, and the middle weight is zero, not negative, at equality. The exact root is equivalently u_N=1−arcsin(√2 sin(s/2))/s, whose Taylor expansion reproduces the stated N^{-2} correction. Since the weights sum to one and only w₁ can be negative, matching the real error signs gives the exact ℓ∞ norm. Using sin(sz)∼sz in the displayed quotient recovers the fixed-N quadratic coefficient; no claim of quadrature at coincident nodes is made. The submitted check.py and VERIFICATION.md were inspected, not executed; their documented finite Fourier-moment and numerical asymptotic checks can be replayed with Python 3 and do not substitute for the all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu–Townsend use an alternating many-node perturbation to make a negative central weight for any fixed positive allowed perturbation at large size and give a separate sufficient finite-degree positivity bound. The five-node records prove a sharp universal perturbation radius about 0.20145942 with an alternating extremizer; the present five-node inward family crosses at about 0.28017649."
+        ],
+        "reasoning": "An existential negative weight under a different perturbation or a sufficient positivity radius gives neither the sign pattern nor the exact threshold along this particular curve. The general five-node bound transfers only a positivity guarantee up to its smaller radius; its extremizer moves four nodes and is not on this curve. General convergence and conditioning estimates likewise do not impose the exact one-weight negativity and norm.",
+        "searches": [
+          "Austin thesis §3.5.2; Austin–Trefethen arXiv:1612.04018v1 Theorem 1.1",
+          "Yu–Townsend arXiv:2202.04722v1 Theorem 4.1 and Appendix B.3",
+          "Resultary all-perturbation five-node results d1e17fb2a7f8 and 02df184d2d31"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Austin thesis §3.5.2, Austin–Trefethen Theorem 1.1, Yu–Townsend Theorems 4.1 and B.3",
+        "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 and all indexed passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier adjacent inward pair result gives positive weights and bounded-data norm one up to a double collision, with a separate linear smallest-singular-value law. Austin's conjecture concerns a half-grid shift geometry, with a different positivity condition and conjectural bounded absolute weights. The degree-one gap formula directly supplies the corresponding N=3 geometry only."
+        ],
+        "reasoning": "A singular value of a sampling matrix does not determine the behavior of its particular integration linear functional. The older pair collision does not imply the triple-collision norm, and a formula specific to degree one does not imply weighted signs at the additional stationary sites of higher odd dimension. The distinct all-N conclusion requires control of the cosecant difference for every fixed site and analysis of the separate middle weight.",
+        "searches": [
+          "Resultary symmetric pair collision 92a65f43a0d4 and three-node opposite-gap formula fd84114e8959",
+          "Austin thesis grid (3.26) and Conjecture 3.13; Yu–Townsend §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier three-node jitter result fd84114e8959 gives an exact sine-of-opposite-gap weight formula with positive denominator. It is valid algebraically for distinct triples, so it includes the N=3 case after normalizing by 2π. The same-day two-slip record has an explicit N=3 threshold 1/4. After recentering on its stationary node, that N=3 configuration is (−(1−u)h,0,(1−u)h) just as here, for the shared interval u<1/2."
+        ],
+        "reasoning": "At N=3 the two small gaps are (1−u)h and the third is (1+2u)h, so the gap rule changes the middle sign at u=1/4 and also gives the N=3 weights and noise by substitution; these are not independent novelty. For N≥5 the moved sites in the present record are nonadjacent on the original grid, unlike the outward adjacent pair, and the latter loses two fixed weights, not one. The two laws cannot be matched by recentering or reflection there.",
+        "searches": [
+          "Resultary three-node trigonometric quadrature positivity, maximum gap, first harmonic and displaced nodes",
+          "Resultary cbf046096901 outward two-slip and fd84114e8959 degree-one gap formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-odd formula hit 34d52f2ee2dd is the same frozen record. Distinct same-day records give outward adjacent two-site formulas (including partial N=3 overlap), a one-node half-mesh transition, two equivalent all-five-node universal radii, and a kernel-quadrature noise-variance formula."
+        ],
+        "reasoning": "Do not treat same-day records as unavailable or infer a priority order. The same-day three-node kernel result has inverse-square growth too, but concerns Bayesian kernel weights and a noise-variance threshold, not the same deterministic interpolation moment system. No independently matching exact localized law across odd N was established.",
+        "searches": [
+          "Resultary exact two-outer-site Fourier deformation, stationary sign transition and collision coefficient",
+          "Resultary cbf046096901, 639f82704fb3, d1e17fb2a7f8, 02df184d2d31 and d5fbecc13c52"
+        ]
+      },
+      "rationale": "Credit existing degree-one three-node formulas and partial same-day overlap; the distinct supported claim is the exact localized law across odd grids, in particular N≥5, with a single stationary sign change, finite-grid noise norm and sharp triple-collision coefficient. Broad conditioning, worst-grid positivity radii, and different adjacent-site deformations do not establish that law. Historical priority beyond the compared sources is not asserted.",
+      "residual_risks": [
+        "An unindexed formulation under barycentric trigonometric weights, Fourier sampling, or trigonometric moment theory could give stronger exact coverage. No absolute priority or within-day ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different grid and conjectural claim",
+          "evidence": "Negative and nonnegative index blocks are shifted in opposite directions; conjectured positivity through 1/4 and bounded absolute-weight sums, not the prescribed two moved sites.",
+          "identifier_or_url": "https://personal.math.vt.edu/apaustin/pubs/DPhilThesis.pdf",
+          "material_read": "§3.5.2 printed pp. 82, 85–86, offsets 274200–275978 and 322071–324783, grid (3.26) and Conjecture 3.13",
+          "method": "Lawful OA thesis passage extraction",
+          "title": "Some New Results on and Applications of Interpolation in Numerical Computation",
+          "trigger": "Original Fourier positivity and absolute-weight conjecture"
+        },
+        {
+          "assessment": "General convergence and weight-bound context, not exact sign classification",
+          "evidence": "Perturbed-grid convergence and discussion of a conjectural absolute-weight bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.04018",
+          "material_read": "Theorem 1.1 and surrounding text, printed pp. 2–3, offset about 8500",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "General perturbed Fourier quadrature"
+        },
+        {
+          "assessment": "Different many-node pattern and sufficient bound",
+          "evidence": "Central negativity for alternating perturbation of all nodes at large size; finite-degree sufficient positivity bound for general disturbances.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04722",
+          "material_read": "§4 Theorem 4.1 pp. 10–11 offsets 40700–45089; Appendix B Theorem B.3 p. 20 offset 82400",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "Plausible stronger negative-weight result and general positivity bound"
+        },
+        {
+          "assessment": "The deterministic gap formula covers N=3; random-jitter noise claim is different",
+          "evidence": "Weights divided by 2π are (sin b,sin c,sin a)/(sin a+sin b+sin c) for ordered gaps a,b,c. The log noise law instead concerns expected squared norm under independent jitter.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959",
+          "material_read": "RESULT.md, Finding and Proof Step 1, offset 0 through 4200",
+          "method": "Resultary mirror",
+          "title": "Sharp positivity and logarithmic noise barrier in three-node perturbed trigonometric quadrature",
+          "trigger": "Possible exact degree-one reduction"
+        },
+        {
+          "assessment": "Equivalent geometry for N=3 up to u<1/2; different for odd N≥5",
+          "evidence": "For adjacent outward displacements, loss of two weights w₂ and w_(n−1) when distinct, limiting threshold (√3−1)/2, and one zero at α₃=1/4 in degree one. Its noise discussion also includes independent homoscedastic errors.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-slip-positivity-frontier-for-odd-fourier-quadrature--cbf046096901",
+          "material_read": "RESULT.md offsets 0–2223 and 7700 onward",
+          "method": "Resultary mirror",
+          "title": "A sharp two-slip positivity frontier for odd Fourier quadrature",
+          "trigger": "Strong same-day close geometry, with N=3 overlap"
+        },
+        {
+          "assessment": "Different number of moved sites and collision geometry",
+          "evidence": "One node moves toward its neighbor; the neighbor changes sign at a half-mesh displacement, with pair collision.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-node-fourier-quadrature-a-sharp-positivity-frontier-and-coll--639f82704fb3",
+          "material_read": "RESULT.md offset 0–2452",
+          "method": "Resultary mirror",
+          "title": "One-node Fourier quadrature: a sharp positivity frontier and collision law",
+          "trigger": "Distinct same-day moving-node analogue"
+        },
+        {
+          "assessment": "Partially supplies a sufficient bound, not localized threshold",
+          "evidence": "All-grid radius 0.2014594224605106…, with equality exactly for the four other displacements alternating at extremal magnitudes.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-five-node-positivity-radius-for-perturbed-trigonometric-qu--d1e17fb2a7f8",
+          "material_read": "RESULT.md, Finding and scope, offset 0–2050",
+          "method": "Resultary mirror",
+          "title": "Sharp five-node positivity radius for perturbed trigonometric quadrature",
+          "trigger": "General N=5 positivity and equality classification"
+        },
+        {
+          "assessment": "Equivalent radius to d1e17fb2a7f8 by double-angle, not the target family law",
+          "evidence": "Uniform five-node guarantee at the same sharp radius and four-node alternating counterexample.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-five-node-tolerance-for-positive-trigonometric-quadrature--02df184d2d31",
+          "material_read": "RESULT.md offset 0–1759",
+          "method": "Resultary mirror",
+          "title": "Sharp five-node tolerance for positive trigonometric quadrature",
+          "trigger": "Second same-day exact all-five-node radius"
+        },
+        {
+          "assessment": "Different quadrature and perturbation/noise metric",
+          "evidence": "Bayesian kernel quadrature and central-weight threshold in observation-noise variance, not deterministic Fourier exactness.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-quadratic-noise-threshold-for-colliding-three-node-k--d5fbecc13c52",
+          "material_read": "RESULT.md offset 0–2400",
+          "method": "Resultary mirror",
+          "title": "A universal quadratic noise threshold for colliding three-node kernel quadrature",
+          "trigger": "Title and exponent overlap for colliding symmetric triples"
+        },
+        {
+          "assessment": "Different pair collision, with contrasting integration norm",
+          "evidence": "Two adjacent nodes collide toward one another while weights stay positive and the bounded-data norm is one; smallest singular value vanishes linearly.",
+          "identifier_or_url": "2026/11/16/SCOPE-positive-fourier-quadrature-survives-symmetric-pair-collision-wi--92a65f43a0d4",
+          "material_read": "RESULT.md offset 0–2568",
+          "method": "Resultary mirror",
+          "title": "Positive Fourier quadrature survives symmetric pair collision with a sharp singular-value law",
+          "trigger": "Earlier localized odd Fourier-grid collision result"
+        },
+        {
+          "assessment": "Same frozen record, not an independent claim",
+          "evidence": "Same stationary middle-site transition and exact norm.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-site-positivity-transition-and-quadratic-noise-blo--34d52f2ee2dd",
+          "material_read": "Mirror Finding offset 0; frozen complete proof and supports",
+          "method": "Frozen package and Resultary mirror",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup in Fourier quadrature",
+          "trigger": "Exact indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two displaced samples and fixed middle sample give a natural test of local crowding distinct from arbitrary global jitter and ordinary adjacent double collision. The exact weight sign transition tells when the quadrature ceases to be positivity preserving; the sharp bounded-error norm and its coefficient quantify exactly what fails as the three sites merge. The across-grid result and the one-weight mechanism beyond degree one are useful even though the isolated N=3 case is covered by earlier gap formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

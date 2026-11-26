@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:06:30.047343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–91",
+        "VERIFICATION.md lines 19–23; checker.py, checker_output.txt, density_validation.py, density_validation_output.txt and requirements.txt",
+        "Janssen (2003) Eq. (2.3) and Faulhuber arXiv:2502.08358 p. 2 for the Zak framework"
+      ],
+      "rationale": "The Zak transform diagonalizes the critical Bessel-system operator; there is no positive lower frame bound and no ordinary trace assertion. Splitting the exponential Zak series at k=0 and summing both geometric parts gives the displayed transform. The multiplier simplifies with b=sin²(θ/2) and D=4q(h²+b): L=a h²(1−b)/(h²+b)², E=a/(h²+b)>0 and U=a h²(1+h²)/(h²+b)². Both L and U decrease strictly on [0,π], and s grows strictly in y=|x−1/2|>0. Pushing the y-density 2 through L+E sinh²(ay) gives the stated conditional factor 1/[a√((s−L)(s−L+E))], then averaging θ gives the law; unitarity gives mean one. Continuity on the torus and positive local area in every interior band give full support. The four levels are the endpoints and the stated interior saddle and seam levels; h⁴=1+h² has the unique positive h²=φ. At the minimum the quadratic coefficients in x and θ are a³/c² and a h²/(4c⁴); area normalization gives 1/(2√(αβ)) as stated. At the saddle they are a²s_a and −s_a(1/4+2q/(1−q)²); changing the rescaled Morse coordinates X,Y to X±Y gives coefficient 1/(2π√(a²s_a γ)) for log(1/|s−s_a|) on either side. At the seam the inward normal slope magnitude is E·a sinh a and the angular curvature magnitude in the expansion is 2Uq/(1∓q)² at θ=0 or π respectively. The two normal sides give local conditional density 2/A, measured against dθ/(2π). Thus the allowed interval near the maximum, or the deleted interval above the seam minimum, of length 2√(ε/B)+O(ε^(3/2)), gives respectively the stated upper-edge constant and the negative cusp. Away from the saddle a local extension across the seam gives a regular background via the nonzero normal derivative. Smooth-cell regular-value contributions are smooth, and the bounded seam term cannot change the saddle logarithm at coincidence. This establishes the statements for the canonical density representative; the exact integral is an a.e. density.",
+      "residual_risks": [
+        "Frozen replays are python checker.py (NumPy) and python density_validation.py (NumPy and SciPy), not executed here. Recorded checks compare finite series and constants, and sample the seam law at a=1 and 3. They do not certify all parameters. The analytic check covers the continuum and the coincidence case.",
+        "Frame operator is understood in the Bessel-system sense S=TT*, not as a claim that the critical system is a frame. At the crossover only the logarithmic leading law with bounded remainder is asserted. No pointwise uniqueness of an a.e. density is intended."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available Zak results cover specific multiplier formulas or generic frame-bound characterizations and Zak zero structure. The rational-lattice paper was not available in full text."
+        ],
+        "reasoning": "General diagonalization identifies what must be pushed forward; general critical-value theory explains types of singularities but does not give their values, coefficients or equality parameter for the specified nonsmooth multiplier. Frame-bound coverage on a wider range of lattices would not by itself give these distributional quantities.",
+        "searches": [
+          "Kloos–Stöckler arXiv:1311.7359 on totally positive windows and frame bounds",
+          "Faulhuber arXiv:2502.08358",
+          "Totally positive functions and Gabor frames over rational lattices, S0001870823002566"
+        ]
+      },
+      "checked_sources": [
+        "Janssen DOI 10.1007/s00041-003-0011-3",
+        "Kloos–Stöckler arXiv:1311.7359v1",
+        "Faulhuber arXiv:2502.08358",
+        "Resultary 90ef1aec9db1, 400c3e36998f (latter summary only)",
+        "PII S0001870823002566 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponential Zak formula and simple critical zero supply input. The closest exact bounds analysis on the index operates with lattice steps 1 and 1/2; reviewed lattice steps are both 1."
+        ],
+        "reasoning": "Equality of multiplier formulas gives a starting point but no direct corollary evaluating the spectral law. One must extract the monotone hyperbolic fiber, analyze the smooth interior saddle and the nondifferentiable seam, track the angular interval lost above the seam level, and compare the resulting independent critical values. A different lattice or a different window does not mechanically imply this crossover.",
+        "searches": [
+          "Janssen Eq. (2.3) versus frozen fiber change of variables and singularity analysis",
+          "Kloos–Stöckler pp. 1, 21–22 and Resultary 90ef1aec9db1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janssen (2003) Eq. (2.3) gives the exponential symbol; Faulhuber arXiv:2502.08358 p. 2 provides the generic multiplier representation."
+        ],
+        "reasoning": "A scalar spectral measure for the constant unit Zak vector is equivalent to the area pushforward here. A multiplication symbol or an essential-range description is not an evaluated pushforward law: it omits the area of the fibers over each value and the two-sided behavior at exceptional levels.",
+        "searches": [
+          "Resultary critical Gabor spectral pushforward, exponential Zak multiplier, density and seam cusp",
+          "Primary literature: Gabor spectral density Zak transform pushforward two-sided exponential critical lattice spectral measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available exact record 90ef1aec9db1 computes redundancy-two bounds for an asymmetric exponential, not unit-square critical density. The second bounds record was available as a search summary only. The uncited quadratic-spline comparator was not identified."
+        ],
+        "reasoning": "An exact frame-bound table records a range or endpoints, not the variable-dependent density and local cusp amplitudes; even a density for a quadratic spline would not populate entries for this exponential window without a demonstrated equivalence.",
+        "searches": [
+          "Resultary exponential Zak spectral-law and sharp Gabor-bound records, including 90ef1aec9db1 and 400c3e36998f",
+          "Targeted primary-literature search including spectral pushforward and comparison with the mentioned quadratic spline"
+        ]
+      },
+      "rationale": "The supported distinct result is the normalized critical exponential spectral law with its full set of singularity constants and explicit saddle/seam ordering reversal. Neither the exponential Zak formula, the critical zero, nor general Zak diagonalization is credited as original. The strongest available matching passages give inputs or spectral bounds, not the area law and its singularities. The remaining access gaps do not settle priority.",
+      "residual_risks": [
+        "No exhaustive exclusion or publication-priority conclusion. Mirror lookup for 400c3e36998f and lawful full-text retrieval for the rational-lattice paper were unavailable. The frozen note's quadratic cardinal-spline density comparator is not cited and could not be identified in the targeted search; no claim about that document’s contents is based on this miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Zak transform, credited as prior input",
+          "evidence": "The closed two-sided-exponential Zak formula agrees; the inspected passage does not give the complete pushforward density or its critical-level analysis.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3079889/Metis235352.pdf",
+          "material_read": "Printed p. 179, Eq. (2.3), OA offset 12600",
+          "method": "Lawful institutional PDF, equation inspection",
+          "title": "On Generating Tight Gabor Frames at Critical Density",
+          "trigger": "Closest exact-window critical-density primary result"
+        },
+        {
+          "assessment": "Strong related results but a different invariant",
+          "evidence": "Discusses single Zak zeros and lower frame bounds near critical density for two-sided exponentials, not the area-density singularity constants in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359v1",
+          "material_read": "OA offsets 700 and 59300, pp. 1 and 21–22",
+          "method": "Primary full-text passage comparison",
+          "title": "Zak Transforms and Gabor Frames of Totally Positive Functions and Exponential B-Splines",
+          "trigger": "Exponential Zak zero rigidity, frame bounds and a possible different-window comparator"
+        },
+        {
+          "assessment": "Generic framework, not statement-level quantitative coverage",
+          "evidence": "The respective Zak multiplier and frame-bound criterion are described. No conclusion about the present specific density is drawn from keyword misses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.08358",
+          "material_read": "PDF first page and p. 2, OA offset 14313; bounded keyword locations attempted",
+          "method": "OA theorem/definition passage comparison",
+          "title": "Operator-isomorphism pairs and Zak transform methods for the study of Gabor systems",
+          "trigger": "Broad Zak spectral representation from targeted literature search"
+        },
+        {
+          "assessment": "Redundancy-two frame bounds; not the critical law",
+          "evidence": "Asymmetric decay and the translation-1 modulation-1/2 lattice give an unlike Zak operator and objective.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-half-density-gabor-frame-bounds-for-asymmetric-two-sided-e--90ef1aec9db1",
+          "material_read": "Local RESULT.md finding and extremizing fibers, offsets 0 and 4996",
+          "method": "Resultary search and local-mirror passage comparison",
+          "title": "Sharp half-density Gabor frame bounds for asymmetric two-sided exponential windows",
+          "trigger": "Closest available indexed exponential window bounds result"
+        },
+        {
+          "assessment": "Exact relevance unresolved",
+          "evidence": "The visible summary describes frame properties on rational lattices; no full-text exclusion is asserted.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0001870823002566",
+          "material_read": "Search metadata and snippet only; lawful direct and VPN full-text retrieval returned 403",
+          "method": "Search and OA attempt",
+          "title": "Totally positive functions and Gabor frames over rational lattices",
+          "trigger": "Potentially broader related frame characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–45 and 63–91",
+        "Closest known Zak transform and frame-bound statements listed in originality"
+      ],
+      "rationale": "For a canonical exponentially localized window, the normalized law gives distributional conditioning information beyond the operator’s essential range, and provides exact coefficients for qualitatively different singularities. In particular it distinguishes a smooth saddle from a seam-induced cusp, shows exactly when their order reverses, and fixes which leading singularity survives at the coincident level. These are useful precise invariants of the natural Zak normalization rather than an arbitrary parameter sample.",
+      "residual_risks": [
+        "Applies only to the specified unit-square critical lattice and normalized area law. No noncritical-lattice stability, trace formula, or sharper uniform two-parameter crossover asymptotic is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

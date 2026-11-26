@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:28.312252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous vector field has a local C¹ solution even for 1<p<2. For two solutions the derivative of half the squared mass norm of their difference is the negative sum of conductances times products of edge-difference increments and flux increments, hence is nonpositive by monotonicity. This gives uniqueness without local Lipschitz regularity. Maximal coordinates have nonpositive and minimal coordinates nonnegative derivative, so boundedness gives global continuation. At each nonconstant state the right derivative of max−min is the maximum of the velocity difference over active ordered extreme pairs. Normalize the range to [0,1]. For any pair its direct edge contributes the sum of the two outgoing rates to the decrement; exclusive neighbors can each cost zero, and each common neighbor contributes a(1−s)^(p−1)+b s^(p−1). Its minimum is min(a,b) at an endpoint for p≤2; for p>2 strict convexity gives s/(1−s)=(a/b)^(1/(p−2)) and the stated power-mean value. There is no coupling between these choices at different neighbors. For a pair minimizing the coefficient, impose all the coordinate minima simultaneously; its exact velocity decrement supplies the lower bound on the maximum active-pair derivative, and the universal inequality supplies the opposite bound, even with tied endpoints. Positivity is equivalent to a direct edge or common neighbor for every pair. With r=p−2, expanding log[(a^(−1/r)+b^(−1/r))/2] to order 1/r proves 2^r Psi_p→sqrt(ab); finite minimization gives both limits, with adjacent pairs diverging after rescaling. In K_4,4 the competing rates are 2 on an edge and 4 alpha_p off edges, crossing at p=3. Scalar comparison applies up to consensus, which then persists. As an independent small check, the path of length two with masses (1,3,2), conductances (2,3), and p=3 has nonedge rate 6/7, lower than either edge rate; u=(1,4/7,0) has extreme velocity difference −42/49. Read the provided verifier and its recorded outputs without running the uploaded script; finite diagnostics are not the proof. The coefficient is not claimed to attain finite-time envelopes on every graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaubert–Qu analyze derivatives of the nonlinear flow at configurations with restricted gaps; their p>2 local rate uses a lower separation beta through (p−1)h(C^(p−1)) beta^(p−2). It degenerates as beta vanishes.",
+          "One plausible retrieved title on CD_p^psi curvature and gradient estimates could not be read in full via the available lawful routes. Its search description is Li–Yau gradient estimates, which does not establish its coverage either way."
+        ],
+        "reasoning": "A bound on the local Jacobian with configuration restrictions does not evaluate the worst one-solution derivative at unit oscillation across all states. Extrema may tie, and equality depends on the jointly minimizing placement of common-neighbor values, not on a bound using a minimum gap.",
+        "searches": [
+          "Gaubert–Qu arXiv:1302.5226 §6 Example 6.5",
+          "Primary query: \"graph p-Laplacian\" sharp oscillation coefficient \"common neighbor\" p>2 weighted masses instantaneous derivative",
+          "Springer DOI 10.1007/s11464-022-0268-y"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_graph_oscillation.py",
+        "Gaubert–Qu arXiv:1302.5226",
+        "De Pasquale et al. arXiv:2201.03103",
+        "Resultary 9610d92f154a, bdc8a19287a3, 6e589b9abdce",
+        "Access attempt DOI 10.1007/s11464-022-0268-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p>2 the optimum for one common neighbor need not be a binary state, and its coefficient is strictly smaller than min(a,b) for positive weights. The weighted leading coefficient as p→∞ is sqrt(ab), not the linear minimum.",
+          "On a nonadjacent pair the sharp term may consist only of this effective overlap; e.g. the path P_3 has an extremal nonedge that the triangle and edge-gradient results do not test."
+        ],
+        "reasoning": "Neither the linear formula nor the evaluated triangle case already computes the global pair minimum when direct edges and multiple independently weighted common neighbors compete on arbitrary graphs. The tail dichotomy is a consequence of this additional evaluation.",
+        "searches": [
+          "arXiv:2201.03103 Theorem 23 and Lemma 36",
+          "arXiv:1302.5226 Example 6.5",
+          "Resultary 9610d92f154a, Finding and Theorem/proof at mirror offsets 0 and about 2350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The l-infinity distance to constants equals half the vertex oscillation. The log seminorm coefficient for −L is minus the minimum pair overlap a_ij+a_ji+sum over k other than i,j of min(a_ik,a_jk).",
+          "Set a_ij=c_ij/m_i. This is exactly the full weighted formula at p=2, including the diameter-two criterion on the positive undirected support."
+        ],
+        "reasoning": "The change of seminorm normalization does not change the linear rate. For 1<p<2 every normalized gap s in [0,1] has s^(p−1)≥s, and binary minimizing states of the linear pair problem give equality for every exponent in this range. Thus low-exponent constancy is an elementary consequence of the prior linear formula, not the distinct contribution.",
+        "searches": [
+          "arXiv:2201.03103 Definition 8 and Theorem 23, consensus distance seminorm and ergodic coefficient",
+          "arXiv:1302.5226 §6, Hopf oscillation and nonlinear consensus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The weighted-cycle theorem at C_3 has H_{3,p}=−Psi_p. Its edge-gradient seminorm equals vertex oscillation there, so its exact sharp rate including the direct-edge contribution agrees for all positive triangle weights and p>1.",
+          "The complete multipartite theorem evaluates edge-Lipschitz dissipation for unit weights; edge-Lipschitz and vertex oscillation differ on general noncomplete graphs. The two-input result concerns differences of trajectories and another seminorm."
+        ],
+        "reasoning": "The triangle overlap is exact and must be credited, but it omits even the path P_3 and does not imply the mass-weighted general graph theorem. Its same-date entry does not determine priority. Other inspected ranked hits are mathematically distinct, not negative evidence about the entire catalogue.",
+        "searches": [
+          "Resultary: Sharp oscillation dissipation for weighted nonlinear graph heat, exact optimal coefficient lambda_p(G)",
+          "Resultary 9610d92f154a weighted cycle, bdc8a19287a3 complete multipartite, and 6e589b9abdce two-input Lipschitz contraction"
+        ]
+      },
+      "rationale": "The retained distinction is the evaluated and attained superquadratic vertex-oscillation coefficient over general finite weighted graphs, including the weighted high-exponent leading constant. The linear coefficient and topology are prior; the low-exponent constant is inherited by elementary normalized comparison and the same binary minimizing states. A distinct same-date weighted-cycle result exactly covers the triangle specialization, but not the general vertex-oscillation theorem. The strongest broader inspected nonlinear consensus theorem bounds a local two-input contraction rate, not this normalized one-input optimum. The inaccessible curvature-estimate paper remains a limited access risk, not negative evidence.",
+      "residual_risks": [
+        "Nonlinear consensus literature may encode the same coefficient as a different nonlinear ergodicity parameter; targeted searches and passage comparison do not establish global priority.",
+        "The Springer curvature paper was inaccessible in full; the search description does not decide its coverage.",
+        "The same-day triangle specialization has unresolved relative provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact p=2 formula and topology; low-exponent extension by binary witnesses",
+          "evidence": [
+            "The row-Laplacian formula counts a_ij+a_ji and the sum of pointwise minima over common out-neighbors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.03103",
+          "material_read": "Definition 8 §III.A, Theorem 23 p. 7 and Lemma 36 §VI p. 11, OA offsets 25500, 61500 and 95500–100389",
+          "method": "OA primary PDF passage comparison",
+          "title": "Dual Seminorms, Ergodic Coefficients and Semicontraction Theory",
+          "trigger": "Possible exact overlap under a different seminorm normalization"
+        },
+        {
+          "assessment": "Local nonlinear Jacobian bound, not the evaluated attained one-input law",
+          "evidence": [
+            "The rates on restricted sets contain beta^(p−2) for p>2 and alpha^(p−2) for p<2; the superquadratic bound tends to zero as the lower separation beta tends to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5226",
+          "material_read": "§6 Example 6.5, p. 23, located at OA offset 74209 and read from 73989",
+          "method": "OA primary PDF passage comparison",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+          "trigger": "Sharp Hopf seminorm contraction for nonlinear graph consensus may imply the claim"
+        },
+        {
+          "assessment": "Exact same-date overlap on triangles only, not general graph coverage",
+          "evidence": [
+            "On C_3 all vertex pairs are edges, and the common-neighbor function H_{3,p} is the negative of Psi_p."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-weighted-cycle-p-heat-gradient-criterion-and-six-edge-cond--9610d92f154a",
+          "material_read": "Mirrored RESULT.md, definitions and Finding at offset 0, theorem/proof at about 2350",
+          "method": "Local Resultary mirror passages and C_3 reduction",
+          "title": "Sharp weighted-cycle p-heat gradient criterion and six-edge condition",
+          "trigger": "Same weighted nonlinear flux and exact sharp dissipation for cycles"
+        },
+        {
+          "assessment": "Unit-weight edge-Lipschitz observable, not arbitrary weighted vertex oscillation",
+          "evidence": [
+            "For the unit-weight triangle its observable agrees with oscillation; for noncomplete multipartite graphs an extreme vertex pair need not be an edge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-one-input-gradient-dissipation-for-nonlinear-heat-on-compl--bdc8a19287a3",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Sharp one-input gradient dissipation for nonlinear heat on complete multipartite graphs",
+          "trigger": "Evaluated one-input dissipation with related examples"
+        },
+        {
+          "assessment": "Unverified possible overlap; description is about Li–Yau-type gradient estimates under curvature hypotheses",
+          "evidence": [
+            "No full-text theorem comparison is claimed for this source."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11464-022-0268-y",
+          "material_read": "Search-result description only; no primary full text obtained",
+          "method": "Search followed by OA direct/VPN and DOI-based lawful repository lookup; redirects and no recovered alternate copy",
+          "title": "Gradient Estimates and CD_p^psi(m,K) Curvature for the p-Laplacian",
+          "trigger": "Potentially relevant nonlinear graph heat inequality in the targeted literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diameter of the current state is a natural consensus observable. Evaluating and attaining its worst initial decrement gives a quantitative answer that a general Lyapunov or contractivity criterion does not give. In the superquadratic regime it identifies a change of active vertex pair and an explicit scale loss on noncomplete diameter-two graphs; for arbitrary conductances and masses the asymptotic constant is a weighted common-neighbor overlap. This is a useful sharp invariant of the standard nonlinear flow, without claiming a sharp fixed-time envelope or novelty for the known linear diameter test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition of mixed edge distance is consistent across the claim and two self-contained proof checkers. The displayed thirty-edge graph is a labelled icosahedron. Independent complete loops verify every one of the \(4096\) vertex subsets against all \(42\) graph elements, via distance-signature injectivity and independently via \(861\) witness masks. The exact polynomial, inclusion-minimal polynomial, twenty triple-antipode minima, ten-plus-ten induced geometries, and budget-six/seven/eight component results are asserted, not inferred from an incomplete log. The proof gives a separate constructive Johnson-graph argument for optimal-set connectivity at budget eight and a size-union obstruction at budget seven.
+PASS
 
-## Originality — PASS, with residual priority risk
+The witnesses compare all 42 vertices and edges, with each edge response the smaller of its endpoint distances; hitting all 861 pair masks is equivalent to mixed resolution. Reviewed both frozen checkers without executing them. An independent replay (python3 /workspace/branches/fcf5a2af-46e4-4967-9339-4f9bce4c6787/check_icosahedral_mixed.py) enumerated all 4,096 subsets, reproducing the histogram (20,240,405,220,66,12,1) for sizes 6–12, equality of the size-six family with the 20 unions of three axes, minimal counts 20 and 120, and toggle component orders at budgets 6,7,8. Checking single deletions suffices for inclusion-minimality by monotonicity. At budget seven each of the 20 optima has six supersets of size seven and shares none with any other optimum, leaving 120 isolates; at budget eight a Johnson-graph exchange is realized by two adds then two deletes, and the independent traverse connects all 665 states. The same replay found precisely 160 ordinary orientated three-axis resolving triples; two landmarks cannot resolve since outside their axes at least eight vertices have only the four signatures in {1,2}². The induced-shape/complement clause was checked separately: pairs of axes induce a matching. Orient one axis at a pole and choose the neighbor of that pole on each remaining axis. These five representatives form a pentagon; between any two of those axes the matching preserves the chosen orientation exactly for consecutive members of the pentagon. Among triples containing the pole's axis, five have a positive matching-sign product (two triangles), and five have a negative product (a six-cycle). Their complementary triples in the pentagon have respectively two and one positive edges, so the product and shape switch. Thus there are ten of each. Here complementation means vertex-set complement (the three other axes), as defined in the proof, not applying the antipodal map to a set.
 
-The closest literature comprises the 2016 foundational mixed metric paper, the 2020 mixed-metric lower-bound and small-graph computation paper, and the 2020 cactus/edge-disjoint-cycle theorem. The latter's hypotheses exclude the icosahedron, and the tabulated graph list in the lower-bound paper excludes it. A separate published icosahedral theorem covers *ordinary vertex-only resolving bases* and their token slides; those bases contain three landmarks, whereas this result distinguishes both the vertices and thirty edges, with a different six-landmark minimum family and a distinct addition/deletion configuration space. A separate complete-prism mixed-basis theorem concerns a nonisomorphic family. The relevant full published-finding corpus research statements and primary-literature material were examined, together with targeted bibliographic searches. No dominating or equivalent claim was identified. Nonindexed literature and incompletely accessible source sections remain possible priority risks; search absence is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Mixed resolution is a natural strengthening of vertex metric resolution when both nodes and links must be identified. The standard Platonic icosahedron has a small but highly symmetric configuration space; the complete minimal-family classification connects the already-motivated vertex-only basis structure to a precise antipodal completion law. Its two distinct six-vertex geometric types, additional 120 seven-vertex inclusion-minimal sets, full polynomial and exact difference between one and two spare landmarks give structural and operational information not supplied by a scalar minimum alone. This is a motivated complete finite classification, not a routine parameter substitution or an arbitrarily chosen subcase.
+The ordinary three-axis resolving bases and their slide reconfiguration are credited to the same-graph comparison. The inspected results do not give mixed resolving on 42 elements, the antipodal completion equality, its full polynomial or the sharp mixed add/delete budget.
 
-## Scientific limitations
+## value
 
-All results are restricted to the ordinary twelve-vertex icosahedral graph and the stated distance and reconfiguration conventions. Finite exhaustive computation is a valid proof for that fixed graph but not for an infinite family. Independent mathematical and historical-priority validation have not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The icosahedron is a canonical small test of the difference between ordinary and mixed landmark resolution. The all-minima antipodal rule, exact subset and minimality polynomials, and a sharp augmentation budget are linked by the geometry and monotone feasible family. In particular the many seven-landmark dead ends and their merger at budget eight do not follow from the scalar dimension, making the census useful for assessing stronger resolution and feasible-set mobility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

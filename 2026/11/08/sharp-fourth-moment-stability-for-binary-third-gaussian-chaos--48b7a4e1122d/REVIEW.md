@@ -1,15 +1,21 @@
-# Review of sharp binary third-chaos fourth moments
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The candidate concerns all real elements of the four-dimensional eigenvalue-\(-3\) Ornstein–Uhlenbeck subspace in two independent standard Gaussian coordinates. The orthonormal spin-three/spin-one Wick basis is explicit, including trace corrections and Gaussian normalization. Exact polar integration establishes the full quartic identity, with coefficients \(30,168,66,40\sqrt3\); no numerical fit is used. Its lower deficit is a positive quadratic form in the spin amplitudes with smaller eigenvalue \(72-8\sqrt{39}\). Its upper deficit has a nonnegative factorization and reaches zero precisely at the one-coordinate Hermite cubics. The sharp stability equality eigenvector and the boundary cases \(a=0\) or \(b=0\) have been checked. The independent exact-rational checker compares all 35 quartic coefficient positions in the full four-parameter expansion. A finite checker supports the universal symbolic proof but is not substituted for it.
+## correctness
 
-## Originality
-**PASS, qualified by incomplete historical indexing.** The 2005 fourth-moment theorem by Nualart and Peccati is about normal convergence and vanishing contractions, not an exact fixed-dimension extremal value. The 2014 Schulte–Thäle paper bounds cumulants for moderate deviations; it does not classify binary Wick-cubic extremizers. The 2015 Malicet–Nourdin–Peccati–Poly paper proves lower bounds for *products of squares* of chaos variables, a weaker form for the present single polynomial. A prior sharp theorem for homogeneous cubic harmonics on \(\mathbb S^2\) already implies the \(30\) ratio **on the restricted harmonic binary subspace**; the new extension across the full four-dimensional third chaos and the exact optimal transverse stability coefficient are not consequences of that restriction. The upper one-direction example is classical and not presented as independently novel. The main residual concern is an earlier unindexed binary-cubic invariant calculation covering precisely the mixed Wick-cubic inequality.
+PASS
 
-## Mathematical value
-**PASS.** This is the smallest nontrivial Gaussian cubic-chaos space supporting both harmonic and trace-type modes. A sharp bound for the whole space together with a best **quantitative transversal stability constant**, and distinct equality configurations for minimum, maximum and stability, gives a natural finite-dimensional benchmark for the fourth-moment phenomenon. The nonzero stability constant measures exactly the penalty for retaining a trace-type component, rather than merely re-computing the fourth moment of a single Hermite polynomial. There is no claim of a universal arbitrary-dimension or higher-order result.
+The orthogonal spin-3 and spin-1 real bases have squared norms 24 and 8 before normalization; they are four independent OU eigenfunctions at eigenvalue -3 and exhaust the binary third chaos. Independent polar integration gives angular averages (3/8,0,1/4,1/8,3/8) and radial factors (46080,30720,21504,15360,11264), in order of increasing trace multiplicity in the fourth moment. The sole angle-dependent average acquires cos(alpha-3 beta); hence the normalized quartic coefficients are 30,168,66,40 sqrt(3). After subtracting 30(a²+b²)² and taking out b², the smallest possible quadratic form has matrix with diagonal (108,36) and off-diagonal -20 sqrt(3). Its smaller eigenvalue is positive, 72-8 sqrt(39), with positive eigenvector ratio a/b=(2 sqrt(39)-9)/(5 sqrt(3)); when b>0 equality also forces relative phase pi. Thus only b=0 minimizes the fourth moment. The upper deficit at cos(delta)=1 factors as 63(a-b/sqrt(3))²(a²+2ab/sqrt(3)+9b²/7). At its nonzero zeros the phases are aligned; the elementary formula for cos³ identifies these and only these with the rotated H3 direction. The ratio is continuous on the connected unit sphere, so all intermediate values occur. Zero is trivial in the stability estimate and excluded from the ratio. Replay: python3 -B /workspace/audit_checks/3.py (independent exact radial/angular arithmetic; the universal implications and equality checks are analytical).
 
-## Literature comparison and limitations
-Relevant primary sources: Nualart–Peccati (2005), arXiv:math/0503598, Theorem 1 and Corollary 2; Schulte–Thäle (2014), arXiv:1410.7964, Sections 1–3 and 7; Malicet–Nourdin–Peccati–Poly (2015), arXiv:1503.02154, Theorems 1.1–1.6 and proofs. Searches additionally compared formulas under aliases such as binary Wick cubics, two-variable third Wiener chaos, normalized fourth cumulants, and two-dimensional Gaussian-chaos kurtosis. No exact duplicate was identified; absence of a match is not a proof of historical priority. All stated constants apply only to real standard two-coordinate third Wiener chaos.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the full binary-chaos lower extremum with the sharp trace stability and mixed equality geometry. Neither the value 30 on the harmonic sector by itself nor the rank-one upper endpoint is credited as novel. The classical Wiener product formula already yields the upper bound via contraction Cauchy–Schwarz and rank-one attainment.
+
+## value
+
+PASS
+
+The first Gaussian cubic-chaos space with both an angular harmonic and a Wick trace sector is a natural test of how traces affect low kurtosis. The exact positive trace penalty and the phase and amplitude of its nonharmonic saturators give more than an endpoint benchmark: they identify the worst departures from the harmonic minimizers. The classical upper endpoint and a separate harmonic example are not the grounds for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

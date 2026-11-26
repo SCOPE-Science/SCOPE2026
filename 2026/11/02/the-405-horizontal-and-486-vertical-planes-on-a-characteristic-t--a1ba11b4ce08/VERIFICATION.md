@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification and limits
+# Independent mathematical audit
 
-Run `python3 verify_fermat.py` from the directory containing this file and the verifier. The program uses only the Python standard library. A successful run prints:
+## correctness
 
-`FERMAT_CUBIC_FOURFOLD_HEXACODE_405_486_MOD4_AND_INCIDENCE_EXACT_PASS`
+PASS
 
-It performs exhaustive finite coordinate enumeration of the \(405\) paired planes and \(486\) hexacode monomial images over \(\mathbb F_4\), confirms their Hermitian isotropy and nonoverlap, verifies all four refined intersection distributions, computes rank-nine tangent matrices at both representatives, and checks the entire coefficient identity \(4(u^3+v^3+w^3)+18uvw\) inside \(\mathbb Z[\zeta]/(\zeta^2+\zeta+1)\). It separately checks the isotropic-point counts entering the geometric enumeration of \(891\) planes.
+Polarizing the cubic in characteristic 2 gives L^[2]=L^perp, whence L^[4]=L and descent to F4. The Hermitian isotropic spaces are pairing codes if they contain a weight-two vector (split off the pair and use the length-four Singleton bound), and otherwise their systematic generator is the unique normalized hexacode matrix. At each point in the [I|A] chart the last three linear forms are a basis, and the differential has image exactly the nine monomials with a repeated variable. The integral hexacode restriction is 4(u^3+v^3+w^3)+18uvw, whose uvw coefficient cannot be changed modulo 4 by any correction. Eliminating nine equations by the invertible Jacobian yields R/(g); the pairing sections imply g=0, and nonexistence of a mod-4 lift implies v_2(g)=1 at every hexacode point. Properness and finite fibers give finiteness, and Henselian splitting assembles the local factors. Independently enumerating Hermitian orthonormal frames in each systematic chart gave 405 and 486 points, verified all four incidence rows by vector-set intersections, and exact ring expansion verified the obstruction coefficient. The finite check does not itself prove the scheme decomposition.
 
-The code does **not** replace the mathematical arguments for algebraic-closure descent, exhaustive classification of maximal isotropic planes, generic-fiber completeness, formal implicit-function elimination over the dyadic ring, or global proper quasi-finite decomposition. These are proved in `RESULT.md`. No independent external audit or validation has been performed.
+## originality
+
+PASS
+
+The known geometric counts, Hermitian incidence and hexacode classification are inputs, not new results. The inspected literature and catalog evidence distinguish the claimed full local and global dyadic scheme, explicit modulo-4 obstruction and pairing/hexacode incidence refinement from those inputs and from plane schemes of other cubics.
+
+## value
+
+PASS
+
+The scheme of planes of a smooth arithmetic cubic is a natural enumerative and deformation-theoretic object. The result distinguishes actual horizontal sections from vertical reduced points, measuring the missing lifts at the first infinitesimal stage rather than merely subtracting two counts. The incidence refinement makes the position of the liftable planes within the established Hermitian configuration explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

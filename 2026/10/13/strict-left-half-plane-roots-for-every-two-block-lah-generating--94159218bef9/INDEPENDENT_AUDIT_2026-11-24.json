@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:02:36.492312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing R_n(w)=w(w+1)···(w+n−1), the two-block coefficient 2^{j−1}−1 converts the unnormalized PGF into (R_n(2z)−2R_n(z))/2, with zero constant and linear coefficients. Evaluation at 1 gives n!(n−1)/2, and factoring the first rising-factorial term yields 2z times the difference of the products over h=1,…,n−1 in the normalized formula. For each h and nonzero z with Re z≥0, the squared-modulus difference of 2z+h and z+h is 3|z|²+2h Re z>0. The second factor z+h is nonzero there, and the index set is nonempty for n≥2, so strict factorwise dominance implies the products cannot be equal, including on the imaginary axis. The z² coefficient is the positive unsigned Stirling number [n,2] divided by L(n,2); n=2 gives P=z². I independently multiplied the n=8 factors and compared to the rising-factorial coefficients and recomputed the cubic discriminant −307921820 and Routh margin 2301540. That confirms the exact nonreal example, not all-degree stability, which follows from the modulus proof. Replay: RESULT.md lines 21–47; the separate finite verifier verify.py and logged output in VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-block-number assertion is conjectural. The r-Lah extension contains the ordinary law at r=0; the r-Lah PGF formula and coefficient log-concavity are proved but do not give half-plane locations.",
+          "The negative real-zero theorem in Lemma 3.16 concerns a polynomial built from second-kind r-Stirling numbers, not the combined Lah PGF. The listed Guo full text could not be retrieved and contributes no negative evidence."
+        ],
+        "reasoning": "The deformation and the adjacent real-rooted polynomial do not supply a proved theorem that specializes to the two-block zero-location claim.",
+        "searches": [
+          "arXiv:2105.11365 §3.3",
+          "arXiv:2212.12277 Definition 2.1, Lemmas 3.6 and 3.16 and Proposition 3.14",
+          "DOI 10.1515/math-2024-0085 lawful OA and repository routes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2105.11365",
+        "arXiv:2212.12277",
+        "Local Resultary f04a1d1da765 and 94a1b4bd6c7e",
+        "DOI 10.1515/math-2024-0085 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known PGF representation specializes directly to a rising-factorial difference. Prior log-concavity is a property of its coefficients. The negative-integer factors do not exhaust the polynomial, as already visible in the n=8 cubic factor."
+        ],
+        "reasoning": "Finding the remaining roots in the open left half-plane requires the strict modulus comparison, not just substitution of the known representation, coefficient log-concavity or an integer-root list. The root theorem for the second-kind r-Stirling polynomial is for different coefficients and does not apply by relabeling.",
+        "searches": [
+          "arXiv:2105.11365 Definition 1.1, Lemma 3.1 and Proposition 3.12",
+          "arXiv:2212.12277 Lemmas 3.6 and 3.16 and Proposition 3.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 3.11 asks for a negative half-plane for ordinary Lah PGFs; Definition 1.1 forces an origin zero for k≥1.",
+          "For k=2 the target polynomial is equivalent, up to the trivial z factors and an overall scalar, to a dilation difference of the factorial product over positive shifts. The targeted dilation search did not surface a pertinent proved result."
+        ],
+        "reasoning": "Strict Hurwitz stability applies to the quotient with the mandatory origin factor removed. The corresponding reading of the prior conjecture is a match in statement, but a conjecture is not existing proved coverage.",
+        "searches": [
+          "arXiv:2105.11365 Lemma 3.1 and §3.3 Conjecture 3.11",
+          "Primary search for Hurwitz stability of polynomial dilation differences f(qz)−f(z) with negative real zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact roots −1,…,−floor((n−1)/k) include some k=2 roots, not a complete all-degree root table.",
+          "The nearest catalogue stability record treats independence polynomials of double-star trees. The nearest Lah-related record analyzes covariances of block records in compositions and disclaims root locations. No matching all-degree listing surfaced in the targeted comparisons."
+        ],
+        "reasoning": "The exact prior roots are real and cover selected factors, whereas the result also locates all remaining zeros, including nonreal ones. Neither local record is about this root set.",
+        "searches": [
+          "Local Resultary for two-block Lah, Stirling PGF Hurwitz stability and comparable root-location records",
+          "Resultary f04a1d1da765 and 94a1b4bd6c7e",
+          "arXiv:2105.11365 Proposition 3.12"
+        ]
+      },
+      "rationale": "The full two-block nonzero-root exclusion is a distinct proved case of the earlier conjecture. The PGF identity, the forced zero at the origin (from the established support) and particular negative integer zeros are prior or immediate from prior statements, not novelty in themselves. No compared source proves the full exclusion for k=2.",
+      "residual_risks": [
+        "A known general theorem on dilation differences under other terminology could cover the argument; none was identified in the targeted comparison. The Guo paper was not readable and its scope was not assessed from its title. This is a bounded comparison, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct conjectural overlap and partial proved roots; no all-root theorem for k=2 in the compared passage",
+          "evidence": "Conjecture 3.11 says all complex zeros have negative real parts, with the necessary origin exception evident from the definition; Proposition 3.12 gives the negative integers through −floor((n−1)/k).",
+          "identifier_or_url": "https://arxiv.org/abs/2105.11365",
+          "material_read": "Definition 1.1, PDF p. 2; §3.3, Conjecture 3.11 and Proposition 3.12, PDF p. 13 near offsets 69900–76649",
+          "method": "OA primary PDF passage inspection",
+          "title": "Lah distribution: Stirling numbers, records on compositions, and convex hulls of high-dimensional random walks",
+          "trigger": "Same PGF, broader zero-location statement and exact prior roots"
+        },
+        {
+          "assessment": "Gives tools for the broader family but not the needed Hurwitz theorem",
+          "evidence": "The root result concerns a second-kind r-Stirling polynomial; the r-Lah PGF results used here are representation and coefficient log-concavity.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.12277",
+          "material_read": "Definition 2.1, p. 4; Lemma 3.6, p. 9; Proposition 3.14 and Lemma 3.16, pp. 12–14",
+          "method": "OA primary PDF passage inspection",
+          "title": "r-Lah distribution: properties, limit theorems and an application to compressed sensing",
+          "trigger": "Broader family specializes at r=0"
+        },
+        {
+          "assessment": "Unresolved access risk, not used as evidence for or against coverage",
+          "evidence": "DOI response HTTP 202 and fallback HTTP 403; no alternate copy located.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2024-0085",
+          "material_read": "Bibliographic identification only; no full-text passage recovered",
+          "method": "Lawful OA retrieval attempted at DOI and fallback, and checked for a repository copy",
+          "title": "Zeros distribution and interlacing property for certain polynomial sequences",
+          "trigger": "Frozen citation on polynomial zero location"
+        },
+        {
+          "assessment": "Different polynomial",
+          "evidence": "Independent-set PGF on a double star, not a product of Stirling counts for the Lah law.",
+          "identifier_or_url": "Resultary f04a1d1da765",
+          "material_read": "Mirrored RESULT.md, finding",
+          "method": "Local Resultary mirror",
+          "title": "Strict left-half-plane independence-root stability of double-star trees",
+          "trigger": "Nearest catalogue half-plane stability statement"
+        },
+        {
+          "assessment": "Related random model, different assertion",
+          "evidence": "Computes block-record covariances, expressly not Lah PGF root locations.",
+          "identifier_or_url": "Resultary 94a1b4bd6c7e",
+          "material_read": "Mirrored RESULT.md, finding and relationship passage",
+          "method": "Local Resultary mirror",
+          "title": "Exact covariance geometry of block records in uniform compositions",
+          "trigger": "Nearest Lah-themed catalogue record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two blocks are the first natural case beyond a single rising factorial; the family contains genuinely nonreal roots. The proof settles a cited conjectural location uniformly in n for that subfamily and explains why the imaginary axis is strictly excluded after factoring out zero. This is materially stronger than the finite sample or the trivial origin check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

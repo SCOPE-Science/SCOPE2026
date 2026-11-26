@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each original constant run, the number of symbols sent to one track completely determines the two scattered subsequences. Fixing one of three allocation states per run determines both output run-symbol sequences. If they match, equality of corresponding lengths gives one equation per output run, with each undecided quantity present in exactly two incidences (a loop if both occur in the same equation). This is precisely an integer capacitated exact-degree matching system. Both directions of the equivalence and the \(3^r\) bound are proved. The public checker verifies 5,327 independent finite words and a large-compressed example; known polynomial b-matching algorithms provide the infinite running-time guarantee.
+## correctness
 
-## Originality — PASS, with residual risk
-The focal 2023 shuffle-square paper and the 2025 graph characterization are inspected primary sources. The latter may already imply FPT in run count by a more general, larger graph encoding, so unqualified FPT alone is not presented as new. The precise contribution is a simple per-run three-state decomposition into *at most* \(3^r\) exact-degree instances with at most \(r\) edges, including bit-compressed lengths. Literature and published-record comparisons did not identify an equivalent single-exponential compact formulation. The principal residual risk is an unindexed parameterized recognition algorithm or an implicit reduction hidden in other graph formulations; novelty is therefore not absolute.
+PASS
 
-## Mathematical value — PASS
-Binary shuffle-square recognition is NP-complete in general, whereas few-run inputs arise naturally from run-length compression. This explicit single-exponential algorithm and small exact-degree formulation establish structural tractability for *arbitrarily large* runs without expanding the word, strengthen what a mere list of low-run classifications can provide, and extend to arbitrary finite alphabets. The result is an algorithmic upper bound, not an optimality theorem.
+A split is fully represented by counts x_i in [0,L_i]: positions within a constant run can be allocated in a contiguous prefix and suffix with no effect on the induced words. Guessing zero, full, or interior fixes which fragments appear, including forced exclusion of the interior state when L_i=1. On each track remove absent fragments and merge adjacent surviving identical symbols. If the resulting symbol sequences agree, equality of corresponding run lengths is necessary and sufficient. After the fixed counts are substituted, an interior variable x_i has one positive incidence from each track, because its opposite fragment has length L_i−x_i. Hence each column is one ordinary or one doubled incidence, giving at most r vertices and at most r edges in the stated graph. Shift each lower bound by one and subtract its incidences from the demands; negative demands are rejected. If a matching solver omits loops, a loop of residual capacity U at v is represented by a triangle on v,a,b with new vertices of exact demand U and all three edge capacities U. Then the two edges at v have the same value x and contribute 2x, and the third has value U−x. Parallel ordinary edges can be collapsed by summing capacities and their recovered multiplicities distributed integrally afterward. These transformations are internal to solving the given loop-allowed instance and preserve O(r) size. Letchford–Reinelt–Theis §1–2 supplies binary-capacity polyhedral separation, including the perfect case: alternatively maximize cardinality under bounded degrees and test saturation of all demands. This provides polynomial-bit-time feasibility and integral recovery without expanding capacities into unit edges. The construction and recovery are therefore valid in 3^r poly(r,S). The stated empty-word convention is consistent. The frozen verifier and notes were inspected, not run: the code compares independent descriptions on tested allocations and stops at the first successful allocation on positive instances. It does not exercise the matching algorithm or solve the large-capacity witness from scratch.
 
-## Limits and nearest sources
-Grytczuk–Pawlik–Pleszczyński (2023, arXiv:2308.13882) supplies the core problem and MSC. Grytczuk–Pawlik–Ruciński (2025, arXiv:2503.22043) supplies a general nest-free graph characterization and classifies short-run families. Letchford–Reinelt–Theis (2008) and Gabow–Sankowski (2021) supply polynomial b-matching methods. No new matching solver is claimed. The certificate tests the reduction but does not itself implement a polynomial blossom algorithm.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the supported distinct claim is the specific 3^r bound with at most r matching edges and r indeterminates after aligning output runs, on binary run lengths, including witness recovery. Run-parameter tractability, single-exponential solvability without that bound, and ordered graph representations should not be credited separately.
+
+## value
+
+PASS
+
+The compressed model allows lengths exponential in the input bits, so an algorithm on expanded positions is not an adequate baseline. After accounting for the earlier nest-free graph, the surviving contribution is an exponential reduction from the straightforward grid-path enumeration and a one-variable-per-input-run formulation with no explicit nest constraints inside each instance. This makes matching feasibility and witness recovery directly applicable to the hard recognition problem and is useful without claiming first run-parameter tractability or an optimal exponential base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

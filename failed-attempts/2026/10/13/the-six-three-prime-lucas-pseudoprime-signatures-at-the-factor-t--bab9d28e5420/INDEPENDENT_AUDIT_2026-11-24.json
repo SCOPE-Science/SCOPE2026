@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:00:00.262507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The squarefree criterion is p−(D/p) | n−(D/n) at each prime, as in Helmreich–Webster Theorem 2. At n=3qr, reducing the q and r tests gives the two positive quotient integers j and k. Since r−c≥q+1 and 3q−ab≤3q+1, k is 1 or 2; r≤3q+2. Eliminating r gives (jk−9)(q−b)=(3−a)(3b+kc). The right side is nonzero for k=1,2, so q≤1+4(3+k)≤21 and r≤65. A separately written bounded check used trial division through √65 and tested all eight sign triples against all three original divisibilities for each prime pair, 600 cases. It returned (105,−+−), (195,++−), (255,−++), (399,−−−), (561,+++), and (2703,−++), with the listed quotient pairs and prime witnesses 41,109,89,41,157,89 (direct residue-square checks). The frozen VERIFIER.py and logged output were inspected, not executed; /workspace/replays/4.js provides the independent bounded reproduction. CRT gives the desired signs on exactly one eighth of the reduced classes that are 1 mod 4, and PNT in arithmetic progressions gives prime densities 1/8 conditional and 1/16 unconditional for each row. This is not a classification for other prime supports or discriminant families.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 gives both quotient formulae for n=Pqr of a general preproduct P. §5.2 loops over the two bounded quotients and checks integrality, the exact criterion and primality; §5.3 explicitly considers all four signs at q,r.",
+          "The distinct same-day a6f03c91eda1 covers λ(3qr)|3qr+1, with products 255 and 2703. Related indexed Lucas–Carmichael results concern the minimal shifted-factor gcd and arithmetic progression fibers."
+        ],
+        "reasoning": "The same-day result does not have the same predicate: for sign vector (−,+,+), the frozen criterion additionally needs 4|n+1 at 3; it holds for both of that result's products. Thus it covers the two numerical supports there, not the other four rows or the densities. By contrast, the general signed algorithm applies to the whole target fiber.",
+        "searches": [
+          "Helmreich–Webster arXiv:2306.17691v1 §§3, 5.2–5.3",
+          "Local Resultary a6f03c91eda1, fd644204c2f1, 0e46ab047f14"
+        ]
+      },
+      "checked_sources": [
+        "Williams 1977 Thm. 4",
+        "Helmreich–Webster arXiv:2306.17691v1 Thms. 2 and 4, §§5.2–5.3, and INTEGERS 24A A8 tables",
+        "Carlip–Somer DML-CZ 128183 §§1,3–5",
+        "Resultary a6f03c91eda1, fd644204c2f1 and 0e46ab047f14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identify prior P=3, (δ_P,δ_q,δ_r)=(a,b,c), and the prior quotient variables (D,C)=(k,j), not the discriminant. Prior eq. (1) becomes exactly q−b=(3−a)(3b+kc)/(jk−9); prior eq. (2) determines r, and (3) gives 3<jk<15 with k=1,2 and j>3.",
+          "Because jk≠9, the same formula gives q≤1+4(3+k)≤21, and the prior definition of k gives r=c+(3q−ab)/k≤65. The fourteen possible quotient pairs and eight signs require at most 112 direct candidate evaluations using the published recipe."
+        ],
+        "reasoning": "The whole fiber is obtained by specializing a signed constructive enumeration, rather than finding a previously missing reduction from a generic divisibility test. Trying both signs at 3 and attaching the elementary CRT/PNT-in-progressions density does not supply a distinct mathematical result beyond that direct specialization.",
+        "searches": [
+          "arXiv:2306.17691v1 §3 Theorem 4, eqs. (1)–(3), §5.2 CD method and §5.3 DΔ method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Williams' local criterion in Helmreich–Webster is precisely the frozen absolute fixed-discriminant condition.",
+          "Carlip–Somer §3, Theorems 3.2–3.3, give the squarefree λ₀ | N−ε(N) criterion for a prescribed admissible signature on the factors. Their §1 and §§4–5 distinguish this universal signature property from an exact-rank Lucas d-pseudoprime for a fixed rank divisor."
+        ],
+        "reasoning": "The three signs determine the local divisibilities, so the signed Carmichael–Lucas condition and the absolute condition agree in this squarefree setting for a realized signature. Ordinary Carmichael and ordinary Lucas–Carmichael are the all-plus and all-minus boundary cases, not the mixed-sign theorem.",
+        "searches": [
+          "Local Resultary: absolute Lucas pseudoprimes, signed Korselt and Lucas–Carmichael three-prime classifications",
+          "arXiv:2306.17691v1 Theorem 2",
+          "Carlip Somer Square-free Lucas d-pseudoprimes and Carmichael-Lucas numbers DML-CZ full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tabulations concern four fixed discriminants, 5, −7, −11 and 13. Table 5 for −11 (p. 17) counts one three-factor entry below 10³; 195 has signature (+,+,−) at −11 and meets the local divisibilities, identifying that entry.",
+          "a6f03c91eda1 explicitly lists 255 and 2703 for a different positive-shift condition."
+        ],
+        "reasoning": "The fixed-discriminant tables are not printed cross-discriminant signed tables; the −11 example is even outside the frozen prime-D range. The originality failure rests on the stronger signed enumeration theorem and algorithm, not on fitting counts in an adjacent table.",
+        "searches": [
+          "Helmreich–Webster, INTEGERS 24A (2024) A8, pp. 1–2 and Tables 1–8",
+          "Resultary a6f03c91eda1 exact p=3 fiber"
+        ]
+      },
+      "rationale": "The exact six rows were not found printed together, but the strongest published comparison is not merely Williams' criterion or a table for a fixed discriminant. Helmreich–Webster Theorem 4 gives the same signed two-quotient parametrization for arbitrary preproduct, and §5.2–5.3 gives its exhaustive enumeration including all four sign pairs at the last two primes. Setting the preproduct to 3 and taking both signs at 3 already gives the exact cutoff and enumeration by direct substitution. The additional prime-discriminant density is the standard independent residue-class count for any fixed sign vector, not a new implication particular to these rows.",
+      "residual_risks": [
+        "No independent historical priority assertion is made about who first wrote the six rows together. The strong mathematical implication does not depend on finding the exact values printed as a table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive direct implication: same signed quotient variables, formulae, and exhaustive algorithm; no claim that the six rows are printed",
+          "evidence": [
+            "Equations (1)–(3) give shifted q and r in terms of C,D and bound CD.",
+            "§5.3 explicitly enumerates all four choices of signs at q and r before checking primality and the criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.17691v1",
+          "material_read": "§2 Theorem 2 (OA offset 7410); §3 Theorem 4 and corollaries (offset 10200); §5.2–5.3 (offset 17620)",
+          "method": "Original OA HTML; literal term location followed by bounded passage reads",
+          "title": "Tabulating Absolute Lucas Pseudoprimes",
+          "trigger": "Potential stronger result for fixed preproduct and arbitrary signs"
+        },
+        {
+          "assessment": "Fixed discriminant tables and one specific shared signature outside the target range",
+          "evidence": [
+            "The four fixed discriminants are 5, −7, −11, 13; the −11 table has a single k=3 item below 1000."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/a8Proc23/a8Proc23.pdf",
+          "material_read": "pp. 1–2 and Tables 1–8, including Table 5 p. 17",
+          "method": "Targeted original OA PDF passages",
+          "title": "Tabulating Absolute Lucas Pseudoprimes, expanded journal version",
+          "trigger": "Potential exact signed table of the p=3 fiber"
+        },
+        {
+          "assessment": "General local condition, not an explicit six-sign census in the inspected passages",
+          "evidence": [
+            "Theorem 4 gives squarefreeness and the local divisibility necessity; the equivalence used here is explicit in Helmreich–Webster Theorem 2."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1977-025-9",
+          "material_read": "Definition p. 133 and Theorem 4 pp. 139–140",
+          "method": "Targeted original paper passages",
+          "title": "On Numbers Analogous to the Carmichael Numbers",
+          "trigger": "Origin of fixed-discriminant condition and general criterion"
+        },
+        {
+          "assessment": "Confirms signature criterion; finiteness results for fixed rank divisor are different from the exact least-factor census",
+          "evidence": [
+            "For squarefree N, Theorem 3.3 uses the divisibility of N−ε(N) by λ₀.",
+            "Theorem 5.4 concerns all but finitely many Lucas d-pseudoprimes being Carmichael–Lucas numbers, not the distribution of prime discriminants for a fixed support."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/128183/CzechMathJ_57-2007-1_34.pdf",
+          "material_read": "Introduction p. 447; §§3–5, Theorems 3.2–3.3, 4.2–4.3, 5.2–5.4 (pp. 454–458)",
+          "method": "Located lawful DML-CZ alternate and read original OA PDF passages",
+          "title": "Square-free Lucas d-pseudoprimes and Carmichael-Lucas numbers",
+          "trigger": "Plausible earlier broader signature classification; DOI route lacked full text"
+        },
+        {
+          "assessment": "Partial mathematical coverage only; dates do not establish priority",
+          "evidence": [
+            "The least-factor-three fiber has (3,5,17) and (3,17,53) for λ(pqr)|pqr+1, not all signed local factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-finite-divisor-sieve-for-three-prime-positive-shift-carmichael--a6f03c91eda1/RESULT.md",
+          "material_read": "Finding, assumptions, proof through the first two fibers (mirror offsets 0–3854)",
+          "method": "Local Resultary and original local-mirror passage",
+          "title": "A finite divisor sieve for three-prime positive-shift Carmichael equations",
+          "trigger": "Same-day Resultary hit with two exactly matching products and related quotient method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Three is a natural first odd least factor, and mixed signatures are relevant. But in this case the published signed algorithm reduces that parameter to fourteen quotient pairs, with the claimed cutoff already immediate; the remaining density is a standard CRT and prime-progression count for any prescribed signs. The frozen result does not give a new cutoff principle, distinct phenomenon, or nonroutine consequence beyond the parameter substitution and bounded tabulation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

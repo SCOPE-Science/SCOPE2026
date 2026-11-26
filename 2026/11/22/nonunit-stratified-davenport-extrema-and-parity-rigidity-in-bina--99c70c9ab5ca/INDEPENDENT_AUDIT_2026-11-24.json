@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:14:35.783784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For total nonunit valuation V<n, removing any nonunit lowers the valuation and cannot preserve the product. After cancelling the unit part and t^V at the reduced precision, a deletion is possible exactly when a nonempty unit sublist multiplies to 1 modulo t^(n-V). For V>=n the product is zero: a unit could always be deleted, and otherwise it is enough to test whether a single deletion still gives zero. This gives r<=n and forces all valuations to be one at r=n (including the case n=1, where t represents zero). The generators 1+t^j for odd j have orders 2^e_j; their binary power factors give one lowest-degree pivot at each m=1,...,n-1, proving a unique cyclic-coordinate presentation. Truncated powers of the augmentation generators then give the upper Davenport bound, while order-minus-one repetitions of each cyclic generator give the lower bound. At fixed r<n, V>=r gives the upper bound, attained by r copies of t and lifted extremal units at precision n-r. Subtracting from the all-unit maximum leaves the sum of 2^v2(m)-1 on the last r degrees: it vanishes for positive r exactly at r=1 and even n. The separate zero-product maximum n ties at depths 3 and 4, wins at 1 and 2, and loses from 5 onward. Strict growth of d_j forces V=1 in every tied one-nonunit case. Inspected verify.py and verification_output.txt: their finite checks are supplementary (all small-depth profiles only through n=4; group generation through n=12); the deletion and group arguments establish the all-depth result. The bundled code was inspected, not replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deng's exact finite-ring description gives D(S_n)=D(U_n) for n>=3 and gives D(S_1)=2 and D(S_2)=3.",
+          "Zhang–Wang–Qu give an interval of width one when f=x^n. Wang's equality theorem over larger fields explicitly requires q>2."
+        ],
+        "reasoning": "The general ring result dominates the scalar part, not the distribution of nonunit counts among extremizers or the full constrained maxima.",
+        "searches": [
+          "arXiv:1602.03445, Theorems 3.2, 11.1 and 11.2",
+          "arXiv:1507.03182, Theorem 1.1",
+          "arXiv:1409.2077, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary exact-count/valuation searches",
+        "arXiv:1507.03182",
+        "arXiv:1602.03445",
+        "arXiv:1409.2077"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier quotient-stabilizer method motivates the unit bound at precision n-V; it does not supply the matching extremizer at each r.",
+          "The exact scalar formula settles the numerical unrestricted maximum, but leaves open which strata tie it. The sharp construction at V=r and the strict-degree comparison are what produce the asserted ties and rigidity."
+        ],
+        "reasoning": "Known machinery and scalar coverage are credited; a matching sharp prescribed-count theorem or a general theorem directly yielding the full profile was not established in the inspected material.",
+        "searches": [
+          "arXiv:1507.03182, proof of Theorem 1.1, pp. 9–11",
+          "arXiv:1602.03445, proof preceding Corollary 7.1, pp. 7–8, and Theorem 11.2, p. 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue's exact hit is the assigned 99c70c9ab5ca record, not a second result.",
+          "Deng's relative constant uses membership of the total product in a distinguished set, and his proof controls the quotient of the unit group by a product stabilizer. For ideals (t^k) membership controls a threshold on total valuation, not the number of positive valuations."
+        ],
+        "reasoning": "Counting nonunits is not equivalent to prescribing the product or the truncated valuation: for instance t^2 and (t,t) have the same nonzero product at n>2 but different nonunit counts. Group zero-sum-free lists describe only the unit portion at the precision determined by valuation.",
+        "searches": [
+          "Resultary: exact nonunit counts and maximal irreducible sequences in binary truncated polynomial rings",
+          "arXiv:1602.03445, Definition 6.3 and proof preceding Corollary 7.1",
+          "arXiv:1507.03182, Lemma 2.3 and proof of Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue result is the assigned record. No distinct exact-count table was identified by these searches.",
+          "The frozen supplied output contains scalar group and semigroup cutoffs through depth 12; the code exhausts stratified lengths through depth 4, not all depths."
+        ],
+        "reasoning": "Neither a scalar table nor finite small-depth checks give the all-depth exact-count theorem; a literal table miss is not an exhaustive search of the papers or literature.",
+        "searches": [
+          "Resultary: binary truncated polynomial multiplicative Davenport profile and parity rigidity",
+          "OA literal Table checks in arXiv:1507.03182, 1602.03445, 1409.2077",
+          "Frozen verification_output.txt and verify.py"
+        ]
+      },
+      "rationale": "The unrestricted scalar length is known and is not credited as new. Earlier stabilizer/relative-constant arguments supply tools for controlling unit deletions but the inspected results do not give sharp length at each exact nonunit count, or the parity classification and valuation-one equality cases. The pass is limited to that refinement, not the group constant or the use of stabilizers.",
+      "residual_risks": [
+        "An older relative or inverse semigroup theorem under different terminology may contain a sharper result than the passages examined. The bounded literature comparison is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader binary quotient family; scalar bounds and related proof machinery",
+          "evidence": [
+            "delta_f=1 at f=x^n; stabilizer nesting follows truncated exponents rather than a prescribed exact number of nonunits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.03182",
+          "material_read": "Theorem 1.1 (p. 3), Lemma 2.3 (pp. 4–6), quotient argument (pp. 9–11)",
+          "method": "OA PDF, bounded passages by offset",
+          "title": "A problem of Wang on Davenport constant for the multiplicative semigroup of the quotient ring of F2[x]",
+          "trigger": "Identical ring family and stabilizer approach"
+        },
+        {
+          "assessment": "Covers unrestricted scalar and uses quotient stabilizers; no prescribed-count result established by the inspected statements",
+          "evidence": [
+            "Relative sequences are selected by their total product. At binary depth n the general theorem gives the exact unrestricted cutoff, including the two small exceptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.03445",
+          "material_read": "Theorem 3.2 and Corollaries 3.1–3.2 (p. 3), Definition 6.3 (pp. 5–6), quotient proof before Corollary 7.1 (pp. 7–8), Theorems 11.1–11.2 (pp. 13–14)",
+          "method": "OA PDF, bounded passages by offset",
+          "title": "Davenport constant for commutative rings",
+          "trigger": "Exact general ring theorem and potentially equivalent relative invariant"
+        },
+        {
+          "assessment": "Does not cover the binary hypothesis",
+          "evidence": [
+            "The equality theorem assumes q>2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2077",
+          "material_read": "Theorem 1.1 (pp. 2–3)",
+          "method": "OA PDF, bounded theorem passage",
+          "title": "Davenport constant for semigroups II",
+          "trigger": "Nearby polynomial-quotient theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The new profile answers an inverse question left open by the scalar cutoff: precisely how much length is lost by prescribing noninvertible factors and which such strata can tie the maximum. The parity dichotomy, small-depth exceptions, and the explicit reduced-unit criterion give usable structural information without claiming a full classification of the unit lists.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

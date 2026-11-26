@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:20.767628Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63",
+        "Frozen VERIFICATION.md lines 19–23 and check_fixed_weight_3univ.py lines 10–43"
+      ],
+      "rationale": "The formula holds. Three greedy arches are sufficient by matching one bit per arch and necessary because the sequence of arch-terminal bits followed by a bit absent from the remaining suffix fails greedy matching. An independent count for a,b≥3 avoids generating functions: there are two one-arch words, no zero-arch words, and exactly a−1 words with two arches of the form 0^j1 (the suffix must supply the remaining ones), or b−1 with two 1^j0 arches. Each mixed orientation contributes 1+(a−2)+(b−2) by splitting into empty, all-zero and all-one suffix cases. The sum is 3(a+b−2). If either count is below three, 000 or 111 is missing. This covers n=0 and all other boundary cases and justifies the conditional probability by division by the binomial count. The supplied script was inspected, not run; its reported test of every word through length 16 is corroborative only.",
+      "residual_risks": [
+        "No claim about larger alphabets or target lengths is established, and no formal certificate is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson states the greedy arch equivalence and gives unrestricted counts; counting in regular languages is a general algorithm. The arch remainder paper concerns powers and circular universality. Theorem 4.4 characterizes when every word in a binary Parikh matrix class is 3-universal."
+        ],
+        "reasoning": "General algorithms and Theorem 4.4's class-level existence criterion alone do not supply the number of failures. The decisive earlier coverage is the stronger individual avoider parametrization used in §4.",
+        "searches": [
+          "Adamson arXiv:2304.04583, Theorem 1",
+          "Adamson et al. arXiv:2311.10658 §1",
+          "Fleischmann–Germann–Nowotka arXiv:2104.09063 p. 2",
+          "arXiv:2610.06717 §4 Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.06717",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658",
+        "arXiv:2104.09063",
+        "October 4 and October 26 Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Avoiders of 001 have form 1^r 0 1^(b−r) 0^(a−1), 0≤r≤b; avoiders of 010 have form 1^r 0^a 1^(b−r). Reversal of the first and bit complements give the other four families. Their six sizes sum to 3(a+b+2).",
+          "Matching run lengths in those forms, the two monotone words each occur in four families. Exactly four three-run words and two four-run words are duplicated once more: three-run overlaps occur at the endpoints of a parameter range, and a four-run overlap requires the two inner runs to have length one. All other words occur once."
+        ],
+        "reasoning": "The total duplicate excess is 2(4−1)+6=12. Thus the exact deficit is 3(a+b−2), directly from the prior families by run-length comparison and without a further unknown counting theorem. Below the interior range the required constant pattern is absent. A different arch proof in the frozen record does not make the claimed formula an uncovered result.",
+        "searches": [
+          "arXiv:2610.06717, Lemma 4.3 and proof, pp. 6–7, OA offset 23410",
+          "October 26 Resultary record, RESULT.md offset 4000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With at least three of each letter, failure is the union of the complement- and reversal-related avoider sets for the six nonconstant patterns. Lemma 4.3's proof gives their word forms, not just witnesses."
+        ],
+        "reasoning": "The union counts individual failing words at exactly the composition in the Finding. The finer count of ab pairs in the paper does not change the underlying avoider sets.",
+        "searches": [
+          "Fixed-weight/Parikh binary three-subsequence universality, including length-three pattern avoidance",
+          "arXiv:2610.06717 Lemma 4.3, proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 indexed result sums over all weights at a given length. The October 26 record gives a finer census by the number of scattered ab pairs and explicitly sums failures to 3(a+b)−6."
+        ],
+        "reasoning": "A length marginal cannot recover separate weights; the finer indexed census does recover them. The indexed overlap is distinct from the prior implication from Lemma 4.3 and is not treated as proof of who obtained the formula first.",
+        "searches": [
+          "Local Resultary searches on binary fixed-composition universality and Parikh-matrix avoidance",
+          "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "2026/10/26/SCOPE-exact-binary-three-subsequence-universality-counts-in-every-pari--561fd2881a94"
+        ]
+      },
+      "rationale": "The deficit is a short count of six completely specified avoider families already characterized in Fazekas–Huang–Mercaş, arXiv:2610.06717, Lemma 4.3 and proof. This is demonstrable prior implication, not just an algorithmic antecedent or a title match. A separate indexed finer census explicitly contains the exact deficit as a marginal; its later catalogue date and lack of a citation to the frozen finding do not settle historical priority.",
+      "residual_risks": [
+        "The exact formula need not be printed in Fazekas–Huang–Mercaş; the verdict is coverage by implication from their proof, not an attribution of the printed formula or an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical coverage through complete avoider forms",
+          "evidence": [
+            "The avoidance families provide the six full sets of words; the theorem's all-universal-class criterion alone would only show existence or nonexistence of failures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06717",
+          "material_read": "Abstract p. 1; Lemma 4.3 and proof pp. 6–7 (OA offset 23410); Theorem 4.4 p. 7 (offset 25578)",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same objects, counting parameters and target length in the strongest primary lead"
+        },
+        {
+          "assessment": "Classical tool and unrestricted enumeration",
+          "evidence": [
+            "Universality index is the number of greedy arches; unrestricted counts do not separate weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "pp. 1–3, Theorem 1, OA offsets 1495 and 12146",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Ranking and Unranking k-subsequence Universal Words",
+          "trigger": "Arch characterization and binary/unrestricted census"
+        },
+        {
+          "assessment": "Computational framework rather than fixed-weight formula",
+          "evidence": [
+            "Counting/ranking universal words accepted by finite automata."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "§1 pp. 3–4, OA offsets 12985 and 15548",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "General language-counting framework for composition constraints"
+        },
+        {
+          "assessment": "Different outputs",
+          "evidence": [
+            "Uses arch remainders to analyze repetitions and circular universality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+          "material_read": "Our contribution, p. 2, OA offset 6234",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Arch suffix as a shared mechanism"
+        },
+        {
+          "assessment": "Length-only marginal",
+          "evidence": [
+            "Reports the distribution by length; does not individualize fixed weights."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Indexed exact count for same alphabet and statistic"
+        },
+        {
+          "assessment": "Finer exact coverage; priority not inferred from catalogue date",
+          "evidence": [
+            "Contains the same aggregate deficit and overlap count, and cites Fazekas–Huang–Mercaş's avoidance analysis rather than the frozen finding."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-binary-three-subsequence-universality-counts-in-every-pari--561fd2881a94",
+          "material_read": "RESULT.md Finding and proof/prior work, offsets 0 and 4000; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact binary three-subsequence universality counts in every Parikh class",
+          "trigger": "Indexed exact and finer match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–14 and 65–73",
+        "arXiv:2610.06717 Lemma 4.3 and proof",
+        "October 26 Resultary finer census, Finding"
+      ],
+      "rationale": "Fixed-composition universality is a natural census and the flat deficit is a useful simple form. But this record's sole claimed contribution is that invariant, which is already obtainable from the classified length-three avoiders by a short overlap count. The bivariate arch proof is concise but does not establish a further result beyond this mechanically covered census.",
+      "residual_risks": [
+        "The verdict is not a judgment on the value of fixed-composition problems for longer targets or on the independently useful general arch method."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

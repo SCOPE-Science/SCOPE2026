@@ -1,11 +1,21 @@
-# Review of the two-rate logistic fishery crossover
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the constant-effort logistic flow and integrated catch, obtains the exact two-order logarithmic difference, proves monotonicity of a positive quotient by explicit differentiation, and uses strict log concavity to place the unique root. Both the zero-effort boundary and the case in which an effort equals or exceeds intrinsic growth are treated without singular formulas. The standalone verification file passed 2,000 deterministic parameter checks. Finite checks are not the proof.
+## correctness
 
-**Originality — PASS (self-review with residual risk).** The closest antecedent, Yu--Tang--Lou (2016), studies the periodically attracting fishery and annual sustainable yield for open/closed seasons; the present theorem fixes an arbitrary initial stock, compares both finite-horizon orders for two **positive** efforts, and proves a unique crossover above carrying capacity while final-stock ordering never changes. The older impulsive-fishery source addresses catch-triggered closures and persistence, not this order comparison. This does not exclude an equivalent statement in unlocated fisheries-control literature. The zero-low-effort subcase is algebraically accessible from known logistic flow formulas and is not independently claimed as the principal novelty.
+PASS
 
-**Value — PASS.** The general theorem gives a sharp, unique, biologically interpretable point at which catch and terminal-stock incentives change their alignment. It distinguishes one-season gains from the asymptotic annual-sustainable-yield criterion and tells a fishery manager, within the stated simple model and for any prescribed durations, that below carrying capacity, delaying high effort gains catch but sacrifices terminal stock (with a tie in catch at carrying capacity only when the lower effort vanishes). The general two-rate uniqueness proof is not a parameter renaming or an isolated numerical gain.
+For each r,K>0, h>ell>=0, u,v>0 and X0>0, I recomposed the constant-rate logistic flow and its catch a log(1+x J_a). The HL and LH terminal denominators are 1+mz and 1+nz, with n-m=(H-L)pq>0. Writing s=1-L, the catch difference divided by K is d A-L B, with B>0 and sign A=sign(z-s). For L>0 the derivative ratio A'/B' is (1+mz)(2z+nz^2-s)/(d(1+pz)(1+qz)); both positive factors increase for z>max(0,s), since 2+qs>0. Averaging against dB, including the mass B(s) with zero slope when s>0, gives strict increase of A/B on that domain. Its initial limit is 0 for s>=0 or (L-1)/d for s<0, below L/d; its limit at infinity is infinite. At z=1 the two log arguments 1+m+Hpq and 1+m have weighted mean 1+n, with strictly positive weights d/H and L/H; strict log concavity places the crossing above 1. For L=0 the factorization itself gives equality exactly at 1. Integral J_a covers a=1 without division by zero. Thus the comparison is global in positive initial stock, with no restrictions on rates relative to r. Replay: RESULT.md lines 41–98 supply the analytic identities. Independently integrating x'=x(1-a-x), c'=ax by classical RK4 with 2048 uniform steps per block and bisecting z in [1,2] reproduced the numerical example, z_crit about 1.018264393667 and delta at z=.6 about -0.099326033822. The frozen script was read, not executed; that illustrative check is not the proof.
 
-**Closest literature and limits.** Yu--Tang--Lou (2016), equations (2.2)--(2.6), Theorem 2.2; Córdova-Lepe--del Valle--Robledo (2011), sections 2--4; FAO Gordon--Schaefer model. Possible coverage by broader finite-horizon optimal-control interchange theorems remains a substantive literature risk; no universal mathematical-newness certification is asserted. Model assumptions omit stochasticity, age structure, pricing and unrestricted schedules.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the all-parameter prescribed finite-horizon catch-order crossover, especially for two strictly positive efforts and its sharp location relative to K, together with the contrasting terminal ordering. Neither the population law nor the elementary zero-low-effort comparison is credited as a new method or model.
+
+## value
+
+PASS
+
+The exact order criterion addresses a natural comparison when the two efforts and durations are fixed. It proves that below carrying capacity the later high-effort block increases catch but leaves less stock, and that two positive efforts postpone the unique reversal beyond carrying capacity. That is actionable mathematical information about two distinct objectives in the model, not a general policy recommendation or a statement about sustainable yield.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

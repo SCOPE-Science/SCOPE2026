@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(\beta>1\), the gamma Gram representation supplies positive trace class and the nonnegative triple trace sum. The monotone-logarithm quadrature estimate bounds the difference from its three-variable integral uniformly at the critical point. Homogeneous radial coordinates give the \(1/(3\varepsilon)\) singularity, and an integrable simplex angular factor evaluates exactly to \(\pi^2/4\). The three singular coordinate faces and the radial boundary are handled in the proof. The independent standalone check validates the angular integral and tests finite truncations; infinite assertions rely on analysis.
+## correctness
 
-**Originality — PASS, subject to publication-priority risk.** Ma–Lu–Zu (2026) treat exactly the gamma moment family and prove the qualitative trace-class endpoint and first trace formula, not its cubic residue. Miheisi–Pushnitski (2017) study another slowly varying symbol and its individual eigenvalue asymptotics, not this parameter-to-one cubic moment. Brevig et al. (2014/2016) give the critical unregularized spectrum. The numerical coefficient cannot be inferred solely from the previously established trace and Hilbert–Schmidt residues. Targeted current research-record searches and prior available claim comparisons identified no equivalent specific cubic residue. A general trace-of-products Weyl law could conceivably cover this special case; independent publication-priority checking remains necessary.
+PASS
 
-**Mathematical value — PASS.** The trace-class boundary of a canonical positive Helson family has a precise logarithmic accumulation regime. Its cubic Schatten-moment residue is the first nontrivial interaction coefficient beyond the scalar diagonal and quadratic energy, and is intrinsically an exact three-frequency correlation rather than a routine restatement of the threshold. The explicit \(\pi^2/12\) identifies a quantitative spectral invariant at the critical transition.
+The gamma representation gives a positive Gram operator with finite sum of diagonal entries for beta>1. For an independent normalization check set beta=1+epsilon and sum the positive entry products under the three gamma integrals. The three resulting factors are zeta(1+t_i+t_j). With R=sum t_i and u_i=t_i/R, the integral over R<1 is Gamma(1+epsilon)^(-3) times the integral of R^(-1+3epsilon) times the simplex weight product(u_i^epsilon/(1-u_i)), up to a uniformly integrable remainder. Indeed 1/s <= zeta(1+s) <= 1+1/s by integral comparison, so replacing the zeta factors by their poles, and e^(-R) by 1, incurs a relative O(R) error uniformly on the simplex. For R>=1 the exponential and the integrable weight product(1-u_i)^(-1) give a uniform bound. Dominated convergence for the angular weight (one inverse linear singularity per vertex in two variables) and the radial integral 1/(3epsilon) yield A/3. At fixed t=u_1+u_2, partial fractions give A=integral_0^1 [-2 log(1-t)/(t(2-t))] dt. Setting t=1-exp(-v), then expanding 1/sinh(v), gives A=2 sum_{j>=0}(2j+1)^(-2)=pi^2/4. This confirms pi^2/12. The published proof's log quadrature also checks: every proper face has integrable decay at beta=1, and the angular majorant for the radial Abel limit is integrable. The first- and second-moment checks follow from integrating (1+2x)^(-beta) and R(1+R)^(-2beta), respectively; both quadrature errors are bounded as beta decreases to 1.
 
-**Limitations.** Restricted to one gamma family and the cubic moment. No eigenvalue asymptotics or general spectral measure theorem; no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the already known gamma family, trace criterion and critical Carleman spectrum. The checked sources do not establish the normalized cubic divergence along this discrete gamma regularization. In particular a bulk critical trace density or fixed-parameter eigenvalue law does not alone give the soft-cutoff length or a comparison with the discrete family uniform in beta. Pass is for the exact cubic residue, not a priority claim for Helson trace theory or the first trace formula.
+
+## value
+
+PASS
+
+The parameter is the trace-class threshold of an existing natural Helson family. The first two residues are both 1/2; they do not determine the cubic singularity. The cubic residue identifies the first genuine three-variable contribution and gives a concrete test value for any proposed critical trace distribution or comparison with the Carleman model. The exact number and effective length matter here, rather than a numerical estimate for an arbitrarily selected parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

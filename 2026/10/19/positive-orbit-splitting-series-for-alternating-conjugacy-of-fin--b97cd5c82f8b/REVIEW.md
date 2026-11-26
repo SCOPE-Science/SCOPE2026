@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The index-two orbit criterion identifies the splitting condition. The rooted-tree wreath factors give the odd-size child multiplicity obstruction, primitive-cycle rotations give the parity \((-1)^{w(t-1)}\), and repeated components give the final odd-size restriction. Weighted necklace and aperiodic-necklace formulas imply the exact positive generating series. Independent signed Burnside sums produce the same counts through degree 9 and furnish a second exact all-degree identity. The actual standalone checker also directly tests conjugation of all labeled maps through size 5. The general proof does not rely on the finite checks.
+## correctness
 
-**Originality — PASS within checked material.** The 2018 Akman–Akman article gives the underlying unlabeled automorphism decompositions, and Araújo et al. (2023) give the ordinary full-transformation permutation-conjugacy criterion. Defrain, Porreca, and Timofeeva (2023) enumerate ordinary functional digraphs in polynomial delay using rooted-tree and cycle codes but do not state a parity-restricted enumeration in their Sections 2–4. The 2017 Bhunia–Kaur–Singh article treats alternating conjugacy and centralizers for permutations, not all maps. The signed Burnside formula itself is standard orbit counting; the claim assessed as new is the full parity-stability recursion on rooted trees, cycles, and components together with its positive Euler-product enumeration. No same-statement or stronger covering result was found in the available targeted searches. Residual risk: a prior treatment of signs of functional-digraph automorphism groups may contain an equivalent formula under different terminology.
+PASS
 
-**Value — PASS.** Restriction of unit conjugacy from \(S_n\) to \(A_n\) produces a natural orbit-splitting question for the full transformation monoid. The result supplies an all-size constructive classification of the split orbits and a cancellation-free counting mechanism, not merely small coefficients or a rephrasing of the standard total mapping-count sequence. It makes the centralizer-parity obstruction explicit on every constituent of a functional graph.
+The index-two subgroup test is exact for n>=2: an S_n orbit splits iff its stabilizer is entirely even. On a rooted tree or a disjoint union, odd internal automorphisms extend and a coherent swap of two isomorphic size-m pieces has sign (-1)^m. Such internal maps and swaps exhaust the relevant permutations. On a directed cycle only rotations are induced; the least-period rotation coherently cycles t copies of a block of weight w and has sign (-1)^{w(t-1)}. Internal maps are already even, so the choice of lift cannot change the sign. Burnside and period inversion give the two weighted necklace series; uniquely remove an even repeat of a primitive necklace of odd total weight, not a necklace of odd length. The remaining connected types assemble by the stated odd/even multiplicity product. The recursion for R is well-founded by degree; n=0,1 are correctly excluded from the index-two claim. An independent exact rational partition calculation returned split counts (1,4,9,20,45,111,276,666) and totals (4,11,28,67,175,454,1227,3281) for n=2..9. Its replay is to enumerate partitions, use the number of vertices fixed by the d-th power as the choice count on each domain d-cycle, and form both signed and unsigned Burnside sums. RESULT.md proof and VERIFICATION.md/verify_parity.py were inspected; no frozen code was executed. Finite counts corroborate but are not the all-degree proof.
 
-**Limitations.** The asymptotic distribution is not determined. Classical component automorphism structure and ordinary permutation-conjugacy criteria are used rather than rediscovered. Literature coverage is bounded; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the nested parity-restricted classification and positive enumeration, not ordinary functional-digraph automorphism descriptions, unsigned counts, or the signed Burnside formula by itself. The strongest inspected prior results provide structural inputs rather than the parity restrictions and their positive enumeration.
+
+## value
+
+PASS
+
+The natural index-two refinement of endofunction isomorphism has a usable local-to-global criterion and an exact positive algorithm in every degree. It identifies which structures split and where an odd automorphism can arise, rather than just giving a numerical difference of signed sums. This is a modest structural enumeration, not an asymptotic theorem or novelty for signed Burnside.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

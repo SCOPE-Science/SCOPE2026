@@ -1,19 +1,21 @@
-# Research review: exponential founding-time marks for singular excursion extremes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified model's Itô entrance law gives the exact two-coordinate marked Poisson intensity. The normalized birth-time integral establishes the conditional mark law. The change of variables yields a locally uniformly convergent marked intensity and Poisson Laplace-functional convergence. A further exact bound on points born after a scaled time threshold controls escape of marks above any fixed height; rank tightness then justifies independent exponential founder marks for the leading positions. The asymptotic factor of two comes from \(u_t^2\sim(\log t)/2\). The finite diagnostic checks passed (see `checker.py` and `verification_output.txt`), but the analytical proof is needed for the infinite-time conclusions.
+PASS
 
-## Originality — PASS relative to inspected sources
+The entrance-law normalization agrees with the symmetric Itô convention in Kou. Mapping the excursion process gives the stated time-position intensity; at x>0 the joint density of the winning point is that intensity multiplied by the void probability above x. The void factor cancels in the regular conditional mark law, and integrating in birth time yields the erfc ratio exactly. The centering exists uniquely for t>pi/2 since A(0)=1/sqrt(pi) and A decreases to zero. With q=u+z/(2u) the density Jacobian has prefactor rho sqrt(2t) q/(2 sqrt(pi) u^3); A(u) is asymptotic to exp(-u^2)/(2 sqrt(pi) u^2), and the excess exponent is z+r+o(1) on bounded sets. The side r=0 has zero intensity and does not affect vague convergence. The integrated intensity above z0 with r>R tends to rho exp(-z0-R); with R=0 this controls high positions and supplies the Poisson count bound for every fixed rank. These bounds, not vague convergence alone, justify ranking. Product intensity gives independent marks and u^2/log t tends to 1/2. Finite diagnostic output (104 checks) and checker were inspected, not rerun; the analytic proof establishes the limit.
 
-Kou's first public version, arXiv:2611.19362v1, specifies this model and proves the **unmarked** maximum Gumbel distribution. Its theorem and full Sections 1, 2, and 5 do not supply a birth-time conditional distribution or a birth-time-marked point-process limit. The closest published genealogical marked-extreme result treats discrete critical geometric clans with polynomial immigration; another treats remote stationary tails under collective resetting. Neither statement implies the exact excursion kernel or its scaling. General Poisson mapping theorems are credited as proof tools. An implicit equivalent in older general excursion literature is a residual priority risk; search coverage is finite.
+## originality
 
-## Value — PASS
+PASS
 
-The additional time mark asks a natural genealogical question that an unmarked extremal spatial law cannot answer: when was a particle now at the top of a growing population born? The leading particle's birth time is atypically early by a sharp logarithmic fraction, while every fixed collection of leaders has independent limiting exponential birth-time marks independent of height rank. The exact finite-time regression and marked limit together explain the mechanism and allow conditional founder-time inference within this model.
+The distinct result is the exact maximizing founder-time kernel and the Brownian-excursion marked limit with its rate-one exponential law. Neither the already-known unmarked Gumbel law nor structurally similar joint laws in different models are credited as new here.
 
-## Boundaries and remaining checks
+## value
 
-The result requires independent standard Brownian excursions attached to homogeneous Poisson immigration, a fixed positive intensity, and one large deterministic observation time. It does not claim multi-time limit theory, general offspring universality, or independent publication priority verification. Existing unmarked extrema and the fundamental Poisson marking theorem remain prior work, not independently new findings.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The marginal extreme height cannot answer which founding excursions produced those extremes. The finite conditional kernel and logarithmically small founding-time scale, with independent rank marks, resolve this for the natural excursion model; in particular the winners are nearly as old as the entire process. This is a joint localization result rather than a recomputation of the known Gumbel marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

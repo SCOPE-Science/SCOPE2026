@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each pair of fixed directions the third vertex is admissible on an arc whose normalized length is the minor separation. This proves the exact second Hoeffding kernel. Its odd-frequency Fourier series has eigenvalues \(-1/(\pi^2m^2)\); Parseval yields \(1/48\), giving an exact finite \(U\)-statistic variance. The exchangeable deletion identity gives the exact deletion mean square and jackknife expectation. A conditional order-two projection establishes the deletion central limit on the \(n^{-3/2}\) scale, jointly with the second-chaos global limit, and Euler's odd-frequency product gives the transform and \(-9/20\) mixed covariance. The standalone code passed 70 reproducible checks. No finite enumeration was treated as an infinite proof.
+PASS
 
-## Originality — PASS with historical-priority risk
+For minor separation d in [0,pi], origin containment requires a third angle in an opposite arc of length d. The conditional probability is d/(2pi); uniform rotation makes the first projection vanish. Fourier integration gives odd eigenvalues -1/(pi^2 m^2), each twice, and variance 1/48 for the canonical pair kernel. The remaining canonical third kernel has variance 3/16-3/48=1/8. Applying the orthogonal U-statistic variance formula gives 3/[8(n-1)(n-2)]. Averaging all leave-one-out depths gives D_n exactly, so the deletion second moment is the difference of the variances at n-1 and n, including at n=4. This gives the stated jackknife expectation ratio. Conditioning on the first point, the included-triangle statistic has first projection h_2(X_1,·) with a canonical pair remainder of variance O(n^-2). Its combinatorial weight is 3/n, giving the factor 6 in the linear empirical term. Rotate empirical Fourier pairs by the deleted angle: the quadratic term is invariant and the linear term uses the same limiting cosine coordinates. The canonical variance bounds and square-summable eigenvalues justify joint truncation. For t>=0 the truncated quadratic variables are bounded above by 3/4, so their transforms converge. Integrating Gaussian pairs, then differentiating the odd Euler product and subtracting its value at zero, yields the stated hyperbolic formula with q=sqrt(6t)/2. Wick contraction gives 432 sum lambda_m^3=-9/20; first–third parity gives zero ordinary covariance. All variances and the q=0 limit agree with the Gaussian deletion law. The claim itself is unchanged; the repair credits the exact prior variance and clarifies the transform passage to the limit.
 
-The known central-depth marginal and classical rank-two degenerate \(U\)-statistic limits are credited. The examined archived paper on bivariate depth-based runs tests treats a runs test rather than the leave-one-out depth statistic, and the archived computational paper treats algorithms and qualitative sample fragility. An accessible later bivariate testing abstract explicitly describes a scalar null distribution, not a joint single-deletion law, but its full text was unavailable. Published-finding searches and accessible historical claims did not identify the explicit joint Laplace–Fourier deletion law, its nonzero \(\operatorname{Cov}(Z,J^2)\), or the finite exact jackknife ratio together. The lack of a match does not establish absolute priority; inaccessible sources remain a specific risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated sampling-robustness and variance-calibration question for a standard multivariate depth statistic. The result identifies a second, faster fluctuation scale for losing one observation, proves zero linear correlation does not imply independent errors, and quantifies the finite-sample distortion of an ordinary jackknife. It is not an arbitrary finite table, a renamed marginal theorem, or an unproved numerical conjecture.
+The repaired contribution is the shared-coordinate joint law for a depth and its single deletion, with explicit mixed dependence and transform. The central marginal and its spectrum, the exact finite central variance, and variance consequences of deletion averaging are clearly separated from that contribution. No same-day publication order is assumed.
 
-The exact finite ratio is a special instance of familiar degeneracy-related jackknife distortion; the new mathematical question assessed here is the explicit joint law of a depth statistic and its leave-one-out response. A complete historical priority determination and external validation are outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sensitivity to a single removed observation is a concrete issue for central depth. A normal deletion marginal and zero linear covariance with depth do not diagnose the nonlinear dependence; the explicit joint law shows why they do not and supplies an exact mixed transform for this benchmark. The marginal limit, already known variance, or routine ratio alone would not be a sufficient contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

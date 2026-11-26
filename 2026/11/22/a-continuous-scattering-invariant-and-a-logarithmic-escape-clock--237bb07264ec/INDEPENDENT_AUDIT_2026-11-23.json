@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:58:39.165564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the argument for every initial point in the stated open Ω. In transformed coordinates x'=-qpx², q'=4x, p'=1-p+2εp² and ε'=ε²(4/q²-p). There are strict inward signs at p=1/2, p=2, q=3 and ε=1/10. On finite times x cannot reach zero since (1/x)'=qp, p is bounded, x is decreasing and q≤q0+4x0 t; positivity of ε then follows. These bounds also give global continuation. If q remained bounded, d log x/dq=-qp/4 would bound x away from zero, contradicting q'=4x and bounded q. Thus q→∞, while x→0 by x'≤−(3/2)x² and y=px²→0. A direct estimate giving the needed uniform tails is ε'≤−ε²/18: it gives ε(t)≤ε0/(1+ε0t/18) and ∫ε²≤18ε0. Write r=p−1. In r'+r=2εp², variation of constants and the L¹ norm of the exponential kernel give ||r||₂≤|r0|/√2+8||ε||₂. Hence (log J)'=−εr for J=x exp(q²/8) is absolutely integrable, proving a positive finite limit. Time shifts preserve that limit. The tail past T is bounded by ||ε||_{L²(T,∞)}||r||₂, uniformly small on compact initial-data sets, so finite-time continuous dependence gives continuity. With q0>3 fixed and p0=1, |log(L/[x0 exp(q0²/8)])|≤144ε0=O_{q0}(x0); since every L is positive but these values tend to zero, L is nonconstant. Integration of dt/dq=e^{q²/8}/(4J) gives t~e^{q²/8}/(Lq), by the endpoint asymptotic ∫^Q e^{s²/8}ds~4e^{Q²/8}/Q. Therefore tqx→1 and taking logarithms gives q²=8log t+4log log t+4log 8+8log L+o(1). The stable filter first implies p→1, and then the forcing is asymptotic to 2/t. In its convolution the part before t/2 is exponentially small; on later times the rescaled forcing is bounded, and at each fixed backward lag it tends to 2. Dominated convergence against the exponential kernel gives tr→2. Integrating (log J)'=−2/t²+o(t⁻²) from t to infinity gives the positive 2/t correction. These are analytic checks in physical time, with pointwise asymptotics. I inspected the frozen verify.py and recorded sample diagnostic, did not run that script, and did not complete an independent numerical trajectory check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu–Yang analyze the same family, including the zero-forcing equilibrium line and compactified flow. Theorem 1 concerns polynomial, proper rational and Darboux first integrals; the continuous integral here is confined to Ω.",
+          "The accessible Giraldo et al. material treats computing connecting orbits to infinity in a homoclinic-flip setting; it is not evidence of a theorem for every initial data point on this cone. Only metadata was accessible for the originating Algaba paper; the author route returned 403."
+        ],
+        "reasoning": "Qualitative compactification and algebraic nonintegrability neither imply nor contradict the restricted continuous invariant and its physical-time normalization. The older plausible sources cannot be excluded beyond the material actually available.",
+        "searches": [
+          "Qu–Yang Theorem 1, Proposition 6 and §5/Theorem 9",
+          "Algaba et al. DOI 10.1016/j.cnsns.2019.05.005, publisher and author route",
+          "Giraldo–Krauskopf–Osinga DOI 10.3934/jcd.2020020, AIMS article page and figures"
+        ]
+      },
+      "checked_sources": [
+        "Full Resultary fcfe8e03c010",
+        "Qu–Yang DOI 10.1007/s44198-024-00174-4 publisher full HTML",
+        "Algaba et al. DOI 10.1016/j.cnsns.2019.05.005 metadata and attempted author route",
+        "AIMS abstract and figure material DOI 10.3934/jcd.2020020"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion rates already give ε∼1/t and p→1. Combining its exact dynamics with an additional exponential-convolution limit gives t(p−1)→2; integrating the resulting derivative of log J gives a finite positive pointwise L and the 2/t term, then inversion gives the log-log clock. Thus there is a short derivation from prior proof ingredients, not a separation from all prior methods.",
+          "That pointwise argument does not give continuity or nonconstancy: the uniform integrable tail and the small-x0 family with r0=0 are additional estimates. Compactification results do not supply these or the offset."
+        ],
+        "reasoning": "The asserted leading laws are covered and are credited as such. The pointwise refinement is not a substitution into a stronger published rate; the measurable scientific difference is strongest for the actual continuous, nonconstant invariant and the resulting initial-state dependence. No inspected prior theorem includes that dependence as a corollary.",
+        "searches": [
+          "Full Resultary leading-order companion fcfe8e03c010, proof identities versus stable convolution",
+          "Qu–Yang qualitative compactification versus original-time asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With q=−z and p=y/x² the leading-order companion is the identical zero-forcing system and gives tqx→1, q²/(8log t)→1 and p→1. It does not state the limit of log x+z²/8 or its continuous dependence on data.",
+          "A finite limit of q²−8log t−4log log t is an equivalent clock-offset formulation along these trajectories once tqx→1 is used; the term 4log 8 fixes the scaling of the scattering amplitude."
+        ],
+        "reasoning": "The leading ratios alone do not control a convergent clock offset. Neither a compactified infinity portrait nor excluding algebraic integrals identifies that offset or the original-time invariant.",
+        "searches": [
+          "Resultary: same quadratic flow, zero forcing, escaping cone and scattering amplitude; full companion fcfe8e03c010",
+          "Qu–Yang DOI 10.1007/s44198-024-00174-4, zero forcing and dynamics at infinity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact record gives the leading coefficient 8 in q² and limiting tqx, without the clock offset or first correction. The AIMS diagrams describe numerically computed orbit geometry, not a table of exact clock constants for the open cone."
+        ],
+        "reasoning": "The invariant is a function of continuous initial data, so selecting or tabulating a few trajectories would not certify it. The comparison sought formulas for the leading and next terms, not merely matching figures or parameters; the only exact overlap found was at leading order.",
+        "searches": [
+          "Resultary same-system record fcfe8e03c010 and comparisons for log-log clock and renormalized escape amplitude",
+          "Qu–Yang full article infinity results; AIMS abstract and figure material for DOI 10.3934/jcd.2020020"
+        ]
+      },
+      "rationale": "Best of knowledge for the continuous nonconstant scattering invariant on this specific escaping region and its state-resolved clock. The same-ODE leading-order companion covers trapping and the leading rates, and its exact proof identities give a short route to the pointwise refinements once supplemented with a convolution/tail argument. The novelty is not a new escaping cone or the leading clock, and the pointwise conclusions are close refinements, not independent phenomena. The uniform argument for dependence on initial state and nonconstancy is a substantive part of the surviving claim. Publication priority remains provisional, particularly against the 2019 originating paper.",
+      "residual_risks": [
+        "Priority remains provisional: the originating 2019 paper and the full 2020 connection paper were not directly compared in full.",
+        "The leading companion makes the pointwise refinement accessible by standard analysis; neither the same-system leading rates nor the method of stable convolution is claimed as new.",
+        "Unindexed equivalent scattering or clock-offset statements may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the cone and leading rates and supplies ingredients for a short pointwise refinement; does not establish the continuous nonconstant scattering function",
+          "evidence": [
+            "tqx→1, q²/(8log t)→1 and p→1 are already known."
+          ],
+          "identifier_or_url": "Resultary fcfe8e03-c010-46c6-89dc-471d7b2c2296",
+          "material_read": "Full companion result and proof, including trapping and the leading rates",
+          "method": "Compared transformed equations, limits and proof identities, then reconstructed the next-order inference",
+          "title": "Same-zero-forcing-system leading-order escape result",
+          "trigger": "Exactly the same ODE and escaping cone"
+        },
+        {
+          "assessment": "Direct family antecedent; the inspected integrability and compactification conclusions do not give the stated positive continuous invariant or physical-time clock offset",
+          "evidence": [
+            "Theorem 1 excludes certain algebraic/Darboux integrals. Proposition 6 covers the equilibrium line at zero forcing; the infinity analysis is qualitative."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44198-024-00174-4",
+          "material_read": "Open publisher full HTML, in particular Theorem 1, Proposition 6 and the infinity section including Theorem 9",
+          "method": "Compared the equations, integrability class and time variables in the infinity conclusions",
+          "title": "New Insights on Non-integrability and Dynamics in a Simple Quadratic Differential System",
+          "trigger": "Primary same-family analysis including zero forcing and infinity"
+        },
+        {
+          "assessment": "Material unresolved historical priority risk; no whole-document negative claim",
+          "evidence": [
+            "The record identifies the 2019 originating-family study; the inaccessible body was not compared."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cnsns.2019.05.005",
+          "material_read": "Publication metadata only; no full text obtained",
+          "method": "Checked publication record and tried the lawful author-upload route (403); no authorized Oxford Download tool was available in this session",
+          "title": "Study of a simple 3D quadratic system with homoclinic flip bifurcations of inward twist case C",
+          "trigger": "Originating quadratic family and plausible older direct coverage"
+        },
+        {
+          "assessment": "Relevant boundary-value continuation work; not a full-text exclusion",
+          "evidence": [
+            "The displayed material concerns numerical connecting orbits to infinity, not an exact all-initial-condition clock formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/jcd.2020020",
+          "material_read": "AIMS abstract and displayed figure material, not full text",
+          "method": "Read publisher material and compared the problem and observable it describes",
+          "title": "Computing connecting orbits to infinity associated with a homoclinic flip bifurcation",
+          "trigger": "Related direct infinity-orbit asymptotic work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit positive continuous invariant distinguishes escaping trajectories that are indistinguishable at leading order, via their finite physical-time height offset after subtraction of the universal log and log-log terms. It also quantifies how quickly the observable approaches its limit. This is useful original-time information in a studied quadratic family with an equilibrium line, independent of any claim of algebraic integrability or applicability outside Ω.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

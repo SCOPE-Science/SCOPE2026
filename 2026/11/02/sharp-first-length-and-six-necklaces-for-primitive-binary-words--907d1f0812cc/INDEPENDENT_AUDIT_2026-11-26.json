@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:03.532148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exhaustive replay visits all 131,070 strings at lengths 1–16, tests primitivity and every cyclic conjugate using exact binary prefix/suffix counts, and finds no qualifiers through 15 and 96 at 16. Each qualifying word has eight ones; the six least rotations and the full shortest-border vectors match RESULT.md. The six canonical-root lengths in the stated order are 8,8,8,6,8,4. Primitivity gives orbit size 16; explicit dihedral/complement comparison gives three pairs of necklaces. The two bundled implementations corroborate the count, but do not explicitly check the reversal/complement classification. The independent replay does. Taking complements of the compared factors inside the whole word proves that border lengths k and n-k are equivalent; in particular the frozen half-length cutoff is exhaustive. Nothing about larger lengths follows from this run.",
+      "replay_paths": [
+        "/workspace/branches/35ab1ee5-8ecd-42f5-a485-e66470f654fc/replay_record4.py",
+        "/workspace/branches/35ab1ee5-8ecd-42f5-a485-e66470f654fc/replay-record4.txt",
+        "/workspace/branches/35ab1ee5-8ecd-42f5-a485-e66470f654fc/replay-record4-time.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2 supplies a prior infinite-word construction and the relevant length-16 block. Goč et al. count individual binary words by border status. The closest Resultary Abelian-border-array classification is on ternary observations and their fibers."
+        ],
+        "reasoning": "The existence construction is not a converse for primitive circular words. Individual counts or counts of observation fibers do not directly impose that every member of a primitive rotation class have a border.",
+        "searches": [
+          "Charlier et al. arXiv:1501.07464, Section 5 Proposition 2",
+          "Goč et al., number of Abelian bordered and unbordered words",
+          "Christodoulakis et al., DOI 10.1016/j.dam.2014.02.012"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary published findings index and the two matched records",
+        "Charlier et al. arXiv:1501.07464",
+        "Holub–Müller arXiv:1504.02222",
+        "Goč et al. DOI 10.1142/S0129054114400267",
+        "Christodoulakis et al. DOI 10.1016/j.dam.2014.02.012 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block 0101001100110011 from the Charlier et al. construction is in the orbit of the reported representative 0011001100110101."
+        ],
+        "reasoning": "The construction gives a length-16 witness (an upper bound on first length) but not nonexistence at 1–15 or completeness at 16. The other sources' ordinary or marginal predicates do not supply that missing direction.",
+        "searches": [
+          "arXiv:1501.07464, Section 5 Proposition 2",
+          "arXiv:1504.02222, p. 1",
+          "DOI 10.1142/S0129054114400267, pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-conjugates condition concerns equal Parikh vectors, not ordinary equality of prefix and suffix. Holub–Müller use fully bordered for two ordinary unbordered conjugates. The Resultary weight-three spectrum uses ordinary borders."
+        ],
+        "reasoning": "An ordinary border implies an Abelian border, but an ordinary unbordered conjugate need not be Abelian unbordered. That census and theorem therefore do not answer the primitive Abelian problem.",
+        "searches": [
+          "Local Resultary: primitive binary necklaces with all cyclic conjugates Abelian-bordered",
+          "Holub–Müller arXiv:1504.02222, opening definitions",
+          "Goč et al., DOI 10.1142/S0129054114400267, definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct matching table was identified in these results. The binary per-length counts in Goč et al. use an individual-word predicate, and the two nearest indexed Resultary enumerations change either the alphabet/invariant or the border predicate."
+        ],
+        "reasoning": "The target census requires an exhaustive joint rotation predicate restricted to primitive words, not the marginal number passing at one root; the tabulated statistic thus does not fix the 96, six, or three.",
+        "searches": [
+          "Local Resultary: first primitive binary all-rotations Abelian-bordered length; exact 96 words and six necklaces",
+          "Goč et al., repository text pp. 1–3"
+        ]
+      },
+      "rationale": "Credit prior existence at length 16. The supported distinct claim is the exact lower cutoff for primitive binary words together with the census and symmetry classification of all first examples. Best-of-knowledge conclusion from the checked primary and indexed claims, not a guarantee of priority.",
+      "residual_risks": [
+        "The inaccessible 2014 full text and unindexed finite enumerations could contain a comparable cutoff or census. A general web query yielded no relevant result and was not taken as absence evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior existence, not sharp cutoff or classification.",
+          "evidence": [
+            "All factors of length at least 15 in the constructed infinite word are Abelian-bordered; the allowed concatenation blocks include the relevant witness."
+          ],
+          "identifier_or_url": "arXiv:1501.07464",
+          "material_read": "Section 5, Proposition 2, PDF pp. 9–10 near extraction offset 32300.",
+          "method": "OA primary PDF, proposition comparison.",
+          "title": "Abelian bordered factors and periodicity",
+          "trigger": "Direct prior construction at length 16."
+        },
+        {
+          "assessment": "Marginal border counts, not the joint primitive-necklace census.",
+          "evidence": [
+            "Counts of individually Abelian-unbordered binary words are indexed by length."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+          "material_read": "Definitions and counted quantities, PDF pp. 1–3 near extraction offset 5400.",
+          "method": "Lawful repository primary PDF.",
+          "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+          "trigger": "Plausible exact binary enumeration."
+        },
+        {
+          "assessment": "Ordinary border predicate.",
+          "evidence": [
+            "The property uses exactly two ordinary unbordered conjugates."
+          ],
+          "identifier_or_url": "arXiv:1504.02222",
+          "material_read": "PDF p. 1, definitions and introductory result.",
+          "method": "OA primary PDF.",
+          "title": "Fully bordered words",
+          "trigger": "Potential equivalent primitive conjugate terminology."
+        },
+        {
+          "assessment": "Unresolved full-text overlap risk; no negative inference from denied access.",
+          "evidence": [
+            "Repository route did not supply an OA copy and the identified publisher item returned HTTP 403."
+          ],
+          "identifier_or_url": "10.1016/j.dam.2014.02.012",
+          "material_read": "Bibliographic identity and scope available from accessible metadata; no substantive full-text passage obtained.",
+          "method": "Lawful OA DOI/repository lookup and identified publisher copy attempt.",
+          "title": "Abelian borders in binary words",
+          "trigger": "Same alphabet and finite shortest-border enumeration."
+        },
+        {
+          "assessment": "Different alphabet and statistic.",
+          "evidence": [
+            "The result counts ternary Abelian-border observations and classifies fibers."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, suffix 8e797a662627",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0.",
+          "method": "Local published record mirror.",
+          "title": "Ternary Abelian-border-array census and sharp leading fiber classification",
+          "trigger": "Closest indexed Abelian-border classification."
+        },
+        {
+          "assessment": "Ordinary borders and fixed content three ones.",
+          "evidence": [
+            "Counts ordinary unbordered shifts of binary words at weight three."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, suffix 15954dd9e6c4",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0.",
+          "method": "Local published record mirror.",
+          "title": "Exact unbordered-conjugate spectrum of binary words containing three ones",
+          "trigger": "Closest indexed binary rotation census."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural question is where the primitive-word obstruction for ordinary borders first fails when equality is replaced by Abelian equivalence. A prior witness alone does not identify that boundary. A complete list of the first counterexamples supplies all minimal tests for structural conjectures about the circular property, not merely further examples or an arbitrary finite count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

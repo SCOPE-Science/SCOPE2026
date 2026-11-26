@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:47.302720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding incorrectly says every other off-diagonal entry is positive at either threshold. At T_(2,q), u=rho_q>rho_* and F_3(u)<0, so the distance-three entries are still strictly negative. The complete corrected RESULT.md in /workspace/repairs/1 explicitly lists both threshold signs and removes an ambiguous interval description; at T_(3,q) the other two off-diagonal shells really are positive. I rederived the distance-r entry from the coefficient of z^k in (1-z)^r(1+(q-1)z)^(3-r), weighted by u^(k²)/q³: each coordinate eigenvalue is 0 or q. For r=1, replacing the negative u⁹ term by negative u⁴ gives the stated positive lower bound, and r=0 is positive. The factored F_3 has one interior zero by strict quintic monotonicity; F_2 has exactly two simple positive zeros by Descartes, F_2(0)=1, and F_2'(1)=2q>0 at its known zero u=1. At rho_*<1/2, F_2=F_3+q(u-2u⁴+u⁹)>0, ordering the zeros. The positive row sum is exactly one, so summing negative mass over shell multiplicities gives the induced infinity norm, and symmetry gives the one-norm. Descartes and the sign near 1 give the unique interior zero sigma of 1-2u³+u⁸; F_2(sigma)=F_3(sigma)<0 and F_2 increases in q at rho_q, yielding rho_q increasing to sigma. The independent bounded replay python /workspace/reproduce_frozen.py confirms the shell and factor identities and the stated far/limit decimals. The proof, not this replay, supplies the all-q statements. Frozen numerical checker inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform eventual positivity criteria identify eventual behavior without explicit thresholds; the continuous biharmonic heat paper treats Euclidean space and cylinders.",
+          "e4f9c89a420f gives an exact cutoff for every complete multipartite graph."
+        ],
+        "reasoning": "The general positivity theorems do not resolve finite-time shells. The Hamming cube here is not complete multipartite: nonadjacency of distinct vertices is not transitive (for example 000, 110, 001).",
+        "searches": [
+          "arXiv:1801.05179 Theorem 3.1",
+          "arXiv:2111.02753 introduction",
+          "Resultary e4f9c89a420f Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.05179",
+        "arXiv:2111.02753",
+        "Resultary 621e2ef18776",
+        "Resultary e4f9c89a420f",
+        "Resultary 4d16a209d9cc",
+        "Resultary f03089a5a92e",
+        "Resultary d4246db3e6b2 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook graph has no distance-three shell; the Boolean comparison fixes the alphabet to two. The farthest-shell independence of the alphabet in the new formulas comes directly from tensor coefficients, but its role as the final obstruction requires the order and signs of all other shells."
+        ],
+        "reasoning": "An eventual positivity statement, a general means of computing entries, and the exact binary or two-factor boundary do not alone give the nonbinary ordering, norm interval, or monotone first-recovery limit.",
+        "searches": [
+          "621e2ef18776 and f03089a5a92e Findings; 1801.05179 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f03089a5a92e gives unique simple recoveries of shells two and three on Boolean cubes, i.e. alphabet two, and a reentrant antipodal example in dimension four.",
+          "4d16a209d9cc uses the same Hamming family but evaluates RK4 for ordinary heat, not an exponential of the squared Laplacian."
+        ],
+        "reasoning": "The Boolean comparison covers the binary slice only. Using the same Hamming eigenspaces with a different multiplier is not a sign-equivalent reformulation.",
+        "searches": [
+          "Resultary squared graph Laplacian / biharmonic heat / Hamming and Boolean distance-dependent positivity; f03089a5a92e, 4d16a209d9cc",
+          "Daners–Glück–Mui arXiv:2111.02753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned-record index hit is a self-match. The rook-graph record 621e2ef18776 gives the precise single cutoff and norm for two factors, and f03089a5a92e gives Boolean distance recoveries."
+        ],
+        "reasoning": "Credit the exact overlapping binary case and similar lower-factor law; the matches do not tabulate the nonbinary third-factor pair of thresholds and norms.",
+        "searches": [
+          "Resultary Hamming semigroup / exact positivity horizon and induced norm; 621e2ef18776, f03089a5a92e, d4246db3e6b2"
+        ]
+      },
+      "rationale": "Best of current knowledge, the corrected distinctive claim is the exact nonbinary three-factor semigroup shell ordering and its whole positivity/norm law, with different alphabet dependence at the two recoveries. Tensor spectral calculus, eventual positivity, lower-factor examples and Boolean-cube recoveries are credited. The corrected source identifies the distinct Boolean finding without claiming priority from its date.",
+      "residual_risks": [
+        "An unindexed or differently formulated association-scheme calculation could contain an equivalent sign classification. The comparison establishes no exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General qualitative criterion",
+          "evidence": "Abstract spectral/positivity conditions for uniform eventual strong positivity.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.05179",
+          "material_read": "Theorem 3.1, PDF pp. 6–7, offset about 19000",
+          "method": "Primary OA passage",
+          "title": "A criterion for the uniform eventual positivity of operator semigroups",
+          "trigger": "Broader eventual positivity criterion"
+        },
+        {
+          "assessment": "Continuous-space analogue",
+          "evidence": "Euclidean and cylindrical biharmonic heat; not finite Hamming kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.02753",
+          "material_read": "PDF p. 1, abstract and introductory scope",
+          "method": "Primary OA passage",
+          "title": "Local uniform convergence and eventual positivity of solutions to biharmonic heat equations",
+          "trigger": "Same biharmonic positivity phenomenon"
+        },
+        {
+          "assessment": "Nearby exact result in two factors",
+          "evidence": "K_a square K_b, one positivity cutoff and exact norm.",
+          "identifier_or_url": "Resultary 621e2ef18776",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat on rook graphs",
+          "trigger": "Same exact semigroup and norm in a product of cliques"
+        },
+        {
+          "assessment": "Exact cutoff in a different graph class",
+          "evidence": "Complete multipartite hypothesis, cutoff in terms of size and largest part.",
+          "identifier_or_url": "Resultary e4f9c89a420f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Broader graph class to check for inclusion"
+        },
+        {
+          "assessment": "Different evolution operator",
+          "evidence": "Fourth-order RK polynomial for ordinary diffusion on H(d,q).",
+          "identifier_or_url": "Resultary 4d16a209d9cc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Alphabet-driven positivity barriers for RK4 on Hamming diffusion networks",
+          "trigger": "Same object and alphabet variation"
+        },
+        {
+          "assessment": "Exact binary overlap outside the claimed alphabet range",
+          "evidence": "Distance two and three each have one simple positive zero, with negative signs before and positive after. Date alone does not determine priority.",
+          "identifier_or_url": "Resultary f03089a5a92e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Distance-controlled zero crossings and the first reentrant biharmonic heat kernel on Boolean cubes",
+          "trigger": "Exact same phenomenon in a distinct same-date record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three factors are the first product with a distance-three shell and hence the first opportunity for two distinct off-diagonal recoveries. The result certifies the whole interval where sign and maximum-norm contraction fail, with an exact normalized last cutoff and a first cutoff whose alphabet dependence is genuinely different. Neither qualitative eventual positivity nor the known exact two-factor result answers that finite threshold question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

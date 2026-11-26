@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:10:17.575392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use deterministic labels within each batch. The independently uniform recruiter at each time has probability 1/[1+m(t−1)] of selecting a specified eligible label. Summing its log-mgf over times after birth at i comparable to n^u gives (1−u)(exp(theta)−1)log(n)/m+O(1); the squared-probability error is summable. For x>(1−u)/m, Chernoff and a tilt to mean (x+epsilon)log n, with O(log n) tilted variance, give the stated rate uniformly within a cohort of fixed multiplicative width. At each time conditioning on one label being selected suppresses selection of a second; conditioning on the first label's full selection vector leaves the second's selections independent by time. The product-measure monotonicity inequality then gives nonpositive upper-tail covariance, and a cohort with expected exceedance count at least n^c has probability at most n^(-c) of no exceedance. The strict concavity of u−I_u(x) gives the saddle x*=1/log(m+1), u*=1−mx*/(m+1). For a<u*, the boundary equation at u=a has a root between 1/m and x*: u−I_u(1/m) increases from zero up to u*, while a−I_a(x*) is negative. This root has positive u-derivative throughout [0,a]; for a>=u* the saddle is accessible. The displayed u_m in the definition line and nu_m in subsequent lines are the same constant, as is fixed unambiguously by the saddle and example. For x just above or below the frontier it suffices to use upper bounds over a finite exponent mesh and a single positive-exponent cohort for the tilted lower bound. In the bin near u=1 fix a tilt with theta x>2 and then shrink the bin so its log-mgf contribution is below (1/2)log n. The resulting power-error bounds are summable on geometric times; monotonicity fills gaps. At a=0 a finite number of fixed labels gives the separate 1/m limit by the same Chernoff argument. The unique global saddle leaves a strict rate gap outside every fixed birth-exponent neighborhood, including the last bin; this yields the stated convergence in probability for the earliest maximizer, in fact by excluding every outside maximizer with probability tending to one. Inspected frozen verify_max_degree.py and VERIFICATION.md without execution. The exact finite joint checks there use distinct birth steps, not pairs in a single batch; the product-measure argument applies to either. The finite diagnostic is not an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lodewijks controls global maximizing labels in weighted recursive graphs and gives a marked extremal limit in the atom case. At one parent edge and unit weights it gives birth exponent 1−1/(2 log 2) and Gaussian logarithmic label marks, stronger than first-order localization for the ordinary recursive tree. The exact m-ary batch model paper lists depth, height, path length and Wiener index in its scope."
+        ],
+        "reasoning": "Several edges from a new vertex to existing parents in the weighted recursive graph are not several simultaneous children of one recruiter. Its m=1 specialization gives a substantive precedent for the saddle, but does not subsume the m>=2 age-restricted curve.",
+        "searches": [
+          "Lodewijks doi:10.1017/apr.2023.52, Theorems 2.1 and 2.3, Remarks 2.2 and 2.6",
+          "Bhutani et al. arXiv:2609.33636 v2, §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33636 v2",
+        "doi:10.1017/apr.2023.52",
+        "Resultary 15857d4a8cf8 (self), 3448e3262e60",
+        "Resultary edge-retention/marked-degree query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-model paper explicitly contracts same-depth batches for height. In that contraction the expected unmarked count of a nonroot batch of age exponent u is asymptotic to (1−u)log n, while each actual recruiter's coefficient is (1−u)/m. The high-degree result in the ordinary-tree specialization concerns global extremes, not the continuum of old-cohort cutoffs below the saddle."
+        ],
+        "reasoning": "Neither a deterministic rescaling of the contracted degree nor the same-day moving-cutoff theorem computes the rare-event cost for one marked member and its compensating cohort size. These are needed to obtain the increasing root of the frozen frontier equation for every a below saturation.",
+        "searches": [
+          "arXiv:2609.33636 v2, §§1–2, Remark 4.1 and opening of §5",
+          "doi:10.1017/apr.2023.52, Theorems 2.1 and 2.3",
+          "3448e3262e60, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contracting a batch to a supernode gives the weighted recursive tree with weight 1 for the root and m for later nodes; depth is preserved. Conditional on a nonroot parent batch, the selected member is an independent uniform mark among m labels. Its recruiter count is the number of child arrivals with that mark, so a fixed mark has the law of retained child edges at retention 1/m on nonroot parents, with the root counted separately."
+        ],
+        "reasoning": "An unmarked degree theorem for the contracted tree pertains to the sum of the m counts, not their maximum. Percolation cluster sizes and numbers of deleted edges surrounding a component are likewise not retained outdegree maxima at constrained birth labels.",
+        "searches": [
+          "Bhutani et al. arXiv:2609.33636, §§1–2, Remark 4.1 and opening of §5",
+          "maximum outdegree birth label age maximum degree bond percolated random recursive trees thinning children degree extreme log (1+1/p)",
+          "Resultary: bond percolation thinning edge colors recursive tree maximum retained outdegree age frontier same-color children degree extremes random recursive tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "15857d4a8cf8 is the assigned record. Distinct same-day hit 3448e3262e60 gives a sharp cutoff transition for a one-child recursive process with a moving lower bound on eligible parent labels. The marked/percolation query surfaced cluster statistics and percolation frontiers, not a statement of the age-constrained retained-degree curve."
+        ],
+        "reasoning": "The cutoff record has the same ordinary-tree critical exponent and related boundary equation, but changes the attachment law and selects a later eligible cohort rather than maximizing over old labels in the ordinary attachment process. Its indexing date is not a priority determination.",
+        "searches": [
+          "Resultary, batch recursive trees degree and birth-time frontier",
+          "Resultary, retained outdegree in edge-colored or bond-percolated recursive trees"
+        ]
+      },
+      "rationale": "The model and the batch contraction are known, and much stronger global extreme-degree and birth-label theory is known for the ordinary recursive tree. The supported distinct contribution is the full almost-sure age-restricted recruiter frontier for fixed m>=2 with its saturation threshold and location consequence. Neither known result transfers through the contraction without analyzing individually marked incident edges, and the primary comparisons examined do not provide that marked age-constrained extremum.",
+      "residual_risks": [
+        "The exact-model PDF was accessible in part; the inspected sections and degree-keyword locators do not rule out uninspected equivalent statements. Broader hooking-network, branching-process or edge-thinning literature may contain an equivalent result; the public and indexed searches are bounded, and a Goh–Schmutz lookup reached only a landing page. No inference is made from that lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and height-preserving contraction; not evidence of a degree-frontier theorem in inspected passages",
+          "evidence": "§1 selects one uniform parent for each m-child batch. The §5 locator displays the contraction of each batch to one supernode preserving depth and height, and Remark 4.1 describes weights w_1=1 and w_i=m for i>=2. No whole-paper exclusion is inferred.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.33636",
+          "material_read": "v2 abstract p. 1; §§1–2 pp. 2–3 (offsets 0, 3650–6426); locator passages for Remark 4.1 p. 6 and opening of §5 p. 11, offsets 13378–13763 and 25349",
+          "method": "OA primary PDF; the later bounded reread at the §5 locator timed out",
+          "title": "Distances in m-ary recursive trees",
+          "trigger": "Earlier exact simultaneous-child model and potential weighted-tree reduction"
+        },
+        {
+          "assessment": "Stronger global localization in the unbatched specialization, different growth law for multiple edges",
+          "evidence": "At one attachment and unit weights the formula gives exponent 1−1/(2 log 2); the atom-case limit gives Gaussian log-label marks. Multiple parent edges in this model do not recruit multiple children to a parent.",
+          "identifier_or_url": "https://doi.org/10.1017/apr.2023.52",
+          "material_read": "PDF model introduction; p. 871 Theorem 2.1 and Remark 2.2; pp. 872, 874–875 Theorem 2.3 and Remark 2.6; OA offsets 0, 15000, 15400, 27800–29800, 32700",
+          "method": "OA primary text passages",
+          "title": "The Location of High-Degree Vertices in Weighted Recursive Graphs with Bounded Random Weights",
+          "trigger": "Broader age-marked extremes and possible ordinary-tree reduction"
+        },
+        {
+          "assessment": "Different attachment process and maximized cohort",
+          "evidence": "Here a moving cutoff restricts every parent draw and the maximizing label exponent is max(gamma,1−1/(2 log 2)), in a one-child process.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-power-cutoff-hub-transition-in-uniform-recursive-trees--3448e3262e60",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0 and 3000",
+          "method": "Resultary local mirror",
+          "title": "A sharp power-cutoff hub transition in uniform recursive trees",
+          "trigger": "Material same-day exact frontier and birth-location overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The curve separates the benefit of extra recruitment time from the greater number of contenders at later birth ages. It supplies an exact transition from an active age constraint to saturation, and its unique saddle explains which birth scale produces the global maximum. The full constrained curve is more informative than merely scaling a marginal mean or restating a maximum-degree constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:26:02.468195Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For either epoch map, the H-norm squared of a synchronous difference is c²(1−c²) times the square of the retained input coordinate, bounded by c² times the original H-norm squared. Hence the Wasserstein contraction gives existence and convergence within finite second moments; coupling arbitrary finite-valued states and using bounded Lipschitz tests proves unrestricted uniqueness. The equations a=c²d+u and d=c²a+v have the stated positive solution and both second moments are preserved by each individual update, using fresh centered independent noise. Under order 12 the final square (X2′+cX1′)² is ξ2² exactly, so the stationary conditional loss is [(1−c²)a+v]/2. The reverse loss is [(1−c²)d+u]/2; subtraction gives c²(u−v)/(1+c²), yielding the exact risk, penalty and every tie case. Independent arithmetic check at c=1/2,u=9,v=4 gives a=32/3, d=20/3, losses 6 and 7 and uniform-order loss 6.5. Original covariance mixture is consistent with applying the last conditional kernel to its Gaussian marginal, and Isserlis gives the reported cumulant; these are not needed for the repair. The frozen SymPy and simulation code and its verification notes were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gibbs ensemble paper describes shared marginals of bivariate fixed and random scans in its finite setting and combines fixed scans in mixtures; its optimization concerns divergences to prescribed conditionals.",
+          "Kuo–Wang describe equal bivariate marginals for the two fixed-scan limits in §2.3, and show Gaussian order effects in a trivariate example.",
+          "The coordinate-descent and reshuffling papers address noiseless permutation rates or finite-sum finite-epoch rates. The noisy Kaczmarz note uses with-replacement row updates and studies Gaussianity, not minimizing a stationary coordinate-epoch loss."
+        ],
+        "reasoning": "These are broad precedents for scan dependence or stochastic ordering. Their stated models, assumptions or objectives do not evaluate this stationary optimization cost; no general covered order criterion for this objective was identified.",
+        "searches": [
+          "Chen–Ip–Wang 2011 §5",
+          "Kuo–Wang arXiv:2410.09559 §2.3 and example on p. 13",
+          "Gürbüzbalaban et al. arXiv:1803.08200",
+          "Safran–Shamir arXiv:2106.06880",
+          "Resultary stationary order, noisy Kaczmarz and Gauss–Seidel order records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 2c9a109d45d2, 0dcf8057d8e5, 525a6be445a9, 19d33cebd358",
+        "DOI:10.1080/00949655.2014.968159 (abstract; full text not inspected)",
+        "DOI:10.1016/j.csda.2010.11.006",
+        "arXiv:2410.09559",
+        "arXiv:1803.08200",
+        "arXiv:2106.06880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the two fixed-order stationary laws with common marginals, each order sends either component to its own last-update law, so mixture invariance is immediate; the full-epoch wording does not remove this implication.",
+          "The inspected general scan results do not give the signed stationary cost difference for the quadratic whose curvature determines the coordinate updates. This comparison uses the completed square after the last update to identify the role of each noise variance and the exact penalty.",
+          "The scalar stationary-order note changes the Markov state and source of gradient noise, so its optimization result does not specialize to the repaired criterion."
+        ],
+        "reasoning": "Known/implied scan-law structure is excluded from the contribution. The specialized loss calculation answers a different optimization question, rather than claiming a new invariant-law construction or treating an endpoint choice alone as new. No examined source implies the quantitative comparison without evaluating the model-specific costs.",
+        "searches": [
+          "Chen–Ip–Wang, §5 bivariate scans discussion and abstract",
+          "Kuo–Wang arXiv:2410.09559 §2.3",
+          "Resultary 0dcf8057d8e5 and 525a6be445a9, findings/assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kernels N(−cx_2,u) and N(−cx_1,v) are exactly conditional replacement kernels; cross log-derivatives differ when u≠v.",
+          "For input with the common stationary marginals, one update at coordinate 1 produces the 1-last fixed-scan law, and the other produces the 2-last law. Single-site random scan with probability 1−p of updating coordinate 1 therefore has the same mixture as the epoch chain.",
+          "The matching Resultary record 2c9a109d45d2 is the identical record itself. The closest order-risk note 0dcf8057d8e5 treats a scalar component-gradient recursion."
+        ],
+        "reasoning": "The epoch vs single-site distinction does not establish stationary distributional originality. The remaining target is the expected specified optimization objective over feasible schedules, not scan compatibility or approximation divergence.",
+        "searches": [
+          "Resultary: stationary noisy two-coordinate full epoch, incompatible Gibbs scans, and stationary order risk",
+          "DOI 10.1080/00949655.2014.968159 and PMC4572746, bivariate fixed/random scan",
+          "Chen–Ip–Wang DOI 10.1016/j.csda.2010.11.006, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kuo–Wang's Table 1 catalogs density spaces and conditioning sigma-algebras, not objective risks.",
+          "The Gibbs ensemble illustrative table compares divergences for finite conditional models, not this quadratic loss. The closest indexed stationary risk formula has different scalar dynamics.",
+          "The direct exact match is the assigned frozen record, not separate evidence of coverage."
+        ],
+        "reasoning": "The target is a closed loss law for a continuum of coupling and variance parameters; no standard numerical lookup is implicated. Exact prior formulas were compared in the model and loss in which they are valid.",
+        "searches": [
+          "Resultary stationary-order records 0dcf8057d8e5, 19d33cebd358 and 2c9a109d45d2",
+          "Kuo–Wang arXiv:2410.09559 Table 1 and relevant surrounding §2.3",
+          "Chen–Ip–Wang 2011 illustrative finite table discussion"
+        ]
+      },
+      "rationale": "Only the repaired stationary quadratic loss and exact heteroscedastic order criterion are accepted as distinct on the reviewed evidence. The scan-law precedents and exact two-variable protocol equivalence are credited, not treated as novelty. The earlier scalar stationary-order result does not model fresh coordinate-oracle noise; the Gibbs antecedents work with different criteria, such as recovering a joint or minimizing divergence to prescribed conditionals.",
+      "residual_risks": [
+        "The exact Chen–Ip full text remains unread after lawful retrieval attempts; an explicit Gaussian specialization or objective comparison there cannot be excluded.",
+        "A specialized old stochastic Gauss–Seidel or incompatible-conditional example may give the same cost. This is a bounded conclusion, not historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant established context, exact Gaussian example or loss details not verified",
+          "evidence": [
+            "The accessible abstract establishes that convergence behavior can depend on incompatibility; access failures do not rule out closer overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00949655.2014.968159; PMC4572746",
+          "material_read": "Publisher abstract; no usable primary full-text passage from publisher, PMC manuscript PDF and lawful alternate index/API routes",
+          "method": "OA publisher and identified public manuscript retrieval attempts",
+          "title": "Behaviour of the Gibbs sampler when conditional distributions are potentially incompatible",
+          "trigger": "Closest cited claim about bivariate scan stationary laws"
+        },
+        {
+          "assessment": "Substantive structural antecedent, different optimization criterion",
+          "evidence": [
+            "Discusses shared one-dimensional marginals and fixed scans as extremes in bivariate discrete models, with mixtures chosen by discrepancies to supplied conditionals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.csda.2010.11.006",
+          "material_read": "NIH author manuscript p. 1 abstract, p. 3 illustrative table discussion, pp. 9–10 §5, offsets about 45200–48777",
+          "method": "Lawful publicly accessible author manuscript PDF, inspected offsets",
+          "title": "Gibbs Ensembles for Nearly Compatible and Incompatible Conditional Models",
+          "trigger": "Direct primary predecessor on mixtures and scan-order effects"
+        },
+        {
+          "assessment": "Prior scan-order structure, not exact epoch stationary cost",
+          "evidence": [
+            "Bivariate fixed-scan limits under suitable assumptions, common marginal statement and compatibility interpretation; trivariate Gaussian example illustrates scan effects, not the same two-coordinate optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.09559",
+          "material_read": "PDF pp. 4–6, §2.3 through Table 1, offsets 10062–16198; p. 13 §5, offsets around 31000–34300",
+          "method": "OA PDF passages",
+          "title": "The Gibbs Sampler Revisited from the Perspective of Conditional Modeling",
+          "trigger": "Primary general scan statement and Gaussian examples"
+        },
+        {
+          "assessment": "Different noise and performance criteria",
+          "evidence": [
+            "Exact-line-search permutation, cyclic and with-replacement methods, not the fresh Gaussian coordinate oracle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.08200",
+          "material_read": "PDF p. 1, offset 0, stated scheme and purpose",
+          "method": "OA primary PDF passage",
+          "title": "Randomness and Permutations in Coordinate Descent Methods",
+          "trigger": "Same quadratic coordinate-order setting"
+        },
+        {
+          "assessment": "Different transition and finite-epoch objectives",
+          "evidence": [
+            "Finite-sum SGD with random shuffling, not stationary heteroscedastic coordinate updates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06880",
+          "material_read": "PDF pp. 1–2, starting offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+          "trigger": "Closest general reshuffling-rate category"
+        },
+        {
+          "assessment": "Closest objective comparator, different noisy dynamics and dimension",
+          "evidence": [
+            "Scalar noninterpolating two-component finite-sum recursion, deterministic component-gradient steps and stationary mean-square objective."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5",
+          "material_read": "Mirrored RESULT.md finding and assumptions, offset 0",
+          "method": "Resultary local search and bounded mirror read",
+          "title": "Sharp randomized-to-deterministic ordering transition for two-component quadratic reshuffling",
+          "trigger": "Direct match in stationary order optimization"
+        },
+        {
+          "assessment": "Qualitative distributional antecedent, not the repaired stationary cost",
+          "evidence": [
+            "Fresh-noise with-replacement row updates and graph compatibility, not the comparison of two full orders in a stationary objective."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9",
+          "material_read": "Mirrored RESULT.md finding and assumptions, offset 0",
+          "method": "Resultary local search and bounded mirror read",
+          "title": "Gaussianity is exactly a nonorthogonality-graph compatibility condition for noisy randomized Kaczmarz",
+          "trigger": "Prior Gaussianity and fourth-cumulant obstruction for heterogeneous noise"
+        },
+        {
+          "assessment": "Distinct deterministic, finite-horizon result",
+          "evidence": [
+            "Weighted-tree exact sweeps without noise or stationarity; no matching order risk. The date was not used to decide coverage or priority."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-alternating-one-sweep-gauss-seidel-orders-on-weighted-trees-a-un--19d33cebd358",
+          "material_read": "Mirrored RESULT.md finding and assumptions, offset 0",
+          "method": "Resultary local search and bounded mirror read",
+          "title": "Alternating one-sweep Gauss–Seidel orders on weighted trees",
+          "trigger": "Same-day full-coordinate ordering comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a small but natural benchmark with an order choice available to any method that sweeps coordinates against an oracle of unequal precision. The marginal variances are unchanged by order, so comparing their sizes alone cannot guide the policy. The exact loss decomposes the effects of first and last update noise, yields the operational noisier-first rule, and quantifies precisely the cost of uniform reshuffling or any mixed order. The result is scoped to stationary epoch-boundary objective, not transient convergence or adaptive schemes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

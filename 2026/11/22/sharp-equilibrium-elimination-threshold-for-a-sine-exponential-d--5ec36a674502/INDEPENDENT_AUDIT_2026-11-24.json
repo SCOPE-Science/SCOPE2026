@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:35:38.776960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof, lines 3–54",
+        "VERIFICATION.md and verify.py, inspected without execution; the checker samples finite parameters and is not used for the proof"
+      ],
+      "rationale": "On the branch open at b, the exponential lies below the chord from (b,0) to (1,c), which is strictly below the diagonal even at its endpoints. At b the sine branch gives 1, and at 0 it gives a>0. On [0,b), divide F(x)-x by cos²(kx) to get a-A_b(x), where A_b=x-(1-x)tan²(kx). Its derivative has the sign of 1-2kE_b(x), with E_b=(1-x)tan(kx). The numerator of E_b' is k(1-b)+u-sin(2u)/2>0, u=π/2-kx, so E_b runs from 0 to infinity. At b/2 it is 1-b/2>b/π. Hence A_b has exactly one maximum x_*<b/2; it starts at 0, rises to a_*>0, and ends at minus infinity. Also A_b(x)≤x<b, so a_*<b. This proves the 2/1/0 census. At a root F'-1=-cos²(kx)A_b', and F'>0 in the interior, giving the two multipliers. The double root has positive second derivative 2(1-a_*)k²cos(2kx_*); the increasing map with positive displacement on each side attracts locally from the left and repels on the right. Dividing the Taylor expansion by the coefficient of z² gives z²=K(b)²δ+O(δ^(3/2)) (the nondegenerate maximum first gives z=O(√δ)), yielding the stated splitting. At fixed x>0, A_b increases with b, so evaluating at the smaller-b maximizer proves strict monotonicity. The critical equation first gives kx_*=O(b) and x_*=O(b²), then kx_*=b/π+O(b³), which gives the stated small-b expansion.",
+      "residual_risks": [
+        "The splitting is for fixed b strictly between 0 and 1; it does not give a uniform estimate at either endpoint or global iteration behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 2 gives generic sign/no-root conditions, not a critical curve for Eq. (21). The indexed fractional-power phase diagram analyzes Eq. (15); the indexed cosine-related fold has a different H-based map with a persistent right-branch equilibrium."
+        ],
+        "reasoning": "Neither substituting into a general sign criterion nor invoking the local saddle-node model determines the unique global maximum of A_b or excludes other fixed points. Neither neighboring family contains this one in the claimed parameter regime.",
+        "searches": [
+          "Resultary: equilibrium elimination fixed point count saddle node threshold piecewise interval map trigonometric exponential",
+          "Lawnik–Moysis–Volos, §2, Remarks 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Lawnik–Moysis–Volos, Symmetry 15 (2023), 1311, DOI 10.3390/sym15071311",
+        "Resultary exact self-match 5ec36a674502 and neighbors e0bdfaa72c7e and 7a01e2354ca8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives general inequalities for excluding intersections and numerical evidence for selected slices. No formula for a_*(b), strict increase, or splitting law appears in the relevant discussion."
+        ],
+        "reasoning": "The source's criterion is a starting reduction, not a stronger result implying the unique analytic boundary or the count and splitting on its other side.",
+        "searches": [
+          "Resultary: prior fixed point inequalities conditions map has no equilibria sine exponential interval map suggested parameter values",
+          "Lawnik–Moysis–Volos, §2 Eqs. (7)–(8), (13)–(14), and §4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's sine expression is algebraically the same squared-cosine left branch; the exponential right branch, parameter ranges and branch split agree. Figure 10 shows only selected slices."
+        ],
+        "reasoning": "After rewriting the trigonometric branch and using equilibrium=fixed point, the source defines exactly the object but does not give its all-parameter threshold or census.",
+        "searches": [
+          "Resultary: sharp fixed point threshold frontier sine exponential piecewise interval map cosine squared branch exponential branch",
+          "Lawnik–Moysis–Volos, Example 3, Eq. (21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 2026/11/22/SCOPE-sharp-equilibrium-elimination-threshold-for-a-sine-exponential-d--5ec36a674502 is the submitted finding itself. Figure 10 fixes b=0.5 or c=0.9 to display numerical absence regions."
+        ],
+        "reasoning": "The self-match is not separate coverage; sampled charts do not encode the exact boundary, multiplicities, or fold constant.",
+        "searches": [
+          "Resultary: Lawnik Moysis Volos sine exponential map Example 3 equation 21 equilibrium absence parameter determination",
+          "Lawnik–Moysis–Volos, Figure 10"
+        ]
+      },
+      "rationale": "The exact phase boundary and its root and multiplier classification distinguish this result from the original example, generic sign criteria and analogous phase diagrams. No equivalent or dominating statement was established in the bounded comparison.",
+      "residual_risks": [
+        "Unindexed equivalent work remains possible. The submitted comparison to an unnamed cosine-skewed record could not be identified with certainty; the strongest located cosine analogue was compared on its actual statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family; generic absence criteria and numerical slices only in the decisive passages",
+          "evidence": [
+            "Eq. (21) is the frozen map after a trigonometric identity. The Fig. 10 discussion describes analytic parameter determination as difficult and plots two restricted slices."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-01311/article_deploy/symmetry-15-01311.pdf",
+          "material_read": "§2 Remarks 1 and 3, pp. 4–5; §4.3 Eq. (21), p. 9, and surrounding discussion and Fig. 10, p. 10 (OA offsets 17219, 36488, 38700)",
+          "method": "Located and read the relevant passages in the official OA PDF",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Exact motivating map and possible prior analytic parameter criterion"
+        },
+        {
+          "assessment": "Different equation and branches",
+          "evidence": [
+            "Exact thresholds for the fractional-power Eq. (15), not the sine–exponential Eq. (21)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e",
+          "material_read": "Finding and branch family",
+          "method": "Resultary and local record mirror",
+          "title": "Complete fractional-power fixed-point phase diagram for a discontinuous map",
+          "trigger": "Strong same-paper indexed phase-diagram hit"
+        },
+        {
+          "assessment": "Different map and persistent right fixed point",
+          "evidence": [
+            "The H-based map is continuous and has a right-branch fixed point; Eq. (21) is discontinuous and has none on that branch."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-stable-fixed-point-onset-and-a-square-root-cusp-in-the-cos--7a01e2354ca8",
+          "material_read": "Finding, branch definition and fixed-point claim",
+          "method": "Resultary and local record mirror",
+          "title": "Exact stable fixed-point onset and a square-root cusp in the cosine-related map",
+          "trigger": "Indexed cosine/fold analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding",
+        "Lawnik–Moysis–Volos, Example 3 and Fig. 10"
+      ],
+      "rationale": "This settles an analytic parameter-selection question for the very map the source introduced as an equilibrium-free example. The exact boundary eliminates c from that decision and tells which parameter choices inadvertently introduce a stable equilibrium. The root census, multipliers and small-b scale give information absent from the numerical slices. The value is specific to equilibria and does not rely on claims about chaos or security.",
+      "residual_risks": [
+        "A complete equilibrium classification does not classify periodic orbits or establish global convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

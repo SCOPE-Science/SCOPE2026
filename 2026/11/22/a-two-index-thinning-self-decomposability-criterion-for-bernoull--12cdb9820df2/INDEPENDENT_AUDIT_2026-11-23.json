@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:53.980571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original BPL PGF agrees with the factored PGF. Its log gives v_k as claimed; for b≤q all v_k>0 and the log intensities are summable, while b>q forces negative even v_k eventually. Independently, if all thinning PGF quotients P(z)/P(1−c+cz) are PGFs, expansion at c=1 makes the coefficient at z^k (1−c)(v_k−v_{k+1})+O((1−c)^2), so every adjacent difference must be nonnegative. The even-index normalized difference A−UR^k−VT^k increases when b≤q, and later odd ones strictly exceed A−UR²≥0 if d₂≥0. Conversely, when all differences d_k≥0, their sum is v₁, with exponential tail. Integrating the logarithmic derivative along z↦1−exp(−s)+exp(−s)z represents the thinning quotient as the PGF for Poisson batch arrivals surviving independent unit-rate deaths over s in [0,−log c]. This verifies sufficiency and the stationary process interpretation. Independent rational reproduction at θ=1/10 gave the claimed pairs: (−4490/53361,388100/12326391), (137971/5336100,252509699/12326391000), (19226/53361,−479344/4108797). The b=0 point is explicitly an endpoint comparison, not a violation of the stated strict α range; by continuity failure also holds for small positive b. The frozen checker and verification were inspected, not run. Replay: frozen proof §§1–5 or the quotient and batch argument above; the finite grid alone does not decide infinitely many indices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical criterion reduces to infinitely many adjacent comparisons. The distinct PGL record studies G proportional to (θ+2−z)/(θ+1−z)^α; shape 2 gives the unmodified PL endpoint, not the additional Bernoulli factor. BPL primary supplies PGF and model."
+        ],
+        "reasoning": "The general criterion is not a finite certificate, and the PGL threshold does not cover the sign-alternating Bernoulli factor. The exact model-specific all-index reduction remains necessary.",
+        "searches": [
+          "Steutel–van Harn (1979), Theorem 2.2, discrete self-decomposability",
+          "Resultary d7a7540680dd, Poisson generalized Lindley law",
+          "Bakouch et al. BPL paper §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support; identical Resultary record 12cdb9820df2",
+        "Bakouch et al. Axioms 12 (2023) 813",
+        "Steutel–van Harn OA retrieval attempts",
+        "Distinct published mirror records 8d2c7b003f1d, 2fdc7de1a76a, d7a7540680dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known CP formula supplies the sequence but demands only v_k≥0. The present proof needs a simultaneous even-index extremum at k=2 and a bound on all odd k≥3. The other two families do not have this same PGF."
+        ],
+        "reasoning": "The sources do not furnish the BPL thinning claim after parameter substitution. The distinction is behavioral as well as algebraic: a Bernoulli contribution can first restore then destroy thinning self-decomposability while staying CP throughout.",
+        "searches": [
+          "Compare BPL compound-Poisson theorem 8d2c7b003f1d to the two adjacent canonical inequalities",
+          "Compare prior PGL and negative-transmutation findings at mirror offsets 0–2197 and 0–2158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model CP result gives α≤1/(θ+2), equivalent to b≤q, and exactly the same v_k/k. The Poisson–transmuted geometric record has a two-index test and reentrance but has two distinct geometric denominator factors and a Poisson factor rather than the double pole and two numerator factors of BPL."
+        ],
+        "reasoning": "Positive log intensities and monotonicity of k times those intensities are distinct; the rational example separates them. Neither reentrance nor a two-index decision alone identifies the PGFs or transfer of the domain.",
+        "searches": [
+          "Resultary: BPL/Bernoulli Poisson Lindley thinning self-decomposability, canonical sequence, logarithmic differences",
+          "Resultary same-day 8d2c7b003f1d and 2fdc7de1a76a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical Resultary entry is the frozen record; the closest separate same-model entry gives the CP boundary and first negative-index asymptotic, not a thinning-phase table."
+        ],
+        "reasoning": "The target is a continuous two-parameter exact classification, not a tabulated finite invariant. The catalogue comparison was of actual theorem statements; three example rows alone would not establish the classification.",
+        "searches": [
+          "Resultary identifiers 12cdb9820df2, 8d2c7b003f1d, 2fdc7de1a76a, d7a7540680dd"
+        ]
+      },
+      "rationale": "Credit the BPL law and PGF to its primary authors, the general canonical-sequence criterion to prior discrete self-decomposability, and the exact BPL ordinary compound-Poisson boundary and intensities to the distinct indexed overlap when comparing claims. The supported distinct claim is the exact thinning domain within the CP domain, with the two-comparison theorem and explicit creation/destruction witness, not any of these inputs by itself.",
+      "residual_risks": [
+        "Primary classical theorem passage unavailable in the attempted retrieval; no originality depends on it being new.",
+        "Bounded indexed comparison, not a priority certification; a broader uninspected thinning theorem specialized to this PGF could cover the result. No within-day order is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact law, convolution, PL endpoint and PGF; the inspected passages do not classify thinning self-decomposability",
+          "evidence": "Factorization agrees with the PGF used in the frozen result; Remark 1 identifies the PL endpoint.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms12090813",
+          "material_read": "OA PDF p.3 §2 Prop.1 (offset 12280), p.4 Remark 1 (16850), p.7 §3.2 PGF (24550)",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "A Flexible Dispersed Count Model Based on Bernoulli Poisson–Lindley Convolution and Its Regression Model",
+          "trigger": "Defining same-model primary source and possible analytical overlap"
+        },
+        {
+          "assessment": "Cited theorem not verified passage-by-passage; its application here is independently justified, no novelty claimed for the general criterion",
+          "evidence": "Extracted no decisive theorem text; the small-(1−c) coefficient and batch argument verify the needed directions for this law.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/1956807/Metis199408.pdf",
+          "material_read": "Repository file extraction/front matter only; no usable theorem passage",
+          "method": "Lawful OA TUE PDF attempt and Project Euclid alternate; direct mathematical quotient check",
+          "title": "Discrete analogues of self-decomposability and stability",
+          "trigger": "General canonical criterion cited as Theorem 2.2"
+        },
+        {
+          "assessment": "Exact component overlap, not the thinning classification",
+          "evidence": "States α≤1/(θ+2), λ_k=v_k/k, first bad even index as b/q approaches 1; explicitly ordinary convolution only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-compound-poisson-boundary-for-bernoulli-poisson-lindley--8d2c7b003f1d/RESULT.md",
+          "material_read": "Finding and Scope, offsets 0–2210",
+          "method": "Local published mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp compound-Poisson boundary for Bernoulli–Poisson–Lindley counts",
+          "trigger": "Exact same-model CP classification"
+        },
+        {
+          "assessment": "Different PGF and parameter effects; not equivalent coverage",
+          "evidence": "Poisson plus transmuted geometric; D₂≥0 and λ+D₁≥0. Poisson intensity changes only first comparison, unlike Bernoulli b here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-with-reentra--2fdc7de1a76a/RESULT.md",
+          "material_read": "Finding and Scope, offsets 0–2158",
+          "method": "Local published mirror",
+          "title": "A two-index thinning self-decomposability criterion with reentrant negative-transmutation phases",
+          "trigger": "Same two-index and reentrance formulation"
+        },
+        {
+          "assessment": "Relevant for unmodified PL, not for the Bernoulli perturbation",
+          "evidence": "Thinning iff α_shape≥(θ+1)^3/[θ(θ+2)^2], with no Bernoulli factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd/RESULT.md",
+          "material_read": "Finding and Scope, offsets 0–2197",
+          "method": "Local published mirror",
+          "title": "Sharp thinning self-decomposability frontier of the two-parameter Poisson generalized Lindley law",
+          "trigger": "Nearby Lindley thinning frontier, including PL endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform-in-retention distributional property reduces to two exact coefficient comparisons in a standard statistical count model. The signs locate a finite restoration interval and show that an extra Bernoulli term can create as well as destroy thinning self-decomposability without crossing the CP boundary. The construction of compatible batch immigration gives an explicit process using the criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

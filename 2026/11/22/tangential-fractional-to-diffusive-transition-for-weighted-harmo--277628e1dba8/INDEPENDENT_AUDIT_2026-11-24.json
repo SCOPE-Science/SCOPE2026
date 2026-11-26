@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:35:52.277729Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspected without execution)",
+        "Independent numerical corroboration: python reviews/checks/record3.py; output reviews/checks/record3.log"
+      ],
+      "rationale": "For β=α+2>1, the decaying horizontal mode has squared vertical norm Γ(β−1)/(2|λ|)^{β−1}; taking its reciprocal and applying inverse Fourier transformation on both frequency halves gives precisely Cβ=2^{β−1}(β−1)/π multiplying the real part of the complex power. Reproduction normalizes the squared kernel and dilation gives the factor |ξ|y. In the tail substitution v=|x|t the dominating function is t^{β−2}(1+t²)^{−β}; splitting the real-part square and evaluating the real and complex beta integrals gives the displayed positive Aβ. For 1<β<2, the cosine Abelian integral follows by inserting a Laplace representation of u^{−1−β}: it becomes Γ(β+1)^{-1}∫ r^{β−1}/(1+r²) dr, giving the stated sine factor. At β=2, Taylor expansion up to x=1/t and the x^{-3} tail bound make the fourth-order error and far tail O(t²); the truncated second moment supplies A₂=1 times t² log(1/t). For β>2 differentiation of the Fourier mode and Plancherel yield conditional variance (1+v)²/(2β−3); the normalized vertical beta-prime density then yields 2/(β−2). The tail excludes finite variance for β≤2. For β=2, convolving 2|λ|exp(−b|λ|) with itself (factor 1/(2π)) and splitting at 0 and t gives the stated rational-polynomial Fourier expression; the E3 recurrence gives exactly the asserted E2 multiplier, with continuous value one at zero. Independently verified normalization and tail integrals at representative exponents and Fourier integrals of the spatial squared kernel and its true critical marginal. These quadratures only corroborate the exact derivations, not their parameter coverage.",
+      "residual_risks": [
+        "The tail is a power tail in every regime; 'diffusive' is a statement about the leading low-frequency term, not Gaussian decay. The limits are at fixed weight exponent, not uniform through α=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bradić's general-weight Fourier representation recovers the starting kernel at ρ(y)=y in its stated α≥0 range, while its transform asymptotic restricts symbol variation to y. Engliš covers radial or vertical kernel asymptotics as the weight power tends to infinity. Jahn's full paper was not obtainable from the identified lawful publisher path; scope beyond the indexed abstract cannot be established from it."
+        ],
+        "reasoning": "The stronger kernel representation supplies an integrand only, and the high-power limit is different from the present small-horizontal-frequency limit at each fixed exponent. The inaccessible text is not used as negative evidence.",
+        "searches": [
+          "Bradić arXiv:2310.17562v4, General vertical weights, Lemma 2 and Theorem 2",
+          "Engliš arXiv:1601.03716, abstract, Eq. (7), §5",
+          "Jahn JMAA 405(2):720–730 (2013), publisher PII S0022247X13003478"
+        ]
+      },
+      "checked_sources": [
+        "Bradić arXiv:2310.17562v4; Engliš arXiv:1601.03716; Resultary 8bec44223fb7; Jahn 2013 bibliographic evidence only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fourier norm density and kernel are already provided in overlapping regimes. Neither the diagonal high-power computation nor the normal-symbol integral gives the horizontal squared-kernel marginal or its Fourier transform."
+        ],
+        "reasoning": "Getting from the prior kernel to the stated thresholds and multipliers requires estimating a rescaled marginal with a sharp coefficient, handling the borderline truncated variance, and computing the exact mixed-sign convolution at the critical exponent. These are additional fixed-weight horizontal analyses, not application of the prior vertical-symbol expansion.",
+        "searches": [
+          "Bradić §2 Eq. (9), §3 Eq. (18) et seq.",
+          "Engliš power-weight upper-half-space formulas, pp. 2–3, 12–13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact target hit is the record reviewed, not independent coverage. The same-date analogue proves a power/log/saturation law for the unweighted analytic Bergman transform of a localized distance symbol near a polygonal corner. Bradić's transform theorem acts on vertical symbols g(y)."
+        ],
+        "reasoning": "None of these symbols, evaluation limits, and Hilbert spaces is equivalent by a coordinate rotation or parameter relabeling to a horizontal wave at fixed power in the full harmonic half-plane space. In particular translation/dilation covariance does not turn a vertical-symbol transform into the horizontal characteristic function.",
+        "searches": [
+          "Resultary fixed-weight harmonic Berezin tangential Fourier/power trichotomy; exact target 277628e1dba8 and distinct analogue 8bec44223fb7",
+          "Bradić arXiv:2310.17562v4, §2 Eq. (9), Theorem 2 and Eq. (18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concrete distinct catalogue hit is a geometric corner result; it neither evaluates the horizontal moment nor lists the exact unweighted harmonic Fourier multiplier. The earlier primary passages examined give a kernel or expansions in a different variable, not these constants."
+        ],
+        "reasoning": "Here the analogue of an exact table is an all-parameter formula or an explicit unweighted-phase formula, not a finite set of numeric rows. The compared entries do not supply those formulas for the stated kernel; this is a bounded comparison.",
+        "searches": [
+          "Resultary horizontal harmonic Berezin multiplier and closest same-date corner trichotomy 8bec44223fb7",
+          "Focused primary lookup for horizontal harmonic Berezin multipliers; exact Jahn title, journal and pages"
+        ]
+      },
+      "rationale": "The known vertical-weight harmonic kernel is an input and not a new contribution. The supported distinct claim is the sharp horizontal marginal and its fixed-weight low-frequency transition, with its constants and exact critical multiplier. The compared vertical-symbol, high-weight and corner theorems do not already give that horizontal law; uninspected historical sources remain a risk.",
+      "residual_risks": [
+        "Jahn's full paper and other older or less-indexed literature could overlap; no claim of absolute priority or noncoverage of inaccessible text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Fourier kernel and vertical-symbol expansions within stated hypotheses",
+          "evidence": [
+            "Reciprocal Laplace density Fourier kernel; transform theorem for f(x,y)=g(y), not for horizontal plane waves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.17562v4",
+          "material_read": "Abstract, Theorem 2 p. 3 (offset 10954), Lemma 2 and Eq. (9) p. 5 (15678), Eq. (18) et seq. pp. 8–9 (31100)",
+          "method": "Open-access original passages",
+          "title": "Harmonic Berezin Transform on Half-Space with Vertical Weights",
+          "trigger": "Same general harmonic kernel and transform"
+        },
+        {
+          "assessment": "High-power and diagonal kernel context, not fixed-exponent horizontal characteristic function",
+          "evidence": [
+            "Discusses upper-half-space weight generated by ρ(x)=x_n and asymptotics as the power tends to +∞."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.03716",
+          "material_read": "Author-hosted PDF abstract p. 1, pp. 2–3 Eq. (7), §5 pp. 12–13",
+          "method": "Open-access original PDF passages",
+          "title": "High-power asymptotics of some weighted harmonic Bergman kernels",
+          "trigger": "Same half-space and power kernel in a different asymptotic setting"
+        },
+        {
+          "assessment": "Distinct operator, class of symbols and limiting geometry; date not used to infer priority",
+          "evidence": [
+            "Unweighted analytic planar Bergman transform at polygonal corners, with a localized distance power symbol."
+          ],
+          "identifier_or_url": "Resultary 8bec44223fb7",
+          "material_read": "RESULT.md Finding at offset 460",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp corner power trichotomy for planar Bergman Berezin transforms",
+          "trigger": "Strong same-date conceptual overlap: exact power/log asymptotic trichotomy"
+        },
+        {
+          "assessment": "Plausible related prior work; full coverage unresolved, not used as negative evidence",
+          "evidence": [
+            "J. Math. Anal. Appl. 405(2):720–730 (2013); accessible search description reports a complete asymptotic expansion, but is not decisive on the limit or horizontal multipliers."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X13003478",
+          "material_read": "Bibliographic listing in Bradić reference [13], publisher search description only; original text inaccessible",
+          "method": "Exact-title primary lookup, identified publisher retrieval, and original OA reference check",
+          "title": "On asymptotic expansion of the harmonic Berezin transform on the half-space",
+          "trigger": "Earlier same named transform in the same geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and reconstructed tail/multiplier proof; comparison with Bradić's vertical-symbol theorem"
+      ],
+      "rationale": "This identifies the regularity of a natural normalized tangential smoothing operator sharply across all its admissible power weights. The exact constants, finite-variance threshold, and critical Fourier multiplier distinguish fractional-order behavior from a logarithmic borderline and a second-order law; they give usable benchmarks for other horizontal smoothing calculations. The phenomenon is not a consequence of renaming the known vertical expansion.",
+      "residual_risks": [
+        "Only planar half-space, exact power weights, and fixed exponents; no uniform crossover or higher-dimensional claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

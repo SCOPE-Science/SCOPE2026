@@ -1,17 +1,21 @@
-# Scientific assessment: Universal weighted detour-spline law on Cartesian-product metric networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem assumes finitely many connected simple factor graphs, positive factor-geodesic lengths, and normalized arclength sampling on their Cartesian-product one-skeleton. All nonexceptional edge-pair routes realize the ambient sum-product distance; on two different layers of the same factor edge of length \(\ell\), endpoint routes give a detour of \(2\min\{\min(s,t),\ell-\max(s,t)\}\). The exact two-triangle area calculation gives survival \(1-z/\ell\)^2\) on each exceptional pair. Counting these copies establishes the weighted spline and all moments; jumps in its second derivative prove the aggregate edge-length reconstruction.
+## correctness
 
-Two ordinary Python checkers performed 86,336 and 51,728 exact-rational pair-distance comparisons, respectively, on unequal-weight paths, cycles, stars, triangles, a diamond, and three- or four-factor products. Their finite checks passed and corroborate, but do not replace, the universal proof. The conditions on nongeodesic edges and the inverse-identification limitations are essential.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
-The closest restricted result treats only the product of two **unit-edge cycles**, deriving a conditional \(\mathrm{Beta}(1,2)\) detour. It does not imply an arbitrary-weight, many-factor truncated-square law or inverse detection of edge lengths. Garijo, Márquez and Silveira's full open-access treatment of continuous mean distances provides general integration methods rather than this structural identity. Baptista, Kennedy and Mugnolo's accessible full text concerns metric-graph mean-distance bounds and surgery and likewise does not establish the product-skeleton result. The older De Carufel et al. and Cáceres et al. papers were considered from their available abstracts. The important Doyle–Graver 1982 full text remained unavailable, and no full-text noncoverage claim is made about it. Searches for product-network detour laws, equivalent beta-mixture formulations, vertex-distance-profile corrections and inverse length-spline formulas found no directly covering result; this is not a worldwide novelty guarantee.
+The ambient metric bounds every skeleton route below by its sum of factor distances. For different moving coordinates, perform the initial coordinate's move to the target vertex first, the vertex-to-vertex moves next, and the move into the terminal interior last. For different underlying edges in the same moving coordinate, a factor shortest path must pass through a vertex, where all other moves can be inserted. On a single edge copy the direct subsegment is shortest: otherwise the factor edge's endpoints could be joined by a shorter route. For two distinct copies of the same geodesic edge of length ℓ, a route must project in the moving coordinate through a departure endpoint and an arrival endpoint. A common endpoint gives the horizontal lower bound s+t or 2ℓ−s−t (attainable while making all other moves there); opposite endpoints require at least ℓ in that projection, no better than the smaller common-endpoint cost. The other projections require their layer distance. Thus the detour is twice the minimum of the four distances of the two arclength positions from the endpoints. For z≥0 it exceeds z exactly when both coordinates are in (z/2,ℓ−z/2), with area (ℓ−z)_+². The b_i(b_i−1) ordered copy pairs, each of mass ℓ²/Λ², give the survival law; vertices are null. Integrating q z^{q−1} against the survival for q>0 yields the stated moment, and the scaled conditional survival is (1−z)² on [0,1]. The positive weights make the downward jumps of the one-sided second derivatives at all positive lengths identifiable. Finally, conditional on a distinct copy pair, at a threshold within x∈[0,ℓ] of the layer distance the ambient horizontal CDF is 2x/ℓ−(x/ℓ)² and the intrinsic horizontal CDF is (x/ℓ)² by two planar triangle area computations. Their difference is zero at the endpoints and elsewhere outside that interval; weighting recovers the exact correction and its strictness condition.
 
-## Value — PASS
-The product skeleton is the canonical set of routes that change only one graph coordinate at a time, whereas its ambient sum-metric product allows interior coordinate changes. The theorem gives a complete and exact account of the gap for every finite number of graph factors, independent of regularity or equality of edge lengths. Recovering the weighted aggregate edge-length multiset from the jumps of an observed distance-excess survival function is an inverse metric-geometric statement not available in the fixed unit-edge toroidal model. Its precise limits are that factor labels, graph topology, nongeodesic edges and volume-uniform ambient sampling are not recovered or covered.
+## originality
 
-## Closest literature and limitations
-The context includes Doyle and Graver (1982), Cáceres et al. (first public 2006-11-21), De Carufel et al. (first public 2015-12-07), Garijo et al. (2021/2023), and Baptista et al. (2023). Their directly relevant published claims were compared as described above; some older complete texts were not accessible. No claim of independent validation or historical completeness is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct supported claim is the joint extension to arbitrary positive geodesic weights and finite numbers of factors, with the full all-threshold detour and CDF correction and an identifiable weighted length spline. The equilateral two-cycle survival, conditional Beta law, and CDF correction are direct overlaps, not new special-case claims here.
+
+## value
+
+PASS
+
+The one-skeleton restriction is a natural network-routing constraint. Detecting exactly when it matters transforms a potentially full edge-pair geometric problem into a shape-independent weighted spline; the correction retains layer-distance data and the derivative jumps recover the weighted aggregate length spectrum. For instance, two three-vertex path factors with edge lengths (1,1) and (2,2) have the same detour law and Λ as factors with (1,2) and (1,2); the theorem recovers the aggregate but cannot distinguish those allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

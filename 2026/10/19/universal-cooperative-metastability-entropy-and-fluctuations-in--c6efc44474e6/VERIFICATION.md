@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification procedures and scope
-The standalone `verify.py` tests the exact Hamiltonian directly against the domain-wall characterization for spin lengths \(3\le N\le10\), multiple deterministic bond-order permutations, and cooperative budgets \(1\le r\le\min(4,N)\). Every spin state and every allowed flip subset are checked; positive integer bond strengths make equality tests exact. The script additionally enumerates all permutations of the union of two sliding bond windows for representative radii and separations, comparing frequencies to the claimed rational joint probabilities. The program uses only Python's standard library. Run `python verify.py` in the directory containing this document and the script.
+# Independent mathematical audit
 
-These are genuine finite reproducibility checks; they cannot establish an all-size theorem or the Gaussian limit. The exact proof in `RESULT.md` supplies those implications via boundary-energy identities, exchangeability and finite-dependence probability theory. No independent audit has been conducted.
+## correctness
+
+PASS
+
+Re-audited the repaired theorem. A flip acts on the cut bonds. Maximal contiguous pieces have disjoint cut bonds, so checking allowed intervals is equivalent to checking all allowed subsets. A wall at j must evade both end intervals and be strictly lighter than all bonds at distance at most r; conversely such eligible walls cannot coexist on a block boundary, and a single such wall has lighter coupling than the opposite boundary. Whole-chain flip costs zero. For iid atomless bonds, the stationary indicators have mean 1/m (m=2r+1), are 2r-dependent, and have overlapping joint probability 2/[m(m+d)] for r<d≤2r by conditioning on the location of the union minimum. The variance sum verifies the displayed v_r, with v_r≥2r/[m²(4r+1)]>0; the finite-dependence CLT and ergodic theorem apply at fixed r. For N≥m the +1 in log₂ B exactly cancels the boundary correction in the mean. When N≤3r+2 the eligible interval has diameter at most r or is empty, giving the asserted Bernoulli law from its expectation. New independent script /workspace/reproductions/05_ising.py passed exact all-order, all-state and all-budget small checks (N=3..7, every coupling permutation) and exact rank checks for r=1,2; these corroborate, not replace, the proof. Frozen VERIFICATION.md and verify.py were inspected without running the supplied code.
+
+## originality
+
+PASS
+
+The repaired claim expressly limits its advance to the explicit all-fixed-radius variance and the proportional-budget result in the specified open-chain range. The strongest inspected prior coverage is the one-spin weak-bond representation and the periodic r=1,2 marginal variance and Gaussian limits. Those ingredients are credited and not claimed distinct. The fixed-range table neither gives the arbitrary-r joint minimum formula nor covers the growing-r open-chain regime. The conclusion is limited to inspected evidence and does not certify priority.
+
+## value
+
+PASS
+
+The repaired result gives quantitative information in two different regimes of a natural metastability count. The exact variance across all fixed cooperative budgets goes beyond the mere existence of a CLT or the first two previously calculated variances. In a separate proportional-budget range the open count has a fully specified non-Gaussian finite law rather than just a growth exponent. This is a useful boundary classification and does not assert results for all proportional budgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

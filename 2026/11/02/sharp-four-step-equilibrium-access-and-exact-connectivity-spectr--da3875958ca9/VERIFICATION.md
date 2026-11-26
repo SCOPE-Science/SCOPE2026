@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The attached `verify.py` is a stand-alone Python 3 program with no nonstandard dependencies. Execute `python3 verify.py` from the directory containing this file. The expected first line is `VERIFY_OK`; the remaining lines list the two- and three-player orientation counts and the sharpness witness distances. The program enumerates every bit string for the twelve edges of the three-cube, applies two different exact shortest-path algorithms (reverse breadth-first search and Floyd–Warshall), and checks the identical results for each graph, with a separate inclusion–exclusion denominator check.
+## correctness
 
-The analytic cube-layer argument in `RESULT.md` proves the uniform four-step bound; the finite exhaustive computation proves the stated exact frequency distribution, verifies the graph-theoretic connectivity test, and certifies the sharpness witness. All arithmetic is integer-valued. No symbolic or numerical approximation, random sampling, timeout, or extrapolation is used. The statement is about existentially chosen improving actions, not arbitrary activation sequences. Published quantitative priority cannot be guaranteed from the inspected literature alone.
+PASS
+
+For the corrected statement, the four-layer argument holds (the antipode reaches a sink in at most three steps and any layer-two vertex can use it in at most one extra step), and the listed witness forces four. Independently exhausted 4096 orientations using forward reach-set growth to depth seven; recovered 962 with no sink, 3134 with a sink, radius counts 258, 644, 1512, 720 and 2492 passing the all-sink test. Recomputed the denominator by inclusion–exclusion and checked the conditional ratios. The frozen text incorrectly equated independent continuous payoffs with fair orientations: independent disjoint action-dependent payoff supports can orient all edges upward almost surely. The repair requires iid atomless entries or fair independent comparisons for the probabilistic interpretation and preserves the deterministic theorem and counts.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the sharp existential access bound and complete labeled nearest-sink radius distribution. Weak acyclicity and the connectivity definition are known; a distinct Resultary record gives the same exact sink-positive and connectivity totals, expressly credited in the repair. Its indexed date is later and is not used to assert absolute priority. Neither the known existence result nor that qualitative census specifies shortest distances.
+
+## value
+
+PASS
+
+This is a natural finite benchmark for random-game dynamics and refines the known existence theorem: the cutoff is schedule-independent in its existential sense, and the exact distribution measures how much length is needed at the worst starting state under best choice of updates. Unique-sink games already separate lengths three and four, showing why mere reachability counts do not supply it. The witness and census give reference cases for quantitative work on larger cubes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

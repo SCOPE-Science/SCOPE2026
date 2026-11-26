@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stated strict positivity and Schur-complement condition make the original matrix positive definite. A two-community Fourier-type decomposition gives the quotient eigenvalues and two fluctuation eigenvalues; the diagonal semidefinite feasibility formulation permits averaging over community permutations. A Perron-positive top eigenvector forces *every* globally optimal diagonal scaling to be community-constant. The three monotone spectral branches then yield the explicit clipped minimizer and prove its uniqueness, including equality and absent-crossing cases. The symbolic rational example and verified 17,287 finite assertions are supplementary checks, not substitutes for the proof.
+## correctness
 
-## Originality
-PASS, with residual literature risk. Braatz and Morari (1994) give general convex optimal-conditioning machinery, and Takapoui and Javadi (2016) discuss equilibration heuristics; neither inspected source states the present two-community closed-form phase rule. Kolotilina (2004) concerns a larger class of full within-block congruences, and its optimum does not directly solve the restrictive positive-diagonal objective. The one-hub subclass has a singleton group and does not contain two independent fluctuation subspaces. Shapiro (1985) describes unnamed exact special cases but its complete text was inaccessible, so the strongest remaining risk is unverified earlier specialist coverage; neither a search miss nor this partition proves uniqueness in the literature.
+PASS
 
-## Mathematical value
-PASS. The explicit preconditioner applies uniformly over all dimensions and five continuous/discrete parameters of a natural two-community correlation model. It separates quotient balancing from first- and second-community fluctuation constraints, includes a rigorous unrestricted uniqueness theorem, and identifies an infinite family in which the optimal scaling saturates while the best condition number increases. This contrasts sharply with the usual unit-diagonal Jacobi heuristic.
+The two fluctuation eigenspaces have eigenvalues δx and ε; the normalized block means give Q(x) with diagonal rx,s and squared off-diagonal mn a²x. Q is positive definite and its top eigenvalue exceeds both fluctuation levels. Any positive diagonal congruence with condition number k produces H=λ_min(DAD)D⁻² satisfying H≼A≼kH, and feasibility implies condition number at most k in the reverse direction. Averaging H under block permutations preserves feasibility. At optimal k the averaged scaling must attain both spectral bounds 1 and k. Its upper PSD slack has a strictly positive null vector w by Perron–Frobenius; every summand's PSD slack must annihilate w, forcing H equal to its average, since the difference is diagonal. Thus unrestricted optimal scalings cannot break the symmetry. Of the three competing ratios, λ+/λ− decreases then increases about x₀ by the trace divided by square root of determinant; λ+/(δx) strictly decreases and λ+/ε strictly increases by comparing positive Perron matrices Q/x and Q. For x_E≤x₀, δx≥ε throughout the candidate interval, so the competition there is between the decreasing quotient and increasing ε-branch. The sign of det(Q−εI) is the sign of λ−−ε; its affine root is the first claimed crossing if rc>ma², otherwise the quotient dominates. For x_E≥x₀, δx≤ε throughout the candidate interval, and det(Q−δxI)/x is affine decreasing with root (bs−na²)/(b(1−b)). Strict monotonicity outside each interval and the competing monotone branches inside prove both clipping and uniqueness; if x_E=x₀ the interval is a point. In the all-n example the eigenvalues are 1/2 and (n+2)/2 on the quotient and 3/4 and 1/2 on fluctuations at x=5/6; at n=3,x=1 the least eigenvalue is 1/2 and the largest is (16+√106)/10. All strict hypotheses hold in these checks.
 
-## Closest sources and limits
-Takapoui--Javadi, arXiv:1610.03871v1; Braatz--Morari, DOI 10.1137/S0363012992238680; Kolotilina (2004), DOI 10.1023/B:JOTH.0000026285.08558.74; Shapiro (1985), DOI 10.1137/0722005 (full-text coverage uncertain); Kolotilina (2002), DOI 10.1016/S0024-3795(01)00412-8 (abstract only). Only real, strictly positive correlations, both community sizes at least two, and symmetric positive diagonal congruence are proved. Independent replication and broader prior-literature review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General condition-number formulations and neighboring structured examples are known. The strongest indexed overlap 3470d222a671 independently records an algebraically equivalent clipped rule on the same domain, but does not establish that it preceded this finding and does not assert unrestricted uniqueness. The compared earlier material does not establish the full two-fluctuation classification with unrestricted rigidity and the all-size saturation example. This is a bounded originality assessment, not a priority claim or a claim that the formula appears nowhere else.
+
+## value
+
+PASS
+
+Two exchangeable communities are a natural correlation model. A closed-form rule determines when each of two different within-community fluctuation levels, rather than quotient balancing, sets the optimum. It removes any entrywise optimization and establishes that a nonsymmetric diagonal cannot tie it. The fixed-ratio all-size example and the strict Jacobi gap illustrate directly why unit diagonal does not suffice. This is useful as an exact benchmark for general preconditioning, not merely a numerical improvement on one selected matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

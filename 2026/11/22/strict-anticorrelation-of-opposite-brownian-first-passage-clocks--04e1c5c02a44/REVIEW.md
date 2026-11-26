@@ -1,23 +1,21 @@
-# Mathematical review: strict anticorrelation of opposite Brownian first-passage clocks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For Brownian motion with generator \(D\partial_{xx}\), Poisson return-to-zero rate \(r>0\), and targets \(-a,+b\) with \(a,b>0\), the clocks continue after the first target is visited. Discounted two-sided first-exit transforms yield the joint exit-side transforms \(G_\pm\). Strong Markov continuation from the actual first-hit boundary yields the other-hit transforms \(H_\pm\), giving a complete bivariate Laplace transform. Differentiation and symbolic rational elimination establish
+PASS
 
-\[
-\operatorname{Cov}(T_-,T_+)=-\frac{A+B}{r^2}\frac{\sinh A\sinh B}{\sinh A+\sinh B}<0,\quad A=a\sqrt{r/D},\;B=b\sqrt{r/D}.
-\]
+The clocks run on one continuing path without extra reset or killing at discovery; the reset site lies strictly between -a and b, and a,b,D,r are positive. The ODE with opposite Dirichlet boundary values gives the two discounted exit-side probabilities. A failed cycle has discounted mass r(1-f_+-f_-)/(r+s); summing the renewal series gives the frozen G_±. The analogous one-sided renewal starting at the opposite level gives H_± with initial distance a+b and subsequent distance a or b. The strong Markov property at the first hit factors the remaining-clock transform conditional on the exit side, yielding the claimed joint transform. The relevant derivatives exist: failed cycle transforms extend locally about zero, with total failure mass strictly below one, so the one-sided clocks have exponential moments near zero. Differentiating at zero gives the two marginal means and the mixed moment. Independent exact symbolic reduction (branches/12ba63cd-d031-413b-8a3d-ab487b783415/independent_check.py) reproduces r² Cov = -(A+B)(x²-1)(y²-1)/(2(x+y)(xy-1)) at x=e^A,y=e^B; the expression is negative and equals the hyperbolic formula. The subtraction cancels the ab(r/D) numerator term and leaves ab(a+b)(r/D)^{3/2}/2, with covariance and mean product still of order r^{-1}. The marginal variance from the one-sided transform has leading small-r numerator A or B, giving the stated Pearson asymptote; at large r the variance factors grow exponentially faster than their normalized covariance numerator. The finite lattice approximations in the frozen script were inspected, not executed; they are not the continuum proof.
 
-The symbolic checker verifies the full identity and weak-reset cancellation exactly. Independent numerical high-precision mixed derivatives and a finite-lattice Markov generator provide separate sanity checks. Boundary assumptions, conditional-clock definitions, moment finiteness, and the distinction between numerical evidence and general proof are explicit in RESULT.md. The primary calculations passed under the supplied parameters; finite tests alone cannot prove the continuous claim.
+## originality
 
-## Originality — PASS, with residual priority risks
+PASS
 
-The closest paper, Linn and Lawley, *Cover times with stochastic resetting* (arXiv:2406.12154v1, Section 2.1; first posted June 17, 2024), evaluates the **mean of the maximum** of two first-visit times for the same persistent two-target process, and does not provide their joint transform or covariance in the inspected primary sections. Pal and Prasad, *First passage under stochastic resetting in an interval* (arXiv:1812.03009v1), study **absorption at the first hit**, not both continuing clocks; their first-exit formulas are reused explicitly. Calvert and Evans, *Searching for clusters of targets under stochastic resetting* (European Physical Journal B 94, 228 (2021), Section 2), **restart at the origin upon the first target hit**, so their time-to-second-discovery law is different. A related published reflected-interval cover-time variance result was compared through its accessible scientific summary only, not unread full text. Relevant aliases, exact parameters, secondary claims, and semantic scientific-record searches are specified in AUDIT.json.
+Best of current knowledge for the continuing-clock bivariate transform, exact sign and weak-reset mixed-moment asymptotic. The inspected closest work concerns first exit, cover/completion means, or different joint observables. Standard killed exit and resetting renewal formulas are inputs, not new results.
 
-The newly assessed item is the **exact cross moment and strict negative covariance of two persistent, opposite first-hit clocks**, plus their weak-reset mixed-moment cancellation, not the elementary one-target mean or known cover-time mean. Search failure alone is not proof of global novelty; unindexed joint first-passage literature and the inaccessible reflected-variance full text are explicit residual risks.
+## value
 
-## Mathematical value — PASS
+PASS
 
-A single particle's two opposite-target discovery times are coupled by their common trajectory and reset clock. Their exact anticorrelation for every positive rate, every pair of target distances, and the singular weak-reset cancellation answer a motivated multi-target reliability question not contained in scalar mean cover times. This is a structural sign theorem with a full bivariate transform, not a numerical point, arbitrary special case, or routine code certificate. The result does not claim negative quadrant dependence or extensions to different resetting/absorption mechanisms.
+The persistent opposite-target clock pair is a natural two-target search observable. A shared reset clock and single particle do not make the sign immediate. The exact covariance settles it for all positive distances and rates, and the weak-reset cancellation makes the mixed moment diverge on a genuinely different scale from the product of means. The full joint transform also supports other two-target observables without replacing this process by a killed or forcibly restarted protocol.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

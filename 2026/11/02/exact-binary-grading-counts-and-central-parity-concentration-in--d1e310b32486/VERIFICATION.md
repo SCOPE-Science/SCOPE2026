@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The attached `verify.py` uses only Python's standard library. Execute `python3 verify.py` from the directory containing this file and the script.
+## correctness
 
-The program implements the exact symbolic formulas and separately enumerates all ordered complementary pairs of reduced-row-echelon subspaces in six finite, small cases. Each candidate is tested directly for closure of homogeneous Lie brackets, with no reliance on the symplectic normal form. It checks \((q,n,r)=(2,1,0),(2,1,1),(2,1,2),(2,2,0),(3,1,0),(3,1,1)\), with respective \((E,O)\) values \((5,12),(33,72),(385,816),(97,480),(10,36),(136,432)\). As a separate parameterization check, it exhaustively searches all \(q^9\) linear maps in the three-dimensional case for \(q=2,3\), retaining exactly those idempotent projections that satisfy the grading identities. Both searches return the same counts. Actual run result:
+PASS
 
-```
-PASS q 2 n 1 r 0 even 5 odd 12
-PASS q 2 n 1 r 1 even 33 odd 72
-PASS q 2 n 1 r 2 even 385 odd 816
-PASS q 2 n 2 r 0 even 97 odd 480
-PASS q 3 n 1 r 0 even 10 odd 36
-PASS q 3 n 1 r 1 even 136 odd 432
-PASS_PROJECTOR 2 (5, 12)
-PASS_PROJECTOR 3 (10, 36)
-VERIFY_OK: six exhaustive decomposition cases, two exhaustive projector cases
-```
+For an ordered Z/2-grading the center and derived line are graded, since brackets of terms of different degree with a fixed homogeneous argument cannot cancel and the derived space is spanned by homogeneous brackets. A central plane of the appropriate dimension through K is counted in Z/K by a Gaussian coefficient; its complements are graphs giving q^{t(c-t)}. For fixed quotient and central decompositions, the two lift maps go from V_i into Z/Z_i, giving exactly the exponent of q in each term. When K is even, V_0 and V_1 are orthogonal and each nondegenerate, so the ordered pair count is the Sp orbit divided by the product stabilizer. When K is odd, both are Lagrangian; choosing dual bases gives an Sp orbit with GL_n stabilizer, whose order quotient is q^{n(n+1)/2} times the product of (q^i+1), also in characteristic two. With k=2b-n the normalized even exponent is t(c-t)-k^2+(c-2t)k = (t+k)(c-t-k). The map (t,k)->(r-t,1-k) sends t+k to c-(t+k), preserves the weight and switches parity. The normalized Sp product ratio tends to 1/C_q along either parity and is uniformly bounded by C_q^{-2}; Gaussian tails justify both limits. The odd normalization carries an extra q^n and product tending to D_q, so expansion of O/(O+E) gives the stated constant and rate at fixed q,r. Direct independent finite-field enumeration by span extension and bracket tests matched all six frozen cases, plus GF(4) at (n,r)=(1,0),(1,1), yielding (17,80),(385,1600). Replay /workspace/review-work/small_checks.py grading; output grading_results.txt. The unrestricted result, including r=0 as a boundary, rests on the proof, not the finite trials.
 
-The \(n,r,q\) theorem is not inferred from these finite checks: the symplectic and center-splitting proof establishes the unrestricted result. Extension fields and large dimensions are covered by that proof and the field-order formulas, but are not directly enumerated by the attached prime-field checker. The asymptotic follows by dominated convergence and the explicit parity-switching involution, not numerical tests. No external independent audit has been performed.
+## originality
+
+PASS
+
+Pass for centrally stabilized labeled gradings (r>=1) and their fixed-(q,r) derived-line parity law. The ordinary Heisenberg boundary in characteristic two is already known quantitatively, not merely qualitatively: Resultary afcaae70dd75 gives the two counts refined by projection rank. This is not credited as a new part of the finding. The inspected sources do not enumerate the additional central and lift choices or the resulting stabilized asymptotic.
+
+## value
+
+PASS
+
+For an infinite class of two-step Lie algebras with a distinguished derived line, the theorem gives exact proportions under the natural uniform measure on literal gradings. The standard quotient orbit counts do not on their own give the parity-independent theta constant or distinguish an n-parity oscillation from a sharp odd-derived concentration law. The stabilized counts and rate are substantive apart from the already covered boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:46.698108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under identical positive pulse sizes, an initially empty linear store and the exponent-two response, integrate on the two segments with antiderivative −log(1+C² exp(−2kt))/(2k). With u=a² and x=exp(−kτ), the derivative of the dimensionless logarithmic score divided by 2u simplifies to −[u x(1+x)−1]/[(1+ux²)(1+u(1+x)²)] + q²(1+x)/[x(x²+u q²(1+x)²)]. Combining the fractions independently gives N=x³[u x(1+x)−1] and D=(1+x)[1+u(3x²+3x+1)], exactly the stated polynomials. On the feasible x∈[q,1], H'(q)>0 since q²D(q)−N(q)=q²(2q+1)[1+u(q+1)²]. If u≤1/2, N≤0 everywhere. Otherwise N>0 precisely above the positive root ρ_a, where xN'/N>3>xD'/D. Thus N/D is strictly increasing on its positive branch and the derivative can switch only from positive to negative. Its right-end comparison is q² versus (2u−1)/(14u+2), proving the unique maximum including equality and the correct feasible interval for the interior root. The positive-branch inverse decreases in T and converges to ρ_a, giving strictly increasing delay only in the staggered regime and a finite limiting delay as claimed. An independent bounded numerical bisection at a=k=1,T=2 gave τ*=0.235356202245 and scores 0.769367392875 and 0.777192014422. RESULT.md, VERIFICATION.md and check.py were inspected; uploaded code was not run. The checker brackets but does not test exact horizon equality, and its 7,500 count combines 1,500 quadrature checks with 6,000 candidate comparisons, not an exhaustive optimization test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected indexed theorem permits unequal pulse sizes but assumes exponent one and predicts large-horizon delay growing as half the horizon plus a constant.",
+          "The inspected repeated-dose optimization explicitly leaves individual dose-time optimization open.",
+          "The Hall and Butcher article could not be inspected through the DOI routes tried."
+        ],
+        "reasoning": "Broader pulse sizes for a different response do not subsume a different exponent. The disparity between unbounded and bounded optimal delays confirms distinct mathematical content. The historical article is a remaining risk, not a negative source finding.",
+        "searches": [
+          "Resultary 0b80c2838f31",
+          "10.1371/journal.pone.0354029",
+          "10.1061/JRCEA4.0000569"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index, self hit 5766f0fbf310 and distinct 0b80c2838f31",
+        "Dodek et al. 10.1371/journal.pone.0354029",
+        "Hall and Butcher 10.1061/JRCEA4.0000569 (retrieval only)",
+        "PMID 39487871 (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponent-two derivative changes sign according to x³[a²x(x+1)−1]/D(x) and hence has an amplitude cutoff; no matching optimization over free delay is stated in the inspected Hill-two article."
+        ],
+        "reasoning": "The weak-amplitude regime is specific to the cooperative response, and the degree comparison proves a nonlocal uniqueness statement not supplied by general Hill-effect or fixed-interval dose formulas.",
+        "searches": [
+          "Resultary 0b80c2838f31",
+          "10.1371/journal.pone.0354029 Eq. 2 and discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An identical one-compartment bolus model would require exponential linear elimination, two fixed equal inputs and an integral of the Hill-two effect over a finite window with free second-dose timing. Dodek et al., Eq. 2 and pp. 10, 14, 27, do not optimize that timing."
+        ],
+        "reasoning": "Reinterpreting moisture as drug concentration does not change the calculus. The closest inspected Hill/bolus formulation fixes equidistant times and minimizes mismatch to a target trajectory, so matching the response exponent does not imply the theorem.",
+        "searches": [
+          "Local Resultary semantic lookup for two fixed water pulses and activation thresholds",
+          "Targeted Hill-two/PK–PD bolus scheduling search",
+          "10.1371/journal.pone.0354029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 5766f0fbf310 is the reviewed record itself. The actual distinct RESULT.md of 0b80c2838f31 has a different functional response and horizon law."
+        ],
+        "reasoning": "This is an exact continuous-parameter boundary, not a tabulated instance. An exponent-one activation threshold does not reproduce the exponent-two threshold by taking equal doses.",
+        "searches": [
+          "Local Resultary lookup of two-input moisture scheduling and midpoint or onset laws"
+        ]
+      },
+      "rationale": "The closest distinct indexed finding solves the exponent-one scheduling problem; the closest inspected Hill-two dosing comparison fixes the times. Neither theorem yields the response-dependent finite-horizon transition and bounded optimal lag for these controls. Historical irrigation overlap remains a stated access risk, not evidence of coverage.",
+      "residual_risks": [
+        "The 1968 irrigation paper and some peripheral bolus sources were not accessible as primary text. A historical or cross-domain equivalent may use different terminology; priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, not an encompassing theorem",
+          "evidence": "Uses S/(K+S) and potentially unequal pulses; interior delay grows as half the horizon plus a constant. The prior-work section identifies an unresolved historical irrigation comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-activation-and-midpoint-crossing-laws-for-two-fixed-water--0b80c2838f31",
+          "material_read": "RESULT.md offsets 0–5611 and 7139–8578, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection after Resultary search",
+          "title": "Exact activation and midpoint-crossing laws for two fixed water pulses",
+          "trigger": "Closest same-day indexed optimization with two fixed water pulses"
+        },
+        {
+          "assessment": "Same Hill exponent and impulsive doses, different variables and objective",
+          "evidence": "The inputs are equidistant; dose and release rate, not individual administration times, are optimized against a target trajectory. The discussion explicitly leaves timing optimization for future work.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0354029",
+          "material_read": "PDF pp. 4, 6 (Eq. 2), 10, 14, 27; offsets 18400, 24600, 49400, 73500 and 115500",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Optimal design of dose and drug pharmacokinetic characteristics to achieve the desired pharmacodynamic profile in repeated drug dosing",
+          "trigger": "Possible equivalent exponent-two bolus optimization"
+        },
+        {
+          "assessment": "Unresolved historical access risk, not evidence of noncoverage",
+          "evidence": "The indexed record's prior-work section identifies the paper; its model and theorems could not be directly compared.",
+          "identifier_or_url": "https://doi.org/10.1061/JRCEA4.0000569",
+          "material_read": "No primary passage; HTTP 403 on attempted DOI routes",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Optimal Timing of Irrigation",
+          "trigger": "Historical match flagged by the nearest indexed record"
+        },
+        {
+          "assessment": "No theorem attribution or exclusion from the inaccessible text",
+          "evidence": "The title specifies steady-state exposure and Hill elimination, unlike the proposed finite horizon with linear elimination and Hill response; this is not a primary-passage comparison.",
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/39487871/",
+          "material_read": "Search title and PubMed identifier; no full text retrieved",
+          "method": "Targeted literature search and bounded public retrieval attempt",
+          "title": "Steady-State Drug Exposure of Repeated IV Bolus Administration for a One Compartment Pharmacokinetic Model with Sigmoidal Hill Elimination",
+          "trigger": "Nearby two-domain terminology in the Hill/bolus search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The timing question is motivated by the competition between beneficial concentration overlap at low stores, saturation at high stores, and truncation by the observation deadline. The result gives the exact onset of staggering, proves it is globally unique, and shows the optimal spacing saturates rather than scaling with horizon. This is useful as a closed-form benchmark for scheduling under cooperative response, not empirical advice about plant growth or dose timing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

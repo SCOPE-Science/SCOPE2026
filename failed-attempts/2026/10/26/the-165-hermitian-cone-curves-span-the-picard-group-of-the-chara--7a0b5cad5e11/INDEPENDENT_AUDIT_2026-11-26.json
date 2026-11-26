@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:27.464542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–54; VERIFICATION.md and frozen verifier source inspected, not executed",
+        "Independent replay: python3 /workspace/checks/frozen_math.py 2",
+        "Cheng arXiv:2307.06160v2 §6.1 and Lemma 6.2; Debarre–Laface–Roulleau arXiv:1510.05803 Cor. 4.13"
+      ],
+      "rationale": "There are 30 normalized Hermitian vectors of support two and 135 of support four, giving 165 points. The tangent hyperplane section at any such point is a cone over a smooth Hermitian plane cubic, and different vertices cannot share more than one line. In a Hermitian frame around an incident line, linearizing the cubic on nearby lines gives two free first-order parameters; requiring the line to continue passing through a given point imposes a linear form whose projective coefficients are that point. Distinct points thus give transverse intersection, so the off-diagonal intersection is one or zero as claimed. Adjunction gives square −3 since K_S is the Plücker class and the genus-one plane cubic has degree three. For the incidence computation, the orthogonal quotient at a point is a three-dimensional nondegenerate Hermitian space with nine isotropic points, giving 36 neighbours. Orthogonal complements of the span of two distinct points have respectively a two-dimensional radical (adjacent) or are nondegenerate of dimension three (nonadjacent), giving 3 or 9 common neighbours. The resulting identity A²=27I−6A+9J, with trace A=0, gives 36,3,−9 of multiplicities 1,120,44; subtracting 3 gives the stated characteristic polynomial. Rank 45 and b2=45 give rational Néron–Severi spanning by the divisor class map. The arithmetic projector at eigenvalue −9 gives trace (15·15−5·30+165)/60=4 and fixed span of dimension 25 including the trivial summand. An independent finite-field enumeration checked all graph and conjugation counts; it does not substitute for the intersection proof.",
+      "residual_risks": [
+        "The formal statement is rational NS spanning only, notwithstanding the broader title. Integral generation, index, discriminant or Picard-scheme assertions are not verified here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng's general q-bic results include the Fermat threefold at q=2 in characteristic two. The later Theorem B on the Picard scheme is not itself NS spanning; the earlier intersection lemma is the decisive result. Cor. 4.13 gives 25 over F_p and 45 over F_{p²} for p≡2 mod 3. Roulleau's 30 complex elliptic curves are a different configuration."
+        ],
+        "reasoning": "The q-bic specialization supplies the same matrix data uniformly, and the published rank applies to the same surface, not just to an analogous characteristic-zero example.",
+        "searches": [
+          "Cheng arXiv:2307.06160v2 §6; arXiv:2402.09884 abstract and Theorems B and D",
+          "Debarre–Laface–Roulleau arXiv:1510.05803 §4 and Cor. 4.13",
+          "Roulleau arXiv:1001.4855 Thm. 2"
+        ]
+      },
+      "checked_sources": [
+        "Cheng arXiv:2307.06160v2 and arXiv:2402.09884",
+        "Debarre–Laface–Roulleau arXiv:1510.05803; Roulleau arXiv:1001.4855",
+        "Resultary acfb8be20d61 and 2e31fe7f7835"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The implicated A−3I has rank 45 from the eigenspace dimensions. A Gram matrix of this rank gives a lower bound 45 on the span dimension and b2 gives the same upper bound on NS. The arithmetic rank 25 was already published and is acknowledged as such."
+        ],
+        "reasoning": "No new geometry is required to obtain rational spanning from the specialized intersection rule. The frozen elementary proof and finite script corroborate the known implication; they do not restore a distinct claim.",
+        "searches": [
+          "Cheng §6.1 and Lemma 6.2 together with Debarre–Laface–Roulleau Cor. 4.13 and the geometric b2=45 bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng defines D_x as the locus of m-planes containing the fixed Hermitian point x. For m=1 this is exactly E_x. His restriction formula gives O_{D_x}(1−q) on the diagonal, O_{D_x}(D_{ȳ}) at an incident pair, and the trivial bundle otherwise."
+        ],
+        "reasoning": "For m=1, D_{ȳ} is a single reduced point on the base cubic; the first bundle has degree 3(1−2)=−3 at q=2. Thus both the matrix entries and their geometric interpretation are included, with different notation only.",
+        "searches": [
+          "Cheng arXiv:2307.06160v2, Hermitian incidence divisors, §6.1 and Lemma 6.2",
+          "Resultary: Hermitian cone point, elliptic incidence divisors, Fermat cubic Fano surface rational generators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed thematic records concern a nonreduced projective cone over a Hermitian plane curve or the arithmetic cones of a cubic surface, not the exact claim. The required exact spectral data reduce to (v,k,λ,μ)=(165,36,3,9), whose quadratic identity determines the full spectrum; rank 45 is tabulated in the cited corollary."
+        ],
+        "reasoning": "Absence of a separately indexed spectrum table does not give it distinct originality when the prior geometric matrix and standard graph parameters already fix it.",
+        "searches": [
+          "Resultary: 165 Hermitian curves, Gram spectrum, and rational Picard spanning; checked acfb8be20d61 and 2e31fe7f7835",
+          "Cheng Lemma 6.2 with the standard H(4,4) point graph; Debarre–Laface–Roulleau Cor. 4.13"
+        ]
+      },
+      "rationale": "Cheng's prior incidence-divisor lemma explicitly gives the geometric intersection rule for these very divisors, not merely their existence. Specializing to a cubic threefold and q=2 gives A−3I directly; its spectrum follows mechanically from the standard Hermitian point-graph parameters. Rank saturation is then an immediate combination with the published Picard rank and b2 bound, not a new generator theorem. The literal 165-curve spectrum and spanning package need not be printed as a named prior theorem for this coverage to hold.",
+      "residual_risks": [
+        "An explicit printed spectrum or spanning statement might also exist; the verified prior implication is already decisive without it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the Gram rule in the reviewed q=2 case.",
+          "evidence": "D_x is the locus of m-planes through x; restriction of O_F(D_y) to D_x is O(1−q) for x=y, the incident divisor O(D_{ȳ}) along a Hermitian line, and trivial otherwise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.06160v2",
+          "material_read": "§6.1 and Lemma 6.2 with proof, PDF p. 25 and preceding passage, text offsets 102350–105623",
+          "method": "OA PDF literal locator and offset, checked the restriction formula and geometric definition",
+          "title": "q-bic hypersurfaces and their Fano schemes",
+          "trigger": "Possible exact stronger intersection theorem for the Hermitian point incidence divisors"
+        },
+        {
+          "assessment": "Includes q=2; cited theorems do not themselves state the Gram spectrum or these NS generators.",
+          "evidence": "Includes Fermat degree q+1; B describes structure-sheaf cohomology and Picard scheme smoothness, D the cone-point construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.09884",
+          "material_read": "PDF abstract p. 1; Theorem B p. 2; Theorem D p. 3",
+          "method": "OA PDF bounded passage inspection",
+          "title": "q-bic threefolds and their surface of lines",
+          "trigger": "Fermat specialization and possible NS generation"
+        },
+        {
+          "assessment": "Supplies rank numbers; the geometric upper bound is consistent with §4.1.",
+          "evidence": "For p≡2 mod 3 gives 25 over F_p and 45 over F_{p²}, including p=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.05803",
+          "material_read": "Corollary 4.13, PDF p. 15, text offsets 57893–59786",
+          "method": "OA PDF literal locator then bounded offset",
+          "title": "Lines on cubic hypersurfaces over finite fields",
+          "trigger": "Known exact rank for the same Fermat cubic Fano surface"
+        },
+        {
+          "assessment": "Complex configuration, not direct earlier coverage of the characteristic-two claim.",
+          "evidence": "30 elliptic curves, rank 25 and a sublattice of index three in characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.4855",
+          "material_read": "Theorem 2, PDF pp. 1–2",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Fano surfaces with 12 or 30 elliptic curves",
+          "trigger": "Analogous Fermat intersection and lattice computation"
+        },
+        {
+          "assessment": "Different Fano scheme.",
+          "evidence": "Nonreduced line scheme of a projective cone over a Hermitian plane curve.",
+          "identifier_or_url": "Resultary acfb8be20d61",
+          "material_read": "Finding around offset 0",
+          "method": "Resultary lookup and local record mirror",
+          "title": "Embedded rational generators in the Fano scheme of a Hermitian cone",
+          "trigger": "Hermitian cone and Fano generator terminology"
+        },
+        {
+          "assessment": "Cubic surface, not the Fano surface of a cubic threefold.",
+          "evidence": "Arithmetic Néron–Severi cones of a surface in projective three-space.",
+          "identifier_or_url": "Resultary 2e31fe7f7835",
+          "material_read": "Finding around offset 0",
+          "method": "Resultary lookup and local record mirror",
+          "title": "The nine arithmetic effective rays and eleven nef rays of the Fermat cubic surface",
+          "trigger": "Fermat cubic, characteristic two and divisor cones"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations; Cheng Lemma 6.2 and Debarre–Laface–Roulleau Cor. 4.13"
+      ],
+      "rationale": "The configuration is natural and this is a useful exposition of it. As a distinct finding, however, the proposed geometric invariant is already given by a general rule on the same divisors; the spectrum is a routine strongly regular graph deduction and the span dimension just saturates a published rank. The frozen scope leaves no independently useful unknown exact invariant or new structural consequence, for example an integral index computation, that could carry a repair.",
+      "residual_risks": [
+        "This decision does not judge the value of the underlying prior results or of a genuinely new integral computation, which is not part of the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

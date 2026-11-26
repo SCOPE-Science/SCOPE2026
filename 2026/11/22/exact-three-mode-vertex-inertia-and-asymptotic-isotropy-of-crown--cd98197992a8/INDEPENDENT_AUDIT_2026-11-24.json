@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:59:23.096506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70; VERIFICATION.md; verify_crown_3match.py inspected, not run.",
+        "Independent enumeration and exact matrix-rank results: /workspace/branches/ce4e0e37-5bc6-496f-be2d-b79b043de4ba/record4_independent_check.txt"
+      ],
+      "rationale": "Every labelled incidence vector is an extreme point since a convex combination representing a binary vector must agree in every coordinate. For compatible e=(i,j), f=(k,l), there are (n-2)^2 remaining positions; the forbidden diagonal contributes n-4+[i=l]+[j=k]. This yields the pair-completion count D-[i=l]-[j=k], with both indicators counted on reciprocal pairs. Summing over ordered compatible pairs and dividing by six gives T; inclusion–exclusion on the forbidden diagonal also gives this T. Edge transitivity gives p=3/m. On a matrix x, writing S for its total and r,c for its row and column sums, the uncorrected compatibility sum is S-r_i-c_j+x_ij and the indicator correction is c_i+r_j. Thus the covariance operator has the stated actions on constants, symmetric and antisymmetric potentials, and zero row/column sums. These subspaces are orthogonal and exhaustive: the row/column-sum constraints have one redundancy because the crown graph is connected. The exact gap formulas and factorization 2T lambda_minus=(n-3)(n-2)(D-1) prove positivity and ordering for n>=4 and give the stated ratio. Its strict decrease and asymptotic follow from that rational function. For n=3 the two matchings of C6 are disjoint, and the squared difference of their incidence vectors is six, giving rank one and eigenvalue 3/2. Independent exact moment and rank calculations agreed at n=4,5,6.",
+      "residual_risks": [
+        "The independent enumeration checks three finite sizes; the formulas for every n follow from the symbolic moment and eigenspace argument. The calculation is for uniform vertices, not volume sampling inside the polytope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torres gives polytope definitions and normality, not the matching-vertex probability law. The rectangular fixed-cardinality record has a full board with separate row and column symmetries. Mirafzal calculates crown line-graph distance eigenvalues."
+        ],
+        "reasoning": "Normality does not give inclusion moments. The diagonal deletion breaks the full board's independent label symmetries, and the line-graph distance spectrum does not supply the triple-completion weights.",
+        "searches": [
+          "arXiv:2306.11910v1, p. 1 and Definition 2.7",
+          "Resultary 673b85ad8b8f and caa6c69c0a56",
+          "arXiv:2108.05223v4, Theorem 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 673b85ad8b8f, caa6c69c0a56, and self-match cd98197992a8",
+        "arXiv:2306.11910v1 pp. 1, 3; arXiv:2108.05223v4 pp. 7–8, 12",
+        "UCSD Rook Theory notes §1.2 and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rook inclusion–exclusion already yields T by specializing to three rooks. The two-edge inclusion terms depend on off-diagonal coincidences [i=l] and [j=k] even among compatible pairs. A line-graph conflict spectrum alone does not give this correction. Conditioning full-board matchings to avoid the diagonal changes their joint law, not just their labels or dimension."
+        ],
+        "reasoning": "The count T is standard. The exact covariance still needs conditioned pair completions and the resulting splitting into symmetric and antisymmetric potentials; the disclosed prior results do not imply the spectrum or condition ratio just by parameter substitution.",
+        "searches": [
+          "UCSD Rook Theory notes, pp. 2–3; Resultary 673b85ad8b8f; arXiv:2108.05223v4 pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertices are size-three nonattacking rook placements on the off-diagonal board, equivalently partial permutations of size three with no fixed points. The full-board fixed-cardinality result leaves the forbidden diagonal in; sampling all cardinalities or only derangements gives different first and second moments."
+        ],
+        "reasoning": "An equivalent result would concern the same uniform partial rook law and moment operator. The indexed examples do not preserve both the fixed size and diagonal exclusion.",
+        "searches": [
+          "Resultary: crown three-matching inertia, fixed-cardinality assignment polytope, and partial-permutation covariance",
+          "Rook Theory §1.2; arXiv:2306.11910v1 Definition 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact crown covariance search returns the bound record itself. Distinct indexed spectra concern full-board ensembles. Mirafzal's exact levels are for the distance matrix, with a separate quotient-matrix list."
+        ],
+        "reasoning": "Neither the self match nor spectra of these other matrices are independent exact tables for the asserted levels, multiplicities or ratio.",
+        "searches": [
+          "Resultary: crown fixed-size covariance spectrum and condition ratio, including records 673b85ad8b8f and caa6c69c0a56",
+          "arXiv:2108.05223v4 pp. 8, 12"
+        ]
+      },
+      "rationale": "The rook count, underlying fixed-cardinality polytope and symmetry methods are established. The closest indexed spectra use a different board or a different sampling law, and crown line-graph spectral results use a different matrix even on the same coordinate set. The supported distinct claim is the fixed-three crown covariance with its three positive levels and exact condition ratio, not the rook count or a general polytope construction.",
+      "residual_risks": [
+        "The Kaplansky–Riordan original was not read directly; the checked comparison uses the accessible notes and direct counting. A treatment under forbidden-position assignment statistics might contain an equivalent covariance not found here; priority is not established by these searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parallel decomposition, but full board",
+          "evidence": "The statement takes the fixed-k partial permutations of the full rectangular K_{m,n} board and separates row, column and interaction modes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-l-wner-ellipsoids-of-rectangular-fixed-cardinality-assignment-po--673b85ad8b8f",
+          "material_read": "Finding and model assumptions",
+          "method": "Bounded local mirror reads",
+          "title": "Löwner ellipsoids of rectangular fixed-cardinality assignment polytopes",
+          "trigger": "Earlier fixed-size assignment geometry with exact mode energies"
+        },
+        {
+          "assessment": "Exact spectrum of a different ensemble",
+          "evidence": "It includes all matching sizes, including the empty matching, on full K_{n,n}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56",
+          "material_read": "Finding and sampling assumptions",
+          "method": "Bounded local mirror reads",
+          "title": "Exact three-eigenspace covariance and growing anisotropy of uniform partial permutations",
+          "trigger": "Earlier uniform-vertex covariance spectrum for bipartite matchings"
+        },
+        {
+          "assessment": "Definitions and normality, not vertex covariance",
+          "evidence": "M_k(G) is the convex hull of indicators with exactly k edges; the fractional model fixes the total coordinate sum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.11910v1",
+          "material_read": "p. 1 offset 0; Definition 2.7 p. 3 offset 8642",
+          "method": "Bounded open PDF reads",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "General bipartite fixed-cardinality polytope includes the frozen object"
+        },
+        {
+          "assessment": "Exact eigenvalues for a distance operator, not the covariance",
+          "evidence": "The vertices are off-diagonal pairs and adjacency reflects common endpoints. The theorem computes distinct distance eigenvalues, not pair-inclusion probabilities in uniform three-matchings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.05223v4",
+          "material_read": "pp. 7–8, Remark 2.7 and Theorem 2.8, offsets 13083 and 18083; p. 12 offset 27995",
+          "method": "Bounded open PDF reads",
+          "title": "The line graph of the crown graph is distance integral",
+          "trigger": "Same crown edge coordinates and explicit spectra"
+        },
+        {
+          "assessment": "Established count framework; no claim about unread original text",
+          "evidence": "The notes give the rook placement definition and the hit-polynomial relation; diagonal exclusion gives the displayed T by inclusion–exclusion.",
+          "identifier_or_url": "UCSD Rook Theory notes §1.2; Kaplansky–Riordan, Duke Math. J. 13 (1946), 259–268",
+          "material_read": "Notes pp. 2–3 offsets 3836 and 7000; bibliographic reference p. 55 offset 178000; original 1946 text not retrieved",
+          "method": "Bounded open notes passage reads and direct inclusion–exclusion",
+          "title": "Rook Theory notes and their citation of The Problem of Rooks & Its Applications",
+          "trigger": "Classical rook methods may already supply the exact counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 2–4",
+        "Resultary full-board comparisons 673b85ad8b8f and caa6c69c0a56; exact finite rank calculations"
+      ],
+      "rationale": "The crown board is a canonical symmetric deletion from the complete assignment board. The smallest and largest positive eigenvalues capture how this deletion affects intrinsic directional variance at fixed size. The exact formula gives a full-dimensional tangent covariance for n>=4, contrasts with the rank collapse at n=3, and quantifies approach to isotropy through a condition number that drops from 5 to 1+2/n+O(n^-2). The split row/column potential modes, their ranks and the exact rate make this an interpretable family invariant rather than a routine count of three rook placements.",
+      "residual_risks": [
+        "This does not identify an interior-volume covariance or a Löwner ellipsoid, nor give the behavior for all fixed or growing matching sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Executable finite verification
+# Independent mathematical audit
 
-The two standalone sources `verify_gp.cpp` and `verify_incidence.py` were run with ordinary command-line tools and require no external input file or specialized mathematical package:
+## correctness
 
-```sh
-c++ -O2 -std=c++17 -Wall -Wextra verify_gp.cpp -o verify_gp
-./verify_gp
-python3 verify_incidence.py
-```
+PASS
 
-They produced:
+If a dominating five-set selected l left and 5−l right vertices, the two shores would require l+3(5−l)≥10 and 5−l+3l≥10, forcing l≤2 and l≥3, respectively. Smaller dominating sets extend to size five, so none exist. I used an independent integer census, representing both shores by two-subsets after complementing each right label. Adjacency is disjointness across shores, and distinct vertices on the same shore are at distance two exactly when their labels intersect. The script finds a vertex isomorphism to GP(10,3) by a ten-cycle with distinct outside neighbors having the specified offset-three inner edges. It confirms 130 dominating six-sets, 100 semitotal with 3+3 vertices, all 4,950 pair comparisons (0 at distance one and 570 at distance two), and eccentricity four from all 100 states. It explicitly verifies the stated representatives and links each symmetry orbit to its induced-edge count, degree and shell vector, a crosswalk not explicitly asserted in the supplied code. For fullness of the symmetry group, a shore-preserving automorphism induces one of the line graph of K₅ on the left shore's distance-two graph; its only size-four cliques are the five stars. The stars determine the left labels, and each right vertex has a distinct left neighborhood. Thus the restriction is exactly S₅; the shore swap in the complemented model doubles it and commutes with S₅.
 
-```
-GP(10,3): ordinary_6=130 semitotal_6=100 one_jump_edges=0 two_jump_edges=570 diameter=4 degree_hist=8:30,12:10,13:60 VERIFY_OK
-Incidence H(5,2): ordinary_6=130 semitotal_6=100 one_jump_edges=0 two_jump_edges=570 diameter=4 orbits=10,30,60 VERIFY_OK
-```
+## originality
 
-Both independently construct the graph and evaluate the complete semitotal predicate on all six-sets. The Petersen implementation visits all \(2^{20}\) bit masks before retaining size-six candidates; the subset-incidence implementation visits exactly \(\binom{20}{6}=38{,}760\) six-sets. Both also independently rule out all dominating five-subsets, thereby excluding every smaller semitotal configuration without external premises. The second source additionally checks a 20-vertex isomorphism between these two representations. Both independently test every unordered pair of the 100 optima, verify no one-replacement neighbors, and calculate all 100 distance vectors in the two-replacement graph. The first additionally checks the complete orbit-specific distance-shell possibilities. The second independently constructs all 240 symmetry actions and obtains exactly three orbits of sizes 10, 30 and 60.
+PASS
 
-The external semitotal degree inequality is cited in `RESULT.md`; these finite programs do not purport to prove that separate published theorem. The checked finite census establishes the exact result on the specified graph, not an unknown general theorem or research priority. No independent external audit was carried out.
+The supported distinct content is the exact optimum census, orbit structure and metric of its optimum-only exchange graph. The graph model, symmetry, terminology and size lower bound are established background. The strongest inspected comparisons share either the graph or the optimization predicate, but do not establish the census and exchange theorem together or via a direct specialization.
+
+## value
+
+PASS
+
+The Desargues graph is a standard symmetric cubic test graph, and minimum semitotal configurations are natural constrained placements. All 100 optima being frozen at one move but jointly connected at two is a sharp, nontrivial objective-specific benchmark, not merely rerunning a known number. The orbit-resolved shells characterize how different starting types access the rest of the solution space and can test exact graph reconfiguration methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:26.785170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–68 and 74–92; VERIFICATION.md; verify_bfs.py and verify_direct.py, inspected without execution",
+        "Independent bounded inverse-image search using the product transition definition"
+      ],
+      "rationale": "With the frozen shared alphabet and reading order, the image of the full product is the product of the two factor images. In C_n any letter a and any effective b advance a trajectory by one modulo n. If a word resets, initial state i has effective-b count h_i congruent to the common final state minus i minus the number of a's. These residues are distinct; some trajectory uses at least n-1 effective b's, with at least n-1 a's between every pair. The length is at least (n-1)^2, and equality forces that trajectory to use every b with exactly n-1 a's in each gap and none outside, yielding only W_n. Starting from the full state set, b followed by j blocks of a^(n-1)b yields the interval [0,n-j-2] on C_n. W_n resets C_n; the common prefix of V_n leaves {0,1} on C_n and its suffix a^(n-3) b a^2 b maps it via {n-3,n-2} and {n-1,0} to {0}. On C_3 the block a^(n-1)b collapses the initial pair {0,1} iff n is a multiple of 3 and otherwise leaves the pair invariant. For n=1 mod 3 the inserted suffix first preserves that pair then merges it by its final a^2 b; for n=2 mod 3 the suffix starts with a^2 b and merges immediately. This includes n=4 with one prefix block and proves both sharp bounds. Independent inverse-image breadth-first search from all singleton targets on the Cartesian product gave 10, 17, 25, 37, 50 for n=4 through 8; not the basis of the unbounded proof. The frozen comparison cites Proposition 3.4 for arXiv v1, but the corresponding statement in the inspected v1 PDF is Proposition 7 (p. 5); this is a locator error, not an error in the theorem.",
+      "residual_risks": [
+        "Result concerns only the specified shared letter actions. Differently labeled factors need not have the same common language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7df3c0143ebf includes n=3 and supplies exact counts and the complete shortest common-word family.",
+          "61d8f6568fe8 classifies one-extra-letter words resetting only one C_n.",
+          "Fernau–Rystsov bound a product between the maximum and sum of the factor thresholds."
+        ],
+        "reasoning": "The general bound permits up to four extra letters and the single-factor classification does not itself impose the C_3 condition. In contrast, the fully equivalent product theorem imposes both conditions and therefore contains the entire frozen result as a weaker statement.",
+        "searches": [
+          "Resultary 7df3c0143ebf, 61d8f6568fe8; Fernau–Rystsov arXiv:2611.09136v1, Proposition 7 and §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7df3c0143ebf, 46765b03d598, 61d8f6568fe8",
+        "arXiv:2611.09136v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the divisible class 7df3c0143ebf names exactly W_n. For other n, V_n equals its V_{n,j,t} with j=n-2 and t=n-3. In residue one this t is 1 mod 3; in residue two it is 2 mod 3; in both cases t is in range and differs from j."
+        ],
+        "reasoning": "Both optimal constructions are literally included in the stronger classification and the threshold is identical under the common-letter conjugacy. Reproving the single-machine length with a trajectory count and presenting one member of the known product family does not give an uncovered claim about the product.",
+        "searches": [
+          "Resultary 7df3c0143ebf, Finding, Assumptions and common-word classification",
+          "Resultary 46765b03d598, 61d8f6568fe8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7df3c0143ebf has a(i)=i+1 and b(0)=1 in both factors, and explicitly notes cyclic conjugacy to b(k-1)=0.",
+          "Its Finding states L_n=(n-1)^2+1_{3∤n} for every n>=3."
+        ],
+        "reasoning": "In each factor, the relabeling i to i+1 mod k commutes with a, takes the exceptional input k-1 to 0 and maps its output 0 to 1. Hence it conjugates b without changing the input labels. The two coordinate maps together preserve the complete common reset language, not just the length.",
+        "searches": [
+          "Resultary: simultaneous Černý reset, fixed three-state factor, one-letter overhead",
+          "Resultary 7df3c0143ebf, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier census tabulates m=3, 4<=n<=11 and proves the all-size m divides n zero-overhead branch.",
+          "7df3c0143ebf proves exactly the frozen threshold also at every nondivisible n>=4, beyond the census."
+        ],
+        "reasoning": "The finite table and divisible branch are acknowledged subset coverage, insufficient by themselves to prove the remaining infinite law. The latter is covered by an analytic threshold and word theorem, not by extending a table.",
+        "searches": [
+          "Resultary 46765b03d598 finite simultaneous Černý census; 7df3c0143ebf exact all-size fixed-C_3 formula"
+        ]
+      },
+      "rationale": "Distinct record 7df3c0143ebf contains the identical all-length threshold, explicitly includes the frozen witnesses as shortest words, and additionally covers n=3 and classifies and counts all shortest common words. The state numbering is a cyclic conjugacy that does not change any word. This is conclusive statement-level coverage. Shared calendar dating does not establish publication ordering or priority.",
+      "residual_risks": [
+        "No timestamp evidence establishes order within the shared catalog day. This decision concerns exact mathematical coverage, not first authorship or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent threshold on a wider domain and strictly stronger word classification",
+          "evidence": [
+            "Exact L_n for n>=3, exact N_n, all literal shortest common words, explicit conjugacy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-mod-three-latency-and-shortest-word-multiplicity-for-a-ern-produ--7df3c0143ebf/RESULT.md",
+          "material_read": "Finding, Assumptions and word family (offsets 0–3294), proof passages (offsets 3400–7491)",
+          "method": "Literal location and bounded local-mirror passages",
+          "title": "Mod-three latency and shortest-word multiplicity for a Černý product with three states",
+          "trigger": "Same common-letter product, with a potentially stronger exact invariant"
+        },
+        {
+          "assessment": "Finite and divisible coverage only",
+          "evidence": [
+            "2<=m<n<=11 census and general zero overhead for m dividing n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598/RESULT.md",
+          "material_read": "Finding, census and divisible statement, offsets 0–2967 and 3500–7100",
+          "method": "Bounded local-mirror passages",
+          "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+          "trigger": "Exact common-reset table for overlapping sizes and arithmetic baseline"
+        },
+        {
+          "assessment": "Single-factor coverage; does not give the common-language condition",
+          "evidence": [
+            "Describes the forms of length-(n-1)^2+1 resets of C_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8/RESULT.md",
+          "material_read": "Finding and classification, offset 0–3200",
+          "method": "Bounded local-mirror passage",
+          "title": "One-letter slack rigidity in the Černý reset language",
+          "trigger": "Possible implication from one-letter insertion families"
+        },
+        {
+          "assessment": "Generic product bounds and a single-factor example; not decisive exact product coverage",
+          "evidence": [
+            "The factor maximum is a lower bound and the sum an upper bound; the monoidal construction concern is the single factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09136v1",
+          "material_read": "PDF p. 5, Proposition 7, extracted offsets 15200–18180; p. 12 §4.1, offsets 34600–37571",
+          "method": "Bounded open primary PDF text",
+          "title": "Shortest Synchronizing Words on Product Automata",
+          "trigger": "Primary literature for product thresholds and Černý examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, Steps 1–4 and Limitations",
+        "Resultary 7df3c0143ebf, Finding and word family"
+      ],
+      "rationale": "The fixed-three exact latency is naturally motivated, but this frozen result repeats the exact invariant and supplies a witness already indexed in the complete classification. No new bound, invariant, useful extension or distinct surviving common-reset claim is identified. A different elementary derivation of the standard single-factor lower bound does not change that conclusion.",
+      "residual_risks": [
+        "No conclusion about the value or mathematical status of new results for larger second factors."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers and boundaries are explicit: connected simple undirected graph, positive recovery/waning/transmission probabilities below one, positive peer influence, finite nonnegative perception influence, and a strict local same-sign majority at every vertex. These strict inequalities make clipping locally constant. The disease-free vaccination probabilities solve their scalar fixed-point equations, while the infected Jacobian has a lower triangular ordering by negative and positive opinion classes. Spectral symmetry proves every multiplier is strictly inside the unit circle below \(\lambda\rho(A[G_-])=\alpha\), and a nonnegative Perron infection direction is expanding above it. At equality neither stability nor instability is claimed. The six-node obstruction uses a boundary-edge counting argument; the explicit clique–path witness has exact multiplier separation. The unbounded ratio follows from the exact clique/path radii. The standalone checker corroborates, but does not replace, those proofs.
+PASS
 
-## Originality — PASS (literature-bounded)
+The strict majority gives signed pre-clipping excess epsilon times the majority margin divided by degree at I=0. Strictness keeps the opinion output constant locally, including with perception feedback. Solving the scalar vaccination balance gives the stated DFE. The infected Jacobian is (1-alpha) Id+lambda DA for the indicator D of negative opinions, with diagonal adjacency blocks A[G_-] and zero after reordering. Below threshold its smallest eigenvalue is greater than 1-2alpha>-1 and its largest is less than one; the other full-Jacobian multipliers are 0, 1-phi or -phi. Above threshold a nonnegative Perron direction supported in a negative component is physically feasible and expands linearly. Each endpoint of a cross-sign edge must have at least two distinct neighbors of its own sign, proving the six-vertex obstruction even for one mixed pattern. The bridge of a triangle to the middle of a three-vertex path realizes both strict patterns with radii 2 and sqrt(2), giving the exact opposing multipliers and common coverage 1/3. The same margins hold for the clique–path family. Its thresholds are both in (0,1) and the ratio diverges by the exact path sine spectrum. Roy's clipped deterministic equations were checked; neither the threshold equality nor stochastic outbreak probabilities are covered. The source checker uses just-updated opinion despite its comment about current opinion, but the two conventions have the same equilibria and linearization here, and the recorded finite tests are not the proof. The code was inspected, not executed.
 
-Roy et al. (2026, arXiv:2603.24403v1, complete model/threshold/saturation sections) give the clipped MMCA, the all-antivaccine threshold and the fully pro-vaccine coverage but not the endogenous mixed-majority pair, six-vertex sharp cutoff, or diverging equal-coverage threshold ratio. Xu and Ishii (2024, arXiv:2401.04556, epidemic–opinion dynamical model and disease-free results) address different polar opinion dynamics and establish general opinion-dependent invasion criteria without this fixed-point construction. Preciado et al. (2013, arXiv:1303.3984) already establish the spectral role of heterogeneous susceptibility; no novelty is claimed for that mechanism. Salathé and Bonhoeffer (2008, DOI 10.1098/rsif.2008.0271, model/results) already show by simulation that opinion clustering may undermine herd immunity at fixed coverage; no novelty is claimed for that qualitative observation. Closest indexed mathematical research includes a six-vertex density-versus-spectral ranking comparison, vaccination target switching on coupled communities, and higher-order SIS–opinion stability results; their settings do not imply two endogenous strictly clipped opinion fixed points with equal aggregate coverage and opposing invasion thresholds. Negative search evidence alone is not a proof of priority. A historical-priority risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-The source explicitly motivates the connection between opinion polarization, vaccination and epidemic thresholds. The result isolates a nontrivial failure of a natural macro-summary (mean vaccination coverage) **within one fixed connected graph**, not by comparing unrelated structures. A sharp minimum of six vertices and a family with unbounded threshold ratios make the discrepancy quantitatively interpretable and provide reusable small exact benchmarks for analyzing joint opinion–epidemic dynamics. The result does not claim that general clustered-vaccination effects or spectral epidemic thresholds are new.
+The role of vaccination placement and spectral radius is prior knowledge; the claim supported here is the realizability of opposite local verdicts at equal coverage using two endogenous strictly saturated disease-free equilibria of the same clipped map, the sharp minimum graph size and an unbounded ratio within that class.
 
-## Closest literature and limitations
+## value
 
-See the source-by-source discussion in `AUDIT.json` and the proof in `RESULT.md`. The theorem applies locally to the deterministic MMCA, with strictly saturated binary opinions and a shared undirected network. Its six-vertex minimum is not a lower bound for arbitrary opinion states; the equality invasion boundary and stochastic epidemics are not resolved. Independent review of historical priority and applicability would remain useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The common mean opinion and coverage are not sufficient to decide local stability even with the contact graph and parameters held fixed. The sharp cutoff and exact same-graph example make that failure a tractable test case; the diverging ratio shows it is not limited to a small finite comparison. This is a useful limitation of aggregate summaries in the specified coupled deterministic model, not a general claim about real-world vaccine policy or stochastic outbreaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

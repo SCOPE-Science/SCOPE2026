@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification and proof boundaries
+# Independent mathematical audit
 
-The included `verify_lunar_five.py` is a standalone Python 3 checker using only the standard library. It generates all positive factor exponents for one two-point and one three-point factor, computes the actual Minkowski sums as integer sets, deduplicates output supports, and compares the result against the closed formula for every degree \(4\le m\le130\). As a separate shape-completeness boundary test, it enumerates all nontrivial factor-support pairs of sizes two, three or four for degrees \(4\le m\le14\); the outputs coincide with the two-by-three census. Running the actual source produces:
+## correctness
 
-`VERIFY_OK: 127 degrees m=4..130; independent 2-by-3 enumeration; all factor shapes m<=14; closed counts.`
+PASS
 
-The finite checks do not prove the all-degree result. The proof instead requires: (i) the sumset lower bound and equality case, (ii) classification of the single overlapping shifted element of a three-point set, (iii) injectivity and one arithmetic-progression overlap of the two families, and (iv) exact inclusion–exclusion. No symbolic or computational oracle is assumed in these universal steps.
+Binary lunar convolution gives S=A+B, with zero in each nonunit factor. Increasing paths in the addition grid give |S|≥|A|+|B|−1; in the equality cases, each monotone path exhausts S in order, so swapping two steps forces a_(i+1)−a_i=b_(j+1)−b_j in every cell. The only possible sizes yielding five are (2,3), (2,4), (3,3); the latter two give a progression, which also factors as {0,t}+{0,t,3t}. For (2,3) write S=B∪(B+x); exactly one collision corresponds to x equaling exactly one of the three positive pairwise differences of B. This yields the two families, and each family visibly factors. In F1, y<x gives m=2x and y choices 1,…,x−1; y>x gives m=x+y with x≤floor((m−1)/2) and y=2x excluded. Both branches are injective internally and can duplicate only at the progression: the third sorted element from the lower branch is m/2, so the upper branch must have third 2x=m/2, not y=m/2 (which would give y=x). In F2 the first two positive entries recover the unordered {x,y}; their interchange changes the maximum unless x=y, which is excluded. For intersection with F2 the third positive entry must be the sum of the first two. In F1 this gives y=3x in the upper branch or, in the lower branch, matching the maximum forces x=2y. Thus there is exactly one intersection iff 4 divides m, in addition to the internal duplicate in F1. Inclusion–exclusion gives C_m and choosing the three interior digits gives P_m and the claimed proportion. Fresh enumeration of all eligible factor shapes for 4≤m≤30 reproduced the exact family union, intersection and counts, including the m=4 endpoint.
 
-No independent external audit or validation has been performed.
+## originality
+
+PASS
+
+The arithmetic and sumset reduction are established. No inspected comparison supplies the complete two-family classification, their progression overlap and the resulting exact five-one count at fixed degree; existing unrestricted prime totals and higher-level decomposability results do not determine this slice.
+
+## value
+
+PASS
+
+Five positions give a natural structural case beyond the size-four product of two two-point sets: a two-by-three factorization can now lose exactly one of six candidate sums, and representations can overlap both within and across structural families. The exact classification gives membership witnesses and a sparse-weight census inaccessible from unrestricted prime density; the parity slopes and divisibility corrections are useful concrete invariants of the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

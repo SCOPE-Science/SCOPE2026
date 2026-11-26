@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial Berezin block identity is independently derived by Gaussian moments and checked against equation (3.9) of Qin--Liu--Huang. The decomposition \(D=A+\partial_z\partial_w\) gives the exact highest nilpotent power. The finite resolvent identity reduces the singular coefficient to a rank-one operator. Completing the Gaussian square and using the fully normalized shifted complex-Hermite orthogonal basis computes its operator norm in the inherited, physically meaningful \(L^2\) space, with a concrete attaining polynomial. Rank and physical Gram-matrix identities were additionally checked with exact rational computations. The general claim is analytic, not inferred from finite tests.
+## correctness
 
-## Originality — PASS, subject to publication-priority uncertainty
-The full inspected 2026 primary text provides the operator action, nilpotency, and fixed-point classification, but not a resolvent norm, sharp Gaussian-chaos maximizer, or pseudospectral radius. Qualitative Jordan block data are already implied by existing fixed-space dimension results and are explicitly excluded from the new contribution. Targeted statement-level mathematical-index and literature searches found nearby results on unrelated Jordan pencils, Fock weights and Gaussian spectral problems, not this physical-norm coefficient. The foundational 2015 paper could be inspected only at abstract/bibliographic level, so an equivalent earlier formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-Commutativity and fixed-point classification do not quantify sensitivity: the sharp finite-degree physical-norm resolvent singularity gives a natural conditioning invariant at every polynomial order. The exact factorial dependence, the parameter dependence and the Gaussian-shift cancellation identify the growing fragility of nearly resonant exponential-polynomial sectors without choosing an arbitrary coefficient norm. The attaining vector and sharp pseudospectral scaling make the quantity reproducible and usable for finite truncation questions. No broader full-space theorem is claimed.
+Gaussian integration of exp[(α+u)ξ+(β+v)ξ̄] gives exp[(α+u)(β+v)], and coefficient extraction gives the block λ exp(D) with the stated derivatives. For N=λ(exp(D)−I), D lowers degree and N^m=λ^m A^m, A=β∂z+α∂w, since using a second derivative or any extra power kills total degree ≤m. The Laurent expansion terminates and after order-m+1 scaling converges uniformly in angle in norm to this leading coefficient, up to a unit scalar. To check the actual norm independently, complete the square with c=ᾱ+β and translate the two real coordinates to independent centered normals of variance 1/2. In these coordinates A=d∂x+e∂y, d=(β+α)/2 and e=i(α−β)/2. Monic product Hermites of bidegree (j,k) have squared norm j!k!/2^(j+k) before the common factor exp(|c|²). Only j+k=m contributes to A^m, with output m! d^j e^k. Duality therefore gives squared operator norm 2^m m!(|d|²+|e|²)^m=m!(|α|²+|β|²)^m after canceling the same factor on the constant output. This nonzero norm proves exact pole order. Complex Hermite orthogonality (equivalently the moments from exp(uv)) verifies the stated attaining vector. Directional differentiation is onto from homogeneous degree j to j−1 in adapted linear coordinates; descending correction for the second derivative gives the stated ranks and Jordan lengths. Uniform radial bounds and boundedness away from λ give the radius asymptotic. 'Maximal distance' here is the supremum, since the defining strict inequality generally does not attain it. VERIFICATION.md and the real-rational finite-degree verifier were inspected without rerunning the latter.
 
-## Limitations
-Only finite polynomial sectors are covered; the 2015 primary paper was not fully accessible. The published 2026 transform formula and all available qualitative eigenspace results remain credited. No independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Gaussian convolution identity, qualitative eigenstructure, and general resolvent pole mechanism are not distinct contributions. The supported addition is the exact leading coefficient in the inherited weighted Gaussian metric for arbitrary complex directions, with its associated sharp radius. The closest primary source gives the action on coefficients but not the metric calculation. This is a bounded literature judgment, not a priority claim.
+
+## value
+
+PASS
+
+An exact perturbation scale near the Berezin eigenvalue is not determined by the qualitative fixed-point theory or the size of its Jordan blocks. It depends materially on the norm; using a coefficient norm in place of the inherited one could change the claimed scale. The sharp inherited coefficient, its attained form and the disk bounds provide a quantitative statement on these natural invariant sectors without making an invalid boundedness claim about the full Gaussian L² space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:42.193392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential-time weighting gives Laplace density r k exp(-k|x|)/(2(r+z)); the asymmetric partition starts the two nonzero geometric tails at a and L-a, so the exact convergence domain is z>Dq²/L²-r. Finite-time moments follow from |K-B/L|≤1: conditional on reset times the sum of completed Gaussian increments has total diffusion time at most t, and N_t is Poisson, yielding E exp(qC_t)≤exp(Dq²t/L²) E exp(|q|N_t). The transform is strictly decreasing to zero in z and diverges at the domain edge, also at q=0. Its simple analytic root tilts the renewal kernel to a density with finite mean; the no-reset remainder becomes exp(-(r+ψ)t), an integrable decreasing forcing, so the renewal limit is strictly positive. Implicit differentiation gives curvature E_q[(K-ψ'T)²]/E_q[T]>0 since T has a density also on K=0 and both signs of K occur. The quadratic lower bound gives full slope range; exponential tightness and differentiable Gärtner–Ellis give the full LDP and the Legendre rate has positive curvature. In the fast window the dimensionless model is T'∼Exp(1), Gaussian displacement N(0,2T') and mark 1 on crossing the threshold u, 0 otherwise. Its Laplace transform decreases strictly from infinity at ζ=-1 to zero, and its simple root converges by uniform bracketing of the finite-rate roots on compact q sets. The terms discarded in the transform are exponentially small locally also on complex neighborhoods of (q,ζ)=(0,0), giving convergence of the fixed-order derivatives by the implicit equation. Expansion at zero gives the stated three cumulants, including b-3ub²+(9u²+3u)b³/4, and sub-Poisson variance/mean for u>0. At u=0 the limiting mark is an independent fair sign indicator, not a statement that the finite periodic model with nonzero remote tails is exactly a thinning. Replayed independently with `python3 /workspace/branches/replay_ratchet.py`: direct integration of Gaussian cell masses versus the resolvent agreed within 9e-15 at five interior test pairs, and nine fast-window tests at r=144 agreed with the limiting roots within 2.8e-7, with smaller errors than at r=9,36. These are bounded consistency checks only. The nested verification/ratchet_counting.py is present in the source and was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact asymmetric diffusivity entry includes renewal clock–jump correlation but computes only mean and centered diffusivity. Established general regenerative counting methods, acknowledged in the frozen result, supply a root principle, not an evaluated Brownian interval transform or the fast-rate limit."
+        ],
+        "reasoning": "The jump and clock are dependent, and the evaluated tilted joint law is needed to derive the all-field limit. A general implicit root formula without this law does not fix the non-Poisson crossover.",
+        "searches": [
+          "arXiv:2405.10698v2, instantaneous ratchet limit",
+          "complete first and second cumulant formulas asymmetric resetting Brownian ratchet dispersion (Resultary)",
+          "1be33cfa05c2, offsets 0 and 4400"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/ratchet_counting.py (read only)",
+        "arXiv:2405.10698v2",
+        "Resultary records 88701ce95655, ddd1dd428e35 and 1be33cfa05c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric formula only treats a=L/2, which under scaled apex u would have u grow proportionally to √r. Exact dispersion and its edge limit cover the second-order consequence but do not identify the implicit ζ_u(q) for fixed u or the third coefficient."
+        ],
+        "reasoning": "The symmetric result is a true overlap for finite-rate SCGF, but moving a to u√(D/r) with u fixed is not a specialization of it. First and second cumulants alone cannot imply the complete law.",
+        "searches": [
+          "arXiv:2405.10698v2 Eq. (24)",
+          "88701ce95655 and ddd1dd428e35, mirrored findings at offset 0",
+          "1be33cfa05c2, offsets 0 and 4400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "88701ce95655 gives the continuous-position SCGF for symmetric nearest-site resetting. At a=L/2, converting distance field to cell field by q=q_old L yields the same renewal kernel and root. Roberts et al. give the instantaneous-limit mean in Eq. (24)."
+        ],
+        "reasoning": "Omission of the unfinished excursion changes the finite-time observable but not the symmetric root in the earlier formula. The asymmetric a-dependence of the transform and the apex-diffusion-length crossover are not symmetric reformulations.",
+        "searches": [
+          "Full counting statistics and a fast-reset crossover for an asymmetric Brownian ratchet (Resultary exact title)",
+          "asymmetric ratchet displacement velocity and variance exact formulas instant reset asymmetric sawtooth cells (Resultary)",
+          "Roberts Sezik Lardet arXiv:2405.10698 ratchet-mediated resetting current efficiency exact solution instantaneous limit Brownian sawtooth resetting (literature)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-size/model hits give an all-field symmetric root, a symmetric sixth-cumulant sign law, or asymmetric drift and variance. The exact cited prior UUID was not retrieved and the distinct later diffusivity entry was not treated as its identity."
+        ],
+        "reasoning": "These are mathematically relevant subcases and low-order data, not an exact asymmetric all-field crossover or a first-to-third-cumulant comparison for the apex scaling from an existing table.",
+        "searches": [
+          "e9c08adb-a980-44ea-8126-d111e288451f (Resultary)",
+          "Full counting statistics and a fast-reset crossover for an asymmetric Brownian ratchet (Resultary exact title)",
+          "88701ce95655; ddd1dd428e35; 1be33cfa05c2"
+        ]
+      },
+      "rationale": "Credit the explicit asymmetric joint transform and its all-field counting law, especially the evaluated non-Poisson boundary crossover, not the mean, second-order dispersion, the symmetric nearest-site SCGF, or the standard renewal/LDP methodology in isolation. The two exact symmetric indexed records are distinct from the frozen record and materially overlap at a=L/2; their shared date does not establish order. Neither their symmetric formulas nor the exact asymmetric first/second cumulants determine the new all-field asymmetric window.",
+      "residual_risks": [
+        "The exact cited dispersion UUID was not retrievable. An earlier evaluated asymmetric all-field formula or boundary-window law under different terminology may exist; the consulted data support distinction, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometry in the instantaneous limit, prior mean",
+          "evidence": "The h→∞ apex divides left/right returns; Eq. (24) gives the instantaneous-limit mean current as a ratio of hyperbolic sines.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10698v2",
+          "material_read": "p.3 offset 14145; p.9 Eq. (24) offset 62952",
+          "method": "OA original PDF passages",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Exact physical protocol and instantaneous asymmetric limit"
+        },
+        {
+          "assessment": "Same symmetric SCGF after field conversion",
+          "evidence": "The symmetric continuous-position renewal kernel agrees at a=L/2 and gives an evaluated positive fourth-cumulant rate.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-strict-fourth-cumulant-sign-law-for-diffusion-with-periodic-ne--88701ce95655/RESULT.md",
+          "material_read": "Finding and renewal formulation, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A strict fourth-cumulant sign law for diffusion with periodic nearest-site resetting",
+          "trigger": "Exact all-field symmetric subcase"
+        },
+        {
+          "assessment": "Exact symmetric overlap, not asymmetric law",
+          "evidence": "The continuous-position sixth-cumulant rate changes sign exactly twice in the symmetric nearest-site model.",
+          "identifier_or_url": "2026/11/2/SCOPE-exactly-two-sixth-cumulant-sign-reversals-under-nearest-site-bro--ddd1dd428e35/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exactly two sixth-cumulant sign reversals under nearest-site Brownian resetting",
+          "trigger": "Nearest-site higher cumulants"
+        },
+        {
+          "assessment": "Lower-cumulant coverage without all-field crossover; distinct from the cited UUID",
+          "evidence": "Evaluates mean drift and centered diffusivity with the clock–jump covariance correction, including weak-reset asymptotics.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-drift-dependent-diffusivity-and-weak-reset-enhancement-in--1be33cfa05c2/RESULT.md",
+          "material_read": "Finding and dispersion/weak-reset formulas at offsets 0 and 4400",
+          "method": "Local Resultary mirror",
+          "title": "Exact drift-dependent diffusivity and weak-reset enhancement in an asymmetric resetting ratchet",
+          "trigger": "Exact asymmetric lower cumulants"
+        },
+        {
+          "assessment": "Not independently identified; lower cumulants explicitly excluded from credit",
+          "evidence": "The frozen prior-work paragraph says it covers exact first/second cumulants and their straightforward asymptotics.",
+          "identifier_or_url": "e9c08adb-a980-44ea-8126-d111e288451f",
+          "material_read": "Frozen RESULT.md lines 92–96 only; exact prior source not retrieved",
+          "method": "Direct UUID and descriptive Resultary lookups",
+          "title": "Earlier exact asymmetric-ratchet dispersion (cited in frozen result)",
+          "trigger": "Claimed prior lower-cumulant result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an exact large-deviation description of signed completed-cell transport and identifies the diffusion-length regime in which the reset clock and success marks remain coupled. The exact non-Poisson counting law contains genuinely new predictive information beyond the established drift and dispersion, including the third rate and all-field response.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

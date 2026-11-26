@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:44.189974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 41–68",
+        "VERIFICATION.md, verify_transfer.py, verify_bruteforce.py, inspected as frozen evidence",
+        "Independent replay: python3 /workspace/review_checks/frozen_replay.py 3"
+      ],
+      "rationale": "The ordered pair at step i is (x_{i-1},x_i); overlap with the next pair reconstructs the indexed input from a closed path with specified starting site. Closing the path enforces the repeated slots even for 1 and 2 sites; no rotation multiplier enters. The trace therefore counts the full fiber. Capping each nonnegative entry at two commutes with capped multiplication and preserves whether the sum on the diagonal is one. In a separate endpoint-set encoding I generated all 476 states, with 136 accepting, and checked the denominator product, the recurrence vector at exponent 21 in every state, and the full numerator through degree 20. Multiplication by further powers of the transition matrix yields the recurrence for every n>=21; it is not inferred from the observed sequence. Exhaustive direct counts at n=1,...,12 also agreed, as did the transfer counts through n=16.",
+      "residual_risks": [
+        "The independent direct enumeration is bounded; the finite whole-vector identity and closed-path bijection prove the all-length formal series. No multistep or rotation-quotiented count is proven."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen §4 gives multiplicity of a particular finite output string in an infinite-lattice setup. Powley–Stepney's accessible abstract states given homogeneous targets; the boundary convention is not verified there.",
+          "The restricted periodic record computes exact fibers and singletons for cyclic sources avoiding adjacent ones."
+        ],
+        "reasoning": "Neither known pointwise or homogeneous scope is an unrestricted periodic census, and adding back excluded source words can change a restricted single fiber's size.",
+        "searches": [
+          "Jen, Enumeration of Preimages in Cellular Automata, pp. 423, 441–442",
+          "Powley–Stepney, York Research Database abstract and publisher access page",
+          "Resultary a6b917e52dd3 restricted periodic fibers"
+        ]
+      },
+      "checked_sources": [
+        "Jen (1989), pp. 423, 441–442",
+        "Powley–Stepney (2010), accessible abstract only",
+        "Resultary da4a182e6a5a, c2f1f9b3c735, e80af7e7a222, a6b917e52dd3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jen supplies a counting method, and the Rule 54 record supplies a close methodological analogue. The Rule 232 cyclic image and open singleton results evaluate different statistics. The common degree-nine factor concerns only part of the cyclic denominator; the series disagree already at length one."
+        ],
+        "reasoning": "Saturating pair-path multiplicities and using their diagonal is a natural adaptation, but evaluating the new periodic singleton series still requires the closure and an exact new transition identity. No direct specialization or demonstrated conversion covers the claimed series.",
+        "searches": [
+          "Jen §4 Case e; Resultary da4a182e6a5a, c2f1f9b3c735 and e80af7e7a222, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day open-boundary series starts 0,0,2,8 rather than 2,4,0,6. Its denominator is the first factor of the cyclic denominator.",
+          "The cyclic image record counts fibers of positive size. At n=3 the image is the pair of homogeneous words, both of multiplicity four, so the singleton count is zero."
+        ],
+        "reasoning": "Summing path counts over both endpoint pairs tests unrestricted linear fibers; taking the trace tests closed paths. The same local rule and a common denominator factor do not give equality or a transfer of singleton counts.",
+        "searches": [
+          "Rule 232 finite and periodic singleton preimages (primary-literature lookup)",
+          "Resultary cyclic and finite Rule 232 image/singleton searches; b9fa18b7332d, e80af7e7a222, da4a182e6a5a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior cyclic image series exactly enumerates a different statistic. The earlier all-length cyclic singleton record uses Rule 54. The other located Rule 232 series change the boundary or source set."
+        ],
+        "reasoning": "No inspected matching formula or table is for the same local rule, unrestricted periodic domain and exact-one threshold together.",
+        "searches": [
+          "Resultary da4a182e6a5a, c2f1f9b3c735, e80af7e7a222 and a6b917e52dd3"
+        ]
+      },
+      "rationale": "The distinct claim is the evaluated all-length series for unrestricted indexed periodic singleton fibers of Rule 232. Available predecessor formulas, image counts, and related singleton enumerations do not give it. Neither the shared finite-state method nor the common denominator factor with the open-boundary series is claimed as independent novelty.",
+      "residual_risks": [
+        "Powley–Stepney full text was not accessed; no boundary claim is based on its abstract. A structural explanation or deeper relation for the common degree-nine factor was not established. The searches do not certify priority or exclude an unindexed census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant machinery, different boundary and statistic",
+          "evidence": [
+            "N(S) is the predecessor count of one finite spatial sequence, with predecessor words grouped by leading symbols."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Printed pp. 423, 441–442, model and §4 Case e (offsets 3500–9121 and 44000–49142)",
+          "method": "OA PDF text",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Classical exact Rule 232 predecessor counts"
+        },
+        {
+          "assessment": "Homogeneous scope confirmed; periodic convention remains unverified",
+          "evidence": [
+            "The abstract specifies the total preimages of a given homogeneous configuration. The publisher listing marks the full text IP."
+          ],
+          "identifier_or_url": "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+          "material_read": "University research database abstract and publisher listing; full text not accessed",
+          "method": "Lawful public page reading",
+          "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+          "trigger": "Possible periodic majority-fiber comparison"
+        },
+        {
+          "assessment": "Positive-size fibers only",
+          "evidence": [
+            "Defines a_n=|im F_n| and gives -zD'(z)/D(z); distinguishes image counts from inverse-fiber distributions."
+          ],
+          "identifier_or_url": "da4a182e6a5a",
+          "material_read": "Finding, opening; Relationship to prior work, offset about 6900",
+          "method": "Resultary and local mirror",
+          "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+          "trigger": "Same rule and periodic convention"
+        },
+        {
+          "assessment": "Different local update",
+          "evidence": [
+            "The all-length periodic singleton series is for Rule 54."
+          ],
+          "identifier_or_url": "c2f1f9b3c735",
+          "material_read": "Finding, opening; Relationship to prior work, offset 5100",
+          "method": "Resultary and local mirror",
+          "title": "Exact singleton-predecessor generating function for cyclic elementary Rule 54",
+          "trigger": "Same exact-one periodic invariant"
+        },
+        {
+          "assessment": "Material algebraic overlap, not equivalent claims or an established priority relation",
+          "evidence": [
+            "Domain is {0,1}^{m+2} with free end bits; the published denominator is the first factor of the cyclic denominator but the counts differ."
+          ],
+          "identifier_or_url": "e80af7e7a222",
+          "material_read": "Finding and scope, frozen lines 5–33",
+          "method": "Resultary and direct frozen statement inspection",
+          "title": "Exact singleton-preimage series for finite binary majority words",
+          "trigger": "Same rule, same-day exact singleton enumeration and common denominator factor"
+        },
+        {
+          "assessment": "Restricted source set",
+          "evidence": [
+            "The cyclic inputs avoid adjacent ones; fiber cardinalities are measured within that subset."
+          ],
+          "identifier_or_url": "a6b917e52dd3",
+          "material_read": "Finding, opening",
+          "method": "Resultary and local mirror",
+          "title": "Exact periodic majority image fibers over the binary hard-core shift",
+          "trigger": "Same-day exact periodic singleton count for majority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: Finding and recurrence proof",
+        "Resultary da4a182e6a5a and e80af7e7a222"
+      ],
+      "rationale": "Unique reconstruction from one observed cyclic configuration is a natural refinement of image enumeration for this classical majority rule. The exact rational series resolves every indexed ring size, and distinguishes the count of outputs that carry enough information to recover the input even when the total image count alone is known. The exact recurrence makes the refinement usable at lengths beyond direct enumeration.",
+      "residual_risks": [
+        "The result is specific to one update and one fiber size, rather than a full inverse distribution or a claim that the finite-state method is new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:20.838425Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:17–80, VERIFICATION.md and check.py",
+        "/workspace/branches/65369347-a67c-499e-8e8c-0751adf92da1/record2_independent_check.py: independent cubic root r*=0.28236911011380840564… and fold coefficient 1.318953331499787118… at w=2; roots at offsets 10^−4,10^−6,10^−8 converge to the predicted separation"
+      ],
+      "rationale": "The third-root Fourier filter gives U=(w−1)P_r+3P_(r³)(3t). For 0<t<π the derivative is negative outside |cos t|<1/2. Inside, its sign is the opposite of w−1−H_r(x), x=cos t; the positive denominator is the product of the two shifted Poisson denominators. Expanding the numerator of dH_r/dx gives the stated factor (r+2x)(1+2rx)(1+r²−2rx), with negative prefactor and the last two factors strictly positive. Hence H_r has one strictly quadratic maximum at −r/2, of height F(r); it is zero at both endpoints. Two interior roots give derivative signs −,+,− as t increases: the larger cosine gives the minimum and the smaller cosine the lateral maximum. At equality the quadratic zero of the derivative gives a shoulder on each side, not an extremum. The sine factor has simple zeros at 0,π with bracket strictly positive there, so the central maximum and antipodal minimum persist nondegenerately, including at equality. F increases from zero to infinity. The curvature H_xx<0 and F′>0 give nondegenerate folds. Taylor expansion in y=x+r/2, using sqrt(r−r*) as the small parameter, gives the stated coefficient sqrt(2F′/−H_xx) and O(r−r*) remainder. Setting w=2 gives the cubic 10q³+6q²+12q−1, increasing on [0,1] and changing sign.",
+      "residual_risks": [
+        "The numerical check is a local test at w=2; the analytic sign and Taylor arguments establish the full parameter range. The uploaded symbolic checker was inspected, not executed. The endpoints r=0 and r=1 and unequal satellite weights are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaubey's accessible abstract gives the wrapped-Cauchy kernel and Fourier-series estimator. Resultary 1a7b86020311 concerns a real-line three-source family with mode counts 3,2,3,1 as height increases."
+        ],
+        "reasoning": "Fourier representation or a generic derivative estimator does not determine how many critical roots occur for these weights. Even a monotonicity theorem for a periodic subclass would not, by itself, give the critical radius, rule out an intermediate transition, or give the local coefficient. The cited line counterexample is evidence about its model only.",
+        "searches": [
+          "Resultary RQ4: circular scale space Poisson kernel mode number modes total positivity no new extrema",
+          "Chaubey DOI 10.1155/2018/5372803 / arXiv:1601.05053; Zhang–Chen arXiv:2010.13523; Baringhaus–Grübel DOI 10.1007/s00362-023-01393-5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary RQ1–RQ4; primary search with circular Poisson/wrapped-Cauchy terms; Chaubey arXiv:1601.05053 abstract and attempted OA copies; access-limited Zhang–Chen arXiv:2010.13523 and Baringhaus–Grübel DOI 10.1007/s00362-023-01393-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available estimator statement supplies a kernel and Fourier identity context. The sharp comparison here requires the unique quadratic maximum of H_r at x=−r/2 for every 0<r<1, which produces F, shoulder locations, and the fold coefficient."
+        ],
+        "reasoning": "A nearby line-mixture computation, general smoothing representation, or existence of stationary-point algorithms does not supply that all-parameter sign and curvature conclusion. The uninspected parts of close papers are not excluded as possible coverage.",
+        "searches": [
+          "Chaubey arXiv:1601.05053 and DOI abstract compared with frozen RESULT.md:44–80; Resultary 5e3c72a92424, 1a7b86020311 and 83a687ea35ef"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:5–40 is equivalently a wrapped-Cauchy mixture on the circle with common concentration r and weights proportional to w:1:1. Resultary 5e3c72a92424 concerns three equally weighted real-line atoms at −1,0,1 and a height threshold 1/sqrt(2)."
+        ],
+        "reasoning": "Periodizing a real-line Cauchy component uses all its translates, not just the original three sources. Changing real-line height to circular concentration does not turn a nonperiodic unweighted threshold into a periodic family with independently variable weight.",
+        "searches": [
+          "Resultary RQ1: weighted equiangular Poisson kernel one-to-three modes exact threshold circular wrapped-Cauchy",
+          "Resultary RQ2: wrapped Cauchy mixture number of modes circular scale space Poisson kernel critical points",
+          "Web: circular Poisson kernel wrapped Cauchy mixture equiangular three equally spaced atoms critical mode threshold density circular scale space Chaubey mode bifurcation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0549644e9ef4 is the identical record. Distinct 83a687ea35ef gives, in its catalogue summary, a 4→2→1 transition for four sources in an upper-half-plane Poisson extension. No distinct exact circular catalogue entry or tabulated threshold was demonstrated."
+        ],
+        "reasoning": "The exact-match check is for either the all-weight threshold or the special empirical w=2 cubic, not merely a numerical critical scale for another Poisson geometry. Catalogue summaries establish only their stated scope.",
+        "searches": [
+          "Resultary RQ1 exact weighted transition; RQ3 weighted three-point equiangular circular Poisson density bifurcation threshold",
+          "Web query for wrapped-Cauchy/equiangular critical mode threshold"
+        ]
+      },
+      "rationale": "The bounded comparison found no equivalent all-weight periodic threshold and fold law. The exact periodic Resultary hit is the frozen record itself. The most similar distinct hits concern real-line positive Poisson mixtures; the available circular wrapped-Cauchy literature establishes the estimation method, not this mode classification. This is a best-of-knowledge comparison, not a historical priority claim.",
+      "residual_risks": [
+        "The strongest nearby Resultary originals were not available beyond summaries. Relevant primary full-text attempts timed out; a specialized historic circular mixture analysis is not ruled out. Deferred initial searches are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Estimation framework established by abstract; exact threshold coverage not determined from full text",
+          "evidence": [
+            "Abstract identifies the wrapped Cauchy kernel and equivalence with the Fourier-series estimator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.05053",
+          "material_read": "Public abstract returned in the primary search; no full-text decisive passage retrieved",
+          "method": "Primary search and attempted OA retrieval of publisher and arXiv PDF copies",
+          "title": "Smooth Kernel Estimation of a Circular Density Function: A Connection to Orthogonal Polynomials on the Unit Circle",
+          "trigger": "Same circular kernel and estimator, plausible finite example"
+        },
+        {
+          "assessment": "Nearest stated threshold is in a distinct geometry and weight regime",
+          "evidence": [
+            "Three equally weighted real-line atoms at −1,0,1; height 1/sqrt(2)."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-triple-poisson-peak-resolution-threshold-and-fold-contrast--5e3c72a92424",
+          "material_read": "Resultary summary of model and threshold; full local original not retrieved",
+          "method": "Resultary lookup and attempted local retrieval",
+          "title": "Exact triple Poisson peak resolution threshold and fold contrast",
+          "trigger": "Same number of Poisson sources, peak transition and fold"
+        },
+        {
+          "assessment": "Access-limited, no full-text exclusion",
+          "evidence": [
+            "Frozen RESULT.md:86–92 describes estimator derivative and mode-consistency results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.13523",
+          "material_read": "Citation and scope as described by the frozen record; OA retrieval timed out",
+          "method": "Attempted primary OA retrieval",
+          "title": "Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data",
+          "trigger": "Directional density-mode theory could specialize"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:17–40, 59–80; Chaubey arXiv:1601.05053 abstract for the wrapped-Cauchy estimator context"
+      ],
+      "rationale": "The family is a natural first asymmetric three-site circular smoothing model. A sharp criterion for resolving the satellites is useful in its own right: the weight and bandwidth jointly determine when off-center maxima appear, exclude an intermediate two-mode regime, and identify the non-extremal shoulders at the boundary. The fold law quantifies the onset; w=2 makes it concrete for the smallest repeated-central sample of this form.",
+      "residual_risks": [
+        "No claim of universal mode monotonicity or of coverage of other radii endpoints, kernels, weight patterns or site geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

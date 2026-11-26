@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:36:52.837172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 5–84)",
+        "Frozen VERIFICATION.md and check_output.txt: 152 reported finite checks and finite Gaussian comparisons; these are author diagnostics, not a new execution or the asymptotic proof."
+      ],
+      "rationale": "For rank i, count subsets containing i with p−1 lower and k−p higher ranks. On adjacent positive weights, the ratio is above 1 iff (p−1)(m−i)>i(k−p); the two sides cross at most once, so the c largest weights can be chosen consecutively, including plateaux or zero tails. For m=k³ a collision in k independent lattice uniforms has probability at most k(k−1)/(2m). Conditioning on no collision gives the desired sample, while the binomial tail for the independent lower median gives CDF limit Φ(2z) for √k(J/m−1/2). Uniform CDF convergence bounds every half-open band of scaled width c√k/m by the corresponding normal mass up to o(1). Centered bands attain the limit, including zero width by continuity and diverging width by tightness. In the construction, every absolute residual is i/(m+1), the good rows have two linearly independent representatives, and the unit-row projection has squared error 1−r_i² for a good row and (1+r_i)² for a bad row. The selected r_i tends to 1/2 and the bad-row premium tends uniformly on the central band to 3/2, giving the stated expectation and the strict increase threshold Φ⁻¹(7/12).",
+      "residual_risks": [
+        "Fixed iterate and distinct residuals; no claim about later iterates, ties, or other sampling scales."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former theorem is for threshold-accepted Algorithm 1 and a subsample at least αm; the latter independently draws a potential update row and applies a subsampled threshold."
+        ],
+        "reasoning": "Neither is a theorem for projecting onto the lower sample median itself at m=k³ with deterministic adversarial row geometry. Classical median weak convergence supplies only the distributional input, not the projection error witness.",
+        "searches": [
+          "arXiv:2308.07987 Theorem 1",
+          "arXiv:2507.15185v2 Algorithm 1.1 and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07987",
+        "arXiv:2507.15185v2",
+        "Resultary 2639ecb81dd1",
+        "Resultary 2cb0562d976d (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected two-level model uses ties and a scalar state, so the contamination event is a hypergeometric threshold count, not the concentration function of the lower median in an arbitrary distinct ordering."
+        ],
+        "reasoning": "The prior matching algorithm does not establish this theorem, and the two-level result does not give the moving middle-band adversary, the 2Φ(θ)−1 profile, or the two-column one-step squared-error limit. This is a statement comparison, not a priority claim.",
+        "searches": [
+          "arXiv:2308.07987 §V-D and Theorem 1",
+          "Resultary 2639ecb81dd1, frozen claim comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mechanism is a finite-population order statistic; the exact envelope is its distribution's maximal mass over a c-rank band.",
+          "Haddock–Ma–Rebrova define the matching rank-selection rule in Algorithm 2; their conclusion describes small-sample behavior as empirical."
+        ],
+        "reasoning": "Renaming the median law or the algorithm has no novelty. The checked result identifies its worst rank contamination at the central-limit scale and realizes the corresponding error on deterministic two-column systems.",
+        "searches": [
+          "Resultary semantic lookup: sampled-median corruption, rank bands, one-step Kaczmarz risk",
+          "arXiv:2308.07987 §V-D Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 2639ecb81dd1 concerns odd-sample two-level scalar median dynamics and hypergeometric transition probabilities.",
+          "Record 2cb0562d976d was indexed as scalar streaming under Massart corruption; full text did not resolve in the local mirror."
+        ],
+        "reasoning": "The inspected catalogue comparison overlaps at the median contamination mechanism, not the exact distinct-rank, consecutive-band Gaussian law and unit-row construction. The unresolved index entry is not treated as negative evidence.",
+        "searches": [
+          "Resultary records 2639ecb81dd1 and 2cb0562d976d"
+        ]
+      },
+      "rationale": "The established distinct claim is the sharp contamination envelope and its realization as an expected-error obstruction for the particular small-sample rank-selected update. The algorithm itself, order-statistic law and Gaussian median limit are not new. The strongest inspected related result on hypergeometric median corruption does not imply the rank-band profile and its realization.",
+      "residual_risks": [
+        "The scalar streaming catalogue hit was not available in full text; differently phrased order-statistic and algorithmic robustness results may exist. No exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm known; theorem different",
+          "evidence": "Algorithm 2 selects the quantile row; the main bound is for Algorithm 1 and proportional samples.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.07987",
+          "material_read": "Theorem 1, §V-D Algorithm 2, conclusion (PDF text offsets near 14700, 38600, 42700)",
+          "method": "Bounded OA PDF text",
+          "title": "On Subsampled Quantile Randomized Kaczmarz",
+          "trigger": "Matching update rule"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": "Independent update-row draw followed by a quantile threshold test.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.15185v2",
+          "material_read": "Algorithm 1.1, Theorem 3.1 (PDF text offsets near 8050 and 26950)",
+          "method": "Bounded OA PDF text",
+          "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+          "trigger": "Plausible broader small-sample guarantees"
+        },
+        {
+          "assessment": "Materially related, not equivalent",
+          "evidence": "Odd sample, two residual levels, one-dimensional repeated dynamics; no general distinct-rank band or the same error limit.",
+          "identifier_or_url": "Resultary 2639ecb81dd1",
+          "material_read": "RESULT.md offsets 0–6861",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-state dynamics and a sharp rare-corruption horizon",
+          "trigger": "Exact sampled-median corruption probability"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "Indexed as scalar streaming, Massart corruption and a binomial-tail risk.",
+          "identifier_or_url": "Resultary 2cb0562d976d",
+          "material_read": "Indexed description only",
+          "method": "Local search and mirror resolution attempt",
+          "title": "Sharp one-step minimax mean-square risk of scalar streaming quantile Kaczmarz under Massart corruption",
+          "trigger": "One-step risk overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–28 and 57–84",
+        "arXiv:2308.07987 §V-D"
+      ],
+      "rationale": "The exact scale c/m≈k⁻¹ᐟ² separates negligible from potentially dominant corrupt-row selection for a published algorithmic choice. The row-normalized witness translates rank bias into a quantitative expected-error increase, even for a vanishing corruption fraction; this is a useful one-step obstruction to a uniform contraction guarantee, not just a restatement of the median CLT.",
+      "residual_risks": [
+        "No long-run divergence, random-row obstruction, or instability of independent-row quantile thresholding is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

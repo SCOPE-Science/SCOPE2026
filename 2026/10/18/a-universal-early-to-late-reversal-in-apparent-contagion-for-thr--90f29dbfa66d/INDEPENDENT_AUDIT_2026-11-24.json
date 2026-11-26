@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:10:07.598722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem retains the frozen Finding. In frozen RESULT.md lines 80–82 the relative error O(exp(-at)) is false for a>1: at lambda=a the normalized error is asymptotic to -exp(-t), from the numerator of h. The repair keeps that numerator exactly and factors the denominator as 1-delta, delta=(1+lambda-2 lambda exp(-t))exp(-lambda t)/2. On the whole compact rate interval, delta=O(exp(-at)) and its lambda derivative is O(t exp(-at)) at late times. Thus the relative error is O(exp(-min(a,1)t)), and the log derivative is 1/lambda+1/(1+lambda)-t+O(t exp(-at)), strictly negative uniformly for large t. The three relevant forward equations have no incoming paths from other states; integrating them gives the stated masses. Pair weighting gives W1=2A+D and W2=2B, so the ratio B/W1 gives the covariance comparison under the W1-weighted law. It has lambda derivative t+O(t^2) uniformly at early times. The weighted law remains nondegenerate, so the two-draw covariance identity gives strict signs even for discrete or singular mixtures. Both masses are positive for finite t>0, and continuity yields existence, not uniqueness, of an equality. Complete corrected RESULT.md and VERIFICATION.md are in repairs/5. Bounded independent replay: python3 /workspace/check_frozen_mathematics.py 5 (NumPy/SciPy matrix exponential and Decimal). Three discrete laws give opposite signs at t=0.03 and 12; at lambda=2 the old relative error multiplied by exp(t) tends numerically to -1. The computations do not establish the universal assertions; the repaired analytic proof does. The verification notes distinguish the 126 transient comparisons from other assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives an early SIS moment-ratio mechanism and discusses eventual approximation failure. The latter uses heterogeneous exposure duration and dose/clearance to model a nonlinear kernel, not this fixed latent-rate transient conditional statistic."
+        ],
+        "reasoning": "Neither comparison supplies a broader sign theorem from which the reversal follows.",
+        "searches": [
+          "arXiv:2302.13358v2 §2.2 and §4.5",
+          "arXiv:2101.07229, pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13358v2",
+        "arXiv:2101.07229",
+        "Resultary search and record 30d76c685dc3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Failure of an early eigenvector approximation does not give the sign of the exact transient difference. The inspected stationary theorem does not give the transient likelihood-ratio derivative, nor the contribution of recovery to the pooled I=1 cell."
+        ],
+        "reasoning": "The uniform late monotonicity that gives the universal sign requires a separate calculation for this observable.",
+        "searches": [
+          "arXiv:2302.13358v2 §2.2, Eq. (10), §4.5; Resultary record 30d76c685dc3 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published conditional rate is a group mean at fixed group size and infectious count; in its SIR formulation recovery changes the effective size S+I. Here the original size stays three and the I=1 estimand mixes S=1 and S=2 with unequal weights."
+        ],
+        "reasoning": "Fixed physical group size with pooled removal states cannot be identified with the prior fixed effective-size cell; simply relabeling infectious counts does not equate the estimands.",
+        "searches": [
+          "Resultary: heterogeneous rates, three-person transient SIR, count-dependent pair-weighted rates",
+          "arXiv:2302.13358v2 §2.2, Eqs. (5)–(6), (10); §4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected record 30d76c685dc3 studies a weak-import stationary limit for two rates and finite differences, not the isolated three-person transient for arbitrary compact supported laws."
+        ],
+        "reasoning": "Its exact overshoot cutoff does not tabulate the claim here; no direct match was returned, which does not establish absence.",
+        "searches": [
+          "Resultary: SIR fixed latent rate heterogeneity, apparent contagion reversal and effective infection count"
+        ]
+      },
+      "rationale": "The supported distinct claim is strict eventual reversal of the early count ordering for this transient pair-weighted observable, uniformly in the sense of eventual sign for each nondegenerate compact positive rate law. Early apparent nonlinear bias from heterogeneity and the broader caution about extrapolation are not new. The correction to the remainder does not alter the finding or the comparisons.",
+      "residual_risks": [
+        "The separately cited Supporting Information of arXiv:2302.13358 was not inspected. The targeted comparisons do not exclude earlier equivalent transient calculations or establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related mechanism, different estimand; no universal late reversal in inspected passages",
+          "evidence": [
+            "Unweighted E[lambda|n,i] at fixed effective n=S+I in the SIR extension; recovery changes n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.13358v2",
+          "material_read": "§2.2, Eqs. (5), (6), (10) and limitation of early approximation; §4.5, SIR conditioning convention",
+          "method": "Open-access full-text passages at offsets 16157–28090 and 59178–67169",
+          "title": "Nonlinear bias toward complex contagion in uncertain transmission settings",
+          "trigger": "Same fixed group-rate heterogeneity and inferred dependence on infectious count"
+        },
+        {
+          "assessment": "Different mechanism and comparison",
+          "evidence": [
+            "Heterogeneous exposure duration and dose/clearance are not fixed group-rate selection under the stated SIR pair weighting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.07229",
+          "material_read": "pp. 2–3, exposure kernel and SIS application",
+          "method": "Open-access PDF passages",
+          "title": "Universal nonlinear infection kernel from heterogeneous exposure on higher-order networks",
+          "trigger": "Related explanation of apparent nonlinearity via heterogeneity"
+        },
+        {
+          "assessment": "Adjacent exact result, not equivalent or dominating",
+          "evidence": [
+            "Weak-import stationary limit, two fixed rates and pooled finite differences instead of the present transient pair-weighted difference."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-overshoot-threshold-and-log-periodic-amplification-in-tw--30d76c685dc3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp overshoot threshold and log-periodic amplification in two-rate heterogeneity",
+          "trigger": "Strong adjacent Resultary result on reversal/overshoot with latent rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-person group is the smallest with both relevant infectious counts and remaining susceptibility. Strict reversal for all nondegenerate compact positive mixtures is a structural distinction between pooled conditional association and the underlying linear hazard, not just an example or failure of a short-time approximation. It sharpens how a calibration time can affect inference in a precisely defined statistical model. Late at-risk pairs may be very rare; the finding is not a claim about empirical estimability or actual epidemics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

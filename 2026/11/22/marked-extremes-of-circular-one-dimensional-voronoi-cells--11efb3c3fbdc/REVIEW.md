@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof specifies the exact circular gap model, a tagged Dirichlet identity, the explicit one-dependent overlap probability and an independent-block Poisson construction. The normalization and random starting phase are handled explicitly. A local-dependence Chen–Stein bound plus concentration of the exponential total yields the fixed-threshold total-variation rate. Checks in `check.py` concern independently computed finite identities and simulations, not an infinite certificate.
+## correctness
 
-## Originality
-**PASS, qualified historical priority.** A previously established exact full vector law for circular Voronoi cell lengths gives finite-n coverage and, for odd sample sizes, recovers all original gaps and finite shape marks; it must be credited as substantial prior mathematical coverage. However, this does not itself provide the spatial/height/left-right-marked extreme process, its asymptotic independence or the explicit total-variation bound; those require the new extremal analysis. The closest verified classical \(m\)-spacing paper treats unmarked exceedance counts; the inspected maximal-empty-spacing result concerns a different geometric functional, and the inspected Voronoi paper concerns typical cells. None of the inspected scientific text supplies the product-intensity spatial/height/left-right-skew point process or the maximizing-cell mark independence. The 1993 full paper was not accessible for a conclusive whole-document comparison; an inaccessible older source remains a priority risk, not positive evidence of novelty. Standard gamma-Dirichlet splitting and Poisson-approximation ingredients are acknowledged.
+PASS
 
-## Value
-**PASS.** The maximal cell is an intrinsic worst-case load/coverage descriptor of one-dimensional Voronoi sampling. Its *shape* matters: a long cell can be almost entirely due to one neighboring gap or split relatively evenly. A uniform extreme-cell skew and its independence of the extreme score and spatial location determine this geometric imbalance for the full cloud of unusually large cells, beyond the unmarked largest-size law. The rate for exceedance counts gives a usable finite-sample calibration.
+Starting at a tagged uniform site gives an independent uniform phase and cyclic Dirichlet spacings E_i/T from independent unit exponentials. The sum of the two adjacent gaps is Beta(2,n−2), independent of their uniform left fraction. For B_i=E_i+E_{i+1}, the single and adjacent-double exceedance probabilities are (1+u)e^{-u} and 2e^{-u}−e^{-2u}; at the stated center the total adjacent-double contribution is O_x(1/log n). Removing separator indices including at the circular seam loses o(1) expected points; the summed within-block pair bound is o(1) and also bounds the intensity lost by dropping blocks with multiple points. The independent rare blocks have the product intensity from the height tail, grid and exact ratio independence. Uniform partial-sum control and the independent rotation give the spatial limit, while the common scaling n/T changes the entire height array by O_P(log n/√n). The gamma upper-tail bound prevents escape to +∞, and a low cutoff has vanishing limiting probability of missing the top as the cutoff tends to −∞. Distinct neighboring exponential pairs give no exact top tie for n≥3. For counts the cyclic Chen–Stein error about the finite mean is O_x(1/log n); the shift from that mean to e^{-x} costs O_x((1+log log n)/log n). A Chebyshev good event for T/n and a union bound at the two shifted Gamma thresholds cost only O_x(n^{-1/3} log n).
 
-## Closest literature and limitations
-Roos (1993), *Compound Poisson approximations for the numbers of extreme spacings*, DOI 10.2307/1427795; Aaron–Cholaquidis–Fraiman (2014), arXiv:1411.2482; Devroye–Györfi–Lugosi–Walk (2015), arXiv:1512.04267; Barbour–Holst–Janson (1992), *Poisson Approximation*, Chapter 7. Old full-text access remains incomplete. The result is limited to the uniform circular model; no stronger optimality or density universality is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass rests on the explicit joint asymptotic process with the circular left/right split mark and the independence of the maximizing split. Unmarked k-spacing and spatial extremes, classical count approximations, and the determination of the full finite law are relevant existing coverage; neither the tagged identities nor the count-rate priority is the basis of the pass.
+
+## value
+
+PASS
+
+An extreme Voronoi cell can arise from an almost one-sided gap or from comparable gaps. The theorem gives the limiting distribution of that imbalance for all extreme cells and for the maximizing cell, which cannot be read from unmarked maxima or counts. Uniformity of the maximizing location alone follows from rotational symmetry; the added content is the asymptotic split factorization across the extreme field.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

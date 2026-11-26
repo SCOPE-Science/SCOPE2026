@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:56:54.053702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inequalities define a full-dimensional normalized dual polytope; polarity exchanges its vertices with primal facets. Connectedness of the tight-edge graph is necessary by a small perturbation constant on a tight component missing the basepoint, and sufficient since tight differences are forced in both summands of a feasible midpoint and connectivity pins their potentials. A connected tight graph has a cross-cluster edge, so oscillation is precisely one and translation puts all potentials in [0,1]. A tight cross-edge must use endpoints 0 and 1, so every cluster contains one of them, but not both since t_i<1. In a lower cluster, every value is in [0,t_i] and a strict interior value would be isolated in the tight graph. The upper case is symmetric. Conversely opposite-class anchor sets form a connected complete bipartite subgraph, with each nonanchor joined tightly to the anchors of its own cluster. This also works for singleton blocks, all-anchor blocks, and coincidences between intermediate values of different clusters. The cluster signs and anchor sets are recovered after translating the minimum to zero. Thus the strict-region formula and the 98-facet example hold. At the simultaneous endpoint only the nonconstant normalized binary potentials are extreme, giving 2^N-2 (62 in that example). The frozen checker, inspected but not run, tests ten finite quarter-grid instances, whose tight spanning trees ensure quarter-integrality after normalization; it is not the proof for arbitrary scales.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoessly 2021, §3.2, Theorem 3.6 (printed p. 36, PDF p. 10), restates the general split-zonotope equality. The preceding p. 35 describes the use of the associated arrangement for explicit face numbers.",
+          "Montrucchio–Pistone §3.1 Theorem 2 covers connected tight paths in all finite metrics. Gordon–Petrov's count cited in the frozen record assumes a generic metric, not this degenerate family; Aliaga's abstract concerns primal extreme points. The inspected ultrametric Banach-space results are not counts."
+        ],
+        "reasoning": "The generic-metric face numbers and the abstract Banach-space results do not give the count. The weighted tree-split theorem is stronger in the pertinent direction: it explicitly gives the dual polytope, and here its exposed segment endpoints give the entire claimed vertex set. Tight-path criteria are independent corroborating framework, not the decisive overlap.",
+        "searches": [
+          "Delucchi–Hoessly DOI 10.1016/j.ejc.2020.103098",
+          "Hoessly 2021 On some polytopes in phylogenetics §3.2",
+          "Montrucchio–Pistone arXiv:1905.07547",
+          "Gordon–Petrov arXiv:1608.06848",
+          "Cúth–Doucha DOI 10.1007/s00009-015-0566-7",
+          "Aliaga arXiv:2102.01219; Alexander et al. arXiv:1911.10642; Abrahamsen–Lima–Ostrak arXiv:2509.22328"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and ultrametric_cluster_facets_checker.py (inspection only)",
+        "Hoessly 2021 §3.2 and Delucchi–Hoessly 2020 Theorem 3.1 as restated there",
+        "Resultary 3bd6d7048744, 5c07b142df09, and 8c35bbb3adef",
+        "arXiv:1905.07547; 1608.06848; 2102.01219; 1911.10642; 2509.22328",
+        "DOI 10.1007/s00009-015-0566-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the split-zonotope sum, a generic exposing functional is given by leaf coefficients z_x with sum zero. Each signed split segment is maximized at the endpoint prescribed by the sign of the coefficient sum on one side. Thus, modulo constants, the exposed potential at x in A_i is ((1-t_i)/2) sign(sum_{y in A_i} z_y) + (t_i/2) sign(z_x). The two halves of each split can be represented by half its signed indicator difference, which modulo constants is the cluster or singleton indicator used in this expression."
+        ],
+        "reasoning": "Every vertex has a generic exposing functional, since one can perturb an interior normal off the finitely many split hyperplanes. The sign of a cluster sum must appear on at least one leaf in the cluster, and some cluster sums must be positive and some negative. Conversely, all choices satisfying those conditions are realizable: assign leaf coefficients of the required signs, make the leaves with the cluster sign dominate, and scale each cluster separately so the totals on positive and negative clusters cancel. Adding 1/2 to the exposed potentials gives exactly 0 or t_i in a lower cluster and 1-t_i or 1 in an upper cluster, with anchors the leaves of matching sign. The resulting choices are distinct and immediately count as (2^k-2) times the product of (2^{m_i}-1). Duplicate splits at k=2 or in singleton blocks impose no extra restriction beyond the same sign constraints. This is a direct endpoint calculation from the previously established exact zonotope representation, not just a resemblance to a broad method.",
+        "searches": [
+          "Hoessly 2021 §3.2, Theorem 3.6, PDF p. 10 (text offset around 26053), citing Delucchi–Hoessly Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 11 shortened-pair record 3bd6d7048744 gives the identical classification/count restricted to blocks of size one or two. Hoessly 2021 §3.2 Theorem 3.6 states the weighted compatible-split Minkowski-sum formula for the Lipschitz polytope of a tree-like metric, attributed to Delucchi–Hoessly Theorem 3.1."
+        ],
+        "reasoning": "The primal is the fundamental/Kantorovich–Rubinstein polytope, polar to the Lipschitz polytope; the requested facets are its polar's vertices. Here the root-to-cluster-center length is (1-t_i)/2 and each incident leaf edge is t_i/2. This gives t_i within a block and 1 between blocks, so the exact tree-metric hypothesis holds. The only relevant splits are cluster sides and singleton leaves, combining duplicate directions when needed.",
+        "searches": [
+          "Resultary: shortened disjoint pairs and block-equilateral Lipschitz-free facets",
+          "Delucchi Hoessly fundamental polytopes metric trees parallel connections matroids zonotope number facets f-polynomial formula tree leaf metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pairs record has 3^r(2^{N-r}-2) with independent pair lengths, and the equilateral proposition gives the endpoint 2^N-2. The earlier multipartite facet-jump formula is for a common longer within-part scale, and the same-day snowflake result is about distortion and cut rigidity."
+        ],
+        "reasoning": "The pair formula equals the present product for r blocks of size two and N-2r singletons. The pair and equilateral counts are already stated as prior; the other indexed records are not exact tables for this strict parameter range. The absence of an explicit earlier table for larger blocks does not remove the broader exact coverage.",
+        "searches": [
+          "2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744",
+          "2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+          "2026/11/2/SCOPE-sharp-ell-1-snowflake-threshold-and-cut-rigidity-for-equal-block--8c35bbb3adef",
+          "Montrucchio–Pistone, Proposition 5"
+        ]
+      },
+      "rationale": "The arbitrary cluster result is a direct specialization of the prior weighted compatible-split zonotope theorem for finite tree-like metrics (Delucchi–Hoessly, Theorem 3.1, explicitly restated by coauthor Hoessly in Theorem 3.6 of On some polytopes in phylogenetics). In this two-level tree, taking the signs of the singleton and cluster sums gives exactly the claimed potentials and product, with no new tree-polytope claim. This strong coverage does not rely on what might be in the inaccessible journal PDF. The earlier shortened-pair record and the classical equilateral endpoint alone are only partial overlaps and would not justify this decision.",
+      "residual_risks": [
+        "The primary Delucchi–Hoessly journal PDF was unavailable through the checked lawful routes; whether it explicitly prints this product or an even broader counting formula was not verified. The fail rests on the available precisely stated split theorem and the direct specialization, not that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact representation from which the frozen product and full list follow directly by signs",
+          "evidence": [
+            "Theorem 3.6 explicitly attributes to Delucchi–Hoessly 2020, Theorem 3.1: Lip(X,d) is the weighted sum of the split segments for a tree-like metric."
+          ],
+          "identifier_or_url": "https://media.uabjo.mx/1/2021/03/Tequio11-2-On-Some.pdf",
+          "material_read": "§3.2 on printed pp. 35–36 (PDF pp. 9–10), compatible-split Minkowski sum and Theorem 3.6, text offsets 23986–27200 approximately",
+          "method": "Open-access PDF; located cited theorem and opened its surrounding section",
+          "title": "On some polytopes in phylogenetics",
+          "trigger": "Decisive restatement by a coauthor of the exact tree-metric polytope theorem"
+        },
+        {
+          "assessment": "Coverage based on the read theorem restatement and its mathematical specialization; no claim about any additional contents of the unavailable primary paper",
+          "evidence": [
+            "European Journal of Combinatorics 87 (2020), article 103098; see the inspected restatement and specialization above."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2020.103098",
+          "material_read": "Bibliographic identity verified and Theorem 3.1 read as explicitly restated by a coauthor in Hoessly 2021 Theorem 3.6; no primary full-text passage retrieved",
+          "method": "DOI link and exact Elsevier article attempted via lawful OA retrieval; only landing material or HTTP 403; use of the published coauthor restatement is explicitly distinguished",
+          "title": "Fundamental polytopes of metric trees via parallel connections of matroids",
+          "trigger": "Primary source of the exact tree-like Lipschitz polytope theorem"
+        },
+        {
+          "assessment": "Acknowledged exact special case, not the basis of general tree coverage",
+          "evidence": [
+            "Facet count 3^r(2^{N-r}-2) and independently shortened disjoint pairs."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Facet enumeration for equilateral metrics with independently shortened pairs",
+          "trigger": "Exact catalogue overlap for cluster sizes up to two"
+        },
+        {
+          "assessment": "Complementary parameter range and common scale",
+          "evidence": [
+            "Interior count for a common within-part scale 1<t<2, not t_i<1."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp facet jumps for interpolated complete-multipartite Lipschitz-free balls",
+          "trigger": "Catalogue cluster-facet near-match"
+        },
+        {
+          "assessment": "Known tight-path framework and exact endpoint",
+          "evidence": [
+            "Saturated paths characterize extreme potentials; in the discrete/equilateral case they are signed nonempty subset indicators with basepoint normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.07547",
+          "material_read": "Theorem 2 in §3.1 and Proposition 5, PDF pp. 9–11",
+          "method": "Open-access primary PDF",
+          "title": "Kantorovich distance on a finite metric space",
+          "trigger": "General tight-path characterization and equilateral exact count"
+        },
+        {
+          "assessment": "Inspected face-count theorem assumes generic metrics; not used for the clustered count",
+          "evidence": [
+            "The genericity definition requires strict triangle inequalities and a simplicial Kantorovich–Rubinstein polytope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.06848",
+          "material_read": "Definition 1 and Theorem 1, PDF p. 3",
+          "method": "Open-access primary PDF",
+          "title": "Combinatorics of the Lipschitz Polytope",
+          "trigger": "General face-number formula that might apply"
+        },
+        {
+          "assessment": "Banach-space basis/isomorphism results, not the exact finite count",
+          "evidence": [
+            "Monotone Schauder bases and l_1 isomorphism for separable ultrametric spaces."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-015-0566-7",
+          "material_read": "Theorems 1–2, PDF pp. 1–2",
+          "method": "Open-access primary passages",
+          "title": "Lipschitz-Free Spaces Over Ultrametric Spaces",
+          "trigger": "Prior general ultrametric result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The scale-independent count for a natural clustered family is useful, and the tight-edge proof is correct. But the exact count and the supposed new state classification are routine endpoint/sign enumeration in the prior explicit tree-split zonotope. The equilateral comparison follows by removing the stem generators, and the numerical example is immediate. The frozen claim supplies no further nonroutine or independently valuable invariant beyond that covered specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

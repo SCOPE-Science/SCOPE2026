@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:56:39.302625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed interior fitness and positive R, conditioning on the last clearing age gives the stationary Poisson-family PGF. Its first immigration derivative is controlled by the integrable clearing age; taking the v-fold product yields the compound-Poisson exponent with finite total intensity ≤a/R. The one-founder mass has geometric ratio x=λ(1−e^(−gt))/(μ−λe^(−gt)), and dx/dt is λ times its positive-state prefactor. An independent limit replay therefore gives Λ_n=(a/λ)∫_0^(λ/μ) x^(n−1)[(λ−μx)/(λ(1−x))]^(R/g) dx. Set μ=1, w=g, u=n(1−x). The support becomes nw≤u≤n; the bracket before exponentiation is (1−nw/u)/(1−w) in [0,1]. Since nR→s and nw→0, its power tends to exp(−s/u) at each u>0; (1−u/n)^(n−1) is bounded by exp(−u/2) for n≥2. The upper-edge density is finite by ν<1 and the β condition, and q tends to zero there, so a/λ→1. Dominated convergence gives nΛ_n→∫_0^∞exp(−u−s/u)du=2√s K_1(2√s), with the stated two endpoint asymptotics of the profile. This proves the ordered limits under the frozen site model, not simultaneous network convergence. CHECK.py was inspected, not executed; its finite experiments are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kapodistria–Phung-Duc–Resing give fixed-site equilibrium analysis and factorial moments for total catastrophes.",
+          "Dori et al. treat population-dependent individual death, new families created by mutation births, and deletion of whole families. Their inspected equilibrium analysis uses a scale-free assumption justified for low sizes with catastrophes (p. 2, Eq. (4)) and analyzes the moment phase transition (p. 3)."
+        ],
+        "reasoning": "These are genuine broader fixed-site or family-catastrophe contexts. Even a related killed-family balance recurrence is not the moving-index asymptotic; the inspected results give no uniform estimate in nR that yields the Bessel window.",
+        "searches": [
+          "Eurandom 2015-006 §5.3, total catastrophes",
+          "arXiv:1803.01826 Eq. (1), (4)–(6), family size at equilibrium"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.12414",
+        "Eurandom 2015-006",
+        "arXiv:1803.01826",
+        "arXiv:1009.0118",
+        "Resultary ...--b88c55090541",
+        "Resultary ...--27fc344e6840",
+        "Resultary ...--0ce33623224f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expanding the stationary version of Eq. (32) at a/v=0 yields the site derivative; summing independent sites yields the known-mechanism compound-Poisson exponent.",
+          "The inspected neighbouring records do not furnish uniform joint estimates for the coefficient of z^n with n~1/R."
+        ],
+        "reasoning": "Fixed-order moments—even an all-order hierarchy one order at a time—do not themselves justify extracting this moving-index shape. The extra exact rescaling of the birth–death law and a uniform integration argument determine that shape.",
+        "searches": [
+          "arXiv:2311.12414 §4.1 Eq. (32) and §5.1",
+          "Resultary ...--b88c55090541 Finding and limitations",
+          "Resultary ...--27fc344e6840 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange's characteristic solution gives the regenerative site PGF after freezing the density and taking stationarity.",
+          "Lambert, p. 4, discusses the classical log-series family intensities. Neither inspected statement gives the scaling window where the argument s stays positive and finite."
+        ],
+        "reasoning": "The rare-site intensity is the exponentially killed single-family occupation potential. The log-series comparison is the small-s boundary; it does not fix the entire s>0 function.",
+        "searches": [
+          "Resultary near-critical immigrant clan size Bessel K1 cutoff, birth–death clearing killed potential, n times clearing rate",
+          "arXiv:2311.12414 Eq. (32)",
+          "arXiv:1009.0118, classical Poisson immigrant families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-model pair-threshold record gives an integrated ordered-pair singularity. The same-date Pareto fitness-mixture record gives the law after uniformly sampling a fitness level and a large-occupation tail. The inspected Borel-clan record ...--0ce33623224f concerns maxima and finite-size corrections for different families."
+        ],
+        "reasoning": "The sought object is an exact function of the scaling variable, not a collection of tabulated moments or a tail exponent of a mixed occupation. The selected distinct catalogue hits do not give it; this is not an exhaustive-priority inference.",
+        "searches": [
+          "Resultary local resetting, high-fitness edge, compound Poisson large jumps and Bessel profile",
+          "Resultary ...--b88c55090541 and ...--27fc344e6840"
+        ]
+      },
+      "rationale": "The distinct result is the exact joint moving-size cutoff, including its normalized kernel. The same-model Grange Eq. (32) already contains the site PGF that yields the dilute compound-Poisson representation by first-order expansion and independence; no separate priority is assigned to that mechanism or to log-series or factorial-moment formulas. The checked same-model moment and mixed-occupation results give different observables, and the catastrophe-family paper's analyzed power-law approximation does not provide the stated exact rescaled cutoff. Priority remains best of current knowledge.",
+      "residual_risks": [
+        "Unindexed versions of exponentially killed critical birth–death family potentials could prove the same scaling under different terminology.",
+        "The bounded primary keyword lookup did not return usable evidence; negative retrieval is not an absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model generating-function input; dilute representation follows by expansion. No moving cutoff in inspected statements.",
+          "evidence": [
+            "Equation (32) contains the integrated age term with the immigration amplitude divided by the multiplicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.12414",
+          "material_read": "§4.1 Eq. (31)–(32), §4.2 Eq. (35), §5.1, PDF offsets 39300–42534 for the decisive characteristic solution, and stationary-density passage near 42954",
+          "method": "Original arXiv PDF bounded passages",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Same fitness-dependent local model and possible already-known level PGF"
+        },
+        {
+          "assessment": "The total-catastrophe limit and fixed-site equilibrium moments are prior background.",
+          "evidence": [
+            "Taking catastrophe survival probability to zero gives the site chain and stationary factorial moments."
+          ],
+          "identifier_or_url": "https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+          "material_read": "§5.3, pp. 14–15, PDF offset 63130",
+          "method": "Original preprint PDF bounded passage",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "Fixed-level birth–death model with clearing, possible stronger equilibrium law"
+        },
+        {
+          "assessment": "Structurally related whole-family removal; inspected size approximation and moment transition do not yield the exact joint cutoff.",
+          "evidence": [
+            "Individual mortality is population dependent and innovations occur at births; Eq. (4) assumes N_k=N_1 k^(−η), noted as reasonable for low k with catastrophes, not an exact uniform nR law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.01826",
+          "material_read": "pp. 2–3, model and Eq. (1), scale-free assumption Eq. (4), equilibrium moment calculation and phase transition, offsets 11870–14871, 17250–19386 and 20400–24646",
+          "method": "Lawful arXiv preprint copy after publisher retrieval failed",
+          "title": "Family-size variability grows with collapse rate in a birth-death-catastrophe model",
+          "trigger": "Could cover the same moving family-size cutoff despite different model language"
+        },
+        {
+          "assessment": "Classical family abundance background; not evidence for a joint Bessel cutoff.",
+          "evidence": [
+            "Critical birth–death immigration Fisher log-series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.0118",
+          "material_read": "p. 4, PDF offset 10246",
+          "method": "Original arXiv PDF passage",
+          "title": "Species abundance distributions in neutral models with immigration or mutation and general lifetimes",
+          "trigger": "Poisson family counts and critical log-series form"
+        },
+        {
+          "assessment": "Same level model and ordered-pair intensity, different observable.",
+          "evidence": [
+            "Integrated second factorial intensity with ν=1/2 threshold; no distributional convergence established there."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-hidden-co-occupation-threshold-below-fitness-condensation--b88c55090541",
+          "material_read": "RESULT.md Finding and relationship near offsets 0 and 7100",
+          "method": "Resultary and local mirror of original Markdown",
+          "title": "A hidden co-occupation threshold below fitness condensation",
+          "trigger": "Earlier same-model edge singularity"
+        },
+        {
+          "assessment": "Uniform fitness mixture of total occupation and its tail, not the Lévy jump-size intensity at fixed edge fitness.",
+          "evidence": [
+            "The random fitness draw and resulting Pareto occupation tail are different objects from nΛ_n(ℓ,0)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pareto-fitness-mixture-tails-from-locally-reset-zero-range-dynam--27fc344e6840",
+          "material_read": "RESULT.md Finding and relationship near offsets 0 and 8375",
+          "method": "Resultary and local mirror of original Markdown",
+          "title": "Pareto fitness-mixture tails from locally reset zero-range dynamics",
+          "trigger": "Closest same-date edge-distribution comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crossover function determines individual large-clan intensities on the clearing scale, distinguishes the near-log-series and stretched-exponential regimes, and explains which parameters disappear under rescaling. Neither a fixed-fitness tail nor finitely many integrated moment thresholds describes this crossover. The model's independently factorized scope and the ordered limits are essential to this interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

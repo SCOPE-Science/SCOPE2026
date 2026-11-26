@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:08.116021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89",
+        "Frozen VERIFICATION.md and verify.py",
+        "arXiv:2308.01998v1 next-generation matrix passage at PDF p. 3"
+      ],
+      "rationale": "The exact stated eigenvalue, minimum and case split are correct. For the assumed K=r Phi D Phi, the orthogonal split is the span of the hub and peripheral mean versus peripheral zero-sum. On the latter the block is r C^2 with norm at most r. The all-ones Rayleigh quotient r(1+q/M) makes the two-dimensional block dominant and gives the minimum bound, where q=zeta-1. In the eigenbasis of the hub block of Phi its normalized next-generation matrix is diag(1,d^2)+(q/M)(1,sqrt(k)d)(1,sqrt(k)d)^T, with d=1-Mp, up to orientation of the second vector. At d=0 the minimum is attained, and a nonzero off-diagonal entry excludes equality elsewhere for q>0. The trace and determinant are T and zeta d^2. For r<1 the positive definite background I-r diag(1,d^2) turns the rank-one downdate into a scalar inertia test: chi=(rq/M)(1/(1-r)+kd^2/(1-rd^2)), and chi<,=,>1 is precisely the respective spectral comparison. Solving yields the displayed H, whose denominator is positive because q<q_c implies M(1-r)-rq>0 and M zeta(1-r)-q=[M(1-r)-rq]+k(1-r)q. The proof's line 89 misprints chi(1) as rq; it is rq/(1-r). For 0<q<=(1-r)/r this gives chi(d^2)<chi(1)<=1 since d^2<1, and for q=0 chi is zero directly. This local arithmetic error does not invalidate the Finding, which follows from the preceding exact test. At r>=1 the Rayleigh lower bound suffices; homogeneous zeta=1 follows from stochasticity. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The source's boundary explanation at line 89 should use rq/(1-r) and handle q=0 separately. No correctness claim is made for other movement models or nonlinear dynamics at spectral equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3575e4cfa8c0 allows general hotspot columns and arbitrary symmetric stochastic Phi, and its minimum equality is exactly a uniform hotspot column",
+          "Das–Stolerman v1 conjectures threshold invariance for structured star alternatives and does not prove arbitrary weighted block invariance in those passages",
+          "Bonaccorsi et al. treat a different SIS-type model with quotient thresholds"
+        ],
+        "reasoning": "The original graph-family conjectures and general SIS methodology do not by themselves supply the exact SIR formula. The broader exact Resultary threshold theorem has the same operator and does supply it upon elementary spectral specialization. The arbitrary-block minimum condition becomes p=1/M exactly.",
+        "searches": [
+          "Resultary: Das Stolerman conjectures 1 2 3 4 equal coupling star complete composite metapopulation thresholds",
+          "arXiv:2308.01998v1 exact passages for Conjectures 1, 2, 3, 4",
+          "arXiv:1412.6157 §§ theoretical quotient results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3575e4cfa8c0 and 5c2642f1b61a",
+        "arXiv:2308.01998v1 and arXiv:1412.6157",
+        "DOI 10.1137/23M1579522 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For normalized top eigenvalue lambda>1 the known equality test with r'=1/lambda becomes (q/M)[1/(lambda-1)+kd^2/(lambda-d^2)]=1",
+          "Clearing denominators gives lambda^2-[1+d^2+(q/M)(1+kd^2)]lambda+(1+q)d^2=0; the larger root is the one above 1",
+          "With r fixed the same scalar test gives H and all inequality directions, and the known uniform-column equality supplies the minimum"
+        ],
+        "reasoning": "The bracketed coefficient equals T and the constant is zeta d^2. This proves direct coverage by the earlier stronger threshold, including arbitrary peripheral blocks. The boundary q=0 is the elementary stochastic-square case; scaling and the known Rayleigh lower bound cover all r>=1.",
+        "searches": [
+          "Resultary 3575e4cfa8c0 Finding and rank-one proof",
+          "Frozen RESULT.md rank-one criterion, eigenvalue and global minimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3575e4cfa8c0 gives the same K and scalar all-rank-one comparison",
+          "Resultary 5c2642f1b61a gives the equal-hub quotient Perron eigenvalue for arbitrary symmetric weighted peripheries, at a later indexed date",
+          "In the frozen family the hub coordinate has squared projections 1/M and k/M onto the Phi eigenvectors with eigenvalues 1 and d, and no others"
+        ],
+        "reasoning": "A threshold tested at all positive scalings determines the spectral radius. The earlier test is available on all r' in (0,1), which includes 1/lambda for the rate-normalized top eigenvalue lambda>=1+q/M>1. Equal-hub invariance of that test is therefore invariance of the full reproduction number.",
+        "searches": [
+          "Resultary: SIR metapopulation equal hub coupling reproduction number independent arbitrary symmetric peripheral mobility exact eigenvalue",
+          "Resultary: equitable partition Perron eigenvalue hub weighted symmetric peripheral network next-generation matrix",
+          "arXiv:1412.6157 quotient threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3575e4cfa8c0 supplies both the signed threshold classification and exact optimizer; 5c2642f1b61a gives the same exact quotient, dated later"
+        ],
+        "reasoning": "The exact statement and formula, not a sequence or numeral, are what the index check compares. The broader earlier formula is stronger coverage even though the radical is not printed. No priority is inferred from a later match.",
+        "searches": [
+          "Resultary semantic searches on the exact spectral threshold, hub quotient, and uniform hotspot minimizer",
+          "Local mirror 3575e4cfa8c0 and 5c2642f1b61a"
+        ]
+      },
+      "rationale": "Earlier Resultary record 3575e4cfa8c0 gives a stronger rank-one threshold/equality criterion for the same K over every symmetric stochastic block and the complete equality criterion for the same global lower bound. In the uniform-hub family its spectral sum has only the homogeneous and hub-contrast modes. Evaluating the resulting equality criterion at a freely varied scaling r'=1/lambda recovers not just the threshold but the entire dominant eigenvalue and exact radical by a two-term quadratic. Thus the quantitative and qualitative findings are mechanically implied by the earlier result, not merely similar in terminology. The later exact quotient result confirms overlap without establishing earlier priority for itself.",
+      "residual_risks": [
+        "Historical priority outside the compared records is unassessed, and exact journal-version wording could not be determined. The mathematical implication from the earlier indexed theorem does not depend on that wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage of the complete finding by direct implication",
+          "evidence": [
+            "Spectral statistic equals the resolvent form minus the homogeneous term",
+            "Scalar comparison includes equality and both strict signs",
+            "Equality in the universal minimum iff the hotspot column is uniform"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exact-spectral-heterogeneity-budget-for-one-hotspot-metapopul--3575e4cfa8c0/RESULT.md",
+          "material_read": "Opening Finding, spectral statistic, assumptions, proof steps 1–2 at offsets 0–5600; relationship passage near 9150",
+          "method": "Local mirror, proof and spectral specialization",
+          "title": "An exact spectral heterogeneity budget for one-hotspot metapopulation epidemics",
+          "trigger": "Exact signed threshold and minimum for the same next-generation matrix over a stronger network class"
+        },
+        {
+          "assessment": "Prior motivation and conjectures over structured families, not the unrestricted theorem in the inspected version",
+          "evidence": [
+            "NGM and symmetric-flux simplification",
+            "Conjectures 1–4 state threshold relations for star-based families"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.01998v1",
+          "material_read": "PDF pp. 3, 12, 14–16; offsets 13057, 65390, 74898, 80648, 91806, 93949",
+          "method": "Lawful preprint PDF, exact model and statement passages",
+          "title": "Epidemic thresholds and disease dynamics in metapopulations: the role of network geometry and human mobility",
+          "trigger": "Frozen source of the model and four conjectures"
+        },
+        {
+          "assessment": "Related equitable partition principle for a different model",
+          "evidence": [
+            "The quotient spectral radius determines the threshold in the SIS/NIMFA setup, not the specific frozen NGM formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.6157",
+          "material_read": "PDF pp. 1 and 4–6, quotient and threshold statements near offsets 15837 and 18200",
+          "method": "Lawful preprint PDF targeted reading",
+          "title": "Epidemic Outbreaks in Networks with Equitable or Almost-Equitable Partitions",
+          "trigger": "Potential general quotient implication"
+        },
+        {
+          "assessment": "Direct exact quotient overlap at a later indexed date; not the basis for earlier coverage",
+          "evidence": [
+            "The dominant eigenvalue equals the quotient eigenvalue for every admissible symmetric nonnegative peripheral block"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-transverse-homogenization-under-single-hub-epidemic-mobili--5c2642f1b61a",
+          "material_read": "RESULT.md offsets 0 and 4507, Finding and Perron argument",
+          "method": "Local Resultary mirror",
+          "title": "Sharp transverse homogenization under single-hub epidemic mobility",
+          "trigger": "Direct exact uniform-hub quotient match"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence or the reason for FAIL",
+          "evidence": [
+            "SIAM full-text routes returned HTTP 403; arXiv v2 unavailable; v1 independently read"
+          ],
+          "identifier_or_url": "10.1137/23M1579522",
+          "material_read": "No journal full-text passages available",
+          "method": "Lawful publisher article and PDF attempts, then arXiv version check",
+          "title": "Epidemic Thresholds and Disease Dynamics in Metapopulations: The Role of Network Structure and Human Mobility",
+          "trigger": "Journal version may differ materially from the accessible v1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and spectral proof",
+        "Resultary 3575e4cfa8c0 stronger spectral budget and minimum"
+      ],
+      "rationale": "The network question is meaningful, and the quotient is a useful exposition. As a distinct finding, however, the stated optimizer, threshold and radical are routine evaluation of the known rank-one result in a two-mode special case. There is no substantially new exact fact or separate remainder to repair.",
+      "residual_risks": [
+        "This does not assess transient modes or generalizations to asymmetric networks, which the frozen finding does not claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

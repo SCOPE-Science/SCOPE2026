@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:25:41.640438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–95 and VERIFICATION.md; nested verification/check.py inspected without execution.",
+        "Independent exact algebra: /workspace/branches/22c8d1a2-203b-41c9-b6ea-9b641094a1a9/independent_check_record2.py and independent_check_record2.log in the same directory. Endpoint derivatives, quartic and quintic certificates, two limiting expressions and example budgets checked. In particular P_9(3)=-9161/40898 and the signs for B=1,54,200 are +,-,+."
+      ],
+      "rationale": "Connectedness and B>0 make the pinned Laplacian positive definite on the whole compact feasible simplex. Along each nonzero diagonal direction the second derivative is twice the squared Frobenius norm given in the proof, so existence, uniqueness and automorphism symmetry justify reducing all allocations to x=B-2my. The peripheral differences split into the two stated eigenfamilies, and the remaining block has off-diagonal -sqrt(2m). For k=2m, a=k+x and b=1+y, the derivative of its inverse trace along the budget line is [k(b^2+k)-(a^2+k)]/(ab-k)^2. This gives the strictly negative derivative at y=0 and, with the two peripheral terms, P_m(B/(2m))/B at the other endpoint. A zero endpoint derivative selects that endpoint uniquely. For m<=8, the first subtracted term is maximized at m=8 and the factor 2m/(2m+1+y)^2 is bounded by 1/[4(1+y)]; the positive Bernstein and shifted-power coefficients certify the resulting quartic on all y>=0. For m>=9 the cleared polynomial has two sign changes and P_m(m/3)<0, while P_m(0)>0 and P_m is eventually positive. This gives exactly two distinct roots and the stated closed interval. The witness separator m/3 identifies each root when bracketing near y=2/3 and near y/m=1 in the two respective limits, giving B_-/m -> 4/3 and B_+/m^2 -> 2.",
+      "residual_risks": [
+        "No extension to constrained leader cardinalities, gain caps, weighted graphs or nonuniform noise is inferred. The switching budget scales are asymptotic, not exact finite-m expressions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary sources contain the general design objective and fixed-count or prescribed-maximum selection formulations; one passage describes relaxation of Boolean constraints. The split-graph hit is an indexed continuous-gain analogue, not verified in full text."
+        ],
+        "reasoning": "General convexity and optimal-design marginal conditions are tools, not a theorem locating the parameter cutoff or counting positive roots in this graph family. A split graph has no induced four-cycle, whereas K_{1,m,m} contains one on the two size-m parts. The indexed split-graph scope therefore does not include the target by relabeling.",
+        "searches": [
+          "Lin–Fardad–Jovanović arXiv:1302.0450, PDF pp. 3 and 6",
+          "Fitch–Leonard arXiv:1407.1569, pp. 1 and 16",
+          "Resultary complete split-graph grounding, 0b9d2b9aa8a6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c6771e6ac36, bd015dfc5cdd, 3040bc2335f8, and indexed summary of 0b9d2b9aa8a6",
+        "arXiv:1302.0450 and arXiv:1407.1569",
+        "Primary-literature search for continuous inverse-trace pinning on the complete tripartite family"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The K_{1,m,m+1} statement fixes two distinct vertices with equal finite gain. The K_{2,q} cutoff uses q(q-1)t >= (t+2)^3; the star statement also concerns a different spectrum."
+        ],
+        "reasoning": "A fixed equal-gain pair tests neither fractional allocations nor the zero-hub KKT sign for the equal-part graph. The other continuous examples do not give the needed marginal comparison for its tripartite family.",
+        "searches": [
+          "Local full-text findings for 2c6771e6ac36, bd015dfc5cdd and 3040bc2335f8",
+          "Primary leader-selection formulations arXiv:1302.0450 and arXiv:1407.1569"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pinned noisy-consensus covariance leads to the same inverse trace up to a factor of two; the discrete problem in Lin–Fardad–Jovanović, PDF p. 6, uses binary x_i and fixed sum.",
+          "Resultary bd015dfc5cdd and 3040bc2335f8 explicitly treat freely divisible gains, but on K_{1,m} and K_{2,q}."
+        ],
+        "reasoning": "A constant factor or change of design terminology leaves the optimizer unchanged, but Boolean support and the replacement of a graph by a nonisomorphic one do not. The tripartite peripheral modes, including the 2m+1+y eigenvalue, enter the actual sign condition.",
+        "searches": [
+          "Resultary: A-optimal grounding, continuous pinning and reentrant hub gain in one-hub/bipartite and tripartite consensus",
+          "Lin–Fardad–Jovanović, arXiv:1302.0450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equal-gain pair classification for K_{1,m,m+1} includes the hub for m>=4. The continuous star onset is m=4 with budget scales 2/m and m^2; the two-hub bipartite onset is q=6 with scales 8/q and q^2."
+        ],
+        "reasoning": "None of these exact graph-family laws yields the m=9 cutoff or the lower budget scale proportional to m on K_{1,m,m}; the same-day date is not an argument about priority.",
+        "searches": [
+          "Resultary: K_{1,m,m} exact hub cutoff, two switching budgets and linear/quadratic budget scaling",
+          "Resultary same-day record 2c6771e6ac36 and continuous-gain records bd015dfc5cdd and 3040bc2335f8"
+        ]
+      },
+      "rationale": "The closest source on a nearly identical tripartite graph imposes a fixed pair of equal-gain leaders, while the closest statements on the same continuous objective concern different graphs and sign laws. The general inverse-trace design objective and selection tools are prior work. The evidence supports the specific K_{1,m,m} support criterion, exact m=9 onset and two distinct scales as the contribution, not novelty of reentrance in general.",
+      "residual_risks": [
+        "The complete split-graph analogue could not be read in full locally. A general unlocated continuous-design classification might specialize to this family. The lack of a relevant hit in a broad web search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph and allocation set; no equivalent coverage established.",
+          "evidence": [
+            "Exactly two distinct vertices receive equal finite gain; hub included in the optimum for m>=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-gain-independent-three-phase-two-leader-law-on-k-1-m-m-1--2c6771e6ac36",
+          "material_read": "RESULT.md finding and constraints at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A gain-independent three-phase two-leader law on K_{1,m,m+1}",
+          "trigger": "Same-day near-matching tripartite topology and inverse-trace selection"
+        },
+        {
+          "assessment": "Continuous-gain analogue, not the target law.",
+          "evidence": [
+            "K_{1,m}, onset m=4, budget scales 2/m and m^2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Reentrant hub grounding in optimal noisy star consensus",
+          "trigger": "Same objective and hub reentrance"
+        },
+        {
+          "assessment": "Different graph, sign law, cutoff and low-budget scale.",
+          "evidence": [
+            "K_{2,q}, criterion q(q-1)t >= (t+2)^3, onset q=6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-optimal-hub-grounding-on-two-hub-bipartite-networks--3040bc2335f8",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Reentrant optimal hub grounding on two-hub bipartite networks",
+          "trigger": "Same objective and exact support transitions"
+        },
+        {
+          "assessment": "Exact statement not verified. The summarized scope is complete split graphs.",
+          "evidence": [
+            "Summary identifies continuous A-optimal grounding and clique-gain reentrance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-reentrant-clique-grounding-and-a-three-quarter-power-imbalance-l--0b9d2b9aa8a6",
+          "material_read": "Resultary summary only; local file unavailable",
+          "method": "Configured index and attempted local mirror",
+          "title": "Reentrant clique grounding and a three-quarter-power imbalance law",
+          "trigger": "Indexed exact continuous-gain analogue"
+        },
+        {
+          "assessment": "Methodological antecedent, no graph-specific cutoff supplied by the inspected formulation.",
+          "evidence": [
+            "Fixed sum N_l of Boolean x_i; a relaxation of Boolean selection constraints is described."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "PDF p. 3 near offset 7960 and p. 6 near 14800",
+          "method": "OA primary text",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "General formulation of inverse-trace leader design"
+        },
+        {
+          "assessment": "Related leader selection and diagonal modification; the read passages do not give uncapped gain-budget thresholds.",
+          "evidence": [
+            "Selection with a prescribed maximum number of leaders; modifying the dynamics diagonal to minimize total system error."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "PDF p. 1 near offset 650 and p. 16 near 66750",
+          "method": "OA primary text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Potentially covering optimization by network centrality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and exact support proof",
+        "Related continuous star and two-hub laws: Resultary bd015dfc5cdd and 3040bc2335f8"
+      ],
+      "rationale": "The unit-edge graph has a distinguished universal vertex, yet adding budget can make its optimal gain go from positive to zero before becoming positive again. The exact integer onset, closed switching interval and different linear and quadratic budget scales quantify this effect across a natural family, rather than recording a numerical exception or a routine optimality condition.",
+      "residual_risks": [
+        "No general rule about all high-degree vertices or other feedback objectives follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:53.625251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48; VERIFICATION.md; census.cpp and verify_canonical.py (inspected, not run)",
+        "Independent replay: python3 /workspace/review_evidence/replay_4.py"
+      ],
+      "rationale": "To reach all five four-subsets, at least one letter must have rank four. If neither letter is a permutation, a four-subset reached at the last letter is the full image of that letter, giving at most two targets. With one permutation, each attainable four-subset is a cyclic shift under that permutation of the rank-four image, by looking at the last rank-four letter. Thus the omitted state must have a full length-five orbit and the permutation is a five-cycle. Conversely write e for the missing output and d for the doubled output. For each proper nonempty target S some shift S' of S excludes e and contains d: if not, the equal-size sets of shifts containing d and e would be identical, forcing S to be invariant under the nonzero displacement d-e, impossible on the five-cycle. The rank-four preimage of S' has size |S|+1, so induction reaches S using one rank-four letter and at most four cyclic steps per unit decrease in size. Each state relabeling bringing the permutation to the standard cycle leaves only rotations as residual conjugacies; fixing the missing output to 0 selects a unique representative. There are 10 choices of the duplicate input pair and 24 bijective assignments of outputs to the four fibres in each representative. As the two letters have different ranks, letter exchange cannot be an automorphism, so every class has 240 ordered labeled representatives. Independent replay enumerates exactly these 240 tables, computes all subset distances by edge relaxation, matches all 13 histogram entries and cardinality maxima, and tests the claimed length-20 word and target distance for the extremal map. The reported extremal map has ordinary reset threshold 16, not 20; the asserted 20 is a longest shortest length to a specified target.",
+      "residual_risks": [
+        "The verification is exhaustive by the proved normal form; the independently written replay does not loop over redundant labelings or make claims for more than five states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary structural characterization plus the prime circular criterion gives the entire population by a finite count. Don's circular bound gives d(S)<=5(5-|S|) in this setting. General quadratic reaching bounds and Don-conjecture counterexamples concern a broader domain."
+        ],
+        "reasoning": "The structural and upper-bound facts are prior and can be specialized directly. A bound does not evaluate the distribution of maxima of the different subset distances in the finite five-state space.",
+        "searches": [
+          "arXiv:2205.09404, Theorem 2, pp. 11–12",
+          "arXiv:2011.14404, Don's Proposition 1, p. 4",
+          "arXiv:2208.05956, pp. 4 and 17; arXiv:2402.19089, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.09404, 2011.14404, 2208.05956, 2402.19089 and 1609.06853",
+        "Resultary 93146644bbb8 and c176f0fc06e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every completely reachable binary five-state table here is basic (the two maps differ and neither is the identity). From a shortest reset word of length r, the cycle reaches any requested singleton in at most four further steps; Don bounds all larger targets by 15. Hence R<=max(15,r+4). The reset classification puts only the binary Černý class at r=16 and none higher."
+        ],
+        "reasoning": "R=20 forces r>=16, so the known reset classification and attainment by the displayed automaton imply extremal uniqueness. R=19, however, could also occur in a reset-15 completely reachable class; identifying the eligibility and reaching distances of candidates is not contained in the table. No inspected theorem or table yields the entire diameter histogram by a change of parameter or comparable substitution.",
+        "searches": [
+          "arXiv:1609.06853, section 4.4, PDF pp. 16–17 (offsets 39950–45011)",
+          "arXiv:2011.14404, p. 4, Don bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R is the maximum of the individual subset reaching thresholds in the subset-image graph. The reset threshold is a minimum over singleton targets, and triple rendezvous concerns merging a small source set. In the replay the extremal automaton has (R,reset)=(20,16); R=16 occurs at reset lengths 12 and 13."
+        ],
+        "reasoning": "These alternate synchronization statistics are not translations of the full all-target maximum. In particular the minimum reset time is not the maximum singleton-specific reaching time, even though the latter determines R at the top of the spectrum.",
+        "searches": [
+          "arXiv:2208.05956, p. 4, reaching threshold definitions",
+          "Resultary: SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0",
+          "Literature: slowly synchronizing automata fixed alphabet size de Bondt Don Zantema critical two letters five states Černý Roman 16 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published five-state reset table has 1 binary critical class of reset length 16 and 4 of reset length 15, counting basic DFAs up to symmetry. The same-day indexed eight-state binary reaching record treats Don-bound exceptions for six-state targets; the five-state rendezvous record treats three-state source sets among synchronizing automata."
+        ],
+        "reasoning": "The reset table is genuinely on a containing universe and controls extremality, but its frequency columns are a different invariant and do not tabulate even which classes are completely reachable. Neither nearby indexed table gives these five-state all-target frequencies.",
+        "searches": [
+          "Trahtman The Cerny conjecture for small automata binary five states table 15 16 slowly synchronizing automata reset threshold classification",
+          "arXiv:1609.06853, section 4.4, five-state table",
+          "Resultary 93146644bbb8 and c176f0fc06e0"
+        ]
+      },
+      "rationale": "Pass is for the full reaching-diameter distribution and its gap, not the population, known reaching bounds, or extremal uniqueness viewed separately. The de Bondt–Don–Zantema reset classification, combined with the cyclic-letter extension bound, already limits any R=20 candidate to the Černý class. The separate gap at reaching diameter 19 and the profile at every diameter are not supplied by that reset table.",
+      "residual_risks": [
+        "Equivalent complete tables may exist outside the checked index or in uninspected datasets. The BIU Trahtman PDF alternative returned a timeout; that is not negative evidence. The relevant published reset classification was checked in the openly available de Bondt–Don–Zantema paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural reduction, not a spectrum",
+          "evidence": "The characterization uses a cycle and a defect-one letter and a condition in standardized form.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.09404",
+          "material_read": "Theorem 2, pp. 11–12 (offsets 39482–40434)",
+          "method": "Open-access full-text passage comparison",
+          "title": "Binary completely reachable automata",
+          "trigger": "Potentially covering characterization"
+        },
+        {
+          "assessment": "Covers the reaching bounds under the rank and coprime conditions",
+          "evidence": "Each target of size k has a word of length at most n(n-k) under the circular criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.14404",
+          "material_read": "Don's Proposition 1, p. 4 (offset 13444)",
+          "method": "Open-access full-text passage comparison",
+          "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+          "trigger": "Known sharp bounds for circular automata"
+        },
+        {
+          "assessment": "Bound and definition, not a five-state table",
+          "evidence": "Defines subset reaching thresholds and states upper bounds, including Don's bound in its context.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.05956",
+          "material_read": "p. 4 (offset 17972) and section 5, p. 17 (offset 76208)",
+          "method": "Open-access primary full-text comparison",
+          "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+          "trigger": "General reaching-threshold results"
+        },
+        {
+          "assessment": "General exceptions and bounds, not the requested histogram",
+          "evidence": "Gives families of counterexamples and a separate bound for standardized automata.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.19089",
+          "material_read": "Abstract and introduction, pp. 1–2 (offsets 0 and 4689)",
+          "method": "Open-access primary full-text passage comparison",
+          "title": "Around Don's conjecture for binary completely reachable automata",
+          "trigger": "Exact complete reachability and possible small-state exceptions"
+        },
+        {
+          "assessment": "Mechanically gives extremal uniqueness together with the cycle and larger-target bounds, but not the all-target census",
+          "evidence": "Five-state row for alphabet size 2 lists 1,4,11,23,43,46 at reset thresholds 16 through 11; only C5 is binary among the two critical five-state automata, the Roman example being ternary.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+          "material_read": "Section 4 table convention around offsets 26850–29326; section 4.4, pp. 16–17 (offsets 39950–45011)",
+          "method": "Open-access primary PDF, full surrounding passages by offset",
+          "title": "Slowly synchronizing automata with fixed alphabet size",
+          "trigger": "Exact five-state reset table can imply top-end claims"
+        },
+        {
+          "assessment": "Different size and selection of targets",
+          "evidence": "The exact obstruction is a six-state target reached at distance 17 in eight-state binary instances, across 68 cyclic classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-unique-don-bound-obstruction-and-shortest-reaching-word-spec--93146644bbb8",
+          "material_read": "RESULT.md Finding, state size and target hypothesis",
+          "method": "Local Resultary full-text mirror",
+          "title": "The unique Don-bound obstruction and shortest reaching-word spectrum",
+          "trigger": "Same-date reaching-spectrum hit"
+        },
+        {
+          "assessment": "Different invariant and universe",
+          "evidence": "Optimizes the shortest word merging some three-state source set among synchronizing automata, not the greatest distance from the full state set to designated images.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0",
+          "material_read": "RESULT.md Finding and invariant definition",
+          "method": "Local Resultary full-text mirror",
+          "title": "The five-state binary triple-rendezvous extremal is unique",
+          "trigger": "Exact five-state binary uniqueness hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen histogram and assumptions",
+        "Independent replay_4.py",
+        "Comparison with the published reset table in arXiv:1609.06853, section 4.4"
+      ],
+      "rationale": "Complete reachability is a canonical restriction, and the largest shortest distance over every specified subset is an intrinsic diameter. A complete small-prime census supplies a benchmark beyond existence or maximum reset length and shows a genuine missing diameter immediately below the sharp top. Credit for this value is the full all-target distribution and gap, not an allegedly new extremal class or a new general upper bound.",
+      "residual_risks": [
+        "The five-state finite profile is not evidence that the same gap or pattern persists as the number of states increases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

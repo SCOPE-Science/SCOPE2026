@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:48:15.433689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict branch images force alternation. After normalization the increasing continuous return G maps the unit interval strictly into its interior; its iterates are monotone after the first step and converge to fixed points, giving primitive two-cycles of the original map. For d>1, P'_d=d(d−1)t^(d−2)[d−(d+1)t] has one change of sign; P_d(0)=0, P_d(1)=1 and its maximum is 1/q_d. Thus H decreases or decreases/increases/decreases with exact fold levels, including the physical exclusion of r≥1. At fixed points sign(G'−1)=sign(qP_d−1), establishing the stability ordering; signs of G−u settle the neutral cases. At the cusp G'''=−(d−1)(d+1)^3/d² and G''=0; summing inverse-square displacement increments verifies the limit constant and its sign. The fold locations split at ±sqrt[2d/((d−1)(d+1)^2q_d)] sqrt(q−q_d); integrating the quadratic leading term in H' gives the asserted width. For fixed q,r, H at 1−2log(d)/d tends to 0, while at 1−1/d² it diverges; endpoint levels force three roots. For the large-u root G(r/2)>r/2 and G(r)<r for large d, and r−u≤rdq(1−r/2)^d there, so (1−u)^d/(1−r)^d→1, justifying the relative expansion in RESULT.md. The tiny-u root lies below 1/d² and then satisfies the given exponential bound, so d²u→0 and its relative asymptotic and both vanishing multipliers follow. This covers only strict alternation, with fixed d in the fold limit and fixed q,r in the large-d limit. Replay uses RESULT.md Steps 1–5 and these bounds. The checker was inspected, not executed; its representative rational-parameter census uses a numerical quartic root count (not the exact cubic described by a code comment), and does not independently test a complete one/two/three census. Neither loses any analytic case of the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The family paper includes real powers, identifies absence of fixed points and studies numerical dynamics. Contraction c<b/d² covers only one-cycle behaviour in a restricted parameter region. The same-day cosine result is a different return map with its own threshold about 0.8398."
+        ],
+        "reasoning": "Absence of fixed points does not specify how many two-cycles exist. At fixed c/b>0 the contraction hypothesis eventually fails, and neither the cosine formula nor generic cusp laws determine the power-map coefficients.",
+        "searches": [
+          "doi:10.3390/sym15071311, Eq. (15), Lemma 1 and numerical sections",
+          "Resultary 3ab687079720 (contraction/discontinuity), 994f8d5bd43d (cosine cusp)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and REVIEW.md",
+        "doi:10.3390/sym15071311",
+        "Resultary dd9acbf9570b, 46dbd0563009, 3ab687079720, 994f8d5bd43d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The variable exponent enters both t^(d−1)[d²−(d²−1)t] and the large-d witnesses near t=1. The contraction/discontinuity result varies a down to b, rather than fixing a,b,c and letting d diverge."
+        ],
+        "reasoning": "None of these hypotheses and conclusions implies the moving maximizer, exact fold coefficient, or two endpoint scales; the record supplies the needed global and asymptotic estimates.",
+        "searches": [
+          "Lawnik–Moysis–Volos (2023), Eq. (15) and Lemma 1; exact statements of dd9acbf9570b, 3ab687079720, 994f8d5bd43d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the quadratic classification its k equals r and q_2=3/4; the cited 2/(3 sqrt(n)) relaxation equals the d=2 substitution. The other quadratic note also fixes b=1/2."
+        ],
+        "reasoning": "Changing from a,b,c to q,r or from a two-cycle to a fixed point of the return exposes the exact quadratic overlap; it does not turn a real exponent into 2.",
+        "searches": [
+          "Resultary: fixed-point-free strict-alternation two-cycle cusp; quadratic, real-power, changing exponent, fold, bistability",
+          "dd9acbf9570b, RESULT.md; 46dbd0563009, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed phase diagrams inspected are quadratic or cosine; the published numerical slices are not a degree-indexed exact fold or stability table."
+        ],
+        "reasoning": "The search does locate a fully covered degree-two slice, but no inspected catalogue gives the all-real-d thresholds or fixed-triple limit law. A numerical phase diagram is not such a table.",
+        "searches": [
+          "Resultary exact cusp/fold and two-cycle census records dd9acbf9570b, 46dbd0563009, 994f8d5bd43d",
+          "Power-family numerical slices in Symmetry 15 (2023), 1311, Fig. 5"
+        ]
+      },
+      "rationale": "Credit the published power family, the earlier quadratic phase diagram and its critical relaxation, and the previously studied sufficient contraction region. No inspected statement gives the real-exponent exact q_d and fold levels with their exponent-dependent coefficient, or the eventual three-cycle classification and attracting branch corrections at every fixed strict triple. The standard cubic-cusp mechanism and the d=2 specialization are not counted as distinct contributions.",
+      "residual_risks": [
+        "Bounded statement-level comparisons do not exclude an unindexed or differently worded real-exponent theorem.",
+        "Same-day indexing does not determine order or priority; no claim about non-strict alternation is reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical family, but no stated sharp two-cycle census or high-exponent law in these passages",
+          "evidence": "Equation defines the family, lemma concerns no fixed points, figure text concerns Lyapunov/bifurcation plots and d=2 slices.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15071311",
+          "material_read": "OA PDF p. 5 Eq. (15) and Lemma 1 (around offset 22800), pp. 7–8 numerical sections and Fig. 5 context (30650–31918)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Published source of the full real-exponent family"
+        },
+        {
+          "assessment": "Exact quadratic overlap, credited",
+          "evidence": "Strict-alternation fold levels, census, stability and cusp convergence at 2/(3 sqrt(n)).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-cusp-of-coexisting-two-cycles-in-a-fixed-point-free-quadratic--dd9acbf9570b",
+          "material_read": "RESULT.md Finding and decisive proof at offsets 559 and 5100",
+          "method": "Lawful local Resultary mirror",
+          "title": "A cusp of coexisting two-cycles in a fixed-point-free quadratic interval map",
+          "trigger": "Same map at d=2"
+        },
+        {
+          "assessment": "Related narrower quadratic subfamily",
+          "evidence": "Fixes b=1/2 as well as the quadratic exponent and obtains the quadratic critical constant.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-two-cycle-cusp-bistability-and-global-convergence-in-a-fix--46dbd0563009",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Lawful local Resultary mirror",
+          "title": "Exact two-cycle cusp, bistability and global convergence in a fixed-point-free interval map",
+          "trigger": "Additional indexed exact cusp match"
+        },
+        {
+          "assessment": "Partial one-cycle overlap in a sufficient contraction region; distinct limit",
+          "evidence": "c<b/d², a>b, and singular boundary a=b; asymptotics a↓b are not high-d at fixed parameters.",
+          "identifier_or_url": "2026/11/1/SCOPE-an-attracting-two-cycle-disappears-into-a-nonstationary-ghost-at--3ab687079720",
+          "material_read": "RESULT.md offsets 809 and 2924, contraction and boundary statements",
+          "method": "Lawful local Resultary mirror",
+          "title": "An attracting two-cycle disappears into a nonstationary ghost at a discontinuity",
+          "trigger": "Real powers in the same original family"
+        },
+        {
+          "assessment": "Same mechanism in a different family, not power-map coverage",
+          "evidence": "The cosine return gives a different model-specific threshold and has no growing real exponent.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-cycle-cusp-and-global-bistability-in-the-fixed-point--994f8d5bd43d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Lawful local Resultary mirror",
+          "title": "A sharp two-cycle cusp and global bistability in the fixed-point-free cosine family",
+          "trigger": "Separate same-day exact structural analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent is intrinsic to a published map family. The formula locates every transition in the natural normalized parameter plane and quantifies the shrinking bistability window near the cusp. The fixed-triple result shows coexistence is ultimately universal within strict alternation, and the distinct exponentially small displacements and vanishing multipliers explain why the attracting locations can be hard to resolve numerically. These are meaningful structural and quantitative additions beyond the quadratic example or generic cusp exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

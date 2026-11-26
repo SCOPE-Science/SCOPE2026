@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:58:11.709918Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a chosen quadrangulation diagonal, either polygon cut off by it has even boundary length by the face-side count 4F = n_side + 2I. Thus its endpoints have opposite cyclic parity. Conversely a noncrossing subset of (N−4)/2 opposite-parity diagonals gives (N−2)/2 regions with even side counts at least four, and the total side count forces each to be four. This supplies the parity justification for the geometric reduction. My independent replay /workspace/replay/audit_5.py, run with Python 3, enumerates recursively by the unique quadrilateral incident to a fixed root edge and computes signed sums directly. It obtained 1,3,12,55 configurations at side counts 4,6,8,10. At eight it confirmed the stated cycle and opposite chords, all signed multiplicities and the nullity weights {2:16,4:40,6:16}. Each compatible pair is one edge of the cubic Wagner graph, so its sign is negative precisely across the cut. A singleton gives 6 and a two-coordinate sign gives 4 on compatible pairs and zero exactly on crossing pairs. The replay summed the nonzero-frequency characters independently, confirming the entire kernel table and absolute sum 944, which divides by 256 to give 59/16. Translating and averaging a projection preserves its identity on the invariant range and keeps its image in that range. The resulting translation-commuting projection is the unique Fourier cutoff, so the endpoint absolute row/column sum minimizes over all projections, real or complex. At the decagon the replay confirmed 28 positive and 27 negative terms at the specified witness on 15 coordinates; odd cardinality forces all modes nonzero, hence the minimum magnitude is 1 and the maximum is 55. The square and hexagon are also zero-free by odd cardinality; no extrapolation to larger polygons is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuss–Catalan formulas give the counts and thus, by oddness, invertibility for the square, hexagon and decagon. The triangulation correlation and Walsh results address different codebooks."
+        ],
+        "reasoning": "Counts alone supply neither the octagon zeros nor attainment of multiplier 1 in the decagon. Compatible-diagonal covariance in triangulations is not an all-signed-support formula for quadrangulations.",
+        "searches": [
+          "arXiv:1401.7194 p. 2 Theorems 1.2–1.3",
+          "arXiv:1505.05990 pp. 2 and 13",
+          "Resultary 430feb7408bd and e73d48554b89"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1401.7194 and arXiv:1505.05990",
+        "Resultary 7df6214f631f, 430feb7408bd, e73d48554b89 and aa2171f2dbe2 (last two summary only)",
+        "House of Graphs graph 640 (landing page only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The count 55 directly implies decagon invertibility but not the sign imbalance 28:27 at the explicit witness, and the identified overlap on the Wagner graph concerns a different cut statistic."
+        ],
+        "reasoning": "After the geometric identification, cubicity mechanically yields the crossing-pair zero criterion, and the standard averaging proof yields minimality from the computed cutoff. The actual cutoff constant and identified spectral support are not supplied by those methods or the inspected prior statements alone.",
+        "searches": [
+          "arXiv:1401.7194 Theorems 1.2–1.3",
+          "arXiv:1505.05990 flip sections",
+          "Resultary 7df6214f631f and 430feb7408bd, opening results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectrum is equivalent to the Wagner edge-boundary size histogram under w=12−2c. The exact local Wagner total 3-cut-complex record instead uses complements of independent triples. Chapoton uses compatible quadrangulations and allowed flips, not the graph on eligible diagonals used here."
+        ],
+        "reasoning": "A zero-field Ising partition function for the Wagner graph would encode the unweighted signed histogram, and a cut table indexed by subsets could give more. A flip graph or a simplicial complex on complements of independent triples does not supply these edge-boundary counts.",
+        "searches": [
+          "Resultary Wagner graph cut and polygon incidence comparisons: 7df6214f631f, 430feb7408bd, e73d48554b89, aa2171f2dbe2",
+          "arXiv:1505.05990 pp. 2 and 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact Wagner edge-boundary histogram was established in the bounded lookup. The House of Graphs entry could not be inspected beyond a landing page; the older local Wagner record gives a different enumerative table."
+        ],
+        "reasoning": "Even an exact aggregate Wagner histogram would cover the octagon rank, gap and multiplier multiplicities once the geometric graph is identified, but not the Fourier l1 norm of the labeled spectral support. The latter depends on which subsets realize cut size six, not their aggregate number.",
+        "searches": [
+          "Resultary Wagner graph edge-cut/Ising histogram comparison and local mirror 7df6214f631f",
+          "House of Graphs Wagner graph entry, https://houseofgraphs.org/graphs/640"
+        ]
+      },
+      "rationale": "The inspected prior work covers ordinary Fuss–Catalan counts and supplies related geometry or graph theory, not the octagon diagonal compatibility identification with its labeled Walsh zeros and exact endpoint projection cost, or the explicit decagon gap witness. The cut transform, averaging argument and odd-count invertibility criterion are standard; the novelty assessment rests on the specific geometry and exact additional invariants, not on those general identities.",
+      "residual_risks": [
+        "An older exact Wagner cut or Ising histogram could cover the aggregate census. The checked evidence does not decide that historical question.",
+        "Unavailable full text for two related triangulation hits limits detailed comparison; the summary-based distinctions are not assertions about the whole documents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary cardinalities; indirectly covers the odd-cardinality invertibility observation",
+          "evidence": "The general formula for (d+1)-gonal dissections specializes at d=3 to counts 12 and 55 for eight and ten sides.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.7194",
+          "material_read": "p. 2, offset 4450; Theorems 1.2–1.3",
+          "method": "Bounded OA PDF reading",
+          "title": "Polygonal Dissections and Reversions of Series",
+          "trigger": "General polygonal-dissection counts"
+        },
+        {
+          "assessment": "Genuinely different graph",
+          "evidence": "Vertices are quadrangulations with flip edges; the later description translates flips to operations on noncrossing trees.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.05990",
+          "material_read": "p. 2 offset 6250 and p. 13 offset 43000",
+          "method": "Bounded OA reading",
+          "title": "Stokes posets and serpent nests",
+          "trigger": "Prior quadrangulation graph"
+        },
+        {
+          "assessment": "Not an edge-boundary histogram",
+          "evidence": "Facets complement independent triples; the result gives a face vector and homotopy type.",
+          "identifier_or_url": "Resultary 7df6214f631f",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local mirror",
+          "title": "The total 3-cut complex of the Wagner graph",
+          "trigger": "Earlier exact Wagner graph invariant"
+        },
+        {
+          "assessment": "Different codebook and invariant",
+          "evidence": "Covariances of crossing versus noncrossing diagonals in random triangulations, not quadrangulation Walsh coefficients.",
+          "identifier_or_url": "Resultary 430feb7408bd",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local mirror",
+          "title": "Conditional correlation signs and compatible-family association in uniform polygon triangulations",
+          "trigger": "Crossing geometry and exact signs"
+        },
+        {
+          "assessment": "Material thematic overlap; full-text coverage not resolved",
+          "evidence": "Summary describes Walsh cancellation and explicit even-order zeros for triangulation incidence vectors.",
+          "identifier_or_url": "Resultary e73d48554b89",
+          "material_read": "Indexed summary only; exact local file unavailable",
+          "method": "Resultary and local-mirror lookup",
+          "title": "Fourier rigidity and cancellation for convex-polygon triangulations",
+          "trigger": "Plausible incidence Fourier overlap"
+        },
+        {
+          "assessment": "Different statistic according to summary; full-text coverage not resolved",
+          "evidence": "Ear-position profiles in triangulations, rather than diagonal sets of quadrangulations.",
+          "identifier_or_url": "Resultary aa2171f2dbe2",
+          "material_read": "Indexed summary only; exact local file unavailable",
+          "method": "Resultary and local-mirror lookup",
+          "title": "Parity-selective dyadic Fourier rigidity of polygon-triangulation ear profiles",
+          "trigger": "Same-day polygon Walsh comparison"
+        },
+        {
+          "assessment": "Exact table coverage not established",
+          "evidence": "No inspectable edge-cut table; this does not rule out other tabulations.",
+          "identifier_or_url": "https://houseofgraphs.org/graphs/640",
+          "material_read": "Landing page only",
+          "method": "OA website lookup",
+          "title": "Wagner graph M8",
+          "trigger": "Potential graph-database coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first singular quadrangulation convolution is a naturally motivated finite boundary. The compatibility model identifies which physical pairs cause the first cancellations, and the exact projection constant quantifies the unavoidable cost of extracting the recoverable range at this boundary. The next polygon size shows recovery of invertibility rather than persistence, with an attained worst frequency. The value is in that geometric and recovery classification, not the already known number of dissections or a generic computation of a cut distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

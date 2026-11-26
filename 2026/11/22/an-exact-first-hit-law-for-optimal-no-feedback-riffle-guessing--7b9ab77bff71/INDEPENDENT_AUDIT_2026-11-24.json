@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:10:22.714374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1.1, Eq. (1.2) of arXiv:2611.04339v1 has floor(i/a)+1, not floor((i−1)/a)+1, in the relevant prefix, and asserts expected-total-score optimality only for sufficiently large n at fixed k. The standard a-packet word with independent uniform marks has the correct conditional interleaving law. For t≤floor(n/2), with r=floor(t/a), later packets cannot match any prefix guess on N₀>r; the complementary event has probability at most exp(−n/(8a)). The first negative value of i−aS_i requires a zero mark and count exactly floor(i/a)+1, so the survival comparison preserves the correct strict hitting rule. Prepending +1 and counting positive rotations with multiplicity gives (t−aj+1)/(t+1) times binomial(t+1,j), even for periodic words. At p=1/a the weighted sum is the difference of the two given binomial CDFs divided by 1−p. A one-step Bernoulli coupling leaves precisely the binomial atom at r, including t=0. A first hit is impossible at a positive multiple of a because the preceding nonnegative height is at least a−1 modulo a. Stirling and the exponentially small error give the uniform relative tail for fixed a; summing the tail up to H_n−1 gives the exact leading coefficient of the truncated mean. The law concerns the specified canonical sequence, not arbitrary tie choices or early-hit optimization. Read RESULT.md, VERIFICATION.md and verify.py; script inspected, not run; the finite exact checks are not a proof of the all-horizon law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 proves row-wise maximizing guesses for fixed k and large n. Theorem 1.2 gives expected total score. The same-day indexed fixed-depth overlap treats the total-score distribution; the other indexed result constrains guesses to a permutation."
+        ],
+        "reasoning": "These optimizers and limit laws do not control the joint absence of matches in every prefix. The independent packet representation is known, but its use to isolate the finite-to-infinite error for this event is additional.",
+        "searches": [
+          "arXiv:2611.04339v1, Theorems 1.1–1.2 and Corollary 4.1",
+          "arXiv:2308.15782v1, score-limit and conclusion",
+          "Resultary 314e4e9f3541 and 7af61d909478"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.04339v1",
+        "arXiv:2308.15782v1",
+        "Resultary 314e4e9f3541",
+        "Resultary 7af61d909478",
+        "Resultary 7b9ab77bff71 (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known sequence fixes one-position guesses, and the cycle lemma counts auxiliary walks. Eqs. in the frozen argument isolate the event N₀≤floor(t/a) before substituting the auxiliary walk."
+        ],
+        "reasoning": "The two standard ingredients do not by specialization state the joint-prefix match law. The critical finite-deck coupling is a separate step valid for all a=2^k and t≤floor(n/2), including n below the optimality threshold for the specified guesses.",
+        "searches": [
+          "arXiv:2611.04339v1, Eq. (1.2) and Theorem 1.2",
+          "arXiv:2308.15782v1, §5",
+          "Frozen RESULT.md §§1–3, classical cycle-lemma input versus coupling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The auxiliary event is a standard nonnegative ballot walk and its count is classical. Kuba–Panholzer explicitly mention waiting times as a possible further question. Indexed near match 314e4e9f3541 concerns total score."
+        ],
+        "reasoning": "Recasting the event as first descent allows the classical auxiliary count but does not establish that the finite deck agrees with that event except on a rare packet-size obstruction. A score distribution is not a waiting-time distribution.",
+        "searches": [
+          "Local Resultary semantic lookup for waiting time or first hit under optimal riffle guessing, packet walks, ballot or binomial survival",
+          "Primary literature lookup for no-feedback riffle waiting times and first matches",
+          "arXiv:2308.15782v1, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed first-hit match 7b9ab77bff71 is the frozen record itself. Distinct close hits 314e4e9f3541 and 7af61d909478 concern score distribution or expectation, not exact prefix survival."
+        ],
+        "reasoning": "The binomial atom is tabulable, but existing binomial values would not certify the correspondence to finite shuffled-deck hits. No separate indexed exact formula or equivalent table for the audited observable was located.",
+        "searches": [
+          "Local Resultary search for exact first-hit/no-hit probabilities, binomial-atom survival and fixed-depth riffle guesses"
+        ]
+      },
+      "rationale": "The prior optimal sequence, score distributions and ballot count are credited. The distinct result is the fixed-depth first-hit comparison between the finite GSR deck and a classical critical walk, including an explicit error through the midpoint and a sharp truncated mean. No inspected source covers that connection and quantitative conclusion.",
+      "residual_risks": [
+        "An unlocated first-passage treatment of this same canonical prefix could reduce originality. The auxiliary ballot enumeration and its ordinary one-shuffle reflection-principle case are not asserted new. The bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact policy confirmed; optimality is expected score, not first-hit optimization",
+          "evidence": "The formula uses i and applies above n(k); k=1 has other optimal ties, and an odd middle position permits reflection.",
+          "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+          "material_read": "Theorem 1.1, Eq. (1.2), HTML offsets 5150–6223; Theorem 1.2; Corollary 4.1 and Remark 4.2 near offset 33100",
+          "method": "Lawful open HTML full-text passages",
+          "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+          "trigger": "Canonical guess definition, indexing, and fixed-k optimality"
+        },
+        {
+          "assessment": "Total-score results and waiting-time prospect, not the audited finite-prefix/walk law",
+          "evidence": "The conclusion identifies waiting times for correct guesses as an additional question that the approach could analyze.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.15782v1",
+          "material_read": "§5, HTML near offset 65200",
+          "method": "Lawful open full-text passage",
+          "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+          "trigger": "Potential earlier waiting-time result via one-shuffle walks"
+        },
+        {
+          "assessment": "Same-game overlap but different statistic; same date does not decide priority",
+          "evidence": "Limiting total number of correct guesses, not the time of the first match or its survival law.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-half-normal-sum-limit-for-optimal-no-feedback-guessing-after-mul--314e4e9f3541",
+          "material_read": "RESULT.md, opening finding near offset 0 in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and local mirror passage",
+          "title": "Half-normal sum limit for optimal no-feedback guessing after multiple riffle shuffles",
+          "trigger": "Closest distinct indexed record on fixed-depth canonical guessing"
+        },
+        {
+          "assessment": "Different admissible strategy and objective",
+          "evidence": "A permutation/each-label-once constraint and expected score, not repeated canonical guesses and their first match.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-fixed-shuffle-score-for-unique-label-no-feedback-riffle-gu--7af61d909478",
+          "material_read": "Finding on admissible strategies and expected score",
+          "method": "Local Resultary lookup and local mirror passage",
+          "title": "Sharp fixed-shuffle score for unique-label no-feedback riffle guessing",
+          "trigger": "Nearby indexed riffle optimization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Waiting time is a natural observable distinct from total score and an explicitly identified gap in the one-shuffle literature. The quantitative coupling makes an exact random-walk identity useful for an actual finite policy. The limiting law is tight while even its half-deck-truncated mean grows like a computable constant times √n, a distinction not visible in expected total score.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

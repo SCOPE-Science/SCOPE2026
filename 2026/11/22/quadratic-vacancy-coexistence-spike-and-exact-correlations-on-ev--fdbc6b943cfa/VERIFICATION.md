@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and validation limits
+# Independent mathematical audit
 
-Two self-contained source files accompany this result. To run the first, execute `c++ -O3 -std=c++17 verify_exhaustive.cpp -o verify_exhaustive && ./verify_exhaustive`. To run the second, execute `python3 verify_walsh.py`. Neither requires a third-party package.
+## correctness
 
-The C++ implementation enumerates every \(3^{16}=43{,}046{,}721\) spin-one assignment on the folded four-cube, with independent integer energy updates. It checks both off-critical endpoints, the complete critical population and the absence of other critical occupancy sectors. The reported output is `PASS exhaustive_states=43046721 critical=51 occupied_full=10 occupied_half=40 empty=1 strict_below=10 strict_above=1`.
+PASS
 
-The Python implementation verifies the folded-cube adjacency eigenvalues and critical-state energy and two-point covariance for dimensions \(4,6,8\), with predicted populations \(51,99,163\). For dimensions four and six it additionally searches half-integral affine coefficient tuples independently. Its three cases report `PASS`.
+Under the specified coordinate-plus-antipode convention the adjacency eigenvalue at Walsh weight k is n−2k+(−1)^k; for even n its minimum 1−n occurs exactly at n,n−1. The energy bound is (D−D*)K with D*=(n−1)J/2, with equality exactly on this eigenspace, including zero. Full and empty states attain the lower envelope on the two strict sides. Independently, after parity untwisting, a ternary minimizer at D* is an affine function b+Σd_i x_i on the Boolean cube, with b integer and every d_i an integer from a single-coordinate difference. Its range width is Σ|d_i|≤2. Width 0 gives the three constants; one nonzero increment of size 1 gives four half-occupied states per coordinate (two signs and two allowed baselines), one of size 2 gives two full states per coordinate, and two size-1 increments give four half states per pair. This proves that there are no other sectors and yields the displayed counts and ground energy for all even n≥4. In the original character basis the full states are signed single modes, the half states are signed half-sums of distinct modes. Summing over the signs eliminates mixed terms and gives coefficient 2+n for each diagonal character product. The diagonal character sum is (−1)^r(n+1−2r), giving the stated uniform threshold correlation after division by 1+2(n+1)^2. Independent exact enumeration of the bounded increment vectors at n=4,6 gives (empty, half, full)=(1,40,10),(1,84,14), and sums of spin products [30,−18,6,6,−18] and [56,−40,24,−8,−8,24,−40] over the respective state sets, matching the formula at all r. Replay: node /workspace/branches/independent_finite_checks.js (record 2 block).
 
-Computational checks are finite and cannot by themselves certify a theorem for all even dimensions. The proof uses the exact adjacency spectral bound, the classification of all ternary affine functions of independent signs, and a closed pair-sign sum for correlations. It assumes uniform positive antiferromagnetic exchange, no external magnetic field and zero temperature. Originality is based on examined sources and remains historically provisional. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+The spectrum, spectral bound and same-graph binary rigidity are established premises. The inspected distinct prior claims do not classify the ternary intersection of the minimum eigenspace or give the folded-cube vacancy coexistence ensemble. The spin-one threshold location is a direct spectral consequence and is not independently credited as new; the supported distinct contribution is the exact ternary classification, labeled count and critical spin-product law for this family.
+
+## value
+
+PASS
+
+The exact coexistence ensemble tests what ternary vacancies change in a frustrated, symmetric graph whose binary sector is already understood. An energy envelope alone would miss both the isolated half-density sector of quadratic cardinality and its effect on spin observables. This is a natural zero-temperature finite-cluster benchmark over an unbounded even-dimensional family, with a concrete Clebsch-graph check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

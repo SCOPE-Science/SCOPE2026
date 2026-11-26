@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:56:00.023363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every signed lift in the defining rate sum contributes to the eigenvalue 2κF_p(2πm/N); lifts divisible by N contribute zero. The nearest-neighbor term makes all modes except m=0 positive. Differentiation and the Laplace/geometric summation are justified by absolute summability of r^(1−p) for p>2, and the resulting integrand has the sign of sin θ. Reflection and strict increase on (0,π) give exactly the stated minimizers, including N=3. At p=3 the twice-differentiated cosine series converges locally uniformly off multiples of 2π by Dirichlet's test; the logarithmic identity gives −log θ+O(θ²) near zero. Integrating twice from zero with F₃(0)=F₃'(0)=0 gives (θ²/2)log(1/θ)+3θ²/4+O(θ⁴). For ε=z/log N and θ=2π/N, the Taylor error for r≤N is bounded by Cκθ⁴ times the sum of r^(1−ε), and the r>N contribution by 4κ times the tail of r^(−3−ε). Both are O_K(κN^(−2)) because N^(−ε)=e^(−z) is bounded on K. The remaining decreasing sum differs from its integral by O(1), and that integral is log N times Φ(z) with continuous value at zero. Reciprocals give the stated spectral times; a squared deviation has rate twice the gap as a worst-case rate or when a gap mode is present, and can decay faster for other initial data. This is not a finite-dephasing quantum statement. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DLMF integral and convergent expansion apply to the identical symbol, on a full open range of θ and complex parameters containing the real path near p=3 after taking the removable integer limit. They give more than the window leading term or marginal expansion.",
+          "Gonçalves–Scotta obtain N²/log N at kernel exponent 3 for the relevant reservoir regimes in a boundary-driven exclusion hydrodynamic limit, not for the sampled ring spectrum. Catalano's Eq. (9) is fixed-exponent and S30 supplies the exact marginal q² log and q² coefficients; those passages do not state the uniform ring formula."
+        ],
+        "reasoning": "Known critical scales for other boundary conditions are not coverage. The exact DLMF formulas for the same symbol, rather than the related physics results alone, supply the stronger analytic evidence.",
+        "searches": [
+          "OA: DLMF §25.12, Eqs. (25.12.11)–(25.12.12), citing Lewin",
+          "OA: Gonçalves–Scotta arXiv:2004.03978v1 model, Eq. (15) and Theorem 3.7",
+          "OA: Catalano et al. fixed-exponent Eq. (9), Eq. (12) and Eq. (S30)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and gap_check.py",
+        "DLMF §25.12, Catalano et al. arXiv:2212.07744v2, Gonçalves–Scotta arXiv:2004.03978v1",
+        "Resultary 4aa761bb0923 and c7b3e1d0eeb5; focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In (25.12.11), set s=p−1 and w=e^(iθ); the imaginary part of w/(e^t−w) is positive for 0<θ<π, so F'_p>0 and the minimum among nonzero sampled angles is the first reflected pair.",
+          "In (25.12.12), put p=3+ε and w=e^(iθ). After taking real parts the order-θ² contribution to ζ(p)−Re Li_p(w) is θ²[ζ(1+ε)/2+Γ(−2−ε)cos(πε/2)θ^ε]. Higher even powers are O(θ⁴) locally uniformly in ε, by normal convergence of the remaining series for |θ|<2π. Laurent expansion gives θ²[(1−θ^ε)/(2ε)+O_K(1)] when ε=z/log N and θ=2π/N. The divided difference equals (log N)Φ(z) plus O_K(1) after restoring the factor 1/2, i.e. (1−θ^ε)/(2ε)=(log N)Φ(z)/2+O_K(1), uniformly including ε=0 by continuity.",
+          "At ε=0 the same Laurent cancellation leaves (1/2)log(1/θ)+3/4 inside the brackets, with the uniform O(θ⁴) remainder; Catalano's S30 independently prints the corresponding two terms for A(0)−A(θ)."
+        ],
+        "reasoning": "All of the quantitative claims follow from direct Fourier sampling, elementary operations on the two exact classical formulas and a removable pole, including the location of the minimum and the compact-uniform error. This is coverage by implication even though the classical reference does not call it a Zeno-walk crossover.",
+        "searches": [
+          "OA: DLMF (25.12.11)–(25.12.12), including logarithm and s restrictions",
+          "OA: Catalano et al., supplement Eq. (S30)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen symbol is exactly 2κ[ζ(p)−Re Li_p(e^(iθ))]. Catalano's infinite-line cosine symbol satisfies λ(θ)=A(0)−A(θ) when p=2α and κ=2J²/γ; rate periodization samples it at the finite-ring Fourier angles.",
+          "The nearest indexed first-passage result has the same scalar crossover shape after z=−2u, but derives it for a mean absorption time with fluctuating nearest-neighbor rates and different mode weights. The persistent walk record uses a different Beta-law crossover."
+        ],
+        "reasoning": "The polylogarithm is an exact alternate expression for this sampled spectrum. A scalar scaling-function match alone does not identify the very different first-passage process or endpoint law with this spectral problem.",
+        "searches": [
+          "Resultary: rate-periodized power-law spectral gap, marginal constant, torus gap, moving-exponent window",
+          "Primary literature exact-formula search; OA: Catalano et al. arXiv:2212.07744v2 around Eq. (9) and Eq. (S30)",
+          "OA: DLMF §25.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed analogues inspected give a fluctuating-rate first-passage mean and a persistent-walk path/Beta law, not this gap. The exact identity resource here is DLMF rather than a numerical spectral table, and it gives the normalized symbol for every sampled parameter by substitution."
+        ],
+        "reasoning": "No finite table can establish the moving-parameter uniformity on its own; the exact formulas were checked as formulas, and the ranked index did not supply a matching complete ring statement.",
+        "searches": [
+          "Resultary: marginal 3 ring gap constant and log-window spectrum; mirror Findings 4aa761bb0923 and c7b3e1d0eeb5",
+          "DLMF §25.12, polylogarithm integral and expansion"
+        ]
+      },
+      "rationale": "The classical polylogarithm results cover the claimed new normalization and window by direct specialization of the exact ring symbol, and also give the gap-mode inequality. This is positive implication evidence, not a failure to find the exact title or formula. In particular Catalano et al. already state the normalized critical log and constant terms in supplement Eq. (S30). The frozen truncated-moment proof is valid, but the resulting spectral claim does not have an uncovered component under the stated implication standard.",
+      "residual_risks": [
+        "The primary literature query was not exhaustive and did not surface an explicit earlier window statement. The failure is based on verified analytic implication, not on assuming an earlier verbatim statement or assigning historical priority.",
+        "The comparison of Catalano's Eq. (12) rendering does not settle whether the discrepancy is a typesetting problem or a fixed-exponent formula error; neither alternative affects the exact-symbol analysis for the prescribed rate-periodized ring."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the spectral minimum and uniform expansion after symbol identification",
+          "evidence": "Integral implies sine positivity; Jonquière expansion has competing zeta and gamma poles with cancellation at p=3.",
+          "identifier_or_url": "https://dlmf.nist.gov/25.12",
+          "material_read": "Website-mode offsets 7800 and 9300, equations (25.12.11) and (25.12.12) with conditions",
+          "method": "OA bounded original equation passages",
+          "title": "DLMF §25.12, Polylogarithms",
+          "trigger": "Exact same-symbol integral and near-integer expansion"
+        },
+        {
+          "assessment": "Same infinite-lattice dispersion; fixed-exponent statements, with exact two leading marginal coefficients in S30",
+          "evidence": "S30 has κ[q² log(q²)/2+2ζ(3)−3q²/2] for A_(3,1)(q). Eq. (11) is a population-tail estimate, not the dispersion. Eq. (12)'s rendered time fraction is not used as proof of the critical normalization; the PDF text extraction of this fraction is ambiguous.",
+          "identifier_or_url": "https://arxiv.org/html/2212.07744v2",
+          "material_read": "Eq. (9) offsets 17400–22558; Eqs. (11)–(12) offsets 23200–31180; supplement Eq. (S30) near offset 53900; PDF p. 4 passage",
+          "method": "OA HTML and PDF passages",
+          "title": "Anomalous diffusion in the Long-Range Haken-Strobl-Reineker model",
+          "trigger": "Same infinite-lattice strong-dephasing symbol and marginal normalization"
+        },
+        {
+          "assessment": "Related fixed-exponent hydrodynamic scale, different observable and boundaries",
+          "evidence": "Open-segment reservoir process with |x−y|^(−3) kernel and N²/log N time for reservoir scaling exponent at least zero. The paper title differs from the frozen bibliography wording.",
+          "identifier_or_url": "https://arxiv.org/html/2004.03978v1",
+          "material_read": "Model offsets 6000–13096; Eq. (15) and Theorem 3.7 offsets 26700–33636",
+          "method": "OA original HTML passages",
+          "title": "From diffusive to fractional behavior in a boundary driven exclusion process",
+          "trigger": "Prior exponent-three time scale"
+        },
+        {
+          "assessment": "Shape analogue, not the same object or spectral claim",
+          "evidence": "Nearest-neighbor absorbing–reflecting walker, independently refreshed heavy-tailed rates, and mean absorption-time crossover at α=1/2+u/log N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-size-rounding-of-a-fluctuating-rate-first-passage-transit--4aa761bb0923/RESULT.md",
+          "material_read": "Finding, offsets 71–2400",
+          "method": "Local mirror bounded original text",
+          "title": "Finite-size rounding of a fluctuating-rate first-passage transition",
+          "trigger": "Strongest indexed structural scaling-window match"
+        },
+        {
+          "assessment": "Different model, limit and parameter dependence",
+          "evidence": "Critical change of direction-persistence exponent with a Poisson reversal path limit and Beta marginals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-nonlinear-logarithmic-window-beta-crossover-for-persistent-rando--c7b3e1d0eeb5/RESULT.md",
+          "material_read": "Finding, offsets 75–1561",
+          "method": "Local mirror bounded original text",
+          "title": "Nonlinear logarithmic-window Beta crossover for persistent random walks",
+          "trigger": "Indexed moving-exponent walk comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a statement about this specified rate generator, the asymptotic gives a physically interpretable normalization and predicts the change of relaxation across a size-dependent range of exponents. It cleanly separates gap time from squared-deviation time and finite rate-periodization from quantum or open-boundary dynamics. This usefulness does not make a direct implication of classical formulas an independent original finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

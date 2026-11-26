@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:31:11.924502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, formulation and Proof §§1–5; VERIFICATION.md; verify_corona_greedy.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/review_exact_checks.py 4; first-accepted-vertex recursion and literal maximal-set enumeration checked 33 homogeneous full laws and 20 heterogeneous rigidity cases."
+      ],
+      "rationale": "Maximality forces exactly one representative of every cluster. With equal cluster size, the independent core-first indicators and iid cluster minima independent of them give the stated greedy law on the induced candidate set B. Intra-clique label permutations act transitively on each compatible private output, giving the same uniform conditional kernel under both laws and hence exact reduction of TV to core TV. Under the candidate law conditioned on independence, B has the uniform MIS core marginal ν, and greedy leaves B unchanged. Writing ε=Pr(B not independent) and ζ for the greedy core law conditional on this event gives μ=(1−ε)ν+εζ. Since ζ puts no mass on the empty set, εν(∅)≤TV(μ,ν)≤ε. Here ε=1−Z_H(t)/(1+t)^r=|E(H)|t²+O_H(t³) and ν(∅)=1+O_H(t). This proves the sharp coefficient and the exact empty-event obstruction. For a complete core, symmetry puts all opposite-signed discrepancies on the singletons, giving equality in the empty-event lower bound. For unequal positive sizes the candidate order need not be uniform, but the first candidate must still be accepted if B is nonempty; independence of the indicators gives the asserted all-private probability and the weighted all-subsets sum strictly dominates its independent part precisely when H has an edge.",
+      "residual_risks": [
+        "The finite tests are ancillary. The expansion fixes H and does not apply uniformly as the core grows; no uniform candidate-order law is asserted for unequal sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fairfax-Ball Thm. 1.1 classifies trees and §3 eq. (1) gives the first-vertex recursion. Kryven et al. Prop. 3.8 is sufficient only. Levit–Mandrescu Thm. 3.1(iii) gives a static corona independence polynomial."
+        ],
+        "reasoning": "The general recursion and polynomial by themselves do not supply the Bernoulli corona law or bias, and tree rigidity covers only a special regime. The earlier corpus theorem does supply the exact equal-size law for every core and is stronger than the fixed-core expansion.",
+        "searches": [
+          "Web: \"clique corona\" independence polynomial corona graph generating function independent sets exact formula; graph substitution corona random greedy maximal independent set distribution",
+          "Fairfax-Ball arXiv:2610.02276v1; Kryven–Versendaal–de Vries arXiv:2608.07239; Levit–Mandrescu, On Clique Corona Graphs — A Short Survey"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c584f3577759 (original claim and proof)",
+        "arXiv:2610.02276v1",
+        "arXiv:1907.07216",
+        "arXiv:2608.07239",
+        "Levit–Mandrescu survey Thm. 3.1(iii)",
+        "DOI 10.1016/j.dam.2015.09.021 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From its thinning law split on B independent. The conditional law of B is precisely ν by the earlier count. On B not independent the output is never empty; therefore TV lies between εν(∅) and ε for ε=Pr(B not independent). The order-t² part of ε counts exactly the excluded two-vertex edge subsets."
+        ],
+        "reasoning": "The two bounds have the same leading term |E(H)|t² and error O_H(t³) for each fixed core. For unequal s_v, the earlier all-private proof needs only that some earliest candidate must be selected, not iid candidate times: replace the common probability by the clusterwise one and compare the all-subsets product with its independent part. The unequal-size criterion is not stated earlier but is a direct extension of that proof.",
+        "searches": [
+          "c584f3577759 RESULT.md, maximal-set count, Finding, and independent-minima proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier law uses p=1/(s+1), A for candidates, and g_{H[A]}(S)/|A|! for the induced greedy law. It states the same independent uniform private-label choices and the same iff edgeless claim."
+        ],
+        "reasoning": "Set p=t/(1+t), n=r, and g/|A|!=q_A. Then p^|A|(1−p)^(r−|A|)=(1+t)^−r t^|A|, term by term. The label spaces and uniform reference laws are identical.",
+        "searches": [
+          "Resultary: random greedy maximal independent set clique corona exact law private clique core terminal distribution total variation bias",
+          "Prior record c584f3577759, RESULT.md Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both searches recovered c584f3577759. Its Finding gives TV=s/(s+r)−(s/(s+1))^r for complete cores, exactly the frozen expression, and the preceding full law is for arbitrary H."
+        ],
+        "reasoning": "This is exact formula coverage, not merely a match of test cases. Its stated complete-core limiting regime fixes s, but the exact formula also gives the frozen coefficient for fixed complete H as s grows.",
+        "searches": [
+          "Resultary: greedy MIS uniformity rigidity corona tree edge count asymptotic bias",
+          "Resultary: clique corona sharp fixed-core total variation bias edge count coefficient inverse clique size asymptotic 1/s^2"
+        ]
+      },
+      "rationale": "Direct coverage in the earlier dated Resultary record c584f3577759: exactly the equal-size full law, uniformity iff edgeless, and complete-core TV. The fixed-core expansion for arbitrary H is an elementary corollary of this full law and its count of maximal independent sets; the heterogeneous all-private test only changes independent cluster-success probabilities. These are statement-level comparisons against the actual earlier result, not an inference from similar titles or from chronology alone.",
+      "residual_risks": [
+        "Original article on the independence polynomial was not retrieved in full; this does not affect the demonstrated catalogue overlap. The decision establishes scientific coverage, not historical authorship or external publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equal-size coverage; broader exact law implies fixed-core asymptotic",
+          "evidence": [
+            "Thinning sum, uniform private kernel, edgeless iff, maximal independent set count, and complete-core exact TV are written explicitly."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-random-greedy-thinning-and-exact-uniformity-obstruction-for-cliq--c584f3577759/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Proof passages starting at offsets 410 and 2400",
+          "method": "Local published-record mirror, bounded text read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Random-greedy thinning and exact uniformity obstruction for clique coronas",
+          "trigger": "Exact same graph construction and terminal-law claim"
+        },
+        {
+          "assessment": "Tree specialization and general recursive method, not the explicit corona law",
+          "evidence": [
+            "A finite nonempty tree has uniform greedy output iff K_1 or K_2; the recurrence chooses the first vertex then deletes its closed neighborhood."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02276v1",
+          "material_read": "Thms. 1.1–1.2 pp. 1–2 and first-vertex recurrence §3 eq. (1)",
+          "method": "Open original, statement and recurrence comparison",
+          "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+          "trigger": "Same uniformity conflict for tree MIS"
+        },
+        {
+          "assessment": "Greedy density and local convergence in the inspected passage",
+          "evidence": [
+            "The target observable is output density, not the labeled terminal law on arbitrary coronas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "Introduction, p. 1",
+          "method": "Open original, scope comparison",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same random-priority greedy process"
+        },
+        {
+          "assessment": "Sufficient structural conditions only",
+          "evidence": [
+            "Regular-independent-set criterion does not deliver the required necessity or quantitative law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.07239",
+          "material_read": "Prop. 3.8, p. 23",
+          "method": "Open original, inspected exact implication",
+          "title": "Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints",
+          "trigger": "General greedy uniformity criterion"
+        },
+        {
+          "assessment": "Static polynomial, no greedy priority law in this passage",
+          "evidence": [
+            "I(G∘H;x)=I(H;x)^|V(G)| I(G;x/I(H;x)) counts independent sets by size."
+          ],
+          "identifier_or_url": "Levit–Mandrescu, §3 Theorem 3.1(iii), p. 71",
+          "material_read": "Theorem 3.1(iii)",
+          "method": "Open survey passage; attempted separate primary article DOI 10.1016/j.dam.2015.09.021 without full text access",
+          "title": "On Clique Corona Graphs — A Short Survey",
+          "trigger": "Potential dominating graph substitution law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, bias and unequal-size claims; prior c584f3577759 Counting/Thinning law and Proof; mixture squeeze above"
+      ],
+      "rationale": "The full law would be a useful structural observation if not already covered. Its surviving additions do not constitute a separate substantive result at this scope: the fixed-core bias coefficient counts excluded pairs after the exact-law mixture reduction, and heterogeneous rigidity is the same empty-output obstruction with variable weights. More tests, changed parameters, or relabeling do not rescue the covered finding.",
+      "residual_risks": [
+        "No rejection of the mathematical correctness or utility of the earlier law. No new joint-limit or other substantive surviving claim is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

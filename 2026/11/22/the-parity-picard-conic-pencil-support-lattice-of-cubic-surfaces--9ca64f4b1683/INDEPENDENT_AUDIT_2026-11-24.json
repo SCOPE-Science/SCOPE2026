@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:53:59.722556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, and Proof",
+        "Frozen VERIFICATION.md and verify_conic_support.py, inspected and not executed",
+        "Independent Picard Gram-matrix determinant argument",
+        "Casalaina-Martin–Grushevsky–Hulek arXiv:2312.15369v2, Remark 3.2"
+      ],
+      "rationale": "Work in the universal six-point blow-up basis, write P for the matrix of the 27 line classes and D=diag(1,−1,…,−1) for the intersection form. The meeting adjacency is A=I+PᵀDP since a line has self-intersection −1 and distinct lines have intersection 0 or 1. The residual conic in a plane through ℓ has class h−[ℓ]. Each other line meeting ℓ lies in its unique such plane and occurs in the residual conic. A doubled line or a residual conic containing ℓ would require h=ℓ+2m or h=2ℓ+m, impossible on intersecting the repeated line, which has h-degree one and self-intersection −1. Thus the ten neighbors are paired into the five conic fibers even at special incidences. Independently of the common-neighbor computation, the given classes give PPᵀD(x)=5h(h·x)−6x: summing the class terms on H yields 39H−15ΣE_i, and on E_i gives 15H−11E_i−5Σ_{j≠i}E_j. Hence PA(v)=5(h Σa_ℓ−P(v)), and the h-degree gives column sums 10. Sylvester's determinant identity gives det A=det(I+PPᵀD)=10(−5)^6 because h²=3 and h-perpendicular has dimension six. Each column therefore satisfies both congruences, and their kernel has index 2·5^7: the Picard component is surjective by the E_i and H=L_12+E_1+E_2, while 5e_ℓ independently generates the parity component. Equal indices prove the exact image equality. The cokernel and Smith factors follow, and a line class has h-degree 1, so its mod-five class has order five and its formal parity has order two. Its order is exactly ten.",
+      "residual_risks": [
+        "The free lattice is on geometric line symbols with integral coefficients. The quotient is not Picard torsion, and the argument does not assert a Galois-descent statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 3.2 describes the projection through a line and its five singular fibers",
+          "Elsenhans–Jahnel pp.2–3 recalls the 27 lines, 45 tritangent planes, Steiner trihedra and double-six relationships",
+          "Brouwer–Van Eijl studies ranks modulo p of aA+bJ+cI for strongly regular graphs and gives Schläfli parameters and spectrum"
+        ],
+        "reasoning": "The universal conic geometry and general integral matrix tools are prior inputs. The compared graph material concerns abstract adjacency and ranks; the geometry passages give fibers or different support families, not the specific image as the simultaneous kernel on the designated geometric line generators.",
+        "searches": [
+          "arXiv:2312.15369v2 Remark 3.2",
+          "arXiv:1006.1474 §§2.1–2.7",
+          "Brouwer–Van Eijl doi:10.1023/A:1022438616684, abstract, §1, p.339"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer–Van Eijl doi:10.1023/A:1022438616684 pp.329,339–340",
+        "Özçelebi dissertation §6.3.1 p.90",
+        "arXiv:2312.15369v2 Remark 3.2",
+        "arXiv:1006.1474 §§2.1–2.7",
+        "Original Resultary statements for Steiner, degree-two conic, tritangent and double-six supports"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known Schläfli graph data the complementary adjacency A has eigenvalues 10,1^(20),(-5)^(6); A²=5I−4A+5J reduces to A²=A modulo 5",
+          "2026/11/2/SCOPE-integral-tritangent-presentation-of-the-e-6-weight-lattice--d458bb2de263 gives the relation lattice from 45 tritangent supports, while 2026/11/2/SCOPE-the-order-four-integral-reconstruction-obstruction-for-schl-fli--0aac314408f8 concerns 36 twelve-line supports"
+        ],
+        "reasoning": "The idempotent modulo 5 has rank 20 by its reduced characteristic polynomial, and v5(det A)=7; therefore all seven positive 5-exponents are one. At 2 the determinant valuation is one. This mechanically gives the numerical Smith form, so that is credited as an implication, regardless of whether it is separately tabulated. Knowing the abstract quotient does not identify its congruence homomorphisms on the line symbols. The record uses a separate geometric argument: the actual generators map to 5(h−[ℓ]), parity vanishes, and the two conditions are independently surjective. The inspected tritangent/double-six and Steiner image statements do not give these generator classes or the resulting full-rank kernel for this support map.",
+        "searches": [
+          "Brouwer–Van Eijl p.329, §1, and p.339 item 7",
+          "Özçelebi §6.3.1",
+          "SCOPE integral tritangent, order-four double-six, and index-three Steiner support original Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brouwer–Van Eijl p.339 identifies the complement of the Schläfli graph as GQ(2,4), establishing that its collinearity adjacency is the correct graph alias",
+          "Özçelebi §6.3.1 p.90 computes 1^6,2^14,8^6,16 for the NON-collinearity matrix J−I−A"
+        ],
+        "reasoning": "Credit the exact graph equivalence. The non-collinearity Smith type does not transfer as invariant factors under J−I−A. The graph spectrum and parameters do transfer, and the abstract Smith form of the meeting matrix can then be recovered directly as below. Neither the non-collinearity form nor the abstract type specifies an intrinsic Picard map.",
+        "searches": [
+          "Resultary for integral conic-pencil component support, cubic-surface line lattices, tritangent and double-six support maps",
+          "Primary query: Smith normal form adjacency collinearity graph GQ(2,4) complement Schläfli graph 27 10 1 5 156250 cubic surface lines invariant factors",
+          "Brouwer–Van Eijl (1992), doi:10.1023/A:1022438616684, §1 and p.339, item 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer–Van Eijl item 7 gives (27,16,10,8) and non-collinearity eigenvalues 16,4,−2 with multiplicities 1,6,20",
+          "2026/11/22/SCOPE-the-index-three-steiner-trihedral-support-lattice-on-a-smooth-cu--8a178617dee9: same 27 geometric line generators but 120 nine-line supports, image π^(-1)(3Z[h]), Smith type 1^20,3,0^6",
+          "2026/11/22/SCOPE-the-integral-conic-pencil-support-lattice-of-degree-two-del-pezz--aed891fd3a93: 56 curve generators, 126 twelve-component supports, not the cubic map"
+        ],
+        "reasoning": "The Steiner record is a material structural overlap, not dismissed by its same-day date; its image is a different, lower-rank lattice. The degree-two surface result changes both lattice and pencil. The exact graph data cover the ingredients of the numerical Smith calculation but do not identify the Picard quotient. The DistanceRegular page was not retrieved, so the comparison relies on the primary graph passages instead.",
+        "searches": [
+          "Resultary exact and structural analogues for the 27-by-27 conic support lattice",
+          "Özçelebi §6.3.1 p.90 via TU/e repository",
+          "DistanceRegular complement-Schläfli page and original Brouwer–Van Eijl p.339 and p.340 table"
+        ]
+      },
+      "rationale": "The five-fiber geometry and meeting graph are classical. The numerical index and abstract Smith type are immediate consequences of the published graph parameters and spectrum with the standard adjacency equation, and are not independent novelty. The supported distinct contribution is identifying the image intrinsically inside the formal line lattice by the two named congruences, i.e. identifying the quotient map itself rather than its abstract invariant factors. The closest graph and support statements inspected do not make that Picard identification for this map.",
+      "residual_risks": [
+        "Earlier graph computations may tabulate the abstract numerical invariant, which is already credited as mechanically implied. Earlier work using the cubic Picard realization may contain the exact congruence kernel; bounded source comparison does not establish historical uniqueness. DistanceRegular timed out and was not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives parameters and spectrum from which numerical Smith follows; inspected results are not a Picard image identification",
+          "evidence": "Item 7 gives the Schläfli parameters (27,16,10,8), eigenvalue multiplicities and select 2- and 3-ranks for the non-collinearity matrix and shifts, and identifies the complementary graph as GQ(2,4).",
+          "identifier_or_url": "https://doi.org/10.1023/A:1022438616684",
+          "material_read": "Abstract, §1 p.329, § example 7 p.339 and Schläfli table row p.340 (OA offsets 27060–28218 and 28000 vicinity)",
+          "method": "Publisher OA PDF, identified from volume pages 329–346 after archival mirror errors",
+          "title": "On the p-Rank of the Adjacency Matrices of Strongly Regular Graphs",
+          "trigger": "Strong plausible prior graph rank and Smith coverage on the same 27-vertex graph and complement"
+        },
+        {
+          "assessment": "Exact Smith type of a distinct complementary matrix",
+          "evidence": "Uses non-collinearity adjacency (no line joining), identifies Schläfli with parameters (27,16,10,8), and computes 1^6,2^14,8^6,16.",
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/3689733/721532.pdf",
+          "material_read": "§6.3.1 p.90, OA offset 267000",
+          "method": "Lawful alternate TU/e primary PDF",
+          "title": "Buildings and Kneser Graphs",
+          "trigger": "Exact 27-vertex generalized-quadrangle Smith computation in cited thesis"
+        },
+        {
+          "assessment": "Covers the classical fiber input; does not state the integral image in that passage",
+          "evidence": "Projection through a line gives the conic bundle with five singular fibers.",
+          "identifier_or_url": "https://arxiv.org/html/2312.15369v2",
+          "material_read": "Remark 3.2, OA offset 32700",
+          "method": "OA primary full-text passage",
+          "title": "The birational geometry of moduli of cubic surfaces and cubic surfaces with a line",
+          "trigger": "Same conic bundle and reducible fibers"
+        },
+        {
+          "assessment": "Classical incidence of other families",
+          "evidence": "Recalls tritangents, paired Steiner trihedra with nine-line support and their relation to double-sixes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.1474",
+          "material_read": "§§2.1–2.7, pp.2–3, OA offsets 5000–9869",
+          "method": "OA primary PDF passages",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "Cubic line configurations and comparable integral supports"
+        },
+        {
+          "assessment": "Methodological overlap; different family, rank and condition",
+          "evidence": "Image of the 27-by-120 Steiner-pair support map is π^(-1)(3Z[h]) with Smith type 1^20,3,0^6.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-index-three-steiner-trihedral-support-lattice-on-a-smooth-cu--8a178617dee9",
+          "material_read": "Original Finding",
+          "method": "Local mirror",
+          "title": "The index-three Steiner-trihedral support lattice on a smooth cubic surface",
+          "trigger": "Strongest same-surface intrinsic support image analogue"
+        },
+        {
+          "assessment": "Distinct maps and image descriptions",
+          "evidence": "The 45 tritangents generate the relation lattice for Picard modulo h. The 36 double-sixes give a defect in that ambient relation lattice. Neither is the full-rank meeting support image.",
+          "identifier_or_url": "2026/11/2/SCOPE-integral-tritangent-presentation-of-the-e-6-weight-lattice--d458bb2de263; 2026/11/2/SCOPE-the-order-four-integral-reconstruction-obstruction-for-schl-fli--0aac314408f8",
+          "material_read": "Both original Findings",
+          "method": "Local mirror",
+          "title": "Integral tritangent presentation and double-six support comparisons",
+          "trigger": "Potential derivation from previous support-image descriptions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Brouwer–Van Eijl and Özçelebi graph data for the baseline",
+        "Original Resultary Steiner, tritangent and double-six image statements for comparison"
+      ],
+      "rationale": "The geometrically specified support family is canonical, and the result decides whether an arbitrary prescribed formal combination of the 27 lines can be made integrally from it using parity and a coordinate-free Picard condition. This identifies which combinations fail, not just the known order and abstract shape of the obstruction. It gives an integral reconstruction test on the actual line generators that a graph spectrum, numerical Smith form, or rational solution cannot give by itself. The value is in this image identification, not the numerical diagonal or the classical conic geometry.",
+      "residual_risks": [
+        "The calculation is universal across smooth cubic surfaces in the stated scope and does not encode variation in moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:37:35.777957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Count private edges across prefixes with zero, one or two hubs: the widths are a+b, t-a+b+1, and 2t-a-b for U before V. Only a direct adjacent U/V swap changes orientation, and it presents middle widths t+1±(a-b), so it cannot occur at budget t or below. Each orientation is nonempty at t by A^tUVB^t and its mirror; at any lower nonempty budget exchange the two labeled classes and hubs to see that both orientations occur. An adjacent swap changes only the prefix between the swapped entries: BA→AB leaves that cut unchanged outside the hubs and lowers it by two inside; BU→UB and VA→AV bound the new cut by an unchanged neighboring cut minus one. After evacuating the wrong external classes and sorting the middle, UA→AU has new cut a+1≤t and BV→VB has new cut t-b≤t. Same-class label swaps preserve all widths. The passes therefore normalize every feasible order at budget at least t in O(t²) moves. The bridge with h=floor(t/2) has widths bounded by max(2h,t+1,2t-2h)=t+1 in either hub order. The recurrence appends one available symbol and tests the resulting prefix; assigning leaf labels multiplies by (t!)². Independent replay: python3 /workspace/branches/202fc70b-cbfc-4afc-9663-4988e7880669/edgecut_check.py. Its direct edge-cut permutation enumeration and BFS found profiles (1,1)/(16), (16,16)/(296), and (1224,1224)/(13536) at t/t+1 for t=1,2,3; its prefix DP found M_t=1,4,34,160,950,4424 through t=6. The bounded checks corroborate rather than prove the general result. The frozen verifier was inspected, not run. No shortest-path claim is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both give a reconfiguration bound 2k for pairs of orders of width at most k; they also give a quadratic move bound at that relaxed budget."
+        ],
+        "reasoning": "Their arbitrary-graph theorem does not ensure a path at t+1 from endpoints of width t for t>1, let alone connectivity for all states of width at most t+1. The quadratic move estimate in isolation is not new; the smaller feasible width is material.",
+        "searches": [
+          "MFCS 2021 DOI 10.4230/LIPIcs.MFCS.2021.8, Theorem 3",
+          "JGAA 2023 DOI 10.7155/jgaa.00628, Theorem 1 and introduction"
+        ]
+      },
+      "checked_sources": [
+        "10.4230/LIPIcs.MFCS.2021.8",
+        "10.7155/jgaa.00628",
+        "Resultary star record 9f12c29d9ece",
+        "Resultary cycle record d4afbc2fcbc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic upper bound has no matching lower bound on this family; fixed single-hub positions in the star paper have no second hub whose order can change."
+        ],
+        "reasoning": "The paired middle-cut obstruction t+1+|a−b| and the feasible same-budget normalization address gaps in the cited results, not a mere specialization of their stated conclusions.",
+        "searches": [
+          "MFCS 2021 Theorem 3",
+          "Resultary mirror: SCOPE-sharp-cutwidth-constrained-order-reconfiguration-on-stars--9f12c29d9ece, finding and proof steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored star result uses feasible hub-position intervals and frozen left sets; the cycle result uses interval growth and root layers. Both use the same adjacent-transposition state model under the same cut definition."
+        ],
+        "reasoning": "Neither graph family encodes two private leaf classes and exchange of two distinct adjacent hubs. The tight components here are hub orientations, not subsets of a single hub's leaves or cycle root layers.",
+        "searches": [
+          "Resultary: cutwidth sublevel adjacent transpositions layout reconfiguration paths cycles forests additive barrier",
+          "Primary search: cutwidth order reconfiguration adjacent swaps balanced double star tree connected components sharp one unit double stars Arrighi Fernau Oliveira Wolf optimal layouts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching index hit is the reviewed result, not separate precedence. The related star record gives factorial/binomial counts for a different graph; the cycle record gives n·2^(n−2) feasible orders and one component."
+        ],
+        "reasoning": "Those enumerations do not count this double-star state's connected components; a numerical coincidence would not establish coverage without an identification of the state spaces and moves. No independent matching census was located.",
+        "searches": [
+          "Resultary: cutwidth sublevel adjacent transpositions layout reconfiguration paths cycles forests additive barrier",
+          "JGAA 2023 DOI 10.7155/jgaa.00628, theorem and scope"
+        ]
+      },
+      "rationale": "The same order-reconfiguration model is established; the finding is the exact connectivity threshold, the obstruction at the tight budget, and the component census on a specific two-hub tree family. Located results do not cover these claims; this is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "An earlier sharp result phrased for a two-center caterpillar or equivalent layout system could be unindexed or not surfaced by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General relaxed-budget theorem, not sharp double-star classification",
+          "evidence": "Introduction states Theorem 3: endpoints of width ≤k can be reconfigured within width 2k, in O(n²) swaps.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.8",
+          "material_read": "Primary OA PDF introduction, main theorem description, definitions of state and move",
+          "method": "OA PDF text inspection",
+          "title": "Order Reconfiguration Under Width Constraints (MFCS 2021)",
+          "trigger": "Same cutwidth-constrained adjacent-swap model"
+        },
+        {
+          "assessment": "Relevant general upper bound; not a sharp specialized conclusion in inspected material",
+          "evidence": "Page 410 describes Theorem 1 as guaranteeing width at most 2k for endpoints of width at most k.",
+          "identifier_or_url": "https://doi.org/10.7155/jgaa.00628",
+          "material_read": "Primary OA PDF abstract, introduction and order reconfiguration definitions",
+          "method": "OA PDF text inspection",
+          "title": "Order Reconfiguration under Width Constraints (JGAA 2023)",
+          "trigger": "Expanded same-model paper may subsume the claim"
+        },
+        {
+          "assessment": "Different graph and orientation invariant",
+          "evidence": "A single hub at position c has width max(c,r−c); a unique legal c freezes the subset before it.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cutwidth-constrained-order-reconfiguration-on-stars--9f12c29d9ece",
+          "material_read": "Mirrored finding and proof of hub-position constraints, components and interval lemma",
+          "method": "Local Resultary/OA mirror text",
+          "title": "Sharp cutwidth-constrained order reconfiguration on stars",
+          "trigger": "One-unit barrier and exact component counting for a related tree"
+        },
+        {
+          "assessment": "Different graph and move geometry",
+          "evidence": "Cutwidth two forces each prefix to be a cycle interval; the resulting bit layers are connected, unlike the tight double-star layers taken together.",
+          "identifier_or_url": "2026/11/22/SCOPE-quadratic-geodesic-detours-in-optimal-cutwidth-orders-of-cycles--d4afbc2fcbc9",
+          "material_read": "Mirrored finding and proof steps on prefix classification and connectivity",
+          "method": "Local Resultary/OA mirror text",
+          "title": "Quadratic geodesic detours in optimal cutwidth orders of cycles",
+          "trigger": "Closely related constrained-order enumeration and connectivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural minimal extension of a star with a genuine order-change obstruction. Identifying the exact extra budget, an explicit crossing move, routing inside both orientations, and their exact size adds information neither generic factor-two slack nor a feasibility count gives. The result is limited to unit-weight balanced double stars.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

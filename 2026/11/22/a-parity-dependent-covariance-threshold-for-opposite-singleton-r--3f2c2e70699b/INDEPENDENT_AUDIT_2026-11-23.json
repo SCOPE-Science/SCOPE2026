@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:45:09.916166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under a fair stationary start and symmetric flip probability p, the edge-flip indicators F_i are iid Bernoulli(p). An independent sign check uses A_i=I_i+J_i=F_i F_{i+1} and D_i=I_i-J_i=(-1)^(X_i) A_i, where I_i,J_i indicate the two trigrams. Then Cov(U,V)=(Var(sum A_i)-Var(sum D_i))/4. A_i has variance p²-p⁴ and off-diagonal covariance p³-p⁴ at lag one, zero at larger lags. D_i has mean zero and second moment p²; the lag-one product expectation is -p³ since the common first flip reverses sign. At lag h>=2 it is p⁴(1-2p)^(h-2), since the two forced flips at the beginning cancel in the sign and the h-2 intermediate flips supply the correlation. Lag two in this computation correctly accounts for the shared endpoint. With N=n-2 positions, weight each positive lag by 2(N-h). For N>=2 the tail sum is [(N-2)-(N-1)rho+rho^(N-1)]/(1-rho)², rho=1-2p, including the empty sum when N=2. Substitution gives p²H_(n-3)(p)/8; for n=3 the two trigrams are incompatible, giving -p⁴/4. The step-two increment of H is (1-rho²)(3+rho^K)>0; H_1=8p(1-p) and H_2=2p(8-9p). For even K>=2, positivity when p<=1/2 follows from H_2 and monotonicity in K. On q=1-p in [0,1/2] the derivative of H_K(1-q) is at least 2, the term 2K(1-2q)^(K-1) being nonnegative, and H_K(1)=-2. Thus there is exactly one crossing, increasing in p with n by the step-two comparison, with p_5=8/9. With p=1-z/K and K even, H_K converges to 6z-1-exp(-2z); its uniquely simple positive root brackets the scaled finite roots from both sides. For fixed interior p the other H terms stay bounded and the linear term yields Cov/n→3p³(1-p)/4. Independent exact coefficientwise enumeration of all 1016 words at lengths 3–9 confirmed the means and covariance, e.g. n=5 gives 2p³-9p⁴/4. Decimal bisection gives c=0.26480563675075367228677..., rounding to the stated number. The aggregate counts and replay method are in /workspace/reviews/evidence/3-markov-replay.md. This replay is finite; the sign classification and moving-root limit follow from the inequalities above. Frozen checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rukhin studies general overlapping patterns in ergodic finite-order Markov sequences and relates count generating functions and covariance matrices to word-correlation matrices. The Mytalas–Zazanis article is bibliographically a central-limit treatment of Markov-dependent run counts; its Appendix A.2 was not independently available."
+        ],
+        "reasoning": "General moment machinery can encode the relevant two-word moments and furnish the starting polynomial. It is not a finite all-sample-length sign theorem, and a central-limit covariance by itself would discard the bounded oscillating term that matters near p=1. This last distinction is mathematical, not an assertion of what every section of the inaccessible article contains.",
+        "searches": [
+          "Web: Markov binary patterns 010 101 finite covariance counts singleton runs symmetric stationary runs parity threshold Rukhin Mytalas Zazanis",
+          "Rukhin DOI 10.1137/S0040585X97982670, MathNet full text, Sections 2, 3, 6",
+          "Mytalas–Zazanis DOI 10.1016/j.jspi.2012.07.014, publication metadata and open-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "Rukhin MathNet tvp21 (selected full-text sections)",
+        "Mytalas–Zazanis DOI 10.1016/j.jspi.2012.07.014 (bibliographic access only)",
+        "Resultary fixed-composition opposite-colour singleton and trigram covariance records (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance is recoverable from exact joint word counts. The finite formula contains (1-2p)^(n-3), which vanishes for fixed p as n→infinity but approaches exp(-2z) for even n-3 and p=1-z/(n-3). The all-n sign requires a separate strict step-two inequality and a one-variable monotonicity argument."
+        ],
+        "reasoning": "An asymptotic covariance at fixed p does not bound the term uniformly in this moving regime. General covariance computation is established prior methodology; the checked source passages do not settle the exact parity and uniqueness thresholds or their boundary constant.",
+        "searches": [
+          "Rukhin MathNet full text, word-correlation and generating-function Sections 2–3 and covariance Section 6",
+          "Mytalas–Zazanis bibliographic and open-text access review"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An exact interior singleton run corresponds to an overlapping trigram 010 or 101 in a linear sample. The nearest colour-separated indexed covariance result is for uniformly shuffled words of fixed composition; other indexed motif results use different patterns, circular boundaries or fixed weights."
+        ],
+        "reasoning": "The same colour-separated run language is not an equivalent probability law: the Markov model weights a word by its number of flips, not by membership in a fixed-weight class. Opposite-sign conditional and unconditional statements in that comparator do not give the threshold here.",
+        "searches": [
+          "Resultary: symmetric binary Markov chain runs opposite singleton 010 101 covariance parity finite threshold",
+          "Resultary: overlapping words 010 101 covariance two-color singleton sign parity n-3 6p(1-p) Markov binary flip near deterministic alternation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Among located exact sign records, the closest colour-separated comparator is the fixed-composition binary-word result and the closest trigram composition threshold uses 001/010, not the same pair and not symmetric Markov sampling."
+        ],
+        "reasoning": "A finite table or a different composition boundary would not determine the unique crossing for every odd size or its near-deterministic scaling; the bounded search does not prove such a same-law table or theorem does not exist.",
+        "searches": [
+          "Resultary: overlapping words 010 101 covariance two-color singleton sign parity n-3 6p(1-p) Markov binary flip near deterministic alternation",
+          "Web: Markov binary patterns 010 101 finite covariance counts singleton runs symmetric stationary runs parity threshold Rukhin Mytalas Zazanis"
+        ]
+      },
+      "rationale": "General Markov word-count machinery covers computing covariances, so the formula alone is not credited as new general methodology. The bounded comparison supports the complete finite opposite-colour parity/sign classification, monotone unique odd thresholds and sharp near-alternation scale as the distinct contribution. Some older run-covariance text could not be independently inspected; no claim of absolute priority is made.",
+      "residual_risks": [
+        "The Mytalas–Zazanis full article and its Appendix A.2 were not accessible for an independent scope check.",
+        "An older exact pattern-moment treatment could contain an equivalent finite specialization under different terminology. No priority conclusion follows from access failure or absence from search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers broad pattern-correlation and moment machinery, not the specific finite sign theorem in inspected passages",
+          "evidence": [
+            "Section 2 relates word correlations to the transition matrix; Theorem 3.1 opens the count-generating-function framework; Section 6 explicitly addresses the covariance matrix for empirical m-gram frequencies and its pseudoinverse."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/tvp21",
+          "material_read": "Original Russian PDF abstract/introduction, definitions and Theorem 2.1 discussion in Section 2, opening of Section 3, asymptotic covariance passages and opening of Section 6 (text offsets including 19200–39004, 67000–74873 and 81000–88999); not the whole paper",
+          "method": "MathNet lawful full-text PDF, bounded original-language passages",
+          "title": "Pattern correlation matrices for Markov sequences and tests of randomness",
+          "trigger": "General same-object machinery for overlapping Markov word covariances"
+        },
+        {
+          "assessment": "Plausibly relevant; unresolved full-text scope, not a negative source finding",
+          "evidence": [
+            "Journal of Statistical Planning and Inference 143 (2013), 321–333; the record identifies a central-limit-focused Markov run-count study, not sufficient to exclude a finite result in the text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2012.07.014",
+          "material_read": "Publisher/DOI bibliographic and indexed material; full text and Appendix A.2 not inspected independently",
+          "method": "Bibliographic lookup and authorized open-text access attempt",
+          "title": "Central Limit Theorem approximations for the number of runs in Markov-dependent binary sequences",
+          "trigger": "Potential broader same-model run-covariance source"
+        },
+        {
+          "assessment": "Different clearly stated fixed-composition probability law",
+          "evidence": [
+            "Its summary specifies uniformly shuffled fixed-composition words, and studies additional conditioning on total run count."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-opposite-conditional-and-unconditional-covariance-signs-for-colo--10ab2630cc39",
+          "material_read": "Indexed title and scientific summary",
+          "method": "Published corpus semantic search",
+          "title": "Opposite conditional and unconditional covariance signs for color-separated singleton runs",
+          "trigger": "Closest indexed opposite-colour singleton covariance formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Opposite-colour enclosed singleton counts measure the two orientations of local alternation. The transition from strict positivity at every even length to an exactly delimited negative interval at odd lengths is a structural finite-sample conclusion obscured by the positive fixed-p asymptotic. The threshold and its sharp 1/n scale quantify precisely where substituting a limiting covariance would give the wrong sign. This is not an arbitrary table or a claim about all binary patterns.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

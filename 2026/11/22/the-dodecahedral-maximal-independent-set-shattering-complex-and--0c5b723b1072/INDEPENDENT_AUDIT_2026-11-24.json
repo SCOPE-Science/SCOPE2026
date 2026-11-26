@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:26:07.552658Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–46",
+        "VERIFICATION.md lines 19–33; verify_dodecahedron.cpp and verify_dodecahedron.py (inspected, not executed)",
+        "/workspace/branches/1d266479-df36-4fa2-b667-526b41e73eec/recompute.py",
+        "/workspace/branches/1d266479-df36-4fa2-b667-526b41e73eec/recompute_output.txt"
+      ],
+      "rationale": "For the specified GP(10,2), an independent support is necessary because the all-positive trace on an adjacent pair is impossible. An independent set is inclusion-maximal exactly when it dominates every unselected vertex. Testing all independent supports against the resulting full concept set via the cardinality of their traces is exact. Single-vertex extensions suffice to find facets by downward closure. The independent replay over all 2^20 masks gave 295 concepts, face counts (1,20,160,660,1470,1572,310,0,0) by cardinality, and facets 10,672,310 at cardinalities 4,5,6. BFS tested all four-sets and verified equality, not just equal count, with the ten sets of pairwise distance three. The exact augmented mod-two boundary ranks (1,19,141,519,941,305) and the chain condition give reduced Betti numbers 10,326,5 in degrees 3,4,5, and zero otherwise. The last consistency check at RESULT.md line 41 uses cardinality signs on both sides: its -311 is the negative of the conventional reduced Euler characteristic, which is +311. This does not change the homology statement.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits Liu et al. with a general bound using bipartite induced matchings. The Johnson/Hamming paper cited there uses open-neighborhood concepts. The cited whiskered-graph result assumes private leaves, absent in this cubic graph."
+        ],
+        "reasoning": "Even a sharp dimension bound by itself would give neither the exact facet support sets nor the boundary ranks. The concept difference and private-leaf hypothesis prevent the other results from applying as stated.",
+        "searches": [
+          "arXiv:2403.17910 and arXiv:2007.16042, frozen comparison lines 48–51",
+          "Local Resultary maximal-independent-set shattering and related hosts"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 0c5b723b1072 (self-match), 6b5ea035d24f and 88d743acf01d",
+        "arXiv:2302.14388 (citation and frozen report, no retrieved original passage)",
+        "RESULT.md lines 48–60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md credits the Vietoris–Rips paper for the ten equidistant sets; the local related synopsis also treats the tetrahedra. The four-facet identity uses existence of every trace and failure of every extension. The Rips condition instead tests pairwise distance at most the scale parameter."
+        ],
+        "reasoning": "A distance-three example or exhaustive metric list does not imply trace realization or maximality as a shattered support, and the Rips boundary maps are not those used here. Credit the count and existence of the tetrahedra while separating their shattering role.",
+        "searches": [
+          "Saleh–Titz Mite–Witzel arXiv:2302.14388, Lemma 4.1",
+          "Local Resultary dodecahedral scale-three Vietoris–Rips comparison 88d743acf01d",
+          "Frozen literature comparison, RESULT.md lines 48–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal independent sets are independent dominating sets, and transposing the binary vertex–maximal-independent-set incidence matrix gives the dual system identified in the frozen comparison. Ordinary independence checks only possibility of the full positive trace and not every trace."
+        ],
+        "reasoning": "Any exact dual-system trace enumeration for the same host would be equivalent, but a count of independent sets, maximum independent sets, or independent dominating sets alone does not enumerate all restrictions of the latter. The independent and shattered size-four counts, 1510 and 1470, explicitly differ.",
+        "searches": [
+          "Local Resultary on dodecahedral maximal-independent-set membership shattering",
+          "arXiv:2403.17910, Lemma 27 as cited in RESULT.md line 49"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue result 0c5b723b1072 is this frozen finding. The same-day 6b5ea035d24f synopsis treats ternary Hamming three-cube shattering. The 88d743acf01d synopsis gives scale-three Vietoris–Rips data for the dodecahedral graph, not a shattering table."
+        ],
+        "reasoning": "Different host or different face criterion does not give the needed table; metric data on the ten tetrahedra are prior geometric data and not claimed new.",
+        "searches": [
+          "Local Resultary for exact dodecahedral shattering face counts, facet sizes and Betti numbers",
+          "Local Resultary entries 0c5b723b1072, 6b5ea035d24f and 88d743acf01d"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact maximal-independent-set shattering complex census, the distance-three tetrahedra's specific role as the complete class of smaller size-four facets, and the mod-two topology. The prior tetrahedra construction and ordinary independence census are not distinct claims. The catalogue self-match is not independent prior coverage.",
+      "residual_risks": [
+        "Unavailable primary passages and possible unindexed exact dodecahedral shattering counts leave priority provisional. Shared catalogue date does not order distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior existence and count credited as stated by the frozen source; exact full-text scope not independently checked",
+          "evidence": [
+            "The overlap is the distance-three geometry in the Vietoris–Rips setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.14388",
+          "material_read": "Frozen statement of Lemma 4.1's relevance (RESULT.md line 51), primary citation, and related catalogue synopsis; no original passage retrieved",
+          "method": "Primary web lookup and OA paper query for Lemma 4.1, which timed out",
+          "title": "Vietoris–Rips complexes of Platonic solids",
+          "trigger": "Same graph and same ten distance-three tetrahedra"
+        },
+        {
+          "assessment": "Credit the stated general dual-system reduction; it does not supply the computed face and homology data",
+          "evidence": [
+            "The reported bound uses bipartite induced matchings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.17910",
+          "material_read": "Frozen description of Lemma 27 at RESULT.md line 49, not a full-text inspection",
+          "method": "Frozen source comparison",
+          "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+          "trigger": "General membership concept family and VC dimension"
+        },
+        {
+          "assessment": "Distinct host on available evidence",
+          "evidence": [
+            "The stated host is the ternary Hamming three-cube, not GP(10,2)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-nonpure-maximal-independent-set-shattering-complex-of-the-te--6b5ea035d24f",
+          "material_read": "Local catalogue synopsis",
+          "method": "Local Resultary search",
+          "title": "The nonpure maximal-independent-set shattering complex of the ternary Hamming three-cube",
+          "trigger": "Same-day catalogue record with the same shattering construction"
+        },
+        {
+          "assessment": "Geometric overlap, but a different complex",
+          "evidence": [
+            "The synopsis concerns scale-three Vietoris–Rips homology."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-integral-icosahedral-homology-lattice-of-the-dodecahedral-scale--88d743acf01d",
+          "material_read": "Local catalogue synopsis",
+          "method": "Local Resultary search",
+          "title": "Integral icosahedral homology lattice of the dodecahedral scale-three complex",
+          "trigger": "Same metric tetrahedra and homology in a dodecahedral complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–18 and 27–41",
+        "Independent facet and boundary-rank replay"
+      ],
+      "rationale": "The maximal-extension trace constraint has genuine geometry beyond the independence complex. For this standard symmetric cubic graph the result quantifies the gap, identifies the ten exceptional smallest facets by distance rather than merely by enumeration, and gives nonzero homology in three consecutive degrees. Those are useful exact comparison data for shattering by independent dominating sets on symmetric graphs.",
+      "residual_risks": [
+        "Only mod-two homology is determined; no integral torsion or homotopy type follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

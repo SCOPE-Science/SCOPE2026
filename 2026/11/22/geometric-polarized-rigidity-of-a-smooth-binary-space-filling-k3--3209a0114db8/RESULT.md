@@ -33,7 +33,7 @@ Write the standard six row-reduced Grassmannian cells for \(\operatorname{Gr}(2,
 * \((1,3)\): \(a_0\);
 * \((2,3)\): \(1\).
 
-For the first cell, the last three constraints give \((a_2,a_3)=(0,1),(1,0),(1,1)\). This zero-dimensional algebra is reduced, because the equations \(a_2^2+a_2\) and \(a_3^2+a_3\) are separable; the other two populated cells each give one reduced point. Thus the **entire geometric Fano scheme of lines** is the disjoint union of five copies of \(\operatorname{Spec}\mathbb F_2\). There cannot be hidden lines over an extension or hidden nonreduced Fano points.
+For the first cell, the last three constraints give \((a_2,a_3)=(0,1),(1,0),(1,1)\); the other two populated cells each contribute one rational line. This exhausts the geometric points. Cellwise tests alone need not detect infinitesimal directions transverse to the cells. To test the full scheme, let \(L\) be any geometric line on \(X_k\). It is a smooth Cartier divisor on the smooth surface \(X_k\), whose canonical bundle is trivial by hypersurface adjunction. Adjunction on \(L\cong\mathbb P^1_k\) therefore gives \(N_{L/X_k}\cong\mathcal O_{\mathbb P^1_k}(-2)\). The tangent space to the Fano scheme at \([L]\) is the space of embedded first-order deformations \(H^0(L,N_{L/X_k})=0\). Thus the maximal ideal of the finite-type local ring at each geometric line is zero by Nakayama's lemma. The line scheme over \(k\) consists of five reduced points; since all five lines are rational over \(\mathbb F_2\), the line scheme over \(\mathbb F_2\) is split finite étale.
 
 **Step 2: line incidence bounds the projective stabilizer.** Encode a nonzero vector \((v_0,v_1,v_2,v_3)\in\mathbb F_2^4\) as \(v_0+2v_1+4v_2+8v_3\). In an explicit order, the five lines are represented by their three nonzero vectors:
 \[
@@ -65,7 +65,7 @@ This last matrix is invertible but does **not** preserve \(X\): the coefficient 
 
 ## Verification
 
-The standalone `check_polarized_aut.py` recomputes the four Jacobian-chart Gröbner bases, all six Fano-cell Gröbner bases, the complete five-line incidence graph, the four sixteen-variable homogeneous linear systems over \(\mathbb F_2\), all candidate matrices, their ranks, and the decisive transformed-quartic coefficient. All assertions execute in exact characteristic-two arithmetic. Run `python check_polarized_aut.py` with SymPy installed. Finite-field polynomial arithmetic and exhaustive affine-Grassmannian cells are used as finite algebraic certificates over the algebraic closure, not as extrapolation from sampled extension degrees.
+The standalone `check_polarized_aut.py` recomputes the four Jacobian-chart Gröbner bases, all six Fano-cell Gröbner bases, the complete five-line incidence graph, the four sixteen-variable homogeneous linear systems over \(\mathbb F_2\), all candidate matrices, their ranks, and the decisive transformed-quartic coefficient. All assertions execute in exact characteristic-two arithmetic. Run `python check_polarized_aut.py` with SymPy installed. The cell computations certify the list of geometric line points; vanishing of the full tangent spaces follows separately from adjunction. The calculation does not extrapolate from sampled extension degrees.
 
 ## Relationship to prior work
 
@@ -73,7 +73,7 @@ The quartic is the explicit companion-matrix construction of Bourgeois-Conti, Mo
 
 ## Limitations
 
-No claim is made about unpolarized or birational automorphisms of the K3 surface, or about every minimal-degree space-filling quartic over \(\mathbb F_2\). Priority is limited by the accessible literature; the absence of an indexed matching result is not a proof of global novelty. The result is mathematically checked in the same review process, not independently audited.
+No claim is made about unpolarized or birational automorphisms of the K3 surface, or about every minimal-degree space-filling quartic over \(\mathbb F_2\). Priority is limited by the accessible literature; the absence of an indexed matching result is not a proof of global novelty.
 
 ## References
 

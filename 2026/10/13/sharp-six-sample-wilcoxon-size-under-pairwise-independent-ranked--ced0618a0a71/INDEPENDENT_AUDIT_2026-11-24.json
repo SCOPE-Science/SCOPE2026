@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:22.050974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The missing positive-rank weight must be at most two, so the four largest signs must all be positive and the two smallest cannot both be negative. Exactly three of 64 independent fair sign vectors reject. Conditional on the entire magnitude vector, K=B_3+⋯+B_6 has E[K]=2 and E[K(K−1)]=3. Thus E[(K−1)(K−2)]=1; its values at K=0,1,2,3,4 are 2,0,0,2,6, establishing the conditional 1/6 bound. Under the proposed upper law (K=1,2,4 with weights 1/3,1/2,1/6), high-bit exchangeability gives the required pair moments, either low bit is fair given the high vector, and the low pair is jointly positive with probability (1/2)P(K=2)=1/4. The law therefore attains 1/6. Under the stated lower law the same two K moments hold and K never reaches 4, while the low bits are independent of the highs and each other. Mixtures preserve these pair laws. For any two fixed observation labels, conditioning on all magnitudes gives independent fair signs at their two determined distinct ranks. Integrating against the two independent iid magnitudes gives actual pairwise independence, with a common symmetric atomless marginal. An independent 24-ticket exact computation of the upper law and its complemented zero-size law checked all four outcomes of all 15 sign pairs and the rejection rates; replay /workspace/branches/independent_checks/wilcoxon.py. The packaged script was inspected without execution, and no LP computation is needed. For clarity, the phrase 'stronger than merely demanding pairwise independence of the observations' should be read as 'not implied by bare observation-level pairwise independence': conditional sign fairness/independence alone need not force independence of magnitudes. The Finding and its endpoint realization use the correct scopes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 10 and 13 are about unweighted Bernoulli counts and include the moment framework that yields the 1/6 bound for four successes in four fair trials.",
+          "Rosenblatt–Benjamini §1 treats signed-rank power with the usual single-sample setup. The identified clustered-data source is a study of signed-rank procedures for clusters, and could not be inspected in full."
+        ],
+        "reasoning": "The count theorem supplies one decisive upper bound; it does not show that its extremizer can meet all six-variable constraints and still reject on every all-high outcome. Independent-sampling power analysis is not a theorem for the stated conditionally pairwise class.",
+        "searches": [
+          "2006.00516v6, equations (22)–(24), (27)–(29)",
+          "1311.5354v1 §1; DOI 10.1080/10485252.2012.672647"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.00516v6",
+        "arXiv:1311.5354v1",
+        "DOI:10.1080/10485252.2012.672647 (bibliographic comparison only)",
+        "Resultary b8f1cac4497e, 28552821b6bf, 4209dad13b91, 0712c2da4770, 44317224c161, d2e55488afc7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic pairwise-moment LP can represent the six-bit problem and the four-count theorem immediately bounds its tail. Neither is a statement of attainment for the weighted objective. The low-pair parity must be completed to guarantee acceptance of the high-tail witness while preserving the low–low and high–low pair constraints."
+        ],
+        "reasoning": "Count-tail and classical calibration results cannot replace the explicit six-bit completion, the zero-size witness and the rank-dependent continuous construction. No novelty is credited to generic moment bounds or linear programming.",
+        "searches": [
+          "2006.00516v6 Theorem 13 and its count-tail LP; Resultary b8f1cac4497e and 28552821b6bf; 1311.5354v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted event is the intersection of four specified positive signs with the complement of a two-sign double negative, not a symmetric six-sign count tail.",
+          "Resultary b8f1cac4497e treats first absolute moments of equally weighted fair-sign sums and explicitly excludes arbitrary weights; 28552821b6bf treats unanimity for identically distributed pairwise-independent Bernoulli variables."
+        ],
+        "reasoning": "The unweighted intersection is necessary but not sufficient for rejection. Optimizing unanimity or a first absolute moment does not by itself determine the missing low-rank restriction.",
+        "searches": [
+          "Resultary: pairwise-independent fair signs weighted sums, Wilcoxon signed-rank n=6 W+≥19, six-sign calibration",
+          "Ramachandra–Natarajan 2006.00516v6, Theorems 10 and 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-score ordering polytope is a rank-dependent problem with pairwise-independent observations, but it concerns probabilities of orderings of three observations. The Wilcoxon-named 0712c2da4770 is two-sample Mann–Whitney conditional variance. Same-day ranks/runs records 44317224c161 and d2e55488afc7 are covariance results, with neither the rejection event nor the null class here."
+        ],
+        "reasoning": "No inspected database record tabulates the same weighted event under the same constraints. The independent-sampling table entry 3/64 is correct but is only the reference size.",
+        "searches": [
+          "Resultary: exact Wilcoxon signed-rank W+≥19 sample six; pairwise-independent ranked signs; size inflation 1/6",
+          "Resultary 4209dad13b91, 0712c2da4770, 44317224c161, d2e55488afc7"
+        ]
+      },
+      "rationale": "The tight unweighted four-success bound and the moment-LP method are known. The separate contribution is the exact calibration range for this weighted rejection event, including a feasible completion of the extremal high signs by the two low signs and realization by pairwise-independent continuous observations. No examined source covers that combined statement.",
+      "residual_risks": [
+        "A historical finite weighted-Bernoulli optimization or rank-dependence calculation could give an equivalent range under a different name.",
+        "Full text of Datta–Nevalainen–Oja was not retrieved; its scope cannot be ruled out wholesale from metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precursor for the count bound, not the weighted calibration range",
+          "evidence": [
+            "For identical Bernoulli marginals there is a sharp unweighted count tail envelope; the LP uses only first and pairwise moment constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2006.00516v6",
+          "material_read": "Theorems 10 and 13 and equations (22)–(24), (27)–(29), OA offsets 75950–81931 and 99250–105250",
+          "method": "Bounded OA primary passage reading",
+          "title": "Tight Probability Bounds with Pairwise Independence",
+          "trigger": "Closest existing theorem implies the unweighted high-sign intersection bound"
+        },
+        {
+          "assessment": "Same statistic but a power question, not sharp finite dependent-sign size",
+          "evidence": [
+            "Defines the positive signed-rank sum and compares signed-rank and t-test power."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1311.5354v1",
+          "material_read": "§1 (OA text offset 0), statistic and framing of the power comparison",
+          "method": "Bounded OA primary passage reading",
+          "title": "Another Argument in Favour of Wilcoxon's Signed Rank Test",
+          "trigger": "Same one-sample test and calibration context"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": [
+            "Title specifies potentially informative cluster size; no conclusion on exact prior coverage is inferred from the title."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10485252.2012.672647",
+          "material_read": "Bibliographic identity and title only; no decisive full-text passage retrieved",
+          "method": "Publisher, PMC and Europe PMC lawful access attempts",
+          "title": "A General Class of Signed Rank Tests for Clustered Data when the Cluster Size Is Potentially Informative",
+          "trigger": "Signed-rank test under sample dependence"
+        },
+        {
+          "assessment": "Same feasible sign framework, different objectives",
+          "evidence": [
+            "Equal-coefficient first absolute moments and whole-vector unanimity, respectively, rather than a ranked weighted tail."
+          ],
+          "identifier_or_url": "Resultary b8f1cac4497e and 28552821b6bf",
+          "material_read": "First-absolute-moment scope at local offsets 959–1577; unanimity Finding at offset 0",
+          "method": "Configured search and local mirror passage reads",
+          "title": "Exact first absolute moment spectrum of pairwise independent fair signs; Sharp unanimity envelope for pairwise independent Bernoulli trials",
+          "trigger": "Closest combinatorial pairwise-sign extrema"
+        },
+        {
+          "assessment": "Different test, sample or target functional in every case",
+          "evidence": [
+            "Three-score strict order probabilities, two-sample rank-sum variance, run/sample-variance covariance, and permutation-excedance covariance do not give signed-rank size."
+          ],
+          "identifier_or_url": "Resultary 4209dad13b91, 0712c2da4770, 44317224c161, d2e55488afc7",
+          "material_read": "Findings at local offsets 394, 0, 0, and 72–451 respectively",
+          "method": "Configured search and local mirror passage reads",
+          "title": "Three-score ordering polytope; conditional Wilcoxon variance under fixed runs; sign-blind runs; rank-score/excedance covariance",
+          "trigger": "Rank-dependence and catalogue near matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sample size and tail are motivated by a conventional one-sided exact test near 5%, not by an arbitrary event. The result gives the maximum and minimum true sizes, shows attainable inflation by 32/9, and realizes it even for identically distributed symmetric observations with pairwise independence. It makes the cost of relying on pairwise rather than joint independence concrete while retaining a precisely stated conditional null.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

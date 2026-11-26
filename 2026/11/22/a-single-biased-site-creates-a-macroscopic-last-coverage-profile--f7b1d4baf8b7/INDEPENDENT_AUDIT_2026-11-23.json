@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:12:45.439166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The defect is a persistent transition rule at vertex zero, which is also the starting site. For 2≤k≤n−1, the first of the adjacent vertices k−1,k to be hit determines which of the clockwise and counterclockwise arcs through zero has already been traversed before either absorber is hit. Thus L≥k iff k−1 wins; if k wins, every still-unvisited vertex is at most k−1. Independently derive the splitting law by excursions from zero: each attempt succeeds clockwise with probability p/(k−1), counterclockwise with q/(n−k), and otherwise returns to zero. Conditioning on the first successful attempt gives (1) and covers adjacent-to-zero absorbers (arm length one). The k=1 tail is 1, and the k=n tail is 0. Subtracting consecutive tails gives numerator (n−1)pq and D_(k+1)−D_k=q−p gives the strict mass monotonicities for unequal biases. Differentiation in p gives the positive tail derivative for nontrivial cuts. Rounding the cut at (n−1)u gives the stated CDF limit, continuous also at u=0,1. The step density obtained by multiplying each mass by n−1 converges uniformly because its two denominator factors are ≥min(p,q)>0 and the mesh width vanishes. Except at p=q, its limiting density crosses one once where p+(q−p)u=√(pq), at u=√p/(√p+√q). The absolute difference of the two CDFs there equals the claimed limiting TV. At p=q the discrete law is exactly uniform. Replay: RESULT.md §§1–5 and the excursion probabilities above. Inspected checker.py, VERIFICATION.md and the archived JSON (reports 3330 finite rational checks, including 20 visited-mask cases); did not execute the uploaded script. The proof is for fixed p∈(0,1) and does not assume reversibility or address variable defect location.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Idnani–Salem Theorem 3.3 explicitly assumes a homogeneous nearest-neighbor walk with fixed clockwise p. Its exit factors use a geometric scale with constant q/p; the time-varying extension applies a deterministic schedule across positions.",
+          "Reversible conductance-profile laws allow arbitrary positive spatial edge parameters but require zero cycle affinity; the directed-graph uniform-terminal classification assumes uniform choice among outgoing neighbors."
+        ],
+        "reasoning": "Both the seemingly general interval-expansion representation and the arbitrary conductance theorem have hypotheses preventing direct specialization to this nonreversible site defect. Introducing new inhomogeneous path probabilities is not an application of their fixed formulas.",
+        "searches": [
+          "Idnani–Salem arXiv:2610.15115, §§2–4, especially Theorems 3.3, 4.1",
+          "Buchanan–Horn–Rombach, Discrete Mathematics Letters 11, Theorem 1",
+          "Resultary 93e0815cb503 and 65056ab3b0c0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and verification_output.json",
+        "Idnani–Salem arXiv:2610.15115v1",
+        "Buchanan–Horn–Rombach 2023 open PDF",
+        "Resultary 93e0815cb503, 65056ab3b0c0, bd1a2327f361 and f6cb2e88b6d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior path structure and gambler's-ruin method are credited. Homogeneous bias gives a geometric law with endpoint concentration at fixed bias; reversible heterogeneous cycles can even be exactly fair from a single start.",
+          "In (1) the two first-hit contributions compete through the defect's excursion weights p/(k−1) and q/(n−k), not a constant-drift geometric scale or a periodic reversible resistance profile."
+        ],
+        "reasoning": "This finite computation uses classical tools, but neither the known homogeneous laws nor the reversible laws yield the different scaling and TV separation. The reversible comparison was checked at the actual two-arc formula, not dismissed solely by its title.",
+        "searches": [
+          "arXiv:2610.15115, §§3.3–3.4 and Theorem 4.1",
+          "Resultary 93e0815cb503, Proof, offsets about 3482–4639; 65056ab3b0c0, Finding",
+          "Buchanan–Horn–Rombach, journal pp. 96–97"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A last-discovery tail is an adjacent absorbing-vertex race on an unwrapped interval. Classical exit probabilities yield the pieces; the direction of the first step is biased on every excursion, not merely at initial time.",
+          "The closest conductance formula (93e0815cb503) uses a related reduction of a point mass to two gambler's-ruin events, but assumes positive edge conductances. The product of the present chain's clockwise-to-reverse ratios around the cycle is p/q, unequal to one unless p=q."
+        ],
+        "reasoning": "The biased chain cannot be rewritten as a reversible positive-conductance cycle by changing edge labels or scale. Similarly, a deterministic time-dependent bias does not implement feedback based on the walker's current vertex.",
+        "searches": [
+          "Resultary: single biased site spatially localized bias cycle walk last newly visited vertex exact tail macroscopic profile",
+          "Resultary: nonreversible cycle random walk one exceptional vertex transition bias last coverage final discovery",
+          "Resultary: last new vertex cycle gambler's ruin two absorbing points first hitting probability tail formula",
+          "Web: \"single biased site\" cycle random walk last visited vertex nonreversible localized bias Idnani Salem last coverage cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading exact match f7b1d4baf8b7 is the frozen item itself. The closest exact earlier laws cover geometric endpoints at homogeneous bias, a time-alternating parity law, and reversible conductance cycles.",
+          "The supplied JSON is just a finite checker output from this submission, not an independent exact table."
+        ],
+        "reasoning": "The relevant exact comparison is with an existing formula for arbitrary n and continuous p in the same process. A finite collection of computed probabilities or matching at p=q does not cover (1)–(3).",
+        "searches": [
+          "Resultary: single biased site spatially localized bias cycle walk last newly visited vertex exact tail macroscopic profile",
+          "Resultary: Idnani Salem Last-Coverage Probabilities of Random Walks on Cycle Graphs Symmetric Biased Time-Dependent",
+          "arXiv:2610.15115, Theorem 4.1; Resultary f6cb2e88b6d0 and bd1a2327f361"
+        ]
+      },
+      "rationale": "The sharp comparison is with homogeneous, time-varying homogeneous and reversible spatially varying walks. None of the inspected exact laws includes the persistent nonreversible single-site defect. The method is standard gambler's ruin; the specific response of the final location on the macroscopic scale and its quantitative separation from uniform are the distinct claims. The full Idnani–Salem paper was accessible for this review, superseding the frozen record's earlier access limitation for that source.",
+      "residual_risks": [
+        "Lovász–Winkler, A note on the last new vertex visited by a random walk, DOI 10.1002/jgt.3190170505, was inaccessible in the identified lawful full-text attempt. Buchanan–Horn–Rombach describes its ordinary undirected result; the original proof was not independently compared.",
+        "An unindexed last-discovery law for spatially inhomogeneous nonreversible cycles or a skew-diffusion reformulation could overlap. Irrelevant search results are not evidence against such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching final-discovery object, but spatial homogeneity rules out the defect in the theorem",
+          "evidence": "Fixed homogeneous p gives geometric last location; time-varying schedules are deterministic and spatially homogeneous. Theorem 3.3 explicitly assumes the homogeneous biased walk and uses exit factors in powers of q/p.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15115",
+          "material_read": "v1 PDF abstract p. 1; model pp. 3–4; Theorem 3.3 pp. 6–7, extracted offset 20800 onward; Theorem 4.1 pp. 8–9",
+          "method": "Open primary PDF; theorem hypotheses checked in full passage",
+          "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+          "trigger": "Near-exact object and potentially general expansion formula"
+        },
+        {
+          "assessment": "Results for simple directed walks with uniform outgoing choices, not the weighted defect kernel",
+          "evidence": "The theorem classifies uniform-terminal-distribution graphs and invokes the prior undirected uniform case.",
+          "identifier_or_url": "https://www.dmlett.com/archive/v11/DML23_v11_pp96-98.pdf",
+          "material_read": "PDF pp. 1–2, offsets 0 and 4900, abstract/model and Theorem 1",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On the last new vertex visited by a random walk in a directed graph",
+          "trigger": "General directed, thus potentially nonreversible, last-vertex theorem"
+        },
+        {
+          "assessment": "Closely related exact law, excluded by nonzero cycle affinity",
+          "evidence": "The point mass is a sum of path hitting terms built from positive periodic edge resistances. These require a reversible conductance walk, inconsistent with product ratio p/q for a biased defect.",
+          "identifier_or_url": "2026/11/2/SCOPE-cover-endpoint-tomography-of-conductance-cycles-exact-law-and-in--93e0815cb503",
+          "material_read": "RESULT.md Finding, scope and Proof; offsets 0 and about 3482–4639",
+          "method": "Catalogue local full-text mirror",
+          "title": "Cover-endpoint tomography of conductance cycles: exact law and inverse rigidity",
+          "trigger": "Same observable for spatially varying exact cycle models"
+        },
+        {
+          "assessment": "Different transition class and conclusion",
+          "evidence": "Nonconstant reversible conductance profiles can produce uniform last discovery for a single start; this is not the persistently biased defect.",
+          "identifier_or_url": "2026/10/26/SCOPE-hidden-one-dimensional-fairness-in-reversible-weighted-cycle-cov--65056ab3b0c0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Hidden one-dimensional fairness in reversible weighted cycle coverage",
+          "trigger": "Exact weighted last-discovery behavior from one start"
+        },
+        {
+          "assessment": "Global deterministic time alternation is not a spatially localized transition",
+          "evidence": "The exact distribution splits by parity, not via the one-defect exit probabilities.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-parity-resolved-last-coverage-law-for-alternating-zero-drift-w--bd1a2327f361",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "A parity-resolved last-coverage law for alternating zero-drift walks on cycles",
+          "trigger": "Local alternation as a potentially equivalent perturbation"
+        },
+        {
+          "assessment": "Different nonreversible walk and a different limit scale",
+          "evidence": "A bias at every vertex yields coupling to a geometric mark for the endpoint deficit, not a nonuniform law spread over order n vertices.",
+          "identifier_or_url": "2026/10/18/SCOPE-exponential-range-hitting-coupling-and-a-joint-gaussian-geometri--f6cb2e88b6d0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Catalogue local full-text mirror",
+          "title": "Exponential range hitting coupling and a joint Gaussian-geometric law for cycle coverage",
+          "trigger": "Exact last-location scaling for nonreversible cycle walks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conclusion measures a global effect of one local perturbation: it changes the shape of the last-discovery distribution and leaves a nonzero, exactly quantified TV distance without concentrating the endpoint near the start. This separates the one-defect mechanism from fixed homogeneous drift and from uniform last discovery. The harmonic calculation is elementary, but the macroscopic comparison and explicit benchmark for spatially inhomogeneous cycle models are the substantive content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

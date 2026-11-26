@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verification/check_rank.py` and `python3 verification/check_direct.py` from the extracted artifact directory. Both are standard-library-only. Exact expected output is in `verification/expected.txt`.
+## correctness
 
-`check_rank.py` constructs the labelled parity incidence matrices and computes their binary row ranks for even dimensions 2, 4, 6, 8. Its checks are exact integer bit operations, and it exhaustively scans all side-indicators for dimensions 2 and 4. `check_direct.py` independently scans the same two small cubes by vertex-color assignments and validates every properness and odd-neighborhood constraint for all parity-split assignments.
+PASS
 
-The finite computations do not constitute an infinite proof. The latter is provided by the group-algebra rank argument, exact affine-solvability witness and color-class equivalence in RESULT.md. No nonsplit coloring count is inferred, and there is no independent mathematical audit.
+At a vertex an even positive degree cannot be carried by only one odd multiplicity, so both colors of the opposite parity-side palette occur and occur oddly. Thus for either side the indicator solves Bf=1; the other indicator works because B1=0. A coordinate half of the side gives a solution (neighbor counts 1 and d-1). Independently, write the full binary adjacency matrix in last-coordinate slices as A=[[P,I],[I,P]], with P the adjacency of Q_(d-1). The coordinate flips commute in characteristic two, so P^2=I, and the kernel is the graph of P with dimension 2^(d-1). In parity order A has off-diagonal blocks B and B^T, so rank B=2^(d-2). Also A^2=0, giving BB^T=B^TB=0; rank half implies that the image of each transpose equals the kernel of its opposite block, hence each side kernel equals its orthogonal complement. Constants are ruled out as solutions, so all palettes are used. The independent side choices yield the stated sixfold named count and a free 24-fold renaming quotient. For the four-color minimum, a putative three-coloring forces (I+A)h=1 for every color indicator h; squaring I+A gives I, hence h=1 for each color, impossible. Two and one colors are excluded by even positive degree and properness, respectively. The argument includes d=2 and makes no count for nonsplit colorings.
+
+## originality
+
+PASS
+
+The supported distinctive result is the complete optimal parity-split census and its identification with two independent affine code cosets. The minimum palette is known. Self-duality of the full even-cube adjacency code is known and implies the side-kernel dimension and self-duality by the parity direct-sum decomposition, so those binary linear facts are not fresh standalone coding results.
+
+## value
+
+PASS
+
+The canonical bipartition is the natural setting of the known optimal construction, not an arbitrary class restriction. Counting every optimum in that setting shows exactly how nonunique the construction is; the affine description gives the full degrees of freedom for constructing or sampling split optima and a baseline for separate nonsplit enumeration. The contribution is the census and its coloring characterization, not recomputation of the known code rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

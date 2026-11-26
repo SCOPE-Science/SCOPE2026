@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The scope is the infinite Gabor family with integer translation and modulation spacing \(1/q\), for integers \(n\ge2\) and \(q\ge n\). Exact interval Parseval diagonalizes its frame form as multiplication by \(qP_n\). The Fourier coefficient formula and finite partial fractions express \((-1)^nc_{n,m}\) as a positive combination of inverse even powers of \(m\). The positive Laplace representation of their cosine series proves strict half-period monotonicity. The endpoint values are finite rational expressions, and the pointwise frame-multiplier formula proves their optimality. The two Laplace-method saddle calculations have unique and strictly separated global absolute maxima, establishing the asymptotic prefactor. A standard-library checker independently stress-tests exact endpoint fractions, finite grids, periodization and the partial-fraction identity. Infinite assertions are proved analytically, not extrapolated from these checks. Boundary \(q=n\) is valid because touching supports have zero-measure overlap.
+## correctness
 
-## Originality
-**PASS, subject to the identified priority risk.** The 2013 Kloos–Stöckler source explicitly gives the painless *infimum* formula but not an exact evaluation of the all-order extrema or its sharp high-order conditioning law. Hasannasab–Lemvig (2026), Section 7, proves existence of B-spline integer-oversampled Gabor frames for a larger parameter set; neither its theorem nor its relevant full-text proof supplies the rational all-order bounds, strict parity-extremum localization or sharp coefficient \(4/\sqrt{3(1-4/\pi^2)}\). Stangl–Frederick (2026) analyzes the second-order B-spline's frame set at fixed density, not the arbitrary-order asymptotic. Related stored results about the hat spline concern different lattices or only order two, and do not imply the all-order conditioning profile. A classical unindexed identity for spline-square periodization could yield the parity-monotonicity lemma, so no priority claim is made for that lemma alone; a published equivalent asymptotic would defeat the claimed novelty. A small number of related published results were available as recoverable claims but not all primary publication files; this limitation was retained in the overlap assessment.
+PASS
 
-## Value
-**PASS.** The precise loss of tightness for high-order polynomial spline windows is a natural conditioning question in Gabor analysis. The all-order rational optimal bounds and their unique extremal locations allow exact calibration for any painless oversampling \(q\ge n\). The sharp exponentially small condition-number penalty, including its nontrivial prefactor, explains why high-order B-splines become nearly tight independently of the oversampling factor. This is not just the qualitative frame-existence theorem and does not require a broad new theorem beyond the precise natural invariant.
+In the stated normalization each translated window fits in an interval of length q, so Fourier Parseval gives exactly q times the multiplier P_n(x)=Σ_k B_n(x−k)^2. Partition of unity and finite overlap give a uniform positive lower bound. In the Fourier calculation, the partial-fraction coefficients are the Taylor coefficients of (a−u)^(−n) at u=0 and their reflections at u=a. The odd inverse powers vanish with centered cutoffs; the paired j=1 term has an integrable tail and the change of cutoff center has vanishing error. The remaining even terms are positive with the overall sign (−1)^n. The positive Gamma mixtures of geometric cosine sums decrease strictly on the half-period, giving the asserted parity switch and only extremal classes. For m=1, the sharp interior bound for h follows from sin|x|≥2|x|/π on |x|≤π/2 with x=u−π/2; off [0,π], sin²u≤min(dist(u,[0,π])²,1) gives the strict gap. The log curvatures give c_0∼√(3/(πn)) and |c_1|∼(4/π²)^n/√(πn(1−4/π²)); the odd-harmonic remainder is O(3^(−n)) relative to c_1. The endpoint gap is four times |c_1| to leading order, giving the stated coefficient. RESULT.md, VERIFICATION.md and CHECK.py were inspected. The finite rational tests reported in the package were not rerun and are not needed for the analytic all-order argument.
 
-## Limits and sources
-The conclusion is restricted to ordinary cardinal B-splines at unit time translation and frequency step \(1/q\) with integer \(q\ge n\). The proof does not cover overlapping Walnut aliases, noninteger lattices or arbitrary spline generators. Source comparisons include arXiv:2609.13116 (full relevant Sections 1 and 7), arXiv:2609.00481 (relevant introduction and main frame-set theorem), arXiv:1311.7359 (Section 4 and its explicit painless infimum formula), and relevant title-and-claim records for two previously published hat-spline Gabor results. External independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the explicit all-order parity-extremum analysis and sharp conditioning law in the painless regime, not the classical diagonalization, integer-oversampled frame existence, or the second-order endpoint example. The related half-density record has a different large-order regime. No inspected source supplies the combination of the explicit extremal classes and the sharp exponential prefactor in q≥n.
+
+## value
+
+PASS
+
+The periodized square is a natural exact spectral multiplier, but its extremal locations do not follow from positivity or the painless reduction. The sign decomposition settles the whole interval for all orders, yielding computable optimal stability constants and a sharp exponential measure of near-tightness, rather than finite-grid estimates or just frame existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

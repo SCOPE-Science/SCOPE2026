@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:20:43.290479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified initial conditions and windows starting at n+1, the gcd valuation is the least valuation of any window. The recurrence gives the linear forms y, x+2y, 2x+5y, 5x+12y and the step-four matrix M with rows (5,12), (12,29). Expanding their fourth powers gives the stated coefficients, all divisible by 6. M is I modulo 4; replacing each form L by L+4L' changes L^4 by a multiple of 16 coefficientwise, and each further difference gains a factor 4. For 3 use -M, equal to I modulo 3 and giving identical evaluations on the homogeneous quartic F; each difference gains 3. In the sum of m operator iterates the coefficient of the l-th difference is binom(m,l+1). The loss in its valuation is at most v_p(l+1) relative to v_p(m). For l>=1 the remaining gain over v_p(m) is at least 3 for p=2 and 2 for p=3, so only mF(v) matters modulo the two claimed powers. F(0,1)=21378 has both valuations one; F(1,3)=2911764 has 3-valuation one. The Q terms are odd, and any four Q fourth powers sum to 4 mod 16, establishing exact 2-valuation two for the base block. Thus for k=4m the minima are as claimed. The fourth-power patterns mod 3 have one zero in four, at index 0 mod 4 for P and 2 mod 4 for Q, by the signed four-step period; the stated starts give nonzero remainders for lengths 1,2,3 mod 4. For other lengths at 2, the alternating P parity gives an odd window for either k odd or k=2 mod 4, and every Q sum equals k mod 16. Independent bounded replay: python3 /workspace/independent_checks.py 5 checked exact gcds over 64 positive-start windows in each of 778 sequence/length cases, including selected high powers of 2 and lengths 4 times powers of 3. This finite replay does not prove the universal divisibility. No claim is made for primes >=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika–Spilker address square windows with the recurrence coefficient one, rather than Pell recurrence coefficient two.",
+          "Frontczak gives first- through fourth-power Fibonacci and Lucas sums; accessed passages concern sum identities rather than Pell gcd valuations.",
+          "Resultary 2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e explicitly excludes primes 2,3,5; Resultary 2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178 treats Fibonacci/Lucas and restricts k to odd lengths with 5 not dividing k."
+        ],
+        "reasoning": "The recurrent families and prime/length hypotheses in the nearest comparators do not subsume the local Pell-pair result. In particular, odd-only lengths and primes >=7 cannot yield the lifting law at multiples of four for 2 and 3.",
+        "searches": [
+          "arXiv:2204.12626, §1 and power tables",
+          "Frontczak 2018, NNTDM 24(2), pp. 94–95",
+          "Resultary quartic Fibonacci/Lucas and higher-power recurrence windows"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.05758",
+        "arXiv:2407.12868",
+        "arXiv:2204.12626",
+        "Frontczak NNTDM 24(2) (2018), 94–103",
+        "Resultary Pell cubic and Fibonacci/Lucas quartic records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 15–16 are first-power gcd formulas; Partial Result 29 is for squares, with proof deferred by the authors.",
+          "Anand et al. write the sum of 4N consecutive unsquared Pell terms as a multiple of a single Pell term."
+        ],
+        "reasoning": "Taking powers of either a window sum or of its gcd does not turn it into a gcd of sums of fourth powers. The unsquared multiple identity and squared formulas do not mechanically yield the required uniform quartic congruences or the sharp witnesses.",
+        "searches": [
+          "arXiv:2301.05758, Theorems 15–16 and §6.1",
+          "arXiv:2407.12868, Theorem 1.6 equation (1.8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match a4282553631d is the assigned finding itself.",
+          "Resultary 2026/10/18/SCOPE-exact-cubic-window-gcds-of-pell-numbers--a22e3ce24b44 states an exact gcd for cubes of Pell terms and excludes associated Pell cubes.",
+          "Convention 1 of arXiv:2301.05758 defines the same n+1 through n+k indexing, with arbitrary power as notation."
+        ],
+        "reasoning": "The equivalent claim is exact universal divisibility of every quartic window by the stated powers, with at least one sharp window for each minimum. Changing the exponent or giving notation for arbitrary exponents does not establish that divisibility.",
+        "searches": [
+          "Resultary: Pell and associated Pell fourth-power window gcd; universal 2- and 3-adic divisibility of consecutive quartic terms",
+          "arXiv:2301.05758, Convention 1 and §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists the first 14 gcd values for first-power windows, not the quartic valuation formula.",
+          "Partial Result 29 gives square formulas. The distinct indexed cubic Pell and quartic Fibonacci/Lucas results list exact formulas for different invariants or parameter ranges."
+        ],
+        "reasoning": "The exact near-neighbor formulas and numerical rows are not a lookup for the claimed function of k. The only exact indexed match retrieved was the identical source record.",
+        "searches": [
+          "Resultary exact Pell quartic and adjacent powers",
+          "arXiv:2301.05758, Table 2 and Partial Result 29"
+        ]
+      },
+      "rationale": "The closest Pell literature defines this sliding gcd generally and treats first powers and squares; the nearest distinct indexed research treats Pell cubes, or quartic windows for different recurrences and prime regimes. The exact quartic two-prime formula for this pair survives these comparisons. This is a bounded judgment, not historical-priority certification.",
+      "residual_risks": [
+        "Targeted primary-text and Resultary comparisons are not an exhaustive search for general Lucas power-sum valuation theorems.",
+        "The same-date Tribonacci near-neighbor 3401cddfe333 was readable at indexed-summary level only; it has a different recurrence and dyadic length hypothesis in that summary.",
+        "No priority conclusion follows from dates of same-day records or absence of a retrieved equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First-power theorems and reported square formulas, not the quartic local result",
+          "evidence": [
+            "Convention 1 matches the indexing; §6.1 is explicitly for squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "Convention 1 p. 2; Table 2 p. 11; Theorems 15–16 pp. 12–13; §6.1 Partial Result 29 and following questions",
+          "method": "OA PDF passage comparison",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Same sequences and arbitrary-powered window gcd notation"
+        },
+        {
+          "assessment": "Unsquared consecutive Pell sum identity, not a fourth-power gcd result",
+          "evidence": [
+            "Theorem 1.6 relates a first-power 4N-term sum to P(n+2N)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.12868",
+          "material_read": "p. 3 Theorem 1.6 equation (1.8)",
+          "method": "OA PDF passage comparison",
+          "title": "Sum of Consecutive Terms of Pell and Related Sequences",
+          "trigger": "Possible identity on four-step Pell intervals"
+        },
+        {
+          "assessment": "Square windows for a different recurrence",
+          "evidence": [
+            "The recurrence coefficient is one and the powered tables are for exponent two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "§1, recurrence and first- and second-power tables",
+          "method": "OA PDF passages",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Potential broader window gcd theorem"
+        },
+        {
+          "assessment": "Inspected scope is Fibonacci and Lucas power sums; no covering Pell gcd statement in those passages",
+          "evidence": [
+            "The power-sum identities include fourth powers for Fibonacci/Lucas."
+          ],
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf",
+          "material_read": "Abstract and introduction, pp. 94–95",
+          "method": "OA PDF passages",
+          "title": "Sums of powers of Fibonacci and Lucas numbers: A new bottom-up approach",
+          "trigger": "Prior quartic finite sums for a companion pair"
+        },
+        {
+          "assessment": "Different exponent; associated Pell is outside its scope",
+          "evidence": [
+            "The formula concerns cube windows for P, not fourth-power windows for P and Q."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-cubic-window-gcds-of-pell-numbers--a22e3ce24b44",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact cubic window GCDs of Pell numbers",
+          "trigger": "Closest distinct indexed same-sequence sliding GCD"
+        },
+        {
+          "assessment": "Different recurrence and disjoint prime range",
+          "evidence": [
+            "The order condition classifies primes p>=7 and explicitly leaves out 2,3,5."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-all-prime-factors-at-least-seven-in-fourth-power-fibonacci-windo--d68afecbf84e",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "All prime factors at least seven in fourth-power Fibonacci windows",
+          "trigger": "Closest distinct exact quartic-window prime-part classification"
+        },
+        {
+          "assessment": "Fibonacci/Lucas, odd k only with 5 not dividing k",
+          "evidence": [
+            "The stated k restriction excludes all the present nontrivial three-adic windows."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-prime-order-factorization-of-odd-quartic-fibonacci-and-lucas-win--45586db4c178",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-order factorization of odd quartic Fibonacci and Lucas windows",
+          "trigger": "Exact quartic gcds for another companion pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prior Pell work motivates powered sliding gcds as exact invariants. This result determines two unbounded prime-primary parts for all window lengths, explains the common sharp 3-adic threshold at k divisible by four, and distinguishes the two companion normalizations at 2. The proof moves beyond a finite table or a first-power identity, while leaving the full gcd and other primes open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

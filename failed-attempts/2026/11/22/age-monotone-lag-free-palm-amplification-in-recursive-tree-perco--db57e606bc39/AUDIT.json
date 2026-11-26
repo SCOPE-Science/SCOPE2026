@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For F_m the natural filtration, the exact Bernoulli step conditional success probability is pS_m/m. This gives E S_m=A_m and E[S_m|F_j]=(A_m/A_j)S_j. Independently the test function s(s+1) has conditional multiplier (1+2p/m), yielding E[S_{j-1}(S_{j-1}+1)]=2B_{j-1}. The marked identity I_j S_j=I_j(S_{j-1}+1) then gives E[I_jS_j]=2pB_{j-1}/(j-1), and division by P(I_j=1)>0 yields R_j. Conditional propagation proves the ratio for all m>=j and later k>j. Exact products prove R_{j+1}/R_j=1+p(1-p)/((j-1+p)(j+p))>1 for p in (0,1); gamma-product asymptotics give limit. Standalone Python exact rational exhaustive parent/retention enumeration through n=8 passed 145 assertions. Finite enumeration corroborates but does not substitute for infinite algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Desmarais–Holmgren–Wagner, doi:10.1002/rsa.21142, section 4 presents root-component size moments.",
+        "Zheng, arXiv:2606.01881, explicitly supplies transition of the root component, plus asymptotic leadership.",
+        "Exact root-degree–percolation-cluster dependence and asymptotic decoupling in recursive trees gives global root-degree versus cluster covariance, not two age-tagged cluster indicators.",
+        "Kürsten, arXiv:1512.05275v1, eq. (44) exactly covers scalar second moment of root cluster, an ingredient in B_m."
+      ],
+      "reasoning": "The complete Markov transition is an ingredient that mathematically permits fresh derivation; the inspected published root-size moment/leader conclusions do not imply the exact conditional labelled ratio as a stated corollary with the strict monotonic age comparison. Risk: a more general all-time marked urn theorem, not identified in this search, could dominate it.",
+      "searches": [
+        "root cluster of random recursive tree percolation age profile vertices covariance conditioned membership generalized Mittag Leffler",
+        "random recursive tree percolation conditional probability later vertex root cluster given earlier vertex root cluster monotone",
+        "recursive tree bond percolation joint probability vertices i and j connected to root exact covariance of indicators",
+        "root cluster of random recursive tree percolation age profile vertices covariance conditioned membership generalized Mittag Leffler",
+        "arXiv:1512.05275v1, section IV, Eq. (44)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.2238v1; https://arxiv.org/abs/1406.2238",
+      "arXiv:1407.2508v1; https://arxiv.org/abs/1407.2508",
+      "doi:10.1002/rsa.21142; https://doi.org/10.1002/rsa.21142",
+      "arXiv:2606.01881; https://arxiv.org/abs/2606.01881",
+      "Exact root-degree–percolation-cluster dependence and asymptotic decoupling in recursive trees",
+      "Root-cluster and singleton-component anti-covariance in percolated recursive trees",
+      "Root-cluster and leaf counts are positively correlated but asymptotically decorrelate in percolated recursive trees",
+      "Hidden dependence of tagged subtree sizes in random recursive trees",
+      "Tagged-block size and partition diversity have an exact negative covariance across the two-parameter sampling family",
+      "arXiv:1512.05275v1; https://arxiv.org/abs/1512.05275"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A_m and B_m scalar root-cluster moments are standard-reinforcement-type ingredients, not individually new.",
+        "Proposed additional identity is P(I_k=1 | I_j=1)/P(I_k=1) = 2B_{j-1}/(A_{j-1}A_j) for every k>j, with monotone j and a gamma limit.",
+        "Hidden dependence of tagged subtree sizes in random recursive trees concerns dependent tagged descendant subtree sizes without Bernoulli bond percolation.",
+        "Kürsten Eq. (44) directly gives E[S_m^2] but does not specify the joint tagged labels (I_j,I_k)."
+      ],
+      "reasoning": "A marginal cluster-size distribution or root-degree covariance cannot determine the two specifically birth-labelled indicators; the proof needs a marked event and its interaction with the quadratic root-cluster moment. The source stochastic transition is sufficiently general to recover this by additional calculation, but none of the inspected theorem statements asserts or compares the lag-free constant and its sharp age trend. Thus the contribution is a marked structural corollary, not an independent new scaling limit; residual risk of preexisting general formulas is expressly recorded.",
+      "searches": [
+        "arXiv:1406.2238v1, sections 2.1 and 5",
+        "arXiv:1407.2508v1, introduction and cluster results",
+        "doi:10.1002/rsa.21142, sections 2.2 and 4",
+        "arXiv:2606.01881, definitions and sections 2–4",
+        "joint inclusion probabilities arbitrary fixed labels in root cluster bond percolation uniform random recursive tree marked point Palm limit",
+        "root cluster of random recursive tree percolation age profile vertices covariance conditioned membership generalized Mittag Leffler",
+        "arXiv:1512.05275v1, section IV, Eq. (44)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The event that vertex j belongs to the retained root component equals a success on step j of a Simon/Yule root-color urn; I_j is a time-labelled Bernoulli increment of the root cluster.",
+        "Baur–Bertoin arXiv:1406.2238v1 identifies the Pólya–Hoppe urn representation; Zheng arXiv:2606.01881 provides Simon-type transition."
+      ],
+      "reasoning": "Translated the proposed Palm amplification into conditional success of a second later Bernoulli increment, compared against fixed-table Simon/urn moments and marked color formulas. Indexed closest analogous objects cover cluster size, not the exact time-labelled pair probability and strict birth-order multiplier.",
+      "searches": [
+        "joint inclusion probabilities arbitrary fixed labels in root cluster bond percolation uniform random recursive tree marked point Palm limit",
+        "probability two birth-labelled vertices lie in ancestral component of independently bond-percolated uniform recursive tree exact ratio conditional correlation",
+        "Simon Chinese restaurant process exact conditional table membership future customers given a tagged earlier customer birth index independence of lag",
+        "Pólya Hoppe urn first color exact two-time success indicator covariance monotone age amplification",
+        "joint inclusion probabilities arbitrary fixed labels in root cluster bond percolation uniform random recursive tree marked point Palm limit",
+        "Simon Chinese restaurant process exact conditional table membership future customers given a tagged earlier customer birth index independence of lag",
+        "percolated recursive tree root component two labelled vertices conditional success amplification increasing birth time covariance gamma ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results include Root-cluster and singleton-component anti-covariance in percolated recursive trees (root-cluster versus singleton-component covariance) and Root-cluster and leaf counts are positively correlated but asymptotically decorrelate in percolated recursive trees (root-cluster versus leaf-count covariance).",
+        "Own historical claims about recursive-tree fringe sizes, degree-labelled point measures, and q-tree ancestral coincidence concern different random objects."
+      ],
+      "reasoning": "No published exact pair-membership table, record, or source asserting R_j(p) was located. Closest probability tables aggregate cluster sizes or unrelated recursive-tree statistics; table absence is only a limited search observation, not evidence of unique priority.",
+      "searches": [
+        "joint inclusion probabilities arbitrary fixed labels in root cluster bond percolation uniform random recursive tree marked point Palm limit",
+        "probability two birth-labelled vertices lie in ancestral component of independently bond-percolated uniform recursive tree exact ratio conditional correlation",
+        "random recursive tree bond percolation joint late vertex root cluster membership Palm size bias Mittag Leffler",
+        "probability two birth-labelled vertices lie in ancestral component of independently bond-percolated uniform recursive tree exact ratio conditional correlation",
+        "P(I_i in root cluster, I_j in root cluster) = product factor Gamma(1+p)^2 Gamma(1+2p)"
+      ]
+    },
+    "rationale": "The assessed claim is the exact, indefinitely persistent and lag-independent factor for an earlier successful labelled attachment, together with a sharp strictly age-increasing ratio and its finite nontrivial gamma limit. Relevant root-cluster/urn work establishes global growth laws, moments and the underlying Markov transition but does not state this marked two-time law. Searches of same-slot historical claims and indexed mathematical results did not identify equivalent or stronger marked theorems. A general reinforced-urn theorem may imply the formula; novelty remains qualified pending external independent priority review. Kürsten (arXiv:1512.05275, Eq. 44) already covers the finite scalar second moment; this antecedent is credited and not counted as new.",
+    "residual_risks": [
+      "The complete random recursive tree / Simon urn transition is known; an existing time-labelled factorial-moment theorem could have the new identity as a direct specialization even if its title and abstract do not describe it.",
+      "Not all historical Pólya–Hoppe or Simon process publications could be read in full; novelty is provisional pending domain expert priority review.",
+      "Indexed source and historical-claim searches are not exhaustive and cannot establish uniqueness.",
+      "Kürsten 2015 already supplies precisely the scalar second moment used by the proof; the conditional marked identity is a short derivation from it plus the known Markov transition, and may be regarded as covered if a prior theorem explicitly gives marked transitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a root-component size/urn description and asymptotic results, but inspected statements do not state exact finite-index conditional membership amplification or its strict monotonic birth-age ratio. Model-level Markov calculations could yield this result and remain a priority risk.",
+        "evidence": [
+          "Section 2.1 recursive-tree growth/percolation and urn coupling; root-cluster asymptotics, arXiv:1406.2238v1."
+        ],
+        "identifier_or_url": "arXiv:1406.2238v1; https://arxiv.org/abs/1406.2238",
+        "material_read": "29-page open full PDF, introduction and section 2.1 including pages 2–4, definitions and root-cluster scaling passages; percolation statements and section 5 located and read at relevant passages.",
+        "method": "Source PDF text search for percolation, distinguished vertices, roots and transition formula; direct inspection of relevant pages.",
+        "title": "Cutting edges at random in large recursive trees",
+        "trigger": "Same recursive-tree percolation model; Pólya–Hoppe/urn interpretation might imply marked vertex formulas."
+      },
+      {
+        "assessment": "Discusses root-cluster genealogy and a near-unit percolation regime; no inspected theorem states fixed-parameter two-index member dependence or age-ordering.",
+        "evidence": [
+          "Introduction and cluster-genealogy discussion of arXiv:1407.2508v1."
+        ],
+        "identifier_or_url": "arXiv:1407.2508v1; https://arxiv.org/abs/1407.2508",
+        "material_read": "Open PDF title/introduction and its cluster genealogy/percolation discussions including document page 8.",
+        "method": "Open PDF text and two page images inspected for scope, parameters and marked results.",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Same model and potential cluster genealogy statements covering a fixed-label Palm event."
+      },
+      {
+        "assessment": "Global root-cluster moment and color-count laws do not explicitly give the age-marked joint success event or monotonic Palm factor. Higher-order aggregate moments are not equivalent to this labelled statistic without extra conditioning.",
+        "evidence": [
+          "Root component generating-function and moment material in sections 2.2 and 4 of the 2023 article."
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.21142; https://doi.org/10.1002/rsa.21142",
+        "material_read": "Open full-text article introduction, model section 2.2, and relevant root-size generating functions and moments in section 4.",
+        "method": "Full-text section reading and comparison of observables and indices.",
+        "title": "Broadcasting-induced colorings of preferential attachment trees",
+        "trigger": "Global color statistics and root cluster factorial moments may dominate a two-point conditional moment."
+      },
+      {
+        "assessment": "The transition of the root cluster and long-time leadership are given, but no exact birth-indexed two-point Palm ratio or its strict age-monotonicity is stated. Because the transition is an ingredient of the short calculation, this remains an explicit stronger-generating-model implication risk.",
+        "evidence": [
+          "Simon-type root cluster transition in opening equations; leadership statements and proof sections of arXiv:2606.01881."
+        ],
+        "identifier_or_url": "arXiv:2606.01881; https://arxiv.org/abs/2606.01881",
+        "material_read": "Complete accessible arXiv HTML text, introduction and sections 2–4 including the model transition and cluster-leadership conclusions.",
+        "method": "Read HTML full article text at relevant definitions, stochastic growth and main result sections.",
+        "title": "Can the root cluster remain largest forever in random recursive tree percolation?",
+        "trigger": "Contemporary explicit Simon-type restaurant formulation and component-marking/leadership results, a strong same-model source."
+      },
+      {
+        "assessment": "Equation (44) directly provides the known scalar second moment, from which the B_m ingredient can be recovered. The inspected source does not state the conditional two-birth-labelled success probability or age-monotone lag-free ratio, though the moment is a direct ingredient and creates significant derivability risk.",
+        "evidence": [
+          "Section IV, eq. (44), arXiv:1512.05275v1 exactly computes E[|root cluster|^2] at finite size; sections III–V do not give the proposed marked pair identity."
+        ],
+        "identifier_or_url": "arXiv:1512.05275v1; https://arxiv.org/abs/1512.05275",
+        "material_read": "Accessible article introduction and relevant full-text sections III–V, with PDF section IV pages 6–8, in particular equation (44); PDF page 6 inspected visually.",
+        "method": "Read web-rendered complete article text, PDF linear text and direct PDF page screenshot; locate exact first and second moment formulas and compare observables.",
+        "title": "Random Recursive Trees and the Elephant Random Walk",
+        "trigger": "Same independent bond-percolation model with exact first and second moments of root-cluster size, potentially subsuming the quadratic ingredient."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db57e606-bc39-449b-93ed-b8d010a9a18e",
+  "value": {
+    "rationale": "In independent bond-percolation of an ancestral recursive tree, success at an individual late-labelled vertex is the natural event used to predict subsequent root connectivity. The exact and permanently lag-free conditional amplification, its strict birth-age ordering, and a nontrivial explicit positive asymptotic ceiling answer a precise two-time reliability/influence question not captured by marginal cluster size or its scaling limit. These provide a usable positive-dependence kernel for labelled root-component membership, not an arbitrary numeric slice, a tiny asymptotic gain, or merely code verification. The derivation is short once the right quadratic factorial moment is identified; it is a structural exact fact rather than a claim of a new general urn law.",
+    "status": "PASS"
+  }
+}

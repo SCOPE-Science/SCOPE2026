@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:36:52.014766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any fixed active set A of distinct points, incidence and pair uniqueness give |A|k−binom(|A|,2)≤H(A)≤|A|k, hence log avoidance is −|A|/s+O(|q|^−2) for bounded |A|. The full-subset hypergeometric product gives the same uniform bound. For different deadlines, the sum of the active-set sizes across rounds is the sum of the individual deadlines; the log error across O(q log v) rounds is O(log v/q). This yields the mixed labelled survival asymptotics, with rounding error O(1/s). By interval inclusion–exclusion they give all mixed factorial moments of disjoint bounded interval counts, and bounded expected compact counts give vague point-process tightness. Counts above any fixed threshold also have the Poisson limit, with the expected number above an increasing upper threshold tending to zero, so the highest finitely many points converge jointly. The map x↦exp(−x) turns the limit into rate-one Poisson arrivals, giving the stated ranks and the Gumbel maximum. For the moments, both samplers have pair avoidance 1−(2k−1)/v: for the full sampler this uses k(k−1)=v−1. It is less than the square of the one-point avoidance probability by q/v². Thus Var(U_t)≤E(U_t), and 1/E(U_t) bounds early complete coverage, while E(U_t) bounds the late tail. At the early threshold up to s log v, log(1−1/s)=−1/s+O(1/s²) gives E(U_t) bounded below by a constant times exp(x); negative round thresholds give zero probability of early completion. Both centered tails are bounded by Ce^(−x), yielding the two Gumbel moments and both little-o differences since s is asymptotic to q. The argument needs only the plane axioms; the finite checks in CHECK.py were read, not executed, and do not prove any asymptotic conclusion. The detailed replay is RESULT.md §§1–4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fair-mechanism recovery-set formula is about expectations. Betken–Thäle's precritical normal approximation allows some growing group sizes and their arXiv introduction records one-time Poisson precedents, including relaxed group probabilities. The super-coupon theorem gives a completion-time Gumbel law for uniform subset sampling. The MathNet abstract of Mikhailov states a one-time Poisson uncovered-count theorem for independent subsets with laws allowed to vary by trial."
+        ],
+        "reasoning": "These sources give broader context and substantial marginal overlap but do not on the inspected statements imply multitime survival for projective-plane lines, where the groups are not all equally likely. A one-time theorem can imply a Gumbel maximum when applicable, but that does not by itself give joint terminal ranks or uniform integrability.",
+        "searches": [
+          "arXiv:2510.25305 §III; arXiv:2202.07485 p. 2 and Theorem 1; arXiv:2304.01145 Theorem 2.3",
+          "V. G. Mikhailov, random covering of a finite set, doi:10.1137/S0040585X97975472 and MathNet tvp2932"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, CHECK.py",
+        "Distinct Resultary 8b8a4777f51a statement and proof passage; dfef11684c0d indexed statement",
+        "arXiv:2606.28216v1, 2510.25305, 2202.07485 and 2304.01145 passages identified above",
+        "MathNet tvp2932 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The design-strength record matches the first two factorial moments of the uncovered count, but records a third-moment difference at finite time. The Betken–Thäle introduction attributes single-time Poisson limits to earlier sources including an empty-cell case with relaxed equal-group probabilities. Mikhailov's full assumptions were not retrievable; the abstract identifies the target as the number of uncovered points."
+        ],
+        "reasoning": "Exact match of the first two count moments is useful for tails, not a theorem about labels surviving different deadlines. Likewise one-time count convergence leaves multitime dependence and centered-moment convergence to be justified; the present proof does that without relying on finite-order stochastic dominance or assuming coordinatizability.",
+        "searches": [
+          "Resultary 8b8a4777f51a, RESULT.md offset 4046",
+          "Betken–Thäle, arXiv:2202.07485, p. 2 offset 5940; published Theorem 1",
+          "Mikhailov MathNet tvp2932 original abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 01b8ff55d157 is the frozen record itself. The distinct 8b8a4777f51a concerns single-time factorial moments and dfef11684c0d concerns exact finite-order survival comparisons."
+        ],
+        "reasoning": "The first-hit point process can equally be viewed as joint increments of the uncovered-count process at multiple moving thresholds. Neither finite-order comparisons nor distributions or factorial moments at a single time identify their coupling across thresholds.",
+        "searches": [
+          "Resultary: projective-plane line coupon coverage terminal extreme process, last times and moment comparison",
+          "General structured/group-drawing coupon collectors and projective-plane covering times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 2.1 gives q=2,3,4 means for the line and full samplers; additional table entries compare other finite prime-power orders. The distinct Resultary finite-order result studies q=2,3."
+        ],
+        "reasoning": "These are matches for mechanisms and finite values, not for the normalized large-order point process, fixed-rank limits, or mean and variance expansions. No novelty is claimed for the small-order checker.",
+        "searches": [
+          "Resultary 8b8a4777f51a and dfef11684c0d",
+          "Fano Geometry and Slow Coupon Collecting, arXiv:2606.28216v1, §2.1 and Theorem 2.1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the multitime first-hit limit for restricted line draws along arbitrary existing plane sequences, with joint fixed terminal ranks and the first two cover-time moment asymptotics compared with uniform full subsets. No first claim is credited for one-time Poisson uncovered counts, a coupon-collector Gumbel law in a different model, or finite-order mean comparisons. The strongest checked design and coupon-collection results do not state the combination or imply the multitime estimates on their retrieved assumptions. Historical priority remains provisional, especially for broader random-covering results.",
+      "residual_risks": [
+        "Mikhailov's full theorem was not retrieved and could give broader coverage of the critical marginal limit or provide a route to stronger conclusions.",
+        "The cited earlier relaxed group-drawing Poisson theorem was checked through the Betken–Thäle discussion, not a full proof/assumption comparison for Schilling–Henze. Priority for related general group-drawing results is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material single-time overlap, not treated as a claim of priority or as an equivalent process result",
+          "evidence": "Same first and second factorial moments of the uncovered count at fixed times, with different third moments for t≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-design-strength-hierarchy-for-uncovered-coupon-moments--8b8a4777f51a",
+          "material_read": "Indexed statement and RESULT.md proof at offset 4046",
+          "method": "Resultary and local mirror; matched the avoidance and factorial-moment comparison",
+          "title": "A design-strength hierarchy for uncovered coupon moments",
+          "trigger": "Related same-day indexed comparison of the same two samplers"
+        },
+        {
+          "assessment": "Verified finite-order overlap only in the statement inspected",
+          "evidence": "Exact survival comparisons for q=2 and q=3, including noncomparability for q=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-stochastic-order-boundary-for-the-first-two-projective-p--dfef11684c0d",
+          "material_read": "Indexed statement",
+          "method": "Resultary lookup and scope comparison",
+          "title": "A sharp stochastic-order boundary for the first two projective-plane cases",
+          "trigger": "Exact comparison of the line and full mechanisms"
+        },
+        {
+          "assessment": "Finite projective-plane mean comparisons, not the terminal-process statement",
+          "evidence": "For PG(2,q) with q=2,3,4, computes expected cover times for projective and full sampling and compares them.",
+          "identifier_or_url": "https://arxiv.org/html/2606.28216v1",
+          "material_read": "§2.1 Theorem 2.1, offset 9614, with adjacent table discussion",
+          "method": "Bounded original OA HTML passage",
+          "title": "Fano Geometry and Slow Coupon Collecting",
+          "trigger": "Exact same models in prior projective-plane cover-time work"
+        },
+        {
+          "assessment": "General exact expectation approach; not the multitime claim",
+          "evidence": "Reduces expected cover time to counting recovery sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.25305",
+          "material_read": "§III offset 20400",
+          "method": "Bounded original OA passage",
+          "title": "General Coverage Models: Structure, Monotonicity, and Shotgun Sequencing",
+          "trigger": "General fair-mechanism alternative formulation"
+        },
+        {
+          "assessment": "Shares the one-time problem, not the line-restricted terminal joint limit",
+          "evidence": "Main precritical theorem uses α∈(0,1) and equally likely group draws; the arXiv p. 2 discussion attributes critical single-time Poisson limits to earlier work, including Schilling–Henze for a relaxed uniformity hypothesis when r=0.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2023.6",
+          "material_read": "Published Theorem 1 (PDF p. 3, offset 10317); arXiv:2202.07485 p. 2 offset 5940 and bibliography",
+          "method": "Bounded OA passages, including lawful arXiv copy",
+          "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+          "trigger": "Critical and precritical counts for full/group sampling and references to broader laws"
+        },
+        {
+          "assessment": "Related completion-time limit in a uniform-subset model",
+          "evidence": "A uniform r-subset collects contained s-subsets; the theorem gives normalized completion-time convergence, not a marked point process for line sampling. The read statement does not claim uniformity in growing draw parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+          "material_read": "Abstract at offset 720; Theorem 2.3 at offset 14192",
+          "method": "Bounded OA original passages and comparison of sampling rules",
+          "title": "On a generalisation of the coupon collector problem",
+          "trigger": "Completion-time Gumbel theorem for group draws"
+        },
+        {
+          "assessment": "Potential marginal coverage; full assumptions and implications beyond the abstract unresolved",
+          "evidence": "The abstract allows the random-subset laws to vary from trial to trial and describes the principal result as a Poisson limit theorem for the number of uncovered points.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/tvp2932",
+          "material_read": "MathNet original journal issue entry and English abstract; full English text not retrieved at doi:10.1137/S0040585X97975472",
+          "method": "Publisher DOI attempt and identified lawful MathNet alternate abstract",
+          "title": "Limit theorems for a random covering of a finite set and for the number of solutions of a system of random equations",
+          "trigger": "Potentially applicable general independent random-subset Poisson theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equality of block size and pair incidences does not make the samplers identical. The result explains why the same extreme process and the same leading cover-time fluctuations nonetheless hold despite different higher joint laws, for all projective planes without coordinates. The marked limit distinguishes higher waiting times from a single completion-time estimate, and the quantitative moment asymptotics explain what the limiting law does and does not resolve about the comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

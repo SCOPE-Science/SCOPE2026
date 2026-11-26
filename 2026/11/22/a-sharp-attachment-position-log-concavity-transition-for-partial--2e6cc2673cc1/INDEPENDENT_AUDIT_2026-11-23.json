@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:33.968944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over GF(2), successive rows on a path determine a kernel vector from its initial coordinate, so a singular branch has nullity one and its endpoint coordinate is nonzero. The leading-minor determinant recurrence D_s=d_s D_{s−1}+D_{s−2}, with D_0=1, yields 11 invertible and 5 singular P_4 perturbations. At an internal root, a kernel vector with root coordinate 1 requires both arm matrices to be invertible: otherwise a nonzero arm kernel vector has its endpoint coordinate 1, making the arm equation inconsistent. Conversely, if both are invertible, their solutions determine the unique root diagonal making a kernel with root coordinate 1. The arm counts 1 and 3 give three visible singular perturbations, leaving two invisible. For a global perturbation with K singular branches, if none is visible at its root, all branch equations are solvable for either hub value and the hub row either imposes its vanishing or imposes no condition, once each as the hub diagonal varies. If at least one is visible, the hub value is forced zero and the hub row then removes one dimension of the K-dimensional branch kernel for either diagonal. Summing these cases and reversing coranks to ranks gives both frozen polynomials. Independently extracting coefficients gives the six minima 135, 1476, 10864, 63840, 295872, 749440 and the first failing triple (128, 5056, 242234), with defect −5442816 on 29 vertices. For m≥7, the positive quadratic part of the first-defect bracket grows by a factor at most (8/7)² while the exponential part grows by 5/2; the defect remains negative. In the endpoint sequence, only indices 2 and 3 of the reversed sequence can have non-binomial interior triples. With v=5/11 the reversed coefficients are 2 binom(m,j)v^j plus 1 at j=1,2. Direct expansion gives the two displayed defects, each strictly positive by writing m=4+t, t≥0; the m=3 sole defect is 7646111 and m≤2 is vacuous. The support is consecutive after the initial zero powers are removed. RESULT.md and the independent coefficient extraction establish the claims; the supplied VERIFICATION.md and rank checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 gives eventual failure when b,γ>0, and Corollary 14 applies it to all internally rooted paths. Theorem 8 treats the exact threshold for centrally rooted P_5, not P_4.",
+          "Deng–Zhang classify the binomial and trinomial cases; the threshold family has eight nonzero coefficients at m=7 and endpoint support length grows without bound."
+        ],
+        "reasoning": "Neither classification supplies all defects below the threshold or all endpoint inequalities for the growing support.",
+        "searches": [
+          "Feng–Yan arXiv:2611.07503, Theorems 8 and 13, Corollary 14",
+          "Deng–Zhang arXiv:2608.01748, Theorems 13–14"
+        ]
+      },
+      "checked_sources": [
+        "Feng–Yan arXiv:2611.07503v1",
+        "Deng–Zhang arXiv:2608.01748v1",
+        "Resultary indexed target 2e6cc2673cc1 and focused related-record lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting a/b=11/2 and 1+γ/b=5/2 in (20) gives the first-defect identity. Theorem 13 and Remark 2 do not assert that positivity of this one defect implies log-concavity, and do not address b=0.",
+          "The trinomial theorem can cover support size for individual small trees, but supplies no all-order logarithmic inequalities."
+        ],
+        "reasoning": "The failure witness at m=7 follows by specialized arithmetic; the exact phase diagram needs all interior inequalities up to m=6, a quantitative persistence argument, and the separate all-order endpoint proof.",
+        "searches": [
+          "Feng–Yan arXiv:2611.07503, proof of Theorem 13, equation (20) and Remark 2",
+          "Deng–Zhang arXiv:2608.01748 Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their corank polynomial C_G(t) equals t^{|V|}P_G^×(1/t). Reversal preserves log-concavity of the nonzero sequence.",
+          "The internal arms of lengths 1 and 2 give the published Jacobsthal specialization (a,b,γ)=(11,2,3)."
+        ],
+        "reasoning": "The change of convention does not distinguish the polynomials or the first-defect expression from earlier coverage; it is the complete finite threshold plus endpoint behavior that survives.",
+        "searches": [
+          "Feng–Yan arXiv:2611.07503, Corollaries 3 and 14",
+          "Resultary rooted P_4 partial Petrial ranks/coranks and log-concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact Resultary match was the frozen work itself; no distinct matching indexed result surfaced. The closest explicit threshold in Feng–Yan is 4 for centrally rooted P_5, and (20) specializes to exactly the frozen first-defect formula for P_4."
+        ],
+        "reasoning": "An exact formula for one triple is not a tabulation or characterization of all log-concavity inequalities. No identified table settles both attachment regimes; the small cases were checked directly.",
+        "searches": [
+          "Local Resultary: repeated P_4 path branches, endpoint/internal roots and exact partial Petrial log-concavity; target suffix 2e6cc2673cc1",
+          "Feng–Yan arXiv:2611.07503 Theorem 8 and Theorem 13 proof (20)"
+        ]
+      },
+      "rationale": "Credit belongs to the exact position-dependent phase diagram: the all-order endpoint result and the sharp m=7 first internal failure with strict positivity of all inequalities below it. The two generating polynomials, branch counts, first-defect formula and eventual internal failure are covered by specializing the earlier attachment theory; they do not count as original findings on their own.",
+      "residual_risks": [
+        "Other unindexed equivalent classifications are not ruled out.",
+        "Neither the proof nor the literature comparison supports a universal minimum tree order for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial partial coverage",
+          "evidence": "This supplies the generating identity, eventual failure, Jacobsthal counts, and the general exact first-defect expression. Its separate sharp threshold m=4 concerns centrally rooted P_5, not the P_4 pair.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07503",
+          "material_read": "Corollary 3 p. 8 (offset 17203), Theorem 8 pp. 13–14 (offset 26281), Theorem 13, (20) and Remark 2 pp. 24–25 (offset 48044), Corollary 14 p. 26 (offset 52107)",
+          "method": "OA PDF passage inspection",
+          "title": "Strict unimodality without log-concavity for partial Petrial polynomials",
+          "trigger": "Same rooted-attachment formula and log-concavity question"
+        },
+        {
+          "assessment": "Support classification, not a phase diagram",
+          "evidence": "Paths are binomial; T-shape and H-shape trees are precisely the trinomial trees. These support-size statements do not resolve log-concavity for unbounded support.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01748",
+          "material_read": "Abstract p. 1 (offset 0), Theorem 14 p. 6 (offset 17977); stated binomial characterization p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "A Characterization of Trees with Trinomial Partial Petrial Polynomials",
+          "trigger": "Potential stronger classification of the relevant rank-count coefficient sequences"
+        },
+        {
+          "assessment": "Identical frozen target, not distinct prior work",
+          "evidence": "The same two formulas and the same exact first failing multiplicity are present under the target identifier.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-attachment-position-log-concavity-transition-for-partial--2e6cc2673cc1",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp attachment-position log-concavity transition for partial Petrial polynomials of four-vertex branches",
+          "trigger": "Exact match in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "P_4 is the first path with geometrically distinct endpoint and next-to-end attachments beyond the three-vertex case, and keeps the branch graph and order fixed while changing only the attachment position. The comparison converts eventual failure into a sharp finite boundary and explains why the endpoint regime never fails. This is more than repackaging the rooted generating formula or exhibiting an isolated defect: the small-m positivity and the endpoint all-order result certify the two regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

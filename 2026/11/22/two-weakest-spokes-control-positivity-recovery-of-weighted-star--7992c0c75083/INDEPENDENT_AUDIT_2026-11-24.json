@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:40:28.889184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put s=√h, d_i=1+isw_i. Taking the real part of (I+isL)⁻¹ gives R(h). The Schur complement at the hub is S=1+Σ isw_k/d_k, which lies in the open first quadrant. Inverting gives the hub–leaf entry isw_i/(d_i S) and the leaf–leaf entry −hw_iw_j/(d_i d_j S) before taking real parts. The argument in the first expression lies strictly between −π/2 and π/2. In the second, putting θ_i=atan(sw_i), the real part is nonnegative iff θ_i+θ_j+arg S≥π/2, since this sum is strictly below 3π/2. The minimum is the sum for leaves 1 and 2, allowing ties. For a term with z=w_k, its contribution to Re(d_i d_j S)/h is −w_iw_j+(z−w_i)(z−w_j)/(1+hz²); together with the initial term this gives exactly F_w. The remaining numerators for pair (1,2) are nonnegative, giving strict decrease, opposite limiting signs, and only one positive root. Bounding each summand from below by zero and strictly above by 1/h gives the bounds; equality at the lower end requires every remaining weight to equal w₂, and convergence of the summands to 1/h on compact positive intervals gives sharpness of the upper endpoint at high contrast. The empty sum gives the exact m=2 value. Positive definiteness gives positive diagonals; R(h)1=1 gives the norm criterion by the absolute row sum, and R(0)=I. An independent exact solve of the rational linear system (independent_resolvent_biclique_check.py) gives weak-leaf zero at h=1/6 for (1,2) and h=1/8 for (1,2,2), and entries −1/5726 and 38/8627 at h=1/6 and 1/5 for (1,2,3,7). Frozen verify.py was inspected, not executed. The proof concerns unit masses and positive conductances, not arbitrary trees, normalization or semigroup timing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gregorio–Mugnolo treats the continuous biharmonic semigroup, with a negative entry example on a three-vertex path; Fontan–Altafini treats eventual exponential positivity and signed Laplacian pseudoinverses."
+        ],
+        "reasoning": "The spectral limit of R(h) is the positive constants projector on any finite connected graph, providing eventual positivity, but not an exact cutoff, last pair or bounds. The primary semigroup and pseudoinverse results do not give the quantitative resolvent claim.",
+        "searches": [
+          "Gregorio–Mugnolo arXiv:1712.07370 §2 Prop. 2.3 and Remark 6.2",
+          "Fontan–Altafini arXiv:2109.14587 §II Thm. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7992c0c75083 (identical record)",
+        "Resultary ce5887fa3988",
+        "Resultary d420a169b802",
+        "arXiv:1712.07370",
+        "arXiv:2109.14587"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ce5887fa3988 gives a negative-to-positive one-crossing heat transition for each leaf pair on a positive weighted star, but does not select the last pair. The Laplace average R(h)=h⁻¹∫ exp(−t/h)exp(−tL²) dt connects the operators."
+        ],
+        "reasoning": "The same-day single-crossing heat result can support a qualitative resolvent single-crossing property: increasing h exponentially tilts the average toward the positive side of the heat crossing, so a nonnegative average remains positive thereafter. That implication supplies neither ordering of the resolvent crossings nor the exact scalar F_w and sharp bounds. The Schur-complement angle ordering and expansion give the distinct quantitative content.",
+        "searches": [
+          "Resultary ce5887fa3988, Finding and Limitations; d420a169b802, Finding",
+          "arXiv:1712.07370 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue's exact match 7992c0c75083 is the assigned record. The weighted-star result ce5887fa3988 treats exp(−tφ(L)); d420a169b802 treats the same rational R(h) on unweighted graphs and gives a reentrant P₅ witness and its threshold."
+        ],
+        "reasoning": "The heat time and the resolvent step are not the same parameter, and P₅ is not a star. Neither comparator identifies the two minimum weights as controlling the resolvent. Same-day order is not inferred.",
+        "searches": [
+          "Resultary: weighted stars, biharmonic backward-Euler positivity and sign recovery",
+          "Resultary ce5887fa3988 and d420a169b802 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen finding; the closest distinct entries concern heat on weighted stars and a finite unweighted resolvent classification."
+        ],
+        "reasoning": "A table of unweighted graphs or special weights cannot give a threshold on the full continuum of positive weights. No separate indexed symbolic selector or equivalent threshold law was established by the compared sources.",
+        "searches": [
+          "Resultary: weighted-star resolvent, reentrant biharmonic resolvent and fractional heat sign recovery"
+        ]
+      },
+      "rationale": "Credit is for the pair selector, explicit monotone resolvent equation and sharp weight-dependent endpoints. Qualitative eventual positivity is generic and a close same-day heat theorem has qualitative implications, but neither it nor the same-resolvent reentrant example derives those quantitative star statements.",
+      "residual_risks": [
+        "A specialist arrowhead-matrix treatment might contain an equivalent real-part sign selector. The bounded external search supplied no further usable comparison and establishes no priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap; not quantitative coverage",
+          "evidence": "Heat/general convex exponent, one crossing for each leaf pair; no last-pair selector for arbitrary weights.",
+          "identifier_or_url": "Resultary ce5887fa3988",
+          "material_read": "RESULT.md Finding and limitations/comparison, offsets 0 and 7994",
+          "method": "Bounded local mirror inspection",
+          "title": "Unique sign recovery for fractional heat on positively weighted stars",
+          "trigger": "Same-day, same arbitrary weighted stars and sign recovery"
+        },
+        {
+          "assessment": "Different graph family and parameter regime",
+          "evidence": "Unweighted connected graph classification with a five-vertex path witness.",
+          "identifier_or_url": "Resultary d420a169b802",
+          "material_read": "Opening RESULT.md Finding",
+          "method": "Bounded local mirror inspection",
+          "title": "Five vertices are sharp for reentrant positivity in graph biharmonic resolvents",
+          "trigger": "Same-day, same rational resolvent"
+        },
+        {
+          "assessment": "Continuous-time antecedent",
+          "evidence": "Studies exp(−tL²), its positivity/contractivity and transition times rather than this resolvent step.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "§2 pp. 7–8, example and Proposition 2.3; Remark 6.2 p. 30",
+          "method": "Bounded OA PDF inspection",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Closest primary graph biharmonic positivity theory"
+        },
+        {
+          "assessment": "Different inverse and positivity statement",
+          "evidence": "Eventual exponential positivity and pseudoinverse properties, not an exact rational star cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.14587",
+          "material_read": "Abstract; §II p. 3 Theorem 2",
+          "method": "Bounded OA PDF inspection",
+          "title": "On the properties of Laplacian pseudoinverses",
+          "trigger": "Possible eventual positivity or inverse-matrix coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem makes a sign constraint on a whole matrix an exact scalar test for all positive weights on a natural graph family. It locates both the recoverable step and the competing worst-case weights; with the two weakest conductances fixed the cutoff may grow by the sharp factor m−1. This distinguishes geometry-dependent contractivity from the mere fact of eventual positivity or the uniform-weight example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

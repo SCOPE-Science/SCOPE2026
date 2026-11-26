@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:23:27.042838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kummer counts the carries in n+2n. A first carry requires two adjacent 1 bits of n and forces the next carry because the shifted summand then has bit 1 and there is an incoming carry. A string of s ones, s>=2, gives exactly s carries, continuing through the high shifted bit; dyadic scaling leaves the count unchanged. Splitting even and odd factors gives B_{2N}/B_N=O(6N)/(O(2N)O(4N)), where O is the odd factorial part. For N=2^t a and fixed modulus, the complete odd-residue blocks have products 1 at large t (units pair by inversion; the self-inverse units multiply to 1 for k>=3; for k=2 take an even number of blocks). Therefore B_{2^t a} stabilizes at each modulus, defining U_a with the same valuation as B_a. In the exact factorial ratio B_{A+H}/(B_A B_H), the factors and inverse factors are 1+cH/j with c in {1,2,3}; for A=2^t a, H=2^(t+r)b and j<=3A, v2(j)<=t+floor(log2(3a)). The prescribed gap makes every ratio factor a unit congruent to 1 mod 2^k, so this use of ratios is valid even when B_A or B_H itself is not a unit. Passing to the limits and repeating realizes a finite product of U values at positive indices. U_1=7 and U_9=5 modulo 8; exact seed residues follow from B_8 and B_72 and stabilization modulo 8. The valuation of U_9^(2^j)-1 is j+2 by successive factorization, giving the entire subgroup 1 mod 4, and U_1 supplies its other unit coset. This works at k=1,2 with the respective trivial or order-two groups. Multiplying a seed of valuation s>=2 by units gives every class of that valuation; a sufficiently high valuation gives zero. Stabilizing at positive dyadic multiples supplies infinitely many indices for each class. This proves the count, two-adic closure and Haar measure, with no frequency assertion. Independent replay: python3 /workspace/independent_checks.py 3 used an exact consecutive-index factorial ratio checked against direct binomial evaluations and enumerated n=0..32767; it attained precisely the allowed sets for k=1..8 and checked seed residues 7 and 5. The finite image is not the all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Zhang obtain density mod every 2-power when the lower index K is fixed and the upper index varies freely.",
+          "Barat–Grabner count distributions over all pairs 0<=j<=n<N rather than a fixed proportional ray.",
+          "The located Davis Theorem 1.3 assumes v_p(a-b)=0; a=3, b=1, p=2 violates this.",
+          "The attempted author copy of Granville's paper returned 404; no mathematical exclusion is inferred."
+        ],
+        "reasoning": "Ambient or fixed-column image statements do not pass to the constrained ray (3n,n). A theorem on one dyadic limit, even if a particular case applies, would also need multiplicative block realization and unit coverage or an equivalent argument to imply the claimed all-shell image.",
+        "searches": [
+          "Sun–Zhang arXiv:0812.3089, Theorem 1.1 and Corollary 1.1",
+          "Barat–Grabner Binomial.pdf, abstract and introduction",
+          "Davis arXiv:1301.6285, Theorem 1.3",
+          "Granville, Binomial coefficients modulo prime powers, attempted lawful author copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-record match and distinct records 499526ba814d, 8587a753dc01, 52bb9a159543",
+        "Barat–Grabner, abstract and introduction",
+        "Sun–Zhang arXiv:0812.3089, Theorem 1.1 and Corollary 1.1",
+        "Davis arXiv:1301.6285, located Theorem 1.3 passage",
+        "Guo arXiv:1312.7548, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact valuation results already show that the shell v2=1 is absent. The same theorem statements do not specify any of the many distinguishable unit parts in an allowed shell.",
+          "The relevant Davis theorem is outside the multiplier regime and Guo's accessible abstract states divisibility results for binomial expressions."
+        ],
+        "reasoning": "To establish the image one must show that units in every allowed shell actually occur modulo each prescribed power. The separation lemma and two generator limits do this in the frozen proof, beyond the identified valuation and divisibility statements. This does not claim historical novelty for Kummer, factorial identities or prime-power congruence machinery.",
+        "searches": [
+          "Resultary 499526ba814d and 8587a753dc01, valuation statements",
+          "Davis arXiv:1301.6285, located Theorem 1.3 passage",
+          "Guo arXiv:1312.7548, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror at offset 88 for 3c8bca123502 gives the same formula, because this is the frozen record itself.",
+          "Mirror at offset 52 for 499526ba814d gives the exact dyadic-block valuation enumerator for the same binomial sequence and includes the missing valuation one.",
+          "Mirror at offset 66 for 8587a753dc01 gives conditional valuation support {0} union {2,...,2k-2} when v2(binomial(2n,n))=k, with infinite witnesses in that invariant."
+        ],
+        "reasoning": "The residue result is equivalent to density in the indicated two-adic shells with the claimed infinite witnesses modulo each power. A valuation or even its full distribution cannot distinguish the odd residue of the unit part, so the earlier valuation results cover the obstruction and seed valuations but not the full image.",
+        "searches": [
+          "Resultary: fixed-ray binom(3n,n) residues modulo powers of two, complete unit shells and two-adic closure",
+          "Resultary 499526ba814d and 8587a753dc01, mirrored Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older indexed entries specify valuation tables or conditional valuation support, not fixed-modulus values within a shell.",
+          "The distinct same-day 52bb9a159543 Finding at offset 68 tabulates a joint binary digit-sum spectrum for n and 3n over dyadic blocks.",
+          "The exact complete repertoire retrieved in Resultary is the frozen entry itself."
+        ],
+        "reasoning": "From the digit sums one can compute the valuation via Legendre/Kummer, but not the binomial's odd part. These comparators are not an exact lookup or dominating table for the two-adic residue sets. Same-day dates do not decide priority.",
+        "searches": [
+          "Resultary 499526ba814d dyadic binomial valuation enumerator, 8587a753dc01 joint valuation support, and 52bb9a159543 joint binary-weight spectrum",
+          "Barat–Grabner, abstract and introduction"
+        ]
+      },
+      "rationale": "The valuation-one exclusion and valuation support alone overlap verified earlier indexed findings on exactly this sequence and are not singled out as new. The accepted distinct content is complete coverage of the residues within every allowed shell for all fixed powers of two, with infinite witnesses and the resulting closure. No inspected prior claim implies that coverage; the comparison is bounded.",
+      "residual_risks": [
+        "A general prime-power congruence result under different terminology could imply more than the accessible sources reveal; the Granville text was not retrieved and some neighboring sources were accessible only in part.",
+        "One public search did not return relevant results; that is not proof of absence.",
+        "The valuation-law component overlaps verified earlier indexed work and is not itself credited as novel here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified coverage of valuation obstruction, not residues within shells",
+          "evidence": [
+            "Dyadic-block valuation enumerator has no valuation-one support."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d",
+          "material_read": "Mirrored Finding at offset 52",
+          "method": "Resultary search and local mirror passage comparison",
+          "title": "Exact dyadic valuation law for binom(3n,n)",
+          "trigger": "Same sequence and excluded valuation shell"
+        },
+        {
+          "assessment": "Conditional valuation support, no unit-part classification",
+          "evidence": [
+            "For fixed v2(binomial(2n,n))=k it gives support {0} union {2,...,2k-2}, with infinite witnesses."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-binary-valuation-spectrum-of-two-binomial-families--8587a753dc01",
+          "material_read": "Mirrored Finding at offset 66",
+          "method": "Resultary search and local mirror passage comparison",
+          "title": "Exact joint binary valuation spectrum of two binomial families",
+          "trigger": "Stronger conditional valuation information for the same sequence"
+        },
+        {
+          "assessment": "Binary weight pairs and valuation-related combinatorics, not full residues",
+          "evidence": [
+            "The finding concerns pairs (s2(n),s2(3n)) over dyadic blocks."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-joint-binary-weight-spectrum-under-multiplication-by-three--52bb9a159543",
+          "material_read": "Mirrored Finding at offset 68",
+          "method": "Resultary search and local mirror passage comparison",
+          "title": "Exact joint binary weight spectrum under multiplication by three",
+          "trigger": "Potential equivalent multiplication/carry formulation"
+        },
+        {
+          "assessment": "Triangle-wide rather than fixed proportional family",
+          "evidence": [
+            "Counts are over pairs 0<=j<=n<N."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Abstract and introduction, printed pp. 1–2",
+          "method": "OA PDF quantifier comparison",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Prime-power distribution results for Pascal coefficients"
+        },
+        {
+          "assessment": "At p=2 the lower index is fixed and upper index unconstrained",
+          "evidence": [
+            "Density of the binomial values for each fixed positive lower index K."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+          "material_read": "Theorem 1.1 and Corollary 1.1, printed pp. 3–4",
+          "method": "OA PDF theorem comparison",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "Stronger neighboring all-residue/density result"
+        },
+        {
+          "assessment": "Verified restriction on located theorem excludes the (3,1) ratio at p=2; no exclusion asserted for unread passages",
+          "evidence": [
+            "The theorem requires v_p(a-b)=0, not satisfied at a-b=2 and p=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.6285",
+          "material_read": "Located Theorem 1.3 match p. 2, around offset 5003; further by-offset retrieval timed out",
+          "method": "OA literal passage lookup and attempted context retrieval",
+          "title": "Binomial Coefficients Involving Infinite Powers of Primes",
+          "trigger": "Prime-power limits of proportional binomial coefficients"
+        },
+        {
+          "assessment": "Inspected claims concern divisibility, not complete fixed-modulus image",
+          "evidence": [
+            "Main described results are divisibility relations for binomial expressions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.7548",
+          "material_read": "Abstract p. 1",
+          "method": "Abstract comparison",
+          "title": "Proof of two divisibility properties of binomial coefficients conjectured by Z.-W. Sun",
+          "trigger": "Binomial divisibility in a close proportional family"
+        },
+        {
+          "assessment": "Not evaluated from full text; no inference from the access failure",
+          "evidence": [
+            "Author-host access attempt returned HTTP 404."
+          ],
+          "identifier_or_url": "Granville, Organic Mathematics, CMS Conf. Proc. 20 (1997), 253–276",
+          "material_read": "Bibliographic identification only; attempted author-host text unavailable",
+          "method": "Attempted lawful copy access",
+          "title": "Binomial coefficients modulo prime powers",
+          "trigger": "General prime-power binomial congruences could assist digit-block constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this natural thin sequence, valuations give necessary restrictions but no completeness for modular values. The result proves saturation of every permitted shell at all exponents and supplies infinite witnesses by dyadic stabilization. The closure and measure 3/4 give an exact arithmetic invariant beyond a valuation distribution or finite residue table. It does not answer index-frequency or minimal-witness questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

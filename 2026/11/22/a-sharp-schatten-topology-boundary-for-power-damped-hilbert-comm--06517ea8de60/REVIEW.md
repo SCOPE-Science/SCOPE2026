@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof shows that the power-damped Hilbert matrix commutator is the Bochner integral of antisymmetric rank-two kernels. A geometric-law variance estimate makes the trace norm uniformly bounded as the exponent tends to zero; a disjoint dyadic two-block pinching gives a strictly positive explicit lower limit. Independent dyadic Hilbert–Schmidt estimates and Schatten interpolation prove convergence for every Schatten exponent strictly above one. Rational-function residue comparisons establish infinite rank for every exponent and skew symmetry gives the two-sided spectral inertia. The standalone checker successfully executes 6,889 finite assertions. These diagnostics are supplementary, and the infinite claims are justified by the analytical proof.
+## correctness
 
-## Originality — PASS (with priority uncertainty)
-The 2026 public mathematical result *A universal square-root Hilbert–Schmidt cusp for power-damped Hankel moments* treats exactly the same Hilbert matrix and exponent and proves the squared Hilbert–Schmidt cusp, but expressly excludes trace-class and general Schatten assertions. Here the new content is uniform trace-norm boundedness, a positive endpoint lower bound, convergence in every \(\mathcal S_p\) with \(p>1\), and infinite signed inertia. The full mathematical statement of Frank, Sukochev and Zanin (2024) concerns fractional Laplacian commutators on Euclidean spaces; Chatzifountas, Girela and Peláez (2013) classify generalized Hilbert/Hankel matrices rather than their power-damped commutators. Related Cesàro and Bergman results do not imply the specific Hilbert matrix conclusion. A nonindexed equivalent abstract paracommutator theorem cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The canonical noncompact Hilbert matrix exhibits a sharply located discontinuity between trace norm and every larger Schatten topology under an arbitrarily weak compact diagonal damping, with quantitative uniform upper and positive lower control. This directly enriches endpoint trace-ideal theory and is not just a re-expression of a Hilbert–Schmidt estimate. Infinite paired spectral inertia adds a structural property for every damping exponent.
+With q=1−t², the two rank-one factors in the moment representation have norm product O_s(q^{s−1}) for 0<s<1/2; the logarithmic case at 1/2 and O_s(q^{−1/2}) for s>1/2 are integrable as well. This proves trace class for D_s H and its adjoint, not for D_s by itself. For their difference the rank-two norm is 2 q^{−1} times the standard deviation of N^{−s} under geometric(q). Compare N^{−s} to q^s: the exponential domination of the scaled geometric lattice and integrability of y^{−1/2}log²y give the uniform bound C s q^s on that standard deviation for s≤1/4. Then s B(1/2,s) is bounded. On dyadic shells there is a factor 2^{−j} off the diagonal blocks and ∑_{j≥1}2^{−j}(j+1)²=11, giving the stated constant 23 with both orientations. Schatten interpolation proves the claimed rates for 1<p<2, and norm monotonicity covers p≥2. For the lower bound the two normalized indicators on each shell give a matrix element at least 2^{−ks}Δ_s/16, and the skew compression doubles that for its trace norm. Finite orthogonal pinching followed by k≥2 summation gives the exact displayed bound and positive limiting constant. In a putative finite column dependence both residue sums are nonzero rational functions for nonzero coefficients; a noninteger power cannot match the rational leading power at infinity. For integer s=p, the identity A−z^pB=0 implies c_j[1−((1−j)/j)^p]=0 separately at each pole, hence every coefficient vanishes. Compact selfadjoint iK_s has opposite-sign spectral pairing by conjugation, which with infinite rank proves both infinite inertias.
 
-## Limitations and references
-No optimal trace-norm constant, actual trace-norm limit, or sharp \(\mathcal S_p\) convergence rate is asserted. The conclusion is restricted to the classical Hilbert kernel. Principal comparisons: https://arxiv.org/html/2405.10652v1 ; https://arxiv.org/abs/1309.6125 ; https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-universal-square-root-hilbert-schmidt-cusp-for-power-damped-ha--04e588d68667 .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Hilbert–Schmidt cusp for this family is materially covered, and by norm monotonicity already gives convergence in S_p for p≥2. The supported distinct contribution is bounded but nonvanishing trace norm, trace-class membership for every positive s, the resulting endpoint classification including 1<p<2, and the infinite-rank/inertia conclusion. In the inspected sources the same-object result stops at Hilbert–Schmidt, and other plausible endpoint and moment-matrix results do not cover the trace norm of this difference. This is a best-of-current-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+For the standard Hilbert matrix the strong norm on the trace ideal sees a positive obstruction despite arbitrarily small Hilbert–Schmidt and operator norms. The uniform trace bound and explicit persistent family of orthogonal trace witnesses isolate this topology rather than just re-estimate the known cusp. The infinite inertia result additionally excludes a finite-dimensional artifact for any positive damping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

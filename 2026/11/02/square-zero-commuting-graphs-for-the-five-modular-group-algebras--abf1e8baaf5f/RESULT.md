@@ -1,54 +1,41 @@
 # Square-zero commuting graphs for the five modular group algebras of order eight
 
 ## Finding
-Let \(k=\mathbb F_q\), \(q=2^f\), \(f\geq1\). For each of the five groups \(G\) of order eight, put \(Z_G=\{x\in kG:x^2=0\}\). Form the simple undirected graph \(\mathcal C_G\) with vertex set \(Z_G\) and edges between distinct commuting elements. Then the complete graph-isomorphism classification is
+
+Let \(k=\mathbb F_q\) with \(q=2^f\), \(f\ge1\), and let \(R=kD_8\), where \(D_8=\langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle\). For conjugation by \(R^\times\), every noncentral square-zero element of \(R\) has orbit size \(q^2\). There are \(2(q-1)q^2\) such orbits and \(q^4\) central singleton orbits. This concerns individual elements of the group algebra, not conjugation by the original group \(D_8\) or a count by regular-multiplication rank.
+
+## Square-zero loci and their commuting graphs (context)
+
+For \(D_8\) and \(Q_8\), let \(z\) denote the central group involution and put \(t=1+z\). The ideal \(t kG\) has dimension four: multiply the four representatives of \(G/\langle z\rangle\cong C_2^2\) by \(t\) to obtain a basis. The quotient by this ideal is commutative, and \(t^2=0\); hence \(t kG\) is central and square-zero. Every algebra element is uniquely \(A+tB\), with \(A,B\) in the span of the representatives, and \((A+tB)^2=A^2\).
+
+For \(D_8\), take representatives \(1,r,s,rs\). If \(A=a_0+a_1r+a_2s+a_3rs\) and \(S=a_0+a_1+a_2+a_3\), expansion gives
 \[
-\begin{array}{c|c}
-G&\mathcal C_G\\\hline
-C_8&K_{q^4}\\
-C_4\times C_2&K_{q^6}\\
-C_2^3&K_{q^7}\\
-Q_8&K_{q^4}\\
-D_8&K_{q^5}\cup_{K_{q^4}}K_{q^5}.
-\end{array}
+ A^2=S^2+t(a_1^2+a_1a_2rs+a_1a_3s+a_2a_3r).
 \]
-Here the last expression means two complete graphs identified along one common induced clique; there are no edges between their disjoint complements. The latter graph has \((2q-1)q^4\) vertices, precisely \((2q^2-1)q^8\) ordered commuting pairs (including equal pairs), clique number \(q^5\), and exactly \(2(q-1)^2q^8\) ordered noncommuting pairs. The complement induced on the noncentral square-zero vertices is \(K_{(q-1)q^4,(q-1)q^4}\). Every noncentral square-zero element of \(kD_8\) has conjugacy orbit of cardinality \(q^2\) under \((kD_8)^\times\), while each central square-zero element has a singleton orbit; there are \(q^4+2(q-1)q^2\) such orbits in total.
-
-## Assumptions and scope
-The group \(D_8\) has presentation \(\langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle\), and \(Q_8=\{\pm1,\pm i,\pm j,\pm ij\}\) denotes the quaternion group. Products, commutators and conjugation are taken in the full associative group algebra, not in the underlying finite group. The graph has no loops, but ordered commuting-pair counts include equal pairs. The result holds over every finite field of characteristic two, and the structural clique decomposition remains true over any field of characteristic two with cardinal quantities replaced by affine-space families.
-
-## Proof
-For any central element \(z\) of order two in a characteristic-two group algebra, write \(t=1+z\), so \(t^2=0\). For either \(D_8\) or \(Q_8\), the center contains \(z\) and its quotient by \(\langle z\rangle\) is \(C_2^2\). Choose representatives \(1,u,v,uv\); the eight group elements decompose into those representatives and their multiples by \(z\). Thus each algebra element is uniquely \(A+tB\), with \(A,B\) in the four-dimensional span of these representatives. The group commutator ideal lies in \(tkG\), hence \(tkG\) is central, \((tkG)^2=0\), and \((A+tB)^2=A^2\).
-
-For \(D_8\), choose \(u=r\), \(v=s\), and write \(A=a_0+a_1r+a_2s+a_3rs\). Put \(S=a_0+a_1+a_2+a_3\). Direct expansion using \(srs=r^{-1}\) gives
+Reducing first modulo \(tR\), then comparing the four independent coefficients inside \(tR\), gives \(S=0\), \(a_1=0\), \(a_2a_3=0\). This is the same square equation available from the coefficient formula in Creedon–Gildea [1, proof of Proposition 2.1], upon writing a normalized involutory unit as \(1+x\) with \(x^2=0\), including \(1\) for \(x=0\). The square-zero locus is
 \[
-A^2=S^2+t(a_1^2+a_1a_2rs+a_1a_3s+a_2a_3r).
+ Z_{D_8}=\bigl(tR+k(1+s)\bigr)\cup\bigl(tR+k(1+rs)\bigr).
 \]
-The four vectors \(t,tr,ts,trs\) are linearly independent. Since \(k\) is a field, \(A^2=0\) is equivalent to \(S=0\), \(a_1=0\) and \(a_2a_3=0\). Consequently the square-zero locus is precisely the union
-\[
-Z_{D_8}=\bigl(tkD_8+k(1+s)\bigr)\ \cup\ \bigl(tkD_8+k(1+rs)\bigr).
-\]
-Both subspaces have dimension five and their common intersection is the four-dimensional central subspace \(tkD_8\). Furthermore
-\[
-[1+s,1+rs]=srs-r=(r^{-1}-r)=t\,r^{-1}\ne0.
-\]
-Commutators with \(tkD_8\) vanish. Therefore every pair of elements of the same subspace commutes, whereas a pair from their respective complements does not commute. This proves the clique amalgamation and its pair-count formulas. The noncommuting complements each have \((q-1)q^4\) elements.
+Their intersection is \(tR\). Each family is commuting because the ideal is central and the added direction is one-dimensional. Across their complements the commutator is a nonzero scalar multiple of \([1+s,1+rs]=r^{-1}-r=tr\), so no cross-pair commutes. In particular the central square-zero elements are exactly \(tR\). The graph (with distinct commuting elements adjacent) is therefore two \(q^5\)-vertex cliques glued along a \(q^4\)-vertex clique. It has \((2q-1)q^4\) vertices, clique number \(q^5\), \((2q^2-1)q^8\) ordered commuting pairs including equal pairs, and \(2(q-1)^2q^8\) ordered noncommuting pairs. The complement induced on the noncentral vertices is \(K_{(q-1)q^4,(q-1)q^4}\).
 
-For an element \(x\) in either noncentral subspace, its adjoint linear map \(y\mapsto[x,y]\) has rank two: up to a nonzero scalar, the two independent nonzero images of the coset representatives lie in the span of \(tr\) and \(trs\). Thus the centralizer subspace in the eight-dimensional algebra has dimension six. Since the group algebra of a finite \(2\)-group is local, an element is invertible if and only if it has nonzero augmentation. The centralizer subspace contains \(1\), so its unit group has \((q-1)q^5\) members; the full unit group has \((q-1)q^7\) members. Orbit–stabilizer gives \(q^2\) for each noncentral conjugacy orbit. All \(q^4\) elements of \(tkD_8\) are central, giving the claimed orbit count.
+For \(Q_8\), take representatives \(1,u,v,uv\) with \(u^2=v^2=(uv)^2=z\). Once the sum of coefficients vanishes, the four independent conditions are \(a_1^2+a_2^2+a_3^2=0\) and \(a_1a_2=a_1a_3=a_2a_3=0\). Thus the square-zero set is the central ideal \(t kQ_8\), as in [2], and the graph is \(K_{q^4}\). For the abelian groups \(C_8,C_4\times C_2,C_2^3\), use the truncated polynomial presentations with respective truncation exponents \((8),(4,2),(2,2,2)\). Squaring kills exactly the monomials whose doubled exponent reaches some truncation bound, and the other squared monomials are distinct. Thus the square-zero dimensions are respectively \(4,6,7\) and the graphs are complete of the corresponding sizes. These graph computations are elementary consequences of the coefficient and locus information, rather than separate novelty claims.
 
-For \(Q_8\), the same decomposition has each of \(u,v,uv\) squaring to \(z\). The coefficient of \(t\) in \(A^2\) contains \(a_1^2+a_2^2+a_3^2\), while the other three independent coefficients are \(a_1a_2,a_1a_3,a_2a_3\). Together with \(S=0\), these force \(a_1=a_2=a_3=a_0=0\). Hence \(Z_{Q_8}=tkQ_8\), a central four-dimensional subspace.
+## Proof of the unit-orbit census
 
-The three abelian groups have commutative group algebras, so their square-zero commuting graphs are complete. Their square-zero dimensions follow directly by Frobenius squaring in the standard truncated polynomial presentations: \(k[C_8]\cong k[X]/(X^8)\), \(k[C_4\times C_2]\cong k[X,Y]/(X^4,Y^2)\), and \(k[C_2^3]\cong k[X,Y,Z]/(X^2,Y^2,Z^2)\). The square-zero coefficient conditions leave respectively four, six and seven free coordinates.
+Central summands do not affect the adjoint map \(y\mapsto[x,y]\). For a noncentral square-zero \(x=c+a(1+s)\) with \(c\in tR\), \(a\ne0\), that map acts on the representatives \(1,r,s,rs\), up to the factor \(a\), with nonzero outputs \([s,r]=trs\) and \([s,rs]=tr\). For \(x=c+a(1+rs)\), its two nonzero outputs, up to \(a\), are \([rs,r]=ts\) and \([rs,s]=tr\). It vanishes on \(tR\) in both cases. Thus the adjoint rank is exactly two in either branch, and the algebra centralizer has dimension six.
 
-## Verification
-The included standalone `verify.py` constructs the eight-element multiplication table independently for each group and checks every element in \(\mathbb F_2G\) and \(\mathbb F_4G\) for square-zero. It confirms all ten cardinalities (five groups times two fields). It then exhausts all pairs of square-zero elements for \(D_8\) and \(Q_8\) over \(\mathbb F_2\), obtaining respectively \(1792\) and \(256\) commuting ordered pairs. Finally it enumerates all conjugacy orbits of square-zero elements under the \(128\) units of \(\mathbb F_2D_8\), finding sixteen singleton and eight four-element orbits. Invoke with `python3 verify.py`; success ends with `ORDER8_GROUP_ALGEBRA_SQZERO_OK`. These finite checks corroborate, but do not establish, the uniform assertions for arbitrary \(q\).
+A finite \(2\)-group algebra in characteristic two is local and its units are exactly the elements of nonzero augmentation. Here this also follows from the map to \(k[C_2^2]\): its kernel \(tR\) is square-zero, and in the abelian quotient squaring gives the augmentation squared, so every class of nonzero augmentation is invertible and lifts to a unit. Augmentation restricted to the centralizer is surjective since the centralizer contains \(1\). Consequently the unit centralizer has size \((q-1)q^5\), and \(|R^\times|=(q-1)q^7\). The orbit size is \(q^2\). There are \(2(q-1)q^4\) noncentral square-zero elements, so division by the common orbit size gives \(2(q-1)q^2\) noncentral orbits. All elements of \(tR\) have singleton orbits.
+
+## Verification and scope
+
+The supplied `verify.py` evaluates the square-zero predicate from explicit multiplication tables for the five groups over \(\mathbb F_2,\mathbb F_4\), checks ordered commuting-pair counts for \(D_8,Q_8\) over \(\mathbb F_2\), and exhausts the \(\mathbb F_2D_8\) square-zero conjugacy partition. For the latter check it expects 16 singletons and eight orbits of size four. The expected final marker is `ORDER8_GROUP_ALGEBRA_SQZERO_OK`. These finite tests supplement, but do not replace, the centralizer proof over arbitrary \(\mathbb F_{2^f}\). The structural loci and commuting families also make sense over infinite characteristic-two fields; the numerical orbit census is only asserted for finite fields. Nothing is asserted for larger groups or higher nilpotency indices.
 
 ## Relationship to prior work
-Creedon and Gildea describe the unit group of the characteristic-two algebra \(\mathbb F_q[D_8]\), providing relevant group-algebra structure; their paper does not state this square-zero commuting-graph classification. Classical and existing square-zero rank enumerations already determine the sizes of the square-zero sets and some left-multiplication rank spectra; those one-element invariants are not the claimed contribution and do not by themselves specify which pairs commute. The present claim is specifically about the induced commuting relation and unit-conjugacy orbit sizes among square-zero elements, uniformly across the five order-eight groups.
 
-## Limitations
-The theorem concerns order-eight group algebras over characteristic-two fields only, and graph vertices include zero and all central square-zero elements. It does not assert a classification for larger dihedral or quaternion groups or for higher nilpotency indices. Accessible primary literature is not an exhaustive priority search, and independent mathematical validation has not been performed.
+The same-algebra unit group structure and relevant square coefficients occur in [1]. The quaternion collapse is specifically covered by [2]. A later-dated catalogue treatment of algebra retractions [3] uses the same dihedral and quaternion square-zero loci. The contribution retained here is the uniform orbit-size census on the dihedral square-zero locus: it needs the element-centralizer ranks in the full algebra. It is not a claim of novelty for the total square-zero counts or their immediate implications for commuting graphs. Historical priority of the orbit-size statement is assessed only against the sources inspected.
 
 ## References
-- L. Creedon and J. Gildea, “The Structure of the Unit Group of the Group Algebra \(\mathbb F_{2^k}D_8\),” *Canadian Mathematical Bulletin* **54** (2011), 237–243, DOI:10.4153/CMB-2010-098-5 (available electronic source dated 2010-08-26).
-- L. Creedon and J. Gildea, “Unitary Units of the Group Algebra \(\mathbb F_{2^k}Q_8\),” *International Journal of Algebra and Computation* **19** (2009), 283–286, DOI:10.1142/S0218196709005081.
+
+1. L. Creedon and J. Gildea, *The Structure of the Unit Group of the Group Algebra \(\mathbb F_{2^k}D_8\)*, Canadian Mathematical Bulletin 54 (2011), 237–243, Proposition 2.1 and Theorem 2.6. https://doi.org/10.4153/CMB-2010-098-5
+2. *Quaternionic square-zero collapse and rank spectra of odd-index dicyclic group algebras*, Resultary `930d5916e28e`, Finding and proof §2. https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-quaternionic-square-zero-collapse-and-rank-spectra-of-odd-index--930d5916e28e
+3. *Algebra-retraction rank rigidity distinguishes the modular dihedral and quaternion group algebras of order eight*, Resultary `4bf856f96cbb`, Finding and Step 1. https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-algebra-retraction-rank-rigidity-distinguishes-the-modular-dihed--4bf856f96cbb

@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The first-return determinant and dynamical-zeta formulas are derived for all allowed integer petal lengths. Four exact polynomial factorizations establish equal Perron roots, mixing follows from petal-length gcd one, and distinct short periodic orbits prove nonconjugacy. For the sharp finite thresholds the included standalone rational-polynomial program exhausts every unordered same-order pair and applies Sturm's theorem to each exact gcd; 82 and 69 comparisons are checked. This is an exact finite proof of the stated bounded classification, not a conjectural extrapolation.
+## correctness
 
-**Originality: PASS within inspected evidence.** Klech (2026, arXiv:2609.17334v1) proves a first-return entropy formula and entropy completeness for the **two-return, one-surplus-edge** butterfly class; in its treatment of graphs with more surplus edges, three returns appear only in a lower-bound comparison. Wu and Zhang (2026, arXiv:2611.03758v1) discuss forbidden-word entropy and maximal entropy measures rather than these graph-size entropy collisions. Actual published-finding corpus searches found a different renewal horseshoe with the same cubic entropy but no matching first collision statement. General examples of nonconjugate equal-entropy shifts are known and are not claimed as new. Historical priority risk from unindexed older graph spectra remains.
+PASS
 
-**Value: PASS.** Entropy is a complete invariant in the adjacent two-return butterfly class, while the new result isolates the first precise failure when three independent return cycles are permitted. The distinction between the nine-vertex looped and eleven-vertex loopless mixing boundaries is a natural structural and quantitative classification, reinforced by different zeta functions despite exactly equal entropy. No extension to all digraphs or to a general conjugacy classification is asserted.
+Deleting the hub leaves directed paths, so the off-hub block contributes determinant 1 and the Schur complement is one minus the first-return series. The Perron equation has exactly one root greater than one by strict decrease of the sum of inverse powers; a common root there is exactly the condition for equal entropy. The independent exhaustive rational gcd/Sturm check confirms 82 pair comparisons through 9 vertices with loops allowed and 69 through 11 without loops. It finds only the respective boundary pairs (1,4,6)/(2,2,7) and (2,5,6)/(3,3,7). Their gcds are (x+1)(x^3-x^2-1) and x^3-x-1, respectively. Repeated lengths are allowed; repeated self-loops are not. Each of the four triples has gcd one, so the shifts are mixing. The first pair has fixed-point counts 1 and 0; the second has counts 2 and 0 for fixed points of the squared shift. Thus neither pair is conjugate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The standard return-series, entropy and zeta calculations are antecedents. The distinct finding supported by the sources checked is the exact first, unique, equal-order collisions in both three-return families, with explicit nonconjugate witnesses. No historical-priority certification follows.
+
+## value
+
+PASS
+
+Three petals are a natural next test of entropy rigidity after two-return sparse digraphs. The classification pins down exactly where entropy loses the return multiset at fixed order, and shows that forbidding self-loops moves the threshold rather than restoring rigidity. The explicit mixing nonconjugate witnesses and the exclusion of all earlier pairs give a useful sharp baseline for extensions beyond three returns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

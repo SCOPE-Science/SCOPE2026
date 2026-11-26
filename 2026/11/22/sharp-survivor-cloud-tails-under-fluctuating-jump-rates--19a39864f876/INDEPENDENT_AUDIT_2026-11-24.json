@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:13.724702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently replayed RESULT.md §§1–4, including the nonstandard local-tail step, without assuming a rate density or relying on a cosine Tauberian converse. For a finite sum of J independent integrated-rate contributions, an exceedance of z with no term above (1−ε)z requires one term above z/J and another above εz/(J−1), giving O(z^{-2α}); union bounds and ε↓0 give the exact C_t. For the free unit-intensity lattice kernel p_a(n), exponential tilting of Fourier inversion bounds it by C e^{-n/4} for a<n and C a^{-1/2}e^{-n²/(4a)} for a≥n. Untilted inversion gives n p_{n²u}(n)→(2πu)^{-1/2}exp(−1/(2u)) uniformly on compact positive u-intervals. The measures n^{2α}Law(A_t/n²) converge vaguely to αC_t u^{-1−α}du. For small u the exponential kernel bound summed on dyadic intervals is negligible, and for u≥M the rescaled bound is O(M^{-α−1/2}). Integrating the limiting kernel gives exactly K_t=α2^α C_t Γ(α+1/2)/√π. Reflection conditioned on the independent unrestricted clock gives the exact 2m-site telescoped window, not a subtraction of asymptotic equivalents. Survival is positive; dividing by it gives the conditional coefficient and tail integration gives the strict q cutoff, including logarithmic divergence at equality. Each absorbed bounded-step martingale has mean m, so averaging over the clock preserves the first moment even for infinite mean count. Independently, Mittag–Leffler operational survival is comparable to (1+a)^{-1/2}, by its reflected sum over the fixed sites 1−m through m and the local central limit. At n refresh periods its mixture is comparable to ∫ s^{-1/2}e^{-s}(1+(τs)^α)^{-n}ds, hence to n^{-1/(2α)} by small-s scaling. Summing the monotone survival curve proves the mean-lifetime cutoff including α=1/2. Its rate tail has C=1/Γ(1−α) by the monotone Laplace tail theorem. The two integrability thresholds are therefore complementary exactly as stated. Detailed replay is in /workspace/branches/survivor-tail-proof.md. The supplied Pareto/Bessel diagnostic was inspected, not executed; no finite check is used for the equivalent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen comparisons identify the exact half-line propagator and survival transform for refreshed rates and the unrestricted doubly stochastic random-walk transform. The novelty claim does not include those constructions.",
+          "None of the compared available statements gives a sharp evaluated fixed-time surviving-position tail for an arbitrary regularly varying mixing law. The targeted primary retrievals were unsuccessful."
+        ],
+        "reasoning": "Determining a probability law implicitly is prior coverage of the propagator; the sharp site-local equivalent requires separate analysis of the tail mixing and kernel. A general transform does not assert the claimed exponent, coefficient or threshold.",
+        "searches": [
+          "Levit–Reuveni arXiv:2609.26925 Eq. (1) and supplement S7–S9",
+          "Arutkin–Reuveni DOI 10.1103/PhysRevResearch.6.L012033 and arXiv:2302.07041",
+          "Resultary: killed propagators and survivor moment cutoffs"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and verification.py",
+        "arXiv:2609.26925 and DOI 10.1103/PhysRevResearch.6.L012033 (frozen comparisons; independent primary retrieval unavailable)",
+        "Resultary entries e6a4805c995b, 50200fbcdf63 and 8f9c5f887b95 (catalogue statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported α<1/2 mean-passage threshold is expressly prior and was also verified mathematically in this audit. The new comparison needs the strict α>1/2 criterion for finite conditional spatial second moment. Transport formulas for the free process and phase survival do not supply it by parameter substitution."
+        ],
+        "reasoning": "A long-time integrability boundary alone does not imply a fixed-time spatial-moment boundary; deriving the latter and intersecting the strict regimes gives the claimed incompatibility. The cutoff itself follows by tail integration once the new tail is established.",
+        "searches": [
+          "Resultary: Mittag–Leffler α=1/2 first-passage comparison",
+          "arXiv:2609.26925",
+          "DOI 10.1103/PhysRevResearch.6.L012033",
+          "frozen RESULT.md lines 61–82"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact summed boundary observable equals a 2m-site window in the unrestricted mixed kernel. A sharp prior theorem for that free local mass under arbitrary regularly varying mixing, together with the known image formula, would cover the asymptotic. The retrieved records instead concern a within-period survival cusp, first-passage scaling, or joint survival."
+        ],
+        "reasoning": "An unrestricted displacement tail, temporal survival law, or an exact but unevaluated propagator is not the requisite local-mass equivalent. In particular, neither subtracting two asymptotic point masses nor reading a characteristic function without a Tauberian or local-limit step justified the boundary amplitude.",
+        "searches": [
+          "Resultary: fixed-time far-position survivor tails",
+          "Resultary: free mixed-Poisson lattice local tails",
+          "Resultary: killed propagators and survivor moment cutoffs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue entry e6a4805c995b gives a normalized within-period survival contrast and a redraw-time cusp. Record 50200fbcdf63 rescales the first-passage time from a large starting distance, and 8f9c5f887b95 treats unequal-time joint survival of two walkers."
+        ],
+        "reasoning": "These close records do not supply the fixed-time one-walker reflected spatial tail or its exact coefficient in their returned statements. No priority inference is made from the date of the cusp or joint-survival records.",
+        "searches": [
+          "Resultary: free mixed-Poisson lattice local tails",
+          "Resultary: fixed-time far-position survivor tails",
+          "Resultary: Mittag–Leffler α=1/2 first-passage comparison"
+        ]
+      },
+      "rationale": "Credit the prior exact killed and free propagators and the reported mean-first-passage threshold; first-moment conservation is a stopped-martingale consequence, not the novelty basis. The distinct supported contribution is the sharp fixed-time far-position survivor equivalent under general regularly varying rates, with the correct boundary factor and moment cutoff, and its stated application in the Mittag–Leffler family. The closest same-day catalogue results study different observables; external primary access failures leave unresolved risk but do not establish overlap.",
+      "residual_risks": [
+        "A primary theorem on mixed-Bessel-kernel local masses or on the fixed-time reflected spatial tail could imply this result; none was established by the accessible statements.",
+        "The main exact-propagator and transport primary papers and closest same-day mirror could not be inspected independently in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the reported propagator and threshold; no whole-paper exclusion",
+          "evidence": [
+            "The reported α<1/2 transition agrees with the independent grid-time survival calculation in the replay."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+          "material_read": "Frozen RESULT.md comparison at lines 77–82 and recorded descriptions of Eq. (1) and supplement; no independent primary passage retrieved",
+          "method": "Targeted lawful OA attempt timed out; independent derivation of stated threshold",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Same absorbed periodically refreshed model and mean-passage phase transition"
+        },
+        {
+          "assessment": "Reported unrestricted transport statement is not a killed spatial-tail equivalent",
+          "evidence": [
+            "Frozen RESULT.md lines 77–81 attribute the general unrestricted propagator to this work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.6.L012033",
+          "material_read": "Frozen comparison, including description of free transform and moments; no independent primary passage obtained",
+          "method": "Targeted lawful arXiv:2302.07041 and publisher retrieval unsuccessful",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "General rate-mixture walk and transport moments"
+        },
+        {
+          "assessment": "Different temporal observable in summary, with full-text scope unresolved",
+          "evidence": [
+            "Summary asserts a within-period survival contrast and one-sided fractional cusp at refresh times."
+          ],
+          "identifier_or_url": "SCOPE-20261122-e6a4805c995b",
+          "material_read": "Resultary returned statement only; full mirrored text unavailable",
+          "method": "Local Resultary and targeted mirror retrieval attempt",
+          "title": "Universal refresh-phase cusp and heavy-tail fingerprint in absorbed walks",
+          "trigger": "Same-day catalogue hit on the same type of random clock and absorption"
+        },
+        {
+          "assessment": "Large starting distance and first-passage time, not large endpoint at fixed observation time",
+          "evidence": [
+            "Summary describes a first-passage time scaling by the starting distance to the power 2α."
+          ],
+          "identifier_or_url": "SCOPE-20261108-50200fbcdf63",
+          "material_read": "Resultary catalogue statement",
+          "method": "Local Resultary and frozen citation comparison",
+          "title": "Universal distance-scaled first-passage law for fluctuating jump rates",
+          "trigger": "Nearby heavy-tail limit at a spatial scale"
+        },
+        {
+          "assessment": "Different joint survival observable; no full-text verdict",
+          "evidence": [
+            "Summary concerns unequal-time survival of two walkers."
+          ],
+          "identifier_or_url": "SCOPE-20261122-8f9c5f887b95",
+          "material_read": "Resultary catalogue statement",
+          "method": "Local Resultary",
+          "title": "Two-time persistence correlations under a common heavy-tailed jump clock",
+          "trigger": "Related absorbed-walk survival statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint distribution of the surviving search particle is a natural statistic distinct from absorption time and the free-cloud tail. The exact amplitude and extra spatial power arising from killing quantify rare surviving positions for a general class of rate laws. The sharp second-moment boundary identifies a concrete lifetime-versus-spatial-spread trade-off in the motivating family, not merely a reproduction of its known passage transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

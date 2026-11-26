@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:12:56.180364Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–113, independently reconstructed",
+        "Frozen VERIFICATION.md and check_tricylinder_width.py, inspected without running uploaded code"
+      ],
+      "rationale": "For ordered directions, the first-branch point lies on two cylinders and satisfies the third constraint exactly when a>=b+c; its two active normals span the direction with nonnegative coefficients. The diagonal vertex has three active normals whose nonnegative cone is described by the triangle inequalities. This proves both branches, also at ties and axes. In the sorted spherical chamber the two branches join at theta_c, are nondecreasing up to theta_m, and invert to the stated cutoffs with chamber multiplier 48/(4pi). Strict theta-monotonicity off null sets gives no atoms, including at the minimum where the three coordinate circles have zero area. For t>=2/sqrt(3), the nonvertex branch has H<=t; the vertex superlevel caps are disjoint (for t>1 a cap lies entirely in its signed octant) and each contributes (1-t/sqrt(3/2))/2. In the lower tail each of six disjoint axis charts has H^2=1+2|yz| and spherical Jacobian 1+O(y^2+z^2); the product sublevel area is 4s log(1/s)+O(s), where s=delta+O(delta^2). The weighted error is O(s), since integrating y^2 on a quadrant gives the integral of y^2 min(eta,s/y), and likewise for z^2. Off the axes, the ordered coordinate b is bounded below near the minimum set. The first branch has H^2-1=2bc, while in the second a-b<=c and H^2-1=(a+b)c-((a-b)^2+c^2)/2. Both give a uniform linear lower bound in c near those circles away from the axes. The remaining area is O(delta), giving 6/pi for the coefficient in H, and 3/(pi r) after rescaling width.",
+      "residual_risks": [
+        "The 50 further checks in the numerical script are bounds on the CDF, not support bounds as the frozen verification prose says. The Sobol test also reuses the support formula, while SLSQP supplies a separate finite numerical comparison. Neither observation affects the analytic theorem.",
+        "The exactly uniform upper interval assumes spherical-area directions and equal orthogonal cylinders; it is not a planar projection-area law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas gives a normal-cell/aperture density law for three-dimensional polytopes, using a finite sum of vertex terms of P-P and linear support on each cell.",
+          "The cube record has a linear upper survival function until its caps begin to interact with its normal-cell geometry."
+        ],
+        "reasoning": "The tricylinder has curved, nonpolyhedral pieces and square-root support on a positive-area chamber. The polytope theorem does not apply to the whole law; a limit of polytope width distributions does not by itself give the exact formula or lower-edge singularity. The common cap argument gives a contribution from vertices, but the onset here requires controlling the competing curved branch.",
+        "searches": [
+          "Primary web query: tricylinder three orthogonal cylinders Steinmetz body support function width directional probability projection length random",
+          "arXiv:2609.26202v1 §1.2 and Theorem 3.4",
+          "2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-body and analogous-width findings itemized above",
+        "Angell–Moore 1987 and Moore 1974 retrieval attempt",
+        "arXiv:2609.26202v1 and arXiv:1110.0671v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected equal-radius bicylinder theorem includes a logarithmic lower law with leading width coefficient 1/(pi r) and two intersections of minimum circles. The unequal bicylinder has a finite linear slope.",
+          "The tricylinder has three minimum circles and six crossing charts, an extra constraint, and eight vertex normal chambers."
+        ],
+        "reasoning": "The two equal-radius laws share a local product mechanism; the two-cylinder distribution is not a stronger theorem for three cylinders, nor does the scalar distribution determine what the addition of the third constraint does jointly over directions. The actual six-chart geometry and the nonvertex bound give the target constants. Same-day indexed analogues are distinguished by their claims; no priority order is inferred from their dates.",
+        "searches": [
+          "2026/11/22/SCOPE-the-elliptic-random-width-law-and-logarithmic-polar-localization--f1c36680292a",
+          "2026/11/22/SCOPE-elliptic-rare-width-tomography-for-unequal-orthogonal-bicylinder--8cb749eaa167",
+          "10.1107/S0108767387099501"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six/eight-arc theorem has the same a=b+c boundary but counts arcs on central section boundaries; the twelve-sector result gives central cross-sectional areas.",
+          "The three-disk hull has a width law but takes the convex hull of planar disks rather than the intersection of the three solid cylinders."
+        ],
+        "reasoning": "A section perpendicular to a direction intersects a prescribed plane, whereas width maximizes a linear functional over the full body. A shared switching condition is not a formula for that maximum. The three-disk hull is not related by an immediate duality yielding this law: its support is the maximum of the three planar-projection norms, whereas the polar of the cylinder intersection is the hull of the disks and its radial function, not its support function, is reciprocal to the tricylinder's support.",
+        "searches": [
+          "Resultary: 2026/11/1/SCOPE-exact-central-section-area-and-six-eight-arc-law-of-the-orthogon--3c351c7fe62f",
+          "2026/10/18/SCOPE-exact-twelve-sector-sections-and-cubic-directional-anisotropy-of--428486a75562",
+          "2026/11/8/SCOPE-exact-random-widths-of-the-orthogonal-three-disk-hull-and-sharp--d1df18476a61"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Angell–Moore give orthographic views and volume formulas for symmetric intersections including the tricylinder.",
+          "Finch treats width moments for tetrahedron and cube. The exact indexed formulas located for tricylinder concern sections, and those for random widths concern other bodies."
+        ],
+        "reasoning": "Fixed orthographic views or volumes do not tabulate support in all directions, and width moments for other shapes are not an exact random-width lookup for this body. No independent such table was found in the compared material.",
+        "searches": [
+          "Resultary exact/related tricylinder, bicylinder and random width findings described in source_inspections",
+          "10.1107/S0108767387099501, pp. 244–250",
+          "arXiv:1110.0671v2, Introduction"
+        ]
+      },
+      "rationale": "The strongest actual overlaps cover the same solid's central sections, the cap mechanism for other bodies, and a logarithmic width tail for the bicylinder. They are credited as geometric or analytic precedents, not claimed here as new principles. The compared statements neither give the tricylinder's piecewise support law and CDF nor subsume their two tail laws.",
+      "residual_risks": [
+        "The 1974 same-geometry article and some potentially relevant historical geometry texts remain unread in full; exact historical priority is not established. The cap and product-sublevel mechanisms have real precedents in other bodies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same body and known geometry, not the width law in the inspected passages",
+          "evidence": "Equal-radius orthogonal cylinders and orthographic views are discussed; Sec. 4 solves volumes.",
+          "identifier_or_url": "https://doi.org/10.1107/S0108767387099501",
+          "material_read": "Printed p. 244 abstract, p. 245 geometry/views (text offsets 411 and 5793) and Sec. 4 pp. 249–250 (about 19000–22383)",
+          "method": "Bounded passages from lawful OA copy at math.pro/db/attachment.php?aid=7715",
+          "title": "Symmetrical Intersections of Cylinders",
+          "trigger": "Classical primary source for the identical body and orthographic views"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of no overlap",
+          "evidence": "Title flags same geometry; no decisive independent passage was available to judge its scope.",
+          "identifier_or_url": "https://doi.org/10.2307/3615957",
+          "material_read": "Primary full text not independently read; abstract-only access is reported in frozen RESULT.md",
+          "method": "Identified full-text retrieval attempt timed out",
+          "title": "Symmetrical Intersections of Right Circular Cylinders",
+          "trigger": "Earlier plausible same-body historical treatment"
+        },
+        {
+          "assessment": "Genuine same-transition geometry, different observable",
+          "evidence": "The first switches central-section arc count at a=b+c and gives section areas; the second gives a directional central-section area profile.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-central-section-area-and-six-eight-arc-law-of-the-orthogon--3c351c7fe62f; 2026/10/18/SCOPE-exact-twelve-sector-sections-and-cubic-directional-anisotropy-of--428486a75562",
+          "material_read": "Both local RESULT.md Findings, offset 0",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Exact central-section area and six/eight-arc law of the orthogonal tricylinder; Exact twelve-sector sections and cubic directional anisotropy of the Steinmetz tricylinder",
+          "trigger": "Exact same-body angular results"
+        },
+        {
+          "assessment": "Close width claims for two cylinders; do not include the three-cylinder law",
+          "evidence": "The first gives an elliptic density and logarithmic lower tail with coefficient 1/(pi r); the second explicitly requires unequal radii and gives a finite linear lower slope.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-elliptic-random-width-law-and-logarithmic-polar-localization--f1c36680292a; 2026/11/22/SCOPE-elliptic-rare-width-tomography-for-unequal-orthogonal-bicylinder--8cb749eaa167",
+          "material_read": "Equal-radii RESULT.md Finding and proof from offset 0; unequal-radii Finding and comparison (offsets 0 and about 6900)",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "The elliptic random width law and logarithmic polar localization; Elliptic rare-width tomography for unequal orthogonal bicylinders",
+          "trigger": "Closest width models and logarithmic-tail analogue"
+        },
+        {
+          "assessment": "Distinct support laws, despite generic cap mechanism and polar relationship in the disk case",
+          "evidence": "The cube uses linear forms across its entire normal fan; the hull record gives its width, not the radial function needed to pass to the polar intersection.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2; 2026/11/8/SCOPE-exact-random-widths-of-the-orthogonal-three-disk-hull-and-sharp--d1df18476a61",
+          "material_read": "Local RESULT.md Findings from offset 0; upper-region proof comparison for cube",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Exact directional width law of the cube and its first spherical-cap transition; Exact random widths of the orthogonal three-disk hull",
+          "trigger": "Prior cap mechanism and width law of a related dual body"
+        },
+        {
+          "assessment": "Stronger within polyhedral class only",
+          "evidence": "The stated global density sums angular apertures over vertices of the polytope difference body P-P.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202v1",
+          "material_read": "Sec. 1.2, PDF p. 2, extraction offsets 4800–6365",
+          "method": "OA literal location then bounded passage by offset",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Recent general directional-width density theorem surfaced by primary web search"
+        },
+        {
+          "assessment": "Different bodies and moment calculations",
+          "evidence": "The inspected passage discusses moments of tetrahedral and cube widths, not cylindrical intersections.",
+          "identifier_or_url": "https://arxiv.org/html/1110.0671v2",
+          "material_read": "Introduction near extraction offset 1167",
+          "method": "Bounded OA primary passage",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Cited prior width methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, support, quadrature and edge laws",
+        "Angell–Moore and the contrasting prior section, bicylinder and polyhedral width results"
+      ],
+      "rationale": "This gives a complete directional invariant for a classical solid whose widths cannot be inferred from its known volume or sectional areas. It explains how different features of the same body produce opposite quantitative edge behaviors: a spherical-cap regime with a known exact onset and a divergence generated by crossings of minimizing directions. The one-dimensional quadrature is directly usable without solving a fresh support optimization for each direction.",
+      "residual_risks": [
+        "No claims about brightness, unequal radii, or nonorthogonal cylinders; the lower tail specifies only the leading logarithm and first-order error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

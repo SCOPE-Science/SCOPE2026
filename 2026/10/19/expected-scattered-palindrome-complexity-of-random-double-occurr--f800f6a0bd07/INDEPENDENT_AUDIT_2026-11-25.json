@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:32:55.234342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63",
+        "Frozen VERIFICATION.md lines 19 onward",
+        "Frozen verification/check_random_double_occurrence_mean.py lines 6–51"
+      ],
+      "rationale": "For each size-m support the restriction is uniform: fixing any restricted word leaves the same number of placements of its 2m positions and fillings with the complementary labels. No paired letter may occur more than twice, so on a full support a palindrome is either the entire even restriction or the entire restriction minus one copy of the center. There are m! templates of each parity. For a fixed odd template the 2m possible insertion gaps yield 2m-1 distinct host words: only the two gaps next to the unique center yield the same word. Double-counting word/string pairs and dividing by (2m)!/2^m gives 2m/(2m-1)!! per support; linearity does not require independent restrictions. For the asymptotic, write the summand as (2q)^m/(2m-1)! times the falling-factorial correction R_{q,m}=product_{j<m}(1-j/q), taking R=0 above q. Under weights proportional to (2q)^m/(2m-1)!, the variable 2m-1 is Poisson(sqrt(2q)) conditioned odd. Its odd-event probability tends to 1/2, so the usual Poisson concentration gives m/sqrt(q) tending to 1/sqrt(2). On any fixed compact neighborhood of this ratio, log R=-m(m-1)/(2q)+O(m^3/q^2), tending to -1/4 in probability; boundedness yields convergence of its mean. The weight sum is sqrt(2q)sinh(sqrt(2q)). This establishes the prefactor and scale, including the correct factorial normalization. The checker was inspected, not executed.",
+      "residual_risks": [
+        "This is a first moment only; the phrase 'typical first moment' should not be read as a typical-realization or concentration result. The proof, rather than any finite verification output, establishes the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-letter optimum record gives a univariate length generating function under an iid source; its fixed-pattern proof uses independent geometric waits. The binary Markov record analyzes a different dependent source."
+        ],
+        "reasoning": "Conditioning an iid q-letter word of length 2q on all multiplicities being two does produce the target sampling law, but the iid length-only expectation does not track joint occurrence counts. Conditioning invalidates the independent waits used in that proof. A fixed binary Markov source is not a model of an increasing alphabet with two copies per label.",
+        "searches": [
+          "Resultary exact palindrome-length enumerators and mean palindrome growth for random fixed-content words",
+          "2026/10/26/SCOPE-the-four-letter-optimum-for-mean-scattered-palindrome-growth--8499d3fafde7",
+          "2026/11/2/SCOPE-correlation-controlled-growth-of-distinct-scattered-palindromes--a78928eda2c3"
+        ]
+      },
+      "checked_sources": [
+        "Mahalingam–Pandoh arXiv:2108.02729",
+        "Chen et al. arXiv:math/0501230",
+        "Cruz et al. arXiv:1811.11739",
+        "Müllner–Ryzhikov arXiv:1901.07502",
+        "Paguyo arXiv:2104.01134v2",
+        "Four identified Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-multiplicity maximum and longest-palindromic-subsequence questions are established nearby results; neither gives occurrence probabilities for each distinct palindrome string.",
+          "Uniform restricted matchings recover the even term and provide an alternative weighted mean after proving the insertion identity. The concentration of a Poisson weight and the falling-factorial correction yield the explicit e^(-1/4) factor."
+        ],
+        "reasoning": "Existing nesting definitions and classical asymptotics should be credited, but the palindrome mean does not follow from a parameter substitution in an inspected theorem. The combinatorial reduction that incorporates the odd strings and the sharp averaging step are needed.",
+        "searches": [
+          "arXiv:2108.02729 pp. 2–3, 13",
+          "arXiv:math/0501230 pp. 1, 3",
+          "arXiv:1901.07502 pp. 1–2",
+          "Nesting first-moment comparison above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cruz et al.'s return patterns include even doubled palindrome patterns; they do not address both parities in the random count.",
+          "If C_m counts fully nested m-subsets of chords in the uniform q-chord diagram, E C_m=binom(q,m)/(2m-1)!! and the frozen mean equals E[2 sum_m m C_m]. This is not an identity of word statistics: on abab the nested pairs contribute zero for m=2, yet aba and bab both occur.",
+          "Chen et al. study maximal nesting and crossing depth; Paguyo studies counts of crossing pairs and simple chords, not weighted sums of all nested subsets."
+        ],
+        "reasoning": "The unlabelled matching formulation is equivalent for expectations after weighting, not a pointwise equivalence of distinct palindrome strings with nests. The established matching restriction gives the even part; the insertion/odd-part identity is essential.",
+        "searches": [
+          "uniform random chord diagram perfect matching total number all nested subsets weighted nesting first moment 1/(2k-1)!! binomial matching palindrome subsequences expected Laguerre",
+          "arXiv:math/0501230 pp. 1, 3",
+          "arXiv:1811.11739 pp. 1–3",
+          "arXiv:2104.01134v2 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The alternating-binary record supplies an exact length enumerator for a deterministic family; the three-ones record uses a binary fixed-weight model.",
+          "Mahalingam and Pandoh give the exact deterministic maximum 2^(q+1)-2 on the same length/multiplicity family, not its mean."
+        ],
+        "reasoning": "None of the inspected exact enumerations determines this distributional first moment under the target content. In particular the sharp maximum is not an exact mean table.",
+        "searches": [
+          "Resultary double-occurrence palindrome first moment and fixed-content analogues",
+          "2026/10/18/SCOPE-exact-palindrome-length-enumerator-and-gaussian-law-for-alternat--0908d82f9069",
+          "2026/11/8/SCOPE-exact-scattered-palindrome-complexity-and-limit-law-for-binary-w--bc05508b94e7",
+          "arXiv:2108.02729 Prop. 5.1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform multiplicity-two expectation for distinct palindrome strings and its sharp leading asymptotic, not the known extremal count, basic chord matching counts, or standard asymptotic analytic techniques. Direct comparison includes an exact mean-level weighted nesting representation; no inspected source gives this target mean as such a weighted statistic together with the necessary palindrome relationship or the stated sharp growth law.",
+      "residual_risks": [
+        "Unindexed or differently normalized weighted counts of all nested subsets could overlap the formula or its asymptotic. The literature comparison is not a determination of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sharp maximum is prior, not the random mean",
+          "evidence": "Maximum 2^(q+1)-2 attained by the completely nested word. This is the direct source for the maximum comparison in the frozen prose.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+          "material_read": "pp. 2–3 and Prop. 5.1 p. 13 near offset 42450",
+          "method": "OA PDF passages",
+          "title": "Counting Scattered Palindromes in a Finite Word",
+          "trigger": "Same distinct-string invariant and same multiplicities"
+        },
+        {
+          "assessment": "Nesting definition and maximal-size results; not the tested weighted first moment",
+          "evidence": "Defines nests and studies joint distributions of maximum crossing and nesting sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+          "material_read": "pp. 1 and 3, offsets 0 and 5946",
+          "method": "OA PDF passages",
+          "title": "Crossings and Nestings of Matchings and Partitions",
+          "trigger": "An exact weighted nesting reformulation exists at mean level"
+        },
+        {
+          "assessment": "Shared structure, different statistic",
+          "evidence": "Chord diagram interpretation and return pattern uu^R; insertion/equivalence questions, not palindrome means.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.11739",
+          "material_read": "pp. 1–3, offsets 0 and 5931",
+          "method": "OA PDF passages",
+          "title": "Insertions Yielding Equivalent Double Occurrence Words",
+          "trigger": "Same word class and return palindromes"
+        },
+        {
+          "assessment": "Longest length is not the distinct-string count",
+          "evidence": "Length bounds for palindromic subsequences in linear/circular words.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+          "material_read": "pp. 1–2, offsets 0 and 5972",
+          "method": "OA PDF passages",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Closest wording for subsequence problem"
+        },
+        {
+          "assessment": "Different matching statistics",
+          "evidence": "Normal approximation for number of crossings and Poisson approximation for number of simple chords.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "v2 p. 1, abstract and introduction at offset 0",
+          "method": "OA PDF passage",
+          "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+          "trigger": "Target random matching distribution, discovered by weighted nesting search"
+        },
+        {
+          "assessment": "Fixed iid source; not a conditioned fixed-content theorem",
+          "evidence": "Length OGF under independent positions, using independent waiting times.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-four-letter-optimum-for-mean-scattered-palindrome-growth--8499d3fafde7/RESULT.md",
+          "material_read": "Finding, Assumptions, and proof Eq. (1), offsets 0–3106",
+          "method": "Published Resultary local-mirror passage",
+          "title": "The four-letter optimum for mean scattered-palindrome growth",
+          "trigger": "Same expectation of distinct strings"
+        },
+        {
+          "assessment": "Different source law",
+          "evidence": "Binary Markov model rather than each of q labels occurring twice.",
+          "identifier_or_url": "2026/11/2/SCOPE-correlation-controlled-growth-of-distinct-scattered-palindromes--a78928eda2c3/RESULT.md",
+          "material_read": "Finding",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Correlation-controlled growth of distinct scattered palindromes in binary Markov words",
+          "trigger": "Same statistic under a dependent word model"
+        },
+        {
+          "assessment": "Does not tabulate this mean",
+          "evidence": "Deterministic alternating binary prefixes.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-palindrome-length-enumerator-and-gaussian-law-for-alternat--0908d82f9069/RESULT.md",
+          "material_read": "Finding",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact palindrome-length enumerator and Gaussian law for alternating binary words",
+          "trigger": "Exact different palindrome enumerator"
+        },
+        {
+          "assessment": "Different parameter family and distribution",
+          "evidence": "Binary words with exactly three ones rather than double occurrence of all labels.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-scattered-palindrome-complexity-and-limit-law-for-binary-w--bc05508b94e7/RESULT.md",
+          "material_read": "Finding",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Exact scattered-palindrome complexity and limit law for binary words with three ones",
+          "trigger": "Random fixed-content analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18, 38–63 and 73–75",
+        "arXiv:2108.02729 Prop. 5.1"
+      ],
+      "rationale": "Uniform matching of the two occurrences of every symbol is a natural fixed-content model. Its exact expected number of distinct symmetric patterns is not inferred from the known sharp exponential maximum. The result distinguishes average and extremal growth quantitatively, including the leading correction to the unconstrained Poisson-style sum. This provides a benchmark for other word models or higher-moment analysis without claiming concentration.",
+      "residual_risks": [
+        "No claim about the limiting distribution of the count, independence of distinct strings, or its typical value follows from the mean alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

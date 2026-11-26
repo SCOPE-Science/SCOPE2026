@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is fully normalized on the unit circle and the mean-zero complex Hilbert space; both signs of each nonzero Fourier frequency are counted. The exact multiplier gives a finite counting sum. Two-dimensional irrational equidistribution yields the fixed irrational coefficient, residue-class Riemann sums yield the fixed rational and critical-detuning formulas, and periodic averaging yields the large-detuning endpoint. For the half-window special case the sine branch is rigorously absent on \(0\le|\lambda|\le1/2\), while the cosine branch has one root. Singular-value and Abelian deductions follow from positive counting asymptotics. The standalone checker is corroborative, not the source of the infinite proof.
+## correctness
 
-## Originality — PASS, with risks
-Johnstone–Raimondo already derives the sinc Fourier multipliers and analyzes Diophantine ill-posedness for the same operator; those facts are explicitly excluded from novelty. Detailed inspection of its introduction, Sections 2–5, key lemmas and theorems shows statistical minimax risk statements rather than the ordered \(k s_k\) limit or a joint \(\alpha(t)=a/b+\lambda t\) critical-detuning spectral law. Dron–Zhuk's modified Steklov work and the periodic deconvolution paper are related but concern approximation moduli and noise estimation, respectively. Search results in related prior records describe different spectral operators and do not state the same moving-window result. The remaining risk is an unindexed exact count or a more general published rotation-counting theorem that immediately subsumes the present formula.
+PASS
 
-## Value — PASS
-The count \(N_\alpha(t)\) is the exact number of singular modes retained at noise/spectral threshold \(t\). Rational windows erase an arithmetic subsequence of frequencies; the theorem quantifies their *global* sharp rank loss at leading order. The finite-resolution detuning law shows how quickly that loss unfolds under window calibration errors, and the strict half-window dip shows the response is not even monotone. This distinction is not captured by the elementary Fourier multiplier formula or by mere injectivity-versus-noninjectivity, and has concrete relevance for rank budgets and spectral filtering in boxcar deconvolution.
+Fourier integration gives the sinc multiplier and a factor of two for ±n; the strict threshold counts no zero modes. At fixed width the empirical phases are uniform on the irrational orbit or uniform on the rational residues. Applying this on macroscopic frequency blocks in u=pi*alpha*n*t and integrating the threshold gives the mean absolute sine, namely 2/pi or cot(pi/(2b))/b. At fixed detuning lambda and on a rational residue class, u=pi*alpha0*n*t has mesh b*pi*alpha0*t, the phase has the asserted affine dependence on u, and the threshold is (1+lambda*t/alpha0)*u. The changed indicator can differ only near an equality point or cutoff. The squared equality is real analytic and nonidentically zero (the squared sine is bounded on the whole real axis while u squared is not). Its zero set on the compact interval is finite; small interval covers justify this moving Riemann sum and continuity. Reflecting residues gives evenness. For large absolute lambda, partition u into small blocks and sandwich the indicator between the two endpoint thresholds on each block; whole phase periods on each fixed block give the circle average, then mesh refinement gives the integral. At half width the sine contribution is empty for |lambda|<=1/2 and cosine crosses the diagonal once, with root 1-2*lambda^2+O(lambda^4). The positive counting constant gives the inverse ordered-tail law and, by harmonic comparison, the Schatten and Abelian conclusions. Independently tested three non-half resonances against direct counts, including negative detuning.
 
-## Limitations and prior comparison
-Finite checks do not prove the limits. The theorem does not estimate noisy inverse risks or quantitative error terms and does not apply to arbitrary kernels. Priorities and equivalences may require further independent literature review, particularly specialized operator-theoretic results about rotation Fourier coefficients.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defensible original content is the moving-window threshold law and its strict half-circle dip, not Fourier diagonalization, rational kernel zeros, or novelty over general fixed-sequence counting principles. The same-day two-aperture text has a fixed-sequence lemma that does imply the fixed-window coefficient after computing the elementary empirical mean; it does not supply the frequency-dependent detuning law. The principal same-operator paper gives minimax risk results rather than this crossover.
+
+## value
+
+PASS
+
+A spectral threshold probes frequencies of order 1/t, making displacement of order t the natural calibration scale. The result measures the leading rank at this scale and shows the counterintuitive initial loss upon detuning the half-circle window even though larger detuning recovers the irrational density. This is stronger than just counting exact Fourier zeros or testing a few bandwidths and matters for hard spectral truncation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Distinct-codeword Hamming separation makes each two-coordinate end projection injective. The intersection of the two projection images forces two disjoint codeword families and proves \(3|C|\le 2q^2\) by an elementary, complete argument valid for every \(q\ge2\). For \(q=3\), the two independent exhaustive enumerators both list the same full size histogram \((72,1410,7398,9042,1548)\) and exclude every larger admissible code. Their explicit codeword and symmetry checks show attainability and \(129\) size-twelve orbits. Finite computation supports only the exact ternary census; it does not replace the infinite-alphabet proof.
+## correctness
 
-**Originality — PASS, qualified.** The 1958 ordinary comma-free theory gives the unrestricted length-four ternary maximum \(18\), not the distance-three maximum. Blackburn's 2013 cross-bifix-free theory is strictly stronger in its overlap exclusion and provides different optima, and Yang–Ding's overlap-free construction theorems concern forbidden prefix–suffix collisions. Closest local published-research records discuss ternary length-three comma-free codes or longer distance-two synchronization codes, not this length-four distance-three census. No inspected source implies the combined bound-and-census theorem. Older poorly indexed distance-constrained comma-free tables remain a possible priority risk.
+PASS
 
-**Value — PASS.** The simultaneous synchronization/substitution-correction design problem is natural: Hamming separation supplies one-error correction at an aligned frame, while comma-freeness identifies frame boundaries without marker symbols. The projection obstruction gives a reusable finite-alphabet bound improving the unconstrained \(q^2\) Singleton estimate by one third, and the ternary example gives a complete tight optimum and all optimum designs, rather than a sampled list.
+Minimum distance three makes both two-coordinate end projections injective. If their intersection has size r, there are r codewords starting in it and r ending in it. These families are disjoint: a word belonging to both would be the shift-two splice of some codeword ending in its prefix and another codeword starting in its suffix. The witnesses need not be distinct, as required by the definition. Thus 2(2m-q²) ≤ 2r ≤ m, proving the floored bound for all q in scope, including empty codes. Independently reproduced the ternary census by enumerating partial matchings of the nine initial and nine terminal half-blocks, rejecting distance violations and updating a bit mask of all three splices of all ordered pairs, including repeated words. Injectivity and fixed initial-block order give coverage with no duplication; any rejected subset cannot extend to an admissible code. The counts at sizes 1–5 were 72, 1410, 7398, 9042, 1548; none were larger. The stated example was found. Symbol relabeling and reversal preserve both constraints (reversal interchanges the splice order and complementary shift); transforming every maximum independently and canonicalizing gave 129 orbits, all of size 12. Both frozen scripts were inspected, not executed. The independent computation is finite and does not replace the projection proof.
 
-**Limits.** The general bound need not be tight for every alphabet; no claim is made for unknown-frame error correction or alphabets beyond the ternary finite census. Reproducible internal computation is not external certification. Primary comparisons were conducted using publicly available material; historical priority remains subject to additional archival checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classic ordinary comma-free model and the distinct prefix–suffix and error-resilient synchronization models do not cover the simultaneous aligned-distance-three condition and the resulting length-four projection bound or exact ternary census. The exact nearby ternary enumeration has length three. This is a best-of-knowledge comparison, not historical priority certification.
+
+## value
+
+PASS
+
+Noiseless frame recognition together with single-substitution correction at a known frame is a natural constrained packing problem. The two-projection obstruction improves the unconstrained injective-projection bound by a constant factor, and the small ternary classification gives the exact optimum, multiplicity and lack of symmetry stabilizers. The value is the interaction between the constraints plus the complete small extremizer count, not running a search or claiming correction at an unknown frame.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

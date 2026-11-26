@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:08:59.567425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The copy index jumps exactly at weak descents. Subtracting cumulative jumps gives the multiset count binom(m+ell-1-delta,ell). The delta+1 increasing runs have capacity q each. For each r<m, the best count within (r-1)q<ell<=rq grows strictly in ell, and is strict in the required direction as delta increases from r-1. At ell=qr, achieving minimum delta forces every run to equal P_q. The r=m band and the empty word contribute at most one, and m=1 has the stated exception. Factorial cancellation gives positive, strictly decreasing adjacent ratios (each product-factor derivative has numerator -qm-j); the negative-binomial sum over m gives the bivariate enumerator. The limiting adjacent-ratio equation has one interior root alpha=(1-rho)/(1+(q-1)rho), with rho=(1-rho)^q. The limiting ratio has strictly negative derivative at alpha; on a fixed interior neighborhood the finite ratio differs uniformly by O_q(1/m), so the optimizing integer differs from alpha*m by O_q(1). Stirling then gives the stated -1/2 log m, with exponential factor rho^-m=beta_q^(qm). The subsequence of source lengths qm bounds the existing global rate; it does not identify it. Independent bounded enumeration by position masks reproduced every occurring target count and the entire maximizing set at (q,m)=(3,2),(3,3),(3,4),(4,3),(5,3), with maxima 4,10,28,15,21. The frozen DP checker was inspected, not executed; its reported generating-function recurrence is for row sums, not a standalone proof of the bivariate identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bukh–Saatashvili give M_k(n)^(k/n)<=C k^(1/4) for n>=Ck log k using a period-eight sequence of permutation orders, rather than the powers of one fixed permutation.",
+          "Fang's general bound has leading rate 0.635776651582..., while beta_3 gives 0.551463089746... and decreases with q."
+        ],
+        "reasoning": "The Bukh–Saatashvili bound dominates asymptotically for large q for the global optimization (beta_q^q is asymptotic to q/log q), not for this prescribed word. Their unspecified constant does not give pointwise numerical domination at each small q. The claim only compares its explicit bound with Fang's uniform one.",
+        "searches": [
+          "arXiv:2509.22619, Theorem 2 and §4.1",
+          "arXiv:2406.02971, Theorem 4.4 and Corollary 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_cyclic_subseq.py",
+        "Fang arXiv:2406.02971",
+        "Bukh–Saatashvili arXiv:2509.22619",
+        "Resultary bcaf0c227997"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary -1/2 log correction is in Fang Prop. 4.8; Fang also has a -1/2 log n correction to a global upper bound.",
+          "The later spectrum provides the occurrence formula, but the frozen proof additionally forces q-letter runs at every maximizer, analyzes adjacent ratios and computes a saddle for the fixed-source maximum."
+        ],
+        "reasoning": "General rationality does not supply explicit coefficients or identify all maximizers; the earlier binary correction and global bounds do not imply the same-q fixed-source correction and exact classifications. The later fixed-length identity is strong partial coverage, with chronology and scope recorded separately.",
+        "searches": [
+          "Fang Props. 4.6–4.8 and Cor. 4.5",
+          "Bukh–Saatashvili Theorem 2, §4.1",
+          "Resultary bcaf0c227997 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang Props. 4.6–4.7 give an alternating most-frequent target and binom(m+r,m-r) for (01)^m versus (01)^r, exactly the q=2 specialization.",
+          "Resultary bcaf0c227997 gives the same weak-descent embedding binomial for each target length."
+        ],
+        "reasoning": "Scattered subwords and position-set embeddings agree; neither a binary specialization nor maximizing the source for a fixed target is the all-alphabet fixed-source result. The later indexed identity is not distinct merely by terminology.",
+        "searches": [
+          "Resultary: cyclic permutation powers, embedding multiplicity and frequent subsequences",
+          "arXiv:2406.02971, §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives complete fixed-length multiplicity spectra and the fixed-length maximum using exactly the same law as frozen equation (1).",
+          "Fang supplies the exact binary coefficient family."
+        ],
+        "reasoning": "The later match is substantive and would yield the across-length maximum by optimization, not just coincident small values. Its indexed path is later than the frozen path; it does not assert the cross-length maximizing targets or refined asymptotic and is not evidence of a prior table for the full finding.",
+        "searches": [
+          "Resultary local mirror: 2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+          "Fang §4.2 coefficient formulas"
+        ]
+      },
+      "rationale": "Credit Fang's binary calculation, rationality framework and alphabet-independent upper estimate, and Bukh–Saatashvili's stronger large-alphabet estimates for the global minimum. The supported distinct contribution is the fixed-source q>=3 all-target extremal result with its explicit mode, enumerator and refined rate. A later indexed record has the same occurrence formula, an exact partial overlap, but does not establish earlier coverage of this frozen result or state its cross-length refined extremum. No priority beyond inspected evidence is certified.",
+      "residual_risks": [
+        "Older generalized word-binomial literature may contain the occurrence law or equivalent optimizations under different notation.",
+        "The indexed overlap is dated by the visible record path, not a proof of publication priority. Semantic retrieval and primary-text searches are necessarily bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary case and universal bound covered, not the many-letter fixed-source theorem",
+          "evidence": "Binary coefficient binom(m+r,m-r), binary logarithmic correction, and universal leading rate half log2(1+sqrt(2)).",
+          "identifier_or_url": "https://arxiv.org/abs/2406.02971",
+          "material_read": "§4.2 pp. 7–8, Props. 4.6–4.8; Thm. 4.4 and Cor. 4.5 pp. 6–7",
+          "method": "Bounded primary-text inspection",
+          "title": "Maximal Number of Subword Occurrences in a Word",
+          "trigger": "Direct binary model and benchmark"
+        },
+        {
+          "assessment": "Stronger large-alphabet global bound, different construction and optimization",
+          "evidence": "Concatenation of a period-eight sequence of permutation orders; bound C k^(1/4) for the exponential rate M_k(n)^(k/n).",
+          "identifier_or_url": "https://arxiv.org/abs/2509.22619",
+          "material_read": "Theorem 2 p. 1 and §4.1 p. 6",
+          "method": "Bounded primary-text inspection",
+          "title": "Most frequent subsequences in a word",
+          "trigger": "Potentially stronger general bound or same word construction"
+        },
+        {
+          "assessment": "Later, exact partial overlap; closely related implication for the count maximum",
+          "evidence": "Same weak-descent law for every target; fixed-length multiplicity spectrum and maximum, not the cross-length saddle asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997/RESULT.md",
+          "material_read": "Finding, beginning of RESULT.md",
+          "method": "Local Resultary mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact embedding multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Same object and embedding statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete maximizer classification and one-or-two-adjacent mode rule solve a natural periodic-source benchmark, not merely one target count. The prefactor-scale asymptotic distinguishes the maximum from the total number of admissible embeddings, and the explicit all-q construction provides a useful reference against other constructions even where stronger global upper bounds exist.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

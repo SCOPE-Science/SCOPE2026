@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:51:22.882283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed oriented tetrahedral faces, write B for the first three columns. The remaining column is -B1; B has full column rank, so (B D^{1/2})^+ B=D^{-1/2}. Thus the preconditioned operator is exactly D^{-1/2} M D^{-1/2} for M=diag(a,1,1/a)+11^T. The inherited choice gives I+vv^T with squared length 1/a+1+a, hence condition number 2+a+1/a. With D=diag(M), an independent symbolic determinant of lambda I-D^{-1}M gives (lambda-1)(lambda^2-2lambda+1/2)-a lambda/(1+a)^2. The three simple positive roots at a=0 justify the O(a) condition-number estimate about 3+2 sqrt(2). For any D, the leading principal block has invariant correlation c=[2(1+a)]^{-1/2}; its normalized determinant det/(trace)^2 is at most (1-c^2)/4, so by interlacing the full condition number is at least (1+c)/(1-c). This bound is uniform over all positive D and squeezes the infimum to the claimed order. The reciprocal sharp ratio follows directly. Replay: use RESULT.md lines 41–87, or construct M and symbolically compute det(lambda I-diag(M)^{-1}M). The packaged check.py was read, not executed; its rational and finite eigenvalue checks do not certify the optimization. There is no claim of a finite-a optimum, variable face selection, or stability in finite precision.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general one-sided SDP optimizes a factor of M but does not give this explicit asymptotic or its comparison with inheritance.",
+          "The isosceles catalogue result has two equal cross-correlations and gives a global scaling characterization on that family. Its boundary with vanishing cross-correlations reproduces the limiting block value; the present pair of cross-correlations with face 3 are unequal for a near zero."
+        ],
+        "reasoning": "The limiting two-by-two value is not a new diagonal-scaling constant in isolation. The isosceles characterization, also catalogued later, does not give the all-scalings O(a) squeeze on this unequal family.",
+        "searches": [
+          "arXiv:2209.00809v1 Eqs. (6)–(7)",
+          "Resultary: sharp isosceles three-by-three Jacobi gap, 4996ec89d4c9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.15492v1 §6.1",
+        "arXiv:2209.00809v1 introduction and §4.1",
+        "Resultary 4996ec89d4c9 Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 18 can recover the inherited case through the fixed-subspace reduction, but does not vary d for the conditioning objective.",
+          "A general optimal diagonal SDP gives a means to pose or numerically solve the problem at fixed a; the explicit all-d lower bound and the controlled family limit are separate facts."
+        ],
+        "reasoning": "The claim is not an inherited-weight example relabeled as optimization: its main quantitative conclusion compares against all positive weights. The inspected prior results give real partial coverage but not the combined sharp fixed-face result.",
+        "searches": [
+          "arXiv:2401.15492v1 Theorem 18",
+          "arXiv:2209.00809v1 Eqs. (6)–(7)",
+          "Resultary 4996ec89d4c9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 16 of the Hodge paper minimizes the operator-norm discrepancy and selects inherited weights; the frozen optimization minimizes a spectral condition number instead.",
+          "In coordinate form the frozen problem is one-sided scaling of a square factor of M, not a novel formulation of diagonal scaling."
+        ],
+        "reasoning": "Neither equivalence of the factor coordinates nor different wording of Jacobi scaling is credited as new. The exact comparison is for the positive reweightings of this prescribed face set and family.",
+        "searches": [
+          "Resultary: fixed tetrahedral face Hodge weighting and optimal diagonal condition number",
+          "arXiv:2401.15492v1 §6.1",
+          "arXiv:2209.00809v1 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mixed-dimensional Hodge framework and the explicit isosceles matrix result were the closest inspected entries; neither gives a tetrahedral graded family with both condition-number laws."
+        ],
+        "reasoning": "No consulted exact entry gives this family-wide asymptotic statement. This is bounded catalogue evidence, not a proof of priority.",
+        "searches": [
+          "Resultary: tetrahedral one-up-Laplacian face deletion, rank-one diagonal scaling and condition number",
+          "Resultary: three-by-three diagonal scaling, 3+2 sqrt(2) and Jacobi"
+        ]
+      },
+      "rationale": "The inherited spectral method, Jacobi scaling, and two-by-two principal-block inequality are established tools. The distinct result supported on the inspected evidence is their sharp fixed-face application to this graded tetrahedral Hodge family, including the universal asymptotic infimum with its O(a) control and the unbounded penalty of inheritance.",
+      "residual_risks": [
+        "Specialist treatments of diagonal scaling of graded rank-one updates could contain an equivalent family computation.",
+        "The targeted catalogue and admitted literature lookups are not exhaustive; separate correlation-specific lookups did not complete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of the inherited-weight setup, not the sharp reweighting result",
+          "evidence": "Lemma 16 uses the operator norm of the discrepancy; Theorem 18 gives the projected-incidence conditioning formula.",
+          "identifier_or_url": "https://arxiv.org/html/2401.15492v1",
+          "material_read": "§6.1, Lemma 16 and Theorem 18; OA offsets 54500–65499",
+          "method": "Read objective, weight rule, and spectral statement; compare which variables and objective are optimized",
+          "title": "Cholesky-like Preconditioner for Hodge Laplacians via Heavy Collapsible Subcomplex",
+          "trigger": "Same fixed-subcomplex weights and condition-number setting"
+        },
+        {
+          "assessment": "Encompasses the optimization problem but not the explicit family limit",
+          "evidence": "Eqs. (6)–(7) are dual SDP formulations; they do not state an asymptotic evaluation for the frozen M(a).",
+          "identifier_or_url": "https://arxiv.org/html/2209.00809v1",
+          "material_read": "Introduction near OA offset 9700, §4.1, offsets 50500–55473",
+          "method": "Compare arbitrary full-rank matrix factor and one-sided SDP formulations",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "General one-sided optimal diagonal scaling"
+        },
+        {
+          "assessment": "Related boundary overlap; neither same finite parameter family nor prior defeat",
+          "evidence": "Its symmetric cross-correlations approach zero in the block limit, but the tetrahedral cross-correlations are not equal for 0<a<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-sharp-three-halves-jacobi-gap-on-isosceles-positive-definite--4996ec89d4c9/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Compare the two cross-correlation hypotheses and the limiting block",
+          "title": "The sharp three-halves Jacobi gap on isosceles positive definite matrices",
+          "trigger": "Exact three-dimensional optimal diagonal scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed retained subcomplex is a natural constraint in Hodge preconditioning. This sharp example distinguishes improving conditioning from approximating the operator in norm, and quantifies when inherited weights lose by order 1/a despite a simple bounded correction. The universal lower bound makes it an exact benchmark for positive reweighting, not merely a choice of an improved heuristic; no claim about larger meshes, running time or better face selection is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:25:16.298681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the line-circle intersection gives the second complex endpoint −exp(i(2θ−φ)). Doubling a uniform unoriented angle gives Haar circle measure conditional on the entire past, not just on a fixed deterministic iterate. Hence the proposals are iid, and the exact full affine step picks the smaller objective, with no positive-probability ties. The start has maximum gap 2, and all iterates remain on the boundary. Tail integration with t=1+cos(πu) verifies the mean integral. The small-gap CDF and the bound F(t)≥sqrt(2t)/π give the distribution limit and the integrable dominating tail of mean π². At dyadic N, the lower-gap error is O(N^(−δ/2)) by a union bound and the upper-gap error is at most exp(−cN^(δ/2)); these are summable and monotonicity bridges dyadics. First passage is first success of the iid proposals. Insertion ranks bijectively encode each uniformly random full ranking, yielding independent Bernoulli(1/j) records; Bernstein on dyadics has summable tails at deviations ε log N, and monotonicity bridges these dyadics too. The local expected reduction is ∫_0^h F(t)dt; differentiating the closed form and using its zero initial value checks its normalization, and dividing by full-disk gap h gives the stated coefficient. Frozen verification notes and code were inspected; numerical and pairwise enumeration checks are diagnostics, not the proof of process independence or almost-sure laws. The result requires exact full steps, boundary initialization, independent Haar lines and an affine objective.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poirion–Pokutta–Takeda give damped open-loop steps and a separate short-step rule; their Proposition 1 expectation bound assumes section dimension d≥3.",
+          "The exact broader ball efficiency result gives (d−1)/(n−1), hence zero at n=2,d=1; Random Pursuit here is unconstrained in R^n."
+        ],
+        "reasoning": "The general section algorithms and sharp one-step uniform bounds do not subsume the law of this full-step boundary process. Damping can leave the boundary, breaking the chord construction.",
+        "searches": [
+          "arXiv:2605.24819v1 Algorithm 1 and Proposition 1",
+          "arXiv:1111.0194 exact random-direction line search",
+          "Resultary 4928d0ff7055 exact section efficiency"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.24819v1",
+        "arXiv:1111.0194",
+        "Resultary 4928d0ff7055",
+        "Resultary 1594ab1398da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known fixed-first-endpoint chord construction does imply uniform second-endpoint sampling conditional on the current point. Exact full affine minimization plus the conditional distribution proves history-independent proposals and the optimization-to-record reduction.",
+          "Classical record laws then imply the harmonic moves and minimum/hitting-time formulas; prior uniform worst-case efficiency alone cannot imply them."
+        ],
+        "reasoning": "The novelty is the identification and analysis of the adaptive optimizer as a record process, not the ingredients or their isolated formulas. The exact prior samplewise ratio makes the one-step drift readily derivable; it is not treated as independent evidence of novelty. The prior results inspected do not identify the exact adaptive optimizer or its law by specialization of their stated guarantees.",
+        "searches": [
+          "Resultary 4928d0ff7055 proof §5; endpoint-chord record 1594ab1398da",
+          "arXiv:2605.24819v1 section oracle and updates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endpoint-uniform construction conditional on a fixed first endpoint is equivalent to a Haar line through that endpoint, and supplies the geometry of a uniform proposal.",
+          "In the prior efficiency formula Γ (proof §5), use normalized gradient e_1 and inward normal −x. Then the gap is 1−⟨e_1,−x⟩=h, and the frozen drift ratio is EΓ specialized to the planar boundary."
+        ],
+        "reasoning": "Equivalent random-chord sampling and the same one-step progress variable must be credited. The inspected chord record uses iid endpoints as a geometric construction, not the optimizer that reuses its accepted endpoint. The reduction needs conditioning on the entire adaptive history and the exact selection of the better endpoint. The complete adaptive optimizer law was not an equivalent stated result in the inspected material.",
+        "searches": [
+          "Resultary Haar-section efficiency record 4928d0ff7055",
+          "Resultary endpoint chord Crofton disk record 1594ab1398da",
+          "arXiv:2605.24819v1 Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact entry gives a sharp one-step efficiency invariant and samplewise ratio; the exact endpoint-chord entry computes chord-separation geometry rather than horizon-wise optimization statistics."
+        ],
+        "reasoning": "An exact match would need the same optimizer, Haar conditioning and full steps, or explicitly equivalent independent-proposal dynamics. The relevant retrieved exact entries concern other invariants, not this running-minimum or hitting-time law.",
+        "searches": [
+          "Resultary 4928d0ff7055 Finding and proof §5",
+          "Resultary 1594ab1398da endpoint-chord Crofton Finding"
+        ]
+      },
+      "rationale": "The retained contribution is the exact full-step section-optimizer trajectory reduction and its resulting sharp query and gap laws. The conditional chord geometry and classical record consequences are not new separately. The prior sharp zero efficiency infimum is covered; its stronger samplewise formula also overlaps the one-step observable, not the stated full trajectory law.",
+      "residual_risks": [
+        "The elementary proposal geometry and record laws make independent earlier derivations plausible. The bounded comparisons do not exclude a prior treatment of the identical full-step disk algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same oracle, but the inspected guarantees do not give the boundary full-step d=1 law.",
+          "evidence": [
+            "Open-loop α_k=2/(β_0 k+2), separate short-step rule, and d≥3 in the relevant efficiency bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.24819v1",
+          "material_read": "Open manuscript Algorithm 1 and step sizes, p. 3 around offset 13300; Proposition 1, p. 5, offsets 18000–19823.",
+          "method": "Read pertinent bounded primary text passages.",
+          "title": "Random-Subspace Frank–Wolfe over Strongly Convex Sets",
+          "trigger": "Same section oracle, potentially a covering convergence or trajectory theorem."
+        },
+        {
+          "assessment": "Covers zero uniform one-dimensional expected efficiency and identifies the samplewise drift observable; no adaptive iid optimizer law in the inspected result.",
+          "evidence": [
+            "Worst-case fraction (d−1)/(n−1), approached as gradient and inward normal coalesce; Γ specializes as described above."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-haar-section-efficiency-and-the-two-dimensional-frank-wolf--4928d0ff7055/RESULT.md",
+          "material_read": "Finding and proof §5, especially samplewise Γ (offset 4988).",
+          "method": "Local published-record search and passage inspection.",
+          "title": "Exact Haar-section efficiency and the two-dimensional Frank–Wolfe threshold",
+          "trigger": "Exact same boundary-ball one-step section oracle; strongest possible overlap."
+        },
+        {
+          "assessment": "Unconstrained random pursuit, not endpoint selection on a disk.",
+          "evidence": [
+            "Uniform directions and exact or approximate minimization on one-dimensional lines in R^n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+          "material_read": "Open manuscript p. 2, offsets 6200–9695.",
+          "method": "Read primary scope and sampling/line-search passage.",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Potential older exact random-direction line search."
+        },
+        {
+          "assessment": "Overlapping chord geometry, different observable.",
+          "evidence": [
+            "Independent uniform boundary endpoints and chord-separation metrics, not iterated linear optimization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-endpoint-chord-crofton-disk-intrinsic-anisotropy-and-its-bou--1594ab1398da",
+          "material_read": "Mirrored RESULT.md Finding at offset 0.",
+          "method": "Local published-record search and inspection of the finding.",
+          "title": "The endpoint chord Crofton disk: intrinsic anisotropy and its bounds",
+          "trigger": "Equivalent random chord construction on a disk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural section-optimization model in exactly the direction dimension where uniform expected efficiency gives no rate, the identification supplies exact finite-horizon reliability, sharp N^−2 error and ε^−1/2 query constants, and a separate logarithmic cost in changed iterates. This is a tractable benchmark for an adaptive oracle with a vanishing uniform drift factor, not a claim of better general damped Frank–Wolfe convergence or novelty of classical record theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

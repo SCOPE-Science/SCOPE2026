@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:35.359462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reduced denominator divides each input, so coprime equality implies an integer value. I(1)=1 and I(n)>1 for n>1. Append unused primes (unused odd primes in the odd case) to dominate all smaller multiplicities by the layer Ω=4. In each of the five partitions of 4, for fixed exponents replacing the ordered support by the smallest primes increases each factor. Comparing exponent assignments to those primes gives global maxima 31/16, 5/2, 91/36, 14/5, 96/35, and odd maxima 121/81, 16/9, 403/225, 208/105, 768/385, in the frozen partition order. The former are below 3 and the latter below 2; a common integer value would have to be 2 and both entries even, which is impossible. The exact-arithmetic maxima and the regression scope of the bundled verify.py were inspected, not executed. The scan is not used for the universal inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nielsen Theorem 22 requires at least nine distinct prime divisors of an odd perfect number. Cohen requires nine distinct divisors for an odd 3-perfect number, which is not needed here."
+        ],
+        "reasoning": "For an odd member with at most four distinct primes, the elementary product bound 77/32 already excludes integer abundancy ≥3. Nielsen therefore gives precisely the impossibility needed by the prior reduction, without bounding exponents or the other input.",
+        "searches": [
+          "Nielsen arXiv:math/0602485 odd perfect number nine distinct prime divisors",
+          "Cohen 1980 odd multiperfect Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Ziller arXiv:2310.15628v1",
+        "Nielsen arXiv:math/0602485",
+        "Cohen, J. Austral. Math. Soc. Ser. A 29 (1980), Theorem 6",
+        "Resultary 2026/10/13/SCOPE-near-perfect-integers-with-omega-n-le4--70c4020a07b3 (catalogue comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coprime equality forces odd multiply-perfectness for at least one nontrivial member. For four odd primes even the infinite geometric sums have product at most 77/32, so perfectness is the only remaining possibility and Theorem 22 excludes it."
+        ],
+        "reasoning": "The prior proof and stronger perfect-number theorem, with a one-line estimate, give this claim and more. Ω≤4 implies at most four distinct primes, but not conversely.",
+        "searches": [
+          "Ziller Lemma 5.4 proof, pp. 39–40",
+          "Nielsen Theorem 22, arXiv:math/0602485"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ziller gives the unrestricted formulation and the coprime-collision reduction via common reduced denominators and parity."
+        ],
+        "reasoning": "The unrestricted conjecture is not a proof; the localized odd multiply-perfect obstruction in the actual Lemma 5.4 proof makes stronger known factor restrictions applicable.",
+        "searches": [
+          "Ziller arXiv:2310.15628v1, Conjecture 5.3 and Lemma 5.4",
+          "Resultary: coprime equal abundancy / Ω-bounded multiperfect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby near-perfect classification concerns a different property. Ziller proves squarefree distinctness in Lemma 5.5 and formulates the unrestricted coprime problem as a conjecture."
+        ],
+        "reasoning": "Neither the catalogue analogue nor squarefree distinctness handles repeated-prime cases directly. The lack of an exact row is immaterial because established results imply a stronger theorem.",
+        "searches": [
+          "Resultary: coprime abundancy low factor multiplicity and near-perfect Ω≤4",
+          "Ziller arXiv:2310.15628v1, Lemma 5.5 and Conjecture 5.3"
+        ]
+      },
+      "rationale": "The theorem is covered by an immediate consequence of published results in a strictly broader range: Ziller's Lemma 5.4 proof reduces any coprime collision to a nontrivial odd multiply-perfect member. If that odd member n has at most four distinct prime divisors, with no restriction on multiplicities, the usual geometric-series estimate gives I(n) < ∏_{p|n} p/(p−1) ≤ (3/2)(5/4)(7/6)(11/10) = 77/32 < 3. A nontrivial integer value would thus make it odd perfect, which Nielsen's Theorem 22 rules out even up to eight distinct divisors. The other member need not satisfy any support bound. This covers all of the frozen Ω≤4 cases, including repeated prime powers.",
+      "residual_risks": [
+        "The literal four-total-factor formulation might also have been stated elsewhere; the demonstrated stronger implication does not depend on finding an exact statement.",
+        "The stronger implication here does not resolve unbounded odd support or the general conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established reduction and squarefree subcase; unrestricted statement is conjectural",
+          "evidence": [
+            "Any distinct coprime collision above 1 requires integer abundancy for both, hence an odd multiply-perfect member."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.15628v1",
+          "material_read": "Lemmas 5.4–5.5, pp. 39–40, offset 113500; Conjecture 5.3, p. 48",
+          "method": "OA PDF passage comparison",
+          "title": "Orders and partitions of integers induced by arithmetic functions",
+          "trigger": "Exact coprime formulation and potential equivalent reduction"
+        },
+        {
+          "assessment": "Supplies stronger support exclusion in conjunction with Ziller and the elementary geometric bound",
+          "evidence": [
+            "Theorem 22: an odd perfect number has at least 9 distinct prime divisors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0602485",
+          "material_read": "Opening abstract and Theorems 22–23 with closing algorithm discussion, offset 50500",
+          "method": "OA author preprint, checked theorem wording",
+          "title": "Odd perfect numbers have at least nine distinct prime factors",
+          "trigger": "Stronger exclusion of the possible integer value at low odd support"
+        },
+        {
+          "assessment": "Relevant but not needed after integer-index bound",
+          "evidence": [
+            "Odd 3-perfect numbers have at least nine distinct prime factors."
+          ],
+          "identifier_or_url": "J. Austral. Math. Soc. Ser. A 29 (1980), 369–384",
+          "material_read": "Theorem 6, p. 373, offset 12600",
+          "method": "OA PDF passage inspection",
+          "title": "On odd perfect numbers (II), multiperfect numbers and quasiperfect numbers",
+          "trigger": "Possible stronger bounds on odd multiperfect members"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The general coprime-abundancy problem is motivated, but this slice does not close an unresolved part of it. Published results already exclude collisions on a strictly larger domain using a routine estimate. The elementary partition proof is sound and self-contained, but the frozen finding neither establishes a new boundary nor claims a new invariant with independent use; recomputing these five small partitions does not supply that missing value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

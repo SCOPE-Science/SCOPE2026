@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:57:12.918198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47, VERIFICATION.md and both check programs and recorded outputs in checks/ (inspected, not executed)",
+        "Independent replay: python3 /workspace/review-evidence/check_period_windows.py; 896 exact factor/window set comparisons over 2≤q≤8 and 1≤n≤128. For stride 1 and n separately, full starting classes modulo a power of two greater than the span are used; the only exceptional position, if present, is set to each possible valuation residue via exact modular inversion to produce actual legal starts."
+      ],
+      "rationale": "The valuation recursion is u_(2j)=0, u_(2j+1)=u_j+1 mod q. For n≥4 a factor contains a 1, which occurs only at odd indices, so the two starting phases are disjoint and yield injective encodings of half-length factor sets. The small counts q, 2q−1, 3q−1 are correct: at length three the only potential overlap is 000, which cannot occur at odd starts because it would require adjacent q−1 letters. The resulting deficit recurrences determine c(n); the step from m to m+1 cannot straddle the integral break 3·2^(h−1) without meeting it at an endpoint, and the affine branch extends consistently to the next dyadic endpoint. For odd n a factor recurs at its start modulo a sufficiently high power of two, so CRT supplies a start divisible by n. For even lengths the window is exactly a morphism image of the shorter aligned window; injectivity proves W_q(2n)=W_q(n). Strict increase of P_q yields the parity criterion, and dyadic substitution gives both counts. This is an all-parameter proof, independently corroborated below.",
+      "residual_risks": [
+        "The replay verifies only the stated finite tests and uses exactly phase-zero aligned windows for W; it is not an unrestricted proof or an all-phase experiment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sell gives C(2^h)=q·2^h−2^(h−1), growth q on 2^h≤L<3·2^(h−1) and q−1 on 3·2^(h−1)≤L<2^(h+1), after substituting |p^(k)|+1=2^(k+1) and the full tail alphabets. Proposition 3.7 gives C(1)=q. These give qn−max(2^(h−1), n−2^h) on each dyadic interval.",
+          "The stronger aligned-window result gives an explicit bijection at every phase r between the factors of length m and the windows of length n=p^k m, and states that the same proof covers p=2. Theorem 6.1 of Cassaigne–Kaboré gives the same shape for the distinct Thue–Morse word only."
+        ],
+        "reasoning": "The general factor theorem specializes algebraically to the full closed form; the displayed all-phase bijection includes the audited phase-zero window rule. The Thue–Morse analogue alone would not cover it.",
+        "searches": [
+          "Sell Corollary 3.6, Proposition 3.7 and Theorem 3.8",
+          "Resultary SCOPE-phase-independent-window-spectra-and-exact-factor-recurrences-fo--70f3067917a5",
+          "Cassaigne–Kaboré arXiv:2606.13744 Theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Sell arXiv v2, Cassaigne–Kaboré, Bognini–Ammar, OEIS A275202 and distinct Resultary statements listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-length qn−c(n) formula follows by Sell's explicit n_i=2 branch (or summing his slopes); it does not depend on the same-day recurrence papers.",
+          "The prime-base result defines starts r+jn and states the same proof covers p=2. With p=2 and r=0 its m is odd(n). Its factor recurrence then also matches the frozen bases and both doubling recurrences. It describes p=2 as context and does not identify the audited record as its starting point. The inspected Bognini–Ammar material concerns kernel/gap factorizations for the same substitution, not the decisive covering result."
+        ],
+        "reasoning": "Together these cover both counts and therefore the parity, dyadic and oscillation corollaries. The factor formula is shown already known by specialization; the distinct standing of the aligned-window formula is not established in light of exact same-day coverage, without an earlier-date inference.",
+        "searches": [
+          "Sell Theorem 3.8 with n_i=2 and a_i=i mod q",
+          "Prime-base valuation result: finding, phase bijection proof and Relationship to prior work",
+          "Bognini–Ammar arXiv:2511.20881"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Use a_k=k mod q, all filling lengths n_k=2, phases r_k=0; stage k leaves holes at multiples of 2^(k+1), each tail alphabet is the entire q-letter alphabet, and the two-sided word agrees away from coordinate 0 with v_2(m) mod q. Its positive half is the frozen word. Any finite two-sided block occurs at positive coordinates by translating by 2^E with E larger than all nonzero coordinate valuations and, if coordinate 0 is in the block, E congruent modulo q to its filling letter. Thus the languages coincide.",
+          "A275202 directly covers the binary count via the same recurrence, not just at powers of two."
+        ],
+        "reasoning": "The valuation and Toeplitz presentations give the same factors, so Sell's broader theorem computes precisely P_q, not a count of some other two-sided language.",
+        "searches": [
+          "Daniel Sell, Combinatorics of One-Dimensional Simple Toeplitz Subshifts, arXiv:1801.08778v2, §2.1 and §3",
+          "OEIS A275202",
+          "Resultary: cyclic period-doubling and valuation-word factor complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/8 dyadic Resultary record gives (2q−1)2^(k−1) at 2^k; its full finding and scope stop short of non-dyadic lengths. A275202 gives the binary all-length law.",
+          "The distinct same-day all-length factor-frequency record gives multiplicities of all distinct factor frequencies, whose sum is the full factor count. The strongest window hit is the separate all-phase result, not the exact hit that is the assigned record."
+        ],
+        "reasoning": "Credit each verified scope: earlier dyadic and binary subcases, an all-length projection of the frequency spectrum, and the direct dyadic-free-part law in a distinct record. Same-day overlap is coverage, not a determination of who showed the result first.",
+        "searches": [
+          "Resultary: all-length generalized period-doubling factors, window phase, dyadic factor/reflection and factor-frequency spectra",
+          "OEIS A275202"
+        ]
+      },
+      "rationale": "Verified mathematical coverage, not a correctness defect or an access-based rejection. Sell's 2018 simple-Toeplitz complexity theorem already specializes to the entire closed factor formula for all q≥2. A distinct same-day prime-base Resultary result explicitly treats p=2 as covered by its proof and gives the identical free-part window count for all phases, including phase zero. Its intended novel range is p≥3; neither its date nor its citation record establishes priority for W_q. The exact window coverage is demonstrable nonetheless, and a distinct originality claim for the frozen combined theorem is not established. Neither the short proof nor the displayed corollaries leave a new mathematical claim within the frozen scope.",
+      "residual_risks": [
+        "Within-day ordering of the two window records is not established. Findings about statement-level coverage do not determine who first derived the window law. The earlier factor coverage does not depend on any same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier broader theorem mathematically implies the full audited factor law",
+          "evidence": "Fill all periods by 2, cycle all q letters, and keep the tail alphabets full. Corollary 3.6 gives the two slopes; Theorem 3.8 gives the matching explicit count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08778",
+          "material_read": "§2.1 construction, §3.1 complexity definition, Corollary 3.6, Proposition 3.7, Theorem 3.8 (pp. 5–7, 10, 13–14)",
+          "method": "Lawful arXiv v2 full-text excerpts, construction offsets 19411–29319 and complexity offsets 49781–54743; decisive slopes and initial values rechecked near 50500",
+          "title": "Combinatorics of One-Dimensional Simple Toeplitz Subshifts",
+          "trigger": "General simple-Toeplitz complexity plausibly specializes to valuation words"
+        },
+        {
+          "assessment": "Explicit p=2 mathematical coverage at all phases, though intended novel range p≥3; no relative same-day priority asserted",
+          "evidence": "Starts r+jn and |W_(n,r)|=P(m) for n=p^k m; states 'The same proof also covers p=2'. The proof fixes all but one coordinate per morphism block and the residue argument yields all factors of length m in every phase.",
+          "identifier_or_url": "2026/11/22/SCOPE-phase-independent-window-spectra-and-exact-factor-recurrences-fo--70f3067917a5",
+          "material_read": "RESULT.md finding, assumptions, radix recurrence, phase-bijection proof and prior-work discussion",
+          "method": "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0 and 4000–9121; decisive finding and reduction rechecked directly",
+          "title": "Phase-independent window spectra and exact factor recurrences for prime-base valuation words",
+          "trigger": "Closest distinct and stronger window claim"
+        },
+        {
+          "assessment": "Counts imply factor complexity by summation; same-day ordering unresolved",
+          "evidence": "Exact multiplicities of every distinct factor frequency for all q≥2 and n≥1.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-all-length-factor-frequency-spectra-of-generalized-period--86b62049d181",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact all-length factor-frequency spectra of generalized period-doubling words",
+          "trigger": "Same sequence, stronger all-length frequency data"
+        },
+        {
+          "assessment": "Exact dyadic specialization, not a non-dyadic theorem",
+          "evidence": "rho_m(2^k)=(2m−1)2^(k−1); explicitly leaves non-dyadic closed formula out of scope.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-dyadic-factor-and-reflection-complexity-of-cyclic-period-d--c8d7b40c0705",
+          "material_read": "RESULT.md finding and assumptions",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact dyadic factor and reflection complexity of cyclic period-doubling words",
+          "trigger": "Earlier dyadic same-family claim whose scope needed checking"
+        },
+        {
+          "assessment": "Equivalent binary factor recurrence",
+          "evidence": "a(2n)=2a(n), a(2n−1)=a(n−1)+a(n), with bases 2 and 3 under the entry's ranges.",
+          "identifier_or_url": "https://oeis.org/A275202",
+          "material_read": "FORMULA and proof",
+          "method": "Public website text, offset 0",
+          "title": "Subword complexity of the period doubling sequence",
+          "trigger": "Binary factor law database match"
+        },
+        {
+          "assessment": "Same formula shape for a different sequence, not a direct period-doubling result",
+          "evidence": "Window complexity equals factor complexity at the odd part for Thue–Morse.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13744",
+          "material_read": "Theorem 6.1, PDF p. 7",
+          "method": "Lawful OA PDF, offset near 17300",
+          "title": "On modulo-recurrence and window complexity in infinite words",
+          "trigger": "Closest primary result by window invariant"
+        },
+        {
+          "assessment": "Establishes the same family as background; no count inferred from the inspected material",
+          "evidence": "Uses a↦0(a+1 mod q) and studies kernel and gap factorizations.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.20881",
+          "material_read": "Abstract and substitution setup on PDF p. 1 and nearby passage",
+          "method": "Lawful OA PDF, offsets near 0 and 3850",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "Same q-letter family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–15 and 23–47; Sell Corollary 3.6 and Theorem 3.8; distinct Resultary all-phase bijection"
+      ],
+      "rationale": "The factor/window contrast is instructive, but as a distinct result the frozen theorem leaves no independent mathematical gain: the explicit factor formula is a parameter substitution into Sell's closed formulas, the window claim restricts the verified all-phase result, and the strict parity and dyadic oscillation corollaries follow by substitution. A clean short exposition of these covered facts is useful pedagogically, but the frozen package does not add a new invariant, bound, or scope that would justify it as a distinct research finding.",
+      "residual_risks": [
+        "This is a verdict on the added scientific content of the submitted result, not on correctness, historical window priority, or the significance of Toeplitz factor and window complexity generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

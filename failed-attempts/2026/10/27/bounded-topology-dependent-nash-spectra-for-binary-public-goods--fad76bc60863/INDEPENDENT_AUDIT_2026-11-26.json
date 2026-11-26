@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:53:11.898478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly the degrees in scope, the stipulated response is equivalent to (I+A)x=1 over F₂. The set of solutions is nonempty since for any y in the kernel, yᵀ(I+A)y=yᵀ1=0, so 1 lies in the range of the symmetric matrix. For an independent count use the homogeneous rung recurrence z[i+1]=z[i−1]+Nz[i], with N=I+S and N²=0. Hence z[i+2]=z[i]+Nz[i+1], z[i+3]=z[i+1]+Nz[i], and z[i+4]=z[i]. The affine recurrence has the same period-four property since its additional constant e satisfies Ne=0 and cancels on the fourth step. Open ghost rungs at 0 and n+1 are zero; the homogeneous right constraint, in residue order 0,1,2,3, is z[1]=0, Nz[1]=0, z[1]=0, or vacuous. The cylinder imposes the nth shift as the identity; residues 0 and 2 leave 16 and 4 patterns, and odd residues force a constant in ker N (2 patterns). On the Möbius ladder the shift is S: residue 0 requires Nz[0]=Nz[1]=0 (4), residue 2 requires N(z[0]+z[1])=0 (8), and an odd shift squared is a two-shift, forcing both parity states in ker N, then forcing them to agree (2). The admissible sizes make the edges simple and include both initial rungs, so these counts are of distinct labeled vectors. Read the frozen direct brute-force and recurrence verifier without running it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "44557f0a104d supplies entire all-on weight polynomials and complete solutions for both closed topologies, including a four-periodic structure. The other indexed prism result gives the quiet-kernel dimension gcd(n,4)."
+        ],
+        "reasoning": "The exact solution descriptions are stronger than the two closed-family totals. The quiet-kernel count also transfers to all-on counts by solvability and the affine coset property.",
+        "searches": [
+          "44557f0a104d, Finding and Proof §§1–2",
+          "6f178222ad14, cyclic prism closed-neighborhood kernel"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Resultary 44557f0a104d, 6f178222ad14, 2ff15bcf2894, 5b52778bc432",
+        "arXiv:1206.2973v1, 1903.06942v1, 2207.04238v1, 2301.11849v3, 2101.09103v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two public-goods complexity papers identify the parity reduction, not the table. Pairwise anti-coordination is a different game. Production iff exactly two neighbors produce is likewise not the even-parity rule since it excludes zero producing neighbors. From the matching indexed Lights-Out equations, the open specialization is a two-boundary-state evaluation of the same local recurrence."
+        ],
+        "reasoning": "The known general linear reduction alone would not prove the closed counts; the exact indexed all-on solutions do. The unweighted open row follows by imposing zero missing-neighbor states instead of gluing.",
+        "searches": [
+          "44557f0a104d, Proof §§1–2",
+          "arXiv:2207.04238v1, p. 3 n.4",
+          "arXiv:2301.11849v3, §1.1",
+          "arXiv:2101.09103v1, pp. 1–2",
+          "Resultary exact-two records 2ff15bcf2894 and 5b52778bc432"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the exact two cubic families an all-on press set is a labeled vector satisfying (I+A)x=1, exactly the equilibrium equation. The crossed rails form the boundary cycle with opposite vertices joined by the rungs, i.e. the Möbius graph of 44557f0a104d."
+        ],
+        "reasoning": "The equivalence preserves each labeled configuration and requires no quotient or payoff comparison.",
+        "searches": [
+          "Resultary: parity public goods, all-on Lights Out, prism/Möbius ladders",
+          "44557f0a104d, Finding and Assumptions",
+          "arXiv:1206.2973v1, pp. 1–2",
+          "arXiv:1903.06942v1, pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Substitution z=1 in the table of L_G(z) gives cylinder (16,2,4,2) and Möbius (4,2,8,2) for residues (0,1,2,3), without relabeling counts or modifying the model."
+        ],
+        "reasoning": "The closed-family counts are an exact specialization of an indexed table; no finite empirical sequence is used.",
+        "searches": [
+          "Resultary all-on ladder count, RESULT.md table of 44557f0a104d"
+        ]
+      },
+      "rationale": "The central cylindrical and twisted periodic censuses, as well as period four, are covered by a distinct stronger indexed calculation of the identical labeled solution sets, with the game merely a different interpretation of (I+A)x=1. The open row is not in that indexed theorem, but the known local recurrence specializes immediately to zero ghost rungs, with no new structural ingredient. The direct match is demonstrably later indexed; it does not establish historical priority against the frozen record.",
+      "residual_risks": [
+        "Torrence and Torrence's 2016 Lights Out paper was not accessible in full; possible prism coverage there remains unverified.",
+        "The direct closed-family overlap is later indexed; the assessment does not determine who had the result first."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material coverage of both closed rows, and stronger weight census",
+          "evidence": "L_G(1) agrees exactly and the proof classifies the four-periodic configurations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-mod-four-reversal-of-minimum-all-on-lights-out-presses-under-a--44557f0a104d/RESULT.md",
+          "material_read": "Finding table, Assumptions and Proof §§1–2, offsets 0–7299",
+          "method": "Bounded Resultary mirror passages, graph and polynomial comparison",
+          "title": "A mod-four reversal of minimum all-on Lights-Out presses under a Möbius ladder twist",
+          "trigger": "Same affine equation on both closed graph families"
+        },
+        {
+          "assessment": "Reproduces cylinder count via affine translation",
+          "evidence": "Quiet-kernel dimension gcd(n,4).",
+          "identifier_or_url": "6f178222ad14",
+          "material_read": "RESULT.md offsets 0–6989",
+          "method": "Bounded Resultary mirror passages",
+          "title": "Parity kernel codes of cyclic prisms and their Reed–Muller supports",
+          "trigger": "Homogeneous closed-neighborhood kernel on prisms"
+        },
+        {
+          "assessment": "General solvability precedent",
+          "evidence": "The diagonal of a symmetric F₂ matrix lies in its image.",
+          "identifier_or_url": "arXiv:1206.2973v1",
+          "material_read": "pp. 1–2, diagonal-in-range theorem and graph corollary",
+          "method": "OA primary text passages",
+          "title": "Symmetric Matrices over F₂ and the Lights Out Problem",
+          "trigger": "Consistency of the all-on equation"
+        },
+        {
+          "assessment": "General formulation precedent",
+          "evidence": "N=A+I and the all-on change vector is always reachable.",
+          "identifier_or_url": "arXiv:1903.06942v1",
+          "material_read": "pp. 1–3, definition of N and inversion result",
+          "method": "OA primary text passages",
+          "title": "Lights Out on graphs",
+          "trigger": "Equivalent problem formulation"
+        },
+        {
+          "assessment": "General method, not the matching table",
+          "evidence": "Neighbor parity gives a linear system over GF(2).",
+          "identifier_or_url": "arXiv:2207.04238v1",
+          "material_read": "p. 3 footnote 4",
+          "method": "OA primary text passage",
+          "title": "Complexity of Public Goods Games on Graphs",
+          "trigger": "Same parity-response rule"
+        },
+        {
+          "assessment": "General tractability precedent",
+          "evidence": "Notes polynomial-time decidability for the infinite alternating pattern.",
+          "identifier_or_url": "arXiv:2301.11849v3",
+          "material_read": "§1.1, p. 2",
+          "method": "OA primary text passage",
+          "title": "Complexity of Equilibria in Binary Public Goods Games on Undirected Graphs",
+          "trigger": "Alternating best response"
+        },
+        {
+          "assessment": "Different game",
+          "evidence": "Pairwise anti-coordination produces a different equilibrium condition and growth law.",
+          "identifier_or_url": "arXiv:2101.09103v1",
+          "material_read": "pp. 1–2, game and main counting comparison",
+          "method": "OA primary text passages",
+          "title": "Nash Equilibria in certain two-choice multi-player games played on the ladder graph",
+          "trigger": "Same graphs with an equilibrium census"
+        },
+        {
+          "assessment": "Different rule",
+          "evidence": "Exactly two producing neighbors, not zero or two.",
+          "identifier_or_url": "2ff15bcf2894 and 5b52778bc432",
+          "material_read": "Response-rule statements in the two RESULT.md records",
+          "method": "Bounded Resultary mirror passages",
+          "title": "Indexed exact-two public-goods results on closed ladders",
+          "trigger": "Same graph families and enumeration terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A quantitative twist effect could be useful, but the closed comparison here just reinterprets stronger all-on polynomials. The remaining unweighted open row is a direct evaluation of the same local dynamics with zero ghost states. It does not supply an independent useful invariant beyond that routine specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

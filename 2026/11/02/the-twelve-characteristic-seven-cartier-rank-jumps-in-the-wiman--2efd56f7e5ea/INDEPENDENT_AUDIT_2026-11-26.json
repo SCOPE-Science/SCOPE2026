@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:09:36.079767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–52; VERIFICATION.md and verify_wiman7.py inspected; own exact multinomial and polynomial gcd check"
+      ],
+      "rationale": "In square coordinates, writing a=u-w,b=v-w expresses the cubic as w*8(a²-ab+b²)+2a³+(1-t)a²b+(1+t)ab²+2b³. The quadratic has distinct roots. At a=1 and r=b satisfying r²-r+1=0 the cubic term becomes 2r-1-t, and (2r-1)²=4 in F7. Away from t²=4 the polynomial is primitive and linear in w, hence integral; the node accounts for the full arithmetic genus of the cubic. The coordinate-axis cubic (all three equivalent by cyclic rotation) has coefficients 2,1-t,1+t,2 up to order; its discriminant reduces to (t²-4)(t²+1). Away from its roots the axis intersections are simple, and no intersection is a vertex since the pure-cube coefficient is 2. Valuations at intersections with u=0 and v=0 give independent square classes of u/w and v/w. Hence the pullback sextic is integral, is unramified over the node with four ordinary nodes, and is nonsingular everywhere else by the simple axis intersections and étaleness off the axes. The normalization has genus six. The six independent vanishing adjoint cubics are therefore a basis. In the affine plane adjoint formula Cartier keeps monomials of F^6 times the numerator whose two affine exponents are 6 modulo 7 and applies inverse Frobenius to their coefficients; homogenizing gives exactly the stated H indexing. Evenness of F forces H to preserve the exponent parities, and cyclic rotation identifies the three two-dimensional adjoint blocks. Independently recomputed the x-parity block by multinomial expansion in the square coordinates, using the pure-cube coefficients 2, mixed coefficients 1±t, and uvw coefficient -12. The replay is to sum 6! times the products of chosen coefficient powers divided by their factorials at each target square-coordinate exponent (7(alpha+1)-(beta+1))/2, then subtract the columns for x³ and xy² or xz² and read the negatives of the xy² and xz² entries. The resulting block is [[A+B,C],[-C,A-B]] with A=t^6+4t^4+2t²+5, B=4t^5+6t and C=5t^5+4t. Its determinant is t^12+3t^10+6t^8+4t^6+2t^4+4, equal to D in F7[t]. Euclidean reduction gives gcd(D,D')=gcd(D,C)=gcd(D,(t²-4)(t²+1))=1. Thus each block has rank one at every one of twelve distinct roots and rank two elsewhere in U. Inverse Frobenius preserves matrix rank. The a-number is consequently 3 or 0 as claimed; full Cartier rank yields ordinarity, but rank three does not give the exceptional p-rank.",
+      "residual_risks": [
+        "The rank classification is for the finite locus U. No stable reduction, exceptional p-rank or Newton polygon is deduced."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible inspected statements construct or identify the pencil and special geometric members. Edge's full primary text was not retrieved through the bounded lawful lookup."
+        ],
+        "reasoning": "The geometric descriptions motivate the computation but do not furnish a all-parameter positive-characteristic Cartier/Hasse–Witt invariant. Inaccessible full text is an access limitation, not negative evidence.",
+        "searches": [
+          "Dolgachev–Farb–Looijenga arXiv:1709.09256, p. 16; Candelas et al. arXiv:1206.4961, pp. 5 and 20; Edge DOI 10.1017/S0305004100058321"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.06317, arXiv:1709.09256, arXiv:1206.4961, Inoue–Kato Kyoto preprint",
+        "Edge DOI 10.1017/S0305004100058321 (bibliographic only)",
+        "Resultary findings 60daa49441d3 and 3b408c474a0a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior p=7 result fixes rank six at t=0 only. The other inspected results provide geometric descriptions or different invariants; no Cartier block, determinant, or equivalent a-number relation over U is supplied there."
+        ],
+        "reasoning": "Ordinarity at a single parameter implies generic full rank in this family, but not the determinant's zero divisor or the exact corank at any zero. The distinct part is the twelve geometric roots and common corank three, not generic ordinarity considered alone.",
+        "searches": [
+          "Compare the actual Wiman finite-field statement, the accessible geometric pencil statements, and the inspected Resultary formulas to the complete finite characteristic-seven rank profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inoue–Kato p. 1 describes the four-nodal plane pencil and its six-line member. The del Pezzo and P1×P1 presentations identify the Wiman member with parameter zero but describe a ten-line divisor at their infinity.",
+          "Resultary 3b408c474a0a classifies a complex Weierstrass jump at 4φ²=105, not Cartier rank in characteristic seven. No checked passage supplies a change from its φ to the frozen plane t."
+        ],
+        "reasoning": "A different presentation can refer to the same geometric pencil without having the same plane parameter or a matching arithmetic rank locus. Neither the shared named pencil nor the presence of exceptional constants identifies the claimed divisor.",
+        "searches": [
+          "Targeted literature lookup for characteristic-seven Wiman–Edge Cartier/Hasse–Witt ranks; Resultary comparisons for Wiman and Wiman–Edge characteristic/parameter jumps",
+          "Inoue–Kato plane pencil and Candelas et al. and Dolgachev–Farb–Looijenga alternative presentations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper states that W is ordinary of genus six at p=7, based on MAGMA; the equation matches this record at t=0. Resultary 60daa49441d3 treats flex contact orders of that same fixed curve, a different invariant. Record 3b408c474a0a is a later complex-pencil Weierstrass result."
+        ],
+        "reasoning": "The p=7 entry gives a=0 for one point, and agrees with D(0)=4. Credit the actual singleton overlap; it neither counts exceptions nor tells their ranks. No inspected table has the pencil-wide Cartier ranks.",
+        "searches": [
+          "Giulietti–Kawakita–Lia–Montanucci arXiv:1805.06317, pp. 1 and 10; Resultary Wiman characteristic-seven flexes 60daa49441d3 and complex Wiman–Edge exceptional parameters 3b408c474a0a"
+        ]
+      },
+      "rationale": "The pencil and its Wiman member are classical; the exact characteristic-seven ordinary answer at t=0 is also established. The distinct claim is the entire rank locus in the stated plane parameter, including a=3 at all twelve roots. The inspected geometric and singleton computations do not give this statement or imply it.",
+      "residual_risks": [
+        "Edge's full text and unindexed arithmetic treatments under a different parameterization were not excluded. The empty literature lookup is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior overlap at t=0 only.",
+          "evidence": "The equation is the same W; at p=7 the paper states that W is ordinary of genus six.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.06317",
+          "material_read": "PDF p. 1 and p. 10, especially offset around 30942",
+          "method": "Bounded OA full-text passages",
+          "title": "An F_{p²}-maximal Wiman's sextic and its automorphisms",
+          "trigger": "Exact same equation and possible prior characteristic-seven invariant"
+        },
+        {
+          "assessment": "Same W and plane pencil geometry; no rank-locus implication in the inspected material.",
+          "evidence": "Prints the four-nodal Wiman equation and describes Edge's sextic pencil containing a six-line member.",
+          "identifier_or_url": "https://www.math.kyoto-u.ac.jp/preprint/2005/2inoue.kato.pdf",
+          "material_read": "p. 1 around offset 1600",
+          "method": "Bounded OA PDF extraction",
+          "title": "On the geometry of Wiman's sextic",
+          "trigger": "Original equation in the plane model"
+        },
+        {
+          "assessment": "Geometric identification, not the F7 calculation.",
+          "evidence": "The quintic del Pezzo pencil has Wiman member C_0 and ten-line C_infinity in its convention.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.09256",
+          "material_read": "PDF p. 16, around offset 51690",
+          "method": "Bounded OA PDF extraction",
+          "title": "Geometry of the Wiman–Edge pencil, I",
+          "trigger": "Broad geometry in another presentation"
+        },
+        {
+          "assessment": "Relevant coordinate comparison but no implication to rank in the inspected passages.",
+          "evidence": "F_phi=G+phi H in a P1×P1/del Pezzo presentation, with the Wiman and ten-line members at zero and infinity.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.4961",
+          "material_read": "PDF pp. 5 and 20, around offsets 19968 and 60747",
+          "method": "Bounded OA PDF extraction",
+          "title": "Lines on the Dwork Pencil of Quintic Threefolds",
+          "trigger": "Alternative explicit pencil and parameter"
+        },
+        {
+          "assessment": "Full-text comparison remains unresolved.",
+          "evidence": "The exact pencil is independently identified in the accessible Inoue–Kato passages; no claim about the entire contents of Edge is made.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100058321",
+          "material_read": "Bibliographic identification only; no readable OA full text retrieved",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "A pencil of four-nodal plane sextics",
+          "trigger": "Original pencil and possible more precise prior model information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and coefficient formula; independently checked block; prior characteristic-seven Wiman point and geometric pencil statements"
+      ],
+      "rationale": "The calculation stratifies a classical genus-six pencil by a naturally varying arithmetic invariant, going beyond the known ordinary Wiman point. It gives the exact exceptional divisor and establishes that every jump removes three dimensions of Cartier rank rather than just detecting nonordinarity. This is usable information about the arithmetic family even without the further p-rank or Newton polygon classification.",
+      "residual_risks": [
+        "The special prime and finite smooth-fiber locus are the scope; no general positive-characteristic pattern is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

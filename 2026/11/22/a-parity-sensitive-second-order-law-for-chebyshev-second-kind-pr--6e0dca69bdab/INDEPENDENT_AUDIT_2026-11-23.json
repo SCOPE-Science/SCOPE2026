@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:46.799691Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under x=cos θ the measure is (2/π)sin²θ dθ and the second-kind basis is orthonormal by sine orthogonality. The real BV derivative measure represents the input modulo constants as a signed integral of unit jumps; Minkowski for the residual and equality at a maximizing jump reduce the norm to one scalar jump. The compact jump parameter has continuous residual, with zero at the endpoints and positive residual in the interior since a jump is not a polynomial almost everywhere. Direct integration gives p(θ) and the signed coefficients [sin(kθ)/k−sin((k+2)θ)/(k+2)]/π (the signed representative is used when differentiating their squares), with the stated full tail by Parseval. At π/2 reflection gives stationarity; differentiating the finite residual yields curvature coefficient 8[−1−floor(n/2)+Σ_{k odd≤n}(1+1/(k(k+2)))]. The sum of reciprocal products telescopes by 1/(k(k+2))=(1/k−1/(k+2))/2, verifying both exact signs and the degree-zero case. With N=n+2, square the leading tail coefficient −2 sinθ cos(mθ)/(πm); summability of the cross-error terms yields O(|cosθ|n^−2+n^−3) uniformly. The plain sum from N of m^−2 is n^−1−3/(2n²)+O(n^−3). Twice differencing the weights in the complex oscillatory sum gives its boundary term exp(2iNθ)/(N²(1−exp(2iθ))) with a uniform O(N^−3) error on compact interior arcs. On the endpoint arcs sin²θ≤1/4, the crude bound by the plain sum already keeps the leading residual below the centered residual. Uniform comparison on the remaining arc forces every maximizing angle to the midpoint. There the oscillatory term is at most (1+o(1))/(2n²) and the error from cosθ is o(n^−2). The even midpoint and odd angle π/2+π/(2N) align the leading phase and attain that upper expansion. At the midpoint without phase adjustment the boundary term carries (−1)^n, giving the exact parity-dependent second-order deficit. This proves the asymptotic norm, not a finite-cutoff optimizer classification.",
+      "replay": "Independently compare the odd reciprocal-product sum to its telescoped expression using exact rational arithmetic for n=0–100. Evaluate the finite residual formula using 70-digit trigonometric arithmetic at the midpoint and at the phase-aligned witness for moderate and large cutoffs of each parity. For n=0 the maximum is R₀(π/2)=1/4; at n=1 the off-center extrema are near 1.1161343198 and 2.0254583338, with residual about 0.08221599166 versus 0.06987345130 at the midpoint. These diagnostics do not certify the asymptotic upper bound or exhaust extrema at general degree. The frozen checker.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sluchak's weighted-primitive formula gives each exact scalar coefficient norm and jump witness, and Section 10.5 sums coefficient bounds for tail control. Xiang treats weighted-L² projection rates for prescribed algebraic-log singularities. The Jacobi quadratic result optimizes variation of the output for a fixed degree."
+        ],
+        "reasoning": "An exact supremum for each coefficient separately does not yield the supremum of the sum of their squares at one common jump. A bound for a fixed prescribed singularity, or an optimization of BV output at degree two, likewise does not determine the maximized large-cutoff semicircle tail.",
+        "searches": [
+          "arXiv:2611.04067v1, Theorem 1 and Sections 6, 10.5",
+          "arXiv:2006.01522v2, Theorem 4, Corollary 4 and Remark 7",
+          "SCOPE-exact-jacobi-weighted-quadratic-projection-gain-in-total-variati--0c312599056c"
+        ]
+      },
+      "checked_sources": [
+        "Sluchak, arXiv:2611.04067v1",
+        "Xiang, arXiv:2006.01522v2",
+        "Akansha, arXiv:2404.18723v1",
+        "A sharp hard-edge sine-integral law for Chebyshev projection of bounded-variation data",
+        "Exact Jacobi-weighted quadratic projection gain in total variation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficient-derived full-tail bound in Sluchak leaves slack even at leading order: in the unnormalized second-kind weight the present leading norm constant is 1/√π, below the coefficient-summed √(2/π). Akansha bounds an L¹ error with approximate coefficients. The first-kind result solves a different sharp problem with a boundary layer."
+        ],
+        "reasoning": "None of those estimates fixes the sign of the oscillatory sum for a moving jump or matches its globally optimized order-n^−2 correction. The sharp second term needs both localization of all maximizing jumps and control of the phase at that position; those are not consequences of coefficientwise attainment or an L¹ estimate.",
+        "searches": [
+          "arXiv:2611.04067v1, Theorem 1 and Section 10.5",
+          "arXiv:2404.18723v1, Theorems 4.1–4.2",
+          "SCOPE-a-sharp-hard-edge-sine-integral-law-for-chebyshev-projection-of--bb227b1c70c3, Finding Eqs. (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary results include the first-kind hard-edge law and the Legendre jump-projection result. The first-kind record explicitly uses an arcsine weight and its worst jumps migrate to an endpoint, unlike the semicircle midpoint limit."
+        ],
+        "reasoning": "After the angular change the second-kind problem is the joint high-frequency sine tail of sinθ times the jump, not the unweighted cosine tail of the first-kind problem. The exact Legendre case likewise uses a different measure and basis. A shared one-jump reduction or qualitative parity is not a reparameterization yielding these scalar coefficients.",
+        "searches": [
+          "Resultary: Chebyshev polynomials second kind semicircle bounded variation L2 orthogonal projection sharp error midpoint parity asymptotic",
+          "Chebyshev second kind polynomials sharp bounded variation L2 projection worst case jump semicircle weight mean square Jacobi asymptotic tail step Gibbs minimizing max"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records surface separate sharp constants for first-kind and Legendre projectors and the present second-kind result. The closest coefficient source gives weighted primitive extrema and projection upper estimates, not a database of semicircle joint-tail optima."
+        ],
+        "reasoning": "Tables of individual U-polynomial primitives or roots allow individual coefficient checks but cannot specify the simultaneous tail optimizer or the sharp n^−2 midpoint loss. No independently matching table for the stated norm or its curvature/parity law was verified.",
+        "searches": [
+          "Resultary: Chebyshev polynomials second kind semicircle bounded variation L2 orthogonal projection sharp error midpoint parity asymptotic",
+          "arXiv:2611.04067v1, Section 6 and Section 10.5"
+        ]
+      },
+      "rationale": "Related results already give the BV unit-jump extremizer for a single orthogonal coefficient and weighted L² projection-error upper bounds or rates. The contribution is the sharp optimization of the entire squared tail for the semicircle probability weight, specifically its second term and exact midpoint-curvature parity. The relevant full-text comparisons distinguish those questions; the assessment is best-of-knowledge only.",
+      "residual_risks": [
+        "An earlier sharp all-weight projection or sine-tail optimization could cover this as a specialization. The search does not establish historical priority, and the individual coefficient and one-jump ideas are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar coefficient sharpness, not the joint sharp norm",
+          "evidence": [
+            "A jump at a weighted-primitive extremum realizes the single-coefficient norm. The full squared-tail estimate in Section 10.5 sums coefficient bounds, without common attainment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.04067v1",
+          "material_read": "Theorem 1 pp. 3–4; Section 6 p. 9; Section 10.5 p. 16",
+          "method": "Compared the original scalar coefficient theorem and its tail application with a joint optimization",
+          "title": "Bounds for Orthogonal Expansion Coefficients via Weighted Primitives",
+          "trigger": "Exact BV bounds for the same family of orthogonal coefficients"
+        },
+        {
+          "assessment": "Different quantifier and level of precision",
+          "evidence": [
+            "The theorem and corollary give weighted-L² rates for specified algebraic/logarithmic singularities, with attainable orders, not an extremum over all variation-normalized functions or a second term."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.01522v2",
+          "material_read": "Theorem 4 p. 21, Eqs. (48)–(49), Corollary 4 Eqs. (50)–(53), and Remark 7",
+          "method": "Compared regularity classes and sharp-rate versus exact-norm conclusions",
+          "title": "Convergence rates of spectral orthogonal projection approximation for functions of algebraic and logarithmatic regularities",
+          "trigger": "Potentially broader weighted-L² Jacobi projection error theory"
+        },
+        {
+          "assessment": "Not the same approximation or optimization",
+          "evidence": [
+            "The inspected upper bounds concern L¹ errors with quadrature-approximated coefficients and derivative-variation hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.18723v1",
+          "material_read": "Theorems 4.1–4.2 pp. 7–9, Eqs. (4.22)–(4.32)",
+          "method": "Compared coefficient calculation and output norm in the OA theorem",
+          "title": "Exploring Chebyshev Polynomial Approximations: Error Estimates for Functions of Bounded Variation",
+          "trigger": "Chebyshev approximation error for bounded variation"
+        },
+        {
+          "assessment": "Close first-kind analogue, not an implication",
+          "evidence": [
+            "The norm uses the arcsine law and its optimal jumps tend to the endpoints on the n^−2 abscissa scale, not the midpoint under the semicircle law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-hard-edge-sine-integral-law-for-chebyshev-projection-of--bb227b1c70c3/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(3) and assumptions",
+          "method": "Compared weights, exact jump reduction and the extremal location",
+          "title": "A sharp hard-edge sine-integral law for Chebyshev projection of bounded-variation data",
+          "trigger": "Same BV residual question for a Chebyshev projector"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm is a natural worst-case L² approximation benchmark for variation-bounded data under a canonical weight. The exact second term resolves a measurable failure of the midpoint choice at every odd degree, despite all optimal jump positions approaching the midpoint. This identifies a parity effect not seen in the leading error rate, with an explicit phase-aligned witness; it does not claim global finite-degree uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

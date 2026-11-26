@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:58:16.740996Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49 and VERIFICATION.md; verify.py inspected without execution",
+        "Independent reachable labeled-state and variance checks, including equality 2s=k: python3 /workspace/reviews/reproduce.py 5"
+      ],
+      "rationale": "Disjoint consecutive overlaps ensure the two front types close under updates: the only mixed edge of each type has either s or k−s A voters, and its update moves the front to the adjacent edge, or absorbs at an endpoint. At k=2s, R_j and V_{j+1} describe the same configuration when both exist; their mapped neighbors and probabilities agree since p=q=1/2. From every transient front, continuing in its direction reaches consensus within L rings with probability at least p^L, which bounds the mean by a geometric block argument. Every transient front has exactly one rate-one clock. Independently of the two-state recurrences, the total A count M has mean-zero increment at a ring and conditional second moment a(k−a)=s(k−s), where a is the A count of the active edge. Thus the bounded stopped count gives fixation M_0/N, and the stopped squared-count identity gives s(k−s) E[T]=N M_0−M_0². Substitution of M_0=j(k−s)+s yields the exact stated mean and the stated L² limit. L=2 gives k/s directly.",
+      "residual_risks": [
+        "The explicit overlap geometry, not the potentially ambiguous term 'linear hypergraph' by itself, is the hypothesis.",
+        "The factorial parameter sweep in the frozen verification is recorded source evidence, not an independent replay; four independent small reachable-state checks corroborate the analytic proof.",
+        "The argument does not treat non-front starts, nonlinear voting, rewiring, or other clock normalizations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General hypergraph-coloring state-graph walks include many update kernels, but do not give the single-front closed system or its physical-time law. Conservation under proportional voting is already present; the node-level adaptive group-influence rules are distinct."
+        ],
+        "reasoning": "An abstract Markov-chain framework covers the existence of a first-step system and neutrality yields fixation after proving absorption, but neither supplies the constant stopped count variance or the exact mean for these edge overlaps.",
+        "searches": [
+          "Chung–Tsiatas, Hypergraph Coloring Games and Voter Models, pp. 1–2",
+          "Papanikolaou et al. arXiv:2201.06421, group-influence transitions",
+          "Golovin et al. arXiv:2308.03640, proportional-voting and conservation passages"
+        ]
+      },
+      "checked_sources": [
+        "Golovin–Mölter–Kuehn proportional rule and conservation",
+        "Papanikolaou et al.; Chung–Tsiatas; Kim et al. decisive primary passages",
+        "Resultary 00aa607ba844 and 5dcfac853da5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conservation alone gives the fixation expression but not E[T]. The latter uses exactly one active edge with a in {s,k−s}, giving variance s(k−s) per time unit until absorption. Neither of the close indexed exact means has that kernel/time structure.",
+          "General persistent-walk algebra applies once the physical front is established; no inspected source gives this reduction on the prescribed hyperpath."
+        ],
+        "reasoning": "The supported distinction is the path-front theorem and its exact rate-dependent consequence, not the martingale calculation or generic walk recurrence in isolation.",
+        "searches": [
+          "arXiv:2308.03640 pp. 4, 10, voting and cancellation",
+          "Resultary 00aa607ba844 and 5dcfac853da5, actual findings and rules"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The active-edge index moves by +1 or −1, retaining its direction with probability s/k and reversing with probability (k−s)/k; the exterior indices 0 and L+1 absorb. The invariant geometry and one active edge yield rate-one holding times.",
+          "Golovin et al. use the same local prevalence-weighted whole-edge opinion adoption, but also study adaptation and closure. Kim et al. update a selected node under a nonlinear rule, not the whole edge."
+        ],
+        "reasoning": "The persistent walk is a mathematical reformulation only after the configuration geometry is proved invariant. An exact walk result or global attempted-update clock cannot by itself identify the voter family and its physical time.",
+        "searches": [
+          "Resultary: exact proportional hyperedge consensus and fixation, overlap paths and polarized fronts",
+          "arXiv:2308.03640, proportional voting and magnetization",
+          "arXiv:2407.11261, hypergraph-voter event rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 00aa607ba844 gives an exact mean on the same two-triple geometry but for attempted nonlinear individual-node updates (95/7 attempts at q=1, not a rate-one whole-edge time of 3). Record 5dcfac853da5 considers whole-group copying in near-complete groups under global discrete group selection, not this path or clock."
+        ],
+        "reasoning": "These are genuine nearby exact results, not equivalent tables under a common statistic and update normalization. The bounded lookup does not establish absence of other works.",
+        "searches": [
+          "Local Resultary queries for exact consensus times, overlap-path geometries, polarized fronts and proportional voting"
+        ]
+      },
+      "rationale": "Best of current knowledge for the invariant polarized front on the specified geometry and its exact physical-time first moment. Proportional whole-edge updating, magnetization martingales and general random-walk first-step analysis are established. Fixation M_0/N conditional on absorption is not a standalone novelty claim. On the invariant front, the active-edge index with its last direction is a persistent nearest-neighbor walk; its arithmetic is not claimed as a new abstract ruin law. The exact mapping with one physical rate-one clock and absorption boundaries is substantive and was not identified in the closest inspected hypergraph sources.",
+      "residual_risks": [
+        "Literature and indexed search are bounded; an unindexed fixed-path reduction or related exact persistent-walk application may exist.",
+        "The reviewed sources support established local voting and neutrality, not novelty of fixation alone or a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same proportional whole-edge primitive and conservation, not the fixed-path theorem.",
+          "evidence": "Proportional voting makes the group adopt an opinion according to within-edge prevalence; proportional mean magnetization terms cancel. The paper treats adaptation and hypergraph moment closure.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.03640; DOI:10.1002/andp.202300342",
+          "material_read": "PDF p. 4 (offset about 15000), p. 10 (about 56500), and abstract",
+          "method": "OA primary passage reads",
+          "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+          "trigger": "Closest primary local update and prior conservation"
+        },
+        {
+          "assessment": "Different local update and adaptive geometry.",
+          "evidence": "Group influence flips individuals with opponent-frequency-dependent rates, alongside split/merge processes.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.06421",
+          "material_read": "PDF pp. 4–6, offsets about 12677 and 17596",
+          "method": "OA primary passage reads",
+          "title": "Consensus from group interactions: An adaptive voter model on hypergraphs",
+          "trigger": "Possible earlier group-based consensus first moments"
+        },
+        {
+          "assessment": "General state-walk formulation, no exact path time in inspected statements.",
+          "evidence": "Chooses a hyperedge in each round and a designated color redistribution, treating state-graph walks and memoryless interactions.",
+          "identifier_or_url": "https://cseweb.ucsd.edu/~atsiatas/voter.pdf",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5359",
+          "method": "OA primary passage reads",
+          "title": "Hypergraph Coloring Games and Voter Models",
+          "trigger": "Broad hypergraph Markov-chain coverage"
+        },
+        {
+          "assessment": "Node-based, nonlinear, and not the exact whole-edge polarized-front law.",
+          "evidence": "A random node samples an incident edge and flips under an opinion-unanimity sampling condition; exit-time scope is annealed/mean-field.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11261",
+          "material_read": "PDF pp. 1–2, offsets 0 and 8200",
+          "method": "OA primary passage reads",
+          "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+          "trigger": "Potential equivalent exit-time law under group interactions"
+        },
+        {
+          "assessment": "Same small geometry, different update kernel and time observable.",
+          "evidence": "Starts at 00011 on two overlapped triples; gives 95/7 attempted individual updates under its q=1 dynamics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-reinforcement-induced-consensus-slowdown-on-a-five-agent-h--00aa607ba844",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirrored-file read",
+          "title": "Exact reinforcement-induced consensus slowdown on a five-agent hypergraph",
+          "trigger": "Same two-triple geometry and polarized profile"
+        },
+        {
+          "assessment": "Common copying rule and fixation principle; different state space and clock.",
+          "evidence": "Global discrete selection of a size n, n−1, or n−2 group including already monochromatic groups, with complete populations rather than paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-rate-consensus-clock-with-at-most-two-holdouts--5dcfac853da5",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirrored-file read",
+          "title": "A one-rate consensus clock with at most two holdouts",
+          "trigger": "Exact proportional whole-group hitting statistics and fixation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen front and mean-time proof; independent stopped-moment calculation",
+        "Closest proportional hypergraph source and exact indexed group-update models"
+      ],
+      "rationale": "The result resolves finite-size time and the optimal scale constant for a simple repeated-overlap family, rather than a qualitative diffusion analogy. The path-front closure explains why the A-count's quadratic variation is constant and why the physical time changes with overlap s. The degenerate geometry 2s=k and the two-group case remain within the same law.",
+      "residual_risks": [
+        "No typical-case time for arbitrary colorings, adaptive topology, or empirical voter systems is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

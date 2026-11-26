@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:29:00.682750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–104",
+        "Frozen VERIFICATION.md, lines 19–29",
+        "Frozen checker.py, lines 14–145"
+      ],
+      "rationale": "For L=f″−U′f′, let q=Aαx^(α−1) and H=cx^b with H′=1/q. Choosing the immaterial additive constant log(Aα) gives e^U=q e^H. At 0 both scale and speed are locally integrable for 0<α<2, and scale diverges at infinity. Taking the upper boundary to infinity in the killed interval Green kernel gives the positive occupation integrals of the record; the divergent scale excludes escape to infinity before hitting 0. Since ∫_x^∞e^(−U)=e^(−H(x)), the mean derivative is q and the mean is Ax^α, with almost-sure absorption. The second-moment integral is finite for every finite x (stretched exponential at infinity and integrable scale at 0). Integrating its inner integral by parts against −d(e^(−H)) cancels the derivative of M_1² and yields V′=2q(x)e^(H(x))∫_x^∞q(z)e^(−H(z))dz. The substitution u=c z^b gives the displayed Gamma formula and V′∼2(Aα)^3x^(3α−3); integrating yields the plateau tail, logarithm and power with the stated signs and constants. In the plateau integral set u=sv in the positive region 0<u<v; the v integral is Γ(2p)(1−s)^(−2p), giving the Beta factor, including the α=1/2 check. Strong Markov gives compatible independent downward passage increments for ordered starting levels. Construct the increasing process on rational levels and extend by right limits (the mean level function is continuous, giving stochastic continuity). Its centered square-integrable martingale has bounded second moment in the subcritical case; convergence in L² and almost surely follows, and the limiting variance is the positive plateau.",
+      "residual_risks": [
+        "The frozen 198-assertion checker is supplementary and was inspected, not executed. The limit is for the spatial coupling (and a weak marginal limit); no assertion is made about a common driving noise, independent experiments, α=2 or a CLT above the threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bansaye et al. require H1, equivalent to a uniformly bounded mean to the lower absorbing level. The prescribed mean Ax^α diverges. Keidar et al. solve a mean-feasibility and uniqueness problem; their α=2 boundary is for the mean."
+        ],
+        "reasoning": "Neither broad result entails the new centered limit or the α=2/3 variance boundary via a permitted specialization. The logarithmic-only potentials cited in the frozen record correspond to different dynamics, including the excluded endpoint.",
+        "searches": [
+          "arXiv:1711.08603v1, Proposition 1.1, Eq. (1.6), Theorem 1.4 and Appendix B",
+          "arXiv:2611.03831v1, Eqs. (3), (5)–(6), (8)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.03831v1",
+        "arXiv:1711.08603v1",
+        "Resultary self-match e8d55c997878"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kac moment recursion supplies an integral to evaluate, not the Gamma–Beta value. Bansaye et al. use independent passage increments and prove a standardized Gaussian weak limit under H1."
+        ],
+        "reasoning": "The centering cancellation, integrability threshold, plateau evaluation and nondegenerate unscaled martingale limit in the divergent-mean regime go beyond parameter relabeling. No inspected result computes these statements jointly or supplies a stronger theorem covering them.",
+        "searches": [
+          "Keidar et al., arXiv:2611.03831v1, explicit power-law potential and mean profile",
+          "Bansaye et al., Appendix B, Eq. (B.2), and Theorem 1.4 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inverse MFPT and the forward stretched-power-plus-log potential describe the same family. The nearest exact variance integral in Bansaye et al. is for passage from an entrance process at infinity to a moving level z."
+        ],
+        "reasoning": "The latter variable is not passage from a finite x to an absorbing origin, nor an equivalent centered variable when the latter mean diverges. The inverse mean formula identifies the family, not its evaluated variance.",
+        "searches": [
+          "Resultary: variance and two-thirds absolute fluctuation transition in inverse first-passage landscapes",
+          "Resultary: Bansaye Collet Martinez Méléard San Martin diffusions from infinity hitting time fluctuations",
+          "Bansaye et al., Appendix B, Eq. (B.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue match was the assigned record e8d55c997878. No separate matching result surfaced. One primary web lookup combining the cited source titles with variance/fluctuation terms returned no results; original PDF and HTML passages were inspected separately."
+        ],
+        "reasoning": "No matching formula table or earlier exact result was identified in the bounded checks. A self-match and web nonmatch carry no priority weight.",
+        "searches": [
+          "Resultary: exact variance trichotomy, Gamma–Beta plateau, and centered L² limit in inverse first-passage landscapes",
+          "Resultary: Keidar Reuveni Sokolov The Inverse Mean First-Passage Time Problem variance"
+        ]
+      },
+      "rationale": "Credit is confined to the evaluated finite-start variance, sharp α=2/3 large-distance transition and Gamma–Beta plateau, and the resulting centered limit. The prescribed mean/potential, general moment recursions and the use of passage increments are prior techniques. The verified prior statements have different objectives or do not meet the hypotheses needed to imply this result as stated.",
+      "residual_risks": [
+        "A broader theorem for centered finite-start passage times with unbounded means, or unindexed exact moments for this potential, could affect priority. The nearest two primary sources were inspected, not the entire first-passage literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source of the model and inverse mean theorem, not the evaluated second moment",
+          "evidence": [
+            "Gives the inverse relation for the prescribed mean and explicit potential; the discussed α=2 restriction is a mean-growth restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03831v1",
+          "material_read": "PDF p. 2, Eqs. (3), (5)–(6) and power-law potential (offset 11640); HTML Eq. (8) (offset about 13510)",
+          "method": "Bounded OA original PDF and HTML passages",
+          "title": "The Inverse Mean First-Passage Time Problem",
+          "trigger": "Same exact prescribed mean and potential; strongest candidate for a direct specialization"
+        },
+        {
+          "assessment": "Established methods, nonmatching passage variable and hypotheses",
+          "evidence": [
+            "H1 is equivalent to sup_x E[T_0^(x)]<∞. Eq. (B.2) is a variance representation for the entrance-process time T_z^(∞); the stated limit theorem is centered and standardized, not the unnormalized L² limit here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1711.08603v1",
+          "material_read": "p. 3 Proposition 1.1; p. 5 Eq. (1.6) and Theorem 1.4; p. 18 proof; p. 35 Appendix B Eq. (B.2) (offsets 102145 and 106200)",
+          "method": "Bounded OA original PDF passages",
+          "title": "Diffusions from Infinity",
+          "trigger": "Exact variance formula and fluctuation limits involving infinity and independent increments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, variance trichotomy and §§2–4",
+        "Diffusions from Infinity, Proposition 1.1 and Theorem 1.4"
+      ],
+      "rationale": "For a natural inverse-design family with the same exact power-law mean mechanism, variance distinguishes three different absolute noise regimes as the initial distance grows. A nondegenerate centered limit despite divergent mean has a concrete stochastic interpretation; the exact plateau and tail separate this claim from a generic moment recursion or an isolated constant-force special case.",
+      "residual_risks": [
+        "No tuning rule for estimated or only asymptotic mean profiles, relative-error statement, or general classification of all inverse landscapes is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

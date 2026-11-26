@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:14.705851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent rational check: python3 /workspace/replay/jacobsthal.py; /workspace/replay/jacobsthal.out"
+      ],
+      "rationale": "Binet's formula gives J_k>0 for k>=1 and permits the absolutely convergent geometric expansion with x=2^(-n) and epsilon=(-1)^n: S_n is the sum over j>=0 of a_j epsilon^j x^(j+2), with a_j=9(j+1)/(1-(-1)^j 2^(-j-2)). The first coefficients are 12, 16, 144/5 and 384/11. For x<=1/8 the later terms have absolute sum <=(3456/49)x^6<71x^6, using a_j<=12(j+1). Multiplication by A_n=(1-4 epsilon x/3)/(12x^2) cancels the term linear in x; the next coefficients are 28/45 and -16 epsilon/55. The stated rational brackets, bounded at 1/8 by monotonicity, give 0<A_n S_n-1<(256/243)x^2, while S_n>=12x^2/(1+x)^2>=(256/27)x^2. Division yields the strict gap less than 1/9, and the ratio of leading coefficients gives 7/135. The residues of the numerator mod 36 are 20,32,8 with period three because its three-step increment is 189*4^n+36*(-2)^n. Thus the gap cannot cross an integer. For n=1,2 the tail exceeds one, so its inverse and A_n both have floor zero. Independent exact rational enclosures with recurrence-generated denominators and a Binet-envelope remainder corroborate the floors through n=64 and the strict gap for n=3,...,64.",
+      "residual_risks": [
+        "The finite enclosure checks support but do not replace the uniform series proof. The gap bound is sufficient, not claimed optimal, and does not assert the strict inequality at n=1,2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holliday–Komatsu Theorem 4 is an exact reciprocal-square theorem for G_(k+2)=a G_(k+1)+G_k with a>0 integral, not coefficient +2 on G_k. Their Theorem 11 treats the correct Jacobsthal recurrence but changes the power from two to one.",
+          "The general floor-tail template in Conjecture 4.6 and the sufficiently-large-parameter theorem of Park do not cover (s,t)=(1,2); in particular the same-power t=-1 case has a different characteristic equation.",
+          "Resultary f7bec89e9630 treats U_(k+2)=sU_(k+1)-U_k with s>=3. Resultary 132c7da63c13 includes generalized Jacobsthal a=2 but studies ternary denominator and leading digit of finite reciprocal-power prefixes, not exact floors of inverse infinite tails."
+        ],
+        "reasoning": "The ordinary Jacobsthal recurrence with roots 2 and -1 and the positive infinite unweighted square tail jointly matter. Agreement on one of those conditions is insufficient for a specialization.",
+        "searches": [
+          "Holliday–Komatsu, On the Sum of Reciprocal Generalized Fibonacci Numbers, §§2 and 4",
+          "Amdeberhan–Chen–Moll–Sagan arXiv:1306.6511 Conjecture 4.6; Park arXiv:1407.8086 Theorem 18",
+          "Resultary f7bec89e9630 and 132c7da63c13 original findings"
+        ]
+      },
+      "checked_sources": [
+        "Gaber arXiv:2207.12857v1; Holliday–Komatsu, Integers 11A Article 11; arXiv:1306.6511 and 1407.8086",
+        "Koshy–Gao, Fibonacci Quarterly 62(1) pp. 40–44 and 62(2) pp. 130–135",
+        "Resultary 62b53b6d7002, f7bec89e9630 and 132c7da63c13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.2 prints floor(S_n^(-1))<=J_(n-1) J_n at odd n. For n=3 that is at most 3, whereas independent rational enclosures place S_3^(-1) strictly between 6 and 7. Even a one-sided lower bound with that right-hand side would not determine the exact floor, the even indices or the limiting difference.",
+          "Koshy–Gao's identities concern weighted sparse sums with quadratic denominators, not the inverse unweighted square tail. The exact first-power formula and the exact square-tail formulas under a different recurrence leave the present case unproved."
+        ],
+        "reasoning": "The frozen proof does not import the defective inequality and does supply the uniformly positive error, an all-index floor, and a nonzero error limit not contained in the closest statements.",
+        "searches": [
+          "Gaber arXiv:2207.12857v1, Theorems 2.1 and 2.2; compare Theorem 2.2 to exact n=3 enclosure",
+          "Koshy–Gao two 2024 Fibonacci Quarterly Jacobsthal squares articles, §3 Eq. (3.1)",
+          "Holliday–Komatsu Theorems 4 and 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Binet's formula the frozen A_n equals J_(2n)/4-(-1)^n J_n/3-1/36. Its mod-36 residue evaluation is equivalent to the three residue-class floor form.",
+          "Holliday–Komatsu §4, Theorem 11 gives the parity-dependent exact inverse floor of the first-power Jacobsthal sum, not its square-tail counterpart. At n=3 that theorem gives J_2=1, whereas the square-tail floor is 6."
+        ],
+        "reasoning": "The forms using J_(2n), powers of 2 and periodic congruence corrections are the same approximant. The first-power tail cannot be converted into this square tail by that algebraic reexpression; inversion and summation do not commute with squaring.",
+        "searches": [
+          "Resultary Jacobsthal reciprocal-square inverse-tail, generalized Jacobsthal reciprocal powers, and Lucas recurrence floor variants",
+          "Literature query: Jacobsthal numbers reciprocal square tail infinite inverse floor reciprocal sum exact integer part Gaber Jacobsthal J_n squared"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "62b53b6d7002 is the identical target, not independent evidence. The other two actual findings cover different sequences or a different statistic.",
+          "The surfaced literature references are Gaber's bound and Holliday–Komatsu's first-power same-recurrence or square-tail different-recurrence formulas, not a separate exact square-floor table."
+        ],
+        "reasoning": "Neither the known periodic congruence of the proposed numerator nor numerical matches for a prefix would imply the all-index strict tail enclosure and floor formula. No separately evidenced matching all-index data formula was found in this bounded search.",
+        "searches": [
+          "Focused Resultary catalogued inverse-tail floor laws for Jacobsthal, Lucas-type and generalized Jacobsthal sequences, including 62b53b6d7002, f7bec89e9630 and 132c7da63c13",
+          "Targeted literature lookup for all-index integer-part formulas"
+        ]
+      },
+      "rationale": "The strongest same-object square-tail result found is Gaber's printed odd-index inequality, which is false at n=3 and does not supply exact floors or the residual limit. An earlier exact Jacobsthal inverse-tail result deals with first powers, while the general-family square-tail formulas inspected impose different recurrences. None of the checked catalogue matches, exact count formulas or stronger statements covers the all-index square-tail result. This is a bounded, best-of-knowledge assessment.",
+      "residual_risks": [
+        "An unlocated equivalent square-tail identity or a genuinely covering theorem under different parameters remains possible. The targeted searches and inspected passages are not a historical-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, but the printed bound contradicts n=3 and is not an exact floor law",
+          "evidence": "At odd n it asserts floor(S_n^(-1))<=J_(n-1)J_n; compare J_2J_3=3 with the independently certified floor 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.12857v1",
+          "material_read": "Abstract and introduction p. 1; Theorem 2.1 p. 2 and Theorem 2.2 p. 3, around OA offset 8513, with start of its proof",
+          "method": "Original OA PDF",
+          "title": "On the reciprocal sum of Jacobsthal numbers",
+          "trigger": "Same reciprocal-square tail at odd indices"
+        },
+        {
+          "assessment": "The same recurrence is handled at a different power; its relevant square-tail theorem does not specialize to Jacobsthal",
+          "evidence": "Theorem 11 for sum 1/J_k gives J_(n-1)-1 at even n and J_(n-1) at odd n. Theorem 4 for sum 1/G_k^2 assumes G_(k+2)=aG_(k+1)+G_k.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/a9int2009/a9int2009.pdf",
+          "material_read": "Abstract p. 1; §2 p. 2, definitions and Theorem 4 around offset 4674; §4 p. 14, Theorem 11 around offset 33718",
+          "method": "Journal OA PDF",
+          "title": "On the Sum of Reciprocal Generalized Fibonacci Numbers",
+          "trigger": "Exact prior Jacobsthal inverse-tail floor and generalized reciprocal-square theorem"
+        },
+        {
+          "assessment": "Inspected parameter cases do not reach the frozen square tail",
+          "evidence": "The plus-coefficient regime assumes s>t>=1; the square case with t=-1 has different recurrence. Jacobsthal s=1,t=2 does not meet either.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.6511",
+          "material_read": "Conjecture 4.6 p. 13, OA offset 43994",
+          "method": "Original OA PDF",
+          "title": "Generalized Fibonacci polynomials and Fibonomial coefficients",
+          "trigger": "Potential general recurrence template"
+        },
+        {
+          "assessment": "Sufficiently large parameter theorem does not cover the frozen recurrence",
+          "evidence": "Does not give an applicable formula at Jacobsthal s=1,t=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.8086",
+          "material_read": "Theorem 18 p. 8, OA offset 21112",
+          "method": "Original OA PDF",
+          "title": "Arithmetic properties of generalized Fibonacci sequences",
+          "trigger": "Potential theorem proving the broader floor-tail template"
+        },
+        {
+          "assessment": "Different sums and statistic",
+          "evidence": "Weighted sparse square-polynomial sum with quadratic denominators, not the inverse unweighted infinite square tail.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers/62-1/koshy09122023.pdf",
+          "material_read": "§3 Eq. (3.1), PDF p. 2, OA offset 2723",
+          "method": "Journal OA PDF",
+          "title": "Sums Involving a Class of Jacobsthal Polynomial Squares",
+          "trigger": "Jacobsthal polynomial square identities possibly reducible at ordinary parameter"
+        },
+        {
+          "assessment": "Different sums and statistic",
+          "evidence": "The stated sparse weighted identity does not give the frozen inverse floor.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers/62-2/koshy12202023.pdf",
+          "material_read": "§3 Eq. (3.1), PDF p. 2, OA offset 2932",
+          "method": "Journal OA PDF",
+          "title": "Sums Involving a Family of Jacobsthal Polynomial Squares",
+          "trigger": "Another parametric Jacobsthal square sum identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and exact replay; Gaber Theorem 2.2; Holliday–Komatsu Theorems 4 and 11"
+      ],
+      "rationale": "This answers the same exact-classification question motivated by earlier first-power floor laws and the failed odd-index square-tail bound. It identifies the integer part for every index, including both parities and all small cases, with a uniform rational enclosure and an explicit nonzero error limit. An investigator using inverse reciprocal-tail formulas gets a complete rigorous benchmark for a classical recurrence not covered by the inspected square-tail families.",
+      "residual_risks": [
+        "The theorem is only for the ordinary sequence and the stated power, not a whole family theorem or an optimal-error result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

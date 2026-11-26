@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:47:37.281397Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions, Steps 1–4 and limitations",
+        "Frozen VERIFICATION.md, verify_small.py and verify_transfer.py, inspected without execution; direct set construction through n=12 and suffix/series comparisons through n=26 are bounded checks",
+        "Published run-pair theorem, Resultary --3b99e07a61fe, Finding and proof"
+      ],
+      "rationale": "The ordered zero-run/one-run deletion pairs reduce by the credited collision theorem to Y=T(T+1)/2−A; deleting within the same run does not change the output, and the collision count is for contiguous 0101, not scattered subsequences. Independently reconstructed the exact joint generating function by marking factors: with x=u−1 and y=v−1, a one-domino cluster 01 has weight xz²; a cluster on k≥2 consecutive 01 dominoes has all k−1 intervening marked 0101 bridges, while each marked 01 is optional. Thus the cluster series is xz²+u²yz⁴/(1−uyz²), and the full word series is one over 1−2z minus that series. This gives the stated numerator and denominator, hence the coefficient probability including empty and one-letter words. For a derivative check write B=(1−z)², U=uz², D=B−U. At v=1 the series is 1/D and its first two v derivatives are U²/D² and 2U³B/D³. Using falling factorials, Y²=(T_(4)+8T_(3)+14T_(2)+4T)/4−(T_(2)+2T)A+A_(2)+A. The substitutions give the stated two moment series; their polynomial parts have degrees 2 and 5, respectively, explaining the cutoffs. Coefficient extraction and subtraction give the boundary values and cubic variance. For n≥2 the one-dependent 01 indicators give variance (n+1)/16. Their CLT gives the leading n/4 times the centered T fluctuation; the centered 0101 count has variance O(n), and the squared centered T contributes O_P(n), both negligible on the asserted scale.",
+      "residual_risks": [
+        "Uniform iid binary source and fixed ordered deletion 01 only; the normal limit is not a finite-length error estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noonan–Zeilberger introduce a distinct t[b] for each marked factor and give the modified cluster construction when one motif contains another.",
+          "Adamson–Fleischmann–Huch study the general complement-factor object and algorithms; the material read does not give this random-word law."
+        ],
+        "reasoning": "The cluster construction covers both overlap and internal containment, which are essential here; it is not merely a framework conjecturing rationality. The complement-factor work alone is not the decisive broader coverage.",
+        "searches": [
+          "arXiv:math/9806036, pp. 11–14, Keeping Track of Individual Bad Words and generalized method for containment",
+          "arXiv:2603.20790v1, Introduction, Our Contribution"
+        ]
+      },
+      "checked_sources": [
+        "Noonan–Zeilberger arXiv:math/9806036",
+        "Adamson–Fleischmann–Huch arXiv:2603.20790v1",
+        "Resultary --3b99e07a61fe, --358f9a90bdb3, --222e52b47c22",
+        "Frozen RESULT.md, Steps 1–4 and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cluster series on this alphabet is (u−1)z²+u²(v−1)z⁴/[1−u(v−1)z²]; its exact word series is the frozen G.",
+          "The published identity fixes the pushforward Y, and the earlier adjacent-pattern law also covers its leading T fluctuation."
+        ],
+        "reasoning": "This is an explicit prior specialization, not merely a resemblance of topics. All remaining formulas follow by finite rational operations or the standard CLT; no distinct nonmechanical theorem survives the comparison.",
+        "searches": [
+          "arXiv:math/9806036, pp. 11–14",
+          "Resultary --3b99e07a61fe, Finding",
+          "Hoeffding–Robbins bounded-dependence CLT, as cited in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noonan–Zeilberger, p. 14, JODO example with PI and PIPI on {I,P}",
+          "Resultary --3b99e07a61fe counts exact distinct remainders by ordered run pairs less contiguous abab"
+        ],
+        "reasoning": "PI/PIPI and 01/0101 are the same overlapping motifs after letter relabeling. Joint marking retains the separate multiplicities, and the run-pair theorem translates them to the exact remainder statistic.",
+        "searches": [
+          "Resultary searches for complement-scattered deletion ambiguity and adjacent counts",
+          "arXiv:math/9806036, 'in a word', and the generalized-cluster implementation example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--358f9a90bdb3 gives the exact Poisson–binomial law of adjacent 01 alone, even for iid biased bits.",
+          "--222e52b47c22 tabulates scattered length-four counts, not contiguous 0101.",
+          "The prior JODO example provides an exact coefficient computation for the combined counts, not a table of the variance of Y."
+        ],
+        "reasoning": "The inspected tables/index cannot be cited as literally listing the claimed variance. Wording and count type matter; the decisive coverage is the exact symbolic rule plus the credited deletion identity.",
+        "searches": [
+          "Resultary joint-count, adjacent-pattern and four-symbol variance searches; records --358f9a90bdb3 and --222e52b47c22",
+          "Noonan–Zeilberger, p. 14, exact coefficient query for the same motifs"
+        ]
+      },
+      "rationale": "The exact joint enumerator is a direct substitution in the generalized Goulden–Jackson cluster enumerator: the prior implementation's example actually uses the same two motifs under the relabeling P=0 and I=1. Its separate-factor marking formulation gives the bivariate specialization by the explicit cluster sum in the correctness audit. The already published deletion identity pushes that joint law forward and fixes all moments; the reported variance is ordinary differentiation and coefficient extraction. The normal limit with its scale is the standard one-dependent CLT and first-order expansion of the credited identity. The verdict is based on prior implication, not a claim that the same variance polynomial was printed in a prior table.",
+      "residual_risks": [
+        "No exact prior exhibit of the printed variance polynomial was located. The conclusion rests on exact implication from identified sources, not on a claim of exhaustive historical or database search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact generating function by direct specialization.",
+          "evidence": [
+            "Weights t[b]−1 for each marked factor, and extension beyond factor-free motif sets.",
+            "JODO example explicitly passes [P,I] and [P,I,P,I]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/9806036",
+          "material_read": "PDF pp. 11–14 (offsets about 34180–42984), separate factor marking, generalized clusters and JODO example",
+          "method": "OA PDF literal locator and bounded offset reads; substituted the actual marked clusters",
+          "title": "The Goulden–Jackson Cluster Method: Extensions, Applications and Implementations",
+          "trigger": "General exact motif counts; same two patterns including containment"
+        },
+        {
+          "assessment": "Exact overlap in the collision formula and mean, not a printed joint law.",
+          "evidence": [
+            "|C(w,ab)|=M_ab(w)−N_abab(w) for distinct letters; uniform-alphabet expectation specializes to the frozen mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+          "material_read": "RESULT.md Finding and proof passage",
+          "method": "Resultary search and local-mirror passage",
+          "title": "A run-pair formula for two-letter complement scattered factors",
+          "trigger": "Exact prerequisite credited in the frozen record"
+        },
+        {
+          "assessment": "The first covers the T marginal; the second concerns a different statistic.",
+          "evidence": [
+            "The exact adjacent 01 count law does not track A.",
+            "The indexed 0101 variance counts increasing index quadruples, not contiguous placements."
+          ],
+          "identifier_or_url": "Resultary --358f9a90bdb3; --222e52b47c22",
+          "material_read": "Both RESULT.md Finding passages; latter table and definition of subsequence",
+          "method": "Resultary search and local-mirror passages",
+          "title": "A complete Poisson–binomial dichotomy for binary adjacent patterns; Exact variance hierarchy for all binary four-symbol subsequences",
+          "trigger": "Potential exact marginal laws or tables"
+        },
+        {
+          "assessment": "Defines the object and addresses algorithms and combinatorics. This passage is not the basis of the prior-coverage finding.",
+          "evidence": [
+            "Addresses construction, inverse and shuffle problems for C(w,u)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Introduction, Our Contribution (HTML offsets about 8520–13190)",
+          "method": "OA HTML passage and literal locators",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Introduces the same deletion object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Noonan–Zeilberger arXiv:math/9806036 and prior run-pair theorem --3b99e07a61fe"
+      ],
+      "rationale": "Quantifying ambiguity of this prescribed deletion is a legitimate question, and the formulas could be convenient in use. But the accepted run-pair theorem already provides the substantive bridge to motif counts, whose full enumerator is a direct instance of an existing exact construction on these same motifs. The variance and normalized limit add a routine coefficient calculation and standard asymptotic transformation, with no independently useful exact fact beyond those prior implications for this scope.",
+      "residual_risks": [
+        "This value decision is for the submitted fixed binary pattern and iid source; no assessment of a materially different deletion statistic or new collision theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

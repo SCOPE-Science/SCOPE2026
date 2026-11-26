@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:25:36.013992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A tree has no cyclic orientations. Conditional on the hub edge pointing out, both arm orientations contribute z; conditional on it pointing in, the arm contributes 1+z, excluding the hub. Thus the initial product is (1+3z)^m, with hub-sink correction (z−1)(1+z)^m. The binomial coefficients give degree m+1, a simple zero at 0 and no positive zero. At z=−y with 0<y≤1/3 the quotient (1−3y)/(1−y) is in [0,1) and cannot have mth power 1+y; y=1 is not a root either. For 1/3<y<1 and even m, the ratio [(3y−1)/(1−y)]^m/(1+y) increases from zero to infinity with strictly positive logarithmic derivative 2m/[(3y−1)(1−y)]−1/(1+y). It is 2/3 at 1/2, giving one simple root with magnitude above 1/2; odd m gives opposite signs on that interval. For y>1 the ratio [3+2/(y−1)]^m/(1+y) has strictly negative logarithmic derivative and runs from infinity to zero, giving one simple root for every m. The nonvanishing factors in these two ratio equations preserve simplicity. The degree gives the nonreal counts and the real-rooted cases exactly m=1,2. The latter ratio equation gives y_m>3^m−1 and 0<log[(y_m+1)/3^m]≤2m/[3(y_m−1)]→0. The bounded branch has (3x_m−1)/(1−x_m)=(1+x_m)^(1/m)→1 uniformly on its interval, forcing x_m→1/2. Replay: python3 /workspace/reproduce_reviews.py 2 independently enumerated the histogram and checked exact signs at −1 and −1/2 through m=7; this finite evidence does not certify the unrestricted root statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known real-rootedness hypotheses are chordal claw-free for acyclic orientations and claw-free for all orientations; the two path cases fall in scope, but the hub has an induced claw when m≥3.",
+          "General sink-set/CSF identities give ways to obtain the polynomial but no inspected root theorem for these larger trees."
+        ],
+        "reasoning": "The all-orientation and acyclic objects coincide on trees, but changing formulation does not remove the claw. The theorem for line graphs of forests also does not give a theorem about the forest itself.",
+        "searches": [
+          "arXiv:2610.41502v1 Proposition 2.4 and Theorems 3.1, 4.3",
+          "arXiv:1910.10920v2 equations (22)–(23)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact identity dc10569b3cdd and distinct records 191f2d3ed047, 4c497236087f, fecde89f20dd, 08e915842a75",
+        "arXiv:2610.41502v1",
+        "arXiv:1910.10920v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Square bouquets give (z²+10z+3)^r+(z−1)(z+3)^r and two or four real zeros, depending on parity. Clique bouquets have C[∏_i(1+a_i z)+z−1]. Both reuse hub correction but neither has the spider arm factors 1+3z and 1+z."
+        ],
+        "reasoning": "Their hub factors and location theorems do not specialize by relabeling an arm. The spider quotient monotonicity and exponential branch require a new family-specific root argument even when its enumerator is obtained by the standard expansion.",
+        "searches": [
+          "Published square-bouquet and clique-bouquet Findings fecde89f20dd and 08e915842a75",
+          "arXiv:2610.41502v1 Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match is this same record, dc10569b3cdd. The distinct double-star D_{2,b} result concerns adjacent hubs and has a double root at −1.",
+          "Theorem 4.5 expresses the sink sequence as the sums of elementary-basis chromatic symmetric function coefficients by partition length."
+        ],
+        "reasoning": "This checks an equivalent coefficient encoding and the nearby tree formulation. T_m has subdivided spokes and diameter four for m≥2; the double star with both leaf counts positive has diameter three, and its polynomial and zero geometry differ.",
+        "searches": [
+          "Resultary searches for equal two-edge-arm spider or subdivided-star sink polynomial and its negative-root census",
+          "arXiv:1910.10920v2, Definition 2.1 and Theorem 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact spider formula and census in the ranked results were those of the assigned record. Separate same-day double-star and biclique records have distinct exact formulas, exceptional parameters and root locations."
+        ],
+        "reasoning": "No distinct inspected entry is an exact table, formula or census for this family. Date alone was not used to discount either matched record.",
+        "searches": [
+          "Resultary exact spider term/claim searches and same-day parity-root hits; published Findings 191f2d3ed047 and 4c497236087f"
+        ]
+      },
+      "rationale": "Inspected analogues cover the common-hub correction method, general sink-sequence identities and the small claw-free path cases, but not the all-m spider census or the two asymptotic branches. The bounded originality finding applies to that family-specific root geometry, not the general polynomial machinery.",
+      "residual_risks": [
+        "The focused primary-literature and similarity searches were not exhaustive. Equivalent root analysis may appear in an unindexed treatment of subdivided stars.",
+        "Positive judgment concerns the unrestricted root census and asymptotics on inspected evidence, not priority for the polynomial or the covered path cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies a general expansion and covers the two path cases for real-rootedness, not the larger spiders",
+          "evidence": [
+            "Theorem 3.1 requires chordal claw-free graphs; Theorem 4.3 requires claw-free graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41502",
+          "material_read": "Proposition 2.4 p. 6 and Theorems 3.1 pp. 7–8, 4.3 p. 19; offsets 15700, 19100, 54450",
+          "method": "OA PDF bounded mathematical passages",
+          "title": "Sink polynomials of line graphs and weighted matching polynomials",
+          "trigger": "Broad real-rootedness results and sink-set expansion"
+        },
+        {
+          "assessment": "Exact general enumerator identity without the specialized root claim",
+          "evidence": [
+            "a_G(t)=∑ c_λ t^{ℓ(λ)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+          "material_read": "Definition 2.1 and specialization pp. 3–4, Theorem 4.5 p. 18, eqs. (22)–(23); offsets 10500, 53600",
+          "method": "OA PDF bounded mathematical passages",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "Equivalent sink sequence from the chromatic symmetric function"
+        },
+        {
+          "assessment": "All-order parity-root theorem for a different tree family",
+          "evidence": [
+            "D_{2,b} has enumerator 2(1+z)^(b+2)+(z−1)[(1+z)^2+(1+z)^b] and a double root at −1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-parity-dependent-real-zero-transition-for-sink-polynomia--191f2d3ed047/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "A sharp parity-dependent real-zero transition for sink polynomials of double stars",
+          "trigger": "Closest distinct tree result in similarity search"
+        },
+        {
+          "assessment": "Different cyclic blocks and parity census",
+          "evidence": [
+            "Four-cycle petals give a quadratic-per-petal factor and four real zeros at even r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-real-zero-rigidity-and-a-sharp-two-petal-threshold-for-square-bo--fecde89f20dd/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "Real-zero rigidity and a sharp two-petal threshold for square bouquets",
+          "trigger": "Common-hub parity-root analogy"
+        },
+        {
+          "assessment": "Clique-block expression not the two-edge arm expression",
+          "evidence": [
+            "The correction inside its common factor is z−1, rather than (z−1)(1+z)^m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sink-polynomial-root-transitions-in-clique-bouquets--08e915842a75/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Original Markdown via local mirror",
+          "title": "Sharp sink-polynomial root transitions in clique bouquets",
+          "trigger": "Possible common-hub block specialization"
+        },
+        {
+          "assessment": "Bicliques, different degree and real-zero intervals; not a spider specialization",
+          "evidence": [
+            "The biclique odd boundary n=3 has only zero, and for larger odd n the two negative roots are separated by −5."
+          ],
+          "identifier_or_url": "/workspace/source/2026/11/22/parity-rigid-real-zero-counts-for-acyclic-sink-polynomials-of-k--4c497236087f/RESULT.md",
+          "material_read": "Finding lines 3–13 and proof lines 45–61",
+          "method": "Original frozen record and local mirror comparison",
+          "title": "Parity-rigid real-zero counts for acyclic sink polynomials of K_{2,n}",
+          "trigger": "Nearby same-day parity-census hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A subdivided star is a natural minimal extension of a path and a useful family outside the claw-free real-rootedness hypotheses. It exhibits an exact boundary of real-rootedness and, at growing degree, a bounded count of simple real roots with parity-dependent branch structure. Quantifying the escape rate 3^m and the bounded limit makes the conclusion useful beyond a few small nonreal examples. The all-length tree problem is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

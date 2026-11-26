@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:47.854189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–86; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent illustration: python3 /workspace/branches/audit_checks/thermal.py (mpmath; hypergeometric critical equation, regularized direct peak quadrature). At ℓ=0.5 and 0.9 the predicted K is −4.588276495 and 3.008043488 respectively, and the peak-derived values at δ=10^−5 are −4.588237632 and 3.009084411."
+      ],
+      "rationale": "In units of R=v/κ the independent thermal OU term has variance ν=Dκ/v². For U=y² and t=1/(2ν), integration of the derivative of u^(j+1/2)(1−u)^ℓ exp(−tu) gives the stated tilted moment recurrence, with both boundary terms zero. The central curvature has the sign of F=2t E_t[U]−1. At a zero the recurrence gives E_t[U²]=(2ℓ+1)ν², so F'=(1−ℓ)/t. F(0)=−1 and the small-u Laplace expansion gives F(t)=(1−ℓ)/t+O(t^−2) at large t. Every zero crosses upward, so there is exactly one. Gaussian differentiation and the next moment give P⁽⁴⁾/P=2(ℓ−1)/ν_c² and P⁽⁶⁾/P=2(ℓ−1)[1+(2ℓ−9)ν_c]/ν_c⁴. In the even analytic equation P'/z=0, put B=P⁽⁴⁾/6 and C=P⁽⁶⁾/120 at criticality. The heat equation gives coefficients −3Bδ+15Cδ² in the constant term and B−10Cδ in the term linear in z². The implicit solution is z²=3δ+(6C/B)δ²+O_ℓ(δ³); 6C/B is exactly the claimed K. These stationary points are maxima since B<0. For the global mode count, cap the beta density at a finite height on [−1,1]. Its distributional derivative has, in order, positive edge jump, negative slope, positive slope, negative edge jump. Gaussian variation diminution bounds the number of sign changes by three; L¹ convergence of the capped densities gives uniform convergence of the convolved derivatives and preserves that bound. Oddness, the sign near zero (controlled at criticality by P⁽⁴⁾<0), and negative derivative for z>1 give exactly two peaks below and one at or above threshold. Finally, weak convergence to the two endpoint atoms gives F→2t−1 at fixed t and brackets ν_c→1; convergence to the uniform density gives limiting curvature G_ν'(1)<0 at each fixed ν>0 and hence ν_c→0. The limits of K are −12/5 and +∞. The strict curvature crossing yields continuous ν_c and K, giving existence, not uniqueness, of an intermediate zero. Multiplying by R² and using δ=κ(D_c−D)/v² gives the stated dimensional factors.",
+      "residual_risks": [
+        "The independent numerical check corroborates the proof and does not certify a remainder or uniformity. The expansion is for fixed 0<ℓ<1 with fixed physical trap and propulsion parameters; the endpoint limits concern K alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known Gaussian convolution of the beta law fixes the full profile",
+          "The analytic heat-flow reduction gives 3P⁽⁶⁾/(10P⁽⁴⁾) without taking a beta-model moment"
+        ],
+        "reasoning": "The generic framework gives a derivative ratio, not its beta-specific evaluation or sign; the latter uses the higher tilted moments at the root and parameter-limit arguments not in the compared phase-boundary statements.",
+        "searches": [
+          "arXiv:2608.21781v1, §III Eqs. (19)–(23); arXiv:2404.02480v2 §4.1.1 Eqs. (92)–(96)",
+          "Generic heat-flow mode-splitting reduction, frozen RESULT.md lines 75–82, versus the named primary model formulas"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.08436v2, arXiv:2608.21781v1, arXiv:2404.02480v2",
+        "Resultary a2f1e937192b, 74aa462f03c1 and 7d25833423fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary matching expansion stops at central curvature, and the known leading square-root opening does not specify the next term"
+        ],
+        "reasoning": "The exact convolution makes the result calculable in principle. But the checked formulas do not give the derivative simplification at the root and the opposite coefficient signs without the additional model-specific argument. Credit is for that narrow calculation and sign theorem, not the known boundary, profile, or generic leading bifurcation.",
+        "searches": [
+          "2602.08436v2 Eqs. (95)–(98); 2404.02480v2 §4.1.1; Resultary a2f1e937192b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "α=2ℓ and θ=2ν in the matched curvature equation. The leading z*=sqrt(3/2)sqrt(θ_c−θ)+… is equivalent to z_*²=3δ+…",
+          "74aa462f03c1 has a second-order peak-height contrast, not a second-order squared location"
+        ],
+        "reasoning": "Changing variables or squaring the leading distance does not supply the next coefficient. A peak-height term of order δ² is controlled by the quartic leading-order bifurcation, not by the same order of the squared location.",
+        "searches": [
+          "Guéneau–Majumdar–Schehr 2602.08436v2, §V.1.1, Eqs. (95)–(98)",
+          "Resultary a2f1e937192b and 74aa462f03c1: thermal mode opening, square-root splitting and related corrections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available formulas in the nearby records are for the leading location, the height contrast, or asymptotics for ν_c itself"
+        ],
+        "reasoning": "Neither the boundary table/formula nor its improved endpoint asymptotics nor a leading location formula states the next squared-location term. The frozen examples of K do not claim a new table as such.",
+        "searches": [
+          "Resultary a2f1e937192b, 74aa462f03c1, 7d25833423fb: mode opening, thermal boundary, and sharp endpoint corrections",
+          "2602.08436v2, exact curvature-based critical curve and limits"
+        ]
+      },
+      "rationale": "The exact stationary profile, its convolution structure and curvature-based phase boundary are prior; the leading square-root split is generic. The supported distinct statement is the explicit beta-model coefficient of the second power of the variance deficit in the squared mode location and its sign reversal. In the closest inspected primary source, parameter matching gives the same curvature equation and limiting regimes, not this coefficient. The related indexed findings cover the leading split, phase-boundary corrections, or peak-height contrast, not this second-order location coefficient. This is a bounded comparison rather than historical-priority certification.",
+      "residual_risks": [
+        "Equivalent model-specific expressions could occur in less direct bifurcation or Gaussian-smoothing literature. No general novelty is asserted for the heat-flow expansion or the earlier critical curve."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known curvature transition, not the correction under review",
+          "evidence": "Eq. (97) is the matched critical equation with α=2ℓ, θ=2ν; the passage obtains curvature and endpoint limits.",
+          "identifier_or_url": "https://arxiv.org/html/2602.08436v2",
+          "material_read": "§V.1.1, Eqs. (95)–(98), text offsets 78610–85109",
+          "method": "Open-access HTML passage reads",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Exact matching phase boundary and plausible higher expansion"
+        },
+        {
+          "assessment": "Known convolution representation",
+          "evidence": "OU Gaussian smoothing of the compactly supported stationary beta RTP law; these equations do not state the location coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21781v1",
+          "material_read": "§III Eqs. (19)–(23), offsets 23387–27687",
+          "method": "Open-access passage reads",
+          "title": "Nonequilibrium statistics of harmonically trapped run-and-tumble particles: An exact convolution approach",
+          "trigger": "Exact model-specific density and peak information"
+        },
+        {
+          "assessment": "Prior density and transition; no explicit second-order location there",
+          "evidence": "Beta stationary law, Gaussian-smoothed profile and origin-curvature condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.02480v2",
+          "material_read": "§4.1.1, pp. 20–22, Eqs. (92)–(96), offsets 64489–72715",
+          "method": "Open-access PDF, targeted passage reads",
+          "title": "Noninteracting particles in a harmonic trap with a stochastically driven center",
+          "trigger": "Earlier beta law and mode transition in equivalent telegraph-driven model"
+        },
+        {
+          "assessment": "Exact leading law only",
+          "evidence": "Leading sqrt(3/2) in the θ deficit becomes squared-location coefficient 3 in the ν deficit; no δ² coefficient is given.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-square-root-splitting-and-exact-modality-of-thermally--a2f1e937192b",
+          "material_read": "RESULT.md, Finding and opening law",
+          "method": "Local Resultary mirror",
+          "title": "Universal square-root splitting and exact modality of thermally smoothed profiles",
+          "trigger": "Closest apparent peak-location overlap"
+        },
+        {
+          "assessment": "Second order for another observable",
+          "evidence": "The additional quadratic-deficit formula is for peak-height contrast rather than the squared mode location.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rigidity-of-the-thermal-mode-boundary-and-exact-peak-opening-in--74aa462f03c1",
+          "material_read": "RESULT.md, Finding and quantities expanded",
+          "method": "Local Resultary mirror",
+          "title": "Rigidity of the thermal mode boundary and exact peak opening",
+          "trigger": "A closely related second-order formula"
+        },
+        {
+          "assessment": "Different correction",
+          "evidence": "Endpoint refinements of the critical variance as a function of persistence, not the local peak expansion at fixed persistence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-endpoint-corrections-to-the-thermal-mode-transition-curve--7d25833423fb",
+          "material_read": "RESULT.md, Finding and critical-curve asymptotics",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint corrections to the thermal mode transition curve",
+          "trigger": "Possible exact coverage of persistence-dependent correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and coefficient proof; arXiv:2602.08436v2, §V.1.1"
+      ],
+      "rationale": "The universal leading term deliberately erases persistence dependence. The explicit next coefficient quantifies the first distinguishable dependence in this mode-location observable and shows that the direction of the correction can reverse. That gives a useful fixed-parameter approximation and a model-specific comparison beyond identifying the critical point or fitting a square-root law.",
+      "residual_risks": [
+        "The result is not a practical estimator or a robustness guarantee, and does not establish that K has a unique sign crossing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

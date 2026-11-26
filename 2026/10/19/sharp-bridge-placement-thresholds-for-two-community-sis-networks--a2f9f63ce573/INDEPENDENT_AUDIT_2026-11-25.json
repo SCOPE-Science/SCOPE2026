@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:04.373907Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4, especially lines 55–60; corrected RESULT.md in repairs/3/",
+        "VERIFICATION.md and checker.py (read, not executed)",
+        "Independent spectral replay: exhaustive 2,655 abstract graph cases for n=2,3,4 and bounded scalar-root comparisons at n=256,1024,4096; independent_replay.py and replay_complete.txt"
+      ],
+      "rationale": "The repaired RESULT.md closes a genuine proof gap in the frozen minimum: (lambda+1)hY>=(k+h)X does not alone imply lambda hY>=kX. Multiplying the former inequality by its exact row/column swap, cancelling XY and taking positive square roots gives lambda h>=k, with equality iff both incidence estimates are equalities. Perron positivity then forces, and is consistent with, unit degree on all occupied rows and columns. The frozen maximum can be reconstructed via the Schur complement and the Frobenius-norm bound from counting intersecting edge pairs; strictness for a nonstar follows from the incidence count, and the rank-one common-endpoint case saturates both bounds. The scalar root equation has a unique crossing because the positive resolvent coefficients decrease strictly. The two excess radii stay bounded (at most 1 for the matching and strictly less than 2 for the other extremum), so dividing their equations by n and n² respectively and taking limits establishes the asymptotics. For the stated deterministic map, linear domination gives subcritical decay. At criticality the positive Perron functional decreases strictly in the interior; a nonzero limit point would propagate to the interior by connectedness while preserving the limiting functional value, a contradiction. Above criticality the small positive subsolution, all-ones supersolution and strict radial subhomogeneity prove the unique interior equilibrium and convergence from nonzero data. The repair also distinguishes the exact algebraic witness from the bundled spectral computation, which does not simulate the map. The all-placement finding survives with its assumptions unchanged.",
+      "residual_risks": [
+        "Exhaustion is only for n=2,3,4 and the eigenvalues are numerical; the proof covers arbitrary admissible n,k. The dynamical result concerns only the stated deterministic map, not a finite stochastic chain or a field prediction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed regular-graph hub-bridge result gives exact endpoints for two d-regular copies joined by n edges and agrees with both formulas at H=K_n, k=n; it does not optimize over all B and its fixed-d expansion is not the proportional-clique limit.",
+          "The mixing paper's Fig. 3 uses two cliques joined by a matching, but with a fastest stochastic-kernel mixing objective. The indexed partial-matching mixing record likewise optimizes a stochastic eigenvalue modulus.",
+          "The SIS Theorem 1 compares local and global thresholds, with no fixed-budget extremum or equality class."
+        ],
+        "reasoning": "The exact overlap at k=n is real but only for the two individual candidate radii, not the all-placement classification. Different spectral quantities on a common topology and a general threshold inequality are not stronger results containing this optimization.",
+        "searches": [
+          "Resultary: universal hub-bridge amplification; exact fastest symmetric mixing through a partial matching; bridge-placement phase diagram for SIS thresholds",
+          "Geometric bounds on the fastest mixing Markov chain DOI 10.1007/s00440-023-01257-x, Fig. 3",
+          "An Epidemic Threshold Set for Networks Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md §§Relationship to prior work, References",
+        "Resultary local search and exact records discussed above",
+        "Hoang–Nguyen arXiv:2607.14048, arXiv:2610.03337v1, DOI 10.1007/s00440-023-01257-x, DOI 10.1145/1284680.1284681"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic probability model, its global inverse-radius threshold and the local/global comparison already appear in Hoang–Nguyen.",
+          "Prior examples and overlapping candidate radii do not constrain every competing B. The repaired result uses the Perron incidence inequality and a resolvent degree-square bound to do so, including strictness.",
+          "The older indexed one-bridge phase diagram establishes that changing a bridge can alter the model regime on a different weighted graph; that qualitative interpretation is not new."
+        ],
+        "reasoning": "A specialization of the cited threshold or of the regular-graph candidate formulas cannot give the combinatorial optimality and equality statements for arbitrary k. The decision credits the graph theorem and does not depend on priority for the fixed-graph convergence classification.",
+        "searches": [
+          "arXiv:2607.14048 Eq. (2), Definitions 1–2, Theorem 1",
+          "arXiv:2610.03337v1 Theorems 1.2–1.3",
+          "Resultary 2026/10/18 bridge-placement phase diagram and 2026/11/22 regular-graph hub-bridge amplification, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Supersaturation Theorems 1.2–1.3 give star/matching adjacency-spectral comparisons for inserted edges within Turán parts with clique-count constraints, not cross edges between two internally complete cliques.",
+          "The SIS global threshold is the reciprocal of the same adjacency radius in arXiv:2607.14048; changing that notation does not distinguish a new threshold criterion.",
+          "The indexed one-bridge SIS phase diagram for a five-clique/hub/pendant community and K2 predates this record and gives optimal endpoints and differing deterministic behavior; it varies the endpoint of one weighted bridge on different base graphs."
+        ],
+        "reasoning": "Taking reciprocals is exactly equivalent to the graph radius optimization. The analogous graph families do not supply its all-cross-placement extremal theorem, and the deterministic interpretation itself receives no independent originality credit.",
+        "searches": [
+          "Targeted Resultary comparison for two equal complete graphs and k bridges: matching, star/fan, Perron/adjacency radius",
+          "arXiv:2610.03337v1 §1.2 Theorems 1.2–1.3",
+          "arXiv:2607.14048 Definitions 1–2 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact special-case formula was identified for k=n: the matching radius is n and the fan equation specializes to the same finite root. No exact catalogue statement for the arbitrary 1<=k<=n all-placement optimum and its equality cases was identified."
+        ],
+        "reasoning": "A table or two candidate formulas do not certify global extremality. Bounded retrieval does not certify global first occurrence; the exact overlap is recorded even though the relevant catalogue record is later-dated.",
+        "searches": [
+          "Resultary exact/candidate graph search for two equal cliques with k cross edges, bridge matching versus fan Perron roots",
+          "Resultary 2026/11/22 universal hub-bridge record, Finding"
+        ]
+      },
+      "rationale": "After proof repair the supported distinct result is the exact adjacency-radius optimization over all fixed-count cross-edge sets of two equal cliques, its equality classes and the joint asymptotic. The deterministic threshold and the idea of using topology to separate threshold regimes have prior overlap and are not claimed as standalone innovations.",
+      "residual_risks": [
+        "The exact nonlinear theorem in Chakrabarti et al. was not accessible in the inspected routes. Prior coverage of the dynamical classification may be stronger than the passages read; the distinct result here is the all-placement adjacency theorem. An unindexed spectral extremum under another graph description could be missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recurrence and threshold criterion are prior; no bridge-optimization implication in inspected passages",
+          "evidence": [
+            "Same product recurrence and global 1/lambda_1(A); Theorem 1 compares community and global thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.14048",
+          "material_read": "PDF pp. 3–5, Eq. (2), Definitions 1–2, Theorem 1; offsets 7400, 10100, 11900",
+          "method": "Lawful OA primary text",
+          "title": "An Epidemic Threshold Set for Networks",
+          "trigger": "Same deterministic map and community thresholds"
+        },
+        {
+          "assessment": "Objective similarity, different constraint and graph family",
+          "evidence": [
+            "Edges inserted into a Turán part under a clique-count constraint; unique star for the non-strict problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03337v1",
+          "material_read": "§1.2 Theorems 1.2–1.3, offsets 10850–14048",
+          "method": "Lawful OA primary HTML passages",
+          "title": "Strict spectral supersaturation for cliques: extremal graphs and sharp thresholds",
+          "trigger": "Star/matching adjacency-radius extremizers"
+        },
+        {
+          "assessment": "Related topology, not adjacency extremum",
+          "evidence": [
+            "Figure depicts the matching, but the problem optimizes Markov chains supported on the graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+          "material_read": "PDF p. 1017 abstract and p. 1029 Fig. 3, offsets 130 and 32000",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Geometric bounds on the fastest mixing Markov chain",
+          "trigger": "Two cliques connected via matching"
+        },
+        {
+          "assessment": "Demonstrable finite formula overlap at k=n, no all-placement optimization or same scaling limit",
+          "evidence": [
+            "At H=K_n and d=n−1 the matching radius is n and its fan resolvent reduces to the same k=n equation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-hub-bridge-amplification-and-a-local-triangle-correcti--0f98e4777614",
+          "material_read": "RESULT.md Finding and graph assumptions",
+          "method": "Local indexed full-text mirror",
+          "title": "Universal hub-bridge amplification and a local triangle correction",
+          "trigger": "Exact matching-versus-fan radius equations on regular base graphs"
+        },
+        {
+          "assessment": "Priority overlap for the qualitative illustration, not the present graph extremizers or equality cases",
+          "evidence": [
+            "One weighted bridge connects a five-clique/hub/pendant graph to K2, with a classification of optimal endpoints."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-bridge-placement-phase-diagram-for-sis-thresholds-in-cli--14e8ec486cac",
+          "material_read": "RESULT.md Finding and graph assumptions",
+          "method": "Local indexed full-text mirror",
+          "title": "A sharp bridge-placement phase diagram for SIS thresholds in clique networks",
+          "trigger": "Predated bridge-placement and same deterministic model overlap"
+        },
+        {
+          "assessment": "No independent conclusion about its full theorem scope; not credited as absent prior coverage",
+          "evidence": [
+            "The cited source addresses epidemic thresholds; the graph originality decision does not rely on novelty of that criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/1284680.1284681",
+          "material_read": "Bibliographic identification; no theorem passage available after two lawful retrieval attempts",
+          "method": "Publisher and identified lawful alternate lookup",
+          "title": "Epidemic thresholds in real networks",
+          "trigger": "Potential exact dynamical theorem for the fixed-graph map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof §§1–3",
+        "Hoang–Nguyen arXiv:2607.14048 Theorem 1",
+        "Independent finite spectral replay"
+      ],
+      "rationale": "For the natural constrained joining of two complete graphs, the result identifies exact extremal radius values, rigidity of the equality cases, and the asymptotic scale on which the reciprocal radii separate. Community-local adjacency data and bridge counts alone cannot recover that distinction. This quantifies a structural ambiguity rather than presenting two arbitrarily chosen graphs or a finite census.",
+      "residual_risks": [
+        "The topology constraints and the deterministic interpretation are essential; the result does not assess real contact networks, directed or weighted placements, or stochastic extinction times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

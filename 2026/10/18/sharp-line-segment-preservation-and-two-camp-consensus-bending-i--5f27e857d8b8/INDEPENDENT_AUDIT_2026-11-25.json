@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:09.350050Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–32 and 36–87; VERIFICATION.md and check_two_camp_geometry.py inspected, not executed",
+        "arXiv:2601.04074v4 §2 equations (1)–(2), source convention; independent bounded two-camp RK4 and coefficient evaluation"
+      ],
+      "rationale": "The primary model and the displayed velocities use the importance of the camp whose opinion is changing. Thus Hⱼ=1−[βdⱼ+(1−β)((1−p)α+pη)·d]/2. Positive gaps decrease with rate at least ρ=1−max(a,b)/2>0. The two camp positions move strictly inward toward a common limit, placing both normalized limits strictly between 0 and 1. The logarithmic ratio of normalized gaps has derivative β(d₁−d₂)/2; when β>0 and a≠b, uniqueness keeps d₁−d₂ strictly of its initial sign, as is then q₁−q₂ for t>0. Subtracting the two integrated normalized mean drifts gives p(1−p)(1−β)(α₁−η₁)/2 times ∫(d₁−d₂)(q₁−q₂)dt. Positivity off the stated degeneracies proves both necessity and the signed criterion. At β=0 the normalized gap is q=e^(−t)/(1−c+ce^(−t)); the first variation of q₁−q₂ is (a−b)q(t)∫₀ᵗq(s)ds/2, giving the asserted coefficient. For the remainder, the gap field is −d plus a quadratic term, so its linearization is −I+O(e^(−ρt)), uniformly for β near zero. Its variational propagator is bounded by C e^(−(t−s)), and both first and second parameter derivatives are O(e^(−ρt)) by the variation-of-constants formula with quadratic-decay forcing. This justifies an integrable second β derivative. Substitution w=1−c+ce^(−t) evaluates J as claimed, with positivity immediate from its integral. An independent finite integration gave θ₁=0.3951023218 and θ₂=0.4176439920 at t=24, with both residual gaps under 2.3×10⁻¹⁰; halving the step .01 to .005 did not change those digits. For those masses, weights and gaps, c=1/2 and the exact coefficient evaluates to 0.0602615378. The phrase ‘source-camp importance’ in the assumptions is misleading terminology: the convention is receiver/updater, fixed unambiguously by the actual characteristic equations. There is no equation or signed theorem change needed under that convention; sender importance would be a different model.",
+      "residual_risks": [
+        "Finite integration is only a numerical cross-check. The theorem is about the two-atomic affine mean-field flow, not finite-agent or general multi-camp dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartel–Burger–Wolfram include the same nonreciprocal receiver-driven dynamics and obtain box confinement; Example 3.1 is a three-atom instantaneous mean/variance example. Li–Luo–Chu use symmetric discordance, with synchronous HK averaging in (7) and a symmetric DW pair update in (8)."
+        ],
+        "reasoning": "The general model includes this subsystem, but its inspected bounds and examples do not imply exactly when two camps' common limit is off their segment. The symmetric DW case conserves a pair average; HK neighbor averaging is different again. Neither is the claimed nonreciprocal characteristic flow.",
+        "searches": [
+          "Bartel–Burger–Wolfram arXiv:2601.04074v4 §2 and §3.2.1, including Example 3.1",
+          "Li–Luo–Chu arXiv:2502.00284v2 §2.2, Eqs. (4), (7)–(8)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.04074v4",
+        "arXiv:2502.00284v2",
+        "Resultary 313c247936a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original model supplies the characteristic and mean equations, from which the equal-importance and full-locality degeneracies are simple. Strict signed bending needs the persistent separation of normalized gaps and its product with the raw gap difference, and the response needs a parameter expansion of that time integral."
+        ],
+        "reasoning": "The result is not simply a new example of mean nonconservation, or an immediate use of box confinement. The two remaining degeneracies and the strict converse, including independence of the sign from which topic has the larger gap, require the new ordering argument; the inspected prior analyses do not provide it or the coefficient.",
+        "searches": [
+          "arXiv:2601.04074v4 Eqs. (1)–(2), Eq. (12), Example 3.1 and Remark 2.1",
+          "arXiv:2502.00284v2 update rules (7)–(8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 2.1 gives componentwise confinement; §3.2.1 Eq. (12) gives nonconservation of the mean; the nearby indexed record 313c247936a1 concerns stationary-weighted convex order on a discrete network."
+        ],
+        "reasoning": "For two atoms their convex hull is exactly the initial segment, whereas their coordinate box is larger. Mean motion can also be entirely within that segment. Neither statement is another form of the signed criterion.",
+        "searches": [
+          "Two initial atoms with a shared limit outside their initial convex hull; arXiv:2601.04074v4 §2 and §3.2.1",
+          "Resultary: two-camp segment classification and weak locality in heterogeneous cross-topic systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror's Finding concerns a cross-topic convex-order comparison and does not tabulate a two-camp bending coefficient. Example 3.1 reports a derivative −1/5400 at time zero for a different three-atom law, not a limiting normalized consensus or its derivative with respect to β."
+        ],
+        "reasoning": "No inspected exact-example or indexed-result statement supplies the theorem or tabulates its J(c); the numerical θ example is corroboration of a general result, not the contribution being credited.",
+        "searches": [
+          "Resultary: two-camp segment/weak-locality coefficient; 313c247936a1 local mirror",
+          "arXiv:2601.04074v4 Example 3.1 as closest primary explicit example"
+        ]
+      },
+      "rationale": "The published model already allows componentwise confinement, nonreciprocity and mean drift. The supported distinct result is the necessary-and-sufficient original-segment criterion for two camps, including the sign of the transverse displacement and its positive quantified first-order response to locality. The strongest inspected related statements do not settle these assertions.",
+      "residual_risks": [
+        "This bounded comparison does not establish global historical priority under every name for nonreciprocal consensus or opinion dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Receiver importance and general moment/rectangle results verified; no matching two-camp limit in inspected statements.",
+          "evidence": [
+            "The increment of x uses α attached to x; the increment of y uses η. Example 3.1 establishes increasing variance and instantaneous drift for three atoms, not an off-segment two-camp consensus."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.04074v4",
+          "material_read": "§2 Eqs. (1)–(2) and Remark 2.1, offset 7029; §3.2.1 Eq. (12), offset 31238; Example 3.1, offset 41104",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Multi-Dimensional Opinion Formation",
+          "trigger": "Exact model and possible earlier nonconvex consensus example"
+        },
+        {
+          "assessment": "Related modeling motivation; differently normalized, different update rules. Symmetric pairwise comparison applies to DW specifically, not all models in the paper.",
+          "evidence": [
+            "Eq. (7) is synchronous HK neighbor averaging; Eq. (8) is a symmetric DW pair update based on symmetric topic discordance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2502.00284v2",
+          "material_read": "§2.2, Eq. (4) and update rules (7)–(8), offset 18081",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Bounded-Confidence Models of Multidimensional Opinions with Topic-Weighted Discordance",
+          "trigger": "Possible implication from multidimensional convex averaging"
+        },
+        {
+          "assessment": "No statement-level coverage of the two-atomic continuum limit.",
+          "evidence": [
+            "The claim compares convex order under changing source-topic coupling in a discrete network with stationary weights."
+          ],
+          "identifier_or_url": "Resultary 313c247936a1",
+          "material_read": "RESULT.md Finding, offset 0; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary index and mirror",
+          "title": "Strict convex-order polarization under heterogeneous cross-topic weights",
+          "trigger": "Closest indexed heterogeneity/cross-topic result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–24 and 48–81",
+        "arXiv:2601.04074v4 Remark 2.1 and Eq. (12) for the motivating box/mean gap"
+      ],
+      "rationale": "This resolves a specific geometric question for a published heterogeneous model: confinement in a coordinate rectangle need not mean confinement in the convex hull, even for only two camps. It gives an exact boundary and a signed quantitative onset rather than a single off-segment witness. The sign independence with respect to gap order is useful structural information about the smallest nontrivial subsystem.",
+      "residual_risks": [
+        "No claim about straight-line preservation for nonlinear responses, more than two camps, or a finite-population realization follows from this classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

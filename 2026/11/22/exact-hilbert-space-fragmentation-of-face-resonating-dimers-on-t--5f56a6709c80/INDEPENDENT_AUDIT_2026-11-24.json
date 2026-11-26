@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:57:05.193133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A truncated vertex uses either one or three external matching edges; given the external choices the internal matching is forced. The two parity equations at each prism column imply b_i=a_i XOR d with one global bit d and c_i=1 XOR a_(i-1) XOR a_i. Conversely every a and d reconstructs a covering, so there are 2^(n+1). Along a truncated face, the original external edges occupy every other polygon edge and must have equal selection to alternate; odd parity then forces the local internal pattern. On a side octagon this reduces to d=0 and both neighbors of a_i equal to 1; the flip toggles just a_i. The end faces are available precisely for constant a and form a four-cycle whose intersection with the Lucas cube is the all-one d=0 word (the empty independent set). In d=0 the non-isolated zero set is invariant under square flips. At a fixed core B, its closed-neighborhood boundary must be ones, and the remaining zeros form exactly an independent subset outside that neighborhood. The allowed toggles connect every such choice by way of the empty subset. The nonconstant d=1 words have no moves. This proves exhaustion, giving K_n=1+(b_n-2)+(2^n-2). The closed-walk matrix for forbidding 010 has characteristic polynomial x(x^3-2x^2+x-1); its traces yield 5,10,17 and the stated recurrence. No-square-flip words in d=0 are independent sets in the graph of cyclic index offsets +/-2: one n-cycle for odd n, two cycles for even n, with two single edges for n=4. This includes n=3 (offsets modulo three), and excludes the all-zero end-flippable word from the frozen count. At n=4 the Lucas cube is two squares wedged at the empty set; the cap square gives a third, with 10 states in that component, 22 isolated states, and 23 components total. The Hamiltonian is t times the flip-graph Laplacian plus (v-t) times the degree diagonal: component constants give its RK kernel, positive diagonal shifts leave just the frozen states at v>t, and a constant test vector on any nontrivial component gives negative energy for v<t. Counting disjoint forbidden triples bounds b_n/2^n by (7/8)^floor(n/3), and the Lucas corrections are o(2^n), giving both limiting fractions. These are finite face-only statements for precisely the given Hamiltonian. Both checker files and their reported finite verifications were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Røising–Zhang study finite sections of Archimedean lattices with local ring exchanges and separate periodic winding issues.",
+          "Resultary 8e7090802d17 obtains Lucas-cube moving components on untruncated ladders with rung-square flips; db180e339d90 uses coordinate-square flips of hypercubes.",
+          "The cyclic-fibonacene reference was inaccessible in primary full text; its different substrate and Lucas-cube overlap are described in frozen RESULT.md line 85, not independently checked in that article."
+        ],
+        "reasoning": "Those verified graph families and exchange sets do not specialize to both octagon and cap alternations on every vertex-truncated prism. An existing Lucas-cube component on another substrate would cover that graph shape in isolation, not the classification of all sectors here.",
+        "searches": [
+          "Røising–Zhang arXiv:2303.04817, abstract and introduction",
+          "Resultary 8e7090802d17 and db180e339d90",
+          "Žigert Pleteršek–Berlič MATCH 69 (2013), 707–720"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_prism_bits.py and verify_truncated_graph.py",
+        "Resultary 5f56a6709c80, 4d36c4fccd0e, 8e7090802d17, 985b3df0c75e, db180e339d90, a5a5b150160d, 9db3f85f0360",
+        "Røising–Zhang arXiv:2303.04817",
+        "Access attempts for MATCH 69 pp. 707–720 and Rokhsar–Kivelson DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior odd-subgraph encoding determines the state space; the RK construction makes zero modes follow from flip components once these are known.",
+          "The frozen proof separately identifies legal square toggles, constant-word cap moves, and the placement of immobile zero runs."
+        ],
+        "reasoning": "Matching-complex contractibility, matching counts and the RK correspondence alone do not impose any specified plaquette-flip connectivity. The move-sensitive core classification and one-vertex cap attachment give the new information; the Hamiltonian degeneracies themselves are consequences rather than an independent novelty claim.",
+        "searches": [
+          "Resultary 4d36c4fccd0e matching-complex proof, 8e7090802d17 Finding, 985b3df0c75e Finding",
+          "Røising–Zhang arXiv:2303.04817 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4d36c4fccd0e uses the same odd-degree-edge encoding on the truncated cube, but the claim studied there is contractibility of a matching complex.",
+          "Resultary 9db3f85f0360 studies cyclic binary flips under avoidance of 000 and 111, with equal-neighbor pair counts; here all words are allowed and d=0 moves require two neighboring ones."
+        ],
+        "reasoning": "Encoding matchings as words alone does not identify their adjacency. The alternative binary-word invariant uses different admissibility and moves, so its component labels do not carry over to the core-and-cap graph. The nearest kinetically constrained analogue is facilitation by both neighbors in one binary sector, not the full parity-and-end-face problem.",
+        "searches": [
+          "Resultary: truncated-polyhedron perfect matchings, Lucas cube resonance, frozen dimer configurations",
+          "Primary search for cyclic kinetically constrained facilitated flips, zero cores, and dimer resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full exact catalogue match 5f56a6709c80 is the bound record itself. Record 4d36c4fccd0e has the same n=4 total of 32 matchings, not the move-component data.",
+          "Same-day 985b3df0c75e gives exact square-only components on a small rhombicuboctahedron (1088 coverings, 69 components, 14 frozen). Same-day a5a5b150160d gives component data by move repertoire on Q_4."
+        ],
+        "reasoning": "The same-day enumeration results are materially analogous but not equal-move graphs, and neither their dates nor the matching-total data imply the truncated-prism counts. No distinct retrieved table determines the claimed n=4 flip graph or the all-n component sizes.",
+        "searches": [
+          "Resultary: exact truncated-prism sector and frozen counts; truncated cube dimer matchings; finite-polyhedron square-face fragmentation"
+        ]
+      },
+      "rationale": "The distinct contribution is the all-n component classification and exact frozen and sector counts for the truncated prism with side and end face flips. The odd-degree encoding at the cube, Lucas-cube combinatorics, and Laplacian principle are credited inputs, not fresh claims. Similar reconfiguration work does not furnish the needed move rules and sector decomposition for this graph.",
+      "residual_risks": [
+        "The cyclic-fibonacene full text was unavailable and the external constrained-chain search did not identify a usable primary match. An equivalent unindexed facilitated-chain or truncated-polyhedron treatment could change the comparison. No historical priority guarantee is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of encoding and count, not flip components",
+          "evidence": "32 perfect matchings and their odd-subgraph correspondence; principal theorem is complex contractibility.",
+          "identifier_or_url": "Resultary 4d36c4fccd0e",
+          "material_read": "Mirrored Finding and Perfect matchings and odd subgraphs, from offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Contractibility of the truncated-cube perfect-matching complex",
+          "trigger": "Same matching space at n=4"
+        },
+        {
+          "assessment": "Different matching space and moves",
+          "evidence": "Designated rung-square flips of untruncated circular and Möbius ladders yield Lucas-cube moving components.",
+          "identifier_or_url": "Resultary 8e7090802d17",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Twist-parity duality for square-flip reconfiguration of ladder matchings",
+          "trigger": "Prism-like geometry and Lucas-cube resonance"
+        },
+        {
+          "assessment": "Material thematic overlap; not the same graph or flips",
+          "evidence": "Small rhombicuboctahedron using only its square faces, with 1088 matchings, 69 sectors and 14 frozen coverings.",
+          "identifier_or_url": "Resultary 985b3df0c75e",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Square-face quantum dimer fragmentation and parity-charge doublet",
+          "trigger": "Closest same-day finite-polyhedron fragmentation hit"
+        },
+        {
+          "assessment": "Hypercube coordinate-square move set, not vertex truncation",
+          "evidence": "Q_4 has 272 matchings with one 264-state component and eight frozen configurations; also Q_5 frozen data.",
+          "identifier_or_url": "Resultary db180e339d90",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Frozen sectors and exact square-flip connectivity in hypercube quantum-dimer configurations",
+          "trigger": "Exact dimer sector enumeration on cube-like graphs"
+        },
+        {
+          "assessment": "Different substrate and allowed moves",
+          "evidence": "Classifies matchings on Q_4 under 64 repertoires of coordinate-square moves.",
+          "identifier_or_url": "Resultary a5a5b150160d",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Exact directional fragmentation of quantum dimers on the four-cube",
+          "trigger": "Same-day exact square-flip component data"
+        },
+        {
+          "assessment": "Different rule and admissible states",
+          "evidence": "Avoidance of 000 and 111 and a component invariant based on equal-neighbor pair counts.",
+          "identifier_or_url": "Resultary 9db3f85f0360",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary and mirror full text",
+          "title": "Component spectrum and constructive reachability of cyclic binary words",
+          "trigger": "Equivalent-looking cyclic binary reconfiguration"
+        },
+        {
+          "assessment": "Different geometry and prescribed moves",
+          "evidence": "Connectivity under small local ring-exchange sets on finite Archimedean lattice sections, and discussion of periodic sectors and staggered frozen states.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.04817",
+          "material_read": "Abstract and introduction, pp. 1–3, text offsets 829, 6495 and 11458",
+          "method": "OA PDF passages",
+          "title": "Ergodic Archimedean dimers",
+          "trigger": "Broader planar dimer reconfiguration"
+        },
+        {
+          "assessment": "Residual access risk, not a negative comparison from the primary text",
+          "evidence": "Frozen source cites this for a different cyclic-fibonacene resonance setting; exact primary statement not independently verified.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match69/n3/match69n3_707-720.pdf",
+          "material_read": "No primary text accessible; frozen RESULT.md line 85 description only",
+          "method": "Lawful OA retrieval attempted, timed out",
+          "title": "The Structure of Lucas Cubes and Maximal Resonant Sets of Cyclic Fibonacenes",
+          "trigger": "Lucas cubes as resonance components"
+        },
+        {
+          "assessment": "Acknowledged general framework, no novelty inferred from failed access",
+          "evidence": "The claim here uses the elementary Laplacian relation for the specified finite Hamiltonian and does not claim the general RK principle as new.",
+          "identifier_or_url": "doi:10.1103/PhysRevLett.61.2376",
+          "material_read": "No primary full text from cited endpoint; frozen RESULT.md lines 68 and 85",
+          "method": "Publisher full-text request denied; independently checked the Hamiltonian algebra in the frozen source",
+          "title": "Superconductivity and the Quantum Hard-Core Dimer Gas",
+          "trigger": "Original equal-coupling dimer Hamiltonian precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family has a natural planar geometry and a fixed physical move set. Resolving its entire configuration-space connectivity identifies exactly which locally mobile matchings can reach one another, all zero-mode multiplicities at and above the RK point, and the nonvanishing frozen fraction in growing prisms. The n=4 specialization is an informative exact check on an ordinary truncated polyhedron, not an arbitrary isolated count or a claim about thermodynamic phases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

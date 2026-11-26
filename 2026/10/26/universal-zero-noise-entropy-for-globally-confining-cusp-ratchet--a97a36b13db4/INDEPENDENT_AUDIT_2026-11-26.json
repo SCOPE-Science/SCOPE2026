@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:44.766778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–65",
+        "Frozen VERIFY.py lines 52–86 and VERIFICATION.md"
+      ],
+      "rationale": "At fixed D>0, elliptic diffusion on the compact circle with bounded drift and the irreducible two-state chain has a unique positive stationary law; orientation balance gives mass 1/2 each. For the piecewise distance r used in the proof the generator of cosh(ηr/D) has negative drift of order V/D beyond r=KD for small η. The derivative matches at the minimum and jumps down at the repeller, so the local-time correction cannot spoil the bound. This gives uniformly integrable rescaled moments. I checked the abbreviated boundary-layer passage without assuming that weak convergence alone passes a discontinuous drift. Stationary j_s'=γ(p_{−s}−p_s) gives total variation at most γ; the spatial mean of j_s is bounded uniformly by bounded drift, hence sup|j_s| is bounded. On any fixed rescaled interval the density u_{s,D}(y)=D p_s(Dy mod L) satisfies u'=b_s u−D j_s. Its mass is bounded, so there is a bounded starting value in a neighboring fixed interval; Grönwall gives a uniform local bound and then a uniform Lipschitz bound. Local uniform limits are continuous at zero, obey the stated frozen first-order equation on both open half-lines, and have mass 1/2 by localization. Their normalized law is q_s with mean 1/A_s−1/B_s. For the entropy convention, integration by parts using j_s' cancels the log-density term against the flip contribution; the integral of U' against the constant total current is zero by periodicity. A smooth periodic cutoff of the signed coordinate yields LJ exponentially small and E[σ b_σ]=2γ E[σψ]+exponentially small. Hence the limit is γv times the difference of the two conditional rescaled means, which simplifies to the stated sum with factor 2γv². At slopes 2 and 3 with f=0 and v=γ=1 this gives 11/12 exactly. The inspected checker covers three D values per unloaded example; the additional fourth value in RESULT.md was not independently reproduced and is not proof evidence.",
+      "residual_risks": [
+        "Strict inward margins and fixed positive rate are used; no threshold case or differently time-reversed entropy observable is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paoluzzi et al. give an entropy framework with heterogeneous coefficients but no universal local-slope asymptotic.",
+          "Razin treats hard reflecting walls and, at zero diffusion, boundary atoms; reversal rate is half its tumble-event rate."
+        ],
+        "reasoning": "A general stationary entropy identity does not control small-noise current or the distributional blow-up near a discontinuous interior drift. Reflecting boundaries are not the two sides of that interior cusp.",
+        "searches": [
+          "arXiv:2404.16955 §II Eqs. 1–14 and §V Eq. 84",
+          "arXiv:2008.08088 §III Eq. 17 and App. A Eq. A2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.07880",
+        "arXiv:2404.16955",
+        "arXiv:2008.08088",
+        "Resultary 91b2e07d37fd, 8001896b6562, 66ab4c24c8c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linear arc densities are finite exponential-mode sums, and could be expanded to recover the linear coefficient and rescaling from exact expressions. The entropy identity itself is shared."
+        ],
+        "reasoning": "Linear mode formulas rely on constant coefficients and do not imply uniform exponential localization for both orientations, negligible current, or the rescaled moment limit on arbitrary admissible nonlinear arcs. Those estimates are needed to show that changing the remote force shape leaves the coefficient unchanged.",
+        "searches": [
+          "arXiv:2303.07880 §III Eq. 4 and §V Eqs. 19–22",
+          "arXiv:2404.16955 §V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roberts–Zhen's leftward load adds to the right cusp slope and subtracts from the left slope exactly as in the frozen linear specialization.",
+          "91b2e07d37fd sends tumble rate to zero at fixed temperature; 8001896b6562 sends harmonic confinement to zero in a transient average."
+        ],
+        "reasoning": "The linear sawtooth is genuinely the same model on constant-slope arcs. Neither changing the flip-rate convention nor identifying a kinked restoring force converts the indexed limit orders into the frozen D→0 stationary cusp limit.",
+        "searches": [
+          "arXiv:2303.07880 §§II, III, V",
+          "Resultary 91b2e07d37fd and 8001896b6562"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact candidate is the analytic linear solution, with Eq. 22 leaving nondivergent contributions from the other arc implicit. The checked indexed findings concern different limits or a passive finite-state ratchet."
+        ],
+        "reasoning": "The claim is a parameter-dependent expression and limiting law, not a finite tabulation. The exact-form/index comparison found no statement of the nonlinear cusp result; the linear solution itself is established coverage for its own potential.",
+        "searches": [
+          "Resultary 91b2e07d37fd, 8001896b6562, 66ab4c24c8c4",
+          "arXiv:2303.07880 §V Fig. 12 and Eqs. 21–22"
+        ]
+      },
+      "rationale": "The distinct result supported here is the shape-invariant local-slope coefficient and moment-convergent boundary-layer law on the entire strictly inward nonlinear cusp class. The exact linear solution, known confined zero-noise finiteness, and stationary entropy-flux identity are prior coverage, not this record's new contribution.",
+      "residual_risks": [
+        "The focused primary search added no relevant result; this is not negative proof. Unindexed equivalent cusp asymptotics remain possible. The linear specialization is accessible through prior exact stationary formulas and is not separately credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact linear special-case solution and partial explicit asymptotic; no nonlinear extension in the inspected results",
+          "evidence": [
+            "Eq. 19 is the stationary entropy flux; Eq. 21 is exact at finite D.",
+            "Eq. 22 displays one finite contribution and leaves additional contributions as an ellipsis; confined finiteness is already reported."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.07880",
+          "material_read": "§II Eq. 1 p. 3, §III Eq. 4 p. 4, §V Eqs. 19–22 and Fig. 12 pp. 8–10",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "Run-and-tumble motion in a linear ratchet potential: Analytic solution, power extraction, and first-passage properties",
+          "trigger": "Same linear cusp and prior small-noise entropy calculation"
+        },
+        {
+          "assessment": "General framework, not the stated singular limit",
+          "evidence": [
+            "The stationary form treats heterogeneous speeds and rates and external force; it does not evaluate the cusp coefficient or boundary layer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.16955",
+          "material_read": "§II Eqs. 1–14; §V Eq. 84 pp. 5–6",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "Entropy production of run-and-tumble particles",
+          "trigger": "Plausible more general force and entropy theorem"
+        },
+        {
+          "assessment": "Different boundary and scaling",
+          "evidence": [
+            "Fixed reflecting walls lead to small-D accumulation, divergent EPR at fixed box width, and atoms at zero diffusion; the small-box scaling is distinct."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.08088",
+          "material_read": "§III Eq. 17 p. 4 and Appendix A Eq. A2 p. 6",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "The entropy production of an active particle in a box",
+          "trigger": "Strong confinement and small-diffusion exact results"
+        },
+        {
+          "assessment": "Different limit and domain",
+          "evidence": [
+            "r→0 at fixed T on the line with equal restoring tails; the limiting expression is (v²−b²)_+/T."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-universal-rare-tumbling-dissipation-threshold-in-linear-tailed-a--91b2e07d37fd",
+          "material_read": "RESULT.md Finding and regime assumptions",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Universal rare-tumbling dissipation threshold in linear-tailed active traps",
+          "trigger": "Closest indexed exact active-trap dissipation law"
+        },
+        {
+          "assessment": "Different singular perturbation",
+          "evidence": [
+            "Scaled transient averages for vanishing harmonic confinement are not the stationary zero-noise cusp law."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-universal-weak-confinement-entropy-production-crossover-for-reve--8001896b6562",
+          "material_read": "RESULT.md Finding and harmonic scaling regime",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Universal weak-confinement entropy-production crossover for reversible Markov propulsion",
+          "trigger": "Indexed formula in the same entropy convention"
+        },
+        {
+          "assessment": "No mathematical coverage",
+          "evidence": [
+            "Two-mode three-site reversible chains and current sign reversals, not a cusp diffusion or EPR law."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+          "material_read": "RESULT.md Finding and model assumptions",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Single-reversal rigidity of two-phase passive triangle ratchets",
+          "trigger": "Same-day indexed ratchet finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–18, 32–65",
+        "Roberts–Zhen §V Eq. 22"
+      ],
+      "rationale": "Even non-solvable force profiles in the specified class give the same singular finite entropy coefficient if their local slopes agree. The localization and first-moment reduction explain how to get a finite entropy limit from a flux with prefactor 1/D, while the conditional asymmetry supplies observable stationary information beyond mere confinement. This fills a precise gap left by the explicit linear solution and its partial small-noise evaluation.",
+      "residual_risks": [
+        "No asymptotic rate or universality beyond strict inward drift and the specified entropy convention is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

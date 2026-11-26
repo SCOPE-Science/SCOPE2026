@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:33:23.799489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27, 31–82; VERIFICATION.md and CHECK.py read without execution",
+        "Independent replay: cd /workspace && OPENBLAS_NUM_THREADS=1 python3 branches/audit-replay.py 1; direct vector eigenspectra for every triple at p=5 (2300) and p=7 (18424), verifying the class comparison and minimum phase 0 and 0.224399475256 respectively."
+      ],
+      "rationale": "The fixed-translation orthonormal bases give full frame operator pI; subtracting the deleted synthesis product yields the sharp lower bound p minus the largest erased Gram eigenvalue. Rank at most three leaves the surviving upper eigenvalue exactly p. Distinct translation slopes have overlap magnitude p^(-1/2) by the quadratic Gauss sum; the one-class and two-class cases give erased top eigenvalues 1 and 1+sqrt(2/p). For three classes, complete the square on each directed edge and cancel the constant phases cyclically. The quadratic identity for the cyclic squares can be checked after subtracting from beta the affine function matching the first two values (the sum is invariant and R is unchanged). The resulting normalized product is epsilon_p^3 chi(P) omega^(R²/(4P)); the cycle contributes 2 cos(theta) to the scaled off-diagonal cubic, whose largest root is 2 cos(|theta|/3). In the 1 mod 4 case square P and R=0 attain phase zero. In the 3 mod 4 case the angular units of pi/(2p) are odd; with chi(P)=1 and R²=P, 4^(-1)=(p+1)/4 gives exactly pi/(2p). For slopes 0,1,u the number of u giving a nonzero square P=u(1-u) is (p−2−chi(−1))/2>0, and varying beta realizes every R. Both attained eigenvalues strictly exceed 1+sqrt(2/p), and converting the surviving frame eigenvalue ratio to singular values gives the stated square-root condition number.",
+      "residual_risks": [
+        "The numerical replay is bounded and uses floating-point tolerance. Arbitrary primes, exact attainment and positivity of the surviving lower frame bound follow from the proof, not numerics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salanevich–Strachan provide general erasure-robustness guarantees for Alltop/MUB frames. Fickus–Mixon discuss coherence and two erasures. Bengtsson et al. compare Alltop orbit structure by dimension modulo three."
+        ],
+        "reasoning": "General robustness, two-deletion Gram data and Clifford orbit counts do not pin down the exact third-order cyclic phase near zero.",
+        "searches": [
+          "arXiv:2509.01325v1, Theorems 1.5 and 5.5",
+          "arXiv:1202.4525, coherence and erasures",
+          "arXiv:1407.2713v3, Alltop Clifford orbit discussion"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary same record and distinct 80965acafb26; arXiv:2509.01325v1, 1202.4525, 1008.2675, 1407.2713v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pairwise modulus gives the ordinary coherence upper bound 1+2/sqrt(p) on the erased Gram top eigenvalue. The five-erasure theorem addresses saturation of 1+4/sqrt(p), not an optimizing triple phase."
+        ],
+        "reasoning": "The coherence guarantee is exact for half the residue classes, but has no strict-gap term for p≡3 mod 4. Even knowing that saturation fails does not give the exact angular gap and an attaining arithmetic triple. This needs the exact Gauss triangle, permitted exponent arithmetic and a square-slope existence argument.",
+        "searches": [
+          "ArXiv:2509.01325v1, Theorems 1.5 and 5.5; arXiv:1008.2675, equations (31)–(33); Resultary 80965acafb26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed record ede488cf192e is this same finding. Filippov–Man'ko, eqs. (31)–(33), express the MUB star-product kernel through Tr(Pi_a Pi_b Pi_c) and give identities involving products of these traces."
+        ],
+        "reasoning": "This trace is the cyclic Gram overlap product for rank-one projectors. The identities in the compared passages do not optimize its angle for the specified finite-prime orbit or prove attainability.",
+        "searches": [
+          "Resultary: Alltop Gabor exact sharp three-erasure frame stability prime p congruence phase",
+          "Resultary: three erasure frame bounds Gram triangle Bargmann phase Alltop",
+          "Web: ‘Alltop’ Gabor frame ‘three erasures’ exact sharp condition number phase triangle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 6, p. 29, offsets 107262 and 107919: p=5, 12% or three removals, worst condition number 1.268861. Distinct indexed record 80965acafb26 treats the five-erasure coherence saturation problem; its Finding and prior-work passage were read."
+        ],
+        "reasoning": "The table supplies the p=5 numerical case only. The five-erasure record characterizes coherence saturation for a different mask size, with no exact formula for its strict cases; it does not recover the residue-sensitive three-erasure optimum.",
+        "searches": [
+          "Resultary: Alltop Gabor three erasures condition number dimension five Salanevich Strachan",
+          "arXiv:2509.01325v1, section 6 and Table 1"
+        ]
+      },
+      "rationale": "The inspected general erasure guarantees, coherence bound and known p=5 numerical table do not identify the small but exact parity-sensitive arithmetic obstruction. The contribution credited is the all-prime exact triple extremum and attaining class/phase, not the tight-frame erasure reduction, triple-product formalism or the tabulated small case.",
+      "residual_risks": [
+        "A specialized earlier classification of quadratic-MUB Bargmann invariants or exact order-three sparse bounds could cover more; inspected sources and indexed results are not exhaustive, and global priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and prior p=5 numerical coverage, not the infinite-prime sharp formula",
+          "evidence": "Numerical table reports 1.268861 for 12% deletions in the 25-vector frame; the theorems give robust-frame bounds without the stated cycle phase minimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.01325v1",
+          "material_read": "Theorem 1.5 at PDF offset 14797, Theorem 5.5 at 91477, section 6 at 107262 and 107919",
+          "method": "OA PDF bounded passages",
+          "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+          "trigger": "Same Alltop frame, exact p=5 prior numerical comparison"
+        },
+        {
+          "assessment": "Different mask size and different extremal question",
+          "evidence": "Equality in p−1−4/sqrt(p) for five erasures iff p≡1 mod 4 and p≥29; no exact strict-case optimum. The relationship section distinguishes the triple theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-five-erasure-coherence-saturation-for-prime-dimensional-al--80965acafb26",
+          "material_read": "Finding and prior-work passage, offsets 0 and 9200",
+          "method": "Resultary search and local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First five-erasure coherence saturation for prime-dimensional Alltop Gabor frames",
+          "trigger": "Closest distinct indexed same-orbit exact-erasure result"
+        },
+        {
+          "assessment": "Background, not a three-cycle phase classification",
+          "evidence": "Coherence and two-erasure robustness do not include the triple product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.4525",
+          "material_read": "p. 4 around offset 15853",
+          "method": "OA PDF bounded passage",
+          "title": "Numerically erasure-robust frames",
+          "trigger": "General coherence erasure bounds"
+        },
+        {
+          "assessment": "Related MUB identities, not the specific phase extremum",
+          "evidence": "The trace of a projector triple appears in the star-product formula and is related to four-products by a sum identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2675",
+          "material_read": "Equations (31)–(33), offset 21010",
+          "method": "OA PDF bounded passage following triple-product locator",
+          "title": "Mutually unbiased bases: tomography of spin states and star-product scheme",
+          "trigger": "Equivalent projector triple products"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Clifford orbit counts distinguish p mod 3, not the minimum angle of erased Gram triples.",
+          "identifier_or_url": "https://arxiv.org/html/1407.2713v3",
+          "material_read": "Clifford orbit passage near offset 27034",
+          "method": "OA HTML literal locator and local context",
+          "title": "Order 3 Symmetry in the Clifford Hierarchy",
+          "trigger": "Alltop orbit structure and possible reparametrization through MUBs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sections 1–4; Salanevich–Strachan numerical table and general guarantees"
+      ],
+      "rationale": "The exact small-deletion condition number is a natural stability quantity for this canonical orbit. The arithmetic phase minimum separates coherence saturation from strict failure and supplies actual attaining erasures. The numerical size of the gap is small at large p, but the exact distinction and its explanation are the point; a tabulated p=5 result alone would not suffice.",
+      "residual_risks": [
+        "No result for other erasure counts, windows or dimensions, or for nonlinear phase retrieval, is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

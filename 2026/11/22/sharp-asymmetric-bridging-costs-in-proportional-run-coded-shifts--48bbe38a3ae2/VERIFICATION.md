@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_bridge.py` using a Python 3 standard-library interpreter from the directory containing the supplied `check_bridge.py`. The observed output was:
+## correctness
 
-```
-VERIFY_OK pairwise_completed 6234 sharp_witnesses 132 ruled_out_short_bridges 13901
-```
+PASS
 
-The checker constructs the graph independently from generator cycles and does not import an external minimal-forbidden-language table. It exercises both completion procedures on all admitted finite word pairs in its stated finite ranges; the witness tests include direct search over all shorter candidate bridges for the smallest cases.
+The two displayed bounds and their uniform leading-order consequence hold for the coded language. On the right, a terminal zero run of visible length a can be taken complete and extended by ka ones; for a terminal one run of length b, the requisite total one-run length is fixed by a fully observed preceding zero run, or one may choose a zero run of length max(a, ceil(b/k)) if the past is clipped. For an all-one word use ceil(m/k). This costs at most km. On the left, a leading zero run needs only the missing zeros prescribed by a complete first one run (or by the shortest compatible completion of an open first one run); a leading one run of length b needs at most ceil(b/k) zeros and k-1 ones. Joining the two completed junctions proves the upper bound. For t=floor((n-2)/k), the pair 0^(m-1)1 and 01^(kt)0^(n-kt-1) forces disjoint bridge contributions of at least k(m-1)-1 ones and t-1 zeros, since the first block's ones must finish and the later complete kt-run forces exactly t preceding zeros. Their concatenated contribution is admissible, including the empty-bridge case. The coefficients are unequal for k>1 and coincide at 1 for k=1; the prose 'different' is read with this qualification, not as an extra claim for k=1.
 
-The unlimited theorem is established by the run-completion and forced-run proof in `RESULT.md`, not by extrapolation of any finite verification run. Checks did not enumerate all arbitrary parameters or independently audit the mathematical result. The finite inequalities do not assert exact values for every finite two-length bridge profile.
+## originality
+
+PASS
+
+The same-language antidictionaries and the nearest ambient or coded-shift bridge/completion theorems do not cover the optimized two-independent-length theorem. The complete forbidden-list descriptions allow membership tests but do not supply either the uniform asymmetric pair completion or the combined forced-run lower witness.
+
+## value
+
+PASS
+
+The worst-case shortest join is a natural refinement of the specification question in this established coded system. The theorem gives separate sharp directional costs with a length-independent error, distinguishing the effects of long outgoing and incoming words rather than merely providing an unspecified linear bound or discovering nonspecification again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

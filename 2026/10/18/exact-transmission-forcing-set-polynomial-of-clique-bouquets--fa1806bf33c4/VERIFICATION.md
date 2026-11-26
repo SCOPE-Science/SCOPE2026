@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_transmission_windmill.py` in a standard Python installation. No nonstandard dependencies, downloaded content, random seeds or internet access are required. The verifier constructs \(K_1\vee(kK_m)\), simulates every initially filled labelled vertex subset using exact rational arithmetic under simultaneous rounds, and counts all successful sets by size. It separately computes the coefficient sequence predicted by the closed formula and checks equality at every tested parameter.
+## correctness
 
-Verified graph sizes: \((2,2),(3,2),(4,2),(2,3),(3,3),(2,4),(3,4)\), expressed as \((k,m)\). The test used \(337\) parameter/graph combinations, including exact threshold values and rational perturbations around all four critical levels. All comparisons passed. An additional constructive example verifies that a successful set can have an unsuccessful strict superset.
+PASS
 
-For \(k=4,m=2,\alpha=1/20\), the tested \(\beta\) values \(1/25,3/50,2/25,1/5,7/10\) have minimum seed-set sizes \(5,7,8,8,9\) and minimum-set multiplicities \(48,8,9,1,1\), respectively.
+Two holes in one blade obstruct each other permanently: every possible sender to either sees both. With one hole in each of t blades there are binom(k,t)m^t labelled choices. With the hub seeded, t=0 succeeds, t=1 requires beta<=U, and t>=2 requires beta<=L. Without the hub, t=k cannot start; t=0 requires beta<=H; 2<=t<k requires beta<=L, which also guarantees the hub first fills. For t=1, the hub receives A=m(k-1)alpha in round one, and the last hole receives L+alpha A in round two. It received nothing in round one, and any no-fill round terminates the process, so cumulative weights do not supply an uncounted later opportunity. The hub retains its full received weight, not beta. Thus both inequalities at T=min(A,L+alpha A) are inclusive. Summing binom(k,t)m^t z^(N-t) or z^(N-1-t) over these cases gives exactly the two polynomials; L<T<=H and U<=H yield the four minimum-size regimes. For alpha=1/(4mk) the jump k-2 is realized for k>=3. The minimum-multiplicity example starts at 2^4+4*2^3=48 in the low-threshold regime; the rest follows from the one- and two-hole coefficients. The supplied exact-rational verifier was inspected, not run; its stated 337 instances do not prove the theorem. Replay: RESULT.md lines 36–56 and the case derivation here; python3 /workspace/review_evidence/bounded_checks.py reproduces the first sample multiplicity.
 
-# Scope and limits
+## originality
 
-The program checks finite instances and exact rational parameters. It does not mechanically prove an infinite all-real theorem or exhaust all parameters; the general proof is supplied in `RESULT.md`. Scientific priority is assessed against accessible published records and does not amount to independent external audit or a guarantee that no equivalent unpublished result exists.
+PASS
+
+The supported distinction is the complete two-parameter transmission enumerator, especially the two-round, uncapped alpha-squared threshold. The ordinary low-threshold branch is demonstrably covered by a same-date heterogeneous-bouquet record; it should not be credited as a separate novel contribution, and date alone does not establish ordering. The frozen novelty assertion is for the full mixed-parameter polynomial, not the ordinary friendship-graph count. No inspected result covers that full assertion.
+
+## value
+
+PASS
+
+A complete labelled enumerator on an unbounded natural block-graph family identifies a genuine two-round threshold and an unbounded k-2 change in the minimum seed size. It also locates a failure of seed-set upward closure, so ordinary forcing enumerators cannot simply be carried over. The value is in these mixed-threshold conclusions, not in recomputing the already covered ordinary branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

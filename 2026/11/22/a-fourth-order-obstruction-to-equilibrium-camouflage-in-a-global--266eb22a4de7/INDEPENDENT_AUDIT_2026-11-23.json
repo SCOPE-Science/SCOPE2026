@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:53:37.066114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A backward exponential age mixed with the voter semigroup started at fair product measure defines a stationary probability law, with the no-reset probability exp(-rt) bounding the difference between any two coupled histories. The finite-cylinder claim on Z follows from the usual finite backward random-walk ancestry of the rate-one voter process; spin flip, reflection and translation remain exact. For a pair, each coordinate makes two rate-1/2 proposals, giving (r+2)C_j=C_{j-1}+C_{j+1}, with coincident spins yielding C_0=1 (also C_N=1 on a ring). The roots q,1/q give the stated solutions with the two endpoint data or boundedness on Z. Conditioning independent mean-q Ising bonds on product +1 on a ring gives (q^k+q^(N-k))/(1+q^N) for any product of k selected bonds, including the bond sets representing U and V with k=2 and 3. Unconditioned independent bonds give the line formula. The finite spin Fourier basis then proves full agreement of marginals up to order three. For U, the rate-1/2 copy choices give four nearest-neighbour pair terms, two distance-three pair terms and two outward four-spin terms, related by i->3-i and valid also at N=5; all eight choices have the matching negative U terms. Fresh fair resetting subtracts rU. This gives (r+4)U=V+2C_1+C_3, and C_1+C_3=(r+2)C_2 yields the signed defect rC_2 and the stated bound. A distinct four-spin moment implies a distinct marginal. Independent exact full-state solves at N=5 and q=1/3,1/2,2/3 and N=6,q=1/2 checked the generator and witness; at N=5,q=1/2 they give C_2=C_3=4/11, U=V=32/77 and defect 2/11. Replay: python /workspace/branches/a1998109-b582-4937-88d3-2d934255904a/independent_generator_check.py (SymPy). These finite solves are checks only, not the all-rate or infinite-chain proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Magoni–Majumdar–Schehr Eq. (1) specializes at zero temperature to the voter flip rates and notes closure of n-point dynamics",
+          "Godrèche–Luck treat a disordered initial state and temperature protocols, with domain-wall density and susceptibility diagnostics"
+        ],
+        "reasoning": "A broader time-dependent Glauber hierarchy can be applied at a fixed age and integrated, but the stated comparisons do not evaluate the Gibbs-subtracted stationary combination under a common random age. Replacing a temperature protocol by a global simultaneous restart is not a specialization of a deterministic temperature schedule. The targeted hierarchy search was unavailable; no negative inference is made from it.",
+        "searches": [
+          "arXiv:2002.04867 model formulation and introduction",
+          "arXiv:2208.12512 abstract and problem scope",
+          "one dimensional Glauber dynamics multi spin correlations Pfaffian Mayer Sollich multispin quenched initial zero temperature Glauber 2004 exact"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.04867",
+        "arXiv:2208.12512 (limited scope inspection)",
+        "Resultary 40ac4bb02a8c, 65cef8842981, da40ba33c965"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Detailed balance violation in the reset dynamics does not decide whether a competing process could have the same invariant measure",
+          "Pair equality can be derived from the standard two-point recurrence; odd-product symmetry then handles order three"
+        ],
+        "reasoning": "What goes beyond these observations is applying the four-spin stationary equation to the matched Gibbs moments: the reset acts as a rate-r sink irrespective of the number of sites in the product, while the voter pair and four-spin equations have different diagonal rates. The resulting residual rC_2 rules out equality without solving the fourth-order hierarchy. A claim of generic nonequilibrium dynamics or a pair measurement alone cannot establish this static distinction.",
+        "searches": [
+          "arXiv:2002.04867 introduction, Eq. (1), renewal construction",
+          "Resultary 40ac4bb02a8c and 65cef8842981"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Magoni–Majumdar–Schehr arXiv:2002.04867 pp. 1–2: iid-sampled original configuration, fixed upon each reset, exponential last-reset age"
+        ],
+        "reasoning": "Conditional on the age, an annealed sample at a single stationary time has exactly the same law whether the reset configuration is repeatedly reused or redrawn each time. This identity does not equate multi-time laws or laws conditioned on the original disorder. The ensemble itself is not the novelty.",
+        "searches": [
+          "global stochastic resetting Glauber Ising voter chain infinite temperature fresh random resetting four spin correlation Gibbs stationary equal time nonthermal Majumdar Dhar Gupta",
+          "zero temperature Glauber chain global stochastic resetting fresh random spins Ising four point discrepancy (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary pair-age lower-edge record 65cef8842981; spatial pair record da40ba33c965; periodic three-temperature four-spin factorization defect 40ac4bb02a8c"
+        ],
+        "reasoning": "The assigned record is itself an exact search hit, not separate evidence. The other exact indexed results concern conditional pair distributions, non-Poisson resetting, or a distinct spatial temperature drive; they give no exact four-spin defect for this stationary ring/line model.",
+        "searches": [
+          "zero temperature Glauber chain global stochastic resetting fresh random spins Ising four point discrepancy (Resultary)",
+          "Glauber Ising reset unbiased pair stationary exp age four point Pfaffian globally resetting (Resultary)"
+        ]
+      },
+      "rationale": "The single-time annealed stationary ensemble was already available through ordinary resetting of an iid-sampled fixed configuration. Neither that equivalence nor lack of detailed balance establishes a static distinction from nearest-neighbour equilibrium, still less its minimum correlation order. The inspected work supplies the resetting framework and pair/transient tools, not the specific exact Gibbs matching and positive local stationary defect. Best-of-knowledge comparison.",
+      "residual_risks": [
+        "Earlier broad multipoint correlation results could contain an equivalent reset comparison; one targeted lookup was unavailable. The exact priority claim is limited to inspected result statements.",
+        "The annealed ensemble and standard renewal machinery predate this record; no novelty is assigned to them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and renewal overlap; the inspected analysis concerns stationary magnetization and does not supply the matched Gibbs three-to-four comparison",
+          "evidence": [
+            "Eq. (1) and the discussion immediately below it",
+            "Same exponential age for fixed and freshly sampled configurations after iid averaging"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.04867",
+          "material_read": "Public full-text PDF, pp. 1–2 including iid initial ensemble, fixed reset, exponential age, kinetic rates and hierarchy discussion; later pages not relied on",
+          "method": "Open primary arXiv PDF text",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Same dynamics and potentially the same one-time law after averaging"
+        },
+        {
+          "assessment": "Evidence of related pair/domain diagnostics under deterministic protocols; no whole-document noncoverage conclusion from this limited inspection",
+          "evidence": [
+            "Focus on wall density and reduced susceptibility under low-temperature schedules"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12512",
+          "material_read": "Primary abstract and opening scope, not the full derivation",
+          "method": "Open arXiv PDF text",
+          "title": "The Glauber-Ising chain under low-temperature protocols",
+          "trigger": "Alternative temperature-protocol and exact correlation diagnostics"
+        },
+        {
+          "assessment": "Different drive for the four-spin calculation and different observable for the pair reset calculation",
+          "evidence": [
+            "Period-three temperatures versus one global iid clock; age-mixed pair-edge distribution versus four-spin witness"
+          ],
+          "identifier_or_url": "Resultary 40ac4bb02a8c, 65cef8842981",
+          "material_read": "Indexed published summaries only",
+          "method": "Configured Resultary searches",
+          "title": "A four-spin obstruction to two-point factorization in a periodic three-temperature Glauber chain; A doubled resetting threshold and logarithmic edge singularity",
+          "trigger": "Closest indexed exact fourth-order defect and resetting pair results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This provides an exact all-rate separation between agreement of all low-order static marginals and actual equilibrium, with a signed combination of measurements from at most five adjacent sites. It identifies the first possible correlation order and a nonzero quantitative bound on the same ring or line without a full steady-state solution. This is stronger than nonreversibility and does not purport to distinguish Gibbs laws with arbitrary interactions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

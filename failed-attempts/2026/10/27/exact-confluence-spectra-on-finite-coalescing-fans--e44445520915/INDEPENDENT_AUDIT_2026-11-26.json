@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:04.395811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normal form, counts and asymptotics are correct for labelled relations on the stipulated poset. The only distinct comparable source points are a leaf and t. Downward confluence requires all leaf successors of t in every leaf row and requires each row nonempty if t is a successor of itself. Forward confluence caps each leaf row by the top row if the latter omits t and is automatic otherwise. For k>0 leaf successors of t with t in its row, each leaf row has 2^(m+1-k) choices. In the reflexive count, k rows have that number and the other m-k rows have 2^(m-k); summing the resulting 2^(m^2-(m-1)k) over all leaf sets gives H_m, including the k=0 stratum. Dividing C_m by U^m gives 1+m/U+O(m^2/U^2), while the singleton-row numerator divided by U^m is 1-m/U+O(m^2/U^2); the other ratio uses H_m/U^m=2^(-m)(1+4/U)^m. This gives both stated asymptotics. Recorded exhaustive evidence covers only m=1,2,3; the supporting checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain result uses monotone row endpoints under a total order and is not a source for m>=2.",
+          "The November 2 two-level-order census has the fan specialization (a,c;b,d)=(m,1;m,1); it postdates the frozen record and is not used for the priority finding."
+        ],
+        "reasoning": "The generic frame definitions and chain theorem do not by themselves yield a prior census of the non-chain fan. The decisive earlier coverage is the dual rooted-star census, not the later broader parameterization.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97",
+          "Resultary 2026/11/2/SCOPE-exact-four-parameter-census-of-two-sided-confluent-relations-bet--6bd1e200ca4a"
+        ]
+      },
+      "checked_sources": [
+        "Sedlár–Vigiani, arXiv:2610.10008",
+        "Balbiani–Gao–Gencer–Olivetti, arXiv:2403.06772",
+        "The three Resultary records identified above",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directed-order duality gives the full normal form and C_m for m>=2. The remaining m=1 case is a two-world chain.",
+          "Imposing the diagonal in the prior row choices fixes one extra leaf when it is outside L, giving the binomial sum for H_m. The prior totals and singleton stratum then give the two probabilities by expanding powers of 1+O(1/U)."
+        ],
+        "reasoning": "No separate reflexive sum or asymptotic is asserted to be literally printed in the prior record. Both are mechanical consequences of the earlier exact classification and counts.",
+        "searches": [
+          "October 18 Resultary rooted-star record, normal form and exact census; comparison to frozen Proof lines 49–94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier star has a least root below m labelled incomparable worlds. Its distinguished row S becomes T when the order is reversed. Under that reversal, with R unchanged, DC becomes FC and FC becomes DC.",
+          "The earlier normal form is the same empty-or-leaf-only distinguished row, singleton distinguished-node row, and distinguished-node-plus-leaves row split under this identification."
+        ],
+        "reasoning": "This is equality of the classes by order reversal, not a similarity of objects or formulas. The simultaneous axioms, labelled relations, singled-out rows and reflexivity are preserved.",
+        "searches": [
+          "Resultary rooted star, pseudo-classical bi-intuitionistic modal relations: 2026/10/18/SCOPE-exact-census-of-pseudo-classical-bi-intuitionistic-modal-relatio--60971a5cd0ff",
+          "arXiv:2610.10008 Definition 12; arXiv:2403.06772 Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact census is 2^m+(2^(m+1)-1)^m+2^m((1+2^m)^m-2^(m^2)), and its singleton distinguished-row stratum is (2^(m+1)-1)^m."
+        ],
+        "reasoning": "Writing U=2^(m+1) transforms the last summand to (U+2)^m-U^m. This is an exact earlier formula and stratum, not just matching numerical values.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-census-of-pseudo-classical-bi-intuitionistic-modal-relatio--60971a5cd0ff, RESULT.md Finding and Proof"
+        ]
+      },
+      "rationale": "An earlier Resultary record classifies the very same relations on the dual rooted star, with the same three cases, unrestricted labelled count and exact singleton distinguished-row count. The reflexive count and probability estimates are direct consequences; the small two-world case does not produce a distinct finding.",
+      "residual_risks": [
+        "The literature search was bounded; an empty search response does not establish absence. The explicit earlier dual-star coverage suffices for the disposition regardless of other matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dual coverage for m>=2, with the same singleton distinguished-row stratum",
+          "evidence": [
+            "Least root below an antichain; three row cases and exact closed count given above."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-census-of-pseudo-classical-bi-intuitionistic-modal-relatio--60971a5cd0ff",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof; local mirror offsets 0–6054",
+          "method": "Local mirror bounded statement and proof comparison",
+          "title": "Exact census of pseudo-classical bi-intuitionistic modal relations",
+          "trigger": "Closest alternate orientation of the same labelled star"
+        },
+        {
+          "assessment": "Same confluence conditions, within a larger model framework",
+          "evidence": [
+            "Conditions (40) and (41) are DC and FC; (42) is a separate condition involving inconsistent worlds for certain logics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10008",
+          "material_read": "Definition 12, p. 15, conditions (40)–(42), OA offset 50350",
+          "method": "Primary open-access PDF passage",
+          "title": "Modal Extensions of Generalised Nelson Logics",
+          "trigger": "Cited origin for the model conditions"
+        },
+        {
+          "assessment": "Same relational axioms; no census in the passage examined",
+          "evidence": [
+            "Confluence is expressed by relation-composition inclusions; reflexivity, seriality and transitivity are separate conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.06772",
+          "material_read": "Definition 2, p. 3, OA offset 6900",
+          "method": "Primary open-access PDF passage",
+          "title": "Local Intuitionistic Modal Logics and Their Calculi",
+          "trigger": "Earlier source for the two confluence conditions"
+        },
+        {
+          "assessment": "Not a cover for the non-chain case",
+          "evidence": [
+            "Row endpoint monotonicity is a statement under the chain assumption."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97",
+          "material_read": "Chain hypothesis and endpoint characterization in RESULT.md",
+          "method": "Local mirror statement comparison",
+          "title": "Endpoint normal form and exact census for finite-chain KI frames",
+          "trigger": "Closest published comparison cited in the frozen record"
+        },
+        {
+          "assessment": "Broader, but later than the assigned record",
+          "evidence": [
+            "Both orders may have m lower nodes and one upper node, yielding the assigned fan case."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-four-parameter-census-of-two-sided-confluent-relations-bet--6bd1e200ca4a",
+          "material_read": "Two-level parameters and labelled count in RESULT.md",
+          "method": "Local mirror statement comparison",
+          "title": "Exact four-parameter census of two-sided confluent relations between two-level orders",
+          "trigger": "Potential general two-level enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The star is a natural finite modal order, but its exact classification and total are already available on the dual order. The remaining statistics are a diagonal filter in independently chosen rows and a first-order expansion of previously known exact counts, not a distinct independently useful contribution under the scientific standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

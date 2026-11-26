@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:56.901453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The aaa targets force at least three copies of each letter, and three successive permutations suffice for all aba. For distinct a,b, failure of aba forces all three b's into the two exterior gaps of the a-span, giving four projections. Exchanging a and b gives four more, with precisely the two disjoint-span arrangements in both sets; the union is the six listed projections. In the recurrence, the transition for the third occurrence of b checks exactly what has been seen strictly between its first and third occurrences, and no later transition can alter that interval. Every legal word gives exactly one path, and appending a distinct letter at any state gives a disjoint class of completions. Independently generated every first-appearance-canonical three-of-each word for q=1 through 5 and greedily matched each target subsequence directly, without a mask recurrence or pair-projection filter. At q=4 the 15400 representatives yielded 3334 covers, or 80016 labeled; at q=5 the 1401400 representatives yielded 148543 covers, or 17825160 labeled. The action is free since every label appears. For full universality the greedy alphabet blocks are necessary: their terminal letters can only be matched at their block endpoints or later, and appending a letter missing from the residual suffix gives a missing subsequence if there are fewer than three blocks. At minimum length these blocks are permutations. Thus 24^3=13824 and the ratio is 1667/288. Replay: python3 /workspace/evidence/5.py; output /workspace/evidence/5.out. This is abstract word combinatorics and supplies no biological validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular-language work counts k-universal paths with SubSeq_k(w)=Sigma^k and separately permits a regular constraint on hosts.",
+          "At q=4 the all-pattern shortest class has 13824 labeled hosts, a proper subset of the 80016 counted here."
+        ],
+        "reasoning": "A regular constraint on hosts cannot make an all-pattern-universality count include nonuniversal hosts. Generic automaton counting methods can be specialized or adapted, but the inspected theorems do not give the frozen projection classification or its specialized count.",
+        "searches": [
+          "arXiv:2304.04583, introduction and counting discussion",
+          "arXiv:2311.10658, pp. 4–5 and Definition 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3e8681b41f88",
+        "Resultary 11abece62ea8",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658",
+        "OEIS A330022",
+        "OEIS literal sequence lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arch-refined binary theorem can be summed to obtain the q=2 count but does not control consistency among multiple two-label projections.",
+          "The ternary length-five result has contiguous targets and computes minimum lengths; it does not count shortest scattered hosts.",
+          "The full-universality results establish the smaller comparison class but neither count its palindromic-only complement nor provide the pairwise criterion."
+        ],
+        "reasoning": "Credit the exact overlapping q=2 result and the all-pattern comparison separately. The supported distinction is a general-q structural and enumeration result with new higher-alphabet scope on the evidence inspected.",
+        "searches": [
+          "Resultary 3e8681b41f88 and 11abece62ea8, actual Findings",
+          "arXiv:2304.04583; arXiv:2311.10658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen rule requires that each letter's first-to-last interval contain another occurrence of each of the other labels; equivalently each pair projection avoids placing a full triple of one label outside that interval.",
+          "Adamson defines k-subsequence universality using every pattern in the full alphabet. This is strictly stronger, already at q=2 where its count is 8, not 14."
+        ],
+        "reasoning": "Neither the interval formulation nor the six-forbidden-projection formulation can be replaced by full universality. The compared binary result verifies that specialization, not simultaneous projection constraints among three or more labels.",
+        "searches": [
+          "Resultary: shortest abc-length palindromic scattered-subsequence covers and three-occurrence words",
+          "arXiv:2304.04583, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 3e8681b41f88 gives U_3=14 for shortest binary hosts of all length-three scattered palindromes, split by universality index as 2:6 and 3:8. This is exactly N_2; the catalogue dates coincide and establish no ordering.",
+          "OEIS A330022 concerns shortest contiguous binary palindrome superstrings (length 8 at n=3), not this indexed census. Literal OEIS term query found no match for the displayed list."
+        ],
+        "reasoning": "The binary entry is real exact overlap, not independent evidence of novelty. No higher-alphabet table was identified; the literal lookup cannot rule out a differently indexed or normalized table.",
+        "searches": [
+          "Resultary exact arch-refined census of shortest binary palindrome-universal words",
+          "OEIS A330022",
+          "OEIS exact terms 1,14,690,80016,17825160"
+        ]
+      },
+      "rationale": "Exact binary overlap is established and excluded from the distinct contribution. On the compared evidence, the all-alphabet classification and higher-alphabet census are not covered by the binary arch-refined enumeration, the all-pattern universality algorithms, or contiguous palindrome problems. The exact all-pattern count is acknowledged as a comparison, not a separate novelty claim.",
+      "residual_risks": [
+        "An equivalent enumeration may be indexed as a class of ordered partitions into triples or constrained multiset permutations.",
+        "The frozen text does not identify which binary enumeration it meant; exact same-day catalogue overlap establishes neither borrowing nor priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary coverage; general alphabet not covered",
+          "evidence": [
+            "For binary palindrome-3-universal hosts U_3=14; full universality index 3 contributes eight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-arch-refined-census-of-shortest-binary-palindrome-universa--3e8681b41f88",
+          "material_read": "RESULT.md Finding and U_k table, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror full-text passage comparison",
+          "title": "Exact arch-refined census of shortest binary palindrome-universal words",
+          "trigger": "Same scattered containment and minimum length at q=2"
+        },
+        {
+          "assessment": "Different observations and objective",
+          "evidence": [
+            "All 27 ternary length-five ordinary palindromes must occur contiguously; minima 66 and 68 are lengths, not counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage comparison",
+          "title": "Exact ternary length-five palindromic covers: 66 cyclic and 68 linear",
+          "trigger": "Related >2 alphabet palindrome covers"
+        },
+        {
+          "assessment": "Covers the comparison class, not the palindromic-only class",
+          "evidence": [
+            "Requires every length-k word over the alphabet as a subsequence and counts U(n,k,sigma)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "p. 1, offset 2834, definition and counting problem",
+          "method": "OA full-text inspection of relevant passage",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Counting all-pattern subsequence covers"
+        },
+        {
+          "assessment": "Strengthens the host framework, not a theorem on this target set",
+          "evidence": [
+            "Definition 3 says SubSeq_k(w)=Sigma^k; counting is for these universal words or paths accepted by automata."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "pp. 4–5, offsets 15529 and 19100; Definition 3 and counting discussion",
+          "method": "OA full-text inspection of relevant passages",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Broader regular-language host counting"
+        },
+        {
+          "assessment": "Not an equivalent table",
+          "evidence": [
+            "The listed example 00010111 has length 8 and uses substring containment."
+          ],
+          "identifier_or_url": "https://oeis.org/A330022",
+          "material_read": "Sequence statement and n=3 example, offset 400",
+          "method": "OA website reading",
+          "title": "Length of shortest binary string containing all palindromes of length n as substrings",
+          "trigger": "Potential palindrome enumeration table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The alphabet size and the length 3q are intrinsic to the target family, not arbitrary enumeration parameters. The local obstruction characterization and reproducible exact counts answer how much the set of shortest hosts expands when only palindromic length-three targets are required rather than all patterns; the exact four-symbol ratio measures that distinction. The all-alphabet recurrence is useful even though there is no asymptotic or closed form, and no practical or biological effectiveness is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

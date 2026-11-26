@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:22:22.488380Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The clocks run on one continuing path without extra reset or killing at discovery; the reset site lies strictly between -a and b, and a,b,D,r are positive. The ODE with opposite Dirichlet boundary values gives the two discounted exit-side probabilities. A failed cycle has discounted mass r(1-f_+-f_-)/(r+s); summing the renewal series gives the frozen G_±. The analogous one-sided renewal starting at the opposite level gives H_± with initial distance a+b and subsequent distance a or b. The strong Markov property at the first hit factors the remaining-clock transform conditional on the exit side, yielding the claimed joint transform. The relevant derivatives exist: failed cycle transforms extend locally about zero, with total failure mass strictly below one, so the one-sided clocks have exponential moments near zero. Differentiating at zero gives the two marginal means and the mixed moment. Independent exact symbolic reduction (branches/12ba63cd-d031-413b-8a3d-ab487b783415/independent_check.py) reproduces r² Cov = -(A+B)(x²-1)(y²-1)/(2(x+y)(xy-1)) at x=e^A,y=e^B; the expression is negative and equals the hyperbolic formula. The subtraction cancels the ab(r/D) numerator term and leaves ab(a+b)(r/D)^{3/2}/2, with covariance and mean product still of order r^{-1}. The marginal variance from the one-sided transform has leading small-r numerator A or B, giving the stated Pearson asymptote; at large r the variance factors grow exponentially faster than their normalized covariance numerator. The finite lattice approximations in the frozen script were inspected, not executed; they are not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Linn–Lawley p. 1 abstract mentions general cover-time moment approximations and an exact one-dimensional mean; this is not a general paired-clock joint-transform theorem in the read passage.",
+          "Calvert–Evans p. 1 states mean search times for two or more targets. Wang–Chen p. 1 names occupation time, maximum time and last passage through the origin, not hitting times to two fixed levels."
+        ],
+        "reasoning": "Neither more targets nor more general global-time laws subsume two continuing first visits unless the observables and reset protocol coincide.",
+        "searches": [
+          "arXiv:2406.12154v1 cover times with stochastic resetting",
+          "doi:10.1140/epjb/s10051-021-00238-0 both-target completion",
+          "arXiv:2508.11387v1 joint global-time distributions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Resultary 04e1c5c02a44, 486dbf3485b4, ff4440eb15e5, 04868fbce99a",
+        "Primary PDF passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The killed exit-side transforms can supply G_±, but do not continue the remaining clock or give the mixed derivative of G_+H_-+G_-H_+.",
+          "A completion mean, even if for the same continuing protocol, does not fix the mixed second moment. The covariance sign and cancellation require the combination of first-visit history and continuation used here."
+        ],
+        "reasoning": "Treat prior one-stage transforms and cover-time means as antecedents. No exact stronger joint law or implication was established in the actual read material.",
+        "searches": [
+          "Pal–Prasad arXiv:1812.03009v2 absorbing exit",
+          "Linn–Lawley arXiv:2406.12154v1 cover time",
+          "Calvert–Evans two-target search mean",
+          "Wang–Chen arXiv:2508.11387v1 pairwise global-time laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linn–Lawley v1 p. 1 defines cover time and describes an exact Brownian resetting cover mean. For these endpoints the cover time is max(T_-,T_+), whereas Pal–Prasad's killed exit is the minimum with an exit label.",
+          "The paired product is T_-T_+=min(T_-,T_+)max(T_-,T_+), so a mean of either order statistic is insufficient. A joint law of the minimum and maximum would give the mixed moment, but an isolated maximum moment is not that joint law."
+        ],
+        "reasoning": "Compare joint transform, order-statistic and covariance formulations. It is essential to continue from the level actually hit and use the original Poisson resets.",
+        "searches": [
+          "Resultary opposite target first-passage clocks / common reset clock / cover times",
+          "arXiv:2406.12154v1",
+          "arXiv:1812.03009v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 04e1c5c02a44 is the frozen record itself. Distinct indexed neighbors 486dbf3485b4 and 04868fbce99a concern reset counts and fixed-horizon survival indicators, respectively. Neighbor ff4440eb15e5 concerns a conditional completion/exit delay between absorbing endpoints."
+        ],
+        "reasoning": "The nearest indexed observables do not match the two persistent first-visit clocks. This is a bounded indexed comparison, not whole-mirror exclusion.",
+        "searches": [
+          "Resultary semantic query for opposite-target Brownian first-passage covariance and shared resetting"
+        ]
+      },
+      "rationale": "Best of current knowledge for the continuing-clock bivariate transform, exact sign and weak-reset mixed-moment asymptotic. The inspected closest work concerns first exit, cover/completion means, or different joint observables. Standard killed exit and resetting renewal formulas are inputs, not new results.",
+      "residual_risks": [
+        "OA passage lookup and mirror full-text retrieval were limited. In particular, the Calvert–Evans forced-restart protocol was not independently verified and the same-model Linn–Lawley comparison is bounded to the material listed. Unindexed or deeper multi-target joint-law work could overlap; no claim of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-model mean comparison; no whole-text exclusion.",
+          "evidence": "Computes exactly the mean cover time for one-dimensional Brownian search under exponential resets; cover time is when the target region is first covered.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.12154v1",
+          "material_read": "v1 PDF p. 1, abstract and introduction, extracted lines 10–16 and 29–31",
+          "method": "Exact OA lookup and public PDF retrieval; deeper sections not read independently.",
+          "title": "Cover times with stochastic resetting",
+          "trigger": "Persistent cover of the same two endpoints under Brownian resetting"
+        },
+        {
+          "assessment": "Supplies a killed first-stage model, not the second clock after hitting a boundary.",
+          "evidence": "Interval has absorbing endpoints, and splitting probabilities concern trapping at one boundary without hitting the other.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.03009v2",
+          "material_read": "v2 PDF p. 1 abstract, extracted lines 9–20",
+          "method": "Exact OA lookup and public PDF retrieval",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Exit-side transforms and splitting probabilities for the same reset geometry"
+        },
+        {
+          "assessment": "Verified mean-completion overlap; deeper protocol concerning a forced reset was not recovered independently.",
+          "evidence": "Computes mean time to find both opposite targets and recursive means for multiple targets.",
+          "identifier_or_url": "https://doi.org/10.1140/epjb/s10051-021-00238-0",
+          "material_read": "PDF p. 1 abstract, extracted lines 18–23",
+          "method": "Public PDF retrieval after OA lookup attempts",
+          "title": "Searching for clusters of targets under stochastic resetting",
+          "trigger": "Two targets on opposite sides of the origin"
+        },
+        {
+          "assessment": "Joint laws for different observables; not the fixed-opposite-level clocks.",
+          "evidence": "The three times are positive-axis occupation, time of the global maximum and last passage through the origin.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.11387v1",
+          "material_read": "v1 PDF p. 1 abstract, extracted lines 15–25",
+          "method": "Exact OA lookup and public PDF retrieval",
+          "title": "Pairwise correlations of global times in one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "Pairwise joint resetting statistics of a Brownian trajectory"
+        },
+        {
+          "assessment": "The read summary has absorbing endpoints and an independent delay rather than two continuing clocks; deeper overlap remains unverified.",
+          "evidence": "Summary concerns conditional completion and an independent delay between absorbing endpoints, not the joint covariance in the frozen model.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinitely-divisible-conditional-exit-delay-survives-arbitrar--ff4440eb15e5",
+          "material_read": "Local Resultary indexed summary; mirror text unavailable",
+          "method": "Resultary semantic search and mirror lookup attempt",
+          "title": "An infinitely divisible conditional exit delay survives arbitrary resetting",
+          "trigger": "Closest distinct indexed conditional exit-delay result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The persistent opposite-target clock pair is a natural two-target search observable. A shared reset clock and single particle do not make the sign immediate. The exact covariance settles it for all positive distances and rates, and the weak-reset cancellation makes the mixed moment diverge on a genuinely different scale from the product of means. The full joint transform also supports other two-target observables without replacing this process by a killed or forcibly restarted protocol.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

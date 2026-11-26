@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:17.825483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification",
+        "Frozen VERIFICATION.md and check.py (inspected only)",
+        "Independent derivative and endpoint analysis and direct time-domain bisection"
+      ],
+      "rationale": "Canceling 1−q for q=e^(−λ₁t) gives a ratio of a constant and S_m,S_r, where S_v=(1−q^v)/(1−q). Differentiating under the integral gives S_v′=v(v−1)(1−q)^−2 ∫_q^1(1−y)y^(v−2)dy. Hence R=S_r′/S_m′ is proportional to a conditional tail mean of the strictly increasing y^(r−m) with positive weight. Its derivative is strictly positive since the tail mean exceeds the boundary value. For H=S_m R−S_r the S_m′R and S_r′ terms cancel, leaving H′=S_m R′>0. The limiting S_v and S_v′ give H(0)=0 and H(1)=r(r−m)/(m−1). The derivative of p with respect to time has the sign of cH(q)−a, so the strict monotonicity, unique interior optimizer and the decreasing equality case follow. Fixed-depth P_n is a strictly increasing function of p, so the optimizer is independent of b and n. Cross-multiplying endpoint shares gives (m−1)a=(r−m)c, strictly below the peak threshold when divided by c. Because S_m<m and a+bS_m+cS_r>a+b+c at interior q, p/p(∞)<m; the unique maximum is strictly above the equal endpoints. Under endpoint matching and fixed b,c, at q=1−r^(−1/2) one has S_m→m, S_r≤sqrt(r), and a asymptotic to cr/(m−1), so the evaluated ratio and therefore the peak ratio tend to m. The fixed-n read map is concave with zero intercept and linear to first order as p→0, transferring the strict bound and sharpness. Two distinct rates give a fixed-sign log-ratio derivative since z/(e^z−1) strictly decreases. The symmetric witness works exactly at q=√2−1; separate bisection of the time-domain quotient-rule numerator for (1,5,50) and (a,b,c)=(45/4,1,1) gives t≈0.1895724195 and p≈0.1722690570. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The numerical replay is supplementary. The theorem is about monotone absolute accrual and a potentially unimodal normalized share, conditional on a fixed usable read count; p(0+) is a mathematical limit, not a zero-duration library."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karp et al. prove unimodality preservation for ratios with an SR3 kernel on intervals. Their Laplace example gives signature (+,−,−), hence the same direction of unimodality when the output is nonmonotone. The finite interval and positive denominator weight on that interval are allowed directly.",
+          "Yang–Tian give an endpoint-sign criterion for continuous input functions on the half-line with a strictly monotone change of shape; this version is related but does not directly meet the step-function hypotheses. Karp et al. cover the finite interval step functions.",
+          "Gloor et al. explain the relative nature of read counts at an instrument-imposed depth, not a saturation-rate peak gain."
+        ],
+        "reasoning": "The general kernel theorem covers the one-turn shape, not only a broadly similar phenomenon. The derivative of the ratio at zero and its eventual direction give the specialized phase condition. Neither theorem is a quantitative optimal upper bound relative to equal endpoint compositions across the constrained family.",
+        "searches": [
+          "Karp–Vishnyakova–Zhang, arXiv:2408.01755v2, pp. 5–6",
+          "Yang–Tian, arXiv:1803.02513, Theorem 3 p. 9 and extension Theorem 4 pp. 9–10",
+          "Gloor et al., DOI 10.3389/fmicb.2017.02224, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.01755v2",
+        "arXiv:1803.02513",
+        "Life Science Network 26627 (indexed preprint abstract)",
+        "DOI 10.3389/fmicb.2017.02224",
+        "Resultary 19ff685c232f and d6652ab19070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the prior transform-ratio theorem gives a monotone share or a single peak. Taylor expansion at t=0 gives p′(0+) the sign of cλ₃(λ₃−λ₂)−aλ₁(λ₂−λ₁), while the slowest exponential gives p′(t)<0 eventually. The zero-initial-slope case follows by taking limits from the decreasing parameter regime and using nonconstant analyticity. Thus the exact shape cutoff is covered as a corollary, even absent its displayed constant in prior work.",
+          "The shape theorem does not bound the quotient of peak share to endpoint share by m. The basic weighted-average ceiling b/(b+c) obtained from the integrand ratio would allow a gain (a+b+c)/(b+c), unbounded under the matched-endpoint scaling. The frozen gain result instead proves a strict cap m and exhibits a family attaining its supremum in the limit.",
+          "Araki–Sakata's abstract attributes an absolute-yield decrease to residual degraded DNA occupying substrate capacity; that result does not give the audited normalized gain or its sharpness."
+        ],
+        "reasoning": "The prior result settles the one-turn shape regardless of endpoint matching. Establishing the distinct numerical gain requires using the exponential normalization with the endpoint constraint and a two-scale witness as r grows; its persistence for every fixed n requires the small-share limit and read-map concavity. These quantitative conclusions are not consequences of unimodality alone or of the inspected empirical or mechanistic studies.",
+        "searches": [
+          "arXiv:2408.01755v2, Theorem 2.6 and Laplace example",
+          "arXiv:1803.02513, Theorem 3",
+          "Araki–Sakata, Life Science Network 26627, indexed abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M_i(t)/t is the Laplace transform of its plateau coefficient times the indicator of [0,λ_i]. Thus p is a ratio of Laplace transforms on (0,λ₃) with numerator b 1_[0,λ₂] and denominator a 1_[0,λ₁]+b 1_[0,λ₂]+c 1_[0,λ₃]. The integrand ratio takes successive levels b/(a+b+c), b/(b+c), and 0; it is weakly unimodal.",
+          "Araki–Sakata abstract: retained degraded DNA may induce a peak in absolute detectable yield. The audited absolute yields instead increase strictly and only a normalized share can peak."
+        ],
+        "reasoning": "The indicator formulation is exactly equivalent, and transforms the shape problem into a direct case of prior sign-regular-kernel theory. The absolute-yield preprint instead describes a different observand and loss/retention mechanism. Neither form supplies the equal-endpoint optimal gain merely by renaming parameters.",
+        "searches": [
+          "Ratios of Laplace transforms and unimodality on a finite integration interval: arXiv:2408.01755v2, Theorem 2.6 and Laplace example",
+          "Three saturating exponentials, equal endpoint shares and sharp transient amplification",
+          "Resultary 19ff685c232f and d6652ab19070"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the frozen record itself. The inspected near hit studies Poissonized false retention versus sequencing-depth effort under a relative-read cutoff; it does not supply the rate-ratio gain bound. The close passive-sampler preprint abstract describes absolute yield, not an equal-endpoint share bound."
+        ],
+        "reasoning": "No inspected independent entry provides the equal-endpoint gain with the strict finite-r inequality and sharp limiting family. This comparison is statement-level and bounded; neither self-matching nor the retrieval failures establish priority.",
+        "searches": [
+          "Resultary 19ff685c232f (exact frozen record) and d6652ab19070 (nearby sequencing peak statement)",
+          "Targeted literature lookup for three saturating exponential amplitudes, normalized share with equal endpoints and amplification"
+        ]
+      },
+      "rationale": "The general shape and the derivative-sign phase criterion are covered by a prior Laplace-ratio unimodality theorem after an explicit indicator-function reduction and elementary endpoint evaluation. They are not credited as new general unimodality results or as a novel theorem merely because the rate cutoff has new notation. The original record also expressly states a distinct quantitative result not supplied by that theorem: the strict, optimal rate-ratio cap on transient gain with matched endpoint compositions, its sharp approach with fixed b,c, and the same sharp factor for every fixed usable read depth. The pass is for that material model-specific contribution already in the frozen Finding, not for priority of the shape criterion.",
+      "residual_risks": [
+        "The Araki–Sakata primary full text and von Ammon et al. full text were not independently inspected. Closely equivalent special-model quantitative results may be unindexed. The pass does not establish priority of the unimodality criterion or the gain claim across all literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the qualitative shape and, with endpoint calculation, the cutoff; does not give the sharp equal-endpoint amplification",
+          "evidence": "On intervals an SR3 kernel preserves unimodality of A/B. For K=e^(−xy) the signature is (+,−,−), preserving the mode direction if the result is nonmonotone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01755v2",
+          "material_read": "p. 5 Theorem 2.6 (offset 23370); p. 6 exponential-kernel Laplace example (offset 27100)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Unimodality preservation by ratios of functional series and integral transforms",
+          "trigger": "Stronger integral transform ratio theorem with direct applicability to positive compactly supported indicator weights"
+        },
+        {
+          "assessment": "Closely related endpoint-sign theorem, with different regularity in the displayed form; no sharp equal-endpoint gain",
+          "evidence": "Continuous f,g, positive g and a strict monotonicity change give a monotone or one-turn Laplace ratio according to the sign of H_F,G(0+).",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02513",
+          "material_read": "p. 9 Theorem 3 (offset 35100); Theorem 4 and its start of proof (35700, 37400)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Monotonicity rules for the ratio of two Laplace transforms with applications",
+          "trigger": "Potential existing derivative-sign criterion for unimodal input ratios"
+        },
+        {
+          "assessment": "Distinct absolute-yield peak mechanism in inspected material; full-text scope unresolved",
+          "evidence": "The abstract distinguishes monotone accumulation when degraded DNA does not occupy capacity and an absolute detectable DNA maximum when it does.",
+          "identifier_or_url": "https://www.lifescience.net/preprints/26627/optimising-passive-edna-sampling-a-theoretical-fra/",
+          "material_read": "Indexed bioRxiv abstract at offset 0 only; primary full text not retrieved",
+          "method": "Bounded abstract inspection and attempted lawful bioRxiv retrieval (HTTP 403)",
+          "title": "Optimising passive eDNA sampling: A theoretical framework for time-dependent eDNA accumulation",
+          "trigger": "Most plausible same-application theoretical prior about an optimum in passive sampler time"
+        },
+        {
+          "assessment": "Prior normalization context, not a time-dependent gain theorem",
+          "evidence": "The sequencer imposes a read total, so the relative abundances are not absolute quantities.",
+          "identifier_or_url": "https://doi.org/10.3389/fmicb.2017.02224",
+          "material_read": "pp. 1–2, offsets 1350 and 5700",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Microbiome Datasets Are Compositional: And This Is Not Optional",
+          "trigger": "Known compositional observation model"
+        },
+        {
+          "assessment": "No full-text scope conclusion; no negative inference from failed access",
+          "evidence": "The identifier and deployment-time topic were verified; no inspected material was used to assert absence of a theorem.",
+          "identifier_or_url": "DOI 10.7717/peerj.19043; PMID 40061223; PMCID PMC11890302",
+          "material_read": "PubMed listing only; relevant full-text material not independently retrieved",
+          "method": "Bibliographic inspection and bounded author/publisher archive retrieval attempts",
+          "title": "Investigating passive eDNA samplers and submergence times for marine surveillance",
+          "trigger": "Time-dependent relative composition in a passive sampler may be discussed"
+        },
+        {
+          "assessment": "Different independent variable, statistic and peak mechanism",
+          "evidence": "Poissonized filtering and false retention as sequencing-depth effort varies, not time-varying three-class saturation.",
+          "identifier_or_url": "Resultary d6652ab19070",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "Arbitrarily many spurious depth peaks under relative read filtering",
+          "trigger": "Same-day indexed sequencing-composition peak result"
+        },
+        {
+          "assessment": "Identical frozen record, no independent prior match",
+          "evidence": "Same normalized time-dependent shares, threshold, and equal-endpoint amplification.",
+          "identifier_or_url": "Resultary 19ff685c232f",
+          "material_read": "Finding in local mirror and bound record",
+          "method": "Local Resultary mirror comparison",
+          "title": "A sharp transient-composition law for three saturating ecological markers",
+          "trigger": "Exact indexed finding returned"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equal-endpoint gain and sharpness construction",
+        "arXiv:2408.01755v2 (related shape theorem)",
+        "Araki–Sakata abstract, alternative absolute-yield mechanism"
+      ],
+      "rationale": "The independently useful exact fact is the sharp rate-ratio gain when the early- and late-time compositions match. These endpoints can mask a substantial interior amplification even though every absolute yield increases, but under the model the amplification is constrained by λ₂/λ₁ rather than by the much faster third rate. Exact sharpness with fixed middle and fast plateaus and persistence under fixed-depth detection make this more informative than showing that one arbitrary composition curve has a peak. It is a diagnostic for model interpretation, not a field deployment prescription.",
+      "residual_risks": [
+        "No empirical parameter calibration, unconditional read-effort model, or extension to coupled uptake/degradation is established. The sharp limit holds at each fixed n, not uniformly over varying depth."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

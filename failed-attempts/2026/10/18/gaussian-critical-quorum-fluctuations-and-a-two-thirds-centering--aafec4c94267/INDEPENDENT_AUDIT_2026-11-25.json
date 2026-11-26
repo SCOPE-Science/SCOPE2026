@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:42:48.633913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(8) and proof steps 1–4",
+        "Frozen VERIFICATION.md and verification/verify_critical_zipf.py (inspected, not executed)",
+        "Independent bounded replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/review_zipf_crosscheck.py"
+      ],
+      "rationale": "For the unnormalized discovered weight in operational time A=lambda*t/H_N, the mean is F_N. Splitting the infinite mean at floor(A) gives log A+2 gamma+O(1/A); the omitted catalogue tail is A/N+O(A/N^2+(A/N)^2). Bracketing at fixed multiples of B_N first gives A_N/B_N -> 1. The root equation then gives log(A_N/B_N)=A_N/N+O(1/B_N+(B_N/N)^2+1/N); exponentiation and substitution yield (3). For (7) use the already proved derivative estimate (do not differentiate an undifferentiated big-O): V_N=F'_N(A)-F'_N(2A), and the difference of the two omitted tails is O(A/N^2) by 1-exp(-A/i) <= A/i. For the CLT, scaled summands with i>sqrt(A)/epsilon are bounded by epsilon, while the sum of their smaller-index counterparts' scaled variances is O(A exp(-epsilon sqrt(A))). At A=A_N+h sqrt(A_N), the mean shifts by h/sqrt(A_N)+o(1/sqrt(A_N)); the exact inversion event is S_N(A)>theta H_N, and its limiting normal has no atom. In the last proof paragraph, the relative 1+o(1) on the drift does not follow from (3) below or at theta=1/2. What is needed and follows is the additive error O(B_N^(-1/2)+(B_N^(3/2)/N)(B_N/N+1/B_N)): it is o(1) below 2/3, o(1) at 2/3, and o(B_N^(3/2)/N) above 2/3. This establishes (4) without a stronger relative estimate. An independent finite check of the actual mean root, derivative, variance and drift in branches/review_zipf_crosscheck.py was consistent with the result (at N=10^6, theta=2/3, A_N V_N=0.4999892, drift 0.3170964 versus limiting 0.3152368); it is not a proof.",
+      "residual_risks": [
+        "Independent clocks and fixed interior theta only. Finite drifts can have sizeable relative errors at small theta; the first-order root error bound should not be read as a uniform signed relative estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebunin–Zuyev abstract and model, pp. 1–2, treat fixed infinite urn frequencies and occupancy/missing mass processes. The November 8 Finding takes 0<s<1 with boundaries at s=1/2 and s=3/4 in the stated regimes."
+        ],
+        "reasoning": "Neither supplies a directly covering harmonic inverse theorem: a normalizable fixed frequency sequence is not the finite triangular harmonic model, and s<1 excludes the harmonic endpoint. Exact coverage instead comes from the November 2 theorem.",
+        "searches": [
+          "Chebunin–Zuyev, DOI 10.1007/s10959-020-01053-6",
+          "Resultary 2026/11/8, c9271edb3c25, finite aligned Zipf Gaussian centering"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries 3f29fff03002 and c9271edb3c25",
+        "arXiv:2607.08551v1",
+        "DOI 10.1007/s10959-020-01053-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Müller–Šebek Lemma 6.2 bounds the variance; Theorem 6.3 gives the same first-order constant and scale. The conclusion names critical next-order behavior and fluctuations as open. The exact comparator calculates the variance constant, inverts the independent-array Gaussian, and gives the next-order centering."
+        ],
+        "reasoning": "A first-order limit with only a variance bound determines neither a Gaussian variance nor a competing centering drift. The separate exact theorem gives both, and the rate multiplier does not add mathematical content.",
+        "searches": [
+          "Müller–Šebek arXiv:2607.08551v1 §§6, 9",
+          "Indexed exact comparator, Finding and Gaussian/inversion/centering proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finding items 1–3 explicitly give (T_N/H_N-A_N)/sqrt(A_N) -> N(0,1/2), and at theta=2/3 give N(c_theta^2,c_theta/2) under scale N^(theta/2)."
+        ],
+        "reasoning": "Replace T_N by lambda*tau in law and divide the indexed external-centered variable by sqrt(c_theta) to get W_N. The means become c_theta^(3/2), the variances 1/2, and the sub- and supercritical alternatives also coincide.",
+        "searches": [
+          "Resultary: harmonic Zipf exact-root Gaussian quorum hitting time and two-thirds centering",
+          "Resultary 2026/11/2, 3f29fff03002, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Finding inspected in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; items 1–3 include the CLT, A_N=c_theta N^theta+c_theta^2 N^(2theta-1)+O_theta(1+N^(3theta-2)), and all three centering regimes."
+        ],
+        "reasoning": "This is an exact catalogue match, not a table of finite cases. Multiplication by B_N in (3) gives the indexed additive expansion since B_N/N=o(1).",
+        "searches": [
+          "Local Resultary catalogue, distinct entry 2026/11/2/SCOPE-gaussian-fluctuations-and-the-two-thirds-centering-boundary-for--3f29fff03002"
+        ]
+      },
+      "rationale": "A distinct indexed result states and proves the same exact-root Gaussian and the entire explicit-centering trichotomy, with the same root expansion. Normalizations, strict threshold, aligned harmonic weights and fixed parameter range all agree. This is established equivalent coverage, not an inference about authorial dependence or who proved it first. The indexed match carries a later catalogue label than the assigned path; their labels do not establish the order or independence of the mathematical work. No distinct scientific content remains after comparing the actual statements.",
+      "residual_risks": [
+        "The relationship and historical order of the distinct catalogue entries are not established; no priority judgment.",
+        "The bounded literature inquiry is not exhaustive; there may be more general inverse occupancy results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Identical strict stopping rule and harmonic rates; items 1–3 and explicit clock rescaling give all three studied assertions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-fluctuations-and-the-two-thirds-centering-boundary-for--3f29fff03002/RESULT.md",
+          "material_read": "Finding and scope at offset 0; proof offsets 4475–8736",
+          "method": "Local indexed search, bounded mirror text",
+          "title": "Gaussian fluctuations and the two-thirds centering boundary for critical Zipf quorum times",
+          "trigger": "Strong same-model catalogue match"
+        },
+        {
+          "assessment": "Covers first-order scale, not the Gaussian/centering distinction in inspected passages",
+          "evidence": "Lemma 6.2, Theorem 6.3, and the concluding open-direction text on next-order behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.08551",
+          "material_read": "v1 §6, pp. 11–14; conclusion",
+          "method": "Bounded OA PDF and HTML passages",
+          "title": "Weighted-threshold Coupon Collection",
+          "trigger": "Original first-order theorem in identical model"
+        },
+        {
+          "assessment": "Different frequency model and observables",
+          "evidence": "A fixed regular-varying infinite-urn setup does not instantiate the aligned harmonic finite-catalogue inversion and its bias.",
+          "identifier_or_url": "https://doi.org/10.1007/s10959-020-01053-6",
+          "material_read": "Abstract and model setup pp. 1–2",
+          "method": "Bounded OA text",
+          "title": "Functional Central Limit Theorems for Occupancies and Missing Mass Process in Infinite Urn Models",
+          "trigger": "Candidate stronger occupancy CLT"
+        },
+        {
+          "assessment": "Related but harmonic endpoint not included",
+          "evidence": "The stated domain is 0<s<1 and the reported boundaries are s=1/2 and s=3/4.",
+          "identifier_or_url": "Resultary 2026/11/8/c9271edb3c25",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Gaussian fluctuations and two critical centering exponents for finite aligned Zipf",
+          "trigger": "Related catalogue theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (2)–(4)",
+        "Müller–Šebek §6 and conclusion"
+      ],
+      "rationale": "As a mathematical statement the coincidence of the catalogue bias and the fluctuation scale produces a genuine threshold at 2/3 and a nonvanishing Gaussian shift exactly there. This refines the first-order law in a way useful for applying an explicit centering. The value of the theorem as such does not give value to publishing a second equivalent finding or overcome the originality failure.",
+      "residual_risks": [
+        "No moving-threshold, nonharmonic or dependent-clock extension assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

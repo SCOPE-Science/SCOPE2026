@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The facet list is independently grounded in the exact parabola-chord equations and the inspected primary source. The analytical comparison functional \(R_h(a,b)\) is strictly decreasing in either argument when the other is at most \(h/2\), proving every nonterminal edge lies strictly outside the proposed inball; the top and two terminal edges then force both the sharp radius and its unique center. The deletion result follows because its newly consecutive lower chords still end at or below \(d=h/p\). An exact rationalization yields the arithmetic defect and uniform asymptotic error. Finite high-precision checks and an independent LP comparison supplement rather than replace those universal arguments.
+## correctness
 
-## Originality — PASS (historically provisional)
-The defining source (Hofscheier–Nill, arXiv:2611.08819v1, Section 4) enumerates vertices, facets, and lattice distances for \(B_h\), but does not classify inscribed Euclidean disks. The closest published area-spectrum study of the exact same polygons (see RESULT.md references) has a different functional; its full RESULT.md was inspected and has no inradius theorem. An earlier polar-area claim for these polygons was compared at statement level; polar area does not determine the Euclidean inball. Searches across mathematical research records and public literature did not identify the three-contact or smallest-prime-defect claim. Generic Chebyshev-center algorithms supply a method, not the specialized closed form. The main residual risk is unindexed equivalent work.
+PASS
 
-## Mathematical value — PASS
-This is a complete infinite-family Euclidean inball classification for the precise arithmetic polygons used to generate unprecedented reflexive-polytope facet counts. It detects an unexpected metric/combinatorial decoupling: of \(2\tau(h)+1\) facets only three support the inball, and \(2^{\tau(h)-3}\) distinct deletion polygons can share that inball. The complete prime-indexed accumulation spectrum with if-and-only-if arithmetic rigidity is a natural geometric fingerprint not conveyed by facet counts or area calculations. The theorem is scoped to these specific polygons; it is not claimed as a general convex-polygon optimization breakthrough.
+For h≥2 the predecessor d=h/p is at most h/2. The signed distances from (0,h²−r) to the top and both terminal chord lines equal r=h(h+d)/(1+√(1+(h+d)²)). For any other lower line with endpoint parameters (u,v), including (1,1) for the bottom lines, both parameters are at most d. The sign of the first partial derivative of R_h(u,v) is that of (v²−h²)(u+v)+v(1+√(1+(u+v)²)); since u+v≥2 and v≤h/2 this is bounded above strictly by (u+v)(v²+2v−h²)<0. By symmetry R_h(u,v)≥R_h(d,d)>R_h(d,h), which gives strict slack; it includes the case d=1. Any center (x,y) and feasible radius ρ obey ρ≤h²−y and ρ√(1+(h+d)²)+(h+d)|x|≤y+dh. Adding proves optimality, and equality forces the proposed center. All three contacts are in the relative interiors because all other lines are slack. Retaining 1,d,h after symmetric deletion preserves these constraints and keeps every new nonterminal chord below the same parameter bound. Strict convexity makes each retained parabola point extreme, so the deletion count is exact. Rationalization gives the positive error from p/(p+1) of less than 1/(2h); isolation of finite prime values and the sole accumulation point 1 give both sequence equivalences and the full spectrum, realized by prime powers and increasing primes. The frozen decimal checker was inspected, not run, and its finite scope is not needed for the proof.
 
-## Evidence and limits
-The primary source was inspected in its openly readable arXiv HTML (Sections 1–4, including Lemma 4.1). The closest published area-spectrum RESULT.md was read in full. The current accessible historical claim concerning polar area was checked for substantive overlap. The included program verifies lower-facet distances and contact feet for 1,999 tested \(h\), while the universal inequalities are proved in RESULT.md. External independent auditing remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited facet description and earlier arithmetic invariants of B_h are prior results. In the inspected sources the unique three-contact Euclidean inball, deletion invariance and prime-indexed metric defect are distinct, not established by the earlier lattice area computations or the general formulation of the center optimization problem. This is a bounded priority assessment.
+
+## value
+
+PASS
+
+The polygon is an established arithmetic building block and the free Euclidean inball is a natural shape invariant. Identifying three universally active facets among 2τ(h)+1, and proving that the disk persists in every specified deletion, gives useful structural compression beyond a numerical center solver. The uniform defect estimate recovers a precise least-prime signal, with all accumulation values and their rigidity characterized. The value is planar and family-specific, not a claim about inballs of the higher-dimensional reflexive constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

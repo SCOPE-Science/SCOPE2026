@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is exact for every integer \(d\ge2\), both real and complex Hermitian trace-one positive-semidefinite matrices, and each \(0<\delta<1\). The rank-one extreme-point argument and orthogonal/unitary averaging justify the reduction to a single center parameter. A rank-one Löwner inequality gives the active quadratic equality; the cap constraint and a strict monotonicity comparison prove both attainability and global optimality. The supplied 70-digit finite checker passes, but is not used to infer universal quantifiers.
+## correctness
 
-**Originality — PASS.** The relevant full-text material from Xiong–Freund (2026), Belloni–Freund (2008), and den Hertog–Pauphilet–Soali (2023/2024) gives definitions, general rounding/center algorithms, and polyhedral or two-ellipsoid specializations, not the stated closed formula for rank-one semidefinite caps. Published nearby exact-value results for matroid polytopes, Schur–Horn orbitopes, and density-matrix projections concern different objects or invariants. A planar cut-disk specialization may be covered elsewhere; its extension does not imply the arbitrary-dimensional theorem. Search coverage is necessarily incomplete.
+PASS
 
-**Value — PASS.** Rank-one pure-state fidelity constraints form a natural class of semidefinite feasible regions, and the exact global Minkowski reflection parameter directly determines the dimension-and-symmetry factor available from a published rounding theorem. Its exact positive collapsed-cap limit is a nontrivial boundary behavior. The result is neither a general theory for arbitrary SDP sections nor a claimed optimal ellipsoid-rounding factor.
+Writing s=d-1, any feasible center can be averaged over the stabilizer of P to Z_q=(1-q)P+q(I-P)/s. The cap constraint at X=P forces (1+alpha)q≤delta. All extreme points of the cap are pure: on any support of rank at least two the self-adjoint perturbation space has dimension at least three, so a nonzero perturbation preserving both traces remains feasible in both signs for small amplitude. For a pure state at transverse weight t, positivity of reflection is equivalent to alpha/(1+alpha) times [(1-t)/(1-q)+s t/q] being at most one. At q*=delta/(1+alpha*)<s/(s+1) the worst state has t=delta, and equality is exactly the defining quadratic. The reflection is trace-one and satisfies the linear cap constraint. For alpha>alpha*, all possible averaged centers would have 0<q<q*; the function G(q) at t=delta is strictly decreasing up to q*, since its minimizer is at least min(delta,s/(s+1)). Therefore G(q)>G(q*) while (1+alpha)/alpha decreases, excluding a better factor. Implicit differentiation gives strict monotonicity using f(1/d)=-1/d². The two endpoint limits and the special width follow by substitution/continuity; delta=0 is excluded, and all reflection factors would be feasible for its singleton.
 
-**Closest prior work and limitations.** Xiong and Freund, *Symmetry-dependence in Rounding of a Convex Body* (2026, arXiv:2608.30876), establishes a rounding existence bound conditional on Minkowski symmetry, but does not provide the needed cap calculation in the inspected text. Belloni and Freund (2008) develops general symmetry theory. Den Hertog, Pauphilet, and Soali (2023/2024) gives robust center formulations. Possible uncatalogued cap-specific formulas and partial-summary comparisons remain explicit originality risks. The case \(\delta=0\) changes affine dimension and is not part of the theorem; independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the all-dimensional rank-one PSD-cap symmetry law and attaining center, including PSD bodies that are not balls. The index and the half-ball special case are classical; a later indexed ball-truncation law is exactly equivalent to both d=2 matrix slices and should not be counted as a distinct mathematical phenomenon in those slices.
+
+## value
+
+PASS
+
+The cap is the natural trace-one PSD section imposing a fidelity lower bound to a fixed pure state. The calculation gives an exact optimal reflection factor and a usable center, distinguishes singular narrow caps from their collapsed point, and gives a dimension- and width-dependent input to a general rounding estimate. The higher-size result goes beyond the ball case without claiming optimality for that rounding estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

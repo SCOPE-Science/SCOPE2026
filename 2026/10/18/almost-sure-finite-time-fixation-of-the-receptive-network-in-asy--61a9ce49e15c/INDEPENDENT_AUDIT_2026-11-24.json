@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:39:01.922092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions/update rule and proof steps 1–4, lines 8–47",
+        "Frozen VERIFICATION.md, analytic verification and limits"
+      ],
+      "rationale": "The deterministic opinion-convergence argument works for every edge sequence. Under a symmetric compromise a fixed k-subset sum either stays the same or is a convex combination of the old sum and the sum with the updated endpoint swapped. Therefore the minimum k-subset sum is nondecreasing, and boundedness gives limits of every order statistic. Squared energy drops by exactly 2μ(1−μ) times the squared selected receptive gap, so all per-step increments tend to zero. Separated neighborhoods of the finitely many order-statistic limits then trap each label in one neighborhood, giving labeled limits. For a fixed edge and deterministic start time let τ_k be the k-th pre-selection receptive opportunity. On {τ_k=t} the earlier failures are measurable before the draw at t, so summation over t bounds the chance of k existing opportunities with no hits by (1−q) times the corresponding bound for k−1. Iteration and a countable union over start times show that infinitely many receptive times force infinitely many selected receptive times, with no independence assumption. Distinct opinion limits preclude such a sequence by the energy or labeled increment bound. With equal limits, choose a pathwise time after which the gap is strictly below γ. The first receptive selection after it sets confidence to at least γ, and thereafter receptivity and confidence ≥γ persist by induction. If there is no such selection, thinning gives eventual absence. Finiteness of the edge set gives joint eventual constancy. Every edge is selected infinitely often by the same conditional bound, so for δ<1 the two eventual regimes give confidence limits 1 and 0. The freezing proof does not use δ<1. An edgeless graph is vacuous; the strict gap argument covers μ=1/2, γ=1 and both decay endpoints without avoiding equality by genericity.",
+      "residual_risks": [
+        "No numerical inference or formal certification was used. The fixation time is pathwise and need not be an observable stopping time; no integrability or tail bound was proved.",
+        "The informal limitations sentence 'raise ... by at least γ' should mean that the updated confidence is at least γ, not that its increment is at least γ. The model equations and proof use the correct threshold.",
+        "The confidence characterization must not be extended to δ=1: endpoints 0 and 1 with confidence 1 are permanently unreceptive under the strict gap rule but keep confidence 1 at δ=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lorenz Theorem 2 gives a stochastic-matrix product limit with consensus blocks, not stabilization of all threshold comparisons at all times.",
+          "Li–Luo–Porter Thm. 3.8 gives confidence limits 0 or 1 when δ<1, and Thm. 3.11 excludes late cross-cluster edges. The journal remarks that a limit for the adaptive effective graph may not exist; it does not provide an adaptive counterexample in those passages."
+        ],
+        "reasoning": "Opinion convergence by itself neither resolves edges with equal limits nor addresses equality at a confidence boundary before selection. At δ=1 the dichotomy used by the narrower adaptive proof is not even generally true.",
+        "searches": [
+          "Lorenz arXiv:0708.2981 stabilization theorem; Li–Luo–Porter DOI 10.1137/23M1558951, confidence convergence and adaptive effective-graph theorem",
+          "Resultary conditional sampling and δ=1 adaptive network fixation"
+        ]
+      },
+      "checked_sources": [
+        "Li–Luo–Porter DOI 10.1137/23M1558951, author journal PDF",
+        "Resultary 89f7f0a6c87c original RESULT.md",
+        "Lorenz arXiv:0708.2981",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "89f7f0a6c87c distinguishes c_e→0 from c_e→1 and invokes established convergence for the latter. Replacing independence in the thinning lemma by a conditional lower bound does not extend the convergence premises or create the dichotomy at δ=1.",
+          "The frozen proof instead uses labeled gap limits and a post-meeting lower bound γ to lock same-limit edges without the dichotomy."
+        ],
+        "reasoning": "This is not a direct corollary of a narrower parameter theorem: setting δ=1 requires a different argument, and a proof for independent selections cannot automatically be applied to every allowed history-dependent law. The surviving extension is mathematical, not merely nomenclature.",
+        "searches": [
+          "Compare journal Thms. 3.8 and 3.11–3.12 to both Cases in Resultary 89f7f0a6c87c and the frozen edgewise proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adaptive effective graph is exactly the pre-selection strict-gap receptive graph, not the graph of edges actually selected at that time.",
+          "Eventual constancy is the same as a limit in the discrete finite set of spanning subgraphs, and stronger than eventual containment in the same-opinion-class graph."
+        ],
+        "reasoning": "The adaptive containment result leaves room for edges inside a limit-opinion class to change status. Baseline graph language refers to the same type of status but thresholds are fixed, not adapted by this reinforcement rule.",
+        "searches": [
+          "Resultary adaptive-confidence Deffuant–Weisbuch effective/receptive network finite-time fixation and graph stabilization",
+          "Li–Luo–Porter journal §§2.4, 3.2 and Theorems 3.8, 3.11–3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89f7f0a6c87c states eventual adaptive graph constancy and identifies the limit with confidence-one edges for independent uniform draws, deterministic opinions/common c0 in (0,1), and δ<1.",
+          "The nearest indexed same-day opinion-dynamics search hit concerned subgeometric convergence with vanishing response (0299c02712ba), not adaptive dyadic receptivity."
+        ],
+        "reasoning": "The first is a substantive exact overlap on its parameter regime, not a match to the full hypothesis or a statement of historical priority. The second was not used as evidence of a competing fixation theorem.",
+        "searches": [
+          "Resultary exact effective-graph fixation, adaptive DW, persistent sampling",
+          "Resultary 89f7f0a6c87c Finding and proof"
+        ]
+      },
+      "rationale": "The credited distinct result is the stronger adaptive-confidence fixation theorem including no confidence decay at δ=1 and history-dependent, uniformly persistent conditional sampling, with a self-contained argument not predicated on convergence of confidences to {0,1}. Full eventual constancy and the confidence-one characterization for independent uniform sampling, δ<1 and common interior initial confidence are explicitly covered by a separate indexed result and are not credited as novelty on that subdomain. The inspected Li–Luo–Porter journal result is weaker in the adaptive model and proves full constancy separately for baseline fixed confidence. The other indexed record is later-dated, which does not decide historical priority.",
+      "residual_risks": [
+        "Earlier or stronger unindexed convergence/fixation results may exist; bounded indexed checks and dates are not a certification of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adaptive confidence-limit/containment results and baseline graph fixation, not full adaptive fixation under the frozen hypotheses",
+          "evidence": "Thm. 3.11 only says late effective edges join same-limit opinions. Thm. 3.12 explicitly fixes the graph in the baseline time-independent confidence model.",
+          "identifier_or_url": "https://www.math.ucla.edu/~mason/papers/BCM-dynamic-April2025.pdf",
+          "material_read": "Journal PDF §2.4 p. 7 (offsets 67300–70477), Thm. 3.8 p. 14 (150500 onward), Thms. 3.11–3.12 and discussion pp. 14–15 (156400–162353)",
+          "method": "Author's OA journal PDF, bounded passage reading",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+          "trigger": "Original model and potential effective-graph convergence theorems"
+        },
+        {
+          "assessment": "Covers a narrower overlap; does not establish no-decay or general conditional sampling",
+          "evidence": "Its theorem assumes independent uniform edges and δ<1; the proof splits according to confidence limit 0 or 1 and uses prior convergence theorems.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-almost-sure-finite-time-stabilization-of-the-effective-graph-in--89f7f0a6c87c/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–1944; cases and convergence premises 4150–6124; comparison near 7948",
+          "method": "Resultary search and local-mirror passage reading",
+          "title": "Almost-sure finite-time stabilization of the effective graph in adaptive-confidence Deffuant–Weisbuch dynamics",
+          "trigger": "Direct indexed adaptive graph-fixation match"
+        },
+        {
+          "assessment": "Stabilizes opinion classes and products, not the frozen pre-selection adaptive graph",
+          "evidence": "The convergence theorem is for a matrix-product limit with block consensus; the support discussion concerns products over blocks, not permanent individual threshold comparisons.",
+          "identifier_or_url": "https://arxiv.org/html/0708.2981",
+          "material_read": "Theorem 2 and neighboring communication/zero-pattern explanation, HTML offsets 5850–8975",
+          "method": "OA locate and read",
+          "title": "A stabilization theorem for dynamics of continuous opinions",
+          "trigger": "Broader stabilization theorem for reciprocal opinion updates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen edgewise fixation proof and endpoint statement",
+        "Li–Luo–Porter journal Thm. 3.11",
+        "Resultary 89f7f0a6c87c proof and scope"
+      ],
+      "rationale": "The extensions resolve finite pathwise stabilization of the actual adaptive network even at a natural boundary where the confidence-zero/one proof fails, and under persistent dependent sampling. This is a structural feature not supplied by opinion convergence. The locking argument separates persistent equality of limit opinions from persistent receptivity and avoids a generic-position assumption about strict confidence boundaries.",
+      "residual_risks": [
+        "Does not address synchronous dynamics, arbitrarily starving edge samplers, infinite graphs or expected fixation time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

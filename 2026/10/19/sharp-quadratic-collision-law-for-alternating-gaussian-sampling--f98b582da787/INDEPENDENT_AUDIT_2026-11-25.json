@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:55.698484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 4–114)",
+        "Frozen VERIFICATION.md and CHECKER_OUTPUT.txt; 3033 recorded finite numerical checks, not an independent execution or proof"
+      ],
+      "rationale": "Split the coefficient sequence into even and odd channels and use unitary Fourier series in the cell index. This gives the exact min and max squared fiber singular values, with no density factor. At the midpoint the fiber rows for value and derivative are h=(u,conj u) and d=(u′,−conj u′). In |u_x|² the change from (n,m) to (n−m,n+m) forces equal parities; the two parity sums in the spatial variable are A_a(x) and A_a(x+1). At x=1/2 their values coincide and their derivatives are opposite, yielding ||h||²=2Aϑ₃ and det(h,d)=−Dϑ₄. The Poisson formula and the logarithmic derivative of the theta product at π/4 give D<0. Unitary sum and difference of the sample rows give a determinant 2ε det(h,d)+O_a(ε³), uniformly on the frequency circle, and the large squared singular value is 2||h||²+O_a(ε²) with a uniform positive leading term. Their quotient gives the stated small squared singular value with O_a(ε⁴) error. The real theta products are positive and have opposite strict monotonicities on [0,π/2]; hence the leading minimum and upper limiting maximum both occur at frequency zero. The Hermite symbol is invertible with continuous bounded inverse because its determinant is bounded away from zero. Poisson summation gives A∼√(π/(8a)), D∼−2πA exp(−π²/(8a)), and ϑ₄(0,e^(−2a))∼2√(π/(2a)) exp(−π²/(8a)) at small a; at large a the nearest Gaussian term gives A∼exp(−a/2) and D∼−2aA. These recover both displayed width regimes and the squared bound ratio.",
+      "residual_risks": [
+        "Remainders are at fixed a and the worst frequency is asserted unique only for the leading squared profile. U/B is the squared condition number, not its square root."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Relative to the integers the deviations are ±(1/2−ε); separated sites with 0<ε<1/2 meet the N=1 strict deviation bound in Theorem 1.3.",
+          "The derivative theorem's sufficient lower weighted density is strictly greater than 1, while this two-per-period-two design is exactly 1."
+        ],
+        "reasoning": "This shows real prior coverage of ordinary invertibility at positive separation. Neither the qualitative interpolation theorem nor the strict-density sufficient condition entails the sharp coefficient or invertibility at the confluent endpoint.",
+        "searches": [
+          "arXiv:2112.01248v1 Theorem 1.3",
+          "arXiv:1712.07899v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.01248v1, 1712.07899v2, 1308.2649v5",
+        "Resultary 32eb01139569, 982a248adcd7, 5506ec533384"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive-separation invertibility supplies no lower-bound leading constant or confluent determinant; the strict-density theorem stops short of the critical endpoint; the Laplace computation solves another generator's symbol."
+        ],
+        "reasoning": "The determinant identity, uniform even-order remainder, and global frequency minimization supply distinct content beyond the checked prior implications.",
+        "searches": [
+          "arXiv:2112.01248 Theorem 1.3",
+          "arXiv:1712.07899 Theorem 1.1",
+          "Resultary 32eb01139569 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sampling constants are extrema of the two-channel evaluation Gram symbol. Kiselev et al. compute theta constants of the integer-translate synthesis norm instead.",
+          "Resultary 32eb01139569 gives the same alternating-grid operator construction with the Laplace generator."
+        ],
+        "reasoning": "The translate synthesis Gramian is not the alternating point-evaluation Gramian. The Laplace formula is a genuine analogous collision law, but neither a reparametrization of the Gaussian theta coefficient nor a Hermite sampling result.",
+        "searches": [
+          "arXiv:2112.01248 Theorem 1.3",
+          "arXiv:1308.2649 equation (3)",
+          "Resultary lookup for alternating periodic sampling and Gaussian collision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Laplace coefficient is α²/cosh²(α/2), not the Gaussian coefficient. The other neighbours are two-site Gaussian-kernel p-quasinorm interpolation and integer translates of a Gaussian–first-Hermite mixture."
+        ],
+        "reasoning": "Known theta and Riesz constants are ingredients or constants for different operators. The retrieved material gave no exact Gaussian coefficient-norm period-two sampling profile.",
+        "searches": [
+          "Resultary 32eb01139569, 982a248adcd7 and 5506ec533384",
+          "arXiv:1308.2649v5 equation (3)"
+        ]
+      },
+      "rationale": "The distinct claim is quantitative: the exact Gaussian collision coefficient, the frequency profile yielding the sharp minimum, and the critical Hermite symbol. Ordinary alternating complete interpolation is covered by an earlier theorem and is not credited as new. The closest structural catalogue match uses a different generator, and the inspected derivative-sampling theorem does not give the critical Gaussian design.",
+      "residual_risks": [
+        "An equivalent quantitative result in Zak-transform, multiwindow Gabor, or critical confluent interpolation terminology could remain unlocated; no worldwide priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary interpolation covered, constants not determined",
+          "evidence": "Coefficient ℓ² normalization and strict averaged deviations apply directly with N=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01248",
+          "material_read": "v1 Theorem 1.3, p. 2, PDF text offset near 7362",
+          "method": "Bounded OA PDF text",
+          "title": "Complete interpolating sequences for the Gaussian shift-invariant space",
+          "trigger": "Same generator and critical ordinary interpolation"
+        },
+        {
+          "assessment": "Sufficient condition does not reach this design",
+          "evidence": "Weighted density >1 suffices; the necessary density ≥1 is not sufficient as stated.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07899",
+          "material_read": "v2 Theorem 1.1, p. 2, PDF text offsets 6134–8075",
+          "method": "Bounded OA PDF text",
+          "title": "Sharp results on sampling with derivatives in shift-invariant spaces and multi-window Gabor frames",
+          "trigger": "Potential critical Hermite coverage"
+        },
+        {
+          "assessment": "Different norm/operator",
+          "evidence": "Theta constants for Gaussian integer translates in L², not alternating sample data.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2649",
+          "material_read": "v5 abstract and equation (3), pp. 2 and 4, equation text offset near 5468",
+          "method": "Bounded OA PDF text",
+          "title": "On Evaluation of Riesz Constants for Systems of Shifted Gaussians",
+          "trigger": "Exact theta constants and monotonicity"
+        },
+        {
+          "assessment": "Material structural parallel, different mathematical statement",
+          "evidence": "Laplace generator, coefficient α²/cosh²(α/2), no Gaussian Hermite assertion.",
+          "identifier_or_url": "Resultary 32eb01139569",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two spectral bands and an exact conditioning law for alternating sampling",
+          "trigger": "Same grid and exact quadratic collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–32 and 93–114",
+        "arXiv:2112.01248 Theorem 1.3",
+        "arXiv:1712.07899 Theorem 1.1"
+      ],
+      "rationale": "Two samples per period-two cell are a natural critical design. The global sharp coefficient measures noise amplification as value observations merge; its pronounced width dependence would not follow from interpolation existence. The exact critical value-plus-derivative replacement is stable and has an explicit symbol, explaining why the confluent observations do not share the duplicated-value degeneracy.",
+      "residual_risks": [
+        "This is a quantitative result for one generator and one periodic design, not a general classification of critical Hermite sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

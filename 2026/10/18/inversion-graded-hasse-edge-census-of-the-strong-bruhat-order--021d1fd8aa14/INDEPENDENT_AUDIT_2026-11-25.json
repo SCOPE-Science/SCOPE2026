@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:10.861377Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63 and its reciprocal-identity equation",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, uploaded script not executed; reciprocal check uses grade N−1)",
+        "Independent bounded gap-enumeration script and exact coefficients: /workspace/branches/43cd784a-bc35-4608-a1fd-593ff87d3514/gap_enumeration.py and gap_enumeration_results.txt",
+        "Corrected repairs/3/RESULT.md"
+      ],
+      "rationale": "Conditioning on the inside value set and ordered outside of a consecutive block leaves exactly the internal inversions as the variable Mallows weight. The increasing endpoints are consecutive in internal rank precisely for an up-cover; their contribution is d−1 inversions, with d possible rank pairs and [d−1]_q! for the remaining internal entries. This yields the exact all-n, all-gap enumerator, including d=1 and d=n−1. The frozen wording incorrectly suggests each gap polynomial has actual degree N−1. Removing the two q-integer factors and including q^(d−1) gives its degree N−d and minimum exponent d−1; N−1 is the ambient reflection grade and actual degree only for the total and d=1. The repaired finding states both facts explicitly, consistent with the padded-vector test. The coefficient identity was separately checked at every gap for n=4 and n=8; n=8 gives 341136 total at q=1. The reciprocal relation for the mean strictly dominates q>1 by 1/q; its derivatives at 0+ and 1 have opposite strict signs for n≥4, so compactness on [0,1] gives the claimed optimizer location, not uniqueness. Geometric bounds give linear order for fixed q≠1; the exact uniform sum is (n+1)H_n−2n. These checks validate the corrected statement.",
+      "residual_risks": [
+        "Finite tests are corroboration only; no uniqueness of the maximizing parameter or varying-q scaling asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adin–Roichman give the strong cover criterion and uniform expected upward degree (n+1)H_n−2n.",
+          "Johnson–Leader–Long give positive association for strong-Bruhat up-sets at Mallows weights, not an upward degree formula.",
+          "Consecutive-pattern work treats Mallows internal order statistics; an adjacent ascent gives the d=1 special case, not arbitrary-gap covers with an empty relative-value interval."
+        ],
+        "reasoning": "The known tools relate to the block law, uniform result and cover criterion. None of these inspected stronger-looking statements evaluates endpoint inversion weights for all gaps.",
+        "searches": [
+          "Adin–Roichman arXiv:math/0505020 Observation 1.2 and Theorem 4.1",
+          "Johnson–Leader–Long arXiv:1909.03770 Theorem 3",
+          "Crane–DeSalvo–Elizalde arXiv:1609.01370 consecutive Mallows patterns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13764 §8",
+        "arXiv:math/0505020 Observation 1.2/Theorem 4.1",
+        "arXiv:1909.03770 Theorem 3",
+        "arXiv:1609.01370",
+        "arXiv:2605.19429 abstract and introduction",
+        "Resultary ab2bac71ce92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform gap counts discard which internal orders carry which inversion ranks; rank reflection constrains opposite coefficients but does not fix the array.",
+          "Mallows association and the low-degree layers do not give the response derivatives or fixed-parameter comparison. The inspected weighted pattern work does not supply the arbitrary-gap endpoint calculation."
+        ],
+        "reasoning": "The cover criterion itself is an input; the key additional argument is to condition on a consecutive block and separate endpoint inversions over all consecutive endpoint ranks. This gives exact nonuniform data that the uniform projection, correlation inequality, and degree-marked polynomial cannot recover.",
+        "searches": [
+          "arXiv:2609.13764 Prop. 8.1/Remark 8.6 against corrected gap formula",
+          "arXiv:1909.03770 Theorem 3 and Resultary ab2bac71ce92 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 8.1 identifies the same boxed-12 event; Remark 8.6 gives the uniform probability 1/(d+1) for a specified pair at gap d.",
+          "Resultary ab2bac71ce92 marks the entire upward degree and treats fixed low layers. It does not mark the inversion rank of individual lower endpoints by gap.",
+          "The inspected mesh-pattern abstract/introduction studies ordinary equidistribution of length-two patterns, not this weighted marking."
+        ],
+        "reasoning": "The equivalence of boxed-12 and strong up-covers is direct and credited. Knowing that event or marking how many occur in a permutation is not equivalent to the inversion-weighted gap polynomial.",
+        "searches": [
+          "Kitaev–Qiu–Xu arXiv:2609.13764 §8, Prop. 8.1 and Remark 8.6",
+          "Resultary ab2bac71ce92 boxed-12 Bruhat degree layers",
+          "Su–Kitaev–Zhang arXiv:2605.19429, mesh-pattern formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact source coverage includes the uniform gap sequence and hence total, and the catalogue hit gives fixed-low-degree enumerations under an entirely different marking.",
+          "Neither exact formula supplies the rank coefficient array by span; the independently checked n=4,8 arrays are diagnostics, not evidence of absence of earlier tables."
+        ],
+        "reasoning": "The uniform formula is an exact subset of the answer, not just evidence from examples. The repaired novelty excludes it. A degree-layer enumeration cannot be compared as the same generating polynomial after a mere variable rename.",
+        "searches": [
+          "Resultary rank/degree/gap enumerator search, strongest hit ab2bac71ce92",
+          "arXiv:2609.13764 Remark 8.6 and arXiv:math/0505020 Theorem 4.1"
+        ]
+      },
+      "rationale": "The repair credits that the boxed-cover event is known and that its exact uniform probability by gap is already published. The retained result is the nonuniform lower-inversion-rank count at each position span and the induced full Mallows mean with distinct optimizer and growth laws. The inspected catalogue and primary comparators do not count this rank-refined statistic or imply those nonuniform statements without the new endpoint-inversion enumeration. Rank reflection itself is not a separate novelty claim.",
+      "residual_risks": [
+        "An unindexed q-analogue in boxed mesh-pattern or Mallows literature could further restrict this refinement. Bounded statement comparison is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct criterion and uniform gap coverage; no rank refinement in that passage",
+          "evidence": [
+            "Gap d has uniform expected indicator 1/(d+1); summing yields the uniform expected degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13764",
+          "material_read": "§8, Proposition 8.1 and Remark 8.6, PDF pp. 20–22",
+          "method": "Lawful open preprint, bounded passages",
+          "title": "Coincidences and Growth of Boxed Mesh Patterns",
+          "trigger": "Equivalent boxed-mesh formulation and exact gap probability"
+        },
+        {
+          "assessment": "Strong criterion and uniform expected degree are established inputs",
+          "evidence": [
+            "Theorem 4.1 gives (n+1)H_n−2n under uniform permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0505020",
+          "material_read": "Observation 1.2 and Theorem 4.1",
+          "method": "Lawful open preprint passages",
+          "title": "On Degrees in the Hasse Diagram of the Strong Bruhat Order",
+          "trigger": "Foundational degree count on the same Hasse diagram"
+        },
+        {
+          "assessment": "Positive association, not pointwise span or rank enumerator",
+          "evidence": [
+            "Association of up-set events applies for 0<q≤1 and does not evaluate the upward-cover first moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.03770",
+          "material_read": "Theorem 3 and Mallows discussion",
+          "method": "Lawful open preprint passages",
+          "title": "Correlation for permutations",
+          "trigger": "Mallows law on the same strong Bruhat order"
+        },
+        {
+          "assessment": "Related pattern weighting, not all boxed-12 gap counts",
+          "evidence": [
+            "The d=1 case is an adjacent ascent; arbitrary-gap conditions are not fixed consecutive pattern avoidance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01370",
+          "material_read": "Consecutive-pattern Mallows setup and avoidance results",
+          "method": "Lawful open preprint, bounded comparison",
+          "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+          "trigger": "Potential exact Mallows block-pattern coverage"
+        },
+        {
+          "assessment": "Relevant topic overlap but different marking and conclusion",
+          "evidence": [
+            "D_n(z)=∑π z^(d₊(π)) marks degree; its low-degree layers do not track ℓ(π) by position gap."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-polynomial-stabilization-of-fixed-low-bruhat-up-degree-layers--ab2bac71ce92",
+          "material_read": "RESULT.md Finding and degree enumerator, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Polynomial stabilization of fixed low Bruhat up-degree layers",
+          "trigger": "Same up-cover statistic with exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected repairs/3/RESULT.md, enumerator and Mallows consequences",
+        "arXiv:2609.13764 §8 for the uniform baseline"
+      ],
+      "rationale": "The low-endpoint rank and position-span census refines a natural degree statistic studied in strong Bruhat order, and gives an exact first moment throughout the full Mallows family. It distinguishes the uniform law’s growth and shows that the uniform parameter does not maximize the finite-n mean. Those are consequences of nonuniform information unavailable from the already known uniform gap counts, rather than isolated finite checks or mere parameter renaming.",
+      "residual_risks": [
+        "Does not give the full degree distribution, behavior in an n-dependent window around q=1, or a unique explicit optimizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

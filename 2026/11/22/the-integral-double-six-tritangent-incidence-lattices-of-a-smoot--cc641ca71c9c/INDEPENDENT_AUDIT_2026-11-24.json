@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:07:07.976921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5, VERIFICATION.md and verify_double_six_tritangent.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/independent_checks.py 5 (SymPy and python-flint); /workspace/check-5.txt",
+        "Dolgachev–Kapranov §0; van Geemen §1.8; Alexeev et al. §§2.3–2.4"
+      ],
+      "rationale": "The characteristic-zero six-point blowdown gives the universal 27-line meeting relation. The root orthogonality argument is valid: the three intersections with a root lie in {−1,0,1} and sum to zero, so the support overlap is zero or two. Independently I constructed the meeting graph directly: E_i meets L_jk precisely when i is in {j,k}, E_i meets Q_j for i≠j, L_ij meets Q_k for k in {i,j}, and two different L-classes meet when their indices are disjoint. Three pairwise meeting lines in a smooth cubic are planar (also at an Eckardt point, by the tangent plane) and make one anticanonical section. Enumeration gives 45 meeting triples, 72 pairwise skew sixers, a unique partner each with five opposite incidences at every line, and 36 unions. It gives exactly 1080 overlaps of size two and 540 zero overlaps. Direct integer Smith reduction on these independently constructed B and J−B gives 1×15,3×5,18,0×15 and 1×14,3×7,0×15 respectively, and exact Gram characteristic polynomials corroborate both ranks. The zero rows in the Smith forms give free rank 15; extra zero columns do not affect the cokernel.",
+      "residual_risks": [
+        "The universal calculation is for smooth cubics over algebraically closed fields of characteristic zero; no arithmetic form or singular specialization is tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arap–Varley Lemma 2.6 and Remark 2.7 give rational W(E6) representation dimensions 1,6,20 and the triangle span of dimension 21. Van Geemen and Alexeev et al. identify the two geometric families/root descriptions.",
+          "28a566e5ae18 treats Frobenius coinvariants of a double-six relation quotient; 8a178617dee9 and 5e25465878b3 concern Steiner trihedral maps of shapes 27×120 and 45×120, respectively."
+        ],
+        "reasoning": "Rational dimensions and geometry do not specify the integral cross-map elementary divisors. The tested nearby results have different domains or arithmetic actions, not a theorem on these relative integer pairings.",
+        "searches": [
+          "Resultary: E6 permutation modules and same-day cubic surface records",
+          "arXiv:1507.05710 §§2.3–2.4; arXiv:1206.6517 §2; arXiv:math/0101161 §1.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and eight distinct local comparators cited above",
+        "arXiv:alg-geom/9304005 §0",
+        "arXiv:math/0101161 §1.8",
+        "arXiv:1507.05710 §§2.3–2.4",
+        "arXiv:1206.6517 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proofs supply more than separate Smith forms: the tritangent lattice N surjects onto K=ker(Z^27→Pic(S)/Z[−K_S]), while the double-six image has index 2^16 in that same saturated lattice. Thus at odd primes both span K, and the cross-pairing reduces to an actual induced integral Gram form of K (up to the unit 1/2). The complement adds a degree-functional outer product.",
+          "Neither inspected earlier proof computes that Gram Smith form or the perturbed Gram Smith form, and the odd-prime identification does not resolve the 2-primary behavior of the half-pairing. Their separate presentation Smith lists and the rational ranks have no such data."
+        ],
+        "reasoning": "The common kernel substantially simplifies a new derivation, but computing the restriction of the coefficient pairing and its rank-one perturbation, or doing the complete cross-matrix reduction, is additional integral work. Prior results do not assert both relative forms or force them from their reported invariant lists alone.",
+        "searches": [
+          "Resultary 0aac314408f8 Proof §§1–4; d458bb2de263 Proof §§1–3; same-day 9c4f5e6d8186 and 616774bc1c5b Findings",
+          "Arap–Varley arXiv:1206.6517 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Opposite E6 root pairs are exactly the double-sixes. For compatible labelings the earlier line-incidence maps A,N give 2B=A^t N; the complement is the zero-overlap incidence.",
+          "The same-day 9c4f5e6d8186 and 616774bc1c5b Findings give graph Laplacian groups of the line/double-six and line/tritangent Levi graphs, not the product or complement."
+        ],
+        "reasoning": "An equivalent result could use the product, root-pair supports, or non-overlap instead of the literal half-incidence language. Neither of the inspected Laplacian groups is such a result.",
+        "searches": [
+          "Resultary: double-six tritangent half-overlap cross-pairing; E6 opposite-root permutation modules",
+          "Focused web search for Schläfli double-six/tritangent incidence Smith forms; arXiv:1507.05710 §§2.3–2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit cc641ca71c9c is the assigned record itself. Distinct same-day material includes the line-incidence graph groups and Steiner support maps, not this specific rectangular pair.",
+          "The two earlier exact tables 0aac314408f8 and d458bb2de263 have shape 27×36 and 27×45; their nonzero factors are 1×6,2×14,4 and 1×21."
+        ],
+        "reasoning": "Matching parameter families or a factor of 3 on a different support map do not identify either rectangular cross-pairing. No inspected distinct table matches.",
+        "searches": [
+          "Resultary: exact 36-by-45 double-six/tritangent Smith factors; same-day cubic-surface incidence tables",
+          "Focused literature search for double-six and tritangent incidence rank, Smith form or cokernel"
+        ]
+      },
+      "rationale": "The contribution is the complete integer cokernels of the two relative 36-by-45 maps. Geometry, individual line incidence maps and rational configurations have substantial prior coverage. The closest examined statements give no cross-pairing Smith forms or specialized theorem giving both relative discriminants; the additional integral calculation is needed.",
+      "residual_risks": [
+        "The bounded searches do not exclude equivalent finite-geometry or W(E6) association/permutation-module tables, or a computation of the aligned product under another name. No same-day priority ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometry",
+          "evidence": "27 lines, 36 double-sixes, blowup and uniqueness for a sixer.",
+          "identifier_or_url": "arXiv:alg-geom/9304005",
+          "material_read": "§0, PDF pp. 1–2, OA offsets 0 and 6500",
+          "method": "OA full text",
+          "title": "Schur quadrics, cubic surfaces and rank 2 vector bundles over the projective plane",
+          "trigger": "Universality and double-sixes"
+        },
+        {
+          "assessment": "Geometric input, not cross Smith form",
+          "evidence": "Enumerates the 45 tritangent line triples and their root-system description.",
+          "identifier_or_url": "arXiv:math/0101161",
+          "material_read": "§1.8, PDF p. 4, offset 11700",
+          "method": "OA full text",
+          "title": "A linear system on Naruki’s moduli space of marked cubic surfaces",
+          "trigger": "Tritangent and root descriptions"
+        },
+        {
+          "assessment": "Equivalent double-six indexing only",
+          "evidence": "36 opposite E6 root pairs index the double-sixes; W(E6) acts on the 27 line vectors.",
+          "identifier_or_url": "arXiv:1507.05710",
+          "material_read": "§§2.3–2.4, PDF pp. 9–10, offset 34700",
+          "method": "OA full text",
+          "title": "The uniformization of the moduli space of principally polarized abelian 6-folds",
+          "trigger": "Root-pair formulation and W(E6) module"
+        },
+        {
+          "assessment": "Rational span and representation coverage, no cross Smith data in inspected results",
+          "evidence": "Lemma 2.6 and Remark 2.7 identify the 21-dimensional triangle span and the E6 quotient.",
+          "identifier_or_url": "arXiv:1206.6517",
+          "material_read": "§2, PDF pp. 3 and 5, offsets 5250 and 11100",
+          "method": "OA full text",
+          "title": "On algebraic equivalences among the 27 Abel–Prym curves on a generic abelian 5-fold",
+          "trigger": "Closest rational representation comparison"
+        },
+        {
+          "assessment": "Close precursors but different pairings",
+          "evidence": "First uses the 27×36 matrix, identifies its saturation K and index 2^16. Second proves the tritangent vectors generate K. Neither computes the Smith forms of the two relative pairings.",
+          "identifier_or_url": "Resultary 2026/11/2: 0aac314408f8 and d458bb2de263",
+          "material_read": "Both Findings; proof passages at offsets 2174 and 2683 respectively",
+          "method": "Resultary and exact RESULT.md passages via the local mirror",
+          "title": "The order-four integral reconstruction obstruction for Schläfli double-sixes; Integral tritangent presentation of the E6 weight lattice",
+          "trigger": "Prior exact integral Smith results and possible stronger common-lattice implication"
+        },
+        {
+          "assessment": "Different invariants, not discarded by date",
+          "evidence": "The two graph results use separately the line-to-double-six and line-to-tritangent adjacency blocks; the others concern arithmetic coinvariants or Steiner trihedral supports and pairs.",
+          "identifier_or_url": "Resultary 2026/11/22: 9c4f5e6d8186, 616774bc1c5b, 28a566e5ae18, 8a178617dee9, 5e25465878b3",
+          "material_read": "RESULT.md Findings",
+          "method": "Resultary and local mirror",
+          "title": "Same-day cubic-surface graph-Jacobian, Frobenius and Steiner trihedral results",
+          "trigger": "Distinct concurrent results with potentially common incidence matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Relationship to prior work; exact independent computation",
+        "Earlier separate incidence results 0aac314408f8 and d458bb2de263"
+      ],
+      "rationale": "This compares two canonical configurations by the intrinsic containment/exclusion of lines, not a chosen submatrix. The precise relative relation quotients exhibit a 9-primary cyclic factor for overlap versus only elementary 3-torsion for nonoverlap, a discrepancy invisible in their common rank or the separate line-incidence Smith factors. These are useful invariants for integral calculations with the two configuration modules and give a meaningful comparison even without a general theorem for other root systems.",
+      "residual_risks": [
+        "These are formal integral presentation cokernels, not Picard torsion or a computed equivariant refinement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

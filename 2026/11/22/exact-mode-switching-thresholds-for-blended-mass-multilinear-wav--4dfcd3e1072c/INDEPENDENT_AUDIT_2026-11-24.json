@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:40.618724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coordinate, the constant and alternating vectors have consistent masses h/2 and h/6, and stiffnesses 0 and 2/h. Tensor products diagonalize both masses and the stiffness sum. On a Walsh vector with active set S the consistent mass is (V/2^d)3^(-|S|), and the stiffness divided by that mass is 12c^2 times the sum of h_j^(-2) over S. Dividing instead by the blended mass yields the stated spectrum, including zero. At cardinality k the largest numerator selects the k shortest sides up to ties. Cross multiplication of successive positive denominators gives the sign of 3^k(2s_k-r_{k+1})(1-alpha)-r_{k+1}alpha; the switching odds 3^k(2s_k/r_{k+1}-1) increase strictly, because s increases and the next positive r cannot increase. This yields all cardinalities, precisely adjacent ties at switches, the one- and d-coordinate endpoints, and no transition for d=1. The cube switches are 3/4 and 27/28 for d=3. For the positive modal spectrum, 0<lambda*dt^2<4 is exactly the distinct unit-circle-root regime. At equality n(-1)^n grows; above equality a root is outside the unit circle. Excluding the constant mode is necessary. The cube bound follows from k/3^k<=1/3; at alpha=1 the maximum is exactly 12dc^2/h^2. Replay: RESULT.md lines 35–67; CHECK.py and VERIFICATION.md were inspected as finite supporting evidence, not run or used as an all-dimension certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Leung–Yang–Li analyze energy stability of a decomposed multiscale method. Voet–Sande–Buffa and Bioli–Voet analyze trimmed or immersed discretizations; their cited scope is not exact blend-dependent cardinality dominance. Deng–Calo handle arbitrary spline order and tensor-product dispersion approximation."
+        ],
+        "reasoning": "Generality in geometry or spline order does not make these bounds, stability, or low-frequency error statements exact high-frequency branch comparisons on this free element. The scalar CFL relation itself is covered.",
+        "searches": [
+          "arXiv:2610.27715v1",
+          "arXiv:2502.00452v1",
+          "arXiv:2410.17857v1",
+          "arXiv:1711.02979"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "Resultary same-day mass-inverse and earlier P1 bracketing records identified above",
+        "arXiv:2610.27715v1; arXiv:2502.00452v1; arXiv:2410.17857v1; arXiv:1711.02979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1.1) gives the established 2/omega_max central-difference limit. The same-cell inverse paper supplies overlapping mass structure but neither a stiffness branch nor a proof that adjacent crossings are strictly ordered."
+        ],
+        "reasoning": "Those inputs recover the usual CFL scaling once the top eigenvalue is given, not its identity at intermediate blends. The additional comparison yields the all-k envelope, exact adjacent ties, and dimension-independent cube scale for fixed partial lumping.",
+        "searches": [
+          "arXiv:2502.00452v1, Eq. (1.1)",
+          "2026/11/22/SCOPE-exactly-d-1-sign-reversals-in-the-opposite-corner-inverse-of-a-b--4c1a571738ca, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-exactly-d-1-sign-reversals-in-the-opposite-corner-inverse-of-a-b--4c1a571738ca, RESULT.md Finding, treats the same M_alpha and Walsh basis but studies a particular entry of M_alpha^{-1}.",
+          "Deng–Calo, pp. 2–3, lines 49–66, blend quadratures to optimize dispersion and achieve order 2p+2 superconvergence, then tensorize."
+        ],
+        "reasoning": "Writing the blend as an affine mass perturbation, or as an appropriate combination of the exact mass and a nodal rule, changes no modal optimization. The inverse-entry zeros and dispersion-optimal blend are different observables and do not identify the maximum stiffness-to-mass ratio as alpha varies.",
+        "searches": [
+          "Resultary: exact single-element Q1 orthotope, blended consistent/row-sum mass, Walsh spectrum, maximizing mode cardinality",
+          "arXiv:1711.02979, blending passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older archive result derives spectra at the consistent and lumped endpoints for the assembled uniform one-dimensional Dirichlet P1 problem. The same-day mass-inverse result counts d-1 sign reversals, not modal crossings."
+        ],
+        "reasoning": "Endpoint spectra and an equal count of transitions in another observable are insufficient to recover these thresholds or the no-skipped-cardinality property. The archive comparison is bounded, not a complete tabulation of historical element frequencies.",
+        "searches": [
+          "Resultary exact Q1 blended-mass spectrum and consistent/lumped eigenvalue comparisons",
+          "2026/10/13/SCOPE-arithmetic-geometric-bracketing-of-uniform-linear-fem-laplace-ei--c9d1bd5f00bd",
+          "2026/11/22/SCOPE-exactly-d-1-sign-reversals-in-the-opposite-corner-inverse-of-a-b--4c1a571738ca"
+        ]
+      },
+      "rationale": "The supported distinction is the exact upper envelope and ordered all-cardinality switching diagram for a single scalar Q1 orthotope, not mass blending, Walsh diagonalization, or the generic CFL formula. The closest same-day result shares the entire blended mass but analyzes inverse entries without stiffness. The inspected primary comparisons concern accuracy-optimized quadrature, trimmed or multiscale methods, or standard CFL bounds, not this exact switching theorem.",
+      "residual_risks": [
+        "This comparison cannot rule out an equivalent unindexed engineering table, element-eigenanalysis paper or thesis. No priority order was inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared mass construction; different result",
+          "evidence": "Exactly d−1 zeros of an opposite-corner entry of M_alpha^{-1}; no generalized stiffness or maximal-cardinality statement. Same-day listing establishes no priority order.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-d-1-sign-reversals-in-the-opposite-corner-inverse-of-a-b--4c1a571738ca",
+          "material_read": "RESULT.md at offset 0; scientific finding and matrix setting",
+          "method": "Published Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exactly d−1 sign reversals in the opposite-corner inverse of a blended mass matrix",
+          "trigger": "Closest indexed same-object result"
+        },
+        {
+          "assessment": "Different domain and no all-blend switches in the inspected finding",
+          "evidence": "Uniform P1 Dirichlet consistent and lumped eigenvalues bracket the target eigenvalues.",
+          "identifier_or_url": "2026/10/13/SCOPE-arithmetic-geometric-bracketing-of-uniform-linear-fem-laplace-ei--c9d1bd5f00bd",
+          "material_read": "Indexed finding on one-dimensional Dirichlet endpoint spectra",
+          "method": "Published Resultary local mirror",
+          "title": "Arithmetic-geometric bracketing of uniform linear FEM Laplace eigenvalues",
+          "trigger": "Exact spectra for both mass types"
+        },
+        {
+          "assessment": "Overlapping technique, different optimality and spectral target",
+          "evidence": "The blend minimizes dispersion, produces order 2p+2 superconvergence, and is extended from one-dimensional spline problems to tensor-product grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.02979",
+          "material_read": "Opening scope and pp. 2–3, lines 49–66 (from offset 7620)",
+          "method": "Lawful OA original PDF; located 'blending', read bounded passage",
+          "title": "Dispersion-minimized mass for isogeometric analysis",
+          "trigger": "Tensor-product blending and generalized eigenvalue analysis"
+        },
+        {
+          "assessment": "Covers generic CFL, not the inspected element mode-switch claim",
+          "evidence": "The critical timestep is 2/omega_n for largest discrete frequency omega_n; surrounding text concerns row-sum lumping and trimmed IGA.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.00452v1",
+          "material_read": "Opening scope and p. 1 Eq. (1.1), offset 3750",
+          "method": "Lawful OA original PDF, bounded opening and critical-timestep passage",
+          "title": "Mass lumping and stabilization for immersogeometric analysis",
+          "trigger": "Exact CFL and largest-frequency background"
+        },
+        {
+          "assessment": "Different method in the statement read",
+          "evidence": "Decomposition-specific partially explicit multi-time-stepping with energy stability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.27715v1",
+          "material_read": "p. 1 at offset 941, opening statement",
+          "method": "Lawful OA original PDF",
+          "title": "Multi-time-stepping splitting scheme with mass lumping for the multiscale wave equation",
+          "trigger": "Cited mass-lumped wave stability result"
+        },
+        {
+          "assessment": "Related frequency bounds but different setting in the passage read",
+          "evidence": "The analysis targets trimming configurations in immersed isogeometric analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.17857v1",
+          "material_read": "p. 1 at offset 725, opening statement",
+          "method": "Lawful OA original PDF",
+          "title": "A theoretical study on the effect of mass lumping on the discrete frequencies in immersogeometric analysis",
+          "trigger": "Cited largest discrete frequency result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wave stability depends on the largest eigenvalue, and blending can change which spatial mode realizes it. Proving that every cardinality occurs, with exact anisotropic switch points and no hidden nonadjacent ties, provides information not supplied by the standard CFL relation or by endpoint comparison. The cube bound isolates fixed partial lumping from full consistency at growing dimension. These are useful single-cell spectral facts, not claims about assembled meshes, cheap mass inversion or dispersion accuracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

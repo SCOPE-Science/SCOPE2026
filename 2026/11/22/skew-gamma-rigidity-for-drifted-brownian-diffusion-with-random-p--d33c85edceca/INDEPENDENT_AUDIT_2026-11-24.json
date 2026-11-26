@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:45:45.153201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential-time Brownian displacement has MGF M(s)=1/((1-as)(1+bs)). The two-sided Poisson construction at a deterministic observation time gives Y=xi+C Y' in law with independent terms; the backward expansion converges in L² by the triangle inequality and E[C²]<1. Synchronously coupled starting values contract almost surely, because for some rho<1 marks C<=rho occur infinitely often. For necessity, the MGF of C Y' equals (1-as)^(1-p)(1+bs)^(1-r) on (-1/b,1/a); if either shape is below one, this would tend to zero at the corresponding finite endpoint, impossible by Fatou's lemma applied to the positive exponentials. Deconvolution gives gamma shapes (p-1,r-1) for C Y', interpreting zero shape as a point mass. If just one shape is one, the deconvolved law is nonzero but one-sided, inconsistent with nonnegative C and the two-sided Y'; if both are one it forces C=0. With both shapes greater than one there is no atom at zero, so C preserves sign. Gamma-ratio sign probabilities reduce to the beta CDFs at x=b/(a+b); differentiating the displayed difference in (3) and checking its zero endpoint verifies the identity for all real p,r>1. Its only interior zero forces b(p-1)=a(r-1). For sufficiency use H(s)=theta*integral_0^1 t^(theta-1)V(ts) dt for both signs of s (equivalently the printed s^(-theta) expression for positive s). Then sH'=theta(V-H); the proposed deconvolved MGF satisfies this with H(0)=1 by direct differentiation, and power series determine each coefficient since theta+k>0. The transforms therefore solve the fixed point. Finally the even moment ratios determine the law of C² on [0,1], hence C. This is an analytic audit for all real shapes in scope, not an inference from the frozen finite moment checker, which was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md:97–105 credits the general steady-state fixed point and distinguishes prior fixed contraction cases. Primary text was not retrieved. The primary-literature search on drift surfaced a reflected/barrier model with resetting to a starting position, not arbitrary proportional marks.",
+          "For a Poisson shot-noise process with decay e^(-t), rate theta and innovation xi, backward interarrival decay factors have Beta(theta,1) law. The bilateral exponential xi is a mixture of signed exponentials with probabilities a/(a+b) and b/(a+b); Poisson splitting gives the deconvolved stationary gamma shapes theta*a/(a+b) and theta*b/(a+b)."
+        ],
+        "reasoning": "The shot-noise equivalence recovers balanced-ray sufficiency because the beta marks are built into the construction. It places no sign-balance restriction on solutions for arbitrary multipliers by itself. The general reset fixed-point equation reduces the problem but neither fixes the deconvolved signs for skew gamma targets nor diagnoses the unit-shape cases.",
+        "searches": [
+          "Primary literature: drifted Brownian proportionate/beta resetting and two-sided gamma perpetuities",
+          "Palmowski–Vlasiou arXiv:2611.14692v1; Tal-Friedman–Roichman–Reuveni arXiv:2205.03363; Pierce arXiv:2204.07215"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–112, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary inverse-design summary 7cea38ad1d45 and identical catalogue record",
+        "Available prior reset-literature citations/comparisons listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest accessible prior descriptions concern symmetric targets/random marks or drifted dynamics/fixed marks, not both arbitrary marks and asymmetric targets. The audited decisive condition uses the skew threshold b/(a+b) in the crossing of beta CDFs (RESULT.md:52–70)."
+        ],
+        "reasoning": "The symmetric sign law has crossing at 1/2; its balance conclusion does not imply the skew threshold identity. Results restricted to deterministic multipliers cannot give uniqueness among all laws on [0,1], even if they solve the same forward recurrence.",
+        "searches": [
+          "Indexed inverse-design record 7cea38ad1d45 and drifted partial reset papers arXiv:2611.14692v1, 2205.03363, 2204.07215"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-inverse-design-of-multivariate-variance-gamma-equilibria-by-rand--7cea38ad1d45 indexed summary gives symmetric multivariate targets of form (1+beta||t||²)^(-shape) and beta or ineffective-event mixture marks.",
+          "The assigned RESULT.md:5–27 instead allows a≠b and gives a shape ray with p≠r for any nontrivial target."
+        ],
+        "reasoning": "Reflection interchanges the two scales and shapes, and scalar rescaling preserves the ratio of scales. Neither produces this unequal-shape problem from the symmetric classification. Arbitrary random C and a target with unequal scale poles are substantive constraints, not a reparametrization of the symmetric law.",
+        "searches": [
+          "Local Resultary: drifted Brownian beta resetting; bilateral-gamma/beta perpetuities; symmetric variance-gamma inverse design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-skew-gamma-rigidity-for-drifted-brownian-diffusion-with-random-p--d33c85edceca is the identical indexed claim, not independent evidence. The exact distinct earlier entry found is the symmetric variance-gamma classification."
+        ],
+        "reasoning": "A gamma convolution table identifies the law with one unit of each shape removed, but not whether one independent nonnegative factor can take the original law to the deconvolved law. That is the inverse problem audited here.",
+        "searches": [
+          "Local Resultary: exact skew-gamma classification and drifted beta perpetuity; bilateral gamma difference target inverse law"
+        ]
+      },
+      "rationale": "The supported distinct claim is inverse rigidity for arbitrary nonnegative contraction laws at the asymmetric excursion scales, including the two-sided shape obstruction and uniqueness. General Poisson-reset perpetuities, the exponential-excursion law and beta-gamma calculus are prior tools. A Poisson shot-noise construction also explains existence on the balanced ray when beta marks are imposed; existence alone is not credited as a new standalone result. No available prior statement establishes necessity over arbitrary C at these asymmetric scales.",
+      "residual_risks": [
+        "Full text of the symmetric inverse-design record and decisive primary reset passages could not be retrieved. An older broader beta-gamma/perpetuity classification that also supplies arbitrary-multiplier rigidity may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material symmetric-case overlap; no implication of asymmetric shape rigidity established",
+          "evidence": "Indexed radial characteristic function (1+beta||t||²)^(-shape), with beta contraction and possible ineffective-event mark.",
+          "identifier_or_url": "2026/10/26/SCOPE-inverse-design-of-multivariate-variance-gamma-equilibria-by-rand--7cea38ad1d45",
+          "material_read": "Indexed statement, not full mirror text",
+          "method": "Local Resultary search and mirror retrieval attempt",
+          "title": "Inverse design of multivariate variance-gamma equilibria by random Brownian resetting",
+          "trigger": "Same inverse-design method and beta multipliers"
+        },
+        {
+          "assessment": "Framework credited; no primary confirmation of full scope",
+          "evidence": "Available comparison describes drifted Brownian example with fixed affine contraction and random coefficients in other settings.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14692v1",
+          "material_read": "Frozen RESULT.md:97–105 comparison; primary text unavailable",
+          "method": "OA primary-source attempt and comparison to available statement",
+          "title": "Steady-state of Lévy process with general resetting: unreflected and reflected cases",
+          "trigger": "General stationary perpetuities and drifted-Brownian example"
+        },
+        {
+          "assessment": "Deterministic-reset overlap according to the available comparison",
+          "evidence": "Frozen comparison credits an infinite-product stationary representation for deterministic contraction, not the inverse arbitrary-C classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363; https://arxiv.org/abs/2204.07215",
+          "material_read": "Frozen RESULT.md:99,109–111 comparisons and identifiers; primary passages unavailable",
+          "method": "Literature search and OA retrieval attempts",
+          "title": "Diffusion with Partial Resetting; An advection-diffusion process with proportional resetting",
+          "trigger": "Drift and proportional-reset stationarity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes a natural inverse classification: at the two scales intrinsic to the drift-diffusion excursion it determines exactly which targets can occur and diagnoses the unique reset distribution, including a boundary obstruction that is invisible in symmetric special cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

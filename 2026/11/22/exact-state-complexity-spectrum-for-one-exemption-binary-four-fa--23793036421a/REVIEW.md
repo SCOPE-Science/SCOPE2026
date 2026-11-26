@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The invariant for the explicit finite factor-mask automaton establishes recognition for every finite binary input. Breadth-first construction proves that all \(19{,}205\) reachable states are included. Recursive Moore refinement equates states exactly when they agree on acceptance under all suffixes up to increasing depth; stable refinement is exactly the full Myhill–Nerode congruence. The separate numeric-suffix Hopcroft-style implementation gives the same sixteen values. Executed tests include both positive length-eighteen witnesses and negative direct evaluations, explicit acceptance/transition congruence tests, and sharp suffix-depth termination. These are genuine finite exhaustive certificates for all input words, rather than finite-length extrapolation.
+PASS
 
-## Originality: PASS against inspected evidence
+The seen-factor mask and last min(3,|w|) bits describe exactly what new factor can appear on the next input bit, by induction on word length; the predicate tests only the fifteen required factors, allowing the optional factor arbitrarily often. Reachability is finite transition closure. Refinement starting with acceptance yields agreement on all suffixes of length at most d after d rounds. Stability of the nested partition certifies agreement for arbitrarily long words; a strict split in the last changing round certifies sharpness. Independent run `python3 /tmp/opencode/factor-review.py` used target-specific sets of missing factors and collapsed all fulfilled states at construction. For the first eight patterns in increasing binary order it obtained (8435,11121,9670,10152,9956,9537,8524,11746), and the reverse order for the complementary eight. Sharp depths were 17 for 0000/1111 and 18 elsewhere; the preceding round was strictly coarser in every case (e.g., 8431 vs 8435 for 0000 and 11113 vs 11121 for 0001). This quotient computation was exhaustive for all input lengths, not limited by a sample of words. The frozen Moore and Hopcroft implementations were inspected without executing them; their common seen-mask representation has a different raw state count from the target-specific independent check. Complement relabels letters; reversal sends 0001 to 1000 and the verified state counts differ by exactly 625. The classification is only for one specified optional factor of length four in the binary alphabet.
 
-The 2026 shortest-absent-substrings paper addresses the detection and computation of absent factors, not the state complexity of monitors with one specified permitted absence. OEIS A375919 contains the fully universal baseline \(13{,}212\) states, which does not imply the sixteen state counts here. Published factor-spectrum and cyclic-cover computations involve different quantified properties. Relevant semantic searches did not reveal a result covering the entire one-exemption language family or its reversal asymmetry. Residual risk: a specialized unindexed DFA census may contain the values; the factor-spectrum full text was inaccessible and was not claimed to have been read in full.
+## originality
 
-## Value: PASS
+PASS
 
-Allowing one prescribed four-factor to be missing is a natural robustness modification to a universal substring monitor. Its exact minimal memory requirements depend substantially on *which* factor is exempt, with a sharp eight-valued classification, identifiable extremizers and unexpected reversal asymmetry. The result is a complete natural finite classification, not just a single routine state count or a reinterpretation of an existing all-factors baseline.
+The contribution is the exact fifteen-required-factor spectrum and sharp suffix complexity. Neither full-factor universality nor the same-day constrained scattered-subsequence reversal result states it. The generic coverage construction and minimization are standard; the claimed new content is the exact pattern dependence and reversal counterexample in this contiguous-factor language. Same-day chronology is not used to resolve priority.
 
-## Scope and limitations
+## value
 
-The claim covers only binary four-factors, no multiple exemptions or higher-order asymptotics. Both finite certificate implementations are replayable and no external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting a single requirement from the familiar binary full-factor monitor is a natural perturbation: it isolates how the geometry of one edge in the order-three de Bruijn graph affects exact right languages. The eight distinct answers, extremal patterns, sharp uniform suffix lengths, and concrete reversal gap establish that this perturbation is not captured by full-factor coverage or complement/reversal symmetry alone. Four is the first order allowing eight complement classes and these data give exact quantitative benchmarks for reductions and symmetry conjectures, not just code examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

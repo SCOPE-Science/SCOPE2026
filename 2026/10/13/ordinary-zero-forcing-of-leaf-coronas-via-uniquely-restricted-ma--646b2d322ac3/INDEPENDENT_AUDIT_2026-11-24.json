@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:32:08.639029Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fire initially blue leaves into white roots first. A root without an initially selected leaf cannot force another root: its white leaf blocks such a force until it forces the leaf, at which point all its original neighbors are already blue. Hence a successful sequence yields distinct donors in D, one per initially empty pair U, with no edge from an earlier donor to a later target. The matched endpoints have no alternating cycle. Conversely, using dependencies from every other adjacent target to a donor's own target, unique restriction makes the dependency digraph acyclic; processing a topological order clears U and every remaining leaf can then be forced. Fixed D,U give weight x^{n-|U|}(1+x)^{|D|}, with no overcounting. In a clique the successful cases are U empty and |U|=1 with a donor. For minimality, a doubly selected pair can lose its root without changing the criterion. If there is no empty pair, exactly one selection per pair and at least one selected leaf, keep such a leaf and delete the choice in any other pair (possible for n>=2, even for the all-leaf set); this fills an implicit case in the written proof. The all-root set and the one-empty-pair sets with one choice per other pair are therefore exactly the minimal sets. The minimum coefficient, upper number and boundary n=2 follow. Frozen verification files and output were inspected, not executed; the reported finite coverage is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general constrained-matching result gives the matching mechanism, not the ordinary leaf-normalization and weighted sum. Javaid et al. state their scalar corona result for attached-graph order at least two. The indexed clique-corona polynomial transfer likewise assumes attached clique order at least two and explicitly warns about order one."
+        ],
+        "reasoning": "The cited corona theorems exclude the attached singleton. General matching machinery does not by itself identify the seed-dependent donor and target sets in the actual ordinary process.",
+        "searches": [
+          "arXiv:1405.6222v2",
+          "arXiv:1607.04071v1",
+          "Resultary: SCOPE-clique-corona-fort-classification-and-the-complete-zero-forcing--35539a2ce38d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Four arXiv papers and three indexed source texts cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Brimkov–Carlson minimality argument for mixed sets fails for {1',2',3,4} in the corona of K_4: deleting 3 still allows 1'->1, 2'->2, 1->3, then the remaining private leaves. The same-day power-domination paper counts a different seed predicate and weight; it does not give that correction or the clique ordinary polynomial."
+        ],
+        "reasoning": "The relevant prior construction supplies successful examples but not their claimed minimality or the exact classification. The ordinary enumeration and corrected profile survive crediting the shared matching mechanism and leaf-only cases.",
+        "searches": [
+          "arXiv:2204.01810v2, Proposition 1 proof",
+          "Resultary same-day leaf-corona power-domination record, Finding and propagation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For leaf-only initial sets the power-domination observation step agrees with ordinary leaf normalization, and the same-day record gives the identical donor cut in this regime. With selected roots, its Finding instead uses donors L minus R and targets outside N_G[R] union L.",
+          "Tréfois and Delvenne identify constrained matchings with loop-directed forcing under their rule, with a stated distinction from simple-undirected forcing."
+        ],
+        "reasoning": "The uniqueness criterion is established machinery and exact for the leaf-only subproblem. One may reduce the general ordinary case to that subproblem on G[D union U], but that requires showing that the already-blue nond donor roots can be dropped from propagation and that initially selected roots in D do not change it. Arbitrary seeds do not have the same meaning under the two rules; e.g. one selected clique root power dominates its corona but does not ordinarily force it for n>=2.",
+        "searches": [
+          "Resultary: SCOPE-power-domination-of-leaf-coronas-through-uniquely-restricted-mat--4258c0d000ee",
+          "arXiv:1405.6222v2, constrained matchings and zero forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boyer et al. give x^n+n x^{n-1} for K_n itself, not its leaf corona. The indexed sunlet record is an exact overlap on the proper subfamily C_n composed with K_1. Brimkov–Carlson discuss mixed choices on the clique leaf corona but do not give its full polynomial or exact minimal profile."
+        ],
+        "reasoning": "The inspected exact counts do not tabulate the arbitrary-base weighted cut sum or the exact clique profile. The sunlet enumeration deserves credit on its narrower domain.",
+        "searches": [
+          "arXiv:1801.08910v1, Proposition 3",
+          "Resultary: SCOPE-exact-zero-forcing-polynomial-of-sunlet-graphs-via-alternating-p--13856b7f5c2a",
+          "arXiv:2204.01810v2, Proposition 1"
+        ]
+      },
+      "rationale": "Credit constrained matching as prior machinery and the same-day leaf-corona power-domination record for an exact overlap on leaf-only seeds. The supported contribution is the ordinary all-seed transfer and weighted enumeration, with the exact clique minimal-set classification and correction of the earlier blanket minimality assertion. No priority is inferred from same-day indexing.",
+      "residual_risks": [
+        "Targeted exact-source comparisons, not comprehensive external coverage. Another constrained-matching formulation or an unindexed equivalent ordinary corona enumeration could change the claim's scope.",
+        "The exact leaf-only overlap is material. The sources checked do not establish priority of the shared matching specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior matching mechanism; ordinary corona specialization requires additional argument",
+          "evidence": "The cited correspondence is formulated for loop-directed graphs and distinguishes their rule from ordinary forcing on simple undirected graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.6222v2",
+          "material_read": "pp. 5–6, constrained matching definition, correspondence and rule distinction",
+          "method": "Lawful OA PDF text",
+          "title": "Zero forcing number, constrained matchings and strong structural controllability",
+          "trigger": "General theorem possibly implying the matching characterization"
+        },
+        {
+          "assessment": "Overlap in successful sets, not in correct exact minimal classification",
+          "evidence": "The mixed-set minimality assertion is contradicted by the stated K_4 example.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01810v2",
+          "material_read": "p. 3, Proposition 1 and proof",
+          "method": "Lawful OA PDF text",
+          "title": "Minimal Zero Forcing Sets",
+          "trigger": "Exact clique leaf-corona family"
+        },
+        {
+          "assessment": "Same invariant on a different family",
+          "evidence": "Proposition 3 is for K_n without private leaves.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910v1",
+          "material_read": "p. 1 and Proposition 3, p. 5",
+          "method": "Lawful OA PDF text",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Founding polynomial paper and complete-graph formula"
+        },
+        {
+          "assessment": "Relevant scalar result excludes the attached singleton",
+          "evidence": "The relevant assumptions require attached-graph order at least two.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.04071v1",
+          "material_read": "p. 1, stated parameter restrictions",
+          "method": "Lawful OA PDF text",
+          "title": "On the zero forcing number of corona and lexicographic product of graphs",
+          "trigger": "Scalar corona coverage"
+        },
+        {
+          "assessment": "Exact leaf-only overlap, different all-seed predicate",
+          "evidence": "The initial closed-neighborhood observation changes both cut parts when roots are selected.",
+          "identifier_or_url": "2026/10/13/SCOPE-power-domination-of-leaf-coronas-through-uniquely-restricted-mat--4258c0d000ee",
+          "material_read": "Finding, scope and propagation proof (offsets 0 and 3300)",
+          "method": "Indexed local source text",
+          "title": "Power domination of leaf coronas through uniquely restricted matchings",
+          "trigger": "Strong same-day match of graph, matching mechanism and polynomial approach"
+        },
+        {
+          "assessment": "Proper-subfamily overlap",
+          "evidence": "It treats cyclic bases only.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-zero-forcing-polynomial-of-sunlet-graphs-via-alternating-p--13856b7f5c2a",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local source text",
+          "title": "Exact zero-forcing polynomial of sunlet graphs via alternating paths",
+          "trigger": "Exact leaf-corona subclass"
+        },
+        {
+          "assessment": "Adjacent theorem outside frozen parameter range",
+          "evidence": "Attached clique order must be at least two; its limit discussion flags the singleton exception.",
+          "identifier_or_url": "2026/11/2/SCOPE-clique-corona-fort-classification-and-the-complete-zero-forcing--35539a2ce38d",
+          "material_read": "Finding and Limitations, offsets 0 and 8900",
+          "method": "Indexed local source text",
+          "title": "Clique-corona fort classification and the complete zero-forcing polynomial",
+          "trigger": "Potential stronger transfer formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The structural test replaces trajectories in an arbitrary corona with a matching problem on the base cut and also counts all initial sets by size. The clique case resolves a concrete earlier minimality issue and separates minimum from inclusion-minimal sets. These uses do not depend on a claim of efficient general enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

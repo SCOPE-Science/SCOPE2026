@@ -1,0 +1,42 @@
+---
+{
+  "expert_attestation": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "independent_audit": {
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
+  },
+  "lean_verification": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "schema_version": 1
+}
+---
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The absorbing Brownian image resolvent has the stated normalization, and multiplying it by r gives the discounted position density at an actual alarm. At that position the return outcome weights are u_s and v_s, with respective right slopes 1/B_s(L) and −A_s(L)/B_s(L); the left home slope is the positive gamma quotient obtained by normalizing the decaying OU solution on the negative half-line. Independent cycles give the exact geometric renewal ratio; replacing only the search killing parameter marks search duration without changing the alarm-density prefactor r. Integrating the positive/negative first moments of the exponential resolvent kernel gives the factor √D/2 at rate r^−1/2. Contributions of the image term, direct search success and the tails outside a fixed neighborhood of the origin are exponentially small in √r; the Taylor remainder there is O(r^−1). The extra count mark contributes q to the scaled denominator. The limit is continuous at the origin, so the bivariate transforms imply weak convergence. At q=0 the formula is the OU first-passage transform by smooth matching at zero; at s=0 it is exponential because A_0=1, B_0=H and m_0=0. The alarm compensator has active intensity r, not intensity r throughout the physical trajectory. On bounded stopping horizons E N=E(rS); monotone convergence and the integrable geometric cycle count give finite full-horizon expectations, and the martingale isometry then gives E(N_r−rS_r)²=E N_r=O(√r). Slutsky makes the two scaled variables jointly identical in the limit. For covariance, if F=A_s(L)+m_sB_s(L) and C=2B_s(L)/√D, the transform is 1/(F+qC); right derivatives at zero (or monotone limits of positive Laplace moment integrals) give Cov=C(0)F'(0)−C'(0). Differentiating the IVPs gives the stated integrating-factor integrals, and the gamma quotient has m'_0=√(π/(2κD)); the resulting expression is strictly positive and finite. No convergence of the finite-rate covariance is inferred. In the drift-free boundary the image integral cancels the direct-hit term to give the stated p_r, and the hyperbolic fundamental solutions give the stated continuous transform with infinite time mean. The supplied numerical checker was inspected but not executed; its truncated negative integration is a finite diagnostic, not needed for these analytic conclusions.
+
+## originality
+
+FAIL
+
+A full-text same-model comparator gives both ingredients that determine the claimed marked limit, not merely a marginal mean. Steps 1, 4 and 5 of A universal Laplace-profile correction for rapid stochastic returns (225188b13814) give the exact restart kernel Q_(r,s), its sharp cusp coefficient, and the limiting unmarked transform Φ_r(s), in a family including the exact frozen model. Let K_r count attempted cycles, including the terminal cycle, and set z=exp(−q/√r). The comparator's exact renewal formula B_(r,s)/(1−Q_(r,s)) gives E[z^K_r exp(−sT_r)]=z(1−Q_(r,s))Φ_r(s)/(1−zQ_(r,s)) by a geometric sum. The actual alarm count differs from K_r by at most one, so replacing K_r costs at most 1−z. For Exp(1) clocks the comparator gives a_s=lim√r(1−Q_(r,s))=√D C_s/2 in the original units, where C_s is the negative-minus-positive derivative of the return-home weight. Thus the marked limit is a_s times the unreset OU transform divided by a_s+q. Inserting C_s=m_s+A_s(L)/B_s(L) and the OU transform 1/[A_s(L)+m_s B_s(L)] gives the frozen boxed formula exactly. Continuity at (0,0) suffices for the weak limit even if the comparator is stated for fixed s>0. The older sharp clock-moment record explicitly gives the identical per-cycle success constant; with geometric cycles and the standard alarm compensator this also gives the diagonal exposure limit and its mean. Pitman–Yor independently covers the limiting diffusion first-passage/local-time transform class, and the frozen covariance is a differentiation of the resulting transform. The records of the marked law and the transform-profile comparator carry the same publication day, and the available evidence does not establish which came first within that day. This is a mathematical coverage finding against an existing published same-model record, not an attribution of chronological priority or copying.
+
+## value
+
+FAIL
+
+Physical duration versus the vanishing active-search duration is a meaningful distinction, and the formulas are correct. But as a standalone additional finding, the exact joint scaling law is obtained from the published same-model discounted restart asymptotic by the geometric count mark and a standard Poisson compensator. The covariance and its sign reduce to routine differentiation and positivity of the standard one-dimensional OU boundary integrals, while the success scale was explicitly available earlier. There is no finite-rate dependence correction, process-level limit, or other substantive uncovered remainder in the frozen claim. A useful corollary for applications is not a new independent classification in this case; no repair is tendered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

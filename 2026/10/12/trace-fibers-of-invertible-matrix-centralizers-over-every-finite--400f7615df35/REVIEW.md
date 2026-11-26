@@ -1,19 +1,21 @@
-# Scientific review: trace fibers of invertible centralizers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The trace identity, including the multiplicity of each elementary-divisor length, is reconstructed from the primary decomposition and filtration. The semisimple quotient and Jacobson radical give the factor \(q^r\), and the full matrix-group additive-character factor is proved with subspace Möbius inversion. Fourier inversion proves the exact zero and nonzero fibers with the \(p\mid s\) boundary separated. A standalone direct enumerator checks all trace fibers for 45 explicit matrices over four finite fields; the proof, not those tests, covers arbitrary \(n\), \(q\), and rational canonical types.
+PASS
 
-## Originality
+For cyclic primary summands the Hom dimension is deg(f) times the shorter length; distinct primaries have zero Hom. In each primary component order summands by length and reduce the action on V/fV. Maps from a shorter length into a longer length have image in fV, so the induced matrix is block triangular with the stated same-length diagonal residues. These coordinates are a surjective algebra map onto the product of matrix algebras. Invertibility is equivalent to invertibility of all these residues: a surjection modulo fV is a surjection on V by iterating the nilpotent f-action. Thus each invertible residue tuple has q^r lifts without needing an unproved assertion about the kernel. Trace counts each diagonal residue s times in the f-adic layers, with field trace back to F_q; off-diagonal blocks have trace zero. In the GL_m additive trace sum, subspace-lattice inversion of ker=0 leaves only the whole-space kernel: on each proper-kernel constraint space the trace functional is onto, as seen by scaling a rank-one operator of trace one. This gives (-1)^m Q^(m(m−1)/2). For p not dividing s, surjectivity of the separable finite-field trace (also when p divides deg f) makes every nonzero base-field frequency nontrivial in that factor; p-divisible s contributes the entire factor order. Orthogonality gives both trace fibers and the all-inactive concentration at zero. Independent python3 /workspace/reproductions/5.py checks eight exact examples by testing all ambient matrices and using permutation determinants, including equal and mixed lengths, distinct primaries, a squared irreducible, and an irreducible over F4. These are finite cross-checks, not an all-types enumeration.
 
-**PASS with literature risk.** The same-domain paper of Britnell and Wildon (arXiv:1001.0811, §3) treats class-type structure and determinants of centralizer elements; its simple-module length decomposition is credited as a structural antecedent. Li and Hu (arXiv:1105.4513, Theorems 2.1 and 3.1) establish both the general-linear Gauss-factor identity and the scalar-matrix \(A\) special case of the trace count; neither is presented as new. The stated new result is the closed trace-fiber formula for every invertible centralizer, including mixed irreducible factors and characteristic-sensitive block lengths. The complete 2019 centralizer-structure source (arXiv:1909.06198) was also inspected, especially its block descriptions and determinant/dimension results, but it has no prescribed-trace count. The SageMath centralizer-cardinality table also does not report trace fiber counts. Database searches and accessible papers did not establish a stronger covering theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem completes a natural and previously structurally motivated invariant: prescribed-trace counting in \(\mathcal C(A)^\times\), the family underlying the standard commuting-pair and class-type questions. The result unifies all similarity types, explains exactly which Jordan lengths are invisible to trace in characteristic \(p\), and yields the precise signed bias between zero and nonzero trace fibers. These are structural and reusable quantitative facts, not an arbitrary isolated enumeration.
+The distinct claim is the exact ordinary-trace fiber formula for units of arbitrary finite-field matrix centralizers. The quotient dimensions, composition-length multiplicities and full-GL Gauss sums are known inputs, and the scalar-A case is prior work. The arbitrary-type formula is a short synthesis, not a new centralizer structure theorem or new scalar-A Gauss sum.
 
-## Residual limitations
+## value
 
-A combined deduction from familiar centralizer structure and group Gauss sums is conceptually close to this theorem; the credit is explicit. Similar trace counts may have been catalogued under different terminology. No additional determinant conditioning or internal conjugacy classification is claimed. Exhaustive computer checks cover selected examples only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Refining the classical full-GL trace census by a commuting constraint is natural for counting invertible commuting pairs with a prescribed trace. The closed formula covers all types without enumerating individual matrices, exposes the boundary where trace is identically zero, and gives the signed zero-versus-nonzero bias when types and lengths are mixed. This is an exact invariant of a natural family rather than a lone finite calculation; no joint determinant-and-trace formula is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

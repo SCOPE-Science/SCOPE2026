@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:52:45.205122Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–81",
+        "Frozen VERIFICATION.md and verify_mdm.py (inspected, not executed)"
+      ],
+      "rationale": "For each admissible finite-length continuum choose a contact point in each disk. A finite-length planar continuum is rectifiably arcwise connected: take an arc from contact 1 to 2 and the part of an arc from contact 3 to 1 up to its first hit on the first arc. Splitting there gives three segments of arcs with disjoint interiors, each of length at least the distance from the junction to the corresponding disk (coincident contacts permit a zero arm). Conversely, three nearest-disk projections of a junction give a connected feasible star of length at most the sum. This proves the global distance-sum reduction, with attainment by coercivity. Convexity and reflection put a minimizer on the axis, and projection to [0,h] cannot increase distances. The single-point covering radius is obtained by balancing the increasing base distance sqrt(1+y²) and decreasing apex distance h−y, with the minimizer at y=0 when h≤1. Below R(h), if r≥h then r<1 and the objective is 2(sqrt(1+y²)−r), minimized at y=0; this handles the degenerate clamp interval separately. Otherwise a_r≤h−r (strict if r>1, since r+sqrt(r²−1)<h). Below a_r the apex term decreases alone, above h−r the base term increases alone, and on [a_r,h−r] the derivative has its sole zero at c=1/sqrt(3). Hence the clamp formula. The apex arm first vanishes at r=h−c if c<h<sqrt(3); the base arms first vanish at r=2/sqrt(3) if h>sqrt(3); at equality the thresholds coincide with collapse. If r reaches h below R(h), the two remaining spokes become horizontal. For h≤c there is no positive-radius tripod. These give all rows including h=c,h=1,h=sqrt(3) and their endpoint equalities.",
+      "residual_risks": [
+        "The phrase that both terms are active throughout the clamp interval should not be applied at r>h: that interval is the singleton {0}, where the apex term is zero. Treating it separately gives the same stated formula.",
+        "This proves the minimum and constructs a canonical minimizer, not uniqueness of all minimizing networks. Finite grid and optimizer checks are recorded author evidence, not an independent infinite-range proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trimming theorem applies when a full Steiner tree has terminal edges longer than r. Regularity bounds tangent-ray structure, and the open-problem sources discuss qualitative topology and explicit target geometries."
+        ],
+        "reasoning": "Trimming cannot be extended by direct substitution beyond the first arm loss; the relevant proposition requires strict inequality with the shortest terminal edge. Qualitative restrictions on junctions do not assign a length or settle a second transition.",
+        "searches": [
+          "arXiv:2212.01903 §2.3 Proposition 2.14",
+          "arXiv:2207.13745 regularity abstract",
+          "arXiv:2511.18217v1 Fig. 4 discussion",
+          "arXiv:2611.03403v1 introduction and §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.01903 §2.3",
+        "Benasque Teplitskaya PDF pp. 8–9",
+        "arXiv:2207.13745 abstract",
+        "arXiv:2511.18217v1 Fig. 4 discussion",
+        "arXiv:2611.03403v1 §3",
+        "Resultary d67420fcbced (self-match), 579b10bab782"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h>1/sqrt(3) the prior trimming theorem gives length h+sqrt(3)−3r on 0<r<min(h−1/sqrt(3),2/sqrt(3)) because these two bounds are the terminal-edge lengths. The exact prior square analogue has two junctions initially and a different collapse radius."
+        ],
+        "reasoning": "The initial branch is mechanically implied and is not credited as original. Its hypotheses end precisely before the post-trimming regime. The clamped minimization and the comparison of its cutoffs distinguish four height ranges and the equilateral coincidence, not a consequence of the inspected results under their assumptions.",
+        "searches": [
+          "arXiv:2212.01903 §2.3 Proposition 2.14",
+          "Resultary 579b10bab782 Finding and Relationship to prior work",
+          "arXiv:2511.18217v1 text after Figure 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basok–Cherkashin–Teplitskaya arXiv:2212.01903 defines the finite-site MDM objective; §2.3 Proposition 2.14 gives trimmed Steiner trees in the full-tree small-radius regime.",
+          "The equivalent objective of shortest connected set meeting three equal disks is not a separate discovery: meeting each disk is exactly the specified distance constraint."
+        ],
+        "reasoning": "The comparison is under the disk-contact formulation as well as MDM terminology. Reducing a three-contact Steiner problem to a junction is not the novelty basis; the location of the optimum after one or more disk-distance terms become inactive and all transition inequalities are the distinctive content. The targeted web query returned unrelated results and has no negative evidentiary weight.",
+        "searches": [
+          "Resultary: three-site isosceles maximal distance minimizer sum distances to three equal disks exact radius phase length",
+          "Resultary: isosceles three-site maximal-distance minimizer exact length phases equal-radius disks connected network",
+          "Primary query: Inverse maximal and average distance minimizer problems Proposition 2.14 networks meeting disks three terminals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d67420fcbced is the assigned finding itself. The distinct 579b10bab782 record gives an all-radius four-square-corner law: 2a(1+sqrt(3))−4r, 2a−2sqrt(r²−a²), then zero at the two square-specific thresholds. The Benasque examples identify tripod and segment shapes without a table of sharp boundaries for the prescribed sites."
+        ],
+        "reasoning": "Uniform scaling, rotation and relabeling preserve the number of distinct sites; they do not turn the four equal square corners into this three-site height family. No distinct same-day match for the exact profile emerged from the bounded catalogue comparisons.",
+        "searches": [
+          "Resultary exact isosceles profile and square-specific finite-site comparison; d67420fcbced and 579b10bab782",
+          "Teplitskaya Benasque 2022 presentation pp. 8–9"
+        ]
+      },
+      "rationale": "Credit prior work for finite-site MDM structure, the classical r=0 Steiner case, known tripod and segment examples, and the whole initial trimmed-tripod branch. The supported distinction is the exact all-radius, all-height length and phase law for the prescribed three isosceles sites.",
+      "residual_risks": [
+        "Older Steiner-with-neighborhoods literature may use different terminology for the same disk-contact problem. Bounded source checks and an unproductive web query do not establish exhaustive bibliographic coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of initial tripod branch; not its continuation",
+          "evidence": [
+            "If a full Steiner tree has shortest terminal-to-adjacent-branch distance q, its truncation by the terminal r-balls is an r-minimizer for r<q."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.01903",
+          "material_read": "Abstract and §2.3 Proposition 2.14",
+          "method": "Lawful OA text, offsets 459 and 31210 (proposition around 31430)",
+          "title": "Inverse maximal and average distance minimizer problems",
+          "trigger": "Direct predecessor for finite-site objectives and trimmed Steiner trees"
+        },
+        {
+          "assessment": "Exact law for four square corners, not the three isosceles sites",
+          "evidence": [
+            "A four-leaf two-junction branch gives way to a segment at 2a/sqrt(3), then to a point at sqrt(2)a."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17 579b10bab782",
+          "material_read": "RESULT.md Finding and prior-work discussion, offsets 0 and 7173",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp branched-to-segment transition for square four-point maximal-distance minimizers",
+          "trigger": "Strongest distinct exact all-radius profile for an analogous finite target"
+        },
+        {
+          "assessment": "Individual shapes known; no prescribed isosceles phase table shown",
+          "evidence": [
+            "Every tripod is a minimizer for some three points and positive r, but not conversely; a segment example follows."
+          ],
+          "identifier_or_url": "https://www.benasque.org/2022pde/talks_contr/3110_Teplitskaya.pdf",
+          "material_read": "PDF pp. 8–9",
+          "method": "Lawful OA extracted PDF offsets 5090–5329",
+          "title": "Maximal distance minimizers (Benasque PDE meeting)",
+          "trigger": "Earlier tripod and segment examples"
+        },
+        {
+          "assessment": "Structural antecedent; not an exact length implication from the abstract",
+          "evidence": [
+            "At most three tangent rays, with pairwise angles at least 2π/3, and finitely many three-ray points in the plane."
+          ],
+          "identifier_or_url": "arXiv:2207.13745",
+          "material_read": "Abstract",
+          "method": "Lawful OA text offsets 482–1367",
+          "title": "On regularity of maximal distance minimizers",
+          "trigger": "General structure might constrain junctions or phases"
+        },
+        {
+          "assessment": "Qualitative square example, no coverage of the three-site length law in this passage",
+          "evidence": [
+            "Discusses the topology of a positive-r minimizer for square vertices and asks about generalizations."
+          ],
+          "identifier_or_url": "arXiv:2511.18217v1",
+          "material_read": "Paragraph after Fig. 4",
+          "method": "Lawful OA text offset 14369",
+          "title": "Open problems on Steiner trees and maximal distance minimizers",
+          "trigger": "Finite-site topology discussion for square targets"
+        },
+        {
+          "assessment": "Context for exact computations on geometric targets; not a solution of the prescribed finite case",
+          "evidence": [
+            "Asks for explicit compact-target examples and discusses circle, stadium, disks and rectangles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03403v1",
+          "material_read": "Introduction and §3",
+          "method": "Lawful OA text offsets 979 and 12546",
+          "title": "Open problems from the Length Optimization event at MDS 2026",
+          "trigger": "Motivating explicit-target problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md phase table and limitations",
+        "arXiv:2212.01903 Proposition 2.14",
+        "arXiv:2611.03403v1 introduction and §3"
+      ],
+      "rationale": "This natural three-site model retains an actual topology change, unlike a pure pointwise Steiner computation. The closed two-parameter formula and sharp exact thresholds distinguish whether the apex arm disappears, both base arms disappear, or all arms disappear together, and give benchmarks past the known short-radius regime. The shape examples alone would not be a distinct contribution.",
+      "residual_risks": [
+        "Restricted to isosceles data and uniform radius; it neither classifies all optima nor all three-site geometries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

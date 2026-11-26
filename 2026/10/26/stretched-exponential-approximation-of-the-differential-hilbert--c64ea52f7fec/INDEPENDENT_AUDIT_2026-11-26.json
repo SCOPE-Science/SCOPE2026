@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:59.263945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions and proof, equations (1)–(13)",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen check_operator.py lines 7–39, inspected only"
+      ],
+      "rationale": "For the normalized Bergman measure the monomial norm is w_k(gamma), and the orthonormal basis expansion of (1−tz)^−2 followed by termwise integration on polynomial inputs gives exactly B_nk=(n+1)sqrt(w_n(beta)/w_k(alpha))/(n+k+1). The rank-one factors u,v of T converge locally as holomorphic Hilbert-space-valued power series (v is used as a linear functional without conjugating the parameter). Thus T is trace-norm holomorphic and has norm ||u||||v||. The binomial identity gives ||v||²=(1−|z|²)^(-alpha−2), while the coefficients of ||u||² are of order (n+1)^(1−beta). For beta<2 the product is bounded by the boundary power −1+(beta−alpha−2)/2; for beta≥2 the power is −1−alpha/2 with at most a square-root log loss. The positive theta margin absorbs the log and makes the radial bound integrable. The trace-class integral agrees entrywise with B. On the jth cell with half-width h_j the radius-two complex circle in rescaled coordinates stays at distance at least h_j from the unit circle. Cauchy estimates then give a Taylor remainder through degree 2m−1 of at most 2C h_j^(−1+theta)4^(−m). Gaussian exactness and the total weight two bound the cell residual by 8C h_j^theta 4^(−m). The geometric sum and omitted tail give (1), with at most Jm rank-one terms. Taking J=m=k, then k=floor(sqrt(n−1))≥sqrt(n)/2 for n≥4, gives (2) from the approximation-number characterization and operator norm ≤ trace norm. Small n are absorbed in the constant, and summability of exp(−cp sqrt(n)) holds for every p>0.",
+      "residual_risks": [
+        "Finite-section operator-norm examples do not check the infinite trace-norm error; the analytic estimates do. Neither endpoint, an optimal exponent, nor a lower bound is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite Hankel and separated Cauchy bounds have finite dimension or separation hypotheses and do not directly give the sampled trace-norm bound. The Peláez–Seco criterion is for a single weighted Dirichlet-type space with p≥1 rather than the cross-weight operator.",
+          "Trefethen et al. pp. 23–24 discuss exponential convergence for analytic integrands and singular-endpoint tanh or tanh-sinh rules; Liu arXiv:2509.23532v1 studies a single Gauss–Legendre rule for nonsmooth scalar integrands. These are relevant ingredients or alternative rules rather than the specific sampled operator."
+        ],
+        "reasoning": "Scalar local analytic Gaussian error is an established tool. It does not alone control the trace-norm growth on every rescaled cell or the omitted mass; those operator estimates are verified in the frozen proof. A general result for the same composite rule with those analytic growth hypotheses remains a conceivable implication.",
+        "searches": [
+          "Beckermann–Townsend Corollaries 7 and 12",
+          "Peláez–Seco arXiv:1510.05455 abstract",
+          "Literature: ‘Gauss’ ‘quadrature’ geometrically graded mesh analytic endpoint algebraic singularity root exponential composite geometric Gaussian quadrature dyadic error",
+          "Trefethen–Nakatsukasa–Weideman arXiv:2007.11828 §5 discussion of the quadrature error contour"
+        ]
+      },
+      "checked_sources": [
+        "Earlier exact-operator indexed record above",
+        "Li–Zhou §4",
+        "Beckermann–Townsend Corollaries 7 and 12",
+        "Peláez–Seco primary opening",
+        "Trefethen–Nakatsukasa–Weideman pp. 23–24",
+        "Liu primary opening and separate endpoint-quadrature retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A root-exponential singular-value estimate also implies existence of generic root-exponential trace-norm rank approximants by SVD truncation and summation of the singular-value tail (absorbing the polynomial factor into a smaller rate). Li–Zhou's trace-class membership alone does not imply either that rate or the p<1 conclusions.",
+          "The explicit operator Q_J,m instead needs a bound on the analytic rank-one family itself and controls a fixed grid of positive point evaluations for every J,m."
+        ],
+        "reasoning": "Neither the existence of quantitatively good SVD compression nor the earlier coefficient approximation guarantees the error of this prescribed sampling algorithm. The construction and its uniform estimate are asserted as the main claim, not newly first obtaining the spectral corollaries.",
+        "searches": [
+          "Indexed 2026/10/18 RESULT.md rank/spectral theorem",
+          "Li–Zhou Lemma 4.1 and Theorem 4.2",
+          "Trefethen et al. equations (31)–(39)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Zhou Lemma 4.1 uses the same matrix and integral of rank-one maps. The underlying coefficient matrix is a diagonally weighted Hilbert/Cauchy core, not the unweighted positive-definite Hankel matrix in the finite-matrix estimate.",
+          "The earlier indexed theorem has the identical operator and strict alpha,beta regime, but approximates by a dyadic row-block geometric expansion instead of moment quadrature."
+        ],
+        "reasoning": "Both coefficient and rank-one integral formulations are established. Equality of the target operator or of the decay class does not make the two rank-constrained output operators equal.",
+        "searches": [
+          "Local Resultary: root-exponential compression differential Hilbert operator between weighted Bergman spaces",
+          "Li–Zhou arXiv:2610.05672v1 §4",
+          "Beckermann–Townsend arXiv:1609.09494v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-root-exponential-compression-and-a-critical-hilbert-schmidt-resi--ea74937420c0 has rank at most 1+J² and operator error C(3^(−J)+2^(−delta J/2)); it concludes the same spectral decay class and S_p membership for every p>0.",
+          "The inspected earlier finding does not prescribe the Gauss–Legendre nodes or weights or derive an error bound for that sampled operator."
+        ],
+        "reasoning": "This is direct indexed precedent for the spectral consequences, not a table of similar examples. Apply exact coverage to those consequences and distinguish the explicit quadrature theorem.",
+        "searches": [
+          "Local Resultary: Bergman differential Hilbert trace norm, root-exponential singular values and dyadic rank approximation"
+        ]
+      },
+      "rationale": "Credit the earlier indexed theorem with root-exponential spectral decay and all-p Schatten membership in the full same-operator regime, and credit Li–Zhou with the rank-one integral and trace class. Those are not independent novelty claims supported by this review. The primary finding's distinct contribution is the trace-norm error for its explicitly prescribed positive dyadic Gauss–Legendre sample operator, uniformly for independently chosen J and m. The earlier indexed approximants are coefficient-space row blocks rather than positive evaluation samples. The closest inspected general quadrature literature supplies techniques or different rules, not explicit coverage of this operator estimate for those samples.",
+      "residual_risks": [
+        "No historical priority is established for the general numerical idea of geometric singular-endpoint quadrature; a prior general theorem covering this precise analytic growth class and quadrature construction may subsume the operator application. One plausible endpoint-quadrature paper was not accessible. The spectral consequences are already indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier spectral overlap; different operator construction",
+          "evidence": [
+            "Rank-(1+J²) operator-norm approximation by a dyadic row-block expansion, with root-exponential decay and all-p Schatten membership in the same strict regime."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-root-exponential-compression-and-a-critical-hilbert-schmidt-resi--ea74937420c0",
+          "material_read": "Mirrored RESULT.md offsets 0–5916 and 5800–9067",
+          "method": "Statement, parameter and approximation-method comparison",
+          "title": "Root-exponential compression and a critical Hilbert–Schmidt residual",
+          "trigger": "Earlier exact-operator overlap on the strongest spectral claim"
+        },
+        {
+          "assessment": "Covers the starting decomposition and trace class, not the quantitative sampled bound",
+          "evidence": [
+            "Exact weighted matrix and rank-one integral; trace class for −1<alpha<0 and beta>alpha+2, with all p≥1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.05672v1",
+          "material_read": "§4 Lemma 4.1 and Theorem 4.2, offsets 56468 and 59000–65862",
+          "method": "Primary OA equations and theorem comparison",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Same operator, same strict parameter regime, known rank-one integrand"
+        },
+        {
+          "assessment": "Finite-matrix structure estimates are not an infinite sampled S_1 estimate",
+          "evidence": [
+            "Finite positive-definite Hankel epsilon rank depends on log dimension; separated Cauchy results use interval restrictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.09494v1",
+          "material_read": "Abstract, Corollary 7 offsets 44491–48690 and §5.2 Corollary 12 offsets 66700–71141",
+          "method": "Primary OA theorem and assumptions comparison",
+          "title": "On the singular values of matrices with displacement structure",
+          "trigger": "Structured low-rank approximation for the Hilbert/Cauchy core"
+        },
+        {
+          "assessment": "Known same-space setting with p≥1; not direct coverage of the cross-weight quadrature theorem",
+          "evidence": [
+            "The differential kernel can be written g'(tz) for g(w)=w/(1−w), but matching the kernel does not match the domain and codomain assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.05455",
+          "material_read": "Abstract and opening, offsets 0–3479",
+          "method": "Primary OA statement comparison",
+          "title": "Schatten classes of generalized Hilbert operators",
+          "trigger": "Potential broader Schatten criterion for the differential kernel"
+        },
+        {
+          "assessment": "General Gaussian analytic error and other endpoint quadrature rules, not the claimed point-evaluation formula in inspected passages",
+          "evidence": [
+            "Analytic integrands are handled by a contour error formula; the singular-endpoint examples there use tanh and tanh-sinh rules."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.11828",
+          "material_read": "Primary PDF pp. 23–24, offsets 63700–69389, equations (31)–(39)",
+          "method": "OA PDF passage comparison",
+          "title": "Exponential node clustering at singularities for rational approximation, quadrature, and PDEs",
+          "trigger": "Potential general endpoint quadrature theorem giving the same algorithm"
+        },
+        {
+          "assessment": "Liu's single-rule scalar asymptotic analysis is a different statement; second source remains unresolved",
+          "evidence": [
+            "Liu treats power and log singularities with a representation of the error of an m-point Gauss rule, not a trace norm for the target operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.23532 ; https://www.sciencedirect.com/science/article/pii/S001046552400047X",
+          "material_read": "Liu primary abstract and start of §1 (offsets 0–2776); second paper's full text not obtained",
+          "method": "Primary OA passage and lawful retrieval attempt",
+          "title": "Asymptotic Error Analysis of Gauss Quadrature for Nonsmooth Functions; Quadrature of functions with endpoint singular and …",
+          "trigger": "Possibly broader endpoint-singularity quadrature from targeted search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1), (4) and (8)–(13)",
+        "Earlier indexed row-block approximation"
+      ],
+      "rationale": "The explicit sample-based construction is useful beyond an abstract decay bound: positive parameter-independent nodes and weights on each interval give an operator applied using only Jm real evaluations of the input function, while the output error is controlled in trace norm on the full spaces. Separating the quadrature order and endpoint cutoff quantifies two different sources of error without computing singular vectors or relying on finite sections. No independent value is assigned to restating the earlier indexed spectral conclusions.",
+      "residual_risks": [
+        "No numerical conditioning, implementation advantage in a specific finite-precision regime, or optimality of this quadrature rate is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

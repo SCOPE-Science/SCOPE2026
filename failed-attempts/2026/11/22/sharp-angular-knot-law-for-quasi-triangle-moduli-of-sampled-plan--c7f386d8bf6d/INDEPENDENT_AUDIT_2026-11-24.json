@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:01.981111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each quadrant cone the l1 norm and the interpolant are linear, so the nodal bounds l1<=Q<=M l1, M=max_r q_p(r)/l1(r), propagate by nonnegative interpolation. The l1 triangle inequality gives C<=M. If any nonaxis knot is present, its ratio exceeds one; a maximizing ray then has both coordinates nonzero, so splitting it into its coordinate vectors gives exact equality. In the axis-only case the source's splitting witness uses a zero vector, outside the displayed supremum, but Q=l1 and x=y=(1,0) gives an admissible equality witness. Folding the nodal direction into [0,pi/4], the normalized absolute coordinate sizes are (1+tan(delta))/2 and (1-tan(delta))/2. Strict concavity of t^p proves strict decrease away from the diagonal, and the even binomial expansion gives F_p=2^(1/p-1)[1+(p-1)delta^2/2+O_p(delta^4)] at fixed p. This checks the endpoints, exact condition and asymptotic for all stipulated fans. Replay: RESULT.md, Steps 1–4, with the separate nonzero axis-only witness above. The frozen CHECK.py was read, not run; its sampled fans repeat their knots by quarter-turn and finite tests cannot establish the nonuniform continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unser's angular-profile ratio is only a bound; for the axis-only gauge that Euclidean ratio is sqrt(2) while the sharp modulus is 1.",
+          "The octagonal record supplies a stronger exact theorem with planar homogeneous gauges as its hypotheses, and these are met here.",
+          "Qadri–Mehmood supplies general concavity-modulus terminology, not this evaluation."
+        ],
+        "reasoning": "The decisive coverage is the prior exact convexification theorem, not Unser's possibly slack estimate or a terminology source.",
+        "searches": [
+          "arXiv:2611.06212v1 §2.2, Theorem 2.4 and §§5.1–5.2",
+          "Resultary 886effdf11c1, Proof §1",
+          "doi:10.30538/oms2018.0022, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 886effdf11c1, a259caf870e6, ab8c91738bbb, and the identical c7f386d8bf6d",
+        "Unser arXiv:2611.06212v1",
+        "Qadri–Mehmood doi:10.30538/oms2018.0022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each sector of the l1 unit diamond, its vertices are the origin and the two l1-normalized neighboring knots; the prior identity plus linearity yields the maximum of q_p(r)/l1(r).",
+          "Folding angles makes this the evaluation of one fixed one-variable profile. Strict monotonicity and the quadratic defect are elementary consequences of that explicit profile, with no extra knot-placement analysis."
+        ],
+        "reasoning": "The whole arbitrary-fan law is a special case even though its exact coefficient and angular wording are not printed in prior work. No separable nonmechanical result remains.",
+        "searches": [
+          "Resultary 886effdf11c1, Eq. (1) and Finding",
+          "Unser arXiv:2611.06212v1, planar interpolation, §§5.1–5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 886effdf11c1, Proof §1 Eq. (1): C(q)=max_{z in conv{q<=1}} q(z) for a positive absolutely homogeneous planar gauge.",
+          "The assigned interpolant is 1 on signed coordinate unit vectors and is at least l1 by linear interpolation; therefore its convexified unit ball is exactly the l1 unit ball."
+        ],
+        "reasoning": "The modulus is the exact dilation of the l1 diamond under the given spline, not just a constant bounded by a generic radial comparison. Sectorwise linearity evaluates the dilation by inspection at knot vertices.",
+        "searches": [
+          "Resultary: sampled planar l_p conic spline exact quasi-triangle modulus nearest diagonal angular deficit",
+          "Resultary: planar conic spline quasi-triangle modulus exact extremizer polyhedral fan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The c7f386d8bf6d index hit is the record itself. The earlier twelve-branch formula already covers the standard eight-ray axis-and-diagonal sample by simple weight substitution.",
+          "The parity-dependent uniform-grid entry a259caf870e6 tabulates L-infinity interpolation error, not the modulus.",
+          "Same-day ab8c91738bbb is a minimum of swapped ellipse norms, not this interpolation operator."
+        ],
+        "reasoning": "No arbitrary-fan table is needed: the octagonal record's general exact formula applies beyond its worked eight-ray example.",
+        "searches": [
+          "Resultary: planar conic spline quasi-triangle modulus exact extremizer polyhedral fan",
+          "Resultary 886effdf11c1, Finding and Proof §§1–3; a259caf870e6, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The earlier octagonal record proves the exact maximal convexification-distortion formula for any positive absolutely homogeneous planar gauge, not only for its eight rays. Combined with the existing conic interpolation construction, the present exact constant is a direct specialization: the convexified unit ball here is the l1 diamond (all four vertices are present and the unit ball lies in it), and each fan sector cuts that diamond in a triangle with its nonzero vertices on the knot rays. A linear function on each triangle has its maximum at a knot vertex. This mechanically gives the nodal ratio formula on every permitted fan. Folding and an even Taylor expansion of the explicit l_p profile give the angular statements without a further extremal theorem. Not a failure based on a self-match or an empty search.",
+      "residual_risks": [
+        "A broad web result was unrelated and supplies no exclusion evidence. No historical-priority determination beyond the concrete prior coverage is required for this rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The general convexification identity covers the claimed law by specialization; the worked octagonal example alone covers the usual axis/diagonal fan",
+          "evidence": [
+            "Proof §1 Eq. (1) gives C(q)=max_{z in conv B}q(z), B={q<=1}; the formula is not restricted to the octagon."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-twelve-branch-quasi-triangle-modulus-of-four-weight-octago--886effdf11c1/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§1–3, offsets 0–5122",
+          "method": "Resultary query and bounded local-mirror inspection",
+          "title": "Exact twelve-branch quasi-triangle modulus of four-weight octagonal gauges",
+          "trigger": "Strongest earlier exact modulus for planar conic gauges"
+        },
+        {
+          "assessment": "Supplies general modulus comparison and interpolation framework, but not an exact modulus via that comparison alone",
+          "evidence": [
+            "Theorem 2.4 upper-bounds C by max angular profile / min angular profile; §5.2 treats uniform polar grids."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06212v1",
+          "material_read": "PDF p. 11 §2.2, p. 12 Theorem 2.4, pp. 43–47 §§5.1–5.2",
+          "method": "Bounded OA passages",
+          "title": "Quasi-norms on R^d: Characterization and Approximation by Conic Splines",
+          "trigger": "Originating interpolation theory and plausible modulus bound"
+        },
+        {
+          "assessment": "Different invariant and more restricted sampling; not the source of exact coverage",
+          "evidence": [
+            "Parity-dependent L-infinity uniform-grid approximation error, of order h^p."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-sharp-parity-dependent-conic-spline-error-for-planar-ell-p-quasi--a259caf870e6",
+          "material_read": "Mirrored Finding and Assumptions, offsets 0–2096",
+          "method": "Bounded local-mirror inspection",
+          "title": "Sharp parity-dependent conic-spline error for planar ell_p quasi-norms",
+          "trigger": "Same spline target and strong angular-grid overlap"
+        },
+        {
+          "assessment": "Terminology/background only at this locator",
+          "evidence": [
+            "Defines the modulus of concavity for quasi-norms."
+          ],
+          "identifier_or_url": "https://doi.org/10.30538/oms2018.0022",
+          "material_read": "PDF p. 3, offset about 6500",
+          "method": "Bounded OA passage",
+          "title": "On Moduli and Constants of quasi-Banach Spaces",
+          "trigger": "Prior concavity-modulus formulations"
+        },
+        {
+          "assessment": "Different family, no dependency on publication order within a day",
+          "evidence": [
+            "Two swapped-axis ellipse norms and modulus (a^2+b^2)/(2ab), rather than angular knot interpolation."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-quasi-triangle-modulus-and-rigid-extremizers-for-orthogona--ab8c91738bbb",
+          "material_read": "Mirrored Finding, offsets 8–641",
+          "method": "Bounded local-mirror inspection",
+          "title": "Sharp quasi-triangle modulus and rigid extremizers for orthogonal ellipses",
+          "trigger": "Distinct indexed quadratic-modulus result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact modulus is a sensible mesh-design invariant, but here it is mechanically obtained from an earlier exact planar theorem by identifying the l1 diamond and evaluating a piecewise-linear maximum at its knots. The angular Taylor coefficient evaluates the same elementary profile and does not leave a separately useful unknown exact assertion under the stated acceptance standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

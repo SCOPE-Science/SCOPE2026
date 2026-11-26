@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:36.623116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an odd rung count, an independent colour class meeting consecutive rungs must meet opposite rows on those rungs. The unselected vertex across from one of these hits then has two neighbours in the class, forcing its third neighbour into the class. Repeating forces alternating selected rows around the whole cycle and violates independence on odd closure. Therefore each class occupies at most floor(n/2) rungs, and on odd n the ceiling of 2n/floor(n/2) is six at three and five at every n>=5. Even prisms are cubic bipartite, so the bipartition is a valid two-colour solution and an edge precludes one colour. On the triangular prism six distinct colours suffice. I independently generated cyclic triples for the printed blocks U^h V_5 and U^h V_7 at h=0,1,2; the union agrees with all 13 printed triples, and in each triple for each row the center, vertical neighbour and two horizontal neighbours have four different colours. Further U copies add only windows internal to the periodic block or across an already present U/U seam; the U/tail seams are unchanged. This establishes all odd n>=5 by locality, not extrapolation. The check can be replayed by zipping predecessor, center and successor in those six words cyclically and checking distinctness of those four digits. The frozen verifier and recorded output were inspected, not executed. Here n counts rungs, not vertices, and twisted ladders are outside scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 697eedb2d5a5 gives the exact formula plus an exact four-palette count and the optimal named-palette count (a transfer-matrix trace for odd n>=5).",
+          "Resultary 4635f0f3862a instead concerns P_2 square P_n, the open ladder.",
+          "Caro et al., arXiv:2410.02336, p. 18, Theorem 4.2 gives a general Cartesian-product upper bound. ArXiv:2510.01897 considers grid products; arXiv:2610.01441 gives general complexity/algorithmic results in the abstract."
+        ],
+        "reasoning": "The matched circular-prism census directly dominates the requested minimum palette size. Neither a product upper bound, an algorithm needing further analysis, nor the open-ladder equivalence supplies the same cyclic classification on its own.",
+        "searches": [
+          "Resultary: exact strong-odd colouring census for circular prisms and open ladders",
+          "arXiv:2410.02336, Theorem 4.2",
+          "arXiv:2510.01897, grid product discussion",
+          "arXiv:2610.01441, complexity and algorithms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 697eedb2d5a5",
+        "Resultary 619736a433f3",
+        "Resultary b9c77d1b74ba",
+        "Resultary 4635f0f3862a",
+        "arXiv:2401.11653 abstract",
+        "arXiv:2410.02336",
+        "arXiv:2509.20763",
+        "arXiv:2510.01897",
+        "arXiv:2610.01441",
+        "DOI:10.1016/j.disc.2025.114683 landing only",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caro et al., arXiv:2509.20763, p. 4: alpha_od(G) chi_so(G) >= |V(G)|.",
+          "The indexed odd-independent-set result gives alpha_od(P_n)=(n-1)/2 on odd n, as well as the consecutive-rung exclusion.",
+          "The indexed census states chi_so=5 for each odd n>=5 on the same graph."
+        ],
+        "reasoning": "The general inequality and indexed maximum yield the odd lower bounds, but do not themselves furnish an optimal colouring. The census does; the indexed consecutive-rung exclusion makes any such odd-prism colouring a square colouring. The frozen theorem and its square-existence corollary therefore survive no substantive gap in coverage.",
+        "searches": [
+          "arXiv:2509.20763, Proposition 1",
+          "Resultary 619736a433f3, opening Finding and propagation proof",
+          "Resultary 697eedb2d5a5, opening Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 697eedb2d5a5, opening Finding: same ordinary C_n square K_2, n>=3 and same definition using open neighbourhood counts.",
+          "Resultary 619736a433f3, RESULT.md offsets 2500–3660: a consecutive selected-rung pair in an odd independent set forces an alternating full-rung set and even n."
+        ],
+        "reasoning": "On cubic graphs a strong-odd colouring either has all three neighbours equal or all three distinct at each vertex. On an odd prism the equal option would occupy the center rung and an adjacent rung with that colour, forbidden by the indexed odd-independence structure. Hence on odd prisms a strong-odd colouring is exactly a square colouring; the distinction between the two terms does not avoid overlap for the odd-parameter existence result.",
+        "searches": [
+          "Resultary: strong odd chromatic number of circular ladders, circular prisms and distance-two/square colourings",
+          "Resultary: structural odd independence on circular ladders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 697eedb2d5a5, RESULT.md offset 0: 6 for n=3, 2 for even n>=4, 5 for odd n>=5, all rungs n>=3.",
+          "Same-date 619736a433f3 gives the odd-independence maximum, and same-date b9c77d1b74ba requires the vertex colour to be the unique open-neighbourhood plurality, a different condition."
+        ],
+        "reasoning": "The first comparison is equality of all parameters and minima, more than agreement of finite test values. The other same-date records are compared on their actual statements; the first of them covers a proof ingredient, the second is not this invariant.",
+        "searches": [
+          "Resultary: exact 6/2/5 minimum-palette formula for C_n square K_2",
+          "Resultary: odd-independent set maxima and colouring polynomials for circular ladders"
+        ]
+      },
+      "rationale": "A distinct indexed result states the identical three-case formula on exactly the same graph and with the same strong-odd definition, and goes on to count optimal colourings. The extra odd-square existence assertion follows directly by combining that exact result with the indexed nonadjacent-rung structure of odd independent sets on this same family: three equal neighbours would occupy consecutive rungs. Thus the frozen finding is covered, even if the proof blocks themselves differ. This is coverage, not a conclusion on priority or derivation: the exact-formula comparison has a later catalog date and the odd-independence comparison has the same catalog date.",
+      "residual_risks": [
+        "The exact-match catalog entry is listed later than the frozen record and the structurally overlapping entry on the same date. Neither catalog date establishes priority or provenance.",
+        "Full text of DOI:10.1016/j.disc.2025.114683 was not obtained. Other earlier equivalent statements under prism, distance-two or generalised Petersen terminology may exist; this does not affect the demonstrated catalog equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact invariant match; stronger named-palette counts also given",
+          "evidence": [
+            "The three formula branches and graph family coincide exactly.",
+            "All optimal named-palette colourings are counted, including via tr(T_5^n) for odd n>=5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-parity-obstruction-and-exact-strong-odd-coloring-census-for-ci--697eedb2d5a5",
+          "material_read": "RESULT.md opening definition and Finding, offsets 0–1900, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "A parity obstruction and exact strong-odd coloring census for circular prisms",
+          "trigger": "Plausible identical chromatic formula with stronger census"
+        },
+        {
+          "assessment": "Covers the odd class size and consecutive-rung exclusion used to deduce square colouring from strong-odd colouring",
+          "evidence": [
+            "Consecutive selected rungs force alternating selections on all rungs and hence an even cycle.",
+            "This yields the exact odd independent set maximum (n-1)/2 for odd n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-odd-independent-set-polynomial-of-circular-ladders--619736a433f3",
+          "material_read": "RESULT.md, opening Finding and structural proof offsets 2500–3660",
+          "method": "Local Resultary mirror",
+          "title": "Odd independent set polynomial of circular ladders",
+          "trigger": "Same-day structural and odd-independence overlap"
+        },
+        {
+          "assessment": "Neither is the decisive match",
+          "evidence": [
+            "b9c77d1b74ba: own colour is the unique plurality in the open neighbourhood.",
+            "4635f0f3862a: P_2 square P_n, not C_n square K_2."
+          ],
+          "identifier_or_url": "Resultary b9c77d1b74ba and 4635f0f3862a",
+          "material_read": "Opening RESULT.md in both cases, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Other indexed ladder colouring results",
+          "trigger": "Same graph different colour criterion; square-colouring alias"
+        },
+        {
+          "assessment": "General product bound, not the exact prism formula",
+          "evidence": [
+            "Submultiplicative product inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "OA PDF p. 18, Theorem 4.2, text offset 41411",
+          "method": "Lawful OA primary PDF",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "General Cartesian-product theorem"
+        },
+        {
+          "assessment": "General inequality and related grids; distinct from the exact indexed census",
+          "evidence": [
+            "Part I gives alpha_od(G) chi_so(G) >= |V(G)|.",
+            "Part II discusses finite and infinite grids including P_k square C_k; the passages inspected do not state the full circular-ladder formula."
+          ],
+          "identifier_or_url": "arXiv:2509.20763; arXiv:2510.01897",
+          "material_read": "Part I p. 4 Prop. 1 offset 9340; Part II grid setup offsets 0 and 3431",
+          "method": "Lawful OA primary passages",
+          "title": "The odd independence number of graphs, I and II",
+          "trigger": "General lower-bound implication and possible finite grid exact coverage"
+        },
+        {
+          "assessment": "No prism result identified from inspected material; misses are not full-text exclusion",
+          "evidence": [
+            "Abstract outlines complexity, special classes and treewidth rather than stating this formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01441",
+          "material_read": "Accessible PDF abstract p. 1, offset 0; literal searches for prism, ladder and circular",
+          "method": "Lawful OA primary PDF and keyword location",
+          "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+          "trigger": "Plausibly relevant complexity preprint incompletely accessed in frozen package"
+        },
+        {
+          "assessment": "Unresolved literature comparison, not used to fail originality",
+          "evidence": [
+            "The available snippet mentions a Brooks-type result, not enough to compare its exceptions or implications."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2025.114683",
+          "material_read": "Publisher landing/snippet only",
+          "method": "Lawful OA retrieval attempted; full text not obtained and no repository copy identified",
+          "title": "On odd and strong odd colorings of graphs",
+          "trigger": "Plausibly relevant Brooks-type strong-odd bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact parity split is a natural classification on a standard cubic product family and is useful for testing bounded-width colouring methods. It has a structural explanation rather than a finite-list fit, and its square-colouring witness highlights a qualitative difference between even and odd rungs. This evaluates the mathematical question and result; no distinct scientific increment over the identical catalog formula and its consequences is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

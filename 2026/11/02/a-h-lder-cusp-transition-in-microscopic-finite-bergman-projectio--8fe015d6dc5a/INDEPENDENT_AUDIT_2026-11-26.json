@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:51:47.662256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated positive radial weight the monomials are orthogonal and the inverse squared norms are j−Cα j^(1−α)+Cα² j^(1−2α)−D with error O(j^(1−3α)+j^(−α)+j^(−1)). The gamma-ratio contribution to that error is O(j^(−α)), already included; the explanatory sentence at RESULT.md:80 should not be read to bound it individually by O(j^(−1)). Right-endpoint summation on j/N and the j−1 shift yield G(s)=sF1(s)+e^(−s)/2=F0(s)−e^(−s)/2. The cusp powers have bounded-variation Riemann-sum control where needed; for α>1/2 the second cusp power is integrably singular and its sum is O(N^(−2α)) after scaling. The sum of the reciprocal errors is O(N^(−3α)) for 3α<2, O(N^(−2)log N) at equality and O(N^(−2)) for that term above equality; the other errors preserve each stated remainder. These estimates are uniform on the claimed compact coordinate sets, including boundary evaluation for polynomials. The N^(−1) profiles cannot vanish identically, although their diagonal values can vanish. VERIFICATION.md and check.py are supplementary frozen numerical evidence; no script execution or formal proof check was used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lubinsky gives a leading finite boundary limit; Hübner's half threshold describes boundary validity of individual-polynomial asymptotics, not the second correction to the finite kernel.",
+          "Analytic-weight expansions exclude this cusp, and the radial doubling-weight bounds are for infinite kernels."
+        ],
+        "reasoning": "These broader results do not furnish the cusp-squared/slope transition and explicit compact-uniform complex profile.",
+        "searches": [
+          "Lubinsky, Universality Type Limits, Theorem 1.1",
+          "arXiv:2610.24693 Theorems A/B and Corollary C",
+          "arXiv:2008.02682 Theorem 1.2.1",
+          "arXiv:2607.19959 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Lubinsky 2009 Theorem 1.1",
+        "arXiv:2610.24693",
+        "arXiv:2008.02682",
+        "arXiv:1009.2806",
+        "arXiv:2607.19959",
+        "Resultary eaa55dc8b628, 64e0ebc42782, df4c40ade7c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed next term depends jointly on reciprocal beta-moment expansion, j−1 indexing and the relative powers 2α and 1; the cited kernel limit is only leading order."
+        ],
+        "reasoning": "Standard tools make a short derivation possible, but the sources inspected give neither the evaluated second coefficient nor quantitative errors for these three cases.",
+        "searches": [
+          "Lubinsky Theorem 1.1",
+          "Zeytuncu §1.1–1.2",
+          "Hübner Theorems A/B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zeytuncu gives the full radial kernel through monomial norms; truncating the series gives the exact representation but no two subleading terms."
+        ],
+        "reasoning": "The exact series is equivalent to a truncated inverse-moment weighted exponential sum. The novelty assessed is the evaluated profile and bounds, not that representation.",
+        "searches": [
+          "Resultary: finite microscopic Bergman kernel, radial moment, Hölder cusp",
+          "arXiv:1009.2806 §1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local-mirror records eaa55dc8b628 (finite kernel on arclength ray stars), 64e0ebc42782 (infinite log-periodic radial boundary tangents), and df4c40ade7c8 (infinite radial Gevrey kernel) differ in support, truncation or invariant."
+        ],
+        "reasoning": "The nearest retrieved exact finite and infinite kernel results do not tabulate or imply these coefficients for this family.",
+        "searches": [
+          "Resultary: finite Bergman projection kernel and radial cusp/moment comparisons"
+        ]
+      },
+      "rationale": "The exact finite two-point coefficients and compact-uniform remainder trichotomy for the fixed cusp-plus-linear radial family were not found in the inspected sources. The leading kernel limit and the radial reciprocal-moment technique are not new. The assessment is restricted to the subleading expansion, not a new general universality or summation principle.",
+      "residual_risks": [
+        "Bounded search is not a priority certification; older unindexed finite-section or general asymptotic treatments might contain an equivalent specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Leading-order coverage only",
+          "evidence": [
+            "Scaled two-point H limit and n² diagonal growth for positive continuous boundary weight."
+          ],
+          "identifier_or_url": "https://lubinsky.math.gatech.edu/Research%20papers/UniversBergmanOct09.pdf",
+          "material_read": "Theorem 1.1, PDF pp. 2–3, offset 3740",
+          "method": "OA PDF",
+          "title": "Universality Type Limits for Bergman Orthogonal Polynomials",
+          "trigger": "Leading finite boundary universality"
+        },
+        {
+          "assessment": "Different observable and threshold",
+          "evidence": [
+            "The κ+α=1/2 boundary distinction is for individual-polynomial asymptotics and zero locations."
+          ],
+          "identifier_or_url": "arXiv:2610.24693",
+          "material_read": "Introduction p. 3; Theorems A/B and Corollary C pp. 4–5",
+          "method": "OA PDF",
+          "title": "Asymptotics of Weighted Bergman Polynomials under Finite Regularity",
+          "trigger": "Finite regularity and half threshold"
+        },
+        {
+          "assessment": "Analytic regime not encompassing this cusp",
+          "evidence": [
+            "Arbitrary-order exterior polynomial expansions require analytic boundary/weight."
+          ],
+          "identifier_or_url": "arXiv:2008.02682",
+          "material_read": "Abstract and Theorem 1.2.1, pp. 1–3",
+          "method": "OA PDF",
+          "title": "Riemann-Hilbert Hierarchies for Hard Edge Planar Orthogonal Polynomials",
+          "trigger": "Higher-order hard-edge expansions"
+        },
+        {
+          "assessment": "Representation as background",
+          "evidence": [
+            "Full kernel series uses reciprocals of radial moments."
+          ],
+          "identifier_or_url": "arXiv:1009.2806",
+          "material_read": "§1.1–1.2, p. 2, offset 3223",
+          "method": "OA PDF",
+          "title": "Weighted Bergman Projections and Kernels: Lp Regularity and Zeros",
+          "trigger": "Radial kernel equivalence"
+        },
+        {
+          "assessment": "Infinite-kernel bounds, not finite expansions",
+          "evidence": [
+            "Pointwise upper estimates for radial doubling weights."
+          ],
+          "identifier_or_url": "arXiv:2607.19959",
+          "material_read": "Abstract and Theorem 1, pp. 1, 3–4",
+          "method": "OA PDF",
+          "title": "Optimal Off-Diagonal Upper Estimates for Bergman Reproducing Kernels",
+          "trigger": "Radial moment estimates"
+        },
+        {
+          "assessment": "Different support and scaling",
+          "evidence": [
+            "Finite and microscopic kernels on a q-ray arclength star."
+          ],
+          "identifier_or_url": "Resultary eaa55dc8b628",
+          "material_read": "Finding (1)–(4)",
+          "method": "Resultary local mirror",
+          "title": "A multi-Bessel microscopic kernel at equally spaced radial junctions",
+          "trigger": "Closest retrieved finite two-point kernel"
+        },
+        {
+          "assessment": "Different weight and infinite kernel",
+          "evidence": [
+            "Log-periodic boundary tangent family."
+          ],
+          "identifier_or_url": "Resultary 64e0ebc42782",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Complete log-periodic boundary tangents of radial Bergman kernels",
+          "trigger": "Radial subleading/scale phenomena"
+        },
+        {
+          "assessment": "Different weight and infinite kernel",
+          "evidence": [
+            "Exact radial moments used for infinite-kernel coefficient regularity."
+          ],
+          "identifier_or_url": "Resultary df4c40ade7c8",
+          "material_read": "Finding and Proof §1",
+          "method": "Resultary local mirror",
+          "title": "Sharp order-two Gevrey smoothing by an oscillatory positive radial Bergman weight",
+          "trigger": "Radial kernel moment examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an explicit positive radial model separating the nonlinear cusp correction from the smooth slope and discretization, including a reproducible crossover at α=1/2 and off-diagonal profiles that remain meaningful when a diagonal coefficient cancels. It is a useful quantitative test of higher-order boundary limits, not a claim about arbitrary rough weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

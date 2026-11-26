@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:22.870236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof steps 1–6; VERIFICATION.md; CHECK.py (inspected, not executed)",
+        "Fu, arXiv:2611.15406, Lemma 2.3 and Theorem 1.1",
+        "Independent replay: python3 /workspace/reproduce_frozen_reviews.py 4"
+      ],
+      "rationale": "With C_m(z)=Σ_{j=1}^m j(m+1−j)z^{j−1}, coefficient comparison gives Q=αC_N+(1−α)C_{N−1} and (N+2)C_{N−1}=(1−z)C_N'+(N−1)C_N. The Chebyshev identity e^{−i(m−1)θ/2}C_m(e^{iθ})=U_m'(cos(θ/2))/2 (from the generating function or the finite sum) and Rolle give exactly m−1 simple unit roots, none at 1. An independent strict-exclusion argument uses w=(1+z)/(1−z), A(w)=(w+1)^{N−1}C_N((w−1)/(w+1)). All zeros iβ of A are distinct and imaginary. The transformed Q is proportional to α(N+2)A+(1−α)(w+1)A'. In Re w≥0 off the zeros of A, division by (w+1)A gives α(N+2)/(w+1)+(1−α)Σβ1/(w−iβ), with strictly positive real part; at A=0, the derivative term is nonzero for 0<α<1. The excluded Cayley point z=1 has positive Q(1). For ε=1−α, simple-root differentiation at ζ gives z'(0)/ζ=(1−ζ^{−1})/(N+2); its real part gives exactly the stated radial coefficient, with a quadratic remainder at fixed N. For the kernel, direct monomial integration gives squared norms π²/[j(1+k+j/γ)] for z_1^{j−1}z_2^k, integrable when the denominator is positive. Writing h=j+k reduces π²tK_γ(tv,t) to terms j(1+h−jδ)v^{j−1}t^h with h≥0 and j<(h+1)/δ. The h=0 term is P_δ and the remaining power series converges uniformly on fixed v-disks for t sufficiently small (each h-layer has at most polynomial times exponential growth in h). The normalization (1−t)^2 does not change the limit. A positive minimum of |P_δ| on the closed unit disk proves kernel nonvanishing there for nonendpoint α. At α=1 it gives no such conclusion; small disks around the exterior roots for nonendpoint α retain the zero count by Rouché, with multiplicities. Independent companion-matrix checks passed for 420 interior roots and 105 endpoint roots and radial increments, N=2–15.",
+      "residual_risks": [
+        "Numerical checks cover a bounded range only. Kernel exclusion is for each fixed nonendpoint γ and sufficiently small positive real t, not uniform in γ, not for all t, and not a finite-t boundary theorem at α=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fu controls multiplicity, near-vertex zeros and limiting angular concentration as γ approaches 1.",
+          "Fell's located circle-locus lemma assumes two monic polynomials of equal degree; C_N and C_{N−1} differ in degree and require a coefficient-specific relation."
+        ],
+        "reasoning": "Angular concentration and eventual kernel zero counts give neither a strict radial inequality for fixed γ nor a derivative in α. Classical Chebyshev zeros and half-plane log-derivative control are ingredients; they do not supply the Hartogs-polynomial identification and the parameter derivative by just matching hypotheses of the cited results.",
+        "searches": [
+          "arXiv:2611.15406 Theorems 1.1, 1.5 and Lemma 3.1",
+          "Fell, On the zeros of convex combinations of polynomials, pp. 43–44"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15406, 2505.20489 and 2611.07480",
+        "Resultary 46a4566901e8 and exact target 49b8d8d6df6b",
+        "Fell, Pacific J. Math. 89, 43–50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compact-uniform convergence transfers an already established strictly zero-free closed disk, but does not create one. At the endpoint the real-root information says nothing about the unit moduli of the nonreal roots; Fell's checked hypotheses do not fit the pair."
+        ],
+        "reasoning": "The new input is the uniform-in-root strict location at each nonendpoint parameter and the endpoint formulas, using the special consecutive-polynomial derivative identity. No novelty is assigned to the limit, real-root subset, or the transfer principle.",
+        "searches": [
+          "arXiv:2611.15406 Lemma 2.3 and Theorems 1.1, 1.5",
+          "Resultary 46a4566901e8",
+          "Fell p. 44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fu's P_δ equals δQ_{N,α} with δ^{-1}=N+α: it is the identical zero problem. The older 46a4566901e8 concerns the identical polynomial, reports real interior roots below −1 if present, the even-N real endpoint root −1 and the absence of real endpoint roots for odd N.",
+          "The two rational-Hartogs Q_{m,n} sources use a different kernel numerator restriction with reciprocal pairs; the notation alone is not equivalence."
+        ],
+        "reasoning": "A complete restriction to the real line and simplicity of the other roots cannot determine the moduli of the nonreal pairs. The oblique rational polynomials answer a different root-count question.",
+        "searches": [
+          "Resultary Hartogs vertex polynomial, radial escape and exterior zeros: 46a4566901e8 and exact target 49b8d8d6df6b",
+          "arXiv:2611.15406 Lemma 2.3; arXiv:2505.20489; arXiv:2611.07480 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact indexed classification covers the real roots; Fu's exact polynomial formula and possible double real root cover its identity and multiplicity, not the full complex radial data."
+        ],
+        "reasoning": "The exact symbolic classifications are the pertinent lookup for a continuously varying α and unrestricted N. Neither inspected classification tabulates or implies all nonreal locations or endpoint velocities.",
+        "searches": [
+          "Resultary 2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8 (mirrored Finding and proof)",
+          "arXiv:2611.15406 Lemmas 2.3 and 3.1"
+        ]
+      },
+      "rationale": "The vertex limit and kernel zeros near the vertex are known, as are the same polynomial's real-root classification and simplicity information. The supported increment is strict exteriority for every complex zero, the complete unit-circle endpoint location and quantitative endpoint radial motion. The local zero-free core is an immediate, correctly limited application of that new location information to the known uniform limit, not an independent novelty claim.",
+      "residual_risks": [
+        "Best-of-knowledge bounded comparison; a stronger unlocated polynomial-stability result could narrow the polynomial increment. An unproductive broad search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact background, does not supply the checked all-complex strict bound or radial speed",
+          "evidence": "Same P_δ; compact-uniform convergence; at most one double negative real zero; near-vertex count and angular concentration.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15406",
+          "material_read": "Lemma 2.3 pp. 6–7 offset 19212; Lemma 3.1 pp. 8–9 offset 25989; Theorems 1.1, 1.5 pp. 3–4 offsets 8066, 11076",
+          "method": "Bounded open primary PDF passages",
+          "title": "Bergman Kernel Zeros on Generalized Hartogs Triangles",
+          "trigger": "Cited exact vertex-limit source"
+        },
+        {
+          "assessment": "Substantial overlap for real roots and simplicity, not full complex location and escape",
+          "evidence": "Same Q_{N,α}, real exteriority in the interior range and only possible real endpoint root −1.",
+          "identifier_or_url": "2026/11/16/SCOPE-parity-controlled-real-zeros-of-generalized-hartogs-vertex-polyn--46a4566901e8",
+          "material_read": "Mirrored RESULT.md Finding and remainder, offsets 0 and 7500",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Parity-controlled real zeros of generalized Hartogs vertex polynomials",
+          "trigger": "Strongest distinct indexed same-polynomial match"
+        },
+        {
+          "assessment": "Different numerator polynomial under the oblique rational restriction",
+          "evidence": "Q_{m,n} defined after restricting the rational kernel numerator to s=t; reciprocal root pairing.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.20489",
+          "material_read": "Definition and reciprocal structure, pp. 4, 16–17, offsets 12774 and 58613",
+          "method": "Open primary PDF passages",
+          "title": "Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains",
+          "trigger": "Palindromic Hartogs polynomials"
+        },
+        {
+          "assessment": "Interior count for a distinct Q_{m,n}",
+          "evidence": "Unit-circle positivity formula and interior root count apply to the oblique rational polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07480",
+          "material_read": "Theorem 1.1 p. 3, offset 8477",
+          "method": "Open primary PDF passage",
+          "title": "Bergman Kernel Zeros on Rational Hartogs Triangles",
+          "trigger": "Exact rational-Hartogs disk root count"
+        },
+        {
+          "assessment": "Relevant root-locus method, no direct fit to the consecutive-degree pair",
+          "evidence": "Circle-locus lemma uses monic equal-degree polynomials; introductory root escape at degree drop alone gives no exterior barrier.",
+          "identifier_or_url": "https://msp.org/pjm/1980/89-1/pjm-v89-n1-p05-s.pdf",
+          "material_read": "Introduction and circle-locus hypotheses, pp. 43–44 offset 0",
+          "method": "Open primary PDF passages",
+          "title": "On the zeros of convex combinations of polynomials",
+          "trigger": "Potential broader unit-circle root-locus theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and proof",
+        "Fu Lemma 2.3 and Theorems 1.1, 1.5",
+        "Resultary 46a4566901e8"
+      ],
+      "rationale": "The fixed unit disk is the natural diagonal-scale core of the vertex section. Strict complex-root location decides which side of its boundary the nearby zeros occupy, a question not answered by real-root or angular classification. The exact positive speed for each endpoint root quantifies the loss of the barrier margin as the exponent approaches a discrete endpoint. Both facts have a use in local Bergman zero geometry even without any assertion about global kernel zeros.",
+      "residual_risks": [
+        "No uniform velocity estimate as N increases, nor a claim of finite-t zero exclusion exactly at the discrete endpoint."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:17:39.367980Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the full Z^9 nearest-neighbor graph with zero values at the origin and outside B_R, expansion of undirected edge squares gives the Dirichlet matrix L=18I-A, not the Laplacian with the internal degree on the diagonal. For a positive w on B_11, expanding the weighted internal squares in the stated ground-state identity leaves the diagonal residual (Lw-49w/(4||x||_2^2))/w. Thus positivity of that residual proves strict positivity for every nonzero complex test, not just invariant or nonnegative ones. Independent replay with /workspace/reviews/evidence/hardy_replay.py (Python standard library, argument: frozen record directory) regenerated labels via coordinate multisets, cross-checked their multiplicities against the direct lattice ball count, and found all 191 integer residuals positive, with minimum 1458 (covering 7059734 sites). For B_12 it evaluated the energy directly by edge squares, counting each edge outward from its smaller l1 norm endpoint and adding the origin edges, rather than reusing the frozen Laplacian-defect sum. The 264-orbit witness (14218904 sites) gave exactly 4E-49H = -168023799157855578188041899511220364510317/66816567612546192522086437300. Nesting excludes all smaller radii. These are exact finite certificates at the stated coefficient and for the stated support sets only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lizama proves C(9)<49/4 and approximates the Gaussian test by finite cube truncations.",
+          "Alpay identifies dimensions 3 through 8 as exactly attaining their continuum constants and dimension 9 as the first global failure."
+        ],
+        "reasoning": "These global conclusions justify looking for a finite onset and imply eventual failure, but do not evaluate a weighted Dirichlet eigenvalue on either graph-distance ball.",
+        "searches": [
+          "Resultary: global discrete Hardy constants and Lizama Rayleigh–Ritz",
+          "arXiv:2608.30831 Theorem 1.1 and Proposition 4.8",
+          "arXiv:2610.05421v1 equations (1.6)–(1.7)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_hardy.py, and both certificate JSON files",
+        "arXiv:2608.30831",
+        "arXiv:2610.05421v1",
+        "Resultary 42ca245e5726 and 69f4631b3329"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lizama's rational upper bound 4060000/331800 is below 49/4; convergence of cube truncations yields no first graph radius.",
+          "The 98 positive integers in the squared-radius-24 witness put nonzero values even at graph distance 14; the lower Euclidean certificate excludes sites used in B_11."
+        ],
+        "reasoning": "Neither prior construction or bound mechanically provides the first graph-distance radius. The numerical equality of 12 with the other, eight-dimensional radius parameter carries no implication.",
+        "searches": [
+          "arXiv:2608.30831 Proposition 4.8",
+          "2026/11/1/SCOPE-exact-finite-volume-onset-of-the-discrete-hardy-instability-in-e--42ca245e5726 RESULT.md equations (2)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary finite-volume theorem concerns squared Euclidean support radius 24, with positivity through 23, and uses the same coefficient and energy.",
+          "The support family is different: (2,2,2,2,2,1,1,1,1) has squared norm 24 and graph distance 14; (11,0,...,0) already belongs to B_11 and has squared norm 121."
+        ],
+        "reasoning": "Rewriting as the sign of a weighted Dirichlet eigenvalue does not identify different vertex sets. One cannot transfer the Euclidean nonnegativity to B_11 by restriction or use the earlier 24 certificate as a B_12 witness: the latter is explicitly strictly positive across its own support.",
+        "searches": [
+          "Resultary: nine-dimensional lattice Hardy first support radius",
+          "Resultary: Z^9 nearest-neighbor l1-radius Dirichlet Hardy",
+          "2026/11/1/SCOPE-exact-finite-volume-onset-of-the-discrete-hardy-instability-in-e--42ca245e5726"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest finite-volume record gives 90 and 98 orbit certificates for squared radii 23 and 24, not 191 and 264 for graph-distance radii 11 and 12.",
+          "The other radius-12 entry is an eight-dimensional squared-Euclidean cutoff for gluing a reciprocal edge field, not a counterexample support radius."
+        ],
+        "reasoning": "Neither exact indexed entry tabulates the two sign checks needed for the stated l1 cutoff.",
+        "searches": [
+          "Resultary: nine-dimensional lattice Hardy first support radius",
+          "Resultary: eight-dimensional radius-12 reciprocal-field correction",
+          "2026/10/11/SCOPE-the-radius-12-local-correction-for-the-eight-dimensional-recipro--69f4631b3329"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct for the first graph-distance (l1) support radius, not for strict global failure of the continuum coefficient or for the use of a ground-state certificate. The close squared-Euclidean Resultary theorem gives neither half of this cutoff by inclusion. No priority is inferred from catalog dates.",
+      "residual_risks": [
+        "Bounded searches do not exclude unindexed exact cutoffs or earlier equivalent graph-distance computations.",
+        "Chronological priority relative to the distinct Euclidean support result is not inferred or needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global strict failure and eventual finite support, not the first l1 radius",
+          "evidence": "Rational bound and cube-truncation argument as above.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30831",
+          "material_read": "Theorem 1.1 p. 3 and Proposition 4.8 p. 23, OA offsets 9289 and 83484",
+          "method": "OA paper, bounded theorem and proof passages",
+          "title": "Sharp discrete Hardy constants in dimensions three and four and strict upper bounds from dimension nine",
+          "trigger": "Same dimension, energy, weight and critical coefficient"
+        },
+        {
+          "assessment": "Global dimension result, no graph-ball cutoff in the inspected statements",
+          "evidence": "Equality for dimensions 3–8 and first global strict failure at dimension 9.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05421v1",
+          "material_read": "Definitions p. 1, eqs. (1.6)–(1.7) pp. 2–3, offsets 1184, 6203, 6341",
+          "method": "OA paper, bounded passages",
+          "title": "Sharp discrete Hardy constants in low dimensions",
+          "trigger": "Same lattice weight and dimension transition"
+        },
+        {
+          "assessment": "Closely related exact result for a different support filtration; no transferable cutoff",
+          "evidence": "Squared radius 23 lower certificate and squared radius 24 all-positive counterexample, equations (2)–(4).",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-finite-volume-onset-of-the-discrete-hardy-instability-in-e--42ca245e5726",
+          "material_read": "RESULT.md finding and proof, local mirror offsets 0, 395 and 3350–5550",
+          "method": "Resultary search and local-mirror inspection",
+          "title": "Exact finite-volume onset of the discrete Hardy instability in Euclidean balls",
+          "trigger": "Same dimension, coefficient and finite-onset question"
+        },
+        {
+          "assessment": "Different dimension, radius and mathematical role of the support",
+          "evidence": "Squared Euclidean cutoff for a reciprocal edge-field correction in dimension 8.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-radius-12-local-correction-for-the-eight-dimensional-recipro--69f4631b3329",
+          "material_read": "RESULT.md opening passage at offset 0",
+          "method": "Resultary search and local-mirror inspection",
+          "title": "The radius-12 local correction for the eight-dimensional reciprocal Hardy field",
+          "trigger": "Radius 12 and lattice Hardy wording"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The radius is intrinsic to the nearest-neighbor graph: it gives the least graph distance from the puncture needed for instability at the continuum threshold in the first globally failing dimension. Eventual finite-support failure does not say which local neighborhoods rule it out. Exact positivity for all tests through eleven steps and a strict witness at twelve give a meaningful boundary for finite-volume Hardy or spectral analyses; the Euclidean cutoff cannot replace it. It does not compute a new global optimal constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

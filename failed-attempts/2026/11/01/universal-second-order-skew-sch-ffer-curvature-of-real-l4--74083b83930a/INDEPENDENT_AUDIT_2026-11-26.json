@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:40.353772Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 21–83. Expanding (x²+√2xy−y²)² cancels the mixed quadratic term and gives 2+2√2(P−Q) on integration. If δ is the L2 norm of this defect and e1,e2,e3 are its pairings with x²,y²,xy, then e1−e2−√2e3=2−4E and e1+e2=√2(P+Q); Hölder gives |ei|≤δ. The displayed P,Q,E estimates give |3E−P²−Q²−5/4|≤7δ≤12√d using |P²−P0²|≤(1+1/(2√2))|P−P0| and similarly for Q. Differentiating the square root of the norm fourth power gives the third-derivative bound 72/||z||4 for unit directions; along either segment ||z||4≥7/8, so the Taylor remainder bound 24h³ is conservative. The corresponding norm second derivative is nonnegative and ≤3/||z||4, validating the ≤8 bound used for the difference of the two norms. The arithmetic mean squared subtracts (u−v)²/4 from the quadratic-mean square, costing at most 2√2h²d+32h⁴. The remaining coefficient of hd is ≥1/2; completing the square costs 72h³, and 32h⁴≤4h³, giving 100. Two disjoint supported unit functions exist in any real L4 of dimension at least two: the finite measure weighted by |x|⁴+|y|⁴ for independent x,y must admit a positive split, or their normalized coordinate functions are constant on its only atom. The given a,b pair has E=1/2 and P=−Q=−1/(2√2); its two outputs are coordinate permutations with signs and thus have equal norm. This gives the common upper bound, including the maximum endpoint, and the square root has coefficient 9/16. The frozen finite verifier was inspected, not executed; the analytic proof, not the finite checks, establishes the bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Liu, Theorem 3.2, gives the exact matched t=p profile (1+h²)/||A_h|| on ℓ_p²; 2846c5f281be identifies why its equal-output attaining pair extends the exact coverage to t≥p=4. Record 88548343e0a2 gives a fixed-finite-t first variation in uniformly smooth spaces, not the quadratic law."
+        ],
+        "reasoning": "Power-mean monotonicity between t=4 and t=∞ at a matched minimizing pair with equal outputs gives the whole t≥4 regime. Neither this argument nor first-order smoothness covers 1≤t<4; that remaining regime is covered by the uniform indexed quadratic theorem.",
+        "searches": [
+          "Resultary: Skew Schäffer Type Constants Xu Liu exact Lp profile outer exponent p",
+          "Resultary: Infinitesimal skew radii detect Hilbert geometry uniformly smooth Banach spaces first-order slope finite outer exponents"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–97, VERIFICATION.md and verify.py",
+        "Resultary 2846c5f281be, 88548343e0a2, 0608f06c0ab6, 7a18ef79086d, 0b7d5043f19e, 336b8cef1f26",
+        "arXiv:2610.03050v1 §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof already takes h≤1/8 for the Taylor step, bounds the arithmetic second-coefficient defect by 4r, and completes the square at cost 16√2 h³. The only unprinted number in that proof is its uniform Taylor constant K0."
+        ],
+        "reasoning": "Apply the third derivative of F^(1/4), F=∫z⁴, along the established segments: the three terms sum in absolute bound to (6+27+21)/||z||4², so K0≤576/49<12. Writing M=1−h/(2√2)+9h²/16, the earlier proof gives M−(16√2+K0)h³≤S_t≤M+K0h³. On [0,1/8] the lower bound is positive, M≤1, and squaring these bounds differs from 1−h/√2+5h²/4 by less than 72h³ (the remaining cubic coefficient of M² has absolute value <1). Thus even the frozen conservative 100 bound is mechanically implied by quantifying the earlier proof, rather than being a sharp constant or a larger-domain theorem.",
+        "searches": [
+          "2846c5f281be Proof §§2–4, mirror offset 2700 onward",
+          "arXiv:2610.03050 §3 Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2846c5f281be, Finding and Proof §§1–4: S=1−h/(2√2)+9h²/16+O(h³), uniformly in all real L4 spaces of dimension ≥2 and all outer t∈[1,∞]."
+        ],
+        "reasoning": "Squaring yields exactly the frozen quadratic coefficient 5/4 and linear coefficient −1/√2. Working with norm-squares instead of norms does not distinguish the claims.",
+        "searches": [
+          "Resultary: skew Schäffer radius arithmetic mean t=1 mixed exponent exact L4 result",
+          "Resultary: mixed exponent skew Schäffer constant Lp outer t unequal p exact formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0608f06c0ab6 gives first-order rigidity at fixed t<4; 7a18ef79086d computes a supremal rather than an infimal invariant. 336b8cef1f26 gives a Birkhoff-orthogonal difference-quotient supremum, not the frozen infimum. The exact quadratic expansion is found in 2846c5f281be, even though the numeral 100 is absent."
+        ],
+        "reasoning": "Matching ℓ4, h or the word ‘Schäffer’ does not suffice. The decisive record has the same extremization, same coefficients and same uniformity; there is no need for a separate table of small-h values.",
+        "searches": [
+          "Resultary: exact skew Schäffer arithmetic mean L4 outer exponent one",
+          "Resultary: exact skew Schäffer L4 mean t=1 formula",
+          "Resultary: Exact skew geometric mean constant of ell4 supremal mean different extremal direction"
+        ]
+      },
+      "rationale": "Indexed record 2846c5f281be already proves the uniform second-order law for precisely the same space, infimum, and all outer means including infinity. It uses the same quartic square, stability of the arithmetic mean coefficient, and equal-output upper pair. The new numerical remainder constant is a routine explicit bound obtainable from that proof on the same interval; it does not supply a distinct mathematical result.",
+      "residual_risks": [
+        "The bounded search does not settle whether an exact finite-h formula is available for 1≤t<4; that is immaterial to the demonstrated coverage of the stated expansion.",
+        "The comparison establishes mathematical coverage, not dependence or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the uniform quadratic law and yields the explicit bound by routine estimates",
+          "evidence": "Proof §§2–4 use h≤1/8, arithmetic coefficient 9/16, defect stability ≤4r, and an upper trial admissible for all outer exponents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-quadratic-small-skew-law-and-extremizer-rigidity-in-real--2846c5f281be/RESULT.md",
+          "material_read": "Finding and Proof §§1–5, including the Taylor argument and the equal-output extremizer",
+          "method": "Resultary search and bounded local-mirror passages",
+          "title": "Uniform quadratic small-skew law and extremizer rigidity in real L4",
+          "trigger": "Exact uniform quadratic match"
+        },
+        {
+          "assessment": "Exact matched t=p coverage; equal-output attainment also covers t≥p",
+          "evidence": "The exact profile is (1+h²)/||A_h|| on ℓ_p², and the attaining two-support trial used for p=4 has equal output norms.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03050",
+          "material_read": "§3 Theorem 3.2 and attainment, pp. 4–5",
+          "method": "Bounded OA PDF passages",
+          "title": "Skew Schäffer Type Constants",
+          "trigger": "Cited exact matched-exponent theorem"
+        },
+        {
+          "assessment": "First order only",
+          "evidence": "Derivative −κ_X for each fixed finite t; the error uses the smoothness modulus and a t-dependent Taylor constant.",
+          "identifier_or_url": "88548343e0a2",
+          "material_read": "Finding and assumptions, mirror offset 0–4602",
+          "method": "Bounded local-mirror passage",
+          "title": "Infinitesimal skew radii detect Hilbert geometry in uniformly smooth Banach spaces",
+          "trigger": "Potential general smooth-space implication"
+        },
+        {
+          "assessment": "Matching square and first variation, not by itself the quadratic law",
+          "evidence": "The fixed-t result for 1≤t<4 has coefficient −1/(2√2) and O_t(h²) error.",
+          "identifier_or_url": "0608f06c0ab6",
+          "material_read": "Finding and assumptions, mirror offset 0–6618",
+          "method": "Bounded local-mirror passage",
+          "title": "Perfect-square first-variation rigidity for skew Schäffer means on real L4",
+          "trigger": "Possible exact arithmetic and mixed-exponent coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp curvature coefficient uniform through the maximum-mean endpoint is a worthwhile result, but is established in the matching indexed theorem, which also gives near-minimizer rigidity. The only nominal increment, the deliberately conservative constant 100 at the same local cutoff, is neither mathematically motivated nor stronger than an explicit reckoning of the existing estimates.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

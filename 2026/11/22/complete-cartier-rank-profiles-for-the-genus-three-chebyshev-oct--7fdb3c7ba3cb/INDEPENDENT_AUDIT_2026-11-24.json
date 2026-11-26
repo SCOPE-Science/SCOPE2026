@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:45:57.173235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd p the roots come from z^16=−1 under x=z+z^{-1}; none has z=±1 and reciprocal pairing gives eight distinct images. This verifies separability and genus three. The invariants x=z+z^{-1}, y=w/z^4 of the genus-seven cover generate a degree-two fixed field, and the tame involution sends ω_i to −ω_{8−i}; its invariant differential space is exactly the three antisymmetric pairs (1,7),(2,6),(3,5). The binomial coefficient rule on the cover is nonzero exactly at pi≡j mod 16 for 1≤i,j≤7: pi−j is in [0,8(p−1)], including the edge case p=5,i=7,j=3, and h=(p−1)/2<p. Complementary pairs give exponents k and h−k and equal nonzero coefficients; multiplication by p is a permutation mod 16, so there is no cancellation or merging of distinct surviving paths under restriction. Duality may reverse arrows without changing power ranks. In residue order 1,3,5,7,9,11,13,15 the powers give (3,3,3),(2,1,1),(1,0,0),(2,2,2),(1,1,1),(2,1,1),(1,0,0),(0,0,0); thereafter each surviving path is on a cycle. The stable ranks and the first-rank defect give p-rank and a-number respectively, so ordinary iff the rank is 3 and superspecial iff a=3. Separately /workspace/reproduction/check_2.py (check_2.out) uses powers of the quartic in x², extracts coefficients directly on the genus-three curve, and tests minors of the matrix powers. All 44 primes 5≤p<200 agree, with every residue represented. The general theorem follows from the quotient calculation, not the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximality results apply to the Chebyshev family; the first gives p≡−1 mod 16 as a maximal case at degree 8. The complete maximality paper concerns finite extension fields. The CM paper describes slope and maximality methods, with the opening analysis for odd prime degree."
+        ],
+        "reasoning": "The all-zero case is established prior overlap, but a general maximality classification does not determine nonmaximal Cartier iterates. The broader monomial coefficient method on a cover still needs an invariant-space calculation to determine the quotient's profile.",
+        "searches": [
+          "Tafazolian–Top arXiv:1902.06262 Theorem 1.5; arXiv:2611.14198v1 Theorem 1.3 and Corollary 6.2",
+          "arXiv:2509.00273v1 CM and slope setup",
+          "Kodama–Washio DOI:10.1007/BF01161928"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_chebyshev_octic.py",
+        "Tafazolian–Top arXiv:1902.06262, 2611.14198v1, 2509.00273v1 and Kazemifard–Tafazolian arXiv:2611.10255v1",
+        "Resultary b5ac04c241b2 and catalogue summary for 9338ce39847f; bounded access attempts on both Fermat-related citations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximality over F_{p²} gives Cartier vanishing and thus the full p≡15 row. The other inspected statements concern either different curves or weaker/different invariants. A first-rank distinction persists even when the stable rank is equal, e.g. stable rank 1 in the modulo-16 classes 3 and 9."
+        ],
+        "reasoning": "Stable rank or Newton slopes alone do not recover nilpotent Cartier lengths. The complete answer here uses the weighted partial permutation restricted to this particular tame involution, rather than a parameter substitution in the different Dickson result.",
+        "searches": [
+          "arXiv:1902.06262 maximality over F_{p²}",
+          "arXiv:2509.00273v1 slope data",
+          "DOI:10.1016/j.ffa.2009.02.002 genus-three Fermat comparisons",
+          "Resultary b5ac04c241b2 quotient calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kazemifard–Tafazolian treat the exact X_8 but classify automorphisms. The different local Dickson record b5ac04c241b2 has (2,1,0) for p=5 rather than this curve's (1,0,0).",
+          "The catalogue summary for 9338ce39847f concerns x⁸+cx⁴+1, whose smooth members admit order-four x-scaling, absent from the octic groups in the checked range."
+        ],
+        "reasoning": "Either Cartier or its semilinear Hasse–Witt dual gives the same ranks. Full exact EO data could imply the requested ranks, but the inspected exact-curve automorphism and other-model results do not give that data. The different rank tuples themselves exclude isomorphism with the Dickson quotient at p=5.",
+        "searches": [
+          "Resultary genus-three Chebyshev octic, Dickson quotient, dihedral genus-three pencil",
+          "arXiv:2611.10255v1 Theorem 3.1",
+          "fixed octic, Hasse–Witt iterates and Ekedahl–Oort data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue table hit is the frozen record itself. The exact prior Dickson profile uses (x+2)D7 and modulus 14, not φ8 and modulus 16. The same-family maximality statements give an extremal overlap but are not tables of iterates."
+        ],
+        "reasoning": "The comparison needs all eight residue cases with the first and second ranks as well as stable rank. No distinct inspected table gives that information. No negative inference is made from a search miss.",
+        "searches": [
+          "Resultary octic complete Cartier rank profile: 7fdb3c7ba3cb and b5ac04c241b2",
+          "same Chebyshev curve exact-case classes in arXiv:1902.06262 and arXiv:2611.14198v1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete eight-class table of Cartier-power ranks for this exact degree-eight Chebyshev curve. Prior maximality over F_{p²} covers the all-zero row p≡15 mod 16, which the finding explicitly does not claim as an independent novelty. Exact automorphism, maximality or Newton information and the known monomial Hasse–Witt method are not this full table. Remaining access and historical-priority qualifications are material but bounded.",
+      "residual_risks": [
+        "Full texts of the 1988 Fermat and 2009 genus-three articles and the Garcia–Tafazolian maximality/Cartier reference were not retrieved; the dihedral-pencil mirror statement was missing. The unproductive primary query is not evidence of noncoverage. General CM/EO sources or unindexed calculations could already contain some rows or imply more than the passages read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of maximality and consequent all-zero Cartier row for p≡15 mod 16",
+          "evidence": "The theorem covers even d and p≡−1 mod 2d, here d=8.",
+          "identifier_or_url": "https://arxiv.org/html/1902.06262",
+          "material_read": "Theorem 1.5, OA offsets 6400–9886",
+          "method": "OA arXiv article",
+          "title": "On certain maximal hyperelliptic curves related to Chebyshev polynomials",
+          "trigger": "Same-curve known maximal reduction"
+        },
+        {
+          "assessment": "Exact maximality classification, not the full Cartier profile in the passages read",
+          "evidence": "The statements classify maximality over finite extensions, not successive Cartier ranks in nonmaximal cases.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14198v1",
+          "material_read": "Theorem 1.3 and Corollary 6.2, offsets 5700–10695 and 49700–53964",
+          "method": "OA arXiv article",
+          "title": "A Complete Classification of Maximal Hyperelliptic Curves Related to Chebyshev Polynomials",
+          "trigger": "Strongest broad maximality theorem for the same curve family"
+        },
+        {
+          "assessment": "Relevant slope and maximality coverage; bounded passages do not establish the octic Cartier profile",
+          "evidence": "Uses slopes, CM factors and 2-descent to analyze maximality, starting at odd prime d; section 4's opening assumes odd d≥3.",
+          "identifier_or_url": "https://arxiv.org/html/2509.00273v1",
+          "material_read": "Abstract and introduction opening at offsets 0–2396; sampled section-3 and section-4 scope passages",
+          "method": "OA arXiv article",
+          "title": "CM theory, maximal hyperelliptic curves, and Chebyshev polynomials",
+          "trigger": "Same family with Frobenius slopes potentially implying part of the table"
+        },
+        {
+          "assessment": "Same curve, different invariant",
+          "evidence": "The automorphism classification gives C2×S3 at p=31 and C2×C2 otherwise for m=8 and p≥5.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10255v1",
+          "material_read": "Theorem 3.1, OA offsets 10000–14980",
+          "method": "OA arXiv article",
+          "title": "Automorphisms of Kummer and Artin–Schreier Curves Defined by Chebyshev Polynomials",
+          "trigger": "Exact Kummer model X_8"
+        },
+        {
+          "assessment": "Different curve and rank table",
+          "evidence": "Y²=(X+2)D7(X), arithmetic modulo 14, with (2,1,0) at p=5, differing from the Chebyshev octic.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-cartier-rank-profiles-for-the-genus-three-dickson-cheby--b5ac04c241b2",
+          "material_read": "RESULT.md Finding at local-mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete Cartier rank profiles for the genus-three Dickson–Chebyshev quotient",
+          "trigger": "Closest catalogue result with exact powers and analogous quotient method"
+        },
+        {
+          "assessment": "Summary's model is inequivalent in the checked characteristic range; actual proof/text not inspected",
+          "evidence": "The displayed x⁸+cx⁴+1 pencil has an order-four automorphism for smooth members, unlike X_8 in the inspected Kummer classification.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-legendre-polynomial-arithmetic-strata-in-a-dihedral-genus-three-pencil--9338ce39847f",
+          "material_read": "Catalogue statement only; RESULT.md absent in local mirror",
+          "method": "Resultary search and bounded mirror retrieval",
+          "title": "Uniform Legendre-polynomial arithmetic strata in a dihedral genus-three pencil",
+          "trigger": "Potential equivalent even octic model with p-rank and a-number strata"
+        },
+        {
+          "assessment": "Residual risk, no inferred noncoverage",
+          "evidence": "The frozen record identifies the genus-three comparator y²=x⁸+1 as a different curve; unavailable texts were not taken as negative search evidence.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01161928 and https://doi.org/10.1016/j.ffa.2009.02.002",
+          "material_read": "No primary full-text passage verified in bounded retrieval; frozen relationship paragraph describes the comparison",
+          "method": "Bounded OA access attempts",
+          "title": "Hasse-Witt matrices of Fermat curves; Maximal hyperelliptic curves of genus three",
+          "trigger": "Possible exact Fermat-quotient or monomial matrix coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact classification of good reductions of a natural genus-three member of a studied Chebyshev family by their Cartier ranks. The nonmaximal rows distinguish non-superspecial p-rank-zero reductions and separate equal-stable-rank cases by the nilpotent Cartier part and a-number. Those distinctions are useful for testing descriptions of positive-characteristic strata and are not in a maximality criterion, while the proof identifies why the residue table appears. The result does not claim a full EO type or Newton polygon classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

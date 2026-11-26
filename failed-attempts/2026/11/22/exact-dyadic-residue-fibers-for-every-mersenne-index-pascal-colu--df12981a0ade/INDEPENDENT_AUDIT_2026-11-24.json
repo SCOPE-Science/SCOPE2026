@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:16:17.852861Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5; VERIFICATION.md and verify.py (read only)",
+        "/workspace/reproductions/exact_checks.py 5"
+      ],
+      "rationale": "For r=2^s−1 and m=2^s, factor the root a on each input disk a+mZ₂ with a<r. All remaining factors after extracting constants are 1 modulo 2 coefficientwise, since |a−h|<m. The root prefactor has valuation s−v₂(a+1), using r·binom(r−1,a)=(r−a)binom(r,a) and Lucas parity. The normalized quotient between any two parameters is odd, so the normalized map is a bijective isometry. Exactly 2^(j−1) centers give scale 2^j. In the last disk a=r the unique product factor of scale two is 1+2t, all others being 1 mod 4, and the image is the odd disk with scale two. The all-disk shift m·2^(k−1) preserves values; its half fails on the odd disk for k≥2. It is the least period because the least positive period divides any period, so if smaller it would divide this half-shift. (The proof's wording that any smaller period divides the exhibited period should refer to the least period.) Lucas settles k=1. Each branch samples 2^(k−1) t's per period: for scale 2^j it contributes 2^(min(j,k)−1) to every admissible residue, including all t's for y=0 when j≥k, and no others. Normalized Haar on the image ball is the conditional pushforward, yielding the stated density. The additional check `python3 /workspace/reproductions/exact_checks.py 5` confirms all residues and the half-period failure at s=7 with k=1,3,6,7,8; the proof is decisive for unbounded parameters.",
+      "residual_risks": [
+        "No incorrect formula or out-of-scope all-column or all-prime assertion was found; the separate computations are finite spot tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwong's binomial-period result gives p^(N+b−1) in the range p^(b−1)≤r<p^b, r>0, for modulus p^N; p=2 and b=s give the stated period. Sun–Zhang's dyadic universal-image corollary holds for every positive lower column. The separate branch lemma applies to all positive r with L=floor(log₂r)+1."
+        ],
+        "reasoning": "The exact period and surjectivity are direct old special cases. For the stronger fiber statement the all-column scale-and-image theorem, not row-aggregated distributions or doubling by itself, is the relevant general coverage.",
+        "searches": [
+          "Kwong, Minimum Periods of Binomial Coefficients Modulo M, Theorem 3.3 and Corollary 3.4",
+          "Sun–Zhang arXiv:0812.3089, Corollary 1.2",
+          "All-column dyadic-isometric-doubling record, Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary strongest matching general branch record",
+        "Kwong, Fibonacci Quarterly 27 (1989), 348–351",
+        "Sun–Zhang arXiv:0812.3089",
+        "Frozen prior-work paragraph, cubic note citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The branch lemma sets d=L+Σ_{i≠j*}v₂(a−i)−v₂(r!) with j* the closest root. It gives the exact image and the scaled isometry, not only a lower bound or numerical algorithm."
+        ],
+        "reasoning": "Set r=2^s−1 and L=s. For a<r, j*=a, the sum is v₂(a!(r−1−a)!), and d=s−v₂(r·binom(r−1,a))=s−v₂(a+1); the center output is zero. For a=r the unique closest root is r−2^(s−1), so the sum is v₂(r!)−(s−1) and d=1, with center output 1. Counting a+1 of given valuation gives 2^(j−1) copies of the ball 2^j Z₂ and one odd ball. Each carries input weight 2^(−s), giving exactly the stated Haar density; multiplying its residue-ball masses by the known period gives the stated H for all k, also when j≥k. This is direct specialization and geometric counting, even though the general source does not print the Mersenne histogram.",
+        "searches": [
+          "All-column doubling record, Proof §2 branch image and scale (local mirror offsets 2420–6788)",
+          "Kwong Corollary 3.4 and Sun–Zhang Corollary 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The broader record gives a scaled bijective isometry on each ball a+2^L Z₂, with image binom(a,r)+2^d Z₂ and an explicit formula for d. In the specialized setting a probability per output residue equals its period multiplicity divided by the least period."
+        ],
+        "reasoning": "The branch-ball data determine the pushforward measure and every output residue's mass, not merely its valuation. This is stronger than equivalence between parity-restricted columns alone and covers the actual finite and Haar invariants.",
+        "searches": [
+          "Resultary fixed lower index dyadic residue fibers, branch isometries and Haar pushforward",
+          "2026/11/22/SCOPE-dyadic-isometric-doubling-of-every-fixed-binomial-column--51eb70e0da22, Proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local comparison located the general branch-data theorem. The frozen related-work paragraph cites an exact s=2 note without a usable identifier; that note was not independently located."
+        ],
+        "reasoning": "The positive match is theorem-level and yields the exact infinite table. Neither the presence nor absence of a standalone cubic-note match changes the broader coverage.",
+        "searches": [
+          "Resultary Mersenne and cubic dyadic binomial residue frequencies",
+          "2026/11/22/SCOPE-dyadic-isometric-doubling-of-every-fixed-binomial-column--51eb70e0da22"
+        ]
+      },
+      "rationale": "The least-period and image claims are already covered by classical general results. More decisively, the separate all-column dyadic-isometric-doubling record proves, in its standalone branch lemma, the exact scale and image ball of every fixed-column input disk. Its lemma specializes directly to the claimed full Mersenne fiber and Haar formulas. This is demonstrable coverage, not a priority inference from a shared date, and does not depend on the unlocated cubic-column note.",
+      "residual_risks": [
+        "Chronological precedence between the overlapping same-date catalogue records is not established or needed for the coverage decision.",
+        "The cubic note cited by the frozen record was not retrieved; the concrete coverage determination does not rely on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "mechanically implies exact multiplicities and pushforward on specialization; shared date gives no priority evidence",
+          "evidence": "The exact branch metric identity and ball image apply to every positive lower index before any doubling step, even though the finding does not evaluate all odd-index examples.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-isometric-doubling-of-every-fixed-binomial-column--51eb70e0da22",
+          "material_read": "Finding, Proof §§1–2 and §§3–5, Limitations, local-mirror offsets 0–2884, 2420–6788 and 6788–9631",
+          "method": "local mirror, decisive passages",
+          "title": "Dyadic isometric doubling of every fixed binomial column",
+          "trigger": "strongest all-column structure for exactly the same polynomial and dyadic input"
+        },
+        {
+          "assessment": "least period already covered",
+          "evidence": "For modulus p^N, the minimum period of (1−x)^(-t) is p^(N+b−1) when p^(b−1)<t≤p^b. The generating function for the present column is x^r(1−x)^(-(r+1)); here t=r+1=2^s, and the binomial column is purely periodic. The introduction credits earlier Ząbek and Trench results.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/27-4/kwong.pdf",
+          "material_read": "introduction p. 348, Theorems 3.2–3.3 p. 350, Corollaries 3.4–3.5 p. 351, PDF offsets 0–850 and 6500–10606",
+          "method": "OA scanned PDF passages; checked binomial period also via the reciprocal generating function in Theorem 3.3",
+          "title": "Minimum Periods of Binomial Coefficients Modulo M",
+          "trigger": "general least-period claim for fixed binomial columns"
+        },
+        {
+          "assessment": "surjectivity already covered; no exact multiplicities established by that corollary",
+          "evidence": "For every positive lower index, every power of two is universal, and the binomial values form a dense subset of Z₂.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+          "material_read": "Corollary 1.2, arXiv PDF p. 4, offsets 9790–11049",
+          "method": "OA PDF passage",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "all-depth fixed-column images"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "All-column scaled-isometric branch lemma",
+        "Kwong's fixed-column period theorem"
+      ],
+      "rationale": "Mersenne fixed columns are a natural family and the formula is convenient, but as a distinct finding it is a direct evaluation of already available general branch data plus known period information. The application does not require a new invariant, argument beyond routine specialization, or a substantively distinct remainder. It is useful as an example of the general theorem, not a standalone contribution under the exact-invariant criterion.",
+      "residual_risks": [
+        "This judgment concerns the claim as a separate result, not the correctness or expository utility of displaying the Mersenne fibers."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

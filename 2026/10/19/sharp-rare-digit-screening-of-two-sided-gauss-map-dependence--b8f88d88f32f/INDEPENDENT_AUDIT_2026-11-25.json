@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:37:26.569532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With x=1/(k+u) the Jacobian cancels the numerator from the natural-extension density. The stationary event probability is log(1+1/N)/log 2 and integration in v telescopes to the stated conditional marginal. Write z=1/N and s=u+v. The branch sum divided by z is 1+(1/2-s)z+(s²-s+1/6)z²+O(z³), uniformly by Euler–Maclaurin on s∈[0,2]. Multiplication by log(1+z)/z and (1+uz)(1+vz) gives first-order cancellation and second-order coefficient (u−1/2)(v−1/2). The marginals are uniformly 1+O(z). For KL relative to their conditional product the linear term integrates to exactly zero, and the uniform quadratic expansion gives 1/288; the L¹ integral with a factor 1/2 gives 1/32. On any pair of digit bins the likelihood ratio is a product-measure conditional average before taking the expansion; the relative uniform error therefore survives on the full countable alphabet. Digit 1 is exactly the positive half of u−1/2 and all other bins lie in the negative half, preserving the TV coefficient. Independently, the variance of the bin means is 1/12 minus the within-bin variance sum ∑[k(k+1)]⁻³/12=(10−6ζ(2))/12, giving π²/12−3/4 and hence the reported digit KL coefficient. This checks both constants, the Lebesgue-digit limit, and the use of conditional marginals and natural logarithms. The frozen checker was inspected, not executed; the separate `python3 /workspace/checks/frozen_math_checks.py 3` checks the trigamma ratio at nine sample points and the exact within-bin variance identity. These tests do not establish the uniform remainder or the infinite-alphabet limit, which are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kesseböhmer–Schindler’s first φ-mixing coefficient and exponential ψ-mixing bound concern ordinary digit mixing; Sinai–Ulcigrai’s renewal limit concerns denominator times."
+        ],
+        "reasoning": "A separating-lag mixing estimate or renewal limit gives neither a centered expansion in the central-digit threshold nor limits after scaling by N² and N⁴.",
+        "searches": [
+          "Web literature: Gauss map conditioning on a large central continued-fraction digit: exact joint law of adjacent past and future tails, second-order asymptotic dependence, total variation or mutual information, and neighboring-digit quantization",
+          "arXiv:1604.06612v3 Lemmas 2.2–2.4",
+          "arXiv:0710.1283v1 §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published-findings search and local mirror attempt",
+        "arXiv:0710.1283v1 §2.2",
+        "arXiv:1604.06612v3 §2",
+        "arXiv:2403.16761v1 Theorem 3",
+        "Targeted primary-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant density implies the new event-conditioned density by a single branch change of variables, summing k≥N. Jin–Singh–Zhang–Hildebrand’s frequencies concern unconditioned digit sets/strings, including identical-digit strings."
+        ],
+        "reasoning": "Credit the prior kernel and its direct density consequence. Neither unconditioned digit frequencies nor the prior kernel states a uniform centered interaction; the second-order cancellation, conversion to KL/TV against the conditional product, and countable-bin calculation are substantive additional steps.",
+        "searches": [
+          "arXiv:0710.1283v1 §2.2 invariant density",
+          "arXiv:1604.06612v3 §2 conditional probability and natural extension",
+          "arXiv:2403.16761v1 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kesseböhmer–Schindler Lemma 2.4 gives a CDF conditional on a specified entire past digit string; the two-tail interaction conditioned instead on a large central digit is not that kernel."
+        ],
+        "reasoning": "Time reversal and re-expression in digits or tails do not convert the one-sided kernel statement to the sharp two-sided conditional dependence constants. The exact event-conditioned density is an elementary reduction of the known natural-extension measure.",
+        "searches": [
+          "Resultary: Gauss map conditional law of forward and backward continued-fraction tails given a large central digit; exact joint density and sharp dependence",
+          "Resultary: continued fraction natural extension rare central digit conditional forward backward tails second order product interaction",
+          "arXiv:1604.06612v3 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct catalogue near-hit, 2026/10/25/SCOPE-a-lambert-w-boundary-law-for-gauss-survivors--32814d432a29, describes hole-survivor Hausdorff dimension and finite-alphabet corrections, not conditional tail dependence; full local-mirror retrieval failed. No direct table or result appeared among the returned hits."
+        ],
+        "reasoning": "The near-hit’s described invariant is different; a ranked search and a catalogue summary cannot establish exhaustive absence or exclude undisclosed material.",
+        "searches": [
+          "Resultary: Gauss map rare large digit E_N adjacent tails U V conditional q_N(u,v) total variation 1/32 information 1/288",
+          "Resultary: Sharp rare-digit screening of two-sided Gauss-map dependence 1/32 1/288 quantization",
+          "Resultary: continued fraction large digit conditional neighbors total variation mutual information quantized digits"
+        ]
+      },
+      "rationale": "The Gauss invariant kernel is established and the branch-conditioned joint density is its direct consequence, not a standalone originality claim. The supported distinct contribution is the sharp second-order interaction and the resulting continuous and digit-level TV/MI laws. No inspected earlier statement gives these or a stronger result covering them without the new cancellation and projection computations.",
+      "residual_risks": [
+        "The local-mirror near-hit could not be read in full; its available summary is on another invariant.",
+        "Equivalent sharp cusp expansions under different terminology or in unindexed literature remain possible. This is not an absolute priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior invariant law; no matching sharp dependence theorem in inspected passages",
+          "evidence": [
+            "The displayed invariant density is 1/[log 2 (1+α₋α₊)²]; the main result concerns convergent-denominator renewal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.1283v1",
+          "material_read": "PDF §2.2, p. 3, and statement of renewal objective",
+          "method": "OA PDF, Gauss measure locator and bounded passage",
+          "title": "Renewal-type Limit Theorem for the Gauss Map and Continued Fractions",
+          "trigger": "Exact invariant joint density used by the finding"
+        },
+        {
+          "assessment": "Closest conditional-kernel precedent; different dependence variable and target",
+          "evidence": [
+            "Lemma 2.4 gives (v+1)x/(1+vx) for the forward CDF given the past; the preceding lemmas address ordinary mixing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.06612v3",
+          "material_read": "PDF §2, pp. 5–6, Lemmas 2.2–2.4",
+          "method": "OA PDF locators for mixing, conditional probability and natural extension",
+          "title": "Limit theorems for counting large continued fraction digits",
+          "trigger": "Large digits and explicit conditional kernels"
+        },
+        {
+          "assessment": "Unconditioned frequencies; different from conditional adjacent-digit information",
+          "evidence": [
+            "Theorem 3 treats a string of identical digits, not opposite neighbors after a rare central digit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.16761v1",
+          "material_read": "Introduction and Theorem 3, PDF p. 6",
+          "method": "OA PDF, Theorem 3 locator and passage",
+          "title": "On the Continued Fraction Expansion of Almost All Real Numbers",
+          "trigger": "Possible prior tabulation of digit-level constants"
+        },
+        {
+          "assessment": "Summary describes a different invariant; full-text overlap not assessed",
+          "evidence": [
+            "Summary concerns hole-survivor Hausdorff dimension and a finite-alphabet correction."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-lambert-w-boundary-law-for-gauss-survivors--32814d432a29",
+          "material_read": "Catalogue summary only; local-mirror full text unavailable",
+          "method": "Local catalogue search and attempted local-mirror access",
+          "title": "A Lambert-W boundary law for Gauss survivors",
+          "trigger": "Strongest distinct Resultary near-hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rare central digits give a natural test of how much the immediate past and future continue to depend on one another beyond a limiting product law. The exact leading term makes the rates quantitative and reveals a useful distinction: the nearest-digit projection preserves the leading TV signal because it preserves its sign partition, but strictly reduces the leading information constant because it averages the interaction within bins. This is useful independently of any claim about longer windows, arbitrary initial laws, or other continued-fraction algorithms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

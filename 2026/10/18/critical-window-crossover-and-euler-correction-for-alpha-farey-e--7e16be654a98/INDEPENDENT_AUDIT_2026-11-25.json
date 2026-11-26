@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:41:26.381256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof 1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Knight–Munday Eq. (12), independently checked via the branch mass matrix"
+      ],
+      "rationale": "In branch mass coordinates for A_1 through A_(n−1), column 1 of the open transfer matrix consists of a_j, and column j>1 shifts mass to j−1. This verifies the finite Perron polynomial directly: λm_j=a_j m_1+m_(j+1), with m_n=0, implies Σa_j λ^(−j)=1. The root above 1 in z=1/λ is unique; summation by parts gives S_n=Σk^(−θ)−n^(1−θ), with the sum up to n. With δ=θ−1 the integral I=log(n) Ψ(δ log n) diverges for δ→0, and e^(−c)/I≤|δ|+1/log n for either sign (by e^v−1≥v). Thus S_n/I→1 and nγ≤e^(−c)/S_n→0. The power-series remainder relative to γ S_n is bounded by nγ exp(nγ)/2, proving the leading result without bounded c. For bounded c, subtract the integral from the sum cell by cell: the discrepancy series is locally differentiable at δ=0 with summable derivative, so S_n=log(n) Ψ(c)+γ_E−e^(−c)+O_C(1/log n). The exact second moment is O_C(n) by a_k≤θk^(−θ−1), giving relative exponential remainder O_C((log n)^(−2)). This establishes the stated coefficient, error and continuous c=0 limit. The proof concerns the finite branch spectral rate, not arbitrary survivor distributions.",
+      "residual_risks": [
+        "The Euler correction is uniform only for bounded c. The −e^(−c) term depends on retaining exactly branches 1 to n−1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonanno–Tikekar's Theorem 3.6 is a fixed-system trichotomy; Example 3.3 and Eq. (3.6) suggest an exact and much stronger reduction.",
+          "Bonanno–Chouari study approximating holes of a smooth Farey map, with approximation-dependent scaling."
+        ],
+        "reasoning": "Fixed-system statements do not give uniform control as the exponent approaches the invariant-measure threshold. The purported exact reduction for the same map cannot be used as a theorem for the assigned root: the finite countercheck below is strict by Jensen.",
+        "searches": [
+          "Bonanno–Tikekar arXiv:2601.15908, Theorem 3.1, Remark 3.2, Example 3.3 and Theorem 3.6",
+          "Bonanno–Chouari arXiv:1512.04432, Farey holes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.3515",
+        "arXiv:2601.15908",
+        "arXiv:1512.04432",
+        "Resultary bc04ae7f3e11 (indexed statement)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The harmonic denominator H_n−1 in Knight–Munday already contains γ_E−1 at c=0; fixed-θ estimates do not resolve unbounded c_n.",
+          "Example 3.3 claims γ̃=Z(−log Z)/Σk p_k. For N≥2, strict Jensen gives log E_{p/Z} exp(kγ)>γ E_{p/Z}k, hence γ̃>γ for the root. For θ=1,n=3, γ=log[(√33−3)/2], whereas γ̃=(4/5)log(3/2).",
+          "γ̃=t_n/S_n [1+O(t_n)], so it has the same coefficients; the independently justified γ=t_n/S_n [1+O_C((log n)^(−2))] in the bounded window is what transfers those coefficients to the correct root."
+        ],
+        "reasoning": "The induced expression anticipates the coefficient but its claimed exact connection is contradicted by the finite spectral equation. It does not constitute verified coverage of the uniform asymptotic for that equation. The new analysis is the uniform root remainder and detuned sum expansion, not the determinant or its harmonic slice.",
+        "searches": [
+          "Knight–Munday Eq. (27)–(30)",
+          "Bonanno–Tikekar Eq. (3.6), Remark 3.2 and Example 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knight–Munday Eq. (12) is the same renewal root; §§4.2–4.5 give fixed-parameter regimes and Eq. (30) the power-tail finite equation.",
+          "Bonanno–Tikekar Example 3.3 explicitly uses the Knight–Munday piecewise-linear case. Identify p_k=t_k−t_(k+1), N=n−1 and Z=Σ_(k≤N)p_k."
+        ],
+        "reasoning": "The induced rank-one Perron root Z differs from the clock-time spectral rate. The latter is defined by log E_{p/Z} exp(kγ)=−log Z, not by nominal induced rate divided by mean return time. This is an equality distinction for the same renewal model, not a name or indexing difference.",
+        "searches": [
+          "Knight–Munday arXiv:1411.3515, finite alpha-Farey Markov-hole determinant",
+          "Bonanno–Tikekar arXiv:2601.15908, induced versus original escape"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary bc04ae7f3e11 concerns an age/residual law for Zipf disaster renewals; no equivalent alpha-Farey spectral statement surfaced in the relevant returned records."
+        ],
+        "reasoning": "No exact finite table settles this simultaneous asymptotic. The closest indexed renewal crossover is about different observables; an empty exact-match return is not priority evidence.",
+        "searches": [
+          "Resultary: alpha-Farey Markov-hole escape critical window and Euler correction",
+          "Resultary: near-critical renewal logarithmic crossover"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint, all-sequences leading equivalent and the uniform bounded-window first correction for the true finite-matrix spectral root. Knight–Munday already give the root equation, the fixed-parameter asymptotics and the harmonic denominator at θ=1; those are not credited. The strongest apparent coverage, Bonanno–Tikekar's claimed exact induced-to-original rate formula instantiated on the identical branch model, is not an identity for that root. It gives the same near-critical coefficients as an approximation, but transferring those to the actual root requires accuracy estimates not provided by that exact identity. Thus no verified prior implication supplies the moving-parameter result.",
+      "residual_risks": [
+        "The earlier induced expression shares the same expansion when used as an approximation. Priority for a correct uniform transfer of that approximation to the spectral root remains subject to uncataloged literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact root and fixed-parameter results covered; no uniform joint theorem in the compared sections",
+          "evidence": "Eq. (28) gives the harmonic leading approximation ε/(H_n−1); Eq. (30) retains θ at finite n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.3515",
+          "material_read": "§2 Eq. (12); §§4.2–4.5 Eqs. (22)–(23), (27)–(30), (34)–(41); PDF pp. 4–8",
+          "method": "OA PDF text",
+          "title": "Escape rate scaling in infinite measure preserving systems",
+          "trigger": "Identical finite-hole spectral problem"
+        },
+        {
+          "assessment": "Exact expression as stated conflicts with the finite spectral root; fixed-system trichotomy does not cover the joint theorem",
+          "evidence": "Example 3.3 identifies the identical piecewise-linear family; its quotient uses the untilted Gibbs probabilities p_k/Z rather than the spectral exponential tilt.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.15908",
+          "material_read": "Theorem 3.1 Eq. (3.6), Remark 3.2 and Example 3.3, PDF pp. 7–10, offsets 30600–35350 and 39000–44650; Theorem 3.6 p. 12",
+          "method": "OA PDF text",
+          "title": "On the escape rate for intermittent maps with holes shrinking around the indifferent fixed point",
+          "trigger": "Plausibly dominating finite expression for the same map"
+        },
+        {
+          "assessment": "Related but different map and approximation scheme",
+          "evidence": "Analytic hole approximations for the smooth Farey map.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.04432",
+          "material_read": "Abstract and §§1–2, PDF pp. 1, 3",
+          "method": "OA PDF text",
+          "title": "Escape rates for the Farey map with approximated holes",
+          "trigger": "Related Farey-hole escape rates"
+        },
+        {
+          "assessment": "Different age and residual-time observables",
+          "evidence": "Indexed claim concerns a Zipf renewal age law, not a finite-map Perron root.",
+          "identifier_or_url": "Resultary bc04ae7f3e11",
+          "material_read": "Indexed statement only",
+          "method": "Local Resultary",
+          "title": "Near-critical logarithmic aging and independent residual ratios for Zipf disaster renewals",
+          "trigger": "Closest conceptual indexed critical renewal crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Knight–Munday §§4.2–4.5",
+        "Bonanno–Tikekar Example 3.3"
+      ],
+      "rationale": "The finite/infinite invariant-measure boundary makes this joint limit natural. It quantifies the failure of interpolating the two fixed-parameter limits, gives relative control even when the scaled rate vanishes or diverges, and distinguishes the finite-hole correction from a mere replacement of the harmonic series by an integral. The proof provides accuracy control for the actual clock-time spectral observable, not just the induced rate divided by mean return time.",
+      "residual_risks": [
+        "The value is the moving-threshold spectral theorem for a canonical Markov-hole family, not a statement about non-Markov holes or all initial laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

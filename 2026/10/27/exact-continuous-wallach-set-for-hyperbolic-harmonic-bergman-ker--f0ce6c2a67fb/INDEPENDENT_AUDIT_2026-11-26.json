@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:03:05.141888Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalization and meromorphic identity are correct: write S_m(t)=1+(m/2)(1-t), integrate its three squared terms against the beta weight, and factor the common gamma denominator. The result is (1), with the separately normalized constant sector I_0=1. For s>=-2 the coefficient is finite and positive, and at -2 it equals one. On (-4,-3) both the gamma quotient and the affine-in-m bracket are negative. On (-3,-2) and (-5,-4) the quotient is positive and the slope of the bracket is negative, so some large degree gives a negative coefficient. For noninteger s<-5 the I_1 denominator has three negative factors, while its numerator is a positive multiple of 3(s+2)(s+5)+4. At s=-k, k>=3, choosing m=k+3 gives denominator Gamma(8) and nonzero bracket: -2m for k=3,4, 4 for k=5, and positive for k>=6. These poles exclude all remaining integers. For admissible s other than -2, the gamma ratio and the nonzero linear leading term give I_m(s)^{-1}=O(m^(s+1)); at -2 the inverses are one. On compact subsets, the spherical addition kernel is bounded by the dimension (m+1)^2 under the normalized angular norm, the S_m factors are at most linear, and the radial factor decays geometrically. Thus the positive-weight kernel sum converges there to the kernel of the Hilbert completion. A negative sector would violate kernel positivity by angular orthogonality on a sphere of fixed radius. The finite checks described in VERIFICATION.md and verify.py are not a replay or an all-degree proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.2 covers every even dimension for the coefficients, but Section 4 deals with discrete, residue-based positivity. In particular its discussion of the -3, -4 and -5 parameters in dimension four does not classify the continuous intervals around them.",
+          "The earlier dimensional framework poses, rather than resolves, the general question for the continuous set."
+        ],
+        "reasoning": "The prior coefficient theorem is broader as a representation formula. It is not a stronger positivity classification in which the claimed set is obtained by parameter substitution.",
+        "searches": [
+          "Moravík, arXiv:2606.19810, Proposition 3.2, Theorem 4.1 and Remarks 4.2–4.3",
+          "Blaschke–Engliš–Youssfi, arXiv:2404.07384, Question 1"
+        ]
+      },
+      "checked_sources": [
+        "Blaschke–Engliš–Youssfi, arXiv:2404.07384",
+        "Moravík, arXiv:2606.19810",
+        "Local Resultary catalogue and record 903492a35b21",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Terminating the prior formula gives Eq. (1); using it still requires checking where the gamma sign and the sign of the affine polynomial in m agree for every degree.",
+          "Where its slope conflicts with the gamma sign near -2 and -4 a large degree excludes the parameter; below -5 the small degree m=1 gives the opposite-sign witness. Negative integers require a separate no-cancellation argument."
+        ],
+        "reasoning": "The special-function input is prior. The bounded all-degree sign argument and its exceptional-parameter analysis answer a separate previously posed question; none of the inspected representation, discrete-set, or fixed-weight results gives that sign conclusion mechanically by specializing its hypotheses.",
+        "searches": [
+          "Moravík Proposition 3.2, Eq. (3.13), compared with frozen Eq. (1) and Proof lines 26–36",
+          "Blaschke–Engliš–Youssfi Question 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blaschke–Engliš–Youssfi explicitly define the all-degree positive-coefficient condition and ask what W_c is. They give the identity at s=-2.",
+          "The Moravík formula has upper hypergeometric parameter -1 at n=4, so its two terms simplify exactly to frozen Eq. (1). His residue-based discrete Wallach set is a different property and can involve parameters with genuine poles in the continuous problem."
+        ],
+        "reasoning": "The normalization and coefficient formula match existing formulations; the novel claim is the parameter set for simultaneous positivity with finite coefficients, not the coefficient representation or residue positivity.",
+        "searches": [
+          "arXiv:2404.07384, Eqs. (3)–(7) and Concluding Remarks, Question 1",
+          "arXiv:2606.19810, Proposition 3.2, Eq. (3.13), and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest overlapping Resultary passage concerns radial concentration eigenvalues at a fixed s>-1 and spectral-counting asymptotics in the real four-ball. These assumptions exclude the nonclassical intervals and do not address meromorphic sign changes.",
+          "No exact continuous set was present in the inspected catalogue result or in the inspected discrete-parameter passages of Moravík."
+        ],
+        "reasoning": "The related catalogue record shares the ball and hyperbolic-harmonic model but not this spectral positivity invariant. Ranked results and limited parameter checks cannot establish the absence of an indexed exact result.",
+        "searches": [
+          "Resultary local searches: real four-ball continuous Wallach set; Moravík interval; Peter–Weyl all-degree sign classification",
+          "2026/11/2/SCOPE-logarithmic-spectral-excess-for-hyperbolic-harmonic-concentratio--903492a35b21"
+        ]
+      },
+      "rationale": "Credit is confined to the simultaneous real-parameter positivity classification in real dimension four. The coefficient formula itself is just the n=4 evaluation of Moravík's existing general formula, and the s=-2 identity is already known. The primary papers supply the problem and input formulas but do not settle the continuous sign set; the proof must handle all harmonic degrees and global pole exceptions, not just substitute n=4. No earlier statement or positivity theorem implying the same set was identified in the bounded comparisons.",
+      "residual_risks": [
+        "The literature and catalogue inspection was bounded and does not demonstrate worldwide priority.",
+        "The exact coefficient formula was previously available; equivalent sign arguments based on that formula might appear in other literature. No priority for the formula or s=-2 identity is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same positivity definition and known point -2, but continuous set is asked for",
+          "evidence": [
+            "The concluding remarks ask for W_c separately from the sets defined by residues; the earlier formulas give the corresponding angular squared-norm coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.07384",
+          "material_read": "PDF p. 4, Eqs. (3)–(7), OA offset 12981; pp. 23–24, concluding Question 1, offset 82011",
+          "method": "Primary open-access PDF; statement and normalization comparison",
+          "title": "A Moebius invariant space of H-harmonic functions on the ball",
+          "trigger": "Primary source of the continuous Wallach problem and its normalization"
+        },
+        {
+          "assessment": "Exact formula-level coverage, with discrete-set rather than continuous-set conclusions in the decisive passages",
+          "evidence": [
+            "The terminating formula equals Eq. (1) meromorphically. Section 4 discusses residues for the negative integer candidates, not all-parameter finite positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.19810",
+          "material_read": "p. 8 Proposition 3.2 and Eq. (3.13), offset 44390; pp. 10–11 Theorem 4.1 and Remarks 4.2–4.3, offsets 56136 and 62590",
+          "method": "Primary open-access PDF; inspected the formula and evaluated its two terms at n=4",
+          "title": "Analytic continuation of weighted H-harmonic Bergman spaces",
+          "trigger": "Closest earlier general formula and Wallach-set results"
+        },
+        {
+          "assessment": "Topical overlap, distinct spectral question, and later catalogue entry",
+          "evidence": [
+            "The theorem concerns radial concentration eigenvalues and their asymptotics for a fixed physical weight."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-logarithmic-spectral-excess-for-hyperbolic-harmonic-concentratio--903492a35b21",
+          "material_read": "RESULT.md Finding and range s>-1, local mirror from offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Logarithmic spectral excess for hyperbolic-harmonic concentration",
+          "trigger": "Strongest same-ball catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant is explicitly motivated by the previously posed continuous Wallach problem. The exact set determines which continued hyperbolic-harmonic norms on the real four-ball give genuine positive kernels. The disconnected second interval and its exclusion boundaries cannot be inferred just from the physical weights or the discrete residue parameters. This supplies a complete answer in one natural low dimension where the angular radial factor is nonconstant, without claiming a result in all dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

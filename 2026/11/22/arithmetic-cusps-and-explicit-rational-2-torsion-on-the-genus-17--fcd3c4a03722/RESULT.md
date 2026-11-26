@@ -1,82 +1,47 @@
-# Arithmetic cusps and explicit rational \(2\)-torsion on the genus-\(1777\) modular curve
+# Arithmetic cusp fields and an explicit two-torsion divisor for the genus-1777 modular cover
 
 ## Finding
-Let \(N=4800\), and let \(H\subset(\mathbb Z/N\mathbb Z)^\times\) consist of elements congruent to \(\pm1\) modulo \(5\). Work over \(\mathbb Q\) with the canonical modular-curve model \(X=X_H(N)\) and \(Y=X_0(N)\), with the natural degree-two map \(\rho:X\to Y\). Let \(\nu:Y\to X_0(5)\) be the degeneracy map, and let
+
+Let \(N=4800\), \(H=\{d\in(\mathbb Z/N\mathbb Z)^\times:d\equiv\pm1\pmod5\}\), \(Y=X_0(N)\) and \(X=X_H(N)=X_1(N)/H\) over \(\mathbb Q\). Let \(\nu:Y\to X_0(5)\) forget to the order-five subgroup, and on \(X_0(5)\) let
 \[
-t(z)=\left(\frac{\eta(z)}{\eta(5z)}\right)^6
+t=\left(\eta(z)/\eta(5z)\right)^6,\qquad Q(t)=t^2+22t+125.
 \]
-be the Hauptmodul of \(X_0(5)\); its simple pole is at the cusp \(\infty\), and it vanishes at the cusp \(0\). Then the following three assertions hold.
+The canonical double cover has function field \(\mathbb Q(Y)(w)\), where \(w^2=5Q(t)\) and \(t\) denotes the pullback. It is geometrically connected and étale. The constant factor matters: \(w^2=Q(t)\) defines a different rational cover, even though both covers have the same complex curve and the same cusp-degree histogram.
 
-**Explicit quadratic function field.** The function field of \(X\), over the stated \(\mathbb Q\)-model, is
-\[
-\mathbb Q(X)=\mathbb Q(Y)(w),\qquad w^2=t^2+22t+125.
-\]
-Here \(t\) on \(Y\) denotes \(\nu^*t\). The cover \(\rho\) is geometrically connected and étale.
+For \(d\mid N\), the closed cusp of \(Y\) of denominator \(d\) has field \(K_d=\mathbb Q(\zeta_{\gcd(d,N/d)})\). Its fiber on the canonical \(X\) consists of two closed cusps of field \(K_d\) when \(v_5(d)=0,1\), and one closed cusp of field \(K_d(\sqrt5)\) when \(v_5(d)=2\). In particular \(d=1\) has two rational lifts, whereas \(d=25\) has one quadratic lift. In residue degrees \(1,2,4,8,16\), the numbers are respectively \(16,16,24,10,4\) (70 closed and 288 geometric cusps).
 
-**Complete arithmetic cusp spectrum.** For each positive divisor \(d\mid N\), put \(g_d=\gcd(d,N/d)\) and \(K_d=\mathbb Q(\zeta_{g_d})\), with \(\zeta_1=1\). The unique closed cusp orbit of \(Y\) of denominator \(d\) has residue field \(K_d\). Its inverse image on \(X\) consists of exactly two closed cusps, both with residue field \(K_d\), if \(5\mid d\), and exactly one closed cusp with residue field \(K_d(\sqrt5)\) if \(5\nmid d\). Therefore the numbers of closed cusps of \(X\), indexed by their residue degrees over \(\mathbb Q\), are
-
-| Residue degree | \(1\) | \(2\) | \(4\) | \(8\) | \(16\) |
-|---|---:|---:|---:|---:|---:|
-| Closed cusps | 16 | 16 | 24 | 10 | 4 |
-
-In particular, \(X\) has exactly **70 closed cusps**, **16 rational cusps**, and \(288\) geometric cusps.
-
-**Explicit two-torsion class.** Let \(Q(t)=t^2+22t+125\), let \(D\) be the reduced effective divisor on \(Y\) supported on the preimages of the two zeros of \(Q\) on \(X_0(5)\), and put \(B=\nu^*(\infty)\). Both \(D\) and \(B\) have degree \(1920\); \(D\) is supported on \(1920\) distinct geometric points. There is a principal-divisor identity
-\[
-\operatorname{div}_Y(Q(t))=2D-2B.
-\]
-Consequently \(\mathcal O_Y(D-B)\) is a **nonzero rational point of order two** on \(\operatorname{Jac}(Y)\), and its associated connected étale double cover is \(\rho\).
-
-## Assumptions and scope
-All curves are smooth, projective, connected modular curves over \(\mathbb Q\). The phrase *closed cusp* means one closed scheme point, and its residue degree is the cardinality of its geometric Galois orbit. The rational model is specifically Auffarth's \(X_H(4800)\), not an arbitrary descent of the underlying complex Riemann surface. The two-torsion statement concerns the Jacobian of \(Y=X_0(4800)\), not that of \(X\).
+Let \(D\) be the reduced inverse image on \(Y\) of the two zeros of \(Q\) on \(X_0(5)\), and \(B=\nu^*(\infty)\). Each has degree 1920 and \(D\) has 1920 distinct geometric points. On \(Y\), \(\operatorname{div}(5Q(t))=2D-2B\). The class \([D-B]\) is nonzero rational two-torsion in \(\operatorname{Jac}(Y)\); the double-cover algebra is obtained from this line bundle using the trivialization given by the canonical radicand (up to the convention of taking its inverse).
 
 ## Proof
-**1. Identify the quadratic extension over \(\mathbb Q\).** The subgroup \(H\) is the kernel of the quadratic character induced by \((\mathbb Z/5\mathbb Z)^\times/\{\pm1\}\). The standard forgetful maps of canonical modular curves over \(\mathbb Q\) show that \(X_H(4800)\to X_0(4800)\) is obtained by base change, followed by normalization, from \(X_1(5)\to X_0(5)\). The relevant character modulo \(5\) is nontrivial on \(\Gamma_0(4800)\), so this function-field base change is connected and has degree two.
 
-For the Rogers–Ramanujan continued fraction \(R(q)\), the classical modular identity is
+**Canonical normalization.** Away from the cusps an \(H\)-structure on a cyclic subgroup of order \(N\) is a generator of its order-five subgroup up to sign. In fact multiplication by \(N/5\) sends generators of the order-\(N\) subgroup to generators at level five, and the subgroup of changes of generator preserving the latter up to sign is exactly \(H\). This description works over \(\mathbb Q\) and identifies the function-field cover with the pullback from the standard \(X_1(5)\) of a point of order five.
+
+One can compute the rational twist directly using the Tate normal form for this marked point, with rational parameter \(b\):
 \[
-R(q)^{-5}-R(q)^5=t(z)+11,\qquad q=e^{2\pi i z}.
+E_b:\quad y^2+(1-b)xy-by=x^3-bx^2,\qquad P=(0,0).
 \]
-The function \(r=R(q)^5\) generates \(\mathbb Q(X_1(5))\) over \(\mathbb Q(X_0(5))\): the order-five translation quotient of the level-five modular function \(R\) is precisely \(X_1(5)\). Thus
+Indeed for a point of order five, move the point to the origin and its tangent to \(y=0\); then \(a_4=a_6=0\). Since the point has neither order two nor three, \(a_3\ne0\) and \(a_2\ne0\), so a unique scaling makes \(a_2=a_3=-b\). If \(a_1=1-c\) at this step, the doubling tangent gives \(2P=(b,bc)\), and the line through \(P,2P\) has third intersection at abscissa \(c\) (its three abscissas are \(0,b,c\)). Thus \(3P=-2P\) is equivalent to \(c=b\), with the tangent interpretation when the intersection is repeated. This gives the parameter of the ordinary marked-point curve over \(\mathbb Q\).
+
+Set \(k=b-11-1/b\). The invariants of \(E_b\) satisfy
 \[
-r^2+(t+11)r-1=0,
-\qquad
-w=r+r^{-1},
-\qquad
-w^2=(t+11)^2+4=Q(t).
+c_4=b^2(k^2+10k+5),\qquad \Delta=b^6 k,\qquad j(E_b)=(k^2+10k+5)^3/k.
 \]
-The identity is normalized over \(\mathbb Q\) by its rational \(q\)-expansion at \(\infty\); it is not merely a statement after extending scalars to \(\mathbb C\). Pulling it back to \(Y\) proves the claimed field equation.
-
-**2. Show étaleness and identify the divisor.** The polynomial \(Q\) has two distinct roots (discriminant \(-16\)); they are the two order-two elliptic points of \(X_0(5)\). One way to see this is the standard degree-six \(j\)-formula and its exact factorization
+Thus the \(j\)-poles at \(b=0,\infty\) have order five and those at the two zeros of \(k\) have order one. On \(X_0(5)\) the formula \(j=(t^2+250t+3125)^3/t^5\) gives pole orders five at \(t=0\) and one at \(t=\infty\). In the degree-two forgetful map the poles of order five therefore lie over \(t=0\), the simple poles over \(t=\infty\); all four are unramified. Thus the pulled-back \(t\) is a constant times \(1/k\). Comparing the leading terms \(j\sim t\) and \(j\sim125/k\) at \(k=0\) gives \(t=125/k\). Since \(b-1/b=k+11\), the element \(w=(t/5)(b+1/b)\) generates the level-five quadratic extension and satisfies
 \[
-j=\frac{(t^2+250t+3125)^3}{t^5},\quad
-(t^2+250t+3125)^3-1728t^5
-=(t^2-500t-15625)^2Q(t).
+w^2=(t/5)^2\big((125/t+11)^2+4\big)=5Q(t).
 \]
-There are no elliptic points of order two on \(Y=X_0(4800)\), since \(4\mid4800\). Thus \(\nu\) has local ramification index two over both order-two elliptic points of \(X_0(5)\). Its degree is
+In particular the standard marked-point model is not normalized by just requiring rational coefficients in an analytic \(q\)-series at infinity. Its infinity cusp is the marked Tate point \(\zeta_5\) up to sign, of field \(\mathbb Q(\sqrt5)\).
+
+**Divisors and étaleness.** The character on \(\Gamma_0(4800)\) given by the bottom-right entry modulo five and modulo sign is surjective (for example take a matrix with bottom row \((4800,7)\) and top-left entry 2743; the determinant can be made one), so the pulled-back cover is geometrically connected. The level-five \(j\)-formula gives
 \[
-\deg(\nu)=\frac{[\mathrm{SL}_2(\mathbb Z):\Gamma_0(4800)]}{[\mathrm{SL}_2(\mathbb Z):\Gamma_0(5)]}
-=\frac{11520}{6}=1920.
+(t^2+250t+3125)^3-1728t^5=(t^2-500t-15625)^2Q(t).
 \]
-Each elliptic point consequently has \(960\) distinct preimages, so \(D\) has \(1920\) distinct geometric supports, all of multiplicity one. The rational function \(Q(t)\) has exactly double zeros along \(D\) and double poles along \(B\). It follows that \(\operatorname{div}_Y(Q(t))=2D-2B\), and the quadratic cover is unramified at every point of \(Y\). Its connectedness implies \(D-B\) cannot be principal: otherwise \(Q(t)\) would be a square in \(\overline{\mathbb Q}(Y)\). Since \(D\) and \(B\) are rational divisors, \(\mathcal O_Y(D-B)\) represents a nontrivial \(\mathbb Q\)-rational two-torsion point.
+The two simple preimages of \(1728\) are the two order-two elliptic points. Since \(4\mid N\), \(Y\) has no order-two elliptic points, so \(\nu\) has ramification index two at each point above them. The index formula gives \(\deg \nu=(4800(1+1/2)(1+1/3)(1+1/5))/6=1920\), hence 960 geometric points over each zero. The pole of \(Q(t)\) on \(X_0(5)\) is twice \(\infty\). Therefore the divisor on \(Y\) is \(2D-2B\) and every order is even, proving étaleness in characteristic zero. If \(D-B\) were principal over \(\overline{\mathbb Q}\), the radicand would be a square there, contradicting geometric connectedness. Both divisors are rational, which proves the stated rational two-torsion.
 
-**3. Determine residue fields at every cusp.** On \(X_0(N)\), the geometric cusps of denominator \(d\mid N\) form one Galois orbit of size \(\varphi(g_d)\), with residue field \(K_d\). Reduction of the denominator to level \(5\) maps a cusp to \(\infty\) precisely when \(5\mid d\), and to \(0\) otherwise.
+**Cusp fibers.** The level-five image of denominator \(d\) is \(t=0\) for \(5\nmid d\), and \(t=\infty\) otherwise. At zero the residual equation is \(w^2=625\), which splits. At infinity divide \(w\) by \(t\) to obtain the residual equation \((w/t)^2=5\). For \(v_5(d)=1\), \(5\mid\gcd(d,N/d)\), so \(K_d\) contains \(\mathbb Q(\sqrt5)\); for \(v_5(d)=2\) the gcd is a power of two and its cyclotomic field cannot contain the quadratic field of discriminant five. The residual equations are separable and describe the entire étale fiber. For \(v_5(d)=0,2\) the base degree histogram is \((8,4,2)\) in degrees \((1,2,4)\); for \(v_5(d)=1\) it is \((8,4,2)\) in degrees \((4,8,16)\). Doubling the number of cusps in the first and middle strata and doubling the degrees in the last yields the claimed table. The noncanonical twist exchanges the splitting in the outside strata, which explains why the aggregate is unchanged.
 
-At \(t=\infty\), the equation \(w^2=Q(t)\) has two rational local branches because \(w/t\) tends to \(\pm1\); each geometric cusp on \(Y\) therefore lifts to two cusps with the same residue field. At \(t=0\), its reduction is \(w^2=125\), hence the residue extension is adjoining \(\sqrt5\). If \(5\nmid d\), then \(g_d\) is a power of two, so \(K_d\) does not contain \(\sqrt5\); the latter quadratic extension is genuinely nonsplit. These rules yield exactly the claimed residue fields.
+## Context and reproducibility
 
-Finally enumerate the \(42\) divisors of \(4800\). For each \(d\), add two closed orbits of degree \(\varphi(g_d)\) when \(5\mid d\), or one orbit of degree \(2\varphi(g_d)\) otherwise. This produces the displayed table. Its orbit-count sum is \(16+16+24+10+4=70\), while its degree-weighted sum is \(16+32+96+80+64=288\), compatible with the known geometric cusp count.
+R. Auffarth, [*A completely decomposable modular Jacobian of dimension 1777*](https://arxiv.org/html/2611.16963v1), §2, supplies the standard model, the étale covering structure and the geometric cusp count. B. Cais and B. Conrad, [*Modular curves and Ramanujan's continued fraction*](https://virtualmath1.stanford.edu/~conrad/papers/J5final.pdf), §§2–5, give the Tate-cusp descriptions and a twisted level-five model; rational \(q\)-coefficients on that model do not fix the rational descent for the ordinary \(X_1(5)\) quotient. The concrete normalization above locates the cusp fields on the named canonical model rather than just determining an aggregate count on a complex curve. The argument specifies an actual divisor representing the cover line bundle, not the full torsion of the Jacobian or the full set of rational points.
 
-## Verification
-The standalone `check_modular_cusps.py` evaluates the cusp-degree enumeration over all \(42\) divisors of \(4800\), asserts the five counts and weighted total, and verifies the exact polynomial factorization at \(j=1728\) using integer polynomial arithmetic. It additionally compares the two classical modular identities by exact truncated \(q\)-products through order \(15\). The program prints `PASS`. The finite \(q\)-comparison is a cross-check, not a proof of the infinite modular identity, which is classical and separately cited. The function-field and ramification arguments above are proofs independent of a finite enumeration.
-
-## Relationship to prior work
-Auffarth proves the genus \(1777\), defines this specific rational model, realizes its double cover of \(X_0(4800)\), and counts \(288\) geometric cusps. The classical Rogers–Ramanujan modular identity and level-five modular-curve description supply the small-level equation; the standard theory of cusps of \(X_0(N)\) supplies the cyclotomic base fields. The statement here adds the **specific quadratic equation on this large curve**, the full arithmetic splitting fields and Galois orbit spectrum of all its cusps, and a concrete rational two-torsion divisor on \(X_0(4800)\). A previously reported three-point covering passport for the same complex curve concerns complex ramification and cusp widths, not these arithmetic fields or the divisor class.
-
-## Limitations
-This statement does not classify noncuspidal rational points, compute the full Mordell–Weil torsion of \(\operatorname{Jac}(Y)\), or give a decomposition of the Prym. The rational cusp fields refer to the stated canonical \(X_H(4800)\)-model; another rational twist of the same complex curve may have different fields of definition. The calculations are not an independent priority determination for all unpublished modular-curve computations.
-
-## References
-- R. Auffarth, *A completely decomposable modular Jacobian of dimension 1777*, arXiv:2611.16963v1 (first public 2026-11-12), especially Section 2, https://arxiv.org/html/2611.16963v1.
-- B. Cais and B. Conrad, *Modular curves and Ramanujan's continued fraction* (2006), especially Sections 1–2, https://virtualmath1.stanford.edu/~conrad/papers/J5final.pdf.
-- Computational Algebra Group, *Magma Handbook*, “Cusps and Rational Points,” https://magma.maths.usyd.edu.au/magma/handbook/text/1670.
-- E. W. Weisstein, “Rogers–Ramanujan Continued Fraction,” MathWorld, https://mathworld.wolfram.com/Rogers-RamanujanContinuedFraction.html.
+Run `python3 check_modular_cusps.py` with SymPy to check the invariant calculations, the polynomial identities, the local residual constants, the degree and the per-denominator arithmetic enumeration. The modular interpretation of the standard model, the divisor description and nontriviality are proved above, not inferred from the finite program.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:46.956879Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md, verify.py and requirements.txt (inspected, not executed)",
+        "Independent periodic flux expansion detailed in this review"
+      ],
+      "rationale": "The additive functional is the unwrapped displacement, so the tilt adds the bounded multiplication kv*sigma. A fixed-time Doeblin minorization on the circle follows from paths making exactly one or two flips: with one flip the opposite terminal direction has an endpoint sweeping the circle as the flip time varies; for the original terminal direction fix the first flip in a short window and vary the second over a sufficiently long interval. The upper/lower rate bounds give a uniform positive density contribution in both cases. The tilted fixed-time operator is analytic, with a simple isolated leading eigenvalue near k=0. Its iterates and the uniformly bounded residual-time factor give log generating function t*alpha(k)+O(1) analytically on a small complex disk (the coefficient of the leading term is nonzero near zero for any starting law); Cauchy differentiation gives the rates. The periodic tilted equations for sum S and difference D give determinant-one Floquet monodromy and trace 2 cosh(kL), making alpha even on its local analytic branch. An independent coefficient check eliminates D to get alpha S=(partial+k)[a_alpha(partial+k)S], a_alpha=v^2/(2 lambda+alpha), from which alpha=-mu_alpha(-ik) for the lowest divergence-form Bloch band. At fixed alpha, write the normalized periodic eigenfunction as 1+z chi+z^2 rho+... with z=iq and expansion mu=-A z^2+C z^4+.... The order-z flux is A=1/mean(1/a_alpha); chi'=A/a_alpha-1. The order-z^2 flux is zero because chi has mean zero, so rho'=-chi. The order-z^3 flux is -A rho+B, where periodicity and mean(rho)=0 imply B=A mean(rho chi')=A mean(chi^2). The next averaged equation gives C=-B. Thus A(0)=v^2/(2 ell), A'(0)=-A(0)/(2 ell), and C(0)=-A(0)E/ell^2; solving the last implicit dispersion relation gives alpha_2=A(0), alpha_4=-v^4/(8 ell^3)+v^2 E/(2 ell^3). Multiplying by 2! and 4! recovers both cumulant rates. Parseval for the centered primitive weights the rate coefficients by L^2/(4 pi^2 q^2), so the sharp equality class excludes every mode |q|>=2 and E=0 holds only for a constant rate. For the cosine E=(ell epsilon L)^2/(8 pi^2), yielding the stated sign and feasibility thresholds. These analytic checks apply to bounded positive profiles, with weak derivatives and absolutely continuous fluxes, not just the finite examples in the package.",
+      "residual_risks": [
+        "Evenness and cumulant rates are long-time statements, not finite-time symmetry for every initial law; fixed positive speed and direction-symmetric reversal rates are essential to the calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dohnal–Lamacz–Schweizer Eq. (4.1) is the general divergence-form Bloch band used after eliminating D in the independent check. Eqs. (4.3)–(4.5) and Algorithm 1, step 5, give a general recursive cell calculation of the fourth derivative, including evenness in the wave number. The inspected formula is in higher cell correctors, not the explicit one-dimensional primitive variance.",
+          "Mallmin–Blythe–Evans use constant hopping and switching rates in a homogeneous lattice model. Angelani–Di Leonardo–Paoluzzi allow spatially varying reversal, but analyze a killed first-passage setup rather than unwrapped periodic displacement rates."
+        ],
+        "reasoning": "The general elliptic recursion covers the perturbative machinery and gives the harmonic-mean coefficient in one dimension; the contribution is not a new general Bloch formula. It takes an analytic reduction to an alpha-dependent elliptic operator and collapse of the quartic cell correction to the variance of a single primitive to obtain this signed all-profile law. The two active-motion sources do not provide that correction.",
+        "searches": [
+          "arXiv:1401.7839 §4.1 Lemmas 4.3–4.4, Algorithm 1",
+          "arXiv:1905.10260 model definition and tilted homogeneous walk",
+          "arXiv:1506.08046 model and first-passage problem",
+          "On Burnett coefficients in periodic media, 032902, one-dimensional comparator"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1401.7839 §4.1",
+        "Resultary da4b27d9b2f2",
+        "arXiv:1905.10260",
+        "arXiv:1506.08046",
+        "Orive–Zuazua–Pazoto 2001 citation with full-text access limitation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The elliptic Bloch result can be made into an alternate derivation by identifying the implicit alpha-dependence, then performing the one-dimensional flux telescoping in the correctness check. Its negative quartic Burnett term contributes with the opposite sign after k is analytically continued and the sign of the generator is restored. The negative baseline is instead the A'(0)A(0) term from spectral feedback.",
+          "Equal-half-period matrix multiplication in the exact two-zone result does not determine the arbitrary-profile coefficient or its extremizers. The underlying 2001 damped-wave expansion was identified, but the matching primary passages could not be read through the located lawful full-text route."
+        ],
+        "reasoning": "A direct prior explicit fourth-order formula for the damped pencil would cover the central claim; generic recursive dispersion machinery and a single two-zone specialization are not such a formula. The passing finding is the explicit transport-profile dependence and sharp structural consequences, not priority for the branch expansion, diffusivity, or special two-zone instance.",
+        "searches": [
+          "arXiv:1401.7839 Eq. (4.1), Lemmas 4.3–4.4 and Algorithm 1",
+          "da4b27d9b2f2 transfer relation and hypotheses",
+          "Asymptotic expansion for damped wave equations with periodic coefficients, ResearchGate 239926967 lawful full-text routes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound transfer system gives Z''=alpha(alpha+2lambda(x)) Z/v^2 with Bloch multiplier exp(kL); the same pencil arises from the damped wave equation u_tt+2lambda(x)u_t=v^2 u_xx.",
+          "Eliminating the opposite tilted-state component instead yields the elliptic band with a_alpha=v^2/(2lambda+alpha), coupled by alpha=-mu_alpha(-ik). Its first two band coefficients are the natural harmonic-mean and Burnett comparators."
+        ],
+        "reasoning": "A low-Bloch-wavenumber expansion of the same damped-wave pencil would be an exact alternate route and must not be dismissed as a change of application. The inspected undamped divergence-form formula computes a related band with a coefficient fixed as its Bloch parameter varies; recovering the telegraph branch requires the extra spectral feedback and profile simplification.",
+        "searches": [
+          "Periodic telegraph and Hill/Floquet dispersion of a periodic weighted string",
+          "Asymptotic expansion for damped wave equations with periodic coefficients, Orive–Zuazua–Pazoto",
+          "arXiv:1401.7839 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The overlapping Resultary two-zone finding has equal half periods with rates a+b and a-b, exact rates v^2/a and -3v^4/a^3+L^2 b^2 v^2/(4a^3), and threshold L|b|=2 sqrt(3) v; its proof has the corresponding segment-transfer relation.",
+          "The centered piecewise linear primitive in this case has E=b^2 L^2/48, so the correction and sign test specialize exactly."
+        ],
+        "reasoning": "This is real quantitative overlap, not just a related title or phenomenon. It does not cover unequal or arbitrary rate profiles, the centered-primitive energy law, or the sharp Fourier extremizer. The displayed catalog dates alone do not establish derivation or priority.",
+        "searches": [
+          "Resultary: periodic tumble-rate landscapes, fourth displacement cumulant, telegraph kurtosis sign",
+          "da4b27d9b2f2, RESULT.md at offsets 0 and 505"
+        ]
+      },
+      "rationale": "Credit previous Bloch coefficient methods and the known constant-rate or diffusion results. The supported distinct claim is the exact arbitrary-profile decomposition of the fourth cumulant into the negative constant-rate term and a nonnegative centered-primitive energy, including the sharp frequency optimizer and resulting sign boundary. The strongest indexed exact overlap is a two-zone special case. The strongest accessible general spectral comparator supplies an elliptic cell-problem algorithm for the quartic band coefficient, but not the closed profile identity or the nonlinear telegraph dispersion relation and its two competing contributions. The possible overlap with the closer 2001 damped-wave expansion remains explicitly unresolved on the available material.",
+      "residual_risks": [
+        "A prior damped-wave Bloch expansion, an explicit one-dimensional Burnett identity, or other general Markov-additive formula may cover more of the exact decomposition; the close 2001 source was not inspected in full. Bounded retrieval does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-coefficient Bloch-band machinery, does not give the closed damped-profile law as stated",
+          "evidence": "Lemmas (4.3)–(4.5) and Algorithm 1 specify a hierarchy of cell solves and average formula for the fourth band derivative.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.7839",
+          "material_read": "§4.1 Eq. (4.1) and Remark 4.1, pp. 17–18; Lemmas 4.3–4.4 and Algorithm 1, pp. 18–20; reference [19]",
+          "method": "Primary PDF passages, extracted offsets 55800, 58400 and 66344",
+          "title": "Dispersive homogenized models and coefficient formulas for waves in general periodic media",
+          "trigger": "General fourth Bloch coefficient potentially sufficient via a divergence-form reduction"
+        },
+        {
+          "assessment": "Plausible exact prior-coverage risk, unresolved",
+          "evidence": "The 2001 citation establishes a close periodic damped-wave topic, not what fourth-order formula or assumptions it contains.",
+          "identifier_or_url": "https://www.researchgate.net/publication/239926967_Asymptotic_expansion_for_damped_wave_equations_with_periodic_coefficients",
+          "material_read": "Bibliographic citation in arXiv:1401.7839 reference [19]; no substantive primary passage retrieved",
+          "method": "OA direct and VPN attempts at the identified copy returned HTTP 403; an exact-title alternate-copy lookup did not identify another readable full-text link",
+          "title": "Asymptotic expansion for damped wave equations with periodic coefficients",
+          "trigger": "Directly relevant periodic damped-wave/telegraph alias"
+        },
+        {
+          "assessment": "Covered equal-half-period two-zone subset of profiles; not the general identity",
+          "evidence": "For rates a±b it gives the exact term L^2 b^2 v^2/(4a^3), equal to the general energy term because E=b^2 L^2/48.",
+          "identifier_or_url": "Resultary da4b27d9b2f2",
+          "material_read": "RESULT.md Finding and transfer-trace derivation, offsets 0 and 505",
+          "method": "Configured local mirror passages",
+          "title": "Spatially modulated tumbling hides a sharp long-time kurtosis sign change",
+          "trigger": "Exact matching two-zone cumulants and sign change"
+        },
+        {
+          "assessment": "Homogeneous lattice comparison only",
+          "evidence": "Constant-rate hopping and state switching do not represent a continuous spatially varying symmetric reversal landscape.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.10260",
+          "material_read": "PDF pp. 1 and 4, model and translational invariance passage (offset 15100)",
+          "method": "Primary PDF passages",
+          "title": "A comparison of dynamical fluctuations of biased diffusion and run-and-tumble dynamics in one dimension",
+          "trigger": "Long-time fluctuation theory for the same type of particle"
+        },
+        {
+          "assessment": "Different observable and boundary regime",
+          "evidence": "Computes first-passage observables, not unwrapped periodic fourth-cumulant rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.08046",
+          "material_read": "PDF p. 1, scope of the first-passage problem",
+          "method": "Primary PDF passage",
+          "title": "First-passage time of run-and-tumble particles",
+          "trigger": "Model with spatial variation in tumbling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, sharp comparison and sinusoidal threshold",
+        "Independent cumulant and Fourier calculations detailed in this review",
+        "Resultary da4b27d9b2f2"
+      ],
+      "rationale": "The second and fourth cumulants distinguish physically meaningful properties of the same one-dimensional process: all allowed profiles with fixed mean rate are indistinguishable by long-time diffusivity, but heterogeneity gives a rigid upward shift of the fourth cumulant and can reverse its sign. The explicit primitive energy makes that sensitivity measurable and gives a sharp first-harmonic design rule at fixed rate variance. This is more informative than a generic higher-order cell solve or a table for any one profile.",
+      "residual_risks": [
+        "No interaction, higher-dimensional, finite-time, or asymmetric switching claims are supported; the positive fourth cumulant still permits a Gaussian central-limit scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

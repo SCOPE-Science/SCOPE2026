@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem holds for arbitrary sets and nonnegative integral budgets. A rectangle sitting inside a half-graph admits a canonical cut; between cuts, the first row of each gap forces each uncovered neighbor into the degree-bounded remainder. This proves \(t\le r+(r+1)s\). The explicit disjunction of \(r\) cut rectangles and \(s\) affine graphs realizes equality, while equality throughout the inequalities forces all gap lengths and cuts, giving rigidity. The accompanying finite checker reproduces small cases but is not used as a proof. Edge cases \(r=0\), \(s=0\), and empty witnesses are treated.
+## correctness
 
-## Originality — PASS within inspected evidence
-Girón (2026), Theorem 4.8, proves qualitative stable-semilinear decomposition, whereas the stated result proves a uniform, sharp ladder-height formula for a quantitatively restricted subclass. Hoffmann–Tran–Ye describe rectangular and order-free stable formulas without the explicit mixed budget. Pinto's biclique-cover bounds concern global/local biclique cover and partition numbers, not residual row-degree covers of half-graphs. The degenerate endpoint bounds by themselves are elementary and are not claimed as new. No statement-level implication recovering the mixed sharp threshold and equality classification was located in examined sources. There remains a real historical-priority risk in older combinatorial-matrix and biclique-cover literature.
+PASS
 
-## Value — PASS
-The half-graph height is a canonical quantitative stability invariant. The mixed rectangle/sparse-fiber normal form occurs naturally when separating rectangular clauses from finitely many graph-like exceptional clauses in stable semilinear relations. The exact multiplication of budgets, the inverse optimal biclique-cover tradeoff, and equality rigidity quantify a distinction that qualitative preservation of stability does not address. This is a structural theorem with explicit extremizers rather than a recomputation of a small finite example. Its scope is limited to a given representation and it makes no general effective decomposition claim.
+In a selected triangular incidence matrix, a nonempty rectangle has last row a at most its first column b, and enlarging it to the canonical cut at any c in [a,b] adds no false cells. The uncovered right-neighbors of the first row of each cut-free gap include all columns in that gap, forcing length at most s. With k distinct cuts this gives t<=k+(k+1)s<=r+(r+1)s. Conversely periodic cuts starting at index s leave at most s successive columns uncovered in each row, giving the asserted minimum at every t. On the real line the rectangle clauses and the s translates y=x+h realize the full extremal triangle on consecutive integer points and never introduce a selected lower-triangle cell. Equality forces k=r and all gaps length s for every allowed cut choice; changing one rectangle's cut alone would either change that unique cut set or cause a duplicate, so both endpoint indices of the rectangle equal its forced cut. The empty construction at r=s=0, and the separate r=0 and s=0 limits, agree with the formulas.
 
-## Closest literature and limitations
-1. M. Girón, arXiv:2610.26335 (Theorem 4.8, sections 1 and 4), posted 19 October 2026: qualitative special-stable decomposition, not the stated quantitative theorem.
-2. D. M. Hoffmann, C.-M. Tran, J. Ye, arXiv:2004.10953 (Introduction and section 2): qualitative rectangular/order-free closure.
-3. T. Pinto, DOI 10.37236/3595 (sections 1–5): general biclique-cover and local-cover parameters; no inspected mixed half-graph theorem.
+## originality
 
-No claim of exhaustive priority search or independent validation is made. The result does not control arbitrary special-stable decompositions without an explicit rectangle/sparse-fiber budget.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The checked antecedents include the zero-residual biclique-cover endpoint and qualitative semilinear stability. They do not cover the positive left-residual budget and equality rigidity. No novelty is credited to Boolean rank of the triangular matrix or to qualitative closure of stable relations.
+
+## value
+
+PASS
+
+The theorem quantifies how many rectangular clauses are needed to create an order pattern when each left point can have a bounded number of exceptional incidences. Exact periodic placement and rigidity turn a qualitative stability observation into a sharp constraint on all extremal witnesses; the bound is realized within a simple semilinear class as well as on finite matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

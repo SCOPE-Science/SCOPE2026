@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:51:21.551088Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 1–5, VERIFICATION.md, and check.py (inspected, not executed).",
+        "Independent 65-digit mpmath root check of log(2)−log1p(a²)/2+a·atan(a)−(2k+1)πa/3 for k=1,2,3. The k=1 root begins 0.228903469804774575000760; the other two agree at the printed precision."
+      ],
+      "rationale": "The exact theorem holds. On the orthogonal complement of the constants, J squares to −I, so the exponential has damped cosine and sine entries. The three lower-bound constraints on the scalar exponential are cosines of amplitude 2 centered at π/3, π, and 5π/3 modulo 2π; each dominates on its nearest-center cell. The log difference from aθ is strictly concave there. For a<sqrt(3), its maximum is at cₖ−atan(a) and has height H(a)−acₖ. Positive height gives one open failure interval, zero height a nonnegative tangency, and negative height none. Positive angular cell boundaries separate successive intervals, and the initial time 0 is isolated in the complement. For a≥sqrt(3) the generator is Metzler. Differentiating H(a)/a proves monotone bifurcations and expanding H at 0 gives the count asymptotic. For a real 2×2 matrix the off-diagonal exponential entries are the off-diagonal generator entries times the same scalar divided difference; repeated real eigenvalues give te^(λt), and nonreal eigenvalues give a sine factor that changes sign arbitrarily late. Hence eventual nonnegativity forces a Metzler generator. The displayed a₁ decimal has a minor last-digits error: the exact root is approximately 0.228903469804775, not 0.228903469804832. This does not change the implicit threshold or any theorem.",
+      "residual_risks": [
+        "Approximations are not certified interval enclosures. The proof counts times where at least one entry is negative, not times when the entire matrix is entrywise negative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional-triangle result also identifies which entry is negative, gives a last nonpositive time law, and includes α=3, beyond the positive-damping family.",
+          "Glück gives a fixed rotation-decay example with eigenvalues 0,−1±i; Noutsos–Tsatsomeros develops general eventual nonnegativity and trajectory holdability."
+        ],
+        "reasoning": "The general literature background alone does not yield the count, but the exact indexed family contains all the relevant parameter ratios and a stronger entry-type classification.",
+        "searches": [
+          "Resultary 5e90ed50fd9b Finding and proof near offsets 6112–7013",
+          "arXiv:2202.10133v1 §2 Example 5; Noutsos–Tsatsomeros DOI 10.1137/070693850 §§1,4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary original 5e90ed50fd9b",
+        "Glück arXiv:2202.10133v1 Example 5",
+        "Noutsos–Tsatsomeros DOI 10.1137/070693850 §§1,4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B(a)=H(a)/a, so the indexed ceiling is exactly ceil((R(a)−1)/2). Its lobe centers γₙ=(2n+1)π/3 and the equation log(2/sqrt(1+a²))=a(γₙ−atan(a)) are the same strict-window/tangency test. Each interval is separated from the next and the first starts immediately after 0, so the complement has N+1 components including {0}.",
+          "As α↑3, a∼π(3−α)/6, taking the indexed asymptotic to 3 log(2)/(2πa)."
+        ],
+        "reasoning": "All substantive positive-time topology assertions follow, including arbitrary finite component counts. A different parameter choice or a restatement in the language of normal semigroups is not a distinct claim.",
+        "searches": [
+          "5e90ed50fd9b Finding and exact tangency/window proof",
+          "Frozen RESULT.md Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed RESULT.md Finding at offset 0 defines exp(−t L^α) with damping ratio d=cot(πα/6) and angular time s=r sin(πα/6)t.",
+          "After a time rescaling and, if needed, transposition, d maps to a and s maps to θ for the entire family; in particular 0<α≤1 corresponds to a≥sqrt(3)."
+        ],
+        "reasoning": "Diagonalization uses the same real orthogonal rotation plane, not arbitrary similarity. Positive time scaling and transposition do not change entrywise-nonnegative time-set topology. This is equivalence, not a shared numerical example.",
+        "searches": [
+          "Resultary: reentrant positivity windows, circulant damped rotation, directed fractional triangle; original record 5e90ed50fd9b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index pointed to a distinct original record with exact closed expression ceil((3/(2π))(B(d)−π/3)); B(d)=atan(d)+log(2/sqrt(1+d²))/d, not a finite numerical table.",
+          "The indexed α₁≈2.570230659003063 maps to a₁≈0.228903469804775."
+        ],
+        "reasoning": "The obstruction is formula-level database coverage for all damping ratios, not just a match of a numerical threshold.",
+        "searches": [
+          "Resultary 5e90ed50fd9b, literal ceil, and Finding offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed exact result covers the claimed original staircase, not just eventual positivity. Let C be the directed cyclic permutation, L=I−C, and P the projection onto constants in the frozen record. On ker(P), L has conjugate eigenvalues sqrt(3)exp(±iπ/6) in the same orthogonal rotation plane as J, hence −L^α is −r cos(φ)(I−P) ± r sin(φ)J with r=3^(α/2), φ=πα/6. A transposition or orientation reversal preserves the sign test, and positive time rescaling lets this realize every frozen a=δ/ω=cot(φ)>0 as 0<α<3 varies. The prior indexed window count, endpoints, thresholds, tangencies, and asymptotic are exactly those at issue. The two records' same-day catalogue date does not determine which was found first; it does not remove the verified equivalent coverage. The lower-dimensional rigidity is elementary and the frozen record explicitly does not claim it separately as new.",
+      "residual_risks": [
+        "There is no inference of historical priority from the same-day entries. The rejection rests on directly verified mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage; relative priority not established",
+          "evidence": "Its d=cot(πα/6) ranges over all positive damping ratios; exact ceiling, lobe endpoint equation and tangency condition specialize identically.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinite-ladder-of-reentrant-positivity-windows-on-a-directed--5e90ed50fd9b",
+          "material_read": "Original RESULT.md Finding, offset 0 through the window and asymptotic statements; ceiling and proof passages near offsets 840 and 6112–7013",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An infinite ladder of reentrant positivity windows on a directed fractional triangle",
+          "trigger": "Same exact staircase sought under alternate generators"
+        },
+        {
+          "assessment": "Known fixed example only in this passage",
+          "evidence": "Spectral values 0,−1±i and convergence to P=11ᵀ/3 establish non-all-time eventually positive behavior for a fixed matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2202.10133v1",
+          "material_read": "§2 Example 5, offset around 10490",
+          "method": "Primary OA passage inspection",
+          "title": "Evolution equations with eventually positive solutions",
+          "trigger": "Known three-dimensional normal rotation-decay example"
+        },
+        {
+          "assessment": "Relevant framework, not evidence for the exact staircase",
+          "evidence": "Distinguishes exponential entrywise eventual nonnegativity from individual eventually nonnegative trajectories and defines a corresponding cone; the inspected passages do not claim this family count.",
+          "identifier_or_url": "https://doi.org/10.1137/070693850",
+          "material_read": "§1 pp. 700–701 and §4 p. 709 (offsets near 0 and 31152)",
+          "method": "Primary PDF passage inspection",
+          "title": "Reachability and Holdability of Nonnegative States",
+          "trigger": "Plausible eventual-nonnegativity and minimality antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§4–5 and Limitations",
+        "Indexed staircase and entry-type theorem 5e90ed50fd9b"
+      ],
+      "rationale": "An exact transient time-set classification is meaningful, but the distinct indexed claim already provides it and more. No separately valuable surviving claim is established by changing from fractional order to damping ratio. The elementary 2×2 off-diagonal test is a useful explanatory appendix to the staircase, not on its own a substantial addition that warrants repairing this finding.",
+      "residual_risks": [
+        "The value decision applies to this redundant claim, not to eventual positivity theory or to the independent merit of the indexed result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

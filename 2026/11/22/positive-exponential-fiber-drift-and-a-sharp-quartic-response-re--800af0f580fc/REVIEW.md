@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unforced planar equilibrium is a hyperbolic sink, so the analytic periodic-return implicit-function theorem produces a locally unique attracting cycle for sufficiently weak forcing. Half-period reversal follows from odd restoring force and the uniqueness of this cycle. The exponential-fiber mean equals the strictly positive average of \(\alpha x\sinh(\beta x)\). A direct first- and third-harmonic calculation gives the displayed quadratic and quartic coefficients and an analytic even remainder of order \(O(\varepsilon^6)\). Exact rational harmonic checks and independent numerical integration agreed, but the proof is analytic rather than empirical.
+## correctness
 
-## Originality
-PASS within the inspected literature. Liu et al. (2023) formulate the precise skew flow and describe numerical phase sections, yet do not derive this positive fiber drift or its weak-forcing quartic sign boundary. Marti and Leonel (2026) and earlier symmetric Duffing theory cover the symmetry mechanism itself, not exponential-fiber rectification. Related forced-Duffing stationary moment results do not involve the fiber. A prior integrable-boundary calculation for the same exponential readout has zero damping and forcing; its Hamiltonian periodic-orbit drift does not imply the existence, local attraction or fourth-order weak-forcing response of the present nonautonomous cycle. Unknown equivalent perturbative results remain a risk.
+PASS
 
-## Value
-PASS. An appended exponential observable need not produce a bounded extra dynamical coordinate even when the underlying physical oscillator settles onto a stable periodic response. The strict drift and its first two analytic coefficients explain this mechanism quantitatively; the quartic reversal curve resolves when nonlinear spring hardening suppresses the leading rectification response and when exponential convexity reinforces it. This is pertinent to distinguishing bounded attractors from drifting measurements in a published three-coordinate model, without claiming hardware or cryptographic consequences.
+At ε=0 the planar Jacobian has trace −δ and determinant κ, hence both eigenvalues have negative real part. The analytic finite-time return map has derivative exp(TJ₀) with spectral radius strictly below one. The analytic implicit-function theorem for its fixed points gives a locally unique small T-periodic branch in a fixed neighborhood; continuity of the multipliers gives local exponential attraction after shrinking the forcing interval. The half-period shift followed by sign reversal preserves the fixed-ε equation and the nearby branch, while changing ε to −ε reverses the branch. Thus x_ε is odd analytic in ε and antiperiodic in time. It cannot be identically zero at ε≠0 (since y=ẋ and the force is nonzero). Pairing half periods gives v_ε/α=⟨x_ε sinh(βx_ε)⟩>0, and subtracting its mean from the periodic fiber velocity gives a periodic primitive. Each return shifts every lift by Tv_ε>0, ruling out a compactly supported invariant probability over the periodic base, independently of z₀. For H=(κ−ω²+iδω)⁻¹ and x=εu+ε³w+O(ε⁵), u has complex amplitude H; the fundamental in −B u³ is −3B|H|²H/4, so w has fundamental amplitude −3B|H|²H²/4. Orthogonality of harmonics gives ⟨uw⟩=−3B(κ−ω²)/(8D³), ⟨u²⟩=1/(2D) and ⟨u⁴⟩=3/(8D²). Inserting these into β⟨x²⟩+β³⟨x⁴⟩/6 gives both coefficients with remainder O(ε⁶) by analytic evenness. The phase does not affect the averages. Since all prefactors and D are positive, the sign is that of β²D−12B(κ−ω²), proving strict positivity at and above the resonance frequency and the single crossing for κ>ω², with zero quartic term at β=β_*. Neither that cancellation nor a negative quartic coefficient reverses the exact positive drift. The frozen rational convolution and RK4 source were read, not run; these checks are supplemental and do not prove branch existence or asymptotics. The two stated quartic coefficients −43/125 and 128/125 follow directly for the recorded rational cases. No global basin, large forcing, or uniform parameter threshold is asserted.
 
-## Scientific limits
-This is a local small-forcing theorem. The selected planar branch is attracting, but no global classification is proved. The quartic sign change does not reverse the total drift. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same skew system is published, forced Duffing symmetry is classical, and the same-fiber antiperiodic sign argument is made explicitly in a distinct same-day Hamiltonian-boundary record. Credit those overlaps. Among the inspected statements the new supported claim is the exact weak-forcing quadratic and quartic drift on the selected attracting planar branch, including its sharp quartic cancellation curve. No priority is inferred from the same-day date, and the comparisons are not a universal literature exclusion.
+
+## value
+
+PASS
+
+The small stable forced branch is a naturally motivated regime of the published system, and distinguishes a periodic planar response from an unbounded measured coordinate. The exact first nonlinear drift correction quantifies competition between cubic stiffness and exponential rectification, including a sharp readily interpretable threshold; that is useful beyond standard existence or a sign check. The theorem does not imply reversal of the drift itself or a statement about general chaotic motion or devices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

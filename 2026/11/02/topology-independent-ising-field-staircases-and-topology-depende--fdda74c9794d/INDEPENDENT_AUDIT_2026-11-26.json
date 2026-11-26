@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:48:07.672463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 7–61",
+        "CHECK_RESULT.txt",
+        "verify.py, static inspection",
+        "VERIFICATION.md, verification status fields",
+        "Independent matching-count recurrence: process each left row, either leave it unmatched or add one allowed unused right vertex to the mask"
+      ],
+      "rationale": "The squared incident spin sum gives the local exchange term including its constant. At fixed K a discrete convex exchange of one unit between unbalanced incident counts strictly lowers the shore cost. Both floor/ceiling minima are attainable: put K/N on each base edge in a circulation with the stated degree bounds and the return arc fixed at K. Integrality produces a valid selection; this also handles K=0,N. With positive couplings the difference E_{K+1}−E_K changes sign at h=H_K and H_K jumps exactly at interior multiples of m or n. The intersection has gcd(r,s)−1 interior multiples, and equality gives coexistence along an entire run of equal thresholds. At saturation the flip energy is exactly the sum of positive pair penalties with weights 4J_U,4J_W, so it vanishes precisely on matchings. Independently enumerated by a left-vertex dynamic program with a used-right mask, the size counts for shifts {0,1,2} are (1,18,117,336,420,192,20) and for {0,1,3} are (1,18,117,336,417,186,17), totaling 1104 and 1092. The shifts 0,1 alone form a spanning cycle in each graph.",
+      "residual_risks": [
+        "The frozen checker was not executed. The independent finite calculation checks the concrete witnesses; the sector formulas on arbitrary permitted graphs rest on the circulation proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer et al. address approximation of partition functions for antiferromagnetic Ising models on line graphs, not an exact expression at every fixed K and zero temperature.",
+          "The catalogue result on cubic line graphs is for the three-state Potts model. The cited equitable-edge-coloring source could not be inspected beyond identification."
+        ],
+        "reasoning": "Broader graph scope in a partition-function approximation result or a different spin model does not establish the claimed uniform exact energies. Standard network integrality covers the rounding step but is not itself a statement about the resulting physical staircase and its degeneracy.",
+        "searches": [
+          "arXiv:2005.07944, abstract",
+          "DOI:10.1002/jgt.3190030208, DOI and Wiley PDF",
+          "Resultary record 740a2a7b2686, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Resultary 9141f8f0a51e, 321a70bb4c2c, c0381fcacd57, 740a2a7b2686",
+        "arXiv:1305.4606 and arXiv:2005.07944 (abstracts)",
+        "de Werra DOI attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook result uses total unimodularity on the complete support; Varma treats the saturation entropy of ladders and kagome geometries.",
+          "The actual arbitrary-support step uses the constant fractional selection on the given sparse edges to meet both shores' constraints simultaneously for every prescribed K."
+        ],
+        "reasoning": "One cannot infer sparse support attainment merely by deleting cells from a complete-support optimum. The additional feasibility argument and comparison of critical entropy on different supports give the qualified distinct result.",
+        "searches": [
+          "Resultary 9141f8f0a51e, Finding",
+          "Varma, arXiv:1305.4606, abstract",
+          "de Werra, DOI:10.1002/jgt.3190030208"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L(K_{m,n}) is the rook graph. In that special case the published catalogue microcanonical formula and staircase coincide; the degree names r,s specialize to n,m.",
+          "Down spins at saturation are hard-core particles on the line graph, equivalently matchings in the base. This mapping is not new."
+        ],
+        "reasoning": "The complete support has just one base graph for these shore sizes and cannot show varying entropy among supports with the same parameters. The frozen arbitrary-support statement retains content after the equivalences are removed.",
+        "searches": [
+          "Resultary: anisotropic rook-graph exact field staircase, record 9141f8f0a51e; sample exact line-graph matching-polynomial records 321a70bb4c2c and c0381fcacd57",
+          "arXiv:1305.4606; arXiv:2005.07944"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives formulas for the complete bipartite base, the next two give matching data for other individual line graphs. None of these is an exact table of the claim for arbitrary biregular supports or the two shift-defined witnesses."
+        ],
+        "reasoning": "A universal symbolic sector formula is not established by a list of single-graph instances. The two witness totals were verified independently and are not relied upon as a novelty claim by themselves.",
+        "searches": [
+          "Resultary exact staircase and line-graph matching counts: 9141f8f0a51e, 321a70bb4c2c, c0381fcacd57"
+        ]
+      },
+      "rationale": "The substantial overlap is the exact rook-graph solution, including its balancing method, and known saturation matching descriptions; neither is credited as new. The supported distinction is the uniform fixed-K result for arbitrary biregular bipartite supports with two positive couplings, and realizable distinct matching counts at the same degrees and partition sizes. The close catalogue and primary statements examined do not cover this combination. No priority is inferred from the date of the rook result.",
+      "residual_risks": [
+        "The review does not certify literature priority. The cited de Werra full text was inaccessible; exact balancing principles may exist in stronger form, and related physics literature was not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on complete bipartite bases only",
+          "evidence": "Balanced row and column counts, identical restricted sector count and complete-bipartite saturation matching sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-field-staircase-degeneracies-and-correlations-for-anisotro--9141f8f0a51e",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Exact field staircase, degeneracies and correlations for anisotropic rook-graph Ising models",
+          "trigger": "Same line-graph Ising normalization and an exact complete-bipartite solution"
+        },
+        {
+          "assessment": "The inspected statement concerns particular geometries and saturation",
+          "evidence": "Saturation entropies for ladders and kagome; not a reported all-K result for arbitrary biregular bases.",
+          "identifier_or_url": "arXiv:1305.4606",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "OA PDF",
+          "title": "Antiferromagnetic Ising model saturation field entropies: ladders and kagome lattice",
+          "trigger": "Known saturation entropy comparisons"
+        },
+        {
+          "assessment": "Off-target main result; abstract is not a whole-paper exclusion",
+          "evidence": "Approximation of the partition function and exact-counting hardness, not the claimed staircase in the inspected statement.",
+          "identifier_or_url": "arXiv:2005.07944",
+          "material_read": "Abstract, PDF offset 0",
+          "method": "OA PDF",
+          "title": "Polynomial-time approximation algorithms for the antiferromagnetic Ising model on line graphs",
+          "trigger": "Broader family of line graphs"
+        },
+        {
+          "assessment": "Unresolved overlap for the combinatorial balancing ingredient",
+          "evidence": "No theorem passage was accessible; no negative inference from the access failure.",
+          "identifier_or_url": "DOI:10.1002/jgt.3190030208",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful DOI and publisher PDF attempts returned 403",
+          "title": "On the use of alternating chains and hypergraphs in edge coloring",
+          "trigger": "Potentially stronger balancing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Independent witness counts",
+        "Resultary 9141f8f0a51e"
+      ],
+      "rationale": "The natural class of biregular supports allows an exact separation of two observables: the spectrum of minimal energies at fixed magnetization is entirely determined by degrees and shore sizes, whereas the saturation ground-state count can resolve incidence differences even among connected bases. The complete sector result and a verified witness pair make the separation usable beyond a special-lattice calculation.",
+      "residual_risks": [
+        "Value is confined to the stated zero-temperature classical model. No general formula for coexistence multiplicities away from saturation is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

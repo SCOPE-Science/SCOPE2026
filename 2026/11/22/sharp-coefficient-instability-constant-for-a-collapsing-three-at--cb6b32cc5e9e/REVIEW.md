@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A rational normalized Cauchy transform gives the exact two-pole coefficient formula. The poles have decay deficit \(\varepsilon^2/6+O(\varepsilon^4)\), while two orthogonal residue functionals are each first order in \(\varepsilon\); weighted Cauchy–Schwarz yields the sharp upper constant and an explicit residue-mode witness yields the lower constant. The independent finite checker passed 2122 diagnostic assertions. Finite tests do not prove the limit; the analytic estimates do.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Berner–Herr–Jorgensen's Theorem 4.1 proves only absolute convergence for fixed finite atomic measures. The full published published-finding corpus planar coefficient-amplification theorem applies in dimension two, the finite-atom polygon theorem determines worst-case error spectral rates rather than coefficient \(\ell^1\) amplification, and the weak-bias continuum theorem has different changing-atom-number and one-cycle parameters. Separate published-finding corpus searches targeted this coefficient norm, symmetric three-node collision and normalized-Cauchy/Wiener aliases. None of those inspected results implies the exact 3-atom constant. Broader historical model-space formulas could conceivably subsume the result.
+PASS
 
-**Mathematical value — PASS.** Quantifies the sharp instability of an unconditional reconstruction procedure as a natural atomic sampling geometry degenerates, and separates the first genuinely 3-dimensional residue interaction from the known planar case. The constant is motivated by conditioning, not selected as an arbitrary invariant.
+The linear-first Gram recursion gives the coefficient convolution M_1 F_f=M_f with the conjugated atom coordinates. Clearing denominators gives Q=(1-a)+a(z-1)^2, a=(1+2 cos ε)/3. Both simple poles are outside the closed unit disk throughout the claimed interval. Evaluating the residues using h=z−1=±iε/√3+O(ε³) gives leading numerator coefficients (2/3, −1/3∓1/√3, −1/3±1/√3) times ε²/3. The two rows are orthogonal with Euclidean squared norm 4/3. In the stated weighted domain norm the leading residue map has norm ε/√3, with an operator-norm error O(ε²). The reciprocal poles have modulus r=1−ε²/6+O(ε⁴) and phases ±θ with θ=ε/√3+O(ε³). In the squared geometric-weight mean the relative cross term is bounded by (1−r)/|1−r exp(2iθ)|=O(ε). Cauchy–Schwarz then gives the uniform upper bound; a unit input parallel to either leading residue row kills the other row at leading order and attains the bound by the reverse triangle inequality. Multiplication by r/(1−r) gives 2√3 after scaling by ε; the zeroth coefficient is bounded independently of ε. For fixed separation the absolutely convergent series evaluates to f at each atom, since the common simple singularity of M_f and M_1 has ratio f at that atom. This verifies both the optimum constant and absolute reconstruction.
 
-**Scope and limitation.** Equal masses, three symmetric nodes, the specific fixed sequential Fourier order, and the leading collision asymptotic only. No general separation law, finite-angle closed form, or algorithmic noise bound is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-separation finiteness is covered by the finite-atomic absolute-convergence theorem and finite dimensionality. The distinct supported claim is the sharp uniform collision law for the infinite coefficient ℓ¹ norm; neither the strongest adjacent quantitative statements nor the general transform and convergence results inspected supply that sharp limit. This is a bounded comparison, not a claim of absolute priority.
+
+## value
+
+PASS
+
+Finite-support absolute convergence is qualitative and does not distinguish well-separated from nearly coincident samples. This minimal symmetric example beyond the planar case quantifies precisely the loss of uniformity and separates the effects of pole damping, oscillatory cancellation and residue geometry. The constant is a benchmark for coefficient estimates, not just another demonstration of convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

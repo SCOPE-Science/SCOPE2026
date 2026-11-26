@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The idempotent equation gives exactly eight idempotents. For every nontrivial idempotent multiplier, a zero scalar coefficient in the product forces the corresponding vector coordinate to be zero; this excludes the eight listed pure vectors. A direct calculation excludes the scalar \(2\mathbf1\). The standalone enumerator exhausts the 81-element state space, replays a minimal word for each reachable element, and verifies the exact missing set and length counts.
+PASS
 
-## Originality
+Confirmed the eight idempotents, the 72 reachable elements, the nine exclusions, and the shortest-length counts 8, 12, 14, 18, 12, 8. The separate 81-element breadth-first computation derived the idempotents by squaring and replayed a witness for each reachable element. There is also a short exact replay on 12 orbits: let (a,w) denote scalar a and the number w of nonzero vector coordinates. Signed permutations act transitively on each orbit. Right multiplication by (2,σe_i) has scalar a'=2a+σv_i and new i-th coordinate −σa', with the other coordinates negated. Apart from loops and the transition to zero, the possible edges are (0,w)→(±1,w) for w>0 and (a,w)→(−a,w+1) for a≠0,w<3 and (a,w)→(0,w−1) for a≠0,w>0. Starting with (0,0),(1,0),(2,1), the new layers are (1,2); (2,3),(0,1); (0,2),(1,1); (2,2); (1,3). Orbit sizes for w=0,1,2,3 are 1,6,12,8. The missing orbits are (2,0),(0,3), as claimed. Nondegeneracy also gives simplicity: an ideal containing a nonzero pure vector contains the unit by pairing with a vector of nonzero inner product, and an ideal containing a nonscalar element with nonzero scalar part acquires a nonzero pure vector by multiplying by a vector orthogonal to its vector part.
 
-The closest primary source is Gogić–Tomašević, arXiv:2609.23581v1. Its spin-factor length theorem assumes quadratic closedness, and its exact arbitrary-field result for two-by-two matrices concerns the split matrix Jordan algebra. The present finite-field spin factor and its exact census are not implied by those statements. Searches of the mathematical research records returned related idempotent-counting and matrix-factorization results, but no matching finite-field spin-factor census. The search is not a proof that no unindexed treatment exists.
+## originality
 
-## Value
+PASS
 
-The result gives a small, exact arithmetic boundary case for idempotent-word generation: even in a simple four-dimensional spin factor over a finite field, representability can fail for a precisely described family of nonzero isotropic vectors. The complete minimum-length distribution provides a reproducible benchmark for further work on field-dependent factorization.
+The supported contribution is the form-specific all-length nonscalar obstruction and complete minimum-length census. The scalar obstruction is already known and receives no novelty credit. The strongest located related statements either change the underlying field/form or concern only products of two primitive idempotents.
 
-## Closest literature and limitations
+## value
 
-The claim is restricted to \(\mathbb F_3\) and the quadratic form \(x^2+y^2+z^2\). It does not assert a general classification of spin factors over nonclosed fields.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a concrete test of the field and form hypotheses in a motivated idempotent-generation problem. In the smallest odd field, this nonsplit spin factor has eight nonscalar elements that never occur and others that first occur at length six, in contrast to complete nonscalar generation within five for the split matrix form. The exact census identifies the boundary a finite-field extension must account for, not just that brute-force enumeration is possible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

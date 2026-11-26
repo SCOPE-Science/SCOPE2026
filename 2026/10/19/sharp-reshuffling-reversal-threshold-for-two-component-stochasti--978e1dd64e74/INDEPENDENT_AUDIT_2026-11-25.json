@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:41:29.466127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–47 and 49–105",
+        "Frozen VERIFICATION.md, verification-output.txt and verify.py, inspected only",
+        "/workspace/branches/2b3c584a-1490-4db5-92c4-c33cc49aa9e2/record4_exact_check.py (independent replay)",
+        "/workspace/branches/2b3c584a-1490-4db5-92c4-c33cc49aa9e2/record4_exact_check.txt"
+      ],
+      "rationale": "Projector idempotence makes each same-sample update I−kP_i, with eigenvalues 1 and 1−k. The two cross products are transposes whose off-diagonal terms cancel upon averaging their Gram matrices; the two repeat words contribute (I−kP_i)^4. Thus RR and WR are diagonal in the two bisectors, and the maxima are taken after averaging. The factorizations give W_+<W_− and R_−<W_−; the remaining difference R_+−W_− is −k(2−k)P/4. Positivity follows from the nonzero cross-product off-diagonal magnitude kab·kt in the strict domain. Equality of norms through both RR steps would require a nonzero vector in both kernels; the repeat words give the same obstruction for WR in expectation. Hence both factors are strictly below one. To locate the first reversal, P>0 for k≤1 and for t≥1/√3 when k<2 by the displayed factorizations. On 0≤t≤1/√3, ∂_kP<0 for 3/2≤k≤2: at t=0 it is −2(k−1); elsewhere use E(t)−3t(1−t²)=6t³+t²−2t−1≤t²−1<0. Also P(3/2,t)−1/3=(t−1/3)²(27t+15)/4, and P(2,1/3)=−8/9. The compact angular minimum is strictly decreasing on that step interval. It crosses zero at a unique interior angle since P at both angular endpoints is positive for k<2 and ∂_tP has exactly one positive root for 3/2≤k<2. An independently written exact check reproduced the resultant 48k⁴Q(k), Sturm endpoint variations 4 and 3, and witness R−W=5/729. The witness Hessian has eigenvalues 2/3 and 1/3. No uploaded script was executed.",
+      "residual_risks": [
+        "Strict parameter statements exclude the four boundary faces. The comparison of maxima is not pointwise dominance, a many-epoch rate comparison, or a general SEG stability threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior SEG-RR convergence assumes small steps; the two-factor AM–GM comparison assumes PSD factors; shuffled-SGD lower bounds concern objective error across epochs."
+        ],
+        "reasoning": "The reversal requires the region k>1, where one eigenvalue of each factor is negative. None of the inspected broader theorems gives the exact sharp one-epoch squared Euclidean worst-start comparison on that region.",
+        "searches": [
+          "arXiv:2403.07148 Theorem 2.1",
+          "arXiv:2103.07079 §4.2",
+          "arXiv:2106.06880 p. 6"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary search and two matching frozen statement comparisons in the local mirror",
+        "arXiv:2403.07148",
+        "arXiv:2103.07079",
+        "arXiv:2106.06880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its pointwise witness k=3/2 and t=3/5 makes RR worse for a specific initial direction, while the frozen theorem makes RR strictly better in the worst-start comparison at that same pair."
+        ],
+        "reasoning": "A PSD order implies a comparison of maximal eigenvalues, but a failure of that order does not reverse their maxima. The existing moment matrices permit reanalysis; one must determine the maximizing mode for WR, compare the RR modes against it and minimize a new polynomial over all angles to obtain k*. The pointwise theorem neither states nor mechanically gives that optimized frontier.",
+        "searches": [
+          "Overrelaxed two-row Kaczmarz RESULT.md, Finding and Proof, offsets 0 and 2948"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With α=k and ρ=t, the Kaczmarz errors satisfy exactly the same pair of update matrices. Its Proof explicitly computes both expected Gram matrices and diagonalizes their difference."
+        ],
+        "reasoning": "SEG here is an alias for the same overrelaxed projection, not a distinct mechanism. The same Gram matrices are a substantive overlap; diagonalizing their difference alone compares both schemes on the same vector, not their respective largest eigenvalues.",
+        "searches": [
+          "Resultary: two-component RR versus WR worst-start squared error",
+          "Resultary fb917dbc8054, overrelaxed two-row Kaczmarz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The positive-attenuation catalog result has an angular pointwise threshold and RR improvement of worst-direction risk. The overrelaxed result has an exact pointwise threshold 2/(1+t), not the all-angle worst-start k*."
+        ],
+        "reasoning": "No exact frontier table for the continuum is at issue. The closest exact classification matches the geometry but not the optimized quantity, and no exact match emerged in this bounded search.",
+        "searches": [
+          "Resultary: two rank-one components, one-epoch worst-start reshuffling reversal",
+          "Resultary 241542a71cef and fb917dbc8054"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact comparison of the two worst-start factors and the global effective-step frontier. The same operators, two-step moment matrices, and existence of a directional reversal are covered by the indexed overrelaxed Kaczmarz comparison; none of those is credited separately as original. Its pointwise threshold differs mathematically from the worst-start frontier.",
+      "residual_risks": [
+        "The equivalent Kaczmarz dynamics are a close indexed match, not independent support for priority. A published worst-start comparison for the same pair of indefinite projections could further reduce the novelty; bounded searches cannot exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same second moments and pointwise reversal; distinct from comparison of separate maxima",
+          "evidence": "I−αP and I−αQ; both exact Gram averages displayed; RR no worse for every fixed e iff α≤2/(1+ρ).",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-reshuffling-reversal-for-overrelaxed-two-row-kaczmarz--fb917dbc8054",
+          "material_read": "RESULT.md Finding offset 0 and Proof offset 2948",
+          "method": "Local mirror",
+          "title": "A sharp reshuffling reversal for overrelaxed two-row Kaczmarz",
+          "trigger": "Same update matrices under an algorithmic alias"
+        },
+        {
+          "assessment": "Related PSD attenuation family without worst-start reversal",
+          "evidence": "Pointwise directional threshold for rank-one positive attenuations; RR improves worst-direction risk.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-angular-imbalance-frontier-for-pointwise-random-reshufflin--241542a71cef",
+          "material_read": "Finding/comparison, offsets 61 and 7588",
+          "method": "Local mirror",
+          "title": "Sharp angular imbalance frontier for pointwise random reshuffling",
+          "trigger": "Earlier exact angular comparison"
+        },
+        {
+          "assessment": "Model precedent and sufficient bounds, not sharp finite-horizon comparison",
+          "evidence": "Same-sample SEG-RR and strongly monotone convergence under small-step conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07148",
+          "material_read": "p. 2 definitions and p. 5 Theorem 2.1",
+          "method": "OA primary PDF",
+          "title": "Stochastic Extragradient with Random Reshuffling",
+          "trigger": "Primary SEG-RR model and rate theorem"
+        },
+        {
+          "assessment": "PSD comparison excludes the reversal regime",
+          "evidence": "Two-factor two-dimensional bound uses PSD factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.07079",
+          "material_read": "p. 1 and §4.2 p. 9",
+          "method": "OA primary PDF",
+          "title": "Can Single-Shuffle SGD be Better than Reshuffling SGD and GD?",
+          "trigger": "Two-factor noncommutative AM–GM comparison"
+        },
+        {
+          "assessment": "Different objective and performance criterion",
+          "evidence": "Lower bounds in expected objective error versus epochs and condition parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06880",
+          "material_read": "p. 6 lower bounds, offset 21912",
+          "method": "OA primary PDF",
+          "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+          "trigger": "Random shuffling performance comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–43 and 68–101",
+        "Kaczmarz comparison, Finding and rational pointwise witness"
+      ],
+      "rationale": "This isolates the difference between directional reversal and deterioration of a sharp worst-start guarantee. The exact first step where the latter happens, and a rational condition-number-two witness where both methods contract, make the counterexample useful for interpreting finite-horizon sampling comparisons. It is not merely the sign reversal of a single direction or a change of algorithm name.",
+      "residual_risks": [
+        "The motivation and value concern one epoch of this family, not asymptotic RR inferiority or arbitrary finite sums."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

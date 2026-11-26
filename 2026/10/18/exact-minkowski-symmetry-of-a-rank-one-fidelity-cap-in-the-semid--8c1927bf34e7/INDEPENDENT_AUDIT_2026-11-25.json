@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:34.950024Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84; VERIFICATION.md and check.py read without executing the frozen code",
+        "Independent bisection and scalar equality/monotonicity checks at five widths each in d=2,3,8"
+      ],
+      "rationale": "Writing s=d-1, any feasible center can be averaged over the stabilizer of P to Z_q=(1-q)P+q(I-P)/s. The cap constraint at X=P forces (1+alpha)q≤delta. All extreme points of the cap are pure: on any support of rank at least two the self-adjoint perturbation space has dimension at least three, so a nonzero perturbation preserving both traces remains feasible in both signs for small amplitude. For a pure state at transverse weight t, positivity of reflection is equivalent to alpha/(1+alpha) times [(1-t)/(1-q)+s t/q] being at most one. At q*=delta/(1+alpha*)<s/(s+1) the worst state has t=delta, and equality is exactly the defining quadratic. The reflection is trace-one and satisfies the linear cap constraint. For alpha>alpha*, all possible averaged centers would have 0<q<q*; the function G(q) at t=delta is strictly decreasing up to q*, since its minimizer is at least min(delta,s/(s+1)). Therefore G(q)>G(q*) while (1+alpha)/alpha decreases, excluding a better factor. Implicit differentiation gives strict monotonicity using f(1/d)=-1/d². The two endpoint limits and the special width follow by substitution/continuity; delta=0 is excluded, and all reflection factors would be feasible for its singleton.",
+      "residual_risks": [
+        "The numerical checks are only corroboration. The theorem gives an attaining center, not uniqueness in general, and concerns reflection symmetry rather than the optimal ellipsoidal rounding factor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rounding paper takes symmetry as an input to a general rounding bound; the robust-optimization paper supplies center formulations, with polyhedra and ellipsoid intersections among its examples. The matroid record's exact result applies to a different polytope."
+        ],
+        "reasoning": "The matrix cap is not a panhandle matroid polytope; a generic rounding estimate or robust center formulation does not itself evaluate the symmetry invariant. The ball law's all-ball dimension quantifier does not turn matrices of size d≥3 into balls.",
+        "searches": [
+          "Xiong–Freund arXiv:2608.30876",
+          "den Hertog–Pauphilet–Soali DOI 10.1287/opre.2023.2448",
+          "Resultary 2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793"
+        ]
+      },
+      "checked_sources": [
+        "Belloni–Freund §3.2",
+        "Xiong–Freund abstract and introduction",
+        "den Hertog–Pauphilet–Soali §§1.1–1.2",
+        "Resultary 7eb27d8894c1 and d2c508399793"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The specialized higher-size evaluation requires symmetrizing over the spectral stabilizer, proving the pure-state reduction with the cut, and proving that the cut and rim constraints are simultaneously active at the optimum. The indexed ball law has a similar active-constraint argument but no higher-rank PSD application in the inspected statement."
+        ],
+        "reasoning": "The prior machinery motivates the approach; it is not a direct substitution that proves the root, optimality, and monotonicity for d≥3. Priority beyond the identified agreements is not certified.",
+        "searches": [
+          "Belloni–Freund §3.2",
+          "Xiong–Freund general rounding theorem and den Hertog–Pauphilet–Soali §§1.1–1.2",
+          "Resultary Euclidean truncation Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a trace-one 2×2 matrix with lower diagonal entry t and off-diagonal entry b, positivity is (2t-1)²+4|b|²≤1. Taking real coordinates gives a disk for the real field and a three-ball for the complex field; the cut parameter in the indexed law is a=2δ-1. Both the indexed root and axial center reduce to the frozen formulas.",
+          "Belloni–Freund §3.2 gives the Euclidean half-ball factor 1/√2 and unique center (√2-1)e₁ in the x₁≥0 convention. It covers d=2, δ=1/2 in both fields."
+        ],
+        "reasoning": "These are genuine affine equivalences, not a distinction based on matrix versus ball notation. The known half-ball and indexed all-ball result do not subsume arbitrary higher-dimensional matrix caps. The frozen claim does not assert uniqueness.",
+        "searches": [
+          "Resultary 2026/11/1/SCOPE-exact-minkowski-symmetry-and-unique-centers-of-all-euclidean-bal--7eb27d8894c1",
+          "Belloni–Freund DOI 10.1007/s10107-006-0074-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed profile gives arbitrary cuts of balls, with the limits and monotone profile that agree in matrix size two. The published half-ball table/example is an exact individual width for that same slice. No exact higher-size PSD-cap law was located in the bounded comparisons."
+        ],
+        "reasoning": "There is no coercion from isolated widths or the d=2 law to the d-dependent quadratic; in particular at the unrestricted endpoint the higher matrix sizes approach 1/(d-1), unlike ball caps.",
+        "searches": [
+          "Local Resultary rank-one fidelity cap/Minkowski symmetry searches, including records 7eb27d8894c1 and d2c508399793",
+          "Belloni–Freund §3.2"
+        ]
+      },
+      "rationale": "The distinct result is the all-dimensional rank-one PSD-cap symmetry law and attaining center, including PSD bodies that are not balls. The index and the half-ball special case are classical; a later indexed ball-truncation law is exactly equivalent to both d=2 matrix slices and should not be counted as a distinct mathematical phenomenon in those slices.",
+      "residual_risks": [
+        "Equivalent specialized semidefinite-cap computations outside the bounded search cannot be excluded. The focused web lookup returned no useful evidence; it does not prove novelty.",
+        "The frozen wording that Xiong–Freund introduce the factor should be read as using it for rounding, not historical priority for the classical symmetry function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same optimized index; exact half-ball value/center, giving the matrix-size-two half-cut",
+          "evidence": "The example x₁≥0 in the unit ball specifies 1/√2 and (√2-1)e₁ independently of ball dimension.",
+          "identifier_or_url": "https://people.duke.edu/~abn5/Symmetry.pdf",
+          "material_read": "§3.2, manuscript p. 12, text offset 32150–33099",
+          "method": "Lawful author-hosted PDF after publisher route failed",
+          "title": "On the Symmetry Function of a Convex Set",
+          "trigger": "Classical notion and possible exact ball-cap precursor"
+        },
+        {
+          "assessment": "Equivalent in matrix size two over either field; not the arbitrary matrix-size case",
+          "evidence": "For t≤a the reflected factor is (a+√((1-a)²+1))/2 and the axial center is (a-lambda)/(1+lambda).",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-minkowski-symmetry-and-unique-centers-of-all-euclidean-bal--7eb27d8894c1",
+          "material_read": "Finding, offsets 0–1910; center proof and prior-work comparison",
+          "method": "Local Resultary mirror",
+          "title": "Exact Minkowski symmetry and unique centers of all Euclidean ball truncations",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Rounding implication from given symmetry, not exact cap calculation",
+          "evidence": "The general bound is formulated in terms of the body's symmetry factor.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/08/arxiv-sep23.pdf",
+          "material_read": "Abstract and introduction pp. 1 and 3, text offsets 0–3438 and 7399–10888",
+          "method": "OA primary PDF",
+          "title": "Symmetry-dependence in Rounding of a Convex Body",
+          "trigger": "General theorem cited as application"
+        },
+        {
+          "assessment": "Related formulations, not higher-size rank-one cap evaluation in the material read",
+          "evidence": "Robust formulations and applications to polyhedra, projections and intersections of ellipsoids.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "material_read": "§§1.1–1.2, pp. 2–3, text offsets 3725–7084",
+          "method": "OA primary PDF",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+          "trigger": "Possibly dominating exact or optimization result"
+        },
+        {
+          "assessment": "Different feasible body and optimization result, regardless of archive order",
+          "evidence": "Rank and panhandle parameters govern matroid base polytopes, not a PSD expectation cap.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793",
+          "material_read": "Finding and assumptions, local text offsets 0–2870",
+          "method": "Local Resultary mirror",
+          "title": "Exact Minkowski asymmetry and center strata of panhandle matroid base polytopes",
+          "trigger": "Same-date indexed exact center and symmetry result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–6",
+        "Xiong–Freund rounding application",
+        "Belloni–Freund half-ball example"
+      ],
+      "rationale": "The cap is the natural trace-one PSD section imposing a fidelity lower bound to a fixed pure state. The calculation gives an exact optimal reflection factor and a usable center, distinguishes singular narrow caps from their collapsed point, and gives a dimension- and width-dependent input to a general rounding estimate. The higher-size result goes beyond the ball case without claiming optimality for that rounding estimate.",
+      "residual_risks": [
+        "The value established is for this reflection invariant, not for general multi-constraint spectrahedra or optimal rounding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

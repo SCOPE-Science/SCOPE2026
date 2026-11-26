@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hamiltonian decomposes into two positive sums of squared incident spin totals. At fixed spin-up count, integer convexity yields two independent sharp lower bounds. A uniform fractional edge assignment and integral-circulation theorem realize both bounds simultaneously in every biregular bipartite base graph. Adjacent-sector differences yield all field thresholds, and a direct flipped-edge identity gives an exact matching bijection at saturation. A standalone executable reproduces 20 exhaustive small Ising enumerations across 204 fixed-spin sectors, exact matching counts, and two connected six-by-six cubic witnesses. Tests corroborate but do not prove the universal statement; the constructive flow proof does.
+PASS
 
-## Originality — PASS on inspected evidence, residual historical priority risk
+The squared incident spin sum gives the local exchange term including its constant. At fixed K a discrete convex exchange of one unit between unbalanced incident counts strictly lowers the shore cost. Both floor/ceiling minima are attainable: put K/N on each base edge in a circulation with the stated degree bounds and the return arc fixed at K. Integrality produces a valid selection; this also handles K=0,N. With positive couplings the difference E_{K+1}−E_K changes sign at h=H_K and H_K jumps exactly at interior multiples of m or n. The intersection has gcd(r,s)−1 interior multiples, and equality gives coexistence along an entire run of equal thresholds. At saturation the flip energy is exactly the sum of positive pair penalties with weights 4J_U,4J_W, so it vanishes precisely on matchings. Independently enumerated by a left-vertex dynamic program with a used-right mask, the size counts for shifts {0,1,2} are (1,18,117,336,420,192,20) and for {0,1,3} are (1,18,117,336,417,186,17), totaling 1104 and 1092. The shifts 0,1 alone form a spanning cycle in each graph.
 
-The published 2013 study of kagome/ladder saturation entropy and a 2020 finite-temperature algorithmic study of arbitrary line-graph Ising partition functions were inspected in full accessible texts. The examined material does not state or imply as an explicit consequence the exact two-coupling zero-temperature all-magnetization formula for every sparse biregular bipartite base graph. The complete-bipartite case, convex degree calculation, flow integrality and matching representation are recognized antecedents, not new contributions. The claimed contribution is the topology-independent phase law over arbitrary sparse biregular graphs **together with** explicit topology-dependent saturation entropy. A potentially relevant 1979 edge-coloring article was accessible only through its abstract, so a possible dominating specialized treatment is a genuine residual risk. The actual literature and research-database comparisons and their implications are recorded in AUDIT.json.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Frustrated line-graph Ising models are a natural physical family. The exact magnetization staircase across arbitrary nonisomorphic sparse biregular networks gives a structural universality theorem, not a computation on one geometry. The new feasibility argument proves that two simultaneous balancing constraints remain compatible for every spin sector despite sparse incidence restrictions. The same graphs nevertheless have differing saturation matching entropy, illustrated by connected cubic networks with 1104 and 1092 ground states. This separates field response and entropy in a way not determined by regularity alone.
+The substantial overlap is the exact rook-graph solution, including its balancing method, and known saturation matching descriptions; neither is credited as new. The supported distinction is the uniform fixed-K result for arbitrary biregular bipartite supports with two positive couplings, and realizable distinct matching counts at the same degrees and partition sizes. The close catalogue and primary statements examined do not cover this combination. No priority is inferred from the date of the rook result.
 
-## Limits and risk
+## value
 
-The result concerns classical spins, uniform coupling within each endpoint class, uniform field, and zero temperature. It provides no finite-temperature phase diagram, exact general critical multiplicities other than saturation, or line-graph assertion for nonbiregular base graphs. The closest existing complete-bipartite special case is not counted as novel. Historical priority and independent verification are not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural class of biregular supports allows an exact separation of two observables: the spectrum of minimal energies at fixed magnetization is entirely determined by degrees and shore sizes, whereas the saturation ground-state count can resolve incidence differences even among connected bases. The complete sector result and a verified witness pair make the separation usable beyond a special-lattice calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

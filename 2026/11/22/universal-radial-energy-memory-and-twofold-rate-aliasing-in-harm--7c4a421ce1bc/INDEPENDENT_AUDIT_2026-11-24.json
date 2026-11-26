@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:56.146635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary convolution makes the relevant polynomials bounded. In dimensionless units, the generator applied to R=|X|² and H=X·n gives −2R+2H and 1−(1+α)H. Applying it to XᵀΣX and XᵀΣn gives their equal stationary means s/(1+α), since the heading marginal is ν. At redraw, the conditional value of H² is XᵀΣX, which closes the H², RH and R² equations without higher angular moments. Stationarity of R² gives E(RH)=E(R²); consequently the two-time centered system has equal initial covariances and solves to the displayed normalized kernel, including the repeated-root limit. The stationary variance is strictly positive and affine increasing in s. Its trace bounds are attained by isotropic covariance and symmetric antipodal laws, and their mixture realizes the whole interval. With a=2μ, b=μ+γ, the second and third right derivatives of K give −ab and ab(a+b), determining exactly the unordered pair. The swap is nontrivial and physically allowed exactly for γ≠μ, γ<3μ; γ=3μ would give a zero redraw rate. The mean depends only on ab. An independent symbolic check verified the variance factorization under the swap and the example 1/18 versus 1/63 (variance_swap_check.py in the independent algebra evidence); the sign is fixed by γ−μ at fixed ν and v. The frozen checker.py was inspected but not executed; VERIFICATION.md reports finite-check evidence only. No finite-data identifiability or stability is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact kernel counterpart permits a wider class of orientation dynamics, including rotational diffusion, but imposes 3D isotropy and an isotropic quadrupolar generator identity.",
+          "Guéneau–Majumdar–Schehr give stationary radial results under isotropy and broader one-coordinate stationary laws. Sun–Ye–Podgornik compute single-time moments and discuss transient Laplace inversion in their conclusion."
+        ],
+        "reasoning": "More general scalar velocity marginals or rotation-invariant temporal protocols do not imply the variance formula for an arbitrary centered vector redraw law, whose covariance tensor need not be scalar. The published isotropic stationary specialization is existing coverage.",
+        "searches": [
+          "08fdea0f343f Assumptions and generator proof",
+          "arXiv:2602.08436v1 Eqs. (2)–(10), (16)–(18), and v2 §VII",
+          "arXiv:2409.00578v1 §V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary 08fdea0f343f",
+        "arXiv:2602.08436v1/v2, 2012.02900, 2409.00578v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior normalized kernel is a symmetric function of 2μ and μ+γ after restoring units, so rate aliasing already follows algebraically on the shared model.",
+          "For nonisotropic Poisson redraws the H² generator equation uses XᵀΣX rather than |X|²/3; closing this extra expectation yields the dependence on tr(Σ²), and the transformed variance factors strictly on the enlarged domain."
+        ],
+        "reasoning": "The first-harmonic closure is reusable and the inverse symmetry is not an independent novelty on the overlap. The inspected prior theorem does not cover the extra angular moment, its sharp attainable envelope, or separation for every fixed anisotropic law and admissible twin.",
+        "searches": [
+          "08fdea0f343f Finding/Assumptions/Proof, mirror offsets 0–5982",
+          "Frozen proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "08fdea0f343f Finding states precisely H_α with the same resonant expression and β=γ for full isotropic RTP redraws.",
+          "arXiv:2012.02900 Appendix F computes ⟨x(t)x(t′)⟩; that observable is not the stationary connected squared radius."
+        ],
+        "reasoning": "Restoring physical time gives identical K in the overlap, not just similar relaxation exponents. The 3D isotropic condition fixes Σ=I/3 and prevents obtaining the arbitrary s-dependent amplitude by a change of variables.",
+        "searches": [
+          "Resultary: quadrupole-blind radial energy memory and matched run-and-tumble traps, 08fdea0f343f",
+          "run and tumble harmonic trap squared displacement autocorrelation squared radius two time energy correlations active particle run-and-tumble exact fourth moment temporal relaxation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary formula is an exact indexed hit for the common K and for the isotropic RTP energy variance. Existing stationary laws also give the equal-time isotropic specialization."
+        ],
+        "reasoning": "The located exact formulas do not tabulate the variance interval over redraw covariances or distinguish swapped rates uniformly throughout that interval of s when the redraw law is fixed.",
+        "searches": [
+          "Resultary radial-energy exact formulas: 08fdea0f343f Finding",
+          "arXiv:2602.08436v1 stationary moments and arXiv:2602.08436v2 §VII"
+        ]
+      },
+      "rationale": "There is exact indexed overlap for the normalized kernel in three-dimensional isotropic orientation, and the rate-exchange symmetry is already implicit in that kernel wherever it applies. The supported distinct claim is the centered, possibly anisotropic iid sphere-redraw result in arbitrary dimension with its explicit s-dependent variance, sharp angular envelope and full variance-resolved inverse classification in that scope. The narrower indexed result is not dismissed, nor is publication order inferred from the common date.",
+      "residual_risks": [
+        "A general multitime moment theorem for linear Markov-switching motion could supply additional implicit overlap.",
+        "Same-date indexing of the exactly overlapping 3D kernel does not settle historical priority; it must not be presented as independently new on that subdomain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial overlap; permits more isotropic angular dynamics but not arbitrary centered redraw covariance",
+          "evidence": "3D S², quadrupole eigenvalue β, same H_α; β=γ for isotropic RTP.",
+          "identifier_or_url": "2026/11/22/SCOPE-quadrupole-blind-radial-energy-memory-separates-matched-run-and--08fdea0f343f",
+          "material_read": "Finding, Assumptions and Proof, offsets 0–5982",
+          "method": "Local Resultary mirror",
+          "title": "Quadrupole-blind radial-energy memory separates matched run-and-tumble and active Brownian traps",
+          "trigger": "Identical squared-radius normalized kernel and variance contrast"
+        },
+        {
+          "assessment": "One-time stationary overlap, not an anisotropic vector two-time theorem",
+          "evidence": "Isotropic radial law, generalized scalar W(v) and discussion distinguishing component moments from full radial reconstruction.",
+          "identifier_or_url": "https://arxiv.org/html/2602.08436v1 and https://arxiv.org/html/2602.08436v2",
+          "material_read": "v1 Eqs. (2)–(10), (16)–(18), §VII; v2 §VII around offset 109300",
+          "method": "OA HTML article passages",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Exact stationary harmonic RTP moments and generalized scalar driving"
+        },
+        {
+          "assessment": "Different observable and setup",
+          "evidence": "Initial-value two-time x(t)x(t′), with translational diffusion in the formulation.",
+          "identifier_or_url": "https://arxiv.org/html/2012.02900",
+          "material_read": "Appendix F Eqs. (22bh)–(22bj)",
+          "method": "OA HTML passage",
+          "title": "Run-and-tumble motion in a harmonic potential: field theory and entropy production",
+          "trigger": "Closest cited position two-time calculation"
+        },
+        {
+          "assessment": "Single-time moments and stationary distributions, not connected radial time-lag inversion",
+          "evidence": "Conclusion distinguishes transient time-Laplace calculation from achieved steady-state distribution.",
+          "identifier_or_url": "https://arxiv.org/html/2409.00578v1",
+          "material_read": "§V, offsets 44990 and 47480",
+          "method": "OA HTML passage",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap: the influence of finite tumble time",
+          "trigger": "Exact harmonic RTP moment machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful distinction is not the algebraic exponents alone: full radial relaxation shape and even the calibrated mean can leave a binary rate ambiguity, while a single stationary variance separates the assignments across all unchanged centered redraw laws. The sharp stationary fluctuation envelope quantifies how anisotropy affects amplitude while leaving shape invariant. This is an exact observability result in a natural model, not a claim about robust rate estimation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

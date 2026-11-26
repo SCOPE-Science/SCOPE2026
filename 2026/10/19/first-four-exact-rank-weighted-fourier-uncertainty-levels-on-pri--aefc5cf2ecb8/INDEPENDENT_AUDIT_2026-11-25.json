@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:28:52.689638Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof and Verification; check_profile.py; VERIFICATION.md",
+        "Independent reproduction: python3 /workspace/reproductions/2.py (SymPy); /workspace/reproductions/2.txt"
+      ],
+      "rationale": "The left regular action decomposes into the irreducible Fourier blocks with multiplicities 1,1,2,…,2. One tap is invertible; for two, left translation reduces to aI+bL_h and the largest possible eigenspace has dimension p, attained at an involution. For three taps in one coset the prime Fourier theorem gives nullity at most 4, with equality at U(z)=(z−ζ)(z−ζ²); its three coefficients are nonzero. In the 2+1 split the determinant D=U(z)U(z⁻¹)−V(z)V(z⁻¹) is supported on 0,±d, is nonzero, and has at most two prime-frequency zeros. Nontrivial zeros pair under inversion; a zero at 1 uses one slot and the singleton prevents both linear characters vanishing. The total nullity is at most 2. For four taps, the one-coset nullity is at most 6. In the 3+1 split Cauchy–Davenport gives at least four distinct nonzero differences among six ordered differences, so a singleton difference makes D nonzero. At most six Fourier roots and the same paired-root and linear-block accounting give total nullity at most 6. In the 2+2 split no 2×2 block can vanish, since a binomial cannot vanish at both distinct frequencies in its pair. A nonzero D has at most four roots and gives total nullity at most 4 even if both linear characters vanish. If D is identically zero the 2×2 blocks all have rank one, giving rank at least p−1. The product (δ_e−δ_r)*(δ_e−δ_s) has exactly four distinct nonzero taps and gives rank p−1. The weakest intermediate comparison 2p−6≥p−1 holds at and above p=5. These arguments apply to arbitrary complex coefficients and exact support sizes.",
+      "residual_risks": [
+        "The reproduction uses exact characteristic-zero cyclotomic arithmetic for the displayed witnesses at p=5,7,11,13,17, not for arbitrary inputs or primes. The all-prime lower bounds follow from the reviewed proof using the prime Fourier theorem and Cauchy–Davenport."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The group-level results give product uncertainty, not the exact mixed-coset profile; Tao gives the sharp prime cyclic bound."
+        ],
+        "reasoning": "The prime-cyclic theorem controls the one-coset case and determinant zero counts, but the sharp mixed-support bound still requires information about the determinant and linear blocks.",
+        "searches": [
+          "Meshulam, Theorem 1",
+          "Alagic–Russell arXiv:math/0608702v2",
+          "Tao arXiv:math/0308286v6, Theorem 1.1",
+          "Focused scholarly lookup on prime dihedral uncertainty and exact support rank"
+        ]
+      },
+      "checked_sources": [
+        "Meshulam, Proposition 1 and Theorem 1",
+        "Alagic–Russell arXiv:math/0608702v2",
+        "Tao arXiv:math/0308286v6",
+        "Huang–Huang–Lu arXiv:1609.05419v1",
+        "Resultary 207a5682f64c, 29d4924b2b7c, eb09d9b17153, 0f28cf825a80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older general two-spike result gives N(1−1/q)=p here, using the least prime divisor q=2. The dihedral Cayley-graph paper analyzes adjacency spectra for symmetric subsets."
+        ],
+        "reasoning": "Credit the two-tap value as a corollary. The Cayley-graph conditions restrict coefficients/support symmetry, so those spectral results do not bound arbitrary complex three- and four-tap supports.",
+        "searches": [
+          "Resultary 29d4924b2b7c, Finding and Proof",
+          "Huang–Huang–Lu arXiv:1609.05419v1, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted Fourier rank is exactly group-algebra left multiplication rank.",
+          "Resultary 2026/10/11 record 207a5682f64c has the same first four numbers on the cyclic group of order 2p."
+        ],
+        "reasoning": "Group-algebra rank is a genuine alias, but cyclic scalar Fourier support is a different group/invariant calculation. Its profile does not treat mixed dihedral blocks. The at-most-three profile would equal p, not 2p−4.",
+        "searches": [
+          "Resultary: exact-support Fourier uncertainty on even semiprime cycles; exact two-spike rank-support law",
+          "Meshulam, An uncertainty inequality for groups of order pq, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 16 entry includes all fixed three-tap support spectra and hence the three-tap minimum. The November 22 entry includes four-tap fixed-support spectra only on D_10 and hence the p=5 minimum. Both entries are dated later than the frozen result."
+        ],
+        "reasoning": "These are genuine overlapping catalogue statements, not grounds to infer prior coverage or a direction of dependence. The older identical numeric table concerns the different abelian group.",
+        "searches": [
+          "Resultary prime-dihedral three- and four-tap rank-spectrum matches eb09d9b17153 and 0f28cf825a80",
+          "Resultary cyclic record 207a5682f64c"
+        ]
+      },
+      "rationale": "The known rank invariant, one-tap observation and previously covered two-tap level are background. The distinct supported contribution is the sharp three- and four-tap arbitrary-complex-coefficient minimum for all the stated prime dihedral groups, combined in the exact profile. No prior statement or implication covering this contribution was identified in the sources inspected.",
+      "residual_risks": [
+        "Focused literature search does not exclude an unindexed exact low-support convolution-rank theorem. Later catalogue overlaps do not establish independence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior framework, not exact profile",
+          "evidence": "Weighted Fourier rank is the left multiplication rank, and the group-level theorem gives a product bound.",
+          "identifier_or_url": "https://meshulam.net.technion.ac.il/files/2021/05/uncer_pq.pdf",
+          "material_read": "Printed pp. 401–402, Proposition 1 and Theorem 1",
+          "method": "Primary OA PDF text",
+          "title": "An uncertainty inequality for groups of order pq",
+          "trigger": "Same group order and rank invariant"
+        },
+        {
+          "assessment": "Prior framework",
+          "evidence": "The bound uses the dimension-weighted rank sum.",
+          "identifier_or_url": "arXiv:math/0608702v2",
+          "material_read": "p. 1, abstract and Introduction",
+          "method": "Primary OA text",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "General uncertainty formulation"
+        },
+        {
+          "assessment": "Covers cyclic input, not dihedral minima",
+          "evidence": "The two ordinary supports sum to at least p+1.",
+          "identifier_or_url": "arXiv:math/0308286v6",
+          "material_read": "p. 1, Theorem 1.1",
+          "method": "Primary OA text",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Fourier minor theorem used in proof"
+        },
+        {
+          "assessment": "Restricted Cayley graph setting",
+          "evidence": "The objects are cubic Cayley graphs with symmetric connection sets, not arbitrary complex convolutions.",
+          "identifier_or_url": "arXiv:1609.05419v1",
+          "material_read": "p. 1 abstract and Introduction",
+          "method": "Primary OA text",
+          "title": "Enumeration of cubic Cayley graphs on dihedral groups",
+          "trigger": "Prior three-element dihedral support spectra"
+        },
+        {
+          "assessment": "Older abelian analogue",
+          "evidence": "The profile is for Z/(2p) with scalar Fourier support.",
+          "identifier_or_url": "Resultary 207a5682f64c",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local indexed record and mirrored text",
+          "title": "Exact support Fourier uncertainty on even semiprime cycles",
+          "trigger": "Same numerical profile"
+        },
+        {
+          "assessment": "Older and covers the second level",
+          "evidence": "The general exact minimum uses the least prime divisor of the group order.",
+          "identifier_or_url": "Resultary 29d4924b2b7c",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Local indexed record and mirrored text",
+          "title": "Exact two-spike rank-support law on arbitrary finite groups",
+          "trigger": "Exact two-tap implication"
+        },
+        {
+          "assessment": "Later stronger statement on three taps",
+          "evidence": "The fixed-support spectra include the frozen global three-tap minimum.",
+          "identifier_or_url": "Resultary eb09d9b17153",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Local indexed record and mirrored text",
+          "title": "Complete three-tap Fourier rank spectrum on odd prime dihedral groups",
+          "trigger": "Same group, fixed support and general coefficients"
+        },
+        {
+          "assessment": "Later overlapping special case",
+          "evidence": "The four-point support classification gives overall minimum 4 for D_10.",
+          "identifier_or_url": "Resultary 0f28cf825a80",
+          "material_read": "Finding, offset 0",
+          "method": "Local indexed record and mirrored text",
+          "title": "Exact four-tap Fourier rank geometry on the ten-element dihedral group",
+          "trigger": "Same group at p=5 and exact four-tap support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work; comparison with prime cyclic and general rank uncertainty bounds"
+      ],
+      "rationale": "The natural exact-support analogue of group uncertainty is not monotone: the three-tap minimum rises over the two-tap minimum by p−4, then the four-tap minimum drops by p−3. The growing gaps and the all-prime mixed-support sharp bound distinguish this from a finite example or a product-bound corollary. The first four levels show both changes with no arbitrary slice in p.",
+      "residual_risks": [
+        "No extremizer classification or larger-support profile is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

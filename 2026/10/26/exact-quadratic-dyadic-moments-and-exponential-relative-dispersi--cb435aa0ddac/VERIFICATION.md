@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the accompanying standalone script. It requires only Python 3's standard library. The script checks all values of A383066 and its independently constructed divisor-pair tree through depth 12, computes the exact integer transfer of the quadratic observables, checks the resulting fourth-order recurrence, and compares the first nine quadratic row sums with the claimed values.
+## correctness
 
-The result obtained from the packaged script was:
+PASS
 
-`VERIFY_OK depths=12 exact_tree_nodes=8191 moment_recurrences=9 base_terms=PASS`
+The defining recurrences give child triples from (a,b,c)=(s(k),s(2k),s(2k+1)): (b,2b-a,2b+c) and (c,2c+b,2c-a). Under (m,d,e)=(a,b-a,c-a) they yield the frozen pair of child maps, preserve de=m^2+1, and start at (0,1,1). This proves the needed indexing without assuming the external tree interpretation. Summing the three quadratic observables over children and reducing de=m^2+1 independently recovers the exact four-state matrix and root state. A Cramer determinant for the third formal resolvent coordinate gives the stated numerator and denominator; the roots of the recurrence and the first four moments determine the claimed explicit formula. For the first moment, the child-pair aggregate of (d+e,m) is (3(d+e)+4m,(d+e)+2m), with trace 5, determinant 2 and m-sums 0,2 at n=0,1, giving the stated R_n. For n>=1 the squared CV is 2^n P_n/R_n^2-1. The positive leading coefficients yield the asymptotic constant 17K/4, and 2 lambda_+-alpha_+^2=1/2+sqrt(113)-(5/2)sqrt(17)>0, so subtracting 1 is asymptotically negligible. Independently evaluated all sequence values through level 12 by bottom-up scalar recurrence and matched each square sum against the symbolic transfer. The numeric bases 1.03952283129313 and 1.01956992467 agree; finiteness of this replay is not used to extend the theorem.
 
-The mathematical proof is the tree invariant, the three child-pair identities, and the resulting exact four-state transfer. The rational generating function follows algebraically and is not inferred from the finite list. Partial fractions give the infinite closed form; the known exact first moment and a strict algebraic comparison of positive spectral radii yield the exponential relative-variance asymptotic. The finite check is reproducibility evidence only; it neither establishes the infinite theorem nor determines bibliographic priority.
+## originality
 
-No external independent mathematical audit has been performed. The conclusion does not assert a limiting probability law or quantify how many dyadic entries are large relative to their mean.
+PASS
+
+Sequence/tree identification, first moments and general regular-sequence spectral methods are antecedents, not credited as new. The inspected results leave a distinct explicit quadratic-row formula and strict dispersion exponent for this sequence.
+
+## value
+
+PASS
+
+Dyadic levels are inherent in this published divisor-pair tree, and its mean and maximum already motivated studying fluctuations within a level. The exact second moment gives a quantitative distinction from the mean: variability relative to the mean grows exponentially, with an explicit small but strictly positive exponent. The result is useful for tests or comparisons of concentration claims for the tree and is stronger than first-order growth or recomputing a short row table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

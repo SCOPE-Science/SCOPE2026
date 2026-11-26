@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantified statement covers all positive real edge lengths and every graph point, including edge interiors and endpoints. The proof uses a standard degree-four principal-divisor criterion, justified by uniqueness of the real harmonic potential and integrality of all slopes, and eliminates each of the six edge types explicitly. The five unaffected unit-edge cases have unavoidable noninteger slopes \(1-t\), \(1+t\), or \(-t\). The variable-edge solution is controlled by a single necessary and sufficient integer \(k\in\{-1,0\}\); the endpoint tests are treated separately. An exact rational-Laplacian checker independently cross-checks rational instances but is not used to establish universal quantification. The definitions, range \(\lambda>0\), denominator \(\lambda+1\), and the distinction between \(K\sim4p\) and weaker Weierstrass conditions have been checked.
+PASS
 
-## Originality — PASS (best-knowledge primary-source comparison)
+For i=2,3 the integral potential 0 at v_i and 1 at all other vertices proves K~4v_i. For 4v_2-4p the real potential is unique modulo constants by connectedness and positive conductances; there can be no extra bends away from the divisor. Independently eliminate an interior p on ij: with s=t/ell_ij its potential is (1-s)U_i+sU_j+4ell_ij s(1-s). The resulting outgoing-slope balances on the original four vertices are D=4 delta_2-4(1-s)delta_i-4s delta_j. Since D_2-D_3=4(U_3-U_2), this recovers 1-t for edges 02,12 and 1+t for 03,13 on the unsplit edge 23. For p on 23, symmetry gives U_0=U_1=(U_2+U_3)/2 and U_3-U_2=2t, hence slope -t on 02. All these witnesses are nonintegral on the relevant open edge. For p on 01, U_3-U_2=1 and D_0-D_1=(2+2/lambda)(U_1-U_0)=8s-4. The v_3 equation gives U_1-U_0=2k+1 for k=U_3-U_0. The balances at v_0 and p give the remaining split slopes 1-2k and -3-2k, so every slope is integral iff k is integral. Its open range is between -(3lambda+1)/(2(lambda+1)) and (lambda-1)/(2(lambda+1)), admitting -1 and 0 exactly when lambda>1. Solving gives the two displayed interior coordinates. The reduced balance also applies directly at s=0 for p=v_0, where k lies strictly between -3/2 and -1/2 and is integral only at lambda=1; exchange 0 and 1 for the other endpoint. At lambda=1 the same 0/1 vertex potential gives both endpoints. This proves the finding for real lengths, including irrational ones. The frozen rational-grid code was inspected, not run, and is not used to exhaust the graph.
 
-The closest 2023 paper, Amini–Gierczak–Richman, computes the equilateral \(K_4\) canonical Weierstrass locus (Example 3.5), not an asymmetric one-edge deformation. Amini–Kawaguchi (2026) supplies the general equivalence of the gap sequence \((1,2,5)\) with \(K\sim4p\) and component-level results, but not a location formula on this specific family. Chan–Jiradilok (2015) treats theta-characteristic **classes** on general \(K_4\) metric graphs, not the complete locus of individual points whose twice-double is canonical. Those results are compatible but none supplies the asymmetric threshold or exact interior-point positions as a stated or direct corollary. Semantic database searches covered metric tetrahedra, tropical hyperflex/subcanonical aliases, canonical divisors, and one-edge deformations; returned closest items concern different graphs, invariants or metrics, as detailed in `AUDIT.json`. Selected published mathematical claims were also compared by their implications.
+## originality
 
-**Residual risk:** Any literature search can miss an earlier specific classification or an unpublished calculation. No independence or comprehensive uniqueness guarantee is asserted. In particular, a general chip-firing algorithm can compute this example but does not by itself state its parameter phase diagram.
+PASS
 
-## Value — PASS
+The equilateral fiber and the genus-three gap-sequence formulation are prior. The supported distinct result is the complete one-edge phase diagram away from equality, with the exact threshold and interior locations. The inspected stronger-looking results characterize the condition or count broader objects, but do not supply this location theorem.
 
-The equilateral tetrahedron is a canonical worked example in the tropical Weierstrass literature. Changing a single edge is the minimal metric deformation retaining most of its symmetry, and subcanonical points encode the exceptional genus-three gap sequence \((1,2,5)\). The result is a *complete continuum-parameter classification* with a sharp threshold and explicit migration of two points from vertices to edge interiors. It distinguishes shortening from lengthening and resolves a natural stability question not determined by the symmetric example or global weight counts. This exact boundary phenomenon is independently useful even without a downstream lifting theorem. The calculation is more than an arbitrary finite sample or a routine substitution into a known table.
+## value
 
-## Limits and evidence
+PASS
 
-The claim does not classify all canonical Weierstrass points, algebraic lifts or six-parameter metric tetrahedra. Reproduction uses `verify.py` (Python standard library, exact fractions); the proof rather than the sampled checker is decisive for the all-real claim.
+Varying a single edge is the simplest test of how the equilateral tetrahedron's subcanonical vertices persist. The result gives a complete continuum classification with a sharp one-sided threshold: shortening removes two points and lengthening moves them into the varying edge with explicit coordinates. It supplies a natural exact benchmark for the exceptional genus-three canonical gap condition without purporting to classify weaker Weierstrass loci or lifting.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:00.893526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivative gives squarefreeness exactly for a²≠4; the degree-ten monic model is genus four with two points at infinity. The inversion quotient has coordinates t=x+x^{-1} and v=y(x+1)/x³, with v²=(t+2)(t⁵−5t³+5t+a), and these generate the fixed field because x solves a quadratic over them. The trivial rotation eigenspace in H¹ vanishes by the genus-zero rotation quotient. The inverse-character eigenspaces are swapped by inversion; Frobenius commutes with both operators, so the determinant on each such pair is the square of the determinant on its inversion-invariants, giving the square Weil numerator via the genus-two quotient. Independent direct counts of C in degrees 1 through 4 reproduce the full squared polynomials: in the five table rows they are (4,114,1084,14314), (24,154,1224,14634), (14,204,1274,13924), (14,164,1334,15124), (4,194,1564,14314). E has 10 rational points. Only the last Q is an elliptic square, and comparing the first two coefficients of Q(T) and Q(−T) distinguishes the ten spectra. The point-count-only assertion in frozen RESULT.md line 38 overstates the original check: C counts in degrees one and two do not by themselves certify the whole degree-eight equality. The cohomological proof establishes it, and independent degree-three and degree-four counts supply the full numeric check here. For the geometric assertion, only diagonal exponents are divisible by five; extraction in (z²+az+1)^5 gives coefficients of z² and z⁴ equal to 5−a² and 5a⁴−3a²−1, paired by reciprocity. For h₂/5, the associated quadratic in a² has nonsquare discriminant 6 and roots in F₁₂₁ of norm 2, a nonsquare in F₁₁. Hence neither root is a square in F₁₂₁ and the quartic is irreducible, giving the degree-four orbit. The h₁ roots ±4 are simple, disjoint from that orbit, and all six roots are smooth parameters. The paired diagonal entries give determinant multiplicity two; rank and stable rank coincide because iteration preserves diagonal support over the perfect geometric field, including with the Cartier scalar roots. Independent replay and counts: /workspace/branches/d785003e-4200-40ab-b131-01a899ecb78f/independent_check.py and independent_check.txt. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 3.3.2 gives diagonal Cartier–Manin coefficient extraction in the λ form for p≡1 mod 10, including coefficients α₁₀,α₂₀,α₃₀,α₄₀ at p=11.",
+          "Resultary 6fd174ba6932, 6993d7cd13f9 and 2195b7dedd84 establish exact strata of the same pencil in characteristics 3, 7 and 41, respectively."
+        ],
+        "reasoning": "The known general coefficients do cover the Hasse-matrix mechanism; expansion, factorization and Frobenius splitting here are field-specific refinements. The prime-specific strata at other primes are not stronger statements covering p=11. None yields the F₁₁ arithmetic census.",
+        "searches": [
+          "Ohashi–Kudo arXiv:2312.16858, Remark 3.3.2",
+          "Resultary: complete p-rank and a-number strata for the dihedral genus-four family"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_dihedral11.py",
+        "Ohashi–Kudo arXiv:2312.16858",
+        "Resultary 6fd174ba6932, 6993d7cd13f9, 2195b7dedd84, 0d59fdaeb507, 19374ffc0100 and 394ca54d5e45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal Cartier coefficients and semilinearity reduce the geometric characteristic-11 analysis to a low-degree specialization and factorization; they do not determine integral Weil polynomials.",
+          "The known square-type mechanism, also contextualized by the frozen Bruin–Kulkarni reference, does not determine which Q occur. In this pencil even the equal first trace for a=±3 and ±4 does not distinguish their Q; an additional quadratic extension calculation is needed after passing to genus two."
+        ],
+        "reasoning": "Credit the prior Hasse and decomposition methods. The five actual Q, ten twist types and unique elliptic fourth power are an additional classification that does not follow by substituting into those prior statements.",
+        "searches": [
+          "arXiv:2312.16858 Remark 3.3.2 (general Cartier coefficients)",
+          "Frozen RESULT.md lines 29–50 (quotient and arithmetic)",
+          "Resultary 2195b7dedd84 and 19374ffc0100 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact geometric normal form x¹⁰+Ax⁵+1 appears in Table 1. Lemma 3.3.1 gives the alternative model (x⁵−1)(x⁵−λ) with λ+λ^{-1}=A²−2.",
+          "Resultary 0d59fdaeb507 uses x⁸+ax⁴+1 in characteristic 11, and 19374ffc0100 has a doubled Hasse divisor in a different cyclic-quintic genus-four family."
+        ],
+        "reasoning": "The λ model is an actual alias after extending scalars; geometric identification alone does not determine twists or Frobenius polynomials of the marked base-field models. The two other characteristic-11 divisor results do not use equivalent families.",
+        "searches": [
+          "Resultary: genus-four dihedral pencil, characteristic eleven, square Weil spectra, doubled Hasse locus",
+          "Ohashi–Kudo arXiv:2312.16858, Table 1 and Lemma 3.3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table lists automorphism families, not five marked Weil numerators.",
+          "The distinct same-date Resultary 394ca54d5e45 Finding concerns genus-six plane cyclic quintics and rank four on its divisor, not this genus-four pencil.",
+          "The checked same-pencil hits for p=3,7,41 give their own characteristic-specific strata, not F₁₁ point counts or twist polynomials."
+        ],
+        "reasoning": "No inspected table supplies the five Q values or an equivalent marked finite-field output. Matching a prime or Hasse multiplicity without matching the family is not exact coverage.",
+        "searches": [
+          "Resultary: characteristic-eleven dihedral genus-four Weil spectra and Hasse divisor",
+          "arXiv:2312.16858, Table 1 and Section 3.3"
+        ]
+      },
+      "rationale": "The distinct supported content is the full F₁₁ marked Weil and twist census and its link to the explicit ordinary/nonordinary strata. The family and diagonal Cartier coefficient mechanism are prior, and the characteristic-11 matrix calculation is a specialization of that mechanism, not a new general theorem.",
+      "residual_risks": [
+        "The general Ohashi–Kudo formula covers the coefficient-extraction step; an earlier explicit p=11 factorization or an unindexed arithmetic census may exist. The focused primary search did not provide a relevant additional comparator and is not negative evidence.",
+        "The certified census is for the marked models and their stated quadratic twists, not all forms of the geometric curves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric normal form and general coefficient extraction; not the marked five-spectrum claim",
+          "evidence": "The λ alias and the p≡1 mod 10 diagonal extraction already include the p=11 coefficient mechanism.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.16858",
+          "material_read": "Table 1 p. 5; Lemma 3.3.1 and Remark 3.3.2, pp. 16–17 (OA offsets about 13200 and 46847–51474)",
+          "method": "Bounded original OA PDF text",
+          "title": "Computing superspecial hyperelliptic curves of genus 4 with automorphism group properly containing the Klein 4-group",
+          "trigger": "Exact same dihedral family and a plausible dominating Cartier formula"
+        },
+        {
+          "assessment": "Exact same equation, different prime and exception sets",
+          "evidence": "The p=3 exceptional parameter is zero; p=7 has rank zero at zero or a²=−1; p=41 includes ten rank-two classes.",
+          "identifier_or_url": "Resultary 6fd174ba6932, 6993d7cd13f9 and 2195b7dedd84",
+          "material_read": "Each RESULT.md Finding at local text offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Same dihedral genus-four pencil in characteristics 3, 7 and 41",
+          "trigger": "Closest same-pencil complete-stratum matches"
+        },
+        {
+          "assessment": "Distinct families, including a distinct same-date record",
+          "evidence": "The first is the degree-eight genus-three dihedral model, the second a different genus-four cyclic-quintic locus, and the third a genus-six plane quintic locus.",
+          "identifier_or_url": "Resultary 0d59fdaeb507, 19374ffc0100 and 394ca54d5e45",
+          "material_read": "Each RESULT.md Finding at local text offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Characteristic-eleven Hasse-divisor results for other families",
+          "trigger": "Close Hasse divisor matches in the same characteristic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete base-field isogeny and twist census on this natural symmetry pencil distinguishes fibers that a first trace cannot separate and identifies a unique elliptic fourth power. The exact support, multiplicity and Frobenius splitting of the Hasse divisor locate the geometric exceptions and show which lie among the marked arithmetic classes. The value is the combined exact classification, not the routine coefficient formula alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

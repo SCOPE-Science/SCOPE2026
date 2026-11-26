@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:08:13.108196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over an algebraically closed field of characteristic exactly five, the distinct finite branch points give independent square classes X-a_i by their odd valuations. Together with infinity this gives five tame index-two fibers of eight points each, and Riemann–Hurwitz gives genus five. H=dX/(product Y_i) and Y_i H are regular by the branch parameters t=Y_j and t=1/Y_1 and are independent by their distinct sign characters. The Hasse coefficients 1,3,3,1,0,2 follow, for example, by squaring (1+z)^3(1+z^5)^(-1/2) in characteristic five and using the square root with constant term one. The zero order-four derivative row and the nonzero determinant on rows 0,1,2,3,5 establish the generic sequence: after factoring the constants and the Y_i, the alternant is the Vandermonde times product u_i times sum u_i, with u_i=1/(X-a_i) and sum u_i=f'/f. This determinant times the canonical trivialization yields W = c f'(X)(dX)^16/f(X)^7, c nonzero, as a rational section of K^16. At a finite branch point, val(f)=2, f' is a unit and val(dX)=1, giving weight 2. At infinity the corresponding valuations of f,f',dX are -8,-6,-3, again giving 2. The leading terms of Y_i at infinity may differ by signs; only their unit orders are used. Away from the branch locus the zeros of f' have their original multiplicities in all sixteen points of each fiber. These disjoint contributions have degrees 80 and 48, exhausting 16*8=128. The derivative is a cubic, hence the support size is 40+16r for r=1,2,3 distinct roots. For the three given quartics the derivatives are 4X^3+1, X^2(4X+1), and 4X^3. They have the claimed patterns and no common root with their respective quartics: in the first case a common root would have X^3=1 and 2X+1=0, which is impossible; in the other cases substitute 0 and, where appropriate, 1. The statement concerns geometric Hasse-Wronskian support and uses the reduced ramification divisor, not the full pullback of the branch locus.",
+      "replay": "Frozen RESULT.md lines 23–50; inspect verify_humbert.py lines 28–45 and 83–101 for alternant, coefficient and squarefreeness/derivative-pattern checks. The uploaded script was not run in the review; verification_output.txt is a prior supporting log. The universal claim follows from the determinant and valuation proof, not the example computations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Positive-characteristic Theorem 17 requires p=0 or p>k^(n-1)",
+          "Theorem 7 and Example 13 concern complex generalized Fermat curves"
+        ],
+        "reasoning": "For k=2,n=4 the cited positive-characteristic result requires p>8; its conclusion cannot be specialized to p=5. The complex calculation and the general use of Hasse-Wronskians are not a divisor evaluation in this parameter regime.",
+        "searches": [
+          "Hidalgo–Kontogeorgis–Leyton-Álvarez–Paramantzoglou arXiv:1409.3063, Theorem 17",
+          "Hidalgo–Leyton-Álvarez arXiv:1409.6258, Theorem 7 and Example 13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_humbert.py and verification_output.txt",
+        "Local Resultary records cf74b6f497e2 and b57114c4ff25",
+        "Hidalgo–Leyton-Álvarez arXiv:1409.6258",
+        "Hidalgo et al. arXiv:1409.3063",
+        "Kato 2015 pp. 165–166",
+        "Edge 1969 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical local weights and complete support are supported by the inspected texts",
+          "The positive-characteristic bound excludes five",
+          "The new determinant has an order-four row vanish and instead involves the derivative of the branch polynomial"
+        ],
+        "reasoning": "The special Hasse order change and the pullback of the critical divisor cannot be inferred mechanically from the stated classical sequence, the branch weights alone, or the cited bounded-characteristic theorem. They require computing the determinant at the generic point and controlling it at and away from the branch locus.",
+        "searches": [
+          "arXiv:1409.6258, Example 13",
+          "arXiv:1409.3063, Theorem 17",
+          "Kato pp. 165–166 and Edge p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hidalgo–Leyton-Álvarez Example 13 gives classical gaps (1,2,3,5,7) at the hyperosculating points",
+          "Kato pp. 165–166 counts forty Type-I5 points",
+          "Edge explicitly states the 120 classical weights are supported at forty points"
+        ],
+        "reasoning": "The Hasse order sequence associated with the local branch gaps is (0,1,2,4,6), the same sequence as in the classical comparison. Weight is measured relative to the generic sequence, which changes in characteristic five; the identical branch gaps do not imply equal Wronskian weights or equal support.",
+        "searches": [
+          "Genus-five Humbert / generalized Fermat (2,4) canonical nonclassicality and Hasse-Wronskian in characteristic five",
+          "Hidalgo–Leyton-Álvarez arXiv:1409.6258; Kato Type I5; Edge DOI 10.4153/CJM-1969-139-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cf74b6f497e2 is the frozen record",
+          "Same-date b57114c4ff25 gives closed-point degrees 8,16,16 for one explicit rational Wiman form of characteristic zero"
+        ],
+        "reasoning": "The self-match is not another claim. The closely related result counts arithmetic orbits, not roots of a characteristic-five Wronskian; it explicitly does not treat reductions or all Humbert curves. No separate exact indexed table was identified in the bounded comparison.",
+        "searches": [
+          "Local Resultary: characteristic-five Humbert Weierstrass divisor; arithmetic Wiman and Humbert Weierstrass points"
+        ]
+      },
+      "rationale": "Pass for the complete characteristic-five Wronskian formula, generic nonclassical sequence, and three exhaustive geometric support sizes. The classical Humbert branch gap sequence and forty-point support are known; local branch semigroups do not determine the generic Hasse orders or the extra zeros away from the branch locus.",
+      "residual_risks": [
+        "This is a bounded comparison; earlier work under other formulations of canonical nonclassical Kummer covers could cover the formula.",
+        "No conclusions about finite-field orbit counts, field forms, or complete Weierstrass semigroups at the unramified zeros are being passed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known complete classical support",
+          "evidence": "Complex type (2,4) has gaps (1,2,3,5,7) at the hyperosculating points; these are exactly the weight-three Weierstrass points in the example.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.6258",
+          "material_read": "Theorem 7 pp. 6–7, offset 19703; Example 13 p. 10, offset 31650",
+          "method": "Original OA full-text passages",
+          "title": "Weierstrass weight of the hyperosculating points of generalized Fermat curves",
+          "trigger": "Same generalized Fermat type and Weierstrass weights"
+        },
+        {
+          "assessment": "Relevant generalization outside characteristic five",
+          "evidence": "p=0 or p>k^(n-1), hence the positive-characteristic hypothesis here is p>8.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.3063",
+          "material_read": "Theorem 17 p. 11, offset 36150",
+          "method": "Original OA full-text passage",
+          "title": "Automorphisms of the Generalized Fermat curves",
+          "trigger": "Possible theorem covering the same curves in positive characteristic"
+        },
+        {
+          "assessment": "Classical Type-I count",
+          "evidence": "Forty Type-I5 points, whose order sum exceeds the classical generic sum by 3. The sentence itself is a type count, not a characteristic-five support computation.",
+          "identifier_or_url": "https://www.math.sci.hokudai.ac.jp/hmj/page/44-2/pdf/HMJ44_165-173.pdf",
+          "material_read": "pp. 165–166, original PDF passage within offsets 850–2826; Type-I sequence and forty-point sentence",
+          "method": "Original OA full-text passage",
+          "title": "A curve of genus 5 having 24 Weierstrass points of weight 5",
+          "trigger": "Verify exact classical Humbert weight statement"
+        },
+        {
+          "assessment": "Supports classical complete support",
+          "evidence": "The 120 Weierstrassian points are described as confluent in threes at forty distinct points.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1969-139-6",
+          "material_read": "p. 1, PDF offset 250",
+          "method": "OA original passage",
+          "title": "Three Plane Sextics and their Automorphisms",
+          "trigger": "Verify classical completeness beyond the Type-I wording"
+        },
+        {
+          "assessment": "Exact self-match and distinct arithmetic orbit result",
+          "evidence": "The Wiman entry treats one rational characteristic-zero form and distinguishes its three closed-point orbits, not positive-characteristic reductions or a universal Humbert divisor.",
+          "identifier_or_url": "cf74b6f497e2; b57114c4ff25",
+          "material_read": "Mirrored finding passages and Wiman scope",
+          "method": "Local Resultary and mirror",
+          "title": "Characteristic-five canonical nonclassicality and arithmetic Weierstrass orbits comparison",
+          "trigger": "Closest published indexed findings on related curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives the full intrinsic divisor for an entire smooth genus-five family in the exceptional small characteristic, not an example or a branch-point-only calculation. It isolates a generic order jump and identifies the moving part of the divisor with a cubic critical locus, explaining and realizing every possible support size. This supplies useful data for comparing canonical nonclassicality and ramification across the family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

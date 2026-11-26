@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:43:00.009747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (source/recorded evidence inspected without execution)",
+        "/workspace/repairs/4/RESULT.md, Finding and Proof"
+      ],
+      "rationale": "The repaired RESULT keeps the valid proof. Admissible disjoint downset/upset pairs are realized by the extension property and determine the complete type by homogeneity. The empty-side cases count 2i(G)-1; nonempty pairs across the bipartition are independent sets meeting both sides in the bipartite complement. Padding multiplies the original i(G) by 2^k, and the complement gains exactly (2^k-1)2^a independent sets using the new side vertices. The unchanged remainder has -1<=Delta<2^k, so the floor with +1 extracts i(G) exactly. A disjoint edge if needed multiplies the source answer by three and keeps a comparability after padding, ensuring exact height two even for edge-free inputs. One checked ternary labeling per nonalgebraic type and a tagged choice per equality type give the two #P memberships. Height one has only the empty-side cases. Bit lengths and the instance size are linear in the vertex count apart from explicit relation encoding.",
+      "residual_risks": [
+        "No parsimonious reduction, approximation claim, or preservation of connectedness or bounded degree is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier hardness includes arbitrary height with a greatest element and recovers the ideal count from Q1 and Q2.",
+          "9c2af418ff79 uses near-universal neighbors and a local sensitivity oracle to realize an independent-set count exactly.",
+          "Vadhan is cited for the established hardness of exact bipartite independent-set counting, not for absolute type counts."
+        ],
+        "reasoning": "General hardness does not restrict the constructed posets to exact height two, and replacing a local difference oracle by the absolute oracle ordinarily costs two evaluations. Hardness of an individual summand is not hardness of their sum.",
+        "searches": [
+          "Resultary 3b955f4020e1, two-query construction",
+          "Resultary 9c2af418ff79, §4 local hardness",
+          "Vadhan DOI 10.1137/S0097539797321602"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9c2af418ff79 and 3b955f4020e1",
+        "arXiv:1009.2892, 1802.01419 and 2511.14924",
+        "Vadhan's author publication page and attempted DOI retrieval",
+        "Bounded primary search for one-query height-two extension counting did not add a useful source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local gadget gives D(G,ab)=i(H), where D is a shifted change, by encoding H on the complement after omitting the two auxiliary vertices.",
+          "The absolute reduction pads with isolates on one side; a cancellation leaves a bounded remainder and one scaled desired count."
+        ],
+        "reasoning": "The absolute-count problem might be solved with two queries using the local gadget, but the two-query implication does not yield a single-query transformation. The repaired finding demonstrates that stronger query property.",
+        "searches": [
+          "9c2af418ff79, RESULT.md §§1, 4, offsets 5050–8069 for reduction",
+          "3b955f4020e1, RESULT.md offsets 986 and 5000–7238"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard downset/upset extension criterion is prior. A Campo–Erné count posets according to downset/upset/antichain data; George–Yeats count containment-based upset/downset pairs.",
+          "The height-two formula decomposes into ideal and filter counts plus complete two-sided bipartite subsets; the latter correspond to independent sets of the bipartite complement."
+        ],
+        "reasoning": "The standard criterion explains the formula but does not extract either independent-set count from their combination. The two related enumerators do not count this one-query function in the inspected formulations.",
+        "searches": [
+          "Resultary: finite-parameter one-types, sharp one-comparability sensitivity, local counting hardness",
+          "Dolinka–Mašulović arXiv:1009.2892, Lemma 3.3",
+          "A Campo–Erné arXiv:1802.01419 and George–Yeats arXiv:2511.14924"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This distinct record already prints the exact formula c(P_G)=2i(G)+i(bipartite complement)-2^a-2^b and credits it as previously derived."
+        ],
+        "reasoning": "The indexed general identity covers every numerical instance; the repair removes it from the originality claim, regardless of further provenance. A finite table cannot demonstrate novelty of the remaining reduction.",
+        "searches": [
+          "Resultary 9c2af418ff79, proof §1 equation (3)"
+        ]
+      },
+      "rationale": "For the repaired claim only: the frozen identity was presented as part of the finding without crediting an exact match in the earlier local-sensitivity record. The replacement identifies the identity as prior and narrows the contribution to one-query extraction from an absolute type count at exact height two. The matched local reduction has a one-query oracle for a shifted difference of two counts, not for the absolute count; the older result for posets with a greatest element uses two queries and does not retain the height promise. Neither inspected argument supplies this absolute one-query extraction.",
+      "residual_risks": [
+        "Earlier provenance of the exact formula before the inspected Resultary occurrence remains unresolved. A specialized unindexed reduction may exist. The cited Vadhan theorem was not read in journal full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full formula; local hardness is not the same oracle problem.",
+          "evidence": [
+            "Equation (3) is identical; §4 queries a shifted change, not an absolute type count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-one-comparability-sensitivity-and-local-counting-hardness--9c2af418ff79/RESULT.md",
+          "material_read": "Proof §1 equation (3), §4 and Relationship to prior work",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Sharp one-comparability sensitivity and local counting hardness",
+          "trigger": "Exact height-two formula and one-query local result"
+        },
+        {
+          "assessment": "Prior unrestricted hardness, not height-two one-query hardness.",
+          "evidence": [
+            "A top-chain construction with a greatest element uses Q1 and Q2 to recover ideals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1/RESULT.md",
+          "material_read": "Finding and proof at offsets 986 and 5000–7238",
+          "method": "Local mirror passage inspection",
+          "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+          "trigger": "Same function on another input restriction"
+        },
+        {
+          "assessment": "Supports extension framework, not the reduction.",
+          "evidence": [
+            "Describes extending finite posets by inserting a point between prescribed lower and upper sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.2892",
+          "material_read": "Lemma 3.3, preprint pp. 13–14",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Usual one-point extension criterion"
+        },
+        {
+          "assessment": "Different enumerator.",
+          "evidence": [
+            "Counts posets according to downset, upset or antichain numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.01419",
+          "material_read": "Introduction p. 2, offsets 3600–6147",
+          "method": "Bounded OA PDF inspection",
+          "title": "Exponential functions of finite posets and the number of extensions with a fixed set of minimal points",
+          "trigger": "Related poset extension counting"
+        },
+        {
+          "assessment": "Different containment condition.",
+          "evidence": [
+            "Records upsets, downsets and their intersections rather than the disjoint pairs with strict cross inequalities used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.14924",
+          "material_read": "Abstract and introduction p. 1, offsets 580–2790",
+          "method": "Bounded OA PDF inspection",
+          "title": "The Generalized Interval Polynomial of a Poset",
+          "trigger": "Related upset/downset pair counting"
+        },
+        {
+          "assessment": "Abstract supports graph-counting hardness in restricted classes; no passage from the theorem was read. This premise is standard and not an originality claim.",
+          "evidence": [
+            "Author abstract identifies restricted counting hardness for independent sets and vertex covers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539797321602",
+          "material_read": "Author's publication-page abstract and attachment listing; DOI full text not retrieved",
+          "method": "DOI retrieval attempt and author-hosted publication-page inspection",
+          "title": "The Complexity of Counting in Sparse, Regular, and Planar Graphs",
+          "trigger": "Classical exact counting hardness premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, amplification and height proof",
+        "Resultary 9c2af418ff79 and 3b955f4020e1"
+      ],
+      "rationale": "The repaired theorem separates height one from height two for a natural complete-type counting problem and shows that the harder case needs only one absolute evaluation in a reduction. Independent-set hardness of the absolute count does not follow merely because the count contains independent-set terms. The isolated-side padding addresses that obstacle without increasing poset height, and is the substantive contribution rather than the reused counting identity.",
+      "residual_risks": [
+        "The result concerns exact counting in an explicitly named finite parameter poset only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

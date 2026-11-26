@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:23:28.620742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57",
+        "Frozen VERIFICATION.md and verification/{direct_enumeration.cpp,formula_check.py,crosscheck.py} (read, not executed)",
+        "/workspace/reviews/check_mathematics.py, check 3"
+      ],
+      "rationale": "Zeros in both cliques dominate; with zeros only in B the maximality witness exists exactly when B also has a positive label, whose mate in A has no zero neighbor. With neither clique containing zeros, one can choose a high (2 or 3) in each (E_n²), or have one all-1 clique forced to match only high labels in the other (the second term). With zeros in B, A must have a high label because the mate of a zero could not be a defended 1 if A were all ones. The three B regimes are disjoint: (i) some 3 or at least two 2s gives internal defense, counted by E_n B_n after excluding no-zero and deficient B assignments; (ii) exactly one 2 and no 3 gives its column z²a, then other columns either b_i=1 with factor za, or b_i=0 requiring a_i≥2 with factor z²+z³, and the all-positive B choice is subtracted; (iii) only 0s and 1s in B requires a_i=3 at each zero and a_i≥2 at each one, with both constant B choices forbidden. Orientations supply the stated factors of two. The first one-sided regime starts at n+4 only with a single 2 among the positive clique's ones and a single 3 among the other clique's zeros. The independent choice of two positions gives 2n². Competing regimes start at 2n+2, 2n+1 or 3n, all strictly above n+4 for n≥4. The two intervals [n+4,3n+3] (hold the lone 3 in B) and [2n+2,6n] (positive and high in each clique) overlap and realize the entire spectrum. At z=1 the zero-free terms and no-high term combine to 9^n−1, and the remaining terms give the displayed total. Independent replay: python3 /workspace/reviews/check_mathematics.py 3 tests the dominance witness and defender conditions directly on graph neighborhoods for n=3,4,5, with coefficientwise matches and exact listed optimizer sets at n=4,5. At n=3 there are 36 minima rather than 18, confirming the need for the scope restriction.",
+      "residual_risks": [
+        "Finite re-enumeration does not prove the infinite identity; the disjoint symbolic partition does. The claim counts labelled functions, not orbits under graph symmetry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary maximal double Roman paper gives exact paths/cycles, general scalar bounds and algorithms. The survey summarizes these, including bounded-clique-width algorithms. The inspected product literature treats ordinary double Roman domination."
+        ],
+        "reasoning": "Neither scalar bounds for maximal double Roman nor ordinary product bounds produce the named-function polynomial. Applying an optimization or generic enumeration algorithm at each n is not an existing coefficient formula or exact optimizer family.",
+        "searches": [
+          "arXiv:2402.07013v1, complete graph / Cartesian product / complete prism / weight polynomial",
+          "DOI 10.3390/math11020351, §4.8 and product discussion",
+          "arXiv:1908.06859, §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a74e96e1e54b, ea4a94553b09, 53deb773367e, e90459adfebf",
+        "arXiv:2402.07013v1 and 1908.06859",
+        "DOI 10.3390/math11020351"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary paper gives γ^m_dR(K_n)=n+1; the survey's product examples include ordinary double Roman domination of P_2□P_n."
+        ],
+        "reasoning": "A zero-containing clique can be fully internally defended by one 3, yet it would not be a maximal double Roman function on that clique alone because its zeros dominate the clique. The matched partner in the other clique changes the witness, and the defender conditions can link across the match. The clique scalar does not imply even the minimum classification on this product, let alone the one-2 column and all-weights contributions.",
+        "searches": [
+          "arXiv:2402.07013v1, pp. 9–10, complete graph",
+          "DOI 10.3390/math11020351, §4.8 and p. 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-graph quasi-total Resultary ea4a94553b09 gives minimum 6 and n minima under a different rule. The same-day perfect double Italian record 53deb773367e gives an enumerator for a different rule on precisely these matched cliques. Web result was an author page without a usable matching passage."
+        ],
+        "reasoning": "Complete prism and Cartesian product with K2 refer to the same graph. But the maximal double Roman rule has both double Roman defender conditions plus a non-dominating zero set; replacing those by quasi-total or perfect double Italian conditions changes admissible assignments and weights, not just notation.",
+        "searches": [
+          "Resultary: maximal double Roman domination polynomial K2 Cartesian Kn complete prism",
+          "Web: maximal double Roman domination complete prism K2 Cartesian Kn polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue match a74e96e1e54b is the frozen record itself; closest distinct same-graph hits ea4a94553b09 and 53deb773367e concern different labelling rules. e90459adfebf concerns cocktail-party graphs."
+        ],
+        "reasoning": "The cocktail-party graph on 2n vertices has degree 2n−2, not n for n≥4; thus the same invariant on that graph does not cover this record. The distinct same-day polynomial is not dismissed by date but by its different admissibility class.",
+        "searches": [
+          "Resultary: maximal double Roman domination polynomial K2 Cartesian Kn complete prism, limit 100"
+        ]
+      },
+      "rationale": "The exact maximal double Roman weight enumerator for two matched cliques is distinct from the scalar clique result, ordinary Roman-variant product results and the same-graph calculations for other defender rules. No earlier equivalent was located in the bounded comparisons.",
+      "residual_risks": [
+        "Bounded literature and catalogue search; an unindexed equivalent result remains possible. A keyword miss in the preprint is not whole-literature evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, but not the product polynomial in inspected passages",
+          "evidence": [
+            "Clique value n+1 and scalar bounds; complexity, tree bounds and path/cycle values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.07013 (v1); DOI 10.1016/j.amc.2021.126662",
+          "material_read": "Abstract p. 1 offset 1908; complete-graph and general scalar passages pp. 9–10 offsets 29334, 33339",
+          "method": "Open-access paper text",
+          "title": "Maximal double Roman domination in graphs",
+          "trigger": "Original invariant and potential general theorem"
+        },
+        {
+          "assessment": "Algorithms and scalar results; product section uses ordinary double Roman",
+          "evidence": [
+            "Maximal variant summary and ordinary P_2□P_n example are distinct coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11020351",
+          "material_read": "§4.8 p. 11 offset 59339 and product discussion p. 14 offset 74144",
+          "method": "Open-access paper text",
+          "title": "Double Roman Domination: A Survey",
+          "trigger": "Relevant exact results and product aliases"
+        },
+        {
+          "assessment": "Ordinary, not maximal double Roman product bounds",
+          "evidence": [
+            "Scalar bounds for the ordinary invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.06859",
+          "material_read": "§2 p. 4 offset 9545",
+          "method": "Open-access paper text",
+          "title": "Double Roman product bounds (Anu and Aparna Lakshmanan)",
+          "trigger": "Cartesian product results that might subsume complete prisms"
+        },
+        {
+          "assessment": "Different eligibility rule and optimum",
+          "evidence": [
+            "Quasi-total minimum 6, with n minima."
+          ],
+          "identifier_or_url": "Resultary ea4a94553b09",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Quasi-total double Roman domination of complete prisms",
+          "trigger": "Same graph and nearby rule"
+        },
+        {
+          "assessment": "Different labels/defenders and weight spectrum",
+          "evidence": [
+            "Separated weight bands for perfect double Italian domination, not the interval counted here."
+          ],
+          "identifier_or_url": "Resultary 53deb773367e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Three separated weight bands for perfect double Italian domination",
+          "trigger": "Same-day, same-graph weight polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof",
+        "DOI 10.3390/math11020351, §4.8"
+      ],
+      "rationale": "The full weight distribution for the natural matched-clique family isolates which configurations need defenders across the matching and which are internally self-sufficient. The non-domination witness removes entire extreme configurations, not just weights. The polynomial gives a uniform benchmark for weighted enumeration, recovering the exact minimum multiplicity and full contiguous spectrum rather than only a scalar optimum.",
+      "residual_risks": [
+        "No claim for arbitrary Cartesian families or an enumeration algorithm for general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

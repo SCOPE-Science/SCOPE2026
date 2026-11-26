@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:44:31.206478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof; checker.py lines 4–25; VERIFICATION.md",
+        "/workspace/repairs/3/RESULT.md",
+        "/workspace/branches/fc2b92c5-bb14-4144-b69a-40f5b64ae975/reuleaux_rectangle_replay.py",
+        "/workspace/branches/fc2b92c5-bb14-4144-b69a-40f5b64ae975/replay-notes.txt"
+      ],
+      "rationale": "The corrected RESULT.md proves the same exact aligned-area formula without assuming the frozen proof's false vertical extent [-h/2,h]. For a rectangle of horizontal half-side u and horizontal center s, its largest absolute abscissa is U=u+|s|. All vertical coordinates must lie in the intersection of the two exact disk intervals, whose lower endpoint is h-Q(U) because Q-P increases to 3h/2, and whose upper endpoint is -h/2+P(U). These bounds are sufficient as well as necessary. The true vertical extent is [h-1,h]. Area is bounded by 2u f(U) <= 2U f(U), with equality only at s=0 and full available height. Strict concavity gives the unique interior root; a rational bracket establishes noncentrality and unequal sides. The frozen u,v,c decimals were wrong at the stated precision; the repair gives the reproduced values without changing the exact result or the stated area. The bounded 80-digit Decimal replay used 120 bisection steps and found area 0.4197167574230241 and the four predicted contacts, with the other eight squared-distance slacks positive. No unrestricted-orientation claim is proved.",
+      "residual_risks": [
+        "The numerical replay corroborates decimals and contacts, not the exact optimization proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical minimum-area constant-width theorem concerns the area of the host itself; the cited rectangle algorithms concern convex polygons. The unrestricted Reuleaux rectangle literature was not retrieved."
+        ],
+        "reasoning": "Polygonal instances or approximation do not yield this exact curved-host optimizer. A theorem giving an unrestricted maximizer and its symmetry-axis alignment would cover the optimum, so this missing comparison remains a risk, not negative evidence.",
+        "searches": [
+          "arXiv:math/0009137",
+          "Alt–Hsu–Snoeyink 'Computing the largest inscribed isothetic rectangle'",
+          "doi:10.1016/j.comgeo.2024.102135",
+          "Targeted primary-literature search on unrestricted inscribed rectangles in a Reuleaux triangle (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 789d4ab863f2 (self), eb24804c1856 (distinct)",
+        "Frozen RESULT.md lines 29–38",
+        "arXiv:math/0009137 and cited polygonal rectangle references (limited evidence as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected statements or descriptions concern host minimum area, polygons, or another circular host; none supplies the two competing vertical endpoints in the Reuleaux body."
+        ],
+        "reasoning": "Neither host area nor single-arc contacts imply the exact asymmetric height interval, its strictly concave area objective, or its unique interior optimizer.",
+        "searches": [
+          "Frozen RESULT.md §§ Relationship to prior work and References; arXiv:math/0009137; doi:10.1016/j.comgeo.2024.102135; eb24804c1856"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "789d4ab863f2 is the target itself; the catalogue summary of eb24804c1856 concerns a circular segment and unrestricted orientations."
+        ],
+        "reasoning": "Reflection-axis and perpendicular-axis descriptions represent the same permissible rectangles. A circular-segment contact transition does not address the competing constraints from both lower disks and the upper disk in this intersection.",
+        "searches": [
+          "Resultary search for symmetry-aligned Reuleaux triangle inscribed rectangles; 789d4ab863f2; eb24804c1856"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match was the frozen record itself; the distinct nearby match concerns circular segments."
+        ],
+        "reasoning": "An area for a square, or one matching an approximate computation without the hypotheses, would not establish this capacity or its optimizer; the verified maximizing sides are unequal.",
+        "searches": [
+          "Resultary searches for exact Reuleaux rectangle area and optimizer; 789d4ab863f2; eb24804c1856"
+        ]
+      },
+      "rationale": "Bounded evidence supports the exact aligned capacity and optimizer as a distinct result. The closest different indexed contact result is for a circular segment, not a three-disk intersection; polygonal algorithms and the classical least-area theorem do not provide this constrained optimizer. No claim of global priority or unrestricted optimality is warranted.",
+      "residual_risks": [
+        "Unavailable primary-literature search and full texts do not rule out prior Reuleaux-specific rectangle or square work; in particular an unrestricted theorem proving aligned equality could cover part of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different host and orientation regime on available evidence",
+          "evidence": [
+            "Circular segments, not the width-one Reuleaux triangle."
+          ],
+          "identifier_or_url": "Resultary eb24804c1856",
+          "material_read": "Catalogue statement; targeted Finding retrieval unavailable",
+          "method": "Resultary and local mirror passage lookup",
+          "title": "Two sharp contact transitions for unrestricted maximal rectangles",
+          "trigger": "Closest distinct indexed rectangle/contact theorem"
+        },
+        {
+          "assessment": "Classical host-area background, not an inspected rectangle theorem",
+          "evidence": [
+            "Least-area constant-width body is the cited comparison in the frozen record."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0009137",
+          "material_read": "Frozen bibliography and characterization; targeted OA full text unavailable",
+          "method": "Exact-reference comparison and OA passage request",
+          "title": "A direct proof of a theorem of Blaschke and Lebesgue",
+          "trigger": "Host extremal geometry"
+        },
+        {
+          "assessment": "Polygonal scope, no exact curved specialization verified",
+          "evidence": [
+            "DOI metadata identifies Computational Geometry 124–125, article 102135, 2025 issue; publisher pages were not treated as full text."
+          ],
+          "identifier_or_url": "https://www.academia.edu/48665850/Computing_the_largest_inscribed_isothetic_rectangle; https://doi.org/10.1016/j.comgeo.2024.102135",
+          "material_read": "Cited scopes and publication metadata; full texts inaccessible",
+          "method": "Bibliography, DOI metadata and lawful OA attempts",
+          "title": "Computing the largest inscribed isothetic rectangle; Largest unit rectangles inscribed in a convex polygon",
+          "trigger": "Potential general aligned rectangle algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md §§ Finding, Proof"
+      ],
+      "rationale": "The symmetry class is a canonical restriction in a classical constant-width body. Its exact rectangular capacity, contact pattern and unique off-centroid nonsquare optimizer give a sharp feasible-area benchmark and separate this problem from a centered or square ansatz. This value does not depend on claiming arbitrary-orientation optimality.",
+      "residual_risks": [
+        "No comparative claim about rectangle capacity across all constant-width bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

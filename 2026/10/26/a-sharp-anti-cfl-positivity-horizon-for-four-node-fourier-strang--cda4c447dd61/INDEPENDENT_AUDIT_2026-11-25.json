@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:50:05.660210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inverting the four modes gives the heat weights (A,B,C,B)=((1+2q+q⁴)/4,(1−q⁴)/4,(1−2q+q⁴)/4,(1−q⁴)/4) for q=e^(−t), with row sum one. Only C can be negative for t>0; 4C=(1−q)(1−q−q²−q³) has the asserted simple interior threshold. When C≥0 both heat stages preserve the cube, and the exact scalar flow does as well since its squared denominator minus z² is e^(−2ρ)(1−z²). When t<θ, C<0 and A>A(θ)=q*>1/2. For the impulse e_0 the first heat stage has signs +,+,−,+, all nonzero. Taking the exact reaction flow to its sign limit makes the opposite composition coordinate converge to C+2B−A=1−2A<0; the strict limit ensures failure already at a finite ρ for each such t. For ρ=0 the map is H_(2t) with nonnegative threshold t=θ/2, including equality. Below θ/2 the derivative of the composition at zero is e^ρ H_(2t); its strictly negative opposite component on e_0 gives arbitrarily small failing inputs for each fixed finite ρ. This does not assert the intermediate-regime threshold for each fixed ρ. Independent replay `python3 /workspace/independent_reproduction.py 4` used the full matrix exponential, giving H_(2t)e_0 opposite +0.07419904 but opposite split output −0.08922606 at e^(−t)=0.6 and ρ=log(100), and gives a small-amplitude failure below θ/2. The analytic sign limits, not these finite checks, prove the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 8 Fourier-collocation linear heat record covers asymptotics NT_N→π for even N, not the exact finite nonlinear threshold. The same-day periodic Galerkin record has a heat-only horizon for six nodes and uses a consistent-mass finite-element operator.",
+          "Cai et al. prove an unconditional DMP for a spatial-fractional finite-difference Toeplitz method. Luo et al. analyze continuous-space splitting and use Fourier discretization in experiments."
+        ],
+        "reasoning": "Known linear eventual-positivity theory covers the qualitative heat ray but says nothing about the sharp effect of a strong reaction between half steps. A DMP for a different spatial or splitting operator cannot be substituted for a result at Fourier symbols (0,−1,−4,−1).",
+        "searches": [
+          "four-node Fourier spectral heat kernel positivity threshold four point periodic collocation cubic q+q squared q cubed",
+          "arXiv:2209.08437: Toeplitz; discrete maximum principle",
+          "arXiv:2610.14867v1: maximum principle; Fourier spectral"
+        ]
+      },
+      "checked_sources": [
+        "Li arXiv:2107.09438 Eq. (1.11) and Theorem 1.8",
+        "Luo et al. arXiv:2610.14867v1",
+        "Cai et al. arXiv:2209.08437 pp. 1–2",
+        "Resultary d4274dc28d8b, 66f05a5db76c, 5873e3c165f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li has sufficiently-large-N effective bounds such as 1+O(N^(−1/2)) and positive overshoot examples; neither implies positivity or failure at every specified four-node time.",
+          "Luo's continuum heat semigroup and a 512×512 numerical grid do not imply the exact sign of the four-node opposite entry.",
+          "Even nonnegative H_(2t) cannot replace the two separate positivity tests in a nonlinear composition; the impulse sign-saturation calculation is the missing necessity argument."
+        ],
+        "reasoning": "The all-ρ quantifier is essential: holding ρ=0 gives only the smaller threshold. No inspected source implies the stronger finite-grid iff and the fixed-finite-ρ small-input statement below the half-threshold.",
+        "searches": [
+          "Li arXiv:2107.09438 Theorem 1.8 and Eq. (1.11)",
+          "Luo et al. arXiv:2610.14867v1 Eq. (3), maximum principle discussion, Fourier numerical section",
+          "Resultary d4274dc28d8b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li's map U^(n+1)=S_τ N_τ S_τ U^n uses Fourier collocation and exact cubic reaction, a substantial scheme-level match. Theorem 1.8 gives effective bounds and examples of overshoot, not the four-node uniform nonnegative-cube iff.",
+          "The Nov. 2 indexed bipartite Strang result treats stationary amplitudes, not invariant cubes or Fourier grid propagators."
+        ],
+        "reasoning": "Terminology such as discrete maximum/minimum principle or nodal positivity does not by itself distinguish the objects; the match is assessed at the map and theorem levels. Approximate control of an absolute sup norm does not assert a lower bound of zero for nonnegative input.",
+        "searches": [
+          "four-node Fourier pseudospectral Allen-Cahn Strang heat reaction heat exact positivity threshold all reaction strengths",
+          "Allen-Cahn Strang splitting Fourier collocation maximum principle reaction heat reaction positivity",
+          "Li arXiv:2107.09438: Strang splitting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest linear heat index hits were the Nov. 8 Fourier even-grid asymptotic and same-day Galerkin exact six-node example, both inspected. Neither contains the stated exact four-node all-ρ theorem.",
+          "The focused primary web query produced no useful verified result; it is not negative evidence."
+        ],
+        "reasoning": "The exact cubic belongs to the specified Fourier kernel, while the nonlinear conclusion requires a separate implication for the composition. No exact earlier table was identified in the bounded catalogue and primary comparisons.",
+        "searches": [
+          "four-node Fourier spectral heat kernel positivity threshold four point periodic collocation cubic q+q squared q cubed",
+          "four-node Fourier pseudospectral Allen-Cahn Strang heat reaction heat exact positivity threshold all reaction strengths",
+          "Allen-Cahn Strang splitting maximum principle Fourier pseudospectral positivity exact threshold four-point OR four-node"
+        ]
+      },
+      "rationale": "Li already studies effective maximum principles and counterexamples for the same Fourier-collocation Allen–Cahn Strang scheme. Credit that direct precedent and the prior general phenomenon of eventual linear positivity. The supported distinct claim is the exact four-node nonnegative-cube cutoff uniform over all reaction strengths, with the sharp factor-of-two distinction from the full heat map. Neither the prior effective bound nor the closest indexed linear positivity results supply this exact finite nonlinear classification.",
+      "residual_risks": [
+        "An earlier exact small-grid Fourier-collocation result could remain unindexed or outside the inspected passages.",
+        "Targeted source reading and bounded ranked catalogue searches do not settle exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial scheme and effective maximum-principle precedent; not the exact four-node all-reaction-cutoff claim",
+          "evidence": [
+            "Fourier collocation and exact reaction; large-N approximate bounds and overshoot sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.09438",
+          "material_read": "Eq. (1.11) and Theorem 1.8, PDF pp. 14–15, offsets 50465 and 51817",
+          "method": "OA original PDF search and targeted passages",
+          "title": "Effective maximum principles for spectral methods",
+          "trigger": "Same Fourier-collocation Strang map and maximum-principle question"
+        },
+        {
+          "assessment": "Continuum analysis and numerical Fourier examples, not exact four-node proof",
+          "evidence": [
+            "Uses continuous heat propagator in analysis; numerical mesh includes 512×512."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.14867v1",
+          "material_read": "Eq. (3) offset 6466, maximum principle discussion 27403, Fourier numeric example 62137",
+          "method": "OA original HTML bounded passages",
+          "title": "Stability and Error Estimates with Optimal ε-Dependence for Strang Splitting of the Allen–Cahn Equation",
+          "trigger": "Closely related equation and Fourier numerics"
+        },
+        {
+          "assessment": "Different spatial stencil and different splitting",
+          "evidence": [
+            "Spatial-fractional finite differences produce Toeplitz matrices split into circulant and skew-circulant parts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08437",
+          "material_read": "Method abstract/introduction, pp. 1–2, offsets 973 and 8129",
+          "method": "OA original PDF using Toeplitz and discrete maximum principle as search terms",
+          "title": "A fast two-level Strang splitting method for multi-dimensional spatial fractional Allen-Cahn equations with discrete maximum principle",
+          "trigger": "Unconditional maximum principle for nearby Strang method"
+        },
+        {
+          "assessment": "Later linear heat horizon asymptotics, not finite-N=4 exact nonlinear result",
+          "evidence": [
+            "Even N≥4 and NT_N→π; no reaction or Strang map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp N⁻¹ positivity recovery horizon for Fourier collocation",
+          "trigger": "Closest Fourier heat operator overlap"
+        },
+        {
+          "assessment": "Different spatial operator and purely linear heat; same-day dating does not establish priority",
+          "evidence": [
+            "Consistent-mass periodic finite elements; negativity witness for n≥6, exact linear horizon at n=6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-reentrant-galerkin-heat-kernel-signs-on-periodic-one-dimensional--66f05a5db76c/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Reentrant Galerkin heat-kernel signs on periodic one-dimensional grids",
+          "trigger": "Same-day exact positivity-time result for a different periodic discretization"
+        },
+        {
+          "assessment": "Stationary pattern rather than nodal cube preservation",
+          "evidence": [
+            "Regular bipartite graph stationary amplitudes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-order-dependent-stationary-pattern-bias-for-strang-splitti--5873e3c165f2/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp order-dependent stationary pattern bias for Strang splitting",
+          "trigger": "Related indexed Strang splitting classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-point grid is the first standard periodic Fourier grid with a negative off-diagonal Laplacian entry (two and three nodes are Metzler). The complete cutoff at that minimal size diagnoses a real failure mode: even a nonnegative full heat kernel can give a negative split result after strong pointwise reaction. That quantified distinction is useful for interpreting maximum-principle tests in a canonical spatial discretization; it is not a claim about accuracy, unconditional stability, or positivity between nodes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

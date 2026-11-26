@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:16:02.225702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the replacement, the minimum-norm residual is characterized by its Euler jets at 1 (equivalent to the ordinary jets by a triangular change of basis). Gram positivity and the fixed-dimensional Riemann-sum limit give L^(beta+j) A_(j,L) -> a_j. The interpolating rational function with poles -beta-j and zeros 1 through m-1 gives P(1)=C and P(0)=D from its leading term at infinity and its residue at -beta. On interior compacts the remaining powers k^j are summably dominated after geometric decay. For 0<alpha<1, Dirichlet convergence is uniform since every geometric partial sum is bounded by 2/|1-z|. The frozen proof incorrectly multiplied O(L^(j-alpha)) by O(L^-j) to obtain O(L^-1); the corrected bound O(L^-alpha)=o(1) suffices for every fixed alpha>0. For alpha<=0, multiply by z-1 to isolate the endpoint terms; Abel summation bounds the remaining first-difference series by endpoint first differences and total second variation. Each monomial contributes O(L^(-beta-j) sum_(k=1)^L (k+1)^(beta+j-3)), plus endpoint bounds O(L^(-beta-j)+L^-2). All are o(1/L) for beta+j>1; the beta=1,j=0 term has exactly zero differences. At |z|=1, z!=1 the negative-weight oscillation has nonzero constant modulus after scaling; at -1 the positive-weight coefficient has positive alternating sum, and at alpha=0 the reverse triangle inequality gives m^2-m>0. No numerical certificate is needed; the supplied finite diagnostic was inspected, not run. The corrected proof is replayable in repairs/4/RESULT.md. The limits require fixed m, alpha, and positive separation from z=1 for closed-disk estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier simple-root convergence statements in BMS do not allow multiplicity m>=2; Section 7 handles repeated roots for coefficients and squared norm and expressly leaves uniform closed-disk convergence on off-root compacts for future work."
+        ],
+        "reasoning": "A simple-zero result cannot be specialized by merging nodes without estimates uniform in their separation. A squared-norm rate at multiplicity m does not supply a pointwise boundary profile.",
+        "searches": [
+          "arXiv:1901.00694, Theorems 1.8, 6.1, 7.1, 7.3 and discussion after Corollary 7.4",
+          "Resultary: weighted optimal approximants and repeated-root closed-disk asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.00694",
+        "SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee",
+        "SCOPE-local-inverse-gram-law-and-joint-optimality-for-weighted-cantor--c4b6bb480af4",
+        "Resultary exact and related-claim searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BMS supplies the exact Gramian and scaling premises. Its norm equals the first residual coefficient and supplies D. Evaluating the limiting Cauchy inverse also yields the terminal constant; obtaining a uniform closed-disk expansion still requires different summation estimates on either side of alpha=0.",
+          "The Hardy antecedent has at least two distinct boundary nodes and no nonzero-weight parameter."
+        ],
+        "reasoning": "The known results provide the starting point and some constants. Neither the Hardy result nor a coefficient or norm identity alone asserts the weighted closed-disk profiles; it is the regime-dependent boundary analysis that survives as the distinct contribution.",
+        "searches": [
+          "arXiv:1901.00694, Theorems 7.1 and 7.3",
+          "SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee, RESULT.md statement and hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BMS Theorem 7.1 equations (35)–(37) gives the equivalent finite weighted Fourier sum of a moment polynomial.",
+          "The Legendre formula for the Hardy mixed-multiplicity coefficient law gives Q_m(0)=m^2 and Q_m(1)=(-1)^(m-1)m for its single-node term."
+        ],
+        "reasoning": "The equivalent question is uniform endpoint expansion of that finite weighted Fourier sum. The Legendre match explains the Hardy endpoint constants but its stated theorem assumes at least two distinct nodes and only alpha=0. It neither states the singleton theorem on that domain nor has either non-Hardy weight.",
+        "searches": [
+          "Resultary: repeated disk-boundary zero, optimal polynomial approximant residual, weighted inverse moment Gramian and boundary profile",
+          "arXiv:1901.00694, Section 7",
+          "SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record. The distinct inverse-Gram match on the same date treats Cantor Fourier towers and atom variances. BMS Theorem 7.3 does give the exact initial coefficient asymptotic constant 1/(beta B(m,beta)^2)=D_(beta,m)."
+        ],
+        "reasoning": "The checked constant is already known and is expressly credited; the finding is a uniform limit with a continuous weight parameter, not a table of coefficients or constants. No distinct same-claim entry appeared in the checked results.",
+        "searches": [
+          "Resultary: three-regime boundary leakage for optimal inversion at a repeated disk-boundary zero",
+          "SCOPE-local-inverse-gram-law-and-joint-optimality-for-weighted-cantor--c4b6bb480af4",
+          "arXiv:1901.00694, Theorem 7.3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the three-regime off-root asymptotics, not the finite moment formula, the initial coefficient constant, or Legendre endpoint identities in the Hardy setting. The precise uniform non-Hardy limits require oscillatory-sum estimates not supplied by known norm or moment asymptotics.",
+      "residual_risks": [
+        "Not a priority guarantee: equivalent confluent Christoffel-kernel or finite Fourier endpoint expansions may occur under other terminology.",
+        "Primary-literature search coverage beyond the leading source was limited; unavailable or deferred results are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact coefficient formula and initial coefficient asymptotic, not the claimed uniform profiles",
+          "evidence": [
+            "Equations (35)–(37) and A_(1,n) asymptotic; repeated-root uniform off-root convergence left for later work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.00694",
+          "material_read": "Section 7, Theorem 7.1 pp. 22–23, Theorem 7.3 pp. 24–26, post-Corollary 7.4 discussion p. 27",
+          "method": "OA primary text, targeted theorem and discussion inspection",
+          "title": "Boundary behavior of optimal polynomial approximants",
+          "trigger": "Same repeated boundary root and coefficient weights"
+        },
+        {
+          "assessment": "Material Hardy overlap, but distinct-node theorem excludes the singleton and non-Hardy weights",
+          "evidence": [
+            "s>=2; coefficient profile K a_(n,k)=sum_j conjugate(zeta_j)^k Q_(m_j)(k/K)+O_f(1/K)."
+          ],
+          "identifier_or_url": "SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee",
+          "material_read": "Mirrored RESULT.md, hypotheses and Legendre coefficient statement (near offset 467)",
+          "method": "Resultary match and targeted local mirror passage",
+          "title": "Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants",
+          "trigger": "Potentially dominating Hardy coefficient theorem"
+        },
+        {
+          "assessment": "Different objects and conclusions on the indexed statement, not dismissed for its date",
+          "evidence": [
+            "Weighted Cantor Fourier towers and atom variances, not disk residual Fourier sums with confluent jets."
+          ],
+          "identifier_or_url": "SCOPE-local-inverse-gram-law-and-joint-optimality-for-weighted-cantor--c4b6bb480af4",
+          "material_read": "Indexed statement summary",
+          "method": "Resultary similarity lookup",
+          "title": "Local inverse-Gram law and joint optimality for weighted Cantor towers",
+          "trigger": "Distinct same-date inverse-Gram search match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a stated off-root boundary-uniformity gap for a canonical repeated-root factor, quantifying the dominant endpoint and sharp decay order. Comparing boundary leakage with faster interior decay at negative weights and isolating the Hardy transition provide information missing from norm convergence. No general multiple-root-location or moving-parameter conclusion is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:04:33.391176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen claim is exactly nine finite prefixes, with b(0)=1, zero-based indices, and maximal zero runs in the ordinary expansion. In an independent bitmask reconstruction (python3 /workspace/branches/audit_attractors.py), the digit test counted gaps between successive set bits, including trailing zeros, and each occurrence contributed its occupied positions to one union mask for its contiguous factor. Each factor mask intersected the supplied attractor mask. Distinct factor totals by length were 2, 8, 26, 97, 410, 1661, 6744, 27145, 108896. Every listed dual factor was distinct and in bounds; the maximum integer half-unit load at each length was 2. Total half-units were 2, 4, 4, 6, 10, 11, 14, 16, 18. Any attractor intersects every union at least once, so summed dual mass is bounded above by the sum of loads on selected positions, divided by 2, which is at most the attractor size. Ceilings give exactly 1,2,2,3,5,6,7,8,9, matching the upper witnesses. RESULT.md, the verification note, the full certificate data and the deposited verifier were inspected; the latter was not executed. No larger prefix or asymptotic formula follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit give automatic-sequence decidability, witness extraction and an asymptotic dichotomy, with exact prefix results for other words",
+          "Gheeraert–Romana–Stipulanti's prefix construction is for particular parameterized morphisms related to k-bonacci/simple Parry systems"
+        ],
+        "reasoning": "A general algorithm with the Baum–Sweet word as input permits the computation, but does not state or imply an exact table without evaluating the word-specific hitting constraints. The asymptotic alternatives cannot fix any of these nine constants; no same-word specialization of the simple-Parry result was shown.",
+        "searches": [
+          "Literature: \"Baum-Sweet\" \"string attractor\" dyadic prefix sizes attractors",
+          "arXiv:2012.06840 pp. 2–5 and §8",
+          "arXiv:2302.13647 Thm. 23"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, baum_sweet_certificate.json and baum_sweet_verify.py",
+        "arXiv:1507.03361, 2012.06840 and 2302.13647",
+        "Resultary 0653545412cc, 0753f1e5db42, 66657d398469 and 2c61a76cacaf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior dyadic formulas are U(2^m)=F_(m+2)−2 and the abelian-complexity value F_(k+2)+1",
+          "General prefix algorithms need the actual sequence-specific testing or optimization"
+        ],
+        "reasoning": "Neither scattered-subsequence existence nor a count of distinct Parikh vectors supplies the occurrence unions needed to prove a hitting-set lower bound or verify an upper witness. The word-specific upper and half-integral dual certificates supply new exact conclusions beyond these antecedents.",
+        "searches": [
+          "0653545412cc and 0753f1e5db42, Findings at offset 0",
+          "arXiv:2012.06840 Theorems 1–2 and §8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same word is specified by a_0=1, a_(2n+1)=a_n, a_(4n)=a_n and a_(4n+2)=0",
+          "Schaeffer–Shallit arXiv:2012.06840 Theorems 1–2 use the minimum prefix string attractor"
+        ],
+        "reasoning": "These recurrences preserve the parity-of-maximal-zero-runs convention (appending 1 closes the last run; appending 00 preserves parity; appending 10 forces an odd last run). A change between 0- and 1-based positions cannot change cardinality. Contiguous factor coverage is not scattered-subsequence universality or abelian complexity.",
+        "searches": [
+          "Resultary: Baum-Sweet string attractor dyadic prefix gamma attractor size",
+          "Dreyfus–Hardouin–Roques arXiv:1507.03361 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0653545412cc has subsequence universality at the same cutoff; 0753f1e5db42 counts Parikh vectors at dyadic factor lengths",
+          "2c61a76cacaf reports exact dyadic attractor sizes 10,11,12,12 for Rudin–Shapiro at lengths 128,256,512,1024"
+        ],
+        "reasoning": "These are distinct records and none tabulates this invariant for the same word. A bounded query without a matching exact table is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: Exact dyadic string-attractor profile of the Baum-Sweet word through length 512",
+          "Resultary: Baum Sweet scattered-subsequence universality Fibonacci growth dyadic prefixes",
+          "Resultary local mirror: 0653545412cc, 0753f1e5db42, 2c61a76cacaf"
+        ]
+      },
+      "rationale": "No earlier same-word exact attractor profile, or theorem implying these nine values without new problem-specific computation, was established in the bounded comparisons. Same-word indexed results optimize different statistics; the closest exact same-measure indexed result uses a different word. This is a judgment about the nine certified values only, not a priority or novel-method claim.",
+      "residual_risks": [
+        "The 1976 original article was not successfully retrieved; the word convention was checked against the later explicit recurrences instead.",
+        "A prior unindexed calculation or computation under another sequence alias remains possible. This is not exhaustive publication-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME WORD, DIFFERENT RESULT",
+          "evidence": "Same initial value and digit recurrences; algebraic independence of generating functions and derivatives, not attractors.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.03361",
+          "material_read": "§4.2 pp. 23–24, Thm. 4.3",
+          "method": "OA PDF text, offset 86400",
+          "title": "Hypertranscendence of solutions of Mahler equations",
+          "trigger": "same-word notation and possible implication"
+        },
+        {
+          "assessment": "GENERAL METHOD, DIFFERENT EXACT SPECIALIZATIONS",
+          "evidence": "Automatic decisions and witness extraction; exact period-doubling and Thue–Morse statements do not supply the Baum–Sweet values.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+          "material_read": "Theorems 1–2 pp. 2–3, Thm. 3 p. 4, Thm. 5 p. 5, §8 p. 12",
+          "method": "OA PDF text",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "general automatic-sequence coverage or exact tables"
+        },
+        {
+          "assessment": "DIFFERENT FAMILY IN INSPECTED STATEMENTS",
+          "evidence": "Explicit position constructions under morphism parameter restrictions, not a Baum–Sweet minimum profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13647",
+          "material_read": "Abstract and introduction; Theorem 23 p. 11",
+          "method": "OA PDF text",
+          "title": "String attractors of some simple-Parry automatic sequences",
+          "trigger": "possibly broader morphic prefix results"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT",
+          "evidence": "Subsequences are allowed to skip positions.",
+          "identifier_or_url": "0653545412cc",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact scattered-subsequence universality and Fibonacci growth of Baum–Sweet prefixes",
+          "trigger": "same word and dyadic prefixes"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT",
+          "evidence": "Parikh vectors forget factor order and occurrence positions.",
+          "identifier_or_url": "0753f1e5db42",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact dyadic abelian complexity and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "same word and exact dyadic factor statistic"
+        },
+        {
+          "assessment": "DIFFERENT WORD",
+          "evidence": "Exact cardinalities for Rudin–Shapiro, not Baum–Sweet.",
+          "identifier_or_url": "2c61a76cacaf",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact dyadic Rudin–Shapiro string-attractor sizes through length 1024",
+          "trigger": "same finite attractor problem at dyadic cutoffs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a useful finite exact benchmark for an established complexity invariant on a classical automatic word. Powers of two are natural levels of the word's digit-length and length-doubling structure, not arbitrary sampled positions. The contiguous prefix range spans the small plateau, the jump from 3 to 5, and the five tested levels of equality with m; general decidability does not tell where those features occur. Matching certificates make the precise cutoff values usable for checking automatic or morphic constructions, in particular the six-position minimum at 64 certified by rounding up 11/2. This value does not depend on extrapolating a law past 512.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

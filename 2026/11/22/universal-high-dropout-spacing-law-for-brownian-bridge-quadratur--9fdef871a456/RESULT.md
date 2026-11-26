@@ -1,81 +1,48 @@
 # Universal high-dropout spacing law for Brownian-bridge quadrature
 
 ## Finding
-Let \(n\ge 2\) be fixed, let \(B\) be a standard zero-to-zero Brownian bridge on \([0,1]\), and let \(J=\int_0^1 B(t)\,dt\). Place \(n\) noiseless point sensors at deterministic ordered locations \(0\le x_1\le\cdots\le x_n\le1\). Each sensor independently returns its value with probability \(r=1-q\in(0,1)\), and its success/failure indicator is observed. Estimation uses the conditional mean of \(J\) from all returned values.
 
-For every \(n\ge2\) and \(0<q<1\), the expected Bayes mean-square error has a **unique minimizer among ordered placements** \(x^*(q)\), which is reflection-symmetric. In the high-failure limit \(r\downarrow0\), its nodes obey the *universal, equally spaced microscopic law*
-\[
-\boxed{\displaystyle x_i^*(1-r)=\frac12+\frac{r}{8}(2i-n-1)+o(r),\qquad i=1,\ldots,n.}
-\]
-In particular, every node converges to the midpoint, but adjacent optimal nodes separate by \(r/4+o(r)\), not by a smaller order.
+Fix an integer \(n\ge3\). Let \(B\) be a standard Brownian bridge from zero to zero on \([0,1]\), and put \(J=\int_0^1B(t)\,dt\). Place \(n\) noiseless sensors at deterministic ordered locations \(0\le x_1\le\cdots\le x_n\le1\). Each readout is returned with probability \(r=1-q\in(0,1)\), independently of the other readouts and the bridge. The returned values and the availability indicators are observed, and the estimator of \(J\) is its conditional mean.
 
-For \(n=2\) the unique optimal positions are exactly \(\tfrac12\mp d(q)\), where
+The expected squared error has a **unique minimizer among ordered placements** for each \(0<r<1\), and the minimizing design is reflection-symmetric. At fixed \(n\) the minimizing locations satisfy, as \(r\downarrow0\),
 \[
-\boxed{\displaystyle d(q)=\frac{\sqrt{(1+q)^2+3(1-q)^2}-(1+q)}{6(1-q)},\qquad 0\le q<1.}
+x_i^*(1-r)=\frac12+\frac{r}{8}(2i-n-1)+o_n(r),\qquad 1\le i\le n.
 \]
-Thus the two nodes remain strictly distinct at *every* positive survival probability; at \(q=0\) they are \(1/3,2/3\), while \(d(q)/(1-q)\to1/8\) as \(q\uparrow1\).
+Adjacent optimal locations thus separate by \(r/4+o_n(r)\); the design does not collapse to exact midpoint replication at high dropout.
 
 ## Assumptions and scope
-The Brownian bridge has covariance \(K(s,t)=\min(s,t)-st\), including known zero endpoint values. The sensor failures are mutually independent, independent of the bridge, and exchangeable. All successful observations are exact; the observer knows which measurements were lost. For each \(q\), the ordered positions may be selected in the closed simplex \(0\le x_1\le\cdots\le x_n\le1\), allowing coincident nodes. The claim is about expected *integral-estimation posterior variance*, not prediction of the entire path, mutual information, or worst-case geometric sensor coverage. The asymptotic holds with fixed finite \(n\), not in a simultaneous large-network limit.
+
+The covariance of the bridge is \(K(s,t)=\min(s,t)-st\); the two endpoint values are known exactly. Coincident candidate locations are allowed and successful readouts there give the same bridge value. The objective is the variance of the error in estimating the single integral, not the integral of the pointwise reconstruction variances. Sensors are selected before seeing the bridge or any availability indicators.
 
 ## Proof
-**1. Conditional bridge decomposition.** For a subset \(S=\{i_1<\cdots<i_k\}\) of surviving sensors, write \(t_0=0\), \(t_j=x_{i_j}\) for \(1\le j\le k\), and \(t_{k+1}=1\). Conditionally on the returned bridge values, the residual centered bridges on the disjoint gaps \([t_j,t_{j+1}]\) are independent. The integral of a Brownian bridge over a gap of length \(h\) has conditional variance \(h^3/12\), by covariance integration. The same formula holds by continuity when locations collide. Therefore the exact Bayes risk is
-\[
-R_q(x)=\frac1{12}\sum_{S\subseteq\{1,\ldots,n\}}(1-q)^{|S|}q^{n-|S|}\sum_{j=0}^{|S|}(t_{j+1}-t_j)^3.\tag{1}
-\]
-The empty-subset contribution is \(q^n/12\). This is an exact finite polynomial, not a Monte Carlo approximation.
 
-**2. Existence, strict convexity, and symmetry.** Each gap length in (1) is a nonnegative affine function of an ordered \(x\). The function \(u\mapsto u^3\) is strictly convex on \([0,\infty)\). Consequently every subset's cost is convex. The all-surviving subset has positive weight \((1-q)^n\), and its \(n+1\) gap lengths uniquely determine the full ordered position vector. Its sum of cubes is strictly convex on the entire closed ordered simplex. Thus \(R_q\) is strictly convex and continuous, so it has exactly one ordered global minimizer. Reflection \(x_i\mapsto1-x_{n+1-i}\) preserves (1); uniqueness forces \(x_i^*=1-x_{n+1-i}^*\).
+**Conditional risk.** In a realized survivor set \(S=\{i_1<\cdots<i_k\}\), put \(t_0=0\), \(t_j=x_{i_j}\) for \(1\le j\le k\), and \(t_{k+1}=1\). Conditionally on the exact returned values, the centered residuals on nonzero gaps are independent Brownian bridges. On a gap of length \(h\), the integral has variance \(h^3/12\), by rescaling the unit-interval covariance and integrating it twice. A repeated site adds only a gap of length zero and no information. Thus the expected risk is
+\[
+ R_q(x)=\frac1{12}\sum_{S\subseteq\{1,\ldots,n\}}r^{|S|}q^{n-|S|}\sum_{j=0}^{|S|}(t_{j+1}-t_j)^3.
+\]
 
-**3. Concentration at the midpoint with a linear scale.** Write \(r=1-q\), \(m=(1/2,\ldots,1/2)\), and \(\delta_i=x_i-1/2\). With exactly one surviving sensor at \(t\), direct conditioning gives
-\[
-V_1(t)=\frac1{12}-\frac{t(1-t)}4=\frac1{48}+\frac{(t-1/2)^2}{4}.
-\]
-For any fixed surviving subset, its cost in (1) is Lipschitz in each active location with one-sided derivative bounded in absolute value by \(1/4\) on the ordered simplex (the derivative is the difference of the squares of adjacent gaps, divided by \(4\)). Therefore, for any ordered \(x\), the contribution of subsets with at least two survivors to \(R_q(x)-R_q(m)\) is bounded below by
-\[
--\frac{r(1-q^{n-1})}{4}\sum_i|\delta_i|\ge -\frac{(n-1)r^2}{4}\sum_i|\delta_i|.
-\]
-The singleton contributions are exactly \(rq^{n-1}\sum_i\delta_i^2/4\). Since \(R_q(x^*)\le R_q(m)\), Cauchy--Schwarz yields
-\[
-\bigl(\sum_i\delta_i^2\bigr)^{1/2}\le \frac{(n-1)\sqrt n\,r}{q^{n-1}}
-\]
-for the minimizer whenever \(0<r<1\). Hence \(x_i^*=1/2+O_n(r)\).
+**Uniqueness and symmetry.** The convexity of the cube on the nonnegative half-line makes each survivor-set contribution convex on the ordered simplex. When all sensors survive, the vector of affine gap lengths determines \(x\) uniquely, and at least one gap changes between any two distinct placements. The cube is strictly convex even when one argument is zero. This event has weight \(r^n>0\), so the full continuous objective is strictly convex on the compact simplex and has a unique minimizer. Reflection \(x_i\mapsto1-x_{n+1-i}\) preserves the risk and hence preserves this minimizer.
 
-**4. The limiting convex energy and its unique optimizer.** Put \(x_i=1/2+r y_i\), where \(y_1\le\cdots\le y_n\) are bounded. Expanding (1) by the number of surviving sensors gives, uniformly for bounded ordered \(y\),
+**Localization on the scale \(r\).** Write \(m=(1/2,\ldots,1/2)\), \(\delta=x-m\). With a single survivor at \(t=1/2+d\), the conditional variance is \(1/48+d^2/4\). For any survivor set, the change in risk along the segment from \(m\) to \(x\) has absolute value at most \(\tfrac14\sum_{i\in S}|\delta_i|\): the derivative at an active site is the difference of the squares of its adjacent gaps divided by four. The probability of retaining a specified site and at least one other site is \(r(1-q^{n-1})\le(n-1)r^2\). Therefore
 \[
-R_{1-r}(m+ry)-R_{1-r}(m)
-=r^3\left[\frac14\sum_{i=1}^n y_i^2-\frac1{16}\sum_{i<j}(y_j-y_i)\right]+O_{n,\|y\|_\infty}(r^4).\tag{2}
+R_q(x)-R_q(m)\ge\frac{r q^{n-1}}4\|\delta\|_2^2-\frac{(n-1)r^2}4\|\delta\|_1.
 \]
-Indeed one surviving sensor produces the positive quadratic term; for a given pair \(i<j\), the gap-cube formula gives \(V_{\{i,j\}}(m+ry)=1/48-r(y_j-y_i)/16+O(r^2)\), producing the attractive-to-spread term. Events with at least three survivors have probability \(O_n(r^3)\) and alter the co-located variance by \(O_n(r)\), so affect only the remainder.
+At a minimizer the left side is nonpositive, giving \(\|x^*-m\|_2\le(n-1)\sqrt n\,r/q^{n-1}\). This includes the case \(x^*=m\), and proves the required fixed-size scale bound.
 
-The bracketed function \(G_n(y)\) in (2) is strictly convex. Using \(\sum_{i<j}(y_j-y_i)=\sum_i(2i-n-1)y_i\), its unique unconstrained minimizer is
+**Limiting design.** Put \(x=m+ry\) with bounded ordered \(y\). For a surviving pair \(i<j\), the two exterior gaps are \(1/2+ry_i\) and \(1/2-ry_j\), and the middle gap is \(r(y_j-y_i)\). The sum of their cubes divided by twelve differs from its midpoint value by \(-r(y_j-y_i)/16+O(r^2)\). A singleton contributes \(r^2y_i^2/4\) before weighting by its survival-pattern probability; events with at least three survivors have total probability \(O_n(r^3)\) and change their conditional variance by \(O_n(r)\) for bounded \(y\). It follows that uniformly on bounded ordered sets,
 \[
-y_i^0=\frac{2i-n-1}{8},\qquad y_{i+1}^0-y_i^0=\frac14>0.
+r^{-3}(R_{1-r}(m+ry)-R_{1-r}(m))
+=G(y)+O_{n,\|y\|_\infty}(r),\qquad
+G(y)=\frac14\sum_i y_i^2-\frac1{16}\sum_{i<j}(y_j-y_i).
 \]
-Thus it is admissible in the ordered cone. The scale bound in step 3 makes the rescaled optimizers bounded. Every convergent subsequence must minimize \(G_n\) by the uniform expansion and comparison with arbitrary fixed ordered \(y\). Uniqueness gives \((x_i^*-1/2)/r\to y_i^0\) for each \(i\). This proves the universal asymptotic and strictly separated nodes for all sufficiently small \(r>0\).
+The last sum is \(\sum_i(2i-n-1)y_i\). Completing the square gives the unique optimizer \(y_i^0=(2i-n-1)/8\), already strictly ordered and feasible after rescaling for small enough \(r\). The rescaled true optimizers are bounded by the scale estimate. Comparison with the trial vector \(y^0\) and uniform convergence on bounded sets imply that every subsequential limit minimizes \(G\). Hence the rescaled optimizers converge to \(y^0\), proving the law.
 
-**5. Exact two-sensor formula.** For \(n=2\), reflection forces the unique optimizer to be \(x_1=1/2-d\), \(x_2=1/2+d\), \(0\le d\le1/2\). The risk is
-\[
-R_q(d)=\frac{q^2}{12}+q(1-q)\left(\frac1{24}+\frac{d^2}{2}\right)+(1-q)^2\left(\frac1{48}-\frac d8+\frac{d^2}{4}+\frac{d^3}{2}\right).
-\]
-Its derivative vanishes precisely when \(12(1-q)d^2+4(1+q)d-(1-q)=0\). The polynomial is strictly increasing on nonnegative \(d\), negative at zero and positive at \(d=1/2\), so exactly one minimizer occurs in \((0,1/2)\). The positive quadratic root is the stated \(d(q)\). The limits follow by substitution and rationalization.
+## Verification and limits
 
-## Verification
-A standalone script `verify_dropout.py` recomputes all conditional-variance identities, exact two-node stationarity equations, the fixed-size high-dropout expansions, and numerical minimizers for several small values of \(n\) and \(r\). Its finite tests are auxiliary reproducibility checks, not substitutes for the convexity and asymptotic proof above. The direct covariance-based variance calculation uses \(\operatorname{Var}(J)=1/12\), \(\operatorname{Cov}(J,B_t)=t(1-t)/2\), and \(\operatorname{Cov}(B_s,B_t)=\min(s,t)-st\).
+The analytic argument covers every fixed \(n\ge3\); there is no joint large-\(n\), small-\(r\) claim or exact intermediate-dropout formula. The accompanying `verify_dropout.py` uses NumPy and SciPy for finite comparisons of conditional variances and small-network designs. It also checks the overlapping two-site formula as a separate reference case. A comparison of finite cases is not the proof of uniqueness or of the limiting expansion. The result does not cover noisy returned values, process-dependent losses, other kernels or adaptive sampling.
 
 ## Relationship to prior work
-Friedrich--Gallon--Pumir--Grauer [1] develop multipoint Brownian/fractional-Brownian interpolation for prescribed, nonuniform known samples, without a random-loss design theorem. Pronzato--Zhigljavsky [2] develop Bayesian quadrature and kernel-energy design in general, but do not give a failure-aware Brownian-bridge high-dropout spacing law. Santin [3] establishes equal spacing for a no-failure Brownian-bridge interpolation power-function criterion, distinct from the expected integral variance here. Krause--Singh--Guestrin [4] study robust mutual-information sensor selection under node failure, not this continuous-node Bayes integral risk. Frasca--Garin--Gerencsér--Hendrickx [5] study the same independent-failure mechanism with a *maximum-distance coverage loss*: their optimal sensors co-locate at the midpoint for all sufficiently high failure rates. The present integral-risk objective instead has an explicit nonzero \((1-q)/4\) asymptotic adjacent spacing, and a completely explicit two-node solution. These objective differences prevent implication from the cited theorems. Publication-priority assessment is provisional.
 
-## Limitations
-No result is claimed for noisy surviving values, failures depending on the bridge, other kernels or path functionals, adaptive location choice, or a joint \(n\to\infty\), \(q\to1\) limit. For general fixed \(n\), the exact optimal positions at intermediate failure probabilities are characterized uniquely by a finite strictly convex objective but not given in closed form. Finite numerical experiments do not establish the asymptotics. The literature comparison may miss older or unpublished exact specializations; no independent validation has been performed.
+The independent-delivery two-site solution is a specialization of [*Exact two-sensor Brownian-bridge quadrature under correlated observation erasures*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-sensor-brownian-bridge-quadrature-under-correlated-obs--47f6c01bcecf/RESULT.md), with marginal delivery \(p=r\) and joint delivery \(q=r^2\) in that result's notation. It is not part of the contribution here. [*Exact optimal sampling for Brownian-bridge path reconstruction with independent observation erasures*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-optimal-sampling-for-brownian-bridge-path-reconstruction-w--849744f935dc/RESULT.md) instead minimizes an expected sum of **squared** gaps, from the integral of pointwise posterior variances. Its optimal first-order spacing is \(r/2\), not the \(r/4\) obtained here from cubed gaps.
 
-## References
-[1] J. Friedrich, S. Gallon, A. Pumir, R. Grauer, *Stochastic interpolation of sparsely sampled time series via multi-point fractional Brownian bridges*, arXiv:2005.07591, initially public 2020-05-15. https://arxiv.org/abs/2005.07591
-
-[2] L. Pronzato, A. Zhigljavsky, *Bayesian quadrature and energy minimization for space-filling design*, arXiv:1808.10722 (2018); later SIAM/ASA Journal on Uncertainty Quantification (2020). https://arxiv.org/abs/1808.10722
-
-[3] G. Santin, *Equally spaced points are optimal for Brownian Bridge kernel interpolation*, arXiv:2210.15959 (2022). https://arxiv.org/abs/2210.15959
-
-[4] A. Krause, A. Singh, C. Guestrin, *Near-optimal sensor placements in Gaussian processes: theory, efficient algorithms and empirical studies*, JMLR 9 (2008), §6. https://jmlr.org/papers/v9/krause08a.html
-
-[5] P. Frasca, F. Garin, B. Gerencsér, J. M. Hendrickx, *Optimal one-dimensional coverage by unreliable sensors*, arXiv:1404.7711, §5 (2014). https://arxiv.org/abs/1404.7711
+The same cubic-gap risk can be expressed as the expected integral of squared distance to the nearest delivered site or known endpoint. The criterion in Frasca, Garin, Gerencsér and Hendrickx, [*Optimal one-dimensional coverage by unreliable sensors*](https://arxiv.org/abs/1404.7711), is instead an expected maximum distance and yields exact midpoint co-location at high failure. Santin, [*Equally spaced points are optimal for Brownian Bridge kernel interpolation*](https://arxiv.org/abs/2210.15959), studies a deterministic interpolation error criterion, not erasure-averaged integral variance. These comparisons do not establish historical priority.

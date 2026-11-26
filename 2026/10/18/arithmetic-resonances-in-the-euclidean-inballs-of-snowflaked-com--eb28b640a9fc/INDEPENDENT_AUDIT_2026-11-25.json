@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:16.170410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–63",
+        "VERIFICATION.md lines 19–23 and frozen verify_inball.py (inspected, not executed)",
+        "OPENBLAS_NUM_THREADS=1 python3 /workspace/reviews/reproduce.py 4; /workspace/reviews/reproduction-4.txt"
+      ],
+      "rationale": "At a dual vertex the tight-edge graph must be connected: a disconnected component permits a signed slack perturbation after recentering, whereas tight increments determine a connected potential modulo constants. With an A-range of t, feasible B-values lie in [t−1,1] and only the respective extreme levels can have tight incidences; the other split is its transpose. Otherwise same-part differences along tight cross paths are even integers of modulus less than 2, giving just the constant-on-part pair. Centering the split potentials subtracts S²/(2m) from the sum of squares tS−m(t−1); completing the square gives (4). For odd m the profile ((m−1)/2,(m+1)/2) gives error t−1; for even m the central profile gives error zero. Hence split maximizers strictly exceed the constant-on-part normals. Opposite maximal-length normals bound any ball radius, and equality for the centered ball occurs exactly on the maximizing facets. The proof's phrase 'attains equality for every facet' should be read as attaining the upper bound and satisfying every constraint, with tightness only at these facets; the contact formula uses the correct criterion. Optimal centers lie in the common orthogonal complement of the contact normals, and finite strict slack ensures a neighborhood of zero in that complement. Transposition and within-part swaps span both within-part zero-sum spaces. The remaining contrast component is absent exactly in the stated even central-profile case; equal part means in odd size would give error at least t rather than at most t−1. The arithmetic examples, including 88 versus 72 contacts, follow from the indicated profiles.",
+      "residual_risks": [
+        "The independent enumeration is exact at seven bounded rational configurations (including exact elimination for ranks); integral pinned potentials after rescaling follow by tight-edge connectivity. The general real-t statement rests on the proof, not finite cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e855a74da4ce covers even unequal part sizes for facet types and counts; 965c042deea2 concerns k≥3 unweighted parts; f216472d2eb4 and Theorem 3.1/Proposition 3.4 of arXiv:1807.07678 concern the t=2 graph endpoint."
+        ],
+        "reasoning": "The prior dual vertex classification supplies inputs but not which Euclidean normals maximize length or how they span. The unweighted endpoint changes tight cross paths and allowed same-part values, so the interior arithmetic criterion is not an endpoint specialization.",
+        "searches": [
+          "Resultary e855a74da4ce, 965c042deea2, f216472d2eb4; arXiv:1807.07678, arXiv:1911.10642"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: c54ce6d9e533, e855a74da4ce, f216472d2eb4, 965c042deea2 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4); attempted 6a4ae3f39c96",
+        "arXiv:1807.07678; arXiv:1911.10642"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior type description lacks the centered squared-norm completion and the span of maximizing profiles; the even theorem uses a=b=m/2 with zero error and adds a segment-width law not claimed here."
+        ],
+        "reasoning": "Known vertices plus the general polar-distance formula permit the computation but do not state the minimizing profile condition or establish the center degeneracy. The odd-size proof uses a strict gap at any equal-means candidate, not an even substitution or a table lookup.",
+        "searches": [
+          "e855a74da4ce Interior regime; c54ce6d9e533 Finding and Relationship to prior work; arXiv:1807.07678 pp. 6–7; IDs f216472d2eb4 and 965c042deea2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c54ce6d9e533 Finding: same H and 1<t<2; even m=2h; same radius and exact arithmetic contact/center transition, including m=4 at t=4/3."
+        ],
+        "reasoning": "With a=h+u and b=h−v the zero-error condition is t=2v/(u+v); the opposite profile complements both selections, giving the extra factor of two in the contact formula. This is exact even-size equivalence. The even-size theorem cannot capture the odd-size minimization with positive defect or its odd-size contact weights.",
+        "searches": [
+          "Resultary balanced bipartite snowflake transportation inradius, Euclidean incenter, contact-facet resonance; c54ce6d9e533",
+          "Primary literature search for Euclidean inradius and facet-normal contacts of snowflaked complete-bipartite transportation or Lipschitz-free balls"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c54ce6d9e533 gives exact even-size formulae; e855a74da4ce gives total facets, not nearest facets. No exact comparison from 6a4ae3f39c96 could be made from the available record or cited link."
+        ],
+        "reasoning": "The catalogue is the meaningful exact check here; an unparameterized count table cannot certify an extremal profile or a center space for real t. Neither a total number of facets nor even-size data yields the odd-size Euclidean invariant.",
+        "searches": [
+          "Resultary exact Euclidean inradius, contact-facet count and tangent-facet phase of complete multipartite symmetric edge polytopes; IDs e855a74da4ce, 6a4ae3f39c96, c54ce6d9e533."
+        ]
+      },
+      "rationale": "The all-size nearest-profile theorem has a distinct odd-size contribution: nonzero Diophantine defects change the radius and contact profiles, the quadratic bound is attained at specific rational parameters, and the center remains unique. Credit the complete prior facet-normal types and the exact separate catalogue coverage of the even-size radius, contact and affine-dimension conclusions. The verdict is on the all-size result with its odd-size arithmetic, not a separate claim of novelty for those even conclusions, the vertex classification, or the endpoint. Archive dates do not on their own resolve priority.",
+      "residual_risks": [
+        "The plausible reference 6a4ae3f39c96 remains unavailable after citation and catalogue retrieval attempts. There is no inferred negative coverage from this gap.",
+        "Review confirms distinct content relative to compared statements, not exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage for even m; extra width result; no odd-size theory in the stated scope",
+          "evidence": [
+            "R²=m[t²+(2−t)²]/4; t=2v/(u+v), with 1≤u<v≤m/2; center dimension 0 precisely at these t."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-arithmetic-resonance-of-euclidean-incenters-in-balanced-bipartit--c54ce6d9e533/RESULT.md",
+          "material_read": "Finding and proof steps 2–4 (offsets 0–9453); Relationship to prior work at 10661",
+          "method": "Local mirror of published record",
+          "title": "Arithmetic resonance of Euclidean incenters in balanced bipartite snowflake free spaces",
+          "trigger": "Strong apparent exact overlap at identical metrics and embedding"
+        },
+        {
+          "assessment": "Covers facet normal types and total counts, not the target extremal Euclidean conclusions in the inspected material",
+          "evidence": [
+            "Tight-edge criterion and both split-potential families for 1<t<2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce/RESULT.md",
+          "material_read": "Finding and proof's Interior regime (offsets 0–5149)",
+          "method": "Local mirror of published record",
+          "title": "Sharp facet-count transitions for snowflaked complete bipartite metrics",
+          "trigger": "Named strict-interior facet classification"
+        },
+        {
+          "assessment": "Unresolved, not evidence of absence or scientific reason for failure",
+          "evidence": [
+            "Cited link returns not found; exact-ID mirror absent and no exact-title catalogue hit in bounded retrieval."
+          ],
+          "identifier_or_url": "6a4ae3f39c96, citation in frozen RESULT.md line 81",
+          "material_read": "No exact finding accessible",
+          "method": "Cited URL and exact-ID local mirror access attempts, local title search",
+          "title": "Exact Euclidean inradius and tangent-facet phase of complete multipartite symmetric edge polytopes",
+          "trigger": "Potential directly relevant inradius precedent"
+        },
+        {
+          "assessment": "Unweighted graph distance endpoint t=2; not strict interior metric",
+          "evidence": [
+            "Its potentials are constrained by the graph unit edges; same-part metric then equals two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Theorem 3.1 and Proposition 3.4, PDF pp. 6–7",
+          "method": "OA PDF passages",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Earlier bipartite facet normals"
+        },
+        {
+          "assessment": "Same archive date, different endpoint parameter; no priority inference",
+          "evidence": [
+            "Unweighted complete bipartite graphs, with unique center for equal odd parts and a segment for equal even parts."
+          ],
+          "identifier_or_url": "f216472d2eb4",
+          "material_read": "Finding at offsets 0–5930",
+          "method": "Local mirror of published record",
+          "title": "A parity classification of every Euclidean incenter of complete bipartite symmetric edge polytopes",
+          "trigger": "Same Euclidean incenter notion and parity, possible overlap"
+        },
+        {
+          "assessment": "At least three unweighted parts; does not specialize to the interior two-part metric",
+          "evidence": [
+            "k≥3 and within-part graph distance two."
+          ],
+          "identifier_or_url": "965c042deea2",
+          "material_read": "Finding and assumptions at offsets 0–5977",
+          "method": "Local mirror of published record",
+          "title": "A largest-part law for Euclidean inballs of complete multipartite symmetric edge polytopes",
+          "trigger": "General inradius theorem on a related family"
+        },
+        {
+          "assessment": "Background only in inspected material",
+          "evidence": [
+            "Studies volume product and structure rather than specifying this fixed-Euclidean inradius."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.10642",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "General free-ball geometry reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(5) and examples; compared endpoint and facet-type records"
+      ],
+      "rationale": "The result is about intrinsic Euclidean geometry in the natural zero-sum realization, not an arbitrary metric-dependent table. It distinguishes total facet combinatorics, nearest facets and the rank obstruction to an interval of inball centers; each can behave differently. The odd-size arithmetic changes the actual metric radius and contact structure and gives a meaningful distinction between rational and irrational parameters that is not answered by knowing only the facet shapes or the graph-distance endpoint.",
+      "residual_risks": [
+        "The theorem is limited to balanced two-part metrics in the fixed Euclidean embedding and does not give the length of the even center segment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

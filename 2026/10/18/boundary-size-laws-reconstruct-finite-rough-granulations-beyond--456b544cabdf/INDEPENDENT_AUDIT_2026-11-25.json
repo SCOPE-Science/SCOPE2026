@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:51:04.798235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a block of size b, the Pawlak boundary contains the whole block if the sample is nonempty and proper, and none otherwise. The two excluded events have total probability q_b, and disjoint blocks have independent contributions. Singleton factors are 1. For b>=2 the odds ρ_b=(1−q_b)/q_b are known and positive; normalize by the positive constant term F(0). The coefficient in degree b after cancelling only known factors in degrees below b is exactly m_bρ_b: multiple selections of a degree-b factor and all higher factors have degree >b. Apply this in the truncated power-series ring through degree K or through deg F for the full inversion; an empty universe and an all-singleton partition both correctly give F=1. Knowing |X| recovers the singleton number by subtraction. The sharp raw-prefix example at p=1/2 gives equal constants 2^(−2K−2), no positive terms through K, fixed total 2K+4 and two classes, yet only (K+1,K+3) has positive coefficient in degree K+1. The rough-pair lattice is the independent block product of two- and three-element chains. At p=1/2 the profiles (2,4) and (3,3) both have two three-element factors but clearly different boundary laws. In a fresh integer replay (`python3 /workspace/review-evidence/exact_checks.py`), all 291 partition/bias cases and 71865 subset evaluations agreed with factorization. This does not prove general inversion. The frozen verify_boundary.py was inspected, not run; its use of int.bit_count() requires Python 3.10+, not the stated 3.8 minimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bernoulli-sum article treats indicator sums and their probability generating functions; §3 does not give the weight-recovery inverse in the inspected passage.",
+          "The boundary law is exactly a sum of independent weighted Bernoulli variables with known success probabilities as a function of weight. Its factorization itself is immediate from that representation.",
+          "The rough-set paper discusses approximation systems and the lattice structure, not recovery from a sampled law."
+        ],
+        "reasoning": "The triangular series argument applies more generally to integer weights with known weight-dependent success odds, so the generating-function machinery is not the novelty. The inspected sources did not supply an inverse result or a fixed-metadata prefix collision for this rough-set observation model.",
+        "searches": [
+          "Primary literature: weighted Bernoulli sum PGF and recovery of integer weights or exact factorization",
+          "Shuldiner–Oldford arXiv:2110.02363v2, §3",
+          "Järvinen–Radeleczki arXiv:2002.05238, RS(E) passages"
+        ]
+      },
+      "checked_sources": [
+        "Pawlak (1982)",
+        "arXiv:2002.05238",
+        "DOI:10.1007/s40747-022-00704-x",
+        "arXiv:2110.02363v2",
+        "Resultary 48a5c176d427, b1b4dc7b9990, d2f0e941a5ae and e0bbe5363d74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These passages supply definitions, weighted-sum/PGF context, or structural information about different observables; none examined gives the simultaneous exact inverse, recovery cutoff and lattice separation.",
+          "For the sharpness example, p=1/2 makes the product constant depend only on the sample-universe size and number of nonsingleton blocks. The first nonconstant power can differ above K at those fixed parameters."
+        ],
+        "reasoning": "The product-of-independent-factors formula and lattice contrast alone are not claims of a new general method. The inverse exploits strictly positive known odds and then shows that normalized prefixes isolate small block sizes exactly, while even raw coefficients and fixed metadata fail above the cutoff uniformly.",
+        "searches": [
+          "Pawlak 1982, §2.1 and accuracy definition",
+          "Järvinen–Radeleczki arXiv:2002.05238, p. 5",
+          "Al-shami DOI:10.1007/s40747-022-00704-x, p. 1",
+          "Shuldiner–Oldford arXiv:2110.02363v2, §3",
+          "Resultary modal spectra and weighted Bernoulli collision records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pawlak (1982), §§2.1–2.2, defines boundary and pointwise accuracy, not the Bernoulli-sampled law.",
+          "Resultary 2026/10/13/SCOPE-bounded-count-modal-term-spectra-reconstruct-finite-s5-block-siz--48a5c176d427 recovers the set of distinct class sizes from a modal-term spectrum for K>=2; it does not recover multiplicities.",
+          "Resultary 2026/10/18/SCOPE-the-rough-set-lattice-of-a-complete-multipartite-tolerance-norma--b1b4dc7b9990 shows that a tolerance-based rough-set lattice remembers part sizes for a different relation."
+        ],
+        "reasoning": "A term spectrum is not the boundary-size probability law and a tolerance need not be an equivalence relation; lattice reconstruction in the tolerance model cannot be transferred to the Pawlak block product. Pointwise accuracy is not the law of a random boundary.",
+        "searches": [
+          "Primary literature: rough-set boundary-size enumeration, roughness histograms and sampling",
+          "Resultary: rough-set boundary size law, granulation and finite S5 block-size reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first census enumerates distinct rough pairs for a path tolerance, not Bernoulli samples on equivalence classes or their point-count boundary histograms.",
+          "The second studies collision probabilities and Rényi entropy of weighted Bernoulli sums, not recovery of weights from the full law."
+        ],
+        "reasoning": "Counting each rough pair once is not weighting it by all crisp sets that realize it. A collision statistic of a distribution is not its coefficient vector. No inspected indexed table or exact enumerator accounts for this family of laws and inversions.",
+        "searches": [
+          "Resultary: exact rough-pair and boundary-cardinality enumerators",
+          "Resultary 2026/11/22/SCOPE-a-tribonacci-rough-pair-census-for-closed-neighborhood-tolerance--e0bbe5363d74",
+          "Resultary 2026/10/18/SCOPE-complete-collision-profile-positivity-for-overlapping-bernoulli--d2f0e941a5ae"
+        ]
+      },
+      "rationale": "The product law is a direct use of independent block contributions and the Pawlak lattice structure is established context. The distinct contribution supported on inspected evidence is the exact recovery of the nonsingleton multiplicities from this boundary-size observable, its degree-local recovery and sharp fixed-metadata obstruction, and the resulting separation from the abstract lattice. Nearby indexed results recover different invariants, under different observation models, or on tolerance rather than equivalence relations.",
+      "residual_risks": [
+        "Rough sets: past, present, and future (PMC6244804) was available in the bounded retrieval only via the landing page/abstract; related references or a more general weighted-sum factorization result could cover part of the inverse. Bounded searches are not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies boundary and accuracy concepts, not the random inverse law",
+          "evidence": [
+            "Boundary is upper minus lower approximation; accuracy is defined for individual sets."
+          ],
+          "identifier_or_url": "https://wiki.eecs.yorku.ca/course_archive/2013-14/F/4403/_media/rough_sets.pdf",
+          "material_read": "§2.1, journal p. 343; pointwise accuracy, p. 346; offsets 4000 and 10200",
+          "method": "Open PDF passages",
+          "title": "Rough Sets",
+          "trigger": "Foundational Pawlak boundary and quantitative roughness"
+        },
+        {
+          "assessment": "Supports lattice context, no exact boundary probability-law inverse identified",
+          "evidence": [
+            "Treats approximation systems and rough-set lattices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.05238",
+          "material_read": "Abstract p. 1 and RS(E) discussion p. 5, offsets 0 and 12400",
+          "method": "Open PDF passages",
+          "title": "The Structure of Multigranular Rough Sets",
+          "trigger": "Closest cited approximation/lattice work"
+        },
+        {
+          "assessment": "Different observed quantities; no whole-document exclusion asserted",
+          "evidence": [
+            "Discusses boundary structure and pointwise accuracy or roughness, including the distinction from information on size."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40747-022-00704-x",
+          "material_read": "Introduction p. 1, offset 0",
+          "method": "Open passage",
+          "title": "Topological approach to generate new rough set models",
+          "trigger": "Boundary size and topological rough approximation"
+        },
+        {
+          "assessment": "Ordinary indicator-sum PGF; no weight inverse established in the passage",
+          "evidence": [
+            "Gives the probability-generating-function relation for sums of Bernoulli indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.02363v2",
+          "material_read": "§3 p. 10, offset 32200",
+          "method": "Open PDF passage",
+          "title": "Bernoulli Sums: The only random variables that count",
+          "trigger": "Potential broader PGF factorization or weight recovery"
+        },
+        {
+          "assessment": "Different observable, recovering distinct sizes rather than multiplicities",
+          "evidence": [
+            "Term-operation spectra identify a set of class sizes, not a multiplicity histogram."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-bounded-count-modal-term-spectra-reconstruct-finite-s5-block-siz--48a5c176d427",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Bounded-count modal-term spectra reconstruct finite S5 block sizes",
+          "trigger": "Finite equivalence block-size inverse problem"
+        },
+        {
+          "assessment": "Different relation, not equivalent Pawlak granulations; date not used to decide priority",
+          "evidence": [
+            "Complete-multipartite tolerance lattices normalize or distinguish part-size data in a different model."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-rough-set-lattice-of-a-complete-multipartite-tolerance-norma--b1b4dc7b9990",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "The rough-set lattice of a complete multipartite tolerance",
+          "trigger": "Nearby lattice determination of part sizes"
+        },
+        {
+          "assessment": "Collision and entropy, not weight recovery",
+          "evidence": [
+            "Studies positivity/comparison for collision profiles of weighted Bernoulli sums."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-collision-profile-positivity-for-overlapping-bernoulli--d2f0e941a5ae",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Complete collision profile positivity for overlapping Bernoulli sums",
+          "trigger": "Weighted Bernoulli law comparison"
+        },
+        {
+          "assessment": "Distinct rough-pair count for paths, not the exact Bernoulli law for equivalence partitions",
+          "evidence": [
+            "The objects counted are distinct rough pairs for a path tolerance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-tribonacci-rough-pair-census-for-closed-neighborhood-tolerance--e0bbe5363d74",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "A Tribonacci rough-pair census for closed-neighborhood tolerance",
+          "trigger": "Exact nearby rough-set census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary is a canonical rough-set observable. Its size law distinguishes equivalence granulations of fixed universe size even when their abstract rough-set lattices are indistinguishable, and the sharp degree cutoff specifies precisely which sizes survive a restricted exact observation. This is an interpretable inverse classification and a concrete information-loss witness, not just a routine calculation of a PGF or expectation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

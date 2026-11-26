@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:54:16.513732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized Walsh coefficient on labelled edge sets, signed matrix-tree weights give exactly the signed tree sum. The deleted left vertex leaves an invertible right diagonal block with entries d in {±1,±3}, so the stated two-dimensional Schur test is equivalent to vanishing. Substituting all sign patterns gives the stated 3Q matrices: no negatives gives zero, singles give rank one with distinct kernels, doubles have determinant 180 and positive diagonals, and the triple has determinant 300 and positive diagonals. The base B is positive definite. Summing gives strict definiteness when 4|S|<n, and at equality singularity exactly when every nonzero local Q is a single of the same left type. The q right neighbors are distinct, q>=1 makes the three left choices disjoint, and characters diagonalize the specified counting convolution. The exact analytic proof covers every n>=2; the nested checks/verify_k3n.py was inspected as corroborative code, not executed or needed for the general theorem. The direct independent derivation from the earlier pointwise formula is given below.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior K_{3,n} formula covers arbitrary sign patterns, not just the first band. Cayley-tree star rigidity is for complete graphs K_{2m}, at degree m-1. The other weighted methods are general identities, or specialized to other graph/weight families."
+        ],
+        "reasoning": "The all-sign formula on the identical object is substantially closer than the different graph families, and here its coordinate bound directly covers the restricted theorem.",
+        "searches": [
+          "Resultary ed0f0f69de75, all-sign coefficient identity",
+          "arXiv:math/0302213 and arXiv:1903.03575, weighted spanning-tree enumeration",
+          "Resultary 63764e965b26, Cayley-tree first-zero band"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed0f0f69de75, 89f45551846c and 63764e965b26",
+        "arXiv:math/0302213",
+        "arXiv:1312.2946",
+        "arXiv:1903.03575"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier v_i=(a_i b_i,a_i c_i,b_i c_i)/(a_i+b_i+c_i) equals (1/3,1/3,1/3) on a clean column. Every coordinate is at least -1 on any column. With m marked columns and k marked edges, every coordinate of the total is at least (n-4m)/3 >= (n-4k)/3.",
+          "For n=4k, strict positivity still holds if m<k. Otherwise each marked column is a single negative: adding (1,1,1) to its vector gives 2 times a coordinate vector, with the three coordinates in bijection with the left types. At equality the clean columns cancel the (-1,-1,-1) contribution from each marked column, leaving the sum of those nonnegative coordinate vectors."
+        ],
+        "reasoning": "For a strictly positive coordinate triple Phi>0; for a nonnegative one Phi=0 exactly when at most one coordinate is positive. Hence the earlier identity gives nonvanishing below degree n/4, and at equality requires all singleton columns of the same left type. That gives the exact three-center count and the convolution assertion follows by diagonalization. No new zero-solving theorem is required beyond this direct coordinate comparison.",
+        "searches": [
+          "Resultary ed0f0f69de75 RESULT.md Proof §1, local mirror offsets 920–5520",
+          "Resultary 89f45551846c, Finding",
+          "arXiv:1312.2946 and arXiv:1903.03575, cited determinant passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier K_{3,n} record defines exactly the same unnormalized transform and writes W=(product of column sign sums) Phi(sum of column vectors), with Phi(x,y,z)=xy+xz+yz."
+        ],
+        "reasoning": "The pointwise quadratic is the same cofactor determinant in pair-weight coordinates. Transfer-current or matrix-tree identities in general are background, but the prior pointwise specialization determines the sharp support by a local sign comparison.",
+        "searches": [
+          "Resultary: K_{3,n} signed spanning-tree Walsh coefficients, Fourier projection and first zero support",
+          "arXiv:1312.2946, transfer-current edge marginals",
+          "arXiv:1903.03575, weighted Laplacian cofactors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The K_{2,n} record tabulates a different family's spectrum; the prior K_{3,n} record has bounded finite validation and, decisively, an exact all-n pointwise expression."
+        ],
+        "reasoning": "A finite table cannot cover the universal statement; the matching coefficient formula, rather than an exhaustive numerical table, gives the relevant exact coverage.",
+        "searches": [
+          "Resultary: complete bipartite spanning-tree Walsh spectra (89f45551846c and ed0f0f69de75)"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary record on exactly the same K_{3,n} Walsh coefficients gives a pointwise formula from which both the zero band and the equality supports follow directly by coordinatewise comparison. The overlap is mathematical implication, not a title match: the earlier Finding concerns projection norms, but its Proof §1 supplies the decisive identity for every sign assignment.",
+      "residual_risks": [
+        "The scholarly search was bounded; no priority claim is made for the earlier pointwise identity itself.",
+        "The checked comparator need not have called out this corollary explicitly; the disposition is based on the demonstrated implication, not an assertion that it already printed the star count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier pointwise result gives the sharp zero theorem by direct coordinate comparison",
+          "evidence": "v_i has coordinates ab/d, ac/d, bc/d; the nonzero prefactor is the product of the d values and Phi is the sum of pair products.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-gaussian-quadratic-limit-for-fourier-projections-onto-k-3-n-sp--ed0f0f69de75/RESULT.md",
+          "material_read": "Assumptions, Proof §1 exact identity, finite verification discussion",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; bounded formula reread",
+          "title": "A Gaussian quadratic limit for Fourier projections onto K_{3,n} spanning trees",
+          "trigger": "Same graph, transform and sign assignments"
+        },
+        {
+          "assessment": "Different left part size",
+          "evidence": "Classifies opposed sign pairs and balanced signs for two left vertices, not the three-center threshold.",
+          "identifier_or_url": "Resultary 89f45551846c",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+          "trigger": "Exact analogous spectrum"
+        },
+        {
+          "assessment": "Not an implication for the bipartite graph",
+          "evidence": "Complete graph K_{2m} and degree m-1.",
+          "identifier_or_url": "Resultary 63764e965b26",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The sharp Walsh sign boundary for labelled Cayley spanning trees",
+          "trigger": "Analogous sharp first-zero star result"
+        },
+        {
+          "assessment": "General inclusion-statistics background",
+          "evidence": "Joint edge inclusion is a transfer-current determinant; the inspected passage does not locate a zero band.",
+          "identifier_or_url": "arXiv:1312.2946",
+          "material_read": "p. 3, text offset 7500",
+          "method": "OA primary PDF passage",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Determinantal parity-expectation method"
+        },
+        {
+          "assessment": "General identity and different specialized weights",
+          "evidence": "Gives the weighted cofactor and discusses multipartite factorized weights x_i x_j, not arbitrary edge-sign zeros.",
+          "identifier_or_url": "arXiv:1903.03575",
+          "material_read": "p. 2, text offset 4000",
+          "method": "OA primary PDF passage",
+          "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+          "trigger": "Cofactor and multipartite enumeration"
+        },
+        {
+          "assessment": "Different object in the inspected statement",
+          "evidence": "The stated generalization concerns Cartesian products of complete graphs.",
+          "identifier_or_url": "arXiv:math/0302213",
+          "material_read": "p. 1, text offset 900",
+          "method": "OA primary PDF passage",
+          "title": "Factorizations of some weighted spanning tree enumerators",
+          "trigger": "Cited weighted-enumerator background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The low-degree invertibility question is natural, but for this fixed graph family the proposed standalone contribution reduces to bounding each coordinate of an already known coefficient formula by its smallest possible single-column value and checking equality of the three singleton sign patterns. The counting and Fourier consequence are immediate once that is done. It supplies neither a new nontrivial invariant calculation beyond that direct deduction nor a broader rigidity mechanism or graph-family theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:09:43.211203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "No adjacent pair dominates all five nonempty classes, so a perfect-matchable dominating set has at least four vertices. The three core vertices plus any A or B vertex attain four. With no selected endpoint x0 or x2, domination fails or x1 is unmatched. With just one of x0,x2 and no other core vertex, its matching partner needs the adjacent large class and domination of the other endpoint needs the other large class; either (2,1) or (1,2) then works since A union B is a clique. With x0,x2 only in the core, their respective partners must be in B,A. Either adjacent core pair accepts all two additional large-class vertices, and all three core vertices accept either class for the fourth. The role test gives the same patterns: role 1 requires x0 or x2; if one is the sole selected core vertex the two distinct roles 2 and 3 force both A and B; if both endpoints are selected without x1 they are forced into 1 and 4, again forcing A and B. An adjacent core pair leaves two roles that can be chosen to accommodate AA, AB or BB (the roles of x1 can be adjusted); with three core vertices the fourth may be A or B. This accounts for all thirteen admissible patterns and yields the stated counting polynomial by labelled binomial choices. The partial-transversal theorem gives ordinary basis exchange, hence via exchanges increasing the intersection with the target by one at each step, distance 4 minus the intersection size and greedy minimum-weight basis optimization. The pigeonhole diameter bound is tight: the exhibited bases use a union of all vertices when a+b=2,3,4 and disjoint sets when a+b>=5 (all larger instances contain one of the a+b=5 configurations, up to swapping A,B and x0,x2). The C7 example has two minimum paired-dominating four-sets; one proposed exchange misses a vertex, the other leaves an unmatched vertex. Independent match-edge-pair and role-product enumeration plus BFS (`python3 /workspace/replay/audit_checks.py 4`, output `/workspace/replay/4.txt`) confirms counts and role equivalence on 36 small blowups, with complete distances and diameters when a+b<=8. Editorial caveats: the assumptions correctly require a perfect matching within G[S], not an induced matching, despite loose wording in the Finding and verification prose. The packaged C++ tests ordered ordinary basis exchange, not simultaneous symmetric exchange as its terminal label may suggest. Neither caveat affects the mathematical claim audited.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The edge-extremal theorem concerns graph classes at fixed domination number. The abstract transversal theorem asserts that matchability into roles defines a matroid, irrespective of any graph domination constraints."
+        ],
+        "reasoning": "The graph-family precedent does not specify the four-role matching relation; the general matroid result applies after, not before, identifying the feasible graph sets with matchable four-sets.",
+        "searches": [
+          "Henning–McCoy–Southey university abstract and DOI publisher retrieval",
+          "Resultary: paired-domination minima, exchange and basis recognition",
+          "Brualdi–Dinolt DOI:10.1016/0095-8956(72)90041-X, classical transversal-matroid theory as cited in the frozen record"
+        ]
+      },
+      "checked_sources": [
+        "Henning–McCoy–Southey 2014 accessible UJ abstract; frozen source notes on the extremal theorem",
+        "Resultary db619faaacbc and exact self-match b99c8388636a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected extremal statement specifies a graph invariant and extremizing graph families; Franklin gives set isometry without the stronger matroid property. No inspected independent source supplies the exact occupancy classification."
+        ],
+        "reasoning": "The rank-four presentation requires matching equivalence for all thirteen admissible occupancy patterns and excluding all others. Standard exchange mechanically implies isometry and greedy optimization only after this identification, and sharp diameter additionally needs attainable intersection bounds.",
+        "searches": [
+          "Resultary db619faaacbc Finding versus frozen theorem",
+          "2014 paper abstract, DOI:10.1016/j.dam.2014.01.019, versus frozen occupancy proof and role equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The abstract of the closest exact-family paper states an extremal edge-count and equality-family problem, not an equivalence to a set-system presentation. The catalogue's exact hit b99c8388636a is the candidate itself; a distinct matching exchange record db619faaacbc concerns the Franklin graph and fails basis exchange."
+        ],
+        "reasoning": "Minimum-set isometry alone is not equivalent to being matroid bases, as the distinct Franklin result shows. A scalar extremal characterization does not specify which four-sets are exactly the partial transversals of the four roles.",
+        "searches": [
+          "Resultary: minimum paired domination, C5(1,1,1,a,b), four roles, basis exchange and Johnson isometry",
+          "Henning–McCoy–Southey DOI:10.1016/j.dam.2014.01.019"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact polynomial and diameter appear in the self-match. The distinct Franklin record enumerates 184 six-sets on one different graph and reports diameter six. The accessible 2014 abstract contains no optimizer count."
+        ],
+        "reasoning": "Neither distinct inspected passage tabulates the same feasible sets for two free large-class sizes. A table elsewhere in the 2014 body cannot be excluded.",
+        "searches": [
+          "Resultary: count of all minimum paired dominators on three-singleton five-cycle blowups and exchange diameter",
+          "Closest 2014 paper UJ indexed abstract and full-text access attempts"
+        ]
+      },
+      "rationale": "The established extremal family and scalar paired-domination number are background. The supported distinct contribution is the graph-specific rank-four transversal presentation of all minima, including the exact count and diameter. Classical distance and greedy conclusions are credited as standard once that representation is proved.",
+      "residual_risks": [
+        "The full 2014 paper was not obtained lawfully; its uninspected proof and tables could contain related configuration-level results. No negative claim about that whole text or absolute priority follows from the available evidence.",
+        "A differently encoded earlier matching or optimizer classification could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies graph-level extremal scope in the abstract; no whole-document exclusion is possible.",
+          "evidence": [
+            "Abstract specifies maximum edge count and extremal graph families for given paired-domination number, including the four case; it does not report the minimum-set matroid or a count of minima."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.01.019",
+          "material_read": "University of Johannesburg publication page abstract, around text offset 400; frozen package's stated identification of the family credited separately",
+          "method": "OA university publication metadata and abstract at https://pure.uj.ac.za/en/publications/graphs-with-maximum-size-and-given-paired-domination-number/; full-text attempts via publisher and ResearchGate returned 403",
+          "title": "Graphs with maximum size and given paired-domination number",
+          "trigger": "Exact edge-extremal paired-domination family"
+        },
+        {
+          "assessment": "Different graph, minimum size and exchange structure.",
+          "evidence": [
+            "The Franklin graph has 184 minimum six-sets, Johnson-isometric distance and diameter six, but fails basis exchange."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-johnson-isometric-non-matroid-relocation-of-minimum-paired-domin--db619faaacbc",
+          "material_read": "RESULT.md Finding around offset 300",
+          "method": "Resultary search and bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Johnson-isometric non-matroid relocation of minimum paired dominating sets",
+          "trigger": "Distinct paired-domination exchange claim with possible set-system overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family is distinguished by a published edge-extremal paired-domination problem. Giving all optimum configurations by one four-role presentation yields exact optimizer counts, shortest relocation paths and minimum-cost placement for arbitrary vertex weights throughout the family. The C7 obstruction explains why the useful matroid property is not a general paired-domination theorem. The known extremal scalar and the generic matroid consequences alone would not provide this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

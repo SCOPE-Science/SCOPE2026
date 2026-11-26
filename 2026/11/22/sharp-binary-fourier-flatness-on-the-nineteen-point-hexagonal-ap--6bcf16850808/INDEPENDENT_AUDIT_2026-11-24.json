@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:07.632457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Torus orthogonality gives M=sum_d C(d)^2 for the full radius-two axial hexagon. C(0)=19 and the two directions of every nonzero lag contribute equally, so the integrated defect is M-361. A global sign flip changes neither M nor defect, giving exactly 2^18 distinct center-positive assignments. Independently ran python3 /workspace/review_evidence/recompute4.py. Instead of lag updates it summed squared integer coefficients of P^2 by unordered site sums, with terms doubled for two distinct sites. This computes the same fourth moment by Parseval and runs across all 262144 masks. It found moments 467,475,483 first, with counts 72,28,144, respectively; the maximum was 3259. Independent orbit traversal by the four generators (rotation, reflection and the two coordinate sign characters) preserved the minimizing set and yielded least masks 3441,8151,10446, each with 24 elements and exactly the stated negative coordinates. Hence there are 144 minimizers before sign normalization, and the sharp gap is eight. As a cross-check, each squared lag term has fixed residue modulo four from overlap parity and hence M has fixed residue modulo eight; there are nine odd positive-lag overlaps, yielding residue three. For the claimed discrete Fourier transfer, all difference coordinates lie in [-4,4], so grid periods at least nine keep all lags distinct modulo the grid. This proves only the stated full support and real-sign fourth moment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding et al. explicitly remove the center and use multiple jointly complementary arrays on the 18 sites",
+          "The seven-site classification ranges over unimodular phases on the first shell, not the second",
+          "The two older DOI/publisher full-text retrievals were unavailable; no noncoverage finding is inferred from that"
+        ],
+        "reasoning": "Changing the support or replacing a single sum of squares by cancellation of an array family leaves the binary nineteen-site minimization unresolved. The remaining risks are older tabulations or uninspected subsidiary results.",
+        "searches": [
+          "Ding–Noshad–Tarokh §II-F, pp. 8–10",
+          "Resultary seven-site hexagonal fourth-moment classification, cc64dab275f8",
+          "Ramakrishna–Mow DOI 10.1007/11423461_26; Busboom–Lüke DOI 10.1364/AO.40.003894"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt, verify_hex19.cpp and verify_hex19.py",
+        "Resultary entries 6bcf16850808 and cc64dab275f8, local-mirror findings",
+        "Ding–Noshad–Tarokh arXiv:1506.02160 p. 2 and §II-F; Ramakrishna–Mow and Busboom–Lüke retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complementarity gives sum_i C_i(d)=0 for d!=0, not a lower bound on sum_d C_i(d)^2 for an individual member",
+          "Seven-site moment comparisons omit all translations involving the second shell"
+        ],
+        "reasoning": "The prior multi-array identity can hold in the presence of nonzero sidelobes in each member, and adding the missing center/outer shell introduces new cross terms. Neither result determines the exact optimum, gap, or equality configurations on the audited support.",
+        "searches": [
+          "Ding–Noshad–Tarokh arXiv:1506.02160 p. 2 and §II-F",
+          "Resultary seven-site fourth-moment range and phase rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Figure 10 in Ding–Noshad–Tarokh depicts the same closed 19-point hexagon before deletion of its center",
+          "The audited fourth moment 467 equals integrated nonzero-lag energy 106 plus the zero-lag contribution 361"
+        ],
+        "reasoning": "The equivalent target for table comparisons is a single binary array's nonzero-lag sum of squared autocorrelations (53 if counting each opposite pair once), not the unnormalized all-lag moment or the complementary sum of autocorrelations across arrays.",
+        "searches": [
+          "Resultary: 19-site hexagonal binary aperiodic integrated sidelobe energy and Fourier fourth moment",
+          "arXiv:1506.02160, §II-F and aperiodic-correlation definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record ending 6bcf16850808 has the exact Finding and is the same frozen entry",
+          "The separate seven-site entry ending cc64dab275f8 has unimodular range [63,175], on center plus six neighbors"
+        ],
+        "reasoning": "The exact match is a self-match, not independent coverage. The separate range is a different support and alphabet; its values and rigidity classification are not entries in a nineteen-site binary catalogue.",
+        "searches": [
+          "Resultary exact 19-site support, 467 moment, 106 sidelobe energy, equality orbits",
+          "Resultary radius-one hexagonal moment range"
+        ]
+      },
+      "rationale": "Best of current knowledge: the inspected same-support geometry is not new, but the exact single-array aperiodic energy minimum, attainable next value and complete equality orbits on the unpunctured binary support are not supplied by the related results inspected. The exact matching indexed entry is the frozen result itself.",
+      "residual_risks": [
+        "Historical priority is not exhaustive; the older array sources were not obtainable as primary full text through attempted lawful routes, and unindexed exact tables are possible.",
+        "No claim about complex phases, larger hexagons, or optimal peak sidelobes is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometry; different support for the construction and a different objective",
+          "evidence": "Fig. 10 is labeled 'Hexagonal array with three layers (19 points)'; the text then deletes the center. Complementarity means that sidelobes sum across several arrays.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.02160",
+          "material_read": "p. 2 definitions and §II-F pp. 8–10 with Fig. 10 (text offsets 6800, 9200, 37500–38200)",
+          "method": "OA PDF passages",
+          "title": "Complementary Lattice Arrays for Coded Aperture Imaging",
+          "trigger": "Identical 19-point shell and aperiodic correlation"
+        },
+        {
+          "assessment": "Genuinely related exact result, but not a bound for the full second shell",
+          "evidence": "The range [63,175] is for seven unimodular sites.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-fourth-moment-range-and-phase-rigidity-of-the-seven-site-h--cc64dab275f8",
+          "material_read": "Finding, support and unimodular range",
+          "method": "Indexed match and local-mirror result passage",
+          "title": "Sharp Fourth-Moment Range and Phase Rigidity of the Seven-Site Hexagonal Fourier Aperture",
+          "trigger": "Same aperture family and moment on first shell"
+        },
+        {
+          "assessment": "Residual table-coverage risk; peak criterion named in the title differs from audited integrated energy",
+          "evidence": "No primary numerical table was inspected.",
+          "identifier_or_url": "https://doi.org/10.1007/11423461_26",
+          "material_read": "Bibliographic target only; relevant full text unavailable through attempted routes",
+          "method": "Lawful DOI/publisher retrieval attempts",
+          "title": "A New Search for Optimal Binary Arrays with Minimum Peak Sidelobe Levels",
+          "trigger": "Possible earlier exact array table"
+        },
+        {
+          "assessment": "Residual coverage risk; detailed support and conventions not independently confirmed from its text",
+          "evidence": "No primary numerical table or classification passage was available.",
+          "identifier_or_url": "https://doi.org/10.1364/AO.40.003894",
+          "material_read": "Bibliographic target only; relevant full text unavailable through attempted routes",
+          "method": "Lawful DOI/publisher retrieval attempts",
+          "title": "Hexagonal Binary Arrays with Perfect Correlation",
+          "trigger": "Plausible exact binary hexagonal correlation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full second-shell hexagon is a standard, previously studied array geometry, and the integrated squared sidelobes are a natural exact single-aperture objective, different from complementarity or peak sidelobes. The optimum, gap and all symmetry classes give a usable exact benchmark for this geometry. They do not follow from the trivial moment lower bound or a first-shell classification and have value even without a larger-shell theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

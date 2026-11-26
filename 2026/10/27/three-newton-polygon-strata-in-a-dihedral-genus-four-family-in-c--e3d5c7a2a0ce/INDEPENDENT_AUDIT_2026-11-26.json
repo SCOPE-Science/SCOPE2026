@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:50:41.735576Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67; VERIFICATION.md lines 18–32; verify.py lines 112–156, inspected, not run."
+      ],
+      "rationale": "Write f(x)=h(x²), h(t)=(t+1)t²Q(t+t⁻¹), with Q(u)=u²+(a-1)u+(b-a-1). Because h(0)=1, the only failures are repeated Q roots, ramification at t=±1, or overlap with t=-1. In characteristic 3, Q(2)=a+b+1, Q(-2)=b-1, and disc(Q)=a²-a+2-b. A repeated root lowers the genus of the double-cover normalization from four. The two displayed involutions generate a group of order eight: the square of their product is the hyperelliptic involution. On the indicated basis, the coefficient matrix consists of two 2-by-2 blocks after grouping odd and even indices; both block determinants are a(b-1). At a=0 there are two rank-one blocks, each product of its Frobenius twists retaining rank one iff b is nonzero; at b=0 both blocks square to zero. This establishes the stable ranks and a-numbers, not just ordinary matrix ranks. For rank two, a slope other than 1/2 among the four residual slopes would require denominator at least three and its complementary slope, together at least six slopes. For the origin, independently of the Hermitian argument, on F_81 the image of the tenth-power map on nonzero elements is F_9^× and each fiber has ten elements. All nonzero F_9 elements are squares in F_81, so there are ten x values with x^10+1=0, two y values at every other x, and two points at infinity. Thus #C(F_81)=154, the maximal count, giving all Frobenius eigenvalues -9 and all slopes 1/2. The forbidden b values 1,-a-1,a²-a+2 coincide pairwise only at a=1,-1,0 respectively (in the order pairs 1–2, 1–3, 2–3); no triple collision occurs. Removing the two forbidden b at a=0 and separating the origin yields all of the marked counts, including an empty rank-two row over F_3.",
+      "residual_risks": [
+        "The recorded enumerations are corroboration in four fields only; the discriminant and twist calculation, exact origin count, and forbidden-value census establish the universal result. No full automorphism group or moduli census is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garton–Thunder–Weir §4.1 studies proportions over monic cubefree polynomials with squarefree restriction; Camacho-Navarro's Introduction focuses on the nonhyperelliptic case; Ohashi–Kudo Theorem 1 enumerates superspecial cases for 19<=p<500."
+        ],
+        "reasoning": "Aggregate a-number proportions do not recover a marked rank or Newton stratification of the reciprocal-even slice. A superspecial-only classification cannot identify its nonsuperspecial supersingular origin and concerns a different characteristic range in any case.",
+        "searches": [
+          "arXiv:2403.00120 characteristic-three hyperelliptic a-number distributions; arXiv:2012.08705 genus-four a-number and p-rank; arXiv:2312.16858 superspecial enumeration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14822 Appendix A.3",
+        "arXiv:2312.16858 Theorems 1 and 2.2.1 and Table 1",
+        "arXiv:2403.00120 §4.1 and main-result passages",
+        "arXiv:2012.08705 Introduction",
+        "Resultary 6fd174ba6932 Finding",
+        "DOI:10.23091/japm.2025.059, attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected classification and distribution results provide the family form or general methods, not the characteristic-three twisted block structure, the exceptional a=0 line with rank two away from its origin, or the three boundary collisions."
+        ],
+        "reasoning": "Computing Cartier entries is standard, but the claimed classification needs its specialization and stable rank, not a direct application of an existing theorem to a narrower parameter. It additionally needs an independent supersingularity argument and rational-boundary geometry to obtain the Newton and counting claims.",
+        "searches": [
+          "Statement-level comparison with arXiv:2312.16858 Theorem 2.2.1 and Theorem 1, arXiv:2403.00120 §4.1, and Resultary 6fd174ba6932"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 1 Type 4-1 of arXiv:2312.16858 gives the exact reciprocal-even equation with reduced group V4 and full group D4 (order eight), under Theorem 2.2.1's p>=7 hypothesis. The nearby Resultary pencil has a middle c x^5 term instead."
+        ],
+        "reasoning": "The equation and the symmetry type are prior. Replacing coefficients in the four-parameter even normal form produces this family, but the positive-characteristic stratum statements do not follow by substitution into a theorem excluding p=3. A one-dimensional pencil cannot parametrize the marked two-dimensional parameter space. The origin equation is common to both pencils.",
+        "searches": [
+          "Exact reciprocal-even equation and genus-four dihedral normal forms; arXiv:2210.14822 Appendix A.3 and arXiv:2312.16858 Table 1; Resultary characteristic-three dihedral supersingular fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed hit ending 6fd174ba6932 gives the ordinary/supersingular census for y²=x^10+c x^5+1 at p=3, a different one-parameter model. Type 4-1 in Table 1 tabulates the equation and symmetry at p>=7, not its Newton strata."
+        ],
+        "reasoning": "The indexed claim shares the origin model, but the other displayed equations, ranks and counting problem differ. Its later path date is not relied on to exclude a scientific match. No inspected table gives this exact marked census.",
+        "searches": [
+          "Resultary: characteristic-three dihedral genus-four Newton strata and marked counts; normal-form classification table arXiv:2312.16858"
+        ]
+      },
+      "rationale": "Pass for the full characteristic-three Newton, rank and a-number stratification with all-extension marked counts, not for novelty of the automorphism family or the supersingular curve in isolation. The exact normal form is known in the inspected classification in characteristic at least seven. The closest indexed characteristic-three census is for a different pencil; it shares the origin model but neither its hypotheses nor its classification give the rank-two line or the two-parameter count.",
+      "residual_risks": [
+        "Sohn (2025) was unavailable in full text and may cover some a-number cases. Bounded searching does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader even normal form; characteristic range excludes three",
+          "evidence": "The passage assumes p>=7 and includes x^10+a x^8+b x^6+c x^4+d x²+1; c=b and d=a give the marked equation.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.14822",
+          "material_read": "Appendix A.3, PDF p. 25, offsets 100800–105586",
+          "method": "OA primary PDF passage inspection",
+          "title": "Efficient search for superspecial hyperelliptic curves of genus four with automorphism group containing Z6",
+          "trigger": "Possible exact normal-form coverage"
+        },
+        {
+          "assessment": "Exact normal form, not characteristic-three Newton coverage",
+          "evidence": "Type 4-1 lists x^10+A x^8+B x^6+B x^4+A x²+1; classification assumes p>=7, superspecial census uses p>=19.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.16858",
+          "material_read": "Theorem 1 p. 3 offset 7247; Theorem 2.2.1 and Table 1 pp. 4–5 offset 11200",
+          "method": "OA primary PDF passage inspection",
+          "title": "Computing superspecial hyperelliptic curves of genus 4 with automorphism group properly containing the Klein 4-group",
+          "trigger": "Exact family equation and arithmetic classification"
+        },
+        {
+          "assessment": "Aggregate distributions, not the marked stratification",
+          "evidence": "a-number proportions range over monic cubefree polynomials, with the squarefree restriction for smooth models.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00120",
+          "material_read": "Abstract p. 1 offset 0, main-result passage p. 2 offset 6100, §4.1 p. 23 offset 77000",
+          "method": "OA primary PDF passage inspection",
+          "title": "The distribution of a-numbers of hyperelliptic curves in characteristic three",
+          "trigger": "Same characteristic and invariant"
+        },
+        {
+          "assessment": "Inspected sampling problem focuses on a different class",
+          "evidence": "The introduction says 'We focus on the non-hyperelliptic kind' and describes a statistical sample in standard form.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.08705",
+          "material_read": "Introduction pp. 1–2, offset 2450",
+          "method": "OA primary PDF passage inspection",
+          "title": "The a-number, p-rank and Cartier points of genus 4 curves",
+          "trigger": "Same genus, rank and a-number"
+        },
+        {
+          "assessment": "Exact intersection at the origin equation; different family and census",
+          "evidence": "For x^10+c x^5+1 only c=0 is supersingular and other smooth parameters are ordinary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-unique-supersingular-fiber-of-a-characteristic-three-dihedra--6fd174ba6932/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The unique supersingular fiber of a characteristic-three dihedral family",
+          "trigger": "Closest indexed same-characteristic Newton census"
+        },
+        {
+          "assessment": "Unresolved; not used as evidence of noncoverage",
+          "evidence": "Title identifies an a-number study in the same genus but does not identify characteristic or the reciprocal-even coefficients.",
+          "identifier_or_url": "https://doi.org/10.23091/japm.2025.059",
+          "material_read": "Bibliographic title only; full text not obtained",
+          "method": "DOI retrieval attempt",
+          "title": "The a-number of superelliptic curves of genus four",
+          "trigger": "Plausible coverage of genus-four a-numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–26 and 31–67; arXiv:2312.16858 Table 1"
+      ],
+      "rationale": "The known dihedral locus has a simple but non-generic characteristic-three behavior: ordinary away from a line, rank two on its smooth nonzero part and supersingular but not superspecial at the origin. Identifying all three Newton strata and where they occur, including the disappearance of the rank-two stratum over the prime field, gives a usable complete classification for this standard normal form, beyond recomputing individual Cartier ranks.",
+      "residual_risks": [
+        "Value is for this characteristic and marked family, not a genus-four moduli classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

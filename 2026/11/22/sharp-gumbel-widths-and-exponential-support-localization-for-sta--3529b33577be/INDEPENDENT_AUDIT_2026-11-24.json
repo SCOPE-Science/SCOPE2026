@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:04:18.680503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–28, 30–85",
+        "VERIFICATION.md:19–23",
+        "VERIFY.py:12–80 (inspected, not executed)"
+      ],
+      "rationale": "The increasing prefix of v_j is emitted by the stack up to its last entry before the 1; the next larger entry (or the final flush) emits the 1 followed by that last entry. This gives v_(j−1). The translated differences have norm √(j(j+1)) and pairwise dot product zero (the j initial ones cancel the −j term against any later vector). Isotropic Gaussian scores are thus independent normals with the stated scales and with the origin also available. For k=n−j and bounded s=t_n²k/n, Mills' formula gives the tail ratio e^(−s)(1+o(1)) uniformly; the step size in s is t_n²/n. The inequality 1/a²−1≥2(k−1/2)/n follows from a=√(j(j+1))/n≤(j+1/2)/n and supplies a summable geometric majorant for the remaining layer. The total normal tail tends to e^(−x) since nφ(u)/u³ tends to e^(−x) with the stated c_n. On bounded marked rectangles the sum of rare-event probabilities converges to the product intensity; the total squared probabilities vanish since the maximal term is O(t_n²/n). The two sign bins are disjoint at one index, yielding independent Poisson limits via the same product expansion. One can truncate below a fixed low height and above a fixed large location and remove the cutoffs using the Gumbel lower tail and the geometric bound. The independent Exp(1) location marks then follow by the factorized intensities. The origin is negligible (probability 2^(−(n−1)) for each sign). Finally the chi-square radius has relative fluctuations O_P(n^(−1/2)), negligible at the t_n/√n spherical width scale, and does not change the indices.",
+      "residual_risks": [
+        "Localization is on the scale n/(2 log n), not a high-probability hard bound at one multiple of that scale. Independence is only in the joint limit.",
+        "The code checks exact finite geometry; the sampled finite CDF assertion only checks its range and cannot establish the extreme law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available search excerpt for Ake et al. describes bounds for lattice-point counts; the frozen literature discussion describes lecture-hall lattice relationships and relative volumes.",
+          "The weighted lecture-hall catalogue hit concerns vertex-rank scales and Gaussian normal-cone probabilities, not a joint width and support-point limit in the stack-sorting coordinate metric."
+        ],
+        "reasoning": "Lattice equivalence alone does not preserve Euclidean support scores or width. A generic rare-event theorem applies only after the explicit graded tail intensity and height/location truncations have been established.",
+        "searches": [
+          "arXiv:2308.16457 and 2508.00219 (stack-sorting simplex geometry)",
+          "Resultary e0cd2b472d23 (power-weighted lecture-hall simplex)",
+          "graded Gaussian extreme-value literature"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:40–85, 91–105",
+        "Resultary 77b2ac5e7fdf, e0cd2b472d23, c9251a559df1, 0a288c215719, 56c6f3b95df2 (summaries)",
+        "arXiv:2508.00219 (search excerpt); 2308.16457 and 1308.5541 (identified, full text not recovered)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The canonical orthogonal realization makes independent coordinates available but leaves the rare-event intensity, normalizer and competition of the two signs to be determined.",
+          "The usual iid correction is ½ log(2 log n); the nonidentically scaled array contributes another log(2 log n). Marginal angle or rank information does not give independence of heights and both marks."
+        ],
+        "reasoning": "The geometric and iid antecedents are essential inputs but do not already state or mechanically yield the quadruple extreme law. No stronger inspected statement was found that determines its graded intensities.",
+        "searches": [
+          "Gasull–Jolis–Utzet normal norming constants",
+          "Resultary 77b2ac5e7fdf, c9251a559df1, 0a288c215719, e0cd2b472d23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant array has variances j(j+1), not identical variances. Its exceedance sum scales like nφ(u)/u³ instead of the iid nφ(u)/u, and the endpoint windows contribute factors ∫e^(−s)ds.",
+          "The two indexed Gumbel width results are for symmetric edge and wedge-sparse cosmological polytopes, respectively."
+        ],
+        "reasoning": "Neither a two-Gumbel width limit on a different family nor the iid normal norming constants give the grade-dependent scale or paired contact marks. The Gaussian array is an equivalent expression for the current claim, not identified as an earlier theorem.",
+        "searches": [
+          "Weighted normal triangular arrays and two-sign marked extremes",
+          "arXiv:1308.5541",
+          "Resultary c9251a559df1 and 0a288c215719"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-object indexed result gives a ridge-angle census and Pareto ridge-deficit law. Other indexed exact laws concern lecture-hall rank probabilities and a spanning-tree bridge variable."
+        ],
+        "reasoning": "Ridge deficits, bridge statistics and contact-height/location limits are distinct observables. A finite orbit, angle census, or finite product evaluation cannot give the asserted asymptotic law without the boundary-layer analysis.",
+        "searches": [
+          "Resultary 77b2ac5e7fdf, e0cd2b472d23, 56c6f3b95df2",
+          "stack-sorting directional width, endpoint support marks, and three-halves centering"
+        ]
+      },
+      "rationale": "Credit the stack-sorting simplex family and standard Gaussian extreme-value tools. The supported contribution is the joint canonical-metric width and marked support limit with its extra log-log shift, not the general use of a Poisson extreme process or a sum of two Gumbels. The strongest available same-object angle result and the closest width and rank-localization results do not give this joint law on available statements.",
+      "residual_risks": [
+        "Full text of the closest primary and catalogue comparisons was not recovered; related metrics or graded-array results discussed outside the available passages cannot be excluded. No whole-document exclusion is inferred from snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, different invariant",
+          "evidence": [
+            "Catalogue specifies ridge-angle census and a Pareto ridge-deficit law, not random support widths."
+          ],
+          "identifier_or_url": "Resultary 77b2ac5e7fdf",
+          "material_read": "Indexed claim; full result passage not recovered",
+          "method": "Resultary lookup and bounded local-mirror retrieval attempt",
+          "title": "Rare angle Pareto law and moment separation for stack-sorting simplices",
+          "trigger": "Same canonical simplex with exact asymptotic geometry"
+        },
+        {
+          "assessment": "Relevant localization analogue; stronger coverage not supported by available statement",
+          "evidence": [
+            "Catalogue concerns vertex-rank scales and Gaussian normal-cone probabilities; does not identify the present metric or the paired extreme heights."
+          ],
+          "identifier_or_url": "Resultary e0cd2b472d23",
+          "material_read": "Indexed claim; full result passage not recovered",
+          "method": "Resultary lookup and bounded local-mirror retrieval attempt",
+          "title": "Three angular phases of power-weighted lecture-hall simplices",
+          "trigger": "Related simplex embedding and Gaussian rank-scale asymptotics"
+        },
+        {
+          "assessment": "Credit family and lattice geometry; broader full-text coverage not certified",
+          "evidence": [
+            "The available excerpt concerns bounds on lattice-point counts. Lattice-equivalent lecture-hall coordinates do not by themselves preserve the width law."
+          ],
+          "identifier_or_url": "arXiv:2308.16457; arXiv:2508.00219",
+          "material_read": "Frozen RESULT.md:91–104 account; search excerpt for Ake et al. on interior, boundary and vertex lattice points",
+          "method": "Focused primary search; bounded full-text retrieval attempts did not recover passages",
+          "title": "Stack-sorting simplices: geometry and lattice-point enumeration; On the geometry of stack-sorting simplices",
+          "trigger": "Primary literature for the identical simplex family"
+        },
+        {
+          "assessment": "Credit classical normal-maxima centering, not the nonuniform variance layer",
+          "evidence": [
+            "The iid normal tail calculation lacks the 1/u² factor from summing over the graded boundary population."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.5541",
+          "material_read": "Frozen reference and cited scope; no full-text passage recovered",
+          "method": "Identifier lookup and bounded OA retrieval attempt; independent iid-tail comparison",
+          "title": "On the norming constants for normal maxima",
+          "trigger": "Could supply the Gaussian extreme-value centering"
+        },
+        {
+          "assessment": "Shared limit family, distinct polytopes and no indicated exponential endpoint marks for this one",
+          "evidence": [
+            "Indexed claims concern symmetric edge or wedge-sparse cosmological polytope families."
+          ],
+          "identifier_or_url": "Resultary c9251a559df1; Resultary 0a288c215719",
+          "material_read": "Indexed claims, not full articles",
+          "method": "Resultary comparison",
+          "title": "Gumbel directional widths and asymptotically equal vertex angles; Wedge sparse cosmological polytopes have a universal two-Gumbel limit",
+          "trigger": "Same two-Gumbel type of width statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–28, 51–85, 91–97"
+      ],
+      "rationale": "The canonical permutation embedding is motivated independently of numerical enumeration and answers a different question from lattice equivalence. The result gives an exact subleading width correction and identifies which iterates expose the simplex in each sign. The coupled law distinguishes a localized boundary population from an iid estimate and gives more geometric information than a leading-order width alone.",
+      "residual_risks": [
+        "Asymptotics for this particular orbit and metric; no concentration rate, extension to other orbits, or finite-dimensional independence is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

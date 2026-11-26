@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:43.105900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Paguyo, arXiv:2104.01134, Lemma 2.2 for the known crossing moments"
+      ],
+      "rationale": "A fixed chord e at distance d leaves a uniform matching on the other vertices. Its mean number of crossings with the remaining matching is (d−1)(2n−d−1)/(2n−3). Subtracting the unconditional crossing mean n(n−1)/6 from the total conditional mean and multiplying by 1/(2n−1) gives the stated fixed-edge covariance. Write wₑ=(n−d)², N=2n, T for the incident-weight sum at any vertex and W for the sum over all edges. The conditional mean of Q is wₑ+(W−2T+wₑ)/(N−3), hence the coefficient of wₑ in Cov(Q,Iₑ) is (N−2)/[(N−1)(N−3)]; centering subtracts the mean edge weight n(n−1)/3. Thus the proposed centered residual is orthogonal to every individual edge indicator, not just rotationally invariant combinations. Summing the second and fourth powers of span deficits yields the claimed Var(Q). Independently, give the n labeled chords pairs of iid continuous uniform endpoints and use their cyclic ranks. For overlapping crossing indicators with one shared chord, their two conditional probabilities given that chord are 2U(1−U), with U a uniform oriented arc fraction. Conditional independence gives covariance 2/15−1/9=1/45; disjoint chord pairs are independent and individual crossing variance is 2/9. Consequently Var(X)=(2/9) binom(n,2)+(6/45) binom(n,3). Pythagoras gives both component variances, and subtracting 6/7 from the explained fraction gives (2n−9)(n−4)/[14(n−1)(n+3)], nonnegative for integer n≥2 and zero just at 4. The variance formula includes the exact-fit n=2 case. The sign threshold and Pell equation follow by summing fixed-edge covariances by class. The smallest positive solution to x²−12y²=1 is (7,2); its inverse unit reduces the positive y of any solution to a nonnegative smaller integer, yielding the asserted sequence. All such x are odd and y<(x+1)/2, ensuring the reconstructed d is admissible.",
+      "residual_risks": [
+        "The reported tests are finite. The conclusion concerns uniform cyclic perfect matchings and affine additive predictors; it is not independence of the residual or an identity for nonlinear conditional expectation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The histogram result gives the entire covariance matrix Σ and exact variances for arbitrary length weights. Its four explicit entry types rearrange to Σ=((2n−2)/D)[diag(m)−mmᵀ/M], where D=(2n−1)(2n−3), m_d is the number of candidate chords in class d, and M=n(2n−1).",
+          "Paguyo gives the exact total crossing variance; Féray analyzes matching indicators and crossing asymptotics without stating this predictor in the inspected sections."
+        ],
+        "reasoning": "The broader exact histogram variance formula applies in particular to squared deficits. The full matrix determines the covariance of the associated predictor with each class; extra dimensions from label-dependent coefficients add no projection for this invariant response.",
+        "searches": [
+          "Resultary 6e004b32ef71, Finding and Proof, offsets 0–4105",
+          "arXiv:2104.01134, Lemma 2.2",
+          "arXiv:1605.03836, §§6.2–6.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb8a3a4f935f, 6e004b32ef71 and 25d00b41e332",
+        "arXiv:2104.01134, 1501.01489 and 1605.03836"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For class weights w_d=(n−d)², the known mixed vector in d-notation is k=−[diag(m)−mmᵀ/M]w/D, since the m-weighted mean of w is n(n−1)/3. Thus the existing exact matrix gives Σ[−w/(2n−2)]=k directly.",
+          "That equation gives the centered projection in the histogram span. By rotational transitivity within each class it also solves the full edge-span equations. The known variance isometry gives the numerator of R²; the known total crossing variance gives its denominator and the residual by subtraction."
+        ],
+        "reasoning": "After inserting the two already explicit covariance arrays, the proposed coefficient solves the normal equations by scalar multiplication. The passage from length classes to all edges is the immediate invariance argument, and the sharp 6/7 is arithmetic on the resulting rational function. No new probabilistic estimate or structural ingredient is needed.",
+        "searches": [
+          "Resultary cb8a3a4f935f, frozen-comparable mixed covariances at offsets 0–2779",
+          "Resultary 6e004b32ef71, matrix entries and variance isometry at offsets 0–4105",
+          "arXiv:2104.01134, Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The interior-endpoint convention j in cb8a3a4f935f equals d−1. Substitution gives exactly the frozen formula for Cov(X,L_d) and the same zero pairs.",
+          "The 25d00b41e332 record uses ordinary shorter-arc total span and gives a limiting 15/16 explained fraction, not the squared-deficit statistic. The other catalogue record gives the exact covariance matrix of all such length counts."
+        ],
+        "reasoning": "Linear regression on the length histogram is equivalent to the rotation-invariant part of regression on all edge indicators. The crossing count is itself rotation invariant. In particular an invariant residual's edge covariances are constant on each distance class, so its zero class covariances imply all individual ones.",
+        "searches": [
+          "Resultary cb8a3a4f935f, 6e004b32ef71 and 25d00b41e332",
+          "arXiv:1501.01489, §3 Lemma 3.3",
+          "arXiv:1605.03836, §§6.2–6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The profile and exhaustive Pell-zero family are already exact catalogue results, not merely an agreement at the three example indices.",
+          "One inspected exact catalogue statement gives histogram second moments for all n, and another gives ordinary total-span covariance and its different limiting explained fraction."
+        ],
+        "reasoning": "The exact zero and sign statements are duplicate coverage after changing the length convention. Do not confuse the 15/16 ordinary-span limit with the squared-span result; the projection is covered mechanically by the covariance inputs, not by equating the two statistics.",
+        "searches": [
+          "Resultary cb8a3a4f935f, Finding at offset 0",
+          "Resultary 25d00b41e332, Finding",
+          "Resultary 6e004b32ef71, Finding"
+        ]
+      },
+      "rationale": "The entire length covariance profile, threshold and Pell family are explicitly covered in Resultary cb8a3a4f935f. More importantly, combining that exact mixed-covariance vector with the full length covariance matrix in distinct Resultary 6e004b32ef71 mechanically gives the claimed quadratic projection by the normal equations. Rotation invariance then gives the individual-edge orthogonality. The published crossing variance supplies the remaining variance formula. The identifiable contribution is therefore an assembly of existing formulas using standard regression and symmetry, not a distinct exact result under the review standard.",
+      "residual_risks": [
+        "No claim is made that a particular source displayed this predictor verbatim or that historical priority is settled. The negative decision follows from a direct implication of inspected exact moment formulas, not a title match or a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mixed-vector and Pell coverage",
+          "evidence": "States all mixed length-class covariances and zeros generated by (7+2√12)^k; proof gives the individual-edge mixed covariance. The coordinate change is j=d−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-chord-length-covariance-phases-and-pell-zero-exceptions--cb8a3a4f935f/RESULT.md",
+          "material_read": "Finding and fixed-edge argument, offsets 0–2779",
+          "method": "Resultary discovery and local-mirror text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact chord-length covariance phases and Pell-zero exceptions",
+          "trigger": "Same mixed covariance and apparent exact Pell overlap"
+        },
+        {
+          "assessment": "Together with the known mixed vector, directly determines the optimal predictor",
+          "evidence": "Four entry types A_n, B_n, C_n, D_n for all n; variance isometry for all real length weights. The entries have the weighted-centering form used above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-mode-covariance-spectrum-of-circular-chord-length-hist--6e004b32ef71/RESULT.md",
+          "material_read": "Finding, assumptions, and entry derivation, offsets 0–4105",
+          "method": "Resultary discovery and local-mirror text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-mode covariance spectrum of circular chord-length histograms",
+          "trigger": "Exact full predictor covariance for the regression problem"
+        },
+        {
+          "assessment": "Different predictor; not the basis of the coverage decision",
+          "evidence": "Finite span–crossing moments and a limiting 15/16 explained fraction for ordinary total shorter-arc span.",
+          "identifier_or_url": "Resultary 25d00b41e332",
+          "material_read": "RESULT.md, Finding, offset 0 onward",
+          "method": "Resultary discovery and local-mirror result text",
+          "title": "Joint Gaussian fluctuations of total circular chord span and crossings",
+          "trigger": "Closest alternative span predictor"
+        },
+        {
+          "assessment": "Known first and second crossing moments",
+          "evidence": "States mean n(n−1)/6 and variance n(n−1)(n+3)/45; attributes earlier variance work.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Lemma 2.2, PDF p. 4, text offset 13069",
+          "method": "Open-access PDF passage",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Exact premise for the variance decomposition"
+        },
+        {
+          "assessment": "Length-count Poisson asymptotics in inspected passage, not the mixed finite projection",
+          "evidence": "Gives a Poisson limit for fixed length-class counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "§3 Lemma 3.3, PDF p. 8, text offset 27509",
+          "method": "Open-access PDF passage",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Length-count terminology and same ensemble"
+        },
+        {
+          "assessment": "Same indicators and crossing asymptotics, not the specific projection in inspected passages",
+          "evidence": "Uses weighted dependency graphs for matching indicators and studies asymptotic crossing fluctuations.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03836",
+          "material_read": "§§6.2–6.3, PDF pp. 27–28, text offset 110900",
+          "method": "Open-access PDF passages",
+          "title": "Weighted dependency graphs",
+          "trigger": "Matching-indicator comparison and possible broader projection coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Resultary cb8a3a4f935f and 6e004b32ef71, exact covariance statements",
+        "Paguyo, Lemma 2.2"
+      ],
+      "rationale": "The projection is a natural and interpretable summary of how chord spans predict crossings. In this submitted form, however, the result is a direct normal-equation specialization of exact known covariance arrays; the sharp fraction is arithmetic and the exact Pell classification is already stated elsewhere. The package does not establish a distinct structural result or additional useful scope beyond that mechanical consequence.",
+      "residual_risks": [
+        "This does not deny that the predictor is useful when cited as a corollary. No nonmechanical surviving claim suitable for a repair was identified in the assigned finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

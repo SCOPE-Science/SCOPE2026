@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:31:23.286199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legendre's formula gives (p-1)W_p(n)=2S_p(n)-(n-1)s_p(n). Splitting at p^L gives the displayed exact difference, with all terms except (a+1)s_p(t) divisible by p^L after multiplication by p-1. The alternate carry formula can be checked by counting, for each m=p^h, those j for which j mod m exceeds n mod m in each complete block; it gives W_p(n) divisible by p^j whenever n+1 is. On aligned p^i-blocks the digit-sum character bound is |1+zeta+...+zeta^(p-1)|^i. Choosing a common upper bound strictly between max(1,max_zeta |1+...+zeta^(p-1)|) and p, then summing over the at most p-1 blocks per scale in a prefix, gives a power saving for arbitrary cutoffs. For j<k, the linear coefficient in the compressed congruence has exact valuation j, so the conditional law is uniform on p^j multiples; j>=k forces zero. Each j<k contributes (p-1)/p^(k+1) per permissible residue, and the last stratum adds p^(-k) at zero. The histogram is the generating-function count of tail digit sums, including r=k; one free digit already gives exact uniformity modulo p. For L>=1, setting a=0 gives a remainder coefficient congruent to -(L+1) at t=1 and to -L at t=p+1, so some remainder has valuation exactly L. At L=0 the witness a=0,t=1 works for every k>=1 since W_p(1)=0 and (p-1)^(-1) is a unit. Independent Legendre-valuation enumeration supplied 1,406 bounded checks at p=2,3,5 (blocks up to 2,000 indices); replay: /workspace/branches/3e039027-151e-40e3-bbc6-20471bee4a29/replay.py and replay-output.txt in that directory. The finite replay does not establish the natural density or the uniform quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 5.1 and 6.1 are explicit pointwise formulas in terms of digits",
+          "Resultary 4b2115180ea3 and eda4b21cb890 are fixed-column statistics",
+          "The identified digital-functions paper could not be inspected beyond its binomial-coefficient distribution lead"
+        ],
+        "reasoning": "The exact pointwise formulas apply, but do not evaluate the residue densities; fixed-column laws cannot be summed into the residue histogram of the whole row because they do not give the joint distribution of all valuation summands as n varies.",
+        "searches": [
+          "arXiv:1409.4145, Theorems 5.1 and 6.1",
+          "Digital functions and distribution of binomial coefficients",
+          "Resultary: prime-power Pascal columns and valuation density"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:1409.4145 and arXiv:1503.00199",
+        "OEIS A001142 and A187059",
+        "Resultary 4b2115180ea3 and eda4b21cb890; self-hit efe7b361fc2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older formulas determine each W_p(n), which is the starting point of the proof",
+          "Neither fixed-column observable is the full-row valuation"
+        ],
+        "reasoning": "Deriving the law requires the digit-block cancellation modulo p^k, the sharpness witness, the forced divisibility stratum and arbitrary-prefix Fourier estimates. The old pointwise evaluations do not mechanically yield the density or the best uniform split depth without that analysis.",
+        "searches": [
+          "arXiv:1409.4145, pointwise Theorems 5.1 and 6.1 versus sharp digit splitting and conditional law",
+          "arXiv:1503.00199, product comparison",
+          "Resultary 4b2115180ea3 and eda4b21cb890"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lagarias–Mehta Theorem 2.1 identifies the reciprocal unreduced Farey product with the full Pascal-row product, and Theorem 5.1 gives its pointwise valuation",
+          "The reduced Farey product is related by Möbius inversion, not the same random variable in n"
+        ],
+        "reasoning": "The unreduced Farey alias is exact and its known valuation formulas are credited. The new statistic is the residue distribution of those valuations, not an evaluation at one n or the reduced Farey product.",
+        "searches": [
+          "arXiv:1409.4145, unreduced Farey identity and digit valuation",
+          "arXiv:1503.00199, reduced and unreduced Farey products",
+          "Resultary: full Pascal-row product valuation residue densities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001142 tabulates the products; A187059 tabulates their binary valuations and gives related pointwise formulas",
+          "efe7b361fc2e is the bound item; nearby distinct hits concern individual columns"
+        ],
+        "reasoning": "A tabulation or formula specifying sequence terms does not state the natural or prime-power block laws for those terms; neither inspected OEIS entry supplies the frozen law.",
+        "searches": [
+          "OEIS A001142, A187059",
+          "Resultary: complete Pascal-row product valuation residue laws and histogram"
+        ]
+      },
+      "rationale": "The pointwise valuations of the full row product (equivalently the reciprocal unreduced Farey product) are known. The supported increment is the sharp low-digit compression together with the exact conditional and unconditional all-precision natural laws and finite histograms. The subset of these claims equivalent to older pointwise formulas is not counted as original.",
+      "residual_risks": [
+        "The exact scope of the digital-functions paper remains unverified. An earlier digit-automaton or modular-distribution treatment of the full product might give equivalent results; the searches are not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the object and base valuation identity, not the claimed statistical evaluation",
+          "evidence": [
+            "The reciprocal unreduced Farey product equals the full row product; formula (5.4) is the pointwise valuation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.4145",
+          "material_read": "Theorem 2.1 p. 4 offset 12963; Theorem 5.1 p. 10 offset 33045; Theorem 6.1 p. 15 offset 48554",
+          "method": "Lawful OA original PDF",
+          "title": "Products of Binomial Coefficients and Unreduced Farey Fractions",
+          "trigger": "Exact alias and strongest pointwise preexisting evaluations"
+        },
+        {
+          "assessment": "Möbius relation and pointwise/bounds background; no matching law in the inspected passages",
+          "evidence": [
+            "Distinguishes reduced and unreduced Farey products, identifying the latter with the complete row product"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.00199",
+          "material_read": "PDF p. 3 offset 9317 and p. 5 offsets 18616 and 20769",
+          "method": "Lawful OA original PDF",
+          "title": "Products of Farey Fractions",
+          "trigger": "Related reduced-product formulation and digit dependence"
+        },
+        {
+          "assessment": "Pointwise sequences and cited formulas rather than the all-prime statistical claim",
+          "evidence": [
+            "A187059 specifies the p=2 valuation sequence only"
+          ],
+          "identifier_or_url": "https://oeis.org/A001142 and https://oeis.org/A187059",
+          "material_read": "A001142 offsets 0–5977 and A187059 offsets 0–4560",
+          "method": "Lawful current OEIS entry text",
+          "title": "Complete Pascal-row products and their binary valuations",
+          "trigger": "Exact sequence databases"
+        },
+        {
+          "assessment": "Different individual-column statistics",
+          "evidence": [
+            "Valuations of binomial(n-1,p^a-1) and binomial(n,p^a), respectively"
+          ],
+          "identifier_or_url": "Resultary 4b2115180ea3 and eda4b21cb890",
+          "material_read": "Actual Finding of each RESULT.md",
+          "method": "Local mirror original files",
+          "title": "Prime-power Pascal columns and arithmetic density of positive-lag covariance",
+          "trigger": "Closest distinct catalogue claims on valuation densities"
+        },
+        {
+          "assessment": "Exact scope unverified; the listing is not sufficient for an implication or exclusion verdict",
+          "evidence": [
+            "Listing describes distribution of binomial coefficients modulo prime powers or by valuations"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/230824046_Digital_functions_and_distribution_of_binomial_coefficients",
+          "material_read": "Search listing only; identified full-text route returned HTTP 403",
+          "method": "Lawful access attempt",
+          "title": "Digital functions and distribution of binomial coefficients",
+          "trigger": "Plausible broader literature on digit-based valuation distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The valuation of a full Pascal row product is a natural aggregate rather than a selected binomial coefficient. Its nonuniform law is explained by the valuation strata of n+1, and the sharp split depth gives an exact finite counting procedure at arbitrary output precision. These give distinct usable information on the whole sequence beyond the known term formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

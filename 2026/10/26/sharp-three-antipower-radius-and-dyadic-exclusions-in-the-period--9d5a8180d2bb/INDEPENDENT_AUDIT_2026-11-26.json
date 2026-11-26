@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:38.861663Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated zero-indexed substitution fixed point, p_2j=0 and p_(2j+1)=1−p_j imply p_i=v₂(i+1) mod 2. For every m=2^r, positions within each aligned m-sector have valuation parity independent of the sector except at its last position. An arbitrary consecutive length-m window shifted by a fixed residue has exactly one sector-end symbol; all other letters depend only on that residue. Thus at most two distinct length-m blocks occur in the triple at every starting index, including r=0. An independent valuation-sector reconstruction (/workspace/review-evidence/antipower.py) exhausts the length-15 windows of all three legal consecutive aligned 16-sector pairs, 00,01,10; all pairs are realized and two sectors suffice for any window. It matches the 23 frozen CSV rows, 115 tests and minimum column, yields 14 length-9 prefixes and only the three stated failures, and confirms all four exceptional length-15 extensions pass the length-five test. Hence the least lengths are 3 and 5 (only 1,2,4 could compete); start zero requires 5. Inverting the source-derived parity entries gives precisely the stated even and odd exceptions. Ones have density 1/3 by summing the dyadic residue classes (the neglected tail is bounded by a dyadic-multiple density); no 11 makes 00,01,10 each frequency 1/3. The parity identities give 0100 and 0010 each frequency 1/6 and 00100 frequency 1/12, whence 5/24 and complement 19/24. This establishes natural densities, not estimates from sampled prefixes. Frozen proof, certificate and script were read; the uploaded script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first general theorem provides an antipower of each order starting at every position of an aperiodic uniformly recurrent word.",
+          "The second gives a word-dependent C(W)k block-length bound in the specified uniformly recurrent binary uniform-morphic setting."
+        ],
+        "reasoning": "An existence theorem or an unspecified linear bound cannot supply the two exact least lengths, their complete occurrence sets, or exclusions at an unbounded family of other lengths.",
+        "searches": [
+          "Fici–Restivo–Silva–Zamboni arXiv:1606.02868",
+          "Berger–Defant arXiv:1902.01291 §3 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.02868",
+        "arXiv:1902.01291",
+        "Resultary 5bdf50238572, fbaddb762fd5, 6721431be060"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general existence allows arbitrarily many individual forbidden scales; the exact cutoff and forbidden-spectrum theorem do not follow from it.",
+          "The valuation identity and finite automatic factor language are established tools; the specific parity-dependent exceptional languages result from testing three-block configurations."
+        ],
+        "reasoning": "Neither cited general theory nor the indexed census statements provide these explicit bounds and exceptional frequencies as a covered specialization.",
+        "searches": [
+          "Compare Berger–Defant Theorem 5 and the exact claim",
+          "Compare Resultary 5bdf50238572 and fbaddb762fd5 definitions and findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "p_i=v₂(i+1) mod 2 is the same word, not another variant; shifting between zero- and one-indexed conventions does not change which complete blocks are compared.",
+          "Resultary 5bdf50238572 concerns two-block antisquares of generalized period-doubling words; fbaddb762fd5 concerns antipower radii of Thue–Morse."
+        ],
+        "reasoning": "Pairwise distinctness of three blocks is not determined by the tests of consecutive pairs alone (the first and third may coincide); similar radii on another sequence do not establish these values.",
+        "searches": [
+          "Period-doubling three-antipower least block size; binary morphic uniform antipower radii; dyadic exclusions",
+          "Resultary: period-doubling antisquares, valuation parity, antipower radii"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact-language record 5bdf50238572 tabulates antisquares, fbaddb762fd5 gives Thue–Morse radii, and same-day 6721431be060 bounds minimal absent factors of finite dyadic period-doubling prefixes. Their Find­ings do not tabulate the claimed triple-block exceptions."
+        ],
+        "reasoning": "Different local tests, words, and invariants give no exact covering table. The frozen CSV is a checked certificate for this claim, not independent evidence of historical novelty.",
+        "searches": [
+          "Resultary searches over exact exceptions, 5/24, dyadic scales and uniform antipower radii"
+        ]
+      },
+      "rationale": "General existence and linear radius bounds are prior. The supported distinction is the exact local least-length classification and natural densities, together with the all-index dyadic exclusion for this particular word. The strongest matching available claims address different words, different block predicates, or much coarser conclusions.",
+      "residual_risks": [
+        "Unindexed automatic-word examples or prior exact computations could overlap; no publication-wide priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General existence, not exact specialization",
+          "evidence": [
+            "Every order starts at every position for an aperiodic uniformly recurrent word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.02868",
+          "material_read": "Abstract/existence statement, PDF p. 1, offset 2029",
+          "method": "OA primary PDF passage",
+          "title": "Anti-Powers in Infinite Words",
+          "trigger": "Foundational existence theorem on uniformly recurrent words"
+        },
+        {
+          "assessment": "Relevant broader scale bound",
+          "evidence": [
+            "Word-dependent linear bound in order, not an exact radius, density or forbidden-length result for this word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.01291",
+          "material_read": "§3 Theorem 5, PDF p. 4, offset 9000",
+          "method": "OA primary PDF passage",
+          "title": "On Anti-Powers in Aperiodic Recurrent Words",
+          "trigger": "Strongest cited bound for binary uniform morphic words"
+        },
+        {
+          "assessment": "Different block predicate",
+          "evidence": [
+            "Order-two antisquare language rather than pairwise distinctness of three blocks."
+          ],
+          "identifier_or_url": "Resultary 5bdf50238572",
+          "material_read": "RESULT.md Finding, opening offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact antisquare factors, occurrence sets and densities in generalized period-doubling words",
+          "trigger": "Same word family and exact factor occurrences"
+        },
+        {
+          "assessment": "Analogous theorem in a different sequence",
+          "evidence": [
+            "Orders 3–10 in Thue–Morse, not period doubling."
+          ],
+          "identifier_or_url": "Resultary fbaddb762fd5",
+          "material_read": "RESULT.md Finding, opening offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact initial uniform antipower radii of the Thue–Morse word",
+          "trigger": "Exact antipower radii"
+        },
+        {
+          "assessment": "Distinct invariant",
+          "evidence": [
+            "Lower bound on minimal absent factors of finite prefixes, not antipower lengths."
+          ],
+          "identifier_or_url": "Resultary 6721431be060",
+          "material_read": "RESULT.md Finding, opening offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Explicit logarithmic antidictionaries for dyadic period-doubling prefixes",
+          "trigger": "Same dyadic sequence and date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp uniform-start result for a standard automatic word, not a chosen prefix cutoff. It resolves the local obstruction at exactly identified positions with positive density and shows that an infinite family of natural scales can never work, even though each position has a short witness. The finding is limited to order three and does not classify nondyadic lengths past the minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

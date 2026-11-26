@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:04:55.748071Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65 and VERIFICATION.md; checker.py inspected without execution; independent derivation of the zero multiplicity and sign relation, and exact witness check and bisection."
+      ],
+      "rationale": "On setting y=1+t/c and u=ky^δ with k=(A/B)c^δ, logarithmic differentiation gives E=(1−1/y)(p+δ/(1+u)). Its derivative has numerator H=δ²u[g(u)−y], with the stated g>1. The map t↦u has positive derivative; κ(u)=u/g(u)^δ=k(y/g)^δ along this map, so zeros of E' have the same multiplicities as those of κ−k and the opposite sign off the zeros. κ runs monotonically from zero to infinity for δ<1, and from zero to 1/p for δ=1 (neither upper endpoint is attained). For δ>1, the sign of κ' is that of C+a(1−δ)u+b(1+δ)/u, which decreases strictly from infinity to minus infinity. Thus κ has a nondegenerate maximum k_* and tends to zero at both ends. This proves the two simple zeros and the +,−,+ sign sequence below k_*, the single double derivative zero at equality with strict increase, and monotonic increase above it. The same sign argument gives a unique global maximum in each one-zero case. For p=1,δ=2, the critical u=9 gives g=13/3 and k_*=81/169; the exact factorization at k=1/3 gives y=3 and a unique positive cubic root (one sign change), whose bisection gives t≈8.419900819340 and E≈0.952304494038. The original intensity is decreasing at all t. The gap criterion quantifies existence of a suitable k; for fixed k one also needs k<k_*.",
+      "residual_risks": [
+        "The stationary classification concerns finite positive elapsed times, not the log of shifted time or estimates from finite aftershock samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Historical aftershock superposition includes secondary sequences with distinct onset times; branching models yield emergent regimes, not a sum of two fixed common-offset powers.",
+          "The broader shifted-time mixture identity dL/dlog(t+c)=−Var_w(p_i) gives E'=[cL−t Var_w(p_i)]/(t+c)²; its two terms compete rather than fixing the sign."
+        ],
+        "reasoning": "Neither monotonicity of the shifted observable nor the broader superposition/branching setting provides the stationary parametrization and exact threshold for the elapsed-time observable.",
+        "searches": [
+          "Utsu–Ogata–Matsu’ura DOI 10.4294/jpe1952.43.1, early Omori history and §4.1",
+          "Sornette–Sornette arXiv:cond-mat/9905314, p. 1 and §II",
+          "Leonardos–Koki–Melolidakis DOI 10.1007/s10479-023-05425-z, IGFR introduction and mixture discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3f001ca0ae7a and matching frozen entry; Utsu et al. DOI 10.4294/jpe1952.43.1; Sornette and Sornette arXiv:cond-mat/9905314; Leonardos et al. DOI 10.1007/s10479-023-05425-z; focused inverse-power-slope and Lomax/Pareto generalized failure rate literature queries."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct-offset theorem assumes both exponents equal to one; one cannot use it at q>p. General IGFR concepts define monotonicity but do not fix the number of stationary times or classify this family.",
+          "The pointwise derivative identity alone does not settle its zeros; the additional bijection with κ and the critical-value computation supply the exact boundary and multiplicity."
+        ],
+        "reasoning": "The result goes beyond the known special model and the general identities by solving the entire finite-turn problem for a different, naturally motivated slice. The literature assessment is best of knowledge and not proof of priority.",
+        "searches": [
+          "Resultary 3f001ca0ae7a finding and proof",
+          "Leonardos–Koki–Melolidakis introduction, Examples 2 and 3",
+          "Utsu–Ogata–Matsu’ura §4.1; Sornette–Sornette §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing λ by λ(0) gives a survival function S=(k/(1+k))(1+t/c)^(−p)+(1/(1+k))(1+t/c)^(−q), for which E=−t S'/S is exactly the generalized failure rate.",
+          "Leonardos–Koki–Melolidakis define that observable but the inspected mixture example uses uniforms on disjoint intervals and tests generalized mean residual life. Their Pareto example treats a single distribution.",
+          "Resultary 3f001ca0ae7a gives a sharp reversal criterion for exponent-one terms with different offsets."
+        ],
+        "reasoning": "The reliability reduction preserves the observable and should be searched, but neither inspected reliability example has this input family or gives its sign cutoff. The earlier exact Omori theorem cannot map unequal offsets to unequal powers: global time shift/rescaling preserves coincident versus distinct offsets and does not change the intrinsic powers.",
+        "searches": [
+          "Resultary: reentrant apparent Omori decay, common offset unequal exponents and two-component local log slopes",
+          "Literature: generalized failure rate Lomax or Pareto mixture equal scale differing shapes; mixtures of increasing generalized failure rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record 3f001ca0ae7a gives the exact offset ratio b/a>17+12sqrt(2) for two exponent-one components, not the exponent gap or the amplitude threshold of the common-offset family. The exact title hit for the gap diagram is the identical frozen record."
+        ],
+        "reasoning": "The exact overlap in type of classification is acknowledged, but its controlling parameter and family are different. No exact matching table or classification was identified in the inspected corpus.",
+        "searches": [
+          "Resultary: sharp offset contrast threshold for reentrant apparent Omori decay; sharp exponent gap phase diagram; power-law two-component slopes"
+        ]
+      },
+      "rationale": "Apparent-exponent reversals of positive mixtures are not new by themselves. The closest inspected exact Omori result varies offsets at identical exponents, while the strongest alternative formulation inspected is the generalized failure rate of a common-scale two-Lomax mixture. None of the inspected statements gives this mixture's complete exponent-gap and amplitude classification with the double stationary boundary.",
+      "residual_risks": [
+        "The exact GFR alias makes unlocated reliability, price-elasticity or survival-mixture work a real residual risk. The bounded comparison is not a claim of historical priority or an inference from keyword misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material conceptual overlap, different parameter family",
+          "evidence": "λ=A/(t+a)+B/(t+b); exact offset-ratio threshold and at most two stationary points at equal fixed exponents.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-offset-contrast-threshold-for-reentrant-apparent-omori-d--3f001ca0ae7a",
+          "material_read": "Mirrored RESULT.md finding and proof, offsets 0–8000, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and original mirror",
+          "title": "A sharp offset-contrast threshold for reentrant apparent Omori decay",
+          "trigger": "Exact classification of similar two-component apparent-exponent turns"
+        },
+        {
+          "assessment": "Natural motivating context, no covering result in the inspected passages",
+          "evidence": "Original/modified forms and secondary sequences at separate onset times; not the complete slope phase diagram.",
+          "identifier_or_url": "https://doi.org/10.4294/jpe1952.43.1",
+          "material_read": "Early Omori discussion and §4.1 (pp. 1 and 9; OA offsets 0–3994 and 32600–35252)",
+          "method": "Bounded OA original PDF inspection",
+          "title": "The centenary of the Omori formula for a decay law of aftershock activity",
+          "trigger": "Historical shared-offset powers and superposition antecedent"
+        },
+        {
+          "assessment": "Different mechanism",
+          "evidence": "Emergent exponents 1−θ and 1+θ arise from recursive aftershock triggering, not two fixed shared-offset terms.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9905314",
+          "material_read": "p. 1 and §II p. 3, OA offsets 1050–2779 and 5500–8055",
+          "method": "Bounded OA original PDF inspection",
+          "title": "Renormalization of earthquake aftershocks",
+          "trigger": "Apparently competing decay-exponent transition"
+        },
+        {
+          "assessment": "Same observable defined, different examples and results",
+          "evidence": "GFR is tf(t)/(1−F(t)); the displayed mixture example is disjoint uniforms and its quantified result concerns generalized mean residual life rather than the GFR of a common-scale Lomax mixture.",
+          "identifier_or_url": "https://doi.org/10.1007/s10479-023-05425-z",
+          "material_read": "Introduction (OA offsets 3720–5459) and mixtures/Example 2 (38300–42696), Pareto Example 3 lead (PDF p. 13)",
+          "method": "Bounded inspection of the original OA PDF via Warwick repository",
+          "title": "A generalization of the increasing generalized failure rate unimodality condition",
+          "trigger": "Exact generalized-failure-rate alias and plausible broader mixture theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, witness and limitations; Omori historical context and generalized-failure-rate formulation."
+      ],
+      "rationale": "The complete classification shows when a genuinely declining, two-component rate can nevertheless look as though its decay first steepens, then flattens, then steepens again. The exact gap and amplitude conditions, including the stationary merger, make this a testable structural distinction within the model rather than a generic qualitative crossover or a single synthetic example.",
+      "residual_risks": [
+        "No component identifiability, statistical detection rule or catalog forecast follows from the exact deterministic classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

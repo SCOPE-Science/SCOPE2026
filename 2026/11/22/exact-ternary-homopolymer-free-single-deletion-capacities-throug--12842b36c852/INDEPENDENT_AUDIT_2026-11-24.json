@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:30:49.984955Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two deletion positions i<j give the same word iff the entire interval i…j is constant, impossible here. Disjoint shadows are exactly the decoding condition and must include descendants with adjacent repeats. The supplied color-prefix search is sound: independent color classes bound a clique on the remaining prefix, and each feasible extension has a largest processed vertex, so it is visited or excluded by the bound. Independently rebuilt the incidence and conflict masks from the definition, checked all supplied witnesses, and excluded a family of size M_n+1 by exact branching on a group of mutually conflicting words (one member or none); partitioning the remaining candidates into such groups gives a valid upper bound. This proved (1,1,3,4,8,12,22), with 1,837,807 nodes for the length-seven upper bound. For the ordinary packing LP, an independent rational replay checked every primal load and dual cover against the rebuilt incidence and verified equality of objectives (1,3/2,3,9/2,42/5,27/2,99/4). The empty word gives both optima at n=1. Lengths through six give fewer than 16 messages, while the length-seven witness suffices; its additive LP gap is 99/4−22=11/4. No assertion about later lengths or an asymptotic capacity is validated.",
+      "replay": [
+        "python3 /workspace/branches/audit-3-integer.py; audit-3-integer-n7.log in the same directory",
+        "python3 /workspace/branches/5db9446e-2f8a-4236-a3e4-4b049cd53770/replay_fractional.py; replay-small.log and replay-full.log alongside it"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Kiyavash §V derives a bound for binary (d,∞)-RLL sources allowing deletion of either symbol.",
+          "Takemoto–Nozaki use binary maximum-run constraints and length-dependent redundancy bounds for single insertion/deletion codes. Nguyen et al. use quaternary words with a GC-content constraint in addition to the run bound.",
+          "K&K §V and references identify two related 2012 works; no primary theorem passage was retrieved for either in this check."
+        ],
+        "reasoning": "None of the verified broader results gives exact optima for arbitrary finite ternary sources of the stated form. A construction or a general packing upper bound is not the matching upper and lower bound in the audited table.",
+        "searches": [
+          "arXiv:1211.3128 §§V–VI",
+          "arXiv:2012.13536 p. 1 and §IV/E",
+          "arXiv:2001.02839 pp. 1–3, Table I and §VI",
+          "Cheng–Ferreira–Broere and Paluncic et al. 2012 run-length deletion constructions (K&K refs. [23] and [24])"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_exact.cpp, alternate_milp.py, verify_fractions.py, optimal_codebooks.json and fractional_certificate.json (via the independent checker)",
+        "arXiv:1211.3128, 2012.13536, 2001.02839, 2305.10741 targeted passages",
+        "Resultary 12842b36c852, dfdfffbd79be, f5acf0909fbf, b6865f2f1099, 831d8cb03d53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restricting the unrestricted deletion hypergraph removes source columns; the optimum need not equal or be attained by restricting any given old optimal code or fractional solution.",
+          "The binary maximum-run construction and the matching framework do not produce exact upper certificates on this restricted incidence. Length seven has P_7=99/4, so even floor(P_7)=24 is too large to prove M_7=22."
+        ],
+        "reasoning": "An available exact solver or an abstract matching formulation is not a theorem supplying the actual finite upper/lower answers. The independently checked combinatorial exclusion and rational certificates resolve a nontrivial gap at this motivated cutoff.",
+        "searches": [
+          "arXiv:1211.3128 general hypergraph matching, §§V–VI",
+          "arXiv:2012.13536 Theorem 4",
+          "Resultary 831d8cb03d53 and dfdfffbd79be Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary dfdfffbd79be treats known-coordinate erasure for the same input alphabet/run bound. f5acf0909fbf treats unknown-position deletion but uses binary words avoiding 000 and 111.",
+          "Benerjee–Banerjee use Hamming distance on homopolymer-free words; Kulkarni–Kiyavash use true deletion balls."
+        ],
+        "reasoning": "Known-position erasure allows ambiguity across different deletion positions, which this packing forbids; Hamming separation is not deletion-shadow disjointness. Changing binary run ceiling two to ternary ceiling one does not preserve the family or the output incidence.",
+        "searches": [
+          "Resultary: ternary homopolymer-free known-position erasure / unknown-position deletion; single-deletion optima for run-length-limited sources",
+          "arXiv:2305.10741, Abstract and §II; arXiv:1211.3128 §V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local exact self-match 12842b36c852 is the assigned record. Resultary 831d8cb03d53 reports exact length-five size 24 for unrestricted ternary inputs; b6865f2f1099 gives exact optima for the binary (2,∞)-RLL family. The same-source erasure table dfdfffbd79be reports E_5=23 and E_7=92.",
+          "K&K Table I's unrestricted q=3,n=5 row lists LP upper bound 24 and a best-known size 17 at that time; Nguyen et al. Table I lists redundancy expressions."
+        ],
+        "reasoning": "Neither unrestricted ternary values nor constrained binary/known-coordinate values determine the restricted ternary deletion packing or its LP. The two distinct same-day near matches were compared by assumptions, not ordered by date.",
+        "searches": [
+          "Resultary: exact ternary length-five single deletion; ternary homopolymer-free erasure; binary (2,∞)-RLL exact optima",
+          "arXiv:1211.3128 §§V–VI, Table I; arXiv:2001.02839 Table I"
+        ]
+      },
+      "rationale": "The exact finite integer and ordinary LP optima concern ternary input words of maximum run length one, with unconstrained deletion outputs and unknown position. Comparison finds the standard hypergraph and LP framework and multiple related exact capacities, but not a verified same-hypothesis theorem or a mechanical implication for these values. Credit is for the resolved finite optima and first 16-message length, not for either optimization formulation.",
+      "residual_risks": [
+        "The two 2012 binary RLL works identified by Kulkarni–Kiyavash were not inspected in primary full text. The bounded comparison cannot exclude differently indexed exact finite results; neither access nor a missing exact table was treated as proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework prior, no matching restricted ternary exact table in inspected sections",
+          "evidence": [
+            "§V treats binary (d,∞)-RLL input; Table I uses unrestricted q-ary input",
+            "p. 13 mentions deletion of both 0 and 1 in related 2012 papers"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "§§V–VI, pp. 12–15 (offsets 94058–108500); Table I; references [23]–[24] on p. 17",
+          "method": "Targeted OA PDF passages",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Standard deletion hypergraph LP and constrained RLL bounds"
+        },
+        {
+          "assessment": "Binary construction, not these ternary finite exact optima",
+          "evidence": [
+            "Binary source; Theorem 4 redundancy-gap bound for n≥14"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.13536",
+          "material_read": "p. 1 and §IV/E, offsets 0, 20586 and 44000–52000",
+          "method": "Targeted OA PDF text",
+          "title": "Single insertion/deletion-correcting codes for limited runs (Takemoto–Nozaki)",
+          "trigger": "Closely relevant maximum-run-limited deletion construction"
+        },
+        {
+          "assessment": "Quaternary source with additional GC restriction and construction results",
+          "evidence": [
+            "Table I gives redundancy expressions rather than optimum cardinalities"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.02839",
+          "material_read": "pp. 1–3, Table I and §VI; offsets 0, 10600–11900, 53000–61000",
+          "method": "Targeted OA PDF text",
+          "title": "Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage",
+          "trigger": "Constrained deletion-correcting codes with multiple symbols"
+        },
+        {
+          "assessment": "Hamming problem, not deletion",
+          "evidence": [
+            "Minimum Hamming-distance assumption in the code definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.10741",
+          "material_read": "Abstract and §II, pp. 1–2; offsets 0, 5800–8600",
+          "method": "Targeted OA PDF text",
+          "title": "Bounds on Size of Homopolymer Free Codes",
+          "trigger": "Identical adjacency constraint on the inputs"
+        },
+        {
+          "assessment": "Different observation model or source family in each case",
+          "evidence": [
+            "Known position erasure; binary run ceiling two; binary (2,∞)-RLL; unrestricted ternary length five, respectively"
+          ],
+          "identifier_or_url": "Resultary dfdfffbd79be, f5acf0909fbf, b6865f2f1099 and 831d8cb03d53",
+          "material_read": "Findings, including source/channel assumptions and exact tables",
+          "method": "Local Resultary comparison",
+          "title": "Local exact near matches for constrained erasure and deletion",
+          "trigger": "Exact finite tables that could overlap by reduction or alias"
+        },
+        {
+          "assessment": "Specific uninspected primary-source risk; the secondary description concerns binary RLL",
+          "evidence": [
+            "K&K p. 13 identifies deletion of 0 and 1; p. 17 identifies the publications"
+          ],
+          "identifier_or_url": "Kulkarni–Kiyavash refs. [23] and [24]; IEEE Trans. Inf. Theory 58 (2012), pp. 2244–2252 and 1809–1824, respectively",
+          "material_read": "Bibliographic entries and secondary description in K&K §V; no primary text retrieved",
+          "method": "Bounded title/author search and K&K citation passages",
+          "title": "Moment balancing templates for (d,k)-constrained codes and run-length limited sequences; A multiple Insertion/Deletion correcting code for run-length limited sequences",
+          "trigger": "Related RLL results cited for deleting either binary symbol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source restriction, unknown-deletion channel and minimum block length for 16 codewords define a concrete finite coding question rather than an arbitrary cutoff. The constructed optimum and exact exclusion of larger codes give an actionable threshold, while the rational LP table shows specifically where the ordinary shadow relaxation ceases to certify the integer sizes. Those exact facts are not supplied by the broader matching model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

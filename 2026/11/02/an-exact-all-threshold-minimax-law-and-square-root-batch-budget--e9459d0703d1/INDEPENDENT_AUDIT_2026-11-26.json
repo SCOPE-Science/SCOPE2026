@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:10:55.769075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Completing the square along one line gives the squared normalized energy-coordinate inner product. After rotating and scaling the energy covariance to diag(1,K), Gaussian radial integration gives the stated projective angular density with denominator K cos²φ + sin²φ. The success arc has radius r=arccos(sqrt(t)); differentiating its mass at the two endpoints gives the difference of reciprocal denominators with numerator (K−1) sin(2θ) sin(2r). This is strictly positive for interior θ from the small to large eigenaxis if K>1 and constant in angle when K=1. Thus the worst start is unique as a projective direction for each threshold if K>1. At that axis the squared alignment is 1/(1+K C²) for a standard Cauchy C, giving the stated CDF; there are no atoms at internal thresholds. Independence raises the CDF to the m-th power at the same fixed start. Strict increase in K gives the unique covariance ray proportional to H⁻¹. Taking logs gives the ceiling, and −sqrt(K) log F_K tends to (2/π)sqrt((1−t)/t), proving the coefficient and all three regimes. Partial fractions of the Cauchy integral give mean 1/(1+sqrt(K)), and setting the CDF to 1/2 gives median 1/(1+K). These conclusions do not describe sequential updates or minimization over the joint span.",
+      "replay": "python3 /workspace/review-evidence/bounded_checks.py 3 independently checks the three t=1/2, δ=0.1 budgets (K=1,9,100 give 4,11,36 candidates) and their one-fewer failure probabilities. The analytic arc comparison, not the finite examples, supplies uniformity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random Pursuit gives exact Gaussian line sampling and expected-progress/metric analyses; randomized subspace methods yield expected or high-probability algorithmic convergence.",
+          "The direct-search statistic involving a maximum of Gaussian-sphere coordinates is studied in expectation, not as the fixed-start anisotropic squared alignment law of separately optimized independent lines."
+        ],
+        "reasoning": "Neither expectation comparisons nor convergence guarantees determine the exact one-step CDF with a common worst start at every threshold. A full-span minimization in this dimension would have gain 1 almost surely for two independent Gaussian directions, unlike the asserted batch.",
+        "searches": [
+          "arXiv:1111.0194 Theorem 5.1; arXiv:1210.5114 Lemma 2 and covariance convergence bounds",
+          "arXiv:1905.10874 Theorem 2; arXiv:2211.09873 pp. 1,11; arXiv:2204.01275 Theorem 3.1; arXiv:2308.04734 Proposition 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1210.5114",
+        "arXiv:1111.0194",
+        "arXiv:2605.02023v1",
+        "arXiv:1905.10874",
+        "arXiv:2211.09873",
+        "arXiv:2204.01275",
+        "arXiv:2308.04734",
+        "Resultary 7798c844626a, d73676e44901, 433e68df3b50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An expected-gap law for a second line evaluated at the updated point does not specify the maximum over independent gains at the original point.",
+          "The prior inverse-Hessian design idea is not claimed new; uniformity in energy direction is its known mechanism, whereas strict worst-start CDF monotonicity for each anisotropic covariance is needed to get uniqueness and the exact budget.",
+          "The min-projection formula for regular deterministic lines uses a free Gaussian radius and a uniform nearest-line angle, not the Cauchy ratio at the least-favored energy direction."
+        ],
+        "reasoning": "Exponentiation, taking logarithms, and the square-root expansion are consequences once the exact extremal single-candidate law is proved. The inspected prior statements do not supply that missing extremum for this objective.",
+        "searches": [
+          "arXiv:1210.5114 pp. 3–6, 10–11",
+          "Resultary d73676e44901 and 433e68df3b50, finding statements",
+          "arXiv:2605.02023v1 Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In energy coordinates the one-line gain is squared alignment with a projective anisotropic Gaussian direction; a threshold tests the mass of a fixed-radius arc as its center varies.",
+          "The fixed-line Gaussian minima results study the random-vector projections onto deterministic line configurations; the exact regular case and fixed-anchor gap optimization do not optimize this anisotropic arc mass."
+        ],
+        "reasoning": "The classical angular and Cauchy laws describe one draw; the claim includes the comparison across all arc centers, strict uniqueness, and the induced minimax design across all covariance shapes. The retrieved fixed-direction Gaussian laws have a different random object and objective.",
+        "searches": [
+          "Resultary: planar Gaussian angular tails and simultaneous candidate selection; 7798c844626a",
+          "arXiv:2605.02023v1 Proposition 2.1, Conjecture 3.1",
+          "arXiv:1210.5114 pp. 3–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved findings give a deterministic planar angular-gap optimizer for Gaussian minima, an exact two-query expected-gap comparison for sequential orthogonal versus independent lines, or a moment recurrence for successive isotropic exact line searches."
+        ],
+        "reasoning": "These include very similar planar exact-search regimes but do not tabulate or state the CDF or minimal independent fixed-start candidate budget; none is discarded on its date alone.",
+        "searches": [
+          "Resultary: 7798c844626a, d73676e44901, 433e68df3b50"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the precise threshold-wise extremum over starts, with equality cases, for fixed-start independent Gaussian exact line candidates, and the resulting sharp batch law. Exact random line search, covariance adaptation including the inverse-Hessian design idea, standard direction distributions, and order statistics are prior or elementary ingredients.",
+      "residual_risks": [
+        "Earlier work on exact anisotropic angular tails or independently sampled parallel randomized line-search candidates could cover the central comparison; bounded results do not settle historical priority.",
+        "The cited Local stability of cosine configurations for Gaussian minima was not available as full text in the lawful access attempts; noncoverage is not asserted for that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the method and moment/expected convergence, not the inspected joint threshold claim",
+          "evidence": "Defines exact Gaussian line search, gives normalized-direction moments and covariance-dependent expected bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.5114",
+          "material_read": "pp. 3–6, Lemma 2, and pp. 10–11",
+          "method": "OA PDF comparison",
+          "title": "Variable Metric Random Pursuit",
+          "trigger": "Exact Gaussian line search and already known covariance design"
+        },
+        {
+          "assessment": "Expected convergence is not a fixed-point exact CDF",
+          "evidence": "Random Pursuit line definitions and a theorem on expected error for an approximate line-search formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+          "material_read": "pp. 2–3 and Theorem 5.1 pp. 10–11",
+          "method": "OA PDF comparison",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Earlier exact random-line method"
+        },
+        {
+          "assessment": "Exact regular fixed-line distribution; different observable",
+          "evidence": "Minimum absolute projection onto a fixed regular set has representation R sin θ with independent uniform θ on [0,π/(2n)]; the broader dominance claim there is labeled a conjecture.",
+          "identifier_or_url": "https://arxiv.org/html/2605.02023v1",
+          "material_read": "Proposition 2.1 and Conjecture 3.1",
+          "method": "OA article comparison",
+          "title": "Planar Gaussian minima (Kunisky)",
+          "trigger": "Exact planar all-threshold Gaussian extreme values"
+        },
+        {
+          "assessment": "Different fixed-anchor design and a Gaussian projection minimum",
+          "evidence": "One inserted direction bisects a largest gap; two added directions can fail to admit a common all-threshold optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-one-point-stochastic-optimality-breaks-at-two-point-planar-gauss--7798c844626a/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary comparison using mirrored statement",
+          "title": "One-point stochastic optimality breaks at two-point planar Gaussian extension",
+          "trigger": "Closest indexed all-threshold planar Gaussian optimization"
+        },
+        {
+          "assessment": "Sequential exact updates, not parallel selection",
+          "evidence": "Compares orthogonally paired with independent sequential candidates by an expected-gap ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-query-gain-from-orthogonal-sampling-in-planar-quadrati--d73676e44901/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary comparison using mirrored statement",
+          "title": "Exact two-query gain from orthogonal sampling in planar quadratics",
+          "trigger": "Same setting of planar exact quadratic line minimization, two query comparison"
+        },
+        {
+          "assessment": "Successive search and objective moments rather than a same-start maximum law",
+          "evidence": "States an exact second-moment recurrence and asymptotic expected-objective rate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary comparison using mirrored statement",
+          "title": "Exact mean-square rate of planar Gaussian random-direction line search",
+          "trigger": "Exact distributions or moments of isotropic planar line search"
+        },
+        {
+          "assessment": "Expected maximum for subspace direct search, not an exact elliptic line-gain extremum",
+          "evidence": "Computes expected maximal absolute coordinate magnitudes for spherical directions.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.04734",
+          "material_read": "Definition 2.3 and Proposition 3.1, pp. 7–8",
+          "method": "OA PDF comparison",
+          "title": "Expected Decrease for Derivative-Free Algorithms Using Random Subspaces",
+          "trigger": "Neighboring Gaussian/spherical maximum calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp quantile budget quantifies conditioning in a different way from expected decrease: at the bad axis the single-candidate mean and median scale differently, and a fixed reliability level requires order sqrt(κ) independent trials with an exact leading constant. This is a natural benchmark for parallel exact-line selection, not a claim about an optimizer's total runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

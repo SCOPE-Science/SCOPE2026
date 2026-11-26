@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a **local full-torus theorem for every finite star**. Exact antipodal-cycle identities supply both parent branches and their multiplier \(1+\pi^2-\alpha^2\). The two distinct third-order coefficients of the squared map are computed using the full chain rule, giving positive flip coefficients \(B_\pm=(2\pm\sqrt2)(5\pi^2+2)/2\). Factoring the return equation by the known parent fixed point and applying uniform strict concavity establishes *exactly* two daughter intersection points per parent, not just a numerically observed pair. The derivative of the four-step return proves diagonal attraction and the asymptotic splitting law. The transverse derivative block has each four-step eigenvalue strictly between zero and one at the crossing; a transverse implicit-function argument rules out any hidden nondiagonal nearby prime-four branches, and continuity proves full-network attraction. The verification program checks independent formulas and selected examples; finite tests are not the proof.
+PASS
 
-## Originality — PASS within examined evidence
+Fix d≥2, and split the quotient directions into span(1) and its perpendicular; the coupling eigenvalues are d+1 and 1. On the diagonal α=(d+1)h, and each x_σ solves α sin x_σ=π, giving the two distinct antipodal prime-two orbits. At the representative x_σ set t=α cos x_σ. The recentered two-step return has derivative 1−t²=−1−ε and chain-rule second and third derivatives π(3t+t²) and 4t²+3t³+t⁴−3π²(1+t). Thus as t²=2 the flip coefficient g''²/4+g'''/6 is (2+t)(5π²+2)/2>0. Dividing the two-step return's second iterate minus the identity by the offset y gives a smooth function with strict local concavity, maximum 2ε+O(ε²) at y=O(ε), and negative values at fixed close endpoints. There are exactly two nonparent roots for ε>0 and none for ε<0; the return exchanges them because its only nearby fixed point is the parent. They have offsets ±sqrt(ε/B_σ)+O(ε); differentiating yields longitudinal four-step multiplier 1−4ε+O(ε^(3/2)). The leading ratio sqrt(B_−/B_+)=sqrt(2)−1, and oddness exchanges the two cycles (mapping a representative neighborhood to the other cycle's antipodal neighborhood). At the parent the transverse four-step derivative is q_d I with q_d=(1−2/(d+1)²)²∈(0,1). The projected four-step fixed-point equation has invertible perpendicular derivative (q_d−1)I, so its unique local transverse solution is the invariant diagonal. This excludes all nondiagonal local daughters on both sides. All transverse multipliers along each daughter equal q_d+O_d(sqrt(ε)), proving attraction in the full quotient for each fixed d. Neither global attraction nor stability in an unquotiented common-rotation direction is asserted. Independent finite brackets for ε=10⁻⁴ and 4·10⁻⁴ supported the offsets and multipliers; the uploaded code was read, not run, and the existence, count and stability follow from the local analysis rather than the brackets.
 
-The motivating 2026 Huygens-network paper proves a Morse–Smale window, rather than strong-step period-four bifurcations on stars of arbitrary size. An earlier explicit diagonal Huygens-star **period-two** classification does cover the two parent cycles, the threshold \(\sqrt{\pi^2+2}\), and the parent multiplier crossing; these are acknowledged as prior facts. It does not establish the daughter period-four branches, full-torus local completeness and attraction, or either signed cubic coefficient. General scalar period-doubling theory provides a conditional local mechanism, but cannot determine its sign on these two sine-map cycles without the present calculation. The closest other mathematical record concerns the Duffing map, not this sine map. The standard sine-circle map is old; an unindexed equivalent calculation is a genuine residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A known sharp two-cycle stability threshold leaves a concrete nontrivial question: do the two competing stable phase patterns vanish, destabilize without replacement, or simultaneously spawn daughter oscillations? The answer is a complete **local full-torus** stable daughter-orbit count **for every finite star**, with a strict supercritical sign on both branches, uniform-in-form transverse spectral limit, universal leading longitudinal contraction and an exact branch-dependent amplitude ratio. This resolves the natural first post-threshold dynamical mechanism in the minimal two-oscillator network; it is not a restatement of the parent spectrum. It does not provide a global period-four census or extend from stars to arbitrary weighted graphs.
+The parent cycles and their −1 crossing are acknowledged antecedents. The supported distinct result is the simultaneous supercritical pair of prime-four births with explicit branch coefficients and locally exhaustive stability in the entire star quotient for every fixed d. No inspected match provides this theorem or directly implies its signed coefficients and transverse conclusion. Exact scalar-slice and parent-record access limitations are retained below.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result resolves what becomes of both antipodal two-cycles once they lose longitudinal stability, including whether transverse perturbations preserve the attraction and whether other nearby daughters can exist. The simultaneous locally exhaustive result distinguishes a visible diagonal four-cycle from a true sink of the star quotient and supplies exact measurable branch splitting. It is not just a generic period-doubling assertion or rediscovery of the parent threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

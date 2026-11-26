@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:48:48.369775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A prescribed directed cycle is immutable, so any even one prevents every completion. Otherwise, on the original carrier the only free arrows send path ends bijectively to path starts. A component cycle is admissible exactly when it contains an odd number of odd-size paths, including an unassigned singleton as one such path. If a>=1, delete even-size paths from their cycles to get an odd-cycle permutation of the a labelled odd-size paths. Reinsertion in fixed label order has exactly a,a+1,...,a+b-1 choices and is reversible. The classical EGF C(x)=sqrt((1+x)/(1-x)) gives the stated double factorials; the mixed EGF follows by substituting x/(1-y), or by exponentiating the cycle sum 1/2 times log((1-y+x)/(1-y-x)). For a=b=0 the empty component permutation is unique, including for an empty carrier. For a=0<b, all cycles on the original carrier would be even; a fixed new vertex is the sole odd component and forces one cycle containing every path. Ordering the b paths after that vertex gives exactly b! possibilities. The notes and supplied checker were inspected but not run. Separate bounded enumeration of component permutations with a+b<=7 and fixed-label repair cases b=1..6 corroborates the counts; the bijection proves the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.12 is the one-map prime-restricted existence result; its construction closes paths by adding vertices as needed.",
+          "Adin et al. give the classical exclusively odd-cycle baseline, including the even-n double factorial count."
+        ],
+        "reasoning": "Neither permitting extra vertices nor knowing counts for b=0 settles the sharp cost and counts by mixed parity. In particular, a proof that pads individual paths does not give the shared one-vertex repair.",
+        "searches": [
+          "Etedadialiabad–Gao arXiv:2610.04870v1 Section 3.5 Lemma 3.12",
+          "Adin–Hegedűs–Roichman arXiv:2502.03507v1 Section 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04870v1",
+        "arXiv:2502.03507v1",
+        "OEIS A000246",
+        "3cf820baddaf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking odd primes in the extension lemma covers existence for compatible prescribed cycles, but not the zero-versus-one vertex criterion.",
+          "The univariate classical EGF becomes the frozen bivariate expression only after the structural contraction and even-component insertion or parity filtering."
+        ],
+        "reasoning": "The cycle-index method is standard and the all-odd sequence is not a novelty. The reviewed package resolves which prescribed paths may share cycles, giving a sharp labelled optimum and all minimal repairs.",
+        "searches": [
+          "arXiv:2610.04870v1 Definition 3.11 and Lemma 3.12",
+          "OEIS A000246 cycle-index specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After contraction, this counts permutations of components in which each cycle has odd marked-label cardinality; equivalently fix a sign vector and require the sign product of every cycle to be negative.",
+          "The threshold record's fixed-carrier prime-power constraint excludes odd cycle lengths other than powers of three and does not count labelled extensions."
+        ],
+        "reasoning": "Ordinary odd cycle lengths and permutation sign are not the two-type condition. Signed-cycle literature is a plausible comparison, but no statement counting this fixed type pattern or its completion model was established by the bounded search.",
+        "searches": [
+          "signed permutations only negative cycles fixed number of minus signs number odd red labels each cycle sqrt generating function odd cycles OEIS partial permutations fixed arcs",
+          "Resultary: finite partial-permutation exponent threshold, 3cf820baddaf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000246 directly lists 1,1,1,3,9,45,225,... for permutations of odd order, and gives their EGF sqrt((1+x)/(1-x)).",
+          "The inspected Resultary record contains a fixed-carrier exponent decision problem, not a mixed count table."
+        ],
+        "reasoning": "The exact database coverage is N_(a,0), not the two-sort array or the minimal-repair multiplicity of the prescribed partial map.",
+        "searches": [
+          "OEIS A000246",
+          "Resultary ID 3cf820baddaf"
+        ]
+      },
+      "rationale": "Best of current knowledge for the joint sharp carrier-size and mixed labelled completion classification. The all-odd-cycle counts are explicitly classical. The closest inspected extension result gives existence but not a shared single-vertex optimum or exact mixed multiplicities, and the closest inspected indexed exponent result fixes the carrier and restricts to powers of 3.",
+      "residual_risks": [
+        "A prescribed-arcs enumeration or fixed-sign-vector cycle-count result with the same mixed labelled array may have gone unlocated.",
+        "No novelty credit for the univariate A000246 count or the generic exponential formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence; not sharp minimum or enumeration",
+          "evidence": "Pi-EP(1) extends compatible maps by closing paths into cycles of allowed prime factors, enlarging the carrier as needed.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04870v1",
+          "material_read": "Section 3.5, Definition 3.11 and Lemma 3.12, offsets around 66500–69780",
+          "method": "OA full-text passages",
+          "title": "Extension Properties for Partial Permutations",
+          "trigger": "Same partial-bijection extension setting"
+        },
+        {
+          "assessment": "Baseline, not mixed partial-map counts",
+          "evidence": "States the even-n all-odd count and references A000246 in related odd-cycle enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2502.03507v1",
+          "material_read": "Section 1 near offsets 1142 and 4700",
+          "method": "OA full-text passages",
+          "title": "Descent set distribution for permutations with cycles of only odd or only even lengths",
+          "trigger": "Classical odd-cycle counting baseline"
+        },
+        {
+          "assessment": "Exact b=0 specialization",
+          "evidence": "Sequence terms and the S_n cycle-index specialization giving sqrt((1+x)/(1-x)).",
+          "identifier_or_url": "https://oeis.org/A000246",
+          "material_read": "Sequence and first COMMENTS at offsets 219–1170",
+          "method": "OA public webpage passage",
+          "title": "Number of permutations in the symmetric group S_n that have odd order",
+          "trigger": "Exact baseline sequence match"
+        },
+        {
+          "assessment": "Different restriction and output",
+          "evidence": "Asks for tau^(3^k)=id_X on fixed X, not optimal enlargement or labelled counts for odd order.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-prime-power-exponent-threshold-for-finite-partial-permutation--3cf820baddaf",
+          "material_read": "Finding and fixed-carrier exponent setup",
+          "method": "Local-mirror RESULT.md",
+          "title": "A prime-power exponent threshold for finite partial permutations",
+          "trigger": "Closest relevant indexed partial-permutation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal carrier enlargement is a natural question for the cited extension problem. The result explains when a single new point repairs arbitrarily many even-sized paths, and exactly which component orders and how many labelled completions occur. This provides a usable sharp parity-profile invariant beyond mere existence or recomputing the all-odd baseline.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

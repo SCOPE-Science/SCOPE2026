@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:46.453269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite count is correct: subtract the maximum enforced multiplicity independently for each permitted part. Each integer layer j is supported precisely on allowed sizes through max_(r≥j)t_r, so the resulting weight is S. This is reversible, including n=0 and S>n. RESULT.md lines 47–55 omit the complex-sector hypothesis of corrected Ingham; the radial estimate plus coefficient monotonicity would not suffice alone. The missing estimate holds here. Write P(z)=prod_(a≥1)(1−exp(−az))^(−1); Dedekind inversion gives P(z)=sqrt(z/(2π)) exp(π²/(6z)−z/24)P(4π²/z) on Re z>0. Hence P(z)/P(ell z)=ell^(−1/2) exp(μ_ell/z+(ell−1)z/24)(1+O(exp(−c/|z|))) as z→0 in each fixed sector |Im z|≤Δ Re z. Since Re(1/z)≤1/|z|, this gives the correct sector bound of Bringmann–Jennings-Shaffer–Mahlburg Theorem 1.1, with γ=μ_ell, λ=ell^(−1/2) and both power/log exponents zero. Multiplication by the allowed part 1 shows coefficients are nondecreasing; the analytic product has radius at least one. Thus the asserted coefficient asymptotic holds, with the missing hypothesis verified independently. Taylor expanding sqrt(n−S) for S=O(sqrt n) gives the claimed ratio and rate. The floors and arithmetic progression omission give A_ell(t)=(1−1/ell)t²/2+O(t+1), including zero thresholds. Independent exponentials have exactly the stated suffix-max survivor after squaring, and continuous coordinate marginals imply weak convergence via orthant inclusion–exclusion; this is not a proof of exact coincidence probabilities. Replay: python /workspace/reproductions/frozen_checks.py, third check, verifies 270 bounded exact cases at four levels. Frozen recorded 9600-case evidence and script inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner treats Λ-partitions with selectable allowed part sets and derives a fixed-level Weibull law under his hypotheses. The prior joint results give removal/reinsertion, the threshold-layer sum and the coefficient-ratio argument in their respective models. The unrestricted record also proves a separate exact-tie limit, which the frozen claim does not address."
+        ],
+        "reasoning": "The unrestricted and overpartition findings are not literally the regular-partition measure. The broader allowed-set asymptotic input plus the already explicit mandatory-copy proof transfers the coupling to the regular allowed set; no joint hypothesis specific to regular parts is needed.",
+        "searches": [
+          "Wagner, limitdist.pdf, pp. 1–2 and Theorem 3",
+          "Resultary 1284bec11d63 Finding and exact multivariate survivor",
+          "Resultary e1bdf9b70b4a Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_joint.py, verification_output.txt, REVIEW.md and AUDIT.json",
+        "Resultary 1284bec11d63, e1bdf9b70b4a, a7d5664f9d36",
+        "Wagner (2011), Theorems 1 and 3",
+        "arXiv:2609.31104v2 and arXiv:1910.03036",
+        "Fristedt DOI 10.1090/S0002-9947-1993-1094553-1 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the old removal rule restrict the sum of mandatory copies to ell∤a. Removal and reinsertion preserve this restriction without modification. With U=Σ_j(max_(r≥j)x_r)² the resulting joint shift satisfies S/√n→(1−1/ell)U/2. For U>0 it is sandwiched by the one-level shifts A_ell(floor((√U±ε)n^(1/4))) for small ε>0 and sufficiently large n. Monotonicity of p_ell transfers this to a survivor squeeze; Wagner's one-level limit gives exp(−α_ell U) by ε→0. U=0 is the vacuous threshold. Alternatively substitute the classical regular coefficient asymptotic into the old catalogue ratio method."
+        ],
+        "reasoning": "The same suffix-max exponent and running minima follow by this one-level squeeze; even the ell-dependent rate is that of the pre-existing marginal. There is no extra obstruction or structural phenomenon established for the restricted sequence. This goes beyond the observation that separate marginals alone do not normally identify a joint law.",
+        "searches": [
+          "Resultary 1284bec11d63 Proof §§1–2",
+          "Resultary e1bdf9b70b4a Proof §§1–2",
+          "Wagner Theorem 3, p. 6",
+          "arXiv:1910.03036 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1284bec11d63 states joint least-gap survival and successive minima of independent Rayleigh coordinates in ordinary partitions; e1bdf9b70b4a states an exact suffix-max survivor and the same running minima for nonoverlined multiplicities."
+        ],
+        "reasoning": "Squaring a Rayleigh variable with tail exp(−αx²) gives an exponential of rate α and commutes with taking the running minimum. The exponential wording is therefore not a different dependence law. The exact target hit a7d5664f9d36 is the frozen item, not another source.",
+        "searches": [
+          "Resultary: joint least multiplicity gaps partitions no multiples regular permitted part sizes multiple r-mex thresholds exact shifted count suffix maxima running minima Rayleigh",
+          "Resultary 1284bec11d63 and e1bdf9b70b4a",
+          "Wagner DOI 10.1007/s11139-010-9264-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact catalogue identities are 1284bec11d63 equation (1) for ordinary partitions and e1bdf9b70b4a Finding for overpartitions, the latter already written as a sum over suffix maximum layers. Bhowmick–Meher Theorem 1.1 is the generating function of a single unrestricted s-mex statistic. The search also identifies later regular-partition mark or residue bias results, not evidence of earlier coverage."
+        ],
+        "reasoning": "The decisive overlap is an existing exact formula template and its implication, not an independently precomputed same-ℓ table. The regular shift replaces the triangular sum of all sizes through t by the sum of allowed sizes through t; the same maximum-multiplicity constraint and exact bijection remain unchanged.",
+        "searches": [
+          "Resultary: joint least multiplicity gaps partitions no multiples regular permitted part sizes multiple r-mex thresholds exact shifted count suffix maxima running minima Rayleigh",
+          "arXiv:2609.31104v2 Theorem 1.1"
+        ]
+      },
+      "rationale": "The frozen identities are mathematically true, but inspected pre-existing results make the asserted joint dependence and counting rule a routine transfer. The old joint laws already give the mandatory-copy rule, suffix maxima and running-minimum coupling, including in another partition measure. Deleting the forbidden indices in that rule and applying the known regular-part univariate scaling gives the full asserted law with no new dependence calculation. This is demonstrable prior implication, not a judgment based on any unavailable source.",
+      "residual_risks": [
+        "Fristedt's possible additional coverage remains unresolved; the rejection does not depend on it. No assertion of exact statement priority in the identical regular model is made. The mathematical reason for rejection is the immediate transfer from inspected theorem mechanisms and the known marginal, not a gap in external retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-existing joint dependence and exact count mechanism, with a different allowed set",
+          "evidence": "Displays p(n−H)/p(n), with H summing the maximal forced multiplicities, then the joint running minima, orthant survival and uniform mark consequence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-joint-rayleigh-records-and-uniform-multiplicity-marks-for-least--1284bec11d63/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, offsets 0–2973",
+          "method": "Resultary search and original local-mirror text",
+          "title": "Joint Rayleigh records and uniform multiplicity marks for least partition gaps",
+          "trigger": "Strongest ordinary-partition joint-law match"
+        },
+        {
+          "assessment": "Same layer decomposition, coefficient-ratio transfer and coupling, plus a separate diagonal claim",
+          "evidence": "Shows the exact shift Σ_a T_(K_a), K_a=max{k_i:r_i≥a}, and survivor exp(−(π/4)Σ_a(max{x_i:r_i≥a})²) for nonoverlined-multiplicity gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-rayleigh-running-minimum-law-and-universal-coincidence-pro--e1bdf9b70b4a/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3 as available in offsets 0–4458",
+          "method": "Resultary search and local mirror",
+          "title": "Joint Rayleigh running-minimum law and universal coincidence probabilities for overpartition least gaps",
+          "trigger": "Exact suffix-max formula and alternative partition measure"
+        },
+        {
+          "assessment": "One-level marginal in a general admissible-part framework",
+          "evidence": "Theorem 3 is a fixed-r Weibull law under Meinardus hypotheses; the allowed nonmultiples have D(s)=(1−ell^(−s))ζ(s) with residue 1−1/ell at s=1. The independent eta-ratio check supplies the regular coefficient asymptotic used by the transfer.",
+          "identifier_or_url": "https://www.finanz.math.tugraz.at/~wagner/limitdist.pdf",
+          "material_read": "pp. 1–2 (coefficient input), p. 4 Theorem 1, p. 6 Theorem 3 and stated hypotheses",
+          "method": "OA PDF passages",
+          "title": "Limit distributions of smallest gap and largest repeated part in integer partitions",
+          "trigger": "Prior same least deficient part, admissible sets and rate"
+        },
+        {
+          "assessment": "Inspected result concerns single-statistic moments for ordinary partitions",
+          "evidence": "Derives a generating function for a single least s-gap; these pages do not give the regular joint hierarchy.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31104v2",
+          "material_read": "PDF p. 1 abstract and p. 3 Theorem 1.1",
+          "method": "OA primary PDF passages",
+          "title": "On the Moments of Least s-Gaps of Partitions and a Conjecture of Baruah and Talukdar",
+          "trigger": "Plausible closely related contemporary s-mex source"
+        },
+        {
+          "assessment": "Confirms additional sector estimate, not a priority claim about least gaps",
+          "evidence": "With nonnegative increasing coefficients the pointwise coefficient formula requires both radial asymptotic and bounded-region complex growth; the remark explicitly notes the radial estimate alone does not imply it.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.03036",
+          "material_read": "PDF p. 2 Theorem 1.1, equations (1.2)–(1.4), and remark, offsets 7090–9223",
+          "method": "Located and read bounded original PDF passage",
+          "title": "On a Tauberian theorem of Ingham and Euler–Maclaurin summation",
+          "trigger": "Decisive complex-sector hypothesis for correctness"
+        },
+        {
+          "assessment": "Not relied on for rejection",
+          "evidence": "No statement-level comparison claimed beyond bibliographic identification; the decisive overlap is independently documented in other sources.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1993-1094553-1",
+          "material_read": "No primary passage available through the checked copy",
+          "method": "Lawful full-text access attempt",
+          "title": "The structure of random partitions of large integers",
+          "trigger": "General small-part approximation as possible earlier implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Joint multiplicity gaps are a natural statistic, but the submitted increment over the explicit ordinary and overpartition joint laws is only deleting forbidden terms from an already known shift and changing an already known marginal scaling constant. It establishes no new regular-partition dependence feature beyond a scale change, no arithmetic or finite correction and no exact tie limit. The parameter transfer does not meet the independent mathematical-value bar; no different surviving claim is submitted as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

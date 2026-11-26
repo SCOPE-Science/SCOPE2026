@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:04:54.110469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66",
+        "Frozen VERIFICATION.md and verify_semigroup.py (inspected, not run)",
+        "Replay: python3 -I /workspace/branches/frozen_independent_checks.py (output labelled 3)"
+      ],
+      "rationale": "Set s=r^h+1 and D=2(r-1). For a root y and any place above X=infinity, its negative valuation gives r times its pole order equal to es where e is the local ramification index. Since gcd(r,s)=1, r divides e; the extension degree is at most r, proving degree r, total ramification and unique infinity. The Y derivative -1 makes the affine model smooth, and monic reduction gives its k[X]-basis 1,Y,...,Y^(r-1). The congruences r^j=1 mod D on the supported indices and 2r=2 mod D give the stated faithful tame diagonal action. The full affine invariant ring is spanned by X^iY^j with i+2j=0 mod D, and pole orders upstairs ir+js are distinct by reduction modulo r. At the fixed infinity the index is D, so no leading-pole cancellation occurs downstairs either. For fixed j the least i gives a_j=r+jL for j>0, with a_0=0; other i add multiples of r downstairs. The relation DL=1 mod r makes these representatives exhaustive and distinct modulo r, giving the Apéry and Riemann–Roch assertions. Splitting a nonzero Apéry entry into two positive nongaps would either add a positive multiple of r to its own residue minimum, or use positive indices summing to j or j+r, already larger than a_j. Adding the generators to jL shows these and only these top residue gaps are pseudo-Frobenius. The genus sum is (r-1)(L+1)/2=(r^h-1)/4, and 2g=F+type gives almost symmetry; the type exceeds one. Independent finite enumeration of divisible upstairs pole orders corroborated the Apéry and gap formulas, including the nonprime case (r,h)=(9,2).",
+      "residual_risks": [
+        "The arithmetic enumeration corroborates finite instances, not the geometric proof. Statements are geometric at the marked infinity only; no basis descent to an unspecified smaller field is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartoli–Borges–Timpanella–Zini Sec. 1 and Prop. 2.1 construct the exact scalar quotient and its equation, genus and ramification; Theorem 1.1 addresses automorphisms and gonality, not the asserted complete Apéry and RR basis.",
+          "Zhang–Zhao Prop. 3.4 concerns gaps of Galois linearized function fields; the relevant quotient need not be Galois over k(u). Yang–Hu deals with Kummer extensions.",
+          "In 60088f5a2835 f is arbitrary under the degree and coprimality assumptions for p, not restricted to the exponents forced by even support. The f5b98af39465 Finding gives semigroup and one-point RR dimensions for the order-(p-1) intermediate scalar quotient for p>=5, where its parameter becomes 2L on this even support."
+        ],
+        "reasoning": "The construction paper and general gap papers do not establish coverage on their own. The twisted theorem dominates the prime-r slice on the very same cover for a wider range of f. The other indexed result is an index-two intermediate quotient of the target in the indicated regime, so is substantive related coverage rather than formally the same curve.",
+        "searches": [
+          "arXiv:2610.35788v1, Sec. 1, Prop. 2.1, Thm. 1.1",
+          "arXiv:2605.29311v1, Prop. 3.4",
+          "arXiv:1607.05887",
+          "DOI:10.3934/amc.2014.8.67",
+          "Resultary f5b98af39465 and 60088f5a2835"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–31, 36–63 and 68–78",
+        "Resultary 60088f5a2835 and f5b98af39465 (local mirror)",
+        "arXiv:2610.35788v1",
+        "arXiv:2605.29311v1",
+        "arXiv:1607.05887, p. 1",
+        "DOI:10.3934/amc.2014.8.67 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The twisted proof explicitly gives u and uv^j with the desired one-pole orders. The frozen monomials are u^k and u^k(uv^j). Distinct pole orders and the full Apéry set make this the one-point basis, although the twisted record does not state the complete basis in its Finding.",
+          "At r=p^e the same auxiliary cover is y^r-y=x f(x^(r-1)) with x^(r-1)=u, y=xv (in the frozen model, x=X^2, y=Y). Its right side has M=1+(r-1)d coprime to r. The degree-r total ramification and pole orders r,M follow by the same degree/valuation argument. The F_r^times scalar quotient uses the very same one-pole functions x^(r-1-j)y^j=uv^j with pole orders r+j(d-1). Completeness follows by the tame invariant-monomial decomposition, or the same genus comparison using the additive cover with one jump M."
+        ],
+        "reasoning": "The prime basis, invariants, and almost-symmetry characterization are direct consequences of the recorded functions and Apéry set. The nonprime scope is outside the literal earlier statement, but the explicit reduction shows why simply restricting the frozen theorem to higher prime powers would not by itself introduce a nonroutine new scientific result.",
+        "searches": [
+          "60088f5a2835 local-mirror RESULT.md, proof §§1–5 and Limitations",
+          "f5b98af39465 local-mirror RESULT.md, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The twisted RESULT.md Finding at offset 0 gives uv^p-v=f(u), d>=2, gcd(p,d-1)=1, unique infinity over u and the matching semigroup, minimal generators, Apéry set and type data. Its proof, offsets 2936–3777, identifies the quotient and the marked point.",
+          "For the frozen quotient set u=X^D and v=Y/X^2. Dividing the equation by X^2 gives u v^r-v=Σ_{j even} b_j u^((r^j-1)/D). This f has degree d=L+1, nonzero leading coefficient and constant b_0. Since adjoining X to k(u,v) recovers Y and gives degree at most D, faithfulness proves k(C)=k(u,v). The unique pole of u identifies the same marked point."
+        ],
+        "reasoning": "For r=p the hypotheses of the twisted theorem are satisfied exactly and this is an isomorphism of pointed curves, not a coincidental equality of abstract numerical semigroups. Its Apéry formula transfers with d-1=L. Its prime-exponent theorem does not literally cover e>1.",
+        "searches": [
+          "Resultary: scalar quotients of additive curves, twisted Artin–Schreier infinity semigroup, linearized cyclic quotients",
+          "2026/11/2/SCOPE-the-weierstrass-semigroup-of-a-non-galois-twisted-artin-schreier--60088f5a2835",
+          "arXiv:2610.35788v1 Prop. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "60088f5a2835 gives the exact Apéry set {0,p+j(d-1):1<=j<p}, Frobenius and conductor, gap count and pseudo-Frobenius data for the same marked point when r=p.",
+          "f5b98af39465 gives exact pole semigroups and dimensions for its smaller group, with parameter 2L here; both are distinct records dated Nov. 2."
+        ],
+        "reasoning": "The exact match is an all-prime-regime theorem rather than a coincident finite database entry. It includes p=3, although the intermediate-quotient comparison starts at p=5. Neither the same date nor snapshot provenance proves which record came first.",
+        "searches": [
+          "Resultary 60088f5a2835 and f5b98af39465, Findings and pole-function proofs"
+        ]
+      },
+      "rationale": "There is verified equivalent coverage of the entire prime-r case, including the primary application singled out in the Finding. The same-day twisted Artin–Schreier record 60088f5a2835 treats this very marked curve in invariant coordinates and is broader in f for r=p. Its pole functions also furnish the stated basis by taking powers of u and using its Apéry theorem. Same-day ordering is unresolved, so this is not a priority allegation. The other stated scope, r=p^e for e>1, is not literally asserted in that record. But no material distinct theorem is established by that extension here: the same twisted-cover construction and pole calculation extend directly using the additive group of F_r and scalar group F_r^times, with gcd(r,d-1)=1. This is a scope extension, not evidence that the prime-power theorem was explicitly published there.",
+      "residual_risks": [
+        "The order of the same-day records is not established, and no priority allegation is made. The higher-prime-power theorem is not literally in the matched record; the assessment of its extension as routine follows from the explicit reduction, not from a search miss. The Sepúlveda–Tizziotti full text was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified same pointed curve and exact coverage for r=p; full RR basis is an immediate consequence in that range, not an explicitly stated theorem; does not literally state e>1",
+          "evidence": "Finding allows arbitrary f of degree d with gcd(p,d-1)=1; proof gives exact Apéry formula and u,uv^j with one-pole orders p,p+j(d-1).",
+          "identifier_or_url": "2026/11/2/SCOPE-the-weierstrass-semigroup-of-a-non-galois-twisted-artin-schreier--60088f5a2835",
+          "material_read": "RESULT.md Finding, assumptions, proof §§1–5 and limitations",
+          "method": "OA local mirror, offsets 0–2623 and 2700–7526; limitations around 7900",
+          "title": "The Weierstrass semigroup of a non-Galois twisted Artin–Schreier cover",
+          "trigger": "Exact isomorphism uv^p-v=f(u) for r=p"
+        },
+        {
+          "assessment": "Related prime-r intermediate quotient, not the same curve",
+          "evidence": "p>=5 and tame order-(p-1) scalar quotient; exact pole semigroup and RR dimensions, with the overlap parameter equal to 2L.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-pole-semigroups-on-cyclic-quotients-of-linearized-artin-sc--f5b98af39465",
+          "material_read": "RESULT.md Finding, Apéry/RR dimension at offset 1042, proof including pole functions at offsets 2200–6646",
+          "method": "OA local-mirror passages",
+          "title": "Exact pole semigroups on cyclic quotients of linearized Artin–Schreier curves",
+          "trigger": "Index-two intermediate quotient for shared prime parameters"
+        },
+        {
+          "assessment": "Prior construction of the quotient and its geometry; no complete semigroup statement identified in the passages",
+          "evidence": "Defines D=2(r-1) for the even-support case and gives the quotient equation, genus and ramification.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.35788",
+          "material_read": "PDF Sec. 1 p. 3; Prop. 2.1 pp. 5–6; Theorem 1.1; prime-field examples p. 11",
+          "method": "OA passage reads around offsets 5200, 11900, 26011",
+          "title": "Maximal curves with trivial automorphism group",
+          "trigger": "Exact geometric family and prime-field application"
+        },
+        {
+          "assessment": "Galois linearized-field theorem is not automatically a theorem for the nongalois quotient",
+          "evidence": "The gap theorem applies to places on linearized Galois covers of the rational function field.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.29311",
+          "material_read": "Abstract and introduction pp. 1–2; Prop. 3.4 p. 9",
+          "method": "OA PDFs at offsets 900, 6200, 31600",
+          "title": "Weierstrass semigroups at totally ramified places of degree one on linearized function fields",
+          "trigger": "Potential general gap theorem"
+        },
+        {
+          "assessment": "Additional possible analogous coverage not assessed; not the reason for failure",
+          "evidence": "Cited specialized additive curve is relevant background, but neither its title nor failed retrieval settle overlap.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2014.8.67",
+          "material_read": "Citation only; no lawful full text was retrieved",
+          "method": "DOI and journal-page attempts; no repository copy returned",
+          "title": "Weierstrass semigroup and codes over the curve y^q+y=x^(q^r+1)",
+          "trigger": "Cited additive-curve semigroup work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–31 and 68–72",
+        "Resultary 60088f5a2835 proof §§1–5",
+        "arXiv:2610.35788v1 Prop. 2.1 and prime-field examples"
+      ],
+      "rationale": "One-point Riemann–Roch bases on these curves are useful, and the proof is correct. But the advertised prime-field maximal family is already covered by the exact twisted-curve theorem, including the basis as a direct consequence of its pole functions. The remaining prime-power scope uses the same scalar quotient and degree/coprimality pole argument without a new mathematical obstruction or independent application substantiated by the record. The marginal contribution is a routine extension and restatement of a covered narrow invariant; no separate valuable repair was established.",
+      "residual_risks": [
+        "This is a judgment of the frozen contribution beyond established coverage, not a denial that the formulas are useful, nor a claim that all nonprime cases were already explicit in the comparison record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

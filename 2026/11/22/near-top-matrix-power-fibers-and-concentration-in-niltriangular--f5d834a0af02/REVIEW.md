@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ambient algebra has dimension \(\binom{m+2}{2}\); the relevant coordinates consist of \(m+1\) first-diagonal entries and \(m\) second-diagonal entries, leaving \(m(m-1)/2\) free. Matrix-path counting gives the three output coordinates, and the second-diagonal vector enters the central coordinate linearly. The only first-diagonal zero patterns supporting nonzero central coordinate when the common middle product vanishes are exactly one internal zero or two adjacent zeros. Counting these patterns yields \((q-1)^{m-1}((m-1)q+1)\). All other counts follow without division by field-dependent constants, so the proof covers every finite characteristic, including \(q=2\). The positivity and strictness of three sizes follow from the binomial theorem. Direct full-matrix and smaller-data tests in the embedded checker passed, but general validity rests on the written algebraic proof.
+PASS
 
-## Originality — PASS, subject to historical-priority uncertainty
+An increasing path for an m-fold product has gap m or m+1 in this dimension. The shorter gaps give the first-diagonal products A and B with the same inner factor P; the larger gap must use a single two-step jump, giving precisely the stated linear form in the second-diagonal entries. When at least one outer coordinate is nonzero, choosing the m−1 nonzero inner entries fixes both ends and leaves at least one nonzero linear coefficient. With both coordinates zero and P nonzero, both end entries vanish, so the form vanishes (the ends are not consecutive, even at m=2). With P zero, the form is nonzero exactly for a single interior zero or two consecutive zeros, giving the middle formula. Counting target multiplicities and subtracting all nonzero fibers from q^dim J gives the displayed zero-target formula. Its excess over the middle fiber is positive by the strict binomial inequality q^m>(q−1)^(m−1)(q+m−1) for m≥2. The counts show surjectivity, and weighting by q−1 central nonzero and q³−q other targets yields the conditional law and its fixed-q asymptotic. The group interpretation is the commuting characteristic-power binomial identity only for m=p^t. An independent matrix-product census checked every target and absence of support outside J^m at (m,q)=(2,8),(3,3),(4,2).
 
-The closest directly overlapping earlier calculation is the explicit cubic-power fiber census for \(N_5(k)\), which is *exactly* the \(m=3\) instance of the present theorem. It is credited, not presented as an independently new special case. This theorem quantifies **every** near-top power exponent \(m\ge2\) in arbitrary characteristic, including a new nontrivial \(m\to\infty\) conditional central-concentration law. It is neither a mere change of constants nor a one-step numerical increment.
+## originality
 
-Bier's 2012 unitriangular verbal-width theorem proves power-map surjectivity for \(n\le p^t+2\); Sosnovsky's 2012 triangular-group theorem determines verbal width; Dolfi–Singh–Yadav's 2019 study examines power images and conjugacy classes and recalls the same boundary. All these are consistent with the present image statement but none states the count \(\#\{X:X^m=Z\}\) for every prescribed target or the conditional limiting law. Ekhad–Zeilberger's earlier square-zero theorem covers a zero-target case in a different all-upper-triangular setting, without the present prescribed nonzero fibers. Database searches for root fibers, aliases, near-top dimension, and the limiting ratio identified no dominating general formula. These searches do not prove worldwide novelty, and possible historical equivalent counts remain a stated risk.
+PASS
 
-## Value — PASS
+The exact cubic fiber law and the square-zero specialization are already covered by inspected sources, and the unitriangular image and width assertions substantially overlap prior group results. Do not credit these pieces separately. The supported original contribution is the uniform three-fiber law for arbitrary exponent at dimension m+2 over every finite field and the resulting fixed-q growing-dimension central concentration. The strongest explicit nearby prescribed-target theorem counts roots in the full matrix algebra, not in the fixed niltriangular algebra.
 
-This is a complete, characteristic-independent invariant for an infinite natural family of niltriangular matrix algebras at the last full-surjectivity dimension. Its sharp transition in the distribution of *nonzero* powers is not visible from the known image or width results: conditioned on being nonzero, a uniformly chosen power becomes central with probability tending to one, at the explicit rate \((q+1)/m\) for fixed field size. The theorem gives root multiplicities relevant to power word maps on growing finite unitriangular groups whenever the exponent is a characteristic power, and supplies an exact baseline for larger dimensions where surjectivity can fail.
+## value
 
-## Closest literature and residual limitations
+PASS
 
-Sources: Bier (2012), DOI:10.1142/S0218196712500191; Sosnovsky, arXiv:1201.6513 (posted January 31, 2012); Dolfi–Singh–Yadav, arXiv:1905.04244; Ekhad–Zeilberger, arXiv:math/9512224. The first two were consulted in accessible full text, and Dolfi–Singh–Yadav in complete web-rendered text; for Ekhad–Zeilberger only its visible abstract was used, so no whole-document noncoverage claim is inferred from it. The theorem does not handle arbitrary offsets \(n-m\), higher-superdiagonal target geometry, or power exponents without the near-top relation. No independent mathematical audit was performed.
+The near-top exponent is a natural extremal regime: it leaves three possible output coordinates and separates generic, central and zero targets. Knowing merely that every target is attained obscures the strong conditional bias toward the center; the exact fiber formula makes the bias quantitative for every field size and yields a nontrivial growing-dimension law. The new infinite-parameter statement is more than a recomputation of the cubic or square-zero row.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

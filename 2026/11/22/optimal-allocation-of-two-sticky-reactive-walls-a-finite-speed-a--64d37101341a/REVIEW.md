@@ -1,19 +1,21 @@
-# Scientific review: finite-speed reactive-wall allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The backward generator and two sticky-state equations uniquely determine the exact mean time. At fixed \(K\), the derivative of the allocation-dependent quotient has a numerator whose derivative is strictly positive and whose endpoint signs are strict, proving exactly one interior global minimum. Implicit differentiation proves the strict budget-ordering law. Uniform local expansion at the interior large-budget root proves its sharp minimized-time coefficient; the finite-speed distant-wall fraction follows by specializing to an endpoint launch. The standalone checker compares independent boundary-equation solutions to the formula, tests global optimality numerically without using the analytic optimum as its solver, and checks both limits. Boundary cases \(x=0,L,L/2\), finite positive rates, and \(K\downarrow0,K\to\infty\) are covered. No test is presented as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Independently reconstructed the mean by first exit from the bulk and then renewal at the attached states. The two-heading exit equations with outward absorbing states give right-exit probability 1/2+h/A from the unbiased start and first-exit mean L/(2v)+alpha*x*(L-x)/v^2. After inward release at either wall the crossing probability is 1/A and the excursion mean is L/v. Thus the attached means solve (kappa_j+beta/A)W_j-(beta/A)W_other=B, with determinant kappa_0*kappa_L+beta*K/A>0 even at the endpoint allocations. Each released excursion has a uniformly positive probability of reaching the reactive wall and killing there on that visit; holding and exit times have bounded means for fixed parameters. This gives finite mean and validates the renewal system, including boundary starts. Weighting its solution by the exit probabilities reproduces the boxed mean. The derivative numerator G in RESULT.md is strictly increasing since c+h*delta is positive, and inserting the extreme allowed h at +/-K gives the stated strict endpoint signs. The rationalized quadratic picks the unique interior root, zero exactly at the midpoint. Dividing by K yields beta*(h+A*t)+(AK/4)*(h*(1+t^2)+A*t)=0, monotone in t. For h>0 the root is below -h/A, making the K derivative of the left side positive there and t strictly decreasing; reflection treats h<0. The small- and large-budget root equations give the claimed limits. The large-budget limiting root lies strictly inside (-1,1), so the time quotient may be expanded uniformly around it and gives the stated K^-1 coefficient. At the left wall h=-(A-1)/2 reproduces the positive distant share. Inspected checker.py and its reported 1,440 cases; did not rerun it or use records of finite tests as proof.
 
-Bressloff, *Encounter-based model of a run-and-tumble particle II* (2023, arXiv:2302.01158), §§2 and 5, provides the sticky-wall kinetic model and different wall killing rates but not the fixed-sum global optimizer. Angelani, *Optimal escapes in active matter* (2024), changes tumbling/release parameters and mostly treats a single reactive wall. The closest published fixed-budget Brownian result (2026-10-26) concerns continuous diffusion with Robin killing and has a vanishing remote-wall allocation fraction at boundary launch in the large-budget limit. The closest persistent-particle allocation result (2026-11-02) uses zero-time instantaneous reflection and per-collision capture probabilities, producing an incompatible bang-bang/symmetric phase diagram. A sticky-wall fluctuation-optimization result (2026-11-08) varies bulk tumbling, not a two-wall reactivity split. Reading the relevant full results and the source's material shows the proposed theorem is not a stated or implied instance of these results. Generic prior optimal-control formulations and unindexed equivalents remain a publication-priority risk, not an established uniqueness claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The constraint is a natural design budget for two reactive boundary coatings. The theorem proves global interior optimality for all physical parameters, an exact and strictly budget-ordered allocation law, and both endpoint scaling limits. In particular the strong-budget nonzero distant-wall fraction at a boundary start is a qualitative finite-speed distinction from the Brownian reaction problem, where the distant fraction vanishes. The result is a structural design theorem rather than a fixed numerical sample or restatement of an already known first-passage mean.
+The process, boundary kinetics and first-passage framework are established and the mean is derivable from them. The supported distinct claim is the global physical-rate allocation theorem, its budget crossover and the distant-wall strong-budget limit. Neither the strongest same-process comparison nor the closest fixed-budget analogues inspected supplies that claim.
 
-## Scientific limitations
+## value
 
-Finite positive bulk reversal and common bound-state release rates; unbiased initial velocity; known release position; one-dimensional interval; independent memoryless events; linear sum budget in physical killing rates. Other costs, biased launches, non-Markov waiting times, heterogeneous wall release, and distributional optimization may have different optima. The underlying mean can be obtained from established boundary equations; novelty is the full constrained allocation classification and crossover. The published evidence does not eliminate all historical priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A linear budget of two physical killing rates is a natural design constraint, unlike an arbitrary parameter slice. The law resolves whether one should concentrate or split at all launch locations and budgets. A positive remote allocation fraction even for a wall launch meaningfully distinguishes the fixed finite-speed large-budget regime from the corresponding Robin diffusion regime. This is not a uniform joint Brownian/strong-budget limit, a result about passage-time variance, or an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

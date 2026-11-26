@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:43:00.620497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The attached complete RESULT.md replaces the false attachment description with the forest bijection, isolates the all-root boundary d=n-1 and supplies an explicit strict-minor proof. Fix the prescribed path and then a chain of length h from w to a root. Absorbing the chain vertices expands the root set from q=d+1 to q+h; the reduced Laplacian nI-J on the remaining m vertices has determinant (q+h)n^(m-1), interpreted as 1 at m=0. This gives the telescoping depth tail; multiply by the probability (n-d-1)/(n-2) of missing the path. Each feasible positive-depth endpoint has the same completion count. In the Pascal network an inverted matching intersects, and for the order-preserving matching the early-rise paths of heights min(h_i,x+k_i) are strictly separated on their common abscissas, including h_i=0. For the mass ratio, both factors at positive h decrease; the atom at 0 gives the larger ratio, including the direct support comparison when d=1. The h=1 survival strictly decreases for every adjacent d, which combined with stochastic order gives strict negative covariance by the independent-copy identity. These checks include n=3 and the terminal deterministic law.",
+      "replay": "Independent bounded reproduction: python3 /workspace/branches/frozen_replay.py 2. Enumerates edge sets of size n-1 on n=3..6, filters by connectivity, and checks all conditional survival tails and projection counts for each prescribed off-path geodesic and depth. For n=6 the denominators by d are 432,432,288,120,24. The frozen Prüfer checker was inspected, not executed; the all-n proof is not inferred from either enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldous–Pitman, TR526, Lemma 5 eq. (6), PDF p. 6, gives the law of the prescribed marked subtree in the more general p-tree model. At equal weights the probability of a fixed feasible subtree with d+h+1 vertices is (d+h+1)/n^(d+h); summing over labels and projection positions recovers the finite depth counts."
+        ],
+        "reasoning": "Credit this stronger coverage of the underlying probability law. It does not give an order across the conditioning distances; one must regroup into tails, identify the Pascal kernel with correct row orientation and show a distinct mass-kernel comparison. No general ordering theorem for marked subtrees here was established.",
+        "searches": [
+          "Aldous Pitman \"A Family of Random Trees with Random Edge Lengths\" Lemma 5 marked subtree probability three vertices Pascal total positivity likelihood ratio",
+          "Resultary: general TP2/monotone likelihood-ratio probability kernels"
+        ]
+      },
+      "checked_sources": [
+        "Aldous–Pitman TR526 Lemma 5 (6)",
+        "Resultary 82d99ccfa9c3, 4740ad229d71, 28deeb898e6f, 3cf268842cf9",
+        "Frozen RESULT.md §§1–4 and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 3cf268842cf9, Proof §2, uses a TP2/likelihood-ratio argument for singleton runs under fixed composition. The tree manuscript uses different conditioned masses, including a moving support and the h=0 boundary."
+        ],
+        "reasoning": "Pascal minor positivity follows once the nontrivial survival identification is made. Likelihood-ratio order of the mass kernel is not supplied by total nonnegativity of the survival kernel or by the generic equivalence between TP2 and likelihood ratios; it requires the explicit adjacent mass comparison.",
+        "searches": [
+          "TR526 §3, Lemma 5 eq. (6)",
+          "Resultary: general TP2/MLR probability kernels and third-vertex distance conditioning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 82d99ccfa9c3, Finding and Proof §§1–3, conditions a third label's degree, not its pendant depth. Record 4740ad229d71, Finding and Proof, treats counts of leaves along a marked path, not this survival or mass kernel."
+        ],
+        "reasoning": "Writing the observable as a pendant branch of the minimal three-label subtree does not equate it to vertex degree or path leaf counts; neither indexed claim covers the conditional orders.",
+        "searches": [
+          "Resultary: third-label/path survival and Pascal total nonnegativity; three-point geodesic depth and marked-subtree formula; reverse likelihood-ratio order conditional on geodesic length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 28deeb898e6f has a Dyck-path total-nonnegative kernel and first-ascent/last-descent statistics, not the Cayley conditional depth array. Classical Pascal entries are acknowledged explicitly in RESULT.md §3."
+        ],
+        "reasoning": "The entries of Pascal's triangle are known; the exact assertion is a normalized and probabilistically indexed kernel, not a numerical table of minors or a new Pascal table.",
+        "searches": [
+          "Resultary: Pascal strict support for conditional survival and finite Cayley-tree pendant-depth laws"
+        ]
+      },
+      "rationale": "Limited to the exact Pascal identification of the ordered geodesic-depth survival kernel and the separately proved reverse likelihood-ratio order of its masses. The raw three-vertex law, the forest lemma and Pascal total nonnegativity in isolation are not credited as novel. Repair does not change the claim or this comparison.",
+      "residual_risks": [
+        "Earlier three-point reduced-tree or monotone-kernel treatments may explicitly combine the same consequences under different notation. The indexed comparisons and focused primary lookup do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite raw geometry by specialization, not the claimed ordered kernels",
+          "evidence": "The probability is expressed for an arbitrary specified marked subtree using vertex weights and degrees.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/526.pdf",
+          "material_read": "Lemma 5 and eq. (6), PDF p. 6, extraction around offset 10854",
+          "method": "Public primary PDF, bounded passage extraction",
+          "title": "A Family of Random Trees with Random Edge Lengths",
+          "trigger": "General marked-subtree law for a potentially covering finite model"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The third label's degree is conditioned on the first two labels' distance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-threshold-dependent-distance-degree-inversion-at-a-third-verte--82d99ccfa9c3",
+          "material_read": "RESULT.md Finding and Proof §§1–3",
+          "method": "Indexed local mirror",
+          "title": "A threshold-dependent distance–degree inversion at a third vertex in uniform Cayley trees",
+          "trigger": "Distinct same-day three-label conditional-distance analogue"
+        },
+        {
+          "assessment": "Different statistics",
+          "evidence": "The joint law concerns off-path and endpoint leaf counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Indexed local mirror",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Same conditional forest/marked-geodesic framework"
+        },
+        {
+          "assessment": "Different probability kernel",
+          "evidence": "Its row and column statistics concern Dyck paths, not labeled-tree branch geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-total-nonnegativity-and-exact-rank-of-the-first-ascent-last-desc--28deeb898e6f",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Indexed local mirror",
+          "title": "Total nonnegativity and exact rank of the first-ascent–last-descent Dyck kernel",
+          "trigger": "Same-day analogue of all-orders total nonnegativity and likelihood-ratio order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The third-vertex pendant depth is a canonical component of three-point geometry. Knowing exactly which all-order tail minors are positive and comparing successive conditional mass laws in likelihood-ratio order is substantially more informative than the raw count, a marginal distribution or the sign of one covariance; it gives strict negative association for arbitrary increasing functions of the two statistics. The contribution is confined to this uniform finite model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

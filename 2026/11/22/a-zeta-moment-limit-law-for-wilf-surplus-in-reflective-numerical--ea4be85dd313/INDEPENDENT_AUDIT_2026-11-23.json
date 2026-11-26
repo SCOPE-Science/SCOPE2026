@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:46:56.038402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–79 and VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Shor, arXiv:2207.00051v1, Proposition 3.4, Corollaries 3.6/3.8 and Proposition 5.2"
+      ],
+      "rationale": "Shor's classification and formulas give q=floor(g/a), r=g−qa in [1,a−1], conductor 2g−r+1, and e=a or a−1 according as r=a−1 or not. The nongap count below the conductor is qa+1, so the two surplus formulas follow by multiplication and subtraction. When a≤g, qa≤g and a≤g give the claimed 4/g error against q(a/g)^2. The second case has a≥3 and nonnegative additive term, and W is nonnegative and at most qa²≤g² on ordinary entries; the a=g+1 entry has W=0. Each open mesh interval of f has variation O(q⁻²) and the jumps are summable; f(0)=0 is continuous at zero. For every fixed Lipschitz test, the integral versus endpoint-sum error is bounded by variation/g, and replacing the uniform mesh by the admissible set changes the tested mean by O((1+τ(g))/g). On (1/(q+1),1/q] the sublevel set is cut off at sqrt(t/q); each level set is countable and adjacent image closures overlap since q/(q+1)^2<1/(q+1), giving atomlessness and full support. Integrating each branch to power m and shifting the second sum yields [q^m−(q−1)^m]/q^(2m+1), whose binomial expansion gives the stated zeta moments and positive variance. An independent finite check generated all semigroups through genus 10 by deleting a minimal generator above the Frobenius number, then tested gaps modulo g and recalculated W from each reflected gap set. It reproduced the admissible multiplicities and the surplus in every case; the finite check is not the proof of convergence.",
+      "residual_risks": [
+        "The rate is for fixed Lipschitz tests, not a rate in total variation or for an exact finite-genus CDF. Uniformity is within the reflective class only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor gives the full fixed-genus parameter set and exact e and F, plus Wilf nonnegativity for the class. Delgado supplies the general invariant. Neither inspected statement is a limiting law or a general surplus distribution theorem."
+        ],
+        "reasoning": "The classification determines finite genus values algebraically, but does not state or supply a stronger limit theorem whose merely renamed special case is the stated weak limit, rate, CDF and zeta moments. Those require controlling the divisor-deleted mesh and integrating the pushforward.",
+        "searches": [
+          "Primary literature search for Wilf number limit laws of reflective numerical semigroups",
+          "Shor arXiv:2207.00051v1, Proposition 3.4, Corollaries 3.6/3.8, Proposition 5.2",
+          "Delgado arXiv:1902.03461"
+        ]
+      },
+      "checked_sources": [
+        "Shor arXiv:2207.00051v1",
+        "Delgado arXiv:1902.03461",
+        "Resultary c016095bed6e, 04c0736219be, and ea4be85dd313 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite Wilf formulas are an algebraic consequence of Shor. The closest indexed laws use the same genus/multiplicity construction to compute either isolated gaps or a normalized pivot-run limit."
+        ],
+        "reasoning": "These sources largely supply the population and method; the quoted marginals do not give a joint law with multiplicity from which to read off the surplus distribution directly. The new result computes the nonmonotone branch law, including its quantitative test-function convergence and arithmetic moment evaluation.",
+        "searches": [
+          "Shor structural formulas and Wilf-inequality calculation",
+          "Resultary c016095bed6e and 04c0736219be, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delgado's |P(S)|·|L(S)|−χ(S) is the same finite statistic. The same-day record gives the limit 1−U floor(1/U) for the normalized pivot run; the present limit is U² floor(1/U)."
+        ],
+        "reasoning": "Equivalent names do not make the surplus itself novel. The pivot-run marginal is different, and does not retain the multiplicity ratio U: for example r/g=1/4 can arise from U=3/4 or U=3/8, with different surplus limits. The same-day record is compared on its result, not presumed earlier or later.",
+        "searches": [
+          "Resultary: reflective numerical semigroups Wilf surplus, Wilf number and scaled zeta moment distribution",
+          "Delgado arXiv:1902.03461, §2.2 Eq. (1)",
+          "Resultary 04c0736219be (same-day genus-pivot gap law)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Wilf-law hit ea4be85dd313 is the frozen record itself. The earlier exact reflective-family table c016095bed6e counts isolated gaps and gives a discrete limiting mass 1/[k(k+1)], not surplus moments or its CDF."
+        ],
+        "reasoning": "Both tables can be indexed by admissible multiplicities, but the isolated-gap table is a marginal of a different statistic; it is not a surplus table. No independent exact matching table was located.",
+        "searches": [
+          "Resultary: reflective semigroups exact Wilf-surplus law and moments ζ(3)/3, (2ζ(4)−ζ(5))/5",
+          "Resultary c016095bed6e, exact isolated-gap distribution"
+        ]
+      },
+      "rationale": "The Wilf surplus, reflective classification, cardinality and structural formulas are prior inputs, as is Wilf nonnegativity in this class. The prior isolated-gap and pivot-run results overlap substantially in sampling and divisor arithmetic, but neither gives this surplus law, its distribution, or its complete zeta moment sequence. The bounded originality decision concerns that distributional result rather than the elementary substitution into Shor's formulas.",
+      "residual_risks": [
+        "A bibliographic search hit or miss is not a priority certificate; an unindexed equivalent law remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural coverage; no limit or zeta moments in the matching statements",
+          "evidence": "One reflective semigroup per nondivisor multiplicity, with F=2g−r, the specified e dichotomy and population g+1−τ(g).",
+          "identifier_or_url": "https://arxiv.org/html/2207.00051v1",
+          "material_read": "Proposition 3.4, Corollaries 3.6 and 3.8 and Proposition 5.2; HTML offsets 23861, 34320, 39287, 79852",
+          "method": "Bounded OA primary HTML passages",
+          "title": "Reflective numerical semigroups",
+          "trigger": "Complete prior classification of the same ensemble and Wilf bound"
+        },
+        {
+          "assessment": "Same invariant, not this random-family law",
+          "evidence": "Defines the Wilf number as |P(S)|·|L(S)|−χ(S).",
+          "identifier_or_url": "https://arxiv.org/html/1902.03461",
+          "material_read": "Section 2.2, Eq. (1), HTML offset 16363",
+          "method": "Bounded OA primary HTML passage",
+          "title": "Conjecture of Wilf: A Survey",
+          "trigger": "Standard Wilf-number formulation"
+        },
+        {
+          "assessment": "Method and ensemble overlap; different statistic",
+          "evidence": "Isolated gaps have an exact divisor-arithmetic distribution and harmonic-tail limit with mass 1/[k(k+1)].",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-isolated-gap-distribution-and-harmonic-tail-law-for-ref--c016095bed6e",
+          "material_read": "RESULT.md Finding, offset 195",
+          "method": "Local mirror passage",
+          "title": "An exact isolated-gap distribution and harmonic tail law for reflective numerical semigroups",
+          "trigger": "Same ensemble, divisor-sensitive exact distribution and limit"
+        },
+        {
+          "assessment": "Different pushforward; no inference of date priority",
+          "evidence": "Pivot-run fraction tends to 1−U floor(1/U), not U² floor(1/U).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-harmonic-step-limit-law-for-the-genus-pivot-gap-in-reflective--04c0736219be",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "A harmonic-step limit law for the genus pivot gap in reflective numerical semigroups",
+          "trigger": "Distinct same-day law with the same multiplicity mesh and floor function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen distribution, rate and moments, RESULT.md lines 18–34",
+        "Delgado, arXiv:1902.03461, §2.2"
+      ],
+      "rationale": "The Wilf surplus measures the magnitude of a central inequality rather than merely testing its sign. In a classified natural ensemble, its g² scale, nondegenerate atomless law, variance and full zeta moment sequence give a quantitative benchmark for typical behaviour and comparison to other semigroup ensembles. The divisor-sensitive rate makes the benchmark testable at finite genus. This goes beyond restating the known positivity result or listing a few surplus values.",
+      "residual_risks": [
+        "The model does not estimate the surplus in the much larger family of unrestricted numerical semigroups and does not settle Wilf's conjecture there."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

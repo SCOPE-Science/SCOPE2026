@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:21:24.417609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89 and VERIFICATION.md / verify.py / verification_output.txt (supplied code inspected, not executed)",
+        "Replay: python3 /workspace/branches/dfcedd35-3aa5-4efc-93b4-1aeca66640a8/independent_census.py; retained independent_census_output.txt in the same directory"
+      ],
+      "rationale": "Every endomorphism preserves the derived subgroup, which equals the center here. Its linear action A on the quotient scales the commutator form by det A, forcing that scalar on the center. After removing this scalar action, the central coordinate is an additive functional u; conversely the group law verifies all p^6 maps. Composition gives AB=BA and v(A−det(A)I)=u(B−det(B)I). Scalar A other than 0,I makes the latter map in v invertible and gives p^4 partners. For A=0,I, u=0 commutes universally, while nonzero u can be made (1,0), giving B=[[a,0],[c,d]] with a(1−d)=0 and p^2 free v, hence p^3(2p−1) partners. A nonscalar A has centralizer algebra span{I,A} by a cyclic-vector argument. When A−det(A)I is nonsingular this gives p^2 partners. Otherwise that matrix has rank one: its determinant vanishes precisely in the split distinct cases {0,t} with t≠0 or {1,t} with t≠0,1, or in a nonscalar Jordan case at 0 or 1. Ordered eigenspace lines count s=p(p+1)(2p−3) distinct-eigenvalue matrices; each nontrivial Jordan class has size p^2−1, giving j=2(p^2−1). The remaining nonscalar matrices number p^4−p−s−j. In the rank-one cases, u in the row space yields p choices of v for every B. For u outside, B=xI+yA must satisfy det B=x+y det A on the one-dimensional quotient. Its solution locus is two intersecting affine lines in the split case and two disjoint parallel lines in the Jordan case, yielding p(2p−1) and 2p^2 partners after counting v. The coefficients sum to p^6; the weighted sum simplifies to p^8+5p^7−8p^5+3p^3 and normalization by p^12 gives the ordered-pair probability. The seven centralizer sizes are strictly ordered for p≥3 and only 0 and the identity attain p^6. A separate exact matrix-and-functional census reproduced all seven multiplicities at p=3,5,7, with ordered-pair counts 15,633; 756,625; and 9,749,089 respectively.",
+      "residual_risks": [
+        "The replay uses the derived coordinates and tests only p=3,5,7. The normal-form proof and case split, not the numerics, establish the theorem for all odd primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Pradhan cover all odd extraspecial ranks in their parametrization and give p^6 here. Szabó treats structural decompositions and embeddings. The local higher-rank endomorphism result concerns image order under a cube-zero constraint."
+        ],
+        "reasoning": "These structural and nilpotence results supply background or count other strata, but none inspected gives the number of composition partners of each endomorphism. Specializing the known parametrization alone does not resolve the scalar, split and Jordan counts.",
+        "searches": [
+          "arXiv:1908.00331 pp. 4–5 and 21–22",
+          "arXiv:2301.01863 Theorem B",
+          "2026/11/22/SCOPE-maximal-image-cube-zero-endomorphisms-of-odd-extraspecial-groups--b6c514c6e75a"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and matched originals",
+        "Kumar–Pradhan arXiv:1908.00331",
+        "Szabó arXiv:2301.01863",
+        "Targeted composition-centralizer literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established parametrization makes it possible to write the commuting equations. The new case count needs the rank of A−det(A)I, the action on its row-space quotient, and the count of affine line intersections for the distinct-eigenvalue versus Jordan cases."
+        ],
+        "reasoning": "An endomorphism parametrization or semigroup order does not assert the seven strata or their frequencies. The proof uses the known normal form as an input but requires a separate commutation and finite-field counting argument, not just a parameter substitution into a prior centralizer theorem.",
+        "searches": [
+          "Kumar–Pradhan, Theorem Ω and Theorem 5.3 / Example 5.4",
+          "Szabó arXiv:2301.01863 Theorem B",
+          "Frobenius composition-centralizer original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The extraspecial endomorphism-semigroup paper treats images of group elements and their automorphism orbits, not centralizers of maps in the endomorphism monoid. The group-element commuting count is p^5+p^4−p^3, from centralizer sizes p^3 and p^2, which already gives 297 rather than 15,633 at p=3."
+        ],
+        "reasoning": "Commutation of group elements, image orbits of elements, and composition commutation of endomorphisms are different equivalence problems. Neither group-element nor automorphism-only data furnish the distribution over all p^6 maps, many of which are noninvertible.",
+        "searches": [
+          "endomorphism monoid extraspecial Heisenberg group commuting probability composition centralizer size endomorphisms finite order p cubed",
+          "arXiv:1908.00331 Theorem Ω",
+          "Resultary: Heisenberg endomorphism composition centralizers and commuting-pair count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is this assigned record. The distinct same-day hit gives a full histogram and pairwise commutation criterion, but for End(C_p ⋊ C_r), a cyclic-complement Frobenius family."
+        ],
+        "reasoning": "The identical record is not independent evidence. The Frobenius distributions use another group family and do not specialize to this nonabelian exponent-p p-group; the shared invariant and date do not establish equivalence or priority.",
+        "searches": [
+          "Resultary: seven-level H_p composition centralizer histogram and p^8+5p^7−8p^5+3p^3",
+          "2026/11/22/SCOPE-composition-centralizer-spectra-in-the-smallest-odd-heisenberg-g--c65eb67eeb05",
+          "2026/11/22/SCOPE-composition-centralizer-spectra-of-prime-kernel-cyclic-frobenius--0f4e61ab58d0"
+        ]
+      },
+      "rationale": "Kumar–Pradhan already give the extraspecial endomorphism model and its order; those are not credited as new. The checked distinct result is the seven-level composition-centralizer distribution on all endomorphisms of the smallest odd Heisenberg group and its moment. The strongest local same-invariant result concerns a different group family, and the same-family prior invariant results count different objects. No inspected source states or furnishes this distribution as a special case.",
+      "residual_risks": [
+        "The literature check is bounded and does not establish historical priority. The secondary search hit labelled only by its journal did not yield full text; a retracts/idempotents catalogue neighbor was available only at summary level and was not used as substantive evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers parametrization, order and studied element orbits, not composition-centralizer census",
+          "evidence": "The odd extraspecial model specializes to the given endomorphism parameters, and the order example gives p^6 at rank one. The orbit statements concern group elements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.00331",
+          "material_read": "Theorem Ω pp. 4–5 (offset about 11946) and proof pp. 13–14; Theorem 5.3 and Example 5.4 pp. 21–22 (offset about 65700)",
+          "method": "Lawful OA PDF theorem and example passages",
+          "title": "On the Endomorphism Semigroups of Extra-special p-groups and Automorphism Orbits",
+          "trigger": "Exact group family and endomorphism parametrization"
+        },
+        {
+          "assessment": "Different structural question",
+          "evidence": "Develops decompositions and embeddings for class-two groups and Heisenberg groups, not a composition commutant count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.01863",
+          "material_read": "p. 1 abstract and p. 2 Theorem B",
+          "method": "Lawful OA PDF passages",
+          "title": "Finite Class 2 Nilpotent and Heisenberg Groups",
+          "trigger": "Potential structural Heisenberg theorem"
+        },
+        {
+          "assessment": "Meaningful same-invariant comparison for a different group family",
+          "evidence": "It counts centralizers in End(C_p ⋊ C_r) and gives commutation criteria for that family, not End(H_p).",
+          "identifier_or_url": "2026/11/22/SCOPE-composition-centralizer-spectra-of-prime-kernel-cyclic-frobenius--0f4e61ab58d0",
+          "material_read": "Original RESULT.md, offsets 0–2182",
+          "method": "Local publication mirror",
+          "title": "Composition-centralizer spectra of prime-kernel cyclic Frobenius groups",
+          "trigger": "Exact same invariant in the closest distinct catalogue hit"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts maximum-image cube-zero endomorphisms and bounds the image size for square-zero ones, not centralizers.",
+          "identifier_or_url": "2026/11/22/SCOPE-maximal-image-cube-zero-endomorphisms-of-odd-extraspecial-groups--b6c514c6e75a",
+          "material_read": "Original RESULT.md, offsets 0–1861 and 6251 onward",
+          "method": "Local publication mirror",
+          "title": "Maximal-image cube-zero endomorphisms of odd extraspecial groups",
+          "trigger": "Same broad family and composition powers"
+        },
+        {
+          "assessment": "Not used to infer coverage or noncoverage",
+          "evidence": "Both routes returned only a landing page or abstract rather than the exact full text.",
+          "identifier_or_url": "https://nzjmath.org/index.php/NZJMATH/article/download/134/54/434",
+          "material_read": "No paper passage retrieved",
+          "method": "Lawful direct and VPN OA attempts",
+          "title": "Unidentified article returned under the journal label New Zealand Journal of Mathematics",
+          "trigger": "Secondary result of the targeted composition-centralizer literature query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38 and 55–77",
+        "Kumar–Pradhan Theorem Ω and Example 5.4",
+        "Independent histograms for p=3,5,7"
+      ],
+      "rationale": "The smallest nonabelian exponent-p p-group is a natural first family for studying composition commutation beyond automorphism groups. The distribution identifies precisely which structural types and functionals create large centralizers and provides an exact all-odd-prime benchmark for higher-rank monoids. The commuting probability and monoid center are precise consequences not captured by the known endomorphism count or by group-element commuting probabilities.",
+      "residual_risks": [
+        "No higher-rank, characteristic-two or exponent-p² monoid classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:50:37.897013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39 and 44–82; VERIFICATION.md and CHECK.py inspected, not executed."
+      ],
+      "rationale": "Radial orthogonality gives the beta quotient; the substitution t/(1-t) gives the Tricomi integral, taking its Abel limit after the ordinary oscillatory integral is justified. With v=1/(1-t) the tail tends to zero by integration by parts exactly when beta=lambda−gamma>−2; for beta≤−2 the integrals over [R,R+pi] have magnitude asymptotic to 2R^(−beta−2), violating Cauchy convergence. Independently checked the saddle: on the small radius r connector the angular integral of the damping is O(r), giving O(r^(beta+2)); the outer connector and real remainder at m^(−1/3) are O(poly(m) exp(−c m^(2/3))). On u=w x/sqrt(m), w=exp(−i pi/4), the leading exponent is −sqrt(m) w(x+1/x); the correction i x²/2 is imaginary and the remaining real correction is uniformly bounded up to the contour cutoff. Localization at x=1 gives the complex Gaussian sqrt(pi/w), the stated power and the exp(i/2) factor. The counting constant follows by squeezing around k=(log(1/s))²/2 using log(1/|mu_k|)~sqrt(2k); an arbitrary relative o(1) does not alone imply monotonicity, but monotonicity is unnecessary and also follows from I_(m+1)(beta)=I_m(beta)−I_m(beta+1) and I_m(beta+1)/I_m(beta)~w/sqrt(m), with the beta-normalizer ratio only 1+O(1/m). For the tail use one integration by parts: before dividing by B(m,lambda+1) it is O(eps^(beta+2)) when m eps≤1 and O(m^(−beta−2)) when m eps≥1, using exponential bounds on (1−u)^(m−1). This proves the uniform upper rate for gamma≤1. At m eps→lambda+1, a second integration by parts after scaling u=eps x makes the remainder O(eps^(beta+3)), giving the stated positive lower constant. Diagonal convergence on the dense finite-mode space plus uniform bounds proves strong convergence at gamma=1; the diverging norms preclude strong convergence above it. Compactness and all Schatten inclusions follow from spectral decay and harmonic dimensions.",
+      "residual_risks": [
+        "The asymptotics are at fixed d, lambda, gamma. The frozen finite diagnostics are illustrative (the cutoff samples in the script reach gamma=1, not gamma>1); the third regime rests on the analytic lower bound, not on those diagnostics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hagger et al. give uniform boundedness under the weak box-average condition (2.4), strong radial truncation in Theorem 2.4, and compactness under its vanishing version in Theorem 2.5.",
+          "Each near-boundary box has comparable depth h; radial integration by parts bounds the ratio of its partial oscillatory integral to weighted box volume by O(h^(1−gamma)), including for an interval cut at a radial threshold.",
+          "Rozenblum compares cancellation against the modulus for a different, rapidly oscillating radial sine. The critical-winding Resultary record varies an angular phase rather than a radial amplitude."
+        ],
+        "reasoning": "The general average results give strong convergence for gamma≤1 and compactness for gamma<1; applying the norm bound to the tail also gives the upper rate for gamma<1. They do not give the high-degree lower estimate, critical failure of norm convergence, or compact mode-extension alongside divergent truncations.",
+        "searches": [
+          "Hagger–Liu–Taskinen–Virtanen arXiv:2011.04699, §2, Theorems 2.3–2.5",
+          "Rozenblum arXiv:1012.3528 §5 Theorem 5.1",
+          "Resultary: Log-Gamma spectral smoothing at the critical winding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 2026-11-01 cosine Weyl law, 2026-11-08 critical winding, 2026-11-16 oscillatory complex measures and 2026-11-22 logarithmic space",
+        "DLMF §§13.8 and 10.40",
+        "Hagger et al. arXiv:2011.04699",
+        "Rozenblum arXiv:1012.3528"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the exact Tricomi representation, the standard expansion and the beta quotient immediately give the frozen complex coefficient, including its phase; polynomial multiplicities then give the logarithmic counting and all-Schatten conclusions.",
+          "The key lower regime estimate instead evaluates a tail endpoint with m eps→lambda+1 and compares it to the full compact spectrum, which none of these prior statements supplies."
+        ],
+        "reasoning": "Credit spectral results as derived/comparative context and the upper/strong cutoff side as partly covered; the quantitative lower bound and resulting full trichotomy are the distinct scientific claim.",
+        "searches": [
+          "DLMF 13.8.11 with a=m, b=−beta, z=−i, and §10.40",
+          "Hagger et al., Theorems 2.3–2.5 with radial partial box integrals",
+          "Resultary 2026-11-01 and 2026-11-16 moment formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-11-16 Resultary Finding and Proof §2: its m_n(s) is exactly the numerator with n=m−1 and s=beta+1 on −1<beta<−1/2, including exp(i/2).",
+          "2026-11-01 Resultary cosine Weyl law: the complex moment in its proof equals the frozen moment at d=2, gamma=0, c=1, alpha=lambda. Analytic degree has multiplicity one, harmonic degree two for k>0."
+        ],
+        "reasoning": "These are literal overlaps of scalar moments, not equivalent sharp cutoff results. The cosine signed counts use real parts, and even their combined absolute d=2 coefficient is 1/2 rather than the complex harmonic coefficient 1.",
+        "searches": [
+          "Resultary: inverse-distance boundary chirp, oscillatory complex measures, analytic cosine Weyl law and logarithmic Bergman chirp",
+          "DLMF §13.8(iii), equation 13.8.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tabulates the large-first-parameter Tricomi expansion whose leading term is 2(z/a)^((1−b)/2)e^(z/2)K_(b−1)(2 sqrt(az))/Gamma(a).",
+          "The distinct same-day logarithmic-space record has exact root-exponential spectral collapse and all-Schatten membership for an inverse-logarithmic analytic-disk chirp, but no comparison of canonical harmonic-ball cutoff norms."
+        ],
+        "reasoning": "The table gives the spectral ingredient, not the uniform mixed-degree cutoff estimate and the lower boundary-mode construction. Same-day cataloguing does not order priority.",
+        "searches": [
+          "DLMF 13.8.11 and §10.40 leading K asymptotics",
+          "Resultary: exact spectral collapse of an unbounded boundary chirp on logarithmic Bergman space"
+        ]
+      },
+      "rationale": "Pass for the sharp comparison of canonical truncations with the compact diagonal extension across the entire ordinary-moment range, in particular the matching lower endpoint bound and the distinction between strong-only and divergence with modewise convergence. Do not credit the complex saddle coefficient, all-Schatten cancellation, or the underlying logarithmic count as independent novelty: they have both exact special-function implication and substantial named prior overlap. The existing sufficient average criteria yield part of the cutoff result, but not the matching lower bound or the supercritical divergence while a compact mode-extension persists.",
+      "residual_risks": [
+        "Bounded literature/catalogue inspection cannot rule out an earlier exact cutoff lower estimate. Same-day dating does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the leading spectral asymptotic once the moment is reduced; not the cutoff",
+          "evidence": [
+            "Fixed b,z and large a expansion in modified Bessel K with c_0=1; z=−i is in the admissible branch."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/13.8.E11",
+          "material_read": "§13.8(iii), 13.8.11 and coefficient definitions 13.8.15–16",
+          "method": "OA reference passage and direct substitution",
+          "title": "Asymptotic Approximations for Large Parameters",
+          "trigger": "Exact prior expansion of the claimed Tricomi saddle"
+        },
+        {
+          "assessment": "Exact restricted-range moment overlap",
+          "evidence": [
+            "m_n(s)=∫t^n(1−t)^(s−1)e^(i/(1−t))dt, 0<s<1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-oscillatory-complex-measures-and-the-all-schatten-collapse-of-be--a65b3df4d0e1",
+          "material_read": "RESULT.md Finding and Proof §2, offsets 0–4419",
+          "method": "Resultary local mirror",
+          "title": "Oscillatory complex measures and the all-Schatten collapse",
+          "trigger": "Identical oscillatory beta moment"
+        },
+        {
+          "assessment": "Same complex scalar moment at matching parameters; different operator and counting target",
+          "evidence": [
+            "N_+(t) and N_−(t) each have leading coefficient 1/(4c); the proof takes the real part of the moment."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-balanced-signed-logarithmic-weyl-law-for-boundary-chirp-bergman--4b9793ab6160",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offsets 0 and 4303–8216",
+          "method": "Resultary local mirror",
+          "title": "Balanced signed logarithmic Weyl law for boundary-chirp Bergman operators",
+          "trigger": "Strongest related signed count with identical d=2 scalar moment"
+        },
+        {
+          "assessment": "Partial implication for upper and strong regimes, not the sharp lower estimate",
+          "evidence": [
+            "(2.4) controls partial box integrals; Theorem 2.4 gives strong radial truncation under it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04699",
+          "material_read": "§2, dyadic boxes and Theorems 2.3–2.5, PDF pp. 4–6",
+          "method": "OA full-text passages and application to the frozen radial symbol",
+          "title": "Toeplitz operators on the unit ball with locally integrable symbols",
+          "trigger": "General harmonic compactness and strong radial truncation theorem"
+        },
+        {
+          "assessment": "Cancellation for a different radial sine symbol; no matching cutoff statement",
+          "evidence": [
+            "The comparison is between the spectral counting for the oscillatory symbol and for its modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.3528",
+          "material_read": "§5 Theorem 5.1, PDF pp. 20–21, offsets 76586–80538",
+          "method": "OA full-text passage",
+          "title": "On lower eigenvalue bounds for Toeplitz operators with radial symbols in Bergman spaces",
+          "trigger": "Known oscillatory spectral cancellation"
+        },
+        {
+          "assessment": "Broad cancellation overlap, not equivalent sharp cutoff",
+          "evidence": [
+            "Analytic disk with log-based radial weight and inverse-logarithmic chirp."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-spectral-collapse-of-an-unbounded-boundary-chirp-on-logari--93321ac0937d",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offsets 0–4468",
+          "method": "Resultary local mirror",
+          "title": "Exact spectral collapse of an unbounded boundary chirp on logarithmic Bergman space",
+          "trigger": "Distinct same-day near match"
+        },
+        {
+          "assessment": "Parameter has different meaning",
+          "evidence": [
+            "Slow/critical/fast angular winding is not the topology of radial cutoff approximation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-log-gamma-spectral-smoothing-at-the-critical-winding-of-weighted--cbcee7a7e9fa",
+          "material_read": "RESULT.md Finding and Proof §3, offsets 0–4249",
+          "method": "Resultary local mirror",
+          "title": "Log-Gamma spectral smoothing at the critical winding of weighted Bergman operators",
+          "trigger": "Apparent match to a gamma=1 threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §4 and precise cutoff claim; comparison with Hagger et al. §2."
+      ],
+      "rationale": "The lower estimate detects modes whose degree moves out to boundary scale as the cutoff is removed, and separates existence of a compact extension from existence of a bounded strong approximation. This is a useful concrete boundary for interpreting unbounded oscillatory symbols, beyond recovering a standard special-function decay law.",
+      "residual_risks": [
+        "This is a result for a particular chirp and canonical radial truncations, not a general characterization of regularizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

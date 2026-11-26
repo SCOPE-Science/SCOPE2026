@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:21:34.579832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An idempotent is a retraction onto its fixed image, including the empty retraction. If the center is absent and r leaves fixed, the other m−r leaves each have r+1 choices. If the center is fixed, a strict or strong map again has r+1 choices; a weak map has r+2; a strong-weak map allows collapsing leaves to the center only if r=0, since a pair of leaves with images center and fixed leaf would violate reflection of edges. If the center moves to a fixed leaf, the center is not in the image, its edge with that leaf collapses, and all included leaves must map to that same leaf. This gives m·2^(m−1) rank-one maps for both weak types and none for the strict types. The injective cases are partial identities. These partitions prove the six coefficients, equality of strict and strong idempotent sets and both differences, including m=1 where the higher-rank difference is zero. The EGFs follow by summing over the number of fixed leaves and then the other leaves. For a_m=A_m(1), the term r=floor(m/log m) gives log a_m≥m log m−m log log m−O(m), so the rank-one correction is negligible. For R=ceil(m/sqrt(log m)), the r>R contribution to a_m is o(a_m) by the bound (m+1)2^m(m+1)^(m−R). On r≤R the B-to-A term ratio is at least (1+1/(R+1))^(m−R), which diverges. Thus b_m/a_m→∞, giving the two differently paired total-count limits. I independently generated retractions and tested their pair predicates and ranks through m=6, matching all six spectra, including totals (6200,11737,6200,6455,128,128) at m=6. Replay: python3 /workspace/branches/reproduce_frozen.py stars; log /workspace/branches/reproduction-stars.txt. Finite checks only supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper's full monoid membership classification implies that the coefficients can be obtained by imposing fixedness of the image and counting remaining choices. Its displayed cardinalities count all elements, not the idempotent subfamilies.",
+          "The first paper §3 explicitly gives PswEnd=PsEnd union the rank-one partial maps whose domains contain the center. The follow-up concerns presentations, not the asymptotic relative count of retracts."
+        ],
+        "reasoning": "The broader elementwise classification is credited, including its explicit rank-one conclusion. It does not compare the two asymptotic ratios over retracts: they require the fixed-image count and control of which ranks dominate that count.",
+        "searches": [
+          "arXiv:2401.11741 §1, Propositions 1.1, 1.4, 1.6, 1.8, 1.10–1.11 and following cardinality corollaries; §3 p. 11",
+          "arXiv:2410.21084 abstract and definitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.11741",
+        "arXiv:2410.21084",
+        "arXiv:2203.05504",
+        "Resultary records 03034af7bf4f and fa69e9e31ab0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Intersecting the prior §3 identity with the retractions immediately predicts rank one for the defect from the strong class; counting these center-incident constants not already strong yields 2^m−1+m·2^(m−1). This component is a direct elaboration of prior coverage.",
+          "The weak but not strong-weak idempotents have a different mechanism: a fixed center, at least one fixed leaf, and a nonfixed leaf collapsing to the center, so the loss persists at higher rank. This gives a shift from r+1 to r+2 choices across many ranks. The distinct limits rely on a growing range of r, not only the rank-one identity or the prior cardinality of either full monoid."
+        ],
+        "reasoning": "The elementary case counts should not be claimed as six independent structural discoveries. The simultaneous defect and asymptotic comparison is a distinct quantitative consequence that requires analysis beyond the earlier statements; no stronger known relative-count theorem was established.",
+        "searches": [
+          "arXiv:2401.11741, §1 classification and §3 rank-one formula",
+          "arXiv:2410.21084, introductory statement of objectives and conventions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two papers use n=m+1 for the number of vertices and exactly the same graph-map predicates. In retraction language, image rank counts fixed vertices; presence and fixedness of the center governs the possible retractions.",
+          "The cited inverse-monoid background treats partial isometries/partial automorphisms of the star. Idempotent partial identities and their binomial coefficients are standard."
+        ],
+        "reasoning": "Neither a notation change to n nor rephrasing idempotents as partial retractions supplies an independent novelty claim. The important distinction is between rank profiles on idempotents and monoid rank, full-map counts, or an inverse-image continuity condition.",
+        "searches": [
+          "Labeled star graph partial endomorphisms, image-rank idempotents and partial retractions",
+          "arXiv:2401.11741 Propositions 1.1, 1.4, 1.6, 1.8, 1.10–1.11; arXiv:2410.21084, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-exact-rank-idempotent-and-regularity-profiles-of-continuous-part--03034af7bf4f gives a different exact idempotent profile for inverse-image face-continuous maps: E_(n,k)=(k+1)binom(n,k)+binom(n,k−1)+n[k=1].",
+          "2026/10/12/SCOPE-domain-rank-enumerator-of-graph-continuous-partial-maps-on-stars--fa69e9e31ab0 has a domain–rank enumerator for inverse-image face-continuity, not a census of the frozen retractions.",
+          "The primary star paper's total monoid counts do not tabulate the six idempotent spectra."
+        ],
+        "reasoning": "Neither exact-neighbor record counts these six forward graph-morphism monoids. No matched table of the joint idempotent comparison was established; absence of a match is not proof of priority.",
+        "searches": [
+          "Resultary star partial maps / idempotent rank profile comparison, mirrored RESULT.md Findings at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2401.11741, cardinality corollaries following §1 membership propositions"
+        ]
+      },
+      "rationale": "The known monoid classifications substantially overlap with the ingredients of the explicit coefficients, and the rank-one difference is already known at the level of all maps. Credit is limited to the combined rank-refined idempotent comparison and opposite limiting proportions for the two stated pairs, not to the membership classifications, rank-one mechanism or the standard partial-identity and leaf-only counts. No equivalent prior comparison was established in the inspected sources.",
+      "residual_risks": [
+        "A retraction enumeration or asymptotic comparison under other terms may exist; the broad literature query did not yield an additional viable source.",
+        "The exact formulas are close to the established monoid classification. The pass is not a priority claim for their individual elementary ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong ingredient overlap; no idempotent asymptotic comparison in checked passages",
+          "evidence": "Explicit membership criteria and PswEnd=PsEnd plus center-incident rank-one maps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11741",
+          "material_read": "PDF pp. 3–5/OA offsets 8850–15140, Propositions 1.1, 1.4, 1.6, 1.8, 1.10–1.11; §3 printed p. 11/OA offsets 42400–46549",
+          "method": "OA PDF passage inspection",
+          "title": "On partial endomorphisms of a star graph",
+          "trigger": "Identical underlying monoids"
+        },
+        {
+          "assessment": "Same conventions, different statistic",
+          "evidence": "Main objective is to give presentations, not to compare retraction rank spectra.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.21084",
+          "material_read": "Abstract and conventions, PDF pp. 1–2/OA offsets 0–10986",
+          "method": "OA PDF passage inspection",
+          "title": "Presentations for monoids of partial endomorphisms of a star graph",
+          "trigger": "Closest follow-up on the same monoids"
+        },
+        {
+          "assessment": "Standard inverse-monoid background",
+          "evidence": "Partial-isometry monoid rank, presentations, Green relations and cardinality are different from image ranks of idempotents.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05504",
+          "material_read": "p. 1/OA offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "On the monoid of partial isometries of a finite star graph",
+          "trigger": "Inverse-monoid member of the frozen family"
+        },
+        {
+          "assessment": "Neither is the frozen class and invariant together",
+          "evidence": "Both use inverse-image face-continuity; the older domain–rank enumerator is not an idempotent census.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-rank-idempotent-and-regularity-profiles-of-continuous-part--03034af7bf4f; 2026/10/12/SCOPE-domain-rank-enumerator-of-graph-continuous-partial-maps-on-stars--fa69e9e31ab0",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Configured Resultary search and mirror inspection",
+          "title": "Exact rank-idempotent and regularity profiles of continuous partial maps; Domain-rank enumerator of graph-continuous partial maps on stars",
+          "trigger": "Closest exact-number neighbors on partial star maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank variable resolves which relaxation matters in a natural class of retracts: allowing collapsed edges while still reflecting adjacency adds only negligible rank-one retracts, whereas dropping reflection creates higher-rank defects and an asymptotically dominant population. The exact degree-by-degree difference and the analysis of the two relative totals make this materially more useful than another count of all maps or a standard single-monoid identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

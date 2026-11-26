@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:29:51.740296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the row-sum Laplacian convention, replacing an ordinary edge by −a subtracts (1+a)ddᵀ with d=e_u−e_v. Side exchange and permutation of the m−1 ordinary vertices give the stated two symmetric 2×2 blocks and mI on the residual space. The antisymmetric block has determinant 2[m²−(1+a)(2m−1)], nonzero off-diagonal √(m−1), and a lower diagonal entry 2m−1>m, so λ_-<m<λ_+ and λ_->0 exactly in the claimed stable range for a>0. The spectral projector entry w and the even block give the four-term F. Its derivative scaled by 2e^(mt) is strictly convex, starts negative and diverges to +∞; hence F falls from zero and then rises to 1/(2m), with one positive root. At criticality the positive contribution to F' decays faster than the negative term and is already smaller at zero. Beyond criticality Duhamel and oddness of d give ∂_aF<0: the factors have opposite signs since dᵀH(s)d>0 even if L is indefinite. The other entries were checked by orbit: the same-side endpoint entry uses the Laplace numerator 2(m−1−a)s+λ_-λ_+, whose terms invert to positive exponential convolutions; the opposite-side endpoint entry is a sum of positive terms. The ordinary crossing entry uses slow weight ρ≤1/m and λ_-<m<λ_+, making the odd-block qq term strictly smaller than the even one. Ordinary same-side entries increase from the connected unperturbed kernel at 1+a=0 by the qq Duhamel formula, and this orbit is empty when m=2. Symmetry and row sums now give the exact two induced norms while stable. At small a, the first surviving path term at a=0 is (m−1)²t³/6, so taking t=k√a on either side of k=√6/(m−1) brackets the unique crossing. At the other end strict critical negativity at each fixed t implies T→∞; the small eigenvalue has slope 2w_c in a_c−a by the antisymmetric eigenprojector, and dropping the decaying fast terms gives λ_-T→log(mw_c)>0. Replay is RESULT.md §§1–4; VERIFICATION.md and check_signed.py were inspected, not executed. The sampled checks are supplementary. Entrywise positivity is strict only after T, whereas nonnegativity holds at T; the symmetric matrix exponential is positive definite even when individual entries are negative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. establish eventual exponential positivity for the symmetric positive-semidefinite corank-one case, and Song–Hill–Liu characterize signed-Laplacian definiteness by effective conductances. Fontan–Altafini provide a related weight-balanced result.",
+          "9592ccf163ce gives exact ℓ¹/ℓ∞ profiles and horizons in a fractional complete-network block model."
+        ],
+        "reasoning": "The graph's critical conductance follows from the known stability framework: with the repulsive edge deleted, the symmetry classes give a series resistance 2/(m−1)+1/(m−1)² between endpoints. But an eventual-positivity theorem does not identify the first horizon or its prior sign history, and the fractional complete-network parameters and semigroup do not specialize to this signed biclique heat matrix.",
+        "searches": [
+          "Chen et al. arXiv:2009.03581, Theorem 6; Song–Hill–Liu arXiv:1906.07632; Fontan–Altafini arXiv:2109.14587, §III",
+          "Resultary: fractional signed-network profile and signed-Laplacian exact recovery"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_signed.py",
+        "Resultary self hit 4c07f0409143 and distinct fa3b708d50ec and 9592ccf163ce",
+        "arXiv:1906.07632, arXiv:2009.03581 and arXiv:2109.14587",
+        "Limited bibliographic evidence for DOI 10.1016/j.dam.2026.03.001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 signed complete bipartite spectra paper is a plausible source for some spectral input: indexed text describes Laplacian, net-Laplacian, and normalized Laplacian spectra when negative edges form a regular subgraph. Neither publisher full text was accessible; the targeted identifier lookup did not yield a relevant lawful alternate.",
+          "The full-text Chen Theorem 6 concerns sufficient late time, not a one-crossing transient sign census."
+        ],
+        "reasoning": "An eigenvalue list alone would not establish the spectral weights of individual heat entries, their sign census, or the delay asymptotics. Because the actual spectral paper was unreadable beyond indexed text, whether it gives additional relevant formulas remains unresolved. No negative whole-paper assessment follows from that access gap.",
+        "searches": [
+          "Primary literature: signed complete bipartite Laplacian spectra and recovery with one negative edge",
+          "DOI 10.1016/j.dam.2026.03.001 and ScienceDirect PII S0166218X26001411; identified-access and OA-copy lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day weighted-triangle result fa3b708d50ec proves one exceptional entry, one unique recovery root, a corresponding norm formula and an inverse-distance critical delay; its weak-edge law is linear, and its root has two decaying modes rather than three."
+        ],
+        "reasoning": "The triangle cannot be turned into the stated biclique by relabeling or parameter scaling. With the repulsive edge absent, the alternative transfer path has length two in the triangle and three in the biclique; this changes the first nonzero Taylor term and the exponent of the recovery law. The extra modes and ordinary vertex pairs also require their own sign analysis.",
+        "searches": [
+          "Resultary: signed biclique repulsive-edge heat recovery, one exceptional sign, induced norm and weak/critical delay",
+          "Original mirrored fa3b708d50ec RESULT.md §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 4c07f0409143 is the assigned record itself. Distinct matched entries fa3b708d50ec and 9592ccf163ce give formulas for different families, not the square-biclique coefficients."
+        ],
+        "reasoning": "Neither the identical catalogue echo nor same-day dating establishes independent precedence. The distinct entries were compared by their actual matrices, semigroups and formulas.",
+        "searches": [
+          "Resultary: exact square biclique one-negative-edge recovery root and endpoint laws"
+        ]
+      },
+      "rationale": "Credit existing signed-Laplacian stability/eventual positivity and the structural analogues in the triangle and fractional complete-network results. The distinct contribution is the full square-biclique heat-entry classification and exact recovery profile, in particular the three-decay-mode equation with its biclique coefficients and square-root weak-edge delay. The induced norm formula follows generically once the entry census is known and is not independently novel as a norm identity. No inspected separate statement implies the full square-biclique result. The closest unresolved bibliographic hit on signed complete bipartite spectra was not available in full and is retained as a risk, not assessed as non-covering from a snippet.",
+      "residual_risks": [
+        "Full-text overlap with the 2026 spectral paper remains unresolved.",
+        "An earlier unindexed biclique computation or applicable spectral-projector result could have been missed; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogous exact theorem on a different graph",
+          "evidence": "Triangle census, recovery and norm are analogous; weak-edge law 2q/(ab)+O(q²) differs from the biclique square-root law.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-positivity-recovery-and-critical-delay-on-a-weighted-signe--fa3b708d50ec",
+          "material_read": "RESULT.md §§2–5, offsets 1200–5391 and 6300–10430",
+          "method": "Resultary and local mirror",
+          "title": "Exact positivity recovery and critical delay on a weighted signed triangle",
+          "trigger": "Strongest distinct structural match"
+        },
+        {
+          "assessment": "Different semigroup and network geometry",
+          "evidence": "Fractional e^(−tL^α) on a complete-network block model, with a different boundary law λ_j^α τ_j→log(N/k_j).",
+          "identifier_or_url": "2026/11/22/SCOPE-fractional-markovian-repair-and-sharp-positivity-horizons-for-an--9592ccf163ce",
+          "material_read": "RESULT.md offsets 0–4088 and 3800–6232",
+          "method": "Resultary and local mirror",
+          "title": "Fractional Markovian repair and sharp positivity horizons",
+          "trigger": "Similar exact norms, horizon and parameter laws"
+        },
+        {
+          "assessment": "General stability ingredient",
+          "evidence": "Positive semidefiniteness with corank one is characterized through effective conductances.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.07632",
+          "material_read": "PDF p. 1, abstract, offset 1500",
+          "method": "OA primary PDF",
+          "title": "On Extension of Effective Resistance with Application to Graph Laplacian Definiteness and Power Network Stability",
+          "trigger": "General signed stability threshold"
+        },
+        {
+          "assessment": "Qualitative late-time result, not exact horizon",
+          "evidence": "PSD with corank one is equivalent to eventual exponential positivity of −L.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.03581",
+          "material_read": "Theorem 6, PDF pp. 13–14, offsets 68800–72904",
+          "method": "OA primary PDF",
+          "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+          "trigger": "General stronger eventual positivity theorem"
+        },
+        {
+          "assessment": "Related structural foundation",
+          "evidence": "Connects marginal stability and eventual positivity for weight-balanced signed digraphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.14587",
+          "material_read": "§III, Theorem 2, PDF p. 3, offset 19700",
+          "method": "OA primary PDF",
+          "title": "On the properties of Laplacian pseudoinverses",
+          "trigger": "Eventual positivity for signed digraphs"
+        },
+        {
+          "assessment": "Plausible overlap in spectral ingredients; full coverage unverified",
+          "evidence": "Indexed scope describes spectra when the negative edges form a regular subgraph. Publisher access returned HTTP 403; no claim of absence of transient results is based on that.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.03.001",
+          "material_read": "Indexed scope only; ScienceDirect and ACM endpoints did not yield full text",
+          "method": "Primary-literature lookup; rate-bounded lawful primary access and alternate-copy attempt",
+          "title": "Note on the spectra of signed complete bipartite graphs with … (indexed title)",
+          "trigger": "Same graph class; possible coverage of underlying spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural single-repulsive-edge model separates spectral stability from positivity at finite times. A complete entry census on an infinite graph family, a unique sharp first horizon, and two distinct scales quantify the negative transient. In particular the shortest alternative path causes a square-root onset, whereas a nearly persistent odd mode causes inverse-distance divergence; neither feature is supplied by an eventual-positivity existence statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

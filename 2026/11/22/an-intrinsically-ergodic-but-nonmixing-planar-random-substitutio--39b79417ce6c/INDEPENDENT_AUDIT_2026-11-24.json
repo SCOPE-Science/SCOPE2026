@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:40.977920Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent bounded replay: for each root a and five bits b0,…,b4, fill (i,j) of the 4×4 tile with b_(2⌊i/2⌋+⌊j/2⌋) when i,j are odd; otherwise use b4 if i,j are both at least two, and a otherwise. For each wrong residue (0,1),(1,0),(1,1), mark the tile if a fully contained 2×2 square originating at that residue has sum two. This gave 64 distinct tiles and 8 of 32 marks per root for each residue."
+      ],
+      "rationale": "The aligned root languages are disjoint and q_(n+1)=2q_n^4; log(2q_n)/4^n tends to (log 2)/3. Any supertile can be repeated periodically: four identical copies are allowed when the fourth child takes the same root. Every finite patch of the repetition fits in a sufficiently high tile, giving legality, density, and the entropy lower bound from actual configurations. Specifying the residue phase and the tiles meeting a window gives the matching upper bound. Periodic repetitions have compatible hierarchies with all coarse fields legal, and compactness gives fibers over all points. Conversely any coarse legal field with a compatible residual phase and arbitrary corner decoration is legal by inflating a supertile containing the required finite coarse patch. Invariant measures lift by averaging. For any finite phase resolution, the phase information on a whole window is determined by one residue, so the odometer joining adds no entropy. Rescaling by the index-four subgroup in each parity fiber gives 4h≤h_top+log 2. The Haar-phase fair-corner construction yields legal configurations: a fixed site remains inherited with probability (3/4)^n after n levels, and the probability a fixed finite window crosses a level-n boundary is O(2^−n). The coarse law is the same and is independent of the fair corner field; equality follows. In any maximizing lift a finite conditional entropy deficit relative to coarse coordinates and finite residual phase digits would recur at positive density on disjoint translates, lowering the joint entropy below equality. Thus the corner field is independent and fair at each level, and the coarse field again maximizes entropy. Iteration and the inheritance estimate fix all finite marginals. The independent phase-witness count is 8/32 per root and wrong offset; conditional on the root field, independent internal bits across level-two tiles eliminate each wrong offset almost surely. Recursing recovers the Haar phase. Its horizontal parity character changes sign, so the unique MME is not mixing.",
+      "residual_risks": [
+        "The finite replay only checks level-two witnesses. Entropy, uniqueness and all phase digits use the all-level proof.",
+        "Alignment recovery is almost sure under the MME, not global or topological recognisability. Nonmixing is asserted for that measure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gohlke–Mitchell define their substitution shift inside A^Z and their result concerns one-dimensional recognisable systems.",
+          "The frozen text attributes general primitive block entropy and periodicity results to the closest planar paper. Its primary body could not be independently inspected, and the claimed difference of the diffraction model could not be verified from accessible text."
+        ],
+        "reasoning": "Credit the reported general planar entropy and periodicity principles. The one-dimensional theorem does not cover this planar measure rigidity, and no whole-paper noncoverage claim is made for inaccessible sources.",
+        "searches": [
+          "Gohlke–Mitchell framework definition and Corollary E; Felipe–Miro–Silvestre exact title and DOI, identified lawful alternate routes; Mijares–Miro–Silvestre DOI:10.1107/S2053273326009587"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary targeted searches and exact self-hit 39b79417ce6c",
+        "Gohlke–Mitchell DOI:10.1007/s00220-026-05602-8 (primary passages)",
+        "Felipe–Miro–Silvestre DOI:10.1107/S2053273326008351 and Mijares–Miro–Silvestre DOI:10.1107/S2053273326009587 (identified, primary comparison limited as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inflation entropy can yield the numerical entropy from the root count, and a periodic-density principle can apply separately once a periodic point is known. Neither supplies corner-bit conditional independence in every maximizing law or almost-sure phase recovery.",
+          "Gohlke–Mitchell work with one-dimensional recognisability. This example has periodic configurations with multiple alignments, so global recognisability cannot be assumed."
+        ],
+        "reasoning": "The entropy-maximizer rigidity and witness-based phase recovery supply the distinct conclusions, rather than a direct application of the reported planar entropy and periodic point results.",
+        "searches": [
+          "Gohlke–Mitchell PDF p. 2 and Corollary E p. 15; exact planar DOI and alternate lawful lookup; statements attributed in frozen RESULT.md lines 74–78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact rule and conjunction appear in the assigned record 39b79417ce6c. Rotation or reflection can change the designated free corner, and a shift sign convention does not change the parity eigenvalue.",
+          "The claimed setting is the full Z² action with alignment determined almost surely under its MME, not global recognisability."
+        ],
+        "reasoning": "Compare the same one-free-corner planar rule up to reorientation, not merely equal numerical entropy, a dyadic factor in another system, or a word substitution.",
+        "searches": [
+          "Resultary: independent free lower-right corner / three copies, binary planar random block substitution, dyadic odometer, intrinsic ergodicity and nonmixing",
+          "Gohlke–Mitchell DOI:10.1007/s00220-026-05602-8; Felipe–Miro–Silvestre DOI:10.1107/S2053273326008351"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially exact indexed hit was the assigned record itself, with the rule, entropy, phase and periodic conclusions all matching."
+        ],
+        "reasoning": "A self-hit is not a prior source; a numerical entropy or finite supertile count would not be an exact table of the measure and factor conclusions.",
+        "searches": [
+          "Local Resultary search on the exact 2×2 rule and paired MME/nonmixing conclusions; exact record 39b79417ce6c"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the particular planar rule with a unique maximizing measure and a measurable nonmixing dyadic phase. General inflation entropy and periodic-density principles are not credited as new. The exact indexed hit is the frozen record itself; the inspected general intrinsic-ergodicity criterion is one-dimensional. The closest planar paper was not available in readable full text, leaving a stated priority risk.",
+      "residual_risks": [
+        "The closest 2D primary paper remained unreadable on the identified lawful routes; an equivalent example there cannot be excluded.",
+        "No independent statement-level comparison was possible with the diffraction paper. Unindexed equivalent work is also possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not an independent prior finding",
+          "evidence": "Same free SE corner with three parent copies and the conjunction of entropy, MME, phase and periodic density.",
+          "identifier_or_url": "Resultary:39b79417ce6c",
+          "material_read": "Indexed finding and frozen statement",
+          "method": "Local Resultary and frozen source",
+          "title": "An intrinsically ergodic but nonmixing planar random substitution with entropy (log 2)/3",
+          "trigger": "Exact rule and conclusion hit"
+        },
+        {
+          "assessment": "Relevant one-dimensional theorem, not the planar setting",
+          "evidence": "The framework is X⊂A^Z; Corollary E concerns primitive, compatible, recognisable random substitutions there.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-026-05602-8",
+          "material_read": "Springer PDF pp. 1–2 (offsets 1050 and 4150), Corollary E p. 15 (offset 46800)",
+          "method": "OA PDF passages",
+          "title": "A Classification of Intrinsic Ergodicity for Recognisable Random Substitution Systems",
+          "trigger": "General intrinsic-ergodicity theorem could cover this example"
+        },
+        {
+          "assessment": "Material access limitation; no whole-paper determination",
+          "evidence": "The title identifies two-dimensional random substitutions. Reported entropy and periodicity principles are credited; a matching exact example or measure conclusion in the body is unverified.",
+          "identifier_or_url": "https://doi.org/10.1107/S2053273326008351",
+          "material_read": "Bibliographic identification; no readable primary passage retrieved independently. Frozen RESULT.md lines 74–76 reports general coverage from available bibliographic material.",
+          "method": "OA DOI and PubMed attempts; exact-title search found identified lawful institutional and publisher routes https://research.ateneo.edu/en/publications/dynamics-and-entropy-of-dynamical-systems-arising-from-two-dimens/ and https://journals.iucr.org/paper?cnor=gau5002, both also unavailable through the configured routes",
+          "title": "Dynamics and entropy of dynamical systems arising from two-dimensional random substitutions",
+          "trigger": "Closest planar theory, possible prior example of the exact rule"
+        },
+        {
+          "assessment": "Model comparison reported in the frozen record not independently established",
+          "evidence": "The frozen statement describes a different homogeneous-block diffraction family; no primary passage was retrieved to assert noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1107/S2053273326009587",
+          "material_read": "Bibliographic identification and frozen RESULT.md line 78; primary text unavailable",
+          "method": "OA DOI and publisher attempts",
+          "title": "On the diffraction spectrum of two-dimensional random substitutions",
+          "trigger": "Possible same constant-shape planar rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen rule and all-level entropy/phase arguments; independent finite witness replay",
+        "Gohlke–Mitchell one-dimensional scope and recognisability hypothesis"
+      ],
+      "rationale": "This simple planar hierarchy has a unique positive-entropy maximizing measure that retains a nonmixing dyadic factor despite dense periodic points. It distinguishes periodic approximation from measure mixing and gives a reproducible mechanism for almost-sure phase recovery without global recognisability. The exact combination is more informative than the supertile count or elementary entropy computation alone.",
+      "residual_risks": [
+        "No universality for primitive planar rules, and no assertion that all invariant measures have the same phase factor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

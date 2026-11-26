@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:21:04.756525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tested equation is composition of a k-linear map with itself, not the element equation. Applying L_x twice to e_j gives x_j times weighted two-walk sums; independent support kills the intermediate weights. An occupied edge u-v produces the entry (w,u) from the unique common neighbor v of distinct u,w if v has another neighbor w. This uniqueness uses absence of any four-cycle, including non-induced ones. Either endpoint can be used, and for an isolated edge the diagonal entry is x_u x_v. On C_4 the two distinct row neighborhoods are the opposite parity pairs; both have weight sum zero for (1,1,-1,-1), giving the stated counterexample. For a cycle, rank loss relative to support size equals the dimension of adjacency-kernel vectors supported there. The recurrence y_(i+2)=-y_i makes all nonzero odd-cycle kernel vectors full-support (possible only in characteristic two). On an even cycle the two parity chains close after n/2 steps, admitting a full-parity dependency precisely when (-1)^(n/2)=1. An independent support containing a whole parity class must equal that alternating class, so each such support loses exactly one rank. Marked cyclic gaps give n/j times binomial(n-j-1,j-1) for j>0 and the empty support contributes one; weighting by (q-1)^j and moving the two alternating terms gives the displayed correction and the C_6 examples. Isolated coefficients are counted with multiplicity as required. Field order already determines characteristic, so the final prose about holding cardinality fixed is vacuous; the substantive assertion is that the total needs only the independence polynomial evaluated at q-1, whereas the rank formula has a characteristic-dependent correction. In a separately written bounded check (python3 /workspace/check_cycle_gf4.py), direct double multiplication and image cardinalities on all 4^6 vectors give 1+18z+135z^2 over F_4, extending the recorded prime-field examples. Frozen checker and output were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited adjacency-matroid framework represents column rank of the binary adjacency matrix; the index summary of the graph-face result gives a cycle multiplication-rank transfer matrix for a different algebra.",
+          "In this theorem rank L_x uses A restricted to support columns, and the possible cyclic dependencies follow from y_(i+2)=-y_i independently of graph-face products."
+        ],
+        "reasoning": "For characteristic two, the column matroid can supply the rank after the support is known. It does not supply which supports make the two-walk operator vanish, and the binary representation does not alone give the odd-characteristic resonance. Credit the classical rank mechanism; no stronger retrieved statement subsumes both parts.",
+        "searches": [
+          "Brijder–Hoogeboom–Traldi, The adjacency matroid of a graph, arXiv:1107.5493",
+          "Resultary: cycle finite-field graphical evolution square-zero multiplication rank polynomial",
+          "Resultary:d37be33201da"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, verification record, checker and recorded output",
+        "Resultary:555bc289f00b",
+        "Resultary:d37be33201da",
+        "Resultary:3bd0dc9a1e20",
+        "Resultary:a874723da77e",
+        "arXiv:1312.4685 and arXiv:1107.5493 (bibliographic hits and frozen comparisons, not independent full-text reads)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Association with the graph and binary column ranks are explanatory inputs. The restricted sum additionally needs the exact independent-support locus, proved by unique two-walk witnesses and the isolated-edge case.",
+          "The frozen comparison describes different multiplications for the graph-face result and an equation on elements for the complete multipartite result; the index summaries agree on those respective scopes."
+        ],
+        "reasoning": "Counting faces or element-square-zero vectors is not a mechanism for imposing A diag(x) A diag(x)=0. Conversely, once the new support equivalence is supplied, the classical cycle counts and adjacency dependences do yield the polynomial; the audit credits the combination and not those separate ingredients.",
+        "searches": [
+          "Resultary:d37be33201da",
+          "Resultary:555bc289f00b",
+          "arXiv:1312.4685",
+          "arXiv:1107.5493"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier complete multipartite finding's index summary is about x^2=0, whereas the equation here is A diag(x) A diag(x)=0.",
+          "The retrieved Elduque–Labra search entry identifies the graph-evolution paper; the bound RESULT.md identifies its Sections 2–4 as background on algebra definitions, nilpotency and automorphisms."
+        ],
+        "reasoning": "The element expression is A(x_i^2)_i, not the composition. For example on an edge, a one-vertex support gives a nonzero x^2 and L_x^2=0. Neither an absolute-nilpotent element count nor nilpotence of a whole algebra is the support theorem.",
+        "searches": [
+          "Resultary: C4-free graph evolution algebra L_x^2 independent support",
+          "Elduque–Labra, Evolution algebras and graphs, arXiv:1312.4685",
+          "Resultary:555bc289f00b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both core searches return the assigned finding itself, 6198264ecb2e. A distinct same-day cycle hit concerns Fourier rank of Boolean-cube convolution with the indicator of size-two nonadjacent supports.",
+          "The graph-face census and cycle graphical-group degree enumerator are indexed for associative graph-face multiplication and generic antisymmetric weighted matrices, respectively."
+        ],
+        "reasoning": "No other retrieved index statement gives the same coefficients for operator-square-zero weights and ranks. The same-day Fourier result was compared by operator and parameter space, not waived by date; search non-detection is not proof of priority.",
+        "searches": [
+          "Resultary: C4-free graph evolution algebra L_x^2 independent support",
+          "Resultary: exact cycle rank polynomial for square-zero left multiplication",
+          "Resultary:3bd0dc9a1e20",
+          "Resultary:a874723da77e"
+        ]
+      },
+      "rationale": "The supported distinct package is the C_4-free equivalence for the square of one natural-basis multiplication operator and its all-field, rank-weighted cycle census. The adjacency column-rank facts and the independent-set counts are ingredients, not independent novelty claims. Closely titled index hits study different products or equations, and their uninspected full texts leave a bounded priority risk.",
+      "residual_risks": [
+        "The most plausible graph-face full result and relevant portions of the two primary papers were not independently retrieved, so no categorical whole-document exclusion is claimed.",
+        "An unindexed prior characterization of multiplication operators or special-case cycle law could further narrow the contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known algebra/graph background is credited; no whole-paper exclusion can be inferred",
+          "evidence": "The attached comparison distinguishes algebra nilpotency and the individual operator equation; no primary text was retrieved.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4685",
+          "material_read": "Search bibliographic result; Sections 2–4 comparison in frozen RESULT.md lines 53–61 only",
+          "method": "Primary search and targeted OA access attempt",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Foundational same-algebra paper; plausible operator-nilpotence precursor"
+        },
+        {
+          "assessment": "Binary column ranks overlap; square-zero support is a separate restriction",
+          "evidence": "By definition the relevant rank is that of the columns indexed by support, while the operator equation involves two successive adjacency applications.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.5493",
+          "material_read": "Search bibliographic result and frozen Definition 4/Tutte discussion reference, not the underlying text",
+          "method": "Primary search and targeted OA access attempt",
+          "title": "The adjacency matroid of a graph",
+          "trigger": "Plausible broader column-dependency theorem"
+        },
+        {
+          "assessment": "Closest rank-census comparison, but indexed object is not the graphical evolution algebra",
+          "evidence": "The summary uses bipartite-component rank defects and a transfer matrix; the frozen comparison specifies associative graph-face multiplication.",
+          "identifier_or_url": "Resultary:d37be33201da",
+          "material_read": "Index summary and frozen statement-level comparison; mirror file not retrieved",
+          "method": "Local semantic lookup and targeted mirror attempt",
+          "title": "Finite-field multiplication-rank spectra of graph face algebras",
+          "trigger": "Exact cycle rank enumerator and characteristic dependence"
+        },
+        {
+          "assessment": "Different square-zero equation and graph class in stated result",
+          "evidence": "It concerns elements with x^2=0 in complete multipartite algebras, not L_x composed twice.",
+          "identifier_or_url": "Resultary:555bc289f00b",
+          "material_read": "Indexed mathematical summary and frozen comparison",
+          "method": "Local semantic lookup and comparison of equations",
+          "title": "Finite-field square-zero geometry of complete multipartite evolution algebras",
+          "trigger": "Same terminology and evolution-algebra setting"
+        },
+        {
+          "assessment": "Different rank statistic and support domain",
+          "evidence": "Boolean-cube convolution for nonadjacent vertex pairs, not left multiplication on an evolution algebra.",
+          "identifier_or_url": "Resultary:3bd0dc9a1e20",
+          "material_read": "Indexed mathematical summary",
+          "method": "Local semantic lookup",
+          "title": "A mod-eight Fourier rank law for nonadjacent pairs of a cycle",
+          "trigger": "Distinct same-day cycle/independent-set rank hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact operator-nilpotence locus in a natural class of nonassociative algebras reduces to an independently useful graph invariant. The unique-witness proof and four-cycle counterexample explain why the support reduction can fail rather than fitting a few examples. The cycle refinement identifies and quantifies rank losses that the total count cannot detect; it applies to all cycle sizes in scope and all finite fields.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

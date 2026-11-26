@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:54:08.432227Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–32 and 34–67 (normalization, combinatorics, polarity, equality and attainment)",
+        "VERIFICATION.md lines 19–29 and check_perimeter.py lines 17–89 (inspected; recorded finite geometry tests only, not re-executed)"
+      ],
+      "rationale": "Every triple of normals is independent. Orient the uniquely dependent four-tuple so its coefficients are positive. A strict sign chamber is impossible exactly when its signed normals have a nonzero nonnegative dependence, hence exactly the two constant signs are excluded. A singleton-sign constraint follows from the other three. In a two-two chamber every hyperplane is a facet: feasible witnesses for opposite signs of that coordinate can be joined, keeping the other three inequalities strict. Thus the eight triangles and six quadrilaterals meet along edges always of mixed type, so triangular perimeters total 8π and the minimum is at most π. If the minimum equals π all triangles have perimeter π; polarity gives four normal-triple areas of π. The solid-angle formula has positive determinant magnitude and returns area π precisely when 1 plus the three pairwise dots vanishes. Subtracting the four equations yields equal opposite-pair Gram entries and the sum −1. The Gram matrix is realized by the stated sign pattern with positive a,b,c and squares summing to one; congruence is orthogonal since each triple spans. Conversely this Gram condition makes all triangles have perimeter π. The polar of the ++−− chamber is the radial rectangle at x=a. Integrating (1+s²+t²)^(-3/2) over the rectangle uses the mixed primitive arctan(st/sqrt(1+s²+t²)); its area is 4 arctan(bc/a) after unit normalization. Cyclic permutations and antipodal symmetry give all quadrilateral perimeters. Monotonicity of arctan gives exactly the three non-strict constraints. The regular point satisfies them strictly, and the unordered (a,b,c) are determined by the normal Gram data up to permutation, so a two-dimensional family survives modulo isometry. The boundary, including an additional quadrilateral of perimeter π, is allowed.",
+      "residual_risks": [
+        "Unit sphere and no triple concurrence are essential to this exact chamber classification. No assertion about degenerate arrangements or other circle counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Bezdek–Lángi search excerpt asks to minimize the furthest nearest-circle distance. Frozen RESULT.md §Relationship to prior work distinguishes Bhowmick's smallest-area objective and the inradius/circumradius results from perimeter; the triangle solid-angle identity is attributed to van Oosterom–Strackee. Primary full texts were not retrieved."
+        ],
+        "reasoning": "The radii, original cell areas and perimeters are different invariants; an extremizing regular arrangement for one does not rule out a continuum for another. Even a perimeter or side-count identity for arbitrary circle counts does not account for the equality constraints on the three independent quadrilateral pairs.",
+        "searches": [
+          "Bhowmick, arXiv:2611.15244v1; Bezdek–Lángi, arXiv:2201.11234; van Oosterom–Strackee, DOI 10.1109/TBME.1983.325207"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 34–85",
+        "Resultary a4d73ea34289, f7e292c89b5e, 86772e758f25 (indexed statements)",
+        "Bezdek–Lángi covering-distance search excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The census and edge incidence supply the average π; the regular witness proves its attainability. The equality analysis further solves a four-triple system and tests three signed polar rectangles. Even the positive normal disphenoid family includes nonoptimizers, e.g. normalized (1,2,2), for which bc>a."
+        ],
+        "reasoning": "The sharp value is a short consequence of known structural ingredients and the witness; the exact optimizing subset is not a consequence merely of that bound, the census, generic polarity or the rigid area theorem.",
+        "searches": [
+          "Frozen RESULT.md lines 36–67 and 73–85; compare Resultary f7e292c89b5e with the attributed polar and solid-angle identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By spherical polarity the claim is equivalently a minimax area cap of π on the dual cells; at optimum the four normal-triple spherical areas attain π, and the six polar quadrilaterals also satisfy the cap. Equal area of cells in the original arrangement is not this condition."
+        ],
+        "reasoning": "A theorem covering all four equal-area normal faces plus the same six signed-rectangle area restrictions would cover this classification even in dual language. A result only recognizing a disphenoid on the equal-triangle locus would not supply the necessary and sufficient side inequalities on quadrilaterals. No distinct exact dual statement was secured.",
+        "searches": [
+          "Primary literature on four great-circle maximin perimeter and spherical/polar disphenoids",
+          "Resultary searches for great-circle perimeter and four-circle extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a4d73ea34289 is the assigned record itself. f7e292c89b5e states the maximin **area** for four great circles with a regular-tetrahedral equality class and the same chamber census. 86772e758f25 states an area-ratio law in a threefold-symmetric family."
+        ],
+        "reasoning": "The area optimizer is rigid where the perimeter optimizer is not, and the area-ratio statement restricts the family from the outset. Their available mathematical summaries do not state the same theorem; dates alone do not disambiguate priority and full mirror texts were unavailable.",
+        "searches": [
+          "Resultary exact match a4d73ea34289; closest different results f7e292c89b5e and 86772e758f25"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete nonrigid optimizing region and its exact quadrilateral profile for the geodesic perimeter objective. Credit established incidence and polar/solid-angle methods. The π upper bound is short once the incidence sum is known; that observation is not the sole novel contribution.",
+      "residual_risks": [
+        "An earlier exact four-circle perimeter or dual spherical-tetrahedral classification may exist; cited primary texts and neighbor mirror full texts were inaccessible.",
+        "Search excerpts support only the objectives they state, not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared chamber census, different objectives and optimizing sets",
+          "evidence": [
+            "The first summary reports a regular-tetrahedral area optimizer; the second compares areas under threefold symmetry."
+          ],
+          "identifier_or_url": "Resultary f7e292c89b5e and 86772e758f25",
+          "material_read": "Indexed mathematical summaries; mirror full text unavailable",
+          "method": "Local semantic search and bounded mirror retrieval attempt",
+          "title": "The sharp minimum cell area for four great circles; A sharp area-ratio law for a threefold-symmetric four-great-circle arrangement",
+          "trigger": "Closest indexed statements on the identical geometry"
+        },
+        {
+          "assessment": "The available statement illustrates covering distance, not sharp perimeter; full paper not ruled out",
+          "evidence": [
+            "Excerpt asks to minimize the furthest distance from a point on the sphere to its nearest great circle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11234",
+          "material_read": "Search-result objective excerpt and frozen lines 73–85, not primary full text",
+          "method": "Primary search and bounded full-text attempt",
+          "title": "From the separable Tammes problem to extremal distributions of great circles in the unit sphere",
+          "trigger": "Earlier extremal arrangement theorem with comparable geometry"
+        },
+        {
+          "assessment": "Attributed earlier area objective and standard solid-angle input; no verified same-objective theorem",
+          "evidence": [
+            "The frozen argument uses the standard solid-angle identity to translate area π of normal triples to four Gram equations."
+          ],
+          "identifier_or_url": "arXiv:2611.15244v1; DOI 10.1109/TBME.1983.325207",
+          "material_read": "Frozen lines 44–48 and 73–85; primary passages unavailable",
+          "method": "Cited scientific comparison and bounded OA attempt",
+          "title": "Small cells in arrangements of great circles; The solid angle of a plane triangle",
+          "trigger": "Possible arrangement bounds and exact polar-triangle computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–28 and 36–67"
+      ],
+      "rationale": "A natural extremal question for the first four-circle arrangement with two cell types has an explicit, exhaustive equality set. Nonrigidity distinguishes perimeter optimization from nearby rigid area problems, and the quadrilateral formulas give an exact membership test including boundary cases. This is substantive beyond the incidence-average proof of the bound.",
+      "residual_risks": [
+        "A small fixed circle count; value lies in the exact complete classification rather than implications for arbitrary size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

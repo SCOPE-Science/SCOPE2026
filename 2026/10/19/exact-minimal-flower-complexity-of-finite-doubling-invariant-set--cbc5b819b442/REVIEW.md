@@ -1,19 +1,21 @@
-# Scientific review: exact finite-support flower complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the exact flower definition from Harriss--Jenkinson and Brown, records the unique inverse branch forced at each point of a finite invariant set, and reduces the covering optimization to a circular two-sheet transition count. Its seam term follows from the nontrivial monodromy of the doubling covering: ordinary equal branch labels require an additional seam jump. A constructive selector attains all the gapwise lower bounds with every prescribed point in an interior. The fixed-point-grid recurrence and binary necklace/BWT correspondence are proved directly. The verifier passed 1,197 exact rational assertions on 315 finite families and includes small-case exhaustive side-label minimization. These tests are diagnostics; they do not replace the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For finite nonempty E-invariant K, E restricts to a permutation, so each ordered output has exactly one required inverse. A selector with j jumps has j petals: the closed lifts of its continuity intervals are disjoint, since the only possible shared outputs under E would be interval endpoints, and the two lifts at any jump differ. A jump-free selector is impossible by degree. If K is contained only in the closure, each required inverse at a prescribed point is still a lateral limit; moving a jump at that point slightly onto the side carrying the other sheet preserves the number of jumps and includes the required inverse in the interior. In each ordinary gap the two bits force one jump iff they differ, and in the wraparound gap the covering interchanges sheets, so it forces one iff the bits agree. Independent lifts on the gaps attain these lower bounds, including when 0 is prescribed and for the singleton. Their sum is odd. On the grid of denominator D=2^n−1, if the inverse has numerator a and the output numerator j, then 2a=j+bD, so b is the parity of j and the wrap term contributes one. On a primitive nonconstant cycle the predecessor bits are the last column of the sorted rotations. The least rotation has a preceding 1 (otherwise shifting backward lengthens its initial zero run), and the greatest has a preceding 0, so the seam adds zero and the cost is the linear run count minus one. The finite supplied verifier was inspected, not executed; its discrete minimization and rational instances do not substitute for the proof.
 
-Harriss and Jenkinson (arXiv:0711.0802, Section 2) define finite-jump inverse selectors and flowers; Brown (arXiv:2605.06962v1, Sections 2--4) establishes structural complexity bounds and interval-exchange coding. Neither inspected section states the global minimum-petal formula for every finite invariant support or the exponential all-fixed-points obstruction. Kumallagov (arXiv:2606.01267v1, Sections 2 and 8--9) treats BWT run structure; it is credited for the established word-combinatorial background, not for the new geometric identification. The five-petal value for a narrow reflection-paired mechanical-cycle family is treated as prior information and is not claimed independently. A historical equivalent described in other terminology remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The primary object is a geometric optimal covering of a prescribed dynamical invariant set, not an arbitrary sequence statistic. The closed formula classifies the optimum for every finite union of periodic orbits and constructs an optimizer. The sharp growth \(2^n-1\) for all fixed points of the \(n\)-th iterate shows an exponential obstruction invisible from the cardinality of a single periodic orbit. The BWT bridge makes an established combinatorial run statistic an exact geometric invariant, allowing cyclic-word methods to address cover problems. The result does not cover infinite invariant sets, other map degrees, or global maximal-invariant-set equality.
+The supported distinct claim is the finite-set optimum with both the exact fixed-point-grid extremum and the equality to the BWT run count on a primitive cycle. Neither the established jump/component relation nor the established BWT run classifications are credited as new.
 
-## Sources, comparison, and limits
+## value
 
-Primary inspected sources: E. Harriss and O. Jenkinson, *Flattening Functions on Flowers*, arXiv:0711.0802 (Section 2); M. Brown, *Expanding Maps on Flowers, Interval Exchange Transformations, and Ergodic Optimization*, arXiv:2605.06962v1 (Sections 2--4); D. Kumallagov, *An extremal problem for completely unclustered Burrows--Wheeler images*, arXiv:2606.01267v1 (Sections 2, 8--9). No independent bibliographic certification or independent proof audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural covering problem on finite invariant unions, the result replaces a search over continuous jump locations by a sharp, constructive count from predecessor order. It supplies an exact exponentially growing obstruction for full fixed-point sets and lets a researcher obtain the sharp geometric cost of one cycle from an ordinary BWT run count. It makes no claim about arbitrary infinite supports, higher degrees, or the full invariant set inside an optimizing flower.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The all-size mathematics follows from the exact pinned-configuration/even-wall-word bijection and independent erosion of maximal runs between virtual zero boundaries. Coefficient extraction from a finite-run language proves every time shell; selecting even-length initial runs gives the entire all-zero attraction basin. Finite checks are corroboration, not the proof for unbounded lengths.
+# Independent mathematical audit
 
-Run `python3 verification/prove_run_enumerator.py` to independently enumerate the even-parity words, extract the full time generating function and verify Fibonacci basin coefficients; its success marker is `ENUMERATOR_OK`. Run `python3 verification/direct_dynamics.py` to check the raw synchronous majority map and its complete empirical first-fixation distributions on each length three through fifteen; its success marker is `DYNAMICS_OK`. The source files use only Python's standard library. The separate `.out` files are captured outputs, not independent mathematical certificates.
+## correctness
 
-The conclusions concern one fixed zero boundary site and fair unpinned starting bits for the probability calculation. No claim is made about multi-pin configurations, other temporal rules or independently certified historical novelty. Independent external mathematical validation has not been performed.
+PASS
+
+With x₀=0 the edge XOR word determines x uniquely; even parity is necessary and sufficient for closing the ring. A site flips iff both incident edges are 1 and the site is not pinned. XOR of the two endpoint flips with an edge bit shows that a zero never turns on, and that an edge currently 1 turns off exactly when it has just one neighboring 1 in the linear word (virtual zeros at the two ends). Thus both edges of any run of length ≥2 are removed at once, and singleton runs are fixed. This proves that the first fixed time is the largest floor(run length/2), and proves absence of cycles, with the empty-run maximum interpreted as zero. The parity-projected series follows by splitting at zero walls: one capped initial run, then any number of zero-plus-capped-run blocks. The coefficients at n<3 describe formal words; no physical boundary convention there is required. At time floor(n/2) the extremizers are exactly the even all-one word, or the two end-positioned length-(n−1) runs at odd n. The all-zero attractor requires every run length even; these words tile uniquely by 0 and 11, so the Fibonacci recurrence and its initial values follow directly. Division by the 2^(n−1) indexed starts and Binet's identity give the claimed asymptotic. Independent replay /tmp/opencode/frozen_majority_replay.py exhausts lengths 3–16 using bitwise open-string majority, checks each start's time and basin membership, and compares all cumulative counts to a parity/terminal-run-state automaton. At n=8 it gives [27,77,20,3,1] and basin 34; at n=16 [1292,18532,9900,2404,512,104,20,3,1] and basin 1597. The uploaded source and output were inspected without executing them. The unbounded conclusions use run erosion and exact formal-language counting, not the replay.
+
+## originality
+
+PASS
+
+Qualified for the pinned all-time and consensus-basin counts, not the known same-model absence of nontrivial cycles, fixed-point enumeration or worst transient time. The model is exactly the open dynamic string with two fixed zero boundary values, not just analogous to it. Access limits for the 2000 full text are recorded below.
+
+## value
+
+PASS
+
+Worst-case time and fixed-state totals do not answer how often a single immutable opinion wins or how quickly typical starting states freeze. These two natural exact invariants are given uniformly over sizes and times; in particular, certain fixation coexists with exponentially vanishing consensus probability. The value is the two exact pinned invariants, not a new local rule or arbitrary extracted slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer target distance \(n\ge1\), nonzero hopping \(h\), and exponential interrogation rate \(r>0\), the protocol draws a fresh exponential waiting time and fully prepares the source state after each failure. The proof obtains a positive per-trial success probability from the free-walk Bessel amplitude; the renewal mean remains valid even though trial duration and result are correlated within a trial. The Laplace-Bessel transform establishes the exact Legendre-function formula. A positive integral representation gives locally uniform Legendre-to-\(K_0\) convergence. A two-range tail estimate controls every global optimizing rate, and strict monotonicity of \(\alpha K_1(\alpha)/K_0(\alpha)\) proves the unique limiting optimizer. Numerical quadrature and finite-path matrix checks test but do not replace these analytical arguments.
+PASS
 
-## Originality — PASS (provisional publication priority)
+The Fourier coefficient of the free lattice propagator gives probability J_n(2|h|t)^2. Full re-preparation makes the next trial independent of the first pair (duration, outcome). The renewal mean uses the unconditional first duration 1/r, not independence of duration and outcome within a trial. With a=r/(2|h|), the Laplace transform is Q_(n-1/2)(1+a^2/2)/pi, so the success probability is a times that transform and the stated normalization follows. The cosine and positive toroidal integrals have the same normalization: setting rho=exp(-eta), the cosine coefficient expands using the binomial series for the two factors (1-rho exp(±i theta))^(-1/2), and the positive integral with exp(-t)=rho*s reproduces those coefficients times pi via the beta integral. The success rate rq tends to zero at both ends for n>=1 (the fast-rate behavior is q~binom(2n,n)(|h|/r)^(2n)), ensuring an attained finite optimum. At alpha=na and beta=n eta, translation of the rescaled lower endpoint bounds the positive integrand by exp(-(s+beta))/sqrt(s(s+2 beta)), uniformly dominated on compact interior alpha intervals, and gives the K_0 limit. For a<=1 the global bound alpha^2 K_0(c alpha) tends to zero at both alpha boundaries; for a>=1 the bound C n^2 exp(-(n-1)c) tends to zero uniformly. Hence no sequence of global optimizers can escape. The derivative of R=alpha K_1/K_0 is alpha[(K_1/K_0)^2-1]>0; R ranges from 0 to infinity, giving the unique limiting optimizer and convergence for every minimizing sequence. Independent numerical calculation checked alpha=1.552651255645364 and constant 3.262211749335942; the frozen numerical script was inspected, not executed. Neither numeric check substitutes for compactness and the limiting proof.
 
-The closest literature covers Poisson-time measurement with continued post-failure dynamics (Varbanov, Krovi, Brun, arXiv:0803.3446), repeated fixed-time detection (Friedman, Kessler, Barkai, arXiv:1603.02046), sharp restarts after finite numbers of periodic interrogations (Yin, Barkai, arXiv:2205.01974), and perturbations of periodic sampling under restarts (Yin, Wang, Barkai, arXiv:2301.06100). All use different renewal kernels and/or waiting-time controls. Additional random-measurement analyses (arXiv:2305.15123, arXiv:2509.08556) evolve the surviving post-measurement state. The Bessel-to-Legendre identity is classical. No inspected source stated the claimed global large-distance optimum for independent exponential, single-interrogation, reset-after-every-failure trials. The possibility that a general restart theorem implies this specialization is a residual priority risk, not a claim of exhaustive novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The natural control is the Poisson clock rate of a sharply specified quantum search protocol, and the physical observable is expected first successful detection time. The theorem determines a sharp universal rate constant and time prefactor for distant targets, and rigorously explains why the free walk's ballistic propagation is not retained as a linear optimal time under this protocol. This is a natural, quantitative noise/measurement scheduling benchmark rather than an arbitrary single-distance special case. It is not a comparison with every conceivable interrogation protocol and omits apparatus overhead, imperfect measurements and finite lattices.
+Poisson probing, renewal, the single-trial lattice Bessel amplitude, and the Laplace/Legendre identity are not new. The checked literature and catalogue do not give the globally optimized large-distance theorem for this precisely renewed exponential one-shot protocol on the infinite line. The surviving claim is the compactness and sharp asymptotic for all global optimizers and their value, not priority for its constituent identities or a general advantage over other restart laws.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This isolates a meaningful gap between ballistic propagation and physical first-detection time in a specified renewal experiment. The sharp quadratic law and rate give more than a formal stationary point or an upper estimate at one chosen rate: every physical-rate optimum has the same scaling, with no unexamined parameter escape. That distinction is useful for comparisons among explicitly different quantum detection protocols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

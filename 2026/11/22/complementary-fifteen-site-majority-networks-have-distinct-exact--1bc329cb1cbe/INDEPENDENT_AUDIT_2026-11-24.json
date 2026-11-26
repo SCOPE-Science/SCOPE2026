@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:18:02.910064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen numerical results are correct. The repaired RESULT and SLOGAN restrict the new census to T(6) and use the Kneser numbers as prior comparison data. In an independent reproduction (branches/reproduce-majority-basins.py; matching .out), the votes for site ij were calculated from the root degrees d_i,d_j, the incumbent x_ij and the total number m of selected edges: closed-neighborhood vote totals d_i+d_j−x_ij for T(6) and m−d_i−d_j+2x_ij for KG(6,2), with thresholds 5 and 4. Indegree peeling in the full functional digraph removes precisely the transient states; remaining cycles of length one or two are labeled individually and the reversed peeling order gives the exact entrance depths and basin totals. All 32,768 states for each graph were included. The first-entry tables, orbit-basin spectra, both consensus basin sizes per graph, and the two sharpness trajectories reproduce exactly. In the repaired text, the root-degree formula and the iterate-equality and orbit-key enumeration are valid, and the comparison uses 9120/1800=76/15 with the same initial-state measure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Symmetric threshold theory restricts eventual periods. The line-graph classification explicitly excludes sharp transient bounds and attraction-basin counts; the Johnson-graph result only concerns fixed points. The rook–Shrikhande census examines a different pair."
+        ],
+        "reasoning": "Even an exact description of the set of cycles does not classify predecessors, their depths, or the number of predecessors of a given cycle. The repaired theorem is about those data on one natural graph, not about the already known period restriction.",
+        "searches": [
+          "Resultary: half-factor classification in line-graph majority, threshold rigidity on Johnson graphs, exact strongly regular graph basins",
+          "Kuhlman et al., arXiv:1108.2974, §3.1; Goles–Olivos DOI 10.1016/0166-218X(81)90034-2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Kneser census 43ead5e098c9, line-graph half-factors 61b3de3ad47a, Johnson threshold rigidity ae2949f214d6 and Shrikhande–rook census a7ee2eb89698",
+        "Kuhlman et al. arXiv:1108.2974",
+        "Goles–Olivos DOI page, not the primary full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Kneser source implies its comparison numbers immediately; the half-factor and Johnson fixed-point formulae describe only periodic membership. General eventual period two does not bound the transient here by three."
+        ],
+        "reasoning": "The ratio 76/15 is a calculation using one prior population and one newly established T(6) population, not a standalone originality claim. The repaired claim supplies all previously unresolved triangular basin sizes and depths by reconstructing the full transition system.",
+        "searches": [
+          "Kneser RESULT.md Finding, half-factor RESULT.md Finding and Limitations, fixed configurations of J(n,2) RESULT.md scope",
+          "arXiv:1108.2974 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Kneser record uses the same disjoint-pair graph and three-to-three incumbent retention; shifting its labels 0–5 to 1–6 conjugates its transition map.",
+          "The half-factor and Johnson fixed-state papers use equivalent descriptions of the triangular graph's recurrent configurations, not its full functional digraph."
+        ],
+        "reasoning": "Relabeling leaves complete Kneser censuses identical. Replacing intersection by disjointness changes the update, and global opinion reversal does not conjugate those two topologies. In fact their recurrent-state counts differ, ruling out a state-space conjugacy.",
+        "searches": [
+          "Resultary: synchronous majority on T(6), J(6,2), L(K6) and KG(6,2), transient and orbit-basin counts",
+          "Primary-literature search: synchronous majority triangular graph T(6), Johnson J(6,2), line graph K6 attraction basins 13678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Kneser record independently gives all five basin multiplicities and the exact population pairs (502,5340), (4426,3780), (13680,0), (5040,0) at depths zero through three. No matching complete triangular transient/basin table was identified in the bounded searches."
+        ],
+        "reasoning": "This exact overlap defeats originality for the uncredited Kneser census, not for the final T(6) census. The two external search hits did not supply usable primary evidence on the target table and are not counted as negative evidence.",
+        "searches": [
+          "Resultary: complete basin spectrum, settling depth and first-entry counts for fifteen-vertex majority on the triangular and Kneser graphs",
+          "Primary-literature search: T(6), J(6,2), L(K6) and exact basin size 13678"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired triangular-graph transient and full basin census with a credited comparison. The frozen two-census originality assessment fails: the complete KG(6,2) slice, including its transient histogram, basin sizes and sharp depth, is directly established in an earlier same-rule record omitted from the original comparison. The repair removes it from the new finding, names that source as the baseline and does not claim the recurrent-state counts as a standalone advance. After checking the nearer line-graph and Johnson-graph result statements and the published Kneser comparison, no checked source supplies the individual transient basin sizes or full entry census for T(6).",
+      "residual_risks": [
+        "The 1981 Goles–Olivos source was available only as a landing page/abstract in the bounded lookup. Unindexed literature or supplementary explicit triangular transient counts might affect priority; this is a bounded best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage of all Kneser claims, omitted in the frozen record and credited as background in the repair",
+          "evidence": "It explicitly states F^5=F^3 and F^4≠F^2; the five pairs of period and basin size with their multiplicities and all four first-entry rows agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-three-step-majority-cutoff-and-two-basin-scales-on-the-fifteen--43ead5e098c9/RESULT.md",
+          "material_read": "Finding at offsets 0–617 and 765–2621, including update convention, depth identity, both tables and consensus data",
+          "method": "Bounded local-mirror read",
+          "title": "A three-step majority cutoff and two basin scales on the fifteen-vertex Kneser graph",
+          "trigger": "Same KG(6,2) graph, rule, and proposed depth/basin result"
+        },
+        {
+          "assessment": "Relevant recurrent-state prior coverage, not transient/basin coverage",
+          "evidence": "The incidence half-factor formulation classifies recurrent states, and the limitations expressly exclude sharp transient bounds and attraction-basin counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a",
+          "material_read": "RESULT.md Finding and Limitations around offset 9463",
+          "method": "Bounded local-mirror read",
+          "title": "Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics",
+          "trigger": "Recurrent classification directly applicable to the line graph of K6"
+        },
+        {
+          "assessment": "Same setting for fixed configurations only",
+          "evidence": "Scope excludes genuine two-cycles, basins and convergence times.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-threshold-graph-rigidity-and-a-power-of-two-equilibrium-type-law--ae2949f214d6",
+          "material_read": "RESULT.md Finding and scope around offset 2708",
+          "method": "Bounded local-mirror read",
+          "title": "Threshold-graph rigidity and a power-of-two equilibrium type law",
+          "trigger": "General description on J(n,2), including T(6)"
+        },
+        {
+          "assessment": "Analogous study on a different pair, with no implication giving the triangular basin table",
+          "evidence": "The comparison uses rook and Shrikhande graph data, not intersection/disjointness on pairs from six labels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-spectral-twins-separate-under-majority-dynamics-exact-shrikhande--a7ee2eb89698",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local-mirror read",
+          "title": "Spectral twins separate under majority dynamics: exact Shrikhande–rook attraction censuses",
+          "trigger": "Exact finite majority-basin comparison of canonical strongly regular graphs"
+        },
+        {
+          "assessment": "General permitted periods, not target-specific basin or entrance census",
+          "evidence": "The synchronous bi-threshold result concerns fixed or period-two attractors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "§3.1, PDF p. 2 around offset 7400",
+          "method": "OA primary text",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Potential stronger general convergence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving claim is not a re-count of the published Kneser case or of known recurrent states. It determines the fate of every initial state on the canonical line graph of K6 and distinguishes the two complementary dynamics at the level of transient depth, consensus and oscillatory attraction, rather than only recurrent membership. This is an exact finite benchmark for a natural comparison: equal sharp depth does not predict even the fraction of configurations that end up oscillating.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

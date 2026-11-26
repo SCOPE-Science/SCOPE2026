@@ -1,12 +1,21 @@
-# Review of exact symmetry-transition census
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite abelian group and every alphabet of size at least two, the proof first determines the exact global effect of a full-memory lazy rule on its active pattern. A character-support argument proves the key fibre statement: for any output with stabilizer \(K\), every proper subgroup \(H<K\) has exactly \(q-1\) inverse active patterns yielding that output. No cancellation is possible because the difference is a nonzero multiple of the subgroup indicator, whose Fourier support includes all characters in \(H^\perp\setminus K^\perp\); these generate \(H^\perp\). Counting stabilizer classes and applying subgroup Möbius inversion proves the displayed formulas. Direct binary and ternary constructions establish both directions of the equality characterization. Exhaustive independent checks covered 17 finite group/alphabet systems and 349 count identities. Finite checks corroborate but do not substitute for the general proof.
+## correctness
 
-## Originality — PASS, within checked literature
-Alcalá-Arroyo and Castillo-Ramirez (arXiv:2610.18480v1, Lemma 3.8 and Theorem 3.13) already give the local-action identity, specific strict-transition witnesses, diagonal-existence witnesses and the exceptional binary Klein-four phenomenon; **those are not claimed as new**. The present theorem supplies the exact full-memory transition count for every \(H<K\), the exact diagonal count, subgroup-Möbius evaluation and sharp one-half primitive-coloring proportion. The Klein-four continuation (arXiv:2610.20329v1, Sections 2, 4 and 6) enumerates a particular finite transformation monoid, not the arbitrary finite-abelian transition distribution. The relative-rank paper (arXiv:2203.12158, introduction and theorem statements) addresses minimal generating sets rather than these rule fibres. Searches for subgroup-transition counts, primitive-coloring bounds and aliases returned no direct coverage; this is not a proof of priority. Historical results about primitive words or unrestricted aperiodic colorings are an unresolved bibliographic risk.
+PASS
 
-## Value — PASS
-The starting work is an existence theory for lazy generators. The new answer provides a complete quantitative transition matrix by subgroup type, exact probabilities for the stabilizer change under a random applicable full-memory rule, and a sharp primitive-coloring threshold for every finite abelian quotient. In particular the number of strict \(H\)-to-\(K\) transitions does not depend on the smaller stabilizer beyond containment. This answers a natural count, not an arbitrary small parameter slice. It is not a classification of compositions, nonabelian groups or partial neighborhoods.
+A full-memory rule changes precisely the identity coset of its source stabilizer H; every output is H-invariant. For the critical reverse fibre, work on B=G/H. If y has a nontrivial stabilizer P=K/H and the changed source p differs only at 0, a nonzero period t of p cannot belong to P: comparing 0 and t would give one changed and one unchanged symbol. If t is outside P, take k nonzero in P. Then p(t+k)=y(t+k)=y(t)=p(t), whereas p(k)=y(0)≠p(0), contradicting t-periodicity. Thus all q-1 reverse recolorings, and only those, have the required source stabilizer. The diagonal follows by subtracting strict transitions from (q-1)M_q(H), using the partition of q^[G:H] colorings by exact stabilizer; this partition also gives the Möbius inversion. In the binary quotients C2 and C2×C2, exactly the odd-sized supports are aperiodic and changing the identity makes the size even. In other quotients the displayed witnesses work: a unique colored site survives with a third color, a two-point support has no period if its nonzero point has order greater than two, and the four-set formed from three independent points in an elementary 2-group has nonzero sum, incompatible with an order-two period. The trivial quotient has q exact-stabilizer colorings and a positive diagonal. The frozen checker was inspected, not executed; its finite enumeration is corroboration, not the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit prior local-action and transition-existence results, the binary obstructions appearing there, and standard Möbius enumeration of exact stabilizers. The supported distinct part is the uniform (q-1)-element fibre over every individually specified output with a strictly larger stabilizer, and the complete labeled transition census that follows. The evidence does not establish priority for the ancillary aperiodic-coloring proportion in isolation.
+
+## value
+
+PASS
+
+The uniform fibre theorem upgrades known generation witnesses to the exact number of available labeled one-step rules for every pair of stabilizers. It determines which stabilizers admit a preserving rule together with the size of that class, and reduces enumeration of all classes to subgroup-lattice coloring counts without iterating over the rules. This is an exact invariant of the same natural maps studied in the generation literature, not a count for an arbitrary small group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

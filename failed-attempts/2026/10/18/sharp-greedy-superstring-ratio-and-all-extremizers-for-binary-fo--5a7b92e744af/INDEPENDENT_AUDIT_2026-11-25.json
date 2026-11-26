@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:40.986980Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite theorem is correct. The frozen endpoint proof skips a step: distinct end words rule out overlap exactly four, but a longer overlap would not directly identify the end words. The necessary invariant follows by greedy induction. Live strings start factor-free. If A,B merge at the current maximal overlap k, any surviving C newly contained in AB must cross the overlap (start before B starts and end after A ends, since otherwise C was contained in A or B). This would give overlap A→C greater than k; conversely AB cannot be contained in C as it contains A. For overlaps AB→C, anything longer than |B| would make C contain B; all shorter candidates are old overlaps B→C. The incoming estimate is symmetric with A. Hence factor-freeness persists and the largest overlap cannot increase from the original bound 3. The initial/final four-mer endpoints therefore suffice for all legal merges; this is also Chukhin et al.'s Lemma 2.2. In particular after all cross overlaps are zero, future overlaps stay zero. The OPT recurrence is exact by ordering occurrences by start (each adjacent gap is at least 4 minus the maximum overlap); each order also gives a superstring by merging. Independently replayed all 65535 masks with exact ratio cross-products in branches/6ce0ce10-ab0d-4f0c-a312-8c6a48f5cb8d/independent_binary4_replay.py. independent_full_replay.log lines 513–514 and independent_full_replay.exit record exit zero, 17/11 and exactly masks 1343, 5431, 60584 and 64672. The literal greedy witness uses overlaps 3,3,3,3,2,1,0; the eleven-character optimum is also proven by eight distinct four-mers needing at least eight factor positions. Frozen support was inspected, not executed. The proof check and replay certify the theorem, not an originality claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chukhin et al. prove endpoint invariance for k-SCS; their exact 9/5 statement is for k=3, and their ≥2 lower bound is for k≥6. The examined newer merged arXiv:2609.01365v2 abstract gives general bounds and the same fixed-length contributions.",
+          "The Ideosphere PDF returned HTTP 403 in both configured routes; no full-text conclusion is drawn."
+        ],
+        "reasoning": "The endpoint lemma applies as a general ingredient, but length-3 extrema and large-alphabet or length-at-least-six counterexamples do not provide an exact bound for the fixed binary four-mer domain. The decisive overlap is the exact catalogue theorem.",
+        "searches": [
+          "arXiv:2608.20018v2 abstract and §2 Lemma 2.2",
+          "arXiv:2609.01365v2 abstract",
+          "Ideosphere small-string-length greedy study via exact cited PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c5782f9cc70b, 25f98f2d59f0, 570894b19121, a4c0a785c07b",
+        "arXiv:2608.20018v2",
+        "arXiv:2609.01365v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "25f98f2d59f0 gives the smallest input size to exceed 3/2 and exactly the same four eight-element sets at 17/11; a4c0a785c07b studies the random-tie output law for the representative.",
+          "c5782f9cc70b does not stop at eight inputs and proves the exact identical extremum for the whole domain with the same recurrences."
+        ],
+        "reasoning": "The cardinality result alone does not eliminate larger sets with higher ratio; the random-tie distribution on one set cannot eliminate arbitrary inputs. The exact indexed census does eliminate them, so neither a different legal tie witness nor a second computation provides a new mathematical remainder.",
+        "searches": [
+          "Resultary eight four-mers 3/2 cardinality barrier and exact random-tie law; c5782f9cc70b proof/certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c5782f9cc70b Finding and assumptions, offsets 0–3685: all nonempty subsets of the sixteen distinct binary four-mers, all ordered maximum-overlap choices, optimum defined by factors, maximum 17/11, precisely one four-element reversal/complement orbit with the identical representative."
+        ],
+        "reasoning": "The previous maximum of G(S)/OPT(S) equals the frozen double maximum by defining G(S) as the worst legal output length. The models and quantifiers are literally identical.",
+        "searches": [
+          "Resultary binary length-four 17/11 and sharp finite-domain approximation ratio",
+          "Resultary exactly four extremizing subsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c5782f9cc70b exact census, offsets 3685–6075: all masks enumerated, 16959 orbit representatives evaluated, maximizing representative 1343 with full orbit 1343,5431,60584,64672.",
+          "570894b19121 gives lengths 19–27 for the single full universe, not the maximum over all subsets."
+        ],
+        "reasoning": "Symmetry reduction evaluates every subset because both optima and greedy decisions are invariant under bit complement and reversal (with ordered merge directions reversed for the latter). This is exact coverage, not a matching numerical approximation or a one-input trial.",
+        "searches": [
+          "Resultary all 65535 nonempty subsets, exact equality masks and full-universe greedy length spectrum"
+        ]
+      },
+      "rationale": "The distinct indexed record c5782f9cc70b has the same entire sharp-ratio and all-extremizers theorem under identical hypotheses. Its different example output for the same extremizing set is allowed by the same tie rule and is not a separate theorem. This is a verified lack of distinguishable scientific content relative to the checked catalogue, not a historical priority judgment: the catalogue path dates differ, but dates and access do not establish provenance or direction of dependence.",
+      "residual_risks": [
+        "Date metadata does not establish priority or dependence between the equivalent records.",
+        "The cited Ideosphere full paper was unavailable and the single web search did not resolve other literature coverage; neither fact caused the failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage; priority unresolved",
+          "evidence": [
+            "17/11, all 65535 subsets and all legal ties; same four masks and representative; identical endpoint approach and exact optimum DP."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof and Verification, offsets 0–6075",
+          "method": "Resultary semantic lookup and local mirror",
+          "title": "Sharp worst-case Greedy ratio for distinct binary four-mers",
+          "trigger": "Exact match on model, ratio and equality family"
+        },
+        {
+          "assessment": "Proves key general invariant, not checked as giving the binary-four census",
+          "evidence": [
+            "Live words remain factor-free and the overlap equals the endpoint overlap, at most k−1. Abstract gives k=3 equality and lower bounds for k≥6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20018",
+          "material_read": "v2 abstract and PDF p. 3 §2 Lemma 2.2, offsets 0–4137 and 9950–12235",
+          "method": "Primary open PDF text",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Same greedy model and equal-length endpoint lemma"
+        },
+        {
+          "assessment": "General alphabet approximation statements do not give this exact binary census",
+          "evidence": [
+            "Abstract states 3-approximate upper bound, family tending to 2.4, exact k=3 ratio and at least 2 for k≥6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01365",
+          "material_read": "Retrieved v2 (merged version), abstract, offsets 0–3170",
+          "method": "Primary open PDF text, bounded passage",
+          "title": "The Greedy Superstring Conjecture Is False",
+          "trigger": "Same general algorithm, reference given under initial Shibata version"
+        },
+        {
+          "assessment": "Not classified for coverage; exact indexed match decides independently",
+          "evidence": [
+            "The frozen relationship section describes an unrestricted-alphabet lower bound, not independently verified here."
+          ],
+          "identifier_or_url": "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+          "material_read": "Full text not retrieved (HTTP 403 on both configured routes)",
+          "method": "Lawful OA attempt",
+          "title": "The greedy superstring ratio at small string lengths",
+          "trigger": "Cited length-four bounds may be relevant"
+        },
+        {
+          "assessment": "Partial overlaps only; exact coverage instead rests on c5782f9cc70b",
+          "evidence": [
+            "Respectively: first input cardinality to cross 3/2; spectrum for S=all 16; output distribution on one extremizing S."
+          ],
+          "identifier_or_url": "Resultary 25f98f2d59f0, 570894b19121, a4c0a785c07b",
+          "material_read": "Local-mirror Findings, offset 0",
+          "method": "Resultary semantic lookup and local mirror",
+          "title": "Eight binary four-mers are necessary and sufficient to cross the greedy superstring 3/2 barrier; Complete greedy superstring length spectrum for the binary four-mer universe; Exact random-tie output law",
+          "trigger": "Possible extremizer, full-universe, and stochastic tie overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp finite binary-domain ratio and equality census would be a meaningful exact benchmark if not already covered. This record adds an alternate witness and another certificate for the identical theorem and no distinct classification or structural result. The replay has verification value but does not turn the duplicate into a separate scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

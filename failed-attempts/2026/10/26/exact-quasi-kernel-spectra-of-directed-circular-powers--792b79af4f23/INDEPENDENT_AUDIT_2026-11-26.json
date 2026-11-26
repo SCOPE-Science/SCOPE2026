@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:30.227401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30, VERIFICATION.md lines 19–21, and verify_quasi.py lines 1–39 inspected; the uploaded program was not executed.",
+        "Analytic replay: test the immediate predecessor's cyclic displacement, then count subsets containing a fixed label using ordered gaps and multiply by n/s."
+      ],
+      "rationale": "With s>0, consecutive clockwise gaps sum to n. A gap at most k violates independence, and any offending arc contains such a gap; for a singleton the only gap is n>k. Displacements up to 2k are available in at most two arcs, using one or two permitted positive increments. If a gap is at least 2k+2, the vertex 2k+1 after its start has no selected vertex in its preceding radius-2k interval. In this failure case 2k<n, so no modular representative of a walk can evade that test. Thus every gap must be in [k+1,2k+1], also when 2k>=n, where the upper condition is automatic. Marking one of the s selected vertices gives s times the number sought and is in bijection with a starting label and an ordered admissible gap vector; this works even for rotation-periodic subsets. Bounded composition inclusion-exclusion gives the stated count and can realize every sum from s(k+1) through s(2k+1). The allowed size interval is nonempty: putting f=floor(n/(k+1))>=1 gives n<=f(k+1)+k<=f(2k+1). For (9,2) the two admissible ordered gaps of length two are (4,5) and (5,4), giving nine sets; the only length-three vector is (3,3,3), giving three.",
+      "residual_risks": [
+        "The recorded 90-case census is finite and auxiliary; the claim does not enumerate rotation orbits or general circulants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The run-length recurrence applies to arbitrary internal lower and upper bounds and independently prescribed terminal upper bounds, so the two evaluations above require no extension of its theorem.",
+          "The quasi-kernel and distant domination papers give existence or size bounds, not the directed-circular-power enumerator. Those bounds are not the coverage basis."
+        ],
+        "reasoning": "The stronger enumerative coverage is in a different vocabulary. Its constants can be specialized at every n,k,s, unlike the bounds in the nearby graph literature.",
+        "searches": [
+          "arXiv:0902.4246 Sec. II, Proposition 1",
+          "arXiv:2610.23487v1, abstract and introduction",
+          "Nguyen–Scott–Seymour, Distant digraph domination, EJC 33(1), P1.32"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked lookup",
+        "arXiv:0902.4246",
+        "arXiv:2610.23487v1",
+        "EJC 33(1), P1.32",
+        "Gutin–Koh–Tay–Yeo (2004)",
+        "arXiv:2202.04476v3",
+        "Frozen RESULT.md lines 22–33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the two trailing bounds leaves a one-block generating polynomial x^(k+1)+...+x^(2k+1), also the internal-block polynomial from the recurrence. Its s-fold product is the anchored count. Rotation invariance and counting the incidences with the selected label give a factor n/s. Consecutive support and the stated extrema follow from the support of this product."
+        ],
+        "reasoning": "This yields exactly the coefficient, positivity interval and both endpoints without new enumerative work. The unanchored count is not an orbit count, so stabilizers do not invalidate the incidence factor.",
+        "searches": [
+          "Kurmaev arXiv:0902.4246 Proposition 1, equations (1)–(2)",
+          "Frozen RESULT.md lines 22–27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Put a one on every selected vertex. The two graph conditions are literally that between consecutive ones around the circle there are at least k and at most 2k zeros. Fixing the label 0 to be selected makes the encoded word begin with a one, with all its internal and trailing zero runs in [k,2k].",
+          "Kurmaev's linear first-one count A_n^nu(d,K,r) bounds the internal zero runs by [d,K] and the trailing run by [0,r]. The fixed-label count here is exactly A_n^s(k,2k,2k) minus A_n^s(k,2k,k-1), including s=1."
+        ],
+        "reasoning": "No hypothesis relating circular to linear coding is assumed: cutting at the selected label makes precisely the final run the wraparound gap and subtraction imposes its lower bound.",
+        "searches": [
+          "‘quasi-kernels’ ‘circular powers’ digraph exact enumeration cardinality gap sequence independent distance-two domination",
+          "constant weight circular binary run length limited sequences cyclic gaps zero runs counting fixed number ones n/w coefficient restricted compositions",
+          "Kurmaev, arXiv:0902.4246, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's strongest topical record concerns a cycle with p>=1 private outward leaves per vertex and gives a labelled size polynomial. Formally setting p=0 in that polynomial yields the k=1 count n/s times binomial(s,n-2s), outside its stated parameters; the record is later-dated and does not cover general k."
+        ],
+        "reasoning": "No finite table decides this two-parameter theorem. The indexed partial match is acknowledged but is not the priority or full-coverage evidence; the published run-length formula is.",
+        "searches": [
+          "Resultary: quasi-kernels directed circular powers exact cardinality spectrum labelled subsets gap characterization",
+          "2026/11/22/SCOPE-quasi-kernel-spectra-and-a-sharp-real-rootedness-transition-in-p--ecfb9abc4a49"
+        ]
+      },
+      "rationale": "The exact enumerator and support are mechanically implied by the published fixed-weight binary run-length enumeration together with the direct characteristic-word encoding and rotation incidence. This is verified coverage of the counting problem via a reduction, not a claim that the older paper uses quasi-kernel terminology or explicitly names D_{n,k}.",
+      "residual_risks": [
+        "There may also be an earlier explicit circular-word or quasi-kernel statement. The negative decision does not depend on an inference from failed searches or on resolving the separate later catalogue entry's priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published stronger linear fixed-weight enumeration determines the cyclic labelled count by cutting at a one and imposing the trailing bounds",
+          "evidence": "Eq. (1) counts the single trailing block up to r+1; Eq. (2) appends internal blocks of each length d+1 through K+1. The two terminal cutoffs K and d-1 isolate the full interval for the trailing block.",
+          "identifier_or_url": "https://arxiv.org/abs/0902.4246",
+          "material_read": "PDF pp. 2–3, Sec. II, Proposition 1 and proof, equations (1)–(4)",
+          "method": "OA literal query for Proposition 1, then PDF offset 10040",
+          "title": "Constant-Weight and Constant-Charge Binary Run-Length Limited Codes",
+          "trigger": "Characteristic words with cyclic runs and fixed weight"
+        },
+        {
+          "assessment": "Same forward convention, no all-size enumerator in inspected results",
+          "evidence": "States weighted transfer and small/large conjecture equivalence, with application to break digraphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23487v1",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "OA PDF offsets 900–7383",
+          "title": "Small and large quasi-kernels: a weighted transfer theorem",
+          "trigger": "Primary motivation and potentially matching quasi-kernel bounds"
+        },
+        {
+          "assessment": "Existential bounds, not labelled size counts",
+          "evidence": "Defines forward k-kernels; radius and feasible sizes alone do not count subsets.",
+          "identifier_or_url": "EJC 33(1) (2026), P1.32",
+          "material_read": "PDF pp. 1–2, definitions and introductory results",
+          "method": "OA offsets 0–2548 and 2800–5234",
+          "title": "Distant digraph domination",
+          "trigger": "Reachability-constrained kernel terminology"
+        },
+        {
+          "assessment": "Different count question and reverse reachability convention",
+          "evidence": "Classifies graphs with exactly one or two quasi-kernels and gives lower bounds, not the size-by-size census.",
+          "identifier_or_url": "https://www.cs.rhul.ac.uk/home/gutin/paperstsp/quasik130903.pdf",
+          "material_read": "PDF pp. 1–2, introductory definitions and statements",
+          "method": "OA PDF offsets 1600–5429",
+          "title": "On the number of quasi-kernels in digraphs",
+          "trigger": "Directly related enumeration title"
+        },
+        {
+          "assessment": "Ordinary kernels, not the distance-two count",
+          "evidence": "Counts ordinary absorbing kernels in specified graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04476v3",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "OA PDF offset 390",
+          "title": "Counting kernels in directed graphs with arbitrary orientations",
+          "trigger": "Related kernel enumerator"
+        },
+        {
+          "assessment": "Later distinct family, with only a formal k=1 overlap outside its p>=1 scope",
+          "evidence": "At p=0 the two allowed core gaps are 2 and 3; right-polynomial factors for leaves disappear. General D_{n,k} has a different step range.",
+          "identifier_or_url": "2026/11/22/SCOPE-quasi-kernel-spectra-and-a-sharp-real-rootedness-transition-in-p--ecfb9abc4a49",
+          "material_read": "RESULT.md finding and prior-work discussion",
+          "method": "Local mirror, offsets 0–4992 and 7620–11037, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quasi-kernel spectra and a sharp real-rootedness transition in pendant cycle families",
+          "trigger": "Closest indexed quasi-kernel spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and limitations",
+        "Kurmaev arXiv:0902.4246 Proposition 1 and the fixed-label reduction"
+      ],
+      "rationale": "The digraph family and its spectrum are natural, and the graph representation is useful exposition. But here the exact result reexpresses fixed-weight run-length enumeration via the nearest clockwise predecessor and an incidence normalization. The gap observation alone is the immediate translation of the two local conditions, with no separate nonroutine remainder or invariant established.",
+      "residual_risks": [
+        "This verdict is about the delivered theorem as a distinct finding, not the utility of bounded-run methods in more general digraph problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:56:53.743321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vertex-idempotent quotient is commutative, and for each loopless arrow e, [idempotent at source,e]=e, giving [A,A]=J. Fix the two diagonal field entries per vertex. The arrow equation is an independent two-variable linear functional: unequal endpoint labels give q solutions for every target; equal labels give q^2 for zero and none otherwise. Factoring q per arrow and expanding the product of equality factors gives q^(2κ(S)) admissible labelings for each spanning subset, including isolated vertices. The nonnegative color sum is positive exactly for q^2-colorable target support. For r commutators, concatenating the diagonal labels gives q^(2r) colors and the concatenated arrow functional is onto exactly when some coordinate pair separates the endpoints. A full-support target forces a proper coloring of the whole underlying graph; such a coloring suffices for every target. With no arrows, χ=1, width is zero and the zero fiber has q^(2|V|) pairs. Parallel/opposite arrows still have separate radical variables. Fresh multiplication-table replays over GF(2) and GF(4) checked all fibers for 1,024, 4,096 and 65,536 ordered pairs, respectively for a parallel pair with an isolate, a directed triangle and an antiparallel pair. The bundled checker uses the arrow formula rather than multiplying basis tables independently, and its complete-graph examples evaluate the width theorem rather than exhaustively sum commutators. The general proof, not these tests, covers every prime power and width.",
+      "replay": "python3 /workspace/audit-evidence/algebra.py 4; output /workspace/audit-evidence/4.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 38b9edb44d0d's simple-graph adjoint-rank distribution gives a zero-fiber count and a criterion for some fixed ad_a to be onto.",
+          "Later records f660f871aa43 and b7fb936d5d53 give individual target length; maximizing that formula over targets, achieved at full support, gives the present width."
+        ],
+        "reasoning": "Surjectivity of a fixed adjoint map is not the union of all commutator images, and a rank distribution or its centralizer sum does not recover that union or counts for individual targets.",
+        "searches": [
+          "Resultary: graphic matroid adjoint spectra, vertex arboricity and radical-square-zero quivers",
+          "Resultary: chromatic commutator length and nonzero fibers of radical-square-zero algebras"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Sokal arXiv:math/0503607",
+        "Resultary 75cb49b6c27d, 38b9edb44d0d, f42cdd1d48ea, 73e61818e07a, f660f871aa43, b7fb936d5d53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical spin identity needs the target-dependent edge weights as input; the two-vertex and adjoint-rank sources do not supply the unrestricted arbitrary-support spin law.",
+          "An unequal label in k^(2r) makes at least one arrow functional surjective; the fixed-adjoint and idempotent restrictions do not give this concatenated unrestricted criterion."
+        ],
+        "reasoning": "The theorem uses a new-to-the-checked-antecedents algebra-to-coloring reduction; applying the classical identity after making the reduction is routine and is not itself the contribution.",
+        "searches": [
+          "Sokal equation (2.10)",
+          "Resultary 38b9edb44d0d, Finding and proof part 5",
+          "Resultary 75cb49b6c27d, Finding and fiber proof",
+          "Resultary f42cdd1d48ea, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sokal's spin/subset identity is exactly the graph-polynomial conversion used after the algebraic fiber calculation, without a commutator assertion.",
+          "Record f42cdd1d48ea classifies commutators of idempotents using two colors, not q² colors for unrestricted pairs.",
+          "Records f660f871aa43 and b7fb936d5d53 have equivalent or stronger target-length/fiber content and are dated 2026-11-08 UTC."
+        ],
+        "reasoning": "The conversion itself and the binary restricted-pair result are not the all-element commutator law; the genuinely equivalent later findings are not credited as evidence that this was already established earlier.",
+        "searches": [
+          "Sokal arXiv:math/0503607, Theorem 2.3",
+          "Resultary: chromatic commutator length and Tutte/nonzero fibers of square-zero quivers",
+          "Resultary: idempotent commutator fibers and binary chromatic width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 75cb49b6c27d gives q^(r+2)(q²−1) for each nonzero target of the r-parallel-arrow two-vertex algebra and adds q^(2r+2) for zero, exactly the present two-label cases.",
+          "Record 73e61818e07a states the multiarrow zero-target subset formula but is dated 2026-11-02 UTC."
+        ],
+        "reasoning": "The prior two-vertex distribution verifies an exact specialization, but the support graph then has at most two colors, so it does not address the multivertex threshold or unbounded width. No general zero-target novelty is credited.",
+        "searches": [
+          "Resultary: Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "Resultary: Adjoint rank enumeration and the vertex arboricity threshold for multiarrow quivers"
+        ]
+      },
+      "rationale": "Credit the classical Potts/Fortuin–Kasteleyn identity, prior two-vertex all-target fibers, and the known commuting-pair specialization in the simple-graph regime. The supported distinct contribution is the arbitrary multivertex all-target fiber and the ordinary chromatic classification and width for unrestricted additive commutators. Two later catalogue findings materially overlap (one states the same three laws and adds target lengths); neither establishes antecedent coverage on the available chronology. The original does not claim the zero-fiber count as new.",
+      "residual_risks": [
+        "The bound record gives no precise early reference for the general multiarrow zero-fiber antecedent; that specialization receives no originality credit.",
+        "The bounded literature lookup on equivalent word-map formulations was unavailable; another predated derivation cannot be excluded. Later catalogue dates identify overlap, not the discovery history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the graph identity, not the algebraic reduction",
+          "evidence": "Spin equality factors expand to the spanning-subset product with one independent color per component.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503607",
+          "material_read": "p. 4, Theorem 2.3 and equation (2.10)",
+          "method": "lawful OA PDF, located passage",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Exact partition function used in (1)"
+        },
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": "Nonzero target counts are uniform, with only the completely zero fiber receiving the equal-label contribution.",
+          "identifier_or_url": "Resultary 75cb49b6c27d",
+          "material_read": "Finding and fiber proof, offsets 0 and 4906",
+          "method": "local source mirror",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "trigger": "Exact previously counted multi-arrow family"
+        },
+        {
+          "assessment": "Zero-fiber overlap and different surjectivity question",
+          "evidence": "Adjoint rank determines centralizer size and their sum gives the commuting count for simple underlying graphs.",
+          "identifier_or_url": "Resultary 38b9edb44d0d",
+          "material_read": "Finding (1)–(3) and proof part 5, offsets 0 and 4571",
+          "method": "local source mirror",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quivers",
+          "trigger": "Potential larger known family and commuting count"
+        },
+        {
+          "assessment": "Different class of pairs",
+          "evidence": "Idempotent pairs with a bipartite support criterion and binary chromatic length.",
+          "identifier_or_url": "Resultary f42cdd1d48ea",
+          "material_read": "Finding, offset 0",
+          "method": "local source mirror",
+          "title": "Idempotent commutator fibers and binary chromatic width",
+          "trigger": "Apparently similar chromatic membership and width"
+        },
+        {
+          "assessment": "Exact later specialization",
+          "evidence": "All weights q−1, matching the zero target.",
+          "identifier_or_url": "Resultary 73e61818e07a",
+          "material_read": "Finding, offset 0, equation (4)",
+          "method": "local source mirror",
+          "title": "Adjoint rank enumeration and the vertex arboricity threshold",
+          "trigger": "Exact zero-fiber specialization for multiarrows"
+        },
+        {
+          "assessment": "Later equivalent support criterion with per-target length and contracted-graph formula",
+          "evidence": "Length is the ceiling of the log base q² of the chromatic number of the support graph.",
+          "identifier_or_url": "Resultary f660f871aa43",
+          "material_read": "Finding and fiber discussion, offsets 0 and 4517",
+          "method": "local source mirror",
+          "title": "Chromatic commutator length and nonzero fibers of radical-square-zero quivers",
+          "trigger": "Potential overall coverage"
+        },
+        {
+          "assessment": "Later materially equivalent all-target and width laws plus per-target length",
+          "evidence": "The spin sum is equivalent to (5), and the width is the maximum target length on full support.",
+          "identifier_or_url": "Resultary b7fb936d5d53",
+          "material_read": "Finding and color-sum discussion, offsets 0 and 4592",
+          "method": "local source mirror",
+          "title": "Chromatic commutator length and Tutte fibers of square-zero quivers",
+          "trigger": "Strongest match across all three laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result computes a natural word-map fiber for every target, distinguishes image membership from a much narrower fixed-adjoint question, and gives an exact and unbounded additive commutator width on a basic algebra family. The structural graph-coloring interpretation of representability and the target-dependent fiber formula are useful even though the partition-function identity is classical and the computation is not polynomial-time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

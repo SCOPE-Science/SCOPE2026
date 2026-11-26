@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:19.863989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–111; VERIFICATION.md; verify.py (read only); verification_output.txt (supplied, not an independent run)",
+        "/workspace/branches/141197e4-9597-4f40-8867-18e2cd5fb185/parity_coeff_replay.py and parity_coeff_replay.txt (independent numerical replay)"
+      ],
+      "rationale": "Colour exchange makes the fixed m=floor(N/2) choice exact for W_n. A disconnected colour implies that its complement is connected, so k-1 cross-component edges are necessary and sufficient when the disconnected colour has k components. A specified cut of a edges is empty with probability at most 2^(-a)(1+1/N)^a ≤ e·2^(-a). Two isolates use a=2n-3; a component of size two uses a=2(n-2); cuts of sizes 3 through floor(n/2) contribute at most e·2^n·2^(-3(n-3)). Thus the non-singleton exceptional probability is O(n²4^(-n)), and the expectation differs from the isolate expectation by at most O(n³4^(-n)). In the normalized central product log, the first three power sums give -1+(2-2)/n+(5-14/3)/n²+O(n^(-3)), and the higher powers sum to O(n^(-3)). For the half-integer shifts, the symmetric average of the two factors cancels odd terms; the quadratic term is δ²(A²-B)/2 with A=4/n+O(n^(-2)) and B=O(n^(-3)). This gives 2ε_n/n², so the parity-resolved coefficients are correct. Independent log-product replay gives scaled coefficients 0.3367039875 and 2.3566886531 at n=300 and 302, tracking 1/3 and 7/3 respectively; only the proof establishes the bounds on the graph events.",
+      "residual_risks": [
+        "The replay checks the isolate product, not a numerical test of the tail or all-n error estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dawkins et al. show qualitative decay of the expectation in the same equitable model. Bender–Canfield–McKay give asymptotic connected-graph counts in the fixed-edge model; the inspected abstract and theorem discussion concern the connected count, not a law distinguishing W=1 and W≥2. The indexed rare-event theorem states the same W≥2 bound and also gives P(W=0)."
+        ],
+        "reasoning": "Qualitative decay alone is not coverage. The indexed rare-event theorem is strictly stronger in this regime because of the exact leading term and its smaller additive errors.",
+        "searches": [
+          "Dawkins et al. arXiv:2610.22142v1, §3.2.1",
+          "Bender–Canfield–McKay (1990), Theorem 1 and Corollary 3",
+          "Resultary sharp rare-event law overlap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and full indexed Finding",
+        "Anders et al.",
+        "Dawkins et al.",
+        "Bender–Canfield–McKay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expanding the exact shared p_n about the half-edge count yields the 1/(3n²) part from the three central power sums, and the 2ε_n/n² part from symmetric shifted products. Indexed residuals relative to n2^(-n) are O(n2^(-n)), smaller than O(n^(-3))."
+        ],
+        "reasoning": "No further component probability, bound, or identification of the main term is needed to deduce all three claims from the indexed theorem. The generic keyword results were uninformative and do not establish absence of earlier work.",
+        "searches": [
+          "Direct statement comparison: indexed Finding, exact p_n and errors, versus frozen RESULT.md steps 2–3",
+          "Keyword search for equitable wild-number rare-event laws and fixed-edge connectivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anders et al. state W=κ(H)+κ(H complement)-2 for two colours. The indexed rare-event theorem uses the same named colours and fixed near-half pair, and adds surjectivity, automatic for n≥4."
+        ],
+        "reasoning": "The wild numbers and the sampled law coincide; mixing the two size orientations when N is odd does not change the law.",
+        "searches": [
+          "Resultary: sharp rare-event law, wild number, equitable two-colourings of complete graphs",
+          "Anders et al. arXiv:2508.06711v1, Theorem 6.4(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding gives p_n=n[(m)_(n-1)+(N-m)_(n-1)]/(N)_(n-1) exactly and both target statistics equal p_n+O(n²4^(-n))."
+        ],
+        "reasoning": "The falling-factorial expression is exactly n(p_m+p_(N-m)) in the frozen proof; matching is of exact expressions, not rounded samples or leading constants.",
+        "searches": [
+          "Local Resultary mirror, SCOPE-sharp-rare-event-law-for-wild-numbers-of-equitable-two-colouring--845f9484b573, RESULT.md Finding"
+        ]
+      },
+      "rationale": "The November 2 indexed rare-event theorem covers the same probability model and states the exact falling-factorial main term for both P(W_n=1) and E W_n, each with an exponentially smaller residual than the entire remainder scale of the frozen expansion, plus the identical O(n²4^(-n)) tail. The parity coefficient is an explicit evaluation of that exact main term, not additional probabilistic information. The catalogue date is later than October 18; verified mathematical coverage does not establish earlier priority.",
+      "residual_risks": [
+        "The comparison establishes current mathematical coverage, not which result was derived first. Earlier connected-graph expansions may recover some of the statements by a different route."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominates the frozen expansion and includes the same upper-tail bound; later catalogue date does not establish scientific priority.",
+          "evidence": "Formula for p_n and exact-term estimates for W=0,1, W≥2 and the mean with O(n²4^(-n)) errors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-rare-event-law-for-wild-numbers-of-equitable-two-colouring--845f9484b573/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–2318 (Finding and assumptions), and proof passage around offset 4985",
+          "method": "Local Resultary mirror",
+          "title": "Sharp rare-event law for wild numbers of equitable two-colourings of complete graphs",
+          "trigger": "Closest same-model indexed result"
+        },
+        {
+          "assessment": "Prior component identity, not a random-graph asymptotic.",
+          "evidence": "For two colours the wild number is the sum of the two component deficits.",
+          "identifier_or_url": "https://arxiv.org/html/2508.06711v1",
+          "material_read": "Theorem 6.4(2), offset 62142",
+          "method": "OA HTML",
+          "title": "The Wild Number of an Edge-Colored Graph",
+          "trigger": "Structural identity"
+        },
+        {
+          "assessment": "Prior qualitative expectation decay, not the claimed parity law or exponential tail.",
+          "evidence": "Conditioning an independent-edge bound gives O(n²2^(-n)) for fixed-edge disconnection.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22142v1",
+          "material_read": "§3.2.1, offsets 19466 and 20800",
+          "method": "OA HTML",
+          "title": "Wild number for spanning trees in complete and complete bipartite graphs",
+          "trigger": "Closest same-model primary source"
+        },
+        {
+          "assessment": "Fixed-edge connected counts are relevant; the inspected statements do not establish coverage of the full complementary-colour law. No whole-paper exclusion is asserted.",
+          "evidence": "Connected counts are normalized by binomial(N,q); the high-q regime is discussed separately.",
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/papers/BCM_Connected1.pdf",
+          "material_read": "Abstract, Theorem 1 discussion and Corollary 3 on printed pp. 127–129; PDF formula extraction incomplete",
+          "method": "OA PDF text",
+          "title": "The asymptotic number of labeled connected graphs with a given number of vertices and edges",
+          "trigger": "Potential broader fixed-edge asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and step 3",
+        "Indexed rare-event theorem, Finding"
+      ],
+      "rationale": "The balanced model and the distinction between one and several wild edges are well motivated. Once the same-model theorem with the exact main term and smaller residual is accounted for, the surviving computation is a Taylor expansion of a known finite product. It supplies no distinct bound or new mechanism and does not warrant a separate validated finding.",
+      "residual_risks": [
+        "The coefficient calculation can still be useful as an explicit approximation; this judgment concerns incremental contribution of the reviewed claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verifier/verify.py` from the directory containing the extracted package, using Python 3.9 or newer. The checker uses only the standard library. A successful replay prints a `PASS` line with the number of deterministic bounded checks. It uses exact rational arithmetic for sampled two-by-two covariance contractions, rank-one sharpness determinants, and reset-boundary inequalities, and floating-point sampling for the continuous trajectory and thermal midpoint. Every test is finite and therefore cannot establish the all-dimension theorem. The universal proof is supplied in RESULT.md: the two congruences, rank-one determinant witnesses, thermal minimax and explicit two-eigenvalue spectrum.
+## correctness
 
-The matrix rule is not asserted to be a completely positive trace-preserving quantum operation. Its guaranteed property is preservation of the admissible fermionic one-particle correlation-matrix cone. The resonant trajectory theorem applies only to the listed one-mode, zero-detuning continuous equations. The related October 2026 paper identifies a general hard-reset physicality obstruction, but complete full-text priority comparison could not be performed; this does not constitute independent novelty certification.
+PASS
+
+For an admissible input, replacing its bath block B by I in Γ gives a positive block matrix. Congruence by diag(I,ηI), then adding B0−η²I in the bath block, gives output positivity. The same argument on I−Γ yields the upper Pauli bound if I−B0≥η²I. For necessity, a rank-one state on a system vector and a B0 eigenvector with eigenvalue b gives determinants p[b−η²(1−p)] and (1−p)[1−b−η²p]. If either bound fails, choosing p sufficiently close to the appropriate endpoint, but strictly in (0,1), gives a strict obstruction. Thus equality is safe, including singular targets at η=0. The decreasing Fermi occupations give the two edge bounds and the maximum of two affine exponent arguments, with unique minimizer at the midpoint even for a flat band. For an unbounded edge, thermal spectral projections give approximate extremal vectors, enough for the same determinant witnesses. In the stated resonant equations P''=−2g²(P−n), and the zero initial coherence fixes the cosine and its paired imaginary sine. For the matrix K in the proof, det(I±K)=(1±cos θ)²/2 and their diagonals are nonnegative, hence −I≤K≤I; at θ=π, P=2n−p, which together with admissible initial p proves necessity for the full-time window. Read the frozen nested verifier/verify.py and VERIFICATION.md without executing them. They give bounded rational tests and floating-point samples, not the proof or a CPTP claim.
+
+## originality
+
+PASS
+
+The hard reset, its qualitative physicality obstruction and the continuous equations are existing work. The exact inclusive all-input retention threshold with two sharp universal obstructions, and the all-time resonant window, remain distinct on the checked evidence.
+
+## value
+
+PASS
+
+The inclusive sharp bound answers whether an existing reset rule is universally safe, quantifies exactly how temperature and band edges restrict retention, and distinguishes unsupported universal use from admissible particular continuous trajectories. Sharp witnesses and the reachable criterion are useful without claiming a physical implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

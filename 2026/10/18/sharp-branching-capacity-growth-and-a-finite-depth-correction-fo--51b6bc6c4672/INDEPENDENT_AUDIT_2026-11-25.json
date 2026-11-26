@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:23.308379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md and verify_tree_hardy.py inspected without execution",
+        "Corrected repairs/2/RESULT.md (including repaired proof and exact example)",
+        "Independent finite direct branch matrix and level-bound comparisons"
+      ],
+      "rationale": "The repaired theorem keeps the all-p counting-measure limit. The level j output p-norm is bounded by Minkowski on the ancestor extensions (multiplicity b^(j-i) at level j) and by Hölder on the level masses. For S_j=sum_(i<=j) b^(-i/(p-1)), this bounds the p-th power of the norm above by sum b^j S_j^(p-1). The common radial input g(v)=b^(-|v|/(p-1)) gives the lower bound (sum b^j S_j^p)/S_N. With k=N-j, the normalized weights are b^(-k-1); bounded convergence for this summable sequence gives the same limit S_infinity^(p-1)/(b-1) from both sides, with b and p fixed. The demonstrated b=4,p=3,N=2 bounds are exact. The dropped Hilbert claims are not mathematically false: the inverse grounded branch matrix is strictly positive, giving a simple radial least eigenvalue, hence exact multiplicity b by direct sum. For large N the Rayleigh bound and the roots of the radial equation give t=1-r_+=O_b(q) for q=b^(-N-1), with t((1-t)^(2N+1)+bq)=(b-1)q and lambda=(b-1)t-t^2+O_b(t^3). Expanding gives the stated relative coefficient 2N(b-1)-2 and error O_b(N^2 q^2), and the reciprocal square root gives the claimed norm correction. The frozen line 73 contains a stray character before the large parenthesis, not a substantive mathematical error. Independent branch matrices for b=2,3 at N=5 agree with the secular values, and finite p-bound checks are consistent with the repaired theorem.",
+      "residual_risks": [
+        "Finite checks are corroboration, not a proof of the limit or an asymptotic error guarantee. The result uses fixed b,p and unweighted counting measure and does not address p=1 or infinity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Harris–Lang treat approximation numbers at large rank on a fixed metric tree. Wang gives general weighted p-energy/Hardy variational formulas, then bounds in terms of a weighted supremum; his homogeneous Example 2.4 takes geometric vertex mass t^|v| with t<1/b rather than mass one. The Wang–Zhang accessible abstract studies root-Dirichlet variational formulas, not stating the homogeneous depth limit. Veerman–Hammond–Baldivieso exactly solve the class of Jacobi matrices that contains the p=2 radial compression."
+        ],
+        "reasoning": "The variational formulas are a method to bound the same general quantity, not a prior matched asymptotic on the unweighted growing trees. Obtaining the limiting coefficient for general p still needs comparison of upper and lower level estimates and the asymptotic saturation by one radial input. The exact Hilbert spectral specialization is a different matter and is credited as existing coverage.",
+        "searches": [
+          "Evans–Harris–Lang arXiv:math/0003215 pp. 1–2",
+          "Wang arXiv:1512.04770 Theorems 2.2–2.3 and Example 2.4",
+          "Wang–Zhang DOI:10.1016/j.spl.2013.05.001",
+          "Veerman–Hammond–Baldivieso arXiv:1801.04977 Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Relationship to prior work section",
+        "Molitierno–Neumann–Shader ELA 6 (2000)",
+        "Veerman–Hammond–Baldivieso arXiv:1801.04977",
+        "Evans–Harris–Lang arXiv:math/0003215",
+        "Wang arXiv:1512.04770",
+        "Wang–Zhang abstract DOI:10.1016/j.spl.2013.05.001",
+        "Rojo 2002/2004 author abstracts",
+        "Resultary 42c51bc72ec6 and b2c8f4434d6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For b=2 and k=N+1, the 2000 paper bounds algebraic connectivity by 1/(2^k-2k+3)+O(2^(-2k)), which gives leading height-enhanced coefficient 2k but not the frozen constant shift -4. Its Eq. (2) already gives the exact binary grounded radial matrix. In general write J for the radial compression, with diagonal b+1 except leaf 1 and off-diagonal -sqrt(b). In the 2017 preprint's notation apply Proposition 2.2 to A=((b+1)I-J)/sqrt(b), with n=N-1, b0=b1=c_(-1)=0 and c0=-sqrt(b). Its H(y)=0 is 1-sqrt(b)y=y^(2N+1)(y-sqrt(b)); setting y=1/[sqrt(b)(1-t)] yields exactly the frozen t secular equation. The stated correction is a direct Taylor extraction from that equation, and the multiplicity is an immediate branch direct-sum consequence. Neither this linear spectral result nor the inspected general p-variational inequalities substitute for the matching level estimates for all p."
+        ],
+        "reasoning": "An exact earlier equation mechanically yielding the correction is stronger evidence than absence of the explicit coefficient in earlier abstracts. Remove that part from the novel finding; keep the sharp fixed-exponent equivalent across the nonlinear range, which the inspected statements do not mechanically evaluate.",
+        "searches": [
+          "Veerman–Hammond–Baldivieso arXiv:1801.04977 Definition 2.1 and Proposition 2.2",
+          "Molitierno–Neumann–Shader Eq. (2) and Thm. 3.7",
+          "Wang arXiv:1512.04770 Section 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By D=H^(-1), the reciprocal of the p-th power of the counting-measure norm is the Dirichlet p-energy minimum at unit vertex p-mass. At p=2 the grounded eigenvalue also equals algebraic connectivity of the full tree: grounding gives a lower bound by interlacing, and placing opposite copies of a branch eigenvector on two child branches and zero at the root gives a full-tree eigenvector of that value. Wang's mixed-eigenvalue formulations are therefore directly relevant, not merely title matches."
+        ],
+        "reasoning": "This precise equivalence requires the root condition and edge and vertex counting weights. Hilbert eigenvalue formulas do not evaluate the nonlinear p-energy for p different from 2.",
+        "searches": [
+          "Resultary: exact Laplacian spectrum balanced rooted b-ary Bethe tree grounded eigenvalue secular equation",
+          "Wang, arXiv:1512.04770 §§1–2",
+          "Molitierno–Neumann–Shader 2000, Eq. (2) and Thm. 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest ancestor-sum Resultary hits are 42c51bc72ec6 (exact singular laws with depth weights b^(-(|v|-|u|)/2), includes root) and b2c8f4434d6b (fixed-rank Hilbert singular values of the root-inclusive path average). Neither is this unweighted norm; the averaging factor even changes the leading scale. Rojo's accessible author abstracts give exact tridiagonal Laplacian spectra for binary and even-branching cases; their article bodies were inaccessible. The actual older binary tridiagonal and exact general Jacobi spectral result were independently checked in lawful primary PDFs."
+        ],
+        "reasoning": "The discovered exact spectral precedents cover the linear Hilbert calculation, not a table/formula of the repaired p-norm limit. Same-day catalogue dates are not used to establish priority.",
+        "searches": [
+          "Resultary: Molitierno Neumann Shader tight bounds algebraic connectivity balanced binary tree",
+          "Resultary: exact Laplacian spectrum balanced rooted b-ary Bethe tree grounded eigenvalue secular equation",
+          "Resultary records 42c51bc72ec6 and b2c8f4434d6b",
+          "Rojo, LAA 349 (2002) 203–219 and DOI:10.4067/S0716-09172004000200006"
+        ]
+      },
+      "rationale": "Best of current evidence for the narrowed claim: the sharp fixed-p counting-measure norm equivalent survives. Do not count the original Hilbert subclaim as a distinct contribution: the exact binary grounded block and leading correction scale are prior, and the all-b Hilbert correction is a routine expansion of an exact specialization of an earlier tridiagonal spectral theorem. The absolute correction constant is not explicitly stated in the binary bounds alone.",
+      "residual_risks": [
+        "The Wang–Zhang full text and Rojo 2002/2004 article bodies were inaccessible in the bounded lawful attempts; no general absence or priority claim is made. A matching unweighted fixed-p theorem under different capacity terminology is not excluded by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-b Hilbert secular equation is a specialization",
+          "evidence": [
+            "Definition 2.1 gives H and Prop. 2.2 parameterizes spectrum by y+y^(-1). For unit off-diagonals, zero initial diagonal and final diagonal sqrt(b) the secular equation after substitution is the frozen one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.04977",
+          "material_read": "Title page; Section 2, Definition 2.1, Proposition 2.2 and Eqs. (2.1)–(2.5), pp. 3–4, offsets 9150 and 12950",
+          "method": "Bounded lawful arXiv PDF passage inspection; explicitly substituted the adjusted branch Jacobi parameters",
+          "title": "Spectra of Tridiagonal Matrices",
+          "trigger": "Web query on Rojo/Soto and Bethe-tree Jacobi spectra surfaced a stronger exact tridiagonal boundary theorem"
+        },
+        {
+          "assessment": "Same binary eigenvalue and exact radial matrix; prior bounds alone determine only the height-enhanced part of correction",
+          "evidence": [
+            "G_m is tridiagonal with last diagonal 1 and others 3, off-diagonals -sqrt(2); least eigenvalue gives the binary calculation. Height k-1 corresponds to k levels."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/81/81/81",
+          "material_read": "Abstract p. 62, Proposition 3.2 discussion and Eq. (2) near offset 19900, Thm. 3.7 p. 70",
+          "method": "Official lawful ELA PDF and normalization comparison",
+          "title": "Tight Bounds on the Algebraic Connectivity of a Balanced Binary Tree",
+          "trigger": "Exact same invariant after translating grounded minimum to algebraic connectivity"
+        },
+        {
+          "assessment": "Relevant general formulas, different weighted example and no matching sharp depth limit in inspected statements",
+          "evidence": [
+            "Gives variational formulas by single summation, double summation and differences, and quantitative bounds. Ex. 2.4 assumes geometric measures with t<1/r in branching r."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.04770",
+          "material_read": "Abstract; §§1–2 especially Theorems 2.2, 2.3 and Example 2.4 at offsets 13300 and 16300",
+          "method": "Lawful public primary PDF passage inspection",
+          "title": "Mixed eigenvalues of p-Laplacian on trees",
+          "trigger": "Prior general mixed tree p-eigenvalue theorem and homogeneous example"
+        },
+        {
+          "assessment": "Different operator/limit regime",
+          "evidence": [
+            "Continuous metric-tree Hardy integration with asymptotic n a_n(T), not height-divergent finite tree norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0003215",
+          "material_read": "pp. 1–2, offset 980",
+          "method": "Lawful public primary PDF passage inspection",
+          "title": "The approximation numbers of Hardy-type operators on trees",
+          "trigger": "Prior Hardy tree norm and asymptotics work"
+        },
+        {
+          "assessment": "Relevant context and unresolved risk",
+          "evidence": [
+            "Studies the principal eigenvalue with unique root Dirichlet boundary and provides three variational formulas; abstract alone does not decide detailed coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2013.05.001",
+          "material_read": "EconPapers abstract near offset 533; article body not available",
+          "method": "Public abstract and bounded publisher full-text access attempt, HTTP 403",
+          "title": "The first Dirichlet eigenvalue of birth–death process on trees",
+          "trigger": "Closest older root-Dirichlet variational work"
+        },
+        {
+          "assessment": "Different weights, root convention, and target invariants",
+          "evidence": [
+            "First treats depth-normalized sums and exact singular laws; second treats root-inclusive path averages and fixed-rank singular-value limits."
+          ],
+          "identifier_or_url": "Resultary 42c51bc72ec6 and b2c8f4434d6b",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Local catalogue and mirror passage inspection",
+          "title": "Dense atomic singular laws for normalized ancestor sums on homogeneous trees; Geometric fixed-rank singular staircase for finite tree Cesàro averages",
+          "trigger": "Strongest related discrete ancestor-kernel catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof",
+        "Wang §§1–2 weighted estimates and homogeneous example",
+        "Frozen operator normalization and support checks"
+      ],
+      "rationale": "The repaired result identifies the exact branching growth factor for an unweighted discrete Hardy norm over all fixed interior exponents. It links the geometric mass of the last levels to a single radial input that asymptotically saturates all the dominant levels, which goes beyond a nonsharp norm bound or a Hilbert spectral computation. It gives a sharp reference constant in a natural family without counting already-covered spectral deductions as a separate contribution.",
+      "residual_risks": [
+        "No assertion of exact finite-N eigenfunction shape for arbitrary p, uniform error rates, or a general theorem for other branching or measure regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

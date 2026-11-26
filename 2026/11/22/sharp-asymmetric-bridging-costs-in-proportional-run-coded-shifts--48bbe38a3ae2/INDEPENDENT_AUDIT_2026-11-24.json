@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:57:56.388118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:19–59; independent boundary-run proof",
+        "VERIFICATION.md:19–29 and check_bridge.py:45–111, inspected without execution"
+      ],
+      "rationale": "The two displayed bounds and their uniform leading-order consequence hold for the coded language. On the right, a terminal zero run of visible length a can be taken complete and extended by ka ones; for a terminal one run of length b, the requisite total one-run length is fixed by a fully observed preceding zero run, or one may choose a zero run of length max(a, ceil(b/k)) if the past is clipped. For an all-one word use ceil(m/k). This costs at most km. On the left, a leading zero run needs only the missing zeros prescribed by a complete first one run (or by the shortest compatible completion of an open first one run); a leading one run of length b needs at most ceil(b/k) zeros and k-1 ones. Joining the two completed junctions proves the upper bound. For t=floor((n-2)/k), the pair 0^(m-1)1 and 01^(kt)0^(n-kt-1) forces disjoint bridge contributions of at least k(m-1)-1 ones and t-1 zeros, since the first block's ones must finish and the later complete kt-run forces exactly t preceding zeros. Their concatenated contribution is admissible, including the empty-bridge case. The coefficients are unequal for k>1 and coincide at 1 for k=1; the prose 'different' is read with this qualification, not as an extra claim for k=1.",
+      "residual_risks": [
+        "The finite script's line 94 uses +k rather than +(k-1); it does not itself test that exact upper constant. The direct proof uses kr-b in [0,k-1] and supplies the exact constant.",
+        "The bounds determine leading order, not every exact finite B_k(m,n)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reyes has |w|>beta n-2 for one pattern in the ambient frequency shift and an at-most-(k+1)M completion bound in a restricted decomposition.",
+          "The ambient shift is strictly larger for k>=2; k=1 coincidence still does not give the two-variable optimization."
+        ],
+        "reasoning": "An ambient language lower witness with one variable and a nonsharp completion of a subclass do not give the two exact leading coefficients for all pairs in the coded subsystem.",
+        "searches": [
+          "Reyes Theorem 4.1, Propositions 5.5 and 5.8, Lemma 6.5",
+          "Becker–Baraviera DOI:10.1007/s10955-023-03158-8",
+          "Climenhaga–Thompson DOI:10.1016/j.aim.2016.03.013"
+        ]
+      },
+      "checked_sources": [
+        "Reyes, arXiv:2611.10995 §§4–6",
+        "Resultary 5097b3ecbecb and b66d76ee47f8",
+        "Becker–Baraviera and Climenhaga–Thompson DOI routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior completion bounds do not isolate the nonintegral incoming slope 1/k; prior connecting-word example does not force two disjoint contributions indexed by m and n."
+        ],
+        "reasoning": "The new upper bound needs one-sided completion and the lower bound requires jointly realizing and forcing both costs. Neither is a direct specialization of the inspected results.",
+        "searches": [
+          "Reyes §4 one-pair lower witness and §6 completion lemma",
+          "Both matching Resultary RESULT.md statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coding, the synchronizing word 10 and absence of specification are structural or qualitative.",
+          "The 11/17 and distinct 11/22 antidictionary results describe minimal absent factors, not optimal connection lengths."
+        ],
+        "reasoning": "Whether the same language is described by generators, minimal forbidden factors, or its natural one-sided factors, the objective is a maximum of minima over two independently varying lengths; neither synchronization nor unbounded gaps quantifies it.",
+        "searches": [
+          "Resultary proportional-run coded language / antidictionary / connecting words",
+          "Reyes arXiv:2611.10995 §§4–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Separate records 5097b3ecbecb and b66d76ee47f8 supply exact antidictionary families and counts. No inspected table evaluates this optimized bridge statistic."
+        ],
+        "reasoning": "A membership oracle gives a finite search for each input length pair, not a table or theorem with uniform constants for the infinite parameter family.",
+        "searches": [
+          "Resultary same-class exact forbidden-word formulas and enumeration"
+        ]
+      },
+      "rationale": "The same-language antidictionaries and the nearest ambient or coded-shift bridge/completion theorems do not cover the optimized two-independent-length theorem. The complete forbidden-list descriptions allow membership tests but do not supply either the uniform asymmetric pair completion or the combined forced-run lower witness.",
+      "residual_risks": [
+        "Two identified external sources were not inspected in full; broader priority, including historical equivalent formulations, is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially anticipates the outgoing obstruction and gives relevant structure; no two-variable optimization",
+          "evidence": "Ambient join 110^n w10 costs >beta n-2; X_k synchronized by 10; special fragment completions each ≤(k+1)M.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.10995",
+          "material_read": "§4 Thm. 4.1 (text offset 34829); §5 Props. 5.5, 5.8 (41449); §6 Lem. 6.5 (50815)",
+          "method": "Bounded primary PDF passages",
+          "title": "Frequency shifts: non-soficity, absence of specification and intrinsic ergodicity",
+          "trigger": "Same generators and closest bridge estimates"
+        },
+        {
+          "assessment": "Same language, different invariant",
+          "evidence": "Minimal forbidden families and counts, not B_k(m,n).",
+          "identifier_or_url": "2026/11/17/SCOPE-complete-three-family-antidictionary-of-proportional-run-coded-s--5097b3ecbecb",
+          "material_read": "RESULT.md finding and forbidden-family classification",
+          "method": "Published-record mirror",
+          "title": "Complete three-family antidictionary of proportional-run coded shifts",
+          "trigger": "Exact same coded system"
+        },
+        {
+          "assessment": "Equivalent antidictionary coverage, not bridge-profile coverage; no priority inference from date",
+          "evidence": "Minimal-absent factors and counts, not optimization of connecting-word lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-antidictionary-of-proportional-run-frequency-shifts--b66d76ee47f8",
+          "material_read": "RESULT.md statement",
+          "method": "Published-record mirror",
+          "title": "The complete antidictionary of proportional-run frequency shifts",
+          "trigger": "Distinct same-day same-language match"
+        },
+        {
+          "assessment": "Unresolved outside evidence",
+          "evidence": "Source motivates the ambient model; no implication asserted from unavailable text.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-023-03158-8",
+          "material_read": "Bibliographic identification; no full text",
+          "method": "DOI, publisher and PDF attempts redirected unsuccessfully",
+          "title": "Symbolic Systems with Prescribed Partial Digit Density",
+          "trigger": "Ambient frequency-shift construction"
+        },
+        {
+          "assessment": "Framework identified; full comparison limited",
+          "evidence": "No family-specific bound established by the material read.",
+          "identifier_or_url": "https://doi.org/10.1016/j.aim.2016.03.013",
+          "material_read": "Landing page/abstract only",
+          "method": "DOI lookup",
+          "title": "On intrinsic ergodicity and weakenings of the specification property",
+          "trigger": "General bridge and specification framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–22, 43–76; Reyes §§4–6"
+      ],
+      "rationale": "The worst-case shortest join is a natural refinement of the specification question in this established coded system. The theorem gives separate sharp directional costs with a length-independent error, distinguishing the effects of long outgoing and incoming words rather than merely providing an unspecified linear bound or discovering nonspecification again.",
+      "residual_risks": [
+        "No claim about the larger ambient shift or exact finite optimal bridges for all lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

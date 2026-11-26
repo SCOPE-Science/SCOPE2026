@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof checks
 
-The provided `VERIFY.py` is a self-contained Python 3 script using only exact integer arithmetic. It checks the direct quotient gap criterion \(pn\notin\langle a,a+1\rangle\) against the finite residue-minimum formula on 3,234 pairs \(2\le p\le50\) and \(p<a<3p+15\), and checks every proper-divisor witness in this range. It verifies the rigid branch on multiples of \(p\). The check also tests larger divisor-witness ranges through \(p=200\). Execution prints `VERIFY_OK` with counts and exits nonzero on any discrepancy.
+# Independent mathematical audit
 
-To reproduce: extract all packaged files to a directory and execute `python3 VERIFY.py`. No network, external packages, symbolic algebra, or floating point are required.
+## correctness
 
-For the infinite proof, inspect the admissible gap map, the inequality \(ia+j<pa\) for \(i<p\), the identity \(p-1-(d+p/d-2)=(d-1)(p/d-1)\), the modular congruence of the witness, and the CRT polynomial-branch argument. Finite verification is not a certificate that a formula holds for all \(p\).
+PASS
 
-No independent audit or independent validation has been performed. The checked scientific hypotheses are fixed integer \(p\ge2\) and all integer \(a>p\). The result does not classify general two-generator semigroup quotients or the number of distinct branches.
+Writing x=ua+v with 0≤v<a gives membership iff u≥v: if a representation uses coefficient v+ta of a+1, the quotient only increases from v. Thus the gaps are exactly F_a-ia-j with 0≤j≤i≤a−2. On a residue r mod p, i=p−1 and the least residue j of r²−1 always qualify, since a>p. Costs with i≥p exceed its cost, and costs at smaller i are strictly ordered by i; the minimal (i,j) is independent of a within the class. For residue zero, j≡−1 forces i=j=p−1 at the minimum. For d|p proper, k=p/d, the proposed (d+k−2,d−1) lies in the triangle since p−1−i=(d−1)(k−1). Its cost is congruent to d²−d−1, with improvement over the zero-branch numerator equal to (d−1)(k−1)a+p−d>0, including d=1. A period d would force equality of the two polynomials on intersecting residue classes by the infinite-root property. The generalized CRT gives gcd(p,q) as a period if q is a period, by identifying the p-branch polynomials through a common q-branch on infinite progressions. Thus p divides any period, not just those among the divisors of p. The package's 3,234 enumerated instances and divisor-witness tests are finite diagnostics; verification rests on the uniform proof. The script was inspected, not executed.
+
+## originality
+
+PASS
+
+Limited to the all-moduli least-period assertion and the explicit divisor separation, especially for composite p. The constituent formulas and the prime conclusion are already covered. The close higher-gap catalogue result expressly excludes gap 1 from its theorem and treats the gap-1 exact period as an independently existing result; its argument also works at gap 1, but the inspection does not identify an independent earlier source for that assertion.
+
+## value
+
+PASS
+
+The natural minimal period of an exact Frobenius quotient function is stronger information than a convenient congruence period. It determines the smallest valid residue modulus even when some branch polynomials coincide. For composite p this is not automatic from having multiple branches or from the known recipe for each constituent: the explicit witnesses uniformly couple divisibility of p with an actual gap and rule out every candidate collapse. This is a useful exact invariant, not a claim of novelty for recomputing the branch table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

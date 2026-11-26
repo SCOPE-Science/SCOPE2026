@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:53.511107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The completed repair replaces the unordered set in the frozen boxed sum by three indexed gaps, preserving their multiplicities. Literally summing over the set {a,b,c} was false when gaps coincide: (2,2,2) gives Phi=3 but the literal display gives 2; the frozen proof already used the three separate contributions. The corrected formula agrees with that proof and preserves all other claims. A one-bearing factor has at most two alignments, so only 1 qualifies; the three zero runs and strict cutoff give the sharp endpoints with the stated witnesses including N=0 and N=1. The discrete sign test perturbs the continuous root by at most 3/N and discretization adds at most one grid cell. The uniform compositions converge to simplex area. Independently, taking the maximum over subsets in the root test gives 1-3t <= x_i <= 2t and t >= 1/4; area after translation and exclusion of disjoint caps gives the exact CDF, with the jump at 1/4 and no other jump. This derivation is in the repaired result. Reproduction: python3 /workspace/branches/reproductions/combinatorics.py verified 2925 literal words, the cutoff and extrema, and exact rational integration giving mass 1, mean 187/576, second moment 1499/13824 and variance 1007/331776. Weak convergence on a common bounded interval gives moment convergence. The reproduction does not prove the asymptotic step or describe other marker weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bals et al. Theorem 1 gives at most n frequent factors for any length-n string and Proposition 6 gives a growing-alphabet witness. Record 18eac5e211b6 gives M_2(n)/n tending to one for the unrestricted binary maximum."
+        ],
+        "reasoning": "These use the relevant threshold and allow overlaps but do not dominate the sharp fixed-weight endpoints or address uniform fixed-weight fluctuations.",
+        "searches": [
+          "Bals et al., Text Indexing: From Reporting to Counting, Theorem 1 and Proposition 6",
+          "Resultary: fixed-binary asymptotic sharpness for frequent factors"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.4230/LIPIcs.ESA.2026.68",
+        "18eac5e211b6",
+        "e744971e8c41",
+        "6ea7af977336",
+        "a9093822fb80 (identical record, not prior)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted bound gives n rather than floor(n/2). The prior two-marker gap law concerns max(Y,min(X,T)), not the cutoff satisfying the positive-part equation."
+        ],
+        "reasoning": "The present limit needs the distinct-factor classification, a strict discrete cutoff, and a separate simplex event computation; it is not an application of those reported extrema or distributions.",
+        "searches": [
+          "Bals et al. Theorem 1 and Proposition 6",
+          "e744971e8c41, Finding and Step 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalog match a9093822fb80 is the assigned record, not independent prior coverage. e744971e8c41 uses uniform two-marker gaps but counts minimal absent factors; its Finding and Step 5 give a continuous law for a different gap functional."
+        ],
+        "reasoning": "Uniform simplex gaps are a common representation; neither the counted objects nor the limit distribution is equivalent. The other finite model also excludes adjacent ones.",
+        "searches": [
+          "Resultary: exactly two ones, factor occurrence count greater than length; zero-gap formula and sharp extrema"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the frozen record itself; nearby 6ea7af977336 counts occurrence intervals of longest unbordered factors, and e744971e8c41 counts minimal absent factors."
+        ],
+        "reasoning": "The same-day unbordered-factor record is different because of the predicate and interval multiplicity, not because of chronology. No independently matched exact law or table was established.",
+        "searches": [
+          "Resultary: atomic frequent-factor limit law 1/16; two-marker frequency versus factor length; two-marker exact multiplicities"
+        ]
+      },
+      "rationale": "For the repaired indexed-gap statement, the scope and random statistic are the same as the intended frozen result. Prior sources establish either a coarser unrestricted bound or distinguishable fixed-marker observables. The sharp weight-two endpoints together with the mixed limiting law are supported as a distinct scoped claim on the available evidence.",
+      "residual_risks": [
+        "The focused supplementary literature lookup did not return results because the search service was unavailable. No negative inference was drawn from that failure; an unindexed equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound and unrelated extremizing regime",
+          "evidence": "Upper bound n for the general statistic; asymptotically tight growing-alphabet construction.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.68",
+          "material_read": "Open PDF p. 2 Theorem 1 and p. 4 Proposition 6, offsets 4739 and 13872",
+          "method": "OA exact passage comparison",
+          "title": "Text Indexing: From Reporting to Counting",
+          "trigger": "Same statistic in the literature"
+        },
+        {
+          "assessment": "Unrestricted maximum, not fixed weight",
+          "evidence": "M_2(n)/n tends to one over all binary words.",
+          "identifier_or_url": "18eac5e211b6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record mirror",
+          "title": "Fixed-binary asymptotic sharpness of the frequent-factor bound",
+          "trigger": "Same statistic and alphabet"
+        },
+        {
+          "assessment": "Different invariant and sampling restriction",
+          "evidence": "Minimal-absent count; positive inner gap; continuous simplex law with mean 7/18.",
+          "identifier_or_url": "e744971e8c41",
+          "material_read": "RESULT.md Finding and distribution step",
+          "method": "Published record mirror",
+          "title": "Minimal absent factors of two-marker binary words: exact counts and a limit law",
+          "trigger": "Same sparse gap model"
+        },
+        {
+          "assessment": "Different predicate and counting convention",
+          "evidence": "Occurrence intervals of longest unbordered factors rather than qualifying spellings.",
+          "identifier_or_url": "6ea7af977336",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record mirror",
+          "title": "Exact multiplicities of longest unbordered factors in two-marker binary words",
+          "trigger": "Similar finite statistic and record date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The predicate arises from the selection of precomputed frequency counts in text indexing. On a natural fixed-content source the exact sharp bounds and full limiting law characterize typical as well as extremal demand. The positive mass at the lower endpoint and two density pieces are new structure beyond a trivial finite test or the linear worst-case bound. Indexing the equal-sized gaps correctly is necessary to state the finite theorem, not an added research claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:16:36.259188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 set m=n-2. At most one adjacent input can be used because deleting both ones gives the zero word. A near or far pair [i,j] can lose either one by starting the burst at i or j-1; the remaining positions are j-2 and i, coincident exactly at gap two. An adjacent pair has at least one external neighboring zero and hence consumes at least one of the m singleton outputs as well. Near starts two apart collide on a weight-two output, so their starts lie in independent sets on two parity paths. For m=4q+r the path bound is 2q plus 0,1,2,2 for r=0,1,2,3. Combining the singleton budget with this bound and the one-adjacent limit gives the claimed floor. In the stated construction singleton positions separate; zero-only bursts act before, between, or after the ones and give the eight distinct residue-pair types listed, with distinct absolute coordinates within each translated type. The boundary sizes and the three additional pairs per four positions check out. At n=2 there is one possible input. The supplied scripts were inspected, not run; the all-length proof is sufficient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General adjacent burst constructions and redundancy bounds are not exact optimizations restricted to weight two. Constant-weight ordinary deletion colorings optimize a different graph. At n=4 the supports (0,2),(1,3) correct a two-burst but share an ordinary one-deletion output; at n=5 (0,1),(2,3) correct one deletion but share the zero two-burst output."
+        ],
+        "reasoning": "Neither ordinary one-deletion correction nor exact two-burst correction implies the other in this restricted family; the general literature does not remove the exact indexed overlap.",
+        "searches": [
+          "arXiv:2210.11818, pp. 1–2 and Table I",
+          "arXiv:1602.06820, pp. 1 and 15",
+          "arXiv:1211.4056, pp. 1 and 4",
+          "Frozen ordinal 3, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; checker.py and optimizer_optional.py (inspected)",
+        "Resultary 6bc54c96c7d8",
+        "Frozen ordinal 3",
+        "arXiv:2210.11818",
+        "arXiv:1602.06820",
+        "arXiv:1211.4056",
+        "DOI:10.1109/ISIT45174.2021.9517917 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record uses the same distance-two loop obstruction. Its complete triples and optional final one or two pairs, in the n=4q+r+3 presentation, are precisely the coordinate-truncated family here. Ordinal 3 gives floor((3n-2)/4) for a different channel, larger by one when n>=3 and n=2 mod 4."
+        ],
+        "reasoning": "The matching source states the conclusion directly and provides the same witnesses; no domination, inference about chronology, or change of channel is required.",
+        "searches": [
+          "SCOPE-exact-sparse-marker-capacity-for-one-adjacent-two-deletion-burst--6bc54c96c7d8, Findings and marker-loop construction",
+          "Frozen ordinal 3, formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed sparse-marker theorem uses precisely the same weight-two inputs, exact two-consecutive-symbol channel and disjoint sets of full ordered outputs. Marker loops are the gap-two class; marker edges are the farther class."
+        ],
+        "reasoning": "The change to marker edges renames singleton-output coordinates i and j-2 and leaves the channel and optimized quantity unchanged.",
+        "searches": [
+          "Resultary: exact weight-two capacity for one adjacent two-deletion burst; sparse-marker coding",
+          "SCOPE-exact-sparse-marker-capacity-for-one-adjacent-two-deletion-burst--6bc54c96c7d8, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed sparse-marker Finding explicitly gives M(2)=1 and M(n)=floor(3(n-1)/4) for all n>=3; its construction is the same three translated pairs and (0,1). Wang et al.'s inspected table summarizes redundancy, not these exact fixed-weight optima."
+        ],
+        "reasoning": "The exact database overlap is all-length and does not depend on inferring a formula from a table.",
+        "searches": [
+          "Local Resultary search for the fixed-weight-two adjacent-burst optimum",
+          "Wang et al., arXiv:2210.11818 Table I"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding demonstrably already covers the exact mathematical statement, its boundary case, and the explicit optimal family. This is a duplicate-coverage decision, not a claim that the matching indexed record was chronologically first or that the mathematics is false.",
+      "residual_risks": [
+        "Directory dates do not settle provenance or priority between the two exact presentations.",
+        "The cited 2021 proceedings full text was not recovered. The general literature search was bounded and does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical overlap",
+          "evidence": "Same exact all-length optimum, n=2 exception, singleton and distance-two constraints and translated construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-sparse-marker-capacity-for-one-adjacent-two-deletion-burst--6bc54c96c7d8/RESULT.md",
+          "material_read": "Finding, assumptions, upper bound and optimal construction, offsets 0–8861",
+          "method": "Bounded local-mirror full-text inspection",
+          "title": "Exact sparse-marker capacity for one adjacent two-deletion burst",
+          "trigger": "Exact local Resultary hit"
+        },
+        {
+          "assessment": "Related broader channel/code framework; inspected results not the fixed-weight optimum",
+          "evidence": "Nonbinary burst-code constructions and a summary of binary redundancy results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.11818",
+          "material_read": "pp. 1–2 including Table I",
+          "method": "Open PDF passages",
+          "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+          "trigger": "Cited expanded burst-code source"
+        },
+        {
+          "assessment": "Inspected construction and bound statements have unrestricted input weight",
+          "evidence": "General binary exact burst codes, plus discussion of at-most-b bursts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+          "material_read": "pp. 1 and 15, exact consecutive burst setting and summary",
+          "method": "Open PDF passages",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Same exact-burst operation"
+        },
+        {
+          "assessment": "Related graph formulation, not exact adjacent-burst optimum",
+          "evidence": "Constant-weight induced subgraphs for ordinary deletion and a coloring bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "pp. 1 and 4, scope and coloring/independence distinction",
+          "method": "Open PDF passages",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Constant-weight deletion graph"
+        },
+        {
+          "assessment": "Coverage not assessed from the inaccessible item",
+          "evidence": "No full text recovered.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT45174.2021.9517917",
+          "material_read": "No primary full-text passage recovered; the accessible expanded source was checked separately",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Non-binary Codes for Correcting a Burst of at Most 2 Deletions",
+          "trigger": "Cited two-deletion burst predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact optimum of the sparse binary burst channel is a motivated invariant, but this record supplies neither a remaining unknown fact nor a materially different construction or obstruction after the exact indexed overlap is accounted for.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

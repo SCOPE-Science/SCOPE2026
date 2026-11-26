@@ -1,54 +1,35 @@
 # Parity-dependent correlation reversal in fully refilled annihilating complete graphs
 
 ## Finding
-For every integer \(N\ge 2\) and rate \(r>0\), consider hard-core annihilating random walkers on the complete graph with \(N\) labeled sites and **edge-clock normalization**: each occupied site attempts a jump to each *other* site at rate one. A jump to an empty site moves the particle; a jump to an occupied site removes both particles. Independently, at rate \(r\), the whole configuration is reset to the fully occupied configuration. Let \(K\) be the stationary number of occupied sites.
 
-Put \(m=\lfloor N/2\rfloor\), \(k_j=N-2j\), and \(a_j=k_j(k_j-1)\), for \(0\le j\le m\). Then \(a_m=0\), and the **complete stationary law** is
-\[
-\Pr(K=k_j)=p_j(r):=\frac{r}{r+a_j}\prod_{h=0}^{j-1}\frac{a_h}{r+a_h}, \quad 0\le j\le m.
-\]
-Conditional on \(K=k_j\), the occupied set is exactly uniform among all \(\binom{N}{k_j}\) subsets. Therefore any two distinct site indicators \(\eta_u,\eta_v\) have common covariance
-\[
-C_N(r)=\frac{1}{N(N-1)}\sum_{j=0}^{m}k_j(k_j-1)p_j(r)
--\left(\frac1N\sum_{j=0}^{m}k_jp_j(r)\right)^2.
-\]
-The covariance obeys the **parity-sensitive weak-reset and parity-insensitive fast-reset laws**
-\[
-\begin{array}{ll}
-C_N(r)=\dfrac{r}{2(N-1)}+O_N(r^2), & N\text{ even},\quad r\downarrow0,\\[4pt]
-C_N(r)\longrightarrow-\dfrac1{N^2}, & N\text{ odd},\quad r\downarrow0,\\[4pt]
-C_N(r)=\dfrac2r+O_N(r^{-2}), & N\ge2,\quad r\to\infty.
-\end{array}
-\]
-In particular **every odd \(N\ge3\) has at least one positive reset rate at which distinct-site covariance reverses from negative to positive**. The minimal odd system has
-\[C_3(r)=\frac{2(r-2)}{(r+6)^2},\]
-so its reversal is unique and occurs at \(r=2\). No uniqueness claim is made for general odd \(N\), and no all-rate sign claim is made for even \(N\).
+Fix an integer \(N\ge2\) and a rate \(r>0\). On the complete graph on \(N\) labeled sites, each ordered pair of distinct sites has its own rate-one Poisson attempt clock. If the source is empty, the attempt has no effect. If the source is occupied, the attempt moves its particle to an empty target, or removes both particles when the target is occupied. Independently, a rate-\(r\) Poisson clock resets the occupied set to the full board. All attempt clocks and the refill clock are mutually independent; particle removals are outcomes of attempts, not separate clocks.
 
-## Assumptions and scope
-All jump attempts, particle removals and resets are continuous-time independent Poisson events. The global refill resets *all* sites simultaneously, not independently. The particle number can only decrease by two between refills and preserves the parity of \(N\). Sites are distinguishable, walkers are indistinguishable, and no spontaneous births occur except global refills. The stationary measure is defined for strictly positive \(r\), and asymptotic limits hold for each *fixed* finite \(N\). The jump clock is one per directed pair of distinct sites; choosing unit total rate per walker requires time/rescaling and changes numerical critical rates.
+Let \(K\) be the stationary occupancy, \(m=\lfloor N/2\rfloor\), \(k_j=N-2j\), and \(a_j=k_j(k_j-1)\) for \(0\le j\le m\). Then
+\[
+p_j(r)=\Pr(K=k_j)=\frac{r}{r+a_j}\prod_{h<j}\frac{a_h}{r+a_h}.
+\]
+The occupied subset conditional on \(K=k_j\) is uniform. For distinct sites \(u,v\) with occupancy indicators \(\eta_u,\eta_v\), the covariance is
+\[
+C_N(r)=\frac{\sum_j a_j p_j(r)}{N(N-1)}-\left(\frac{\sum_j k_j p_j(r)}{N}\right)^2.
+\]
+For fixed \(N\), as \(r\downarrow0\), this is \(r/[2(N-1)]+O_N(r^2)\) for even \(N\) and tends to \(-1/N^2\) for odd \(N\). For every \(N\ge2\), it is \(2/r+O_N(r^{-2})\) as \(r\to\infty\). Thus for each odd \(N\ge3\) there is a positive rate at which the covariance crosses from negative to positive. For \(N=3\), \(C_3(r)=2(r-2)/(r+6)^2\), and the unique crossing is at \(r=2\).
 
 ## Proof
-**1. Lumped reaction chain.** Given \(K=k\), there are exactly \(k(k-1)\) directed occupied-to-occupied jump attempts per unit time. Every such event removes two particles, so \(K\mapsto K-2\) at rate \(k(k-1)\). All occupied-to-empty jumps leave \(K\) unchanged. Before the next refill, \(K\) is precisely the pure-death chain on \(N,N-2,\ldots,N-2m\) with death rates \(a_j\).
 
-**2. Stationary law.** At any stationary observation time, the age since the last global Poisson refill has the exponential law with rate \(r\), independently of the particle dynamics after that refill. At level \(k_j\), the competing clocks for reset and the next annihilation have rates \(r\) and \(a_j\). Starting from \(k_0=N\), reaching level \(k_j\) without reset has probability \(\prod_{h<j}a_h/(r+a_h)\), and terminating the current age before any further death has probability \(r/(r+a_j)\). This yields the displayed formula, including the terminal \(a_m=0\) case. The probabilities telescope to one. A reset from any configuration reaches full occupancy, and all states reachable from full form one finite irreducible recurrent communicating class (via the reset); hence the stationary distribution is unique. The labeled process and refill are invariant under all site permutations, so uniqueness forces conditional uniformity on each particle-count level.
+From \(k\) occupied sites, \(k(k-1)\) ordered pairs have both endpoints occupied and thus remove two particles on an attempt. All other attempts preserve the count. From any starting configuration a refill reaches full occupancy; all states reachable from the full configuration form one finite closed communicating class since every such state can also reach full. This gives a unique stationary law, invariant under relabeling of the sites. Its support has count parity \(N\), and relabeling acts transitively on each count level, giving the claimed uniform conditional law.
 
-**3. Exact covariance.** Conditional exchangeability gives \(\mathbb E[\eta_u\mid K]=K/N\) and \(\mathbb E[\eta_u\eta_v\mid K]=K(K-1)/(N(N-1))\) for \(u\ne v\). Averaging over the exact \(p_j\) gives the formula.
+The stationary inflow to the full-count state from refills of other states is \(r(1-p_0)\), balanced by \(a_0p_0\). For \(1\le j\le m\), stationarity gives \((r+a_j)p_j=a_{j-1}p_{j-1}\), where the final rate \(a_m\) is zero. These balances give the product above. Its normalization also follows by writing each factor as \(p_j=q_j-q_{j+1}\) with \(q_j=\prod_{h<j}a_h/(r+a_h)\), \(q_0=1\), and \(q_{m+1}=0\). At level \(k\), the conditional one-site mean is \(k/N\), and the joint two-site mean is \(k(k-1)/[N(N-1)]\); substitution proves the covariance formula.
 
-**4. Weak reset.** When \(r\downarrow0\), every product factor \(a_h/(r+a_h)\) with \(a_h>0\) tends to one; hence \(K\) converges to the terminal state \(0\) for even \(N\) and \(1\) for odd \(N\). For odd \(N\), the terminal state is uniformly a singleton, so the covariance limit is \(-1/N^2\). For even \(N\), for every nonterminal \(k_j>0\), \(p_j(r)=r/a_j+O_N(r^2)\). There are \(N/2\) such levels and \(k_j(k_j-1)/a_j=1\), hence \(\mathbb E[K(K-1)]=(N/2)r+O_N(r^2)\), while \(\mathbb E[K]=O_N(r)\). The covariance is \(r/[2(N-1)]+O_N(r^2)\).
+As \(r\downarrow0\), the terminal level has probability tending to one. For odd \(N\), that level is a uniformly distributed singleton, giving the negative limit. For even \(N\), the terminal count is zero and each of the \(N/2\) nonterminal levels has probability \(r/a_j+O_N(r^2)\). The factorial moment \(\mathbb E[K(K-1)]\) is therefore \(Nr/2+O_N(r^2)\), and \(\mathbb E K=O_N(r)\), giving the stated positive leading term.
 
-**5. Fast reset.** As \(r\to\infty\), the chance of at least two annihilation events within one renewal age is \(O_N(r^{-2})\); the probabilities of \(K=N\) and \(K=N-2\) are \(1-N(N-1)/r+O_N(r^{-2})\) and \(N(N-1)/r+O_N(r^{-2})\). Writing vacancies as \(1-\eta\), any specified pair is vacant with probability \((N(N-1)/r)/\binom N2+O_N(r^{-2})=2/r+O_N(r^{-2})\), whereas both single-site vacancy means are \(O_N(r^{-1})\). Therefore the occupancy covariance (equal to vacancy covariance) is \(2/r+O_N(r^{-2})\). The exact rational formula is continuous on \(r>0\), proving the odd-size existence result by the intermediate-value theorem.
+As \(r\to\infty\), \(p_1=N(N-1)/r+O_N(r^{-2})\) and the mass below \(N-2\) is \(O_N(r^{-2})\) (zero when there is no lower level). The pair of vacancies at level \(N-2\) is uniform. The probability of both specified sites being vacant is consequently \(p_1/\binom N2+O_N(r^{-2})=2/r+O_N(r^{-2})\). The product of the two single-site vacancy probabilities is \(O_N(r^{-2})\). Since occupancy covariance equals vacancy covariance, this proves the fast-reset result.
 
-**6. Three sites.** With \(N=3\), the only count levels are \(3\) and \(1\), with probabilities \(r/(r+6)\) and \(6/(r+6)\). Substitution and simplification yield \(2(r-2)/(r+6)^2\).
+For odd \(N\), the rational covariance, with no poles at positive \(r\), has opposite signs for small and large rates; its finitely many zeros on the positive axis include a negative-to-positive crossing. For \(N=3\), if \(p=r/(r+6)\) is the mass at full occupancy, \(C_3=p-[(1+2p)/3]^2=2(r-2)/(r+6)^2\).
 
-## Verification
-A standalone numerical checker (`verify_annihilation.py`) independently constructs the full \(2^N\)-state Markov generator, including occupied-to-empty hops and directed-pair annihilations, then solves its stationary linear system without using the pure-death reduction. For \(2\le N\le7\) and four positive rates it checked 1,008 state probabilities and 24 independent pair-covariance comparisons against the closed formulas. Execute `python verify_annihilation.py` with NumPy and SciPy. The proof of the infinite family is analytic; these finite checks cannot establish it by themselves.
+## Verification and scope
+
+`verify_annihilation.py` constructs the original configuration-space generator, solving the stationary equations on all \(2^N\) states. It compares the state probabilities and two-site covariances to the formulas, using NumPy and SciPy for \(2\le N\le7\) and selected positive rates. The reported checks are finite; the proof covers all fixed finite \(N\). There is no claim of general uniqueness for the odd-size crossing, no even-size all-rate sign classification, and no joint large-system/reset limit. A convention with unit total attempt rate per occupied site rescales the clock and the numerical crossing rates.
 
 ## Relationship to prior work
-Evans and Majumdar, *Diffusion with Stochastic Resetting* (arXiv:1102.2704, 2011), establish the classical Poisson renewal approach for a reset diffusive particle. Krapivsky and Ben-Naim, *Irreversible Reactions and Diffusive Escape: Stationary Properties* (arXiv:1503.04236, 2015), study annihilation and coalescence on an inhomogeneous one-dimensional half-line. Those works motivate renewal resetting and parity-preserving annihilation but do not derive a complete-graph, globally refilled particle-count law or pair-covariance parity reversal in the examined materials. The renewal principle itself is prior work; the explicit all-size particle-level solution, covariance and parity/fast-reset limits are the specific claimed result.
 
-## Limitations
-Only complete graphs, initially full global refills, symmetric unit-rate directed hopping and instantaneous pair annihilation are addressed. No general uniqueness of odd-rate zero crossings, even-size all-rate positive correlation, joint thermodynamic \(N,r\) scaling, multi-site higher-order association, or spatial lattice result is claimed. The bibliographic overlap check is necessarily incomplete: an unindexed equivalent result in finite-population annihilation with catastrophes or refill could subsume the formula. Independent validation has not been performed.
-
-## References
-- M. R. Evans and S. N. Majumdar, *Diffusion with Stochastic Resetting*, arXiv:1102.2704v1, first public 2011-02-14, https://arxiv.org/abs/1102.2704.
-- P. L. Krapivsky and E. Ben-Naim, *Irreversible Reactions and Diffusive Escape: Stationary Properties*, arXiv:1503.04236v1, first public 2015-03-13, https://arxiv.org/abs/1503.04236.
+The global Poisson resetting principle is standard; see Evans and Majumdar, *Diffusion with Stochastic Resetting*, [arXiv:1102.2704](https://arxiv.org/abs/1102.2704). Krapivsky and Ben-Naim, *Irreversible Reactions and Diffusive Escape*, [arXiv:1503.04236](https://arxiv.org/abs/1503.04236), treat a spatial half-line annihilation/coalescence problem. Reset-induced covariance reversal also arises for nonadjacent sites on finite **coalescing** cycles, where the terminal state is a singleton for all sizes and the fast-reset covariance begins at order \(r^{-2}\); see [Reset-induced long-range correlation reversal in finite coalescing cycles](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-reset-induced-long-range-correlation-reversal-in-finite-coalesci--0788102fd099/RESULT.md). Here the specific content is the complete-graph **paired annihilation** law and the parity-sensitive site covariance under full refills. A singleton makes two sites negatively correlated at weak refill; a single annihilation simultaneously vacates two sites and makes the leading covariance positive at fast refill. No exclusive priority for the general reset-driven reversal mechanism is asserted.

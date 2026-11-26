@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:43:32.372648Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed theta>0 and n>=2, the open row mass matrix has first row (a_j), unit downward shifts, and a single deficient row of deficit t_n. It is irreducible with a self-loop, including the one-cell case; the backward left-eigenvector recursion and mass loss give both identities in (2) with the stated normalization. For theta>1, the derivative of the characteristic sum is asymptotic to the truncated first moment, which tends to zeta(theta); pointwise convergence to t_j/zeta(theta) preserves total mass and hence gives TV, including for the spatial measures because their conditional laws within cells agree. At theta=1, every tilted weight differs multiplicatively from its harmonic proxy by at most exp(1/(H_n-1)); summing the proxy to floor(n^s) gives the uniform Kolmogorov bound, and the cell-coordinate logarithms differ by at most log(2)/log(n). For 0<theta<1 the exponential root sum is an integrable Riemann sum (v^(-theta) at 0), and the eigenvector sum gives the locally uniform density limit. The bound pi_{n,j}<=C n^(theta-1) j^(-theta) controls the mass of j/n near 0 and also gives O(delta+1/n) for the last delta n sites. Tonelli and the root equation normalize the limiting density; the cell endpoints squeeze n^theta X_n. The two divergent-index regimes imply unscaled convergence to zero. A finite independent check using root bisection followed by the backward recurrence and direct weighted-sum formula at theta=0.6,1,1.5 and cutoffs 20 and 5000 found eigen-identity residuals below 7e-17; critical proxy TV at n=5000 was 0.00371 versus a bound of 0.1315. These are floating-point diagnostics, not evidence for uniformity in theta or a proof of the limits. The frozen scripts and verification metadata were inspected without execution; no formal verification or expert attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Froyland–Murray–Stancevic show AC(C)IM convergence for a related finite-measure Pomeau–Manneville system.",
+          "Demers–Fernandez place holes away from the neutral endpoint and study different escape/forward limits.",
+          "Knight–Munday study this very hole and obtain escape scales rather than limiting distributions of the rescaled surviving locations."
+        ],
+        "reasoning": "The related finite-measure theorem motivates the TV regime but does not supply the infinite-measure log-uniform law or the nontrivial density for this hole.",
+        "searches": [
+          "arXiv:1012.2149v2 abstract and §1",
+          "arXiv:1410.4995v1 p. 1",
+          "arXiv:1411.3515v2 §§2, 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.3515v2",
+        "arXiv:1012.2149v2",
+        "arXiv:1410.4995v1",
+        "arXiv:2601.15908v3",
+        "Resultary: 2026/10/12/SCOPE-power-conditioned-farey-neighbors-have-a-universal-heavy-tail-spacing-law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known matrix implies (2) by backward substitution and killing-mass balance. The known subcritical escape constant agrees with c_theta on expanding the exponential.",
+          "Asymptotics uniform enough for the harmonic proxy and macroscopic eigenvector profile, plus tightness at the singular endpoint, are additional steps beyond the published characteristic-root calculation."
+        ],
+        "reasoning": "Credit the direct finite corollary and the prior escape constants. The spatial conclusions require independent normalized-eigenvector estimates across growing cell indices, not just inserting the same parameters into a scalar escape-rate theorem.",
+        "searches": [
+          "arXiv:1411.3515v2 §2 Eqs. (7)–(12), §4 Eqs. (29), (34), (40)–(41)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knight–Munday §2, Eqs. (7)–(12) is the same open system and conditionally invariant object.",
+          "Bonanno–Tikekar Example 3.3 gives rho_N([k]) proportional to p_k on the induced survivor shift; it is not the uninduced left eigenvector of the deficient mass matrix.",
+          "The nearest Resultary Farey spacing hit concerns adjacent rational fractions, not the open alpha-Farey dynamical system."
+        ],
+        "reasoning": "Comparing conditioned objects and orientations distinguishes the survivor Gibbs law from the normalized left Perron cell law. The escape-rate scalar at the same parameters is not a re-expression of a spatial CDF.",
+        "searches": [
+          "Resultary comparison for power-tail alpha-Farey spatial/quasi-stationary laws",
+          "arXiv:1411.3515v2",
+          "arXiv:2601.15908v3 Example 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed Farey-neighbor spacing record is on a different object.",
+          "The explicit tabulated/formula-level overlap in the same system is the scalar spectral root and escape-rate equivalents; the normalized spatial law is not among those quantities."
+        ],
+        "reasoning": "A finite sequence database is not an applicable test of a fixed-real-parameter distributional limit. The relevant check is for explicit prior formulas for the same normalized eigenvector and its spatial limits; the known matrix already recovers the former.",
+        "searches": [
+          "Local Resultary semantic comparison of power-tail Farey records",
+          "arXiv:1411.3515v2 Eqs. (12), (29), (34), (40)–(41)"
+        ]
+      },
+      "rationale": "The same open operator, closed ACIM, and escape-rate constants are prior work. The finite cell formula is a short consequence of the known operator and is not a separate novelty. The supported distinct claim is the spatial scaling theorem for the normalized uninduced Perron law, particularly the quantitative log-uniform critical law and explicit nondegenerate cell-scale density in the infinite-measure case.",
+      "residual_risks": [
+        "Bounded comparison, not an exhaustive priority claim; no broad web query beyond the inspected primary literature and local Resultary comparison. A more general result on normalized open renewal eigenvectors could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite operator and scalar escape asymptotics covered; spatial theorem not found in decisive passages",
+          "evidence": [
+            "The closed ACIM density and the open characteristic equation are explicit; expanding the escape-constant equation yields the same integral root."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1411.3515v2",
+          "material_read": "§2 Eqs. (7)–(12), §4 Eqs. (29), (34), (40)–(41)",
+          "method": "Open full text, bounded passage comparison",
+          "title": "Escape rate scaling in infinite measure preserving systems",
+          "trigger": "Same alpha-Farey cells and Markov hole"
+        },
+        {
+          "assessment": "Related finite-measure convergence; no coverage inferred for the power-tail infinite-measure limits",
+          "evidence": [
+            "Convergence for related Pomeau–Manneville dynamics is distinguished by the map and finite normalized invariant law."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1012.2149v2",
+          "material_read": "Abstract and §1",
+          "method": "Open full text, bounded passage comparison",
+          "title": "Spectral degeneracy and escape dynamics for intermittent maps with a hole",
+          "trigger": "Potential broader TV convergence result near the neutral point"
+        },
+        {
+          "assessment": "Induced survivor law, not the normalized open Perron law",
+          "evidence": [
+            "rho_N([k])=p_k/sum_{i<=N}p_i is a probability on the induced shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.15908v3",
+          "material_read": "Example 3.3",
+          "method": "Open full text, bounded passage comparison",
+          "title": "On the escape rate for intermittent maps with holes shrinking around the indifferent fixed point",
+          "trigger": "Same piecewise-linear family with a survivor distribution"
+        },
+        {
+          "assessment": "Different hole location and limit object",
+          "evidence": [
+            "The hole does not contain a neighborhood of the neutral origin."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4995",
+          "material_read": "p. 1, problem and results summary",
+          "method": "Open PDF text, bounded passage comparison",
+          "title": "Escape Rates and Singular Limiting Distributions for Intermittent Maps with Holes",
+          "trigger": "Possible spatial limiting theorem for open intermittent maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this natural family the observation of surviving locations is not predicted by the escape rate alone. The theorem specifies what can replace a finite limiting invariant probability when mass accumulates at the neutral point, including the critical distribution on logarithmic position scales, an error bound, and an explicit law on the hole scale below the critical exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

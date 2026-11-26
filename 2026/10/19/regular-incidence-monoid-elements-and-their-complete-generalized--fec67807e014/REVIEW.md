@@ -1,19 +1,21 @@
-# Scientific review of the incidence-monoid inverse census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The block-Schur criterion uses only operations internal to incidence algebras; the complementary block belongs to a nilpotent radical and is regular precisely when it vanishes. This yields exact free-coordinate counts. Inverse-fiber counts reduce by unit equivalence to the support idempotent; the commuting group inverse is established separately using the semisimple zero eigenvalue. The graph expansion is an explicit finite inclusion-exclusion calculation, and a standalone exhaustive checker verifies several independent finite-field configurations, including characteristic two and a nonprime field.
+PASS
 
-## Originality
+The four displayed formulas, the fixed-support double-unit orbit and the group-inverse assertion in the source are correct. The accompanying qualification about orientation dependence of the numerical inverse refinements is false for the displayed counts: all four depend on the support and on undirected internal and crossing edge counts only. The complete corrected RESULT.md also makes the weighting in the ordered-pair sums explicit. Rechecking it, the unit Peirce elimination is internal to the algebra and the zero-diagonal Schur complement cannot be both nonzero radical and regular (iterate s=sbs in the radical filtration). The free coordinates give the support count; transporting inverses to e_T fixes the TT block and then either determines the ZZ block for reflexivity or restricts its Schur complement to units for invertibility. For commutation, use rank |T| and algebraic zero multiplicity |Z| to obtain a semisimple zero part; the polynomial group inverse belongs to the algebra. These arguments include both empty corners. Independent Bernoulli selection of Z reduces the total to a product over unordered edges; single edges, incident pairs, and triangles contribute respectively -m/q^2+m/q^3, w/q^3, and -tau/q^3 through degree three in 1/q. An independent inline exact F2 replay (no persistent script) checked all 16,384 ordered pairs per example and every support in the star and fence, obtaining 91/341 and 89/337 regular elements/reflexive pairs. The frozen CHECK.py is a separate replay path, inspected but not executed. Finite tests do not prove the general claim.
 
-PASS within investigated coverage, with an explicit priority caveat. Bilen Can's complete accessible article concerns geometric incidence-monoid structure and automorphisms, not finite-field three-fiber inverse enumeration. Wright's article already treats regular full upper-triangular matrices and implicitly counts them; the chain specialization, block normalization, and upper-triangular regularity are excluded from any new-priority claim. Hartwig–Patrício–Puystjens supplies related triangular Peirce methods. The remaining assessed contribution is the uniform arbitrary-poset **joint inverse-fiber** enumeration and comparability-graph consequence. Wright's full paper was not accessible, and older generalized-inverse counting formulas might partially overlap; historical uniqueness is not proved.
+## originality
 
-## Value
+PASS
 
-PASS. The three inverse-fiber types are standard but genuinely distinct finite-semigroup invariants. Exact support-wise distributions give substantially more information than regularity or total element counts alone. The graph formulation shows invariance under comparability-graph orientation and its first asymptotic correction separates natural height-two examples of identical dimension. The theorem therefore provides a natural, reproducible all-poset structural census rather than an arbitrary finite slice.
+Pass for the joint all-poset finite-field inverse spectrum and its numerical graph invariance and graph expansion, not the Peirce method, orbit terminology, or the isolated star/fence example. Actual available work overlaps the height-at-most-two regular totals, orbit geometry, and the triangular setting, but does not establish prior coverage of this joint counting statement. This is a best-of-knowledge decision after bounded lawful access attempts.
 
-## Limitations
+## value
 
-No claim of independent verification, publication priority, or extension to arbitrary coefficient rings. The unavailable full upper-triangular article is a genuine unresolved overlap risk, not evidence of noncoverage. Experiments do not substitute for proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint support spectrum addresses natural differences among inner, reflexive, and unit inner inverse equations inside a pattern algebra. It gives exact probabilities and pair totals without exhaustively enumerating matrices. The same graph governs all scalar refinements, and the triangle/incident-pair correction explains why size and ambient dimension alone do not determine even the regular fraction. The value is the uniform graph-sensitive enumeration, not the use of familiar elimination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

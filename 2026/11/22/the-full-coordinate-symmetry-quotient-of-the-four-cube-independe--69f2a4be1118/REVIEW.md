@@ -1,33 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the ordinary geometric orbit space, with the action on barycentric flags without inversions because ranks are distinct. The full \(384\)-element graph automorphism group and all \(742\) nonempty independent faces were rebuilt from the definitions. The complete orbit dictionary has \(2,199,938\) distinct flags, agreeing with an independent ordered-Bell count. Its \(6721\) regular cells have face vector \((20,133,501,1217,1895,1800,945,210)\). Every one of the \(3360\) cell removals was checked against the live coface incidences, leaving one vertex; this is an exact collapsibility proof. The replay and regenerating source are supplied. The finite check is not extended to other cube dimensions.
+PASS
 
-## Originality — PASS relative to inspected sources
+The acting group is exactly the 384 coordinate permutations and bit translations: after translating the image of zero back, an automorphism permutes the four singletons, and a vertex of higher weight is determined by its set of singleton neighbors at minimum distance. In the barycentric subdivision, each chain vertex has a distinct face cardinality. If two points of the same closed flag simplex are identified, the group element must take the positive support to itself rank by rank and preserve all coefficients, so the cell closure embeds. This gives the claimed regular CW orbit model with distinct facets obtained by deleting the ranked vertices. A chain with terminal face of size k is an ordered partition of that face into its nonempty increments, giving an independent total flag count. The separate replay checked every supplied representative and orbit for disjointness and coverage (742 nonempty faces, 2,199,938 flags, 6,721 orbit cells with the stated dimension vector). It rebuilt all signed-rank-independent facet incidences and replayed all 3,360 pairs in order: both cells were live and the face was a facet with a unique live immediate coface. In each embedded simplex closure there would be at least two immediate cofaces of a face lying two or more ranks below that simplex, so no unsupplied higher coface can obstruct a step. Inductively these are actual CW elementary collapses. Only vertex 0 remains, proving the geometric quotient claim and its consequences.
 
-Previous calculations of the exact same cube determine the labeled seven-sphere wedge [5], its full rational character and hence the *already known rational acyclicity of the quotient* [6,7], and its integral homology representation [8]. These results alone do not imply the quotient's integral simple-homotopy type, since rational acyclicity does not preclude torsion or nontrivial fundamental group. The accessible complete proofs of those results were inspected, and none gives a collapse of the full ordinary quotient. Classical papers [1–3] treat general graph-complex collapse methods and grid independence, but not this exact quotient. Jonsson's periodic-grid study [4] is a remaining full-text access risk: its abstract discusses crosspolytope cycles rather than geometric group quotients; no absolute absence claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The full graph-automorphism quotient is a canonical topological invariant of the four-dimensional binary cube independence complex. It was already known to be rationally acyclic, but this left all integral and fundamental-group obstructions unresolved. The explicit strong-deformation collapse gives a complete simple-homotopy classification, resolving a substantive geometric topology question rather than recomputing a Betti number. Although finite, the example has a nontrivial 7-dimensional regular quotient and requires stabilizer-aware incidence and 3360 certified cell pairs.
+The strongest same-object full-action result gives rational acyclicity only, and the strongest inspected primary grid table gives the unquotiented homology. The separate same-day antipodal record has a different acting subgroup and different quotient. None supplies a collapse of the full ordinary geometric quotient. This is a statement-level conclusion on the inspected evidence, not exhaustive priority.
 
-## Sources and limits
+## value
 
-[1] https://arxiv.org/abs/math/0503613
+PASS
 
-[2] https://arxiv.org/abs/math/0701890
+The natural full symmetry of the smallest cube with this known noncontractible independence complex poses an ordinary quotient question the prior rational character cannot settle. A replayable elementary collapse completely resolves its ordinary integral and simple-homotopy behavior; it provides a precise benchmark distinct both from nontrivial topology upstairs and from the proper antipodal quotient. This is a meaningful exact invariant, not merely a rerun of rational ranks.
 
-[3] https://arxiv.org/abs/1007.0418
-
-[4] https://doi.org/10.1007/s00454-009-9224-9 (abstract and bibliography inspected, complete text inaccessible)
-
-[5] https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-the-four-cube-independence-complex-is-a-wedge-of-seven-three-sph--9947aaad144c/RESULT.md
-
-[6] https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-the-full-hyperoctahedral-homology-representation-of-the-four-cub--d5fe6b1e159f/RESULT.md
-
-[7] https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-complete-hyperoctahedral-homology-character-of-the-four-cube-ind--70251f458fd4/RESULT.md
-
-[8] https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-eight-minimum-support-octahedral-spheres-give-the-integral-hyper--1740b146ec04/RESULT.md
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional segment independence and the Brownian-bridge reflection law give the exact posterior crossing probability, with the normal second-moment formula checked against independent quadrature. The exponentially tilted Gaussian establishes the interior-saddle and quarter-point regimes. Boundary-layer scaling plus dominated convergence gives the exact rational prefactor after the quarter point. The two exponent branches are strictly decreasing toward the midpoint. The proof distinguishes pointwise fixed-time results from the unproved global finite-threshold design problem. Independent numerical computations support but do not establish the infinite limits.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The primary 2019 barrier-option article provides the standard crossing probability and a general variance comparison but not the exact one-observation information or the sharp quarter-time transition. Riedel (arXiv:1911.05272) conditions path values on extrema rather than estimating the event of an upper crossing from a sampled value. The 2013 Milstein MLMC analysis addresses asymptotic mesh refinement and barrier-payoff multilevel variance, not fixed-time high-barrier information. Available historical claims and the indexed related-result search showed no stronger covering statement. Equivalent formulations in unindexed literature remain possible, especially in rare-event conditioning and bridge-barrier design.
+PASS
 
-**Value — PASS.** Barrier crossing is a natural discontinuous path functional in monitoring and numerical finance. The sharp threshold at observation time \(1/4\), exact leading constants and unique midpoint exponential-information advantage distinguish two mechanisms for rare-barrier detection: a tilted interior observation versus an observation lying within a shrinking barrier boundary layer. This calibrates which fixed sampling positions retain useful high-threshold information. The result is an exact one-observation information law, not a generic new option-pricing algorithm or a proof of finite-threshold optimality.
+Conditioned on the observed value, the left and right bridge pieces are independent; reflection gives their respective crossing probabilities q_t and q_b below the barrier, yielding g=q_b+q_t-q_b q_t. The midpoint squares to three exponential terms with coefficients 4,-4,1; Gaussian tilting of the truncated integrals and addition of the upper tail give the exact coefficients 5,-4,1 in the Finding. Away from the midpoint, the tilt by q_b squared shifts the observed mean to 4ht. Below t=1/4 the shifted observation is linearly below h, and at equality the retained half-Gaussian still has h(h-Y) diverging almost surely under a fixed centered coupling; in both cases g/q_b tends to one in the truncated tilt, with bound 2. This gives the interior saddle equivalent and the boundary factor 1/2. Above t=1/4 the change u=h(h-Y) has an integrable rescaled envelope since 4t-1>0. Its six term integrals, divided by v, are 1/(4b-1), 1/(4t-1), 1/3, 2, -2/(2b+1), -2/(2t+1); the Gaussian upper tail adds 1. The decay exponents are all strictly below 4 at fixed interior times, so subtraction of the squared mean is negligible. At the midpoint C=10/3 and the exponent is uniquely smallest by monotonicity on the half-interval and symmetry. Endpoints are deterministic, and neither a moving-time limit nor a finite-h global optimum follows. A fresh bounded midpoint diagnostic using composite Simpson quadrature, 60000 subintervals on each side of h over [-8,8] and on [z,20] for each standard-normal tail at z=2h,4h,6h, matched the exact second moment to relative error below 2e-14 at h=0.35,1,1.9. The supplied script was inspected, not run; finite diagnostics do not certify the limit.
 
-Closest works: Gerstner–Harrach–Roth, arXiv:1906.11002 (2019), Section 2 and the variance discussion; Giles–Debrabant–Rößler, arXiv:1302.4676 (2013), Brownian-bridge and barrier subsections. Both are discussed by mathematical implication and differ from the present high-barrier design asymptotics. Independent audit and complete historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the explicit fixed-time large-barrier equivalents and leading constants of the one-observation explained variance, not for the classical reflection identity, Gaussian tilting, or any general claim of sampling-time optimality. The closest distinct indexed problem changes the bridge, the observation protocol and the optimization question. No available evidence establishes coverage of the three fixed-time regimes.
+
+## value
+
+PASS
+
+This quantifies how much one real-valued observation of a canonical pinned diffusion can explain about a rare exceedance. The exact prefactors distinguish the interior, critical, and boundary-dominated regimes; even the best fixed time on the exponential scale explains only order 1/h of the target variance. This is useful for fixed-sample rare-event estimation benchmarks and goes beyond routine evaluation of one reflection probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

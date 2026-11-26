@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:47:39.368810Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84",
+        "VERIFICATION.md",
+        "verify.py lines 14–98",
+        "repairs/1/RESULT.md, Finding and Proof steps 1–5"
+      ],
+      "rationale": "Pass applies to the replacement RESULT.md, not an unqualified translation invariance of extremizing directions in the frozen Finding. In the stated ordinary norm, for an extremizing sign vector ε with both signs, J(ε+c1)=Jε but ||ε+c1||∞=1+|c|, so c≠0 strictly lowers the ratio. The repair specifies actual centered direction vectors and separately explains the quotient interpretation and the translation invariance of the base scores. For a maximizing interior Jacobian, cube duality and PSD Cauchy–Schwarz force any normalized maximizing direction to maximize its quadratic form on the cube; J_ii>0 makes every nonvertex direction strictly improvable in some coordinate. The repaired proof derives the threshold derivative at α<2 even across support boundaries, since the positive-part power is C¹ and the derivative of total mass in the threshold is negative. At α=2 the piecewise-affine restriction to an arbitrary segment handles boundaries without passing to a discontinuous full-support Jacobian. The exact sign-cut norm is 4AB/(A+B). Jensen is strict within each nonconstant positive-mass block for α<2, and the unique optimal mass ratio is (h/k)^γ. The positive derivative of log F on 0<k/h<1 gives unique balanced sizes (up to complement), the strict odd deficit and the asserted pattern. Sharpness comes from differentiating at an interior witness; the constant map for n=1, full-support sparsemax and the limiting softmax statement also check. No uploaded code was executed.",
+      "residual_risks": [
+        "The direction classification concerns interior differential maximizers, not arbitrary support degeneracies or equality between distinct finite scores. The author's recorded finite checks do not certify the equality classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 90–93 credits the general separable-entropy Jacobian to Peters–Niculae–Martins. Resultary b6094ff64b5e gives cross-norm stability and partition-discrepancy for a diagonal-quadratic simplex predictor."
+        ],
+        "reasoning": "Even a sharp formula for a fixed diagonal can at most give the cut norm at a specified output. Here the weights vary as p_i^(2−α) and their feasible variation and equality conditions determine the additional global optimum.",
+        "searches": [
+          "Peters–Niculae–Martins arXiv:1905.05702 Appendix B, targeted Jacobian passage",
+          "Blondel–Martins–Niculae arXiv:1805.09717",
+          "Resultary b6094ff64b5e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed findings c3f08b1304de, 4ac33efe6eb4, 9f41e7317a3b, b6094ff64b5e",
+        "Frozen RESULT.md lines 90–103 as attribution and limitation",
+        "Repaired RESULT.md, prior-work and limitations section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gibbs result bounds logits for a Shannon map; the Shannon–quadratic and fixed diagonal-quadratic results use different Hessian dependence on probability. The frozen cited same-exponent softmax bound concerns another operator norm."
+        ],
+        "reasoning": "Similar balanced blocks are not an implication. The prior calculations available here do not optimize the Tsallis-specific feasible weight sums or give the odd strict deficit and exact equality mass split. Sparsemax and softmax endpoint facts are not relied on for novelty.",
+        "searches": [
+          "RESULT.md lines 90–103",
+          "Resultary 4ac33efe6eb4, 9f41e7317a3b and b6094ff64b5e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this normalized power regularizer, the claimed constant is the reciprocal of its sharp ℓ1 strong-convexity modulus by conjugate smoothness duality. The frozen RESULT invokes only Euclidean strong convexity; no primary passage giving the exact ℓ1 modulus was recovered."
+        ],
+        "reasoning": "A published exact ℓ1 modulus with the same normalization, including odd n, would cover the constant after inversion. Generic power-entropy convexity or a dimension-only estimate without the odd deficit does not give it.",
+        "searches": [
+          "Resultary: sharp Tsallis cross-norm stability and power-entropy strong convexity",
+          "Primary-literature query for sharp ℓ1 strong convexity of Tsallis power entropy on the simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit c3f08b1304de is the same frozen finding. Distinct same-day hits 4ac33efe6eb4 and 9f41e7317a3b report bounded-logit Gibbs partition discrepancy and a Shannon–quadratic predictor respectively."
+        ],
+        "reasoning": "The identical record does not give independent coverage; the distinct hits are not ignored by date but compared on domain and map. Neither available statement gives the displayed Tsallis α law.",
+        "searches": [
+          "Resultary: exact Tsallis coefficient and parity rigidity",
+          "Resultary 4ac33efe6eb4 and 9f41e7317a3b"
+        ]
+      },
+      "rationale": "The repaired distinct result is the exact global optimization over simplex outputs for the normalized Tsallis power, with its strict odd-dimensional deficit and rigid interior patterns. The entmax construction and separable-entropy Jacobian, generic fixed-weight matrix step, and earlier endpoints are not credited as new. Correctly centering directions does not expand the originality claim. The judgment rests on the specific available comparisons, not on a claim of exhaustive priority.",
+      "residual_risks": [
+        "Credited primary Jacobian and entropy passages could not be inspected directly. A sharp ℓ1 modulus or equivalent simplex-cut optimization in unlocated or inaccessible earlier work may cover the core statement. None of the snippets is a whole-paper noncoverage assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit Jacobian; exact prior norm optimization unverified",
+          "evidence": "Frozen result explicitly states the separable-entropy Jacobian is already known.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.05702",
+          "material_read": "Appendix B Jacobian attribution in frozen RESULT.md lines 90–93, not the primary passage",
+          "method": "Targeted lawful OA attempts including PDF for Jacobian timed out",
+          "title": "Sparse Sequence-to-Sequence Models",
+          "trigger": "General entmax Jacobian and possible stability evaluation"
+        },
+        {
+          "assessment": "Credit variational construction; residual sharp-modulus risk",
+          "evidence": "Frozen result attributes the family and normalization to this work.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.09717",
+          "material_read": "Citation and description in frozen RESULT.md lines 92 and 100 only",
+          "method": "Targeted lawful OA retrieval did not yield full text",
+          "title": "Learning Classifiers with Fenchel-Young Losses: Generalized Entropies, Margins, and Algorithms",
+          "trigger": "Same power entropy and possible conjugate/strong-convexity formulation"
+        },
+        {
+          "assessment": "Closely related fixed-weight optimization; does not give varying Tsallis optimum on available evidence",
+          "evidence": "Diagonal-quadratic predictor and partition-discrepancy formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cross-norm-stability-and-partition-complexity-of-diagonal--b6094ff64b5e",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary, no full text retrieved",
+          "title": "Sharp cross-norm stability and partition complexity of diagonal-quadratic simplex maps",
+          "trigger": "Potential reusable exact diagonal-minus-rank-one cut norm"
+        },
+        {
+          "assessment": "Related exact calculations, different map and parameters",
+          "evidence": "Bounded-logit Gibbs even–odd behavior and Shannon–quadratic balanced-block sensitivity, respectively.",
+          "identifier_or_url": "Resultary 4ac33efe6eb4; Resultary 9f41e7317a3b",
+          "material_read": "Indexed finding summaries",
+          "method": "Local Resultary; matching mirror passages unavailable",
+          "title": "Partition discrepancy governs bounded-logit Gibbs stability; Sharp robustness and finite-input nonattainment for Shannon–quadratic predictors",
+          "trigger": "Distinct same-day cross-norm and balanced-block findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30",
+        "Repaired RESULT.md, Finding and Proof steps 3–5"
+      ],
+      "rationale": "The exact mixed-norm constant measures the full probability-mass change under bounded score perturbations for a widely used sparse map. The strict odd deficit and the sharp two-block shape identify the precise obstruction to attaining the usual dimension bound, rather than just recovering a generic smoothness estimate. The revised differential direction statement identifies which score perturbations approach the bound without implying unquotiented translation invariance.",
+      "residual_risks": [
+        "The result does not imply stability constants in different norm pairs, for weighted maps, or for composed networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

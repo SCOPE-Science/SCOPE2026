@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:32:20.669507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each inactive vertex of the four-regular cube activates exactly when its residual degree is at most one, so the synchronous dynamics are parallel deletion of leaves and isolates. A cycle never disappears, and any nonempty forest has a deletable vertex. A nontrivial tree's diameter drops by two on a leaf-deletion round when the diameter is at least two; an isolated vertex or a single edge takes one round. This gives 1+floor(d/2) with the stated empty boundary. Monotonicity reduces seed minimality to single deletions, or maximality of the residual induced forest: adding a vertex to a forest creates a cycle exactly when two of its neighbors already lie in one component. An independent exhaustive synchronous enumerator reproduced 936 minimal masks with the three coefficients 8, 160 and 768; all six representative orbit sizes, component-order lists and diameters reproduced. Translations and coordinate permutations give the full group: an automorphism fixing zero permutes its four neighbors, and distances to zero and the neighbors recover every vertex. The eight parity/antipodal patterns infect the opposite parity in round one and then the omitted vertices; they exhaust the size-six row.",
+      "replay": "python3 /workspace/branches/bce63e06-85ba-4c6b-9d03-b4b20042865b/reproduce_q4.py (independently written; 4096-mask probe, then all 65536 seed masks). Frozen checker files were evidence, not executables used for this reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md:52,62–64 attributes the general threshold-three minimum-size formula and a Q4 minimum witness to Morrison–Noel and identifies Riedl and Shende as threshold-two work."
+        ],
+        "reasoning": "The known formula gives ceil(4(4+3)/6)+1=6. It says neither how all inclusion-minimal sets above the minimum fall into orbits nor how fast any such set propagates. Threshold two does not use the same residual 2-core deletion rule.",
+        "searches": [
+          "Morrison–Noel arXiv:1506.04686, section 5 (primary retrieval attempted)",
+          "Riedl DOI 10.37236/352",
+          "Shende DOI 10.13069/jacodesmath.15518"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary 593577b7fb16, 566f8bec46ad, f66500d35fd9, and self-hit 0c92cb069c30",
+        "arXiv:1506.04686 (reported formula and attempted retrieval); DOI 10.37236/352 and DOI 10.13069/jacodesmath.15518 (cited scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a cap of seven and single add/delete moves, there are only size-six and size-seven states. The eight size-six states are parity classes with distinct antipodal pairs omitted (RESULT.md:22,44); two distinct such states cannot both lie in a seven-set. Thus the graph has eight components centered at six-sets and one isolated component per inclusion-minimal seven-set."
+        ],
+        "reasoning": "Under that move convention, 936 components imply 928 minimal seven-sets plus eight size-six optima. The indexed summary alone does not verify all move definitions or rule out minimal sets above seven; the independent census does. Even granting the stronger coarse overlap, the prior component count does not imply the orbit multiplicities, residual-tree diameters or the 160/768 split. Do not credit the shared count alone as new.",
+        "searches": [
+          "Resultary 2026/10/18 record 593577b7fb16, one-spare components; requested decisive passage on 936 via local mirror",
+          "Morrison–Noel arXiv:1506.04686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:34–42 proves complement equivalence with facets of the induced-forest complex and inclusion-minimal feedback vertex sets, not just minimum feedback vertex sets.",
+          "Earlier indexed record 593577b7fb16 reports eight minimum feedback vertex sets and 936 one-spare feasible-state components."
+        ],
+        "reasoning": "An earlier full orbit classification of these facets would be directly relevant because representative diameter determines activation time. In contrast, a count of minimum deletions or a homotopy type is not a classification of maximal residual trees. The one-spare components do capture much of the coarse census, as detailed below.",
+        "searches": [
+          "Resultary: Q4 four-cube maximal induced forests feedback vertex sets minimal percolating threshold 3 orbit census",
+          "Resultary: Q4 all inclusion-minimal feedback vertex sets count maximal induced forests facet census 7 vertex feedback set",
+          "Primary websearch: \"feedback vertex sets\" \"Q_4\" hypercube induced forests all maximal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise orbit/time indexed hit 0c92cb069c30 is the assigned record. The separate forest-complex results 566f8bec46ad and f66500d35fd9 index homotopy/character and homology stages, not this table. The indexed 593577b7fb16 gives reconfiguration counts and parity-dependent minimum-to-minimum distances."
+        ],
+        "reasoning": "A table of all forest-facet representatives under cube symmetry with component shapes, or all their labeled masks, could supply the refinement mechanically. No available statement provides that table. The topology summaries do not specify labeled facet content. A full earlier computational package might nevertheless list it.",
+        "searches": [
+          "Resultary: four-cube maximum induced forest all maximal forests facet enumeration diameter tree components",
+          "Resultary: sharp two vertex feedback set buffer in four dimensional cube 593577b7fb16 936 connected components single vertex add delete reconfiguration"
+        ]
+      },
+      "rationale": "The supported distinct assertion is the joint symmetry, residual-tree diameter and synchronous completion-time classification in the Finding, not the minimum seed size, its optimizers, or the unrefined 936 count. The 936-component prior result is much closer than a coincident number: under the usual one-spare add/delete convention it gives the size-six and size-seven minimal feedback-set count. It does not thereby give the six orbit sizes or timing split.",
+      "residual_risks": [
+        "Full-text and matching local-mirror retrieval were unavailable, including the exact move definitions and appendices of 593577b7fb16. Earlier enumerations may have deposited facet masks or representative trees. No priority claim rests on those sources being absent.",
+        "The unrefined count has a concrete prior implication and is not the basis for this pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Claim scope and reproduced data, not independent priority evidence",
+          "evidence": [
+            "Six-row table at lines 13–20; forest and minimality argument at lines 36–42"
+          ],
+          "identifier_or_url": "frozen RESULT.md and verification package",
+          "material_read": "RESULT.md:5–58 and bound verification material",
+          "method": "Read assigned files and independent finite reproduction",
+          "title": "Six leaf-pruning orbits of irredundant three-neighbour contagion on Q4",
+          "trigger": "Exact finite claim and forest reduction"
+        },
+        {
+          "assessment": "Strong prior coverage of the coarse size-six/seven count under the add/delete convention; no inspected orbit/time table",
+          "evidence": [
+            "Eight minimum deletion sets; 936 feasible-state components with one spare; 5106 states connected with two spares"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-two-vertex-feedback-set-buffer-in-the-four-dimensional-c--593577b7fb16",
+          "material_read": "Resultary indexed statement; full finding unavailable",
+          "method": "Local Resultary search and decisive-passage request through local mirror",
+          "title": "A sharp two-vertex feedback-set buffer in the four-dimensional cube",
+          "trigger": "Prior same-object minimal-feedback-set implication"
+        },
+        {
+          "assessment": "Minimum size and witness credited; inaccessible material not excluded",
+          "evidence": [
+            "m(Q_d,3)=ceil(d(d+3)/6)+1, evaluated at d=4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.04686",
+          "material_read": "Formula and section 5 witness as identified at frozen RESULT.md:52,62; no primary text retrieved",
+          "method": "OA abstract, PDF and alternate text retrieval attempted",
+          "title": "Extremal Bounds for Bootstrap Percolation in the Hypercube",
+          "trigger": "Same threshold and dimension as a special case"
+        },
+        {
+          "assessment": "Indexed invariants differ; ancillary facet tables uninspected",
+          "evidence": [
+            "Forest-complex homotopy and hyperoctahedral character; homology stage and surviving classes"
+          ],
+          "identifier_or_url": "Resultary 566f8bec46ad and f66500d35fd9",
+          "material_read": "Indexed summaries only",
+          "method": "Local Resultary search; local-mirror attempts did not return full passages",
+          "title": "Four-cube induced-forest homotopy and homology stage records",
+          "trigger": "Possible orbit/facet tables in related forest-complex computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical threshold-three four-cube exhibits two timing regimes even among seven-seed irredundant initiators. Exhausting the cube symmetry types and tying their exact propagation times to tree diameters is a structural refinement of the minimum-seed and reconfiguration counts, useful as an exact small benchmark for both bootstrap dynamics and maximal induced forests. The 936 total by itself would not support this axis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

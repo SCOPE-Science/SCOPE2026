@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof defines all cyclic windows and variations and handles the zero-seminorm quotient. Finite maximums are piecewise affine along input segments; their derivatives select perturbation coordinates. For contiguous windows, the rightmost maximizers move monotonically across unwrapped input indices, so the selected cyclic edges cannot repeat. For the gapped two-tap window, each adjacent pair of selected coordinates is separated by at most three input edges, while the oscillation-level-set bound improves small-dimension cases. Four explicit strict-selector constructions attain every sharp two-input factor. The one-input factor follows from the lattice sorting inequality with an isolated-impulse extremizer. A stand-alone exact-selector regression and randomized test are included; no infinite assertion depends on enumeration.
+PASS
 
-## Originality
+The derivative of each dilated coordinate along the two-input segment is the perturbation at a maximizing index almost everywhere; identical affine pieces have the same slope. Cyclic variation of the integral is bounded by the integral of selector variations. For proper consecutive windows the rightmost lifted maximizer is nondecreasing and winds once, so its arcs charge each input edge once. A spike attains one; the whole window is constant and has factor zero. For two taps each adjacent selected pair lies on a three-edge lifted arc, giving factor three. The coarea inequality bounds selector variation by 2 floor(n/2) times input oscillation, and input variation is at least twice that oscillation; this gives two for n=4,5 and one for n=3, also a shifted interval. The given strict comparisons select the indicated Boolean perturbations, with output variation respectively 2,4,4,6 on input variation 2, and stay fixed at small displacement, including at the wrap for n=6 and n>6. The one-input estimate follows from the max/min sorting inequality and a spike has two separated sites for n>=4. An independently written bounded check enumerated realizable strict selector graphs, using acyclicity and exact arc tests at n=3 through 9, and reproduced the sharp two-tap factors; the universal statements rely on the analytic estimates, not this sweep.
 
-**PASS subject to residual historical risk.** The flat-dilation definition is classical, but the exact two-input bounded-variation constants, contiguous-versus-disconnected window mechanism, dimension threshold, and one-input/two-input separation were not implied by the materially inspected propositions in Maragos–Schafer (1987), Heijmans (1995, §6), or Aldaz–Pérez Lázaro (2006). The older publications cover the lattice/max representation and a distinct Hardy–Littlewood average maximal operator. Relevant mathematical-search records and existing accessible claims were compared by implication, not title. The possible presence of an equivalent formula in older nonlinear signal-filter or stack-filter literature remains a nonzero uncertainty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result isolates support connectivity as an exact stability criterion for the canonical sliding maximum: contiguous windows have sharp constant one, while the first disconnected support has sharp constants up to three. These are the relevant perturbation norms for finite cyclic grey-scale filtering, with exact smallest dimension and attainable bounds. The one-input multiplier of at most two makes the nonlinear two-input instability mathematically visible; this is not a mere relabeling of the classical dilation definition.
+Flat dilation and related variation bounds are standard, and the width-two consecutive special case is directly covered in the catalogue. The strongest looked-up results do not cover the support-gap comparison or its exact cyclic gapped classification. Equal factors for a three-point median are not equivalent statements for dilation. No priority conclusion rests on catalogue dates.
 
-## Closest literature and limits
+## value
 
-Maragos–Schafer, doi:10.1109/TASSP.1987.1165259; Heijmans, SIAM Review **37** (1995), §6; Aldaz–Pérez Lázaro, arXiv:math/0601044. The result is restricted to finite cycles and the specified flat windows. No independent external scientific verification is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The contiguous interval versus the first genuinely separated two-tap support tests whether ordinary variation stability also governs perturbations. The exact small-cycle cutoff, attained amplification three with a one-input factor two, and proof across arbitrary cycle lengths distinguish two natural stability notions. This is a structural boundary example, not a claim about all disconnected windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

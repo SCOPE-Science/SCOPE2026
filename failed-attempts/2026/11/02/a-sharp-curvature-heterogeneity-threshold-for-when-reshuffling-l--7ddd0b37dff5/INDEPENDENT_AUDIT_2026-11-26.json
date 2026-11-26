@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:08:49.057992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–88",
+        "Frozen VERIFICATION.md, requirements.txt and verify.py (inspection only)",
+        "/workspace/reproductions/reshuffling_roots.py (independent exact reproduction, run with SymPy 1.14.0)"
+      ],
+      "rationale": "Rescale x by the nonzero factor eta*d and compose the individual affine maps. There are four equiprobable epoch maps with replacement and two without; solving the stationary raw first and second moment equations independently for these maps gives the frozen formulas and the stated ratio identity with a strictly positive denominator. I reproduced the quartic, its discriminant, and the open-interval root counts by exact rational algebra, using h=2x/((1+v)(1+x)) with x>0 for the latter. The discriminant has exactly the two indicated interior w zeros, and a Euclidean gcd in Q[w]/(H) proves one exactly double h root at each. Rational enclosures put the first h root in (1.16,1.18), strictly admissible, and the second in (1.19,1.22), strictly inadmissible. The sole boundary event for 0<v<1 is at v=1/2. Between events the root count is constant; the independently tested counts at v=1/8,1/2,53/100,3/4,99/100 are 1,1,2,0,0 respectively. At v=0 the excluded endpoint is a double root of (h-1)(h-2)^2, and the sign begins negative. At the admissible tangency the two roots merge with even multiplicity and no positive region remains. The critical decimals and the ratio 2235/2057 agree. No correctness defect identified.",
+      "residual_risks": [
+        "The certificate concerns the stated exact stationary, two-component scalar comparison, not transient or higher-dimensional behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f9ad6695f6df states the uniform-reshuffling versus iid epoch comparison on 0<h<2/(1+v^2); its sign diagram is fully characterized on that larger domain.",
+          "The inspected examples/formulas in the two papers use common Hessians rather than the stated heterogeneous scalar phase diagram."
+        ],
+        "reasoning": "Since v^2<=v on [0,1), every individually contractive step lies in that stronger statement's domain. The common-Hessian papers are background, not the basis for the FAIL.",
+        "searches": [
+          "Resultary f9ad6695f6df Finding and Assumptions",
+          "Ying et al. arXiv:1803.07964 §V-A",
+          "Koloskova et al. arXiv:2305.19259 pp. 6–7 and §5.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f9ad6695f6df and 0dcf8057d8e5",
+        "arXiv:2305.19259, 1803.07964 and 2303.07160, passages specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger result puts the two roots around the strict reversal interval for 0<v<v_*, one tangency at v_*, and no reversal above it.",
+          "At h=2/(1+v) its very same quartic evaluates to 4v^2(v-1)(2v-1)/(1+v)^2; the only interior parameter for a boundary root is v=1/2."
+        ],
+        "reasoning": "For 0<v<1/2 the positive boundary value clips out the upper root. At v=1/2 that upper root reaches the excluded endpoint, and continuity of both simple roots puts both inside for 1/2<v<v_* (the boundary is then negative and cannot cross either again); the tangency itself is strictly inside. Equal curvature is identical. Thus the contractive step diagram and threshold are direct restrictions; this is coverage, not a proof of historical priority.",
+        "searches": [
+          "Resultary f9ad6695f6df Finding and proof, offsets 0–6014",
+          "Frozen RESULT.md lines 50–56, 68–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The f9ad6695f6df Finding gives the identical two affine components after normalizing the mean curvature, the identical relative-risk quartic, the identical degree-seven threshold polynomial and double-step location, and the identical unequal-curvature example.",
+          "The 0dcf8057d8e5 Finding instead optimizes the probability of the two orders, not the comparison with iid sampling."
+        ],
+        "reasoning": "The first match is equality of observables up to a constant, proof polynomial and parameter domains after mapping, not mere numerical resemblance. The second is a different optimization problem.",
+        "searches": [
+          "Resultary two-scalar quadratic reshuffling stationary-error frontier comparison, f9ad6695f6df",
+          "Resultary same-day random-to-deterministic ordering record 0dcf8057d8e5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f9ad6695f6df gives w_*=0.31514695318455168085..., the critical step 1.1683576417711635..., reciprocal curvature ratio 3.559750493374743..., and equivalent example ratio 2235/2057."
+        ],
+        "reasoning": "The relevant exact catalogue match is a stronger continuous classification with the same defining polynomial, not a finite table of examples. The match survives exact algebra, not just decimal agreement.",
+        "searches": [
+          "Resultary f9ad6695f6df, Finding offsets 0–6014",
+          "Resultary 0dcf8057d8e5, Finding offset 0"
+        ]
+      },
+      "rationale": "Demonstrably covered in the current catalogue by a distinct stronger result, Resultary f9ad6695f6df. After identifying its t=h, delta=v, z=w, its epoch-end loss is a positive constant times the same squared error, its risk quartic is identical, and its sharp threshold is exactly the reciprocal ratio under the opposite curvature-ratio convention. The entire frozen domain is contained in its common mean-square stability interval. Intersecting its exact sign window with the individually contractive interval yields the frozen phase diagram; the only extra endpoint test is elementary evaluation of the already-given quartic. The coverage determination does not establish earlier priority: the covering record has a Nov. 8 catalogue path and the frozen record a Nov. 2 path, and no independent chronology of discovery or derivation has been established.",
+      "residual_risks": [
+        "Coverage in the current index does not establish which result was discovered or derived first. The recorded date difference must not be treated as evidence that the November 2 authors copied or could have used the November 8 entry.",
+        "The external comparisons are bounded to the relevant inspected passages; broader priority was not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive stronger coverage on the current catalogue; priority unresolved",
+          "evidence": [
+            "The moments, P_z(t), R(z), tangency, entire reentrant interval, and the contractive example are given explicitly."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-reentrant-stationary-risk-frontier-for-two-component-rando--f9ad6695f6df",
+          "material_read": "Finding, Assumptions and relevant proof, RESULT.md offsets 0–6014 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup followed by bounded local-mirror primary passage reads",
+          "title": "Sharp reentrant stationary-risk frontier for two-component random reshuffling",
+          "trigger": "Exact matching threshold polynomial and broader step domain"
+        },
+        {
+          "assessment": "Distinct objective",
+          "evidence": [
+            "Optimizes the choice probability between the two epoch orders at steps below 1/max(a,b)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Resultary lookup and local-mirror passage read",
+          "title": "Sharp randomized-to-deterministic ordering transition for two components",
+          "trigger": "Same model and epoch-end stationary MSE"
+        },
+        {
+          "assessment": "Inspected discussion and examples do not supply this comparison",
+          "evidence": [
+            "Quadratic reshuffling examples share a single Hessian/design matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.19259",
+          "material_read": "Quadratic experiment setup, p. 6 (OA offset 50100), and §5.2, p. 7 (offset 53500)",
+          "method": "Primary OA passage evaluation",
+          "title": "On Convergence of Incremental Gradient for Non-Convex Smooth Functions",
+          "trigger": "SGD ordering comparison and quadratic model"
+        },
+        {
+          "assessment": "Shared-Hessian predecessor",
+          "evidence": [
+            "The quadratic risk instance shares A^T A across components."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.07964",
+          "material_read": "§V-A, p. 7 (OA offset 69700)",
+          "method": "Primary OA passage evaluation",
+          "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+          "trigger": "Exact stationary quadratic MSD under reshuffling"
+        },
+        {
+          "assessment": "Different comparison objective",
+          "evidence": [
+            "Lower bounds are for last or averaged iterates, not the exact epoch-stationary heterogeneity frontier."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.07160",
+          "material_read": "§3, p. 5 (OA offset 33500)",
+          "method": "Primary OA passage evaluation",
+          "title": "Tighter Lower Bounds for Shuffling SGD: Random Permutations and Beyond",
+          "trigger": "Quadratic shuffling counterexamples and performance reversal"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary f9ad6695f6df Finding",
+        "Frozen RESULT.md lines 50–61, 68–88"
+      ],
+      "rationale": "The broader stationary comparison is a meaningful question, but the frozen result supplies no distinct valuable remainder beyond that exact result. On the narrower admissible domain, the only additional phase boundary is the intersection of a known root with an elementary contraction endpoint; a single substitution and the stronger sign diagram determine it. Rephrasing the same ratio and witness would not repair the duplication.",
+      "residual_risks": [
+        "This value decision concerns incremental value given demonstrated current coverage, not the intrinsic interest or discovery priority of the underlying result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

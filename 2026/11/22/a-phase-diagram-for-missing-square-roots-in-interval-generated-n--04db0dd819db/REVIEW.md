@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact quotient–remainder representation criterion, proves it for every integer generator interval, converts missing squares into disjoint **open** intervals, and handles endpoints with integer square roots. The floor/ceiling formula counts every root exactly, including square endpoints. Uniform integer-point discrepancies give the finite error; explicit differentiation shows genuine jumps at reciprocal integers; square-root summation yields the mesoscopic and cumulative root-profile limits. The independently implemented finite coin-change checker corroborates the exact formula on 3,429 generator pairs and its partial variant on 860 cases; these tests are not invoked as proofs of infinite asymptotics.
+PASS
 
-## Originality — PASS on inspected material
+For m=qa+r, a representation using s summands has s≤q and r≤ks≤kq; conversely the offset r can be distributed over q summands whenever r≤kq. Thus the missing squares lie in the disjoint open blocks (q(a+k),(q+1)a) for qk<a. Their integer root count is exactly isqrt((q+1)a−1)−isqrt(q(a+k)); neither perfect-square endpoint is included. Each root interval costs at most one in rounding, giving (3), also when a/k is integral or k≥a. In F the disappearing q=j term at t=1/j vanishes continuously but its derivative on the left is −j/(2√(j+1)), giving the claimed positive jump. Writing J=floor(1/t), ∑_{q=1}^J√q=(2/3)J^(3/2)+O(√J) and J=t⁻¹+O(1) give F(t)=2/(3√t)+O(√t). For a cutoff N=floor(sa/√k), the last quotient J=floor(N²/a)=s²/t+O(1) may be counted in full at a root-count error O(√a+1). Telescoping the lengths gives the leading contributions (a/√k)s and −(a/√k)s³/3, with errors O(√a+a/k), uniformly including s=0,1. Finally every missing root satisfies n²<a ceil(a/k), so its rescaled location is at most √(1+k/a). The uniform count and vanishing exterior range, together with the total count asymptotic, give weak convergence with mass 2/3 under the stated normalization. I inspected the supporting checker and used the proof, not execution of that code or its sampled inequalities, for the infinite claims.
 
-Ramírez Alfonsín (2008) enumerates all *ordinary* gap intervals; Chappelon and Ramírez Alfonsín (2020) give the general arithmetic-progression criterion and study the largest *square* gap, with Binner (2021) resolving their maximum-gap conjectures. The most pertinent accessible related mathematical result gives a precise distribution for exactly the two-generator family \(\langle a,a+1\rangle\) (fixed \(k=1\)). The new target is the entire moving-width family with \(k/a\to\theta\), its infinite sequence of derivative-jump thresholds, and the uniform parabolic root profile when \(1\ll k\ll a\). The known full ordinary gap list is strong background coverage and makes the exact finite count accessible; the new asymptotic two-parameter classifications require distinct square-root boundary and scaling analyses and are not stated as such in the inspected sources. No search proves uniqueness. Independent replication and unindexed equivalents remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant counts positive *perfect-square* omissions rather than all gaps or merely the last omitted square. It naturally refines the square Frobenius problem, gives a full boundary-regime phase diagram with infinitely many genuine nondifferentiabilities, and identifies the same parabolic density across a diverging-width range with a different root scaling. These are coherent infinite-parameter phenomena, not an arbitrarily chosen finite slice. The conclusions deliberately avoid an unsupported fixed-width error theorem.
+The membership criterion and the ordinary-gap enumeration are prior work, and the elementary exact square-root count alone is covered as a direct extraction. The part that survives is the two-scale asymptotic classification: the full phase curve and its infinite derivative-jump set, and the uniform rescaled root profile when k grows sublinearly. The closest fixed-width profile gives the same density but cannot be specialized to this moving-width family. No inspected result covers the asymptotic claim at those quantifiers.
 
-## Limits
+## value
 
-The arithmetic progression is consecutive, not step greater than one. The bound cannot recover fixed-width asymptotics by itself. The earlier complete ordinary gap classification is acknowledged as the foundational source. No independent audit has been performed; alternative equivalent formulations or uncatalogued work could alter the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting all missing-square roots refines the natural maximum-gap statistic in a distinct way. The reciprocal-width corners identify every change in the active quotient blocks, and the mesoscopic law controls the entire cumulative root population rather than simply a maximum or total. These are useful scaling statements at natural, different generator widths, not a claim of significance for a floor-sum restatement by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

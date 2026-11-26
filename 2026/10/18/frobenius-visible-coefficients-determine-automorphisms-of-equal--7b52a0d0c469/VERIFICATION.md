@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same folder as the accompanying scientific files; it uses Python standard-library integer arithmetic only, no network, and prints `VERIFY_OK` when all checks succeed. The code represents monomials as exponent tuples and truncates products whenever an exponent reaches \(d\). For each selected configuration it independently evaluates \(f^d\) and the proposed coefficient restriction, rather than merely substituting the closed formula.
+## correctness
 
-## Actual saved-check outcomes
+PASS
 
-Exhaustive generator-image enumeration and invertible leading-matrix combination yielded 24 for \((r,d,q)=(2,2,2)\), 72 for \((2,2,3)\), 2048 for \((2,3,2)\), 25509168 for \((2,3,3)\), and 688128 for \((3,2,2)\). Deterministic sparse substitutions agreed in 12 of 12 sampled assignments for each of \((r,d,p)=(3,6,3),(2,6,3),(3,4,2),(2,6,2)\). The replay ended `VERIFY_OK`.
+The degree-d homogeneous component excludes two distinct nonzero linear coefficients when m>1: the surviving coefficient of x_i^(d-p^s)x_j^(p^s) is nonzero since binom(d,p^s)=m mod p. An invertible cotangent action is sufficient by surjectivity on the maximal-ideal filtration, then finite dimensionality. For f with leading term a x_j, raising to p^s projects to the box of exponents <m, with injective Frobenius on individual coefficients even over an imperfect field. Writing that projection as b+y_j u in B[y_j]/(y_j^m), the coefficient of y_j^(m-1) in its m-th power is b(m u_0^(m-1)+bC); u_0 is a unit by its nonzero residue, b is nilpotent, so the second factor is a unit. This proves necessity and sufficiency of the nonlinear support rule, not only of the leading action. For m=1 all positive-degree monomials die under the d-th power. The remaining parameters yield the two counts and dimensions; over an algebraic closure the reduced locus is identified by its points using the Nullstellensatz on the determinant open set. The permutation charts are open and closed with irreducible torus-affine factors.
 
-These tests are finite and do not prove the universal theorem. The universal proof uses the Nakayama argument, the nonzero mixed Frobenius-binomial coefficient, and the coefficient-of-\(t^{m-1}\) rigidity lemma in `RESULT.md`. The geometric conclusions concern the reduced automorphism parameter variety; no group-scheme smoothness assertion is verified.
+## originality
+
+PASS
+
+The strongest checked matches cover the pure-power branch, the leading monomial action, exponent two and the adjacent exponent p^e+1. Credit those cases and the classical ingredients. The supported distinction is the exact unrestricted set of ungraded coefficients and resulting census for general d=mp^s, especially m>1 and s>0, where divisibility in the smaller visible box is not divisibility in the original algebra. No inspected broader theorem implies that surviving distinction.
+
+## value
+
+PASS
+
+The exact leading-action fibers are useful for counting and constructing ungraded symmetries of this natural family. The mixed branch distinguishes nonlinear directions x_i cannot simply absorb as unit factors and determines the component dimensions for every equal exponent. This is substantive beyond the known leading action or the already matched pure-power and exponent-two cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:36.068305Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At least one complementary vertex is necessary, and their indices form a clique in the original cycle, hence there are at most two. One b_j forces a_{j−1},a_{j+1} and leaves a path of length n−5 in vertices; two consecutive b's leave n−2 path vertices and no complementary domination constraint. The type-one set has 3+ceil((n−5)/3) vertices (the 2+ in the first expression of the frozen counting paragraph is a typo); type two has 2+ceil((n−2)/3), equal to the former and to floor(n/3)+2. For a nonempty path with s=ceil(m/3), the two endpoint slack bits and s−1 gap-shortening bits have total 3s−m; counting them, with the empty path separately, gives precisely the claimed counts. For path slides, shift the ordered positions by 2(i−1): successive differences are 0 or 1. Coordinatewise minimum preserves the constraints, and lowering the first coordinate in the last constant block that differs from the target preserves the constraints. In particular, a next block at height one larger cannot obstruct this move: it would also have to differ from the target by the target's own gap bound. The displayed inter-fibre moves are valid for both mobile residues, including n=6,7: the type-one forced end vertex is in I_j, and the first and last path gaps fit in both consecutive type-two fibres. For n=3k+2 each fibre is a singleton. The unique length-2 or length-5 cyclic gap of the original-layer selection identifies its same-type fibre (one original-layer vertex suffices at n=5 in type two). Adding a second b can only add b_{j±1} and remove its matched a, but the other forced a is not in the target type-two pattern. So no one-for-one exchanges exist there. More generally a vertex removed from an independent dominating set has no neighbor in the retained set, so the inserted vertex must be adjacent to it: jumping and sliding give the same graph here. A separate increasing-cardinality search with pairwise exchange tests regenerated and matched both frozen TSVs byte-for-byte for n=5..12 (python3 /workspace/branches/reproduce_reviews.py 2). The supplied structural code for n=13..21 was inspected, not executed; no numerical check substitutes for the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The identifying-code paper treats the same cycle prism but its order is 7n/9+O(1) and imposes different coverage and distinguishability conditions. The two potentially broader independent-set papers were not accessible in full."
+        ],
+        "reasoning": "Do not infer noncoverage from restricted access. The directly read broader reconfiguration framework does not resolve the cycle-prism case, and the identifying-code theorem has different states.",
+        "searches": [
+          "Independent Domination in Complementary Prisms, Góngora–Haynes–Jum",
+          "Maximal independent sets in complementary prism graphs, Ars Combinatoria vol.137",
+          "arXiv:1507.05083 Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Góngora–Haynes–Jum, Utilitas Math. 91 (2013), retrieval attempt",
+        "Barbosa–Cappelle–Coelho, Ars Combinatoria 137 (2018), bibliographic comparison",
+        "arXiv:1507.05083",
+        "arXiv:2303.06299",
+        "Resultary 2026/10/26/...--5713d863fdac and 2026/11/22/...--5763a9e3887b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic i-graph theory gives the operation and equivalence, but none of the inspected exact comparisons gives the two-fibre structure or a path from one cycle-prism fibre to the next. The frozen proof establishes connectivity with explicit slides and separately proves impossibility in the frozen residue class."
+        ],
+        "reasoning": "A minimum cardinality or even a count alone would not determine connectivity; the move witnesses and cyclic gap fingerprints prove the additional transition. A prior identical family classification, if found, should still be tested for whether that transition follows directly.",
+        "searches": [
+          "arXiv:2303.06299 Sections 1.1,1.3",
+          "arXiv:1507.05083 Theorem 6",
+          "Resultary 2026/10/26/...--5713d863fdac and 2026/11/22/...--5763a9e3887b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum independent domination is minimum size among maximal independent sets. Brewster–Mynhardt–Teshima define the i-graph and note jumping coincides with sliding. The circular-ladder catalogue analogue treats C_n square K_2, not C_n with a complementary layer."
+        ],
+        "reasoning": "These aliases and the graph-exchange equivalence are substantive framework overlaps, but they do not supply the mod-three transition on this different graph family.",
+        "searches": [
+          "Resultary: complementary cycle prism independent domination, minimum maximal independent sets and i-graphs",
+          "arXiv:2303.06299 Sections 1.1 and 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The circular-ladder record gives exact exchange counts on a different family; the complementary nine-cycle record counts 90 minimum identifying codes and 27 components, also different. No all-n cycle-prism optimum count or reconfiguration table was verified in an external source. The frozen TSVs are reproduction evidence, not prior coverage evidence."
+        ],
+        "reasoning": "Even matching numerical entries would not establish overlap unless their states and exchange definitions coincide. Potential tables in Barbosa–Cappelle–Coelho were not inspected.",
+        "searches": [
+          "Resultary minimum independent-domination reconfiguration and complementary prism counts",
+          "Ars Combinatoria 137 pp.283–294 (official volume listing and bibliographic record)"
+        ]
+      },
+      "rationale": "The supported contribution is principally the complete minimum-set exchange transition on complementary cycle prisms, with explicit inter-fibre moves and a freezing proof. Do not claim the exchange definition or equivalence of jumps and slides, and do not assign priority to the count independently of the unavailable earlier maximal-independent-set paper.",
+      "residual_risks": [
+        "The 2018 maximal-independent-set paper may give the cycle-case minimum-set count or structural families; its full text was not obtained. The 2013 independent-domination article and the earlier thesis were not independently verified in full. An exact prior reconfiguration treatment could also be indexed differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible count/classification overlap remains unresolved",
+          "evidence": "Title and bibliographic data only; they do not establish the paper's graphs, formulas or exchange conclusions.",
+          "identifier_or_url": "https://www.combinatorialmath.ca/arscombinatoria/vol137/",
+          "material_read": "Official volume contents, title/authors/pages 283–294, offset about 2244; DBLP alternate unavailable (HTTP 202)",
+          "method": "Public OA landing pages; no article text read",
+          "title": "Maximal independent sets in complementary prism graphs",
+          "trigger": "Closest plausible earlier classification of the same maximal independent sets"
+        },
+        {
+          "assessment": "Scope not independently resolved",
+          "evidence": "Frozen record describes several other prism families; that report is not an independent comparison of the missing theorems.",
+          "identifier_or_url": "https://www.researchgate.net/publication/266919817_Independent_Domination_in_Complementary_Prisms",
+          "material_read": "No primary text retrieved independently (author-uploaded copy HTTP 403; journal issue timed out)",
+          "method": "Attempted OA author copy and identified journal issue",
+          "title": "Independent Domination in Complementary Prisms",
+          "trigger": "Same domination problem on complementary prisms"
+        },
+        {
+          "assessment": "General framework and operation equivalence are prior",
+          "evidence": "Defines i-graph on minimum independent dominating sets; says token jumping coincides with sliding for these states.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.06299",
+          "material_read": "Sections 1.1 and 1.3, PDF pp.2,4; offsets about 3293 and 9744",
+          "method": "OA PDF passages",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Exact operation and graph of states"
+        },
+        {
+          "assessment": "Different admissible states and invariant",
+          "evidence": "Analyzes identifying-code cardinality near 7n/9, not the independence and domination conditions here.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.05083",
+          "material_read": "Abstract and Theorem 6, PDF p.9, offset about 38453",
+          "method": "OA PDF passages",
+          "title": "Identifying Codes in the Complementary Prism of Cycles",
+          "trigger": "Identical underlying graph family"
+        },
+        {
+          "assessment": "Different underlying graph",
+          "evidence": "Cartesian ladder C_n square K_2 rather than a complementary cycle prism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladde--5713d863fdac",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary match, local mirror passage",
+          "title": "Minimum independent-domination reconfiguration on circular ladders",
+          "trigger": "Closest catalogue i-graph classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite family has opposite exchange behaviors at adjacent sizes: one connected graph of every optimum, or no valid single-token exchange at all. The proof explains the mod-three switch by path slack and explicit between-fibre moves, not by a finite census. The classification and state counts also make the transition usable for enumerating or navigating the optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

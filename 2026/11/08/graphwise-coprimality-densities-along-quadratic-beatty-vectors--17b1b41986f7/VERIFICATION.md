@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducible checks and limitations
 
-Run `python3 verify.py` in the directory containing this file and the standalone verifier. This uses the Python standard library and exact integer square roots for every Beatty coordinate, and it evaluates graph constraints using integer greatest common divisors.
+Run `python3 verify.py` with the standard library to replay the sample graph counts; it uses exact integer square roots for the Beatty coordinates and integer greatest common divisors. At `X=100000`, the recorded counts are `42810`, `28608`, and `11494` for a three-vertex path, a three-vertex complete graph, and a four-vertex complete graph, respectively. The prime-truncated products (primes below `10000`, evaluated in floating point) are approximately `0.428257912679`, `0.286755872147`, and `0.114890809814`. The checker tests that each observed density differs from its truncation by less than `0.003`; it does not test the claimed uniform error estimate or enclose the infinite product.
 
-The three checks at \(X=100000\) yield counts \(42810\), \(28608\), and \(11494\) for a three-vertex path, a three-vertex complete graph, and a four-vertex complete graph, respectively. The corresponding prime-truncated Euler products (primes below \(10000\)) are approximately \(0.428257912679\), \(0.286755872147\), and \(0.114890809814\). The verifier asserts that each empirical density differs from its prime truncation by less than \(0.003\); this is a sanity check, not an error bound for the infinite theorem.
-
-The full-domain proof is mathematical. Its crucial estimates are the quadratic-irrational spacing bound for \(\|h\sqrt{u/v}\|\), the fact that any common prime divisor of two specified Beatty coordinates is \(O(\sqrt X)\), and the sum \(\sum_{B<p\ll\sqrt X}(X/p^2+1)=O(X/B+\sqrt X)\). The ratio of distinct prime square roots is quadratic irrational. No finite computation certifies the density limit, historical novelty, or an independent review.
+The power-saving estimate is mathematical. Its main steps are circular spacing for all common divisors, effective residue discrepancy from the algebraic norm and the Erdős–Turán–Koksma inequality, truncation of the product of edgewise Möbius sums, and absolute convergence with a weighted series tail bound. The finite examples are optional illustrations, not hypotheses or certificates for any of these steps.

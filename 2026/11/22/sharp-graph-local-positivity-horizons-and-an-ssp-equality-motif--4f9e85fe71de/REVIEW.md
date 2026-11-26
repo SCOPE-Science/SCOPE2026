@@ -1,19 +1,21 @@
-# Scientific review: exact Markov-generator RK2 positivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every finite row-generator \(Q\), with all offdiagonal rates \(a_{ij}\ge0\). The exact identity \((Q^2)_{ij}=-\Delta_{ij}\) gives one linear-in-\(h\) sign factor after removing \(h\), while each diagonal stays at least \(1/2\); hence every offending edge can cross zero only once. A maximal-exit-rate diagonal exceeds one after \(2/M\), proving a finite offending edge exists. The formula and the if-and-only-if SSP equality criterion follow from these explicit exact inequalities; no limiting or spectral assumptions intervene. The packaged `verify.py` passed 39,240 supplemental exact-rational assertion groups, including heterogeneous directed examples, zero rates, endpoint equality, negative entries past the endpoint, and stars through 50 leaves. It does not establish the infinite result by enumeration.
+PASS
 
-## Originality — PASS on available comparisons, with priority risk
+For i≠j the entry is h(a_ij−hΔ_ij/2); missing edges and edges with Δ_ij≤0 cannot constrain h≥0. The diagonal is at least [1+(1−hλ_i)^2]/2, and row sums are one. In a row of maximal exit rate M>0 the diagonal exceeds one for h>2/M, so some constraining edge exists. Every constraining entry stays negative after its first positive zero, which proves the entire interval, not just a first crossing. Dividing Δ_ij by a_ij gives a denominator at most 2M, with equality exactly when both exits are maximal and the two-step alternative has zero weight. The star has threshold 2/(m+1); even exact equality in the upper universal bound is possible for a single one-way edge to an absorbing vertex. Q=0 is handled separately; the regular common-neighbor formula is for d>0.
 
-The 2014 full-text SSP treatment establishes the sufficient bound at one forward-Euler step, not a generator-dependent exact positivity interval. The 2013 absolute-monotonicity treatment optimizes stability functions, not directed graph-local sharp thresholds. Two close public technical results were read in full. The regular-graph two-stage Euler-superstep theorem allows real nonnegative substeps; its quadratic coefficient is at most one quarter the squared total time, whereas the present RK2 coefficient is one half. Its regular graph formula provides related algebra but not the directed nonregular all-generator theorem. The other result gives only a sufficient walk-gap criterion for sharpness on constant-rate graphs; it does not give the necessary and sufficient maximal-exit/two-hop criterion. The accessible historical claims were checked for the same RK2 formula and motif, with no match found. A plausible 2005 positivity-threshold paper was accessible only in abstract, so equivalent generator-wise results there remain a priority risk. Failure to locate a paper is not evidence of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The class is the complete finite-dimensional family of conservative positive linear ODE systems, rather than a chosen small graph slice. The theorem gives an exact computable positivity step limit using only one-hop rates and two-hop bypasses. It identifies a necessary and sufficient support/rate motif for when the generic SSP limit is the true bound, shows that all other generators admit a strict improvement, and quantifies a sharp possible near-doubling on a natural growing family of stars. The local criterion supplies a concrete positivity-preserving implementation rule and a structural explanation for the improvement, beyond a stand-alone matrix multiplication check.
+The supported distinction is the exact all-step horizon and necessary-and-sufficient SSP-equality motif for an arbitrary fixed finite directed weighted generator. The unweighted regular graph restriction and the star limiting witness have concrete catalogue overlap and are not credited as original. The available older threshold literature did not establish the full directed weighted result; this is a best-of-knowledge decision.
 
-## Limits
+## value
 
-This is a completed-step rather than stagewise positivity theorem. It makes no claim for nonlinear problems or for higher-order Runge–Kutta and does not certify small truncation error at the maximal safe step. Older general positivity literature may contain equivalent specialized results. The independent scientific review channel has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This turns a uniform sufficient time-step rule into an exact per-generator admissibility test and identifies the specific local bottleneck that prevents a larger completed step. The one-way-edge and star regimes explain why the generic bound can miss by a factor of two. The useful content is the complete directed classification, not the standard SSP decomposition or a triangle count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

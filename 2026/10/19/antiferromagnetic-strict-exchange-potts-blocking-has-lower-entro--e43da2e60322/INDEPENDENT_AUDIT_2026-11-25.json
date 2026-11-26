@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:46:58.058743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and complete corrected repairs/2/RESULT.md",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/review-replay.py potts; q=3 decimal brackets checked additionally by exact rational substitution"
+      ],
+      "rationale": "The frozen decimal root prefixes were incorrect in the last displayed digits. The complete repaired RESULT.md corrects both prefixes to 2.359304085971776… and 2.573271963535193… and gives witnesses for incomparability at every allowed N. Exact rational evaluation gives opposite signs at each prefix and that prefix plus 10^-15; the q=3 cubic and comparator quartic are increasing beyond the respective brackets. The analytic result is unchanged. For N≥4 the middle-bond swap leaves all but the two exterior bonds unchanged; the signs of their net changes give the allowed triple-to-triple edges. An indexed closed walk counts a labelled word once, not a rotation class. Rebuilding the equality-pattern quotient by checking each already-used appended colour and one fresh colour with multiplicity q minus the number used gives both displayed quartics and independently reproduces the full q=3 antiferromagnetic characteristic factorization. In each full graph every triple reaches a uniform triple, all uniform triples communicate by the displayed appending paths, and coordinate reversal reverses directed paths. The resulting connected graphs have uniform self-loops and are primitive. The positive quotient eigenvector lifts, and a positive left Perron vector with a deficient row implies λ<q. At λ_A, p_F is strictly negative by the polynomial difference λ_A²(q−λ_A), so a larger positive root of p_F exists. Finally a proper cyclic colouring containing 010 has positive antiferromagnetic energy change at a window beginning with 010 and is AF-only; the two-run word with both runs of length at least two is F-only. Both witnesses exist for all N≥4.",
+      "residual_risks": [
+        "Counts are aggregate over colour-population vectors; no fixed-population entropy comparison is supplied. Neutral moves and dynamical basins are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Smedt et al. distinguish binary W0=0 from W0>0: the latter admits neutral diffusion and changes the terminal local pattern exclusions.",
+          "Resultary 8636cfdc37aa treats fixed half-filling, a Petersen graph, and neutral moves."
+        ],
+        "reasoning": "Kinetic metastability under a different move rule or graph does not cover the aggregate nearest-neighbour strict-blocking languages.",
+        "searches": [
+          "arXiv:cond-mat/0210477, §§2–3 and Table 1",
+          "Resultary strict-exchange q-colour query; assessed related 8636cfdc37aa"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34d442d501a3 and 8636cfdc37aa",
+        "arXiv:cond-mat/0202465",
+        "arXiv:cond-mat/0210477",
+        "arXiv:1601.04375"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearest-neighbour ferromagnetic binary blocked words exclude +-+- and -+-+. The unweighted Perron factor is t³−t²−t−1, the nonzero factor of the audited ferromagnetic polynomial when extended to q=2."
+        ],
+        "reasoning": "Credit the exact prior binary result. The binary model lacks the three-colour equality pattern, and its single ferromagnetic factor gives no all-q opposite-sign comparison.",
+        "searches": [
+          "arXiv:cond-mat/0202465, §§4.1–4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 34d442d501a3 also studies configurations with no strictly downhill exchange via finite-state transfer; it assumes binary ferromagnetic Ising with positive nearest- and next-nearest-neighbour couplings.",
+          "No usable covering source returned in the bounded literature lookup."
+        ],
+        "reasoning": "The no-downhill condition is directly comparable. The local words, couplings, alphabet and comparison of signs differ; the Ising transfer construction is not the general Potts statement.",
+        "searches": [
+          "Resultary: antiferromagnetic strict-exchange Potts blocking entropy lower than ferromagnetic all q transfer polynomials",
+          "Resultary: strict-exchange q-colour Potts blocked configurations antiferromagnet ferromagnet entropy comparison",
+          "Literature: (Potts OR q-state) (Kawasaki OR exchange) (blocked OR jammed OR metastable) antiferromagnetic ferromagnetic chain transfer matrix entropy strict energy decreasing colours"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table II includes binary Ising kinetic metastability in multiple coupling regimes, e.g. row (c) growth rate 1.4655; Appendix A supplies recurrence M(L+3)=M(L+2)+M(L)."
+        ],
+        "reasoning": "These exact tables and recurrences count different families under competing couplings, not the q=3 antiferromagnetic trace table or both unrestricted q-colour languages.",
+        "searches": [
+          "Resultary: strict-exchange q-colour Potts blocked configurations antiferromagnet ferromagnet entropy comparison",
+          "arXiv:1601.04375, §III Table II and Appendix A"
+        ]
+      },
+      "rationale": "The repair retains the substantive claim: the exact q≥3 sign-reversed nearest-neighbour comparison, including explicit quartics. The closest exact precedent is binary ferromagnetic Ising and the closest one-step transfer analogue uses an extra neighbour interaction. Neither covers the audited comparison.",
+      "residual_risks": [
+        "Bounded literature and catalogue searches cannot rule out an earlier exact q-colour enumeration in different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Comparable observable, different generalization",
+          "evidence": "Ferromagnetic binary chain with positive nearest and next-nearest couplings; no all-q sign comparison.",
+          "identifier_or_url": "2026/10/18/34d442d501a3",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 5800",
+          "method": "Local mirror statement comparison",
+          "title": "An isolated weak-exchange blocking entropy spike in ferromagnetic Ising chains",
+          "trigger": "One-step strict-blocking transfer census"
+        },
+        {
+          "assessment": "Exact prior ferromagnetic binary precedent",
+          "evidence": "Unweighted Perron factor t³−t²−t−1, and forbidden alternating four-spin words.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "PDF pp. 26–27, §§4.1–4.2",
+          "method": "OA full-text passage and factor specialization",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Exact nearest-neighbour constrained Kawasaki entropy"
+        },
+        {
+          "assessment": "Different alphabet, couplings and kinetic families",
+          "evidence": "Row (c) binary J1=J2>0 rate 1.4655; characteristic equation x³−x²−1.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04375",
+          "material_read": "PDF p. 6 Table II and p. 17 Appendix A",
+          "method": "OA full-text table and recurrence comparison",
+          "title": "Metastable and scaling regimes of a one-dimensional Kawasaki dynamics",
+          "trigger": "Tables for both signs and exact growth recurrences"
+        },
+        {
+          "assessment": "Binary precedent and non-equivalent kinetic variant",
+          "evidence": "W0=0 excludes four-spin alternations; W0>0 permits diffusion and terminal words exclude isolated spins.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0210477",
+          "material_read": "PDF p. 3 §2 and Table 1; pp. 6–7 §3",
+          "method": "OA full-text move-rule and transfer comparison",
+          "title": "Metastable states of the Ising chain with Kawasaki dynamics",
+          "trigger": "Constrained vs neutral exchange definitions"
+        },
+        {
+          "assessment": "Different graph, ensemble and move rule",
+          "evidence": "Half-filled Petersen Ising with energy-non-increasing exchanges and neutral moves.",
+          "identifier_or_url": "2026/11/22/8636cfdc37aa",
+          "material_read": "Mirrored RESULT.md beginning at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Exact metastable sector selection for half-filled Kawasaki exchange",
+          "trigger": "Kinetic Kawasaki search result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md and its full transfer argument",
+        "Binary comparisons in cond-mat/0202465 and 1601.04375"
+      ],
+      "rationale": "The exact growth constants and strict sign comparison resolve a natural asymmetry that cannot be decided by simple inclusion of the blocked sets. The argument works uniformly in the alphabet and yields labelled finite-ring traces as well as exponential growth; it is more than a two-colour sign or normalization check.",
+      "residual_risks": [
+        "Does not supply a population-resolved comparison or sampling weights for configurations reached dynamically."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

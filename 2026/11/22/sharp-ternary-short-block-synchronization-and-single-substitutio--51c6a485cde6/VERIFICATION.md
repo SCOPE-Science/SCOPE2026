@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` and `g++ -std=c++17 -O2 alternate.cpp -o alternate && ./alternate` in one directory containing the four accompanying TSV files. The Python checker requires only the Python standard library and reports `VERIFY_OK`; the C++ checker uses no third-party libraries and reports `ALTERNATE_OK`.
+## correctness
 
-Both programs generate every ternary word at lengths two through six. They apply the self-bifix and pairwise tests specified in the finding. The first uses an exhaustive Bron–Kerbosch maximal-clique recursion and checks all listed optimal codes and symmetry orbits. The other enumerates every clique in increasing vertex order rather than relying on a maximal-clique pivot rule. Their maximum and multiplicity outputs agree.
+PASS
 
-The checked graph and optimum statistics are: at lengths \(2,3,4,5,6\), vertex counts \(6,18,48,144,414\), compatibility edges \(0,0,108,2070,24156\), maximum code sizes \(1,1,2,4,8\), and number of labeled maxima \(6,18,108,300,528\). The length-six maximal-clique size histogram is \(3:48,4:4752,5:289464,6:507546,7:56568,8:528\). No larger clique was found by the exhaustive recursions; the theoretical recursion invariants justify using this as a finite impossibility result, not a heuristic search failure.
+Each singleton must be unbordered; for two words, both directed prefix–suffix overlap tests and Hamming distance at least three are exactly the remaining compatibility constraints. Thus codes are precisely the cliques, and maximal-clique enumeration suffices for the maximum and all its equality cases. The supplied pivot recursion maintains extendible candidates and already-visited extensions. The second checker stops at depth nine, which suffices: a larger clique would contain a nine-clique. Independently I used ternary integer quotient and remainder to form prefix and suffix fingerprints, rebuilt all compatibility edges, and enumerated increasing cliques with a second, unrestricted common-neighbour mask to recognize maximality. For lengths 2–6 this independently gives capacities (1,1,2,4,8), labelled totals (6,18,108,300,528), both stated maximal-clique histograms, and the exact sets in all four TSV files. At length five every pair in each optimal code has Hamming distance three. Recomputing the simultaneous relabeling and reversal action gives size-6/size-12 orbit counts (8,21) and (10,39) at lengths five and six. For length one, two distinct words have distance one, so a singleton is optimal; six is therefore the first length for eight messages. Radius-one balls meet exactly when two centres have distance at most two. The guarantee is aligned correction and uncorrupted non-overlap, not correction of a frame boundary under corruption. For reproduction the frozen Python uses int.bit_count, which requires Python 3.10+ rather than the stated 3.9+; the independent replay used 3.12.
 
-The enumeration is finite; nothing in it settles longer blocklengths or historical novelty. Mathematical verification was performed on these supplied source files and data only. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The supported distinct result is the joint distance-three non-overlap boundary, especially the complete five-/six-symbol equality census and shortest eight-message length. Earlier exact results on unrestricted non-overlap and on distance-two detection give different feasible families and do not imply that classification. General cross-bifix-free bounds and the standard clique encoding are not claimed as new. The closest partial-overlap distance-constrained article remains an access risk, not proof of noncoverage.
+
+## value
+
+PASS
+
+There is an operational reason to combine the two constraints and target eight messages: the code must mark uncorrupted boundaries and recover a three-bit message after an aligned single substitution. The sharp length bound, and especially all feasible optimal designs modulo the actual symmetries, are useful exact benchmarks. The distance-three rigidity at five symbols is additional structure, not just an optimum number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

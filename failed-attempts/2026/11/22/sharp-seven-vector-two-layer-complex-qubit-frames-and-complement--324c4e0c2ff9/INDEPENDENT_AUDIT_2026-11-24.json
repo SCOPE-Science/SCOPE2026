@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:56:47.762363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Pauli representation gives projective overlap (1+u·v)/2 and tightness precisely when the Bloch vectors sum to zero. Hence for Z=[U V] the whole Gram matrix is (2N/(N−1))(I−11ᵀ/N), of rank N−1≤6. At N=7, append the normalized constant column to √(3/7)Z. The Gram identity makes the resulting square matrix orthogonal, giving all stated cross- and within-layer column identities and, in reverse, the converse. This is independent of the coordinate construction. Rechecked every explicit example for N=2,…,7 in exact radicals with review-work/frames.py (output review-work/frames.txt): unit rows, zero centroids, full summed Gram, and all three seven-point moment blocks. For real projective qubit lines, doubling the angle gives the analogous coordinates in R², so two layers have rank at most four and N≤5; the displayed pentagon with the second layer at doubled frequency attains five there as well. The numerical frozen verifier is supplementary, not the basis for the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heineken et al., Corollary 5.2: the N-th roots of unity are real planar balanced unit-norm tight frames for N≥3. At end of §6 they state real balanced unit-norm tight frame existence unless N≤d or N=d+2 and N is odd, citing Mimura.",
+          "At N=7 the input d=3 meets this existence theorem and the balanced complement dimension is 7−3−1=3. For N=6 the real balanced harmonic construction of §5.2 gives two conjugate pairs and one real alternating row in the centered space.",
+          "The frozen prior-work section attributes the general Gerzon bound to arXiv:2610.05302 Theorem 4.1; Example 3.3 for five is also identified in the primary search excerpt."
+        ],
+        "reasoning": "Rather than relying on the recent larger-layer constructions, the older results supply the exact balanced complement at seven and the direct six-dimensional row-model construction on six indices (with centered rank five).",
+        "searches": [
+          "arXiv:1904.00920v1 §4.5, §5.1 and end of §6",
+          "Mimura DOI 10.1007/BF01787704",
+          "Brinkley–Fickus–Jasper–Mixon arXiv:2610.05302, Example 3.3 and Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.00920v1 §§3.7,4.5,5.1–5.2,6",
+        "DOI 10.1007/BF01787704",
+        "arXiv:2610.05302",
+        "arXiv:2103.03192",
+        "Resultary 324c4e0c2ff9 (self-match)",
+        "Resultary 2bea3ef37ac9",
+        "Resultary f7c189c7e816"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any balanced unit-norm tight N-frame in Rᵈ, its Parseval Gram P has diagonal d/N; the balanced complement P′=I−11ᵀ/N−P has rank N−1−d and diagonal (N−1−d)/N. When both dimensions are at most three, equal-norm rescaling of both gives two centered unit-row Bloch layers.",
+          "The two rescaling factors need not coincide at N=6, so rescaling a rank-two and a rank-three complementary projector is not enough. Instead use orthogonal centered real Fourier subspaces E₁,E₂ (sine/cosine of frequencies 1,2) and E₃ ((−1)ʲ), of projection diagonals 1/3,1/3,1/6. Take layer Grams (12/5)P₁+(6/5)P₃ and (12/5)P₂+(6/5)P₃. Each rank is three, each diagonal 1, and their sum is (12/5)(I−11ᵀ/6). This uses the balanced harmonic construction of §5.2; no equivalence of the specific coordinate tuples is needed.",
+          "At N=7 both scale factors coincide at 7/3, so summing gives exactly (7/3)(I−11ᵀ/7) and the older B-complement equivalence gives the full structural identities. In the reverse direction the constant-overlap Gram at saturation forces the equal-norm rescaled subframes to be Parseval by appending the normalized constant column."
+        ],
+        "reasoning": "The decisive seven-point attainability and rigidity are direct prior corollaries. The six-point instance also uses only the published harmonic decomposition and fixed diagonal weights, not a new frame-existence mechanism. Specific coordinates may differ, but no distinct theorem about those coordinates is stated.",
+        "searches": [
+          "Compare RESULT.md equations (1)–(3) with arXiv:1904.00920v1 Proposition 4.21, Definition 4.22, Proposition 4.27 and Remark 4.28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1904.00920v1 §3.7 Proposition 3.5 identifies real spherical 2-designs with real balanced unit-norm tight frames.",
+          "Its §4.5 Proposition 4.21 and Definition 4.22 give the exact balanced complement Gram I−11ᵀ/N−G of a balanced Parseval Gram G. Proposition 4.27 and Remark 4.28 identify orthogonal ranges splitting 1⊥ and the concatenated simplex.",
+          "After scaling the unit-row matrices by √(3/7), the assigned N=7 orthogonality and centered moment identities are exactly this balanced Parseval complementary pair."
+        ],
+        "reasoning": "The equivalence is with balanced frame complements on the same index set, not with the spatial or ordinary Naimark complement of the associated fusion frame. The older formulation has exactly the shared labeling and projection constraints needed for the Bloch lift.",
+        "searches": [
+          "Resultary: two-layer complex qubit SUNTF, complementary spherical designs",
+          "Primary: Heineken–Morillas–Tarazaga balanced frames and Naimark complements; Mimura spherical 2-design existence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 324c4e0c2ff9 is the assigned record itself. Nearby hits 2bea3ef37ac9 and f7c189c7e816 concern, respectively, rank-one spherical constants and spherical 7-designs, not seven points forming 2-designs.",
+          "There is a prior exact feasibility classification for the ingredient in all dimensions (Heineken et al., end of §6, citing Mimura), and an explicit balanced complement construction (§4.5). An exact catalogue entry for the displayed coordinate pair was not established."
+        ],
+        "reasoning": "A table of the same numerical SUNTF parameters is unnecessary when an earlier existence classification and a published construction produce the pair directly. Conversely, a same-parameter fusion-frame table alone would not have been decisive.",
+        "searches": [
+          "Resultary exact N=7 two-layer and complementary seven points queries",
+          "Mimura exact paper and Heineken et al. end of §6 existence classification"
+        ]
+      },
+      "rationale": "The central claimed advances are covered by a direct specialization of established balanced-frame results, not merely by related fusion-frame parameters. Heineken–Morillas–Tarazaga, arXiv:1904.00920v1 (2019), §3.7 and §4.5, give the real spherical 2-design equivalence, the dimension and Gram of the centered balanced complement, equal-norm preservation, and the equivalence with a direct-sum simplex. The end of their §6 explicitly records existence of real balanced unit-norm tight frames of seven points in dimension three, citing Mimura (1990). Their standard construction therefore gives the two three-dimensional layers and exactly the structural splitting of the extremal statement. The six-point case is a direct construction from the same paper's balanced real harmonic coordinates, sharing the one-dimensional alternating mode with equal weights between the layers as shown below. The Bloch lift is the known correspondence, and the upper bound and small sizes were already known or immediate. Not having the same SUNTF terminology or exact coordinate tuple in the prior sources does not make the claimed theorem new. This is a finding of mathematical coverage, not a priority finding about an identical formulation or an attribution claim about specific chosen coordinates.",
+      "residual_risks": [
+        "The thesis Grassmannian Codes from Stratified Frames, AFIT etd/8306, was not obtained in full and might explicitly state the same parameters; it is not the basis of the rejection.",
+        "Whether the exact displayed seven-point coordinate pair, rather than its existence and structure, appeared before is unresolved and is not needed for the demonstrated theorem-level coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage: at (N,d)=(7,3) the theorem and existence classification produce the exact balanced complementary designs; the harmonic frame section supplies the subspaces used at six.",
+          "evidence": "§4.5 states the Gram sum I−eeᵀ/N and complement rank N−d−1; Remark 4.28 states the internal sum is a simplex for balanced Parseval frames. End §6: real BUNTF existence unless N≤d or N=d+2 with N odd. §5.2 selects real Fourier rows and conjugate pairs excluding the constant row.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.00920v1",
+          "material_read": "§3.7 Proposition 3.5; §4.5 Proposition 4.21, Definition 4.22, equal-norm/real complement paragraph, Proposition 4.27 and Remark 4.28; §5.1 Corollary 5.2 and §5.2 balanced harmonic frames; end of §6, frame existence citing Mimura",
+          "method": "Read bounded passages of the original lawful OA arXiv PDF via local text extraction after targeted passage service failed",
+          "title": "Balanced frames: a useful tool in signal processing with good properties",
+          "trigger": "Exact centered complement, spherical design representation and simplex characterization"
+        },
+        {
+          "assessment": "The primary abstract confirms full n,d classification and constructive scope; use the inspected later paper for the exact statement and its implication.",
+          "evidence": "Publisher abstract explicitly determines for which n,d there are n-point spherical 2-designs in Rᵈ and gives a construction when they exist.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01787704",
+          "material_read": "Publisher abstract via indexed primary result; exact feasibility statement independently read as cited in the 2019 OA paper, not as original full text",
+          "method": "Targeted primary search and lawful publisher retrieval attempt",
+          "title": "A construction of spherical 2-design",
+          "trigger": "Published full cardinality theorem for the seven-point spherical design ingredient"
+        },
+        {
+          "assessment": "Known stratified setup and five-point example. Further seven-point higher-layer coverage is described in the frozen record; no noncoverage inference from the abstract.",
+          "evidence": "Example 3.3 excerpt gives real SUNTF(2,5,2); the frozen result credits Theorem 4.1 for the rank bound and §4.1–4.2 for higher-layer cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05302",
+          "material_read": "Original first-page abstract, search excerpt for Example 3.3/Theorem 3.4, and frozen theorem locators; detailed theorem passages not recovered",
+          "method": "OA preview, targeted primary passage attempts and frozen references",
+          "title": "Incoherent filter banks",
+          "trigger": "Same SUNTF problem and named bound"
+        },
+        {
+          "assessment": "ECTFF complements do not by themselves preserve two labeled qubit layers. This is not the decisive prior source.",
+          "evidence": "Abstract gives Naimark and spatial complements within the ECTFF class and their iterated families.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.03192",
+          "material_read": "Original page-one abstract",
+          "method": "OA PDF bounded preview",
+          "title": "Certifying the novelty of equichordal tight fusion frames",
+          "trigger": "Plausible complement transfer in related fusion-frame setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharpness at the first complex-versus-real dimension is a worthwhile question, and the explicit coordinates can be useful as exposition. As an independent new result, however, the claimed sharp threshold combines the previously known rank bound with a direct Bloch reformulation of known balanced design feasibility and complement theory; the saturated rigidity is exactly the standard centered simplex split. No new classification of extremizers, distinct geometric constraint, or independently motivated new invariant of the particular explicit pairs is established. No surviving repair of independent scientific value was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

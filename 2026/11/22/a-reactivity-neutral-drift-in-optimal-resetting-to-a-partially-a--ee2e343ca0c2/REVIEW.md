@@ -1,19 +1,21 @@
-# Scientific assessment: reactivity-neutral drift in partially absorbing Brownian resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the unique mean-reaction-time-optimal Poisson rate under constant drift and one delta sink. The exact mean formula is taken from the cited primary literature. Differentiating this formula yields the stationarity function \(B_\eta\), whose one-crossing geometry proves a unique, transverse global minimum for every finite reactivity. The reactivity derivative at the optimum vanishes only if the \(\eta\)-linear and constant stationarity terms vanish simultaneously, reducing to a unique one-variable root. Strict monotonicity of that root equation and continuity with independently controlled signs at zero and strong inward drift give both strict sides of the reversal. Boundary regimes, quantifiers and physical normalization were checked. The packaged standard-library checker passed 534 finite tests; those tests do not establish the global theorem in place of the analytic proof.
+PASS
 
-## Originality — PASS, qualified
+The finite sink has killed-process absorption transform k exp[-(mu L+Gamma L)/(2D)]/(Gamma+k), Gamma=sqrt(mu^2+4Dr), at Laplace parameter r: the free resolvent from L to the sink is exp[-(mu L+Gamma L)/(2D)]/Gamma, and the rank-one sink divides it by 1+k/Gamma. Reset renewal gives (1-transform)/(r transform), exactly (1). For B=Phi-1-s Phi', B'=-s Phi'', and after removal of the positive factor of Phi'', the remaining polynomial is strictly increasing in u. B is positive at the small-rate end (at m=0 its first term is (1+eta)sqrt(s)/2) and negative for large s, so its sole crossing is transverse and is the global minimum. Independently, the coefficient G of eta after removal of exp(u+a) vanishes exactly at the unique u0>=1 with h(u0)=m, h(u)=u sqrt((u-1)/(u+1)), and G is positive before u0 and negative after. At that test point B=e^(u0+a)/(1+u0)-1 independently of eta. The sign of B there determines on which side of u0 the optimizer lies and hence the sign of its derivative with respect to k. For outward or zero drift B there is positive. For inward drift its sign is that of F(u0), which decreases strictly from 1-log(2) to minus infinity: h'(u)>u/(u+1) for u>1. This proves the stated threshold and both strict directions for every finite positive k. The intermediate condition u>1 in (5) can be u=1 for m=0 before imposing stationarity; this endpoint is impossible at stationarity since e/2-1>0. RESULT.md, VERIFICATION.md and verify.py were inspected; the supplied finite checks were not executed or used as proof.
 
-The exact drifted mean, zero-drift reactivity monotonicity, finite-drift numerical behavior and all-drift unique optimizer are established by prior literature and published mathematical results; none is claimed as new. The directly inspected initiating paper (Mazzolo, arXiv:2609.22527v1, Appendix A.4–A.5) analyzes reactivity dependence only at zero drift and drift dependence at fixed reactivity, without the unique all-reactivities invariant optimum. Whitehouse–Evans–Majumdar (arXiv:1301.2489, Section 4.1) concerns zero drift; Ray–Mondal–Reuveni (arXiv:1811.08239, Section IV) concerns a perfectly absorbing target. Closely matching published drifted-point-trap notes on orientation gaps, uniqueness and strong-reactivity crossover were read by statement and implication; none of their investigated conclusions entails the globally fixed reset-rate crossing at \(\mu_c\). An implicit derivative identity or an equivalent statement in broader resetting literature remains a priority risk. Search noncoverage is not treated as uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated directly by the known tension between drift-assisted trap encounters and incomplete reaction on each encounter. The new sharp criterion resolves whether more effective chemistry should be accompanied by more or less frequent restarting, and identifies a singular reactivity-independent design point. It is a global-in-reactivity structural boundary, not a small expansion, arbitrary parameter slice or restatement of the previously known formula. Further value could come from robustness to imperfect drift calibration, but that property is not claimed.
+The same finite point-sink model, renewal formula, all-drift uniqueness, zero-drift reactivity direction and several drift comparisons are prior. The sharp fixed-drift, all-k sensitivity reversal and the optimizer common to every finite reactivity were not covered by the decisive passages inspected; this is a best-of-knowledge finding, not certification of priority.
 
-## Limitations and risks
+## value
 
-The model assumes one constant-drift diffusion on the real line, one local-time point sink, a fixed reset point and a memoryless reset clock. The theorem concerns the optimizer of mean killing time only. No claim is made about multi-target interactions, noisy estimation, non-Poisson clocks or the discontinuous perfect-absorber transition. Publication priority remains subject to external expert and independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies a sharp control threshold in the finite-reactivity resetting problem: tuning trap strength strictly moves the optimal reset rate in opposite directions across one drift, and exactly preserves the same optimum at that drift for arbitrarily weak or strong finite sinks. This is an actionable and structural distinction from perfect-trap zero-reset transitions and from optimizing the mean time itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

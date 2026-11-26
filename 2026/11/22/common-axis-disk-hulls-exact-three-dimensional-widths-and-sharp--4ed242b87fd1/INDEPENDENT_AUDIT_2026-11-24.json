@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:15:20.854914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original calculations are mathematically consistent; the substantive repair changes the contribution, not its coefficients. For the retained m>=3 case, support maximization and central symmetry give the range and formula. At the minimum set delta=w^2/4-1/m; for Y_0=a the simplex in the m-1 remaining independent transverse coordinates has volume [m delta-(m-1)a]^(m-1)/(m-1)!, with 0<=a<=m delta/(m-1). All transverse squares are 1/m+O_m(delta), strictly positive for small delta, so the product Dirichlet density is a^(-1/2) times a uniformly smooth factor. Integration with B(1/2,m) and delta=epsilon/sqrt(m)+epsilon^2/4 gives the repaired coefficient and relative O_m(epsilon) error. At the upper edge the single-circle neighborhoods each have a Beta((m-1)/2,1) lower tail, and overlap forces the sum of all m transverse squares below 2(1-w^2/4). The Beta(m/2,1/2) estimate controls the total overlap at the stated order. The original m=2 density follows by differentiating the CDF, and rotational symmetry gives the stated second moment using E|cos(2 Phi)|=2/pi; these are no longer contributions. The repaired comparison also derives the weak limit from the appropriate Dirichlet-maximum scaling and independent normalized transverse vector. The frozen numerical checks were inspected but not executed; the asymptotic assertions follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bose–Dasgupta–Maulik Corollary 3.1 gives the growing-dimensional transverse maximum at shape 1/2, with the gamma centering constants in Eqs. (36)–(37).",
+          "Resultary d1df18476a61 concerns W=2 sqrt(1-min_j U_j^2) for all coordinate hyperdisks and a different exponential-square limit."
+        ],
+        "reasoning": "The global Dirichlet limit covers the extremal part of the frozen mixed limit, but is not a fixed-m endpoint expansion. The coordinate-hyperdisk formulas treat an all-coordinate minimum, not a distinguished square plus a transverse maximum; even at m=3 the two bodies have different generating planes and extreme geometry.",
+        "searches": [
+          "Bose Dasgupta Maulik Maxima of Dirichlet and triangular arrays of gamma variables arXiv theorem symmetric Dirichlet maximum fixed shape",
+          "Resultary d1df18476a61, exact three-coordinate-hyperdisk law and higher-dimensional endpoints"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.4514 §§1–1.2",
+        "arXiv:1205.1396 Eq. (45)",
+        "arXiv:0803.3518 Corollary 3.1",
+        "Resultary d1df18476a61",
+        "Resultary a276467e90bf and 478c8834f500"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining Finch's support distance with Mazonka's pi/4 lens bisector gives the two arccosines in the frozen formula; arccos(1/sqrt(2(1-s^2)))=arctan sqrt(1-2s^2).",
+          "With alpha_m=beta_m=1/2, Corollary 3.1 gives (m+1) max_(j>=1)Y_j/2-a_m/2 converging to Gumbel. The independent normalized transverse maximum differs negligibly at this scaling, and m Y_0 converges to a normal square. These directly give the frozen convolution."
+        ],
+        "reasoning": "Both implications change the originality assessment and the science advertised by the corrected files, not just the bibliography. Neither argument supplies the fixed-m narrow volume with a singular axis factor or the union of near-widest circle tubes with a quantitative overlap error for m>=3.",
+        "searches": [
+          "arXiv:1211.4514 §§1–1.2",
+          "arXiv:1205.1396 §4.3 Eq. (45)",
+          "arXiv:0803.3518 Corollary 3.1, Eq. (36), Eq. (37)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At m=2 the CDF is the probability of four disjoint up to null sets, congruent intersections of two spherical caps with separation pi/2 and equal opening angle arccos(s). Eq. (45) gives their common area divided by pi as exactly the frozen CDF.",
+          "For general m the statistic is Y_0+(1-Y_0) times the maximum in the normalized transverse Dirichlet vector, where the vector is independent of Y_0."
+        ],
+        "reasoning": "The lens specialization gives the whole two-disk law, not only the first moment. A transverse maximum representation is useful but does not give fixed-dimensional endpoints without analyzing the distinguished coordinate and the joint rare-event geometry. The retained result is for m>=3, where the lower-edge event is not an intersection of two caps on S^2.",
+        "searches": [
+          "Resultary: common-axis disk hull width distribution, two orthogonal disks, fixed-dimensional sharp endpoints",
+          "arXiv:1205.1396 Eq. (45) (spherical cap intersection)",
+          "arXiv:0803.3518 §3 (Dirichlet maxima)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day distinct records a276467e90bf and 478c8834f500 each give the centered lower-edge constant 2^(11/4)/(3 pi) as the zero-separation limit case for two disks. d1df18476a61 lists different-body edge laws."
+        ],
+        "reasoning": "The exact earlier or same-day comparisons do cover the stated centered lower edge at m=2; their date does not assign priority. A variable separation of two disks does not vary the number of transverse axes or give either retained coefficient for m>=3.",
+        "searches": [
+          "Resultary: exact random widths and singular near-minimum crossover for two orthogonal disks",
+          "Resultary: common-axis versus coordinate-hyperdisk endpoint laws"
+        ]
+      },
+      "rationale": "The frozen originality claim is not accepted as stated: its complete two-disk law is a direct specialization of a spherical cap-intersection formula, and its growing-dimensional law follows from a Dirichlet maximum theorem and the one-coordinate limit. The corrected claim in /workspace/repairs/3/RESULT.md and SLOGAN.txt is the pair of fixed-dimensional endpoint laws with exact leading constants for m>=3. The covered comparisons are no longer claimed as contributions. No inspected result states or mechanically supplies the retained common-axis endpoint coefficients together; obtaining them requires the local slack-simplex and overlapping-circle estimates for this statistic.",
+      "residual_risks": [
+        "A general spherical-neighborhood or fixed-dimensional Dirichlet order-statistic theorem under a different name may imply some retained coefficients; no such implication was established from the inspected sources.",
+        "The same-day crossover records show numerical and scientific overlap for m=2, not priority over one another."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the same body, width support and its first moment, a step in the exact CDF implication.",
+          "evidence": [
+            "The support distance is max(sqrt(a^2+b^2),sqrt(a^2+c^2)) and 2d is integrated over directions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4514",
+          "material_read": "Definitions pp. 1–2 and §1.2 pp. 4–5, PDF offsets about 620, 3000, 9400.",
+          "method": "Lawful OA PDF primary passages.",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Exact centered m=2 geometry and support."
+        },
+        {
+          "assessment": "Directly implies the full m=2 width CDF using Finch's support, hence the distributional derivatives and moments.",
+          "evidence": [
+            "Each cap segment area is 2(beta-phi cos(theta)), with cos(phi)=tan(gamma)/tan(theta) and cos(beta)=sin(gamma)/sin(theta). Equal theta and alpha=pi/2 give gamma=pi/4 for both segments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1396",
+          "material_read": "§§4.1.4–4.4, especially §4.3 Eq. (45), pp. 10–11, text offsets 22700–28895.",
+          "method": "OA PDF passage check and explicit equal-cap specialization.",
+          "title": "Solid Angle of Conical Surfaces, Polyhedral Cones, and Intersecting Spherical Caps",
+          "trigger": "Exact formula for the spherical lens describing the frozen CDF."
+        },
+        {
+          "assessment": "Supplies the limiting maximum and its centering. With the independent normalized transverse vector and the marginal axis limit it yields the frozen convolution; not a fixed-dimensional edge theorem.",
+          "evidence": [
+            "The scale is n alpha_n+beta_n; for constant shape alpha=1/2 the centering is log n-(log log n)/2-log Gamma(1/2), with fluctuation scale 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3518",
+          "material_read": "§3, Proposition 3.1 and Corollary 3.1 plus Eqs. (36)–(37), PDF pp. 8–9, offsets 35600–41099.",
+          "method": "OA alternate copy of the same paper; located and opened the displayed theorem.",
+          "title": "Maxima of Dirichlet and triangular arrays of gamma variables",
+          "trigger": "General limit for the same transverse Dirichlet maximum, including one extra coordinate."
+        },
+        {
+          "assessment": "Different-body width laws, not a specialization to the repaired common-axis theorem.",
+          "evidence": [
+            "Uses the minimum of all squared coordinates because its generators are coordinate hyperdisks."
+          ],
+          "identifier_or_url": "Resultary d1df18476a61",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0.",
+          "method": "Local mirror primary formula and object comparison.",
+          "title": "Exact random widths of the orthogonal three-disk hull and sharp hyperdisk endpoint laws",
+          "trigger": "Exact fixed-dimensional endpoints for a plausible broader family of orthogonal generators."
+        },
+        {
+          "assessment": "Same two-disk narrow edge, not the retained m>=3 laws.",
+          "evidence": [
+            "Both give the centered lower-edge constant 2^(11/4)/(3 pi) and the 3/2 exponent."
+          ],
+          "identifier_or_url": "Resultary a276467e90bf and 478c8834f500",
+          "material_read": "Both mirrored RESULT.md Findings at offset 0.",
+          "method": "Local mirror primary statement comparison, setting separation to zero.",
+          "title": "A singular crossover in near-minimal random widths of two orthogonal disks; Singular near-minimum width crossover for two separated orthogonal disks",
+          "trigger": "Same-day exact overlap at the zero-separation boundary of two-disk families."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected result compares extremal directional rarity on a natural all-dimensional convex body. Exact constants and error orders quantify an isolated lower-edge set with a singular density direction versus multiple intersecting upper-edge circles. This gives both endpoint probabilities for every m>=3 rather than treating the known two-disk CDF or the Dirichlet limit as novel or relying on a minor numerical check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

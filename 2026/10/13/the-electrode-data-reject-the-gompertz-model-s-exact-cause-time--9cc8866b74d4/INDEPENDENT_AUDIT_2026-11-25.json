@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:39.721744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–118,120–191",
+        "VERIFICATION.md:1–49",
+        "verify_gompertz_cause_time.py:21–31; replay by grouped coefficient count as described"
+      ],
+      "rationale": "The joint subdensity is the cause-specific hazard times the joint survival; dividing by the sum leaves a constant label probability. For independent units and label-neutral observation, removal and stopping, fixing observed times and counts leaves the same likelihood for every placement of the observed labels. Independently recomputed from the frozen Table 8 transcription at verify_gompertz_cause_time.py:21–31 without executing it: order times, assign doubled midranks (two observations at .328 each get 71), and expand the product of (1+x*y^r) over ranks r, retaining degree 19 in x. R_E=219, U=29, doubled mean 874. Grouping the tie with multiplier 2 for selecting one, the coefficients at doubled sums <=438 total 22,633 and those >=1310 total 22,179 (the latter by reflection r→92−r); their sum over choose(45,19) gives 1.837790973889128e−8. The result is a conditional model check, not a test distinguishing all possible alternatives or a check on the latent marginal fits. The published Table 8 layout and the article's printed likelihood could not be independently read; the numerical replay uses the supplied article-specific transcription.",
+      "residual_risks": [
+        "Source-level transcription of the 2026 Table 8 was not independently confirmed; the frozen transcription is the data input. Older tables need not agree.",
+        "Exactness supposes the labels do not affect censoring or the tie-generating observation process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Weibull framework already yields mark/time separation in the analogous censoring design; it does not report this data-specific diagnostic in the inspected passage."
+        ],
+        "reasoning": "The population implication is a standard proportional-hazards consequence, not an original theorem of this review. The null restrictions alone give no empirical rank or p-value.",
+        "searches": [
+          "10.3934/math.20261043 common-shape Gompertz, electrode data and cause–time independence (lookup unavailable)",
+          "Elshahhat–Nassar pp. 1168–1169"
+        ]
+      },
+      "checked_sources": [
+        "10.1007/s00362-023-01417-0 pp. 1168–1169",
+        "10.3934/math.20261043 (full text unavailable)",
+        "Resultary ed35170c77f7, af5996928349, 77e4e9dc0b1c, 306c012f5984"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mark-count factorization is already covered; evaluating the empirical rank statistic with the tie and fixed group sizes is additional."
+        ],
+        "reasoning": "The new component is the data-specific falsification, not a reformulation of the proportional-risk theory or a claim to invent rank testing.",
+        "searches": [
+          "10.1007/s00362-023-01417-0, Eqs. (4)–(5); frozen RESULT.md:214–233"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weibull Eq. (4) gives label count law; Eq. (5) gives the adaptive-censoring likelihood.",
+          "Resultary ed35170c77f7 concerns unlabeled failure marginals, by its indexed summary."
+        ],
+        "reasoning": "Time-constant hazard ratios give independent marks and a conditional rank permutation test. Recovering relative hazards from unlabeled order marginals does not test the cause marks observed here.",
+        "searches": [
+          "Elshahhat–Nassar, DOI 10.1007/s00362-023-01417-0, proportional competing hazards",
+          "Resultary proportional-hazard first and second failure marginals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concordance records concern population dependence between order statistics; 306c012f5984 concerns a posterior formula, not electrode labels. Frozen transcription uniquely supplies the exact table used here."
+        ],
+        "reasoning": "Same-day records were compared on claims rather than timestamps. There is no matched exact published p-value in the material inspected.",
+        "searches": [
+          "Local Resultary competing risks and Gompertz matches; ed35170c77f7, af5996928349, 77e4e9dc0b1c, 306c012f5984",
+          "2026 journal DOI and OA PDF candidate, Table 8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the electrode-specific conditional exact rank diagnostic and the resulting observed failure of the common-shape restriction. The hazard-ratio factorization and the permutation method themselves are not novel. No inspected counterpart covered the exact application and result.",
+      "residual_risks": [
+        "2026 full text and the full text of the local unlabeled-marginals hit were not retrieved; primary search service unavailable for the focused query. An earlier electrode diagnostic may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a closely analogous label/time separation, not the application diagnostic in the inspected passage",
+          "evidence": "Binomial cause count and common-shape likelihood factorization",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-023-01417-0",
+          "material_read": "p. 1168, Eqs. (4)–(5), OA text at offset 16000",
+          "method": "Lawful OA PDF passage",
+          "title": "Inference of improved adaptive progressively censored competing risks data for Weibull lifetime models",
+          "trigger": "Closest methodological prior"
+        },
+        {
+          "assessment": "Unresolved source access, not evidence of absence",
+          "evidence": "RESULT.md:62–118 and verify_gompertz_cause_time.py:21–31",
+          "identifier_or_url": "https://doi.org/10.3934/math.20261043",
+          "material_read": "Frozen model description and verifier transcription only; no journal full-text passage retrieved",
+          "method": "DOI, publisher landing page and OA PDF attempt; frozen evidence read directly",
+          "title": "Reliability analysis for an independent Gompertz competing risks model employing improved adaptive progressive Type-II censored data",
+          "trigger": "Exact source model and data"
+        },
+        {
+          "assessment": "Different observables or question; unresolved full statement for the unlabeled-marginals hit",
+          "evidence": "Unlabeled first/second marginals, first/last concordance, or a posterior correction rather than a cause-label rank diagnostic",
+          "identifier_or_url": "ed35170c77f7; af5996928349; 77e4e9dc0b1c; 306c012f5984",
+          "material_read": "Indexed summary only for ed35170c77f7; comparison against mirrored findings for the concordance results and topical indexed posterior correction",
+          "method": "Local search and mirror",
+          "title": "Resultary related competing-risk records",
+          "trigger": "Possible catalog overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:62–118,235–242",
+        "Frozen Table 8 transcription and independent rank-null calculation"
+      ],
+      "rationale": "The application matters independently of the standard mark-factorization: cause–time ordering very strongly violates a structural restriction of the fitted model even without estimating parameters. This checks a feature that separate cause-wise curve fits to selected minima cannot validate.",
+      "residual_risks": [
+        "The diagnostic neither selects an alternative model nor establishes the historical dataset version; the conclusion is about the stated table."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

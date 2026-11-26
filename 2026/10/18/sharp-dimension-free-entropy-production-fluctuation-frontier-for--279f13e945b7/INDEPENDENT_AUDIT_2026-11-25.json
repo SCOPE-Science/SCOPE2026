@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:14.711247Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite-dimensional positive-definite Gaussian pairs, whitening P and diagonalizing the relative precision gives log(p/q) as a constant plus the sum of (u_i−1)Z_i^2/2−u_i m_i Z_i under P. The normal quadratic and linear terms have zero cross covariance, yielding k_i=[h(u_i)+u_i m_i^2]/2 and v_i=(u_i−1)^2/2+u_i^2 m_i^2. At fixed k_i>0 the feasible u are exactly the two-root closed interval, with m_i^2=(2k_i−h(u))/u. The derivative of the resulting v with respect to u is 2k_i−h(u), strictly positive in the interior; endpoints have m_i=0. The endpoint functions have derivative 2u_±(k) and strict concavity/convexity on k>0. By continuity at zero and strict subadditivity of the lower endpoint function (superadditivity of the upper), equality at K>0 requires a single nonzero k_i. All other modes have u_i=1,m_i=0, so the means coincide. Varying the one nontrivial mode across its interval constructs every V in every dimension; K=0 forces P=Q. Direct bisection of h(u)=2K reproduced the displayed numerical V intervals at K=1 and 8. Inspected RESULT.md, VERIFICATION.md, verify.py and requirements.txt; the frozen checker and its sampling assertions were not rerun. The entropy-production rescaling is conditional: Ding–Quan–Tu §3.3 eqs. (35)–(40) require exact score and infinite forward time, and use X sampled from P at the endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian reverse-KL results use dimension-free Lambert-function bounds and rank-one covariance extremizers, but optimize reverse KL.",
+          "Ding–Quan–Tu's supplement computes variance for a separated identical-covariance mixture setting, not the claimed constraint problem for Gaussian pairs."
+        ],
+        "reasoning": "At an equal-mean one-mode pair the conditional objective here is (u−1)^2/2, not (u^−1−1+log u)/2. Their equality families and allocation method do not establish the necessary one-mode variance monotonicity, global allocation and interpolation for this objective.",
+        "searches": [
+          "Zhang et al., NeurIPS 2023, Theorems 1 and 3 and supplemental Appendix C",
+          "Ding–Quan–Tu supplement §1.6 Eq. (53)"
+        ]
+      },
+      "checked_sources": [
+        "Ding–Quan–Tu arXiv:2606.17252v1",
+        "Zhang et al. NeurIPS 2023 main paper and supplement",
+        "Related Resultary record 2dff41c8b944",
+        "Frozen mathematical proof and supporting checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reverse-KL bounds do not give the variance of the forward quadratic-linear Gaussian likelihood ratio. The centered covariance formula alone does not compare shifted pairs or give no-gap attainability."
+        ],
+        "reasoning": "A valid implication would have to handle mean displacement and distribution of positive forward KL across modes, and realize all intermediate values; none of the inspected statements provides those steps for V.",
+        "searches": [
+          "NeurIPS 2023 main text pp. 4 and 6, supplement p. 8",
+          "arXiv:2606.17252v1 eqs. (39)–(40)",
+          "Frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Information variance is the variance under P of log(p/q); under the score/time hypotheses the physical variance is exactly k_B^2 times that quantity."
+        ],
+        "reasoning": "Whether expressed as information variance, centered log-likelihood ratio or endpoint entropy production in the cited limit, the objective is the same. Its identification does not itself give the Gaussian fixed-K extrema.",
+        "searches": [
+          "Resultary semantic searches: Gaussian relative entropy variance at fixed forward KL; dimension-free information-variance frontier",
+          "arXiv:2606.17252v1 §3.3 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogued record optimizes KL for a trace-matched isotropic comparison at fixed precision condition number, with two-level spectra."
+        ],
+        "reasoning": "Its fixed parameter and objective both differ and the isotropic/trace-match setting adds restrictions. It is neither an equivalent statement nor an exact table of this tradeoff. The same-day dates say nothing about ordering.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944"
+        ]
+      },
+      "rationale": "In the compared work, the endpoint entropy-production identity and unconstrained Gaussian moments are prior ingredients, and the scalar allocation strategy and one-exceptional-eigenvalue pattern closely resemble reverse-KL results. The supported distinction is the fixed-forward-KL attainable interval for forward log-likelihood-ratio variance, including equality and no gaps, not the general methodology or the physical identity.",
+      "residual_risks": [
+        "General Gaussian information-spectrum or quadratic-form allocation work could supply a stronger criterion not identified in the inspected sources; the inconclusive public lookup is not evidence against such coverage.",
+        "The shared reverse-KL technique and extremizer geometry are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies and motivates the quantity; does not establish Gaussian feasible interval",
+          "evidence": "Eqs. (39)–(40) state the exact conditional endpoint log ratio and its variance; the supplemental comparison concerns separated mixtures.",
+          "identifier_or_url": "https://arxiv.org/html/2606.17252v1",
+          "material_read": "§3.3 eqs. (35)–(40), §4.1 and supplement §1.6 eq. (53); OA text offsets around 17000, 23600–29300 and 41700",
+          "method": "Primary OA HTML passage comparison",
+          "title": "Stochastic Thermodynamics of Score Matching in Diffusion Models",
+          "trigger": "Exact endpoint entropy-production identity and discussion of relative entropy variance"
+        },
+        {
+          "assessment": "Closely related but different constrained objective",
+          "evidence": "The theorems bound reverse KL subject to forward KL constraints. They do not state the likelihood-ratio variance interval or interpolation.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/b5b4d92374323c53c24bbbc8ee0e715c-Paper-Conference.pdf",
+          "material_read": "Theorem 1 p. 4, Theorem 3 p. 6, supplemental Appendix C p. 8 (same NeurIPS paper, supplemental PDF)",
+          "method": "Primary OA main and supplemental PDF passages",
+          "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+          "trigger": "Gaussian fixed-KL extremal problem with closely matching Lambert roots and equality structure"
+        },
+        {
+          "assessment": "Adjacent record; different constraints and objective",
+          "evidence": "The varied objective is directed KL, with fixed condition number and trace matching, not variance for fixed KL.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "material_read": "Local-mirror RESULT.md opening claim",
+          "method": "Resultary search and local-mirror comparison",
+          "title": "Sharp condition-number KL envelope for trace-matched Gaussian comparisons",
+          "trigger": "Closest spectrum-based Gaussian KL search match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed mean log-likelihood ratio does not constrain the variance to one value even within full-rank Gaussians. The result gives sharp, dimension-free extremes, exact extremizers and realizability of all intermediate variances; these let researchers benchmark Gaussian fluctuation comparisons without arbitrary dimensional or conditioning cutoffs. The physical application is limited to the cited endpoint assumptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

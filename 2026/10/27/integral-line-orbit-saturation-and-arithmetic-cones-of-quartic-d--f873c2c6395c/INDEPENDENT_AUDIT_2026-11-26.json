@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:06:42.649525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite-field Brauer vanishing gives Pic(S)=L^w. Every actual line-orbit sum is an arithmetic effective divisor, and averaging a geometric nonnegative line decomposition gives every invariant effective class as a nonnegative combination of such sums. The pairing is nondegenerate on the invariant subspace, and its polar yields the arithmetic nef cone. For independent reproduction, /workspace/branches/independent-5.py run with the frozen RESULT.md path matched all 18 rows and the displayed 16-index certificate; output is in /workspace/branches/independent-5.log. The check labels the conic class by the empty even mask, H−E_i−E_j by {i,j}, and E_i by the complement of {i}. Exceptional swaps permute bits and the Cremona reflection on the first three points is the last-two swap followed by XOR on those two bits, so this is the same order-1920 Weyl action. Signed cycles classify the classes: conjugating in the full signed group normalizes signs on each cycle, and an odd cycle supplies an odd-sign centralizer element, preventing class splitting in the even subgroup. The primitive fixed kernel means ambient orbit-column Smith factors are the same trace quotient factors, after checking equal ranks. The signed discriminant comes from the Gram determinant of an independent trace sublattice divided by the square of its saturation index. The cone computation independently cuts a simplicial polar by the remaining exact inequalities, adding rays at crossings of adjacent rays and counting its facets by active-ray rank. This checked all listed ray counts, including the split 16/26 case. The certificate basis is saturated and the actual four orbit sums give Smith factors (1,4,4). This is conditional on each surface's actual Frobenius class, not a realization claim over each field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trepalin gives all 18 W(D5) classes with orders, eigenvalues and Picard ranks plus realization results; Blache–Hallouin treat arithmetic types and zeta functions for weak del Pezzo surfaces. Derenthal–Joyce–Teitler compute nef-cone volumes, not the degree-four Frobenius extremal-ray counts in the passage inspected. The catalogue's degree-five analogue uses W(A4) and ten exceptional curves."
+        ],
+        "reasoning": "A rational-representation classification and point-count trace do not classify integral trace indices, Smith types or the arithmetic polyhedral faces. The analogous degree-five computation is a different root system and is not a result uniform in degree that could be specialized to D5.",
+        "searches": [
+          "Trepalin, arXiv:1803.07421, §6 Table 4 and Proposition 6.1",
+          "Blache–Hallouin, arXiv:2301.13582, §1 arithmetic types",
+          "Derenthal–Joyce–Teitler, arXiv:math/0703202",
+          "Resultary degree-five trace-lattice and arithmetic-cone table"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Independent exact replay /workspace/branches/independent-5.py",
+        "Resultary quartic index-only and degree-five analogue records above",
+        "Kunyavskij–Skorobogatov–Tsfasman DOI 10.24033/msmf.338",
+        "arXiv:1803.07421, 2301.13582, math/0703202 and 1606.00300"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The index-only proof computes gcds of maximal minors, not the lower determinantal divisors; it exhibits a reflection word for the exceptional case. The frozen certificate checks lower Smith information for that case. The frozen table has nef counts 6, 10 and 8 in the three rank-four rows, despite all three having eight effective rays."
+        ],
+        "reasoning": "An order of sixteen and rank three do not determine the invariant factors. One can compute them from class representatives, but that needs additional integral data or reductions; likewise cone generation needs a polyhedral calculation to obtain the extremal counts, not a parameter substitution into an eigenvalue or index table.",
+        "searches": [
+          "Matching trace-defect record, RESULT.md proof and verification, offsets 3680–6423; Trepalin Table 4, PDF p. 24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching quartic Resultary Finding uses the same primitive fixed lattice and subgroup of unweighted orbit sums, proving generation of the same real effective cone. Kunyavskij–Skorobogatov–Tsfasman study Picard Galois modules and cohomological invariants, including invariant bases for some subgroups in §5."
+        ],
+        "reasoning": "The ordinary cyclic norm on a line multiplies its orbit sum by the order of its stabilizer; it is not in general the map from the invariant line permutation lattice sending orbit-basis vectors to unweighted sums. Consequently Galois cohomology or a norm quotient cannot be identified with the target Smith quotient without a map comparison. Cone generation also does not specify which rays are extreme.",
+        "searches": [
+          "Resultary: Frobenius trace defects, saturation and arithmetic cones of quartic del Pezzo surfaces",
+          "Kunyavskij–Skorobogatov–Tsfasman, DOI 10.24033/msmf.338, integral Weyl modules and subgroup cohomology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary CSV and Finding give the rank, class size, line orbits and every trace index, including distribution 1^12, 2^3, 4^2, 16. They do not report the full Smith types, fixed-lattice Gram discriminants or effective/nef ray counts. Trepalin Table 4 gives Weyl class, Carter graph, order, eigenvalues, Picard rank and blowup class."
+        ],
+        "reasoning": "The index-only classification is exact existing coverage and is not credited separately, regardless of catalogue dates. The complete table under review contains distinct integral and cone columns not present in those sources.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-integral-frobenius-trace-defects-on-quartic-del-pezzo-surfaces--bba2ad817ad0, Finding, 18-row CSV and proof",
+          "Trepalin Table 4"
+        ]
+      },
+      "rationale": "The 18-class structure, the index-only table including the unique index-16 class, and real cone generation by orbit sums have demonstrable overlap. The supported distinct result is the full integral quotient and Picard-discriminant data together with exact effective and nef extremal-ray counts, including the (Z/4)² group structure rather than its order alone. No examined match gives that classification.",
+      "residual_risks": [
+        "The relation between the two quartic catalogue records was not established; date labels are not a provenance determination. Equivalent integral or cone tables in further sections or under different terminology remain possible; the inspected passages do not establish their absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complete index column and cone generation, not the richer table",
+          "evidence": [
+            "The certificate computes gcds of maximal minors and explicitly identifies the order-four, rank-three class with index sixteen. The cone assertion is generation, not an extremal-ray table."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-frobenius-trace-defects-on-quartic-del-pezzo-surfaces--bba2ad817ad0",
+          "material_read": "Finding and proof/verification (offsets 0–6423 in relevant passages), 18-row CSV schema and values",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Integral Frobenius trace defects on quartic del Pezzo surfaces",
+          "trigger": "Exact same degree, orbit trace lattice, and large-index anomaly"
+        },
+        {
+          "assessment": "Classical input and related subgroup invariants; inspected passages are not the trace-quotient or arithmetic cone-ray table",
+          "evidence": [
+            "Corollary 5.3 uses fixed classes generated by canonical and fiber classes for a subgroup in its cohomological comparison; that is not a census of cyclic orbit-trace quotients."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/MSMF_1989_2_37__1_0.pdf",
+          "material_read": "Introduction/contents, geometric Picard pairing material and selected §5 cohomology and invariant-class passages, especially Corollary 5.3, printed pp. 77–78, offsets 180000–183200",
+          "method": "Lawful Numdam full-text PDF via configured OA route",
+          "title": "Del Pezzo Surfaces of Degree Four",
+          "trigger": "Main classical treatment of the same Galois modules, lines and subgroup invariants"
+        },
+        {
+          "assessment": "Covers class enumeration and rank/order data, not the trace Smith and ray-count columns",
+          "evidence": [
+            "Table 4 columns include eigenvalues on the D5 part, invariant Picard rank and the cubic blowup class; no such integral or cone columns occur there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.07421",
+          "material_read": "§6, Table 4 and Proposition 6.1, pp. 23–24, OA offsets 83090–87814 in relevant passages",
+          "method": "Lawful OA PDF",
+          "title": "Del Pezzo surfaces over finite fields",
+          "trigger": "Exact degree-four finite-field Weyl class table"
+        },
+        {
+          "assessment": "Related zeta data, not the integral/cone classification in the passage read",
+          "evidence": [
+            "Point counts use the trace of powers of Frobenius; the zeta expression uses the characteristic determinant on Picard."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.13582",
+          "material_read": "End of §1, pp. 8–9, offset 27700, including Proposition 1.15",
+          "method": "Lawful OA PDF",
+          "title": "Classification of singular del Pezzo surfaces over finite fields",
+          "trigger": "Arithmetic Weyl types and zeta functions including degree four"
+        },
+        {
+          "assessment": "Volume and geometric curve count are different invariants",
+          "evidence": [
+            "The ordinary degree-four entry lists 16 curves and normalized volume 1/180, not an arithmetic ray-count profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0703202",
+          "material_read": "Opening statement and ordinary degree-four data, OA PDF p. 1, offset 0",
+          "method": "Lawful OA PDF",
+          "title": "The nef cone volume of generalized del Pezzo surfaces",
+          "trigger": "Nef cone literature for split and non-split del Pezzo surfaces"
+        },
+        {
+          "assessment": "Frobenius traces and closed-point configurations, not an orbit-sum Smith table in the inspected passage",
+          "evidence": [
+            "Numerical trace of Frobenius is different from the lattice image of exceptional-curve orbit traces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.00300",
+          "material_read": "Opening and section on cubic and quartic del Pezzo surfaces, PDF pp. 1 and 8, OA offsets 2700 and 24600",
+          "method": "Lawful OA PDF",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Same finite-field surfaces and Frobenius trace terminology"
+        },
+        {
+          "assessment": "Analogue, not a dominating parameter result",
+          "evidence": [
+            "This classification uses seven S5 types acting on ten curves, not 18 W(D5) classes on sixteen."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-integral-frobenius-trace-lattices-and-arithmetic-cones-of-degree--14de99fa5b64",
+          "material_read": "Finding and classification scope",
+          "method": "Local mirror",
+          "title": "Integral Frobenius trace lattices and arithmetic cones of degree-five del Pezzo surfaces",
+          "trigger": "Same suite of invariants, nearby surface degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The trace quotient measures precisely which arithmetic lattice classes are missed integrally by line orbit sums even though those sums span over the reals; its invariant factors distinguish missing generators from a mere index. The discriminants and the arithmetic effective/nef ray counts complement this with exact pairing and cone data. The rank-four cases show why rank or the number of effective rays alone does not give the dual count. The finite range is the full Weyl class space for the degree, not an arbitrary cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

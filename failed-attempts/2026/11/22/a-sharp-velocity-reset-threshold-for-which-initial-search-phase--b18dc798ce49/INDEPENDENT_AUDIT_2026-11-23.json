@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:20:11.928710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With all rates and D,v positive and equal initialization directions, the Fourier-resolvent elimination of the ballistic states yields G_D and G_B in RESULT.md; the free first-detection decomposition divides both spatial Green functions by the diffusive-start value at the target. This uses the strong Markov property at detection, which occurs only in the diffusive state. The characteristic quadratic is positive at zero and negative at lambda^2/v^2, so the two decay roots strictly straddle that positive argument and have the claimed signs. Partial fractions give the stated transforms. Subtraction leaves the two coefficients (mu_-^2-R)/mu_- and (R-mu_+^2)/mu_+; the second is strictly negative. At zero their sum is (mu_- - mu_+)(1+R/(mu_- mu_+))<0. Since R is below the larger root, evaluation P(R)=r lambda beta(1-D lambda/v^2) determines the sign of the first coefficient, including zero at equality. Factoring out the slower exponential gives either a strict negative sign at every finite distance, or an affine function of exp(-(mu_+-mu_-)x) that strictly increases with distance and has the stated single zero. The renewal mean is strictly decreasing in the discounted detection probability, and at x=0 a diffusive start detects immediately whereas a ballistic start does not. Independently evaluated the displayed normalized quadratic and logarithm at D=alpha=beta=r=1, v^2=5, yielding x_*=2.500456035756232. CHECK.py and its finite diagnostic scope were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper gives both transform curves for a free discount parameter, then both curves under phase-restoring Poisson resetting. Its Eqs. (40) and (41) already compare the starts near the target and give the limiting ratio for distant targets."
+        ],
+        "reasoning": "The earlier exact curves cover all parameter values in the frozen comparison and are already in a common two-exponential basis, not a general unevaluated expectation. The number and location of their equalities follow by solving a single affine equation with its endpoint signs.",
+        "searches": [
+          "arXiv:2401.16849 §II mode-resolved first-arrival transforms and §III.C reset means",
+          "DOI:10.1103/PhysRevE.109.034103",
+          "Resultary: phase-restoring reset velocity threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.16849 §§II, III.C and conclusion; DOI:10.1103/PhysRevE.109.034103",
+        "Resultary distinct same-day records --e9f574cebd88 and --d47acb3f97bc",
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divide the difference of the published transforms (22) and (25) by their shared slow exponential. Up to the positive common normalization, the result is A+B y, with y=exp[-(mu_+-mu_-)x], A=(mu_-^2-R)/mu_- and B=(R-mu_+^2)/mu_+.",
+          "Published Eq. (41) simplifies to beta lambda/(lambda^2-v^2 mu_-^2), so its comparison with one is precisely that of mu_-^2 with R. In the published characteristic equation the evaluation at R factors to r lambda beta(1-D lambda/v^2). Eq. (40) and the transforms fix the sign at the near endpoint."
+        ],
+        "reasoning": "For positive parameters y ranges monotonically from one to zero, and an affine function has at most one interior zero. If the far-end value A is nonpositive, strict near-end negativity gives the strict ordering everywhere, including A=0 at finite distances. If A is positive, the sole root is y=-A/B and taking its logarithm is the displayed distance. This extracts the complete classification directly from the stronger published formulas, without needing a new stochastic, asymptotic, or sign theorem.",
+        "searches": [
+          "arXiv:2401.16849 Eqs. (19), (21)–(25), (36)–(41); verify asymptotic comparison and common decay basis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper sets tau_D^{-1}=alpha and tau_v^{-1}=beta and resets to the chosen start configuration. Its Eqs. (22) and (25) use the same two exponents and common normalization for both first-arrival transforms. Eq. (36) makes mean ordering exactly reversed transform ordering; Eqs. (37)–(38) give those full mean functions.",
+          "The Resultary stationary position comparison --e9f574cebd88 has the same velocity boundary and a density crossing but changes the observable; another nearby record --d47acb3f97bc concerns directional polarization."
+        ],
+        "reasoning": "Comparing the two previously given transforms at s=r after cancelling their shared slow decay is equivalent to comparing the mean times at fixed rates. Marginal stationary densities, which include undetecting states, are not those transforms, so a crossing there does not by itself settle this problem.",
+        "searches": [
+          "Resultary: initial diffusive versus ballistic fixed-distance first-arrival preference and same-model stationary ordering",
+          "arXiv:2401.16849 Eqs. (19)–(25), (36)–(41)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact data used here are analytic curves, not a numerical distance table: Eqs. (37)–(38) give mode-specific means, and the paper's parameter plots address separate optimization. The indexed nearby density and polarization records describe other quantities."
+        ],
+        "reasoning": "No tabulated value is needed to obtain the frozen claim, but the absence of a table does not confer novelty; the exact analytic curves provide stronger information.",
+        "searches": [
+          "arXiv:2401.16849 §§III.C–III.E, mode-specific mean formulas and parameter plots",
+          "Resultary: velocity–reset threshold and initial-phase preference"
+        ]
+      },
+      "rationale": "The exact all-distance statement is not spelled out in the inspected passages, but is a direct corollary of the previously published exact two-mode comparison data, not just of a generic model or renewal law. Flaquer-Galmés, Campos and Méndez supply both explicit transform and mean curves as combinations of the same two positive decay rates, and explicitly compare the near- and far-distance means. Their formulas already reduce the full mean ordering to the sign of one affine function on (0,1], with far-end sign read by evaluating their characteristic polynomial at R. Credit this as a useful extraction from exact prior formulas, not as a separately established original classification. The distinct same-day Resultary stationary-density result is not the reason for this failure.",
+      "residual_risks": [
+        "A separately stated all-distance rule elsewhere could be additional prior coverage. The current rejection does not depend on locating such a statement or on inferring same-day priority; it rests on the explicit 2024 formulas and their direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the frozen fixed-parameter classification; the far-distance mode comparison is already explicit although the unique finite-distance crossover is not written as a separate theorem",
+          "evidence": [
+            "Eqs. (22), (25) have the common two-pole form; (36) is the exact renewal relation.",
+            "Eqs. (40), (41) compare near-target and far-target means; the affine sign calculation described above closes the direct implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.16849",
+          "material_read": "§II model and Eqs. (19)–(25) around PDF p. 4, offsets 28500–35394; §III.C Eqs. (36)–(41), offsets 47600–57835; conclusion comparison near offset 83500",
+          "method": "Lawful primary PDF, bounded equation and comparison passage reads",
+          "title": "Intermittent random walks under stochastic resetting",
+          "trigger": "Same dynamics, reset protocol and exact mode-specific means; possible implicit or explicit ordering theorem"
+        },
+        {
+          "assessment": "Same boundary for a different observable; does not by itself establish first-passage ordering",
+          "evidence": [
+            "Stationary radial density comparisons under mixed phase resets exclude first-passage times; equality of stationary position laws at the boundary does not imply equality of detection means."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-likelihood-ratio-ordering-and-exact-laplace-design-by-mixe--e9f574cebd88",
+          "material_read": "Mirrored RESULT.md comparison and stated scope",
+          "method": "Local Resultary search and bounded mirror comparison",
+          "title": "Sharp likelihood-ratio ordering and exact Laplace design by mixed resets",
+          "trigger": "Same speed boundary and crossing in the same resetting model; test for observable equivalence"
+        },
+        {
+          "assessment": "Different observable and comparison",
+          "evidence": [
+            "The claim is direction bias, not the mean time of first detection starting in the two modes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-protocol-independent-extreme-direction-bias-and-its-unique-reset--d47acb3f97bc",
+          "material_read": "Mirrored finding on far-field polarization",
+          "method": "Local Resultary comparison",
+          "title": "Protocol-independent extreme direction bias and its unique reset threshold",
+          "trigger": "Related same-model boundary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The initialization choice is a natural question and the result is a convenient interpretation of the published curves. However, its claimed new content is exhausted by the sign and single root of a common-factor affine comparison of two already explicit means, whose limiting ratio the prior paper already computes. The sharp boundary and logarithmic distance are direct algebraic readings of those data, not a substantively new classification under the mechanically-implied-result criterion. Adding diagnostics or changing presentation would not produce a surviving distinct claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

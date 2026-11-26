@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:50.142125Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 14–80",
+        "VERIFICATION.md and verify.py, inspected, not executed",
+        "Wootters, DOI 10.1103/PhysRevLett.80.2245, concurrence formula used in the proof"
+      ],
+      "rationale": "The claim uses one Bernoulli choice per step to reset the pair jointly, independent across time, as specified in Assumptions; it is not a model with separate coins for the two qubits. In the plus/minus basis of the second qubit, H has a plus block with eigenvalues 0 and 8, and a minus block 2 times the Pauli Y. Exponentiating gives the stated real quarter-turn matrix; its square is I tensor X. The channel contracts trace distance by q=1-p and its four-step renewal sum has weights (1,q,q^2,q^3)/Z with Z=(1+q)(1+q^2). Independent check of concurrence: write rho=XX^T with real weighted orbit columns. X^T S X has the same nonzero squared eigenvalues as the spin-flip product, by the AB/BA identity. Removing the null direction in the two even orbit columns gives the real symmetric matrix with rows (0,-a,b), (-a,-v,0), (b,0,w), where v=q/Z, w=q^3/Z, a^2=(1+q^2)q/(4Z^2), b^2=(1+q^2)q^3/(4Z^2). Its determinant is a^2 w-b^2 v=0, and the lower principal minor -vw is negative. Its two nonzero eigenvalues have opposite signs, so the difference of their absolute values in Wootters' formula is |w-v|. The sum of their squares is v^2+w^2+2(a^2+b^2) and their squared product is (vw+a^2+b^2)^2, agreeing with the frozen spectral coefficients. Reversing the odd orbit columns' weights interchanges v and w in this calculation. The half-turn stationary state is a mixture of two product basis states. The derivative in q has numerator 1-2q-q^2, has exactly one interior zero, and the endpoint concurrence limits are both zero, yielding p*=2-sqrt(2) and (sqrt(2)-1)/2.",
+      "residual_risks": [
+        "Read 'independent' as across steps; independent per-qubit reset coins are outside the claim.",
+        "No claim about p=0 uniqueness, detuned angles or other reset states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald et al. give the geometric mixture for general reset rate and gate angle, the explicit generator and its spectrum, and the half-turn flip. The overlapping record treats O(p^2) detuning and nonzero negativity at the resonances."
+        ],
+        "reasoning": "The more general state expression specifies the input of a separate spectral calculation, not a general exact concurrence result that specializes to this law. The half-turn consequence is already covered.",
+        "searches": [
+          "arXiv:2410.11497v1, Sec. II.1 Eqs. (1)–(10) and Sec. III.2",
+          "Resultary 2026/11/2/SCOPE-quadratic-weak-reset-entanglement-tongues-at-two-resonant-two-qu--92143747e7c1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.11497v1",
+        "Resultary 2026/11/2/SCOPE-quadratic-weak-reset-entanglement-tongues-at-two-resonant-two-qu--92143747e7c1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known half-turn unitary implies zero concurrence directly; the exact negative partial-transpose determinant in the indexed record implies all-interior-p entanglement at the two odd turns."
+        ],
+        "reasoning": "Neither implication evaluates the two nonzero spin-flip singular values or gives a maximizer. The odd-turn cancellation and optimization are a distinct quantitative addition.",
+        "searches": [
+          "arXiv:2410.11497v1, Eqs. (10), (14), Sec. III.2",
+          "Resultary 2026/11/2/SCOPE-quadratic-weak-reset-entanglement-tongues-at-two-resonant-two-qu--92143747e7c1, resonance and limitations passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Wald gate and reset law produce curves in Fig. 4, but the inspected resonance text reports qualitative behavior and a weak-reset limit, not the exact scalar function or optimizer.",
+          "Resultary 2026/11/2/SCOPE-quadratic-weak-reset-entanglement-tongues-at-two-resonant-two-qu--92143747e7c1 has exact partial-transpose sign and a detuned negativity law, not a concurrence identity."
+        ],
+        "reasoning": "A partial-transpose determinant or a weak-reset negativity expansion is not equivalent to concurrence as a function of all p; the two measures are not interchangeable.",
+        "searches": [
+          "Resultary: bound title, Wald citation, quarter-turn concurrence formula and optimizer formulations",
+          "arXiv:2410.11497v1, Sec. III.2, Fig. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest separate Resultary match gives exact partial-transpose information and explicitly does not claim an exact concurrence law. Fig. 4 is a numerical plot, not an exact tabulation of the formula or optimizer."
+        ],
+        "reasoning": "No exact table or database entry providing the supported concurrence claim was found in the inspected evidence.",
+        "searches": [
+          "Resultary: bound title, Wald citation, displayed concurrence formula, quarter-turn optimizer formulations",
+          "arXiv:2410.11497v1, Fig. 4 and surrounding text"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact odd-quarter-turn concurrence law and unique optimizer over the reset probability. Neither the gate, the resonances, the renewal state, nor entanglement without a positive reset threshold is new on the evidence examined. The half-turn separability is a direct consequence of the known gate and renewal mixture.",
+      "residual_risks": [
+        "Targeted searches do not establish publication priority; the same displayed day does not establish ordering.",
+        "The Quantum journal copy could not be compared with the inspected lawful OA preprint because journal HTML and PDF timed out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of model, resonance and qualitative behavior, and inputs implying the half-turn result, not the inspected exact odd-turn law",
+          "evidence": "Eq. (10) gives the renewal sum; Sec. III.2 supplies eigenvalues -2,0,2,8 and U(pi/2)=I tensor X, zero concurrence in the weak-reset resonant limit, and numerical concurrence discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2410.11497v1; doi:10.22331/q-2025-05-13-1742",
+          "material_read": "Sec. II.1 Eqs. (1)–(10), OA offsets 8500–15500; concurrence definition around 21500; Sec. III.2 and Fig. 4 discussion, offsets 28600–35500",
+          "method": "Lawful OA HTML passages",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Exact gate, initial state, channel and resonances cited by the result"
+        },
+        {
+          "assessment": "Material overlap in all-interior-p entanglement but not in the exact concurrence law or optimizer",
+          "evidence": "An exact negative partial-transpose determinant at both angles and weak-reset negativity boundaries under O(p^2) detuning; the record explicitly excludes an exact concurrence formula.",
+          "identifier_or_url": "2026/11/2/SCOPE-quadratic-weak-reset-entanglement-tongues-at-two-resonant-two-qu--92143747e7c1",
+          "material_read": "RESULT.md offsets 0–10514, including exact resonance determinant and scope",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Quadratic weak-reset entanglement tongues at two resonant two-qubit gate angles",
+          "trigger": "Strongest distinct Resultary match on the same model and angles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2410.11497v1, Sec. III.2 and Fig. 4"
+      ],
+      "rationale": "An exact entanglement curve for a previously numerically studied resonant gate answers a natural control question: it gives the unique reset probability that maximizes the stationary concurrence and quantifies the cost of other rates. The spin-flip rank and cancellation supply quantitative information not available from a sign or limiting calculation.",
+      "residual_risks": [
+        "The optimum is only over p at the fixed two resonant angles and the fixed reset state."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

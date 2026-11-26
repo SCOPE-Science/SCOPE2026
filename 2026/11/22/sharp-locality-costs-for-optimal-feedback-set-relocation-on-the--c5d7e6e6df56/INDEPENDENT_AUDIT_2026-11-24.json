@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:07:04.863522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70, VERIFICATION.md, both verifier sources and metric JSON files",
+        "Independent replay: cd /workspace && python3 reproductions/desargues.py ; recorded output reproductions/desargues.txt"
+      ],
+      "rationale": "The cubic edge count gives 2k=10+e(X)+c for any deletion leaving a nonempty forest, hence k>=6. At size six there are 14 surviving vertices and 12+e(X) surviving edges, so acyclicity is equivalent to having exactly 2-e(X) components. An independent exhaustive calculation used this component-count test on all 38,760 masks, tested state-pair symmetric differences and base adjacency directly, and obtained exact shortest-path layers by bitset frontiers from every state. It reproduces both frozen metric distributions on all 4,088,370 unordered pairs, 2,860 states, 27,780/8,280 edges and eccentricity distributions {6:2860}/{9:520,10:2340}. The surcharge histogram agrees in all seven bins; all 210 maximum pairs have (overlap,jump,slide)=(4,2,8). The Johnson excess maxima and frequencies are 2 on 840 pairs and 6 on 240 pairs. Each move in both displayed witness paths is valid and each path is shortest. The independent check includes these joint and path assertions, rather than inferring them from marginal histograms or presuming the frozen scripts explicitly assert them.",
+      "residual_risks": [
+        "Exact finite classification for this one base graph, not a general reconfiguration theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source inspection of Bousquet et al. records a connectivity theorem for K3,3-minor-free subcubic graphs and disconnected cubic examples. It does not record a Desargues exact metric. The cited generalized Petersen work concerns decycling number; the token-sliding framework uses independent-set feasibility."
+        ],
+        "reasoning": "General connectivity statements or examples do not give either distance census even when applicable. The cited positive subcubic case does not extend to the nonplanar cubic Desargues graph: it has a K3,3 subdivision by Kuratowski, since it cannot contain a K5 subdivision.",
+        "searches": [
+          "doi:10.1016/j.tcs.2023.114188",
+          "arXiv:2204.05549",
+          "doi:10.12386/A2013sxxb0022",
+          "doi:10.1016/j.dam.2014.09.005"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results cited above",
+        "Frozen RESULT.md lines 76–90 and AUDIT.json lines 35–128, including its recorded primary literature evidence",
+        "Independent targeted literature search returned no usable result (not evidence of absence)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported earlier invariants give optimum size and count, orbit classes and component counts; the unrestricted reconfiguration comparison concerns connectivity, not the paired distances."
+        ],
+        "reasoning": "The same optimum set family enables constructing the reconfiguration graphs, but state counting and classifying complements do not evaluate shortest paths. A further all-pairs computation or equivalent argument is necessary to infer a maximum surcharge of six on 210 pairs. A shortest-path statement in the zero-forcing state space cannot be transferred by a base-graph isomorphism.",
+        "searches": [
+          "doi:10.1016/j.tcs.2023.114188",
+          "Resultary: 2026/10/12/SCOPE-the-2-860-optimal-decycling-sets-of-the-desargues-graph--3f38acb4cf34",
+          "Resultary: 2026/11/2/SCOPE-almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Desargues inclusion graph is GP(10,3); the frozen explicit bijection identifies all 30 edges, hence preserves both move relations. The same-graph decycling census uses this same optimum-state family. The indexed jump/slide FVS comparison is for GP(7,2), a different base graph."
+        ],
+        "reasoning": "Relabelling the incidence graph as GP(10,3) leaves the claimed metrics unchanged. Replacing it by GP(7,2) does not. The covering count under either alias is not itself a covering shortest-path result.",
+        "searches": [
+          "Resultary: 2026/10/12/SCOPE-the-2-860-optimal-decycling-sets-of-the-desargues-graph--3f38acb4cf34",
+          "Resultary: 2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-state index summary: 2,860 minima, 19 orbits, 760 two-component forests and 2,100 trees. Same-graph distance index summary: a 13,520-state minimum zero-forcing family with different distance data."
+        ],
+        "reasoning": "The first census covers the states and their forest topology, not the transition and joint distance tables in its available statement. The latter tables are for another feasibility predicate.",
+        "searches": [
+          "Resultary: 2026/10/12/SCOPE-the-2-860-optimal-decycling-sets-of-the-desargues-graph--3f38acb4cf34",
+          "Resultary: 2026/11/2/SCOPE-almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed"
+        ]
+      },
+      "rationale": "The 2,860-state universe is covered and correctly credited, but the compared evidence does not establish prior coverage of the joint optimum-preserving jump/slide metric census or the sharp local-move cost. The available general reconfiguration claims do not imply the two metrics. This is a best-of-knowledge judgment, not a priority certificate.",
+      "residual_risks": [
+        "No independent full-text inspection of the 2023 feedback-set reconfiguration paper or the full earlier state census in this review; retrieval timed out. Older or unindexed equivalent metric calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cardinality and state classification, with no reconfiguration metrics in the accessible statement",
+          "evidence": [
+            "2,860 minima in 19 orbits; tree/two-component split"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-2-860-optimal-decycling-sets-of-the-desargues-graph--3f38acb4cf34",
+          "material_read": "Independent indexed scientific finding summary; the frozen AUDIT.json lines 74–83 records a full-text comparison; new full-text retrieval timed out",
+          "method": "Statement-level comparison of optimum census with transition and route metrics",
+          "title": "The 2,860 optimal decycling sets of the Desargues graph",
+          "trigger": "Identical base graph and optimum state family"
+        },
+        {
+          "assessment": "Recorded connectivity/complexity evidence does not yield the fixed nonplanar Desargues census; full-text priority risk remains",
+          "evidence": [
+            "Recorded Theorems 2 and 5 concern K3,3-minor-free connectivity and cubic counterexample families, respectively."
+          ],
+          "identifier_or_url": "doi:10.1016/j.tcs.2023.114188",
+          "material_read": "Frozen AUDIT.json lines 85–94 records publisher abstract, main statements and discussion, not full text. Independent retrieval timed out.",
+          "method": "Compare available theorem hypotheses and conclusions; no whole-document negative inference",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Closest general feedback-set reconfiguration results"
+        },
+        {
+          "assessment": "Noncovering different state family",
+          "evidence": [
+            "13,520 minimum zero-forcing sets, radius seven and diameter eight"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed",
+          "material_read": "Local Resultary finding summary",
+          "method": "Compare state predicates and exact counts",
+          "title": "Almost-Johnson geodesics in Desargues zero-forcing reconfiguration",
+          "trigger": "Identical base graph and an exchange metric"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "GP(7,2) slide component census and jump diameter, not GP(10,3)"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+          "material_read": "Local Resultary finding summary",
+          "method": "Compare base graph and metrics claimed",
+          "title": "A mixed token-slide phase and a connected jump metric for minimum feedback sets",
+          "trigger": "Matching mobility rules and feedback-set feasibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen distance distributions and witness paths; independent full census"
+      ],
+      "rationale": "The canonical cubic incidence graph is a natural common test case for arbitrary exchanges versus local mobility under minimum cycle-breaking constraints. The exact cost separation includes pairs only two jumps apart but eight slides apart, distinguishes the locality cost from the Johnson lower-bound gap, and gives a reproducible reference for constrained shortest-path algorithms. This is information not provided by the known optimum count alone.",
+      "residual_risks": [
+        "Benchmark for one graph, not evidence of the same costs for other graph families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

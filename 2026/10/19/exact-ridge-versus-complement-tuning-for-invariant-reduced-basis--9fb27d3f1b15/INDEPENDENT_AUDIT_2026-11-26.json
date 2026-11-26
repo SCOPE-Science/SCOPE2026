@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:39.585670Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md; verify.py",
+        "/workspace/branches/independent_checks.py (case 2)"
+      ],
+      "rationale": "Invariance and self-adjointness reduce A and S into the same orthogonal blocks. After dividing by alpha, the Type-I extreme quotient is max(b+s,d)/min(a+s,c), s=1/alpha>0. If c<=a, the denominator stays c and a plateau at the limiting value exists exactly for 0<s<=d-b when d>b. If c>a, the quotient strictly decreases up to c-a: d/(a+s) decreases, and (b+s)/(a+s) also decreases unless b=a, in which case it is 1 and the former dominates to the breakpoint. To the right, the denominator is fixed, with the optimum attained exactly through max(c-a,d-b). Type II leaves one normalized block value 1 and the range [alpha c,alpha d] on the other block; equality with d/c is exactly inclusion of 1. These arguments include singleton spectra and all endpoint equalities. For A=diag(K,1), the condition numbers are K+1/alpha and, at alpha=1 for Type II, 1. Independent exact rational checks: 784 endpoint quadruples and 28,224 reciprocal parameter comparisons of both methods; replay: python3 /workspace/branches/independent_checks.py 2. The finite check does not replace the proof.",
+      "residual_risks": [
+        "No extension to noninvariant reduced spaces or to Krylov iteration counts is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper's nonsingularity and Richardson bounds address more general systems but do not optimize the symmetrically preconditioned spectral condition number. The earlier Resultary record permits noninvariant SPD codimension-one subspaces for a Euclidean one-step objective. The Pasetto paper was not accessible in full text."
+        ],
+        "reasoning": "A more general parameter regime under another objective is not mathematical coverage of this condition-number optimum.",
+        "searches": [
+          "Fan–Hu–Zhang §§3.2–3.4 and Theorem 3.4",
+          "Resultary record 2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145",
+          "DOI:10.1002/nme.5320"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11097v1",
+        "Resultary 2c112d7d6145 (mirrored statement) and 647b225e9e83 (indexed adjacent hit)",
+        "10.1002/nme.5320 and 10.1137/S0036144504431905 (retrieval attempts)",
+        "Targeted external search returned no usable comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source preconditioning theory treats nonsingularity and convergence bounds. For invariant A with singleton complement c=d, Type II can attain condition number one, but the earlier local result does not address Type I or the four-extrema comparison."
+        ],
+        "reasoning": "The Type-I strict-improvement threshold and complete attainment intervals do not follow by substituting parameters into those prior conclusions. Both methods share the invariant spectral reduction but require distinct optimization.",
+        "searches": [
+          "arXiv:2609.11097v1 §§3.1–3.4",
+          "Local mirror of 2c112d7d6145, Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan–Hu–Zhang define the inverses of the record's additive actions as M^(1) and M^(2), in (3.2) and (3.5) in the accessed text. González was not available in full text."
+        ],
+        "reasoning": "Inverting the notation identifies exactly the same two algorithms, not an earlier minimizer theorem. The projection/deflation alias is relevant but no equivalent joint minimax classification was established there.",
+        "searches": [
+          "arXiv:2609.11097v1 §3.1; Type-I/II operators and inverse-preconditioner convention",
+          "DOI:10.1137/S0036144504431905"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected earlier finding: 2c112d7d6145 in the local mirror; later related hit 647b225e9e83 concerns worst-orientation Euclidean one-step contraction. No matching endpoint classification was located in these inspected entries."
+        ],
+        "reasoning": "The target is a symbolic classification by four extrema, not a numerical table entry. The relevant database comparison is of the exact formulas, parameter regimes and objective, not shared preconditioner names.",
+        "searches": [
+          "Resultary searches for additive reduced-basis preconditioners and exact spectral tuning"
+        ]
+      },
+      "rationale": "Credit the preconditioners and invariant-block spectral reduction as known methods. The defensible distinct claim is the joint exact scalar classification for this objective, in particular the sharp Type-I improvement and attainment conditions versus Type II; no equivalent or stronger coverage was established in the material inspected. The Type-II spectral band inclusion by itself is an elementary observation, not a standalone novelty claim.",
+      "residual_risks": [
+        "An equivalent endpoint optimum may exist in projection or approximate-inverse literature. Inaccessible papers and an uninformative search do not exclude prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Operator match, no equivalent tuning result in passages inspected",
+          "evidence": [
+            "(3.2), (3.5) identify inverse actions; §3.2 treats nonsingularity; §§3.3–3.4 bound Richardson errors using |alpha| ||A_h||. The frozen citation's (4)/(7) numbering differs from the accessed version."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.11097",
+          "material_read": "v1 §3.1 pp. 5–6; Theorem 3.4 and §§3.3–3.4 pp. 7–9",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+          "trigger": "Exact two operators and tuning motivation"
+        },
+        {
+          "assessment": "Related, different objective",
+          "evidence": [
+            "Unique regularizer minimizes worst-case Euclidean one-step error for codimension one; not the spectral condition number nor a Type-I/II comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions and scope",
+          "method": "Local semantic index and bounded mirror reading",
+          "title": "Exact Euclidean tuning frontier for codimension-one additive reduced-basis preconditioning",
+          "trigger": "Earlier closely matching operators and exact tuning"
+        },
+        {
+          "assessment": "Coverage unverified",
+          "evidence": [
+            "Publisher retrieval returned 403 and no lawful repository text was located in the bounded attempt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nme.5320",
+          "material_read": "No primary full text recovered",
+          "method": "Bounded publisher and lawful alternate retrieval",
+          "title": "A reduced order model-based preconditioner for the efficient solution of transient diffusion equations",
+          "trigger": "Related reduced preconditioning and condition-number literature"
+        },
+        {
+          "assessment": "Coverage unverified",
+          "evidence": [
+            "Publisher retrieval returned 403 and no lawful repository text was located in the bounded attempt."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144504431905",
+          "material_read": "No primary full text recovered",
+          "method": "Bounded publisher and lawful alternate retrieval",
+          "title": "Orthogonal Projections of the Identity: Spectral Analysis and Applications to Approximate Inverse Preconditioning",
+          "trigger": "Possible equivalent formulation via projections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–25 and 33–49",
+        "Fan–Hu–Zhang arXiv:2609.11097v1 §3.1"
+      ],
+      "rationale": "These are two existing algorithmic choices on a naturally spectral benchmark. The full classification answers when ridge tuning actually helps, identifies when its best value is only a limit, and supplies an unbounded quantitative separation from complement-only tuning even for a two-eigenvalue SPD system. The decision boundary and failure witness, not the routine spectral decomposition, give this narrow comparison its use.",
+      "residual_risks": [
+        "This is an exact condition-number benchmark, not a claim about time to solution, robustness under loss of invariance or practical reduced solves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

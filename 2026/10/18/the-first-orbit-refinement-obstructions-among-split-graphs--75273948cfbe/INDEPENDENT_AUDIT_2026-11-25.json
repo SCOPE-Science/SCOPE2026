@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:59.994350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 24–58",
+        "VERIFICATION.md, verify_split_cutoff.cpp, verify_split_small_independent.cpp, verify_split_ten.py, and recorded census/replay files",
+        "/workspace/branches/review5_split.py (python3, integer arguments 1–10 in bounded chunks); review5_split_small.out, review5_split_9.out, review5_split_10.out"
+      ],
+      "rationale": "The mask-multiset search covers every split representation up to independent labels, including disconnected graphs and empty parts, and the original pinned automorphism algorithm tests adjacency and nonadjacency exactly. I separately enumerated the mask multisets through ten, retaining clique degrees in sorted order and restoring presentation counts by the multinomial number of row-degree arrangements. I refined the full uncolored graph into equitable classes and computed within-part orbits by enumerating clique permutations preserving the multiset, with free permutations of identical columns. This restriction is exact: cross-part equal-degree vertices are twins (degree k−1 or k, for clique size k). Also, the image of the clique under any automorphism differs in at most one vertex, and the exchanged pair has equal degree and hence is a twin pair. The twin switch can undo that one swap without affecting a designated same-part target, which lies in the intersection of the old and new parts. The run matches all presentation counts, no failures through nine and 71 at ten, and the four exact canonical lists with counts 6,10,10,45. Degree separation makes the two parts intrinsic for the exceptions and the stated biregular degrees make them equitable; every column is nonempty. For k=4 the masks are an alternating doubled/single 4-cycle, giving a transitive size-four clique orbit and independent orbits of sizes four and two, with automorphism order 4·2²=16. The k=6 incidence is its transpose up to labels. For k=5 the size-two columns are a double edge and a disjoint triangle, giving 2+3 in each part and order (2!·3!)·2=24; the size-three column case is its incidence complement. These give the exact reported profiles.",
+      "residual_risks": [
+        "Only uniform-start counting refinement and orders at most ten are addressed. The enumeration counts representations until exact deduplication of the failure list."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general hierarchy separates amenability from refinability, and regular/biregular replacements can preserve colours.",
+          "The inspected outerplanar theorem's first layer is at eight, for a different class."
+        ],
+        "reasoning": "Neither the broad hierarchy nor the theorem for outerplanar graphs determines first failures in split graphs. Individualization addresses different initial colours and fixing objectives.",
+        "searches": [
+          "arXiv:1502.01255, hierarchy and Lemma 6",
+          "arXiv:1606.04383, individualization",
+          "Resultary …--2cb3631de27b, outerplanar refinement obstructions"
+        ]
+      },
+      "checked_sources": [
+        "Primary and indexed source passages listed in source_inspections",
+        "Focused Resultary incidence-mask query stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biregularity explains why refinement can leave each of two parts unsplit, but does not decide transitivity on either part.",
+          "The exact split C² collision source expressly distinguishes its across-graph result from within-graph orbit recovery."
+        ],
+        "reasoning": "Neither an indistinguishable pair nor a general colour-preservation lemma gives transitivity through nine or an exhaustive list of nontransitive cases at ten; those require the orbit decision and completeness argument.",
+        "searches": [
+          "arXiv:1502.01255, Lemma 6 and incidence construction",
+          "Resultary …--0be296c58e9c, Finding and Relationship"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Refinability in arXiv:1502.01255 is exactly the uniform-start within-graph equality under review.",
+          "For degree-separated split graphs the orbit test is equivalent to part-preserving incidence automorphisms, including multiplicities of equal masks."
+        ],
+        "reasoning": "The incidence view is equivalent when the two degree parts are intrinsic; pairwise 1-WL or C² collisions are not equivalent to nonrefinability.",
+        "searches": [
+          "arXiv:1502.01255, refinable vs. amenable",
+          "Resultary: nonrefinable split graphs four first 10-vertex exceptions orbit exact 71 sorted incidence masks 3 3 5 10 12 12; biregular incidence multihypergraphs with intransitive part-preserving automorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest split-graph incidence finding gives an order-eight collision between a single 8-cycle incidence and two disjoint 4-cycle incidences, not the four order-ten within-graph failures.",
+          "The same-day outerplanar entry's four exceptions are at order eight and include its biconnected subcase."
+        ],
+        "reasoning": "Neither inspected layer matches the predicate, masks, or representation counts; no matching census surfaced in the bounded search.",
+        "searches": [
+          "Resultary exact cutoff, failure count and mask list query above",
+          "Resultary 2026/11/8 …--0be296c58e9c"
+        ]
+      },
+      "rationale": "The standard refinability definition is prior work. The closest split-graph theorem inspected concerns distinguishing two different graphs, not recovery of automorphism orbits inside one graph. Related outerplanar obstructions and general colour-refinement rules do not give the exact split-graph census or imply its lower bound.",
+      "residual_risks": [
+        "A focused external search was unavailable. A specialized result on intransitive hypergraph incidence actions may remain unlocated. Verdict is bounded by inspected sources, not a publication-priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and incidence constructions, not the split-graph census",
+          "evidence": "Amenability distinguishes nonisomorphic inputs, refinability recovers orbits; replacing biregular incidences can preserve refinement colours.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "PDF pp.2–3 at offsets 6800 and 10350; Lemma 6 at offsets 19288–19938; p.9 around offset 29200",
+          "method": "OA bounded full-text passages",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Primary source for refinability and regular/biregular colour obstructions"
+        },
+        {
+          "assessment": "Same graph class but no matching theorem in the inspected passage",
+          "evidence": "The split partition is a clique plus independent set. A keyword miss is not evidence regarding the whole paper.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.05683",
+          "material_read": "p.1 split-partition definition around offset 3650",
+          "method": "OA passage; literal colour-refinement lookup",
+          "title": "On Equistable, Split, CIS, and Related Classes of Graphs",
+          "trigger": "Structural split-graph background and possible cover"
+        },
+        {
+          "assessment": "Different invariant and initial colouring question",
+          "evidence": "Concerns fixing and individualization, not orbit equality from a uniform colouring.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.04383",
+          "material_read": "p.1, offsets 1845–2245",
+          "method": "OA topic and objective passage",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Colour refinement and automorphism-related questions"
+        },
+        {
+          "assessment": "Same graph class but between-graph collisions, not refinability",
+          "evidence": "Order-eight pair exchanges a cycle for two doubled edges in the neighborhood multiset; Relationship distinguishes the order-ten result reviewed here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-eight-vertex-threshold-for-counting-logic-collisions-among-s--0be296c58e9c",
+          "material_read": "RESULT.md Finding offsets 0–4017 and Relationship around offset 4000; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "The eight-vertex threshold for counting-logic collisions among split graphs",
+          "trigger": "Closest split-graph 1-WL evidence and incidence formulation"
+        },
+        {
+          "assessment": "Different class and different minimal order, not a duplicate",
+          "evidence": "Four nonisomorphic outerplanar failures at eight vertices, two biconnected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-first-biconnected-outerplanar-counting-refinement-obstructio--2cb3631de27b",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The first biconnected outerplanar counting-refinement obstructions",
+          "trigger": "Same-date exact orbit-refinement threshold of four failures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Independent exact census and incidence descriptions",
+        "Resultary …--0be296c58e9c and arXiv:1502.01255 for the distinct identification question"
+      ],
+      "rationale": "This gives the sharp threshold for a standard graph-symmetry test in a natural hereditary graph class. The four explicit minimal patterns and their orbit profiles distinguish the first forms of failure, not just the existence of an example. This is also a useful boundary distinct from the earlier between-graph distinguishability failure; regularity of the two stable cells alone is not enough for within-graph orbit recovery.",
+      "residual_risks": [
+        "This is a small-order classification and not a structural description of nonrefinability beyond order ten."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

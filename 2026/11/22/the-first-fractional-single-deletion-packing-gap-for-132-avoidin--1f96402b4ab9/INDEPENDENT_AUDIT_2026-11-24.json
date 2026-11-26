@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:56:51.514193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent code enumerated all permutations through length six, filtered by the defining 132 test, and constructed each shadow by positional deletion and rank standardization as a set. The empty output at n=1 is included. Codes are cliques in the disjoint-shadow graph. Exhaustive inclusion branches, with removal of each previously branched vertex, cover all cliques; a proper coloring bounds the number of further clique vertices and justifies pruning. The independent search returned M=(1,1,2,3,6,13) and checked the displayed 13-word code. At lengths 1–5 the supplied integral output covers hit every shadow and have sizes matching the code sizes. At length 6 all exact nonnegativity, primal capacity and dual covering checks pass with common denominator 308 and primal and dual numerators 4434. Weak duality gives P=(1,1,2,3,6,2217/154), so length 6 is the first gap in optimal values and the first strict floor gap, 13<14. This is not a claim that the earlier packing polytopes are integral. Replay: run python3 /workspace/branches/f34594ec-4a49-4274-b3f9-40cf067acff0/reproduce_independent.py /workspace/source/2026/11/22/the-first-fractional-single-deletion-packing-gap-for-132-avoidin--1f96402b4ab9/LP_CERTIFICATE.json. The uploaded Python was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Gabrys et al. paper treats general permutations with constructions and asymptotic results.",
+          "The adjacent indexed result covers the same source family but gives a sphere-size law, not an optimum for the incidence hypergraph."
+        ],
+        "reasoning": "A sharp class-specific bound obtained from a stronger theorem could cover this result, but neither unrestricted constructions or asymptotics nor the same-class marginal shadow-size distribution supplies its matching lower and upper bounds. Restriction can change both integer and fractional optima.",
+        "searches": [
+          "Primary-literature lookup for pattern-restricted permutation single-deletion codes",
+          "doi:10.1109/ISIT.2014.6875337",
+          "2026/11/22/SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, LP_CERTIFICATE.json",
+        "Local Resultary and indexed 132-avoider deletion spectrum law",
+        "Gabrys et al. (2014)",
+        "Smith (2006)",
+        "Raykova (2006)",
+        "Assigned record 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sphere law specifies shadow cardinalities rather than intersections or covers.",
+          "Assigned record 5 has the same Catalan source counts but uses deletion of a block member followed by block relabeling. Its stated optima already differ at n=5: (5,95/16) versus (6,6)."
+        ],
+        "reasoning": "Neither the marginal sizes nor equinumerosity determine incidence. In particular the different profiles rule out a size-preserving deletion-incidence isomorphism between the two Catalan channels at n=5. The exact primal and dual weights plus integer clique bound are the additional result.",
+        "searches": [
+          "Gabrys et al., doi:10.1109/ISIT.2014.6875337, channel definition and general bound/construction scope",
+          "Closest indexed 132-avoider sphere-size law, RESULT.md",
+          "Assigned record 5, noncrossing-partition deletion, RESULT.md lines 3–35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrys et al. use renumbered survivors and pairwise disjoint deletion balls.",
+          "Smith and Raykova consider reconstruction from a set or multiset of minors.",
+          "The indexed 132-avoider spectrum law concerns sizes of the same distinct standardized deletion sets."
+        ],
+        "reasoning": "Disjoint deletion balls, matching in the shadow hypergraph, and independence in the shared-minor graph are equivalent packings. Injectivity of entire decks allows overlap of individual minors and is not a solution of this packing problem.",
+        "searches": [
+          "Local Resultary one-deletion shadow, sphere spectrum, and packing on 132-avoiding permutations",
+          "doi:10.1109/ISIT.2014.6875337, PDF pp. 1–2",
+          "doi:10.37236/1149 and doi:10.37236/1092, opening pages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest distinct indexed result gives |D(pi)|=n-b(pi) and a size generating function; these are not a table of M_n and P_n.",
+          "The frozen corroborating certificates are evidence for the assigned result itself, not independent published predecessors."
+        ],
+        "reasoning": "A sphere-size table records only column sizes of the incidence matrix. Exact optima depend on which outputs the columns share, so a table of the former alone cannot replace the packing profile. No independent exact table for the checked pair was established.",
+        "searches": [
+          "Local Resultary search for 132-avoider deletion exact packing values and the closest one-deletion spectrum record",
+          "2026/11/22/SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1, RESULT.md, offset 0"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact finite optimum profile and the strict first rounding gap in this avoidance class. The channel, compatibility-graph reduction and sphere-size information are not credited as new. A distinct same-channel indexed result was compared by its statement, not dismissed by date.",
+      "residual_risks": [
+        "An unindexed finite table or a presently unidentified stronger class-specific packing theorem is not excluded.",
+        "No priority claim follows from same-day indexing of the closest spectrum result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-channel overlap in shadow cardinalities, not in exact packings",
+          "evidence": "The statement gives |D(pi)|=n-b(pi), a size generating function and distributional results, not the maximum disjoint subfamily or its LP optimum.",
+          "identifier_or_url": "2026/11/22/SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1",
+          "material_read": "Local mirror RESULT.md opening statement, offset 0",
+          "method": "Local Resultary and primary record mirror",
+          "title": "Algebraic one-deletion reconstruction spectrum law for 132-avoiding permutations",
+          "trigger": "Same pattern class and same standardized deletion shadows"
+        },
+        {
+          "assessment": "Verified prior channel and coding condition; inspected general bounds and constructions do not yield the class-specific pair",
+          "evidence": "Survivors are renumbered and codes are defined by disjoint deletion balls in the permutation space.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875337",
+          "material_read": "PDF pp. 1–2; definition of relative-value deletion and codes, OA offset 4350; introductory scope",
+          "method": "Lawful OA primary PDF",
+          "title": "Single-Deletion-Correcting Codes over Permutations",
+          "trigger": "Identical observation rule on a larger source class"
+        },
+        {
+          "assessment": "Different observation model",
+          "evidence": "Reconstruction uses the entire set or multiset of minors.",
+          "identifier_or_url": "https://doi.org/10.37236/1149",
+          "material_read": "Opening page, observation definition",
+          "method": "Lawful OA primary PDF",
+          "title": "Permutation Reconstruction",
+          "trigger": "Potential equivalent formulation via permutation minors"
+        },
+        {
+          "assessment": "Different observation model",
+          "evidence": "The observed data are sets or multisets of minors, rather than just one unknown deletion outcome.",
+          "identifier_or_url": "https://doi.org/10.37236/1092",
+          "material_read": "Opening page, observation definition",
+          "method": "Lawful OA primary PDF",
+          "title": "Permutation Reconstruction from Minors",
+          "trigger": "Reconstruction from minors including restricted classes"
+        },
+        {
+          "assessment": "Parallel method but distinct incidence invariant and profile",
+          "evidence": "Blocks are recanonicalized after deletion; at n=5 the profile is already different.",
+          "identifier_or_url": "Assigned record 5",
+          "material_read": "Frozen RESULT.md lines 3–35",
+          "method": "Frozen-source comparison",
+          "title": "The first integer-rounding gap for single-deletion codes on noncrossing set partitions",
+          "trigger": "Parallel finite Catalan packing theorem and potential transfer by bijection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard fractional incidence bound is an independently motivated computational substitute for exact packing in a hereditary permutation class. The first strict slack after rounding demonstrates a real limitation of that substitute: it leaves open size 14 even though size 13 is the exact maximum. Exhaustion of all preceding lengths certifies that this is the smallest counterexample in the class rather than an arbitrary test instance. The complete profile also distinguishes two natural Catalan deletion channels despite equal source counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

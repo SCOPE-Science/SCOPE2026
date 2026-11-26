@@ -1,19 +1,21 @@
-# Scientific review: sharp coextinction-variance minimizers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns a single complete classification of variance minimizers in a degree-two bipartite incidence model. The exact covariance decomposition has three exhaustive classes of secondary-species pairs, according to whether their partner sets share zero, one or two primary species. Both structural variance coefficients are nonnegative inclusion-event probabilities. The strict integer-convexity inequality for primary-degree wedges, and a terminating simple-graph edge transfer, prove attainable optimality. Equality cases at the two boundary stages follow from the coefficients becoming zero. Independent extinction follows by replacing all inclusion probabilities with powers of the common extinction probability. The supplied exact-rational verifier compares all cases and equality conditions across 7,132 finite multigraph profiles, without purporting to prove the unrestricted theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Treat labeled secondary species as individual edge occurrences. Unordered pairs sharing two, one and zero vertices number D, W-2D and binom(m,2)-W+D, respectively. Their joint loss probabilities give the stated mean and exact variance identity. At fixed h, t3-t4 is the probability of three specified losses and a specified survivor; t2-2t3+t4 is the probability of two specified losses and two specified survivors. Their positive ranges are exactly 3<=h<=n-1 and 2<=h<=n-2, including the empty interior range at n=4. Integer degree balancing strictly reduces W unless each degree is r or r+1. In a simple graph, if d_u>=d_v+2 then some neighbor w other than v of u is not adjacent to v; moving uw to vw preserves simplicity and strictly decreases the sum of squared degrees. Termination yields an almost-regular graph, without isolated vertices because 2m>=n. This jointly realizes W_* and D=0, proving the sharp gaps and every equality case, including D not being constrained at h=n-1. For the iid case t_j=q^j gives both coefficients strictly positive and fixes the mean. The connected six-vertex example agrees exactly with the formulas. The verification notes and checker were inspected, not executed; small enumerations are not needed to establish the all-n bounds.
 
-The 2004 primary ecological paper establishes the loss-of-all-partners model and uses empirical/simulation robustness curves; it does not provide a fixed-incidence variance minimizer. The 2006 nestedness analysis concerns attack-tolerance and expected robustness. The 2021 bipartite stochastic-block-model article has a variance theorem and a minimum at an Erdős–Rényi parameter, but both concern random-network ensemble robustness rather than the variance of the total number of secondary losses for a fixed degree-two incidence network. The 2024 analytic ecological paper maximizes expected robustness via secondary-degree allocation, not the fixed-secondary-degree variance. Neither these results nor the inspected sample-size edge-count literature implies the simultaneous optimizer and exact equality-class transitions. A general unindexed extremal graph theorem about sampled induced-edge counts may nonetheless cover this result; its existence cannot be excluded by bibliographic search.
+## originality
 
-## Value — PASS
+PASS
 
-The exact extinction-count mean is the same for every allowed network with a fixed number of species and links, while the variance can differ sharply. The optimality theorem thus isolates network architecture's contribution to coextinction uncertainty, with distinct mechanisms of repeated primary partner sets and imbalanced primary degrees. It supplies one sharp benchmark for all extinction levels, rather than a single selected risk probability, and distinguishes the complete equality cases for two deletions, interior deletion counts and all-but-one deletions. The explicit connected example demonstrates a substantial difference despite identical means. It is a mathematical uncertainty benchmark, not a population-level conservation policy claim.
+The fixed-size simple-tree variance and path optimum already occur in the exact rarefaction dual, and the simple-graph overlap count is the same calculation. The supported distinct claim is the sharp joint minimization over general feasible loopless multigraphs, including the repeated-pair penalty, the complete stage-dependent equality classes, and simultaneous iid optimum. No inspected result covers that full extremal statement.
 
-## Scientific limitations
+## value
 
-The dependency rule is one-step all-partners-lost; the secondary degree is fixed at two; repeated partner sets represent different taxa; risks are uniform and independent or uniform exact-number losses. No assertion is made for degree-three or higher secondary species, species-specific risks, cascade dynamics or ecological stability. Independent external verification has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact gaps provide a design and comparison rule for stochastic coextinction counts at a fixed mean: some sampling stages detect repeated partners only, another detects degree imbalance only, and the iid model penalizes both. This complete classification is useful beyond the tree case, without claiming an empirical ecology result or novelty for covariance arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

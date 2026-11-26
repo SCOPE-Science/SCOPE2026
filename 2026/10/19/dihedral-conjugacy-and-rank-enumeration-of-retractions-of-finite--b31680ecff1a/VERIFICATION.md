@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_counts.py` and `python verify_orbits.py` with Python 3 and standard library only. The first enumerates all adjacency-preserving full maps of \(C_n\) directly, applies \(f^2=f\) without assuming an arc classification, and compares their rank counts against two separate exact formulas for \(3\le n\le16\). It prints `CHECKER_OK` after all assertions. The second enumerates complete unit-conjugacy orbits using every rotation and reflection of \(C_n\) independently of the Burnside formula, then tests the walk involution and midpoint formula for \(3\le n\le15\); it prints `SYMMETRY_OK` after all assertions. Both passed in the recorded execution.
+## correctness
 
-Selected expected totals of labeled idempotents: \(9\) for \(C_4\), \(25\) for \(C_6\), \(73\) for \(C_8\), \(221\) for \(C_{10}\), and \(685\) for \(C_{12}\). Expected numbers of dihedral unit-conjugacy classes: \(3,4,8,14,36\), respectively. Odd cycles have only the identity idempotent.
+PASS
 
-These finite computations are corroborations; the all-size claims require the proof's image-arc bijection, automorphism stabilizer, midpoint count, and determinant identity. No independent audit is asserted.
+For n>=3 every cycle edge has a uniquely signed lift; a closed n-step word has displacement 0 or ±n. Odd parity excludes 0 for odd n, and the two remaining walks give automorphisms, of which only the identity is idempotent. An idempotent fixes its image pointwise. A proper connected image is an induced path, not a point because adjacent vertices cannot be identified. On an image arc of k edges the complementary arc must go from k to 0 in L=2m−k steps, requiring k<=m. Conversely each strip walk defines exactly one retraction onto the chosen arc. There are 2m arcs, including at k=m; the only arc-set stabilizers are the identity and the endpoint-swapping reflection. The latter acts by w(t)↦k−w(L−t). At an even midpoint it requires height k/2, and at an odd midpoint either orientation of the central edge between (k−1)/2 and (k+1)/2 is admissible. The walk can be freely specified until that midpoint, giving s and integral Burnside counts. The endpoint entry of (I−tA)^(-1) has cofactor t^k and denominator the path continuant. Independently, alternating free-walk images at the two absorbing walls give binomial terms with period k+2; by binomial symmetry the direct-image index can be written m+j(k+2), and the reflected index is m+1+j(k+2). Prepending k up-steps gives a Dyck path whose initial maximal ascent attains the global maximum, allowing later returns. These arguments cover n=3 and n=4 and the endpoint k=m without an exception.
+
+## originality
+
+PASS
+
+Credit the natural graph retraction classification refined by image rank and especially the reflection-fixed dihedral orbit formula. Do not credit the unranked Dyck numbers or the standard path walk identities. Later indexed findings have demonstrably exact coverage of these counts, not just similar titles. Their stated Nov. 8 and Nov. 22 dates are later than the Oct. 19 frozen record and do not establish that the frozen result is a corollary of earlier work. Independence among those records is not inferred. In the earlier sources inspected the monoid generating rank and path congruence counts are different invariants; the Dyck entry identifies the total count combinatorially but gives no dihedral fixed-point refinement.
+
+## value
+
+PASS
+
+Finite cycles are natural graph cores/retract examples, and image rank and unit conjugacy measure distinct features of their idempotents. The strip identification and reflection fixed-point rule give a complete rank-by-rank classification rather than just a repeat of an unrefined integer sequence. The orbit count is an exact invariant useful in cycle-endomorphism comparisons and identifies precisely how a nontrivial stabilizer changes the count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

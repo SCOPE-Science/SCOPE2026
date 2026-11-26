@@ -1,15 +1,21 @@
-# Scientific review: cyclotomic node descent for Brock's plane octic
+# Independent mathematical audit
 
-## Correctness — PASS
-The elimination is exhaustive over every algebraically closed field of characteristic other than two and seven: the necessary equations factor into a quadratic times another factor, and the resultant of the two competing factors is \(392\), invertible in the stated characteristics. The fourteen explicit nodes are distinct, the two points at infinity are smooth, and the Hessian tangent cones are nonzero multiples of \(dX\,dY\). The genus-one quotient and a pole of order four in its Kummer extension establish geometric integrality, rather than inferring irreducibility from a finite computation. A Gauss-sum calculation gives the exact cyclotomic residue fields; direct permutation analysis gives all four finite-field orbit profiles. Exact symbolic checks and twelve auxiliary prime-field enumerations passed. The normalization zeta correction follows from the two individually rational branches at every node. Limitation: characteristics two and seven are not covered.
+## correctness
 
-## Originality — PASS, with residual historical priority risk
-Hidalgo's 2012 posting records Brock's affine plane equation, and the Top–Verschoor full text explicitly establishes fourteen ordinary nodes and the absence of singularities at infinity. Both are credited as existing facts, as are the cyclic order-seven automorphism and good reduction outside two and seven. Neither inspected source states a \(2,6,6\) rational closed-point decomposition, the exact cyclotomic node splitting field, split-branch descent in every good characteristic, or the four normalization-correction zeta factors. Actual semantic searches of published-finding corpus for the precise model, its aliases, its fourteen nodes, its splitting field, and Frobenius/normalization equivalences gave other curves and constructions, not these results. The 2015 thesis by Verschoor was named in the related paper, but the cited repository link was inaccessible; unindexed classical calculations remain a specific priority risk.
+PASS
 
-## Mathematical value — PASS
-The rational affine plane model is widely used in point-counting studies of a distinguished genus-seven Hurwitz curve. Its fourteen singularities are already known geometrically, but this does not determine their rational residue degrees or whether normalization branches split. The complete arithmetic classification supplies the exact rational point-count correction for the singular model over *every* finite extension in all good characteristics. Distinguishing \(1^{14}\), \(1^2 3^4\), \(2^7\), and \(2^1 6^2\) is thus a concrete arithmetic refinement, not just a new name for the fourteen-node census; it requires the field-of-definition and tangent-cone calculations. It does not claim a new isogeny decomposition or a new smooth-curve zeta numerator.
+In characteristic zero or p != 2,7, the two affine singularity equations force t=xy nonzero, equal seventh powers of x and y, and both stated eliminants in t. I independently recomputed the competing quadratic/quartic resultant 392, so only G(t)=4t^2+3t+1 can vanish. The two diagonal roots r have distinct t=r^2=-(r+1)/2; at each t the fixed nonzero x^7 leaves at most seven x values. Direct diagonal substitutions and the order-seven symmetry give all fourteen. The two points at infinity have nonzero Z derivative. The two pure second derivatives vanish at each node and the mixed derivative is (49/4)(1-t) != 0, giving the split node and two distinct rational branches over its residue field, not just over the closure. The independently verified quartic Q has discriminant 2^12*7^2. Its quadratic extension is nontrivial and u=x^7 has pole order four on the sign choice v~-7t^2, so the degree-seven Kummer step is irreducible. Hence the torus model, and then its plane closure (no components supported on coordinate axes or infinity), are geometrically integral. The Gauss sum squares to -7 and transforms by the quadratic character; multiplication of j by q gives two regular sextic orbits on j != 0 and the quadratic sign orbit at j=0. The ratio x/y recovers a primitive seventh root for j != 0; even x separates the values since r^7=(7r+5)/64 recovers r from x^7. Recomputed the irreducible 2+6+6 projection factors, all four orbit partitions follow from the action, and normalization adds exactly one point per rational node over each extension. Reproduction: python /workspace/flex_and_octic_reproduction.py (SymPy 1.14.0); frozen verifier inspected only.
 
-## Closest sources and limitations
-The closest full texts are Hidalgo, *A computational note about Fricke-Macbeath's curve* (arXiv:1203.6314, first posted 2012-03-28), and Top–Verschoor, *Counting points on the Fricke–Macbeath curve over finite fields* (DOI:10.5802/jtnb.1019, later publication), whose model, fourteen-node statement and automorphism calculations form the background. The result does not extend to the exceptional characteristics, does not determine the smooth normalization's zeta numerator, and does not establish independent priority certification. The 2015 Verschoor thesis could not be inspected at its cited URL.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equation, node count, absence of singularities at infinity, and smooth-model good reduction and arithmetic are prior. The explicit closed-node fields and simultaneous split-branch descent, with their complete singular-to-smooth zeta correction, survive the strongest inspected comparisons. This is a bounded originality finding, not a priority guarantee.
+
+## value
+
+PASS
+
+The arithmetic of the node scheme is a natural missing exact invariant of a known rational singular presentation. In particular, the residue degrees alone would not give the correction without the separate branch descent. Together they supply all plane-model point counts from known smooth counts by an explicit finite zeta factor, with no new smooth zeta or exceptional-prime claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

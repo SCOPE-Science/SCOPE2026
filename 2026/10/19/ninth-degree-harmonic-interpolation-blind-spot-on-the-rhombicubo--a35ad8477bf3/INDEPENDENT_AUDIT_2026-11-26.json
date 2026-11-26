@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:10:37.833217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed permutations of (1,1,1+sqrt(2)) give the regular rhombicuboctahedron up to normalization: the one-coordinate and two-coordinate supporting planes give square faces and three-coordinate supporting planes give triangles; their edge lengths agree at this ratio. The reproducing kernel for probability-normalized spherical surface measure is (2l+1)P_l(x dot y), so evaluation rank equals the normalized Gram rank. Exact products using d=5+2sqrt(2) give the stated six signed off-diagonal values when antipodes are removed, with maximum absolute value less than 3/4. Independent finite replay: python3 /workspace/reproduction.py 5 checks all ranks for l=0..119 without modular specialization, using the eight coordinate-sign characters of the full orbit. Exactly four characters have the matching parity; the others are zero. Each matching character gives a 3-by-3 block, and their ranks are determined by exact minors in Z[sqrt(2)] after uniformly scaling the Gram by l!17^l. The initial rank sequence is 1,3,5,7,9,11,12,12,12,10,12,12,12. At degree 9 the all-sign character block has a single nonzero rank with all entries equal; the other three matching blocks have rank three. Its kernel is the layer-sum-zero coefficient space, hence the two differences of the signed layer sums annihilate the image on the twelve lines. The relations are independent and are exactly the codimension-two image constraints. Antipodal parity transfers both rank and constraints to any representative choice. This finite calculation is not used to extrapolate: DLMF 18.14.7 with lambda=1/2 gives |P_l(u)|<sqrt(2/[pi(l+1/2)sqrt(1-u^2)]). At l>=120 each row off-diagonal sum is bounded by 11 sqrt(8/[pi*120.5*sqrt(7)])<1, proving strict diagonal dominance and full rank. No perturbation or conditioning claim is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardin–Sloane §1 treats polynomial quadrature up to a degree cutoff and identifies its 24-point 7-design as the improved snub cube, a different point set.",
+          "Resultary 495ebae5aa8c summary suggests a wider degree-nine resonance law at ratios sqrt(2)+/-1, but its decisive full passage could not be retrieved; it is dated Nov 1."
+        ],
+        "reasoning": "Design strength controls a quadrature moment condition, not rank of the point-evaluation map for each homogeneous harmonic space. A degree-nine deformation theorem covering this ratio, if verified, could imply the isolated degree-nine defect as a subcase but by itself would leave the other degrees open. No assertion beyond the later record's search summary is inferred.",
+        "searches": [
+          "Hardin–Sloane arXiv:math/0207211 §1",
+          "Delsarte–Goethals–Seidel DOI:10.1007/BF03187604",
+          "Resultary: degree-nine cubic-orbit harmonic resonance, side ratio 1+sqrt(2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary/local mirror b42263507f4c and 9f8a4c325532",
+        "Resultary 495ebae5aa8c (summary only)",
+        "Hardin–Sloane arXiv:math/0207211v1 §1",
+        "NIST DLMF 18.14.7",
+        "DOI:10.1007/BF03187604 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DLMF supplies the Bernstein-type inequality; the addition theorem and diagonal dominance are classical.",
+          "The degree-nine Gram block on the product sign character has a two-dimensional nullspace given by the sum-zero layer coefficient subspace. The cancellation is at the specific normalized orbit coordinates."
+        ],
+        "reasoning": "The analytic ingredients imply the large-degree full-rank end after substituting the angle bound, not the exact classification through degree 119 or the image at degree nine. The latter needs exact orbit-dependent information; even character branching without evaluation coefficients does not imply that rank-one block. The equivalent full classification was verified in later, not earlier, material.",
+        "searches": [
+          "DLMF 18.14.7",
+          "Hardin–Sloane arXiv:math/0207211 §1",
+          "Resultary b42263507f4c Finding and constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b42263507f4c (Oct 26), Finding offsets 0–570 and constraint passage 650–1860, gives the same orbit, exact rank law and equality of the same signed layer sums on 24 points using real harmonics.",
+          "Resultary 9f8a4c325532 (Nov 2), offsets 0–2632, states the full rank law and goes on to a conditioning claim at degree 14."
+        ],
+        "reasoning": "Complexifying a real evaluation matrix preserves rank. Evaluations on all 24 points lie in the parity subspace y(-x)=(-1)^l y(x), which restriction to twelve representatives identifies isomorphically with the sample space. In odd degree the weighted signed products on an antipodal pair agree, so using them both multiplies the sum by two. Thus the first later record gives the same mathematical claim, not an analogue with different data; the inspected dates do not show prior coverage.",
+        "searches": [
+          "Resultary: rhombicuboctahedron, degree-nine harmonic blind spot, signed four-point layer sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b42263507f4c and 9f8a4c325532 give exact rank-law matches in their inspected passages, with later dates.",
+          "No inspectable primary octahedral branching or orbit table covering these values was recovered in the bounded review."
+        ],
+        "reasoning": "Multiplicity tables for abstract harmonic representations could bound the ranks by character, but do not in general encode zeros of a particular evaluation block. In particular the degree-nine loss here is an exact orbit-dependent collapse of one block despite surjectivity at neighboring degrees. An actual evaluated table could cover it; no such earlier table was verified.",
+        "searches": [
+          "Resultary: rhombicuboctahedral harmonic evaluation rank sequence and degree-nine gap",
+          "Octahedral harmonic branching and point-set tables"
+        ]
+      },
+      "rationale": "A later Resultary record is demonstrably equivalent in both the full rank law and the two layer constraints, and another later record restates the rank law. They are credited as exact overlaps, not as evidence of prior coverage. The strongest earlier inspected source passages supply design or analytic tools but not the node-specific harmonic rank defect or its isolation. The supported claim is the law and explicit image constraints for this one canonical orbit; this is not a claim of absolute priority.",
+      "residual_risks": [
+        "An earlier unindexed cubic-harmonic evaluation computation or table could contain the same cancellation; no exhaustive priority conclusion is made.",
+        "Delsarte–Goethals–Seidel was not available for a full primary comparison, and the later broader resonance record was not passage-verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent for rank law and constraints via parity and scalar extension; later-dated comparator.",
+          "evidence": [
+            "The full orbit uses real harmonics and the same ratio 1+sqrt(2).",
+            "The degree-nine condition is equality of the three signed four-point sums."
+          ],
+          "identifier_or_url": "Resultary b42263507f4c",
+          "material_read": "Local mirror RESULT.md, offsets 0–570 and 650–1860",
+          "method": "Resultary search then local mirror passages",
+          "title": "A two-dimensional degree-nine sampling blind spot on the regular rhombicuboctahedron",
+          "trigger": "Exact same orbit and degree-nine obstruction"
+        },
+        {
+          "assessment": "Later exact rank-law overlap; conditioning result is not part of the frozen claim.",
+          "evidence": [
+            "The rank is ten in degree nine and otherwise min(2l+1,12)."
+          ],
+          "identifier_or_url": "Resultary 9f8a4c325532",
+          "material_read": "Local mirror RESULT.md, offsets 0–2632",
+          "method": "Resultary search then local mirror passage",
+          "title": "The isolated ninth-degree sampling gap and unique fourteenth-degree conditioning result",
+          "trigger": "Exact rank census on the same orbit"
+        },
+        {
+          "assessment": "Possible later broader degree-nine coverage, not relied upon as a verified theorem.",
+          "evidence": [
+            "The summary identifies the ratios sqrt(2)+/-1."
+          ],
+          "identifier_or_url": "Resultary 495ebae5aa8c",
+          "material_read": "Indexed scientific summary only; local-mirror passage timed out",
+          "method": "Resultary search and targeted local retrieval attempt",
+          "title": "A two-resonance law for degree-nine cubic-orbit harmonics",
+          "trigger": "Possible broader family covering the rhombicuboctahedral degree-nine case"
+        },
+        {
+          "assessment": "Different orbit and polynomial-integration claim; does not give this evaluation law in the inspected material.",
+          "evidence": [
+            "A spherical t-design integrates polynomials through degree t, and the 24-point 7-design discussed is the improved snub cube."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0207211v1",
+          "material_read": "§1, OA offsets about 400–2530",
+          "method": "OA text passage",
+          "title": "McLaren's Improved Snub Cube and Other New Spherical Designs in Three Dimensions",
+          "trigger": "24-point polyhedral spherical design comparison"
+        },
+        {
+          "assessment": "Exact mathematical overlap could not be assessed from accessible material.",
+          "evidence": [
+            "The source is cited for the design framework, not credited with any uninspected theorem about this orbit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF03187604",
+          "material_read": "No usable full-text passage; citation only",
+          "method": "OA DOI and identified Springer PDF routes attempted",
+          "title": "Spherical Codes and Designs",
+          "trigger": "Foundational source with possible design/evaluation comparison"
+        },
+        {
+          "assessment": "Valid classical inequality, not a rank result; direct specialization verifies the analytic tail.",
+          "evidence": [
+            "(n+lambda)^(1-lambda)(1-x^2)^(lambda/2)|C_n^(lambda)(x)| < 2^(1-lambda)/Gamma(lambda) for 0<lambda<1."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.14.E7",
+          "material_read": "§18.14(i), formula 18.14.7 and attribution note",
+          "method": "Primary public reference passage",
+          "title": "NIST DLMF, Inequalities for Classical Orthogonal Polynomials",
+          "trigger": "Decisive uniform analytic bound for large degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact-degree fitting of harmonic data at the vertex lines of a canonical solid is a natural interpolation problem. The result identifies a nonmonotone, isolated rank loss in degree nine after full sampling is possible, and specifies exactly which two data combinations cannot be fit. It gives the whole degree profile and describes the obstruction by symmetry, information a researcher fitting fixed-degree harmonic modes could use. Its value does not rest on merely reusing the diagonal-dominance bound at large degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

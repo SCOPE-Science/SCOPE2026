@@ -1,11 +1,21 @@
-# Scientific comparison and limitations
+# Independent mathematical audit
 
-**Correctness — PASS.** All distinct squares are partitioned by the number of ones (zero, two, four), with individual literal factor families and midpoint/parity conditions proved. Integer-floor inequalities establish the sharp all-length optimum and all equality cases. Direct enumeration independently matched 8,820 parameter triples; minimizer classification was checked for 295 lengths. These experiments supplement rather than replace the proof.
+## correctness
 
-**Originality — PASS against checked evidence.** The primary 2026 paper treats fixed weights up to three and supplies an effective construction for larger weights, but does not classify the full two-plus-three marked-run spectrum or all equality cases in this family. The closest indexed four-marker result concerns three plus one ones; it does not entail the five-marker formulas. Query searches for two-cluster five markers, binary Abelian-square minima, run decompositions, and equivalence variants did not identify a covering theorem. Some external result full text was inaccessible; this remains a priority risk, not novelty proof.
+PASS
 
-**Value — PASS.** The five-marker case is the first fixed weight beyond the primary paper's solved low-weight cases and contains the paper's effective construction. The exact all-parameter family census and rigid one-or-two minimizer count explain which two-cluster variations preserve optimality and which necessarily create additional factors. It is a complete natural run-restricted classification, not a claim of resolving unrestricted five-marker minimization.
+A factor must have 0, 2 or 4 ones. With 0 ones the even zero-runs contribute floor(M/2) distinct words. With 2 ones the disjoint cases are 11, flanked square 0^x110^x for 1<=x<=min(a,b) (the triple cluster cannot supply both flanks), and 10^b1 for even b. With 4 ones, two from each cluster forces 0^x11 0^b11 with x<=min(a,b) and x congruent to b mod 2 so a midpoint separates the clusters. One from the first and three from the second forces 10^b1110^b, present iff c>=b. All are literal factor contents, not occurrence or Parikh counts. For t=n-5 and m=min(a,b)>=1, t<=2M+m and the difference between the lower bound M/2+1/2+3m/2 and (2M+m+6)/4 is 5m/4-1>0. When m=0, a=0; even b gives at least floor(M/2)+3>floor((2M+6)/4), and odd b<c gives floor(c/2)+2>floor((2c+5)/4). For odd b with c<=b, equality with floor((t+6)/4) is equivalent to 0<=b-c<=4, including c=b separately where the extra factor raises the count by one. Equivalently the admissible odd b are in [t/2,(t+4)/2] with b<=t. For odd t there is exactly one, and for even t there are two iff t/2 is odd and t>=6; t=2 has only b=1. This proves the claimed existence and multiplicities and includes n=6. Reversing preserves the set sizes. The algebraic proof is all-parameter; the uploaded verification reports 8,820 direct factor tests and minimization via the formula at lengths 6..300, inspected but not rerun. No unrestricted five-one minimum follows.
 
-**Limitations.** Neither unrestricted five-one optimality nor an independent audit is established. Direct computation cannot certify the universal statement without the supplied proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the genuine five-run extension and the resulting sharp classification across the full specified family. Credit prior exact positive four-run censuses and minima, which already cover both positive four-run boundary faces, and the primary effective-word construction, which already supplies an attaining word when there are at least four zeros. Neither covers all parameters here or excludes a better or tied solution among the five-run interior.
+
+## value
+
+PASS
+
+The effective four-run witness motivates exactly this extension: adding a left outer zero-run to the two-plus-three witness, while moving the same total zero count among gaps, is a natural family around a known low-count construction. The all-parameter literal census and strict cost of opening both outer gaps show why that extension produces no improvement or additional extremizers. The novel value is this rigidity in the larger family, not reproducing the four-run numerical minimum or suggesting an unrestricted result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

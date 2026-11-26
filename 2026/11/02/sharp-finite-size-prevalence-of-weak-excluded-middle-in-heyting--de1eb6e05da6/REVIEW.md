@@ -1,19 +1,21 @@
-# Review of the finite-size weak excluded-middle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained after finite Birkhoff representation: each principal downset sees only which minimal points belong to the chosen ideal. Connectivity of the common-upper-bound graph forces all-or-none choices within each comparability component. This gives the product formula. A connected non-KC component with \(m\ge2\) minimal points contributes at least \(2^m-2\) failures and at most \(1+2^{s-m}\) successes. The resulting sharp bound is strict unless the component is the complete two-level poset with two minimal points. The independent bitset evaluation on every naturally labeled poset through six points and the explicit family through sixteen points agrees with these deductions. No finite experiment is used to infer the all-size theorem.
+PASS
 
-## Originality — PASS under accessible comparisons
+Rechecked the final fixed-n extremal claim and its counting ingredient. For minima M(p) below p, pseudocomplement tests disjointness from the minima in the ideal, and double pseudocomplement tests all-inclusion. Comparable vertices have nested nonempty sets M(p), so gluing along paths makes the inclusion status constant across all minima of each component. Deleting the included minima realizes the factor 1+|J(C minus minima)|; the empty algebra representation has empty-product count one. A nonvalid component of size s with m>=2 minima has at most 1+2^(s-m) successes and at least 2^m-2 failures. The failure quotient is strictly monotone in the two counts in opposite directions, giving at least 2/(2^(s-2)+3). Equality forces m=2 and antihain structure on the remaining vertices, since every subset must be an ideal. A vertex lying above just one minimum would give a third failure by its principal ideal, so the two-level ordinal sum is forced, and direct count attains the bound. Probabilities factor across components; strict monotonicity of the size bound forces s=n in the equality case. This includes the first nonvalid size n=3. Frozen finite verifier and replay report were inspected, not rerun: all naturally labeled orders through size six (covering each isomorphism class), direct checks of extremizers through thirteen and structural checks through sixteen; these do not establish the universal claim.
 
-Bumpus and Kocsis's *Degree of Satisfiability in Heyting Algebras* (arXiv:2110.11515, originally public 2021) classifies which unary equations have a uniform finite satisfaction gap; the weak excluded-middle equation has no such uniform gap. The paper does not state the sharp conditional rate at fixed join-irreducible count or characterize its equality case. Lávička, Moraschini and Raftery's *The Algebraic Significance of Weak Excluded Middle Laws* (arXiv:2108.09168) characterizes universal validity of the law in algebraic-logic terms, but supplies no corresponding fractional count. Searches of comparable published claims under weak excluded middle, KC, Stone and De Morgan terminology did not find a stronger theorem that implies the statement. Historical-priority uncertainty remains for less discoverable equivalent formulations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The degree of a classical or intermediate propositional principle is a motivated invariant in the cited 2021 literature. Here the absence of a global finite gap is replaced by a sharp quantitative bound at each natural dual-poset size, with an exact extremal family and a usable component-count formula. The distinction between qualitative validity and a best-possible exponential finite-size defect is nontrivial and can be independently checked.
+PASS for the revised result only. The frozen claim of a distinct componentwise count overlaps exactly with the earlier Resultary joint table after dualizing. The repair removes it from the claimed contribution and credits it as known. The separately checked surviving claim is the sharp fixed-join-irreducible conditional proportion and its unique equality type, against all finite nonvalid orders. This is a best-of-knowledge assessment of the final claim.
 
-## Limitations
+## value
 
-Only finite Heyting algebras are covered. The size parameter counts join-irreducibles, not the entire carrier; neither the full spectrum of satisfaction fractions nor the minimum fraction is determined. Verification by the supplied enumeration is finite, whereas the mathematical proof handles all sizes. Independent scientific review and comprehensive priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The absence of an algebra-independent gap makes the smallest positive defect at a fixed structural size a natural question. Its exact exponential scale and constant, with rigidity of the sole maximizer among all nonvalid types, give a finite-size refinement of the satisfiability-gap theory rather than a reannouncement of the known component formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:42:14.517177Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive Zak exponent leads to Fourier aliases n+omega with phases exp(2 pi i(n+omega)x), by taking Fourier coefficients of exp(-2 pi i omega x)Z. The sinc power and first derivatives are summable uniformly on compact coordinate ranges for m>=3; the parenthetical uniformity in proof step 1 should be read on bounded ranges such as the fundamental square, not as uniform convergence of fixed-index partial sums on R^2. The finding only needs the bounded ranges. On omega=1/2+s/m the n=0,-1 amplitudes are [cos(pi s/m)/(1±2s/m)]^m; their logarithms and s derivatives converge uniformly on bounded s. The remaining aliases are bounded by summable inverse odd-frequency powers, also after x or scaled-frequency differentiation. For r in [0,1/2] the tail is at most 2 a sum_{j>=1}(2j+1)^(-m), the second-to-first amplitude ratio is at most e^(-4u), and a/h_m>=e^(cu) because log(sin(pi r)/(2r))/(1/2-r) has a positive continuous extension. This gives strict exclusion outside a bounded scaled strip for fixed tau. The limit's level boundary has zero area by vertical sections; their sublevel lengths produce A(tau). Substitution t=cos(pi x) in that integral reduces the small-tau leading term to the semicircle integral on [-tau/2,tau/2] divided by pi; the relative Taylor error is O(tau^2). At the central zero, paired half-integer aliases give a negative real x derivative and negative imaginary omega derivative, with the sums in RESULT.md:81–82. Odd m gives positive-term sums and even m positive alternating sums, hence the determinant is strictly positive for every m>=3 with the stated sharp error. The known zero uniqueness also matches the centered convention. Inspected CHECKER.py, CHECKER_OUTPUT.txt and VERIFICATION.md; the reported finite diagnostics are not a proof of confinement or convergence and were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 is a qualitative unique-zero theorem for more general periodic exponential B-splines. Kloos arXiv:1411.1539v1 proves a qualitative unique-zero result in a totally positive function setting.",
+          "SCOPE-exact-reciprocal-integer-zak-zero-geometry-for-centered-cardinal--8f35218fd14b, Finding and proof §§3–4, addresses exact zeros and transverse multiplicities at reciprocal-integer scales."
+        ],
+        "reasoning": "Broader zero geometry or uniqueness is not an estimate of small but nonzero values on the whole square. Multiplicity and exact zero lines in the scale parameter are different from the fixed-scale asymptotics in spline order.",
+        "searches": [
+          "Resultary: Zak transform cardinal B spline m Lebesgue area {|Z| <= tau (2/pi)^m} asymptotic 1/m",
+          "arXiv:1311.7359v1 Theorem 3.2",
+          "arXiv:1411.1539v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.7359v1",
+        "arXiv:1411.1539v1",
+        "Resultary half-density, cubic and reciprocal-scale Findings",
+        "DOI 10.1017/S0308210500028869 and DOI 10.1007/s00041-003-0011-3 access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The half-density record computes a bound for the sum of two squared Zak moduli, with minimizing frequencies tending to 1/4 modulo 1/2. This is not a C^1 limit of the individual Zak transform near 1/2.",
+          "The accessible primary uniqueness statement does not control a derivative or exclude disconnected near-zero sublevel components at the exponentially small threshold. The exponential Euler spline article could not be inspected in full."
+        ],
+        "reasoning": "Common Fourier alias technology does not establish the compact-strip profile with its derivatives or the global confinement step without additional estimates. The exact earlier uniqueness is not claimed as new.",
+        "searches": [
+          "SCOPE-sharp-high-order-half-density-gabor-conditioning-for-unscaled-ca--438ed46200fb Finding and proof §§1–3",
+          "DOI 10.1017/S0308210500028869 (Cambridge and OA lookup)",
+          "DOI 10.1007/s00041-003-0011-3 (Janssen)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kloos–Stöckler arXiv:1311.7359v1 §3 p. 11 refers to Z_1 N_m as an exponential Euler spline and gives parity-dependent zero locations for the uncentered B-spline.",
+          "SCOPE-complete-subunit-zak-zero-classification-for-the-cubic-cardinal--1c2481efa2dd, Finding at offset 0, covers the same centered zero at unit scale for the cubic spline, and nearby subunit scales for that fixed order."
+        ],
+        "reasoning": "The change of center or terminology preserves uniqueness/location but does not give scaled values on strips or the Jacobian law. A fixed-order exact zero classification does not give the order-asymptotic statement.",
+        "searches": [
+          "Resultary: high order cardinal B-spline Zak transform large order asymptotic near half frequency two aliases",
+          "Resultary: det D(Re Z_m, Im Z_m)(1/2,1/2) 8 pi m (2/pi)^{2m}",
+          "Resultary: Schoenberg exponential Euler spline curves cardinal B-spline Zak zero (1/2,1/2) uniqueness Kloos Stoeckler"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact parity-coded locations in the spline literature and indexed cubic/reciprocal-scale classifications are reviewed; none gives an exact table or formula for the claimed area distribution or the growing-order transverse determinant in the examined passages."
+        ],
+        "reasoning": "No fixed-order zero location or finite numerical diagnostic certifies a limiting function over all positive thresholds. The closest exact classifications are credited for the invariant they actually count.",
+        "searches": [
+          "Resultary: Zak transform cardinal B spline m Lebesgue area {|Z| <= tau (2/pi)^m} asymptotic 1/m",
+          "Resultary: det D(Re Z_m, Im Z_m)(1/2,1/2) 8 pi m (2/pi)^{2m}",
+          "arXiv:1311.7359v1 §3 p. 11"
+        ]
+      },
+      "rationale": "The distinct quantitative finding is the unit-scale, increasing-order C^1 profile, global fixed-threshold area limit, and sharp transverse determinant. The zero location and uniqueness are established prior results, with the parity-dependent uncentered locations becoming identical after shifting by m/2. Related indexed statements concern other scales, one fixed order, or a half-density frame symbol rather than the present unit-scale small-modulus distribution.",
+      "residual_risks": [
+        "Jetter–Riemenschneider–Sivakumar 1991 remains a material unresolved full-text comparison; the proof of known uniqueness from other accessible sources does not settle priority for the new asymptotics.",
+        "Janssen 2003 was not directly inspected in full; no claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes uniqueness and location in a broader setting, not the claimed rates",
+          "evidence": "N_m has its single zero at (1/2,1/2) for even m and (0,1/2) for odd m>=3; after centering both give the stated zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7359v1",
+          "material_read": "§3 p. 11 (offset about 30000), p. 12 Theorem 3.2",
+          "method": "OA PDF statement-level passage inspection",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Cardinal-spline and exponential-Euler-spline alias, with known exact zero"
+        },
+        {
+          "assessment": "Qualitative zero-count statement in inspected material; not evidence about every technical lemma in the paper",
+          "evidence": "States exactly one zero in the fundamental domain for its totally positive class without a Gaussian factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.1539v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF bounded reading",
+          "title": "Zeros of the Zak transform of totally positive functions",
+          "trigger": "Possible stronger qualitative theorem for Zak zeros"
+        },
+        {
+          "assessment": "Different combined frame statistic and frequencies",
+          "evidence": "The half-density bound is 2(8/pi^2)^m(1+O((3/5)^m)), and the minimizers approach quarter frequency modulo half frequency.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-high-order-half-density-gabor-conditioning-for-unscaled-ca--438ed46200fb",
+          "material_read": "Finding and proof §§1–3",
+          "method": "Resultary query and local mirror reading",
+          "title": "Sharp high-order half-density Gabor conditioning for unscaled cardinal splines",
+          "trigger": "Closest indexed growing-order limiting result using the same Zak transform"
+        },
+        {
+          "assessment": "Unresolved overlap with technical asymptotics; no negative inference from access",
+          "evidence": "The subject is the exponential Euler spline representation; no decisive paper passage for the quantitative law was accessible.",
+          "identifier_or_url": "https://doi.org/10.1017/S0308210500028869",
+          "material_read": "Cambridge record/abstract only; no readable paper passage obtained",
+          "method": "DOI and lawful OA alternate search including Cambridge and repository leads",
+          "title": "Schoenberg’s exponential Euler spline curves",
+          "trigger": "Equivalent spline-Zak representation under older terminology"
+        },
+        {
+          "assessment": "Indirect evidence only",
+          "evidence": "The accessible discussion attributes a uniqueness criterion for a class of even convex windows, not this quantitative law.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-003-0011-3",
+          "material_read": "No full text obtained; indirect discussion at Kloos–Stöckler p. 11",
+          "method": "Lawful OA lookup and cited discussion",
+          "title": "On Generating Tight Gabor Frames at Critical Density",
+          "trigger": "Possible older critical Zak zero analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full-cell sublevel area measures how much of the Zak symbol is poorly conditioned, which a zero set alone cannot do. The exact order-scale profile and explicit area separate exponential amplitude decay from the 1/m frequency width, with an independent sharp local determinant normalization. These address a meaningful aspect of the critical Zak symbol without claiming a noncritical Gabor frame bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

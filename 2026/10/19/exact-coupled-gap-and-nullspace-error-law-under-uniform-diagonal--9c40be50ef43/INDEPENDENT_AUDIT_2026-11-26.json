@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:32.778699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–104",
+        "Frozen VERIFICATION.md, lines 19–25 and verify.py, lines 15–121 (read, not executed)"
+      ],
+      "rationale": "The edge-symmetric and antisymmetric vectors give a 2x2 block with diagonal difference 2 and off-diagonal epsilon(U−V)/2; the isolate is unrotated. The upper eigenvalue is at least 2, whereas both lower branches lie in [0,epsilon], including at a tie of those lower branches. The lower block projector has antisymmetric weight (1−1/sqrt(1+epsilon²T²/4))/2, which the squared original-system norm multiplies by 2. Given T=t the edge midpoint is uniform on [t/2,1−t/2]. Subtracting s(t)<t/2 for t>0 keeps that midpoint in [0,1], so the folded-uniform first moment gives q(t). Its curvature is strictly positive, with endpoint slopes −1/6 and 2s(1)s'(1)>0; monotonicity of r carries the reversal over to conditioning on R. For F=E q(T), the bounds F≤7/24+epsilon²/960<1/3=q(0) and F−q(1)≥1/24−14s(1)²/15>0 give one strict crossing; multiplying q−F by r minus its value at the crossing gives a strictly negative integral. Direct integration against 2(1−t) gives E[T²]=1/6, Var(T²)=7/180 and Cov(q_0(T),T²)=−1/240. The scaled gap has limiting second moment Var(W)+Var((U+V)/2)=1/8 and variance 23/576. Uniform expansions give Cov(G,R)=−epsilon³/1920+O(epsilon⁵), the two mean orders and, after normalization, −3/sqrt(805). These are analytic checks, not inferences from an amplitude grid.",
+      "residual_risks": [
+        "The limit is model-specific. The sign is proved for 0<epsilon<2 and the exact two-dimensional subspace, not for an iterative approximation or an unsquared residual."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kressner–Shao Theorem 4 gives a probabilistic lower separation bound for uniform diagonal splitting; Theorem 6 separately bounds the original-system residual norm, with a stricter amplitude range.",
+          "The inspected Meyer–Musco–Musco passage addresses low-rank Krylov error and dependence on sequential singular-value gaps."
+        ],
+        "reasoning": "Neither the general marginal lower bound nor the deterministic residual bound specifies their dependence, hence they do not settle the sign, conditional profile, or limiting correlation as corollaries.",
+        "searches": [
+          "arXiv:2407.04634v1, Theorems 4 and 6",
+          "arXiv:2305.02535, low-rank Krylov guarantees"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2407.04634v1",
+        "arXiv:2305.02535",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record attributes first-order marginal gap laws and inverse-gap cutoffs to a separate study but does not give an identifiable citation. That attribution was not independently verified.",
+          "The present conditional computation uses the eigenvector projection and the shared random T, along with the conditional midpoint law."
+        ],
+        "reasoning": "Even an exact first-order marginal gap law as described does not determine a covariance against the leading residual or the finite-amplitude U-shaped conditional mean. The contribution is not the first-order marginal gap law. A stronger, as yet unidentified prior statement remains a bounded uncertainty.",
+        "searches": [
+          "Frozen RESULT.md, lines 109–110; catalogue and literature lookups for the prior exact two-dimensional marginal splitting study",
+          "arXiv:2407.04634v1, Theorems 4 and 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model reduces to the lower eigenpair of a perturbed 2x2 block compared with an independent isolate. The squared residual is twice the lower eigenvector's antisymmetric weight.",
+          "A later Resultary avoided-crossing record (6dba397bea92) treats moment thresholds and multilevel corrections, not this joint functional with the isolate."
+        ],
+        "reasoning": "Two-by-two diagonalization and the angle conversion themselves are standard. A law for the separation between the two eigenvalues of that block does not supply the conditional gap between its lower branch and the independent isolate or the associated covariance.",
+        "searches": [
+          "Resultary lookup for gap–nullspace error dependence under diagonal perturbation",
+          "arXiv:2407.04634v1, Theorems 4 and 6",
+          "Frozen RESULT.md, lines 47–104"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact null-space-angle record describes Gaussian sketching, not diagonal splitting or a gap–angle covariance. The later 2x2 avoided-crossing record describes a different coupled moment problem."
+        ],
+        "reasoning": "The nearest indexed exact laws concern different random variables or perturbation ensembles. No exact table for the joint profile or the correlation was identified by the bounded search.",
+        "searches": [
+          "Resultary lookup for exact joint gap and squared residual laws",
+          "Resultary records 672f7b4a2f0b and 6dba397bea92, RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct result is the finite-amplitude joint gap and squared-residual law, particularly its nonmonotone conditional mean, strict negative covariance, and weak-noise correlation in this model. No equivalent coverage was identified in the statement-level comparisons, subject to the unidentified marginal-law reference.",
+      "residual_risks": [
+        "The distinct marginal predecessor is uncited and was not resolved. The comparison supports the joint result to current knowledge, not an exhaustive priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives a separation bound and a separate residual bound; neither determines the signed joint law.",
+          "evidence": [
+            "Theorem 4: amplitude below the smallest positive squared singular value; Theorem 6: residual bound below half that value."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04634v1",
+          "material_read": "Theorems 4 and 6 (HTML text offsets near 14368 and 19909).",
+          "method": "Targeted OA primary-source passages.",
+          "title": "A randomized small-block Lanczos method for large-scale null space computations",
+          "trigger": "Same iid uniform diagonal perturbation and both gap and residual estimates."
+        },
+        {
+          "assessment": "Different approximation objective and error statistic.",
+          "evidence": [
+            "Summary of spectral- and Frobenius-norm guarantees and sequential singular-value-gap dependence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.02535",
+          "material_read": "Introductory guarantee summary, HTML text offset near 799.",
+          "method": "Targeted OA primary-source passage.",
+          "title": "On the Unreasonable Effectiveness of Single Vector Krylov Methods for Low-Rank Approximation",
+          "trigger": "Cited Krylov/gap comparison."
+        },
+        {
+          "assessment": "Different perturbation and no coupled gap–residual claim in the inspected material.",
+          "evidence": [
+            "Three-row Gaussian-sketch angle risk and related weak-perturbation asymptotics."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/672f7b4a2f0b",
+          "material_read": "RESULT.md opening finding.",
+          "method": "Local mirror.",
+          "title": "A two-to-three-row mean-angle transition in Gaussian sketched null-space extraction",
+          "trigger": "Earlier exact null-space angle result."
+        },
+        {
+          "assessment": "Different model and claimed moment laws; later catalogue date alone is not priority verification.",
+          "evidence": [
+            "Moment thresholds and coupled-correction laws at a 2x2 avoided crossing."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/6dba397bea92",
+          "material_read": "RESULT.md opening finding.",
+          "method": "Local mirror.",
+          "title": "Sharp moment thresholds and multilevel variance at a random avoided eigenvalue crossing",
+          "trigger": "Two-dimensional random crossing and covariance-adjacent moment language."
+        },
+        {
+          "assessment": "The stated marginal scope would not cover the joint claims; exact scope and source could not be verified.",
+          "evidence": [
+            "The frozen record expressly excludes its attributed marginal first-order level-repulsion and inverse-gap results from the novelty claim."
+          ],
+          "identifier_or_url": "Frozen RESULT.md, lines 109–110",
+          "material_read": "Frozen attribution only; no primary text identified.",
+          "method": "Compared the frozen attribution with catalogue and primary-literature search results.",
+          "title": "Prior exact first-order marginal splitting study (bibliography unidentified)",
+          "trigger": "Explicit statement of related prior exact work on a two-dimensional nullspace."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–45 and 56–104",
+        "Kressner–Shao, Theorems 4 and 6"
+      ],
+      "rationale": "The edge and isolate give a minimal nullspace with both a mixing direction and an unaffected coordinate. The exact calculation supplies a counterexample to a monotone interpretation of conditioned separation, even though the covariance is strictly negative across the full isolated-branch regime. This is a usable joint benchmark for diagonal splitting analyses that otherwise treat gap and nullspace residual separately.",
+      "residual_risks": [
+        "It establishes no algorithmic convergence result or general joint law for other graphs or perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

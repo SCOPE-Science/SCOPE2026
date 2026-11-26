@@ -1,29 +1,21 @@
-# Scientific review: adjacent-repeat rigidity and alphabet threshold
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The definition counts distinct length-three subsequence *parents* of a length-four received word. The universal adjacent-repeat construction is verified against all fifteen equality patterns of four-position words, so the two-list bound is independent of alphabet size. Its cardinality is \(2q^2-q\). The finite optimality/uniqueness certificate checks all \(\binom{8}{7}\), \(\binom{8}{6}\), \(\binom{27}{16}\), and \(\binom{27}{15}\) source-code subsets, without omission, giving feasible counts \(0,1,0,1\). The unique feasible optimum in each small alphabet equals the adjacent-repeat construction. The 29-word four-letter replacement is validated against all 256 received words. The disjoint-block lifting lemma proves the construction for every \(q\ge4\), not merely the tested alphabets through twelve. Source and captured output are included in the package.
+PASS
 
-The proof is computer-assisted for the exact finite maxima. An integer-programming calculation using a separately generated incidence matrix agreed on both ternary maxima and uniqueness, but correctness does not depend on an optimizer status. Neither exhaustive enumeration nor the blockwise lift establishes an exact optimum for \(q\ge4\).
+Count distinct parents of each length-four receipt, not deletion positions. The 15 first-occurrence equality patterns exhaust all receipts up to relabeling; direct deletion in each verifies at most two adjacent-repeat parents. Counting the union of the two adjacent equalities gives |A_q|=2q^2-q. An independent replay, branches/ebd6a027-7d8f-488c-b1c9-3832938cb61c/independent-reproduction.js, constructs the forbidden triples of distinct parents as a hypergraph and recursively tests target sizes, pruning only sets already containing a forbidden triple. At cardinalities 6,7 for q=2 and 15,16 for q=3 it gives respectively 1,0 and 1,0, with both singletons of the feasible layers equal to A_q as labeled sets. The combinatorial layer sizes are 28,8 and 17383860,13037895; downward closure excludes every larger size. The independently generated four-letter receipt histogram for the displayed 29-word code is (29,77,150,0,0) for list sizes 0 through 4. In a mixed receipt with three symbols in one full block and one outside, the only possible replaced in-block parent is obtained by removing the outside symbol. Among remaining mixed parents an equal pair must come from the three in-block positions. If exactly two are equal, the third is the only possible deletion making the equal pair; if all three are equal, an adjacent-repeat triple must leave the outside symbol at an end, with at most one possible such end (the count of in-block symbols on each side sums to three). Thus at most one mixed parent survives, and the three cases of the lift give the claimed bound for every q>=4. The frozen C++ checker and output were inspected, not executed; it prints the visited layer counts, but contrary to the prose does not separately assert their expected totals. The successor proof, observed counts and independent replay suffice. No exact optimum for q>=4 is inferred.
 
-## Originality (O): PASS, with residual risks
+## originality
 
-The closest inspected primary full text, Con–Doron–Ribeiro (2026), concerns the asymptotic binary insertion list-decoding capacity rather than exact length-three ternary packing or uniqueness. Hayashi–Yasunaga (2020) develops Johnson/Plotkin-style bounds for general list decoding, not this precise unconditional small-block incidence optimum. Published two-symbol insertion–deletion separation results treat **source length two**, whereas the present theorem treats source length three. The published fractional four-supersequence/three-subsequence **covering** record minimizes a covering objective, not the integral two-list packing objective. These do not imply the exact \(15\)-word unique optimum or the all-alphabet four-letter exchange threshold. The accessible abstract of Kiah–Wei–Zeng (2026) describes broad asymptotic bounds; its complete text could not be inspected.
+PASS
 
-Equivalent formulations involving fixed-weight hypergraph packings, code-word incidence inequalities, alphabet relabeling, and complement/run-pattern descriptions were searched. Search negatives alone are not novelty certificates. Residual risks are unindexed tables of short-list insertion codes and an implicit specialization in inaccessible broader coding-theory literature.
+The inspected exact and broader matches treat a different receipt length, a different objective, or asymptotic rates. They do not cover the length-three integral list-two insertion rigidity and the first alphabet size at which it breaks. Full-text access limits are named below; the verdict is a bounded statement comparison, not a priority guarantee.
 
-## Value (V): PASS
+## value
 
-The theorem answers a natural structural question about the smallest nontrivial run-based synchronization code: exactly when does the universally valid adjacent-repeat construction stop being best? It proves literal optimizer rigidity at two and three symbols, locates the **sharp threshold** at alphabet size four, and uses a reusable four-symbol exchange to obtain an improvement for every larger alphabet. The improvement grows as \(\lfloor q/4\rfloor\), rather than being an isolated one-codeword numerical anomaly. The answer is not implied by asymptotic insertion list-decoding capacity, and the all-alphabet lift is independent of any numerical optimizer. It does not claim an unknown exact capacity outside the two small alphabets.
+PASS
 
-## Closest literature and limitations
+The length is a natural smallest setting with nonadjacent repetitions and all-distinct parents. The work establishes a genuine rigidity cutoff of the simple adjacency construction: exact labeled optima in the first two alphabets, a finite minimal failure witness at four, and a repeatable improvement in every larger alphabet. The uniform block mechanism makes this more than an isolated one-code improvement or an unsupported search output, while preserving the stated lower-bound scope.
 
-- R. Con, D. Doron, J. Ribeiro, *The Insertion List-Decoding Capacity and an Improved Bound on the Deletion List-Decoding Capacity*, arXiv:2607.03989v1 (2026): full-text Sections 1–3 and related work inspected; binary asymptotics only.
-- T. Hayashi and K. Yasunaga, *On the List Decodability of Insertions and Deletions* (2020): full-text setup and bounding framework inspected; no three-symbol ternary enumeration.
-- H. M. Kiah, H. Wei, R. Zeng, *Constant-List Insertion--Deletion Codes* (2026): abstract inspected, full text inaccessible; residual priority risk.
-- *A sharp two-symbol list-two insertion–deletion separation* (2026): published summary compared; source length differs.
-- *Exact fractional covering of four-symbol supersequences by three-symbol subsequences* (2026): published summary compared; optimization direction differs.
-
-The upper bound is proved only for \(q=2,3\); the result gives a constructive lower bound for \(q\ge4\). Finite exhaustive search is used as a fully inspectable certificate, not as an infinite proof. No independence or external certification is asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

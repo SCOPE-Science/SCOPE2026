@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify_cyclotomic.py` in the same folder as this file and the scientific result. The program requires only Python's standard library. It checks the coefficientwise Fourier trace identities modulo the fifth cyclotomic polynomial, the golden-ratio relation, all five branch products and rotations, the three exact radical square identities, and the combinatorial orbit sizes for the two independent Kummer involutions. It prints `HUMBERT_FIVE_EXACT_IDENTITIES_OK` on success.
+## correctness
 
-The geometric and arithmetic proof additionally uses exact standard facts independently explained in the result: smoothness from a rank-three Vandermonde Jacobian, canonical adjunction for a complete intersection of three quadrics, the nonzero jet Vandermonde, the total genus-five canonical Weierstrass weight, irreducibility and signature of the quartic \(U^4-U^2-1\), and the Galois action on the chosen cyclotomic square root of five. The script does not stand in for these arguments; it is a reproducible check of their algebraic identities and finite group-action bookkeeping. No independent audit or external validation is asserted.
+PASS
 
-An optional, separately supplied finite-field sanity program `check_good_reduction_examples.py` performs direct enumeration of the projected forty-point support for a few specified good primes. It is a finite spot-check, not a proof of the characteristic-zero field-degree theorem or an assertion about all prime reductions.
+Fourier orthogonality gives the three displayed rational convolution quadrics and square coordinates v_j^2=zeta^j(A+B zeta^j). The five distinct linear factors yield a degree-sixteen connected Kummer cover (four independent valuations); no point has two vanishing coordinates, so the diagonal Jacobian has rank three by Vandermonde. Adjunction makes the linear coordinates canonical sections. At a branch t=zeta^a, in a local trivialization the four nonvanishing coordinates have even expansions; their first four jets are independent because binomial coefficients for orders 0 through 3 are nonzero and the inverses of the four nonzero differences zeta^j-zeta^a are distinct. The single odd coordinate has order one. This gives (0,1,2,4,6) and exhausts the weight 120 with forty points. Independently, the ratios of branch-coordinate squares at a=0 are zeta^(j-1)(1+...+zeta^(j-1)) for j=2,3,4, giving the stated radicals using Phi_5=0, and rotation gives every other branch. The golden ratio has norm -1 in Q(sqrt(5)), hence is not a square there. Its square root generates a real quartic field with nonreal conjugates, not contained in the abelian field K(i). Thus E has degree sixteen; all conjugates are in E since the alternate golden-ratio square root is i/s. Over K the sign flips generate a free order-four action. The product of the four nonzero branch weights is 5 zeta^(-2a) by the derivative of t^5-1, and the resulting scale-invariant sign transforms by the cyclotomic quadratic character through sqrt(5). Thus the two size-four orbits at a=0 are exchanged, making one size-eight orbit. At a nonzero index the rational map -A/B gives a primitive fifth root, so a stabilizer fixes K and is trivial by the free sign action. The remaining thirty-two points form two degree-sixteen orbits, each with residue field E; this proves minimality of E for the support.
+
+## originality
+
+PASS
+
+The forty geometric points, their weights and Wiman's geometric diagonal form are prior work. Distinct supported content is the exact arithmetic refinement for this Fourier-descended rational model, in particular the change of sign class over the rational branch value and the two primitive-branch orbits with maximal residue field. The inspections support this distinction, not historical priority beyond the checked sources.
+
+## value
+
+PASS
+
+The rational convolution quadrics give a natural descent of a distinguished classical curve. The orbit degrees are meaningful field-of-definition invariants of its canonical ramification support: they rule out Weierstrass support over every number field of degree below eight and exhibit degree sixteen as the minimal field of full splitting. The rational-branch octad is not eight rational points; explaining why its two cyclotomic sign classes fuse is real arithmetic content beyond the known geometric point census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

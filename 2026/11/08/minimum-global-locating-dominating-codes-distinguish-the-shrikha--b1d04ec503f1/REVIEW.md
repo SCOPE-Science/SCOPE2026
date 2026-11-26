@@ -1,19 +1,21 @@
-# Scientific review: minimum global locating-domination in two strongly regular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise object is the Shrikhande Cayley graph and the \(4\times4\) rook graph, both given by complete adjacency rules. The filter for globality is proved from complement-neighborhood traces, not assumed. Complete enumeration covers every subset of size at most five, so smaller counterexamples cannot be missed. All feasible five-codes, forbidden five-neighborhood sets, potential exchanges and all-pairs shortest-path distances were checked. Independent set-based and bitmask implementations agree. Automorphism-orbit counts are checked by explicit permutations, with upper bounds on vertex stabilizers proving completeness of the described groups. There is no claim beyond these two finite graphs.
+PASS
 
-## Originality — PASS (qualified)
+For an exterior vertex, the complement trace is the set-theoretic complement in the code, so distinctness transfers and globality fails exactly for full original traces. For either graph, fixing a center, the other 15 vertices have distinct two-element traces on its six neighbors: each pair of the six has precisely the center and one other vertex as common neighbors. Deleting one neighbor preserves distinctness and nonemptiness of these pair traces, and the center has the full five-set trace. Thus all 16·6=96 five-subsets of neighborhoods are LD but not global, and none can be repeated because two neighborhoods intersect in only two vertices. The same trace argument gives faithfulness of neighborhood actions. A fresh exhaustive reproduction checked all subsets through size five in both graph/complement pairs; minimum 5 in each, LD counts 1584/1968 and global counts 1488/1872. Exhausting the legal exchanges gave jump edges 18432/27072, slide edges 8160/11520, and all-source distances gave connected graphs with all eccentricities 5 for jumping and 6 for sliding. The explicit edge-preserving permutation groups reach orders 192 and 1152, the upper bounds from the faithful local actions on C6 and 2K3. Orbits were reproduced as 192 six times, 96 three times and 48 once, versus 576 three times and 144 once. Common SRG parameters give A²=4I+2J in both cases and force the same adjacency spectrum; the different counts thus establish the separation.
 
-The 2013 global location-domination work establishes the predicate and general bounds, not the complete two-graph minimum-code census. The 2014/2015 strongly-regular identifying-code work uses a strictly stronger closed-neighborhood predicate; its graph-parameter bounds do not force the enumerator of global location-domination codes. The 2023 binary locating-domination study bounds larger rook-product cases but does not report the four-by-four global optimum multiplicity. Previously documented calculations on the same graphs concern different invariants, such as identifying codes, metric/edge bases, independence complexes, and induced matchings; no statement-level implication yields the exact 1488-versus-1872 distinction and complete relocation data. An accessible abstract of the 2015 optimal-code ensemble paper is insufficient to exclude graph-specific results within its unavailable full text. Unindexed historical tables remain a priority risk. Index searches alone do not establish novelty; the conclusion rests on the specific comparisons and their disclosed limits.
+## originality
 
-## Value — PASS
+PASS
 
-The two graphs are a canonical nonisomorphic pair with identical strongly regular parameters; measuring an optimum-code enumerator naturally probes the limits of spectral/parameter data in domination theory. The exact 384-code discrepancy is a meaningful structural separator, not an arbitrary parameter slice. Exact exchanges and automorphism orbits refine the interpretation of the distinct optimal placement spaces. The result does not require an infinite extension to be useful, and the entirely enumerated configuration spaces make the finite conclusions reproducible.
+The global location-domination definition, complement test, standard exchange rules and graph automorphism groups are background. The supported distinct claim is the exact pairwise comparison of global optimum multiplicities and exchange geometry. The closest distinct Resultary census uses identifying codes rather than global LD; the closest regular-graph literature concerns scalar parameters, with the same-family grid statements out of the audited order range. Priority is provisional given a genuinely relevant inaccessible optimal-ensemble paper.
 
-## Scientific limitations
+## value
 
-The theorem is a finite exact statement, not a universal enumeration method. Existing general inequalities and generic code-reconfiguration machinery remain background. Inaccessible full primary material and unindexed tables warrant cautious originality language. No external independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shrikhande and the rook graph are a canonical pair with the same strongly regular parameters and spectrum. Their exact different global-optimum multiplicities and exchange edge counts therefore give a meaningful obstruction to parameter- or spectrum-based recovery. The orbit and diameter data give a reproducible comparison of how those distinct optimal spaces can be navigated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

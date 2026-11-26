@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:31.818747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent reproduction: cd /workspace/reproduction && python3 reproduce_reset.py; record-5.txt",
+        "Newton–Vega Coso, arXiv:2611.01756v1, Theorems 5.3(a) and 6.1"
+      ],
+      "rationale": "Read as specified with initial site equal to the fixed reset site. Each cycle absorbs at endpoint j with probability E_5[s^T 1_{J=j}], and retries from 5 otherwise. Renewal divides the lower cycle probability by the sum for either endpoint. Solving the killed tridiagonal equations gives cofactors for the two directed paths of lengths 5 and 7, with unused blocks [6,11] and [1,4] and directed path-weight ratio e(1-e). Each restricted killed matrix has spectral radius below 1: at fixed e>0 every state has a uniformly positive chance of leaving its block in a bounded number of steps. Thus the determinant is initially one and never zero for 0<=s<=1. Independent symbolic sums over disjoint adjacent transpositions verify both continuants and the derivative numerator. F is positive at x=0 and x=1, and negative at x=3/4 uniformly, independently checked by strictly negative Bernstein coefficients after rescaling the e interval. Since the nonzero polynomial has finitely many roots, each of the two disjoint subintervals has a sign-changing root; the derivative switches in the opposite direction since its denominator is positive. At e=1/20 the exact quartic has Sturm variations 4 and 2, is square-free, and changes sign in both stated rational brackets; this gives exactly a minimum then a maximum in increasing s. For homogeneous p with q=1-p, the killed resolvent recurrence after scaling by (q/p)^(i/2) gives U/V=(q/p)^(N/2) sinh((N-z)theta)/sinh(z theta), cosh(theta)=1/(2s sqrt(pq)). The logarithmic derivative in theta has the sign of N-2z because t coth(t) is strictly increasing for t>0. As theta is decreasing in s this is monotone (constant at the midpoint), covering both parities and confirming the one-valued exclusion without assuming the cited proof. The literal phrase 'both absorbing boundaries are reached almost surely' is an editorial misstatement: one of the two is reached almost surely and each has positive probability. The process, renewal proof and finding use first absorption, not simultaneous or successive visits to both endpoints.",
+      "residual_risks": [
+        "Exact count two is proved only at e=1/20; the other parameters give at least two. Neither minimum state count nor results for an initial site different from the reset site follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homogeneous nearest-neighbor walks have a monotone response in the cited model.",
+          "The paper poses classification of reset-rate extrema as an open problem in §10.3.",
+          "Multi-site neutrality and homogeneous spectral criteria use different model hypotheses.",
+          "The indexed general state threshold is 12 total states, with a many-valued witness."
+        ],
+        "reasoning": "The general state's lower bound does not constrain alphabet size or exhibit the consecutive interval of binary environments. Homogeneous theory proves only the one-bias exclusion; its assumptions do not cover this inhomogeneous witness.",
+        "searches": [
+          "Newton–Vega Coso Thms. 5.3(a), 6.1 and §10.3",
+          "arXiv:2605.00657v1 and arXiv:2603.24803v1",
+          "Resultary: general finite-chain reset multiplicity and state-count threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matching records and recovered findings",
+        "Primary source sections listed above",
+        "Frozen claim and its stated novelty boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp state-count finding uses the same many-valued 12-state example as the general exact-count result; neither forces a two-valued example.",
+          "Homogeneous monotonicity implies the one-valued exclusion, and temporal odds reversals supply no derivative certificate for the reset response."
+        ],
+        "reasoning": "After crediting these implications, the two-value construction and its robust derivative sign pattern remain to be proved. The paper's parity theorems and prior root-count examples do not imply either rational bracket for this transition vector.",
+        "searches": [
+          "Same-day sharp 12-state result Finding and novelty discussion",
+          "General exact two-turning-point record Finding and Assumptions",
+          "Newton–Vega Coso Proposition 7.6 and monotonicity theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest indexed comparison f112d06fb3f2 proves exactly two extrema for a reset-at-5, 12-state example with many probabilities.",
+          "Proposition 7.6 concerns time-indexed exit odds in an inhomogeneous walk, including a=12, z=5, not extrema in the reset probability."
+        ],
+        "reasoning": "The change of variables r=1-s, x=s^2 is a monotone reparameterization and preserves strict extremum count. It does not turn a temporal reversal into a reset-rate extremum. Matching starting sites or boundary sizes does not equate transition vectors or transition alphabets.",
+        "searches": [
+          "Resultary: two transition biases, two-valued birth–death gambler’s ruin, fixed-site geometric resetting, splitting probability, double turning",
+          "Newton–Vega Coso arXiv:2611.01756v1, Proposition 7.6 and §10.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day f112d06fb3f2, b7682f792857, 581750305912 and 3aea3b6fb9ce give exact examples or thresholds for other criteria or probability vectors. No independent exact entry in the inspected hits establishes the specified two-element alphabet, uniform range or stated quartic.",
+          "Those paths have no recovered within-day precedence."
+        ],
+        "reasoning": "An exact many-valued walk is existing coverage of generic existence, not of existence for binary environments or of sharpness in the number of probabilities.",
+        "searches": [
+          "Resultary exact model, two-extremum and alphabet-threshold lookups"
+        ]
+      },
+      "rationale": "General double turning in heterogeneous chains is not new. The substantiated distinct result is double turning using just two complementary probabilities, on a whole explicit interval, together with an exact two-root witness and hence sharp alphabet threshold. The known homogeneous monotonicity supplies the lower bound, not the two-bias construction. The most similar indexed examples use more than two probabilities. Same-day overlap is compared by mathematical scope, not presumed chronological order.",
+      "residual_risks": [
+        "Bounded search is not priority certification. Chronological order among distinct same-day results is unresolved; their many-valued witnesses do not cover the binary claim. An unindexed equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-bias lower bound and related temporal example, not two-bias reset result",
+          "evidence": "Homogeneous monotonicity depends on starting position relative to the midpoint; Prop. 7.6 is about exact-time odds; §10.3 poses reset-extremum classification.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01756v1",
+          "material_read": "Theorem 5.3(a) offset 38616; Theorem 6.1 offset 42555; Proposition 7.6 offset 52582; §10.3 offset 73782",
+          "method": "OA HTML source",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "Same reset model and close heterogeneous reversible-odds example"
+        },
+        {
+          "assessment": "Covers generic exact-two existence, not the restriction",
+          "evidence": "12 states and reset at 5, many distinct right-jump probabilities, exactly two extrema.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-strict-reset-rate-turning-points-in-a-finite-birth-death-spl--f112d06fb3f2",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–4473",
+          "method": "Resultary local mirror",
+          "title": "Two strict reset-rate turning points in a finite birth-death splitting problem",
+          "trigger": "Closest same-day exact two-turning-point result"
+        },
+        {
+          "assessment": "Different minimization objective",
+          "evidence": "Minimizes states in the general class; the witness is the prior many-valued 12-state example.",
+          "identifier_or_url": "2026/11/22/SCOPE-twelve-states-are-the-sharp-threshold-for-two-geometric-reset-sp--b7682f792857",
+          "material_read": "RESULT.md Finding offset 0 and relationship to prior work near offset 7600",
+          "method": "Resultary local mirror",
+          "title": "Twelve states are the sharp threshold for two geometric-reset splitting reversals",
+          "trigger": "Possible competing minimality claim"
+        },
+        {
+          "assessment": "Does not cover binary environment",
+          "evidence": "At least three extrema in a reset-at-7 many-valued chain.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-interior-reversals-of-geometric-reset-absorption-in-a-17-s--581750305912",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Three interior reversals of geometric-reset absorption in a 17-state chain",
+          "trigger": "Multiplicity beyond two in same reset model"
+        },
+        {
+          "assessment": "One-extremum state threshold, not this claim",
+          "evidence": "Addresses first possible single interior optimum.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-eight-vertex-onset-of-interior-geometric-reset-splitti--3aea3b6fb9ce",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "The sharp eight-vertex onset of interior geometric-reset splitting",
+          "trigger": "Another sharp onset result"
+        },
+        {
+          "assessment": "Different model and question",
+          "evidence": "Reset distribution over multiple sites and reset neutrality, not double turning for a two-valued environment with one reset site.",
+          "identifier_or_url": "https://arxiv.org/html/2605.00657v1",
+          "material_read": "Abstract and §4.1, offsets 0 and 22551",
+          "method": "OA HTML source",
+          "title": "Spectral Duality and Reset-Neutral Distributions in Random Walks with Multi-Site Geometric Resetting",
+          "trigger": "Discrete geometric-reset splitting probabilities"
+        },
+        {
+          "assessment": "Homogeneous, not target inhomogeneous alphabet",
+          "evidence": "Studies homogeneous walks with reset to start and midpoint invariance.",
+          "identifier_or_url": "https://arxiv.org/html/2603.24803v1",
+          "material_read": "§§I.3–I.4, offsets 6297 and 7922",
+          "method": "OA HTML source",
+          "title": "Critical Spectral Invariants in Random Walks with Geometric Resetting",
+          "trigger": "Reset to starting state in a finite walk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Homogeneous monotonicity and the cited reset-extremum classification problem",
+        "Prior generic multiplicity and state-threshold results",
+        "Exact uniform derivative and root-count certificate"
+      ],
+      "rationale": "Bounding the alphabet, rather than the number of states, tests how much spatial heterogeneity is necessary to defeat homogeneous reset monotonicity twice. The result gives the sharp threshold on that natural structural measure and a whole interval of two-bias examples, so it is not just another many-parameter numerical witness. The exact rational root certificate makes a reusable benchmark for reset-response classifications.",
+      "residual_risks": [
+        "Does not give a sharp upper parameter endpoint, a minimum state count under the binary restriction, or an exact root count for the entire interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

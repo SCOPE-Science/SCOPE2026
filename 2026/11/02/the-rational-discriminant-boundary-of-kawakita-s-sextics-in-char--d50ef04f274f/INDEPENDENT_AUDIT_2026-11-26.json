@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:51:51.783515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–6 and VERIFICATION.md; supplied verifier inspected, not executed",
+        "Separate exact F₃ identities: python3 /workspace/branches/944d3e2e-1ad5-4aaa-92d4-6f51fdea91d3/independent_math_check.py"
+      ],
+      "rationale": "Writing A=a+b and B=b−a, the quotient cubic becomes Awt²+Bs³+As²t+bst²+t³. It is primitive and linear in w because A and B are nonzero, and its gradient forces its only singularity to be s=t=0. At that point the double tangent has contact three; completing the square in the formal local quadratic reduces the equation to a square equal to s³ times a unit, an ordinary cusp also in characteristic three. Squaring is étale off the axes, so this gives precisely four cusps there. The axis cubic f(v)=v³+av²+bv+1 has f′(v)=b−av and a³f(b/a)=−D. Here ab≠0, the quadratic coefficient at the root is a≠0, and the remaining root is simple and nonzero. At each double contact the quadratic part of the pullback is (a+b)³X²/a²+b(Y−Y₀)², a pair of distinct lines since both coefficients are nonzero. There are two such points per axis; at simple intersections the along-axis derivative is nonzero. The simple intersections on U=0 and V=0 give independent valuation parities for U/W and V/W. Thus the generic pullback is a degree-four field, and finite flatness of squaring (two monic square-root equations on each target chart) implies integrality of the pullback itself. On the normalized cubic only the three simple intersections ramify, with inertia two, including the common odd poles on W=0; Riemann–Hurwitz gives 2g−2=−8+6=−2. This agrees with the sextic genus defect of ten. The displayed cubic for the witness has no F₃ root and avoids the excluded values.",
+      "residual_risks": [
+        "The separate script verifies the polynomial identities only. Connectedness, the local singularity types and the ramification computation are mathematical checks, not outcomes of finite enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kawakita's family specializes by c=−3(a+b+1), but the inspected results assume p≥5. Iezzi–Kawakita–Timpanella use the same characteristic restriction.",
+          "The explicit p=3 reducibility remark in the Wiman paper concerns a symmetric a=b model, which the boundary finding excludes."
+        ],
+        "reasoning": "The broader family definitions do not give a theorem across the excluded characteristic. The symmetric reducibility statement neither implies nor contradicts the asserted asymmetric integrality.",
+        "searches": [
+          "Resultary: Kawakita sextic family c=-3(a+b+1) characteristic p>=5 singularities discriminant",
+          "Literature: M. Q. Kawakita Certain sextics with many rational points 2017 PDF family of sextics Section 2 characteristic p at least 5 equation a b c",
+          "arXiv:2306.01928; arXiv:1805.06317"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --2c1882bd9fa6 and summary of --9f1530723e22",
+        "Kawakita DOI 10.3934/amc.2017020",
+        "Iezzi–Kawakita–Timpanella arXiv:2306.01928",
+        "Giulietti–Kawakita–Lia–Montanucci arXiv:1805.06317"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof computes the same cubic discriminant and proves the Kummer result when all nine coordinate intersections are transverse. It does not determine the contact multiplicities or the local pullback at a zero of the discriminant.",
+          "At D=0 the separate axis-polynomial and transverse-derivative checks give a double-plus-simple intersection rather than a triple contact, nondegenerate quadratic nodes in the sextic, and three branch points instead of nine. The simple points must also be retained to prove squareclass independence at the boundary."
+        ],
+        "reasoning": "The cuspidal quotient is shared, but the open theorem cannot be specialized to transfer its normalization or all its singularities. The exact node structure and preservation of integrality at the changed ramification profile require a boundary calculation.",
+        "searches": [
+          "Resultary --2c1882bd9fa6, Finding and proof §§1–5",
+          "Kawakita DOI 10.3934/amc.2017020, family and characteristic restriction",
+          "arXiv:1805.06317 Remark 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary --2c1882bd9fa6 studies exactly the same sextic and its squaring pullback, but assumes D≠0 and gives four cusps and genus six.",
+          "The potentially related Resultary --9f1530723e22 search summary identifies a Badr–Bars C₃²-invariant normal form and different singularity profiles; full-file comparison was unavailable."
+        ],
+        "reasoning": "Both equation and Kummer-cover descriptions locate the prior open-stratum result. Its hypothesis is complementary on the fixed open conditions; the same family and method are not evidence of the same singularity classification.",
+        "searches": [
+          "Resultary: Kawakita two-parameter sextics characteristic 3 discriminant (ab)^2=(a+b)^3 four cusps six nodes",
+          "Resultary: plane sextic characteristic three square pullback cubic cusp node discriminant boundary rational normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family entry --2c1882bd9fa6 records the D≠0 genus-six, four-cusp profile and explicitly leaves boundary parameters unclassified.",
+          "The cited Wiman p=3 degeneration has a different assumption and reducibility conclusion."
+        ],
+        "reasoning": "No inspected exact entry gives the ten-point profile at D=0 with a+b,a−b nonzero. Searching those numbers did not by itself establish originality; the material comparisons concern the equations and parameter loci.",
+        "searches": [
+          "Resultary: Kawakita two-parameter sextics characteristic 3 discriminant (ab)^2=(a+b)^3 four cusps six nodes",
+          "Resultary: six cusps genus six sextic characteristic 3 open D != 0 discriminant degeneration"
+        ]
+      },
+      "rationale": "Credit the earlier same-family characteristic-three analysis for the cubic quotient, four cusps, the axis discriminant and the Kummer method on D≠0. The contribution supported here is the contrasting complete D=0 stratum with a+b and a−b nonzero: exact double contacts, six new nodes and rational normalization, including integrality at the degeneration. The inspected open-stratum theorem excludes the boundary, and the located literature works in characteristic at least five or on the excluded symmetric Wiman family.",
+      "residual_risks": [
+        "The Badr–Bars normal-form boundary record could not be compared at full-text level. The available summary is not a proof of non-equivalence.",
+        "Bounded searches do not settle historical priority or exclude an unindexed alternate parametrization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological and cusp overlap, complementary discriminant stratum",
+          "evidence": [
+            "The hypotheses include D≠0; each axis has three transverse points, and the genus calculation uses nine tame branch points. Boundary strata are outside the classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-four-cusps-and-a-genus-six-kummer-normalization-in-characteristi--2c1882bd9fa6/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–5 (mirror offsets 0–5395), plus scope limitations",
+          "method": "Bounded local-mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four cusps and a genus-six Kummer normalization in characteristic three",
+          "trigger": "Same equation, characteristic, discriminant and covering construction"
+        },
+        {
+          "assessment": "Covers construction and Jacobian facts under p≥5",
+          "evidence": [
+            "The same a,b sextic is obtained with c=−3(a+b+1); a=b is identified with the Wiman specialization."
+          ],
+          "identifier_or_url": "https://manypoints.org/upload/322473513.pdf (DOI 10.3934/amc.2017020)",
+          "material_read": "pp. 1–2, equation and characteristic restriction near offset 1400, Proposition 1 near 2772",
+          "method": "Bounded passages from lawful OA PDF",
+          "title": "Certain sextics with many rational points",
+          "trigger": "Origin of the exact family and coefficient specialization"
+        },
+        {
+          "assessment": "Same family under p≥5, not this boundary",
+          "evidence": [
+            "The specialized equation invokes Kawakita's result in the higher-characteristic setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.01928",
+          "material_read": "§4, p. 5, around offset 14718",
+          "method": "Bounded OA paper passage",
+          "title": "New sextics of genus 6 and 10 attaining the Serre bound",
+          "trigger": "Later use of the same family"
+        },
+        {
+          "assessment": "Distinct excluded symmetric case",
+          "evidence": [
+            "The special Wiman polynomial is stated to be reducible in p=3; here a−b must be nonzero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.06317",
+          "material_read": "Remark 3.1, p. 11, around offset 34836",
+          "method": "Bounded OA paper passage",
+          "title": "An F_(p²)-maximal Wiman’s sextic and its automorphisms",
+          "trigger": "Characteristic-three degeneration already noted for Wiman"
+        },
+        {
+          "assessment": "Summary indicates a different normal form and singularity profiles; no whole-text coverage verdict",
+          "evidence": [
+            "Summary identifies a Badr–Bars C₃²-invariant form and degenerations with three cusps or nine nodes."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/...--9f1530723e22",
+          "material_read": "Resultary summary only; bounded mirror full-text requests timed out",
+          "method": "Local semantic result and attempted mirror retrieval",
+          "title": "Conic discriminant and codimension-one boundary of the C₃² plane sextic family",
+          "trigger": "Potential alternative named characteristic-three sextic boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, boundary theorem and genus calculation",
+        "Earlier open-stratum Resultary theorem --2c1882bd9fa6",
+        "Kawakita's family definition"
+      ],
+      "rationale": "This is the axis-contact discriminant singled out by the earlier open-locus study of a published family, not an arbitrary parameter slice. It gives the exact geometric nature of the first excluded degeneration: six nodal identifications are added to the four cusps, integrality persists and the normalization drops from genus six to zero. These data matter for the geometry of the family and cannot be inferred just from the degree or the existence of the discriminant.",
+      "residual_risks": [
+        "The result does not cover a+b=0 or a=b or imply finite-field rational-point counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

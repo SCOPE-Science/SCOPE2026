@@ -1,19 +1,21 @@
-# Review: sharpness of the ternary tagged-part internal congruence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact input \(\nu_3(\Lambda^m_{k,\ell})\ge2m+6+u_k+u_\ell\) for all \(m,k>\ell\) is Li–Tang's published Lemma 5.2(ii); its proof and quantifiers were read and checked against the recurrence. The two finite input columns of \(B\) appear explicitly in the source. Recomputing all fifteen exterior-square minors finds a unique weighted minimum \((2,1)\) with value three; all others have value at least four. This makes the leading term noncancellable at every induction level, starting from \(698368\cdot3^7\). The first two subsequence coefficients translate the vector minor into \(-D_m\); the first two sample indices exclude a stronger uniform modulus for any integer multiplier. The companion exact checker verifies the critical finite matrix arithmetic and several low-depth eta-quotient cases. The infinite theorem is deduced mathematically, not from those finite checks.
+PASS
 
-## Originality — PASS, with residual priority risk
+The Li–Tang all-index bound and recurrence use the same vectors, weights, signs and nonnegative m as the frozen theorem. In the coefficient identity theta(0)=1 and xi=q+O(q²), so at q and q² the coordinates are a=y_{m,1} and b=12y_{m,1}+y_{m,2}. The h=12 term cancels, giving D_m=−Lambda^m_{2,1}. I recomputed both relevant columns via coefficients of theta xi^i at q³ and q⁶, and the fifteen exterior-square weights: the leading pair (2,1) has value 3 with Delta=395433=9·43937 and unit −1; every other pair has weight at least 4, with three zero minors. The next exterior-square iteration therefore has its unique least valuation 2m+9, while other terms have valuation at least 2m+10 by the all-index bound. The positive base minor 698368·3⁷ has unit 1; this gives the claimed alternating negative-sign determinant law and exact valuations. Li–Tang Theorem 1.2(ii) supplies existence at m+5 for all n, with n=0 trivial. Eliminating any integer multiplier from n=1 and n=2 at modulus 3^(m+6), and using Theorem 1.1 on the lower-level coefficients, would force D_m divisible by 3^(2m+8), a contradiction. In my own bounded reproduction (`/tmp/opencode/frozen-review-repro.py partition`), counting directly by odd part multiplicities and k choices of tag for multiplicity k replicated determinant valuations 7,9,11,13 and units 2,1,2,1 at depths 0–3, as well as both claimed congruence instances at each depth. I inspected but did not run the frozen checker. RESULT.md line 51 has a harmless u_3(0) typo for nu_3(0), already defined on line 21. Infinite-depth validation relies on the cited all-index bound and the exact induction, not on these examples.
 
-The Li–Tang manuscript, read in its complete publicly available HTML presentation, states a **lower bound** for \(\nu_3(\Lambda^m_{2,1})\) and proves existence of a congruence modulo \(3^{m+5}\); it does not state equality at every depth or maximality of that modulus against all multipliers. Lower bounds by themselves do not imply equality. The new step is an exact, uniquely minimal exterior-square transition of the first two columns, giving both equality and a leading-unit recurrence for every \(m\). Singh–Barman's earlier \(\mathrm{PDO}_t\) work states limited-depth divisibility congruences rather than this all-depth internal sharpness. Indexed searches for exact determinant valuations, aliases, and optimality did not find equivalent statements. An unindexed equivalent, or an unstated deduction in other papers, remains possible. A related sharpness result for the separate \(8\cdot3^m\) progression uses a different extraction family and does not imply this one.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The specific invariant is motivated directly by whether a published infinite-family internal congruence is best possible. This proves an **all-depth** natural sharpness theorem in a previously unresolved family, with exact normalized leading signs, rather than a small computational improvement or an arbitrary truncation. The fifteen-pair certificate has a structural role: one term forces the minimum valuation at every step. No result is claimed for unrelated progressions.
+The first two matrix columns, exact base minor, minor inequalities and achievable modulus are prior. The result that persists at every positive depth is exact sharpness and its leading unit, obtained by separating the leading exterior-square term from all other contributions and transferring this to arbitrary integer multipliers. The strongest closely related results inspected do not give that equality or its equivalent.
 
-## Sources, evidence and remaining limits
+## value
 
-Primary: Li–Tang, arXiv:2611.15164v1, Theorems 1.1, 1.2(ii), 3.2 and Lemmas 4.4, 5.2(ii), first published November 11, 2026, https://arxiv.org/html/2611.15164v1 . Background: Singh–Barman, arXiv:2307.04687v1, https://arxiv.org/abs/2307.04687 ; Lin, Journal of Number Theory 184 (2018), DOI:10.1016/j.jnt.2017.08.020 . Access limits: the Li–Tang full HTML was inspected; Singh–Barman's abstract, introduction and early theorem statements were inspected; Lin's original article was available in bibliographic/abstract form only. Priority is not asserted as independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the sharp modulus of a named infinite-family congruence, not an arbitrary slice or numerical base check. A precise determinant obstruction handles every possible multiplier and explains the signed noncancellation throughout the progression. The separate 8 progression and other extracted families are not covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

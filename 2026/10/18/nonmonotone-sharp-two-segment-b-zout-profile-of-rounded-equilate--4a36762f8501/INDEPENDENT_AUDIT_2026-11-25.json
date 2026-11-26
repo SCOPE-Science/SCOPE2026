@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:37:27.961882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under standard mixed area (the coefficient of st is 2V₂, as used throughout the proof), extrusion by a segment gives V₂(K,L)=length(L) times the normal width divided by two. RESULT.md line 12 contains a notational slip: 'coefficient of 2st' should read 'coefficient of st'; the declared standard convention, explicit identities at lines 31–38 and the rest of the result consistently use the latter. The polar of the difference body of the equilateral triangle is the width-unit hexagon. Maximizing the absolute determinant at its vertices verifies w(u)w(v) ≥ ab|det(u,v)|. The three angular sectors in lines 46–57 give w(u)+w(v) ≥ (a+b)|det(u,v)|, and adding the offset terms proves the sharp product inequality for the rounded body. For positive r equality forces perpendicularity; on the symmetry sector the width product for such a pair is b²[cos(π/6)+cos(2x−π/6)]/2, which is minimized exactly at the two endpoints. At r=0 only attainment, not uniqueness, is needed. Steiner's formula yields the numerator after doubling the area. Differentiation yields Q divided by the squared denominator; the coefficient signs are +,+,−, so exactly one positive turning point exists, followed by strict decrease to π/2. Bounded independent corroboration sampled a 360-direction grid (normals at jπ/360; widths by max minus min vertex projections) for r=0.1, r=r*, and r=100 and found the predicted pairs. Solving Q independently gave r*=13.242673468446 and overshoot 0.002121940607. The grid does not certify global sharpness; the directional proof does. The uploaded script was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Soprunov–Zvavitch proves the Bézout inequality with arbitrary tests for a simplex; the rounded body at r>0 is not a simplex.",
+          "Langharst–Wang characterizes simplices via inequalities for all convex tests. The disk-triangle record studies intersections of disks and outer-parallel area, not the enclosing-parallelogram objective."
+        ],
+        "reasoning": "Classification of the bases with unrestricted coefficient one or provision of a universal bound does not determine the sharp segment coefficient on a specified nonsimplex. Generic optimization algorithms alone do not establish the uniform optimizer and profile.",
+        "searches": [
+          "Soprunov–Zvavitch arXiv:1507.00765 Theorem 2.5",
+          "Langharst–Wang arXiv:2609.20380 main simplex characterization",
+          "Resultary symmetric hexagons 72e7e289e20b and regular disk triangles 3d6ed11c0577"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 72e7e289e20b, 827c68cd7bad, 3d6ed11c0577, c1406fcb7078",
+        "arXiv:1507.00765",
+        "arXiv:2609.20380"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-radius determinant inequality supplies the constant term in RESULT.md Eq. (4); it does not supply the new linear-in-r inequality for a sum of two widths or exclude oblique optimizers at all r>0.",
+          "Once the exact rounded-body denominator is proved, the overshoot follows by differentiating a ratio with the classical Steiner numerator."
+        ],
+        "reasoning": "The finite-radius optimizer requires the additional sharp directional comparison, so it is not a specialization of the inspected polygon, simplex or disk-triangle statements.",
+        "searches": [
+          "Soprunov–Zvavitch Theorem 2.5 and Langharst–Wang main theorem",
+          "Resultary 72e7e289e20b, 827c68cd7bad, 3d6ed11c0577, c1406fcb7078"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 27–38 identifies the segment quotient with twice the area divided by minimum enclosing-parallelogram area.",
+          "Same-width symmetrization ΔK=(K−K)/2 has support function w_K/2 and gives a rounded centrally symmetric hexagon. The closest symmetric-hexagon result, 72e7e289e20b, is for six-vertex polygons.",
+          "The regular-polygon profile 827c68cd7bad covers the unrounded area 3√3/2 at n=3."
+        ],
+        "reasoning": "Equivalence transfers the optimized product of widths and not the rounded triangle's numerator area to the symmetrized body. At positive r neither equivalent body is a polygon; the inspected exact polygon results do not optimize its width quotient.",
+        "searches": [
+          "Resultary minimum enclosing parallelogram and rounded regular hexagon comparisons",
+          "Primary literature search for rounded equilateral triangle / minimum enclosing parallelogram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact profiles concern straight-sided regular polygons or centrally symmetric six-vertex polygons. The same-day equilateral separation-body area result c1406fcb7078 is for a different family and a different area functional."
+        ],
+        "reasoning": "The unrounded datum is covered. No retrieved exact record supplies the positive-radius width optimization, its equality directions or the turning point of the segment quotient.",
+        "searches": [
+          "Resultary exact regular-polygon and symmetric-hexagon minimum-area enclosing parallelogram profiles",
+          "Primary literature search for the enclosing-parallelogram profile of the rounded equilateral triangle"
+        ]
+      },
+      "rationale": "The positive-offset exact area profile, all positive-radius equality directions and consequent overshoot were not established or implied by the strongest inspected statements. The unrounded value, Steiner area law and width/parallelogram reduction are prior ingredients, not new claims. This is a best-of-knowledge judgment, not priority certification.",
+      "residual_risks": [
+        "Specialized enclosing-parallelogram literature may contain an equivalent case. A generic algorithmic hit was not inspected in full and no assertion of whole-document noncoverage is made for it.",
+        "No inferred order or priority between same-day indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover positive offsets",
+          "evidence": "Exact profile for centrally symmetric six-vertex polygons, not an offset with circular arcs.",
+          "identifier_or_url": "Resultary 72e7e289e20b",
+          "material_read": "RESULT.md Finding/Assumptions, offsets 0–3609",
+          "method": "Local Resultary mirror",
+          "title": "Exact enclosing-parallelogram profile and sharp affine stability for symmetric hexagons",
+          "trigger": "Same geometric optimization after central symmetrization"
+        },
+        {
+          "assessment": "Covers the unrounded base",
+          "evidence": "n=3 gives area 3√3/2; the conclusion assumes a regular polygon.",
+          "identifier_or_url": "Resultary 827c68cd7bad",
+          "material_read": "Finding, offsets 0–1405",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimum-area enclosing parallelograms for regular polygons",
+          "trigger": "Exact triangle and regular hexagon base cases"
+        },
+        {
+          "assessment": "Different body and objective",
+          "evidence": "Disk intersections and their outer-parallel area optimization.",
+          "identifier_or_url": "Resultary 3d6ed11c0577",
+          "material_read": "Finding/Assumptions, offsets 0–3199",
+          "method": "Local Resultary mirror",
+          "title": "A sharp Steiner-area phase diagram for regular disk triangles",
+          "trigger": "Nearby rounded triangle profile"
+        },
+        {
+          "assessment": "Different body and objective",
+          "evidence": "Separation-body area rather than parallelogram area of Euclidean offsets.",
+          "identifier_or_url": "Resultary c1406fcb7078",
+          "material_read": "Finding/Assumptions, offsets 0–3138",
+          "method": "Local Resultary mirror",
+          "title": "Exact area profile of the equilateral triangle separation body",
+          "trigger": "Equilateral triangle family and exact area profile"
+        },
+        {
+          "assessment": "Covers the simplex case, not the positive-radius equality/profile",
+          "evidence": "Bézout inequality for arbitrary convex tests with simplex as base body.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.00765",
+          "material_read": "Theorem 2.5, pp. 4–5, OA offsets 14136–16024",
+          "method": "OA source reader",
+          "title": "Bezout Inequality for Mixed volumes",
+          "trigger": "Known planar mixed-volume bound and simplex endpoint"
+        },
+        {
+          "assessment": "Related classification, not an exact profile on nonsimplices",
+          "evidence": "The statement characterizes simplex bases by an inequality for all tests.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20380",
+          "material_read": "Main result and setup, pp. 1–2, OA offsets 3082–4455 and following 5536",
+          "method": "OA source reader",
+          "title": "The Bézout inequality for mixed volumes characterizes simplices",
+          "trigger": "Plausibly stronger arbitrary-test result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Outer rounding tends to a disk after scaling, but the sharp width-normalized segment coefficient takes values strictly greater than its disk limit and then decreases. The explicit family shows that rounding need not give monotonic approach and the uniform equality classification supplies a geometric explanation and an exact optimizer for a natural enclosing problem. The result does not address unrestricted convex tests.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

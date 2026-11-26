@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification report
+# Independent mathematical audit
 
-The analytic statements are proved in `RESULT.md`; the accompanying `verify.py` is a reproducibility supplement, not an infinite-case proof or an independent audit.
+## correctness
 
-To reproduce: install Python 3 and the `mpmath` package; from the directory containing these files run `python verify.py`. The checker uses 70-digit arithmetic and reports 60 passing comparisons for mode counts 1, 2, 3, and 4, including different thermal coefficients, rates and strengths. It evaluates the Poisson crossing-rate Gaussian integral, directly integrates stationary force autocovariances as a cross-check of the Green–Kubo formula, reconstructs inequivalent positive-frequency spectral measures having the same prescribed finite current observations and same zero-lag covariance, and tests the high-frequency instability inequality.
+PASS
 
-These examples do not establish arbitrary-mode correctness or the lower bound; the respective analytic evidence is strict positive definiteness of the finite Hankel matrix and invariance of domain. For a stationary continuous positive-definite general covariance, differentiating the recovered displacement variance twice reconstructs its time covariance; exact spectral-mass perturbations and high-frequency cosine modes establish the non-identifiability and instability claims. Numerical accuracy should not be conflated with practical noisy-data stability.
+Independent marking and the disjoint starting half-lines make the two crossing counts independent Poisson. Each mean is rho times the expected positive part of a centered Gaussian displacement, giving R=rho*sqrt(2/pi)*sqrt(S), not R proportional to S. Stationarity gives S=2Dt+2∫_0^t(t-u)K(u)du. On the uniform grid the known zero-time value costs no sample; taking second differences erases the constant and linear terms and leaves 2N moments d_k of a positive N-atomic measure on (0,1). The weights are 2a_j(1-q_j)^2/lambda_j^2 and q_j=exp(-lambda_j*h). Hankel positive definiteness follows from Vandermonde invertibility; the annihilating-polynomial solve followed by weight recovery identifies the modes. The first sample identifies D. Positivity and reconstitution of R itself, not just R squared, establish the exact admissibility test. For fewer fixed samples an injection from the open ordered parameter domain into lower dimension would contradict invariance of domain. Over the continuous-covariance class, the right derivative at zero gives 2D and the second derivative at positive times gives 2K(t); continuity and symmetry fill in the rest. For finitely many samples, a nonzero null direction in the cosine masses preserving the sampled integrals and total mass yields inequivalent nonnegative spectra. The high-frequency perturbation leaves a fixed lag-zero gap but changes R by O(1/omega) uniformly. Independent arithmetic checked an exact two-mode moment solve and constructed positive covariance spectra with identical samples at pi and 2pi and equal total mass.
 
-Assumptions are known gas density, independent particles, stationary centered Gaussian forces, positive and distinct OU rates, known mode count for finite reconstruction, and ideal current ensemble variances. The findings do not claim applicability to interacting or correlated particles, unknown density, or adaptively selected arbitrary observables.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact, sharp sampling and identification boundary at this current observable. Gaussian crossing statistics, Green–Kubo integration, Prony inversion and invariance of domain are established inputs. The assessed result identifies precisely what the macroscopic samples determine in the multiscale model with unknown diffusion, including an admissibility test and the contrast with unrestricted covariance.
+
+## value
+
+PASS
+
+The count answers a natural inverse question for a collective transport observable: it identifies which microscopic noise parameters can be inferred, gives a matching lower bound on exact acquisition, and distinguishes that finite-dimensional result from the failure of unrestricted finite recovery and uniform stability. The scientific value is this identification boundary, not an alternative implementation of Prony's method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

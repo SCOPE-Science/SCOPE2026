@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full-line convolution identity subtracts only the two omitted exterior tails; direct integration gives an exact four-term separable kernel. Splitting that kernel into the reflection-even and -odd subspaces yields two independent skew rank-two blocks and hence exactly four nonzero spectral points. The Gram formula fixes normalization and multiplicity. Strict ordering is established pointwise by comparing hyperbolic-cosine and hyperbolic-sine two-by-two minors; exact exterior-product moments give the cubic and quintic constants. The large-window limit follows from explicit exponentially localized Gram limits. Numerical checks support the calculations without replacing their proof.
+## correctness
 
-## Originality
-PASS, with residual historical-priority uncertainty. Djinja–Silvestrov–Tumwesigye (2023, arXiv:2305.13603), §3 Remark 3, addresses the commutativity of full-line convolutions and §4 treats Volterra covariance relations; this does not imply the four-eigenvalue spectrum of finite-interval compressions. Castrigiano (2020, arXiv:2002.08116) concerns half-line rational Wiener–Hopf domains and spectra. Andersson–Carlsson (2015) characterizes finite-rank truncated convolution operators individually, not commutators of two infinite-rank operators. The general boundary-rank phenomenon is not claimed as new. No examined comparison establishes both the exact parity-split singular spectrum and sharp cubic/quintic window asymptotics. Older finite-section Wiener–Hopf commutator identities may subsume part of the structural rank assertion.
+PASS
 
-## Mathematical value
-PASS. For two positive stationary exponential covariance kernels, imposing observation boundaries creates a finite-rank obstruction to commutation. The exact spectrum quantifies this boundary effect and reveals non-obvious distinct approximation scales of order \(L^3\) and \(L^5\), despite a common nonzero limit at large windows. These are natural measurable operator invariants for comparing smoothing scales and finite-window covariance operators, rather than arbitrary matrix entries.
+For the unnormalized real exponential kernels on complex L2(0,L), the omitted full-line tails give exactly the antisymmetric boundary kernel at lines 48–59. Even and odd reflection sectors are orthogonal; independent cosine-hyperbolic and sine-hyperbolic pairs generate rank two in each. In an orthonormal basis of each span, its real skew matrix has off-diagonal modulus equal to its two-vector Gram area divided by 2(a+b); the orthogonal complement gives zero. On 0<s<t the ratios cosh(bt)/cosh(at) and sinh(bt)/sinh(at) strictly increase (x tanh x and x coth x strictly increase). The corresponding wedge minors C and S are negative and C−S=cosh(at−bs)−cosh(as−bt)<0. Parity symmetry and the squared-minor integrals therefore give strict modulus ordering, hence simple nonzero eigenvalues. Centered Taylor wedge coefficients are 2(b²−a²) and 2ab(b²−a²)/3. The squared polynomial wedge norms are L^6/180 and L^10/33600, giving exactly the displayed cubic and quintic constants, with remainders of higher order after rescaling to a fixed interval. The Gram matrices converge entrywise to diagonals 1/a,1/b and cross entry 2/(a+b), proving the common large-length value. Own replay /workspace/branches/independent-replays.py 3 checks the signed kernel via piecewise elementary integration and cancellation-free area quadrature (small-length ratios about 0.995014 and 0.995013 at L=0.004); it does not prove the universal assertion. The frozen checker was inspected but not executed.
 
-## Remaining limitations
-The proof addresses a single interval and two real positive decay rates. The finite-rank mechanism is classical in related operator calculi, and a dedicated specialist review of all historical operator-product identities is still warranted. No external independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content is the strict parity-resolved spectrum of this pair and the exact unequal short-interval scales and coalescent long-interval limit. Commutativity on the full line and the finite-rank boundary-product mechanism are not new. The checked individual-operator and half-line studies are not the asserted two-compression invariant.
+
+## value
+
+PASS
+
+The pair is naturally motivated by stationary exponential smoothing, and reflection distinguishes the two boundary contributions. The exact rank and strict ordering on every finite interval, with a quintic weak mode invisible at the cubic scale, give quantitative information about finite-window noncommutativity beyond the abstract rank mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

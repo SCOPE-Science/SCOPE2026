@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every positive-diagonal star factor has independent leaf rows and corank at most one. Left and right null vectors of distinct singular star factors have nonzero pairing, since the corresponding normalized pairing equals \(1+\sum b_i e_i/(a_i d_i)>0\). Hence two adjacent singular rounds cannot cause consecutive accumulated rank drops. There must be at least \(m\) separated rank drops to reach rank one, proving \(T\ge2m-1\). Exact Fraction arithmetic verifies the three-factor witness. The mathematical argument is independent of any finite tests.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-The earliest inspected motivating paper (Hendrickx–Shi–Johansson, arXiv:1302.6668) establishes existence on every connected undirected graph and discusses minimizing steps, not a universal positive-diagonal rank-loss obstruction on stars. Ko's 2010 thesis derives factorization and scheduling results in different, notably symmetric, averaging classes; the inspected sections do not state this unrestricted result. The 2013 Ghosh–Lee paper concerns finite-horizon dynamic decentralized-controller synthesis rather than products of nonnegative stochastic factors; only its abstract was accessible, and it remains a material unresolved source-inspection risk. Searches of related repository findings yielded spectral contraction, peer-epoch and stochastic matching claims, not the stated two-round rank obstruction. These searches do not prove uniqueness.
+PASS
 
-## Value — PASS
-The elementary individual corank bound would only give \(m=n-1\) rounds. This structural noncancellation lemma nearly doubles that necessary horizon for every star, without restricting factor weights, temporal heterogeneity, or the target consensus distribution. It is a mathematically motivated partial answer to the minimum-round question in the foundational finite-time positive-diagonal consensus setting. Its limitation at larger star sizes is explicit.
+The positive diagonal block on the m leaf rows has rank m, including when some spoke weights vanish, so each factor loses at most one dimension on any input subspace. For singular A and B the left null line of A and the right null line of B are obtained by solving at the leaf coordinates. Normalize each hub coordinate to 1 (if it were zero the entire vector would vanish); the pairing is 1+sum_i (b_i/a_i)(e_i/d_i)≥1. Thus the latter line is outside im(A), so B is injective on im(A). If a rank drop occurs, its factor is singular and the resulting product image is inside that factor's image; the next factor cannot drop rank, whether it is singular or invertible. Rank cannot increase under continued left multiplication. Starting from m+1 dimensions and reaching one requires m separated drops, so T≥2m-1. Rank one here means all rows agree because their row sums are one. As an independent exact check of the m=2 witness, the rows of A2 A1 are (1/4,1/4,1/2), (1/2,1/2,0), (5/12,5/12,1/6); applying A3 sends each to (1/3,1/3,1/3). Each factor is admissible with zeros allowed on some spokes. I inspected the frozen verification notes and verify_star.py without executing it. Its 25 finite tests are diagnostics, not the universal argument. The record proves a lower bound on exact consensus, not an all-sizes attaining construction of its own.
 
-## Limitations
-The construction proves sharpness only for three vertices; for larger stars, matching upper bounds are not provided. Potential equivalent rank-product results in unindexed or incompletely inspected literature may affect priority. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the unrestricted positive-diagonal star lower bound and the two-factor transversality that enforces it. Three-round average achievability on three vertices is already implied by Hendrickx–Shi–Johansson; their proof in fact supplies a matching upper bound for every star. Neither is credited as a distinct novelty of this record. The inspected unrestricted existence and restricted rank-count results do not imply the new lower bound.
+
+## value
+
+PASS
+
+The admissible factor class is natural in finite-time consensus, and the question concerns the minimum number of rounds, not just finite-time existence. The null-space geometry proves a strict improvement over counting individual singular factors and shows exactly why the intervening rounds are necessary. Together with the already available star construction from the tree recurrence this determines the minimum over the stated unrestricted class. The value is in the universal obstruction, not the rational three-node witness by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

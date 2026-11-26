@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:29.463826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a probability mixture of unit-circle points with means x,y, the third coordinate is 2E[X^2]-1=1-2E[Y^2]. Jensen bounds it by the two claimed cylinders. On the unit disk each endpoint is achieved by the two points on the appropriate vertical or horizontal chord, with their weights chosen to realize the remaining mean. Mixing attains the entire fiber; its length 2(1-x^2-y^2) integrates to pi. For the inner ellipsoid the cylinder slacks are exactly (z+1/2)^2+(3/4)(1-Q_J)+2y^2 and (z-1/2)^2+(3/4)(1-Q_J)+2x^2, where Q_J is its displayed quadratic form. Zeros give exactly the four asserted contacts. For the outer ellipsoid the form on the curve is 2/3+cos^2(2t)/3; strict convexity excludes any other contact from the convex hull. In each ellipsoid's unit-ball coordinates the four contacts sum to zero, have pairwise dot product -1/3, and their outer products sum to (4/3)I. Weight 3/4 per contact meets the unrestricted John and Löwner criteria, hence uniqueness without centering assumptions. The semiaxes double, the volume formula gives pi sqrt(3)/4 and 2pi sqrt(3), and any E subset K subset rho E has rho^3>=vol(E_L)/vol(E_J)=8. This proves the sharp factor even for translated or rotated competitors. The frozen checker samples the curve and replays contact algebra; it was inspected but not executed. The square identity, generator inequality and contact calculations above are global.",
+      "replay_path": "Frozen RESULT.md, proof steps 1–5; audit reproduces the continuous inequalities and contact identities algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barvinok–Blekherman, Theorem 2.2, PDF pp. 8–9, gives an explicit enclosing ellipsoid of a compact-group orbit hull.",
+          "Gruber–Schuster and Henk give unrestricted moment/contact characterizations."
+        ],
+        "reasoning": "The 3D retained-coordinate map discards sin(2t); the full harmonic rotation does not descend along that projection. In fact the target has a finite proper set of outer contacts, which rules out generating it as the convex hull of one affine compact-group orbit: every extreme point would belong to the orbit, and an invariant Löwner ellipsoid containing one orbit point on its boundary would contain all in its boundary. The general contact theorems require new body-specific globally feasible candidates and contacts.",
+        "searches": [
+          "arXiv:math/0312268, Theorem 2.2",
+          "arXiv:1207.7246, Theorem 2",
+          "DOI 10.4171/DMS/6/15, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0911.5436",
+        "arXiv:1207.7246",
+        "10.4171/DMS/6/15",
+        "arXiv:math/0312268",
+        "SCOPE-20261102-a652b91bd394",
+        "SCOPE-20261122-940b6b2f717b",
+        "SCOPE-20261122-f8cc93e601b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The supplied cylinder inequalities describe K but do not determine its optimum ellipsoid matrices without a body-specific extremality argument.",
+          "Orthogonally projecting the enclosing ball of the full harmonic orbitope gives a sphere, not the anisotropic optimum of the three-coordinate hull."
+        ],
+        "reasoning": "Neither the projection rule nor the known exact ellipsoids on the different circular cylinders or planar lenses specialize to both quadratic forms and the sharp factor-two pair. The independent cylinder and tetrahedral contact argument provides those missing claims.",
+        "searches": [
+          "Orbitopes §5/Fig. 3",
+          "Convex Geometry of Orbits Theorem 2.2",
+          "SCOPE-20261122-940b6b2f717b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orbitopes, Corollary 5.3 and Fig. 3, PDF pp. 22–23: the identical curve and its two quadratic-cylinder description.",
+          "SCOPE-20261122-940b6b2f717b, Finding: exact ellipsoids of the full four-dimensional harmonic orbitope."
+        ],
+        "reasoning": "The parabolic-cylinder and three-coordinate harmonic-projection formulations describe the identical, already known body. The full four-dimensional orbit is closely related but is not affinely equivalent, and its John contact circle and outer ball do not give the three-dimensional tetrahedral certificates.",
+        "searches": [
+          "Resultary: trigonometric orbitope, parabolic-cylinder intersection, harmonic projection and canonical ellipsoids",
+          "arXiv:0911.5436, §5 and Fig. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue self-hit SCOPE-20261122-17d8a80a21a8 is the assigned record, not independent coverage.",
+          "SCOPE-20261102-a652b91bd394 treats two orthogonal circular block cylinders with p+q>=3; SCOPE-20261122-f8cc93e601b2 treats planar lens intersections; the full harmonic orbitope record is four-dimensional."
+        ],
+        "reasoning": "The distinct same-day records overlap in homothety or harmonic coordinates, not in the exact body and pair; same-day publication dates resolve no ordering. No independently matching entry was located in the examined catalogue material.",
+        "searches": [
+          "Resultary: homothetic John/Löwner ellipsoids of projected orbitopes and orthogonal cylinders",
+          "SCOPE-20261102-a652b91bd394",
+          "SCOPE-20261122-f8cc93e601b2",
+          "SCOPE-20261122-940b6b2f717b"
+        ]
+      },
+      "rationale": "Pass concerns the exact unrestricted ellipsoid pair, contact sets and sharp factor for this body. The body and the abstract contact criteria are prior. The closest broader minimum-ellipsoid theorem applies directly to the unprojected compact-group orbit, not to the target three-dimensional projection.",
+      "residual_risks": [
+        "Uninspected body-specific results on projected orbitopes or quadratic-cylinder intersections could give the same pair.",
+        "The scoped literature search did not locate such a result; that does not prove first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact body description is prior; no ellipsoid computation in the decisive passage",
+          "evidence": [
+            "Fig. 3 identifies (cos theta,sin theta,cos(2 theta)) and the two cylinder boundaries 2x^2=1+z and 2y^2=1-z."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0911.5436",
+          "material_read": "§5, Corollary 5.3 and Fig. 3, PDF pp. 22–23, text near offset 73254",
+          "method": "Open-access primary PDF passage",
+          "title": "Orbitopes",
+          "trigger": "Identical curve and potentially an explicit solution for the projected body"
+        },
+        {
+          "assessment": "Supplies the unrestricted contact criterion only",
+          "evidence": [
+            "Positive weights on sphere contacts have zero weighted first moment and identity weighted second moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.7246",
+          "material_read": "Theorem 2, PDF p. 1, offset 2464",
+          "method": "Open-access primary PDF passage",
+          "title": "An Arithmetic Proof of John's Ellipsoid Theorem",
+          "trigger": "Unrestricted inner optimality and possible mechanical implication"
+        },
+        {
+          "assessment": "General criterion, no body-specific optimizing data",
+          "evidence": [
+            "Gives the Löwner contact characterization and records the corresponding maximal-inscribed characterization."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/DMS/6/15",
+          "material_read": "§2, Theorem 2.1, pp. 98–99, offset 7497",
+          "method": "Open-access primary PDF passage",
+          "title": "Löwner–John Ellipsoids",
+          "trigger": "Unrestricted outer criterion"
+        },
+        {
+          "assessment": "Orbit-hull hypothesis does not directly give the projected-body result",
+          "evidence": [
+            "The minimum-volume enclosing ellipsoid is calculated for the convex hull of a compact-group orbit itself."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312268",
+          "material_read": "Theorem 2.2, PDF pp. 8–9, offset 24778",
+          "method": "Open-access primary PDF passage",
+          "title": "Convex Geometry of Orbits",
+          "trigger": "Explicit enclosing ellipsoid for a potentially broader orbit family"
+        },
+        {
+          "assessment": "Different dimension and contact geometry",
+          "evidence": [
+            "John contact circle and outer ball for conv(e^{it},e^{2it})."
+          ],
+          "identifier_or_url": "SCOPE-20261122-940b6b2f717b",
+          "material_read": "Local Finding",
+          "method": "Resultary mirror",
+          "title": "The sharp John contact circle of the four-dimensional Carathéodory orbitope",
+          "trigger": "Distinct same-day result on the parent harmonic curve"
+        },
+        {
+          "assessment": "Circular cylinders and different parameter range",
+          "evidence": [
+            "Uses ||x||^2+z^2<=a^2 and ||y||^2+z^2<=b^2 with p+q>=3."
+          ],
+          "identifier_or_url": "SCOPE-20261102-a652b91bd394",
+          "material_read": "Local Finding and assumptions",
+          "method": "Resultary mirror",
+          "title": "Exact John–Löwner ellipsoids of higher-dimensional orthogonal block cylinders",
+          "trigger": "Exact ellipsoid pair for an intersection described by two cylinders"
+        },
+        {
+          "assessment": "Planar ellipse lenses, not the 3D parabolic-cylinder body",
+          "evidence": [
+            "The planar area ratio is 1+s<2 and uses square symmetry."
+          ],
+          "identifier_or_url": "SCOPE-20261122-f8cc93e601b2",
+          "material_read": "Frozen RESULT.md, Finding",
+          "method": "Frozen primary catalogue record and local Resultary comparison",
+          "title": "Homothetic John–Löwner ellipses of intersections of equal-area centered ellipses",
+          "trigger": "Distinct same-day exact homothetic pair with four contacts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact affine approximation benchmark for a natural, previously studied nonsymmetric orbitope. The two distinct tetrahedral contact sets certify the sharp common-shape factor against arbitrary translated and rotated ellipsoids. The interest is in that exact geometric structure, not in rederiving the cylinder representation or integrating its volume alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

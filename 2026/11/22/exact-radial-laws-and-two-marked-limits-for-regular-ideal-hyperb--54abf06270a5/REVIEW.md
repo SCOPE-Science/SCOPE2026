@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Klein-side equation \(\tanh\rho\cos\phi=\cos(\pi/n)\) proves the angular radial boundary. A direct antiderivative \(\arcsin(\sin\phi/\sin(\pi/n))\) normalizes area to \((n-2)\pi\) and supplies both survival branches. The density's square-root singular correction follows by Taylor expansion at the inradius. For fixed side count, the exact cusp rescaling \(\alpha-\theta_t\sim2\cot\alpha e^{-2t}\) yields the normalized limit density \(e^s\mathbf1_{0<z<1,\,s<-\log(z)/2}\). Pointwise conditional densities with probability-one limit give total variation by Scheffé's lemma. In the many-side regime the exact joint polar density converges to the probability-one arcsine–exponential density, giving total variation again; a compact-angle argument justifies the centered-distance weak limit. Numerical quadrature and its re-execution confirm the evaluated formulas, but no finite test substitutes for those arguments.
+PASS
 
-## Originality
+For the repaired result, the Klein chord equation gives tanh R_n(phi)=cos(alpha)/cos(phi), and polar area sinh(rho) d rho d phi gives both the finite-polygon normalization and the angular widths contributing to the density. The tangency expansion uses 1-cos(theta)=sin(alpha)^2 h/cos(alpha)+O(h^2). For fixed n, delta_t is asymptotic to 2 cot(alpha)e^(-2t); the radial density is therefore asymptotic to c_n e^(-t), and integration yields the same survival equivalent. At a fixed z in (0,1), the ratio of the radial-boundary Klein deficits at delta_t z and delta_t tends to z, giving the log cutoff in s. The Jacobian and tail normalization give the a.e. density limit e^s on 0<z<e^(-2s); its integral is one. Scheffé yields TV convergence, and symmetry gives the independent uniform sector label. In the growing-side regime the exact angle/slack density tends pointwise to the normalized arcsine-exponential product, so Scheffé applies again. The centered radial transformation converges uniformly away from the arcsine endpoints, which carry arbitrarily small limiting mass in sufficiently small neighborhoods. Integrating the exponential survival condition against the arcsine density gives both scalar branches, including their common value at zero.
 
-**PASS, provisional historical priority.** The named full-text comparison with the archived hyperbolic volume paper (arXiv:1302.4919), ideal-polygon nearest-side clearance, two-point cusp distances, random-ideal-triangle incenter location, and Euclidean tangential-polygon radial laws finds different observables/metrics/parameters. In particular a nearest-side distance is bounded by the inradius, while the present center-distance is unbounded; two-point distances exhibit a different \(t e^{-t}\) mechanism. A general hyperbolic polar tube or ball-intersection formula hidden in older literature could cover the elementary CDF. The paired conditional limits were not found in the checked sources; no exhaustive historical priority is claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** Incenter-distance statistics quantify area localization and cusp excursions in the most symmetric finite-area noncompact polygons. The theorem supplies an exact distribution for every polygon size, a calibrated non-smooth transition as the expanding ball first meets sides, a fully marked fixed-polygon cusp excursion, and a nontrivial large-polygon arcsine–exponential limit. The latter two regimes identify angular concentration and independently distributed radial slack, and cannot be read from total polygon area alone. This is not merely a computation of a known hyperbolic disk area or a reparametrization of the closest-side law.
+The frozen presentation gives distinct-contribution credit to a cohesive package including the scalar law, but another indexed same-day result materially covers that scalar law, its tail coefficient, and its centered weak limit. The replacement confines the contribution to the two joint marked limits, gives credit for the exact scalar overlap, and uses the scalar formulas only as context, normalization or consequences. Priority between the same-day records is not inferred.
 
-## Scope and historical risks
+## value
 
-The result applies to fixed regular ideal polygons and separately the growing-side limit, in curvature \(-1\). Earlier general treatments of hyperbolic disk intersections might imply the exact finite-\(n\) branch. Some published records have only partial indexing; the strongest relevant published full texts named above were read. Independent validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed n the marked result localizes an extreme point to a specific, uniformly distributed sector and quantifies the nontrivial coupled angular scale and overshoot. At large n the separate joint theorem identifies the arcsine angular bias and independent radial slack, information lost on passing to a one-dimensional centered radius. Both are usable limits with a strong mode of convergence, not repackagings of the scalar formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:45.210765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the uniform Dirichlet vector the kth projected moment is 6 k!/(k+3)! times the complete homogeneous polynomial in the four knots. The divided difference of the exponential gives exactly the sine quotient, whose canceled origin has value 1. The order-at-most-one real entire numerator with all real zeros has a real genus-at-most-one Hadamard product and is in the Laguerre–Pólya class. At x=2 pi/(1-a) its Laguerre defect is -a(1-a)^2 sin^2(x), forcing 2/(1-a) to be integral. Conversely, for m>=3 the numerator with z=mw is sin(w) Q_m(cos w)/m. Independently, Q_m(x)=2(1-x^2) U'_{m-2}(x) by differentiating sin((m-1)w)/sin(w); Rolle's theorem and the degree show that all m-3 derivative roots are simple and interior, with simple endpoint factors. Cosine preimages of [-1,1] are real. Interior factors give simple zeros and the endpoint factors combine with sin(w) to give triple zeros at w=k pi, including the canceled origin. The same Hadamard argument applies to the real entire quotient for the Laguerre–Pólya assertion. Record's script and output inspected, not executed. Independent bounded checks of the divided difference, factorization and root counts for m=3..20, and a negative defect at a=1/4: python3 /workspace/reproductions/independent_checks.py 1. The universal proof is analytic; it does not locate every nonreal zero in the nonexceptional cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pham–Stefanov count real roots with algebraic multiplicity and count all roots in the right half-plane; their counts enforce infinitely many nonreal roots off the exceptional ratios. Proposition 2.2 identifies triple zeros as the common zeros of the two sines and absence of other multiple roots.",
+          "Adams–Cardon's Hermite–Biehler exponential-sum construction and Cardon's Rademacher-based Fourier theorem supply sufficient mechanisms under other hypotheses. Cardon's Laguerre inequalities supply the general criterion used by the frozen elementary necessity proof."
+        ],
+        "reasoning": "The sufficient families alone do not settle the arithmetic iff. The transmission theory covers this same zero set, with stronger nonreal counting information off the exceptional ratios.",
+        "searches": [
+          "arXiv:1309.3616v2 Prop. 2.2, Thms. 2.5, 2.7 and Rems. 2.6, 2.8",
+          "arXiv:math/0608297",
+          "arXiv:0911.1122",
+          "Cardon, Fourier transforms having only real zeros, Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.3616v2",
+        "arXiv:math/0608297",
+        "arXiv:0911.1122",
+        "arXiv:1309.0240",
+        "Cardon author PDF, Fourier transforms having only real zeros",
+        "Resultary db8d34ed1235, 4ea17425c01f and 6a067c689394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pham–Stefanov's count difference is positive for irrational gamma in (0,1) and rational p/q with p>1. At gamma=1/q it is o(r); any nonreal root would replicate under shifts q pi since F_gamma(t+q pi)=(-1)^(q+1)F_gamma(t), giving linear growth of the nonreal count, a contradiction.",
+          "At 1/q the identity F_(1/q)(q w)=sin^3(w) U'_(q-1)(cos w)/q recovers the explicit zero set by elementary Chebyshev differentiation. The Laguerre–Pólya assertion adds no restriction beyond reality for this order-at-most-one real entire quotient."
+        ],
+        "reasoning": "The zero-density case is not misquoted as proving no nonreal roots by itself; periodic translation is necessary for that inference. The zero-classification, multiplicities and Laguerre–Pólya version follow after that step and standard factorization. The divided-difference representation and its Dirichlet spline interpretation are classical.",
+        "searches": [
+          "arXiv:1309.3616v2 Eq. (7), Prop. 2.2 and Rem. 2.6/Thm. 2.7",
+          "arXiv:1309.0240 Dirichlet averages and B-splines",
+          "arXiv:0911.1122 Thm. 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (7) of arXiv:1309.3616v2 gives F_gamma(t)=gamma sin(t) cos(gamma t)-sin(gamma t) cos(t). With z=(1+gamma)t and a=(1-gamma)/(1+gamma), this is (1+gamma)/2 times sin(az)-a sin(z). The exceptional 1/gamma integer is exactly m=1+1/gamma.",
+          "Resultary db8d34ed1235 classifies a four-atom cosine transform p cos(nz)+(1-p)cos((n-2)z). It is a relevant analogue, not the same function or measure."
+        ],
+        "reasoning": "All nonzero zeros, with multiplicity, are transferred by a positive scale. Passing from the sine difference to the simplex transform deletes the universal triple zero at zero only. This exact transmission equivalence is decisive, independently of catalogues of other Fourier transforms.",
+        "searches": [
+          "Pham and Stefanov, Weyl asymptotics of the transmission eigenvalues for a constant index of refraction, arXiv:1309.3616v2 §2",
+          "Resultary: symmetric four-frequency Fourier zeros, sine difference and simplex transform",
+          "arXiv:math/0608297 Thm. 1.1 and Example 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For gamma=p/q<1 reduced, the primary source gives q-p+2 real roots counted with algebraic multiplicity per length q pi. Compared to Theorem 2.7 this gives nonreal density 2(p-1)/(q pi). The catalogue's same-day four- and five-simplex lattice results constrain integer Fourier frequencies, not all complex zeros for the present tetrahedral slice."
+        ],
+        "reasoning": "No enumerated table or database of all zeros is claimed. The appropriate exact counting comparison is the rational-period count and multiplicity statement for the equivalent analytic determinant. The related simplex lattice statements are not such counts.",
+        "searches": [
+          "arXiv:1309.3616v2 §2.3–2.4, exact rational-period counts",
+          "Resultary db8d34ed1235, 4ea17425c01f, 6a067c689394"
+        ]
+      },
+      "rationale": "The nonzero-zero problem is exactly the constant-index one-dimensional transmission eigenvalue problem of Pham and Stefanov (2013/2014), not merely an analogue. Their all-root and real-root counts give the necessity and, by period translation at the exceptional rational ratios, sufficiency; they also give the simple/triple split. The Chebyshev restatement and transfer to this simplex transform require standard identities. The exact theorem is covered even though the geometric language and proof are different.",
+      "residual_risks": [
+        "No conclusion on priority for the shorter one-point Laguerre-inequality proof or whether an earlier simplex-specific phrasing exists.",
+        "The prior complex count is asymptotic, not an exact finite complex zero enumeration; that distinction does not affect the all-real classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage of the actual zero classification after scaling and periodicity",
+          "evidence": "The same numerator, explicit simple/triple criterion, and the exact leading-term equality criterion for real versus total roots.",
+          "identifier_or_url": "arXiv:1309.3616v2; doi:10.3934/ipi.2014.8.795",
+          "material_read": "§2 Eq. (7) and Prop. 2.2 pp.4–5, §2.3–2.4 Thms. 2.5 and 2.7 and Rems. 2.6 and 2.8; PDF offsets around 13800, 22336, 25920–28493",
+          "method": "OA PDF and exact trigonometric reduction",
+          "title": "Weyl asymptotics of the transmission eigenvalues for a constant index of refraction",
+          "trigger": "Equivalent constant-index sine determinant"
+        },
+        {
+          "assessment": "General sufficient construction, not the exact arithmetic iff in the inspected statements",
+          "evidence": "Structured Hermite–Biehler sums using a real entire genus-0-or-1 function; exponential-sum specialization has coefficients G(i sigma·a) and frequencies sigma·b.",
+          "identifier_or_url": "arXiv:math/0608297",
+          "material_read": "Thm. 1.1 PDF p.2 offset near 3800; Example 4.1 §4 p.8 offset near 24000",
+          "method": "OA PDF passages",
+          "title": "Sums of entire functions having only real zeros",
+          "trigger": "Real-rooted exponential sums"
+        },
+        {
+          "assessment": "Classical criterion and useful proof mechanism, not a ratio classification",
+          "evidence": "Nonnegativity of the extended Laguerre expressions is an iff criterion in the stated factorization class; its first inequality is the defect used here.",
+          "identifier_or_url": "arXiv:0911.1122",
+          "material_read": "Thm. 1.1 p.1 offset near 1800 and §2 p.2",
+          "method": "OA PDF passages",
+          "title": "Extended Laguerre inequalities and a criterion for real zeros",
+          "trigger": "Laguerre–Pólya necessity mechanism"
+        },
+        {
+          "assessment": "Representation background",
+          "evidence": "B-splines arise as Dirichlet averages over delta distributions; this supplies context, not axis classification.",
+          "identifier_or_url": "arXiv:1309.0240",
+          "material_read": "Introductory discussion p.2, offset near 3860",
+          "method": "OA PDF passage",
+          "title": "Fractional Operators, Dirichlet Averages, and Splines",
+          "trigger": "Prior Dirichlet spline representation"
+        },
+        {
+          "assessment": "Sufficient theorem under different distributional conditions",
+          "evidence": "Nonzero Fourier integrals weighted by G(it) against limiting symmetric Rademacher sums have real zeros under the stated real-entire hypotheses.",
+          "identifier_or_url": "https://mathdept.byu.edu/cardon/papers/FourierRealZeros.pdf",
+          "material_read": "Thm. 1, PDF p.2 offset near 3650",
+          "method": "OA author PDF",
+          "title": "Fourier transforms having only real zeros",
+          "trigger": "General all-real Fourier transform theorem"
+        },
+        {
+          "assessment": "Structurally related, not identical",
+          "evidence": "Discrete four-atom cosine sum with a continuous mass threshold, not the present Dirichlet sine quotient and arithmetic ratios.",
+          "identifier_or_url": "Resultary:db8d34ed1235",
+          "material_read": "Indexed RESULT finding and formula",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp parity-dependent complex-zero transition for symmetric Fourier transforms",
+          "trigger": "All-complex-zero classification of a symmetric four-frequency transform"
+        },
+        {
+          "assessment": "Related divided differences, different dimensions and restricted domains",
+          "evidence": "Integer-frequency classifications for four- and five-dimensional simplices, not classification of the full complex zeros at these four knots.",
+          "identifier_or_url": "Resultary:4ea17425c01f and 6a067c689394",
+          "material_read": "Indexed RESULT findings",
+          "method": "Resultary search and local mirror",
+          "title": "Repeated-node resonance and exact lattice-zero classifications for simplex Fourier transforms",
+          "trigger": "Same-day simplex Fourier zero records"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rigidity theorem concerns a natural projection family and the elementary proof is a useful exposition. But the advertised exact zero classification transfers directly from the earlier determinant via scaling and classical identities. The geometric reformulation introduces no additional zero invariant or nontrivial inference about projections beyond that translation, so it does not survive as a separate scientific finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

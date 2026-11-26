@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:55.910441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "No nontranslated pair of triples has a three-term time slice. Every matching unordered pair of edges determines one and only one two-term time slice (match oriented differences; odd p rules out a second alignment). Thus E counts double slices and there are 9−E active slices. A singleton never vanishes and a double vanishes at at most one frequency by injectivity of its nontrivial Fourier character. For p≥7 a nonprogression has all three edge classes distinct; a progression of step d has multiplicities 2 at [d] and 1 at [2d]. Two unmatched progressions cannot share both classes: reversed multiplicities would require 4d=±d. Hence E≤3. For the frequency-zero binary sign equations the left sides are distinct; a three-way dependence requires all three edges of each triangle once, so both triples share all three distinct classes. To see that this determines the triples up to reflection and translation, orient representatives of the three edge classes to sum to zero. Any two closing sign choices not global reversals could be made to differ in exactly one sign, forcing 2d=0. Permuting the oriented steps around the triangle changes its vertex set only by translation or reflection. Outside the dependent case all equations can be solved. In the reflected case the product of the three directed complex ratios would be 1=−z^M for a p-th root z, impossible, regardless of which frequency is chosen in each row. Any two sign equations are solvable, proving the exact penalty. At p=5 all triples are progressions in two orbits, interchanged by dilation; for {0,1,2} and {0,1,3}, the claimed signs cancel the slices 0,1,2,4. For p≥7 that support pair instead has E=3 and is ordinary. Counting unique progression centers gives p(p−1)(p−5)/6 nonprogressions, each with p distinct reflected translates disjoint from its own orbit. Independent finite replay enumerated all ordered nontranslated pairs at p=5,7,11,13 by computing the nine differences and the matching edge counts, obtaining 50, 980, 25410, 78078 pairs and 0,98,1210,2704 exceptions. Enumerating the 64 sign patterns for representative pairs and testing exact cyclotomic vanishing by reducing integer coefficient vectors modulo 1+z+⋯+z^(p−1) gave minima 21 (p=5), 39 and 40 (ordinary and reflected p=7), and 63 (ordinary p=11). Finite evidence corroborates the proof but does not establish the all-prime theorem. The frozen checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krahmer–Pfander–Rashkov's fixed-cardinalities uncertainty bound specializes to 5p−4 for p≥7 and 21 at p=5.",
+          "Nicola treats equality at the global size-p lower bound. The low-spectrum mirror gives S≥|A−B|(p+1)−9 for three-tap inputs and invokes Vosper below 6p−3."
+        ],
+        "reasoning": "The latter row bound becomes exactly p(9−E)−E for unmatched triples. These broader results do not establish equality for ordinary pairs or the strict extra penalty on reflected pairs; the p=5 numerical lower bound is covered, not its signs as a fixed-support construction.",
+        "searches": [
+          "arXiv:math/0611493 Proposition 4.4",
+          "arXiv:2204.14176 Theorems 1.1–1.2",
+          "2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:math/0611493",
+        "arXiv:2204.14176",
+        "2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117",
+        "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime Fourier row uncertainty with nine incidences gives the baseline; the inverse geometry when the delay set has size five does not apply to unmatched supports at p≥7.",
+          "The exceptional obstruction concerns the rank of a common sign system and the consistency of three complex ratio equations across distinct delays, neither of which is tested by independent Fourier row estimates."
+        ],
+        "reasoning": "The earlier techniques account for the baseline and threshold. Solving the coefficient coupling and showing exactly when that lower bound fails to be attained is the supported additional result.",
+        "searches": [
+          "Low-support spectrum mirror Finding and Proof §§1–3",
+          "arXiv:math/0611493 Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-ambiguity and the present STFT have the same support under standard normalization and timing relabelings; the local cross-STFT low-spectrum work treats the low threshold and matching progression pairs, not reflected nonprogressions."
+        ],
+        "reasoning": "A spectrum of values over free supports, or the rank condition for rows individually, does not give the minimum for each fixed pair with shared signal and window coefficients. The reflected triangle requires a frequency-independent obstruction to simultaneous zeros.",
+        "searches": [
+          "Resultary: fixed nontranslated three-point supports; reflected triangle obstruction; unmatched size-three supports (query topics)",
+          "Web: \"short-time Fourier transform\" prescribed supports three nonzero entries fixed supports support size cyclic prime cross ambiguity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The low-spectrum entry gives all attainable support sizes below 6p−3 at p≥7 and identifies which support pairs can enter that region. The phase-only optimizer entry fixes a common three-point arithmetic progression. The two-sparse entry concerns a different support budget."
+        ],
+        "reasoning": "These indexed results do not tabulate or characterize fixed-pair minima on the nontranslated stratum. In particular, two sparse inputs have no triple of row and column edges to support the reflected triangle obstruction.",
+        "searches": [
+          "2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117",
+          "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db",
+          "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+        ]
+      },
+      "rationale": "The row-count lower bound and the 6p−3 global threshold are covered or directly implied by broader uncertainty/inverse results. The actual fixed-aperture optimization is distinct: it resolves simultaneous attainability of the rowwise bound, detects exactly the reflected nonprogression obstruction even allowing arbitrary complex coefficients and different frequencies per row, and produces sign witnesses. No inspected result covers that classification.",
+      "residual_risks": [
+        "The bounded search does not exclude an equivalent sparse-radar or discrete cross-ambiguity classification under different terminology. No priority conclusion follows from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cardinality-based lower bound, not joint fixed-support cancellations",
+          "evidence": [
+            "At r=s=3 the bound is 5p−4 when p≥7 and 21 at p=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Proposition 4.4, PDF p. 15 (OA offset 55273)",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Sharp support-cardinality uncertainty bound"
+        },
+        {
+          "assessment": "Different extremal regime",
+          "evidence": [
+            "The sharp equality theorem is at the global N-point bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.14176",
+          "material_read": "Theorems 1.1–1.2, PDF pp. 2–3 (OA offsets 5334 and 8165)",
+          "method": "OA primary PDF, bounded passages",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "Potentially stronger equality characterization"
+        },
+        {
+          "assessment": "Baseline and lower threshold covered; fixed-support attainability and exceptional penalty not covered",
+          "evidence": [
+            "The proof sums the row estimate |D|(p+1)−9, then uses Vosper when |D|=5. Its coefficient-level formula is for the matching progression stratum only."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-the-low-support-spectrum-and-inverse-rigidity-of-three-tap-cross--9566ceddf117",
+          "material_read": "Finding, assumptions, Proof §§1–3, mirror offsets 0 and 2916",
+          "method": "Exact local mirrored RESULT.md",
+          "title": "The low-support spectrum and inverse rigidity of three-tap cross-STFTs on prime cycles",
+          "trigger": "Strongest indexed overlap at identical sizes and 6p−3 threshold"
+        },
+        {
+          "assessment": "Different support stratum",
+          "evidence": [
+            "Uses common support {0,1,2} and unit-modulus coefficients, not distinct translation classes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db",
+          "material_read": "Finding and support restriction",
+          "method": "Local Resultary comparison",
+          "title": "Exact optimizer topology for phase-only three-tap cross-ambiguity",
+          "trigger": "Indexed three-tap optimization on phases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prescribing the apertures is natural when the occupied sites cannot be changed. A pair-specific minimum and explicit binary-phase attainment are useful information unavailable from total-support bounds. The exact one-zero obstruction isolates a geometric invariant that matters even for unrestricted complex coefficients, and the count describes how prevalent it is. This is not just an improved global lower bound or a finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

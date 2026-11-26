@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:31.091455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–78; VERIFICATION.md; verify.py (read only)",
+        "Independent direct quartic optimizations for (a,b)=(1,2),(1,1),(1,10^-4),(1,10^4),(2,7), maximum absolute discrepancies 7×10^-8 in K and 1.3×10^-13 in growth"
+      ],
+      "rationale": "At fixed positive a,b and velocity separation V, put K=kV. The real dispersion function has one crossing outside each pole and a single minimum (a^(1/3)+b^(1/3))³/K² between them. Its quartic has just one simple root in the upper half-plane for 0<K<(a^(1/3)+b^(1/3))^(3/2), and growth vanishes at both endpoints by root continuity. Thus an interior maximum exists. Implicit differentiation at w=(z−K)/z gives z′=b/(aw³+b), so an extremum lies on the π/3 or 2π/3 ray. The first gives negative K² for all positive feasible ratios (the zero imaginary-equation denominator at r=1/2 cannot solve that equation); the second gives the claimed K and gamma. The ratio r³(r+2)/(2r+1) increases strictly from zero to infinity, so there is exactly one stationary candidate and hence precisely one peak. The sharp bound also follows independently from Re[(x+iy)^(-2)]≤1/(8y²) for y>0, with equality iff x²=3y². Equality for both streams forces x=K/2 and imaginary cancellation then forces a=b; the balanced solution attains the bound. A separate quartic optimizer spanning b/a=10^-4 to 10^4 corroborated the peak, without running the uploaded checker.",
+      "residual_risks": [
+        "Equality is equal squared plasma-frequency weights; translating that to equal number densities requires the same species factors. The peak and bound are longitudinal, cold and temporal, not global electromagnetic or kinetic growth bounds.",
+        "The frozen 7,254 counter is recorded corroboration: the script includes a repeated assertion and counts some assertions but not all conditional optimizer checks. It is not evidence of 7,254 independent tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen record identifies Lapuerta–Ahedo Eq. (14) as the directly matching forward cold-beam dispersion and (15)–(16) as asymptotic peak formulas; those original equations were not independently retrieved. The Bret papers are leads on wider beam–plasma geometries and special cases, but no readable original passages were recovered in this review.",
+          "The OA Rightley–Uzdensky unequal-population discussion focuses on small k and numerical roots; it does not give a global, exact maximization conclusion in the inspected passages."
+        ],
+        "reasoning": "A wider setting or exact polynomial for roots is not a theorem claiming that its temporal growth is optimized at a unique wavenumber, or specifying the optimizing pair. Exact arbitrary-density results in unavailable passages are a risk, not evidence of coverage or noncoverage.",
+        "searches": [
+          "Lapuerta–Ahedo DOI 10.1063/1.1464893, equation-level lead from frozen paper and exact-title PDF lookup",
+          "Bret–Firpo–Deutsch DOI 10.1103/PhysRevE.70.046401; Bret–Gremillet–Dieckmann DOI 10.1063/1.3514586; Rightley–Uzdensky unequal-population section"
+        ]
+      },
+      "checked_sources": [
+        "Rightley–Uzdensky arXiv:1807.01458 pp. 1, 20–21",
+        "Resultary searches and adjacent three-stream entry",
+        "Bounded Lapuerta–Ahedo and Bret source attempts",
+        "Frozen RESULT.md literature account read as recorded evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claim requires the upper-half-plane stationary-ray exclusion and monotone bijection between b/a and r, not just a root at any fixed K or the value for a=b. The fixed-P equality characterization requires comparing growth over all weight ratios, not merely evaluating balance."
+        ],
+        "reasoning": "Neither the inspected small-k and dilute calculations nor the indexed three-stream threshold has those quantifiers. The classical forward dispersion is the starting equation, but it does not mechanically select a unique global maximizer without the additional argument.",
+        "searches": [
+          "Inspected Rightley–Uzdensky Eq. (44) and numerical-root discussion; indexed three-stream summary; frozen Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a frame of stream one only z=ω−ku1 and K=k(u2−u1) matter. For two populations of the same electron species, the density ratio equals b/a; the same-species balanced limit gives γ²=P/8.",
+          "Rightley–Uzdensky consider both identical counter-streams and another unequal-population regime explicitly labeled arbitrary density, contrary to a symmetric-only characterization of that paper. In the inspected unequal section Eq. (44) is a weak-beam long-wavelength result and numerical roots are discussed."
+        ],
+        "reasoning": "Frame, frequency and density normalizations do not make a classical balanced or weak-beam result an all-positive-ratio solution. Nor does a numerical curve establish a unique exact maximizer for all ratios.",
+        "searches": [
+          "Cold two-stream/beam–plasma dispersion, arbitrary or unequal cold beam density and maximal temporal growth",
+          "Rightley–Uzdensky arXiv:1807.01458 PDF pp. 1, 20–21, Eq. (44)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching item surfaced in the bounded index checks. The nearest entry concerns equal counter-streaming beams plus a third stationary population and a spectral transition, according to its indexed summary. No inspected exact table gives the all-ratio optimizing pair or the fixed-P bound. The named Table I was not accessible."
+        ],
+        "reasoning": "A topology or instability threshold for a third-population model cannot be identified with the maximum for an arbitrary ratio of two weights. A table of limiting cases, even if confirmed, would not evaluate the interior unequal ratios.",
+        "searches": [
+          "Resultary: two-stream all-density exact temporal peak and fixed-total/balanced bound, two index searches",
+          "Indexed three-symmetric-cold-plasma-streams record 2026/10/25; Bret–Gremillet–Dieckmann Table I lead in frozen RESULT.md"
+        ]
+      },
+      "rationale": "The matching forward dispersion and several special-case peaks are classical. The inspected arbitrary-density treatment uses asymptotic or numerical results in the relevant passages; it does not establish the exact all-positive-ratio optimizing wavenumber and growth or their global uniqueness. The nearby indexed three-population result does not cover this two-population optimization. Credit is for the explicit global optimization for fixed a,b and the sharp fixed-total-weight statement, not for the dispersion, instability mechanism, or familiar balanced and dilute limits.",
+      "residual_risks": [
+        "Lapuerta–Ahedo equations and discussion remain the strongest inaccessible comparison; Bret's longitudinal specializations and older classical literature could contain equivalent results. No historical priority is assigned. Empty search results were not counted as noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Has an unequal arbitrary-density section; inspected result is not the all-ratio global peak",
+          "evidence": "The unequal-population discussion focuses on the small-k limit and numerically obtained roots; Eq. (44) is weak-beam and long-wavelength.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.01458",
+          "material_read": "PDF p. 1 (offset 2100) and pp. 20–21 (offset 96198), including Eq. (44)",
+          "method": "OA original PDF passage inspection",
+          "title": "Analytical Properties of Linear Electrostatic Waves in Two-Component Quantum and Classical Plasmas",
+          "trigger": "Potential exact unequal-density delta-beam comparison"
+        },
+        {
+          "assessment": "Unresolved equation-level comparison",
+          "evidence": "Frozen RESULT.md describes matching dispersion and asymptotic peak formulas; this description is not an independent inspection of the article.",
+          "identifier_or_url": "doi:10.1063/1.1464893",
+          "material_read": "Bibliographic record and frozen record's account of equations (14)–(16), not the original equations",
+          "method": "Lawful OA lookup (403), repository check and exact-title PDF search without a recovered copy",
+          "title": "General parametric analysis of the linear two-stream instability",
+          "trigger": "Closest identified forward model and plausible arbitrary-ratio peak formulas"
+        },
+        {
+          "assessment": "Possible broader coverage remains unresolved",
+          "evidence": "No equation-level noncoverage asserted.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.70.046401",
+          "material_read": "Bibliographic lead only; no readable full text",
+          "method": "OA attempt returned 403; no repository copy recovered",
+          "title": "Collective electromagnetic modes for beam-plasma interaction in the whole k space",
+          "trigger": "Broader geometry could contain an exact longitudinal specialization"
+        },
+        {
+          "assessment": "Unresolved tabulated special-case comparison",
+          "evidence": "The reported table scope was not independently checked.",
+          "identifier_or_url": "doi:10.1063/1.3514586",
+          "material_read": "Bibliographic lead and frozen description of Table I, not the table itself",
+          "method": "OA attempt returned 403; no repository copy recovered",
+          "title": "Multidimensional electron beam-plasma instabilities in the relativistic regime",
+          "trigger": "Cited comparison table of temporal growth limits"
+        },
+        {
+          "assessment": "Summary concerns a different number of populations and spectral quantity, not an exact peak match",
+          "evidence": "Two equal counter-streaming beams plus a stationary third population; a spectral threshold rather than the fixed-total unequal two-stream peak.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-spectral-topology-of-three-symmetric-cold-plasma-streams--275b60f6dee0",
+          "material_read": "Local index summary only",
+          "method": "Configured Resultary search and statement comparison",
+          "title": "Exact spectral topology of three symmetric cold plasma streams",
+          "trigger": "Closest related Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope and analytic proof lines 3–75; inspected Rightley–Uzdensky unequal-population discussion"
+      ],
+      "rationale": "The all-ratio formula locates the one actual temporal optimum, rather than giving a cutoff, a root-finding prescription at a specified wavelength, or two asymptotic limits. A researcher can predict the peak and compare unequal weight allocations at fixed total weight without a numerical optimization. The sharp bound and its equality condition give a useful benchmark within the ideal model.",
+      "residual_risks": [
+        "A fixed total squared plasma frequency is not a fixed energy or a claim about finite-temperature or oblique experiments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

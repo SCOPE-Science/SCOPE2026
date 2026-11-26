@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:37:23.219544Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–62; VERIFICATION.md and checker.py inspected without execution",
+        "Replay: python3 /workspace/independent_checks.py 3; integer-weight enumeration of 680 cases including singletons, comparing all maximizers, plus independent expansion from all 64 survivor patterns per N=6 partition"
+      ],
+      "rationale": "By linearity of expectation the objective is additive in the site sizes. The binomial marginal is j p^2(1-p)^(j-1) for j>=1, strictly positive; merging a singleton into another group helps. For fixed pair sum s, the first exchange from t=0 hurts, and every later exchange has the sign of Q_s(t)-(1-p) where Q_s(t)=(t/u)^(1/(u-t)) and u=s-t-1>t. Strict increase of Q_s follows because log Q_s is -artanh(h/c)/h with c=(s-1)/2 and h=c-t, and artanh(z)/z is strictly increasing on (0,1) (e.g. its positive power series). With a strictly negative first difference and at most one intervening zero between decreases and increases, every interior pair is strictly dominated by at least one endpoint, even when the two endpoints tie. A globally optimal allocation cannot contain a pair differing by two or more, since a merge is admissible; this does not assert balance is optimal at each externally fixed k. Checking all allowed k proves the exact formula and the classification of ties. For N=6 an independent count of survivor patterns expands the adjacent score differences as p^2(p^2-3p+3)(5p^2-9p+3) and p^2(3-4p). The first factor changing sign does so only at p_0 in (0,3/4); the adjacent signs then suffice for all three ranges and the two ties. N<6 cannot support three groups of at least two. The incidental 'exponential family' description should mean exponential in order sqrt(N), not in N; the exact finite reduction is unaffected.",
+      "residual_risks": [
+        "Finite checks do not replace the strict exchange lemma. The argument needs 0<p<1, an unrestricted number of identical groups, and the expected count objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ağralı–Geunes abstract states NP-hardness and algorithms for an integer-variable S-curve version, not the exact symmetric balance theorem. The full article and Ginsberg antecedent were not accessed. The newer Poisson-quorum record obtains equal positive continuous intensities and consecutive activation thresholds for quorum >=3, and mentions a previously established continuous quorum-2 case."
+        ],
+        "reasoning": "Neither allowing arbitrary S-curves nor obtaining equal continuous intensities settles the strict sign progression for the binomial discrete differences. The continuous quorum-2 antecedent is a priority risk for the analogy, not demonstrated coverage of the fixed integer budget.",
+        "searches": [
+          "doi:10.1016/j.ejor.2013.12.035; S-curve integer knapsack; doi:10.1016/0022-0531(74)90053-2",
+          "Resultary 6c42718054c6"
+        ]
+      },
+      "checked_sources": [
+        "Srivastava–Bullo author manuscript, doi:10.1016/j.ejor.2013.12.035",
+        "Ağralı–Geunes abstract",
+        "Resultary 16a69419a1f0, 6c42718054c6, ae3e6f6f2f0f",
+        "Frozen prior-work citations and stated assumptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The required fact is strict pair endpoint domination for two fixed integer sizes with their sum conserved. The continuous corollary asserts one optimal continuous allocation, and the two-site result below has a different objective and feasible set."
+        ],
+        "reasoning": "Continuous balance or two-site mate-limited balance cannot be substituted for a discrete merge-or-balance theorem. The discrete exchange threshold is necessary to this proof and the exact N=6 thresholds arise from two model-specific adjacent differences, not a previously retrieved threshold formula.",
+        "searches": [
+          "Srivastava–Bullo Corollary 5; Resultary 16a69419a1f0 and 6c42718054c6 findings; Ağralı–Geunes abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 5 of Srivastava–Bullo states an equal-positive-support continuous optimum for identical sigmoid utilities. The indexed mate-limited allocation optimizes probability of any viable site with separate male and female budgets."
+        ],
+        "reasoning": "Maximizing a sum of binomial tails is a symmetric separable knapsack, but not the product-of-failures optimization for any success. A continuous optimum on equal positive support neither identifies all integer optima nor proves their exact balance when the equal split is infeasible.",
+        "searches": [
+          "Discrete sigmoidal separable allocation / integer knapsack with S-curve returns",
+          "Resultary local: all-or-nearly-even allocations, quorum thresholds and habitat activation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 16a69419a1f0 is earlier and closely related structurally, but has two sites, separate sex budgets, suitability and an any-success objective. IDs 6c42718054c6 and ae3e6f6f2f0f optimize different Poisson-mean formulations. The inspected exact statements do not report this model's N=6 thresholds."
+        ],
+        "reasoning": "The indexed records are more relevant than tabulated binomial probabilities. Tables of the single-site tail plus three comparisons do not give the all-N reduction or absence of any other maximizing partition.",
+        "searches": [
+          "Resultary local searches: discrete two-survivor group allocation, two-site mate-limited release, Poisson founder-quorum thresholds"
+        ]
+      },
+      "rationale": "The supported distinction is the strict all-maximizers theorem for the indivisible Bernoulli two-success expected-count problem, with its first three-way budget example. Continuous equal-positive-support results and other stochastic founding objectives are genuine analogues, but do not provide this discrete strict pair lemma or its consequence for all integer optima. No absolute priority is asserted.",
+      "residual_risks": [
+        "Ginsberg (1974), the full Ağralı–Geunes paper, and full text for the cited ecological comparisons were unavailable; older discrete sigmoid allocation may contain closely related structure. This does not establish coverage or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong continuous analogue, not a strict integer all-optima result.",
+          "evidence": [
+            "For identical continuous utilities an optimal solution can allocate T/m on the active support selected by maximizing m f(T/m)."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2012n-sb.pdf",
+          "material_read": "§2.1 p. 2 near offset 10800; Corollary 5 p. 6 near 46000",
+          "method": "OA author manuscript",
+          "title": "Knapsack Problems with Sigmoid Utilities",
+          "trigger": "General equal-resource allocation for identical sigmoid utilities"
+        },
+        {
+          "assessment": "Unresolved possible broader coverage; the abstract is not evidence against it.",
+          "evidence": [
+            "States increasing then decreasing returns, an integer version, NP-hardness and algorithms."
+          ],
+          "identifier_or_url": "https://ideas.repec.org/a/eee/ejores/v193y2009i2p605-615.html",
+          "material_read": "Public abstract, offsets 853–1478 only",
+          "method": "Public abstract; no accessible full text inspected",
+          "title": "Solving Knapsack Problems with S-curve Return Functions",
+          "trigger": "Potential broader integer theorem"
+        },
+        {
+          "assessment": "Different objective and constraints, so not dominating coverage.",
+          "evidence": [
+            "Two sites and two sex-specific budgets; all optima concentrate or split nearly evenly when maximizing probability of any viable site."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-an-all-or-nearly-even-release-theorem-for-two-site-mate-limited--16a69419a1f0/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "An all-or-nearly-even release theorem for two-site mate-limited colonization",
+          "trigger": "Strongest earlier indexed structural analogue"
+        },
+        {
+          "assessment": "Continuous Poisson means differ from fixed integer Binomial allocation; notes an earlier continuous quorum-2 result without a citation in the passage.",
+          "evidence": [
+            "Equal positive continuous intensities and adjacent transitions for quorum at least three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6/RESULT.md",
+          "material_read": "Finding offset 0 and prior work near 7489",
+          "method": "Local mirror passages",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Closest indexed expected-count activation result"
+        },
+        {
+          "assessment": "Not assessed for exact implication; not used as evidence of noncoverage.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2664.2000.00467.x",
+          "material_read": "No readable full-text passage obtained",
+          "method": "Lawful OA attempts, with access failure",
+          "title": "Optimal release strategies for biological control agents: an application of stochastic dynamic programming to population management",
+          "trigger": "Closest cited ecological release optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumption statement and pair lemma",
+        "Srivastava–Bullo, Corollary 5",
+        "Independent exact all-partition replay"
+      ],
+      "rationale": "This is a sharp structural reduction of a nonconcave integer allocation, not a table of optima for one probability. Strict domination excludes every unbalanced optimal partition for all probabilities in the open interval and reduces the search to at most floor(N/2) candidates. The N=6 example is a minimal boundary illustrating two distinct changes in the active-group count. Its value is as a stylized probability and optimization result, not a real release prescription.",
+      "residual_risks": [
+        "No optimality claim for a capped-site, heterogeneous, correlated, or non-additive objective, and no empirical validation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

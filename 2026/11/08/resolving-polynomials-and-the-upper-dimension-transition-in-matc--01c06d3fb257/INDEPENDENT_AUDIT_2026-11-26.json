@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:59:13.417362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are at most two forbidden common neighbors for a same-side pair, so it has distance two; for an omitted cross edge, first choose another right vertex adjacent to its left endpoint, then another left vertex adjacent to both right vertices, giving distance three. Nonempty sets distinguish opposite parts by parity. For two unselected vertices on the same side, the only landmark that can distinguish them is a selected deleted partner of either; thus the undistinguished class consists of the k empty-pair ends plus the unselected unmatched vertices on that side. This proves both inequalities and they exclude the empty set under a,b>=3. Split the generating function at k=0 and k=1. In the latter case all unmatched vertices and all nonempty pair singletons are essential, while any doubleton is reducible; in the former case omit exactly one unmatched vertex on each nonempty unmatched side, which makes every pair singleton essential except when both unmatched sides are empty. This gives the three minimal polynomials, the exact gap condition, and includes t=0. For a crown the empty-pair count is Binomial(n,(1-s)^2), so the asserted limit is its mass at zero and one in the Poisson limit. Independently used Floyd–Warshall and full subset comparison for seven examples covering zero, partial, saturated unequal, and crown deletions; e.g. (4,4,2) has 87 resolving sets with 16 minimal of size 4 and 4 of size 5. Replay: python3 /workspace/review-evidence/replay.py 3. The recorded BFS run is separate. The supplied script uses int.bit_count(), so it requires Python 3.10+ rather than the advertised 3.9+; this does not affect the mathematical conclusion or current replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain-graph Finding gives complement restrictions by twin classes and two interval conditions, plus a four-state recurrence for the resolving polynomial.",
+          "Galby et al.'s inspected introduction studies complexity of metric dimension under graph parameters, rather than a census of all landmark sets."
+        ],
+        "reasoning": "The chain theorem covers t=0 and 1; when t>=2, the endpoints of two deleted pairs induce 2K2 using their surviving cross edges, excluding that entire part from connected chain graphs. A decision algorithm is not the asserted closed enumeration.",
+        "searches": [
+          "2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a",
+          "arXiv:2206.15424, introduction"
+        ]
+      },
+      "checked_sources": [
+        "30553b031b4a, chain-graph Finding",
+        "30e06175a718, crown hierarchy Finding",
+        "arXiv:1101.3624",
+        "arXiv:2206.15424",
+        "01c06d3fb257 (self-hit)",
+        "10.37418/amsj.9.4.43 (lawful text retrieval timed out)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain characterization and all-set polynomial encompass boundary classifiers, from which the boundary minimal cases can be extracted.",
+          "The crown theorem has a missing perfect matching; the hierarchy's bases target its minimum size. The interior proof needs empty-pair and unmatched-vertex constraints together, which produce two distinct minimal sizes."
+        ],
+        "reasoning": "Neither substituting the chain constraints beyond their hypothesis nor extrapolating crown bases establishes the matched/unmatched interaction. Credit only the extension beyond those implied or expressly covered pieces.",
+        "searches": [
+          "30553b031b4a, Finding",
+          "30e06175a718, Finding",
+          "arXiv:1101.3624, Theorem 1 and Lemmas 1–2",
+          "arXiv:2206.15424, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An (n−1)-regular balanced bipartite graph has a perfect matching of missing edges, so Saputro et al.'s theorem is exactly the frozen scalar dimension for the crown endpoint.",
+          "The crown k-metric hierarchy states for k=1 that a basis has one empty deleted pair and one end of every other pair; it counts n2^(n−1) minimum bases."
+        ],
+        "reasoning": "Equivalence of graph presentations removes any claim of novelty for scalar dimension, and the earlier basis census also overlaps the numerical crown count. Scalar or minimum-basis data alone say nothing about larger inclusion-minimal sets in the matching-deleted family.",
+        "searches": [
+          "Resultary: matching-deleted bicliques, crown or cocktail matching complements, resolving sets and upper metric dimension",
+          "arXiv:1101.3624, Theorem 1 and Lemmas 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching-deleted polynomial title and synopsis belong to the assigned record 01c06d3fb257 itself.",
+          "The distinct earlier local crown hierarchy gives the exact n2^(n−1) table entry for minimum bases, not a family polynomial for general a,b,t."
+        ],
+        "reasoning": "Credit the exact count in its existing endpoint scope; distinguish a catalogue self-hit and an endpoint count from the full coefficient arrays.",
+        "searches": [
+          "Resultary matching-deletion and crown census queries",
+          "2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718"
+        ]
+      },
+      "rationale": "The ordinary crown dimension and its complete minimum-basis count are covered, as is resolution on the chain-graph boundary t=0,1. The substantial distinct result is the all-set and inclusion-minimal census on the whole matching-deleted family, especially the interior 2<=t<min(a,b) and saturated unequal bicliques, with an exact upper-dimension transition. The consulted crown and chain statements do not imply that extension. The crown reliability limit is a consequence, not the independent reason for this judgment.",
+      "residual_risks": [
+        "The Shahida–Sunitha paper and the older upper-dimension paper of Chartrand–Poisson–Zhang were not verified in full. A general set characterization not found in this bounded comparison could imply further cases.",
+        "Originality does not extend to the cited chain and minimum crown results; the even stronger inclusion-minimal equivalence at the crown endpoint is not required for the nonboundary judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers t=0,1; induced 2K2 rules out t>=2",
+          "evidence": [
+            "Complement twin-class omission and two interval restrictions; four-state polynomial recurrence."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary identification and local mirror passage",
+          "title": "Resolving sets and the resolving polynomial of chain graphs",
+          "trigger": "Broader boundary-set characterization"
+        },
+        {
+          "assessment": "Exact endpoint count and form for minimum bases, not a full matching-deleted census",
+          "evidence": [
+            "For k=1 one empty pair; one landmark in each other pair; n2^(n−1) bases."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary identification and local mirror passage",
+          "title": "Complete k-metric hierarchy of crown graphs",
+          "trigger": "Exact count overlap at the crown endpoint"
+        },
+        {
+          "assessment": "Proves the ordinary crown dimension only in these passages",
+          "evidence": [
+            "For n≥3, if G(n,n) is (n−1)-regular bipartite, β(G)=n−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.3624",
+          "material_read": "Theorem 1, PDF p. 2 (offset 5214) and Lemmas 1–2, p. 3 (offset 8170)",
+          "method": "Primary OA PDF passage comparison",
+          "title": "The Metric Dimension of Regular Bipartite Graphs",
+          "trigger": "Same graph in degree rather than matching-deletion notation"
+        },
+        {
+          "assessment": "Inspected results concern decision complexity; no whole-paper exclusion asserted",
+          "evidence": [
+            "Parameterized metric-dimension decision problem under structural constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.15424",
+          "material_read": "Introduction pp. 1–2, offsets 2650–4000",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Metric Dimension Parameterized by Feedback Vertex Set and Other Structural Parameters",
+          "trigger": "Cited more general metric-dimension work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum dimension conceals larger inclusion-minimal sets. Exact polynomials both quantify and structurally explain that discrepancy, and the transition at matching saturation is not visible from crown dimensions or decision complexity. The full resolving polynomial can also be used for random landmark reliability, as illustrated at the crown endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

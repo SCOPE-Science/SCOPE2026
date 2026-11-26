@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:41:15.457759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, MORSE_CHECK.py and EXPECTED.txt, inspected without executing the upload",
+        "Independent reproduction: python3 /workspace/branches/independent_kneser_puncture.py",
+        "Independent earliest-pivot argument for directed Hasse acyclicity and reduced Mayer–Vietoris computation"
+      ],
+      "rationale": "Relabeling triples takes any chosen vertex to the lexicographically first one. Deletion removes only that triple, while link removes it and its four disjoint neighbors. Independent include/exclude recursion on available triples enumerated 277,713 and 1,000,971 nonempty faces, respectively. Applying each prescribed pivot to the active set by deleting the intersection with its bit-flipped translate gave critical dimensions {0:1,5:6,8:4} and {0:1,6:23,9:3}. The matching is acyclic without relying on the recorded DFS: in any directed cycle up-arrows are isolated because matching pairs are disjoint, so equal numbers of up/down arrows force alternation. Take the earliest pivot used by its up-arrows. A down-arrow must remove that pivot to restore membership around the cycle; its two incident faces were both free in the earliest pivot pass since each is in a cycle match at that pass or later. They would have been matched then, a contradiction. The Morse CW complexes have no adjacent critical dimensions and one zero-cell, so the integral differentials vanish and the stated reduced groups are exact. Mayer–Vietoris for deletion union the cone on the link gives the two stated short exact sequences of abelian groups; both split because the link groups in degrees 5 and 8 are free. No assertion about higher attaching maps is required.",
+      "residual_risks": [
+        "The two splittings are assertions about abelian groups, not canonical splittings, equivariant splittings, or homotopy decompositions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 18 gives rational ambient ranks in an infinite family. The earlier ambient splitting in Resultary b5f451af9215 uses X_6 and a union of all stars of triples containing a ground-set point; its overlap has 20 vertices and 54,870 nonempty faces. It does not split off the link of one triple. The vertex-splitting passage in Feng–Wang supplies no KG(7,3) puncture computation."
+        ],
+        "reasoning": "Coverage of the full complex, even up to homotopy, is not coverage of the inclusion of this induced deletion or of the actual vertex link. A general vertex-splitting principle does not determine the two summands or their ranks by itself.",
+        "searches": [
+          "arXiv:2610.17394, Theorem 18 and Appendix A",
+          "arXiv:2404.10566, Table 1 and Lemma 1",
+          "Resultary: earlier full triple-Kneser homotopy and integral homology"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact local and ambient Kneser searches",
+        "Feng–Wang arXiv:2404.10566 and Feng arXiv:2610.17394",
+        "Local mirrored Resultary matches identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior homotopy decomposition uses removal of all triples containing one ground-set point, not one Kneser vertex. The ambient integral groups give only the totals under the puncture splitting; ambient rational S7 characters are not integral homology of a subcomplex."
+        ],
+        "reasoning": "No inspected comparison supplies the local computations needed by the exact sequence. The split injection with free cokernels is a formal consequence once the two local profiles are known, not a separate new exact-sequence method.",
+        "searches": [
+          "Resultary b5f451af9215 proof §1–2 and November 1 results 4fc04e767560 and 0c1e2b2ee47c",
+          "Feng arXiv:2610.17394, Theorem 18 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(3,1) in the cited papers matches KG(7,3) here. The independence complex is the clique complex of the pairwise-intersection graph on triples. The link removes the closed neighborhood in the disjointness graph, not a ground-set point. Feng's auxiliary L_6 uses six ground-set points and has rational ranks (29,6) in degrees (5,8)."
+        ],
+        "reasoning": "Parameter notation and graph complementation with the corresponding flag rule preserve the object; changing from a removed triple to a removed ground-set point does not. The auxiliary L_6 cannot be this link and even its rational ranks differ.",
+        "searches": [
+          "Resultary: KG(7,3) triple-Kneser vertex link, deletion, and integral puncture profile",
+          "Feng arXiv:2610.17394, Theorem 18 and Appendix A (KG(3,1) convention)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local match is the assigned 0ad7aba3257a record. The numerical table lists ambient ranks (29,7), as do the October 25/November 1 integral records for the whole complex. Same-day distinct 2226412769ea concerns the three-robust clique complex of the Petersen graph and has different local degrees and ranks."
+        ],
+        "reasoning": "No distinct verified table gives the four local values. Agreement of their sums with ambient entries is a consistency check, not a way to obtain the separate values.",
+        "searches": [
+          "Resultary: exact KG(7,3) link/deletion and primitive inclusion ranks",
+          "Feng–Wang arXiv:2404.10566, p. 3 Table 1"
+        ]
+      },
+      "rationale": "The established contributions here are the two vertex-local integral homology profiles and their consequence for inclusion. Whole-complex rational ranks, integral torsion-free ranks, even the prior ambient homotopy splitting, and an analogous puncture theorem on a different graph do not supply the two local profiles. The exact indexed local match is the frozen item itself.",
+      "residual_risks": [
+        "An unindexed or inaccessible equivalent local computation could exist. This assessment uses the bounded cited-source and Resultary comparisons; it is not a global priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong ambient structural result, but for a different decomposition",
+          "evidence": "X_7 is written as X_6 union the star cluster of triples containing point 7; intersection L consists of intersecting triples on [6] with a two-point transversal. The splitting is S^9 wedge suspension of this L, whose ranks (29,6) are not those of the 30-vertex link.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-torsion-freeness-of-the-first-triple-kneser-independenc--b5f451af9215",
+          "material_read": "Finding and Proof §§1–2, including offsets 1100–4700",
+          "method": "Local mirrored RESULT.md passage inspection",
+          "title": "Integral torsion-freeness of the first triple-Kneser independence complex",
+          "trigger": "Prior homotopy splitting with an auxiliary complex named L"
+        },
+        {
+          "assessment": "Ambient rational theorem and different auxiliary complex",
+          "evidence": "For KG(3,1) the ambient rational ranks are (29,7); Appendix A describes an auxiliary L_6 with rational ranks (29,6) in degrees 5 and 8.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17394",
+          "material_read": "p. 3 definition discussion; p. 17 Theorem 18; p. 18 Questions 19–20; p. 19 Appendix A (offsets ~7969, ~59949, ~63705, ~65599)",
+          "method": "Bounded OA PDF passages",
+          "title": "The rational homology of independence complexes of Kneser graphs on triples",
+          "trigger": "Family including the assigned ambient complex and an auxiliary L_6"
+        },
+        {
+          "assessment": "Ambient computation/conditional splitting, no assigned vertex-local values",
+          "evidence": "Table 1 lists (29,7) for the whole complex; the vertex-splitting lemma does not verify a homotopy splitting for this puncture or calculate either local group.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.10566",
+          "material_read": "p. 3 Table 1 (~9653), p. 4 Lemma 1 (~13560), p. 17 Question 2 (~67678)",
+          "method": "Bounded OA PDF passages",
+          "title": "Feng–Wang, Kneser independence complexes and Vietoris–Rips topology",
+          "trigger": "Computational table and a general vertex-splitting passage"
+        },
+        {
+          "assessment": "Ambient integral ranks only in the compared statement",
+          "evidence": "The displayed ranks 29 and 7 refer to the undeleted whole complex.",
+          "identifier_or_url": "2026/11/1/SCOPE-torsion-free-integral-homology-for-the-first-nontrivial-triple-k--4fc04e767560",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirrored statement inspection",
+          "title": "Torsion-free integral homology for the first nontrivial triple Kneser independence complex",
+          "trigger": "Cited prior integral calculation on the same graph"
+        },
+        {
+          "assessment": "Ambient rational representation result, not the two local integral profiles",
+          "evidence": "The rational S7 representations described are for ambient H_6 and H_9.",
+          "identifier_or_url": "2026/11/1/SCOPE-full-rational-s-7-homology-of-the-seven-point-triple-kneser-comp--0c1e2b2ee47c",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirrored statement inspection",
+          "title": "Full rational S7 homology of the seven-point triple Kneser complex",
+          "trigger": "Cited prior ambient equivariant classification"
+        },
+        {
+          "assessment": "Same type of invariant on a different complex",
+          "evidence": "The Petersen three-robust clique complex has deletion a wedge of four 3-spheres and link a wedge of five 2-spheres, with split Z^4 inclusion into Z^9.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-vertex-puncture-homotopy-profile-of-the-petersen-th--2226412769ea",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirrored statement inspection",
+          "title": "The complete vertex-puncture homotopy profile of the Petersen three-robust clique complex",
+          "trigger": "Same-day puncture, link and split-inclusion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independent local enumeration and Mayer–Vietoris comparison with prior ambient ranks"
+      ],
+      "rationale": "Deleting one triple is intrinsic up to symmetry, not an arbitrary restriction. The two local integral profiles isolate exactly how much of each ambient lattice survives without the triple and how much comes from its link, while excluding hidden local torsion. This gives useful data for vertex-filtration and attaching questions in the first mixed-degree triple-Kneser case even without a family extension.",
+      "residual_risks": [
+        "The result is not a wedge or equivariant classification and does not resolve the higher-parameter cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

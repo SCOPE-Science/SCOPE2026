@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run the bundled `checker.py` with any Python 3.10+ interpreter: `python3 checker.py`. No third-party package, downloaded data, or network access is required. The script completely enumerates all \(20^3=8{,}000\) monotone unary operators on the eight-element Boolean algebra, checks CEP by independent direct congruence and graph/partition methods for every operator, and checks a seeded random selection of 500 additional unrestricted maps for consistency of the general decision methods.
+## correctness
 
-The verified output is:
+PASS
 
-```text
-MONOTONE_TOTAL 8000
-CEP_PASS 5249
-CEP_FAIL 2751
-NORMAL_PASS_FAIL 4273 2586
-NONADDITIVE_CEP 4520
-ORBIT_TOTAL_FAIL 1440 492
-FIXED_ALL (8000, 200, 200, 20, 20, 200)
-FIXED_FAIL (2751, 65, 65, 3, 3, 65)
-ALL_CHECKS_OK
-```
+A Boolean congruence is determined by the atoms in its kernel ideal, and f respects it iff those atoms are forward closed: necessity uses a witnessing single-atom toggle, and sufficiency factors any equivalent pair into such toggles. On an invariant partition algebra the analogous statement uses whole blocks and the induced dependency graph. Restriction of a global kernel collapses exactly the blocks wholly contained in it, so the least globally compatible kernel containing the local blocks extends the local congruence iff reachability has not swallowed an outside block. All Boolean subalgebras arise from partitions; no monotonicity is needed. For the census I generated scalar tables by enumerating antichains of minimal true inputs (20) and tested actual congruence relations by related pairs and exact restriction, with no graph criterion or frozen source code. The complete labelled counts reproduced 8000, 5249/2751 pass/fail, 4273/2586 normal pass/fail, 4520 nonadditive passes and 729 additive passes. Canonical conjugates gave 1440/492 total/failing orbits; fixed totals/failures were 8000/2751, 200/65 and 20/3 for identity, transpositions and 3-cycles. The auxiliary normal closure totals were 32/13 pass/fail.
 
-The code enumerates all six Boolean atom permutations and independently checks orbit canonicalization against the Burnside fixed-point counts. It also checks the separate known \(45\)-closure-operator and \(13\)-failure totals. The universal finite-carrier graph theorem is proved in RESULT.md; finite tests do not establish universality. Historical priority has not been independently established. Independent audit has not been performed.
+## originality
+
+PASS
+
+The supported contribution is the partition-relative dependency criterion and the monotone and normal-monotone strata and orbits on the first possible carrier. Neither the first CEP failure carrier nor the unrestricted or normal closure-operator census is new here.
+
+## value
+
+PASS
+
+Isotonicity and normality are intrinsic operator hypotheses in the CEP literature, not artificial filters. The first carrier on which failure is possible gives an interpretable cutoff, and count and orbit frequencies distinguish the consequences of these hypotheses without conflating algebras and varieties. The minimal-kernel reachability criterion also provides an explicit obstruction and an explicit extension when one exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

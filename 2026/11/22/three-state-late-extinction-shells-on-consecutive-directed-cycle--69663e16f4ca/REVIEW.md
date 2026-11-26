@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(a\ge2\), the induction from the coordinatewise AND rule to exact-length walk predecessor sets is valid. The two-generator semigroup has conductor \(a(a-1)\), with a single missing integer above \(a(a-2)\); this fact is checked explicitly in the proof, not taken from finite experiments. At times \(E-k\), the only missing predecessor class has distance sum \(2a+1-k\). Multiplicities of distances to the hub give exactly \(2k-1\) single-zero initial states and \(k-1\) two-zero states that remain live. Absorption then gives the exact three-state late shells and one-state final shell. Exhaustive direct dynamics for \(2\le a\le7\) and an independent predecessor-walk computation for \(2\le a\le40\) passed; the all-size proof is the basis of PASS.
+PASS
 
-## Originality — PASS, with limited historical-priority uncertainty
+In RESULT.md lines 21–65, iteration of the incoming AND yields exactly the AND over length-t predecessors of each target. Thus the surviving nonempty initial zero sets are the distinct nonempty subsets of the complements of these predecessor sets. With α the distance to the hub and β the distance from it, any length ≥a² walk must pass through the hub: a walk avoiding it lies on one of the two open arms and cannot last even a steps. Between the first and last hub visits it makes complete circuits, so a walk exists exactly when t−α−β belongs to ⟨a,a+1⟩. For n=ha+r with 0≤r<a, membership means h≥r: at least r copies of a+1 are needed for this residue, and r such copies suffice. Hence above or at c−a=a(a−2), the sole gap is c−1 (the last residue in the block h=a−2); c=a(a−1). For t=E−k the residual length is at least c−a, so missing predecessors of a target at distance β are exactly the source level α=2a+1−k−β. The nonempty levels run from a+1−k to a: a singleton at a and k−1 two-vertex levels. Duplicate targets with the same β make no new subsets. Counting singles and whole pairs yields (2k−1)z+(k−1)z². At E all residual lengths are at least c, and at E−1 the α=β=a pair is still missing. Subtracting survivor polynomials therefore gives 2z+z² at E−a+1 through E−1 and z at E; includes a=2. Inspected the two frozen checkers without executing them. Independent `python3 /workspace/replay/check_assignments.py 2` shifts the two arm bitfields and directly updates the hub for every labelled non-all-one state at 2≤a≤7, verifying extinction and zero weights in every claimed shell. This is corroboration, not the all-size proof.
 
-Jarrah–Laubenbacher–Veliz-Cuba (arXiv:0805.0275, Lemma 2.7) already derive Boolean-network height from adjacency-matrix exponent; that is explicitly **not** the new claim. Noual (arXiv:1011.3930) treats the same two-cycle geometry but obtains recurrent-attractor formulas rather than the stated late transient zero-weight census; its synchronous positive-positive case is delegated to earlier work. The indexed sections of Demongeot–Noual–Sené (2012) cover doubly positive recurrent configurations; the complete published text was not independently accessible here, leaving a specific priority risk. The source on asynchronous intersected cycles (arXiv:1310.5747) has a non-equivalent update protocol. Searches for the identical late shell, semigroup and zero-weight formulations, and comparisons with accessible indexed mathematical records, identified no statement that implies this one. Absence from those searches alone is not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The quadratic maximum extinction time is a classical type of network invariant; what matters here is a new quantitative refinement, the complete natural family of the final \(a\) first-entry shells. Their striking constant population three and the restriction to initial configurations with only one or two zero bits separate worst-case relaxation from its extremely sparse near-extremal states. The terminal window width is one full shorter-cycle length, not an arbitrary parameter slice. This yields a reproducible structural witness for how two return-path lengths and their Frobenius gap govern finite-time convergence.
+The supported distinct claim is the complete late-time initial-zero-weight profile for consecutive shared-hub cycles. The walk/AND correspondence, numerical semigroup conductor and constant attractors are not new. Neither attractor results on the identical graph nor bounds on the exponent determine the missing-predecessor sets with their source multiplicities. The closest indexed comparison for a=2 agrees at the terminal count but has inaccessible full text and only 2/3-cycle topology in its summary. The available one-bridge result treats a different dynamics and gives different shell counts. No checked statement implies the infinite-family refinement; priority is not asserted.
 
-## Remaining scientific limits
+## value
 
-Only the final \(a\) extinction shells are classified. The system must be a directed one-hub bouquet with consecutive cycle lengths and synchronous AND rule. The full earlier transient histogram and independent external verification are not provided. Historical equivalences in material that was only indexed or inaccessible remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard strongly connected conjunctive network, the exact population and zero weights of the longest-delay states are information not supplied by an exponent or attractor theorem. The result explains why only a small number of configurations can attain those times and why the late population is restricted to specific singletons and pairs. The uniform terminal size-three shells and sharp last singleton are meaningful natural transient invariants, not just measurements at a small size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

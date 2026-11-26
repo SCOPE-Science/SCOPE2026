@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every primitive idempotent is conjugate to \(e_{11}\), and its second factor is exactly a trace-one, determinant-zero matrix. Peirce-corner projections give the *full* generated \(R\)-subalgebra rather than merely its size. The only nontrivial finite-ring count is the two-root lifting argument for \(bc\in\mathfrak m\), valid in every residue characteristic, while the both-unit case is counted directly. The normalization \(q^{2m-1}(q+1)\), exact finite histogram, limit, tail bound, and expected-index formula follow by explicit algebra. Nine independent finite-ring enumerations and selected generated-span checks passed. Limitation: the result does not assert universality for arbitrary non-chain local rings.
+PASS
 
-## Originality
+Conjugate E to e11 by choosing bases of its free image and kernel. The complementary diagonal corners are already in the scalar-inclusive algebra, and multiplication on the left and right by E and I−E isolates the two off-diagonal entries of F. The candidate submodule is closed under multiplication, so the off-diagonal ideals are precisely bR and cR and the additive index exponent is ν(b)+ν(c). Trace one and determinant zero are necessary and sufficient for these idempotents, using Cayley–Hamilton and residue rank. For bc in the maximal ideal, the two simple residue roots 0 and 1 each lift once at each quotient: the correction in the next layer solves a linear equation with unit derivative, even in characteristic two. For bc a unit, exactly (q−2)q^(m−1) choices of t and (q−1)q^(m−1) choices of b determine c. There are q^(m−1)(q+1) image lines (count unimodular vectors modulo units), each with q^m complementary kernels (graphs of maps from a fixed complement). This gives the ordered-pair factor and the product inclusion order, reversed in each valuation. The only omitted pair is the unit–unit pair for q=2. Below m the finite coefficients match the limiting geometric convolution (with adjusted mass at zero); its geometric tail is 2((q−1)m+q)/((q+1)q^m), bounding total variation. Differentiating the limiting series gives 4q/(q²−1), and evaluating B_m at q gives q^(m−1)[m(q−1)+q], yielding the critical expectation. This is a proof for arbitrary residue-field size and either characteristic, not inference from the frozen nine-ring output; the uploaded checker was inspected, not executed.
 
-**PASS, qualified.** Rowen–Segev (2016, arXiv:1609.04899) proves the two-idempotent structural theory and the known full-generation criterion, including the exceptional residue-field size two; neither is claimed as a new structural statement here. The new claim is the complete chain-ring valuation-pair and additive-index distribution, its index-order poset, and the quadratic-versus-tight asymptotic dichotomy. Ito–Terwilliger (2009, arXiv:0906.3839) analyzes universal alternating-idempotent word bases over fields. The closest published field-generation census only treats residue fields and does not imply the arbitrary-length valuation spectrum. The published field-generation record was inspected in full: it supplies an exact all-arity formula over fields but no higher-length chain-ring valuation-index census. A separate scalar-free field-subring record was also inspected in full and is a different counting problem. Unindexed equivalent local-ring enumerations remain a residual possibility.
+## originality
 
-## Value
+PASS
 
-**PASS.** A pair of primitive projections is a minimal natural generating system for matrix algebras. Determining not only whether generation succeeds but the entire index spectrum of the generated integral Peirce orders reveals exact local-ring size dependence and contrasts the tight typical logarithmic index with a quadratically diverging mean additive index. The count is uniform across equal and mixed characteristic and gives every attainable fixed-first-idempotent order and its multiplicity. This is a complete invariant, not an arbitrary finite sample or only a restatement of the classical generation threshold.
+The positive-index valuation census, fixed-E order spectrum and limits are distinct on the available evidence. Credit the known field full-generation mass and the prior two-idempotent structural theory. Indeed the chain-ring full-generation event itself reduces to the field event by Nakayama on the additive quotient; reduction has constant fiber size for primitive idempotents, by the image/complement parametrization or conjugation. Equation (2) is not the distinct contribution.
 
-## Evidence and limits
+## value
 
-The mathematical derivation is in `RESULT.md`, and the independent finite-input enumerations are `checker.py` and `checker_output.txt`. Closest inspected archival texts: Rowen–Segev, Sections 1–3 (structure and exceptions); Ito–Terwilliger, Sections 1–2 and selected results in Sections 5, 7, 8 (universal idempotent word algebra). Finite-field generation records and finite-chain-ring background were also searched. Full access to all unindexed/local-ring literature was not possible; independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Instead of a generation yes/no test, the theorem quantifies every attainable defect by a pair of Peirce ideals and gives its full frequency. The resulting tight log-index law versus quadratic growth of the actual mean index is a substantive distinction for a natural small-matrix generating system; the index alone is not an invariant that distinguishes both ideals or conjugacy classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

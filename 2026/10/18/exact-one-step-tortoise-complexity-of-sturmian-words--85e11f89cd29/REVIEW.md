@@ -1,19 +1,21 @@
-# Review of the exact Sturmian tortoise-complexity formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses mechanical coding by an irrational rotation and enumerates all \(n+1\) factor cylinders from the \(n\) distinct discontinuities \(t_j=\lceil j\alpha\rceil-j\alpha\). At each interior discontinuity the factor changes locally from \(01\) to \(10\), and the tortoise images coincide exactly when the prefix before this swap has no 1. The number of ones in that prefix is \(\lceil j\alpha\rceil-1\), yielding the exact count of identical neighboring images. A separate argument handles the final-bit transition; the empty and one-symbol cases are explicit. Five algebraic irrational slopes were checked by complete finite-cylinder sampling through length 100 and separately by finite-orbit catalogues through length 60. The proof, not the finite tests, establishes the universal quantifiers.
+PASS
 
-## Originality — PASS within the checked literature
+Checked the mechanical threshold argument (RESULT.md, lines 21–52) independently. In phases 0<=t<1, the cumulative ones through j bits are floor(t+j alpha). Each j from 1 through n gives exactly one threshold ceil(j alpha)-j alpha; irrationality makes them interior and pairwise distinct. The half-open intervals give the common Sturmian language by the dense irrational orbit, and the endpoint choices of lower/upper coding give values already realized on one side. Moving through the thresholds in phase order strictly increases the input lexicographically: for j<n the change is 01 to 10 in positions j-1,j (zero-based), and for j=n only the last bit changes 0 to 1. At j<n the changed pair is erased down to its common zero exactly when the prefix preceding the pair contains no 1; then both outputs coincide, including the common appended 1. Otherwise the first 1 is removed from the common prefix and the change survives as a strict increase. A final-bit change also gives a strict increase, including the case with no earlier 1. At the threshold the prefix count equals ceil(j alpha)-1, so mergers occur exactly at the internal labels j<=floor(1/alpha). Nondecreasing image order rules out any further loss from nonadjacent collisions. Thus the stated defect is exactly min(n-1,floor(1/alpha)); n=1 has two images and the empty word has one. The proof is for frequency of 1 and one application only. The two finite factor sources and recorded five PASS lines were inspected, not executed or used to justify the universal claim.
 
-Campbell and Rampersad, arXiv:2604.25811, §3 and §7, define precisely the one-step tortoise equivalence considered here, give a general bounded-defect result for bounded-gap linear-complexity words, provide exact evaluations for paperfolding and Thue–Morse, and raise questions concerning Sturmian tortoise complexity. Their full-text theorem statements do not supply an exact slope-dependent Sturmian formula. Defant and Kravitz, arXiv:1809.09158, introduce the operation but do not enumerate Sturmian factor images. De Luca and Fici, arXiv:2206.00995, enumerate cyclic-conjugacy Lie classes in Sturmian languages; Allouche et al., arXiv:2406.09302, quotient factors by reversal. These are mathematically different equivalence relations and their results do not imply the stated image count. Search comparisons for the exact formula, parameter aliases, and the relevant specialized words did not reveal the same statement. Searches cannot guarantee absolute uniqueness; unindexed or inaccessible literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives an exact answer to a natural, explicitly motivated question at the boundary of stack sorting and Sturmian factor enumeration. More than determining eventual growth, it locates every merged adjacency in the rotation partition, identifies the precise slope-dependent constant defect, and resolves all finite lengths at once. In particular the plateaus for small lengths and the linear regime are distinguished without requiring numerical fitting; the effect of exchanging the two letters is also specified.
+The one-step slope-dependent exact loss is distinct from the inspected antecedent literature. The closest indexed record explicitly does cover the same one-step specialization as a mathematical statement, but is listed a week later and expressly does not claim that specialization as its own novel content; this is evidence of later coverage, not existing prior coverage of the bound Oct. 18 statement. The indexed dates are not independent proof of priority.
 
-## Limits and status
+## value
 
-The formula is restricted to irrational binary Sturmian words with frequency of ones \(\alpha\). The comparison with adjacent complexity invariants does not claim a complete literature census. No external independent audit or validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This computes an invariant introduced for factor languages precisely where the motivating paper invites Sturmian work. It turns a bounded-loss statement into an exact slope-sensitive crossover: two images up to n=floor(1/alpha)+1, then linear growth with known deficit. Neither classical factor complexity nor a qualitative deficit bound gives that profile. It is a natural one-step benchmark independent of the later iterate extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review: sharp negative-type thresholds of uniformly whiskered cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all integers \(n\ge3\), \(r\ge1\), with unweighted shortest-path metric. Every distance in the matrix is explicitly classified and the mean-zero decomposition accounts for all \(n(r+1)-1\) degrees of freedom: \(n(r-1)\) leaf contrasts, \(2(n-1)\) standard coordinates, and one constant-mode line. The central scalar function crosses zero once, and a strictly concave comparison proves that the standard determinant remains positive at this first crossing. All equality directions, the Hilbert Gram rank and the monotonic/asymptotic statements follow from these verified analytic steps. Direct graph-distance reconstruction and matrix diagonalization in `check_corona.py` passed 1180 supplementary assertions. The finite checks do not certify the infinite parameter range; the written analytic proof covers it.
+PASS
 
-## Originality — PASS, subject to historical priority
+On the zero-sum form, pendant contrasts contribute −a, the mean-zero parent sectors have diagonal (−1,(r−1)a−rb) and off-diagonal √r(1−a), and the remaining constant line has per-group value G=r[(n−3)+(n−1)(b−2a)]+(r−1)a, where b=a^(log₂3). Direct substitution gives G(2)=−2 and G(4)=2rn−4; G strictly increases for a≥2 since (log₂3)·3/2>2. The standard-block determinant F=r(b−a²+a−1)+a is strictly concave, positive at 2, and first zero at a_s≤4. For r>1, F(2+2/r)=[2b−a²−2]/(a−2)>0 there because the numerator is strictly concave and vanishes at 2 and 4. For r=1 the first zero is 4. Substitution at a_s yields G_{2,r}=a_s[r(a_s−2)−2]≥0 and G_{n,r}>G_{2,r} for n≥3 by 1+b−2a_s>0. Thus G crosses first, so the only critical mode is the global line with load −r on the core and +1 on the leaves; it violates above the root. Strict lower-exponent nesting and Gram rank give all embedding and kernel conclusions. The root moves strictly left as n or r increases: the increments at the previous root are positive by 1+b−2a>0 and G=rQ_n(a)−a with Q_n(a)=a/r>0. Expanding G at p=1, with derivative r(n−1)(3 ln 3−4 ln 2)+2(r−1)ln 2, or normalizing G by n or r and using implicit differentiation, gives both first-order terms and their separate fixed-parameter remainders; both limits are 1. At p=1 the larger eigenvalue of the standard block dominates −2 and −2/(r+1), since shifting the block by 2/(r+1) makes its determinant negative. Frozen support was inspected without execution; the independent `python /workspace/branches/independent_reproduction.py 4` passed 25 shortest-path Gram cases below, at, and above the threshold and checked sample parameter monotonicity.
 
-The precise shared object at one leaf per parent was inspected in Baskoro–Obata, *Determining Finite Connected Graphs Along the Quadratic Embedding Constants of Paths*, arXiv:1904.08059, §4.5 (first public 2019-04-17). Its theorem is about the \(p=1\) quadratic embedding constant, already known and explicitly excluded from the novelty claim. Choudhury–Nandi, arXiv:2306.15589, Theorem 1.7 and §4, covers the ordinary QEC of uniform star clusters; Ferdi–Baskoro–Obata–Santika, arXiv:2512.17258, §4.4 and Examples 5.1–5.3, covers corona QEC at the unpowered distance. Their formulas do not directly cover \(d^p\) for variable \(p\), whose distances two and three become independent nonlinear quantities \(2^p\) and \(3^p\). Sánchez, arXiv:1108.0451, §§2–3, supplies the general finite determinant method, without the present all-parameter crossing dominance. Robertson, arXiv:2309.16070, Theorem 1.2 and §4, supplies the negative-type embedding foundation and different graph examples. The closest accessible prior local mathematical record on clique coronas concerns the general-position polynomial, not powered-distance negative type. A separate earlier double-star threshold covers \(n=2\), which is deliberately excluded.
+## originality
 
-The new contribution is the exact powered-distance threshold for all \(n\ge3\), \(r\ge1\), its unique global critical load, strict parameter monotonicity, both boundary asymptotics, and the contrast with the known \(p=1\) QEC. Sources may use alternate terminology such as generalized roundness or hypermetric thresholds; undetected equivalent historical coverage remains a genuine risk, not an established absence.
+PASS
 
-## Mathematical value — PASS
+The ordinary QEC is already known for every r. A separately indexed exact weighted-corona theorem also covers the entire powered r=1 slice when the common pendant length equals one. Credit is restricted to the additional multi-leaf powered classification, the decisive dominance over the contrast/mean-zero sectors, and the two-parameter consequences; the exact r=1 overlap and QEC carry no originality credit.
 
-This is a natural complete two-parameter classification of the first failure of Hilbert embeddability for uniformly pendant-extended cliques. The unmodified clique has arbitrarily large negative-type exponent, while adding one private leaf to every vertex creates a sharp finite bound. The classification identifies its entire critical equality space and affine-dimension loss, and proves strict deterioration as either the number of core vertices or the pendant multiplicity increases. The particularly motivated invariant separation is that the ordinary quadratic embedding constant remains fixed along growing clique cores, but their supremal negative-type exponent does not. Neither a general theorem downstream nor a new value of ordinary QEC is claimed.
+## value
 
-## Limitations and literature risk
+PASS
 
-Weighted and nonuniform corona graphs are not classified. The two-vertex-core double-star family is not claimed. Independent mathematical examination is needed to exclude equivalent historical results under generalized roundness or related distance-kernel classifications. Numerical assertions test only a finite parameter grid.
+Uniform private leaf bundles are natural clique coronas. The multi-leaf classification identifies a global critical mode, quantifies how either parameter moves the threshold and exhibits different first-order decay regimes despite equal limits. At every fixed r≥2 it gives a family with equal ordinary QEC but different sharp Hilbert thresholds, a substantive distinction from the prior QEC calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:07:55.052802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80; VERIFICATION.md and verify_gain.py inspected, not executed",
+        "Full site-space dense expm and SVD at and away from the proposed optimum, N=2 through 9 and four h values including zero and negative bias, in /workspace/independent_checks.py section 3"
+      ],
+      "rationale": "For the stated periodic site-space operator the Fourier transform is unitary, and the full norm is the maximum of the block norms. Writing a block as [[0,r],[ell,0]], one obtains ell r=4J² and squared factor norms 4J²(cosh²h∓sinh(h)cos(k)). Hence the cubic identity and the Frobenius trace follow: with u=sinh²h, v=cos²k and s=sin²(Jt), the trace of E*E is 3+8us+4u(u−v)s². Chiral conjugation intertwines E with E inverse, so its three singular values are g,1,1/g and g is the stated increasing function of the trace. For u>0 the time derivative in the variable s is bounded below by 8u min(1,u)>0, and at s=1 the trace decreases strictly in v. The distance of the N-point grid to pi/2 modulo pi is 0, pi/(2N) or pi/N in the three stated cases, including N=2. At h=0 unitarity removes the time and momentum strictness. At fixed h≠0 the derivative with respect to v is finite and strictly negative at v=0, giving the quadratic deficit; at fixed N, Q_N is asymptotic to exp(2|h|)/4, giving the large-bias formula.",
+      "residual_risks": [
+        "Numerical checks sample the formula; the proof establishes all times and momenta. No formal verification or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parity-graded ring has only reciprocal nearest-neighbor hopping plus two imaginary on-site terms, with Jordan growth at exceptional points. Exact disordered diamond caging concerns a Hermitian open chain. Zhang et al. treats a generalized Creutz ladder with imaginary couplings."
+        ],
+        "reasoning": "These cover related growth, geometry or intensity, not a broader theorem specializing to the stated bounded three-band propagator and its exact optimal singular norm.",
+        "searches": [
+          "Resultary antipodal gain–loss ring a67607eb9317",
+          "Resultary disordered diamond caging 49d9d9dac0f4",
+          "arXiv:2308.11968"
+        ]
+      },
+      "checked_sources": [
+        "Ranked Resultary model and observable comparisons; three distinct indexed findings inspected",
+        "Liu et al. 2311.03166 and Zhang et al. 2308.11968",
+        "General primary-literature search did not return a useful further comparator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Common real eigenvalues determine the polynomial dependence in time but not the h- and k-dependent Frobenius cross terms. Neither indexed bound is for the same site operator or optimization."
+        ],
+        "reasoning": "The trace and its global strict optimization are substantive model-specific steps. Parity of Jordan growth in a different ring and generic projected transfer do not imply the modulo-four grid saturation.",
+        "searches": [
+          "Liu et al. arXiv:2311.03166 §§2–3",
+          "a67607eb9317 Finding and assumptions; 3a74218086dc Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al.'s equations give the same clean pi-flux Bloch operator and energies ±2J,0. Its local nonunitary decoupling is not an isometry of the physical Euclidean norm."
+        ],
+        "reasoning": "Equivalent spectral descriptions do not fix singular values. The checked claim optimizes the full coherent amplitude, equivalently the square root of maximal total power, not localization probability for a selected site.",
+        "searches": [
+          "Resultary: non-Hermitian diamond cage, transient norm, parity-graded amplification and projected transfer",
+          "arXiv:2311.03166, Eqs. (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model source enumerates three flat energies, not singular gains. Indexed defected diamond channel 3a74218086dc gives 1/(1+N² delta²/4) as a projected transfer ceiling, not this same invariant."
+        ],
+        "reasoning": "No inspected table or indexed result supplies G_N or the c_N resonance for the given model and physical norm.",
+        "searches": [
+          "Resultary gain, exact finite diamond-chain bounds, resonance and ring-size dependence",
+          "arXiv:2311.03166 §2"
+        ]
+      },
+      "rationale": "The retrieved primary model paper establishes the identical Hamiltonian and its real flat spectrum. Neither that spectrum and cage decomposition nor the closest inspected indexed claims give the sharp physical Euclidean gain with the maximizing times and finite-size resonance. Pass is for that model-specific norm result, not the original bands, caging, or general singular-value methods.",
+      "residual_risks": [
+        "This is a bounded source comparison, not a priority claim. Unindexed or implicitly equivalent model-specific norm formulas may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and flat bands, different observable",
+          "evidence": "Eq. (1) with vanishing onsite terms and pi flux agrees, Eq. (3) gives 0 and ±2J; nonunitary decoupling need not preserve the norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.03166",
+          "material_read": "§2, Eqs. (1)–(3), PDF extraction around offset 9500",
+          "method": "Lawful OA PDF passage",
+          "title": "Fate of localization features in a one-dimensional non-Hermitian flat-band lattice with quasiperiodic modulations",
+          "trigger": "Identical diamond model"
+        },
+        {
+          "assessment": "Distinct lattice and scope",
+          "evidence": "Generalized Creutz ladder with anti-PT imaginary coupling; claims involve localization probability distributions and oscillation periods.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11968",
+          "material_read": "Abstract, PDF offset 415",
+          "method": "Lawful OA PDF passage",
+          "title": "Tunable Aharonov–Bohm cages through anti-PT-symmetric imaginary couplings",
+          "trigger": "Related finite-time localization dynamics with non-Hermiticity"
+        },
+        {
+          "assessment": "Different operator and asymptotic growth phenomenon",
+          "evidence": "Polynomial growth from exceptional-point Jordan blocks and parity of half-ring size, rather than periodic finite gain with three semisimple bands.",
+          "identifier_or_url": "2026/11/2/SCOPE-embedded-exceptional-points-and-parity-graded-amplification-in-a--a67607eb9317",
+          "material_read": "Finding and operator definition, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Embedded exceptional points and parity-graded amplification in antipodal gain–loss rings",
+          "trigger": "Strongest indexed match for ring amplification and arithmetic size effect"
+        },
+        {
+          "assessment": "Distinct from nonunitary gain",
+          "evidence": "Hermitian open chain with exact vanishing interhub transfer and orthogonal invariant cages.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-caging-criterion-for-arbitrarily-disordered-finite-diamond--49d9d9dac0f4",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact caging criterion for arbitrarily disordered finite diamond chains",
+          "trigger": "Exact finite diamond-chain finding"
+        },
+        {
+          "assessment": "Neither same domain nor same observable",
+          "evidence": "The expression bounds a source-to-receiver element of a projected effective propagator in a defected open chain.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-single-bond-pair-defect-creates-a-sharp-1-n-fidelity-window-in--3a74218086dc",
+          "material_read": "Finding and beginning of assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A single bond-pair defect creates a sharp 1/N fidelity window in a flat-band diamond channel",
+          "trigger": "Sharp time-optimized diamond-chain quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; model and Euclidean metric in its assumptions; Liu et al. model/spectrum comparison"
+      ],
+      "rationale": "Peak physical-site amplification is a natural quantitative question for a nonnormal flat-band system: real flat spectrum and cage dynamics alone leave the strength of coherent transients undetermined. The closed gain and all optimal times quantify a genuine dynamical effect, and the ring-size result distinguishes exact attainment from a controlled finite-size deficit.",
+      "residual_risks": [
+        "No inference to open boundaries, perturbed flux, disorder, a trace-preserving dynamics, or generic initial vectors attaining the worst-case norm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

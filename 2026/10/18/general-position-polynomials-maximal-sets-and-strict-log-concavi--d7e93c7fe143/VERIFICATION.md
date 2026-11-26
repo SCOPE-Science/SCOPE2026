@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Verification
 
-Run `python3 verify_gp.py` to reconstruct the graph \(\overline{C_n}\) and independently search all shortest paths and subsets for \(5\le n\le14\). This validates the all-set and maximal-set formulas, including the \(n=6\) exceptional maximal pairs. The exact recorded stdout is `verification_output.txt`.
-
-Run `python3 check_coefficients.py` to check integer strict log-concavity for every \(5\le n\le500\); recorded stdout is `coefficient_output.txt`. These are bounded cross-checks, while `RESULT.md` supplies the infinite-family proof. The tests do not establish uniqueness in the literature, independence of review, or a larger-scope conclusion.
+Run `python3 check_maximal.py` with Python 3.10 or later. For every graph order from 5 to 16, the script constructs the antihole, computes distances by the Floyd–Warshall algorithm, and builds general-position sets by adding only vertices that do not complete geodesic triples. It counts a set as maximal only if no legal addition exists, including additions with smaller labels than its final vertex. The script compares the complete labeled counts by size with the formula in `RESULT.md`. It is a finite check of the maximal-set theorem, not a proof at untested orders. The all-order argument is given in `RESULT.md`.

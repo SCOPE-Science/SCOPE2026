@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-All calculations in `verify.py` use Python's built-in `fractions.Fraction`, exact binomial coefficients, and exhaustive permutations. The self-check currently reports `PASS: 1286 exact identities, inequalities, and exhaustive checks`. The proof in `RESULT.md`, rather than finite enumeration, supports the statements for every integer window width and rank.
-
-Verified identities: beta-polynomial CDF integration for the full-width lag; exact lag-one joint retention and covariance; strict sign conditions; exact central null criterion; optimal discrete ranks; exhaustive permutation comparisons at small widths. Unproved limits: intermediate lag covariances, joint independence beyond pairs, atom-containing or dependent inputs. Independent audit: not performed.
+Run `python3 verify.py` using only the Python standard library. The script exhausts the `(2k+1)!` relative orders of the inputs at widths `k=3,4` and compares exact covariance at distance `k` for each interior rank against the beta-CDF variance formula. It computes the beta-CDF moments using exact rational polynomial integrals. The proof in RESULT.md, not the finite computation, establishes the theorem for all permitted widths, ranks, and atomless iid laws.

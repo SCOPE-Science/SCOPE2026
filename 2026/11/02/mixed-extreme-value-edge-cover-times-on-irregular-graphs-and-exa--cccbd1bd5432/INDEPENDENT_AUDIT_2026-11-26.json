@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:10:41.343682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent edge clocks, a selected vertex set stays uncovered iff every edge in its incident-edge union has failed to ring; the union size is Σdeg−e(W). In a fixed factorial moment, an adjacent selected low-degree component is a path unless it is the entire connected graph, excluded for large D. A size-s path without a leaf uses s+1 incident edges and has O(D) placements; one with a leaf uses s and has O(L) placements. Both contribute O(D^((1−s)/2)) when s≥2 and are negligible; two leaf endpoints in such a component would make it the whole graph. Nonadjacent tuples have the product limit (subtracting the adjacent tuples with the smaller independent probability also gives o(1)), so the mixed moments give independent Poisson counts. The high-degree union bound is Rq³=o(1). Mixed deterministic observation times for the two classes use the maximum of the two times for a shared edge and change these path estimates only by constant factors. This gives independent last-class times, with the leaf time escaping to −∞ if c=0. Integrating the first class's density against the second's CDF yields the stated integral and erfc formula. If the last cover is after a fixed early centered time, any tied pair must be adjacent and still uncovered at that early time. The probability of a remaining higher-degree vertex or adjacent degree-one/two pair there tends to zero by Rq³ and O(Dq³+Lq²); the chance of finishing before the early time tends to zero as the window is widened. In the leaf regime the L distinct leaf edges are independent, with other classes negligible at log L+x. For discrete completion, label the m-rate arrivals by independent uniform edges; conditional on the draw count T, the scaled clock sum has variance T/m², which vanishes in probability using the union bound T=O_Pr(m log m). Last-vertex labels are identical under this coupling. For the fixed-time count statement in discrete draws, sandwich the deterministic draw count by Poisson arrival counts at centered times x±ε (variance m times the observation time, and log D/m→0), apply monotonicity to the joint count CDF, then send ε→0. For the finite law, a covered noncentral arm has a present last edge and no adjacent absent pair before it. The term qp²F_(ℓ−3) is the joint probability of that arm being noncentrally covered and its first edge absent (the conditional probability given absence omits q). Subtracting its kth power removes the missed-center case. The Poisson transform then determines every discrete probability by coefficient uniqueness, including the t=0 convention. Independent exact subset and onto-history counting (python3 /workspace/branches/reproduce.py 5) matched both laws for (k,ℓ)=(3,3),(3,4),(4,3),(3,5) through 2kℓ draws. The bounded check validates examples only; the convergence and finite formula for arbitrary parameters follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structured collector uses iid set-valued coupons; §5.1 with i=1 is explicitly endpoint coverage by uniform edges of K_n and Theorem 3.7 is a concentration result. Threshold Progressions covers other combinatorial objects in the inspected passages."
+        ],
+        "reasoning": "A general framework and its complete-graph special case include the model at the definition level, but the inspected bounds/concentration and threshold results do not specify the mixed class limit or its last-vertex mark on the frozen degree sequences.",
+        "searches": [
+          "Falgas-Ravry–Larsson–Markström arXiv:1601.04455, Theorem 3.7 and §5.1",
+          "Godbole–Grubb–Han–Kay arXiv:1803.09601, introduction and threshold examples"
+        ]
+      },
+      "checked_sources": [
+        "Tauraso (2008), pp. 1–2",
+        "Falgas-Ravry–Larsson–Markström arXiv:1601.04455",
+        "Godbole et al. arXiv:1803.09601",
+        "Resultary 58626f8ea41f and 3bf12c665424"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known finite transforms determine any fixed graph after computing its cover enumerator, and the root-reset record gives a competing-class law with a different imbalance scale. Neither inspected statement yields asymptotic independence of the low-degree counts under L/√D→c, or the stated cross-class comparison."
+        ],
+        "reasoning": "Adjacency corrections for degree-one/two vertices, mixed observation times, and early-window tie control are the additional content linking this host-degree hypothesis to the marked mixed law. The leaf-dominant result alone is the ordinary collector plus a union bound, not the novelty basis.",
+        "searches": [
+          "Tauraso pp. 1–2",
+          "Falgas-Ravry–Larsson–Markström §5.1 and Theorem 3.7",
+          "Resultary 58626f8ea41f, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tauraso's opening definition is the same endpoint-marking model. In continuous time this is the last loss of an isolated vertex in independent Bernoulli edge thinning of a fixed graph with edge rate one. Resultary 58626f8ea41f uses a root-reset walk; 3bf12c665424 uses independent potential-edge births in a complete bipartite graph."
+        ],
+        "reasoning": "Poisson thinning is an equivalent reformulation of the present fixed-graph process at fixed times. Potential-edge births have that interpretation on their own underlying graph; the complete bipartite case does not yield the irregular host hypotheses, and the root-reset dynamics have a different law. The focused web search returned sampling/sparsification results, not evidence of equivalence or novelty.",
+        "searches": [
+          "Local Resultary: mixed degree-one/degree-two extreme-value vertex coverage by iid edge draws and last-degree mark",
+          "Resultary 58626f8ea41f and 3bf12c665424",
+          "uniform independent edge sampling full vertex coverage arbitrary irregular graph edge coupon collector degree sequence Poisson limit adjacent leaves last vertex mixed Gumbel Tauraso"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The generic enumeration recovers the finite discrete law from the counts of edge covers by size. The frozen polynomial evaluates those counts after a change of basis by separate arms with a center correction."
+        ],
+        "reasoning": "This is genuine prior exact-transform coverage, not an independent invention of the distributional transform. No compared table supplied the compact evaluated spider formula or the asymptotic two-class marked law; evaluating the arm recurrence is the only distinct finite part credited.",
+        "searches": [
+          "Tauraso, Edge Cover Time for Regular Graphs, pp. 1–2, edge-cover enumerator",
+          "Local Resultary: balanced spiders, edge activation, exact vertex coverage and recurrence"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit two-hazard irregular-degree limit with its degree mark, plus the evaluated balanced-spider arm formula as a specialization. The generic edge-cover transform is prior, and the leaf-only Gumbel endpoint uses the classical collector mechanism; neither is credited as a standalone originality claim. The strongest compared results cover different sampling laws, graph classes, or strengths of conclusion. The assessment is limited to inspected evidence and does not certify historical priority.",
+      "residual_risks": [
+        "An unlocated general marked Poisson-limit theorem for structured collectors could subsume the asymptotic statement after checking its hypotheses.",
+        "An earlier evaluated edge-cover polynomial for spiders could cover the finite specialization; the generic transform itself is already covered. The focused web lookup did not settle either risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic transform already known; inspected passage does not evaluate this arm recurrence or state the irregular marked limit",
+          "evidence": [
+            "An independent uniform edge marks its endpoint vertices, and the number of covers of each size determines the draw-time law."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Tauraso/tauraso18.pdf",
+          "material_read": "Introduction, pp. 1–2, including finite edge-cover enumeration formulas",
+          "method": "OA primary PDF, starting at offset 0",
+          "title": "Edge Cover Time for Regular Graphs",
+          "trigger": "Exactly the same edge-sampling process and generic exact distribution"
+        },
+        {
+          "assessment": "Same mechanism on K_n and broader concentration framework; no marked irregular-degree limit in these passages",
+          "evidence": [
+            "The i=1 cut-coupon model is exchangeable and 2-uniform; Theorem 3.7 gives concentration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+          "material_read": "Introduction p. 1, Theorem 3.7 p. 11, §5.1 p. 22",
+          "method": "OA primary PDF offsets 0, 37600 and 83900",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "Possibly stronger random-set collector covering laws"
+        },
+        {
+          "assessment": "Contextual covering results, not the same fixed-graph process in the inspected passages",
+          "evidence": [
+            "Examples concern designs, Sidon sets, permutations and set systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.09601",
+          "material_read": "Abstract/introduction and p. 5, offsets 0 and 10000",
+          "method": "OA primary PDF",
+          "title": "Threshold Progressions in a Variety of Covering and Packing Contexts",
+          "trigger": "Related dependence-sensitive random coverage limits"
+        },
+        {
+          "assessment": "Two-class crossover is shared conceptually, but model and scaling are different; same date gives no order inference",
+          "evidence": [
+            "Root-reset walk on a complete bipartite graph with n/log n imbalance, not iid edge coupons on a fixed irregular graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-class-gumbel-crossover-for-cover-times-with-root-resetting--58626f8ea41f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A two-class Gumbel crossover for cover times with root resetting",
+          "trigger": "Close conceptual match including last-class mark"
+        },
+        {
+          "assessment": "Uses complete bipartite potential-edge clocks, whose incident sets do not have the frozen leaf/degree-two population competition",
+          "evidence": [
+            "Independent edge-birth clocks track the last isolated vertices of the two parts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-simultaneous-last-isolation-law-for-bipartite-edge-clock--3bf12c665424/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp simultaneous last-isolation law for bipartite edge clocks",
+          "trigger": "Equivalent Poissonized formulation on some hosts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two competing degree hazards locate the natural L≈√D transition and give both a non-single-Gumbel law and a quantitative answer for which degree finishes last. Neither is captured by a mean, a threshold order or an unmarked concentration estimate. The balanced spider realizes the three regimes by tuning arm length against arm count, and the compact finite recurrence gives an interpretable exact benchmark rather than a table of small instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

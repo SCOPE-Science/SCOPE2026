@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The VC equality is proved by incomparable supports and down-closures. The adaptive upper bound follows from a full chain partition, monotonicity of the concept-class rank, and a proved disjoint-domain product lemma. Binary-threshold strategies provide all extremizers. The dyadic equality case uses a tight counting argument that excludes even one cross-chain comparability. All hypotheses, finite scope, empty-ideal convention and boundary cases are explicit. Independent exhaustive computations on 5,231 naturally labeled posets up to six points are supporting evidence, not the basis of the universal result.
+## correctness
 
-**Originality: PASS under accessible comparisons, with residual priority uncertainty.** The closest directly inspected source, Iams–Johnston–Muth (arXiv:2009.07348, 2020), optimizes total identification queries with a positive-answer budget, whereas the present invariant is maximum binary tree shattering depth. Ghazi–Golowich–Kumar–Manurangsi (PMLR 132, 2021) treats general aggregation closure, not the sharp extremal dimension of poset ideals. Elizalde–Plante–Roby–Sagan (arXiv:2108.12443, 2021) treats fence ideals and rowmotion without a learning-dimension statement. Searches for height–width online learning, monotone ideal membership, chain-cover thicket dimension and dyadic equality did not locate an implication-covering result. A differently named classical observation about chain-partition learning remains a possibility.
+PASS
 
-**Mathematical value: PASS.** The theorem gives an exact extremal online complexity for *every* height and width, plus a rigid characterization of all maximizers at an infinite sequence of heights. It draws a sharp structural boundary: at height at most two adaptive complexity equals VC width for every poset, while height three permits a gap as large as the entire width, with uniquely classified maximizers. This is a complete, motivated classification rather than a small numerical extension; no downstream application is required for the precise invariant.
+A static shattered set must be an antichain (accepting its upper element while rejecting a comparable lower one is impossible); down-closures realize every labeling of an antichain. For online shattering, a chain of length l has l+1 possible prefixes: counting leaves gives the upper rank and balanced membership queries give the matching rank floor(log2(l+1)). On disjoint domains a query can lower the rank of only the queried factor, and one nonempty branch must strictly lower it for any query that splits; induction gives the additive upper bound and concatenating trees gives equality. Dilworth's w chains therefore bound the rank by the sum of the separate floors, attained by w disjoint h-chains. At h+1=2^r, 2^(rw) distinct leaves saturate both the product count of ideals and the bound on each factor length. Every prefix tuple must be allowed, which rules out even one cross-chain comparison. This includes h=1; h=2 has rank w, and h=3 is the first possible gap.
 
-**Scientific limitations.** A general poset need not attain the upper bound, and non-dyadic equality cases are not classified. The comparison set cannot establish historical uniqueness, particularly under alternative language for monotone online concept classes. The proof relies on standard Dilworth and threshold facts, not on newly claimed lemmas about those classical objects.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact width–height extremum with the integer logarithm taken separately for each chain, and the equality characterization at dyadic h+1. Antichain VC shattering, threshold search, Dilworth, disjoint-domain rank additivity and the counting argument are not priority claims. The closest retrieved catalogue results concern a special rooted family or exact rank computation and grid examples; neither comparison showed equivalent structural coverage.
+
+## value
+
+PASS
+
+Height and width are intrinsic poset parameters, and the sharp bound pinpoints when adaptivity can first outperform static shattering. The per-chain floor makes a quantitative difference from counting concepts, already at height two. The dyadic equality statement determines the order structure from extremal online performance rather than just giving an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:01:40.088396Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4); VERIFICATION.md; check.py (inspected, not executed)",
+        "Independent replay: python /workspace/review_checks/reset_and_tree.py, reset section"
+      ],
+      "rationale": "Restart renewal normalizes the two discounted exit transforms; a common factor of s cancels with the convention of absorption before reset. Tridiagonal cofactors give the odds as a positive constant times s^(2z-a) times the right-to-left block determinant ratio. Killed-block eigenvalues pair by bipartiteness, with squared nonzero eigenvalues strictly below one. For z<a/2 and a≤10 the smaller block has at most one factor; it either cannot offset the negative power term, or pairing it against the largest opposing factor makes the ratio of its contribution to the remaining positive terms strictly increasing. At the midpoint the two lists have at most two entries each; coordinatewise order gives a fixed sign (or an identically zero derivative), and the crossed case is a difference of two positive terms with strictly monotone ratio. Reflection covers the other starts. I reconstructed the example by exact Cramer's-rule determinants, verified its derivative numerator and all four rational signs, and obtained exactly two roots in (0,1) by a Sturm count. The signs give a strict minimum then a strict maximum; a=11 is 12 total states.",
+      "residual_risks": [
+        "No claim about holding, nongeometric clocks, other reset sites, or the sharp maximum for longer paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newton–Vega Coso, PDF pp. 19–20, discusses classification of reset-intensity extrema as future work. The longer-path catalogue example (17 states, at least three extrema) is existential, not an all-parameters upper bound."
+        ],
+        "reasoning": "Neither ordering results under hypotheses nor a construction on a longer chain exclude multiple stationary points over all shorter inhomogeneous chains.",
+        "searches": [
+          "arXiv:2611.01756, reset-extrema discussion and Proposition 7.6",
+          "Resultary finite-path reset-extrema families"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f112d06fb3f2 mirrored RESULT.md",
+        "Newton and Vega Coso arXiv:2611.01756, Prop. 7.6 and resetting discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The witness implies the minimum is at most 12; a single optimum on an eight-state path is compatible with two optima for different rates at that order. The inspected exact-time construction does not give the universal control over spectral factor counts and paired ratios."
+        ],
+        "reasoning": "The cited existence and time-order facts cannot rule out a smaller counterexample. The threshold requires precisely the independent universal obstruction now proved.",
+        "searches": [
+          "f112d06fb3f2 RESULT.md limitations",
+          "arXiv:2611.01756 Proposition 7.6 and future-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The witness catalogue record uses the same conditional exit quotient up to notation. Newton–Vega Coso Proposition 7.6 instead varies the exact exit time in the unreset chain."
+        ],
+        "reasoning": "Conditionally discounting both exit transforms and taking their quotient is the same resetting problem; oscillation of exact-time log odds is a different observable and is not a lower state-count bound for the discounted quotient.",
+        "searches": [
+          "Resultary: geometric-reset splitting turning points in finite birth–death paths",
+          "arXiv:2611.01756, geometric-reset exit odds and exact-time exit odds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-two-strict-reset-rate-turning-points-in-a-finite-birth-death-spl--f112d06fb3f2, RESULT.md offsets 0–4684 and 6559–8186: identical vector and quotient; limitations expressly disclaim a smallest-state claim."
+        ],
+        "reasoning": "The witness matches exactly, including numerical parameters. This fortifies the known upper bound, not the novel lower bound; the shared catalogue date does not determine priority.",
+        "searches": [
+          "Resultary: two strict reset-rate turning points, minimum state count and finite birth–death splitting"
+        ]
+      },
+      "rationale": "Pass for the global smaller-path exclusion only. The identical sharpness witness is already present in a distinct catalogue entry and carries no independent novelty. No comparator inspected states or proves exclusion of two extrema (or the stronger one-stationary-point bound) for every admissible path through eleven total states.",
+      "residual_risks": [
+        "One external literature lookup was unavailable; searches are not exhaustive and do not exclude a prior total-positivity or rational-function result with equivalent scope.",
+        "Priority for the shared witness is not determined and is not part of the pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers sharpness witness only",
+          "evidence": [
+            "Same rational transition vector and reset quotient with the L,R symbols interchanged.",
+            "Limitations reject a smallest-state interpretation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-strict-reset-rate-turning-points-in-a-finite-birth-death-spl--f112d06fb3f2",
+          "material_read": "RESULT.md, offsets 0–4684 and 6559–8186, mirror snapshot 36a7204",
+          "method": "Resultary search and local mirrored full-result passages",
+          "title": "Two strict reset-rate turning points in a finite birth–death splitting probability",
+          "trigger": "Strongest exact finite-path match"
+        },
+        {
+          "assessment": "Related, not the universal minimality claim",
+          "evidence": [
+            "Proposition 7.6 reverses exact-time exit-side odds.",
+            "The reset-intensity extrema classification is left as a direction for future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01756",
+          "material_read": "PDF pp. 14 and 19–20, Proposition 7.6 and reset discussion (text offsets 48873 and 69476)",
+          "method": "OA original PDF text passages",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "Same discrete birth–death model and reset response, plausible stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md sections 2–4",
+        "arXiv:2611.01756 reset-extrema discussion"
+      ],
+      "rationale": "A minimal state-space complexity for nonmonotone reset responses is a natural quantitative question. A reusable spectral obstruction across all rates and starting sites, including midpoint versus off-center behavior, is materially stronger than reproducing the known construction or scanning a finite parameter grid.",
+      "residual_risks": [
+        "The result does not classify all larger-state shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

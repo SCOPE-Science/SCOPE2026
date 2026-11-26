@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The exact bivariate claim is finite and exhaustive for the 42-vertex point–line incidence graph of \(\operatorname{PG}(2,4)\), not an assertion based on sampling.
+## correctness
 
-**Homogeneous construction.** `checks/pg4_homogeneous.cpp` builds \(\mathbb F_4\) from two-bit polynomials modulo \(t^2+t+1\), normalizes all 21 projective points and 21 nonzero covectors, checks that every line has five points, every point has five lines, and every pair of lines meets at one point, then enumerates every one of \(2^{21}\) point subsets. It explicitly rejects a subset unless the set of all lines disjoint from it covers the remaining points. Counts indexed by both selected shore cardinalities must exactly match the 17 entries in `data/bivariate_spectrum.tsv`. The executable asserts the hardcoded expected map and the grand total 25,237.
+PASS
 
-**Independent coordinate construction.** `checks/pg4_affine_numpy.py` uses a different geometry specification: 16 affine points and five at infinity, 20 finite lines and one at infinity. Incidence is constructed from slopes and vertical lines, then all \(2^{21}\) point masks are vectorized and independently binned. The expected 17-entry coefficient map and total 25,237 are asserted.
+A maximal independent set with point set S must select exactly the lines disjoint from S, and their union must cover the complement of S. I independently generated PG(2,4) lines as the five-point projective spans of pairs of homogeneous points, checking the incidence degrees and intersections. I enumerated distinct line unions by starting at zero and closing under adjoining any line. A union U yields exactly the maximal independent set with point set P minus U and with all lines contained in U; conversely U is recoverable from every maximal independent set. This calculation enumerated 25,237 distinct unions and reproduced every coefficient in the 17-entry TSV. The size histogram was 8:105, 10:16800, 11:5460, 12:2408, 14:420, 17:42, 21:2. The empty and full unions give the two pure-shore sets. This checks the labeled census without executing the supplied programs or relying on untested larger orders.
 
-**Commands**, from the package root:
+## originality
 
-```bash
-g++ -std=c++17 -O2 -Wall -Wextra checks/pg4_homogeneous.cpp -o pg4_check
-./pg4_check
-python3 checks/pg4_affine_numpy.py
-```
+PASS
 
-Both commands completed successfully against the supplied source files. The model-to-count correspondence is justified separately by the two-way maximal-independent-set parametrization in RESULT.md. The programs do not prove any formula for larger projective-plane orders; no independent scholarly audit or external certification has been carried out.
+The distinct claim on the examined evidence is the complete labeled bidegree distribution, not i(G)=8 or the closure reduction. The best matching catalog record is the frozen result itself; the distinct same-day order-four result counts total-dominating sequences rather than maximal independent sets. None of the inspected prior structural results supplies or mechanically determines all 17 coefficients.
+
+## value
+
+PASS
+
+The point–line bidegree is a natural refinement on the first square-order projective plane. The exact distribution exposes actual forbidden sizes and balanced versus skew maximal sets, and supplies a reproducible finite benchmark for independent-domination counting in planes. This is stronger than either the known minimum or the existence of a few canonical families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

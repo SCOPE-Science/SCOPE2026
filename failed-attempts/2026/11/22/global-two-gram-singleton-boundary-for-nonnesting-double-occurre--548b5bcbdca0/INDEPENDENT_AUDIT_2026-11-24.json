@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:17:57.115278Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–48; VERIFICATION.md; check.py and check_switch.py (inspected, not executed)",
+        "python3 /workspace/frozen_math_crosschecks.py 1 exhaustively tabulated all unrestricted words for each n≤5, independently checked the induced-path criterion, and returned singleton counts 1, 4, 24, 192, 1920"
+      ],
+      "rationale": "In a nonnesting source, second occurrences follow the permutation of first occurrences, so a Dyck path plus that permutation determines the word. A mountain excursion spells BB and interlaces exactly the letters within B. In a primitive nonmountain excursion, the first U after the initial U^p D^q with 1≤q<p opens c. The first and p-th opened letters a and b give edges ab and bc but no ac. The two returns a→b in this configuration differ because c occurs between a2 and b2 but not between a1 and b1; exchanging the two returns preserves all counts and gives a different unrestricted competitor. Conversely, the directed spectrum of a concatenation of BB blocks determines the endpoint letters (distinct unless n=1), its bridges cannot be crossed prematurely, and the unique internal loop/cycle traversal forces BB at each block. The n=1 case is immediate. The composition and permutation count, Catalan denominator and Catalan asymptotic then follow.",
+      "residual_risks": [
+        "Exhaustion is only for n≤5; the proof supplies the general statement. The source is nonnesting but the competitor is unrestricted. This is not a classification of unrestricted double-occurrence sources or circular spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.3 states that w is a k-Abelian singleton iff for each ordered pair of length-(k−1) factors there is at most one distinct return. The distinct Resultary f558cb3257d9 concerns noncrossing sources and n!C_n, not the nonnesting class."
+        ],
+        "reasoning": "The general word theorem already applies with exactly the frozen observations and unrestricted competitors at k=2; the noncrossing record alone is not covering (1212 witnesses the distinction).",
+        "searches": [
+          "Karhumäki et al. arXiv:1605.03319, Proposition 5.3 and Proposition 3.3",
+          "Resultary noncrossing and nonnesting global two-gram rigidity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1605.03319, 1301.5104v1, 0709.2933v1 and 1407.8261v1",
+        "Resultary 548b5bcbdca0 and f558cb3257d9; OEIS A002866; DOI 10.1073/pnas.171285098 access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 any two distinct returns between the same letter pair in a FIFO double-occurrence word must have order a1<b1<a2<b2. Mountain blocks have equal such returns; the initial ascent of each nonmountain primitive excursion supplies the unequal returns. The same local endpoints and next-opened letter supply the induced P3, while each mountain is a clique."
+        ],
+        "reasoning": "No additional general reconstruction lemma is needed to derive the frozen criterion, and the count and fraction follow from the standard block/composition and Catalan counts. The graph characterization is a direct description of the same FIFO obstruction.",
+        "searches": [
+          "arXiv:1605.03319 Definitions in §3 and §5.1, Propositions 3.3 and 5.3",
+          "Frozen RESULT.md steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal simultaneous counts of factors of lengths one and two are precisely 2-Abelian equivalence. Section 3 of arXiv:1605.03319 gives the factor exchange with the same endpoints and Proposition 3.3 gives generation of the equivalence by these exchanges."
+        ],
+        "reasoning": "The global fiber in the frozen theorem is the full 2-Abelian class, not a restricted competitor class. The content constraint already follows from equivalence.",
+        "searches": [
+          "arXiv:1301.5104v1, abstract, k-Abelian equivalence",
+          "arXiv:1605.03319, §3 switchings and §5.1 singleton classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A002866 gives 2^(n−1)n! for n>0 and identifies ordered sequences of nonempty lists using the labels once each. The exact Resultary record ending 548b5bcbdca0 is the assigned item, not an independent precedent."
+        ],
+        "reasoning": "The database already counts the canonical block objects but is not by itself evidence of the reconstruction interpretation. It is material in combination with the prior singleton criterion.",
+        "searches": [
+          "OEIS A002866",
+          "Resultary 548b5bcbdca0 and f558cb3257d9"
+        ]
+      },
+      "rationale": "The relevant prior result is not just the definition of k-Abelian equivalence. Karhumäki, Puzynina, Rao and Whiteland (arXiv:1605.03319, 2016) give the exact switch-generation theorem and a general singleton characterization by uniqueness of (k−1)-factor returns. The frozen ambiguity switch is exactly their switch at k=2. In the double-occurrence setting every possible switch is of the form a1<b1<a2<b2: a shared middle index would require a third occurrence, and equality of the two endpoint labels is likewise impossible. In a FIFO mountain encoding the only such pairs are within BB, and both returns are identical. In a nonmountain excursion the first and last letters of the initial ascent have distinct returns because a new letter is opened between their respective second occurrences. Thus the frozen singleton classification is a direct specialization of the prior singleton criterion plus the elementary FIFO/Dyck characterization; the resulting composition count is already indexed under the equivalent block representation. No publication-priority inference is made from a different same-day record.",
+      "residual_risks": [
+        "The exact FIFO/Dyck wording was not found printed in the primary article; the verdict rests on the demonstrated specialization, not on that wording or a search miss. The exact sequential order of the same-day catalog findings is unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material stronger coverage of global singleton reconstruction",
+          "evidence": "Every equivalent word is reached by switches; a word is singleton iff there is at most one distinct return for every pair of length-(k−1) factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+          "material_read": "§3 formula (1), Lemma 3.2 and Proposition 3.3 (PDF pp. 4–5, offsets 10640, 12762, 14087); §5.1 Definition 5.2 and Proposition 5.3 (PDF pp. 9–10, offset 26780)",
+          "method": "Located literal terms and inspected OA PDF passages; specialized the switch and returns to k=2 and exactly two occurrences",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Primary theorem about exact singleton fibers under the same count equivalence"
+        },
+        {
+          "assessment": "Definition and context",
+          "evidence": "Equal multiplicities of all contiguous factors of length at most k.",
+          "identifier_or_url": "https://arxiv.org/html/1301.5104v1",
+          "material_read": "Abstract, HTML offset 600",
+          "method": "Bounded primary HTML read",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Exact observation equivalence"
+        },
+        {
+          "assessment": "Different source family; order of same-day items unknown",
+          "evidence": "All noncrossing sources are rigid, with count n!C_n; nonnesting allows 1212, which is excluded there.",
+          "identifier_or_url": "Resultary 2026/11/22, f558cb3257d9",
+          "material_read": "Mirrored RESULT.md opening, offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Global two-gram rigidity of labeled noncrossing double-occurrence words",
+          "trigger": "Closest distinct catalog match in reconstruction setup"
+        },
+        {
+          "assessment": "Exact count with equivalent block objects, not the reconstruction theorem",
+          "evidence": "Ordered sequences of nonempty lists on a labeled set give the same count.",
+          "identifier_or_url": "https://oeis.org/A002866",
+          "material_read": "Sequence formula and interpretation, offset 0",
+          "method": "Public sequence entry read",
+          "title": "OEIS A002866",
+          "trigger": "Exact count 2^(n−1)n!"
+        },
+        {
+          "assessment": "Context; not relied on for the coverage determination",
+          "evidence": "Interlacement relates to realizability in the first; the second studies Catalan avoidance and enumeration.",
+          "identifier_or_url": "arXiv:0709.2933v1 and arXiv:1407.8261v1",
+          "material_read": "First article HTML offset 1382; second article PDF p. 1, offset 3203",
+          "method": "Bounded primary passage inspection",
+          "title": "On the Realization of Double Occurrence Words; A general theory of Wilf-equivalence for Catalan structures",
+          "trigger": "Interlacement terminology and Catalan enumeration"
+        },
+        {
+          "assessment": "Details not relied on",
+          "evidence": "No validated full-text comparison to the frozen boundary; the k-Abelian primary theorem independently suffices.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.171285098",
+          "material_read": "Landing/abstract only; identified journal and PMC routes did not expose the full text in the check",
+          "method": "Bounded lawful access attempts",
+          "title": "An Eulerian path approach to DNA fragment assembly",
+          "trigger": "Possible equivalent repeat criteria"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof steps 1–5; Karhumäki et al. Proposition 5.3; OEIS A002866"
+      ],
+      "rationale": "The reconstruction question is natural and the mountain description is a useful concise explanation. But as a separate exact finding, the boundary here is a routine application of the general singleton theorem to two occurrences with FIFO order. Once the two returns are compared, the induced path, mountain blocks and enumerated compositions follow from the same first-descent case, and the count is a known block count. No further nontrivial reconstruction invariant or quantitative fiber theorem is established.",
+      "residual_risks": [
+        "This assesses additional scientific value as a distinct finding, not the expository usefulness of the graph and Dyck path descriptions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:52.155891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, inequalities (2)–(7) and boundary values",
+        "small_cases.csv, all 21 rows",
+        "VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent finite cutoff census: /workspace/review-evidence/4.js, replay with node"
+      ],
+      "rationale": "The odd-candidate bound for pi includes the prime 2 separately. The modulo 6 and 30 bounds count at most two or eight residues per full or final partial block and add the exceptional primes. In the prime and prime-square branches the odd-candidate bound is strictly less than the totient for p>=5, and direct evaluations at p=2,3 leave 3 and 9. For distinct p<q with p>=5, twice the totient minus the divisor sum is (p-3)(q-3)-8, strictly positive except at (5,7), which fails directly. For p=3 the modulo 6 inequality forces q<=11, and for p=2 the modulo 30 inequality forces q<=64. My independent trial-division table agrees with all 21 rows of small_cases.csv; (2,17) is the only equality, with pi(54)=16. The symbolic cutoff and checked finite part exhaust the stated domain; the claimed large sweep is not needed.",
+      "residual_risks": [
+        "No inference about Omega(n)>=3 and no fresh replay of the large frozen sweep."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A067787 reports bounded searches, not a general theorem.",
+          "The cited De Koninck–Luca paper concerns compositions of the divisor-sum and totient functions; its full text was not retrieved."
+        ],
+        "reasoning": "No verified broader theorem subsumes the restricted exact classification. Paper unavailability is a residual risk, not evidence of absence.",
+        "searches": [
+          "OEIS A067787 full entry",
+          "DOI 10.4064/cm108-1-4 and identified public source locations",
+          "Resultary exact-equation search"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A067787",
+        "Resultary 529eee2b19a9 (indexed statement)",
+        "DOI 10.4064/cm108-1-4 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen result obtains a bound independent of any global search limit via elementary prime counts on the factor types; in particular the p=2 branch reduces to q<=64."
+        ],
+        "reasoning": "The bounded sequence list and the different divisibility classification do not supply an analytic obstruction for every low-Omega integer beyond their listed results.",
+        "searches": [
+          "A067787 equation and extent of computational evidence",
+          "Resultary 529eee2b19a9 comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A067787 is exactly the same equation.",
+          "Resultary 529eee2b19a9 classifies a similar low-Omega slice for phi(n) dividing n*sigma(n), a different condition."
+        ],
+        "reasoning": "The use of the same arithmetic functions and complexity restriction does not identify a prime-counting equation with a divisibility condition.",
+        "searches": [
+          "Resultary semantic lookup for pi(sigma(n))=phi(n), A067787 and low-Omega classifications",
+          "OEIS A067787 definition and comments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database lists 3,9,34,190,224,606,... and reports finite checks through 10^6 and 10^9."
+        ],
+        "reasoning": "Credit the earlier tabulated sequence including all three hits; tabulation within these finite ranges does not classify the stated slice over all integers.",
+        "searches": [
+          "OEIS A067787, text at offset 0"
+        ]
+      },
+      "rationale": "The equation and the three solution values are old. The distinct supported result is unbounded exclusion of all other primes, prime squares and squarefree semiprimes. The exact database entry gives finite searches and does not imply that exclusion.",
+      "residual_risks": [
+        "Equivalent elementary observations may be in unindexed literature; the cited composition paper and original of the near-topic Resultary hit were not readable through the attempted paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sequence and bounded evidence, not an unbounded low-Omega classification",
+          "evidence": "Lists 3,9,34,190,224,606,...; comments report bounds 10^6 and 10^9.",
+          "identifier_or_url": "https://oeis.org/A067787",
+          "material_read": "Full entry text, definition, displayed terms and computational comments",
+          "method": "Read original database page",
+          "title": "Numbers n such that the number of primes not exceeding sigma(n) equals phi(n)",
+          "trigger": "Exact equation, exact values and plausible exhaustive table"
+        },
+        {
+          "assessment": "Indexed theorem is about a different relation; no full-document negative conclusion",
+          "evidence": "Its predicate is phi(n) dividing n*sigma(n), and it has fourteen solutions in the slice.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9",
+          "material_read": "Indexed statement; linked original not resolved",
+          "method": "Local Resultary lookup and attempted mirror retrieval",
+          "title": "Complete low-Omega classification for a totient/divisor-sum divisibility",
+          "trigger": "Same complexity cutoff and related arithmetic functions"
+        },
+        {
+          "assessment": "Unverified secondary comparison, not a finding of noncoverage",
+          "evidence": "The cited comparison describes the quotient sigma(phi(n))/phi(sigma(n)); full-text attempts failed.",
+          "identifier_or_url": "https://doi.org/10.4064/cm108-1-4",
+          "material_read": "Citation and statement of topic in RESULT.md; no original theorem passage available",
+          "method": "Attempted DOI and public journal/repository retrieval",
+          "title": "On the composition of the Euler function and the sum of divisors function",
+          "trigger": "Cited possible broader arithmetic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A067787",
+        "RESULT.md analytic case split and small_cases.csv"
+      ],
+      "rationale": "This is an unbounded theorem for the first two natural multiplicative layers of an established arithmetic equation, not a report of a new finite sweep or an arbitrary numerical cutoff. It proves there are no additional solutions of those types and reduces their determination to a reproducible small exact table.",
+      "residual_risks": [
+        "The proof is elementary and makes no claim about the much larger remaining part of the sequence or about broader prime-counting phenomena."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

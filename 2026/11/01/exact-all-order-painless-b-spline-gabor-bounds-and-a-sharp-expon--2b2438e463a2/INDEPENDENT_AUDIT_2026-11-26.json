@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:47:56.543495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated normalization each translated window fits in an interval of length q, so Fourier Parseval gives exactly q times the multiplier P_n(x)=Σ_k B_n(x−k)^2. Partition of unity and finite overlap give a uniform positive lower bound. In the Fourier calculation, the partial-fraction coefficients are the Taylor coefficients of (a−u)^(−n) at u=0 and their reflections at u=a. The odd inverse powers vanish with centered cutoffs; the paired j=1 term has an integrable tail and the change of cutoff center has vanishing error. The remaining even terms are positive with the overall sign (−1)^n. The positive Gamma mixtures of geometric cosine sums decrease strictly on the half-period, giving the asserted parity switch and only extremal classes. For m=1, the sharp interior bound for h follows from sin|x|≥2|x|/π on |x|≤π/2 with x=u−π/2; off [0,π], sin²u≤min(dist(u,[0,π])²,1) gives the strict gap. The log curvatures give c_0∼√(3/(πn)) and |c_1|∼(4/π²)^n/√(πn(1−4/π²)); the odd-harmonic remainder is O(3^(−n)) relative to c_1. The endpoint gap is four times |c_1| to leading order, giving the stated coefficient. RESULT.md, VERIFICATION.md and CHECK.py were inspected. The finite rational tests reported in the package were not rerun and are not needed for the analytic all-order argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The integer-oversampling existence theorem uses G(B_n,a,1/(qa)) and a<n; a=1 covers the target existence assertion in a much broader regime.",
+          "The second-order frameset result covers a larger set of lattices for n=2. The inspected exponential-spline result concerns Zak zeros, frame regions and a related order-two window."
+        ],
+        "reasoning": "Broader existence/frame regions are not quantitative sharp bounds. Order two, even on a wider lattice class, cannot provide the alternating-order extrema and n→∞ law.",
+        "searches": [
+          "arXiv:2609.13116, Theorem 7.1",
+          "arXiv:2609.00481, p. 1 abstract",
+          "arXiv:1311.7359, p. 1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:2609.13116",
+        "arXiv:2609.00481",
+        "arXiv:1311.7359",
+        "Resultary 438ed46200fb",
+        "Wilson-basis title/attempted OA record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Painless support and Parseval give the multiplier and abstract min/max formula. Hasannasab–Lemvig gives positivity of frame bounds, not their values. The fixed-half-density expression does not constrain their n→∞ contrast in the support-no-aliasing regime."
+        ],
+        "reasoning": "The positive inverse-power decomposition, global strict parity monotonicity, and first-harmonic Laplace calculation provide substantial information not implied by the inspected existence, reduction or fixed-density statements.",
+        "searches": [
+          "Painless nonorthogonal expansions (Daubechies–Grossmann–Meyer, as cited in frozen RESULT.md)",
+          "arXiv:2609.13116 §7",
+          "Resultary mirror 438ed46200fb, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the painless regime optimal bounds are exactly q times the minimum and maximum of the periodic squared translate sum. The exact same problem can thus be posed as the monotonicity and contrast of a cardinal-spline square periodization.",
+          "The Wilson bases title is potentially relevant to similar squared windows, but no statement of an equivalent symbol or its extrema was readable."
+        ],
+        "reasoning": "Credit the classical reduction but distinguish it from identifying where the extrema occur for every order and how their contrast decays. Wilson Riesz bounds cannot be equated to these frame bounds without comparing the actual systems and operator symbols.",
+        "searches": [
+          "Local Resultary search: cardinal B-spline Gabor bounds, parity extrema and high-order conditioning",
+          "Primary literature search on squared B-spline periodization and optimal Gabor bounds",
+          "arXiv:2609.13116, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror record has the identical (1,2) frame bounds at n=q=2, but fixes frequency step 1/2 in its high-order result and has a different frame operator there.",
+          "The frozen rational endpoint table and finite grids are package checks rather than prior exact tables for the all-order optimization."
+        ],
+        "reasoning": "At fixed q=2 the two regimes intersect only at n=2; the half-density asymptotic cannot be used as a table or limiting identity for q≥n.",
+        "searches": [
+          "Resultary local search, including record 438ed46200fb, exact high-order half-density conditioning"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit all-order parity-extremum analysis and sharp conditioning law in the painless regime, not the classical diagonalization, integer-oversampled frame existence, or the second-order endpoint example. The related half-density record has a different large-order regime. No inspected source supplies the combination of the explicit extremal classes and the sharp exponential prefactor in q≥n.",
+      "residual_risks": [
+        "No full-text verdict for the Wilson-basis paper. Classical squared-spline or Euler–Frobenius identities could give the extremum lemma in equivalent terminology.",
+        "The bounded search and the inspected statements do not settle exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader frame existence; not optimal constants",
+          "evidence": "The frame test is a<n and includes a=1, independently of the parity of n.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13116",
+          "material_read": "§7, Theorem 7.1, PDF p. 15, OA offset 52249",
+          "method": "Primary OA PDF passage",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Frame existence for the same integer-oversampled cardinal windows"
+        },
+        {
+          "assessment": "Second-order frame-region overlap",
+          "evidence": "The complete frameset treated is that of the second-order window along the specified hyperbola.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00481",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary OA PDF abstract",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "Same lattice density and a special order"
+        },
+        {
+          "assessment": "Related window and regime in the inspected material",
+          "evidence": "The asymptotic lower-bound statement concerns a related order-two exponential B-spline, not n→∞ in the assigned painless family.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary OA PDF abstract",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Related spline frames and frame-bound asymptotics"
+        },
+        {
+          "assessment": "Exact n=2 intersection; disjoint large-order regimes",
+          "evidence": "The frequency step is fixed at 1/2, and the second-order example has bounds 1 and 2. In the frozen theorem the frequency step is at most 1/n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-high-order-half-density-gabor-conditioning-for-unscaled-ca--438ed46200fb/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp high-order half-density Gabor conditioning for unscaled cardinal B-splines",
+          "trigger": "Closest local record on the same windows and sharp condition numbers"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "The title establishes relevance but supplies no theorem or symbol comparison.",
+          "identifier_or_url": "https://www.researchgate.net/publication/225416871_Riesz_Bounds_of_Wilson_Bases_Generated_by_B-Splines",
+          "material_read": "Title only; OA fetch returned HTTP 403",
+          "method": "Primary search and lawful OA attempt",
+          "title": "Riesz Bounds of Wilson Bases Generated by B-Splines",
+          "trigger": "Potential equivalent periodized spline-square bound problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The periodized square is a natural exact spectral multiplier, but its extremal locations do not follow from positivity or the painless reduction. The sign decomposition settles the whole interval for all orders, yielding computable optimal stability constants and a sharp exponential measure of near-tightness, rather than finite-grid estimates or just frame existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

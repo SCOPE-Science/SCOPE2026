@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary mode marginal is fixed by the autonomous generator. Habitat-A equilibrium gives an invertible killed-generator linear system, and its adjugate has polynomial degree at most one less than the number of behavioral modes. The determinant remains positive by positive killing. For complete-graph switching, the Sherman–Morrison reduction has a strictly positive denominator. Lagrange interpolation at distinct negative nodes constructs any desired positive roots; scaling the residues ensures all actual movement rates remain strictly positive. The rational three-mode example has been reconstructed with exact arithmetic. The embedded verifier supplements, rather than replaces, this proof.
+PASS
 
-## Originality
+Stationary balance of the habitat-A masses, using the autonomous marginal pi, gives Mx=diag(v)pi with M=D−sQᵀ and D=diag(u+v). The killed-chain semigroup has mass bounded by exp(−t min_i r_i), so M is invertible for s≥0 and its determinant retains its positive sign at zero. Subtracting c pi leaves input diag(pi)(v−cr); the adjugate bounds the benchmark numerator degree by m−1, including the identically zero exception and the constant one-mode case. For the complete graph the rank-one correction divides the sum of partial fractions by 1−s sum_i 1/(r_i+ms)>0. After multiplying by the positive common product, evaluation at the m distinct poles proves the prescribed monic numerator identity. Scaling its coefficients about v_i=cr_i keeps both directional rates strictly positive and preserves every prescribed simple zero. Independently expanding the example M determinant gives 8+28s+21s² and its benchmark numerator 9(s−1)(s−4)/128; the mean of the three isolated A probabilities is 137/256. Uniform behavior frequencies are exact, not simulated.
 
-PASS on the accessible comparative record, with historical-priority risk. McClintock and Lander (2023), DOI 10.1002/ecy.4186, consider behavioral modes and discuss the lack of a theoretical aggregate utilization distribution for their Langevin model. Klappstein, Thomas and Michelot (2023), DOI 10.1186/s40462-023-00392-3, infer overall utilization through simulation. Economou (2005), DOI 10.1239/aap/1113402405, provides general random-environment stationarity and product-form criteria, but no inspected statement gives the sharp prescribed-crossing theorem for two habitats. The most similar located switching-ratchet findings count reversals of a directed stationary current on three or more spatial states, not stationary occupation of two habitats across autonomous behavioral modes. General adjugate and interpolation techniques are acknowledged prior tools; their ecological specialization and all-order positive inverse construction were not found in the compared results.
+## originality
 
-## Value
+PASS
 
-PASS. The result determines a sharp limit on the number of stationary habitat-ranking reversals attributable solely to changing the speed of behavioral switching. It additionally shows the limit is exactly attainable at any prescribed positive switching speeds, while behavior-mode frequencies are fixed. The three-mode model is the smallest capable of a preference reversal followed by a return under these assumptions, and its stationary habitat preference contradicts the fixed mixture of isolated mode-specific habitat fractions. These are concrete boundaries for interpreting multibehavior habitat-use summaries, rather than numerical illustrations or parameter renamings.
+The degree argument and interpolation tools are standard; the supported contribution is their sharp, positivity-preserving realization of arbitrary positive benchmark crossings for stationary two-habitat occupancy at a fixed uniform behavioral marginal. The closest inspected catalogue items separate current from occupancy and transient from stationary comparisons. Same-date records were compared without inferring publication order.
 
-## Limitations and comparison risks
+## value
 
-Only two habitats, autonomous habitat-independent behavior switching, positive constant movement rates, and stationary occupancy are treated. The model is not a field-calibrated replacement for continuous-space step-selection or Langevin inference. The full accessible ecological articles and relevant portions of Economou's mathematical study were inspected, but exhaustive historical priority is impossible. Public descriptions of certain closely related switching-ratchet results were compared; their complete original artifact text was not accessible through the available route, though their different observable and state-space claims did not present a decisive conflict.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separates an unchanged behavior marginal from stationary spatial use and identifies exactly how many threshold crossings m modes can support. Prescribing every crossing speed with positive rates goes beyond a rational upper bound or one counterexample to simple behavioral weighting. This is a concrete model-design and interpretation result, not evidence about field occupancies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

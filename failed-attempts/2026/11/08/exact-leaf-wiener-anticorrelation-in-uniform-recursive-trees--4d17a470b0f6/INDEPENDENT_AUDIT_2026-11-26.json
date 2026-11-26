@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:22.913696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof lines 25–77; VERIFICATION.md and checker.py inspected, not executed",
+        "Independently enumerated all parent vectors for n=2..8 (5,040 at n=8): for each edge with descendant count d and rooted-leaf descendant count b, sum d(n-d) for W and b(n-d)+(L-b)d for Q, then average Q-W and LW and form the covariance in rational arithmetic",
+        "Neininger (2002), Theorem 1.2 and introduction definitions"
+      ],
+      "rationale": "For a uniform parent U in T_m, put J=1 when U is a rooted leaf and S equal to its transmission. Then the increments of L and W are 1-J and m+S. In the update of Q, the average increase of old-leaf transmissions contributes Q_m/m+L_m, removal contributes -(Q_m+L_m)/m, and the new leaf contributes m+2W_m/m. Since E L_m=m/2 for m>=2 and Q_2=W_2=1, E(Q-W) telescopes to (m-1)(m-2)/4. The conditional covariance of the increments is -Q_m/m+2L_m W_m/m^2. Adding the covariance of the conditional means gives C_{m+1}=(m+1)C_m/m+E(W_m-Q_m)/m. Division by m+1 yields the stated harmonic formula via the summand 1+2/m-6/(m+1). It includes the zero cases n=2,3 and every n>=4 contributes a strictly negative term. The leaf-variance recurrence v_{m+1}=(1-2/m)v_m+1/4, starting at m=2, gives v_n=n/12 for n>=3. Neininger's variance constant for unordered-pair W supplies exactly the stated correlation coefficient.",
+      "residual_risks": [
+        "The independent finite reproduction is corroboration; the all-n verdict uses the exact recurrence proof. Not a formal proof-assistant check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson, arXiv:1406.6883 Theorems 1.13–1.16 and 8.3, Remark 8.5",
+          "Neininger, Theorem 1.2; Grübel–Michailow, arXiv:1406.7614 Theorem 12"
+        ],
+        "reasoning": "The fringe-count covariance theorems cover leaf-type local statistics but not a Wiener-index coordinate; Wiener limit theorems supply different joint or marginal results. The catalogue matches are stronger evidence of overlap.",
+        "searches": [
+          "Resultary: joint moments leaf count Wiener index random recursive trees",
+          "Primary search: uniform random recursive tree exact joint moments Wiener index rooted leaves covariance leaf count Wiener index Neininger variance asymptotic 31-3 pi^2"
+        ]
+      },
+      "checked_sources": [
+        "November 2 and October 12 Resultary records above",
+        "Neininger 2002",
+        "Holmgren–Janson 2015",
+        "Grübel–Michailow arXiv:1406.7614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior identities prove the full covariance and transmission claims. Var(W_n)~(31-3π²)n⁴/18 and the elementary rooted-leaf variance n/12 give the correlation by division."
+        ],
+        "reasoning": "The correlation normalization adds no distinct theorem to the known formulas. Multiplying the transmission excess by two merely subtracts nonleaf transmission using the all-vertex sum 2W.",
+        "searches": [
+          "November and October Resultary proof passages",
+          "Neininger, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e, Finding and Proof §§1–2",
+          "2026/10/12/SCOPE-exact-leaf-wiener-covariance-in-random-recursive-trees--1fd12a7f1d1d, Finding and Proof"
+        ],
+        "reasoning": "The November expression nH_n-(n²+5n-2)/4 equals the frozen one. E(W-A)=-(n-1)(n-2)/4 is the frozen transmission identity with A=Q and sign reversed. October's a-s identity makes the same comparison in expectation notation.",
+        "searches": [
+          "Resultary: exact covariance rooted leaf count Wiener index uniform random recursive tree",
+          "Resultary: leaf transmission sum Wiener index uniform recursive trees expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed records above were read at their Finding and proof formulas in the Resultary mirror."
+        ],
+        "reasoning": "This is an exact database match of symbolic identities, not just an agreement with tabulated small-n values or a hit on a similar title.",
+        "searches": [
+          "Resultary: exact covariance rooted leaf count Wiener index uniform random recursive tree"
+        ]
+      },
+      "rationale": "Two earlier distinct Resultary findings contain the same exact covariance and transmission excess under the same uniform-parent, rooted-leaf, unordered-pair conventions. The sign, leading order, and correlation refinement are immediate consequences of those identities and established marginal variances. This is demonstrated coverage, not a failure of external retrieval or a claim about scholarly-publication priority.",
+      "residual_risks": [
+        "Scholarly-publication priority was not established and is not needed for the demonstrated catalogue duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Exact harmonic covariance and the sign-reversed expected leaf-transmission difference.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-leaf-wiener-covariance-in-uniform-random-recursive-trees--d21fe461406e/RESULT.md",
+          "material_read": "Finding and Proof §§1–2",
+          "method": "Local mirror",
+          "title": "Exact leaf–Wiener covariance in uniform random recursive trees",
+          "trigger": "Same model and pair of statistics"
+        },
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Same covariance; a_n-s_n=-(n-1)(n-2)/4 with s_n the expected rooted-leaf transmission sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-leaf-wiener-covariance-in-random-recursive-trees--1fd12a7f1d1d/RESULT.md",
+          "material_read": "Finding and proof definitions/moment identity",
+          "method": "Local mirror",
+          "title": "Exact leaf–Wiener covariance in random recursive trees",
+          "trigger": "Earlier exact-looking hit"
+        },
+        {
+          "assessment": "Covers the cited marginal variance but not the leaf cross-moment in the inspected theorem",
+          "evidence": "Uses unordered vertex pairs; joint partner of W is internal path length.",
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf",
+          "material_read": "Introduction pp. 1–2 and Theorem 1.2 p. 3",
+          "method": "Open author manuscript",
+          "title": "The Wiener Index of Random Trees",
+          "trigger": "Cited variance and joint-law comparator"
+        },
+        {
+          "assessment": "Adjacent joint theory",
+          "evidence": "Fringe counts and outdegree classes include leaves, but the inspected vectors do not include W.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "Theorems 1.13–1.16, 8.3 and Remark 8.5 (PDF pp. 7–9, 46–47)",
+          "method": "Open PDF passages",
+          "title": "Limit laws for functions of fringe trees for binary search trees and random recursive trees",
+          "trigger": "Joint local-statistic covariance"
+        },
+        {
+          "assessment": "Wiener limit, not the claimed mixed law",
+          "evidence": "No leaf–Wiener cross term in the theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.7614",
+          "material_read": "Theorem 12, PDF p. 15",
+          "method": "Open PDF passage",
+          "title": "Random Recursive Trees: A Boundary Theory Approach",
+          "trigger": "Wiener-index limit comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Both earlier exact Resultary findings",
+        "Neininger, Theorem 1.2"
+      ],
+      "rationale": "The mixed statistic is a natural local–global dependence measure and the underlying exact result is useful. This submission adds no distinct mathematical invariant to the two earlier exact treatments; sign, aggregate comparison, and correlation normalization are routine consequences, not a surviving new result for repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

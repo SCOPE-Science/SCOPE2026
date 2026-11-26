@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:04:57.472090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradients are independent Gaussians of variances r_i conditioned to sum to zero, so an arc of resistance s has variance s−s²/R. The constraint on h gives the sum of pair variances divided by n². For prefix discrepancy T_i=∑_(j<i)b_j−im/n this yields W²=R(n²−1)/(12n²)−δ²∑_i(T_i−mean(T))²/(nR). Minimizing the arrangement penalty requires each interval-count vector to attain its separate sharp integer variance bound: all counts are floor or ceiling of their length times m/n. The floor-difference word attains all bounds, and max T−min T<1 forces a common floor intercept, giving exactly its rotations. The gcd formula follows from the equally spaced discrepancy residues. For the other extremum, expanding squared arc counts by pairs reduces minimizing width to minimizing the sum of d(n−d) over marked pairs. It is strictly concave on the gap simplex, since adjacent marked pairs alone give strictly concave quadratics in the independent gaps. The minimizing vertices describe exactly contiguous clusters; the triangular prefix discrepancy gives centered sum of squares m(n−m)[m(n−m)+2]/(12n). Interior clusters contain both 00 and 11, incompatible with optimum balanced length-two counts, so the gap is strict only for interior inventories. Boundary inventories have one rotation class. The packaged finite checker was inspected, not run; these arguments cover all n and real positive a,δ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-cycle chord paper optimizes or evaluates a different graph modification, not rearranging two edge weights.",
+          "De Luca–Fici Proposition 18 identifies circularly balanced words with the relevant Christoffel conjugacy; it does not supply the variance extremal inequalities.",
+          "Vesti considers the base-2 value of each rotation, not the scattered 01 count."
+        ],
+        "reasoning": "Classical electrical reductions and balanced-word classifications alone do not prove both extrema. The specific Resultary theorem covers the full inventory law regardless of whether an even broader majorization theorem also applies.",
+        "searches": [
+          "arXiv:2605.24479, weighted-cycle Kirchhoff index and coherence",
+          "arXiv:2211.09417, circular balance and Christoffel words",
+          "arXiv:1501.00871, rotation majorization",
+          "DOI 10.1142/S179383090900035X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, roughness_checker.py",
+        "Resultary 0b67a9f3e612",
+        "arXiv:2605.24479, 2211.09417, 2110.14858, 1501.00871",
+        "Ellens et al., Zhang–Yang and Jenkinson citations with bounded OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rotation-variance identity V=m²(n²−1)/12−Φ uses the same marked-pair interaction Φ as the width formula.",
+          "Clustered variance maxima give width minima; Christoffel-power variance minima give width maxima, including noncoprime inventories. Subtracting endpoints gives the stated gap."
+        ],
+        "reasoning": "This is implication in both directions, not overlap merely in the graph geometry, parameters or method. The cited chord and circular-mean works are neighboring results, not the decisive match.",
+        "searches": [
+          "Resultary 0b67a9f3e612, complete equality statements and variance identity",
+          "Frozen RESULT.md equations (2)–(3)",
+          "arXiv:2605.24479 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compared theorem bounds V between (n²−g²)/12 and m(n−m)[m(n−m)+2]/12, with the repeated Christoffel and single interval equality classes.",
+          "If S_i is the scattered 01 count of the rotation starting at i, then S_(i+1)−S_i=nb_i−m: moving the leading zero loses m pairs, moving the leading one gains n−m. Thus S_i−S_0=nT_i and V=n∑_i(T_i−mean(T))²."
+        ],
+        "reasoning": "It follows that W²=R(n²−1)/(12n²)−δ²V/(n²R) with strictly negative slope throughout the stated parameter range. It interchanges the two sharp extrema and preserves their full equality sets.",
+        "searches": [
+          "Resultary: binary circular Parikh count rotation variance / balanced and clustered binary ring roughness",
+          "Resultary 0b67a9f3e612 RESULT.md offsets 0, 3985, 6610"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed rotation-variance result provides both exact closed forms and equality classes.",
+          "The inspected circular-subword paper provides the universal mean of the rotation counts, not their sharp variance."
+        ],
+        "reasoning": "The result is not a census or standalone table; the indexed exact formulas already force all extremal values for all inputs.",
+        "searches": [
+          "Resultary: sharp rotation dispersion bounds for binary circular Parikh counts, 0b67a9f3e612",
+          "arXiv:2110.14858 Theorem 4.11"
+        ]
+      },
+      "rationale": "Resultary 0b67a9f3e612 explicitly supplies both exact extrema, both equality classes and the gcd term for rotation variance of scattered 01 counts. The width optimization is the same arrangement theorem under an exact negative affine map. The change in observable is useful context but does not make the asserted sharp extremal classification distinct from the inspected one. No historical-priority conclusion is drawn from the catalogue dates.",
+      "residual_risks": [
+        "The matching record is catalogued later than the frozen record; the dates alone say nothing about discovery, priority, or lineage.",
+        "Earlier electrical or general majorization implications were not exhaustively ruled out; three cited full texts were not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent sharp extrema and equality classes after affine change",
+          "evidence": [
+            "Both formulas for rotation variance, pair interaction identity, g-fold Christoffel power and contiguous block."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612",
+          "material_read": "RESULT.md offsets 0,3985,6610",
+          "method": "Local mirrored full-text passages",
+          "title": "Sharp rotation-dispersion bounds for binary circular Parikh counts",
+          "trigger": "Balanced and clustered equality classes, with gcd term"
+        },
+        {
+          "assessment": "Different optimization and graph modification",
+          "evidence": [
+            "Kirchhoff-index update for adding a weighted chord."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.24479",
+          "material_read": "PDF pp. 1–2, abstract and contribution 1, offsets 0,8397",
+          "method": "Open-access PDF inspection",
+          "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+          "trigger": "Weighted-cycle Kirchhoff index and physical coherence"
+        },
+        {
+          "assessment": "Known word characterization, not inverse-Laplacian extrema",
+          "evidence": [
+            "Circularly balanced words are Christoffel conjugates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.09417",
+          "material_read": "PDF pp. 7–8, Proposition 18, offset 21600",
+          "method": "Open-access PDF inspection",
+          "title": "Some Results on Digital Segments and Balanced Words",
+          "trigger": "Christoffel equivalence of equality classes"
+        },
+        {
+          "assessment": "Mean formula, not a sharp variance law in this theorem",
+          "evidence": [
+            "Mean over starting positions is |w|_a|w|_b/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.14858",
+          "material_read": "Theorem 4.11, PDF pp. 11–12, offset 35800",
+          "method": "Open-access PDF inspection",
+          "title": "Circularly balanced words and digital convexity",
+          "trigger": "Rotation statistic for scattered ab counts"
+        },
+        {
+          "assessment": "Different rotation observable in the inspected statements",
+          "evidence": [
+            "Uses base-2 numerical rotation orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.00871",
+          "material_read": "PDF §1 and preliminaries, offsets 3300,6260",
+          "method": "Open-access PDF inspection",
+          "title": "Vesti's work on balanced words and majorization",
+          "trigger": "Potential stronger majorization result on rotations"
+        },
+        {
+          "assessment": "No negative inference; the exact catalogue equivalence independently decides originality",
+          "evidence": [
+            "Unresolved historical context, not used as positive or negative proof of coverage."
+          ],
+          "identifier_or_url": "10.1016/j.laa.2011.02.024; 10.1002/qua.21068; 10.1142/S179383090900035X",
+          "material_read": "Citations only; full-text passages unavailable in bounded access attempts",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Effective graph resistance; Resistance distance and Kirchhoff index in circulant graphs; Balanced Words and Majorization",
+          "trigger": "General electrical or majorization coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a physical design rule the exact laws address a natural observable, the stationary Gaussian roughness at fixed two-resistance inventory. The closed gap and equality classes quantify how clustering and uniform spacing change roughness, including gcd and degenerate inventory effects. This usefulness does not make the equivalent extremal classification original.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

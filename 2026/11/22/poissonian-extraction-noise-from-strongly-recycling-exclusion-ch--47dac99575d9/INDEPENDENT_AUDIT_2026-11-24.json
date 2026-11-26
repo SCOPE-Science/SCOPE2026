@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:00:37.092734Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof Steps 1–4, especially line 34",
+        "Repaired RESULT.md Proof Steps 1–4",
+        "Frozen CHECKER.py (read-only)",
+        "VERIFICATION.md lines 3–14"
+      ],
+      "rationale": "Frozen proof Step 2 incorrectly says two extractions after the first injection require an additional injection. At L=3, 100→010→110→101→011→010→001→000→100 is a valid cycle with two extractions and no intervening injection. Both extractions happen with site 1 empty. The repaired proof bounds every nonreset transition from a vacant first site with downstream particles, not merely injections to three particles. A fixed bounded jump path (reset if needed, then remove rightmost particles without vacating site 1) supplies a uniform probability of hitting e1 within a fixed number of jumps, giving geometric jump-count tails and uniform holding-time moment controls. After an injection at e2, no exceptional transition forces exactly one extraction; after an e3 hop, no exceptional transition forces zero. Conditioning on the index and outcome of the first exception gives O(1/r) jump-count-weighted probability from either state. Multiplication by the O(1/r) probability of reaching them bounds the extra-reward moments at O(r^(-2)). A direct two-site exit gives exactly one reward. The rare-mark probability and the first two reward moments are c_L/r+O(r^(-2)); E C_r=1+O(r^(-1)), and E(M_r C_r)=O(r^(-1)) by conditioning on the first nonreset departure. Independent cycle-index marks converge to a Poisson point process. A uniform centered-duration maximal bound places physical exit times near lattice markers without assuming mark-duration independence. The union bound excludes bursts and the Poisson limit has no endpoint atoms, making the ordered time matching valid in J1. The regenerative site-1-only occupation fraction is 1/E C_r, so the stationary initial law follows by coupling. At each fixed r the regenerative variance rate uses E[(M_r-J_r C_r)^2]/E C_r, not an interchange of the time limits. Its mixed and duration terms are O(r^(-2)), proving the repaired sequential Fano limit.",
+      "residual_risks": [
+        "Analytic review; the uploaded checker was not run. Finite current and variance diagnostics would not certify the all-L proof or the process convergence.",
+        "All bounds are for fixed L and fixed positive boundary rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected §3.4 and conclusion of Pelizzola–Pretti concern reset scaling with lattice size and stationary profiles/phase behavior. Its abstract discusses nearest-neighbor occupation covariances.",
+          "The publisher and alternative page for Bhatia–Gupta encountered access denials; detailed theorem coverage remains unverified."
+        ],
+        "reasoning": "A thermodynamic stationary theory of the same model does not subsume the fixed-L counting-process limit. The access failure is not evidence that the other article lacks overlap.",
+        "searches": [
+          "arXiv:2402.13698 abstract, §3.4 and §4",
+          "PhysRevE.109.024109 publisher and identified ResearchGate article page"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and fixed-size current mirror record",
+        "arXiv:2402.13698",
+        "PhysRevE.109.024109 (access-limited)",
+        "Repaired RESULT.md prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact current overlap gives only a first moment of stationary extraction. It is compatible with bursts and correlated exits.",
+          "The repaired result independently controls second reward moments, marked-cycle times and the centered regenerative reward variance."
+        ],
+        "reasoning": "Neither expectation nor a bounded-window limit alone mechanically gives the sequential variance rate; the burst and variance analyses supply separate content.",
+        "searches": [
+          "Resultary SCOPE-universal-strong-reset-current-and-the-two-site-anomaly-in-an-op--8c13e05907a3 Finding and proof",
+          "arXiv:2402.13698 conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pelizzola–Pretti specify the same conditional local reset at rate r when site 1 is vacant. The exact finite-chain current analogue has the same reset rule and separate L=2 coefficient.",
+          "Resource-constrained exclusion was checked as a plausible keyword and model overlap, but primary full text was unavailable."
+        ],
+        "reasoning": "This is not a novel model, and the current constants are equivalent to the separate local result. Time-dependent extraction and the asymptotic variance of a marked jump count are different observables from stationary site occupancies and the expected current.",
+        "searches": [
+          "arXiv:2402.13698 §2, §3.4 and §4",
+          "Resultary SCOPE-universal-strong-reset-current-and-the-two-site-anomaly-in-an-op--8c13e05907a3",
+          "PhysRevE.109.024109"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct current record's Finding gives J_2(r)=(alpha+beta)/r+O(r^-2) and J_L(r)=alpha/r+O(r^-2) for L>=3 in the identical finite-chain regime. It does not state extraction process or variance limits.",
+          "The only exact assigned-record match is not independent corroboration or distinct coverage."
+        ],
+        "reasoning": "Credit exact mean-current coverage even though ordering of the same-day records is unknown; preserve only the distinct counting and noise conclusions as the contribution.",
+        "searches": [
+          "Local Resultary SCOPE-universal-strong-reset-current-and-the-two-site-anomaly-in-an-op--8c13e05907a3",
+          "Local Resultary Poissonian extraction noise from strongly recycling exclusion chains"
+        ]
+      },
+      "rationale": "The repaired finding credits the exact fixed-size mean-current overlap separately and corrects the frozen attribution. The distinct content is the rate-c_L full extraction process and sequential scaled variance/Fano limits. No inspected statement covers these observables in the specified fixed-size, strong-reset regime. Neither the mean-current result nor stationary occupation covariances imply them.",
+      "residual_risks": [
+        "Uninspected full Bhatia–Gupta text and unindexed model-specific noise or general rare-event applications leave a bounded historical-priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; inspected passages do not establish the fixed-L current constants or the new noise limits",
+          "evidence": "§2 describes the site-1 vacancy-gated reset; §3.4 and the conclusion treat size scaling, stationary profiles and correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.13698",
+          "material_read": "PDF p. 1 offsets 1260 and 2541; §2 p. 3 offset 9640; §3 p. 6 offset 19146; §3.4 p. 19 offset 52522; §4 p. 21 offset 56822",
+          "method": "OA primary PDF passage inspection",
+          "title": "Totally asymmetric simple exclusion process with local resetting and open boundary conditions",
+          "trigger": "Identical local resetting rule and large reset parameter"
+        },
+        {
+          "assessment": "Exact overlap for both fixed-size mean-current coefficients, not counting process or noise",
+          "evidence": "It gives the same c_L/r current and O(r^-2) errors. Date alone does not establish ordering.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-strong-reset-current-and-the-two-site-anomaly-in-an-op--8c13e05907a3",
+          "material_read": "Mirror RESULT.md Finding and assumptions at offset 0; proof/prior work from offset 4881",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Universal strong-reset current and the two-site anomaly in an open exclusion chain",
+          "trigger": "Strongest distinct exact Resultary overlap"
+        },
+        {
+          "assessment": "Detailed coverage unavailable; not used as negative evidence",
+          "evidence": "Indexed description identifies a resource-constrained setup, but it does not establish the paper's detailed extraction-statistics scope.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.024109",
+          "material_read": "Indexed description only; APS PDF/article attempts and identified ResearchGate alternate returned HTTP 403",
+          "method": "Public lookup and lawful OA retrieval attempts",
+          "title": "Totally asymmetric simple exclusion process with local resetting in a resource-constrained environment",
+          "trigger": "Open exclusion with the same reset destination and possible noise overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof Steps 2–4",
+        "Distinct local fixed-size mean-current finding"
+      ],
+      "rationale": "Rare extractions in a driven recycling system could remain clustered, even with the known mean current. The process result shows that the clusters do not persist on the natural time scale, and the separate variance calculation shows the same Poisson signature in sequential stationary noise. The two-site anomaly persists in both, not just in the current.",
+      "residual_risks": [
+        "No quantitative process error or growing-chain regime is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

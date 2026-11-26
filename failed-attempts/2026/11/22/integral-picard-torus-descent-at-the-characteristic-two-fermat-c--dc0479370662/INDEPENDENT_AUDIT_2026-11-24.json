@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:36:30.890010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and field scope; VERIFICATION.md and verify_char2_fermat_picard.py inspected, not executed.",
+        "Independent exact graph replay: /workspace/branches/48bb7186-e03e-4a45-9fc0-5ee13fc8b7b2/independent_char2_graph_check.py and its .out. Reproduces 27/45/135, connectedness, 3/7/9 fixed line/point/branch counts, trace zero and mod-two rank 32 in two cycle bases.",
+        "Dolgachev–Duncan arXiv:1712.01167v2 §5 for the characteristic-3 exclusion and the odd-characteristic configuration."
+      ],
+      "rationale": "For the stated characteristic-two problem the three pair partitions and their nine choices of slopes give all 27 lines of the smooth cubic. A point of weight two in P³(F_4) lies on three lines of one partition; a point of weight four lies on one line of each partition. There are 6·3+3³=45 such points, all intersections are defined over F_4, and the three directions at each are distinct on the smooth surface. For each partition the lines are connected via the weight-two points, and the slope-one lines of the three partitions meet. Thus the ordinary planar triples have total δ=135 and the connected normalization calculation gives p_a=109. At a triple, products of two branch equations generate order-two jets on the third branch, so the conductor kills jets of order at least two. The constant gluing quotient has torus rank two locally; the residual defect of the three linear coefficients modulo the two-dimensional space of ambient differentials is one-dimensional and additive. These defects descend as vector spaces and together give G_a^45. Normalization has no positive-genus component. The directed incidence graph yields the torus character cycle lattice of rank 64. The independent graph replay gives trace 0 and mod-two rank(F−1)=32, forcing 32 regular summands by the integral involution classification; an alternative argument via an invariant spanning tree gives the same integral conclusion directly. Even m fixes the whole graph. Surjectivity on k-points follows from Lang for U, and the 2-primary kernel and odd-order torus group split abstractly by primary decomposition. The contextual rank-91 comparison is correct for the smooth odd-characteristic Fermat cubic (p>3); it cannot be extended to p=3, where the cubic equation is a cube. The Finding's stated field of application is characteristic two only.",
+      "residual_risks": [
+        "The in-scope characteristic-two theorem is correct. Any separate use of the rank-91 contrast should explicitly exclude characteristic three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The other Fermat Picard-torus statement explicitly requires ℓ≥5 and characteristic p>ℓ. Its graph proof starts with a spanning tree of the connected fixed subgraph and lifts whole vertex and edge orbits from a rooted quotient tree. Its proof uses only those orbit conditions after the geometry is established.",
+          "The two-element action on the binary graph has free nonfixed orbits, is orientation preserving, and its fixed subgraph (one central point, the three lines, six leaf points) is a tree. The geometric construction differs, but no unresolved graph hypothesis remains.",
+          "861ceab139a4 computes the 18 triple and 81 double intersections over C. Dolgachev–Duncan §5 verifies the smooth odd-characteristic restriction and 18 Eckardt points; the incidence normalization yields torus rank 91."
+        ],
+        "reasoning": "Do not specialize the higher-degree numeric lattice formula, whose fixed graph has a hexagon. Apply its exact graph mechanism with the fixed-cycle rank zero rather than one. The genus and ordinary triple inputs on the binary side were already available.",
+        "searches": [
+          "Resultary 5833e6c93d5e, prime-degree Fermat Picard tori: scope, Proof §§1–4, in particular offsets 3900–4774 and 5370–7370",
+          "Resultary 861ceab139a4 for the smooth odd-characteristic contrast"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3fc752675013, 5833e6c93d5e, 861ceab139a4",
+        "arXiv:1712.01167v2 §5 and arXiv:0812.2377v1 p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the explicit binary lines fixed by squaring, both slopes must be 1. The point with all coordinates 1 joins the three lines; each remaining fixed point has two nonzero coordinates and belongs to just one fixed line. Thus all fixed edges are in one tree.",
+          "Start with that fixed tree and add the pair of lifts of each rooted quotient-tree edge leading to a free vertex pair. This adds one edge per new vertex, so introduces no cycles. In the invariant spanning tree's fundamental-cycle basis Frobenius permutes each pair of non-tree edges with the given orientation, with no fixed edge outside the tree. This gives Z[C_2]^32 without a new integral lattice calculation.",
+          "The ordinary triple-point unit defect is the standard first-jet calculation (only order-one terms survive); the abelian quotient is zero by rational normalization. Lang and primary decomposition give the finite groups once these data are known. In fact for q even the two integers q−1 and q+1 are coprime, so the finite abelian torus group does not distinguish a split/norm-one pair from an induced pair even though the algebraic tori differ."
+        ],
+        "reasoning": "Credit the precise integral graph improvement over rational trace as mathematically real but covered here. The new mod-two replay is a different proof of the same implication and does not leave a separate original generalized-Jacobian invariant.",
+        "searches": [
+          "3fc752675013, Proof geometry/cohomology, mirror offsets 2340–3830 and 5350–7050",
+          "5833e6c93d5e, Proof §§2–4, especially 5370–7370"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3fc752675013 gives the exact binary line equations, normalized graph and the 3/7/9 fixed counts. It uses H¹(D) as graph cohomology and records the rational sign multiplicities, not an integral decomposition.",
+          "5833e6c93d5e, Proof §2 identifies the torus with the character cycle lattice of the oriented branch graph; graph homology vs its dual does not change the permutation summands."
+        ],
+        "reasoning": "The ambient Picard group and the Picard group of the open complement are not the group's synonyms. But the graph methods in those papers compare exactly the relevant graph/lattice data when the geometric and Picard-torus formulations are brought together.",
+        "searches": [
+          "Resultary: binary Fermat cubic 27-line boundary, Picard torus, incidence graph and integral Frobenius",
+          "Primary literature search on binary Hermitian cubic and generalized-Jacobian descent; inspection of arXiv:1712.01167v2 and arXiv:0812.2377v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3fc752675013 records 27 lines, 45 ordinary triples, graph size and fixed counts, rank 64 and ±1 of multiplicity 32. 5833e6c93d5e has a distinct numerical theorem and the graph proof applicable here; it is not the identical assigned record."
+        ],
+        "reasoning": "The binary complement's rational table does not by itself tabulate this torus. The disposition rests on the actual combined proof implications, not on a date, a title, or an assertion of an independent exact numerical table.",
+        "searches": [
+          "Resultary search for characteristic-two Fermat cubic Picard-torus lattice and complete binary 27-line configuration",
+          "Same-day distinct integral torus finding 5833e6c93d5e; binary configuration finding 3fc752675013"
+        ]
+      },
+      "rationale": "The binary-complement record alone supplies the exact incidence geometry but only rational Frobenius information. The distinct indexed prime-degree Fermat Picard-torus record additionally supplies, in Proof §§2–4, the same normalization-to-cycle identification and a characteristic-independent equivariant spanning-tree argument for a connected fixed subgraph and free remaining orbits. Apply that proof to the already-described binary configuration: the three fixed slope-one lines all meet at [1:1:1:1] and each has two weight-two rational points whose supports are its coordinate pairs. Those six two-element supports are distinct. The fixed graph is therefore a connected tree on 10 vertices and 9 edges. The spanning-tree argument applies with no fixed edge deleted, and all 64 non-tree edges pair up, giving exactly the claimed 32 regular integral summands. This is coverage by the scope of the proved method combined with the explicit same-object geometry, not a literal p=2 substitution into the other record's stated theorem or an inference of priority from the date.",
+      "residual_risks": [
+        "The bounded primary search did not establish historical priority. The FAIL is a demonstrable mathematical implication of inspected sources, not attribution of temporal order between the same-day records or a conclusion from a weak search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact binary incidence inputs, not the integral boundary Picard-torus decomposition alone",
+          "evidence": "Explicit line equations, graph sizes 27/45/135, fixed counts 3/7/9 and rational graph trace zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-factorial-complement-of-all-27-lines-on-the-binary-fermat-cu--3fc752675013/RESULT.md",
+          "material_read": "Finding and scope; Proof geometry and cohomology, local mirror offsets 2340–3830 and 5350–7050",
+          "method": "Local mirror statement and proof comparison",
+          "title": "The factorial complement of all 27 lines on the binary Fermat cubic",
+          "trigger": "Exact same characteristic-two boundary, known rational Frobenius eigenspaces"
+        },
+        {
+          "assessment": "Stated theorem excludes the binary cubic, but the actual spanning-tree proof applies once the earlier binary geometry is inserted",
+          "evidence": "After identifying the character lattice, the proof selects a spanning tree of the fixed subgraph, lifts free edge orbits, and identifies the permutation of integral fundamental cycles from the remaining edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-integral-frobenius-picard-tori-of-prime-degree-fermat-line-divis--5833e6c93d5e/RESULT.md",
+          "material_read": "Finding and scope; Proof §§1–4, local mirror passages 3900–4774 and 5370–7370",
+          "method": "Local mirror statement and decisive proof passages",
+          "title": "Integral Frobenius Picard tori of prime-degree Fermat line divisors",
+          "trigger": "Strongest distinct integral Fermat Picard torus comparison despite same listed date"
+        },
+        {
+          "assessment": "Complex configuration/counts, not the integral characteristic-two Picard torus",
+          "evidence": "18 triples and 81 double points; complement rank 91 in its formulation.",
+          "identifier_or_url": "Resultary 861ceab139a4",
+          "material_read": "RESULT.md passages at mirror offsets 400–2887 and 7350–9850",
+          "method": "Local mirror",
+          "title": "Degree-one generation of the rational cohomology of the 27-line complement on the Fermat cubic",
+          "trigger": "Odd-characteristic/complex rank-91 comparison"
+        },
+        {
+          "assessment": "Established geometric input, distinct arithmetic invariant",
+          "evidence": "Fermat cubic nonreduced in characteristic 3; 18 Eckardt points for p>3, and 45 Eckardt points and 27 lines in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.01167v2",
+          "material_read": "§5, OA PDF pp. 24–26, offsets 69583, 71864, 74946",
+          "method": "Lawful OA original passages",
+          "title": "Automorphisms of cubic surfaces in positive characteristic",
+          "trigger": "Established Fermat line/Eckardt geometry and exceptional characteristics"
+        },
+        {
+          "assessment": "Complex Néron–Severi work, not this boundary Picard descent",
+          "evidence": "Standard line families provide geometric background but not the characteristic-two integral group calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.2377v1",
+          "material_read": "OA PDF p. 2, offset near 4700",
+          "method": "Lawful OA original passage",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Classical equations for the Fermat line families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and normalization proof",
+        "The same-object binary geometry and the orbit-tree integral proof in 3fc752675013 and 5833e6c93d5e"
+      ],
+      "rationale": "The object and integral torus invariant are natural; a rational character alone really is insufficient to recover the algebraic torus. For this known graph, however, the inspected integral orbit-tree proof and the explicit fixed lines already determine the claimed lattice mechanically. The remaining vector/additive part is an ordinary first-jet normalization calculation, and the rational point groups follow formally. The record supplies correct verification and a useful corollary, but no distinct non-mechanically-implied invariant to retain under the stated criterion.",
+      "residual_risks": [
+        "This assessment does not negate the value of integral torus classifications for other fixed-graph patterns, or assign precedence between contemporaneous records."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

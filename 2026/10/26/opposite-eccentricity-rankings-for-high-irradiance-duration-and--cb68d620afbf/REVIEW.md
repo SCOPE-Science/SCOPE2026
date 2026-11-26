@@ -1,19 +1,21 @@
-# Scientific review: eccentricity-dependent high-flux exposure metrics
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement assumes a bound two-body Kepler orbit at fixed semimajor axis and an above-circular incident-flux threshold. The exact physical-time element \((1-e\cos E)dE/(2\pi)\) and inverse-square irradiation give the exceedance window \(|E|<\arccos(\delta/e)\) for \(e>\delta\). Direct integration yields the claimed duration formula. Its derivative has the sign of \(\delta-e^2\) on the entire nonzero domain and therefore exactly one global maximizer at \(e=\sqrt\delta\). For the excess-dose statistic, the integrand is zero at the moving threshold boundary, and its eccentricity derivative is positive at every interior anomaly because the interval lies in \((0,\pi/2)\). This establishes strict increase rather than relying on numerical sampling. Both thresholds and the excluded parabolic endpoint are handled explicitly. The standalone integration program passed 90 direct weighted-orbit comparisons and related sign tests. Those checks are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS with explicit residual risk
-The primary full-text comparisons were Kane–Gelino (2012, arXiv:1202.2377v1, sections 2–4), Kane–Gelino (2012, arXiv:1205.2429v1, section 3), and Dressing et al. (2010, arXiv:1002.4875v1, introduction and climate-model results). Their orbit-fraction methodology and Kepler equation are foundational prior art, not claimed as new. The precise all-threshold eccentricity maximizing **time spent above a fixed super-circular flux bound**, and the simultaneous strict opposite ordering of *duration* versus *cumulative excess flux* beyond that maximizer, were not stated in the inspected material. Ranked prior-record searches for eccentric-planet insolation, exposure fractions, and equivalences returned results on unrelated oscillators, ellipsoids, and orbital phases rather than a logically dominating astronomy result. Full proof comparison was used where texts were available; absence from search alone was not considered novelty proof. Residual risks include an equivalent optimization implicit in earlier habitable-zone software and broader orbital-radiation or rearrangement theorems not located in this review. Those risks are not asserted away.
+PASS
 
-## Value — PASS
-Comparing matched-semimajor-axis orbits under the same super-circular hazard flux limit gives a natural, physically motivated question: should risk assessment rank an orbit by **time above a hazardous flux** or by **total flux above that hazard limit**? The exact optimizer \(e_*=\sqrt{1-\eta^{-1/2}}\) is independent of luminosity, orbital period, and gravitational parameter. The theorem shows that the two risk metrics give opposite rankings over an entire open interval of eccentricities, not just an isolated example. It therefore prevents a specific proxy error in threshold-based exoplanet irradiation studies. The result is a geometrical-irradiation calculation, not a climate or habitability prediction.
+With fixed a, luminosity and gravitational parameter, the period is fixed and the eccentric-anomaly time density is (1−e cos E)/(2π). The condition F/F₀>η is exactly e cos E>δ. No point qualifies for e≤δ (contact at e=δ is not strict); for e>δ it gives the symmetric interval bounded by E₀=arccos(δ/e). Its normalized physical-time measure is (E₀−e sin E₀)/π. Differentiation gives H'=(δ−e²)/(πe√(e²−δ²)), with a single positive-to-negative sign switch at √δ; the onset plateau is zero and the interior exceedance fraction is positive, giving the unique global maximum and its stated value. For the dose, the time-weighted integrand on that interval is (1−e cos E)^−1−η(1−e cos E); it is zero at the moving endpoint, and its e derivative is strictly positive there and throughout the nonempty interval because cos E>0. This proves strict ordering on the entire claimed range. Independently, using true anomaly ν, the inverse-square flux times dt/P is dν/(2π√(1−e²)); hence J=ν₀/(π√(1−e²))−ηH, with ν₀=arccos(((1−e²)/(1−δ)−1)/e). This reproduces the arctangent formula, gives divergence as ν₀→π, and reproduces the reported rounded example values. The e→1 limit is an ideal point-source limit, not an admissible orbit. VERIFICATION.md and verify.py report finite midpoint and Simpson quadrature comparisons; in the supplied code the excess comparison uses a second quadrature on the selected interval, not a direct coded check of the arctangent formula. The uploaded script was not executed.
 
-## Closest literature and limitations
-* Kane and Gelino, *The Habitable Zone Gallery*, arXiv:1202.2377v1, equations (5)–(9) and the catalogue's time-in-zone statistic: directly establishes the base Keplerian exposure calculation, not an all-eccentricity optimizer or dose comparison.
-* Kane and Gelino, *The Habitable Zone and Extreme Planetary Orbits*, arXiv:1205.2429v1, §3: discusses finite time in habitable zones and high-eccentricity irradiation, not the sharp two-metric ranking theorem.
-* Dressing et al., *Habitable Climates: The Influence of Eccentricity*, arXiv:1002.4875v1: tests climatic outcomes and mean flux; neither the idealized high-flux duration optimizer nor cumulative exceedance-dose ordering is its conclusion.
+## originality
 
-The theorem assumes idealized point-source irradiation, fixed semimajor axis, and an above-circular threshold. It has no claim about atmospheric response, permanent habitability, or physical feasibility at eccentricities approaching one. The proof and scientific comparisons are mathematically reasoned but not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Kepler time-fraction construction is established and the duration formula itself follows immediately from it for one radius crossing. The distinct result is the sharp fixed-threshold eccentricity optimum paired with strict monotonicity of the positive-part excess at that very threshold and the resulting opposite rankings. The closest inspected sources concern time in a habitable annulus, unthresholded averages or maxima, climate response, or unrelated eccentric-orbit observables. This is a bounded best-of-knowledge comparison, not priority for the Kepler formulas or the time-in-zone method.
+
+## value
+
+PASS
+
+Duration above a threshold and cumulative excess are two natural but inequivalent measures of intermittent irradiation. The sharp interior turning point and the strict opposite ranking on the entire high-eccentricity branch determine exactly when shorter exposure is a misleading proxy for lower integrated forcing. This is a useful, bounded comparison for a standard idealized orbit, with no implication asserted for actual climate or habitability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The exact repeated-integral kernel follows by induction, without needing the symbol to be univalent. Coefficient positivity supplies the explicit uniform majorant \(G-a_1t\) and thus an all-index operator-norm rank-one error of \(D G^{k+1}/[a_1^2(k+1)k!]\). Parseval and the equality case of the triangle inequality locate exactly \(h\) unit-circle maxima; Taylor expansion has nonzero quadratic coefficient equal to the degree variance. Gaussian Laplace asymptotics give the sharp \(k^{-1/4}\) prefactor. Dividing the remainder estimate by the rank-one norm yields \(O_g(k^{-3/4})\), and singular-value min–max gives the second-to-first ratio. Finite computations cannot establish these infinite-dimensional statements; they instead tested exact coefficient identities and representative asymptotics (168 assertions). Risks: only the fixed positive-polynomial domain is proved; no uniformity for varying coefficients or second-singular sharp constant is asserted.
+## correctness
 
-## Originality (O) — PASS, with priority limits
-The nearest precise sources were inspected at the level of their main theorems and proofs. Chalmoukis–Stylogiannis, Theorem 1.2 (2021; first public 2020), addresses boundedness and quasi-nilpotency, not asymptotic power norms. Peláez–Rättyä–Wu (2023), Theorems 1 and 2, concern weighted-Dirichlet-to-\(H^\infty\) mapping, not operator iterations on \(H^2\). Eveson (2003 and 2005), especially Theorem 4.3, proves the analogous rank-one asymptotic principle for real-variable Volterra **convolution** kernels on \(L^p(0,1)\), not analytic polynomial-symbol Volterra operators on Hardy space; his theorem does not imply the new variance/arithmetic boundary constant. Indexed scientific comparisons also include published high-power real-variable fractional-integral asymptotics, which likewise concern different operators. Two own published claims about polynomial Hardy Volterra *commutators* concern signed eigenvalue asymptotics, not powers. No decisive equivalent or stronger covering statement was found in the actual searches. Residual risk: non-indexed exact power-norm work or a nonobvious transfer from a prior analytic Volterra theorem cannot be categorically excluded.
+PASS
 
-## Mathematical value (V) — PASS
-High powers are a quantitative spectral and conditioning invariant, genuinely stronger than the known qualitative quasi-nilpotency. The result provides a complete sharp leading-constant law and effective asymptotic rank-one geometry over a natural nonmonomial polynomial class, with explicit dependence on a nondegenerate coefficient-degree variance and an arithmetic boundary-maximizer multiplicity. For two-monomial symbols the degree separation cancels at leading order, a potentially useful universality distinction from single-monomial integrals. This is structural operator information, not a finite enumeration or numerical fit.
+On monomials T_g is a finite sum of Hilbert–Schmidt weighted shifts. Radial-segment Fubini and the polynomial antiderivative in g give the iterated kernel (g(z)−g(w))^(k−1)/(k−1)! without requiring injectivity. The constant input maps to g^k/k!, so subtracting R_k applies the kernel to f(tz)−f(0), whose Hardy norm is at most t||f||. On the unit circle, coefficient positivity gives |g(z)−g(tz)|≤G−a_1 t, and |zg′(tz)|≤D. Minkowski and extension of the nonnegative integral to t=G/a_1 give the remainder with integral G^(k+1)/[a_1² k(k+1)]. These estimates first hold on polynomials and extend by boundedness. In the Parseval integral for ||g^k||², equality in the triangle inequality occurs at exactly h points modulo 2pi. At each, the normalized squared modulus is |∑p_j exp(iju)|²=1−sigma²u²+O(u⁴); elsewhere on the compact circle it is bounded below its maximum by a fixed gap. Gaussian localization therefore gives h/(2 sqrt(pi sigma² k)) times G^(2k), with relative O_g(k^(−1)). Taking square roots and dividing the remainder by the rank-one norm gives O_g(k^(−3/4)). The second singular value is bounded by the rank-one approximation error; the singular ratio follows. In the binomial case h=m−1 and sigma²=(m−1)²a/(1+a)², so the degree spacing cancels. An independent exact calculation for g=z+z²/2 gives T_g²z=z³/6+5z⁴/24+z⁵/15 by both coefficient recursion and the power kernel, and checks the constant-vector identity for k=1,…,6 and the binomial variance cancellation.
 
-## Limitations and prior-literature distinction
-The scope requires nonnegative real coefficients and a positive first-degree coefficient, with at least two positive terms. The \(k^{-3/4}\) remainder rate is an established upper bound, not asserted optimal. Eveson's earlier real-variable rank-one phenomenon is explicitly acknowledged. The novelty assessment does not establish universal historical priority. Independent evaluation and replication beyond the included standard-library checker have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected real-variable results give genuine high-power and rank-one analogues, Hardy mapping/quasi-nilpotency results cover related operators and symbols, and the exact shift-polynomial record already exhibits arithmetic/variance-driven circle maxima. None gives the weighted Hardy Volterra norm law and rank-one bound for the stated nonnegative polynomial class. The norm of g^k alone is a standard lattice/Laplace calculation; the supported distinction is its asymptotic control of the whole Volterra power and the stated operator-norm and singular-ratio estimates.
+
+## value
+
+PASS
+
+The result converts qualitative rapid decay of analytic Volterra powers into an exact norm scale and describes which input functional controls the leading behavior. The arithmetic dependence comes from several boundary maxima rather than a single saddle, and combining it with a uniform error estimate gives information on the singular geometry beyond the scalar coefficient norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

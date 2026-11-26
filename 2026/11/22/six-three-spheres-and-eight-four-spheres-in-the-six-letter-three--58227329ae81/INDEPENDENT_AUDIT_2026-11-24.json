@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:53:40.255341Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof and Verification; VERIFICATION.md; checker.py and morse_pairs.json (inspected)",
+        "/workspace/audit-replays/topology.py words, with frozen morse_pairs.json as data"
+      ],
+      "rationale": "Generating both orientations on each three-element support gives 40 permutations. Their distinct ordered subwords form a regular CW complex with simplex face posets and f-vector (6,30,120,247,194,40). Reconstructing the oriented face incidences and applying a separate topological sort verifies the 311 disjoint reversed Hasse edges are acyclic, with critical counts one vertex, six 3-cells and eight 4-cells. Independently computing integer Smith forms of the unreduced boundaries (including checking their composition) gives ranks (5,25,95,146,40) and Betti numbers (1,0,0,6,8,0). Thus the critical 4-to-3 differential has rank zero over Q, hence is zero over Z; this confirms the needed conclusion without relying on the uploaded signed recurrence. In that Morse CW model the 3-skeleton is a wedge of six S³, and the Hurewicz isomorphism makes each vanishing cellular boundary equivalent to a null attaching map. Purity is dimension five, so nonzero lower-degree homology obstructs pure shellability.",
+      "residual_risks": [
+        "The proof text could explicitly add that a 3-cell paired downwards contributes zero in the signed reduction, as the frozen checker does. The independent Betti and acyclicity calculation bypasses that convention. The result is only for the complete six-letter three-cycle class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Resultary conjugacy-class hit gives initial skeleton/connectivity bounds. The frozen literature discussion identifies general realization and a two-generator theorem in the 2019 work, and freeness of fundamental groups in Govc. Primary passages could not be independently retrieved in the bounded lookup."
+        ],
+        "reasoning": "A lower connectivity bound does not give the precise middle-dimensional homology or integral attaching data; two-generator results do not apply to forty facets.",
+        "searches": [
+          "Resultary 16886ad8ae23",
+          "Chachólski–Levi–Meshulam arXiv:1908.03394; Govc arXiv:2611.11362"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 58227329ae81, 16886ad8ae23, 43c09daa8e41, fe4655d58020, 0bdb08a9e169 (indexed statements)",
+        "Frozen RESULT.md §§Finding, Assumptions and Relationship to prior work; frozen AUDIT.json literature comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An initial-skeleton result may control low-degree connectivity; the full-cycle and subgroup statements neither specify nor imply the incidence/cancellation computation for the three-cycle subword complex. Freeness alone does not determine a wedge in degrees 3 and 4."
+        ],
+        "reasoning": "None of the compared exact statements implies the supported higher homotopy classification. Not a claim about all the unread material in those works.",
+        "searches": [
+          "Resultary 16886ad8ae23 and 43c09daa8e41; frozen RESULT.md §§Assumptions and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen definitions agree for the regular ordered-word cell structure and its barycentric order complex. Forgetting word order collapses every full support to the same simplex; taking the whole injective-word complex instead gives 720 maximal words rather than 40."
+        ],
+        "reasoning": "The order-complex formulation could encode an equivalent theorem; the unordered support complex and full injective words do not.",
+        "searches": [
+          "\"permutation complex\" \"three-cycles\" S6 injective words homotopy type",
+          "Resultary: conjugacy class (3,1,1,1), ordered subwords, six three-spheres and eight four-spheres"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact (6,8) wedge hit is the assigned record 58227329ae81. Distinct indexed n=6 full-cycle and six-point PSL₂(F₅) computations give ranks (1,88) and (30,5) in degrees 3,4, respectively. The transposition example concerns S5. No primary exact three-cycle table was retrieved."
+        ],
+        "reasoning": "This is not the same permutation set as all six-cycles or a subgroup in its six-point action; a similar mixed-degree table and same-day date do not establish equivalent coverage.",
+        "searches": [
+          "Resultary exact six-letter three-cycle wedge counts; nearby hits 43c09daa8e41, fe4655d58020, 0bdb08a9e169",
+          "Exact three-cycle literature query above"
+        ]
+      },
+      "rationale": "The supported distinct claim is the specific mixed-dimensional integral wedge and hence nonshellability for this 40-generator ordered-word complex. The strongest same-alphabet examples use different facet sets and give distinct invariants. The indexed general conjugacy-class bound or a theorem on fundamental groups is not a calculation of the two higher-dimensional wedge counts.",
+      "residual_risks": [
+        "Primary full texts and related mirror passages could not be obtained in these bounded attempts. An unindexed exact three-cycle table or an unread general classification could affect priority; the negative search is not a uniqueness claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Initial skeleton and connectivity comparison, not an exact higher homotopy classification on the statement read",
+          "evidence": [
+            "The indexed conclusion controls low-degree skeleton/connectivity rather than the full wedge multiplicities."
+          ],
+          "identifier_or_url": "Resultary 16886ad8ae23",
+          "material_read": "Indexed mathematical statement; full mirror passage unavailable",
+          "method": "Configured Resultary search and bounded local mirror request",
+          "title": "Cycle-packing connectivity bounds for conjugacy-class permutation complexes",
+          "trigger": "General conjugacy-class statement potentially specializing to this class"
+        },
+        {
+          "assessment": "Different generators and higher Betti numbers",
+          "evidence": [
+            "All six-cycles give (1,88) in degrees 3,4; the six-point PSL₂(F₅) example gives (30,5)."
+          ],
+          "identifier_or_url": "Resultary 43c09daa8e41, fe4655d58020",
+          "material_read": "Indexed statements; full texts unavailable",
+          "method": "Configured Resultary search and mirror request",
+          "title": "Integral homology and the first mixed-degree threshold for long-cycle complexes; Integral homology of the six-point projective-special-linear permutation complex",
+          "trigger": "Closest distinct six-letter mixed-degree tables"
+        },
+        {
+          "assessment": "Comparison limited to described statements, not whole-document noncoverage",
+          "evidence": [
+            "Realization and two-permutation classification; free fundamental group theorem as cited."
+          ],
+          "identifier_or_url": "arXiv:1908.03394; arXiv:2611.11362",
+          "material_read": "Frozen prior-work descriptions; no independent primary passage obtained",
+          "method": "Frozen RESULT.md lines 50–62 and bounded OA attempts",
+          "title": "On the topology of complexes of injective words; Fundamental Groups of Permutation Complexes",
+          "trigger": "General injective-word realization and fundamental-group results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof",
+        "Resultary 16886ad8ae23 and 43c09daa8e41 indexed comparisons"
+      ],
+      "rationale": "Using the whole three-cycle class selects a natural generator family, rather than arbitrary permutations. The result gives a pure five-dimensional example with lower homology in two different degrees and an actual two-connected integral wedge type. It distinguishes homology, homotopy and shellability for a specific natural complex beyond the general low-connectivity bounds and Euler-characteristic data.",
+      "residual_risks": [
+        "No claim of first occurrence over alphabet sizes, a general family formula, or equivariant classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

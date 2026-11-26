@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:17.891300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–36",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected without executing the package)",
+        "Independent exhaustive n=5 through 18 reproduction: /workspace/branches/5b37c416-8ed4-5fed-9d4e-eda3548f1cd2/independent_count.py and independent_count_output.txt"
+      ],
+      "rationale": "The open-neighbour one count is the total weight minus the centred triple. In odd order the outer layers go straight to consensus. At weight m in order 2m+1, the new ones count isolated ones and 000 centres. With r one-runs, the second count is at most m-r and the first is at most r-1 unless all ones are isolated. In the latter case r=m and the sole 00 gap determines a fixed word, with n labelled choices; complementing gives the other middle layer. A block of m ones witnesses sharpness. In even order, outside the balanced layer the only nonconsensus recurrent configurations are at weight m±1 with a single run of each colour: at m-1 the new ones are the 000 centres, attaining m-1 iff the zeros form one run. The run then moves by m and back, giving n distinct cycles across the two flanks. No trajectory leaving balance can return. Within balance the update is the complement of three-site majority, and its square along a balanced orbit is majority squared. Equal adjacent pairs are permanent for majority; their neighbouring sites either already lie in a permanent pair or join one in a step. Thus noncheckerboard majority orbits become fixed, so the only balanced recurrent words are the two checkerboards and the no-singleton words. The latter are exchanged with their complements. Counting positive runs of each colour by compositions with parts at least two, rooting at a one-run start and dividing by the number of roots gives H_m. This yields all counts and excludes longer periods. An exponential lower bound already follows by taking r=floor(m/3) in the sum and bounding the central binomial term below by 4^(r-1)/(2r-1).",
+      "residual_risks": [
+        "The independent enumeration verifies sampled counts and odd entry times, not the infinite family; the layer/run argument is needed for the latter. No even-order maximal entry-time assertion was reviewed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Symmetric majority has eventual period at most two by the cited Goles–Olivos theorem. The voting-time work gives general convergence analysis. The crown/rook record gives exact counts on a different family."
+        ],
+        "reasoning": "A period restriction does not classify the configurations on either parity of a cycle complement; the inspected general bounds do not give its exact times or counts.",
+        "searches": [
+          "arXiv:1405.2486, pp. 3–4",
+          "arXiv:1508.03519, pp. 1 and 3",
+          "Resultary …5148ea2063d6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and references",
+        "Two distinct Resultary matches",
+        "arXiv:1405.2486",
+        "arXiv:1508.03519",
+        "OEIS A263656 and Integers A19 index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-family record's even orbit reaches one balanced primitive two-cycle. The no-zigzag result counts the balanced combinatorial class only."
+        ],
+        "reasoning": "Neither supplies the exclusion of all other balanced orbits and classification of both flanking layers needed to derive P_(2m)=H_m+4m+4. The genuine remainder is not the odd theorem or the sequence by itself.",
+        "searches": [
+          "Resultary …c1a31cd30a7a, Finding",
+          "arXiv:1405.2486, finite graph period result",
+          "OEIS A263656"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-family record uses open neighbours and retained ties and obtains exactly 2n+2 fixed words within two updates for odd n>=7."
+        ],
+        "reasoning": "Its even statement is about one balanced initial word and its linear entrance time; it does not count or classify all labelled recurrent words, especially the unbalanced run pairs.",
+        "searches": [
+          "Resultary: deterministic binary majority, complements of cycles, exact fixed and period-two states",
+          "Resultary …c1a31cd30a7a, Finding and odd/even proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A263656 lists balanced circular binary strings of length 2m avoiding 010 and 101; at m=2 through 10 its exact entries match the H_m sum."
+        ],
+        "reasoning": "This is precisely the balanced no-singleton class. Credit its enumeration and do not treat H_m or its growth as novel; that sequence does not determine which other reached configurations recur.",
+        "searches": [
+          "OEIS A263656",
+          "Integers vol. 3, A19"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete even-order dynamical recurrent-state characterization, in particular the off-balance moving runs and the exact assembly of the balanced, flanking and consensus contributions. The general period restriction and balanced-word enumeration are established results. A distinct catalogue record duplicates the odd theorem for n>=7 and contains one even trajectory, not the complete even census. Mathematical overlap is credited regardless of catalogue priority.",
+      "residual_risks": [
+        "The original A19 asymptotic passage could not be checked in full text; the exact class match is supported and exponential growth independently follows from the sum. This bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact odd overlap in the shared range, not the even census",
+          "evidence": [
+            "Odd sharp two-step entry and 2n+2 fixed points; even exact trajectory time for one initial word."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-parity-and-long-transients-in-majority-dynamics-on-cycle-complem--c1a31cd30a7a/RESULT.md",
+          "material_read": "Finding, assumptions and odd proof (offset 0); even statement",
+          "method": "Local Resultary mirror",
+          "title": "Parity and long transients in majority dynamics on cycle complements",
+          "trigger": "Identical graph and update"
+        },
+        {
+          "assessment": "Related problem, different graph families",
+          "evidence": [
+            "Counts and transient depths concern rook and crown graphs, not the all-n complement-of-cycle family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-an-odd-degree-attractor-inversion-between-crown-and-rook-majorit--5148ea2063d6",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "An odd-degree attractor inversion between crown and rook majority",
+          "trigger": "Parity-dependent exact majority census on complementary graph families"
+        },
+        {
+          "assessment": "Already gives the period restriction, not the census",
+          "evidence": [
+            "Finite period at most two, and almost-sure finite-time pointwise eventual periodicity in the unimodular setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "pp. 3–4, offsets 7900–11390",
+          "method": "Open arXiv text",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General majority period restriction"
+        },
+        {
+          "assessment": "General voting-time analysis rather than the target enumeration",
+          "evidence": [
+            "Uses convergence and graph modules/contractions, not the centred triple cycle-complement classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "pp. 1 and 3, offsets 2270 and 8645",
+          "method": "Open arXiv text",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Potential convergence-time implication"
+        },
+        {
+          "assessment": "Direct exact sequence overlap",
+          "evidence": [
+            "2003 article A19 by Munarini and Zagaglia Salvi; OEIS class and exact values match."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/vol3.html; https://oeis.org/A263656",
+          "material_read": "Journal index and OEIS definition and entries; original proof not accessible in the attempted copies",
+          "method": "Lawful journal and OEIS pages; author copy and linked repository routes attempted",
+          "title": "Circular Binary Strings Without Zigzags",
+          "trigger": "Exact H_m predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–4",
+        "Same-family Resultary comparison",
+        "OEIS A263656"
+      ],
+      "rationale": "The result explains why changing the parity of a dense natural graph family switches the attractor population from linear to exponential. The surviving even-order classification accounts for two genuinely different two-cycle mechanisms and gives their exact labelled census, not just an exponential-growth estimate from a known word table.",
+      "residual_risks": [
+        "The census does not control basin sizes or even-order worst-case transients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

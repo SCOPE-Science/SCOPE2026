@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:30:29.824808Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and analytic proof lines 23–55",
+        "VERIFICATION.md and verify.py (inspected; the 401-point samples are not used as proof)"
+      ],
+      "rationale": "For θ=π/n, the midpoint and outward side normals in the unit-curvature hyperboloid model are X=(csc θ,cot θ,0) and N_k=(cot θ,csc θ cos(2kθ),csc θ sin(2kθ)) in signature (−,+,+). The normals have norm 1 and the absolute Lorentz product is 2 cos θ sin²(kθ)/sin² θ, the sinh of perpendicular distance to the complete side. Its minimum off k=0 occurs exactly at the two adjacent sides. In the upper half-plane along ie^t, a neighbor sharing infinity has distance arsinh(Ce^(−t)) by the point-to-vertical-line formula, and the neighbor sharing zero has arsinh(Ce^t) by inversion and symmetry, with C=2 cos θ. Their minimum strictly drops away from t=0, so no other point can attain the value even after adding the rest of the sides. This also covers n=3. Strict increase with n and the n^(-2) term follow from 2 cos x=2−x²+O(x⁴) and derivative 1/√5 for arsinh at 2.",
+      "residual_risks": [
+        "Only complete ideal sides of a regular polygon under curvature −1 are covered; the result is not a universal sharp bound over polygon shapes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compact theorem solves all n and R, including nearest-contact transition. The ideal-quadrilateral theorem solves all cross ratios, with the regular class at κ=2 and sharp all-shapes upper bound arsinh(√3). The cyclic-quadrilateral paper instead bounds sums and products of infimal opposed-side distances."
+        ],
+        "reasoning": "The compact result dominates via the ideal endpoint; the ideal cross-ratio result directly specializes to n=4 but not n≥5. Infimal opposite-side distances are not side slimness and do not constitute coverage by themselves.",
+        "searches": [
+          "Resultary e6f6ea228861 and e0350d643ade",
+          "Wang–Vuorinen–Zhang, hyperbolic cyclic quadrilaterals, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and relationship-to-prior-work section",
+        "Resultary search and both decisive full statement/proof passages",
+        "Named polygon literature and ideal-triangle notes above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the acute compact regime, the sinh of the smaller adjacent distance at offset t from the midpoint is sin(θ_R) sinh(L/2−|t|). The proof gives sin(θ_R) sinh(L/2)=T→2 cos(π/n), and the radial-angle comparison selects the adjacent sides at the midpoint. The ideal quad proof gives the full three-side comparison at κ=2."
+        ],
+        "reasoning": "For fixed t, the compact sinh ratio tends to e^(−|t|) as L→∞, keeping the strict off-midpoint upper bound. At the midpoint, limiting distances to the finite collection of sides give equality. The compact radial-angle comparison also transfers strictly for every finite closest point on a nonadjacent ideal side: its angle lies at least 3π/n away and rotating/reflecting to a neighboring interval gives an angle strictly closer than that boundary, at the same radius. Thus only the adjacent sides attain the minimum. The monotonicity and expansion in n are immediate calculus on the already displayed formula.",
+        "searches": [
+          "Compact regular polygons e6f6ea228861, proof steps 2–5, ideal limit and relationship to prior work",
+          "Ideal quadrilaterals e0350d643ade, exact side profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both geometries use the distance from a side point to the union of the other sides. The compact Finding explicitly gives the ideal-polygon value arsinh(2 cos(π/n)) as circumradius R tends to infinity and treats it as background. The Tselekidis general bounds do not evaluate it."
+        ],
+        "reasoning": "As vertices tend along the fixed rays to their ideal endpoints, the side segments exhaust the limiting supporting lines locally; their distances at a fixed centered arclength converge to distances to the complete sides. Thus this is not a change to a different meaning of slimness or a claim of finite and ideal sides being identical.",
+        "searches": [
+          "Resultary semantic search for exact side slimness of regular ideal polygons and circumradius/zero-angle limits",
+          "Resultary compact regular polygons e6f6ea228861",
+          "Tselekidis arXiv:2611.05429v1 §2.2 and arXiv:2611.09078v1 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen hit is a self-match and not evidence of priority. The separate compact record explicitly displays the identical all-n ideal formula. Bestvina gives arsinh 1 for ideal triangles, and the separate quadrilateral record gives arsinh √2 for the regular ideal square."
+        ],
+        "reasoning": "This is verified exact formula coverage, not an inference from titles, generic polygon thinness bounds, or same-day ordering.",
+        "searches": [
+          "Resultary search for arsinh(2 cos(π/n)) and regular ideal n-gon slimness",
+          "Bestvina Hyperbolic geometry notes, p. 5, problems 9–10"
+        ]
+      },
+      "rationale": "A distinct indexed compact-regular-polygon theorem explicitly states the identical ideal value for every n and yields the midpoint and adjacent-side conclusions by its proved distance profile and a routine ideal limit. A second distinct record gives the exact all-shapes ideal quadrilateral profile, including the regular n=4 case. This establishes mathematical coverage of the packaged claim, not which of the same-day records was written or published first.",
+      "residual_risks": [
+        "The checked material does not establish historical priority, independence or the direction of dependence among the same-day records. The verdict concerns demonstrated mathematical coverage, not attribution of plagiarism or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit formula overlap and proof-level implication of the ideal extremal geometry. Dependence and priority are not determined by the same-day catalogue date or by the source calling the ideal value background.",
+          "evidence": "Unique midpoint at all R; at large R, neighboring contacts are interior perpendicular feet, with point-to-neighbor distance given by f(u)=arsinh(sinh u sin θ_R). Exact midpoint expression T→2 cos(π/n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-slimness-and-a-contact-transition-for-compact-regular-hype--e6f6ea228861/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 2–5 and Relationship to prior work, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror passages at offsets 0, 4915 and 7315",
+          "title": "Exact slimness and a contact transition for compact regular hyperbolic polygons",
+          "trigger": "Direct all-n formula match with stronger finite-radius family"
+        },
+        {
+          "assessment": "Same slimness invariant and strict generalization of the n=4 case, not the all-n regular claim by itself",
+          "evidence": "The regular case κ=2 has slimness arsinh √2; over all shapes, the sharp bound is arsinh √3 at κ=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-side-slimness-and-contact-bifurcation-of-ideal-hyperbolic--e0350d643ade/RESULT.md",
+          "material_read": "Finding and first steps of the proof, local mirror offset 0 onward",
+          "method": "Bounded local mirror passage",
+          "title": "Sharp side slimness and contact bifurcation of ideal hyperbolic quadrilaterals",
+          "trigger": "Exact ideal n=4 overlap under broader moduli"
+        },
+        {
+          "assessment": "Definition and general bounds rather than regular ideal classification",
+          "evidence": "General polygon slimness bound ε_n≤(n−2)δ.",
+          "identifier_or_url": "arXiv:2611.05429v1 and arXiv:2611.09078v1",
+          "material_read": "§2.2 offsets 8400–11399 and §2.3 offsets 10800–16299 respectively",
+          "method": "Bounded OA HTML inspection",
+          "title": "Logarithmically Slim Polygons; Slim Polygons, Hyperbolicity, and a new Quasi-Isometric Invariant",
+          "trigger": "Broader hyperbolic polygon estimates"
+        },
+        {
+          "assessment": "Known n=3 value and a general quadrilateral bound",
+          "evidence": "Ideal triangle value log(1+√2); general 2δ quadrilateral estimate.",
+          "identifier_or_url": "Bestvina, Hyperbolic geometry, p. 5",
+          "material_read": "Problems 9–10 near PDF text offset 8600",
+          "method": "OA PDF passage",
+          "title": "Hyperbolic geometry (Bestvina course notes)",
+          "trigger": "Sharp triangle case and quad comparison"
+        },
+        {
+          "assessment": "Different invariant, not covering",
+          "evidence": "Bounds the product and sum of infimal distances between opposite sides.",
+          "identifier_or_url": "Wang, Vuorinen and Zhang, Theorem 1.2",
+          "material_read": "Theorem 1.2, p. 2, PDF offsets 4750–7025",
+          "method": "Bounded OA PDF passage",
+          "title": "On cyclic quadrilaterals in Euclidean and hyperbolic geometries",
+          "trigger": "Potential equivalent hyperbolic quadrilateral bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Compact regular theorem e6f6ea228861, Finding and proof steps 2–5",
+        "Ideal quadrilateral theorem e0350d643ade, Finding and exact profile"
+      ],
+      "rationale": "Regular ideal slimness is a natural exact benchmark, and the concise analytic proof is correct. But as a standalone new finding, its exact value is already supplied by the broader compact theorem's ideal endpoint; its maximizing and contact claims follow from that theorem's profile, and the n-asymptotic is an elementary expansion of the same covered value. There is no independently useful unknown invariant left in the frozen Finding that warrants a repair.",
+      "residual_risks": [
+        "The verdict is not a claim that regular ideal polygons lack mathematical or expository interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:35:05.448963Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–127, 129–145",
+        "Frozen VERIFICATION.md and checker.py",
+        "/workspace/branches/independent_checks.py",
+        "arXiv:2610.26657 Appendix B, eqs. (B3)–(B7), for the positive-feedback normalization"
+      ],
+      "rationale": "For each q>0, work on the complexified scalar-plus-L² state space with scalar weight f_q/b_q. The cross-terms of the negative-generator form are conjugate pairs with coefficient -f_q. The trace is bounded relative to bulk gradient energy (with arbitrarily small relative bound for the cross terms), so the form is closed, semibounded, and compactly embedded. Integration by parts yields the stated signs and Robin condition. For an independent threshold check, take R to be the static Robin solution with unit boundary forcing. Its boundary value is R(0)=1/[κ+D_c q coth(Hq)]. Completing the form square in C-f_q w R leaves the scalar coefficient (f_q/b_q)a_q-f_q²R(0). The chemical energy is positive definite, so below threshold all eigenvalues of the generator are negative, at threshold the kernel is one-dimensional, and above threshold it has exactly one positive simple eigenvalue. At s>0 the surface response is strictly smaller than at zero since x coth(x) is increasing and m=sqrt(q²+s/D_c)>q; the dispersion equation therefore gives strict slowing relative to the static prediction. For minimization, with y=Hq and t=y coth y, the stationary-point map has denominator M=2+U(2t-yt'), which is greater than Ut. Since t''>0 and 0<t'/t<1/y, M'/M<t'/t and the logarithmic derivative of B_U exceeds 2/y. B_U ranges from zero to infinity, and the derivative of F has the sign of B_U-β. The small-y expansion is B_U=Uy⁴/[3(1+U)]·(1+O(y²)); it yields q_*²=sqrt(D_r A/(D_t K))+O(D_r) with A=κ+D_c/H and K=D_cH/3, and hence the claimed threshold correction with O(D_r) remainder. Bounded replay `python3 /workspace/branches/independent_checks.py 1` gives q*=1.7214210415 and G_c=3.7918904277 for unit parameters. The printed q approximation in RESULT.md differs by about 1.4e-7, immaterial to the theorem; the gain agrees at the displayed precision. Inspected the supplied finite-volume checker but did not execute it.",
+      "residual_risks": [
+        "All-spectrum and onset statements are for the weighted orientation-only block at fixed nonzero q in the specified linearized model. Physical validity requires qε much smaller than one; the theorem is not a nonlinear prediction, a stability gap uniform down to q=0 for all particle modes, or a Hopf exclusion with translational mobility."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tucci et al. give an algebraically screened chemical response and a multispecies Hopf threshold.",
+          "Liebchen et al. retain a dynamic chemical field with volumetric production and decay and self-propelled particles."
+        ],
+        "reasoning": "Neither model covers this positive one-channel surface-to-bulk coupling with finite-height Robin–Dirichlet transfer, nor implies the exact profile minimizer and critical-gain coefficients. An abstract symmetric form argument could cover the spectral mechanism but would not alone yield those slab-specific calculations.",
+        "searches": [
+          "arXiv:2402.09279 Appendix C, eqs. (63)–(65) and §III eq. (23)",
+          "arXiv:1508.04673 eq. (1) and §III",
+          "Resultary finite-time slab, Robin–Dirichlet surface feedback, oscillatory polar instability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked semantic comparisons",
+        "arXiv:2610.26657",
+        "arXiv:2402.09279",
+        "arXiv:1508.04673"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At μ=0 the source's polar linear equation and static boundary response already give G=F(q) when s=0.",
+          "The later-in-spectral-parameter Robin response and weight f_q/b_q are needed to compare positive finite-time rates and the actual spectrum; neither has an analogue in the source's static matrix."
+        ],
+        "reasoning": "The quasistatic source supplies the exact neutral curve, so minimizing that same function requires no new dynamical formula. The inspected reports do not give or mechanically imply its global uniqueness or slab asymptotic coefficients, or the no-Hopf and growth-suppression claims for the actual time-dependent generator.",
+        "searches": [
+          "arXiv:2610.26657 Appendix B, eqs. (B3)–(B12)",
+          "arXiv:2402.09279 eqs. (23), (63)–(65)",
+          "arXiv:1508.04673 eq. (1) and delayed-orientation discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With q along x, (B4) and (B7) give the same gain and static denominator; restoring ∂t δc replaces q by sqrt(q²+s/D_c) in that denominator.",
+          "The primary study explicitly sets ∂t δc=0 for its spectral calculation."
+        ],
+        "reasoning": "A Schur complement or Robin-to-trace formulation gives the same stationary curve at s=0. The instantaneous transfer law at all s is not equivalent to the actual relaxation-dependent eigenproblem.",
+        "searches": [
+          "Resultary semantic searches for finite-relaxation Robin–Dirichlet slab spectrum, Janus polar instability and the record title",
+          "arXiv:2610.26657 Appendix B, eqs. (B3)–(B11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching dynamic slab classification was identified in inspected ranked Resultary results.",
+          "The source's displayed (B12) is a long-wave threshold; (B7) contains the previously known per-mode static denominator. The earlier volumetric model's instability regimes are for another system."
+        ],
+        "reasoning": "Neither a long-wave threshold nor a phase diagram in different geometry tabulates the exact finite-relaxation band and minimizing mode of this slab. The bounded index result is not evidence of global absence.",
+        "searches": [
+          "Resultary finite-relaxation polar onset/Janus slab records",
+          "arXiv:2610.26657 Appendix B, particularly (B7) and (B12)",
+          "arXiv:1508.04673 instability discussion"
+        ]
+      },
+      "rationale": "The prior quasistatic equations imply the stationary per-q gain and the quasistatic growth rate; neither is new. The supported distinct result is the positive-feedback dynamic slab classification (all-real spectrum, no oscillatory onset, strict growth suppression), its combination with all-parameter single-band geometry, and the exact slab-dependent low-rotation coefficients. The quarter-root exponent, chemical memory, and polar feedback in isolation are not novelty claims.",
+      "residual_risks": [
+        "A general parabolic boundary-feedback theorem or an unindexed same-slab analysis could cover more than the inspected works; external primary comparison was focused on the three closest cited works. No priority certificate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct static coverage; not the dynamic theorem.",
+          "evidence": "Fast-diffusion condition ∂t δc=0; (B4), (B6) and (B7) imply static orientation-only neutral curve; (B12) states a long-wave threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.26657",
+          "material_read": "Appendix B, PDF pages 9–10, (B3)–(B12); checked displayed polar and solute equations and static transfer",
+          "method": "Public original PDF via OA reader",
+          "title": "Dynamic clustering of active chemotactic Janus particles",
+          "trigger": "Same physical slab and source-dipole equations"
+        },
+        {
+          "assessment": "Prior screened polar work and collective Hopf behavior, different transfer and feedback geometry.",
+          "evidence": "The single-species response denominator is D_c(κ²+k²); eq. (23) concerns a multispecies mode.",
+          "identifier_or_url": "https://arxiv.org/html/2402.09279",
+          "material_read": "Appendix C (63)–(65), around offset 112100; §III (23), around offset 45400",
+          "method": "Public original HTML via OA reader",
+          "title": "Nonreciprocal collective dynamics in a mixture of phoretic Janus colloids",
+          "trigger": "Near-match on polar/screened feedback and Hopf"
+        },
+        {
+          "assessment": "Chemical memory is prior; delayed-orientation modes do not address the restricted slab.",
+          "evidence": "The field has bulk diffusion and volumetric source and decay, with self-propulsion and relaxing polarization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.04673",
+          "material_read": "Eq. (1), p. 2, and §III instability discussion around pp. 4–5",
+          "method": "Public original PDF via OA reader",
+          "title": "Clustering and pattern formation in chemorepulsive active colloids",
+          "trigger": "Earlier dynamic chemical diffusion with polarization feedback"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "arXiv:2610.26657 Appendix B",
+        "arXiv:1508.04673 §III"
+      ],
+      "rationale": "The question of when a quasistatic approximation misses an oscillatory onset is substantive in this source model. The result distinguishes exactly what finite diffusion changes (growth rates) from what it does not (threshold and stationary onset), and specifies a unique predicted mode, band, and crossover scale useful in comparing slab parameter regimes.",
+      "residual_risks": [
+        "Restricted model and linear prediction only; no guarantee about finite boxes, nonlinear pattern formation or full active-colloid dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:15.199689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With inner product linear in the first slot, multiplying the four quadratic evaluations at x+i^r y by i^r selects 4⟨Sx,y⟩; the sum of squared argument norms is 8 for unit vectors. Thus ||S||≤2w(S). For signs ε_j, Hölder duality bounds w(sum ε_jT_j) by k^(1/q) w_p with 1/q=1−1/p, also at p=1 using ℓ∞. On every unit input x, expansion and cancellation over all signs gives the exact mean ||sum ε_j T_jx||²=sum ||T_jx||². The largest signed operator norm therefore dominates the joint 2-norm; no attainment of an operator-norm supremum is needed in infinite dimension. For p≤2 the factor k^(1/p−1/2) relating joint p- to 2-norms combines with k^(1/q) to give sqrt(k). For p≥2, the largest individual norm gives k^(1/p) instead. The common-source tuple has all products zero, joint norm k^(1/p), and numerical radius max |a| ||b||_p over |a|²+||b||₂²≤1. The coordinate norm inequality is attained by uniform magnitudes below 2, an arbitrary Euclidean output direction at 2, and a single coordinate above 2, in each case with |a|=||b||₂=1/sqrt(2). The dimension assumption gives the orthogonal input and k outputs, k=1 agrees with the scalar value, and the proof covers all tuples in the lower bound. Inspected the supplied finite checker without executing it. Independent exact small-vector sign moment and four witness-ratio checks agreed; replay python3 /workspace/branches/independent_finite_checks.py (check 4). These samples are not an all-operator verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mal Theorem 3.1 states n(X)k^(−1/p)≤n_(p,k)(X)≤n(X); with n(H)=1/2 the lower bound is strictly weaker below 2 if k>1, and precisely matches the p≥2 branch.",
+          "Moslehian–Sattari–Shebrawi Theorem 3.1 provides signed-combination Hölder control for p>1; equal weights give the frozen coefficient factor k^(−1/q), but the statement does not compare the largest signed operator norm to the joint 2-norm or cover p=1.",
+          "The Çevik–Bhunia full text was not available in the lawful attempts; no statement-level exclusion is made from an abstract."
+        ],
+        "reasoning": "The broad Mal lower bound covers one branch exactly; below 2 neither it nor the cited numerical-radius estimate by itself proves the needed constant for the supremum over every operator tuple.",
+        "searches": [
+          "https://files.ele-math.com/articles/oam-17-56.pdf Theorem 3.1",
+          "10.7146/math.scand.a-25509 Theorem 3.1",
+          "10.1007/s41478-026-01118-5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.06500",
+        "10.7153/oam-2023-17-56",
+        "10.7146/math.scand.a-25509",
+        "Resultary:8d865e6176dd",
+        "10.1007/s41478-026-01118-5 (limited access)",
+        "10.1080/03081087.2013.816303 (cited; no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the known Mal witness and its input-output decomposition, ℓ_p≤ℓ_2 for p≥2 and concentration on one coordinate give w_p=1/2 while ||T||_p=k^(1/p); this attains Mal's earlier universal bound in all those cases.",
+          "For p<2 the direct comparison w_p≥w_2 and ||T||_p≤k^(1/p−1/2)||T||_2 only gives 1/(2k^(1/p)), not the plateau. Extracting the sign second moment before taking the supremum and combining it with signed Hölder gives the missing factor k^(1/p−1/2)."
+        ],
+        "reasoning": "The higher-exponent extension should be treated as implied by known results with elementary norm comparison. Below 2, neither this change of exponent nor optimization within the prior witness class suffices: the unrestricted lower bound is the distinct quantitative implication established here.",
+        "searches": [
+          "Mal journal Theorems 3.1 and 3.11 proofs",
+          "10.7146/math.scand.a-25509 §3 Theorem 3.1",
+          "10.1080/03081087.2013.816303 Theorem 9 reference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mal Proposition 2.4 in the preprint equates the norm property of joint w_p on tuples with that of scalar w, not the sharp quantitative comparison.",
+          "Mal's journal Theorem 3.11 uses the same joint operator norm and establishes p=2 for all permitted tuple lengths and p>2 with k=2. Its witness is common-input with orthogonal outputs."
+        ],
+        "reasoning": "The assigned ratio uses the supremum of the inputwise ℓ_p norm of output lengths, not the ℓ_p sum of individual operator norms or the supremum of scalar linear-combination operator norms. A result proving merely that the joint numerical radius is a norm is not a sharp index result; the cited exact Mal cases genuinely coincide.",
+        "searches": [
+          "arXiv:2212.06500 Proposition 2.4 and joint operator norm definition",
+          "DOI:10.7153/oam-2023-17-56, Theorem 3.11",
+          "Resultary:8d865e6176dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 8d865e6176dd mirrored RESULT.md at offset 0 gives 1/(2 sqrt(min{k,m−1})) for the restricted common-source rank-one class and explicitly concerns p=2.",
+          "Mal journal Theorem 3.11 gives matching exact parameter cells p=2 and p>2,k=2."
+        ],
+        "reasoning": "The catalogue entry is meaningful overlap in both witness and Euclidean value, but its restricted optimum (including dimensions m≤k) is not an unrestricted lower bound or a p<2 exact table. No exact antecedent for that plateau was established by the checked sources.",
+        "searches": [
+          "Resultary:8d865e6176dd",
+          "Mal arXiv:2212.06500 and journal Theorem 3.11 exact Hilbert cases"
+        ]
+      },
+      "rationale": "Credit Mal's exact p=2 and p>2,k=2 cases, the known rank-one witness idea, and the known general lower bound. The high-p all-k equality is a direct extension by using Mal's lower bound and evaluating the same p=2 witness with the ℓ_p≤ℓ_2 inequality, not the case for substantive novelty. The supported distinct result is the sharp unrestricted 1≤p<2 plateau for k>1 and hence its place in the phase diagram. The known signed Hölder estimate is a component, not the precise universal joint-index lower bound; the proof needs the additional second-moment control on joint operator norms. The result is not presented as new for p=2, k=1, or the already covered and mechanically implied high-p cases.",
+      "residual_risks": [
+        "The inaccessible Çevik–Bhunia and Drnovšek–Müller texts and unindexed sharp norm comparisons may contain further coverage; no absence is inferred from retrieval failure.",
+        "The elementary nature of the sign-moment argument makes it plausible that an equivalent formulation occurs outside the joint numerical-index terminology; the inspected earlier results do not establish it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlapping p=2 and high-p two-operator cases and general high-p lower bound; not exact p<2 plateau",
+          "evidence": [
+            "Journal Theorem 3.11(i)–(iv) states the matching exact subcases and uses the common-input witness; theorem numbered 3.10 in the preprint."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-17-56.pdf",
+          "material_read": "Journal Theorems 3.1 and 3.11, OA offsets ~26950, 44200, 48198, theorem and proof; preprint arXiv:2212.06500 Proposition 2.4 at ~13750",
+          "method": "OA journal PDF and arXiv preprint passages",
+          "title": "On joint numerical radius of operators and joint numerical index of a Banach space",
+          "trigger": "Same index and strongest earlier exact cases and bounds"
+        },
+        {
+          "assessment": "Gives the needed Hölder component for p>1 but not the sharp index or averaging of the operator norms",
+          "evidence": [
+            "Signed Hölder bound specializes at equal coefficients to the k^(−1/q) factor."
+          ],
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-25509",
+          "material_read": "§3 Theorem 3.1, PDF pp. 9–10, offsets 16750–20158",
+          "method": "OA PDF passages",
+          "title": "Extensions of Euclidean operator radius inequalities",
+          "trigger": "Possible exact low-exponent inequality by sign-combination method"
+        },
+        {
+          "assessment": "Restricted p=2 sharp result, no unrestricted all-p claim",
+          "evidence": [
+            "Optimum 1/(2 sqrt(min{k,m−1})) within the common-source rank-one class, with p=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dimension-saturated-joint-numerical-radius-for-common-source-ran--8d865e6176dd",
+          "material_read": "Mirrored RESULT.md at offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "Dimension-saturated joint numerical radius for common-source rank-one tuples",
+          "trigger": "Materially overlapping exact prior catalogue result and witness class"
+        },
+        {
+          "assessment": "No full-text assertion ruled out; unresolved access risk",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/s41478-026-01118-5",
+          "material_read": "No full text; only bibliographic/abstract scope usable",
+          "method": "Bounded lawful attempts at DOI, article and PDF routes",
+          "title": "Joint numerical radius for n-tuples of operators",
+          "trigger": "Same p-joint radii with possible wider sharp comparisons"
+        },
+        {
+          "assessment": "Earlier witness antecedent credited, substantive full-text coverage not inferred",
+          "evidence": [
+            "Mal cites Theorem 9 as the idea behind the p=2 construction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2013.816303",
+          "material_read": "Mal's explicit antecedent citation; this paper's full text not retrieved",
+          "method": "OA DOI lookup and citation comparison",
+          "title": "On joint numerical radius II",
+          "trigger": "Mal attributes Euclidean witness idea to Theorem 9"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Below the Euclidean exponent, settling the sharp comparison simultaneously for every k>1 resolves a natural missing quantitative invariant: the earlier generic bound is worse by k^(1/p−1/2), not a negligible special-case gain. The exact plateau and attaining vectors explain how joint geometry compensates for changing p, including the endpoint p=1. The known high-exponent branch and witness origin do not independently supply novelty or value. No smaller-dimension assertion or classification of all extremizing tuples is needed or claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

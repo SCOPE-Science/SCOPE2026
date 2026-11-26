@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:18.213460Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, phase test and Proof 1–4",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Replay: python3 -B /workspace/review_evidence/spherical_cross_section.py"
+      ],
+      "rationale": "The shortest distance to the boundary equals the smallest distance to a supporting circle: a shortest arc to a minimizing circle cannot leave through any side earlier than that minimum. The nearest point z in the normals' convex hull gives n_i·(z/||z||)≥||z|| by projection, whereas min_i n_i·x≤z·x≤||z||, with equality only at o=z/||z||. A single vertex cannot minimize since moving toward a distinct unit normal initially decreases the norm. A two-weight optimum is the midpoint, yielding precisely the stated Gram test, and two distinct eligible pairs would contradict uniqueness. With three positive weights the tangent normals positively span the plane, so for some c>0 one inward tangent dot product is at most −c times the tangent norm, giving a uniform O(ε) localization (first restrict to the chart by uniqueness). The scaled half-planes converge to the bounded circumscribed triangle and its area equals inradius times semiperimeter, giving C_3. With two positive weights the exact pair inequality gives s=O(ε) and t=O(sqrt(ε)), and rescaling gives |u|+(r/2b)t²≤1. The unused constraint is either slack or has a nonzero component in the transverse direction, the latter by linear independence. At criticality its rescaled inequality selects one half of the parabolic area; the truncated domain need not be a half at positive ε. The rescaled area elements converge to constant densities on bounded sets with null limiting boundaries, giving both tail coefficients and conditional laws. Spherical excess supplies the displayed normalization A. An independent latitude and angular-interval integral retaining all three inequalities gives, at ε=10^−5, scaled areas 5.196116, 1.892526 and 3.771251 against 5.196152, 1.885618 and 3.771236 for an octant, an asymmetric critical triangle and a strict two-contact triangle, respectively.",
+      "residual_risks": [
+        "The quadrature corroborates the local result but does not verify conditional laws or uniform asymptotics. The proof is for a fixed nondegenerate triangle in each regime; no joint limit in geometry and ε is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek–Lángi distinguish a cap tangent to each side from a maximal cap determined by two sides through a contained lune. Lassak gives supporting-hemisphere and lune geometry. The inner-parallel/coarea results give an integral of inner boundary area or inequalities, not the necessary spherical endpoint integrands or marked local shapes. Larson's perimeter bound is Euclidean."
+        ],
+        "reasoning": "Knowing the inradius and support geometry pins down the location and active constraints, not the rate at which a spherical inner parallel set shrinks, nor its two-scale conditional area limit at a vanishing multiplier.",
+        "searches": [
+          "Bezdek–Lángi arXiv:2201.11234, Section 2 and Lemma 1",
+          "Drach–Solanes–Tatarko arXiv:2603.08132, Theorems 4.1 and 4.2",
+          "Lassak DOI 10.1007/s00010-013-0237-3",
+          "Larson arXiv:1508.06414, Abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary b412d984a5a4, 54d3a41332c4 and cb167a8d1e1d comparisons",
+        "Bezdek–Lángi Lemma 1",
+        "Lassak Section 2",
+        "Drach–Solanes–Tatarko Theorems 4.1–4.2",
+        "Larson and Musielak abstract passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the strict-pair case the lune angle is α=2ρ, so its unnormalized leading coefficient (8/3)sqrt(2 cot(α/2)) equals the triangle's unnormalized coefficient. The hemisphere case in the lune record changes exponent; it is not the critical triangle half-area law. The inradius and parallel-area statements do not provide the limiting domain for the additional tight but zero-weight inequality, nor the three-weight tangent triangle."
+        ],
+        "reasoning": "A two-side tail and an inradius criterion do not imply either the critical transverse truncation or the full positive-weight coefficient and conditional law. Those are the distinct contributions passing this review.",
+        "searches": [
+          "b412d984a5a4/RESULT.md, Finding and prior-work passage",
+          "Bezdek–Lángi arXiv:2201.11234 Section 2",
+          "Drach–Solanes–Tatarko arXiv:2603.08132 Theorems 4.1–4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangle clearance superlevel sets are intersections of three equal-threshold spherical caps, equivalently spherical inner parallel sets. The broad indexed self-match is not independent evidence. The lune clearance hit b412d984a5a4 gives the same local geometry for the strict two-weight branch. The antipodal-lune hit 54d3a41332c4 concerns a distance between two sampled points, not clearance."
+        ],
+        "reasoning": "A slack third side drops out exactly in a small fixed neighborhood, giving the lune equivalence for one branch. A tight side with zero weight cannot be dropped: it cuts the leading rescaled domain in a different direction. A genuinely three-weight region cannot be encoded by the two lune inequalities.",
+        "searches": [
+          "Resultary: spherical triangle clearance and contact rank",
+          "Resultary: spherical-lune clearance endpoint and marked limit",
+          "Literature search: spherical triangle spherical polygon inner parallel set erosion area approaching inradius endpoint asymptotic three caps intersection tangency clearance probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The lune hit gives an exact law, recovering the strict-pair endpoint but not the third constraint. The indexed λ-lens record cb167a8d1e1d is about conserved edge defect along inner parallel lenses. The supplementary search found a Euclidean parallel-body perimeter bound, a spherical covering-radius result, and a stochastic cap-contact lead whose PDF could not be checked."
+        ],
+        "reasoning": "The claim is a parametric invariant over continuously varying triangles, not a discrete census. The relevant exact-table check is whether a known clearance/cap-overlap formula or separate record supplies all three coefficients and limits. The inspected exact lune law supplies one branch only.",
+        "searches": [
+          "Resultary lune-clearance endpoint query",
+          "Resultary spherical inner-parallel clearance/offset query",
+          "Literature search: spherical triangle spherical polygon inner parallel set erosion area approaching inradius endpoint asymptotic three caps intersection tangency clearance probability"
+        ]
+      },
+      "rationale": "The two-versus-three geometric contact distinction is prior, and the strict two-weight local law (including the marked geometry) overlaps the indexed spherical-lune result. The inspected sources do not cover the combined triangle endpoint theorem, notably the exact coefficient and conditional tangent geometry when three weights are positive and the half-law for the three-tight, two-positive critical case. No priority for the standalone lune law is inferred from a same-day index date.",
+      "residual_risks": [
+        "An unindexed exact spherical cap-intersection or erosion analysis could contain an equivalent asymptotic. The random cap-contact lead was not available for full-text inspection.",
+        "Historical publication priority of the indexed standalone lune law was not established; it is treated as demonstrated overlapping coverage rather than credited by date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for the strict-pair branch, not the critical or three-weight triangle branches",
+          "evidence": [
+            "For the fixed lune in S², the endpoint exponent is 3/2 and the area coefficient is (8/3)sqrt(2 cot(α/2)); marked limits concern the same parabolic domain."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-clearance-distribution-of-spherical-lunes-and-its-hemispheri--b412d984a5a4",
+          "material_read": "Indexed Finding at offset 0 and prior-work passage at offset 9109",
+          "method": "Bounded original indexed text inspection and angle normalization",
+          "title": "The clearance distribution of spherical lunes and its hemispheric crossover",
+          "trigger": "Closest exact clearance law and conditional limits"
+        },
+        {
+          "assessment": "Supports known contact geometry, not the endpoint law",
+          "evidence": [
+            "Compares the three-tangent cap with a maximal cap in a generated lune contained in the triangle, via a perimeter criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.11234",
+          "material_read": "Section 2, PDF p. 9, offsets 28317–33261 including Lemma 1",
+          "method": "Bounded original OA PDF inspection",
+          "title": "From the separable Tammes problem to extremal distributions of great circles in the unit sphere",
+          "trigger": "Same spherical triangle and maximal disk contact distinction"
+        },
+        {
+          "assessment": "Background geometry",
+          "evidence": [
+            "Defines spherical support, width/thickness and lune geometry."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-013-0237-3",
+          "material_read": "Abstract and Section 2, PDF p. 3, offset 6168",
+          "method": "Bounded original OA PDF inspection",
+          "title": "Width of spherical convex bodies",
+          "trigger": "Lawful primary spherical support and lune context"
+        },
+        {
+          "assessment": "Coarea and area-variation framework does not directly fix the spherical triangle endpoint coefficients or shapes",
+          "evidence": [
+            "The inspected results integrate the boundary areas of inner sets and give polyhedral area variation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.08132",
+          "material_read": "Opening and Theorems 4.1 and 4.2 at offsets 15852 and 19314",
+          "method": "Bounded original OA PDF inspection",
+          "title": "A reverse isoperimetric inequality in three-dimensional space forms",
+          "trigger": "General erosion/inner parallel formulas cited by the related λ-lens index hit"
+        },
+        {
+          "assessment": "Euclidean perimeter bound, not spherical clearance asymptotic",
+          "evidence": [
+            "Sharp lower bound involving t/r for inner domains of a convex body in R^n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.06414",
+          "material_read": "Abstract and start of Introduction",
+          "method": "Bounded original OA PDF inspection",
+          "title": "A bound for the perimeter of inner parallel bodies",
+          "trigger": "Closest general endpoint/inradius estimate from supplementary query"
+        },
+        {
+          "assessment": "The result in the abstract is a covering, not a maximal inner-disk clearance law",
+          "evidence": [
+            "A disk with radius the polygon's thickness and center on its boundary covers the reduced polygon."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12215-023-00899-z",
+          "material_read": "Abstract of the original article PDF",
+          "method": "Lawful OA abstract passage",
+          "title": "Covering a reduced spherical polygon by a disk",
+          "trigger": "Supplementary spherical polygon disk geometry hit"
+        },
+        {
+          "assessment": "Exact implications not assessed",
+          "evidence": [
+            "No inspected original passage on which to base a statement-level comparison."
+          ],
+          "identifier_or_url": "https://ir.kagoshima-u.ac.jp/record/7664/files/AN00408518_v62_p9-17.pdf",
+          "material_read": "Search bibliographic hit only; identified PDF not retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "Probabilities that random spherical caps are in contact",
+          "trigger": "Supplementary cap-contact query hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase test, coefficients, limiting domains and limitations",
+        "Bezdek–Lángi Lemma 1 and indexed lune law b412d984a5a4 for narrower known results"
+      ],
+      "rationale": "Contact count alone does not predict the clearance tail: critical and three-positive-weight triangles both have three geometric contacts, but differ in exponent and conditional geometry. The Gram test, exact constants, and limiting area laws make this distinction computable for the full fixed proper triangle class. The zero-multiplier half-law is a concrete, independently useful transition boundary beyond the ordinary strict lune case.",
+      "residual_risks": [
+        "No full-distance CDF, geometry-uniform error estimates or transition scaling law is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

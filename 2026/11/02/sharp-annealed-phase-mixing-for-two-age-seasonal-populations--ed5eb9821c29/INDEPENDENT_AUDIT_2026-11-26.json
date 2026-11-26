@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:44:37.799013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–57",
+        "Frozen VERIFICATION.md and artifacts/verify.py (inspected, not executed)",
+        "python3 /workspace/independent_replay.py (record 3)"
+      ],
+      "rationale": "Independence of the current annual matrix from the population history gives E[z_{n+1}]=M_p E[z_n]. Since A is invertible, X=A²B and Y=ABA are similar (Y=A⁻¹XA), and direct multiplication gives their common trace t and determinant δ. For E=X−Y the determinant along Y+pE is quadratic with leading coefficient det E and equal endpoint values, hence det M_p=δ−p(1−p)det E. Also E=A(AB−BA), so det E=−bc det(AB−BA)=J with exactly the listed sign and formula. Every entry of both annual products, and hence of M_p, is strictly positive. Its discriminant is therefore positive and the larger characteristic root is the simple Perron factor. A positive initial vector has nonzero Perron component. Monotonicity of the root in Jp(1−p) gives all three cases and the unique midpoint optimizer in each nonconstant case. All signs are realizable: the frozen witness gives J>0, b=c=e=f=1 and a≠d give J<0, and A=B gives J=0. For the frozen rational example, direct column propagation gives t=7/8, δ=−3/32 and J=9/64. The second eigenvalue is negative throughout, so the Perron root exceeds 1 exactly when det(I−M_p)=1/32−(9/64)p(1−p)<0, i.e. 1/3<p<2/3, with equality at the endpoints. The exact endpoint and midpoint discriminants are 73/64 and 82/64. The independent replay verified characteristic signs on a rational grid; the symbolic inequality proves the full interval.",
+      "residual_risks": [
+        "The result is for the annealed mean under independent annual choices, not an almost-sure exponent, persistence, extinction probability, or correlated switching."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cáceres–Cáceres-Saez abstract concerns generalized growth for random Leslie vital-rate entries.",
+          "Resultary 314121caa017 gives a first-moment threshold in a different continuous-time switching model.",
+          "Resultary 37d3f7065428 uses probabilistic phase switches but studies pathwise growth in a two-patch model."
+        ],
+        "reasoning": "A general theorem on annealed mean propagation would explain why the averaged annual matrix is used; one still needs to identify the determinant sign for these ecologically constrained products and establish the strict crossing witness. No stronger inspected result was found covering those claims.",
+        "searches": [
+          "Random Leslie matrices in population dynamics, DOI 10.1007/s00285-010-0378-0; lawful author/repository copy lookup",
+          "Primary literature: isospectral positive 2×2 matrix-mixture spectral formulas",
+          "Resultary mean versus pathwise growth thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Mertens et al. DOI 10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2",
+        "Cáceres–Cáceres-Saez DOI 10.1007/s00285-010-0378-0 (abstract only)",
+        "Resultary e0435dfadf65, 37d3f7065428, 314121caa017; catalogue only for 3268e9366f52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Periodic rotations have equal endpoint growth; transient behavior may differ.",
+          "The six-season determinant sign ranks deterministic schedules, not the roots of their annealed mixture.",
+          "The Bernoulli-switch phase-error record changes both matrix model and observable, and the later mean-growth record changes time and model."
+        ],
+        "reasoning": "These claims do not entail the sign-and-probability formula or the rational witness when annual schedules differ only in their cyclic phase. Standard determinant expansion and Perron theory are ingredients, not claimed as new methods.",
+        "searches": [
+          "Mertens et al., Periodic matrix models p. 2",
+          "Resultary Findings e0435dfadf65, 37d3f7065428, and 314121caa017",
+          "Same-title lawful full-text search for Cáceres–Cáceres-Saez"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X and Y are conjugate, and the determinant criterion for this 2×2 pencil is det(X−Y)=−bc det(AB−BA).",
+          "Mertens et al., Periodic matrix models, p. 2, states the equality of growth rates for deterministic rotations."
+        ],
+        "reasoning": "Equivalent notation includes 2×2 Perron roots of a mixture of conjugate positive matrices and the signed commutator determinant. The deterministic conjugacy does not imply the mixture preserves growth; the determinant along the pencil can change with either sign.",
+        "searches": [
+          "Resultary: annealed phase mixing, cyclic permutation of Leslie matrices, deterministic phase order and random mean growth",
+          "Primary literature: spectral radius of a convex combination of isospectral positive 2×2 matrices, determinant-of-difference criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e0435dfadf65 gives an exact determinant-sign ranking of deterministic six-season schedules.",
+          "37d3f7065428 gives phase-error thresholds for pathwise two-patch growth.",
+          "314121caa017 gives a continuous-time exact mean-growth threshold."
+        ],
+        "reasoning": "The relevant catalogue comparisons are exact symbolic laws rather than tables. None of the inspected entries supplies the same annual Leslie products, annealed observable, commutator sign and exact probability interval.",
+        "searches": [
+          "Resultary: exact phase-order sign laws, random phase errors and exact first-moment rescue thresholds"
+        ]
+      },
+      "rationale": "Deterministic cyclic-product equality, general first-moment propagation under independent matrix draws, and the possibility of altered mean growth under vital-rate variation are not new. The supported distinct comparison is the exact sign rule under the constraint of switching only between two cyclic rotations of the same fixed two-age phase inventory, with the whole admissible probability range and an exact subcritical-to-supercritical witness. The inspected related phase-order records change the deterministic schedule, concern pathwise growth, or change the switching model. No covering published claim was established. Full-text access limitations are not negative evidence.",
+      "residual_risks": [
+        "Cáceres–Cáceres-Saez full-text overlap and the same-day four-season entry remain unresolved.",
+        "A covering general result for Perron roots of this constrained mixture might exist; a focused lookup did not establish it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING deterministic rotation equality, not the annealed phase mixture",
+          "evidence": "Same periodic environments under cyclic permutation have equal asymptotic growth but can have different transient dynamics.",
+          "identifier_or_url": "https://doi.org/10.1890/0012-9658(2006)87[2338:TPDIPM]2.0.CO;2",
+          "material_read": "Periodic matrix models, PDF p. 2, text offsets 7461–10950",
+          "method": "OA full-text PDF from UNIL repository, bounded passage",
+          "title": "Transient population dynamics in periodic matrix models: methodology and effects of cyclic permutations",
+          "trigger": "Direct prior coverage of the equal-growth endpoints"
+        },
+        {
+          "assessment": "General random Leslie growth is prior art; exact full-text comparison unresolved",
+          "evidence": "Abstract concerns Leslie matrices with randomly varying vital-rate elements, not evidence for or against a cyclic-product mixture criterion.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-010-0378-0",
+          "material_read": "Bibliographic record and abstract only; no reliable full text obtained",
+          "method": "Primary literature search; lawful publisher PDF and alternate repository/access attempts, followed by author-copy lookup",
+          "title": "Random Leslie matrices in population dynamics",
+          "trigger": "Strong plausible background or coverage of modified expected growth in random Leslie models"
+        },
+        {
+          "assessment": "Related exact structural result for different schedules and observable",
+          "evidence": "Ranks all 20 deterministic six-season orders using sign of det L and a trace law.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-determinant-sign-phase-law-for-balanced-six-season-stage-speci--e0435dfadf65",
+          "material_read": "RESULT.md Finding and Proof, offset 0 onward",
+          "method": "Resultary local mirror",
+          "title": "A determinant-sign phase law for balanced six-season stage-specific schedules",
+          "trigger": "Exact order-dependent sign law for demographic matrices"
+        },
+        {
+          "assessment": "Different matrix model and growth observable; no priority inference from date",
+          "evidence": "Bernoulli switches of two-patch reproduction and dispersal with pathwise growth/persistence results.",
+          "identifier_or_url": "2026/11/2/SCOPE-rare-phase-errors-reverse-complete-swap-persistence-in-a-two-pat--37d3f7065428",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Resultary local mirror",
+          "title": "Rare phase errors reverse complete-swap persistence in a two-patch model",
+          "trigger": "Same-day exact threshold under independent random phase errors"
+        },
+        {
+          "assessment": "Mean-growth analogy in a different model",
+          "evidence": "First-moment threshold under continuous-time environmental switching with almost-sure collapse.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-mean-growth-threshold-and-a-rigorous-false-rescue-window--314121caa017",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Resultary local mirror",
+          "title": "A sharp mean-growth threshold and a rigorous false-rescue window",
+          "trigger": "Exact first-moment threshold and switch-induced mean growth"
+        },
+        {
+          "assessment": "Unresolved at statement level; no noncoverage or priority inference",
+          "evidence": "Indexed summary indicates a four-season order-reversal topic; detailed hypotheses were not verified.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-season-ecological-growth-has-an-exact-temporal-order-revers--3268e9366f52",
+          "material_read": "Catalogue summary only; corresponding source unavailable in local mirror",
+          "method": "Resultary catalogue and local-mirror open attempt",
+          "title": "Four-season ecological growth has an exact temporal-order reversal",
+          "trigger": "Same-day temporal-order catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and exact witness",
+        "Mertens et al., deterministic cyclic-rotation comparison",
+        "Independent rational replay of the witness"
+      ],
+      "rationale": "The natural controlled comparison holds vital rates, seasonal inventory, and both deterministic growth factors fixed. The exact sign rule nevertheless allows annealed growth to rise or fall, and the rational witness isolates the full interval where a genuinely supercritical mean results from mixing two subcritical alternatives. This is a useful exact threshold for phase-sensitive demographic projections, not a claim that randomness generally improves ecological outcomes.",
+      "residual_risks": [
+        "Growth of the mean alone is not evidence of survival or long-run growth in a typical realization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

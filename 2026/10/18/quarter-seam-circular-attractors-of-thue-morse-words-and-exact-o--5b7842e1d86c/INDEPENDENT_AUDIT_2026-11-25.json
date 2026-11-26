@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:10.465147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transport induction is valid: a factor crossing the internal boundary of U_{r+1}(a) sees the same ordered pair of r-blocks at the seam between two U_{r+1}(1-a) blocks; one inside a single r-block can be transported first at scale r, then embedded at a scale-(r+1) seam with those last and first r-blocks. The cyclic quarter-block pattern 0110 realizes 01, 11, 10 and 00; complementing the last-letter map when r is odd still gives seams with equal letters of each kind. Thus either endpoint at each seam suffices, also for singleton factors, and the four pairs are disjoint. A direct substitution and linear window count gave 40 length-13 factors in the 64-letter t_6; the prefix survives for all n >= 6 and three positions can cover at most 39 such factors. A fresh exact cyclic enumerator confirmed minima 2,2,4,4,4,4,4 and counts 2,2,151,96,96,80,80 at n=2..8, and exact set equality with all five endpoint families at n=7 and 8. Each constraint is the union over all occurrences of one factor, and branching over all positions of a missed constraint is exhaustive; dropping supersets and merging identical states preserves solutions. Replay: python3 /workspace/branches/cb805c78-968b-4328-8202-1fa26276691a/independent_check.py 8 (output full_run.txt in the same directory). For the 40-factor count, apply 0->01 and 1->10 six times to 0 and count {w[i:i+13] for i in range(52)}. No classification beyond n=8 is certified or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Romana develops circular verification and illustrates it with finite Fibonacci words. Lemma 1 lifts attractors from a word w to a power w^m, permitting selected representatives in different copies.",
+          "Faro–Marino–Pavone's uniform result is for linear iterates."
+        ],
+        "reasoning": "The power lift does not apply to the Thue–Morse doubling t_{r+1}=t_r followed by its complement. Neither inspected statement supplies coverage at all four ordered block-pair seams.",
+        "searches": [
+          "Romana, ICTCS 2023, §3, Definition 1 and Lemma 1",
+          "Faro–Marino–Pavone, arXiv:2610.10950v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 59fd87719e91",
+        "arXiv:2610.10950v1",
+        "Romana ICTCS 2023, §3",
+        "arXiv:2602.16152v3",
+        "doi:10.1016/j.tcs.2020.11.006 (full text not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier linear optimum is also four from order four, and the linear work uses dyadic seam constructions. The power lemma requires identical repeated blocks."
+        ],
+        "reasoning": "A linear attractor need not cover wrap-only factors and a circular attractor may use wrap-only witnesses for ordinary factors. Thus the prior linear optimum and optimizer lists do not imply the cyclic upper bound, the arbitrary endpoint choices, or the 80-set classification. The length-complexity counting idea alone is not the new contribution.",
+        "searches": [
+          "Romana, §3, Example 1 and Lemma 1",
+          "Faro–Marino–Pavone and Banbara et al., linear Thue–Morse classifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Romana's Definition 1 matches the cyclic occurrence rule. Example 1 shows explicitly that linear and circular coverage can diverge in both directions.",
+          "Banbara et al. use an ordinary linear substring T[i..i+|w|-1] and count 32 minima in that model."
+        ],
+        "reasoning": "Reindexing 0-based to 1-based or using cyclic rotations does not turn a linear-factor hitting problem into this circular one, which also permits seam-crossing factors and witnesses.",
+        "searches": [
+          "Local Resultary: cyclic Thue–Morse, quarter seams and exact extremizers",
+          "Romana, ICTCS 2023, §3",
+          "Banbara et al., arXiv:2602.16152v3, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary record gives linear counts 87, 40 and 32 through orders 4, 5 and 6.",
+          "The two inspected dyadic seam tuples in the linear classification are (4,6,8,12) and (4,8,10,12) in sixteenth-length units, not the five circular tuples. No covering cyclic census was identified in these results."
+        ],
+        "reasoning": "The closest exact tabulations use a different occurrence predicate. They do not supply the circular counts or the exact set equality claimed at orders seven and eight.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91, RESULT.md",
+          "Faro–Marino–Pavone, arXiv:2610.10950v1, abstract and dyadic families"
+        ]
+      },
+      "rationale": "The inspected work establishes important linear and circular antecedents, but not the specific circular quarter-seam theorem or the order-7/8 enumeration. Credit the linear optimum and seam-based methods as prior; the distinct result is the endpoint-robust cyclic construction and the exact cyclic families, not the numeral four in isolation.",
+      "residual_risks": [
+        "Broader discovery beyond these comparisons was limited; an unindexed cyclic census or equivalent conjugacy formulation remains possible.",
+        "Full text of Mantaci et al. was not available via the inspected route; related background was verified via Romana, not substituted for full-text inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related linear census, not the cyclic one",
+          "evidence": "Exact one-based linear counts 87, 40, 32 at orders 4–6.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91",
+          "material_read": "RESULT.md, mirror offsets 0–2638",
+          "method": "Local published-record lookup and bounded mirror read",
+          "title": "Exact smallest-attractor transition for Thue–Morse words",
+          "trigger": "Closest prior indexed finite Thue–Morse classification"
+        },
+        {
+          "assessment": "Close structural antecedent but not a cyclic classification",
+          "evidence": "32 linear minima at every n >= 6, using two seam tuples in sixteenth-length units.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10950v1",
+          "material_read": "Abstract and passages specifying the linear seam families",
+          "method": "Bounded OA HTML read",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Same substitution and dyadic seam structure"
+        },
+        {
+          "assessment": "Defines the cyclic problem; power lifting does not apply to complement doubling",
+          "evidence": "Example 1 distinguishes the predicates; Lemma 1 treats exact repeated powers; examples use finite Fibonacci words.",
+          "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+          "material_read": "§3, Definition 1, Example 1 and Lemma 1, PDF text offsets 9750–12421",
+          "method": "OA PDF passage read",
+          "title": "Algorithmic View on Circular String Attractors",
+          "trigger": "Same notion of circular attraction"
+        },
+        {
+          "assessment": "Linear, despite matching optimum number",
+          "evidence": "Uses factors T[i..i+|w|-1]; 32 optimal four-sets for n >= 6.",
+          "identifier_or_url": "https://arxiv.org/html/2602.16152v3",
+          "material_read": "Abstract, HTML text offsets 1240–2446",
+          "method": "OA bounded text read",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Same finite Thue–Morse words and optimum size"
+        },
+        {
+          "assessment": "Credit circular framework; paper not independently excluded as a source of further results",
+          "evidence": "Romana explicitly attributes extension to circular factors to this paper.",
+          "identifier_or_url": "doi:10.1016/j.tcs.2020.11.006",
+          "material_read": "No full-text passage; attribution in Romana §3",
+          "method": "DOI and lawful OA-resolution attempt",
+          "title": "A combinatorial view on string attractors",
+          "trigger": "Original circular definition cited by Romana"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives the exact optimum of an established circular compression invariant on a canonical substitution family, and a uniform construction robust to the choice of left or right endpoint at every quarter seam. The complete 80-set descriptions at consecutive larger dyadic orders are useful exact examples that distinguish cyclic from linear coverage and can test lifting conjectures; two equal counts do not establish stabilization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

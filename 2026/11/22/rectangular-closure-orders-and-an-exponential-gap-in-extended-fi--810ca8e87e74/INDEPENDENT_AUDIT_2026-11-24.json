@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:31:30.883299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py, LINE_WITNESSES.csv and VERIFICATION.md",
+        "Complete revised repairs/3/RESULT.md and repairs/3/SLOGAN.txt",
+        "Independent exact replay: python3 /workspace/branches/fb7e4115-9fad-407d-8717-93007bb8b6e2/independent_line_orders.py"
+      ],
+      "rationale": "Re-audited repaired RESULT.md and SLOGAN.txt. For the frozen fixed-box interpretation, the exact unrestricted count cannot be asserted: requiring every entrance point inside [0,L]^2 imposes n-w(L-n-1)≤z≤L+w, from the maximum event x=max(n,z-w) and maximum event y=max(n,n+1+(n-z)/w). The independent rational check gives 24 rather than 30 at n=6 for L=7, and a gap already at n=5 for L=6 (14 rather than 16). The corrected Finding explicitly uses full-line entrance orders for both exact counts and first gap, and retains only the upper bound and the obstruction uniformly under clipping. For an explicit padded box it correctly gives 30 in [0,37]^2: verified the CSV witnesses have event x≤37/4 and y≤36. The closed-prefix proof is sound for every L>n in the family and arbitrary interior grades in general: every event location dominates its prefix maxima, and every new grade in a closed-prefix chain raises a coordinate maximum, ensuring that the straight segment to the new maximum introduces that grade only at its endpoint and no unlisted grade. Antidiagonal closure is interval hull, giving the sum of endpoint-interleavings 2^(n-1). The sphere filtration is one-critical and its persistent homology has one essential bar per distinct positive degree; under the repaired explicit shared entrance indexing these degrees decode the entire order. For i<j, the strict sign of t_i-t_j is the sign of z-j-wi, so each strict order is constant in an open chamber of the M tie lines, and the standard intersection-count argument gives the quartic bound. The independent exact slab enumeration samples each open chamber, also covering any strict order realized at a slab boundary by openness. It yields 1,2,4,8,16,30 through n=6, with exactly the two displayed reflected obstructions, and confirms 638 at n=13. The analytic six-grade contradiction gives w>1 from the middle trio and w<1 from the last requirement. Any full-line witness fits in some padded square and hence has closed prefixes, so all first-gap comparisons are with the stated path-order sets. The uploaded checker was inspected, not executed.",
+      "residual_risks": [
+        "Exact full-line counts are not uniform clipped-segment counts; for an arbitrary L the upper bound and the obstruction suffice.",
+        "This concerns strict arrival of distinct grades, and a single shared indexing of the degree-labelled barcode, not a numerical barcode or separate reindexing by degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belton et al. reindex entrance times in Definition 4.10, compare fibered and extended images in Corollary 5.3, prove finiteness in Lemma 5.4 and raise class counting in Conjecture 7.1. Bapat et al. partition positive-slope restrictions by critical values and switch points for matching distance. The catalogue theorem counts isolated-vertex antidiagonal histories including ties."
+        ],
+        "reasoning": "General definitions and finiteness give an upper-level framework, not the sharp order count or affine deficit. Matching-distance partitions are relevant broader machinery, not a theorem enumerating this family's affine versus arbitrary paths. The isolated-vertex theorem covers a broader arrival-block census on its objects but does not make differences between strict histories visible in degree-zero barcodes.",
+        "searches": [
+          "Belton et al. arXiv:2611.00261v1 Definition 4.10, Corollary 5.3, Lemma 5.4 and Conjecture 7.1",
+          "Bapat et al. arXiv:2210.12868v3 §§1 and 2.3",
+          "Resultary 43eb92391850"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact comparison 43eb92391850",
+        "arXiv:2611.00261v1 primary passages",
+        "arXiv:2210.12868v3 primary passages",
+        "Edelman–Jamison access attempt",
+        "Final repair and exact finite evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched isolated-vertex strict histories cannot themselves certify 2^(n-1) distinct graded types. The known arrangement partition does not supply the specialized pair tie equation, the all-orders equivalence through five grades, or infeasibility of (3,4,5,2,1,6) for every full affine line."
+        ],
+        "reasoning": "Even taking the strict path count as known, the repaired result constructs an invariant that distinguishes these histories and bounds the number visible to affine lines. An arrangement bound alone gives no first-gap threshold; the order inequalities and exact small census are necessary. Same-day overlap is credited without inferring chronology.",
+        "searches": [
+          "Resultary 43eb92391850 on isolated-vertex antidiagonal orders",
+          "Belton et al. arXiv:2611.00261v1, structural results and counting question",
+          "Bapat et al. arXiv:2210.12868v3, switch-point partition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-singleton arrival-block case of 43eb92391850 reproduces the strict interval-prefix count. On the antidiagonal this is also the reverse of a basic word for the interval-hull convex geometry. Rectangular closures of arbitrary grades need not satisfy anti-exchange: with (2,3) present, either (3,1) or (3,2) added forces both, though neither was in the closure of the original singleton."
+        ],
+        "reasoning": "The raw strict order enumeration is a covered alternative description only for the antidiagonal subclaim. The repaired theorem distinguishes graded barcodes and exact line realizability, not just closed and feasible sets in a one-dimensional convex geometry.",
+        "searches": [
+          "Resultary semantic lookup for strict antidiagonal path orders, rectangular closure and affine-line gap",
+          "Resultary 43eb92391850, RESULT.md offsets 0–4820 and 1550–5750",
+          "Convex geometry and antimatroid basic-word aliases; Edelman–Jamison primary retrieval attempt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit Pell–Fibonacci catalogue history enumeration includes the 2^(n-1) strict subcount and distinguishes event compositions at the barcode level for isolated vertices, so all singleton-event orders there have the same composition. No 30 versus 32 full-line count, or 638 affine orders at thirteen, is established by that source."
+        ],
+        "reasoning": "The known census concerns monotone histories with multiple possible arrival block sizes, not strict full-line entrance-order feasibility. The frozen witness CSV and the independent rational replay check the repaired numbers but are not evidence about prior publication.",
+        "searches": [
+          "Resultary semantic search for exact affine-line enumeration, six grades and antidiagonal history counts",
+          "Resultary 43eb92391850 Finding and precise barcode class description"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the repaired joint path-versus-line theorem: the graded-barcode realization, the quartic-versus-exponential comparison and the exact six-grade full-line cutoff. The raw antidiagonal strict simplicial order count is directly covered by a matching catalogue theorem, and neither that count nor the general idea of line arrangements is claimed as new.",
+      "residual_risks": [
+        "Possible unindexed order-arrangement results or equivalent enumerations under other names remain outside the evidence.",
+        "Convex-geometry primary literature was not exhaustively accessible.",
+        "The strict simplicial count alone is covered, and the shared indexing across homology degrees is essential to the distinct barcode statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the raw strict antidiagonal order count, not the graded barcode versus affine-line theorem",
+          "evidence": "All histories including ties on an isolated-vertex bifiltration are characterized; the all-singleton case has interval growth with 2^(n-1) orders and a single degree-zero arrival composition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-pell-fibonacci-enumeration-of-all-path-restrictions-of-an-antidi--43eb92391850",
+          "material_read": "Mirrored RESULT.md offsets 0–4820 and 1550–5750, Finding, combinatorial history and barcode classification",
+          "method": "Local mirror direct statement and implication comparison",
+          "title": "Pell–Fibonacci enumeration of all path restrictions of an antidiagonal bifiltration",
+          "trigger": "Strongest distinct match for antidiagonal path order enumeration"
+        },
+        {
+          "assessment": "Framework and finiteness, not the repaired quantitative strict theorem",
+          "evidence": "Entrance coordinates are replaced by their total-order indices; simplicial equivalence implies combinatorial equivalence. Extended fibered barcodes include the original image and have finitely many combinatorial classes. A class-count question is left open.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00261v1",
+          "material_read": "Definition 4.10 and Corollary 4.12 at offset 47733, Corollary 5.3 and Lemma 5.4 at offset 65430, §7 Conjecture 7.1 around 80500",
+          "method": "Targeted primary HTML passages and mathematical comparison",
+          "title": "A Directed Cubical Framework for k-critical Bipersistence Modules",
+          "trigger": "Primary extended fibered framework and potentially covering class-count theorem"
+        },
+        {
+          "assessment": "Relevant arrangement technique, different output",
+          "evidence": "Positive-slope line strata and switch points organize matching-distance computation; no strict antidiagonal line versus monotone-path count in the compared results.",
+          "identifier_or_url": "https://arxiv.org/html/2210.12868v3",
+          "material_read": "§1 around 6400 and §2.3 around 33000",
+          "method": "Targeted primary OA HTML reading",
+          "title": "Computing the Matching Distance of 2-Parameter Persistence Modules from Critical Values",
+          "trigger": "Potential general line-arrangement coverage"
+        },
+        {
+          "assessment": "Special-case terminology match; no full-text coverage conclusion",
+          "evidence": "Interval hull on a chain is a convex geometry, while arbitrary rectangular grade closure can fail anti-exchange. The unavailable full text is not evidence of absence.",
+          "identifier_or_url": "Edelman–Jamison, doi:10.1007/BF00149365",
+          "material_read": "Definition-level comparison only; full primary text not retrieved",
+          "method": "Bounded lawful primary retrieval attempted; mathematical anti-exchange check on the actual closure",
+          "title": "The theory of convex geometries",
+          "trigger": "Potential broader equivalent closure/basic-word framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding, Proof and scope",
+        "Belton et al. counting question",
+        "Resultary 43eb92391850 limit of isolated-vertex strict histories"
+      ],
+      "rationale": "The repaired theorem answers a natural finite-order question in the extended fibered setting and quantifies the information positive-slope probes lose in a canonical family. It gives a complete path-realizability criterion with a construction, then an explicit barcode family and a sharp first failure for full lines, rather than an arbitrary finite sample or an overstated resolution of the general counting question. This remains a substantive gap under sufficient padding, and the upper bound alone gives a gap for clipped restrictions as well.",
+      "residual_risks": [
+        "Growth is in the number of distinct grades, not in the number of simplices.",
+        "No count for general multi-critical, tied, numerical or arbitrary clipped cases is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

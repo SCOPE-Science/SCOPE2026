@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:19:41.884127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x nonzero let t=N(x), u=N(F_a(x)), c=Tr(a), d=N(a). Independence of 1,a and a²=ca−d make F_a²(x)=x equivalent to t+u+c=0 and tu=d+1. These force t²+ct+d=−1, so the norm recursion gives u=−t and hence c=0. Conversely c=0 and t²=−d−1 imply the two equations. Trace zero is impossible for outsiders in characteristic two; otherwise a²=−d is a nonsquare, so a²−1 is nonzero and has two distinct nonzero square roots exactly in the stated case. The corresponding fibers have q+1 points each and are exchanged; 0 is the unique fixed point because a=1−N(x) would put a in K. Independently, the conic s²−t²=1 has q−1 points by factoring, so sum_t χ(t²+1)=−1. There are 1+χ(−1) zeros of t²+1, and therefore (q−χ(−1))/2 values of t where it is a nonsquare, all t≠0. Pairing ±t and taking the two outsider square roots of each t²+1 gives the same number of active coefficients. Zieve's exact permutation parameters have trace 3μ≠0 for q≡2 mod 3 and trace zero in characteristic three; any nonzero base-field coefficient would kill the norm fiber N(x)=−a, so no permutation cases were dropped. The packaged verification/verify_cycles.py was inspected, not executed: its main loops test fixed and exact two-period counts on explicit finite fields and compare exponentiation on a subset, not permutation necessity or all prime powers. Its header mentions a stale filename; RESULT.md gives the actual replay path.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader X^(q+2)+bX^q+cX classification specializes at b=0,c=a to the same permutation parameters, via the cubic X^3−X^2+X for a^(q−1)."
+        ],
+        "reasoning": "That specialization covers which inputs to the permutation subcorollary are allowed. It neither counts their cycles nor treats two-cycles for coefficients whose map is not a permutation.",
+        "searches": [
+          "arXiv:2510.16640 Theorem 1.4",
+          "arXiv:1312.1325v3 Corollary 2.3 and proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.1325v3 Corollary 2.3",
+        "arXiv:2510.16640 Theorem 1.4",
+        "Resultary 6fe70918d61c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 2.3 supplies the entire permutation parameter list, attributing it to Tucker–Zieve. The exact characterization and count still require the extra multiplier and character/conic analysis."
+        ],
+        "reasoning": "The prior theorem alone cannot determine the announced census, even in characteristic three, where permutation maps in the same parameter family can have different second-iterate counts. Only the new cycle and coefficient content is credited.",
+        "searches": [
+          "arXiv:1312.1325v3 Corollary 2.3 proof and prior attribution",
+          "arXiv:2510.16640 Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-map prior classification uses a^(q−1) and an induced norm polynomial; the two inspected theorem statements concern permutation status. The same-day binary cycle-spectrum result has the different map X+tX^q+X^(2q−1)."
+        ],
+        "reasoning": "Equivalent targets include nonzero roots of F_a composed with itself minus x and the zero-product-defect condition (t+a)(u+a)=1 on norm fibers. Mere action on the norm fibers is not the multiplier condition, and the binary map with another exponent does not yield it.",
+        "searches": [
+          "Zieve arXiv:1312.1325v3 Corollary 2.3",
+          "Ding–Xiong–Zieve arXiv:2510.16640 Theorem 1.4",
+          "Local Resultary cycle-spectrum comparison 6fe70918d61c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zieve tabulates total admissible permutation coefficients by q mod 3, not the partition by exact second-iterate counts. The closest catalogue result counts coefficients for a different family."
+        ],
+        "reasoning": "Neither exact data source gives P₂(q,a), the number of active outsider coefficients for each odd q, or the active partition inside the characteristic-three permutation family.",
+        "searches": [
+          "Local Resultary cycle-spectrum and coefficient-census check, closest 6fe70918d61c",
+          "arXiv:1312.1325v3 Corollary 2.3 coefficient totals"
+        ]
+      },
+      "rationale": "Pass for the exact period-two point and coefficient census, not for the permutation classification. The two strongest available sources on the same binomial and on its broader family settle bijectivity, not whether the lifted second iterate fixes a point. No equivalent census was identified in the inspected evidence.",
+      "residual_risks": [
+        "Tucker–Zieve's unpublished 2000 preprint was not obtained; the available attribution verifies only the permutation classification and leaves possible additional iterate results unchecked.",
+        "This was a bounded statement-level comparison, not proof of publication priority or absence of an earlier general iteration formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers bijectivity, not the claimed period-two strata",
+          "evidence": "Orders of a^(q−1) are 6 for q≡5 mod 6 and 3 for q≡2 mod 6, or a^(q−1)=−1 when 3 divides q. Coefficient totals are for bijectivity only.",
+          "identifier_or_url": "https://arxiv.org/html/1312.1325v3",
+          "material_read": "Corollary 2.3 and proof, HTML offsets 12046 onward, corollary near 12266",
+          "method": "Primary OA arXiv HTML",
+          "title": "Permutation polynomials induced from permutations of subfields, and some complete sets of mutually orthogonal latin squares",
+          "trigger": "Original exact permutation theorem for this binomial"
+        },
+        {
+          "assessment": "Broader permutation result; its specialization is credited",
+          "evidence": "For b=0,c=a the condition is q not congruent to 1 modulo 3 and a^(q−1) a root of X^3−X^2+X; this classifies when a permutation exists, not two-cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16640",
+          "material_read": "Theorem 1.4, HTML offset near 8267",
+          "method": "Primary OA arXiv passage",
+          "title": "Determination of all complete mappings of F_(q²) of the form aX^(3q)+bX^(2q+1)+cX^(q+2)+dX^3",
+          "trigger": "Strong broader polynomial family"
+        },
+        {
+          "assessment": "Similar questions, different map and parameter conditions",
+          "evidence": "It treats X+tX^q+X^(2q−1) over a binary extension, not the norm-lift binomial or its odd-characteristic census.",
+          "identifier_or_url": "2026/11/2/SCOPE-cycle-spectra-and-a-kloosterman-coefficient-census-for-a-binary--6fe70918d61c",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cycle spectra and a Kloosterman coefficient census for a binary family",
+          "trigger": "Distinct same-day cycle spectrum and coefficient count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This classifies the first nontrivial periodic orbits of a known norm-lift family even outside the bijective cases. It identifies the exact fibers and their exchange, and quantifies how many parameters exhibit it, splitting a family whose prior bijectivity classification does not distinguish these dynamics. The result is uniform in the field and goes beyond a small-field cycle check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

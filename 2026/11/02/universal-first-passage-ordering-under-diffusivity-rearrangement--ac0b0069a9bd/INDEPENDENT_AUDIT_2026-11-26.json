@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:39.421427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–66 and 72",
+        "Frozen VERIFICATION.md lines 19–33 and verify.py lines 20–122; inspected, not executed"
+      ],
+      "rationale": "The optical map is bi-Lipschitz and yields generator ∂yy by the stated optical-pullback definition. Equimeasurability fixes Y and leaves only u=∫₀ᵃD⁻¹ᐟ² to vary. Layer cake bounds this prefix integral by the smallest and largest a-mass slices of the sorted optical density; monotone diffusivity realizes both. Sliding the length-a window from 0 to L−a in the sorted profile and cyclically shifting the full profile realizes every intermediate u by continuity. Pathwise, the upper-reflected unkilled coordinate is √2 B_t+min{u,Y−sup_{s≤t}√2 B_s}, increasing in u, so its first crossing of zero is ordered. The same ordered Brownian segment in each cycle and common reset intervals preserve completion order by induction. For u<v, pick t₀ with positive reset survival; a small Brownian tube around a descending path crossing −u but not −v by t₀ prevents upper reflection and has positive probability. On this event and no first reset before t₀ the laws separate. The same support argument gives positive success probability per cycle, hence almost-sure completion. The renewal recursion splits on the first reset; the Poisson transform and mean follow from qₛ''=s qₛ with qₛ(0)=1, qₛ'(Y)=0 and a geometric renewal calculation. For the illustrative two-material example, Y=.75 and the two starts are .2 and .4. The display uses u and ν for the same endpoint/window-integral quantities; the definitions disambiguate this notational slip.",
+      "residual_risks": [
+        "Finite sampled paths in the checker cannot resolve missed continuum crossings; the explicit continuum coupling, not the recorded assertion count, proves the law comparison.",
+        "No conclusion for a different interface or stochastic prescription, or an adaptive or design-dependent clock."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 1 record uses cyclewise quantile coupling for all independent renewal clocks. Evans arXiv:2410.01941v2 p. 1 compares stochastic and sharp restart in mean for random target locations. Menon Jr. and Anteneodo §III.1 covers the heterogeneous-coordinate Poisson mean."
+        ],
+        "reasoning": "The prior all-clock method propagates an existing within-cycle order but does not identify the range or endpoints of the material parameter, or its strict reflected hitting-time law. The other two compared results do not give the full distribution for the arbitrary common clock under the material constraint.",
+        "searches": [
+          "(\"diffusivity rearrangement\" OR \"rearrangement of diffusivity\") first-passage time stochastic ordering renewal resetting optical coordinate stochastic reset",
+          "Resultary: optical coordinate absorbing reflecting heterogeneous diffusivity stochastic resetting first passage distribution"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 53–78 and 84–89",
+        "Menon Jr. and Anteneodo, arXiv:2408.04726v1",
+        "Evans, arXiv:2410.01941v2, p. 1",
+        "Resultary record passages and comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known MFPT expression is monotone in optical start, but is an expectation under one clock family. The quantile method orders completed times given stochastically ordered attempt lengths."
+        ],
+        "reasoning": "A mean optimum does not imply an order of distributions. Combining the known transform and coupling framework still requires comparison in the finite reflecting geometry, strictness, and a sharp rearrangement plus attainment argument to identify exactly which starts and laws can be realized.",
+        "searches": [
+          "Menon Jr. and Anteneodo §§II and III.1, Eqs. (11),(16)–(19), concluding discussion",
+          "Nov. 1 distributional renewal record Finding and synchronized-cycle proof, offsets 522 and 5497"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Menon Jr. and Anteneodo Eq. (11) identifies the same optical coordinate. The Nov. 1 distributional renewal record orders random reset radii, not the material inventory; the Nov. 2 two-state record varies temporal switching at uniform spatial start."
+        ],
+        "reasoning": "Varying a randomized reset radius at fixed environment, varying a temporal diffusivity process, and rearranging a fixed spatial distribution with constant optical length are not equivalent design parameterizations. Material rearrangement constrains both the optical-domain length and the possible transformed starts.",
+        "searches": [
+          "Resultary: equimeasurable diffusivity rearrangement first-passage distribution stochastic ordering renewal resetting fixed reset point optical coordinate",
+          "Resultary: first-passage-time distribution diffusivity profile rearrangement optical length equimeasurable fixed reset point",
+          "Resultary: material rearrangement diffusivity optical coordinate stochastic resetting first passage full distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed full-law and spatial-diffusivity results are listed in the source inspections; one orders randomized radii and the other varies a temporal switching rate. Neither displays an attainable-law or optical-start interval for the static inventory model."
+        ],
+        "reasoning": "There is no finite table lookup that can establish a continuum classification over measurable profiles and arbitrary clock laws. Exact indexed theorem/interval searches check the applicable analogue, not a numerical example of the Poisson mean.",
+        "searches": [
+          "Resultary: equimeasurable diffusivity profile first passage rearrangement stochastic ordering",
+          "Resultary: first-passage-time distribution diffusivity profile rearrangement optical length equimeasurable fixed reset point"
+        ]
+      },
+      "rationale": "The optical transform and Poisson mean are established prior components, as is propagation of one-cycle stochastic order through a shared renewal clock. The sort order here concerns static equimeasurable materials on a finite reflecting interval at a fixed physical start/reset point. The inspected results do not provide the sharp design-law classification, in particular the exact continuum of attainable laws. The supported distinct claim is that classification, not a new general renewal principle.",
+      "residual_risks": [
+        "The targeted searches are bounded; more general comparison/rearrangement results or an unindexed treatment might subsume this combination.",
+        "Same-date indexing does not establish an ordering of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for optical map and Poisson mean, not the full law under general renewal resetting in the inspected results",
+          "evidence": "Eq. (11) integrates D⁻¹ᐟ²; Eq. (19) gives the Stratonovich Poisson MFPT; conclusion lists arrival-time densities as future work.",
+          "identifier_or_url": "https://arxiv.org/html/2408.04726v1",
+          "material_read": "Abstract; §II Eq. (11), offset 7900; §III.1 Eqs. (16)–(19), offset 13500; conclusion offset 31388",
+          "method": "OA original HTML passages",
+          "title": "Random search with resetting in heterogeneous environments",
+          "trigger": "Same optical change of variables, arbitrary heterogeneous profiles, exact Poisson MFPT"
+        },
+        {
+          "assessment": "Covers the coupling principle in a different geometry and control problem",
+          "evidence": "Mean-preserving spreads of random reset radii improve completion laws in half-line or exterior-sphere Brownian search; use common reset lengths across coupled cycles.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-distributional-optimization-of-renewal-reset-brownian-sear--02cf88abbb30/RESULT.md",
+          "material_read": "Finding offset 522 and cyclewise quantile-coupling proof offset 5497",
+          "method": "Resultary search and original local mirror passages",
+          "title": "Sharp distributional optimization of renewal-reset Brownian search",
+          "trigger": "Full distributional comparison for every renewal reset clock"
+        },
+        {
+          "assessment": "Different temporal mechanism and starts, no static spatial material constraint or renewal reset model",
+          "evidence": "Orders survival in the temporal switching rate for uniform spatial starts and stationary internal state; fixed-position comparison is only for the mean.",
+          "identifier_or_url": "2026/11/2/SCOPE-strict-absorption-time-ordering-under-two-state-diffusivity-swit--653ddf393a96/RESULT.md",
+          "material_read": "Finding offset 366 and scope clarification offset 8306",
+          "method": "Resultary search and original local mirror passages",
+          "title": "Strict absorption-time ordering under two-state diffusivity switching",
+          "trigger": "Possible diffusivity-based distributional comparison"
+        },
+        {
+          "assessment": "Target-distance randomization and mean comparisons in the examined passage; no whole-document noncoverage conclusion",
+          "evidence": "The abstract compares stochastic resetting and sharp restart for mean search time using random target distances and related waiting-time laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01941v2",
+          "material_read": "Abstract p. 1, offset 1458",
+          "method": "OA original PDF passage",
+          "title": "Stochastic resetting prevails over sharp restart for broad target distributions",
+          "trigger": "Literature result for nontrivial waiting-law comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 29–51",
+        "Menon Jr. and Anteneodo Eq. (19) as the stated mean-only comparison"
+      ],
+      "rationale": "For an inventory-constrained design, the result replaces optimizing any particular mean or resetting rate with one sharp pathwise order and shows exactly how many laws the material placement can realize: a single continuous interval of strictly ordered parameters, possibly degenerate for a constant inventory. This gives clock-independent choices for objectives such as deadline failure, quantiles and monotone penalties without solving the distribution for each profile. Sharp attainability and independence of the clock law give the design statement value beyond the known optical transform and Poisson mean.",
+      "residual_risks": [
+        "No claim of optimizer uniqueness among spatial profiles with the same endpoint integral, or of validity for a different stochastic prescription."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

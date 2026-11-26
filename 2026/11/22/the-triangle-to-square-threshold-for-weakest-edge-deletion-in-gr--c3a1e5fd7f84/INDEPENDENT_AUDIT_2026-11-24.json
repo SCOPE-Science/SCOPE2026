@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:28:46.196877Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3, FACTOR_CERTIFICATE.md, CHECK.py and VERIFICATION.md",
+        "python /workspace/replays/4_heat.py (independent symbolic certificate comparison and exact four-cycle reproduction)",
+        "Independent corroborating restricted Sylvester reproduction in /workspace/branches/e3eab39b-2f41-486c-a3e1-d8975079fb27/INDEPENDENT_CHECK.md"
+      ],
+      "rationale": "The constant mode cancels for both connected graphs. On the common mean-zero space the spectra are positive, and differentiation gives MZ+ZN=I for the convergent cross integral; traces are basis invariant. Independently derived the triangle cross trace using centered 2×2 operators X=M−αI and Y=N−βI, with α=tr(M)/2, β=tr(N)/2, X²=x²I, Y²=y²I and d=tr(XY)/2. For H=α+β and R=H²−x²−y², integration of the hyperbolic-function expansions gives tr(Z)=2H(R+2d)/(R²−4x²y²), with the repeated-eigenvalue cases by continuity. Substitution and exact cross multiplication matched the actual expanded P/D, both with 30 positive monomials, so the difference has sign b−a for every positive weight triple, including equality at a=b. Vertex relabeling covers all pairs. Independent rational solves for (100,10,11,11) matched the four printed fractions and E₂<E₁<E₃<E₀; exact E₁−E₂ is 18976950041406901787484663/11750543650483124820155055200. The deleted edge is (2,3) of weight 11. Triangles are the only smaller simple cycles, so four is sharp.",
+      "residual_risks": [
+        "No inference to normalized Laplacians, changed conductances, disconnected deletions or fixed-time objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DSE treats generic same-vertex sparsification and evaluation. Other retrieved methods concern polynomial surrogate solves, graph-filter stability under spectral approximation, or Laplacian pseudoinverse preservation."
+        ],
+        "reasoning": "Broader applicability of an objective and a way to compute it do not imply ordering the candidate deletions universally by edge weight. The alternative notions of preservation do not have the same objective.",
+        "searches": [
+          "Dynamics-preserving graph sparsification arXiv:2611.23176 §II.2; comparisons against arXiv:2502.06595, 2605.01136v2 and 1902.09702"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23176 §§II.2 and conclusion",
+        "arXiv:2502.06595 abstract; arXiv:2605.01136v2 §3.2; arXiv:1902.09702 p. 2",
+        "Resultary b2e6b62be786 and target self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's generic integrated objective and evaluation recover the framework in frozen §1. The inspected results do not give the positive sign factor for triangles, or locate an exact smallest-size reversal."
+        ],
+        "reasoning": "Evaluation still requires a nontrivial universal sign argument and an actual strict counterexample. Fixed-time inequalities or a surrogate spectral bound alone do not entail either.",
+        "searches": [
+          "Compare Eq. (4)–(6) and concluding finite-T discussion of arXiv:2611.23176 to frozen RESULT.md §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fitz-Gibbon et al. §II.2, Eqs. (4)–(6): isotropic Gaussian mean-square trajectory discrepancy over [0,∞). Resultary b2e6b62be786 uses a fixed-time variation-to-ℓ¹ norm for complete bipartite examples."
+        ],
+        "reasoning": "For Dₜ=e^(−tL)−e^(−tK), E||Dₜx||²=||Dₜ||²_F for covariance I or the mean-zero projector. Equivalently the error is the squared H₂ norm of the restricted resolvent difference. The different fixed-time norm is not equivalent.",
+        "searches": [
+          "Resultary: heat-semigroup Frobenius error and weakest-edge deletion; primary search: integrated diffusion error, sparsification and H₂ interpretation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target c3a1e5fd7f84 is a self-match. The available distinct heat approximation record b2e6b62be786 concerns fixed-time unit-weight complete bipartite graphs, not an exact deletion data table. No matching cycle calculation was located in the inspected passages."
+        ],
+        "reasoning": "A matching example would need the same labelled or isomorphic weighted cycle and full-time, fixed-conductance comparison; a triangle theorem must also quantify all positive triples. Keyword misses are not whole-paper negative evidence.",
+        "searches": [
+          "Resultary exact and semantic lookups for triangle-to-four-cycle cutoff and the single-edge heat-deletion comparison; DSE source checks for triangle, four-cycle and weighted cycle"
+        ]
+      },
+      "rationale": "The full-time trajectory metric and generic evaluation or optimization are not original here. Fitz-Gibbon et al. use the exact same objective, not merely an analogous spectral distance. What remains distinct from the strongest inspected statements is the pairwise order law for every positively weighted triangle under one unrenormalized deletion, together with the exact four-cycle reversal and hence the sharp cutoff. The paper dated 2026-11-17 was compared on the merits, not excluded by the undefined window invoked in the frozen discussion.",
+      "residual_risks": [
+        "A separate broad H₂ model-reduction literature survey was not made; older implicit special cases or supplemental examples may exist.",
+        "No priority is attributed to introducing the objective, and no special cutoff date was assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objective; no universal triangle ordering or exhibited reversal in the compared statements",
+          "evidence": "Gaussian-averaged discrepancy integrated to infinity, generic sparsification formulation and spectral evaluation.",
+          "identifier_or_url": "https://arxiv.org/html/2611.23176",
+          "material_read": "§II.2 Eqs. (4)–(6), HTML offsets 17100–21100; finite-T extension discussion offsets 46000–48397",
+          "method": "Primary OA HTML bounded passages",
+          "title": "Dynamics-preserving graph sparsification",
+          "trigger": "Exact objective and broader optimization problem"
+        },
+        {
+          "assessment": "Different norm, graph family and optimization",
+          "evidence": "Fixed-t graph-variation to ℓ¹ norm of I−e^(−tL) on unit-edge complete bipartite graphs.",
+          "identifier_or_url": "Resultary b2e6b62be786",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp heat approximation and finite-time cut rigidity on complete bipartite graphs",
+          "trigger": "Close same-day heat-approximation record"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "Spectral sparsification and representation or training stability, not ordering candidates by an exact integrated heat discrepancy.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.01136v2",
+          "material_read": "Primary PDF abstract p. 1, §3.2 p. 7",
+          "method": "OA PDF bounded passages",
+          "title": "Spectral Graph Sparsification Preserves Representation Geometry in Graph Neural Networks",
+          "trigger": "Potential sparsification stability coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact ordering proof",
+        "Fitz-Gibbon et al. §II.2"
+      ],
+      "rationale": "The theorem tests a natural pruning rule for a standard dynamic fidelity objective while holding conductance units fixed. A global triangle guarantee and an exact minimal-cycle counterexample clarify precisely where edge weight ceases to predict the best one-edge deletion; this is more informative than an arbitrary numerical counterexample or rederiving the standard integral formula.",
+      "residual_risks": [
+        "Threshold concerns simple cycles only; no stronger guarantee is claimed for general sparse graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

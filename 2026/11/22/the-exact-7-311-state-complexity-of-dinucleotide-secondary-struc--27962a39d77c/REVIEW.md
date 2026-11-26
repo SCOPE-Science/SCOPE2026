@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The streaming state invariant records the most recent dinucleotide and the mature set of earlier pairs eligible to be disjoint from the next pair. The transition rejection rule is equivalent by induction to the defining secondary-structure obstruction. The included standalone program exhausts the finite reachable graph (22,985 nonrejecting states plus sink), computes the suffix-refinement sequence \(2,17,2715,6807,7295,7311,7311\), and independently obtains 7,311 equivalence classes with Hopcroft refinement. Its direct comparison against the pair-of-disjoint-factors definition on every DNA word through length nine is supplemental validation. Full reachability and right-congruence stabilization, rather than a bounded sample, prove the all-length state count.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+For a prefix of length r, a newly appended factor occupies r,r+1; precisely the earlier factors ending at most at r-1 are disjoint from it. This gives the frozen recognizer invariant and induction from the empty state, including adjacency, the absent most-recent factor in a one-letter word, and absorption under every continuation after rejection. An independent set-based traversal in /workspace/branches/check_language.py exhausts that state presentation and finds 22,986 reachable states including the sink. It uses full Boolean suffix-evaluation vectors, not the submitted minimizer, to obtain exactly 2,17,2715,6807,7295,7311,7311. Suffix equivalence refines monotonically, and equality at depths five and six is a fixed point of right-congruence refinement, so the resulting classes distinguish all unequal right languages, all attained by prefixes. The strict increase from four to five also witnesses the necessity of length five for some pair. All but the single sink class accept the empty continuation; 4096<7311<=8192 proves the 13-bit state-encoding statement. The same replay checks the literal relation on 349,525 words through length nine, a semantics check rather than the all-length argument. It also tests a second, immediate-update presentation (9,458 reachable states) with the same suffix counts: two distinct overlapping factors cannot be mates because their shared letter would have to be fixed by the involution. Thus 22,986 correctly refers to the particular frozen pre-minimization recognizer, not an invariant of all presentations. The audit concerns only this abstract finite-language claim.
 
-The closest primary studies are Nguyen et al., arXiv:2302.13714 (2023), and Chu, Wang, and Zhang, arXiv:2304.11403 (2023), whose full arXiv presentations were inspected, including their definitions and construction/capacity sections. Zhang and Wu (2023), PMC10749251, was also inspected in its open-access full text and focuses on the different minimum-loop variant. The first develops avoidance codes; the second develops generating sets and spectral-radius capacity bounds. The latter's small transition digraph recognizes a restricted generated family, not the entire avoidance language. Neither inspected source states or logically implies the exact minimal one-way complete DFA size 7,311 without new state-space construction and minimization. Searches on secondary-structure avoidance, automata, Myhill–Nerode state complexity, and complementary dinucleotides did not reveal an exact earlier statement; absence from searches is not a proof of historical priority. A pre-existing unindexed automaton result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Stem-length-two avoidance is the smallest nontrivial natural constraint in the DNA secondary-structure code literature. The exact number of deterministic online recognition states is a canonical memory-complexity invariant of the **entire** allowed language, not an arbitrarily chosen subset or computational toy. It determines the sharp 13-bit fixed-state memory requirement, makes a minimum one-pass recognizer constructible, and can support exact finite-length automaton-based enumeration independently of asymptotic capacity results. Its strength is an exact natural finite classification, not a new rate improvement.
+The language, its complement orbits, capacity questions and general DFA tools are known. The distinct supported claim is exact Myhill–Nerode complexity and stabilization depth for the entire language. Inspected primary passages give no matching minimization or result that supplies those numbers by substitution, and the exact-count catalogue hit is the assigned record itself. This is a bounded comparison.
 
-## Remaining scientific limitations
+## value
 
-The claim is confined to linear words, four DNA bases, length-two stems, and complete deterministic one-way automata. No extra loop separation is imposed. The integer certificate is exact but no independent audit has been performed. Equivalent unindexed earlier work could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the first threshold beyond single-letter pairs in a known four-symbol nonoverlap constraint. The full residual-language invariant determines the exact cost of deterministic online recognition rather than the growth rate of a convenient subfamily. The useful finite cutoffs are a 13-bit state-encoding requirement and an exact five-letter bound on separating distinct states, supporting future state-level analyses of the formal language. This is not a claim about molecular structure, sequence engineering, or any physical assay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:31.543775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The range 0<γ≤2/(α+β) implies |1−γα|,|1−γβ|<1, even at the upper endpoint. Every path converges absolutely in state to a feasible point. The independent first draw gives T=γσ_I+(1−γa_I²)T′ in law, with T′ independent. Solving the first two uncentered moment equations recovers both moments and the risk; the squared distance factor is αβy²/(α+β) by projection onto (b,−a). Independent symbolic replay: python3 /workspace/branches/check_selection_derivative.py (SymPy); it checks the moments, derivative coefficients, upper-step simplification and exact benchmark. Below 2/s, C₂>0 and C₀<0 for α>β, hence precisely one positive derivative root and negative derivative at 0. The derivative at 1 has the sign of 4−γ(3α+β), which proves the transition and uniqueness, including the equality case. At 2/s the displayed fractional linear risk strictly decreases; as γ tends to zero the risk converges uniformly to (2p−1)²/d², unique minimum at 1/2. The benchmark gives the stated algebraic root and relative loss reduction. In the fair case residuals are 2⁻ᵏ, the binary cylinders give Uniform[0,1], and nonnegative iterates with sum ≤1 satisfy the required uniform bound; the risk is 1/6. Jin–Liu Algorithm 1 is uniform and its theorem range is strict, but this fair example lies strictly inside it. It refutes only the minimum-norm implication of Remark 2.5, not Theorem 2.4's random-solution assertion; the terminal solution is not past-measurable in the conditional-expectation argument. The uploaded verifier was inspected, not run; the all-path and limiting arguments are analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Liu analyze uniform block sampling and weak almost-sure convergence to a random feasible solution.",
+          "Richtárik–Takáč §4 states an optimization of the convergence-rate bound of Theorem 3; §4.1 Eq. (13) gives probabilities proportional to (L_i+v_i)/v_i for that criterion, with strong convexity.",
+          "The public finite-budget theorem optimizes the deterministic step schedule with uniform coordinates."
+        ],
+        "reasoning": "Neither a broad convergence theorem nor a different sampling optimization implies the Euclidean distance from a random terminal point to a distinguished point in a non-singleton minimizer set. The public schedule theorem varies steps, whereas the reviewed theorem varies p at a fixed step.",
+        "searches": [
+          "Jin–Liu arXiv:2405.13340v1 Algorithm 1 and Theorem 2.4",
+          "Richtárik–Takáč DOI 10.1007/s11590-015-0916-1, §4.1",
+          "Public finite-budget schedule theorem 13ced3d5640d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–111, 113–125; supporting VERIFICATION.md and verify.py",
+        "Jin–Liu v1, Algorithm 1, Theorem 2.4 and Remark 2.5",
+        "Richtárik–Takáč, §4.1 Eq. (13)",
+        "Resultary and public records 13ced3d5640d and 28e88f145876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 2.5 concludes minimum-norm selection from uniform boundedness. The exact uniformly bounded witness has terminal solution (U,1−U), so it hits the minimum with probability zero, and the expected cross term E⟨x₁−x₀,x∞−x†⟩ is 1/8 rather than zero.",
+          "NSync optimizes its strong-convexity-based rate rather than terminal nullspace risk."
+        ],
+        "reasoning": "The fair example satisfies all conditions of the remark, but does not contradict the random-feasible-limit theorem. The sampling transition stems from the affine-series second moment and cannot be inferred from these objective or residual convergence claims.",
+        "searches": [
+          "Jin–Liu v1, Theorem 2.4 and Remark 2.5, Eq. (17)",
+          "Richtárik–Takáč §4.1, Eq. (13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 13ced3d5640d treats uniform coordinate draws for an all-ones row and deterministic steps; its two-coordinate constant-step specialization gives the same fair-case expected risk 1/6.",
+          "Published 28e88f145876 treats rank-one row-and-coordinate sampling with all-ones column direction, and does not optimize a nonuniform selector."
+        ],
+        "reasoning": "A shared equal-column trace is real special-case coverage. Scaling away unequal column lengths would change both the effective two scalar multipliers and the Euclidean risk; it does not map the optimizer to an all-ones or fair-sampling statement.",
+        "searches": [
+          "Resultary: two-column coordinate descent nullspace selection risk and sampling-probability transition",
+          "randomized coordinate descent underdetermined rank one terminal minimum norm selection error optimal sampling probabilities constant step size two coordinates affine perpetuity implicit bias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected catalogue records provide the shared equal-column risk as a special case, not the unequal-column transition or probability formula."
+        ],
+        "reasoning": "The result is a continuum optimizer and transition, not a single tabulated minimizer. The checked records give no exact table or general formula covering that optimizer; this is limited to the actual searches and passages.",
+        "searches": [
+          "Resultary: exact two-coordinate nullspace selection risk, optimal iid probability, and 4/(3a²+b²) boundary",
+          "Published 13ced3d5640d and 28e88f145876, Findings"
+        ]
+      },
+      "rationale": "The supported distinction is the exact terminal minimum-norm selection risk optimized over fixed coordinate probabilities for unequal columns, with a sharp interior-to-boundary step threshold, and the bounded fair-digit witness for the specific prior remark. Bernoulli binary expansion is classical, and the equal-column limiting expected risk is directly shared with an indexed special case. Checked weighted-sampling results optimize objective/rate bounds or schedules, not this terminal selector. No exhaustive priority claim is made.",
+      "residual_risks": [
+        "An exact equivalent under affine perpetuity, iterated-function-system, or implicit-bias terminology remains possible.",
+        "Same-day date labels for the all-ones comparison do not determine priority or provenance. Exact fair-case expected risk is shared, irrespective of order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The bounded fair-digit example refutes Remark 2.5, not Theorem 2.4",
+          "evidence": [
+            "Uniform draws, strict condition γ<2/||A||², a.s. weak convergence to a random solution; the remark adds a uniform-boundedness implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.13340v1",
+          "material_read": "Algorithm 1 p. 4, Theorem 2.4 p. 8, Remark 2.5 and Eq. (17) pp. 9–10; OA text offsets 13998–14777, 24953 and 29400",
+          "method": "Bounded open primary PDF passages; apply the algorithm and compare hypotheses and conclusion",
+          "title": "Randomized block coordinate descent method for linear ill-posed problems",
+          "trigger": "Exact boundedness-to-minimum-norm assertion"
+        },
+        {
+          "assessment": "Different optimization problem and hypotheses",
+          "evidence": [
+            "Optimizes strong-convexity convergence by maximizing μ, with serial probabilities proportional to (L_i+v_i)/v_i; not selection risk in a deficient-rank system."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-015-0916-1",
+          "material_read": "Abstract and §1, offsets 350–2190; §4 and §4.1, Eq. (13), offsets 20380–23553, journal pp. 1240–1241",
+          "method": "Open access publisher PDF, query then bounded text passages",
+          "title": "On optimal probabilities in stochastic coordinate descent methods",
+          "trigger": "Strong literature hit for optimal single-coordinate probabilities"
+        },
+        {
+          "assessment": "Genuine equal-column risk overlap; no unequal-column selector or terminal uniform-law claim in inspected result",
+          "evidence": [
+            "Uniform sampling and all-ones measurement yield the special risk 1/6 at step 1/2 for two coordinates; finite-budget target optimizes the step schedule."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-finite-budget-reconstruction-optimal-steps-in-rank-one-randomize--13ced3d5640d/RESULT.md",
+          "material_read": "Finding, all-ones and fixed-step specialization",
+          "method": "Public-record mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Finite-budget reconstruction-optimal steps in rank-one randomized coordinate descent",
+          "trigger": "Same-day, closest exact reconstruction-risk match"
+        },
+        {
+          "assessment": "Only a restricted risk specialization, no optimization over p",
+          "evidence": [
+            "Entries are constant along each row and both draws are independent and uniform."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-nullspace-variance-law-for-doubly-randomized-coordinate-de--28e88f145876/RESULT.md",
+          "material_read": "Finding, offsets 0–2934",
+          "method": "Public-record mirror",
+          "title": "Exact nullspace-variance law for doubly randomized coordinate descent on rank-one inverse problems",
+          "trigger": "Closest indexed doubly sampled rank-one nullspace moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The objective is which exact solution the algorithm selects, not whether it fits the data. The sharp threshold shows that even optimal iid selection can switch to never updating one coordinate despite a consistent problem with two usable coordinates. The fair-digit construction answers a concrete incorrect implication in the motivating literature and locates the obstruction despite pathwise boundedness and geometric residual convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

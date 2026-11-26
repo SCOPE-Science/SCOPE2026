@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:31:11.741658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-node block symbol follows directly from evaluating the three Lagrange basis functions at r and 1+r. Its squared singular values have the stated trace and squared determinant, both affine in z=(1-Re q)/2. For u>0, X(u) is at least one and lies to the right of the vertex F(z)/2; the characteristic polynomial evaluated at X(u) is strictly positive for z>0 since X(u)<(2+u)/(2(1-u)). This strictly excludes all other Fourier blocks for noninteger displacement. The derivative of X is positive, and the half-step zero block takes (1,3) to (5/2,5/2); an exact independent N=2 construction reproduced the 5/4 squared ratio and the block maximum. Translations by two nodes and reflection reduce any real shift to r in [0,1] without changing the norm or u; integer shifts are permutations. The result is in the unweighted coefficient norm, and the finite reproduction does not replace the all-mesh proof.",
+      "replay_path": "/workspace/branches/43986838-92db-4fa0-8598-67e0ed928cb5/record1_reproduction.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 stability theorem uses block powers and a uniformly bounded eigenbasis. The frozen citation describes the 2007 work as eigenvalue estimation, but its full text was not retrievable."
+        ],
+        "reasoning": "A power bound or eigenvalue estimate is not an exact one-step norm theorem. At the half-step zero block the spectral radius is one while the norm is sqrt(5)/2. The 2007 text was not available for an exclusion.",
+        "searches": [
+          "arXiv:2610.19806v1 §2 equation (6) and Theorem 3.1",
+          "Ferretti–Perrone 2007 hdl:11590/160128"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95",
+        "Frozen VERIFICATION.md lines 3–27 and check.py lines 10–107",
+        "arXiv:2610.19806v1",
+        "hdl:11590/160128 (unavailable)",
+        "Resultary 75a44cdbc7aa and 8d80fc7ae2c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symbol is prior; taking singular values of one specified 2x2 block is elementary. The frozen result also proves all nonzero frequencies are strictly inferior for every fractional displacement, using the characteristic-polynomial comparison across the full phase interval."
+        ],
+        "reasoning": "The pointwise symbol alone leaves a global optimization; power stability does not settle it. The all-phase inequality is the material distinct step.",
+        "searches": [
+          "arXiv:2610.19806v1 §3.1 and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article's block matrices are the same after matching the displacement sign and indexing. The coefficient-vector norm is Euclidean, not a finite-element mass-matrix norm."
+        ],
+        "reasoning": "After translating notation the proposed invariant is the exact maximum of the largest singular value of those blocks, not an eigenvalue stability condition.",
+        "searches": [
+          "arXiv:2610.19806v1 §3.1 equations (7)–(8)",
+          "Resultary semantic lookup for quadratic semi-Lagrangian exact Euclidean amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected indexed neighbors concern a discrete-to-continuous variation norm of C1 periodic quadratic knot interpolation, or total variation of cardinal B-spline quasi-interpolation; neither supplies an exact norm table for this update."
+        ],
+        "reasoning": "Different operators and norms prevent direct numerical or formula coverage; an exact match was not established by the bounded search.",
+        "searches": [
+          "Resultary lookup for the one-step norm and zero-mode maximum",
+          "2026/11/22/SCOPE-sharp-variation-gain-and-parity-obstruction-for-periodic-quadrat--75a44cdbc7aa",
+          "2026/11/17/SCOPE-sharp-variation-reproduction-tradeoff-for-quadratic-cardinal-b-s--8d80fc7ae2c3"
+        ]
+      },
+      "rationale": "The strongest inspected same-operator source provides the Fourier representation and uniform power bounds, not an exact largest singular value and strict zero-frequency optimizer. The distinction survives matching the sign convention and coefficient-weight normalization. Best-of-knowledge judgment subject to the inaccessible 2007 text.",
+      "residual_risks": [
+        "Ferretti–Perrone (2007) remains a plausible uninspected primary source. The bounded search is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact operator match; different norm assertion",
+          "evidence": "Same Fourier blocks, followed by eigenstructure and uniform power bounds rather than the sharp one-step largest singular value.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19806v1",
+          "material_read": "§2, §3.1 eqs. (7)–(8), Theorem 3.1; OA offsets 11200–15637 and 25400–31646",
+          "method": "Original OA text, bounded passages",
+          "title": "Stability of the P2 Semi-Lagrangian scheme",
+          "trigger": "Identical periodic P2 nodal update"
+        },
+        {
+          "assessment": "Unresolved earlier-source comparison",
+          "evidence": "Original source inaccessible on lawful routes; an eigenvalue-focused description does not settle whether the paper also treats sharp singular norms.",
+          "identifier_or_url": "https://hdl.handle.net/11590/160128",
+          "material_read": "Bibliographic description in frozen RESULT.md; original full text not read",
+          "method": "Institutional OA attempt; access failed",
+          "title": "On the stability of semi-Lagrangian advection schemes under finite element interpolation",
+          "trigger": "Earlier quadratic finite-element stability work"
+        },
+        {
+          "assessment": "Different norm and interpolation problem",
+          "evidence": "C1 knot interpolant, variation gain and even-cycle solvability, not a Euclidean update norm.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-variation-gain-and-parity-obstruction-for-periodic-quadrat--75a44cdbc7aa",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Resultary lookup and mirrored record",
+          "title": "Sharp variation gain and parity obstruction for periodic quadratic interpolation",
+          "trigger": "Periodic quadratic interpolation with a sharp gain"
+        },
+        {
+          "assessment": "Different operator and norm",
+          "evidence": "Cardinal B-spline quasi-interpolation and total variation.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-variation-reproduction-tradeoff-for-quadratic-cardinal-b-s--8d80fc7ae2c3",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Resultary lookup and mirrored record",
+          "title": "Sharp variation/reproduction tradeoff for quadratic cardinal B-splines",
+          "trigger": "Sharp quadratic interpolation operator norm nearby"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp mesh-independent constant answers a natural finite-step stability question about an existing scheme. A positive extremizer and the strict maximizing Fourier mode show how a 25% squared-norm increase is compatible with power stability; neither an eigenvalue bound nor a weighted-energy bound would give that diagnostic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:57:37.855196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The untouched count U has variance at most its mean u by negative pairwise occupancy covariance, and U/n tends to zero for r/n→∞. Exchangeability in the order of last selection gives a uniform ordered prefix conditional on the number touched; the untouched suffix stays sorted. Compare with an independent uniform permutation before sorting that suffix. The descents change by a tail sum of mean U/2 up to a bounded endpoint/interface term, with conditional variance O(U), whereas inversions change only within the suffix, with conditional mean U(U−1)/4 and variance U(U−1)(2U+5)/72 from the independent Lehmer digits. Thus the centered perturbations vanish on the respective √n and n^(3/2) scales, and the stationary 1-dependent and independent-summand CLTs supply variances 1/12 and 1/36. The subsequence argument handles oscillating ratios in the iff statements, including divergence to minus infinity. At the critical windows the occupancy limits are e^(−c); uniform convergence to continuous CDFs and the midpoint of the two equal-variance normal CDFs give both Kolmogorov constants. Independently checked the conditional prefix counts and inversion mean over 3,906 histories (n=5, r=0..5); replay: python -B /workspace/branches/audit-replay.py 3. This checks finite identities, not the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1.2–1.3 treat fixed linear r or sufficient conditions above the n log n scales; Theorems 6.1 and 7.1 assume limiting touched proportion strictly inside (0,1)."
+        ],
+        "reasoning": "The latter hypotheses exclude the touched-proportion-one boundary; the former theorems do not cover finite offsets or necessity.",
+        "searches": [
+          "Clay, arXiv:2603.09008v2, Theorems 1.2–1.3, 6.1 and 7.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2603.09008v2",
+        "arXiv:0912.1686",
+        "arXiv:2604.09933",
+        "Resultary 7cc85a6a6c85, 560f0c10be7a, 830668ca52c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 4.2–4.3 furnish the known prefix/Lehmer representation. Fixed-density limits and above-window normality do not give the tail normalization, nonzero shift or subcritical divergence."
+        ],
+        "reasoning": "The sharp conclusions require controlling two different stationary fluctuations and discarded tails along moving occupancy ratios; this is a further boundary analysis of the known identities, not a specialization of the published CLTs.",
+        "searches": [
+          "Clay, arXiv:2603.09008v2, Theorems 4.2–4.3 and 1.2–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inversion count is invariant under inverting the permutation, but descent count need not be; Clay distinguishes move-to-front and top-to-random on p. 3.",
+          "The uniform-weight Tsetlin result tracks a descent set using the inverse-permutation convention and gives a TV bound, not the shifted count distribution. Feng treats full-deck mixing at n log n."
+        ],
+        "reasoning": "Checked the inverse shuffle and descent-set aliases; their matching model ingredients do not identify either asserted CDF profile.",
+        "searches": [
+          "Clay, arXiv:2603.09008v2, pp. 2–3, 7, 9",
+          "Athanasiadis–Diaconis, arXiv:0912.1686, Prop. 5.9",
+          "Feng, arXiv:2604.09933, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7cc85a6a6c85 and 560f0c10be7a give joint Gaussian laws at fixed linear time, not critical scalar profiles.",
+          "830668ca52c2 is a same-day hit with a quarter n log n scale but a binary-cycle heat-bath chain in full-state total variation."
+        ],
+        "reasoning": "Compared actual findings rather than using dates or matching cutoff scales as a filter. None matches the exact profile or equivalent thresholds.",
+        "searches": [
+          "Resultary: ordered random-to-top descent/inversion Gaussian profiles; 7cc85a6a6c85, 560f0c10be7a, 830668ca52c2"
+        ]
+      },
+      "rationale": "The best-supported distinct claim is the critical-window scalar Gaussian shifts, their exact Kolmogorov profiles and necessity over all r/n→∞. The ordered-suffix law, fixed linear-time CLTs and above-window sufficient conditions are prior work; no inspected source already covers the distinct claim.",
+      "residual_risks": [
+        "The initial broad literature lookup was uninformative; primary comparisons come from the identified OA sources. A broader unlocated theorem for permutation statistics at the touched-fraction-one boundary remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial inputs and partial regime overlap; finite-offset scalar profiles not established by those theorems",
+          "evidence": "States the above-window sufficient offsets, the prefix representations and interior touched-fraction condition; explicitly distinguishes inverse-shuffle transfer for inversions vs descents.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.09008",
+          "material_read": "v2, pp. 2–3, 7, 9, 18, 23; Theorems 1.2–1.3, 4.2–4.3, 6.1, 7.1",
+          "method": "OA PDF passage inspection",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Closest exact model and statistics"
+        },
+        {
+          "assessment": "Different observable/metric; upper bound only",
+          "evidence": "Stationary law and TV upper bound for Des(τ⁻¹), not the two scalar count profiles.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1686",
+          "material_read": "pp. 24–25, Proposition 5.9",
+          "method": "OA PDF passage inspection",
+          "title": "Functions of random walks on hyperplane arrangements",
+          "trigger": "Descent statistics of the uniform Tsetlin library"
+        },
+        {
+          "assessment": "Not equivalent to the asserted scalar profiles",
+          "evidence": "Full-deck metric at the later coupon-collector window.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.09933",
+          "material_read": "pp. 1–2, model, main-profile introduction and m=p=1 special case",
+          "method": "OA PDF passage inspection",
+          "title": "Explicit cutoff profiles for colored top-m-to-random shuffles",
+          "trigger": "Inverse shuffle and cutoff profile terminology"
+        },
+        {
+          "assessment": "Does not match the moving late-time boundary",
+          "evidence": "Fixed r=floor(cn) with joint Gaussian fluctuations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-occupancy-mediated-joint-gaussian-fluctuations-of-descents-and-i--7cc85a6a6c85",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Occupancy-mediated joint Gaussian fluctuations of descents and inversions in random-to-top shuffles",
+          "trigger": "Same model and joint statistics"
+        },
+        {
+          "assessment": "Different regime and added correlation statistic",
+          "evidence": "Fixed-linear-time joint limits and finite-size covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-joint-gaussian-fluctuations-and-a-positive-descent-inversion-cor--560f0c10be7a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Joint Gaussian fluctuations and a positive descent–inversion correlation",
+          "trigger": "Same statistics and Gaussian limits"
+        },
+        {
+          "assessment": "Different chain and distance",
+          "evidence": "Binary cycle heat bath, full-state TV profile 2Φ(e^(−2c)/2)−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian cutoff profile for adjacent-edge heat-bath on a binary cycle",
+          "trigger": "Same-day indexed record and same quarter-logarithmic scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These natural observables become effectively stationary at different times well before full-deck mixing. The exact shifts identify the mechanisms (linear missing-card penalty versus quadratic lost inversions), and the Kolmogorov profiles and iff conditions distinguish delays that an above-window sufficient CLT does not. The contribution is precise scalar relaxation, not a full-deck, local-limit or joint-limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

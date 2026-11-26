@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:37:06.672709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and collapses.json (source evidence inspected, not executed)",
+        "Independent /workspace/reproduction/finite_lattices.py and finite_lattices.log"
+      ],
+      "rationale": "An independent direct computation on the full complex, not relying on the supplied collapse sequence, constructs the specified 16-vertex, 24-edge graph and the metric by Floyd–Warshall. A triple is forbidden iff the sum of its three pairwise distances is twice their maximum, exactly the geodesic betweenness test. Exhaustive subset generation finds 336 forbidden triples and 16,120,224,220,80 faces in dimensions 0–4, none in dimension 5 and hence none above. The signed full boundary matrices satisfy ∂²=0, have ranks 15,81,139,80 in degrees 1–4, and have only unit nonzero integer Smith factors. Thus every boundary image is saturated in its chain group and also in the cycle subgroup. The full unreduced chain groups give reduced ranks (0,24,4,1,0), and no torsion. The complete 1-skeleton confirms connectedness. This corroborates the frozen proof even without reproducing its optional shorter chain complex; the attached collapse logic also checks unique codimension-one cofaces in a simplicial complex. No conclusion about a wedge splitting follows or is needed.",
+      "residual_risks": [
+        "The calculation is limited to the exact graph and the chosen geodesic definition; no integral homotopy classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel–Klavžar study maxima under geodesic betweenness; Iršič et al. count faces by cardinality.",
+          "The exact homology result for circular ladders covers C_n square K2, 3≤n≤8, where the n=8 graph is GP(8,1), not GP(8,3)."
+        ],
+        "reasoning": "Neither the parameter range of the circular-ladder result nor a broader counting definition supplies the signed boundary ranks or torsion of this graph's complex.",
+        "searches": [
+          "arXiv:1710.00244v1 opening results",
+          "arXiv:2401.05696v1 introduction",
+          "66956fa3cd10 Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.00244v1",
+        "arXiv:2401.05696v1",
+        "2f1c04433275 (identical record)",
+        "66956fa3cd10",
+        "2b99cf38fc97",
+        "4bfded76792e",
+        "7a962f4f0505",
+        "b5d75e6c724c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A counting polynomial would recover the face vector and Euler characteristic, not individual boundary ranks or integral saturation.",
+          "Two-independence has a different forbidden-triple condition even on the same graph; the circular-ladder theorem has a different graph."
+        ],
+        "reasoning": "The calculated torsion-free groups in three positive degrees are additional to face enumeration and do not follow from the cited homotopy results on other complexes.",
+        "searches": [
+          "arXiv:1710.00244v1",
+          "arXiv:2401.05696v1",
+          "2b99cf38fc97",
+          "66956fa3cd10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triple {u0,u1,u3} has distances 1,2,3 and is forbidden here, but its induced components have sizes 2 and 1, allowed in two-independence.",
+          "The matching complex has graph edges for vertices. A metric Rips complex either omits some edges in its 1-skeleton or is a full simplex, unlike this general-position complex.",
+          "On the same cubic graph, an open or closed neighborhood complex cannot have faces of size five, unlike this complex; the catalog Kneser hit is not even GP(8,3)."
+        ],
+        "reasoning": "The same metric or base graph does not imply equality of the underlying simplicial complexes or their homology. GP(8,3), Möbius–Kantor and the incidence graph of the (8_3) configuration denote the same base graph in this review.",
+        "searches": [
+          "Resultary Möbius–Kantor/GP(8,3) geodesic general-position complex and integral homology aliases",
+          "Primary search: geodesic general-position homology Möbius-Kantor GP(8,3) simplicial complex",
+          "2b99cf38fc97",
+          "4bfded76792e",
+          "7a962f4f0505"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 2f1c04433275 reproduces the assigned finding and explicit homology-only scope under the same record slug.",
+          "The closest distinct table-like result gives degree 1–3 ranks 32,15,4 at C_8 square K2, on a different graph."
+        ],
+        "reasoning": "The duplicate catalogue entry does not establish independent antecedence. No separate inspected table gives the same integral groups for this exact complex.",
+        "searches": [
+          "Resultary semantic search for GP(8,3) geodesic general-position homology",
+          "2f1c04433275",
+          "66956fa3cd10",
+          "arXiv:2401.05696v1"
+        ]
+      },
+      "rationale": "The inspected primary sources supply the notion or enumerate faces, not the integral groups. The strongest identically titled catalogue hit is the same slug and claim as the assigned record, not evidence of a separate predecessor. The closest distinct source results concern other functors on the same graph or the same functor on other graphs.",
+      "residual_risks": [
+        "Bounded literature coverage cannot exclude an unindexed equivalent calculation; no separate Möbius–Kantor neighborhood-complex paper was authenticated, though its face rule is demonstrably different.",
+        "No priority inferred between distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and extremal questions",
+          "evidence": "Maximum-cardinality problem and grid/Beneš network results, not the claimed integral groups.",
+          "identifier_or_url": "https://arxiv.org/html/1710.00244v1",
+          "material_read": "Opening formulation and described network results, offset 0",
+          "method": "OA primary HTML",
+          "title": "The graph theory general position problem on some interconnection networks",
+          "trigger": "Primary source for the geodesic-set framework"
+        },
+        {
+          "assessment": "Counts, not signed chains",
+          "evidence": "The polynomial counts general-position subsets by size.",
+          "identifier_or_url": "https://arxiv.org/html/2401.05696v1",
+          "material_read": "Opening and counting definition, offsets 0 and 780",
+          "method": "OA primary HTML",
+          "title": "General position polynomials",
+          "trigger": "Exact same face functor and computations by graph family"
+        },
+        {
+          "assessment": "Identical assigned record, not a separate comparison result",
+          "evidence": "Same record slug, graph, scope, homology groups and disclaimer about homotopy.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-geodesic-general-position-homology-of-the-m-bius-kantor--2f1c04433275",
+          "material_read": "Finding and relationship passage, offsets 249 and 4510",
+          "method": "Local published-record mirror",
+          "title": "Integral geodesic general-position homology of the Möbius–Kantor graph",
+          "trigger": "Exact title and strongest search hit"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "C_n square K2 for 3≤n≤8, with ranks 32,15,4 when n=8.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-third-homology-in-circular-ladder-general-position-complex--66956fa3cd10",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "First–third homology in circular ladder general-position complexes",
+          "trigger": "Same functor, same 16-vertex order in a nearby cubic family"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Induced connected components have size at most two; the stated homotopy type is a wedge of three six-spheres.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-six-spheres-in-the-two-independence-complex-of-the-m-bius--2b99cf38fc97",
+          "material_read": "Face rule and Finding, offset 207",
+          "method": "Local published-record mirror",
+          "title": "Three six-spheres in the two-independence complex of the Möbius–Kantor graph",
+          "trigger": "Same graph and superficially similar forbidden-triple rule"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Edge-disjoint edge sets, with spheres in degrees four and five.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-m-bius-kantor-matching-complex-is-a-mixed-dimensional-sphere--4bfded76792e",
+          "material_read": "Finding, offset 181",
+          "method": "Local published-record mirror",
+          "title": "The Möbius–Kantor matching complex is a mixed-dimensional sphere wedge",
+          "trigger": "Same graph and mixed-dimensional homology"
+        },
+        {
+          "assessment": "Different metric rule",
+          "evidence": "Faces have pairwise distances bounded by a scale; at scale two the group ranks come from nine 2-spheres and two 3-spheres.",
+          "identifier_or_url": "2026/11/1/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-m-bius-kan--7a962f4f0505",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Complete graph-metric Vietoris–Rips filtration of the Möbius–Kantor graph",
+          "trigger": "Same graph metric and multiple positive homology degrees"
+        },
+        {
+          "assessment": "Different graph and complex",
+          "evidence": "KG(8,3) is a Kneser graph, not GP(8,3).",
+          "identifier_or_url": "2026/11/1/SCOPE-a-projective-plane-summand-in-the-closed-neighborhood-complex-of--b5d75e6c724c",
+          "material_read": "Finding, offset 36",
+          "method": "Local published-record mirror",
+          "title": "A projective-plane summand in the closed neighborhood complex of KG(8,3)",
+          "trigger": "Potential collision of graph labels (8,3) in neighborhood-complex lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and assumptions",
+        "Direct integral boundary computation",
+        "General position polynomials and differing complexes on the same graph"
+      ],
+      "rationale": "The general-position functor is motivated independently by graph betweenness and the graph is the canonical small cubic symmetric graph of the (8_3) configuration, not a selected parameter chosen for an easy computation. Its exact answer is a concrete mixed-dimension and torsion-free benchmark for geodesic complexes: even the full face counts do not show the simultaneous nonvanishing in degrees 1, 2 and 3 or rule out torsion. The finite result answers both questions completely without overstating a homotopy consequence.",
+      "residual_risks": [
+        "Single graph only; no inferred family, automorphism module or attaching-map classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

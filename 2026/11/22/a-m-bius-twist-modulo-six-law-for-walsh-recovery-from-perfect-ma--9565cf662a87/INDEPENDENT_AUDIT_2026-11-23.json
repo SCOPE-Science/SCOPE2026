@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:38.174677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, particularly (1)–(2) and the seed and null-block lists",
+        "Frozen mobius_walsh_verifier.py and VERIFICATION.md, inspected, not executed",
+        "Replay: python3 /workspace/branches/233dbe06-eb62-4e82-8673-8e3f33545a77/mobius_ladder_bounded_transfer_check.py (output in adjacent mobius_ladder_bounded_transfer_check_results.txt)"
+      ],
+      "rationale": "Switching at vertices multiplies every perfect matching by the same sign; the nonseam cycle edges form a spanning path, so fixing them all positive is possible and picks a unique edge-sign representative. The switching kernel consists exactly of the two constant assignments, giving 2^(2n-1) full signs per reduced representative. To check the matching transfer, remove the endpoints of at least one chosen chord. The remaining circumference pieces are paired with their antipodal translates. Each piece has a unique perfect matching if it has even length in vertices and none otherwise, so all remaining cycle edges occur in antipodal pairs and give the cyclic monomer-dimer model. Its two transfer terms are the no-seam and seam contributions a and hd: fixing the seam dimer removes the two extreme column indices. If no chord is chosen the two alternating circumference matchings are invariant under the antipodal shift for even n and interchanged for odd n. Only the odd case needs the additional weights 1 and h. This gives (1), including n=3. The mod-2 transfer has order 3; its nonidentity powers have trace 1 and the identity power forces a,d odd and b,c even. At odd multiples of three, either possible zero would give ad=1 mod 4 and thus determinant 1 mod 4, contrary to -1. At multiples of six, h=+1 and a+d=0 would instead give determinant 3 mod 4, contrary to +1. The exact six-letter identity preserves parity and product; the six seeds give the optimal surviving gap in all residue classes. At n=6k any concatenation of the eight listed ±I blocks with h=-1 gives a zero, with distinct words and disjoint switching classes. The operator norms are the reciprocals of the least surviving absolute multipliers in the stated counting convention. A fresh bounded exact check agreed with all 4,080 reduced sign configurations for n=3–10, including 36 reduced zeros at n=6; it evaluated all six seeds and eight transfer blocks and tested propagation through n=60 (transfer only).",
+      "residual_risks": [
+        "Bounded direct signed enumeration stops at n=10; the all-order result follows from the matching reduction, congruences and witnesses, not enumeration. The null-family bound gives no exact nullity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McSorley's archival record concerns the same graphs and enumeration, but full text was unavailable. Theorem 1.1 of Cimasoni–Pham gives a partition-function squaring identity under local/non-global bipartiteness or a symmetry condition, rather than inequalities for the evaluated integer Fourier coefficients."
+        ],
+        "reasoning": "Even a general exact formula for partition functions requires a further sign/congruence analysis to show which residues admit a zero or a witness attaining the least nonzero magnitude. No inspected theorem gives that classification here.",
+        "searches": [
+          "doi:10.1016/S0012-365X(97)00086-1 / Michigan Tech institutional record",
+          "arXiv:1608.00741v2 §1 and the statement of Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "November 16 published cycle-prism RESULT.md",
+        "Cimasoni–Pham arXiv:1608.00741v2",
+        "Lekshmi–West arXiv:2003.09602 (abstract)",
+        "McSorley institutional record (no full text)",
+        "Ranked Resultary comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prism deletes no twist across its two rails: its published result has zeros at every multiple of three and least surviving magnitude 4 at multiples of six. The frozen Möbius proof has no zeros at odd multiples of three and least magnitude 2 at multiples of six."
+        ],
+        "reasoning": "The computations in the two transfer proofs share tools, but the seam variable and the parity of the additional circumference matchings change which determinant residues obstruct zeros. Neither the untwisted classification nor the unsigned count implies the new conclusion by relabeling or parameter substitution.",
+        "searches": [
+          "Resultary 2026/11/16, A modulo-six Walsh stability law for perfect matchings of cycle prisms, RESULT.md",
+          "arXiv:2003.09602 indexed unsigned statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Walsh evaluation is the usual weighted matching sum at independent ±1 edge activities. The indexed 2020 Lekshmi–West result evaluates the all-positive matching count. Cimasoni–Pham compare surface-dependent twists of weighted matching sums with their orientation covers."
+        ],
+        "reasoning": "An unsigned value at all +1 does not determine cancellations; the surface identities examined use matching-class signs and real energies, not a statement characterizing all independent edge-sign zeros at fixed ladder size.",
+        "searches": [
+          "Möbius ladder signed perfect matchings generating function weighted dimer partition transfer matrix sign modulo 6 eigenvalues Walsh McSorley full text",
+          "arXiv:2003.09602 (indexed abstract)",
+          "arXiv:1608.00741v2, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic hit was the assigned record. Nearby published records enumerate Walsh invariants for cycle prisms, the Pappus graph, and the McGee cage; the cycle-prism primary proof was compared."
+        ],
+        "reasoning": "Single-graph spectra on other graphs and an all-order prism classification with different residues do not tabulate these Möbius-ladder coefficients.",
+        "searches": [
+          "Resultary: Möbius ladder perfect matchings signed Walsh convolution modulo six cycle prism"
+        ]
+      },
+      "rationale": "Provisional for the all-edge signed Möbius-ladder zero criterion, exact surviving gap, and constructive family of null characters. Earlier unsigned counts and general dimer identities are relevant, but the directly comparable signed cycle-prism statement has materially different zero and gap rules. The proof adapts a transfer approach rather than introducing signed matching methods or claiming novelty for the unsigned count.",
+      "residual_risks": [
+        "McSorley and Lekshmi–West could not be read in full on the attempted lawful routes. Earlier signed dimer/weighted matching literature could cover an equivalent classification; bounded negative search is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related technique, different graph and a non-equivalent answer.",
+          "evidence": [
+            "Theorem: invertible exactly off multiples of three, Moore–Penrose norm 1/4 at multiples of six and 1/2 at odd multiples of three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-modulo-six-walsh-stability-law-for-perfect-matchings-of-cycle--ed342431e104/RESULT.md",
+          "material_read": "Finding, signed-transfer and gap conclusions, verification and limitations",
+          "method": "Published Resultary mirror",
+          "title": "A modulo-six Walsh stability law for perfect matchings of cycle prisms",
+          "trigger": "Closest same all-frequency invariant on related graph family"
+        },
+        {
+          "assessment": "A general cover-identity framework, no claim of the all-sign gap/zero theorem in the compared statements.",
+          "evidence": [
+            "Equation (4) involves homology-class partial partition functions Z_0, Z_1 and their squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.00741",
+          "material_read": "Abstract, §§1.1–1.2 including (4) and Theorem 1.1",
+          "method": "Primary arXiv PDF text",
+          "title": "Identities between dimer partition functions on different surfaces",
+          "trigger": "Weighted dimers on the Möbius strip and twisted quantities"
+        },
+        {
+          "assessment": "Potential historical precursor; unavailable full text does not establish non-coverage.",
+          "evidence": [
+            "McSorley, Discrete Mathematics 184 (1998), DOI 10.1016/S0012-365X(97)00086-1."
+          ],
+          "identifier_or_url": "https://digitalcommons.mtu.edu/michigantech-p/7264/",
+          "material_read": "Institutional bibliographic/landing material only; no linked full text secured",
+          "method": "Institutional lookup and exact OA request",
+          "title": "Counting structures in the Möbius ladder",
+          "trigger": "Same graph family and counting"
+        },
+        {
+          "assessment": "The accessible claim is unsigned; no inference about unseen material.",
+          "evidence": [
+            "The abstract describes an exact formula for the number of perfect matchings on the two cubic graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.09602",
+          "material_read": "Indexed abstract; attempted exact arXiv PDF unavailable",
+          "method": "arXiv citation and independently retrieved indexed abstract",
+          "title": "The Number of Perfect Matchings in Möbius Ladders and Prisms",
+          "trigger": "Exact count on the same graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and the exact lower-bound construction",
+        "Published November 16 prism Finding"
+      ],
+      "rationale": "The all-edge recoverability and exact counting-measure inverse norm are natural, nontrivial invariants of a classical cubic graph family. The comparison isolates a real boundary-condition effect: the Möbius twist removes the entire odd-multiple-of-three failure class and changes worst-case surviving stability at the other singular lengths. The null witnesses quantify actual rank loss; this is more than another unsigned enumeration or a finite spectrum table.",
+      "residual_risks": [
+        "No claim about exact nullity or endpoint operator norms; significance is the complete residue-wise invertibility/gap classification for this natural family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:52:59.545043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62; VERIFICATION.md and verify.py inspected without running the frozen script.",
+        "Fresh check: python3 /workspace/branches/65b88ce5-8040-4d1d-9ff1-df2809716a82/fresh_forest_check.py; fresh-extended.log in the same directory records 873 forests, 180679 colourings, 475 direct algebra closures and 30 sharp paths."
+      ],
+      "rationale": "Equal-coloured leaves agree on atoms and on every diamond formula (false), hence on all terms. Conversely, for a vertex of remaining height d pick a leaf at distance d. With an exact-height test conjoined with the d-fold diamond of this leaf's colour minterm, any matching endpoint is a leaf, is the same leaf by injection, and determines a unique d-th ancestor. At d=h one can omit the exclusion of paths of length h+1, so all singleton formulas have depth at most h, including h=0. A monochromatic path's root and child agree on all formulas through depth h-1 by induction on depth. The count is injections on L labelled leaves times q^(n-L); q=1 works exactly for L=1. The logarithm of the collision product gives the finite positive birthday limit with O(L^3/q^2) error, the upper exponential bound gives the zero limit (including q<L), and the union bound gives the one limit.",
+      "residual_risks": [
+        "The fresh finite computations corroborate the argument only. No assertion about general DAGs with shared descendants, transitive frames or infinite forests was validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carr covers the abstract equivalences; Agnew's introduction is about local finiteness of transitive K4 algebras; the generic witness paper does not identify leaf-injectivity as sufficient."
+        ],
+        "reasoning": "Transitive structures are not a broader class containing immediate-child forests. In genuinely broader transition classes (e.g. two roots with a shared child), equal-coloured roots can remain equivalent despite leaf injection. Neither general source supplies the structural reduction, sharp depth or census.",
+        "searches": [
+          "Carr, Theorem 2.19",
+          "Agnew, arXiv:2606.02941",
+          "Wißmann–Milius–Schröder, arXiv:2203.11175"
+        ]
+      },
+      "checked_sources": [
+        "Carr (2022), Thm. 2.19; Agnew arXiv:2606.02941; Wißmann–Milius–Schröder arXiv:2203.11175",
+        "Resultary findings identified above, with the assigned self-hit excluded as independent comparison."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known colouring and witness theorems handle an equivalence or inequivalence already established, not reduction to leaf-only constraints. The bouquet result has a distinct mechanism involving reflexive supports."
+        ],
+        "reasoning": "The census and birthday limit follow mechanically once the new forest equivalence is proved, not from the generic criteria alone. The residual-height and unique-ancestor argument is the nonmechanical step, and the all-one-colour path checks optimal depth on the stated class.",
+        "searches": [
+          "Carr, Theorem 2.19 p. 23; Wißmann et al., modal witness discussion p. 8; local Resultary cluster-bouquet RESULT.md offsets 0 and 5496"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carr characterizes generation by the absence of a nontrivial monochromatic modal equivalence; Wißmann et al. address behavioural distinguishability and witnesses."
+        ],
+        "reasoning": "The observable-state and generating-tuple formulations agree on these finite Boolean algebras. General equivalence criteria do not identify which vertices need distinct colours. The additional argument is that a deepest-leaf observation plus remaining height selects a unique ancestor.",
+        "searches": [
+          "Literature: finite rooted tree modal logic generators coloring leaves pairwise distinct separating all vertices modal algebra generation leaf colours theorem",
+          "Carr, Theorem 2.19; Wißmann–Milius–Schröder, arXiv:2203.11175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "811110ab9084 is the assigned record itself. Distinct same-day 263caf08a431 counts reflexive root/terminal cluster bouquets using intracluster injection and support constraints. 025954e8c6b7, 519d6caa5be5 and 932014f5473b use reflexive chains or layered posets. 5345b2acbad9 requires total functional successor relations; dda455b75ffa covers atom-free types, and 818ec1eeacfe counts quotient types on regular trees."
+        ],
+        "reasoning": "Neither self-match nor the shape-specific constraints of the materially overlapping entries establish exact coverage. Same-day order was not inferred.",
+        "searches": [
+          "Local Resultary semantic search for finite modal forest leaf injection and generation censuses; mirror inspection of 811110ab9084, 263caf08a431, 025954e8c6b7, 519d6caa5be5, 932014f5473b, 5345b2acbad9, dda455b75ffa and 818ec1eeacfe."
+        ]
+      },
+      "rationale": "The supported distinction is reduction of full generation to leaf injection on finite immediate-child outforests, with the resulting shape-free count and uniform depth bound. The general colouring theorem, modal witnesses, comparable catalogue censuses and the classical birthday calculation are not claimed as new.",
+      "residual_risks": [
+        "Bounded search; an earlier leaf-observability formulation in unindexed modal or tree literature is not ruled out. No priority ordering inferred from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General equivalence, not leaf-only census",
+          "evidence": "Generation iff every proper modal equivalence has a nonmonochromatic class.",
+          "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/1875/1/MoL-2022-02.text.pdf",
+          "material_read": "Theorem 2.19, p. 23, text offset 56116",
+          "method": "OA original PDF passage",
+          "title": "Hereditary Structural Completeness over K4: Rybakov's Theorem Revisited",
+          "trigger": "Abstract modal colouring/generation theorem"
+        },
+        {
+          "assessment": "Different relation class and invariant",
+          "evidence": "Transitivity and local finiteness are central; not counting fixed generator valuations on a forest.",
+          "identifier_or_url": "arXiv:2606.02941",
+          "material_read": "pp. 1–2, text offset 6242",
+          "method": "OA original PDF passage",
+          "title": "On Local Finiteness of Modal K4 Algebras",
+          "trigger": "Finite-generation literature in modal frame theory"
+        },
+        {
+          "assessment": "Covers existence/construction of witnesses for inequivalent states, not the criterion or depth/count",
+          "evidence": "Hennessy–Milner distinguishability for image-finite systems and equivalence-class certificates.",
+          "identifier_or_url": "arXiv:2203.11175",
+          "material_read": "p. 8, text offset 27500",
+          "method": "OA original PDF passage",
+          "title": "Quasilinear-Time Computation of Generic Modal Witnesses for Behavioural Inequivalence",
+          "trigger": "General modal observability and separators"
+        },
+        {
+          "assessment": "Closely related, not equivalent",
+          "evidence": "Reflexive root/terminal bouquets with cluster support and injectivity conditions, rather than nonreflexive immediate-child forests.",
+          "identifier_or_url": "Resultary 2026/11/22, 263caf08a431",
+          "material_read": "RESULT.md finding and proof material at offsets 0 and 5496",
+          "method": "Local Resultary mirror",
+          "title": "Branching lowers modal generator rank: an exact palette census",
+          "trigger": "Strongest distinct same-day generator-census hit"
+        },
+        {
+          "assessment": "Analogue or different invariant",
+          "evidence": "Adjacent level conditions, reflexive poset palettes, total-functional cycles, atom-free type coverage, or quotient cardinality are not the forest generator theorem.",
+          "identifier_or_url": "Resultary 025954e8c6b7, 519d6caa5be5, 932014f5473b, 5345b2acbad9, dda455b75ffa, 818ec1eeacfe",
+          "material_read": "Individual RESULT.md finding passages at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Related Resultary modal frame classifications and censuses",
+          "trigger": "Exact count or same frame/semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and census, RESULT.md lines 5–62; closest general and catalogue comparisons above."
+      ],
+      "rationale": "This reduces a whole-frame generation problem to a single leaf-injectivity test regardless of internal labels. It supplies a closed census, exact minimal rank and optimal worst-case formula depth for an entire natural class. The birthday law is a useful consequence, rather than a separate novelty claim.",
+      "residual_risks": [
+        "Optimal depth is uniform worst-case, not asserted to be necessary for each frame or singleton."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:36:13.581750Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For commuting idempotents the product is idempotent and its image H is the intersection of their fixed-point sets. On a point fixed only by e, the f-image must be a common fixed point, because ef=fe and f fixes its output; the reverse holds for points fixed only by f. A point fixed by neither can choose its two images independently among e's and f's fixed points attached to one common root, including the root itself; equality of roots is exactly commutation at that point. Conversely these choices give the requisite idempotence, ranks and commutation on all four disjoint subsets. A component with one root, a first-only points, b second-only points and c remaining points has (a+1)^c(b+1)^c image choices for those remaining points. Distinct root components form a labeled set, giving the stated formal exponential and F_0=1. Choosing the four subsets globally first and then assigning the single-map fixed points to roots gives the exact multinomial coefficient sum. If n>0 it is positive precisely for 1≤h≤min(r,s) and r+s−h≤n; the empty assignments and c=0 cause no exceptions. Removing the component containing a specified label gives the recurrence and its stated totals. Separate direct composition on idempotents at n=4 and n=6 checked all rank triples (601 and 113989 commuting ordered pairs); exact coefficient recurrence also reproduced the totals for n=0,…,11. Replay: python3 /workspace/branches/8fe4ecb4-9ae7-4437-8bab-2340985b31bf/joint_idempotent_reproduction.py; see reproduction.log alongside it. The frozen verifier was inspected, not run; these finite checks supplement the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 describes centralizing elements by maps between connected functional digraph components. Mir–Alali's abstract addresses bands and automorphisms in a restricted-range setting. The skew-pair census assumes exactly one of the two products is idempotent. The singular-endomorphism census instead counts pairs of maps T_n→T_n with rank measured as transformations of T_n."
+        ],
+        "reasoning": "The generic centralizer criterion is structural, not an exact numerical enumeration of the three ranks for two varying idempotents. The skew condition is incompatible with commutation; the singular-endomorphism ranks have a different underlying set. Neither table is a general theorem of which the frozen EGF is a specialization.",
+        "searches": [
+          "Araújo–Konieczny, Centralizers in the Full Transformation Semigroup, Theorem 4.2",
+          "Mir–Alali DOI 10.3390/sym16060769",
+          "Resultary 2026/10/12/SCOPE-complete-rank-refined-enumeration-of-skew-idempotent-pairs-in-fi--130a48f2580d",
+          "Resultary 2026/11/22/SCOPE-a-joint-rank-census-of-commuting-singular-endomorphisms-of-full--51c1b3fc0869"
+        ]
+      },
+      "checked_sources": [
+        "Resultary regressive, skew, singular-endomorphism and finite-equivalence census records",
+        "Araújo–Konieczny institutional manuscript, Theorem 4.2",
+        "Mir–Alali DOI 10.3390/sym16060769",
+        "André–Araújo–Konieczny DOI 10.1007/s00233-010-9274-6 (bibliographic/access check only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regressive result uses common product fibers whose roots are their minima and an order-sensitive differential recurrence. It mentions existing full-transformation and order-preserving formulas without identifying a source or giving those formulas. The general functional-digraph centralizer theorem gives a commuting-map test but not the triple weights; the separate regular-centralizers paper was not readable in the available lawful copies."
+        ],
+        "reasoning": "Regressive fibers impose inequalities on the choices of both images for each nonfixed point; one cannot obtain the full labeled formula by reweighting its three output ranks alone, which do not capture the missing image choices. The general structural criterion still requires isolating both fixed-point sets and the product fibers and counting simultaneous label assignments. There was no verified source already providing the same count or a rank-preserving corollary; the uncited lead remains a limitation.",
+        "searches": [
+          "October 26 regressive result, Finding, Proof §1 and Relationship to prior work",
+          "André–Araújo–Konieczny DOI 10.1007/s00233-010-9274-6",
+          "Araújo–Konieczny, Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent formulation is an action with two distinguished commuting idempotent generators, weighting the sizes of their fixed sets and the fixed set of their product. The indexed modal-saturation theorem instead counts commuting equivalence relations with given class and join counts; its support requires n≥rs for a single join class."
+        ],
+        "reasoning": "Sending the two transformations to their kernel partitions does not identify the enumeration. For example at n=3 one map can fix h,a and send b to h, the other can fix h,b and send a to h. They commute with ranks (2,2,1), but their two kernel equivalences have one join class and do not commute as relations. This distinguishes the allegedly equivalent rank data already at the feasibility level.",
+        "searches": [
+          "Resultary: commuting idempotent transformations joint rank generating series labeled finite set EGF",
+          "Resultary: commuting pairs of idempotents in the full transformation monoid, three image ranks, monoid actions of a four-element semilattice",
+          "2026/10/13/SCOPE-joint-modal-saturation-rank-census-for-commuting-finite-equivale--4e7e70486d61"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed EGF gives totals 1,4,21,139,1114,10465,112513 starting at n=1 for f(i)≤i; already n=2 differs from the full count 7. No exact indexed full-monoid coefficient table was identified in the searches completed. Direct external lookups of the numeric sequence did not return usable evidence."
+        ],
+        "reasoning": "The regressive result is on a different sample space, not reindexing. Even a subsequently located unweighted match would establish only one specialization unless its construction supplied the three rank marks. No absence inference is drawn from the unavailable lookup.",
+        "searches": [
+          "Resultary: full transformation monoid three image ranks, including 1 7 58 601 7616 113989",
+          "OEIS lookup for 1,7,58,601,7616,113989",
+          "indexed literature lookup for exact counts 7616, 113989, 1963060",
+          "2026/10/26/SCOPE-joint-image-rank-census-of-commuting-idempotents-in-the-regressi--862679beafc6, Finding"
+        ]
+      },
+      "rationale": "The supported distinct claim is the simultaneous three-image-rank enumeration on the full labeled transformation monoid, including its explicit coefficients and sharp support. The strongest inspected indexed matches either restrict, change, or explicitly exclude the target pairs. An uncited mention of full-transformation formulas and an inaccessible structural paper leave real historical-priority risk but establish no prior formula, table or rank-preserving implication. The pass is limited to the supported distinction, not a priority claim for the unweighted sequence, labeled exponential formula, or general centralizer structure.",
+      "residual_risks": [
+        "The regressive record mentions full-monoid formulas without a bibliographic identifier. A prior unweighted count or decomposition sufficient for immediate rank marking could remain undiscovered.",
+        "The regular-centralizers paper and Zhao–Hu's order-decreasing full transformations paper (DOI 10.1080/00927872.2024.2359052) could not be read in bounded lawful attempts. Exact numeric lookup was unavailable; this is not evidence that no table exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different monoid and local recurrence; uncited full-monoid lead unresolved.",
+          "evidence": "The conditions f(i)≤i force a root to be the component minimum and make later choices order-sensitive. The exact totals differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-joint-image-rank-census-of-commuting-idempotents-in-the-regressi--862679beafc6/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §1, and prior-work passage at offset 5932",
+          "method": "Resultary mirror primary-text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint image-rank census of commuting idempotents in the regressive transformation monoid",
+          "trigger": "Closest three-rank indexed EGF"
+        },
+        {
+          "assessment": "Disjoint class of pairs.",
+          "evidence": "It assumes fe is idempotent and ef is not, excluding every commuting pair of idempotents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-rank-refined-enumeration-of-skew-idempotent-pairs-in-fi--130a48f2580d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary mirror primary-text inspection, same snapshot",
+          "title": "Complete rank-refined enumeration of skew idempotent pairs in finite transformation monoids",
+          "trigger": "Same full monoid and rank-refined pairs"
+        },
+        {
+          "assessment": "Different ambient set and rank parameters.",
+          "evidence": "The counted transformations are singular endomorphisms of T_n, not idempotent endofunctions of [n].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-joint-rank-census-of-commuting-singular-endomorphisms-of-full--51c1b3fc0869/RESULT.md",
+          "material_read": "Definitions and opening Finding, offset 0",
+          "method": "Resultary mirror primary-text inspection, same snapshot",
+          "title": "A joint-rank census of commuting singular endomorphisms of full transformation semigroups",
+          "trigger": "Plausible stronger match by title and rank census"
+        },
+        {
+          "assessment": "Different commuting objects, not a kernel-partition restatement.",
+          "evidence": "Counts pairs with R∘S=S∘R and n≥rs when their join has one class, excluding the rank-(2,2,1), n=3 transformation example above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-joint-modal-saturation-rank-census-for-commuting-finite-equivale--4e7e70486d61/RESULT.md",
+          "material_read": "Finding and sharp support, offset 0",
+          "method": "Resultary mirror primary-text inspection, same snapshot",
+          "title": "Joint modal-saturation rank census for commuting finite equivalence relations",
+          "trigger": "Potential equivalence via kernel partitions"
+        },
+        {
+          "assessment": "Commutation criterion, not the weighted count.",
+          "evidence": "The characterization is for the centralizer of a given transformation using maps between its functional-digraph components.",
+          "identifier_or_url": "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+          "material_read": "Theorem 4.2, p. 24, offset 65200",
+          "method": "OA institutional primary PDF passage inspection",
+          "title": "Centralizers in the Full Transformation Semigroup",
+          "trigger": "General structural theorem for same underlying monoid"
+        },
+        {
+          "assessment": "Restricted-range structural study.",
+          "evidence": "The abstract's claims concern zero-divisor bands and automorphisms, not an unrestricted simultaneous rank count.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16060769",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary PDF passage inspection",
+          "title": "On Centralizers of Idempotents with Restricted Range",
+          "trigger": "Nearby literature on idempotent centralizers"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence for or against coverage.",
+          "evidence": "The author-shared copy returned 403 and the publisher PDF redirected; no lawful repository copy was recovered in the bounded attempt.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-010-9274-6",
+          "material_read": "Bibliographic identification only; no full-text passage recovered",
+          "method": "Bounded attempts at the publisher and identified author-shared copy, with OA repository recovery attempt",
+          "title": "Regular centralizers of idempotent transformations",
+          "trigger": "Potentially material prior decomposition for the same class of transformations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two commuting retractions and their common retraction are natural objects in a full transformation monoid. Their three ranks distinguish the two fixed sets from their overlap and give information lost in an unweighted commuting-pair count. The explicit rooted-component weights give a usable all-size census and show why the only support restrictions are nonempty intersection and the union-size bound, without enumerating pairs of maps. This is a useful natural exact invariant rather than an arbitrary rank slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

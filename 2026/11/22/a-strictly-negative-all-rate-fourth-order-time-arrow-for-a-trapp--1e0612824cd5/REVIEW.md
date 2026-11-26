@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary generator yields four exact polynomial moments and an exact triangular conditional-moment system; their resolvent difference reduces algebraically to a negative prefactor times four positive Laplace resolvents. The inverse is strictly negative at every positive lag by positivity of a four-fold convolution. Thermal noise cancels exactly. Independent symbolic and matrix-semigroup checks were executed from the packaged checker; they do not replace the proof.
+## correctness
 
-**Originality — PASS, qualified.** The nearest published fourth-order arrow result already proves negativity for the one-dimensional resonant ratio but not for every positive flip/trap ratio. The published complete four-time telegraph cumulant kernel provides important prior coverage of raw multi-time moments but not the strict ordering of two distinct fourth-moment contractions; the rate-uniform factorization is the assessed extension. The detailed search and full-text comparison, with material-access limits, are recorded in AUDIT.json. A non-obvious implication from broader published formulas remains a residual priority risk.
+PASS
 
-**Value — PASS.** The sign is a position-only time-reversal witness valid for all lag and rate parameters and all independent thermal diffusivities, unlike covariance, which is reversible by construction; the positive-convolution proof resolves the full parameter classification rather than an arbitrary numerical slice. Strictness supplies a testable qualitative structural property.
+Reconstructed the two moment resolvents for the stationary position with heading flip rate g, not redraw rate 2g. Thermal independence can be checked separately: the arrow is a difference of fourth joint cumulants because the stationary covariance contractions are identical in the two orderings. An additive independent Gaussian process contributes zero fourth cumulant, so the calculation may set D=0. In that case put p=2g and P=z+p, L=z+k, Q=z+p+2k, R=z+3k. Eliminating the stationary moments and forward hierarchy gives the numerator over PLQR as v E[X^3 S] times (2PQ+QR−3PL−2(p+3k)(P+k)) = −4kp v E[X^3 S]; E[X^3 S]=3v^3/[k(p+k)(p+3k)]. This recovers the exact prefactor in RESULT.md lines 10–20. The inverse transform is strictly signed by integration over a simplex of positive volume for each t>0, with leading simplex volume t^3/6. Coincident rates create no exceptions; at t=0 the arrow is zero. Stationarity and global sign symmetry remove all lower-total-degree two-time antisymmetries. Replay the stationary balances and hierarchy at RESULT.md lines 31–66 with the reduction above. An independently reconstructed symbolic resolvent also verified cancellation of D. The frozen checker was inspected, not executed.
 
-The theorem does not quantify entropy production or measurement errors, nor biased flips or nonharmonic traps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing all-lag g=k case, arbitrary-rate local asymptotics where previously established, and the full ordered telegraph input cumulant. The supported distinction is the all-positive-rate, all-positive-lag one-dimensional ordering, with a manifestly signed convolution valid through rate coincidences. No checked stronger result establishes that ordering; priority beyond the inspected passages is not certified.
+
+## value
+
+PASS
+
+Stationary covariance cannot detect the direction of time in this scalar signal. The lowest possible polynomial two-time witness works using position alone, at every positive lag and rate ratio, without observing the heading or knowing the independent thermal diffusivity. Beyond the known resonant case the result eliminates both lag-sign and switching-rate exceptions, and the positive convolution handles resonances without singular partial fractions. It makes no inference about entropy production or finite-data power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

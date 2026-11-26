@@ -40,13 +40,13 @@ Each site has a sector bit \(s\in\{A,B\}\) and a colour bit \(a\in\mathbb F_2\),
 R|s,a;\tau,b\rangle=|\tau,a+(s+\tau)b;\ s,b\rangle,
 \]
 
-with bit operations in \(\mathbb F_2\). One period is the product of alternating even and odd brickwork layers. In the infinite chain consider the one-site operator \(O_\times=|B,0\rangle\langle A,0|\) initially at the site adjacent to the cut between sites \(0\) and \(1\). Normalize the operator by its Hilbert–Schmidt norm after integer time \(t\), take infinite volume at fixed \(t\), and then let \(t\to\infty\). The normalized Hermitian operator \((O_\times+O_\times^\dagger)/\sqrt2\) has the same Schmidt spectrum, by the source's exact folded-gate argument, and therefore satisfies the same result.
+with bit operations in \(\mathbb F_2\). Use the convention of [2]: \(U_F=U_{\rm odd}U_{\rm even}\), with even-layer bonds \((2j,2j+1)\) and odd-layer bonds \((2j-1,2j)\). For Heisenberg evolution over \(t\) complete periods, take the initial one-site operator \(O_\times=|B,0\rangle\langle A,0|\) at site 1, next to the cut \(0|1\). Normalize it by its Hilbert–Schmidt norm, take infinite volume at fixed \(t\), and then let \(t\to\infty\). The normalized Hermitian operator \((O_\times+O_\times^\dagger)/\sqrt2\) has the same Schmidt spectrum by the exact folded-gate argument of [2, Supplement II C].
 
 The spectral decomposition below is on the left/right bipartition induced by this specified cut. Let \(M_t\) be its coefficient matrix in orthonormal bases resolving the output sector counts, with \(\|M_t\|_{\mathrm{HS}}=1\). We use natural logarithms, and \(\operatorname{erf}(x)=\frac{2}{\sqrt\pi}\int_0^x e^{-u^2}\,du\).
 
 ## Proof
 
-**1. The precise input supplied by the source.** Pozsgay's main text and Supplementary equations (S22) and (S38) establish, using a folded permutation circuit, that for \(t\ge1\),
+**1. The precise input supplied by the source.** Pozsgay's main text and Supplementary equations (S22), (S37) and (S38) establish, using a folded permutation circuit, that for \(t\ge1\),
 
 \[
 M_t=\sum_{k=0}^{t-1}\sum_{\ell=0}^{t}M_{k\ell},\qquad
@@ -122,6 +122,12 @@ Conversely, the rank bound in (4) and the Eckart–Young characterization of bes
 
 These estimates are valid at **every** finite integer time. In particular, neither requires a false assumption that different count differences have orthogonal Schmidt bases.
 
+For the converse there is also a stronger bound already in [2, Supplement (S55)]:
+\[
+F_t(r)\le \mathbb E\min\{1,r2^{-G_t}\}\le q_t(b)+r2^{-b\sqrt t}.
+\]
+The second inequality splits the expectation at \(G_t=b\sqrt t\). This published bound and (6) give the same limiting upper profile by the argument below. The sufficient rank bound (7), obtained by retaining the entire low-difference matrix, gives the matching lower profile.
+
 **4. Half-Gaussian limit and sharp coefficient.** The centered binomial difference satisfies
 
 \[
@@ -146,7 +152,7 @@ The accompanying `verify.py` independently implements the 16-state *folded* two-
 
 ## Relationship to prior work
 
-The gate, folding construction, binomial weights, and individual count-block flatness are **not** claimed as new. Pozsgay's first public preliminary manuscript appeared on September 4, 2026, followed by arXiv:2609.39401. Its Supplementary Section V proves that every fixed error requires at least \(\exp(c_\varepsilon\sqrt t)\) Schmidt rank for *some unspecified* positive \(c_\varepsilon\); it gives neither a matching upper exponent nor the limiting optimal retained-weight function. The present result computes both by a new low-/high-count-difference operator-norm split and uses the full Gaussian quantile. In particular, the source's bound (S55) has a \(r^2\) factor and alone does not give the sharp constant.
+The gate, folding construction, binomial weights, individual count-block flatness, and the one-sided retained-weight bound are known. In arXiv:2609.39401, Supplementary Section V states a fixed-error necessary rank of at least \(\exp(c_\varepsilon\sqrt t)\) for some unspecified positive \(c_\varepsilon\). Its stronger finite-time bound (S55) has a factor *linear* in \(r\) inside the minimum; together with the source's half-Gaussian convergence it already implies the sharp upper limit on retained weight (equivalently, the sharp necessary quantile bound on rank). The additional step here is sufficient rank: keeping all low-difference blocks retains exactly their total weight at a polynomial rank overhead, even though the count blocks do not generally form a Schmidt decomposition. This supplies the matching lower retained-weight profile, and hence the exact limiting curve and fixed-error rank coefficient. No independent improvement of (S55) is claimed.
 
 A separately published analysis of this **same circuit** determines a sharp high-index Rényi logarithmic coefficient; it is not ignored. Its \(\alpha>1\) moment asymptotics are dominated by a narrow, near-balanced part of the spectrum and do **not** determine the optimal mass captured by \(e^{a\sqrt t}\) Schmidt modes. Conversely, the present typical-weight limit does not determine high-index Rényi moments. Broader Yang–Baxter-gate entanglement bounds and general operator-entropy/simulability implications do not supply the present exact model-specific compression profile.
 
@@ -158,6 +164,6 @@ The result is for a fixed cut, fixed \(a\) or fixed \(\varepsilon\), the specifi
 
 1. B. Pozsgay and I. Vona, *Square-root growth of operator entanglement in an integrable brickwork circuit*, public preliminary manuscript, Zenodo 22306151, published September 4, 2026. https://doi.org/10.5281/zenodo.22306151
 2. B. Pozsgay, *Square-root growth of operator entanglement in an integrable brickwork circuit*, arXiv:2609.39401, first submitted September 30, 2026, especially Supplemental (S22), (S38), and (S53)–(S58). https://arxiv.org/abs/2609.39401
-3. *The exact high-index Rényi coefficient in an integrable brickwork circuit*, published-finding corpus public research record, October 12, 2026, identifier `2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5`. https://github.com/published-finding corpus/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md
+3. *The exact high-index Rényi coefficient in an integrable brickwork circuit*, research record, October 12, 2026. https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-high-index-r-nyi-coefficient-in-an-integrable-brickwor--308ff33614b5/RESULT.md
 4. B. Pozsgay, *On the growth of operator entanglement in brickwork circuits with Yang–Baxter gates*, arXiv:2609.05121, September 2026. https://arxiv.org/abs/2609.05121
 5. N. Dowling, *Classical Simulability from Operator Entanglement Scaling*, arXiv:2603.05656, March 2026. https://arxiv.org/abs/2603.05656

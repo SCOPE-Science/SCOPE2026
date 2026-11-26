@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:58:25.791378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strong regularity and (n−d−1)μ=dm imply (dI−A)[(d−λ+μ)I+A]=μ(nI−J). Applied to the mean-zero edge dipole, this gives the unique mean-zero potential with levels 0, ±1/(μn), ±(m+μ)/(μn). Summing the four level-cut sizes with weights 1, 1, m+μ−1, m+μ−1 (before division by μn) gives the per-edge formula: each of the two wider cuts has size d(m+1)−2m−2 times the number of internal exclusive-neighbor edges on that side, and each singleton cut has size d. The diagonal is 2(m+μ)/(μn) and lies in [0,1], so taking the complementary projector adds the stated constant to every column sum; symmetry gives the row sums. Rook and Shrikhande have respectively 6 and 4 for τ_e on every edge, giving the exact four norms and gap 1/8. The shared parameters give the two nontrivial adjacency eigenvalues ±2 with multiplicities 6 and 9 by the trace. Independent incidence-SVD checks in both examples and K₃,₃ corroborate 105 columns (replay: python3 /workspace/evidence/review_checks.py 3); the exact general argument, not that finite check, establishes the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Hamming-cube norms and the nonbinary Hamming record cover H(2,q) among SRGs. The earlier complete-multipartite record gives canonical norms by part sizes, including balanced SRGs. The same-day crown record concerns minimal projections on a narrower family."
+        ],
+        "reasoning": "The family-specific calculations do not cover the arbitrary connected noncomplete SRG formula or Shrikhande; an unrestricted minimum-projection problem is also not the frozen object.",
+        "searches": [
+          "Resultary: canonical and minimal Hodge/cut-cycle norms, Hamming graphs, multipartite graphs and spectral separation",
+          "arXiv:2305.12582 Thm. 45 and Cor. 60"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.03814, 2305.12582, 1710.02181",
+        "Brouwer–Van Maldeghem, Strongly Regular Graphs",
+        "Resultary 745e7b0c399e, 05695b9bae19, a18a2c603916, bc07c832e978 and bounded targeted comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair has the same resistance diagonal and adjacency eigenvalues, whereas its local exclusive-neighbor count differs. The edge-perturbation work analyzes spectral state transfer rather than absolute current sums."
+        ],
+        "reasoning": "Spectral data and the resistance correction alone cannot determine either norm, as demonstrated by the precise witness. The general quotient/orthogonal-projection formalism does not give the local level-cut enumeration.",
+        "searches": [
+          "arXiv:1710.02181v1 edge perturbations and spectrum; arXiv:2305.12582 Thm. 45 and Cor. 60; bounded primary search for transfer-current total variation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The column is the signed transfer current of a unit adjacent dipole. The transportation norm is a quotient infimum over flows, not the total variation of this canonical flow.",
+          "Equivalently τ_e=λ(d−2λ)+2k_e, where k_e counts 4-cliques through e: the graph on N(u) is λ-regular, and its λ common neighbors contribute λ(λ−1)−2k_e edges to U_e; the same argument at v gives the claim."
+        ],
+        "reasoning": "These re-expressions distinguish known projection/transport formalism and clique statistics from an endpoint norm formula that relates them quantitatively.",
+        "searches": [
+          "Resultary: canonical cut/cycle endpoint norms, SRG exclusive-neighbor induced edges",
+          "arXiv:1807.03814 §§1.1–1.2, electrical current, transportation-cost and edge-norm comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The monograph supplies the common (16,6,2,2) parameters and the two triangles versus hexagon local graphs, not the endpoint norm values. Resultary bc07c832e978 distinguishes the same graphs by four-cycle behavior in a finite dynamical system, not by these norms."
+        ],
+        "reasoning": "The known graph data give the inputs to the proved formula but are not a prior canonical endpoint norm table.",
+        "searches": [
+          "Resultary: Shrikhande and rook projection norms and local spectral separation",
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs §1.1.10"
+        ]
+      },
+      "rationale": "The supported contribution is the general strongly regular column formula and its exact cospectral separation; the projection framework, resistance diagonal identities, local graph shapes, and known special-family values are not independent novelty claims.",
+      "residual_risks": [
+        "A differently indexed transfer-current total-variation formula (including an expression using 4-clique counts) or graph-projection source could cover part of the result; bounded searches are not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework, not the SRG electrical-current absolute sums.",
+          "evidence": [
+            "The transportation norm uses the quotient ℓ₁(E)/Z(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "PDF p. 3, §§1.1–1.2, offset 8000",
+          "method": "Open primary PDF, compare quotient and projection objects",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Transportation-cost alias and edge-coordinate quotient"
+        },
+        {
+          "assessment": "Special-family coverage, not arbitrary SRGs.",
+          "evidence": [
+            "The theorem and corollary evaluate the orthogonal cut and cycle norms on Hamming cubes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "PDF pp. 23 and 32, §2.7.3, Theorem 45 and Corollary 60",
+          "method": "Open primary PDF, compare hypotheses and operators",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Canonical endpoint projection norms and Hamming families"
+        },
+        {
+          "assessment": "Known graph data, no endpoint norms in the inspected passage.",
+          "evidence": [
+            "The two (16,6,2,2) graphs have distinct local graphs, two triangles and a hexagon."
+          ],
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§1.1.10, PDF text offset 51686",
+          "method": "Author-hosted primary monograph, exact pair comparison",
+          "title": "Strongly Regular Graphs",
+          "trigger": "Cospectral pair and local combinatorics"
+        },
+        {
+          "assessment": "Covers balanced complete multipartite SRGs as a special family.",
+          "evidence": [
+            "The formula takes multipartite part sizes as its inputs."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e",
+          "material_read": "Resultary RESULT.md, Finding",
+          "method": "Local mirror, compare graph family and norm statement",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Equivalent canonical norms on a substantial special family"
+        },
+        {
+          "assessment": "Overlap at H(2,q); does not treat all SRGs.",
+          "evidence": [
+            "The theorem assumes nonbinary Hamming graphs H(d,q), d≥2, q≥3."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-for-nonbinary-hamming-gr--05695b9bae19",
+          "material_read": "Resultary RESULT.md, Finding",
+          "method": "Local mirror, compare graph parameters and operators",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Lattice graphs are both Hamming and strongly regular"
+        },
+        {
+          "assessment": "Neither equivalent nor generalizing; conclusion does not rely on date.",
+          "evidence": [
+            "It treats minimal norms for crown graphs using their symmetry."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-minimal-cut-cycle-projection-norms-on-crown-graphs--a18a2c603916",
+          "material_read": "Resultary RESULT.md, Finding",
+          "method": "Local mirror, compare quantifiers and graph class",
+          "title": "Sharp minimal cut–cycle projection norms on crown graphs",
+          "trigger": "Distinct same-day projection record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local combinatorial invariant determines each column's endpoint amplification and hence the worst edge for two natural projections. The exact cospectral separation demonstrates that spectral data and common edge resistance miss this information, rather than merely tabulating examples or asserting optimality of the canonical projectors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

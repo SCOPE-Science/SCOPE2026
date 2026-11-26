@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:45:13.823069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–51",
+        "Frozen VERIFICATION.md and check.py"
+      ],
+      "rationale": "On the zero-sum subspace the loop-free complete-graph walk acts by −1/(n−1), so BA^k=U+r_k(B−U) in the stated column-update order. For k≥2 the product is positive because A^k is positive. For k=1, (BA)_{ij}=(1−B_{ij})/(n−1); rows of the odd-cycle vertices are positive, every row reaches one of those vertices, and all diagonal entries are positive. This gives primitivity. Products within a block preserve constants and contract the sup norm, so convergence at block endpoints gives convergence at all phases. The stationary equation gives the resolvent; the row-ℓ¹ contraction of B on signed vectors gives the stated geometric series tail and strict onset inequality. Weighted degree reversibility and uniqueness of the stationary law of B prove uB=u exactly for constant weighted degrees. In the triangle, symmetry and the third-coordinate stationary equation give π_{k,3}=1/(3+r_k); odd k gives a value above 1/3 and even k a value between 1/4 and 1/3. No general all-k or temporal-oscillation claim is needed. The supplied finite rational check was inspected, not executed.",
+      "residual_risks": [
+        "For a general second layer the bound is eventual, and is stated only for coordinates with nonzero first-order coefficient. The all-k overshoot comparison is specific to the triangle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix G expresses A^k=1πᵀ+E_k and compares BA^k with A^{k+1}; Proposition IV.4 bounds only the magnitude.",
+          "Theorem II.1 cites the classical fundamental-matrix perturbation formula. The inspected v1 HTML writes the unperturbed π on the right despite defining E as the new minus old transition matrix and Z from the old transition matrix."
+        ],
+        "reasoning": "The correct exact identity uses the perturbed row on the right, as follows by subtracting the two stationary equations and inverting I−P+1πᵀ. The originality assessment uses that identity with the rank-one base U, not the apparent missing tilde in the originating paper or the inaccessible old full text.",
+        "searches": [
+          "arXiv:2603.07633, Theorem II.1, Proposition IV.4 and Appendix G",
+          "Schweitzer DOI 10.2307/3212262 and OA copies; Cho–Meyer Comparison of perturbation bounds for the stationary distribution of a Markov chain"
+        ]
+      },
+      "checked_sources": [
+        "Shiu–Naghizadeh arXiv:2603.07633, §§II, IV, Appendix G",
+        "Resultary b5038faa36eb (assigned record itself) and 23e971290078",
+        "Schweitzer DOI 10.2307/3212262 and lawful alternate comparisons (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general stationary perturbation equation is (π̃−π)(I−P+1πᵀ)=π̃(P̃−P) for normalized stationary rows, obtained by subtraction. Here P=U and the fundamental matrix is the identity.",
+          "For the published triangle, column 3 of B is (1/3,1/3,0)ᵀ and rows 1 and 2 are related by the swap symmetry."
+        ],
+        "reasoning": "The complete graph power is U+r_k(I−U); substitute P̃=BA^k=U+r_k(B−U) to get δ=r_k c+r_k δB for δ=π_k−u and c=uB−u. Inversion has no further graph-specific step: δ=r_k c(I−r_kB)⁻¹. The first Taylor coefficient is c, and the remainder is the ordinary row-ℓ¹ geometric majorant. Its sign test follows since r_k alternates; c=0 exactly when B has a uniform stationary law, equivalently constant weighted degrees. In the already-known triangle, the third-coordinate equation immediately gives (3+r_k)π_{k,3}=1, and comparing the denominators gives all parity inequalities. Thus both parts are direct exact consequences, though the prior switching paper reports only the unsigned bound and the initial witness explicitly.",
+        "searches": [
+          "arXiv:2603.07633, Theorem II.1 and Eq. (8), plus Example IV.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior schedule has the same full-cycle product BA^k with column opinion vectors, and consensus weights are its stationary row vector.",
+          "23e971290078 instead varies peer rounds in a perfect-prediction Friedkin–Johnsen loop on a reciprocal bipartite network."
+        ],
+        "reasoning": "The source schedule and Example IV.2 use the same matrix order and physical observable. The same-day predictive parity law is a related but distinct mechanism, and its date does not establish priority.",
+        "searches": [
+          "Shiu–Naghizadeh arXiv:2603.07633, Section IV Eqs. (7)–(8) and Example IV.2",
+          "Resultary: periodic multiplex consensus parity and complete-layer response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b5038faa36eb is the assigned record itself, not an independent catalogue witness.",
+          "The originating example gives π_A=(1/3,1/3,1/3), π_B=(3/8,3/8,1/4) and π_{BA}=(3/10,3/10,2/5) for the identical edge weights; those weights also follow directly from the printed matrices."
+        ],
+        "reasoning": "The k=1 exact entry is covered. The example alone does not give the other periods, but inserting r_k for the complete-layer eigenspace in the same stationary system gives the rational formula below. The predictive-law catalogue hit is not an exact duplicate.",
+        "searches": [
+          "Resultary b5038faa36eb and 23e971290078",
+          "arXiv:2603.07633 Example IV.2, printed triangle matrices and stationary weights"
+        ]
+      },
+      "rationale": "Shiu–Naghizadeh do not state the signed all-k formula or the all-large-k parity test. But the resolvent and signed leading term are a direct rank-one instance of the classical stationary perturbation identity, on the very switched product already analyzed by that paper. The threshold is the elementary tail bound on the resulting Neumann series, and the triangle is their already published k=1 witness with the same one-dimensional indeterminate r carried through its stationarity equation. This is a mechanical specialization, not an exact-duplicate claim. The conclusion does not rely on unavailable full text or on treating the prior O(ρ₂(A)^k) magnitude estimate alone as a signed one.",
+      "residual_risks": [
+        "This is an implication/routineness finding, not an assertion that a prior paper prints the all-period formula. The original Schweitzer full text and alternative Cho–Meyer copies were unavailable; the elementary identity and its specialization were checked directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same protocol and k=1 triangle; magnitude bound, not explicit all-k parity classification",
+          "evidence": "BA^k product, original weights 2,1,1, and O(ρ₂(A)^k) estimate by stochastic perturbation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.07633",
+          "material_read": "Section IV, Eqs. (7)–(8), Example IV.2 and Prop. IV.4, PDF pp. 4–5; Appendix G, p. 8, offset 67468",
+          "method": "OA PDF passages",
+          "title": "Coordination Games on Multiplex Networks: Consensus, Convergence, and Stability of Opinion Dynamics",
+          "trigger": "Same schedule and same exact witness"
+        },
+        {
+          "assessment": "Identifies the classical fundamental-matrix perturbation theorem; the displayed right-hand row in the version inspected appears to omit the tilde",
+          "evidence": "Uses Z=(I−P+1πᵀ)⁻¹ for the reference chain, citing Schweitzer Theorem 2. The correct identity follows directly by stationarity, independently of the typographical issue.",
+          "identifier_or_url": "https://arxiv.org/html/2603.07633v1",
+          "material_read": "Theorem II.1, Corollary II.2, offset 19221",
+          "method": "OA HTML with mathematical source text",
+          "title": "Coordination Games on Multiplex Networks: Consensus, Convergence, and Stability of Opinion Dynamics, version 1",
+          "trigger": "Exact rather than norm-only antecedent in the originating work"
+        },
+        {
+          "assessment": "Access limitation; not counted as an inspected original passage",
+          "evidence": "OA reader returned no usable open copy; stationary subtraction provides the exact formula required for the mathematical comparison.",
+          "identifier_or_url": "https://doi.org/10.2307/3212262",
+          "material_read": "Citation and theorem attribution in Shiu–Naghizadeh; original full text not read",
+          "method": "Lawful OA retrieval attempts and inspection of the citing paper",
+          "title": "Perturbation theory and finite Markov chains",
+          "trigger": "Original perturbation theorem cited by the originating paper"
+        },
+        {
+          "assessment": "Conceptual analogue, not the same claim",
+          "evidence": "Perfect prediction and a reciprocal bipartite peer matrix, rather than the switched complete graph first layer and another weighted layer.",
+          "identifier_or_url": "23e971290078",
+          "material_read": "Mirrored RESULT.md, finding and setup",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "A parity law for consensus selection in bipartite predictive opinion dynamics",
+          "trigger": "Distinct same-day parity result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Shiu–Naghizadeh Example IV.2 and Appendix G"
+      ],
+      "rationale": "The distinction between a signed limit response and an unsigned convergence rate is meaningful. In this frozen complete-layer case it is exhausted by the first coefficient of the standard rank-one stationary perturbation and the already studied triangle; the onset estimate is the generic geometric remainder. There is no new nonroutine witness, wider sign theorem beyond that reduction, or independent invariant here that would support acceptance.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:55.040622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–37",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Kaur–Kulshrestha–Singh, arXiv:2308.01612v2, Theorem 3.1(7)"
+      ],
+      "rationale": "A nontrivial normal subgroup of a finite nilpotent group meets the center, so separation of the prime-order torsion of Z(G) suffices. By Schur's lemma each irreducible summand contributes one character at each prime, forcing at least R summands. Each E_i must be detected by a constituent nonlinear on E_i. The extraspecial degrees are 1 and w_i, with exactly the degree-w_i types nontrivial on the center: for a nontrivial central character the character vanishes off the center by conjugation by an element with a nontrivial central commutator, and character norm then gives degree sqrt(|E_i:Z(E_i)|). Tensor products multiply these costs. For any support S, its cost is at least 1+Σ_{i∈S}(w_i−1) and also at least Σ_{i∈S}w_i, by w_i≥2. Summing both bounds forces Σ_i w_i+max(0,R−t). For equality choose N=max(t,R) rows, one nonlinear E_i on its own row and none on the extra rows. At p_i its row detects Z(E_i), and the remaining N−1 rows can carry an independent set of characters for A[p_i]; at any other prime use up to N rows. These independent prime-wise characters extend to A and can be combined on each row. This covers trivial A, abelian Sylow factors, and all exponents in A.",
+      "residual_risks": [
+        "The frozen checker reports bounded support optimizations and exact small images, not an independent replay or proof for all groups. The proof assumes distinct extraspecial primes and complex representations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 of Bardestani et al. gives an exact formula for two-step p-groups with cyclic commutator, including a single Sylow factor E_i times an abelian p_i-group, not the mixed-prime product. Kaur et al. (2023) cover two noncyclic distinct-prime factors with cyclic centers. Kaur et al. (2026) Theorem 2 concerns same-prime additivity."
+        ],
+        "reasoning": "The product can use one summand to separate central elements in several Sylow factors with only one multiplicative degree cost; neither summing the Sylow dimensions nor the cyclic-center result computes the arbitrary rank-dependent packing.",
+        "searches": [
+          "Bardestani–Mallahi-Karai–Salmasian, arXiv:1505.00626, Theorem 1.3",
+          "arXiv:2308.01612v2, Theorem 4.1 and Corollary 4.2",
+          "arXiv:2608.18814v1, Theorems 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index",
+        "arXiv:2308.01612v2",
+        "arXiv:2608.18814v1",
+        "arXiv:2102.01463v3",
+        "arXiv:1505.00626"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The no-abelian-factor two-extraspecial case agrees with the earlier noncyclic product theorem. The cyclic-factor additivity statements as worded instead predict 3 for D8×C3. A faithful plane representation of D8 has only ±I as scalar images, so twisting by a primitive C3 character gives a faithful dimension-2 representation of the product (and D8 forbids dimension 1)."
+        ],
+        "reasoning": "The contrary additivity statements cannot imply a correct mixed-prime formula. The correct individual and two-factor formulas do not choose the optimal shared rows at arbitrary center ranks.",
+        "searches": [
+          "arXiv:2308.01612v2, Theorem 4.1(2), Corollary 4.2",
+          "arXiv:2608.18814v1, Theorem 3 and Example 2",
+          "arXiv:1505.00626, Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moretó's rdim is the same complex invariant; Lemma 3.4 identifies it with the generator number for abelian groups. Lemma 3.5 uses socle characters for bounds, not this exact optimization."
+        ],
+        "reasoning": "The socle formulation gives the full-center prime-wise rank constraints, but rank by itself does not determine the degree costs of assembling the nonlinear factors.",
+        "searches": [
+          "Resultary: minimal faithful complex representation dimension direct product extraspecial groups distinct primes finite abelian factor center rank R formula",
+          "Resultary: sharp representation dimensions mixed-prime extraspecial abelian products formula delta E_i A rank",
+          "Moretó, arXiv:2102.01463v3, §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked Resultary searches found no family formula; the topical record 2026/10/11/SCOPE-ramanujan-resolution-of-representation-degree-layers-in-finite-h--0daafecfc0cf addresses degree layers and central projectors, not minima. The 2026 paper computes D8×C3² as a precedent for failure of additivity."
+        ],
+        "reasoning": "A degree list or one mixed-prime example is not an exact minimum across the arbitrary rank parameters.",
+        "searches": [
+          "Resultary: extraspecial groups distinct primes direct product finite abelian faithful representation dimension center rank",
+          "Resultary: D8 x C3 minimal faithful complex representation dimension 2 cyclic factor extraspecial product",
+          "arXiv:2608.18814v1, Example 2"
+        ]
+      },
+      "rationale": "Individual Sylow degrees, central character separation, and some product special cases were known. The inspected formulas do not solve the dimension-minimizing mixed-prime allocation with arbitrary abelian ranks; the two complementary lower bounds and the matching prime-wise packing produce an exact extension.",
+      "residual_risks": [
+        "An unlocated exact general packing theorem for mixed-prime groups could change the assessment; bounded retrieval does not prove priority. The cyclic-factor discrepancy concerns the inspected statements as written, not a claim about any future correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known special cases; cyclic-factor discrepancy",
+          "evidence": "The two-factor theorem requires noncyclic prime-power factors with cyclic centers; the literal unrestricted cyclic-center corollary conflicts with D8×C3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.01612v2",
+          "material_read": "Theorem 3.1(7), Theorem 4.1(2), Corollary 4.2 (PDF pp. 5, 8–9; OA offsets 12427, 22946, 27155)",
+          "method": "Bounded OA PDF passages",
+          "title": "Representation dimension of some finite groups",
+          "trigger": "Mixed-prime product additivity and extraspecial degrees"
+        },
+        {
+          "assessment": "Not the mixed-prime rank formula",
+          "evidence": "Theorem 2 is same-prime; Theorem 3 as worded predicts an extra dimension for a coprime cyclic factor. Example 2 treats D8×C3².",
+          "identifier_or_url": "https://arxiv.org/html/2608.18814v1",
+          "material_read": "Theorems 2 and 3, Example 2 (OA offsets 23704, 32540, 38972)",
+          "method": "Bounded OA HTML passages",
+          "title": "On the representation dimension of finite p-groups",
+          "trigger": "Product laws and mixed-prime counterexample"
+        },
+        {
+          "assessment": "General structural input and bounds",
+          "evidence": "Abelian rdim equals generator number; separating socle constituents supplies a construction and bounds, not the exact weighted mixed-prime packing claimed here.",
+          "identifier_or_url": "https://arxiv.org/html/2102.01463v3",
+          "material_read": "Section 1 and Lemmas 3.4–3.5 in §3 (including OA offset about 33950)",
+          "method": "Bounded OA HTML passages",
+          "title": "On the minimal dimension of a faithful linear representation of a finite group",
+          "trigger": "Socle and generator-number formulation"
+        },
+        {
+          "assessment": "Exact single-prime precursor",
+          "evidence": "For two-step finite p-groups with cyclic commutator, the minimum is sqrt([H:Z(H)])+m_faithful(Z(H))−1; it explicitly assumes a p-group.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.00626",
+          "material_read": "Abstract, §1 and Theorem 1.3 (OA offsets 0, 7000)",
+          "method": "Bounded OA paper passages",
+          "title": "Minimal dimension of faithful representations for p-groups",
+          "trigger": "Exact weighted result for cyclic-commutator groups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 19–48",
+        "arXiv:2308.01612v2, §4",
+        "arXiv:2608.18814v1, Example 2"
+      ],
+      "rationale": "The formula computes a standard exact group invariant on a natural family where additivity can fail. It locates precisely when abelian central rank raises the degree above the total compulsory extraspecial cost, and constructs an optimizer. This resolves more than the individual extraspecial degrees, an isolated counterexample, or a small-instance enumeration.",
+      "residual_risks": [
+        "No extension to repeated extraspecial primes or arbitrary nilpotent group factors is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

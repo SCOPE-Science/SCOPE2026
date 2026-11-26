@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:33.942935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; check.py (read, not run)",
+        "Replay: python3 /workspace/branches/independent_reproduction.py 5; cubature over arclength coordinates with equal-edge order restrictions, independently checking both finite moments at m=3,4,5,7,10 to 10^−14, and symbolic series through degree 6"
+      ],
+      "rationale": "Equal edges give independent uniform labels and uniform coordinates along each edge. By convex cyclic order the oriented area for distinct edges has nonnegative sign and is separately affine, so averaging is equivalent to using their midpoints. Summing over gap triples a+b+d=m with the cyclic starting index counts each midpoint triangle three times; summing its three sine terms gives the stated weighted sine sum. If exactly two points share side i, their mean separation is 2 sin(π/m)/3; the mean height on side j is its midpoint's distance to the supporting line, and summing these heights gives m²cos(π/m). Exactly three on a side contribute zero. For the second moment, rotation gives centered covariance (1+2cos²(π/m))I/6; the square of the determinant of the two differences has three terms with expectation 2 det Σ each, and mixed terms vanish by independence and centering. Normalizing by the area gives both formulas. In the derivative test for Q all denominators are positive, and H′(z)=3 sin(z)(z−sin(z)cos(z))>0; thus m=3 is the unique upper endpoint and the disk value is an unattained lower limit. The Taylor coefficients agree through order m^−6. In particular the variance coefficient at m^−4 is π²/15−3/10>0, not another cancellation.",
+      "residual_risks": [
+        "The cubature is performed in floating point on finite cases and is supplementary to the analytic all-m proof. No monotonicity of variance is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9f7cfa62890c gives an exact arclength boundary-gap integral for expected deficit of any convex polygon with at least two samples, and thus includes this mean before evaluation. It supplies no regular-m second moment, strict ordering or side-count rate in the inspected statement.",
+          "Reitzner–Schütt–Werner and the matched large-sample records vary the number of sampled points at a fixed body, rather than vary m at three samples."
+        ],
+        "reasoning": "General integral coverage of the expected value is genuine, even without a closed form. It does not dominate the full claim. A large-sample deficit asymptotic for a fixed polygon does not address the fixed-three-sample finite-sidedness error.",
+        "searches": [
+          "arXiv:1911.05917, Theorem 1.2, p. 4",
+          "Resultary 9f7cfa62890c, Proof §2 Eq. (1)",
+          "Resultary fixed-polygon large-sample records 377791ac0736 and bf3dbf28911a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "Resultary 9f7cfa62890c, b972c9513f97, 69daac1de0bc, d34158c449fe, 377791ac0736, bf3dbf28911a, c4fde75045b5",
+        "arXiv:1911.05917; official Madras–KC abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An evaluated distinct-vertex mean supplies the distinct-edge contribution after scaling by the square of the midpoint radius and the probability of distinct labels. One must add the repeated-edge term; in particular this term affects the cancellation at order m^−2.",
+          "For a general iid planar triangle the second raw area moment is determined by the covariance; the frozen evaluation uses the arclength covariance of the finite regular polygon. The disk values themselves do not give rates."
+        ],
+        "reasoning": "The exact general integral already determines the mean, and asymptotic expansion is a consequence once the closed forms are supplied. But the inspected statements do not give the joint evaluated moments from which the two parallel cancellations follow, nor the strict mean ordering. The substantive distinction is the evaluated family with its side-count comparison, not the underlying covariance identity or either circle limit.",
+        "searches": [
+          "Resultary 9f7cfa62890c, Proof §2 Eq. (1)",
+          "Madras–KC, journal abstract",
+          "arXiv:1911.05917, Theorem 1.2",
+          "Frozen RESULT.md, covariance and trigonometric arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-point expected missed area is precisely polygon area minus the triangle-area mean; division by polygon area just normalizes this identity.",
+          "The primary queries found a note on convex-position probabilities and generic convex-hull material, not equivalent area moments. Madras–KC sample three distinct vertices, not three independent arclength positions."
+        ],
+        "reasoning": "The gap formula provides an equivalent integral description for the mean, but not a second moment. Conditional on three distinct side labels the midpoint triangle is a scaled, rotated version of a vertex triangle; this equivalence does not extend to arclength samples with repeated side labels or to their second moment.",
+        "searches": [
+          "Primary query: exact area moments triangle three independent arclength-uniform points on perimeter of a regular polygon regular m-gon",
+          "Primary query: exact fixed-sample expected convex hull area three independent uniform arclength boundary points arbitrary convex polygon gap integral determinant formula",
+          "Resultary 9f7cfa62890c, Proof §2, Eq. (1)",
+          "Madras–KC, Article 12 (2006), official abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b972c9513f97 gives the full area law for triangle hosts; its equilateral specialization has the identical moments 1/6 and 1/18. The other triangle-area records also give the mean 1/6.",
+          "The parallelogram record 9f7cfa62890c specializes to the identical square mean 5/32. A nearby vertex-based exact record c4fde75045b5 conditions distinct vertices on center containment, a different law."
+        ],
+        "reasoning": "There is exact entry coverage for those individual sizes, stronger for the equilateral law. Neither isolated case determines the all-m moment sequence or its strict ordering and quartic correction. The later catalog dates of some matching records are not used to exclude mathematical coverage or settle publication order.",
+        "searches": [
+          "Configured Resultary lookup for polygon perimeter triangle moments and exact hull area; closest records b972c9513f97, 9f7cfa62890c, 69daac1de0bc and d34158c449fe"
+        ]
+      },
+      "rationale": "The supported distinct content is the evaluated all-m moment pair, strict mean ordering and quartic approach in both moments for the arclength model. The general gap integral in the related parallelogram record covers the mean as an exact integral, the triangle and square records cover specific endpoints, and the covariance identity used for the second moment is standard. These overlaps are credited rather than counted as novelty. The inspected statements do not cover the full regular-polygon side-count result, and catalog dates alone do not decide priority.",
+      "residual_risks": [
+        "An older exact continuous-perimeter regular-m formula or general-polygon antecedent may exist outside the bounded search.",
+        "The Madras–KC full text remained inaccessible; only its abstract-level sample model was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General coverage of the mean integral and exact square-instance overlap, but not the pair of moments and side-count law",
+          "evidence": "Expected missed area is a boundary-gap double integral for any convex polygon and any sample count at least two; the square mean at three samples is 5/32.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-finite-sample-boundary-hull-area-of-parallelograms-rhombus-extre--9f7cfa62890c",
+          "material_read": "Mirrored RESULT.md Finding and Proof §2, Eq. (1)",
+          "method": "Configured local mirror",
+          "title": "Finite-sample boundary hull area of parallelograms: rhombus extremizers",
+          "trigger": "Strongest exact finite-sample mean overlap, with a general-polygon formula"
+        },
+        {
+          "assessment": "Stronger than the target at m=3, not a sequence over m",
+          "evidence": "For three arclength samples on a triangle the first two normalized moments are e_2/2 and e_2/6, with e_2=1/3 for the equilateral case.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-sharp-area-law-ordering-and-shape-reconstruction-for-triangles-s--b972c9513f97",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Sharp area-law ordering and shape reconstruction for triangle hosts",
+          "trigger": "An exact known law for the m=3 endpoint"
+        },
+        {
+          "assessment": "Broad body class but different asymptotic variable",
+          "evidence": "The theorem treats the expected volume deficit of a fixed simple polytope as sample count tends to infinity, with planar order N^−2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05917",
+          "material_read": "Theorem 1.2, p. 4, around offset 11300",
+          "method": "Targeted lawful OA passage",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Plausible broader finite-sample polygon coverage"
+        },
+        {
+          "assessment": "Abstract establishes a distinct-vertex sample model; not a determination of everything in the paper",
+          "evidence": "It chooses a subset of three vertices and compares expected area and perimeter with classical circle limits.",
+          "identifier_or_url": "https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/",
+          "material_read": "Official abstract around offset 286; paper full text not accessed",
+          "method": "Lawful journal website; full-text request returned 403",
+          "title": "Randomly Generated Triangles whose Vertices are Vertices of Regular Polygons",
+          "trigger": "Closest classical regular-polygon triangular mean with a directly related midpoint term"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, normalized moments and analytic side-count comparison",
+        "General mean overlap in Resultary 9f7cfa62890c and exact endpoint comparison in b972c9513f97"
+      ],
+      "rationale": "The first two exact moments quantify the finite-sidedness error in a natural boundary sampling experiment. The shared cancellation of the quadratic term, despite the quadratic geometric discrepancy between a regular polygon and its circumcircle, and the strict ordering at all side counts provide information beyond the isolated endpoint laws or a general unevaluated integral. A researcher using regular polygons to approximate the disk boundary can use the distinct mean and variance corrections without assuming the geometric approximation rate carries over to these statistics.",
+      "residual_risks": [
+        "The value is limited to the evaluated moments and comparison; this does not determine a full distribution, other sample sizes, or a general polygon approximation rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

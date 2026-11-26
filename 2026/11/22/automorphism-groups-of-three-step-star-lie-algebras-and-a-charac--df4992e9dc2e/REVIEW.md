@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies a characteristic leaf subspace in the abelianization, rules out a hub-to-leaf translation using the triple-bracket identities, and derives the full leaf-action group using the polynomial identity \([u,[h,u]]=2\sum_{i<j}x_ix_jw_{ij}\). Explicit lifts establish surjectivity onto the claimed image. A linear bracket computation forces the automorphism kernel's leaf-to-edge matrix to be scalar for \(m\ge3\), leaving exactly \(q^{(m+1)(\binom m2+1)}\) choices. Both cases include all finite field extensions. The reproducible checker verifies the kernel constraint and small-field automorphism bracket relations; the proof, not the experiments, establishes the infinite family.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Reassessed the complete replacement RESULT.md. The frozen proof erroneously identified the action on W with lambda times the exterior square in odd characteristic as well: a transposition of leaves 1 and 2 fixes w_12 at lambda=1, whereas it negates u_1 wedge u_2. The repaired proof gives the correct unordered-pair permutation with weights lambda d_i d_j in odd characteristic, and the genuine exterior-square action in characteristic two. Both are invertible and preserve the brackets. Independently: the bracket modulo W makes U the unique maximal multi-dimensional abelian subspace of the abelianization for that induced pairing; the zero [h,[h,u_i]] relation kills the shear by the zero left radical. The mixed triple bracket has diagonal evaluation 2 sum_(i<j) x_i x_j w_ij, giving the exact monomial condition or no restriction as claimed. In the kernel, the w_ik term in a bracket of lifted leaves i,j kills c_kj for three distinct indices; the w_ij term equalizes the diagonal; [h+b,u_i+c a_i]=a_i-[u_i,b], and the higher brackets are unchanged. The count is q^(m+(m+1)w+1). These checks are field-algebraic, including nonprime fields. The unchanged verify_star_aut.py, inspected but not run, checks prime-field examples and kernel constraint ranks only.
 
-The closest original paper, Gallo–Videla (arXiv:2610.33963v1), was read across its defining construction, star example, center/isomorphism theorem, and tensor presentation. Those theorems determine the algebras and graph-isomorphism rigidity, not their internal automorphism orders. The available abstract of Chakrabarti–Mainkar–Swiatlowski (arXiv:1812.09439) identifies a different class-two edge-colored complete-graph construction; its full text was not inspected and remains a residual historical-priority risk. Targeted published-record and exact-phrase searches did not reveal this full star automorphism formula. The historical literature on automorphisms of other graph-Lie constructions remains a plausible source of equivalent techniques and warrants independent priority checking; absence of a search hit alone is not novelty evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The automorphism group is a natural exact isomorphism invariant for a newly introduced family. The calculation simultaneously resolves its entire unipotent kernel and identifies a sharp phase transition in the linear quotient symmetry group: a monomial subgroup becomes the full general linear group in characteristic two. The jump is a structural consequence of the repeated-leaf triple brackets, not an arbitrary numerical special case.
+The underlying algebra is prior. No examined result gives the exact quotient image plus kernel order, including its characteristic-two enlargement. The repair corrects the proof representation but preserves that claim verbatim in scope; the resulting formulas and structural distinction were reassessed against the same sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A full structural quotient and exact order for a natural graph Lie algebra family resolve which apparent symmetries lift and how large the invisible kernel is. In particular, nonmonomial shears on the leaf space genuinely lift in characteristic two but not in odd characteristic. The class-three kernel parameterization is not supplied by the graph automorphism group or by the known class-two subgroup results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

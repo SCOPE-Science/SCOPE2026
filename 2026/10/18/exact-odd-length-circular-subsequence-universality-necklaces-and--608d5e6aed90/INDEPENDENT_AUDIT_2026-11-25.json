@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:59.419969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–70; VERIFICATION.md, lines 19–23; verification/circular_universality_check.py, lines 12–127 (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/frozen_math_checks.py 3; explicit attainable subsequences over all rotations of each binary word at odd lengths 3..11, independent of the greedy arch routine"
+      ],
+      "rationale": "Greedy shortest rich blocks determine the linear index: the sequence of their closing letters followed by a letter absent from the remainder is a missing subsequence, since the earliest possible embeddings of the closing letters are the arch endpoints. Each rich factor supplies an adjacent unlike pair, and k disjoint unlike edges on the odd cycle leave one vertex unmatched; cutting there linearizes all k pairs. Removing the equal edges leaves paths, isolated vertices included. A path with t edges leaves t+1 modulo 2 vertices uncovered by a maximum matching, so maximality means exactly one even t. For counting, distinguish the equal edge after that unique even run. If there are 2h odd runs, the 2h+1 run-plus-terminal-edge lengths have base lengths 2,...,2,1 and even excess; the resulting composition count is binom(k,2h). The sum is 2^(k-1) for k>=1. There are 2k+1 labels for the distinguished edge and two binary lifts of each transition vector. An odd maximizer uses k and k+1 symbols (it must realize both constant targets), so it cannot be a nontrivial power; equivalently, a rotation stabilizing it must fix the distinguished edge. Thus each necklace has 2k+1 distinct origins. The two fixed-origin cases (all arches of length two with one remaining symbol, or one length-three arch) are disjoint by greedy uniqueness and give (k+2)2^k, proving the rescue count by subtraction. The k=1 result and zero-length even runs are included.",
+      "residual_risks": [
+        "The frozen script's recorded larger finite run was not replayed; neither the recorded run nor the independent enumeration is the all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary articles give arch, power/remainder or algorithmic descriptions. The October 25 and 26 catalog entries give full binary circular universality distributions including the odd top labeled count through matching."
+        ],
+        "reasoning": "The later distributions cover the labeled component, while a word-wise index algorithm alone does not count overlapping optimal rotations. The frozen result does not claim a new general arch theorem.",
+        "searches": [
+          "arXiv:2003.04629v1, Definition 3 and Theorem 4.3",
+          "arXiv:2104.09063, Theorem 44 and Proposition 45",
+          "arXiv:2304.11932v1, abstract, introduction and §4 outline",
+          "Resultary 412ee9869e0f and 8b750033b0cb, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04629v1, 2104.09063, 2304.11932v1, 2304.04583; Resultary a2fd261dc341, 412ee9869e0f, 8b750033b0cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barker's binary power theorem and proof use disjoint adjacent unequal pairs; the 2021 theorem characterizes circularity by growth in powers. Neither inspected result supplies the exact circular census. The 2026-11-02 record actually works through the same odd-cycle matching reduction."
+        ],
+        "reasoning": "The prior tools motivate and partly streamline the proof, but multiplying the fixed-origin count by the number of rotations would overcount. The unique even-path criterion and marked count resolve that overlap; later results resolve much of the same mathematics.",
+        "searches": [
+          "Barker et al. Theorem 4.3; Fleischmann–Germann–Nowotka Theorem 44; Adamson §3; Resultary a2fd261dc341, proof of the matching/parity characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 record uses exactly one even-length unequal-edge path, explicitly allowing zero; it gives identical labeled and necklace counts and primitivity and additionally counts bracelets."
+        ],
+        "reasoning": "Runs and unequal-edge path components here are the same objects, so this is an exact overlap on the structural statement and most of the census. Its catalog date is later; its inspected finding does not state the fixed-origin rescue number.",
+        "searches": [
+          "Resultary semantic search: odd binary circular subsequence universality, parity of runs, primitive necklaces and rotation rescue",
+          "Resultary a2fd261dc341, Characterization and Exact enumerations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adamson treats linear universal-word counts, including the natural fixed-length input to the subtraction. The later catalog entries give an exact top labeled count; a2fd261dc341 also gives exactly 2^k odd-maximizer necklaces."
+        ],
+        "reasoning": "The linear count does not enumerate the union over optimal rotations. The later exact overlaps are credited as formulas, not merely matching sample counts.",
+        "searches": [
+          "arXiv:2304.04583, §3 linear enumeration",
+          "Resultary a2fd261dc341, 412ee9869e0f, 8b750033b0cb, exact enumeration passages"
+        ]
+      },
+      "rationale": "The contribution is the odd extremal run criterion and circular maximizer census. Linear arch methods and the fixed-origin count are prior or immediate from prior methods; primitivity itself follows from the coprime symbol multiplicities, and the rescue count follows by subtracting the known linear count once the circular count is available. Distinct later catalog entries overlap substantially, including an exact match on the odd parity criterion, labeled/necklace counts and primitivity. The bounded comparison found no earlier covering statement for the circular classification and counts, without asserting exclusive priority or independent origin across catalog entries.",
+      "residual_risks": [
+        "Dated catalog paths do not resolve the relationship or priority between overlapping records.",
+        "A bounded primary search cannot exclude unindexed specializations. Unlike the frozen report, this review did access the 2021 paper's full PDF and inspected the relevant passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational prior method, not the stated census",
+          "evidence": [
+            "Defines the maximum over conjugates and relates linear powers to a one-unit gain in circular universality, using adjacent-pair packing in its proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+          "material_read": "Definition 3 (offset 18492), Theorem 4.3 and proof (offset 61124)",
+          "method": "Open primary HTML",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational circular universality and binary growth theorem"
+        },
+        {
+          "assessment": "Characterization via powers and remainder chains, not odd extremizer enumeration",
+          "evidence": [
+            "The theorem characterizes circular universality by growth in powers, and the proposition gives an algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+          "material_read": "PDF p. 18, Theorem 44 and Proposition 45, around extracted offset 50136",
+          "method": "Open primary PDF; full text was accessible for this review",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Exact circular characterization using remainders"
+        },
+        {
+          "assessment": "Word-wise computation, not a fixed-length extremizer census",
+          "evidence": [
+            "Gives arch-jumping tools and algorithms for the circular index."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.11932v1",
+          "material_read": "Abstract and introduction, offsets 493 and 4086, including the §4 outline",
+          "method": "Open primary HTML",
+          "title": "On Arch Factorization and Subword Universality for Words and Compressed Words",
+          "trigger": "Computation of circular universality from arch data"
+        },
+        {
+          "assessment": "Linear enumeration, not circular orbit enumeration",
+          "evidence": [
+            "Counts and ranks/unranks words at a fixed reading origin."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "Abstract p. 1 and §3 (extracted offsets 918 and 14479)",
+          "method": "Open primary PDF",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Exact enumeration of fixed-length universal words"
+        },
+        {
+          "assessment": "Exact structural and numerical overlap on odd labeled words and necklaces, later catalog date",
+          "evidence": [
+            "Exactly one even path, (2k+1)2^k labeled words, 2^k necklaces, primitive; adds bracelets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-near-minimal-binary-circular-subsequence-covers-parity-classific--a2fd261dc341/RESULT.md",
+          "material_read": "Characterization, Exact enumerations and matching proof, beginning at offset 579",
+          "method": "Local catalog mirror",
+          "title": "Near-minimal binary circular subsequence covers: parity classification and counts",
+          "trigger": "Same odd near-minimum length, criterion, and orbits"
+        },
+        {
+          "assessment": "Broader exact labeled distribution, later catalog date",
+          "evidence": [
+            "The circular index is the cyclic matching number; the odd maximum yields the same labeled count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-circular-subsequence-universality-spectrum-of-binary-words--412ee9869e0f/RESULT.md",
+          "material_read": "Finding and matching characterization, offset 0",
+          "method": "Local catalog mirror",
+          "title": "Exact circular subsequence universality spectrum of binary words",
+          "trigger": "Full distribution containing the extremal slice"
+        },
+        {
+          "assessment": "Same odd maximum labeled count as part of a broader later distribution",
+          "evidence": [
+            "Its odd top slice is (2k+1)2^k and uses the matching decomposition into transition paths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-circular-subsequence-universality-distribution-of-binary-w--8b750033b0cb/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local catalog mirror",
+          "title": "Exact circular subsequence universality distribution of binary words",
+          "trigger": "Exact indexed-word table by circular index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–66; Adamson, arXiv:2304.04583, §3"
+      ],
+      "rationale": "The shortest odd length at which index k is possible is a natural one-extra-letter regime. Classifying all maximizers by a local parity statistic and using it to count necklaces determines precisely what rotations add to the known linear count. The proof works uniformly rather than extrapolating a short census.",
+      "residual_risks": [
+        "No value claim depends on nonmaximal levels, larger alphabets, or bracelet enumeration, which the frozen theorem does not cover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

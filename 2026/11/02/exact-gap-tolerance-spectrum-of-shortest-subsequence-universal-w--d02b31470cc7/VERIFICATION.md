@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_gap_universality.py` with Python 3.9 or later; only the standard library is required. The script explores all balanced host words in seven complete finite parameter families and tests every length-\(k\) target against **all embeddings**, computing the exact minimized maximum jump, not merely one greedy witness. For universal hosts it compares the literal answer against the consecutive permutation-block displacement formula; for all balanced hosts it checks universality versus block decomposition. It tests exact radius frequencies, all cumulative bounds, and the restricted-permutation factor directly.
+## correctness
 
-Completed replay:
+PASS
 
-```
-PASS bounded_drop_counts=27 q=2..7
-PASS q=2 k=2 balanced_hosts=6 universal_hosts=4 pattern_checks=21 radius_spectrum={2: 2, 3: 2}
-PASS q=2 k=3 balanced_hosts=20 universal_hosts=8 pattern_checks=107 radius_spectrum={2: 2, 3: 6}
-PASS q=2 k=4 balanced_hosts=70 universal_hosts=16 pattern_checks=532 radius_spectrum={2: 2, 3: 14}
-PASS q=2 k=5 balanced_hosts=252 universal_hosts=32 pattern_checks=2614 radius_spectrum={2: 2, 3: 30}
-PASS q=3 k=2 balanced_hosts=90 universal_hosts=36 pattern_checks=549 radius_spectrum={3: 6, 4: 18, 5: 12}
-PASS q=3 k=3 balanced_hosts=1680 universal_hosts=216 pattern_checks=16244 radius_spectrum={3: 6, 4: 90, 5: 120}
-PASS q=4 k=2 balanced_hosts=2520 universal_hosts=576 pattern_checks=20834 radius_spectrum={4: 24, 5: 168, 6: 240, 7: 144}
-VERIFY_OK parameter_cases=7 balanced_hosts=4638 universal_hosts=888 exact_pattern_checks=40901
-```
+The shortest length is qk: constant targets require k copies of each label, and k permutation blocks suffice. For necessity, cut greedily at the first full-alphabet prefix of each remaining suffix. The sequence of last-to-appear symbols forces any embedding of that sequence to reach at least the corresponding cuts; if there are fewer than k cuts, appending a symbol missing in the remainder obstructs universality. At length qk this forces k blocks of length q. Each constant target has a unique embedding, so all forward displacements are witnessed as jumps q+p_(i+1)(a)-p_i(a). Conversely, earliest-match embedding starts in the first block and advances at most one block per match. For a cross-block step to b from offset r, p_i(b)≤r, so the jump is no larger than the corresponding constant-target jump. Same-block jumps are below q and the maximal forward displacement is nonnegative by summing over labels. For a fixed block the nested allowed new positions give d+1 choices on each of the first q−d rows and d! choices on the remainder; the count is the same from every block. Subtraction gives the exact spectrum, d=0 forces repeated permutations, and the ratio at d=q−2 to unrestricted choices is (q−1)/q per transition. These are maximum index differences, not skipped-position counts, and each target may choose its embedding.
 
-The finite experiments are not extrapolated to infinite parameter ranges. The full proof of the all-parameter formulas is in RESULT.md. No external formal certification or independent audit is claimed.
+## originality
+
+PASS
+
+Pass for the bottleneck-radius bridge and the resulting distribution on all indexed shortest hosts, not for arch factorization, permutation-block structure, or the restricted-permutation count. No inspected strong match gave or implied this bridge. Same-day matches were compared without inferring publication order.
+
+## value
+
+PASS
+
+The worst-target best-embedding problem appears to require testing q^k targets and choices of embeddings. The exact witness-and-greedy bridge reduces it to linear scanning of adjacent blocks, and yields the entire labeled-host spectrum and sharp extremizers, rather than an example, a sampling estimate, or only a decision bound. Minimum length is the natural rigidity regime for this question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

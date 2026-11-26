@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. At a disjoint-union cotree node, induced relative orders on child vertex sets are independent and uniform, so both maximal-independent-set structure and greedy probabilities factor as products.
-2. At a join node, the child containing the globally earliest vertex is chosen with probability \(n_i/n\); that accepted vertex blocks every other child.
-3. Conditional on selecting child \(i\), the relative order inside that child remains uniform, so the child process is the ordinary random greedy process on that induced cograph.
-4. Uniformity of a product law forces uniformity in each factor; uniformity at a join forces both uniform child laws and equality of \(n_i/m_i\) across children.
-5. These rules induct over every cotree and establish all stated quantifiers.
+## correctness
 
-The standalone `artifacts/verify.py` independently enumerates all labeled graphs through six vertices, recognizes cographs by recursive graph/complement decomposition, computes the cotree law with exact rational arithmetic, and compares it with a brute-force enumeration of every vertex permutation. It also compares the recursive uniformity flag against direct equality of all terminal probabilities.
+PASS
 
-Recorded replay:
+A uniform permutation factors bijectively as a uniform word of child labels of the prescribed multiplicities and independent uniform permutations within the children. Union greedy decisions are independent in those child permutations, and every maximal independent set is a product of child maximal independent sets. At a join the first letter is i with probability n_i/n; the first accepted vertex blocks all other children, leaving the independent uniform order in child i. Every maximal independent set at a nonempty join belongs to a unique child and is maximal within it. The flat law selects these children with weights m_i/m; within each, the law is flat. Comparing conditional laws and those two child-weight vectors gives exactly the positive n_i/m_i balance condition. At unions flatness is equivalent to flat marginals, which are the independent child laws. The base case is a leaf (the stated construction starts from single vertices). Multiplication/summation of counts and cross-multiplication for balance take a constant number of arithmetic operations per child edge, not necessarily constant bit complexity. This also makes clear which output is given exactly without listing every set.
 
-`ALL CHECKS PASSED`
+## originality
 
-`labeled_cographs_checked=6039`
+PASS
 
-`vertex_permutations_checked=4020821`
+The law coincides with independently stated exact laws on several subclasses and with a known sufficient criterion where that criterion applies, but the exact all-cograph cotree law and iff test are not covered by the compared statements. The probability recurrences are natural decomposition facts; their novel use here is a complete decision and probability rule on the whole hereditary class, including uniform graphs outside the older sufficient criterion.
 
-`orders=1..6`
+## value
 
-`counts=1:1,2:2,3:8,4:52,5:472,6:5504`
+PASS
 
-Scientific limit: the finite replay is corroborative only and does not extend the theorem beyond the analytically proved cograph domain.
+This gives a complete iff decision and exact individual-output laws across a canonical hereditary class without enumerating maximal sets to test uniformity. Comparing counts and vertex masses gives structural insight not captured by the old sufficient condition or by output-size statistics: K2 joined to two disjoint K2s is irregular and uniform despite outputs of different cardinalities. The short decomposition proof yields an exact algorithm on an unrestricted class rather than a tabulated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

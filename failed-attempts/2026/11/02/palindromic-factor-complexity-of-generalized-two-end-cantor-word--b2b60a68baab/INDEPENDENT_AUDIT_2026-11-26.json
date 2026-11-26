@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:21.383971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the on-disk formula, RESULT.md lines 10–12: the one-marker term is one indicator. Binary carrying in the ordered one positions gives a zero gap of (b−2)b^{v2(i)} at index i. To justify the first sentence of step 3, use the preceding gap calculation: at an interior 1 the adjacent gap indices are consecutive and exactly one is odd, so the adjacent gaps differ. A palindrome centered at that 1 cannot contain a neighboring 1 on both sides; the first marker also cannot have neighbors on both sides. Thus a palindrome with at least two 1's has an even number and is centered between consecutive markers. At a gap of index i with v2(i)=j, offsets h<2^j have equal valuations on both sides, yielding the palindromic b^{j+1}-block. At offset 2^j the shorter exterior gap has valuation j+1 when the left gap exists; the left boundary otherwise cuts the extension earlier. At i=3·2^j both gaps exist and attain the shorter length a b^{j+1}. Distinct levels have distinct central zero runs. This gives both exact endpoints and the parity constraint; levels two apart cannot overlap, and a singleton cannot overlap the second level. The stated sharp bound, examples, and ternary consistency follow. A separate enumeration computed complete factor languages for each tested length using the only possible adjacent aligned block pairs 00, 01 and 10 at scale b^k≥140, not an assumed sufficient prefix. It matched 1400 cases for b=3–12 and n=1–140. Replay: python3 /workspace/evidence/4.py; output /workspace/evidence/4.out. This finite check is supplementary. The frozen verifier's digit loop covers at most 5000 symbols per base despite broader wording in VERIFICATION.md; this does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a2e5375cb6f9 gives the same classification for all b≥3 and also classifies globally nonextendible palindrome words and states the ternary values.",
+          "Allouche et al. Theorem 9 assumes a primitive uniform class-P morphism; the frozen one is nonprimitive. The reflection complexity paper counts reversal classes, and supplies general regularity, not these evaluated thresholds."
+        ],
+        "reasoning": "The distinct catalogue result gives stronger explicit coverage. The general literature inspected is contextual and not the basis for this coverage judgment.",
+        "searches": [
+          "a2e5375cb6f9 RESULT.md complete palindromic language and sharp complexity",
+          "arXiv:math/0106121 Theorem 9",
+          "arXiv:2406.09302 abstract and reversal equivalence"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2e5375cb6f9",
+        "arXiv:1703.04063",
+        "arXiv:1307.1838",
+        "arXiv:math/0106121",
+        "arXiv:2406.09302",
+        "doi:10.1016/j.tcs.2015.12.022 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict a2e5375cb6f9 to b≥4 and substitute a=b−2 and 2a+1=2b−3; its three language types become the frozen ones. Maximizing among the count values and computing the b=4 examples are immediate from the same formula.",
+          "Morfonios et al. analyze maximal occurrence centers and length/spacing scaling at b=3. That study is not needed to infer the all-base result from the exact catalogue match."
+        ],
+        "reasoning": "Every substantive frozen mathematical claim is covered, not merely the proof ingredients. Later catalogue date is explicitly separated from the mathematical implication; historical precedence is not decided here.",
+        "searches": [
+          "a2e5375cb6f9 RESULT.md Finding and proof steps 1–3",
+          "arXiv:1307.1838 PDF pp. 12–13 Cantor-lattice subsection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both define the binary word by digits {0,b−1}, with zero-based indexing, and count distinct contiguous palindromes. In the covering record W_{b,j+1}=mu_b^{j+1}(1); T_{b,j}=Q_j.",
+          "Its condition n≡b (mod 2) equals n≡(b−2)b^j (mod 2) for all j≥0, including j=0."
+        ],
+        "reasoning": "Changing notation for the core and factoring the common parity indicator gives the same language, not just matching count values.",
+        "searches": [
+          "Resultary search for generalized Cantor words, exact distinct palindromic language and palindrome complexity",
+          "a2e5375cb6f9 RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In a2e5375cb6f9 the boxed formula has a one-marker bound 2b−3 and a scale interval [(b−2)b^j+2,(2b−3)b^{j+1}], with the same factored parity indicator.",
+          "Chen–Lü–Wu give a different invariant, k-Abelian complexity, even in the ternary case."
+        ],
+        "reasoning": "The indexed exact formula is stronger evidence than a table of matching small examples.",
+        "searches": [
+          "Resultary exact palindromic language and sharp complexity of generalized Cantor words, a2e5375cb6f9",
+          "Focused prior-literature search on palindromic complexity of generalized Cantor-like sequences"
+        ]
+      },
+      "rationale": "The exact frozen count and the full centered-factor classification are both covered by a distinct indexed Resultary result a2e5375cb6f9. This is demonstrable overlap with a broader statement, not a claim about who proved it first. The covering record's catalogue path is six calendar days later than the frozen path; those labels establish neither priority nor independence. No distinct mathematical remainder is established on the compared claims.",
+      "residual_risks": [
+        "The source comparison establishes equivalent coverage, not historical priority or dependence.",
+        "Older equivalent work may be unindexed, and the Cantor-like permutation-complexity full text was not verified; neither limitation is the failure reason."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match on frozen range and broader b≥3 result",
+          "evidence": [
+            "Finding defines T_{b,t}, L_t, U_t, states the three disjoint language types, boxes the parity-filtered count, and lists globally maximal palindrome words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-palindromic-language-and-sharp-complexity-of-the-generaliz--a2e5375cb6f9/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 1–3, and subsequent relevant comparison (offsets 0–8734), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local-mirror full-text inspection and algebraic substitution",
+          "title": "Exact palindromic language and sharp complexity of the generalized Cantor words",
+          "trigger": "Strongest same-word, same-invariant indexed candidate"
+        },
+        {
+          "assessment": "Ternary word and a different equivalence invariant",
+          "evidence": [
+            "The recurrences c_{3n}=c_{3n+2}=c_n and c_{3n+1}=0 define the ternary word; Theorem 2 asserts 3-regularity of its k-Abelian complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.04063",
+          "material_read": "PDF pp. 1–2, definition and Theorem 2, offsets about 0–900 and 4700–6808",
+          "method": "OA PDF passage inspection",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Earlier Cantor factor-complexity results"
+        },
+        {
+          "assessment": "Overlapping ternary structure, not all-base distinct-word count",
+          "evidence": [
+            "Hierarchical maximal-palindrome axes and lengths changing by powers of three concern occurrence positions and lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.1838",
+          "material_read": "PDF pp. 12–13, Cantor-lattice subsection, offset 84600 onward",
+          "method": "OA PDF passage inspection",
+          "title": "Local Symmetry Dynamics in One-Dimensional Aperiodic Lattices",
+          "trigger": "Earlier palindrome structure in the ternary Cantor lattice"
+        },
+        {
+          "assessment": "Primitivity hypothesis inapplicable",
+          "evidence": [
+            "Theorem 9 requires a primitive uniform class-P morphism with constraints on the first symbols of q_a."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0106121",
+          "material_read": "PDF p. 9, Theorem 9, offset 26300 and introductory scope",
+          "method": "OA PDF passage inspection",
+          "title": "Palindrome Complexity",
+          "trigger": "Stronger general substitution result might subsume formula"
+        },
+        {
+          "assessment": "Generic computable regularity and different counted classes",
+          "evidence": [
+            "Reflection complexity counts factors up to reversal, not the lengthwise palindrome count itself; the outline locates the automatic discussion in Section 8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+          "material_read": "PDF pp. 1, 3, offsets 800 and 5600; abstract, outline and reversal equivalence",
+          "method": "OA PDF passage inspection",
+          "title": "The Reflection Complexity of Sequences over Finite Alphabets",
+          "trigger": "Automatic-sequence framework for reversal"
+        },
+        {
+          "assessment": "Unverified nearby work; no whole-document inference",
+          "evidence": [
+            "The retrieved excerpt refers to abelian complexity of a 2-block sequence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Search excerpt only; no usable text at DOI landing page",
+          "method": "Search and bounded OA attempt",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Focused literature search for Cantor-like sequence complexities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, a complete scale-resolved description for every length in a natural family of nonprimitive Cantor words is useful beyond evaluating a few counts. The valuation argument explains the sharp bound and exhibits the words responsible for every step. This assessment of the theorem's mathematical content does not restore it as a distinct contribution in the face of exact catalogue coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

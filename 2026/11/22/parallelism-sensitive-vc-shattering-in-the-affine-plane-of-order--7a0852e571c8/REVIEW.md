@@ -1,9 +1,21 @@
-# Scientific review: two-line unions in \(\operatorname{AG}(2,4)\)
+# Independent mathematical audit
 
-**Correctness — PASS.** The two independent field encodings reproduce all twenty affine lines, split the \(190\) unions into \(30\) parallel and \(160\) nonparallel cases, and agree on all coefficients. `verify_affine.py` independently checks all \(14893\) supports through size six and regenerates the complete affine-semilinear orbit certificate. `verify_incidence.py` uses determinant-defined lines rather than the first script's slope representation. The proof closes the infinitely stated zero tail by a direct hereditary six-point obstruction; no finite sampling is mistaken for an infinite theorem. The classifications and cardinality quantifiers exactly match those in `RESULT.md`.
+## correctness
 
-**Originality — PASS, qualified.** The closest public affine nonparallel and parallel results determine VC or Littlestone dimensions but not the three full coefficient vectors and additive-parallelogram/parallelism split. The closest projective two-line result studies a different universe, and the 2025 real-plane classification gives two incidence types without distinguishing the two affine one-triple orbits. Full texts of the three highly relevant public mathematical records and the 2025 arXiv paper were compared by theorem implication. A comprehensive priority guarantee is impossible; unknown or unindexed equivalent classifications remain a residual risk.
+PASS
 
-**Value — PASS.** The finding is an exact natural, fully classified boundary case at the first affine-plane order admitting five-query shattering by two nonparallel lines. The striking equality of the parallel-only and nonparallel-only four-faces, despite different VC dimension, plus two identical collinearity types split by a hidden additive circuit, illustrates why mere incidence classification does not suffice for restricted geometric unions. The complete invariant can be used as a finite calibration case when testing general affine-plane shattering or learning-rank conjectures. No unproved generalization is asserted.
+Independent F₂⁴ coset construction generates the twenty affine F₄ lines and the 30, 160 and 190 distinct Boolean concept masks. Direct intersection sets against all 14,893 supports of sizes 0–6 verify the complete criteria, not just totals: P/N/A four counts 1680/1680/1800, five counts 0/2400/3840 and no six. A separate enumeration of all 5,760 affine semilinear maps reproduces every supplied orbit size, representative trace bitset, signature and exhaustive partition through size five. The two single-triple five-orbits are size 960 without a circuit and 1440 with a circuit; only the first is shattered by N. The 1440 double-triple five-supports also shatter for N. A support with four collinear points cannot realize three of them excluding the fourth. A six-support without four collinear points would first need two disjoint triples covering it. Keeping all of one triple forces its carrier in any two-line realization, so keeping two points of the other triple forces that second carrier and makes exclusion of its third point impossible. Heredity closes all higher sizes. The repaired comparison derivations are also checked: binary affine hyperplanes are exactly the parallel unions, and for up to five affine points two avoidance lines ensure that restriction and padding of projective witnesses preserve all unrestricted traces. The exact results in the original were correct; the repair narrows the asserted contribution and clarifies the count of triples to exclude full-line supports.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The three-way census is not accepted as three independent new invariants. In particular the unrestricted support criterion is a corollary of the previous projective characterization after affine restriction and padding, and the P baseline is ordinary binary affine-hyperplane shattering. The substantive repaired finding is the exact N support profile with the additive-obstruction split and the precise comparison with those baselines. The prior nonparallel theorem attains the dimension but does not determine this profile. The same record match is not a distinct antecedent.
+
+## value
+
+PASS
+
+Order four is the first affine order where both the earlier parallel rank-four and nonparallel rank-five results apply. The useful retained comparison is not a small table of dimensions: N and P have exactly the same shattered four-supports, but N distinguishes two single-triple types that have identical ordinary collinearity via an additive obstruction. This identifies precisely which 1440 of the natural unrestricted five-supports disappear under the nonparallel constraint and gives a test case for finite-field trace criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review: integral incidence of the six-pointed boundary
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Stable labelled-tree split compatibility determines all 25 divisors, 105 boundary curves, and 105 boundary points. Each boundary curve is \(\overline{\mathcal M}_{0,4}\) and meets exactly three boundary points, so the defined integral incidence is complete. A certificate of 1,948 unimodular operations transforms the reconstructed exact 105-by-105 matrix to \(\operatorname{diag}(1^{81},2^9,0^{15})\). The fully independent replay path checks all entries and operations. No unproved asymptotic or finite-field inference is involved.
+PASS
 
-## Originality
+The geometric closure order is edge contraction of stable labelled trees. A two-edge tree has one four-valent component and all other components trivalent; its three trivalent refinements are precisely the three boundary points on its curve. The argument works in every characteristic; the objects are the geometric strata of the fibers, and over Z the corresponding relative strata. Independently constructed the maximal trees starting with the three-leaf tripod, inserting the next leaf on every edge (deletion and suppression inverts each step), and obtained the curve rows by dropping internal splits. This gives 105 trees and 105 distinct curves, each row and column of weight 3. An exact integer Smith calculation on this matrix gave 81 units, nine 2s and fifteen zeros. A separate replay of all 1,948 supplied operations on the independently generated matrix gave exactly the same diagonal with every off-diagonal entry zero. Transposition does not change the Smith factors.
 
-**PASS, qualified.** The tree model and stable-curve boundary geometry are classical and appear in Maya–Mostovoy (arXiv:1906.05223, §§2–3). Bae–Schmitt (arXiv:2107.09192, Introduction and §2) study the distinct **Chow-group** relations, not the stated unsigned incidence cokernel. Searches for moduli boundary incidence, Smith form, compatible-split matrix, and equivalent tropical face incidence identified no directly covering calculation. The closest accessible analogous integral-incidence result concerns the different Burkhardt node–Jacobi-plane matrix. An older computation of the same unsigned stable-tree incidence remains a priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The complete integral group is a natural invariant of the boundary incidence poset: its nine independent order-two classes measure failure of integral saturation beyond the rank-15 rational defect. The labelled six-pointed moduli space is a canonical first nontrivial three-dimensional instance, and all 105 one-dimensional strata have three boundary ends. The result distinguishes integral gluing information from rational rank; it is intentionally **not** presented as a Chow-group or homology computation.
+The underlying 25-vertex, 105-edge, 105-triangle complex and its incidence are established. The distinct contribution is the integral Smith form of the unsigned edge–triangle inclusion matrix (or its transpose). The strongest identified primary account treats the same complex but not this unsigned Smith form; neither its simplicial homology nor the cited Chow results imply the rational rank and the exact elementary divisors together.
 
-## Scope and limitations
+## value
 
-The presentation involves free formal strata and unsigned sums, not rational equivalence or cellular boundary differentials. It is valid over every characteristic by its combinatorial definition. No claim of an all-\(n\) pattern, geometric representation-theoretic decomposition, or independent external validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a full integral invariant of the natural unsigned map taking each boundary curve to its complete three-point boundary. It quantifies the discrepancy between characteristic two and characteristic zero for the first moduli space having a two-dimensional split complex, and shows that the loss of saturation is exactly exponent two, with no odd or higher 2-power obstructions. Those are useful facts for solving integral incidence relations, and not consequences of merely knowing the incidence counts or oriented homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

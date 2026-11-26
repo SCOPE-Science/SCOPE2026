@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:23:42.352632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, literal certificate values in verify.py",
+        "/workspace/branches/replay145.py and /workspace/branches/replay145.txt"
+      ],
+      "rationale": "For 1≤n≤6, disjoint-shadow codebooks and hitting sets of equal size certify both optima by weak duality. At n=7, rational primal and dual vectors both sum to 9 and satisfy every inequality, so U_7=9. Independently regenerated the words and shadows with integer masks and checked every supplied certificate, including all eight confusability cliques. Distinct words conflict iff each word has at most one 1 outside the other: their bitwise intersection then belongs to both shadows. Counting every compatible subset once in increasing mask order gave counts by size 0 through 8 of 1,34,401,2068,4860,5004,2048,282,10, with none larger. This independently proves M_7=8 and precisely ten labeled maximizing codebooks. Replay: python3 /workspace/branches/replay145.py (FIB lines); output /workspace/branches/replay145.txt.",
+      "residual_risks": [
+        "No claim beyond lengths 1 to 7 or about a different error channel or polytope is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polyanskii and Zhang study unrestricted binary Z-channel codes and list-decoding thresholds; Rameshwar and Kashyap include the source constraint at d=1 but their minimum-Hamming-distance formulation and Delsarte-type bounds are different.",
+          "The exact indexed match is strictly stronger on equality: it lists the ten optimal codebooks through six shared words and ten alternative pairs and gives seven reversal classes."
+        ],
+        "reasoning": "The papers checked are background, not proof of the finite values; the separate indexed theorem already includes the entire frozen result and classifies the optimal objects more finely.",
+        "searches": [
+          "Websearch: no-adjacent-ones constrained Z-channel single asymmetric error code shadow packing fractional hypergraph LP length 7 independent set",
+          "Polyanskii and Zhang arXiv:2105.01427, abstract",
+          "Rameshwar and Kashyap arXiv:2301.05098, §IV.C and Table IV"
+        ]
+      },
+      "checked_sources": [
+        "Exact matching Resultary record e6be4e5db641 and related Resultary results",
+        "Polyanskii and Zhang arXiv:2105.01427",
+        "Rameshwar and Kashyap arXiv:2301.05098"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "As the capacities agree for lengths one to six and differ by one with values 8 and 9 at seven in e6be4e5db641, it directly states the first gap and implies the ratio 9/8.",
+          "25a61255a325 instead deletes a coordinate, with different output lengths and tables; unrestricted single-asymmetric-error records also optimize over a different domain."
+        ],
+        "reasoning": "The exact indexed match suffices without using the related deletion or unrestricted statements. A different certificate for M_7≤8 verifies the covered numerical claim, not a distinct result as stated.",
+        "searches": [
+          "e6be4e5db641 RESULT.md, Finding and Proof Steps 1–4",
+          "Resultary: deletion shadow fractional packing constrained words first gap length six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e6be4e5db641 defines words avoiding 11, unchanged or a single 1→0 flip, disjoint shadows, and the identical shadow packing LP P_n, called U_n in the frozen finding.",
+          "Its compatibility cliques and this record's confusability independent sets are the same codebooks in complementary graphs."
+        ],
+        "reasoning": "Identical source, outputs, feasible codebooks, and LP objective and constraints. Changing notation or graph convention does not define a new problem.",
+        "searches": [
+          "Resultary: Fibonacci constrained no-adjacent-ones Z-channel asymmetric errors shadow packing fractional gap",
+          "Resultary: independent set codes Fibonacci cube zero error code Z-channel one asymmetric error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its table gives (1,1,2,3,4,6,8) and (1,1,2,3,4,6,9) at exactly n=1 to 7 and ten maximum codebooks at seven.",
+          "The exact fractional supports and weights at length seven coincide in the two proofs."
+        ],
+        "reasoning": "Direct exact table coverage, not similarity by title or a matching numerical parameter.",
+        "searches": [
+          "Resultary: no adjacent ones single asymmetric error constrained code length seven integer and fractional capacity",
+          "Resultary: constrained Z-channel asymmetric error no adjacent ones RLL exact finite code capacity length seven",
+          "e6be4e5db641 RESULT.md, Finding and Proof Step 3"
+        ]
+      },
+      "rationale": "A distinct indexed record, e6be4e5db641, explicitly gives the same family, channel, LP, complete initial integer and fractional values, threshold and ten optimizers, and goes further by classifying those optimizers. The exact n=7 rational primal and dual vectors in its proof also match the frozen ones. This is demonstrated coverage by a separate record, not a determination of which result came first: the common date does not resolve chronology. No distinct central claim survives.",
+      "residual_risks": [
+        "Relative priority between the two dated records was not established. Demonstrated equivalent coverage does not establish authorship, derivation, or chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_AND_STRONGER_COVERAGE",
+          "evidence": [
+            "Same exact seven-row table and ten optimizers; gives their complete description, and identical rational LP witnesses at n=7."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-first-integer-valued-fractional-packing-failure-for-one-asymmetr--e6be4e5db641",
+          "material_read": "RESULT.md Finding, Assumptions, and Proof Steps 1–4, offsets 0 and 3618",
+          "method": "Local Resultary mirror",
+          "title": "First integer-valued fractional-packing failure for one-asymmetric-error codes on Fibonacci words",
+          "trigger": "Matching constrained channel, threshold and exact capacities"
+        },
+        {
+          "assessment": "DIFFERENT_CHANNEL",
+          "evidence": [
+            "Outputs are formed by deleting one coordinate, not by a same-length directed bit change."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-fractional-deletion-packing-gaps-for-fibonacci-constrained--25a61255a325",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "First fractional deletion-packing gaps for Fibonacci-constrained words",
+          "trigger": "Same constraint and shadow-packing gap"
+        },
+        {
+          "assessment": "RELATED_CHANNEL_CONTEXT",
+          "evidence": [
+            "Addresses unrestricted words and asymptotic/list-decoding bounds; the inspected statement is not the constrained short-block result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.01427",
+          "material_read": "Abstract, PDF p. 1, offset 250",
+          "method": "OA PDF",
+          "title": "Codes for the Z-channel",
+          "trigger": "Same directed error model"
+        },
+        {
+          "assessment": "DIFFERENT_PACKING_PROBLEM",
+          "evidence": [
+            "The d=1 constraint matches the source, but the investigated minimum Hamming distance and LP differ from single directed-error shadow packing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.05098",
+          "material_read": "Introduction offset 7991; §IV.C definition and Table IV, offsets 86867, 88975 and 89000",
+          "method": "OA PDF",
+          "title": "Estimating the Sizes of Binary Error-Correcting Constrained Codes",
+          "trigger": "Includes matching run-length constraint and LP bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "e6be4e5db641 RESULT.md Finding and Proof Steps 2–4"
+      ],
+      "rationale": "An integer-valued fractional optimum that still overestimates the code size is a motivated boundary. However, the complete stated threshold, capacities, and optimizer count are already documented together in a distinct exact result, with a stronger classification. The alternative clique-cover and counting certificates improve checkability but the frozen claim does not give a distinct structural or quantitative conclusion; certificate substitution alone is not a substantive repair.",
+      "residual_risks": [
+        "This assesses added value of the frozen finding, not usefulness of the model or of an independent replication as verification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

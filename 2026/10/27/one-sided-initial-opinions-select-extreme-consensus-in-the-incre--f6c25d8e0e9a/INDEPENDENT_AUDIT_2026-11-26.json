@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:14:22.700259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In cut coordinates the probability simplex is convex, and averaging the cut-field Jacobian along a segment between feasible distributions gives a Metzler matrix by the off-diagonal formula. The resulting comparison preserves cumulative order, so reflection gives m≤0. For comparison against a frozen-rate chain at bias v, the nonlinear cut field minus the frozen cut field at the nonlinear law equals (v−m)(p_j+p_(j+1))/(2k), nonnegative when m≤v. In particular the unbiased chain is an upper comparator in stochastic order. Its Neumann cosine modes have eigenvalues −(1−cos(sπ/(2k+1))); the one-sided initial law has strictly positive first coefficient and every nonterminal first-mode prefix sum is positive. The faster remaining modes therefore leave every cut strictly above its uniform cumulative mass after some finite time. In these centered cut coordinates the discrete parabola i(2k+1−i) has centered second difference −1 and sum (2k+1)·2k(k+1)/3, so its small feasible multiple is a strict constant subsolution with first-order cut drift (2k−1)/3>0, also at k=1. Comparison yields a persistent negative mean gap. For fixed r=(k+v)/(k−v), the numerator of the stationary-mean difference has coefficients 2d−2k−1 at r^d for 1≤d≤2k and factors as in (6), strictly negative on (0,1). If the limiting upper mean L exceeded −k, freezing successively at v>L and taking v down to L would give L≤f(L)<L. Mean saturation gives convergence to the endpoint, and reflection gives the other endpoint; δ₀ remains unbiased and converges to uniform. The motivating equation and precise support class match. Bibliographic correction only: the expectation is in the last remark before §4, not in §4 itself. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier entropy result provides all-law convergence to one of three equilibria and a separate entropy certificate. Thai's contraction setting is an irreducible process on the nonnegative integers with a unique invariant distribution under its assumptions. Dawson–Sid-Ali–Zhao's local Gibbs-type stability problem differs."
+        ],
+        "reasoning": "An equilibrium trichotomy does not assign a basin, and the positive-rate unique-equilibrium theorem cannot be applied to a model with two distinct absorbing equilibria.",
+        "searches": [
+          "Resultary 06fd99a6b6dd",
+          "arXiv:1510.03238",
+          "arXiv:2110.02116"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2605.28984v1",
+        "Resultary 06fd99a6b6dd and 97cb17dd2e8b",
+        "arXiv:2606.06381",
+        "arXiv:1510.03238",
+        "arXiv:2110.02116"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 the one-sided shifted law q₀=.01, q₂=.99 has M=1.98 but entropy functional about 2.716, above the earlier barrier 4 log 2−log 5≈1.163. The one-sided law δ₋₁ at k=2 has upper tail 1 at shifted index 1, exceeding the uniform upper tail 4/5, so it is not initially stochastically below uniform."
+        ],
+        "reasoning": "Neither stated certificate uniformly covers the initial laws in question. Passing from one-sided support to eventual strict order and excluding return to uniform are real proof steps, not replacements of variables in either statement.",
+        "searches": [
+          "Resultary 06fd99a6b6dd Finding and entropy condition",
+          "Resultary 97cb17dd2e8b strict initial stochastic order",
+          "arXiv:2605.28984v1 final remark before §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's q_0,…,q_k support with q_k<1 is exactly centered nonpositive support with some negative mass under M=m+k. Toward-neighbor discrete incremental voting has a different microscopic rule."
+        ],
+        "reasoning": "Reindexing is an exact equivalence for Cao–Gong; terminology alone is not an equivalence for the toward-neighbor process.",
+        "searches": [
+          "arXiv:2605.28984v1 equations (2.1), (3.2), and pre-Conclusion remark",
+          "arXiv:2606.06381",
+          "Resultary: stochastic-order basin selection and incremental voter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed same-ODE results were compared: an earlier entropy certificate and a later strict-order criterion, not a previously proved one-sided-support theorem in the inspected passages."
+        ],
+        "reasoning": "This is an all-k basin theorem rather than a tabulated scalar. The exact database test is for the same ODE and the same initial-law class, not for a table of examples or simulations.",
+        "searches": [
+          "Resultary 06fd99a6b6dd",
+          "Resultary 97cb17dd2e8b",
+          "arXiv:2605.28984v1 last remark before §4"
+        ]
+      },
+      "rationale": "The originating paper states the exact support-class result as an expectation, not a theorem. Earlier same-model work proves convergence to a trichotomy and gives a sufficient entropy barrier but does not select the limit for all one-sided laws. A later strict stochastic-order criterion overlaps, but one-sided support by itself does not give that initial order. The proof establishes eventual strict order and persistence, and selects the extreme for every k≥1. No inspected earlier statement entails the full conclusion without substantive additional comparison.",
+      "residual_risks": [
+        "The exact-model and generic nonlinear birth–death searches were bounded. A stronger general monotone nonlinear birth–death criterion elsewhere is not ruled out; no publication-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ODE and exact earlier expectation, not a proof in these passages",
+          "evidence": "Nearest-neighbor up/down rates depend on the mean; the authors expect convergence for one-sided support with q_k<1 from experiments, and leave general basin identification open.",
+          "identifier_or_url": "https://arxiv.org/html/2605.28984v1",
+          "material_read": "Eqs. (2.1) and (3.2), offsets 9300–12072 and 31300–34400; final remark before §4 and opening conclusion, offsets 62600–65805",
+          "method": "Lawful OA version-specific HTML",
+          "title": "The incremental voter model: mean-field analysis and convergence to equilibrium",
+          "trigger": "Exact equation and asserted open support basin"
+        },
+        {
+          "assessment": "Same model, overlapping all-law convergence but not the new basin inclusion",
+          "evidence": "Three possible limits; explicit certificate requires an entropy bound as well as the side of the mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-entropy-dissipation-trichotomy-and-an-explicit-basin-barrier-for--06fd99a6b6dd/RESULT.md",
+          "material_read": "Finding and setup, local mirror offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Entropy-dissipation trichotomy and an explicit basin barrier for the incremental voter model",
+          "trigger": "Earlier strongest same-model convergence theorem"
+        },
+        {
+          "assessment": "Later partial overlap for k≥2, distinct initial hypothesis",
+          "evidence": "Strict order relative to uniform at time zero suffices, but not every one-sided law satisfies it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-stochastic-order-basin-selection-and-one-dimensional-instability--97cb17dd2e8b",
+          "material_read": "Finding and strict-order support hypothesis",
+          "method": "Resultary search and local mirror text",
+          "title": "Stochastic-order basin selection and one-dimensional instability",
+          "trigger": "Same-model stochastic-order basin criterion"
+        },
+        {
+          "assessment": "Distinct process",
+          "evidence": "Listener moves a step towards the actual sampled neighbor opinion.",
+          "identifier_or_url": "arXiv:2606.06381",
+          "material_read": "HTML abstract/opening, offsets 0–4161",
+          "method": "Lawful OA HTML",
+          "title": "Discrete Incremental Voting",
+          "trigger": "Similar name and opinion updating"
+        },
+        {
+          "assessment": "Different state space and contraction assumptions",
+          "evidence": "Irreducible positive-rate dynamics on the nonnegative integers and unique invariant law under contraction, unlike the absorbing boundaries at issue.",
+          "identifier_or_url": "arXiv:1510.03238",
+          "material_read": "OA offsets 0–4104 and 17000–20388",
+          "method": "Lawful OA text",
+          "title": "Birth and death process in mean field type interaction",
+          "trigger": "Potential broad McKean–Vlasov birth–death coverage"
+        },
+        {
+          "assessment": "Local Gibbs-type stability, not a basin selection result of this form",
+          "evidence": "The abstract addresses local stability for heterogeneous mean-field jump systems.",
+          "identifier_or_url": "arXiv:2110.02116",
+          "material_read": "Abstract, OA offsets 700–2235",
+          "method": "Lawful OA text",
+          "title": "Dawson–Sid-Ali–Zhao mean-field jump-system stability study",
+          "trigger": "Potential broader mean-field stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem solves the source's concrete all-k basin question on a natural class that includes means arbitrarily near zero, outside the strict extreme-mean threshold. It controls long-time selection rather than just identifying stationary points or citing unstable linear modes. It makes no finite-agent fixation claim and leaves mixed-sign support open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

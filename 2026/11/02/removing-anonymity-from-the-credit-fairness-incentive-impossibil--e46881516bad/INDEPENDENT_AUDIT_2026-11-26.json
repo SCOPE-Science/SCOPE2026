@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:45.715468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each reported round total demand is at least three. If some demand is unmet, reported PE forces total capped utility to be three, so no allocation can exceed its report or leave unused supply; if all demands are met, the total constraint gives the same conclusion. CF2 sets the lower increment bound 1−a when a<1; CF1 gives it when a≥1, and CF3 forces equality since the bounds sum to zero. In truthful profile A, CF4 fixes the unit to agent 1 initially; their second-round quantity cannot exceed one without CF5 requiring two for agent 3. Two demand-saturated rounds leave credits (2,0,−2), so CF4–CF5 bound agent 2's final quantity to exactly one. Thus agent 1 has payoff four. Independently exchanging the labels in the forcing inequalities proves the analogous payoff in B, not symmetry of a mechanism. Both altered histories have the same fixed-label reports (0,3,0),(2,0,2) through round two, so the same x∈[1,2] is used for agent 1 by onlineness. In each altered branch the final credit of agent 2 is −1 and that of the relevant deviator at least 2. Any positive final quantity for 2 would force all three units to the deviator by CF5, a contradiction. The payoff gains are therefore x−1 and 2−x, with sum one including the endpoints. No assumption about anonymity or future truthful demands enters the mechanism's observed state. A separate exhaustive 1/16-quantity-grid history search (python3 /workspace/review_evidence/reproduce.py 1) found the two unique truthful histories, all 17 common splits and minimum maximum gain 1/2 on that grid; the real-valued proof is analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v1 PDF abstract says 'either Pareto efficiency or strategyproofness, but not both' without the condition in that sentence; the formal Theorem 2 expressly assumes anonymity. The v2 abstract includes 'under anonymity' and its formal Theorem 3 has the restriction."
+        ],
+        "reasoning": "The broader wording of an abstract does not establish the broader quantifier when the actual proof uses anonymity to set the round-two split. No examined stronger result covered the labeled problem.",
+        "searches": [
+          "arXiv:2601.17944v1 and v2",
+          "\"Credit Fairness\" CF1 CF2 CF3 CF4 CF5 Zahedi Freeman definition Pareto efficient strategyproofness"
+        ]
+      },
+      "checked_sources": [
+        "IJCAI 2026/51",
+        "arXiv:2601.17944v1",
+        "arXiv:2601.17944v2",
+        "Resultary 6bec949b59a5 and 8434944586c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conference version, printed pp.448–450, defines reported PE and CF1–CF5, says 'Whether anonymity can be removed from the following theorem is an open question,' and uses anonymity to fix the deviator's second-round allocation."
+        ],
+        "reasoning": "A single anonymous witness has gain 1/2 because the split is fixed at 3/2; that same witness can have gain zero with a labeled split. The second truthful profile and shared altered prefix are the new forcing argument; no implication from the existing theorem supplies them.",
+        "searches": [
+          "IJCAI 2026 DOI 10.24963/ijcai.2026/51, Definitions 1 and 5 and Theorem 2",
+          "arXiv:2601.17944v2, anonymous impossibility and open question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The searches led to the same Zahedi–Freeman paper and an AIhub overview rather than a separate anonymity-free result. The primary conference version explicitly leaves removal of anonymity open."
+        ],
+        "reasoning": "Equivalent work would have to apply to this reported-PE, CF1–CF5 pool when fixed labels can affect allocations, and to full-horizon rather than myopic incentives. An anonymous impossibility does neither prove nor negate the unrestricted statement.",
+        "searches": [
+          "\"credit fairness\" \"without anonymity\" strategyproofness Pareto efficiency mechanism impossibility",
+          "\"online fairness in shared resource pools\" anonymity strategyproofness Pareto efficiency impossibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected hits 6bec949b59a5 (three-agent probabilistic serial, 54 of 216 strict profiles fail full stochastic-dominance strategyproofness) and 8434944586c2 (truthfulness threshold for an inverse-power facility lottery). No matching pooled-resource witness surfaced in the returned sets."
+        ],
+        "reasoning": "Both hits involve three agents but neither has the credit state or the same feasible allocations and information, so neither constitutes the same exact witness or a known covering table.",
+        "searches": [
+          "Resultary: Credit fairness Pareto efficiency strategyproofness impossibility without anonymity shared resource pools Zahedi Freeman 2026",
+          "Resultary: Credit fairness anonymity-free impossibility two mirrored demand histories delayed recoup manipulation half utility",
+          "Resultary: Non-anonymous strategic misreport five-round three-agent credit fair Pareto efficient mechanism impossibility"
+        ]
+      },
+      "rationale": "The published impossibility requires anonymity and explicitly asks whether that requirement can be removed. Removing it is a genuine change in quantifier; the original fixed-profile proof cannot force a half split for a biased mechanism, whereas the common altered prefix makes two opposite gains unavoidable. The frozen result's cited comparison is substantively correct. For precision the fixed-version PDFs label the prior result v1 Theorem 2, v2 Theorem 3, and conference Theorem 2; theorem numbers quoted in portions of the frozen self-audit are not the fixed-version PDF locators.",
+      "residual_risks": [
+        "The bounded catalogue and literature checks do not exclude independent contemporaneous or unindexed anonymity-free solutions. No claim of global optimality of the half-unit witness is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same axioms, narrower theorem; removal explicitly open",
+          "evidence": "Published PE is reported and per-round; anonymous mechanisms alone are ruled out via an anonymity-based split.",
+          "identifier_or_url": "https://ijcai.org/proceedings/2026/0051.pdf",
+          "material_read": "Printed pp.448–450: Definitions 1 and 5, Theorem 2 and proof (PDF offsets about 17500–36230)",
+          "method": "Official OA conference PDF",
+          "title": "Credit Fairness: Online Fairness in Shared Resource Pools (IJCAI 2026)",
+          "trigger": "Exact model and strongest published impossibility"
+        },
+        {
+          "assessment": "Informal abstract broader than formal theorem",
+          "evidence": "Theorem 2 explicitly includes anonymous; proof uses the condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.17944v1",
+          "material_read": "PDF p.1 and formal theorem/proof pp.6–7, offsets about 26000–32475",
+          "method": "Fixed-version OA PDF",
+          "title": "Credit Fairness: Online Fairness in Shared Resource Pools (v1)",
+          "trigger": "Apparently unrestricted abstract wording"
+        },
+        {
+          "assessment": "Still anonymous-only",
+          "evidence": "Revised abstract expressly qualifies the claim, and the proof section asks if the assumption can be removed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.17944v2",
+          "material_read": "PDF p.1 and pp.6–7 near offset 26150",
+          "method": "Fixed-version OA PDF",
+          "title": "Credit Fairness: Online Fairness in Shared Resource Pools (v2)",
+          "trigger": "Possible strengthened revised theorem"
+        },
+        {
+          "assessment": "Different allocation problem",
+          "evidence": "Three indivisible objects with strict preferences, not repeated continuous pooling with credit dynamics.",
+          "identifier_or_url": "Resultary 6bec949b59a5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Complete three-agent strategyproofness boundary for probabilistic serial",
+          "trigger": "Closest related exact incentive witness on local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a stated open question about a natural allocation desideratum, removing a meaningful assumption without weakening PE, CF or the incentive requirement. The identical-report-history construction works even with fixed label preferences and gives a quantitative lower bound on manipulation for the two-profile witness. This is not a mere re-evaluation of the original symmetric split.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-horizon statement is derived analytically. Both ranks are exactly identified as negative-prefix and positive-suffix occupation counts. For each overlapping pair of blocks, decomposing the increments into three independent symmetric sums and averaging the three pairwise sign products gives the universal value one. A complete sum over ordered nonnegative block lengths proves the covariance coefficient. The two-block sign identity proves the marginal variance independently. No unproved local-limit theorem or numerical approximation is needed; the critical identities are supported by the sign-conditioning argument and exact finite cases in `check_endpoint_ranks.py`.
+PASS
 
-## Originality — PASS relative to inspected sources, with priority risk
+The frozen Finding's blanket wording that neither endpoint is uniformly ranked has a counterexample within its stated range: for m=1 the two ranks are (1,2) or (2,1), each with probability 1/2. The complete repaired RESULT.md fixes the marginal wording and retains all moment formulas and m≥1. For m≥2 the proven variance m(m+1)/8 differs from m(m+2)/12 for a uniform rank; the arcsine marginal is classical. For the moment proof, each nonempty increment block is atomless and symmetric, so there are no tied levels and both rank means are 1+m/2. The centered initial count is minus half the prefix sign sum, and the centered final count is plus half the suffix sign sum. Disjoint pairs have zero expected sign product. For overlapping pairs split increments into X_a,Y_b,Z_c, with the overlap Y_b and a+b+c=m. Conditional on the magnitudes, the nonzero signs are independent fair signs, and each pairwise sum has the sign of the larger block in magnitude. The expected product for the prefix and suffix is therefore the probability that |Y_b| is dominant; the otherwise distinct signs average to zero, including zero-length blocks by declaring sign(0)=0. The three possible dominant-block probabilities sum to one (no nonzero ties). Cyclic reindexing of all nonnegative block-length compositions gives a total of binom(m+2,2)/3 for the middle-block probability; b=0 contributes zero. Multiplying by −1/4 gives the covariance. For nested prefixes, the product average is the probability the common block dominates its complement; exchanging their lengths gives complementary probabilities. Thus the variance is [m+sum_{k=2}^m(k−1)]/4=m(m+1)/8, also for the final rank by reversal. Division gives the correlation, including −1 at m=1, and strict increase to −1/3. All random variables used for these moments are bounded signs or ranks, not step heights.
 
-The 2026 Zhu–Xie paper treats distance correlations between **independent** walks, not within-walk endpoint rank covariance; its finite-variance asymptotics do not imply the exact all-horizon identity here. Ivanovs establishes time-reversal and marginal occupation/extremum equivalences, but not the cross-covariance of the two endpoint ranks. Pitman–Tang analyzes extreme order-statistic **values** near the minimum, not ranks of the initial/final observations. Related indexed results about endpoint *height* correlations, extremal endpoint events, and rank tests have different variables or only special finite horizons. Searches found no equivalent exact formula. The 1972 Aneja–Sen article is a residual risk: its abstract concerns a Dwass rank-distribution method, while its full text was inaccessible and could contain uninspected implications. This review does not claim a proof of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The first and last ranks have matching discrete-arcsine marginals yet are coupled nontrivially. An exact all-size negative covariance and a universal limiting correlation \(-1/3\) quantify their dependence, including infinite-variance step laws that are outside Brownian-invariance arguments. The three-block sign identity is a structural reason for the surprising distribution-freeness, so the result is a motivated boundary-dependence law rather than a numerical or renamed marginal formula.
+The corrected marginal statement is classical, not an originality claim. The supported distinct claim is the exact within-walk covariance and correlation of the fixed-time endpoint rank indices. Accessible near matches use a different pair of variables, an order-statistic value rather than a rank index, or only one marginal. The possible broad 1972 rank-order result remains a concrete access risk, with no established exact coverage in the available evidence.
 
-## Scope and remaining limitations
+## value
 
-The law requires symmetric, i.i.d., atomless real increments. It determines only the bivariate second-order summary; no complete joint distribution is established. Independent expert assessment and the inaccessible classical text remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing the arcsine marginals leaves the strength of within-walk endpoint rank dependence open. The exact finite-horizon coefficient and limit −1/3 give a usable baseline for ordinal dependence even when steps have no finite moments. The overlap identity explains the invariance structurally rather than just approximating a correlation by a large-sample calculation. Correcting the trivial uniform m=1 marginal does not change this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

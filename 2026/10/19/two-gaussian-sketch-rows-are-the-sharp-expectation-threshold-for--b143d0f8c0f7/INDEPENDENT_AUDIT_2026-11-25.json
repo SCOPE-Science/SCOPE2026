@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:01.232126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–109",
+        "Frozen VERIFICATION.md, artifacts/verify.py and artifacts/verification_output.txt; inspected without execution"
+      ],
+      "rationale": "On the two-dimensional column span the sketch difference form aaᵀ−bbᵀ has trace δ and determinant −h. Its positive and negative eigendirections give independent χ²_s variables by Gaussian rotation, and the negative difference event is a symmetric beta lower tail at the stated x. Schur complements give the two projection losses h/α and h/β and the optimal loss h/Λ. At fixed unequal column norms, x increases strictly as the absolute correlation decreases, giving the sharp orthogonal maximum and collinear infimum. On [0,1/2] the beta tail decreases with s: folding about 1/2 gives a density ratio decreasing in distance from the center for larger s, hence a smaller folded upper tail. Thus p_s≤x≤β/(α+β) for s≥2, yielding E_s≤2h/(α+β)<2h/Λ on full-rank inputs. The equal-norm near-parallel family has ratio 1+cos θ irrespective of the pivot; the orthogonal family with small squared norm t has one-row error ratio 1+(t⁻¹−1)(2/π)arctan√t, which diverges. Integrating the endpoint beta density gives the additional fixed-s anisotropy law. Recorded code corroborates the finite cases and laws; no simulation is needed for the theorem.",
+      "residual_risks": [
+        "No finite-precision, multi-column, or repeated-pivot conclusion follows. The factor is for expected squared Frobenius error, not a probability bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RQRCP Theorem 2 provides high-probability pseudo-diagonal dominance with an oversampling budget.",
+          "CQRRPT Theorems 4–5 transfer RRQR properties via a restricted condition number."
+        ],
+        "reasoning": "These broader algorithmic frameworks analyze the same kind of selection but neither statement evaluates the expected optimal-error ratio at the minimal width or covers one-row unboundedness.",
+        "searches": [
+          "arXiv:1804.05138 Theorem 2",
+          "arXiv:2311.08316 Theorems 4–5",
+          "arXiv:1509.06820 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proofs 1–6",
+        "arXiv:1509.06820, 1804.05138, 2311.08316",
+        "Resultary hits 87492150b186, 18298ce65322, 3e3b827418f2, 3ec204a30cf5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known orthogonal family already shows the limiting factor 2 for two rows; its excess instead vanishes at higher widths.",
+          "The equal-norm, nearly parallel family reaches supremum 2 at every width, irrespective of selection; the uniform upper bound needs control of correlated norm tails and the Gram residual ratio."
+        ],
+        "reasoning": "The combined general upper bound, all-width sharpness and correlated probability law are not special cases of the inspected prior results. Distinction is not claimed for the constituent diagonal or two-row probability evaluations.",
+        "searches": [
+          "Resultary 87492150b186 and 18298ce65322 compared with frozen proof steps 1–6",
+          "arXiv:1804.05138 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The golden-ratio orientation record gives p₂=(1−δ/√(δ²+4L))/2 at proof offset 3849. Identifying L with the Gram determinant gives exactly the frozen p₂, since Δ²=δ²+4h.",
+          "The sharp randomized LU threshold record 3ec204a30cf5 uses a projected-row selection followed by entry selection and a different update loss.",
+          "Duersch–Gu p. 6 and Theorem 3.1 describe marginal norm estimates and conditional truncation after pivot selection."
+        ],
+        "reasoning": "The first formula genuinely supplies the probability, and with either-column projection errors also supplies the two-row expectation. The LU rule and postselection QRCP laws are not equivalent to the arbitrary-s initial correlated comparison.",
+        "searches": [
+          "Gaussian norm-max two-column expected-error QRCP",
+          "Resultary records 3ec204a30cf5 and 87492150b186",
+          "arXiv:1509.06820"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact first-pivot/runner-up Finding at offset 1307 gives the probability under orthogonality; two columns give the symmetric beta tail at β/(α+β).",
+          "The moment-cutoff Finding and assumptions at offsets 0–3497 give exact normalized CPQR moments on diag(κ,1) for s≥2. Setting moment order to two gives the same diagonal ratio and limiting two-row factor. Its displayed beta expression extends to s=1 by the one-degree-of-freedom calculation, but s=1 is outside its stated CPQR scope.",
+          "The golden-ratio record provides the exact correlated s=2 slice."
+        ],
+        "reasoning": "These are exact indexed formula families, not approximations. The diagonal projection and cross approximation coincide, as do the rank-one residual spectral and Frobenius norms there. None of these exact slices is a formula for arbitrary correlated columns at every width.",
+        "searches": [
+          "Resultary records 3e3b827418f2, 18298ce65322 and 87492150b186"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp worst-case expectation theorem for arbitrary real rank-two two-column inputs, with the full correlated beta law at arbitrary sketch width. Exact catalogue overlaps cover the two-row correlated pivot probability and orthogonal subfamilies, not that full conclusion. Gaussian pivoting, chi-square laws and deterministic projection identities are not themselves new.",
+      "residual_risks": [
+        "The targeted primary-literature search had low signal and cannot establish exhaustive priority. Classical Gaussian quadratic-form comparisons may present other equivalent probability formulas.",
+        "Catalogue dates are not used as evidence for priority or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and norm machinery, not full two-column expectation",
+          "evidence": [
+            "Marginal statistics, high-probability estimates, and conditional truncated chi-square law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+          "material_read": "p. 6 (offset 21500); Theorem 3.1, pp. 10–11 (offset 36400)",
+          "method": "OA primary PDF passages",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Gaussian pivot selection and norm statistics"
+        },
+        {
+          "assessment": "Different guarantee",
+          "evidence": [
+            "High-probability pseudo-diagonal dominance with oversampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+          "material_read": "Theorem 2, p. 3, offset 17400",
+          "method": "OA primary PDF passage",
+          "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+          "trigger": "Same initial pivot mechanism"
+        },
+        {
+          "assessment": "Transfer of RRQR properties",
+          "evidence": [
+            "Restricted-condition-number control, not sharp expected relative residual."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+          "material_read": "Theorems 4–5, p. 10, offset 33100",
+          "method": "OA primary PDF passage",
+          "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices",
+          "trigger": "Could give a general pivot accuracy theorem"
+        },
+        {
+          "assessment": "Exact correlated two-row overlap",
+          "evidence": [
+            "Its determinant-based wrong-pivot probability is p₂ of the frozen theorem."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186",
+          "material_read": "RESULT.md proof, offset 3849",
+          "method": "Local Resultary mirror passage",
+          "title": "A golden-ratio orientation transition for Gaussian-sketched QR pivot regret",
+          "trigger": "Same correlated Gaussian norm comparison"
+        },
+        {
+          "assessment": "Exact diagonal CPQR slice for s≥2",
+          "evidence": [
+            "The CPQR beta moment formula at order two evaluates the same ratio when the columns are orthogonal; the statement assumes s≥2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-moment-cutoffs-for-the-first-gaussian-sketched-cur-pivot--18298ce65322",
+          "material_read": "RESULT.md Finding, assumptions and start of proof, offsets 0–3497",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp moment cutoffs for the first Gaussian-sketched CUR pivot",
+          "trigger": "Exact squared expectation on a diagonal input family"
+        },
+        {
+          "assessment": "Covers orthogonal norm-order probabilities",
+          "evidence": [
+            "Mutual orthogonality makes the two norm statistics independent scaled chi-squares."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2",
+          "material_read": "RESULT.md Finding at offset 1307",
+          "method": "Local Resultary mirror passage",
+          "title": "Exact Gaussian-sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Possible exact Gaussian pivot law"
+        },
+        {
+          "assessment": "Different estimator and objective",
+          "evidence": [
+            "Its width-three threshold concerns a randomized LU row/entry rule, not norm-max column choice and orthogonal projection."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-gaussian-sketch-width-threshold-for-the-mean-square-stab--3ec204a30cf5",
+          "material_read": "RESULT.md Finding and proof start, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "A sharp Gaussian-sketch width threshold for the mean-square stability of randomized LU pivots",
+          "trigger": "Similar threshold for a related pivot"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 68–109",
+        "Diagonal moment-cutoff and correlated two-row comparison records"
+      ],
+      "rationale": "The minimal-width result gives an exact expectation boundary for a standard randomized pivot mechanism, not just a rephrasing of the beta distribution. The one-row failure arises from rare orthogonal mispivots; with more rows the persistent sharp factor of two instead comes from nearly collinear equal-norm columns. Distinguishing these mechanisms clarifies what oversampling can and cannot improve in this narrow setting.",
+      "residual_risks": [
+        "The result addresses the two-column first pivot only; it is not a performance guarantee for a full QR routine."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

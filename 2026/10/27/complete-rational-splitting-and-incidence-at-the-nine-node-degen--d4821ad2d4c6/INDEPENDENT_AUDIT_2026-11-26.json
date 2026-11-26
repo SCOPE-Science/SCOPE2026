@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:19:48.356299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and lines_f9.json (frozen script read, not executed)",
+        "Independent exact reproduction: /workspace/branches/6a2d2f7e-3171-4569-9c7f-6406f68d9eb8/independent_reproduce.py, output INDEPENDENT_OK",
+        "Veniani arXiv:1608.04209v4, Example 5.3"
+      ],
+      "rationale": "Specializing Veniani’s equation at ι with ι²=−1 gives the frozen polynomial. An independent exact census exhausted the six reduced row-echelon charts of sizes 6561,729,81,81,9,1. Substituting a general linear combination of the two rows and requiring all five binary quartic coefficients to vanish found 23,9,4,2,1,1 lines in the charts; the resulting 40 matrices match the certificate. All 820 normalized projective points were scanned for simultaneous vanishing of the polynomial and gradient. Nine passed and each restricted affine Hessian was nonsingular, giving nodes in characteristic three. Veniani's geometric totals of 40 lines and nine A₁ singularities then rule out further geometric objects; the rational census alone would not do this. Two intersecting rational lines meet at a rational point by linear algebra. The point scan on the 40 lines reproduces multiplicities 1^36, 2^153, 4^1, 6^9; the sixfold points are exactly the nodes and the fourfold point is smooth. Each pair is counted only once, so the edge counts are 153+6=159 smooth and 9·15=135 singular. The graph has degrees 12^4,14^18,16^18, and the line-node counts for 0,1,2 nodes are 4,18,18. Galois conjugation transfers the counts to −ι. The reduced finite line scheme consists of 40 points with residue field F₉, giving (1−T)^−40, without any claim about nilpotents.",
+      "residual_risks": [
+        "Completeness over the algebraic closure uses the cited geometric counts, not a Hilbert-scheme computation. The phrase ‘complete graph’ in the relationship prose should mean the full recorded line-intersection graph, not K₄₀: the Finding and Proof unambiguously specify 294 edges, and the reproduction verifies that graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Degtyarev’s high-line-count supersingular quartics concern smooth configurations, including the nearby 58-line setting. Veniani describes the singular 40-line fiber separately at a²=−1."
+        ],
+        "reasoning": "The smooth classification does not extend by mere specialization to individual rational line orbits and point incidences on the nodal boundary. The family description gives the polynomial needed to compute, not the arithmetic result.",
+        "searches": [
+          "Degtyarev arXiv:1604.05836 Theorem 1.2, large characteristic-three line configurations",
+          "Veniani arXiv:1608.04209 Example 5.3, all family parameters"
+        ]
+      },
+      "checked_sources": [
+        "Veniani, cited v1 and v4 passages",
+        "Degtyarev, Theorem 1.2",
+        "Configured local Resultary searches and closest catalogue findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior totals are used to close the geometric census once 40 rational lines and nine ordinary rational nodes are found. The prior example gives several local valencies."
+        ],
+        "reasoning": "A surface defined over F₉ can have nonsplit lines and singularities. The exhaustive restriction and point computations are decisive extra input. Some aggregate graph data can be inferred from known types and node incidences; the pass does not credit those in isolation. The reduced line-scheme zeta formula is an immediate corollary of the verified splitting.",
+        "searches": [
+          "Veniani arXiv:1608.04209v4 Example 5.3, special-fiber line types and valencies",
+          "Frozen RESULT.md, incidence and splitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Veniani passages give the same fiber, defined over F₉ at a=ι, with 40 geometric lines and nine A₁ points.",
+          "The closest Frobenius record, 2026/11/2/SCOPE-frobenius-eight-cycles-on-the-lines-of-a-characteristic-three-qu--d3c1a1f16fc5, is about a different smooth family over F₃."
+        ],
+        "reasoning": "Splitting means Frobenius over F₉ fixes each geometric line and node, not merely that their sets are stable over F₉. The different family’s Frobenius data cannot supply this equivalent statement.",
+        "searches": [
+          "Veniani arXiv:1608.04209v4 Example 5.3 and v1 Example 6.3; exceptional parameter a²=−1",
+          "Resultary: arithmetic of lines and Frobenius in characteristic-three quartics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-incidence-and-infinitesimal-support-on-the-eight-nodal-character--7c23914652a9 concerns a different eight-node and 48-line quartic; the other closest record concerns a different smooth fiber. The inspected Veniani example includes geometric types rather than a full F₉ coordinate/incidence list for the present fiber."
+        ],
+        "reasoning": "The line certificate is an actual target-specific coordinate census; its contents are not supplied by a neighbouring configuration or a list of geometric totals. No matching published table was identified in the checked scope.",
+        "searches": [
+          "Local Resultary: F₉, 40 lines, nine A₁ points, line/node incidence on characteristic-three quartics"
+        ]
+      },
+      "rationale": "This is a bounded pass on arithmetic splitting and the exact marked rational incidences of this particular singular fiber. Veniani already gives the family, exceptional parameter, geometric totals, line types and some valencies; neither those totals nor their consequences for abstract valencies are being credited as new. The nearest inspected primary and catalogue passages did not give this fiber’s full rational descent and incidence census.",
+      "residual_risks": [
+        "Earlier specialist or electronic coordinate tables could encode the Frobenius action and incidences without stating them as theorems; no such same-fiber table was identified in this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric totals and some incidence overlap, not full arithmetic coverage",
+          "evidence": "At a²=−1 the surface has nine A₁ points and 40 lines, with line types and some valencies; the cited passage does not say all are defined over F₉.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.04209v4",
+          "material_read": "Example 5.3, p. 22, offset 61700; corresponding v1 Example 6.3, p. 22, offset 60745",
+          "method": "Targeted primary-text passages in open versions",
+          "title": "Lines on K3 quartic surfaces in characteristic 3",
+          "trigger": "Exact defining family and special fiber"
+        },
+        {
+          "assessment": "Different configuration regime",
+          "evidence": "The large line classifications include 112-/58-line smooth cases, not F₉ splitting on this nodal 40-line fiber.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05836",
+          "material_read": "Theorem 1.2, pp. 2–3, offset 7638",
+          "method": "Targeted primary-text passage in open PDF",
+          "title": "Lines in supersingular quartics",
+          "trigger": "Potential broader characteristic-three line classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Veniani, Example 5.3",
+        "Independent exact census and certificate comparison"
+      ],
+      "rationale": "The parameter is the geometrically distinguished nine-node boundary of a specific studied quartic family. Exact Frobenius splitting and the distribution of line intersections at versus away from nodes give arithmetic configuration data not supplied by a total geometric line count. A future calculation on that boundary can reuse the exact line coordinates and marked incidences; the computation proves a natural finite invariant and detects the unique smooth four-line point, rather than sampling arbitrary fibers.",
+      "residual_risks": [
+        "Value is confined to the marked configuration and the reduced line scheme, not the zeta function of the surface or the nonreduced Hilbert scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

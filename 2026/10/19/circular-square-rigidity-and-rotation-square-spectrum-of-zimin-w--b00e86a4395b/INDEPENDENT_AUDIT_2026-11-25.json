@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:23.452774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md and verify.py (read, not executed)",
+        "python3 /workspace/reviews/replay2.py"
+      ],
+      "rationale": "A square cannot use a letter appearing once in its ambient arc. This gives ordinary squarefreeness by deleting the middle letter and inducting. In the doubled word, a square using the largest letter must use the two listed copies at separation exactly |Z_m|, so it is the whole doubled word; one avoiding that letter must occur in the central doubled Z_{m-1}, since the outer blocks are squarefree. In a circle restricted to one traversal, the largest letter cannot appear twice; the remaining arc is exactly doubled Z_{n-1}. Translating starts gives N_n-(2^k-1). The next symbol is k+1 rather than the first symbol 1; any longer periodic factor would extend its square prefix, so none has exponent >2. For a seam-crossing square of half-length L, exactly the cuts in [L,N_n-L] retain it, including both endpoints. Those intervals are nested, and differ in size by 2^{k+1}; the last interval contains two cuts. The rank-one word and the empty starting-cut class are handled separately. A separate bit-parallel test checked all starts and allowed periods, their extensions, and all cuts through n=13, reproducing the entire histogram.",
+      "residual_risks": [
+        "One traversal only. Finite enumeration corroborates the proof, not a claim for arbitrarily long factors of the periodic continuation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amit–Gawrychowski p.1 studies extremal bounds for distinct squares over all cyclic rotations of arbitrary words.",
+          "Clokie–Gabrić–Shallit pp.1–2 treats circular squarefreeness and unbordered conjugates, including a ternary existence question."
+        ],
+        "reasoning": "Neither inspected statement implies the exact occurrences of this particular unbounded-alphabet family, the one-traversal exponent bound, or how its surviving squares are distributed across cuts.",
+        "searches": [
+          "arXiv:1708.00639",
+          "arXiv:1904.08187"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §Relationship to prior work",
+        "Cummings–Mays journal OA PDF",
+        "arXiv:1307.1560, 1409.8235, 1708.00639, 1904.08187",
+        "Resultary 46d4b0f37cce, b2ad7a1e59b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known squarefreeness excludes nonwrapping squares in the unrotated word. The matching and pattern-search papers' inspected statements concern pattern matching, avoidability or Fibonacci prefixes, not equal halves in doubled Zimin words."
+        ],
+        "reasoning": "The prior lemma alone says nothing about which seam factors square. Using the unique maximal letter to classify equal-offset repetitions in the doubled word, then deducing exact nested cut constraints, is an additional argument, not an immediate numerical consequence of the prior extremal bounds or linear lemma.",
+        "searches": [
+          "Cummings–Mays §2",
+          "arXiv:1307.1560 p.1",
+          "arXiv:1409.8235 p.1",
+          "arXiv:1708.00639 p.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A square in a doubled Zimin word is potentially equivalent to a circular square of its undoubled word, except the full doubled square is too long and offsets must be interpreted modulo the length. Cummings–Mays gives the undoubled square-free statement, not this doubled inventory.",
+          "The indexed circular-palindrome finding gives one seam palindrome at each even length, not a square test."
+        ],
+        "reasoning": "Equal halves and reversal are distinct conditions: at rank 3 the seam palindrome of length 4 is 2112, which is not a square. The palindrome formula does not exclude nonpalindromic squares or count surviving squares after a cut.",
+        "searches": [
+          "Resultary semantic comparisons for Zimin circular squares, doubled Zimin words and squares in rotations",
+          "Cummings–Mays §2, DOI:10.37236/1571"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full Finding of 46d4b0f37cce is an inventory and count of palindromes; the indexed summary of b2ad7a1e59b counts Lyndon factors and their occurrences. Returned square-spectrum entries treated other word families."
+        ],
+        "reasoning": "These are not tables or formulae for cyclic square occurrences or their rotation-count histograms. The Lyndon comparison is limited to the indexed summary.",
+        "searches": [
+          "Resultary Zimin occurrence and circular-word comparisons",
+          "Resultary 46d4b0f37cce and b2ad7a1e59b"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact cyclic occurrence inventory and associated finite-conjugate histogram, including absence of extensions within one traversal. Linear Zimin squarefreeness is known. No inspected result states or yields the joint inventory and histogram by direct specialization; the conclusion is limited to the materials compared.",
+      "residual_risks": [
+        "Unindexed or differently termed work on tandem repeats in the doubled ruler word is not excluded; not all related pattern-search or catalogue text was read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear squarefreeness is prior; no cyclic inventory in that passage",
+          "evidence": [
+            "Defines z_k=z_{k-1}a_kz_{k-1} and states its squarefreeness."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1571",
+          "material_read": "§2 p.3, text near offset 7081",
+          "method": "Journal OA PDF passage",
+          "title": "A One-Sided Zimin Construction",
+          "trigger": "Same recursive words and squarefreeness"
+        },
+        {
+          "assessment": "Inspected statement concerns ranked matching; no priority conclusion from keyword miss",
+          "evidence": [
+            "The abstract concerns pattern avoidability and compressed matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.1560",
+          "material_read": "p.1 abstract near offset 1150; extracted-text literal search for square",
+          "method": "OA PDF excerpt and literal search",
+          "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+          "trigger": "Plausible same-family overlap"
+        },
+        {
+          "assessment": "Related pattern searching, not the target inventory in inspected text",
+          "evidence": [
+            "Discusses Zimin type and Fibonacci-word prefixes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.8235",
+          "material_read": "p.1 near offset 514 and literal square search",
+          "method": "OA excerpt and literal search",
+          "title": "On Searching Zimin Patterns",
+          "trigger": "Occurrences of Zimin patterns"
+        },
+        {
+          "assessment": "General extremal estimates, not this family classification",
+          "evidence": [
+            "Counts distinct squares across rotations, rather than giving a per-cut multiplicity histogram for Zimin words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.00639",
+          "material_read": "p.1 near offset 850, and literal Zimin search",
+          "method": "OA PDF result/intro excerpt",
+          "title": "Distinct Squares in Circular Words",
+          "trigger": "Same circular-square statistic in general words"
+        },
+        {
+          "assessment": "Related definitions, different result",
+          "evidence": [
+            "The ternary circular-squarefreeness statement does not inventory seam squares in Zimin words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.08187",
+          "material_read": "pp.1–2, offsets near 1109 and 4439",
+          "method": "OA PDF theorem/definition excerpts",
+          "title": "Circularly Squarefree Words and Unbordered Conjugates: A New Approach",
+          "trigger": "Circular squarefreeness and conjugates"
+        },
+        {
+          "assessment": "Same family, different equality predicate",
+          "evidence": [
+            "The even-palindrome list is a suffix/preﬁx palindrome for every admissible even length, not the sparse list of square lengths."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/46d4b0f37cce",
+          "material_read": "Finding, assumptions, ruler identity at offsets 0–2733",
+          "method": "Full statement via local record mirror",
+          "title": "The complete circular-palindrome spectrum of finite Zimin words",
+          "trigger": "Same objects and seam-centered even factors"
+        },
+        {
+          "assessment": "Summary reports a different property; limited comparison",
+          "evidence": [
+            "The summary enumerates Lyndon factors, not tandem repeats."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/b2ad7a1e59b",
+          "material_read": "Indexed catalogue summary only",
+          "method": "Resultary search; full text unavailable in lookup",
+          "title": "Complete Lyndon-factor and occurrence spectra of finite Zimin words",
+          "trigger": "Same family and exact occurrence statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof",
+        "Cummings–Mays §2 and arXiv:1708.00639 p.1 for context"
+      ],
+      "rationale": "Finite Zimin words are a canonical recursively defined squarefree family. Closing the seam changes what repetitions occur, and the complete inventory quantifies that change precisely; the cut distribution further tells which linear conjugates are squarefree or have any given square count. This is exact data for arbitrary rank rather than a single rank check, a restatement of squarefreeness, or an extremal bound.",
+      "residual_risks": [
+        "No claim about approximate squares, arbitrary families, or exponents when more than one traversal is allowed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:22:34.832629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, histogram_1_to_28.csv, unbordered_necklaces.cpp, unbordered_allwords.cpp and VERIFICATION.md; frozen programs inspected, not executed",
+        "Independent replay from workspace: python3 replay/2/direct_census_numpy.py 28 > replay/2/full_direct_rows.txt (NumPy with bitwise_count), then python3 replay/2/compare_direct.py; complete output preserved in replay/2/full_direct_rows.txt"
+      ],
+      "rationale": "The frozen FKM recursion enumerates binary necklaces once; its terminal period p is the size of the labeled rotation orbit. For p<n the word and all its rotations are proper powers and hence bordered. For p=n the count of unbordered starting positions is constant on the orbit, so adding n to its bin is correct. Testing borders only through floor(n/2) loses none: a longer border gives period d=n−b<n/2, and using the largest positive multiple of d less than n gives a border of length at most d. An independently written direct exhaustive computation visited every labeled binary word at every length 1–28, without orbit weights. For each border length b it located runs of b consecutive cyclic equalities between bits at distance b, marking the corresponding rotation starts at the shifted positions. Counting unmarked starts reproduced all 29 CSV columns in each of the 28 rows, including every cell at lengths 26–28. At n=28 the first and second raw sums are 2,012,861,088 and 15,596,094,136; division by 2^28 and subtraction of the squared mean yield the stated exact mean and variance. The highest nonzero index is 13 with 5,040 words. Row totals, zero bins and first moments agreed with independent identities. At n=1 both words are unbordered; for n≥2, a nonprimitive word has none and the lexicographically least and greatest rotations of a primitive word are distinct unbordered words, consistent with the missing j=1 bin.",
+      "residual_risks": [
+        "The replay is exact only at lengths 1–28. It neither proves an arbitrary-length formula for the frequencies or variance nor asserts any larger cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clokie et al. pp. 2–3 discuss the maximum classification, and p. 12 Theorem 14 gives n u_2(n)/2^n for the expectation. Indeed 28 is not of the exceptional lengths permitting 14, and the known even-length maximum is 13. Holub–Müller pp. 1, 4 and 7 study words with exactly two unbordered conjugates."
+        ],
+        "reasoning": "Even knowing the attainable counts, their maximum, and the first moment imposes only support and one moment constraint, not the positive fiber sizes or their second moment. The known structural classification at j=2 does not extend to the other positive bins. No new maximum or first-moment theorem is credited.",
+        "searches": [
+          "Clokie–Gabrić–Shallit, arXiv:1904.08187, known even-length bounds, attainable counts and Theorem 14",
+          "Holub–Müller, arXiv:1504.02222, fully bordered words",
+          "Harju–Nowotka, Border correlation of binary words, DOI 10.1016/j.jcta.2004.07.009"
+        ]
+      },
+      "checked_sources": [
+        "Frozen histogram and RESULT.md",
+        "arXiv:1904.08187 and arXiv:1504.02222",
+        "OEIS A003000",
+        "DOI 10.37236/916 and accessible portions of DOI 10.1016/j.jcta.2004.07.009",
+        "Resultary 15954dd9e6c4, 8c6645349a80 and c307a6bb3ca8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known recurrence yields ∑_j jH(n,j)=n u_2(n). The number of nonprimitive words yields H(n,0) and the primitive rotation argument excludes H(n,1) for n≥2. Exact weight-three and weight-four results supply only those composition contributions."
+        ],
+        "reasoning": "These relations imply the reported mean and some other checks, but not ∑_j j²H(n,j) or the number realizing the known maximum at n=28. Those need joint information about rotations of the same word. Computing them by exhaustive enumeration is a way to establish formerly unaccounted-for numerical data, not a direct specialization of a result or table identified here.",
+        "searches": [
+          "Theorem 14 of arXiv:1904.08187 and A003000",
+          "Harju–Nowotka binary border correlation as described in arXiv:1904.08187 and DOI 10.37236/916",
+          "Resultary exact composition-restricted comparator formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior border-correlation map β records exactly which indexed rotations are unbordered, so this census is the distribution of the number of u symbols in β(w). The 2008 paper's abstract and introduction identify the binary predecessor paper and distinguish the count of distinct β-images; its main setting is alphabets of size at least three."
+        ],
+        "reasoning": "Counting attainable β-images, even by weight, is not the same as measuring the push-forward of the uniform word measure: the latter weights each image by the size of its preimage. Counting up to rotation would also require orbit weights, in particular for periodic words in the zero bin. The inspected finite table uses indexed words, not image counts or unweighted necklaces.",
+        "searches": [
+          "Resultary: exact binary unbordered conjugate spectrum, rotation census, binary border-correlation weight distribution",
+          "arXiv:1904.08187, §3–5, border correlation and nuc(w)",
+          "Harju and Nowotka, Bordered conjugates of words over large alphabets, DOI 10.37236/916"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A003000 supplies u_2(n) and the even/odd recurrence; it is not a two-variable table of rotation counts. Resultary 15954dd9e6c4 at n=28 contributes 364 words at j=2 and 2,912 at j=3 from weight three. For c307a6bb3ca8 the all-length weight-four generating functions contribute 91, 1,400, 3,920 and 15,064 at j=0,2,3,4 respectively. Record 8c6645349a80 treats directed necklace classes for the weight-three gap law."
+        ],
+        "reasoning": "The same-day weight-three entry is a distinct and material exact overlap, not excluded by date or title. Together with the weight-four entry and bit complements it still omits the other weights, including all words in the j=13 bin: for weight three/four the respective spectra have maximum three/four. These exact composition slices do not dominate the all-word cutoff.",
+        "searches": [
+          "OEIS A003000, unbordered binary word counts",
+          "Resultary 15954dd9e6c4, 8c6645349a80 and c307a6bb3ca8: exact three- and four-marker distributions"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full labeled-word frequency census through 28, including the second moment and extremal multiplicity, not the maximum value 13, the known first moment, or the absence of singleton fibers. Inspected related results cover support, maximum, zero count, first moment, or composition-restricted fibers. None supplies or mechanically determines the remaining unrestricted table at this cutoff on the evidence inspected.",
+      "residual_risks": [
+        "The 2004 Harju–Nowotka binary paper could not be compared in full and remains a named exact-overlap risk. A prior unrestricted table might exist outside the inspected records. The PASS is for the supported full finite census, not proof of absolute bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive overlap for the maximum, support topics and mean, not the unrestricted histogram or variance.",
+          "evidence": [
+            "β marks indexed borderedness; expected count is (u_k(n)/k^n)n; nonprimitive words have zero unbordered rotations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.08187",
+          "material_read": "PDF pp. 2–3 maximum discussion, offsets 5350–7714; pp. 7–8 border-correlation definition and binary bound; p. 12 Theorem 14, offsets 36120–37067.",
+          "method": "Open-access primary PDF, compared random variable, maximum and exact moment formula.",
+          "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+          "trigger": "Direct prior work on attainable counts, maxima and distributional quantities of the same random variable."
+        },
+        {
+          "assessment": "Plausible exact-overlap risk remains. The accompanying accounts of image and extremal results are not evidence about the inaccessible paper as a whole.",
+          "evidence": [
+            "Available sources identify binary border correlations and results on realizability and maxima; no unrestricted fiber-count table was verified from the material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+          "material_read": "Original bibliographic landing page and abstract only, plus relevant accounts by Clokie et al. and the authors' open 2008 follow-up.",
+          "method": "Bounded lawful source retrieval; exact original full text was not obtained.",
+          "title": "Border correlation of binary words",
+          "trigger": "Earlier work defines exactly the border-correlation map whose weight fibers are being counted."
+        },
+        {
+          "assessment": "Different count and main alphabet domain; does not verify an unrestricted binary census.",
+          "evidence": [
+            "The abstract identifies the set and number of distinct β-images for a ternary alphabet, and the introduction points back to the binary paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/916",
+          "material_read": "Open journal PDF p. 1 abstract and introduction, offsets 276–1557.",
+          "method": "Primary PDF from the journal and comparison of image counts with labeled input counts.",
+          "title": "Bordered conjugates of words over large alphabets",
+          "trigger": "Same authors explain the border-correlation statistic and distinguish a count of images."
+        },
+        {
+          "assessment": "Structural overlap for the two-conjugate fiber; does not cover all fibers in the passages inspected.",
+          "evidence": [
+            "The relevant binary characterization is for exactly two unbordered conjugates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+          "material_read": "PDF pp. 1, 4 and 7, fully bordered definitions and inductive description.",
+          "method": "Primary OA PDF; compared the quantified number of unbordered conjugates.",
+          "title": "Fully Bordered Words",
+          "trigger": "Possible exact coverage of fiber sizes from classification of binary bordered conjugates."
+        },
+        {
+          "assessment": "Counts unbordered words, not the distribution of unbordered rotations per word.",
+          "evidence": [
+            "u_2(2m+1)=2u_2(2m), u_2(2m)=2u_2(2m−1)−u_2(m), giving the first-moment check after multiplication by n."
+          ],
+          "identifier_or_url": "https://oeis.org/A003000",
+          "material_read": "FORMULA section, near offset 3400.",
+          "method": "Exact database sequence and recurrence comparison.",
+          "title": "Number of unbordered binary strings of length n",
+          "trigger": "Closest verified exact integer sequence for the underlying binary border statistic."
+        },
+        {
+          "assessment": "Exact overlap for the weight-three slice at all lengths, not the unrestricted finite census; no priority order inferred.",
+          "evidence": [
+            "C₂(n)=n(floor((n−3)/2)+1−[3 divides n]); the remaining weights of the distribution are j=0 and j=3 only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4/RESULT.md",
+          "material_read": "Finding and opening Assumptions, offsets 0–1550.",
+          "method": "Local mirror and comparison of Hamming-weight restriction and indexed rotation convention.",
+          "title": "Exact unbordered-conjugate spectrum of binary words containing three ones",
+          "trigger": "Same-day exact spectrum in indexed binary words."
+        },
+        {
+          "assessment": "Directed-necklace version of a restricted composition result, not an all-word histogram.",
+          "evidence": [
+            "The input has three ones and the distribution is for directed necklace classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-marker-border-correlation-a-local-gap-law-and-its-exact-di--8c6645349a80/RESULT.md",
+          "material_read": "Finding and assumptions from the mirrored RESULT.md.",
+          "method": "Local mirror, comparing rotation-class weighting and composition.",
+          "title": "Three-marker border correlation: a local gap law and its exact distribution",
+          "trigger": "Exact distribution of unbordered rotations in a gap formulation."
+        },
+        {
+          "assessment": "Covers all n within weight four, not other weights; no priority inferred from record dates.",
+          "evidence": [
+            "The counts C_j(n) are for indexed words with exactly four ones and j∈{0,2,3,4}; their generating functions are explicitly rational."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-four-marker-unbordered-rotation-spectrum-of-binary-wor--c307a6bb3ca8/RESULT.md",
+          "material_read": "Finding, offsets 0–1304.",
+          "method": "Local mirror and comparison of the frequency generating functions with the all-word census.",
+          "title": "The exact four-marker unbordered-rotation spectrum of binary words",
+          "trigger": "Exact coefficient formulas for indexed words in another composition class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, full CSV and independent cell-by-cell replay",
+        "Clokie–Gabrić–Shallit, support, maximum and first moment",
+        "Resultary exact three-/four-marker slices"
+      ],
+      "rationale": "The statistic is motivated by the established extremal and mean problems for unbordered conjugates: they leave open how typical or rare any number of unbordered starts is. The table measures this variation across all labeled binary words at 28 consecutive lengths. At n=28 alone it distinguishes a central bin of 73,564,148 words at j=8 from just 5,040 of 2^28 words at the known maximum. A researcher studying dependence between rotations, exact moments or near-extremal populations can use these actual frequencies; neither the first moment nor a low-weight slice supplies them. The bounded cutoff is a reproducible complete census, not a substitute for an asymptotic distribution theorem.",
+      "residual_risks": [
+        "No unrestricted-length variance formula, asymptotic behavior, or cutoff beyond length 28 is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

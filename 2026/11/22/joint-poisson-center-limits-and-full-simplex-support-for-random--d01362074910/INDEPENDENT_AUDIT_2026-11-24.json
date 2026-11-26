@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:59:06.193165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83",
+        "Frozen VERIFICATION.md lines 19–23 (recorded finite diagnostics only)",
+        "Frozen checker.py lines 13–45 and meb_diagnostic.py lines 10–58 (inspected, not executed)",
+        "repairs/1/RESULT.md, corrected comparison and proof"
+      ],
+      "rationale": "The radial normalization b_n=(cn)^(-1/alpha) makes n P(1-rho<=b_n s) tend to s^alpha, with independent uniform directions, giving the stated locally finite Poisson law. A regular-simplex cap configuration gives a uniform negative direction for any candidate center shift. This both bounds the finite center on scale b_n using R_n<=1 and makes the limiting envelope coercive. On each finite depth slab condition on the Poisson count, and use the unordered iid representation: no <=d normals balance zero, every d+1 lifted rows are independent, and a diffuse last depth prevents d+2 constraints from binding at one point. First-order optimality forces balance, so exactly d+1 active directions enclose zero in their interior. Their span rules out two maximizers by testing the midpoint; an a.s. unique minimal depth rules out Z=0, and equivariance gives the rotation-invariant law. The sign is +u·z: the first-order expansion of the distance subtracts b_n(s+u·z). In a coupling of the vague point measures all finite integer cutoffs match eventually, including some which supply shielding and make deeper observations irrelevant by the triangle bounds. Thus the objectives converge on compact sets containing their maximizers, and uniqueness gives joint center/radius convergence. Strict slack excludes all observations outside the limiting active group from the finite boundary, and the Euclidean enclosing-ball first-order condition excludes each proper subset of that group. This proves eventual full boundary count on the coupling, not just the existence of a support set. The repair makes the coupling and genericity explicit and separates established coverage in the uniform special case; the theorem itself is retained.",
+      "residual_risks": [
+        "Requires fixed dimension and an actual one-term radial tail equivalence, not arbitrary two-sided power bounds.",
+        "Does not supply convergence rates or a closed-form center density; none is inferred from the finite diagnostics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier random-intersection theorem is broader in allowed convex bodies but takes points uniform in the body. The later Weibull result allows the general radial exponent here but proves the radius limit, raises the joint-center question, and gives planar support under weaker hypotheses.",
+          "Theorem 6.1 concerns the global face vector of the K-hull, and Theorem 5.6 a polar constraint-body process, not which constraints touch the optimal inball."
+        ],
+        "reasoning": "The broad convex-body theorem does not dominate the sampling hypothesis. The global combinatorial data do not give a distinguished set of tangent constraints. The radial-tail extension and higher-dimensional optimal-support result survive both comparisons. The full conjecture under weaker two-sided bounds remains open as far as this proof is concerned.",
+        "searches": [
+          "Marynych–Molchanov arXiv:2102.10009v3 §5.1, Theorems 5.1, 5.6, 6.1",
+          "Henze–Klatt arXiv:2611.09726v1 §7.3, Conjecture 7.6 and §8(2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–34 and 93–108",
+        "repairs/1/RESULT.md, corrected statement of contribution and relationships",
+        "arXiv:2102.10009v3 and arXiv:2611.09726v1",
+        "Resultary d01362074910 (self), 8ba56112c074 and 59bda5c808cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Weibull radius functional takes the same supremum, after matching normalizations, without recording the maximizing location.",
+          "Hausdorff convergence of the bodies and a unique limiting incenter imply convergence of center and radius in the uniform case, but by themselves not the identities or counts of touching constraints.",
+          "The new support proof uses individual matched depth-and-direction constraints, slack at the optimum, and the nonbalance of all proper subsets."
+        ],
+        "reasoning": "Accept the exact radius and uniform-ball implications rather than requiring verbatim matches. The optimal contact law is not a consequence of global face-vector or inradius convergence; it requires the listed stability argument. The underlying LP genericity and point-process machinery are standard, not themselves contributions.",
+        "searches": [
+          "Henze–Klatt Theorem 5.9 and §8(2)",
+          "Marynych–Molchanov Theorems 5.1, 5.6 and 6.1",
+          "Frozen RESULT.md Steps 2–5; repaired active-set proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inball of the intersection of the sample-centered unit balls has center C_n and inradius 1-R_n. Marynych–Molchanov use the reflected intersection K minus the sample in the Minkowski-difference sense.",
+          "At alpha=1 the limiting halfspaces form the stationary isotropic hyperplane zero cell. F is exactly its clearance function. For uniform-ball sampling Theorem 5.1 gives the zero-cell body limit, with intensity d before normalization by dn."
+        ],
+        "reasoning": "This exact identification is material: continuity of the inradius and, at a unique incenter, of the incenter gives the uniform-ball pair from the earlier body limit and the Poisson genericity argument. This is credited even though not spelled out as the same pair. For alpha≠1 the distance intensity is not stationary; one cannot obtain that law by re-scaling the stationary intensity or by reflecting it.",
+        "searches": [
+          "Primary search: random translated-ball intersection and Poisson zero-cell incenter",
+          "Marynych–Molchanov arXiv:2102.10009v3 §5.1, Theorem 5.1",
+          "Henze–Klatt arXiv:2611.09726v1 Theorems 5.1 and 5.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact statement hit d01362074910 is the assigned record itself.",
+          "Distinct Resultary 8ba56112c074 gives deterministic finite-ball intersection contact-rank and volume-collapse asymptotics; 59bda5c808cf gives planar vertex counts for a three-direction Poisson model."
+        ],
+        "reasoning": "There is no claimed numerical table. The exact-statement check has two real comparison records and a self-match: neither comparison supplies the spherical random sample’s joint incenter limit or finite boundary count. Deterministic volume collapse and discrete-direction vertex counts are different invariants.",
+        "searches": [
+          "Resultary: Poisson smallest-enclosing-ball center/radius limits and support",
+          "Resultary: Poisson zero-cell incenter and random ball intersection contact rank"
+        ]
+      },
+      "rationale": "The revised contribution is the unique joint center/deficit limit for the general stated radial-tail class and the stability of the finite optimal boundary count in higher dimensions. The known Weibull radius law, the planar support result, and the uniform-ball joint pair as an incenter corollary are credited in the repaired text. No claim of novelty is assigned merely for using an existing Poisson zero-cell representation.",
+      "residual_risks": [
+        "An unidentified general nonuniform intersection theorem could affect the priority of some further joint-limit cases. The compared theorem gives a verified uniform-ball implication, not a universal exclusion of earlier results.",
+        "No novelty claimed for stationary zero-cell genericity alone, or for the planar support conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known uniform-case body limit implies joint inball pair at a unique incenter. Not general radial sampling or a stated optimal-inball contact theorem.",
+          "evidence": [
+            "X_n is the intersection of K shifted by negatives of iid uniform points in K. n X_n converges in Hausdorff law to a zero cell with intensity V_d(K)^(-1) ds S_{d-1}(K,du). The later theorems concern the polar constraint process and global face vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.10009",
+          "material_read": "v3 §5.1 p. 17 (offset about 58800), Theorem 5.1 pp. 18–19 (offset about 64534), Theorem 5.6 p. 22 and Theorem 6.1 p. 23 (offset about 84150)",
+          "method": "Open-access primary PDF",
+          "title": "Facial structure of strongly convex sets generated by random samples",
+          "trigger": "Exact equivalent via inball of an intersection of translates"
+        },
+        {
+          "assessment": "Weibull radius already covered. They ask for joint convergence and uniqueness, and have a broader planar support result.",
+          "evidence": [
+            "Poisson boundary intensity C(beta+1)s^beta under alpha=beta+1; the radius limit maximizes the same lower envelope. Conjecture 7.6 uses two-sided bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09726",
+          "material_read": "v1 Theorem 5.1 pp. 22–23 (offset about 81200), Theorem 5.9 p. 31 (offset about 109950), §7.3, Conjecture 7.6 and §8(2) (offsets about 154500–157900 for closing questions)",
+          "method": "Open-access primary PDF",
+          "title": "Extreme-value asymptotics for smallest enclosing balls of spherically symmetric samples",
+          "trigger": "Exact sample, radial regime and limiting radius functional"
+        },
+        {
+          "assessment": "Deterministic contact-rank asymptotics, not a random radial-tail limit.",
+          "evidence": [
+            "Concerns volume collapse and contact rank in deterministic finite intersections."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-contact-rank-collapse-laws-and-polar-inertia-of-finite-ball-inte--8ba56112c074",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Contact-rank collapse laws and polar inertia of finite ball intersections",
+          "trigger": "Closest indexed ball-intersection contact terminology"
+        },
+        {
+          "assessment": "Different angular distribution and count, not an incenter limit.",
+          "evidence": [
+            "Sidedness counts in a planar model with three directions."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-complete-vertex-count-law-for-three-direction-poisson-zero-cells--59bda5c808cf",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Complete vertex-count law for three-direction Poisson zero cells",
+          "trigger": "Closest indexed Poisson zero-cell law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md, Finding and Steps 3–5",
+        "Henze–Klatt arXiv:2611.09726v1 §8(2) and Conjecture 7.6",
+        "Marynych–Molchanov arXiv:2102.10009v3 Theorems 5.1 and 6.1"
+      ],
+      "rationale": "The general radial-tail result supplies the optimizing location jointly with a known scalar extreme, and higher-dimensional boundary-count stability resolves the regular-variation part of the support question. The latter concerns which constraints determine a natural random optimizer, a quantity not obtained from the value or a global polytope face count. This is a substantive contribution even after removing novelty credit for the uniform-ball corollary, radius alone and planar support.",
+      "residual_risks": [
+        "No solution to the full two-sided-tail conjecture and no higher-order or finite-size rate result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

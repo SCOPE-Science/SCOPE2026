@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:53:49.859104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under neutrality and monotonicity, winning sets intersect, and a winning singleton forces dictatorship. In its absence the sizes 0,1 always lose and sizes 5,6 always win. If m is the number of winning pairs, e_i their degree at i, and t_i the winning triple degree, the pivotal counts at predecessor sizes 0 through 5 are (0,e_i,t_i+e_i−m,t_i+e_i−m,e_i,0). Summing uniformly or with factorial permutation weights gives B_i=2(t_i+2e_i−m) and H_i=24(t_i+3e_i−m). Since Σe_i=2m and Σt_i=30, the equal-index equations follow. For a nonempty star the center forces at least 4,7,9,10,10 winning triples for m=1,2,3,4,5; each exceeds the Shapley–Shubik allowance 5−2m. A triangle forces at least seven versus two. For Banzhaf, divisibility leaves only m=3, and the star and triangle allowances are one and three, again impossible. At m=0, both indices require t_i=5. Choosing the five triples through a fixed voter gives a link graph on five vertices, and neutrality gives degree 1+2deg(j) in winning triples for each other voter. Thus the link is a 5-cycle, and every such complement orientation extends monotonically with all larger coalitions winning. There are twelve labeled cycles in one permutation orbit, so the automorphism group has order 60; its point stabilizer has order ten, proving transitivity. Conversely transitivity transports pivotal events. The normalized probabilities are 120/720 and 10/32. This is a direct proof check; the supplied Python enumerator was inspected, not executed or used to infer exhaustiveness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loeb–Conway's abstract concerns the enumeration of transitive maximal intersecting families below 13 points; Cameron–Frankl–Kantor distinguish regularity from transitivity and give general existence and extremal bounds, including minimum-set-size bounds in Theorem 3. Dhar–Mittal–Thomas address which electorate sizes admit fair rules and exhibit a six-voter rule."
+        ],
+        "reasoning": "Neutral rules correspond to maximal intersecting families. Restricting that larger framework to families already assumed transitive does not rule out nontransitive weakly fair families, and general existence and size bounds are not optimizer classifications.",
+        "searches": [
+          "Loeb–Conway DOI 10.1006/jcta.2000.3103",
+          "Cameron–Frankl–Kantor, Intersecting Families of Finite Sets and Fixed-point-Free 2-Elements",
+          "Dhar–Mittal–Thomas arXiv:2602.13894v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2602.13894v1",
+        "SCOPE-20261027-e2e65887e561",
+        "Loeb–Conway DOI 10.1006/jcta.2000.3103 (abstract)",
+        "Meyerowitz DOI 10.1016/0195-6698(95)90004-7 (abstract)",
+        "Cameron–Frankl–Kantor, pp. 149–150",
+        "Langner 2012 (repository attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known formulas turn uniformity into one linear constraint at each voter, not level-by-level uniformity by themselves. Known Icos supplies one feasible orbit. Known transitive-family hypotheses do not assume only the linear constraint."
+        ],
+        "reasoning": "The star/triangle exclusion and five-cycle characterization bridge precisely that gap. Once only the five-cycle remains, the twelve labeled instances, group order and probabilities follow; they are not separate priority claims about Icos.",
+        "searches": [
+          "Dhar–Mittal–Thomas Proposition 2.2, pp. 5–6",
+          "Meyerowitz abstract and Loeb–Conway abstract",
+          "SCOPE-20261027-e2e65887e561 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dhar–Mittal–Thomas give Icos as a fair example and show that equal winning-coalition counts at each size imply both fair indices. The Resultary heterogeneous-bias record lists the same ten Icos triples and their degree five, but studies the change of pivotal probabilities with bias."
+        ],
+        "reasoning": "Neither a forward implication nor a perturbation theorem for an explicit rule classifies all rules fair in either index. Here the key reverse step rules out winning pairs before using the link-cycle condition.",
+        "searches": [
+          "Resultary: six-voter pivotal fairness / equitable Icos / regular intersecting triples",
+          "Dhar–Mittal–Thomas arXiv:2602.13894v1 Proposition 2.2",
+          "SCOPE-20261027-e2e65887e561"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Meyerowitz's abstract reports 30 isomorphism classes on six points and addresses regular hypergraphs, but the actual enumeration and regularity results could not be read. Langner is cited for all-simple-game power-profile counts; the identified dissertation PDF was unavailable in the bounded attempt. No table explicitly filtering six-voter self-dual rules by either equality condition was verified."
+        ],
+        "reasoning": "A usable full catalogue of six-point maximal intersecting families could in principle be filtered using pivotal index formulas; a count of classes, or marginal counts of power profiles without self-duality and the associated games, does not perform that filter. Exact earlier enumeration remains the strongest access risk.",
+        "searches": [
+          "Meyerowitz DOI 10.1016/0195-6698(95)90004-7",
+          "Langner 2012, Fairness, Efficiency and Democracy Deficit, six-voter power profiles",
+          "Loeb–Conway DOI 10.1006/jcta.2000.3103"
+        ]
+      },
+      "rationale": "The supported distinction is the converse from either individual pivotal-equality condition to the exhaustive six-voter classification. Icos, its transitivity and fairness, the forward symmetry implication, and general formulas for power are prior. Existing enumerative work is a serious scope comparison, but available statements do not establish the weak-fairness converse or give a demonstrably covering table.",
+      "residual_risks": [
+        "Meyerowitz may contain an explicit catalogue or regularity classification covering part or all of the result after mapping to voting rules.",
+        "The full Loeb–Conway and Langner comparisons remain incomplete; historical priority is not settled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence, formulas and forward implications are prior",
+          "evidence": "Icos is cited as fair. Equitable implies unbiased; unbiased implies both equal indices.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.13894v1",
+          "material_read": "p. 3 (offset 7744); pp. 5–6, Proposition 2.2 (offset 16519)",
+          "method": "Bounded OA PDF passages",
+          "title": "Existence of Fair Resolute Voting Rules",
+          "trigger": "Same hypotheses, both indices and six-voter example"
+        },
+        {
+          "assessment": "Exact table not verified; abstract assumes transitivity",
+          "evidence": "Enumerates transitive families for |X|<13, not on its face all equally pivotal families.",
+          "identifier_or_url": "DOI 10.1006/jcta.2000.3103",
+          "material_read": "Indexed abstract only; identified CORE PDF and reader inaccessible",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Voting Fairly: Transitive Maximal Intersecting Families of Sets",
+          "trigger": "Source of Icos and possible exact transitive case list"
+        },
+        {
+          "assessment": "Plausible covering catalogue, implication unresolved",
+          "evidence": "The abstract gives 30 six-point isomorphism classes and mentions regularity; the way the cases or regularity properties are tabulated was not established.",
+          "identifier_or_url": "DOI 10.1016/0195-6698(95)90004-7",
+          "material_read": "Indexed abstract only; full text not obtained",
+          "method": "Publisher and repository availability comparison",
+          "title": "Maximal Intersecting Families",
+          "trigger": "Exact six-point census and regularity"
+        },
+        {
+          "assessment": "Relevant general framework, no weak-fairness converse in inspected statements",
+          "evidence": "Regularity and transitivity are distinct general hypotheses, and Theorem 3 bounds the size of members of maximum intersecting families.",
+          "identifier_or_url": "https://pages.uoregon.edu/kantor/PAPERS/IntersectingFamilies.pdf",
+          "material_read": "Introduction and Theorems 1–6, printed pp. 149–150",
+          "method": "Bounded author PDF passages",
+          "title": "Intersecting Families of Finite Sets and Fixed-point-Free 2-Elements",
+          "trigger": "Regular versus transitive intersecting families"
+        },
+        {
+          "assessment": "Table data not inspected",
+          "evidence": "The reported data concern power profiles of simple games generally; no self-duality filter was verified.",
+          "identifier_or_url": "https://ub-deposit.fernuni-hagen.de/servlets/MCRFileNodeServlet/mir_derivate_00000135/Diss_Langner_Fairness_2012.pdf",
+          "material_read": "Bibliographic description and scope reported in the frozen comparison; repository PDF unavailable",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Fairness, Efficiency and Democracy Deficit",
+          "trigger": "Potential exact six-voter power profile tables"
+        },
+        {
+          "assessment": "Overlaps on known example, not on the converse",
+          "evidence": "Same triples and uniform degree; the theorem concerns heterogeneous-bias pivotal disparity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-quadratic-loss-of-pivotal-fairness-under-heterogeneous-vot--e2e65887e561/RESULT.md",
+          "material_read": "Finding and explicit Icos triple list",
+          "method": "Local index and mirror text",
+          "title": "Sharp quadratic loss of pivotal fairness under heterogeneous voting biases",
+          "trigger": "Same six-voter construction and regular triples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural six-voter class already studied for existence, the result tests whether equal power forces a structural symmetry despite not assuming it. That either of two differently weighted index constraints rules out every nontransitive rule, with a complete and reusable fair-rule catalogue, resolves a substantive gap beyond checking known Icos.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

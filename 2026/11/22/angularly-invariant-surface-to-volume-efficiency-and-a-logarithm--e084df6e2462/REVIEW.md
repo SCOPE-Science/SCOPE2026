@@ -1,11 +1,21 @@
-# Scientific review: intersecting-cylinder surface-to-volume efficiency
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-cylinder slice volume and unit-speed cylindrical first-variation identities produce the stated physical surface area. Strict decrease of the normalized area/volume ratio follows from a pointwise positive derivative plus a nonnegative covariance between monotone functions. The logarithmic coefficient is derived by a controlled one-dimensional endpoint expansion, and the large-radius coefficient by uniform binomial expansion. The standalone program passed 123 numerical diagnostics; these are not used to replace proofs of infinite statements.
+## correctness
 
-**Originality — PASS, provisional.** Hubbell (1965) contains the classical general volume formula, and the dated 2008 Steinmetz exposition records the equal-radius area; neither is claimed as new. Full available statements and proofs for the related planar-section area theorem and John–Löwner ellipsoids study different functions, and the partially intersecting offset-cylinder surface paper studies a different geometry. Searches for equivalent statements and stronger implications revealed no encompassing strict surface/volume monotonicity with the logarithmic boundary coefficient. Moore's 1974 symmetric-cylinder study was not accessible in full; historical priority remains provisional rather than proved absent.
+PASS
 
-**Mathematical value — PASS.** A natural scale-free interface surface-to-volume statistic is independent of the crossing angle and strictly encodes the radii ratio. Its positive logarithmic second-order correction measures the singular onset of a radius imbalance. Both the inverse-rigidity property and the cusp have direct geometric motivation, not merely a known endpoint recomputation.
+The two transverse-normal coordinates and the normal to the axes' plane give rectangular sections and Jacobian sin(beta). Radial distance to each axis has gradient of length one on its exposed patch, so coarea gives S=V_R+V_r; the common boundary lies in finitely many curves and contributes zero area, including at equality. Homogeneity gives the stated F-representation of Q. For t>1, 3−Q is the expectation of g=t(t−1)/(t²−y²) under density proportional to sqrt((t²−y²)(1−y²)). The t-derivative of g has a positive numerator at least (t−1)², and the covariance with the density score is nonnegative because both functions increase in y. This proves strict decrease of Q; continuity, F(1)=16/3, F'(1+)=8, and uniform g→1 at infinity give the range (2,3]. After y=sin u, with Delta=sqrt(1−k² sin²u), the area integrals reduce to E and integral cos²u/Delta=[E−(1−k²)K]/k². Integrating the derivative of sin u cos u Delta gives the stated volume elliptic reduction. For the cusp, t=1+eta and u=1−y give F'' integrand −4 sqrt(u)/(u+eta)^(3/2) times (1+O(u+eta)), with endpoint integral −4 log(1/eta)+O(1). This yields the stated Q cusp and Q'(1+eta)=−3/2+(3/2)eta log(1/eta)+O(eta), so the right second derivative is not finite. Expanding the integral uniformly in 1/t² gives F=2πt[1−1/(8t²)+O(t^(−4))] and the far-end expansion. There is a common seam even at equality; the singularity concerns resolution of the equal-radius endpoint degeneracy, not first existence of a seam.
 
-The theorem concerns infinite nonparallel intersecting axes and requires knowledge of the smaller radius to normalize. It neither recovers the axis angle nor treats finite cylindrical caps or displaced/skew axes. The analytic proof is subject to independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational volume integral and its elliptic evaluation and the equal-radius Steinmetz normalization are existing coverage, not new findings. The inspected prior volume formulas also encode analytic ingredients for the area and end expansions via differentiation. The supported distinct claim is the strict all-ratio inverse theorem for this specific efficiency, with its sharp endpoint behavior; the inspected sources did not show a monotonicity theorem for it or a stronger assertion from which that theorem is immediate.
+
+## value
+
+PASS
+
+Recovering the radius ratio from scale-normalized boundary area per volume in a classical convex family without angular data is a natural inverse problem. Strict monotonicity makes the recovery unambiguous, and the logarithmic second-order correction rules out a smooth quadratic approximation at the symmetric endpoint. Neither a volume formula alone nor a finite table establishes this sign or boundary regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

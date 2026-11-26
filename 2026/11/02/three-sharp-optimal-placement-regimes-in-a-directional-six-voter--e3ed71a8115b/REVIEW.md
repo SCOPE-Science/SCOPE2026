@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two fixed opposite opinions partition the cycle into independent arcs. Positive-rate nearest-neighbor imitation makes one domain wall on each arc the unique recurrent class; each interface then has a reversible finite birth–death law with geometric weights. Log-partition differentiation yields the displayed exact variance function. Both six-cycle variance-difference identities were reconstructed with common denominators and checked symbolically. The shifted phase polynomials each have exactly one positive root by Descartes' sign rule and opposite endpoint/infinity signs; a rational midpoint orders the roots. These steps establish strict minima and exact tie boundaries for every positive rate ratio. The included generator checker reconstructs and solves nine independent rational stationary systems. Risk: the argument is specific to the stated nearest-neighbor two-zealot chain and does not extend to general network geometries without additional proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Opposite fixed endpoints decouple the two arcs. Updating the interior sites from one endpoint in sequence to copy its opinion is a positive-rate path to the one-interface set, by sweeping away all other walls. A one-interface state remains in that set and the resulting reflecting walk is irreducible (with a singleton state on the one-edge arc). The arc count ratios are q and 1/q, so the stationary variance is the sum of the two truncated-geometric variances and is invariant under q to 1/q. Logarithmic differentiation twice gives W_L; at q=1 the uniform laws give (V_1,V_2,V_3)=(2,3/2,4/3), proving strictness at that endpoint. For q<1 the two exact differences have signs opposite P and Q at z=q+1/q. Each z-2 shifted polynomial has one Descartes sign change and a negative constant, establishing existence and uniqueness of a root above 2; opposite signs at z=27/10 strictly separate the roots. The map back to q reverses their ordering, and the sign comparisons give all three minimizing placements and the two exact ties. A separate exact symbolic and 16-state-generator replay, /workspace/branches/649dd4b5-5b89-417a-8842-335f1ed67568/replay_record3.py, with output in replay_record3_results.txt in the same directory, reproduced the factorizations, roots and all three q=4/9 fractions and verified V_2<V_3<V_1. Here the strict intermediate optimum is the discrete placement a=2 at fixed q, not an optimum over q. The uploaded checker was inspected but not executed. The general-in-q proof is analytic and does not rest on the finite generator comparisons.
 
-Mobilia–Petersen–Redner (2007; arXiv:0706.2892, especially Section 4.1) already give unbiased one-dimensional interface geometry and magnetization distribution. Yildiz et al. (2011 manuscript, introduction and covariance/placement sections) establish general stubborn-agent variance characterization and expected-influence placement; no inspected result gives the exact directional six-cycle variance-minimizer phase boundaries. The new contribution is the strict algebraic three-regime classification, not the established voter or birth–death mechanism. Public mathematical-record and literature searches for asymmetric copying, directed ring, biased interfaces, geometric variances, exact thresholds, and optimal stubborn-agent placement found no explicit equivalent; this is not a proof of priority. Risk: a direct but unpublished or unlocated specialization of the general covariance framework, or specialized directed voter-chain literature, could already contain it.
+## originality
 
-## Value — PASS
+PASS
 
-Stationary aggregate-opinion variance is a specific network-fluctuation objective expressly motivated in existing stubborn-agent literature. Its optimal source geometry need not be adjacent or maximally separated: the smallest cycle allowing an interior placement has a rigorously nonempty strict interior-optimum phase. The exact classification identifies the two parameter boundaries and shows how homogeneous directional influence changes the preferred geometric design. This is a natural complete finite classification and a structural counterexample to an endpoint-only design rule, rather than a numerical optimization anecdote. Risk: the six-agent model is an idealized mathematical benchmark, not a demonstrated empirical policy effect.
+The supported distinction is the full six-cycle minimum-variance classification, including the strict intermediate regime and the two ordered algebraic boundaries. The count-variance function itself and isolated evaluations of it are covered by the earlier opinion-biased-cycle law under reflection of one arc count. No separate originality is assigned to that variance formula, to the unbiased case, or to the fact that bias changes some placement objectives. The earlier exact law does not classify the crossings or the global minimum as bias varies.
 
-## Closest literature and limitations
+## value
 
-Mobilia, Petersen, Redner (2007), DOI:10.1088/1742-5468/2007/08/P08029, studies the unbiased ring; Yildiz et al., “Discrete Opinion Dynamics with Stubborn Agents,” OPRE-2011-01-026, provides the broader variance framework and a different placement objective. Mobilia (2015), arXiv:1506.04911, considers nonlinear well-mixed q-voters rather than directional ring copying. General network-moment representations remain the most serious coverage risk. Rates must be positive; no mutation, noise, multiple zealots, or heterogeneous topology is treated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stationary total-count fluctuations are a natural objective not captured by expected support or extreme-event probabilities. The first cycle with a genuinely intermediate spacing shows that neither endpoint placement is always best, on a nonempty open interval with exact boundaries and ties. This is a meaningful minimal model and a complete classification within it, not evidence of a larger-cycle phase law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

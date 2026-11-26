@@ -1,19 +1,21 @@
-# Scientific review: prime-divisor density dichotomy for cubic ABC polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain is every fixed integral parameter and the prime-density variable is the rational prime. The monic rational-root test proves irreducibility for every parameter. The discriminant is the exact quadratic-in-a-square expression in RESULT.md. Its being a rational square is equivalent to factoring 32 into same-parity factors, which yields the complete list of integer exceptions. The cyclic conductor-seven field identities were checked by polynomial reduction. Chebotarev determines the entire root-count spectrum in the S3 and C3 actions; Hensel gives unique solutions at all good prime powers. The checker passed, and is not substituted for the proof.
+PASS
 
-## Originality — PASS, with risks
+The monic cubic with constant 1 can have only ±1 as rational roots; the evaluations 1 and −2u−1 exclude them for integral u. Direct expansion gives Δ=(u²+u−3)²−32, which cannot vanish. Writing m=u²+u−3 gives odd m≥−3; if Δ=k², the integers (m−k)/2 and (m+k)/2 multiply to 8 and have odd sum. The only such sums are ±9; the bound leaves 9, giving u=3,−4, each with Δ=49. The alternating criterion therefore gives precisely two cyclic parameters. For z=ζ₇+ζ₇⁻¹ the standard relation z³+z²−2z−1=0 gives F₃(1−z)=0. With w=−4+z+2z², reduction gives w²=16−4z−7z² and w³=−65+16z+29z², verifying F_{−4}(w)=0. Both generators have degree three, so their cubic field is the real seventh cyclotomic field. At p≠7 the good reduction Frobenius is trivial in (Z/7)×/{±1} exactly for residues ±1; it has three fixed points then and no fixed point otherwise. At every good prime for the remaining parameters, the S₃ conjugacy types have sizes 2,3,1 for 0,1,3 fixed roots. Chebotarev gives the natural densities and a prime divides some value iff it has a residue root. Each such root is simple and has one lift at every prime-power depth, with no other lifts. Finite checker evidence is not used to justify universal statements; no uploaded code was executed.
 
-The motivating 2026 Pethő source was read in full HTML; it treats coincidences of recurrence terms and general Galois uses, not the exact integer cubic Galois exceptional set or densities. Halter-Koch–Lettl–Pethő–Tichy (1999) Section 3 was examined from its publicly available full text; its almost-all symmetric group result in general ABC families does not imply the exact two-exception classification. Actual semantic searches for the discriminant, integer exceptions, prime-divisor densities, and equivalent Chebotarev descriptions found no covering indexed result. The closest previously indexed cubic Laguerre Galois classification concerns another family, and a prior finite-field *parameter count* for the same polynomial does not imply a fixed-integral-parameter *prime density*. The 2026 Noubissie–Tichy source was accessible through abstract and bibliographic information only, so an unindexed implicit comparison remains a risk. Novelty is not proved by absence from search results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated by the prime divisors of a natural cubic integer-valued ABC polynomial family that serves as the characteristic family of recent recurrence studies, not by an arbitrary coefficient slice. It completes the parameterwise Galois-splitting classification beyond generic Hilbertian almost-all results and identifies an exact arithmetic boundary where a natural prime-divisor density drops from two-thirds to one-third. The two exceptional parameters generate the same explicit conductor-seven field; every good-prime-power root spectrum follows. This is a natural exact classification over an infinite family, not merely a single numerical example, while relying on established theorems rather than claiming new Chebotarev estimates.
+The field at the exceptional parameters is a classical simplest cubic, and the Frobenius and lifting arguments are classical deductions. The verified prior uses of the very same polynomial concern recurrence or Thue equations, or finite-field statistics across varying parameters. The available statements do not settle the all-integer exceptional locus for this fixed subfamily, which is what makes the density dichotomy exact for every u rather than generic.
 
-## Closest literature and limitations
+## value
 
-A. Pethő, arXiv:2611.17962v1 (2026); F. Halter-Koch et al., J. London Math. Soc. 60 (1999), 1–20, DOI 10.1112/S0024610799007474; A. Noubissie and R. F. Tichy, arXiv:2606.27885v1 (abstract only). The result concerns the cubic specialization with fixed integral parameter. No claim covers generic higher-degree ABC polynomials, effective prime counts, or recurrence-term prime divisibility. An unidentified earlier explicit instance is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural cubic specialization of the ABC family, the exhaustive exception calculation distinguishes two explicit integers from every other one when asking which primes divide polynomial values. A generic S₃ theorem or a varying-parameter finite-field statistic cannot be used for this purpose. The exact modulo-seven criterion and the stability through all good prime-power depths make the result directly usable, without presenting standard density machinery or the exceptional field itself as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

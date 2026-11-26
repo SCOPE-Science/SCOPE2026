@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The uniform-cone axial density \(3s^2\) and independent uniform disk coordinates give a self-contained polynomial integration for \(\mathbb E D^2\), \(\mathbb E D^4\) and \(\mathbb E D^6\). The exact rational alternative-aspect identity, discriminant \(-887538234128\), positive-domain boundary checks, and scaling inversion prove the claim. A standalone standard-library program re-integrates and checks the identities. Monte Carlo comparisons test sampling independently but are not used to certify the theorem.
+## correctness
 
-**Originality (PASS; historical priority provisional).** Relevant full-text comparisons include Bonnet et al., arXiv:2010.03351 (general forward mean and power-distance integral inequalities) and Bäsel, arXiv:2101.03815 (regular polygons). Neither gives the stated 3D circular-cone inverse, the sharp two-to-one phase diagram or a third-moment separation. A directly relevant existing cone paper treats direction-unlabeled projection widths, not interpoint distances. The geometric distance-distribution inverse literature motivates the problem but does not settle this exact finite-moment subproblem. Historical specialized formulas could exist outside the inspected corpus.
+PASS
 
-**Value (PASS).** This is a complete, sharp two-parameter shape-identification theorem from an unlabeled random distance statistic, with a constructive polynomial inverse, full exact admissible normalized fourth-moment range, precise nonuniqueness region, and proof that six-power information resolves the ambiguity. The aspect cutoff is intrinsic to the cone's geometry and gives a meaningful limit on what low-order measurements can identify; the result is not merely a new parameter substitution in an old formula.
+Recomputed all three moments by expanding Cartesian coordinate differences and multiplying independent one-point mixed moments, without taking the source’s conditional distance powers as input. For powers (2m,2n,j), the one-point moment is R^(2m+2n)H^j times 3/(3+2m+2n+j) times (2m)!(2n)!/[4^(m+n)m!n!(m+n+1)!]; odd planar coordinate powers vanish. The exact expressions agree. The normalized fourth moment has derivative (32/63)(69r−236)/(r+8)^3; the interior minimum, excluded flat limit and excluded needle limit yield the specified preimage counts. In particular the first branch does not contribute at 113/63. At fixed M₁, r=1 and r=1730/227 give different cones with equal M₂. The independent rational substitution into the normalized sixth moment factors with the stated linear factor and positive quadratic, whose discriminant is −887538234128. Thus distinct candidates cannot also share M₃, and recovering R,H from r and M₁ gives global injectivity.
 
-Limitations: exact volume-uniform population moments, positive right circular solids, Euclidean interpoint distances; no finite-sample confidence or arbitrary-body uniqueness. Prior work is credited for general methods; mathematical novelty is limited to the specific stated classification and inverse.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest theorem has the same three-moment inverse strategy but samples only the cone sidewall. Neither this theorem nor the relevant distance-distribution and width results give the solid-volume moment formulas, the sharp ambiguity thresholds, or the required separation of the two branches for volume sampling. The comparison is bounded, not a priority certificate.
+
+## value
+
+PASS
+
+The inverse problem is natural when only distances rather than coordinates are available. The answer specifies the exact information needed globally: two moments really can give two incompatible solid cones, the ambiguous interval is sharp, and a sixth moment always resolves the choice. This addresses a structural measurement question, not just a catalogue of moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

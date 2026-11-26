@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic; code is a finite corroboration only. Running `python checker.py` with Python 3, SymPy and mpmath verifies (i) the polynomial upper first integral for integer orders 1–6, (ii) the leading coefficient of the polynomial return equation for orders 1–6, (iii) the lower first integral for orders 1–6, and (iv) the positive, contracting unique return at two high-precision radii for orders 1–5.
+## correctness
 
-On the checked package: **18 exact symbolic identities and 10 high-precision return tests passed**. The program uses bisection at 75-digit working precision. The analytic proof separately checks the coefficient from the involution difference, the two crossing speeds, the summability of the quadratic correction, and the higher-order partial-sum asymptotics. None of the finite experiments are treated as a proof of the infinite-time limit.
+PASS
 
-Three additional original-time numerical stress tests of the explicit polynomial example at \(c=1\) and \(K=4\) yielded the following late-time normalized values:
+The lower flight leaves the positive section first. Involutivity of the lower map gives r_(n+1)-r_n=chi(s_n), with s_n=-r_n+O(r_n^2); the even mismatch order gives the stated sign and coefficient. With q=2p-1, the reciprocal-power increment is qc+O(r_n), which gives n r_n^q -> 1/(qc). Along each half-flight, horizontal motion is monotone, its length is 2r_n+O(r_n^2), and dy/dx=O(|x|+|y|) bounds the height by O(r_n^2). The reciprocal horizontal speeds thus integrate to a full clock increment K r_n+O(r_n^2), with the absolute value on b_-. For q>1, summing the clock gives t_n r_n^(q-1) -> K/[c(q-1)]. For q=1, the increments of log r_n+(c/K)t_n are O(r_n^2); these are summable, proving a finite real log limit and hence a strictly positive finite prefactor. The polynomial example has lower return -r and upper first integral y+x^2+c x^(2p+1); its upper return equation gives the coefficient -c for every p. These arguments concern positive crossings and original time, not signed position between crossings.
 
-- At mismatch order \(2\), after 50,000 circuits, \(r_n\exp(t_n/4)\approx0.1229097050\), compared with \(0.1229072499\) after 10,000 circuits. The theoretical assertion is convergence to a positive initial-dependent constant, not a specified universal number.
-- At order \(4\), after 200,000 circuits, \(t_n r_n^2\approx1.996177688\), approaching the exact predicted limit \(2\).
-- At order \(6\), after 200,000 circuits, \(t_n r_n^4\approx0.998948426\), approaching the exact predicted limit \(1\).
+## originality
 
-These late-time decimal checks were carried out by solving the unique positive implicit-return equation and adding the exact circuit time \(3r_n+r_{n+1}\). They support, but do not substitute for, the infinite-series and reciprocal-power proof. The source paper's separate claim of infinite arrival time is attributed as prior evidence.
+PASS
+
+The distinct claim is the exact quantitative physical-time law, especially the convergent quadratic prefactor, together with its higher-order counterparts. The even-order mismatch, leading return displacement and infinite arrival time are already present in the prior primary source. The new laws are quantitative consequences of that analytic setup after controlling and summing the physical clock; the qualitative theorem alone does not give them. No checked distinct source provided equivalent coverage of the claimed physical-time law.
+
+## value
+
+PASS
+
+An infinite arrival time does not distinguish exponential from power-law relaxation. Because the periods vanish, the return-index exponent is not the physical-time exponent. The exact constant in terms of the two side speeds and the mismatch coefficient, including a genuine nonzero asymptotic amplitude in the exponential case, calibrates that distinction for a natural local class; the polynomial family shows every listed order occurs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

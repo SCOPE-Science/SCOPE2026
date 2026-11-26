@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The product identity \(\varphi(n)\sigma(n)/n^2=\prod_{p^a\parallel n}(1-p^{-a-1})\) is exact. After selecting two prime-power blocks, discarding the remaining Euler factors can only lower \(F(n)\), and the resulting exact expression is \(p^{a-1}q^{b-1}(q^{b+1}+p^{a+1}-1)\). Its minimum is \(12\), uniquely at \(p=2,q=3,a=b=1\), with no additional support. The prime-power formula is exact, and \(p^{a-1}<12\) has been exhausted completely.
+## correctness
 
-## Originality
-PASS. A069249 records positivity, primes, and the prime-power formula but not the mixed-support barrier or low-fiber classification. A164875 is an extremal table, not a support theorem. The fully inspected Broughan–Ford–Luca paper develops the same product identity for a square-value problem but does not study this additive difference. Exact-form, alias, support, database, and value-\(12\) searches found no same or stronger result.
+PASS
 
-## Value
-PASS. A069249 already singles out primes and prime powers, making the first point at which mixed prime support can enter a natural structural question. The theorem gives the exact sharp answer, identifies the unique boundary object \(6\), and determines every fiber through that barrier. This is an unrestricted structural refinement of the sequence, not a bounded recomputation.
+For an exact block p^a, phi(p^a)*sigma(p^a)=p^(2a)−p^(a−1), giving both the product identity and F(p^a)=p^(a−1). For n=m p^a q^b with distinct p<q and gcd(m,pq)=1, the remaining normalized product is in (0,1]. Thus F(n) is at least m² p^(a−1)q^(b−1)(p^(a+1)+q^(b+1)−1), which is at least 2²+3²−1=12. Equality forces m=1, a=b=1, and p=2,q=3, and F(6) really is 12. On n>1 the smaller fibers follow by enumerating p^(a−1)=1,2,...,11: 1 gives precisely the primes, 6 and 10 are not prime powers, and positive prime-power targets p^j give the single input p^(j+1). No power of one prime gives 12. The sub-12 equivalence is on n>1, as stated by the proof; F(1)=0 if one includes the unit. The supplied verifier was inspected but not executed; the symbolic bound proves exhaustiveness independently of the finite range.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defect itself, prime and prime-power evaluations, individual terms, positivity, and the product formula need not be new. The comparison supports the distinct sharp lower bound on all mixed-support inputs, including its equality case and the resulting unrestricted low-fiber completeness. No inspected statement establishes that restriction by a bound or forces it from a table alone.
+
+## value
+
+PASS
+
+This is the first possible defect for mixed prime support, not an arbitrary numerical cutoff. Up to the cutoff the exact defect determines whether the input is a prime power, and for 2≤F(n)≤12 it determines the entire fiber, including two gaps and the first mixed case. The contribution is modest but structural; listing the known prime-power evaluations alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

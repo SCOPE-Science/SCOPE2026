@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof derives the exact midpoint matrix, real phase sums, characteristic-function representation of endpoint ensemble variance, and the unique countermonotone block optimum. It uses exact uniform moments \(\mathbb EU^2=1/3\), \(\mathbb EU^4=1/5\), and \(\operatorname{Var}(U^2)=4/45\), with a uniform fourth-derivative bound for the arctangent angle. Both positive leading constants are obtained by taking \(m\to\infty\) at fixed \(T,\kappa,\alpha>1\). A finite grid alone does not justify the limit, and no automated checker supplies a universal or independent proof.
+## correctness
 
-`VERIFY.py` is a standalone rerun script requiring Python 3, SymPy and mpmath (versions in `requirements.txt`). Run `python VERIFY.py` in the same directory. It symbolically checks the arctangent derivative identities, evaluates uniform moments, computes one-dimensional quadrature for exact finite-block phase and endpoint dispersions, and checks scaled limiting constants for six grid sizes. It prints `VERIFY_OK` only if all assertions pass. The reproducibility check returned `VERIFY_OK 77 symbolic, exact uniform-moment, high-precision finite-grid checks`.
+PASS
 
-The code does not test all admissible \(T,\kappa,\alpha\), every finite step size, or all possible couplings. Those quantified assertions require the proof. No independently performed audit or publication certification is asserted.
+The Cayley update is a Euclidean rotation with unwrapped angle θ(s)=2 arctan(s/2); its products preserve energy and add angles. For iid draws the one-step centered angle is θ′(h)δU+O(δ²) uniformly, with θ′(h)→1. For a complementary block it is θ″(h)δ²(U²−1/3)+O(hδ⁴), since the odd terms cancel, the fourth derivative vanishes at zero and δ=o(h). With θ″(h)∼−h/2 and Var(U²)=4/45, the one-block variance is asymptotic to h²δ⁴/45. Multiplying by T/h and T/(2h) respectively gives the stated positive constants and powers. For a block angle W, 1−|E exp(iW)|²=E[1−cos(W−W′)]∼Var(W) by uniformly vanishing width. Block independence and K Var(W)→0 then give endpoint dispersion ∼K Var(W) and the ratio κ²h⁷/30 at α=5/2. For arbitrary two-step couplings, the variance changes only through E[f(U)f(V)] for f(u)=θ(h+δu), with f′>0. Its survival-integral representation is minimized by saturating the lower Fréchet bound; continuity and strict positivity of the weights force equality of all survival probabilities, hence V=−U. This is for positive nondegenerate widths and unwrapped phase. The nominal time is fixed by the number of steps, not by synchronizing the iid physical clock.
+
+## originality
+
+PASS
+
+Credit is limited to the sharp matched-marginal phase and actual endpoint-dispersion laws for harmonic midpoint, particularly the positive curvature residual and its constant. Exact energy preservation, use of the nominal grid and countermonotone optimality for a monotone transformed sum are established principles. The iid upper rate in part of the parameter range is already a consequence of prior work; it is not credited as new.
+
+## value
+
+PASS
+
+This benchmark quantifies what matched positive step-length marginals and unchanged update counts do not determine: the actual dispersion of an energy-preserving integrator. Removing the leading random-clock component leaves a positive, sharply quantified midpoint-curvature residual, which is useful for distinguishing timing variation from integrator variation. The seven-power comparison is at a nominal time and does not establish a seven-power improvement over an iid procedure already synchronized to the same physical time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

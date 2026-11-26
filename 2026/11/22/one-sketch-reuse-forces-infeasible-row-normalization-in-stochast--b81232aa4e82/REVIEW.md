@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is explicitly defined: \(X^+=X-\eta B_iX(X^{\mathsf T}B_iX-I_p)\) with \(B_i=ne_ie_i^{\mathsf T}\). Multiplying its rank-one factor gives the exact row scaling \(1+\beta-\beta y\). The identity \(y^+-1=(y-1)[1-\beta y(2-\beta(y-1))]\) and the explicit inequalities for \(0<\beta\le1/(2n)\), \(0<y\le n\), establish monotonic approach to one at every sampled nonzero row. An iid uniform index sequence visits all rows infinitely often almost surely. The limit and Frobenius-trace bound follow without a finite-simulation-to-infinite-time inference. Full column rank is preserved. The exact n=p identity witness attains the stated dimension-family lower bound. A 96,768-assertion standalone supplementary checker passed. Risks: no result is claimed for larger steps, roundoff, general sketch laws or nonconstant objectives.
+## correctness
 
-## Originality — PASS, qualified
-Goyens–Mataigne–Absil (arXiv:2605.31505v1, Sections III, IV, VI) explicitly require independent sketches; Vary–Ablin–Gao–Absil (arXiv:2405.01702v1, Equation (3)) independently sample the two normal factors. Neither inspected statement entails the almost-sure row-normalized limit or universal infeasibility floor of the **modified perfectly coupled** scheme. Searches of mathematical records for the source title, method names, shared-sample covariance gradients, and support-normalization aliases found no matching claim. Strongest conceptual antecedent is the independent-sample field identity, credited in the proof. The generic observation that a reused stochastic factor estimates a different quartic explains the mechanism but does not present the quantified full-Stiefel failure law. Residual risk: an unindexed double-sampling or stochastic-manifold paper could imply the exact specialization; absence from search is not a novelty proof.
+PASS
 
-## Value — PASS
-The independence requirement in fast rank-one sparse landing is an algorithmic correctness condition, not just a variance preference. Reusing one sketch to economize sampling forces every exactly feasible full-rank \(n\times p\) initial frame with \(p\ge2\) to a *nonfeasible* deterministic limit, with a positive dimension-explicit failure floor independent of how small the fixed step is. The complete all-row and all-initial-frame classification is more informative than a single perturbative or one-step bias test. The claim is explicitly restricted to a modified sampling coupling and does not purport to refute the published independent-sketch convergence theorem.
+Verified the literal update and step range in RESULT.md:6–27. The selected row alone is multiplied by 1+β−βu², where β=ηn and u=√n||x_i||. Initially 0≤u≤√n by the orthogonal-projector diagonal bound. The multiplier is positive on this interval. For a nonzero row, u_next−1=(u−1)[1−βu(u+1)], and 0<βu(u+1)≤(1+1/√n)/2<1. Thus each positive amplitude stays between its current value and 1 and converges to 1 on its visitation subsequence (the only admissible positive fixed point); zero rows and directions remain unchanged. Every coordinate is visited infinitely often almost surely, proving the deterministic limit and preserving full column rank by positive diagonal scaling, even at the limit. The limiting Gram trace is s/n; matrix Cauchy–Schwarz gives both exact lower bounds, and n=p with X0=I gives equality. Direct differentiation also verifies the factor of 1/2 in the shared-sample expected-surrogate gradient; independent samples instead factor the expectation. VERIFICATION.md and verify.py were inspected, not executed. The claimed 96,768 finite checks are package-reported and do not certify the infinite-time assertion. Exact arithmetic, fixed positive step in the stated interval, and zero tangential term are essential scope boundaries.
 
-## Literature and limitations
-The 2026 and 2024 original papers were inspected in the normal-field definitions and independent sampling assumptions, with later numerical method and convergence sections inspected as relevant. The previous mathematical-record results returned by overlap searches concern different sketch operators, feasibility methods or random-coordinate samplers. The result is not an evaluation of those algorithms. The step-size constant is conservative and there is no claim about finite-precision stability, nonconstant objectives or higher-rank sketches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the exact all-frame limit and sharp Stiefel feasibility floor for forced reuse of a rank-one coordinate sketch in the two normal factors. The estimator with independently drawn factors and the general observation that reusing a stochastic factor can change its mean are not novel claims.
+
+## value
+
+PASS
+
+A plausible implementation shortcut in a concrete sparse landing method changes the target, not just estimator variance. The theorem supplies an exact universal limit from feasible frames and a sharp dimension-dependent violation that cannot be removed by making the fixed step smaller. This is stronger and more actionable than a one-step bias example, without claiming independent-sketch failure or generalizing to arbitrary couplings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

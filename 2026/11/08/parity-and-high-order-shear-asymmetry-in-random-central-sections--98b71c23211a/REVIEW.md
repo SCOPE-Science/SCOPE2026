@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every generic central plane, two ring edges cross, and the sign pattern of the two apices decides between \(n+2\) and \(2+2r\) or \(2+2(n-r)\). Antipodal pairing establishes even-order rigidity; the exact ring-angle intervals classify all odd-order outcomes. Conditional sphere-coordinate integration yields the complete law and limits. A uniformly convergent arcsine/Fourier expansion gives positive coefficients, proving strict imbalance and its exact \(\lambda^n\) order. Direct convex-hull sampling, quadrature and high-precision asymptotic checks ran successfully; simulations are not substitutes for proofs.
+PASS
 
-## Originality
+The strict interior apex projection makes the hull the union of two pyramids along the ring, with exactly the ring edges and apex-to-ring edges. Almost every central plane avoids vertices; its ring-line cut crosses exactly two ring edges, and each section vertex is a crossing of a genuine edge. Opposite apex signs give n spoke crossings; same signs give twice the number of opposite ring signs. Antipodal pairs then yield even rigidity. For odd n=2q+1 the two possible ring majorities alternate on the n half-circle azimuth intervals. Agreement with the common apex sign is precisely (-1)^q sgn(cos(n psi))=+1 on that half-circle. Conditional on azimuth the Haar vertical coordinate is uniform on [-1,1], giving the stated weight for same-sign apices. Its antiderivative is arcsin(k sin psi); summation with the alternating signs gives the endpoint formula and total mass 2 arctan(lambda)/pi. The differentiated odd sine expansion is absolutely convergent for k<1 (the coefficient sum of each sine power is bounded, and each differentiation costs at most its degree). Integration against the square wave picks only frequencies (2m+1)n: the signs (-1)^q, (-1)^m and (-1)^(q+mn) cancel. The positive coefficient series establishes strict bias; its first term has degree n, and k=lambda+O(lambda^3), giving the exact leading coefficient and next-order remainder. The exceptional intervals each have positive length and strictly increasing positive weight; counting q+1 versus q intervals and dominated convergence give the limits. The inverse formula applies only to the odd law. An independent 80-digit angular quadrature reproduced the endpoint law to 1e-65 at 18 n/lambda combinations and checked the leading coefficient at lambda=.001 for n=3,5,7,9 (ratios within 2.48e-6 of one). Replay: /workspace/branches/33f027af-1a20-4b04-a3bd-6db3813a6af6/independent_replay.py. It is a bounded integration check, not an independent hull simulation or proof of positivity; the all-order proof is analytic. The frozen checker was inspected, not executed.
 
-PASS under available evidence, with historical-priority risk. Padrol–Pfeifle (arXiv:1404.2443, §§1–2) prove attainable sections, including a triangular bipyramid's hexagonal section, not Haar probabilities or shear asymptotics. De Loera–Lopez-Campos–Torres (arXiv:2412.12419, §§1–5) study vertex-count ranges/maxima for unconstrained affine planes, without this odd-even central-plane distribution. Voss (1982) concerns stereological random affine planes, while the current plane is constrained through the ring center; only Voss's abstract was obtainable. Sukiasyan (1982) also remains incompletely inspected. No inaccessible text is labeled as excluding the result.
+## originality
 
-## Value
+PASS
 
-PASS. The exact three-type distribution, even/odd rigidity dichotomy, inverse shear law and strictly positive imbalance with an unexpectedly high vanishing order are natural structural features of skew bipyramid sections. They distinguish central sections from Crofton affine sections, and extend an existence question into a quantitative geometric probability law across all base orders. The \(\lambda^n\) law has intrinsic mathematical motivation: symmetry forces cancellation of all lower odd powers.
+Existence and combinatorial classification of plane sections, and general methods that reduce central slices to sign chambers, are not new here. The supported distinct claim gives evaluated Haar weights for the vertex-aligned skew bipyramid family, their parity dichotomy, and a strictly signed exceptional imbalance with explicit cancellation order and coefficient. The relevant accessible statements did not supply those conclusions. The 1982 section-frequency sources are material but unresolved priority risks, not evidence either for or against coverage.
 
-## Closest literature and residual limits
+## value
 
-The 2014 heptagon/triangular-bipyramid section existence work and 2024 maximum-section-count work are conceptually close but do not logically dominate the stated distribution. The complete texts of Voss (1982) and Sukiasyan (1982) were unavailable, so residual priority uncertainty must remain. The theorem assumes apex shift aligned with a base vertex and Haar central planes, not general shifted affine planes. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full vertex-count distribution gives information beyond combinatorial attainability: an even-order invariant, a parameter-identifying odd-order probability, and a surprisingly high exact order of the bias between the other two outcomes. The strict sign and sharp coefficient expose how the base symmetry suppresses all lower harmonics and are meaningful geometric information for this natural family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

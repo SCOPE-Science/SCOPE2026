@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The complete finite computation is in `verify.cpp`. Compile with `g++ -O3 -std=c++17 -Wall -Wextra -pedantic verify.cpp -o verify`, then run `./verify`. It prints exact totals and `VERIFY_OK`, and fails with nonzero status if any expected count or rank bound disagrees.
+## correctness
 
-The generator walks each directed edge representing a ternary triple exactly once, fixes the unique `000` edge first, requires return to vertex `00`, and thereby enumerates cyclic words once each. For every word and cut, it tests the unique possible nine-position set; failed cuts trigger an exhaustive search through all 275 ten-position sets that hit every three-factor window. Bitsets test all three one-letter and nine two-letter factors. A combinatorial lemma in `RESULT.md` shows these tests also guarantee coverage of every longer factor. Thus the finite search is exhaustive for the stated domain rather than extrapolation from samples.
+PASS
 
-An explicit cycle with no nine-optimal cut is `000100212012101112221102022`. For cut zero, the positions `0,3,5,8,11,14,17,20,23,26` form a ten-position full attractor; all its nonempty factor lengths were separately checked directly. The standalone code includes its own expected-result assertions but does not depend on output files or private data. This is reproducible finite evidence, not an independent audit and not a theorem for larger parameter values.
+Every trigram occurs at exactly one of the 27 linear starts. A nine-element hitting set must cover exactly three starts per mark without overlap, forcing marks 2,5,…,26. Hitting all such windows hits every occurrence of every longer factor, so the only further tests are the three letters and nine digrams. I independently enumerated all 2·6^8 local exit orders of the Euler graph with 000 fixed first. Every complete tour uniquely determines and is reproduced by its orders. All ten-subsets were filtered by explicit bit-mask coverage of the 27 starts, yielding 275, and each of the 27 linear cuts per tour was tested directly, without the source's residue shortcut. The seven disjoint chunks in /workspace/audit-evidence/2/census.py and totals.txt give 373248 cycles, 8274096 cuts of size nine, 1803600 of size ten and none unresolved; the cycle histogram is 0:1632, 9:19968, 18:155568, 27:196080. Direct all-factor checking confirms the displayed witness's ten marks; all its cuts fail nine. A second independent symbol-recursion run agreed. The source C++ was inspected but not executed, and no claim for other orders follows.
+
+## originality
+
+PASS
+
+An unfavorable cut and examples of favorable recuts were known. The inspected sources do not settle which labeled ternary order-three cycles lack a favorable cut at every rotation, or give the 9/10 counts and distribution. The result answers the universal-cycle question negatively, not the separate existence question.
+
+## value
+
+PASS
+
+The finite domain is the natural small nonbinary case of a published universal unfolding question. The verified all-rotation obstruction gives a clean counterexample, and the complete labeled distribution quantifies how often cut selection can or cannot recover the lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bracket is an integral Lie bracket, and a fully specified Chevalley–Eilenberg sign convention and ordered bases determine all integer matrices. Six exact, unimodular Smith reductions give invariant-factor multiplicities \((5,1),(27,3),(54,6),(51,9),(22,8),(3,3)\), expressed as counts of \(1\) and \(2\). Matrix compositions are identically zero, and the rational ranks add to the cochain dimensions. These facts prove the integral torsion groups and all-characteristic Betti numbers; neither numerical ranks nor finite sampling are substituted for proof. The characteristic-two cocycle has a forced nonzero \(t\)-component modulo coboundaries, integrates because its image is central, and changes the derived dimension from three to four.
+## correctness
 
-**Originality — PASS, qualified.** The primary Fernández–Tirao paper covers the same complex **in characteristic zero**, including all-degree vanishing (Proposition 3.4), and therefore that rational subclaim is explicitly credited rather than presented as new. Its statements assume \(\mathbb C\), while the new exact integral invariant-factor groups, unique exceptional characteristic and full characteristic-two Betti dimensions are absent there. A modular deformation study of the three-dimensional Lie algebra \(\mathfrak{sl}_2\) involves a different algebra; the real low-dimensional contraction paper does not determine these Smith invariants. Mathematical research index searches did not reveal a covering result, although unindexed historical calculations remain a risk. This is a priority assessment, not independent certification.
+PASS
 
-**Mathematical value — PASS.** The natural irreducible two-dimensional module is the smallest nontrivial symplectic representation underlying the toral rigidity construction. The calculation shows exactly how its characteristic-zero all-degree acyclicity fails after integral reduction: all torsion is of order two, no other prime is exceptional, and characteristic two gains nine independent second-cohomology directions. An explicit nontrivial integrated direction proves a genuine change in the Lie algebra, rather than a merely numerical cohomology jump. This supplies a motivated structural boundary for rigidity in a canonical six-dimensional family.
+The specified basis brackets are the semidirect product of integral sl₂ plus the scalar torus with its defining module, with alternating brackets retained after reduction. An independent exact Chevalley–Eilenberg reconstruction checked Jacobi and all five consecutive products. The unit and 2-factor counts in the six integer Smith forms were respectively (5,27,54,51,22,3) and (1,3,6,9,8,3), with no other nonzero factors. The ranks (6,30,60,60,30,6) give rational acyclicity at all degrees, including the ends. In each degree the kernel in the preceding cokernel has quotient the free image of the next differential, so the integral cohomology is precisely the preceding cokernel's torsion. The finite free alternating complex base-changes to any field: the Smith 2's vanish exactly in characteristic two, yielding (1,4,9,15,17,11,3); degrees beyond six are zero. In characteristic two h+t is central. The alternating form supported on the x,y wedge is invariant under the complement spanned by e,f,h,t, whose action on span(x,y) is trace zero in this characteristic. Thus its h+t-valued cochain is closed. No [x,G(y)] or [y,G(x)] has a t-component, and [x,y]=0 before deformation, so the cochain is not exact. It kills its own image in the inputs, which makes the quadratic Jacobi term zero over every field of characteristic two. A nonzero parameter adds the independent h+t direction to the original derived span of h,x,y.
 
-**Closest literature and limitations.** Fernández–Tirao (2026), arXiv:2611.10747v1, §§2–3, especially Propositions 3.1 and 3.4; Campoamor-Stursberg (2006), low-dimensional real non-solvable contractions; Ibrayeva–Ibraev–Turbayev (2020), modular deformations of three-dimensional \(\mathfrak{sl}_2\). The finding concerns ordinary, not restricted, cohomology, and does not classify all nine modular deformation directions. Independent audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full-torus characteristic-zero theorem covers all degrees of the rational statement. The accepted distinct contribution is the complete integral Smith/torsion profile, the resulting all-field bad-prime classification, and the explicit integrable characteristic-two deformation. The closest compared modular computations concern different brackets or coefficients; no priority is inferred from the shared catalogue date.
+
+## value
+
+PASS
+
+The defining irreducible module and full scalar torus are natural inputs from the characteristic-zero rigidity theorem. The exact calculation identifies the sole bad prime and its complete elementary 2-torsion profile, rather than inferring modular information from rational rigidity. The exhibited deformation distinguishes the bad prime geometrically by a jump in the dimension of the derived algebra. The data can be used to study which characteristic-zero rigidity phenomena survive reduction on this integral model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

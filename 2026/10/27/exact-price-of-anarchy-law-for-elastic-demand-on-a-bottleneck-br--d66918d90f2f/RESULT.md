@@ -2,78 +2,50 @@
 
 ## Finding
 
-For every benefit level \(B\in(4-2\sqrt2,2)\), the four-vertex directed Braess network described below has an exact elastic-demand price of anarchy
+In the four-vertex bottleneck network described below, let the mass of potential travelers be 3 and let their common travel benefit satisfy \(1<B<2\). Put \(B_*=4-2\sqrt2\). Then the worst Nash combined cost is \(3B\), the minimum combined cost is
 \[
-\operatorname{PoA}=\frac{3B}{B+2}.
+CC_{\min}=\min\{3B-B^2/4,\, B+2\},
+\qquad
+\operatorname{PoA}=\frac{3B}{\min\{3B-B^2/4,\,B+2\}}.
 \]
-Every Nash flow has combined cost \(3B\) and total travel \(B\). The unique cost-minimizing flow sends one unit on each outer path and none on the shortcut, so its total travel is \(2\) and its combined cost is \(B+2\). Thus equilibrium travel is strictly below optimal travel throughout this parameter interval. At \(B=6/5\), the exact ratio is \(9/8\).
+For \(B<B_*\) the unique minimizing path flow is \((B/2,0,0)\), and for \(B>B_*\) it is \((0,1,1)\). At equality these are the only two minimizers.
+
+All Nash flows have equal loads \(w\) on the two variable-latency edges and are of the form \((x,w-x,w-x)\). They consist of:
+
+* flows with total travel \(r=2B-x<3\), where \(w=B\) and \(0\le x\le B\), with combined cost \(3B\);
+* flows with all 3 units traveling, present only for \(B\ge3/2\), where \(3/2\le w\le B\) and \(x=2w-3\), with combined cost \(3w\).
+
+Thus Nash travel ranges over \([B,\min(2B,3)]\). In the upper regime \(B>B_*\), the shortcut-only equilibrium with travel \(B\) is a worst equilibrium with less travel than the optimum (which has travel 2). There are also Nash flows with more travel than the optimum. At \(B=6/5\), the worst Nash and optimal costs are respectively \(18/5\) and \(16/5\), so the ratio is \(9/8\).
 
 ## Assumptions and scope
 
-The directed graph has vertices \(s,a,b,t\) and five edges. The edge-latency functions are
-\[
-c_{sa}(f)=f,\quad c_{at}(f)=1,\quad c_{sb}(f)=1,\quad
-c_{bt}(f)=f,\quad c_{ab}(f)=0.
-\]
-There is one source–destination pair \((s,t)\). The three paths are the shortcut \(P_0=s\to a\to b\to t\), and the outer paths \(P_1=s\to a\to t\) and \(P_2=s\to b\to t\). A path's cost is the \(\ell_\infty\) norm of its edge-latency vector, i.e. the maximum edge latency on that path, not the sum.
-
-The population has mass \(3\), and each potential traveler has constant benefit \(B\) for traveling, with \(4-2\sqrt2<B<2\). For path flows \(x,y,z\ge0\) on \(P_0,P_1,P_2\), respectively, total travel is \(r=x+y+z\le3\). The combined-cost objective is total path cost paid plus lost benefit of nontravelers:
-\[
-CC(x,y,z)=xC_0+yC_1+zC_2+B(3-r).
-\]
-No claim is made for other path norms, benefit curves, edge costs, or network topologies.
+The directed edges are \(sa,at,sb,bt,ab\), with respective latency functions \(f,1,1,f,0\) of edge flow \(f\). Write \((x,y,z)\) for nonnegative flows on the shortcut \(sabt\) and the outer paths \(sat,sbt\), respectively; \(r=x+y+z\le3\). Each path costs the maximum latency of its edges. The outside option of not traveling costs \(B\). A Nash flow assigns positive mass only to options of minimum cost (including the outside option). The combined cost \(CC\) sums all path payments and the lost benefit \(B(3-r)\).
 
 ## Proof
 
-Set \(u=x+y\) and \(v=x+z\). The path costs are exactly
+Let \(u=x+y\), \(v=x+z\), so the path costs in order are
 \[
-C_0=\max\{u,v\},\quad C_1=\max\{u,1\},\quad
-C_2=\max\{1,v\}.
+C_0=\max(u,v),\quad C_1=\max(u,1),\quad C_2=\max(v,1).
 \]
 
-**Equilibrium.** The flow \((x,y,z)=(B,0,0)\) is feasible because \(B<2<3\). Since \(B>1\), all three path costs at this flow equal \(B\). This is a Nash flow: every used path costs the travel benefit, and no unused path is cheaper. More generally, at any Nash flow the common cost of used paths equals \(B\). Hence its congestion-cost term is \(Br\), while the lost-benefit term is \(B(3-r)\). Every Nash flow therefore has \(CC=3B\).
+**Nash flows.** Zero travel is not a Nash flow, since the empty shortcut costs zero. If \(r<3\) at a Nash flow, the common used path cost is \(B\), by indifference with the used outside option. If \(r=3\), the common used path cost \(c\) is at most \(B\); moreover \(u,v\le c\), since each positive edge load comes from a used path whose bottleneck cost is at least that load. As \(r=u+v-x\le u+v\), in the latter case \(c\ge 3/2\). In both cases the common used path cost is greater than 1, so \(\max(u,v)>1\). If \(u>v\), both paths using the first variable-latency edge cost \(u\), but the other outer path costs \(\max(v,1)<u\). This contradicts \(u>0\) in a Nash flow. The same argument rules out \(v>u\). Hence \(u=v=w>1\), so all three paths cost \(w\) and \(y=z=w-x\). Indifference for \(r<3\) now gives \(w=B\); for \(r=3\), feasibility and the outside option give \(x=2w-3\) and \(3/2\le w\le B\). Conversely each listed flow obeys the minimum-cost conditions. The cost is \(3B\) in the first class and \(3w\) in the second. In particular \((B,0,0)\) attains the worst cost \(3B\). The travel range follows from \(0\le x\le B\) and, when available, the full-travel class.
 
-**Global optimum.** Subtract the constant \(3B\) and write
+**Global minimizers.** Let \(F=CC-3B\). For fixed \((u,v)\), extend the expression
 \[
-F:=CC-3B=x\max\{u,v\}+(u-x)\max\{u,1\}
- +(v-x)\max\{v,1\}-B(u+v-x).
+F=x\max(u,v)+(u-x)\max(u,1)+(v-x)\max(v,1)-B(u+v-x)
 \]
-For fixed \(u,v\), this expression is affine in \(x\) on \(0\le x\le\min\{u,v\}\). Its minimum is therefore attained at \(x=0\) or \(x=\min\{u,v\}\).
+as an affine function on \(0\le x\le\min(u,v)\), even if \(r>3\) at the left endpoint. The minimum of the two extended endpoint values is a lower bound at every feasible point. Both minimizing endpoint configurations found below are themselves feasible.
 
-If \(x=0\), then \(F=g(u)+g(v)\), where
-\[
-g(q)=q\max\{q,1\}-Bq=
-\begin{cases}(1-B)q,&0\le q\le1,\\q^2-Bq,&q\ge1.\end{cases}
-\]
-Because \(1<B<2\), the first branch decreases to \(q=1\), and the second branch increases from \(q=1\). Thus \(g(q)\ge1-B\), with equality only at \(q=1\). Consequently \(F\ge2(1-B)\), with equality only at \(u=v=1\), which gives \((x,y,z)=(0,1,1)\).
+At \(x=0\), the expression is \(g(u)+g(v)\), where \(g(q)=q\max(q,1)-Bq\). On \([0,1]\) it strictly decreases to \(1-B\); on \([1,\infty)\) it strictly increases from this value because \(B<2\). The left endpoint therefore has minimum \(2(1-B)\), attained only at \(u=v=1\).
 
-For the other endpoint, assume without loss of generality \(u\le v\), so \(x=u\), \(y=0\), \(z=v-u\), and
-\[
-F=uv+(v-u)\max\{v,1\}-Bv.
-\]
-If \(v\le1\), then \(F=u(v-1)+(1-B)v\ge v^2-Bv\ge-B^2/4\). If \(v\ge1\), then \(F=v^2-Bv\ge1-B\), since \(B<2\) makes this branch increasing for \(v\ge1\). The parameter condition \(B>4-2\sqrt2\) is equivalent to \(2(1-B)<-B^2/4\); also \(2(1-B)<1-B\) because \(B>1\). Therefore this endpoint has strictly larger objective than \(2(1-B)\).
-
-It follows that the unique global optimum is \((x,y,z)=(0,1,1)\), with total travel \(2\) and
-\[
-CC_{\rm opt}=3B+2(1-B)=B+2.
-\]
-The exact price of anarchy is \(CC_{\rm Nash}/CC_{\rm opt}=3B/(B+2)\). At \(B=6/5\), the equilibrium and optimal costs are \(18/5\) and \(16/5\), respectively, and the ratio is \(9/8\). This proves the claim for the full stated interval.
+At \(x=\min(u,v)\), assume \(u\le v\) by symmetry. The expression becomes \(uv+(v-u)\max(v,1)-Bv\). For \(v\le1\) it is \(u(v-1)+(1-B)v\ge v^2-Bv\ge -B^2/4\); equality requires \(u=v=B/2<1\). For \(v\ge1\) it is \(v^2-Bv\ge1-B>-B^2/4\), the last inequality being strict since \(B<2\). Thus the right endpoint minimum is \(-B^2/4\), only at \(u=v=B/2\). No interior \(x\) can attain the global lower bound: that would require both endpoint values to attain it at the same \((u,v)\), and their minimizing pairs are different. The asserted global minimizers and costs now follow, since \(2(1-B)\) is strictly smaller than \(-B^2/4\) precisely for \(B>B_*\) within \(1<B<2\). Dividing the worst equilibrium cost by the optimal cost proves the ratio.
 
 ## Verification
 
-The included exact-rational Python script was run from the packaged path and printed `VERIFY_OK`. It checks the representative value \(B=6/5\), the displayed path costs, feasibility, combined costs, ratio, and exact rational inequalities. The continuum result rests on the piecewise analytic proof above; the script is corroboration, not an independent or formal proof.
+The proof covers the continuum and both boundary points \(B=B_*\) and \(B=3/2\). The accompanying `verify_braess_benchmark.py` checks exact rational flow examples and enumerates feasible rational grids in both optimization regimes and at the full-travel threshold. Grid checks are finite corroboration, not proofs of the continuum optimization or classification.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Cole, Dodis, and Roughgarden introduced elastic traffic together with nonadditive path-cost norms and a prize-collecting combined-cost objective. Their Section 5 explicitly leaves unanalyzed the nonlinear-path-norm case when Nash flow sends less total traffic than an optimum. The present result supplies an exact parameterized benchmark in that case for the \(\ell_\infty\) norm; it does not solve the general problem. Earlier work on nonadditive path costs studies equilibrium existence, uniqueness, and computation, while standard elastic-demand price-of-anarchy bounds for separable costs do not directly imply this max-aggregated path-cost formula.
+The elastic-demand model, bottleneck path norm and combined-cost objective follow Cole, Dodis and Roughgarden. Their author manuscript, §5, discusses a flow-order assumption requiring Nash traffic to be at least optimal traffic, and its bottleneck bound also assumes subpath optimality. We require only that no traveler can improve by switching full routes or participation. In particular at full participation a common cost strictly less than \(B\) is allowed; if equality with \(B\) is imposed even at that boundary, only the \(w=B\) member of the full-travel family remains, and the worst cost and its ratio are unchanged. The shortcut-only equilibrium is not subpath-optimal: travel from \(s\) to \(b\) along the shortcut costs \(B>1\), while the direct \(sb\) edge costs 1. This is a calculation for one five-edge network, not a network-wide bound. No assertion is made for other benefits or population masses.
 
-## Limitations
-
-This is a one-topology theorem for a single commodity, constant benefits, five specified latency functions, and the bottleneck norm. It gives neither a worst-case bound over networks nor a general comparison theorem for elastic demand. Related older literature may contain an equivalent special example; two plausible papers were available only through their abstracts and metadata, so priority is not exhaustively settled.
-
-## References
-
-1. R. Cole, Y. Dodis, and T. Roughgarden, “Bottleneck Links, Variable Demand, and the Tragedy of the Commons,” Proceedings of the 17th ACM-SIAM Symposium on Discrete Algorithms (SODA), 2006, pp. 668–677. DOI: 10.1145/1109557.1109630.
-2. R. Cole, Y. Dodis, and T. Roughgarden, “Bottleneck links, variable demand, and the tragedy of the commons,” *Networks* 60(3), 194–203 (2012). DOI: 10.1002/net.21458.
-3. S. A. Gabriel and D. Bernstein, “The Traffic Equilibrium Problem with Nonadditive Path Costs,” *Transportation Science* 31(4), 337–348 (1997). DOI: 10.1287/trsc.31.4.337.
-4. C. K. Chau and K. M. Sim, “The price of anarchy for non-atomic congestion games with symmetric cost maps and elastic demands,” *Operations Research Letters* 31(5), 327–334 (2003). DOI: 10.1016/S0167-6377(03)00030-0.
+Cole, Dodis and Roughgarden, “Bottleneck Links, Variable Demand, and the Tragedy of the Commons,” *Networks* 60(3), 194–203 (2012), DOI: [10.1002/net.21458](https://doi.org/10.1002/net.21458); SODA 2006 version, DOI: [10.1145/1109557.1109630](https://doi.org/10.1145/1109557.1109630).

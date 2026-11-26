@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any m,n≥3 and t,κ>0 the finite-dimensional loss operator has bright subspace span{L^j|w>}. Its explicitly derived five-class quotient has Krylov determinant −m t^3(m−n), hence full rank five iff m≠n. At m=n four successive powers are independent and the displayed dark vector has Laplacian eigenvalue m and zero trap amplitude, yielding rank four and the explicit rank-one projector subtraction. Taking projector diagonal entries proves every claimed capture formula. An independently implemented full-graph exact rational Krylov checker passed all 100 combinations m,n in 3..7 and t in {1/3,1,2,7/2}. Computation is finite corroboration, not the infinite proof. Positivity of t and κ, and the Laplacian rather than adjacency Hamiltonian, are essential boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Novo et al. establishes a general Krylov projector algorithm on graphs; it does not state or compute the size-asymmetry resonance of two joined cliques.",
+        "Duda and Wong, arXiv:2408.08244, studies oracle spatial search on equal-size weighted barbells, without an irreversible absorber."
+      ],
+      "reasoning": "General finite-dimensional spectral methods can be applied to this model, but their availability is not a published coverage of the derived determinant, the rank jump, and universal bridge-site capture. The weighted barbell search work uses a different generator and observable, and the clique sizes there are equal. Their statements do not logically imply the unequal-barbell absorption theorem.",
+      "searches": [
+        "quantum walks joined unequal complete graphs sink bright subspace dimension 4 5 trapping",
+        "continuous time Laplacian quantum walk double clique barbell unequal orders nonbridge trap perfect capture from bridge site iff clique orders differ",
+        "arxiv:1412.7209 general transport Krylov projection",
+        "arxiv:2408.08244 weighted barbell graph Laplacian quantum search"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1412.7209",
+      "https://www.mdpi.com/1099-4300/23/1/85",
+      "https://arxiv.org/abs/2011.13794",
+      "https://arxiv.org/abs/2408.08244"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Razzoli et al. gives an equal-clique dimension-four calculation; substituting unequal sizes is outside its stated domain.",
+        "Novo et al. proves the general spectral projection characterization, which supplies a technique but not a full family-specific answer.",
+        "The theorem here explicitly computes det[e1,Me1,...,M^4 e1]=-m t^3(m-n) and a balance-only dark eigenvector."
+      ],
+      "reasoning": "Prior general methods plus a new quotient calculation do establish this result mathematically, but the found published equal-size result cannot imply the nonzero determinant for m≠n, nor exact 100% capture at either bridge site. The theorem credits the already-known 4-dimensional balanced case and confines its new conclusion to the unequal-size sharp transition and positive-weight universality.",
+      "searches": [
+        "Razzoli Paris Bordone joined cliques Section 4.3 Appendix B.3 equal complete graphs absorption",
+        "Novo Chakraborty Mohseni Neven Omar 2014 transport quantum walk general graph trap",
+        "weighted one-edge bridge two complete graphs Laplacian trap Krylov dimension jumps from four at equal clique sizes to five when unequal"
+      ]
+    },
+    "correctness_risk_boundary": "No claim of independent expert verification or finite-time absorption estimates.",
+    "equivalent_formulations": {
+      "evidence": [
+        "Razzoli, Paris and Bordone (2021), Section 4.3 and Appendix B.3, analyzes a pair of equal-size cliques with one unweighted link and a nonbridge absorber; its rank-four bright subspace and bridge efficiency agree with this theorem at m=n,t=1.",
+        "Novo et al. arXiv:1412.7209 gives general cyclic/Krylov projection methods, not the unequal-size joined-clique rank classification."
+      ],
+      "reasoning": "Equivalent notions were checked as coherent trapping, asymptotic transport efficiency, graph Laplacian quantum walk, loss-free dark states and Krylov controllability. The balanced subcase is explicitly known and credited. It does not imply the unequal-size full-rank result: its class quotient is singular and its bridge efficiency is strictly below one, whereas the unequal case requires showing that the determinant is nonzero. No equivalent result covering all unequal m,n and t>0 was found in the inspected material.",
+      "searches": [
+        "quantum walk two cliques connected one edge unequal sizes trap absorption Krylov subspace",
+        "arxiv:2011.13794 Section 4.3 and Appendix B.3; https://www.mdpi.com/1099-4300/23/1/85",
+        "quantum transport graph multiple sink trapping number of dark modes quantum walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Examined open-access papers and topic-index matches did not report the complete all-integer joined-clique capture table.",
+        "The closest indexed barbell result concerns irreversible dimer deposition rather than quantum trapping."
+      ],
+      "reasoning": "An exact finite parameter table could cover individual small graphs but would not by itself establish the all-integer rank criterion and strength independence. No covering all-parameter table or theorem was located. Search absence is not a proof of uniqueness; this remains a residual historical-priority risk.",
+      "searches": [
+        "barbell graph quantum walk unequal clique local trap capture probability table",
+        "quantum graph coherent absorption joined cliques m n unequal no dephasing exact rank",
+        "unbalanced barbell quantum trapping localized sink dark eigenvalue resonance bridge weight clique sizes"
+      ]
+    },
+    "rationale": "The spectral Krylov method is known (Novo et al., 2014) and the equal-size, unit-bridge four-dimensional barbell case is known (Razzoli et al., 2021), both explicitly credited. In inspected primary full text, no theorem asserts the all-size unequal-clique five-dimensional bright subspace, full bridge capture, and positive-weight rank transition. The related weighted barbell quantum search work (Duda and Wong, 2024) is unitary oracle search, not loss. Results and indexed literature searched by statements and reductions showed no coverage. Priority remains provisional, with possibility of uncatalogued equivalent exact calculations.",
+    "residual_risks": [
+      "An earlier equivalent result for arbitrary unequal two-clique graphs could be absent from the queried indexes.",
+      "A broad theorem for general equitable graph partitions may logically imply the rank condition even without the same terminology.",
+      "Positive local absorber asymptotic behavior does not directly give finite-time capture speed, which is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general method; no explicit all-size unequal joined-clique rank transition or bridge capture formula.",
+        "evidence": [
+          "The publication reduces excitation transport to a Krylov subspace of the absorbing site; the full theorem here additionally computes the 5-class quotient determinant and its rank-drop locus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.7209",
+        "material_read": "Open-access full HTML: introduction and main method plus quantum transport sections defining invariant Krylov spaces and trapping efficiency.",
+        "method": "Read and compared mathematical projector claims, graph families and reduced Hamiltonians.",
+        "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+        "trigger": "General transport efficiency and invariant Krylov subspaces could subsume the calculation."
+      },
+      {
+        "assessment": "Already establishes equal-size unweighted barbell rank-four behavior. Its bridge capture agrees with 1-1/Q at m=n and t=1. It does not establish unequal-size 5-dimensional bright projection or all-positive bridge-weight invariance.",
+        "evidence": [
+          "Section 4.3 assumes two complete graphs of the same size; Appendix B.3 computes the corresponding four-dimensional reduction."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/23/1/85",
+        "material_read": "Open-access full paper Section 4.3 and Appendix B.3, plus method and formulas for absorption from barbell vertices.",
+        "method": "Compared graph sizes, bridge weight, location of absorber, bright-space ranks and bridge efficiency expressions.",
+        "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+        "trigger": "Highly relevant equal-clique barbell absorption example; must distinguish prior exact subcase."
+      },
+      {
+        "assessment": "Analyzes unitary oracle spatial search on equal-size barbells. Does not cover irreversible local absorption from bridge-site excitations on unequal cliques.",
+        "evidence": [
+          "This is a spatial-search paper with an oracle Hamiltonian rather than the non-Hermitian absorbing Laplacian here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.08244",
+        "material_read": "Open-access full HTML introduction and spatial-search analyses, including assumptions about equal clique sizes and oracle dynamics.",
+        "method": "Compared spectral model, absorption observables, size parameters, and weighted bridge assumptions.",
+        "title": "Searching Weighted Barbell Graphs with Laplacian and Adjacency Quantum Walks",
+        "trigger": "Weighted barbell Laplacian dynamics and possible implicit size-asymmetry theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "97d03b67-4e6b-4c25-9a6f-c933c265a6e5",
+  "value": {
+    "rationale": "Two cliques connected by a unique bridge are a canonical finite transport bottleneck, and complete absorption from a site exactly on that bottleneck is a natural operational invariant. The result proves a sharp symmetry-protected loss-free mode at equal clique sizes that vanishes when one site is added, causing a macroscopic 1/2-to-1 jump in bridge-input capture, independently of positive coupling and loss strength. It provides complete finite-size sitewise projections over an infinite two-parameter family, beyond the known equal-size case; this is neither a renamed algorithm nor an isolated arbitrary numerical sample.",
+    "status": "PASS"
+  }
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from the exact Plancherel multiplier identity, a complete finite classification of peripheral frequencies by the gcd of support differences, and uniform Gaussian-scale localization near those frequencies. Positive weights ensure equality in the triangle inequality only at the listed peripheral points, and nonzero variance ensures the Gaussian envelope is nondegenerate. The normalized global supremum passes to the rescaled limiting profile because the complement is uniformly exponentially small and the local tails have integrable Gaussian envelopes. Both sharp constants follow by elementary one-variable maximization. The one-atom boundary and Ritt equivalence follow directly. The standalone verifier checked 102 exact or finite-grid assertions; it is supportive, not an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+Plancherel gives the exact continuum maximum of n|phi|^(n-1)|1-phi|. Positive coefficients force common phases at modulus-one contacts, which by Bezout are t=2pi j/g; their values run over exactly the q-th roots of unity. Evaluating at contacts and using exponential decay on the compact complement of their neighborhoods proves the c_q limit. When q=1 the neighborhoods are exact copies. With u=x/sqrt(n), the centered and drifting multipliers, including their specified normalizations, converge locally uniformly to (v x^2/2)exp(-v x^2/2) and |m x|exp(-v x^2/2). They have uniform polynomial-times-Gaussian majorants on the expanded neighborhoods, so maxima converge, giving e^(-1) and |m|/sqrt(e v) respectively. This proves the Ritt criterion for the contraction and also covers proper sublattices. A one-atom multiplier has constant modulus one and is either identically one or takes the value minus one, giving the two stated boundaries.
 
-The most relevant existing qualitative statement is Cuny's 2016 Theorem 1.6: centered strictly aperiodic laws with finite second moment are already Ritt on \(\ell^1\). This known membership result is explicitly excluded from any claim of novelty. Borichev–Gomilko–Tomilov (2026) give general Ritt characterizations and permanence results; their examined Section 6 examples and Section 8 permanence theorem are not exact asymptotic norm formulas for lattice convolution. The closest accessible mathematical-record findings concern general Ritt-power divisibility and finite cyclic \(\ell^4\) convolution, neither implies the three leading \(\ell^2\) constants for arbitrary finite-support integer laws. The complete arithmetic/drift-dependent asymptotic trichotomy and universal centered constant were not found in the inspected sources. The remaining priority risk is a general Fourier/local-limit or Ritt multiplier theorem that implies these constants without singling out this family.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first-difference norm is the defining quantitative diagnostic for the Ritt class. The theorem replaces a bounded-versus-unbounded dichotomy by complete exact rates, with natural support-gcd and drift invariants. The odd-denominator root-of-unity coefficient resolves arithmetic periodicity not visible from a variance-only approximation, while the universal nonzero centered limit quantifies all nondegenerate Ritt cases in this family. These are motivated operator-theoretic invariants, not arbitrary finite cutoffs.
+The supported distinct content is the sharp universal centered limit e^(-1) for finite nondegenerate probability laws with q=1, including nonsymmetric laws, and its inclusion in a complete bilateral classification. The resonant and noncentered constants have substantial previous Resultary coverage, and the qualitative centered Ritt property follows from Cuny even on proper sublattices. Neither of those overlaps supplies the sharp centered multiplier maximum.
 
-## Closest sources and limits
+## value
 
-- Borichev, Gomilko, Tomilov (arXiv:2607.10507): original July 11, 2026 preprint; examined full-text Sections 1, 6 and 8.
-- Cuny (Studia Mathematica 235, 2016, 47–85): inspected publisher full PDF, particularly pp. 47–51, Theorems 1.3 and 1.6; known centered strict-aperiodic Ritt criterion is stronger in a different norm, but gives no stated constants here.
-- Diaconis–Saloff-Coste (arXiv:1205.6490): examined full PDF, especially Sections 1, 3.1, 3.2 and 5.2. These concern pointwise convolution-power bounds and finite-difference schemes, not the exact three-case first-difference ell2 multiplier maximum.
+PASS
 
-The result concerns only finite nonnegative integer-support convolutions on \(\ell^2\). It makes no claim about \(\ell^1\) quantitative constants, or about publication-priority certification.
+The distinct centered limit gives the exact nonzero asymptotic defect, rather than only boundedness, for a natural class of finite-range Markov operators with arbitrary asymmetric centered laws and lattice span. Together with the previously covered regimes it provides a usable lattice/drift classification and explains why the sharp constant in the nondegenerate centered class is independent of all the weights and of the sublattice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

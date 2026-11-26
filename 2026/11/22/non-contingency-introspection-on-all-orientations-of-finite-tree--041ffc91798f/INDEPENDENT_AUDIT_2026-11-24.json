@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:58:41.359999Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof, lines 3–46 and coefficient exhibits lines 52–58",
+        "VERIFICATION.md",
+        "verify.py (read only)",
+        "/workspace/reproduction/forest.py and forest.txt; replay python3 /workspace/reproduction/forest.py 7"
+      ],
+      "rationale": "A vertex with at most one successor satisfies any Delta formula; if branching vertices are independent, every successor of a branching vertex satisfies Delta p, proving validity. Conversely, for an arc v->u between branching vertices, choose a second successor w of v and two successors a,b of u. Acyclicity of the simple underlying forest and the exclusion of reversed arcs guarantee that the successor sets of u and w are disjoint and do not intersect the successors of v: any collision would give a triangle or a four-cycle, or require an opposite arc on an already oriented edge. Set p constant on the successors of v and w but different on a and b. This gives a failure at v, including if w is a sink. For the census, a planted head when the parent sends into it is of type C or D; a planted tail sending to its parent is of type A or B_1. Incoming-child and outgoing-child sets at the planted vertex therefore contribute the exact stated factors: outgoing count at most 0 or 1 for A or C, at least 1 or 2 for B_1 or D; in the latter cases all children must be nonbranching, and the root contributes q. Separating labels by unordered sets gives the exponential factors. The true root has the zero-parent-outgoing states C+D; marking a root multiplies each n-vertex contribution by n. Each coefficient is uniquely determined from lower z powers. With zero branches the outdegree sum n-1 gives one sink and all edges point to it; Cayley gives n^(n-1), also correct at n=1. Two adjacent branching vertices require the endpoints plus three distinct additional neighbors, and at order five the unique possible shape has central degrees 2 and 3, with 5·4·3 choices and a unique invalid orientation for each. Independently, I enumerated parent maps toward label 0 and each orientation through order 7, evaluated both nested Delta formulas as full Boolean valuation masks, and tallied branching by exact outdegree. I separately expanded ordinary rational z-polynomials through order 9; the totals match, and the independent refined coefficients through order 7 agree at five q values (degree at most floor((n-1)/2)). This check reproduces the 60 invalid orientations at order five and all given polynomials. The frozen script compares its refined EGF to hard-coded values, not to branch counts freshly tallied by its own enumeration; this limits what its code alone establishes, but the independent tally supplies that check.",
+      "residual_risks": [
+        "The finite enumeration does not extend the theorem to graphs with cycles, loops, or opposite arcs; the all-order forest result follows from the structural proof, not finite extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The assigned source explicitly credits Zolin's general modal correspondence. The noncrossing-tree paper assigns edges by increasing vertex label, and the H-free paper optimizes the number of orientations over host graphs rather than summing a branch-refined distribution over labelled trees."
+        ],
+        "reasoning": "The forbidden local motif can express the validity criterion as a tree orientation avoidance problem, but a correspondence, a fixed labelling-based orientation, or an extremal bound does not give this exact generating function.",
+        "searches": [
+          "Zolin DOI 10.1305/ndjfl/1012429717, Theorem 4.1 and 4-flat",
+          "Okoth–Wagner DOI 10.37236/5164, abstract/introduction",
+          "Bučić–Janzer–Sudakov DOI 10.1017/S0305004122000147, abstract and Theorems 1.1 and 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 041ffc91798f (self), abc4d74cf085, 7229f6d8fc7f, 42f722087b8a",
+        "Zolin (1999) as credited in RESULT.md; primary theorem passage unavailable",
+        "Okoth–Wagner DOI 10.37236/5164",
+        "Bučić–Janzer–Sudakov DOI 10.1017/S0305004122000147",
+        "Krawczyk et al. arXiv PDF §3.3 pp. 7–8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The outward census has only the ordinary parent-to-child orientation state; the undirected forest census has only total degree. The new decomposition must allow both directions on each formal parent edge and enforce independent outdegree branching under either direction."
+        ],
+        "reasoning": "The all-order EGF is not obtained simply by unrooting or reweighting the outward count; reversing a parent edge changes the outdegree state and which child sets are allowed. The known modal theorem can supply a structural input but leaves this enumeration to be proved.",
+        "searches": [
+          "abc4d74cf085, mirrored RESULT.md offsets 302–4910",
+          "7229f6d8fc7f, mirrored RESULT.md offsets 0–5326",
+          "Krawczyk et al., Examples of weak amalgamation classes, §3.3 Claim 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "abc4d74cf085 counts outward-rooted trees with no adjacent branching vertices, with first counts 1,2,9,64,565. 7229f6d8fc7f counts unrooted undirected forests avoiding adjacent vertices of total degree greater than two. Krawczyk et al. §3.3 uses that latter condition and studies weak amalgamation."
+        ],
+        "reasoning": "Outward orientation fixes each edge once the root is chosen, so it cannot cover valid orientations with several sources. An undirected total-degree restriction is also not equivalent: undirected adjacent vertices of degree at least three can have outdegree at most one by orienting everything toward a sink. The stronger underlying topology is therefore different, apart from the missing directional marks and multiplicities.",
+        "searches": [
+          "Resultary: valid orientations all labelled trees no adjacent vertices of outdegree at least two branch-marked exponential generating function",
+          "Websearch: enumeration labelled trees edge orientations forbidden adjacent vertices outdegree at least two branch-marked exponential generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "041ffc91798f is the exact self-hit in all three queries. The strongest distinct similar table is the rooted outward enumeration abc4d74cf085. The same-day 42f722087b8a counts valid symmetric undirected frames with complete-multipartite components."
+        ],
+        "reasoning": "A symmetric edge uses both arcs and is barred here; it is not an orientation of a forest edge. Neither distinct catalogue entry counts the objects of the assigned EGF.",
+        "searches": [
+          "Resultary: all labelled trees orientations valid non-contingency introspection Δp implies ΔΔp branch-refined exponential generating function",
+          "Resultary: all orientations of labelled finite trees non-contingency Δp implies ΔΔp branch-refined census planted classes"
+        ]
+      },
+      "rationale": "The result under review correctly stakes the contribution on the exact census over all labelled trees and all their orientations, with the branch mark. Credit the modal criterion as a forest specialization of the known frame correspondence and credit the earlier outward-tree enumeration on its own restricted domain. The inspected sources do not supply an equivalent all-orientations census.",
+      "residual_risks": [
+        "Zolin’s primary passage could not be inspected; the correspondence is not claimed as novel. An earlier equivalent labelled-orientation enumeration outside the sources inspected remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage on the strictly narrower outward-rooted class",
+          "evidence": "No adjacent branching along parent-child edges; outward-rooted EGF and counts 1,2,9,64,565.",
+          "identifier_or_url": "abc4d74cf085",
+          "material_read": "Mirrored RESULT.md offsets 302–4910",
+          "method": "Resultary hit and local mirror read",
+          "title": "Noncontingency introspection on finite out-trees: forbidden branches and exact labelled enumeration",
+          "trigger": "Same formula and a prior exact labelled tree enumeration"
+        },
+        {
+          "assessment": "Structural analogy, not an orientation count",
+          "evidence": "Undirected acyclic graphs with no adjacent vertices of total degree exceeding two.",
+          "identifier_or_url": "7229f6d8fc7f",
+          "material_read": "Mirrored RESULT.md offsets 0–5326",
+          "method": "Resultary hit and local mirror read",
+          "title": "Exact labeled age enumerator for a weak-amalgamation forest class",
+          "trigger": "Analogous exact forest enumeration with branching exclusion"
+        },
+        {
+          "assessment": "Different relation and objects",
+          "evidence": "Symmetric undirected valid frames with complete-multipartite components; also counts valid one-edge edits.",
+          "identifier_or_url": "42f722087b8a",
+          "material_read": "Mirrored RESULT.md offsets 0–2695",
+          "method": "Resultary hit and local mirror read",
+          "title": "One-edge robustness and labelled census of non-contingency introspection",
+          "trigger": "Distinct same-day census for the same modal formula"
+        },
+        {
+          "assessment": "Credit the reported prior frame correspondence; no full-paper exclusion asserted",
+          "evidence": "Assigned record names Theorem 4.1, 4-flat, and expressly does not claim independent novelty for the forest criterion.",
+          "identifier_or_url": "https://doi.org/10.1305/ndjfl/1012429717",
+          "material_read": "Assigned RESULT.md relationship passage lines 61–63; publisher landing page, no primary theorem text available",
+          "method": "Lawful OA author PDF and Project Euclid routes attempted; theorem passage not retrieved",
+          "title": "Completeness and Definability in the Logic of Non-contingency",
+          "trigger": "Credited frame correspondence for the identical modal axiom"
+        },
+        {
+          "assessment": "Different tree family and rule assigning edge direction",
+          "evidence": "Each edge of a noncrossing tree points to its higher-labelled endpoint; studies degree-sequence distributions.",
+          "identifier_or_url": "https://doi.org/10.37236/5164",
+          "material_read": "OA PDF p. 1 abstract and introduction, offsets 0 and about 909",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Locally Oriented Noncrossing Trees",
+          "trigger": "Labelled oriented trees and degree statistics"
+        },
+        {
+          "assessment": "General extremal orientation problem, not a known evaluation of the assigned census",
+          "evidence": "Maximizes counts for n-vertex host graphs; results in the inspected passages include odd cycles and directed paths.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004122000147",
+          "material_read": "OA PDF p. 79 abstract and pp. 80–81 introduction, offsets 0 and 5953–10875",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Counting H-free orientations of graphs",
+          "trigger": "Directed forbidden-subgraph orientation counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "abc4d74cf085 mirrored RESULT.md",
+        "/workspace/reproduction/forest.txt"
+      ],
+      "rationale": "This is an exact labelled census for a naturally specified modal-validity class, not merely a rediscovered frame condition or a table of small orders. Tracking the branch count gives an invariant of all orientations, exposes exactly how the first modal failures arise, and provides an all-order scheme that can be used in probabilistic or asymptotic enumeration. The two directions of the planted parent edge encode information absent from the prior rooted outward census.",
+      "residual_risks": [
+        "No asymptotic analysis or general enumeration over graphs with cycles is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

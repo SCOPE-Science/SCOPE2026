@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:49:12.431932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39: definitions, trace count, deficit and extremizers",
+        "Frozen VERIFICATION.md and verify.py inspected as supporting evidence, not executed",
+        "Independent direct trace count on the constructed graphs for m=0,…,12 gave 1,2,4,8,10,13,16,19,22,25,28,31,34; replay by forming each adjacency list and deduplicating its intersections with the marked path or small marked clique"
+      ],
+      "rationale": "The proof covers arbitrary ambient order and both marked and unmarked centers. In the vertex–block incidence forest, two neighbors of an unmarked center from the same connected marked component must use the same clique, or there would be two paths between them. For the multicomponent count, contract the disjoint connected subtrees formed by each marked component and its incident clique nodes. Keep only terminal-to-center edges, without any suppression: with c terminals and s centers seeing multiple terminals, the forest has at least 2s and at most c+s−1 edges. This gives at most m+Σ_i(u_i+b_i+1) traces. The deficit from 2t_i in u_i+b_i+1 is the count of vertices of degree at most one plus Σ_B(|B|−2); it is at least two except on a singleton or a triangle. In the one-triangle case with other vertices, contracting the triangle gives a tree with a leaf outside the triangle. These deficits imply the 3m−2 upper bound for m≥4, and 2^m suffices below four marks. The path-of-triangles witness separates adjacent pairs, distance-two pairs, singletons and the empty trace; the small witnesses attain all subsets, including the unique empty trace at m=0 on a nonempty graph. The four-mark obstruction and three-mark witness give VC dimension 3, and the eventual exact linear formula gives density 1.",
+      "residual_risks": [
+        "The independent finite check was of the extremizers, not an exhaustive upper-bound enumeration. The upper bound is established by the forest proof, not extrapolation. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The neighborhood complexity theorem gives a near-linear growth bound |A|^(1+o(1)); the type-count theorem gives polynomial growth at fixed quantifier rank",
+          "The inspected rank-width-one result bounds the four-mark maximum by 12 and gives VC dimension 3 on its class"
+        ],
+        "reasoning": "Neither a generic growth estimate nor the four-mark bound 12 supplies the sharp four-mark value 10, the exact all-m upper bound, or block-graph witnesses. Even on a subclass, an inherited larger bound cannot establish the sharper maximum.",
+        "searches": [
+          "arXiv:2607.10941, p. 2 definition and Theorem 2; arXiv:2611.08143, p. 1 abstract",
+          "Resultary 2026/11/22/SCOPE-sharp-four-parameter-neighborhood-profile-spectrum-in-rank-width--bd9f724b9520"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work section",
+        "Resultary and matching mirror records listed above (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2607.10941; arXiv:2007.16042; arXiv:1811.09537; arXiv:2611.08143",
+        "Targeted public literature search stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The code bounds study separation by a chosen code, near-linear complexity lacks exact constants, and neighboring profile results use larger values or a different class"
+        ],
+        "reasoning": "The common block-incidence representation is not new, but recovering this exact result requires counting marked and unmarked centers separately and exploiting the singleton/triangle deficits, together with a distinct matching construction. No inspected stronger statement implies that exact maximum.",
+        "searches": [
+          "arXiv:1811.09537; arXiv:2607.10941 Theorem 2; Resultary interval, unit-interval, and rank-width-one findings below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-sharp-neighborhood-trace-complexity-of-finite-block-graphs--3519bee5e97b is the identical record",
+          "arXiv:1811.09537, p. 1: identifying, locating-dominating and open locating-dominating code sizes",
+          "arXiv:2007.16042, p. 1: open adjacency on Johnson and Hamming graphs"
+        ],
+        "reasoning": "In incidence-language the objective counts distinct rows of the open adjacency matrix restricted to an arbitrary m-column set, not the smallest column set separating and dominating prescribed vertices. Code bounds tied to graph order or blocks do not give the class-wide extremum over arbitrary marks and ambient order. Johnson/Hamming results change the class, even when a VC dimension agrees. The exact self-hit provides no independent coverage evidence.",
+        "searches": [
+          "block graph \"neighborhood complexity\" open neighborhood traces VC dimension exact bound",
+          "Resultary semantic search for exact open-neighborhood trace maxima on block graphs; inspected matching and related RESULT.md files"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical Resultary hit lists 1,2,4,8 and then 3m−2",
+          "The distinct unit-interval record gives min(2^m,3m) for m≥1, and the interval records give a quadratic tail; the rank-width-one record gives a different four-mark maximum"
+        ],
+        "reasoning": "The inspected indexed exact functions and finite profile concern different graph classes and do not encode the block-graph extremum. Agreement on 2^m for small m is not coverage of the linear tail. No independent exact table for this same invariant and class surfaced in the bounded search.",
+        "searches": [
+          "Resultary exact block-graph trace-function search and local mirror comparisons of unit-interval, interval and rank-width-one findings",
+          "block graph \"neighborhood complexity\" open neighborhood traces VC dimension exact bound"
+        ]
+      },
+      "rationale": "The inspected statements cover related trace problems and broader asymptotic or small-profile bounds, not this all-m open-adjacency maximum of 3m−2 on block graphs. The exact function, not the generic technique or the VC terminology, supports this assessment.",
+      "residual_risks": [
+        "Bounded searches and targeted passages do not certify historical priority or exclude unindexed equivalent formulations. Catalogue dating alone does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader asymptotic result, not exact coverage",
+          "evidence": "An |A|^(1+o(1)) bound does not fix a linear coefficient or finite values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10941",
+          "material_read": "p. 2, text near offset 7900, definition and Theorem 2",
+          "method": "Lawful OA primary PDF, targeted passage",
+          "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+          "trigger": "Broader neighborhood-complexity theorem"
+        },
+        {
+          "assessment": "Different classes",
+          "evidence": "Johnson and Hamming VC dimensions are 4 and 3 respectively, with density 2 for both classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "p. 1, abstract near offset 1420",
+          "method": "Lawful OA primary PDF, headline result",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same VC invariant for open adjacency"
+        },
+        {
+          "assessment": "Related objective, no implication established",
+          "evidence": "Bounded quantities are minimum code sizes for specified identifying/domination properties, not the number of traces over an arbitrary marked set.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.09537",
+          "material_read": "p. 1, abstract near offset 1750",
+          "method": "Lawful OA primary PDF, targeted problem statement",
+          "title": "On Three Domination-based Identification Problems in Block Graphs",
+          "trigger": "Same graph class and neighborhood signatures"
+        },
+        {
+          "assessment": "Growth-level comparison only",
+          "evidence": "Polynomially many types at fixed quantifier rank does not give 3m−2 for block-graph open adjacency.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08143",
+          "material_read": "p. 1, abstract near offset 1200",
+          "method": "Lawful OA primary PDF, headline result",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "General parameter-type bound"
+        },
+        {
+          "assessment": "Identical record, not independent evidence",
+          "evidence": "Both give exactly 2^m for m≤3 and 3m−2 for m≥4 on block graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-neighborhood-trace-complexity-of-finite-block-graphs--3519bee5e97b",
+          "material_read": "Finding and scope",
+          "method": "Resultary lookup and comparison with frozen text",
+          "title": "Sharp neighborhood-trace complexity of finite block graphs",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Different class and formula",
+          "evidence": "Interval-graph shatter function m(m+3)/2−1 for m≥2, density 2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-trace-growth-in-finite-interval-graphs--99413cf9082e",
+          "material_read": "RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp open-neighborhood trace growth in finite interval graphs",
+          "trigger": "Adjacent exact trace result"
+        },
+        {
+          "assessment": "Different class and formula",
+          "evidence": "Gives the interval-graph quadratic maximum for m≥3 with additional equality and size statements.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "material_read": "RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp open-neighborhood type growth and path rigidity in interval graphs",
+          "trigger": "Exact neighboring profile and equality result"
+        },
+        {
+          "assessment": "Different class and different exact tail",
+          "evidence": "min(2^m,3m) for m≥1, rather than 3m−2 for m≥4.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-adjacency-type-growth-in-unit-interval-graphs--03837b8f9fa5",
+          "material_read": "RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp open-adjacency type growth in unit interval graphs",
+          "trigger": "Similar linear shatter function"
+        },
+        {
+          "assessment": "Related partial profile, not coverage of exact block-graph values",
+          "evidence": "Four-mark maximum 12 and VC dimension 3 on rank-width-one graphs do not supply the four-mark maximum 10 or the all-m tail for block graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-parameter-neighborhood-profile-spectrum-in-rank-width--bd9f724b9520",
+          "material_read": "RESULT.md, finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp four-parameter neighborhood profile spectrum in rank-width-one graphs",
+          "trigger": "Possible broader graph-class profile and VC bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–39: incidence-forest bound and attaining constructions",
+        "arXiv:2607.10941, Theorem 2, and the adjacent indexed trace results compared above"
+      ],
+      "rationale": "This is the exact shatter function of a natural clique-tree class, independent of ambient order and including both center types. It determines not just the growth exponent but the sharp linear coefficient and deficit, and explains the small-set exception via the different singleton and triangle deficits. The extremal witnesses and the trace-counting lemma are useful when a generic growth or VC-dimension estimate is too coarse.",
+      "residual_risks": [
+        "No extension to closed neighborhoods or arbitrary chordal classes is established or needed for the stated value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

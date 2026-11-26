@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:29:27.710025Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 29–93",
+        "Frozen verify_hamming2.py, lines 20–97",
+        "Frozen requirements.txt and VERIFICATION.md, lines 21–27"
+      ],
+      "rationale": "Averaging the conjugates over coordinate and alphabet permutations preserves all constraints and cannot increase the norm, so the orbit-invariant optimum is global. Tensor characters with k nontrivial factors give normalized eigenvalues by averaging a product of one or two factors chosen from d-k copies of 1 and k copies of -1/u. The resulting spectrum includes every nonconstant mode. For d=2 uniform on all vertices is feasible and unique. For d=3 the quadratic identity 1=3λ1-3λ2+λ3 gives μ≥1/7 with unique equality contacts (1,-1,1)/7, and the corresponding masses are feasible through q=4. For q≥5, λ1≥1-2q/(3u)>0, with equality only at b=1, and the two remaining absolute eigenvalues (2u-1)/(3u²) and 1/u² are smaller. For binary d≥4, λ1≥1-4/d+2a/d and λd=1-2a; intersecting the bounds gives the unique invariant candidate and the centered quadratic λk shows that no intermediate negative eigenvalue exceeds the contact modulus. For nonbinary d≥4, λ1≥1-2q/(du)>0 with equality only at b=1. At b=1 the convex quadratic has maximum at an endpoint and F2(d)=1/u²≤F2(1). Its minimum is bounded below by -1/(d-1) via the square-minus-squares form for d≥5; the listed four values verify the d=4 cases, including the tie when q=3. Radius-one endpoint balancing gives exactly half the optimal absolute spectral gap, with averaging valid there as well. Phase statements are understood in the indicated invariant family, not as a claim that every unrestricted optimizer is uniform.",
+      "residual_risks": [
+        "Supplied finite-grid, LP and full-matrix routines were inspected, not run. They are corroboration, not the all-parameter proof. No unrestricted uniqueness claim except d=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 and its corollaries of arXiv:0709.0955 supply the symmetry reduction. The Hamming calculation of §3.3.3 assigns weight to distance-one edges only. The hypercube cutoff paper is a plausible antecedent for binary cases, but its full text was not reached."
+        ],
+        "reasoning": "The generic averaging and SDP formulations reduce the feasible set but supply no solution to the nonbinary two-orbit quadratic minimax problem. The earlier radius-one optimum is a baseline, not an upper or lower certificate of equality for the radius-two optimum.",
+        "searches": [
+          "Boyd et al., arXiv:0709.0955 §§2.2, 3.2.2, 3.3.3",
+          "Karlin–Lindqvist–Yao DOI 10.1002/rsa.3240040102",
+          "Boyd–Diaconis–Xiao DOI 10.1137/S0036144503423264"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0955 §§2.2, 3.1, 3.2.2, 3.3.3",
+        "DOIs 10.1002/rsa.3240040102 and 10.1137/S0036144503423264 (access limitations above)",
+        "Resultary f60fab55c4f0, 20328f74e74c and nearby October Hamming search results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the halved binary cube, the simple-walk eigenvalues are 1-4k(d-k+1)/(d(d+1)); the edge-transitive formula compares the two spectral extremes and recovers the binary optimizer, including the d=3 need for holding. With ordinary distance-one baseline it gives the binary doubled gap. The nonbinary case instead needs the feasibility cutoff of the three-contact certificate and control of a different quadratic on every mode."
+        ],
+        "reasoning": "Known symmetry and spectral data imply a one-variable closed optimization for the binary slice. For nonbinary q the generic reduction still leaves a constrained minimax over two masses; the q=4 and q=5 boundaries and complete spectral upper certificate are not the radius-one or edge-transitive theorem specialized.",
+        "searches": [
+          "arXiv:0709.0955, Theorem 3.1 and radius-one formulas",
+          "Frozen RESULT.md, spectral modes and d=3 contact identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Result f60fab55c4f0 gives the same nonbinary SLEM and invariant kernel, including the d=3 transitions; 20328f74e74c gives the same binary optimum and doubled gap. Both extend to rigidity questions and are later catalog entries.",
+          "Appending the parity bit identifies the binary radius-two graph with the even half of the (d+1)-cube, adjacent at distance two. Coordinate permutations and even translations are edge-transitive."
+        ],
+        "reasoning": "The binary problem is an instance of the known edge-transitive theorem with the halved-cube spectrum; do not claim the binary allocation in isolation as a new optimization principle. In the nonbinary problem there are two distance weights, with actual mixed or boundary optima depending on dimension and alphabet; neither the binary reduction nor the ordinary Hamming result covers that family. Exact later overlap does not establish earlier publication or independent provenance.",
+        "searches": [
+          "Resultary: radius-two Hamming fastest symmetric mixing, nonbinary and two-hop hypercube",
+          "Boyd et al., arXiv:0709.0955, §3.1 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later Results f60fab55c4f0 and 20328f74e74c together reproduce the allocation and values by alphabet regime. The earlier October 11 radius-two positive-definite-mass and October 13 quantum average-mixing records have different objectives. The old ordinary Hamming example is radius one."
+        ],
+        "reasoning": "Exact table overlap in the later catalog is real even though it adds rigidity and does not show that the October result was already known. Earlier superficially similar tables for mass or a quantum average are not tables for the stated optimization.",
+        "searches": [
+          "Local Resultary, exact Hamming distance-one/two SLEM minima and phase transitions",
+          "Boyd et al., arXiv:0709.0955, Hamming and hypercube examples"
+        ]
+      },
+      "rationale": "Credit the standard FMMC formulation, automorphism averaging, Hamming spectra, radius-one baseline, trivial complete-graph case, and the binary reduction to the known edge-transitive formula. The scientifically distinct part supported by this review is the nonbinary radius-two minimax phase diagram and its gap consequence, within the complete classification. The materially matching later catalog records are explicit overlap, not proof of prior coverage of the October finding.",
+      "residual_risks": [
+        "No successful full-text inspection of Karlin–Lindqvist–Yao (1993); it may give equivalent binary cutoff optimization.",
+        "Dates distinguish the displayed catalog entries; independent provenance or external priority is not established. Unindexed equivalent nonbinary work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reduction and binary/radius-one coverage; not nonbinary radius-two allocation",
+          "evidence": "Convex conjugation averaging; exact one-edge-orbit formula; ordinary Hamming graph treated at distance one.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§2.2 Thm 2.1 and corollaries (offsets 15800, 21400); §3.1 Thm 3.1 (PDF p. 8, offset 27860); §§3.2.2, 3.3.3 (offsets 36600, 43500)",
+          "method": "Primary OA PDF passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General covering theorems and exact Hamming baseline"
+        },
+        {
+          "assessment": "Unresolved especially for the binary slice; no negative inference",
+          "evidence": "Frozen record reports spectral and majorization overlap; full-paper scope could not be independently checked.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240040102",
+          "material_read": "DOI/citation only in this review; no primary full-text passage retrieved",
+          "method": "Wiley DOI and PDF attempts, no lawful OA repository copy returned",
+          "title": "Markov Chains on Hypercubes: Spectral Representations and Several Majorization Relations",
+          "trigger": "Hypercube distance-cutoff walks are plausible prior coverage"
+        },
+        {
+          "assessment": "No full-text claim made",
+          "evidence": "Ordinary FMMC context is established by the accessible companion paper.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Citation only, DOI route unsuccessful; the companion symmetry paper was read",
+          "method": "Lawful OA DOI lookup",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General FMMC formulation"
+        },
+        {
+          "assessment": "Exact nonbinary overlap and stronger generic rigidity, no established prior coverage",
+          "evidence": "Same unrestricted minimum and invariant allocation for q≥3, d≥2, including both d=3 cutoffs.",
+          "identifier_or_url": "Resultary f60fab55c4f0",
+          "material_read": "Finding, RESULT.md offset 0, 2026-11-08 catalog entry",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-coordinate fastest mixing on nonbinary Hamming networks",
+          "trigger": "Exact same nonbinary problem and parameters"
+        },
+        {
+          "assessment": "Exact binary overlap with additional unrestricted rigidity results",
+          "evidence": "Same binary optimum, kernel and doubled-gap comparison.",
+          "identifier_or_url": "Resultary 20328f74e74c",
+          "material_read": "Finding, RESULT.md offset 0, 2026-11-02 catalog entry",
+          "method": "Local Resultary mirror",
+          "title": "A sharp rigidity transition and optimal-face dimension for two-hop hypercube walks",
+          "trigger": "Exact same binary graph and objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, table and §§4–7",
+        "arXiv:0709.0955, ordinary Hamming FMMC comparison"
+      ],
+      "rationale": "Allowing the next Hamming radius is a natural change to a canonical mixing graph. The exact minimax result identifies which transitions and holding are beneficial and quantifies the SLEM-gap gain. In three dimensions the interpolation contacts and feasibility cutoff explain why distance-one moves and then holding disappear at different alphabet sizes. That boundary information is not a trivial restatement of symmetry or of the existing distance-one optimum.",
+      "residual_risks": [
+        "No claim of equal per-step computational cost or comparable total-variation distance at each time, or of optimality for nonsymmetric kernels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

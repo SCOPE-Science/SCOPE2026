@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:49:09.639489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–52; VERIFICATION.md and checker.py (inspected, not executed).",
+        "Independent inline enumeration checked exact adjacent-position edge sets and BFS distances at n=5 and n=7; no standalone replay artifact was saved."
+      ],
+      "rationale": "The Finding is correct. In the two increasing blocks with descent x>y, write L=(a<y) for the left flank if present and R=(x<b) for the right flank if present. At an interior descent the left and right swaps are legal iff L and R, respectively; the central swap is legal iff exactly one of L and R holds. The frozen proof's line 42 uses an inclusive-looking 'or' for the central swap, which requires this correction: for example 1324 allows both outside swaps, but its central swap produces 1234. This does not affect the nonisolation condition L or R, and the corrected calculation gives degree two at every mobile interior vertex. At either endpoint and n>=3, the one flank gives two complementary possibilities for legality of the central or outside swap, hence degree one. The nonisolation conditions force all but the displaced value to be increasing, in exactly the two stated template forms: L forces the initial d-1 values to be 1,...,d-1 with y=d, and R forces the final n-d-1 values to be d+2,...,n. The endpoint singletons give the same forms. The displayed steps between t and t+1 are adjacent swaps, so exhausting the legal degrees proves no chords or additional neighbors. The templates have only one inverse descent, at j, which distinguishes their lists. Nonempty proper prefix subsets other than initial value intervals yield 2^n-n-1 vertices, from which the component, isolate, edge and mobile counts follow. For n=2 the lone vertex is isolated and the n>=3 path formulas are not applied to it.",
+      "residual_risks": [
+        "The inline replay is bounded and not the basis of the all-n conclusion. The false central-swap equivalence in the frozen proof is a local error; the corrected argument proves the actual graph claim without modifying the source evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established framework gives elementary tableau edges swapping i with i±1 and interprets these as inverse elementary Knuth moves, with RSK compatibility via rectification. The proposition identifying equivalence classes alone would not imply an edge statement; the actual move and its commutation are the relevant stronger facts.",
+          "The inspected Smith papers use the pattern-containment order and are not graph antecedents. Mütze surveys minimal changes in the full permutahedron. The cited Ito et al. item on linear extensions was identified, but full text did not return through the attempted OA retrieval."
+        ],
+        "reasoning": "The exact labeled graph follows from the broader local-edge description and standard RSK descent preservation, without a new graph-theoretic mechanism. This is independent of whether the linear-extension comparison yields any additional antecedent.",
+        "searches": [
+          "Assaf, arXiv:1506.03798v1, Definition 2.2, Proposition 2.3, Figure 4, §3.1 and proof of Proposition 3.3",
+          "Smith 2014 doi:10.37236/3559 and Smith 2016 arXiv:1405.2560",
+          "Ito–Yamanaka–Hirayama–Kobayashi, Reconfiguration of Linear Extensions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and references",
+        "Assaf arXiv:1506.03798v1 §§2.3 and 3.1 and Proposition 3.3 proof",
+        "OEIS A324172",
+        "Resultary/SCOPE f528a2a89934 and 5a562e89a765",
+        "Mütze and Smith passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A recording tableau with exactly one descent has two rows: its row-index word must make a rise on first entering each new row, and every rise is a descent. For shape (n-k,k) and descent t the second-row labels form one block t+1,...,t+k. If k>=2, distinct such blocks either differ in more than a single exchange, or the exchanged extremes differ by k, so there is no edge under an elementary move interchanging consecutive labels.",
+          "For k=1, the lone lower label r=t+1 can move only to r-1 or r+1. The elementary rule actually realizes these moves whenever they exist: in the content reading order the lower entry is first in the relevant triple, so the move at i=r (respectively i=r-1) exchanges it with r+1 (respectively r-1). This gives one path for each of the n-1 hook insertion tableaux. The lower label j+1 in the insertion tableau encodes the sole inverse descent j. The displayed permutations are just the inverse RSK states for these two hook tableaux, as is also seen from their descent, inverse descent and increasing subsequence of length n-1."
+        ],
+        "reasoning": "The hook and nonhook conclusions exhaust the possibilities. The path metric, vertex labeling, graph statistics and isolate count are immediate readouts or inverse RSK coordinates of this specialization. No distinct surviving originality claim requiring repair was identified.",
+        "searches": [
+          "Assaf arXiv:1506.03798v1, local involution, rectification and standard dual-equivalence graph passages",
+          "Frozen RESULT.md Finding and template formulas, lines 5–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If an increasing adjacent pair is swapped, it creates an internal descent and removes one descent for each immediately flanking entry strictly between the two swapped values; the decreasing case reverses the change. Thus preserving the number of descents requires exactly one such flank. This is an elementary Knuth move using that flank. Conversely every Knuth edge with both vertices in the one-descent layer is a legal adjacent swap.",
+          "Inverting a permutation turns these local Knuth moves into elementary dual-Knuth moves. Assaf §2.3 gives the elementary involutions and their compatibility with rectification. RSK inversion exchanges the insertion and recording tableaux; applying the involution to the inverse acts on the original recording tableau by that involution and fixes the original insertion tableau. Since the involution lifts back under the RSK bijection, the match is edge-by-edge, not merely a connected-class correspondence."
+        ],
+        "reasoning": "The exact graph is the induced subgraph of the Knuth graph on recording tableaux with a single descent, with a separate copy for each possible insertion tableau. Including the identity, allowing cyclic positions, or using the pattern-containment order would instead give a different object.",
+        "searches": [
+          "Assaf, arXiv:1506.03798v1, §2.3 Definition 2.2 and §3.1",
+          "Mütze, Combinatorial Gray Codes—an Updated Survey, p. 5",
+          "Resultary/SCOPE f528a2a89934 and 5a562e89a765"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A324172 explicitly gives 2^n-n^2+n-2, the isolate count, but its crossing subsets are not literally the prefixes of isolated one-descent permutations: at n=5 its listed subsets {1,3} and {1,4} give mobile states under the prefix-subset map.",
+          "The exact SCOPE hit f528a2a89934 is the frozen record itself. The distinct derangement record 5a562e89a765 is for cyclic swaps and an excedance restriction; its stated problem is not this induced linear graph."
+        ],
+        "reasoning": "The exact numerical isolate sequence is already indexed, but the table does not directly explain orbit graphs or their distances. The decisive prior coverage is via RSK, not self-matching or sequence equality.",
+        "searches": [
+          "OEIS A324172 crossing subsets",
+          "Resultary/SCOPE f528a2a89934 exact one-descent swap graph; 5a562e89a765 cyclic adjacent swaps of derangements"
+        ]
+      },
+      "rationale": "The graph, including the path labels and the exact shortest distances, is a direct restriction of established Knuth and tableau dual-equivalence graphs via RSK. This is verified implication, not an assertion that Assaf explicitly printed this induced graph. The matching OEIS count alone would not suffice to reject originality.",
+      "residual_risks": [
+        "No claim that the exact closed form or template was previously printed under the same title; rejection rests on the demonstrated stronger implication. No crossing-subset bijection was established. Ito et al. full text was unavailable, which is not a reason for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication of the path/isolates classification; not an explicit statement of this particular induced graph",
+          "evidence": [
+            "Elementary moves can be obtained by taking inverses of elementary Knuth equivalents; the involutions commute with rectification; the tableau edge exchanges i with i±1. Figure 4 already illustrates the hook path for size four."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03798",
+          "material_read": "§2.3 p. 4, especially Definition 2.2, Proposition 2.3, Figure 4 and rectification paragraph (OA offsets 14100–19093); §3.1 p. 5 near 19600; Proposition 3.3 proof p. 7 near 27400",
+          "method": "Bounded primary OA PDF passages and mathematical specialization to the descent layer",
+          "title": "Dual Equivalence Graphs I: A New Paradigm for Schur Positivity",
+          "trigger": "Exact stronger graph mechanism and edge-by-edge correspondence"
+        },
+        {
+          "assessment": "Same count, different literal subset criterion and no graph implication by itself",
+          "evidence": [
+            "2^n-n^2+n-2; example includes mobile-prefix subsets at n=5."
+          ],
+          "identifier_or_url": "https://oeis.org/A324172",
+          "material_read": "Definition at offset 0, formula and example around offset 600",
+          "method": "OA public database passage comparison",
+          "title": "Number of subsets of {1,...,n} that cross their complement",
+          "trigger": "Exact match to isolate sequence"
+        },
+        {
+          "assessment": "Permutahedron framework, not the isolated/path specialization",
+          "evidence": [
+            "The full adjacent-transposition graph is identified as the permutahedron."
+          ],
+          "identifier_or_url": "Electronic Journal of Combinatorics DS26",
+          "material_read": "p. 5 (OA offset 12088)",
+          "method": "Bounded OA primary passage",
+          "title": "Combinatorial Gray Codes—an Updated Survey",
+          "trigger": "Full adjacent-transposition graph and related generation rules"
+        },
+        {
+          "assessment": "Different edge/order structure",
+          "evidence": [
+            "Both inspected statements concern pattern-containment or its intervals, not adjacency swaps."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3559 ; https://arxiv.org/abs/1405.2560",
+          "material_read": "First work pp. 1–2, OA offsets 760 and 3950; second work p. 1, OA offset 750",
+          "method": "Bounded OA primary passages",
+          "title": "On the Möbius Function of Permutations with One Descent; Intervals of Permutations with a Fixed Number of Descents Are Shellable",
+          "trigger": "Identical descent restriction or a general fixed-descent layer"
+        },
+        {
+          "assessment": "No full-text coverage determination",
+          "evidence": [
+            "Frozen RESULT.md describes a fixed-poset linear-extension problem, whereas the decisive coverage here uses dual equivalence."
+          ],
+          "identifier_or_url": "https://ipsj.ixsq.nii.ac.jp/records/223364",
+          "material_read": "Citation and frozen source's comparison; full-text retrieval of the NII item was unavailable",
+          "method": "Lawful OA attempt of the record and its cited PDF",
+          "title": "Reconfiguration of Linear Extensions",
+          "trigger": "Fixed-poset adjacent-swap reconfiguration cited in the source"
+        },
+        {
+          "assessment": "Self-match in the first; different graph in the second",
+          "evidence": [
+            "The second record's cyclic positional swaps and derangement condition are not those of the frozen graph."
+          ],
+          "identifier_or_url": "Resultary/SCOPE f528a2a89934; 5a562e89a765",
+          "material_read": "Mirrored Findings",
+          "method": "Local catalogue and statement comparison",
+          "title": "Exact component geometry of the one-descent permutation swap graph; Cyclic adjacent swaps collapse derangement reconfiguration to excedance classes",
+          "trigger": "Exact catalogue match and a distinct close reconfiguration hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; the edge and descent-layer specialization of Assaf's framework; OEIS A324172."
+      ],
+      "rationale": "The natural slice is readable as an illustration of dual equivalence, and its explicit state coordinates can be useful pedagogically. But the graph decomposition, distances and state coordinates are the elementary one-descent restriction of the established tableau graph, and the remaining counts are routine consequences. No independently valuable unknown exact invariant survives the coverage comparison.",
+      "residual_risks": [
+        "This verdict is restricted to the one-descent record; it does not concern graphs at higher descent counts or more refined statistics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

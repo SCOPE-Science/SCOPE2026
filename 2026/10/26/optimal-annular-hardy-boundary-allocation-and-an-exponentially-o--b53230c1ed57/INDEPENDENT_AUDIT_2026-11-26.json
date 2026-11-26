@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:18.401342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–108",
+        "Frozen VERIFICATION.md, annular_opt_check.py and high_precision_bias.py inspected as text",
+        "/workspace/evidence/correctness-notes.md section 1: transform, perturbation estimates and thick derivative bracketing"
+      ],
+      "rationale": "The angular probability normalization gives the stated squared evaluation norm. The paired Laurent series gives strict convexity, endpoint divergence, a strictly radially decreasing first t-derivative, and reflection. Independently recalculating the beta transform and its first harmonic gives the stated sine-phase correction to the objective and negative cosine-phase correction to the stationary mass. A relative bound uniform in t localizes the minimum, and the compact derivative bounds give the claimed remainders and sign reversals (with exact midpoint equality). In the thick regime, first-mode derivative sign brackets justify both the bounded-logistic-window estimate and the relative odds asymptotic when the optimizer approaches an endpoint.",
+      "residual_risks": [
+        "No claimed thin-endpoint uniformity. The numerical programs are supporting evidence, not independent certification; the audit used analytical estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited weight-dependent Laurent series/product representations concern kernels at any fixed weight; c551782d30c5 treats spatial critical-point orbits; a40460d8956c optimizes node locations at fixed weight; 606f8545c431 concerns harmonic-extension singular values and Schatten thresholds."
+        ],
+        "reasoning": "These statements do not include the sharp point-evaluation optimum over all constant outer/inner masses or its thin and thick regimes as special cases.",
+        "searches": [
+          "Weighted kernel product/zero theory; Resultary c551782d30c5, a40460d8956c and 606f8545c431"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.04177",
+        "arXiv:2202.09114",
+        "Resultary c22f61b3d402, c551782d30c5, a40460d8956c, 606f8545c431"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bergman result applies to an unweighted area reproducing kernel and moves a radial root. The present beta spectrum comes from weighted Hardy norm, and the oscillatory optimizer is obtained by differentiating with respect to total-mass allocation, dividing by the positive envelope Hessian, and controlling the true stationary point."
+        ],
+        "reasoning": "The basic optimizer facts and thick asymptotics leverage a known series and standard convexity/first-mode estimates. Neither those kernel representations nor the Bergman estimate yields the fixed-mass oscillation by identification or substitution; phase, derivative amplification, remainder and crossings require a separate argument.",
+        "searches": [
+          "Weighted Szegő series and product passages in Katori–Shirai and Gafai–Murid–Wahid; Poisson root-displacement passage in Resultary c22f61b3d402"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katori–Shirai arXiv:2008.04177 §1.1 Eq. (1.4) gives the same Laurent kernel after setting tau=(1-t)/t and multiplying by 1/t.",
+          "Gafai–Murid–Wahid arXiv:2202.09114 §5 Eqs. (36)–(38) give the same weighted series and products, up to normalization."
+        ],
+        "reasoning": "The weight-ratio parameter is equivalent, but minimizing the raw kernel at fixed normalization 1:tau is not the same as minimizing (1+tau) times that kernel at fixed total mass. Exact series equivalence does not imply equivalence to results about kernel zeros or spatial critical points.",
+        "searches": [
+          "Primary annular weighted Hardy/Szegő kernels and optimal boundary weights; Resultary annular boundary allocation and weighted Szegő optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c22f61b3d402 has the same exp(-pi^2/h) scale for a Bergman zero-free radial band; the other closest indexed records treat weighted Szegő spatial critical points, determinant design at fixed weight, or two-boundary extension."
+        ],
+        "reasoning": "No indexed exact optimizer or asymptotic optimum was identified. Same-day related records are compared on their statements, without inferring order.",
+        "searches": [
+          "Resultary optimal annular Hardy mass; thin-annulus exponential Poisson correction; weighted annular Szegő and thick optimum"
+        ]
+      },
+      "rationale": "The weighted kernel and standard transform techniques are prior inputs. The supported distinct claim is the normalized fixed-total-mass optimum, in particular its signed beyond-all-orders thin-annulus correction and its thick logistic and fixed-alpha limits. The same-day Bergman result shares a Fourier scale and method, not this operator or optimizer.",
+      "residual_risks": [
+        "Bounded searches do not establish priority or rule out results with a different extremal Hardy-space formulation. No originality claimed for the weighted kernel or Poisson summation itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel equivalence, no stated boundary-mass optimum in the passage",
+          "evidence": [
+            "S_A(z,w;tau) has denominators 1+tau q^(2n) and standard annular Hardy at tau=q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.04177",
+          "material_read": "§1.1, pp. 2–3, Eq. (1.4) and its norm convention",
+          "method": "Primary full-text passage inspection",
+          "title": "Zeros of the i.i.d. Gaussian Laurent series on an annulus (Katori–Shirai)",
+          "trigger": "Same weighted Hardy reproducing kernel"
+        },
+        {
+          "assessment": "Prior weighted kernel representation; different problem",
+          "evidence": [
+            "Series and product formulas coincide after scaling; the cited section treats representation and zeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.09114",
+          "material_read": "§5, pp. 9–10, Eqs. (36)–(38)",
+          "method": "Primary full-text passage inspection",
+          "title": "Infinite Product Representation for the Szegő Kernel for an Annulus",
+          "trigger": "Weighted bilateral Laurent formula and product"
+        },
+        {
+          "assessment": "Material methodological overlap, not equivalent extremal quantity",
+          "evidence": [
+            "Sharp zero-free radial width is for ordinary area-normalized Bergman kernel, not weighted Hardy point evaluation."
+          ],
+          "identifier_or_url": "Resultary c22f61b3d402 (2026-10-26 UTC catalog date)",
+          "material_read": "Finding and Poisson root-displacement portion of proof",
+          "method": "Local mirror passage inspection",
+          "title": "Exponential collapse of the zero-free radial band in thin annuli",
+          "trigger": "Same-day thin-annulus Poisson mechanism and scale"
+        },
+        {
+          "assessment": "Changes spatial input, not normalized boundary-weight parameter",
+          "evidence": [
+            "The critical points are spatial orbits for a weighted kernel."
+          ],
+          "identifier_or_url": "Resultary c551782d30c5",
+          "material_read": "Finding (critical points and shrinking-hole law)",
+          "method": "Local mirror passage inspection",
+          "title": "Two real critical-point orbits of weighted annular Szegő kernels",
+          "trigger": "Same weighted kernel and asymptotic regimes"
+        },
+        {
+          "assessment": "Optimizes a different quantity over a different variable",
+          "evidence": [
+            "The objective is a Gram determinant, optimizing node positions at fixed weights."
+          ],
+          "identifier_or_url": "Resultary a40460d8956c",
+          "material_read": "Finding and fixed-weight scope",
+          "method": "Local mirror passage inspection",
+          "title": "Universal regular-polygon D-optimality and global stability",
+          "trigger": "Same kernel and an optimization claim"
+        },
+        {
+          "assessment": "Different operator and spectral objective",
+          "evidence": [
+            "The result concerns harmonic-extension singular-value branches into a weighted-volume space."
+          ],
+          "identifier_or_url": "Resultary 606f8545c431",
+          "material_read": "Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Two-boundary Schatten splitting and a universal thin-annulus Poisson law",
+          "trigger": "Two-boundary normalization and same-day thin-annulus Poisson result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md thin and thick laws",
+        "Weighted-kernel prior comparisons"
+      ],
+      "rationale": "The theorem determines a sharp allocation for a natural evaluation problem. The stationary mass is not harmonic measure: its discrepancy changes sign infinitely often beyond all algebraic orders, with an explicit phase and effect on the sharp value. The thick limits identify the scale where the minimizing mass changes between boundary components.",
+      "residual_risks": [
+        "The significance is within constant circle masses and the stated asymptotic regimes; no conclusions for arbitrary angular densities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

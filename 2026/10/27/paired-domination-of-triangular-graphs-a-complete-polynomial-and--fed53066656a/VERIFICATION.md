@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-`verify.py` exhaustively checks every vertex subset of triangular graphs for \(n=3,4,5,6\), computes domination from the original graph adjacency relation, tests induced-subgraph perfect matching with a direct memoized subset dynamic program, and independently compares the even-component criterion. It additionally checks the optimum cardinalities and exact minimum counts.
+## correctness
 
-`full_n7.py` checks all \(2^{21}=2{,}097{,}152\) vertex subsets at \(n=7\) using the original paired-domination definition and reports every polynomial coefficient, without implementing the claimed component criterion.
+PASS
 
-`count_min.py` enumerates every selected edge set of the proposed minimum cardinality for \(3\le n\le8\). It checks the original selected-edge component-parity condition and evaluates the three residue-class optimum formulas independently. At \(n=8\), this entails \(\binom{28}{6}=376{,}740\) edge subsets.
+An unselected edge of the clique is undominated exactly when both endpoints are unused, so at most one unused label is necessary and sufficient. A perfect matching in the selected line graph pairs selected edges at common endpoints. In a connected component, assign every non-tree edge to one endpoint and process a rooted spanning tree from its leaves: pair all currently available assigned and child edges if there are an even number, passing the parent edge up, or consume the parent edge in one pair and pair the rest if there are an odd number. At the root the unpaired count is even by global parity, proving sufficiency. In the labeled exponential formula, log A selects connected graphs, averaging its z and −z forms keeps those with an even number of edges, and (1+x)e^(−x) replaces unrestricted singleton isolates by zero or one. No perfect matching multiplicities enter. For the minimum, each edge pair covers only three labels, so b pairs must cover at least n−1 labels, giving b≥ceil((n−1)/3). Disjoint paths attain equality in the first two residue classes; in the third, two wedges sharing exactly one label form a four-edge tree and the remaining wedges are disjoint. For a component with 2r edges and v labels, the nonnegative defect 3r−v is at least r−1; total defect 3b+i−n is at most two. The only zero defect component is P3. The possible positive-defect components are a five-vertex tree (defect one), a four-edge graph on four labels (defect two), and a seven-vertex tree (defect two). This gives the listed component multisets for each residue class and choice of isolate. The factors 3/3!=1/2, 125/5!, 15/4!, and 7^5/7! count component types on blocks of labels; dividing by multiplicity factorials for repeated types gives the displayed terms across the three formulas, with the stated omissions. Boundaries n=3,4,5 are included.
 
-Run in an ordinary Python 3 environment without third-party libraries: `python verify.py`, `python full_n7.py`, then `python count_min.py`. The expected stdout of these three commands is preserved consecutively in `CHECKS.txt` and was regenerated from these actual scripts.
+## originality
 
-There are \(8+64+1024+32768=33864\) subsets in the first implementation and \(2{,}097{,}152\) in the second. For \(n=7\), the nonzero coefficients of the polynomial at degrees \(4,6,8,10,12,14,16,18,20\) are respectively \(630,44002,199815,352485,293930,116280,20349,1330,21\). The optimum counts for \(n=3\) through \(8\) are \(3,12,200,840,630,168056\). A separate formal-series symbolic calculation for \(n\le7\) matched the complete exhaustive polynomial coefficient lists; that auxiliary calculation is not needed to replay the published standard-library tests.
+PASS
 
-All experiments are finite and do not prove the infinite result. The combinatorial pairing lemma, labeled connected-graph exponential formula, and defect-based optimum classification supply the infinite proof. No independent mathematical audit has been performed.
+The supported distinct result is the complete enumerator and all-residue minimum census, particularly the minimum component profiles and multiplicities for n≡0 and n≡2 mod 3. The edge-pairing criterion is a consequence of classical perfect-matching theory, and the exact n≡1 minimum type, cardinality and count are already in a distinct earlier Resultary record. Neither part is credited as new. The article's proof of those parts is useful for making the wider census self-contained.
+
+## value
+
+PASS
+
+The full counting invariant for a natural line-graph family tracks which sizes occur and with what frequency, rather than just bounding the optimum. The genuinely distinct minimum census identifies all equality configurations in the two other residues: it separates unused labels, cycles in four-edge components, and larger sparse trees. Those structural distinctions and counts are useful for studying the space of optima, as illustrated by the separate slide-graph work in the previously covered residue. The standard parity reduction or the n≡1 count alone would not support this value finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

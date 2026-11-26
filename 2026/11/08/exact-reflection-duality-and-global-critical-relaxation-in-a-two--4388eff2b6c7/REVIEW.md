@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The cutoff equation and invariant-edge eligibility condition hold throughout the stated scope. The difference of power functions is odd and strictly increasing; its positive branch is strictly convex for every real \(p>2\). Thus its secant ratio increases from the exact linear coefficient to one, furnishing an exhaustive fixed-amplitude classification and pointwise convergence via monotone iteration. Sign reversal proves the two-cycle classification; the exact parameter reflection follows by oddness. An explicit third-order expansion of the inverse gives \(\beta=(p-1)(p-2)/6\), and reciprocal-square summation rigorously produces the common critical relaxation coefficient. Standalone exact arithmetic and numerical checks exercised edge cases. No finite experiment is used to establish the infinite theorem.
+PASS
 
-## Originality
+Fontanari's drives on the edge satisfy U_A+U_B=1+gamma, U_A-U_B=(1-gamma)d. Below gamma=1 each drive t lies in [0,1] and t^(1/p)>=t, so all are eligible; above gamma=1 both drives are at least one. The surplus difference is strictly decreasing in u; because there is overlap, its root never assigns a voter to an ineligible choice. Its centered equation is exactly Phi_p(d_next)=(1-gamma)d. Phi_p is odd, has positive derivative, and its second derivative is strictly positive on (0,1) for every real p>2. Oddness gives the alternating-sign identity by induction. Convexity makes the secant Phi_p(r)/r strictly increasing from c_p to 1. For s=|1-gamma|>0 the amplitude map is strictly increasing: below/above each nonzero crossing it moves toward that crossing without overshoot, and at s<=c_p it decreases any nonzero amplitude to zero. Increasing amplitudes as a map exclude any other periodic behavior; signs then distinguish fixed points from the one two-cycle. At gamma=0,2 the nonzero limiting amplitude is 1, and its one-sided multiplier is 2/p. At gamma=1 the first iterate is identically zero (the origin needs no update). The critical inverse expansion has coefficient -beta=-(p-1)(p-2)/6; positivity of the iterates permits reciprocal squaring, giving an increment 2*beta+O(r_n^2), hence the stated limit by Cesaro summation at both thresholds. All-real proof is independent of finite tests. Replay: python replay/4_cutoff.py, exact generalized-series composition and reciprocal-square check for seven rational exponents plus 108 one-step reflected equation pairs from exact rational orbits at p=3,4,5,7, and exact p=3,4 amplitude checks. The uploaded verifier was read, not executed. No claim about abstention-positive start, p=2, or gamma>2 is needed.
 
-**PASS, provisionally.** The full accessible HTML of Fontanari's arXiv:2610.25210v1 contains the model, the two critical thresholds, and qualitative cycle and phase-diagram claims. Those are known and are not the present claim. The document does not give an exact reflected-orbit identity valid at every iteration, a proof of pointwise global convergence on the entire mobilized edge for every real exponent greater than two, or the same explicit nonhyperbolic relaxation constant at both thresholds. Semantic searches for equivalent formulations, stronger interval-map results, the exact source title, and published mathematical records found other maps and standard normal-form phenomena, not a covering result for this exact joint statement. Definitive historical priority is not claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact reflection makes two apparently distinct bifurcation sectors dynamically identical in amplitude at every observation time; the classification excludes hidden higher periods and identifies all basins on a natural invariant manifold. The shared explicit \(n^{-1/2}\) law gives a quantitative prediction of critical relaxation beyond local stability and phase diagrams, uniformly in the sense of a formula valid for every exponent \(p>2\). The formulae naturally characterize time-dependent deviations in the originating threshold model without asserting empirical predictions or a global classification of its full two-dimensional state space.
+The model, threshold locations, several attractor/basin descriptions, and implicitly the stationary/cycle amplitude equation are already in Fontanari. The accepted contribution is the global pointwise analytic derivation including the critical endpoints and their explicit common asymptotic coefficient, tied together by the exact reflected-orbit identity. No claim is made that generic monotone-map or parabolic-fixed-point arguments are new. Best of knowledge only; public search was unavailable, not evidence of absence.
 
-## Sources and limitations
+## value
 
-Closest source: J. F. Fontanari, *Negative partisanship drives anti-frontrunner volatility in election dynamics*, arXiv:2610.25210v1 (2026-10-18), Sections 2–4; inspected through its complete accessible HTML. A different published rational flip-map study contains more refined corrections in a different model, not a theorem covering this cutoff map. General monotone-map and normal-form facts are classical. Residual priority risk remains because an exhaustive historical survey is not possible. The result is limited to the fully mobilized invariant edge with \(p>2\) and \(\gamma\in[0,2]\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Neutral multipliers alone cannot quantify relaxation. The sharp coefficient for every nonzero edge start, exact pairing of opposite-sign regimes and rigorous elimination of additional periodic behavior provide usable information for the originating map's phase diagram. The motivation and new content are confined to the fully mobilized invariant edge; empirical claims and conclusions on the full simplex are not implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

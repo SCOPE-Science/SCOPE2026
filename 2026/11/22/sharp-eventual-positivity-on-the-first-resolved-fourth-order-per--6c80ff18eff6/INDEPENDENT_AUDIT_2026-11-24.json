@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:52:31.551587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five shifts 0, ±1, ±2 are distinct, and expanding D−D²/12 yields the stated symmetric stencil with row sum zero. The two nonzero pairs of Fourier eigenvalues of D are (−5±√5)/2; applying d−d²/12 gives −α and −β with 0<α<β. Inverting the Fourier symbol using the two cosine values φ⁻¹/2 and −φ/2 gives the displayed three orbit entries. The diagonal is positive and the nearest-neighbor numerator is (1−u)+φ(u−v)>0 for 0<v=e^(−βt)<u=e^(−αt)<1. For the distance-two numerator F, F(0)=0 and F′(0)=5Q_{j,j±2}=−5/12. The function e^(αt)F′(t)=φα−(β/φ)e^(−(β−α)t) increases strictly from that negative value to a positive limit. Thus F has one strict minimum and then increases strictly to 1, crossing zero exactly once at positive T. The cyclic orbit sizes give ten negative or zero entries before or at T, respectively, and positivity thereafter; the identity at zero adds the isolated nonnegativity time. The physical factor h²/κ, Euclidean norm bound and mass conservation follow from the scaling and the symmetric spectrum. Independent Decimal bisection reproduced T=0.1030787110077426622381848633844554940… (python3 /workspace/branches/reproduce_decisive.py). Frozen verification code and its logged spectral and sampled checks were inspected, not executed or used as a global sign proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier same-stencil result gives bounds on finite-cycle recovery, including H_n≤n²/16 for n≥5, and explicitly does not claim a sharp finite-cycle recovery time.",
+          "The inspected neighboring primary schemes are a Gauss–Lobatto-derived fully discrete scheme and an elliptic discrete inverse with interval closure."
+        ],
+        "reasoning": "Qualitative recovery on the five-cycle is already covered; the broader estimates do not determine the time or its sign law. Other schemes do not evaluate this global periodic exponential.",
+        "searches": [
+          "Resultary: negative outer jumps, same stencil and positivity horizons on finite periodic cycles",
+          "RESULT 904e3c4eba47, Finding and Limitations",
+          "Hu–Zhang arXiv:2103.16790v2 and Cross–Zhang arXiv:2010.07282v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalog and mirrored RESULTs 904e3c4eba47, f6b8d51838a7, 111e1c1fc713",
+        "Chen et al. arXiv:2009.03581v1",
+        "Hu–Zhang arXiv:2103.16790v2",
+        "Cross–Zhang arXiv:2010.07282v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral convergence and the negative distance-two initial derivative yield some negative entries near zero and eventually strict positivity, but not the full trajectory. The local interpolation and backward-Euler operators are not that trajectory."
+        ],
+        "reasoning": "A sole positive crossing requires the signs of the other two orbits and monotonicity of the rescaled two-rate derivative. No inspected result supplies these exact signs or this sharp threshold by substitution.",
+        "searches": [
+          "Compare 904e3c4eba47 same-generator bounds and Chen et al. Theorem 6 with frozen Fourier formulas and two-rate derivative; distinguish step maps f6b8d51838a7 and 111e1c1fc713"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting L=−Q makes this the signed-Laplacian exponential problem. The overview and Theorem 6 of Chen et al. concern qualitative eventual exponential positivity under corank-one positive semidefiniteness.",
+          "The targeted primary search supplied no additional decisive source."
+        ],
+        "reasoning": "The generic exponential criterion applies to Q and proves a late-time property, but gives no exact times, orbit signs or uniqueness of the crossing.",
+        "searches": [
+          "Resultary: exact eventual exponential positivity, five-periodic fourth-order signed heat stencil",
+          "Primary search: \"eventual positivity\" \"five-point\" periodic fourth-order finite difference heat semigroup five nodes circulant sharp threshold exponential 0.103078711",
+          "Chen et al. arXiv:2009.03581v1 §VI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact semigroup-number match is the assigned record itself. The backward-Euler record gives 1/3 for an infinite-lattice resolvent. The distinct same-day table gives 1/6≤μ≤2/3 (or zero) for an exponentiated local polynomial differentiation stencil followed by center-row extraction."
+        ],
+        "reasoning": "Both are exact positivity thresholds but concern different functions/operators. In particular the local five-point window has a finite upper endpoint, whereas once strictly positive the audited global exponential stays so.",
+        "searches": [
+          "Resultary: exact thresholds for the classical five-point stencil and five-node exponential sign windows",
+          "Exact Findings f6b8d51838a7 and 111e1c1fc713"
+        ]
+      },
+      "rationale": "Known qualitative eventual positivity and stencil signs are credited. The distinct claim is the exact sharp five-node threshold, the unique positive crossing and the complete sign classification of the global semigroup. It is not an approximate bound, a one-step positivity interval or a stability threshold.",
+      "residual_risks": [
+        "An earlier explicit five-node circulant calculation or table under another description could overlap. This bounded comparison does not establish historical priority and does not infer order between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers eventual recovery and bounds, not the exact five-cycle invariant",
+          "evidence": [
+            "H_n≤n²/16 for n≥5; the Limitations state no sharp finite-cycle recovery time is claimed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47",
+          "material_read": "Mirrored RESULT.md Finding at offset 72 and Limitations at offset 10824",
+          "method": "Checked hypotheses, horizon bounds and sharpness scope against five-cycle signs",
+          "title": "Negative outer jumps force persistent lattice sign oscillation and a linear cycle-positivity delay",
+          "trigger": "Identical generator and finite periodic recovery horizons"
+        },
+        {
+          "assessment": "Infinite-lattice backward-Euler resolvent, not periodic exact exponential",
+          "evidence": [
+            "Positivity for the resolvent occurs exactly when the step ratio is at least 1/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7",
+          "material_read": "Mirrored RESULT.md Finding and scope from offset 0",
+          "method": "Compared topology, time map and threshold",
+          "title": "One third is the sharp positivity-recovery threshold for backward Euler on the classical fourth-order heat stencil",
+          "trigger": "Same classical spatial stencil with an exact positivity threshold"
+        },
+        {
+          "assessment": "Local polynomial differentiation followed by center-row extraction is not the global periodic semigroup",
+          "evidence": [
+            "Definition uses a Lagrange interpolation differentiation matrix, and the five-stencil table has the finite interval [1/6,2/3] besides zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-stability-and-sign-windows-for-centered-local-exponential--111e1c1fc713/RESULT.md",
+          "material_read": "Mirrored RESULT.md offset 0–2286, Finding and beginning of Assumptions",
+          "method": "Compared the exponentiated matrices and the table's scope",
+          "title": "Sharp stability and sign windows for centered local exponential heat stencils",
+          "trigger": "Same-day exact five-stencil positivity table and exponential terminology"
+        },
+        {
+          "assessment": "Qualitative recovery is covered; time and orbit signs are not its conclusions",
+          "evidence": [
+            "Theorem 6 characterizes eventual exponential positivity by the stated signed-Laplacian spectral condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.03581v1",
+          "material_read": "PDF §VI pp. 13–14, definition and Theorem 6, offsets 68965 and 70782",
+          "method": "Applied the positive-semidefinite corank-one criterion to L=−Q and checked its conclusion",
+          "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+          "trigger": "A general theorem that includes Q after reversing sign"
+        },
+        {
+          "assessment": "Different discretization and fully discrete claims",
+          "evidence": [
+            "The fourth-order spatial scheme is equivalent to a Q2 spectral element method with Gauss–Lobatto quadrature."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.16790v2",
+          "material_read": "PDF p. 5 discretization passage, offset 12292",
+          "method": "Compared spatial construction and kind of positivity",
+          "title": "Positivity-preserving and energy-dissipative finite difference schemes for the Fokker–Planck and Keller–Segel equations",
+          "trigger": "Fourth-order heat-related positivity scheme"
+        },
+        {
+          "assessment": "Different operator and sign question",
+          "evidence": [
+            "The fourth-order Bramble–Hubbard interval scheme uses Dirichlet closure and concerns inverse positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.07282v3",
+          "material_read": "PDF §2.2 p. 6, offset 16404",
+          "method": "Compared elliptic inverse positivity and boundary closure with periodic semidiscrete evolution",
+          "title": "On the monotonicity of Q3 spectral element method for Laplacian",
+          "trigger": "High-order stencil and positivity terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five nodes are the first periodic grid with an unaliased stencil, not an arbitrary finite slice. The sharp crossover and exact census give a concrete test of the difference between mass-preserving spectral stability and positivity for a standard higher-order heat discretization. An exact threshold with no sign reentry is useful as a solver benchmark and is not furnished by a qualitative convergence theorem or a late-time bound. The result makes no claim about sharp larger-grid thresholds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

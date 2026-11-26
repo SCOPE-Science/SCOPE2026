@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Lebesgue invariance reduces the ordered-pair mean to one-lag probabilities. Direct affine-branch integration yields an exact rational expression for every lag, whose subtraction from the two-independent-points benchmark produces the stated formula. At lags below the logarithmic threshold, the normalized excess is exactly one; above it a geometrically decaying fractional-part kernel gives a uniform error bounded by the sum of \(O(r)\) and \(O((\log N)^2/N)\). Continuity, one-periodicity, and nonconstancy of the phase follow from a uniform series and its right derivative. Exact-rational checks agree on 156 branch cases and four finite-sample means.
+## correctness
 
-**Originality — PASS with residual risk.** The closest full-text comparison is the recent first-order interval-map pair-correlation theorem by Baker and Todd (arXiv:2606.17880), which does not supply a sharp finite-size mean expansion. Rudnick–Zaharescu (arXiv:math/9912103) studies circular rather than interval distance; the published result on *Sharp second-moment inflation for expanding circle-map pair correlations* concerns the variance of that circular statistic and explicitly distinguishes it from interval distance. Database searches for Euclidean expectation excess, boundary effects, aliases, log-periodic phases, and finite-time expanding-map correlations did not identify a result implying the present phase law. An unindexed older Euclidean calculation remains possible.
+PASS
 
-**Mathematical value — PASS.** The logarithmic crossover separates deterministically related orbit pairs from effectively independent long-lag pairs. The exact scale and nonconstant lattice phase give finite-size calibration information not contained in first-order Poissonian limits or circular-distance mean identities. The distinction between interval endpoints and the torus is intrinsic to the new statistic, not a mere notation change.
+For the signed lag displacement D=(B-1)y-j on branch j, its positive density at x>0 away from branch breakpoints is (B-1-floor(Bx))/(B-1) on (0,1), by counting admissible j. The negative density is its reflection. Integrating to r gives [2(B-1-m)r+m(m+1)/B]/(B-1), m=floor(Br); substituting Br=m+v gives the asserted fractional-part expression. Stationarity and the 2(N-k) ordered pairs at lag k give the exact finite mean. After benchmark subtraction the scaled summand is exactly 1 for Br<=1. Above the threshold, subtracting F from the scaled summand yields r[u-v(1-v)-u^2]/[u^2(u-r)], bounded in magnitude by 2r/u for r<=1/2. With q=floor(log_b(1/r)), the geometric tail beyond q gives the phase, with total approximation error O_b(r+b^{-(N-q)}); the triangular weight costs q(q+1)/(2N)+O_b((q+1)/N). F is continuous including integers; on (m,m+1) it has derivative 2m(u-m-1)/u^3. This is O(u^-2) and tends to zero from the left at positive integers. The composed summands are globally Lipschitz on [0,1] with summable bounds 2b log(b)b^-j, validating their summed right derivative at phase zero; the endpoint match follows by reindexing and F(1)=1. Consequently the phase is continuous and nonconstant. The supplied checker was inspected, not run; the general identities and remainder were independently derived.
 
-**Scope and risk.** Only the annealed expectation for an integer-slope interval map at fixed positive collision radius is proved; no orbitwise second-order statement or fluctuation limit follows. The full-text comparisons and database searches reduce, but cannot eliminate, the risk of an equivalent historical first-moment computation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact Euclidean one-orbit mean together with its logarithmic coefficient and nonconstant phase. The strongest actual catalog match treats the same expanding map but has exactly the independent mean in the circular metric and a nontrivial variance, not this mean. Relevant primary results for interval maps and periodized lacunary sequences are first-order and do not determine this endpoint correction.
+
+## value
+
+PASS
+
+The exact iid benchmark separates the interval boundary effect from bulk first-order Poisson behavior. The dominant contribution comes from a logarithmically growing range of deterministic lags, while the next scale retains the phase of the lag threshold. That phase is a nonconstant observable mean correction, not a changed convention for pair ordering or the iid subtraction, and it distinguishes this interval model from its circular counterpart.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

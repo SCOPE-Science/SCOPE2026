@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the extracted standalone script. No external data or Python packages are required. Its completed output is:
+## correctness
 
-```text
-VERIFY_OK coloring_cases=830839 direct_boolean_closures=4435 forest_cases=5913 sharp_paths=30
-```
+PASS
 
-The script enumerates canonical increasing-parent finite out-forests on up to seven vertices, builds bottom-up depth-observation signatures, and independently compares generation with leaf-colour injectivity and with the falling-factorial count. In smaller cases it directly builds the Boolean/modal subalgebra by closing truth sets under complement, conjunction and successor-existence. It also checks sharp depth on monochromatic paths of thirty distinct positive heights. Counting cases from code is finite validation; the unrestricted result follows from the leaf-ancestor isolation argument in `RESULT.md`.
+Equal-coloured leaves agree on atoms and on every diamond formula (false), hence on all terms. Conversely, for a vertex of remaining height d pick a leaf at distance d. With an exact-height test conjoined with the d-fold diamond of this leaf's colour minterm, any matching endpoint is a leaf, is the same leaf by injection, and determines a unique d-th ancestor. At d=h one can omit the exclusion of paths of length h+1, so all singleton formulas have depth at most h, including h=0. A monochromatic path's root and child agree on all formulas through depth h-1 by induction on depth. The count is injections on L labelled leaves times q^(n-L); q=1 works exactly for L=1. The logarithm of the collision product gives the finite positive birthday limit with O(L^3/q^2) error, the upper exponential bound gives the zero limit (including q<L), and the union bound gives the one limit.
 
-Manual mathematical checks include the empty tuple (one palette word), isolated-vertex forests (height zero), any outward path (one leaf), and stars (arbitrarily coloured root). Check the exact orientations: edges are from parent to child, and the modal arrow is not reflexive or transitively closed. No external or independent audit evidence exists for this claim.
+## originality
+
+PASS
+
+The supported distinction is reduction of full generation to leaf injection on finite immediate-child outforests, with the resulting shape-free count and uniform depth bound. The general colouring theorem, modal witnesses, comparable catalogue censuses and the classical birthday calculation are not claimed as new.
+
+## value
+
+PASS
+
+This reduces a whole-frame generation problem to a single leaf-injectivity test regardless of internal labels. It supplies a closed census, exact minimal rank and optimal worst-case formula depth for an entire natural class. The birthday law is a useful consequence, rather than a separate novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:45.807362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each host gives a closed walk of the same length in the directed admissible overlap graph, recording its classes on successive edges. Conversely a closed walk gives the periodic host spelled by the edge symbols; overlap and closure enforce all windows, including for walks shorter than the window length. The bit-mask BFS finds a shortest return to its start with all classes visited. Independently, python3 /workspace/branches/independent_finite.py circles (NumPy integer arrays) exhausts both versions for lengths at most 28: extend all linearly legal words one symbol at a time, discard exactly those with a forbidden wrap, and test modular windows against separate oriented and reversal masks. The oriented and reversal minima, respectively, are (3,6,10,17,28) and (3,6,10,17,23) for orders 2–6. The specified 23-symbol witness was directly checked. The extra order-one comparison in the reproduction ties, with minima 2 in both versions. There is no extrapolation beyond order six.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted de Bruijn route-inspection method supplies a methodological precedent. The Fibonacci theorem determines oriented lengths for the same constraints at all orders."
+        ],
+        "reasoning": "The known all-order formula treats the stronger coverage requirement on the same hosts and proves upper bounds for the relaxed optima only. The general computation method does not state the optimal values after imposing the no-11 restriction.",
+        "searches": [
+          "arXiv:1608.08480, §§1–2 and pp. 10–11",
+          "2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1608.08480",
+        "Resultary 115d2faf86fa",
+        "Resultary 50305dee27be",
+        "Resultary d2dd86a41c28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F_{n+2}+F_n-1 gives the oriented values 3,6,10,17,28, but no matching lower bound for reversal covers. The unrestricted benchmark requires classes with 11, which are never factors of the present hosts."
+        ],
+        "reasoning": "Even if the oriented and relaxed values coincide through five, that equality needs independent lower bounds for the relaxed problem. Deleting forbidden edges/classes from the unrestricted optimum does not preserve closed walks or their minimum length.",
+        "searches": [
+          "October 18 sharp Fibonacci result, Finding",
+          "November 8 shortest unrestricted binary reversal covers, Finding and assumptions",
+          "arXiv:1608.08480, full-word-graph assumption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned record was a direct index self-match, not a distinct prior theorem. Burris–Motta–Shipman formulate reversal-class covering with the full alphabet word set; their Eulerization uses the full unoriented de Bruijn graph."
+        ],
+        "reasoning": "The constrained problem can be formulated as a shortest closed directed overlap walk meeting each two-edge (or one-edge) reversal class. The graph reformulation is not itself new; changing the ambient edge language and requiring that all host overlaps remain legal changes the optimum.",
+        "searches": [
+          "Resultary: first reversal savings, cyclic no-11/golden-mean covers, unoriented restricted de Bruijn cycles",
+          "arXiv:1608.08480, reversal classes and route inspection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 census gives the oriented minima, including 2352 order-six optimizers of length 28. The November 8 record gives unrestricted reversal numbers 2,4,8,14,26 for orders 1–5."
+        ],
+        "reasoning": "Neither table answers the mixed constrained/reversal optimization; the exact order-six saving cannot be read off either table.",
+        "searches": [
+          "Resultary: golden-mean small-order word-cover census and exact constrained reversal lengths 3,6,10,17,23",
+          "2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be",
+          "2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28"
+        ]
+      },
+      "rationale": "The oriented baseline and the general unoriented graph approach are prior; the sharp restricted reversal minima and first strict saving are not established by the inspected statements. The scope is internal admissibility of targets and cyclic admissibility of the host, with only reversal identifying targets.",
+      "residual_risks": [
+        "A previous finite optimization under constrained universal-cycle, reversible superstring, or graph route-inspection language could give equivalent lengths; the general web search was not probative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the oriented comparator only",
+          "evidence": "The formula F_{n+2}+F_n-1 uses every internally admissible word, not one representative per reversal class.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror text",
+          "title": "Sharp Fibonacci length for cyclic covers avoiding adjacent ones",
+          "trigger": "Same host and targets, all-order oriented result"
+        },
+        {
+          "assessment": "Oriented optimizer census, no relaxed optimum in the inspected result",
+          "evidence": "Lengths 3,6,10,17,28, with 2352 order-six oriented optimizers.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be",
+          "material_read": "Finding (offset 0), relationship to prior work (7400)",
+          "method": "Local mirror text",
+          "title": "Complete small-order census of minimum golden-mean cyclic covering words",
+          "trigger": "Potential tabulated equality or optimum census"
+        },
+        {
+          "assessment": "Different language and host constraints",
+          "evidence": "The lengths 2,4,8,14,26 cover all binary classes without forbidding adjacent ones.",
+          "identifier_or_url": "2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28",
+          "material_read": "Finding and assumptions (offset 0), prior-work comparison (4700)",
+          "method": "Local mirror text",
+          "title": "Shortest cyclic binary reversal covers through order five",
+          "trigger": "Same reversal target quotient, possible dominating instance"
+        },
+        {
+          "assessment": "General framework, no constrained length computation in those passages",
+          "evidence": "Uses the full k-ary word set and Eulerization of its unoriented graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "Abstract and §1 p. 1 (offset 0), §2 p. 2 (6100), route-inspection discussion pp. 10–11 (35000)",
+          "method": "Lawful OA full-text passages",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Primary reversal-de Bruijn framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first strict gain in a natural run-length-limited cyclic covering problem, not an isolated example. Knowing that four smaller orders admit no gain and that the first saving is exactly five positions gives a sharp benchmark for constrained reversal-cover constructions: counting reversal classes alone significantly underestimates the optimum. This finite comparison is useful without an all-order formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

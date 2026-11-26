@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:24:43.975188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, cpp_results.txt, python_results.txt, VERIFICATION.md and the two supplied enumerators (inspected)",
+        "Independent replay: python3 /workspace/review-work/exact_finite.py 4; output /workspace/review-work/4.log",
+        "Repaired RESULT.md, REVIEW.md and SLOGAN.txt",
+        "Wang–Wang–Zhang arXiv:2005.08038, Theorem 1.1 and §6"
+      ],
+      "rationale": "For each of the four orders I reconstructed the outer, inner and spoke edges from congruences on unordered pairs and computed shortest paths by Floyd–Warshall. Each landmark yields a bit mask of unordered edge pairs it distinguishes, using the minimum distance to the two endpoints. A landmark subset resolves if its mask union covers every edge pair. Exhaustive enumeration at cardinalities 1–4 recovers, at 2, 3, and 4 landmarks respectively, (0,0,469), (0,0,368), (0,18,1359), and (0,160,3200), and there are no resolving singletons. Upward closure and the positive counts establish all four minima and optimum counts. The original scalar formula is true, not falsified; §6 and Theorem 1.1 of the primary paper support its finite and infinite parts separately. The corrected files at /workspace/repairs/4/ retain the verified census, with no extrapolation.",
+      "residual_risks": [
+        "No counting result outside the four specified orders is checked or asserted. The stable dimension theorem is credited, not re-proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives n≥11; §6 states the four small-order dimensions. The 2023 odd family has theorem hypothesis ℓ≥11 despite notation overlapping P(7,3) at ℓ=3. The general cubic bound gives at least three."
+        ],
+        "reasoning": "The prior paper covers the full dimension formula when its concluding remarks are included. None of these scalar results fixes the multiplicities; the 2023 odd-family theorem's range cannot substitute for an exact small-order enumeration.",
+        "searches": [
+          "Wang–Wang–Zhang Theorem 1.1 and §6",
+          "Edge Resolvability in Generalized Petersen Graphs DOI 10.3390/sym15091633, definitions and Thm. 1",
+          "Filipović–Kartelj–Kratica Cor. 4"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Wang–Zhang §6 explicitly inspected",
+        "Filipović–Kartelj–Kratica Table 5 explicitly inspected",
+        "2023 Symmetry theorem and Resultary records above",
+        "Repaired RESULT.md, REVIEW.md and SLOGAN.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original formula is already stated across these prior passages, including the equivalence to P(7,2). The step-2 paper says it used total enumeration, but the table reports a representative and a minimum size per order, not the number of bases."
+        ],
+        "reasoning": "Choosing a minimum witness and proving no smaller witness exists do not enumerate all witnesses at the given size. Orbiting a single representative is not justified without proving transitivity on optimal sets. The repaired contribution requires the complete census, not merely a substitution or an audit of the old scalars.",
+        "searches": [
+          "arXiv:2005.08038, Fig. 1.1, Thm. 1.1 and concluding remarks",
+          "arXiv:1807.00580, §2.3/Table 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary §6 explicitly identifies the Möbius–Kantor graph P(8,3), and equates P(7,3) with P(7,2). The latter isomorphism sends u_i to v_(2i) and v_i to u_(2i), with indices modulo seven. Table 5 lists the order-seven scalar and one example for step 2."
+        ],
+        "reasoning": "Isomorphism preserves both the dimension and the multiplicities; the scalar is covered even under the alternate inner-step notation. The inspected step-2 table does not publish the cardinality of the family of bases.",
+        "searches": [
+          "Wang–Wang–Zhang §6, arXiv:2005.08038, literal (8, 3) followed by the full concluding passage",
+          "Filipović–Kartelj–Kratica arXiv:1807.00580, §2.3 and Table 5",
+          "Resultary: P(n,3), GP(n,3), labelled minimum edge metric basis counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b7d281814c53 is the assigned record, not an antecedent. Distinct same-day 41c380ebfefc has 160 triples at order ten for DGP(n,1), with 4n vertices and 6n edges instead of 2n and 3n. Table 5 gives one P(7,2) basis. Wang–Wang–Zhang Fig. 1.1 gives one P(8,3) basis and §6 gives the dimensions."
+        ],
+        "reasoning": "A numerical coincidence in a nonisomorphic family, a representative basis, and a scalar dimension table are not the optimal labelled count in the repaired claim.",
+        "searches": [
+          "Resultary generalized Petersen edge basis multiplicities at n=7,8,9,10; records b7d281814c53 and 41c380ebfefc",
+          "Filipović–Kartelj–Kratica Table 5",
+          "Wang–Wang–Zhang Fig. 1.1 and §6"
+        ]
+      },
+      "rationale": "This is a PASS for the repaired multiplicity census only. The frozen presentation's claimed new small-order dimension boundary has an originality FAIL: Wang–Wang–Zhang §6 explicitly gives all four dimensions and attributes order seven via P(7,3) ≅ P(7,2) to Filipović–Kartelj–Kratica. The main theorem's n≥11 hypothesis cannot be read as absence of the small values from the paper. The replacement removes the dimension classification and two-order exception as contributions and attributes them explicitly. The exact multiplicities of all minimum edge-resolving subsets were not in the inspected dimension statements, representative table or strongest distinct indexed comparison.",
+      "residual_risks": [
+        "The scoped source and catalogue searches do not exclude unindexed tables giving optimal set counts. No claim of new dimension values remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All original dimension values covered, optimum multiplicities not given in these passages",
+          "evidence": [
+            "§6: P(7,3) ≅ P(7,2), with dimension 4 credited to Filipović et al.; P(8,3) has dimension 4, and P(9,3) and P(10,3) have dimension 3.",
+            "Theorem 1.1 gives 4 for n≥11. Fig. 1.1 depicts one resolving set for P(8,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08038",
+          "material_read": "Theorem 1.1 and Fig. 1.1, PDF p. 2 (OA offsets around 6320 and 7368); §6, PDF p. 26 (OA offset 99100)",
+          "method": "Primary OA PDF; opened bounded §6 passage after exact locator",
+          "title": "The edge metric dimension of the generalized Petersen graph P(n,3) is 4",
+          "trigger": "Same parameters; strongest direct precedent and decisive concluding remarks"
+        },
+        {
+          "assessment": "Prior order-seven dimension and representative basis, not a basis-count table",
+          "evidence": [
+            "The order-seven row gives {u0,u1,u4,v2} and edge metric dimension 4; the table has columns for order, basis and dimension only."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.00580",
+          "material_read": "Corollary 4 (p. 6); §2.3 p. 9 (OA offset 22200) and Table 5 p. 14 (offset 34880)",
+          "method": "Primary OA PDF; bounded passage and full relevant table entries",
+          "title": "Edge metric dimension of some generalized Petersen graphs",
+          "trigger": "Isomorphic order-seven graph P(7,2) and possible census in Table 5"
+        },
+        {
+          "assessment": "Not an exact census or scalar theorem at the relevant overlap",
+          "evidence": [
+            "The odd-family result starts at ℓ≥11, whereas overlap requires ℓ=3."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15091633",
+          "material_read": "PDF p. 4, family definitions, OA offset 14250; p. 7, Thm. 1, offset 40000",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Edge Resolvability in Generalized Petersen Graphs",
+          "trigger": "Adjacent-parameter family overlaps at (7,3)"
+        },
+        {
+          "assessment": "Identical assigned record and a distinct order-ten census, not separate coverage of the repaired claim",
+          "evidence": [
+            "Distinct record counts minimum sets on DGP(10,1), which has twice as many vertices as P(10,3)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, b7d281814c53 and 41c380ebfefc",
+          "material_read": "Both mirrored RESULT.md Findings; distinct record's graph definition",
+          "method": "Published local mirror and Resultary search",
+          "title": "Four small-order edge-metric boundaries; sharp ten-cycle onset and all small edge-metric bases of double generalized Petersen graphs",
+          "trigger": "Exact hit and nearest distinct hit with 160 resolving triples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof",
+        "Independent finite census",
+        "Primary dimension theorem and §6 locating the natural finite range"
+      ],
+      "rationale": "The repaired claim counts optimal choices on all four simple cubic fixed-step boundary orders immediately before the stable theorem, including both known lower-dimension orders. These are distinct data even at identical dimension (e.g. 18 versus 160 minimum triples), useful as exact edge-localization benchmarks. The published size theorem does not mechanically give orbits or multiplicities. No scientific value is assigned to presenting the known scalars as new.",
+      "residual_risks": [
+        "Exact labelled counts only; not a symmetry classification, a counting polynomial, or a general counting theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:59.889601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The classification and TAR table survive unchanged in /workspace/repairs/5/RESULT.md. A separate bounded computation constructed the lines as additive triples in F₂³, tried every subset, tested closed-neighborhood union and one-deletion minimality, and built all four geometric families independently of the minimality filter. Equality yielded 21,14,28,2 minimal sets and the full domination polynomial coefficients. BFS expanded exact frontiers as bitsets of configurations, with each permissible move a single bit flip. It verified the specific isolated families for k=4,…,7, the 21 stars at k=5, and reproduced the five rows (V,E,largest radius,largest diameter): (21,0,0,0), (245,210,1,2), (1176,2226,10,12), (3138,9674,11,14), (5532,23408,12,14); component sizes also matched. The all-source histogram at k=8 was 42 at eccentricity 12, 2156 at 13 and 3334 at 14. Replay: python3 /workspace/reproductions/heawood.py. Supplied checkers were inspected, not executed. Monotone addition up to the union of two minimal sets and containment for every single move prove the overlap-graph correspondence; every state in any larger budget can delete down to a minimal set of size at most seven, so connectedness at eight persists. No higher-budget metric claim is inferred. The repair also checks the contrary literature assertion directly: with ℓ={1,2,3} and p=4 in XOR coordinates, the three selected lines are {1,4,5},{2,4,6},{3,4,7}. Points 5,6,7 are private neighbors for those lines; for each selected point, its line other than ℓ and the line through 4 is a private neighbor. The six-set dominates and is minimal but not neat.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For the bipartite Heawood graph with Γ=7, D_7 disconnected and D_8 connected are covered. Goldberg et al. and Héger–Nagy give γ=2q; the latter's Theorem 1.5 assumes q≥5.",
+          "Goldberg et al. Example 6.4 reports that the Fano plane is super-neat. Its Definition 4.2/6.1 makes this a statement about every inclusion-minimal dominating set, contradicted by the verified six-set with incident point/line pairs."
+        ],
+        "reasoning": "A broader result that is inapplicable at q=2 cannot cover the classification. The false same-graph super-neat assertion is not merely a different convention, but neither is it a valid exact classification. The repaired text records the incompatibility and a private-neighbor proof.",
+        "searches": [
+          "arXiv:1209.5138 Lemma 3/Theorem 7",
+          "arXiv:1405.3436 Theorem 5.2 and Example 6.4",
+          "arXiv:1603.02933 Theorems 1.1/1.5",
+          "arXiv:1401.5714; arXiv:1512.07514; arXiv:2003.05956"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.3436v1",
+        "arXiv:1603.02933",
+        "arXiv:1209.5138",
+        "arXiv:1401.5714",
+        "arXiv:1512.07514 p. 2",
+        "arXiv:2003.05956 pp. 11–12",
+        "Resultary e9b5f8960619"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general upper-domination connectivity bound does not give component orders or eccentricities. Minimal sets at the budget cap are isolated in general, but the counts 28 at six and 2 at seven, and a single remaining component, require the specific census.",
+          "The collinear-point/nonincident-pencil family explicitly supplies non-neat minimal sets, not consequences of the previous super-neat claim."
+        ],
+        "reasoning": "The repaired claim credits γ=4, the minimum-set construction and general connectivity, while retaining the exact family census and low-budget component/metric data not determined by those results.",
+        "searches": [
+          "Haas–Seyffarth §3–§6; Goldberg–Rajendraprasad–Mathew §4 and §6; Heawood shattering record Finding and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haas–Seyffarth's D_k uses exactly ordinary dominating subsets of size ≤k and one insertion/deletion. Goldberg–Rajendraprasad–Mathew uses the ordinary domination relation on the same Levi graph; their neat sets are independent dominating sets of the form P plus the lines avoiding P.",
+          "At q=2 their punctured-line construction is exactly selection of any two points and their two disjoint lines."
+        ],
+        "reasoning": "The objects do agree for ordinary domination, so prior minimum-size construction must be credited. Homomorphism and shattering complexes are different objects. Their graph moves/face relation does not yield the TAR metrics.",
+        "searches": [
+          "Resultary: Heawood/Fano Levi graph dominating subsets, add/delete/TAR components and distances",
+          "arXiv:1209.5138",
+          "arXiv:1405.3436"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later shattering-complex record obtains 21 minimum four-sets by the same point pairs, not the 65 inclusion-minimal sets or the multi-budget census. It credits the minimum-set description as background.",
+          "An ordinary domination polynomial recovers the vertex totals by budget, not the distances or component partitions. No matching full TAR table was identified."
+        ],
+        "reasoning": "Credit exact overlap on the 21 minimum four-sets; the later date alone does not decide priority. The remaining invariant is not a restatement of the shattering complex or a cardinality polynomial.",
+        "searches": [
+          "Resultary: Heawood or Fano incidence graph reconfiguration low-budget components, domination counts, exact radius and diameter",
+          "2026/11/22/SCOPE-the-minimum-domination-shattering-complex-of-the-heawood-graph--e9b5f8960619"
+        ]
+      },
+      "rationale": "Pass for the surviving full minimal-set census, geometric six-set obstruction and metric/component portrait, with repaired attribution. The earlier projective-plane construction covers the minimum size and first-family construction, and Haas–Seyffarth accounts for the connectivity threshold conditional on the upper domination number. An earlier computer assertion on the same graph is actually false as stated; it does not provide a covering classification.",
+      "residual_risks": [
+        "A public-web lookup was unavailable and is not used as negative evidence. An unindexed finite TAR enumeration could overlap.",
+        "The contrary assertion is identified specifically in arXiv:1405.3436v1; no conclusion is drawn about whether a later version elsewhere corrected it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimum-family construction covered; super-neat statement refuted; no TAR table in those statements",
+          "evidence": [
+            "Theorem 5.2 uses a punctured line to prove γ=2q. Definition 6.1 and Example 6.4 assert that all Fano minimal dominating sets are neat; a nonincident pencil with ℓ gives incident selected vertices and is minimal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3436v1",
+          "material_read": "§4 Definition 4.2, offsets 10200–13700; Theorem 5.2 proof and §6 Example 6.4, offsets 18100–21300",
+          "method": "Primary full-text passages, and geometric minimal-set counterexample",
+          "title": "Domination in Designs",
+          "trigger": "Same Levi graph and explicit claimed Fano classification property"
+        },
+        {
+          "assessment": "Covers γ=4, not q=2 structural classification via Theorem 1.5",
+          "evidence": [
+            "Theorem 1.5 requires q≥5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02933",
+          "material_read": "Theorems 1.1 and 1.5, pp. 2–3",
+          "method": "OA statements and q=2 hypothesis check",
+          "title": "Dominating sets in projective planes",
+          "trigger": "Potential general structural theorem for same kind of incidence graph"
+        },
+        {
+          "assessment": "Covers the endpoint and upper-domination disconnection, not exact census and metrics",
+          "evidence": [
+            "Nontrivial bipartite D_(Γ+1) is connected. D_Γ disconnected in the presence of an edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5138",
+          "material_read": "Definition p. 1, Lemma 3 p. 4, Theorem 7 pp. 5–6",
+          "method": "Primary passage and specialization to Γ=7",
+          "title": "The k-Dominating Graph",
+          "trigger": "Identical TAR graph and known threshold"
+        },
+        {
+          "assessment": "General reconfiguration results, not a finite Heawood census",
+          "evidence": [
+            "The result gives a sufficient connectivity bound from independent edges, not exact radii and diameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+          "material_read": "Primary connectivity passage p. 3, offset 7853",
+          "method": "OA relevant passage, compare hypotheses and conclusion",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "General connectivity and metric bounds"
+        },
+        {
+          "assessment": "Same 21 minimum sets; different invariant, no full minimal-set or TAR census",
+          "evidence": [
+            "Two lines through the third point on the joining line are exactly the two lines avoiding the pair."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-minimum-domination-shattering-complex-of-the-heawood-graph--e9b5f8960619",
+          "material_read": "Table/proof offsets 2020–6220 and relation section offset 9116",
+          "method": "Local mirror; compare geometric parametrizations",
+          "title": "The minimum-domination shattering complex of the Heawood graph",
+          "trigger": "Direct Heawood minimal-four-set overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest projective-plane incidence graph makes the budget range canonical, from minimum size four through the first connected budget eight. The exact radii, diameters and geometric identities of isolates separate information that a generic connectivity threshold and a domination polynomial lose. The explicit non-neat six-sets also correct a specific published-preprint assertion by a short witness, independently of the computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Fiber decomposition follows directly from lax splitting and downward closure of dependence atoms. For each fiber the problem reduces to the existence of a one-vertex-per-shore bipartite cover. The matching/vertex-cover dichotomy proves that every unsatisfied fiber contains either a three-edge matching or a four-edge same-shore two-center obstruction. The possible overlap sizes of the two neighbor pairs give an exhaustive six-type catalogue, and direct combinatorial choice counts are nonoverlapping. The standalone checker independently confirms the statement for all alphabet rectangles through four by four and tests raw disjunction splits through three by three. Finite checks are not used as an infinite proof.
+PASS
 
-## Originality
+For each fixed x, a witnessing lax split supplies at most one chosen row and one chosen column; conversely assign edges on the row to the first atom and the remaining covered edges to the second. Choices in different fibers are independent. Thus a minimal failure has exactly one nonempty fiber, and containment here means edge-subgraph, not induced-subgraph, containment. A three-edge matching is a minimal failure; every nonmatching three-edge set can be covered using a repeated endpoint and an opposite-shore endpoint of the third edge. With no three-edge matching, König's theorem gives a vertex cover of size at most two. A non-cross-coverable graph then needs two same-shore cover vertices, each of degree at least two. Choosing two edges at each yields a failure because one opposite vertex can cover at most one edge at the unchosen center. The neighbor-pair intersections of size zero, one or two give precisely the two-star, path and cycle cases with named shores. Deleting one edge leaves one full center and one opposite endpoint that together cover everything. This also clarifies the abbreviated wording at RESULT.md:58: the chosen center alone misses both edges there; the full cross necessarily misses at least one. Direct labeling gives 3! for the matching bijection, 2 for assigning the ends of an oriented-shore path, and C(4,2)=6 for allocating leaves to two fixed labeled centers, with the cycle counted once. The example pairs (0,1), (6,45), (96,396) and vanishing terms for undersized shores follow. This is a general proof for finite nonempty alphabets, not a continuation of the finite checks in the support file.
 
-PASS within the inspected sources. Theorem 22 in Fröhlich–Kolaitis–Meier establishes the known four-assignment upper cutoff, but not an exhaustive set of part-preserving minimal forbidden patterns or their exact labelled all-alphabet census. The closest published exact enumerator for the *same formula* counts satisfying teams, not minimal falsifiers; its cross normal form is a prior tool acknowledged in the proof. Other records treat syntactically different dependence disjunctions and thus do not imply this six-pattern result. Residual risks include other graph-theoretic enumerations and sections of the later coherence paper that were inaccessible in full.
+## originality
 
-## Value
+PASS
 
-PASS. A complete minimal-forbidden-subteam basis is a natural refinement of a coherence bound: it identifies all minimal database counterexamples, not merely a maximum witness size. The exact polynomial distinguishes the two exceptional three-row/three-column cases from the several four-assignment mechanisms and gives their multiplicities for every alphabet size, supporting exact falsifier sampling and quantitative schema analysis. The value is this complete canonical catalogue and all-parameter enumeration, not the already known four-coherence cutoff.
+The supported distinct result is the full named-shore minimal-obstruction basis. The coherence cutoff and cross criterion already have prior coverage; the binomial census is a direct count once the basis is proved, and even the aggregate coefficients potentially follow from the earlier satisfying-team enumerator with a matching correction. The exact obstruction types, not the mere cutoff or the coefficients alone, support the pass.
 
-## Closest prior literature and limitations
+## value
 
-The original 2025 preprint / 2026 CSL paper, the exact all-satisfying-team enumerator of 18 October 2026, and the 29 May 2026 general coherence preprint were compared. The first two are directly relevant and were inspected in substantive primary text; the third was accessible only through abstract and introduction. Hidden equivalences in older graph literature cannot be excluded. The result is only for finite set teams, lax splitting and this named variable pattern.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a precise obstruction language for a canonical two-atom dependence split already studied for coherence. It identifies exactly which small witnesses are irredundant, including asymmetry of the two named shores, and enables recognition by one of six explicit subgraph types at any finite alphabet sizes. This structural certificate is useful beyond knowing a failing fragment has at most four assignments; the routine arithmetic alone would not justify value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

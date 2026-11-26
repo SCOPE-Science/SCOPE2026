@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:34:47.417685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–59",
+        "VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/reproductions/4.py; enumerates maximal compatible projective cliques in the quotient for F₂ and F₄; results at /workspace/reproductions/4.txt"
+      ],
+      "rationale": "Direct multiplication gives ad, df and ae+bf as the only possibly nonzero square coordinates. The annihilator line kE14 must be in every maximal admissible space. If d is not identically zero, the products of linear functionals ad=df=0 force a=f=0, including over F₂: independent functionals can both be made one, and proportional nonzero ones cannot have identically zero product. In the slice d=0, quotient by kE14 turns the remaining quadratic into det M=0. Normalize one nonzero rank-one member to E11; applying the determinant to B and B+E11 forces B22=0, then B12 B21=0, so the common-image or common-row classification holds over any field. Each such space extends to a ruling plane, and exactly the row with first coordinate zero extends further by adding a middle-coordinate direction in W₀. Products in the slice are central, so all lifts are associative subalgebras. On the column ruling the product coefficient is p₁p₂ times the alternating determinant of the two row parameters; fixed-row spaces and W₀ have zero products. This gives q−1 nonzero-product algebras including in characteristic two, when the table is commutative. The ruling intersections and replacement of the exceptional row give K_(q+1,q+1). Each nonzero rank-one quotient point selects exactly one space from each ruling; adding W₀ and the annihilator incidence gives the three stated strata and total 2q⁴−q².",
+      "residual_risks": [
+        "The original enumeration over F₂ and F₃ tests subspaces of dimensions three through six; excluding smaller maximal spaces over all fields rests on the plane extension argument. The independent check adds F₄ but is also finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rudnicki–Weber use the Melnikov involution parametrization for the same square-zero upper-triangular variety over C. Section 2 describes rank-one orbit closures and the double-transposition orbit closures by support/rank constraints and, for disjoint arcs, A²=0 with quadratic geometry. In size four the nested and disjoint involutions give the support patterns of the two locus components: the upper-right block and the d=0 quadric component.",
+          "De Seguins Pazzis addresses dimension bounds for spaces of nilpotent or one-eigenvalue matrices, without imposing the square-zero condition."
+        ],
+        "reasoning": "The complex locus geometry has a broader antecedent. The nilpotent dimension bound does not give inclusion-maximality for the stronger condition. The orbit results do not supply the asserted finite-field incidence and multiplication classification; those use embedded linear planes, lifting and product checks.",
+        "searches": [
+          "Melnikov Borel orbits and upper-triangular square-zero matrices",
+          "arXiv:2108.03598, Proposition 2.1 and Corollaries 2.2–2.4",
+          "arXiv:1105.1872v3"
+        ]
+      },
+      "checked_sources": [
+        "Inspected primary passages and Resultary mirror findings",
+        "Frozen RESULT.md, lines 63–72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical two-ruling geometry gives the linear planes in the determinantal slice. The pair record also gives the one-point equations used to decompose the locus. The exceptional row can be recognized by its intersection with the upper-right block.",
+          "A pair in an admissible space satisfies XY+YX=0, not necessarily XY=YX in odd characteristic. The determinant ruling alone therefore does not say which maximal spaces are algebras with nonzero multiplication."
+        ],
+        "reasoning": "Substantial geometric ingredients and routine consequences are covered; the residual embedded result requires the exceptional replacement, the oriented row/column multiplication computation and its field-dependent consequences. The point-incidence graph and multiplicities then follow from that classification.",
+        "searches": [
+          "Rudnicki–Weber arXiv:2108.03598, §2",
+          "Commuting square-zero pairs d2968257cb40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Modulo the common annihilator, the d=0 slice is a split 2×2 determinant cone, so its maximal linear pieces are the classical two rulings. Maximal inclusion in the entire locus differs from maximal inclusion in that slice and also from maximal dimension.",
+          "The preserver paper concerns maps preserving the square-zero locus; the full text could not be inspected. The Borel-orbit sources concern orbit closures of individual matrices, not subspace inclusion."
+        ],
+        "reasoning": "Neither preservers nor Borel point orbits are an equivalent classification of embedded admissible k-linear subspaces with products. The rank-one classification covers the slice component of the argument.",
+        "searches": [
+          "Resultary: maximal elementwise square-zero subspaces in the four-by-four nilradical, row and column rulings, algebra and incidence",
+          "10.1080/03081080802531770",
+          "arXiv:2108.03598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier same-algebra record gives three irreducible components of the ordered commuting square-zero pair variety. The related same-day maximal elementwise square-zero result uses an exterior algebra."
+        ],
+        "reasoning": "Neither is a table of the stated maximal spaces or their embedded multiplication and incidence: pairs commute by hypothesis in the former, and the ambient multiplication is different in the latter.",
+        "searches": [
+          "Resultary: maximal square-zero linear spaces, four-by-four triangular nilradical, K_(q+1,q+1)",
+          "2026/11/8/SCOPE-three-determinantal-components-of-commuting-square-zero-pairs-in--d2968257cb40",
+          "2026/11/22/SCOPE-maximal-elementwise-square-zero-spaces-and-the-associative-bound--ffc962a0e445"
+        ]
+      },
+      "rationale": "The square-zero equations, determinantal cone and rulings are standard, and prior Borel-orbit theory materially overlaps the geometry of the underlying square-zero locus. The supported distinct result is the ambient inclusion-maximal linear-space and associative-algebra classification with one exceptional extension, together with its embedded all-prime-power incidences and multiplication types. Prior descriptions of point or pair varieties are not credited as new here.",
+      "residual_risks": [
+        "Uninspected preserver full text could contain a closer supporting lemma. The supported comparison is evidence-limited and not a global priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material antecedent for support and geometry of orbit closures over C",
+          "evidence": "A single transposition gives an upper-right rank-one locus; double transpositions use rank and support conditions and the disjoint-arc case adds A²=0 with a quadratic description.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.03598",
+          "material_read": "Abstract; §2.1 Proposition 2.1 and §2.2 Corollaries 2.2–2.4, PDF pp. 7–9",
+          "method": "Lawful OA preprint, located proposition then read offsets 25200 and 29282",
+          "title": "Characteristic classes of Borel orbits of square-zero upper-triangular matrices",
+          "trigger": "broader description of the same matrix variety"
+        },
+        {
+          "assessment": "Relevant unresolved full-text overlap",
+          "evidence": "Its stated subject is square-zero-preserving maps on upper triangular matrices; no specific maximal-subspace classification was verified.",
+          "identifier_or_url": "https://doi.org/10.1080/03081080802531770",
+          "material_read": "Title/subject and bibliographic evidence; full text not available",
+          "method": "Public DOI, search for lawful alternate, and publisher abstract request; full-text routes did not yield access",
+          "title": "Maps preserving square-zero matrices on the algebra consisting of all upper triangular matrices",
+          "trigger": "same square-zero locus and possible classification lemmas"
+        },
+        {
+          "assessment": "Different predicate and extremality",
+          "evidence": "The nilpotent and one-spectrum results concern global dimension bounds, not this square-zero inclusion list.",
+          "identifier_or_url": "https://arxiv.org/html/1105.1872v3",
+          "material_read": "Introduction and bounds, HTML offset 2800",
+          "method": "OA preprint text",
+          "title": "Spaces of matrices with a sole eigenvalue",
+          "trigger": "broader linear-space bounds for nilpotent matrices"
+        },
+        {
+          "assessment": "Overlapping equations, distinct variety",
+          "evidence": "The three components are of the reduced variety of ordered commuting square-zero pairs, not the incidence graph of maximal linear lifts.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-determinantal-components-of-commuting-square-zero-pairs-in--d2968257cb40",
+          "material_read": "Finding and proof, mirror offsets 96–4805",
+          "method": "Resultary and local mirror",
+          "title": "Three determinantal components of commuting square-zero pairs in the four-by-four nilradical",
+          "trigger": "same algebra and square-zero equations"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "The result works in an exterior algebra, not the fixed upper-triangular flag algebra.",
+          "identifier_or_url": "2026/11/22/SCOPE-maximal-elementwise-square-zero-spaces-and-the-associative-bound--ffc962a0e445",
+          "material_read": "Finding and ambient-algebra assumptions",
+          "method": "Resultary and local mirror",
+          "title": "Maximal elementwise square-zero spaces and the associative bound",
+          "trigger": "same maximal elementwise-square-zero formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proofs of product and incidence",
+        "Related Borel-orbit geometry"
+      ],
+      "rationale": "This small fixed-flag algebra exhibits both an exceptional maximal dimension and a nontrivial distinction between the two otherwise symmetric rulings at the level of multiplication. The subspace incidence answers how often a square-zero element extends to a maximal admissible algebra; the product census shows when that extension can have nonzero products despite every element squaring to zero. The characteristic-two result and all-prime-power uniformity make it a useful exact baseline, beyond classifying the two algebraic components of a point locus.",
+      "residual_risks": [
+        "No classification up to conjugacy, scheme structure, or theorem for larger matrix sizes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

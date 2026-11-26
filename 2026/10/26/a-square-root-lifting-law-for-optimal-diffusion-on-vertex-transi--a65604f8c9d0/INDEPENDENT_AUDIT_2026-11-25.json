@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:52.119050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Rayleigh minimum on the fixed orthogonal complement of constants is concave in all edge weights. Averaging over lifted core automorphisms and independent leaf permutations preserves cost and yields equal leaf weights with no loss, even against arbitrary asymmetric competitors. With equal y, the leaf-difference modes have eigenvalue y, while each core mode of eigenvalue a gives the 2×2 block with diagonal a+qy,y and off-diagonal -sqrt(q)y. For a>0 the smaller eigenvalue lies in (0,y) and increases strictly with a (its eigenvector has nonzero core component). Disconnected designs have zero gap. For a target r>0, the Schur complement at the core gap gives exactly y>r and a≥r(q+1+qr/(y-r)). Homogeneity gives the sharp lower cost a/β, attained by scaling any unit-cost base optimizer. With u=y/r, the remaining tradeoff is between q/[β(u-1)] and Nqd(u-1). Their product is q²Nd/β, so their sum has minimum 2q sqrt(Nd/β) exactly at u-1=1/sqrt(βNd). This proves the displayed total cost, attainment, and uniqueness of the scalar split among uniform-leaf optimizers. The cycle and prism formulas follow from their elementary spectra; s≥5 distinguishes the prism cycle edges from rungs by the number of 4-cycles they lie in. The supplied Python computes full eigenspectra but its numerical comparisons test only eig[1], not every eigenvalue. Those samples are supplementary and were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The FMMP/maximum-variance-unfolding framework allows a positive linear rate budget and defines the same continuous-time gap objective. The discrete-time symmetry paper minimizes stochastic SLEM. The corona article was not accessible in the attempted copies."
+        ],
+        "reasoning": "A framework that poses the optimization is not an exact solution for this family. A fixed-weight block spectrum also leaves the minimization over core/leaf costs unresolved. The discrete-time problem has a different objective and feasible set.",
+        "searches": [
+          "10.1137/S0036144504443821, pp. 681–683",
+          "10.1137/050624029, DOI, SIAM PDF and identified author-shared copy",
+          "10.1137/070689413, pp. 792–793 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 638ad6225b9e, eed5b428788a and 9e788ca7bde4",
+        "10.1137/S0036144504443821 and 10.1137/070689413; lawful access attempts for 10.1137/050624029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an edge-transitive core of degree δ and unweighted gap λ at uniform price P, β=2λ/(PNδ). Substituting this and q=1 into the target matches the one-leaf formula with c=δP/(2λ); the cycle case sets β=4 sin²(π/N)/N."
+        ],
+        "reasoning": "The substitutions recover and credit the overlaps. They cannot be inverted to infer multileaf or multiple-cost-orbit optimization. The extra block reduction and sharp one-variable budget optimization are substantive steps beyond the known formulation.",
+        "searches": [
+          "638ad6225b9e, RESULT.md, Finding",
+          "eed5b428788a, RESULT.md, offsets 0 and 1562",
+          "9e788ca7bde4, RESULT.md, Finding",
+          "Sun–Boyd–Xiao–Diaconis, FMMP formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 638ad6225b9e gives the priced sunlet optimum for one leaf per cycle vertex. Later eed5b428788a gives the one-leaf result for vertex- and edge-transitive cores with one base price P and one leaf price Q."
+        ],
+        "reasoning": "These are exact specializations, not equivalent domains. The target includes such cases via β but also q>1 and cores with several inequivalent or differently priced edge orbits.",
+        "searches": [
+          "Resultary: square-root lifting law optimal diffusion vertex-transitive pendant networks corona conductance budget exact spectrum gap q private leaves",
+          "Web: \"(q+1)/β\" \"Nqd\" \"sqrt(Nd/β)\" corona spectral gap optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched formula records 638ad6225b9e and eed5b428788a are one-leaf results; 9e788ca7bde4 has arbitrary multiplicity but uses a discrete-time stochastic SLEM."
+        ],
+        "reasoning": "This is a symbolic law over continuous prices and unbounded core size and multiplicity. Fixed-size spectra or numeric fastest-mixing tables are not exact coverage of that law. Analytic formula records, including nearby entries in the catalogue, are the relevant exact lookup.",
+        "searches": [
+          "Resultary: square-root lifting law optimal diffusion vertex-transitive pendant networks corona conductance budget exact spectrum gap q private leaves"
+        ]
+      },
+      "rationale": "Credit the earlier sunlet optimum, the known fastest-mixing variational framework and the corona spectral mechanism. The evidence supports the distinct general lifting statement: any leaf multiplicity, vertex-transitive cores with multiple invariant cost orbits, and an exact scalar reduction through β with unrestricted competitors. This is a bounded best-of-knowledge judgment, not publication priority certification.",
+      "residual_risks": [
+        "Exact statements of Barik–Pati–Sarma could not be checked from full text. Other specialized weighted-corona or maximum-variance-unfolding results may be unindexed; bounded comparison does not exclude them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the general program, not the explicit uniform-leaf and core budget split",
+          "evidence": [
+            "The primal selects edge rates to maximize the second Laplacian eigenvalue under a weighted linear budget."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Abstract p. 681 and FMMP setup pp. 682–683; extraction offsets 1060 and 6167",
+          "method": "Match objective, feasible class and what the dual formulation specifies",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same continuous-time objective and budget"
+        },
+        {
+          "assessment": "Closest spectral source remains an access risk; exact statements not independently checked",
+          "evidence": [
+            "No primary spectral passage was available for a conclusion about the full paper."
+          ],
+          "identifier_or_url": "doi:10.1137/050624029",
+          "material_read": "Bibliographic identification only; DOI, SIAM PDF and author-shared page blocked; no usable alternate text recovered",
+          "method": "Attempted lawful full-text access via identified copies",
+          "title": "The Spectrum of the Corona of Two Graphs",
+          "trigger": "Same underlying graph operation and spectral mechanism"
+        },
+        {
+          "assessment": "Related symmetry technique; discrete-time SLEM is distinct",
+          "evidence": [
+            "The optimization concerns a symmetric transition probability matrix, not a linear conductance-cost budget."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Problem definition pp. 792–793 and §5, offsets 1391, 3673 and 53691",
+          "method": "Compare spectrum objective and constraints",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Symmetry reduction for fastest mixing"
+        },
+        {
+          "assessment": "Exact earlier cycle specialization, not the full theorem",
+          "evidence": [
+            "Its one-leaf cycle optimum competes against asymmetric allocations."
+          ],
+          "identifier_or_url": "Resultary 638ad6225b9e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Set q=1 and the core to a cycle",
+          "title": "Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Earlier exact priced pendant result"
+        },
+        {
+          "assessment": "Exact later specialization with q=1 and edge transitivity",
+          "evidence": [
+            "c=δP/(2λ)=1/(Nβ) on its domain."
+          ],
+          "identifier_or_url": "Resultary eed5b428788a",
+          "material_read": "RESULT.md offsets 0 and 1562",
+          "method": "Translate uniform edge prices into β",
+          "title": "Exact price-optimal continuous-time mixing on transitive one-leaf networks",
+          "trigger": "Same priced spectral gap and transitivity"
+        },
+        {
+          "assessment": "Discrete-time SLEM theorem does not cover the priced continuous-time law",
+          "evidence": [
+            "Its optimization uses stochastic matrices on edge-transitive-core coronas."
+          ],
+          "identifier_or_url": "Resultary 9e788ca7bde4",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Compare objective and feasible class",
+          "title": "Universal fastest mixing and pendant-edge rigidity",
+          "trigger": "Arbitrary leaf multiplicity in another fastest-mixing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem solves a natural continuous-time diffusion design problem, reducing a new optimization on the decorated graph to one base invariant plus a closed-form allocation. It certifies global optimality even against asymmetric competitors and preserves practicality when distinct edge orbits carry different prices; it is not just evaluation of a fixed-weight spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

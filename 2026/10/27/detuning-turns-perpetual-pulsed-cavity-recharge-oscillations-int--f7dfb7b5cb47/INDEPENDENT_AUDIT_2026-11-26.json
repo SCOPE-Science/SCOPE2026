@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:15.130150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38 and 40–132",
+        "Frozen VERIFICATION.md",
+        "Frozen verify.py",
+        "Independent bounded replay /workspace/independent_checks/04_peaks.py (python3; binary64, not a certificate)"
+      ],
+      "rationale": "Under the passive linear Lindblad dynamics a coherent pulse evolves with the dissipative two-mode amplitude matrix; the normally ordered number covariance starts at zero and remains zero under vacuum loss. Subtracting the scalar mean frequency minus iγ/4 gives a traceless matrix with square Z²I; its exponential gives B=−Fg sin(Zt)exp(−γt/4−iω̄t)/Z. The modulus squared is the stated damped cosh-minus-cos expression, with no positive-time zeros when β=2|Im Z|>0. Off resonance Im(Z²)=−γΔ/4, so β>0. Taking the Hermitian part of the amplitude generator gives nonpositive real eigenvalue parts; equality would force the charger's eigenvector component to vanish, inconsistent with g>0. Consequently β<α. The derivative is a positive factor times R cos(ϖt−φ)−L(t), where L=α cosh(βt)−β sinh(βt)>0 and φ=atan2(ϖ,α). L starts below R, decreases then grows strictly to infinity; writing it as a shifted cosh gives the exact unique positive envelope crossing T_env. Beyond it the energy strictly decreases. An independent lobe count controls the residual: roots that can yield a maximum lie in positive cosine lobes; there the derivative sign function is strictly concave, since its second derivative is −ϖ²R cos(ϖt−φ)−β²L<0. Every full lobe with center before T_env starts and ends negative and is positive at the center, hence contributes exactly one strict maximum. There is at most one per lobe and none starting after T_env. Only a bounded number of initial or terminal lobes can differ from the center count, even at envelope equality or tangency. Thus N=ϖ T_env/(2π)+O(1). Expanding at fixed g,γ gives ϖ=2G+O(Δ²), β=γ|Δ|/(4G)+O(|Δ|³), and R/α→4g/γ with O(Δ²) error. The artanh term divided by β stays bounded, yielding the claimed coefficient and additive error. At resonance, the derivative of exp(−γt/2) sin²(Gt) gives one strict maximum per period and the displayed zero nodes. A separately written numerical lobe replay gives N=26,50,124,247 at Δ=0.1,0.05,0.02,0.01 with g=γ=1, matching the frozen report; this is supplementary. The uploaded script was not executed.",
+      "residual_risks": [
+        "The analytic proof, not finite root bracketing, decides all-detuning finiteness, tangencies and the remainder. Off-resonant positivity is for t>0, not t=0. The remainder is at fixed g>γ/4 and γ>0; it does not justify a joint approach to the exceptional point."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farina et al. impose resonance in the compared model. Shastri et al. treat detuned transient charging but with subsequent driving and pure dephasing. Hyperbolic enhancement uses a quadratic squeezing pulse. None of the inspected model statements is a general all-time theorem that includes the specified coherent displacement plus charger-only amplitude damping."
+        ],
+        "reasoning": "Detuning robustness of a driven or dephasing-induced steady state cannot establish a finite count during free decay to zero. The distinct pulse Hamiltonian or dissipator changes the mode content and the extremum equation.",
+        "searches": [
+          "arXiv:1810.10890 local resonance and oscillator example",
+          "DOI:10.1038/s41534-025-00959-5 model and Robust charging against detuning",
+          "arXiv:2405.11662 abstract/model",
+          "Focused primary-literature search for detuned pulsed-battery charging maxima"
+        ]
+      },
+      "checked_sources": [
+        "Resultary telegraph record above",
+        "arXiv:2403.20155",
+        "arXiv:1810.10890",
+        "arXiv:2405.11662",
+        "DOI:10.1038/s41534-025-00959-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier telegraph proof already differentiates a damped two-exponential sum, counts contributing positive cosine lobes by strict concavity, and squeezes the scaled count. That establishes the method and leading-scale behavior in the stationary dephasing model. The compared pulsed battery paper supplies the resonance formula only."
+        ],
+        "reasoning": "A parameter rename in the stationary theorem would leave its nonzero initial coherence and unequal modal weights intact. Here the physically fixed zero initial battery amplitude produces equal opposite modal coefficients, giving the cosh-minus-cos energy and a closed envelope threshold. Computing that exact crossing and controlling the endpoint-lobe error are needed for the quantitative bounded-error claim; the earlier scaled limit by itself does not imply that error.",
+        "searches": [
+          "Resultary telegraph result Proof §§1–4, offset 2525–7865",
+          "arXiv:2403.20155 Eqs. (2)–(5), (21)",
+          "DOI:10.1038/s41534-025-00959-5 Eq. (3) and detuning section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing z=iZ for the pulse transfer (up to branch choice), a=γ/4, v²=g²+Δ²/4 and ε=γΔ/(8v) identifies z²=a²−v²+2ivε with the telegraph discriminant. Under this correspondence the earlier limiting coefficient has the same cosh-threshold form and matches the leading cavity expression in the limit.",
+          "The pulse amplitude is proportional to exp(−at)sinh(zt), which vanishes at zero, whereas stationary telegraph dephasing gives exp(−at)[cosh(zt)+(a+ivε/a)sinh(zt)/z], which starts at one. Their mode weights and exact derivative envelopes differ."
+        ],
+        "reasoning": "Positive-revival components of a nonzero modulus and positive-derivative components of its square count in essentially the same way as strict maxima for these analytic lobe problems. The spectral identification therefore shows real method-level overlap, not merely similar words. It does not identify the observables or turn the stationary-telegraph theorem into an exact formula for the initially empty battery.",
+        "searches": [
+          "Resultary: zero avoidance, inverse-parameter revival/peak count, two damped modes and detuning",
+          "Resultary 2026/10/25 stationary telegraph dephasing RESULT.md, Finding and proof §§1–4",
+          "arXiv:2403.20155 Model and Eq. (21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published resonant energy already implies the resonant nodes and infinitely many maxima. The strongest indexed off-symmetry result is the telegraph law for a differently initialized coherence amplitude, with |ε|N tending to an explicit coefficient. No returned and inspected exact result gave T_env or N with a bounded error for the pulse transfer."
+        ],
+        "reasoning": "The indexed limiting law is credited for the matching abstract pattern and spectral threshold, but is not an exact entry for the off-resonant battery signal or its envelope crossing. Dates alone do not establish provenance or priority.",
+        "searches": [
+          "Four focused Resultary semantic searches on the detuned two-mode pulse, zero avoidance, strict maxima and inverse-detuning peak count",
+          "Expanded Resultary 2026/10/25 zero-avoidance and inverse-asymmetry revival-counting Finding and proof",
+          "arXiv:2403.20155 Eq. (21)"
+        ]
+      },
+      "rationale": "The contribution supported is the all-time classification for the charger-pulsed, amplitude-damped, initially empty battery, including the closed detuned cutoff and an additive O(1) count with the explicit model normalization. The resonant baseline, two-mode spectrum and the general cosine-versus-growing-envelope mechanism are not novel. The strongest indexed telegraph analogue shares both the counting idea and the functional form of the leading coefficient under spectral identification, but its published assertion fixes stationary initial data for a different observable and supplies a scaled limit, not this cutoff or bounded-error cavity count.",
+      "residual_risks": [
+        "The bounded search does not exclude a preexisting general two-mode extremum theorem with arbitrary initial modal weights and an additive count bound, or an equivalent older damped-oscillator treatment. The counting technique and abstract inverse-parameter pattern must be credited to the directly inspected analogue; no absolute historical priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial mathematical-method and spectral-coefficient overlap, without identical initial data or the bounded-remainder cavity statement",
+          "evidence": "Stationary amplitude starts at one, has a cosh term, and its differentiated squared modulus yields a strictly concave positive-lobe test. The published count is a scaled limit at fixed telegraph parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-zero-avoidance-and-inverse-asymmetry-revival-counting-for-statio--05d470e1ebbd/RESULT.md",
+          "material_read": "Finding and assumptions offset 0; proof §§1–4 from offset 2525",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Zero avoidance and inverse-asymmetry revival counting for stationary telegraph dephasing",
+          "trigger": "Strongest indexed match to all-time zero classification and inverse-parameter revival counts"
+        },
+        {
+          "assessment": "Covers resonant baseline, not a detuned count in the inspected model",
+          "evidence": "Both mode frequencies are ω_b; charger-only pulse and loss give the exponential times squared sine at resonance.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.20155",
+          "material_read": "Model Eqs. (2)–(5), offsets 7295, 9718, 12192; Dynamics Eq. (21), offsets 21993–24286",
+          "method": "OA full-text passages",
+          "title": "Energetics of a pulsed quantum battery",
+          "trigger": "Closest prior battery model and exact resonant overlap"
+        },
+        {
+          "assessment": "Different transfer experiment; the inspected passage imposes resonance",
+          "evidence": "Local frequencies and drive are resonant; transfer is analyzed at finite charging times with an environmental coupling.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.10890",
+          "material_read": "pp. 3–4, offsets 15802 and 23210, Eqs. (13), (19)–(20)",
+          "method": "OA PDF",
+          "title": "Charger-mediated energy transfer for quantum batteries: An open-system approach",
+          "trigger": "Open charger–battery transfer with a charger bath"
+        },
+        {
+          "assessment": "Detuned battery transient with different drive and loss mechanism",
+          "evidence": "Driven charger and pure dephasing; detuning discussion contrasts oscillations with convergence to a dephasing-induced steady value.",
+          "identifier_or_url": "https://doi.org/10.1038/s41534-025-00959-5",
+          "material_read": "p. 2 Eq. (3) and following, offsets 9571 and 11998; p. 4 Robust charging against detuning, offset 31405",
+          "method": "OA PDF",
+          "title": "Dephasing enabled fast charging of quantum batteries",
+          "trigger": "Closest inspected detuned-transient physical model"
+        },
+        {
+          "assessment": "Quadratic drive rather than displacement transfer",
+          "evidence": "Short squeezing pulse induces hyperbolic energy enhancement, not the linear charger-loss mode envelope.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.11662",
+          "material_read": "p. 1 offset 0 and introduction/model offset 10228",
+          "method": "OA PDF",
+          "title": "Hyperbolic enhancement of a quantum battery",
+          "trigger": "Pulsed-battery antecedent with potentially related hyperbolic functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and 75–138",
+        "arXiv:2403.20155 Eq. (21)",
+        "Resultary telegraph record proof §§3–4"
+      ],
+      "rationale": "The sharp count and closed final-turning bound distinguish a singular resonance idealization from free decay under any fixed nonzero detuning in a canonical pulsed model. The explicit envelope yields an all-time stopping bound without arbitrarily truncating a transient simulation, and the error bound quantifies how many exact peaks are lost as detuning changes. This is not merely diagonalization, a new name for the telegraph law, or a fit to a finite peak count.",
+      "residual_risks": [
+        "Exact extrema at late times can be exponentially small; the result is not a prediction for experimentally detectable cycles or for models with direct battery loss or continuous drive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

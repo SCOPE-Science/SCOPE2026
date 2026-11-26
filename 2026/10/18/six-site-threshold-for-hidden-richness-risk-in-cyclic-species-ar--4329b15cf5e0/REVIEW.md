@@ -1,19 +1,21 @@
-# Review of cyclic spatial species–area identifiability
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof handles all positive integer site counts through five by an explicit distribution-determination argument (binary supports at the boundary depths, and the complete three-species abundance classification at five sites). For arbitrary larger circular transects, counting contiguous windows containing two designated sites yields the exact joint-detection formula. The variance range at half-transect depth follows from a sharp elementary bound on that count. The companion exact verifier independently enumerates all site partitions through five, checks the six-site witnesses, and validates the all-size formulas on a large finite test set. The finite tests are not presented as proofs of the unrestricted statements.
+PASS
 
-## Originality
+The endpoint mean gives total species S. Windows of length 1 and N have a point mass, length 2 is binary, and length N−1 can lose at most one species. The only remaining depth for N≤5 is N=5,m=3. Its law is binary unless S=3 with a species occupying three sites. When S=3, the mean at depth 4 distinguishes (2,2,1) from (3,1,1), via singleton losses. In (3,1,1) the depth-2 mean distinguishes adjacent from nonadjacent singleton sites; in each case the pattern is unique up to symmetry and relabeling. For N≥6 with nonadjacent B,C, every window of length at least two detects A, and the singletons each have detection probability m/N. Among the N starts, those with both rare sites split by the first rare site in the linear window, giving exactly (m−s)_+ + (m−(N−s))_+, also at m=N. Thus at m≥2 the law is that of one plus two indicators with those marginals and intersection. The variable part of the variance is twice the joint probability. At floor(N/2) the two summands cannot both be positive, the count ranges from 0 to floor(N/2)−2, and the stated separations attain the endpoints, including odd N. At N=6,m=3 the histograms are (1,4,1) and (0,6,0) by direct count, with variances 1/3 and 0. Independent replay: python3 /workspace/branches/check_3.py checks all n^n site colorings for each n≤5, the labelled witness detection counts and histograms, and all eligible starts/separations through N=40. The unbounded claim follows analytically, not from the replay.
 
-PASS under the inspected literature, with nonzero residual bibliographic risk. Laurie and Perrier's 2007 multifractal paper already makes the general point that mean richness need not specify variance, so that generality is explicitly excluded from the novelty claim. Tjørve and collaborators' 2008 full article studies mean spatial occupancy curves and uses wrapped-area sampling, but their model calculations for one and two species do not supply a three-species six-site threshold or a variance-separation formula for arrangements with *identical species-wise detection curves*. The 2003 sampling-design taxonomy and 2012 spatial diversity–area discussion likewise do not cover those numerical and structural conclusions. Checks across published mathematical research on uniform occupancy and a separate finite-population rarity-similarity result concern different sampling laws and do not imply this cyclic-window statement. Equivalent unknown combinatorics-of-words or spatial-ecology formulations remain a risk.
+## originality
 
-## Value
+PASS
 
-PASS. A full array of separate species detection-versus-area curves is strictly more informative than a single mean richness curve, yet the theorem shows it still does not determine spatial richness uncertainty. The exact six-site threshold and a variance gap tending to one (even while the contrasting half-window richness can be deterministic) distinguish intrinsic cross-species spatial alignment from marginal occurrence profiles. This gives a motivated limit on biodiversity inference from spatial averages, not an arbitrary census entry.
+Mean richness as an aggregate of detection statistics and the importance of spatial variability are not new. On the evidence inspected, the new part is the sharp full-law threshold in the cyclic one-label model and the exact size-dependent variance ambiguity even with identical labelled detection curves.
 
-## Limits
+## value
 
-Only single-occupancy cyclic sites and uniformly placed contiguous windows are addressed. The extremal formula is restricted to one ubiquitous and two singleton species; arbitrary habitat geometry, simultaneous within-site taxa and field measurement error are outside scope. Independent bibliographic and mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard spatial summary, this fixes the minimum size at which compressing windows to a mean loses the entire local richness law, and shows that even retaining all labelled marginal detections does not recover the missing joint behavior. The exact half-window gap makes the effect interpretable at arbitrary size, including deterministic versus fluctuating landscapes at the same mean. This is a sharp, identifiable boundary and witness in the stated design, not an ecological prediction or a universal variance bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

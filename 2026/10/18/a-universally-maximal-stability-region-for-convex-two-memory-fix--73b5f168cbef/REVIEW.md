@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is that the convex-memory weight \(q=1/3\) has the unique, globally inclusion-maximal stability region for \(e_{k+1}=A[(1-q)e_k+qe_{k-1}]\), where \(A\) is any finite-dimensional complex matrix. The proof checks the monic quadratic Schur–Cohn inequalities, expands them into the explicitly defined polynomial \(F\), and factorizes its derivative in the weight. For \(|a|>1\), the two relevant boundary values are nonpositive and the extra critical point has the exact nonpositive value \(-(\operatorname{Im}a)^2(|a|^2-1)^2/(|a|^2-\operatorname{Re}a)^2\). Hence any positive feasible value forces a positive value at \(q=1/3\). The \(|a|\le1\) cases, strictness via negative real spectra, scalar-to-matrix lift, and imaginary-axis endpoint are handled separately. No numerical sample is used to infer an infinite-domain claim. The attached standard-library checker passed 97,272 tests.
+PASS
 
-## Originality — PASS, with material bibliographic uncertainty
+For the scalar characteristic p(z)=z²−a((1−q)z+q), write R=|a|² and x=Re a. The monic quadratic Schur–Cohn inequalities become q²R<1 and F=(1−q²R)²−(1−q)²|a+qR|²>0. For R<1 a putative |z|≥1 contradicts |z|²≤|a||z|; at R=1, a=1 has root 1 for every weight, while F(1/3)=8(1−x)/27>0 at the other points. At R>1 a stable q gives positive F somewhere on [0,1/sqrt(R)], whose endpoints are nonpositive. The derivative is 2R(3q−1)[x−1+q(R−x)]. At the other candidate q_0, the relation q_0 R=1−(1−q_0)x yields 1−q_0²R=(1−q_0)(1+q_0x) and Re(a+q_0R)=1+q_0x, hence F(q_0)=−(1−q_0)²(R−x²)≤0, including real a. Therefore a positive interior maximum is at 1/3 and satisfies the strict product constraint. At that q, 27F=27−18R−8Rx−R², bounded above at fixed t=sqrt(R) by −(t−3)^3(t+1), so F>0 forces R<9. For a=−t the real quadratic test gives tq<1 and t(1−2q)<1; the smaller effective upper bound equals 3 only at q=1/3, furnishing a strict inclusion witness for every other q. For real a≥1, p(1)≤0 gives a real root ≥1; the imaginary boundary gives R=6sqrt(3)−9 and the endpoint a=−3 has a double root −1. Triangularizing A gives the quadratic factors of the block companion even for defective matrices; spectral radius below one is exactly exponential stability for all initial pairs. The frozen check.py was inspected, not executed; recorded grid and rational checks are diagnostics, not the universal complex proof.
 
-The September 18, 2026 Epperlein–Wirth paper describes uniform moving-average stability regions indexed by the **window length**, whereas the present claim fixes the memory length at two and proves inclusion-maximality across **all constant convex weights**. The classical Schur–Cohn test gives a stability criterion for any one weight, but the universal maximizing-weight theorem requires an additional comparison across weights. The Chebyshev inertial fixed-point literature uses iteration-varying relaxation and does not supply the present all-complex-spectra inclusion theorem. Searches of published research records under weighted-memory, convex two-step, stability-region, and quadratic-root aliases did not yield an implication-equivalent claim. This negative search is not proof of uniqueness. The full motivating preprint was not available to inspect; its published abstract and a detailed independent synopsis were the available material. An uninspected section could overlap the finding, and older unindexed work is a remaining risk.
+## originality
 
-## Value — PASS
+PASS
 
-A single explicit coefficient serves all complex spectra and all finite matrix dimensions: no individual eigenvalue estimate is required merely to maximize the *set of systems that can be stabilized* with a constant two-memory convex scheme. This is a natural complete classification rather than a narrow parameter check. It improves the negative-real stability endpoint from \(-2\) for uniform two-point averaging to the sharp \(-3\), and obtains an exact oscillatory-axis margin. It does not promise faster convergence on a specified system; a different weight may yield a smaller spectral radius for that system. Its scope excludes nonlinear maps, variable weights, longer memories, floating-point error, and transient norm growth.
+The strongest actual comparators give the real negative frontier or equal-weight regions, not full complex containment by a single fixed unequal weight. The assessment credits the older real result and classical Schur machinery; the distinct content is the universal complex set-inclusion optimum with an exact boundary. The comparison is bounded, not a general priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A uniform dominance theorem is stronger than an improved real margin or a per-matrix tuning rule: one constant convex rule preserves every stability guarantee attainable by any constant two-lag weight, including nonreal eigenvalues of nonnormal finite matrices. The exact strict Schur boundary gives a direct admissibility test with no claim about transient amplification, nonlinear maps, or fastest contraction. This is a natural complete classification and a useful parameter choice, not simply a restatement of a quadratic root test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

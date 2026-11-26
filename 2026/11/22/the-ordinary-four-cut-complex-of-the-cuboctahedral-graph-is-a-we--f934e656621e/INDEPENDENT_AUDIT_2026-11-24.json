@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:09.825334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–3",
+        "verification/collapse_pairs.tsv and verification/check_fourcut.py (inspected; pairs independently replayed)",
+        "/workspace/review_evidence/reproduce_small.py (cuboct)"
+      ],
+      "rationale": "The dual is precisely the complex with no disconnected induced four-subset. Enumeration via the geometric cuboctahedron independently found 126 connected four-sets, 24 five-faces, no higher dual faces, and the stated primal face vector. Independently replayed all 132 supplied pairs in cube-edge labels, requiring a unique proper coface at each deletion; the residual face vector is (12,60,112). A separate greedy collapse in geometric labels reduced the dual to (12,66,118) in 126 moves, also of reduced Euler characteristic 63. The original dual's complete two-skeleton makes it simply connected, so its collapsed two-complex has free H2 of rank 63 and is a wedge of 63 two-spheres by Hurewicz and homological Whitehead. Integral Alexander duality on 12 labels puts its cohomology in primal homology degree 12-2-3=7. The primal full five-skeleton gives 4-connectivity, and Hurewicz with vanishing H5 and H6 gives 6-connectivity. An integral basis represented by seven-spheres then gives the claimed wedge. Purity follows from the 369 distinct complements, each of size eight.",
+      "residual_risks": [
+        "No shellability or equivariant homotopy assertion is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The face-lattice shortcut in Theorem 6.1 assumes a complete (n-k-2)-skeleton; 24 of the required seven-vertex faces are missing here. The sequel's abstract describes disjoint unions, squared paths and grids."
+        ],
+        "reasoning": "The identified general shortcut is inapplicable. No covering family specialization was identified in the inspected statements.",
+        "searches": [
+          "arXiv:2304.13675v2 Theorem 6.1",
+          "arXiv:2407.08158v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact and neighboring records",
+        "arXiv:2304.13675v2",
+        "arXiv:2407.08158v1",
+        "64f6ee0f1faa",
+        "1358830d67f4",
+        "1c1ca2747108"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-cut wedge has degrees 7 and 8 and the five-cut wedge degrees 5 and 6. Inclusion between cut thresholds does not specify the homology or homotopy of an intermediate complex; duality by itself relates groups only after one side is computed."
+        ],
+        "reasoning": "The exact dual collapse and hence the rank and full integral homotopy types are not supplied by neighboring calculations or the general duality statement.",
+        "searches": [
+          "Resultary 64f6ee0f1faa, 1358830d67f4",
+          "arXiv:2304.13675v2 Definition 2.7 and Theorem 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary definition uses disconnected four-sets, exactly the frozen convention, not independent four-sets as in the total variant. The dual characterization by avoidance of disconnected induced four-sets preserves this distinction."
+        ],
+        "reasoning": "Comparisons are made for the same complement rule, cutoff and graph, allowing either the primal or Alexander dual as a formulation. Neither an independent-set complex nor a cut complex of Q3 itself is an equivalent formulation.",
+        "searches": [
+          "Resultary cuboctahedral ordinary four-cut / L(Q3) Alexander dual",
+          "arXiv:2304.13675v2 Definition 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is this frozen record itself. The distinct same-threshold truncated-tetrahedral record computes 117 spheres in the same dimensions for a 3-regular 12-vertex graph; L(Q3) is 4-regular. The exact cuboctahedral records compute thresholds 3 and 5, not 4."
+        ],
+        "reasoning": "No equivalent independent exact entry was located among the matched passages. Neither a different graph nor the assigned record itself is duplicate coverage.",
+        "searches": [
+          "Local Resultary exact object and both wedge dimensions; distinct hit 1c1ca2747108",
+          "Published cuboctahedral threshold records 64f6ee0f1faa and 1358830d67f4"
+        ]
+      },
+      "rationale": "The inspected exact and nearby statements do not give either homotopy type for the ordinary four-cut of this graph. This is a bounded comparison, not a priority determination.",
+      "residual_risks": [
+        "The targeted literature search for cuboctahedral/L(Q3) ordinary four-cut was unavailable and supplies no negative evidence. The statement comparison relies on the accessible primary and catalog passages, not an exhaustive literature index."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard definition and machinery; decisive skeleton hypothesis fails",
+          "evidence": "The required complete 6-skeleton is absent.",
+          "identifier_or_url": "https://arxiv.org/html/2304.13675v2",
+          "material_read": "Abstract, Definition 2.7 (offset 14439), Theorem 6.1 (offset 82070)",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Defining paper and general face-lattice theorem"
+        },
+        {
+          "assessment": "No direct coverage in inspected passage",
+          "evidence": "Disjoint unions, squared paths and rectangular grids are named.",
+          "identifier_or_url": "https://arxiv.org/html/2407.08158v1",
+          "material_read": "Abstract (offset 0)",
+          "method": "Lawful OA passage inspection",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Possible general family coverage"
+        },
+        {
+          "assessment": "Distinct threshold",
+          "evidence": "Delta_3 is S^7 wedge six S^8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-cuboctahedral-three-cut-complex-is-a-mixed-dimensional-spher--64f6ee0f1faa/RESULT.md",
+          "material_read": "Finding (offset 0)",
+          "method": "Local mirror passage",
+          "title": "The cuboctahedral three-cut complex is a mixed-dimensional sphere wedge",
+          "trigger": "Same graph and adjacent cutoff"
+        },
+        {
+          "assessment": "Distinct threshold",
+          "evidence": "Delta_5 is a wedge of twelve S^5 and 118 S^6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-mixed-dimensional-sphere-wedge-for-the-cuboctahedral-five-cut--1358830d67f4/RESULT.md",
+          "material_read": "Finding (offset 0)",
+          "method": "Local mirror passage",
+          "title": "A mixed-dimensional sphere wedge for the cuboctahedral five-cut complex",
+          "trigger": "Same graph and adjacent cutoff"
+        },
+        {
+          "assessment": "Different graph and ranks",
+          "evidence": "A 3-regular graph with 117 sphere summands; the cuboctahedron is 4-regular.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-truncated-tetrahedral-four-cut-complex-117-seven-spheres-and--1c1ca2747108/RESULT.md",
+          "material_read": "Finding and graph assumptions",
+          "method": "Local mirror passages",
+          "title": "The truncated-tetrahedral four-cut complex",
+          "trigger": "Strong same-threshold overlap in dimensions and technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Three-cut and five-cut comparative findings"
+      ],
+      "rationale": "The natural intermediate cutoff for a standard named graph has only top-dimensional homotopy, in contrast to both adjoining mixed-dimensional wedges. This determines an integral homotopy type and its dual in a case not handled by the complete-skeleton shortcut; it is more than a face count or a field Betti calculation.",
+      "residual_risks": [
+        "Useful as a named-graph classification, not evidence for a general behavior across thresholds or line graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

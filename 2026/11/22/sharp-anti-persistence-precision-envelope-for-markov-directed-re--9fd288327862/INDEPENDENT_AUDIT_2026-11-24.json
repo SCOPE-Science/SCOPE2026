@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:29:47.287718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the entire iid sequence of bounded cycle marks freezes the completed-cycle count and leaves the stationary signs unchanged. The centered binary sign is a transition eigenfunction of eigenvalue ρ, so the conditional variance uses lag covariances (1−m²)ρ^k. The strong law for the k-dependent products R_i R_{i+k}, the renewal count limit ν(t)/t→1/b, and the deterministic bound ν(t)≤t/n₋ allow the diagonal and each off-diagonal limit, then summation by geometric domination. For the conditional mean term, Y_i=R_i−aN_i/b has zero mean and variance d, and ν(t)+1 is a bounded stopping time at each fixed t. The stopped sum has zero mean and second moment d E(ν(t)+1). Undoing the one extra increment and the renewal undershoot adds a bounded variable, hence changes the variance by at most O(√t)+O(1). This gives the asserted variance; the mean follows from the bounded marked renewal law of large numbers. Stationarity balances the two switching flows. The smaller stationary mass caps that flow, attained when the minority always leaves, yielding ρ_min=−(1−|m|)/(1+|m|) and (1+ρ_min)/(1−ρ_min)=|m|. The matrix remains irreducible and aperiodic for 0<|m|<1; monotonicity is strict for a>0, and a=0 forces zero reward. The unit-cycle example has j=1/2 and σ²=3/8, so 2/3>(√3−1)/2; this refutes only the memory-blind extrapolation. For the separate N=1 or 2 equiprobable, R=1 example the unsigned term has d=1/9 and substitution gives 29/108. RESULT.md lines 33–83 are independently supported by these checks. The supplementary verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clark–Kiessler give a general covariance-sum variance and a Markov-renewal asymptotic variance theorem. Shreshtha–Harris give renewal-reward variance and bounds. The two-state occupation-time full texts attempted were not obtained."
+        ],
+        "reasoning": "General variance machinery already underlies the formula. Occupation-time variance addresses the deterministic cycle orientation factor; it does not separately handle the random completed-cycle clock and the term Var(R−aN/b), nor optimize this precision relative to the iid information expression.",
+        "searches": [
+          "DOI 10.1239/jap/1183667407, pp. 373 and 377",
+          "arXiv:1903.01972 §§3–4",
+          "JSTOR stable/2287681, occupation time in a two-state chain"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2606.16339v1 and arXiv:1903.01972",
+        "DOI 10.1239/jap/1183667407",
+        "Resultary 48e478570fde, 1ee39cc9ce47 and 3bf498235283",
+        "JSTOR stable/2287681 and Cambridge Occupation times for two state Markov chains (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Markov-renewal theorem supplies a general route to the coefficient, and the sign-only factor follows from summing a geometric covariance. The independent-sign bound does not contain a free sign transition parameter."
+        ],
+        "reasoning": "The sharp marked envelope requires identifying which parts of the random-time variance are affected by sign covariance, and optimizing over the feasible fixed-stationary-flow boundary. The explicit comparison then evaluates two different precision mechanisms at the same marginal. Neither a new general Green–Kubo formula nor novelty of the two-state covariance sum is credited.",
+        "searches": [
+          "Clark–Kiessler Theorem 5",
+          "Karimi–Jafarpour §II, Eqs. (4),(6)",
+          "Resultary Markov positional fluctuation record 3bf498235283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karimi–Jafarpour permit paired reward-duration dependence but require iid signs independent of marks. Their Eq. (4) is the ρ=0 slice. The 48e478570fde record likewise optimizes under iid orientations; 1ee39cc9ce47 is a continuum diffusion with independent resetting."
+        ],
+        "reasoning": "The present optimization holds m fixed and varies transition memory. Optimizing the bias of iid signs or temporal correlations of a reset diffusion does not realize that family of binary transition matrices.",
+        "searches": [
+          "arXiv:2606.16339v1 §II Eqs. (1)–(6)",
+          "Resultary 2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+          "Resultary 2026/11/22/SCOPE-sharp-renewal-reset-sign-decorrelation-and-a-heavy-tail-occupati--1ee39cc9ce47"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These catalogue passages give exact relations for iid cycles, reset diffusion or Markov positional fluctuations, not a table over the present mark laws and binary transitions. With the 3/4–1/4 marginal, Eq. (6) produces (√3−1)/2 in the unit-cycle normalization."
+        ],
+        "reasoning": "A census of isolated examples is not an applicable substitute for a coefficient on arbitrary bounded joint laws. The exact iid benchmark is known; the proposed comparison instead exploits an admissible transition with the same marginal and ρ=−1/3.",
+        "searches": [
+          "Resultary 48e478570fde, 1ee39cc9ce47 and 3bf498235283, Findings",
+          "Karimi–Jafarpour Eq. (6), arXiv:2606.16339v1"
+        ]
+      },
+      "rationale": "Credit the iid marked-renewal variance and information bound, standard Markov-renewal covariance theory, and the elementary two-state occupation covariance calculation. The supported contribution is the sharp fixed-marginal precision/variance envelope with the renewal clock and arbitrary within-cycle dependence, accompanied by an explicit counterexample to using the iid marginal-reversal expression unchanged. The inspected statements do not already give this combined conclusion. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The two occupation-time papers did not yield primary full text. Salmon–Rosenthal's cited reversible-chain comparison was not independently inspected. Related coverage in specialized Markov-renewal work may remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact iid special case and benchmark, distinct domain",
+          "evidence": "X_i are iid and independent of iid pairs (N_i,R_i); within-pair dependence allowed. Eqs. (4) and (6) give the variance and information bound.",
+          "identifier_or_url": "https://arxiv.org/html/2606.16339v1",
+          "material_read": "§II Eqs. (1)–(6), offsets 5800–11376",
+          "method": "OA HTML scientific passages",
+          "title": "Thermodynamic Uncertainty Relation For a Multi-Phase Alternating Renewal Random Walk",
+          "trigger": "Closest marked-cycle information inequality"
+        },
+        {
+          "assessment": "General renewal-reward background",
+          "evidence": "Renewal-reward variance and bounds for cycle increments, without the fixed-marginal binary Markov optimization in these sections.",
+          "identifier_or_url": "https://arxiv.org/html/1903.01972",
+          "material_read": "§3 Eq. (11), §4 Eqs. (12)–(16), offsets 10500–18093",
+          "method": "OA HTML scientific passages",
+          "title": "Thermodynamic uncertainty for run-and-tumble type processes",
+          "trigger": "Earlier renewal-reward uncertainty"
+        },
+        {
+          "assessment": "General variance framework, not the explicit marked envelope",
+          "evidence": "FCLT covariance sum and general Markov-renewal variance result.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1183667407",
+          "material_read": "PDF p. 373 covariance sum and p. 377 Theorem 5",
+          "method": "Primary full-text PDF passages",
+          "title": "A Diffusion Approximation for Markov Renewal Processes",
+          "trigger": "Potential stronger variance theory"
+        },
+        {
+          "assessment": "Iid sign/bias optimization",
+          "evidence": "Same allowance for dependent components of a cycle pair but signs are iid.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-two-thirds-variability-threshold-for-bias-efficient-rene--48e478570fde",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Resultary search and local mirror reading",
+          "title": "A sharp two-thirds variability threshold for bias-efficient renewal transport",
+          "trigger": "Related sharp cycle transport optimization"
+        },
+        {
+          "assessment": "A different stochastic process",
+          "evidence": "A diffusion with independent renewal resetting, not marked completed-cycle transport with binary Markov orientations.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-renewal-reset-sign-decorrelation-and-a-heavy-tail-occupati--1ee39cc9ce47",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror reading",
+          "title": "Sharp renewal-reset sign decorrelation and a heavy-tail occupation result",
+          "trigger": "Same-day sign covariance and renewal clock"
+        },
+        {
+          "assessment": "Related Markov variance rather than reward clock",
+          "evidence": "Positional fluctuations at fixed stationary marginals, not the anti-persistent marked-renewal benchmark.",
+          "identifier_or_url": "2026/11/8/SCOPE-markov-persistence-amplifies-positional-fluctuations-of-integer--3bf498235283",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror reading",
+          "title": "Markov persistence amplifies positional fluctuations",
+          "trigger": "Markov fluctuation optimization at fixed marginals"
+        },
+        {
+          "assessment": "Unresolved occupancy comparison",
+          "evidence": "The page was insufficient to establish scope or coverage.",
+          "identifier_or_url": "https://www.jstor.org/stable/2287681",
+          "material_read": "No scientific full text from the available short page",
+          "method": "Lawful retrieval attempt",
+          "title": "Effect of Dependence on the Occupation Time in a Two-State Markov Chain",
+          "trigger": "Possible exact deterministic-cycle comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The iid uncertainty bound motivates a concrete question: how much variance can sign memory remove without changing the stationary sign proportions or the cycle marks? The exact attained envelope answers it despite reward-duration dependence. The deterministic witness shows a real failure of a tempting extrapolation and identifies temporal correlation, not any claimed physical entropy accounting, as the missing ingredient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

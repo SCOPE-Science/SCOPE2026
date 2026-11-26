@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:37.523547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A unit rank-one map factors as Tz=ℓ(z)u with both factors unit. Along the interior of a primal edge the only norming functional is its support, and the absolute pairing is bounded by endpoint values; at each vertex the norming segment has just the two adjacent supports as extreme points. This gives formula (1) over ten vertex-support pairs of edges. The cosine row (1,1,r,0,−r,−1,−1,−r,0,r) follows from the angle differences, with r²=1−r. Rotate and reflect u onto the first half-edge so 0≤s≤1/2, and change the sign of ℓ to cover the five dual edges. For j=0,1,3,4 the common vertex immediately gives bounds 1, r+r²s, 1−r²s>r, 1, respectively. For j=2 the bounds from v_2,v_4 are positive and vary strictly in opposite directions with t, crossing at t=s with value r+r⁴s(1−s). Equality therefore requires s=0; for j=2 it forces t=0, and for j=1 the v_1 test forces t=1. Both give ℓ=q_2. At (v_0,q_2) the maximum is r by the exact row. Reflection about v_0 sends the perpendicular q_2 to −q_2, so undoing symmetries gives exactly ±T_i modulo the five distinct range lines. q_{i+2}(v_i)=0 gives square-zero, and the cited ordinary-index theorem gives r/2. The supporting checker.py was inspected; its finite sampling is not used to infer the universal bound or rigidity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general real rank-one bound is 1/e, strictly below r. The 2015 rank-one formulas explicitly cover one hexagonal and two octagonal families. The 2007 theorem covers every regular even-gon but is for unrestricted operators."
+        ],
+        "reasoning": "Face counts exclude identifying these polygon families with the real regular decagon by a linear isometry. The universal lower bound does not determine this value, and the unrestricted infimum only gives the lower bound r/2 for the rank-one infimum.",
+        "searches": [
+          "Chica–Martín–Merí DOI:10.1093/qmath/has050, §2 Theorem 2.1",
+          "Chica–Merí DOI:10.1080/03081087.2014.975670, Theorems 1–2 and Corollary 3",
+          "Martín–Merí DOI:10.1080/03081080600628323, §4 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Chica–Martín–Merí 2014 §1 and Theorem 2.1",
+        "Chica–Merí 2015 abstract and Theorems 1–2/Corollary 3",
+        "Martín–Merí 2007 Theorem 5",
+        "Resultary 693aeb6699ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The decagonal minimizing operators have image on a vertex line and vanish on that line. The compared general results do not optimize over decagonal vertex and edge directions, and the octagon result combines known formulas rather than classifying decagonal attainers."
+        ],
+        "reasoning": "The two-branch lower bound is sharp at value r and its strict cases pin down the complete extremizer set; neither feature follows from the inspected formula for the ordinary index or rank-one bounds for other polytopes.",
+        "searches": [
+          "Compare 2014 general rank-one bounds and 2015 polygon rank-one formulas to the exact decagon extremizer statement",
+          "Compare Resultary 693aeb6699ae Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chica–Martín–Merí define n_1 as the best bound for rank-at-most-one operators and equivalently the infimum over normalized rank-one operators. Their Daugavet-type norm equality detects v(T)=||T||, not equality at r<1.",
+          "Polygonal primal/dual norming incidence reduces the decagon claim to a product maximization and an equality classification, not a full-operator calculation."
+        ],
+        "reasoning": "Normalizing by operator norm does not change the invariant; rank-at-most-one versus rank-one is immaterial to the infimum. The ordinary index and equality with the norm are different questions.",
+        "searches": [
+          "Resultary semantic lookup: real regular decagon rank-one numerical index and nilpotent attainers",
+          "Chica–Martín–Merí DOI:10.1093/qmath/has050, §1 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary match maximizes n_1/n for a specific octagonal family, at its regular octagon. The accessible regular-even-gon formula returns sin(π/10) for the ordinary decagon index."
+        ],
+        "reasoning": "Neither exact result supplies a decagonal rank-one value or equality set. The local search is bounded and its lack of a decagon hit is not a priority proof.",
+        "searches": [
+          "Resultary semantic lookup: decagonal n_1=(sqrt(5)−1)/2, regular polygon rank-one/full separation, square-zero attainers",
+          "Resultary 2026/10/11/SCOPE-maximal-rank-one-full-numerical-index-separation-in-an-octagonal--693aeb6699ae",
+          "Martín–Merí Theorem 5 for the decagon entry"
+        ]
+      },
+      "rationale": "The exact rank-one value and complete equality set in the regular real decagon are distinct on the compared evidence. The published ordinary numerical index and the octagonal separation analogue are not new claims here.",
+      "residual_risks": [
+        "The relevant 2016 dissertation mentioned in the frozen record has no supplied title, author, or URL; it was not identified or read. No exclusion of overlap in it is claimed.",
+        "Only bounded named-source and indexed comparisons were possible; earlier equivalent formulations could remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the exact invariant, but the inspected general results do not determine the decagonal case",
+          "evidence": [
+            "Equivalent rank-at-most-one definitions; real bound n_1(X)≥1/e; finite-dimensional implication at n_1=1."
+          ],
+          "identifier_or_url": "https://www.ugr.es/~mmartins/Curriculum/Papers/pre-ChicaMartinMeri.pdf",
+          "material_read": "§1 p. 2 offset 4524, §2 Theorem 2.1 p. 3 offset 8421",
+          "method": "OA author manuscript, bounded passages",
+          "title": "Numerical radius of rank-one operators on Banach spaces",
+          "trigger": "General rank-one invariant, alternative characterizations and bounds"
+        },
+        {
+          "assessment": "Exact ordinary index directly established, not the rank-one index",
+          "evidence": [
+            "For a regular 2m-gon with m odd, n=sin(π/(2m)); m=5 gives r/2."
+          ],
+          "identifier_or_url": "https://www.ugr.es/~mmartins/Curriculum/Papers/2007-Polygons.pdf",
+          "material_read": "§4 pp. 8–9 offsets 23000 and 27773, Theorem 5",
+          "method": "OA author manuscript, bounded passages",
+          "title": "Numerical index of some polyhedral norms on the plane",
+          "trigger": "Exact regular even-gon formula including decagon"
+        },
+        {
+          "assessment": "No decagon among the stated exact families",
+          "evidence": [
+            "Abstract and introductory scope specify hexagonal and octagonal unit balls."
+          ],
+          "identifier_or_url": "https://www.ugr.es/~jmeri/archivos/curriculum/pre-ChicaMeri-Rank1NumericalIndex.pdf",
+          "material_read": "Abstract, introduction and displays of Theorems 1–2/Corollary 3, offsets 248, 4999, 6708 and 10946",
+          "method": "OA author manuscript, bounded passages",
+          "title": "Rank-1 numerical index of some families of norms on the plane",
+          "trigger": "Closest primary rank-one polyhedral formulas"
+        },
+        {
+          "assessment": "Different exact norm family; no implication for a decagon established",
+          "evidence": [
+            "N_ξ=max(|x|,|y|,(|x|+|y|)/(1+ξ)); maximum separation at ξ=√2−1 is octagonal."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-maximal-rank-one-full-numerical-index-separation-in-an-octagonal--693aeb6699ae",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 5000",
+          "method": "Semantic search and local mirror passage read",
+          "title": "Maximal rank-one/full numerical-index separation in an octagonal family",
+          "trigger": "Closest published Resultary separation analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular decagon is a natural test beyond the inspected hexagonal and octagonal rank-one families. The exact ratio to the known full index isolates the effect of restricting to rank one, and complete square-zero rigidity identifies the actual minimizers rather than merely producing a numerical bound or one candidate. This is a useful exact invariant and structural classification without claiming a general polygon theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

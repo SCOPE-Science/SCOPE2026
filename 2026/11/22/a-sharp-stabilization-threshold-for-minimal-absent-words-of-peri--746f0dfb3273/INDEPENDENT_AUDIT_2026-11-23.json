@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:41.480323Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Primitive rotations are distinct even after dropping their final symbol, since a shared length-(d−1) prefix would fix the final symbol by the common letter counts. This proves both uniqueness of phase and the length-d bound for minimal absences of the infinite periodic language by matching the overlap of the two proper end factors. At n≥2d−2 every phase of length d−1 is present, so all periodic minimal absences persist. Any further finite-prefix minimal absence must be a periodic factor. For such a factor of length l≥d, its prefix forces its phase i to satisfy i+l=n+1; its suffix can then fit only if the next phase wraps to 0, so i=d−1. The candidate's two proper end factors occur at d−1 and 0, whereas the candidate itself cannot fit. For d=1 the finite prefix of a single repeated symbol has just the unused letters and a^(n+1); substituting n=std gives the power formula for every d. At the supplied d=5 sharpness example, 11011 is a periodic minimal absence but its suffix 1011 does not occur in the length-7 prefix. Independently, for every d≥2, the primitive period 0^(d−1)1 has periodic minimal absence 1·0^(d−2)·1: its two end factors occur periodically, but its ones are too close. Its prefix 1·0^(d−2) first ends at length 2d−2, so this minimal absence is lost at n=2d−3. This checks even the pointwise worst case over roots of each length d≥2. Both supplied enumerators were inspected but not executed; their reported runs are finite corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circular lemma applies to general circular words but truncates away the relevant long boundary word.",
+          "The indexed linear theorem assumes a cycle of at least three pairwise distinct letters each in a single run and k≥2 full copies."
+        ],
+        "reasoning": "Neither theorem handles general linear prefixes: the first uses a different factor language; the second excludes primitive periods with recurrent letters in multiple runs and incomplete last copies.",
+        "searches": [
+          "arXiv:1707.04450, Section 3",
+          "Resultary distinct-run spectrum record, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_factors.py and check_contexts.py",
+        "arXiv:1707.04450",
+        "Resultary 2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular formula has no parameter for the cut and no moving extra word; the restricted full-power formula gives the same moving word on its domain only."
+        ],
+        "reasoning": "To infer the unrestricted claim requires phase uniqueness and the finite prefix/suffix fit argument, including the equality case n=2d−2 and a sharpness witness. Those are not consequences of plugging parameters into the retrieved equalities.",
+        "searches": [
+          "arXiv:1707.04450 Lemma 2 and Resultary distinct-run spectrum theorem, direct implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Restivo–Rizzo explicitly identify the circular antidictionary with the two-copy antidictionary truncated at the period length.",
+          "The distinct-run record uses minimal absent factors of linear powers and identifies the word a_(q−1)·P^(k−1)·a_0."
+        ],
+        "reasoning": "Minimal forbidden factor and minimal absent factor agree in this factorial-language setting. The circular identification supplies the stable term, and the endpoint description overlaps for whole powers in the restricted subclass, not for general linearly cut prefixes.",
+        "searches": [
+          "arXiv:1707.04450, Section 3, Lemma 2; circular minimal forbidden factors",
+          "Resultary: 2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record supplies an exact restricted formula, not a general prefix table. The two-copy construction produces the periodic antidictionary only."
+        ],
+        "reasoning": "A finite-text enumerator or table of particular examples does not give a uniform exact threshold over arbitrary roots and prefix lengths. No retrieved exact formula or table resolves the unrestricted question.",
+        "searches": [
+          "Resultary distinct-run spectrum record; arXiv:1707.04450 Lemma 2 as an exact finite recipe"
+        ]
+      },
+      "rationale": "Credit the circular antidictionary formula and the exact distinct-run power subclass to prior work. The distinct claim is the single finite-endpoint obstruction for arbitrary primitive periods and arbitrary sufficiently long prefixes, with a sharp threshold; no retrieved stronger statement supplies that claim.",
+      "residual_risks": [
+        "Bounded priority assessment; other work on finite-prefix antidictionary updates may contain equivalent coverage not identified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the periodic stable term, not the unrestricted finite-prefix classification",
+          "evidence": "M[w] = M_ww intersect A^{≤|w|}.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.04450",
+          "material_read": "Section 3, Lemma 2, PDF p. 7 (text locator 23693)",
+          "method": "Lawful open-access original, relevant passage",
+          "title": "Minimal Forbidden Factors of Circular Words",
+          "trigger": "Exact circular antidictionary formula"
+        },
+        {
+          "assessment": "Direct overlap with a subclass of the power corollary, not arbitrary prefixes",
+          "evidence": "For full powers with each of q≥3 letters in a single run, exactly one word changes and equals a_(q−1)·P^(k−1)·a_0.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-complete-minimal-absent-factor-spectrum-of-cyclic-distinct-r--3a571b3bae66",
+          "material_read": "RESULT.md Finding, endpoint proof and limitations (text locators 0, 3800, 7200)",
+          "method": "Resultary search and local mirror result text",
+          "title": "The complete minimal-absent-factor spectrum of cyclic distinct-run powers",
+          "trigger": "Exact same endpoint behavior on an indexed subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem explains exactly how a linear cut changes a standard invariant of a periodic language. It handles incomplete periods, identifies a single changing word without enumerating the growing prefix, and locates the earliest universally valid cutoff. The representation is compact, although explicitly outputting the long word still takes time proportional to its length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

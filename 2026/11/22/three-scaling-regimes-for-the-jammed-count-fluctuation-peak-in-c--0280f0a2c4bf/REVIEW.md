@@ -1,11 +1,21 @@
-# Review: three scaling regimes for the jammed-count fluctuation peak
+# Independent mathematical audit
 
-**Correctness — PASS.** In the two-to-three-unit length shell the terminal count is exactly Bernoulli-shifted. The beta endpoint probabilities determine a continuous strictly increasing two-rod probability, hence a unique maximal-variance length. The strong-coupling limit follows by beta weak convergence; an exponential endpoint scale establishes the first regime; matched beta-tail and regular-kernel expansions yield a sign-changing coefficient \(3c^2-1/4\) and the critical constant \(1/\sqrt{12}\). The exact formula and asymptotic predictions were checked using independent numerical beta evaluations and root solving; sampling is only a corroboration. No infinite statement relies on simulation.
+## correctness
 
-**Originality — PASS, subject to external priority checks.** The closest direct source, Palacios–Macêdo (2026), derives the second-shell probability and variance at finite parameters, but does not give the singular strong-coupling location or the three-regime composition phase boundary. A related fixed-coupling near-threshold result at opaque identifier `056f1bba-c7c4-43ab-a307-3626f12c2f99` has a different limit order and a restricted charge class. The 2025 predecessor's available abstract addresses a deterministic deposition mechanism rather than this critical beta-kernel peak. The source's general exact formulas imply that the new asymptotics can be derived, but locating their critical balance and exact coefficient requires additional uniform singular analysis, not a parameter substitution. Unindexed equivalent work and an inaccessible full predecessor remain residual priority risks.
+PASS
 
-**Value — PASS.** The unique variance peak identifies where the yes/no second-rod jamming outcome is maximally uncertain. Its moving location is a natural experimentally and numerically measurable boundary observable in the model. The critical composition determines whether that peak is exponentially close to the minimum packing length, separated by a logarithmically corrected algebraic scale, or remains macroscopically away. This distinguishes singular interaction-induced localization from ordinary finite-coupling filling and warns that fixed-spacing length grids can miss the dominant fluctuation window. No general macroscopic or nonlinear kinetic assertion is made.
+With total residual length x−1<2, a second segment fits iff Y is in the two endpoint tails of width e=(x−2)/(x−1); no third segment fits. The independent charge draws give mixture weights q=m_alpha m_beta, h and k with h+k=w. Each beta tail sum strictly increases from 0 to 1, so the Bernoulli variance has a unique maximum at probability 1/2. At fixed e the repulsive term tends to 6e²−4e³ and the two attraction-containing terms tend to 1, giving the positive-excess limit for w<1/2 by bracketing. For e shrinking, integrate the t-shape endpoint density: replacing (1−y)^(b−1) by 1 incurs relative O(te) on [0,e], since its derivative is bounded uniformly for b=t or 2−t and t is small. The opposite non-singular tail in the mixed case is O(t e^(2−t)), and gamma normalization gives leading tB(t,2−t)=1+O(t) and tB(t,t)=2+O(t). Thus at cutoff exp(−s/t) the mixture tends to w exp(−s), giving the exponential rate. At e=c sqrt(t log(1/t)), e^t=1−(t/2)log(1/t)+o(t log(1/t)) while the repulsive tail is 6c² t log(1/t)(1+o(1)). At w=1/2 the signed balance divided by t log(1/t) tends to 3c²−1/4, proving the critical coefficient by a two-sided bracket. The conversion delta=e/(1−e) preserves the small-excess equivalents. The composition thresholds follow directly from w=1−m_alpha m_beta, including w>=3/4 for unlike boundaries.
 
-**Limitations.** Only the finite shell \(2<x<3\), independent endpoint charge mixture, fixed \(p\), and \(\lambda\uparrow1\) are treated. Independent scientific validation and full literature-priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the three-regime singular location law, especially the exponential and critical shrinking-length windows. The exact binary law, variance, and fixed-cutoff kernel limits are prior; the peak condition and fixed-positive limiting root are readily obtained from them. No inspected source supplies the two singular shrinking windows of the location problem.
+
+## value
+
+PASS
+
+The binary shell is the first nontrivial count fluctuation, and its variance height alone cannot distinguish any compositions. The maximizing length separates a persistent gap from collapse, and at the natural balance of endpoint mass it has a logarithm-enhanced critical scale with an exact coefficient. This is a substantive singular effect beyond substituting parameters into the known fixed-coupling formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

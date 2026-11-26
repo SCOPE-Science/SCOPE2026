@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is supported by the integer-height slice count in Liu–Tang–Tao–Zhang, an independent coefficient extraction, and an exact symbolic discriminant identity. The strictly positive degree-nineteen shifted polynomial in `certificate.json` proves positivity for all integer \(c\ge3\), not merely for sampled values. The explicit negative test value of the quartic plus positive leading/constant terms rules out zero real roots, and the positive discriminant then forces four distinct real roots. The boundary parameters \(c=0,1,2\) are handled exactly. Descartes' rule and exact evaluations at 15 and 16 establish the integer threshold. The supplied checker passed its exact identities and 117 independent sample comparisons.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The originating 2026 manuscript supplies the objects, smoothness, slice enumeration, and one negative-coefficient example; it does not supply the quartic numerator root theorem or prove that 16 is sharp. Published records about tetrahedral frusta or product-fiber Cayley families are four-dimensional, and the published all-dimensional result about \(Q_{r,c}\) concerns eventual ordinary Ehrhart signs rather than numerator roots. Ferroni's smooth rectangular Cayley constructions concern a different geometric family and, in fact, demonstrate failure of blanket unimodality. Searches for equivalent all-twist five-dimensional simplex-frustum numerators and stronger covering results disclosed no decisive prior implication. Remaining risk: earlier unindexed equivalent result or a broader theorem not identified in inspected sources.
+PASS
 
-## Mathematical value — PASS
-Dimension five is the first dimension where smooth polytopes with only two facets beyond a simplex can have negative ordinary Ehrhart coefficients. This classification shows that, in the natural first obstruction family, the much stronger real-negative simplicity of Ehrhart numerator roots persists across the **exact** Ehrhart-positivity failure threshold. The quartic discriminant analysis is a nontrivial additional five-dimensional phenomenon beyond known cubic cases and informs comparison of distinct positivity notions.
+At height j the dilated slice is (t+cj)Delta_4, giving the weak-composition count and finite-difference numerator. The two simplex layers give ten vertices; both height inequalities, the four coordinate walls and the sloping cap are genuine facets. At each vertex the four primitive horizontal simplex directions are a lattice basis of the height-zero slice, and the primitive interlayer edge has height ±1; this verifies smoothness even at c=0. A fresh exact reconstruction from the slice sums verified the Ehrhart polynomial, numerator, twenty coefficients of the shifted discriminant identity, negative evaluation, and exceptional discriminants. A separate sign check bypasses the discriminant: 24H_c(−4)=−276c^4−1240c^3+2100c^2+2680c−360<0 for c≥3 (group the middle three terms); 24H_c(−1)=32c^3+96c^2−32c−72>0 for c≥1. With H_c(−1/(c+1))<0, H_c(0)=1, and the left-hand quartic limit positive, there are four disjoint root intervals. For the cubics c=1,2 the left limit is negative, and the last three signs give the three distinct negative roots; c=0 is linear. The linear coefficient equals −f(c)/720, with f(c)=c^4−175c^2−750c−2220. Descartes' rule and f(15)=−2220, f(16)=6516 give the exact integer cutoff. This uses symbolic identities and a sign argument, not extrapolation from small c.
 
-## Scope and verification limits
-Only the explicitly defined one-parameter five-dimensional smooth frustum family is settled. A computer algebra system verifies the displayed exact identities; the analytic root argument is supplied separately. The reviewed results are not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established distinct content is an all-twist simple-negative numerator-root theorem and a sharp integer cutoff in the already known Q_4,c family. The geometry, slice count, eventual negativity, and example at c=16 already have coverage and receive no separate originality credit.
+
+## value
+
+PASS
+
+This is the smooth low-facet family already used to exhibit Ehrhart nonpositivity in dimension five. Identifying its exact transition and proving that simple negative h* roots nevertheless persist for every twist separates two positivity phenomena on a natural, motivated infinite test family. It is more than a recalculation of the cited counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

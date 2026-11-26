@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every pendant class copies its hub in one step; the strict inequality between private leaf count and core degree then makes the coherent-state update the involution \((a,b)\mapsto(b,a)\). Counting fixed points of that involution proves the full recurrent-class claim, not merely an empirical upper bound. The conditional binomial law is derived by conditioning on the initial core vector, and linearity gives the expected time-average blue count without a false independence assumption. The binomial recurrence proves the direction and strictness of majority amplification. Exact exhaustive checks of six finite test graphs, including a genuine tie case, confirm orbit counts and probability formulas at two rational initial biases (16,412 tests); the all-order proof remains analytic.
+PASS
 
-## Originality — PASS with bounded priority uncertainty
+Every leaf copies its core's previous bit, making all blocks coherent in one update, even when some first-round core bits are random. Strict leaf dominance then gives the deterministic swap of core and leaf words. Its diagonal gives 2^k fixed states, while the other 4^k−2^k words pair off; no noncoherent state can recur. Conditional on the initial core word, the independent leaf blocks and tie coins give the product law for the new core word, with the two orientations summed only for distinct words. A block contributes (t_v+1)(a_v+b_v)/2 to the long-run average, and unconditional neighbor colors are independent Bernoulli-p at time zero. Adding one vote with fair ties gives M_2r=M_(2r−1); adding two odd-to-odd gains from counts r−1 and loses from counts r, with net sign 2p−1 in the interior. Positive core degrees give s_v≥3 and hence strictness. On P_k the degree sum is 2k−2, giving 4k−2 vertices and maximum degree 5.
 
-The initiating 2023 study proves general stochastic-majority phenomena and gives the random-initialization formula on cycles, not the present complete absorbing-orbit law for leaf-dominated cores. Turau's 2022 and 2023 analyses already give deterministic tree fixed-point and pure-cycle theory; we **do not** count that general period-two knowledge as new. The added all-core, independent-tie, one-step basin-probability product law and explicit biased long-run outcome identity are not consequences stated in those inspected works. Targeted semantic mathematical-record and public-literature queries found no covering claim. The finite structural class admits a short proof, so unindexed overlap is a realistic residual risk; search absence is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives an exact all-size stochastic absorbing-class distribution, not only a dynamical existence statement, for a canonical pendant-neighborhood dominance regime. The bounded-degree tree subfamily exhibits exponentially many recurrent orbits with one-update stabilization, and the closed expected-opinion formula exposes a sharp difference between the behavior of biased initializations on this family and cycle-graph benchmarks. Recurrent class enumeration alone would be less novel because general tree tools exist; value lies in coupling the full random-tie basin law to a structural graph condition and a quantitative opinion-amplification theorem.
+Credit existing deterministic tree classification and the exact same-day fair-tie law on a star. The supported distinct claim is the joint stochastic law on arbitrary strictly leaf-dominated cores, with the resulting leaf-weighted amplification formula and one-update reduction. The later deterministic leaf-domination record coincides on the structural involution but not on fair-tie initial orbit probabilities.
 
-## Closest literature and limitations
+## value
 
-The closest sources are Zehmakan (2023, random-majority absorbing components and cycle initializations), Turau (2022, tree fixed/2-cycle characterization), and Turau (2023, tree fixed/pure-cycle counting). Their model and scope distinctions are explicit in the result. The conclusion does not cover equality \(t_v=d_H(v)\), self-inclusive votes, or almost-sure majority amplification. Publication priority remains subject to independent specialist literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant coherence reduces a stochastic process with potentially many attractors to an exactly solvable one-step class distribution. Distinguishing expected bias amplification from consensus matters on these graphs, since many of their recurrent classes blink. A bounded-degree tree family shows that exponentially many recurrent classes can coexist with one-step absorption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

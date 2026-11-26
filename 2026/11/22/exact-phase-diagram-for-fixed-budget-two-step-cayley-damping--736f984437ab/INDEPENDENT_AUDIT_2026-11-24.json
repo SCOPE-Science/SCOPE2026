@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:04:18.669376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–78; VERIFICATION.md lines 19–21; verifier.py lines 7–88 and verifier_output.txt"
+      ],
+      "rationale": "The complex scalar action on the plane gives the single-step square gain (1−ah+r²h²/4)/(1+ah+r²h²/4) with positive denominator. Multiply two such gains and use h₁+h₂=H and h₁h₂=H²q. The common part of numerator and denominator is w²+R−4σ²(w−1), w=1+Rq; their antisymmetric part is ±aHw. Dividing by w gives (U−aH)/(U+aH), an increasing function of U=w+(R+4σ²)/w−4σ². Its strictly convex minimization is projection of √(R+4σ²) onto [1,1+R/4], so q and the unordered length pair are unique even at phase boundaries. The lower endpoint condition is R≤1−4σ², and the upper endpoint condition is (R−4)²≤64σ²; the two lower thresholds differ by (1−2σ)(3−2σ) for σ<1/2. These inequalities include σ=0, σ=1/2 and all stated endpoint cases. The short length tends to 2/r since q=R^(−1/2)+O(R^(−1)); the other gain tends to 1, giving (r−a)/(r+a), while two equal lengths both diverge and give product gain 1. When b=0 one length 2/a makes a Cayley numerator zero, feasible exactly for H≥2/a. Direct numerical substitution at a=b=1,H=10 independently gave short fraction 0.145348129877 and gains 0.108027069187 vs 0.211102994887 for equal lengths. The supplied verifier and output were inspected, not executed; neither the sample nor the author's grid certifies global optimality.",
+      "residual_risks": [
+        "The optimum in the zero-length regime is only an unattained infimum if both steps are required to be positive. The claim concerns the specified normal mode, not general transient amplification or time accuracy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stable variable-step DLN scheme is a different method. The composite papers discuss trapezoidal substeps with a more general last step and other design constraints. The same-day real-interval budget allocation result is a robust minimax of a polynomial for two explicit Euler/Richardson steps."
+        ],
+        "reasoning": "A method class that includes two trapezoidal steps does not give an evaluated optimizer unless the objective and constraints also specialize to this one. The interval minimax polynomial is not a Cayley product with linked zeros and poles.",
+        "searches": [
+          "Resultary: fixed total time finite interval real minimax two-step trapezoidal Cayley stability factor prescribed poles",
+          "Layton et al. arXiv:2001.08640 p. 1; Zhang et al. DOI 10.1007/s11071-020-06020-8 pp. 1,3; Zhang, Zhang & Masarati DOI 10.1007/s00466-020-01933-y pp. 1,3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 80–93",
+        "Same-day indexed comparison passages and cited literature passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Jordan norm includes an off-diagonal shear and has a real repeated eigenvalue rather than −a±ib. Its cancellation criterion does not yield a frequency-dependent reentrant equal-split interval. A pure real mode does have the classical Cayley zero at h=2/a, which is not the distinct contribution."
+        ],
+        "reasoning": "The full classification, in particular the second unequal region after an interval of equal optima and its σ-dependent endpoints, needs the normal-mode constrained reduction; it is not implied by the known real zero or inspected stable/accurate composite formulas.",
+        "searches": [
+          "Same-day c72040af98f4 RESULT.md, Finding at offset 0",
+          "Same-day 2722e33f2ae6 RESULT.md, Finding and comparison offsets 0–10077",
+          "Schulze & Saak Theorem 3.2; George et al. §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a constant linear generator implicitly midpoint and trapezoidal steps are the same rational filter. The complex-weight midpoint paper instead prescribes w₁+w₂=1 and w₁w₂=1/3 to obtain fourth order, while the frozen problem varies q∈[0,1/4] for damping. The ADI source concerns commuting operator splits and conjugate shifts for real iterates."
+        ],
+        "reasoning": "Neither imposing complex Padé weights nor replacing a physical-length constraint by shift selection preserves the admissible set and objective. Similar rational factors do not identify the problems. The Zolotarev web returns were leads, not read proofs.",
+        "searches": [
+          "Resultary: ADI Cayley trapezoidal substep damping optimization two-step split",
+          "Web: ADI optimal shift minimax real interval Cayley transform Zolotarev prescribed complex conjugate poles",
+          "George, Jung & Mangan §3, Eqs. (3.7)–(3.11); Schulze & Saak Eqs. (8)–(10) and Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 736f984437ab duplicates the exact formulas because it is the frozen item itself. Distinct same-day record c72040af98f4 gives h₁h₂=4/a² as a shear-cancellation optimum iff s/a≥2, for H>4/a. Distinct 2722e33f2ae6 gives an explicit-Euler minimax; nearby oscillator record 66b5004ce721 uses backward Euler."
+        ],
+        "reasoning": "Compared the actual products, variables and objective in the strongest non-self matches rather than inferring priority from the date or a similar phase-diagram title.",
+        "searches": [
+          "Resultary: fixed-budget two-step implicit midpoint Cayley damping exact phase diagram optimal split",
+          "Resultary: ADI Cayley trapezoidal substep damping optimization two-step split",
+          "Resultary: fixed total time finite interval real minimax two-step trapezoidal Cayley stability factor prescribed poles"
+        ]
+      },
+      "rationale": "The supported distinct result is the full optimum and sharp phase diagram for two real lengths with fixed sum applied to one normal damped mode. Cayley factors and trapezoidal composition are prior tools. The strongest indexed comparisons change the generator or the rational filter and objective, and the inspected composite, complex-weight, and ADI sources do not entail this constrained optimum.",
+      "residual_risks": [
+        "The specialist Zolotarev full texts and the trapezoidal–backward difference paper were not read. Equivalent constrained allocation may occur in unindexed numerical-analysis literature; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same stepping rule and budget; nonnormal generator and different spectral structure",
+          "evidence": [
+            "Exact induced-norm shear cancellation criterion h₁h₂=4/a², s/a≥2 at H>4/a"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-shear-cancellation-threshold-for-two-real-implicit-midpoin--c72040af98f4/RESULT.md",
+          "material_read": "Finding and model, offset 0",
+          "method": "Indexed local-mirror text",
+          "title": "Sharp shear cancellation threshold for two real implicit midpoint steps",
+          "trigger": "Strongest distinct fixed-total Cayley allocation match"
+        },
+        {
+          "assessment": "Different filter and minimax objective",
+          "evidence": [
+            "Maximum of |(1−h₁λ)(1−h₂λ)| on a real spectral interval; discusses constrained coefficient relation to Zolotarev"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-spectral-budget-allocation-for-two-euler-richardson-steps--2722e33f2ae6/RESULT.md",
+          "material_read": "Finding and comparison, extracted offsets 0–5946 and 5946–10077",
+          "method": "Indexed local-mirror text",
+          "title": "Sharp spectral budget allocation for two Euler–Richardson steps",
+          "trigger": "Closest robust real-interval allocation comparison"
+        },
+        {
+          "assessment": "Different variable-step G-stable integrator",
+          "evidence": [
+            "DLN method and stability focus"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.08640",
+          "material_read": "p. 1, offset 0",
+          "method": "Targeted OA read",
+          "title": "Analysis of the variable step method of Dahlquist, Liniger and Nevanlinna for fluid flow",
+          "trigger": "Variable-step stability precedent"
+        },
+        {
+          "assessment": "Separate last stage and accuracy/stability/design objectives",
+          "evidence": [
+            "Trapezoidal substeps followed by a general last substep"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-020-06020-8",
+          "material_read": "pp. 1,3, offsets 0 and 14300",
+          "method": "Targeted OA read",
+          "title": "On the optimization of n-sub-step composite time integration methods",
+          "trigger": "Composite trapezoidal substeps with optimization"
+        },
+        {
+          "assessment": "Different tunable accuracy/stability schemes",
+          "evidence": [
+            "Equivalent multistep/single-step integration schemes and dissipation design"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00466-020-01933-y",
+          "material_read": "pp. 1,3, offsets 0 and 14700",
+          "method": "Targeted OA read",
+          "title": "Improved second-order unconditionally stable schemes of linear multi-step and equivalent single-step integration methods",
+          "trigger": "Optimization in equivalent composite schemes"
+        },
+        {
+          "assessment": "Complex weights and Padé accuracy, not damping over real allocations",
+          "evidence": [
+            "Weights with product 1/3 for fourth order"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.04402",
+          "material_read": "p. 9, §3, Eqs. (3.7)–(3.11), offset 29900",
+          "method": "Targeted OA read",
+          "title": "Complex time steps (George, Jung & Mangan)",
+          "trigger": "Prescribed conjugate weights for midpoint composition"
+        },
+        {
+          "assessment": "Different shift parameters and matrix-equation objective",
+          "evidence": [
+            "Commuting operator split; paired conjugate shifts preserve real iterates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.13477",
+          "material_read": "p. 5 Eqs. (8)–(10), offset 15300; pp. 5–6 Theorem 3.2, offset 19000",
+          "method": "Targeted OA read",
+          "title": "ADI and conjugate shift pairs (Schulze & Saak)",
+          "trigger": "Potentially equivalent Cayley shift formulation"
+        },
+        {
+          "assessment": "Unresolved exact comparison, not negative full-text evidence",
+          "evidence": [
+            "Summaries link rational minimax on spectral sets and ADI parameters"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0732009 ; https://doi.org/10.1137/S0036142999360688",
+          "material_read": "Search summaries only; OA retrieval attempts returned 403",
+          "method": "Web discovery and attempted lawful OA retrieval",
+          "title": "On the Third and Fourth Zolotarev Problems in the Complex Plane; Optimal Rational Functions for the Generalized Zolotarev Problem",
+          "trigger": "Potential wider rational-minimax or ADI shift coverage"
+        },
+        {
+          "assessment": "No passage-level conclusion",
+          "evidence": [
+            "Title identifies a trapezoidal–backward difference split, not two midpoint solves"
+          ],
+          "identifier_or_url": "https://dspace.mit.edu/entities/publication/2469bf38-ce9a-4cb3-a510-f9d3edf0cfcf",
+          "material_read": "Cited title only; MIT retrieval returned 429",
+          "method": "Attempted lawful open university retrieval",
+          "title": "Optimal stability for trapezoidal–backward difference split-steps",
+          "trigger": "Cited stability optimization precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–30 and 60–78"
+      ],
+      "rationale": "The damped complex mode is a standard test for numerical attenuation. The exact result identifies when spending a fixed budget on a second nonzero solve helps and when the common equal split is optimal. The reentrant unequal optimum exposes residual damping even when both equal large steps would nearly preserve the norm. This is a useful sharp performance benchmark for the stated objective, not a claim that such splitting improves accuracy.",
+      "residual_risks": [
+        "No guarantee for multimode minimax design, nonnormal problems, integration error or computational savings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

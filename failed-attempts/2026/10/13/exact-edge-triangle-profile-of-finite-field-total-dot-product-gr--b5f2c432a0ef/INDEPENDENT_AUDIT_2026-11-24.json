@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:57:43.113092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any adjacent distinct nonzero x,y, the joint orthogonality equations cut out ⟨x,y⟩^⊥ of codimension r because the form is nondegenerate. Exclude zero and exactly those endpoints with self-dot zero. Dependent edges require isotropic scalar multiples and q>2. An AA edge is e_1,e_2. In characteristic two an IA edge is e_1+e_2,e_3; in odd characteristic even the first three coordinates admit an isotropic point: the sets of squares and -1 minus squares each have (q+1)/2 elements, so x^2+y^2=-1 has a solution. Its perpendicular hyperplane cannot be wholly isotropic, since polarization would force it inside its own one-dimensional orthogonal complement. This proves nonconstant multiplicity. For n>=4 all independent edges have at least q^(n-2)-3>=1 common neighbors; dependent edges also have positive counts. In dimension three a totally isotropic 2-space would lie inside its 1-dimensional orthogonal complement, impossible. The ternary isotropic locus has q^2-1 nonzero vectors: in characteristic two the sum of coordinates vanishes; in odd characteristic projectivization is a smooth rational conic with q+1 points (use lines through a rational point, including its single tangent). Counting IA edges from isotropic vertices gives (q^2-1)(q^2-q), and grouping isotropic scalar fibers gives (q+1)binom(q-1,2) dependent edges. The anisotropic degree sum q^2(q-1)(q^2-1) is 2E_AA+E_IA. The resulting three counts multiplied by q-1, q-2 and q^2-3 and divided by three yield the stated triangle product. At (2,3) only the six IA edges have zero multiplicity. `python /workspace/audit_checks_1_5.py 3` independently enumerated graphs using bitset neighborhood intersections for (2,3),(2,4),(3,3),(5,3),(9,3), including F_9 via u^2=-1, obtaining one triangle at (2,3), 56 at (3,3), and 82160 at (9,3). This is regression evidence; the arbitrary-parameter proof is by dimension, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil states the projective point–hyperplane symmetric design and N²=(k−λ)I+λJ for the polarity-indexed incidence matrix, whose rows record the orthogonality relation including absolute-point loops. Thus diagonal entries count k=(q^(n−1)−1)/(q−1), and distinct rows share λ=(q^(n−2)−1)/(q−1) points, since two distinct polar hyperplanes intersect in a subspace of vector dimension n−2.",
+          "Kantor gives the classical common-block-intersection design context. The dot-product graph literature passages on vertex degrees or dimension-two components do not themselves encode the edge intersections."
+        ],
+        "reasoning": "The all-dimensional design identity is already a stronger joint-intersection formula; the narrower graph papers are not needed to conclude coverage. The comparison is not based on C4-freeness alone, which only handles rank-three projective graphs.",
+        "searches": [
+          "Godsil Finite Geometry §7.1 eq. (7.1), PDF p. 73 (printed p. 67)",
+          "Kantor Characterizations of Finite Projective and Affine Spaces pp. 64–66",
+          "Mollahajiaghaei arXiv:1601.05034 introduction and degree treatment",
+          "Abdulla–Badawi arXiv:2007.15952 Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Godsil, Finite Geometry §7.1",
+        "Kantor, Characterizations of Finite Projective and Affine Spaces",
+        "Mollahajiaghaei arXiv:1601.05034",
+        "Abdulla–Badawi arXiv:2007.15952",
+        "Tait–Timmons arXiv:1403.4489",
+        "Resultary 4ca1264b71a7 and 6def1eb58178",
+        "Badawi doi:10.1080/00927872.2014.897188 (indirect attribution only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lifted looped adjacency matrix is N⊗J_{q−1}; for two distinct nonzero vectors its common-incidence count is (q−1)k in the same fiber and (q−1)λ in different fibers. For an edge, erasing vertex loops removes ε(x)+ε(y) candidates, giving precisely q^(n−r)−1−ε(x)−ε(y).",
+          "Different fibers with an AA or IA edge have values differing by one. In dimension at least four the minimum remains positive after two deletions. In dimension three λ=1 and two distinct adjacent absolute points cannot occur, so only the IA value can vanish, at q=2; the three absolute points have two nonabsolute neighbors each. Counting lifted edges with the usual q+1 absolute points yields the three class counts and their triangle sum."
+        ],
+        "reasoning": "The design formula directly supplies the needed two-endpoint information, including the same-fiber case from its diagonal. Lifting, endpoint deletion, and the dimension-three incidence sums leave no scientifically distinct nonmechanical part of the frozen profile.",
+        "searches": [
+          "Godsil Finite Geometry §7.1, Theorem 7.1.1 proof and eq. (7.1)",
+          "Tait–Timmons arXiv:1403.4489 p. 1 (dimension-three alias)",
+          "Resultary 4ca1264b71a7 scalar-fiber statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil identifies the projective polarity taking a homogeneous column a to the hyperplane with row a^T. Hence a representative x is orthogonal to y exactly when [x] is incident with the polar hyperplane of [y].",
+          "Tait–Timmons's rank-three simple graph omits loops, and at q=2 the projective fibers are singletons, making that graph and TD(F_2,3) identical. At odd q the catalogue record gives the clique/independent scalar fiber distinction explicitly."
+        ],
+        "reasoning": "In every dimension use the projective relation including absolute-point loops first, lift it through scalar fibers, and then remove vertex loops. This handles the rank-one and rank-two alternatives exactly rather than confusing a projective graph with its unprojectivized version.",
+        "searches": [
+          "Web: finite projective geometry points hyperplanes symmetric 2-design (q^{n-2}-1) design Cameron Godsil projective (v,k,lambda) notes",
+          "Godsil Finite Geometry §7.1, literal symmetric design",
+          "Tait–Timmons arXiv:1403.4489 p. 1",
+          "Resultary 4ca1264b71a7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue theorem gives the odd-q rank-three scalar fibers and quotient, which with their polarity incidence gives the rank-three profile; its focus is automorphism and metric invariants. It does not state the all-dimensional profile. The same-day date does not establish priority.",
+          "The other record's exceptional (2,3) case affects domination, not triangles or the six-edge count. No exact numerical table for the assigned profile was identified by the bounded lookup."
+        ],
+        "reasoning": "The fiber-quotient match is material to the rank-three part even though the invariant named in the title is different. A shared exceptional parameter in domination is not equivalence. The stronger general design statement, not a database miss, is decisive.",
+        "searches": [
+          "Resultary common-neighbor/edge-triangle profile for total dot product and finite-field orthogonality graphs",
+          "Resultary 4ca1264b71a7 RESULT.md offsets 200–3675, 7300–8967",
+          "Resultary 6def1eb58178 RESULT.md offset 0"
+        ]
+      },
+      "rationale": "Godsil's exact symmetric-design incidence-matrix square, in the same section as the polarity given by the standard coordinate dot product, already determines every two-point intersection of the looped projective relation. The unprojectivized looped relation is obtained by replacing each projective point by its q−1 nonzero vectors, with the same adjacency for every representative, and deleting endpoint loops gives the frozen formula. Thus the finding is a mechanically implied specialization, not an identified verbatim prior vector-level statement. Rank-three counts and the exceptional coverage boundary are immediate consequences with the standard absolute-point count.",
+      "residual_risks": [
+        "The founding Badawi text was not recovered through the attempted lawful route. Orthogonal graphs of odd characteristic and their automorphisms was only identified from indexed material and its full coverage remains unresolved. An earlier verbatim vector-graph formula may occur under additional aliases; the verdict rests on the verified exact projective implication, not either access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger exact prior relation for the same dot-product polarity",
+          "evidence": "Identifies the transpose-coordinate polarity on the projective point–hyperplane design and states equation (7.1), N²=(k−λ)I+λJ.",
+          "identifier_or_url": "https://www.math.uwaterloo.ca/~cgodsil/pdfs/fgeom.pdf",
+          "material_read": "§7.1, first example and Theorem 7.1.1 proof, PDF p. 73 (printed p. 67), offsets 158290–161532",
+          "method": "Author-hosted OA text located by literal term and read by offset",
+          "title": "Finite Geometry",
+          "trigger": "Exact common incidences of projective polar hyperplanes in every dimension"
+        },
+        {
+          "assessment": "Classical context for symmetric projective designs, not a vector-graph statement",
+          "evidence": "The discussion of the Dembowski–Wagner theorem uses point–hyperplane designs with fixed numbers of points in intersections of distinct blocks.",
+          "identifier_or_url": "https://pages.uoregon.edu/kantor/PAPERS/CharsProjAffine.pdf",
+          "material_read": "Introduction and beginning of Definitions, printed pp. 64–66",
+          "method": "Author-hosted OA paper opened by offset",
+          "title": "Characterizations of Finite Projective and Affine Spaces",
+          "trigger": "Classical projective point/hyperplane common-incidence formulation"
+        },
+        {
+          "assessment": "Same graph; not the decisive two-endpoint source",
+          "evidence": "The introduction defines the total dot-product graph and highlights degree, regularity and global invariants. Literal misses alone do not prove whole-text noncoverage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.05034",
+          "material_read": "Abstract and introduction PDF pp. 1–2, including degree and regularity topics; literal common-neighbor and triangle probes",
+          "method": "OA PDF targeted passages and literal searches",
+          "title": "Properties of the Dot Product Graph of a Commutative Ring",
+          "trigger": "Same-object finite-field graph treatment"
+        },
+        {
+          "assessment": "Different dimension and invariant",
+          "evidence": "Works with a product of two copies of the finite field and decomposes that graph into components.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.15952",
+          "material_read": "Abstract and Sec. 2, Theorems 2.1–2.2, pp. 2–3",
+          "method": "OA PDF original passages",
+          "title": "On the Dot Product Graph of a Commutative Ring II",
+          "trigger": "Same-name sequel"
+        },
+        {
+          "assessment": "Same projective rank-three alias; at q=2 exactly the simple vector graph",
+          "evidence": "Defines adjacency of distinct orthogonal projective points and states C4-freeness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4489",
+          "material_read": "Introduction p. 1, definition of ER_q",
+          "method": "OA PDF targeted passage",
+          "title": "Orthogonal Polarity Graphs and Sidon Sets",
+          "trigger": "Rank-three equivalent projective relation"
+        },
+        {
+          "assessment": "Material odd-q rank-three overlap; no priority inferred",
+          "evidence": "Odd-q scalar fibers have q−1 points and are cliques for isotropic projective points and independent otherwise, with quotient the simple orthogonal polarity graph.",
+          "identifier_or_url": "Resultary 4ca1264b71a7",
+          "material_read": "Local RESULT.md offsets 200–3675 and 7300–8967",
+          "method": "Published-record local mirror",
+          "title": "Automorphisms and metric bases of three-dimensional finite-field total dot product graphs",
+          "trigger": "Closest explicit indexed scalar-blowup theorem"
+        },
+        {
+          "assessment": "Not an equivalent statistic",
+          "evidence": "The special case concerns domination parameters, not whether edges lie in triangles.",
+          "identifier_or_url": "Resultary 6def1eb58178",
+          "material_read": "Local RESULT.md at offset 0",
+          "method": "Published-record local mirror",
+          "title": "Total and paired domination of finite-field total dot product graphs",
+          "trigger": "Shared (2,3) exception in same graph family"
+        },
+        {
+          "assessment": "Exact coverage unresolved and not a basis for this decision",
+          "evidence": "The accessible attribution concerns graph introduction and diameter/girth, which do not determine the triangle multiplicity profile.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2014.897188",
+          "material_read": "No original full text recovered; Mollahajiaghaei p. 2 gives attribution",
+          "method": "Publisher/DOI OA retrieval attempted; checked independent attribution only",
+          "title": "On the Dot Product Graph of a Commutative Ring",
+          "trigger": "Founding same-graph paper and its girth result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local question is well motivated and the formula is a useful translation of the projective design answer. Under the value standard the exact datum and sharp exception are nevertheless mechanically implied: multiplying the classical projective co-incidence counts by fiber size and removing isotropic endpoint loops yields the entire edge profile. The dimension-three corollaries then use standard absolute-point and degree counts, not a separate mathematical advance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

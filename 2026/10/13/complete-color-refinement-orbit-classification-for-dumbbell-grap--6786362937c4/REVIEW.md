@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For p,q>=3 and k>=0, the universal cover is a subdivided 3-regular branch tree with incident thread lengths (p,p,k+1) at a left branch and (q,q,k+1) at a right branch. Lemma 2.6 of Krebs–Verbitsky uses the same uniform round-zero convention. When p<q, no outgoing branch-degree discrepancy is visible before depth p+1; at that depth the two p-threads distinguish the left root, while the connector is identical at both roots. Stable branch types and the distances to the first branch in the two directions separate the three regions when p!=q. Reflection gives precisely the remaining cycle orbits. When p=q, reversal exchanges the branches and unordered endpoint distances classify each thread; distinct sums separate connector and cycles unless k+1=p=q. In that balanced case the branch tree is uniformly subdivided and corresponding positions are color-equivalent, while cut-vertex status prevents a cycle/connector automorphism. The finite replay confirms 13056 triples and 12240 split times, but does not replace the uniform proof.
+## correctness
 
-## Originality
-PASS to the best of the checked sources. Best-of-knowledge comparison found no prior all-dumbbell orbit-recovery classification or unequal-cycle split-time formula. The equal-cycle resonance and the general universal-cover equivalence are prior ingredients. The exact new part is the classification of the remaining unequal-cycle parameter space, combined with the equal-cycle result; no novelty is claimed for the underlying universal-cover method.
+PASS
 
-## Value
-PASS. Dumbbells form a standard connected bicyclic family immediately beyond the tree/unicyclic regime. The theorem gives a complete boundary for failure of color refinement to recover automorphism orbits: exactly equal cycle and connector lengths. It closes the unequal-cycle domain that the prior resonance calculation left open, including connectors whose length equals just one of the two cycles. The exact split time explains how the cycle-length asymmetry becomes observable. This is a motivated structural classification, rather than a numerical improvement or a generic claim of significance.
+Use uniform round zero and the correspondence with rooted universal covers truncated at depth t. If p<q, the two cycle directions out of each attachment are indistinguishable to depth p: a branch at distance exactly p appears only as a boundary leaf. The connector direction is also indistinguishable through depth p, even if r<p: after traversing it, the first possible difference in the cycle directions is at distance r+p from the root, where r=k+1>=1. At depth p+1 the two short-cycle directions exhibit two degree-three branch vertices at distance p, whereas the long-cycle directions do not. The connector contribution at that distance is common to both roots (including r=p). Thus the first split is exactly round p+1. In the full rooted cover of an internal vertex, the unordered pair of distances and endpoint types of the first branch lifts in its two directions is an invariant. Distinct attachment types separate the three regions; reflections realize the equal-distance pairs on each cycle, and the unequal endpoint types fix every connector position. With equal cycle lengths the graph can swap attachments and reverse the connector, and the two possible thread lengths are distinguished by the sum of endpoint distances. When all lengths equal m, the cover is the uniform m-subdivision of the trivalent tree; its symmetries identify precisely the corresponding positions of all three threads, giving sizes six and three as stated, and cut-vertex status distinguishes internal connector vertices from internal cycle vertices in the graph itself. This also handles the single-edge connector with no internal vertex. The independent replay (branches/bd292d42-57d2-49ac-abe2-6059f953633c/independent_check.py and full_run.json) checked 13056 parameter triples, including 12240 unequal split times and 16 balanced partitions, against structural orbit labels; the finite replay corroborates and does not replace the proof. Frozen scripts were inspected, not executed.
 
-## Limits
-The finite replay does not prove the infinite classification. Targeted search cannot exclude unindexed prior work. The equal-cycle resonance and universal-cover method are prior ingredients. Independent audit has not been performed.
+## originality
+
+PASS
+
+Credit the earlier published equal-cycle slice in full. The distinct contribution relative to earlier evidence is the unequal-cycle classification, including the exact first split. The exact stable criterion and balanced classes are also stated in a distinct indexed November barbell record, not in the target itself. This substantive overlap is acknowledged: the available publication metadata place that record on 2026-11-08 and the frozen finding on 2026-10-13 (UTC dates), and the later record's prior-work passages do not attribute the all-family theorem to an earlier source. Its earlier first_public_date coincides with a cited source date and is not evidence that Krebs–Verbitsky stated the barbell classification. Publication metadata do not by themselves prove independent discovery or historical priority. No earlier source covering the unequal-cycle result was established, and the later barbell statement does not give the exact first split.
+
+## value
+
+PASS
+
+This natural bicyclic family has a nontrivial boundary where local refinement confounds a cut vertex with a cycle vertex. Completing the unequal-cycle case also resolves parameter collisions between the connector and one cycle, and the exact first split quantifies how slowly local refinement can distinguish the two hubs. This is a structural and temporal result, not another finite check of the known balanced example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

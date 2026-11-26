@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:00:06.786460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed the zero-diagonal open-neighborhood convention, including centers on supports, and reproduced the whole census independently. In F_7[i] the norm of a+bi is a^2+b^2 and is u^8 on nonzero u; the square test is exactly membership of the norm in {1,2,4}, with zero excluded. Replay /workspace/audit-replay/4.py traverses unanchored increasing supports, partitioning all 49 centers by traces as each vertex is appended. Both splits of every previous trace cell must be nonempty; a failed prefix legitimately precludes a shattered superset. Counts are (1,49,1176,18424,199920,4704) exactly; 49 centers rule out 64 required traces at size six and thus all larger sizes. Applying the 2352 explicitly defined semilinear maps to each of the displayed representatives gives 2352 distinct images per orbit, disjoint, with union all shattered five-sets; this verifies freeness for the named group without claiming it is the full automorphism group. Enumerating the five four-faces of each five-set gives exactly 11760 faces of degree two and no positive degree other than two. All other 188160 shattered four-supports are maximal by heredity, and five-facets also exist. Counts and replay output are in /workspace/audit-replay/4.txt. The exact computation is a finite exhaustion for this one graph, not a bound extended to other fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected paper page describes asymptotic VC theory; the frozen inspection reports prime-field numerics in §4, which could not be independently retrieved for passage-level comparison.",
+          "The two Resultary summaries include q=49 among exceptions to consecutive-character universality. Their stated supports are consecutive, not arbitrary four- or five-subsets of the extension field."
+        ],
+        "reasoning": "Even if a broader bound or a fixed-configuration theorem determines VC dimension or some individual cases, it does not specify how many supports are shattered or their orbit/stabilizer and incidence data.",
+        "searches": [
+          "McDonald–Sahay–Wyman arXiv:2210.03789, p. 1 and targeted §4 numerical experiments lookup",
+          "Resultary 50a43fac6cf7 (five consecutive quadratic-character signs), d08a73e76429 (four consecutive quadratic-residue signs)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, verify_paley49.cpp and verify_paley49.py",
+        "McDonald–Sahay–Wyman arXiv:2210.03789 first page; §4 retrieval attempt",
+        "Resultary 50a43fac6cf7, d08a73e76429, c53aa05fd9d3, d709a1a3fcdd (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing VC dimension five only says the fifth coefficient is positive and larger ones vanish. It does not give 4704, two free size-2352 orbits, or the four-face degrees.",
+          "Both kinds of five-support occur at this order: the consecutive five-tuple tested above has only 24 open-neighborhood traces, while both specified representatives have all 32. A negative universality exception for a consecutive tuple therefore does not establish the arbitrary-support classification."
+        ],
+        "reasoning": "The full polynomial and degree profile need a separate incidence computation; they are not numeric substitutions into the compared bounds, field orders or consecutive-word results.",
+        "searches": [
+          "Compare the arXiv:2210.03789 VC statement and Resultary consecutive-sign exception scopes to the arbitrary-support theorem",
+          "Check implications of known VC dimension or one specific looser character support classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first page of McDonald–Sahay–Wyman establishes the quadratic-residue translate VC framework and discusses asymptotic results. The frozen convention fixes character zero as nonadjacent and permits centers in the support.",
+          "For support (0,1,2,3) in the prime subfield, our direct norm check has 16 distinct open-neighborhood traces with all centers but only 14 off the support; for (0,1,2,3,4) it has 24 and 19, respectively. Thus changing the zero/center convention can change the answer even at a fixed order and support."
+        ],
+        "reasoning": "An all-support binary trace characterization with the same zero convention could be equivalent. Fixed-support character sign results, especially when zeros are excluded, cannot be silently equated with the open-neighborhood polynomial.",
+        "searches": [
+          "Configured Resultary: Paley(49) open-neighborhood shattering, shattered-support polynomial, quadratic character traces, affine semilinear orbits",
+          "McDonald–Sahay–Wyman arXiv:2210.03789, quadratic residue translates and VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier d709a1a3fcdd is an exact polynomial for Paley(25); c53aa05fd9d3 treats Paley(81) and gives a different orbit/facet pattern. Neither summary gives the order-49 polynomial.",
+          "Potential exact-order matches 50a43fac6cf7 and d08a73e76429 concern specified consecutive supports and therefore can at most cover part of this census on their available statements."
+        ],
+        "reasoning": "The different field orders are thematic precedents rather than matching table entries. The same-day exact-order hits were evaluated by scope, not presumed earlier or later.",
+        "searches": [
+          "Configured Resultary exact polynomial and orbit/facet search at order 49 and for neighboring Paley graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the full arbitrary-support polynomial and the free orbits and facet-extension distribution. The quadratic-residue VC framework is known. The exact historical priority of the bare VC dimension at 49 remains unresolved and is not needed for this distinct census. Neither generic VC statements nor fixed consecutive character tests give the full arbitrary-support result in the material accessed.",
+      "residual_risks": [
+        "Section 4 of the closest paper and mirror passages of related Resultary records were not independently retrieved. The priority of the bare exact VC dimension at 49 and details of fixed-support overlap remain unresolved.",
+        "Prior data on the same open-neighborhood complex may be unindexed; retrieved summaries are not whole-document noncoverage. No conclusion is drawn for alternate conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework is established; full paper was not independently inspected for any q=49 example or exact count",
+          "evidence": [
+            "The first page states the quadratic-residue translate VC problem and asymptotic results. Frozen RESULT.md lines 43–44 identify prime-field-only experimental scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+          "material_read": "First page, abstract and Definition 1.1; §4 description from frozen source only",
+          "method": "Targeted OA first-page inspection and attempted exact §4 retrieval",
+          "title": "The VC-dimension of quadratic residues in finite fields",
+          "trigger": "Same translate system and possible exact prior Paley(49) data"
+        },
+        {
+          "assessment": "Possible fixed-support overlap; not the arbitrary-support census in available statement",
+          "evidence": [
+            "Summary concerns five-term consecutive quadratic-character words, not all five-element support orbits."
+          ],
+          "identifier_or_url": "50a43fac6cf7",
+          "material_read": "Resultary summary; mirror full text not retrieved",
+          "method": "Configured Resultary search and attempted mirror read",
+          "title": "Complete five-word quadratic-character universality in nonprime fields",
+          "trigger": "Includes order 49 among exceptions at size five"
+        },
+        {
+          "assessment": "Fixed consecutive signs could cover only particular supports; no full degree distribution follows",
+          "evidence": [
+            "Available statement concerns four consecutive translate signs and lists 49 among exceptions."
+          ],
+          "identifier_or_url": "d08a73e76429",
+          "material_read": "Resultary summary; mirror full text not retrieved",
+          "method": "Configured Resultary search and attempted mirror read",
+          "title": "Sharp four-sign quadratic-residue universality over finite fields",
+          "trigger": "Includes order 49 at size four"
+        },
+        {
+          "assessment": "Earlier different-order polynomial, not the coefficients or orbits at 49",
+          "evidence": [
+            "Its graph has 25 concepts; even one five-support would require 32, so this prior case cannot have the same maximal support layer."
+          ],
+          "identifier_or_url": "d709a1a3fcdd",
+          "material_read": "Resultary summary and comparison in frozen RESULT.md; no independently retrieved mirror passage",
+          "method": "Configured Resultary query and mirror retrieval attempt",
+          "title": "The exact Paley-25 shattering polynomial and its exceptional triples",
+          "trigger": "Earlier complete polynomial via the same kind of invariant"
+        },
+        {
+          "assessment": "Different order 81 with a different polynomial and orbit data",
+          "evidence": [
+            "The indexed result treats the graph on 81 vertices, not 49."
+          ],
+          "identifier_or_url": "c53aa05fd9d3",
+          "material_read": "Resultary summary; precise full-text statement not obtained",
+          "method": "Configured Resultary search and parameter comparison",
+          "title": "Three exceptional quartet orbits and a rank-five shattering plateau",
+          "trigger": "Close same-day finite census including rank-five orbit/facet information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic-residue translate class is a standard finite-field test of shattering. Order 49 is a small quadratic-extension case in which five queries are possible but six are ruled out, so the rank limit is natural. The exact fifth-face count, its two symmetry types, and the nonpure maximal fourth layer describe incidence structure a researcher cannot recover from VC dimension or strong regularity alone. This is a complete finite classification, not significance inferred from a single software run or a selected witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

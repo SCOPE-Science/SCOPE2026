@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:32:09.516045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent integer enumerations described above"
+      ],
+      "rationale": "In homogeneous K_{2,n}, a leaf with two occupied spokes is exactly a bridge between the hubs. Per-leaf local weights are q,v,v,v², with an additional hub factor q² if no such leaf exists and q otherwise. For j=1,2 disjoint marked pairs the unnormalized event weight is q[(v(2+v))^{2j} B^{n-2j}+(q-2^j)2^j v^{2j} A^{n-2j}]: the first term allows all marked leaves to attach, the correction restores weight to exactly the 2^j same-hub choices in the disconnected sector. At j=0 this gives the partition function. Expanding the covariance numerator uses ((2+v)A/B)²=2y and (q-4)(q-1)-(q-2)²=-q, giving the frozen bracket q(1-r^n)+(y-2)[2+(q-1)y]. All factors are positive: for q<1, u<q/2 and (1-q)(2+q/2)²<4, while q>=1 is immediate. Taking r^n to zero at fixed q,v gives the claimed asymptotic with nonzero coefficient. The proof works from n=4, hence covers the stated lower boundary n=6. Independent exact replay at (q,v)=(1/2,1), via component search over 2^(2n) edge masks with integer weights 2^(n+2-k), gave scaled (Z,H_X,H_Y,H_XY)=(219673,157872,157872,115808) at n=6, with covariance numerator 516322400, and (4177,2928,2928,2144) at n=4. This tests the exact count, not the universal sign. The bundled verifier was inspected, not executed.",
+      "residual_risks": [
+        "No inference for unequal edge weights or overlapping pairs; the exponential equivalent requires fixed positive q and v."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 6.3, p. 35, states nonnegative covariance of distinct pair-connectivity events on general finite graphs for 0<q<1 as a conjecture",
+          "40f119d1bafa proves a sign for weighted cacti",
+          "a9cbf9d149be studies K_{r,n} at edge probabilities a_i/sqrt(n), with a finite-core limit and cluster fluctuations"
+        ],
+        "reasoning": "K_{2,n} with n>=6 has cycles sharing edges and is not a cactus. The sparse limit concerns a different parameter regime and does not give the finite-n sign. The conjectural general statement is not prior theorem coverage.",
+        "searches": [
+          "arXiv:2610.00549, §6 Conjecture 6.3",
+          "Resultary 40f119d1bafa and a9cbf9d149be"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00549",
+        "Resultary e439d23aa749, 40f119d1bafa, a9cbf9d149be, 831ae4036961",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source notes FKG supplies the nonnegative case for q>=1; it does not supply this explicit two-event formula",
+          "The forest comparison fixes t and excludes cyclic edge sets; the audited model fixes positive q,v and admits them"
+        ],
+        "reasoning": "What survives comparison is the finite-activity formula and strict q<1 sign on an unbounded noncactus family, plus a sharp exponential equivalent. Neither general nonnegative association for q>=1 nor the forest endpoint implies those findings.",
+        "searches": [
+          "arXiv:2610.00549 Conjecture 6.3 and surrounding qualification",
+          "Resultary e439d23aa749 §Finding and §Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e439d23aa749: n>=4, same leaf events on K_{2,n}, unrooted spanning-forest weight t^|F| on acyclic F; fixed-t polynomial decay",
+          "831ae4036961: disjoint peripheral pairs on K_{3,n} under a spanning-forest law"
+        ],
+        "reasoning": "Substituting v=qt gives q^{k(F)}v^{|F|}=q^{|V|+cyclomatic(F)}t^{|F|}; the forest law is recovered only after sending q to zero at fixed t. It does not give the positive-q formula, sign or fixed-(q,v) asymptotic. Neither same-day record is assumed earlier or discarded based on date.",
+        "searches": [
+          "Resultary: disjoint leaf-pair connection covariance, complete bipartite two-hub random-cluster and forest fugacities",
+          "Resultary e439d23aa749 and 831ae4036961"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mentioned small-bipartite coefficient certificate is not specifically identified in the frozen reference list; no separate table supplying all n was located",
+          "The source's standalone checker covers n=4 through 7 at 15 rational parameter choices each"
+        ],
+        "reasoning": "Finite enumerations or even exact fixed-order polynomials give no unbounded-n and continuously parameterized theorem without a further identity or argument. A search miss alone is not evidence of novelty.",
+        "searches": [
+          "Focused Resultary small-bipartite/disjoint-pair covariance lookup",
+          "Frozen RESULT.md lines 51–55 and verify.py lines 53–64"
+        ]
+      },
+      "rationale": "The closest indexed same-day result treats exactly the disjoint leaf-pair observable on the same graph, but only for unrooted forests. Its fixed-fugacity n^(-1) decay is not the fixed-positive-random-cluster exponential law. The broader random-cluster connection conjecture below q=1 motivates the tested case, while FKG already covers nonnegativity above q=1. PASS credits the strict homogeneous all-positive-parameter random-cluster formula, its previously uncovered below-one range, and its fixed-parameter equivalent, not the general conjecture or priority for positivity at q>=1.",
+      "residual_risks": [
+        "The small-bipartite coefficient certificate mentioned in the source was not independently identified.",
+        "The comparison does not resolve priority ordering of same-day records or exclude a less visible series-parallel formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, different measure and asymptotic regime",
+          "evidence": "Strict covariance for disjoint pairs in the unrooted spanning-forest measure on K_{2,n}, with order 1/n at fixed fugacity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-long-range-connection-covariance-and-optimal-fugacity-in-complet--e439d23aa749",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Local indexed mirror",
+          "title": "Long-range connection covariance and optimal fugacity in complete bipartite graphs",
+          "trigger": "Same graph, terminals and covariance observable"
+        },
+        {
+          "assessment": "Conjecture below one, not theorem coverage; known FKG sign at and above one",
+          "evidence": "Nonnegative covariance of pair-connectivity events is posed for every finite graph when 0<q<1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00549",
+          "material_read": "§6, Conjecture 6.3 and adjacent FKG remark, PDF p. 35 (text offset 125600)",
+          "method": "Open primary PDF passage",
+          "title": "Negative Correlations for Forests and the q<1 Random Cluster Model",
+          "trigger": "Most directly relevant general-graph claim in the hard range"
+        },
+        {
+          "assessment": "Graph restriction excludes K_{2,n}",
+          "evidence": "Weighted cactus hypothesis excludes cycles sharing edges.",
+          "identifier_or_url": "40f119d1bafa",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local indexed mirror",
+          "title": "All-weight connectivity covariance on cactus graphs for random-cluster and forest laws",
+          "trigger": "Same observable and cluster-weight range"
+        },
+        {
+          "assessment": "Different observable and asymptotic scaling",
+          "evidence": "Edge probabilities scale as a_i/sqrt(n) on K_{r,n}; cluster fluctuations rather than a finite-size disjoint-pair sign.",
+          "identifier_or_url": "a9cbf9d149be",
+          "material_read": "RESULT.md, sparse regime and limit statements",
+          "method": "Local indexed mirror",
+          "title": "Finite-core Fortuin–Kasteleyn reduction and mixed-Gaussian cluster fluctuations",
+          "trigger": "Complete bipartite random-cluster models"
+        },
+        {
+          "assessment": "Different graph and law",
+          "evidence": "Spanning forests on K_{3,n}, not positive-q random-cluster configurations on K_{2,n}.",
+          "identifier_or_url": "831ae4036961",
+          "material_read": "RESULT.md, statement and sampling law",
+          "method": "Local indexed mirror",
+          "title": "Strict four-terminal connectivity association in three-hub random forests",
+          "trigger": "Same-day related four-terminal correlation claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20",
+        "arXiv:2610.00549 Conjecture 6.3",
+        "Resultary e439d23aa749"
+      ],
+      "rationale": "This is a strict check of a recognized general conjectural sign in the below-one regime on a natural family with arbitrarily many overlapping cycles, not another cactus instance or finite table. The explicit rate and positive prefactor further distinguish finite positive dependence from asymptotic independence. The result is valuable without extrapolating to general graphs or inhomogeneous edges.",
+      "residual_risks": [
+        "Neither the forest-limit regime nor general four-terminal association is settled by the frozen theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

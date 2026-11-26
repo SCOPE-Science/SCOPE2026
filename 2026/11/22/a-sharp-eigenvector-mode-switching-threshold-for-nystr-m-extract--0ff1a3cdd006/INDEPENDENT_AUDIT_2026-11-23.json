@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:19:00.454575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact diagonalization verifies the whole open parameter domain. The Ritz gap is au+δ(1−u)>0 and the positive Nyström eigenvalues are the squared norms of Aq_i divided by the respective Ritz values: 1−δ_c and 1−δ. Their eigenvectors are orthogonal, giving the two branches, a two-dimensional top eigenspace at equality, and the stated errors (uniqueness means up to sign). Since b_1>a, 0<δ_c<(1−a)u<1−a, so both branches actually occur. The cross-Gram with span(e_1,e_3) is √(1−u)I. For a=1/2 and δ=u/8 the errors are u/8 and u/2 for the extracted leading eigenvalues, while the two vector sine errors are 1 and √u. The true top gap closes in the limit; the toy family is not a fixed-gap counterexample. Frozen verify.py was inspected, not executed; its finite rational checks are supplementary, not the basis of the verdict.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakatsukasa–Tang v2 explicitly says the subspace-angle comparison does not imply an ordering of individual extracted eigenvector errors; their stated eigenvalue ordering is a different conclusion.",
+          "The inspected Ritz and singular-value error theory and classical gap sensitivity control errors, not which disjoint support carries the top eigenpair in this extraction."
+        ],
+        "reasoning": "Neither a subspace-angle inequality, an eigenvalue ordering nor a gap-dependent upper bound specifies the sharp parameter crossover or realizes the competing vector-error and eigenvalue-error outcomes in the same instance.",
+        "searches": [
+          "arXiv:2605.05043v1 §§3.4, 4.1 and v2 §§2.2.1, 4.3",
+          "arXiv:2506.01207v2",
+          "arXiv:1810.02532v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.05043v1/v2",
+        "arXiv:2506.01207v2",
+        "arXiv:1810.02532v2",
+        "Resultary 2026/11/22/...--29acf5febf22",
+        "Resultary 2026/10/12/...--01df0b03e02b",
+        "Resultary 2026/11/2/...--60f775fc6960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior eigenvalue order covers the weak inequality between the leading eigenvalue approximations, not their exact errors or the opposing vector outcome. The prior comparison of full extraction spaces allows either vector ordering; on the present family the failure is specifically a swap within the leading two-mode comparison.",
+          "The Nyström definition enables a direct block calculation, but does not already provide a theorem asserting this family, its tie, or its fourfold error example."
+        ],
+        "reasoning": "Credit eigenvalue ordering and the vector/subspace caveat to the source, not to the frozen result. The exact family is a constructive witness, not a contradiction of either prior conclusion.",
+        "searches": [
+          "arXiv:2605.05043v1 §3.4, v2 §§2.2.1 and 3.1; Resultary same-day volume-sampling trace result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On ran(AQ), Ritz compression of A^+ has pencil B−μQᵀA²Q: its eigenvalues are reciprocals of the two positive Nyström eigenvalues, with the same output vectors. The search under this alias returned the frozen record itself first and unrelated inversions such as Resultary 2026/11/2/...--60f775fc6960 (random Gaussian ranking, not deterministic inverse-operator Ritz extraction).",
+          "Nakatsukasa–Tang v2 §2.2.1 compares extraction subspaces, not this deterministic ordering switch."
+        ],
+        "reasoning": "The statement was compared both as reversal of leading mode and as reversed ordering of a reciprocal Ritz pencil. The self-match is not independent evidence of prior coverage.",
+        "searches": [
+          "Resultary: two-block leakage-mode crossover; wrong vector despite a better eigenvalue",
+          "Resultary: reciprocal Rayleigh Ritz on image subspace inverse operator pseudoinverse rank two leading eigenvector swapped ordering clustered eigenvalues Nyström orthogonal e3 block diagonal four modes exact eigengap",
+          "arXiv:2605.05043v1/v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record was returned; the separate same-day Resultary record 2026/11/22/...--29acf5febf22 concerns worst-orientation Nyström trace error and volume sampling, not a top eigenvector.",
+          "The inspected v1/v2 numerical comparisons use selected spectra and do not tabulate this four-mode crossover. Resultary 2026/10/12/...--01df0b03e02b analyzes rank-one randomized subspace iteration, not extraction modes."
+        ],
+        "reasoning": "The distinct corpus hits and numerical plots concern different metrics or objects; none was evidence of an exact matching family or table.",
+        "searches": [
+          "Resultary: exact Nyström/Ritz switch; two-block leakage-mode crossover; Nakatsukasa–Tang individual vector warning",
+          "arXiv:2605.05043v1 §4.1 and v2 §4.3"
+        ]
+      },
+      "rationale": "The qualitative caveat about individual vectors and the ordered eigenvalue improvement are prior. What survives is the explicit two-leakage family, the exact crossing surface and tie, and a simultaneous strict quantitative advantage in eigenvalue error with maximal individual-vector error. No equivalent exact comparison or stronger covering result was found in the inspected material; priority is provisional.",
+      "residual_risks": [
+        "Specialized examples in inverse-operator or individual-vector extraction literature may use an equivalent formulation. The two auxiliary bounds papers were checked only in the cited opening material.",
+        "The frozen reference to §2 for the non-implication should be explicitly attributed to v2; the related v1 discussion is in §3.4. This is a locator clarification, not a change to the mathematics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior extraction-space comparisons; exact switch not shown in passages checked",
+          "evidence": [
+            "The discussion of inability to prove an individual-vector comparison is §3.4 in v1, not §2. The vector results in §4.1 are numerical comparisons for selected spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.05043v1",
+          "material_read": "§3.4, pp. 12–13 and §4.1, p. 14",
+          "method": "Read OA full-text passages at the vector discussion and numerical comparisons",
+          "title": "Finding accurate eigenvalues and eigenvectors of positive semi-definite matrices given a subspace",
+          "trigger": "Direct motivating comparison of the same extraction methods"
+        },
+        {
+          "assessment": "Qualitative caveat and eigenvalue ordering covered; exact witness distinct",
+          "evidence": [
+            "§2.2.1 says the subspace result 'does not imply an ordering of the errors of individual extracted eigenvectors'; §4.3 reports individual-vector numerical comparisons, including a geometric spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.05043v2",
+          "material_read": "§2.2.1, pp. 5–6, and §4.3, p. 20; compared the stated eigenvalue-ordering result",
+          "method": "Read relevant OA original passages and compared outputs and quantifiers",
+          "title": "Finding accurate eigenvalues and eigenvectors of positive semi-definite matrices given a subspace",
+          "trigger": "Revised version with explicit caveat about individual vectors"
+        },
+        {
+          "assessment": "Opening results address Ritz eigenvalue/singular-value errors; no exact switch in inspected passage",
+          "evidence": [
+            "The abstract describes quadratic bounds for Rayleigh–Ritz eigenvalues and extension to singular values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.01207v2",
+          "material_read": "Abstract, p. 1",
+          "method": "Read OA opening statement of scope",
+          "title": "Sharp error bounds for approximate eigenvalues and singular values from subspace methods",
+          "trigger": "Possible stronger error comparison"
+        },
+        {
+          "assessment": "Different Ritz-vector guarantee; not a checked theorem assigning this Nyström mode",
+          "evidence": [
+            "The discussion concerns Rayleigh–Ritz vector error bounds and eigengap sensitivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.02532v2",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "Read OA opening statements and compared the targeted extraction",
+          "title": "Sharp error bounds for Ritz vectors and approximate singular vectors",
+          "trigger": "Possible stronger individual-vector gap result"
+        },
+        {
+          "assessment": "Different claim",
+          "evidence": [
+            "Optimizes worst-orientation trace error and compares it to volume-sampling expectation; no switch of an ordered top eigenvector."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/...--29acf5febf22",
+          "material_read": "Relevant indexed record claim",
+          "method": "Local corpus comparison of target error and quantifiers",
+          "title": "Exact minimax-volume-sampling equality for one-spike spectra",
+          "trigger": "Distinct same-day Nyström orientation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A simple exact witness answers a live extraction question that the known subspace comparisons leave open. The crossing occurs on a sharp squared-angle eigengap scale, can produce maximal vector error at arbitrarily small trial-space error, and accompanies a strictly better eigenvalue on the very same examples. The threshold and tie are useful for interpreting ordered eigenpairs near clustered spectra; no general or fixed-gap instability is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

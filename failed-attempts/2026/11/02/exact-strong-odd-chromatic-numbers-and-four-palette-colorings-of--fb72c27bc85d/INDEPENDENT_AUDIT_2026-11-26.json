@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:37:37.043697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/frozen_replay.py, selector 3"
+      ],
+      "rationale": "A cubic vertex permits exactly a monochromatic or a rainbow neighborhood. For four named colors, a proper pair of columns has 12×7 states. Each coordinate of the successor is forced: use the rung partner's color when it equals the preceding rim neighbor, and otherwise use the fourth color. The two proposed entries differ, and the same rule in reverse is the inverse. With current column (a,b), the preceding column has either both coordinates swapped, neither swapped, or exactly one swapped. Applying the rule gives respectively periods 2, 4, and 6; the one-swap types occur on the same six-cycles. Their state counts 12, 24, and 48 give the labelled trace formula, including n=3 and simultaneous divisibility by 4 and 6. The three explicit blocks satisfy the neighbor rule and share first and last columns, so each seam reproduces a validated cyclic seam, yielding all odd n≥5. Even prisms have a proper bipartite coloring, valid because degree is three. In the triangular prism the two same-rim neighbors of any vertex are adjacent and hence differ, so each neighborhood must be rainbow; because its square is K6, all six colors are needed. This makes explicit the step implicit in the secondary justification at RESULT.md line 67. The independent replay `python3 /workspace/branches/frozen_replay.py 3` gave counts [0,36,0,60] for n=3,4,5,6; this finite check is not the general proof.",
+      "residual_risks": [
+        "Independent enumeration is limited to n=3–6; the proof is for simple prisms with n≥3 only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete-graph product theorem: χ_so(K_p □ K_q)=pq; general product theorem is an upper bound.",
+          "Kwon–Park's sparse bounds require mad≤20/7 or C4-freeness in the relevant results; a cubic prism has mad=3 and has 4-cycles.",
+          "Earlier indexed prism theorem covers the full n≥3 range and also gives a five-palette transfer-matrix formula."
+        ],
+        "reasoning": "The complete-product theorem settles n=3; the other published general bounds do not furnish this exact odd-prism result. The indexed theorem does.",
+        "searches": [
+          "arXiv:2410.02336v1, §4 Theorems 4.2 and 4.4(i)",
+          "arXiv:2401.11653, p. 4 Theorems 1.2 and 1.3",
+          "Resultary finding 697eedb2d5a5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 697eedb2d5a5",
+        "arXiv:2410.02336v1",
+        "arXiv:2610.01441",
+        "arXiv:2401.11653",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior optimum is 6 for n=3, 2 for even n≥4, and 5 for odd n≥5; same palette and minimal-period inventory.",
+          "K_3 □ K_2 gives 3·2=6 from Theorem 4.4(i)."
+        ],
+        "reasoning": "Both contributions emphasized in the frozen Finding are stated directly in the earlier catalogue; neither period classification nor odd upper bound remains novel as a finding.",
+        "searches": [
+          "Resultary 697eedb2d5a5",
+          "Caro et al. Theorem 4.4(i)",
+          "Frozen Finding and assumptions lines 4–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "697eedb2d5a5 uses A_n(4) for the same labelled assignments with a named palette, unused colors allowed, and no symmetry quotient.",
+          "Pradhan et al. distinguish ordinary odd and strong odd coloring and give χ(G)≤χ_o(G)≤χ_so(G)≤χ(G²)."
+        ],
+        "reasoning": "Renaming the counting function does not change the admissible maps. Ordinary odd or square-coloring results do not by themselves give the same census.",
+        "searches": [
+          "Resultary: cycle prisms / strong odd chromatic classification and four-palette census",
+          "Web: \"strong odd\" coloring prism graph exact \"C_n\" K_2 circular ladder",
+          "arXiv:2610.01441, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula 12[2|n]+24[4|n]+48[6|n] and cycle counts (length:cycles) 2:6, 4:6, 6:8 on 84 states."
+        ],
+        "reasoning": "This is an all-size exact catalogue match, not agreement on a finite prefix.",
+        "searches": [
+          "Resultary 697eedb2d5a5, mirrored RESULT.md Finding and assumptions"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record, 697eedb2d5a5, states the same chromatic-number classification, the same four-named-color count under the same labelling conventions, and the same local cycle inventory; it additionally treats the five-palette count. The frozen result does not establish a separate new mathematical claim. The triangular boundary is separately a published corollary. This is demonstrated coverage, not failure to retrieve a source.",
+      "residual_risks": [
+        "The literature search was bounded and does not determine first historical priority; the direct catalogue match does not depend on that determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage",
+          "evidence": "Same complete optimum classification, formula A_n(4), and 84-state cycle counts, with the same labels and unused-color convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-parity-obstruction-and-exact-strong-odd-coloring-census-for-ci--697eedb2d5a5",
+          "material_read": "RESULT.md Finding (offset 0) and assumptions",
+          "method": "Resultary search and local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A parity obstruction and exact strong-odd coloring census for cycle prisms",
+          "trigger": "Same graph and counting problem"
+        },
+        {
+          "assessment": "Published exact triangular boundary; general inequality otherwise",
+          "evidence": "χ_so(G □ H)≤χ_so(G)χ_so(H); χ_so(K_p □ K_q)=pq.",
+          "identifier_or_url": "https://arxiv.org/html/2410.02336v1",
+          "material_read": "§4, Theorems 4.2 and 4.4(i); offsets about 46380 and 54224",
+          "method": "Primary OA HTML",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Cartesian product theorem and triangular boundary"
+        },
+        {
+          "assessment": "Distinguishes definitions",
+          "evidence": "Some odd multiplicity for ordinary odd, all present multiplicities odd for strong odd, and a square-coloring upper bound.",
+          "identifier_or_url": "arXiv:2610.01441",
+          "material_read": "p. 1, offsets 3243–4733",
+          "method": "Primary OA PDF text",
+          "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+          "trigger": "Same coloring invariant; nearby conventions"
+        },
+        {
+          "assessment": "These bounds do not give the odd-prism optimum",
+          "evidence": "Threshold mad≤20/7 or C4-free under mad≤11/3 for the cited bounds.",
+          "identifier_or_url": "arXiv:2401.11653",
+          "material_read": "p. 4, Theorems 1.2–1.3, offsets 8917–9894",
+          "method": "Primary OA PDF text",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Possible general cubic-graph bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding lines 4–19",
+        "Resultary 697eedb2d5a5, Finding and assumptions"
+      ],
+      "rationale": "The exact prism census is a natural invariant, but this frozen finding recomputes an already recorded all-n closed form and orbit inventory with the same assumptions. The odd chromatic classification is also directly recorded. No additional exact invariant or new boundary survives this coverage; this is not a judgment against the value of the earlier theorem.",
+      "residual_risks": [
+        "No broader coloring or new equivalence-class census is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: Chromatic repair radii of friendship graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(F_m=K_1\vee(mK_2)\), fixing the repaired hub color makes the edit distance an independent sum of two-orientation peripheral-edge costs. The sum of its three hub costs gives the unrestricted upper bound; the explicit three-block monochromatic source attains it. The feasible profile \((1,m,m)\) pins the ordinary target hub color to the unique singleton; the supplied even/odd sources meet the resulting \(m+1\) upper bound. The weak exceptional values at \(m=2,3\) follow by a complete parity case split. Finally, cyclic color relabeling of an unrestricted extremizer over three components creates a feasible combined profile and proves the disjoint-union equality. All quantifiers and small cases appear in RESULT.md. The independent exhaustive implementation reproduces all maxima for \(1\le m\le6\) and both extremal constructions through \(m=100\). Computations check the algebra but do not establish the unbounded theorem.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+For a fixed target hub color, the only peripheral options are the two orders of the remaining colors. Their minimum Hamming cost is 2 for an edge monochromatic in the hub color, 0 for an edge already using both remaining colors, and 1 otherwise. This gives the three exact D_c. Their sum is at most 4m+2. With hub 0 and t,t-1,m-2t+1 monochromatic blades in colors 0,1,2, t=floor((m+2)/3), the costs are m+t,m+t,2m-2t+2; all blade multiplicities are nonnegative and the third cost is no smaller. This proves the unrestricted value. At m>=2 a same-profile target must place the singleton color 0 at the hub; every blade then costs at most one, and the hub costs at most one. The parity-specific witnesses have feasible profile (1,m,m) and attain D_0=m+1. Their remaining costs are 3k-1,3k for m=2k and 3k,3k+2 for m=2k+1, proving the weak lower bound for m>=4. For m=2 with singleton off-hub there is at most one monochromatic blade, so the sum bound is 8. For m=3 the bound is 10 with at most one monochromatic blade; with two, the singleton blade must use the majority color different from the source hub by parity, and selecting the source hub costs three. Singleton-at-hub cases cost at most m and the supplied witnesses attain the exceptional weak values. At m=1 the feasible words are already proper. On three copies weak costs add, and cyclic relabeling of an unrestricted extremizer gives a globally feasible balanced profile, because the same relabeling applied to any proper word produces that profile. This proves the copy formula and gap. Direct bounded reproduction generated the 12 proper labelled targets of F_2, tested all 243 source words and all 90 sources with feasible profiles, and got B=3, B_w=2, Fix_3=3. The frozen verifier was inspected, not executed; its reported 15,590 feasible cases for m=1..6 use singleton color 0 for m>=2, a valid symmetry normalization for the maxima. Finite enumeration does not replace the all-m proof.
 
-Jiang et al., *Exact and extremal values of chromatic villainy* (arXiv:2610.13580v1), develops the color-profile framework, odd-cycle and complete-multipartite formulas and order-chromatic extremal bounds. Jiang et al., *Disjoint unions and fixed-parameter algorithms for chromatic villainy* (arXiv:2610.13556v1), establishes the general \(k\)-fold unrestricted fixing identity, which is credited. The inspected relevant text of these papers contains no friendship-graph formula and neither the single-copy ordinary/weak exceptional transition nor the exact unrestricted friendship fixing radius follows directly from their general numerical statements. The original Clark et al. chromatic-villainy paper was compared for family and parameter coverage; no equivalent was identified. The earlier Garnero et al. fixing-number paper could be assessed from an abstract but its full text was not lawfully accessible; its possible hidden family-specific theorem is a residual historical-priority risk. Unsearched alternative descriptions also remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp formulas answer three naturally coupled repair questions on a fundamental block-graph family and establish a genuine size-growing difference between worst unrestricted assignments and feasible-profile disturbances. The two low-order exceptions expose a concrete boundary, while the explicit three-copy gap grows as \(3\lfloor(m-1)/3\rfloor\), giving a transparent combinatorial realization of a recently characterized repetition phenomenon; the general repetition theorem itself is not claimed as new.
+The supported distinct result is the joint exact single-copy census for the friendship family, including the two small weak exceptions and sharp attainment of the general fixing upper bound. The record expressly acknowledges the known repeated-copy identity and derives the family-specific unbounded gap from the new single-copy data. Neither that identity nor the universal fixing bound supplies those data. No exact earlier single-copy coverage was established in the available comparisons.
 
-## Remaining limits
+## value
 
-No independent assessment or exhaustive historical-priority proof. The formulas are for three named colors, vertex-Hamming changes, friendship graphs, and three disjoint copies. The existing abstract-only older source remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Friendship graphs are a natural connected three-chromatic family. Computing the three distances on the same family isolates the price of preserving named multiplicities from the effect of admitting infeasible profiles, and resolves exactly where weak and ordinary villainy coincide. Combined with the known balancing identity, the comparison gives an explicit growing family where globally feasible disturbances across three identical components impose an unbounded extra repair cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

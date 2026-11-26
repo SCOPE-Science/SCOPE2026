@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:54.088912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The palindrome parametrization is injective, and length-four common subsequences are exactly common outputs after two deletions. Independently inverted the explicit four-position subsequence shadows over six symbols and counted unique pairs (replay: python /workspace/audit-evidence/frozen5.py); dividing the ordered-pair counts by the falling factorial for each support size gives 20, 37, 9 for supports 2, 3, 4 and zero otherwise. Six symbols suffice to realize every equality partition of the six input slots, so relabelling yields the all-q law, not a finite-alphabet extrapolation. For fixed source support r, at most one new symbol can appear in a neighbor: two distinct fresh symbols occupy at least two slots of the other triple and leave at most two positions with source letters in its palindrome. Each one-new-symbol template has q−r realizations. Independent degree counts at r and r+1 agree with the constants and slopes, including the missing all-distinct type at q=2. The abba output partitions the vertices into q² cliques. Randomly ordering vertices gives an independent set with expected size Σ1/(d+1)≥|V|²/(|V|+2|E|), giving the asserted ceiling after substitution. The maximal packing of alphabet triples works because sharing at most one letter leaves at most two symbols of a common subsequence counted with multiplicity, and a chosen triple rules out at most 3(q−2) triples including itself. This proves the constructive bound for q≥3. The two frozen checkers were inspected, not executed. The result gives only bounds and asymptotic order for A_q, not its exact value.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Kiyavash §§intro and run-length limited sources covers the general hypergraph framework; Cullina–Kulkarni–Kiyavash PDF p. 1 treats independent sets and weight partitioning/colorings.",
+          "The all-q one-deletion record --9646637bbf2e has empty confusability graphs at even length; it gives no two-deletion graph."
+        ],
+        "reasoning": "General models or bounds do not compute the support and degree laws on this source. An unrestricted graph algorithm could recover a specified finite instance by running it, which is not a theorem calculating the all-q law. One-deletion results neither dominate nor identify the two-deletion adjacency.",
+        "searches": [
+          "arXiv:1211.3128, constrained-source deletion hypergraphs",
+          "arXiv:1211.4056, independent sets for fixed-length deletion codes",
+          "Resultary: one-deletion confusability and capacity of palindrome codes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/verify_patterns.py, checks/verify_direct.py",
+        "Six related Resultary records and two open primary PDFs listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binomial-tree result describes binary odd-length one-deletion conflicts; even-length one-deletion palindrome pairs do not conflict.",
+          "The frozen certificate must actually compute the 203 equality patterns or an equivalent count, and the five degree slopes depend on the numbers of qualifying templates."
+        ],
+        "reasoning": "The general machinery and simpler packing arguments can motivate quadratic bounds and are credited. They do not imply the exact pair count or degree spectrum; neither the one-deletion graph nor a reconstruction maximum determines those counts.",
+        "searches": [
+          "SCOPE-a-binomial-tree-model-for-binary-palindromic-single-deletion-cod--3c7b3453f9ef",
+          "SCOPE --9646637bbf2e and --8cefff0252dd, Finding and Relationship to prior work",
+          "Kulkarni–Kiyavash, constrained sources; Cullina–Kulkarni–Kiyavash, independent-set method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Short nonbinary reconstruction Finding reports maximum two-deletion output intersection 6 with 12 maximizing patterns at length six, for pairs separated by one deletion.",
+          "Binary palindromic-duplication/deletion optima, SCOPE --d41a86ca777b, uses a single palindromic block operation on all binary length-six words."
+        ],
+        "reasoning": "Counting all palindrome pairs with a nonempty intersection means LCS at least four, not maximizing the intersection size among unrestricted inputs. Knowing maximizing patterns says nothing about most smaller, nonempty intersections. The block-deletion relation is a different channel.",
+        "searches": [
+          "Resultary: length-six palindrome LCS≥4, two arbitrary deletions, confusability edge and degree counts",
+          "Complete equality patterns for short nonbinary two-deletion reconstruction, SCOPE --8cefff0252dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balanced ternary Finding: exact capacity 4, 144 optimal codebooks, fractional packing for all 90 composition-(2,2,2) words. It contains the six ternary all-distinct triple palindromes, not the other 21.",
+          "Binary census Finding: unrestricted L_2(6,2)=4 on 64 words, containing the eight binary palindrome vertices but not reporting their induced degree table."
+        ],
+        "reasoning": "These are real finite-domain overlaps, but even complete data on these domains would not fix all realizable four-symbol conflict patterns on palindrome pairs or the five degree laws as q varies. Same-day dating of the ternary record does not establish priority.",
+        "searches": [
+          "Resultary: balanced ternary length-six two-deletion capacity, SCOPE --3259658bfc89",
+          "Resultary: complete length-six binary two-deletion extremizer census, SCOPE --e97570935b5d"
+        ]
+      },
+      "rationale": "The supported distinct claim is the entire all-alphabet unordered edge polynomial and the five degree laws for the palindrome-induced graph, with quadratic bounds as consequences. The deletion hypergraph, independence bound and greedy packing method are not themselves new. Relevant finite unrestricted censuses overlap the alphabet-size 2 and balanced alphabet-size 3 subdomains, and one-deletion and reconstruction results use closely related machinery. None of the inspected statements or their justified implications determines this all-alphabet graph law.",
+      "residual_risks": [
+        "Same-day balanced-ternary result is credited as overlapping; relative chronological priority is not established.",
+        "Comparisons were bounded to source-level catalogue hits and identified primary works, not proof that no earlier constrained-source count or unindexed equivalent exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Differs by number of deletions",
+          "evidence": "Even-length palindrome graphs are edgeless for one deletion.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-one-deletion-confusability-and-capacity-of-palindromic-cod--9646637bbf2e",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 6365",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact one-deletion confusability and capacity of palindromic codes",
+          "trigger": "Same source family and exact graph invariant"
+        },
+        {
+          "assessment": "Different parity regime, alphabet and channel",
+          "evidence": "Binary odd-length one-deletion graph is a binomial tree; binary even-length case has no edges.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-binomial-tree-model-for-binary-palindromic-single-deletion-cod--3c7b3453f9ef",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 6591",
+          "method": "Local published-record mirror",
+          "title": "A binomial-tree model for binary palindromic single-deletion codes",
+          "trigger": "Exact palindrome confusability structure"
+        },
+        {
+          "assessment": "Different restricted extremal question",
+          "evidence": "At length six, maximum overlap 6 and 12 maximizing patterns for pairs separated by one deletion.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-equality-patterns-for-short-nonbinary-two-deletion-reco--8cefff0252dd",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 7217",
+          "method": "Local published-record mirror",
+          "title": "Complete equality patterns for short nonbinary two-deletion reconstruction",
+          "trigger": "Same length and deletion count; equality partitions"
+        },
+        {
+          "assessment": "Different channel and full binary source domain",
+          "evidence": "One palindromic block operation, not deletion of two arbitrary positions from an ordinary palindrome.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-length-6-palindromic-duplication-and-deletion-optim--d41a86ca777b",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 3406",
+          "method": "Local published-record mirror",
+          "title": "Exact binary length-6 palindromic-duplication and deletion optima: 40 versus 42",
+          "trigger": "Length-six palindrome terminology"
+        },
+        {
+          "assessment": "Overlapping finite domain, not general coverage",
+          "evidence": "Composition (2,2,2), 90 unrestricted words, capacity 4 and 144 optima; contains the six all-distinct-triple palindromes.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-deletion-capacity-and-equality-census-for-balanced-ter--3259658bfc89",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp two-deletion capacity and equality census for balanced ternary six-words",
+          "trigger": "Substantial finite subdomain overlap"
+        },
+        {
+          "assessment": "Finite unrestricted capacity, not the claimed spectrum",
+          "evidence": "L_2(6,2)=4 over all binary length-six words; no palindrome edge polynomial.",
+          "identifier_or_url": "2026/10/12/SCOPE-complete-length-six-binary-two-deletion-extremizer-census--e97570935b5d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Complete length-six binary two-deletion extremizer census",
+          "trigger": "Unrestricted binary length-six source contains the q=2 palindrome graph"
+        },
+        {
+          "assessment": "Framework is prior work, not exact palindrome census",
+          "evidence": "Hypergraph matching model and general bounds including constrained-source application.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "PDF pp. 1–2 and p. 12 run-length limited sources, offsets 1182, 14331, 93838",
+          "method": "Open primary PDF, relevant passages",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General constrained-source framework could dominate bounds"
+        },
+        {
+          "assessment": "General method rather than this invariant",
+          "evidence": "Fixed-length binary deletion codes formulated via independent sets and graph colorings.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Independent-set deletion codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even-length palindromes avoid ordinary one-deletion conflicts, making the transition to two deletions a natural structural boundary. The exact all-q density and equality-type degree heterogeneity identify which constrained source words produce many conflicts and provide exact inputs for finite-alphabet packing bounds. The uniform result is useful beyond a single small instance; the generic independent-set bound or the mere Θ(q²) construction alone would give less information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

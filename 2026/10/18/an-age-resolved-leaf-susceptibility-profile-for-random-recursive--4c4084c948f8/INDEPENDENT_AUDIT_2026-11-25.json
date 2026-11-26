@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:25.696580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, marked event, theorem and proof",
+        "Frozen VERIFICATION.md and verify.py, inspected not executed"
+      ],
+      "rationale": "Independently checked the finite result by deleting the marked leaf, rather than by the frozen recursion. All parent arrays have equal mass. Deleting j when it is a final leaf and order-preservingly relabeling gives a bijection with pairs consisting of an arbitrary recursive tree of size n−1 and an attachment label in {1,…,j−1}; reversal inserts j as a leaf. Thus the event probability is (j−1)/(n−1), the residual tree is uniform, and all other depths are unchanged. The marked depth has its ordinary mean H_(j−1), since its parent law and the earlier tree are unaltered by the later exclusions. Using E[T_k]=k(H_k−1), obtained by the usual depth recursion, the conditional mean is (n−1)(H_(n−1)−1)+H_(j−1), which yields the stated covariance. For m=j−1 and N=n−1, the absolute covariance times N is F_N(m)=m(H_N−H_m), with forward difference H_N−H_m−1, strictly decreasing wherever two differences exist. Integral comparison gives a uniform error at most 1/N from (m/N)log(N/m), including the zero-age endpoint. This profile has a unique maximum at e⁻¹, so all maximizing sequences and the maximum converge as claimed. Exchanging the harmonic sums gives sum_m F_N(m)=N(N−1)/4. The cases j=n and n=2 (always a leaf) give zero covariance as required.",
+      "residual_risks": [
+        "The deletion argument is used for a first moment, not to claim independence of total residual path length and the marked vertex's depth or a full conditional distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint recursive-tree generating function retains total number of leaves, external path length and total path length, not the identity/birth label of a leaf. The relevant Hoppe-tree theorems cover separate marginals; the recursive-tree metric scaling example is not a conditional leaf result."
+        ],
+        "reasoning": "A result joint in unmarked totals determines aggregate moments but cannot recover a specific coordinate among nonexchangeable label ranks. Broader parameter coverage for marginals does not supply this joint moment.",
+        "searches": [
+          "10.4230/LIPIcs.AofA.2026.2, §5, Eq. (13)",
+          "arXiv:1202.2439, Thms. 2.5–2.7",
+          "arXiv:2005.13832v1, Example 12.4"
+        ]
+      },
+      "checked_sources": [
+        "10.4230/LIPIcs.AofA.2026.2",
+        "arXiv:1202.2439, 2005.13832v1 and 2511.04085v1",
+        "Resultary 622c8793c9c4, b67cdf22fe00, 57e8450fa564 and 3b3e0426b1ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior statistics give the covariance of total leaf count with path length; a separate marked result conditions instead on a root attachment. Path-length means from classical recursive-tree computations provide only the unconditioned part of the target formula."
+        ],
+        "reasoning": "The aggregate is prior and receives no originality credit. At fixed j one must identify what final leaf conditioning does to the other attachments, or equivalently perform the marked deletion argument. Neither the aggregate relation nor the distinct root mark supplies that identification in the inspected passages.",
+        "searches": [
+          "Lundblad–Wagner §5, Eq. (13)",
+          "Resultary b67cdf22fe00, 57e8450fa564 and 3b3e0426b1ba, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 Finding gives the same conditional-mean shift, local covariance and leading maximizing age. The other two comparison marks are leaf degree (number of leaf neighbors) and the arrival-j root attachment event."
+        ],
+        "reasoning": "The November result is equivalent for the marked moment and its limiting peak. The leaf-degree and root-attachment distributions concern different events; rephrasing one as a final-leaf indicator is not valid. The later catalogue date is not evidence for prior coverage.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-an-exact-leaf-path-length-covariance-profile-in-random-recursive--622c8793c9c4",
+          "arXiv:2511.04085v1, §II.C",
+          "Resultary 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact candidate matches the marked closed form, but is later-dated. Both other exact candidates give the quarter-step aggregate covariance; they do not list covariances by birth label."
+        ],
+        "reasoning": "Equality of the sum cannot certify equality, or even the profile's sign pattern and maximizing label, term by term. Exact later overlap is explicitly preserved rather than treated as a search miss.",
+        "searches": [
+          "Resultary 622c8793c9c4",
+          "Resultary 2026/10/13/SCOPE-leaves-and-search-cost-have-an-exact-quarter-step-covariance-in--b67cdf22fe00",
+          "Resultary 2026/10/18/SCOPE-exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact final-leaf covariance and conditional mean at a specified birth rank, and hence the age profile. The aggregate formula is already covered. A later-dated Resultary record materially matches the marked theorem, but was not established to be earlier evidence.",
+      "residual_risks": [
+        "Older full-text coverage of a marked-vertex specialization was not established for Dobrow–Fill, Zhang, or Altok–Işlak.",
+        "The identical mathematical profile in the later November 2 record is material overlap; precedence of any unpublished computations is unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AGGREGATE_COVERAGE",
+          "evidence": "Variables retain leaf count, external path length and total path length, but not the mark j.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "§5, p. 2:12, Eq. (13) (PDF offset 38800)",
+          "method": "Targeted lawful proceedings PDF passage",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Same tree, unmarked joint generating function"
+        },
+        {
+          "assessment": "MARGINALS_ONLY_IN_PASSAGES",
+          "evidence": "Contains leaf-count and internal-path-length results, separately in the inspected theorem passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.2439",
+          "material_read": "Thms. 2.5–2.7, pp. 3–4, PDF offset around 10600",
+          "method": "Targeted arXiv primary text",
+          "title": "Asymptotic Analysis of Hoppe Trees",
+          "trigger": "Larger recursive-tree family with leaves and path length"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Recursive-tree metric scaling does not evaluate this leaf-conditioned path-length moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.13832v1",
+          "material_read": "Example 12.4, p. 30, PDF offset around 95500",
+          "method": "Targeted arXiv primary text",
+          "title": "Tree limits and limits of random trees",
+          "trigger": "Recursive-tree metric scaling reference"
+        },
+        {
+          "assessment": "DIFFERENT_MARK",
+          "evidence": "Leaf degree counts leaf neighbors; it is not the event that the indexed vertex itself has no children.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.04085v1",
+          "material_read": "§II.C, pp. 5–6, Eqs. (27)–(30), PDF offsets around 38600 and 45315",
+          "method": "Targeted arXiv primary text",
+          "title": "Hartle–Krapivsky age-dependent leaf-degree study",
+          "trigger": "Same tree and age-stratified leaf-related observable"
+        },
+        {
+          "assessment": "EQUIVALENT_COVERAGE_LATER_RECORD",
+          "evidence": "Same marked formula and 1/e age asymptotics; posted record later than the reviewed finding.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-leaf-path-length-covariance-profile-in-random-recursive--622c8793c9c4",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "An exact leaf–path-length covariance profile in random recursive trees",
+          "trigger": "Same fixed-birth-rank conditional and covariance profile"
+        },
+        {
+          "assessment": "AGGREGATE_COVERAGE",
+          "evidence": "Same unmarked −(n−2)/4 and a leaf-depth-sum formula, not the depth of a designated j conditioned on final leaf status.",
+          "identifier_or_url": "2026/10/13/SCOPE-leaves-and-search-cost-have-an-exact-quarter-step-covariance-in--b67cdf22fe00",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Leaves and search cost have an exact quarter-step covariance",
+          "trigger": "Predated exact covariance on the same tree family"
+        },
+        {
+          "assessment": "AGGREGATE_COVERAGE",
+          "evidence": "Total leaf count and total path length, unmarked; no inference about order within the day is made.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact negative path–leaf covariance and an independent mixed-scale limit",
+          "trigger": "Same-day exact covariance and fluctuations"
+        },
+        {
+          "assessment": "DIFFERENT_MARK",
+          "evidence": "The event concerns where j attaches, not whether later labels attach to j.",
+          "identifier_or_url": "2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Root attachments have an exact negative path-length profile",
+          "trigger": "Earlier birth-marked conditional path length result"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Precise coverage of conditional marked cases unresolved.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+          "material_read": "Bibliographic information, no readable full text retrieved",
+          "method": "Lawful DOI and OA retrieval attempt",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Potential specialization in classical exact path length work"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "No finding about its full coverage can be drawn from the failure.",
+          "identifier_or_url": "https://doi.org/10.1214/14-BJPS252",
+          "material_read": "Bibliographic information; no full text",
+          "method": "Project Euclid route returned 403",
+          "title": "On the number of leaves in a random recursive tree",
+          "trigger": "Potential marked-leaf specialization"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "A marked specialization in the full article remains unverified.",
+          "identifier_or_url": "Altok and Işlak, Statistics & Probability Letters (2017)",
+          "material_read": "Landing page/abstract only",
+          "method": "Publisher retrieval attempt",
+          "title": "On leaf related statistics in recursive tree models",
+          "trigger": "Potential stronger leaf-related statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact covariance, concavity and limiting profile",
+        "Unmarked generating function and aggregate-only Resultary comparators"
+      ],
+      "rationale": "Final leaf status and total path length are natural recursive-tree observables. The birth-specific law resolves which age contributes most strongly and yields covariance for any chosen deterministic age window or weighting. In particular, it locates the strongest dependence at an interior age fraction rather than at either endpoint. Those are precise uses of the marked formula, not of the already known total covariance. A short deletion proof does not make the observed age-dependent invariant an automatic reading of the unmarked law.",
+      "residual_risks": [
+        "The result concerns one conditional first moment, not a fluctuation theorem for an age-resolved process."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

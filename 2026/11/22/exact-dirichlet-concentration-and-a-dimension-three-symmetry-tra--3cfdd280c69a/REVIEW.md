@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-sphere Dirichlet norm is normalized as \(4\operatorname{tr}(AA^*)/(d+2)\) for trace-free symmetric quadratic matrices. Conditional planar-radius and transverse angular moments give exact pointwise gradient Gram blocks, and integration of second and fourth longitude harmonics gives six exhaustive spectral branches. The strict comparisons reduce the only possible symmetry collisions to \(d(d-2)=8\cos^2 L\), which has interior solutions only for \(d=3\). Both small-lune condition-number constants follow from a proved Taylor expansion. The attached independent full-Gram checker passed 200 assertions; these finite tests supplement the analytic all-parameter proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-The two complete published scalar quadratic-lune results (2026-10-25 and 2026-11-08) were inspected in full and their scalar-value branch statements compared with the new derivative-energy claims. Their transitions are \(\arccos(\pm 2/d)\), unlike the two dimension-three-only derivative transitions \(\arccos\sqrt{3/8}\) and \(\pi-\arccos\sqrt{3/8}\). The general Slepian concentration sources of Simons–Dahlen–Wieczorek (2004), Aslam–Khalid (2020), and Michel–Plattner–Seibert (2021), and the distinct spherical-lune Dirichlet-Laplacian problem of Seto–Wei–Zhu (2020), were compared using their accessible full text. No exact stronger or equivalent statement was found; the general method is prior art, and an unindexed implicit equivalent remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem solves a natural sharp derivative-observation problem on a canonical non-axisymmetric spherical region, reports all multiplicities and exact extremizers, and identifies a genuine dimension-dependent difference between localized scalar energy and localized gradient energy. The sharp thin-lune instability constant is directly relevant to stable gradient-only observation. The finding is specific to degree-two harmonics and does not claim higher-band or arbitrary-region optimality.
+The complete gradient Gram spectrum and both extremal switches check analytically. Frobenius unit trace-free symmetric matrices have global Dirichlet norm squared 4/(d+2). In the normalized Z,C,S sector the longitude-zero diagonal is (1,1−2/d,1+2/d), with only Z–C off diagonal, sqrt((d−2)/d); rotation then gives the longitude harmonics of orders 2 and 4. The mixed pair has zero-longitude values 1±(d−2)/(2d), and transverse trace-free quadratics contribute the mass eigenvalue. Integration gives the stated blocks and multiplicities. With t=cos L, the competing odd planar branch meets an extremal radial branch only at t²=d(d−2)/8; for d=4 the solutions are excluded endpoints, and only d=3 gives interior ties. The radial determinant divided by the mass squared is (d+2)L²/(3d)+O(L⁴), giving the reported condition-number constants. Analyticity proves strict positivity on both the lune and its complement. The independent cubature reproduced 24 full Gram spectra including both switch apertures; the all-parameter proof does not depend on sampling. Square radius has the beta law as in RESULT.md; the radial notation in one verifier comment does not affect its moments.
 
-## Sources and limitations
-The scientific references and exact observation scope appear in RESULT.md. No global priority search is exhaustive, and no independent mathematical validation is claimed. The checker is reproducible and exact at the level of the finite Fourier representation but only checks finitely many parameter values.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-The earlier 2017 limited-longitude Slepian matrix and the 2020 so-called "differential" Slepian problem were inspected in full. The latter is a difference between two scalar region energies, not a gradient observation, and neither contains the claimed derivative-lune spectrum.
+The strongest inspected overlaps are the same quadratic/lune problem with a scalar norm, the same quadratic-gradient problem on antipodal caps, and the general vector Slepian framework. None gives or mechanically yields the six lune branches and the dimension-three-only pair of switches. This is a bounded best-of-knowledge decision.
+
+## value
+
+PASS
+
+For gradient observations of global quadratics, the extremal eigenvalues quantify sharp norm recovery, and the full spectrum specifies all observable symmetry sectors. The dimension-three-only pair of switches and the sharp narrow-lune conditioning law distinguish genuinely different observation behavior from scalar concentration and from caps. These conclusions are useful independently of a higher-degree extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

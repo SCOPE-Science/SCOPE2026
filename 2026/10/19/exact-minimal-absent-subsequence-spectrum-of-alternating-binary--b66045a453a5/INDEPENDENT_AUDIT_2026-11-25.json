@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:17.014679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy embedding in the infinite alternating word ends at L: cost 1 or 2 for the initial letter and 1 or 2 per step according as the letter changes or stays. This position is minimal. It suffices to check one-letter deletions by transitivity of subsequence. The front deletion loses 0 exactly for ab and 2 otherwise; an interior deletion loses 0 exactly for an isolated opposite letter, and 2 otherwise. The final deletion loses 1 or 2 according as the final letters differ or agree. This forces exactly the two endpoint costs 2m+1 and 2m+2 and the stated restrictions; length-one words are present. For an allowed word every internal run has length ≥2, and a first a-run must have length ≥2 when there is a second run. For S=uz/(1−uz²) and T=u²z³/(1−uz²), this gives a-start S/(1−T) and b-start zS+zS²/(1−T). Doubling the final letter multiplies the weight by uz² and bijects allowed nonempty words with allowed words ending in an equal pair, so both coefficient extractions follow. Taking u=1, the coefficient recurrence for indices n≥4 has distinct characteristic roots r with r³=r+1; their squares solve y³−2y²+y−1=0, giving the paired parity recurrence and the stated generating function from 3,5,9. The supplied checker and saved output were inspected, not executed; their finite tests are not the all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. characterize minimal absent subsequences generally; their Example 3.3 is 0011, and the repeated-alphabet example in Proposition 3.6 assumes alphabet size at least four.",
+          "Manea et al. give arbitrary-host enumeration algorithms, not a closed bivariate specialization in the inspected passages.",
+          "Adamson et al. count all absent words at a length, a different predicate from being minimal under deletions."
+        ],
+        "reasoning": "General algorithms take each host as input but do not directly give the rational generating function for the one-parameter family. Neither enlarging the alphabet in Proposition 3.6 nor dropping minimality in an absence count dominates this length spectrum.",
+        "searches": [
+          "arXiv:2108.13968, Example 3.3, Proposition 3.6",
+          "arXiv:2504.21471, abstract and introduction",
+          "arXiv:2407.18599, abstract and Example 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, computation.txt",
+        "arXiv:2108.13968, arXiv:2504.21471, arXiv:2407.18599 passages above",
+        "Resultary 47ef0e5dde29, 1986192c4f9a, 2ef499428033 and 7389806d175c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Testing the general characterization for each word or enumerating each fixed host does not give the family-level local-cost restrictions and run counting without further argument.",
+          "Troníček's chapter could not be read through the identified lawful paths; its scientific coverage is not classified."
+        ],
+        "reasoning": "The inspected prior methods can generate examples but do not already assert or immediately evaluate this spectrum; the claimed closed series uses a separate all-m run decomposition. In contrast, the later binomial statement directly implies the series, as verified above.",
+        "searches": [
+          "arXiv:2108.13968, general characterization and Proposition 3.6",
+          "arXiv:2504.21471, introduction",
+          "DOI:10.1007/978-3-031-49614-1_26 (DOI, Springer page/PDF and repository recovery)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relabeling a,b to 0,1 gives the identical host and the identical minimal-subsequence predicate.",
+          "November 2 record 47ef0e5dde29 gives the count binom(m+2−j,2j+1) at length m+1+j. November 8 record 1986192c4f9a uses weak descents on the same host. October 25 record 2ef499428033 also gives its full bivariate spectrum."
+        ],
+        "reasoning": "The November 2 binomial form is exactly equivalent: take Q=(1−ux)²−u⁴x³. Even/odd extraction from the frozen F gives Σ_{m≥1}x^m B_m(u)=1/(xQ)−1/x−2u. In the binomial sum put k=m+1−3j≥0, giving x^(k+3j−1)u^(k+4j) binom(k+2j+1,2j+1); summing over k,j gives 1/(xQ), and removing m=−1,0 yields the same expression. This is exact overlapping coverage, but the later record does not establish priority against the frozen October 19 result. The web query added no relevant evidence.",
+        "searches": [
+          "Resultary: minimal absent scattered subsequences alternating binary word (ab)^m length spectrum generating function",
+          "\"minimal absent subsequences\" \"alternating\" \"(ab)^m\" spectrum generating function",
+          "Resultary 47ef0e5dde29, 1986192c4f9a and 2ef499428033"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three full-spectrum findings are same-family catalogue overlaps. Record 7389806d175c independently has the total-count generating function and matching recurrence, but not the full length distribution.",
+          "The published worked example 0011 lists {000,10,111}; it is not the first entries of the alternating family."
+        ],
+        "reasoning": "Exact indexed coverage is confirmed and differentiated by whether it gives totals or refined counts. The corresponding records have later catalogue dates, not evidence of earlier circulation. The accessible examples in the pre-existing primary papers do not tabulate the same sequence.",
+        "searches": [
+          "Resultary 47ef0e5dde29 (2026-11-02 UTC), 1986192c4f9a (2026-11-08 UTC), 2ef499428033 (2026-10-25 UTC), 7389806d175c (2026-10-26 UTC)",
+          "arXiv:2108.13968, Example 3.3"
+        ]
+      },
+      "rationale": "The distinct claim at the October 19 frozen record is the explicit minimal-absent family characterization and full length enumerator, not a new general characterization or an enumeration algorithm. There is demonstrably equivalent catalogue coverage in separately dated later records; it is explicitly credited as overlap, not treated as evidence of an earlier source. No inspected pre-existing theorem supplies this spectrum or total recurrence as a direct specialization.",
+      "residual_risks": [
+        "The inaccessible 2023 Troníček chapter remains a plausible earlier source.",
+        "There could be an equivalent earlier enumeration in different terminology or another publication of one of the later-dated indexed formulas; a catalogue date does not by itself establish when a result was first discovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related general characterization and different examples; no matching spectrum in passages",
+          "evidence": [
+            "Example 3.3 uses 0011; Proposition 3.6 concerns the repeated full alphabet with σ≥4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Overview p. 3, Example 3.3 p. 6, Proposition 3.6 p. 7",
+          "method": "Primary PDF bounded passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General MAS characterization, worked examples and repeated alphabet words"
+        },
+        {
+          "assessment": "Enumeration algorithm, not a closed series for an alternating host",
+          "evidence": [
+            "The alternating-concatenation passage is about graph-path encodings, not this input family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Abstract p. 1, introduction p. 3, alternating match p. 8",
+          "method": "Primary PDF bounded passages after literal searches",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Algorithm for the same predicate on arbitrary hosts"
+        },
+        {
+          "assessment": "Counts all absences, not the deletion-minimal subset",
+          "evidence": [
+            "The example counts absent length-four words for a ternary host."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Abstract p. 1 and Example 1 p. 7",
+          "method": "Primary PDF passages",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Count of absent subsequences by length and universality"
+        },
+        {
+          "assessment": "Coverage unknown; not evidence of absence",
+          "evidence": [
+            "No statement-level evidence was available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-49614-1_26",
+          "material_read": "No primary passage available",
+          "method": "Lawful DOI and identified Springer page/PDF routes returned redirect errors; repository recovery found no copy",
+          "title": "On Problems Related to Absent Subsequences",
+          "trigger": "Earlier potentially overlapping chapter"
+        },
+        {
+          "assessment": "Exact overlaps in later catalogue entries, not evidence of earlier priority",
+          "evidence": [
+            "47ef0e5dde29 gives binom(m+2−j,2j+1); 1986192c4f9a and 2ef499428033 give refined spectra; 7389806d175c gives the total recurrence."
+          ],
+          "identifier_or_url": "Resultary 47ef0e5dde29, 1986192c4f9a, 2ef499428033, 7389806d175c",
+          "material_read": "Each Finding, offset 0",
+          "method": "Configured semantic search and primary local-mirror passages; algebraic comparison of the strongest alternate formula",
+          "title": "Exact binomial length spectrum and related alternating-word catalogue findings",
+          "trigger": "Same (01)^m MAS problem and exact bivariate or total counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even-length alternating hosts are a canonical periodic binary test family. The result determines which words are the minimal failures of scattered containment and how many occur at each length, without running an enumerator on each input. This provides an exact workload benchmark and a structural explanation of the growth via a short recurrence; the result is not inferred from samples and does not purport to cover arbitrary periodic hosts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

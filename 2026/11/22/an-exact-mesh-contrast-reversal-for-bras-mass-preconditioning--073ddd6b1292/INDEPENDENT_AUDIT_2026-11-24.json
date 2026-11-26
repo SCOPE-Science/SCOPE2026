@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:34:00.016675Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–71; VERIFICATION.md and verify.py inspected, not executed",
+        "Replay: python3 /workspace/branches/3bfdc244-87f5-4296-8498-9becac07da6b/check_record1.py (result alongside in check_record1.out)"
+      ],
+      "rationale": "The comparison is for periodic alternating P1 elements with n divisible by four. The diagonal and absolute row radius of M are (a+b)/3 and (a+b)/6; the constant and alternating vectors realize both Gershgorin endpoints, so Jacobi gives 3. Independently taking traces and determinants of the cell symbols, the two-symbol product for the identity weight has trace 1+qu/6 and determinant (3q+2u)^2/144, where q=r+1/r and u=4-cos(theta). The eigenvalue branches in the proof follow. The upper branch increases to u=5, a discrete phase available because n/2 is even. The lower branch is always at least 1 and its continuous minimum is at u=3q/2 (with u=3 at r=1). For r>=3 it minimizes on the phase set at u=5; below r=3 the stated bound suffices without replacing the discrete minimum by the continuous one. The equality condition on the exact branch is 3r^2-6r-13=0, with its sole admissible root 1+4/sqrt(3). Local diagonal-mass weights give diagonal 4/(a+b) and neighbor entries -2h/(a+b)^2, proving the stated polynomial in M. Its mass-product eigenvalue is 1+4ab sin^2(theta/2)/(3(a+b)^2), giving the claimed maximum, minimum, and limit. An independent rational four-mode check at n=4, r=4 confirms the complete spectra and the reported strict ordering.",
+      "residual_risks": [
+        "The finite witness is not the proof over all contrasts and mesh sizes. The theorem concerns exact spectral conditioning, not a timing or finite-iteration CG claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 2.2 already gives the lower spectral bound 1, and Corollary 2.5 gives a general metric-contrast bound. Slide 8 shows identity-weighted deterioration and near-unit diagonal-weighted conditioning on a strongly graded three-interval example. The same-day exact formulas concern two adjacent intervals or a metric star."
+        ],
+        "reasoning": "Bounds on broad mesh families cover part of the proof, not the two exact periodic endpoints or the sharp crossing. A three-vertex path with two element blocks or a star with leaves does not specialize to a periodic ring with an even number of two-node cells; neither supplies its zone-edge eigenvalues.",
+        "searches": [
+          "arXiv:2607.12138, Corollaries 2.2 and 2.5",
+          "Southworth primary seminar slides 6–8",
+          "Resultary 47488341b41e and b1da109e39bf, mirrored RESULT.md statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.12138 primary PDF, inspected passages",
+        "Southworth public seminar slides 6–8",
+        "Local Resultary index and the two matched same-day RESULT.md files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary seminar already compares identity versus diagonal weighting under grading and shows approach to unit conditioning in its example. The general BRAS paper supplies a class-wide bound."
+        ],
+        "reasoning": "Those findings do not determine when the identity-weighted condition number first reaches 3 on the given family. Obtaining equality at r=1+4/sqrt(3) needs exact lower and upper branches at the attainable period-two phase theta=pi. On the same mesh the diagonal-mass formula comes from the specific assembled polynomial in M, not from the qualitative remedy or a direct substitution into the bound.",
+        "searches": [
+          "arXiv:2607.12138 Eq. (2.3), Corollaries 2.2 and 2.5",
+          "Southworth slide 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original inverse in Eq. (2.3) uses multiplicity averaging; the slides identify W=I and W=diag(M_br) explicitly."
+        ],
+        "reasoning": "The paper and slides concern the same preconditioners, not merely similar labels. The current comparison is invariant to a common length rescaling and can be formulated for the generalized SPD spectrum or the similar symmetric preconditioned product. The inspected definitions do not give the sharp threshold for that normalized periodic family.",
+        "searches": [
+          "Local Resultary queries for alternating periodic finite-element mass, BRAS and sharp contrast reversal",
+          "Focused literature search for the sharp radical threshold",
+          "Krzysik–Southworth–Wimmer, arXiv:2607.12138, §2.2 Eq. (2.3); Southworth slides 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is an exact self-match. In the two-interval result the power-weight threshold is gamma=1/2 and the optimal weighted condition number is 4/3. In the metric-star result the contrast safeguard is (7+3sqrt(5))/2."
+        ],
+        "reasoning": "The same-day entries give substantive exact comparisons but address different graph geometries and parameters. The matching number 4/3 is an optimum on the two-interval geometry versus an upper bound over contrasts on the alternating ring. Date alone establishes neither priority nor equivalence.",
+        "searches": [
+          "Local Resultary focused BRAS spectra and threshold lookup",
+          "2026/11/22/SCOPE-a-sharp-square-root-weighting-threshold-for-two-cell-broken-spac--47488341b41e",
+          "2026/11/22/SCOPE-arithmetic-harmonic-contrast-controls-the-complete-bras-spectrum--b1da109e39bf"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact alternating-periodic spectra, sharp identity-weighted BRAS/Jacobi contrast reversal, and exact diagonal-local-mass comparison. The BRAS definitions, general lower bound, contrast-induced degradation, diagonal weighting remedy and its approach to unit conditioning on a graded example are already established in the inspected antecedents.",
+      "residual_risks": [
+        "The primary preprint was obtainable for this review but the comparison is limited to inspected sections. The focused search did not supply an exact independent hit; uninspected or unindexed equivalent Bloch calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of algorithm and general bounds; no alternating-periodic equality in the inspected passages",
+          "evidence": "Original multiplicity averaging; lambda_min>=1; general metric-contrast bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.12138",
+          "material_read": "§2.2 Eq. (2.3), p. 4 offset 15400; Cor. 2.2, p. 6 offset 23108; Cor. 2.5, p. 9 around offset 34529",
+          "method": "Public primary arXiv PDF, retrieved and paged",
+          "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+          "trigger": "Primary definition and possible broader mass-preconditioning theorem"
+        },
+        {
+          "assessment": "Qualitative degradation and remedy already given; different geometry and no exact Jacobi crossing for the periodic family in the inspected slides",
+          "evidence": "Choice W=I or W=diag(M_br); three-element strongly graded P1 example with identity-weighted condition number growing from 1.25 to 7.52e5 and weighted values approaching 1.",
+          "identifier_or_url": "https://mfem.org/pdf/seminar/southworth2.pdf",
+          "material_read": "Slides 6–8, offsets 4100–6200 and following example",
+          "method": "Public primary seminar PDF",
+          "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning",
+          "trigger": "Closest graded-mesh and diagonal weighting comparison"
+        },
+        {
+          "assessment": "Exact spectrum on a two-interval path; not the ring calculation",
+          "evidence": "Arbitrary element-constant weights, gamma=1/2 power-weight threshold, optimal w=r and kappa=4/3.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-square-root-weighting-threshold-for-two-cell-broken-spac--47488341b41e",
+          "material_read": "Mirrored RESULT.md, exact statement and assumptions",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp square-root weighting threshold for two-cell broken-space preconditioning",
+          "trigger": "Substantive same-day BRAS weight threshold"
+        },
+        {
+          "assessment": "Metric-star law does not cover ring modes",
+          "evidence": "Metric-star spectra and star contrast safeguard (7+3sqrt(5))/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-harmonic-contrast-controls-the-complete-bras-spectrum--b1da109e39bf",
+          "material_read": "Mirrored RESULT.md, exact statement and assumptions",
+          "method": "Local published-record mirror, same snapshot",
+          "title": "Arithmetic-harmonic contrast controls the complete BRAS spectrum",
+          "trigger": "Substantive same-day exact BRAS–Jacobi comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact comparison and limitations; Southworth seminar slide 8"
+      ],
+      "rationale": "The alternating family separates the effect of contrast from mesh order and supplies a sharp all-size benchmark beyond qualitative warnings about grading. It gives both the range in which the original BRAS improves on Jacobi and a reproducible regime in which it is strictly worse, while bounding the weighted counterpart for every contrast. This is an exact, motivated counterexample and design comparison, not a claim that weighting or grading effects were newly discovered.",
+      "residual_risks": [
+        "No performance guarantee for other boundary conditions, weight choices, element types or runtime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the isolated-edge kernel theorem
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3.9 or later. The script uses only the standard library and systematically enumerates all labelled loop-free symmetric graph relations for \(1\le n\le6\), without heuristics or external data. It evaluates the primitive \(\Delta p\) at every vertex for every one-atom valuation; computes the canonical graph by deleting components isomorphic to \(K_2\); checks a unique one-step semantic signature per kernel; and compares every class with exact matching and coefficient counts.
+## correctness
 
-Observed terminating output: `ALL_CHECKS_OK 66771`, with class totals \(1,1,5,55,959,31883\) at \(n=1,\ldots,6\). The six-vertex isolated-kernel distribution is \((s,C_{6,s})=(0,26864),(1,4368),(2,570),(3,80),(6,1)\).
+PASS
 
-The proof for arbitrary \(n\) does not depend on the checker. It requires: (i) exact characterization of one-step homogeneity functions by successor-set cardinality; (ii) recovery of all incident edges of vertices with at least two neighbours; (iii) the simple-graph fact that unrecovered edges form isolated \(K_2\) components; (iv) matching enumeration of the lifted graphs; and (v) the labelled exponential formula, already known for the univariate count. Those steps are supplied in `RESULT.md`.
+For a singleton valuation V(p)={x}, Delta p is false at w exactly when x lies in N(w) and |N(w)|>=2. The singleton queries recover each whole neighborhood of size at least two; all smaller neighborhoods give the same constant truth function on arbitrary truth sets. Hence equality of these signatures is equivalent to equality of the modal truth-set operators, which gives equal truth for arbitrary nesting by induction at the same valuation. Undirectedness means every edge except an isolated K2 edge is incident to a recovered row, so the recovered graph is exactly the kernel. Any lift adds a matching on its s isolates, and conversely; selecting and pairing vertices gives I_s. Choosing the isolate labels and forbidding K1 and K2 on the complement gives the C_(n,s) formula. The formal species of connected components gives the claimed bivariate exponential series and its specialization to the known univariate coefficient. A connected graph exists on each m>=3, but there is no graph without K1 or K2 components on m=1,2, proving the claimed support. The cases n=1,2 and the auxiliary n=0 term agree. At n=6 the listed class totals add to 31883 and their fiber-weighted sum is 32768.
 
-No independent audit has been carried out. The known OEIS enumeration is credited as prior work, and prior general non-contingency bisimulation results are not claimed to be new. Exhaustive \(n\le6\) tests do not prove the all-size theorem.
+## originality
+
+PASS
+
+The supported contribution is the explicit same-valuation kernel of the finite symmetric loop-free semantics and the exact matching fibers of its quotient. Univariate graph enumeration is prior work and is excluded from that contribution. Bundled and non-contingency bisimulation characterize logical invariance more generally but the inspected results do not supply the concrete graph identification and matching-fiber invariant.
+
+## value
+
+PASS
+
+This gives a concrete invariant of which adjacencies the non-contingency language can observe even under arbitrary nesting and all assignments, and a complete canonical representative plus depth-one separating test when equivalence fails. The matching fibers then describe all indistinguishable frames and their multiplicities, giving a use for the refined census beyond recomputing the known graph totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:50.599535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–111",
+        "Frozen VERIFICATION.md, check.py and checker_output.txt"
+      ],
+      "rationale": "In each head, the weight matrix at the pair has eigenvalues 1 and q_h on the symmetric and antisymmetric token directions, with (q_1,q_2)=(1/2,3/4). The joint unnormalized radial gain is 9/4. Score derivatives vanish on the tangent because all perturbations have zero first coordinate and the base second coordinates vanish. Thus in coordinate two the pre-normalization multipliers are 1+4-4=1 and 1+4q_1-4q_2=0. Both token directions in each of coordinates three and four have pre-normalization multiplier 1. Spherical normalization scales all six by 4/9. The isolated radial gains are 3/2 and 7/4, giving symmetric transverse multipliers 10/3 and -12/7, and antisymmetric multipliers 2 and -8/7. The joint derivative has Euclidean norm 4/9 in a tangent chart, hence a small invariant contracting neighborhood exists. The derivative minus the identity is invertible, so the implicit function theorem and continuity of the derivative give a unique nearby attracting fixed point under small smooth parameter changes. Within the bias-free architecture, the swap-and-negate symmetry actually forces the nearby fixed point to remain antipodal; that symmetry need not hold for general perturbations. check.py lines 41–74 and checker_output.txt were inspected, not executed: the rational identities, six finite-difference columns and finite trajectory tests are corroboration, not the proof or a formal certification.",
+      "residual_risks": [
+        "This is local stability, with no global basin or stability assertion for a different normalization or score convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 is a consensus stability theorem in the same model, and the following text explicitly leaves bipartite stability unresolved there.",
+          "The other inspected results are continuous-time; the Pendharkar gradient model aligns values to scores, and the Abella et al. full-attention theorem uses identity values and an open hemisphere."
+        ],
+        "reasoning": "Neither a continuous-time result under substantially different hypotheses nor a discrete consensus guarantee covers this discrete bipartite-ablation statement.",
+        "searches": [
+          "arXiv:2610.13518v1 Theorem 3 and following discussion",
+          "arXiv:2511.11553v1 multihead extension",
+          "arXiv:2605.04279v2 §§2.1–2.3",
+          "arXiv:2412.02682v2 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13518v1",
+        "arXiv:2511.11553v1",
+        "arXiv:2605.04279v2",
+        "arXiv:2412.02682v2",
+        "Resultary 105eaf2d4303, 6940b0c7278f, 56f902ee9956, 94d39399d4d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The effective layer matrix diag(2,0,0,0) satisfies the dominant-eigenvalue condition, but the theorem concludes stability at consensus, not at (e_1,-e_1). It does not compare ablations."
+        ],
+        "reasoning": "The claim depends on independently balancing the radial gain and the symmetric and antisymmetric transverse actions with two different weight matrices; it is not a substitution into the consensus theorem.",
+        "searches": [
+          "arXiv:2610.13518v1 §V-A, Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero-padding the two value maps into separate head slots and applying O gives exactly (13), with residual coefficient 1 and full scores.",
+          "Resultary 105eaf2d4303 is an attracting one-head antipodal period-two orbit; 6940b0c7278f is a synchronized period-two circle, not a bipartite fixed point or an ablation result."
+        ],
+        "reasoning": "Architecture equivalence is real; period-two or synchronized states are not equivalent to an ordered fixed antipodal pair in the discrete map.",
+        "searches": [
+          "Resultary: two-token discrete normalized attention, antipodal equilibria, multihead cooperation",
+          "arXiv:2610.13518v1 §V-A equation (13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed statements describe antipodal sign-flip cycles or a resonant period-two circle, including exact thresholds and spectra for those other invariant sets."
+        ],
+        "reasoning": "The indexed exact results do not contain the claimed joint fixed-point spectrum and expanding isolated ablations; an equality of architecture or token count does not establish duplication.",
+        "searches": [
+          "Resultary records 105eaf2d4303, 6940b0c7278f, 56f902ee9956, 94d39399d4d9"
+        ]
+      },
+      "rationale": "The supported distinct claim is an explicit stable antipodal fixed point of the cited discrete two-head architecture with both specified isolated ablations expanding, not a new general stability theorem or the first instance of antipodal behavior in attention. No inspected statement supplies or implies this conjunction.",
+      "residual_risks": [
+        "The key cited model and comparisons were accessible; the search is not an exhaustive priority determination for discrete attention or cooperative stabilization in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact architecture, different equilibrium conclusion",
+          "evidence": "Residual multihead update, Euclidean normalization, consensus-only stability, and explicit lack of evidence there for stable bipartite equilibria.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13518v1",
+          "material_read": "§V-A, equation (13), Theorem 3 and following discussion; OA offsets 113250–119750",
+          "method": "OA full-text passage",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Exact discrete architecture and possible stronger theorem"
+        },
+        {
+          "assessment": "Continuous-time antecedent, not the claimed discrete ablation example",
+          "evidence": "General multihead flow and discussion reserving the analysis of other equilibria.",
+          "identifier_or_url": "https://arxiv.org/html/2511.11553v1",
+          "material_read": "Multihead extension and scope; OA offsets 88300–94794",
+          "method": "OA full-text passage",
+          "title": "Multistability of Self-Attention Dynamics in Transformers",
+          "trigger": "Earlier bipartite stability and multihead model"
+        },
+        {
+          "assessment": "Different dynamics and value-alignment assumption",
+          "evidence": "Projected gradient flow on spheres with values aligned to each score matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2605.04279v2",
+          "material_read": "§§2.1–2.3; OA offsets 11000–16993",
+          "method": "OA full-text passage",
+          "title": "Gradient Flow Structure and Quantitative Dynamics of Multi-Head Self-Attention",
+          "trigger": "Inter-head radial effects"
+        },
+        {
+          "assessment": "Does not cover an antipodal equilibrium of this discrete map",
+          "evidence": "Continuous-time consensus with identity values from an open hemisphere.",
+          "identifier_or_url": "https://arxiv.org/html/2412.02682v2",
+          "material_read": "Model assumptions and Theorem 4.1; OA offsets 4300–9286 and 54100–59096",
+          "method": "OA full-text passages",
+          "title": "The Asymptotic Behavior of Attention in Transformers",
+          "trigger": "Multihead full-attention stability"
+        },
+        {
+          "assessment": "Material analogue, not equivalent",
+          "evidence": "Attracting antipodal period-two orbit in a one-head map.",
+          "identifier_or_url": "Resultary 105eaf2d4303",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "Anisotropy-selective antipodal two-cycles in two-token self-attention",
+          "trigger": "Nearest antipodal two-token match"
+        },
+        {
+          "assessment": "Different orbit and stability question",
+          "evidence": "Synchronized period-two circle at resonance, without a bipartite equilibrium or head-ablation conclusion.",
+          "identifier_or_url": "Resultary 6940b0c7278f",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "Resonant attracting period-two circle and exact normal spectrum in discrete self-attention",
+          "trigger": "Nearest exact multihead dynamical comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§3–5 of proof",
+        "arXiv:2610.13518v1, §V-A"
+      ],
+      "rationale": "The exact example answers an existence question explicitly left open in the same architecture and tests the substantive inference that head-wise expansion rules out joint attraction. It isolates cancellation of the antisymmetric transverse update independently of radial gain, and shows the joint attraction is not conditional on exact tuning of the full Jacobian. This is a useful local counterexample, not a claim about practical transformer behavior.",
+      "residual_risks": [
+        "Only two tokens and a constructed rank-two output map are covered; the example does not characterize generic heads."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

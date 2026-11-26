@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published friend-of-\(20\) structure gives the exact canceled identity
-\[
-\sigma(5^{2a})\prod_i\sigma(p_i^{2a_i})
-=
-7\cdot5^{2a-1}\prod_i p_i^{2a_i},
-\]
-whose right side is prime to \(3\). For every \(r\equiv1\pmod3\), this forces \(2e+1\not\equiv0\pmod3\) when \(\nu_r(N)=2e\), giving exponents \(0\) or \(4\pmod6\). In the layer \(\nu_5(N)=2\), \(31\) is forced. If its exponent were \(4\), the exact factorization \(\sigma(31^4)=5\cdot11\cdot17351\) forces \(11^2\) and \(17351^2\), and the resulting forced divisor already has abundancy strictly above \(21/10\). Exact arithmetic is replayed in the package.
+## correctness
 
-## Originality
-PASS. The focal paper's Theorem 4 is an order-of-\(5\) statement with extra hypotheses and Corollary 6 gives only nonsquarefreeness. The earlier Haenel--Wood paper proves only evenness of odd prime exponents. Full-text, exact web, and published-finding corpus searches did not find the pointwise mod-\(6\) restriction or the bound \(\nu_{31}(N)\ge6\).
+PASS
 
-## Value
-PASS. Prime-support and exponent restrictions are the main mechanism used in current work on the unresolved friend-of-\(20\) problem. The theorem uniformly deletes an exponent congruence class for a natural half of the odd primes, and in the minimal \(5\)-adic layer it replaces an existential repeated-prime conclusion by the concrete requirement \(31^6\mid N\).
+The cited structure is applicable: Chatterjee–Mandal–Mandal's Lemmas 17, 18 and 20 give ν₂(N)=1, even odd-prime exponents with ν₅(N)=2a≥2, and gcd(N,21)=1. Their definition N>20 is equivalent here: the frozen ratio forces 10|N, and the only positive multiple below 20 is 10, with index 9/5. Cancelling σ(2)=3 from 10σ(N)=21N gives equation (1) of RESULT.md, with right side prime to 3. For r≡1 mod 3 the corresponding divisor sum is ν_r(N)+1 modulo 3, so parity and nondivisibility by 3 give precisely the permitted residues 0,4 modulo 6. With ν₅(N)=2 the left side contains σ(25)=31, forcing 31|N. The only allowed positive exponent smaller than 6 is 4. Independently summing the five powers of 31 gives 954305=5·11·17351; trial division through ⌊√17351⌋ confirms 17351 is prime. Both 11 and 17351 must then divide N, to even powers at least 2. The product of their, and the other forced prime powers', geometric sums in reciprocal form reproduces I(d)=120128746647/56859400510 and positive excess 362002788/28429700255; multiplicativity and monotone prime-power abundancy give the contradiction. Independently, summing divisors by divisor pairs already gives I(2·25·31⁴·121)−21/10=20664/1638505>0, so the obstruction only needs 11. The bundled verify.py and VERIFY_OUTPUT.txt were inspected, not executed. The 9,165 recorded congruence checks are finite corroboration, not the all-prime argument. No existence assertion is made.
 
-## Closest literature and limitations
-The closest source is Chatterjee--Mandal--Mandal, arXiv:2409.04451, whose structural lemmas are used as premises. Haenel--Wood (2019) is the closest earlier friend-of-\(20\) treatment. The theorem is conditional on existence, and the special \(31\)-bound applies only when \(\nu_5(N)=2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The modulo-6 clause is an elementary application of the prior structural theorem and not a separate strong novelty claim. The supported distinct part is the specific forced divisor 31⁶ in the ν₅(N)=2 layer of the 21/10 abundancy class. The earlier nonsquarefreeness theorem does not pick out 31 or exclude its exponent 4. A prior result with the same 31⁶ conclusion uses the different ratio 5/2; comparison of its proof confirms that its quantitative premise does not transfer.
+
+## value
+
+PASS
+
+The minimal positive 5-adic exponent is a natural first layer in the established shape of a hypothetical friend of 20. Forcing a particular large prime power rather than merely some repeated prime gives a usable divisor constraint for studying this layer. The value is the specific forcing beyond nonsquarefreeness, using the interaction of local residues with exact abundancy bounds, not the finite congruence grid or the elementary geometric sum alone. It supplies no existence or solitariness conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:33:17.799172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated latent-class model, put s=1−ψ, a=α and b=a exp(−δt). The assay outcomes are conditionally, not marginally, independent (the opening word 'independent' should be read in the sense specified in the assumptions). With U=E[q−Y0], V=E[q−Yt] and K=E[(q−Y0)(q−Yt)], conditioning gives U=s(q−a), V=s(q−b) and K=s(q−a)(q−b)>0. Thus s=UV/K and a,b,δ follow uniquely. At one fixed date even with ψ held fixed one can vary δ and keep α exp(−δt) fixed (at date 0, δ simply drops out). At q=1 the three probabilities P(Y0=0), P(Yt=0), P(00) have Jacobian determinant of magnitude s²(1−a)(1−b) in (ψ,a,b). They are unit-determinant linear coordinates on three cells; the cell-coordinate Fisher determinant is the reciprocal of the product of all four cell probabilities. The additional squared Jacobian is (tb)², giving D(t)=s t²/[ψ exp(δt)+s a²]. Its log derivative in z=δt is 2/z−1/(1+C exp(−z)), C=sa²/ψ>0, strictly decreasing from positive to negative with D vanishing at both endpoints. The root is z=2+W(2C exp(−2)); monotonicity and the rare-prevalence expansion follow from W being increasing and W+log W=log(2C exp(−2)). An independent exact moment check recovered (ψ,a,b)=(2/7,3/5,1/4) for q=7/8 and q=1; independent Newton iteration gave z=2.291275616944311 at the stated example. The frozen checker was inspected, not executed; the conclusion rests on the derivation, not finite tests or field validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royle–Link citation/abstract establishes the false-positive occupancy mixture. Resultary 10edd02a8758 studies Markov turnover with no false positives; b8f26f454426 splits effort with no false positives and two unknowns."
+        ],
+        "reasoning": "The general mixture is prior coverage. Neither a turnover-gap theorem nor an effort-allocation theorem without false alarms supplies the new determinant as a function of a residual-decay time gap.",
+        "searches": [
+          "Royle–Link DOI 10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+          "Lahoz-Monfort–Guillera-Arroita–Tingley DOI 10.1111/1755-0998.12486",
+          "Resultary 10edd02a8758 and b8f26f454426"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d984389c6087",
+        "Resultary 10edd02a8758",
+        "Resultary b8f26f454426",
+        "Royle–Link 2006, accessible metadata/abstract",
+        "Lahoz-Monfort et al., citation and retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day theorem optimizes x=u/T as T tends to zero. Here one varies t without an effort constraint, and the critical equation is z=2+2((1−ψ)α²/ψ) exp(−z)."
+        ],
+        "reasoning": "The cell law is an instance of prior mixtures, and the inverse is a direct known-component moment calculation. The inspected prior statements do not carry the Fisher design through the specific parameter map and time dependence or cover its unique optimum.",
+        "searches": [
+          "d984389c6087 RESULT.md, offset 239; frozen RESULT.md equations (1)–(6)",
+          "Royle–Link DOI citation/abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching same-day Poisson-alarm record assumes unknown stationary false and genuine rates, fixed total effort u+v=T, and a free duration split. Its occupancy-conditional probabilities are 1−exp(−(α+λ)u) and 1−exp(−(α+λ)v). It obtains two mirrored short-budget optimal splits, not a unique calendar gap."
+        ],
+        "reasoning": "The probabilities and experimental controls differ, not merely the labels: unequal durations give unequal occupied probabilities at finite rates, incompatible with a common calibrated q. Taking the occupied rate infinite to mimic q=1 leaves just one empty-site alarm rate at fixed durations, not two independent residual parameters. No ordering is inferred from the shared date.",
+        "searches": [
+          "Resultary: calibrated two-visit false-positive occupancy, residual detection decay and D-optimal revisit gap",
+          "Resultary 2026/11/22 d984389c6087 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue yielded the distinct duration-split and turnover results examined above as close comparisons."
+        ],
+        "reasoning": "A finite value table would not cover an optimizer on this continuous three-parameter domain; the applicable exact check is for an indexed symbolic design rule, and the compared entries solve different experiments.",
+        "searches": [
+          "Resultary: two visits, false-positive occupancy, optimal gap and residual marker"
+        ]
+      },
+      "rationale": "The two-component likelihood and calibrated moment inversion are standard algebra, not independently compelling novelty. The supported distinct benchmark is the exact unique joint-information optimum and its dependence on prevalence and decay in this specific two-date experiment. The strong same-day comparator has a different constrained design and neither states nor implies this benchmark.",
+      "residual_risks": [
+        "An equivalent specialized optimal-design calculation may be unindexed or in inaccessible mixture literature. A targeted web lookup returned no usable additional source; that is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap but different experiment; not covering",
+          "evidence": "Two homogeneous Poisson rates and unequal observation durations; limiting shorter duration fraction (1−1/√3)/2.",
+          "identifier_or_url": "Resultary d984389c6087",
+          "material_read": "RESULT.md finding, assumptions and comparison passages, local mirror offsets 0–4150 and 7500–9900, decisive statement at 239",
+          "method": "Bounded local mirror inspection",
+          "title": "Two unequal visits identify false-positive occupancy and obey a short-budget design law",
+          "trigger": "Same-day two-visit, three-parameter identification and D-design"
+        },
+        {
+          "assessment": "Different estimand",
+          "evidence": "Optimizes Markov turnover with calibrated detection and no false positives.",
+          "identifier_or_url": "Resultary 10edd02a8758",
+          "material_read": "RESULT.md opening 2400 characters",
+          "method": "Local mirror",
+          "title": "Detectability-dependent optimal revisit interval for a two-state ecological occupancy process",
+          "trigger": "Direct revisit-gap comparator"
+        },
+        {
+          "assessment": "Different likelihood and control",
+          "evidence": "Fixed duration budget, two unknowns and no false alarms.",
+          "identifier_or_url": "Resultary b8f26f454426",
+          "material_read": "RESULT.md opening 2196 characters",
+          "method": "Local mirror",
+          "title": "A two-visit occupancy experiment breaks equal-effort optimality",
+          "trigger": "Two-visit information design"
+        },
+        {
+          "assessment": "Mixture framework credited; full-text comparison limited",
+          "evidence": "False-positive and false-negative occupancy observation mixture; no exact design implication established from the accessible material.",
+          "identifier_or_url": "doi:10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2",
+          "material_read": "Bibliographic/abstract material only; primary text not obtained",
+          "method": "DOI/publisher and lawful repository checks",
+          "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+          "trigger": "Foundational mixture, possible general coverage"
+        },
+        {
+          "assessment": "Access risk, not evidence of noncoverage",
+          "evidence": "The frozen comparison reports replicate error and calibration models; an independent full-text claim is not made.",
+          "identifier_or_url": "https://doi.org/10.1111/1755-0998.12486",
+          "material_read": "Citation and frozen source comparison; independent full-text retrieval did not succeed",
+          "method": "Publisher and lawful repository checks",
+          "title": "Statistical approaches to account for false-positive errors in environmental DNA samples",
+          "trigger": "Same false-positive detection interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The benchmark quantifies a real design tradeoff: visits too close give no decay leverage, and at large gaps empty-site positives become too scarce. The optimal separation is always above two decay times and grows logarithmically at rare occupancy, a parameter-sensitive answer that a fixed 'wait one decay time' rule cannot supply. It is an exact mathematical reference for the specified idealized model, not a field recommendation without calibrated q, an appropriate detection law, conditional independence and a cost model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

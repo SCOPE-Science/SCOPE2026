@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:49:56.665569Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md",
+        "verify_onehole.py; verify_residue_dp.py; verification_output.txt; residue_dp_output.txt",
+        "/workspace/branches/independent_replay.py"
+      ],
+      "rationale": "For each boundary alignment, wholly observed blocks must avoid u and the two partial end blocks can always be extended to allowed blocks using the free symbol and |Σ|≥2. This includes the case of a word contained in one partial block. Thus a missing factor has an occurrence in every residue. Selecting one per residue gives a spanning path with gaps either proper periods or at least k+1; Kruskal's component numbers are the successive gcds, yielding the lower bound. Conversely, join translated copies of a subgroup path by positive steps p_i. Its endpoint shift within the smaller subgroup has no effect on the sequence of quotient cosets, and the last k+1-step stage generates the remaining quotient. Each stage yields exactly the recorded difference in copy-count-weighted component numbers. For any nonconsecutive overlapping copies the intervening gaps are all periods, and the sum below k is a period by chaining the defining symbol equalities. Hence all prescribed occurrences can coexist and attain the bound. The empty list and period-one cases, strict drop for a bordered word, and length-25 example check. Independent subset BFS on an explicit per-codeword path automaton confirmed all 241 binary holes at k=2–6 and ternary holes at k=2–4 combined; source scripts were inspected, not run. Replay: python3 /workspace/branches/independent_replay.py 3; output /workspace/branches/independent_replay.out.",
+      "residual_risks": [
+        "The finite BFS tests corroborate the argument; extension to every alphabet and block length is analytical."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandelkar–Chadha give a general upper bound 4k²−3k and an exact unbordered example a^{k−1}b. Gusev–Pribavkina give the exact length for a different family deleting multiple words of two lengths. Boccuto–Carpi discuss bounds in unambiguous automata."
+        ],
+        "reasoning": "A uniform upper bound cannot identify individual distances by proper periods; the special example is again unbordered. A multi-hole, nonuniform family does not specialize to this exact arbitrary single-hole family.",
+        "searches": [
+          "arXiv:2609.30817 Theorem 1.1, Proposition 5.1",
+          "arXiv:1104.0388 abstract and S_k definition",
+          "Boccuto–Carpi DOI 10.1051/ita/2019002"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.4576, 1002.1928, 2609.30817, 1104.0388",
+        "DOI 10.1051/ita/2019002",
+        "Resultary 746f0dfb3273"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier closed form lacks any of the proper-period weights. The general newer result is a bound and the exact example has no proper period."
+        ],
+        "reasoning": "Agreement for the unbordered case or use of the same residue criterion does not imply a lower bound sharp for simultaneous overlapping periods. The subgroup-coset path realization matching the spanning-tree cost supplies the extra argument.",
+        "searches": [
+          "Pribavkina 2009 Prop. 2; Fici–Pribavkina–Sakarovitch 2010 Prop. 2.3 and §3",
+          "Chandelkar–Chadha 2026 Thm. 1.1 and Prop. 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pribavkina Prop. 2 proves k²+k−1 for the one-hole uniform code with an unbordered deleted block. Fici–Pribavkina–Sakarovitch Prop. 2.3 states this result and cites [2], Pribavkina. Some sources say incompletable rather than uncompletable."
+        ],
+        "reasoning": "Absence of borders is exactly the empty period list. Their proven number agrees on this domain; neither proposition takes multi-period words as inputs. The finite concatenation factor definition and the one-hole code conditions do agree on the shared subdomain.",
+        "searches": [
+          "Resultary title and semantic queries: one-hole uniform codes; uncompletable words and period–gcd formula",
+          "arXiv:0907.4576 §2; arXiv:1002.1928 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue search found no equivalent census; 746f0dfb3273 concerns minimal absent factors of evolving periodic prefixes. Pribavkina's unbordered theorem gives an exact subdomain, not a table of bordered instances."
+        ],
+        "reasoning": "Minimal absent factors of one prefix are not missing factors of arbitrary allowed codeword concatenations. Even a bounded table of examples would not cover the stipulated unbounded block lengths and alphabets; no all-length tabulation or theorem was found.",
+        "searches": [
+          "Resultary: exact title and one-hole/uncompletable-word period–gcd formulations",
+          "Resultary adjacent record 746f0dfb3273",
+          "arXiv:1002.1928 §§2–3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact formula for all one-hole fixed-length codes, in particular the interaction of multiple proper periods. The unbordered answer was already known, and the reduction to alignment obstructions is not itself novel. The frozen wording suggesting an independent second presentation is imprecise: Fici–Pribavkina–Sakarovitch explicitly attribute their proposition to Pribavkina (2009). No examined source covers the general bordered formula.",
+      "residual_risks": [
+        "Unindexed and equivalent graph/automata formulations may exist.",
+        "Full text of the finite deciphering delay paper was not accessible; no verdict on that source individually."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact subcase already established",
+          "evidence": "U(u)=k²+k−1 when u is unbordered.",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.4576",
+          "material_read": "§2, Proposition 2, p. 6 (PDF text offset 15000)",
+          "method": "Bounded OA PDF passage read",
+          "title": "Slowly Synchronizing Automata with Zero and Incomplete Sets",
+          "trigger": "Exact one-hole unbordered predecessor and aligning concatenation model"
+        },
+        {
+          "assessment": "Repeats and attributes the unbordered result",
+          "evidence": "Prop. 2.3 cites [2], which the bibliography identifies as Pribavkina (2009); its hypothesis is unbordered u.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.1928",
+          "material_read": "§§2–3, Prop. 2.3 p. 2 offset 5116; bibliography p. 4 offset 10894",
+          "method": "Bounded OA PDF passage reads",
+          "title": "On the Minimal Uncompletable Word Problem",
+          "trigger": "Same factor problem and potential stronger results"
+        },
+        {
+          "assessment": "Broader bound, exact subcase only",
+          "evidence": "General incomplete code bound 4k²−3k, exact k²+k−1 for a^{k−1}b.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.30817",
+          "material_read": "Thm. 1.1 p. 1 offset 4706; Prop. 5.1 p. 11 offset 36413",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Quadratic Bounds for Uncompletable Words and Matrix Mortality",
+          "trigger": "Recent broad quantitative theorem and one-hole example"
+        },
+        {
+          "assessment": "Different multi-hole family",
+          "evidence": "Exact length 5k²−17k+13 for one family removing two length-k and two length-(k−1) words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0388",
+          "material_read": "Abstract p. 1 offset 619, family definition p. 2 offset 5400",
+          "method": "Bounded OA PDF passage reads",
+          "title": "On Non-Complete Sets and Restivo's Conjecture",
+          "trigger": "Potential exact classification for related incomplete sets"
+        },
+        {
+          "assessment": "General bounds, no exact one-hole formula in passages inspected",
+          "evidence": "Focus is polynomial length bounds for unambiguous automata.",
+          "identifier_or_url": "https://doi.org/10.1051/ita/2019002",
+          "material_read": "Abstract p. 1 offset 243, introduction p. 2 offset 5787",
+          "method": "Bounded OA passages",
+          "title": "On the Length of Uncompletable Words in Unambiguous Automata",
+          "trigger": "Automata-equivalent quantitative formulation"
+        },
+        {
+          "assessment": "Unresolved; neither evidence of coverage nor of noncoverage",
+          "evidence": "No primary statement read.",
+          "identifier_or_url": "Primary literature search by exact title",
+          "material_read": "Discovery citation only; no full text",
+          "method": "Attempted accessible link, returned 403",
+          "title": "On codes with a finite deciphering delay: constructing uncompletable words",
+          "trigger": "Potential constructive missing-factor comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–25, 40–56",
+        "Pribavkina 2009 Prop. 2",
+        "Chandelkar–Chadha 2026 Thm. 1.1"
+      ],
+      "rationale": "This resolves the naturally parameterized shortest obstruction problem beyond the benchmark unbordered case. It gives a cheap computation from periods without materializing the allowed code and explains how successive periods affect attainable length. The matching constructive path proves the arithmetic is not just a lower bound or fit to small cases.",
+      "residual_risks": [
+        "The result does not classify all shortest obstructions or solve the analogous multi-hole problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The support-count argument forces a unique doubled nonzero difference class, which reduces the equal-modulus max-min problem to placing an eleven-gon relative to an antipodal phase. Its sharp half-mesh bound is attained exactly at eleventh-root relative phases. The zero-shift Fourier identity excludes additional bottlenecks. For the tapered window, reverse triangle at the two-term shifts and exact singleton magnitudes certify \(\gamma=12/83\). The lifting condition number follows from the classical Weyl spectral identity. An independent standard-library diagnostic verifies all \(330\) four-site supports and both \(121\)-entry witness ambiguity grids; the proof is analytic.
+## correctness
 
-**Originality: PASS, with residual historical-priority risk.** The closest 2015 Bojarovska–Flinth theory already establishes Gabor lifting frame bounds and classical difference-set phase retrieval, and those components are explicitly credited. The 2026 Bartusel results cover enough nonzero ambiguity entries for phase retrieval rather than optimal margins. The closest full public theorem documents checked are the rational-positive rank classification (which includes the very same support) and the four-point Fourier fourth-moment profile; neither proves the stated minimum-over-modulation phase-only optimum, every equality phase, or the strict twice-better tapered example. Intermittent index-service failures and unindexed finite-design catalogs remain possible priority risks.
+PASS
 
-**Value: PASS.** Minimum-support phase-only designs on the eleven-cycle are a natural exact testbed where one redundant support difference enforces a rigid and sharp conditioning barrier. A positive reweighting on unchanged support more than doubles the stability margin, a substantive structural boundary relevant to sparse Gabor tomography. The result does not purport to optimize arbitrary four-tap weights.
+Reconstructed RESULT.md lines 40–61. At most three sites cannot cover the eleven differences. A four-site cover allocates six unordered pairs to five classes with multiplicities (2,1,1,1,1). If θ is the cross-phase at the repeated shift, the two equal terms give (1/2)|cos((θ−2πb(r−u)/11)/2)|. Since r−u≠0, the eleven angles form a rotated regular eleven-gon, and the largest possible distance from π to the nearest angle is π/11, attained exactly when π is a midpoint. Odd order makes that equivalent to θ being a multiple of 2π/11. The opposite shift has the same magnitudes; singleton shifts are 1/4, and at zero shift b≠0 the pair count gives (3+2cos(2πbδ/11))/16 for the squared magnitude, at least 1/16. Thus the optimal value and all equality conditions hold; {0,1,2,5} is a cover. In the taper, the repeated-shift term magnitudes are 21/83 and 9/83, the smallest singleton product is 12/83, and the zero-shift bound is (49−34)/83. Hence the exact margin is 12/83, greater than sin(π/22) by sin(π/22)<1/7<12/83. The Weyl basis and orthogonal character images give singular values √11|A_g| with largest √11, establishing both full-lifting condition numbers. No claim of weighted optimality is made. The frozen checker was inspected, not executed; it samples no continuum of phases, and the proof does not rely on it.
 
-**Scientific limits.** Equal-modulus extremizers are classified only in cyclic dimension eleven; all weighted global optima are unknown here. Numerical evidence supplements proof. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known ambiguity-to-lifting frame identity and qualitative injectivity are credited. The inspected results do not give the sharp worst-frequency magnitude over equal-modulus four-site windows at eleven, its equality phases, or the exact quantitative gap for the displayed taper.
+
+## value
+
+PASS
+
+Eleven is a natural minimally supported test: four sites are necessary and there is precisely one repeated unoriented difference in a cover. The continuum phase classification and exact smallest-singular-value barrier distinguish injectivity from stable inversion. A same-support amplitude taper more than doubles the margin, demonstrating a genuine limitation of a natural design constraint, not just a numerical improvement over a single flat-phase example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

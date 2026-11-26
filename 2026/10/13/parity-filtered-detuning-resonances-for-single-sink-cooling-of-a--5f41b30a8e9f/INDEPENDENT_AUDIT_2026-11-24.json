@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:30.899582Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the final claim in /workspace/repairs/2/RESULT.md. The frozen iff set is correct, but the unqualified Finding sentence excluding a physical dark sector at even-index roots is false if the root is zero. For n=6, k=2 gives δ=0, and the antiperiodic orbitals sin(πj/6) and sin(3πj/6) are independent eigenvectors vanishing at site 0 (energies √3 J and 0). Their wedge is a physical p=2 dark eigenvector, since its boundary sign is minus. The replacement limits the exclusion to nonzero roots, exhibits that zero-detuning boundary case, and spells out the invariance argument rather than claiming pointwise strict Lyapunov decrease. Independently, monotonicity of tr(Nρ) implies each limit state's forward orbit is supported in ker σ⁻_0; there the dissipator vanishes, and an excited component of the invariant span of the orbit's supports would give a fixed-number dark H-eigenvector. At fixed p the hop across the cut has the wedge sign (−1)^(p−1), internal hops have sign plus, and site 0 lowering is contraction. A dark eigenvector is annihilated by contractions with the whole h_q-cyclic span of e_0 by covariance of exterior powers, so it lies in the pth wedge of that span's complement even for degenerate many-body energies. The endpoint recurrence gives U_(n−2)=−q and U_(n−1)=η U_(n−2) with η=δ/J and at λ/(2J); Cassini forces U_(n−3)=0 if η≠0. At those roots η=λ/J=2cos(kπ/(n−2)) with q=(−1)^(k+1), and each fixed nonzero η gives at most one dark orbital. Only p=1 and odd k can therefore obstruct cooling away from zero. The periodic sine eigenvector separately obstructs cooling at zero for every n≥4. An independent direct-spin exact check found sector dark dimensions [0,0,0,0,0] for n=5, η=−1 and [1,0,0,0,0] for η=+1 (with an auxiliary antiperiodic orbital at −1). Replay: python3 /workspace/branches/728d4a19-01cd-4cc1-82e5-e69ab682e23e/direct_spin_n5.py. This checks dark subspaces, not the time-dependent Lindblad solution. The frozen verifier was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beer–Burgarth supplies the global-attraction mechanism. A single vertex on a simple cycle is not zero forcing. The 10/26 SSH theorem treats a number-conserving fermionic open chain with alternating hoppings, tuning their positive ratio, and all Fock occupations have the same one-particle Hamiltonian; its positive sine-ratio set is different."
+        ],
+        "reasoning": "Neither the general criterion nor the open-chain theorem dominates the periodic spin problem. For the latter one must treat both boundary twists and test availability of p independent dark orbitals in the physical parity sector.",
+        "searches": [
+          "arXiv:2609.23960 Proposition II.1 and zero-forcing sufficient condition",
+          "arXiv:1111.1475 graph controllability and zero forcing",
+          "Resultary: ac4a37ad49df open SSH single-loss exact resonance classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected RESULT.md",
+        "arXiv:2609.23960",
+        "arXiv:1111.1475",
+        "arXiv:1012.3695",
+        "Resultary searches on exact detuning resonances and boundary parity; mirrored records ac4a37ad49df and 974539c4b979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior attractivity criterion reduces convergence to excluding excited invariant states. It does not do that exclusion for the adjacent-detuned ring; the generic zero-forcing sufficiency is silent. In the flux theorem there is no defect, so the only relevant overlap is clean one-body structure at η=0, already treated separately."
+        ],
+        "reasoning": "The reduction still leaves the nonzero Chebyshev defect boundary equations and the comparison of the one-orbital dimension with p. No inspected theorem supplies those two steps together or implies the reported full detuning classification by substitution.",
+        "searches": [
+          "Beer–Burgarth Proposition II.1, arXiv:2609.23960, p. 3",
+          "Wang–Pemberton-Ross–Schirmer symmetry obstructions, arXiv:1012.3695, p. 2",
+          "Mirrored SSH and flux-ring exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single-node coherent-control work discusses zero amplitude at a control site and symmetry obstructions, not global convergence of the Lindblad XX ring. The 11/2 flux-gated ring result in its full Finding treats explicitly only the single-excitation sector and has a flux phase but no site defect."
+        ],
+        "reasoning": "Auxiliary antiperiodic dark modes can be characterized as spectral/cyclic-subspace failures, but those failures alone are not the physical spin obstructions. In particular an auxiliary orbital at η=−1 for n=5 is not a witness against cooling.",
+        "searches": [
+          "Resultary exact-topic and quoted title searches for parity-filtered detuning and single-sink cooling of an XX ring",
+          "Resultary: Jordan–Wigner antiperiodic spin-ring parity and dark modes",
+          "arXiv:1012.3695 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The flux record's full theorem gives gcd counts at homogeneous zero/half flux and an antipodal one-excitation survival law. The SSH record gives a sine-ratio finite set for a distinct open chain. The bounded searches did not identify a matching catalog entry with an adjacent on-site defect and the odd-index detuning cutoff for physical sectors."
+        ],
+        "reasoning": "An exact count at fixed flux in the homogeneous ring or at a hopping ratio in the SSH model is not a table of detunings for this spin problem, including the special zero-defect exception.",
+        "searches": [
+          "Resultary: cosine-resonance XX cycle with node loss and neighboring detuning",
+          "Resultary: 974539c4b979 flux-gated exact dark-mode dimension; ac4a37ad49df exact SSH resonances"
+        ]
+      },
+      "rationale": "For the repaired finding, the distinguishable claim is the explicit resonance set for global trace-norm cooling of the physical periodic XX spin model, not the generic dark-state attractivity test, zero forcing, or an abstract one-body controllability criterion. The closest inspected claims have different hypotheses or do not supply the parameter classification. The repaired zero-detuning example qualifies the assertion; it is not a separate novelty claim.",
+      "residual_risks": [
+        "Primary search produced no useful additional result and is not proof of absence. An unindexed or differently framed theorem on defective-cycle controllability could cover the one-body spectral step.",
+        "Comparisons are with the actual sections recorded, not an exhaustive search of all spin-network or impurity literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General attractivity criterion and sufficient graph condition; the inspected results do not resolve the detuned cycle",
+          "evidence": "Absence of excited dark states establishes attraction; zero forcing is a sufficient graph condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23960",
+          "material_read": "p. 1 offset 1967; p. 3 offsets 14250 and 18500, Proposition II.1 and zero-forcing discussion",
+          "method": "OA primary full-text passages",
+          "title": "Global zero-excitation state preparation through subsystem cooling",
+          "trigger": "Same local-cooling attractivity question"
+        },
+        {
+          "assessment": "Controllability and zero forcing, not the dissipative detuning theorem",
+          "evidence": "Defines the zero-forcing condition and relates it to controllability; one cycle vertex cannot start the rule.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.1475",
+          "material_read": "pp. 1, 3, offsets 1348 and 9850",
+          "method": "OA primary full-text passages",
+          "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+          "trigger": "A general spectral controllability criterion could rephrase the dark-subspace test"
+        },
+        {
+          "assessment": "Coherent single-node control, not the stated parity-resolved cooling classification",
+          "evidence": "Subspace controllability and permutation-symmetry obstructions rather than fixed detuning and a lowering jump.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.3695",
+          "material_read": "pp. 1–2, offsets 1200 and 11500",
+          "method": "OA primary full-text passages",
+          "title": "Symmetry & Controllability for Spin Networks with a Single-Node Control",
+          "trigger": "Single-node spin-chain symmetry obstructions may use a closely related spectral calculation"
+        },
+        {
+          "assessment": "Related technique, different open fermionic SSH model and tuning; not a dominating theorem",
+          "evidence": "N cells, intracell hopping 1, intercell ratio r, one loss, exceptional sine-ratio set and dark Fock dimension 2^q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-algebraic-dark-mode-resonances-and-quadratic-loss-reopening-in-f--ac4a37ad49df/RESULT.md",
+          "material_read": "Finding, offset 0 through 2624",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Algebraic dark-mode resonances and quadratic loss reopening in finite SSH chains",
+          "trigger": "Closest indexed exact single-loss vacuum resonance classification"
+        },
+        {
+          "assessment": "Clean single-excitation model, no adjacent detuning and no spin parity dependence",
+          "evidence": "Explicit uniform H_φ on H_1 with dark modes at zero or half flux only; gcd law for multiple sinks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-flux-gated-dark-mode-arithmetic-and-perfect-antipodal-trapping-o--974539c4b979/RESULT.md",
+          "material_read": "Finding and single-excitation theorem, offset 0 through 2353",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Flux-gated dark-mode arithmetic and perfect antipodal trapping on lossy quantum rings",
+          "trigger": "Closest indexed lossy ring and twisted dark-mode comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact all-detuning cooling rule on the natural simplest periodic topology missed by singleton zero forcing. It explains why an auxiliary spectral resonance need not prevent physical cooling, with the exact n=5 ±J contrast and a zero-detuning limitation. The few-body argument controls all excitation sectors, a substantive improvement over merely checking one-body overlap or generic detunings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

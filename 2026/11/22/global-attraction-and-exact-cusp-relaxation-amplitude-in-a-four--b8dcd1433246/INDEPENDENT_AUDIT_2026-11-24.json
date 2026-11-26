@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:34:31.243844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative coordinate faces are inward, and on H=0 one has H'=(C+B)/(1+128C^3)+T>=0. At equilibrium B=C and S=T=h(C), and the factored F has just the physical root 1/4. In (c,v,z,y) coordinates, the proposed V has derivative with cross-terms -(3/4)h'vy and -(3/4)vz. The bounds -1/3<=h'<=1 and g>=1/129 give v, y, z dissipation constants 8/3, 3/8, 125/1032 by Young's inequality. The only invariant set with zero dissipation is E, so LaSalle applies on the compact simplex. For the local result the stable (v,y) block has trace -53/12 and determinant 53/12, with the remaining stable eigenvalue -1/3 from z, and the zero direction is the c direction in these coordinates. On a center manifold chosen in z=0, the transverse linear operator is invertible, so the invariance equations eliminate terms of order two. The cubic forcing is F=32u^3+O(u^4), and the equations for v=a u^3+O(u^4), y=b u^3+O(u^4) give b=4a/3 and (53/12)a=-32. Thus (1/u^2)'=768/53+O(u) on either nonzero branch. Local exponential tracking by the stable foliation transfers the signed limit to the corresponding physical trajectories; the leaf tracking the zero center orbit is the three-dimensional strong-stable manifold. Global convergence makes this dichotomy applicable after a finite time for all initial states. Returning to original coordinates multiplies the scalar limit by (-1/3,1,1,-1/3). The bundled symbolic and numerical checker was inspected read-only; finite-time integrations are not evidence for the tracking theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Lyapunov theorem guarantees convergence to equilibrium under a strictly positive scalar minimum, which holds here. Center reduction and stable tracking give the general local mechanism, not a model-specific coefficient or global approach to its domain."
+        ],
+        "reasoning": "The prior convergence result supplies an essential qualitative premise. Computing the asymptotic still requires the dynamics transverse to the neutral direction, not just the stationary cusp or an abstract cubic scaling rule.",
+        "searches": [
+          "arXiv:2611.13265 Proposition III.6",
+          "Carr, Applications of Centre Manifold Theory (standard theorem cited in RESULT)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13265 v1/v2",
+        "Resultary 5f085f4d7690 and 54b59b4edf7d plus assigned-record match",
+        "Carr (1981), standard center-manifold and strong-stable framework as cited in RESULT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Proposition III.6, omega-plus=0 and Q=15/4+h'-(3/16)(h')^2 has minimum 163/48>0. Proposition III.5 gives the same stationary equation with a unique physical root. Proposition III.7 distinguishes L<0 and L>0; here L=0."
+        ],
+        "reasoning": "Global attraction follows directly from Proposition III.6 and uniqueness, independently of the missing classification of L=0. The signed amplitude does not: slaving v and y gives the factor 53/12, absent from the stationary cubic F alone. No equivalent critical coefficient or corresponding exceptional-set theorem for this flow was found in the inspected prior sections.",
+        "searches": [
+          "arXiv:2611.13265 v1/v2 Propositions III.5–III.7, with exact parameter substitution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior traffic ODE becomes the exact frozen ODE under the stated substitution. Resultary record 5f085f4d7690 has the same type of center/strong-stable dichotomy but for a logistic threshold network; 54b59b4edf7d has a critical law for a scalar discrete congestion map."
+        ],
+        "reasoning": "The traffic model is identical to the primary model after substitution. Neither analogue has this flow's vector field, time variable, exceptional set and exact coefficient together.",
+        "searches": [
+          "arXiv:2611.13265 v1 and v2: equation (4), Propositions III.5–III.7",
+          "Resultary: four-mode traffic cusp relaxation, strong-stable manifold, critical signed relaxation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b8dcd1433246 is the assigned finding itself; inspected distinct records concern other dynamical systems, with different state spaces and laws."
+        ],
+        "reasoning": "The indexed self-match supplies no independent priority evidence. The closest distinct entries do not tabulate the signed four-coordinate coefficient of this system.",
+        "searches": [
+          "Resultary: exact global signed cusp relaxation and exact traffic amplitude; b8dcd1433246, 5f085f4d7690, 54b59b4edf7d"
+        ]
+      },
+      "rationale": "The model, stationarity equation, and qualitative global attraction at these exact parameters are already covered. The prior sufficient Lyapunov inequality actually holds strictly at this stationarity cusp; only the stationarity classification lies on the equality boundary L=0. PASS is for the distinct exact signed four-coordinate relaxation law and the separation of the full exceptional set, not for proving global convergence again.",
+      "residual_risks": [
+        "The comparison is bounded, not an exhaustive check for another evaluation of the exact center coefficient in this model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies qualitative global attraction at this cusp but not the inspected amplitude claim.",
+          "evidence": "The stated positive-minimum criterion is strict at these parameters, whereas the separate stationarity discriminant L vanishes.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13265v2 and arXiv:2611.13265v1",
+          "material_read": "Equation (4), Propositions III.5–III.7; v2 offsets 5351, 21484, 25000–33778; v1 condition around offset 26600",
+          "method": "Original arXiv versions, relevant passages read",
+          "title": "Effect of car-centric social norms on traffic congestion in a compartmental model of transit mode utilization",
+          "trigger": "Exact prior traffic model and Lyapunov criterion"
+        },
+        {
+          "assessment": "Close structural analogue in a different logistic threshold network.",
+          "evidence": "Its irreducible logistic network has an all-coordinate critical law with an exceptional strong-stable set, not this traffic flow's coefficient.",
+          "identifier_or_url": "Resultary 2026/11/1 SCOPE-5f085f4d7690",
+          "material_read": "RESULT.md finding on monostability and critical log relaxation",
+          "method": "Configured local mirror",
+          "title": "Exact global monostability frontier and critical logarithmic relaxation",
+          "trigger": "Cusp dynamics and all-coordinate decay outside a strong-stable set"
+        },
+        {
+          "assessment": "Different scalar discrete-time map.",
+          "evidence": "It gives an n^{-1/2} law at a discrete critical point, not the continuous four-compartment result.",
+          "identifier_or_url": "Resultary 2026/11/1 SCOPE-54b59b4edf7d",
+          "material_read": "RESULT.md finding on the critical discrete rate",
+          "method": "Configured local mirror",
+          "title": "Global neutral flip attraction and signed critical relaxation",
+          "trigger": "Critical signed relaxation in a congestion model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the nonhyperbolic equilibrium, qualitative global convergence does not quantify equilibration. The result identifies which trajectories evade the algebraic tail and fixes its signed coefficient and relative amplitudes in all four observables. The difference between the dynamical and stationary coefficients is a substantive critical benchmark for the existing model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

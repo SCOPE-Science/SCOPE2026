@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:34:02.093655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The antipodal matching contributes g(I−Sⁿ), not 2g(I−Sⁿ). Fourier diagonalization reduces λ_k to 2−2cos(πk/n)+g(1−(−1)^k). Representatives 0 and n are single, the others pair with 2n−k; monotonicity on k=0,…,n forbids within-parity collisions, and g>0 excludes the endpoint 0 and collision with an odd endpoint n. Thus C₄ and C₃ count distinct spectral blocks, even if their rates coincide. Spectral projections are polynomials of degree less than 2n in L, so the reachable space is the direct sum of their input projections. Consecutive coordinate restrictions are Vandermonde on distinct Fourier roots, rank min(q,m) for block dimension m, with no change after complexification. This proves both the fixed-pair deficit and multiplicity lower bound with attaining consecutive inputs; k=1 guarantees a double mode in the absence of collisions. For each allowed even e the least collision rate is attained uniquely at o=e−1, with rate 2sin((e−½)π/n)sin(π/2n). For even n, e=n is uniquely closest to an endpoint in this sine comparison, including n=2. For odd n the two extremal allowed indices e=2 and e=n−1 are equally close and give distinct fourfold blocks unless n=3 where they are the same. No non-neighbor odd representative can tie the overall minimum since its own adjacent rate is strictly smaller. The deficits at the first resonance are consequently 1, 2, 4 for even n, n=3, and odd n≥5 respectively. Replay: RESULT.md Fourier/PBH and extremal-sine proof; VERIFICATION.md and verify.py were inspected, not executed. The recorded checks use numerical tolerances except for three rational examples, and cannot settle equality for arbitrary real g.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan et al. identify the general minimum number of independent drivers with maximum geometric eigenvalue multiplicity, and use algebraic multiplicity for symmetric networks.",
+          "Monshizadeh et al. explicitly attribute the circulant minimum-leader theorem (maximum algebraic multiplicity) to Nabi-Abdolyousefi–Mesbahi."
+        ],
+        "reasoning": "These general results cover the actuator-count principle, not the exact defective reachable dimension for the specified fixed pair or the family-specific equality and minimization of resonance rates.",
+        "searches": [
+          "Yuan et al., DOI 10.1038/ncomms3447, Eqs. (3)–(4)",
+          "Monshizadeh–Zhang–Camlibel, arXiv:1403.4868v1, p. 2 and p. 6 reference to Nabi-Abdolyousefi–Mesbahi"
+        ]
+      },
+      "checked_sources": [
+        "Yuan et al. DOI 10.1038/ncomms3447",
+        "Monshizadeh et al. arXiv:1403.4868v1",
+        "Nabi-Abdolyousefi–Mesbahi DOI 10.1109/TAC.2013.2259992 (limited access)",
+        "Resultary records 034ac086f5b0, 5b3d49cda4e9 and 17a8333c0dda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum multiplicity alone forgets the number of distinct maximally degenerate eigenspaces: one and two fourfold losses can require the same minimum of four actuators but give different two-input ranks.",
+          "The prior open-ladder result gives a first simultaneous failure for its endpoint placements in a unit ladder at n=6, g=1/2, not the minimum cosine gaps in the antipodal-cycle spectrum."
+        ],
+        "reasoning": "Standard Fourier/PBH methods and minimum-actuator principles are prior input. The remaining assertion counts collisions throughout this spectrum and solves which ones tie at the very first positive conductance, giving the dimension drop and its parity behavior.",
+        "searches": [
+          "Yuan et al. Eqs. (3)–(4)",
+          "Resultary open-ladder, wheel and untwisted circular ladder Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the weighted circulant given by the cycle generator ±1 and the involution generator n on ℤ/(2n).",
+          "Resultary 034ac086f5b0 uses an open two-rail ladder with endpoint input placements, not a cycle with antipodal matching."
+        ],
+        "reasoning": "Modes and endpoint multiplicities change when changing the closure or control placements; the open-ladder spectrum with endpoint inputs is not this circulant under new indexing.",
+        "searches": [
+          "Primary literature lookup: weighted Möbius ladder, antipodal cycle, two adjacent leaders and controllability resonance",
+          "Nabi-Abdolyousefi–Mesbahi, DOI 10.1109/TAC.2013.2259992",
+          "Resultary parity-selective two-input ladder resonance, record 034ac086f5b0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected exact entries give open-ladder rank losses, two-ring-input rank losses on a wheel, or minimum placement counts for an untwisted circular ladder. The same-day wheel finding was compared on scientific content, not assumed later."
+        ],
+        "reasoning": "This is an all-size and all-positive-conductance result. An isolated matching example or unweighted spectrum would not cover its continuous-weight resonance classification, and the retrieved exact findings describe different graph families.",
+        "searches": [
+          "Resultary published-record catalogue: Möbius/antipodal-cycle weighted Laplacian, fixed pair, exact rank and resonances",
+          "Resultary records 034ac086f5b0, 5b3d49cda4e9 and 17a8333c0dda"
+        ]
+      },
+      "rationale": "Credit existing maximum-multiplicity and weighted-circulant minimum-leader results. The supported distinct contribution is the explicit conductance-dependent loss for the fixed adjacent pair, and the first positive rate with the exact parity-dependent multiplicity of simultaneous losses. Comparing actual analogous ladder and wheel findings does not yield those thresholds for this antipodally matched cycle.",
+      "residual_risks": [
+        "Nabi-Abdolyousefi–Mesbahi full text could contain more specific weighted-circulant examples or fixed-leader results. The originality decision does not infer noncoverage from unavailability.",
+        "Other not-inspected formulations of the antipodal family may contain related special cases; the verdict is limited to current evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established general minimum count; not evidence of the fixed-pair threshold",
+          "evidence": "Maximum geometric multiplicity gives minimum independent drivers; for undirected, symmetric networks algebraic multiplicity suffices.",
+          "identifier_or_url": "https://www.nature.com/articles/ncomms3447",
+          "material_read": "OA PDF pp. 2–3, Eqs. (3)–(4), text offset about 13779",
+          "method": "Targeted OA primary text",
+          "title": "Exact controllability of complex networks",
+          "trigger": "General exact minimum-actuator principle"
+        },
+        {
+          "assessment": "Credits known circulant minimum but does not establish a two-fixed-leader rank for this family",
+          "evidence": "Reports the circulant minimum-exact-multiplicity characterization of Nabi-Abdolyousefi–Mesbahi.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4868v1",
+          "material_read": "p. 2, text offset about 20105; p. 6 reference, offset about 56621",
+          "method": "Targeted OA primary text for this paper and its attribution",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Circulant leader characterization and stronger graph-controllability claims"
+        },
+        {
+          "assessment": "Credits the general property; family-specific coverage remains unresolved",
+          "evidence": "The available material and published attribution indicate a weighted circulant minimum-leader characterization, not a read statement of this exact rank and threshold.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2013.2259992",
+          "material_read": "Available abstract/bibliographic material and the citation of its result in arXiv:1403.4868v1; full text not inspected",
+          "method": "DOI/OA repository and author's writings checked; no readable lawful alternate full text located",
+          "title": "On the Controllability Properties of Circulant Networks",
+          "trigger": "Most plausible stronger prior treatment for weighted circulants"
+        },
+        {
+          "assessment": "Close prior analogy, different spectrum and input placement",
+          "evidence": "Open two-rail ladder with endpoint controls, with both stated placements losing rank at n=6,g=1/2 in the unit case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-parity-selective-resonance-and-the-first-simultaneous-two-input--034ac086f5b0",
+          "material_read": "Finding in local mirror",
+          "method": "Local published-record catalogue and statement inspection",
+          "title": "Parity-selective resonance and the first simultaneous two-input loss (open ladder)",
+          "trigger": "Analogous parity-dependent exact two-input rank and first resonance"
+        },
+        {
+          "assessment": "Not the same graph or spectral collision mechanism",
+          "evidence": "Two ring inputs on a wheel with spoke-weight resonances, including one-dimensional loss.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-leader-controllability-ranks-and-spoke-resonances-on-w--5b3d49cda4e9",
+          "material_read": "Finding in local mirror",
+          "method": "Local published-record catalogue and statement inspection",
+          "title": "Exact two-leader controllability ranks and spoke resonances on weighted wheels",
+          "trigger": "Same-day exact two-input result with discrete resonances"
+        },
+        {
+          "assessment": "Untwisted circular ladder, not the specified Möbius closure",
+          "evidence": "Treats C_m □ K₂ and minimum coordinate actuation with adjacent placements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-resonance-resolved-minimum-coordinate-controllability-of-w--17a8333c0dda",
+          "material_read": "Finding in local mirror",
+          "method": "Local published-record catalogue and statement inspection",
+          "title": "Exact resonance-resolved minimum coordinate controllability of weighted circular ladders",
+          "trigger": "Possible equivalent circular ladder and adjacent actuation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For one natural weighted graph family the result predicts every exact rank loss of a specified control placement. It distinguishes coincident losses at different eigenvalues from maximum multiplicity; the first conductance at which two controls fail can cost four dimensions although only four controls in total are necessary. The even/odd threshold and exceptional six-vertex case are structural, not fitted examples. It gives neither robustness near resonances nor bounds on control energy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

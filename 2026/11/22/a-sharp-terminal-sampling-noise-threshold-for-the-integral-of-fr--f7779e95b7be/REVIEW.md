@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Gaussian conditioning gives the exact scalar-integral Bayes risk. Cauchy–Schwarz excludes early observation times at the critical variance; explicit rational derivative bounds exclude all remaining subterminal times, with strictness through the boundary. The covariance monotonicity comparison extends endpoint optimality to every higher variance. A negative endpoint directional derivative guarantees an interior optimizer below the cutoff. The proof treats noiseless observation and the deterministic time-zero reading correctly. The standalone script checks symbolic identities, rational inequalities, and independent numerical integrations; the analytic inequalities, not discrete tests, prove the theorem.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For standard H=3/4 fBm and independent Gaussian noise, Gaussian projection gives Var(J)=2/7 and information c(t)^2/(t^(3/2)+η), where c(t)=Cov(J,B_t). An independent global check at η=1/2: set g=2c and d=1−t^(3/2). Integration of g′ gives g=1−d/3−e, where e is the integral from t to 1 of (1−s)s^(1/2)+(1−s)^(3/2). Since 1−s≥(2/3)(1−s^(3/2)), e≥2d²/9. The difference 1−d/3−sqrt(1−2d/3) is (d²/9)/(1−d/3+sqrt(1−2d/3))≤d²/6. Thus 0≤g<sqrt(1−2d/3) for t<1, proving strict terminal superiority including at the threshold. Comparing cross-multiplied informations, the endpoint advantage increases with η since c(t)<c(1)=1/2. The endpoint derivative of information has sign η−1/2; below the threshold continuity, including the zero-information limit at t=0 even without noise, gives an interior maximizer. The terminal risk and the general-H necessary condition follow by substitution and differentiation; no interior uniqueness or general-H sufficiency is shown. Frozen replay references: RESULT.md lines 20–52, VERIFICATION.md and verify.py inspected, not executed.
 
-Abundo–Pirozzi (2019, DOI 10.3390/math7100991) gives the integrated fractional Brownian moments, not this noisy-observation design theorem. Cui–Chronopoulou (2023, arXiv:2304.07661), whose one-sample section was inspected, solves *causal path reconstruction* under integrated pointwise squared error, not squared error of the complete time integral and not additive-noise calibration. The older noisy-fBm spline interpolation work uses fixed integer-lattice samples; only its indexed material was accessible, leaving residual risk. Related Gaussian Volterra one-site results assume a different, nonstationary-increment process and cannot imply the fractional Brownian threshold by parameter relabeling. Comparisons with published fractional Brownian occupation-quadrature and other Gaussian integration claims did not identify a covering result. No search proves historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-Single-site sensing of a time-integrated long-memory Gaussian process is a natural low-information quadrature problem. For the persistent-memory case \(H=3/4\), the result resolves an exact global endpoint-versus-interior choice and pins the switch at variance \(1/2\), distinguishing long-memory behavior from Brownian sampling. The rational global certificate is reusable as a sharp test case for numerical design methods. This is a specific canonical Hurst-index benchmark rather than a claimed full-Hurst classification.
+Distinct on the inspected evidence: the nearest scalar-integral endpoint theorem is for a different Gaussian kernel; the nearest standard-fBm one-site theorem optimizes a different loss with noiseless samples. Credit classical Gaussian conditioning and integrated-fBm moments, not the strict global switch as a consequence of either alone.
 
-## Boundaries and risks
+## value
 
-Uniqueness of the interior optimizer and sufficient cutoffs at other Hurst parameters remain open here. Multiple, adaptive, or non-Gaussian measurements are outside scope. A historically equivalent theorem could remain in unexamined literature. The evidence and reproduced code are not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical scalar-area sensing problem with a single reading has an exact noise level separating interior sensing from strictly terminal sensing. The global comparison at equality goes materially beyond the local derivative barrier and gives a useful calibration case for Gaussian quadrature design. It is not a general classification in H.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of automorphisms of rectangular-band power semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof classifies all products as support rectangles and every automorphism as compatible permutations of the intrinsic row/column supports plus independent bijections of nonrectangular fiber points. Inclusion–exclusion counts the fibers, and the strict minimum \(F_{u,2}=3^u-2\) proves that their size classes are invariant for proper rectangular bands. A direct finite verifier corroborates multiplication and checks all \(2880\) proposed automorphisms in the \(2\times2\) case. Finite checks are not used as a general proof.
+PASS
 
-## Originality — PASS, qualified
+For nonempty X,Y the defining multiplication gives XY=r(X)×c(Y), and X² is the unique rectangle in its support fiber. Products, equivalently idempotents, form a rectangular band. On this band an automorphism separates into row and column permutations: equality of the first coordinate is detected by all right products, and equality of the second by all left products. Preservation of squares then transports precisely the entire corresponding fiber. Singleton row supports are identified by all their fibers having size one (use two columns to distinguish every other row support); the column test is symmetric. For u≥2 the minimum across nonsingleton column supports is F(u,2)=3^u−2: each row has three nonempty choices and precisely two assignments miss a column. Adding a column incident solely to either of two distinct rows gives two injective extensions, justifying the minimum and hence cardinality rigidity in both coordinates. Inclusion–exclusion over isolated vertices counts all fibers. Any size-compatible bijection taking each distinguished rectangle to its mate preserves multiplication. Common labelings of the other members give a section and the stated factor-permutation action, order, and orbit census. For the 2×2 full-support fiber there are two matchings, four one-edge deletions, and the full rectangle, giving 4·6!=2880; if one side has size one, all subsets are rectangles and the operation is a left- or right-zero band. This proof establishes exhaustion; verify.py lines 61–88 only check the four finite tables and all maps in the proposed 2×2 family, not a computational upper bound. The script was inspected, not run.
 
-Tringali (2026) discusses augmentation and automorphism rigidity of power semigroups; Tamura–Shafer (1967/1968) gives the older rectangular-band-of-null-semigroups structural fact, which is not claimed as new. Yu–Zhao (2019) proves preservation of singleton members of a proper rectangular band, not the full group or orbit formulas. The exact support-fiber symmetric product and factorial order have not been identified in the inspected sources, actual mathematical-index searches, or accessible historical claims. Risk: the Tamura–Shafer full manuscript was not retrieved, and an older equivalent enumeration may be unindexed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding gives a complete natural two-parameter classification and resolves the gap between original-band automorphisms and automorphisms of its entire nonempty power semigroup. The semidirect factors, exact cardinality formula, and number of element orbits are structural invariants, not just finite computations. The \(2\times2\) example already has order \(2880\) versus \(4\), showing substantial extra symmetry.
+The supported contribution is the cardinality rigidity of row and column supports and the resulting exact automorphism group and orbit profile, not the classical rectangular band of null fibers. No earlier covering statement was established by the inspected evidence; this is a bounded assessment rather than a priority claim.
 
-## Limitations
+## value
 
-Only finite rectangular bands and nonempty setwise multiplication are treated. The semidirect decomposition is noncanonical. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result fully resolves the canonical automorphism-embedding question on a natural family, measures the very large kernel missed by the base action, and identifies exactly what the action on all subsets remembers. Rigidity of both support sizes, rather than preservation of singleton copies alone, makes the group and orbit formulas structurally useful; the one-side boundary explains where the rigidity mechanism stops.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

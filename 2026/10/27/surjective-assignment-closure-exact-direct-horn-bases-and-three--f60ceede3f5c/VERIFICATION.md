@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python standard library. Run `python verify.py` from the directory containing that file. It creates surjective assignment models as bitmasks, computes closure of any selected atoms directly as the intersection of all consistent models, and separately constructs the three proposed implication-premise families. It tests their exact sizes against the associated-Stirling recurrence, evaluates one simultaneous round against the model-based closure, and removes each rule in turn to verify that this displayed rule family is irredundant for simultaneous evaluation.
+## correctness
 
-Exhaustive parameter pairs are \((3,3)\), \((4,3)\), \((5,3)\), and \((4,4)\), involving respectively 512, 4096, 32768, and 65536 subsets. Deterministic additional test sets of 15,255, 15,858, and 15,695 distinct inputs are generated for \((6,3)\), \((5,4)\), and \((5,5)\), respectively. In total the code evaluates **149,720** inputs. For the three-colour exhaustive cases, it additionally checks the explicit lattice cardinality by counting model-closed inputs.
+PASS
 
-The expected final status is `VERIFY_OK candidate_subsets 149720 exact_surjection_closure=PASS necessary_premises=PASS sharp_one_round_basis=PASS associated_stirling_count=PASS tricolor_lattice_count=PASS`.
+For an existing partial function, s≤r is exactly the condition for a surjective completion. If s<r, any color can be placed at a chosen blank and there are still enough positions for the remaining missing colors; if s=r≥2, the missing colors can be permuted. Only r=s=1 forces a new atom in a feasible premise. For an infeasible partial function, deletion of a singleton color preserves s−r, whereas deletion from a repeated color reduces it by one. This gives the stated minimal shortages; conflict pairs give the other inconsistent stems. Here stem means inclusion-minimal for a fixed conclusion atom, as specified in proof §3. In a full minimal shortage, one can take an unasserted value of a different already-used color at some input: there are at least two used colors, and no proper subset forces any color but the initially missing one. This justifies the lower bound even when a proper subset has a different nontrivial conclusion. Any direct basis must fire a rule with the exact stem to produce its witness atom; the displayed rules suffice on the original input in all cases. The three counts follow by choosing blanks, colors and ordinary or restricted partitions. The restricted recurrence distinguishes the block of the last element having size two from having larger size. For q=3 the only infeasible partial assignments are full functions missing a color and one-blank monochromatic assignments; removing those and the feasible one-blank forces and adding top yields the lattice formula.
 
-No finite computation establishes the theorem for all parameters. The general proof is in `RESULT.md` and does not assume a checker exhausts unbounded parameter space. Mathematical correctness and originality have not received any independent external audit.
+## originality
+
+PASS
+
+The distinct result is the explicit classification and enumeration for all onto assignments with n>q≥3. The general optimality theorem for stems is prior work; the strongest retrieved indexed analogues treat one prescribed histogram or permutations. Neither yields the displayed shortage family or the onto-assignment counts.
+
+## value
+
+PASS
+
+A surjective assignment is a natural global constraint. The classification gives an exact one-round representation and its unavoidable rule cost, separating local clashes from genuinely global shortages. The scope distinction makes the count useful for direct evaluation rather than claiming a generic Horn minimization result. The three-color counts provide an explicit boundary and first examples of the general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

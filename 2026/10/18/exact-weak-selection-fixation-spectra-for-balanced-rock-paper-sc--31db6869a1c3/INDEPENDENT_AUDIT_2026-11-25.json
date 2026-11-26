@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:49.662991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complement is a simple 2-regular graph on six vertices, necessarily C6 or two triangles; taking complements gives the two listed connected cubic graphs. At neutrality each oriented edge has selection probability 1/18. The type-zero fraction is harmonic by cancellation of opposite orientations, and from every transient state one can propagate a present strategy along a spanning tree to absorption with positive probability. Finiteness gives a transient spectral radius less than one and uniqueness of the Dirichlet problem. Analytic inversion persists near zero selection; the payoff sum cancels over undirected edges by antisymmetry (a uniform fitness shift would also cancel in donor normalization). The change in neutral fixation on copying u to v is (1_{s_u=0}-1_{s_v=0})/6, explaining 1/108 in the differentiated equation, with zero derivatives at constant states. Independently ran `python3 /workspace/reproductions/cubic_fixation.py` against the entire supplied JSON as data, without executing the frozen checker. Clearing denominators by 1686 for the prism and 66 for K3,3, used both copy orientations per undirected edge and grouped the forcing as (pi_u-pi_v)(1_{s_u=0}-1_{s_v=0}); all 729 integer residuals and all three boundary values per graph passed, together with all sign swaps. The 90 balanced values per graph gave the stated seven-point and three-point spectra and all four explicit example derivatives. Exact uniqueness turns the complete residual check into proof for this finite system; it does not validate a larger-graph theorem or finite-selection approximation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McAvoy–Allen gives a first-order expansion for arbitrary configuration and spatial structure, but its stated fixation theorem is for A and B. Wang–Perc–Szolnoki derives multi-strategy weak-selection replicator equations by pair approximation on regular graphs. Dubey–Chakraborty closes conditional frequencies and uses Fokker–Planck/SDE dynamics."
+        ],
+        "reasoning": "None of these statements supplies an exact labeled finite Markov-chain table by plugging in size six and degree three. The general perturbation method is prior and not claimed here.",
+        "searches": [
+          "arXiv:1908.03827v3 §§1,4",
+          "10.1038/s41467-024-49505-5 introduction",
+          "arXiv:2610.05857v1 methods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05857v1",
+        "arXiv:1605.01387v2",
+        "arXiv:1908.03827v3",
+        "10.1038/s41467-024-49505-5",
+        "950b007c3b28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard absorption and differentiation imply a linear residual equation. They do not yield specific values or multiplicities without solving the graph-specific systems. For example the type-1/type-2 swap forces sign symmetry, but cannot yield the nonzero amplitudes and multiplicities."
+        ],
+        "reasoning": "The explicit exact solutions and balanced distributions are the additional findings; no priority is assigned to Dirichlet differentiation or to the idea of configuration dependence.",
+        "searches": [
+          "arXiv:1908.03827v3 §§1,4",
+          "arXiv:1605.01387v2 Theorem 1",
+          "arXiv:2610.05857v1 Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubey–Chakraborty uses the birth–death rule on regular networks, but its Eq. (1) takes global x1,x2 and the displayed apostatic RPS has unequal diagonal entries. The frozen antisymmetric zero-diagonal game fixes the actual placement of three labeled types.",
+          "Chen–McAvoy–Nowak allows arbitrary starting assignments but only for two types; merging the two nonfocal strategies erases the RPS interactions and the opposite-sign example at fixed type-zero sites.",
+          "A change from 1+w*pi to 1-w+w*pi is not a substantive distinction: uniform shifts cancel in the derivative of normalized selection."
+        ],
+        "reasoning": "Compared after aligning birth–death update and weak-selection normalization, and checked whether the assignment and payoff state variables really coincide.",
+        "searches": [
+          "arXiv:2610.05857v1 model, Eq. (1) and Fig. 2",
+          "arXiv:1605.01387v2 abstract and §2",
+          "Resultary configuration-resolved RPS fixation on prism and K3,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither the RPS figure, at N=11–200 and degree 10, nor the cited two-type results enumerate the relevant balanced assignments. The closest catalogue hit on the same two graphs, 950b007c3b28, gives mean extinction times under a different continuous-time occupancy process, not fixation derivatives."
+        ],
+        "reasoning": "Matching graphs alone does not match the observable or the dynamics. The exact multiplicity histograms require all 90 balanced configurations for each given chain; those tables are not present in the inspected candidate passages.",
+        "searches": [
+          "Resultary: exact weak-selection RPS fixation distributions on the prism and K3,3",
+          "arXiv:2610.05857v1 Fig. 2 discussion",
+          "Resultary record 950b007c3b28"
+        ]
+      },
+      "rationale": "The supported result is the exact labeled distribution at zero selection on the two cubic six-vertex graphs for the specified three-type antisymmetric game. Closely related three-strategy regular-network work uses pair/diffusion approximation in global frequencies and studies a different RPS payoff example; known configuration-dependent results in the checked literature are two-type. The absorbing-chain method and the neutral harmonic function are standard. No matching earlier table or specialization supplying the two exact spectra was identified in the checked sources; the search is bounded.",
+      "residual_risks": [
+        "A targeted literature-search request was deferred. The material comparisons do not rule out an unindexed exact enumeration, or a broader graph-specific computation giving these numbers elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Approximate frequency reduction; payoff example also differs",
+          "evidence": "Closure q_(l|ij) approximately q_(l|i), Fokker–Planck/SDE dynamics in global frequencies; the apostatic example has a33>a11,a22 and examines N=11–200 at degree 10.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05857v1",
+          "material_read": "Model and method, Eq. (1), HTML offsets 7400–15791; Fig. 2 discussion, offsets 20500–25260",
+          "method": "Read original OA passages",
+          "title": "Stochastic evolutionary dynamics in structured populations: Network degree governs evolutionary stability",
+          "trigger": "Closest model, three-strategy BD on regular networks with an RPS example"
+        },
+        {
+          "assessment": "Strong binary precedent, not three-type RPS coverage",
+          "evidence": "Defines BD with fitness-proportional reproduction and uniform neighbor replacement; derives a configuration-dependent donation-game expansion, with only two strategies.",
+          "identifier_or_url": "https://arxiv.org/html/1605.01387v2",
+          "material_read": "Abstract (offset 0–2290), §2 (5200–7531), Theorem 1 (57100–60020)",
+          "method": "Read original OA passages",
+          "title": "Fixation probabilities for any configuration of two strategies on regular graphs",
+          "trigger": "Earlier exact initial-configuration expansion on regular BD graphs"
+        },
+        {
+          "assessment": "Method precedent, stated fixation quantity is two-type",
+          "evidence": "The expansion is computable via linear equations for frequency-dependent selection and arbitrary spatial structure; §4 specifies types A and B.",
+          "identifier_or_url": "https://arxiv.org/html/1908.03827v3",
+          "material_read": "§1 offsets 900–6688 and fixation formulation in §4",
+          "method": "Read original OA passages",
+          "title": "Fixation probabilities in evolutionary dynamics under weak selection",
+          "trigger": "General perturbation method for arbitrary initial arrangements"
+        },
+        {
+          "assessment": "Replication dynamics in pair approximation, not exact finite derivatives",
+          "evidence": "Discusses pair approximation for infinite populations on regular graphs and extends multi-strategy theory to multiplayer games.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-024-49505-5",
+          "material_read": "Original PDF p. 2, introduction, offsets 7400–11519",
+          "method": "Retrieve OA DOI PDF and read relevant passage",
+          "title": "Evolutionary dynamics of any multiplayer game on regular graphs",
+          "trigger": "Broader graph-game and multi-strategy setting"
+        },
+        {
+          "assessment": "Different dynamics and quantity",
+          "evidence": "Continuous-time patch extinction–colonization model; averages mean extinction over uniformly chosen occupied subsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-initial-occupancy-extinction-dominance-on-the-two-cubic--950b007c3b28",
+          "material_read": "RESULT.md Finding and model assumptions",
+          "method": "Read local-mirror statement",
+          "title": "Uniform-initial-occupancy extinction dominance on the two cubic six-vertex graphs",
+          "trigger": "Exact comparison on the same graphs returned by catalogue lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six vertices is the smallest size at which a connected simple cubic graph supports both a balanced three-strategy mixture and a topology comparison at fixed degree. The exact configuration-resolved distributions give a calibration case for frequency-only or topology-averaged approximations: even on one graph and with fixed focal placement, the sign and size can depend on how the other types are arranged. The two spectra quantify the topology effect beyond a single counterexample, without purporting to quantify approximation error in the original large-network regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

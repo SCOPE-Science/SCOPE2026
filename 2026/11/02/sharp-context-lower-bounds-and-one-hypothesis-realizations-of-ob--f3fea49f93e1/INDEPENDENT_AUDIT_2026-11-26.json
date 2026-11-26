@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:19:04.368202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each minimal contract edge is itself a minimal obstruction span. Picking a pair that differs at its subfamily-private coordinate gives an identity minor on the chosen private coordinates, hence independent pair differences over F₂, in a difference space of dimension at most |C|−1. This proves the bound regardless of hypothesis count. The zero and edge-indicator contexts are distinct; exact guards ensure that each context has precisely the prescribed singleton explanation family, with no cross-context Horn-rule interference. All dependencies go from sources and hypotheses to terminal heads. Only zero-to-edge pairs are minimal obstructions and the antichain retains all their spans. Without any hypotheses, either no obstruction exists or a singleton obstruction forces the empty edge. In the globally private case, |C|=m+1 and the m independent pair differences exclude repeated pairs and cycles (differences telescope modulo two), giving a spanning tree. For disjoint labels on an arbitrary tree, XOR path assignments are distinct and an opposite-color pair has span the union of its path labels. Adjacent pairs realize every edge and all other opposite-color pairs give supersets; no converse for overlapping labels is asserted. RESULT.md proof steps 1–4 replay these arguments. I read VERIFICATION.md and checker.py without executing the latter. The checks enumerate small antichains, restricted two-choice tables and small labeled trees; the universal result comes from the proof, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang's arbitrary-hypergraph realization uses at most m+1 contexts and says two hypothesis atoms suffice for no empty edge. The indexed Helly theorem bounds the number of contexts in a single minimal obstruction given h hypotheses."
+        ],
+        "reasoning": "An upper bound on an individual obstruction size given h is not a lower bound on the total number of contexts for a given hypergraph with arbitrary h. Yang's upper bound is credited exactly, but neither result forces globally private witness pairs to span a tree.",
+        "searches": [
+          "arXiv:2610.32805v1 Theorem 2",
+          "Resultary contextual Horn-abduction Helly bound 6a8acbcf31f9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.32805v1",
+        "Resultary 6a8acbcf31f9",
+        "10.1007/978-94-015-7975-9_21 (access attempted; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yang's realization uses zero and characteristic contexts and a constraint excluding simultaneous a,b. The frozen construction uses the presence or absence of one atom with a guard at the zero context; its lower bound uses independent binary differences chosen even from higher-order obstructions."
+        ],
+        "reasoning": "The prior construction and discernibility correspondence explain the geometry of the upper bound but provide no universal lower bound or arbitrary labeled-tree realization. The prior Helly result cannot give the count bound because even size-two obstructions can require many distinct contexts across a large private family.",
+        "searches": [
+          "arXiv:2610.32805v1 Proposition 3 and Theorem 2 with proof",
+          "Resultary 6a8acbcf31f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang Proposition 3 equates distinct singleton explanation labels with discernibility pairs. The one-atom realization has two decision labels, zero context on one side and all nonzero edge-indicator contexts on the other."
+        ],
+        "reasoning": "This identifies a direct reformulation of the upper construction's semantic table and a plausible older predecessor. It does not furnish the all-realizations private-coordinate rank bound or convert the old two-hypothesis Horn rule set to one. The closed discernibility chapter was not obtained, so no whole-chapter exclusion is made.",
+        "searches": [
+          "arXiv:2610.32805v1 §4.2 Proposition 3 and §4.3 Theorem 2",
+          "DOI:10.1007/978-94-015-7975-9_21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved indexed exact bound is B_h = binom(h, floor(h/2)) + binom(h, floor(h/2)+1), attained by acyclic examples for minimal-obstruction size."
+        ],
+        "reasoning": "It computes a different optimization with a different independent parameter, not κ for a prescribed antichain or its private rank. No exact resource or tree match was established by the bounded lookup.",
+        "searches": [
+          "Local Resultary contextual Horn observation contracts: 6a8acbcf31f9"
+        ]
+      },
+      "rationale": "Yang already supplies the same m+1 context upper bound with a two-hypothesis realization, and identifies singleton-explanation tables with rough-set discernibility; neither fact is credited as new. The evaluated differences are the minimum resource of one hypothesis, the private-coordinate lower bound unrestricted in hypothesis count, and its matching witness-structure theorem. In particular the lower bound is not a pairwise-table theorem restricted to unique explanations.",
+      "residual_risks": [
+        "An exact row-count or witness-tree analogue in the inaccessible Skowron–Rauszer chapter or other decision-table literature remains possible. Pawlak's 1982 paper was also not retrieved by the attempted repository route. Bounded search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact upper-context and singleton-discernibility overlap, no matching lower bound in the decisive passages",
+          "evidence": [
+            "Two hypothesis atoms suffice, not a lower bound of two; construction uses zero and characteristic contexts. Proposition 3 makes singleton families into discernibility labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.32805v1",
+          "material_read": "Introduction near offset 5900, §4.2 Proposition 3 near offset 17400, §4.3 Theorem 2 and proof around offsets 19500–20802",
+          "method": "Targeted OA HTML passages",
+          "title": "Choosing What to Observe: Higher-Order Obstructions in Horn Abduction",
+          "trigger": "Same semantics and m+1 context construction"
+        },
+        {
+          "assessment": "Different parameter and resource",
+          "evidence": [
+            "Sharp B_h for the size of one minimal obstruction with fixed h."
+          ],
+          "identifier_or_url": "6a8acbcf31f9",
+          "material_read": "RESULT.md finding and hypotheses from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Helly bound for contextual Horn-abduction explanations with finitely many hypotheses",
+          "trigger": "Exact count bound for minimal obstructions in the same semantics"
+        },
+        {
+          "assessment": "Unresolved historical risk, not evidence of noncoverage",
+          "evidence": [
+            "The verified structural correspondence is to unique-explanation decision tables; the original chapter's row-count or tree coverage is not established."
+          ],
+          "identifier_or_url": "10.1007/978-94-015-7975-9_21",
+          "material_read": "No full chapter obtained; correspondence inspected through Yang's §4.2",
+          "method": "Publisher chapter/PDF retrieval attempts; targeted accessible primary comparison via Yang",
+          "title": "The Discernibility Matrices and Functions in Information Systems",
+          "trigger": "Decision-table pairs and possible earlier row-minimality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a resource bound for realizing natural observation contracts, rather than another realizability proof. Private coordinates give a computable structural reason why adding more explanation atoms cannot reduce contexts below a threshold, with exact equality on a natural family and a tangible necessary witness tree. The optimal one-atom construction and disjoint-label tree family add explicit economical realizations. The result does not require the lower bound to be sharp on arbitrary overlapping contracts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

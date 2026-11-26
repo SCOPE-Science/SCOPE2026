@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:47.171057Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed Weyl action multiplies with phase exp(−iσ(z,w)/2), so conjugation of W_xi and of the character Toeplitz operator has the same eigencharacter. Irreducibility gives scalar proportionality. With the radial unit vector L_{k−1}(|w|²) and real a=|xi|, pairing with its shift leaves the tilt exp(a w) after multiplying the character. In the two-variable Laguerre generating integral the Gaussian quadratic coefficient is (1−st)/[(1−s)(1−t)], the linear coefficients are a/(1−t) and at/(1−t), and the constant is −a²t/(1−t). Gaussian integration gives (1−st)^−1 exp(−a²st/(1−st)), establishing every diagonal coefficient and the stated zero without a Fourier convention ambiguity. The phase-weighted Weyl matrix average has norm at most 1 and equals 1 on W_xi. Covariance and the translated disk substitution leave a bounded scalar times the zero character operator, plus an error tending to zero by dominated convergence: the disk symmetric-difference fraction tends to zero pointwise and is bounded by 2, and the test-vector product is integrable. This works for each fixed bounded symbol with no uniform symbol bound needed. Thus the lower bound is 1 for the full range, and the zero symbol attains it. Distance is unchanged under norm closure; norm continuity of Weyl conjugation on this shift follows from the eigencharacter. For BUC symbols the Toeplitz range lies in C_1 by covariance and the symbol sup-norm bound, so the proper-subset conclusion is valid. The Hermite STFT/Bargmann unitary in Abreu–Speckbacher Eq. (6.2) identifies the mask and Toeplitz sesquilinear forms by coordinate reflection/rescaling; the phase cancels. Time-frequency shifts correspond to Weyl shifts up to unimodular factors, which do not affect distance to the complex linear range. The argument requires the irreducible true level and a Laguerre root, not the full reducible sum or arbitrary frequencies.",
+      "replay": "python3 /workspace/branches/independent_checks.py 1: 144 exact mixed Laguerre moments at four rational tilts using direct binomial monomial expansion. This checks the scalar normalization in finite instances only; the norm conclusion is analytic. The frozen verification text and check.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bounded-symbol range is weak-* dense by Fulsche–Hagger Prop. 3.8(3). Their §5 expressly leaves uniform-closure membership of these shifts unclear.",
+          "Keller–Luef give semiclassical, multi-Hermite/level approximation; McNulty's classification is for translation-invariant operators."
+        ],
+        "reasoning": "Neither a weaker topology nor a semiclassical sum of levels implies norm approximation or a lower bound at a fixed true level. The norm separator is not furnished by the trace-class predual, whose annihilator is zero.",
+        "searches": [
+          "One focused primary-literature query for Laguerre-zero Weyl norm closure in higher true Fock levels",
+          "Fulsche–Hagger Theorems 3.4–3.5, Prop. 3.8 and §5; Keller–Luef arXiv:1905.07741 §6; McNulty IEOT 98 (2026), Thm. 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Fulsche–Hagger arXiv:2308.11292",
+        "Abreu–Speckbacher arXiv:1808.02258",
+        "Keller–Luef arXiv:1905.07741",
+        "McNulty IEOT 98 (2026), article 49",
+        "Resultary 6be65e895ead, b48eeafc2cef and bed1b480029f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cor. 3.10 rules out exact Toeplitz representation of the forbidden shift. The preceding discussion of Question 2 explicitly distinguishes uniform closure.",
+          "Neither same-day catalogue result concerns a forbidden shift in a true nonanalytic Fock level."
+        ],
+        "reasoning": "A point outside a nonclosed linear range may be at distance zero, so earlier nonmembership does not imply the conclusion. The decisive additional step is a contractive spatial average annihilating every bounded-symbol image asymptotically. No claim is established about the multiplicatively generated algebra.",
+        "searches": [
+          "Fulsche–Hagger Thm. 3.9, Cor. 3.10 and §5, p. 36; nearby Resultary kernel and same-day results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abreu–Speckbacher's Eq. (6.2) gives the unitary relation underpinning the time-frequency wording.",
+          "The local invisible-symbol record 6be65e895ead is a kernel theorem, not a theorem about the norm closure of the operator range."
+        ],
+        "reasoning": "The Bargmann transport means exact shift distance in either formulation would cover the other. Knowing that some bounded masks quantize to zero does not show norm separation of a unitary from the range.",
+        "searches": [
+          "Local Resultary meaning queries for Hermite mask localization, Weyl approximation, Laguerre-zero kernels and exact Fock Toeplitz range distance",
+          "Fulsche–Hagger arXiv:2308.11292 §§3 and 5; Abreu–Speckbacher arXiv:1808.02258 §6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected findings concern null masks, radial Bergman singular values, and finite analytic-Fock vacuum-jet symbol costs respectively. No matching exact distance formula was present in these hits."
+        ],
+        "reasoning": "Even a table of Laguerre roots would identify frequencies but not an operator-range distance. No dedicated registry of these norm distances was identified.",
+        "searches": [
+          "Four bounded local Resultary semantic searches for exact Hermite, Weyl and Toeplitz obstructions; compared 6be65e895ead, b48eeafc2cef and bed1b480029f"
+        ]
+      },
+      "rationale": "The supported new content is the exact distance to the full L-infinity linear range and its norm closure, not the Laguerre-zero kernel or the lack of exact representation. Fulsche–Hagger explicitly leave uniform-closure membership open. The distinction is about norm density, not weak-* density or C*-generation. The printed first clause of Question 2 lacks a closure bar; the preceding sentence expressly poses the uniform-closure issue meant here. No equivalent norm-gap statement was found in the inspected sources, not a guarantee of priority.",
+      "residual_risks": [
+        "Bounded literature comparison does not exclude a later norm-distance proof or an earlier more general theorem not retrieved.",
+        "Catalogue dates alone do not certify priority; the compared same-day statements address different invariants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact representation and kernel already covered; norm closure not covered in these passages",
+          "evidence": "Weak-* density, exact nonrepresentation, and express uncertainty about uniform closure; Question 2 also asks separately about C*-generation.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11292",
+          "material_read": "Thm. 3.4 p. 21, Thm. 3.5 pp. 21–22, Prop. 3.8(3) p. 24, Thm. 3.9 and Cor. 3.10 pp. 24–25, §5 p. 36",
+          "method": "Targeted OA full-text passages",
+          "title": "Quantum Harmonic Analysis for Polyanalytic Fock Spaces",
+          "trigger": "Exact same Weyl and true-Fock objects and explicit approximation question"
+        },
+        {
+          "assessment": "Foundational equivalence, not norm separation",
+          "evidence": "The unitary true Bargmann transform is the Hermite STFT with a phase, Gaussian multiplier and reflected frequency.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.02258",
+          "material_read": "§6.3 p. 23, offset 69510, Eq. (6.2)",
+          "method": "OA PDF locus then bounded passage",
+          "title": "Donoho–Logan Large Sieve Principles for Modulation and Polyanalytic Fock Spaces",
+          "trigger": "Hermite localization reformulation"
+        },
+        {
+          "assessment": "Different approximation regime",
+          "evidence": "Semiclassical O(hbar^N) expansions use sums over windows or levels.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07741",
+          "material_read": "§6.1 Prop. 3 and §6.3 Thm. 5, pp. 18 and 21",
+          "method": "Targeted OA full-text passages",
+          "title": "Polyanalytic Toeplitz operators: isomorphisms, symbolic calculus and approximation of Weyl operators",
+          "trigger": "Plausibly equivalent Weyl approximation result"
+        },
+        {
+          "assessment": "Different operator class",
+          "evidence": "A characterization of translation-invariant operators, not an operator-norm distance to Toeplitz quantizations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00020-026-02863-9",
+          "material_read": "Thm. 3.6, p. 12",
+          "method": "Targeted open-access full-text passage",
+          "title": "Translation Invariant Operators on True Polyanalytic p-Fock Spaces",
+          "trigger": "Later paper in the same operator setting"
+        },
+        {
+          "assessment": "Material symbol-kernel overlap only",
+          "evidence": "Nonzero bounded L^p null symbols for p>4 with a Laguerre-root Bessel wave.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-l-4-boundary-for-invisible-hermite-window-localization-sym--6be65e895ead",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp L^4 boundary for invisible Hermite-window localization symbols",
+          "trigger": "Prior directly related Laguerre-root localization result"
+        },
+        {
+          "assessment": "Different spaces and conclusion",
+          "evidence": "Singular value and Schatten laws for radial Toeplitz operators on weighted polyanalytic Bergman spaces.",
+          "identifier_or_url": "2026/11/2/SCOPE-laguerre-boundary-layer-spectra-of-radial-toeplitz-operators-on--b48eeafc2cef",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Laguerre boundary layer spectra of radial Toeplitz operators",
+          "trigger": "Distinct same-day Laguerre Toeplitz result"
+        },
+        {
+          "assessment": "Different compression, not a range-gap result",
+          "evidence": "Optimal bounded-symbol costs for finite vacuum-jet compressions in analytic Fock space.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-fock-vacuum-jet-symbol-costs-alternating-shells-and-dimens--bed1b480029f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Fock vacuum jet symbol costs",
+          "trigger": "Distinct same-day exact bounded-symbol Fock optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp norm obstruction answers the stated norm-closure problem for every higher true level and for the full bounded-mask range. It pinpoints a genuine distinction between weak-* and norm density and uses an explicit contractive separation at each forbidden frequency. It is stronger than identifying a null symbol or an operator with no exact representation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

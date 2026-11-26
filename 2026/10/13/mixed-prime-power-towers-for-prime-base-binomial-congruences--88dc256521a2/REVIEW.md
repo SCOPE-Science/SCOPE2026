@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over all distinct primes \(q,p\) with \(p\ge5\) and integers \(t,r\ge1\). The proof derives the p-adic limit at precision \(p^{3j}\) directly from the standard Jacobsthal dilation lemma, identifies the Teichmüller exponential limit, and separately computes the complete \(q\)-adic valuation by Legendre's digit formula. Coprimality then gives a genuine if-and-only-if statement; the positive-exponent and small-prime boundaries are explicit. The example \(q=31,p=5\) has a finite certificate at \(5^4\), while all infinite quantifiers rest on the proof rather than finite enumeration.
+## correctness
 
-## Originality — PASS (residual risk)
-The closest primary result (Guedes–Machado, arXiv:2606.30232v1) stops at \(n=q^tp\) and separately handles \(n=p^2\). The closest available published result on p-adic tower endpoints treats \(n=p^r\), not the two-positive-exponent family. The older Davis–Webb / Meštrović congruences furnish general Jacobsthal tools but do not state the mixed-prime-support solution criterion. Four alias/coverage/database/implication comparisons and accessible primary full-text inspections are documented in `AUDIT.json`. Known partial results are credited. Unindexed work and an equivalent application of general dilation theory remain risks.
+PASS
 
-## Value — PASS
-The two-prime-support family is a natural next arithmetic layer after the motivating prime-factor and prime-power results. The theorem classifies every exponent \(r\) by two competing invariants, identifies where the p-adic initial segment ceases to predict full solutions, and yields a sharp cubic mixed-support solution for a non-Wieferich prime pair. The non-Wieferich example rules out an otherwise natural extrapolation of the published square criterion; the second example shows why the digital obstruction cannot be discarded.
+For j≥1 Jacobsthal's modulus at a=q^{t+1}p^{j−1}, b=q^t p^{j−1} has valuation at least 3j. Thus the binomial limit exists, whether or not it is a unit, and its precision at B_j is at least p^{3(j+1)}. LTE gives a p^{m+1} tail for q^{p^m}→ω_p(q), so the p-part is precisely r≤ν_p(β−ω_p(q)^{q^t}), with infinity interpreted as equality. For r≤3 use B_0 and q^{p^{r−1}} at that precision. Legendre's valuation simplifies to s_q((q−1)p^r)/(q−1), and CRT gives the equivalence. At t=1 the positive digit sum is a positive multiple of q−1, including q=2. The frozen verifier and saved output were inspected, not executed. A fresh standard-library computation (branches/f5b0c272-e7a0-4375-a059-f39e3ea0c4b8/independent_check.py and independent_check.txt) directly checked both examples: at (31,5,1) B_0=B_1=251 mod 625, the target lift is 1, and 31^4=21 mod 25; the direct congruences agree through layer 3 and give residues 11501 versus 3751 at layer 4. At (19,7,2) the residues 215 and 19 mod 343 differ by 196, giving H=2, and both allowed digit sums are 18<36. The valuation argument, not finite enumeration, excludes all later layers in the examples.
 
-## Scientific limitations
-The p-adic endpoint is not evaluated in closed form in general and may be infinite; the filtered solution set need not be an initial segment for \(t\ge2\). The proof excludes \(p=2,3\), and originality checks cannot search inaccessible or unindexed papers. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier coverage includes the exact r=1 mixed layer, the pure p^r tower, and the general dilation tool. These do not state a mixed higher-layer classification or the sharp arithmetic examples. A later published catalogue record gives an equivalent finite-compressed criterion on the same mixed family and includes the positive cubic example; this is substantive duplicate coverage of the criterion as currently indexed and is not to be counted as a distinct theorem. It is dated October 26, after the frozen October 13 record; the comparison does not adjudicate authorship or infer independent discovery. The earlier evidence checked does not give the complete mixed-tower statement with the sharp non-Wieferich cutoff and a separate p-adically allowed tower erased by the digit filter.
+
+## value
+
+PASS
+
+For a motivated congruence, the result explains what survives prime-power lifting and what is removed by the independent digit condition. It gives a sharp cubic tower despite failure of the ordinary Wieferich condition, unlike the earlier pure-prime cubic criterion, and a separate genuine digit obstruction that deletes all layers allowed by the p-adic criterion. The value is this mixed behavior with exact boundaries, not a general bound on H or a re-computation of previously listed positive cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

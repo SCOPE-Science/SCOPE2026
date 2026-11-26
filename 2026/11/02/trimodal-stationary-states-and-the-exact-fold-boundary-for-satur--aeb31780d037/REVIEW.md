@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary positional density and model rates are explicitly taken from Jain–Chatterjee's published formula. The full logarithmic-derivative calculation reduces every noncentral critical point on the specified commensurate slice to a quadratic in \(s=\tanh^2(ux)\); its discriminant, signs at both endpoints, and the precise fold threshold are proved algebraically. Degenerate boundaries and the sixth-order flat maximum are handled separately. The exact rational witness gives two simple positive-position roots and a strict central peak, and a direct integral of the stationary law independently checks the height ordering. The extracted checker passes 115 symbolic and finite diagnostic checks; the algebraic proof, not sampled tests, establishes the continuous-domain classification.
+PASS
 
-Risk: uniqueness of a probabilistic invariant measure is not reproved here; the previously established normalizable positive stationary density is the object classified. The result does not count all peaks for arbitrary \(g/u\).
+The zero-current density has positive even prefactor 2v0/(v0^2-v1^2 tanh^2(ux)); its logarithmic derivative is odd and tends to -2(B+C)/(v0^2-v1^2) on the right, giving normalizability. On the slice g=3u the positive-half-line derivative has the sign of A-F(s), s=tanh^2(ux), where F(s)=[B+3C+(3B+C)s]/[(1-s)(1+3s)]. Independently differentiating, the numerator of F'(s) is B-5C+6(B+3C)s+3(3B+C)s^2, strictly increasing on [0,1] and positive at 1. Thus F rises from A_c if B>=5C; otherwise it decreases to a unique nondegenerate minimum and then increases to infinity. Clearing denominators gives the frozen quadratic and its discriminant. At the minimum this quadratic has a double root with positive vertex. Of the two A-roots of the discriminant the smaller one has 2A-3B-C<0, so the minimum equals the displayed larger root A_f. This proves the shoulder case and both sides of the fold, including 0<A_f<A_c, with derivative signs immediately giving the maxima and minima. At A=A_c the polynomial is s[(5C-B)-3A_cs], giving a fourth-order minimum or maximum for B<5C or B>5C, respectively. At B=5C, A=A_c=8C the derivative of log p begins with -48Cu^5 x^5/v0^2, giving the stated sextic maximum. In the exact witness Phi=-(4/5)(3s-1)(10s-1), the origin is nondegenerate and both off-axis pairs are simple. The implicit-function theorem preserves at least three strict maxima in an admissible full six-parameter neighborhood. Independent Simpson quadrature of the two stationary transport coefficients gave ratios 0.999525403218619 and 1.00008878159230, consistent with the recorded checks. Two nonmaterial proof slips: at line 76 the constant term is positive, not negative (the root product is negative; the endpoint signs and concavity also suffice), and the vertex bound at line 82 follows directly from (2A_f-3B-C)/(6A_f)<1/3, not from the sign at s=1 alone. Neither affects the stated theorem.
 
-## Originality — PASS (qualified)
+## originality
 
-The 2024 primary work supplies the model, the stationary law, and the implicit extremum equation, and explicitly assumes at most two maxima to conclude only uni- and bimodality. The exact admissible counterexample, open trimodal wedge, fold threshold and sixth-order merger are not stated there and in fact show the assumption cannot hold in general. Monthus's earlier general two-velocity stationary framework supplies a broader density formula but not this mode-count inequality or threshold; studies of multi-state or trapped active particles are different objects. Targeted exact-title, alias, geometry and implication searches found no covering theorem among checked primary literature or public mathematical research records; the earlier related record treating spatially varying tumble rates alone deals with **constant speed** and spectral relaxation, not variable-speed stationary modes.
+PASS
 
-Risk: absence from checked sources is not a proof of first publication. Relevant broad literature may remain unindexed, and independent publication-priority review remains outstanding. The recent journal version of the primary source is credited rather than misrepresented as a new stationary-law derivation.
+The exact model, stationary law, central criterion and implicit extremum equation are prior. The supportable distinct claim is the trimodal counterexample to the extra two-maxima assumption in that same model, the full exact g=3u boundary including its sextic merger, and persistence around the admissible witness. The nearest inspected catalogue overlap is a fixed subfamily of the slice, not general fold or merger coverage.
 
-## Mathematical value — PASS
+## value
 
-Whether a stationary active-particle density has one, two or three spatial concentration peaks is a structural and physically interpretable property of its transport law. This theorem proves a previously excluded genuine third regime, exact analytic boundaries, a codimension-two degeneracy and persistence beyond an exactly solvable parameter slice. It materially changes the possible stationary shape diagram of a specifically motivated published model, not merely a rounding convention, parameter substitution, or one numerical example.
+PASS
 
-Limit: no claims about observation times, experimental resolution of the small side-peak contrast in the displayed witness, or general noncommensurate global diagrams.
+This changes the stationary shape classification of an existing six-parameter model, rather than just supplying a new expression for its equilibrium law. It produces an admissible counterexample to the concrete two-maximum assumption, analytically separates the two bifurcations on a naturally exactly reducible slice, and identifies an order-six meeting point and open persistence beyond that slice. These conclusions carry information well beyond a numerical example or arbitrary sample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:39:35.179583Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 22–79 checked algebraically. The inverse length-N DFT gives cyclic correlations with the stated sign; the three zero-lag moments have determinant UV(A−B)^2 and identify the sparsity tier. Away from the self-inverse lag, the ratio gives the ordinary support sum, and the zero-lag recurrence gives the two distinct nodes q^a,q^b as quadratic roots. Support ordering then selects the correct signed lag. At the self-inverse lag, the ramp rotates the product by i, giving C2(h)=−2q^(a+b) Im P. If Re P is zero, two candidate left nodes X<Z<2X force t=R(X+Z)/(R+1), R=2. In the squared-lag difference, substituting gives t−X=(RZ−X)/(R+1) and RX−t=R(RX−Z)/(R+1), with the analogous swapped expressions at Z. The common nonzero factor then multiplies X^2−Z^2, excluding equal data. Zero, singleton and opposite support types are distinguished by the moments and lag locations. The conjugate witness for real masks retains the first entry and all real cross terms and cannot differ by a common phase. The amplitude bounds follow from j<N. I inspected CHECK.py rather than executing it; its finite tolerance checks are supplementary, and the result makes no noisy-recovery or general-signal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bandeira–Chen–Mixon have random O(log N) masks for general signals; Huang–Li's O(log N) guarantee is for each fixed signal; Jaming–Rathmair's three Gaussian-derived masks are on L2(R).",
+          "ca026361e2cc covers the whole even N≥4 signal class deterministically with two masks, and d1a29ce552bb extends two-mask sufficiency to N=2 with arbitrarily near-flat masks for fixed N."
+        ],
+        "reasoning": "The Resultary designs dominate the unrestricted count and incidence claim, not exact injectivity of prescribed log-linear and linear ramp masks. The other broader signal-space papers change sampling or quantifiers.",
+        "searches": [
+          "arXiv:1303.4458, Theorem 10",
+          "arXiv:2608.02450, Theorem 1 and remarks",
+          "arXiv:2205.08753, Theorem 1.6",
+          "Resultary: two-mask even-cycle retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work and CHECK.py",
+        "Resultary ca026361e2cc, d1a29ce552bb, cead19f36641",
+        "arXiv:1311.2745v4",
+        "arXiv:1303.4458",
+        "arXiv:2608.02450",
+        "arXiv:2205.08753",
+        "doi:10.3934/ipi.2021028 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ca026361e2cc uses phases 1,i, amplitude exponents with distinct pair sums and disjoint squared-amplitude intervals for antipodes; d1a29ce552bb also has disjoint antipodal intervals but uses a binary-difference phase code. In contrast, the intervals (q^a,2q^a) of the frozen design overlap. The 2026-11-08 odd-cycle result does not furnish any complex even-cycle design."
+        ],
+        "reasoning": "Both 2026-11-22 records imply the existential two-or-three-pattern result, even with lower contrast; neither implies the fixed-mask theorem. Same-day evidence establishes mathematical coverage of the existential layer without temporal priority.",
+        "searches": [
+          "RESULT.md, Finding and proof, ca026361e2cc and d1a29ce552bb",
+          "RESULT.md, Finding, cead19f36641"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaganathan–Oymak–Hassibi use aperiodic autocorrelation (DFT lengths at least 2n) and allow translation and conjugate-reflection as trivial associates in addition to global phase.",
+          "The other even-cycle records also invert to cyclic correlations, but their support codes are injective on pairs (amplitude products or ordered phase differences). The frozen geometric product depends only on the ordinary sum, and the linear phase difference depends only on the ordinary lag; these are not those pair codes."
+        ],
+        "reasoning": "The cyclic second-energy-moment inversion and overlapping antipodal candidate intervals must be checked for this different measurement map; aperiodic sparse uniqueness does not do so.",
+        "searches": [
+          "Resultary: deterministic bounded-contrast unoversampled Fourier masks for all complex two-sparse signals on even cycles",
+          "arXiv:1311.2745v4, introduction and Theorem II.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogued constructions have integer pair-sum or binary phase-difference codes, not this family. The older odd-cycle record explicitly includes the all-real even-cycle obstruction."
+        ],
+        "reasoning": "The claim is an infinite explicit design rather than a tabulated finite invariant; the relevant exact-construction catalogue comparison shows substantial overlap, but no duplicated mask formula or equivalent exact recovery proof for the frozen profile.",
+        "searches": [
+          "Resultary published exact even/odd two-sparse masked Fourier constructions, RESULT.md for ca026361e2cc, d1a29ce552bb and cead19f36641"
+        ]
+      },
+      "rationale": "This pass is for injectivity of the specifically prescribed geometric amplitude profiles and linear phase ramp. Existence of a bounded-contrast even-cycle design and the real-mask obstruction are covered by other catalogued results; neither is credited as a distinct contribution. In particular, three is not the optimal unrestricted mask count. The stronger two-mask existence theorems do not assert injectivity for these prescribed masks or supply the moment disambiguation where the amplitude-pair product code is not injective.",
+      "residual_risks": [
+        "Same-day comparison records do not establish temporal precedence.",
+        "Li–Li 2021 full-text comparison remains unresolved; there could be an earlier equivalent fixed-family result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominates unrestricted count; different design.",
+          "evidence": [
+            "Formula E_j=RB_j, E_(j+h)=RB_j+j+1; distinct pair sums and disjoint antipodal intervals; quadrature via phases 1,i."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-optimal-two-mask-fourier-retrieval-of-two-sparse-signals-on-ever--ca026361e2cc/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–4 opening, relationship to prior work",
+          "method": "Resultary search and local mirror statement/proof inspection",
+          "title": "Optimal two-mask Fourier retrieval of two-sparse signals on every even cycle",
+          "trigger": "Same signal class, fewer masks"
+        },
+        {
+          "assessment": "Dominates existence/count, but does not justify the frozen overlapping-interval design.",
+          "evidence": [
+            "Uses φ_a=δ2^a/2^N and disjoint antipodal intervals, not a half-Nyquist ramp with energy-moment resolution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-almost-flat-fourier-masks-recover-every-complex-two-sparse-s--d1a29ce552bb/RESULT.md",
+          "material_read": "Finding and proof through antipodal support identification",
+          "method": "Resultary search and local mirror statement/proof inspection",
+          "title": "Two almost-flat Fourier masks recover every complex two-sparse signal on even cycles",
+          "trigger": "Stronger count, N range and near-flat existence"
+        },
+        {
+          "assessment": "Covers the all-real obstruction, not the even complex-mask construction.",
+          "evidence": [
+            "Two positive real masks suffice in odd dimension; any real-mask collection fails in even dimension."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Sharp two-mask Fourier recovery of complex two-sparse signals on odd cycles",
+          "trigger": "Explicitly cited odd/even baseline"
+        },
+        {
+          "assessment": "Different sampling and ambiguity group.",
+          "evidence": [
+            "Theorem II.1 treats almost-everywhere aperiodic support recovery for k≥3, with a separate discussion of k≤2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.2745",
+          "material_read": "Introduction and Theorem II.1, p. 2",
+          "method": "Primary PDF inspection",
+          "title": "Sparse Phase Retrieval: Uniqueness Guarantees and Recovery Algorithms",
+          "trigger": "Sparse uniqueness in a related autocorrelation model"
+        },
+        {
+          "assessment": "None gives this fixed cyclic design.",
+          "evidence": [
+            "Random logarithmic-mask injectivity; fixed-signal random PhaseLift; continuous L2 three-mask uniqueness, respectively."
+          ],
+          "identifier_or_url": "arXiv:1303.4458; arXiv:2608.02450; arXiv:2205.08753",
+          "material_read": "Theorem 10 p. 8; Theorem 1 and remarks pp. 5–6; Theorem 1.6 p. 5, respectively",
+          "method": "Primary PDF passage inspection",
+          "title": "Phase retrieval from power spectra of masked signals; PhaseLift for Coded Diffraction Patterns; Uniqueness of phase retrieval from three measurements",
+          "trigger": "Potentially stronger general-signal or three-mask guarantees"
+        },
+        {
+          "assessment": "No full-text coverage judgment.",
+          "evidence": [
+            "Not used as evidence excluding overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/ipi.2021028",
+          "material_read": "Bibliographic identification only; full text not retrieved from journal/DOI routes",
+          "method": "Bounded lawful OA attempts",
+          "title": "Phase retrieval from Fourier measurements with masks",
+          "trigger": "Potential finite complex-mask predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a natural alternative design when one wants smooth elementary profiles: all three masks have constant log-amplitude step and constant phase step, and the complex ramp gives exact quadrature at every antipode without a coded coordinate sequence. Pair-sum collisions and overlapping antipodal moment intervals prevent the simpler two-mask support tests from being substituted; the third intensity supplies a mathematically useful way around those constraints. This is value as a structured design and a reconstruction argument, not as a mask-count, contrast, or noise-stability improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

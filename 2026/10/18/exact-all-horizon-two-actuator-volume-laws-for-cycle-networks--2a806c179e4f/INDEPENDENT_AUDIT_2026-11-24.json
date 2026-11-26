@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:08:48.258297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing W=KK^T and changing the state rows to real Fourier coordinates isolates each repeated frequency into a 2-by-2 projected input block with determinant (2/n) sin(2 pi k d/n). A singular block is rank deficient for all time; otherwise factoring it out leaves two independent time-monomial channels. The constant scalar mode is symmetric; on even cycles the alternating mode is symmetric or antisymmetric according to d. This gives the four listed index ranges (and the two in odd order). The products of squared sines follow by pairing conjugate nontrivial roots in the product of 1 minus roots of unity; the gcd obstructions are exactly gcd(d,n)>1 in odd order and gcd(d,m)>1 in even order. Early zeros follow from the column count or the oversized symmetric channel; at sufficient T the moment matrices are positive by distinct-node Vandermonde rank, including lambda=0. The even parity product difference is det(G_E)^2 times the squared inner product of the endpoint residuals, so the comparison is correctly non-strict. As an independent exact check, iterating K from the two coordinate columns using (A v)_i=(v_{i-1}+v_{i+1})/2 and fraction Gaussian determinant on C_6 (a=1,b=1/2) gives at T=4 the determinants 289/262144, 289/262144 and 0 for d=1,2,3. At T=3 the values are 1/4096, 0, 0. This checks the important even-distance threshold and shows that cross-parity equality can actually occur. The frozen verifier was inspected, not executed; its 440 stated exact checks are finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch and Leonard Sections II, IV-B and V-A analyze log pseudodeterminant for a continuous-time, infinite-horizon disagreement Gramian and report a cycle optimum at separation two.",
+          "Zhang et al. Section VI Theorem 3 establishes adjacent leaders for full rank, not determinant or equal-volume ties.",
+          "Resultary b2fcc454decb treats a damped directed shift and horizons that are cycle multiples, and optimizes balanced gaps."
+        ],
+        "reasoning": "The earlier work supplies well-motivated comparators but changing either time model, projection or shift operator changes the Gramian being optimized. Adjacent sufficiency alone cannot compare positive determinants.",
+        "searches": [
+          "Fitch and Leonard, controllability volume for networks and cycle leader optimization",
+          "Zhang, Camlibel and Cao, cycle controllability theorem",
+          "Resultary: finite-horizon cycle/ring determinant placement"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1109.3556",
+        "Fitch and Leonard (2016)",
+        "Zhang et al. (2011)",
+        "3aa273a4571a",
+        "d1a88d067af2",
+        "b2fcc454decb",
+        "1ddd581661b4",
+        "17423e28b87e",
+        "Liu and Ji DOI 10.1002/rnc.3870 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.10 equation (9) in the inspected arXiv PDF states gcd of the cyclic gaps must be 1 for its independent node inputs on squarefree-length cycles. For C_6,d=2 that gcd is 2; the direct four-time Gram calculation above is strictly positive, and the interior Fourier blocks have nonvanishing sines at k=1,2. Thus the printed rank statement cannot be used as an equivalent under these hypotheses.",
+          "For T>m the observation matrix is rectangular; the known square determinant at T=m does not determine its Gram determinant. In particular the even-distance class may turn from singular to positive, and the required comparison is between two different moment-Gram products."
+        ],
+        "reasoning": "The decisive extension is the exact all-horizon factorization and the residual-correlation comparison, not an invocation of a gcd rule or the fact that an adjacent pair spans.",
+        "searches": [
+          "Parlangeli and Notarstefano, Theorem 4.10 equation (9)",
+          "3aa273a4571a, Finding and assumptions",
+          "Fitch and Leonard, Section V-A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3aa273a4571a gives |det O|=N^(1-M)|V_- V_+| at N=2M with M time samples and gcd(d,N)=1, zero otherwise.",
+          "For the real symmetric affine Laplacian operator O=K^T in the corresponding setup. At T=m the Gram determinant is |det O|^2, and the two squared Vandermondes are the two odd-distance H_m factors."
+        ],
+        "reasoning": "There is exact dual coverage of the minimum-horizon even-cycle slice; it does not give the longer-horizon two-channel Gram products or odd cycles. The later catalogue date alone gives no priority or independence conclusion.",
+        "searches": [
+          "Resultary: two sensor observation determinants and two actuator cycle Gramians",
+          "Cycle reachability/observability arXiv:1109.3556"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3aa273a4571a explicitly tabulates the even minimum-horizon arithmetic cases as a theorem; d1a88d067af2 gives low-pass two-sensor volume formulas with sine products, not full-state placements.",
+          "1ddd581661b4 gives a single-input Kalman determinant on a cycle with one weighted edge; 17423e28b87e treats noisy leaders on complete-graph coronas with inverse-trace objective."
+        ],
+        "reasoning": "Exact indexed results cover specific neighbouring problems and one exact slice, not the full parameter- and horizon-dependent determinant or parity ordering.",
+        "searches": [
+          "Resultary: all-horizon cycle reachability/observation volume and two-leader gaps"
+        ]
+      },
+      "rationale": "The supported distinct content is the full-state determinant factorization and placement comparison across all horizons and both cycle parities, including the even-distance branch at T>=m+1. Earlier rank and volume results and an exact indexed minimum-horizon slice overlap but do not imply the entire classification. This is a scoped comparison, not historical priority or a claim that adjacent controllability was new.",
+      "residual_risks": [
+        "Liu and Ji full text was not accessible on the bounded lawful routes; this leaves a named comparison risk.",
+        "No exhaustive historical claim about equivalent finite-horizon volume formulas or ordering of indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact minimum-horizon slice; broader evolution for that slice, narrower horizons and parity",
+          "evidence": "Precisely M samples at N=2M with distinct spectral values, and |det O|=N^(1-M)|V_- V_+| on the coprime class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a",
+          "material_read": "RESULT.md Finding and Assumptions; opening passage contains O, V_- and V_+",
+          "method": "Local mirror bounded inspection at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal finite-time information volume for two sensors on even cycles",
+          "trigger": "Exact observation determinant on the same cycle, dual to the reachability matrix"
+        },
+        {
+          "assessment": "Reachability precursor, with a discrepant gcd statement in an even case; no exact volume theorem",
+          "evidence": "Equation (9) requires gcd of the successive gaps to be one and the theorem formulation includes the prime factor 2; C_6,d=2 is a direct counterexample to using this exact condition for the frozen independent-input model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "Independent inputs on p.7, Theorem 4.10 equation (9) pp.21-22, Corollaries 4.11-4.12",
+          "method": "OA primary PDF, offsets about 18500, 65700 and 70000",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Same unweighted cycle and algebraic reachability criteria"
+        },
+        {
+          "assessment": "Relevant placement comparison, different objectives and time setting",
+          "evidence": "Volume is the log product of nonzero Gramian eigenvalues; the cycle example chooses leaders with one intervening vertex under its objective.",
+          "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_Leonard_ECC_16_final.pdf",
+          "material_read": "Section II, Section IV-B Theorem 2, and Section V-A cycle example",
+          "method": "OA primary PDF at offsets about 13500, 23200 and 30300",
+          "title": "Optimal Leader Selection for Controllability and Robustness in Multi-agent Networks",
+          "trigger": "Leader optimization by controllability volume for a cycle"
+        },
+        {
+          "assessment": "Rank overlap only",
+          "evidence": "Adjacent leaders suffice; the C_6 antipodal pair is offered as uncontrollable.",
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-ecc-2011/data/papers/0872.pdf",
+          "material_read": "Section VI Theorem 3 and cycle discussion",
+          "method": "OA primary PDF p.6, offset about 40500",
+          "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+          "trigger": "Prior adjacent-leader result"
+        },
+        {
+          "assessment": "Low-pass, not full-state Gram law",
+          "evidence": "Uses a low-pass spectral space with a sine-product gap factor and different five-mode optimizing gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-raw-trajectory-volume-factorization-and-optimal-two-sensor-gaps--d1a88d067af2",
+          "material_read": "Finding and Proof",
+          "method": "Local mirror bounded passages",
+          "title": "Raw-trajectory volume factorization and optimal two-sensor gaps on finite cycles",
+          "trigger": "Related sine-product observation volume"
+        },
+        {
+          "assessment": "Different state operator and horizons",
+          "evidence": "Damped directed shift, horizons that are cycle multiples, and balanced gaps, rather than a symmetric Laplacian cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-simultaneous-four-criterion-optimal-placement-of-two-actuators-o--b2fcc454decb",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror bounded passages",
+          "title": "Simultaneous four-criterion optimal placement of two actuators on a damped directed ring",
+          "trigger": "Earlier exact actuator placement for a finite cycle-shaped network"
+        },
+        {
+          "assessment": "Full-text comparison remains limited",
+          "evidence": "No negative inference about coverage is made from this access result.",
+          "identifier_or_url": "https://doi.org/10.1002/rnc.3870",
+          "material_read": "Bibliographic information; no full text inspected",
+          "method": "Bounded lawful retrieval returned 403 and no OA deposit was found via DOI recovery",
+          "title": "Controllability of Multiagent Systems Based on Path and Cycle Graphs",
+          "trigger": "Potentially material cycle controllability source cited by the frozen result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural determinant placement problem, more finely than reachability: it shows exact ties of geometrically different separations, distinguishes full-rank even placements from optimal ones when appropriate, and proves a universal weak parity ordering over all affine parameters and horizons. These are usable design conclusions and not a re-labeling of rank or a numerical best-placement example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

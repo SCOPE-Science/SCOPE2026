@@ -1,19 +1,21 @@
-# Scientific review: sharp scattered-triple spectra inside binary Parikh-matrix classes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The gap bijection partitions each binary word into exactly \(a+1\) one-gaps. Each one contributes \(j\) scattered `01` pairs and \(j(a-j)\) scattered `010` triples, giving the generating product directly. Rewriting as a bounded nondecreasing integer partition with fixed sum reduces the endpoint formulas to strict convexity of the sum of squares. Balancing and mass-transfer arguments are strict and prove uniqueness, including divisibility and zero/maximum-pair boundaries. Direct positional enumeration and an independently implemented polynomial coefficient computation corroborate all formulas over their stated finite ranges. These checks do not prove the unrestricted formulas; the bijection and convexity proof do.
+PASS
 
-## Originality — PASS against available evidence
+Independently reconstructed the bijection from a word to the nondecreasing list x of numbers of zeros preceding each one. Each one contributes x to 01 and x(a−x) to 010, so fixed t makes the problem the extremization of sum(x²) on a bounded integer simplex. Smoothing a pair differing by at least 2 strictly decreases the sum of squares; the only possible minimizer has b−r entries q and r entries q+1. Transferring one unit from a smaller positive interior entry to a larger interior entry strictly increases the sum of squares; the only possible maximizer has floor(t/a) entries a and at most one residual interior part. Sorting changes neither objective nor feasibility; each forced multiset corresponds to one word. The latter construction also covers every t including endpoints and degenerate a=1 or b=1. Gap multiplicities are independent nonnegative integers before fixing b,t, so their geometric series prove the joint product coefficientwise. Reducing x² modulo 2 yields the parity law; the balanced half-area example has the claimed unbounded difference. The supporting scripts and recorded outputs check finite grids only: the positional and partition checks report 833 and 3125 fibers, respectively; the all-parameter result follows from the proof.
 
-The strongest directly relevant primary source with accessible full text, Richomme (2025), supplies the 2-binomial partition lattice and fair-word least-squares analysis, not the refined quadratic-weight positional triple statistic. The motivating Fazekas–Huang–Mercaş (2026) paper establishes subsequence universality criteria and probability approximation in Parikh fibers according to its accessible abstract; its full text was inaccessible, leaving a material priority risk. Three other relevant complete published results were inspected: one evaluates an interior count/existence criterion, one the unconditioned `010` frequency distribution, and one a fixed-run-number maximum. None of their statements gives the joint classwise coefficient distribution with uniquely sharp endpoints. The standard partition bijection and quadratic balancing themselves are not claimed as new. Searches cannot establish global priority; an unindexed or uninspected equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Fixing \(a,b,t\) is exactly fixing all binary scattered-subsequence observations up to length two, a natural information constraint in reconstruction and Parikh-matrix algorithms. Equation (2) resolves all possible multiplicities of the next three-letter statistic without enumerating the exponentially large class, while (1) solves both extremal questions for every feasible set of data with unique attaining words. The explicit unbounded ambiguity family gives a sharp interpretation: equality of all length-two observations does not bound the multiplicity error of a designated length-three pattern. The all-parameter distribution is the intended mathematical object, not an arbitrarily chosen numerical slice.
+The distinct result supported by the available evidence is the exact two-sided classwise count problem and its unique extremizers, with a joint 01/010 enumerator. The partition representation, quadratic gap weights, and convex optimization technique are not new. The originality judgment rests on the fixed-area refinement and sharp all-fiber theorem, not on re-marking independent gaps alone.
 
-## Limitations and literature comparison
+## value
 
-Intermediate support may have holes; no interval assertion is made. The work is restricted to binary `010` and equivalent `101`. The 2026 motivating source was checked at abstract level only; its body was not inspected, and historical priority is not independently certified. The 2025 source and three relevant complete public mathematical statements were read and compared by implication. Finite independent scripts are corroboration, not a proof in place of the mathematical argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2-binomial classes are a natural information-loss setting. Knowing exactly what alternating triple multiplicity that data permits, and which words realize the ends, gives a sharp and usable measure of information loss. The joint enumerator also answers multiplicity queries beyond presence, while the half-area family quantifies an unbounded spread. The value is in the complete fixed-area answer and uniqueness, not the classical exchange moves or a few computed examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

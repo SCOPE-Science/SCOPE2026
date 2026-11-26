@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is fully quantified for arbitrary Latin squares of integer order \(n\ge2\), with independent uniform row and symbol permutations. The derivation uses a zero-divergence skew-symmetric ordered-row comparison array, an explicit adjacent-pair covariance calculation, and the directed-cycle covariance identity \(\operatorname{Var}(w_{ab})=(n-2h_{ab})/12\). Summing \(h_{ab}\) over row pairs gives twice the intercalate count. The \(n=2\) degeneracy and the rigidity boundary are separately accounted for. Exact factorial-orbit enumeration passed for five cyclic orders, one noncyclic group order, and all 56 reduced squares of order five. These computations confirm but do not replace the symbolic proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The September 2026 foundational paper defines the statistic and gives a deterministic weighted-comparison description, not the all-order second moment averaged over both permutations. Its September 2026 sequel focuses on a cyclic-square row-reordering inventory. The 2025 intercalate source supplies the classical sharp count and group-table rigidity, explicitly treated as prior knowledge. Relevant database records concern random permutation pairwise comparisons or Latin-square autotopism censuses, not their intercalate-dependent coupling here. No matching formula or stronger covering implication was found in these comparisons. Search nonappearance is not novelty proof; other preexisting treatments of covariance in Latin-square permutation orbits could still exist.
+PASS
 
-## Value — PASS
-The moment identity creates an exact structural bridge between an ascent distribution recently introduced for Latin squares and the extensively studied count of intercalates. It determines an entire orbit second moment from a single intrinsic isotopy invariant, permits separation of orbit statistics without enumerating factorially many labelings, and interprets the zero-variance case via the classic maximal-intercalate extremum. This is not merely a finite table, a symbol renaming, or a numerical special case.
+For each fixed symbol order, the centered row-pair weights y_ab=w_ab−n/2 are skew-symmetric with row sums zero: across columns, each rank of the first row appears once. Writing T=Σ_{a≠b} y_ab², the row-order mean is n(n−1)/2. For n≥3 the sum of y_ab y_bc over distinct triples is T, because the unrestricted product sums vanish and the omitted a=c terms sum to −T. Disjoint row edges have zero covariance by reversal, giving conditional variance (n+1)T/[n(n−1)]. For a relative derangement with h two-cycles there are h opposite edge pairs with covariance −1/4 and n−2h directed two-step pairs with covariance −1/12; disjoint comparison edges are independent. Thus the symbol-averaged squared weight is (n−2h)/12 and the sum of h over ordered row pairs is 2I(L). The conditional mean is constant, giving the stated formula. At n=2 every comparison count is one and the variance is zero. Equality at general n forces all relative row permutations to be involutions; after making one row the identity, the rows are commuting involutions generating a faithful transitive abelian group, hence a regular elementary abelian 2-group. Conversely its table has all relative derangements made of two-cycles. Column permutations leave the score invariant and each isotopic square has the same number of preimages by the stabilizer formula. A fresh bounded direct enumeration, summing the score and its square over every row/symbol relabelling pair with exact integer arithmetic, gave (I,mean,variance)=(1,1,0),(0,3,1),(4,6,10/9) for cyclic orders 2,3,4 and (12,6,0) for the elementary abelian order-four table. This corroborates the symbolic proof; the broader frozen verification runs were not independently replayed.
 
-## Closest sources and limits
-Mirzavaziri–Yaqubi, arXiv:2609.25100v1, Definition 4.1 and Theorem 4.9; their follow-up arXiv:2609.28808v1; Gill–Mammoliti–Wanless, DOI 10.1002/rsa.70015, Section 2. The theorem asserts no more than the first two orbit moments. Independent scrutiny of historical priority and proof details remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the arbitrary-fixed-square second moment under independent uniform row and symbol action and its collapse to the single statistic I(L). The ascent statistic, symbol-comparison representation and cyclic row-order special problem are prior. Neither the mean alone nor the extremal-intercalate classification alone is credited as a new result.
+
+## value
+
+PASS
+
+This quantifies how the natural ascent statistic varies within a fixed isotopy orbit, making a statistic of all randomized adjacent-row comparisons exactly recoverable from a local subsquare count. The collapse is specific and informative: for example, at order four the cyclic and elementary-abelian tables have different variances, the latter zero. The contribution is the general identity, not exhaustive small cases or an already known extremal classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fano complex is exactly the two-dimensional 7-point matroid independence complex. Nullhomotopies of its seven missing-line cycles prove simple connectivity. Armstrong's theorem is applied only after establishing it; fixed points are verified for each non-seven element. The only seven-divisible subgroup types are explicitly enumerated and their normal-generation cases are proved. Exact integer/finite group enumeration covers 179 subgroups and every barycentric flag orbit; it is checked under arbitrary generator adjunction to ensure completeness. The Singer quotient has a concrete 1-vertex, 3-edge, 4-triangle CW presentation, with three generator eliminations leaving two equal degree-seven attaching words. Hurewicz/Whitehead justify each simply connected two-dimensional quotient's wedge classification. Finite computations check exhaustive finite groups, not an unbounded empirical extrapolation.
+## correctness
 
-## Originality — PASS relative to accessible sources
-The full rational homology character of the Fano independence complex, previously established, already determines the rational quotient second Betti numbers; no novelty is claimed for those numbers. The published integral Singer-module decomposition also predates this finding and does not determine the quotient's two-cell attaching words. Matroid shellability and equivariant matroid homology theory likewise do not establish the geometric quotients' integral homotopy types. Exact indexed and accessible local-record comparisons located no statement implying the complete all-179-subgroup homotopy classification. Unindexed prior calculations or a previously unlocated equivariant orbit-space result remain possible.
+PASS
 
-## Value — PASS
-A complete, natural classification of every subgroup quotient of a canonical finite simple matroid distinguishes a genuinely nontrivial Moore-space fundamental group from sphere-wedge or contractible quotients, and it resolves attaching-map information missing from rational character calculations. The exceptional Singer type and uniform formula make the result structurally useful rather than an arbitrary case enumeration. The classification is finite, exact, and reproducible, with strong analytic arguments for the homotopy claims.
+The replacement proves the same full ordinary orbit-space classification while deriving the Singer row explicitly from previously published attaching data. Cone each missing Fano-line loop to an outside point; thus all triangle loops in the complete one-skeleton die and the independence complex is simply connected. An independent exhaustive generator-adjunction computation (branches/71688266-17ef-453a-b90f-70f9e1543c18/independent_fano_audit.py; output independent_audit_full.txt lines 1–19) found all 179 subgroups and matches the 12 profiles, all flag-orbit Euler computations, and the four oriented Singer boundary words. Independently, the signed invariant-face counts give Lefschetz Euler values 14, −2, 2, 2, 0; for example an involution fixes three points, acts on three edges pointwise and two by swaps, and stabilizes four triangles with reversed orientation, giving 3−(3−2)−4=−2. Flags of distinct ranks have no inversions. Including the added Sylow-three action arguments at orders twelve and twenty-four, the group labels follow from the census. Only order-seven elements lack geometric fixed points; the stated commutator argument in order 21 and simplicity at order 168 eliminate those elements in the Armstrong quotient outside the order-seven case. Thus the eight order-seven subgroups are exactly the exceptions. For the other cases, Hurewicz and homological Whitehead give wedges of χ−1 two-spheres in this dimension. The repaired Singer proof identifies the same two-skeleton, makes homotopic changes to the other attaching maps before canceling the two generator-defining cells, and leaves two degree-seven disks on a circle; the second is attached along a nullhomotopic loop in the first Moore complex. The original finite checker was inspected without execution; the separate finite enumeration does not formally verify these topological deductions.
 
-## Literature and scientific limits
-Closest statements are the publicly available rational Fano character and integral Singer representation. Ardila–Castillo–Samper provide topological matroid background; Moci–Pezzoli provide a different representation-level framework. Absolute novelty beyond indexed and accessible material is unverified; the scope is restricted to the Fano rank-three matroid and ordinary quotients.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen discussion did not credit the closest prior cap result, which already gives all four attaching maps and homotopy cancellations for the geometric two-skeleton and thereby mechanically gives the Singer row. The replacement explicitly withdraws independent novelty for that row and focuses the claim on the complete integral classification across the subgroup lattice. No inspected source covers that remaining claim. Character and module data and the numerical sphere-rank input are also credited as known.
+
+## value
+
+PASS
+
+The natural finite symmetry family has qualitatively different orbit spaces: contractible, wedges of spheres of several ranks, and one exceptional cyclic type. A complete integral classification tells a researcher exactly when isotropy kills the whole fundamental group and when a free cyclic quotient retains torsion, information not given by the earlier rational table or cyclic calculation. The exact census and topology address the whole subgroup lattice rather than a selected subgroup or a recomputation of known character data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

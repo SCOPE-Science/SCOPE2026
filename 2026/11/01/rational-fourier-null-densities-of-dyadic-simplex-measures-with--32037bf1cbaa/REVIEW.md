@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof establishes that the infinite Fourier product vanishes exactly at a finite factor, then derives the exact cyclotomic coefficient-balance criterion for each factor. The reduction from a fixed zero exponent to independent Haar-uniform 2-adic exponents uses a translation-invariant root sum and a measure-preserving change of variables. Conditional binomial splitting gives a finite recursion on even partitions; the probability of remaining live vanishes geometrically, justifying the infinite-scale density and the interchange with lattice-cube limits. All four eight-atom state transitions and rational hitting probabilities were re-derived and checked using a standalone exact-rational script; finite residue enumerations separately test its initial coefficients.
+## correctness
 
-## Originality
-PASS under bounded literature comparison, not a claim of exhaustive priority. Lam–Leung gives general cyclotomic relations, and the affine-IFS literature gives Fourier products, but neither inspected source was found to state a rational-density theorem for all even-digit dyadic simplices or the eight-atom first-hit law. Relevant published research records were compared with the exact statement, including finite cyclic four-point Fourier-zero classification. Historical results on the same simplex family giving extremal Fourier magnitudes and prime-base Fourier-null density do not imply the present dyadic eight-atom distribution. Strichartz's 1993 work remains a risk because its full text was inaccessible; the risk was not treated as evidence of noncoverage.
+PASS
 
-## Mathematical value
-PASS. The family has a natural Fourier-multiplier nullspace invariant: the asymptotic proportion of integer characters annihilated by convolution with a canonical singular affine self-similar measure. The general rationality and finite-state theorem is structural, and the exact eight-atom first-zero generating function captures genuinely multiscale cancellation and finite-resolution nullspace counts, rather than merely recomputing a single mask's zeros. The claim is limited to integer frequencies and does not assert orthogonal exponential bases or decay rates.
+For fixed integer frequency the mask defects from one are summable, so a product without a finite zero factor is nonzero. At level j the unique rational cyclotomic relation of degree below 2^j pairs coefficient counts at residues separated by 2^(j−1); this is equivalent to exactly balanced refinements and is impossible at odd K. For even K, subtracting the distinguished exponent from K independent Haar exponents preserves the zero events and leaves K−1 independent Haar differences. Conditional on labeled prefix classes the next bits are fresh independent fair bits; hence the sorted occupancies suffice even when conditioning on all past failures to hit. An odd prefix cannot have only even descendants at any later prefix, and all live non-self moves strictly refine the number of blocks. The self-loops have weights 2^(b−K)<1, so descending block count proves rationality. At fixed depth L, both the event already hit and the event still live are periodic. The latter has Haar mass bounded by (1−min_s q(s))^L; bounding the lattice proportion between the hit count and the hit-plus-live count and then sending L to infinity proves centered-cube density. Independent enumeration of eight labeled bits recovers the four live states and the exact rational generating function and total; independent multinomial enumeration of anchored occupancy histograms mod 8 gives first-hit counts 573440, 76160, 11795 out of 8^7. This also distinguishes cumulative count 5075 from level-two first-hit count 595 mod 4, despite shorthand in the verification notes.
 
-## Limitations and closest literature
-The cyclotomic ingredient is covered by Lam and Leung (arXiv:math/9511209). Standard IFS Fourier products are treated by Jorgensen and Pedersen (arXiv:math/0604087) and Dutkay and Jorgensen (arXiv:0808.2946). The fully inaccessible work by Strichartz, *Self-Similar Measures and Their Fourier Transforms. III* (1993), is an unresolved historical-comparison risk. No independent mathematical validation has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the even-occupancy first-hit density theorem and the eight-atom law, not for the standard Fourier product, prime-power cancellation rule, or its immediate odd-K consequence. The strongest inspected exact catalogue results give K=2 and K=4 at dyadic scale, and the closest original Sierpinski comparison describes a four-digit continuous zero locus. None of those mathematically implies the all-even-K rational centered-cube limit or the K=8 first-hit law. Related inaccessible primary texts remain explicit bounded risks.
+
+## value
+
+PASS
+
+The natural density measures the integer characters annihilated by convolution with a canonical dyadic simplex measure. The finite-state reduction explains rationality despite infinitely many overlapping zero levels, and the first-hit law gives exact null-frequency counts at arbitrary fixed resolutions. The structural all-even-K theorem, rather than the isolated fraction or the elementary odd-K observation, provides the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

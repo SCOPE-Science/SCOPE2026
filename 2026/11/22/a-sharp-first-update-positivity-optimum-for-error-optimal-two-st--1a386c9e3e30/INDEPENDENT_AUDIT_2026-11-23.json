@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:51:26.678353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Corollary 4.2 gives the stated coefficients. Multiplying the scalar recurrence by (3−κ)(1+κ) gives the stated F over a positive denominator. For 0<κ≤1, the maximum of exp(−z)(κz−1−κ+κ²) on z≥0 is κ exp(−2−1/κ+κ); log(2/κ)−2−1/κ+κ increases to log 2−2<0, so ∂z F<0, including at the extended endpoint. At κ=0 the numerator is 4 exp(−z)−1. The initial signs and negative limits give the unique crossing for each κ<1. For z>0, B>0, C<0, and B+2C<0 by 2 tanh(z/2)<z, so the quadratic's maximum is interior and its envelope strictly decreases (evaluate both steps at the later maximizer). The discriminant is positive at log 4 and at z=2 equals 32 exp(−2)(4 exp(−2)−1)<0. This proves uniqueness of both the frontier maximum and its maximizing κ. The sign at log 4 factors as κ[(2−log 4)−2(log 4−1)κ], including both equality cases. Independent 55-digit Decimal bisection on (log 4,2) gave z*=1.51721474033625558337747…, κ*=0.36687163516240389375386…, and κc=0.79434972478104491540269…. This checks the digits, not the analytic uniqueness. Frozen check.py and VERIFICATION.md were read, not executed. The result is for the first output from the exact pair on scalar decay, not for future outputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirrored 11/2 theorem classifies nonnegativity at every iterate for positive start ratios, with a robust ceiling z=3/2 at κ=1/2 and a separate tuned region.",
+          "The frozen AUDIT.json lines 110–119 describes the unresolved 11/8 summary as an all-iterate result for a backward-Euler start. This is a secondary description, not an independently verified full text."
+        ],
+        "reasoning": "Even an arbitrary-start all-iterate theorem provides only a sufficient region for positivity of this first output. A backward-Euler start has a different ratio, 1/(1+z). Neither the inspected theorem nor the described second one supplies the claimed necessary-and-sufficient single-output frontier.",
+        "searches": [
+          "Resultary 2026/11/2, record ending 89235ce0d52d, Finding",
+          "Resultary exact-title and ID lookup for 2026/11/8, record ending d8e0bc3614f5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22685, Corollary 4.2, p. 17, Eq. (25)",
+        "Resultary 2026/11/2/…89235ce0d52d, mirrored RESULT.md Finding",
+        "Frozen AUDIT.json lines 110–119 and local lookup for Resultary 2026/11/8/…d8e0bc3614f5 (secondary evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At κ≈0.36687 the earlier all-iterate bound zc≈1.0795 is already exceeded by z*≈1.51721, although the exact-start first output is zero at z* and positive immediately below it.",
+          "The original coefficients permit calculation of F; the sharp discriminant crossing and factorization at log 4 require a separate analysis of the exact start."
+        ],
+        "reasoning": "The comparison exhibits a region where failure of all-iterate nonnegativity does not imply a failed first update. Thus the prior classification cannot be inverted to obtain the frozen maximum or crossover.",
+        "searches": [
+          "Resultary 89235ce0d52d, RESULT.md, Finding",
+          "arXiv:2610.22685 p. 17, Eq. (25)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase diagram gives y_(n+2)=A y_(n+1)−B y_n, so its general start-ratio formula at y1/y0=exp(−z) is exactly F divided by the positive denominator.",
+          "The coefficient paper optimizes truncation error at specified stiff damping, not the nonnegativity sign or the zero envelope of this first output."
+        ],
+        "reasoning": "Do not count the first-output formula as new. The extra sign, uniqueness, and envelope analysis establishes the specific optimum and BDF2 crossover, neither stated nor supplied by the inspected phase-diagram classification.",
+        "searches": [
+          "Resultary: Complete positive-start phase diagram for optimized two-step stiff integrators, path ending 89235ce0d52d",
+          "arXiv:2610.22685, Corollary 4.2, Eq. (25)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact published phase-diagram extremizer in the inspected text is (κ,z)=(1/2,3/2), for robust persistence. The coefficient result instead identifies BDF2 at κ=0 without tabulating exact-start threshold values."
+        ],
+        "reasoning": "Neither is a table of z1 over the required domain or a stronger classification of this event. An unindexed table or an uninspected appendix could still affect priority.",
+        "searches": [
+          "Resultary records 89235ce0d52d and d8e0bc3614f5 (title/ID and comparison)",
+          "arXiv:2610.22685 §4.1, Corollary 4.2, original source"
+        ]
+      },
+      "rationale": "The coefficients, generic scalar recurrence, and hence the unoptimized first-output expression are prior or direct substitutions. The supported increment is the unique global exact-start, one-output optimum and exact comparison with BDF2. The strongest inspected positive-start phase diagram classifies an inequivalent all-iterate event; its failure condition cannot decide the first-update sign. Priority remains qualified by the unresolved second source and by the scope of the search.",
+      "residual_risks": [
+        "Original of the cited 2026/11/8 record was not obtained; ancillary statements may go beyond its reported backward-Euler all-iterate result.",
+        "A specialized analysis or numerical table using another formulation may not be indexed. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the coefficient premise and determines the update expression by substitution, not the optimized exact-start sign margin.",
+          "evidence": [
+            "Eq. (25) specifies the two-step family; κ=0 gives BDF2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22685",
+          "material_read": "Corollary 4.2, printed p. 17, Eq. (25), around extracted offset 50700.",
+          "method": "Open-access PDF passage extraction.",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Identical error-optimal L(κ) family and BDF2 endpoint."
+        },
+        {
+          "assessment": "Material overlap on the general recurrence; different optimized event, no implication of the exact first-update optimum from its all-iterate bounds.",
+          "evidence": [
+            "Arbitrary positive start ratios and all-iterate nonnegativity; z=3/2 at κ=1/2 for the robust all-start optimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+          "material_read": "RESULT.md, Finding, offset 0; snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary discovery and local mirror passage inspection.",
+          "title": "Complete positive-start phase diagram for optimized two-step stiff integrators",
+          "trigger": "Same L(κ) family and scalar positivity with positive starts."
+        },
+        {
+          "assessment": "Unresolved as a full-text comparison; reported quantity is all-iterate nonnegativity after a backward-Euler start, not the target benchmark.",
+          "evidence": [
+            "The frozen source reports a piecewise all-iterate boundary. The access limitation is not evidence of noncoverage."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-sharp-positivity-phase-boundary-for-error-optimal-two-step-sti--d8e0bc3614f5",
+          "material_read": "Frozen AUDIT.json lines 110–119, a secondary description; no independently inspected original passage.",
+          "method": "Local exact-title and ID search and mirror path attempted; file not obtained.",
+          "title": "A sharp positivity phase boundary for error-optimal two-step stiff multistep methods",
+          "trigger": "Possible same-family positivity coverage under another start."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first-output margin is a natural comparison of two-step schemes under the same error-free starting data. It exposes a different optimizing damping parameter from the robust all-iterate objective and a mathematically sharp interval in which damping improves rather than worsens the BDF2 margin. The ordinary single-output diagnostic can therefore give a positive answer well beyond persistent positivity; its sharp boundary is useful without being a safe integration stepsize or a claim about nonlinear behavior. The value rests on this distinction and the global optimization, not on the direct substitution F.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

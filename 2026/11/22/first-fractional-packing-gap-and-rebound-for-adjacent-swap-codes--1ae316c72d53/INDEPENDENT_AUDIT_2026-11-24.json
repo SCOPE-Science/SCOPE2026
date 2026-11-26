@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:08:00.421788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71, VERIFICATION.md and verify.py (inspected, not executed), certificate.json",
+        "Repaired RESULT.md (table, shortening proof, exact verification procedure and literature comparison) and SLOGAN.txt",
+        "Replay: python3 /workspace/branches/reproductions/record_5_swap.py <frozen certificate.json path>."
+      ],
+      "rationale": "Independently enumerated allowed sources via separated one-positions and all same-weight receivers via unrestricted position subsets. Adjacent-swap distance is L1 on sorted positions: each swap moves one coordinate by one, and moving toward targets can always proceed by the leftmost required left move (or rightmost required right move). The complete ball condition is distance <=1; the confusability condition for distinct sources is distance <=2. Reconstructed 40 graphs, computed size and counts by disjoint branching on the first chosen element of a closed neighborhood or none, and verified the 40 listed codebooks and all exact sparse rational packing/cover weights by full receiver incidence. The ten (M,P,N) triples agree exactly with the repaired table. The only fractional excesses are at (n,k)=(7,2),(9,4),(10,2), equal to 1/5, 1/5 and 1/3. Independently counted reversal-fixed maxima by weighted independent sets on compatible reversal orbits, excluding internal-conflict orbits and comparing the orbit-graph maximum with the ordinary maximum. The fixed counts were 4 and 0 at 7 and 8, and Burnside gives 30 and 12. For the added shortening, shifting the sorted coordinate a_i to a_i−i maps the separated source subsets bijectively to length n−k+1 unrestricted subsets of weight k, preserving the L1 distance and intertwining reversal. Strict received coordinates after shifting give exactly the shorter unrestricted constraints. A reachable weak tuple has a single repeated pair (x,x), with at most two strict sources by replacing it by (x−1,x) or (x,x+1); if both are valid they lie in the row at the strict tuple with pair (x−1,x+1). With one source its own row dominates. Thus the remaining rows are redundant by nonnegativity. This verifies the LP equivalence analytically and it was also rechecked for every finite block in the profile. Weight zero is the trivial singleton throughout. The repair does not change any theorem or certificate value; it changes the stated prior coverage and supplies the exact equivalence supporting that correction.",
+      "residual_risks": [
+        "The shorter-problem equivalence holds generally, but no general formula for its fractional or counting invariants is proved. Reversal counts are certified only for 7 and 8, not all ten lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The runlength paper prescribes leading zeros and a terminal 1, and focuses on asymptotic bounds. The unrestricted q-ary paper treats general bounds. The exact two-token path theorem gives integer maxima only."
+        ],
+        "reasoning": "Known exact integer statements are credited at the correct shortened lengths, and general bounds or marked-source results do not specify the finite fractional and census invariants.",
+        "searches": [
+          "Kovačević arXiv:1803.06117 runlength-constrained shift correction, source convention and asymptotic bounds",
+          "Kovačević–Kiah–Goyal arXiv:2509.06692 adjacent-transposition bounds",
+          "Gómez Soto et al. arXiv:1711.03682 pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Primary passages and fixed-weight table above; OEIS A057608 unrestricted totals and A085680 exact weight two",
+        "Local Resultary distinct matches and exact self-match 1ae316c72d53",
+        "Repaired RESULT.md exact shortening and component-wise coverage assessment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distinct ID 58c302debf1e uses directed 1→0 changes on the same source language and reports M=8, P=9 at n=7. Distinct ID 7abdf29f158b instead uses adjacent swaps on Dyck words through semilength five, with its own gap and reversal-complement census. The unrestricted fixed-weight table implies the ordinary capacities, even though the aggregate A057608 cannot be used directly."
+        ],
+        "reasoning": "The directed channel does not preserve weight, and the Dyck source does not become the required separated-coordinate subsets. Their fractional optima and optimizer counts do not propagate through the demonstrated shortening. Integer constants alone cannot imply gaps, equality rebounds or reversal multiplicities.",
+        "searches": [
+          "Local Resultary Findings at IDs 58c302debf1e, 7abdf29f158b, 74b5f0314151 and self-match 1ae316c72d53",
+          "A085684 exact statement transported under the coordinate bijection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shift a_i to a_i−i. Integer optima, optimizer counts, reversal and LP values transport to the shorter unrestricted fixed-weight problem. A085684 therefore already implies M_n by summing T(n−k+1,k); Gómez Soto et al. and A085680 specifically give T(n−1,2)."
+        ],
+        "reasoning": "What differs from prior covered claims is the fractional and census data, not the constrained name or source parametrization. Removing the repeated-coordinate output rows does not create a new LP invariant relative to the shorter instances; the contribution is evaluating it exactly.",
+        "searches": [
+          "Unrestricted fixed-weight adjacent transposition, token graph packings on paths and OEIS A085684/A085680",
+          "Resultary unrestricted token-path exact cases and fixed-weight fractional or reversal census",
+          "Fixed-weight coordinate shortening checked in the repair"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=1 through 10 the A085684 shortening yields block vectors (1,1), (1,1), (1,1,1), (1,2,1), (1,2,2,1), (1,2,3,2), (1,3,4,3,1), (1,3,6,6,2), (1,3,7,9,4,1), (1,4,9,13,9,2). Their sums reproduce the entire M profile. The exact fractional/count hit in the relevant convention was the assigned record itself. Resultary 74b5f0314151 covers unrestricted three-token integer packing, including a new length-13 case outside the needed sizes."
+        ],
+        "reasoning": "Exact integer coverage is established, not merely suspected. The inspected tables do not give the objective value of a fractional packing or the multiplicity or symmetry of maximizing sets.",
+        "searches": [
+          "OEIS A085684 fixed-weight triangle through length ten, A085680 weight two and A057608 unrestricted totals",
+          "Local Resultary exact shorter token-path packings and fractional / optimizer profiles"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired contribution: exact fractional packing and maximizing-codebook data through length ten, the first gap and rebound, and the specified reversal counts. Under a verified shortening isomorphism the whole integer-size sequence follows from published fixed-weight data, so the repair credits it as baseline, not novelty. The same isomorphism translates the remaining claims to unrestricted shorter fractional and counting problems; the inspected strongest exact prior tables contain integer sizes, not those invariants. Distinct same-date records were compared by their channel and source, not excluded by date.",
+      "residual_risks": [
+        "The search for distinct published fractional or optimizer tables is bounded, not proof of absence. Unindexed unrestricted fixed-weight computations could cover portions of the survivor. No separate novelty is attributed to known integer capacities or to routine shortening itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies all integer profile entries; does not tabulate P or N",
+          "evidence": "Use entry T(n−k+1,k) for each weight, and sum; for length seven the entries are 1,3,4,3,1.",
+          "identifier_or_url": "https://oeis.org/A085684",
+          "material_read": "Sequence definition and fixed-weight rows through length ten, web offset 0",
+          "method": "OA public table",
+          "title": "OEIS A085684: unrestricted single-adjacent-transposition code sizes by length and weight",
+          "trigger": "Exact integer coverage via coordinate shortening"
+        },
+        {
+          "assessment": "Exact prior implication for weight two after shortening, not a fractional or optimizer table",
+          "evidence": "Graph packing for unrestricted two-one words; at lengths n−1 gives (1,1,2,3,4,6,7,9) for n=3–10.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.03682",
+          "material_read": "PDF pp. 1–3, offsets 0, 3600 and 7000; compare exact OEIS A085680",
+          "method": "OA PDF and table passages",
+          "title": "The packing number of the double vertex graph of the path graph",
+          "trigger": "Exact unrestricted weight-two token-path theorem"
+        },
+        {
+          "assessment": "Pertinent framework but guarded conventions and mostly asymptotic bounds",
+          "evidence": "Requires starting with zeros and ending in 1; no implication of unguarded finite LP and reversal data from the inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.06117",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5000, definitions and endpoint convention",
+          "method": "OA PDF passages",
+          "title": "Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis",
+          "trigger": "Related constrained-source shift correction"
+        },
+        {
+          "assessment": "Different channel and optimum",
+          "evidence": "Directed 1→0 errors rather than adjacent swaps, (M,P,N)=(8,9,10) at length seven.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-fractional-shadow-packing-gap-for-fibonacci-constraine--58c302debf1e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The first fractional shadow packing gap for Fibonacci-constrained strings",
+          "trigger": "Same source and type of first gap, exact same-date result"
+        },
+        {
+          "assessment": "Different source language and symmetry",
+          "evidence": "Semilength-five Dyck profile M=9, P=19/2 and eleven optima, nine fixed by reversal-complement.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-adjacent-swap-packings-of-short-dyck-words-and-the-first-f--7abdf29f158b",
+          "material_read": "RESULT.md offsets 1025 and 1390",
+          "method": "Local Resultary mirror",
+          "title": "Exact adjacent-swap packings of short Dyck words",
+          "trigger": "Same adjacent swaps and fractional/optimizer census methodology"
+        },
+        {
+          "assessment": "Known integer values overlap; its new length-13 result is outside this profile",
+          "evidence": "Proves rho(F_3(P_13))=52 and reports agreement with known values at lengths 3–12, not LP or optimizer counts.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-first-open-three-token-path-packing-number--74b5f0314151",
+          "material_read": "RESULT.md offsets 276 and 3406",
+          "method": "Local Resultary mirror",
+          "title": "Exact first open three-token path packing number",
+          "trigger": "Potential exact unrestricted fixed-weight table after shortening"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired finding and proof; independent exact verification of P, counts, weight gaps and reversal orbits",
+        "Prior integer-only tables compared under shortening"
+      ],
+      "rationale": "After removing the covered integer profile as a contribution, this still gives the first boundary at which the natural complete-output LP ceases to be exact, demonstrates that tightness returns and is not monotone even in the initial range, locates the responsible weight blocks, and counts optimum choices and reversal classes in the exceptional lengths. This is a finite benchmark for certifying and classifying optima, not a renaming of the known integer values. The small fractional excess is meaningful because the target is the exact tightness property, not improvement in an engineering metric.",
+      "residual_risks": [
+        "No integer-rounding failure, asymptotic gap or general capacity theorem follows. The census is for the stated range, with reversals only at seven and eight."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(m\ge2\), automorphism averaging is legitimate because the feasible kernel polytope is convex and the centered operator norm is convex. The invariant spectrum follows from the constant, hub-contrast, class-contrast, and two zero-sum spaces. The elementary sharp two-constraint bound forces the invariant weights and proves exact attainment; the hub residual eigenvalue is within the bound precisely for the stated domain. For an arbitrary optimal kernel, positivity of \(\mu I-P+J\) and its averaged nullspace forces the entire \(2m-2\)-dimensional zero-sum space into its nullspace, which in turn forces equality of all periphery probabilities and global uniqueness. Independent exact rational spectra were computed for \(m=2,\ldots,9\), and 1,331 numerical full-matrix comparisons were run. No finite test is used as the infinite-family proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest relevant full-text prior result is Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955, Section 5.3.2, which explicitly gives the general complete-multipartite symmetric-block reduction. That prior result is acknowledged as stronger in graph scope for the *reduction*, so the mere eigenvalue calculation is not advanced as independently new machinery. It does not characterize **all**, potentially non-automorphism-invariant optimum kernels of the singleton-cone balanced bipartite graph. Jafarizadeh arXiv:1008.2588 studies equal-sized path/cycle partite arrays rather than the classes of sizes \(1,m,m\); the clique-lifted graph result (arXiv:2501.02421) concerns different substitutions. Searches of mathematical records, plausible aliases and accessible previous results did not identify a theorem entailing the global uniqueness. Because literature search is nonexhaustive, the risk of unindexed equivalent uniqueness remains.
+PASS
 
-## Value — PASS
-The design question is whether the symmetry-averaged fastest-mixing Markov kernel on a hub-enhanced bipartite communication network is the only optimum or whether unequal local edge allocations can tie. This is not settled by generic symmetry reduction. The theorem answers it for every network size and shows every hub edge must be used at its capacity-saturating weight, while the exact gain from adding the hub is \(1/(6m)\) compared with the balanced bipartite graph. This full optimizer rigidity is a structural statement beyond re-solving the already-known reduced SDP.
+A direct equality-case certificate, without even requiring the symmetry averaging for the lower bound, confirms the proof. Let A be the total hub-edge weight, X the total weight from L to R, s=1−A/(2m), y=X/m, and U the classwise zero-sum subspace. The normalized trace of the compression to U is the mean peripheral diagonal s−y (each class diagonal contributes the same factor 1−1/m). The unit vector contrasting L and R has Rayleigh quotient s−2y. Consequently μ≥max(s−y,|s−2y|)≥s/3≥(2m−1)/(6m), since A≤1. At the proposed kernel the nontrivial eigenvalues are −1/(2m), −μ*, and +μ* of multiplicity 2m−2, so the bound is attained, also at m=2 where the two negative eigenvalues coincide. Equality forces A=1 and y=2s/3. The PSD operator μ*I−P+J has zero compressed trace on U, so it annihilates all of U. Testing classwise coordinate differences then forces the hub vector constant on each class, the cross block to have equal rows and columns, and every peripheral diagonal to equal μ*. Row sums identify the two constants on the hub edges and recover the claimed matrix exactly. The no-hub calculation is the same with s=1 and gives SLEM 1/3, attainable by edge weight 2/(3m). For m=1, J is feasible on K3 and is the unique zero-objective point; the U argument is not used. No sample of kernels substitutes for equality-case rigidity.
 
-## Limitations
-The general multipartite spectral blocks were previously available and are not claimed as new. No independent mathematical audit or exhaustive literature census was conducted. Scope excludes \(m=1\), directed or nonsymmetric kernels, nonuniform stationary probabilities, other multipartite class sizes and different mixing criteria.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established complete-multipartite reduction and the complete-bipartite baseline, and give little novelty weight to solving the reduced two-weight optimum. What survives the prior comparison is the characterization of every optimal kernel on K_(1,m,m), including equality forcing zero hub holding and the loss of all asymmetric degrees of freedom. An earlier catalogued uniqueness theorem treats a different graph; a later weighted three-part result formally reproduces the explicit value outside its stated parameter range and does not resolve the unrestricted equality case.
+
+## value
+
+PASS
+
+The principal value is equality-case rigidity in a natural multipartite FMMC problem: every optimizer, not just an orbit average, has identical weights, every allowed edge is active and the hub holding constraint saturates. These conclusions do not follow from existence of a symmetric optimum and clarify the degeneracy of the convex problem. The small numerical improvement over K_(m,m) alone would not justify the finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:10.896636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each positive continuous even weight the Neumann form splits by parity. On the half interval, w(x)∫_x^1w(y)⁻¹dy≤1−x, so ‖v−v(1)‖²≤E(v)/2. For even mean-zero tests, projection onto constants gives ‖v‖²≤‖v−v(1)‖², so the even gap is in fact at least 2; the weaker 1/2 in the source is valid. For odd form-domain tests the trace bound |v(1)|≤√(HE(v)) and the endpoint estimate give the lower bracket. The resistance function r=H⁻¹∫_0^xw⁻¹ has energy 1/H and norm at least √M−1/√(2H), giving the upper bracket. Thus odd dominance holds uniformly for large MH. In the flux equation for the positive mixed-boundary ground state the rate is λ_odd, which agrees with λ₁ in the relevant regime. Positivity and zero right flux give 0≤u≤1 and 1≤HE(u)≤λ_odd MH→1. The cross term of u and r in the energy is exactly 1/H, so H E(u−r)→0 and Cauchy–Schwarz gives uniform closeness. The normalized derivative vectors have inner product (HE(u))⁻¹/², giving L¹ convergence of their squared densities by Cauchy–Schwarz, preserved under the pushforward. At α=1+t/L with L=log(1/ε) and Q=log((1+ε)/ε), H/L=e^t(1−exp(−tQ/L))/t continuously at t=0, M→1/2 and the normalized resistance density in s is proportional to exp(−tQs/L). This supplies the stated eigenvalue and both profiles for t positive, negative and zero. Fixed α>1 gives M→1/(α+1) and ε^(α−1)H→1/(α−1).",
+      "reproduction": "OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen_independent_reproduction.py 1: independently discretized the normalized mixed Green kernel min(r(x),r(y)) against w(y)dy/M by log-coordinate Gauss–Legendre quadrature, top eigenvalue (λ_odd MH)⁻¹. Orders 160 and 320 agreed in the gap ratio within 10⁻⁴ in nine cases including constant-weight control π²/4. For t=−2,0,2 at ε=10⁻⁵⁰ the diagnostic Lλ values were 4.655646,2.013088,0.632800; energy TV to normalized resistance was 0.0142784,0.0063424,0.0020210 in the discretized model. These are not certified eigenvalue enclosures or infinite-limit proofs. Frozen check.py inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen cited-source account identifies Cruz-Uribe–Dal–Rodney and Claros as weighted inequality estimates, and Bonnefont–Joulin–Ma as one-dimensional spectral-gap methods and examples. The decisive primary passages of these comparisons were not independently retrieved.",
+          "Bovier–Gayrard–Klein is cited as precise small-eigenvalue diffusion metastability, a plausible framework for an eigenvalue/capacity ratio; the exact hypotheses and eigenvector conclusions could not be verified in its primary text."
+        ],
+        "reasoning": "A sharp capacity theorem with mass normalization could cover the spectral leading term if its hypotheses applied uniformly to all monotone positive half-weights in the specified limit. To cover the full claim it would also need enough control of the ground state in the logarithmically varying exponent window; pointwise bulk localization or a generic gap comparison does not by itself give normalized derivative-energy convergence in TV. No extension of the cited theorems to all these hypotheses has been verified here.",
+        "searches": [
+          "arXiv:2608.20498, Poincaré inequalities via extrapolation theorem",
+          "arXiv:2512.03651, Muckenhoupt characteristic Poincare Sobolev theorem",
+          "https://numdam.org/item/PS_2016__20__18_0/",
+          "https://ems.press/journals/jems/articles/173"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bafc6a73c066 (self-hit), 181fca538741 (distinct summary)",
+        "arXiv:2608.20498; arXiv:2512.03651; Bonnefont–Joulin–Ma PS_2016__20__18_0; Bovier–Gayrard–Klein JEMS article 173 (frozen cited comparisons; decisive primary passages unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical formula for one-dimensional endpoint capacity supplies E(r)=1/H. It accounts for one essential ingredient and suggests the scale (MH)⁻¹, not the required matching mass estimate or odd spectral dominance in this variable-weight regime.",
+          "In the record's proof, the exact endpoint-normalized energy identity H E(u−r)=HE(u)−1 enables the L¹ energy comparison. Neither the accessible Resultary statement nor the frozen account of the general inequality references supplies this specific joint crossover conclusion."
+        ],
+        "reasoning": "If a prior applicable theorem already gives saturation of the odd mixed-boundary capacity at the endpoint, some joint conclusions would follow mechanically from that identity and elementary integration; overlap would count even with no explicit profile printed. Available evidence does not establish that coverage for both the uniform family and the critical window. No new capacity principle itself is claimed.",
+        "searches": [
+          "Resultary 181fca538741 indexed scientific statement",
+          "Bonnefont Joulin Ma 2016 note spectral gap weighted Poincare one-dimensional diffusions Bovier Gayrard Klein metastability precise small eigenvalues capacity resistance (no literature results returned)",
+          "Bovier–Gayrard–Klein, precise asymptotics for small eigenvalues, cited primary comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd sector is a Dirichlet–Neumann inverse problem with kernel ∫_0^min(x,y)w⁻¹, equivalently a weighted Hardy norm. The unit endpoint-drop capacity is exactly 1/H, and parity plus the nondecreasing half-weight control the mass available to that mode.",
+          "Resultary 181fca538741 indexed statement is a positive-endpoint-atom Hardy averaging operator singular spectrum, not the specified local Neumann energy form."
+        ],
+        "reasoning": "The overlap must be checked under Hardy, resistance/capacity and reversible-diffusion terminology, not only weighted Poincaré. Two-sided norm comparison up to constants does not establish λ₁ MH→1 or the normalized energy law. An exact limiting dominant singular vector of the appropriate Hardy operator with the same weights and topology could cover the claim even under different terminology.",
+        "searches": [
+          "Resultary: sharp one dimensional weighted Poincare spectral gap bottleneck internal resistance small eigenvalue",
+          "Resultary: capacity Hardy mass resistance product asymptotic first nonzero Neumann eigenvalue monotone density",
+          "one-dimensional weighted Poincare inequality sharp spectral gap Muckenhoupt Hardy product mass resistance capacity eigenvalue exact asymptotic bottleneck eigenfunction (no literature results returned)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prominent hit bafc6a73c066 is the assigned record itself, not independent evidence. A distinct same-day match with apparent Hardy/logarithmic overlap was 181fca538741."
+        ],
+        "reasoning": "The conclusion is a whole continuum of weights and critical parameters, with no relevant numerical table value. The distinct same-day summary addresses singular values and a logarithmic edge of a different Hardy operator, rather than the same energy form, mass–resistance constants, or normalized energy probability. Its date establishes no priority, and its unavailable full text remains a limitation.",
+        "searches": [
+          "Resultary: sharp one dimensional weighted Poincare spectral gap bottleneck internal resistance small eigenvalue",
+          "Resultary: logarithmic critical scaling power weight eigenfunction energy distribution weighted diffusion"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combined uniform mass–resistance asymptotic and explicit critical-window eigenvalue, normalized mode and dissipation profiles. Endpoint Hardy estimates and capacity-based spectral mechanisms are classical; the exact constants or profiles are not advertised as new independently of their specified regime. Existing general capacity theory is a serious possible source of implicit coverage, and its unavailable decisive passages limit the comparison.",
+      "residual_risks": [
+        "Primary access to the closest one-dimensional diffusion and metastability papers did not yield decisive passages. Literature-query attempts returned no evidence for this record, not negative evidence of priority.",
+        "A broader capacity theorem or strong convergence of the appropriately normalized Hardy inverse could imply more of the result; the uniform hypotheses and joint energy topology are the key checks needed to establish that implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted inequality framework as cited; exact critical law coverage not independently settled",
+          "evidence": "The source account characterizes the extrapolation results as sufficient estimates involving integrability of weights, rather than an exact normalized eigenvalue and coupled profiles.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20498",
+          "material_read": "Frozen RESULT.md lines 118–124 comparing theorem scope; no decisive primary passage obtained",
+          "method": "Cited-source account and bounded arXiv passage retrieval attempts",
+          "title": "Degenerate Sobolev and Poincaré inequalities via extrapolation",
+          "trigger": "Same weighted Poincaré setting and possible sharp/general coverage"
+        },
+        {
+          "assessment": "Different type of sharpness on the available account",
+          "evidence": "Sharp characteristic dependence would not by itself give exact ratio one, a normalized eigenfunction, or its derivative-energy law.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.03651",
+          "material_read": "Frozen cited-source comparison; primary passage unavailable",
+          "method": "Cited-scope comparison and attempted OA passage lookup",
+          "title": "Degenerate Poincaré-Sobolev inequalities via fractional integration",
+          "trigger": "Sharp dependence on weight characteristics could contain a stronger estimate"
+        },
+        {
+          "assessment": "Relevant technique; named power-window overlap unresolved at the primary level",
+          "evidence": "The available cited account describes spectral-gap methods and exact examples but does not establish coverage of the coupled law.",
+          "identifier_or_url": "https://numdam.org/item/PS_2016__20__18_0/",
+          "material_read": "Frozen comparison at lines 120–124, no independently readable decisive passage",
+          "method": "Attempted OA and identified public direct article copy",
+          "title": "A note on spectral gap and weighted Poincaré inequalities for some one-dimensional diffusions",
+          "trigger": "Same 1D spectral-gap problem and plausible exact examples"
+        },
+        {
+          "assessment": "Serious possible broader coverage; no whole-source verdict",
+          "evidence": "The comparison requires an applicability check to the singular one-dimensional weights and a separate check on normalized mode-energy topology; these were not established from an inspected primary statement.",
+          "identifier_or_url": "https://ems.press/journals/jems/articles/173",
+          "material_read": "Frozen bibliographic citation and limitation at lines 120–131; no decisive primary passage obtained",
+          "method": "Attempted OA theorem passage and public publisher retrieval",
+          "title": "Metastability in reversible diffusion processes II: precise asymptotics for small eigenvalues",
+          "trigger": "General capacity-based small-eigenvalue asymptotics might imply a sharp ratio"
+        },
+        {
+          "assessment": "Superficial analogue on available statement, unresolved full-text overlap",
+          "evidence": "Compact Hardy averaging operator with a positive endpoint atom and explicit singular spectrum, not a reported symmetric weighted Neumann gap or energy law.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-singular-spectrum-and-logarithmic-edge-of-a-one-atom-hardy--181fca538741",
+          "material_read": "Indexed scientific summary; decisive full record was unavailable",
+          "method": "Local Resultary search and attempted primary passage retrieval",
+          "title": "Exact singular spectrum and logarithmic edge of a one-atom Hardy operator",
+          "trigger": "Distinct same-day Hardy and logarithmic asymptotics hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact rate of loss of coercivity, the normalized low-mode shape and the dissipation location are three useful observables of the same interface degeneracy. The uniform monotone-weight argument and the explicit continuously parameterized critical crossover give more than a rough bound or a selected exponent. The role of symmetry, monotonicity and one dimension is material, not a claim of broader diffusion universality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

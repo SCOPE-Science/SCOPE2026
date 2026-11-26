@@ -1,21 +1,21 @@
-# Scientific review: sharp five-residue balance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two hyperbinary parity decompositions give exact polynomial recurrences. Specialization at a primitive fifth root yields two integer-linear transitions for the adjacent pair of evaluations. Every positive index descends to one by halving; hence a finite set containing the initial state and closed under *both* transitions covers every positive index. The explicitly supplied 120-state table is distinct, contains the seed, is closed under all 240 transitions, and has maximum coordinate spread two. Coefficients in the degree-four cyclotomic basis are precisely the differences of the five residue counts from the fifth. Sharpness follows from the explicit polynomial at ten. The previously established hyperbinary/fence rank correspondence transfers the inequality to every finite fence. The secondary recurrence-only computation through index 12000 corroborates the derivation but does not replace the induction.
+PASS
 
-## Originality — PASS, historical priority provisional
+Parity forces the lowest digit to be 1 for 2k+1 and allows 0 or 2 for 2k, giving the two stated recurrences and the seed (t,1). The adjacent evaluations follow the stated transitions for every positive index by halving. In the fifth-cyclotomic quotient the coefficients relative to the fifth bucket determine the spread, since the only relation among the five basis powers is their sum. I independently constructed the orbit in a five-integer array representation modulo all-ones, with cyclic rotation for multiplication by t and subtraction of the minimum for normalization. `python3 /workspace/independent_replay.py hyperbinary` checks the 120 exact states against the frozen table, both successors of each, histogram (10,100,10), and 31 distinct first coordinates. Binary-index induction, not a bounded run over indices, proves the full bound. At m=0 the zero expansion is the only one; direct digit enumeration at m=10 gives lengths 2,3,3,4,5 and residue counts (1,0,1,2,1). I separately checked the all-fence transfer without relying on access to the cited corollary: binary digits b_i and hyperbinary digits e_i are linked by e_i+c_i=b_i+2c_{i+1}, with 0/1 carries and boundary carries zero. For b_i=0 the allowed interior carry relation is c_i≤c_{i+1}, and for b_i=1 it is c_i≥c_{i+1}. The length equals the binary popcount plus the number of nonzero carries. Choose an even binary word with leading 1 and trailing 0: both boundary inequalities are automatic, and the internal bits realize any prescribed path of order-ideal membership inequalities. Thus every oriented path occurs (possibly using a dual orientation convention), and the resulting monomial shift, or shift plus exponent reversal in the cited correspondence, preserves spread. The empty fence has one ideal. Digits 1010 yield the three-vertex fence with two minima below a common maximum and ideal counts (1,2,1,1,0), attaining spread two.
 
-Alekseyev (arXiv:2611.01243v1, Theorem 19 and Corollary 20) proves three-class discrepancy at most one, not five-class discrepancy at most two. McConville–Propp–Sagan (arXiv:2508.20026v1, Theorems 3.16–3.17) establish the underlying combinatorial correspondence and generating polynomials, not the root-of-unity bound. Kogiso–Miyamoto–Ren–Wakui–Yanagawa (arXiv:2403.08446v2, Section 7) gives restrictions at third/fourth roots and discusses a fifth-root divisibility obstruction, but does not show a 120-state fifth-root closure or the present coefficient discrepancy. Direct external text searches, a semantic-result search, and comparison with all recoverable current accessible claims found no theorem dominating the new sharp five-class assertion. Semantic search and finite access do not establish historical uniqueness. Older literature on Stern polynomials remains a risk to be checked independently.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural next-prime structural question after the recently published modulo-three theorem. The bound is uniform across arbitrarily many hyperbinary expansions and arbitrary finite fence posets, is sharp on a natural five-expansion example, and arises from a complete finite cyclotomic orbit rather than a finite list of tested integers or an arbitrary slice. Its proof supplies an exact reusable 120-state certificate for these rank distributions.
+The distinct claim is the exact uniform spread at most two for all five length residues and its sharp all-fence counterpart, with an explicit exact orbit. The fence/length correspondence and the underlying prospect of finite fifth-root evaluations are not credited as new. In particular, a substantial identified prior group-finiteness theorem already explains existence of a finite specialized orbit, but its available statement neither calculates the normalized coefficient spread nor gives sharpness or the 120-state histogram. Prior statements about modulus three, modular Stern values, and zeros of q-rational denominators are not equivalent to the sharp mod-five length claim. The strongest matching Resultary scientific summary is the frozen record itself.
 
-## References and limitations
+## value
 
-- M. A. Alekseyev, *Halving Partitions and Hyperbinary Expansions*, arXiv:2611.01243v1, Theorem 19 and Corollary 20, https://arxiv.org/html/2611.01243v1.
-- T. McConville, J. Propp, B. E. Sagan, *Hyperbinary partitions and q-deformed rationals*, arXiv:2508.20026v1, Theorems 3.16–3.17, https://arxiv.org/html/2508.20026v1.
-- T. Kogiso et al., *Arithmetic on q-deformed rational numbers*, arXiv:2403.08446v2, Section 7, https://arxiv.org/html/2403.08446v2.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural length-refined count, not just the Stern total, has an exact uniform bound across all indices. The sharp spread quantifies a gap that group finiteness alone leaves open and gives the same constraint for every rank distribution of an arbitrarily oriented fence. The explicit exact orbit provides a short reusable certificate for the unbounded family, and m=10 is a genuine extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

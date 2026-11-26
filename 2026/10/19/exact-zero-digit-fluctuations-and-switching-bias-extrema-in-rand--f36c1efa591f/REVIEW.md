@@ -1,19 +1,21 @@
-# Scientific review of zero-digit fluctuation law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eight affine quarter-branches at \(\alpha=1\) each map with slope \(2\) onto a sign half-interval. Thus conditional uniformity is maintained after every specified branch history, proving the exact \(2\)-state weighted transition matrix for all finite lengths. Its trace, determinant and eigenvalues are computed explicitly. The rank-one-plus-decaying-mode decomposition of the unweighted matrix yields the covariance formula and a finite geometric sum yields the exact count variance. The quadratic \(\Gamma=1/4+h-5h^2\) has the asserted extremal values for \(0<h\le1/4\). Strict Perron positivity for every real exponential tilt justifies the logarithmic generating limit, the Gaussian limit and the full convex large-deviation rate. The independent exact-branch verifier passed 434 checks. No finite check is used as a proof of an infinite statement.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+At alpha=1 the four quarter-branches of each map send uniform measure bijectively onto a half-interval. This preserves conditional uniformity given any sequence of branches, and yields the marked transition weights. From the left half the nonzero weights to left and right are 1/2 and p/2, and the zero weight q/2 stays left; the right row is the reflected version with p and q swapped. The stationary row (q,p) and the stated eigenvalues follow. With B=diag(q/2,p/2) and P=M_p(1), the joint moment at lag k inserts B P^(k−1) B. The nonstationary projection contributes the factor 2^(−(k−1)) times the stationary variance of the two entries of B, namely h(1−4h)/4. At p=1/2 the next-zero conditional probability is 1/4 for any hidden-half distribution, giving IID digits; at any other interior p the lag-one covariance is positive. Summing covariances gives the finite variance, including N=1, and optimizing its asymptotic coefficient over 0<h≤1/4 gives the asserted minimum and maxima. The positive tilted matrix has an isolated simple Perron eigenvalue: the spectral prefactor tends to one in the centered t/sqrt(N) expansion, giving the CLT with variance Gamma. The limiting log-mgf is differentiable on the full real line and the normalized counts have compact support, yielding the full LDP. The eigenvalue limits at z→0 and after division by z at z→∞ give the two finite endpoint rates; equivalently the all-nonzero and all-zero events use M_p(0) and B respectively. These conclusions are annealed and stationary, not claims for a quenched or nonstationary law. The frozen finite verification was read as evidence, not executed or used to prove the limit statements.
 
-Dajani–Kalle–Maggioni (arXiv:2008.04398), equations (11) and (22), give the underlying random transformations, the stationary density at \(\alpha=1\), and the **one-digit** frequency. They do not state a joint zero-count generating function, autocovariance, long-run variance, sharp switching-bias extrema, or the frequency large-deviation rate. Dajani–Kalle (arXiv:1703.06335) analyzes a deterministic rather than independently randomly selected symmetric doubling map. Dajani–Kraaikamp–Liardet (2006) examines classical signed expansions and a different, deterministic nonadjacent coding. Prior indexed analyses of symmetric-doubling transfer modes concern deterministic parameters \(\alpha\ge4/3\), not this randomized endpoint. Standard additive-functional theorems would apply *after* identifying the weighted finite-state process, but do not already supply its model-specific algebraic matrix and parameter optimum. Search results cannot establish global uniqueness; a historically equivalent automata calculation could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating literature studies the frequency of zero signed digits as a proxy for the Hamming weight and efficiency of signed binary representations. The finite-length distribution, uncertainty, and atypically high or low digit costs are natural next-order statistics of that same observable. The endpoint slice is distinguished by a known exact invariant density and, unexpectedly, a two-state full-branch coding. The result identifies a unique independent-digit bias and a **two-peak** fluctuation maximum away from both the balanced bias and deterministic extremes. These statements are exact, all-length or sharp all-bias results, not arbitrary isolated numerics. The full frequency large-deviation rate quantifies exceptional expansion costs.
+The starting stationary density, maps and marginal digit frequency are prior. The supported distinct claim is the explicit marked law at the random endpoint and its joint fluctuations, including the non-balanced variance maximizers. The bounded comparison did not establish equivalent coverage of those results.
 
-## Closest literature and remaining limitations
+## value
 
-The existing single-letter frequency is a premise, not a discovery. The theorem is confined to stationary annealed observations at \(\alpha=1\) and \(0<p<1\); neither the all-parameter random family nor quenched fluctuations are covered. General finite-state probabilistic limit theorems are acknowledged as established tools. Historical priority beyond the inspected accessible sources is not established; an unindexed equivalent expression remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The endpoint of the published signed-expansion model is a natural tractable case. The exact two-state law determines finite-sample zero-digit counts, and exposes a difference between mean-frequency analysis and variability: the fair switch has IID digits and minimizes asymptotic variance, while two biased switches maximize it. The explicit rare-event rates and the variance extrema are concrete information about the expansion statistics, not merely a general CLT citation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

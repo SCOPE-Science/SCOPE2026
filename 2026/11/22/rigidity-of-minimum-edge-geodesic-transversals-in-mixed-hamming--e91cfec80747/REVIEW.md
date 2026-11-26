@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is supported by a complete all-dimensional proof. Maximal geodesics change every coordinate once, which supports the uniform-direction incidence identity and the sharp fractional averaging lower bound. Equality forces every maximal path to be hit exactly once. Two swapped-order path comparisons at every two-dimensional coordinate square force indicators of parallel edges to agree; varying endpoint letter pairs independently forces a whole coordinate class and excludes mixed-class optima. The edge-size formula and count include single-factor and binary boundaries. Exhaustive small-instance edge-set enumeration and additional direct path checks pass using `verify_hamming_geodesic.py`. Finite checks are corroborative only.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Prabha–Sandhiya–Manuel (arXiv:2610.36821v1, 2026-10-27), inspected in complete HTML text including their hypercube corollary and references, establishes the number for binary cubes but provides no classification of *all* optimum edge subsets and no heterogeneous Hamming-product formula. The vertex-hitting literature and known Hamming product metric results do not imply this sharper edge-hitting assertion. Relevant mathematical-record and accessible previous-claim comparisons found no covering statement. The remaining risk is an unindexed result treating exact-one transversals on products; novelty is not certified independently.
+PASS
 
-## Value — PASS
-The edge-transversal parameter is newly studied and the source specifically treats an important symmetric product network. Extending its scalar binary-cube value to all mixed-alphabet Hamming networks, while proving rigid *classification of every optimum* and a labelled optimum census, explains which coordinate links must be monitored at minimum cost and why mixtures are impossible. The structural square-exchange lemma is reusable for exact-one geodesic hitting arguments. This is a natural all-order classification, not a single small-case or renamed numerical computation.
+A shortest path changes just the differing coordinates, once each; an unused coordinate can always be changed at an end, so maximal paths change all d coordinates. Independent alphabet permutations are transitive on each E_i. Each maximal path uses one edge from E_i, giving each edge marginal 1/|E_i| under uniform choice of path. Thus any hitting set has size at least min_i |E_i|, achieved by a smallest class; equality forces exactly one hit on every path. For any coordinate square, the two different pairs of opposing corners give two independent path comparisons, with common suffixes changing every other coordinate. Subtract the two path-sum equations to equate one pair of parallel indicators; substitute to equate the other. The indicator for a fixed letter pair in a fixed coordinate is therefore independent of background coordinates. Now the sum across any independently chosen letter pairs is one, so varying a single pair makes its indicator independent of that pair as well. The binary constants therefore select exactly one whole class. This also covers d=1, with no square needed. Comparing class sizes gives the labelled optimizer census.
 
-## Scope and risk
-The characterization is restricted to unweighted Cartesian products of complete graphs of order at least two. It does not settle higher-cardinality minimal transversals or noncomplete factors. The literature comparison is substantive but cannot exclude uncatalogued work. The proof is checked in the same review; no independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known binary optimum and coordinate-cut example are not treated as novel. The distinct claim supported by the comparison is the full mixed-factor theorem, especially the exact-one classification without a size restriction. Neither the retrieved two-side-cut criterion nor the indexed binary packing and multipartite theorems cover this scope.
+
+## value
+
+PASS
+
+It identifies every labelled minimizer of a natural path-hitting invariant for unequal complete factors, where an optimum value alone gives no description of the hitting sets. The stronger exact-one result is a structural characterization independent of cardinality and explains why the minimum lies in one direction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Review: sharp cutwidth-constrained order reconfiguration on stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes individually labelled stars, integer cutwidth budgets and swaps of neighboring *positions*. The cutwidth identity \(\max(c,r-c)\) follows from every prefix's actual crossing-edge count. At the unique balanced hub position, no legal hub move exists, giving exactly the stated Cartesian-product components. At two or more feasible hub positions, the interval-position lemma proves that every non-target order has a legal adjacent target inversion; therefore no routing detour is needed and the exact pairwise distance is Kendall inversion distance. Reversal remains feasible and witnesses eccentricity \(\binom{r+1}{2}\) for every vertex. Counting leaf-only and hub-moving edges completes the theorem. Independent enumeration of actual star cuts, components and distances in the included `verify.py` passed for 35 parameter pairs, including \((r,k)=(8,5)\). Finite checking is corroboration, not the all-order proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Arrighi, Fernau, de Oliveira Oliveira and Wolf [1,2] establish general adjacent-order reconfiguration with permitted cutwidth increasing to twice its initial budget, but do not give an exact within-budget star threshold or full Kendall-isometry statement. The classical unrestricted adjacent-transposition metric does not by itself ensure the same path remains inside a constrained induced subgraph. Related indexed permutation problems [3,4] respectively impose forbidden fixed points and describe a partial-permutohedral facet; neither statement contains the fixed-hub rank-window theorem. Searches for star cutwidth reconfiguration, one-letter positional intervals, geodesic adjacent sorting and their implication-equivalent formulations identified no covering publication. An older equivalent under different terminology cannot be ruled out, and this review does not imply an independent priority assessment.
+PASS
 
-## Value — PASS
-The original work motivates studying *reachability under a fixed cutwidth budget*, where a general twofold width allowance was previously sufficient. A star is the smallest nontrivial family for which optimal cutwidth itself can create multiple components. The exact theorem determines a sharp all-order phase transition: even stars at optimum width have exponentially many components, but at optimum plus one all states become reachable with zero Kendall-metric overhead. Odd stars already have this shortest-path property at optimum. This yields a complete optimal-routing algorithm, exact diameter, component census and edge counts for the entire infinite star family. The metric conclusion is stronger than merely proving a permissible sorting sequence exists.
+With c leaves before the hub, the prefix crossing counts increase to c, then after the hub decrease from r−c. Thus the allowed hub counts are exactly [r−k,k], empty below the ceiling of r/2, with r! orders per allowed count. At a single count the before-hub subset cannot change, and the two sides independently realize their full adjacent-swap graphs. This gives the binomial component count, the square factorial sizes and diameter 2·binom(r/2,2). For a hub-count interval [L,U] with L<U, rank labels by their target order. At L, if no legal descent existed, all pairs except the possible hub-left pair would be increasing. A nontrivial such order has that exceptional descent, so the immediate left neighbor and all right-hand labels follow the hub in the target. The target then has at most L−1 predecessors, impossible. At U the reflected argument forces at least U+1. At neither boundary can an absent exceptional pair cause a descent. Every remaining case has a legal adjacent descent; each step decreases the pair-disagreement count by exactly one, attaining its universal lower bound. Reversal remains feasible and achieves the full inversion count from every starting vertex. At k<r each internal hub level contributes (r−2)r!/2 within-level edges and each neighboring pair of levels contributes r! hub swaps. At k=r the full graph is r-regular on (r+1)! vertices. This covers the smallest stars, the frozen even budget and the full budget.
 
-## Closest literature and limits
-[1] E. Arrighi, H. Fernau, M. de Oliveira Oliveira, P. Wolf, *Order Reconfiguration Under Width Constraints*, MFCS 2021, https://doi.org/10.4230/LIPIcs.MFCS.2021.8.
+## originality
 
-[2] Same authors, *Order Reconfiguration under Width Constraints*, JGAA 27(6) (2023), https://doi.org/10.7155/jgaa.00628.
+PASS
 
-[3] *Component signatures for permutations avoiding selected fixed points*, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702.
+Credit the existing cutwidth order-reconfiguration framework and the unrestricted Kendall metric. The supported distinct result is the exact at-budget star classification, especially the interval-restricted geodesics for every pair, the frozen even optimum and exact counts. No examined distinct antecedent establishes this combined claim or the nontrivial interval lemma. This is not a historical-priority determination.
 
-[4] *Geodesic rigidity of the permutohedral facet in partial permutohedra*, https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-geodesic-rigidity-of-the-permutohedral-facet-in-partial-permutoh--7910cdad70d2.
+## value
 
-The claim is restricted to unweighted stars and cutwidth, not weighted trees or pathwidth. Independent mathematical audit and exhaustive historical-priority review remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural test family resolves exact-budget shortest paths, not just reachability with slack. It gives a sharp parity boundary between permanent obstruction and complete preservation of all ambient distances, with a constructive lemma for arbitrary nontrivial intervals on one distinguished label. The diameter and enumeration are useful consequences rather than the sole novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

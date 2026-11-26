@@ -1,73 +1,36 @@
-# Clique and facet spectra of rank-one idempotent Boolean relations
+# Degree distribution and component diameter of commuting rank-one Boolean idempotents
 
 ## Finding
 
-For every integer \(n\ge2\), consider the simple graph \(G_n\) on the nonzero Boolean factor-rank-one idempotents in \(M_n(\mathbb B)\). Two *distinct* idempotents are adjacent exactly when their Boolean matrix products commute. Every vertex is uniquely \(E_{U,V}=\mathbf1_U\mathbf1_V^{\mathsf T}\), where \(U,V\) are nonempty subsets of \([n]\) with \(U\cap V\ne\varnothing\).
-
-For each \(1\le k\le n\), the number of unordered \(k\)-cliques is
-\[
-C_{n,k}=\frac1{k!}\sum_{j=0}^k(-1)^j\binom kj(2^{k+1}+k-1-j)^n,
-\]
-and the number of inclusion-maximal \(k\)-cliques (facets of the clique complex) is
-\[
-M_{n,k}=\frac1{k!}\sum_{j=0}^k(-1)^j\binom kj(2^{k+1}+k-2-j)^n.
-\]
-Each \(k\) in this range is realized by an inclusion-maximal clique; no larger clique exists. The unique size-\(n\) clique consists of all singleton diagonal relations. The clique complex is nonpure for every \(n\ge2\).
-
-There are exactly \(4^n-3^n\) vertices, \(3^n-2^n\) of which are isolated. If a vertex \(E_{U,V}\) has \(s=n-|U\cup V|\) unused coordinates and \(u=|U\triangle V|\), its degree equals
+Let \(n\ge2\). In the simple commuting graph on nonzero rank-one Boolean idempotents, a vertex is a nonempty rectangle \(E_{U,V}=U\times V\) with \(U\cap V\ne\varnothing\). Write \(s=n-|U\cup V|\) for its number of unused coordinates and \(u=|U\triangle V|\) for its number of unilateral coordinates. Its degree is
 \[
 d(E_{U,V})=2^u(4^s-3^s).
 \]
-The complete degree multiset is encoded by
+In particular the complete vertex degree enumerator, counting vertices with multiplicity, is
 \[
-D_n(z)=\sum_{s=0}^{n-1}\sum_{u=0}^{n-s-1}\binom ns\binom{n-s}u 2^u z^{2^u(4^s-3^s)}.
+D_n(z)=\sum_{s=0}^{n-1}\sum_{u=0}^{n-s-1}
+  \binom ns\binom{n-s}{u}2^u z^{2^u(4^s-3^s)}.
 \]
-The edge count is \((9^n-2\cdot8^n+7^n)/2\). All nonisolated vertices lie in one connected component, whose diameter is \(1\) at \(n=2\) and \(3\) for every \(n\ge3\).
+Vertices with \(s=0\) are isolated. All other vertices form one component, of diameter \(1\) for \(n=2\) and exactly \(3\) for \(n\ge3\). Thus the coordinate pattern determines local commutation counts, while the unused coordinates locate every nonisolated vertex within one edge of the diagonal singleton clique.
 
 ## Assumptions and scope
 
-The Boolean semiring \(\mathbb B\) has addition \(a\lor b\) and multiplication \(a\land b\). Matrix multiplication is Boolean. Factor-rank one means an outer product of two nonzero Boolean vectors; zero is excluded. The graph is the induced *elementwise* commuting graph on this precisely defined idempotent subset; it is not the more common graph obtained by deleting the center of the full matrix semiring. Cliques are vertex sets rather than ordered families. This statement applies uniformly to every \(n\ge2\).
+Supports are subsets of a common labeled set \([n]\). Multiplication is Boolean matrix multiplication, or equivalently relational composition. Rank one means that the Boolean matrix is a nonzero outer product. Only idempotents are vertices; zero, square-zero rectangles, and all higher-rank matrices are excluded. Edges are between distinct vertices. The diameter is measured within the nonisolated component, using only vertices of that induced graph.
 
 ## Proof
 
-**Parametrization.** A nonzero Boolean rank-one matrix is the characteristic matrix of a nonempty rectangle \(U\times V\); it uniquely determines \(U,V\). Boolean multiplication gives
-\[
-E_{U,V}E_{W,Z}=\begin{cases}E_{U,Z},&V\cap W\ne\varnothing,\\0,&V\cap W=\varnothing.\end{cases}
-\]
-It is idempotent precisely when \(U\cap V\ne\varnothing\). For two *distinct* such matrices, if both products are nonzero, equality of their rectangular supports would force \(U=W\) and \(V=Z\), a contradiction. If exactly one product is nonzero they also fail to commute. Thus distinct vertices commute if and only if both cross-intersections vanish.
+The nonempty rectangle representation is unique. The product \(E_{U,V}E_{A,B}\) is \(E_{U,B}\) if \(V\cap A\ne\varnothing\), and zero otherwise. In particular \(E_{U,V}\) is idempotent exactly when \(U\cap V\ne\varnothing\). If two commuting rectangles have both products nonzero, equality of their supports forces the rectangles themselves to coincide. Exactly one nonzero product cannot commute. Thus two distinct vertices are adjacent precisely when both cross-intersections vanish.
 
-**Coordinate patterns.** Label an ordered clique by \(1,\ldots,k\). For each ground coordinate \(t\in[n]\), record \(A_t=\{i:t\in U_i\}\) and \(B_t=\{i:t\in V_i\}\). The cross-intersection criterion says that whenever \(i\in A_t\) and \(j\in B_t\), one must have \(i=j\). Therefore every allowed local pattern is exactly one of: \((A,\varnothing)\) with arbitrary \(A\subseteq[k]\), \((\varnothing,B)\) with nonempty \(B\subseteq[k]\), or \((\{i\},\{i\})\) for some \(i\in[k]\). There are \(2^{k+1}+k-1\) patterns including the all-empty pattern. The \(i\)-th matrix is idempotent exactly when its corresponding double-singleton pattern appears at least once. Inclusion-exclusion over missing double-singleton patterns yields
-\[
-k!C_{n,k}=\sum_{j=0}^k(-1)^j\binom kj(2^{k+1}+k-1-j)^n.
-\]
-A valid clique has distinct vertices: pairwise annihilating nonzero idempotents cannot coincide. Thus dividing by \(k!\) is exact.
+**Degrees.** A neighbor of \(E_{U,V}\) has \(A\subseteq V^c\), \(B\subseteq U^c\) and \(A\cap B\ne\varnothing\). A coordinate in \(U\cap V\) is barred from both \(A\) and \(B\); one in \(U\triangle V\) can belong to only one of them, giving two choices. At each unused coordinate there are four local choices. The intersection \(A\cap B\) can occur only among those unused coordinates, so subtract the \(3^s\) patterns on them with no simultaneous inclusion. This proves the degree formula. In the enumerator, choose the unused and unilateral coordinate sets, and assign one of two unilateral types to each unilateral coordinate. Every remaining coordinate belongs to both \(U\) and \(V\), with at least one such coordinate required. If terms share the same degree their coefficients add. The degree-zero coefficient is \(3^n-2^n\); the total vertex count is the known \(4^n-3^n\).
 
-**Maximality.** A further nonzero idempotent \(E_{A,B}\) commutes with every vertex in the family precisely when \(A\subseteq(\cup_i V_i)^c\), \(B\subseteq(\cup_i U_i)^c\), and \(A\cap B\ne\varnothing\). Such a choice exists precisely when there is \(t\notin\cup_i(U_i\cup V_i)\), since then \(A=B=\{t\}\) works. Hence a clique is inclusion-maximal exactly when no ground coordinate has the all-empty local pattern. Removing that one pattern from the preceding inclusion-exclusion gives
-\[
-k!M_{n,k}=\sum_{j=0}^k(-1)^j\binom kj(2^{k+1}+k-2-j)^n.
-\]
-Since each matrix must contain its own distinct double-singleton coordinate, \(k\le n\). Conversely, for every \(1\le k\le n\), partition \([n]\) into \(k\) nonempty parts and take \(U_i=V_i\) equal to these parts: this yields a maximal clique. At \(k=n\), all \(n\) coordinates must be the distinct double-singleton patterns, forcing the unique diagonal singleton clique. Presence of maximal cliques at every size proves nonpurity.
-
-**Degrees.** Fix \(E_{U,V}\), set \(s=|[n]\setminus(U\cup V)|\) and \(u=|U\triangle V|\). A neighboring idempotent has supports \(A\subseteq V^c\), \(B\subseteq U^c\), with \(A\cap B\ne\varnothing\). On each of the \(s\) unused coordinates there are four independent presence patterns and, among all patterns on these positions, exactly \(3^s\) contain no simultaneous inclusion. On each of the \(u\) unilateral coordinates there are two choices; every coordinate in \(U\cap V\) is excluded from both supports. Thus \(d=2^u(4^s-3^s)\). Given \(s,u\) with \(s\ge0\), \(u\ge0\), \(s+u\le n-1\), choosing the unused set, unilateral set, and its two possible orientations gives multiplicity \(\binom ns\binom{n-s}u2^u\). Summing yields \(D_n(z)\). Isolates have \(s=0\), yielding \(3^n-2^n\); the edge count follows also from \(C_{n,2}\).
-
-**Connectivity and diameter.** A nonisolated vertex has an unused coordinate \(t\) and hence is adjacent to the diagonal singleton \(E_{\{t\},\{t\}}\). All \(n\) diagonal singletons commute pairwise; therefore all nonisolated vertices lie in one component, with distance at most three. For \(n=2\) the component consists only of two adjacent diagonal singleton vertices. For \(n\ge3\), the vertices with \(U=V=[n]\setminus\{1\}\) and \(U=V=[n]\setminus\{2\}\) each have exactly one neighbor (the corresponding missing diagonal singleton). They are not adjacent, and their unique neighbors are distinct and adjacent, so their distance is exactly three.
-
-## Verification
-
-The standard-library script `artifacts/verify.py` constructs Boolean matrices and literal Boolean products for all vertices through \(n=4\); it also independently enumerates all cliques, inclusion-maximal cliques, degrees, and connected components through \(n=5\), with additional exact integer formula boundary checks through \(n=13\). Run `python3 artifacts/verify.py` to reproduce `VERIFY_OK_BOOLEAN_RANK_ONE_IDEMPOTENT_CLIQUES`. Counts for \(n=2,3,4,5\) are, in successive clique sizes, respectively \((7,1)\), \((37,24,1)\), \((175,385,66,1)\), \((781,5160,2725,165,1)\). Corresponding maximal-clique counts are \((5,1)\), \((19,21,1)\), \((65,295,62,1)\), and \((211,3465,2405,160,1)\). Exhaustive small cases are corroboration; the preceding coordinate-pattern argument proves all \(n\).
+**The nonisolated component.** Every vertex with an unused coordinate \(t\) is adjacent to \(E_{\{t\},\{t\}}\). All diagonal singleton vertices are mutually adjacent. Thus all nonisolated vertices lie in one component, with distances at most three. At \(n=2\) only the two diagonal singletons have unused coordinates, so that component is an edge. For \(n\ge3\), the idempotents with both supports equal to \([n]\setminus\{1\}\) and \([n]\setminus\{2\}\) are distinct nonadjacent vertices of degree one, with different diagonal singleton neighbors. Their distance is three, giving sharpness.
 
 ## Relationship to prior work
 
-Classical work on idempotent Boolean relation matrices and Boolean matrix semigroups supplies the ambient structures. Butler–Markowsky's individual-idempotent enumerations, also represented in OEIS A363232, already cover the *vertex count* \(4^n-3^n\); that count is not asserted to be original. Dolžan–Oblak studied full matrix-semiring commuting graphs, notably distances and girths; Dolžan–Kokol Bukovšek–Oblak studied their diameters. Neither inspected paper provides the all-cardinality clique and facet formulas for the noncentral, rank-one-idempotent induced graph used here. The novelty assessment attaches to the complete clique and maximal-clique spectra, degree distribution and selected-subgraph decomposition, rather than to elementary rectangular parametrization or known general semiring graph results. Related work on full binary-relation semigroups and maximal commuting subfamilies under alternate terminology leaves a residual historical-priority risk.
+The vertex total is classical (OEIS A363232, rank-one column). The [separate clique and maximal-clique enumerators](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee/RESULT.md) for the exact same graph already specify the number of edges and the number of isolates as special coefficients. Those counts and the equivalent cross-annihilation criterion are background here, not novelty claims. The degree enumerator gives the distribution of adjacency over individual vertices, which the global edge, isolate and clique-size counts do not supply.
 
-## Limitations
+Paulista ([arXiv:2510.23871](https://arxiv.org/abs/2510.23871), §§2.2, 4) gives connectivity and diameter methods for commuting graphs of completely \(0\)-simple semigroups. For trivial group and the nonempty-subset intersection sandwich matrix, the nonzero elements are all nonempty rectangles, not just the idempotents. The distinction affects distances: on three coordinates, the idempotents \(E_{\{3\},\{2,3\}}\) and \(E_{\{1,3\},\{3\}}\) have disjoint unused sets and are nonadjacent. A common idempotent neighbor would require a coordinate unused by both, so they are at distance three in the idempotent graph. The square-zero rectangle \(\{1\}\times\{2\}\) gives a two-edge path in the full nonzero-rectangle graph. Likewise, full Boolean relation centralizer sizes count commuting partners of all ranks, not degrees in the induced idempotent graph. Full matrix-semiring diameter results (Dolžan, Kokol Bukovšek and Oblak, [arXiv:1012.5505](https://arxiv.org/abs/1012.5505)) use a different vertex set as well.
 
-This does not enumerate commuting families of arbitrary Boolean idempotents, arbitrary factor ranks, general rectangular matrix sizes, or the customary full commuting graph with its center removed. The complete classical priority literature is not exhaustively searchable; further hidden equivalences remain possible. No independent mathematical audit was performed.
+## Verification and limitations
 
-## References
-
-1. D. Dolžan and P. Oblak, *Commuting graphs of matrices over semirings*, Linear Algebra and Its Applications 435 (2011), 1657–1665; available online 13 May 2010, DOI 10.1016/j.laa.2010.04.014.
-2. D. Dolžan, D. Kokol Bukovšek and P. Oblak, *Diameters of commuting graphs of matrices over semirings*, arXiv:1012.5505, first submitted 26 December 2010.
-3. D. Rosenblatt, *On the Graphs of Finite Idempotent Boolean Relation Matrices* (1963).
-4. K. K.-H. Butler and G. Markowsky, *The Number of Maximal Subgroups of the Semigroup of Binary Relations*, Kyungpook Mathematical Journal 12 (1972), June.
-5. OEIS A363232, *Idempotent Boolean relation matrices by rank*, https://oeis.org/A363232.
+The uniform proofs establish the formulas for all \(n\ge2\). The accompanying standard-library checker `artifacts/verify.py` constructs small Boolean commuting graphs, checks degrees and their full frequency distribution at \(2\le n\le5\), and checks the diameter of their nonisolated components. It retains supplementary checks of clique coefficients. These finite checks are corroboration only. The result concerns the idempotent stratum; neither statistics for wider strata nor historical priority is inferred from the computation. Alternate formulations of the induced-graph degree distribution or metric may exist in the semigroup literature.

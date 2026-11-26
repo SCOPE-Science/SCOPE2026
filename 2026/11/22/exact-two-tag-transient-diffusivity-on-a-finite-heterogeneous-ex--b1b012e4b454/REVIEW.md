@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies two labeled nearest-neighbor exclusion walkers, strictly positive per-direction rates, integer ring size at least three, stationary uniform initial configuration, and unwrapped signed hop displacements. The gap becomes the reflecting \(n\)-state walk with explicit symmetric generator, giving a rigorously checked linear Poisson corrector. A forward first-moment balance for the marked displacements generates the exact squared-displacement derivative. Full spectral diagonalization of that *finite* gap generator yields strictly positive odd-mode weights and all-time formulas, including endpoints and strictly decreasing instantaneous diffusivity. The intercept is exactly twice the corrector's stationary squared norm. Independently constructed marked-generator block exponentials and exact rational Poisson identities passed 564 programmed checks. No simulation is substituted for the all-parameter proof.
+PASS
 
-## Originality — PASS (qualified)
+For the repaired RESULT.md: the frozen opening unconditionally asserted unequal finite-time diffusivities although a=b was admitted and gives K_1(t)=K_2(t) at every t. The repair states equality iff a=b, distinguishes the linear part of the MSD from the relaxation terms, and clarifies that the ratio has a constant limit as t tends to infinity although plugging in the limiting diffusivities gives 0/0. No coefficients or rate assumptions were changed. Independently, conditioned on the reflecting gap path, each gap jump is a tag-1 jump with probability p=a/(a+b), independently of other marks. Tag 1's increment is minus the gap increment when it jumps, and tag 2's is plus the gap increment when it jumps. Hence each tag's conditional variance is p(1−p) times the number of gap jumps, whose mean is 2q(n−1)t/n. Its conditional mean is, respectively, −p or 1−p times the net gap displacement. The stationary gap is uniform and E[(G_t−G_0)^2]=2⟨f,(I−e^{tQ})f⟩ with f(k)=k−(n+1)/2. The reflecting cosine eigenbasis and −Qf=q(1_{k=n}−1_{k=1}) give exactly the stated odd-mode coefficients and zero even overlaps. Mode m=1 exists also at L=3. The activity at time zero, strict signs at every finite time, common exponent, rate ratio, and intercept from the uniform gap variance all follow. The 90 fresh full-configuration marked uniformization comparisons covered both tags, equal/unequal rates and the triangle.
 
-The primary 2022 source studies many-particle two-species exclusion and expressly restricts its macroscopic analysis to dimensions at least two. The relevant older continuum two-particle source works on the infinite line, not a finite periodic lattice. The closest continuum-ring current calculation supplies a harmonic-mean long-time principle, but not the finite-lattice blocking correction, transient odd-mode expansion, or all-time two-tag squared-rate ratio. Finite-size ASEP literature has different biased homogeneous dynamics. Published records on a biased exclusion pair on the infinite line and a directed tandem process have been compared by actual statements and full result text. No located source entails the complete exact finite-ring claim. Remaining priority risk: other finite-population tagged-current formulas, unpublished notes, or unindexed special cases may already contain equivalent finite-ring expressions.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Microscopic mobility heterogeneity typically remains visible in self-diffusion observables. This result separates a shared, harmonic-mean controlled long-time transport coefficient from strictly different short-time diffusivities by an exact universal-in-time identity. The ratio \((a/b)^2\) makes two tag-resolved time series a direct diagnostic of relative rates without fitting the complete mode spectrum, provided the stationary asymptote is measurable. The all-time positive spectral formula additionally quantifies finite-size relaxation and yields a closed intercept for every ring length. These features are motivated by heterogeneous finite-cycle transport and do not follow merely by renaming a one-particle random walk or by quoting the continuum harmonic mean.
+The supported distinct result is the exact finite-lattice stationary two-tag MSD spectrum and constant squared-rate ratio for its excess instantaneous diffusivities. Reflecting-gap reduction, finite-ring activity spectra for homogeneous rates, and long-time diffusivity mechanisms are not claimed as new. The comparison applies to the repaired precise statement, including that the two curves coincide at equal rates.
 
-## Limits and relevant literature
+## value
 
-The continuum-ring harmonic mean is known and is credited rather than repackaged as entirely new. The new quantitative contribution is the finite-lattice all-time two-tag spectral identity and fixed squared-rate ratio. The analysis says nothing about higher particle densities, biased rates, or nonstationary preparations. Publication priority remains provisional pending broader human literature validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the smallest interacting finite ring system the joint time dependence, odd-mode weights, strict decay and intercept distinguish transient tagged transport from its common asymptotic diffusivity. The exact squared-rate excess ratio provides a useful check across all observation times and jump-rate contrasts, not just a trivial equal-rate check or a re-expression of the long-time diffusivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic: the exact cycloid chord identity establishes the unique global diametral pair; Taylor expansion and arclength Jacobians reduce the near-diameter event to a two-variable simplex, whose beta integral gives the sharp coefficient and normalized Dirichlet limit. The Euler-gamma normalization and absolute cuspidal-curvature conversion are checked algebraically.
+# Independent mathematical audit
 
-The standalone `check.py` can be run with Python 3.13 and SciPy 1.17. In one replay it passed coefficient equivalence, three finite-threshold nested numerical quadratures, a conditional cubic-deficit moment and 20,100 grid pair checks. Ratios of numerical tail probabilities to the claimed leading coefficient were approximately 1.0262350114, 1.0112603268, and 1.0050207385 at deficits 0.01, 0.001 and 0.0001, respectively; these converge toward 1 consistently with the analytic expansion. The conditional mean scaled left deficit was approximately 0.286831903 at 0.0001, against the Dirichlet prediction 2/7.
+## correctness
 
-Finite quadrature and grids do not verify the global infinite theorem; the stepwise proof must be assessed separately. The result excludes alternative sampling laws, arbitrary singularities, multiplicity of diametral pairs and quantitative error rates. Complete texts of some plausible archival works and some indexed scientific records were not available. Historical priority remains provisional; independent audit is not performed.
+PASS
+
+Compactness and the unique unordered diametral pair reduce the event to two disjoint ordered endpoint neighborhoods. In either one, horizontal displacement loses a_L t³+a_R s³+O(t⁴+s⁴); squaring the transverse difference adds only O(t⁴+s⁴), and the chord length is bounded away from zero there. Thus the leading deficit is uniformly comparable to t³+s³, even on the axes. Under cubic scaling, the exact domains lie in a fixed bounded set and converge off the simplex boundary, while the normalized arclength density is dominated by a multiple of u^(−1/3)v^(−1/3). Integration gives the stated beta integral and constant, including the factor two from the two orders. The actual slack differs uniformly from 1−u−v by o(1); hence the stated joint Dirichlet limit, Beta law for the sum and independent Beta law for the left fraction follow. The order variable is uniform and independent of the canonically left/right-labeled marks by exchangeability (the two complementary order events are not themselves independent). The determinant has magnitude 12 a_i |b_i| and the denominator is (2|b_i|)^(5/2), giving the intrinsic coefficient. For the cycloid, the exact chord identity bounds the norm by 2r(d+sin d), with equality at the global maximum possible only for d=π; the length is 8r and a_i=r/6, b_i=r/2. Reviewer-authored `python3 /workspace/independent_reproduction.py cusp` (SciPy 1.18.1) used direct integration in probability-mass coordinates, obtaining the coefficient 0.05830090078339615 and tail ratios 1.0262350114, 1.0112603267 and 1.0050207385 at the three listed thresholds. The last conditional first mark was 0.2868319033 versus 2/7. These are diagnostics, not certified bounds or an infinite-claim proof.
+
+## originality
+
+PASS
+
+The cycloid's cusp invariant is known, and the same-day phase-uniform trochoid result supplies enough local information for the ordinary cycloid specialization by reweighting. The 4/3 exponent and Dirichlet parameters are also shared by other geometric models. The distinct supported claim is a uniform intrinsic law for arbitrary compact endpoint-cusped plane arcs satisfying the precise local and global conditions, not priority of the cycloid diameter, the bare exponent, or the Dirichlet family.
+
+## value
+
+PASS
+
+The general theorem identifies a sampling-sensitive exponent and an intrinsic, quantitative relation between arclength tail probability and the product of the two absolute cusp curvatures. Its conditional law resolves both the distance deficit and the division of contributions between endpoints. Separating the global uniqueness condition from the local geometry distinguishes this class from smooth or multiply diametral settings. This reach, rather than the cycloid specialization on its own, supports value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:04:05.879932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27; verify.py lines 1–99; VERIFICATION.md",
+        "Independent fixed-locus homology argument and branches/correctness_checks.py (partition)",
+        "Arone–Brantner, arXiv:1801.01491, formula (1.1), Theorem 5.10"
+      ],
+      "rationale": "Independent homology argument: the fixed subcomplex F consists of six vertices and two edges. Within either three-cycle, an invariant equivalence relation is discrete or total. With no cross-cycle identifications, the three proper choices are ‘collapse the first cycle’, ‘collapse the second’, and ‘collapse both’, giving two edges to the last. With a cross identification, a collapsed cycle forces the indiscrete partition, while two discrete cycles allow three equivariant matchings; these vertices are isolated in F. Ranks prevent inversions and every cell outside F has trivial stabilizer. Independently generated partitions by successive pair merges and confirmed the frozen degree-wise cell counts by Burnside (original 201,1865,4245,2700; fixed 6,2,0,0; quotient 71,623,1415,900). For the Borel space X_hG the projection to BG is an isomorphism in integral homology through degree two because X is 2-connected. The ordinary quotient is the homotopy pushout of X_hG←F×BG→F: this follows cell by cell from the fixed subcomplex and the free cells outside it (on each relative cell the Borel-to-orbit map has contractible EG factor). The homology sequence gives H₂ of the quotient as the kernel of the sum map (Z/3)^4→Z/3 on H₁; H₁ and H₂ of F and H₂(X_hG) vanish. Top homology is free, and χ=−37 gives rank 38 after simple connectivity, which follows from Armstrong because the generator fixes vertices and X is simply connected. A simply connected three-complex splits via its two-skeleton and Smith form on the degree matrix of the three-cell attaching maps, giving the stated Moore/sphere wedge. The exact prior-theorem specialization below independently agrees. The frozen cancellation code and certificate logic were inspected, not executed.",
+      "residual_risks": [
+        "The wedge decomposition is noncanonical, and it describes the ordinary quotient only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.10 applies to every Young subgroup and uses diagonal inductions for divisors of the gcd; the paper explicitly explains the embedding and equivariant desuspension. Donau's Theorem 1.1 quoted in the 2012 introduction concerns a fixed label; Proposition 4.2 concerns a free prime transitive action on p labels, p≥5."
+        ],
+        "reasoning": "Although the two Donau results do not apply, the two preserved blocks place this diagonal subgroup inside the scope of the Young-subgroup restriction theorem. The original comparison based on absence of a fixed label does not exclude it.",
+        "searches": [
+          "Arone–Brantner arXiv:1801.01491 Theorem 5.10, preceding Restrictions paragraph, formula (1.1) and Remark 1.2; Donau arXiv:1202.4368"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–40",
+        "Arone–Brantner arXiv:1801.01491",
+        "Donau arXiv:1202.4368 and 2010 theorem as quoted there",
+        "Resultary 850ac7b4ac85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At (n₁,n₂)=(3,3), formula (1.1) reduces to three d=1 induced sphere terms and one d=3 induced atom term. Three fixed cosets yield the degree-three cofibers, while the other cosets yield the 38 three-spheres in total, as calculated in the rationale."
+        ],
+        "reasoning": "The prior theorem yields the exact integral homotopy type with only finite orbit counting and the elementary two-dimensional rotation quotient. A different exact chain certificate for the same type is not a distinct original theorem.",
+        "searches": [
+          "arXiv:1801.01491 formula (1.1), OA offsets 14950–19389; local Resultary 850ac7b4ac85 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "(0 2 4)(1 3 5) preserves a 3+3 partition and after labelling each cycle identically is diagonal C₃ in S₃×S₃. Theorem 5.10 gives an equivariant pointed equivalence based at that preserved partition."
+        ],
+        "reasoning": "A restriction from H followed by an ordinary G-orbit space is compatible with the prior equivariant equivalence. Free/Borel quotients and Weyl-group fixed-point calculations are not being substituted for the original quotient.",
+        "searches": [
+          "Resultary partition complex six labels, C₃, two disjoint three-cycles; arXiv:1801.01491 restrictions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned entry itself and Resultary 850ac7b4ac85 were found. The distinct earlier catalogue result states two Moore summands and 20 three-spheres for the full C₆ action, not three and 38 for C₃."
+        ],
+        "reasoning": "No identical independent table entry is needed: the older general theorem covers the claimed result by exact specialization. C₆ and C₃ are distinct quotient parameters.",
+        "searches": [
+          "Resultary six-label partition quotient, order three and order six; 850ac7b4ac85"
+        ]
+      },
+      "rationale": "The complete homotopy type is a direct specialization of Arone–Brantner's earlier equivariant partition-complex decomposition, Theorem 5.10, formula (1.1). For the preserved 3+3 blocks take H=S₃×S₃ and G the diagonal C₃. The d=1,3 terms have three primitive binary necklaces of content (3,3) and one of content (1,1), respectively. The d=1 terms are induced from the trivial subgroup and give 3·(36/3)=36 quotient three-spheres. The d=3 atom is S^W smashed with the unreduced suspension of the three isolated partitions in Π₃, where W is the reduced two-dimensional permutation representation of S₃ (remove the invariant line from the direct sum of three real lines). On H/ΔS₃ ≅ S₃ the diagonal C₃ acts by conjugation, giving three fixed cosets and one free orbit. The free orbit contributes one unquotiented atom S³∨S³. At a fixed coset the atom is the cofiber of the equivariant fold C₃₊∧S^W→S^W; ordinary orbits give the cofiber of S²→S²/C₃≅S², the degree-three rotation quotient. Thus each fixed coset gives M(Z/3,2) and the free sphere count is 36+2. The prior equivalence is genuinely equivariant, so passing to ordinary orbits here preserves the homotopy equivalence. This is full implication, not just an earlier example with nearby parameters or unverifiable priority.",
+      "residual_risks": [
+        "Further exact statements may exist; originality fails on the established implication, not because of the unavailable 2010 paper or a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claimed ordinary quotient as a corollary",
+          "evidence": "Equivariant wedge indexed by d|gcd(n_i) and primitive words, induced from diagonal Σ_d. At 3+3 this yields 36 quotient spheres plus three degree-three Moore atoms and two further spheres.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.01491",
+          "material_read": "Restrictions, Theorem 5.10 at formula (1.1), diagonal embedding and desuspension explanation, Remark 1.2; PDF pp. 4–5, OA offsets 14950–19389",
+          "method": "Primary OA full-text passage and explicit specialization of equivariant atom orbits",
+          "title": "The Action of Young Subgroups on the Partition Complex",
+          "trigger": "Older equivariant decomposition on the same partition complex for the preserving Young subgroup"
+        },
+        {
+          "assessment": "Does not cover the nonfree two-cycle six-label action",
+          "evidence": "Point-stabilizer assumption in Theorem 1.1; free p-cycle action on p labels in Proposition 4.2.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.4368",
+          "material_read": "PDF p. 1 Theorem 1.1 from the earlier paper; pp. 3–4 Proposition 4.2, offset 5955",
+          "method": "Primary OA passage comparison",
+          "title": "Quotients of the topology of the partition lattice which are not homotopy equivalent to wedges of spheres",
+          "trigger": "Cited prime-cycle quotient with torsion"
+        },
+        {
+          "assessment": "Quoted theorem requires a fixed label; inaccessible remainder is not negative evidence",
+          "evidence": "Stated subgroup lies in S₁×S_{n−1}; this does not decide full-text coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.topol.2010.08.006",
+          "material_read": "Theorem statement quoted in Donau 2012 introduction; full 2010 text unavailable in the attempted retrieval",
+          "method": "DOI/OA attempt and primary later author's quotation",
+          "title": "Quotients of the order complex of the partition lattice by subgroups of the Young subgroup",
+          "trigger": "Potentially overlapping Young-subgroup title"
+        },
+        {
+          "assessment": "Covers full C₆ quotient, not the assigned intermediate C₃ quotient",
+          "evidence": "Two Moore summands and 20 three-spheres under the entire cyclic action.",
+          "identifier_or_url": "Resultary 850ac7b4ac85",
+          "material_read": "Finding and related comparison, local offsets 0 and 5839",
+          "method": "Local mirror passage reading",
+          "title": "Two three-torsion Moore summands in the cyclic six-point partition quotient",
+          "trigger": "Same six-label complex and torsion, earlier catalogue entry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and scope",
+        "Arone–Brantner Theorem 5.10 and its 3+3 specialization",
+        "Resultary full-six-cycle comparison 850ac7b4ac85"
+      ],
+      "rationale": "The example is natural and its torsion differs from that of the full C₆ quotient, but the frozen contribution is a narrow exact invariant already supplied by the stronger equivariant theorem and straightforward specialization. The source offers a separate finite certificate, not a new structural lemma about the quotient, a new general method, or a distinct unknown invariant. The example has expository and verification utility, not the claimed standalone scientific gap.",
+      "residual_risks": [
+        "This decision concerns the frozen exact claim, not the potential value of further quotient invariants or genuinely new generalizations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

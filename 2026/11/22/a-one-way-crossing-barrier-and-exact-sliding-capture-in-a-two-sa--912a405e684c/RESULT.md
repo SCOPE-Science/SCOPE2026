@@ -33,7 +33,7 @@ All parameters \(a,d\) are arbitrary real numbers in the general crossing obstru
 \[
 \nu_L(y)=1-y,\qquad \nu_R(y)=a+y.
 \]
-For strict left-to-right crossing both must be positive, which is equivalent to \(-a<y<1\), possible only if \(a>-1\). For strict right-to-left crossing both must be negative, equivalent to \(1<y<-a\), possible only if \(a<-1\). These parameter conditions are mutually exclusive. At \(a=-1\), the normal speeds are opposite for all \(y\ne1\). Therefore no nonsliding closed trajectory can cross \(\Sigma\) in both directions. A nonconstant periodic orbit contained in either open half-plane is also impossible: the left linearization has eigenvalues \(-1,1\), while the right has eigenvalues \(-1/2,3/2\), so their affine flows are saddle flows without nonconstant periodic trajectories. This proves the crossing-orbit assertion independently of matching level-set equations or of \(d\).
+For strict left-to-right crossing both must be positive, which is equivalent to \(-a<y<1\), possible only if \(a>-1\). For strict right-to-left crossing both must be negative, equivalent to \(1<y<-a\), possible only if \(a<-1\). These parameter conditions are mutually exclusive. At \(a=-1\), the normal speeds are opposite for all \(y\ne1\), and both vanish at \(y=1\). A periodic trajectory that intersects \(\Sigma\) only in isolated transverse crossings would have to make strict crossings in both directions, which is impossible. A nonconstant periodic orbit contained in either open half-plane is also impossible: the left linearization has eigenvalues \(-1,1\), while the right has eigenvalues \(-1/2,3/2\), so their affine flows are saddle flows without nonconstant periodic trajectories. This proves the crossing-orbit assertion independently of matching level-set equations or of \(d\).
 
 **2. The two oriented algebraic arcs.** At the stated parameter values, the first integrals are
 \[
@@ -84,7 +84,7 @@ Llibre and Valls (2021) exclude crossing limit cycles for two *Hamiltonian* affi
 
 ## Limitations
 
-Only the no-**crossing** conclusion is global in \((a,d)\). The finding neither rules out sliding periodic trajectories generally nor proves nonexistence of limit cycles throughout the wider classes investigated in the cited papers. The two flight times and the attracting pseudoequilibrium require the specified parameter point. The exact geometric discrepancy is established from published equations; whether it was noticed in unindexed discussions or private corrections remains unknown. Independent assessment of priority and proof has not been conducted.
+Only the no-**crossing** conclusion is global in \((a,d)\). The finding does not classify periodic trajectories with sliding or tangencies and does not prove nonexistence of limit cycles throughout the wider classes investigated in the cited papers. The two flight times and the attracting pseudoequilibrium require the specified parameter point. The geometric discrepancy follows from the published equations; priority remains qualified by the possibility of earlier discussions or corrections.
 
 ## References
 

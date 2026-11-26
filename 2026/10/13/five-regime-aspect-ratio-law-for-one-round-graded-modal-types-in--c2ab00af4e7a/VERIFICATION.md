@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of first-round graded-modal type spectrum
+# Independent mathematical audit
 
-`verify.py` is a standalone Python 3 standard-library verifier. Run `python3 verify.py` in the extracted artifact directory. The actual completed run returned:
+## correctness
 
-```text
-EXHAUSTIVE_OK 9418 binary matrices, literal graded formulas versus profile count
-CRITICAL_OCCUPANCY_OK 0.2 integral 0.725624 samples [0.733726, 0.729645, 0.727627]
-CRITICAL_OCCUPANCY_OK 0.5 integral 0.769926 samples [0.777549, 0.773695, 0.771801]
-CRITICAL_OCCUPANCY_OK 0.8 integral 0.725624 samples [0.733726, 0.729645, 0.727627]
-RECTANGULAR_RANDOM_OK 32 draws; eight aspect-exponent groups
-VERIFY_OK exhaustive_matrices 9418 critical_PMF_cases 9 random_rectangular_cases 32
-```
+PASS
 
-The exhaustive portion enumerates all binary rectangles with dimensions at most four and cell count at most twelve, and independently evaluates depth-one graded counting formulas and the proposed degree-color signatures. The critical-occupancy portion evaluates exact finite binomial probability mass functions against a deterministic quadrature for the Gaussian limit at three fixed marking densities and three lengths. The random portion samples 32 rectangles covering the exponent regimes on both sides of both critical values, and compares direct observed types against the degree-alphabet product.
+The exact type is (cell bit, row sum, column sum): interiors at depth zero have only two colors to distinguish and the named modal thresholds recover both sums. The finite algebra consists of all unions of these type classes. For a binomial sample of size t at length L, below square-root scale the expected number of coincident pairs is O(t²/√L)=o(t); at t/√L→1 the expected occupancy is the local-limit Riemann sum √L times L_v with tails bounded by the expected number of tail observations, and variance at most the mean by negative covariance. Above that scale, writing t/√L=n^(β+o(1)), the inner interval of radius (1−ε)√(2Lvβ log n) has t times each bin mass polynomially large. The expected number of samples outside the outer radius (1+ε)√(2Lvβ log n) is at most √L n^(−β(2ε+ε²)+o(1)) by Bernstein, and Markov bounds their distinct values too. The row and column samples need only be internally independent. For a<2 the column-degree interval is in the dense occupancy regime. For a fixed row, mark and degree, the success probability is the mark probability times the shifted Bin(m−1,p) mass, and trials over columns are independent before any row conditioning. The uniform polynomial lower bound on n times this probability defeats the union bound over all rows, marks and inner degrees. This establishes coverage on every row before choosing degree representatives, giving 2R|I|≤K1≤2RC. At a≥2 the row-degree sample is dense and the transposed argument gives the same result. The squeeze as ε→0 proves saturation without treating cross-axis degrees as independent. Multiplying the occupancy limits gives each frozen coefficient, including 8v at a=1, 4L_v√(3v/2) at a=1/2 and 4L_v√(3v) at a=2. The floor does not affect these limits.
 
-Finite exhaustive and numerical checks do **not** certify any infinite-size asymptotic theorem. The proofs of the occupancy limits and uniform degree-pair saturation are analytic and reproduced in `RESULT.md`. Independent mathematical and originality audits have not been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the explicit asymptotic and near-saturation of the two-mark degree-pair alphabet of iid rectangles. The available comparisons credit existing modal semantics, refinement, and degree sequence theory but do not establish this quantitative law or its critical constants.
+
+## value
+
+PASS
+
+For a standard two-equivalence model, the one-round algebra size is a natural measure of the expressive gain from counting. A square-only estimate or a marginal-product upper bound would miss whether that upper bound is attained and both critical crossovers. The theorem resolves both questions over the full natural polynomial aspect family with explicit constants and a uniform coverage argument reusable in comparable occupancy problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

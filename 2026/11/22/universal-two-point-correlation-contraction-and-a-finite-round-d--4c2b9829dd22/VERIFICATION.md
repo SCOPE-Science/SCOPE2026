@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof relies on identities for the open-boundary zero-field Ising chain, all stated in RESULT.md. The exact conditional mean is linear in at most two revealed boundary spins with nonnegative coefficients, and the two-point conditional covariance in any gap is nonnegative. A two-spin bridge calculation yields a strictly positive pointwise conditional covariance when neighboring sites are co-revealed; the same regression coefficients under the target and output ensure all-pair correlation comparison by induction. Conditioning on independent per-site round labels yields the collision factor \(\sum_k a_k^2\ge1/K\), and the target's exact energy representation translates the defect discrepancy into cross-entropy excess.
+## correctness
 
-Run `python3 check.py` using Python 3 and only its standard library. The executable evaluates the entire finite-state output distribution by exact rational recursion. On execution the output was:
+PASS
 
-```
-PASS: 3812 pair inequalities; 571 adjacent co-reveal bounds;
-PASS: 12 all-singleton partitions; independent-schedule mixture;
-PASS: exact fraction mass, zero means, both interaction signs;
-example collision probability = 7/18; conditional constant = 60/361
-```
+The sign gauge transforms each bond to rho>0 and the signed pair products to ordinary ferromagnetic correlations. The nearest observed endpoints give conditional means linear in their values, with nonnegative position-dependent coefficients, including absent endpoints. In a common gap the conditional two-spin table is proportional to (1+u a x)(1+d xy)(1+v b y), d=rho^(j-i), normalized by 4(1+duvab). Four times the determinant of this probability table is the spin covariance d(1-u^2)(1-v^2)/(1+duvab)^2. If the sites are separated by an observation it is zero by the Markov property. For adjacent unrevealed sites u,v<=rho, proving the claimed uniform positive bound. Induct on the disclosed positions: new-old moments propagate through the nonnegative linear mean coefficients; new-new moments of the decoder propagate through their products, while the target has the extra nonnegative conditional covariance averaged under the target, not under the decoder. Both diagonals equal one, so the comparison holds even when their revealed contexts have different laws. Pair moments are final upon reveal, with zero single-spin means by flip symmetry. Exogenous scheduling mixes those inequalities; iid labels give collision probability sum a_k^2>=1/K. The defect divides the bond shortfall by two, and the exact bond-log representation multiplies it by log((1+rho)/(1-rho)), not by a KL identity. No floor is implied for coordinated schedules. The frozen check.py uses finite fraction recursion; its stored counts are not proof. The independent full-law restriction checker /workspace/branches/178f0add-b045-4969-abc5-bbcd14821517/check_record4_independent.py confirmed 1177 pair inequalities, 214 adjacent bounds, and 8 exact all-singleton cases on its bounded grid and confirmed a nonuniform iid example.
 
-The finite enumeration checks the algebra on small instances, including negative interactions and nonuniform reveal probabilities; it does not establish the infinite family of inequalities without the mathematical proof. The theorem concerns exact one-site conditionals and exogenous batching; no assertion is made about approximate denoisers, adaptive selection, optimal constants or independent expert validation.
+## originality
+
+PASS
+
+Credit the deterministic all-pair signed comparison and the explicit co-reveal deficit and iid finite-round lower bound, not the already available exact output-defect and cross-entropy observable, the one-site decoder, or the chain energy identity. The strongest inspected same-model source has exact recursions for independent schedules, not the asserted deterministic all-pair inequality or explicit lower bound in the passages checked.
+
+## value
+
+PASS
+
+The all-pair comparison turns a local conditional-independence approximation into a deterministic schedule-wide constraint even when the decoder has changed the revealed-context distribution. The explicit local covariance loss and iid collision bound give a length-independent finite-round limitation for every bond, without solving a decoder recurrence. Separating the guarantee from coordinated schedules matters for understanding when parallel exact-marginal decoding incurs thermodynamic error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

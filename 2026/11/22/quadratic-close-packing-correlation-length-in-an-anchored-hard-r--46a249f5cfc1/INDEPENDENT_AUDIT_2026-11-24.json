@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:51:35.378978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ε=d/δ, the Jacobian δ and the gauge e^(−x/ε) on [0,1] give K similar to ed times the interval-killed ε(Exp(1)−1) transition. For fixed ε, midpoint step kernels converge in Hilbert–Schmidt norm by bounded convergence away from the jump line. Their matrices are totally nonnegative (a square Ferrers minor is zero unless the nested rows give triangular pivots), so their eigenvalues are real and nonnegative, and norm convergence of the spectral projections transfers this to each isolated nonzero point. Nonzero eigenfunctions are bounded by the kernel, and the probability of a jump beyond the upper endpoint is at least exp(−1−1/ε), giving eigenvalues strictly below one. The gamma return density tends to (2πt)^−1/2. Given zero endpoint displacement, exponential increments have the normalized iid exponential-spacing law; writing S_k for fresh iid exponential partial sums, the bridge has positions ε(m S_k/S_m−k). Donsker and S_m/m→1 give the Brownian bridge; its extrema have no atoms at the killing thresholds for interior starting points. The trace-class identity for products of Hilbert–Schmidt kernels gives the integral of the cyclic return kernel, dominated by the free gamma density, and Lidskii gives the sum of powers with algebraic multiplicity. For the log-rescaled spectra the floor and ceiling powers squeeze their Laplace transforms (or use trace limits at t±η and send η to zero); the tail beyond R at t is bounded by e^(−tR/2) times the transform at t/2. Vague convergence and Laplace uniqueness identify the first two isolated single atoms π²/2 and 2π², proving positivity near packing, the log-gap constant, and the free-energy term. Separately, /workspace/review_checks/rods.py reconstructs the reciprocal polynomial via ν f′(x)=−f(x−ε), initial flatness and νf(0)=∫f. Exact integer sign variations isolate its first two roots at five integer δ/d values. At δ/d=80 the scaled log exponents are 4.774725665782 and 19.10363383013 and ξ/(δ/d)²≈0.0697889880 (ξ≈446.65). This checks the same model and contradicts the primary paper's asserted ξ<n even allowing either interval index at the integer boundary; continuity gives nearby interior examples. The finite computations do not establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two probability papers study conditioned walk limits, notably positivity or half-line exit, not extraction of the first two eigenvalues of this bounded-interval transfer operator. Nearby Resultary hits 74c7d0f36dc9 and 1a77dfa1a824 use cyclic length-three rods and an activity-driven lattice hard-core gas respectively."
+        ],
+        "reasoning": "Generic bridge methods are input rather than a statement implying the precise two-mode asymptotic for this kernel; the other physical models do not specialize to it.",
+        "searches": [
+          "arXiv:1204.6148 abstract and introduction",
+          "arXiv:2110.05123 abstract and introduction",
+          "Resultary: hard-rod close packing, positional correlation and diffusion spectral limit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26371v1",
+        "arXiv:1204.6148",
+        "arXiv:2110.05123",
+        "Resultary: 46a249f5cfc1 (self), 74c7d0f36dc9 and 1a77dfa1a824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (8) gives a local cosine-squared positional density, not a gap. Eq. (9) approaches the second-order onset from above, not close packing. The text after Eq. (9) explicitly claims ξ<n in the nth density region; n is on the order of δ/d. The same article's exact root formula is consistent with the reviewed law rather than that upper bound."
+        ],
+        "reasoning": "Neither a one-point profile nor an asymptotic at the other endpoint supplies the first spectral gap. The literal ξ<n claim is incompatible with the quadratic law under the shared definition, and the independent proof and reciprocal-polynomial check resolve that conflict in favor of the frozen finding.",
+        "searches": [
+          "arXiv:2610.26371v1 Eqs. (6), (8), (9) and close-packing discussion after Eq. (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical frozen record is a self-hit. Eqs. (2) and (3) are exactly the same transfer kernel (up to translation) and site-length ratio; the walk gauge leaves that ratio unchanged."
+        ],
+        "reasoning": "This is the same spectral problem in two representations, not a new model; the asymptotic result, not the rewrite alone, is distinct.",
+        "searches": [
+          "Resultary: anchored hard-rod spectral gap and killed centered exponential walk",
+          "arXiv:2610.26371v1 Eqs. (2), (3), (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (6) already encodes all the finite-regime eigenvalues as polynomial roots. The Resultary hit 46a249f5cfc1 is the identical assigned record, not prior evidence; the compared different models do not tabulate this same limit."
+        ],
+        "reasoning": "No priority is claimed for finite eigenvalues or formula; a root formula indexed by a divergent regime gives no tabulated top-root asymptotics.",
+        "searches": [
+          "Resultary: 2/(3π²), two eigenvalue corrections and correlation length near anchored close packing",
+          "arXiv:2610.26371v1 Eq. (6)"
+        ]
+      },
+      "rationale": "Credit the identical model, exact finite-ε spectrum and definition of ξ to Mizani et al. The distinct result is the controlled two-root close-packing asymptotic, including its sharp constants and the correction to the conflicting contact-count bound. Exact parameter-dependent polynomials do not supply this limit without new analysis as their degree diverges.",
+      "residual_risks": [
+        "Other spectral, renewal, or large-degree polynomial results may contain an overlooked implication; checked literature and indexed records do not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-regime overlap but not the sharp close-packing limit; reported contact-count upper bound is contradicted",
+          "evidence": [
+            "Eq. (6) gives degree-n spectrum polynomial; text after Eq. (9) says ξ<n throughout density region n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.26371v1",
+          "material_read": "Eqs. (1)–(3), (6), (8)–(9) and following discussion; HTML offsets 5800–13867 and 16000–22485",
+          "method": "OA full-text passages and statement-level comparison to reconstructed operator and reciprocal-root equation",
+          "title": "From second to infinite order: Ehrenfest transitions in a one-dimensional hard-sphere crystal under compression",
+          "trigger": "Same object, exact spectrum, and possible prior close-packing result"
+        },
+        {
+          "assessment": "Methodological background rather than this interval spectral limit",
+          "evidence": [
+            "Positivity-conditioned walk bridges in discrete and absolutely continuous settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1204.6148",
+          "material_read": "Abstract and introduction, offsets 1121–3914",
+          "method": "OA passage comparison",
+          "title": "An invariance principle for random walk bridges conditioned to stay positive",
+          "trigger": "Potential encompassing diffusive bridge result"
+        },
+        {
+          "assessment": "Half-line methods do not identify these two transfer eigenvalues",
+          "evidence": [
+            "Centered real walks and local limits conditioned by half-line exit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2110.05123",
+          "material_read": "Abstract and introduction, offsets 0–3737",
+          "method": "OA passage comparison",
+          "title": "Conditioned local limit theorems for random walks on the real line",
+          "trigger": "Potential general killed-kernel limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The subleading eigenvalue sets a natural equilibrium length not determined by the pressure or the one-well profile. The sharp gap reveals that long-range correlation extends parametrically beyond the contact count and corrects a concrete prior assertion for the same model. The two-mode mechanism and free-energy term are usable quantitative predictions, not extrapolated mesh estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

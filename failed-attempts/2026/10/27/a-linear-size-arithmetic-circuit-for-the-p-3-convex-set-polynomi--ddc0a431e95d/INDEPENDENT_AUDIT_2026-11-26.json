@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:13.289879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The states track omitted with zero descendant-block selected neighbors, omitted with one, and selected, weighting a vertex only in its selected state. An omitted parent with no selected clique child allows either omitted state for every child; if it has one selected child, other children see that sibling and must have zero selected descendant neighbors. A selected parent allows either all children omitted in their zero states or all children selected; any mixed choice would give an omitted child two selected neighbors. At a vertex the descendant blocks contribute disjoint neighbor sets, so the zero/one calculation and the selected-state product are necessary and sufficient. Induction on the incidence tree gives the root sum, and independent components multiply; bridges, isolates and the empty graph obey the same conventions. The two-accumulator formula evaluates the one-exception sums in linear operations; there are O(|V|) incidence edges after decomposition, hence the claimed O(|V|+|E|) gate bound holds, without claiming linear coefficient-expansion bit-time. In a bouquet an omitted center admits only empty and singleton choices; a selected center permits independent all-or-none choices of each petal, giving exactly the stated polynomial. Independent finite code and output in branches/ebabd826-770f-4a0f-b8d5-5312a62f3776/record5_independent_check.py and record5_independent_check.txt corroborated every coefficient on 123 generated graphs up to 10 vertices and a heterogeneous bouquet; finite checks are not the unrestricted induction. The frozen output counts 8367 nonempty labeled block graphs through order six, with the empty graph outside that tested histogram.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "af818a6c215c gives the multivariate circuit on all block graphs including disconnected graphs and isolates, with O(|V|) gates once the forest is supplied. 473be4ff33e8 gives the full recurrence for connected graphs and explicitly states the common-weight specialization. Dourado et al. give scalar three-state counting in trees and scalar results for threshold graphs; that literature alone is not the decisive domination. The same omitted-neighbor rule is also MSO1-expressible, but the exact circuit implication of the generic literature was not required to decide this case."
+        ],
+        "reasoning": "Retaining independent weights is stronger than collapsing them to one variable; the indexed construction is already explicit and positive with the same small states and no larger gate count. The result is therefore covered without reliance on inaccessible bounded-width full texts.",
+        "searches": [
+          "Resultary 473be4ff33e8 and af818a6c215c Findings",
+          "Dourado et al. arXiv:2603.04706v1, Theorem 3 and threshold-graph section",
+          "Courcelle–Makowsky–Rotics DOI:10.1016/S0166-218X(00)00221-3; Oum DOI:10.1016/j.jctb.2005.03.003"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary 473be4ff33e8 and af818a6c215c",
+        "Dourado et al. arXiv:2603.04706v1",
+        "Bounded OA checks of cited graph-enumeration and block-graph convexity literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior arbitrary-weight recurrence at a leaf has B^0=1, B^1=0, A=x_v. For a petal Q after setting x_v=z its block messages are beta=1, gamma=(|Q|-1)z, alpha=1+z^(|Q|-1). af818a6c215c already gives the omitted-center/singleton and selected-center/all-or-none proof for equal petals."
+        ],
+        "reasoning": "At the bouquet center the known vertex formulas take the product of the beta factors, sum the gammas against beta factors, and multiply the alpha factors by z. This yields the frozen heterogeneous expression verbatim with no new lemma, hypothesis or computation. Taking z=1 is an even more restrictive scalar evaluation.",
+        "searches": [
+          "473be4ff33e8 complete Finding and recurrence, offset 0",
+          "af818a6c215c proof of component product and windmill specialization, offsets 5500–7793"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "473be4ff33e8 defines the same omitted-neighbor rule, not an induced-path or digital-convexity alternative. Its states (B^0,B^1,A) and local factors (beta,gamma,alpha) are precisely the frozen (A,B,C) and (X,Y,Z)."
+        ],
+        "reasoning": "With this renaming and x_v=z for all v, every leaf, block and vertex update is identical, as is the root sum. The degree in z counts exactly cardinality, so matching is for the entire polynomial, not just a scalar evaluation.",
+        "searches": [
+          "Resultary lookup for three-state P3-convexity polynomial on block graphs; inspected 473be4ff33e8 and af818a6c215c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both matches give statements of general circuits, not empirical similarities. af818a6c215c also explicitly lists C_{K_1 join tK_m}(x)=1+tm x+x(1+x^m)^t and derives it from the same local cases."
+        ],
+        "reasoning": "An exact heterogeneous petal-size table is inapplicable to this all-size formula. The indexed recurrence already supplies the polynomial for every such petal-size tuple, and the direct closed expression is its immediate evaluation.",
+        "searches": [
+          "Local Resultary finding index for exact P3-convex block-graph circuit and clique bouquet; 473be4ff33e8 and af818a6c215c, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "Demonstrated stronger coverage, not a search miss or an inaccessible-source judgment. Two distinct indexed records give the same three-state positive recurrence with arbitrary individual vertex weights. Substituting one common weight z gives the frozen circuit coefficient by coefficient; the earlier general theorem has an O(|V|) gate bound and explicitly covers disconnected graphs, isolates and the empty graph. The heterogeneous bouquet expression is the direct evaluation of the same covered recurrence on leaf petals, not a distinct structural result. The equal-petal derivation was already explicitly given. No historical authorship or precedence inference beyond the demonstrated mathematical duplication is needed for this assessment.",
+      "residual_risks": [
+        "Several bounded-width and older convexity papers were not inspected in full, so no complete exclusion of additional precedence is made. This does not weaken the explicit stronger-circuit coverage already established.",
+        "The heterogeneous formula need not appear verbatim in the compared records: the demonstrated specialization proves it mechanically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mathematical domination; exact state and gate comparison possible.",
+          "evidence": [
+            "Gives beta as the product of B^0+B^1, gamma as the one-exception sum with A, and alpha as the sum of the products of B^0 and A. Explicitly specializes all weights to z for the complete cardinality polynomial."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-linear-size-weighted-p-3-convex-set-circuit-for-block-graphs--473be4ff33e8",
+          "material_read": "Mirrored RESULT.md offsets 0–2624, full Finding and exact recurrence",
+          "method": "Local Resultary search and targeted mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A linear-size weighted P3-convex-set circuit for block graphs",
+          "trigger": "Same object and circuit with stronger arbitrary vertex weights"
+        },
+        {
+          "assessment": "Stronger theorem includes disconnected graphs; direct equal-petal precursor to the stated routine specialization.",
+          "evidence": [
+            "States the all-block-graphs multivariate O(|V|) circuit and derives the explicit equal-petal polynomial by the same two center cases."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–2936, recurrence offsets 2936–6309, component and windmill arguments around offsets 5500–7793",
+          "method": "Targeted local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A three-state multivariate P3-convexity polynomial for block graphs",
+          "trigger": "Exact all-block-graphs statement and bouquet comparison"
+        },
+        {
+          "assessment": "Same exact condition and scalar tree case, not the decisive full block-graph overlap.",
+          "evidence": [
+            "Theorem 3 is a rooted-tree three-state scalar count; the threshold-graph algorithm is also scalar."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "p. 1 abstract; p. 4 definition; pp. 5–6 Theorem 3, offset 14835; pp. 13–15 threshold graphs",
+          "method": "Targeted lawful OA passages",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Direct published-style primary comparison for problem and known counting algorithms"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit multivariate block-graph recurrence with small boundary states is useful in itself, but that work is already present in the compared records. The only apparent separate addition, nonidentical petal sizes in the bouquet display, is a product of independent all-or-none petal terms obtained directly from that known recurrence; it resolves no remaining structural or counting gap. A fresh finite certificate or a narrower restatement of this substitution would not produce a substantive surviving claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

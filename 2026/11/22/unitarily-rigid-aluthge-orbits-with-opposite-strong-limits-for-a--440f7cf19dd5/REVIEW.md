@@ -1,19 +1,21 @@
-# Scientific review: affine monomial Aluthge orbits
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved by a unitary logarithmic change of coordinates, followed by an explicit polar decomposition and a direct-integral spectral analysis. The generalized Aluthge map multiplies the damping by \(q=1-\eta+\eta/a\) at every step. Unitary conjugation by a positive spatial dilation shows exact unitary equivalence across the entire orbit. Dominated convergence applied to both multiplication factors and their adjoints establishes strong-star limits; essential-supremum calculations give a constant positive consecutive norm gap. The logarithmic direct integral produces bilateral weights with limits zero and one at opposite tails, proving point-versus-residual spectral orientation, infinite multiplicity, and the Fredholm disk. The exact self-commutator is multiplication by a difference of two exponentials, whose maximum is elementary. The standard-library checker returned `CHECKS_OK 17378`; these finite checks supplement rather than replace the infinite-dimensional argument.
+PASS
 
-## Originality — PASS, with priority uncertainty
+The fixed coordinate unitary gives A_{a,d}=r M_{exp(−dy)} V_a, d=δ, with boundedness exactly d≥0. The adjoint multiplier is r exp(−dy/a) composed with V_a* in the corresponding order, and the polar modulus is r M_{exp(−dy/a)}. This gives d→dq under the transform and W_c^*A_{a,d}W_c=A_{a,d/c}. For fixed 0<η≤1 and d>0, q crosses one at a=1. Dominated convergence applies to both multipliers on the operator and adjoint sides, but essential suprema give exact nonzero distances to the limits. Maximizing |exp(−qz)−exp(−z)| at z=log(q)/(q−1) gives the successive gap. Conjugating again to logarithmic translations gives weighted shifts whose two tails tend to one and zero. An interior eigen-recurrence decays at both tails in the stated operator or adjoint orientation; normalized measurable fields of solutions multiplied by arbitrary square-integrable scalar functions give infinite multiplicity. At radius r the product of weights on the one-tail has positive limit, eliminating eigenvectors for both recurrences; truncated plane waves on that tail give approximate null vectors for the shifted operator, with the weight error uniform across a bounded fundamental interval. At zero both operators are injective and the weight approaching zero rules out closed range. The zero-damping Fourier multiplier and a=1 multiplication cases have the stated boundary behavior. The commutator multiplier a^{-1}(exp(−2dy/a)−exp(−2dy)) gives the sign and claimed maximum directly.
 
-Benhida–Budzyński–Trepkowski, arXiv:1809.01205, prove the **general one-step** Aluthge formula for weighted composition operators; that result is prior art, not part of the claimed contribution. Agler–McCarthy, arXiv:2205.01857, give the structural monomial class; Chalendar–Partington, arXiv:2212.02172, address affine-index boundedness and compactness. Their inspected texts do not give the stated joint fixed-unitary-orbit classification, two strong-star limits, exact norm gap, and point/residual orientation. A published weighted-Hardy monomial example has nonconvergent Aluthge iterations, unlike the present positive-damping continuous-space family. Other published compact shift iteration results have operator-norm or Schatten convergence, incompatible with the persistent norm gaps here. A 2009 weighted-translation Aluthge result proves convergence under broad assumptions, so **the convergence assertion alone** is not claimed as original; the complete coupled phase diagram is the novelty assessment. Its full text was not available for inspection, and further equivalent formulations could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is naturally motivated by affine-index monomial operators and the convergence of iterated generalized Aluthge transforms. This single explicit family shows that all iterates may remain unitarily equivalent with identical nonnormal spectral disks while converging strongly-star to a normal operator of radically different spectral type. It distinguishes forward and backward dilation by an exact point/residual spectrum reversal, and quantifies the failure of norm convergence by a fixed positive gap, not merely a nonconvergence assertion. These are structural, infinite-dimensional phenomena applicable to an entire two-parameter family, not a reparametrized finite computation.
+Pass the explicit unitary-orbit dynamics and paired quantitative behavior, not priority for one-step weight formulas, the affine-index family, or the disk and interior eigenvalue facts. In particular, the latter facts already occur under an exact Laplace/half-plane equivalence in Schröderus. The compared literature does not establish the positive-damping Aluthge orbit as one fixed unitary class exhibiting both opposite strong-star limits and exact persistent successive separation in this family.
 
-## Literature limits and evidence
+## value
 
-Relevant inspected full texts: Benhida–Budzyński–Trepkowski (2018, arXiv:1809.01205), Agler–McCarthy (2022, arXiv:2205.01857), and Chalendar–Partington (2022, arXiv:2212.02172). Limited evidence: abstract of Burnap–Jung–Lee–Park (2009) and abstract of Lahiri–Ojha–Birbonshi (2026, arXiv:2604.27762). The former's full text could not be obtained; it remains the most substantial priority risk because weighted dilation becomes weighted translation after a logarithmic change of variables. No equivalent joint classification was found in the accessible comparisons, but a negative search does not establish uniqueness. No independent validation is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This family gives a quantitative witness that an Aluthge orbit can retain its full unitary equivalence class and nonnormality at every finite step yet converge strongly-star to a normal operator. The two directions of dilation give opposite limiting mechanisms under the same parameter law, and the uniform exact norm separations make the topology distinction testable, beyond recovering the formerly known static spectra or one-step transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

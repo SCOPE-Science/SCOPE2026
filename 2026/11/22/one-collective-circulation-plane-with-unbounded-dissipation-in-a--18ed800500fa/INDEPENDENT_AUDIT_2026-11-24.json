@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:32:59.620138Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The drift is stable and symmetric with eigenvalues a,a+b; splitting the stationary Lyapunov equation into the P and I−P blocks gives denominators equal to the corresponding sums of relaxation rates. Positivity of D guarantees an invertible covariance. With the specified index and sign convention A=D−KC=(CK−KC)/2=b(PD−DP)/(2a+b). Writing T=T̄1+v shows A is the wedge of 1 and v with the stated coefficient: for unequal baths the rank is exactly two and Ω=b||v||/[(2a+b)√n], and for equal baths A=0. Since j(x)=AC⁻¹xρ(x), this is also pointwise confinement of the flux vectors. Conversion of bath force-work from Stratonovich gives h_i=(KCK−DK)_ii=(−AK)_ii; uniform off-diagonals of K give the stated row sums and ∑h_i=0. The Gaussian quadratic rate is tr(C⁻¹AᵀD⁻¹A); substitute A=D−KC on the right, use skew symmetry and cyclicity, to obtain −tr(D⁻¹AK), the reservoir rate. For the cold family the other two baths sum to 3−ε, their product is (6−12ε+4ε²)/4>0 on the stated interval, and total sum of squares is 6. Hence the first two moments and integrated-current spectrum are fixed, but only the 1/ε term of ∑1/T_i diverges. The divergence concerns entropy production, not heat flux or the full matrix A, and never assumes zero-temperature dynamics. Fresh bounded reproduction: exact SymPy Lyapunov solves in four cases (equal and unequal baths), heat and entropy trace checks, and symbolic cold-family moments and leading coefficient. Replay cd /workspace && python3 review-evidence/reproduce.py 1; output review-evidence/1.txt. Inspected but did not execute the frozen verifier; its recorded 36 cases are corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General linear-Gaussian stationary-current machinery is available; the projector drift inserted into it indeed yields the rank constraint.",
+          "The many-bath crystal uses self-consistent interior temperatures, the mean-field harmonic chain uses two end baths and inertia, and the fully connected random OU ensemble considers Gaussian random couplings and covariance spectra.",
+          "The two-temperature entropy-multiplier record uses skew-adjoint coupling, unlike the symmetric drift and arbitrary bath list here."
+        ],
+        "reasoning": "These sources do not have a theorem about keeping the arithmetic mean and variance of an arbitrary site-bath list fixed while causing the required divergence at fixed current spectrum; this needs the explicit entropy and the constrained positive family.",
+        "searches": [
+          "arXiv:1610.02976 pp. 2–3; arXiv:math-ph/0307035 p. 1; arXiv:2111.01332 p. 1; arXiv:2409.01262 p. 2",
+          "Resultary 68bc5baaf3bc and 862d45a61789, RESULT.md Finding sections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1610.02976, 0710.3735, 2409.01262, math-ph/0307035, 2111.01332",
+        "Resultary 862d45a61789, 68bc5baaf3bc, 60377c0f65fa, 8e558034cb4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar gyrator has two baths and a closed steady-state torque.",
+          "Other exact dissipation examples fix a stationary law and drift eigenvalues or a visible path law. The controlled object in the frozen witness is the integrated-current spectrum together with temperature mean and variance at fixed drift."
+        ],
+        "reasoning": "No novel status attaches to the commutator, the elementary rank mechanism alone or the existence of planar gyration. The n=2 special case cannot realize this witness with fixed mean and variance, since those fix the unordered bath pair. The explicit 3-bath witness at fixed moments and spectrum is not delivered by the inspected inverse-spectrum or hidden-path-law examples.",
+        "searches": [
+          "Filliger–Reimann arXiv:0710.3735 pp. 1,3",
+          "Zia et al. arXiv:1610.02976 pp. 2–3",
+          "Resultary 862d45a61789, 60377c0f65fa and 8e558034cb4c, RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The antisymmetric current is Gaussian probability angular momentum up to normalization/convention (Zia et al., arXiv:1610.02976 pp. 2–3).",
+          "Resultary 862d45a61789 fixes stationary-law and drift spectra, not current-tensor spectra; 60377c0f65fa studies frequency-domain cross-spectra instead."
+        ],
+        "reasoning": "The comparisons used both stochastic-network and spectral-dissipation formulations. Fixing the integrated current eigenvalues constrains actual temperature variance in this model; fixing the drift eigenvalues, covariance or a frequency-domain contrast is a different condition.",
+        "searches": [
+          "Resultary: fully connected multibath Brownian network rank-two stationary current exact entropy production",
+          "Resultary: same mean variance bath temperatures fixed current spectrum unbounded steady entropy production",
+          "Web: overdamped Ornstein Uhlenbeck fully connected harmonic network arbitrary bath temperatures stationary probability current rank two exact entropy production fixed temperature mean variance unbounded entropy fixed current spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit in each query was the frozen record itself, not another exact result. Distinct nearby exact results include 862d45a61789 and 8e558034cb4c."
+        ],
+        "reasoning": "The target is an all-parameter formula and an exact family, not a catalogued isolated constant. Existing exact spectra with other fixed quantities do not cover its moment restrictions.",
+        "searches": [
+          "Resultary: same mean variance bath temperatures fixed current spectrum unbounded steady entropy production",
+          "Resultary: fully connected multibath Brownian network rank-two stationary current exact entropy production"
+        ]
+      },
+      "rationale": "The Gaussian commutator is prior work, its rank bound follows from the two-rate drift with a one-dimensional eigenspace, and the two-bath case has a gyrator antecedent. The supported distinct contribution is the closed all-bath thermodynamic classification in this symmetry class coupled with the fixed-temperature-moments, fixed-integrated-current-spectrum divergence witness, not the general Gaussian method or unbounded OU dissipation without those constraints.",
+      "residual_risks": [
+        "Comparison is limited to inspected material, especially the model and covariance passages of the heterogeneous-temperature random-matrix paper. Neither keyword misses nor catalog searches certify priority.",
+        "Equivalent constraints in an unindexed harmonic-network or entropy-production calculation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General commutator framework covered; constraining bath moments and entropy is not the comparison in these passages.",
+          "evidence": [
+            "Antisymmetric linear-Gaussian stationary flux construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.02976",
+          "material_read": "Stable linear oscillator, covariance and angular momentum passages, pp. 2–3 (offsets near 14684 and 18250)",
+          "method": "Open primary PDF passages",
+          "title": "Manifest and Subtle Cyclic Behavior in Nonequilibrium Steady States",
+          "trigger": "General Gaussian stationary angular momentum"
+        },
+        {
+          "assessment": "Two-bath rotation and mean torque, not the arbitrary-bath constrained witness.",
+          "evidence": [
+            "Two temperatures drive planar systematic torque."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0710.3735",
+          "material_read": "Model on p. 1 and steady-state result on p. 3 (offsets near 5100 and 19605)",
+          "method": "Open primary PDF passages",
+          "title": "The Brownian gyrator: a minimal heat engine on the nano-scale",
+          "trigger": "Direct two-bath antecedent"
+        },
+        {
+          "assessment": "Gaussian random interactions and covariance spectral densities, not uniform projector drift and integrated-current spectral data in those passages.",
+          "evidence": [
+            "Diagonal local-temperature diffusion and random couplings; focus on covariance spectrum and stability transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.01262",
+          "material_read": "Abstract and model on p. 2, near offset 9200",
+          "method": "Open primary PDF passages",
+          "title": "Random matrix ensemble for the covariance matrix of Ornstein-Uhlenbeck processes with heterogeneous temperatures",
+          "trigger": "Fully connected heterogeneous-temperature OU process"
+        },
+        {
+          "assessment": "Interior baths constrained to zero average energy flux; not arbitrary temperatures.",
+          "evidence": [
+            "Self-consistency specifies interior bath temperatures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0307035",
+          "material_read": "p. 1, self-consistent reservoir model",
+          "method": "Open primary PDF passage",
+          "title": "Fourier's Law for a Harmonic Crystal with Self-consistent Stochastic Reservoirs",
+          "trigger": "Bath at every harmonic site"
+        },
+        {
+          "assessment": "Two end reservoirs and inertial oscillators; different constraints.",
+          "evidence": [
+            "Mean-field interactions with two Langevin baths; heat flow and local-temperature profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.01332",
+          "material_read": "p. 1 model summary near offset 964",
+          "method": "Open primary PDF passage",
+          "title": "Heat conduction in chains of non-locally coupled harmonic oscillators: mean-field limit",
+          "trigger": "All-to-all harmonic coupling and exact heat transport"
+        },
+        {
+          "assessment": "Different spectral invariant and varied noise anisotropy.",
+          "evidence": [
+            "Fixed stationary Gaussian law and drift eigenvalues, not fixed bath moments and current spectrum."
+          ],
+          "identifier_or_url": "Resultary 862d45a61789",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local full-text mirror",
+          "title": "Exact inverse-spectrum dissipation and anisotropy frontier",
+          "trigger": "Unbounded dissipation under spectral constraints"
+        },
+        {
+          "assessment": "Two uniformly heated blocks, skew-adjoint intergroup drift.",
+          "evidence": [
+            "Exact entropy multiplier with a different coupling architecture."
+          ],
+          "identifier_or_url": "Resultary 68bc5baaf3bc",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local full-text mirror",
+          "title": "Universal two-temperature multiplier for bipartite skew Ornstein–Uhlenbeck dynamics",
+          "trigger": "All-site heat reservoirs and closed entropy"
+        },
+        {
+          "assessment": "Frequency-domain cross-spectrum, not the eigenvalues of A.",
+          "evidence": [
+            "Two-temperature gyrator cross-spectral bound."
+          ],
+          "identifier_or_url": "Resultary 60377c0f65fa",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local full-text mirror",
+          "title": "A sharp bath-contrast ceiling for irreversible cross-spectral coherence",
+          "trigger": "Same-day Brownian gyrator bath contrast and spectral formula"
+        },
+        {
+          "assessment": "Visible-path law and two baths instead of the three-bath fixed-moment condition.",
+          "evidence": [
+            "Hidden dissipation under a visible-law constraint."
+          ],
+          "identifier_or_url": "Resultary 8e558034cb4c",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local full-text mirror",
+          "title": "A unique two-bath tuning makes a dissipative Gaussian dimer exactly reversible in its visible path law",
+          "trigger": "Same-day Gaussian-network dissipation hidden by an invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural pinned complete-graph model reduces the stationary current to one plane irrespective of the number of unequal baths, giving a useful exactly solvable benchmark. More importantly, the fixed-moment witness distinguishes the purely spectral current diagnostic from reservoir entropy production even at fixed drift. It quantifies a real failure of inference from the measured invariant, not a claim about diverging mechanical heat flux or an arbitrary graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

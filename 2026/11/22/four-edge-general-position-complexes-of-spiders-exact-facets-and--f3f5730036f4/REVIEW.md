@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unique-path criterion establishes the exact largest pairwise arm count, from which the three exhaustive face types and the two facet types follow with all boundary cases addressed. In the equal two-edge-arm family, the full complex is a union of \(d\) balls sharing their entire \((d-1)\)-sphere boundary, so the wedge homotopy and the integral relative-chain augmentation sequence are direct consequences. The supplied checker reproduces the polynomials and tests homology and signed arm permutations on finite instances.
+## correctness
 
-## Originality
-PASS (best-knowledge, not independent priority certification). The 2022-preprint/2025-journal introduction of edge \(k\)-general position studies other graph families and does not determine four-edge spider complexes. The 2021 foundational and 2024 extremal studies, and the closest earlier indexed spider enumeration, address the ordinary three-edge-forbidden predicate; their statements do not imply the four-edge face/facet polynomials or equivariant integral homology. Relevant indexed searches for aliases, generalized thresholds, cross-polytope joins and exact symmetry types found no covering statement. Possible unindexed equivalences in abstract polyhedral-join language remain a residual risk.
+PASS
 
-## Mathematical value
-PASS. The four-edge threshold is the first nonordinary level of an established graph-geodesic invariant. Exact face/facet distributions reveal a sharp, unbounded purity gap in arbitrary spiders; at the fundamental two-edge-arm stage the entire complex has a pure higher-dimensional wedge type with a nontrivial integral permutation lattice. The calculation distinguishes symmetry information that ordinary extremal edge counts and Betti ranks cannot capture.
+In the repaired counting claim, any path uses at most two arms; the leaf-to-leaf path across the two fullest arms attains their count sum. The admissible count patterns split disjointly into all counts ≤1, one doubled arm with remaining counts ≤1, or one tripled arm alone. In the all-unit case the full set is the unique facet. Otherwise a face of the first type extends by filling an empty arm or doubling an arm; a doubled arm extends exactly when another arm is still vacant, and a tripled arm never extends. This gives the stated polynomials and purity criterion, including d=2 where the families can have the same size. With one length-three arm and arbitrarily many unit arms both sizes occur, differing by d−2. The repaired attribution is also correct: in the prior Morse complex the only within-arm forbidden pairs are x_i y_i, y_i z_i, z_i w_i, and the cross-arm ones are x_i x_j. Replacing y_i by w_i never causes a forbidden pair, even in the union of a face and its image, so the equivariant retraction is contiguous to the identity after inclusion. The retained complex is the stellar subdivision of each doubled-arm edge of the two-edge-arm complex, equivariantly, with new midpoint x_i; no face contains two doubled arms. This transfers the prior integral module, not just its character.
 
-## Closest literature and limits
-Primary sources: Manuel–Prabha–Klavžar (arXiv:2207.07357; journal DOI 10.26493/2590-9770.1745.5f4), Manuel–Prabha–Klavžar (arXiv:2105.04292), Tian–Klavžar–Tan (DOI 10.1007/s00373-024-02770-z). Closest indexed prior statement: *All edge general-position sets of spider trees* (2026, record 96369ffaa123), which concerns \(k=3\). The source comparison was performed on accessible full text for the 2025 and 2024 papers and limited public material for the foundational 2021 article. Scope is arbitrary spiders for enumeration and equal two-edge arms for integral homotopy and arm symmetry; no wider claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired novelty is confined to the four-edge threshold face/facet enumeration for arbitrary spider arm lengths and its exact purity classification. The prior ordinary threshold has different admissible counts and the general edge-k literature checked concerns extremal cardinality. The two-edge-arm wedge and lattice are no longer asserted as new; the prior implications are documented explicitly.
+
+## value
+
+PASS
+
+The repaired result treats the first threshold beyond ordinary edge general position in the basic multiarm tree model. It addresses all inclusion-maximal choices, not just a maximum, and pinpoints exactly when a saturated one-arm choice is arbitrarily smaller than a saturated multiarm choice. The exact arm-length-sensitive size polynomials and purity criterion are usable in comparisons of geodesically constrained set complexes; no value is attributed to recomputing the known topological invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

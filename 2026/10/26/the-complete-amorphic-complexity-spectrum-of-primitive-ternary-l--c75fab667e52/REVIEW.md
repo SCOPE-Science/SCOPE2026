@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustive exact-integer enumeration of all \(3^6=729\) rules, a fully explicit primitivity test via the dimension-three exponent bound, and independent integer determinant formulas establish the full \(16\)-row characteristic-polynomial table. The six height-three periodic exceptions are classified by an explicit substitution identity; all remaining cases have height one, so the published spectral theorem applies. The finite checker recomputes rather than trusts a stored table; its finite scope is rigorously exhaustive, not an approximation to infinite-time dynamics.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The source paper supplies the general discrepancy formula and the equivalence of tameness/nullness, so neither is claimed new. The closest earlier full-text works establish the binary case, bounds in higher alphabets, and general spectral formulas; they do not provide the exact labeled ternary length-two spectrum, its \(16\)-class arithmetic table, or the sharp gap and class sizes. Semantic searches for equivalent small-substitution spectra and broader enumeration produced no directly covering result. Equivalent older tabulations remain a bibliographic risk, not a proved impossibility.
+PASS
 
-**Mathematical value — PASS.** Ternary length-two rules are the first fully manageable nonbinary finite parameter space for the 2026 theorem. The result determines a previously untabulated natural full spectrum, separates the six hidden periodic height-three exceptions from spectrally indistinguishable infinite rules, quantifies the tame/null split, and establishes a sharp forbidden interval followed by an attained value. Its contribution is a complete, interpretable finite classification, not a claim to a new general amorphic-complexity theorem.
+The independent integer census ranges over all 3^6 labeled rules, verifies 288 primitive rules by support growth through power 5, and matches all 16 pair-matrix characteristic-polynomial rows. Theorem B uses the raw pair matrix only at height one. Height is coprime to two and bounded by three, since the height classes have disjoint nonempty letter supports, so the only exception is height three, which forces a 3-cycle. The substitution maps that orbit to itself; using substitution-shift covariance with shift multiplier two, there is a unique fixed phase modulo three. In that phase its rule is (ab,ca,bc) on (a,b,c). Each of the six rules is primitive and has height three; all are in the indicated 18-rule raw Perron-2 row. Reassigning them to complexity zero leaves 42 infinite-complexity rules. The 12 nilpotent pair matrices give the other finite systems. Factoring the remaining polynomials and checking signs in the three named cubics gives 1 < sqrt(2) < alpha < phi < beta < tau < 2. The complexity transform is strictly increasing on these rates and sends sqrt(2) to 2. This proves the exact eight counts, the sharp gap, and, via Theorem A, the 114 versus 174 tame/null split.
 
-**Scope and limitations.** Counts are for labeled primitive substitutions, not isomorphism classes. The spectral bridge is cited, and independent bibliographic/human validation is still absent. The integer verifier does not claim to prove the cited general theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the joint exact finite spectrum, multiplicities and sharp gap on all labeled ternary length-two primitive rules, not the general spectral formula or a new dynamical criterion. The closest checked general theorem computes a per-rule rate and treats the pure base; it gives no explicit attainable-rate list, aggregate counts or gap on this subclass without new exhaustive classification and finite-height accounting. The strongest distinct indexed findings are both substantively different. This is a bounded best-of-knowledge judgment, not a historical priority claim.
+
+## value
+
+PASS
+
+The smallest natural nonbinary, length-two family gives a complete test case beyond binary formulas: an exact spectrum with a sharp forbidden interval directly above complexity one, endpoint witnesses counted exactly, and a necessary height correction separating periodic and infinite-complexity cases with the same raw discrepancy root. This is a useful reference for finite-spectrum and tame/null behavior, not an arbitrary short list of instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

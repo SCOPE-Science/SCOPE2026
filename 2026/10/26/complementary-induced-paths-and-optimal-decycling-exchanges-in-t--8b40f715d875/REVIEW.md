@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof combines the known sharp minimum-cardinality bound with a genuinely complete finite census of the optimal solutions. Two differently constructed and independently implemented twelve-vertex icosahedron models enumerate every six-set, agree that there are exactly sixty, verify both induced halves are paths, and construct/reproduce the entire four-regular exchange graph and all source-to-target distances. The lower-bound argument, vertex labeling and maximum/minimum conventions are explicit in RESULT.md. Numeric counts use exact integer arithmetic, no sampling, and are reproducible from both included scripts and their outputs.
+## correctness
 
-## Originality: PASS (priority risk remains)
-Ma, Ma and Ren (2024) already prove that the icosahedron has decycling number six. The scalar value and its elementary argument are credited, not claimed as new. Their same-object Theorem 12 proves one optimum construction and lower bound, while their Theorem 13 is a scalar bound for covered graphs; neither implies the complete sixty-optimum path pairing or the exact exchange graph. Bau's 2007 survey is general, and Demaine et al. (2014) analyze independent-set token sliding, not these optimum feedback vertex sets. Targeted published mathematical-record and accessible owned-claim comparisons identified no covering result for the new classification. Equivalent data in unindexed literature remain possible; this does not establish independent publication priority.
+PASS
 
-## Mathematical value: PASS
-The result gives the complete optimum family for a classical high-symmetry triangulation and reveals a specific geometric rigidity: both sides of every optimum deletion induce paths, and every allowed unrestricted move is actually an original-graph edge slide. The ensuing connected four-regular reconfiguration graph has exact six-step diameter, and a nontrivial, completely characterized one-detour phenomenon relative to overlap distance. These facts go beyond checking the previously known decycling number, while no general-family theorem is asserted.
+Independently enumerated all deletion sets of sizes 0 through 6 in the specified ring graph using disjoint-set cycle detection, not the supplied traversal. Exactly sixty are optimal. Both sides of each have an acyclic induced graph with degree sequence (1,1,2,2,2,2), which forces one path on six vertices. Formed every unordered single-exchange edge by set difference, verified that the exchanged host vertices are adjacent and all sixty exchange degrees are four, and used Floyd–Warshall to reproduce all 3,600 ordered overlap–distance entries, complement distance six, eccentricity six throughout, the distance-parity bipartition and 840 ordered detours. The argument and computation are exhaustive for this finite graph. Replay: python3 /workspace/review-checks/icosahedron.py. The frozen DFS/BFS implementations and recorded outputs were inspected, not executed.
 
-## Sources and limits
-Relevant source texts: Bau (2007), Ma–Ma–Ren (2024), and Demaine et al. (2014). See RESULT.md references and structured comparisons in AUDIT.json. The theorem is finite, computer-assisted and has no external independent validation. Unindexed equivalent finite catalogues remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the complementary induced-path structure and optimum exchange geometry, not the known scalar decycling number or the already tabulated count of sixty. A distinct later record reproduces the core claim in an equivalent convention and is substantive matching coverage, but not evidence that this claim was already covered at the frozen record's date. No earlier inspected source or stronger theorem established the complementary-path and exchange assertions.
+
+## value
+
+PASS
+
+For a canonical small graph, the complete optimal solution space exposes a rigidity not conveyed by the previously known count: two induced paths on every optimum cut and no jump that is not a host-edge slide. The distance census quantifies exactly when the natural overlap lower bound is attained and when an intermediate detour is necessary, giving reproducible benchmark data for optimal feedback-set reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

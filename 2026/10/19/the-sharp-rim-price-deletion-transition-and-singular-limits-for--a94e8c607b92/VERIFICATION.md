@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Reproduction and limits
 
-Run `python3 wheel_price_verify.py` with Python 3 and no external dependencies. The program constructs wheel Laplacians, computes exact rational inverses of \(L+\mathbf1\mathbf1^{\mathsf T}/(n+1)\), checks direct and Fourier traces, verifies finite critical derivatives and optimum roots, and tests the stated asymptotic formulas. It reported `Checks passed: 187` in this package. Results involving trigonometric functions and limits use floating-point tolerances; finite matrix calculations use exact rational arithmetic. The exact threshold, global uniqueness, and all-order asymptotic identities require the proof in `RESULT.md` and are not inferred from test counts. The independent-audit status in the JSON front matter is `not_performed`.
+The bundled standalone `wheel_price_verify.py` checks the rotational spectral objective against finite Laplacian inverses (exact rational arithmetic for the matrix calculation). Its fixed-order cheap-rim section compares the predicted coefficient against numerically minimized samples for \(n=3,5,8\) at \(t=10^{-8}\). Those sample comparisons use floating-point trigonometry and bisection, not symbolic limit certificates. Its other checks include the known boundary derivative and fixed-price allocation law. The proof of the cheap-rim law and the exact identity for the inverse rim eigenvalue sum are in `RESULT.md`; the large-wheel-then-cheap-rim limit invokes the cited fixed-positive-price theorem.

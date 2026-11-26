@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses the precise run-length-at-least-two definition from the cited literature, with the empty optimum normalized to zero. Two simultaneous pigeonhole inductions prove the lower bounds for even and odd target lengths without assuming that all alphabet symbols occur. Greedy embedding in the periodic word yields the exact earliest-last-position formula, and the sharp lower envelope at every target length matches those bounds. Uniqueness of maximal run decompositions then yields the formal bivariate geometric series without counting embeddings more than once. The independent checker confirms 67,752 finite source-word cases and a separate first-appearance recurrence through prefix degree eighty. The proof, not the experiments, establishes all quantified cases, including \(q\ge2\), \(n=0\), and the borderline remainder \(s=q\).
+## correctness
 
-## Originality — PASS
-The two directly relevant primary articles [1,2] define the same admissible subsequences and prove per-input algorithms and variants. Their inspected definitions, main results, algorithms and discussion do not supply the all-input extremal value or a complete first-appearance generating function for distinct LDS words. The prior authors distinguish the longest run subsequence problem by a different admissibility rule. Exact-statement, equivalent-expression, alphabet-size, cyclic-source and run-count searches did not locate an implication that covers these two results. The no-match outcome is evidence of incomplete overlap, not a proof that an equivalent result cannot exist elsewhere. Remaining risk: unindexed enumeration work may already state the same rational series or worst-case value under another name.
+PASS
 
-## Mathematical value — PASS
-Longest duplicated-letter subsequences provide a natural measure of how many repeated-letter blocks can be recovered after deletions. An exact uniform worst-case guarantee is a structural complement to a linear-time per-instance algorithm: it identifies the sharp attainable value for every length and every alphabet size, including a periodic infinite witness. The additional bivariate formula counts all admissible *distinct* output patterns on this witness, refining the extremal statement with a complete, reproducible spectrum. The result is neither an isolated small-case computation nor a restatement of algorithmic complexity.
+Each block of q+1 positions supplies an equal pair; concatenation preserves the run condition, including when adjacent chosen runs merge. For the odd threshold, reserve a final 2q+1 positions to force a triple, and take pairs in the preceding r−1 blocks. Thus the universal lengths 2r and 2r+1 are guaranteed at (q+1)r and (q+1)r+q. In the cyclic source, greedy embeddings minimize each selected index. An LDS of length L with r maximal runs has first index of appearance 1+x₁+q(L−r)+Σδᵢ≥qL−(q−1)⌊L/2⌋. This bound is attained with initial letter 0, all jumps +1, and maximal r, including for q=2 after wraparound. The resulting thresholds invert to the stated minimum, also at n≤q. The unique run decomposition weights the first letter by Σz^j (1≤j≤q), each run by z^q y²/(1−z^q y), and each distinct-letter transition by Σz^j (1≤j<q); summing the geometric series counts words, not embeddings. Multiplication by 1/(1−z) gives cumulative counts. An independent distinct-subsequence enumeration agreed for q=2,3,4,5 over all words up to n=8,7,6,5 respectively, and checked every first-appearance length cell for these four cyclic sources through n=14.
 
-## Scope and risks
-The generating function counts distinct LDS words and first appearances, not embedding multiplicities. Other minimizers are not classified; extension to run lengths greater than two is not claimed. An independent mathematics audit and a comprehensive bibliographic uniqueness guarantee are not available.
+## originality
 
-## References
-[1] Lai, Liyanage, Zhu, Zou, arXiv:2112.05725; CPM 2022, DOI 10.4230/LIPIcs.CPM.2022.7.
-[2] Lai, Liyanage, Zhu, Zou, Acta Informatica (2024), DOI 10.1007/s00236-024-00459-7.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The accessible primary LLDS papers use precisely the same admissibility definition but study optimization on a given input and related variants. The strongest indexed run and periodic deletion results concern different languages or different enumeration questions. No inspected result states or supplies the exact two claims by direct specialization.
+
+## value
+
+PASS
+
+This is a natural exact worst-case benchmark for an established subsequence optimization problem. The formula resolves the parity/residue transition beyond the disjoint-pairs bound and identifies a single family of extremizers for all q and n. The rational bivariate series separately supplies the number and lengths of feasible outputs on that extremal family, rather than just the optimizer length. Both facts apply across alphabet sizes and prefix lengths, not to a sampled or arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

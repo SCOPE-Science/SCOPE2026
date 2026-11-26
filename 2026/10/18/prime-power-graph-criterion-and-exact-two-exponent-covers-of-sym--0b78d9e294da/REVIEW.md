@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph criterion is a deductive if-and-only-if theorem: maximal distinct-prime powers of an order cost at most the permutation degree; the two-set pairwise intersection property forces each permutation's entire prime-power support onto one covering exponent. Normalization by the group exponent and an exhaustive divisor scan prove finite optima. The supplied standalone verifier enumerates every permutation order by cycle-length recurrence, every divisor of the group exponent, and compares the graph and full-order residuals on every case through degree 40. Its recorded output passed; no infinite conclusion is inferred from the finite table.
+## correctness
 
-**Originality — PASS within compared evidence.** The closest inspected Xu–Regan work defines and constructs covers, but does not characterize exactly two-exponent covers by the compatibility graph or give the minimax table. The full Bulatov–Karpova–Shur–Startsev preprint concerns shortest positive identities instead. Exact, alias, parameter, and broader-coverage searches were made against mathematical research records and compared with accessible preceding claims. Full text of Karpova–Shur 2021 remained uninspected, so an equivalent previously reported result cannot be excluded.
+PASS
 
-**Value — PASS.** The two-exponent minimax problem is the first fixed-cardinality nontrivial case of the covering method of Xu–Regan, where the largest exponent directly controls a constructive upper bound for positive identities. The prime-power graph equivalence eliminates higher-cardinality cycle supports exactly and exposes the special two-index intersection mechanism; the initial 38-degree exact classification supplies a reproducible benchmark with clear potential for subsequent optimization. It does not claim shortest word identities or improved asymptotic state complexity.
+Assign each maximal prime power in an order to one cycle length that it divides. The powers assigned to one cycle are coprime, and their sum is at most their product for a nonempty assignment, hence at most that cycle length. The converse uses disjoint cycles. Thus a support of an actual order is a clique, all singleton vertices and edges are realized, and compatibility of all edges and singleton divisibilities is necessary. It is sufficient because pairwise intersecting nonempty subsets of the two covering indices must have a common index; the order 1 is automatic. Intersecting the exponents with E_k by gcd preserves coverage; for each resulting divisor d the least second exponent in divisibility order is the lcm of orders missing from d. This proves the minimax formula; the graph formula for the residual follows by the same iff test. Independent reproduction enumerates integer partitions rather than iterating the order-set recurrence and computes missing-order lcms by incidence bitsets. All 38 rows, including witness pairs and every tabulated count, match. In particular k=40 gives 53,542,288,800, with other witness member 35,959,964,040, over 495 distinct orders and 36,864 candidate divisors.
 
-**Limitations and closest work.** Xu and Regan, arXiv:2610.11098v1, Sections 3–4; Bulatov et al., arXiv:1609.03199v1, Section 3; Karpova and Shur, Algorithmica 83 (2021) (full text not reviewed). The 38 certified values do not imply behavior above degree 40.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two-integer covers of symmetric-group orders are already a hypothesis of Bulatov–Karpova–Shur–Startsev Proposition 15, not introduced by the reviewed record or by Xu–Regan. The supported distinct contribution is the iff local test for arbitrary proposed pairs and the exact minimax invariant and certified finite segment, not the cover concept, prime-power segmentation constructions, or cover-to-identity translation.
+
+## value
+
+PASS
+
+The invariant is motivated by an existing two-exponent positive-identity construction, and the iff theorem reduces a coverage condition on every symmetric-group order to explicit compatibility of prime powers. The exact optimization distinguishes sharp achievable bounds from merely feasible input pairs across a substantial range with many competing orders and candidate exponents. The structural result, not just the degree-40 number, makes the finite evidence useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

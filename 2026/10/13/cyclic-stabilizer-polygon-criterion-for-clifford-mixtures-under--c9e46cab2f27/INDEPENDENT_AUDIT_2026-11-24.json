@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:07:18.178767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, corollaries and Proof §§1–6",
+        "Frozen VERIFICATION.md, requirements.txt and artifacts/verify_polygon.py"
+      ],
+      "rationale": "Conjugation by u·σ is a half-turn about u, so the Bloch matrix is (λI+(1−λ)uu^T)R and preserves the norm of v=R^Tu. The exposed equality u^T Mv=1 forces C v=u for every contributing vertex C. If nonempty, these vertices form one coset of the rotations fixing v. The proper signed permutations with nontrivial fixed directions have axes through coordinate, face-diagonal or body-diagonal directions, with stabilizer orders 4, 2 and 3 respectively; all other directions have order 1. This follows by listing rotation types of signed permutations, including quarter-turns and half-turns on coordinate axes, half-turns on edge (face-diagonal) axes, and third-turns on body diagonals. Multiplying by C_0^T leaves the axis scalar one and transverse multiplication by λ exp(iδ). Every allowed Clifford transverse block is multiplication by an h-th root of unity, so matching the two real entries is exactly the polygon test. Choice of representative rotates the polygon and choice of transverse basis preserves the coefficient. For 0<p<1, including p=1/2, h=1 is excluded by |z|<1. At fixed third coordinate each possible nonvertical azimuth for a given special axis orbit differs by a multiple of π/2; a non-Clifford R_z therefore cannot connect v to u within an orbit unless u is vertical. The diamond gives the aligned inequality. For p=1 one can take u=(cos(θ/2),sin(θ/2),0), for which the equatorial half-turn followed in composition order after R_z(θ) gives the x-axis Clifford half-turn. The real-axis slice of the body-diagonal triangle is [−1/2,1], giving p<=3/4; the segment and diamond contain [−1,1]. The packaged LP checker and listed cases were inspected but not executed; no numerical tolerance proves the criterion.",
+      "residual_risks": [
+        "The criterion is for exact mixtures of unitary one-qubit Clifford channels for the stated post-unitary noise model; it does not address instrumental, approximate or nonunitary decompositions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buhrman et al. describe the 24 rotation vertices and a complete ambient facet test of the form <F,S><=1.",
+          "Fioroni et al. reduce the unraveling search to a circle probability measure and report numerical optimization, without an analytic solution of the optimization in the inspected passage."
+        ],
+        "reasoning": "The facet theorem can decide every specific instance and occupies the general membership claim. The present reduction evaluates this structured slice by stabilizer order and gives a uniform obstruction in the phase-gate subfamily, rather than treating a fresh instance of the ambient facet test as novelty.",
+        "searches": [
+          "Buhrman et al., FOCS 2006, Sections 2.3–3",
+          "arXiv:2609.16160v1, Section IV C, Eq. (31)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.16160v1",
+        "arXiv:quant-ph/0408076",
+        "Buhrman et al., FOCS 2006, Sections 2.3–3",
+        "Resultary beb7854a9e9c and 68bc6f4e7b8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rigidity plus the old vertex set supplies the exposed convex hull. Identifying it with the single coset and evaluating the transverse action gives the four small polygons; the special-axis orbit at fixed third coordinate then yields exact exclusion even at λ=0.",
+          "The body-diagonal real-axis interval comes from the evaluated triangular section, rather than a parameter change from the prior aligned square."
+        ],
+        "reasoning": "The coset reduction is elementary once pure-direction rigidity is available and does not constitute a new general face theory. The exact slice and universal tilted exclusion require the stabilizer/orbit analysis and are not provided by substituting the channel into the old aligned threshold or observing finite numerical cases.",
+        "searches": [
+          "Fioroni–Ferrari–Tirrito, Section IV C and Appendix C Eqs. (C10)–(C11)",
+          "Buhrman et al., 24-rotation polytope and facets",
+          "Virmani–Huelga–Plenio, Lemma 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fioroni–Ferrari–Tirrito parameterize the same tilted-dephasing unraveling via a circle, and Appendix C gives equatorial-axis Clifford compositions at p=1.",
+          "Virmani–Huelga–Plenio's complete-dephasing mixture weight corresponds in the aligned case to q=2 min(p,1−p), up to a Clifford half-turn for p>1/2; their π/8 gate threshold q=1−1/sqrt(2) agrees with the diamond."
+        ],
+        "reasoning": "Comparing the Bloch convention and the noise parameter identifies genuinely covered aligned and endpoint cases. It does not identify an exact prior all-angle intermediate-noise criterion for arbitrary axis orientation.",
+        "searches": [
+          "arXiv:2609.16160v1, Section IV C and Appendix C",
+          "arXiv:quant-ph/0408076, Section IV, Lemma 2 and Eq. (30)",
+          "Resultary: tilted dephasing, Clifford mixture, cyclic stabilizer polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ambient facet list is exact and known. The inspected catalogue entries treat two-qubit depolarized CNOT bi-entangling simulation or entanglement breaking under repeated rotated dephasing."
+        ],
+        "reasoning": "Neither catalogue observable is the single-use exact unitary Clifford-mixture section. The ambient list is not a table of the h=1,2,3,4 section reductions or of which tilted phase rotations can lie in any of them.",
+        "searches": [
+          "Resultary: single-qubit Clifford convex hull under tilted dephasing",
+          "Resultary beb7854a9e9c and 68bc6f4e7b8c",
+          "Buhrman et al., published facet list"
+        ]
+      },
+      "rationale": "The ambient Clifford polytope, pure-direction rigidity and circle-moment reduction, aligned dephasing threshold and documented p=1 tilted exception have prior coverage. The supported distinct claim is the evaluated cyclic polygon classification for arbitrary rotation and axis, with the resulting strict analytical exclusion for arbitrary non-Clifford phase angle throughout the intermediate-p interval and the body-diagonal threshold. It is not a new general membership formulation or the first identification of those aligned and endpoint cases.",
+      "residual_risks": [
+        "An equivalent stabilizer-face classification in differently indexed Clifford-polytope literature could overlap. The comparison is bounded and establishes no global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior reduction, numerical observations and special endpoint coverage",
+          "evidence": "Circle-measure optimization and explicit equatorial tilted Clifford compositions at p=1, including for a π/4 Bloch phase rotation.",
+          "identifier_or_url": "arXiv:2609.16160v1",
+          "material_read": "Sec. IV C, pp. 9–10, Eq. (31); Appendix C, Eqs. (C10)–(C11), OA offsets 62800 and 150000",
+          "method": "OA PDF passage inspection",
+          "title": "Noise-induced classical phases in optimally-unraveled random quantum circuits",
+          "trigger": "Same tilted-dephasing model and optimization"
+        },
+        {
+          "assessment": "Aligned threshold covered",
+          "evidence": "The stabilizer octahedron gives the diagonal-gate threshold; for the π/8 gate the complete-dephasing weight is 1−1/sqrt(2).",
+          "identifier_or_url": "arXiv:quant-ph/0408076",
+          "material_read": "Sec. IV, Lemma 2 and Eq. (30), pp. 9–10, offsets 58000 and 65200",
+          "method": "OA PDF passage inspection",
+          "title": "Classical simulability, entanglement breaking, and quantum computation thresholds",
+          "trigger": "Exact diagonal-gate and aligned-dephasing limits"
+        },
+        {
+          "assessment": "General ambient membership known",
+          "evidence": "Defines the 24-vertex rotation polytope and exact facet inequalities, discusses noise thresholds and gives relevant aligned-dephasing context.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/12635/12635D.pdf",
+          "material_read": "Sections 2.3–3, pp. 2, 6, 8, offsets 8000, 39800, 55000",
+          "method": "OA PDF passage inspection",
+          "title": "New Limits on Fault-Tolerant Quantum Computation",
+          "trigger": "Known exact general Clifford convex hull facets"
+        },
+        {
+          "assessment": "Different gate, noise and convex set",
+          "evidence": "A two-qubit bi-entangling sufficient threshold, not a one-qubit Clifford section.",
+          "identifier_or_url": "Resultary beb7854a9e9c",
+          "material_read": "Local-mirror finding on locally depolarized CNOT",
+          "method": "Catalogue search and local mirror",
+          "title": "An explicit 62.02% bi-entangling certificate for the locally depolarized CNOT",
+          "trigger": "Nearby simulation and noise criterion"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Repeated-channel entanglement breaking, not exact one-use Clifford-mixture membership.",
+          "identifier_or_url": "Resultary 68bc6f4e7b8c",
+          "material_read": "Local-mirror finding on repeated rotated dephasing",
+          "method": "Catalogue search and local mirror",
+          "title": "A log-log boundary layer for entanglement breaking under rotated dephasing",
+          "trigger": "Nearby rotated-dephasing threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and two corollaries",
+        "arXiv:2609.16160v1, Section IV C and Appendix C",
+        "Buhrman et al., Clifford-polytope sections"
+      ],
+      "rationale": "The exact slice classification replaces an ambient membership computation with at most a four-vertex polygon and gives constructive weights when feasible. For tilted dephasing it resolves the qualitative question of zero non-Clifford unitary cost at intermediate noise without relying on a numerical scan and separates a real endpoint exception. That is useful beyond restating the known ambient linear program or aligned threshold.",
+      "residual_risks": [
+        "No general result about positive optimal unraveling cost or multi-qubit simulation and fault tolerance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review of the sharp Armijo-before-top-one conditioning frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact quadratic identity determines the ideal largest accepted full-gradient Armijo step. A second identity reduces the sign of the sparsified first-step objective change to a diagonal-to-Rayleigh ratio. Maximization over the full two-dimensional spectral orientation circle and over the top-one selection cone yields the necessary-and-sufficient bound. The proof treats strict/non-strict inequalities, both tie selections, the isotropic case, all positive scaling parameters, and a strict unique-coordinate counterexample. Standalone deterministic checks compare the closed form with an independent angular search and direct objective computation. Computations do not substitute for the global analytic optimization.
+## correctness
 
-## Originality — PASS, qualified
-The direct prior source is Subramaniam, Magesh and Veeravalli (arxiv:2207.10046v1), which proposes scaled Armijo search in error-feedback top-\(k\) compression. Its Sections II and III and main theorem formulas were inspected: they yield sufficient convergence results for the operational backtracking algorithm, not this exact, idealized, two-dimensional first-step spectrum-and-orientation criterion. Searches for equivalent top-one, sparsified Armijo, and rotated Hessian criteria did not identify a covering result. Related published exact Polyak, LARS, and BB results analyze different step maps. A previously derived general matrix-ratio lemma or a specialized unlocated study could subsume the formula; independent priority review has not been performed.
+PASS
 
-## Value — PASS
-The full-to-compressed line-search mismatch is a concrete design question, not a substitution into an existing uncompressed bound. The theorem computes the **sharp** scale required to retain descent for all two-dimensional spectra up to prescribed conditioning, including an oblique worst orientation and a golden-ratio-square boundary for the common half-Armijo choice. This precision can distinguish aggressive but safe scaling from provably unsafe first updates. The result is intentionally limited to the ideal maximal step and zero-feedback first update; practical capped/backtracked choices and later feedback may behave differently.
+Quadratic expansion gives exactly the full-gradient Armijo interval (0,α_*] and the compressed change −aα_*g_i²[1−a(1−σ)Q_ii‖g‖²/(g^TQg)]. Every g≠0 is realizable and its selected g_i is nonzero. As an independent check of the sharp geometric factor, put u=e_i, b=g/‖g‖, θ=angle of their lines and H=uu^T−rbb^T. For θ>0 the two eigenvalues h_+>0>h_- have sum 1−r and product −r sin²θ. Over Q with eigenvalues 1,κ, the maximum of tr(QH) is κh_++h_-: put the κ direction along h_+. Its zero at r≥1 gives κ(r−1)²=(κ−1)²r sin²θ. This also proves attainment; θ=0 or κ=1 gives r=1 directly. Top-one constrains θ≤π/4, and the maximum grows in κ and θ to R(K) at K and a tie. This proves both directions, strict descent below the frontier, equality with a permitted tie choice, and strict increase above it on an open unique-selection set by perturbation. At K=1 boundary equality holds for every gradient, and violation causes increase even without a tie. Solving the unscaled equality gives K+K^−1=2+2σ²/(1−σ) and 2.618… at σ=1/2. For example at σ=1/2, a=1, Q=[[57,−24],[−24,43]]/25 has eigenvalues 1 and 3 and g=(1,9/10) is a strict increasing witness: the governing ratio is 10317/4863>2. Inspected the verifier; its logged 3892 tests are finite numerical checks and not the sharpness proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit prior work for the compressed Armijo algorithm and classical sharp two-inner-product angle geometry. The distinct supported claim is the necessary-and-sufficient objective frontier for this specified maximal-step then top-one composition, including its threshold, equality mechanism and strict unique-selection failure regime. No inspected prior algorithm theorem or indexed exact frontier covers that claim. In particular, the geometric factor alone must not be presented as a new matrix inequality.
+
+## value
+
+PASS
+
+There is a concrete algorithmically motivated gap between a full-gradient Armijo decision and the resulting sparse update. The exact two-coordinate boundary shows how much conditioning and scaling can be tolerated even before stochasticity or feedback enter, and separates a tie-attained boundary from genuinely increasing unique-coordinate instances. This is a usable sharp baseline for the method, not evidence about long-run convergence or novelty of the underlying matrix inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

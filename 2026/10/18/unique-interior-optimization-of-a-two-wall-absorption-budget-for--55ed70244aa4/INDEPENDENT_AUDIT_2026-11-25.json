@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:53.961262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–95 including the actual u_* notation",
+        "Frozen VERIFICATION.md and verify.py inspected; the 994 reported checks are original evidence, not an independent rerun."
+      ],
+      "rationale": "With length and time rescaled by L and L/v, write f_+-f_-=C-2x and (f_++f_-)/2=S+p(Cx-x^2). These solve the bulk equations. Exponential competition at each wall gives u S-(u/2+h)C=1 on the left and (B-u)[S+p(C-1)+C/2-1]+h(C-2)=1 on the right. Their determinant Q=Bh+(p+1)u(B-u) is positive throughout [0,B]. The expectation is finite including budget endpoints: one active wall has rate at least B/2, and from any state there is uniformly positive probability of reaching that wall and absorbing in bounded time (no bulk reversal during each traverse, and timely inward release if necessary at the other wall). The resulting geometric tail justifies the mean-time problem. Solving the system gives the stated C and S. For t=2u/B-1 the ensemble objective derivative is C'(u)[delta/2+(p+1)t/(1+eta t^2)], with C'(u)>0. The bracket is strictly increasing in t because eta<1, and its endpoint signs are strict since |delta|<=p+1<2(p+1)/(1+eta), even with deterministic initial direction. Thus the unique interior zero is the global minimum. Rationalizing the quadratic root yields the claimed radical and gives left preference iff delta<0. Strict spatial and directional monotonicity follow by inversion of the increasing scalar map, and the local derivative in delta is -B/[4(p+1)], yielding both stated response coefficients.",
+      "residual_risks": [
+        "The conclusion is about unconditional absorption time with positive detachment and reversal rates and an interior start; it does not require an extension to singular rates or starts on a wall."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff has a general sticky-boundary FPT framework, including independent wall occupation variables and boundary-value equations (5.2), (5.5)–(5.6).",
+          "Angelani's optimization varies the bulk tumbling parameter; the partially permeable-wall example uses one reactive wall and an absorbing opposite endpoint."
+        ],
+        "reasoning": "General FPT equations already contain related mean-time information, but an optimization over bulk frequency or a one-reactive-wall model does not optimize the partition of a prescribed joint wall rate.",
+        "searches": [
+          "Bressloff arXiv:2302.01158, §2 and §5",
+          "Angelani, Optimal escapes in active matter, DOI 10.1140/epje/s10189-023-00402-7, equations (1)–(4), (12)–(13)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.01158",
+        "DOI 10.1088/1751-8121/ad009e",
+        "DOI 10.1140/epje/s10189-023-00402-7",
+        "Resultary records 64d37101341a, 61f92a1dbbba, 216270416969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In dimensionless variables the later record's imbalance formula uses c=2h+B(p+1)/2, d=Bc/2, b=(p+1)c/2, with its spatial coefficient equal to delta/2 at m=0. Dividing the resulting rate difference by B reproduces the frozen t_* at m=0. Its spatial slope is consequently implicit there, but the later record does not admit a biased initial heading.",
+          "The established asymmetric-position MFPT uses equiprobable initial directions, with no directional reversal criterion or derivative in m."
+        ],
+        "reasoning": "An exact mean at one orientation mixture does not specify the two orientation-conditional means, and hence does not by itself imply the orientation-dependent optimum. The global derivative sign argument is needed to identify the unique allocation, not just a local critical point.",
+        "searches": [
+          "Two sticky reactive walls, 64d37101341a, Finding",
+          "Angelani (2023), Appendix equation (A1) and initial condition (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angelani's bulk and wall reversal/release terms use alpha/2 and alpha_w/2 in equations (1)–(2) and (11)–(12); compare actual reversal and release rates rather than the written rate symbols. Equating those rates, taking a common release rate, and taking an unbiased start gives the same mean-time model, including unequal wall absorption rates and an asymmetric interior start in (A1)."
+        ],
+        "reasoning": "Rewriting the known MFPT under another parameter convention is not new. The constrained allocation and all-direction interiority must be checked separately from that representation.",
+        "searches": [
+          "Primary literature: run-and-tumble particle sticky boundaries absorption detachment mean first passage time optimize absorption rates two boundaries Bressloff Angelani",
+          "Angelani (2023), DOI 10.1088/1751-8121/ad009e, equations (1)–(2), (11)–(12), (47)–(49) and (A1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 64d37101341a gives exactly one interior fixed-budget split for unbiased direction, including endpoint starts; it is a material overlap with the same process for m=0 and interior starts, with later catalogue date 2026-11-22.",
+          "Record 61f92a1dbbba uses per-collision capture probabilities without sticky holding; record 216270416969 compares desorption protocols on a half-line with one wall."
+        ],
+        "reasoning": "Exact-formula records are the pertinent analogue of a table for continuous model parameters. The unbiased-start formula is a match, not a distinct invariant. The two other nearby exact catalogued results optimize or compare different objects.",
+        "searches": [
+          "Resultary exact two sticky reactive walls and finite-speed allocation record 64d37101341a",
+          "Resultary boundary-capture allocation 61f92a1dbbba and sticky-wall desorption order 216270416969"
+        ]
+      },
+      "rationale": "The sticky-boundary process and the exact unbiased-start mean are established background. The distinct result is the global fixed-sum allocation theorem for arbitrary initial direction distributions, with an explicit criterion for bias to reverse the spatial preference and an orientation response independent of the detachment rate. A later catalogue theorem covers the unbiased-start optimization directly and is credited as exact overlap for that subcase; it does not state the biased-orientation result.",
+      "residual_risks": [
+        "A bounded literature comparison cannot exclude an earlier biased-start optimization under another boundary vocabulary. The later indexed exact overlap does not establish the historical relationship between the two records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and first-passage background; inspected boundary equations do not state the fixed-sum allocation theorem",
+          "evidence": [
+            "Separate wall occupation times and absorption variables are already represented in the boundary problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+          "material_read": "PDF pp. 6–7, equations (2.5)–(2.16); §5, p. 19, equations (5.2), (5.5)–(5.6)",
+          "method": "Lawful OA PDF passages",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "General sticky-boundary absorption and independent wall reactivities"
+        },
+        {
+          "assessment": "Covers exact MFPT for an unbiased start; not the biased fixed-budget optimization",
+          "evidence": [
+            "The initial left and right densities are equal; the appendix varies starting location within the interval, not initial orientation mix."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad009e",
+          "material_read": "Bulk and wall flux equations (1)–(2), (11)–(12), initial condition (6), §4 equations (47)–(49), Appendix equation (A1)",
+          "method": "Lawful publisher OA PDF passages",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "Exact generic asymmetric-boundary and asymmetric-start MFPT"
+        },
+        {
+          "assessment": "Different optimization variable and boundary configuration",
+          "evidence": [
+            "Optimizes bulk tumbling; a reactive boundary is paired with an absorbing endpoint."
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epje/s10189-023-00402-7",
+          "material_read": "Introduction, equations (1)–(4), and partially permeable-wall case, equations (12)–(13)",
+          "method": "Lawful OA full-text passages",
+          "title": "Optimal escapes in active matter",
+          "trigger": "Closest cited prior first-passage optimization"
+        },
+        {
+          "assessment": "Direct overlap for m=0, not an earlier-priority determination or the all-direction theorem",
+          "evidence": [
+            "The model assumes independent equiprobable headings, and the unique interior rate split matches after nondimensionalization."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-allocation-of-two-sticky-reactive-walls-a-finite-speed-a--64d37101341a",
+          "material_read": "RESULT.md Finding and stated model, offset 0",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Optimal allocation of two sticky reactive walls: a finite-speed allocation law",
+          "trigger": "Exact catalogue match for unbiased allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Angelani (2023), Appendix (A1)",
+        "Resultary unbiased-start comparison 64d37101341a"
+      ],
+      "rationale": "A joint budget creates a genuine constrained decision about whether to use both walls or concentrate capture at one. The solution rules out either corner even for a strongly directed start, quantifies the split, and identifies precisely when initial motion overrides proximity. The global result and its orientation response are useful beyond evaluation of a known unbiased mean at a chosen allocation.",
+      "residual_risks": [
+        "This is an exact result for the specified one-dimensional conserved-rate model, not a general rule about capture probabilities under other mechanisms or time horizons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

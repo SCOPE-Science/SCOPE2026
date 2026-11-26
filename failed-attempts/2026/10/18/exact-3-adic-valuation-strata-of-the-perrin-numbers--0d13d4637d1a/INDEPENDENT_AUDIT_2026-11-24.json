@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:29.872707Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 25–69, VERIFICATION.md and verify_perrin3.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/branches/independent-replay.py 5"
+      ],
+      "rationale": "Checked the companion transition and initial state, M^13=I+3B, the four zero classes modulo 3, and the branch slopes (12,17,29,158). For j>=2 the coefficients of the falling-factorial polynomials in the normalized interpolation have valuation j−1−v3(j!)>=1 and tending to infinity. Their divided differences therefore give the claimed 1-Lipschitz remainder after extracting 3. This proves the constant class 0 from its unit constant and the three isometries from their unit slopes. The isometries are bijections on every finite residue ring and hence on the inverse limit, so the roots are unique and the valuation formula holds at every nonnegative index, including R_1=0. The base matrix has order 13 modulo 3, and cubing I+3^{j+1}U with U=B mod 3 increases the first nonzero matrix valuation by exactly one. This establishes order 13·3^{k−1}, not merely divisibility by this number. At k>=2 each isometry selects one t mod 3^{k−1}; k=1 instead has four base zeros. The classes for each exact valuation are differences of residue cylinders, giving the three asserted density cases. Independently followed basis-vector and Perrin-state orbits and checked all zero indices in a period through k=8, and separately confirmed the branch slopes and interpolation inputs.",
+      "residual_risks": [
+        "Finite modular checks corroborate but do not establish the all-depth valuation theorem. The scope is the specified initial values, prime 3, and nonnegative indices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilu et al. give an explicit ternary law and interpolation for Tribonacci numbers, not the Perrin recurrence. The inspected Antony–Barman opening treats general recurrence valuation questions without the explicit Perrin laws. Rihane–Togbé's inspected Lemma 2.2 concerns 2-adic valuations. Adams–Shanks was not available to inspect."
+        ],
+        "reasoning": "These methodological or different-prime results do not as inspected supply the exact theorem. The decisive stronger coverage instead comes from the exact Perrin discrepancy result.",
+        "searches": [
+          "Bilu et al. DOI 10.1090/mcom/3893, Theorem 1.4 and §4; Antony–Barman arXiv:2402.18279; Rihane–Togbé DOI 10.1007/s40065-021-00317-1 Lemma 2.2; Adams–Shanks DOI 10.1090/S0025-5718-1982-0658231-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fc0b74b0c47",
+        "OEIS A001608",
+        "DOI 10.1090/mcom/3893 and 10.1007/s40065-021-00317-1",
+        "arXiv:2402.18279",
+        "Adams–Shanks bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the transpose N of the frozen matrix, §1 gives N^13=I+3A with A nonzero mod 3. Since N is not identity mod 3, its reduced order is the prime 13. §3 gives (I+3A)^h≡I+3hA mod 3^{v3(h)+2}; this pins down exactly when a positive power of N^13 is identity mod 3^k. Its three root congruences then select one index each per such period at k>=2 and the base residue list gives four at k=1."
+        ],
+        "reasoning": "The stronger record implies the order and period counts as well as every valuation and density assertion; exact order need not appear verbatim for the implication to hold. Nothing here assigns chronological precedence.",
+        "searches": [
+          "4fc0b74b0c47 §§Finding and Proof §§1–4, especially the matrix identity and the congruence for (I+3A)^h"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later record uses the transpose of the frozen companion matrix and represents the same classical Perrin sequence by Newton traces. Both interpolations extend the same function on dense nonnegative integers and have the same roots. Its n>=2 range leaves only the immediate initial values R_0=3 and R_1=0, both treated in that source."
+        ],
+        "reasoning": "Transposition preserves the order modulo each 3^k, and the trace formulation with the same three initial values and recurrence is equivalent for the scalar law. Index conventions and root-symbol renaming give no remaining distinct result.",
+        "searches": [
+          "Resultary: Perrin ternary valuations, p-adic roots modulo 13, discrepancy; classical Perrin sequence OEIS A001608; Resultary 4fc0b74b0c47"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001608 confirms the initialization and classical congruence context. The inspected Resultary Finding states the exact root branches 1,3,9, the constant-1 branch 0, all constant-zero valuation branches, and the same exact density law with an additional uniform error bound."
+        ],
+        "reasoning": "The distinct exact record is not an approximate numerical match or general recurrence reference; it asserts the same valuation law at all depths and more.",
+        "searches": [
+          "OEIS A001608, classical Perrin sequence; Resultary exact ternary Perrin law and discrepancy, 4fc0b74b0c47"
+        ]
+      },
+      "rationale": "Distinct indexed record 4fc0b74b0c47 covers the all-index valuation classification and exact densities, and adds root digits and uniform discrepancy. Though it does not phrase the exact matrix order as a finding, its exact thirteenth power and its own binomial congruence imply the order without a new lemma. Its root congruences then give the exact zero counts over that period. This is verified mathematical coverage by a record with a later index path, not evidence of earlier priority, reuse or dependence.",
+      "residual_risks": [
+        "Chronological priority and any relationship between the two catalogue entries are unresolved. The Adams–Shanks full text and unindexed antecedents remain historical risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct valuation and density coverage; order and zero counts are immediate deductions from its printed congruence",
+          "evidence": "Classical Perrin numbers, equal root law and density values, matching transposed matrix identity, exact binomial congruence, and discrepancy at most 9. Snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-valuations-and-uniformly-bounded-discrepancy-for-p--4fc0b74b0c47/RESULT.md",
+          "material_read": "Finding, scope, Proof §§1–4",
+          "method": "Resultary local mirror at offsets 80 and 2374",
+          "title": "Exact ternary valuations and uniformly bounded discrepancy for Perrin numbers",
+          "trigger": "Same sequence, prime, root strata and densities; stronger discrepancy result"
+        },
+        {
+          "assessment": "Analogue for a different recurrence",
+          "evidence": "The valuation and interpolation theorems concern Tribonacci numbers.",
+          "identifier_or_url": "10.1090/mcom/3893",
+          "material_read": "Theorem 1.4 p. 4 and §4 p. 11, equations (4.1)–(4.2)",
+          "method": "OA PDF passages near offsets 6800 and 28814",
+          "title": "On the p-adic zeros of the Tribonacci sequence",
+          "trigger": "Third-order recurrence interpolation and explicit prime-3 valuations"
+        },
+        {
+          "assessment": "No exact Perrin law established by the inspected passages",
+          "evidence": "Opening frames valuation questions for third-order recurrences; not used to infer whole-text noncoverage.",
+          "identifier_or_url": "arXiv:2402.18279",
+          "material_read": "Abstract and pp. 1–2",
+          "method": "OA opening passages",
+          "title": "On the p-adic valuation of third order linear recurrence sequences",
+          "trigger": "Possible broader third-order valuation theorem"
+        },
+        {
+          "assessment": "Different prime",
+          "evidence": "The cited lemma treats 2-adic valuations; the quoted E-sequence initial values differ from the frozen initials.",
+          "identifier_or_url": "10.1007/s40065-021-00317-1",
+          "material_read": "Lemma 2.2, PDF pp. 2–3",
+          "method": "OA PDF offsets 7200–8050",
+          "title": "Repdigits as products of consecutive Padovan or Perrin numbers",
+          "trigger": "Cited valuation result for a related Perrin setting"
+        },
+        {
+          "assessment": "Initialization and context, not decisive exact valuation coverage",
+          "evidence": "Uses classical initials 3,0,2.",
+          "identifier_or_url": "https://oeis.org/A001608",
+          "material_read": "Sequence definition and congruence comments in the inspected entry",
+          "method": "Public entry, opening near offset 137",
+          "title": "Perrin sequence",
+          "trigger": "Exact-sequence catalogue and historical references"
+        },
+        {
+          "assessment": "Named unresolved historical priority risk, not a failure rationale",
+          "evidence": "No claim about exact coverage or noncoverage follows from the access error.",
+          "identifier_or_url": "10.1090/S0025-5718-1982-0658231-9",
+          "material_read": "Bibliographic identification; no full text obtained",
+          "method": "DOI retrieval returned HTTP 403; no repository copy recovered",
+          "title": "Strong primality tests that are not sufficient",
+          "trigger": "Historical Perrin congruence and period work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "4fc0b74b0c47 Finding and Proof §§1–4"
+      ],
+      "rationale": "An exact valuation law for a classical recurrence and its densities would be useful, but here those facts are already covered by the distinct stronger discrepancy result. The matrix order and period-zero counts, though not separately advertised there, are mechanical consequences of that record's displayed congruence and root law, so they do not leave a stand-alone unknown exact invariant in the proposed finding.",
+      "residual_risks": [
+        "Present stand-alone value does not resolve the historical significance of the frozen calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:59:11.963317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Whitening gives the wedge of angle arccos(-rho): the unit inward normals after whitening have inner product rho. The positive survival-tail amplitude gives moment cutoff k<pi/(2 alpha), with logarithmic divergence at equality. Independently solved the generator equations in the space of homogeneous polynomials vanishing on the axes (replay: python /workspace/branches/independent_replay.py 1, SymPy, D=1; restore D^(-k) in moment k). This yields all three stated polynomials. To justify rather than assume uniqueness, apply stopped Dynkin at time t to each polynomial P_k; its remainder E[P_k(X_t); T>t] tends to zero. Gaussian moments and Hölder bound it by O(t^k) times P(T>t)^(1-1/p), and p can be chosen large enough when the tail exponent exceeds k. Induction and the Markov property identify the forcing integral k times the expected integral of the (k−1)st remaining-time moment with E[T^k]. The reset renewal quotient A/(1-rA) uses the exponential clock independent of each excursion. For rho>=0 the unreset mean diverges while the quotient is finite for every positive r. When only m1 is finite, (A(r)-m1)/r tends to minus infinity by monotone convergence and the quotient differs from A by O(r). When m2 exists, the linear coefficient has opposite sign to cU+6−9c²; the root is physical exactly for 2<=U<3. All such roots exceed sqrt(3)/2, so m3 is finite. The independently simplified equality coefficient after dividing out (xy)^3/D^3 is (162−161c²)/(720c³(4c²−3)), positive throughout the physical interval. The conclusions are local in reset rate, not claims about all-rate optima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Reuveni gives the generic renewal relation. Biroli–Majumdar–Schehr and the mirrored weak-reset-risk finding b635406801e3 have independent intrinsic noises. The phase boundary in §IV of Najeeb–Pal–Prasad uses a threshold-reset edge and one absorbing edge before adding Poisson resets; its unreset auxiliary problem has two absorbing edges."
+        ],
+        "reasoning": "Generic renewal can express the quadratic coefficient in terms of moments but imposes no positive sign. The earlier weak-reset criteria for other protocols and correlation regimes do not establish that sign here.",
+        "searches": [
+          "arXiv:1607.06048, Mean FPT under restart",
+          "arXiv:2303.18012, synchronous resetting",
+          "arXiv:2611.26345, §IV and Appendix A",
+          "Published-finding search for simultaneous Brownian searchers weak-reset response"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.26345",
+        "arXiv:1501.02274",
+        "arXiv:1607.06048",
+        "arXiv:2303.18012",
+        "Published findings b635406801e3 and 04e1c5c02a44",
+        "PII S0167715209004180 and Phys. Rev. E 113, 024104 (access limits stated)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the known wedge m1,m2 into the standard m2−2m1² criterion reproduces cU+6−9c² and its geometry threshold. At equality the first-order test is silent; the sign requires comparing m3 to 6m1³, and the exact polynomial calculation yields the uniform positive coefficient."
+        ],
+        "reasoning": "The strict-slope result is a direct combination of existing inputs. The completed equality analysis, not merely rewriting the first-order condition, makes the frozen theorem a full local classification.",
+        "searches": [
+          "arXiv:2611.26345, §IV Eq. (52), Appendix A",
+          "arXiv:1607.06048, Poisson restart specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior wedge comparator's unreset formulas for m1 and m2 are exactly equivalent: x=R sin(theta), y=R sin(alpha−theta), c=cos(alpha), so cos(alpha−2theta)=c+2xy/R² and R²(1−c²)=x²+y²+2cxy. Inserting these identities into B1 and B2 recovers both stated moments."
+        ],
+        "reasoning": "Correlation and angle are equivalent descriptions of the same no-reset process. The first two moments are not new; the checked formulas at that order cannot decide the sign on the zero-slope curve.",
+        "searches": [
+          "Correlated Brownian first passage / absorbing wedge exit / common-reset local response",
+          "arXiv:1501.02274",
+          "arXiv:2611.26345, equations (52a,b), (A24–25)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published-finding hit is this record. The distinct same-day clock finding 04e1c5c02a44 follows both clocks after the first hit. The prior wedge formulas for the first two moments include the exact inputs for the noncritical boundary, but not a third-moment or equality-sign table."
+        ],
+        "reasoning": "No inspected table or other calculation gives the full classification including the strict equality result. The different stopping convention matters, irrespective of the shared catalogue date.",
+        "searches": [
+          "Published-finding semantic search for the analytic c_*(U) threshold and its tangency; separate same-day opposite first-passage clocks",
+          "arXiv:2611.26345, equations (52a,b), (A24–25)"
+        ]
+      },
+      "rationale": "The standard Poisson criterion together with previously available wedge moments covers the strict first-order classification after a change of coordinates; credit that implication explicitly. What distinguishes the complete sharp local theorem as stated is resolving the physical zero-slope set, with an explicit coefficient of fixed positive sign on the whole set. The inspected prior moment and restart formulas do not supply this third-moment conclusion or the full strict local result including equality.",
+      "residual_risks": [
+        "Earlier all-order wedge moment or critical restart work may encode the equality sign or the needed third-moment calculation; the two inaccessible papers cannot be treated as excluded.",
+        "The exact prior first-two-moment overlap is stronger than a match of wedge exponents alone, and the bounded comparison does not certify priority for rewriting the strict-slope threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior m1,m2 and hence first-order inputs; inspected phase boundary uses a different protocol and does not give the third-moment tangency",
+          "evidence": [
+            "B1=cos(alpha−2theta)/cos(alpha)−1, B2=cos(2alpha−4theta)/cos(2alpha)−4B1−1; the two unreset moments are R²B1/(4D) and R⁴B2/(96D²). Their substitutions yield the exact frozen first two polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.26345",
+          "material_read": "v1 posted 2026-11-19 UTC; p. 3 near OA offset 18000 (two-absorbing-edge auxiliary process), §IV pp. 8–9 offsets 56700 onward; Eq. (52a,b) p. 8, offset 60520; Appendix A pp. 12–13, especially (A24–25) offset 103500",
+          "method": "OA full-text passages with coordinate and trigonometric comparison",
+          "title": "Najeeb–Pal–Prasad wedge resetting paper",
+          "trigger": "Closest wedge moments and weak-reset phase boundary"
+        },
+        {
+          "assessment": "Prior wedge survival law and integrability input",
+          "evidence": [
+            "Absorbing wedge survival decays with exponent pi/(2 alpha)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.02274",
+          "material_read": "Abstract p. 1 and long-time wedge exponent passage near OA offset 17500",
+          "method": "OA full-text passages",
+          "title": "Survival probability of a Brownian motion in a planar wedge of arbitrary angle",
+          "trigger": "Equivalent unreset diffusion"
+        },
+        {
+          "assessment": "Prior renewal identity and framework, not specific equality sign",
+          "evidence": [
+            "The constant-rate mean is expressed through the Laplace transform of the no-reset completion time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "Mean FPT under restart and Poisson specialization, p. 2, OA offset near 14300",
+          "method": "OA full-text passage",
+          "title": "First Passage Under Restart",
+          "trigger": "General restart theorem might give the entire phase diagram"
+        },
+        {
+          "assessment": "Protocol overlap but different unreset covariance",
+          "evidence": [
+            "Independent 1D walkers are considered with simultaneous and separate resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+          "material_read": "Opening model and synchronous-reset comparison from OA offset 0",
+          "method": "OA full-text passage",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Shared-reset Brownian search model"
+        },
+        {
+          "assessment": "Does not cover the intrinsically correlated pair",
+          "evidence": [
+            "Mean, variance and dispersion responses concern equal-start independent searchers sharing a clock."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-distinct-weak-reset-risk-responses-for-simultaneous-browni--b635406801e3",
+          "material_read": "Finding",
+          "method": "Published full-text mirror",
+          "title": "Three distinct weak-reset risk responses for simultaneous Brownian searchers",
+          "trigger": "Closest previous published-finding topical comparison"
+        },
+        {
+          "assessment": "The process is not killed on the first hit",
+          "evidence": [
+            "One Brownian path; both opposite first-visit times continue to be defined after the first visit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-strict-anticorrelation-of-opposite-brownian-first-passage-clocks--04e1c5c02a44",
+          "material_read": "Finding and stopping convention",
+          "method": "Published full-text mirror",
+          "title": "Strict anticorrelation of opposite Brownian first-passage clocks",
+          "trigger": "Distinct same-day anticorrelation claim"
+        },
+        {
+          "assessment": "Unresolved; no finding inferred from the title",
+          "evidence": [
+            "No scientific passage available from the attempted routes."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0167715209004180",
+          "material_read": "Bibliographic search hit only; no paper text",
+          "method": "Publisher and configured OA retrieval returned HTTP 403",
+          "title": "On the first passage problem for correlated Brownian motion",
+          "trigger": "Plausible independent correlated-exit formulas"
+        },
+        {
+          "assessment": "Accessible citing paper proves exact first-two-moment overlap; broader contents of this reference unverified",
+          "evidence": [
+            "Cited in the wedge comparator for the nonreset moment inputs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.113.024104",
+          "material_read": "Reference and related discussion in accessible citing paper, not original article",
+          "method": "Publisher and OA retrieval returned HTTP 403",
+          "title": "Phys. Rev. E 113, 024104 (2026)",
+          "trigger": "Wedge moment antecedent cited by Najeeb–Pal–Prasad"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zero-derivative curve is a necessary part of a sharp decision rule for weak resetting and cannot be classified using mean and variance alone. Its uniform second-order sign, on every attainable start geometry where the first-order test is silent, resolves that issue without a numerical rate search. The scope is meaningful for the local correlated-search problem and does not require an all-rate optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

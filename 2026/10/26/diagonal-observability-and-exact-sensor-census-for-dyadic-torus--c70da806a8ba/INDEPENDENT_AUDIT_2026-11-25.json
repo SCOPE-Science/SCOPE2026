@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:58:28.446657Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–59",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "In the dual group algebra a time step sends a site functional to its product with W=X+Y. Substitution X=W+Y carries the defining ideal to (W^L,Y^s-1), since L is a power of two and s divides L. Thus the time span is a module over F_2[W]/(W^L), free of rank s before any sensor restrictions. Modulo W each sensor is exactly the basis element Y^(i+j mod s). Missing a basis element prevents spanning; choosing one of each gives a matrix invertible modulo W and therefore invertible over the nilpotent extension. This proves the criterion for all sets, even for indefinite readings since W^L=0, and the linear dimension bound excludes fewer than L frames with s sensors. Each class has L sites, yielding L^s optimal sets and the claimed inclusion–exclusion formula at all cardinalities including k=0 and k=Ls. For r fixed the class-avoidance probability is the product of 1-rL/(Ls-i) over 0<=i<k. Its logarithm is -rk/s+O_r(k/s^2+k^2/(Ls^2)); both errors vanish uniformly for L>=s in the critical window. Consequently the empty-count factorial moments converge to those of Poisson(e^(-c)), giving the zero-empty probability, or equivalently the same result follows by finite Bonferroni bounds and then sending their truncation to infinity.",
+      "residual_risks": [
+        "Claim is for full initial-state recovery in the noiseless dyadic system, not earlier horizons with extra sensors or other update rules. Finite verification described in the package is not relied on as an exhaustive proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Plénet et al. Thm. 3.3 and Prop. 3.4 provide affine rank conditions and generic horizon bounds, and §4.1 develops methods for nonlinear bounded CA as Boolean networks.",
+          "El Yacoubi et al. Thm. 5 and Cor. 1 give the affine criterion and reconstruction from the observability matrix."
+        ],
+        "reasoning": "The broader approaches supply criteria and generic bounds, but the inspected statements neither solve the site-selection problem for this rule nor give the exact counts or critical law.",
+        "searches": [
+          "HAL hal-03942814v1, §§2.3, 3.2, 4.1",
+          "doi:10.25088/ComplexSystems.30.3.391, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the two inspected mirrored records",
+        "hal-03942814v1 (submitted version of doi:10.1080/00207721.2022.2064556)",
+        "doi:10.25088/ComplexSystems.30.3.391"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic static horizon bounds N/Q<=T<=N apply to the ambient framework, but give no sufficient geometric condition.",
+          "The later occupancy result is for overfull residue classes in a full shift, with a power-law sample scale, not empty diagonal classes on this finite torus at s(log s+c)."
+        ],
+        "reasoning": "Rank tests and sampling formulas can be applied after the system-specific structural reduction, but the inspected sources do not imply that reduction. The Poisson shape itself is standard occupancy, not independent novelty.",
+        "searches": [
+          "HAL hal-03942814v1, Thm. 3.3 and Prop. 3.4",
+          "Resultary cyclic Rule 90 and prime-power observation-clock findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Plénet et al. define global observability by injectivity of initial state to outputs and characterize it by the affine-CA rank test.",
+          "The 2026/10/25 cyclic Rule 90 record characterizes success by the gcd of sensor-position differences with n, rather than occupancy of all s classes."
+        ],
+        "reasoning": "Identifying observability with the row span of time-shifted coordinate functionals is exactly the known test. The two-dimensional nilpotent-module quotient used to decide that rank for every placement is the distinct step; the one-dimensional Rule 90 gcd condition does not describe this quotient.",
+        "searches": [
+          "Resultary: exact static sensor placement for dyadic CA observability",
+          "doi:10.1080/00207721.2022.2064556, submitted version §2.3 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cyclic Rule 90 record gives a Möbius sum for successful k-site sets at each k, for its gcd condition.",
+          "The later prime-power observation-clock record gives a finite distribution for without-replacement supports with bounded occupancy per residue, not all classes nonempty. No matching census for this torus surfaced in the ranked searches."
+        ],
+        "reasoning": "The existing formulas count different events. The torus census follows from a partition into L-site classes after establishing the rank equivalence, not from consulting or recomputing a prior numerical table.",
+        "searches": [
+          "Resultary: all-cardinality sensor census, dyadic north/east XOR diagonal residues, CA residue-class Poisson occupancy"
+        ]
+      },
+      "rationale": "Known observability-rank criteria and occupancy arguments are credited as ingredients. The supported distinct contribution is the exact all-placement classification and resulting census and critical window for the specified two-dimensional torus. The closest CA results use different dynamics or occupancy events; none of the inspected statements evaluates this torus rank in terms of the claimed diagonal geometry.",
+      "residual_risks": [
+        "A targeted primary-literature search returned an unrelated result; it is not negative evidence. An equivalent group-algebra observation for the same torus may occur elsewhere. The published version of the 2022 paper was not inspected separately from the recovered submitted version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criteria and bounds, not this exact placement result",
+          "evidence": [
+            "Initial-state global injectivity; Thm. 3.3 rank test and Prop. 3.4 horizon bounds; §4.1 nonlinear Boolean-network setting."
+          ],
+          "identifier_or_url": "https://hal.science/hal-03942814v1/file/propre-14-03-2022.pdf",
+          "material_read": "Submitted text §§2.3, 3.2 and 4.1, pp. 5, 7–8 and 11 (offsets 16500, 22000, 31300)",
+          "method": "Lawful OA primary PDF excerpts",
+          "title": "Observability and Reconstructibility of Bounded Cellular Automata",
+          "trigger": "Closest cited general CA observability result"
+        },
+        {
+          "assessment": "Prior affine observability and reconstruction formulation",
+          "evidence": [
+            "Thm. 5 and Cor. 1 on rank and inversion/pseudoinversion; fixed or mobile sensor context."
+          ],
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.30.3.391",
+          "material_read": "§3.3 pp. 405–406, offset 33000",
+          "method": "OA primary PDF excerpt",
+          "title": "Some Control and Observation Issues in Cellular Automata",
+          "trigger": "Affine CA sensor formulation"
+        },
+        {
+          "assessment": "Strong prior analogue for a different rule",
+          "evidence": [
+            "One-dimensional gcd-based geometric test and Möbius-inversion exact sensor counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-rank-deficits-and-optimal-static-sensors-for-cyclic-rule-9--162c468ed707",
+          "material_read": "Mirrored RESULT.md finding, chars 350–2659",
+          "method": "Local Resultary search and primary mirror excerpt",
+          "title": "Exact rank deficits and optimal static sensors for cyclic Rule 90",
+          "trigger": "Exact sensor classification and all-k census"
+        },
+        {
+          "assessment": "Later related record, different event and critical regime",
+          "evidence": [
+            "Without-replacement law for avoiding overfull classes with power-law scale m asymptotic to a constant times b^(ell/(ell+1))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-prime-power-observation-clocks-an-exact-collision-law-for-random--628f97a371fe",
+          "material_read": "Mirrored RESULT.md finding, chars 250–2859",
+          "method": "Local Resultary search and primary mirror excerpt",
+          "title": "Prime-power observation clocks: an exact collision law for random cellular-automaton cylinders",
+          "trigger": "CA residue occupancy and Poisson crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–19 and 29–59",
+        "Plénet et al. submitted text, §3.2",
+        "Indexed cyclic Rule 90 finding"
+      ],
+      "rationale": "For a natural finite linear dynamics the result replaces a rank test on Ls initial coordinates by a complete geometric criterion. It establishes that the information lower bound is attainable, identifies every minimal set, and distinguishes deterministic optimum s from typical fixed-size sampling at s log s. The inclusion–exclusion and Poisson calculations are routine once the partition criterion is known, but together quantify the practical difference between designed and unstructured placement.",
+      "residual_risks": [
+        "No claim about robustness, arbitrary periodic lengths, or recovery times for general larger sensor sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

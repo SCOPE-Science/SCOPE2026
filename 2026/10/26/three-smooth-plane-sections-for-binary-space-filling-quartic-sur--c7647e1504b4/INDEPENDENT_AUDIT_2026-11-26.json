@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:11:19.663940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–25",
+        "VERIFICATION.md lines 19–25",
+        "census_monomials.py and census_generators.cpp (inspected)",
+        "census_monomials.stdout lines 1–7; census_generators.stdout lines 1–14",
+        "geometry_checks.py and geometry_checks.stdout (inspected)",
+        "review-evidence/quartic.py and review-evidence/quartic-results.md (independent bounded census and homogeneous ideal rank replay)"
+      ],
+      "rationale": "Evaluation of every degree-four monomial depends only on its nonempty variable support. The 15 distinct support columns form the subset-zeta matrix indexed by nonempty supports and nonzero binary points; triangularity gives rank 15. In each support class, pair one fixed monomial with every other monomial to obtain an independent parity-zero basis of the evaluation kernel, of dimension 20. An independent exhaustive enumeration in four disjoint Gray-code intervals classified all 1,048,576 forms and reproduced exactly 24,192/80,640/20,160 rationally nonsingular forms at image sizes 10/11/12 with no other bins. The gradient encodes a unique plane over F2. For the three-variable plane-filling family the same support argument gives 256 forms. The 24 rationally nonsingular ones all have full homogeneous Jacobian ideal rank 36 in degree 7; hence each seventh coordinate power belongs to the ideal and there are no geometric projective singularities. For smooth S, a section through a rational point of S is singular there exactly when its plane is tangent. No plane is a component of a smooth quartic surface, and the auxiliary lemma precludes singular sections without a rational singularity. Therefore the planes outside the rational Gauss image are exactly the smooth sections. The quartic witness independently has ideal rank 220 in degree 9, vanishes at all 15 rational points, and its only smooth sections have masks 2, 4 and 10. The other 12 sections each have a rational singular point. This verifies both the sharp bound and the broader census under their separate nonsingularity hypotheses.",
+      "residual_risks": [
+        "The 124,992 forms are rationally nonsingular, not necessarily geometrically smooth. Counts are of coordinate-fixed forms, not projective equivalence classes. The result is specific to the binary field and degree four."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.11 excludes plane-transverse-free degree-(q+2) smooth space-filling surfaces for odd q.",
+          "Theorem 9.5 of Space-Filling Hypersurfaces gives existence of degree-(q+2) smooth space-filling hypersurfaces in all dimensions at least two in characteristic two, using a surface with a smooth hyperplane section in its construction."
+        ],
+        "reasoning": "The odd-q exclusion does not include F2, and even if extended verbatim would only guarantee at least one smooth rational plane. The characteristic-two construction addresses existence of examples, not a universal lower bound applying to all such binary surfaces or a distribution on their rational Gauss images.",
+        "searches": [
+          "arXiv:2409.05248, Theorem 3.11",
+          "arXiv:2611.15768v1, Section 9 and Theorem 9.5"
+        ]
+      },
+      "checked_sources": [
+        "Primary and published-record passages above",
+        "RESULT.md lines 27–37",
+        "Independent Gauss-image check of the b=1 published example"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2 the characteristic-two construction has b=1 and gives F=X1*phi01+X2*phi12+X3*phi23+(X0+X3)*phi30, exactly the K3 record's polynomial. Direct evaluation of its fifteen gradients gives twelve distinct masks and misses 3, 6 and 12. Those three sections independently have full homogeneous ideal rank in degree 7.",
+          "Homma–Kim and the plane records cover the auxiliary classification."
+        ],
+        "reasoning": "An explicit known surface already supplies attainment after the elementary Gauss-image and plane-curve checks; originality does not rest on the existence or equivalence class of the frozen witness. Neither one example nor the known plane-curve criterion bounds from above all rational Gauss-image sizes for the 20-dimensional space. The universal guarantee and distribution are the surviving contribution.",
+        "searches": [
+          "arXiv:2611.15768v1, Section 9 pp. 15–16 and Lemma 9.2",
+          "2026/11/22/SCOPE-the-five-rational-lines-and-their-picard-lattice-on-a-binary-spa--7fca5e0ad7be, RESULT.md offset 575",
+          "arXiv:0903.1918v2, Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bruggemann et al. relate rational tangent planes to singularities of the sections and discuss the perfect-matching obstruction.",
+          "Homma–Kim give a matrix criterion for nonsingularity for plane curves filling P²(F_q). The binary Gauss-bijection record counts plane curves in P², rather than surfaces in P³."
+        ],
+        "reasoning": "In the binary surface setting, the verified plane-filling lemma makes smooth rational-plane sections the complement of the rational Gauss image. This equates the sharp lower bound of three with an upper bound of twelve on distinct tangent planes, not merely absence of a bijection. Gauss-bijection counts for plane curves use seven projective points, so do not match the surface census over fifteen.",
+        "searches": [
+          "arXiv:2409.05248, Lemma 3.9, Corollary 3.10 and Theorem 3.11",
+          "arXiv:0903.1918v2, Proposition 2.1 and Theorem 3.2",
+          "2026/10/26/SCOPE-the-rational-gauss-bijection-gap-between-binary-plane-quartics-a--973879863b67"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two plane-filling records classify the same 24 smooth binary plane quartics in eight pencils; one uses Homma–Kim's criterion explicitly.",
+          "The binary K3 record gives five rational lines and their lattice for one explicit smooth space-filling quartic, not a table of Gauss-image cardinalities over the full linear system."
+        ],
+        "reasoning": "The plane table supplies the auxiliary plane result, not the distribution on binary quartics in four variables. The line and lattice invariants of an individual surface do not enumerate distinct tangent-plane masks for other forms. No exact histogram was found in the bounded surface-census search.",
+        "searches": [
+          "Resultary: binary space-filling quartic surfaces F2 rational tangent-plane Gauss image histogram 24192 80640 20160",
+          "2026/10/18/SCOPE-eight-all-smooth-binary-plane-filling-quartic-pencils-and-their--4918e9c3bc9a",
+          "2026/10/26/SCOPE-eight-singer-pencils-partition-the-smooth-plane-filling-quartics--6b7a42d673bd",
+          "2026/11/22/SCOPE-the-five-rational-lines-and-their-picard-lattice-on-a-binary-spa--7fca5e0ad7be"
+        ]
+      },
+      "rationale": "Credit the binary auxiliary plane-filling lemma and its 24-form count to earlier curve classification, and the connection between rational tangency and plane-section singularities to prior work. An already published smooth binary example can also be checked to have exactly three smooth sections. The supported distinct result is the universal sharp lower bound for smooth space-filling binary quartic surfaces together with the exact coordinate-fixed distribution for the larger rationally nonsingular family. No inspected comparable statement or table supplies that bound and census.",
+      "residual_risks": [
+        "Unindexed finite-geometry tables may include an equivalent census. The bounded primary keyword search did not itself resolve this possibility. Projective equivalence of the two explicit witnesses is not needed for, and is not asserted by, the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the auxiliary binary plane-curve classification mechanism, not the surface census",
+          "evidence": [
+            "Gives a plane-curve normal form and a nonsingularity criterion in terms of irreducibility of the associated characteristic polynomial; the proof analyzes rational singularity and geometric smoothness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.1918v2",
+          "material_read": "PDF pp. 1–2 and p. 5, Proposition 2.1 and Theorem 3.2 with proof, offsets 0, 4300 and 12200–14600",
+          "method": "Open-access primary passage inspection",
+          "title": "Nonsingular plane filling curves of minimum degree over a finite field and their automorphism groups: Supplements to a work of Tallini",
+          "trigger": "Filling plane quartics in the degree-q+2 range"
+        },
+        {
+          "assessment": "Same mechanism; theorem quantified only for odd q and weaker than a count of three",
+          "evidence": [
+            "Relates tangency to rational points and uses the perfect-matching obstruction in the argument excluding plane-transverse-free examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.05248",
+          "material_read": "PDF p. 10, Lemma 3.9, Corollary 3.10, Theorem 3.11, offsets 42700 and 44300–47037",
+          "method": "Open-access primary passage inspection",
+          "title": "Transverse-freeness in finite geometries",
+          "trigger": "Directly addresses transverse planes to smooth space-filling surfaces"
+        },
+        {
+          "assessment": "Its explicit binary surface already realizes three smooth plane sections; no coverage of the universal bound or distribution",
+          "evidence": [
+            "The displayed companion-matrix form for b=1 is a smooth example. Exact gradient evaluation gives missing plane masks [3,6,12]; each section passed the homogeneous ideal rank test."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15768v1",
+          "material_read": "Section 9 pp. 15–16 at offsets 41120–46689, Lemma 9.2; Theorem 9.5 p. 18 near offset 51980",
+          "method": "Open-access primary passage inspection and independent exact evaluation at q=2",
+          "title": "Space-Filling Hypersurfaces",
+          "trigger": "Explicit smooth quartic over the same field and general even-characteristic existence theorem"
+        },
+        {
+          "assessment": "Exact overlap on the count of smooth plane-filling quartics",
+          "evidence": [
+            "The 24 smooth forms are organized into eight pencils."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-eight-all-smooth-binary-plane-filling-quartic-pencils-and-their--4918e9c3bc9a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Eight all-smooth binary plane-filling quartic pencils",
+          "trigger": "Exact 24-form subproblem match"
+        },
+        {
+          "assessment": "Same auxiliary objects, unrelated to classification of surface Gauss images",
+          "evidence": [
+            "The 24-curve classification starts from Homma–Kim's Theorem 3.2 and describes the same eight-pencil partition."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-eight-singer-pencils-partition-the-smooth-plane-filling-quartics--6b7a42d673bd",
+          "material_read": "RESULT.md offsets 0–2989",
+          "method": "Published record via local mirror",
+          "title": "Eight Singer pencils partition the smooth plane-filling quartics",
+          "trigger": "Same auxiliary count and geometrically smooth family"
+        },
+        {
+          "assessment": "Census of plane curves, not surfaces",
+          "evidence": [
+            "Counts 24 binary degree-four plane curves with bijective rational Gauss map and compares degrees five and six."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-rational-gauss-bijection-gap-between-binary-plane-quartics-a--973879863b67",
+          "material_read": "RESULT.md offsets 0–2196",
+          "method": "Published record via local mirror",
+          "title": "The rational Gauss-bijection gap between binary plane quartics and higher degrees",
+          "trigger": "Exact Gauss-map census with binary quartics in the title"
+        },
+        {
+          "assessment": "Studies one constructed surface, with a different stated invariant",
+          "evidence": [
+            "Defines the same form as the characteristic-two existence paper at q=2 and gives a configuration of five rational lines and a rank-six lattice of discriminant −132."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-five-rational-lines-and-their-picard-lattice-on-a-binary-spa--7fca5e0ad7be",
+          "material_read": "RESULT.md Finding and model, offsets 0–2649, and contextual discussion at offsets 4900–6602",
+          "method": "Published record via local mirror",
+          "title": "The five rational lines and their Picard lattice on a binary space-filling K3 quartic",
+          "trigger": "Closest indexed surface object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–22 and 27–31",
+        "arXiv:2409.05248, Theorem 3.11",
+        "review-evidence/quartic-results.md"
+      ],
+      "rationale": "This is the smallest even field omitted by the odd-characteristic space-filling transversality result. The computation is on the natural entire linear system, and its Gauss-image invariant directly measures smooth section scarcity through the plane-filling lemma. The exact histograms and sharp universal guarantee are useful for the binary case regardless of whether the extremizing surface itself was previously described.",
+      "residual_risks": [
+        "No corresponding claim for larger even fields, degrees, or the number of projective equivalence classes is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

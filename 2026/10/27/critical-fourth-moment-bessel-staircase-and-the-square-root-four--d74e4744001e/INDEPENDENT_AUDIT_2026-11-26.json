@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:45.572368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–103",
+        "Frozen VERIFICATION.md and verify_bessel.py, inspected, script not executed",
+        "DLMF §§10.6 and 10.17; Xu arXiv:2610.19648v1, (1.1)–(1.8)"
+      ],
+      "rationale": "With a=J_j, b=J_{j+1} and S=a²+b², the derivative recurrences cancel the cross term in S′. Then (r²S²)′=2rS[(2j+1)a²−(2j+1)b²], giving the adjacent identity with zero lower boundary (also for real j>−1/2). If both functions vanished at a positive radius, J_j and its derivative would vanish there, contradicting uniqueness and the nonzero small-radius expansion. Complementary Hankel phases give S(R)=2/(πR)+O_j(R^−2) and thus the stated finite-part difference, while the individual logarithmic coefficient is 3/(2π²). For q∈[4,5], raising the bounded leading cosine plus O_j(r^−1) to the absolute qth power gives a uniform O_j(r^−1) error inside the brackets by the mean value bound, even at its zeros. The phase difference has zero periodic mean; integration by parts with its uniformly bounded primitive gives an O_j(1/R) cutoff error including q=4. Compact convergence thus identifies the limiting difference, without subtracting divergent integrals separately. The individual residue is 2(2/π)²(3/8)=3/π². Setting ε=q−4 in the mean value formula, the factor ξ_q^{2/q−1} is asymptotic to (3/(π²ε))^−1/2 since ε log ξ_q tends to zero. This gives 1/(π√3) times the odd-reciprocal sum for the normalized gap. Xu's circle convention and the Fourier–Bessel formula multiply the squared gap by (2π)², giving 4π/√3. The harmonic multiplier is the same for both signs of a fixed integer frequency, so the formula holds throughout that harmonic space.",
+      "residual_risks": [
+        "No uniform-in-mode result. The endpoint difference is an improper cutoff limit, generally not absolutely integrable, and no maximizing nonzero circle mode or global endpoint stability coefficient follows from this check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu establishes sharp mode-zero dominance for all admissible finite exponents and sharp global stability via the best nonzero mode; the circle discussion compares common tails because q=4 diverges.",
+          "Xu identifies the best nonzero degree for d≥3, not on the circle, and the relevant statements do not give the fixed-degree endpoint constants."
+        ],
+        "reasoning": "A sharp bound at each q>4 and a representation of the global gap are not the coefficient of a singular asymptotic for each fixed circle degree. The recurrence and Hankel ingredients themselves are standard.",
+        "searches": [
+          "Xu arXiv:2610.19648v1, Thms. 1.2–1.3 and discussion pp. 3–4; circle proof conclusion p. 32",
+          "DLMF §§10.6, 10.17, 10.22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.19648v1",
+        "DLMF §§10.6, 10.17, 10.22",
+        "Resultary 4d8d086fa937",
+        "Exact-title four-product lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two classical derivative recurrences suffice for the algebraic exact boundary term, and fixed-order Hankel expansions evaluated in it yield the finite parts. This is not a new special-function methodology.",
+          "Computing the near-critical coefficient further requires identifying the finite part with the uniform q↓4 difference and combining it with the residue of the individual moments. The earlier sharp-extension theorem does not supply this evaluated critical limit.",
+          "The later indexed proof obtains the same evaluation via a regularized logarithmic Bessel kernel and ∫J_j^4 dr/r; its references do not identify an earlier source of the evaluated modal coefficient."
+        ],
+        "reasoning": "The supported distinct quantitative result is the endpoint coefficient and strict finite-radius specialization, not a claim that its ingredients were unknown. No inspected earlier theorem directly yields the evaluated near-critical gap by specialization.",
+        "searches": [
+          "DLMF §10.6.2 and §10.17",
+          "Xu arXiv:2610.19648v1 pp. 3–4, 32",
+          "Resultary 4d8d086fa937 proof, mirrored offsets 2100–4853"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4d8d086fa937 gives equal-cutoff renormalized fourth-moment differences and the same coefficient for arbitrary fixed pairs of degrees.",
+          "The squared Fourier pure-mode coefficient is just (2π)² times the Bessel coefficient, with no distinct invariant created by the normalization."
+        ],
+        "reasoning": "At the endpoint one must preserve the common cutoff; changing to the paired improper difference is equivalent. The catalogue result demonstrably overlaps (2)–(3), and implies (4) after the known multiplier, but differs in its evaluation through the convergent dr/r moment instead of the finite-radius boundary identity.",
+        "searches": [
+          "Resultary finite-part quartic Bessel/circular extension gap comparison, 4d8d086fa937",
+          "Xu arXiv:2610.19648v1, (1.1)–(1.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected DLMF entries concern two-cylinder products and a J₀² cutoff, not the adjacent quartic cutoff. They are not an exhaustive check of product-integral tables.",
+          "4d8d086fa937 explicitly duplicates the finite-part odd-reciprocal sum and normalized Bessel modal coefficient. Its displayed publication date is later; no earlier priority was established by the source inspection.",
+          "The exact-title four-product listing returned 403 by direct and VPN retrieval; its mathematical content was not compared."
+        ],
+        "reasoning": "Quartic infinite-product formulas may use different orders, arguments, measures or convergence prescriptions; a title hit cannot settle exact coverage. The exact indexed duplicate is credited and distinguished from prior priority.",
+        "searches": [
+          "DLMF §10.22(i), Eqs. 10.22.5 and 10.22.29",
+          "Resultary 4d8d086fa937, full-text finding and recurrence/integral passages",
+          "An Infinite Integral of Four Bessel Functions, exact-title candidate"
+        ]
+      },
+      "rationale": "The supported contribution is the exact critical finite-part evaluation and its quantitative fixed-degree near-critical gap, not degree-zero dominance, the harmonic multiplier, or the classical derivative identities. The finite-aperture identity is a short algebraic consequence of the recurrences and has an unresolved priority risk in its own right. A distinct later-dated catalogue record gives equivalent finite-part and fixed-pair gap formulas by a different evaluation; the overlap is exact for those conclusions, not evidence of earlier priority or of the positive finite-aperture formula. The inspected earlier Xu theorem concerns q>4 dominance and stability and does not give this limiting coefficient.",
+      "residual_risks": [
+        "Not an exhaustive historical priority determination. Exact overlap with the later-dated catalogue claim is established, but date alone does not establish dependence or priority. Older product-integral coverage remains possible and the plausible four-product listing was inaccessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharp norm and fixed-q modal comparison are prior; does not evaluate the specific endpoint gap in inspected statements",
+          "evidence": [
+            "Unnormalized arc length, Fourier–Bessel factor (2π)^(d/2); q>4 circle dominance; stability through max_{k≥1} λ_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19648v1",
+          "material_read": "p. 1 (1.1)–(1.4); pp. 3–4 (1.5)–(1.8), circle discussion; p. 32 circle proof conclusion",
+          "method": "OA primary PDF passages; offset 15500 confirms divergent circle endpoint and sharp stability statement",
+          "title": "Sharp radial–angular mixed norm Fourier extension and global stability on spheres",
+          "trigger": "Same modes, sharp q>4 result and endpoint comparison"
+        },
+        {
+          "assessment": "Standard ingredients and related entries; inspected entries not the exact quartic endpoint evaluation",
+          "evidence": [
+            "Derivative recurrences make the boundary identity elementary; selected product entries are quadratic rather than the reviewed quartic expression."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/10",
+          "material_read": "§10.6.2; §10.22(i), Eqs. 10.22.5 and 10.22.29; fixed-order asymptotic comparison §10.17",
+          "method": "Primary reference passages and equation-level comparison",
+          "title": "NIST Digital Library of Mathematical Functions, Chapter 10",
+          "trigger": "Classical derivative and product identities or an exact table match"
+        },
+        {
+          "assessment": "Exact overlap on finite parts and fixed-mode squared Bessel gaps, later-dated; no evidence of prior priority",
+          "evidence": [
+            "Uses adjacent-order differences, a common-tail limit, and an explicit quartic dr/r integral; not the displayed finite-radius identity. References do not resolve older table priority."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-critical-fourth-moment-gaps-in-circular-fourier-extension--4d8d086fa937",
+          "material_read": "Mirrored finding at offset 0, proof offsets 2100–4853, limitations/references at 7200",
+          "method": "Local indexed search and primary mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact critical fourth-moment gaps in circular Fourier extension",
+          "trigger": "Direct equivalent exact constant for the same invariant"
+        },
+        {
+          "assessment": "Unresolved, not evidence for or against exact coverage",
+          "evidence": [
+            "No integrand, parameters, convergence prescription or formula verified from this listing."
+          ],
+          "identifier_or_url": "Exact-title ResearchGate listing",
+          "material_read": "Bibliographic title only; primary text unavailable",
+          "method": "Configured OA direct/VPN attempts returned 403",
+          "title": "An Infinite Integral of Four Bessel Functions",
+          "trigger": "Plausible older product-integral antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, (1)–(4), (7)–(8)",
+        "Xu arXiv:2610.19648v1, circle endpoint discussion and Thm. 1.3"
+      ],
+      "rationale": "The circle endpoint has divergent individual moments, so neither the existing strict comparison nor the harmonic decomposition tells how much two fixed modes differ there. The result resolves that quantitative question at every common cutoff and gives the exact vanishing rate of the corresponding squared extension gap. The useful content is the finite part and its link to near-critical stability, not the normalization calculation by itself.",
+      "residual_risks": [
+        "No conclusion about the globally optimal coefficient as q↓4 or the mode attaining it; the fixed-mode rate does not settle that problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

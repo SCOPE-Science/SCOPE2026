@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:20:38.207100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the cited input, the zero-one-count classes are disjoint; the one-one count is a union of nested initial segments and the three-one count is a product of the two minimum gap bounds plus one in each coordinate. With two ones and a≤d, the first two original ones yield a rectangle contained in the rectangle from the outside ones, and the last two contribute exactly min(b,d−a)(c+1) beyond it. Reversal gives the other branch. All gaps may vanish; the formula then gives the three nonempty palindromes in 111. Uniform labeled positions give uniform integer compositions of n−3. Riemann sums in three coordinates after division by n tend to uniform simplex measure; removing all degree-one and constant terms leaves the stated continuous piecewise quadratic with uniform error O(1/n) after scaling. Boundedness gives convergence of both raw moments. For four independent exponential coordinates, the radial sum is independent Gamma(4,1) and the orientation of the two outside gaps is symmetric. Their independent minimum and difference have rates 2 and 1. Independently computing the first two moments of the resulting homogeneous polynomial over the six orderings of the inner two exponentials and the outer difference gives E G=7/4 and E G²=289/36. Dividing by the radial second and fourth moments 20 and 840 gives the stated moments and variance. No independence across n is needed.",
+      "status": "PASS",
+      "verification": "python3 /workspace/reproducibility/frozen_checks.py 1 matches all 3,876 cases through n=18 using a palindrome-only recurrence based on the outermost occurrences of each wrapping letter. Independent rational integration in exponential spacings on all six order sectors gives mean 7/80, raw second moment 289/30240, and variance 2299/1209600. These reproduce the finite domain and exact constants; the general law uses the analytic argument. The supplied script was inspected, not executed."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh give a Fibonacci bound and an extremal formula with alphabet size at least n/2.",
+          "The inspected catalogue statements cover run-constrained maxima/rigidity or iid four-letter expectation growth, not the fixed-weight distribution over gap tuples."
+        ],
+        "reasoning": "A general upper bound or maximum does not specify the pushforward of the uniform composition distribution. For binary words the stated large-alphabet hypothesis also fails beyond length four. The run and iid restrictions do not dominate the ensemble in the repaired theorem.",
+        "searches": [
+          "arXiv:2108.02729v1, Theorems 4.2 and 5.4",
+          "Resultary 24ceac73bbf9, bfbc0fe5abc8 and 8499d3fafde7, findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact overlap 3fb9dc585778, assigned self-hit, and related 24ceac73bbf9, bfbc0fe5abc8 and 8499d3fafde7",
+        "Holub–Saari DOI 10.1016/j.dam.2008.03.039",
+        "arXiv:2108.02729v1",
+        "arXiv:1505.08043v1",
+        "bibliographic/access check for DOI 10.1016/j.tcs.2008.08.035"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October result stops at deterministic finite counting. Its leading quadratic plus standard lattice convergence yields the candidate pushforward; it does not evaluate the integral or establish the exact variance.",
+          "The factor expectation and alphabet-extremal bounds have no corresponding fixed-weight sampling measure."
+        ],
+        "reasoning": "The genuine surviving addition is the random law with its worked nontrivial, nondegenerate second moment, not merely restating the known finite formula or observing its quadratic leading term.",
+        "searches": [
+          "Resultary 3fb9dc585778 full RESULT.md; arXiv:1505.08043v1 model and growth statement; arXiv:2108.02729v1 exact extremal statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 3fb9dc585778 gives the exact count plus one because the empty palindrome is included.",
+          "Holub–Saari's P(w) in Theorem 2 is the full set, not its size; Rubinchik–Shur's random statistic counts contiguous factors."
+        ],
+        "reasoning": "The empty-word convention does not distinguish the deterministic claim. The nonempty fixed-weight law is not a change of convention on either the deterministic theorem, a reconstruction theorem, or an iid factor law.",
+        "searches": [
+          "Resultary: distinct scattered palindromes of binary words with exactly three ones; gap formula and uniform fixed-weight Dirichlet limit",
+          "Holub–Saari, DOI 10.1016/j.dam.2008.03.039, Theorem 2",
+          "arXiv:1505.08043v1, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A separate catalogue entry matches the finite formula exactly after omitting the empty word and contains no random limit law. The matching assigned item is not independent evidence.",
+          "The checked primary exact formula concerns a different extremum and regime, not the first or second moments of uniform gap compositions."
+        ],
+        "reasoning": "The retrieved exact deterministic identity is used and credited as prior. The catalogue comparison did not identify a distinct matching exact law or table of the limiting moments; it does not rule out all such tables.",
+        "searches": [
+          "Resultary comparison for exact three-one counts and limiting moments 7/80 and 2299/1209600",
+          "arXiv:2108.02729v1, exact extremal theorem and alphabet assumptions"
+        ]
+      },
+      "rationale": "The repaired finding starts from the earlier deterministic gap formula and claims only the fixed-weight limiting law and its exact moments. No matching law or moments were found in the relevant statements inspected. The deterministic formula is sufficient input to obtain the leading functional once the random-composition limit is proved, but does not contain the distinct moment calculation and quantitative nondegeneracy. No priority is claimed for the gap count or for general uniform-simplex convergence.",
+      "residual_risks": [
+        "An equivalent pushforward calculation under an unindexed sparse-word formulation may predate this finding.",
+        "The Elzinga–Rahmann–Wang article was not read in full; the originality conclusion does not rely on declaring it noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proved equivalent coverage of the deterministic part, not the repaired random law.",
+          "evidence": [
+            "The terms map by m=z, h=T, x=r, y=s and the two case splits agree; excluding the empty palindrome subtracts exactly one.",
+            "The proof uses the same four classes and rectangle union."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-closed-palindromic-subsequence-count-for-three-one-binary-word--3fb9dc585778/RESULT.md",
+          "material_read": "RESULT.md finding and proof, offsets 0 and 3383, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary search and bounded local-mirror passage comparison.",
+          "title": "A closed palindromic-subsequence count for three-one binary words",
+          "trigger": "Exact same finite count under a convention change."
+        },
+        {
+          "assessment": "Reconstruction from the set, not statistics of its cardinality.",
+          "evidence": [
+            "Theorem 2: equality of sets determines the binary word up to reversal."
+          ],
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+          "material_read": "Author PDF pp. 1–2 definitions and p. 4 Theorem 2 (offset 9787).",
+          "method": "Primary OA PDF passages.",
+          "title": "On highly palindromic words",
+          "trigger": "Same distinct scattered-palindrome family."
+        },
+        {
+          "assessment": "General bounds and different exact extremal question.",
+          "evidence": [
+            "Theorem 4.2 bounds the count by F_{n+2}−1; Theorem 5.4 assumes at least n/2 different letters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "Abstract, p. 5 Theorem 4.2 (offset 14525), p. 15 Theorem 5.4 (offset 53461).",
+          "method": "Primary OA PDF passages.",
+          "title": "Counting Scattered Palindromes in a Finite Word",
+          "trigger": "Same count and broader finite-word scope."
+        },
+        {
+          "assessment": "Adjacent factors, not scattered subsequences at fixed composition.",
+          "evidence": [
+            "The expectation has Θ(sqrt n) growth for the factor statistic under the stated random-word model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+          "material_read": "Abstract and pp. 1–2 introduction, offsets 0 and 2395.",
+          "method": "Primary OA PDF passages.",
+          "title": "The Number of Distinct Subpalindromes in Random Words",
+          "trigger": "Random distinct-palindrome count with ambiguous terminology."
+        },
+        {
+          "assessment": "Unresolved access limitation, not a substantive noncoverage claim.",
+          "evidence": [
+            "No theorem of this article was used to assert noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2008.08.035",
+          "material_read": "Author's bibliography and available DOI landing material only.",
+          "method": "Author research page and DOI lookup; identified repository retrieval did not yield full text.",
+          "title": "Algorithms for subsequence combinatorics",
+          "trigger": "Possibly broader computational treatment of subsequences."
+        },
+        {
+          "assessment": "Different settings or different claims.",
+          "evidence": [
+            "The run-maxima entry gives M_3(n)=M_4(n)=n+floor(n²/8); the other run entry treats extremal asymptotics; the iid four-letter entry concerns expectation growth, not this conditional law."
+          ],
+          "identifier_or_url": "Resultary 24ceac73bbf9, bfbc0fe5abc8, 8499d3fafde7",
+          "material_read": "Finding passages at offset 0 in the local snapshot.",
+          "method": "Resultary ranked comparison and local-mirror passage reading.",
+          "title": "Related Resultary scattered-palindrome laws and extrema",
+          "trigger": "Same statistic and potential broader probabilistic or deterministic coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly three ones is a natural finite-weight stratum: overlapping two-one embeddings create competing gap rectangles absent in the simplest cases. The exact positive limiting variance shows that the resulting random gap geometry remains visible at quadratic scale, not merely in lower-order fluctuations. The explicit law and numerical moments are useful reference information for sparse-word comparisons beyond the known deterministic count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

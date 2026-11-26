@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each graph and valuation, part types \(Z,O,M\) and truncated category counts in \(\{0,1,2\}\) determine a unique realizable canonical state. Its successor-type *set*, including every possible truth bit of mixed parts, has the explicit formula proved in RESULT.md. Structural induction covers the entire unbounded frame class. The finite 68-state calculation is exhaustive and its refinement operations are proved exact using definability of every union of previous-depth classes. The observed strictly increasing type profiles followed by a verified fixed point establish both sharp depth cutoffs. Independent small-graph checks corroborate but are not used to infer the general theorem. Risk: the numerical profile depends on faithful execution of the supplied finite program; independent mathematical validation is outstanding.
+## correctness
 
-## Originality — PASS within checked evidence
-The September 2026 Wang–Zenger paper is about labelled proof theory and generalized path conditions, not an exact complete-multipartite formula-algebra census. Humberstone's agreement-logic analysis establishes a semantic framework without the specified 68-state quotient. Fan–Wang–van Ditmarsch compares knowing whether with other modal languages but does not, in the accessible material, imply the exact 10/22 pointed types. Indexed searches of equivalent formulations, partitions, and parameter families did not reveal this statement or a stronger one covering it. Earlier finite complete-graph instances and unrelated first-order width/depth results do not entail the result on the full complete-multipartite class. Limitations: the 2015 complete paper was not independently inspected in full and nonindexed coverage remains possible; absence from searches alone is not novelty proof.
+PASS
 
-## Value — PASS
-The theorem determines a natural quantitative expressivity invariant over an infinite, structurally canonical class of epistemic/graph frames; neither the unbounded number nor sizes of parts are assumed fixed. The exact 4096-fold formula-meaning gap and differing sharp depth thresholds measure the expressive loss from necessity to knowing whether rather than merely stating a general inexpressibility comparison. The 68-state representation additionally supplies a finite procedure for deciding formula equivalence on the whole frame family. The result is intentionally limited to one atom, where the invariants are natural and complete, not an arbitrary single-graph table.
+Truncating each pure-false, pure-true and mixed part count at two preserves whether another part of a specified category exists. The current category and current bit, together with these global counts, thus determine all successor canonical states. Every capped configuration with at least two parts is realized, covering the unbounded frame class by induction. In a finite depth partition every class has a depth-bounded defining formula (conjoin separating formulas with the appropriate signs). Box recovers its full successor support via complements of single classes. Delta cannot distinguish singleton supports, but if at least two classes occur it recovers the support by applying Delta to each class predicate. The old partition together with those modal observations exactly determines the new partition. Independent evaluation on the disjoint union of actual capped representative models, using truth-set masks and Boolean closure, gave the two profiles and equality of the last partitions, not just cardinalities coinciding across unrelated samples. Fixed-point persistence, strict increases before stabilization, and Boolean definability give sharp cutoffs, all listed meaning counts, and ratio 2^(22−10)=4096.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The evidence supports the distinct quantitative claim for the whole stated frame class: both type and meaning profiles and their sharp depths. An existing two-world symmetric witness already gives qualitative strict expressivity on this class, and nearby fixed-clique and biclique counts cover subclasses, not the union of all multipartite frames. No inspected source covers the two exact universal profiles.
+
+## value
+
+PASS
+
+Strict expressive inequality already follows from a small symmetric witness, but neither that witness nor known subclass counts measures the loss for an entire unbounded frame class. The sharp depths give meaningful uniform normal-form bounds, the finite reduction gives a decision method for this fragment, and the exact types quantify the gap without conflating fixed-frame and class-wide equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

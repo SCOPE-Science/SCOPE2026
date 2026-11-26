@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-vertex exchange witness applies uniformly to the nonexceptional range; the two-vertex opposite shore needs its own forcing-order argument, which is included. All exceptional families have fully identified uniform matroid closures. Exact finite replay verifies all small parameters and representative unrestricted witnesses. The finite replay is not the infinite proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Under skew forcing, the white set on A evolves using just the neighborhoods of B in A, independently of the colors on B. For a≥3,b≥2 and missing uv, those neighborhoods are A minus {u} for v and A for all other B vertices. With white A-set {u,w1,w2}, both types see at least two whites and u stays white. Pre-filling w1 lets v force w2, then another B vertex forces u. Instead pre-filling u leaves w1,w2 white with two neighbors counted by each B vertex, so w1 stays white. This verifies the claimed exchange obstruction including b=2, and shore swapping handles the other ordering. In the b=2 discussion of the original, the sole B vertex other than v is the unique neighbor of u, not conversely; the stated force and exchange conclusion are valid. For a star plus an isolated vertex the center is always forced, a missing leaf is forced exactly when it is the sole white leaf, and the isolated vertex never changes. This gives the stated direct sum, including the single-leaf case. Empty-set closure fills P4 and is the identity on the two isolated vertices of K1,1-e. Undeleted bicliques have independent corank-one uniform closure on each shore. Inspected the uploaded verifier and its accompanying text without executing it.
 
-Hall, Pfeil and Taylor (arXiv:2611.15741) prove that edge deletion can destroy skew-forcing matroidality but do not characterize the one-edge-deleted biclique family. Cooper and Fickes (arXiv:2303.17419) establish the undeleted complete bipartite case. A complete-multipartite result already describes the unmodified graphs and is not claimed anew. Matching-deleted ordinary forcing, crown graph forcing, and other edge-deletion invariants do not imply the exchange obstruction or exceptions. A differently named or unindexed equivalent result is a remaining historical risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem supplies a sharp iff classification of one-edge robustness for a natural infinite family, including the only nonstar exception and the exact exceptional matroids. It is a structural boundary rather than a sample counterexample or routine restatement of a forcing number.
+The checked literature contains generic exchange, an example of nonclosure under edge deletion, positive results for undeleted bicliques, and related minimum-size/enumerator results. It does not supply the supported exact one-edge-deletion boundary for exchange of the full closure.
 
-## Limitations
+## value
 
-The proof concerns simple one-edge-deleted bicliques, not multiple missing edges. Literature priority is provisional. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-edge sensitivity of a matroidal closure is a focused perturbation question for a standard positive family. The exact all-size classification and reusable three-vertex obstruction turn a general nonclosure phenomenon into a sharp instability statement with fully identified exceptions; this is stronger than one finite counterexample or a computation of ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

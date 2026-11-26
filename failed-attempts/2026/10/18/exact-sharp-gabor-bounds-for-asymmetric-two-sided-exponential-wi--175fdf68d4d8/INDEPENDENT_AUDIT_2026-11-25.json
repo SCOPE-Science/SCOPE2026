@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:57.813175Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Zak and extremum proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Write the translation index as mℓ+j and apply Parseval on the unit Zak square for the integer translation/modulation indices (ℓ,n) at each residue j. This gives the multiplier sum_j |Zg(x+j/m,ω)|² with no prefactor; the change from minus to plus shifts is reindexing modulo spatial quasiperiodicity. This sum is 1/m-periodic in x. The geometric tails combine as (H+Jz)/((1−q/z)(1−rz)), with z=e^(2 pi i ω), q=e^(−a), r=e^(−b), H=e^(−ay)−qr e^(by), J=r(e^(by)−e^(−ay)). Both numerator coefficients are nonnegative on [0,1] and not both zero. The modulus-squared numerator is nonnegative and nondecreasing in cos(2 pi ω), and its positive denominator strictly decreases; if the numerator vanishes at the lower endpoint it is positive at every larger cosine. This forces the two extremal frequencies. At ω=0 each positive exponential sum squared is strictly convex in x; equal boundary values give only the endpoint maximum modulo 1/m. At ω=1/2 the derivative has the sign of bVt²+(a−b)Ct−aU for t=e^((a+b)x); precisely one positive root and equal boundary values imply by Rolle that the minimum is unique and strictly interior. The two coefficient vectors are not proportional for m≥2, so the lower bound is positive. Continuity gives equality between pointwise and essential extrema, and frequency monotonicity gives A<B. All arguments include a=b and require no numerical limits. The inspected numerical script compares closed complex Zak tails and a bounded scalar minimizer only at finite parameter choices.",
+      "residual_risks": [
+        "No noninteger redundancy, lattice-shape optimization, or numerical conditioning for extreme rates is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Dios Pont et al. establish frame existence iff lattice cell area is below 1 for continuous integrable totally positive windows; Kloos–Stöckler provide finite-type and asymptotic results, not the present two-rate optimum.",
+          "Faulhuber–Shafkulovska give exact symmetric constants for general rectangular shape at integer density (Eq. (9.1)), also optimizing shape in Proposition 2.11."
+        ],
+        "reasoning": "The qualitative frame-set result does not evaluate either spectral edge. The stronger symmetric lattice range covers the symmetric bounds but not the two-independent-rate result; that latter coverage is supplied by the matched Resultary formulas.",
+        "searches": [
+          "Totally positive Gabor frame sets; arXiv:2608.04992v1 Theorem 1.1; arXiv:1311.7359",
+          "arXiv:2204.02917v1 §§2.4 and 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 400c3e36998f",
+        "Resultary 90ef1aec9db1",
+        "Resultary 76de6cc216c1",
+        "arXiv:2204.02917v1",
+        "arXiv:2608.04992v1",
+        "arXiv:1311.7359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The higher-redundancy proof imposes positivity, frequency monotonicity, strict spatial convexity at phase zero, a unique positive root at the opposite phase, and nonproportional geometric vectors with ratio controlled by a+b. None fails at a=b>0.",
+          "The m=2 entry asserts uniqueness at all positive rates."
+        ],
+        "reasoning": "Substituting equal rates in that proof retains the strict conditions; mere continuity of the bounds alone would not establish unique fibers. The positive root is then e^(γ/m) in the frozen coordinates, so the minimizer is the midpoint x=1/(2m). The claimed bounds and all extrema follow without a new case analysis.",
+        "searches": [
+          "Resultary 76de6cc216c1 proof steps 1–5; 400c3e36998f Finding and Zak proof; Faulhuber–Shafkulovska §9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compared Resultary records use translation 1 and modulation 1/m. Under unitary D_m f(t)=m^(−1/2)f(t/m), the frozen lattice becomes exactly (1,1/m) and the transformed window has rates a/m,b/m and amplitude m^(−1/2).",
+          "The polyphase multiplier of 76de6cc216c1 is m times the sum of the residue-tail squares for the amplitude-one window, with phase mω."
+        ],
+        "reasoning": "The amplitude squared cancels the prefactor m. With spatial argument x'=mx and phase ω_frozen=mω_comparison modulo one (from residue-class Fourier orthogonality), the sums and extremizing fiber representatives agree. In the m=2 simplified coefficients the extra decay factor absorbed into the quadratic variable matches the unsimplified sum formulation.",
+        "searches": [
+          "Resultary: asymmetric two-sided or double-exponential window, sharp integer-redundancy Gabor frame bounds, Zak edges",
+          "Resultary 400c3e36998f, 90ef1aec9db1, 76de6cc216c1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "76de6cc216c1 states the identical positive quadratic root and finite sums after scaling, at each integer m≥3; 400c3e36998f states both optimal constants at m=2 for arbitrary rates.",
+          "For a=b=γ the frozen sums simplify to A=tanh(γ/2)[csch(γ/m)−m csch(γ)] and B=coth(γ/2)[coth(γ/m)+m csch(γ)], obtained from Eq. (9.1) with η=1 and division by γ for the unnormalized window."
+        ],
+        "reasoning": "The fit is analytic across an infinite parameter set, not a numerical table match or just redundancy coincidence. No finite invariant database is needed for continuously varying rates.",
+        "searches": [
+          "Resultary exact formula entries 400c3e36998f, 90ef1aec9db1, 76de6cc216c1",
+          "arXiv:2204.02917v1 Eq. (9.1)"
+        ]
+      },
+      "rationale": "The distinct Resultary entries 400c3e36998f and 76de6cc216c1 already give the same sharp bounds and Zak extremizers at redundancy two and at every higher integer redundancy, respectively, after unitary dilation. The proof of the latter has no step requiring unequal rates, so the symmetric higher-redundancy fiber claim is included by immediate specialization of that argument; the symmetric bounds are independently explicit in Faulhuber–Shafkulovska Eq. (9.1). Combining the covered regimes leaves no substantive distinct claim. Later catalogue dates document coverage, not priority or direction of dependence.",
+      "residual_risks": [
+        "Janssen's underlying exact formula and its full scope were not verified directly. Catalogue dates and the present mathematical coverage do not settle attribution or earlier discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact higher-redundancy coverage under unitary dilation; argument directly includes equal rates",
+          "evidence": [
+            "Same finite sums and quadratic formula with m prefactor and mω phase, and uniqueness proved by strict frequency variation and the unique positive spatial root."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-asymmetric-double-exponential-gabor-frame-bounds-at-every--76de6cc216c1/RESULT.md",
+          "material_read": "Finding and Zak normalization offsets 0–3177, proof of the two edges and positivity offsets 3177–6426",
+          "method": "Bounded Resultary local mirror comparison",
+          "title": "Sharp asymmetric double-exponential Gabor frame bounds at every higher integer redundancy",
+          "trigger": "Exact sharp constants and edge fibers for every higher integer redundancy"
+        },
+        {
+          "assessment": "Exact dilated m=2 specialization, including symmetric rates",
+          "evidence": [
+            "The sharp formulas hold for all rates, and the only minimum and maximum are at phase mod 1/2 equal to 1/4 and 0 respectively."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f/RESULT.md",
+          "material_read": "Finding, conventions and multiplier, offsets 0–2458",
+          "method": "Bounded Resultary local mirror comparison",
+          "title": "Exact sharp redundancy-two Gabor bounds for asymmetric two-sided exponentials",
+          "trigger": "All positive rates and exact sharp bounds at m=2"
+        },
+        {
+          "assessment": "Overlapping redundancy-two coverage",
+          "evidence": [
+            "Exact optimal bounds and extremizing fibers at redundancy two with all positive rates."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-sharp-half-density-gabor-frame-bounds-for-asymmetric-two-sided-e--90ef1aec9db1",
+          "material_read": "Finding and extremizer statements",
+          "method": "Resultary local mirror comparison",
+          "title": "Sharp half-density Gabor frame bounds for asymmetric two-sided exponentials",
+          "trigger": "Second apparent redundancy-two match"
+        },
+        {
+          "assessment": "Exact symmetric constants and additional optimization over rectangular shape, not a stated two-rate formula",
+          "evidence": [
+            "Eq. (9.1) supplies the sharp bounds for sqrt(γ) exp(−γ|t|) at lattice (η/m,1/η)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.02917v1",
+          "material_read": "§2.4 and Proposition 2.11 near offset 16789; §9 Eq. (9.1), pp. 30–31 near offset 106416; introduction on Janssen's spectral bounds",
+          "method": "Primary OA PDF, bounded passage comparison",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Classical reference for the symmetric exponential and integer redundancy"
+        },
+        {
+          "assessment": "Qualitative existence, not optimal constants",
+          "evidence": [
+            "Frame iff alpha beta<1 for continuous integrable totally positive windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04992",
+          "material_read": "Primary v1 abstract p. 1 and Theorem 1.1 p. 3",
+          "method": "Bounded primary passage comparison",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "Qualitative frame criterion covers continuous two-sided exponentials"
+        },
+        {
+          "assessment": "Qualitative and asymptotic overlap only in inspected material",
+          "evidence": [
+            "Even two-sided exponential lower-bound behavior near critical density is estimated, not the arbitrary two-rate formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "Abstract and finite-type frame-set discussion, pp. 1–2",
+          "method": "Bounded primary passage comparison",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Frame-bound literature for exponential windows"
+        },
+        {
+          "assessment": "Possible additional classical coverage, not used to decide the axis",
+          "evidence": [
+            "The citing source uses Janssen for sharp spectral bounds and displays the exact symmetric formulas itself."
+          ],
+          "identifier_or_url": "A. J. E. M. Janssen, Indagationes Mathematicae 7(2), 165–183 (1996)",
+          "material_read": "Secondary reference in Faulhuber–Shafkulovska introduction and §9; Janssen full text not inspected",
+          "method": "Secondary citation only",
+          "title": "Some Weyl-Heisenberg frame bound calculations",
+          "trigger": "Faulhuber–Shafkulovska credit classical exact integer-density spectral calculations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Zak proof",
+        "Compared exact bounds in Resultary 76de6cc216c1"
+      ],
+      "rationale": "The mathematical result gives exact stability constants and identifies the spectral locations for a natural continuous asymmetric window family at all integer redundancies, turning a two-dimensional extremization into a single explicit root. This is useful information not supplied by frame existence alone. It is nevertheless covered for originality purposes.",
+      "residual_risks": [
+        "Usefulness is conditional on these specific lattice spacings; no optimized lattice-shape or numerical-stability claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

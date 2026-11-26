@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:55:15.825676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Verification; census.csv; symmetry_orbits.csv; shrikhande_last_shell.txt; exhaustive.cpp; weighted.cpp; invariants.py; symmetry.py; verify.sh",
+        "/workspace/review-evidence/twins.py and twins_census.out; twins_orbits.py and twins_orbits.out"
+      ],
+      "rationale": "The next excited mask is the threshold mask minus the current excited and refractory masks; the next refractory mask is exactly the current excited mask. Independently enumerated every excited mask and every refractory submask of its complement, for each graph, in eight disjoint chunks. After excitation first vanishes an initially nonzero trajectory needs exactly one additional refractory step. Reproduced all six cells on both graphs, including sharp maxima four and five, and reproduced the exact set of 1,088 Shrikhande codes. Independently enumerated all adjacency-preserving permutations by bijection backtracking (no assumption of affinity), obtaining 192, and recovered all eight specified representative-size pairs. The frozen weighted count is valid because each specified next-excited subset fixes the refractory bits exactly on the eligible mask and leaves all other nonexcited bits free; its two group totals were also recomputed. Literal scalar updates give witnesses 7546 → 93932 → 334827 → 354294 → 0 and 563061 → 2947984 → 22795283 → 38268153 → 54 → 0.",
+      "residual_risks": [
+        "The frozen C++ programs were inspected, not executed; the independent Python reproduction covers the full finite finding. No claims about other thresholds or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The triangle-locking theorem covers both regular six-valent graphs (each vertex belongs to a triangle); balanced coloring would require three equally sized classes, impossible on 16 vertices. The general contact-budget/Fourier obstruction also applies since 2/3 and −2/3 are not algebraic integers."
+        ],
+        "reasoning": "Both give rest as the only recurrent state, but neither determines how many updates or the counts by first-extinction time. Same-day dates do not establish an ordering.",
+        "searches": [
+          "Resultary: Greenberg Hastings exact half degree contact triangle rigidity connected triangle present period three cover extinction balanced coloring critical contact",
+          "Half-degree rigidity on squared cycles, Finding; Critical-contact extinction on Paley graphs, Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records and primary passages listed in source_inspections",
+        "Durrett–Griffeath patt-sol/9303002 retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle result explicitly disclaims any uniform settling-time bound. The spectral condition concerns recurrent orbits, and reduces both graphs to the same qualitative outcome despite the different exact histograms."
+        ],
+        "reasoning": "The claimed temporal separation and eight-orbit decomposition require the nonlinear finite-time dynamics and are not corollaries of these structural results.",
+        "searches": [
+          "Resultary triangle-locked critical excitation, Finding; Resultary Paley critical-contact extinction, Proof §§1–2; Resultary same-pair threshold-one Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-pair Resultary census and both primary finite-graph treatments use one-contact excitation, not activation by at least three distinct excited neighbors."
+        ],
+        "reasoning": "Cospectrality and use of the same three state labels do not identify the two threshold maps; one-contact recurrence counts do not determine half-degree first hitting times.",
+        "searches": [
+          "Resultary: same Shrikhande/rook pair, labelled GHM clocks and shell symmetries",
+          "arXiv:1610.07320, §1 Eq. (1); Doba, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former tabulates the exact same pair only at threshold one. The latter has a sharp four-update threshold-three cutoff and 101,062 last-shell states on P(13), a different graph."
+        ],
+        "reasoning": "Neither is an exact table for threshold three on this pair. Unindexed finite tables are possible.",
+        "searches": [
+          "Resultary: Four-cycle excitation clocks distinguish the Shrikhande and rook graphs; Six affine thirteen-waves and a sharp contact-threshold collapse on the Paley graph of order thirteen"
+        ]
+      },
+      "rationale": "Qualitative extinction is covered by stronger general results; credit is limited to the exact labelled temporal census, the sharp difference in relaxation times, and the full spatial-orbit partition of the last shell. The closest same-pair census uses threshold one. No inspected result gives or mechanically specializes to these transient counts at threshold three.",
+      "residual_risks": [
+        "The Durrett–Griffeath cited and old-identifier full-text routes did not furnish readable full text. This is not evidence of noncoverage.",
+        "No historical priority ordering was inferred among 2026-11-22 records. An equivalent unindexed finite census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different threshold",
+          "evidence": [
+            "The complete 3^16 state spaces are classified under threshold one, including primitive cycles, entry counts and four-cycle orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-cycle-excitation-clocks-distinguish-the-shrikhande-and-rook--bc07c832e978/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Four-cycle excitation clocks distinguish the Shrikhande and rook graphs",
+          "trigger": "Same graphs, labelled census and spatial symmetry"
+        },
+        {
+          "assessment": "Covers qualitative extinction, not transient census",
+          "evidence": [
+            "Every recurrent nonzero state of a connected triangle-covered graph must be a balanced rotating proper three-coloring."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-triangle-locked-critical-excitation-and-the-johnson-graph-extinc--76b9562220e5/RESULT.md",
+          "material_read": "Finding and scope, offset 0; proof passage at offset 5563",
+          "method": "Resultary local mirror",
+          "title": "Triangle-locked critical excitation and the Johnson-graph extinction dichotomy",
+          "trigger": "Potential general implication at exact half-degree"
+        },
+        {
+          "assessment": "Covers qualitative extinction only",
+          "evidence": [
+            "The possible normalized nonprincipal adjacency eigenvalues must be sums of reciprocal roots of unity on any nonzero periodic orbit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-critical-contact-extinction-on-paley-graphs-with-two-exceptional--fc90f3212227/RESULT.md",
+          "material_read": "Proof §§1–2 (offsets 0 and 5800); frozen lines 27–55",
+          "method": "Resultary local mirror and frozen text",
+          "title": "Critical-contact extinction on Paley graphs, with two exceptional wave orders",
+          "trigger": "Spectral obstruction for arbitrary connected regular graphs"
+        },
+        {
+          "assessment": "Rules out period three on the twins; no transient information",
+          "evidence": [
+            "The regular-graph equivalence is only for initially primitive-three states."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "Earlier broader half-degree characterization"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "Sharp maximum four and 101,062 maximal-delay states for P(13)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-six-affine-thirteen-waves-and-a-sharp-contact-threshold-collapse--bdfb717b4ad4/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Six affine thirteen-waves and a sharp contact-threshold collapse on the Paley graph of order thirteen",
+          "trigger": "Exact threshold-three extinction and last-shell counts"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": [
+            "The resting state is excited by any one excited neighbor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Abstract and §1, Eq. (1), p. 2",
+          "method": "Open preprint passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General graph characterization"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": [
+            "Maximum cycle density concerns the explicitly specified one-neighbor activation model."
+          ],
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Abstract p. 101 and rule in §2 p. 103",
+          "method": "Open journal PDF passages",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "General finite-graph results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "General qualitative extinction comparisons in originality"
+      ],
+      "rationale": "Sharp relaxation time and its spatial symmetry classes are natural exact invariants for the standard nonisomorphic strongly regular twins. Their common spectrum predicts identical qualitative extinction under the general obstruction, but not the observed four-versus-five separation. The full labelled distribution and maximal-shell classification are useful reproducible finite benchmarks beyond a witness of graph nonisomorphism.",
+      "residual_risks": [
+        "The result measures one fixed nonlinear update and two graphs; no universality of the observed sharp cutoffs is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

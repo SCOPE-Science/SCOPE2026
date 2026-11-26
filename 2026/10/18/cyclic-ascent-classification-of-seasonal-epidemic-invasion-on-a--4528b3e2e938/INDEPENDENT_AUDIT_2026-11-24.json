@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:59.040485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–74",
+        "VERIFICATION.md, lines 19–32 and check_cycle.py (inspection only)",
+        "/workspace/branches/f1caab51-84b5-4e92-b75f-309b1231f59d/fresh_cycle_poly_check.py and fresh_check_n5.log"
+      ],
+      "rationale": "With one update per coordinate, write x for initial and y for final coordinates of the undamped sweep. Then y=x+Ly+Ux, where L records inputs from already updated coordinates and U records the rest. In recipient-update order L is strictly lower triangular; thus Q=(I−L)⁻¹(I+U) and det(zI−Q)=det((z−1)I−zL−U). Only the diagonal term and the full directed cycle enter the latter determinant, with signs giving (z−1)^n−Pz^k. This verifies multiplicities directly, even at repeated roots and at n=2. Each undamped shear has a nonnegative matrix, and the product dominates the identity plus the weighted directed cycle, so it is primitive and its spectral radius is simple. The positive root above one is unique since the logarithmic derivative of (z−1)^n/z^k is ((n−k)z+k)/(z(z−1))>0 there. Its strict order in k follows by comparing consecutive exponents. The common scalar damping multiplies the whole propagator, so comparison with the unit circle verifies the strict linear stability tests and the simple critical multiplier; it does not decide nonlinear critical behavior. The order-sensitive counterexample to the average passes the stated exact inequalities and the analytic log bound. Fresh exact arithmetic for all 152 orders in dimensions 2–5 supported the polynomial; the original replay was inspected and not run.",
+      "residual_risks": [
+        "The fresh replay covers bounded dimensions and rational inputs; the determinant proof establishes the universal claim.",
+        "This is a model-level local stability result; no empirical or nonlinear critical conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Temporal-network papers establish spectral-radius thresholds for snapshot products and time-ordered propagators.",
+          "Qu–Ashwath §3.3 has a repeated relapse cycle within a host, not a permutation of directed edges."
+        ],
+        "reasoning": "The general product-threshold framework already covers how to use the monodromy. It does not state how the full weighted directed-ring characteristic polynomial collapses across all orders.",
+        "searches": [
+          "arXiv:1406.4815 equations (7)–(8)",
+          "arXiv:1706.05968 equations (2)–(5)",
+          "DOI:10.1038/s41467-023-43856-1 equation (3)",
+          "arXiv:2609.13668 §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 348a48e3fbd8, 3b09cd75d1f5 and 77222bb78c9e",
+        "Varga (1959)",
+        "arXiv:1406.4815, 1706.05968 and 2609.13668",
+        "DOI:10.1038/s41467-023-43856-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Varga's eigenvalue-power relation is for the classical splitting of a consistently ordered p-cyclic matrix, not for adding a single edge term to a retained coordinate at each update.",
+          "The Rule-60 determinant proof adapts structurally, but the binary theorem alone cannot give real weighted coefficients or the growth-rate consequences."
+        ],
+        "reasoning": "Give full credit for prior propagator methods, cyclic splitting and the close binary analogue. The closed permutation classification for this weighted product and its stability consequence are not shown to be corollaries of the inspected theorems.",
+        "searches": [
+          "Varga, Theorem 4 and Corollary 1",
+          "Resultary 348a48e3fbd8, determinant proof",
+          "arXiv:1406.4815 equations (7)–(8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 60 gives (z+1)^n+z^a over F₂ with the same consecutive-site comparisons, by a unit triangular splitting and a two-term directed-cycle determinant.",
+          "The cyclic weighted Gauss–Seidel archive result uses a symmetric undirected odd cycle and has additional matching terms; Rule 90 also has two directions and matching terms."
+        ],
+        "reasoning": "The binary formula is what the weight-one specialization of the algebraic identity gives after reduction modulo two; that reduction loses the product parameter and signed real polynomial. The two-neighbor cases are not equivalent one-direction sweeps.",
+        "searches": [
+          "Local Resultary: sequential Rule 60, Rule 90, and cyclic Gauss–Seidel ordering; 348a48e3fbd8, 3b09cd75d1f5, 77222bb78c9e",
+          "Varga, p-Cyclic Matrices (1959), Theorem 4 and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "348a48e3fbd8 explicitly enumerates polynomial classes by cyclic ascents, but over F₂ only; the other close schedule-dependent polynomial catalogues have different matrices."
+        ],
+        "reasoning": "This is exact table/formula coverage of the binary analogue, not of all positive real weights and their damped spectral test.",
+        "searches": [
+          "Local Resultary: cyclic sweep characteristic-polynomial classifications; 348a48e3fbd8, 3b09cd75d1f5, 77222bb78c9e"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the weighted real cyclic-shear spectral reduction and its application to a one-cycle switched system. General ordered-propagator thresholds already exist. The closest exact algebraic statement gives the same statistic for an unweighted binary update and has a closely related determinant argument, but its characteristic-two theorem does not imply the weighted real spectrum. The cyclic Gauss–Seidel sources checked concern different iteration matrices or order restrictions.",
+      "residual_risks": [
+        "The weighted determinant proof is very close to the Rule-60 proof; archive dates alone establish no direction of priority.",
+        "Unknown equivalent results on ordered elementary updates remain possible; the bounded comparisons do not certify global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close exact binary specialization, not the full weighted result",
+          "evidence": [
+            "Only the diagonal and predecessor cycle contribute, with addition in characteristic two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-companion-polynomial-classification-of-sequential-rule-60--348a48e3fbd8/RESULT.md",
+          "material_read": "Mirrored Finding and characteristic determinant proof around offsets 3006–3828",
+          "method": "Local Resultary and mirrored source",
+          "title": "Exact companion-polynomial classification of sequential Rule 60",
+          "trigger": "Same cyclic ascent characteristic polynomial pattern"
+        },
+        {
+          "assessment": "Different iteration matrix and consistent-ordering hypothesis",
+          "evidence": [
+            "The stated relation maps Jacobi eigenvalues to Gauss–Seidel eigenvalues by the p-th power."
+          ],
+          "identifier_or_url": "Pacific J. Math. 9(2), 617–628 (1959)",
+          "material_read": "Printed p. 620, Theorem 4 and Corollary 1; PDF offsets 6493 and 7631–8043",
+          "method": "Primary PDF passages",
+          "title": "p-Cyclic Matrices: A Generalization of the Young–Frankel Successive Overrelaxation Scheme",
+          "trigger": "Possible general cyclic Gauss–Seidel theorem"
+        },
+        {
+          "assessment": "Covers general framework only",
+          "evidence": [
+            "The threshold is posed in terms of spectral radius of a product, not a cyclic ascent formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.4815",
+          "material_read": "p. 5, equations (7)–(8), offset 15000",
+          "method": "Primary PDF passage",
+          "title": "Analytical Computation of the Epidemic Threshold on Temporal Networks",
+          "trigger": "General propagator threshold"
+        },
+        {
+          "assessment": "General product threshold, not the ring reduction",
+          "evidence": [
+            "Snapshot products are connected to a continuous-time propagator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.05968",
+          "material_read": "pp. 2–3, equations (2)–(5), offsets 8300 and 10071",
+          "method": "Primary PDF passage",
+          "title": "Epidemic Threshold in Continuous-Time Evolving Networks",
+          "trigger": "Continuous-time version of the same framework"
+        },
+        {
+          "assessment": "Framework antecedent",
+          "evidence": [
+            "The propagator is a time-ordered exponential; its largest eigenvalue gives the threshold."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41467-023-43856-1",
+          "material_read": "PDF p. 2, equation (3), offset 10400",
+          "method": "Primary PDF passage",
+          "title": "Epidemic graph diagrams as analytics for epidemic control in the data-rich era",
+          "trigger": "Time ordering and averaging"
+        },
+        {
+          "assessment": "Different meaning of cycle",
+          "evidence": [
+            "The geometric series models repeated relapse episodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13668",
+          "material_read": "§3.3, PDF pp. 9–11, offsets 32700, 38486 and 39143",
+          "method": "Primary PDF passages",
+          "title": "Structures of the Basic Reproduction Number R0 Across Compartmental Disease Models",
+          "trigger": "Possible exact cyclic model precedent"
+        },
+        {
+          "assessment": "Different operator with symmetric two-way coupling",
+          "evidence": [
+            "It uses SPD undirected odd cycles with additional matching terms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-optimal-cyclic-coordinate-orderings-on-arbitrary-weighted--77222bb78c9e",
+          "material_read": "Mirrored Finding and determinant discussion, offsets 0 and 5600",
+          "method": "Local Resultary and mirror",
+          "title": "Exact optimal cyclic coordinate orderings on arbitrary weighted odd cycles",
+          "trigger": "Weighted cycles and permutation-dependent spectral polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–30 and 45–74",
+        "arXiv:1406.4815, equations (7)–(8)"
+      ],
+      "rationale": "The main exact structural reduction replaces a factorially large schedule family by a single cyclic statistic for the full spectrum in each dimension. The abstract switched-system witness shows why stable snapshots and a stable average are insufficient evidence of period stability. The latter is a useful limitation for preventive modeling, not an empirical result.",
+      "residual_risks": [
+        "The interpretation depends on a strictly one-way single-cycle update pattern and common damping, not on arbitrary contact networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

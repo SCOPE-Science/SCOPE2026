@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:36:33.993803Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30; VERIFICATION.md, lines 19–23; supplied verify.py inspected, not executed.",
+        "Heilmann–Lieb matching-root theorem (DOI 10.1007/BF01877590), applied through the explicit generating-polynomial identity."
+      ],
+      "rationale": "Every two-edge geodesic is maximal and is precisely an incident pair of edges in one complete bipartite block: its outside endpoints have the same part. A single edge is maximal exactly when both parts are singletons, since otherwise a second vertex in a nonsingleton endpoint part extends it. No zero-edge path is maximal in these connected graphs of order at least two. Thus the forbidden omissions are exactly singleton-pair edges and incident pairs within each remaining block. The choices factor by block, and choosing k endpoints on each side and a bijection gives the displayed coefficient factor. A submaximum matching leaves unused endpoints on both sides, so a maximal omission in each block is maximum; this proves unmixedness, the minimum size, and its falling-factorial count. Every size from zero to the maximum is available in each block, so the degree support is contiguous. For a block of sizes a,b, the classical real-rooted matching polynomial is x^(a+b) M(−1/x²). Every root t of M is nonzero and yields a nonzero root of that matching polynomial by choosing x with −1/x²=t, hence t<0. Reciprocation and the displayed powers of z give exactly the nonpositive-root claim; Newton's inequalities apply after removing the zero-root factor. In the all-singleton case the result reduces to the compulsory-edge monomial. K_{2,2,2} gives three factors z⁴+4z³+2z², with lowest term 8z⁶.",
+      "residual_risks": [
+        "The supplied recorded enumeration is only finite corroboration and was not rerun; the claim follows from the block proof and the classical matching-root theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cover/partition proof supplies block confinement, but optimizes a collection of paths covering edges. Vertex hitting and vertex-disjoint path packing use different ground sets. The same-day mixed-Hamming Finding is for Cartesian products of cliques and minimum edge transversals."
+        ],
+        "reasoning": "None of these verified claims classifies the full edge-hitting family here. The Hamming work was considered on the merits of its statement; its date alone implies no ordering.",
+        "searches": [
+          "Resultary: edge-geodesic cover and partition numbers, multipartite vertex transversals, multipartite packing purity, mixed Hamming edge transversals",
+          "arXiv:2610.36821, overview and complete-graph result"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary matches listed above, with the identical indexed record excluded as prior evidence",
+        "Prabha–Sandhiya–Manuel arXiv:2610.36821; classical Heilmann–Lieb theorem as cited in frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof confines length-two geodesics to blocks. For the target one needs the reverse characterization of forbidden incident omissions and the exact rule for maximal one-edge paths. Once that characterization is established, root and log-concavity conclusions are classical deductions, and the all-singleton case is covered by the base paper."
+        ],
+        "reasoning": "Credit the known block geometry and matching consequences. The exact hitting classification, including the interaction between single-edge and two-edge forbidden omissions, is the additional step; the inspected cover and packing formulas alone do not imply it.",
+        "searches": [
+          "4 October 2026 multipartite edge-cover/partition proof; Heilmann–Lieb matching theorem; Prabha et al. complete-graph case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining paper asks for minimum cardinality and covers the complete-graph boundary. The omitted-edge condition is equivalently an independent set in each L(K_{a,b}), except that singleton-pair blocks cannot be omitted; the bounded search did not identify a distinct record asserting that reduction for maximal edge geodesics."
+        ],
+        "reasoning": "The reduction relates two known object types; the matching or independent-set polynomial in isolation is not a theorem about which graph edge sets hit all maximal geodesics.",
+        "searches": [
+          "Resultary: complete-multipartite edge-geodesic transversal polynomial, matching-block complement, line-graph independent-set reduction",
+          "Prabha–Sandhiya–Manuel, arXiv:2610.36821"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit was the assigned record 624506a8e19c itself. The prior matching numbers are standard and are expressly factored into the result; no distinct exact transversal-polynomial table was identified in the ranked checks."
+        ],
+        "reasoning": "A matching table gives one factor once the block equivalence and compulsory-edge constraints are known; it does not by itself give the target invariant.",
+        "searches": [
+          "Resultary: all edge-geodesic transversal enumerators and minimum counts on complete multipartite graphs",
+          "Frozen RESULT.md, block matching coefficient formula"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the independent matching-complement model for the edge-hitting problem and the resulting complete enumerator and unmixedness on multipartite graphs. The diameter-two block geometry, complete-graph boundary, matching counts and root theorem are known ingredients, not separate novelty claims.",
+      "residual_risks": [
+        "Bounded searches and relevant PDF passages, not an exhaustive priority audit. An earlier equivalent edge-hitting or line-graph formulation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational and exact complete-graph boundary, not the general enumerator in the inspected passages",
+          "evidence": "Defines the minimum-size invariant and gives gt_e(K_n)=n(n−1)/2 because every edge is maximal.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.36821",
+          "material_read": "PDF pp. 1–3: definition, overview, complete-graph result",
+          "method": "Focused literature search and bounded OA PDF text",
+          "title": "The Edge Geodesic Transversal Problem",
+          "trigger": "Introduces the edge-hitting invariant"
+        },
+        {
+          "assessment": "Strong ingredient overlap, different invariant",
+          "evidence": "Each two-edge geodesic lies within a block; the formula sums ceil(n_i n_j/2) to count paths covering or partitioning edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578",
+          "material_read": "Definitions and proof, RESULT.md offsets 250–750 and 900–2659",
+          "method": "Published record via local mirror",
+          "title": "Edge-geodesic cover and partition numbers of complete multipartite graphs",
+          "trigger": "Identical graph family and geodesic blocks"
+        },
+        {
+          "assessment": "Different ground set",
+          "evidence": "Enumerates subsets of vertices meeting maximal geodesics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-geodesic-transversals-of-complete-multipartite-graphs--e5c4e05a4d10",
+          "material_read": "Finding, RESULT.md offsets 0–1580",
+          "method": "Published record via local mirror",
+          "title": "All geodesic transversals of complete multipartite graphs",
+          "trigger": "Analogous all-set enumerator on the same graphs"
+        },
+        {
+          "assessment": "Distinct packing invariant",
+          "evidence": "Counts families of vertex-disjoint geodesic paths, not edge sets hitting paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-geodesic-packing-polynomials-of-complete-multipartite-graphs-and--e3ceab8f39fe",
+          "material_read": "Finding and packing definition, offsets 0–1783 and around 2795",
+          "method": "Published record via local mirror",
+          "title": "Geodesic-packing polynomials of complete multipartite graphs and reentrant purity for doubleton parts",
+          "trigger": "Similar polynomial and purity on same graphs"
+        },
+        {
+          "assessment": "Adjacent but not covering the multipartite enumerator",
+          "evidence": "Characterizes minimum coordinate-edge-class transversals of Cartesian products of cliques.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rigidity-of-minimum-edge-geodesic-transversals-in-mixed-hamming--e91cfec80747/RESULT.md",
+          "material_read": "Finding, RESULT.md offsets 0–2176",
+          "method": "Published record via local mirror",
+          "title": "Rigidity of minimum edge-geodesic transversals in mixed Hamming graphs",
+          "trigger": "Distinct same-date edge-transversal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and block characterization; base edge-transversal paper and multipartite comparison records"
+      ],
+      "rationale": "The edge-hitting invariant is already motivated in the literature, and complete multipartite graphs are a natural class containing both forced-edge and matching-block behavior. The full distribution and the statement that every inclusion-minimal solution has the same size give concrete information unavailable from a minimum alone. The explicit block model accounts for the effects of singleton parts and explains the enumerator's shape without claiming a new general real-rootedness theorem.",
+      "residual_risks": [
+        "The result is specific to complete multipartite block geometry; it asserts no comparable rigidity for all diameter-two graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

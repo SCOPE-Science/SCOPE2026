@@ -1,22 +1,21 @@
-# Scientific review: Complete prime-power congruence law for digit reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over all fixed integer bases \(b\ge2\), primes \(p\), exponents \(a\ge1\), and exact digit lengths \(\ell\). For \(p\nmid b\), the normalized reversal is a sum of independent digit steps \((b^j,b^{-j})\); the first two vectors generate precisely the claimed congruence subgroup because their determinant has \(p\)-valuation \(\nu_p(b^2-1)\). Finite Fourier convergence holds since each cyclic generator recurs and the digit distribution includes zero and one. For \(p\mid b\), nonoverlapping leading and trailing digit blocks are independent at the claimed cutoff, giving the exact finite-length formula. Subtraction of successive prime-power tails gives the valuation law. Twelve exact modular-image tests, ten brute-force divisibility comparisons, and four modular-dynamic-program convergence tests passed; none substitute for the proof of convergence at unbounded length.
+PASS
 
-## Originality — PASS, with residual risk
+For p not dividing b, normalization gives independent digit contributions in directions (b^j,b^-j). These lie on y=x modulo p^u; v_0 and v_1 generate that entire subgroup since v_1-b^-1 v_0 generates its first-coordinate difference ideal. This includes the diagonal case u=a. Unrestricted positions contain linearly many periods of directions; every nontrivial subgroup character contracts on at least one occurring direction by the availability of digits 0 and 1. The possibly length-dependent leading-digit contribution has modulus at most one. Fourier inversion gives exponential mixing for fixed b,p,a (also when b=1 modulo p^a and the period is one). The zero pair is unchanged by removing normalization. For p dividing b, h=ceil(a/e) digits at each end suffice and are disjoint as soon as ell>=2h. The low block is uniform modulo p^a. Reverse divisibility requires the leading digit to be a multiple of p^min(a,e); there are b/p^min(a,e)-1 such permitted digits. If a>e, the next h-1 digits then meet one uniform congruence modulo p^(a-e), since b/p^e is a unit and p^(a-e) divides b^(h-1). The valuation pmf follows by subtracting adjacent tails, including t=0 and t=tau. An independently implemented raw-residue exact DP confirmed 27 stabilization cases and seven support/total-variation comparisons.
 
-OEIS A055483 already defines and tabulates the decimal gcd of a number and its digit reversal (original entry dated 2000-06-27); OEIS A161825 tabulates its binary counterpart. The OEIS entry also records the decimal \(3\)- and \(9\)-divisibility implications. Neither checked entry provides the all-base, all-prime-power limiting distribution, subgroup classification, or sharp stabilization at primes dividing the base. Banks, Hart, and Sakata (2004) study *palindromic* integers in residue classes; the present theorem counts joint congruences of unrestricted integers and their reversals. Dartyge and colleagues (2023), in their analysis of reversible primes and squarefree pairs, cover some local squarefree factors in base two, including the \(3^2\) correlation reflected in their \(22/27\) factor. Their stated results do not dominate the complete prime-power and arbitrary-base theorem. A hidden earlier proof or an unstated consequence of the later Fourier estimates remains possible, so novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant \(\gcd(n,R_b(n))\) is explicitly cataloged, and joint divisibility is important in arithmetic sieve questions about digit reversal. A complete law reveals non-independent prime-power events exactly at the exceptional primes dividing \(b^2-1\), with a provably sharp transition between \(p^{-1}\) and \(p^{-2}\) valuation ratios. Primes dividing the base obey a different finite-length exact law. These are natural structural divisions, not an arbitrary numerical slice or a recurrence copied from an existing table. The theorem deliberately does not claim a global density for coprime reversal pairs.
+Best-of-knowledge pass for the all-base fixed-prime-power law: exponential joint mixing on the exact subgroup in the unit case and an exact arbitrary-prime-power cutoff in the nonunit case. Known decimal divisibility rules and binary squarefree/local examples are not credited as novel.
 
-## Primary sources and limits
+## value
 
-- OEIS A055483, https://oeis.org/A055483, table and formula/comment sections, original entry 2000-06-27.
-- OEIS A161825, https://oeis.org/A161825, binary gcd sequence and description, original entry 2009-06-20.
-- Banks, Hart, and Sakata, *Almost All Palindromes Are Composite*, arXiv:math/0405056v1, 2004; PDF introduction and principal theorem statements compared.
-- Dartyge, Martin, Rivat, Shparlinski, and Swaenepoel, *Reversible primes*, arXiv:2309.11380v1, 2023; Sections 1.2–1.3, Theorem 1.4, Section 5 and squarefree-modulus lemma compared.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dependence of an integer and its reversal is essential for local gcd factors. This computes the exact dependence subgroup, the transition in the valuation tail, and a concrete finite-length rule for the potentially nonuniform leading digit in the nonunit case. It replaces an independence heuristic with explicit joint probabilities for every fixed prime power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

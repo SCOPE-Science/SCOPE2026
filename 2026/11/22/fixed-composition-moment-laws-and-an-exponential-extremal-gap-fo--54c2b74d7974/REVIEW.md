@@ -1,19 +1,21 @@
-# Scientific review: fixed-composition complement-deletion moment laws
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a word with \(m\) copies of a specified symbol and \(b\) other positions, the residual words obtained by deleting \(k\) copies are in exact bijection with bounded gap-deletion vectors; equal non-target letters do not change that bijection. This proves the polynomial coefficient formula, and uniform fixed-composition sampling corresponds to uniform weak compositions. Two rational generating-function identities prove all first and second moments, including the complete covariance matrix. Coefficientwise smoothing proves the sharp simultaneous bound, and Stirling's formula proves the \(27/32\) rate and its constant. Exhaustive mask-based tests and independently organized composition/series evaluations agreed on all documented finite cases. No finite test is used to infer the all-length statements.
+PASS
 
-## Originality
+The ordered sequence of non-a letters is unchanged by any deletion. Scanning the residual uniquely gives all retained a-gap counts even when separators have repeated letters; hence X_k is the coefficient of the product of finite geometric sums, and Y is the product of (c_i+1). Each weak composition has the same multiplicity (q-1)^b. Splitting each c_i into deleted and residual parts, of respective totals k and m-k, verifies the mean by two separate stars-and-bars counts. For the second moment, grouping two deletion counts by their minimum and signed difference gives the single-gap kernel (1-x²uv)/((1-x)(1-xu)(1-xv)(1-xuv)), equivalent to the stated H. Extracting the total m from its r-th power implements the conditioning, not independence of gaps. At u=v=1 this becomes (1+x)/(1-x)^3; the one-mark kernel at u=1 is (1-x)^-2. The smoothing difference is exactly the interval of monomials from B+1 to A-1, strictly positive at z=1, so balancing terminates with the stated simultaneous equality class and multiplicity. At b=m this gives 2^m and m+1 maximizing compositions. Stirling's formula for the ratio of the binomials, including the factor (3m+1)/(2m+1) from shifting the numerator, confirms the two asymptotics and prefactors.
 
-**PASS against inspected evidence; not independent historical certification.** The March 2026 primary paper defines complement scattered-factor sets and studies general algorithms and qualitative properties, without a fixed-composition mean, full second-moment kernel, or exponential extremal gap for repeatedly deleting the same symbol. The published two-distinct-letter deletion formula concerns \(ab\), not \(a^k\), and its independent-letter expectation does not determine the present fixed-content moments. The general deletion-pattern collision theorem already uses the balancing polynomial; Li–Wang–Fu likewise study balanced extremal **unrestricted** deletion spheres. Thus **the smoothing identity and balanced maximum alone are not claimed to be novel**. The novelty assessment concerns the exact conditional moment laws and their exponential comparison with the optimum. An equivalent result under composition or random product-of-chains terminology remains an explicit priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete all-length moment characterization for a natural subcase of a recently introduced combinatorial object. In the symmetric fixed-content ensemble, the exact base \(27/32\) proves that mean ambiguity is exponentially smaller than the largest possible ambiguity, while only a \((m+1)/\binom{2m}{m}\) fraction of words reach the maximum. This distinguishes worst-case and average-case behavior rather than reporting an isolated small numerical improvement. The scope is deliberately restricted to a monochromatic prescribed deletion; no conclusion about general deletion patterns or channel capacity is inferred.
+Qualified to the distinct conditional mean and full second-moment profile and the exact exponential comparison and optimizer frequency in this ensemble. The balancing principle is prior art, and the marginal mean uses elementary composition counts. Neither the inspected ordinary-ball extremal result nor the different-pattern complement formula covers the random variable and ensemble together.
 
-## Related literature and limitations
+## value
 
-Relevant primary work includes Adamson–Fleischmann–Huch (arXiv:2603.20790v1) and Li–Wang–Fu (arXiv:2601.06493v2). Relevant published comparison results are *A run-pair formula for two-letter complement scattered factors* and *Exact run-pattern collision thresholds and short-deletion extremal counts*. The main unresolved historical risk is that older product-of-chain or conditional-composition moment theory might imply the displayed identities in another formulation. The random source is uniform conditional on the number of distinguished letters, and the asymptotic comparison is for equal distinguished/nondistinguished counts. Finite checks are corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Monochromatic complement deletion isolates a natural source of collisions. The cross moments quantify how counts at different deletion depths vary together in a fixed-count experiment, while the sharp 27/32 comparison quantifies a consequential discrepancy between mean residual ambiguity and worst-case ambiguity. The whole conditional profile, not elementary smoothing or stars and bars in isolation, is the useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

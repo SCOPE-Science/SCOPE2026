@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:26.764348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both phases have generator d²/dx²−k_j x d/dx and the target stays absorbing. For U(x)=∫_x^1 K, direct differentiation gives L₂U=−1 and 1+L₁U=(k₁−k₂)xK(x); the natural left-boundary behavior of U is logarithmic (Gaussian Mills bound). The return solves the scale-function problem on (0,1), and a return from x≤0 cannot reach 1 without first reaching 0. The mean duration of a full cycle is therefore p_r U(0)+(k₁−k₂)A_r by stopped Dynkin, including U(1)=0 on either success path. The independent clock can be revealed at time zero; ties have probability zero even for clock atoms because the search hitting time has no atoms. Each cycle has finite mean and positive success probability. The exact ratio follows by renewal. Locally xK(x)=K(0)x+x²+O(x³); a smooth cutoff, the centered Gaussian OU law and symmetry give g(t)=2t+O(t²). The absorbing-boundary error is exponential in 1/t by the OU time change to Brownian motion and reflection. H(x)~x₊/S₂ gives h(t)~√t/(S₂√π). Boundedness on x<1 gives global bounds |g(t)|≤Ct, h(t)≤C√t, and the reflection estimate gives P(τ≤t)≤Ct². Thus r²A_r→E[W²] and √r p_r→E[√W]/(S₂√π) by dominated convergence. Dividing gives the displayed signed coefficient and both clock examples; equal stiffness is exact. This is pointwise in fixed k₁≥0, k₂>0 and the independent positive finite-second-moment clock law. Independent finite corroboration: /workspace/fast_clock_replay.py uses direct cycle-time/success quadrature at k₁=0,k₂=2, not the defect identity. At r=25600 the deterministic and two-point scaled corrections are −5.1852355 and −6.7104213 against −5.1849654 and −6.7098390. The frozen checker was inspected, not run; no finite test establishes the general limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas–Kundu–Pal cover arbitrary resetting times and search/return mechanisms by renewal; Biswas et al. give a renewal MFPT for drift diffusion and linear return potential.",
+          "2026/11/22/SCOPE-a-universal-laplace-profile-correction-for-rapid-stochastic-retu--225188b13814 gives a fixed-transform-parameter r^(-3/2) extension with the same clock factor and expressly credits the November 8 mean law."
+        ],
+        "reasoning": "A general renewal expression does not resolve its small-clock quotient. The transform extension is not evidence of earlier coverage; a fixed-positive-transform expansion alone also should not be differentiated at zero without justification.",
+        "searches": [
+          "arXiv:2307.16294 arbitrary resetting times and target detection on return",
+          "arXiv:2406.08975v1 Sections II–III",
+          "Resultary: rapid stochastic-return Laplace profile"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18814v1",
+        "arXiv:2307.16294",
+        "arXiv:2406.08975v1",
+        "2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9",
+        "2026/11/22/SCOPE-a-universal-laplace-profile-correction-for-rapid-stochastic-retu--225188b13814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Poisson formula is a specialization, whereas the generic renewal quotient does not state the leading occupation defect or success probability for this OU family.",
+          "The later SCOPE article explicitly distinguishes the previously proved mean correction from its own transform claim."
+        ],
+        "reasoning": "Obtaining two different time powers, controlling arbitrary clock tails, and dividing to get E[W²]/E[√W] requires analysis rather than a substitution into an earlier coefficient.",
+        "searches": [
+          "arXiv:2610.18814v1 Eq. (8)",
+          "arXiv:2307.16294 renewal scope passages",
+          "arXiv:2406.08975v1 Eq. (6)",
+          "November 22 SCOPE RESULT.md relationship passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubey–Pal use f_R(t)=r exp(−rt) and report convergence to return-only MFPT.",
+          "The matching November 8 SCOPE item is the assigned record, not a separate antecedent."
+        ],
+        "reasoning": "Changing parameter conventions identifies the Poisson specialization, not deterministic, atomic or general clock laws. A saturation limit is not the first correction.",
+        "searches": [
+          "arXiv:2610.18814v1 Eq. (8) and high-rate comparison",
+          "Resultary: stochastic-return OU, mean completion time, fast clock moment correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned the assigned publication 2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9 and the later transform extension. Earlier Poisson high-rate result supplies saturation, not a table of moment-ratio coefficients."
+        ],
+        "reasoning": "A discrete table of values is not an appropriate complete representation of an asymptotic law for arbitrary distributions; compared exact indexed result statements and the relevant high-rate passage instead.",
+        "searches": [
+          "Local Resultary/SCOPE statement search for stochastic-return OU and fast clock moment correction",
+          "arXiv:2610.18814v1 high-rate result"
+        ]
+      },
+      "rationale": "Pass for the sharp arbitrary-finite-second-moment clock law, not for renewal, the Poisson model or its limiting mean, or the pathwise equal-stiffness observation in isolation. The closest earlier exact formula is Poisson only; the generic arbitrary-clock formula needs a new small-clock numerator cancellation and success expansion to yield the moment ratio. The stronger transform-level SCOPE result is explicitly later and credits the frozen mean law.",
+      "residual_risks": [
+        "Bounded primary-passage and indexed comparisons are not a historical priority certification; a pre-existing general fast-clock expansion outside the inspected work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model restricted to exponential clocks in the decisive comparison",
+          "evidence": [
+            "f_R(t)=r exp(−rt); high-rate mean saturates to uninterrupted return-potential MFPT."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18814v1",
+          "material_read": "Eq. (8) and Poisson clock, OA offset 18499; large-rate saturation, offset 32053",
+          "method": "Targeted original OA HTML passages",
+          "title": "First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Same switching harmonic process"
+        },
+        {
+          "assessment": "Framework prior art, not the sharp OU coefficient in the inspected statements",
+          "evidence": [
+            "Arbitrary search, waiting-time laws and return mechanisms; detection during return is included."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.16294",
+          "material_read": "OA HTML offsets 541, 6553, 12950, framework and detection on return",
+          "method": "Targeted original OA HTML passages",
+          "title": "Search with stochastic home-returns can expedite classical first passage under resetting",
+          "trigger": "Broader arbitrary-clock framework"
+        },
+        {
+          "assessment": "Different search and return operators",
+          "evidence": [
+            "Linear U(x)=λ|x| for return; explicit Section III calculations use exponential resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.08975v1",
+          "material_read": "Sections II–III and Eq. (6), OA offsets 8600, 12600, 19267",
+          "method": "Targeted original OA HTML passages",
+          "title": "Drift-diffusive resetting search process with stochastic returns: speed-up beyond optimal instantaneous return",
+          "trigger": "Arbitrary clocks and explicit stochastic-return analysis"
+        },
+        {
+          "assessment": "Later transform-level extension, not an earlier equivalent",
+          "evidence": [
+            "Same clock factor; explicitly attributes the mean correction to the November 8 SCOPE record."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-laplace-profile-correction-for-rapid-stochastic-retu--225188b13814",
+          "material_read": "RESULT.md finding and relationship, local-mirror offsets 0 and 9500",
+          "method": "Local Resultary search and mirror comparison",
+          "title": "A universal Laplace-profile correction for rapid stochastic return",
+          "trigger": "Strongest matching distinct indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The limiting pure-return MFPT was known in the Poisson model, but is insensitive to how often search is interrupted. The leading signed correction distinguishes clocks of the same mean and quantifies which features of their shape survive rapid resetting. The precise exponent, explicit coefficient and stiffness sign are useful for designing and comparing high-rate benchmarks; no finite-rate ordering is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

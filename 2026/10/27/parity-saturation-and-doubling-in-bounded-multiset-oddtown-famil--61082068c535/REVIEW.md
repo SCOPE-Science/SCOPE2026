@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The parity-pattern injection is valid for all positive caps because the minimum of equally-paritied integers retains that parity. The binary-prefix embedding has identity Gram matrix, proving the linear bound. Four- and eight-vector witnesses satisfy all diagonal and pairwise congruences. The finite exact six-orbit claim uses exhaustive one-candidate-per-odd-pattern recursion: all eight groups have sixteen candidates, every allowable candidate is visited, and branches are discarded only on infeasibility. The independent clique algorithm gives the same sharp maxima for all three- and four-coordinate cases through cap three. Direct-sum padding proves the stated bound for all larger coordinate counts. The standalone embedded checker was executed successfully; infinite conclusions rest on the proofs, not on extrapolation.
+PASS
 
-## Originality
+Equal coordinate-parity patterns give an odd intersection, so each odd-weight pattern contributes at most once. Separately, encoding each multiplicity x_i as the initial segment of length x_i in an m-slot block gives identity Gram matrix over F_2 and the mn bound. The size-4 and size-8 witnesses meet the parity bound and remain feasible as the cap increases. At exact cap 3 and n=4, all maximizers occupy all eight parity classes. Independent enumeration builds one selection from each class and keeps precisely pairwise-compatible choices, exhausting 128 odd vectors and giving six full families; comparing with all 24 coordinate permutations gives exactly the same six families. A different traversal count in the frozen checker is not a mathematical invariant. Replay: /workspace/branches/a3a05a0a-b4ce-4725-8e7e-609e097e4b78/independent_oddtown_check.py with arguments 3 or 4 (see independent_check_n3.out and independent_check_n4.out in the same directory). The uploaded script was inspected, not executed. Concatenating disjoint-support families by zero padding preserves within-block intersections and gives zero across blocks; the excess of 8a+b_r over 2n−2 is respectively 2, 1, 0, 0. This establishes the unbounded claim by construction, not by sampling. No n>4 extremal classification is certified.
 
-**PASS with historical priority risk.** Banerjee–Dewan, arXiv:2610.21636v1, treats the same multiset intersection but the **even-diagonal Eventown** requirement, which cannot imply the present odd-diagonal classification. The classical binary Oddtown embedding yields an upper bound, not the new cap-three witness and orbit. An earlier two-bounded Oddtown result establishes the cap-two values, including the value six for four coordinates, but does not cover the new value eight at cap three or the doubled-family amplification. Targeted mathematical-record queries and literature comparisons found no equivalent formulation or stronger coverage. Non-detection is not uniqueness proof; possible older bounded-lattice parity work remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The work identifies the first saturated small-dimensional parity-pattern cases under a genuine multiplicity cap, completely classifies the labelled four-coordinate cap-three optimizers, and yields a uniform lower bound whose leading coefficient doubles the one-bounded Oddtown optimum. These are intrinsic extremal questions in the same coordinate-minimum multiset model, not an arbitrary parameter slice. The exact larger-coordinate maximum and priority beyond inspected sources remain unresolved.
+The supported distinct content is the cap-three parity saturation at n=3,4 (and the extension in m by the same witnesses), the six labelled maximizing families in one coordinate orbit at cap three and n=4, and the resulting density-two amplifier. The classical Gram bound and the disjoint-support operation are not new mechanisms. The inspected sources do not give the decisive cap-three witnesses or extremizer classification; the closest lower-cap results have different exact maxima and a smaller proved asymptotic construction ratio. This is a best-of-knowledge comparison, not historical priority certification.
 
-## Closest literature and limitations
+## value
 
-Primary scientific comparison: Anirban Banerjee and Abisek Dewan, *An Eventown Result for Multisets*, arXiv:2610.21636v1 (first submitted 2026-10-15); Umesh Shankar, *Oddtown and eventown theorems for lattice paths*, arXiv:2607.23117v1; Berlekamp's classical Oddtown theorem; Sudakov–Vieira, *Two remarks on Eventown and Oddtown problems* (2018). The cap-two special case was established separately and is not claimed new. Exactly six optimal families are established only for cap three and ground-set size four; for larger ground sets the construction is only a lower bound. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite orbit classifies exactly how the cap-three model first attains its full eight-pattern ceiling, whereas the cap-two optimum on the same four labels is only six. More than a table entry, that four-coordinate witness gives a uniform lower bound of 2n−2 and a limiting lower density of two per coordinate, versus one for ordinary Oddtown and the inspected cap-two amplifier's 5/3. The finite and asymptotic aspects support each other without claiming the new lower bound is optimal in larger dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

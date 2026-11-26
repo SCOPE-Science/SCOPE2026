@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:36:30.041596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Trace the product by summing cyclic 0/1 labels: A_s(x_{j-1},x_j) is zero for adjacent ones and otherwise gives s if x_j=1 and 1 if x_j=0. Over F2 both matrices have projective transfer period three, with odd trace off lengths divisible by three. For a trace-zero product at such a multiple, M=I+2B and tr B=-1 imply det M=-1 mod 4, hence det M=-1 rather than +1. Cayley–Hamilton gives a nontrivial projective involution. With R=A_- and T=A_+R^{-1}, direct multiplication gives R^3=-I and T^2=I. The stated intervals work: R and R^2 send V into U and T sends U into V. A cyclically reduced alternating word can be rotated to start with T and end with R^a; conjugation by R^b with b nonzero and b different from a gives a reduced word with R syllables at both ends, taking V into U. This proves faithfulness along with the evident nonidentity single-factor syllables. A finite-order projective word therefore cyclically reduces to one factor; the involution type is T. With p odd plus signs, write it cyclically as p copies of T separated by positive R-gaps. For p=1 the gap is a positive multiple of three. For p>=3 a multiple-of-three gap must exist or the word is cyclically reduced of infinite order. Trim three from a gap of at least six, or cancel TR^3T at a length-three gap and concatenate its neighboring gaps. This preserves the torsion type and yields n>=3(p+1)/2 by induction. Thus |S|>=k+1 at n=3k. The trace of +-- is zero and A_+A_-^2A_+=-A_- increases length by three and minus weight by one, proving attainment at every k. Character diagonalization is for the full Boolean group with the unnormalized indicator; n=3 is a simple triangle as required. Both frozen verifiers and recorded evidence were inspected, not executed. Direct parity-intersection summation over independently generated cycle sets (python3 /workspace/review_checks.py 2) gives first weights 2,3,4,5 at n=3,6,9,12 and no zeros at other n through 14. The universal proof does not rely on these bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "acf4a6fabe72 describes invertibility exactly off multiples of three, nonzero magnitude bounds, and a lower bound on the number of zeros; its available statement does not locate the first zero by Hamming degree.",
+          "0cb9494a16e7 is a restricted interpolation matrix, and a6b4c4377a52 uses maximal rather than all independent sets."
+        ],
+        "reasoning": "A guarantee of some zero, or a magnitude bound at nonzero frequencies, does not establish injectivity on exactly the low-degree subspace. Restricting rows and columns to independent sets also changes the operator.",
+        "searches": [
+          "Resultary cycle independent set full-group Fourier invertibility acf4a6fabe72; graph-exclusion Fourier interpolation 0cb9494a16e7",
+          "Resultary same-day maximal independent sets a6b4c4377a52"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary b571f7746b7c, acf4a6fabe72, 159f7c631a3c, 0cb9494a16e7, a6b4c4377a52, d99fa3fae561",
+        "arXiv:0904.4819v1 and doi:10.1112/blms.12545 (identified comparisons with access limitations)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-three classification yields some lower bound at n>=9 (at least four), but no existence at weight four for C9 or degree-dependent matching lower/upper bounds for larger n in the available statement.",
+          "The in-record all-length argument is the torsion syllable-length bound and substitution witness; neither follows solely from knowing the modulo-three singularity and the low-degree exceptions."
+        ],
+        "reasoning": "Credit exact covered cases and the whole prior dichotomy, not a covering implication for the claim with unbounded k.",
+        "searches": [
+          "Resultary b571f7746b7c and acf4a6fabe72",
+          "RESULT.md lines 29–45 and 52–62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For weights ±1 this is exactly the mixed-sign multivariate cycle independence polynomial and equivalently a projective torsion test via the transfer matrices. The frozen comparison credits Proposition 5.1 of Radchenko–Rodriguez Villegas for the general trace representation.",
+          "The uniform activity -1 specialization of Levit–Mandrescu concerns a single frequency per n; centered first-degree Gram spectra in 159f7c631a3c are not these mixed-sign sums."
+        ],
+        "reasoning": "A trace identity or uniform evaluation does not itself bound the number of negative activities for a zero.",
+        "searches": [
+          "cyclic independent sets Lucas cube Walsh first zero mixed-sign transfer minimum Hamming weight",
+          "Resultary b571f7746b7c, acf4a6fabe72 and 159f7c631a3c",
+          "arXiv:0904.4819v1; doi:10.1112/blms.12545"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact catalogue statement lists three degree-two zeros at C3 and twelve degree-three zeros at C6, and excludes other zeros through degree three.",
+          "The present package records exact finite threshold data through n=18; the verification uses all frequencies only at those fixed lengths."
+        ],
+        "reasoning": "The first two smallest thresholds are covered; the cited low-degree census alone cannot determine the first degrees for arbitrary singular lengths.",
+        "searches": [
+          "Resultary b571f7746b7c, cycle Walsh cancellation through degree three",
+          "Frozen VERIFICATION.md: frequency counts through n=18"
+        ]
+      },
+      "rationale": "The all-length first-zero weight, not the known modulo-three invertibility boundary, is the supported distinct claim. The earlier low-degree classification overlaps and implies the first two singular cases; it does not settle the growing threshold at n>=9 in the material compared. The unrestricted cyclic transfer formula is prior machinery, not the new claim.",
+      "residual_risks": [
+        "Priority against unindexed signed hard-core polynomial or projective transfer-word classifications is not certified. The closest earlier Resultary comparisons relied on catalogue statements rather than full proofs.",
+        "The unproductive targeted web lookup does not exclude an equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage, not a uniform threshold in the available statement",
+          "evidence": [
+            "Weight at most three; C3 and C6 exceptions, signed-transfer setting."
+          ],
+          "identifier_or_url": "Resultary:b571f7746b7c",
+          "material_read": "Catalogue statement; exact full record not retrieved",
+          "method": "Local catalogue and close comparison of the degree restriction",
+          "title": "Complete low-degree Walsh cancellation classification for Lucas cubes",
+          "trigger": "Exact same multiplier and first degrees"
+        },
+        {
+          "assessment": "The dichotomy is covered and credited",
+          "evidence": [
+            "Invertibility iff 3 does not divide n; bounds on magnitudes or number of zeros are not statements about their first degree."
+          ],
+          "identifier_or_url": "Resultary:acf4a6fabe72",
+          "material_read": "Catalogue statement; exact full record not retrieved",
+          "method": "Local catalogue and comparison with the frozen scope",
+          "title": "Cycle independent sets: a modulo-three Fourier invertibility law",
+          "trigger": "Same full-group convolution operator"
+        },
+        {
+          "assessment": "Credit the transfer representation and the uniform specialization; access-limited beyond these reported statements",
+          "evidence": [
+            "Trace representation allows general weights; uniform I(C_n;-1) is a single specialization."
+          ],
+          "identifier_or_url": "doi:10.1112/blms.12545; arXiv:0904.4819v1",
+          "material_read": "RESULT.md lines 52–62 report Proposition 5.1 and Lemma 2.3; relevant primary full text not independently recovered in the bounded retrieval",
+          "method": "Source identification and comparison of the recorded statements",
+          "title": "Independence polynomials and hypergeometric series; The independence polynomial of a graph at -1",
+          "trigger": "Exact graph-polynomial aliases for the frequency sum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first zero is exactly the lowest degree at which a Walsh component can be lost in cyclic hard-core convolution. Sharp all-length injectivity and explicit witnesses clarify the singular regime beyond both mod-three invertibility and bounded-degree lists. The free-product reduction provides a structural reason for the linear threshold. This is noiseless injectivity, not a bound on noise amplification or a full nullity classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

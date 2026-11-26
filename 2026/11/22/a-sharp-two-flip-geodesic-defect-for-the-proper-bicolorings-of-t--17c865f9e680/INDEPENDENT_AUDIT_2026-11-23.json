@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:34.755741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized nonzero vectors and orthogonality over F₃ construct exactly the stated 13 points and 13 lines; the independently replayed pair-incidence test places each pair on one four-point line. The set version enumerates all binary assignments as subsets of those 13 points, accepts exactly the subsets meeting each line nontrivially and not fully, and inserts exactly the single-point symmetric difference edges between accepted subsets. Breadth-first search from every one of the 468 accepted states gives all shortest distances. The independent report gives 234 states of each weight 6 and 7, degree 3 and 702 edges, all searches connected, radius and diameter 13, the exact stated common sphere list and the complement as the unique antipode at each root. Counting each distinct pair once gives 109278 pairs; the entire joint histogram agrees with RESULT.md, with 83070 defect zero and 26208 defect two. Hamming is a lower bound and fixes distance parity because moves toggle one bit. The proof is a full finite exhaustion for this plane, not an extrapolation. Source Python/C++ and recorded outputs were inspected without executing uploaded programs. Independently written replay: /workspace/branches/41ae74b7-2d44-4775-87ff-d71a043f81a9/audit_flip_replay.py; full output: /workspace/branches/41ae74b7-2d44-4775-87ff-d71a043f81a9/full_replay.out.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mishra–Pal's definition includes proper bicoloring but its inspected results are counts of properly colored hyperedges, not legal single-site shortest paths.",
+          "The 2022 primary repository abstract reports a computer classification up to equivalence through order eight, with tables by set size and automorphism-group order. The companion site describes generation programs for blocking sets. The published text was access-restricted/unavailable through the attempted lawful routes."
+        ],
+        "reasoning": "An orbit or size census is static and does not determine a joint labeling-dependent flip metric without further work. No conclusion about uninspected portions of the 2022 paper is claimed.",
+        "searches": [
+          "arXiv:1507.02463v1, proper (r,p) hypergraph coloring",
+          "Coolsaet–Botteldoorn–Fack DOI 10.1002/jcd.21842, lawful alternate UGent repository and author project site"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both source checkers and both captured outputs",
+        "Independent set-based full replay",
+        "Mishra–Pal arXiv:1507.02463v1",
+        "Coolsaet–Botteldoorn–Fack institutional abstract and companion page",
+        "Resultary 2ff15d411d81, b513166e882c and c12a3d1b3ac8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier six-set geometry has four triple secants forming a frame, so legal one-point extensions are exactly the three points outside those four lines; this explains cubicity from earlier ingredients. Two distinct six-point states have at most one common legal seven-point neighbor (their union). The resulting two-step graph has degree six, so it exhausts the six-regular exchange graph. Thus even flip distances are twice the exchange distances; the earlier radius, diameter and even shells give genuine partial coverage. The diameter 13 also follows from the exchange bound plus one cross-edge and the Hamming-13 complement.",
+          "For an opposite-side target, the flip distance is one plus twice the minimum exchange distance to any six-set contained in the target. The prior shell counts do not give the distribution of these minima jointly with Hamming distance. Even-shell marginals also do not give the same-side Hamming pairing.",
+          "The earlier oval result makes the extra move depend on a blocking union for a pair of four-point ovals, not on these named coloring endpoints."
+        ],
+        "reasoning": "The old state and graph structure explains some headline invariants; the added scientific result is the sharp defect bound and every joint count for both parities. Deriving a graph from earlier geometric data and then solving a new all-pairs question is not the same as already having that metric theorem.",
+        "searches": [
+          "Resultary six-regular exchange graph 2ff15d411d81, theorem and geometric proof near offset 380",
+          "Resultary shortest oval exchanges b513166e882c, finding near offset 650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Represent a coloring by its six-point blocker and that class's color label. The flip graph is exactly the canonical bipartite double cover of the graph joining disjoint six-point blockers, an induced subgraph of KG(13,6).",
+          "The early exchange record joins blockers sharing five points and is six-regular, so its canonical double cover is not the cubic flip graph. The distinct same-day triangle–oval inclusion graph is also on 468 vertices, but four-regular with 936 edges and diameter nine."
+        ],
+        "reasoning": "The static indexing can hide the same flip graph in a disjointness formulation. The actual matching records use different adjacencies; the six-point exchange graph is related via same-side two-step moves, not a direct graph identification.",
+        "searches": [
+          "Resultary: canonical bipartite double cover of disjointness graph of six point minimum nontrivial blocking sets PG(2,3) proper named bicolorings 468 cubic distance defect 26208 Kneser",
+          "Resultary mirror 2ff15d411d81 and c12a3d1b3ac8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related prior six-point record reports the exchange shells (1,6,24,72,116,12,3); these are marginal distance counts that match the even-indexed flip shells by the two-step relation. Its stated claim is not a joint Hamming-distance table.",
+          "The oval record counts 1638 defect-one pairs among four-point ovals under exchanges; the matching objects, distance baseline and graph are different. The similarly sized same-day inclusion graph differs in degree and vertices."
+        ],
+        "reasoning": "An earlier exact table for the correct statistic, including under a different representation, would cover the census. The inspected tables report other statistics or move rules, not the two-variable flip table.",
+        "searches": [
+          "Resultary: named proper bicoloring, PG(2,3), cubic graph on 468 vertices, defect 26208",
+          "Resultary 2ff15d411d81 (exchange shells), b513166e882c (oval defect), c12a3d1b3ac8 (triangle–oval inclusion)",
+          "UGent blocking-set classification abstract and companion catalogue"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp joint flip-versus-Hamming metric on the named legal-coloring states, including the census. Static six-point blockers, the exchange metric of the six-point class, and flip-graph features deducible from those earlier results are not credited as new. Available comparisons do not supply the joint flip defect census or a result that directly settles it.",
+      "residual_risks": [
+        "The 2022 classification paper's full text was not available to inspect lawfully. An equivalent metric could occur in uninspected or unindexed work on the disjointness graph, the two-coloring solution graph, or the exchange relation with labeled incidence.",
+        "Exact priority is best-of-knowledge, not established by the finite replay."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial implication via two-step moves; not the embedded joint flip metric",
+          "evidence": [
+            "234 six-point frames; connected six-regular swap graph; radius and diameter six; exact uniform exchange shells."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81/RESULT.md",
+          "material_read": "Theorem, scope and frame proof from offset 380; prior-work discussion around 3900",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The six-regular exchange graph of minimum nontrivial ternary projective blocking sets",
+          "trigger": "Same six-point state geometry and prospective exact metric implication"
+        },
+        {
+          "assessment": "Different objects, adjacency and joint statistic",
+          "evidence": [
+            "Four-point ovals, one-point replacements, 12-regular graph, diameter four, 1638 defect-one pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-blocking-set-obstruction-to-shortest-oval-exchanges-in-operato--b513166e882c/RESULT.md",
+          "material_read": "Finding around offset 650 and prior-work discussion around 8200",
+          "method": "Local Resultary mirror",
+          "title": "A blocking-set obstruction to shortest oval exchanges in PG(2,3)",
+          "trigger": "Same geometry and prior Hamming-like exact exchange defect"
+        },
+        {
+          "assessment": "Nonisomorphic by degrees and connected diameter; publication date alone was not relied upon",
+          "evidence": [
+            "Triangle–oval inclusion for [1,2]-domination, degree four, 936 edges and diameter nine."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-bounded-redundancy-domination-and-oval-triangle-exchange-geometr--c12a3d1b3ac8/RESULT.md",
+          "material_read": "Finding offset 0 and graph/scope discussion around offset 6200",
+          "method": "Local Resultary mirror",
+          "title": "Bounded-redundancy domination and oval–triangle exchange geometry in PG(2,3)",
+          "trigger": "Distinct same-day bipartite graph with the same 468 vertices by count"
+        },
+        {
+          "assessment": "Static hyperedge counting results, not a reconfiguration metric. PDF title is a variant of the frozen bibliography's arXiv title; identifier matches.",
+          "evidence": [
+            "A properly (r,p)-colored hyperedge has at least p distinct colors; the extremal objective counts such hyperedges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.02463v1",
+          "material_read": "PDF title and abstract p. 1 at offset 0; Theorems 1–2 p. 4 at 12684; corollary p. 8 at 30723",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "An extremal problem in coloring of hypergraphs",
+          "trigger": "Same proper-bicoloring terminology and possible extremal counting antecedent"
+        },
+        {
+          "assessment": "Verified advertised static classification, not a full-text judgment on graph or metric coverage",
+          "evidence": [
+            "Abstract says up-to-equivalence computerized classification through order eight with tables by size and automorphism-group order. The university full-text copy is marked UGent only; the companion page describes blocking-set generators, not a flip-distance table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21842 ; https://biblio.ugent.be/publication/01GQFACVN7M79HSEAVZSS7D5CG ; https://caagt.ugent.be/bsets/",
+          "material_read": "Primary institutional abstract and access note at offset 320, and the authors' public companion site's program descriptions",
+          "method": "DOI/publisher access attempted; bounded lawful university landing and companion pages inspected; no restricted materials accessed",
+          "title": "Classification of minimal blocking sets in small Desarguesian projective planes",
+          "trigger": "Potential tabulation or equivalent earlier classification for PG(2,3)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The named-coloring graph of the classical ternary plane is a natural legal-move space, and Hamming comparison separates always-achievable direct flips from genuine detours. The sharp additive two and roughly one-quarter obstruction census give a reusable finite benchmark: they answer a question that neither knowing the solution count, the cubic graph's diameter, nor knowing exchange-graph distance marginals answers. No larger-plane law or general algorithm is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

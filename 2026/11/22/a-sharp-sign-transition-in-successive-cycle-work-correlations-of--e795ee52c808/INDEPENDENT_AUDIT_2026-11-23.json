@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:15:05.626700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently obtained Y_n=B_n−hε_(n−1) by resetting the relative displacement, not the active force. For lag ℓ≥1, the disjoint force integrals factor into the product of (1−exp(−(a+b)τ))/(a+b) and the positive integral of exp(−a(τ−v)−bv) on [0,τ], times A² exp(−b(ℓ−1)τ)/γ². The second integral is (exp(−bτ)−exp(−aτ))/(a−b) and gives τexp(−aτ) at resonance. Isserlis applied to the four terms of (Y_n²−ε_n²)(Y_(n+ℓ)²−ε_(n+ℓ)²) gives κ²[K²exp(−2b(ℓ−1)τ)−h²σ⁴ 1_{ℓ=1}]/2. Thermal integrals on distinct cycles are independent. Rescaling by h shows the adjacent sign is that of (A²/γ²)G−σ². G is a product of strictly increasing positive factors, with the equal-rate limit given in the record. Its range is (0,∞) if b≤a and (0,1/(b²−a²)) otherwise, proving the strict threshold and uniqueness. The amplitude equality when b>a gives no finite zero, as the theorem and proof explicitly state; the nearby phrase 'equality produces a single zero' must mean equality in the equation for the crossing period. For a=γ=κ=1, b=2, σ²=1, A²=6, the rescaled ratios to σ² at τ=log 2 and log 4 are 7/8 and 189/128, independently witnessing both signs. RESULT.md, VERIFICATION.md and verify.py were inspected; the uploaded script was not run and has no explicit exact-amplitude-equality test. The proof, not finite diagnostics, establishes the statement. The result is restricted to independent centered Gaussian noises, full shift, and stationary cycle statistics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected gain-dependent engine analysis treats cycle means/power; taking gain one there does not supply cross-cycle quadratic moments.",
+          "The closest indexed AOUP result treats separated continuous-time active-work increments, a covariance density with a contact term and thermal-diffusivity threshold."
+        ],
+        "reasoning": "Neither broader protocol setting nor a continuous-time work-increment covariance contains the shared reset measurement error term of this discrete intervention work.",
+        "searches": [
+          "arXiv:2508.16866v2",
+          "Resultary record 5bc6e7ea2706"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and 5bc6e7ea2706 RESULT.md",
+        "Bahng, Lee and Ghim arXiv:2508.16866v2",
+        "Paneru et al. 10.1038/s41467-020-14823-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same physical model and Gaussian moment reduction are ingredients; the adjacent measurement-reset contribution and finite-period range test are not conclusions of those sources."
+        ],
+        "reasoning": "Applying the prior model requires deriving the asymmetric force kernel over different cycles and the shared-noise contraction, then comparing two rates via an open limiting range. These are not parameter substitutions into the inspected statements.",
+        "searches": [
+          "arXiv:2508.16866v2",
+          "10.1038/s41467-020-14823-x",
+          "Resultary 5bc6e7ea2706"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bahng et al., pp. 2–3: same measurement and work definition and gain-one shift, but scope is the work expectation.",
+          "Paneru et al., p. 4: distributions and standard deviation for work per cycle, not the joint distribution of different cycles."
+        ],
+        "reasoning": "Writing the observable as a difference of squares or switching work sign conventions does not turn a one-cycle law into a two-cycle covariance. The shared measurement error exactly at lag one is decisive.",
+        "searches": [
+          "Local Resultary semantic lookup for active-engine lagged work covariance and sign transitions",
+          "arXiv:2508.16866v2",
+          "10.1038/s41467-020-14823-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared the actual RESULT.md of 5bc6e7ea2706, the strongest distinct indexed overlap. It gives a regular covariance density for a different observable."
+        ],
+        "reasoning": "The comparison was at the statement level, not title or date. This is a continuous-parameter theorem, not a numerical table; the relevant exact index comparison was to the covariance law and phase boundary.",
+        "searches": [
+          "Local Resultary semantic lookup for lagged active-work correlations and sharp sign thresholds"
+        ]
+      },
+      "rationale": "The closest inspected model contains the dynamical protocol but treats expectation and power. Marginal work fluctuations and the continuous-time active-work covariance in the closest indexed finding are different observables. No inspected result gives or immediately specializes to the full discrete lag hierarchy with its strict period-switch criterion; this is a bounded best-of-knowledge decision, not a priority claim.",
+      "residual_risks": [
+        "Unindexed or differently named calculations in Gaussian sampled feedback models may overlap. The comparison does not certify exhaustive coverage or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent; inspected results are not pair-time work covariances",
+          "evidence": "p. 2 defines instantaneous feedback work and focuses on its expectation, leaving higher moments for future work; p. 3 identifies g=1; pp. 5–6 present full-shift power.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.16866",
+          "material_read": "v2 PDF pp. 2–3 and 5–6, offsets 15466, 19029 and 35255",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Memory-aware feedback enhances power in active information engines",
+          "trigger": "Same engine and full-shift protocol"
+        },
+        {
+          "assessment": "Single-cycle thermal work distribution, not active-bath lagged work covariance",
+          "evidence": "The mean, standard deviation and distribution discussed are for work per cycle.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-020-14823-x",
+          "material_read": "p. 4 around offsets 22802 and 27426",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Efficiency fluctuations and noise induced refrigerator-to-heater transition in information engines",
+          "trigger": "Noisy harmonic feedback and explicit work fluctuations"
+        },
+        {
+          "assessment": "Substantive thematic overlap, no demonstrated equivalent coverage",
+          "evidence": "Separated active-work increments in continuous time with regular covariance density and zero-lag contact term; threshold involves thermal diffusivity, not discrete measurement error and period.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-thermal-noise-frontier-for-lagged-active-work-correlations--5bc6e7ea2706",
+          "material_read": "RESULT.md claim in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection after Resultary search",
+          "title": "Sharp thermal-noise frontier for lagged active-work correlations",
+          "trigger": "Closest distinct indexed sign-transition claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-cycle work law cannot distinguish anticorrelation of neighboring cycles from positive long-lag dependence. The exact all-lag result identifies two separately interpretable sources of serial variation and gives a strict, experimentally meaningful boundary for whether changing period alone can reverse the adjacent sign. It also separates thermal-noise effects on the marginal variance from the cross-cycle mechanism. This is a complete classification of a natural established protocol, without claiming behavior outside gain one or Gaussian bath assumptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

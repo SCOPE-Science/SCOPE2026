@@ -25,7 +25,7 @@ Its exact values are
 \]
 In particular, for every \(n\ge2\) the excess above the stable \(q\ge6\) value is
 \[
-E_3(n)-E_6(n)=60(4n+1)(n-1),\quad
+E_3(n)-E_6(n)=60(4n^2-5n-1),\quad
 E_4(n)-E_6(n)=60(n-1),\quad
 E_5(n)-E_6(n)=12(n-1).
 \]
@@ -73,7 +73,7 @@ For \(q=3\), the first increment is \(E_3(2)-E_3(1)=1160\), giving \(E_3(2)=1301
 \[
 E_3(n+1)-E_3(n)=360n^2+840n+80.
 \]
-Summing from \(n=2\) yields the stated cubic polynomial for every \(n\ge2\). Subtraction gives the three resonance-excess identities. This completes the proof.
+Summing from \(n=2\) yields the stated cubic polynomial for every \(n\ge2\). Subtracting the stable polynomial cancels the cubic term and gives \(240n^2-300n-60=60(4n^2-5n-1)\) at \(q=3\); the same subtraction gives the stated linear excesses at \(q=4,5\). This completes the proof.
 
 ## Verification
 

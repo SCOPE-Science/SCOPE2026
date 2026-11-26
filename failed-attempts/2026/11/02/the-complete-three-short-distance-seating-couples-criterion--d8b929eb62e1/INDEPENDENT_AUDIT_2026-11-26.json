@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:23.601151Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42; VERIFICATION.md and verify.py read without execution",
+        "Independent replay: python3 /workspace/branches/3e475ed1-9291-490a-8def-86bbc147b208/profile_check.py; profile_check_small.txt and profile_check_larger.txt in the same directory"
+      ],
+      "rationale": "An odd circular length exchanges vertex parity and a length-two edge preserves it, so the counts of even-even and odd-odd edges are equal. If 3 divides n, each residue class modulo 3 initially has even size and length-three edges remain within it, so a single length-one edge with no length twos makes two classes impossible to finish. Each of the six displayed blocks covers its interval with the specified ordinary differences, which are also the circular lengths because 3<=n. For b>0 even, use b/2-1 pure length-two blocks, triples of length threes, singles of length one, and a residue block consuming the final two length twos with zero, one or two length threes. For b=0 and c=3q+r, pair each residual length three with a length one if a>=r. The remaining a<r cases are the pure length-three cycle (the map from even labels to odd labels by +3 mod 2n is a bijection) and a=1,r=2, precisely the obstruction. This includes n=3 and proves the equivalence for arbitrary n, independently of the tests. A definition-based independent matching recursion reproduced every profile for 3<=n<=10, with counts 5,9,12,15,20,25,29,36; these finite checks corroborate rather than prove the infinite statement.",
+      "residual_risks": [
+        "Neither the proof nor the checks classify multisets including longer distances or count the matchings of a given profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The seating theorem treats exactly two distinct lengths; Corollary 4.9 includes certain equal multiplicities; the general prime assertion is a conjecture there.",
+          "The unit-difference theorem allows lengths 1 and 3 when 3 does not divide n but never covers a profile with a length two.",
+          "The neighboring near-1-factor and elementary-abelian constructions concern different graph orders or groups."
+        ],
+        "reasoning": "The individually broader results either change the problem or impose a condition excluding arbitrary three-distance profiles. They do not account for the exact match, which instead comes from the catalog.",
+        "searches": [
+          "Meszka–Pasotti–Pellegrini arXiv:2308.16553 Theorem 1.4, Proposition 2.4, Corollary 4.9 and Conjecture 3",
+          "Kohen–Sadofschi Costa arXiv:1603.06625 Theorem 2.4",
+          "Pasotti–Pellegrini arXiv:1404.3890 pp. 1–2; arXiv:2608.27547 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Exact October Resultary theorem and construction; arXiv:2308.16553, arXiv:1603.06625 and arXiv:math/0506155 as located above; adjacent problem scopes in arXiv:1404.3890 and arXiv:2608.27547"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x=3,y=1 with a occurrences of y, the prior odd/odd test is a even or a>=gcd(3,2n), which gives exactly the excluded b=0 profile when 3|n. Parity is Proposition 2.4.",
+          "The October catalog statement then already covers all mixed three-distance cases and gives the same prime specialization."
+        ],
+        "reasoning": "The exceptional profile is not itself an original claim. The wider three-length content would go beyond the cited published special cases, but is directly and fully covered by the distinct catalog record.",
+        "searches": [
+          "Compare arXiv:2308.16553 Theorem 1.4 odd/odd case and Conjecture 3 with frozen criterion; compare October catalog theorem and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct October catalog record uses the same circular matching convention, multiplicities and admissibility criterion, including the cyclic translation pairing.",
+          "Nordh's multiset pairing is linear. Its parity/density conditions do not suffice in general: {1,3,3} is a stated counterexample, and the linear formulation does not allow the cyclic wraparound."
+        ],
+        "reasoning": "The catalog theorem is equivalent even allowing different indexing. Linear pairing suffices for the block cases but is not globally equivalent to circular matching.",
+        "searches": [
+          "Resultary: complete cyclic seating classification, prescribed matching lengths {1,2,3}, parity and 3-divisibility exception",
+          "Nordh arXiv:math/0506155 pp. 2–4, perfect multi-Skolem sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-three-distance-seating-matchings-a-complete-cyclic-classificatio--646f0418b031, RESULT.md offsets 0–8719: b even and exclusion of the same a=1,b=0,3|n case; the proof gives the same six tiles and all-three-labeled circular construction."
+        ],
+        "reasoning": "This is an exact catalog theorem rather than a finite table, and it covers both the arbitrary multiplicities and the prime-order consequence.",
+        "searches": [
+          "Resultary: three-distance seating matchings, cyclic classification, 3|n and unique length-one edge"
+        ]
+      },
+      "rationale": "A distinct earlier-dated local Resultary record states the same complete cyclic classification, exception, six-block construction and pure-length-three wraparound. The match includes the genuinely three-length profiles; this is not just known two-length material. This finding concerns demonstrable catalog coverage, not historical priority or provenance.",
+      "residual_risks": [
+        "The primary literature comparison was bounded. The catalog date does not establish historical priority, but the matched mathematical content is exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the full claim",
+          "evidence": "Same all-n parity and exception, six local tiles, circular wrap for the remaining pure-length-three case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-distance-seating-matchings-a-complete-cyclic-classificatio--646f0418b031/RESULT.md",
+          "material_read": "RESULT.md offsets 0–8719, statement and construction",
+          "method": "Local Resultary mirror",
+          "title": "Three-distance seating matchings: a complete cyclic classification",
+          "trigger": "Exact cyclic criterion candidate"
+        },
+        {
+          "assessment": "Partial prior coverage in the identified passages",
+          "evidence": "The b=0 exception follows from the odd/odd case of Theorem 1.4. The {1,2,3} profiles of equal even multiplicity are covered; general prime parity sufficiency is conjectural there.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16553",
+          "material_read": "PDF pp. 3–4 and 15–16: Theorem 1.4, Proposition 2.4, Corollary 4.9 and Conjecture 3",
+          "method": "Open primary paper",
+          "title": "The seating couple problem in even case",
+          "trigger": "Exact problem, two-distance theorem and prime conjecture"
+        },
+        {
+          "assessment": "Covers some b=0 classes but not mixed three-distance profiles",
+          "evidence": "All prescribed differences must be units modulo 2n, which excludes length two.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.06625",
+          "material_read": "Theorem 2.4, PDF p. 1, offset 2257",
+          "method": "Open primary paper",
+          "title": "On a generalization of the seating couples problem",
+          "trigger": "Potentially stronger unit-difference perfect-matching criterion"
+        },
+        {
+          "assessment": "Necessary conditions and a counterexample, not the full circular criterion",
+          "evidence": "For {1,2,3} the necessary density bounds are automatic for n>=3. The multiset {1,3,3} explicitly fails; the Skolem conjecture concerns sets, not all repeated multisets.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0506155",
+          "material_read": "PDF pp. 2–4, offsets 4594–5291 and 6800–9103, definitions, Corollary 7 and Conjecture 8",
+          "method": "Open primary paper",
+          "title": "Perfect Skolem sets",
+          "trigger": "Closest linear multiset formulation and possible broader sufficient conditions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and construction; exact October catalog theorem; Conjecture 3 and Theorem 1.4 of arXiv:2308.16553"
+      ],
+      "rationale": "A complete three-length classification is well motivated as a tractable part of the prime seating conjecture with an additional composite-order obstruction. But this submitted finding reproduces the available exact classification and construction, rather than extending them; the corroborating enumeration does not add a separate substantive theorem.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

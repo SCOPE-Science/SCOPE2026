@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:18:29.619994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(8), proof lines 29–87, and verification support. No bundled checker executed.",
+        "Separate proof via published discrepancy-process theorem and finite mark deletion given below."
+      ],
+      "rationale": "The iid continuous-score representation gives the exact degree identity via the left larger and right smaller score counts. Deleting the finitely many marked scores leaves independent iid uniforms and changes the signed, centered empirical process by O(r/sqrt(n)) uniformly. For a fixed vector of marks, the remaining signed empirical sums have a joint Gaussian limit with kernel min(u,v)-uv by the bounded-summand triangular-array CLT (condition on the marks, use Cramér–Wold, then integrate bounded characteristic functions). This gives the same independent bridge and marks as the package's Donsker argument. In that argument the strict empirical count has left-continuous jumps, so the usual càdlàg version of the D[0,1] statement uses <=, differing uniformly by at most 1/sqrt(n) almost surely; the exact strict inversion identity is unchanged. Moving the cut from floor(n/2) to i-1 inserts or deletes O(sqrt(n)) indicators; conditionally on the score their centered sum has standard deviation O(n^(1/4)) and the omitted self term has magnitude at most one. This yields the stated t(1-2U) drift. Integrating bridge kernels gives 1/6 on the noise diagonal and 1/12 off the diagonal; the drift adds t^2/3 on each diagonal. The finite variance also follows by conditioning on the marked score, with independent Bernoulli neighbor tests. For different vertices the shared edge contributes 1/4 and each other vertex contributes net 1/12 from the three possible overlapping pairs in a triple of labels, giving (n+1)/12.",
+      "residual_risks": [
+        "The proof and review address fixed r and uniform permutations only. Finite moment checks are not a proof of weak convergence. The empirical-process path convention is a presentational issue, not a change to the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chapuy proves convergence in C([0,1]^2) for uniform permutations to a centered Gaussian with kernel (min(s,s')-ss')(min(u,u')-uu'). At s=s'=1/2, the first factor is 1/4, so -2 times that section is a standard Brownian bridge.",
+          "Bhattacharya–Mukherjee's independent degree proportions are at fixed distinct macroscopic positions and scale n. Their central theorem is a single-coordinate result at scale sqrt(n)."
+        ],
+        "reasoning": "The model-specific discrepancy-field convergence is stronger than what is needed at the center; uniform-topology convergence to a continuous field supports evaluation at changing arguments. The first-order degree theorem alone or the single mixture alone would not dominate the reviewed claim.",
+        "searches": [
+          "Chapuy, Random permutations and their discrepancy process, OA PDF Theorem 1 at printed p. 459, offset 4600–approximately 8600",
+          "Bhattacharya–Mukherjee arXiv:1503.03582, §3.1, Cor. 3.3 and Thm. 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Chapuy's primary Theorem 1 and model definitions",
+        "Bhattacharya–Mukherjee Cor. 3.3 and Thm. 3.4",
+        "Gürerk–Işlak–Yıldız Thms. 2.1, 3.1, 3.2",
+        "Resultary mirror findings f6af0a8c3805 and 0298ec29460f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fix the r marked domain positions. Conditional on their distinct images, remove these points and renumber the remaining rows and columns in increasing order. Every permutation of the remaining n-r rows to the remaining columns is equally likely, irrespective of the images. Thus the standardized reduced permutation is uniform and exactly independent of those images.",
+          "For a given continuum rectangle, comparing the two count grids incurs at most r deleted points and O(r) row/column shifts of its boundaries, each affecting at most one point. Centering by n*s*u versus (n-r)*s*u costs O(r) uniformly. The affine interpolation costs at most O(1) in counts because adjacent grid counts change by at most one per coordinate. Hence X_n and sqrt((n-r)/n) times the reduced discrepancy field differ by O((r+1)/sqrt(n)) in sup norm.",
+          "The image fractions sample without replacement and converge to iid uniform marks for fixed r. Chapuy applied to the independent reduced permutation and the sup-norm error give joint convergence to the field and the independent marks. Evaluating at s=i/n tending to 1/2 gives the common bridge section; (i-n/2)/sqrt(n) tends to the respective offset, so the rectangle identity gives exactly equation (1) including the drift. The kernel integrals give equation (2)."
+        ],
+        "reasoning": "The finite-deletion argument is a deterministic bounded perturbation plus permutation symmetry, not a new limit theorem or a new degree-specific approximation. It closes the random-evaluation independence step and establishes coverage of all claimed fixed-r offset laws, even though the discrepancy paper does not state those laws in graph language.",
+        "searches": [
+          "Chapuy, Theorem 1 and its definitions of Y and X, primary PDF offset 4600",
+          "Frozen RESULT.md equations (1) and (2) compared against that theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chapuy's Y_(p,q) counts permutation points in the lower-left prefix rectangle. For k=pi(i), d_n(i)=i+k-2Y_(i,k); the i-Y and k-Y terms count the left larger and right smaller values.",
+          "The reviewed finding was the top local result, not another prior source. The nearby Gaussian-pillow Resultary finding 0298ec29460f has a random Dirichlet mixture of permutation copulas, not one uniform permutation."
+        ],
+        "reasoning": "At the permutation point (s,u)=(i/n,k/n), the critical normalized degree is exactly ((i-n/2)/sqrt(n))(1-2u)-2X_n(s,u)+1/(2sqrt(n)), where X_n is Chapuy's centered scaled count. Thus the degree claim is a sampling specialization of permutation-rectangle fluctuation theory. The different Resultary mixture does not itself establish this specialization.",
+        "searches": [
+          "Resultary (limit 10): uniform random permutation inversion graph central degree joint fluctuations critical sqrt n window common Brownian bridge permutation matrix discrepancy process rectangle count",
+          "Primary web: uniform random permutation graph joint degree fluctuations middle vertices mesoscopic Brownian bridge marked ranks empirical permutation process rectangular Brownian pillow dependence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inversion-indicator record gives the complete finite covariance matrix of pair comparisons; summing the incidences yields the degree covariances. Theorem 3.1 of the 2019 preprint gives the individual variance. Theorem 2.1 gives a single midpoint mixture; Theorem 3.2 concerns one near-end label."
+        ],
+        "reasoning": "A finite covariance table does not determine the joint weak law; this check finds overlap for the moment formulas, not precedence for the distribution by itself. The field theorem and implication below, rather than a database entry, are decisive.",
+        "searches": [
+          "Resultary exact critical-window query above; local inversion-indicator result f6af0a8c3805, offsets 0–4382 and 4382–8375",
+          "Gürerk–Işlak–Yıldız arXiv:1901.06678, Thms. 2.1, 3.1, 3.2"
+        ]
+      },
+      "rationale": "Chapuy's Theorem 1 gives the stronger uniform-permutation discrepancy-field limit in C([0,1]^2). The claimed shared-bridge law, including independence of the evaluation marks and the critical-window drift, follows by an exact rectangle-count identity, deletion of finitely many permutation points, and continuous evaluation of that known field. The rejection is based on a demonstrated implication, not on a search miss or on mere similarity to the known one-point degree law.",
+      "residual_risks": [
+        "No claim that Chapuy explicitly states the result in graph language; mathematical implication rather than verbatim duplication is the basis for failure. No earliest-source or exhaustive priority claim. The frozen metadata's first_public_date matches the earlier marginal-paper date and is not evidence of publication of the joint finding then."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the new distributional claim by exact change of statistic and finite deletion, as shown above",
+          "evidence": [
+            "X_n=(Y_(ns,nu)-nsu)/sqrt(n), interpolated continuously on grid triangles; weak convergence is on C([0,1]^2) to the bivariate tied-down Brownian bridge with the product bridge covariance."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/3534",
+          "material_read": "Definitions and Theorem 1, DMTCS proc. AH, printed p. 459, and following theorem context",
+          "method": "Primary OA PDF https://dmtcs.episciences.org/en/articles/3534/download, located Chapuy then read offset 4600 + 4100 chars",
+          "title": "Random permutations and their discrepancy process",
+          "trigger": "Potential stronger same-model functional theorem"
+        },
+        {
+          "assessment": "These particular degree statements do not yield the joint critical-scale law alone",
+          "evidence": [
+            "Cor. 3.3 is for degrees divided by n at distinct fixed fractions. Theorem 3.4 is the single midpoint mixture N(0,U(1-U))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03582",
+          "material_read": "§3.1 Coll. 3.3 and Theorem 3.4, PDF pp. 9–10, offsets 28800 and 35850",
+          "method": "OA bounded primary passages",
+          "title": "Degree Sequence of Random Permutation Graphs",
+          "trigger": "Same graph, direct known macroscopic and midpoint limits"
+        },
+        {
+          "assessment": "Marginal center and near-end laws and exact single-vertex variance, not the decisive broader process result",
+          "evidence": [
+            "Theorem 2.1 concerns only the midpoint, and Theorem 3.2 one index h(n)=o(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.06678",
+          "material_read": "Theorems 2.1, 3.1, 3.2 and relevant proof text, PDF pp. 3–5, offsets 8200–21474",
+          "method": "OA primary PDF passage inspection",
+          "title": "A study on random permutation graphs",
+          "trigger": "Same graph, center law and exact moments"
+        },
+        {
+          "assessment": "Covers moments by aggregation, not the limit law",
+          "evidence": [
+            "Pair comparison covariance is expressed by an incidence-matrix quadratic form."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805/RESULT.md",
+          "material_read": "Result and proof, offsets 0–8375",
+          "method": "Local published mirror",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Precedence for degree covariance"
+        },
+        {
+          "assessment": "Different sampling law; not the same as Chapuy's uniform single-permutation theorem",
+          "evidence": [
+            "The model is a uniform-simplex mixture over all k! checkerboard permutation copulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-gaussian-pillow-fluctuations-and-exact-covariance-spectrum-of-ra--0298ec29460f/RESULT.md",
+          "material_read": "Finding, scope, exact centered covariance, offsets 0–4115",
+          "method": "Local published mirror",
+          "title": "Gaussian-pillow fluctuations and covariance spectrum of random discrete copulas",
+          "trigger": "Near local result with same field name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The central-window interpretation is natural and could be pedagogically useful, but the frozen finding claims only the finite marked evaluations and moments of a field already known for the same probability model. The necessary reduction is elementary and uniform, and the finite moment claims are covered by existing exact covariance information. No independent rate, growing-window result, or other non-mechanically-implied remainder was established on this record. Thus it does not qualify as a standalone new finding under the stated value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

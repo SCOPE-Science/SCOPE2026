@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:04:52.729754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one component and the minimal half-spin class, strict-partition Bruhat cells give Euler characteristic 2^n. Independently, the Weyl dimension polynomial for the half-spin highest weight times k has nontrivial degree factors only for positive roots e_i+e_j. The Weyl-vector coordinates run from n to 0, so the Hilbert leading coefficient is the reciprocal of ∏_(0≤i<j≤n)(i+j). Multiplication by M! gives the degree; grouping by j yields the proposed factorial expression. The legal-corner recurrence for shifted staircase tableaux gives the same counts. My separate exact Weyl-product replay (/workspace/independent_checks.py, spinor) obtained 1, 1, 2, 12, 286, 33592 for the first six degrees. Cancelling adjacent products gives the stated binomial ratio and the product of (2n+1+s)/(n+s) for s=1,…,n(n−1)/2. This is 1 at n=1, 2 at n=2, and greater than 2 for n≥3. The normalized comparison therefore drops once, is flat from n=2 to 3, and then increases, with the unique threshold between 12/16 and 286/32. Finite replay checks arithmetic, not the infinite conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Pieri plus the shifted hook-length theorem already yields the explicit degree product for all n. The strict-partition indexing supplies the exact Euler count for all n."
+        ],
+        "reasoning": "This is stronger coverage than merely a degree algorithm or low-rank table. Specifying the staircase and taking the simple adjacent quotient suffices for the proposed threshold.",
+        "searches": [
+          "arXiv:math/0306338, Eq. (42) at zero quantum parameter with one-box multiplier",
+          "arXiv:math/0112261, Theorem 1 for the strict shape (n,n−1,…,1)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0306338",
+        "arXiv:math/0112261",
+        "Resultary numeric and related-invariant searches; local-mirror records c8ae207d01b9 and d500538a21e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas give D_(n+1)/D_n=binom(M+n+1,n+1)/binom(2n+1,n+1). In product form with n(n−1)/2 terms, s=1 contributes exactly 2 and each further term exceeds 1. The same formulas give D_4=12 and D_5=286."
+        ],
+        "reasoning": "After division by the known Euler ratio 2 this single cancellation and the two exact endpoint comparisons mechanically imply the full all-rank inequality and no equality. It is the implication, not an asserted exact-wording publication, that defeats originality.",
+        "searches": [
+          "Kresch–Tamvakis and Fischer primary formulas, adjacent-degree specialization at n and n+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Schubert cell corresponds to a subset of {1,…,n}.",
+          "Each multiplication by the one-box class counts legal one-box additions with coefficient one, so the degree is the shifted staircase tableau count. Fischer's theorem explicitly computes this for all strict shapes."
+        ],
+        "reasoning": "The two combinatorial cardinalities are exactly the two frozen invariants, with the specified polarization and no extra assumption or asymptotic passage.",
+        "searches": [
+          "Kresch–Tamvakis, arXiv:math/0306338, strict partitions and classical specialization of Pieri",
+          "Fischer, arXiv:math/0112261, shifted standard tableaux",
+          "Focused literature search for the spinor degree–Euler comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching spinor threshold appeared in the returned top hits of the numeric search. The closely related symplectic Grassmannian entry c8ae207d01b9 concerns Plücker type C, and the split-form Chow entry d500538a21e6 concerns different varieties and includes an equality."
+        ],
+        "reasoning": "The indexed comparisons do not duplicate this spinor assertion. The decisive exact coverage is the stronger mathematical formulas, independent of a specific tabulation or search match.",
+        "searches": [
+          "Resultary: spinor varieties maximal orthogonal Grassmannian minimal half-spin degree Euler characteristic 12 16 286 32 shifted staircase threshold",
+          "Resultary: related degree–Euler comparisons for homogeneous and Chow varieties"
+        ]
+      },
+      "rationale": "The two exact invariant formulas are already supplied by the classical Schubert and shifted-tableau results on this very family. The threshold and adjacent ratio are direct consequences of those explicit results, not just outputs obtainable in principle from an unrelated general method. No independent exact-wording duplicate is needed: the known degree product gives the ratio by cancellation, whose first factor is 2 and whose remaining factors are strictly greater than 1; the known n=4,5 formulas then decide all ranks.",
+      "residual_risks": [
+        "A direct historical statement of the ordering may exist; none is needed for the demonstrated implication. No priority or precedence is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact indexing and the one-box Schubert step in the same type and polarization",
+          "evidence": [
+            "One component is identified with the spinor variety; strict partitions have largest part at most n.",
+            "The one-box step is the classical p=1 specialization of Pieri."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0306338",
+          "material_read": "PDF pp. 1–2 (offsets 2350–5876), pp. 16–17 (offsets 53800–57343), Eq. (42)",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Quantum cohomology of orthogonal Grassmannians",
+          "trigger": "Same spinor varieties and explicit Schubert calculus"
+        },
+        {
+          "assessment": "Its exact formula applies to the staircase without further hypotheses",
+          "evidence": [
+            "Shifted standard-tableau counts are factorials divided by products of shifted hook lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0112261",
+          "material_read": "PDF pp. 2–3 (offsets 8400–10977), shifted hooks and Theorem 1",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "A bijective proof of the hook-length formula for shifted standard tableaux",
+          "trigger": "Exact degree pseudonym: standard shifted staircase count"
+        },
+        {
+          "assessment": "Analogous inequality, not a type-D half-spin result",
+          "evidence": [
+            "The objects are Plücker-polarized IG(k,2n), with below-Euler exceptions for projective spaces and LG(2,4)."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-degree-euler-dichotomy-for-symplectic-grassmannians--c8ae207d01b9",
+          "material_read": "Finding and scope of local mirror RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A sharp degree–Euler dichotomy for symplectic Grassmannians",
+          "trigger": "Closest indexed comparison of the same invariants on isotropic Grassmannians"
+        },
+        {
+          "assessment": "Different family, not spinor coverage",
+          "evidence": [
+            "The nontrivial equality is for reducible quadrics in projective 3-space, not for an orthogonal Grassmannian."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-unique-degree-euler-equality-for-chow-varieties-of-split-forms--d500538a21e6",
+          "material_read": "Finding and scope of local mirror RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A unique degree–Euler equality for Chow varieties of split forms",
+          "trigger": "Nearby indexed comparison using the same numerical invariants"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The comparison is natural, but this particular cutoff and its normalized growth require no additional structural result beyond the established exact formulas and elementary product cancellation. The record does not add a nonroutine comparison tool, a geometric relationship between the counts, or a separate valuable remainder. A repackaged proof or extra finite certification would not address that limitation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

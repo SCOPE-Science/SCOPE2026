@@ -1,19 +1,21 @@
-# Review of the boundary-leaf height limit
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claimed object is the number of ordered interval splits traversed by leaf 1, not a randomly relabeled or uniformly chosen leaf. The exact recursion has transition \(q(m,i)\), and the independent harmonic variable/fair-bit construction recovers that transition exactly. The proof supplies the critical ingredient absent from standard random-leaf analyses: the first four moments of the decrement \(\ell_m-\ell_{I_m}\) tend to \(r!/2\), with a uniform quantitative bound. Its mean tends to \(1/2\), its variance to \(3/4\), and its fourth moment remains bounded. Stopping the descending chain at potential \((\log H_{n-1})^{1/3}\) gives a martingale central limit theorem with asymptotic duration \(2\log H_{n-1}\), hence fluctuation variance \(6\log H_{n-1}\). The remainder is negligible on the square-root scale. The standalone finite checker passed 383 assertions; finite tests do not prove the CLT. Remaining mathematical risk is the usual possibility of a gap in the written asymptotic martingale argument, pending independent review.
+PASS
 
-## Originality (O): PASS, with qualification
+The ordered leftmost leaf always follows the left child; its kernel is exactly the equal mixture of J and m-J with mass 1/(j H_{m-1}) for J=j. For potential log H_{m-1}, the J-branch rth drop moment is a singular-endpoint Riemann sum for the rth exponential moment r!: the mesh is at most 1/H_{m-1}, the first cell is separately bounded, and the difference of upper and lower sums on the other cells telescopes under that mesh bound. On the m-J branch, J≤m/2 makes the drop O(1/H_{m-1}); J>m/2 has probability O(1/H_{m-1}) and drop at most the full potential. This establishes both the 1/2 drift and 3/4 variance, with a uniform fourth-moment bound. Above cutoff potential b=y^{1/3}, y=log H_{n-1}, the cumulative drift error is negligible in probability and in expectation because Eτ≤4y and the uniform error is exponentially small in b up to a polynomial. The stopped telescope gives τ/y→2 and the martingale bracket divided by y tends to 3/2; conditional Lindeberg follows from the fourth moments and Eτ=O(y), using a deterministic n-1 horizon with increments zero after stopping. Inversion of the drift gives variance parameter 6 for the CLT. The remaining mean time is O(1+b) by the fixed low-state drift bound and strict descent; it is negligible at the CLT scale, and the expected telescope gives E[T_n]=2y+O(1+b). This checks CLT normalization, not a separately asserted asymptotic for Var(T_n). An independent direct moment recurrence (`python3 /workspace/branches/eea45fe0-d889-41a7-8485-f669c546fef2/independent_boundary_recurrence.py`) checked normalization through 2000 and gave E[T_2000]≈4.94939, Var(T_2000)≈7.34794; the finite check is not the asymptotic proof.
 
-Aldous and Janson (arXiv:2303.02529, §3.9, Open Problem 2) explicitly pose the distributional question for the original ordered labels and anticipate only the \(2\log\log n\) scale for label 1. That scale is prior art and is not claimed as novel. Their discussions of harmonic descent and the results of Aldous–Pittel (arXiv:2302.05066) and Aldous–Janson (arXiv:2412.12319) concern uniformly chosen leaves; the latter explicitly says its results do not use original ordered labels. A uniform-leaf height has a different order and kernel and cannot imply the boundary-leaf Gaussian theorem. The 2025 Iksanov–Nikitin–Yakymiv and 2026 Chorbadzhiyska–Minchev–Savov works address tagged/uniformly sampled leaves and related fragmentations, while Ma's 2026 paper treats the maximum over leaves. Title/abstract inspection of those later articles is weaker evidence than a comprehensive full-text priority audit, and relevant unexamined results remain a residual risk. Searches of the mathematical-record database and the accessible previous-record claim summaries did not identify a dominating theorem, but that absence is not itself a novelty proof.
+## originality
 
-## Value (V): PASS
+PASS
 
-This answers a natural subcase of an explicitly stated open distributional problem for nonexchangeable ordered labels. Deterministic boundary labels have a markedly smaller height scale than uniformly chosen leaves. The newly quantified \(\sqrt{6\log\log n}\) fluctuations and Gaussian limit explain that difference at the second order. This is a structural asymptotic theorem rather than a routine finite calculation or a claim of solving the whole open problem.
+Credit the CLT for the deterministic endpoint of the ordered interval model, not the first-order mean or a uniform-leaf CLT. The closest primary source poses the ordered-label distribution question explicitly, predicts 2 log log n in the discrete case, and reports the same first-order mean indirectly via a recursion for expected tree balance. The Gaussian fluctuation statement with its stated normalization is not supplied by these sources.
 
-## Scope, sources and limitations
+## value
 
-Primary motivating text: https://arxiv.org/html/2303.02529v3, §3.9. Primary uniform-leaf comparator: https://arxiv.org/html/2412.12319v1, §1.2. Other relevant sources: https://arxiv.org/abs/2302.05066, https://arxiv.org/abs/2510.17343, https://arxiv.org/abs/2608.18320, https://arxiv.org/abs/2609.14329. The theorem is for a single fixed boundary label in the discrete ordered critical model; it has no quantitative convergence rate and is not an independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result answers the discrete fixed-endpoint instance of an explicit ordered-label distribution question. Its depth scale and Gaussian normalization identify behavior not captured by uniform tagging or maximum-height theorems, and the proof turns the heuristic harmonic jump picture into controlled fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

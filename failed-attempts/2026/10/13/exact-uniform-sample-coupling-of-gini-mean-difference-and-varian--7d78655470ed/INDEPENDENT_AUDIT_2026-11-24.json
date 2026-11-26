@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:25.512886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof is correct for iid uniforms on a nondegenerate interval and all integer n≥2, with the ordinary pair-average Gini difference and unbiased variance. Rescale to [0,1] and put T=|X−Y|; its density is 2(1−T) and its r-th moment is 2/((r+1)(r+2)). The kernels h=T and g=T²/2 have means 1/3 and 1/12; the same-pair variances and covariance are 1/18, 7/720 and 1/45. Their conditional means are A(x)=x²−x+1/2, B(x)=(x²−x+1/3)/2. The corresponding variation and covariation are 1/180, 1/720 and 1/360. Counting each pair once against itself and 2(n−2) times against different overlapping pairs, and discarding independent disjoint pairs, gives the three moments with denominator binomial(n,2) and scaling ℓ², ℓ⁴ and ℓ³ respectively. Division gives the positive correlation and deficit (n+1)/((n+3)(2n+3)); the successive decrease has numerator 2(n²+3n+1)>0 over the positive product denominator. A−2B=1/6 pointwise, so subtracting 1/6 as in the frozen C_n removes the whole first projection. The centered pair kernel variance is 1/180 by the triangular density, hence the contrast variance is 1/(90n(n−1)), including n=2. The supplied exact-rational script and recorded output were inspected, not rerun. Its bounded checks supplement, rather than prove, the identities for every n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The profile gives k(n+1−k)(2k−n−1)/(6n(n−1)(n+1)(n+3)) for the rank-by-rank covariance on [0,1].",
+          "Gerstenberger–Vogel give finite marginal variance formulas and uniform asymptotic efficiency; Čiginas–Pumputis give separate projections in sampling without replacement."
+        ],
+        "reasoning": "Equal asymptotic efficiency or separate finite-population projection formulas alone do not determine a joint covariance. The full rank profile, however, supplies the missing mixed moment by linearity, and the known marginal formulas follow under exactly uniform sampling.",
+        "searches": [
+          "Resultary exact order-statistic coupling profile, 59495db55ed7",
+          "Gerstenberger–Vogel arXiv:1405.5027 §2.1–2.2",
+          "Čiginas–Pumputis arXiv:1406.2275 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 59495db55ed7",
+        "Resultary 76bf42cb8b31",
+        "arXiv:1405.5027",
+        "arXiv:1406.2275",
+        "Fortiana–Grané 2003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Σ_k k(n+1−k)(2k−n−1)² = n(n−1)(n+1)(n+2)(n+3)/30. Summing the rank covariance with the normalized Gini weights therefore gives (n+2)/(90n(n−1)).",
+          "With the two marginal variances this determines the deficit and Var(G_n−2S²) by elementary covariance algebra."
+        ],
+        "reasoning": "The resulting contrast variance is O(n⁻²). For fixed order-two kernels the Hoeffding identity gives Var(C_n)=4 Var(E[k(X,Y)|X])/n+O(n⁻²), so the first projection must vanish in L²; continuity of the conditional means makes the vanishing pointwise on the whole interval. The monotonicity follows algebraically from the deficit. Thus the structural statement does not furnish an independent surviving invariant once the stronger profile is credited.",
+        "searches": [
+          "Resultary 59495db55ed7 Finding and Proof",
+          "Gerstenberger–Vogel arXiv:1405.5027 §2.1, marginal variance formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For ordinary G_n, G_n=binomial(n,2)⁻¹ Σ_k (2k−n−1)X_(k). The indexed same-day profile determines Cov(X_(k), S²) at every rank.",
+          "Fortiana–Grané's connection between the order-statistic test statistic, Gini difference and empirical variance is a maximum-correlation uniformity test, not the Pearson sampling correlation of the two estimators."
+        ],
+        "reasoning": "The Gini linear combination of order statistics makes the profile directly applicable under exactly the same uniform law; the goodness-of-fit correlation has a different mathematical meaning.",
+        "searches": [
+          "Resultary rank covariance/profile of uniform order statistics with sample variance, 59495db55ed7",
+          "Fortiana–Grané, JRSS B 65 (2003), pp. 115–116, uniformity-test covariance and scale normalizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day indexed rank profile is an explicit symbolic sequence of mixed moments for all ranks and n, stronger than tabulating single-size numbers.",
+          "The November 22 record directly gives the same finite-sample correlation and contrast variance and the mixed covariance using Q_n=2S²."
+        ],
+        "reasoning": "An enumerative table of sample instances would not certify these identities; the indexed mathematical claims supply exact all-n comparisons. The November match independently confirms equivalence, not priority.",
+        "searches": [
+          "Resultary 59495db55ed7 and 76bf42cb8b31, exact uniform joint scale statistics"
+        ]
+      },
+      "rationale": "A distinct indexed result on the same iid uniform order statistics and the same unbiased variance supplies a stronger mixed covariance profile. Its weighted sum gives exactly the headline covariance, not just similar parameters. In combination with prior marginal moments, it also yields the entire correlation and contrast variance, and the first-projection cancellation follows from the variance order. The same-day ordering of the two records is not established. The failure is demonstrable equivalent coverage and no supported distinct claim in this audit, not a finding that the other record was published first. The explicitly overlapping November result is later and is not used to infer October priority.",
+      "residual_risks": [
+        "There is no verified UTC ordering within the two October 13 records. The bounded literature lookup was uninformative about still older explicit formulas; neither limitation is used as evidence of absence or as the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger symbolic mixed profile implies the frozen headline covariance; intraday priority unresolved",
+          "evidence": "Rank coefficient k(n+1−k)(2k−n−1) divided by 6n(n−1)(n+1)(n+3).",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-order-statistic-coupling-profile-with-sample-variance-unde--59495db55ed7/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–6189",
+          "method": "Resultary local mirror",
+          "title": "Exact order statistic coupling profile with sample variance under uniformity",
+          "trigger": "Same parent and variance, broader rank covariance"
+        },
+        {
+          "assessment": "Direct material overlap, not relied on for historical priority",
+          "evidence": "Gini and Q_n=2S² finite-sample correlation, contrast variance and mixed covariance.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniformity-as-the-unique-perfect-first-order-gini-variance-align--76bf42cb8b31/RESULT.md",
+          "material_read": "Finding and mixed-moment proof, offsets 0–5325 and 4300–6451",
+          "method": "Resultary local mirror",
+          "title": "Uniformity as the unique perfect first-order Gini–variance alignment",
+          "trigger": "Exact uniform special case and contrast alignment"
+        },
+        {
+          "assessment": "Covers marginals and uniform efficiency; not a standalone joint-moment match",
+          "evidence": "Finite Gini and variance formulas; equal uniform asymptotic efficiency of Gini and standard deviation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5027",
+          "material_read": "§§2.1–2.2, offsets 12800–20266",
+          "method": "Open primary PDF",
+          "title": "On the efficiency of Gini's mean difference",
+          "trigger": "Known marginal formulas and same-distribution efficiency"
+        },
+        {
+          "assessment": "Separate finite-population Hoeffding decompositions, not the checked iid uniform cross-covariance",
+          "evidence": "Sampling without replacement; separate variances in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2275",
+          "material_read": "§3.1, offsets 24272–35202",
+          "method": "Open primary PDF",
+          "title": "Gini's mean difference and variance as measures of finite populations scales",
+          "trigger": "Possible existing mixed U-statistic expression"
+        },
+        {
+          "assessment": "The correlation being maximized is a test construction, not the target Pearson sampling correlation",
+          "evidence": "The p. 116 order-statistic statistic is proportional to the Gini difference; the test uses relative scale normalization.",
+          "identifier_or_url": "https://halweb.uc3m.es/esp/Personal/personas/agrane/ficheros_articulos/JRSSB2003.pdf",
+          "material_read": "pp. 115–116, offsets 2800–6090",
+          "method": "Open author-hosted primary PDF",
+          "title": "Goodness-of-fit tests based on maximum correlations and their orthogonal decompositions",
+          "trigger": "Uniformity test involving both Gini difference and sample variance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Joint finite-sample behavior of two standard scale estimators is a motivated question, and the degenerate contrast gives a clear explanation. But the specific finite moments and projection cancellation are mechanically implied by the stronger indexed profile and known marginals, as shown above. The record adds an elementary direct derivation, not an independent joint-law consequence, distinct invariant, or nontrivial new method that meets the scientific-value standard after accounting for the overlap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

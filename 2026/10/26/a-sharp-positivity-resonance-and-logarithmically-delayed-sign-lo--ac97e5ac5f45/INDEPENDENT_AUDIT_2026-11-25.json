@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:53:54.505651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–82",
+        "Frozen VERIFICATION.md and verification/check.py (read only; replay path: python3 verification/check.py from the source directory)",
+        "Independent double-precision bisection on (−4,−3.75) and four direct stage iterations as described above"
+      ],
+      "rationale": "For linear decay the stages give v₂/v₀=1+(14/9)z+(28/81)z² and hence the stated recurrence. With an exact input pair at t_n the stage offsets at which f is evaluated are (7/9)h and (11/9)h. Taylor substitution into the endpoint gives y(t_n)+hy′(t_n)+(h²/2)y″(t_n)+O(h³), and the roots at z=0 are 1 and 1/3, so the method is zero-stable. Along the real decay axis the three strict Jury inequalities reduce to −1≤T<4/3, giving (−9/2,0). When T≤0 both recurrence coefficients are nonnegative and not both zero. When T>0 the roots are simple and positive; evaluating the characteristic polynomial at 1/3 gives 5(3T−4)/252<0, so the smaller root is below 1/3. Implicit differentiation then gives dλ_−/dT>0. On the left lobe λ_− decreases strictly with z while e^z increases, with opposite orders at the two ends; on the right lobe e^z exceeds 1/3. In the two-positive-root region, factoring out the smaller root's nth power shows that E≥λ_− is necessary and sufficient for positive iterates, including the sign case E>λ_+. Equality kills the dominant mode and proves exactness. Otherwise there is one transition, possibly through a single zero, and the first strictly negative index is floor(ν)+1. The difference λ_−−e^z vanishes linearly with a strictly negative z derivative at the root. Substitution in the exact index formula gives the logarithmic coefficient. Independent bisection gives z*≈−3.762080033887951 and log(λ_+/λ_−)≈3.21552426430; direct stage iteration at offsets 10^−2, 10^−4, 10^−6 and 10^−8 below this threshold gives first negative indices 2,3,5,6, matching the formula. This small numerical check is corroboration, not the positivity proof.",
+      "residual_risks": [
+        "Endpoint classification assumes fixed step, exact exponential startup and exact arithmetic. The zero dominant-mode coefficient at resonance need not survive starter error or roundoff.",
+        "No stage positivity, positivity for coupled systems, or nonlinear monotonicity is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2023 construction designs negative-axis stability and the experiments obtain a starter from a reference solution (NDSolve). They do not analyze the sign of each iterate for e^z startup."
+        ],
+        "reasoning": "The broader class and Schur stability put both roots in the disk, but this does not determine the sign of the leading mode's coefficient for a specified starter.",
+        "searches": [
+          "arXiv:2303.16267v1, damped order/stability construction and numerical experiments",
+          "Focused literature lookup for exact-start positivity and delay in two-step RKC"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.16267v1",
+        "DOI 10.1016/j.cam.2024.115868 listing",
+        "Resultary d036e6948156 and cf66315c5a14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the RKC stable interval the smaller real root equals e^z only in the left positive-root lobe; the other lobe is ruled out by e^z>1/3. Across the RKC resonance the coefficient of the dominant positive root changes sign linearly while the root ratio stays bounded away from 1."
+        ],
+        "reasoning": "A two-root representation supplies the technique, but neither root-modulus bounds nor the analogues fix the number, nature or location of intersections with e^z or rule out sign failure elsewhere for this recurrence. The new claim is the specific global classification with its coefficient.",
+        "searches": [
+          "2023 recurrence and stability polynomial, equations (9)–(10)",
+          "Resultary O2CP and BDF2 Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 damped construction agrees after s=2, η=1/2, α=4/7, ω=√(7/6), β=16ω/9; the equivalent recurrence is not new.",
+          "The 2024 publisher listing identifies a related RKC family, but the full text was inaccessible in the attempted retrieval."
+        ],
+        "reasoning": "The mathematical target is not derivation of the recurrence. The question is the sign of every endpoint with the specified scalar exponential starter, including the loss mode and its delay. The 2024 coverage is unknown.",
+        "searches": [
+          "Moisa and Faleichik arXiv:2303.16267v1, equations (9)–(10) and (21)–(24)",
+          "Moisa DOI 10.1016/j.cam.2024.115868"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former has two isolated exact-startup positivity resonances and logarithmic delay for a different O2CP recurrence; the latter has a square-root sign delay for backward-Euler-started BDF2."
+        ],
+        "reasoning": "The first is close in method of proof and delay phenomenon, but does not provide the coefficients or sign classification of this damped two-stage RKC recurrence. The BDF2 law has different roots and startup. Record dates do not decide priority.",
+        "searches": [
+          "Resultary exact-startup, two-step resonance, positivity threshold and delayed sign-loss comparison",
+          "Resultary d036e6948156 and cf66315c5a14"
+        ]
+      },
+      "rationale": "The specific Chebyshev construction and recurrence are established prior work. The inspected results do not give the global exact-startup endpoint sign threshold for this specialization, its smaller-root resonance, or the corresponding logarithmic first-negative law. A distinct two-step construction exhibits closely related resonances and logarithmic delay, so the mechanism is not credited as distinct in general. Full text of a plausible 2024 follow-up could not be inspected and remains a substantive access limitation, not a negative finding.",
+      "residual_risks": [
+        "The 2024 follow-up's exact parameter, startup and positivity coverage remain unresolved.",
+        "The local search and inspected passages do not settle historical priority; the logarithmic delay mechanism itself has a close analogue for a different scheme."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact recurrence under the stated specialization; inspected sign/stability and experiment passages do not provide the exact-startup threshold or delay",
+          "evidence": [
+            "Order conditions and damped polynomials; two-step stage mapping; numerical experiments use a reference-solution starter."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+          "material_read": "Equations (9)–(10), offsets 7320–12252; equations (21)–(24), offsets 13615–18567; experiment and startup text, offsets 17397–19597",
+          "method": "OA primary text passage inspection",
+          "title": "Second order stabilized two-step Runge–Kutta methods",
+          "trigger": "Exact antecedent method and stability construction"
+        },
+        {
+          "assessment": "Inaccessible relevant full text; no determination of threshold coverage",
+          "evidence": [
+            "Journal of Computational and Applied Mathematics 446 (2024), 115868; related two-step second-order RKC family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2024.115868",
+          "material_read": "Publisher listing only; attempted full-text retrieval returned HTTP 403",
+          "method": "Publisher listing and lawful retrieval attempt",
+          "title": "A family of two-step second order Runge–Kutta–Chebyshev methods",
+          "trigger": "Plausible follow-up with increased coverage of the same method family"
+        },
+        {
+          "assessment": "Different recurrence with matching mechanism, two isolated resonances rather than this threshold",
+          "evidence": [
+            "An O2CP recurrence with exact exponential starter and logarithmic first-negative delay."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-two-isolated-positivity-resonances-of-an-optimized-two-step-para--d036e6948156",
+          "material_read": "RESULT.md Finding, offset 0 onward, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Two isolated positivity resonances of an optimized two-step parabolic scheme",
+          "trigger": "Closest catalogue analogue of exponential resonance and logarithmic delay"
+        },
+        {
+          "assessment": "Different recurrence and starter; not an equivalent asymptotic",
+          "evidence": [
+            "Backward-Euler-started BDF2 gives square-root growth, not logarithmic growth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "RESULT.md opening statement and first-negative asymptotic",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Catalogue analogue of stable delayed sign loss"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 49–82",
+        "Moisa–Faleichik 2023 damped stability design"
+      ],
+      "rationale": "For a damped method designed to take stable steps on the negative real axis, the actual interval of positive scalar endpoint values is a natural and strictly smaller diagnostic. A sharp, globally proved internal boundary of the stability interval shows both a useful isolated exponential exactness phenomenon and why a finite run near the boundary can miss eventual sign failure. This information is neither an ordinary stability radius nor a coefficient table.",
+      "residual_risks": [
+        "The value is specific to the scalar exact-start positive exponential test. It does not provide a general SSP restriction or practical invariant-domain step bound for nonlinear problems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

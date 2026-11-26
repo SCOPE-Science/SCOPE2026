@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed statement concerns every binary configuration on each periodic \(H\)-by-\(W\) board with \(H,W\ge4\) and coincident intervals \([0,\varepsilon]\), \(0\le\varepsilon<1/(9HW)\). Positive normalized field values cannot fall in that interval, since the unnormalized positive products are positive integers and the normalization maximum is at most \(9HW\). The original two-dimensional rule therefore reduces exactly to a union of zero-row and zero-column masks, not an approximation. The case split handles empty masks, two nonempty masks, and one nonempty mask, including the absorbing empty state. On a stripe the update is closed-neighborhood NOR, which satisfies \(T^3=T\) by the adjunction identities for dilation and erosion. This gives \(F^4=F^2\), with a one-live-cell witness showing that entry time two is sharp. Every nonempty recurrent state is an eligible stripe; the 4-state transfer graph counts precisely the nonempty nonfull closed binary rings. Its characteristic polynomial yields the stated Lucas and six-periodic correction. The independent full-grid enumeration in `checker.py` verifies the reduction's all-state consequences on two small grids, and the one-dimensional exhaustive checks cover lengths 4 through 13. These checks supplement, not prove, the unbounded claims.
+PASS
 
-## Originality — PASS within inspected evidence
+In a nonempty configuration the integer product is positive somewhere, and every positive normalized value is at least 1/(9HW), strictly beyond the closed selection window. Thus the first image is the union of the full rows and full columns selected by the respective zero masks. Two nonempty masks give a full row and column, so every blurred count is positive in the image and the second image is empty. One nonempty mask gives a stripe with positive occupancy across all orthogonal coordinates. The induced stripe NOR map T obeys T²=ED and T³=T by the erosion–dilation adjunction. If a nonempty stripe maps to empty, the original map's absorbing convention takes over; otherwise its next stripe is on a 2-cycle. The singleton initial state has both masks nonempty for H,W>=4, and reaches the empty fixed point only on the second update. The nonconstant T²-fixed cyclic words are exactly those with no zero-run of length 1 or 2; every longer gap is preserved by ED. Such words have T(A) nonempty and disjoint from A. The stated transfer matrix counts labelled cyclic words uniquely, including both constant words, and has characteristic polynomial (lambda²-lambda-1)(lambda²-lambda+1). Subtracting the constants gives C_n. The two stripe orientations share no nonempty recurrent state, and each primitive orbit accounts for exactly two states. Independent 4x4 and lengths 4–13 enumeration corroborated the argument.
 
-Shi and Huang's original June 8, 2026 model [1] motivates an exact regime classification; the inspected original equations and available scientific descriptions present numerical phases, not the present zero-field theorem. A published analysis [2] treats the opposite near-*maximum*-field interval \([1-\eta,1]\), showing eventual rectangle dynamics and at most period two, but not the zero-field union-of-stripes mechanism, uniform two-update horizon, or exact periodic populations. Another analysis of the same model concerns a nonzero-threshold stripe subsystem corresponding to Rules 54/18, not the NOR dynamics here. Ordinary mathematical morphology [3] supplies the standard closing identities used in the proof; it does not specify the global normalized model's cross-mask update or its complete finite-torus orbit population. The closest available published-result summaries and direct semantic searches did not establish a dominating statement. Full-text priority access to the source preprint and some repository records was incomplete, so historical equivalence remains a residual risk; the search evidence is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two equal endpoint intervals at the zero-field boundary are intrinsic to the normalized separable-field model, not a randomly selected numerical slice. The positive-width guarantee makes this a robust finite-board regime. Unlike the source's numerically observed long transients and the previously studied opposite near-maximum endpoint, the zero-field regime has a *sharp universal two-update cutoff* and a closed, all-size count of each primitive temporal orbit. The coupling between rows and columns is essential to the transient case split; the recurrent-state census identifies both the spatial geometry and exact multiplicity of all surviving two-cycles. This is a natural solvable boundary against which other numerical phase classifications can be compared, although it does not determine basin sizes or larger threshold widths.
+Radius-one NOR (elementary cellular automaton Rule 1), closing idempotence, and transfer matrices are existing machinery. Even a prior solution of the NOR stripe sector would not supply the all-state reduction in the normalized two-dimensional model. The inspected same-model work treats numerical regimes or different threshold sectors; it does not account for the zero-edge two-update sharp bound and all-torus recurrent census obtained from both zero masks and the absorbing empty convention.
 
-## Closest sources and limitations
+## value
 
-[1] X. Shi and M. Huang, *Dynamics in a Low-Rank Separable Field Cellular Automaton*, arXiv:2606.08983 (2026-06-08), especially section 2.1.
+PASS
 
-[2] *A sharp near-max selection window and a global two-cycle cutoff for a separable-field automaton* (2026-11-08), https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-near-max-selection-window-and-a-global-two-cycle-cutoff--cc868950d182 . The indexed scientific summary was available; the repository's complete paper was not retrieved.
+For a natural extreme of the originally numerical model, the result classifies every attractor, gives the exact orbit count without an exponential global-state search, and establishes a sharp transient bound valid across a nonzero parameter interval. It distinguishes mixed-mask extinction from genuine persistent stripe oscillations.
 
-[3] Standard mathematical-morphology dilation/erosion adjunction and idempotent closing, https://en.wikipedia.org/wiki/Mathematical_morphology .
-
-The positive-width threshold \(1/(9HW)\) is sufficient but not claimed optimal; the theorem concerns only the stated finite cyclic dimensions, equal threshold windows, and empty-state convention. A complete PDF of [1] was not obtained for a whole-document originality comparison. No independent mathematical audit is represented.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

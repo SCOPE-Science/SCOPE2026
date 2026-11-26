@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:35:10.885362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing a=δi, b=δj with (i,j)=1 gives f=gcd(δ,i+j) since (ij,i+j)=1. The Jordan divisor identity and δ=dk therefore give exactly the ordered primitive-pair sum (1); the support d²k≤2x follows without approximation. For each e in Möbius inversion on (i,j), the congruence after division by e has modulus d/gcd(d,e); counting one residue of the second variable for each first variable costs O(y/e), uniformly. Extending the density sum costs O(y) since gcd(d,e)≤d. Its Euler factors give V_d(y)=y²[dζ(2)]⁻¹∏_{p|d}p/(p+1)+O(y log(2y)). For a separate truncation check, restrict to d≤D=floor(√x/(log x)²) and all k≤min(floor(2x/d²),floor(x/d)), which ensures y≥1 and omits only zero counts within this d range. The uniform count errors sum to O(xD²(log x)²), by J₂(d)≤d² and the harmonic sum over k. Extending the main k-sum to infinity costs O(xD²), since the per-d k tail is O(d²/x) and the per-d main term is O(x²/d). J₂(d)∏p/(p+1)=dφ(d), and the full sum over k cancels the primitive density factor ζ(2)⁻¹. Harmonic summation of φ(d)/d² gives ζ(2)⁻¹log D+O(1). For d>D, the elementary count V_d(y)≤2y²/d and d≤√(2x) bound the whole tail by O(x² log log x). Hence the factor 1/2 is from log D=½log x−2log log x+O(1), not from unordered pairs, and the constant is 1/(2ζ(2)). All counts work with real upper bounds and integer variables. The frozen rectangle estimates in RESULT.md lines 23–100 are also uniform. Reviewed VERIFICATION.md, verify.py and verify_output.txt as finite identity evidence only; no numerical computation is required for the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 requires (μ*h)(n)≪nᵝ with β<2; Corollary 3 treats t<2",
+          "At h(n)=n² the convolution is J₂(n), of order n²"
+        ],
+        "reasoning": "The strongest checked general weighted result does not contain the endpoint. In particular J₂(n)≥n²/ζ(2) excludes all β<2, and the other work concerns density for a different level-set problem.",
+        "searches": [
+          "Fan–Tóth Theorem 1 and Corollary 3; §4 item 4",
+          "Pang–Tan §4, higher-order family"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.20057v3",
+        "arXiv:2506.19812v1",
+        "Resultary multidimensional density record --fe7d873016df and endpoint queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact request for t≥2 in §4, printed p. 12",
+          "Earlier fiber parametrizations and subcritical moments do not estimate the endpoint remainder"
+        ],
+        "reasoning": "The excluded exponent creates a harmonic divergence, so substituting t=2 into the subcritical formula does not give the leading constant or logarithmic truncation length. The proof instead controls the divisor scale √x and separately bounds its discarded tail, a genuinely additional estimate.",
+        "searches": [
+          "arXiv:2606.20057v3 §4 item 4 and stated growth range of Theorem 1",
+          "arXiv:2506.19812v1 Thm. 3.2 and §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2606.20057v3 §4 item 4 explicitly writes the sum over a,b≤x for t≥2",
+          "arXiv:2506.19812v1 Thm. 3.2 gives a level-set density, not an aggregate square"
+        ],
+        "reasoning": "Symmetry would translate a triangular-square sum via the diagonal, which is O(x) since f(a,a)=gcd(a,2). No compared source gives that equivalent moment. The higher-order map gcd(aʳ+bʳ,ab)/gcd(a,b) is a different function, not f(a,b)ʳ.",
+        "searches": [
+          "Resultary: gcd(ab,a+b)/gcd(a,b) second moment and Fan–Tóth endpoint",
+          "Primary lookup: squared/power moments and endpoint for the two-variable gcd map",
+          "arXiv:2506.19812v1 §§3–4, symmetry and related maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct result 2026/10/4/SCOPE-exact-euler-factors-for-the-k-variable-gcd-map-density--fe7d873016df, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding and scope at offset 0 onward"
+        ],
+        "reasoning": "The indexed record determines density of the single fiber f_k=1 of a multi-variable map and explicitly does not determine higher moments. Even its two-variable density gives no control of the squared contribution of rare large values. A finite lookup table would not establish this asymptotic.",
+        "searches": [
+          "Resultary: two-variable gcd map square sum/critical exponent",
+          "Resultary: gcd-map moments, density and Euler-factor aliases"
+        ]
+      },
+      "rationale": "The closest primary work poses the power-moment asymptotic at t≥2 and proves a theorem only below that boundary. Neither earlier same-map level-set results nor the distinct indexed density theorem gives the second moment. The supported contribution is the ordered t=2 asymptotic with its constant and remainder, not all of the open higher-exponent range.",
+      "residual_risks": [
+        "The primary search was noisy and supplies no negative evidence; the conclusion rests on passage-level comparison with the closest accessible papers and indexed finding.",
+        "A later or differently indexed endpoint proof could exist; the searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subcritical coverage only; explicitly requests the moment asymptotic for t≥2.",
+          "evidence": "The hypothesis β<2 excludes J₂; the open question includes the frozen t=2 problem.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.20057v3.pdf",
+          "material_read": "Theorem 1, p. 3 and Corollary 3, p. 4 (offsets around 8950 and 11500); §4 item 4, p. 12 (around 42300)",
+          "method": "Compared the convolution growth hypothesis and the ordered sum, with h(n)=n².",
+          "title": "On the asymptotic density of the ordered pairs (a,b) of positive integers such that gcd(ab,a+b)=gcd(a,b)",
+          "trigger": "Strongest same-function moment result and stated open endpoint"
+        },
+        {
+          "assessment": "Same-map and related-function level sets, not the squared power moment.",
+          "evidence": "Theorem 3.2 gives the density where f=1, and §4 changes a+b to aʳ+bʳ before taking the gcd.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2506.19812v1.pdf",
+          "material_read": "Thm. 3.2 p. 7, offset around 16500, and §4 pp. 9–10, offsets around 24100 and 26400",
+          "method": "Compared the statistic and identified where the exponent enters the function.",
+          "title": "On the Asymptotic Density of a GCD-based Map",
+          "trigger": "Earlier same-map paper and potentially equivalent exponent notation"
+        },
+        {
+          "assessment": "Related but does not imply the claimed moment.",
+          "evidence": "Density of f_k=1; distributions and higher moments are outside its scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-euler-factors-for-the-k-variable-gcd-map-density--fe7d873016df",
+          "material_read": "Local mirror RESULT.md Finding and scope",
+          "method": "Compared the counted event and generalization to the ordered second moment.",
+          "title": "Exact Euler factors for the k-variable gcd-map density",
+          "trigger": "Closest distinct indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The t=2 case is the first excluded exponent of a published problem. Determining the order, constant and lower-order error establishes a genuine transition from finite normalized subcritical moments to logarithmic growth; neither a finite check nor formal substitution at the boundary supplies it. This resolves one precisely posed case without claiming t>2 or an optimal remainder.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

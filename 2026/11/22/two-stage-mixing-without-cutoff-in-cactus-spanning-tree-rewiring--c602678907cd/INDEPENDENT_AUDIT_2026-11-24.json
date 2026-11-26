@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:15:06.721526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each tree omits one edge per cycle. If a retained edge in a cycle is cut, exactly the retained edge just cut and the previously omitted edge in that cycle cross the resulting partition. This makes every single-coordinate off-diagonal probability 1/(2q_L), so the refresh coefficients are ell_i/(2q_L); irreducibility, symmetry, holding, and symbol permutations give uniform stationarity and start-independent distance. In continuous time the stationarity likelihood factors independently. In the specified window the long-coordinate amplitudes satisfy c_L(L-1)ε²→e^(-s) and max|εB|→0 for B=L·1_match−1. The linear sum satisfies Lindeberg, the sum of squares converges in probability to e^(-s) (variance bounded by O(L/c_L)), and the expected cubic remainder is O(sqrt(L/c_L)). This yields the claimed lognormal factor, with uniformly bounded second moments for each fixed s. The triangle retains amplitude exp(-3/(2α)), independently. For discrete time the loss versus continuous time on each fixed tensor degree tends to zero as tδ²→0, with δ=(kL+3z)/(2q_L), and the squared L² contributions are dominated by a constant times C^k/k! in the window and for u>1/α. At late times the long-block chi-square vanishes. At early times the count of matches separates the laws: covariances are nonpositive and the squared mean gap dominates both variance bounds, including by order L relative to c_L/L at u=1/α. The limiting profile is strictly monotone by multiplying the likelihood by an independent mean-one lognormal increment when its variance parameter increases, and applying strict Jensen to |x−1|. For s→−∞ the likelihood tends to zero in probability under stationarity and one uses the bounded overlap E min(1,likelihood)→0, not a moment bound uniform in s. For s→+∞ the long factor tends to 1 in L². The piecewise limits and monotonicity give the two stated mixing-time branches and rule out cutoff. The frozen checker was inspected, not run; its finite spectral and numerical tests are corroboration, not proofs of the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hora gives the homogeneous Hamming Gaussian TV profile in the small-alphabet/dimension-ratio regime; L/c_L→0 here.",
+          "Chen–Kumagai give product-chain cutoff comparisons and non-cutoff examples for other weighted products."
+        ],
+        "reasoning": "The homogeneous long-coordinate behavior and the methodological ingredients have close antecedents. Neither compared theorem evaluates the product with one coordinate that still has a nontrivial triangle likelihood in the window.",
+        "searches": [
+          "Hora (1997), Theorem 2",
+          "arXiv:1701.06665, Theorem 1.3 and Proposition 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cactus_chain.py",
+        "Resultary catalogue",
+        "Hora (1997)",
+        "arXiv:1701.06665",
+        "doi:10.3390/a11040053",
+        "arXiv:1407.0699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hora's stated result gives a scalar TV profile for homogeneous H(d,n), with no exceptional triangle.",
+          "Chen–Kumagai's explicit non-cutoff example uses a different family of weighted cycle walks.",
+          "Mohamed enumerates trees via edge exchange and partitioning; the objective is not mixing."
+        ],
+        "reasoning": "A long-block TV number does not determine the TV of its product with a biased triangle: the mixed TV evaluates the likelihood at two different thresholds. One needs at least the likelihood distribution or equivalent information and the matching scaling and discrete-time comparison. The novelty does not rest on a generic failure of cutoff.",
+        "searches": [
+          "Hora (1997), pp. 695–698, including Theorem 2",
+          "Chen–Kumagai product criteria, pp. 5–6",
+          "arXiv:1407.0699, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound chain is a weighted product of complete-graph refreshes in omitted-edge coordinates.",
+          "Russo et al. select a host edge first and then choose another edge of the resulting cycle for removal."
+        ],
+        "reasoning": "For a change within an ell-cycle the insert-first walk has an inverse (ell−1) factor, whereas the cut-first probability is 1/(2q_L) independent of ell. On the heterogeneous product this is not a common time rescaling. The product representation is mathematically equivalent, but the established framework is not itself an exact profile theorem for these weights.",
+        "searches": [
+          "arXiv:1701.06665, weighted coordinate product definition and semigroup, p.2",
+          "Russo–Teixeira–Francisco, Linking and Cutting Spanning Trees, pp.3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day rare antipodal flip cube record 41a818eacc0d gives a Gaussian-derived likelihood involving cosh and sinh, with cutoff.",
+          "The earlier adjacent-edge heat-bath record 830668ca52c2 gives an L² bit-refresh approximation and Gaussian cutoff for a binary cycle."
+        ],
+        "reasoning": "Neither indexed analogue gives the stated mixture or the residual slow TV for this chain; the same-day date establishes no ordering. The algorithmic tree enumeration thesis supplies no stochastic TV profile table.",
+        "searches": [
+          "Resultary: cactus spanning tree cut-first exchange, mixed product Hamming Gaussian likelihood and two-stage non-cutoff profile"
+        ]
+      },
+      "rationale": "The exact mixed Gaussian–triangle likelihood, macroscopic jump and plateau and their translation to this cut-first cactus family remain distinct in the compared literature. Homogeneous Gaussian Hamming profiles, coordinate productization and related product-chain examples of non-cutoff are prior ingredients, not new general phenomena claimed here.",
+      "residual_risks": [
+        "A more general likelihood-process theorem for heterogeneous products may cover the profile outside the inspected passages; exact priority is not established.",
+        "The same-day analogue is distinct and its ordering relative to this result is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers homogeneous long-block regime after time normalization, not the mixed result",
+          "evidence": "Theorem 2 concerns simple walk on H(d,n) for n/d→0, with an error-function limit.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/kyotoms1969/33/4/33_4_695/_pdf",
+          "material_read": "pp. 695–698, including Theorem 2 on p. 697 (text offset about 4800)",
+          "method": "Bounded primary PDF inspection",
+          "title": "The Cut-Off Phenomenon for Random Walks on Hamming Graphs with Variable Growth Conditions",
+          "trigger": "Closest homogeneous Gaussian Hamming theorem"
+        },
+        {
+          "assessment": "Prior methodology and related examples, no exact profile here",
+          "evidence": "Continuous semigroup factorization and a weighted cycle-walk example with weights n²exp(-n^γ), γ>1.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.06665",
+          "material_read": "p. 2; Theorem 1.3 and Proposition 1.4, pp. 5–6",
+          "method": "Bounded primary PDF inspection",
+          "title": "Cutoffs for Product Chains",
+          "trigger": "General weighted product and non-cutoff framework"
+        },
+        {
+          "assessment": "Different kernel and results",
+          "evidence": "Inserts a randomly selected host edge before removing a uniformly selected other edge from the resulting cycle; analyzes mixing bounds for cactus-type hosts.",
+          "identifier_or_url": "https://doi.org/10.3390/a11040053",
+          "material_read": "Abstract and pp. 3–4 of the accessible PDF",
+          "method": "Identified lawful OA PDF after landing page access failed",
+          "title": "Linking and Cutting Spanning Trees",
+          "trigger": "Cactus-type spanning-tree sampler"
+        },
+        {
+          "assessment": "Algorithmic enumeration, not stochastic TV mixing",
+          "evidence": "Enumerates all spanning trees using edge exchange and edge promotion via a computational tree.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.0699",
+          "material_read": "Thesis abstract, PDF p. 14 (offset about 20000)",
+          "method": "Bounded primary PDF inspection",
+          "title": "Enumeration of Spanning Trees Using Edge Exchange with Minimal Partitioning",
+          "trigger": "Possible spanning-tree exchange precursor"
+        },
+        {
+          "assessment": "Different added dynamics and retains cutoff",
+          "evidence": "A global complement clock gives exp(-a²/2)(cosh(aZ)+h sinh(aZ)), not an independent triangle likelihood.",
+          "identifier_or_url": "2026/11/22/SCOPE-critical-rare-antipodal-flip-crossover-in-boolean-cube-cutoff-pr--41a818eacc0d",
+          "material_read": "Indexed finding statement",
+          "method": "Resultary semantic lookup",
+          "title": "Critical rare-antipodal flip crossover in Boolean-cube cutoff profiles",
+          "trigger": "Strong same-day Gaussian likelihood analogue"
+        },
+        {
+          "assessment": "Does not treat mixed alphabets or a persistent slow factor",
+          "evidence": "The profile follows an L² approximation by independent bit refreshes in a binary cycle model.",
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-cutoff-profile-for-adjacent-edge-heat-bath-on-a-binary--830668ca52c2",
+          "material_read": "Indexed finding statement",
+          "method": "Resultary semantic lookup",
+          "title": "Gaussian cutoff profile for adjacent-edge heat bath on a binary cycle",
+          "trigger": "Earlier Gaussian profile and refresh approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This specifies an exact example where one fast collective transition drops total variation only to a positive plateau, and resolves the profile while the two scales interact. The full product likelihood gives information that cannot be read off from separate marginal TV curves or a no-cutoff criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:39:06.712162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28, VERIFICATION.md and verify.py; supplemental numerical checker inspected, not executed"
+      ],
+      "rationale": "For any selected distinct pair α,β the normalized Fourier projection has pointwise convolution sum with kernel (α+β)/N and exact supremum norm equal to its absolute kernel sum. The quotient β/α takes the q-th roots uniformly, q odd and dividing N. Using the centered representatives j=−(q−1)/2,…,(q−1)/2, the mean of 2 cos(πj/q) is 2/[q sin(π/(2q))]. Since sin(t)−t cos(t)>0 for t in (0,π/2), this norm decreases strictly with q, and the largest possible norm occurs at the smallest prime divisor p; a character of order p exists in the dual. For the phase witness on the cyclic order-p image, the same centered representatives give h(j)=exp(πij/p), so its k-th coefficient is sin(π(1−2k)/2)/[p sin(π(1−2k)/(2p))]. The two residues k=0,1 both give the same positive coefficient and uniquely minimize the denominator magnitude. Pullback has zero coefficients off the cyclic character subgroup. Hence the greedy projection really selects the sharp pair, independently of ties, and its value at zero is the proposed bound. Conversely equality at a maximizing point forces q=p and equality in each term of the convolution estimate. No kernel entry vanishes in odd order, so f has constant modulus and is proportional to the conjugate translated kernel phase; expanding it gives precisely the stated modulation and translation. Those operations and scalar multiplication preserve greedy selection and equality. This also covers p=3, groups not cyclic, and inputs with Fourier support smaller than two for the bound.",
+      "residual_risks": [
+        "Analytic proof for complex inputs at exactly two individual coefficients and odd finite abelian groups; no even-order, all-prefix or infinite-group conclusion. Numerical tests in the frozen source are not used as proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nielsen quantifies over a dimension chosen in terms of amplification and exception parameters, with maximal magnitude-threshold sums. The parity-ordered quotient theorem gives strict monotonicity of polygon averages for arbitrary positive amplitudes."
+        ],
+        "reasoning": "Neither the all-threshold amplified values in some large dimension nor the stronger kernel-average formula asserts which pair a fixed two-term magnitude selector chooses or which functions attain its norm.",
+        "searches": [
+          "Nielsen arXiv:2609.03506v1, p. 1 and Theorem 2.1 p. 3",
+          "Resultary d4da4e897f70, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Nielsen arXiv:2609.03506v1 p. 1 and Theorem 2.1",
+        "Resultary aabfaa5078e3, a58b16a2c790 and d4da4e897f70 original passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas give C_q and hence the greedy upper bound by bounding all allowable fixed projections. They do not analyze the spectrum of the projection norming function, whose two largest coefficients must lie in the projected pair."
+        ],
+        "reasoning": "The linear upper bound is an implication; equality under the nonlinear selector and all-equality rigidity need the coefficient and phase argument. The supported new content is not the cosine sum or its monotonicity.",
+        "searches": [
+          "aabfaa5078e3 Finding and Proof; a58b16a2c790 Eq. (1) and (3); d4da4e897f70 disjoint-coset and odd-sequence formulas; Nielsen Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-frequency concentration denominator coincides with the linear kernel average. By finite abelian duality the positive equal-weight two-site Fourier ℓ¹ sum in the other two records is the same average for a quotient character of order q."
+        ],
+        "reasoning": "Duality relates the fixed-pair kernel to a two-site signal, not the selection among all Fourier coefficients of the arbitrary extremizing input. The latter requires a strict coefficient comparison for its phase function.",
+        "searches": [
+          "Local Resultary comparison: two largest Fourier coefficients, exact second greedy partial sum, odd order, fixed projection and two-frequency concentration",
+          "Resultary aabfaa5078e3, a58b16a2c790, d4da4e897f70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the bound record itself. The distinct formulas cover spatial two-site/affine-coset signals, and the earlier cyclic concentration entry covers equal-weight two-frequency polynomials, not arbitrary coefficient-ranked inputs."
+        ],
+        "reasoning": "Identical constants in these kernel specializations are genuine Step 1 overlap, not matching tabulations or equality statements for the nonlinear operator. No priority inference uses the indexing date.",
+        "searches": [
+          "Local Resultary search for the exact two-coefficient greedy Fourier amplification and two-frequency Fourier norm constants",
+          "Same-day distinct records a58b16a2c790 and d4da4e897f70, both original Findings"
+        ]
+      },
+      "rationale": "The root-of-unity average, its odd-order behavior, and the resulting optimal fixed two-character kernel norm are already covered by available two-point or two-frequency formulas. The supported distinct claim is the nonlinear magnitude-ranked operator: exact attainment with a strict selection gap, followed by classification of every equality input on all odd finite abelian groups. No inspected stronger result makes that selection or classification automatic.",
+      "residual_risks": [
+        "An unindexed exact finite greedy-basis result or equivalent folklore is possible; these comparisons establish neither universal novelty nor same-day order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Amplification under a varying magnitude threshold and a chosen dimension, not an exact coefficient-count-two bound.",
+          "evidence": [
+            "For odd p≥3, A>0 and 0<ε<1, some dimension D and polynomial P have ||P||∞≤1, zero mean, and measure of {T*P>A} greater than 1−ε."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.03506",
+          "material_read": "PDF abstract p. 1 (OA offset 0) and Theorem 2.1 p. 3 (offset approximately 8500)",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Divergence of decreasing rearranged Fourier series on every infinite compact abelian group",
+          "trigger": "Magnitude threshold on finite odd cyclic products used for the infinite rearrangement problem"
+        },
+        {
+          "assessment": "Denominator recovers the linear projection norm; prescribed-polynomial concentration is not magnitude-ranked input.",
+          "evidence": [
+            "It optimizes the target-point concentration of e_N(rx)+e_N(sx) divided by their spatial L1 norm, with a divisor/gcd formula."
+          ],
+          "identifier_or_url": "Resultary aabfaa5078e3",
+          "material_read": "Mirrored RESULT.md Finding, scope and Proof, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary comparison and mirrored primary record",
+          "title": "Exact two-frequency L1 concentration on every cyclic group",
+          "trigger": "Same two-frequency absolute sum and cyclic character order"
+        },
+        {
+          "assessment": "On the abelian dual the equal-positive spatial two-site expression recovers the linear kernel constant up to normalization, not greedy rigidity.",
+          "evidence": [
+            "For two-site coefficients a,b and separation order m, Eq. (1) contains ∑|a+b exp(2πij/m)|; (3) gives the equal-positive odd-order cosecant formula. Its signed minimum uses a different phase and objective."
+          ],
+          "identifier_or_url": "Resultary a58b16a2c790",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, Eq. (1)–(4), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and targeted source passage",
+          "title": "Opposite arithmetic extremizers for two-site Fourier trace ratios on finite groups",
+          "trigger": "Distinct same-day record, equal-weight order-dependent root-of-unity average and minimum prime arithmetic"
+        },
+        {
+          "assessment": "Covers the odd-order kernel monotonicity by singleton cosets on the dual but does not analyze the phase input under a greedy selector.",
+          "evidence": [
+            "Disjoint coset formula has term M_m(α,β); singleton cosets give α=β=1, and the odd sequence of these means is strictly decreasing."
+          ],
+          "identifier_or_url": "Resultary d4da4e897f70",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions and scope, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and targeted source passage",
+          "title": "Exact Fourier-algebra norm of two affine cosets and its parity-ordered quotient law",
+          "trigger": "Distinct same-day record with broader polygon average and strict parity-order inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–3",
+        "Nielsen Theorem 2.1 and the inspected linear-kernel overlaps"
+      ],
+      "rationale": "The first nontrivial greedy rank is a natural norm-growth question for magnitude rearrangements, not a randomly chosen finite slice. Compatibility of linear norm attainment with the nonlinear selector is a real constraint. The sharp constant for every odd finite group and the strict-gap equality classification give a benchmark for further ranked projections and identify the precise dependence on the smallest prime.",
+      "residual_risks": [
+        "The result concerns exactly the second stage and does not claim sharper general greedy convergence theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:08.260489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Periodic integration gives uniform margins. I checked the concordance normalization using independent uniform U and generator X, with V=(X−U) mod 1: E[UV|X=x]=1/6+x(1−x)/2. For ordered generator locations x≤y and d=y−x, integrating the two ordered triangles in the two uniform coordinates gives concordance probability y−(x²+y²+d²)/2+x(1−y)+d(1−d)=x(1−x)+y(1−y)+d−d². Averaging recovers the cited Kendall formula. With q=E[(X−1/2)²] and J the centered CDF squared norm, these formulas give r=1/2−6q and t=1−8q−4J. The CDF constraint follows by integration by parts. At r≤0, projecting the centered CDF on x−1/2 proves J≥(1+r)²/12; equality requires an affine CDF of slope 1+r and the density endpoint conditions force r=0. For each r<0 the two endpoint blocks have centered second moment 1/4−ε/2+ε²/3, so blending them with the full uniform at the stated weight fixes q exactly; dominated convergence gives the claimed supremum although the limiting endpoint atoms are inadmissible. For positive r, the centered-uniform CDF G has q=a²/3 and J=1/4−a/3. Subtracting the moment direction from the first variation leaves zero inside the interval and the correct signs on both saturated tails. The remaining squared norm can vanish only when F−G is constant, hence zero by continuity and endpoints. This gives uniqueness, the positive formula, and consistency at independence. The feasible endpoints r=−1 and 1/2 would require atomic generators and are properly excluded. The supplied checker was inspected, not run; the recorded exact finite assertions supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schreyer–Paulin–Trutschnig characterize the unrestricted bivariate copula rank region, not the region restricted to rotational densities.",
+          "Vila–Balakrishnan–Saulo §2 p. 3, Eq. (5) at p=2 (crediting Yin et al.), gives the general iid Gini bound E|X−X′|≤2σ/√3. This is strong enough for the nonnegative-r branch but lacks the active support restriction at q>1/12.",
+          "The extreme-value copula article did not yield a primary full-text passage; it is a specific access limitation, not negative evidence."
+        ],
+        "reasoning": "The universal region is an outer constraint. The general moment inequality gives the positive branch by substitution but not the sharp negative branch: its uniform equality law would have interval length larger than one in the centered case. Searches under the bounded-support Gini and order-statistic aliases did not yield an inspected theorem settling that branch.",
+        "searches": [
+          "Web: ‘wrapped-sum copula’ conditional fixed Spearman rho sharp upper Kendall tau envelope",
+          "Web: \"Gini mean difference\" sharp upper bound finite support fixed variance mean uniform atoms bounds distribution bounded support mean variance maximizer",
+          "Web: sharp upper bound expected maximum two iid fixed mean variance bounded support range order statistics uniform atoms \"Gini\" bounded random variables mean difference endpoint moment",
+          "arXiv:1502.04620, Eq. (6); DOI:10.1016/j.jmaa.2018.11.057"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Local exact Resultary self-match, and distinct findings 4dd18c342261 and cc38c112bff2",
+        "Lalancette–Zimmerman (2022 and 2025), Schreyer–Paulin–Trutschnig, Vila–Balakrishnan–Saulo, and extreme-value paper access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2025 proof already uses a strict CDF quadratic with centered squared-norm Hessian and an obstacle-sign argument for the saturated affine CDF at the unconditional maximum. It does not fix rho in that argument. Corollary 2 gives the strictly weaker t≤2r/3 at r≠0.",
+          "Write σ²=q−(EX−1/2)². The iid Gini bound gives t≤−4q−4σ²+4σ/√3, increasing for 0≤σ≤√q≤1/√12; substituting σ=√q gives exactly the frozen positive formula, and quantile Cauchy–Schwarz gives the uniform equality case. Above q=1/12 this argument no longer gives the target bound."
+        ],
+        "reasoning": "The positive branch and proof technique have substantial prior coverage, and are not separately credited as new. Passing the complete theorem rests on the negative-r constrained sharpness and exact-r approximation, not on the known uniform extremum. Neither the known unconditional one-multiplier solution nor the Gini variance bound supplies the endpoint-mixture limit at each fixed negative r.",
+        "searches": [
+          "arXiv:2509.26635v1, Propositions 4–7 and Corollary 2, especially Proposition 6 proof, Eqs. (20)–(21)",
+          "arXiv:2301.07229v2, p. 3 Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflecting one coordinate gives the wrapped-difference signature with both rank coefficients negated; the upper sum envelope becomes a lower difference envelope.",
+          "Symmetrizing the generator about 1/2 keeps q and does not increase J; on symmetric generators the objective becomes 2E|X−X′|−8q, so the relevant alias is a maximum Gini mean difference under a fixed second moment and bounded support."
+        ],
+        "reasoning": "The opposite-sign family was considered with the correct upper/lower exchange. Neither the unconditional difference-family range nor the finite-atomic Gini catalogue theorem with fixed atom masses gives the required bounded-support optimum for density generators.",
+        "searches": [
+          "Resultary: wrapped-sum copula fixed Spearman rho sharp conditional Kendall tau envelope",
+          "Resultary: Gini mean difference fixed second moment minimize mean absolute difference CDF variance sharp theorem",
+          "arXiv:2509.26635v1, §2.1 and Propositions 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 5d9bc352d00c is the bound target itself. The strongest distinct copula hit 4dd18c342261 obtains a negative-concordance boundary in an asymmetric quadratic section and gives τ=2ρ/3 there, not the target curve.",
+          "The finite-atomic fixed-mass Gini finding cc38c112bff2 concerns a different admissible set. The primary rotational copula paper gives the exact envelope point (3/8,1/6) as its unconditional maximum, already prior coverage."
+        ],
+        "reasoning": "Neither related catalogue entry independently tabulates or implies the wrapped-sum fixed-r envelope; the exact self-match is not priority evidence. The known point at r=3/8 is not treated as new.",
+        "searches": [
+          "Resultary: wrapped-sum copula fixed Spearman rho sharp conditional Kendall tau envelope",
+          "Resultary: Gini mean difference sharp fixed second moment continuous distribution supremum",
+          "arXiv:2509.26635v1 Propositions 4 and 6"
+        ]
+      },
+      "rationale": "Credit the known exact rank identities, the unconditional Kendall maximum, the proportional bound, and the prior CDF variational method. The positive branch bound can in fact be obtained using the known iid Gini–standard-deviation inequality, not just at the prior global maximizing point. The supported distinct contribution is the full fixed-r envelope, in particular the sharp negative-r formula, nonattainment and approximation at each exactly fixed r, and the resulting change in attainment. No inspected stronger statement gave that result.",
+      "residual_risks": [
+        "An unindexed exact bounded-support Gini or order-statistic theorem could cover the negative-r branch under the identified reduction.",
+        "The Kamnitui et al. full text and the Metron article DOI:10.1007/s40300-019-00149-2 were not retrieved; absence of access is not evidence of absence of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the density family and Spearman discussion, not a bivariate Kendall envelope",
+          "evidence": "The discussion explicitly says Kendall tau in the bivariate case was not addressed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.04336",
+          "material_read": "Eq. (4) and Proposition 1, PDF p. 3 offset 9500; discussion p. 12 offset 46500",
+          "method": "Lawful arXiv PDF bounded passage reads",
+          "title": "A new family of smooth copulas with arbitrarily irregular densities",
+          "trigger": "Original wrapped-sum construction and possible rank bounds"
+        },
+        {
+          "assessment": "Rank identities, unconditional maximum, existing variational method and weak line bound verified; not the full fixed-r result",
+          "evidence": "Prop. 6 uses the piecewise CDF of Unif(1/4,3/4) and the signs of the first variation on both saturated intervals. Cor. 2 follows from the nonnegative directional coefficient 2ρ−3τ in the sum signature.",
+          "identifier_or_url": "https://arxiv.org/html/2509.26635v1",
+          "material_read": "§§2.1 and 2.2.2, Propositions 4–7 and Corollary 2; definition/signature passages around offsets 9900 and 175250; Proposition 6 proof offsets 57700–61499",
+          "method": "Lawful arXiv HTML targeted passage reads",
+          "title": "A Tractable Family of Smooth Copulas with Rotational Dependence: Properties, Inference, and Application",
+          "trigger": "Exact same family and strongest concordance coverage"
+        },
+        {
+          "assessment": "Unrestricted region, does not restrict extremizers to the target density class",
+          "evidence": "The displayed sharp region quantifies over all bivariate copulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04620",
+          "material_read": "Introduction and Eq. (6), pp. 1–3 around offset 5700; Theorems 3.6 and 5.1 identified there",
+          "method": "Lawful arXiv PDF bounded comparison",
+          "title": "On the exact region determined by Kendall's tau and Spearman's rho",
+          "trigger": "Exact general region potentially dominating the specialized envelope"
+        },
+        {
+          "assessment": "Its iid specialization supplies the positive bound after substitution, not the sharp active-support negative bound",
+          "evidence": "For p=2 Eq. (5) gives 2σ/√3 and credits Yin et al. Corollary 3.1. The displayed bound has no fixed supporting interval.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.07229",
+          "material_read": "§2, p. 3 Eq. (5) and discussion, starting offset 7350",
+          "method": "Lawful arXiv PDF bounded passage read",
+          "title": "An upper bound and a characterization for Gini’s mean difference based on correlated random variables",
+          "trigger": "Potential direct stronger fixed-moment inequality"
+        },
+        {
+          "assessment": "Plausible structural analogue; no statement-level comparison beyond stated class",
+          "evidence": "DOI route supplied a landing page or abstract only; ScienceDirect returned 403.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2018.11.057",
+          "material_read": "DOI identification and abstract-level material only",
+          "method": "Lawful DOI and ScienceDirect access attempts",
+          "title": "On the size of the class of bivariate extreme-value copulas with a fixed value of Spearman's rho or Kendall's tau",
+          "trigger": "Fixed-concordance regions in a named bivariate copula subclass"
+        },
+        {
+          "assessment": "Overlap in objective, not in admissible copula class or formula",
+          "evidence": "Uses Cφ(u,v)=uv[u+(1−u)φ(v)] and a linear τ=2ρ/3 boundary on a negative interval.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-negative-concordance-envelope-for-the-asymmetric-quadratic--4dd18c342261",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Sharp negative concordance envelope for the asymmetric quadratic section",
+          "trigger": "Closest distinct exact concordance envelope in local catalogue"
+        },
+        {
+          "assessment": "Distinct fixed-atom-masses problem",
+          "evidence": "Constrains the atom masses of finite laws, rather than optimizing over all density generators at a fixed centered moment.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-mass-sensitive-finite-atomic-gini-variance-bound--cc38c112bff2",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Sharp mass-sensitive finite-atomic Gini–variance bound",
+          "trigger": "Equivalent-Gini possibility in local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint calibration of the two concordance coefficients in the same rotational density family is not determined by their separate ranges. In particular, at each prescribed negative Spearman value the precise Kendall upper limit is strictly stronger than the known proportional line and cannot be realized by a density, yet it is approached without changing the prescribed rank coefficient. The full boundary and the change from singular limits to smooth-in-the-interior uniform generators answer a natural constrained extremal question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

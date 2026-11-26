@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies exact same-length paired-composition conditional laws, proves uniform local comparison through the logarithmic tail, and uses hypergeometric concentration to pass all fixed factorial moments to the Poisson law. The exact geometric-sum tail is \(u2^{1-u}\); the factor \(K_n\sim n/2\) gives parameter \(n u2^{-u}\), with no missing factor two. All fixed ranks, boundary conditions, and lattice phases are stated; no finite experiment is used as an infinite proof. Independent composition enumeration and a separate polynomial dynamic program pass 70 finite threshold checks.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2019 Borade–Cai–Chang–Fang–Liang–Miller–Xu primary full-text treatment proves fixed-gap limits and expressly leaves the longest-gap distribution for simple paths as further work. Its one-gap \((s-1)2^{-s}\) distribution does not by itself imply joint growing-threshold Poisson laws. A 2014 one-dimensional longest-gap theorem concerns different paths and tails. Searches for Zeckendorf lattice maxima, paired-composition extrema and Poisson jump-gap limits found no equivalent published mathematical-record statement; the nearest indexed 2026 composition-maximum result treats a single composition. Complete international publication priority cannot be guaranteed.
+PASS
 
-## Mathematical value — PASS
-The natural longest-gap problem is highlighted in the motivating paper; the new theorem establishes an entire Poisson exceedance and fixed-successive-rank law, identifies the extra \(\log_2\log_2 n\) term (not visible from the fixed-gap law alone), and distinguishes nonconvergent lattice phases. This is a structural limit law for a previously posed question rather than an arbitrary finite slice.
+This pass applies to repairs/2/RESULT.md, not the frozen wording. As written over all n, the original's positive-limit premise is unattainable: it forces u_n-b_n to converge for b_n=log_2 n+log_2 log_2 n, whereas b_n has distinct lattice phases, and the original applies its theorem along subsequences anyway. The corrected theorem explicitly quantifies over arbitrary sequences of sizes tending to infinity, retains full-sequence tightness, fixes integer rounding in the coordinate truncation, and proves nonconvergence using sizes 2^(2^t) and floor(2^(2^t+1/2)). Rechecked the repaired claim: counts by length are squared positive-composition binomials, giving the stated hypergeometric law and an exponentially negligible noncentral contribution even to fixed factorial moments. In the central range the exact stars-and-bars ratio for O(log n) total size is uniformly the product of positive geometric(1/2) probabilities times 1+o(1). The coordinate tail bound with floor(T/2) makes the discarded part o(n^(-r)) for each fixed order r. The exact geometric-sum tail u*2^(1-u) times the asymptotic step count n/2 gives the stated intensity. Exchangeability, factorial moments, and moment determinacy give Poisson limits along each phase; rank events are the corresponding count events. Compactness of the intensities at rounded offsets gives tightness over all sizes; the two phases give different centered CDF values at every offset in (0,1/2). The original finite checker was inspected, not executed; it checks finite paths, not the limiting argument.
 
-## Closest literature and limitations
-Borade et al., arXiv:1909.01935v1, Definitions 1.1–1.2, Theorems 1.3–1.4, and Section 4. Bower et al., arXiv:1402.3912, one-dimensional longest gaps. The exact result does not cover compound paths, Euclidean gaps, higher-dimensional variants, rates, or expected maximum. Bibliographic searches cannot prove global novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected claim, the distinct result is the joint growing-threshold exceedance law, with the log-log shift and lattice-phase fixed-rank laws, in the equal-coordinate simple-path model. The closest same-model primary paper gives fixed-size one-gap results and identifies the longest-gap problem for simple paths; the other inspected models do not supply the conditional moderate-gap estimates needed here. No priority certification is implied.
+
+## value
+
+PASS
+
+The repaired theorem answers a longest-gap question specifically raised for simple jump paths, with the correct extra log-log centering and genuinely different lattice phases. The fixed-rank exceedance laws and control under the common-length constraint add more than a bound on the order of the maximum or a scalar analogy. The scope remains two equal starting coordinates and l1 gap sums, with no asserted expected-maximum asymptotic or convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

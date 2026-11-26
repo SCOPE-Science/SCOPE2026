@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof checks the composition-idempotence equation on the published normal form for every endomorphism of \((\mathbb Z/p^e\mathbb Z,\cdot)\) when \(p\) is odd.
+# Independent mathematical audit
 
-The critical steps are:
+## correctness
 
-1. Restriction to the cyclic unit group of order \(N=p^{e-1}(p-1)\) gives the necessary and sufficient congruence \(t^2\equiv t\pmod N\).
-2. Comparing the valuation of the image of \(p\) under one and two applications forces either \(v=1\) or total collapse of all nonunits to \(0\).
-3. In the \(v=1\) branch, equality on \(p\) is exactly \(r^t=1\pmod{p^{e-1}}\); equality then holds on every nonzero residue because \(p\) and the units generate it multiplicatively.
-4. The cyclic group of order \(N_-=p^{e-2}(p-1)\) contributes \(\gcd(t,N_-)\) choices of \(r\).
-5. CRT choices \(t\equiv0\) or \(1\) on each prime-power component of \(N\) yield
-\[
-\sum_{t^2\equiv t\ (\mathrm{mod}\ N)}\gcd(t,N_-)
-=
-\prod_{\ell\mid N}\bigl(1+\ell^{\nu_\ell(N_-)}\bigr).
-\]
+PASS
 
-The standalone script `check_retractions.py` does not assume the parameter classification when enumerating the test cases. It generates all monoid endomorphisms from all possible images of a primitive unit generator and of \(p\), verifies the multiplication table, tests \(f\circ f=f\), and compares with the closed formula for moduli \(9\), \(27\), \(25\), and \(49\). The replay ends with `CHECK_OK`.
+An identity-preserving multiplicative idempotent is exactly a map restricting to the identity on its image. The only multiplicative idempotents of the residue ring are 0 and 1, by reduction modulo p and invertibility of one of x and 1-x. If a monoid endomorphism sends 0 to 1 then it is constant one. Otherwise it fixes 0, sends units to units, and is determined by those unit images and the image of p. The cyclic unit restriction gives the condition t²=t modulo N. For a nonzero f(p)=p^v r, equality f²(p)=f(p) requires v=min(v²,e), hence v=1; for f(p)=0 all nonunits collapse. In the surviving nonzero case f²(p)=p r^(t+1), giving exactly r^t=1 modulo p^(e-1). For p^u b with u≥1, b is determined modulo p^(e-u) and r modulo p^(e-1) suffices, so the formula is well-defined. Multiplicativity follows by adding valuations and multiplying unit parts, including when the valuation reaches e. Distinct t and r are detected on a primitive unit and on p. There are 2^omega(N) unit idempotent powers, and gcd(t,N_-) roots per power in the valuation-preserving case. CRT factors the weighted sum: the 0 choice contributes the full prime-power factor of N_-, including 1 when the exponent is zero, and the 1 choice contributes 1. This reproduces 11,17,15,33 for the four examples without assuming that the examples exhaust the domain. The supplied checker and saved output were inspected, not executed.
 
-Finite checks are not used as an infinite proof. The excluded \(2\)-power case and the unavailable thesis source remain exactly the limitations stated in RESULT.md.
+## originality
+
+PASS
+
+The older thesis and the cited paper already give the general parametrization of endomorphisms; the distinct contribution is the classification under composition-idempotence and the exact weighted CRT count. A later Resultary record gives both in full and extends them to an image-size spectrum; that is explicit equivalent coverage, but the located record is later dated and does not establish earlier priority. The checked earlier primary statements did not give that composition classification or its count.
+
+## value
+
+PASS
+
+Retracts are natural in a finite multiplicative monoid; here the three forms show which valuation behavior can survive a projection and exactly what choices of unit projection and twist are compatible. The closed count is uniform in p and e, resolves the multiplicities of the twist parameters, and answers a natural complete enumeration rather than recomputing a few small moduli or merely relabeling the endomorphism theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

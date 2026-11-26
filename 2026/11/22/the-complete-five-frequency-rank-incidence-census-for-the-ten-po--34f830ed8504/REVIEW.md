@@ -1,15 +1,21 @@
-# Scientific review: central Fourier rank incidence at order ten
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is an exact finite classification over all \(252^2=63{,}504\) five-row/five-column restrictions. The four-primitive-root method in characteristic \(401\) is *provably equivalent* to complex rank for all relevant minors, because their reduced cyclotomic coefficients have magnitude at most \(5!=120\), the four roots are distinct, and a degree-at-most-three polynomial with four modular roots is zero. The entirely different cyclotomic determinant-expansion program independently returns the same complete histogram. The rank-three geometric criterion is checked on all pairs; affine profile equality is checked on each orbit member. The rank-three forward implication also has a direct fifth-root Vandermonde proof. Neither approximate floating-point rank nor extrapolation is used. The scope does not include conditioning or other Fourier orders.
+## correctness
 
-## Originality — PASS, bounded comparison
-The closest same-order published full-spark classification identifies which row sets *have at least one* singular maximal minor; it does not count all column-set rank defects or distinguish rank-three from rank-four. The 2011 *Full Spark Frames* paper gives the original order-ten exceptional minor, not the central incidence distribution. Delvaux--Van Barel study structural low-rank blocks rather than the exact \(63{,}504\)-case census. Existing fifth-order incidence studies are at cyclic orders twelve and fifteen, not ten. Searches of indexed statements and public research records by aliases, rank numbers, and sampling terminology found no exact equivalent table. The main residual risk is an unindexed, differently stated rank-incidence census; search absence does not establish novelty.
+PASS
 
-## Value — PASS
-The central five-of-ten Fourier restriction is a natural half-sampling problem: its rank gives the exact number of independently recoverable Fourier coefficients after half of the sampling coordinates are selected. Unlike the binary full-spark property, the new classification distinguishes loss of one versus two dimensions and quantifies their incidence. The nine affine row-orbit profiles provide a complete, reusable finite recovery invariant, while the explicit rank-three subgroup criterion explains the deepest exceptions rather than merely listing them. The precise numbers and profile are not consequences of the known existence criterion alone. It is not claimed to extend to other Fourier orders or to quantify stability under noise.
+Each tenth-root power has coefficients in {−1,0,1} in the basis 1,X,X²,X³ after cyclotomic reduction. A k-minor therefore has coefficient magnitudes ≤k!≤120. Evaluation at all four primitive tenth roots modulo 401 tests exact zero: a polynomial of degree ≤3 vanishing at four distinct points is zero in the field, and each integral coefficient is smaller in magnitude than 401. This equivalence for each minor makes the maximum of the four modular ranks the complex rank. A separate exact implementation verified the roots and replayed all 63,504 ordered row/column pairs, reproducing (0,0,0,240,6640,56624) for ranks zero through five, the nine displayed affine profiles on every orbit member, and zero mismatches of the rank-three criterion. Row affines act by column relabeling and nonzero column scalings, so the orbit weighting is legitimate. With parity-coset rows the entire fifth-order Fourier matrix appears with columns repeated according to residues modulo five, so rank is the number of occupied residues, giving the pattern (2,2,1,0,0). Choosing the three occupied classes, the singleton class and its representative gives 60 choices; either parity gives 120, and transposing gives a disjoint 120. The exact enumeration proves the converse. The frozen C++ programs and both saved JSON outputs were inspected, not executed.
 
-## Closest literature and limits
-Alexeev, Cahill and Mixon, *Full Spark Frames*, arXiv:1110.3548 (2011-10-17). Delvaux and Van Barel, *Rank-deficient submatrices of Fourier matrices*, report TW470 (2006), and the related 2007 journal article. Public exact rank-incidence work at orders twelve and fifteen, and the public order-ten full-spark classification, were checked for implication. The latter supplies the already-known full-spark classification, which is not presented as new. Relevant general work on principal minors is not an all-row/all-column census. No independent mathematical audit or exhaustive global literature guarantee is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the complete central order-ten incidence table, with the rank-three equivalence and the orbit profiles. A same-day result includes a general lower bound implying rank at least three here; that part alone is already covered in substance, irrespective of priority. Same-order full-spark classification says which rows always achieve rank five but does not enumerate the singular restrictions or partition their defects. Neighboring-order complete tables do not cover order ten.
+
+## value
+
+PASS
+
+Order ten is motivated by the early failure of the Fourier full-spark residue criterion; size five is the central, square sampling problem at that order, not an arbitrary chosen slice. The nine exact profiles distinguish full recovery from one or two undetermined directions and show which row choices concentrate each failure. In particular the rank-three equivalence explains the worst loss by a parity/mod-five configuration, a useful benchmark for sampling or exact Fourier-minor work beyond knowing which rows are full spark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

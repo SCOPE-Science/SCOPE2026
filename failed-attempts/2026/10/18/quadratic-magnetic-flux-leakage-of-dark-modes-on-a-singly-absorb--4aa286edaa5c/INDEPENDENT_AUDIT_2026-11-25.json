@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:13.457525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The free Fourier energies are 2J cos((2πl+phi)/N); their monic characteristic polynomial is 2J^N[T_N(z/(2J))-cos(phi)]. Cyclic translation makes all diagonal cofactors equal, so adding the absorbing site adds i gamma/N times the free polynomial derivative, including at poles by polynomial identity. Independently, at the protected flux put E=2J cos(q), and write the free polynomial locally as the product of the two crossing factors and the remaining factor R, with R(E) nonzero. The secular derivative in z there is (2i gamma/N)R(E), proving simplicity. At fixed z=E the two detuned free energies have opposite slopes ±2J sin(q)/N; the free part of the secular polynomial therefore contributes -(2J sin(q)/N)^2 R(E) delta². The cofactor is flux independent (deleting the absorbing site leaves a path with gauge-removable phases). Solving the implicit equation gives -i 2J² sin²(q)/(gamma N) times delta². Flux enters through cos(phi), and uniqueness gives evenness and thus O(delta⁴). The real shift is at most O(delta⁴), not necessarily a nonzero quartic term. A real eigenvalue forces the trap amplitude to vanish by the dissipative identity; off 0 or pi the free spectrum is simple and each Fourier eigenvector has nonzero trap amplitude. Unpaired band-edge modes are likewise not dark. The probability rate is twice the eigenvalue linewidth in this convention. This is fixed-parameter and mode-local; the supplied numerical checks were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact site-transfer equation precedes and is independent of Heinrichs's later real random disorder approximation; each transfer matrix has determinant one for complex site potentials as well.",
+          "Longhi treats a continuum ring, Gou et al. a lossy triangle coupled to leads, and Burke et al. an open tight-binding chain with an imaginary impurity."
+        ],
+        "reasoning": "The discrete general-site transfer equation, rather than the continuum, transport or open-chain results, covers the needed secular equation. Its one-defect reduction holds at any nonzero fixed loss, not just perturbatively in the defect.",
+        "searches": [
+          "Heinrichs, arXiv:cond-mat/0106437v1, tight-binding recurrences and §II",
+          "Longhi, arXiv:1312.4693v1, §§II.A–B",
+          "Gou et al., arXiv:2001.01859v1",
+          "Burke–Wiersig–Haque, arXiv:1910.07439v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0106437v1",
+        "Resultary 9c2164f9c4e0, 974539c4b979, 84c3bc481be5, 10f1e5181e0b",
+        "arXiv:1311.6298, 1312.4693, 2001.01859, 1910.07439",
+        "PII 0038109896000038 (full text not reached)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-site specialization gives T_N(x)-cos(phi)+i gamma U_{N-1}(x)/(2J)=0. At x=cos(q), U_{N-1} vanishes simply with derivative -N cos(Nq)/sin²(q), while T_N'=0. The flux increment is cos(phi_*) delta²/2.",
+          "A real root requires U_{N-1}(x)=0, whose roots are cos(jπ/N); then T_N(x)=±1."
+        ],
+        "reasoning": "Implicit division by the simple imaginary derivative gives exactly the coefficient, with an even branch because the right side depends only on cos(phi). The real-root condition gives the stated dark-flux restriction; dissipativity supplies the sign. These require no additional spectral mechanism beyond the earlier exact equation.",
+        "searches": [
+          "Heinrichs, arXiv:cond-mat/0106437v1, Eqs. (12)–(18), single-potential specialization",
+          "Resultary 9c2164f9c4e0, mirror offsets 0–5350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heinrichs derives tr(product of site transfer matrices)=2 cos(total dimensionless flux) for the same nearest-neighbor cycle with site potentials. The flux phases inside each transfer matrix can be removed by a common similarity.",
+          "Resultary 9c2164f9c4e0 explicitly states both the secular identity and the half-flux quadratic coefficient for an even ring, with absorber -i gamma/2 instead of -i gamma."
+        ],
+        "reasoning": "After normalizing hopping and gauging the phases to the boundary, write M=[[2x,-1],[1,0]]. The absorber replaces just one factor by M+(i gamma/J)E11. The trace is 2T_N(x)+(i gamma/J)(M^{N-1})_11=2T_N(x)+(i gamma/J)U_{N-1}(x). Use T_N'=N U_{N-1}. The two Resultary conventions match by doubling the parameter of the -i gamma/2 model.",
+        "searches": [
+          "Resultary: flux detuning, dark mode linewidth, singly absorbing ring",
+          "Tight-binding ring single site impurity and magnetic flux: exact secular equation",
+          "Heinrichs, arXiv:cond-mat/0106437v1, Eqs. (12)–(18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact half-flux even-ring coefficient and parity are in later record 9c2164f9c4e0; later 974539c4b979 gives off-symmetry disappearance for any nonempty set of loss sites. The earlier catalogue comparisons use two traps or a lossless mixing time.",
+          "Krapivsky et al. give explicit zero-flux trap-independent odd-sector energies and survival, without a flux detuning."
+        ],
+        "reasoning": "These are the closest exact formulas, not a numerical table. The later dates alone do not determine independent discovery or establish earlier priority. The earlier exact transfer equation is the basis for the implication judgment.",
+        "searches": [
+          "Resultary 9c2164f9c4e0, 974539c4b979, 84c3bc481be5 and 10f1e5181e0b",
+          "Krapivsky–Luck–Mallick, arXiv:1311.6298v2, §4.2, Eqs. (4.17)–(4.21)"
+        ]
+      },
+      "rationale": "The bound coefficient is not stated verbatim in the inspected early literature, but it is a mechanical specialization of an earlier exact transfer-matrix equation. Heinrichs, arXiv:cond-mat/0106437v1, Eqs. (12)–(18), gives the exact trace condition for a tight-binding ring with general diagonal site potentials, before making a weak-disorder expansion. That derivation uses unimodularity and the linear recurrence, not reality of the potentials, and therefore extends algebraically to a single imaginary potential. The single rank-one insertion produces precisely the bound secular polynomial, from which simplicity, evenness, the coefficient and the restriction on real eigenvalues follow directly. This failure is based on an inspected governing result, not on the unavailable 1996 article or on dating a later equivalent catalogue entry.",
+      "residual_risks": [
+        "The exact chronology of related indexed derivations is not established beyond their catalogue dates.",
+        "An older single-impurity spectral formula may state the specialization directly; the unavailable 1996 full text was not used to infer that. The conclusion rests on the available exact transfer equation and its explicit reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact equation directly specializes to the frozen spectrum",
+          "evidence": "Eq. (17) follows from the site-transfer recurrence and unit determinant, not from the later disorder perturbation.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0106437v1",
+          "material_read": "§I Eqs. (2)–(10); §II Eqs. (12)–(21), PDF text offsets 3100–8344 and 13200–18851",
+          "method": "Bounded OA PDF passage read",
+          "title": "Flux Dependence of Persistent Current in a Mesoscopic Disordered Tight Binding Ring",
+          "trigger": "Exact general secular identity for the same flux-threaded discrete cycle"
+        },
+        {
+          "assessment": "Equivalent on the even half-flux restriction after normalization, but catalogued later",
+          "evidence": "Uses -i gamma/2; coefficient -i 4J² sin²(q)/(gamma N), with the same Chebyshev equation and evenness.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-quadratic-half-flux-leakage-and-a-bessel-survival-law-for-an-abs--9c2164f9c4e0",
+          "material_read": "RESULT.md local mirror offsets 0–4137 and 2800–5350",
+          "method": "Bounded catalogue mirror read",
+          "title": "Quadratic half-flux leakage and a Bessel survival law for an absorbing ring",
+          "trigger": "Closest exact indexed statement"
+        },
+        {
+          "assessment": "Prior dark-mode existence at zero flux, not the detuning formula",
+          "evidence": "Real odd-sector energies 2 cos(2π k/N) unaffected by the trap.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.6298",
+          "material_read": "v2 §4.2, pp. 15–16, Eqs. (4.17)–(4.21)",
+          "method": "Bounded OA PDF read",
+          "title": "Survival of classical and quantum particles in the presence of traps",
+          "trigger": "Same one-trap ring at zero flux"
+        },
+        {
+          "assessment": "Continuum model not the frozen site-defect lattice",
+          "evidence": "Flux fixes Bloch quasi-momentum for a continuum periodic complex potential.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4693",
+          "material_read": "v1 §§II.A–B, pp. 2–3",
+          "method": "Bounded OA PDF read",
+          "title": "Non-Hermitian quantum rings",
+          "trigger": "Complex potential and flux dependence"
+        },
+        {
+          "assessment": "Transport with leads, not the isolated branch",
+          "evidence": "One-site loss and input-direction-dependent transport in a triangle coupled to a lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.01859",
+          "material_read": "v1 p. 1 and ring/transport passages",
+          "method": "Bounded OA PDF read",
+          "title": "Tunable non-reciprocal quantum transport through a dissipative Aharonov-Bohm ring in ultracold atoms",
+          "trigger": "Lossy flux-threaded tight-binding triangle"
+        },
+        {
+          "assessment": "Open chain without flux",
+          "evidence": "Appendix A uses finite tridiagonal polynomials; no twisted cyclic boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.07439",
+          "material_read": "v2 Eq. (1), §III and Appendix A",
+          "method": "Bounded OA PDF read",
+          "title": "Non-Hermitian scattering on a tight-binding lattice",
+          "trigger": "Single imaginary site and secular recurrence"
+        },
+        {
+          "assessment": "Plausible further antecedent, not counted as proved coverage",
+          "evidence": "The indexed description addresses persistent current and a single impurity; it does not establish the precise impurity Hamiltonian or secular equation.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0038109896000038",
+          "material_read": "Search-level description only; full text not retrieved",
+          "method": "Lawful OA direct and VPN resolution attempts",
+          "title": "Impurity effect on the persistent current via Aharonov-Bohm effect",
+          "trigger": "Earlier tight-binding single-impurity flux-ring paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mode-resolved linewidth is physically useful, and its normalization is worth getting right. As the contribution claimed here, however, it is the direct simple-root expansion of a prior general spectral condition with one rank-one matrix insertion. The symmetry and no-dark conclusion follow from that same specialized equation. No genuinely distinct mathematical remainder (such as a uniform detuning/loss limit or survival theorem) is part of the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

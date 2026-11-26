@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:04.671434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With U=gcd(A,C), divide it out to obtain coprime X,Y. Then X B=Y D gives B=VY and D=VX with a unique monic V. Squarefreeness of UVXY is exactly individual squarefreeness and pairwise coprimality of the four components; equal input degrees force component degrees (k,k,n-k,n-k). Unique factorization therefore gives one empty and four single-slot choices at each prime, and factoring off the four geometric series gives the stated H_q. A coefficient indexed by j contributes q^(2n)h_q(j) for each integer k from max(j1,j2) through n-max(j3,j4), including the degree-zero endpoints. On any common radius R<sqrt(q) the Euler product converges normally because all linear local terms cancel and the total bound on local deviations is a constant times sum_d (R^2/q)^d. At R=q^(1/4), Cauchy gives exponential coefficient decay q^(-|j|/4). Replacing the positive part by its linear argument only changes indices with |j|>n; using at most binom(m+3,3) indices of weight m and an O(m+n+1) multiplier proves the stated O_q((n+1)^4 q^(-n/4)) error. The two untruncated sums are H_q(1,1,1,1) and the displayed b_q. The leading product is positive since every factor is positive and the sum of squared prime reciprocals converges. Independent replay `python3 /workspace/audit_recompute.py 2` compared the exact positive-part coefficient identity to direct squarefree-product multiplicities in 19 cases: the 15 stated test cases plus four over F4. The frozen AUDIT.json count of 17 is a bookkeeping discrepancy, not a theorem failure; RESULT.md, VERIFICATION.md and the actual loop ranges specify 15. Finite checks do not prove the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Afifurrahman's unrestricted theorem gives (n+1)q^(2n)-nq^(2n-1) for four equal degrees.",
+          "Lieb's squarefree polynomials in the graph inclusion–exclusion are edge labels, not the counted tuple entries.",
+          "Arias de Reyna–Heyman's graph-coprimality Euler-product asymptotic treats degree bounds at fixed q, without requiring squarefree tuple entries."
+        ],
+        "reasoning": "The unrestricted total cannot isolate the common-squarefree subset; ordinary graph coprimality cannot prohibit a repeated prime internal to a slot, and degree-bounded counts with a different local product do not give this exact-degree secondary term.",
+        "searches": [
+          "arXiv:2610.11240v1 Theorem 2.2",
+          "arXiv:1702.08312 Theorems 3.1–3.2",
+          "arXiv:1706.01181 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11240v1",
+        "arXiv:1702.08312",
+        "arXiv:1706.01181",
+        "Resultary 2026/10/18/3b24e0d6f5c6",
+        "Resultary 2026/10/26/8f12c8137e9c",
+        "Resultary 2026/10/18/63f8e6725c5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 proof extracts a rectangular partial sum of the coefficients for individually squarefree inputs and sums per-profile errors to O_q(1) after normalization. It has an extra (u_A u_D)^deg(P) term at every prime.",
+          "The same-day record gives (d+1)q^(2d)-(9d-8)q^(2d-1)+O_d(q^(2d-2)) for individually squarefree inputs at fixed d>=2."
+        ],
+        "reasoning": "The common four-pole method should not be credited as unique to the assigned result. Deleting the simultaneous-slot term selects a different arithmetic count, and the explicit boundary term and exponential tail require preserving the exact multiplicity of each coefficient under the degree-balance sum, rather than summing the per-profile error bound. Neither matched theorem entails the assigned two-term claim.",
+        "searches": [
+          "2026/10/26/8f12c8137e9c Four-pole extraction proof offsets 1772–5085",
+          "2026/10/18/3b24e0d6f5c6 finding and component-overlap rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both indexed squarefree-energy comparisons require all four inputs squarefree, allowing simultaneous membership of a prime in the two equal-degree gcd-side component slots. Their degree-diagonal local factor is 1+4u+u^2, versus 1+4u here.",
+          "The same-day individually squarefree record expands in large q at fixed degree, not increasing degree at fixed q."
+        ],
+        "reasoning": "For instance A=B=C=D=P for an irreducible P is counted under individual squarefreeness but not when the common product must be squarefree. The balanced squarefree coprime tuple formulation is equivalent to the new claim; ordinary coprimality is not.",
+        "searches": [
+          "Equal-degree squarefree-common-product multiplicative energy over F_q[T]",
+          "Degree-balanced tuples of four pairwise-coprime squarefree monic polynomials",
+          "Resultary 2026/10/18/3b24e0d6f5c6 and 2026/10/26/8f12c8137e9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day gcd-degree record tabulates exact unrestricted collision statistics for degrees at most d; it has no squarefreeness restriction.",
+          "The retrieved exact counts and asymptotic entries for individual squarefreeness have different constraints; none of the inspected entries specifies this b_q."
+        ],
+        "reasoning": "Neither exact unrestricted degree tables nor the finite enumerator can stand for this fixed-q secondary coefficient. The indexed comparisons are evidence about their stated counts, not proof of absence of another table.",
+        "searches": [
+          "Resultary: exact polynomial collision energy squarefree factors versus squarefree common product",
+          "Resultary 2026/10/18/63f8e6725c5c exact gcd-degree statistics"
+        ]
+      },
+      "rationale": "The assessed claim is the fixed-field two-term law, including the absolutely convergent secondary coefficient and exponential normalized remainder, for collisions with squarefree common product. The closest sources count unrestricted collisions, coprime tuples, or collisions with individually squarefree inputs. The last has substantially overlapping coefficient machinery, but a distinct prime-local rule and no corresponding secondary evaluation for this count. No priority is inferred from a same-day listing.",
+      "residual_risks": [
+        "An unlocated general coefficient theorem for squarefree degree-balanced component tuples could imply the calculation; the checked coprimality and collision theorems do not.",
+        "Same-day listing dates do not establish priority; the compared same-day claims differ in content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unrestricted baseline, not the common-squarefree count",
+          "evidence": [
+            "The fixed-degree theorem specializes to (n+1)q^(2n)-nq^(2n-1) without squarefree restrictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.11240v1",
+          "material_read": "Section 2 Theorem 2.2, offset 13350 passage",
+          "method": "OA HTML passage inspection",
+          "title": "Statistics of divisor functions over function fields",
+          "trigger": "Exact unrestricted collision count"
+        },
+        {
+          "assessment": "Does not require squarefree tuple entries",
+          "evidence": [
+            "Squarefreeness occurs in the graph inclusion–exclusion labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1702.08312",
+          "material_read": "Section 3 Theorems 3.1–3.2, near offset 17000",
+          "method": "OA HTML passage inspection",
+          "title": "Uniform Probability and Natural Density of Mutually Left Coprime Polynomial Matrices over Finite Fields",
+          "trigger": "Potential general tuple-coprimality coverage"
+        },
+        {
+          "assessment": "Related regime, different count and no covering degree-diagonal secondary term",
+          "evidence": [
+            "Counts degree-bounded tuples with graph coprimality conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.01181",
+          "material_read": "Section 1 Theorem 1.1, near offset 3400",
+          "method": "OA HTML passage inspection",
+          "title": "Tuples of polynomials over finite fields with pairwise coprimality conditions",
+          "trigger": "Fixed-q multivariate Euler-product asymptotic"
+        },
+        {
+          "assessment": "Individual squarefreeness; fixed-degree large-field limit",
+          "evidence": [
+            "Allows a component overlap producing a nonsquarefree common product."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-squarefree-multiplicative-energy-over-polynomial-rings-the-first--3b24e0d6f5c6",
+          "material_read": "RESULT.md finding and factorization passages at offsets 0 and 2600",
+          "method": "Local mirrored record inspection",
+          "title": "Squarefree multiplicative energy over polynomial rings: the first correction",
+          "trigger": "Strongest same-day squarefree-energy hit"
+        },
+        {
+          "assessment": "Overlapping coefficient method, but weaker squarefreeness condition and different conclusion",
+          "evidence": [
+            "Four-variable product allows simultaneous gcd-side slot membership, with degree-diagonal local factor 1+4u+u^2, and the stated normalized remainder beyond the leading term is O_q(1)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-squarefree-sparsity-in-equal-degree-polynomial-product-collision--8f12c8137e9c",
+          "material_read": "RESULT.md finding and proof offsets 1772–5085",
+          "method": "Local mirrored record inspection",
+          "title": "Squarefree sparsity in equal-degree polynomial product collisions",
+          "trigger": "Closest fixed-field squarefree collision asymptotic"
+        },
+        {
+          "assessment": "Unrestricted degree-at-most count, not the assigned restriction",
+          "evidence": [
+            "The exact gcd-degree distribution has no squarefree common-product constraint."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-uniform-geometric-gcd-degree-statistics-of-polynomial-product-co--63f8e6725c5c",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirrored record inspection",
+          "title": "Uniform geometric gcd-degree statistics of polynomial product collisions",
+          "trigger": "Possible exact degree-enumeration coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Squarefree common products are a natural stratum of multiplicative energy and have a different local prime-allocation law. At fixed field the exact secondary coefficient separates true boundary contributions of the degree balance from a generic bounded error. The exact coefficient identity and exponentially small remainder are useful quantitative statements beyond a finite census or the known unrestricted formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

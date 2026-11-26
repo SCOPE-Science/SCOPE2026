@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sixth moment is exactly a sum of squared triple-convolution fibers. In characteristic three the fiber multiplicities are \(q\) off the zero-sum axis, and \(q,2q,0\) on that axis. The triangle inequality yields the sharp upper bound, attained by quadratic chirps. Equality on the all-diagonal fiber forces cube-root phases; translated zero-sum fibers yield a symmetric bilinear second difference, and nonzero-sum repeated-triple comparisons force that bilinear form to factor through field multiplication. Trace duality gives exactly quadratic additive characters and the \(q^2\) projective count. The supplied checker verifies complete fibers and constraint nullities at \(q=3,9,27\); finite tests are not used as proof.
+## correctness
 
-**Originality — PASS (best knowledge).** The motivating 2024 primary theorem excludes characteristic three. The closest published characteristic-three parabola result computes an exact *local* sixth-moment Hessian, not a global phase-only maximum or equality classification. A three-mode inequality covers \(q=3\) but only three available frequencies at \(q\ge9\), and a prime-field equality classification assumes characteristic at least five. Those statements do not imply the all-mode, characteristic-three classification for infinitely many extension fields proved here. Search matches and inspected complete mathematical statements are recorded in AUDIT.json. Possible earlier equivalent quadratic-phase rigidity results remain a bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** The theorem fills a natural characteristic-three gap in finite-field parabolic sixth-moment analysis for phase-coded (constant-amplitude) data and supplies complete extremizers and their precise multiplicity for infinitely many extension fields. It distinguishes a solvable global phase-only optimization from the still-unclaimed unrestricted nonconstant-amplitude problem.
+Reconstructed RESULT.md lines 23–70. Character orthogonality gives q^(-3) times the sum of squared triple-fiber sums. With w=a+b and v=a−b, the second constraint becomes u=s²+sw−v², so the fiber cardinalities are q at s≠0 and q, 2q or 0 as stated at s=0. The squared cardinalities sum to q⁴+q³−q². Unit modulus gives the upper bound, with equality exactly when triple phases align separately in each fiber. The diagonal (0,0) fiber forces cube roots after removing the common phase. Translating zero-sum triples makes each first phase difference additive after subtracting its value at zero, yielding a symmetric F_3-bilinear polarization B. Comparing (t,1−t,0) with (v,v,1+v), v=t²−t, gives B(t,t)=B(1,t²); polarizing gives B(a,b)=B(1,ab). Nondegeneracy of the field trace yields precisely linear-plus-quadratic field trace phases, and also makes the q² normalized classes distinct. Every such phase attains equality. This covers fixed nontrivial additive character and the claimed d≥2, not unrestricted L² extremizers. VERIFICATION.md, verify.py and verification_output.txt record finite corroboration at 3, 9 and 27; they were inspected, not run, and no conclusion for arbitrary d rests on them.
 
-**Limits.** Pointwise unimodular inputs only; not a global unrestricted \(L^2\to L^6\) theorem, no quantitative stability claim, and independent external assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same normalized sharp numerical value occurs in neighboring parabola literature. The supported distinction is global equality rigidity among unimodular full-field inputs for every nonprime field of characteristic three. The closest inspected statements do not establish that classification or a stronger theorem implying it.
+
+## value
+
+PASS
+
+At the natural endpoint for parabola restriction, characteristic three changes the degenerate fibers and permits many abstract F_3-quadratic functions before the nonsingular constraints are imposed. Proving that only field-trace quadratic chirps survive globally is substantial and useful for identifying exact maximizers over every nonprime extension. The value is the complete classification, not another calculation at q=3 or an unrestricted sharp extension claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

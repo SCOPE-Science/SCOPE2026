@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:35:11.479290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–111",
+        "Frozen VERIFICATION.md and artifacts/verify.py lines 10–50 and verify_output.txt, inspected, not executed",
+        "repairs/2/RESULT.md and repairs/2/VERIFICATION.md",
+        "Independent direct enumeration at p=5,7,11,13,17 as described in the repaired Reproducibility section"
+      ],
+      "rationale": "The frozen claim for every nontrivial ring character is false. For psi(x)=exp(2 pi i x/5) on Z/25 the moment is 69, not 89/25. The replacement distinguishes primitive from imprimitive characters: in the expanded fourth moment the two frequency sums detect j times the differences for a character of index j. A unit j detects the ring equalities, while an index of valuation one detects only the field equalities; each field quadruple has p^4 ring lifts. The representation spectrum and ring energy survive unchanged. With d=a-b, the unit-s equation is z^4+6z^2+1=lambda. A regular root has one lift for each target lift. At 1 the p lifts of z=0 contribute only to the exact target 1, alongside regular roots z^2=-6; at -8 the identity g+8=(z^2+3)^2 gives all p lifts per exceptional root only at -8. In the field, g(z)=g(w) describes the union z^2=w^2 and z^2+w^2=-6; their counts are 2p-1 and p-chi(-1) and the intersection size is 2u. The first and second fiber moments then solve for L,H after removing the two exceptional residue values. When p divides s, 8y=d^4, giving the stated h-to-one nonzero lifted fibers and p roots at zero. For the energy, the equality product (d^2-f^2)(d^2+f^2+6s^2) has E_p=3p^2-3p+1-2(p-1)c reduction zeros and S=p+2(p-1)u singular reduction zeros. The latter are the line d=f=0 and common zeros away from that line. At these, the product is zero for every lift, whereas a regular zero has p^2 lifts. This gives p^2 E_p+(p^3-p^2)S and the stated energy. The repair includes exact bounded per-sum comparisons and the field counts, separately from the universal proof.",
+      "residual_risks": [
+        "The uploaded reference checker compares aggregate histograms and energy, not the locations of exceptional fibers or character orthogonality; the latter follow from the proof.",
+        "Scope remains p>=5 and modulus p^2, with counting measure on frequency space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "35db6c8e1cdf, Finding and assumptions at offset 0, gives an energy recurrence for the same graph over Z/p^k, including k=2, but excludes assertions about individual fibers.",
+          "327b026713c6, Finding at offset 0, requires a unit coefficient of x^2 for the perturbed quartic, excluding coefficient zero; same calendar date does not order these records."
+        ],
+        "reasoning": "There is demonstrable energy overlap with the prime-power result, but it neither subsumes the full spectrum nor resolves its originality by date alone. The unit-perturbation theorem does not specialize to the unperturbed graph.",
+        "searches": [
+          "Resultary quartic graph over prime powers and perturbed quartic over prime-square rings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirrored records 235f10989b3f, ba1c8156001a, a783058468ac, 327b026713c6, 0e6d34edb345, 1bbc7ea862f6 and 35db6c8e1cdf",
+        "González-Riquelme–Oliveira e Silva, arXiv:2405.16647, abstract (extension background)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier prime-square cubic record a783058468ac classifies orthogonal exponential frequency spectra. The field count does not specify whether a singular residue fiber lifts to zero, one or many targets.",
+          "The same-graph energy recurrence explicitly does not count individual fibers."
+        ],
+        "reasoning": "Recovering this result requires separating regular and critical roots at 1 and -8 and evaluating the nonunit-sum locus, not simply relabeling a field or cubic formula. The primitive-character qualification is a correction, not part of the originality claim.",
+        "searches": [
+          "Compare 235f10989b3f, a783058468ac, 327b026713c6 and 35db6c8e1cdf to the repaired lifting proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "235f10989b3f, Finding at offset 0, computes the finite-field quartic energy and constant-input moment; ba1c8156001a, Finding at offset 0, is a restricted finite-field extension quotient."
+        ],
+        "reasoning": "The spectrum is equivalently a census of ordered convolution coefficients. A fourth moment is a single weighted aggregate and cannot recover this census; also the field does not retain prime-square exceptional lifting data.",
+        "searches": [
+          "Resultary quartic graph additive energy, extension moments and two-sum multiplicities; arXiv:2405.16647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0e6d34edb345, Finding at offset 0, has the full finite-field histogram for even quartics, including t^4. 1bbc7ea862f6, Finding at offset 0, gives pair-sum fibers and energy over odd residue rings for t^3. Both are catalogued after the target."
+        ],
+        "reasoning": "The field table has the correct polynomial but a different base ring; the cubic table has the relevant ring but a different equation. Neither is a lookup of the requested spectrum.",
+        "searches": [
+          "Resultary exact twofold sum spectrum and odd residue ring pair-sum fibers"
+        ]
+      },
+      "rationale": "The supported increment in the repair is the full ordered fiber classification over Z/p^2, including the descriptions of exceptional lifts and nonunit sums. The field energy, elementary character orthogonality and character-conductor correction are not counted as novel. The strongest same-object match gives energy, but explicitly omits individual fibers and has a later catalogued date.",
+      "residual_risks": [
+        "Bounded search is not exhaustive; the primary-literature query did not return a direct quartic-ring spectrum source, which is not evidence of absence.",
+        "The same-day ordering of the perturbed and unperturbed records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Field energy and moment overlap; no prime-square spectrum",
+          "evidence": [
+            "Finite-field hypotheses and exact field energy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored original",
+          "title": "Exact additive energy of the finite-field quartic graph",
+          "trigger": "Same graph over the residue field"
+        },
+        {
+          "assessment": "Different coefficient domain and invariant",
+          "evidence": [
+            "The coefficient of x^2 must be a unit, not zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored original",
+          "title": "Exact fourth moments of unit-perturbed quartic graphs over prime-square rings",
+          "trigger": "Same ring, closely related quartic"
+        },
+        {
+          "assessment": "Its k=2 energy overlaps exactly; no individual fibers, and later catalogued",
+          "evidence": [
+            "Exact recurrence, explicit exclusion of individual fiber claims."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-additive-energy-of-the-quartic-graph-over-prime-power-ring--35db6c8e1cdf/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirrored original",
+          "title": "Exact additive energy of the quartic graph over prime-power rings",
+          "trigger": "Same object with a general prime-power parameter"
+        },
+        {
+          "assessment": "Includes t^4 but over the field only",
+          "evidence": [
+            "Exact field histogram includes perturbation coefficient zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-twofold-sum-multiplicity-spectrum-for-even-quartic-grap--0e6d34edb345/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored original",
+          "title": "Complete twofold-sum multiplicity spectrum for even quartic graphs",
+          "trigger": "Potential quartic fiber classification"
+        },
+        {
+          "assessment": "Orthogonal frequency sets, not two-sum fibers",
+          "evidence": [
+            "Graph is cubic and the invariant is an exponential spectrum."
+          ],
+          "identifier_or_url": "a783058468ac",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored original",
+          "title": "All exponential spectra of the cubic graph over prime-square cyclic groups",
+          "trigger": "Earlier same-ring cubic comparator"
+        },
+        {
+          "assessment": "Cubic only, later catalogued",
+          "evidence": [
+            "Its domain includes prime-square rings but its polynomial is t^3."
+          ],
+          "identifier_or_url": "1bbc7ea862f6",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored original",
+          "title": "Complete pair-sum fibers of the cubic graph over odd residue rings",
+          "trigger": "Existing odd-ring pair-sum census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and lifting/energy proof",
+        "Comparison to finite-field and energy-only results"
+      ],
+      "rationale": "The higher-multiplicity prime-square fibers are a substantive obstruction to transferring field convolution estimates. This gives all multiplicities, including targets missed entirely, concentrated critical lifts of size proportional to p, and a different nonunit-sum stratum. The exact classification is therefore useful even apart from the energy and supplies a benchmark for extension moments and lifting questions. The conductor correction alone is elementary and would not justify acceptance.",
+      "residual_risks": [
+        "No conclusion about the optimal extension norm for arbitrary weights or a full spectrum at higher prime powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

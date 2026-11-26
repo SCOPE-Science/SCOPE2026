@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:47:02.024027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–56",
+        "Frozen VERIFICATION.md, lines 18–21; checker.py inspected without execution",
+        "Independent exact two-dimensional check by the four masks and the displayed finite-input pair"
+      ],
+      "rationale": "Euclidean orthogonal conjugation of the coordinate positive part is indeed the metric projector onto the rotated orthant. Because U is onto, every strict sign mask is realized. Inside its chamber the Jacobian is U^T D U and its induced maximum-row-sum norm is achievable by a sufficiently small displacement in a norming sign direction. On a segment the map is piecewise linear with those slopes; any coordinate that is identically zero along the segment can be designated inactive without changing the slope. Thus the exact Lipschitz coefficient is the maximum across masks, including the all-active identity. A row u gives the singleton mask uu^T, of norm ||u||_infty ||u||_1 >= ||u||_2^2=1. Equality forces all nonzero magnitudes to be equal. The complementary mask has absolute row sums 1+|u_j| ||u||_1-2u_j^2, also valid at zero coordinates. On a flat row with k supported entries this gives 2-2/k at supported coordinates, ruling out k>=3 and proving the expansion certificate. Orthogonal singleton rows occupy entire columns; a row on a pair can have an overlapping orthogonal row only on the identical pair. Column normalization gives exactly one partner and the pair is a signed and permuted Hadamard block. Conversely all masks on a singleton or Hadamard pair are contractive, and signed permutations preserve the norm of the mask collection (row signs do not change a mask projector; row permutations relabel masks). The identity chamber supplies coefficient one, including dimension one. An exact independently checkable expansive example is U=(1/5)[[3,4],[-4,3]]: each of its two singleton masks has maximum absolute row sum 28/25, so the four-mask maximum is 28/25. At x=U^T(1,-1) a step of (1,1)/2 stays in the first singleton chamber and realizes this quotient.",
+      "residual_risks": [
+        "checker.py line 40 compares its angle to 1/sqrt(2) rather than pi/4; none of the five listed angles equals either value, so this cosmetic guard error does not affect those cases. The universal argument is analytic, not a numerical tolerance claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasannasab et al. and Goebel–Sędłak use the Hilbert norm. Finzel–Li consider piecewise affine selections of metric projections for a polyhedral norm as the projection objective, not Euclidean projection measured in max norm.",
+          "Randrianantoanina's cited hyperplane and finite-codimension results concern certain norm-one projections in finite-p spaces, with support-size-two phenomena under different hypotheses."
+        ],
+        "reasoning": "Changing the norm used for stability, or classifying the existence of some norm-one projector onto a range, does not evaluate all prescribed Euclidean orthogonal mask projectors for the square row basis.",
+        "searches": [
+          "web: Euclidean metric projection \"maximum norm\" nonexpansive convex polyhedra hyperplanes diagonally dominant orthogonal projection infinity norm classification",
+          "Hasannasab et al. arXiv:1912.10480, Theorem 2.1",
+          "Randrianantoanina arXiv:math/0110171, Theorems 6.5–6.6",
+          "Finzel–Li, J. Convex Analysis 7 (2000), p. 73"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match 49ce7f7ecb02 and distinct 68669b4a4980",
+        "ArXiv and institutional primary passages listed above",
+        "Two focused web queries under the basis-theoretic and Euclidean-projector aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known row-sum formula evaluates a fixed matrix; a Hilbert contraction only controls the 2-norm. The two masks used here probe complementary Euclidean projections on the same row: the singleton forces flatness and its complement cuts support size to at most two.",
+          "Warner's abstract describes radial, orthogonal and minimal projections in three-dimensional l_4; no full-text claim about l_infinity can be drawn from the abstract."
+        ],
+        "reasoning": "The prior techniques help formulate the problem but the checked statements do not mechanically force the exact blocks or the quantitative expansion certificate for the given metric mismatch.",
+        "searches": [
+          "Anil–Lucas–Grosse, pp. 2–3; Hasannasab et al. Theorem 2.1; Albiac et al. Eqs. (1.4)–(1.5); Randrianantoanina Theorems 6.5–6.6",
+          "Richard A. Warner thesis landing-page abstract (orthogonal and minimal hyperplane projections)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (1.4) defines suppression unconditionality by uniformly bounded coordinate-subset projections. In the orthonormal row basis these are exactly U^T D U; their optimal bound is the projector's Lipschitz coefficient.",
+          "The closest distinct Resultary record, 68669b4a4980, treats projection onto a sum-of-group-maxima ball, not a rotated orthant."
+        ],
+        "reasoning": "The basis alias is genuinely equivalent, but the general definition and inspected greedy-basis statements do not classify which Euclidean orthonormal bases satisfy it in the max norm. Do not equate arbitrary unconditionality with suppression constant exactly one.",
+        "searches": [
+          "Resultary semantic searches for coordinatewise nonexpansivity of orthogonal ReLU projections",
+          "web: \"suppression unconditional\" orthonormal basis finite dimensional l infinity cube norm one coordinate projections Hadamard classification",
+          "Albiac et al., Eq. (1.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary entry 49ce7f7ecb02 is the assigned record itself. The distinct 68669b4a4980 says that a different Euclidean projector is max-norm nonexpansive iff its grouped-maxima ball has at most two groups.",
+          "Anil–Lucas–Grosse give the maximum-row-sum norm and study a distinct ReLU expressivity obstruction; no inspected source tabulates the row-bound or the exceptional matrices for this projector."
+        ],
+        "reasoning": "A finite numerical table is inapplicable as a complete comparator because d is unbounded and U ranges over a continuum. Checked exact classification statements instead: a threshold of two groups in a different target geometry is not the pair-block restriction on U.",
+        "searches": [
+          "Resultary: square orthogonal ReLU projection max-norm classification",
+          "Resultary 68669b4a4980, Finding",
+          "Anil–Lucas–Grosse arXiv:1811.05381 pp. 2–3"
+        ]
+      },
+      "rationale": "The precise supported distinction is the classification of square real orthogonal ReLU conjugations in the coordinate maximum norm, equivalently the Euclidean orthonormal row bases that are 1-suppression unconditional for that norm. I credit the general contractive-projection and basis formulations, the known chamber-norm tools, and Hilbert projector stability. The inspected primary statements did not give the joint all-mask criterion evaluated on these bases or the row-based expansive witness. Earlier equivalent basis-theoretic coverage remains possible.",
+      "residual_risks": [
+        "Earlier classical formulations might classify Euclidean orthonormal 1-suppression unconditional bases of the cube under different terminology; no exhaustive priority claim. The orthogonal/minimal-projection thesis full text was not available from the institutional PDF link; this by itself makes neither a positive nor a negative novelty inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different projection target and parameter",
+          "evidence": [
+            "A sum-of-group-maxima ball with nonexpansivity iff at most two groups, not an orthogonally rotated orthant."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-coordinatewise-stability-of-euclidean-projection-onto-grou--68669b4a4980",
+          "material_read": "RESULT.md Finding, offset 0 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Resultary search and local-mirror primary text",
+          "title": "Sharp coordinatewise stability of Euclidean projection onto grouped-maxima balls",
+          "trigger": "Strongest distinct same-day Resultary hit on coordinatewise stability of a Euclidean projector"
+        },
+        {
+          "assessment": "Broader architecture but Hilbert-norm stability",
+          "evidence": [
+            "Firm nonexpansivity is in a Hilbert space, not classification in coordinate maximum norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.10480",
+          "material_read": "PDF pp. 2 and 4, offsets 7054 and 11294, Theorem 2.1",
+          "method": "OA primary PDF passages",
+          "title": "Parseval Proximal Neural Networks",
+          "trigger": "Proximal networks and nonexpansive orthogonal conjugation"
+        },
+        {
+          "assessment": "Relevant matrix norm and different expressivity result",
+          "evidence": [
+            "Explicit absolute row-sum norm; its cited ReLU gradient-norm obstruction uses the 2-norm, not tied orthogonal max-norm classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.05381",
+          "material_read": "PDF pp. 2–3, offsets 13098 and 17338",
+          "method": "OA primary PDF passages",
+          "title": "Sorting Out Lipschitz Function Approximation",
+          "trigger": "Orthogonal Lipschitz-constrained ReLU architectures and induced matrix norms"
+        },
+        {
+          "assessment": "Related sparse-support projection criteria with a different norm and quantifier",
+          "evidence": [
+            "The inspected results have 1<=p<infinity, p≠2, and concern hyperplanes and finite-codimensional subspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0110171",
+          "material_read": "PDF p. 29 Theorems 6.5–6.6, around offset 80652",
+          "method": "OA primary survey passage",
+          "title": "Norm One Projections in Banach Spaces",
+          "trigger": "Possible prior contractive-projection classification"
+        },
+        {
+          "assessment": "Establishes terminology and distinguishes optimal constants, not this matrix classification in the passages read",
+          "evidence": [
+            "Suppression constant is the supremum of the norms of coordinate-subset projections, with a separately defined lattice-unconditional constant."
+          ],
+          "identifier_or_url": "https://observatorio-investigacion.unavarra.es/documentos/652b2930ebee473633a36d6b/f/65672c02aaaaaa46358cb288.pdf",
+          "material_read": "Abstract and pp. 3–4 around offset 9450, Eqs. (1.4) and (1.5)",
+          "method": "OA institutional PDF passages",
+          "title": "Counterexamples in isometric theory of symmetric and greedy bases",
+          "trigger": "Search under strengthened suppression-unconditional basis terminology"
+        },
+        {
+          "assessment": "The abstract addresses a different optimization norm and set-valued selection, not the bound rigidity",
+          "evidence": [
+            "Projection of interest is defined using a polyhedral norm; its possible piecewise affine selections differ from evaluating a Euclidean projector in another norm."
+          ],
+          "identifier_or_url": "https://doi.org/10.68381/jca07004",
+          "material_read": "p. 73 abstract (primary PDF offset 0)",
+          "method": "OA journal PDF passage",
+          "title": "Piecewise Affine Selections for Piecewise Polyhedral Multifunctions and Metric Projections",
+          "trigger": "Possible general result for max-norm projections and piecewise affine maps"
+        },
+        {
+          "assessment": "Hilbert-space nonexpansivity rather than mixed-norm rigidity",
+          "evidence": [
+            "Projection and its complement are both contractions in the underlying Hilbert norm; no coordinate maximum norm enters the read statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/v10062-009-0008-8",
+          "material_read": "pp. 83–84, Abstract and §1 (PDF offset 0–2888)",
+          "method": "OA primary PDF passage",
+          "title": "Nonexpansive retractions in Hilbert spaces",
+          "trigger": "Search hit on nonexpansive nearest-point projections and complementary projections"
+        },
+        {
+          "assessment": "Abstract studies a different projection-norm setting; uninspected full text is a residual risk",
+          "evidence": [
+            "The abstract explicitly specifies l_4 in dimension three, relative minimal projections and a radial projection constant."
+          ],
+          "identifier_or_url": "https://digitalcommons.usf.edu/etd/5794/",
+          "material_read": "Institutional abstract around offset 877; attempted institutional full PDF returned HTTP 403",
+          "method": "OA website abstract and lawful institutional PDF attempt",
+          "title": "Radial Versus Orthogonal and Minimal Projections onto Hyperplanes in l_4^3",
+          "trigger": "Plausible projection-norm thesis from targeted web results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equivalence, expansion certificate and Limitations",
+        "Hilbert-vs-maximum-norm comparison in Hasannasab et al. and Anil–Lucas–Grosse"
+      ],
+      "rationale": "Euclidean projector stability is automatic in its own norm, but coordinate maximum-norm stability is a distinct, motivated perturbation requirement. The classification gives a complete structural boundary for tied orthogonal ReLU conjugation: disjoint 45-degree pairs are possible, while all other mixing loses coordinate nonexpansivity. The row certificate gives a witness without inspecting every sign mask, including a dimension-independent gap for a row with fixed flat support k>=3. The conclusion is not merely a low-dimensional calculation or a reassertion of Hilbert nonexpansivity.",
+      "residual_risks": [
+        "No sharp general coefficient for expansive cases and no transfer to rectangular or multilayer architectures are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

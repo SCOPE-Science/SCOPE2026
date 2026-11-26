@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:16:30.652251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–62",
+        "Frozen VERIFICATION.md and verify.py, inspected only",
+        "Independent exact example replay: python3 /workspace/review_evidence/finite_checks.py 1; normalized values 19/48, 181/480 and 533/960 bracket 77/200 as stated"
+      ],
+      "rationale": "The binomial average of the focal geometric marginal return gives the stated gain. For every size n>=3 the second derivative of its gain term is a positive prefactor times (delta_n-1)^2 times a strictly positive power of 1+(delta_n-1)x. Thus either G''>0 everywhere or G is affine. The nonconstant affine case gives at most one root; the constant-zero gain gives an interval of stationary points with no isolated or asymptotically stable one. Strict convexity gives at most two roots; when there are two, signs are +,-,+ and only the lower crossing attracts from both sides. A minimum tangency is one-sided, not asymptotically stable. The strict signs at 0, 1/4 and 1 in the exact three-size example are as stated, so it exhibits two interior roots with the stated stability. The example shows attainment with three sizes, not that three are necessary.",
+      "residual_risks": [
+        "Only fixed positive mixtures and size-specific geometric returns in a well-mixed infinite population are covered. The finite replay verifies the example, not the theorem for all choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2 says convex gain sequences give convex expected gain for all experienced group-size distributions, including a single size. Sec. 3.4.1 draws the at-most-two interior-rest-points conclusion for a nontrivial convex gain. Property 2 supplies general Bernstein sign-variation root bounds."
+        ],
+        "reasoning": "Although Peña–Nöldeke formulate random sizes with one shared gain sequence, the point-mass instances can separately use any convex sequence at each size. Convexity is closed under positive sums, so this gives the stated class and in fact arbitrary size-specific convex gain sequences. General sign-variation theory alone would require checking its coefficient condition; the convex-gain lemma is the decisive comparison.",
+        "searches": [
+          "Peña–Nöldeke, bioRxiv 10.1101/021485, Lemma 2 and Sec. 3.4.1",
+          "Peña–Lehmann–Nöldeke arXiv:1310.0498, Property 2"
+        ]
+      },
+      "checked_sources": [
+        "bioRxiv 10.1101/021485, Lemma 2 and Sec. 3.4.1",
+        "arXiv:2604.07228, p. 5 and Appendix A",
+        "arXiv:1310.0498, Property 2",
+        "Resultary df7bf08f5022 and 782b8b55b870",
+        "DOI 10.1111/j.1558-5646.2011.01504.x (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n fixed, the focal payoff sequence has nonnegative second differences, and fixed-size expected gains are exactly the Bernstein averages to which the lemma applies. Strict two-order coexistence supplies positive, negative and positive samples in increasing order."
+        ],
+        "reasoning": "Apply the lemma at each single size and add with positive weights; this is a closure operation, not a new hypothesis on a shared sequence. Strict convexity versus affine degeneracy follows immediately from the second differences. For the sharpness quantifier, adding a third gain term in a convex mixture of weight epsilon changes any finite set of strict sign witnesses continuously, so the two crossings survive for all sufficiently small positive epsilon. The non-isolated constant case and one-attractor conclusion are routine phase-line consequences of the same argument.",
+        "searches": [
+          "Statement and implication comparison: Peña–Nöldeke Lemma 2 and Sec. 3.4.1; Llabrés et al. p. 5 and Appendix A; frozen Finding and lines 20–59"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llabrés et al. state at most two isolated zeros for a mixture of two orders and give stable/unstable two-root cases. Their Eqs. (A2)–(A5) give the two-order geometric-power form."
+        ],
+        "reasoning": "The displayed two-order result is exact subcase overlap, not by itself an all-orders theorem. Arbitrary positive size-specific scales at unconstrained positive weights do not enlarge the gain-polynomial family: B=sum(w_n b_n), with reweighted probabilities w_n b_n/B, yields common scale B. This reparameterization need not preserve a separately fixed physical sampling distribution.",
+        "searches": [
+          "Llabrés et al., arXiv:2604.07228, p. 5 and Appendix A",
+          "Random-size gain sequences and geometric marginals in Peña–Nöldeke, Eqs. (3)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary df7bf08f5022 has a sharp 2m-root bound for a quorum-two volunteer gain; 782b8b55b870 has discrete convexity for size-specific geometric returns with finite-population sampling without replacement."
+        ],
+        "reasoning": "The quorum gain is not geometric and allows more extrema. Discrete finite-population selection-direction changes are not the infinite-population stationary frequencies here. Neither inspected indexed claim is an exact duplicate; the originality failure comes from the primary convex-gain theorem and the known two-type witnesses.",
+        "searches": [
+          "Resultary: sharp equilibrium multiplicity with finite group-size support and geometric-gain convexity"
+        ]
+      },
+      "rationale": "The arbitrary-finite-order no-go is a direct corollary of the published convex-gain result of Peña and Nöldeke. Apply their Lemma 2 to a point-mass size distribution separately for each n and to the convex sequence d_k^(n)=b_n delta_n^k/n-c: its second difference is (b_n/n) delta_n^k(delta_n-1)^2>=0. Each corresponding expected gain is convex by the lemma. Positive averaging now allows completely independent sequences at the different sizes, with no shared-sequence hypothesis needed at that last step. The equilibrium bound then follows from their convex-gain root argument, or strict convexity/affine degeneracy and the scalar phase line. Two-order sharpness was already shown by Llabrés et al.; adding a third positive size at sufficiently small weight preserves the strict +,-,+ sign witnesses. The particular rational data check out but do not supply a non-implied sharpness statement. This is a coverage finding, not a failure caused by access limits.",
+      "residual_risks": [
+        "The detailed scope of Peña (2012) was not established independently. This has no bearing on the explicit derivation from the accessible Peña–Nöldeke convex-gain lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive corollary via single-size instances and closure under positive averaging, despite the shared sequence in its general random-size presentation",
+          "evidence": [
+            "Lemma 2: if d is convex then g(x,p-hat) is convex for all experienced group-size distributions. Sec. 3.4.1 gives at most two interior rest points for the nontrivial convex case."
+          ],
+          "identifier_or_url": "https://www.biorxiv.org/content/10.1101/021485v1.full.pdf",
+          "material_read": "Eqs. (3)–(6) p. 6 offset around 21500; Lemma 2 p. 11 offset around 42719; Sec. 3.4.1 p. 13 offset around 51000",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Variability in group size and the evolution of collective action",
+          "trigger": "Potential direct convex-gain and equilibrium-count coverage"
+        },
+        {
+          "assessment": "Covers one/two orders and attainment with two; strict signs persist when a third type is added at small weight",
+          "evidence": [
+            "Main text: F(rho) can have at most two isolated zeros in (0,1), and opposite discount/synergy regimes attain two with one stable and one unstable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.07228",
+          "material_read": "v2 p. 5, offset around 30957; App. A pp. 11–12 Eqs. (A2)–(A6), offsets around 70863 and 76785",
+          "method": "Lawful OA main result and appendix inspection",
+          "title": "Emergence of cooperation in nonlinear higher-order public goods games",
+          "trigger": "Same nonlinear geometric-return model and exact two-order overlap"
+        },
+        {
+          "assessment": "General sign-variation antecedent, not the decisive convex-averaging implication",
+          "evidence": [
+            "Interior rest point counts are controlled by sign changes in the gain sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.0498",
+          "material_read": "Introduction p. 4 offset around 8693; Property 2 p. 9 offset around 21732",
+          "method": "Lawful OA passage inspection",
+          "title": "Gains from switching and evolutionary stability in multi-player matrix games",
+          "trigger": "General gain-polynomial root-count theory"
+        },
+        {
+          "assessment": "Different, quorum-based gain law; not geometric",
+          "evidence": [
+            "For a quorum-two volunteer game with m support sizes, the sharp bound is 2m roots and m attracting roots."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-equilibrium-multiplicity-from-finite-support-group-size-he--df7bf08f5022",
+          "material_read": "Mirrored RESULT.md offsets 0–4848",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "Sharp equilibrium multiplicity from finite-support group-size heterogeneity",
+          "trigger": "Infinite-population random-size multiplicity and sharpness"
+        },
+        {
+          "assessment": "Structural overlap, but finite sampling and discrete selection differences rather than continuous phase-line result",
+          "evidence": [
+            "Discrete convexity handles arbitrary size mixtures and size-specific geometric multipliers under without-replacement sampling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-four-person-reversal-and-universal-convexity-of-finite-p--782b8b55b870",
+          "material_read": "Mirrored RESULT.md offsets 0–4985 and 8500–10594",
+          "method": "Resultary retrieval and local mirror inspection",
+          "title": "A sharp four-person reversal and universal convexity of finite-population public-goods selection",
+          "trigger": "Same geometric mixture and convexity theme"
+        },
+        {
+          "assessment": "No whole-paper finding inferred; not needed for the demonstrated corollary",
+          "evidence": [
+            "Excerpt identifies synergy/discounting and group-size distributions but does not verify the common-multiplier scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1558-5646.2011.01504.x",
+          "material_read": "Publisher search excerpt only; Peña–Nöldeke's text identifies its own expected-gain formula as related to Eq. (3) of Peña (2012)",
+          "method": "Lawful publisher retrieval attempted (403); DOI recovery found no open copy",
+          "title": "Group-size diversity in public goods games",
+          "trigger": "Earlier random-size public-goods discussion in frozen references"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 33–59",
+        "Peña–Nöldeke, Lemma 2 and Sec. 3.4.1",
+        "Llabrés et al., p. 5 and Appendix A"
+      ],
+      "rationale": "Whether richer random-size mixtures can yield more coexistence states is a legitimate modeling question, but this record does not resolve a substantive gap beyond the known convex-gain closure argument. The derivative/endpoint criterion is the usual horizontal-level test for a strict convex polynomial, and adding a third size preserves existing two-root behavior by continuity. The particular rational parameters are one illustration of that already guaranteed possibility, not an independently motivated exact instance or new threshold.",
+      "residual_risks": [
+        "The illustrative reformulation may have pedagogical utility; that is distinct from scientific value as a new finding under this review."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

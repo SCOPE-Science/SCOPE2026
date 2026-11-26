@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:21:42.052713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–88 and VERIFICATION.md; supplied verify_bdf4.py inspected, not executed",
+        "Exact independent check /workspace/branches/independent_bdf_check.py: Newton weights, all Schur signs, reciprocal and boundary identities, BDF5 rational witness."
+      ],
+      "rationale": "I derived the difference transfers by differentiating the Newton interpolation basis, substituting y_{n-j}=y_n−∑_{i<j}d_{n-i}, and taking the chronological two-step product. Its BDF4 characteristic cubic P_r/A agrees identically. For a monic cubic with coefficients a,b,c, the Schur reduction has quadratic coefficients 1−c²,a−bc,b−ac; positivity at ±1 and the upper bound on its constant coefficient are exactly the displayed conditions after dividing by positive factors. Exact expansion gives positive coefficients in each of the five proof numerators. Absolute summability of the differences then gives bounded nodal values and convergence for each fixed ratio. Reciprocity is exact; at t=1/r=0 the normalized cubic has a simple root −1 and a double root 0. Substitution of z=−1+ut into t⁴P_{1/t}(z) gives t(24u−128)+O(t²), so the |z| at the simple branch is 1−16t/3+O(t²). Strictness plus continuity on compact positive r intervals confines approach to the supremum to the extremes. Independent order-five differentiation at steps 1,10 gives det(I+T)=−8874496/44681585, so the monic quartic has a real root strictly below −1 by its sign at −1 and at negative infinity.",
+      "residual_risks": [
+        "Fixed-ratio homogeneous zero stability only; neither uniform stability constants across ratios nor general-grid stability follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 12 record proves strong zero stability through order four for every fixed r and classifies the fifth-order stable interval, with upper endpoint about 6.2884.",
+          "Li–Liao's available BDF2/BDF3 abstract does not give this order-four or five theorem. The targeted classical full texts were not all accessible."
+        ],
+        "reasoning": "A complete interval classification with a real multiplier below −1 outside the endpoints proves the r=10 phenomenon; general techniques or unrelated sufficient ratio bounds do not supply this implication.",
+        "searches": [
+          "Oct. 12 Resultary alternating-grid record, Finding and Order five",
+          "doi:10.1007/BF01386395",
+          "doi:10.1090/S0025-5718-1986-0856699-X",
+          "arXiv:2201.00527v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Oct. 12 alternating-grid and Nov. 2 threshold records; different three-period BDF3 and paired BDF4 records",
+        "Li–Liao arXiv:2201.00527, classical references listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the exact earlier cubic, t⁴P_{1/t}(−1+ut)=t(24u−128)+O(t²) and its coefficients are reciprocal. The prior quartic is negative at −1 for r>r_+.",
+          "Three-periodic BDF3 and paired four-step BDF4 concern different products."
+        ],
+        "reasoning": "The extreme-ratio expansion and supremum are direct consequences of the exact earlier cubic and strict inequalities. The exact rational counterexample is an evaluation of the earlier quartic, not a new instability mechanism. Other product families, even with the same leading constant, are not substitutes for this exact overlap.",
+        "searches": [
+          "Oct. 12 Resultary alternating-grid record, Proof: Order four and Order five, offset 3545",
+          "Resultary: SCOPE-exact-floquet-stability-of-bdf3-on-every-positive-three-periodic--90fe05898983",
+          "Resultary: SCOPE-sharp-uniform-floquet-damping-for-paired-step-mathrm-bdf4--4a7134a4fc58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct. 12 assumptions use the exact variable-step interpolation derivative on y′=0 and difference Floquet multipliers on rh,h rather than fixed Nordsieck coefficients."
+        ],
+        "reasoning": "Time rescaling eliminates h; starting in the other phase changes only the cyclic product. These statements have the same grid, method, notion of stability, and quantifier over r.",
+        "searches": [
+          "Resultary: SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7",
+          "arXiv:2201.00527v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct. 12 Order four gives denominator (r+4)(2r+3)(3r+2)(4r+1), the exact B/A,C/A,−H/A and all principal strict Schur expressions, including the identical degree-eight certificate.",
+          "Its Order five gives the actual parasitic quartic F(z) and endpoint-sign polynomial; the same-day record explicitly mentions instability at 10."
+        ],
+        "reasoning": "This is an exact prior calculation, not a nearby ratio sample. The same-date source adds corroboration, not a temporal priority ordering.",
+        "searches": [
+          "Resultary: SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7",
+          "Resultary: SCOPE-exact-reciprocal-stability-threshold-for-fifth-order-bdf-on-alte--3487ed97b8e8"
+        ]
+      },
+      "rationale": "The Oct. 12 indexed claim covers exactly the all-ratio interpolatory BDF4 assertion, even using the identical cubic and Schur polynomials. Its cubic supplies the endpoint expansion by the derivative of a simple root. Its BDF5 threshold classification strictly dominates the witness at r=10. The evidence is substantive prior coverage in the indexed record, irrespective of external publication priority.",
+      "residual_risks": [
+        "Full-text access to several older plausible papers could not be resolved; the rejection is from actual indexed mathematical coverage, not inferred from inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen finding",
+          "evidence": "Identical monic BDF4 cubic and Schur expressions; BDF5 quartic sign change and exact reciprocal threshold, with real root below −1 outside it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md",
+          "material_read": "Finding and conditions at offset 0; continuous proof passage from 3545 through Order four and Order five",
+          "method": "Primary local-mirror text; exact coefficient and root-branch comparison",
+          "title": "Sharp alternating-grid zero-stability boundary for variable-step BDF through order five",
+          "trigger": "Identical fixed alternating family and method"
+        },
+        {
+          "assessment": "Matching order-five phenomenon, no within-day priority assigned",
+          "evidence": "Notes the r=10 instability and gives the whole interval classification for actual interpolatory coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-reciprocal-stability-threshold-for-fifth-order-bdf-on-alte--3487ed97b8e8/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Primary local-mirror text",
+          "title": "Exact reciprocal stability threshold for fifth-order BDF on alternating grids",
+          "trigger": "Possible exact BDF5 witness match"
+        },
+        {
+          "assessment": "Result described there is about lower orders; not the basis of the rejection",
+          "evidence": "BDF2 and BDF3, not BDF4 or BDF5 fixed two-periodic grids.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "OA paper abstract, offset 0",
+          "method": "Primary scope comparison",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Nearby variable-step stability literature"
+        },
+        {
+          "assessment": "Unresolved external coverage; not negative evidence",
+          "evidence": "General variable-order variable-step topic warrants residual caution.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+          "material_read": "Bibliographic information; full text not secured",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "On the Zero Stability of the Variable Order Variable Stepsize BDF-Formulas",
+          "trigger": "Classical plausible specialized prior coverage"
+        },
+        {
+          "assessment": "No exhaustive conclusion about that work",
+          "evidence": "Methodological background is not relied on to decide coverage.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1986-0856699-X",
+          "material_read": "Identified source; full-text comparison not resolved",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Construction of Variable-Stepsize Multistep Formulas",
+          "trigger": "Distinction among variable-step implementations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof",
+        "Oct. 12 Resultary alternating-grid record, Order four and Order five"
+      ],
+      "rationale": "The question itself is natural: extreme alternation tests the gap between arbitrary-ratio sufficient conditions and a fixed Floquet product. But the frozen record does not close a remaining gap: its complete Schur calculation was given for this family already, the BDF5 witness specializes an existing full classification, and the added sharp coefficient is a routine first derivative of the known exact cubic. Rechecking the known table does not constitute a separate worthwhile finding.",
+      "residual_risks": [
+        "This does not assess other mesh periods or nonspectral stability constants, which are outside the claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

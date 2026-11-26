@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:51.396360Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact replay used the seven explicit lines, all 2^7 and 3^7 maps with labeled colors, and the no-monochromatic-line condition, which allows three distinct colors on a line. It found 0 and 882 proper colorings, respectively. Legal single-coordinate changes and a separate all-pairs Hamming-one test produced identical edges; there are 3906, with counts 252, 504, 126 at degrees 8, 9, 10. All 882 BFS traversals of this graph visited all states, with maximum distance 7 for every source. The 388521 unordered pairs had excess d-h exactly 0 in 386253 cases and 1 in 2268 cases; symmetry gives the ordered-pair bound, and diagonal pairs have zero excess. The claimed h=5,d=6 and h=d=7 witnesses were recovered; every step of the printed six-move path independently satisfies the line constraints. Explicit permutation testing of the seven lines found the full 168-element point group, and its action together with all six palette permutations gave one orbit per listed profile, with sizes 126,252,504 for (1,2,4),(1,3,3),(2,2,3). Replay code for the full finite calculation is supplied at review_evidence/3/replay_fano_independent.py (run with Python 3 from the workspace); the uploaded script was inspected, not executed. Independently, for inclusion–exclusion any nonempty chosen line set has one connected block on its union. Three lines are concurrent in 7 of 35 cases (union size 7 instead of 6); four lines omit one point in exactly 7 of 35 cases and never omit two; five or more cover all points. With singles and pairs covering 3 and 5 points this gives q^7-7q^5+21q^3-21q^2+6q. All claims are for this fixed seven-point object.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anastos–Frieze use one-Hamming-coordinate change for the coloring graph; the inspected theorem concerns random hypergraphs and gives connectivity and O(n) diameter with high probability under its hypotheses"
+        ],
+        "reasoning": "Their general graph definition agrees, but high-probability random-model bounds do not specialize to an exact radius or optimal pointwise bound on this fixed labeled seven-point hypergraph.",
+        "searches": [
+          "Primary literature search on Fano hypergraph coloring reconfiguration, recoloring distance and exact Hamming excess",
+          "Anastos–Frieze arXiv:1803.05246, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Colbourn–Dinitz–Rosa DOI 10.37236/1457",
+        "arXiv:1803.05246",
+        "Resultary local mirror: SCOPE-complete-ternary-fourier-recovery-for-weak-colourings-of-the-fan--7bff204e2bc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fourier inversion of the later fully labeled spectrum would recover the predicate for membership in the same coloring set",
+          "Neither the bicoloring split nor the random connectivity theorem concerns all-pairs exact graph distances for this state set"
+        ],
+        "reasoning": "Recovering state membership supplies input to, rather than proving the result of, the all-pairs shortest-path computation; the original seven triples already supply such a predicate. An edge total or ambient Hamming-distance census also cannot certify that legal paths interpolate the endpoints with at most one extra move. The inspected results did not establish that metric bound or its exact exception histogram as an antecedent.",
+        "searches": [
+          "Resultary: Fano weak coloring distances and Fourier overlap",
+          "Anastos–Frieze arXiv:1803.05246 and Colbourn–Dinitz–Rosa R25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bicoloring Steiner Triple Systems, PDF p. 2 requires exactly two colors on each block; p. 10 gives the order-seven split (4,2,1)",
+          "The later Fourier-recovery Finding uses the same seven XOR lines and excludes only monochromatic triples"
+        ],
+        "reasoning": "Weak proper coloring is exactly the no-monochromatic-line ternary state set of the Fourier record; its 882-state count is identical. The stricter bicoloring condition omits the profiles with rainbow lines: counting monochromatic pairs gives 0, 1, 2 rainbow lines in profiles (1,2,4), (1,3,3), (2,2,3), respectively. The older bicoloring table therefore does not classify the full state set or the new geometry.",
+        "searches": [
+          "Resultary: weak three-colourings of the Fano plane, one-site updates and Hamming excess",
+          "Colbourn–Dinitz–Rosa, definition and Section 2 table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 16 ternary Fourier record tabulates a complete labeled multiplier spectrum by frequency orbits and gives 882 colorings",
+          "The 1999 bicoloring table gives (4,2,1) but no one-coordinate distance table"
+        ],
+        "reasoning": "The later complete labeled Fourier table also yields 3906 edges by Parseval: sum orbit_size·|W(k)|²·(14-3·support_size(k)) over its frequency rows and divide by 2·3^7. Thus that numeric overlap is implicit even without an edge row. But its orbits are frequency orbits, not point/palette orbits of colorings, and the table does not give shortest paths or their Hamming excess. No matching metric table surfaced in the bounded searches.",
+        "searches": [
+          "Resultary: exact Fano weak coloring census, recoloring graph counts and pairwise distance table",
+          "Colbourn–Dinitz–Rosa Section 2 table"
+        ]
+      },
+      "rationale": "The fixed-plane distance geometry, including the sharp excess bound and entire excess census, distinguishes the finding from the inspected primary and indexed results. Neither the classical two-color obstruction nor the generic definition of a recoloring graph is credited as new. The closely related later Fourier table determines the state set and implies the edge count, but does not state the metric classification. No exhaustive priority claim is made.",
+      "residual_risks": [
+        "The indexed and primary searches were bounded. An unindexed exact census or earlier equivalent distance analysis was not ruled out. The later Fourier overlap is expressly credited, and its date does not establish independent priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact split for the strict subset, not the complete weak recoloring geometry",
+          "evidence": [
+            "Bicoloring requires precisely two colors per block; the order-seven row gives the split 4,2,1."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1457",
+          "material_read": "Definition, PDF p. 2 at offset 2493; Section 2 table, p. 10 at offset 20397",
+          "method": "OA journal full-text passages",
+          "title": "Bicoloring Steiner Triple Systems",
+          "trigger": "Older exact order-seven coloring table"
+        },
+        {
+          "assessment": "Different regimes and strength of conclusion",
+          "evidence": [
+            "The definition uses Hamming-one adjacency; the stated hypergraph result concerns connectivity and a linear diameter bound with high probability in a random model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.05246",
+          "material_read": "PDF pp. 1–2, offsets 0–4774",
+          "method": "OA full-text passages",
+          "title": "On the connectivity threshold for colorings of random graphs and hypergraphs",
+          "trigger": "Same type of one-coordinate recoloring graph"
+        },
+        {
+          "assessment": "Later overlap in state count and implicit edge total; no exact recoloring-distance assertion in inspected findings",
+          "evidence": [
+            "W(0)=882; twelve labeled balanced frequency orbits with exact multipliers suffice for the Hamming-graph quadratic form. Its stated invariants are convolution rank, inverse norms and multiplier orbits, not distances in the induced recoloring graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-complete-ternary-fourier-recovery-for-weak-colourings-of-the-fan--7bff204e2bc4",
+          "material_read": "RESULT.md Finding at offset 0, including both multiplier tables; proof passage at offset 2332",
+          "method": "Local mirror full-text passages and Fourier comparison",
+          "title": "Complete ternary Fourier recovery for weak colourings of the Fano plane",
+          "trigger": "Identical labeled coloring set and exact tabulation on the same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical seven-point non-two-colorable triple system at the first feasible palette size is a natural test case for coloring reconfiguration. Knowing connectivity alone does not answer whether direct Hamming-optimal recoloring is always possible. The precise negative answer, sharp one-extra-move bound, and full exception count give a reusable benchmark for proposed geodesic or shortest-path claims. The finite classification is motivated by those metric facts rather than simply recomputing a color count or claiming a broader hypergraph theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

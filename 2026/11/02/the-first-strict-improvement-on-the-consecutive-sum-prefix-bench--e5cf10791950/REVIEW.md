@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each valid strictly increasing sequence in \([1,N]\) corresponds bijectively to a nonzero \(N\)-bit subset mask. The cardinality of its consecutive-sum set equals the number of distinct positive differences among its exact integer prefix sums. The standalone exhaustive checker visits all \(2^N-1\) masks for each \(1\le N\le24\); in total, \(33,554,406\) masks. The actual run reported maximum \(188\), full-sequence score \(186\), and a unique maximizer at \(N=24\), while showing the full-sequence score attains the maximum for each smaller \(N\). The max-count and bit-mask assertions guard against transcription mistakes. Selected comparisons use an independent Boolean-array implementation. This is a finite computational proof with explicit source, rather than an infinite theorem inferred from samples.
+PASS
 
-## Originality — PASS within available evidence
+Each nonempty subset of [1,N] defines exactly one admissible sequence in increasing order. Each nonempty contiguous block is represented by a positive prefix difference, and all such differences are between 1 and N(N+1)/2. In the supplied code, nonzero mask stamps are unique within each N and their array is reset between domains, so they mark exactly one occurrence of each distinct sum per candidate. The maximizer counter is reset on improvement and incremented on ties. Independently implemented NumPy enumeration instead uses packed bit flags for the positive differences of prefixes at all original boundaries, dropping zero differences from empty blocks; repeated boundaries cannot add a new positive difference. It exhausted all 33,554,406 nonempty masks across N=1 through 24. Through 23 the maximum equals the full-sequence count; at 24 it found maximum 188, full-sequence count 186, and exactly one winner with mask 16776191, which is the full mask with bit 10 removed. This verifies minimality, the exact maximum and the claimed uniqueness without any inference about N>24.
 
-Beker (arXiv:2311.10087, DOI:10.1112/blms.13098) proves asymptotic bounds for this extremal cardinality and discusses the obvious increasing-prefix benchmark, but does not state the first finite threshold or the unique \(N=24\) optimizer. The previously inspected mathematical search records also supply no matching finite crossover. Exact novelty beyond the checked published material is not certified: an unpublished or unindexed enumeration could contain these values. No mathematical distinctness is inferred merely from an absence of search hits.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantity is the exact finite extremal function naturally attached to a published Erdős–Graham problem. Its first crossover is an intrinsic boundary, not an arbitrary parameter slice: it answers the least-size question at which the canonical, previously emphasized benchmark ceases to maximize consecutive-sum diversity. The complete classification of the unique crossover optimizer adds rigidity. The small numerical improvement (two) is not used as evidence of importance by itself.
+The benchmark sequence's values and the general extremal question are prior. The least N where the benchmark fails, the exact maximum there, and the unique optimizer are not covered by the strongest inspected material.
 
-## Boundaries and reproducibility
+## value
 
-The theorem asserts nothing for \(N>24\). It relies on a complete, reproducible 24-bit exact census and does not claim to introduce a new asymptotic argument. The verification source is bundled, with no network or nonstandard library dependencies beyond a C++17 compiler. Independent mathematical auditing has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full initial interval is the canonical benchmark for an established extremal problem. Its sharp first failure, after 23 domains of exact optimality, is a natural finite boundary independent of the size of the gain. The unique maximizing deletion shows precisely what changes at that boundary and gives an exact reference point for future structural or computational analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

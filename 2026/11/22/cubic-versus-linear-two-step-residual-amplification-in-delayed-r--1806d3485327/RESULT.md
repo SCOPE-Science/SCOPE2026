@@ -2,83 +2,56 @@
 
 ## Finding
 
-**Theorem.** Let \(K>1\) and let \(A=\operatorname{diag}(\sqrt K,1)\), so that the spectral condition number of \(A^{\mathsf T}A\) is \(K\). Consider the consistent system \(Ax=b\), start with \(x_0=0\), and choose any nonzero two-component right-hand side \(b\). Set \(r_j=b-Ax_j\), take the common initial residual-based surrogate-hyperplane step
-\[
-\alpha_0=\frac{\|r_0\|_2^2}{\|A^{\mathsf T}r_0\|_2^2},
-\qquad x_1=x_0+\alpha_0 A^{\mathsf T}r_0,
-\]
-and then take exactly one further step using either the **delayed-residual** rule \(\alpha_1^{\mathrm{DR}}=\alpha_0\), or the **residual-difference** rule
+Let \(K>1\), \(A=\operatorname{diag}(\sqrt K,1)\), and let \(r_j=b-Ax_j\) for the consistent real system \(Ax=b\) started at \(x_0=0\). Use two updates \(x_{j+1}=x_j+\alpha_j A^{\mathsf T}r_j\). Use the residual Rayleigh step \(\alpha_0=\|r_0\|_2^2/\|A^{\mathsf T}r_0\|_2^2\) first and the residual-difference step of Xu [1] second:
 \[
 \alpha_1^{\mathrm{RD}}=\frac{\|r_1-r_0\|_2^2}{\|A^{\mathsf T}(r_1-r_0)\|_2^2}.
 \]
-Let \(M_{\mathrm{DR}}(K)\) and \(M_{\mathrm{RD}}(K)\) denote the supremum, over initial residuals with both components nonzero, of the ratio \(\|r_2\|_2/\|r_0\|_2\) under the respective rules. Then both suprema are attained, and
+Let \(M_{\mathrm{RD}}(K)\) be the supremum of \(\|r_2\|_2/\|r_0\|_2\) over starting residuals with both components nonzero. This supremum is attained for every \(K>1\). If \(t=|(r_0)_1|^2/|(r_0)_2|^2\), then
 \[
-\boxed{\lim_{K\to\infty}\frac{M_{\mathrm{DR}}(K)}{K^{3/2}}=\frac{3\sqrt3}{16},\qquad
-\lim_{K\to\infty}\frac{M_{\mathrm{RD}}(K)}{K^{1/2}}=\frac12.}
+\lim_{K\to\infty}\frac{M_{\mathrm{RD}}(K)}{\sqrt K}=\frac12,
+\qquad K^3t\longrightarrow 1\quad\text{for every sequence of maximizing starts}.
 \]
-If \(t=|(r_0)_1|^2/|(r_0)_2|^2\) is the initial high-to-low squared residual ratio, every maximizing choice has \(Kt\to1/3\) for the delayed-residual rule, whereas \(K^3t\to1\) for the residual-difference rule. Thus the two rules have asymptotically different worst-startup scales even on the same two-dimensional, consistent, positive diagonal system.
+
+**Comparison with the known repeated-Cauchy case.** The delayed-residual (DR) step \(\alpha_1=\alpha_0\) is exactly the two-step Cauchy cycle of [2] on a dual quadratic whose gradient is \(-r\). The exact squared gain in [2] implies a worst-start factor \((3\sqrt3/16+o(1))K^{3/2}\) with maximizing scale \(Kt\to1/3\). Thus the RD startup replaces cubic by linear growth in \(\kappa_2(A)=\sqrt K\), and the most amplifying initial residuals put asymptotically less energy in the high mode. The DR result is a benchmark from [2], not an independent novelty claim here.
 
 ## Assumptions and scope
 
-All quantities are real and all arithmetic is exact. The matrix is diagonal, positive definite, and \(2\times2\), with \(K>1\). Both initial residual components are nonzero. For each fixed \(K\), both step rules use the same source-specified first step. The comparison concerns the Euclidean *physical residual* after precisely two updates; it does not assert a difference in eventual convergence rates or in the objective function's monotonicity. The condition number of \(A\) itself is \(\sqrt K\), so the blow-up exponents relative to \(\kappa_2(A)\) are three and one respectively.
+All arithmetic is exact. The spectral condition number of \(A^{\mathsf T}A\) is \(K\), not \(\sqrt K\). The result concerns the Euclidean physical residual after exactly two updates, with the same first step for both rules. It does not bound the objective function after any step, the eventual convergence rate, typical starts, or finite-precision errors.
 
-## Proof
+## Proof of the residual-difference law
 
-By homogeneity and symmetry of signs, write \(r_0=(\sqrt t,1)^{\mathsf T}/\sqrt{1+t}\), where \(t>0\). Set \(B=AA^{\mathsf T}=\operatorname{diag}(K,1)\). Since \(r_{j+1}=(I-\alpha_jB)r_j\), the common first step is
+Write \(B=AA^{\mathsf T}=\operatorname{diag}(K,1)\). The two residual updates multiply by \(I-\alpha_jB\). The first step has size \((1+t)/(1+Kt)\) and its high- and low-mode multipliers are \(-(K-1)/(1+Kt)\) and \((K-1)t/(1+Kt)\). The identity \(r_1-r_0=-\alpha_0Br_0\) gives \(\alpha_1^{\mathrm{RD}}=(1+K^2t)/(1+K^3t)\), with high- and low-mode multipliers \(-(K-1)/(1+K^3t)\) and \((K-1)K^2t/(1+K^3t)\). Multiplying the two mode factors and averaging with the initial squared weights \(t/(1+t),1/(1+t)\) gives
 \[
-\alpha_0=\frac{1+t}{1+Kt},\qquad
-1-K\alpha_0=-\frac{K-1}{1+Kt},\qquad
-1-\alpha_0=\frac{(K-1)t}{1+Kt}.
+R_K(t)=\frac{\|r_2\|_2^2}{\|r_0\|_2^2}
+ =\frac{(K-1)^4(t+K^4t^4)}{(1+t)(1+Kt)^2(1+K^3t)^2}.
 \]
-The delayed rule repeats \(\alpha_0\) once, while \(r_1-r_0=-\alpha_0Br_0\) makes the residual-difference rule equal to
-\[
-\alpha_1^{\mathrm{RD}}=\frac{1+K^2t}{1+K^3t}.
-\]
-A second componentwise multiplication gives the following *exact* squared amplification functions, with no limiting approximation:
-\[
-D_K(t):=\frac{\|r_2^{\mathrm{DR}}\|_2^2}{\|r_0\|_2^2}
-=\frac{(K-1)^4(t+t^4)}{(1+t)(1+Kt)^4},
-\]
-\[
-R_K(t):=\frac{\|r_2^{\mathrm{RD}}\|_2^2}{\|r_0\|_2^2}
-=\frac{(K-1)^4(t+K^4t^4)}{(1+t)(1+Kt)^2(1+K^3t)^2}.
-\]
-Both functions are strictly positive, continuous, and tend to zero as \(t\downarrow0\) or \(t\to\infty\); hence each has a positive interior maximum.
+This is continuous and positive on \(t>0\) and tends to zero at both endpoints. A positive maximum is therefore attained at an interior point.
 
-For the delayed rule substitute \(y=Kt\). The polynomial identity \((1+t^3)/(1+t)=1-t+t^2\) gives
+Set \(z=K^3t\). The high-mode contribution to \(R_K(t)/K\) is
 \[
-\frac{D_K(t)}{K^3}
-=\left(1-\frac1K\right)^4
-\frac{y(1-y/K+y^2/K^2)}{(1+y)^4}.
+\left(1-\frac1K\right)^4\frac{z}{(1+z/K^3)(1+z/K^2)^2(1+z)^2}\le \frac{z}{(1+z)^2}.
 \]
-For fixed \(y\ge0\), the expression tends to \(f(y)=y/(1+y)^4\). Uniform control of maximizing sequences follows from \(1-y/K+y^2/K^2\le(1+y)^2\) for \(K\ge1\): the normalized expression is at most \(y/(1+y)^2\), tending to zero uniformly at both tails. On compact \(y\)-intervals the convergence is uniform. Differentiation gives \(f'(y)=(1-3y)/(1+y)^5\), so the unique maximizer is \(y=1/3\), and its value is \(27/256\). Therefore \(\max_t D_K(t)/K^3\to27/256\), and every maximizing \(Kt\) tends to \(1/3\).
+The low-mode contribution to \(R_K(t)\) is at most 1: both step sizes lie between \(1/K\) and 1, so both low-mode multipliers have modulus at most 1, and the initial low-mode weight is at most 1. Consequently \(R_K(t)/K\le z/(1+z)^2+1/K\), uniformly for \(z>0\). At \(z=1\), the high-mode term tends to \(1/4\). The function \(z/(1+z)^2\) tends to zero at both endpoints and has its unique maximum \(1/4\) at \(z=1\). The uniform upper bound and the test value at 1 show convergence of the maximum to \(1/4\); for any maximizing choice, the profile must tend to \(1/4\), forcing \(z\to1\). Taking the square root gives the stated constant for the residual norm.
 
-For the residual-difference rule substitute \(z=K^3t\). Then
+## Derivation of the comparison from the existing benchmark
+
+Put \(x=A^{\mathsf T}u\) in the dual quadratic \(q(u)=\tfrac12u^{\mathsf T}Bu-b^{\mathsf T}u\). Its gradient is \(Bu-b=-r\); the Rayleigh step is the Cauchy line-search step on this quadratic, and repeating it gives precisely DR. The \(m=2\) specialization of the exact squared gain \(F_m(K,t)\) in [2, Proof §2] is
 \[
-\frac{R_K(t)}K=\left(1-\frac1K\right)^4
-\frac{z+z^4/K^5}{(1+z/K^3)(1+z/K^2)^2(1+z)^2}.
+D_K(t)=\frac{(K-1)^4(t+t^4)}{(1+t)(1+Kt)^4}.
 \]
-Separate the two numerator terms. The first is at most \(z/(1+z)^2\le1/4\). For the second, its contribution before the prefactor is bounded by \(1/K\) uniformly in \(z>0\): for \(z\le K^2\) use \((1+z)^2\ge z^2\); for \(K^2\le z\le K^3\) additionally use \((1+z/K^2)^2\ge z^2/K^4\); for \(z\ge K^3\) also use \(1+z/K^3\ge z/K^3\). The three bounds are respectively \(z^2/K^5\), \(1/K\), and \(K^2/z\), each at most \(1/K\) in its range. Thus the limsup of the normalized maximum is at most \(1/4\). Taking \(z=1\) gives a matching lower limit of \(1/4\). Since the leading bound \(z/(1+z)^2\) has its unique maximum at \(z=1\), the same inequalities and compactness prove every maximizing \(z\to1\). Taking square roots establishes the theorem.
+For \(y=Kt\), division by \(K^3\) gives \((1-1/K)^4 y(1-y/K+y^2/K^2)/(1+y)^4\). This converges on compact \(y\)-intervals to \(y/(1+y)^4\), and is bounded by \(y/(1+y)^2\) for \(K\ge1\), so no maximum escapes to either tail. The unique limiting maximizer is \(y=1/3\), with value \(27/256\). This gives the comparison constant and the stated maximizing scale by specialization and elementary maximization of the known formula.
 
 ## Verification
 
-The included standard-library Python checker `verification/check_two_step.py` independently forms the two componentwise updates using exact rational arithmetic, evaluates both derived rational formulas and both rescaled identities, and tests the global upper bound used for the residual-difference asymptotic. It passed 4,424 exact-rational assertions on nondegenerate test points and six floating-point checks of two explicit near-maximizers. These are corroborating finite checks only. The theorem for all real \(K>1\) and the limits rest on the displayed algebraic and uniform-tail arguments, not enumeration or simulation.
-
-Reproduce with `python verification/check_two_step.py` from the extracted package directory; output: `VERIFY_OK 4430`.
+The proof is analytic. The accompanying Python script `verification/check_two_step.py` supplies finite exact-rational diagnostics of the two squared gains and a finite sample of the rescaled bounds. These diagnostics are not a certificate for the infinite-parameter limits.
 
 ## Relationship to prior work
 
-Xin Xu's *Two-point residual step size gradient methods for linear systems* (2026, arXiv:2611.02743v1) defines both update rules, their common initial surrogate-hyperplane step, and proves a step-size ordering and a finite-window contraction analysis in the two-mode setting. The source reports nonmonotone residual spikes numerically. Equations (8), (14), (16), and (17) there supply the algorithmic starting point, not the two sharp startup amplification laws or their distinct maximizing initial-residual scales.
-
-The classical Barzilai–Borwein literature and more recent sharp asymptotic analyses address long-run rates, monotonicity or spectral bounds for related gradient steps. A published sharp safety-frontier result for repeated Cauchy steps addresses a related two-step long-step component, but the present distinction is the quantitative **joint** worst-case residual comparison of the source's DR and RD rules under the same prescribed initialization; this is not inferred from a safety threshold or from the simple ordering of the stepsizes. The originality judgment remains conditional on accessible literature and is not an independent priority certificate.
-
-## Limitations
-
-The conclusions are exact-arithmetic, two-step, worst-initialization statements for one two-eigenvalue family. No conclusion is drawn about typical starts, higher-dimensional spectra, time to convergence, noisy right-hand sides, safeguarded or damped steps, or floating-point overflow. Theorems for other algorithms that share the same algebraic first step may overlap the delayed-residual half; the proposed contribution depends on the combined, sharp DR/RD rate separation and initial-data scale classification. Independent validation has not been performed.
+Xu [1, equations (8), (14), (16), (17)] specifies both step rules and the common initialization, supplies the residual recurrence, and reports residual spikes. His window-contraction analysis does not optimize the physical residual after exactly two updates as \(K\to\infty\). The new quantitative point here is the RD maximum and its maximizing initialization scale. Results [3,4] use the same two-mode RD recurrence but concern long-run decay for a fixed matrix, not the worst second residual in an increasingly ill-conditioned family. For the least-squares quadratic in primal variables \(x\), the RD step is BB2. For the dual quadratic in \(u\) above, DR is BB1; these are not the two endpoints of a single primal BB interval with a shared Cauchy start. An objective-ratio bound for a BB interval, or an asymptotic gradient-root factor, is a different observable. The scope comparison does not assert exhaustive historical priority.
 
 ## References
 
-1. Xin Xu, *Two-point residual step size gradient methods for linear systems*, arXiv:2611.02743v1, first public release 2026-11-02, https://arxiv.org/abs/2611.02743.
-2. Shutai Yang and Ya-Xiang Yuan, *The Sharp Worst-Case Asymptotic Rate of the Barzilai–Borwein Method in \(\mathbb R^d\) and Hilbert Spaces*, arXiv:2608.07839, https://arxiv.org/abs/2608.07839.
-3. *Barzilai–Borwein Fails Superlinear Convergence on an Open Set of Quadratics for Every Dimension n at least 4*, arXiv:2607.21579, https://arxiv.org/abs/2607.21579.
-4. Y.-K. Huang, Y.-H. Dai and X.-W. Liu, *Equipping the Barzilai–Borwein Method with the Two Dimensional Quadratic Termination Property*, SIAM J. Optim., doi:10.1137/21M1390785.
+1. X. Xu, *Two-point residual step size gradient methods for linear systems*, [arXiv:2611.02743v1](https://arxiv.org/abs/2611.02743).
+2. [*A sharp all-spectrum gradient-safety frontier for cyclic steepest descent*](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-all-spectrum-gradient-safety-frontier-for-cyclic-steepes--93b3b7067606/RESULT.md), Finding and Proof §§2, 5 (exact cycle gain).
+3. [*Sharp all-start double-log rate for residual-difference spectral steps on two-mode systems*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-all-start-double-log-rate-for-residual-difference-spectral--e4d106d38983/RESULT.md), Finding and Proof §§1–2.
+4. [*Sharp all-start doubly-exponential decay for residual-difference gradient iteration on two spectral levels*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-all-start-doubly-exponential-decay-for-residual-difference--df4e091a200b/RESULT.md), Finding and Proof §§1–3.

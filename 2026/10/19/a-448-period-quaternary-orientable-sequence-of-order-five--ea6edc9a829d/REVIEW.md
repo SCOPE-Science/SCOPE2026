@@ -1,11 +1,21 @@
-# Review: a 448-period quaternary orientable sequence of order five
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact 448-symbol witness is included verbatim; direct modulo-indexed and wraparound-window enumeration both give 448 distinct five-factors and 448 distinct nonpalindromic reversal classes. This establishes an orientable cyclic sequence of least period 448. The independent finite-program replay uses only the Python standard library; the result is a constructive lower bound and makes no unverified global optimality claim.
+## correctness
 
-**Originality — PASS within examined literature.** Mitchell and Wild (arXiv:2603.18646, Table 4 and §6) report a previous best lower bound 404 and upper bound 452 for this exact parameter, discussing longer constructions as an open problem. Their earlier construction and Gabrić–Sawada's general method do not imply or exhibit the 448-period witness in the material compared. Scientific-index searches for quaternary orientable sequences, order-five reversal-avoiding cycles, the numbers 448/404/452, and equivalent de Bruijn formulations found no stronger published covering statement. Earlier unindexed or later undiscovered constructions are residual risks; failed search is not uniqueness proof.
+PASS
 
-**Value — PASS.** This concrete verified witness closes 44 of the 48 positions between the latest documented construction and published upper bound (91.7% of that gap). Orientable sequences are studied as position-sensing codes; narrowing a named extremal small parameter to 448–452 is a meaningful finite contribution, not merely a program-size change or a generic restatement.
+An independent checker confirmed seven displayed blocks of 64 symbols, exact agreement with witness.txt, length 448, and the specified alphabet. Starting with the final four digits followed by all digits, a rolling 10-bit base-four register enumerates exactly one circular length-five factor per ending position, including wraparound. Each code was distinct from its reversal, and neither it nor its reversal was in the set of earlier codes. All 448 checks passed; each symbol occurs 112 times. The ASCII word without separators or newline has SHA-256 65a91ebd11f35aedfe544863a9aa615fa0a98274260626ee9259fdf40ae71117, matching the recorded digest. A smaller period would repeat a five-factor, so 448 is the least period. Replay with python3 /workspace/checks/5_witness_check.py; this uses only the standard library and the frozen witness and displayed blocks, not the uploaded checker. The published upper bound is independently sourced: Mitchell–Wild arXiv:2507.02526 Table 1 tabulates Theorem 2.22 and gives 452 at n=5,k=4; arXiv:2603.18646 Table 4 confirms the same bound. The combination gives 448<=lambda(5,4)<=452, not an exact maximum.
 
-**Limits.** No upper bound sharper than 452, classification, or all-parameter theorem is asserted. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected publication for the same alphabet size and order constructs 404 and gives an upper bound of 452. Earlier constructions at these parameters give 372 and 360. Neither those lower bounds nor the upper bound imply a period-448 witness or a dominating lower bound. The strongest indexed nearby results change the alphabet or factor order. The verified improvement is 44 over the documented 404, with priority qualified by the search scope.
+
+## value
+
+PASS
+
+This is a named extremal parameter already singled out by the benchmark literature, not an arbitrary search slice. The explicit, easily replayable word raises the documented lower bound by 44 and reduces the 48-position gap to four. The exact period is useful in its own right as a length guarantee for an orientable position-sensing word, without claiming a new general construction or maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

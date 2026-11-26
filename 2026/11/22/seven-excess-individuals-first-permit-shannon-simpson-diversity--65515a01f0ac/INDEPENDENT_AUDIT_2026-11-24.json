@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:26:23.190962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45, VERIFICATION.md and verify_diversity.py",
+        "Independent replay: python3 /workspace/review-evidence/3_diversity.py; output /workspace/review-evidence/3_diversity.txt"
+      ],
+      "rationale": "At fixed census, D₁=N/P^(1/N) and D₂=N²/C where P=∏aᵃ and C=∑a², so strict discordance is exactly the opposite strict sign test on the two integer keys. For excess t≤7 every partition fits seven slots; comparing partitions with aligned lengths is equivalent to looking at that fixed seven-slot list and restricting to partitions of length ≤k. Explicitly zero-pad both excess vectors to equal length before adding ones, or equivalently use C−k=∑((e+1)²−1) over the positive parts. Common further singleton padding leaves differences unchanged. Convexity orders the two keys in the same direction on comparable partitions. An independent enumeration by sorted seven-tuples checked all pairs directly, including all six incomparable pairs in the stated table. The only reversed pair is excess (3,4) versus (1,1,5), admissible for each k≥3. Its first profile A has C=k+39 and P=800000, the other has C=k+41 and P=746496; both signs are strict and give the stated Hill rankings.",
+      "residual_risks": [
+        "The table's '+1' shorthand requires padding unequal-length excess partitions to equal length, as in proof Step 2; sums on unpadded positive parts alone would not give the displayed differences. The result concerns strict reversals only through the first boundary, not uniqueness at larger excess or inference about unknown community proportions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hill identifies the first two effective-number orders. Tóthmérész explains how crossing profiles permit discordance and discusses majorization and Lorenz/dominance orderings. Full text of the cited Jost and Liu articles was not retrieved."
+        ],
+        "reasoning": "General profile crossing and the consistent ordering on comparable abundance vectors do not determine the least integer excess with a discordant incomparable pair or its uniqueness. No absence conclusion is drawn from the inaccessible texts.",
+        "searches": [
+          "Hill 1973 DOI 10.2307/1934352 pp. 1–3; Tóthmérész 1995 pp. 2, 4–5; Jost DOI 10.1111/j.2006.0030-1299.14714.x; Liu et al. DOI 10.1007/s10144-006-0026-0"
+        ]
+      },
+      "checked_sources": [
+        "Hill 1973; Tóthmérész 1995",
+        "Resultary 65515a01f0ac, 6710d8b3b0c9, ff372ca961e0, 8b2ee10f8104 and 2d5223184b0f",
+        "Jost and Liu et al. retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-order minimum applies only with an additional order-∞ sign; the fixed-richness eight-excess optimization applies to another pair of indices. Tóthmérész's general majorization and crossing discussion does not enumerate incomparable integer partitions."
+        ],
+        "reasoning": "A lower bound for a reversal satisfying extra signs is not a lower bound for a reversal without those signs. General order theory removes comparable pairs, but the incompatible square/product signs and single witness require the separate finite certificate.",
+        "searches": [
+          "Resultary 6710d8b3b0c9 and 8b2ee10f8104 Findings; Tóthmérész partition and ordering sections plus worked example, pp. 2, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóthmérész compares (33,29,28,5,5) and (42,30,10,8,5,5), both totaling 100, with H=1.3808 versus 1.4574 and finite-census Simpson diversity 0.7309 versus 0.7194."
+        ],
+        "reasoning": "Exponential entropy preserves Shannon ordering; at fixed N, finite-census Simpson diversity and inverse Simpson are both decreasing functions of the square sum. So this is real scientific overlap in the reversal, not a different index due to a scaling convention. Its unequal richnesses 5 and 6 exclude it from the theorem.",
+        "searches": [
+          "Resultary: Shannon Simpson ranking reversal, fixed richness and common census, abundance partitions; Tóthmérész 1995, DOI 10.2307/3236223 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 20-individual entry gives (1,4,6,9) versus (2,2,8,8) for orders 1, 2 and ∞; the 14-individual result instead concerns 0, 2 and ∞. The eight-excess fixed-richness result uses Berger–Parker and Simpson, and the Shannon–Brillouin result changes the second index. The direct seven-excess hit is the assigned entry itself."
+        ],
+        "reasoning": "These are exact optimizations for changed index constraints or a self-match, not an independently tabulated (1,4,5) versus (2,2,6) boundary for orders 1 and 2.",
+        "searches": [
+          "Resultary exact self-match 65515a01f0ac; neighbouring 6710d8b3b0c9, ff372ca961e0, 8b2ee10f8104, 2d5223184b0f (Findings); Tóthmérész p. 2 concrete worked example"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the fixed-richness, equal-census sharp integer threshold and its unique first pair, not that Shannon and Simpson can disagree or that majorization orders both. An inspected earlier primary example has equal census and reverses, but changes richness; the nearest indexed exact-cutoff statements change the indices or add a third-index constraint.",
+      "residual_risks": [
+        "Unindexed finite-abundance tables and inaccessible related articles remain priority risks; a bounded unsuccessful exact lookup is not evidence that no earlier equivalent exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent reversal sign at common census, but the two examples have different richness; the majorization discussion is general.",
+          "evidence": "100 individuals each, five species versus six; crossing profiles admit discordance.",
+          "identifier_or_url": "https://ecoevol.ufg.br/adrimelo/div/Tothmeresz1995.pdf",
+          "material_read": "PDF p. 2 offsets 2507, 3180 and 6614; pp. 4–5 offsets 15529 and 20986",
+          "method": "Lawful OA PDF passages",
+          "title": "Comparison of different methods for diversity ordering",
+          "trigger": "Prior actual Shannon–Simpson rank reversal and majorization"
+        },
+        {
+          "assessment": "Prior framework and index definitions; no fixed-excess claim in the inspected material.",
+          "evidence": "Order one is exponential Shannon and order two reciprocal Simpson.",
+          "identifier_or_url": "https://ricottalab.com/wp-content/uploads/2015/10/hill-1973.pdf",
+          "material_read": "PDF pp. 1–3, offsets 0, 6879 and 14102",
+          "method": "Lawful OA PDF passages",
+          "title": "Diversity and Evenness: A Unifying Notation and Its Consequences",
+          "trigger": "Original index definitions and framework"
+        },
+        {
+          "assessment": "A different minimum because an order-∞ condition is required.",
+          "evidence": "Unique N=20 triple-index witness (1,4,6,9) versus (2,2,8,8).",
+          "identifier_or_url": "Resultary 2026/10/18/6710d8b3b0c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "The unique twenty-individual double reversal among three Hill diversities",
+          "trigger": "Closest exact integer census comparison sharing both Hill orders"
+        },
+        {
+          "assessment": "Different index pairs or constraints.",
+          "evidence": "The three comparisons use 0/2/∞, Berger–Parker/Simpson, and Shannon/Brillouin, respectively.",
+          "identifier_or_url": "Resultary ff372ca961e0, 8b2ee10f8104, 2d5223184b0f",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Related exact diversity cutoffs",
+          "trigger": "Nearby fixed-census or fixed-excess optimizations"
+        },
+        {
+          "assessment": "Unresolved detailed overlap, not assessed as absent.",
+          "evidence": "The accessible citation context associates them with index transformations and with comparisons of ordering methods; no consulted primary passage from these articles supports a stronger inference.",
+          "identifier_or_url": "10.1111/j.2006.0030-1299.14714.x; 10.1007/s10144-006-0026-0",
+          "material_read": "Citation context and lawful retrieval responses only; no full text read",
+          "method": "Publisher access attempted; access denial or redirects",
+          "title": "Entropy and diversity; Unifying and distinguishing diversity ordering methods for comparing communities",
+          "trigger": "Cited related ordering articles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions",
+        "Tóthmérész 1995, p. 2",
+        "Independent exact partition check, /workspace/review-evidence/3_diversity.txt"
+      ],
+      "rationale": "Fixed richness and census remove two ordinary sources of changing rankings, making the first possible discordance of two common indices a natural discrete boundary. The uniform first obstruction and unique irreducible three-species pattern say more than finding an example or running a small-k survey; they clarify when a strict descriptive conflict can first occur and when ties must not be counted as reversals.",
+      "residual_risks": [
+        "Mathematical value is for plug-in count-vector comparisons, not evidence about sampling bias, ecological causation, or estimator choice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

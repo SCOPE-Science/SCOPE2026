@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:29:17.229654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–52",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review-replays/3.py (mpmath interval arithmetic)"
+      ],
+      "rationale": "Fourier transformation of the stated centered difference energy gives 2δ⁻²(1−sinc t); the two terms of the fixed inverse preconditioner then give the stated F, with both endpoint limits 1. I checked F'=N/t⁴ and the derivatives of N. The sign of N'' and the endpoint signs isolate a unique peak on (π,3π/2) and a unique second-lobe valley on (4π,9π/2); the remaining half-lobes have the stated derivative signs. As an independent early maximum bound, with x=t²≤10, the alternating expansion gives F≤1+7x/60−x²/140+66x³/362880. The upper polynomial is increasing on [0,10] and is below 1.64 there. For the first positive lobe after zero, N is convex and negative at both endpoints on [2π,5π/2], and N'>0 on [5π/2,3π] since the coefficients multiplying |cos t| and sin t are each greater than 12. Its unique minimum thus admits interval bisection. Independent outward interval bisection and evaluation over the root brackets gave the peak 1.644258263597434…, first valley 0.957508233089985…, second valley 0.957152026310063…, and ratio 1.717865311257030…. The lower Taylor bound for F near zero, the negative-sine lobes, and the increasing lower tail envelope exclude all other minima; the upper envelope excludes maxima after 2π. The constants are sharp because one may localize Fourier support arbitrarily close to the positive extremizing frequencies.",
+      "residual_risks": [
+        "The frozen grid script converts interval endpoints to machine floats and adds a covering cushion; the independent check of the decisive inequalities did not rely on that rounding pad or on interval evaluations at rounded root approximations alone.",
+        "Sharpness is for the continuum, not attainment by a particular mesh, periodic frequency set, or nonzero L² eigenfunction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu et al. give uniform finite element spectral enclosure and compare the inverse symbol to |ξ|⁻²+δ²; Lemma 3.1 gives kernel-class bounds.",
+          "The cited Toeplitz τ-preconditioner article is for a discrete construction; its decisive full text was not accessible in the attempted retrieval."
+        ],
+        "reasoning": "Uniform equivalence constants leave the location and value of the critical frequencies undetermined; there is no verified dominating theorem that supplies the sharp matched box extrema.",
+        "searches": [
+          "Lu–Nie–Zhang–Zhang arXiv:2609.24143, p. 2 and Lemma 3.1",
+          "Zhang–Sun–Sun–Zhang, DOI 10.1007/s10915-025-03150-2"
+        ]
+      },
+      "checked_sources": [
+        "Lu et al. arXiv:2609.24143",
+        "Zhang et al. DOI 10.1007/s10915-025-03150-2 (retrieval limitation)",
+        "Resultary d68a7346e916 and nearby catalogue entry f37fdb5a84bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The high-frequency limit fixes the mass calibration and a Taylor expansion fixes the low-frequency one. They do not compare the competing positive lobes. Independent interval enclosures show a difference of only about 0.0003562 between the first and second valley values."
+        ],
+        "reasoning": "Matching both asymptotes identifies the natural dimensionless problem, but does not mechanically identify which valley controls sharp conditioning.",
+        "searches": [
+          "Lu et al., Eq. (3.1) and accompanying high-frequency limit; p. 2 preconditioner discussion",
+          "Potential sine inequality and exact sinc-extremum search results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (3.1) gives the cosine integral and normalization that reduce to the box-kernel sinc factor. A reciprocal-symbol comparison would invert the extrema but leave their ratio as the condition number."
+        ],
+        "reasoning": "The kernel formula recovers the unpreconditioned symbol and, after calibration, makes F explicit. It is not an extremum theorem for F or for its reciprocal.",
+        "searches": [
+          "Resultary queries for the matched box kernel, sinc extremum and second-lobe condition number",
+          "External exact-expression query for (1−sin(t)/t)(1+6/t²) and matched nonlocal diffusion preconditioning",
+          "Lu–Nie–Zhang–Zhang arXiv:2609.24143, Eq. (3.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d68a7346e916 is the assigned record itself. A nearby indexed Fourier preconditioning record f37fdb5a84bd concerns a hard-pupil Tikhonov saddle system, not the sinc multiplier. The external query did not supply an exact source."
+        ],
+        "reasoning": "The self-match is not independent coverage; the distinct hit is for a different operator and invariant. An unproductive external query is not a priority finding.",
+        "searches": [
+          "Resultary: sharp Fourier condition number, second sinc lobe and box diffusion",
+          "External exact-symbol search"
+        ]
+      },
+      "rationale": "The general nonlocal symbol and Poisson-plus-mass framework are prior work. The supported distinct result is the sharp extremum pair and in particular the exact lobe selection for the matched box multiplier. No inspected known bound or exact result settles those quantities.",
+      "residual_risks": [
+        "An earlier equivalent sinc-extremum calculation may be unindexed or described under other terminology.",
+        "The τ-preconditioner comparison is limited by full-text access and does not exclude all incidental overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same general framework and exact symbol reduction, not the sharp extremum computation in inspected statements",
+          "evidence": "Mass term uses β=1/(2μρ); the general spectral enclosure and symbol bounds are uniform rather than sharp for a box.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24143",
+          "material_read": "p. 2 (offset 6625), p. 7 Eq. (3.1) through Lemma 3.1 (offset 26899)",
+          "method": "OA PDF passage retrieval by locator",
+          "title": "A mesh- and horizon-robust preconditioner for finite element discretizations of volume-constrained nonlocal diffusion problems",
+          "trigger": "General same-family preconditioner and symbol; possible sharp special case"
+        },
+        {
+          "assessment": "Different stated discrete setup; overlapping sharp Fourier analysis not verified from full text",
+          "evidence": "The title specifies two-level Toeplitz τ-systems, not calibration by the present Poisson-plus-mass multiplier.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-025-03150-2",
+          "material_read": "Bibliographic identity and scope; no decisive full-text passage retrieved",
+          "method": "Attempted lawful OA DOI and repository lookup",
+          "title": "Spectral Analysis of τ-Preconditioners for Two-Level Toeplitz Systems with Applications in Nonlocal Diffusion Models",
+          "trigger": "Cited comparison with nonlocal diffusion preconditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and limitations",
+        "Lu et al. arXiv:2609.24143, p. 2",
+        "Independent comparison in /workspace/review-replays/3.py"
+      ],
+      "rationale": "The uniform box kernel is a standard test case and the calibration is set by the two frequency regimes, not tuned to manufacture an extremum. The result gives a sharp benchmark and corrects the plausible expectation that the first positive-sine lobe after zero controls the low spectral edge. The lobe ordering is an independently useful feature beyond the decimal condition number.",
+      "residual_risks": [
+        "No bound on mesh-level preconditioner performance beyond this whole-space symbol follows from the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

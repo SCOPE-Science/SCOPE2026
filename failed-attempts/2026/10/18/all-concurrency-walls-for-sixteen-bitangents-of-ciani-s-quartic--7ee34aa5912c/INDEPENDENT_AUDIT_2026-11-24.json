@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:01.851177Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 39–80; VERIFICATION.md and verify.py inspected only",
+        "/workspace/branches/67ccff40-26cd-48cf-9a0f-112a658a00a8/audit_record3.py (independent replay)"
+      ],
+      "rationale": "The gradient system gives precisely the excluded parameters −2, −1, 2. Re-expanding the line restriction in X+Y and X−Y gives the stated squares at r²=1 and r²=−λ−1; the zero-coefficient restriction gives four distinct nonzero slopes per coordinate pair (nonzero leading coefficient, constant, and discriminant), completing the classical 28. At smooth parameters the sixteen nonzero rows are distinct. A separately written exact determinant and projective-point check verifies all 560 triples, 24 permanent zeros through the six permanent quadruple points, and all 120 pairs in each generic/wall case. Its factor support gives exactly λ=0,−5,−10 or λ²−λ+2=0 after excluding the singular parameters, and the profiles are (84,0,6), (48,0,12), (72,4,6), and (48,12,6) at the last three parameter values as stated. No multiplicity exceeds four. This is a statement about the sixteen-line arrangement over C only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md offset 4310: all 3276 triple determinants, complete factorization and all smooth strata. verify.py offsets 2091–3070 and 4790–end: zero_triples and factor-to-triple sets retained separately by label, then unioned for each tested irreducible parameter factor."
+        ],
+        "reasoning": "The exact full-incidence relation on labelled lines is strictly stronger than any of its induced subarrangements, unlike the aggregate numerical table alone.",
+        "searches": [
+          "2026/10/25/SCOPE-triple-concurrence-discriminant-of-the-ciani-quartic-bitangents--3c19cc0fc0c4, RESULT.md and verify.py"
+        ]
+      },
+      "checked_sources": [
+        "Full-arrangement Resultary 3c19cc0fc0c4, RESULT.md and verify.py",
+        "Distinct same-day Resultary c4f1a8b96552",
+        "Janasz–Pokora–Zieliński, arXiv:2308.16514",
+        "Edge, doi:10.1017/S0950184300000197"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Index the source code's four initial lines and twelve last lines by I={0,1,2,3,16,…,27}. On each stratum the full triple set is zero_triples ∪ extra. For each pair i,j in I, keep only third labels k∈I with {i,j,k} in that set, and deduplicate the containing-index sets."
+        ],
+        "reasoning": "This mechanical restriction uses the full certificate without a new determinant, factorization, or parameter search. It gives the frozen profiles, the bound on multiplicity and the exact subset wall locus by comparing each covered smooth stratum to the generic one.",
+        "searches": [
+          "Full-arrangement verify.py, offsets 420–1462, 2091–3070, 4790–end; RESULT.md proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-arrangement mirror uses s=(t²−1)/(t²+1), s²=−λ−1 and the identical all-nonzero rows.",
+          "Janasz–Pokora–Zieliński give full-28 profiles and a uniform lower bound on quadruples, not the labelled subset data in the inspected passages."
+        ],
+        "reasoning": "Deleting the zero-coefficient family in the indexed parametrization selects exactly the frozen sixteen lines; this is not a different pencil or parameter convention.",
+        "searches": [
+          "Resultary: Ciani quartic bitangent triple-concurrence discriminant",
+          "Ciani quartic / symmetric plane quartic bitangent arrangements; Edge (1945); arXiv:2308.16514"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full-arrangement result tabulates all smooth strata; the companion exact factor data retain enough labels to produce the sixteen-line table.",
+          "The distinct same-day record counts rational bitangent lines of pointless quartics over F5, including sixteen for Fermat, not complex concurrence in the pencil."
+        ],
+        "reasoning": "No separate printed sixteen-line table is needed for coverage by the stronger line-labelled data. The finite-field record does not give that coverage.",
+        "searches": [
+          "Resultary full-arrangement record 3c19cc0fc0c4, exact certificate",
+          "Resultary 2026/10/18/SCOPE-six-rational-bitangent-strata-of-pointless-plane-quartics-over-m--c4f1a8b96552"
+        ]
+      },
+      "rationale": "The cited historical full-line aggregate counts are not enough to imply the subset counts. The stronger distinct indexed full-arrangement result, however, supplies the labelled triple data in its exact certificate, from which the subarrangement claim follows by restriction and regrouping. This is demonstrable coverage, not a finding about provenance or chronological priority.",
+      "residual_risks": [
+        "No priority ruling from catalogue dates.",
+        "The inaccessible symmetric-quartics paper and Ciani's original source were not substantively compared; neither is the basis for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Four fixed plus twelve last lines are exactly the all-nonzero set; zero_triples and each extra set in the certificate encode the full labelled incidence relation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-triple-concurrence-discriminant-of-the-ciani-quartic-bitangents--3c19cc0fc0c4",
+          "material_read": "RESULT.md line list, profile and proof §§1–2 (including offset 4310); verify.py line construction, labelled factor sets, grouping and final stratum loop",
+          "method": "Bounded local-mirror reads and mathematical restriction, no source execution",
+          "title": "Triple-concurrence discriminant of the Ciani quartic bitangents",
+          "trigger": "Same pencil; possible stronger coverage"
+        },
+        {
+          "assessment": "Limited overlap in passages read",
+          "evidence": "Full 28-line profiles for selected fibers and at least nine full-arrangement quadruples throughout the smooth pencil.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16514",
+          "material_read": "PDF pp. 4–7, Propositions 3.1–3.3 and 3.8",
+          "method": "Bounded primary-text reads",
+          "title": "On arrangements of smooth plane quartics and their bitangents",
+          "trigger": "Ciani, Klein and Fermat quartics"
+        },
+        {
+          "assessment": "Related construction in passages read",
+          "evidence": "Four fixed bitangents and the λ=3 undulation specialization.",
+          "identifier_or_url": "doi:10.1017/S0950184300000197",
+          "material_read": "pp. 10–11, offsets 0 and 3300",
+          "method": "Bounded primary-text reads",
+          "title": "A plane quartic curve with twelve undulations",
+          "trigger": "Historical Ciani pencil"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Fermat has sixteen rational bitangent lines in the specified finite-field census, not the complex walls.",
+          "identifier_or_url": "2026/10/18/SCOPE-six-rational-bitangent-strata-of-pointless-plane-quartics-over-m--c4f1a8b96552",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local-mirror excerpt",
+          "title": "Six rational bitangent strata of pointless plane quartics over F5",
+          "trigger": "Distinct same-day Fermat/bitangent hit"
+        },
+        {
+          "assessment": "Unresolved, not relied upon",
+          "evidence": "Title alone establishes no statement-level coverage.",
+          "identifier_or_url": "ScienceDirect PII S0021869325007033",
+          "material_read": "Search identification only; no substantive text obtained",
+          "method": "OA and page retrieval attempts returned HTTP 403",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Plausibly relevant symmetric-quartic work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Stratum-wise labelled certificate in Resultary 3c19cc0fc0c4"
+      ],
+      "rationale": "The coordinate-preserving distinguished subarrangement and its wall locus are natural objects, but the frozen deliverable reduces to deleting twelve labels and counting sizes in an available complete incidence certificate. No additional invariant or downstream statement beyond that restriction is established.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

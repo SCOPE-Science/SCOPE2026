@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:55:54.479050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the main claim (R0 > 1), the printed reproduction number agrees with the frozen formula. Let b=(R0−1)c and D=cp+(lambda+c)M0>0. Then D(R1−1)=bp+(b−lambda)M0. This gives the iff for existence of a finite baseline, strict inequality beyond the unique crossing, and the nonattainment of 1 at finite baseline when lambda=b. The derivative is −R0*c*lambda*p/D² and the limit is R0*c/(c+lambda). Exact substitution of the publisher's Table 1 gives R0=7500/4001, M0,c=1698.1028207187…, R1(500)=1.3026792112… and lambda,c(500)=0.0239061895…. The checked threshold is local, as in Theorem 4.1. The aside at frozen RESULT.md line 96 should say 'at or below one' at zero baseline when R0≤1; at R0=1 and M0=0 it equals one, and any positive baseline gives strict inequality. That aside is outside the main R0>1 claim.",
+      "replay": "python3 /workspace/review_checks/exact_checks.py 4; exact rational and symbolic checks of the printed equation, not an epidemiological validation or a global-stability proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper supplies R1 for the positive-parameter model, not just a special baseline, and Theorem 4.1(i) specifies both strict local sides.",
+          "The Resultary finding concerns a high-media-growth trichotomy for endemic equilibria in a different model."
+        ],
+        "reasoning": "The stronger full function and threshold interpretation cover arbitrary finite positive baseline in the same model. The distinct trichotomy is material overlap but does not independently cover the full finite-baseline result.",
+        "searches": [
+          "doi:10.3934/mbe.2018061, Secs. 3–4 and Appendix A",
+          "Resultary cd028e873839, Finding and Relationship"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/mbe.2018061 (publisher full-text passages)",
+        "Resultary 2026/10/13 cd028e873839 (Finding and Relationship)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clearing the positive denominator in the published R1<1 gives bp+(b−lambda)M0<0, b=(R0−1)c. At M0=0 this is positive for R0>1, and it becomes negative somewhere exactly when its slope is negative."
+        ],
+        "reasoning": "This gives the claimed condition, equality case and exact crossing at once, without relying on a plot or an unavailable source. The prior implication is decisive even if the prose did not spell it out.",
+        "searches": [
+          "doi:10.3934/mbe.2018061, Secs. 3, 4, 8 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 3 gives the exact R1 rational function; Section 8 plots the (lambda,M0) contours, including the change of feasibility at R1=1.",
+          "Resultary cd028e873839 gives the same boundary lambda=(R0−1)(lambda0+d) in a different limiting problem."
+        ],
+        "reasoning": "The floor, reachability iff, and contour inverse are equivalent consequences of the printed rational curve with positive denominator. The distinct model in the Resultary hit is not an equivalent formulation of the whole finite-baseline statement.",
+        "searches": [
+          "doi:10.3934/mbe.2018061, Secs. 3 and 8",
+          "Resultary: 2018 saturating awareness, finite baseline and source threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 supplies the exact inputs, and its adjacent text already reports R0=1.87 and R1=1.30. The Resultary finding prints 1698.1028207 for its limiting advertisement level using the same parameter specialization."
+        ],
+        "reasoning": "The table plus the original formula make the decimals a recalculation. Matching decimals in the distinct record are not on their own a match of the scientific claims.",
+        "searches": [
+          "doi:10.3934/mbe.2018061, Table 1 and Fig. 1",
+          "Resultary cd028e873839"
+        ]
+      },
+      "rationale": "The main result is a direct implication of the same model's published exact R1 formula: subtract one and clear the strictly positive denominator to obtain a linear polynomial in M0. Its leading coefficient gives the reachability barrier and its root is the contour already plotted by the source. The source passages read do not state the general barrier in that wording, but the frozen result adds no hypothesis, model, or nontrivial implication beyond the exact published expression. A separate Resultary record exhibits the same boundary and numeric threshold in a different limiting endemic-equilibrium problem; neither identity of the models nor priority follows from that match.",
+      "residual_risks": [
+        "No historical priority is inferred from a shared calendar date. The negative originality decision rests on the exact 2018 paper's mathematical implication, not search exhaustiveness or lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED_BY_DIRECT_PRIOR_IMPLICATION",
+          "evidence": [
+            "The reproduction formula matches in Sec. 3 and Appendix A. Theorem 4.1(i) gives the strict local threshold; Sec. 8 notes that increasing the two control coordinates can move R1 below unity."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2018/6/PDF/1551-0018_2018_6_1315.pdf",
+          "material_read": "Publisher PDF pp. 1320–1321, p. 1324 (Fig. 1 caption, Table 1 and discussion), and Appendix A's R1 formula on p. 1331",
+          "method": "Compare the printed function and theorem, clear its positive denominator, and recompute Table 1 values exactly.",
+          "title": "Modeling the control of infectious diseases: Effects of TV and social media advertisements",
+          "trigger": "Exact motivating model, threshold and parameter table"
+        },
+        {
+          "assessment": "MATERIAL_OVERLAP_NOT_EQUIVALENT_FULL_CLAIM",
+          "evidence": [
+            "It states the same critical lambda and computes M∞≈1698.1028207; its limit is high media growth in a different model, not existence of finite M0 with R1(M0)<1 in the 2018 model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-high-media-growth-trichotomy-for-endemic-equilibria-in-a--cd028e873839",
+          "material_read": "Finding and Relationship to prior work, mirrored RESULT.md offsets 0 and 5744",
+          "method": "Compare limiting endemic-equilibrium result and finite-baseline local DFE reachability; compare boundary and parameter specialization.",
+          "title": "A sharp high-media-growth trichotomy for endemic equilibria in a fear–media model",
+          "trigger": "Exact reachability boundary and Table 1 threshold as matching mathematical fingerprints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The saturation warning is useful as an explanation of the published model, but the frozen work is the one-step inversion of an already explicit linear-fractional contour, with its numerical substitution. It does not establish a new dynamical, empirical, or policy result, and the precise Table 1 crossing is mechanically implied by the motivating equation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

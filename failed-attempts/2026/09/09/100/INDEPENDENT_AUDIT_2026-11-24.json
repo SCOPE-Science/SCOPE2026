@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:27.146941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the frozen numerical claim only. The residual is H_E+4n_E(log ψ); the Euclidean principal curvatures both shift by 2n_E(log ψ) and scale by ψ^−2. Harmonicity of ψ away from punctures gives Ric_g(n_g,n_g)=ψ^−4[−2ψ_nn/ψ+(6ψ_n²−2|∇ψ|²)/ψ²]. On an exact minimal surface the shifted Euclidean curvatures sum to zero, so |A_g|²=ψ^−4(k_1−k_2)²/2. Rayleigh–Ritz with the constant test function gives the continuum bound from the true minimum and mean. Read artifacts/stageF.py and verify_certificate.py and evaluated the archive with independent polar-coordinate code (/workspace/branches/independent_mots.py, not the uploaded programs). At N=800: interior residual 3.897e−11, H∈[0.382773952,0.414861710], sampled Q_min 0.157901353, mean 0.159996228, area 78.538913112; fresh Q agrees with saved Q to 5e−16. At N=400: Q_min 0.157901354 and mean 0.159996107. Independent solves at N=80 and 120 reproduce the reported minima and means to shown decimals. The ADM²-rescaled N=800 statistics are 0.631605411 and 0.639984913. A direct curvature expression on the sampled surface differs near the poles by up to 1.5e−5 from imposing the exact trace-free identity, consistent with the discrete stencils; the verifier integrates only interior samples. The script label ‘enclosure’ is not a certified result: there is no controlled continuum surface/error, and sampled derivative and endpoint estimates are not continuum bounds. Neither exact strict stability nor an outermost or Jang conclusion is certified by this evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fig. 14 already studies the dependence of the principal eigenvalue of individual MOTSs on separation and mass ratio, including the equal-mass curve; the different spectra in Figs. 16–17 do not give the claimed statistics.",
+          "Andersson–Mars–Simon gives the strict-stability criterion and self-adjointness in the time-symmetric case. Yu treats Jang blow-up on general initial data under strict stability, not this discrete geometry."
+        ],
+        "reasoning": "Extensive prior numerical and theoretical work overlaps the underlying question; it does not provide the precise archived Q outputs.",
+        "searches": [
+          "arXiv:1811.10405 Secs. IV–V, Figs. 14, 16 and 17",
+          "arXiv:0704.2889 principal eigenvalue and time-symmetric case",
+          "arXiv:1906.08841 strictly stable MOTS blowup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, METADATA.json and artifacts",
+        "Resultary SCOPE100",
+        "arXiv:1811.10405, arXiv:0704.2889, arXiv:1906.08841"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A continuum operator's principal eigenvalue lies between its true infimum and mean potential but does not determine those endpoints, let alone discrete sample summaries.",
+          "The physically relevant observation of a positive individual stability parameter at large separation in this family is already in the prior curves."
+        ],
+        "reasoning": "The two discrete statistics survive as distinct numerical outputs; no distinct eigenvalue or continuum result follows.",
+        "searches": [
+          "arXiv:1811.10405 Sec. V.A Rayleigh formula and Fig. 14",
+          "arXiv:0704.2889 stability characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pook-Kolb et al. use unit total ADM mass. Rescaling the frozen data makes the bare masses 0.5,0.5, q=1 and d=1, the large-separation end of Fig. 14(c,d). Multiply operator values in the frozen units by 4 when comparing.",
+          "The larger/smaller labels coincide by reflection symmetry at equal masses; the upper individual surface is not the inner common branch."
+        ],
+        "reasoning": "Comparing at separation 2 in the unit ADM paper would miss the same physical setup. Comparing the sampled potential directly to a plotted eigenvalue would conflate different observables.",
+        "searches": [
+          "Resultary: equal-mass Brill–Lindquist individual MOTS stability, sampled Q minimum and mean at separation 2",
+          "arXiv:1811.10405 Sec. IV and Fig. 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary direct match 2026/9/9/SCOPE100 gives the same values and same caveat; it is the record under audit.",
+          "Fig. 14 is a graphical parameter sweep of eigenvalues to d=1, not a table of pointwise sampled potential minima, means or archived surface arrays."
+        ],
+        "reasoning": "The self-match is not a predecessor. Plot and sampled statistics should not be called an exact match.",
+        "searches": [
+          "Resultary: exact sampled Q min 0.157901 and mean 0.159996 at equal masses and separation 2",
+          "arXiv:1811.10405 discussion and relevant Fig. 14 panels"
+        ]
+      },
+      "rationale": "Pass only for the reproducible archived sampled potential statistics, not for studying or finding stability of individual equal-mass BL horizons in this parameter regime. Pook-Kolb et al. cover the same family and dimensionless point in their normalization, with individual-horizon principal-eigenvalue curves; a curve of λ_1 does not recover either sampled statistic of Q or the archived profile. The exact indexed statistics belong to this same frozen record. No earlier independent exact match for the narrowly worded numerical diagnostics was established by the checks.",
+      "residual_risks": [
+        "The graphical prior comparison does not recover a tabulated eigenvalue at q=1,d=1; no exact eigenvalue or Q-to-eigenvalue agreement is asserted.",
+        "The bounded literature search was deferred; the OA comparisons do not rule out an unindexed independent data release.",
+        "No sampled diagnostic is a controlled continuum result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dimensionless family and end of plotted range; already addresses individual stability, with no matching Q statistics in inspected material",
+          "evidence": "Sec. IV sets M=1 and parameterizes by q and d; equal-mass common horizon exists only for d≤0.76619742. Fig. 14(c,d) plots principal stability parameters for q=1 among others on axes extending to 1.0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.10405",
+          "material_read": "Secs. IV–V, PDF pp. 9–10 and 16–18, especially Fig. 14(c,d) caption and axes, Rayleigh quotient and additional spectral figures",
+          "method": "Primary OA PDF passages, including Fig. 14 extraction",
+          "title": "The existence and stability of marginally trapped surfaces",
+          "trigger": "Same BL normalization after rescaling and closest prior stability calculation"
+        },
+        {
+          "assessment": "Theoretical overlap, not a numerical benchmark",
+          "evidence": "Nonnegative/positive principal eigenvalue characterizes stability/strict stability, with self-adjoint special cases including time symmetry.",
+          "identifier_or_url": "https://arxiv.org/pdf/0704.2889",
+          "material_read": "PDF p. 3, primary discussion of stability and self-adjointness (offset 8300)",
+          "method": "Primary OA PDF passage",
+          "title": "Stability of marginally outer trapped surfaces and existence of marginally outer trapped tubes",
+          "trigger": "General MOTS stability criterion"
+        },
+        {
+          "assessment": "Not a result on this BL parameter point or on its sample values",
+          "evidence": "General blow-up theorem assumes strict stability of a continuum MOTS.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.08841",
+          "material_read": "PDF pp. 5–6, principal-eigenvalue dependence (offset 14800)",
+          "method": "Primary OA PDF passage",
+          "title": "Blowup rate control for Jang's equation",
+          "trigger": "Potential downstream application in the frozen context"
+        },
+        {
+          "assessment": "Same record, not independent earlier coverage",
+          "evidence": "Same Q_min, mean and distinction from a rigorous continuum enclosure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE100",
+          "material_read": "Mirrored RESULT.md, opening exact parameters, numerical claim and disclaimer",
+          "method": "Resultary local mirror",
+          "title": "Reproducible numerical stability diagnostics for an individual equal-mass Brill–Lindquist minimal-surface candidate at separation 2",
+          "trigger": "Direct exact index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reproducibility alone does not make these two stencil-dependent summaries of a single standard parameter point a scientifically needed result. Once normalized by ADM mass, the record lies at the large-separation end of the equal-mass individual-horizon stability sweep in Pook-Kolb et al., which already evaluates the more directly relevant principal eigenvalue; there is no critical transition at the selected point. The frozen work does not provide a new controlled stability bound, a discrimination between competing schemes or outcomes, or a justified use for the extra digits in the potential summaries. It only corroborates an already studied positivity regime, without an exact prior eigenvalue comparison or a continuum error estimate. A value-only change in wording would not supply that missing contribution; a genuine validated bound or motivated comparison would be different scientific work.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

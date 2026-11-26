@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:26.518800Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, signed modes, all step-size regimes, and resonance limitation; VERIFICATION.md; artifacts/verify_polar_order.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/review_exact_checks.py 5; 72 exact signed paths, 30 resonance paths, and critical step checked."
+      ],
+      "rationale": "Use the initial orthogonal singular-vector pairs with signed coefficients y, even for repeated singular values; the partial polar factor acts by sign(y), with sign(0)=0, in these pairs. For q>0 the post-step positive radii follow |qs−τ|, and the reverse triangle inequality gives contraction to δ=τ/(1+q) for every mode that stays nonzero. Zero is absorbing and is not governed by the positive-radius formula. More explicitly the first positive zero preimage is τ/q>τ, and every radius >τ has exactly one positive preimage (radius+τ)/q. The exceptional radii are therefore τ∑_(i=1)^j q^−i, j≥1. All surviving radii eventually satisfy qs<τ; then the post signed modes flip for α>0 and preserve sign for α<0, yielding the stated antipodal limits or the fixed matrix. Pre equals post for α>0. For α<0 pre always flips on nonzero modes and has radial map qs+τ, converging to τ/(1−q). In the nonresonant rank-r comparison the Frobenius factors √r cancel, giving ηa/(2−ηa); the post objective is 3rλ²/(2a) when α<0. The critical step has post zero and pre an exact cycle after one step. The prox radii decrease by at least τ while positive, so they hit the unique minimizer in finitely many steps. The normalized nonzero spectrum becomes uniform on the surviving rank, proving the effective-rank assertion. The nonzero rank-r and Frobenius-ratio claims are read with the nonresonance condition in Finding and Limitations (not for every positive-rank initialization); for example α=−1/2, τ=1, y₀=2 gives post zero and pre nonzero.",
+      "residual_risks": [
+        "The frozen numerical SVD diagnostic uses a tolerance and does not check the exact resonant set; exact arithmetic and the proof address that boundary. For resonant initial data replace r by the surviving rank in post limits, or by zero if every mode dies. No extension to generic nonisotropic or approximate-polar training follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Josz–Lai gives conditions for Clarke-subgradient instability near nonstrict local minima, with a ReLU/ℓ₁ example and RPCA. The unavailable literature lookup is not negative evidence."
+        ],
+        "reasoning": "General instability does not imply sign stabilization versus antipodal cycling in the two exact partial-polar maps, rank-flat magnitude, or comparison to proximal termination. In particular post with α<0 is not the usual subgradient step for the regularized objective.",
+        "searches": [
+          "Resultary: constant-step subgradient instability nonsmooth scalar quadratic nonconvergence cycles",
+          "Josz–Lai arXiv:2211.14852v2, pp. 1–5",
+          "Web: \"Spectral Weight Decay\" \"Andriianov\" \"constant step\" fixed points cycles scalar quadratic polar attractor (lookup unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11730v1",
+        "arXiv:2211.14852v2",
+        "Published records 02c87f72e7fc and 022670266135; 5eb1801a903e indexed lead only",
+        "Frozen related-work discussion (SLORR stands as a related rule, not an independent full-text exclusion)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating paper bounds the one-step difference at full rank and illustrates sharpness on a shifted quadratic; Appendix A.2 identifies the proximal threshold. The later catalogue theorem analyzes the same centered post dynamics but does not compare pre attractors."
+        ],
+        "reasoning": "A uniform difference bound for two updates started at the same matrix does not imply the long-run ratio between two trajectories. The distinct claim identifies two different dynamics, gives their exact limiting amplitudes, and shows a divergent ratio, despite the one-step control.",
+        "searches": [
+          "arXiv:2610.11730v1 pp. 6–7, 13–14",
+          "02c87f72e7fc Finding and Proof; literal pre-step locate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (1) defines post shrinkage at the intermediate matrix Z, and §4.1 gives the pre alternative. On one signed mode and α<0 the pre map is −q y−τ sign(y), whereas post is −q y+τ sign(y)."
+        ],
+        "reasoning": "The algorithms coincide with the stated prior forms in this exact specialization; switching the sign term is not a harmless convention. Proposition 1 compares outputs from the same input for one step, not distinct sequences or asymptotic norm ratios.",
+        "searches": [
+          "Resultary: fixed step polar spectral weight decay centered quadratic post-step pre-step cycles attractors",
+          "Andriianov–Veprikov–Beznosikov arXiv:2610.11730v1, eq. (1), §4.1 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02c87f72e7fc explicitly gives the same post-step floor, critical collapse, two-cycle/fixed-point regimes, and exact radii; 022670266135 instead treats scalar ProxSPS and period-three/chaotic behavior. Signum record 5eb1801a903e was a lead only; source text unavailable."
+        ],
+        "reasoning": "Post-only overlap is exact irrespective of dates, but the post-only statement does not give pre dynamics or their ratio. Scalar ProxSPS and nuclear SVT or additive partial-polar shrinkage are inequivalent maps.",
+        "searches": [
+          "Resultary fixed-step polar spectral weight decay and constant-step subgradient searches; original catalogue records 02c87f72e7fc and 022670266135"
+        ]
+      },
+      "rationale": "Pass the supported distinct comparison of three constant-step rules on the centered isotropic quadratic, especially the pre/post asymptotic order split and diverging norm ratio. The rules themselves are known, and the post-only rank/floor/phase theorem overlaps materially with a distinct later-dated catalogue finding. Treat neither the post-only theorem nor classical soft thresholding as a separately substantiated novelty here.",
+      "residual_risks": [
+        "Earlier scalar sign/subgradient cycles and full SLORR coverage remain plausible literature risks; no negative inference from unavailable web search or inaccessible Signum file. Dates do not resolve priority; assess the exact post-step overlap as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rules and one-step bounds, not the centered-quadratic long-run pre/post result",
+          "evidence": [
+            "Prop. 1 compares output discrepancies on a common full-rank input; A.1 uses the shifted target diag(1,−1); A.2 contrasts polar subtraction with SVT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11730v1",
+          "material_read": "Eq. (1) p. 1; §4/4.1 p. 6; Prop. 1 p. 7; Apps. A.1–A.2 pp. 13–14, offsets 0,31500,37436,65286,71000",
+          "method": "Open original read of exact definitions, proposition, and appendices",
+          "title": "Spectral Weight Decay: Inducing Low-Rank Structure in Neural Network Weights",
+          "trigger": "Original update rules, one-step comparison and proximal interpretation"
+        },
+        {
+          "assessment": "Broader setting but different conclusion",
+          "evidence": [
+            "Instability near nonstrict minima in the Clarke-subgradient framework; |x₁x₂−1| illustrates a geometric hypothesis, not these exact orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.14852v2",
+          "material_read": "Abstract and definitions pp. 1–2; illustrative case p. 4; stability theorem p. 5",
+          "method": "Open original PDF, objective and update comparison",
+          "title": "Sufficient Conditions for Instability of the Subgradient Method with Constant Step Size",
+          "trigger": "Potential broader constant-step nonconvergence theorem"
+        },
+        {
+          "assessment": "Material post-only overlap; pre/post comparison not covered by the statement",
+          "evidence": [
+            "States the same contraction, positive floor, rank persistence and post cycle/fixed-point transition, with a stronger explicit formula for finite-hitting radii."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-rank-persistence-and-the-exact-two-cycle-transition-in-post-step--02c87f72e7fc/RESULT.md",
+          "material_read": "Finding, Assumptions, initial Proof, offset 0–4575",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rank persistence and the exact two-cycle transition in post-step spectral decay",
+          "trigger": "Exact same centered post-step dynamics"
+        },
+        {
+          "assessment": "Different iteration and phenomenon",
+          "evidence": [
+            "Scalar ProxSPS uses a truncated Polyak model; its period-three conclusion is not about any of the frozen partial-polar or SVT updates."
+          ],
+          "identifier_or_url": "2026/10/18/022670266135",
+          "material_read": "Finding in the record's RESULT.md",
+          "method": "Local record mirror, exact update comparison",
+          "title": "Attracting period-three cycles and Li–Yorke chaos in exact proximal Polyak steps",
+          "trigger": "Same-day quadratic constant-step attractor comparison lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, cases around ηa=1 and exact ratio; motivating Proposition 1 and Appendix A.2; post-only comparison above"
+      ],
+      "rationale": "The comparison is a motivated counterbenchmark for reading an additive polar correction as rank reduction or a proximal step, and for reading a one-step order bound as long-run robustness. Above the critical step the two methods exhibit qualitatively different matrix attractors, with an exact dimension-independent nonresonant ratio that diverges at the stability boundary. That comparative result is the useful contribution, not textbook proximal thresholding by itself.",
+      "residual_risks": [
+        "This is an ideal centered-quadratic counterbenchmark, not evidence about the magnitude of rank reduction or performance in neural-network settings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

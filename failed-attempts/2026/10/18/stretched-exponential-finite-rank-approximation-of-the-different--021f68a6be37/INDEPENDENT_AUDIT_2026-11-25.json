@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:23.380156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The operator-norm analytic proof in RESULT.md, Steps 1–4, checks. Normalized monomials give the displayed Laplace-moment matrix. The norm of each rank-one kernel element is the product of its vector and functional norms. The three boundary regimes for the squared output norm give kernel singularity powers -1+delta/2 and -1-alpha/2, with a square-root log multiplier at beta=2; h is strictly inside the available margin. The rank-one trace-class norm equals the operator norm, so the real integral converges. The chosen disks give Cauchy radius twice the panel half-length, positive Gauss weights integrate the Taylor polynomial exactly, and the error per panel is O(2^(-m-hj)). The positive-h tail, rank count, and the approximation-number characterization then give all claimed singular-value and Schatten consequences. The displayed analytical proof suffices; frozen numerical code inspected, not executed, and finite truncations would not certify the rate. Proof replay: RESULT.md lines 35–99.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhou give the same rank-one integral and endpoint analysis, trace class, and p>=1. The finite positive Hankel and symmetric-Cauchy papers do not by their quoted results give this infinite cross-weight rate. Exponentially graded endpoint quadrature is established numerical-analysis methodology; arXiv:2007.11828 §6 discusses exponential and double-exponential trapezoid formulas, not this operator's dyadic Gauss rule."
+        ],
+        "reasoning": "The original primary-source comparison alone would not establish p<1 or a compression estimate; the decisive same-operator coverage is in the separate index entry.",
+        "searches": [
+          "Li–Zhou arXiv:2610.05672v1 §§3–4",
+          "Ye–Feng arXiv:2207.11176v1 §4",
+          "Kindermann arXiv:2402.05503v1 Theorems 1 and 5",
+          "Beckermann–Townsend arXiv:1609.09494 Theorem 2.1 and §5.6",
+          "Trefethen–Nakatsukasa–Weideman arXiv:2007.11828 §6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ea74937420c0",
+        "arXiv:2610.05672v1",
+        "arXiv:2207.11176v1",
+        "arXiv:2402.05503v1",
+        "arXiv:1609.09494",
+        "arXiv:2007.11828"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In ea74937420c0 the Cauchy geometric ratio is at most 1/3 on each retained row block, and the tail past row N has squared Hilbert–Schmidt mass O(N^-delta). Keeping J panels but m rather than J terms gives rank <= 1+Jm and error C(3^-m+2^(-delta J/2)) in Hilbert–Schmidt norm, hence in operator norm."
+        ],
+        "reasoning": "The two cutoffs separate directly in the existing proof. Its numerical exponents dominate the frozen 2^-m and 2^(-hJ) at essentially the same rank, modulo one exact row. The frozen formula for particular sample nodes is not a consequence of that matrix construction, but is not a further spectral result.",
+        "searches": [
+          "ea74937420c0 proof Step 2, mirror offset 2350–4512",
+          "Li–Zhou §4 operator integral and kernel bounds; frozen proof Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both findings use the same normalized matrix with (n+1)/(n+k+1) times the output/input monomial norm ratio. The distinct index entry gives s_n <= C exp(-c sqrt(n)) and membership for every p>0 on precisely the frozen strict region."
+        ],
+        "reasoning": "Changing from a block-separated matrix construction to quadrature of a moment integral does not change the operator or its singular-value theorem. The result is not an identical-record self-hit.",
+        "searches": [
+          "Resultary semantic lookup: differential Hilbert operator weighted Bergman root-exponential compression and all quasi-Schatten classes",
+          "Resultary ea74937420c0, Finding and proof Steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ea74937420c0 gives rank <= 1+J^2 and norm error C(3^-J+2^(-delta J/2)), followed by the exact same singular-value and all-Schatten conclusions; its additional Hilbert–Schmidt residue is outside this assignment."
+        ],
+        "reasoning": "This is a direct statement match on the spectral conclusions, not just a near title or an exact numerical-table coincidence.",
+        "searches": [
+          "Resultary differential Hilbert operator root-exponential and quasi-Schatten semantic search",
+          "Published ea74937420c0 RESULT.md full text, Finding and Steps 1–3"
+        ]
+      },
+      "rationale": "The strongest substantiated overlap is a distinct indexed finding with the same operator, strict parameter region, root-exponential upper bound, and all p>0 conclusion, plus an explicit finite-rank construction with a stronger truncation exponent. The difference is the Gauss point-sampling realization, not a new rate or Schatten range. The shared UTC date does not establish ordering, and this decision does not assert historical priority between the two records. The known compression argument also gives a two-parameter estimate immediately. The Gauss realization remains a different construction; no claim of identical formulas or identical proofs is made.",
+      "residual_risks": [
+        "No relative chronology established between the two distinct same-day records.",
+        "The literature comparison is bounded and not an exhaustive search for identical Gauss-sampling formulas or other weighted Hankel bounds. This limitation is separate from the verified positive overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of spectral conclusions, distinct constructive formula",
+          "evidence": "Exact ratio <=1/3, Hilbert–Schmidt row-tail O(N^-delta/2), explicit rank-1+J^2 approximation, root-exponential singular values, all p>0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-root-exponential-compression-and-a-critical-hilbert-schmidt-resi--ea74937420c0/RESULT.md",
+          "material_read": "Finding and proof Steps 1–3; rank matches and continuous text offsets 2350–4512",
+          "method": "Resultary semantic search and published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Root-exponential compression and a critical Hilbert–Schmidt residue",
+          "trigger": "Strongest distinct indexed match for the same operator and rates"
+        },
+        {
+          "assessment": "Covers compactness threshold, integral and trace-class analysis, not the frozen quantitative theorem",
+          "evidence": "Rank-one integral, three endpoint regimes, trace class iff beta>alpha+2, p>=1.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05672v1",
+          "material_read": "Theorem 3.1 and §4, offsets 30900–35612, 55500–61937 and 65000–70953",
+          "method": "OA HTML passage inspection",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Same operator, spaces and strict range"
+        },
+        {
+          "assessment": "Related mapping criteria only in inspected passages",
+          "evidence": "Carleson criteria with kernel-exponent-linked target spaces; no stated cross-weight singular-number rate there.",
+          "identifier_or_url": "https://arxiv.org/html/2207.11176v1",
+          "material_read": "§4 Theorems 4.1–4.2, offsets 21300–26047",
+          "method": "OA HTML passage inspection",
+          "title": "Generalized Hilbert Operator Acting on Weighted Bergman Spaces and on Dirichlet Spaces",
+          "trigger": "Broader measure-defined operator family"
+        },
+        {
+          "assessment": "Symmetric class; inspected estimates not a direct match",
+          "evidence": "Symmetric d_i d_j/(x_i+x_j), compactness and bounds with a polynomial example; the frozen matrix has different row/column weights.",
+          "identifier_or_url": "https://arxiv.org/html/2402.05503v1",
+          "material_read": "Theorems 1 and 5 and examples, offsets around 12900 and 52100–58083",
+          "method": "OA HTML passage inspection",
+          "title": "On the type of ill-posedness of generalized Hilbert matrices and related operators",
+          "trigger": "Possible stronger weighted Hilbert singular-value estimates"
+        },
+        {
+          "assessment": "Finite-dimensional displacement bounds and separate exact quadrature factorization",
+          "evidence": "Positive finite Hankel estimate depends on log n and is not the stated dimension-independent tail estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.09494",
+          "material_read": "Abstract, Theorem 2.1, §5.6 (PDF pp. 1, 4, 18)",
+          "method": "OA PDF passage inspection",
+          "title": "On the Singular Values of Matrices with Displacement Structure",
+          "trigger": "Possibly dominating Hankel/Cauchy compression and quadrature"
+        },
+        {
+          "assessment": "Established related methodology; not an exact match to the Gauss point-sampling construction",
+          "evidence": "Equations (28)–(30) discuss exponential/tanh and double-exponential/tanh-sinh rules, not dyadic Gauss–Legendre.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.11828",
+          "material_read": "§6, offsets 59900–62773",
+          "method": "OA PDF bounded text inspection",
+          "title": "Exponential node clustering at singularities for rational approximation, quadrature, and PDEs",
+          "trigger": "Generic endpoint quadrature could cover the distinctive construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Root-exponential compression at a compactness threshold is intrinsically meaningful, but that spectral progress is covered here. The residual change is an alternate positive quadrature representation with a weaker error guarantee at essentially the same rank. The record does not motivate a constraint requiring sample-only access or establish an additional property in which this construction improves the covered result. No substantial repaired finding is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

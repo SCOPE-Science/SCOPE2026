@@ -11,16 +11,16 @@ H=V^{\mathsf T}V,\quad h_{ij}=(H^{-1})_{ij}.
 \]
 The \(\xi_k\) are strictly positive and distinct, so \(H\) is positive definite. The following formulas are exact for every \(n,\tau,d\).
 
-**Odd cycles:** If \(n=2m+1\),
+**Odd-cycle benchmark:** If \(n=2m+1\),
 \[
 \boxed{\det W_d=\begin{cases}
 \dfrac{2(\det H)^2h_{00}}{n^{n-1}},&\gcd(d,n)=1,\\[5pt]
 0,&\gcd(d,n)>1.
 \end{cases}}
 \]
-Thus **every observable pair has exactly the same information determinant**, independently of its separation and of \(\tau\). The D-optimal pairs are precisely those with \(\gcd(d,n)=1\).
+For each fixed \(\tau>0\), all observable pairs have the same determinant. The common value depends on \(\tau\); the placement tie holds for every \(\tau>0\). The D-optimal pairs are precisely those with \(\gcd(d,n)=1\). This benchmark is also the full-band odd-cycle specialization of the raw-trajectory volume result [6].
 
-**Even cycles:** If \(n=2m\),
+**Even-cycle result:** If \(n=2m\),
 \[
 \boxed{\det W_d=\begin{cases}
 \dfrac{(\det H)^2}{n^{n-2}}\left(h_{00}h_{mm}-\mathbf1_{2\mid d}h_{0m}^2\right),&\gcd(d,m)=1,\\[5pt]
@@ -34,7 +34,7 @@ Here \(h_{0m}\ne0\). Consequently the D-optimal pairs are **exactly the odd sepa
 In particular, observability and D-optimality are different requirements: on \(C_6\), separation \(d=2\) yields a full-rank observation matrix but a smaller determinant than separation \(d=1\).
 
 ## Assumptions and scope
-The cycle has unit, undirected edges; both sensors have equal independent unit-variance measurement noise at every listed time, so the Euclidean observation Gramian is the information matrix. The two sensors are used simultaneously at the same \(r\) consecutive integer times, starting at zero. The parameter \(\tau\) is positive but otherwise arbitrary. D-optimality means maximizing \(\det W_d\) among all choices of two distinct vertices; the cycle's rotational and reflection symmetries reduce these choices to the stated separations. The theorem does not assert that \(r\) is the minimum possible full-rank sampling horizon for every pair.
+The cycle has unit, undirected edges. All measurement coordinates enter the least-squares information Gramian \(W_d\) with unit weight (it is also the Fisher information for independent standard Gaussian measurement errors). The two sensors are used simultaneously at the same \(r\) consecutive integer times, starting at zero. The parameter \(\tau\) is positive but otherwise arbitrary. D-optimality means maximizing \(\det W_d\) among all choices of two distinct vertices; the cycle's rotational and reflection symmetries reduce these choices to the stated separations. The theorem does not assert that \(r\) is the minimum possible full-rank sampling horizon for every pair.
 
 The determinant formulas and placement classification remain valid if the heat matrix is replaced by any real symmetric Fourier-diagonal cycle evolution having strictly **positive, distinct** eigenvalues \(\xi_0>\cdots>\xi_{r-1}>0\) on the cosine-frequency eigenspaces, with the same two-sensor and time-sampling conventions. Heat evolution is the primary application.
 
@@ -68,7 +68,7 @@ For \(\gcd(d,n)=1\), the residues \(dk\) permute the nonzero residues modulo \(n
 \]
 Substitution yields \(\det(S_d^{\mathsf T}S_d)=2/n^{n-1}\), proving the odd formula.
 
-**5. Even-order formula.** When \(n=2m\) and the observation is full rank, \(\ker S_d^{\mathsf T}\) has an orthonormal basis supported on the constant and Nyquist blocks. In the constant block take \((1,-1)/\sqrt2\); in the Nyquist block take \((1,-(-1)^d)/\sqrt2\). Their inner product is zero for odd \(d\) and one for even \(d\), so
+**5. Even-order formula.** When \(n=2m\) and the observation is full rank, \(\ker S_d^{\mathsf T}\) has an orthonormal basis supported on the constant and Nyquist blocks. In the constant block take \((1,-1)/\sqrt2\); in the Nyquist block take \((1,-(-1)^d)/\sqrt2\). The inner product of their two-component sensor directions is zero for odd \(d\) and one for even \(d\); the off-diagonal block of \(M^{-1}=H^{-1}\otimes I_2\) couples these directions with coefficient \(h_{0m}\). Thus
 \[
 \det(Z^{\mathsf T}M^{-1}Z)=h_{00}h_{mm}-\mathbf1_{2\mid d}h_{0m}^2.
 \]
@@ -101,6 +101,8 @@ Summers, Cortesi and Lygeros (arXiv:1404.7665, first public April 30, 2014) esta
 
 A distinct published result titled *Sharp spectral-demixed two-sensor frame bounds on finite cycles* addresses the low-pass, **spectrally demixed** Fourier output norm and explicitly distinguishes it from the untreated time-trajectory Gramian; it does not imply the displayed determinant formula or even-order parity comparison without the additional rectangular-Gram calculation. A separate result on **single-sensor normalized paths** concerns a different graph, number of sensors and sampling matrix. These general and related formulas are not claimed as new.
 
+The raw-trajectory low-pass determinant in [6] specializes to the odd-cycle benchmark when the cutoff includes every mode of an odd cycle. Its strict cutoff below the Nyquist frequency excludes the even-cycle case considered here. The even-cycle determinant in [7] uses only \(m\) times on \(C_{2m}\), whereas the result here uses \(m+1\). The arithmetic rank calculation in [8] includes the \(m+1\)-sample horizon but does not determine the information determinant there. The contribution here is the full even-cycle determinant at \(m+1\) samples and its strict parity comparison among observable placements.
+
 ## Limitations
 All conclusions concern finite-dimensional symmetric cycle heat diffusion, exactly two equally weighted point sensors, and the specified consecutive-time, equal-noise determinant criterion. D-optimality need not optimize the smallest eigenvalue, condition number or a different observation horizon, nor does it apply unchanged to directed or irregularly weighted cycles, colored noise or nonlinear sensing. Closed formulas use Vandermonde matrices and can be numerically ill-conditioned for long observation horizons; stable implementation may require high precision or orthogonal polynomial techniques. Novelty is assessed against inspected sources and accessible search results, not established by a complete survey or independent expert audit.
 
@@ -110,3 +112,6 @@ All conclusions concern finite-dimensional symmetric cycle heat diffusion, exact
 3. A. Alaeddini and K. A. Morgansen, *Optimal Disease Outbreak Detection in a Community Using Network Observability*, arXiv:1609.02654v1, September 9, 2016, https://arxiv.org/abs/1609.02654.
 4. *Sharp spectral-demixed two-sensor frame bounds on finite cycles*, publicly released scientific result, 2026, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818.
 5. *Universal endpoint optimality for dynamical sampling on normalized paths*, publicly released scientific result, 2026, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f.
+6. *Raw-trajectory volume factorization and optimal two-sensor gaps on finite cycles*, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-raw-trajectory-volume-factorization-and-optimal-two-sensor-gaps--d1a88d067af2.
+7. *Universal finite-time information volume for two sensors on even cycles*, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-finite-time-information-volume-for-two-sensors-on-even--3aa273a4571a.
+8. *Exact arithmetic rank loss and one-snapshot recovery on even cycle graphs*, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-arithmetic-rank-loss-and-one-snapshot-recovery-on-even-cyc--b4ea4f0f2c79.

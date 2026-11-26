@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected occupation generator follows by explicit evaluation of every jump matrix, including the off-diagonal quantum-coherence channels. Its characteristic polynomial has the factored discriminant and establishes the two exceptional rays. Cayley–Hamilton gives the exact propagator, including Jordan critical terms. A surjective intertwining map proves that the defective population quotient forces the full Liouvillian to be defective even with arbitrary diagonal energy shifts and pure dephasing. Independent finite matrix calculations reproduced 1,820 checks, without using enumeration as proof.
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The source's full qutrit sections derive the stationary state and Wigner function, not the present transient classification or protected Liouvillian defect. Earlier static Wigner-negativity classification of the same oscillator concerns disjoint invariants and does not imply this time-dependent theorem. Prior oscillator and qubit Liouvillian exceptional-point papers have different generators. The canonical three-cycle Markov generator is related and the algebraic discriminant is elementary; a general published theorem on invariant Markov quotients could subsume portions of the result. This unresolved risk is explicitly noted rather than claimed away. No independent priority validation was performed.
+PASS
 
-**Value — PASS.** The theorem identifies two sharp, physically tunable boundaries between damped oscillatory photon counts and real-mode decay in a newly introduced quantum model. Its robust Jordan lift demonstrates a persistent Liouvillian exceptional point even when substantial diagonal dephasing and spectral detuning alter the quantum coherences. This provides a complete and experimentally observable population-sector phase classification, not an arbitrary parameter slice.
+Each row of either pump or nonlinear-loss jump has at most one nonzero entry, and each corresponding jump Gram matrix is diagonal. Hence the diagonal of the two dissipators depends only on the diagonal of the input, even though the output can have coherence. The other indicated terms vanish on the output diagonal for any input, including complex diagonal dephasing jumps. This gives the stated one-way population cycle, stationary distribution and determinant z[z²+(3a+b)z+2a²+3ab]. On the zero-sum plane, B=K+m₀Q satisfies B²=(Δ/4)Q. At each real discriminant root the minor −ab and the zero determinant give rank two for K+m₀I and a nonzero rank-one Jordan nilpotent on that plane. The population map is onto and intertwines, so the population minimal polynomial divides the full one; its repeated root forces full defectiveness regardless of other eigenvalues. For vacuum input its deviation is e^(−m₀t)[A cosh(ωt)+C sinh(ωt)/ω], with A=(2a+b)/(2a+3b)>0 and C=(2a²−ab+b²)/(2(2a+3b))>0. Thus it changes sign infinitely often in the open complex-root interval and in fact never crosses outside it or at its endpoints, stronger than the stated at-most-once bound. The endpoint vacuum response has a genuinely nonzero t coefficient. The nonlinear jump supplies a nonzero stationary source √2 b π₂ for the 02 coherence, with strictly negative real damping and no feedback to populations.
 
-**Closest work and limits.** Chattopadhyay–Pendse–Gupta, arXiv:2610.19904v1; Tay, arXiv:2304.05792; Larson–Qvarfort, arXiv:2306.12322. The result is limited to the qutrit truncation and diagonal perturbations, and does not classify other sectors or the full spectral gap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generic three-state directed-cycle discriminant and the corresponding population defective ratios are covered by a broader indexed CTMC result. The supported distinct content is the exact identification of that defect as a full quantum Liouvillian defect for the whole stated diagonal-perturbation family, with an occupation-level transient witness. Static qutrit solutions and the comparison Liouvillian EP literature do not establish this for the stated family in the inspected passages.
+
+## value
+
+PASS
+
+The result identifies which exact defect survives detuning and dephasing of arbitrary allowed strength in a specified quantum model. Vacuum counts furnish a direct diagnostic of the oscillatory sector and boundary transient without reconstructing coherences. This physical and spectral protection, rather than computing the two roots of a generic cycle, is the useful conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

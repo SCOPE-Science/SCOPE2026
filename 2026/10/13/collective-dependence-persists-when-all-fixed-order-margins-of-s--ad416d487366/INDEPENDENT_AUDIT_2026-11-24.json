@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:13.336649Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Power coordinates y_i=x_i^p and slack w=1−Σy_i turn the published density into Dirichlet(α,…,α,β): the Jacobian is α^d Πy_i^(α−1), and Γ(1+α)=αΓ(α) gives the normalization because dα+β=1+α. Relative to Q_d, the log likelihood on support is −logΓ(β)−(d−1)logΓ(1+α)−t log w. The beta log moment, finite since β>0, yields the exact KL formula. Aggregation into the slack leaves β+(d−k)α=1−(k−1)α, so the marginal has the same family and exponent at dimension k. Setting m=k−1, the quadratic terms combine to ζ(2)[m(m+1)−(m²+m)/2]α², proving the stated coefficient and the O_k(α³) remainder; Pinsker gives TV convergence. At t=1/c the order-one Euler terms cancel. As a function of t the limiting KL has derivative tψ'(1−t)>0 and value zero at zero; the digamma pole dominates the log-gamma term as t tends to 1. Under Q_d the number of coordinates with x_i^p>1/2 is Binomial(d,1−2^(−1/p)), with limiting mean log(2)/c; under P at most one can occur. The zero-versus-positive probability of at least two proves a liminf lower bound, not convergence or sharpness of the full TV. Own replay: python3 /workspace/review_replay.py 5; Q_d simplex radial integration in logistic coordinates checked normalization and KL at (d,p)=(2,3),(3,7),(5,9) to 42 digits and gave 0.40939007008601165 and 0.04782868294631568 for the two c=2 quantities. The submitted diagnostics were inspected, not executed; finite quadrature does not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The copula paper treats p→∞ weak convergence at fixed dimension, not the dimension-growing regime.",
+          "Ma–Sun concerns the general copula entropy/mutual information identification; full text was unavailable through the lawful routes tried.",
+          "The later Resultary total-correlation law is for the multivariate Raftery copula."
+        ],
+        "reasoning": "A fixed-dimensional limit is not uniform in d and cannot decide full TV when d increases. The general entropy identification does not evaluate the logarithmic slack or give a TV separation; the Raftery distribution is not a general theorem containing the spherical family.",
+        "searches": [
+          "Bernard–Müller–Oesting, fixed-dimensional p→∞ limit",
+          "Ma–Sun, Mutual Information Is Copula Entropy",
+          "Resultary high-dimensional total correlation 3dddc1a5eee1"
+        ]
+      },
+      "checked_sources": [
+        "Bernard–Müller–Oesting arXiv:2206.10180 author manuscript",
+        "Sundgren DOI 10.21203/rs.3.rs-3857082/v1",
+        "Ma–Sun 2011 (bibliographic only)",
+        "Resultary d363caf19ac0",
+        "Resultary 53a0f2d3a98e",
+        "Resultary 3dddc1a5eee1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established density and beta log moment readily give the finite KL formula; the same density also supplies the support constraint.",
+          "The available fixed-dimensional limit, symmetric special slices, fixed-dimensional boundary estimator and symmetric-Dirichlet CLT do not state a uniform or growing-dimensional dependence comparison."
+        ],
+        "reasoning": "The simultaneous comparison needs the cancellation at fixed t, control of fixed-order marginals on a different parameter scale, and an event with positive probability under the product law and zero under the spherical law. In particular positive limiting KL alone cannot imply positive liminf TV. The standard inputs are separated from that extra conclusion.",
+        "searches": [
+          "Bernard–Müller–Oesting, Theorem 10 and Corollary 11",
+          "Resultary record d363caf19ac0",
+          "Resultary record 53a0f2d3a98e",
+          "Sundgren, pp. 8–9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernard–Müller–Oesting give the same density and Beta law for the powered radius; the slack Dirichlet law is a change of variables, not a new model.",
+          "Sundgren gives symmetric Dirichlet special cases at p=d or at the surface boundary p=d−1; neither has a fixed ratio c>1 in the joint limit.",
+          "The same-family Weibull estimation record and the adjacent symmetric-Dirichlet entropy record study different observables."
+        ],
+        "reasoning": "The entropy of angular spacings or of the normalized Dirichlet vector is not the copula KL to independent uniforms. In copula coordinates the log likelihood uses the slack and normalization; the independence reference is the cube product measure.",
+        "searches": [
+          "Bernard–Müller–Oesting arXiv:2206.10180, Theorem 10 and Corollary 11",
+          "Sundgren, DOI 10.21203/rs.3.rs-3857082/v1, radial Dirichlet copula",
+          "Resultary spherical copula/Dirichlet-entropy records d363caf19ac0 and 53a0f2d3a98e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched exact prior formulas are for the density, Beta radius and special Dirichlet slices, not a table of the moving-dimension KL and TV expressions.",
+          "The 3dddc1a5eee1 exact total-correlation expression is model-specific to Raftery."
+        ],
+        "reasoning": "The contribution is a statement for every fixed c>1 and each fixed k, not recovery of a tabulated number. The half-integer gamma evaluation at c=2 and agreement with classical special-function values receive no novelty credit.",
+        "searches": [
+          "Spherical-copula author manuscript Theorem 10/Corollary 11 and limit discussion",
+          "Sundgren radial Dirichlet calculations pp. 8–9",
+          "Resultary exact high-dimensional information profile and same-family entropy searches"
+        ]
+      },
+      "rationale": "The family, density, and distributional/entropy tools are prior. The distinct finding is the quantitative comparison in the admissible dimension-growing regime p=c(d−1): a nonzero full KL profile with a separate full TV obstruction, even though every fixed-order marginal tends to the product law with the given KL asymptotic. A known finite-dimensional spherical density or a general identity for copula entropy is not, by itself, this comparison.",
+      "residual_risks": [
+        "A model-specific entropy theorem or a stronger uniform high-dimensional result could be unindexed or described under different terminology. The inspected primary and indexed evidence does not establish priority exhaustively; full text of Ma–Sun was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the density, support and radial law; fixed-dimension weak limit is a different regime",
+          "evidence": [
+            "For p>d−1 the powered radius has Beta(d/p,1−(d−1)/p) law; Corollary 11 gives the positive spherical copula density."
+          ],
+          "identifier_or_url": "https://cris.vub.be/ws/portalfiles/portal/114137087/95653168.pdf",
+          "material_read": "Theorem 10 and Corollary 11, p. 12 text offsets 37436–40902, and fixed-dimension p→∞ discussion, p. 16, offset 105314",
+          "method": "Lawful OA author manuscript, bounded PDF passages",
+          "title": "Lp-norm spherical copulas",
+          "trigger": "Defines the same distribution and possible asymptotic independence precedent"
+        },
+        {
+          "assessment": "Matching structural ingredients on distinct parameter slices",
+          "evidence": [
+            "Uniform L_n-ball at p=n and uniform surface example at p=d−1; the first is identified with the p=n special case of prior work."
+          ],
+          "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-3857082/v1",
+          "material_read": "Research Square OA PDF pp. 8–9, text offsets 22000–25430 and 27000–29966",
+          "method": "Bounded primary PDF inspection",
+          "title": "Uniform and radial Dirichlet copulas",
+          "trigger": "Possible powered-coordinate/Dirichlet equivalent result"
+        },
+        {
+          "assessment": "General identity acknowledged; no verified model-specific coverage from this access",
+          "evidence": [
+            "Mutual information identification with negative copula entropy is standard and is not the proposed finding."
+          ],
+          "identifier_or_url": "Ma and Sun, Tsinghua Science and Technology 16 (2011), 51–54",
+          "material_read": "Bibliographic description; full text not retrieved",
+          "method": "Lawful publisher/DOI and repository recovery attempts",
+          "title": "Mutual Information Is Copula Entropy",
+          "trigger": "General identity underlying copula relative entropy"
+        },
+        {
+          "assessment": "Fixed-d,p estimator result, not KL/TV dependence in growing dimension",
+          "evidence": [
+            "Weibull limit with angular Dirichlet Shannon entropy in its scale."
+          ],
+          "identifier_or_url": "Resultary record d363caf19ac0",
+          "material_read": "Local mirrored RESULT.md, finding and regime",
+          "method": "Resultary query followed by bounded mirror inspection",
+          "title": "Weibull limit for the natural support-boundary estimator in Lp spherical copulas",
+          "trigger": "Closest published same-family likelihood/support application"
+        },
+        {
+          "assessment": "Different observables and parameter regime",
+          "evidence": [
+            "Shannon entropy and Simpson concentration covariance/correlation and CLT, not copula KL against product uniforms."
+          ],
+          "identifier_or_url": "Resultary record 53a0f2d3a98e",
+          "material_read": "Local mirrored RESULT.md, finding",
+          "method": "Resultary query followed by bounded mirror inspection",
+          "title": "Shannon–Simpson dependence transition for symmetric Dirichlet vectors",
+          "trigger": "Same-day dependence/entropy result for Dirichlet vectors"
+        },
+        {
+          "assessment": "Later exact reduction and asymptotic for a different copula",
+          "evidence": [
+            "The copula family and the reduction are specific to the Raftery model."
+          ],
+          "identifier_or_url": "Resultary record 3dddc1a5eee1",
+          "material_read": "Local mirrored RESULT.md, finding",
+          "method": "Resultary query followed by bounded mirror inspection",
+          "title": "Sharp high-dimensional total-correlation law for the multivariate Raftery copula",
+          "trigger": "Closest broader high-dimensional copula information result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The spherical model has a natural dimension-dependent admissibility threshold. Holding p/(d−1) fixed shows quantitatively that weak information in each bounded subset of coordinates need not make the full law approximately independent, even in TV. A finite KL profile, fixed-order decay coefficient and a concrete distinguishing event give independently usable comparisons; no claim of sharp full TV is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

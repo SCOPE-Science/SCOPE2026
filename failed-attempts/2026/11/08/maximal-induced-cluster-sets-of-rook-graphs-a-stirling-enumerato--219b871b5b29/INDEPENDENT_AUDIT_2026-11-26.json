@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:30:16.921953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 39–62",
+        "Frozen VERIFICATION.md and verify_cluster_rook.py, inspected without executing",
+        "/workspace/branches/9a7ef179-6db1-4006-939e-39c896630a95/check_small.py"
+      ],
+      "rationale": "The rook line graph of selected bipartite edges is a union of cliques exactly when all nontrivial edge components are stars. Covering both shores suffices for maximality because an omitted edge would join two components, giving a component containing disjoint edges. Leaving vertices uncovered on both shores fails maximality. If just one shore has uncovered vertices, a star centered on the other shore or a single-edge component would be extendible; the only maximal possibilities are stars of at least two edges centered on the shore with uncovered vertices. Labeled role selection, independent leaf partitions, and the bijection pairing single-edge endpoints give exactly the factorial and Stirling factors. This includes the singleton-shore cases. In the gap regime the spanning types have two through m components at most, so size lies from n to n+m−2. The given constructions realize each size, and the two opposite-center stars are the only maximum type for m≥3. Independent enumeration and formula computations agreed on seven small boards, including singleton-shore and gap-regime cases.",
+      "residual_risks": [
+        "The replay is finite corroboration only. The general classification and counting proof supply the all-board result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "45629ca1d9f3 gives {a} ∪ {b,…,a+b−2} for every 2≤a≤b, not just b≥2a, and ab maximum sets when a,b≥3.",
+          "Cao gives general polynomial-delay enumeration; Le and Le define the cluster-deletion decision problem."
+        ],
+        "reasoning": "The earlier exact rook theorem dominates the restricted regime. General listing or deletion algorithms alone are not exact size distributions.",
+        "searches": [
+          "Resultary 45629ca1d9f3, exact support in Finding",
+          "Resultary 5ac1a3fe8a52, maximal-cardinality spectrum",
+          "arXiv:2004.09885, p. 2",
+          "DOI:10.4230/LIPIcs.MFCS.2022.68, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 45629ca1d9f3, 5ac1a3fe8a52 and 5d7e3d7113d3",
+        "arXiv:2004.09885, 1912.13446v3 and 2306.09965",
+        "DOI:10.4230/LIPIcs.MFCS.2022.68",
+        "OEIS A291104 and A352211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier spanning exponential has exponent zxy+x(e^{zy}−1−zy)+y(e^{zx}−1−zx): isolated edges and stars of at least two edges are separate species.",
+          "Its nonspanning sums use falling factorials, with upper bounds on blocks that are equivalent to the zeros of T."
+        ],
+        "reasoning": "Expanding the three terms of the exponent by their numbers of components gives the frozen P coefficient for a,b,c, with factorial denominators and T equal to the associated Stirling numbers. The remaining terms coincide term by term. The earlier support and ab top coefficient explicitly imply the frozen gap and maximum count.",
+        "searches": [
+          "Resultary 45629ca1d9f3, polynomial and max-size multiplicity",
+          "Resultary 5ac1a3fe8a52, EGF and spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "45629ca1d9f3 uses the same labeled induced cluster sets and inclusion-maximality.",
+          "5ac1a3fe8a52 counts maximal general-position sets on the same rook graph; it states exactly the same three classes of star forests."
+        ],
+        "reasoning": "Rook graphs with at least two rows and columns have diameter two. A triple on a geodesic is exactly an induced P₃ transited from endpoint to endpoint; hence general position equals the cluster condition, and maximality agrees. The earlier cluster result directly includes the singleton-shore cases too.",
+        "searches": [
+          "Resultary 45629ca1d9f3, Finding and Assumptions",
+          "Resultary 5ac1a3fe8a52, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed rook-cluster record gives the spanning EGF plus both associated Stirling corrections on all positive board sizes.",
+          "The minimal edge cover record identifies the spanning star-forest subset; A291104 counts maximal irredundant sets and A352211 takes an extremum over all graphs of a given order."
+        ],
+        "reasoning": "The exact indexed result matches all coefficients; neither OEIS predicate corresponds to the complete census. Minimal edge covers recover only the spanning subfamily, not the nonspanning corrections.",
+        "searches": [
+          "Resultary 45629ca1d9f3, full polynomial in Finding",
+          "Resultary 5d7e3d7113d3, Finding",
+          "OEIS A291104 and A352211"
+        ]
+      },
+      "rationale": "The earlier Resultary cluster record states the identical all-board labeled maximal-cluster census in equivalent EGF form, plus the same maximum coefficient and a broader exact support theorem. Another earlier record already gives the classification and spectrum under the equivalent general-position predicate. The frozen restricted-regime gap and Stirling form do not add a distinct finding.",
+      "residual_risks": [
+        "A literature lookup was unavailable and Liu–Huang coverage was not verified. Neither implies absence of earlier work. The statement-level earlier catalogue comparisons are decisive independently of access and do not establish absolute publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and broader prior coverage",
+          "evidence": "The complete same polynomial appears with spanning-star EGF; support for all 2≤a≤b and ab maxima when both sides are at least three are explicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3/RESULT.md",
+          "material_read": "Finding, Assumptions and line-graph proof; proof passages on the three types and support",
+          "method": "Local mirror; coefficient and hypothesis comparison",
+          "title": "Maximal induced cluster subgraphs of rook graphs: an exact enumerator and cardinality gaps",
+          "trigger": "Exact same maximality predicate, labeled board and coefficient claims"
+        },
+        {
+          "assessment": "Prior enumeration and broader support under an equivalent predicate",
+          "evidence": "Three identical star-forest families, labeled maximal-set EGF and support {p,q} ∪ {p+q−k:2≤k≤min(p,q)}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-general-position-polynomials-and-maximal-set-spectra-of-rectangu--5ac1a3fe8a52/RESULT.md",
+          "material_read": "Finding, Assumptions and proof passages on star forests and maximality",
+          "method": "Local mirror; equivalence of predicates in diameter two",
+          "title": "General-position polynomials and maximal-set spectra of rectangular rook graphs",
+          "trigger": "Equivalent geodesic formulation"
+        },
+        {
+          "assessment": "Spanning subfamily only",
+          "evidence": "The statement identifies inclusion-minimal edge covers with spanning star forests; it concerns VC dimension rather than the full maximal cluster polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-vc-dimension-of-inclusion-minimal-edge-covers-of-complete--5d7e3d7113d3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact VC dimension of inclusion-minimal edge covers of complete bipartite graphs",
+          "trigger": "Spanning star forests equal minimal edge covers"
+        },
+        {
+          "assessment": "General listing rather than a labeled rook cardinality census",
+          "evidence": "The polynomial-delay framework covers cluster graphs but does not give the claimed generating function in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+          "material_read": "p. 2, passage on polynomial-delay enumeration (offset 6800)",
+          "method": "Lawful public paper passage",
+          "title": "Enumerating Maximal Induced Subgraphs",
+          "trigger": "Published maximal cluster enumeration"
+        },
+        {
+          "assessment": "Overlap on minimum size",
+          "evidence": "The rook-graph minimum size of a maximal general-position set is min(r,s); that statement does not give the full distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+          "material_read": "Theorem 5.3, p. 12 (offset 38036)",
+          "method": "Lawful public paper passage",
+          "title": "General position in graph products",
+          "trigger": "Published same-object result for equivalent predicate"
+        },
+        {
+          "assessment": "Deletion decision problem, not census",
+          "evidence": "The inspected passage defines deletion to a cluster graph but does not count all inclusion-minimal deletions.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2022.68",
+          "material_read": "p. 1, OA offsets 18–1399",
+          "method": "Lawful public paper passage",
+          "title": "Complexity of the Cluster Vertex Deletion Problem on H-Free Graphs",
+          "trigger": "Complementary deletion formulation"
+        },
+        {
+          "assessment": "Specific subfamily coverage not assessed",
+          "evidence": "The identified scope is spanning forests in the same host; possible treatment of spanning star forests was not verified.",
+          "identifier_or_url": "Liu and Huang, Ars Combinatoria 97 (2010), 289–300",
+          "material_read": "Bibliographic identification; full text not obtained",
+          "method": "Bounded lawful retrieval",
+          "title": "Enumeration For No-Trivial Spanning Forests of Complete Bipartite Graphs",
+          "trigger": "Potential overlap with spanning-star subfamily"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Resultary 45629ca1d9f3 and 5ac1a3fe8a52"
+      ],
+      "rationale": "The gap and full size distribution are meaningful invariants for maximal cluster sets and minimal deletions. The frozen claim already occurs in a strictly broader exact result; the Stirling expansion and narrowed regime supply no substantive new mathematical information.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

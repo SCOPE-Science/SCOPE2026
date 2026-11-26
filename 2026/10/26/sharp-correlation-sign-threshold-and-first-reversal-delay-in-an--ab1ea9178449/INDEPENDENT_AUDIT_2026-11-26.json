@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:11:44.725013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stable causal filter is integrable; its nonnegative, strictly positive on positive times impulse response in the overdamped and critically damped cases proves strict positivity by the double convolution. In the underdamped case put f=a0/m and D=(beta+k)^2+omega^2. Stationary balance gives E[V sigma]=k E[X sigma], D E[X sigma]=f, E[XV]=0 and 2 beta E[V^2]=f E[V sigma]. The V-X balance then gives the stated C(0), and conditioning on the future orientation gives the forced covariance ODE with C'(0)=0. Solving and dividing by A yields the displayed cosine and sine coefficients. At k=beta the ratio R/A is strictly below 1 for every omega>0. For q=k/beta<1 and x=(omega/beta)^2, the squared amplitude minus 1 has numerator F_q(x) over 4x(1+x) after cancellation; F_q decreases on x>0 and is negative at (1-q^2)/3. This covers the nonnegative sine coefficient. For the other case, b,h_*<0 and 0<-b<1, 0<-h_*<a; comparison on the first quadrant follows from the nonpositive derivative of exp(-a theta)(cos theta+a sin theta), on the second from a<exp(a theta) for theta>=pi/2, and the other two quadrants give strict bounds immediately. Periodicity proves the comparison for all lags. For k>beta, late cosine peaks and troughs give opposite signs. The first zero and the onset of negative values are bounded below by log(A/R)/(k-beta) near the threshold and above by that time plus one period. A trough exactly at the bound has negative derivative, so the upper bound also covers negativity. Smoothness of R/A at k=beta gives the claimed coefficient and O(1) remainder for either definition. Do not identify first zero and first sign-changing zero exactly: a negative-cosine lobe can touch zero at its strict interior minimum (at phase pi+arctan((k-beta)/omega) modulo 2pi), and then the earlier zero is tangential. This does not affect either asymptotic. The signed area follows by integrating the double convolution over the full line, using int h=Omega^(-2) and int exp(-k|t|)=2/k, then halving by evenness. The original checker was inspected, not run. Independent bounded replay /workspace/replay/1_delay.py recovered the example 23.69746138449596 and illustrates the possible tangency; finite examples are not the threshold proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AOUP harmonic dynamics model the same second-order forcing after matching parameters; Dutta et al. use x0=v0=0 for transient equal-time moments.",
+          "The later catalogue match extends the sign argument to other drives with exponential covariance."
+        ],
+        "reasoning": "Extension to a different stationary input with the same covariance follows immediately from stable filtering. Prior transient moment or MSD formulas are credited, but the all-lag inequality on the slow side and the uniform first-delay law are not stated there.",
+        "searches": [
+          "arXiv:2108.14005v1, Sec. III C, Eqs. 25–27",
+          "arXiv:2406.06120v1, Appendix B, Eqs. 80–86",
+          "Resultary 2206b2b3598e, Finding and section 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.06120v1",
+        "arXiv:2108.14005v1",
+        "Resultary 2206b2b3598e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dutta et al. Eqs. 80–86 concern equal-time moments from a fixed origin; Nguyen et al. Eqs. 25–27 describe harmonic-trap MSD regimes. Neither inspected passage proves the global sign comparison or one-period onset bound.",
+          "The exact later catalogue theorem covers both principal conclusions; no checked evidence establishes that it preempts this frozen record."
+        ],
+        "reasoning": "In an oscillatory parameter range merely having complex poles does not rule out all-lag positivity; the citation's MSD discussion alone does not establish when this occurs. The distinct older-literature contribution is the sign analysis, not the poles, covariance expression, or zero-frequency area.",
+        "searches": [
+          "arXiv:2406.06120v1, Appendix B",
+          "arXiv:2108.14005v1, Sec. III C harmonic potential",
+          "Resultary 2206b2b3598e, section 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Gaussian drive uses tau=1/k and gamma^2 D/tau=a0^2. Equal force covariance gives equal position covariance for this stable linear oscillator.",
+          "Resultary 2206b2b3598e states the identical dichotomy and gives log(2/sqrt(1+3 beta^2/Omega^2)) as delay coefficient, algebraically identical since Omega^2=beta^2+omega^2."
+        ],
+        "reasoning": "The sign and onset laws are not consequences of telegraph non-Gaussianity. The checked later catalogue result is equivalent at covariance level, while the older matched-input paper supplies the setting and displacement formulas, not the same threshold and delay statements.",
+        "searches": [
+          "Resultary: colored-noise inertial harmonic oscillator stationary position autocovariance all-lag positivity threshold first zero delay exponential noise",
+          "arXiv:2108.14005v1, Eqs. 1–4 and Sec. III C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2206b2b3598e gives the exact sign boundary and delay; its catalogue release bears the date 2026-11-02. The literature query returned general oscillator material, not a matching earlier table or theorem."
+        ],
+        "reasoning": "This is positive evidence of duplicate scientific coverage, but the later catalogue date is not evidence of earlier priority or of independent discovery. The bounded negative literature search proves no broader absence.",
+        "searches": [
+          "Resultary: stationary inertial active particle harmonic trap covariance strictly positive all lags sharp underdamped switching threshold first zero delay inverse distance",
+          "Web literature: first zero covariance underdamped colored noise harmonic oscillator sign change threshold autocorrelation positivity switching rate"
+        ]
+      },
+      "rationale": "Credit the oscillator/filter and its covariance formula as known at the level of matching second-order inputs. The distinct claim relative to checked earlier literature is the uniform sign boundary including its slow side and the singular delay law. There is verified equivalent catalogue coverage in a later-dated release, not independent evidence of earlier publication.",
+      "residual_risks": [
+        "A general exponential-colored-noise oscillator theorem might establish the sign and onset earlier; the targeted literature search was bounded.",
+        "The later exact catalogue match means independent rediscovery and historical priority are not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mean and transient covariance ingredients, not the stationary sign theorem.",
+          "evidence": [
+            "The variance and mixed-moment calculations are initialized at x0=v0=0 and concern a single observation time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.06120v1",
+          "material_read": "Appendix B, Eqs. 80–86",
+          "method": "OA primary HTML",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Same telegraph oscillator"
+        },
+        {
+          "assessment": "Equivalent second-order oscillator; harmonic MSD analysis does not state the claimed strict sign transition and delay.",
+          "evidence": [
+            "Drive covariance (D/tau) exp(-|t-t'|/tau) matches the telegraph covariance up to the force scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.14005v1",
+          "material_read": "Eqs. 1–2 and 4, Sec. III C Eqs. 25–27",
+          "method": "OA primary PDF passages",
+          "title": "Active Ornstein–Uhlenbeck model for self-propelled particles with inertia",
+          "trigger": "Equivalent covariance after identifying exponential force statistics"
+        },
+        {
+          "assessment": "Exact equivalent theorem on the principal claim, in a later-dated record; no verified earlier priority.",
+          "evidence": [
+            "Same sign criterion with q=k, and same first-negative-lag coefficient using omega_0=Omega."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/2206b2b3598e",
+          "material_read": "Finding and section 6, offsets 0 and 5750",
+          "method": "Local catalogue full-text passages",
+          "title": "A sharp autocorrelation sign boundary for an inertial run-and-tumble trap",
+          "trigger": "Strongest exact matching indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It settles which underdamped active traps exhibit genuinely negative stationary memory, something not settled by damping alone. The precise positive boundary and the divergent lag at onset show why sign changes can be physically hard to observe just beyond the threshold, despite a positive signed area.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

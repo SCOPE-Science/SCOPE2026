@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:28:31.635833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete language, automaton and enumerator are correct under the frozen assumptions. A k-clique in any orientation either contains a directed cycle (read arbitrary signs by walking forward/backward around it) or is a transitive tournament. This gives the lower language inclusion. Orienting edges increasingly in a proper k-colouring gives a signed-walk map to the transitive tournament and the upper inclusion. A length-k monochromatic run is impossible there by strict rank changes; each shorter run can go from one extreme rank to the other in its prescribed number of steps, and alternating runs concatenate. The complete DFA has a start, two sets of k-1 run counters and a dead state. Every state is reachable; a same-sign continuation that just fills a forbidden run distinguishes different run counters and separates each from the start and opposite counters; the empty continuation distinguishes the dead state. This works also for k=1, with start and dead states only. The two choices of starting sign and the compositions into allowable run lengths yield the displayed generating function. The independent bounded replay in /workspace/branches/ba5b573b-c697-4755-b510-70c88a0b7b9e/replay.py checked every orientation of six small graphs on words through length 7, DFA comparisons through length 9 and state/enumerator checks for k=1 through 5. The C5 witness reached {1,3,4}, {3}, {2,4}, {1,3}, then the empty set, as claimed. All supporting files including the supplied checker and its output were inspected; the uploaded checker was not executed. Bounded checks corroborate, not replace, the argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pujol's bipartite theorem covers the language at k=2 and the corollary concerns monochromatic path membership, not all words.",
+          "49fc4cd7aaaa develops a stronger transitive-tournament endpoint bound and expressly gives the equality-class remanence consequence."
+        ],
+        "reasoning": "Pujol alone does not supply the whole equality-class theorem in the inspected results. The distinct catalogue record supplies the full nontrivial scope, including the two quantitative consequences.",
+        "searches": [
+          "Pujol arXiv:2609.08843v1, Corollary 34 and Theorem 36",
+          "Resultary 49fc4cd7aaaa, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and checker-output.txt",
+        "Pujol arXiv:2609.08843v1",
+        "Resultary 49fc4cd7aaaa, 09ce4599f6de and 1d243eb318b8 via the local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pujol establishes the cycle and remanence ingredients, limiting its stated full-language theorem to the bipartite case.",
+          "The equality-class theorem with minimal DFA and enumerator is explicit in 49fc4cd7aaaa, not merely a plausible implication."
+        ],
+        "reasoning": "The standard run-counter and composition deductions do not leave a distinct result once the language and all stated invariants are covered. The additional k=1 case follows directly from the definitions, and the C5 separation already occurs in the odd-cycle results.",
+        "searches": [
+          "Pujol arXiv:2609.08843v1, Proposition 4, Definition 32, Corollary 34 and Theorem 36",
+          "Resultary 49fc4cd7aaaa and 09ce4599f6de"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "49fc4cd7aaaa gives the exact no-length-k-equal-sign-run language and minimal complete DFA size 2k for finite simple graphs with omega=chi=k>=2.",
+          "Its enumerator (1-z^k)/(1-2z+z^k) equals the frozen (1+S)/(1-S) on multiplying numerator and denominator by 1-z, with S=z+...+z^(k-1)."
+        ],
+        "reasoning": "The alternative forms give identical languages, state counts and coefficients at every nontrivial k. The k=1 case is immediate from the absence of edges and does not distinguish the substance of the claims.",
+        "searches": [
+          "Resultary: remanent run avoidance language and complete DFA; chi=omega equality; Pujol remanence and bipartite orientation; DFA size and enumerator",
+          "Resultary 49fc4cd7aaaa, actual Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "49fc4cd7aaaa gives the entire length enumerator and exact DFA size, not just sample coefficients.",
+          "09ce4599f6de records ++-++ in the C3-versus-C5 comparison; 1d243eb318b8 excludes the same word under sign-to-bit relabeling in its exact C5 language."
+        ],
+        "reasoning": "Both the infinite exact invariants of the equality class and the concrete boundary witness are already represented by actual scientific statements. The exact orientation used for the boundary example need not agree for the language-membership fact to agree.",
+        "searches": [
+          "Resultary 49fc4cd7aaaa exact enumeration/minimization",
+          "Resultary 09ce4599f6de and 1d243eb318b8, C5 language and witnesses"
+        ]
+      },
+      "rationale": "A distinct inspected Resultary record, 49fc4cd7aaaa, explicitly gives the same equality-class language, complete DFA size 2k, and algebraically identical enumerator for every k>=2. This is verified equivalent coverage, not an inference from a title, date, or coincident parameters. The relation and historical priority of the two records are not established by their catalogue dates. The excluded k=1 branch is just a nonempty edgeless graph recognizing the empty word alone. The C5 boundary word is already recorded in 09ce4599f6de. No genuinely distinct substantive remainder merits repair.",
+      "residual_risks": [
+        "The exact record relationship and priority are unresolved; FAIL concerns demonstrated equivalent coverage, not attribution.",
+        "The bounded comparisons are not a comprehensive history of oriented-graph or automata theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent substantive coverage, independent of unresolved chronology",
+          "evidence": [
+            "omega=chi=k>=2; forbidden k-runs; minimal complete DFA 2k; equivalent rational enumerator"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-suffix-run-endpoint-bounds-in-tournament-path-automata--49fc4cd7aaaa/RESULT.md",
+          "material_read": "RESULT.md Finding, graph-level consequence and stronger endpoint statement",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp suffix-run endpoint bounds in tournament path automata",
+          "trigger": "Exact matching graph hypothesis and all three conclusions"
+        },
+        {
+          "assessment": "Definitions, cycle universality and bipartite case are prior; the cited path result alone is not full-language coverage for general k",
+          "evidence": [
+            "Directed cycles read all signed words; remanent intersection over orientations; directed-path membership controlled by chi; bipartite remanence L(K2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08843v1",
+          "material_read": "PDF pp. 6, 23–25: Proposition 4 (offset 16269), Definition 32 (68122), Corollary 34 (69609) and Theorem 36 (71082)",
+          "method": "OA passage and bounded PDF context",
+          "title": "Graph-based automata",
+          "trigger": "Introduces the same graph language and closely related theorems"
+        },
+        {
+          "assessment": "C5 separation witness covered, not the equality-class theorem",
+          "evidence": [
+            "++-++ lies in the larger C3 language and not the C5 remanent language"
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 09ce4599f6de",
+          "material_read": "RESULT.md comparison of odd-cycle languages and witness",
+          "method": "Local mirror of published Resultary",
+          "title": "Odd-cycle remanence, strict nesting and exact DFA sizes",
+          "trigger": "Possible duplicate of the C5 boundary witness"
+        },
+        {
+          "assessment": "Boundary word independently represented under sign-to-bit encoding",
+          "evidence": [
+            "00100 and 11011 are absent; the complete pentagon DFA has 18 states"
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 1d243eb318b8",
+          "material_read": "RESULT.md pentagon language exclusions, DFA count and generating function",
+          "method": "Local mirror of published Resultary",
+          "title": "Exact remanent word language of the pentagon",
+          "trigger": "Exact language and table for the boundary graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement, the collapse is a useful structural characterization: it replaces an intersection over all orientations by a small complete recognizer and exact length counts for a natural graph class, including nonbipartite examples. This is the value of the mathematical theorem, not credit for the duplicate or for its trivial k=1 extension. Originality independently fails.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

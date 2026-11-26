@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any scale 0<=lambda<=3, the four exact normalized Hermite derivatives (6t(1-t), 3(1-t)^2, 3t^2, 3(1-2t)^2) are nonnegative, yielding one-input BV equality. Each minmod region maps input first differences linearly to cubics. The step-column central cell has BV 1 and each selected neighboring endpoint hump U or W has BV 8 lambda/27, giving 1+8 lambda min(2,n-2)/27. Straight-line integration handles changes of selector region. The explicit secant families (1,2) for n=3 and (2,1,2,...) for n>=4 with a 1/4 step perturbation attain the bound. For lambda outside [0,3], data 0,1,2 cause a sign reversal of the first cubic derivative. The included checker verifies exact corner and step identities plus numeric-variation witnesses, without treating finite tests as all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huynh 1991 section 2.1 establishes a monotonicity constraint with coefficient three",
+        "Fritsch-Butland 1984 abstract describes local monotone cubic construction, but uses a different derivative selection scheme"
+      ],
+      "reasoning": "The established family of monotone cubic algorithms is broader in allowed slope selectors but its identified assertions are qualitative shape-preservation and approximation order; they do not bound, much less sharply determine, the two-input BV coefficient of this explicit nonlinear minmod operator.",
+      "searches": [
+        "shape preserving cubic Hermite minmod slope interpolation two-signal bounded variation sensitivity",
+        "Fritsch Carlson monotone Hermite interpolation total variation seminorm Lipschitz"
+      ]
+    },
+    "checked_sources": [
+      "Huynh, NASA-TM-103789 (1991), open primary technical text",
+      "Fritsch and Carlson, SIAM J. Numer. Anal. 17 (1980), publisher abstract",
+      "Fritsch and Butland, SIAM J. Sci. Stat. Comput. 5 (1984), publisher abstract",
+      "Indexed public cubic-Lagrange, Catmull-Rom, Akima, and Hermite dense-output findings compared by operator, seminorm, and parameters",
+      "Accessible previous minmod affine and centered cubic Hermite claims compared by output operator and exact norm"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huynh 1991 monotonicity condition 0<=derivative/secant<=3",
+        "Linear Catmull-Rom cubic stability uses centered slopes, not minmod selectors",
+        "Discontinuous affine minmod reconstruction measures both cell slopes and interior jumps, whereas the claimed cubic is C1 and has distinct localized cubic humps"
+      ],
+      "reasoning": "The known monotonicity lemma implies only V(Hy)=V(y), not V(Hy-Hz) bounded with any particular factor; nonlinear subtraction breaks that implication. The linear Catmull-Rom norm and discontinuous affine-minmod norm cannot imply the coefficient 8/27 because their reconstruction maps differ. The proof independently calculates the specific cubic hump norm and two active neighbors.",
+      "searches": [
+        "shape preserving cubic Hermite minmod slope interpolation two-signal bounded variation sensitivity",
+        "piecewise cubic slope limited monotone continuous interpolation total variation seminorm single jump sharp 16/27"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huynh NASA-TM-103789 equations (2.2),(2.4),(2.6)-(2.9) and limiter continuity discussion in section 2.2",
+        "Fritsch-Carlson 1980 abstract: necessary/sufficient monotone-cubic conditions"
+      ],
+      "reasoning": "Searched both two-input BV Lipschitz terminology and older monotonicity/continuity terminology. Local monotonicity means BV of each input equals nodal variation, while the present sharp ratio concerns the BV of a difference of independently interpolated inputs. Those statements are not equivalent.",
+      "searches": [
+        "minmod cubic Hermite zero endpoint slopes variation Lipschitz sharp 43/27 35/27",
+        "shape preserving cubic Hermite minmod slope interpolation two-signal bounded variation sensitivity",
+        "Fritsch Carlson monotone Hermite interpolation total variation seminorm Lipschitz"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed cubic-Catmull-Rom result reports a monotone range defect for a different linear interpolation operator",
+        "Closest indexed nonlinear cubic examples concern Akima range and Hermite ODE positivity, not pairwise BV",
+        "A related affine minmod reconstruction uses discontinuous cellwise affine segments and includes jump variation; its factors are 1+lambda and 1+2lambda, not this C1 cubic coefficient"
+      ],
+      "reasoning": "No exact matching parameterized table or formula was found in the queried research index, inspected technical sections, or accessible historical claims. This supports a limited priority assessment, not an assertion that no such formula exists anywhere.",
+      "searches": [
+        "minmod cubic Hermite zero endpoint slopes variation Lipschitz sharp 43/27 35/27",
+        "minmod cubic Hermite interpolant exact BV Lipschitz constant two input 43/27 35/27",
+        "piecewise cubic slope limited monotone continuous interpolation total variation seminorm single jump sharp 16/27"
+      ]
+    },
+    "rationale": "The available full technical treatment in Huynh (1991) proves local shape preservation and studies continuity of slope limiters, not the sharp two-input BV amplification. Fritsch-Carlson (1980) and Fritsch-Butland (1984) concern monotonicity criteria and algorithms, not this seminorm. Related indexed Catmull-Rom, Akima, Lagrange, and affine-minmod studies have different reconstruction operators or output metrics; none of the inspected claims implies the continuous C1 minmod-Hermite coefficient with boundary dimension transition and sharp scale interval. Unindexed or inaccessible early treatments remain a residual historical-priority risk.",
+    "residual_risks": [
+      "Publisher full texts of Fritsch-Carlson 1980 and Fritsch-Butland 1984 were unavailable, and no comprehensive literature indexing guarantee is asserted",
+      "Variations in historical conventions for endpoint derivatives or cubics can hide equivalent results under different nomenclature",
+      "The claimed formula is not established for irregular meshes or alternative limiters"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact historical construction and qualitative monotonicity/continuity, but inspected technical assertions do not compute the two-input variation coefficient; later or unindexed coverage not excluded",
+        "evidence": [
+          "equation (2.2) Hermite cubic",
+          "equation (2.4) minmod definition",
+          "equation (2.6) local monotone slope interval and (2.8) minmod secant",
+          "section 2.2 explicitly equates limiter stability to continuity"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/api/citations/19910011517/downloads/19910011517.pdf",
+        "material_read": "Title, abstract, introduction, local Hermite formulas and minmod/MP constraint in section 2.1, limiter formulation and stability definition in section 2.2, additional interpolation methods summaries; 64-page PDF text searched for variation and Lipschitz",
+        "method": "Primary open-access PDF technical-section reading, including page images for minmod and monotonicity conditions",
+        "title": "Accurate Monotone Cubic Interpolation",
+        "trigger": "Same cubic Hermite representation and same minmod limiter; highly plausible prior coverage"
+      },
+      {
+        "assessment": "Necessary and sufficient single-cubic monotonicity conditions are potentially relevant but do not visibly state the pairwise BV theorem; inaccessible full text leaves priority uncertainty",
+        "evidence": [
+          "1980 SIAM J. Numer. Anal. vol.17 pp.238-246",
+          "abstract concerns necessary/sufficient monotonicity and constructing interpolants"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0717021",
+        "material_read": "Publisher abstract, bibliographic and methods summary; full text not accessible in this session",
+        "method": "Publisher abstract and bibliographic comparison",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Canonical earlier monotone cubic source and potential stronger monotonicity conditions"
+      },
+      {
+        "assessment": "Reports local monotonicity construction, not an exact two-input variation coefficient in accessible material; different derivative scheme and full-text limitation noted",
+        "evidence": [
+          "1984 SIAM J. Sci. Stat. Comput. vol.5 pp.300-304",
+          "abstract describes a completely local monotone interpolation method"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0905021",
+        "material_read": "Publisher abstract, listed references, bibliographic metadata; full text not accessible in this session",
+        "method": "Publisher abstract and source-reference inspection",
+        "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "trigger": "Another central archival local slope-limited cubic method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12cf190d-5819-4947-899c-270f6391cf6d",
+  "value": {
+    "rationale": "The minmod Hermite cubic is a standard shape-preserving smooth reconstruction, whose one-input monotonicity does not quantify error propagation between two data sets. The exact dimension-sensitive 35/27 and 43/27 stability factors quantify this missing stability property. The proof identifies the 8/27 cubic hump as the structural mechanism, gives attaining perturbations and the maximal variation-preserving slope interval, furnishing reproducible benchmarks for stable C1 interpolants and a comparison with discontinuous cellwise-limited reconstruction.",
+    "status": "PASS"
+  }
+}

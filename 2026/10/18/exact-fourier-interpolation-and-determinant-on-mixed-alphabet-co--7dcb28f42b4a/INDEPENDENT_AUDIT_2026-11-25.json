@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:57.142025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each punctured character table B_i, full-table orthogonality gives B_i 1=B_i* 1=-1 and B_i*B_i=n_i I-J. The domain and dual centered blocks have dimension n_i-2, vanish under all cross-axis couplings, and have singular values sqrt(n_i) and inverse B_i*/n_i there. The complementary normalized axis indicators plus center give diag(0,-D)+(1,v)(1,v)^T, so the Schur complement -D proves the inverse and gives determinant magnitude product n_i^(n_i/2) after the centered blocks. Equal orders give -n on d-1 contrasts, and the two remaining eigenvalues have product -n and sum (d-1)(n-1); evaluating the polynomial at n gives the stated change of largest singular value at d=2. For the normalized forward restriction the sharp two-sided bounds are sigma_min/max divided by sqrt(|G|); the inverse stability norm is the reciprocal of the lower bound. Read the bundled checker and independently rebuilt four raw character matrices in independent_checks.py cross, including Z/4 and (Z/2)^2 in the same product (max SVD discrepancy 1.34e-15). These are corroboration; the orthogonal decomposition proves the full theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7628517d4bcf gives every-radius first-band concentration on (Z/qZ)^d; radius one covers all equal cyclic factors.",
+          "3b7e4e36808a gives the exact inverse for balls in A^d at all radii and fixed-radius asymptotic conditioning; its proof uses H=ZDZ^T with Z unitriangular, not unitary."
+        ],
+        "reasoning": "Larger radius and arbitrary common group do not imply the full finite spectrum for different coordinate orders. The proof of the inverse does carry an independent group per coordinate; credit that implication. These coverage comparisons do not establish priority.",
+        "searches": [
+          "Resultary 7628517d4bcf and 3b7e4e36808a, Findings; 3b7e4e36808a Proof steps 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; artifacts/verify.py",
+        "Resultary a2f5ddac5a0f, 89a15e26e594, dbf8fa8aec40, 7628517d4bcf, 3b7e4e36808a, 5b31463115dc, 1ea2ed8ea56b",
+        "arXiv:0903.2923",
+        "doi:10.5802/aif.2556"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At radius one, ZDZ^T gives determinant product det(B_i-J) and block inversion via (B_i-J)^(-1)=B_i*/n_i, by the full one-coordinate Schur complement.",
+          "5b31463115dc gives a fourth-moment extension theorem, and 1ea2ed8ea56b gives all-exponent synthesis constants for unequal two-axis crosses, not sampling singular values."
+        ],
+        "reasoning": "Unitriangular congruence yields the determinant and inversion, but in general does not give even the extreme singular values. Unequal sizes remove the common-order contrast eigenvalue argument; the orthonormal reduction supplies the sharp finite conditioning through a small explicit matrix.",
+        "searches": [
+          "Resultary 3b7e4e36808a, support-poset factorization and inverse; 5b31463115dc and 1ea2ed8ea56b, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized restriction Gram/concentration eigenvalues are sigma(M)^2/|G|. This identifies exact overlaps with Resultary a2f5ddac5a0f (binary ball) and dbf8fa8aec40 (split cone on two equal fields).",
+          "Ghobber–Jaming treat coherence-based annihilating-pair bounds. Gilbert–Rzeszotnik treat operator norms of the full Fourier transform."
+        ],
+        "reasoning": "The Gram translation is exact where the two restricted sets agree. The two primary papers' displayed results do not diagonalize the simultaneous mixed-cross restriction.",
+        "searches": [
+          "Resultary: radius-one finite Fourier Hamming-ball concentration, coordinate crosses and exact conditioning",
+          "Ghobber–Jaming arXiv:0903.2923 Theorem 2.3",
+          "Gilbert–Rzeszotnik doi:10.5802/aif.2556, pp. 1319–1320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary and equal-field/equal-cyclic concentration formulae translate to exactly the corresponding singular-value multisets; the nonbinary shell record gives a different matrix, omitting the center and carrying a forced null direction."
+        ],
+        "reasoning": "These are checks of explicit spectrum formulae, not just terminology. No inspected table gives the finite heterogeneous-order exceptional matrix's spectrum.",
+        "searches": [
+          "Resultary: exact Hamming-ball and shell Fourier spectra; Findings a2f5ddac5a0f, 89a15e26e594, dbf8fa8aec40, 7628517d4bcf"
+        ]
+      },
+      "rationale": "Pass for the complete finite radius-one spectrum with unequal factor orders and its sharp sampling consequences. The homogeneous special cases have exact published coverage. The determinant and inverse are useful but not strong standalone originality claims: the published unitriangular support-poset factorization yields them by taking the one-coordinate Schur blocks separately. It does not preserve singular values and does not give the mixed-order finite spectrum.",
+      "residual_risks": [
+        "Ranked archive comparison and bounded primary passages are not exhaustive. Association-scheme or lower-set formulations not located here may cover the mixed spectrum. Later archive entries are used for coverage comparison, not a priority inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial inverse and determinant implication; not mixed-order finite singular spectrum",
+          "evidence": [
+            "Equations (1), (4), (5); support-poset block congruence is unitriangular."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-inverse-and-sharp-conditioning-of-finite-fourier-hammi--3b7e4e36808a/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, offsets 0–6591",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Universal inverse and sharp conditioning of finite Fourier Hamming-ball minors",
+          "trigger": "Same sampling matrix with more radii"
+        },
+        {
+          "assessment": "Exact equal cyclic spectral overlap",
+          "evidence": [
+            "All ball radii for (Z/qZ)^d, q>=3."
+          ],
+          "identifier_or_url": "Resultary 7628517d4bcf",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Four-sector Fourier concentration on nonbinary Hamming balls",
+          "trigger": "Same concentration matrix for equal nonbinary alphabets"
+        },
+        {
+          "assessment": "Exact binary overlap in its stated dimensions",
+          "evidence": [
+            "First Walsh band on Hamming balls; Gram eigenvalues are squares of the restriction singular values."
+          ],
+          "identifier_or_url": "Resultary a2f5ddac5a0f",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Exact first Walsh-band concentration spectra on Boolean Hamming balls",
+          "trigger": "Same binary matrices after normalization"
+        },
+        {
+          "assessment": "Exact equal-field two-axis overlap",
+          "evidence": [
+            "At m=1 the cone is the two-axis union."
+          ],
+          "identifier_or_url": "Resultary dbf8fa8aec40",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Exact first-band Fourier concentration on split quadratic cones",
+          "trigger": "The 2D split cone is the coordinate cross"
+        },
+        {
+          "assessment": "General coherence estimate, not exact spectral coverage",
+          "evidence": [
+            "Theorem 2.3 assumes the support-size product is less than the reciprocal coherence squared and bounds the two complement norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.2923",
+          "material_read": "Theorem 2.3 and surrounding discussion, offset 22780",
+          "method": "OA PDF text, locate and bounded read",
+          "title": "On uncertainty principles in the finite dimensional setting",
+          "trigger": "General Fourier recovery/uncertainty criteria might imply the bound"
+        },
+        {
+          "assessment": "Full transform, not the cross restriction",
+          "evidence": [
+            "C_p,q is defined without spatial or dual truncation."
+          ],
+          "identifier_or_url": "https://aif.centre-mersenne.org/item/10.5802/aif.2556.pdf",
+          "material_read": "Definition of C_p,q and start of norm computation, offset 7490",
+          "method": "OA PDF text, locate and bounded read",
+          "title": "The norm of the Fourier transform on finite abelian groups",
+          "trigger": "Exact group-structure-independent Fourier norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Radius-one support is a natural model for signals with a baseline and separate coordinate effects. Sampling on the same frequency cross is a square recovery problem; invertibility alone gives no noise amplification. The heterogeneous spectrum reduces the exact stability computation from a full character-dependent matrix to d+1 real dimensions and specified scalar blocks, even with noncyclic factors. The determinant by itself would not justify this assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

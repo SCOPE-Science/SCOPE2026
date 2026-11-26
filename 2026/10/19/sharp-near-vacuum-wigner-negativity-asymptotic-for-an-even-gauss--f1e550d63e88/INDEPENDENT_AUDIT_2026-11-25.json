@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:32:06.262115Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct Gaussian integration gives W=e^(−q²−p²)[e^(−a²)cosh(2aq)+cos(2ap)]/[π(1+e^(−a²))]; the integrated negative part has no further factor of two. Set β=acos(e^(−a²)) and t=(π−β)/(2a). Negative points have bounded position and lie in the stated momentum intervals; at q=0 a negative open region starts immediately to the right of t for every a>0. Lobes beyond the nearest symmetric pair start at |p|≥t+π/a and their total Gaussian tail is exponentially smaller. An alternative scaling p=t+as, q=√a w gives negative bracket divided by a³ tending to 2√2 s−2w² and exponential ratio tending to e^(−πs), with Jacobian a^(3/2). The exact identity for the cosine difference gives a bound C a³s, and the cosh lower bound restricts w²≤Cs; the integrand is dominated by C s e^(−cs) on that support. Integrating the parabolic positive part against e^(−πs), normalizing and accounting for both lobes gives (2^(7/4)/π³) a^(9/2)e^(−t²). The edge expansion t=π/(2a)−1/√2+O(a²) contributes both the positive 1/a exponent and e^(−1/2). Independent scaled Simpson quadrature for the nearest pair (s truncated at 17, 2048 panels, 64 position panels) gave ratios to the stated equivalent near 0.96317, 0.98295, 0.99351, 0.99681 at a=0.10,0.05,0.02,0.01; these corroborate, but do not establish, the analytic limit. The frozen checks/check_cat.py and its recorded results were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fiurášek–Ježek study homodyne fidelity witnesses and odd-cat negativity at the origin, not integrated volume.",
+          "The vacuum–Fock theorem concerns h₀+t e^(iφ)h_n at fixed n, with island geometry and a logarithmic mass rate; it is not a result for the full even coherent state.",
+          "The 2025 DOI surfaced as a potentially related source; only a search excerpt suggesting a restriction to at-most-one excitation was available."
+        ],
+        "reasoning": "Pointwise witnesses and a logarithmic result for a finite Fock superposition do not transfer to this exact integrated asymptotic at escaping phase-space coordinates. The inaccessible paper is not used as negative evidence.",
+        "searches": [
+          "Fiurášek–Ježek arXiv:1306.0508v1 abstract and §§I–II",
+          "Resultary vacuum–Fock weak Wigner negativity 0797afcbc5ff",
+          "10.1007/s10773-025-06241-w"
+        ]
+      },
+      "checked_sources": [
+        "Kenfack–Życzkowski arXiv:quant-ph/0406015v1",
+        "Fiurášek–Ježek arXiv:1306.0508v1",
+        "Resultary 0797afcbc5ff",
+        "DOI 10.1007/s10773-025-06241-w (excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest prior exact integrand already determines the sign condition but leaves oscillatory integration; Eq. (3.8) is explicitly an upper bound used as an approximation.",
+          "The narrow positive part is an escaping boundary layer with momentum width O(a), transverse width O(√a) and bracket magnitude O(a³)."
+        ],
+        "reasoning": "Deriving the equivalent from the known integral requires nonuniform asymptotics and localization across all fringes; a pointwise expansion, a fixed-Fock log law or the upper approximation does not give it mechanically.",
+        "searches": [
+          "Kenfack–Życzkowski Eqs. (3.7)–(3.8), arXiv:quant-ph/0406015v1",
+          "Resultary 0797afcbc5ff Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standing q₀=a, p₀=0 yields exactly the frozen Wigner function; Kenfack–Życzkowski's δ is twice the present negative part.",
+          "The state is the φ=0 coherent cat with real α=a/√2. Common displacement and phase-space rotation preserve integrated negative mass."
+        ],
+        "reasoning": "Changing amplitude or negativity convention cannot create novelty; compared with those conventions normalized, the sharp equivalent still differs from the available integral/approximation. Relative phase is not a common displacement alias.",
+        "searches": [
+          "Kenfack–Życzkowski arXiv:quant-ph/0406015v1 §§II–III",
+          "Fiurášek–Ježek arXiv:1306.0508v1 §II Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest archived exact mass-related result gives a fixed-Fock-index log rate rather than the cat equivalent.",
+          "Kenfack–Życzkowski provide the cat negativity as an integral and numerical discussion/upper approximation, not a closed small-separation equivalent."
+        ],
+        "reasoning": "Neither entry supplies the two exponential scales, power and normalization in the same physical limit.",
+        "searches": [
+          "Resultary weak vacuum Wigner negativity: 0797afcbc5ff",
+          "Kenfack–Życzkowski arXiv:quant-ph/0406015v1 Eqs. (3.7)–(3.8)"
+        ]
+      },
+      "rationale": "Credit only the sharp equivalent of the integrated negative part for the full even Gaussian cat. The exact Wigner formula and underlying cat normalization are prior. Neither the prior oscillatory negative-volume integral nor its proxy upper bound exhibits the exact edge-localized rate and prefactor found here.",
+      "residual_risks": [
+        "The primary text of DOI 10.1007/s10773-025-06241-w was not retrieved.",
+        "An unindexed equivalent under coherent-amplitude or doubled-volume conventions is possible; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior exact Wigner formula and integral; no sharp equivalent in these passages",
+          "evidence": "The stated δ is 2 times the negative mass. Substituting q₀=a,p₀=0 in the packet formula matches the record; Eq. (3.8) is an upper bound used as an approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0406015",
+          "material_read": "§II Eqs. (2.2)–(2.4), §III Eqs. (3.1)–(3.8), PDF pp. 2–4",
+          "method": "Primary preprint, bounded passages",
+          "title": "Negativity of the Wigner function as an indicator of nonclassicality",
+          "trigger": "Identical cat state and integrated negativity observable"
+        },
+        {
+          "assessment": "State aliases and witness framework, not this integrated asymptotic",
+          "evidence": "The even cat is obtained from Eq. (3) by φ=0 and α=a/√2; the studied odd-cat witness is tied to negativity at the origin.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.0508",
+          "material_read": "Abstract and §§I–II, including Eq. (3), PDF pp. 1, 3–4",
+          "method": "Primary preprint, bounded passages",
+          "title": "Witnessing negativity of Wigner function by estimating fidelities of cat-like states from homodyne measurements",
+          "trigger": "Equivalent coherent state and potential negativity-volume theorem"
+        },
+        {
+          "assessment": "Different state and asymptotic resolution",
+          "evidence": "The finding concerns a vacuum–single-Fock superposition and a logarithmic rate, without the present cat's sharper scales.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-disk-geometry-of-weak-vacuum-fock-wigner-negativity--0797afcbc5ff",
+          "material_read": "RESULT.md Finding (mass around offset 1257)",
+          "method": "Resultary retrieval and local mirror passage",
+          "title": "Universal disk geometry of weak vacuum–Fock Wigner negativity",
+          "trigger": "Closest archived near-vacuum mass result"
+        },
+        {
+          "assessment": "Scope not resolved; not negative evidence",
+          "evidence": "The excerpt described at-most-one-excitation states; this was not confirmed from the full paper.",
+          "identifier_or_url": "https://doi.org/10.1007/s10773-025-06241-w",
+          "material_read": "Search excerpt only; no full text",
+          "method": "Web discovery and unsuccessful lawful OA retrieval",
+          "title": "Analytic Wigner Negativity for Mixtures and Superpositions (search-title prefix)",
+          "trigger": "Analytic negativity could include a closely related state class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural even cat approaching the vacuum the effect is nonperturbatively small. The result quantifies the mass where the fringes actually first become negative, distinguishing physical scale, secondary exponential and prefactor that a weak-amplitude expansion or logarithmic rate alone misses. The precise equivalent is a benchmark for detecting or numerically resolving negativity near the Gaussian limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

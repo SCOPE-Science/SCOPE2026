@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:05.609001Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting a specified set of singleton labels preserves cyclic noncrossing and is bijective, so the sign expansion gives the Catalan transform for the counting kernel with multiplicities. For m=n-w>=1, shifting the Catalan moment measure gives the even semicircle weight times y^w(2+y)^(m-1). Pairing opposite y gives positive integrals except for odd w at m=1; at m=0 the arcsine moments give (-1)^n binom(n,floor(n/2)). The weight difference identity Lambda(n,w)-Lambda(n,w+1)=2 Lambda(n-1,w) on the pre-top shells and the semicircle moments give the stated exact gap, including n=1 and n=2 where the top shell ties. At odd n=2m+1, the top magnitude equals (2m+1) C_m, and at even n=2m it equals (4m-2) C_(m-1). At even order the missing layer is the n weight-(n-1) modes. Multiplication by the top character identifies their projection with the first-level projection. The convolution kernel of the complementary projection has norm 1+(n/2^n)(binom(n,n/2)-2) at either endpoint, using (n-2j) binom(n,j) = n[binom(n-1,j)-binom(n-1,j-1)] and symmetry. Averaging over translations preserves the range and fixes it pointwise, so no projection improves this norm. Stirling gives its asymptotic. Independent Python replay at branches/89ef1d1d-16b9-470c-a660-23f930f7fc07/check_record3.py verified every enumerated coefficient through n=8, exact formulas through n=80 and endpoint norms through n=8. The frozen script was inspected, not run. Unweighted distinct profiles are demonstrably different: at n=4 they have six zero masks, not the four in this theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Counting all set partitions yields Bell numbers for fixed-singleton deletion, not the Catalan moments required for the cancellation. Pair-incidence frequencies instead encounter pairwise block events.",
+          "The projection comparison from the catalogue concerns a different normed space. The frozen references credit singleton/adjacency statistics and Catalan combinatorics, not the signed transform's sharp gap."
+        ],
+        "reasoning": "Passing from all partitions to the noncrossing subfamily changes the measure and hence the zeros; a classification of one convolution does not specialize merely by restricting the objects. A generic theorem on all moment sequences with the relevant semicircle shift and boundary cases could imply the result, but none was verified.",
+        "searches": [
+          "Resultary a1a5f0c48b62 (all set partitions)",
+          "Resultary 006bcae293e6 (pair-incidence)",
+          "Resultary 6d24f15eba8d (Hamming Lipschitz-free Walsh projection)",
+          "Callan arXiv:math/0508052 ; Munagi DOI:10.1216/RMJ-2016-46-1-301"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and read-only verify.py",
+        "Local Resultary f9f5d7552d37, a1a5f0c48b62, 006bcae293e6, dad7987841a3, 6d24f15eba8d",
+        "Primary literature search and OA retrieval attempt for emis.de/ft/43532"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic projection argument follows from first-level Walsh theory once the missing shell is known. Catalan cardinalities for imposed singleton sets supply the binomial transform but do not on their own state its boundary sign, exact zero set or minimum magnitude.",
+          "The potentially relevant literature lookup supplied titles but no usable full-text passage establishing the needed signed Walsh transform or classification."
+        ],
+        "reasoning": "The comparison turns on implications for weighted singleton labels in Boolean coordinates. Neither a Fourier construction on multiplicative functions nor a different profile embedding can be identified with this convolution from a title or common Catalan counts.",
+        "searches": [
+          "A Fourier Transform for Multiplicative Functions on Non-Crossing Partitions, emis.de/ft/43532",
+          "Frozen RESULT.md lines 43–88, 94–107",
+          "Local Resultary 006bcae293e6 and a1a5f0c48b62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Global bit complementation of profiles multiplies the w-th shell by (-1)^w and preserves its magnitude and zeros. Pair-incidence and Dyck up-step encodings do not have that relationship.",
+          "A complement of a first-level Rademacher projection is an exact equivalent of the even endpoint norm once the lost layer has been proved. The nearest catalogue matches do not identify this layer for the weighted noncrossing singleton kernel."
+        ],
+        "reasoning": "A prior result for the complementary singleton-bit convention or an equivalent two-parameter Catalan transform with the same shell signs and gaps could cover the theorem. A first-level projector calculation alone supplies the norm only after identifying the missing layer.",
+        "searches": [
+          "Local Resultary: signed Catalan singleton profiles, sharp Fourier gap and exact endpoint norm",
+          "Primary literature: shifted signed Catalan transform and singleton incidence on noncrossing partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact aligned index hit f9f5d7552d37 is the assigned record itself. The distinct first-band result has different coordinates and covers a different band.",
+          "The top signed central-binomial shell and the next near-top Catalan shells are recognizable exact sequences, but neither standalone sequence determines the positivity of every interior shell."
+        ],
+        "reasoning": "An exact two-dimensional transform table with known signs and extremal absolute values would be material, unlike only a Catalan/central-binomial sequence or bounded computed rows. No distinct indexed complete match was verified.",
+        "searches": [
+          "Local Resultary: exact signed Catalan singleton-profile inversion and n lost modes",
+          "Local Resultary: Catalan-gradient rigidity of the first Walsh band on Dyck words (dad7987841a3)"
+        ]
+      },
+      "rationale": "The supported distinct part is the all-order recovery classification and exact positive gap for the multiplicity-weighted noncrossing singleton profile, identifying the precise lost layer and hence its optimal endpoint recovery cost. Catalan enumeration, the semicircle moments, and translation-averaging optimality are standard inputs. In particular, the endpoint norm is the complement of the usual first-level projection norm conjugated by a Walsh character; it is not credited as a new general projection principle. No verified distinct source was found that gives the complete signed-shell classification for the stated kernel.",
+      "residual_risks": [
+        "The cited singleton and adjacency papers and the most relevant retrieved literature hits were not independently passage-checked. A differently indexed exact shifted-Catalan classification could alter the originality assessment.",
+        "The projector claim is a direct consequence of the identified layer plus standard arguments, not independent evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finding, not independent coverage",
+          "evidence": "Same weighted singleton profile, odd/even gap and endpoint projection.",
+          "identifier_or_url": "Resultary suffix f9f5d7552d37",
+          "material_read": "Catalogue statement and frozen RESULT.md lines 5–39, 43–88",
+          "method": "Local semantic index and frozen record",
+          "title": "Sharp Walsh recovery from singleton profiles of noncrossing partitions",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different kernel; no implication of noncrossing sign classification in available statement",
+          "evidence": "All set partitions are counted rather than only noncrossing ones.",
+          "identifier_or_url": "Resultary suffix a1a5f0c48b62",
+          "material_read": "Catalogue statement only",
+          "method": "Local semantic index; source passage not obtained",
+          "title": "Exact Fourier inertia of singleton-set partition convolution",
+          "trigger": "Same singleton encoding on a wider combinatorial class"
+        },
+        {
+          "assessment": "Different encoding in available statement",
+          "evidence": "Pair-incidence rather than singleton incidence.",
+          "identifier_or_url": "Resultary suffix 006bcae293e6",
+          "material_read": "Catalogue statement only",
+          "method": "Local semantic index",
+          "title": "First Walsh-rank separation of noncrossing and nonnesting Catalan partitions",
+          "trigger": "Same noncrossing objects and Fourier rank"
+        },
+        {
+          "assessment": "Available statement differs in both coordinates and Fourier shells",
+          "evidence": "Uses Dyck-word up-step vectors and first-band differences, not every shell of a singleton profile.",
+          "identifier_or_url": "Resultary suffix dad7987841a3",
+          "material_read": "Catalogue statement only",
+          "method": "Local semantic index",
+          "title": "Catalan-gradient rigidity of the first Walsh band on Dyck words",
+          "trigger": "Catalan Fourier cancellations in a related encoding"
+        },
+        {
+          "assessment": "No verified implication; access-limited",
+          "evidence": "The available bibliographic description does not provide a Boolean singleton-profile formula.",
+          "identifier_or_url": "https://emis.de/ft/43532",
+          "material_read": "Bibliographic search result only; relevant primary passage not recovered",
+          "method": "Primary literature lookup and OA passage attempt",
+          "title": "A Fourier Transform for Multiplicative Functions on Non-Crossing Partitions",
+          "trigger": "Potential different formulation of a transform on the same objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines not only exact recovery and the smallest nonzero singular value but also the precise missing Walsh layer. The latter produces an exact and useful contrast: the lost fraction goes to zero exponentially while the optimally achievable endpoint projection norm diverges like sqrt(2n/pi), even if arbitrary linear recovery projections are allowed. The result is about a natural multiplicity-weighted observable and distinguishes Hilbert stability from endpoint recovery cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

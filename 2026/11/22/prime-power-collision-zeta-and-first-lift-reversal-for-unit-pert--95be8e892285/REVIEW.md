@@ -1,15 +1,21 @@
-# Scientific review: prime-power collision zeta for unit-perturbed biquadratics
+# Independent mathematical audit
 
-## Correctness — PASS
-For odd \(p\) and unit \(c\), the exact factorization \((x-y)(x+y)(x^2+y^2+c)\) has three smooth components with no triple crossing. Their finite-field union contains \(3p-3-\chi_p(-1)-2\chi_p(-c/2)\) points and has \(3+2\chi_p(-c/2)\) transverse double crossings. One-component residue disks have exactly \(p^{k-1}\) lifts; each double-crossing disk reduces by a Hensel coordinate isomorphism to \(uv\equiv0\pmod{p^k}\), with \(p^{k-1}(1+(k-1)(p-1))\) lifts. These facts produce the displayed all-level formula and the signed difference between coefficient classes. The attached checker passed 105 direct-histogram cases and additional independent pair/geometry checks. Its finite coverage does not substitute for the general proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Seraj (2023) proves a different invariant, the sum of distinct quartic outputs modulo primes, though its character-class and repeated-output analysis is relevant. Li and Xiong (2024) determine line-intersection statistics of degree-four polynomial graphs over finite **fields**. The published unit-perturbed quartic graph result concerns a four-variable additive energy only modulo prime squares; the published pure-quartic graph result concerns a different polynomial and a different additive energy. Neither full source inspected states the uniform two-variable second-fiber-moment formula for the nonfield rings \(\mathbb Z/p^k\mathbb Z\) at all \(k\), or its first-lift reversal. Standard normal-crossing lifting is acknowledged as background; implicit equivalent local-zeta calculations remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The collision second moment is the simplest quantitative measure of nonuniformity among preimages of a polynomial, beyond image cardinality. The full exponent-dependent law isolates singular collision growth and proves a sharp reversal: the coefficient class with fewer collisions over the prime field has more at **every** higher precision. The leading growth coefficient switches by a factor of five, providing a natural, nonlocal-to-mod-\(p\), infinite-family invariant. This is an explicit all-precision local congruence result, not a fixed-modulus table or a substitution in a known scalar theorem.
+The ordered collision congruence is (x−y)(x+y)(x²+y²+c)≡0. The conic has p−χ_p(−1) points: for a=−c≠0, factoring v²−u² as (v−u)(v+u) gives sum_x χ_p(x²−a)=−1. The lines meet at the origin off the conic, and each meets the conic in 1+η points. Inclusion–exclusion gives U=3p−3−ε−2η, with I=3+2η double crossings and no triple points. At a simple point, prescribe the coordinate complementary to a unit partial derivative and lift the other, giving p^(k−1) solutions. At a crossing the two vanishing factors form local coordinates: the Jacobian determinants are units, up to signs 2 and 4t with t≠0. Digit-by-digit inversion gives the same residue-disc bijection modulo every p^k. The third factor is a unit and the local equation is uv≡0 with u,v≡0 mod p. The u=0 term gives p^(k−1) choices, and each valuation i=1,…,k−1 contributes (p−1)p^(k−1), so E=p^(k−1)[U+(k−1)(p−1)I]. This includes p=3 and k=1, and only the residue class character of the unit c survives. Subtraction gives the advertised first-lift sign flip; summing the two geometric terms gives the pole and the factor-of-five change, and E/p^k−1 is the variance since mean fiber size is 1. The independent replay `/workspace/branches/7426aeda-fc46-47cd-9fcb-e98c8fce40d1/record2_replay.py` directly tested all 80 unit coefficient cases at p=3,5,7 and k=1,2 (114240 ordered comparisons). Class differences were −4 at k=1 and 12,60,140 respectively at k=2. The frozen nested `artifacts/verify.py` and its self-reported run are separate, and neither finite test replaces the lifting proof.
 
-## Closest literature and limitations
-The distinction from the two published graph-energy formulas is between *two-input equality* and *four-input equality of graph sums*. Prime-field information, general Hensel lifting, and normal-crossing zeta methods are established background. The theorem addresses neither individual fiber sizes nor nonunit coefficients or characteristic two. Bibliographic priority and any unrecognized general special-case implication remain subject to independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the explicit all-precision ordered equal-value count for this quartic family and the reversal driven by the coefficient-dependent number of crossing disks. Normal-crossing lifting is standard; neither a new lifting theorem nor priority for mod-p quartic analysis is claimed. The same-map additive-energy results and finite-field intersection results do not supply the prime-power second fiber moment.
+
+## value
+
+PASS
+
+For a natural low-degree family the result explains why finite-field collision ordering predicts the wrong ordering at every higher precision: additional transverse crossings contribute a growing valuation term. The explicit all-k formula, rational series and two variance slopes give usable quantitative information about unevenness of fibers, not just a numerical comparison at p² or a rephrasing of graph energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

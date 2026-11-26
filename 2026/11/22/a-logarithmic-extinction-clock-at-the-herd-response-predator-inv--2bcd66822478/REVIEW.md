@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On a forward-invariant positive-data wedge, the exact prey-deficit dynamics are fast contracting. A uniformly valid quadratic slow graph and cubic scalar reduction yield \(v_{n+1}=v_n-(ad/2)v_n^2-[a^2d(d+3)/8]v_n^3+O(v_n^4)\), and a summable reciprocal difference gives the finite renormalized logarithmic clock. The proof covers all quantified positive parameters and trajectories inside the prescribed wedge. Exact symbolic and finite numerical checks were performed; only the analytic argument proves the asymptotic.
+## correctness
 
-**Originality — PASS, best knowledge.** Li and Li (DOI 10.1080/13873954.2024.2304798), publicly available January 22, 2024, already prove the threshold bifurcation, leading quadratic center normal form and second-order slaving. Those are credited, not claimed. Their inspected full text does not provide the third-order scalar coefficient or finite \(1/y_n-cn-\gamma\log n\) limit. Targeted published-finding corpus searches identify similar logarithmic clocks for *different maps*, which are not implication-level coverage. Absence of unindexed equivalent results cannot be certified.
+PASS
 
-**Mathematical value — PASS.** The logarithmic correction is a concrete critical-relaxation invariant near a natural predator invasion boundary, not a randomly chosen finite constant. It refines the existing local bifurcation picture into a quantitative extinction clock with a convergence limit on a nonempty set of positive histories.
+Read the frozen statement, proof and all supporting files. In deficit coordinates δ=1−x, v=y, the new deficit is nonnegative because (1−δ)e^δ≤1, and the new v is positive and at most v. Uniformly for 0≤δ≤Kv, the updates are δ′=av+O(v²) and v′=v+O(v²), so K>a gives δ′<Kv′ for sufficiently small v, including the δ=0 boundary. Since δ′≥av/2 in a smaller wedge, a positive limit of the nonincreasing v would eventually force a uniform contraction of v, a contradiction; v→0 and v′/v→1. Independently recovered the quadratic graph coefficient B=a²(d+1)/2 and reciprocal increment ad/2+[3a²d(d+1)/8]v+O(v²) from the formal expansion. This formal computation applies to actual wedge orbits: the graph H(v)=av+Bv² has defect O(v³), H(v) is inside the same wedge for sufficiently small v, and the transverse derivative of D−H(V) is O(v) between δ and H(v). For the scaled error |δ−H(v)|/v³ the resulting multiplicative coefficient is O(v)(v/v′)³→0 and the forcing is bounded, so it remains bounded. This yields a controlled fourth-order remainder for the cubic v update, not just a formal center graph. Positive reciprocal increments in the limit give 1/v_n∼(ad/2)n; one further summation gives 1/v_n=(ad/2)n+O(log n). Substituting back leaves an absolutely summable O(log n/n²) increment error after removing the linear term and (3a(d+1)/4)/n. The harmonic sum minus log n converges, proving the finite orbit-dependent constant and the unavoidable positive coefficient. The uploaded SymPy checker and numerical diagnostics were read, not run.
 
-**Closest literature and limitations.** Li–Li, 2024, Theorem 3.1 is the nearest exact-model primary source. Closest indexed analogues include the 2026 exponential Beverton–Holt logarithmic clock and the Holling-II plankton critical second-order law; their equations and asymptotic exponents differ. This theorem is local, requires \(b=d\), and does not determine ecological predictive validity or global basins. Only the primary source's parsed full text was read; a PDF page-image attempt was denied, and related indexed results were summaries. These limits leave some publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge pass for the model-specific cubic correction and finite renormalized clock on the wedge, not the original map, threshold, quadratic slaving, leading rate, or the general reciprocal-increment method. The strongest same-map paper was identified via its publisher and abstract, but independent full-text access was unsuccessful; the frozen package's precise report on its quadratic calculation is not represented as independently verified source reading. Open analogous clock results were compared by equations, parameter surface, and observable, not by title alone.
+
+## value
+
+PASS
+
+A reciprocal decay rate at neutral invasion is a natural deterministic timing observable for this published map. The exact logarithmic drift is detectable beyond the leading algebraic law and cannot be tuned away by a change of initial state. The finite orbit-dependent correction is proved on an entire positive invariant wedge rather than a formal center curve. The general iteration device is standard; the value is the controlled coefficient and range of validity for this specific nonlinear threshold, not general or empirical ecological significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:04:36.748668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–62",
+        "VERIFICATION.md and dodecahedron_rsa_check.py (inspected, not executed)",
+        "/workspace/branches/9941963f-87ab-4cd7-af1a-bbc61c2f/reproduce_gp102.py and reproduce_gp102.out (separate exact reproduction and subset enumeration)"
+      ],
+      "rationale": "Iid continuous priorities induce a uniform edge order. After the first legal edge, deleting edges touching its endpoints leaves a uniform relative order on the survivors, so the available-edge recurrence is exact by induction. An independently written rational transfer on the specified GP(10,2) reproduced all five probabilities for K=6 through 10, total mass one, the expectation 42002246692500247/4862914056000000, and terminal occupied-mask counts 5,420,1310,160,1. Exhaustive enumeration confirmed independence number eight and the five listed independent eight-sets. For each, the complement induces a six-edge matching; each of its edges must precede its four crossing edges to leave this set vacant. Conversely, these conditions force exactly that matching by induction in arrival order. The six races partition the edge set, giving 5/5^6 across the five disjoint possibilities. A jammed uncovered set is independent and the spokes witness the perfect-matching endpoint. The classical five cubes yield independent eight-sets (cube chord lengths exceed the dodecahedron edge length), so the exhaustive five-set count identifies these sets geometrically.",
+      "residual_risks": [
+        "Terminal counts aggregate occupied masks, not labeled matching edge sets. No finite-time or chemical predictions are verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury pp. 2–3 formulate graph dimer RSA and describe general results and Bethe-lattice exact formulas.",
+          "Andova et al. p. 14 state the dodecahedron admits a size-six maximal matching and give the context of the 3n/10 lower bound.",
+          "The Pippenger full text was inaccessible to lawful OA retrieval; a focused search did not identify an open copy."
+        ],
+        "reasoning": "The general RSA setup and extremal minimum are established, but neither comparison as inspected supplies the weighted terminal distribution. The same-day exact record, rather than literature inaccessibility, is decisive.",
+        "searches": [
+          "Penrose–Sudbury arXiv:math/0503519",
+          "Andova–Kardoš–Škrekovski arXiv:1405.2197",
+          "Pippenger DOI 10.1137/0402034"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e37ec1be6d7c",
+        "Penrose–Sudbury arXiv:math/0503519",
+        "Andova–Kardoš–Škrekovski arXiv:1405.2197",
+        "MathWorld Cube 5-Compound",
+        "Pippenger DOI 10.1137/0402034 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record's proof enumerates exactly five maximal matchings of size six and uses a prefix-specific recurrence for their probabilities.",
+          "An independent uncovered set for such a matching contributes 24 incident crossing edges in the cubic graph, leaving exactly the six matching edges. MathWorld describes the five distinct cubes on the dodecahedron vertices."
+        ],
+        "reasoning": "The six-edge structure of a minimum output follows from cubic degree, maximality and the six disjoint selected edges. Restricting the existing prefix recurrence to such an output leaves 5(6-i) legal edges after i accepted edges along that output, giving weight 5^(-6). The race derivation and classical cube correspondence clarify this atom but do not establish a substantial new stand-alone finding relative to the exact law and census.",
+        "searches": [
+          "Resultary e37ec1be6d7c Proof and Verification",
+          "MathWorld Cube 5-Compound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record uses u_i,v_i with edges u_iu_(i+1), v_iv_(i+2), u_iv_i; i↦u_i, 10+i↦v_i gives the frozen graph.",
+          "Its increasing iid continuous edge-priority rule accepts an edge exactly when neither endpoint is occupied."
+        ],
+        "reasoning": "Irreversible edge adsorption here is exactly the greedy maximal matching pushforward of a uniform permutation, not the monomer, minimax, or uniform maximal-matching model. The matching record uses the identical pushforward.",
+        "searches": [
+          "Resultary e37ec1be6d7c, matching the GP(10,2) dimer RSA law",
+          "Penrose–Sudbury arXiv:math/0503519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its Finding gives k=6,7,8,9,10 with 1/3125, 91294494167/2756754000000, 1796566904214749/4862914056000000, 2544405065946811/4862914056000000, and 123231298227/1667666000000; all other atoms vanish. It also gives the same mean.",
+          "It reports 3781 maximal matchings and the additional dominance claim."
+        ],
+        "reasoning": "Exact table and experiment both agree. The census counts edge sets separately from occupied masks, which is why the census multiplicities need not equal the frozen mask counts.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-dimer-jamming-probabilities-and-strict-matching-size-domin--e37ec1be6d7c"
+        ]
+      },
+      "rationale": "A distinct indexed record states the identical kinetic law for the same graph and random process, including every atom and the mean, and adds a complete maximal-matching census and strict stochastic dominance. The cube/race argument explains an already covered probability; it does not give an uncovered distributional statement. The equivalent coverage is verified. Which same-day record came first, or how the records are related, is not established.",
+      "residual_risks": [
+        "Same-day date does not establish priority or provenance. Full-text coverage in Pippenger and other unlocated works remains open and is immaterial to the verified exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact law covered and extended; priority order unresolved",
+          "evidence": "Identical five fractions and first moment with identical priority process; adds full size census and strict dominance.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dimer-jamming-probabilities-and-strict-matching-size-domin--e37ec1be6d7c",
+          "material_read": "Finding, assumptions, proof and verification, offsets 0–5681; priority and caveats 5681–8944",
+          "method": "Resultary and local mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact dimer-jamming probabilities and strict matching-size dominance on the dodecahedral graph",
+          "trigger": "Same object and exact kinetic statistic"
+        },
+        {
+          "assessment": "Model and general results established; no same graph law in the inspected material",
+          "evidence": "Defines dimer deposition; abstract/intro describes graph-wide results and Bethe-lattice formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "pp. 2–3, offsets around 6267 and 8500",
+          "method": "Lawful OA PDF passages",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "General edge-RSA framework"
+        },
+        {
+          "assessment": "Minimum size is established, not the kinetic weight",
+          "evidence": "3n/10 lower bound and existence of a dodecahedral maximal matching of size 6.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2197",
+          "material_read": "p. 14, PDF offsets 36770–38132",
+          "method": "Lawful OA PDF passage",
+          "title": "Sandwiching saturation number of fullerene graphs",
+          "trigger": "Potential prior minimum matching-size result"
+        },
+        {
+          "assessment": "Classical geometry, not an RSA law",
+          "evidence": "Five cubes are inscribed on the dodecahedron vertices, related by rotations.",
+          "identifier_or_url": "https://mathworld.wolfram.com/Cube5-Compound.html",
+          "material_read": "Opening description, extracted page offsets 90–1132",
+          "method": "Public website passage",
+          "title": "Cube 5-Compound",
+          "trigger": "Geometric classification underlying the five rare outputs"
+        },
+        {
+          "assessment": "Scope beyond the known framework unconfirmed",
+          "evidence": "Full-text access unavailable; not used as evidence of absence.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic identity; no scientific full-text passage accessible",
+          "method": "Lawful direct and VPN retrieval attempts; focused open-copy search",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Historical graph-RSA antecedent plausibly covering finite examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–21 and 48–62",
+        "Resultary e37ec1be6d7c Finding and proof",
+        "MathWorld Cube 5-Compound"
+      ],
+      "rationale": "The exact kinetic law of a canonical fullerene would be a useful benchmark if unrecorded, but the same law and a stronger output census are already available. The five-way race proof is a useful explanation for one atom, following from the forced complement geometry and the existing matching-level recurrence; it supplies no sufficiently distinct exact invariant, classification, or extension to support a separate repaired finding.",
+      "residual_risks": [
+        "This is not a rejection of finite jamming laws or of the correctness of the explanatory certificate."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:29:13.578723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any generator matrix of the fixed code, every set of k columns is independent, so the check subspace supported on T is the nullspace of the columns in T and has dimension max(|T|−k,0). In particular a (k+1)-set has a one-dimensional check space and every nonzero such check has full support. A cut S with |S|<k would split the rowspace into checks supported on A∪S or B∪S; the sum of their dimensions is less than n−k, whether both, one, or neither contributes a positive dimension. This shows necessity without chordality. A simplicial vertex cannot join different surviving components after fewer than k deletions, because its surviving neighbors form a clique. Repeated deletion therefore gives induced k-connected chordal graphs down to K_{k+1}. At each reverse step a check on the added vertex and k neighbors increases the check rank by one via its nonzero new coordinate; all checks on the smaller graph are exactly checks of the fixed code vanishing off that graph. All edges are covered by (k+1)-cliques inductively, including each edge at the new vertex. The base contributes binom(k+1,2) edges and each step at least k, with equality exactly when all steps have degree k; the resulting k-tree's n−k creation-clique checks are independent by their new coordinates. This includes k=1 and k=n−1. The frozen finite verifier and output were inspected, not executed; its graph loop prefilters on the claimed bound. Independent replay `python3 /workspace/audit_replay.py 2` makes no such prefilter, enumerates graphs and dual vectors for evaluation codes at (n,q)=(4,4),(5,5) for each k, and checks full span and edge agreement on all accepted graphs, with counts (35,7,1) and (541,111,11,1). The proof establishes the all-code and all-field claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mask result constructs a generalized Reed–Solomon realization subject to expansion and a field-size bound. The MDS treewidth formula is for normal-graph complexity, not edges of a column-primal parity graph. The chordal-code construction supplies particular supports."
+        ],
+        "reasoning": "None provides an iff criterion for every given code and every labeled chordal target. Simplicial elimination provides the graph extremum independently once the feasible class is known; the coding contribution is to identify that class and realize all equality cases.",
+        "searches": [
+          "arXiv:2605.08644, §3 Proposition 2",
+          "arXiv:1102.2734v3, §4 Proposition 4 and Theorem 5",
+          "arXiv:2610.17934v1, abstract and Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "arXiv:2610.17934v1",
+        "arXiv:2605.08644",
+        "arXiv:1102.2734v3",
+        "Resultary 5b54a9828a3f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A systematic MDS check matrix with a common k-set in every row gives the split k-tree optimum candidate, and the known chordal code construction gives this kind of example. Support expansion bounds address distance/realization of masks, not the clique-span theorem for an arbitrary fixed code."
+        ],
+        "reasoning": "One split equality graph does not imply necessity for every parity-check presentation, realization of arbitrary chordal k-connected graphs, or realization of all k-trees by minimum checks for that same code. The chordal graph extremum has not been credited as an independent novelty.",
+        "searches": [
+          "arXiv:2610.17934v1, Theorem 3.4; arXiv:2605.08644, Proposition 2",
+          "Resultary 5b54a9828a3f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generator matroid is U_{k,n}; a generator-column circuit on each (k+1)-clique supplies a check in the dependency space of a particular representation. Chen et al. give a chordal systematic construction, not a classification of all circuit-supported column-primal graphs."
+        ],
+        "reasoning": "The genuinely equivalent formulation must concern the dependency space of each representation of U_{k,n} over the given field. A support-pattern existence theorem or a generic representation does not yield that quantifier. No spanning-circuit clique characterization equivalent to the fixed-code finding was identified in the checked sources.",
+        "searches": [
+          "Resultary: chordal parity-check column-primal graphs of MDS codes; uniform matroid circuit bases and clique separators",
+          "arXiv:2610.17934v1, Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closely related catalog entry computes minimum row counts for binary Hamming codes in small redundancy and gives lower bounds beyond. The frozen output reports small sanity checks of the MDS topology claim, not an independent priority source."
+        ],
+        "reasoning": "Row count and the number of distinct edges are different objectives, and the Hamming result does not provide a table or dominating formula for the fixed-MDS topology theorem.",
+        "searches": [
+          "Resultary 5b54a9828a3f, minimal chordal check row counts",
+          "Resultary: exact chordal parity-check edge count for MDS and k-tree equality"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the exact topology classification for every fixed existing linear MDS code over its original field, including the exact characterization of extremal parity-check presentations. The graph-only edge minimum follows from the standard chordal elimination argument, and constructing one systematic split example is not new.",
+      "residual_risks": [
+        "Focused coverage check, not exhaustive priority certification; a differently phrased uniform-matroid dependency-space or clique-separator theorem outside inspected sources could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for a systematic family, not the iff theorem",
+          "evidence": "Augments H₁=[P|I] with H₂=[L|0] under a clique condition on the primal graph of L.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17934",
+          "material_read": "Abstract p. 1; Theorem 3.4 p. 3, text offset 20479",
+          "method": "Targeted primary full-text inspection",
+          "title": "Chordal Codes: Code Construction and Efficient Gaussian-Elimination Decoding",
+          "trigger": "Same graph notion and a constructive result"
+        },
+        {
+          "assessment": "Different quantifier and conditions",
+          "evidence": "Generalized Reed–Solomon check-mask realization under expansion and field-size conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.08644",
+          "material_read": "Section 3 Proposition 2, p. 4, offset 15300",
+          "method": "Targeted primary full-text inspection",
+          "title": "On Codes with Support-Constrained Parity Checks",
+          "trigger": "Could imply realization for clique-supported check masks"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": "Trelliswidth and normal-graph treewidth, not edge counts of parity-check presentations.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.2734v3",
+          "material_read": "Section 4, p. 5, offset 17700, Proposition 4 and Theorem 5",
+          "method": "Targeted primary full-text inspection",
+          "title": "The Treewidth of MDS and Reed-Muller Codes",
+          "trigger": "Established exact MDS graph complexity formula"
+        },
+        {
+          "assessment": "Different code family and objective; same-day dating not used to assign priority",
+          "evidence": "Minimizes number of check rows, not graph edges or feasible labeled topologies of a fixed MDS code.",
+          "identifier_or_url": "Resultary 2026, 5b54a9828a3f",
+          "material_read": "Finding, offset 0",
+          "method": "Published record read in local mirror",
+          "title": "Minimal chordal check row counts for small binary Hamming codes",
+          "trigger": "Near match on chordal parity checks and exact minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Feasible graph topology is natural for parity-check representations with sparsity constraints. The result gives both a precise obstruction and a constructive converse without changing the field or the code, and returns all sharp configurations with a minimum-weight basis. This is genuinely structural, even though the graph-only edge bound is standard and is not a decoder-runtime claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

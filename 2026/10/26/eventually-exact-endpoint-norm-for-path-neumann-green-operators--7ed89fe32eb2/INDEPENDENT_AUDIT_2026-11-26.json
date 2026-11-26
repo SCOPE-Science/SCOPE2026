@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:25.217612Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75; VERIFICATION.md and check_path_green.py (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, case 3"
+      ],
+      "rationale": "The stated symmetric kernel has zero row sums and the degree-Laplacian second differences give L_nG_n=I−11ᵀ/n, including at the endpoint degrees. This identifies the inverse; symmetry equates the absolute row and column norms. At the specified midpoint coordinates, substitution gives G_ij/n=K(x_i,x_j)−1/(12n²). In y, K has slopes y and y−1 on the two sides of x, so |K| is 1-Lipschitz and at most two zeros and the kink give at most three exceptional cell interiors. Summing ordinary midpoint errors bounded by 1/(24n³), exceptional errors bounded by 1/(4n²), and the shift 1/(12n²) gives 7/(8n²). On 0≤x≤1/2 the positive part of K has right boundary 1−√(1/3−x²); its left boundary is zero up to r=1−1/√3, then √(2x−x²−2/3). Differentiating twice the positive-part integral yields the stated first derivative on each regime, negative off the endpoints and center by the displayed factorization. The endpoint value is 2/(9√3); its deficit is x²/√3+O(x⁴) and is at most x²/√3 for x≤r. Taking x_0=1/(2n) proves the two-sided uniform bound and forces every maximizing row to within a bounded offset of an endpoint. For fixed k, the row change is δ=k(k+1)/(2n) plus j−k when j<k. The latter corrections sum to −k(k+1)/2 and occur at eventually positive entries of both rows. The smooth-crossing slope of row zero has magnitude bounded away from zero, so replacing the absolute-value change for the δ term by its signed value costs o(1); its signed sum tends to k(k+1)(2r−1)/2. Thus F_(n,0)−F_(n,k) tends to k(k+1)/√3. This excludes each positive bounded offset by reflection, proving eventual strictness. Row zero decreases through the midpoint root, so summing twice the entries through the last nonnegative index gives the stated floor formula, including the harmless zero-entry case; row signs and column unit masses attain the respective norms. An independent exact flux-balance replay through n=80 confirms all finite comparisons, including strictness against every interior row and the radical error bound. The frozen checker itself only asserts weak endpoint optimality, notwithstanding the source's verification wording; the separate replay does not replace the analytic eventual proof.",
+      "residual_risks": [
+        "No effective onset or all-n strict endpoint theorem follows from the bounded replay; the norm uses counting-measure spaces and the unweighted degree Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ellis derives discrete Green functions for products of regular graphs and evaluates cycle/product cases",
+          "The tree Poisson record uses an edge-Lipschitz seminorm, with paths extremal among trees",
+          "The 2017 study's accessible bibliographic material concerns pseudoinverse-based network spreading; the submitted package identifies its path entry formula as prior"
+        ],
+        "reasoning": "A theorem for more graphs is not broader for this question if it uses a different norm, and an entry formula alone does not determine where its absolute row sums are maximal. No exclusion is inferred from the inaccessible full text.",
+        "searches": [
+          "Ellis arXiv:math/0309080 §4",
+          "Resultary sharp tree Poisson norms cbb21f4f2591",
+          "Primary path pseudoinverse and sharp inverse-norm literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0309080",
+        "arXiv:1201.6059",
+        "DOI:10.1103/PhysRevE.96.032311 (bibliographic material only)",
+        "Resultary 11248e46ffd9, cbb21f4f2591 and 833010be3478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known kernel yields individual rows but not the discrete global order of their absolute sums",
+          "The checked path interpolation statement optimizes a different functional, involving ||u||₂||Du||₂ and a shifted parameter",
+          "The new proof uses the strict continuum boundary maximum only for localization; the nonzero fixed-offset limit is needed for eventual strictness"
+        ],
+        "reasoning": "Summing the known endpoint row would give a candidate formula, not the sharp norm until endpoint optimality is proved. Nor do continuous endpoint optimization or shifted evaluation results imply eventual endpoint selection after sampling. The fixed-offset computation and discrete uniform comparison supply those missing steps.",
+        "searches": [
+          "Franklin Eq. (28), Ellis §4, and best-spreader path matrix literature",
+          "Indexed path interpolation finding 11248e46ffd9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The counting-measure ℓ∞ norm is max_i Σ_j|G_ij|, equal by symmetry to the ℓ1 norm",
+          "Franklin gives the normalized continuous interval Neumann kernel",
+          "Indexed 11248e46ffd9 treats point evaluation and an energy interpolation constant via a shifted resolvent"
+        ],
+        "reasoning": "A symmetric kernel or a formula for a resolvent diagonal is not a maximum absolute row-sum formula. The continuum problem also lacks the finite midpoint sign index and the discrete strict-optimizer issue.",
+        "searches": [
+          "Resultary semantic lookup of sharp path Laplacian pseudoinverse, absolute row sum and endpoint maximum",
+          "Franklin arXiv:1201.6059 Eq. (28)",
+          "Van Mieghem–Devriendt–Cetinay DOI:10.1103/PhysRevE.96.032311"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed resolvent entry, edge-Lipschitz and Möbius ladder projection constants are for different observables",
+          "The accessible DOI record does not expose the decisive path computation or a sharp row-sum table"
+        ],
+        "reasoning": "The formula, error bound and offset limit are symbolic size-uniform statements, not entries in a finite path catalog. The exact related indexed formulas were checked against the norm definition rather than inferred from titles.",
+        "searches": [
+          "Resultary sharp path interpolation, tree Poisson norm, and endpoint-projection comparisons: 11248e46ffd9, cbb21f4f2591, 833010be3478",
+          "DOI:10.1103/PhysRevE.96.032311 and targeted TU Delft full-text lookup"
+        ]
+      },
+      "rationale": "The pseudoinverse kernel and continuum Neumann Green function are credited as known. The distinct supported contribution is the maximum absolute row sum: its sharp discrete floor formula in the eventual range, endpoint-only attainment there, fixed-offset gap and explicit uniform bound. None of the materially inspected adjacent statements supplies that norm or its maximizing row for the unshifted path inverse. Full text of the most relevant path pseudoinverse paper remains unavailable through the attempted lawful routes, so that comparison is limited, not negative evidence of coverage.",
+      "residual_risks": [
+        "The full-text 2017 comparison remains unresolved after lawful retrieval attempts.",
+        "An older discrete stability inequality may be indexed under terminology unrelated to Green functions; the searches cannot exclude that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different product-graph formula objectives; no observed sharp absolute row norm for the unweighted path.",
+          "evidence": [
+            "The work develops discrete Green functions for products of regular graphs and treats cycle/product examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0309080",
+          "material_read": "Abstract p. 1 and §4 p. 5",
+          "method": "OA primary passages at offsets 0 and 17164",
+          "title": "Discrete Green's functions for products of regular graphs",
+          "trigger": "Discrete Green formula and possible graph-inverse norm coverage"
+        },
+        {
+          "assessment": "Relevant known continuous kernel, not the discrete norm conclusions.",
+          "evidence": [
+            "Eq. (28) is a continuous Neumann Green function on an interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.6059",
+          "material_read": "Interval formula Eq. (28), p. 5",
+          "method": "OA primary passage at offset 10689",
+          "title": "Green's functions for Neumann boundary conditions",
+          "trigger": "Same continuum Neumann normalization as the row-profile limit"
+        },
+        {
+          "assessment": "Credit the path kernel as known; residual risk for sharp row sums remains, with no whole-document exclusion.",
+          "evidence": [
+            "The cited study concerns pseudoinverse spreading/centrality, and the frozen record reports its path pseudoinverse entry formula; the inspected material does not settle the absolute row norm."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.96.032311",
+          "material_read": "APS bibliographic landing material and the frozen package's summary; no full-text path passage accessible",
+          "method": "DOI and APS PDF OA attempts returned 403; DOI recovery found no repository copy; targeted TU Delft alternate-copy lookup did not identify a copy",
+          "title": "Pseudoinverse of the Laplacian and best spreader node in a network",
+          "trigger": "Closest same-path graph pseudoinverse calculation, plausible direct coverage"
+        },
+        {
+          "assessment": "Shifted resolvent evaluation for a different interpolation functional.",
+          "evidence": [
+            "The inequality compares ||u||∞² with K_N||u||₂||Du||₂, not ||L^†f||∞ with ||f||∞."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-square-root-boundary-deficit-for-sharp-discrete-path-interpola--11248e46ffd9",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror statement",
+          "title": "A square-root boundary deficit for sharp discrete path interpolation",
+          "trigger": "Closest indexed sharp endpoint inequality on paths"
+        },
+        {
+          "assessment": "Different input/output norm; does not dominate the counting ℓ1 or ℓ∞ result.",
+          "evidence": [
+            "The Poisson inverse is measured by the edge-Lipschitz seminorm and paths are extremal among trees."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-lipschitz-poisson-norms-on-finite-trees-and-their-extremiz--cbb21f4f2591",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror statement",
+          "title": "Sharp Lipschitz Poisson norms on finite trees and their extremizers",
+          "trigger": "Same inverse on paths within a general tree classification"
+        },
+        {
+          "assessment": "Different graph and operator.",
+          "evidence": [
+            "The statement concerns edge-space cut/cycle projections on Möbius ladders, not a path vertex Laplacian inverse."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-logarithmic-endpoint-projection-deficit-on-m-bius-ladders--833010be3478",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror statement",
+          "title": "Sharp logarithmic endpoint-projection deficit on Möbius ladders",
+          "trigger": "Indexed endpoint operator-norm formula with similar terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Franklin Eq. (28) as the continuous comparison"
+      ],
+      "rationale": "The maximum row sum is the sharp maximum-amplitude response to a bounded input with automatic mean subtraction on a finite insulated interval. Obtaining both its exact eventual finite-size constant with an extremizing input and its explicit n-uniform error is more useful than just knowing the kernel entries or a continuum estimate. The fixed-offset asymptotic identifies the order-one difference responsible for discrete endpoint selection. The result is bounded to a canonical family and does not claim a general theorem for graphs.",
+      "residual_risks": [
+        "No optimal onset or weighted-path or tree result is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:56:03.653090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:13–34 and 40–89 (active-set derivation, sharpness and limits)",
+        "Frozen VERIFICATION.md and CHECK.py (inspection only)"
+      ],
+      "rationale": "Slater and stationarity yield clip(v/s) with s≥1; the unconstrained box projection suffices if it is ball feasible. Otherwise the squared norm of clip(v/s) drops strictly wherever it reaches the target with a nonzero free coordinate; a plateau at the target would require that all free inputs vanish and that the original box projection already be ball feasible. For a strict active pattern with k saturated outputs, the free output is √(r²−k)v_J/||v_J||₂ and its Jacobian is s⁻¹(I−uuᵀ). Apart from clipping coordinate planes, the switch on each clipping region lies in a level set of its clipped squared norm; at an active tie the saturated i satisfies (r²−k)v_i²=∑_{j in J}v_j². These are null sets for r²<n, with the r²=k degeneracy forcing all free inputs to vanish. With a=|u_i|, the maximum row sum is 1−a²+a∑_{j≠i}|u_j|; its Cauchy–Schwarz bound is attained by equal tail magnitudes whenever a lies in the stated interval. The interval is feasible since c_k>1/√m, and the change 2a²−1 gives the single clamped maximizer. One free coordinate contributes zero derivative. Euclidean nonexpansiveness ensures Lipschitz regularity; mollification with the a.e. derivative bound gives the global ℓ∞ bound. Conversely choose a strictly feasible equal-tail vector, scale the free input by s>1 and make the saturated inputs strictly larger than s. Test along the signs of the chosen row, then take s↓1 and approach any capped maximizer from inside; the identity regime separately gives one. At r=√5 in n=13 only k=0 and k=1 can beat the unrestricted bound for m≤11; both are upper-capped and F₁>F₀ reduces to 7>4√3. An independent arithmetic check gives excess 0.000500015579. For r≤1 only ordinary ball clipping is needed; at r↑√n the feasible intervals collapse to the equal-magnitude vectors and the largest limit is 2−2/n, while at redundancy coordinate clipping gives one.",
+      "residual_risks": [
+        "Strict-face witnesses give suprema, which need not be attained by a finite pair.",
+        "No nonuniform box, translated ball or alternative projection metric is covered. The uploaded numerical checker was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauschke–Bui–Wang give ρP_Kx/max{||P_Kx||,ρ} for a closed convex cone K intersected with the ball.",
+          "Vasil’eva's parameterized intersection widths can use p₀=∞ and p₁=2, but widths concern optimal linear-subspace approximation.",
+          "The smooth-convex Resultary claim gives a general weighted upper bound and exact equality for C¹ compact convex bodies; it separately reports the box result."
+        ],
+        "reasoning": "The cube is not a cone, the relevant projection modulus is not a Kolmogorov width, and the mixed ball–box bodies are not in the smooth equality class. The same-day Resultary result was compared on substance, without assigning priority from date.",
+        "searches": [
+          "arXiv:1708.00585 §7 Theorem 7.1",
+          "arXiv:2007.04894v1 Theorem 1",
+          "Resultary: 2026/11/22/SCOPE-shape-independent-sharp-coordinatewise-stability-of-smooth-conve--96cde73fc3b5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.00585",
+        "arXiv:1911.03946",
+        "arXiv:2007.04894v1",
+        "Resultary records 78696bf157c3, 96cde73fc3b5 and aaf07fe45c05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clipping a box projection and then rescaling radially would in general move a coordinate that remains saturated in the true projector. The mixed formula has a cap-dependent free sphere. At n=13,r=√5 the single-saturation branch beats all no-saturation derivatives, so standalone ball clipping does not give the extremizing regime in that example; the generic upper bound (1+√13)/2 does not resolve this."
+        ],
+        "reasoning": "Even when prior projection structure or upper bounds are available, these exact claims need the constrained row maximization, treatment of all active strata and sharp witnesses; none of the checked statements implies the finite maximum by specialization.",
+        "searches": [
+          "Resultary Euclidean-ball clipping and smooth-convex projector RESULT.md passages",
+          "arXiv:1911.03946 §5 Algorithm 1",
+          "arXiv:1708.00585 Theorem 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine-projection record uses an L² orthogonal projection of functions onto degree ≤1 on a Cartesian product, not nearest points in a finite-dimensional ball–box intersection.",
+          "Liu–Wang–Song use an ℓ₁ cap with an ℓ₂ ball or sphere, not an ℓ∞ coordinate cap."
+        ],
+        "reasoning": "The product/intersection and linear-function-space/metric-projection distinctions rule out those apparent synonyms. Euclidean sign and permutation symmetries do not turn the ℓ₁ cap into the stated general-dimensional cube.",
+        "searches": [
+          "Resultary search for ball–cube intersection, sharp ℓ∞ coordinatewise Euclidean metric-projection stability and active faces",
+          "arXiv:1911.03946, problems (1.1)–(1.3)",
+          "2026/11/2/SCOPE-sharp-affine-projection-norms-on-ball-box-products--aaf07fe45c05"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked standalone-ball Resultary theorem specializes under equal weights to (1+√n)/2, exactly covering 0<r≤1. The distinct smooth-projector theorem bounds the mixed case but does not state its exact modulus."
+        ],
+        "reasoning": "The relevant exact database is the theorem catalogue; no separate finite table is claimed. Exact overlap was established for the contained-ball regime only; no distinct result giving all mixed-face values was established in the bounded comparison.",
+        "searches": [
+          "Resultary search for exact ball–box Euclidean projector max-norm sensitivity",
+          "2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+          "2026/11/22/SCOPE-shape-independent-sharp-coordinatewise-stability-of-smooth-conve--96cde73fc3b5"
+        ]
+      },
+      "rationale": "The ball-only modulus and box coefficient are known, and generic convex-projector bounds are available. The new content supported by the comparison is the exact constrained mixed-face maximum, including the strictly winning capped face and the approach to redundancy.",
+      "residual_risks": [
+        "The focused external search was unavailable, not negative evidence. This verdict uses the actual retrieved primary and catalogue statements.",
+        "An unindexed bound-constrained trust-region sensitivity theorem could overlap; absolute priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cone hypothesis excludes the cube; not a coordinatewise stability statement.",
+          "evidence": [
+            "Formula radially clips P_Kx for closed convex cones K."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.00585",
+          "material_read": "OA PDF §7, Theorem 7.1 p. 15, offset 55826",
+          "method": "Lawful OA exact-passage inspection",
+          "title": "Projecting onto the intersection of a cone and a sphere",
+          "trigger": "Potential projection formula for intersections with balls"
+        },
+        {
+          "assessment": "Different cap and result type.",
+          "evidence": [
+            "Optimization problems use an ℓ₁ cap; the algorithm computes a projection via root search."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.03946",
+          "material_read": "OA PDF pp. 1–2 equations (1.1)–(1.3); p. 19 §5 Algorithm 1",
+          "method": "Lawful OA exact-passage inspection",
+          "title": "A unified approach for projections onto the intersection of an ℓ₁ and ℓ₂ ball or sphere",
+          "trigger": "Closely related constrained projection and scalar root computational method"
+        },
+        {
+          "assessment": "Studies widths, not a perturbation modulus of the Euclidean projector.",
+          "evidence": [
+            "The set B_p₀∩νB_p₁ is allowed with p₀=∞,p₁=2, but the optimized quantity is subspace approximation error."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2007.04894v1",
+          "material_read": "Introduction and Theorem 1, offsets 0 and 5300",
+          "method": "Lawful OA edition passage inspection",
+          "title": "Kolmogorov widths of the intersection of two finite-dimensional balls",
+          "trigger": "Includes the same underlying set geometry"
+        },
+        {
+          "assessment": "Exact coverage of r≤1 only for the intersection.",
+          "evidence": [
+            "With uniform weights its exact coefficient is (1+√n)/2."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+          "material_read": "Mirrored RESULT.md Finding and proof from offset 0",
+          "method": "Resultary and local mirror inspection",
+          "title": "Sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+          "trigger": "Exact pure-ball special case"
+        },
+        {
+          "assessment": "Gives generic upper bound, and equality under a smooth-boundary hypothesis not met by the mixed ball–cube family.",
+          "evidence": [
+            "Sharp equality for compact C¹ convex bodies, coefficient one for axis-aligned boxes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-shape-independent-sharp-coordinatewise-stability-of-smooth-conve--96cde73fc3b5",
+          "material_read": "Mirrored RESULT.md offsets 0 and 4700",
+          "method": "Resultary and local mirror inspection",
+          "title": "Shape-independent sharp coordinatewise stability of smooth convex projection",
+          "trigger": "Potential stronger general convex-projection theorem"
+        },
+        {
+          "assessment": "Different operator, measure, norm and set construction.",
+          "evidence": [
+            "L∞ norm of the function-space L² projection onto affine polynomials on a Cartesian product."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-affine-projection-norms-on-ball-box-products--aaf07fe45c05",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Literal match followed by passage inspection in the local mirror",
+          "title": "Sharp affine-projection norms on ball–box products",
+          "trigger": "Ball–box projection exact-norm title overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:13–38 and 81–89",
+        "arXiv:1911.03946 projection computation, as a contrast"
+      ],
+      "rationale": "Individual-coordinate error budgets and a joint energy cap naturally coexist. The exact global perturbation factor for the associated Euclidean projector, not merely an evaluation algorithm, quantifies their interaction. The tiny thirteen-dimensional gap is useful as a counterexample to the no-saturation simplification, not for its size, and the actual jump at redundancy separates stability of the sharp modulus from continuity of the sets.",
+      "residual_risks": [
+        "Exact global coefficient for this uniform centered family only; not a numerical convergence guarantee for any iterative algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

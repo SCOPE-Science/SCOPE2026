@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:29.092317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54, VERIFICATION.md lines 19–27, verify.py and certificates.json",
+        "/workspace/branches/ca72616d-b584-40ac-9e87-3aff738e03da/check_record2.py and check_record2_run.txt (independent enumeration and exact feasibility checks)"
+      ],
+      "rationale": "The actual channel permits no change or one adjacent position transposition, with every permutation admissible as a receiver. Its radius-one output balls intersect exactly at Kendall distance at most two (use a shortest path and its midpoint for the converse). Reversal and value complement are channel isometries and have exactly the two claimed orbits on classical length-three patterns. Independent exhaustive compatibility-clique enumeration over all six sources and n=1,…,5 reproduced both the maximum and the number of maximizing labeled subsets: common (1,1), (1,2), (2,2), then monotone (5,2), (12,40) versus nonmonotone (4,17), (11,96). Reading the frozen sparse JSON as data, independently reconstructed exact feasible primal packings and dual covers at n=3,4,5 for representatives 123 and 132, checking every inequality and matching objectives 2,5,12 and 2,23/5,227/18 respectively. Unobserved outputs have zero dual weight and vacuous primal constraints. The fractional optima at n=1,2 are 1 because respectively the unique output and a shared full ball impose total mass at most 1, attained by any singleton. Thus the first capacity difference is n=4 and the first integer-rounded fractional gap is n=5. Both explicit length-five code witnesses were checked.",
+      "residual_risks": [
+        "No conclusion for n>5, consecutive avoidance, or restricted receivers; integer capacities here concern the specified source only, not asymptotic rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The read scope passages concern bounds, anticodes or systematic constructions in the full symmetric group and, in the systematic-code paper, multipermutations."
+        ],
+        "reasoning": "Unrestricted bounds survive passage to subsets, but they do not prescribe induced-subgraph optimum sizes and counts or primal/dual equality on the restricted receiver incidence matrix. No compared general theorem determines the table.",
+        "searches": [
+          "arXiv:1408.4963",
+          "arXiv:1311.7113",
+          "arXiv:2303.02349"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3afe54a9273 (identical match), 7abdf29f158b, 01233b6e774d, 8a37d59fa16f",
+        "Dukes et al. arXiv:0704.2048; Buzaglo–Etzion arXiv:1408.4963; arXiv:1311.7113; arXiv:2303.02349"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adaptive comparison result separates the two classes by comparison-query Littlestone dimension, not by adjacencies or output balls. The S5 bound is 20, above both induced optima."
+        ],
+        "reasoning": "Neither separation for another invariant nor a census of unrestricted maximizers implies the restricted capacities, let alone the first integer-rounded gap. Likewise, a same-day result for a binary-word channel shares a method but does not determine the permutation table.",
+        "searches": [
+          "Resultary 2026/11/2 8a37d59fa16f",
+          "Resultary 2026/10/12 01233b6e774d",
+          "Resultary 2026/11/22 7abdf29f158b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dukes et al. study generating entire pattern-avoiding families, with Hamming distances between consecutive entries; Buzaglo–Etzion study Kendall separation on unrestricted permutation sources."
+        ],
+        "reasoning": "The equivalent derived problem is distance-three packing in an induced Kendall compatibility graph of avoiding words. Neither a full listing with Hamming transitions nor the unrestricted Kendall problem is that induced packing or its incidence LP.",
+        "searches": [
+          "Resultary semantic comparison of pattern-avoiding, adjacent-swap and Kendall distance-three codes",
+          "arXiv:0704.2048, pp. 1–2",
+          "arXiv:1408.4963, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The whole-S5 equality census gives (20,3192). The short Dyck-word record gives n=5 capacity 9 and fractional optimum 19/2 for binary words of semilength five. The matching a3afe54a9273 entry is this same record."
+        ],
+        "reasoning": "Neither separate table is indexed by classical permutation avoidance in the full permutation-output channel. Catalan bijections preserve cardinality but cannot be assumed to preserve the channel; these exact optima rule out identification via such an isometry at n=5.",
+        "searches": [
+          "Resultary 2026/11/22 a3afe54a9273 (identical record)",
+          "Resultary 2026/10/12 01233b6e774d",
+          "Resultary 2026/11/22 7abdf29f158b"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact bounded table for single-classical-pattern avoiding permutation sources in the specified channel, notably the first separation and first rounded gap. Kendall packing and Catalan enumeration are not claimed as new. No equivalent or dominating result was found among the compared statements.",
+      "residual_risks": [
+        "The comparisons are bounded and passage-specific, not a priority certificate; an unindexed exact table or further uninspected literature may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant",
+          "evidence": "Page 2 defines Hamming distance; bounds are for consecutive members of a Gray listing.",
+          "identifier_or_url": "https://arxiv.org/abs/0704.2048",
+          "material_read": "pp. 1–2, offsets 0 and 3900",
+          "method": "OA primary PDF",
+          "title": "Combinatorial Gray codes for classes of pattern avoiding permutations",
+          "trigger": "Same avoiding permutation families and distance language"
+        },
+        {
+          "assessment": "Unrestricted metric-code comparator",
+          "evidence": "Introduces constructions and anticode bounds over S_n; there is no avoidance restriction in the inspected problems.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.4963",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 0 and 3900",
+          "method": "OA primary PDF",
+          "title": "Bounds on the Size of Permutation Codes with the Kendall τ-Metric",
+          "trigger": "Same Kendall metric and small parameters"
+        },
+        {
+          "assessment": "Scope comparison",
+          "evidence": "Systematic full-permutation/multipermutation codes and bounds for subsets of full S_n, not the avoidance-induced LP.",
+          "identifier_or_url": "arXiv:1311.7113; arXiv:2303.02349",
+          "material_read": "Former abstract/introduction pp. 1–2; latter p. 1",
+          "method": "OA primary PDFs",
+          "title": "Systematic Codes for Rank Modulation; Bounds for permutation codes with Kendall tau metric",
+          "trigger": "Potential broader code theorems"
+        },
+        {
+          "assessment": "Distinct same-day result; no priority inferred",
+          "evidence": "Binary Dyck source, binary adjacent-letter swap outputs, n=5 capacity 9 and fractional optimum 19/2.",
+          "identifier_or_url": "Resultary 2026/11/22 7abdf29f158b",
+          "material_read": "Mirrored RESULT.md offset 0, finding and source model",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact adjacent-swap packings of short Dyck words",
+          "trigger": "Closest bounded Catalan-source analogue, including fractional output LP"
+        },
+        {
+          "assessment": "Different source alphabet",
+          "evidence": "Full S5 has optimum 20 with 3,192 maxima, not the 42-word induced source problems.",
+          "identifier_or_url": "Resultary 2026/10/12 01233b6e774d",
+          "material_read": "Mirrored RESULT.md offset 0, finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Equality census for optimal S5 Kendall-τ codes at distance 3",
+          "trigger": "Exact table for same length and distance"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Comparison-query shattering dimensions separate at n=5, not Kendall radius-one packing.",
+          "identifier_or_url": "Resultary 2026/11/2 8a37d59fa16f",
+          "material_read": "Mirrored RESULT.md offset 0, finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Wilf-equivalent length-three avoidance classes separate in adaptive comparison dimension",
+          "trigger": "Same classes and separation language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen capacity and fractional table; independent exact replay; unrestricted S5 and binary Dyck comparators"
+      ],
+      "rationale": "Classical Wilf equivalence equalizes source sizes, not the local-error packing invariant; finding the first separation is a natural finite-boundary question. Including n=5 identifies the first failure of rounding a concrete fractional bound, unlike the n=4 fractional gap that rounding erases. The exact optimizer counts and reproducible fractional witnesses make the table usable as a test case for any proposed generalization. The value is in these sharp small counterexamples, not the enumeration method or an extrapolation.",
+      "residual_risks": [
+        "Bounded classification; no later separation, eventual law, or claim of asymptotic significance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

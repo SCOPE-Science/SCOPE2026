@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:51:14.049147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof (steps 1–6)",
+        "Frozen VERIFICATION.md",
+        "/workspace/branches/60e26605-5530-4927-8ced-fdfaa5735b92/independent_tree_census.py"
+      ],
+      "rationale": "The two constants plus two orientations of every edge cut give exactly 2n distinct halfspaces: two crossing edges between connected sides would form a cycle. A shattered tree of depth d uses at least 2^d concepts. At n=2 the class is the power set, and at n=3 an endpoint query leaves two three-concept chains. The four-vertex path has depth three by endpoint/threshold queries; in the four-vertex star two leaf queries give four two-concept cells, each splittable. Every larger tree restricts to the full halfspace class on any connected four-vertex induced subtree, giving the lower bound three. At n=8, depth four forces equality at every split. After a positive query at v, exactly d(v,w) of the eight remaining concepts exclude w, so a balanced second query has d(v,w)=4. Of the four concepts containing both vertices, exactly d(x,P[v,w]) exclude x; hence a balanced third query forces distance two to the path. Conversely, query v and w in both branches. The same x bisects the equal-answer cells by complementation; the midpoint bisects the opposite-answer cells. Each remaining pair differs on a vertex, giving the fourth query. On paths of any order the first endpoint split gives two chains of size n and threshold queries achieve the matching count bound. Independent Prüfer enumeration and exact version-space rank gave 11/12 unlabelled and 218400/43744 labelled trees at ranks four/three out of 23 and 262144 respectively, with motif and rank agreeing in every shape. All orders 2 through 7 and paths through 14 matched the formulas in the replay.",
+      "residual_risks": [
+        "The replay verifies the finite census; the geometric equivalence and all-order path formula rest on the proofs. No formal verification or expert attestation is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 statement bounds label queries using shortest-path covers; the 2021 tree bound concerns active query complexity, and its abstract also relates Radon numbers to VC dimension.",
+          "The closest online-learning chapter's publisher abstract explicitly studies general convex sets and halfspaces on graphs; its exact theorem could not be retrieved."
+        ],
+        "reasoning": "Actual accessible active-learning bounds neither characterize perfectly balanced splits of the sixteen tree halfspaces nor imply the order-eight motif. The same-object online title and abstract are genuinely relevant but cannot characterize what its unavailable theorem says.",
+        "searches": [
+          "Thiessen–Gärtner 2020, p. 1 abstract; 2021, abstract and §3.2/Table 1; 2022/2023, DOI 10.1007/978-3-031-26412-2_22 and lawful full-text routes"
+        ]
+      },
+      "checked_sources": [
+        "Thiessen–Gärtner 2020 and 2021, cited original passages",
+        "Thiessen–Gärtner 2022/2023, publisher abstract only",
+        "Resultary 1ca11f8b5a29 and f6815a2a2ce0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identification complexity can depend on the number of leaves as well as diameter; the 2021 statement is asymptotic in that measure. The catalogue statements give fixed-set shattering for halfspaces and adaptive shattering for path membership, respectively."
+        ],
+        "reasoning": "None of these actual statements determines whether all sixteen cut concepts at order eight can be split 8/8, then 4/4 and 2/2 in every cell, the criterion needed for rank four and the exact census. No inference is made about the unread online chapter's strongest result.",
+        "searches": [
+          "Thiessen–Gärtner 2021 tree row and scope of the 2022/2023 publisher abstract",
+          "Resultary 1ca11f8b5a29 and f6815a2a2ce0 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper gives tree active query complexity qc(G)=Θ(log d(G)+|Ext(G)|) with Ext(G) the leaves.",
+          "1ca11f8b5a29 uses the same cut halfspaces with constants for static VC shattering; f6815a2a2ce0 uses exact online shattering for leaf-to-leaf path concepts."
+        ],
+        "reasoning": "Littlestone dimension is the maximum depth of consistent complete adaptive query trees (equivalently the optimal deterministic realizable mistake bound), not worst-case active identification complexity. Static VC shattering restricts queries to a fixed set and does not give exact adaptive ranks. A path-as-concept is not one side of an oriented cut in general.",
+        "searches": [
+          "Thiessen–Gärtner 2021 §3.2/Table 1 and 2022/2023 publisher abstract",
+          "Resultary 1ca11f8b5a29 and f6815a2a2ce0, Findings and scopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1ca11f8b5a29 gives the tree-halfspace VC-shattering polynomial and dimension and disclaims online conclusions. f6815a2a2ce0 states U(9)=4<5 for the maximum path-concept online rank at fixed leaf count.",
+          "The targeted alternate-manuscript lookup returned no candidate; that is an access limitation, not evidence of novelty."
+        ],
+        "reasoning": "Both same-day entries are compared on substance, without inferring order or priority from a shared date. The first is a table/formula for a different invariant; the second uses a different concept class and size parameter. Neither supplies the 23-shape or 262144-labelled cut-halfspace census.",
+        "searches": [
+          "Local Resultary lookup for tree-geodesic halfspace shattering and online entropy deficiency, strongest matches 1ca11f8b5a29 and f6815a2a2ce0",
+          "Targeted lawful alternate-manuscript lookup for 'Online Learning of Convex Sets on Graphs' on institutional or author sites"
+        ]
+      },
+      "rationale": "The distinct supported result is the first order at which tree halfspaces miss their hypothesis-count bound, the exact order-eight geometry for attaining it, and its shape/labelling totals. Basic cut structure and path threshold search are not separately novel. The strongest readable comparisons concern the same halfspaces under other learning measures, or the same online invariant for a different class of concepts.",
+      "residual_risks": [
+        "Full text of DOI 10.1007/978-3-031-26412-2_22 was not obtained; an exact online tree theorem there remains a material unresolved possibility.",
+        "Bounded catalogue results cannot certify exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "An active query algorithm and bound, not the exact adaptive shattering result.",
+          "evidence": "Uses shortest-path covers for label-independent query bounds.",
+          "identifier_or_url": "https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf",
+          "material_read": "Primary PDF p. 1, abstract",
+          "method": "Read bounded original OA PDF passage",
+          "title": "Active Learning on Graphs with Geodesically Convex Classes",
+          "trigger": "Convex graph concept classes and vertex queries"
+        },
+        {
+          "assessment": "Same object; active identification and VC results, not exact online shattering in the inspected statement.",
+          "evidence": "Tree row: qc(G)=Θ(log d(G)+|Ext(G)|), with exterior vertices the leaves.",
+          "identifier_or_url": "https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf",
+          "material_read": "Primary abstract p. 1 (offset 0); §3.2 and Table 1 (offset ~16789)",
+          "method": "Read bounded original OA PDF passages",
+          "title": "Active Learning of Convex Halfspaces on Graphs",
+          "trigger": "Same concepts and a specific tree theorem"
+        },
+        {
+          "assessment": "Closest unresolved priority risk; no full-document conclusion.",
+          "evidence": "Abstract: ‘We study online learning of general convex sets and halfspaces on graphs.’",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Publisher abstract only; primary theorem text not obtained",
+          "method": "Publisher OA PDF and chapter retrieval attempts and a targeted lawful alternate-manuscript lookup",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Strongest plausible primary overlap: online learning and convex graph halfspaces"
+        },
+        {
+          "assessment": "Same concept class including constants, but static VC shattering.",
+          "evidence": "Gives VC-shattering polynomial and VC dimension; explicitly does not make an online-learning claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-wiener-index-determines-the-vc-shattering-profile-of-tree-ge--1ca11f8b5a29",
+          "material_read": "RESULT.md Finding and Scope, local mirror offset 0",
+          "method": "Read local mirrored original",
+          "title": "The Wiener index determines the VC-shattering profile of tree-geodesic halfspaces",
+          "trigger": "Same-date exact tree-halfspace shattering record"
+        },
+        {
+          "assessment": "Different concept class and extremal parameter.",
+          "evidence": "Uses leaf-to-leaf paths as concepts and gives U(9)=4<5 at fixed leaf count; not oriented edge cuts at fixed vertex count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-nine-leaves-are-the-first-entropy-deficient-case-for-online-shat--f6815a2a2ce0",
+          "material_read": "RESULT.md Finding and parameters, local mirror offset 0",
+          "method": "Read local mirrored original",
+          "title": "Nine leaves are the first entropy-deficient case for online shattering by tree geodesics",
+          "trigger": "Same-date and same online entropy-deficit framing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Independent exact order-eight census",
+        "Same-class static Resultary comparison 1ca11f8b5a29"
+      ],
+      "rationale": "The order-eight cutoff is the first opportunity for any tree shape to fail a tight small-order count bound, not an arbitrary census cutoff. Detecting exact maximal rank by one path and one off-path distance gives an immediately usable local structural test and clarifies why hypothesis cardinality does not determine adaptive shattering in this family. The two censuses quantify that split; the routine path formula gives a contrasting benchmark, not the main contribution.",
+      "residual_risks": [
+        "No characterization for arbitrary larger trees is supplied; constants and the vertex-query language matter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

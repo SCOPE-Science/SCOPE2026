@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:00:17.303373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62",
+        "Frozen check.py and check_output.txt; VERIFICATION.md boundaries",
+        "Independent replay: python3 /workspace/branches/review_reproduction.py 1"
+      ],
+      "rationale": "Completing the square in the falling factorial gives 24F(x)=[(x-3/2)^2-5/4]^2-1. At x=3t this yields the stated center 3/128 and square-times-(9(2t-1)^2-10)/128 identity after dividing the centered value by 3. The multiplier is 1 mod 3, so its Hensel square root congruent to 1 mod 3 exists uniquely; its changes acquire at least two extra factors of 3, so multiplying u by this root preserves distances. The two other branches have unit divided differences mod 3. Each isometry permutes all finite quotients and is onto Z_3. The regular branches therefore contribute two finite lifts in total; the singular branch contributes three times the number of square roots at one lower modulus. For zero, the square roots are exactly multiples of 3^ceil(m/2); for nonzero squares of valuation 2j there are two unit roots with 3^j free lifts each. This handles m=0 and shows the exceptional count cannot equal a nonzero-square count. The shift by 3^k changes the output at n=1 by valuation k-1, and all branches descend to the claimed period 3^(k+1), proving leastness. In characteristic zero the derivative vanishes only at x=3/2: the other possibility is (x-3/2)^2=5/4, a nonsquare mod 3. Each sufficiently small output ball in a nonzero-square shell has probability divided by Haar volume equal to 2/3+2*3^j by the finite counts; on nonsquare targets the ratio is 2/3. The critical singleton has finite preimage and hence no atom. The shell volumes 3^(-2j-2) sum to 1/8, and their added density integrates to 1/3. The independent integer enumeration checked all target residues and shifts through k=9 against literal modular squares, giving, for example, the claimed k=5 histogram.",
+      "residual_risks": [
+        "The independent enumeration is finite; the proof supplies all levels and the measure statement. The density is a version of the Radon–Nikodym derivative, with no prescribed value at the critical singleton."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-uniform-odd-prime-fiber-law-for-the-first-post-prime-pascal-colu--1e7ba5e8e955 Finding covers every prime p>=3, all h>=1 and the column binom(n,p+1); regular branches are onto isometries and B_p(pt)=alpha_p+pH_p(t)^2 with H_p an onto isometry.",
+          "The nearby good-prime pentatope law c524d9c86455 explicitly excludes p=3; ternary sixth-column result 2c5deda1b9d1 changes the lower index."
+        ],
+        "reasoning": "Taking p=3 and h=k in the general law gives alpha_3=binom(3/2,4)=3/128, exactly two regular branches, exactly the factor three in the finite law and the same least period. The good-prime and sixth-column comparisons do not supply this specialization.",
+        "searches": [
+          "Resultary: odd prime p first post-prime Pascal column binom(n,p+1) exact fiber law quadratic branch Haar pushforward",
+          "Resultary: published p-adic distribution fibers fixed binomial coefficient column all primes residue multiplicities Haar"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary records c5b9d086114e and 1e7ba5e8e955, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Distinct adjacent records c524d9c86455 (scope) and 2c5deda1b9d1 (Finding)",
+        "Sun–Zhang Theorem 1.1 and Corollary 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun–Zhang Theorem 1.1 and Corollary 1.1 give universality and the p-adic value image at this parameter, not multiplicity.",
+          "The general catalogue theorem provides the exact law on finite balls and a Haar-preserving singular coordinate change."
+        ],
+        "reasoning": "The two uniform branches contribute 2/3 to the output density. Conditional on the third branch, the square map has two roots off zero on each square shell; the volume change contributes 2*3^j there after input and output factors of three cancel. Thus the asserted density and the 2/3/4 inverse-fiber counts follow, not merely a similar-looking finite histogram. The critical target is the center of the same singular branch; no separate distinct refinement survives.",
+        "searches": [
+          "Binomial coefficients and the ring of p-adic integers Sun Zhang arXiv 0812.3089 Theorem 1.1 fourth column p=3; exact p-adic fibers binomial(n,4) modulo powers of 3",
+          "Uniform odd-prime fiber law, Finding and Proof §§1–3; Exact three-adic residue fibers, Proof §§2, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct SCOPE-exact-three-adic-residue-fibers-of-the-pentatope-numbers--c5b9d086114e gives N_k(y)=2+3R_{k-1}((y-3/128)/3) on multiples of three and N_k(y)=2 otherwise; same least period."
+        ],
+        "reasoning": "Pentatope numbers here are exactly binom(n,4). The argument of the square-root count equals y/3-128^(-1), with identical modulus and boundary convention. Their global change of variable and exceptional set agree. A redundant caution in that record about adding histogram multiplicities if fiber sizes coincide makes no difference: a power of three and twice a power of three do not coincide.",
+        "searches": [
+          "Resultary: exact ternary residue fiber histogram binomial fourth column binom(n,4) modulo 3^k Haar pushforward",
+          "Resultary: binom(n,4) modulo 3^k exact fiber multiplicity square-root formula least period"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct pentatope record c5b9d086114e has the complete all-k fiber-size distribution in its Finding and Proof §§4–5, including the exceptional zero-square class and enhancement set of measure 1/8."
+        ],
+        "reasoning": "This is all-target exact coverage, not just image cardinality or finitely tabulated low moduli. It must not be dismissed as self-same or presumed prior by date; its ID is distinct.",
+        "searches": [
+          "Resultary: three-adic binomial fourth column 3/128 global square conjugacy Haar density",
+          "Resultary: binom(n,4) modulo 3^k exact fiber multiplicity square-root formula least period"
+        ]
+      },
+      "rationale": "A distinct same-object catalogue record has the same exact finite fiber law and normal form. A separate all-odd-prime theorem implies the finite and three-adic claims by specialization, including the density by the elementary square-map law. Material coverage is demonstrated; the shared date does not establish chronological precedence. Sun–Zhang's older theorem alone would only cover surjectivity.",
+      "residual_risks": [
+        "The 2026-11-22 dates do not order the records or establish historical priority. Inaccessible broader distribution literature remains unassessed; the failure rests on affirmative distinct catalogue coverage, not on access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent finite theorem and square normal form",
+          "evidence": [
+            "Same least period, modular root formula and fiber histogram; states the exceptional set and its measure 1/8."
+          ],
+          "identifier_or_url": "SCOPE-exact-three-adic-residue-fibers-of-the-pentatope-numbers--c5b9d086114e",
+          "material_read": "Finding and Proof §§2, 4–5, extracted offsets 0–5941",
+          "method": "Local Resultary search and mirrored RESULT.md statement/proof inspection",
+          "title": "Exact three-adic residue fibers of the pentatope numbers",
+          "trigger": "Same polynomial, prime, fiber law and center"
+        },
+        {
+          "assessment": "General result directly implies the frozen claim; the density is derived, not quoted",
+          "evidence": [
+            "p>=3 explicitly; same least-period formula and global isometric quadratic branch. The result explicitly describes the pushforward mixture."
+          ],
+          "identifier_or_url": "SCOPE-uniform-odd-prime-fiber-law-for-the-first-post-prime-pascal-colu--1e7ba5e8e955",
+          "material_read": "Finding, assumptions and Proof §§1–3 (offsets 0–6146)",
+          "method": "Local Resultary search and mirrored primary statement/proof inspection",
+          "title": "Uniform odd-prime fiber law for the first post-prime Pascal column",
+          "trigger": "Potential stronger theorem includes p=3, column p+1"
+        },
+        {
+          "assessment": "Covers surjectivity, not the exact multiplicity law",
+          "evidence": [
+            "Taking p=3, lower index 4 and a=1 gives every residue at each three-power."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+          "material_read": "Theorem 1.1 p. 3, Corollary 1.1 p. 4 (offsets 8495–10643)",
+          "method": "Open primary PDF, bounded passage inspection",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "Classical surjectivity theorem for the same prime and column"
+        },
+        {
+          "assessment": "No independent conclusion on coverage from this item",
+          "evidence": [
+            "The title does not establish a fixed-column exact multiplicity result."
+          ],
+          "identifier_or_url": "10.1112/S0024610701002630",
+          "material_read": "Bibliographic title and frozen author's citation only; independent bounded OA attempt did not retrieve readable full text",
+          "method": "Lawful OA attempt",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Possible broader distribution antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Exact three-adic residue fibers c5b9d086114e",
+        "Uniform odd-prime fiber law 1e7ba5e8e955"
+      ],
+      "rationale": "The ramified fourth-column distribution is naturally motivated, and its global square form is useful as mathematics. As a distinct frozen contribution, however, its exact counts are already covered and the remaining density phrasing and three-adic preimage numbers follow mechanically from the covered isometric normal form. Reprinting this same specialization with the square-shell densities evaluated does not supply a new worthwhile gap or a surviving repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

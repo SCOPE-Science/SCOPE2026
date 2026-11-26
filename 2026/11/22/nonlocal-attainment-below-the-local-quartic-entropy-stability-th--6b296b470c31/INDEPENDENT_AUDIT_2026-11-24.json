@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:45:56.435879Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–83",
+        "VERIFICATION.md",
+        "verify_exact.py (read only)",
+        "/workspace/reproduction/entropy.py and entropy.txt; replay: python3 /workspace/reproduction/entropy.py"
+      ],
+      "rationale": "The normalized nearest-neighbor energy has nonconstant eigenvalues 1 and 1+q with q=(1+sqrt(5))/2. Write u=(1+v+w)/sqrt(1+s), s=r²+b², where v,w are the first and second real harmonics of norms r,b. Normalized Taylor expansion gives deficit 2q b²-2<v²w>+3r⁴/4+o(b²+r⁴); the quartic terms in first harmonics are s²/2 and <v⁴>/6, with <v⁴>=3r⁴/2 and <v³>=0. The mixed terms are uniformly lower order on the stated error scale, e.g. r³b<=r(r⁴+b²)/2. If b/r² diverges, b² dominates both the other numerator terms and (r²+b²)². Otherwise d(u)^4 equals r⁴(1+o(1)); completing the square subtracts ||P₂(v²)||²/(2q)=r⁴/(4q). The normalized path w=P₂(v²)/(2q) achieves the lower limit, giving (7-sqrt(5))/8. I independently recomputed the witness from integer successive differences and rational enclosures of the logs (a range-reduced series for -log(1-t), rather than the frozen atanh series). The certified ratio lies between 0.594923412098787 and 0.594923412098788, below 119/200 and the exact local threshold. The local separation excludes an entire ball about 1 at any level at or below the witness. Continuity including zero coordinates and compactness on the remaining closed set imply attainment and uniform positive separation of the minimizing set.",
+      "residual_risks": [
+        "The witness is an upper bound, not a certified optimizer. The exact global constant, symmetry, and classification of all minimizers are unresolved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their equation (1.2) matches the energy; the n=5 specialization of their reported nearest-neighbor upper bound is the local value, not a strict separation. Appendix A instead treats the word-length energy."
+        ],
+        "reasoning": "The inspected broader finite-cycle bounds do not decide nonlocality at n=5.",
+        "searches": [
+          "Chen–Lam–Lu arXiv:2610.05347v1 equation (1.2), Theorem 1.2 equations (1.13)–(1.16), Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3ea04e5fdc28 and b6b1f0729bd6",
+        "Chen–Lam–Lu arXiv:2610.05347v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bounds are limiting values of near-constant families. They allow equality between the local and global values."
+        ],
+        "reasoning": "Neither a sharp local value nor a global upper bound at that same level excludes minimizing sequences tending to the constant. A verified strict competitor is the extra mathematical step.",
+        "searches": [
+          "Chen–Lam–Lu arXiv:2610.05347v1 p. 5 discussion of Fourier upper-bound families",
+          "3ea04e5fdc28 local-proof and scope passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b6b1f0729bd6 uses multipliers (0,1,2,2,1), a different witness and local constant 1/2. This record uses (0,1,(3+sqrt(5))/2,(3+sqrt(5))/2,1)."
+        ],
+        "reasoning": "Both use the same entropy and distance, but the second Fourier eigenspace experiences a different energy while the spectral gaps agree, so no overall scale change makes the conclusions equivalent.",
+        "searches": [
+          "Resultary: strict below-local witness or nonconstant attainment for normalized nearest-neighbor quartic entropy stability on Z/5",
+          "Same-day record b6b1f0729bd6, mirrored Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3ea04e5fdc28 gives 3/4-1/(4q_n) as the exact nearest-neighbor local value, explicitly not a global constant; the closest distinct same-day result is the word-length analogue."
+        ],
+        "reasoning": "An exact local match is credited as existing coverage of that component, not of the global witness inequality. The catalogue comparisons do not establish exhaustive priority.",
+        "searches": [
+          "Resultary record 3ea04e5fdc28, Exact local quartic stability constants at the constant extremizer on cycles",
+          "Resultary same-day comparison b6b1f0729bd6"
+        ]
+      },
+      "rationale": "Credit the exact local threshold to the earlier local analysis. The supported distinct contribution is the explicit normalized nearest-neighbor witness below that threshold and the resulting nonconstant attainment.",
+      "residual_risks": [
+        "A stronger or equivalent comparison in uninspected literature is not excluded. The published local threshold is not claimed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global upper bound at the local threshold, not the strict comparison",
+          "evidence": "C_n<=3/4-1/(4q_n) for n>=5; upper bound comes from functions close to 1; Proposition A.1 is word-length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05347",
+          "material_read": "PDF p. 2 eq. (1.2); pp. 4–5 Theorem 1.2, eqs. (1.13)–(1.16) and discussion; p. 43 Appendix A",
+          "method": "OA PDF literal location and bounded passage reads",
+          "title": "Sharp uniform stability of the logarithmic Sobolev inequality on finite cycles and stability of the cubic Sobolev inequality",
+          "trigger": "Matching nearest-neighbor normalization and a general cycle theorem"
+        },
+        {
+          "assessment": "Covers the local threshold only",
+          "evidence": "Local nearest-neighbor coefficient 3/4-1/(4q_n), with no assertion that this is globally sharp.",
+          "identifier_or_url": "3ea04e5fdc28",
+          "material_read": "Mirrored RESULT.md offsets 0–4960 and 4700–7904",
+          "method": "Local mirror passage read",
+          "title": "Exact local quartic stability constants at the constant extremizer on cycles",
+          "trigger": "Exact same local value"
+        },
+        {
+          "assessment": "Conceptually close but differs in second-harmonic multiplier, witness, and local threshold",
+          "evidence": "Word-length C_w,5<19/40<1/2 via sqrt(5/56)(3,1,1,3,6). Same-day date does not establish order.",
+          "identifier_or_url": "b6b1f0729bd6",
+          "material_read": "Mirrored RESULT.md offsets 0–4785 and 4700–8341, and assigned counterpart Finding/Assumptions",
+          "method": "Local mirror and frozen text comparison",
+          "title": "Nonlocal quartic entropy-stability minimization for five-point word-length Poisson energy",
+          "trigger": "Distinct same-day result about nonlocal attainment on the five-cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and attainment proof",
+        "Chen–Lam–Lu Theorem 1.2"
+      ],
+      "rationale": "The strict improvement is small numerically but qualitatively changes the variational problem: the global optimizer cannot be captured by perturbing around the constant. A short exact witness certifies a change from a local asymptotic comparison to nonconstant global attainment for a natural fixed energy.",
+      "residual_risks": [
+        "The result does not locate an optimizer beyond exclusion of a neighborhood of 1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

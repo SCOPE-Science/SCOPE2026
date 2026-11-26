@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:33.670498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof; VERIFICATION.md, cox_metric_a.cpp, cox_metric_b.py inspected as evidence",
+        "/workspace/review-evidence/coxeter.py and coxeter.log (independent isometries, resolving census and weighted distances)"
+      ],
+      "rationale": "I checked the Fano-nonline and three-layer graph descriptions by finding an isometry of their distance matrices, without using the supplied isomorphism. A resolving set must meet the separator set for each unordered vertex pair; independent bitset enumeration found zero resolving triples and 7,728 resolving quadruples, and monotonicity excludes smaller sets. Grouping bases by their three-subsets constructs each exchange edge exactly once; the independent count is 155,904 with the entire stated degree histogram. Full distance-preserving backtracking found all 336 graph automorphisms: every surviving branch respects pairwise equality of distances and injectivity, and all choices are exhausted. The 29 resulting base orbits have multiplicities 18×336, 9×168, 2×84. One exact BFS per orbit, weighted by the orbit size and halved for off-diagonal unordered pairs, reproduces the five distance counts, radius, diameter, eccentricity frequencies and all 449,820 detours, including the breakdown by distance. Each exchange can increase intersection with a target by at most one, so the Johnson term is a true lower bound. The explicit bases sharing two landmarks violate the matroid basis-exchange axiom: none of the four target-directed intermediate candidates resolves, and independent BFS gives distance three. The independent group search removes reliance on the cited group order for this census.",
+      "residual_risks": [
+        "Finite result for this 28-vertex graph and arbitrary one-for-one replacements only; no claim for slides or general distance-transitive graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey Section 3 uses automorphism-orbit representatives to test existence at a fixed size; its Coxeter rows give metric dimension four.",
+          "The faculty page lists Morentin's thesis by name and year. The thesis full text was not identified and the general search was unavailable; Bailey–Cameron DOI recovery did not locate an open PDF."
+        ],
+        "reasoning": "Minimum-size determination and symmetry-reduced existence testing are prior methods, not a general theorem supplying the census or exchange metric. The thesis is materially plausible, but its title and listing do not establish a covering theorem.",
+        "searches": [
+          "Bailey arXiv:1312.4973, Section 3 and Tables 2–3",
+          "Reconfigurations of Metric Bases: Jimmy Morentin, faculty listing (2026); targeted literature lookup and access checks",
+          "Bailey–Cameron DOI 10.1112/blms/bdq096"
+        ]
+      },
+      "checked_sources": [
+        "Bailey §3 and Tables 2–3",
+        "Resultary/local mirror records identified above",
+        "Faculty thesis listing only; Bailey–Cameron DOI access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day truncated tetrahedral record gives exact Johnson distances for unrestricted moves but detours under slides. The Möbius–Kantor record reports unrestricted diameter five and slide diameter twelve in its different basis family.",
+          "Bailey's dimension-four result asserts existence at four and exclusion below it."
+        ],
+        "reasoning": "Existence of a resolving quadruple does not fix the entire induced subgraph of the Johnson graph or its distances. An exact Johnson theorem for a different graph is not a distance-transitive generalization, and would not imply the observed Coxeter detours.",
+        "searches": [
+          "Bailey §3 versus the complete Coxeter exchange claim; truncated tetrahedral and Möbius–Kantor exchange Findings (local mirror)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fano-nonline graph here has 28 vertices. The Tutte–Coxeter (Tutte eight-cage) record describes a 30-vertex graph of metric dimension six, with 32,460 bases and 34 orbits.",
+          "The truncated tetrahedral and Möbius–Kantor records concern 12- and 16-vertex graphs respectively and distinguish unrestricted replacement from edge slides."
+        ],
+        "reasoning": "Sensor- or landmark-replacement language can denote the same move, whereas a slide is strictly restricted by original adjacency. Vertex counts and invariants exclude equivalent graph presentations across these candidate records, in particular the similarly named Tutte–Coxeter graph.",
+        "searches": [
+          "Resultary query: Coxeter graph metric bases exchange reconfiguration 7728",
+          "Same-day truncated tetrahedral and Möbius–Kantor metric-basis exchange/slide records; earlier Tutte eight-cage metric-basis record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search's exact result is the frozen finding itself. The same-graph hexagonal mobility record instead counts 336 minimum power-dominating triples.",
+          "Bailey gives 28 vertices, diameter four and dimension four, not a count of all 4-element resolving sets, orbits or distances."
+        ],
+        "reasoning": "An identical record is not separate evidence of coverage. Power domination uses graph propagation after selection, not pairwise distance separation; its table and reconfiguration do not classify the frozen optimizer family.",
+        "searches": [
+          "Resultary exact graph/count search and same-day related census records, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Bailey Tables 2 and 3, arXiv:1312.4973"
+        ]
+      },
+      "rationale": "The supported addition is the full minimum-basis and exchange-geometry classification of the 28-vertex Coxeter graph, rather than its known metric dimension or the symmetry-reduced search method. The most similar identified catalog statements differ in the underlying graph or basis predicate, and the inspected prior same-graph metric-dimension tables do not provide the census or exchange distances. This is a best-of-knowledge decision, with a specifically identified thesis access risk.",
+      "residual_risks": [
+        "The Morentin thesis may contain overlapping material; its statement-level content is unverified.",
+        "An earlier unindexed exact census is not excluded. No priority inferred from same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior minimum and symmetry method; not the census in the inspected passages.",
+          "evidence": "The two Coxeter rows give 28 vertices, diameter four and metric dimension four; §3 uses SetOrbit representatives for existence tests.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4973",
+          "material_read": "§3, printed p. 3 offsets 7000–12460; Tables 2 and 3, pp. 7–8 offsets 22217–23472 and 25246–27191",
+          "method": "Lawful OA literal locate and bounded PDF passage reads",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Exact graph and known minimum"
+        },
+        {
+          "assessment": "Close analogue, different object and distance law.",
+          "evidence": "156 bases, nine orbits, exact unrestricted Johnson distances and separate slide detours.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c",
+          "material_read": "Mirrored RESULT.md offsets 0–3548",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Distinct same-day exchange and distance classification"
+        },
+        {
+          "assessment": "Different 16-vertex graph and census.",
+          "evidence": "320 bases, six orbits, unrestricted diameter five and slide diameter twelve.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-landmark-relocation-geometry-of-the-m-bius-kantor-graph--2451bb5af26f",
+          "material_read": "Mirrored RESULT.md offsets 0–3101",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Exact landmark relocation geometry of the Möbius–Kantor graph",
+          "trigger": "Distinct same-day exact relocation classification"
+        },
+        {
+          "assessment": "Same graph, different optimal configuration predicate.",
+          "evidence": "336 minimum power-dominating triples are not the resolving four-sets.",
+          "identifier_or_url": "2026/11/22/SCOPE-hexagonal-mobility-and-frozen-optimal-power-domination-triples-o--6b3ee2fe137b",
+          "material_read": "Mirrored RESULT.md offsets 0–3567",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Hexagonal mobility and frozen optimal power-domination triples",
+          "trigger": "Same Coxeter graph and optimal-set reconfiguration"
+        },
+        {
+          "assessment": "30-vertex Tutte–Coxeter graph, not the 28-vertex Coxeter graph.",
+          "evidence": "Metric dimension six, 32,460 bases and 34 orbits.",
+          "identifier_or_url": "2026/10/13/SCOPE-all-32-460-metric-bases-of-tutte-s-eight-cage-in-34-symmetry-cla--b94e989474bf",
+          "material_read": "Mirrored RESULT.md offsets 0–2900",
+          "method": "Resultary lookup and local mirror read",
+          "title": "All 32,460 metric bases of Tutte's eight-cage in 34 symmetry classes",
+          "trigger": "Potentially confusable Coxeter graph name"
+        },
+        {
+          "assessment": "Unresolved possible overlap, not evidence of noncoverage.",
+          "evidence": "Listing pairs Jimmy Morentin with this title and 2026 but does not identify graphs or statements.",
+          "identifier_or_url": "https://www.cpp.edu/faculty/brianaf/student-research.shtml",
+          "material_read": "Masters Thesis Students listing, page offsets 490–1013; no thesis full text identified",
+          "method": "Lawful OA website reading and targeted lookup",
+          "title": "Reconfigurations of Metric Bases (Jimmy Morentin)",
+          "trigger": "Plausible 2026 thesis on the same kind of reconfiguration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen metric-basis exchange theorem and independent census",
+        "Bailey's known dimension and the distinct printed/mirrored graph comparisons above"
+      ],
+      "rationale": "The exchange graph describes how optimal resolving sets on a canonical cubic graph can be reconfigured without using extra landmarks. Among more than 29 million pairs it gives a uniform sharp one-step detour bound, classifies exactly where lengthening occurs by distance, and certifies a non-matroid obstruction. This distinguishes structural behavior not implied by the known dimension or abstract Johnson adjacency, and supplies an exact reference for comparing other graph families.",
+      "residual_risks": [
+        "Does not give a symbolic shortest-path classification or predict arbitrary graph cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

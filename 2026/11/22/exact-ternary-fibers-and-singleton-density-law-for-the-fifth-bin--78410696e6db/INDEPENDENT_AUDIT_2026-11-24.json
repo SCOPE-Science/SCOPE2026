@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:48:27.432825Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–46 and 48–89",
+        "Frozen verify.py lines 7–96 and VERIFICATION.md line 19 (packaged, not executed; replay: python3 verify.py from the record directory)",
+        "Independent finite check: increment Pascal coefficients j=1,…,5 in descending j modulo 3^k over 3^(k+1) rows; compare with direct square histograms and digit lifts of the derivatives obtained by expanding the five factors"
+      ],
+      "rationale": "Vandermonde gives period 3^(k+1); in the r=2 branch g_2(t)≡t coefficientwise modulo 3, so it is an onto isometry and shift 3^k in n fails by exact valuation k−1. For r=0,1, h_r=g_r/3 reduces coefficientwise to ±t(t−1); the derivative has just the simple root t≡2. Expanding at its lift gives h_r(α_r+u)−h_r(α_r)=u²B_r(u) with B_r congruent to the respective sign. The principal square root of the unit after division by that sign has difference divisible by 3(u−v) at two arguments; multiplying it by u gives an onto isometry. Thus each quadratic branch contributes a square-root count modulo 3^(k−1), with three lifts per root in the full period. Evaluating at t=2 gives centers 6 and 3 modulo 9. The two full quadratic-branch images do overlap at 0 mod 9, giving 12 extra indices there. Only the critical subimages are disjoint modulo 9: their supports are β_0+27 Z_3² and β_1−27 Z_3², so removing these and all multiples of 9 gives the exact singleton count. The square density 3/8 gives 31/36. For m=k−1≥3, the unique largest root count is at zero for even m or at 3^(m−1) for odd m, and exceeds the overlap's count of four square roots. Each critical branch produces one maximizer. The formula also gives the three stated initial maxima. Independent modular Pascal recurrence and coefficient-derived Hensel centers agreed at every target for k=1–8, including the maxima and their multiplicities.",
+      "residual_risks": [
+        "In RESULT.md line 79, disjointness modulo nine is valid for the critical subimages, not the full images; the proof in lines 81–89 accounts for the shared ball. The finite comparisons are not the all-depth proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The s-primitive of a constant sequence c is c·binom(n,s) and has the published prime-power period. For p=3, a=1 and lower index 5, Sun–Zhang reach every target using only n≡2 mod 3 in the full period."
+        ],
+        "reasoning": "The first theorem specializes to the stated period. The second is onto a set of the same size as the one input branch, so it forces exactly one preimage there. Neither classifies the two omitted branches.",
+        "searches": [
+          "Fiorot–Gilblas–Tonolo arXiv:2307.02366v1, Lemma 3.1 and Proposition 3.4",
+          "Sun–Zhang arXiv:0812.3089, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.02366v1 and arXiv:0812.3089",
+        "Resultary 78410696e6db, 68ab08bc975b, 604e339dbb14, c5b9d086114e and 2c5deda1b9d1",
+        "Frozen RESULT.md lines 94–100"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular branch is prior coverage by finite counting, and adjacent columns provide structural analogues. Consecutive lower indices are related by multiplication by an input-dependent factor, not by a target bijection."
+        ],
+        "reasoning": "No cited stronger implication furnishes the y-dependent square-root counts with the two distinct critical values. Knowing the histogram or image of a neighboring coefficient does not determine the joint dependence of its values on n that would be needed to transfer such counts.",
+        "searches": [
+          "arXiv:2307.02366v1 Proposition 3.4",
+          "arXiv:0812.3089 Theorem 1.1",
+          "Resultary 604e339dbb14, c5b9d086114e and 2c5deda1b9d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match 78410696e6db is the frozen item itself. Same-column record 68ab08bc975b concerns powers of two. Sun–Zhang's density concerns coverage of targets, not the proportion with one preimage."
+        ],
+        "reasoning": "Topological density or surjectivity is a different invariant from the normalized count of singleton targets. A dyadic histogram for the same polynomial does not determine its ternary histogram.",
+        "searches": [
+          "Resultary: fifth binomial column, 3-adic fibers, singleton target density, pentatope and neighboring binomial columns",
+          "Sun–Zhang arXiv:0812.3089 Theorem 1.1 and Corollary 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct inspected entries: 68ab08bc975b gives the dyadic fifth-column histogram; 604e339dbb14 and c5b9d086114e give equivalent ternary fourth-column formulas; 2c5deda1b9d1 gives the sixth-column ternary image."
+        ],
+        "reasoning": "These are exact comparable results, but the exact target distribution for the specified polynomial and prime is not contained in them. The two same-day fourth-column formulas demonstrably agree with each other; neither has the fifth column's two distinct centers.",
+        "searches": [
+          "Resultary exact ternary fifth-column multiplicities and singleton/max distribution; adjacent-column fibers and image tables"
+        ]
+      },
+      "rationale": "The period and the existence of a preimage everywhere are known; Sun–Zhang in fact implies the one regular-branch preimage for each target. The supported distinct facts are the two remaining branches' all-depth multiplicities and the resulting proportion of singleton targets and maximizing fibers.",
+      "residual_risks": [
+        "Bounded index and primary-source comparison cannot rule out an unindexed all-fiber theorem. Same-day indexing does not establish priority between distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Period is a covered specialization",
+          "evidence": "The period formula p^(ℓ−v_p(c)+k_s) has k_s the highest base-p digit position in s; c=1 and s=5=(12)_3 give 3^(k+1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.02366",
+          "material_read": "§3, Lemma 3.1 and Proposition 3.4, pp. 9–11; OA offsets 24130 and 29190",
+          "method": "OA arXiv PDF passages",
+          "title": "Modular Binomials with an Application to Periodic Sequences",
+          "trigger": "General period for fixed binomial columns modulo prime powers"
+        },
+        {
+          "assessment": "Covers surjectivity and, by counting, regular branch bijectivity",
+          "evidence": "For p^a≤s<2p^a the witnesses can all be chosen in 0≤n<p^(a+b) with n≡s mod p^a. For p=3,a=1,s=5 that gives all witnesses on the 2 mod 3 branch in one least period.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3089",
+          "material_read": "Abstract p. 1, Theorem 1.1 p. 3 and Corollary 1.1 p. 4, OA offsets 8814 and 9928",
+          "method": "OA arXiv PDF passages",
+          "title": "Binomial Coefficients and the Ring of p-adic Integers",
+          "trigger": "Classical p-adic density and its strongest branch-level implication"
+        },
+        {
+          "assessment": "Different prime",
+          "evidence": "For k≥3 it gives c_k(y)=2+2·1_(2|y)+8·1_(8|y) and period 2^(k+2), with no odd-prime claim.",
+          "identifier_or_url": "Resultary 68ab08bc975b",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-level 2-adic fibers of the fifth binomial column",
+          "trigger": "Same exact polynomial and counted invariant"
+        },
+        {
+          "assessment": "Different polynomial, one critical value",
+          "evidence": "For binom(n,4), the count off 3Z_3 is 2 and on it is 2+3R_(k−1)(y/3−1/128).",
+          "identifier_or_url": "Resultary 604e339dbb14",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Ternary residue fiber spectrum of the fourth binomial column",
+          "trigger": "Same prime and a nearby all-depth square-root law"
+        },
+        {
+          "assessment": "Equivalent to the inspected fourth-column formula, not to the frozen fifth-column formula",
+          "evidence": "The root argument (y−3/128)/3 equals y/3−1/128, with the same branch baseline.",
+          "identifier_or_url": "Resultary c5b9d086114e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-adic residue fibers of the pentatope numbers",
+          "trigger": "Alias for nearby fourth-column result"
+        },
+        {
+          "assessment": "Different polynomial and statistic",
+          "evidence": "Classifies the image of binom(n,6), with limiting image density 5/12, not the multiplicities of binom(n,5).",
+          "identifier_or_url": "Resultary 2c5deda1b9d1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary residue images of the sixth binomial polynomial",
+          "trigger": "Same prime and neighboring index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–33 and 81–89",
+        "Sun–Zhang Theorem 1.1 for the surjectivity baseline"
+      ],
+      "rationale": "Surjectivity of the classical binomial column leaves its exact inverse-image sizes open. Two distinct critical values and a shared regular output ball account for the disparity between the 31/36 singleton-target proportion and the growing maximum. The exact formulas answer frequency and extremal questions at all depths, not just the already known support and period.",
+      "residual_risks": [
+        "Neither the two-critical-value classification nor the density is asserted for arbitrary lower binomial indices or other primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

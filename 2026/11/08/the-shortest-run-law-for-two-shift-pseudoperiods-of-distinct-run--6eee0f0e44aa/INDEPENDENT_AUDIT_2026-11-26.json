@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:33:03.969203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "For a shortest run, its letter occupies precisely one cyclic interval of length m≤p/2. At its first position only shifts 1,…,m−1 can match; at its last only shifts p−m+1,…,p−1 can match. These disjoint ranges force the sorted proper shifts to be u and p−d with 1≤u,d<m, and exclude all proper shifts immediately when m=1. On that run their return traces on offsets are respectively the prefix [0,m−1−u] and suffix [d,m−1]. The cover is exact iff u+d≤m. On any run of length L≥m the same two directions suffice: if t+u≥L, then t−d≥L−u−d≥0. The condition implies u<p−d, and summing m−u over u=1,…,m−1 gives m(m−1)/2. Periodicity gives the residue corollary; the first/last-position obstruction also excludes any equal nonzero residue and proves primitivity. The recorded 19,525-profile run is correctly described and direct from the script, but was not independently rerun and is not the unbounded proof.",
+      "residual_risks": [
+        "The necessity uses one occurrence of each run letter per cycle. It does not follow when a letter can recur in separate runs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 gives a longest non-initial-run bound and an existence result with a possibly larger shift set, Proposition 4 fixes (1,2), and Theorem 5 bounds alphabet size.",
+          "Resultary 29ae61e0b919 classifies binary Sturmian words with irrational slope by a fractional-part inequality."
+        ],
+        "reasoning": "A necessary longest-run bound or existence with many shifts does not give the exact two-shift cone and count. Irrational-slope Sturmian words are not periodic and their theorem has no boundary extension here in the inspected statement.",
+        "searches": [
+          "arXiv:2207.10171v3, Propositions 3–4 and Theorem 5",
+          "Resultary: complete two-shift pseudoperiod classifications for related word classes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6eee0f0e44aa and 29ae61e0b919",
+        "arXiv:2207.10171v3",
+        "Desmeules et al. repository preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Related proofs test return distances at run ends. The inspected results do not enforce the additional prefix/suffix meeting inequality at the first offset where the forward shift fails."
+        ],
+        "reasoning": "Modular reduction itself is immediate, and individual finite periods can be tested by the definition. The uniform shortest-run invariant and triangular count require the interval-cover argument; the prior results examined do not already state or imply them.",
+        "searches": [
+          "Frozen RESULT.md lines 58–62",
+          "Meleshko et al. Proposition 3 proof and Proposition 4 statement",
+          "Resultary 29ae61e0b919 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meleshko et al. Definition 1 uses existential-shift matching. Desmeules et al. Definition 3 instead uses letter involutions. The exact matching Resultary hit 6eee0f0e44aa is the assigned record."
+        ],
+        "reasoning": "In cyclic form the condition is that one forward and one backward shift together cover same-letter returns. Substituting a letter permutation for one of those shifts is a different property.",
+        "searches": [
+          "Resultary: distinct-letter run cycles, cyclic runs and shortest blocks, two-shift covers",
+          "Literature: two-shift pseudoperiods of periodic words, cyclic run lengths and residue pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue entry is the frozen record itself. The distinct Sturmian entry has a different criterion and no shortest-run table."
+        ],
+        "reasoning": "A table for some fixed periods would not imply the formula for arbitrary positive run lengths. No distinct exact table covering this same scope was located.",
+        "searches": [
+          "Resultary: shortest run and exact feasible shift pairs and counts",
+          "Literature: periodic-word two-shift residue spectra"
+        ]
+      },
+      "rationale": "Known existential-shift pseudoperiodicity and the technique of testing run boundaries are prior. The bounded comparisons did not locate the full proper residue-pair classification and count for these periodic words.",
+      "residual_risks": [
+        "An unindexed cyclic covering result under other terminology could give the same theorem. Bounded searches are not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition, run-bound method and fixed-shift special case are prior; scope differs from the exact proper shift-pair spectrum.",
+          "evidence": "Prop. 3 bounds each non-initial binary run by max shift minus one and gives a consecutive shift set through B+1 when the bound is B; Prop. 4 characterizes (1,2).",
+          "identifier_or_url": "https://arxiv.org/html/2207.10171v3",
+          "material_read": "Definition 1 locate passage; offsets 7950–11044 covering the main Proposition 3 statement and proof, Proposition 4, and Theorem 5 statement",
+          "method": "OA literal locate and bounded HTML offset read",
+          "title": "Pseudoperiodic Words and a Question of Shevelev",
+          "trigger": "Same definition; general results using runs and shifts"
+        },
+        {
+          "assessment": "Different notion of pseudoperiod.",
+          "evidence": "A σ-period uses an involutory permutation on letters.",
+          "identifier_or_url": "https://archipel.uqam.ca/8434/1/Blondin-Mass%C3%A9-2013c-preprint.pdf",
+          "material_read": "Definition 3, pages 4–5, around offset 11175",
+          "method": "OA preprint extraction",
+          "title": "Multipseudoperiodic Words",
+          "trigger": "Close terminology"
+        },
+        {
+          "assessment": "Strong conceptual neighbor, but a different word family and criterion; no same-day ordering inferred.",
+          "evidence": "Irrational-slope binary mechanical words, fractional-part inequality independent of intercept.",
+          "identifier_or_url": "Resultary 29ae61e0b919",
+          "material_read": "RESULT.md Finding beginning at offset 74",
+          "method": "Local mirror",
+          "title": "Exact two-shift pseudoperiod classification for every Sturmian word",
+          "trigger": "Same cardinality of shift set and complete classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof"
+      ],
+      "rationale": "This is a complete invariant of a natural family for the smallest nontrivial number of shifts. It identifies an unexpectedly sufficient statistic—the shortest run, not the whole period profile—and gives all admissible pairs, count and nonexistence threshold, rather than a yes/no test of individual words. This is useful as an exact baseline for more general periodic-word classifications, despite the short proof.",
+      "residual_risks": [
+        "This is not a classification for repeated letters in distinct runs or for larger shift sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

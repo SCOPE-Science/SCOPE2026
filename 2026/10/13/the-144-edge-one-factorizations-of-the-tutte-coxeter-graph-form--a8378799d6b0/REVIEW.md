@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite exact census, not an extrapolation. Both an exact matching-count recurrence and an exhaustive matching-list search give 288. The complement of every matching is visited in full and yields precisely 144 cycle profiles of type \((30)\) and 144 of type \((10,20)\). A second C++ implementation with a different enumeration and factorization algorithm reproduces these counts. The 1440 automorphisms have a proved group-order bound from maximal intersecting duad families, and their explicit actions cover all matchings in two orbits and all 144 one-factorizations in one orbit. The claimed uniform edge-coloring pattern follows from this action and the checked representative.
+PASS
 
-## Originality — PASS, with explicit priority uncertainty
+Independently reconstructed the 15 duads and all triples of duads covering the six symbols, making the 30-vertex cubic incidence graph. In the independent census, every matching corresponds to one injective sequence of adjacent synthemes in fixed duad order. Every complementary component is a cycle because all degrees are 2. Enumerating every pair of disjoint matchings and taking the edge-set remainder gives all unordered factorizations: the remainder has degree 1 at every vertex, and unordered triples are deduplicated. Reproduced 288 matchings with 144 of each profile (30) and (10,20), 144 distinct factorizations each with one (30) and two (10,20) complements, and incidences one and two respectively. Each factorization has exactly 3! distinct color-name assignments. Also enumerated the entire automorphism group independently of the packaged duality: the search tries every unassigned image at the correct distances to prior images; any automorphism satisfies this condition, and at a complete map it forces injectivity and preserves adjacency (distance one). The graph is connected. Obtained 1440 automorphisms (720 preserving the shores), which give two matching orbits with the stated profiles and one factorization orbit of size 144, so its stabilizer has order 10. Inspected both packaged verifiers and the representative CSV without executing any packaged code. Independent exact replay: python3 /workspace/review_evidence/4.py.
 
-The full text of Balasubramanian (2025) reports 288 matchings via a matching polynomial, which is not a two-factor or three-edge-coloring classification. Garcia (2026) reports 144 Hamilton cycles without the 10+20 alternatives or the uniform one-factorization orbit theorem. Dejter (2025) treats a girth-tight edge-coloring obstruction of a prism over the Tutte eight-cage, not the exact ordinary one-factorizations of the graph itself. Baez (2015) gives the object and symmetry, not these counts. Matching totals and Hamiltonian-cycle totals do not imply the complete two-factor profiles or color-pair structure. Targeted searches of research records, aliases, and primary literature produced no equivalent classification, but unindexed prior work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-For a prominent cubic symmetric graph and generalized-quadrangle incidence graph, the theorem completely determines the possible bichromatic spanning-cycle patterns in every Tait coloring and shows that all colorings are equivalent up to graph and color automorphisms. The forced one-Hamiltonian-pair phenomenon is a structural restriction, not just an additional aggregate matching count. The enumeration is finite but supplies a natural complete classification with independently reproducible certificates.
+Earlier inspected literature reports the scalar perfect-matching and Hamilton-cycle counts, so neither those counts nor the residual count 144 non-Hamiltonian complements is distinct. The supported contribution at the frozen record is the actual non-Hamiltonian cycle profile and the matching and factorization orbit classification, including the universal one-Hamiltonian-pair property. Later catalogue findings overlap on the cycle profile and much of the factorization classification; this equivalence is real, not a claim of independent derivation or earlier priority.
 
-## Closest literature and limitations
+## value
 
-Baez (2015): archival construction; Balasubramanian (2025): ordinary matching polynomial; Garcia (2026): known Hamilton-cycle count; Dejter (2025): distinct girth-tight prism-coloring problem. Verification covers one graph only. Exact novelty beyond indexed and inspected literature cannot be absolutely guaranteed; additional unpublished or unindexed classifications could predate the finding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural complete classification of color-pair cycle profiles and equivalence classes for a canonical cubic cage. It determines exactly what complement structures a matching or coloring can exhibit, and shows a Hamiltonian pair is forced and unique in every coloring; the old scalar counts do not give this constraint. This supports precise comparisons of decompositions and symmetry actions without requiring a large-family extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:08:16.662987Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–29",
+        "Frozen VERIFICATION.md and verify_reshuffling.py, especially lines 15–47 (static read)",
+        "Separate bounded exact-rational enumeration of the ordered histories"
+      ],
+      "rationale": "The rank-one matrices P,Q are the unit-step maps, not the Hessians: I−P and I−Q have eigenvalues {1,1−b} and {1,1−p}, are positive definite, and each has L=1. The centered components have common minimizer zero. For u=(1,0), P²u=QPu=0 while v=PQu=(0,bp/2) and w=Q²u=(p²/2,p²/2). Thus RR and IID expectations are F(v)/2 and [F(v)+F(w)]/4, where F uses H=I−(P+Q)/2. Substitution gives F(v)=b²p²(4−2b−p)/32 and F(w)=p⁴(4−b−2p)/16; subtraction recovers p²T_p(b)/128. The derivative T′_p(b) is concave in b and strictly positive at both endpoints (2p² and 2(1−p+p²)). T_p(0)<0, while T_p(1)=4p³−6p²−p+2 decreases from 2 to −1, so p_* is unique, and the endpoint p=p_* gives a strict negative gap throughout 0<b<1. Factoring at p=1/2 gives the stated threshold and exact tie. The expectation ratio is 2F(v)/(F(v)+F(w))<2 since F(w)>0; F(v)∼p²/16 and F(w)∼3p⁴/16 in the stated double limit, proving sharpness. Independent rational history checks at p=1/2 gave gap 29/128000 at b=4/5, a tie at b=3/4 with both expectations 9/2048, and gap −5/4096 at b=1/2. These corroborate the deductions; the frozen checker grid is not needed to prove them.",
+      "residual_risks": [
+        "Exact expected objective after two steps only; no claim about optimal stepsizes, squared Euclidean distance, pointwise pathwise ordering, or later epochs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu gives a weighted-average-iterate expected upper bound for RR with η_k≤1/(6 L̂) and a comparison of tuned rate bounds, not a same-instance terminal inequality.",
+          "Recht–Ré compares operator norms of expected matrix products/Gram expressions, not an ordering of quadratic forms for every starting vector.",
+          "Safran–Shamir’s RR lower-bound construction has component-specific linear terms and concerns worst-case bounds; De Sa studies general counterexamples and a distinct convex quadratic construction, not this two-step objective gap."
+        ],
+        "reasoning": "A worst-case comparison, diminishing-stepsize result, or average-iterate upper-bound dominance neither refutes nor covers an exact pointwise terminal comparison at the common fixed step.",
+        "searches": [
+          "Liu, PMLR 336 §3.1 Theorem 1 and Corollary 1",
+          "Recht–Ré arXiv:1202.4184 Proposition 3.2",
+          "Safran–Shamir arXiv:2106.06880 Theorem 2",
+          "De Sa, NeurIPS 2020 §3 and Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 241542a71cef, 402dad3ef2fc, 4354fb22c6bf, 1370f23f939c, 5f95cb30e1af",
+        "arXiv:2106.06880",
+        "arXiv:1202.4184",
+        "De Sa NeurIPS 2020",
+        "Liu PMLR 336 §3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With two draws, RR is IID conditional on distinct indices, yielding an automatic factor-two upper bound for any nonnegative cost.",
+          "The Euclidean comparison supplies neither the H-weighted sign nor its switch at b=3/4 for p=1/2. The high-step noninterpolating examples do not give the same-step 1/L centered objective claim."
+        ],
+        "reasoning": "Credit the general conditioning bound and qualitative reversals. The precise terminal objective regime, actual opposite signs across metrics, and the objective sharpness witness are the substantive distinctions.",
+        "searches": [
+          "Resultary 241542a71cef euclidean risk; 402dad3ef2fc and 4354fb22c6bf terminal objective precedents",
+          "Liu PMLR 336 §3.1 p. 5",
+          "De Sa NeurIPS 2020 pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present step maps are the c=1/√2 subfamily of the indexed rank-one angular model, which compares squared Euclidean risk and disclaims objective comparison.",
+          "At p=1/2 and b=8/11, the Euclidean-risk gap has sign b²−2p²>0 while the objective gap has sign 4b−3<0.",
+          "The H^{1/2} change of norm need not preserve symmetric step maps: [H,P] and [H,Q] are nonzero here."
+        ],
+        "reasoning": "The risk metric and the pointwise-versus-worst-direction quantifier are essential. The identical maps/initial point can produce opposite signs, so a change in naming or a direct substitution in the Euclidean theorem cannot give the frozen phase boundary.",
+        "searches": [
+          "Resultary 241542a71cef, original Finding and Limitations (offsets 0–4746, 4746–9195)",
+          "Recht–Ré arXiv:1202.4184 Proposition 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is the exact Euclidean-directional boundary; the next two already give one-epoch expected objective reversals with component-specific centers or linear terms, with a scalar witness beyond 1/L.",
+          "The remaining indexed comparisons use coordinate descent or a different Kaczmarz projection model."
+        ],
+        "reasoning": "These exact indexed cases require either a change of metric or a change of hypotheses/update rule. None states the weighted-objective polynomial or sign boundary in this shared-minimizer family.",
+        "searches": [
+          "Resultary RR–IID one epoch objective, strong convexity, common minimizer and angular rank-one comparison",
+          "Resultary 241542a71cef, 402dad3ef2fc, 4354fb22c6bf, 1370f23f939c, 5f95cb30e1af"
+        ]
+      },
+      "rationale": "Qualitative RR reversals, the underlying rank-one angular family, and the Euclidean sharp factor-two comparison have precedents. The distinct result is the exact terminal expected-objective boundary for centered, common-minimizer strongly convex quadratics at η=1/L, including objective reversal and sharpness of the ratio in that metric. This metric changes even the sign for some identical maps and starting vectors, so the close indexed Euclidean theorem is not equivalent. The factor-two upper bound alone is the elementary conditioning bound and is not independently novel.",
+      "residual_risks": [
+        "Searches are bounded and do not establish historical priority. Do not generalize originality to the first RR disadvantage, Euclidean-risk reversal, or the abstract factor-two bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural overlap, distinct metric",
+          "evidence": "Sharp directional reversal and tight Euclidean-risk factor two; explicitly not expected objective. Restricting its angle gives the map family, not the objective ordering.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-angular-imbalance-frontier-for-pointwise-random-reshufflin--241542a71cef",
+          "material_read": "RESULT.md offsets 0–4746 and 4746–9195, including Finding and Limitations",
+          "method": "Configured Resultary search and local mirror passages",
+          "title": "Sharp angular–imbalance frontier for pointwise random-reshuffling risk on two SPD quadratics",
+          "trigger": "Same dimension, centering, unit steps and overlapping rank-one family"
+        },
+        {
+          "assessment": "One-epoch objective precedent with different hypothesis",
+          "evidence": "Opposite linear terms and a one-dimensional gap with sign determined by η(λ_1+λ_2)−2; no common component minimizer.",
+          "identifier_or_url": "Resultary 402dad3ef2fc",
+          "material_read": "RESULT.md offsets 0–4726 and 4726–7881",
+          "method": "Configured Resultary search and local mirror passages",
+          "title": "A sharp one-epoch variance-reversal threshold for two-component random reshuffling",
+          "trigger": "Prior exact RR–IID objective reversal"
+        },
+        {
+          "assessment": "Different mechanism (distinct centers and overshoot)",
+          "evidence": "Its n=2 scalar witness with centers ±1 and η=3/2 concerns ηλ>1, not centered quadratics at 1/L.",
+          "identifier_or_url": "Resultary 4354fb22c6bf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "A sharp overshoot boundary for terminal random reshuffling on common-Hessian quadratics",
+          "trigger": "Earlier terminal objective threshold"
+        },
+        {
+          "assessment": "Different quantifier and metric",
+          "evidence": "The second-moment result for n=2 compares operator norms rather than pointwise weighted objective gaps.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.4184",
+          "material_read": "Introduction p. 2 offset 3978, Proposition 3.2 pp. 6–7 offsets 20700 and 22984",
+          "method": "Original OA PDF passages",
+          "title": "Toward a Noncommutative Arithmetic–Geometric Mean Inequality",
+          "trigger": "Potential matrix inequality covering two rank-one step maps"
+        },
+        {
+          "assessment": "Worst-case rate comparison; not the terminal exact same-instance claim",
+          "evidence": "The lower-bound construction is three-dimensional and includes component-specific linear terms.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+          "material_read": "Abstract p. 1, discussion p. 4 offset 12891, Theorem 2 p. 6 offsets 20962–25129",
+          "method": "Original OA PDF passages",
+          "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+          "trigger": "Prior RR disadvantage on poorly conditioned quadratics"
+        },
+        {
+          "assessment": "Prior counterexamples and a different learning-rate comparison",
+          "evidence": "The common-minimizer class appears in a diminishing-step result; the explicit comparison with independently selected step schedules uses larger constructions and empirical validation, not the present exact two-component objective boundary.",
+          "identifier_or_url": "https://papers.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "Abstract p. 1; pp. 7–8 Definition 1, Corollary 1, and quadratic example at offset 32600",
+          "method": "Original OA PDF passages",
+          "title": "Random Reshuffling Is Not Always Better",
+          "trigger": "Qualitative counterexample and same-minimizer quadratic class"
+        },
+        {
+          "assessment": "Upper bounds and optimally tuned weighted averages, not terminal pointwise dominance",
+          "evidence": "Theorem 1 bounds E[f(x̄_K)−f*] under η_k≤1/(6 L̂); the paragraph before Corollary 1 explicitly compares the upper bound with an SGD rate under optimal tuning.",
+          "identifier_or_url": "https://proceedings.mlr.press/v336/liu26d.html",
+          "material_read": "§3.1, p. 5 Theorem 1 and Corollary 1, offset 15724 in proceedings PDF",
+          "method": "Original proceedings PDF via lawful mlresearch/v336 mirror",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Plausible general dominance claim cited in frozen source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary 241542a71cef and 402dad3ef2fc",
+        "Liu PMLR 336 §3.1"
+      ],
+      "rationale": "Expected objective error is the optimization metric here; substituting the indexed Euclidean risk can give the opposite sign for the very same algorithm and input. The centered 2D witness removes component-minimizer mismatch and uses the standard step 1/L instead of overshoot. The exact region does more than furnish an isolated numerical example: it identifies where the objective reversal survives in the model and how large it can be even with identical gradient-evaluation budgets. Value is for this tightly controlled counterexample and comparison, not for the generic conditioning bound or for asymptotic claims.",
+      "residual_risks": [
+        "The ratio limit concerns relative error, with both errors tending to zero; the result does not quantify practical runtime or optimal tuning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

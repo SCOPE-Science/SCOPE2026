@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:40.405823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the graph-state amplitude matrix, summing the binary cross-cut phases over the odd-side words leaves reduced-state entries 2^(-|even side|) precisely when the difference of the row labels lies in ker(B^T). Ordering those labels by cosets gives identical all-ones blocks, hence a flat nonzero spectrum with multiplicity 2^rank(B), and all claimed entropy orders follow. Over GF(2), A(Q_m)^2=mI by commuting coordinate flips; when n is even the two-layer adjacency maps (u,v) to (w,A(Q_(n-1))w) and every w occurs. Its full rank is half the number of vertices, so its parity cut rank is 2^(n-2). The specified deleted edge is disjoint from the others and occurs exactly once in each square fiber, turning it into P4. A(P4) is invertible (its path has a unique perfect matching), and factoring the Cartesian-product adjacency gives the identity plus a square-zero correction from the even Q_(n-2); this is invertible, including n=2 where Q_0 contributes zero. Since the color classes stay balanced, the cut block gains full rank. Each binary cut entry change has rank at most one, so comparing any partial subset with both the unmodified and fully omitted endpoints gives matching lower and upper bounds of 2^(n-2)+|D|. Comparing an arbitrary omission set just with the baseline gives the global lower bound, not merely a matching-restricted bound. Odd baseline maximality follows from A(Q_n)^2=I. Inspected VERIFY.py and the recorded exact finite run (65,794 subsets), which was not rerun; it checks sampled/exhausted finite cases, while the algebra proves the infinite law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general edge bound gives a necessary threshold once the rank deficiency is known. The hypercube scrambling article studies cut ranks of sampled subsystems, not the maximal balanced parity cut under gate deletions. The projective-plane and toroidal cluster results give omission laws for their own graphs."
+        ],
+        "reasoning": "The rank bound applies to all deletion patterns but does not prove attainability under support constraints. Neither random smaller-subsystem cuts nor incidence-specific hypotheses on other networks give an all-dimension hypercube matching construction.",
+        "searches": [
+          "Hein–Eisert–Briegel arXiv:quant-ph/0307130 p. 7",
+          "Hashizume et al. arXiv:2102.13117 supplement p. 9",
+          "Resultary 0f1e8bff6768 and 06ff2b1986a2 Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0307130",
+        "arXiv:2102.13117",
+        "Resultary:2026/11/2/ce26ea2d2639",
+        "Resultary:2026/11/2/0f1e8bff6768",
+        "Resultary:2026/11/2/06ff2b1986a2",
+        "Resultary:2026/11/22/7dc83e7b7969",
+        "Resultary:2026/11/22/6d719eb5d30f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Tutte–Coxeter result has the same formal rank-saturation pattern with five specified gates on a different incidence graph. One odd-plane omission restores entropy, while larger induced matching omissions can decrease it. The even-plane result treats small matching faults and exceptions in the next size on that incidence graph."
+        ],
+        "reasoning": "Saturation for every intermediate subset is a general consequence once two endpoint ranks saturate the perturbation budget, and is not a new matrix inequality. The inspected laws do not establish the needed endpoint for P4 times the even subcube, nor include the Boolean cube under their incidence hypotheses. The construction is the substantive added step.",
+        "searches": [
+          "Resultary 2026/11/22/7dc83e7b7969 RESULT.md offsets 0–4184",
+          "Resultary 2026/11/22/6d719eb5d30f RESULT.md offsets 0–5182",
+          "Resultary 2026/11/2/0f1e8bff6768 RESULT.md offsets 0–6309"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hein–Eisert–Briegel identify the entropy with binary cut rank and bound its change by one per cross edge. Resultary ce26ea2d2639 gives the unmodified even-cube checkerboard baseline. The targeted external rank search surfaced general hypercube spectra and work on prescribed perfect matching directions, not evidence of this inverse after deleting one edge per square."
+        ],
+        "reasoning": "The equivalent binary question asks for the stated support-restricted rank-one perturbations that make the cut block nonsingular (also the full adjacency nonsingular). Counting or constructing perfect matchings is not the same as proving the parity of the number of perfect matchings after those deletions. Ordinary real spectra or rank alone do not answer the GF(2) question.",
+        "searches": [
+          "Resultary: hypercube parity-cut Schmidt spectrum, binary cut rank and omitted controlled-Z matching",
+          "Primary search: hypercube adjacency matrix GF(2) edge deletion matching invertible binary rank Cartesian product P4 hypercube parity",
+          "arXiv:quant-ph/0307130 Eqs. (38)–(43)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unmodified rank is explicitly present in the augmented-cube record. The two same-day exact omission records concern the fixed Tutte–Coxeter graph and odd-order projective planes, not even cubes."
+        ],
+        "reasoning": "An exact matching threshold on another graph is not a table entry for this infinite family. No matching catalogue law for the explicit hypercube omissions was verified; the baseline itself is not counted as new. Same-day dating is neutral as to priority.",
+        "searches": [
+          "Resultary: strongest exact parity-cut baseline and omission thresholds",
+          "Resultary ce26ea2d2639, 7dc83e7b7969, 6d719eb5d30f"
+        ]
+      },
+      "rationale": "The cut-rank lemma, one-edge perturbation bound and unmodified parity baseline are established. The distinct contribution supported here is the explicit rank-restoring matching on every even cube, which attains the lower bound and gives the exact gain for every subset. The inspected analogous constructions and literature do not give this location-constrained deletion pattern, whether expressed as an entanglement statement or a binary-matrix rank statement.",
+      "residual_risks": [
+        "An earlier equivalent support-constrained binary rank construction may exist in modular graph algebra or matching literature outside these searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established framework and lower-bound ingredient",
+          "evidence": [
+            "Entropy/Schmidt rank determined by the GF(2) cross-adjacency rank; at most one bit changes per cross-edge deletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+          "material_read": "PDF p. 7, Eqs. (38)–(43), text offsets 51000–53402",
+          "method": "Primary OA PDF",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "General cut-rank and edge-change rule"
+        },
+        {
+          "assessment": "Sampled cuts, not the parity-cut omission construction",
+          "evidence": [
+            "Samples subsystem cut ranks on a 128-vertex hypercube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.13117",
+          "material_read": "Supplement PDF p. 9, text offsets 49800–52496",
+          "method": "Primary OA PDF",
+          "title": "Deterministic Fast Scrambling with Neutral Atom Arrays",
+          "trigger": "Hypercube graph-state cut ranks"
+        },
+        {
+          "assessment": "Baseline already covered; main result is an addition, not the claimed omission",
+          "evidence": [
+            "Gives the ordinary-cube baseline and treats an entire antipodal perfect matching added to the graph."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/ce26ea2d2639",
+          "material_read": "RESULT.md offsets 0–5980 and 8500–10744, proof and relationship to prior work",
+          "method": "Local published-record mirror",
+          "title": "Parity-cut Schmidt spectra of antipodally augmented hypercube graph states",
+          "trigger": "Same unmodified hypercube parity cut"
+        },
+        {
+          "assessment": "Different graph-specific law",
+          "evidence": [
+            "Gains k for matchings up to q and has exceptions at q+1 on incidence graphs of even-order planes."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/0f1e8bff6768",
+          "material_read": "RESULT.md offsets 0–6309",
+          "method": "Local published-record mirror",
+          "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+          "trigger": "Exact positive matching-erasure law"
+        },
+        {
+          "assessment": "Different product graph and cancellation rather than saturation",
+          "evidence": [
+            "The single omissions each give +1 on their own, but omitting both cancels the gain."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/06ff2b1986a2",
+          "material_read": "RESULT.md offsets 0–4955",
+          "method": "Local published-record mirror",
+          "title": "Paired omitted-bond cancellation in three-dimensional toroidal cluster states",
+          "trigger": "Gate omissions on a Cartesian product graph"
+        },
+        {
+          "assessment": "Analogous exact theorem on a different fixed graph",
+          "evidence": [
+            "Five gates on the Tutte–Coxeter incidence graph are necessary and sufficient with unit gain per selected omission in its entropy units."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/7dc83e7b7969",
+          "material_read": "RESULT.md offsets 0–4184",
+          "method": "Local published-record mirror",
+          "title": "Five omitted incidence gates restore maximal bipartite entanglement",
+          "trigger": "Closest matching-saturation pattern"
+        },
+        {
+          "assessment": "Different kernels and optimal deletion count",
+          "evidence": [
+            "A single omission already reaches maximum on these planes; induced matchings of size k instead give n-k+1 in the source's notation."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/6d719eb5d30f",
+          "material_read": "RESULT.md offsets 0–5182",
+          "method": "Local published-record mirror",
+          "title": "An exact omission law for entanglement on odd-order projective planes",
+          "trigger": "Exact rank formula for matching omissions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perturbation bound alone leaves open whether the graph even admits that many effective deletions. The explicit uniform choice makes the bound attainable on a natural infinite family using gates actually present, and guarantees the exact spectrum after any partial adoption. This is a sharp ideal graph-state design result; it neither asserts random omissions are beneficial nor claims to optimize a noisy device.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

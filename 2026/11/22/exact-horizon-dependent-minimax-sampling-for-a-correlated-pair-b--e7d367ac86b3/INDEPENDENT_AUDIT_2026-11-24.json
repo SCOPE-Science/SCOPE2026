@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:46.566790Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In residual coordinates each exact all-but-one update projects onto the normal to the retained columns. The two nonorthogonal normals can be chosen with dot product rho; all others are mutually orthogonal and orthogonal to the pair. For a fixed sample string the squared norm is its first-direction squared projection times the squared overlaps of successive normals. Averaging gives a pair block h_1 P_1+h_2 P_2 and the separate eigenvalues p_j^K for j>=3. Fix positive pair mass t. The bisector tests the pair block at (1+rho)(h_1+h_2)/2, attaining its top eigenvalue at balance. In the path expansion for h_1+h_2 each selected bond set forces the selected field factors to be precisely its odd-degree vertices. Hence only even powers of the imbalance appear, all with nonnegative coefficients; one selected bond gives a positive quadratic term when K>=2. This proves strictness at all imbalances, including boundary probabilities. For K=1 the pair trace is fixed and the determinant (1-rho^2)p_1 p_2 is uniquely maximized at balance. At t=0 the block is zero. The two lower bounds on the K-th root, C_K t/2 and (1-t)/(n-2), intersect at a unique interior pair mass; both are active and enforce exact balance in each group at an optimum, including n=3 with only one orthogonal direction. This gives the claimed sampler and sharp value. For the one-step law its orthogonal block dominates at every K and has retention r_1^K; the K-th root of the ratio tends to r_1/r_infinity>1. The proof concerns exact fixed iid sampling and terminal expected objective, not adaptive or pathwise extrema. The shipped verification was inspected, not rerun; its reported 864 finite checks support the projection and recurrence, not the minimax proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary e118fcf8fe26 covers the exact one-step law under a sign-conjugated normalized inverse-Gram hypothesis, satisfied by this pair block.",
+          "Resultary b052331b8c70 shows horizon dependence and later-horizon failure of the one-step law on weakly coupled stars, with small-coupling asymptotic optimization for fixed finite horizons.",
+          "Gower–Richtárik give an exact expected-iterate recursion; Rodomanov–Kropotov give a finite-step objective bound for prescribed volume sampling."
+        ],
+        "reasoning": "An expected iterate does not determine the expected squared norm. A weak-coupling asymptotic statement cannot specialize to the exact laws and strict uniqueness at every allowed correlation. The general one-step formula specializes exactly at K=1 but not at K>=2.",
+        "searches": [
+          "Resultary b052331b8c70 and e118fcf8fe26",
+          "Gower–Richtárik arXiv:1506.03296, Theorem 4.4",
+          "Rodomanov–Kropotov arXiv:1904.04587v2, Theorem 3.10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary b052331b8c70, e118fcf8fe26, aa6191d1adb5, 2ce7f475bd9c",
+        "arXiv:2610.04685v1, arXiv:1904.04587v2, arXiv:1506.03296"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign-conjugated row-sum formula reduces at one step to the same balanced pair weight with C_1=1+rho.",
+          "The closest star theorem is asymptotic as coupling tends to zero, notwithstanding its statement about the direction of horizon bias."
+        ],
+        "reasoning": "The all-horizon result needs the imbalance comparison of a finite path partition function and balancing of two active terminal spectral blocks; neither follows by iterating the one-step minimax formula or using exact dynamics at one prescribed law. The same-day overlap is meaningful but does not imply the sharp formula or its global domain.",
+        "searches": [
+          "Resultary b052331b8c70 Finding",
+          "Resultary e118fcf8fe26 Finding and Assumptions",
+          "Resultary 2ce7f475bd9c Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xie–Yang Theorem 4.1 and Remarks 4.1–4.2 optimize or learn a convergence-bound surrogate.",
+          "Resultary 2ce7f475bd9c derives exact transfer dynamics for prescribed maximal-block volume sampling."
+        ],
+        "reasoning": "Exact terminal largest-eigenvalue risk is not an optimization of a per-step bound. Prescribing the probability vector by the inverse-Hessian diagonals likewise changes the problem and gives no closed-simplex minimizer.",
+        "searches": [
+          "Resultary searches for exact finite-horizon minimax fixed-iid block omission and projection sampling",
+          "Xie–Yang arXiv:2610.04685v1, Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Statement-level catalogue checks found the exact one-step match e118fcf8fe26, distinct one-step model aa6191d1adb5, prescribed-law dynamics 2ce7f475bd9c, and closest horizon-dependent comparison b052331b8c70."
+        ],
+        "reasoning": "The distinct indexed records do not encode the exact joint dependence on K and rho beyond K=1. No finite table of optimizers would supply the uniform closed-simplex strictness claim.",
+        "searches": [
+          "Resultary: exact finite-horizon optimal coordinate sampling, fixed-iid minimax retention, projection and randomized block-omission laws"
+        ]
+      },
+      "rationale": "The distinct claim is the exact unique optimizer and sharp value for each K>=2 and every 0<rho<1 in the specified one-pair family, with quantified loss from the one-step law. The K=1 case is already covered, and the broad horizon-dependence phenomenon also occurs in a same-day result; neither is credited as independently new here.",
+      "residual_risks": [
+        "A finite-horizon exact design result under different projection or sensor-sampling terminology might cover the optimizer and was not established in this bounded search.",
+        "The same-day star result establishes conceptual overlap; no claim of priority for horizon dependence as a general phenomenon is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping phenomenon, not equivalent theorem; same date does not resolve priority",
+          "evidence": "Asymptotically optimal hub bias changes with horizon at small coupling on a multi-leaf star; no arbitrary-coupling exact global law there.",
+          "identifier_or_url": "Resultary b052331b8c70",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror full-text passage",
+          "title": "Finite-horizon optimal coordinate sampling on weakly coupled stars",
+          "trigger": "Closest matching fixed-law finite-horizon optimization"
+        },
+        {
+          "assessment": "Covers K=1 exactly",
+          "evidence": "Unique one-step law from inverse row sums of a sign-conjugated normalized inverse Gram.",
+          "identifier_or_url": "Resultary e118fcf8fe26",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror full-text passage",
+          "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars",
+          "trigger": "Exact global minimax omission weights"
+        },
+        {
+          "assessment": "Different signed geometry, one step only",
+          "evidence": "Exact one-step probabilities for a frustrated three-coordinate system.",
+          "identifier_or_url": "Resultary aa6191d1adb5",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirror full-text passage",
+          "title": "Exact minimax omission sampling for a frustrated three-coordinate quadratic",
+          "trigger": "Similar minimax omission terminology and geometry"
+        },
+        {
+          "assessment": "Prescribed law, not an optimization over laws",
+          "evidence": "Exact mean-square and pathwise rates with inverse-Hessian-based volume probabilities.",
+          "identifier_or_url": "Resultary 2ce7f475bd9c",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror full-text passage",
+          "title": "Exact two-regime convergence of maximal-block volume-sampled quadratic coordinate descent",
+          "trigger": "Exact projection dynamics with maximal blocks"
+        },
+        {
+          "assessment": "Bounds and surrogate optimization",
+          "evidence": "Recursive expected error contraction and optimization of an auxiliary bound, not terminal exact minimax.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04685v1",
+          "material_read": "Theorem 4.1 and Remarks 4.1–4.2, text offsets 44292 and 56646",
+          "method": "OA HTML full-text passages",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "Learned sampling under least squares"
+        },
+        {
+          "assessment": "Objective bound for a prescribed scheme",
+          "evidence": "Expected objective gap bounded by the initial gap times a geometric contraction factor.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+          "material_read": "Theorem 3.10, p. 11, text offset 35819",
+          "method": "OA PDF text passage",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Block coordinate sampling with convergence estimates"
+        },
+        {
+          "assessment": "Expected iterate, not terminal minimax squared norm",
+          "evidence": "Exact expectation recursion with a deterministic spectral rate.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Theorem 4.4, p. 13, text offset 40310",
+          "method": "OA PDF text passage",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Broader sketch-and-project framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One nonorthogonal pair is the smallest residual geometry where mixing two types of errors can change the optimal law with the horizon. The exact optimum, strictness, and exponentially growing worst-case penalty of a one-step-optimal fixed law quantify a real distinction between tuning a one-step contraction and tuning terminal performance. The evidence does not generalize to dense Gram matrices, nonstationary or adaptive sampling, or time-based costs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

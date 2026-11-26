@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:06:39.565115Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28 and 30–69",
+        "Frozen VERIFICATION.md lines 18–30 and verify.py lines 10–73 (inspected, not executed)",
+        "Independent exact remaining-vertex recursion: /workspace/review-evidence/finite-checks.js, greedyHistogram; replay with node. In a remaining set of size k, sum over the first accepted vertex, weighting each suffix histogram of size h by (k−1)!/h!. For a 3-edge matching at n=5 this gave 435456/3628800 mixed, or 3/25. At n=4 for deleted C8 it gave 21504/40320=8/15. At n=6, both deleted C12 and disjoint C6+C6 gave 164229120/479001600=12/35, and no outcome other than 3 or n."
+      ],
+      "rationale": "An unmixed greedy output fills the first vertex's side; in a mixed output each side lies in the deleted-edge neighborhood of any accepted vertex of the other side, so the count is between 2 and 2D and is less than n for n>2D. Conditional on first vertex x, mixed occupancy occurs iff some deleted-edge neighbor y precedes all its initial-side blockers: such a y must be accepted if it beats all blockers, and before the first opposite-side acceptance all previously encountered initial-side vertices were accepted. In the uniform residual order x is not a blocker, and the single-event chance is 1/(n−deg_H(y)+1). A two-event intersection requires both candidates to precede at least n−2D common blockers and is bounded by 2/[(n−2D+1)(n−2D+2)]. With at most D candidates Bonferroni gives deg_H(x)/n+O_D(n^−2). Averaging over the 2n possible first vertices yields m_n/n²+O_D(n^−2). The deficit is zero off that event and n−O_D(1) on it, so its first and second moments are m_n/n+O_D(n^−1) and m_n+O_D(1), with squared mean O_D(1). For fixed r≥2, on the mixed event the centered count is −n+O_D(1), off it O_D(1); splitting the rth moment verifies the stated signed limit, also when c=0. For the C4-free 2-regular family, the two candidates have distinct extra neighbors. The common-blocker count is n−3. Ordering the candidate priorities as u≥v, the intersection integral is 2∫_0^1 (1−u)^(n−2)(u−u²/2) du = 1/(n−1)−1/(n+1). Subtracting from 2/(n−1) gives 2n/(n²−1), and all mixed maximal bicliques are 3-vertex stars. The n=3 size coincidence is properly excluded; the matching has one candidate when x is matched, chance 1/n given that, giving k/n² and mixed count 2.",
+      "residual_risks": [
+        "Uniform errors depend on the fixed bound on degrees of H_n, not on sparsity alone. These finite recurrences test particular graphs; the asymptotic and all-size special-case claims use the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected theorems apply to bounded-degree and high-girth inputs, random degree-sequence models, or local convergence with subfactorial path growth, respectively. Here the deterministic input has degree n−O(D) and abundant 4-cycles.",
+          "Pippenger's abstract states the classical process and emphasis on regular graphs; no full-text evidence was retrieved."
+        ],
+        "reasoning": "The main theorems actually checked do not cover this family, and normalized jamming density would not itself identify rare-event probability at order 1/n or variance at order n. The older abstract does not suffice to decide coverage of that paper.",
+        "searches": [
+          "Gamarnik–Goldberg arXiv:0807.1277, §§1.1–1.2",
+          "Brightwell–Janson–Luczak arXiv:1510.05560, Theorem 1.1",
+          "Krivelevich–Mészáros–Michaeli–Shikhelman arXiv:1907.07216, Theorem 1.2",
+          "Pippenger 10.1137/0402034, available repository abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary aa4a26f8b875 Finding and relationship/references; Resultary 9cd73ef8690f and 36fe61ce32de",
+        "arXiv:0807.1277 §§1.1–1.2; arXiv:1510.05560 Theorem 1.1; arXiv:1907.07216 Theorem 1.2",
+        "Pippenger DOI 10.1137/0402034, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular formula expands as p=d/n+O_d(n^−3) and hence gives the same leading variance on its own subclass. Complete bipartite adsorption without deletions gives deterministic count n. Neither supplies the union/intersection estimate over arbitrary uneven deleted neighborhoods.",
+          "The inspected local-limit theorem concerns concentration of normalized density under different hypotheses."
+        ],
+        "reasoning": "The regular law mechanically implies the exact two-point subfamily, not extension to deterministic irregular H_n or H_n with 4-cycles. Fixed deleted maximum degree still allows both, and the rare probability contribution is obtained by a new uniform first-arrival estimate rather than by applying a concentration theorem.",
+        "searches": [
+          "Resultary regular C4-free deletion Finding aa4a26f8b875 and prior complete-multipartite and chain-graph findings",
+          "Local-limit theorem in arXiv:1907.07216"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choosing a uniform remaining vertex and deleting its neighbors is the same random-order greedy MIS process (Gamarnik–Goldberg arXiv:0807.1277, §1.1).",
+          "Resultary 2026/11/2/SCOPE-exact-rare-catastrophe-law-for-greedy-independent-sets-on-comple--aa4a26f8b875, Finding, gives a two-point law on the complement of d-regular C4-free H, with p=dn/[(n+d−1)(n−d+1)]."
+        ],
+        "reasoning": "The process formulations are equivalent, but bounded degree of the input is not bounded degree of the deletion graph. The indexed formula with d=2 is an exact mathematical match of the special case, not only a title similarity. It is a later dated record; the exact relationship or priority between the results is not determined from dates alone. Its regular/no-C4 assumptions exclude general H_n in the universal theorem.",
+        "searches": [
+          "Resultary search for random greedy independent set/RSA on complete bipartite graphs with bounded missing degree, cycle complements and rare-event variance",
+          "Primary literature search for random greedy MIS on dense bipartite graphs and regular graph adsorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete multipartite output is the part of the first vertex; chain-graph laws use nested cross neighborhoods. Neither condition holds for the generic nonempty bounded-degree deletion model. The 11/2 Finding gives exactly the d=2 probabilities on the special class."
+        ],
+        "reasoning": "These exact distributions, rather than a finite census, are the relevant database comparison. The exact family match is explicitly acknowledged, while no comparison supplies the uniform arbitrary-H_n law.",
+        "searches": [
+          "Resultary exact count/variance laws: complete multipartite 9cd73ef8690f, chain graph 36fe61ce32de, regular C4-free deletion aa4a26f8b875"
+        ]
+      },
+      "rationale": "The checked earlier results do not give the uniform mixed-event coefficient and linear variance for arbitrary deterministic bounded-degree deletion graphs. A later indexed exact law genuinely includes the 2-regular special case, but is restricted to a regular C4-free class and does not supply prior coverage of the arbitrary bounded-deletion result. The greedy algorithm and description via maximal independent sets are classical.",
+      "residual_risks": [
+        "Pippenger full text could not be inspected and may contain relevant results. Earlier coverage is not ruled out beyond the statements checked.",
+        "The later exact regular law and focal exact subcase demonstrably coincide mathematically; their historical relationship is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the special law under d=2; no arbitrary bounded-degree result in the inspected Finding. Later catalog date, not evidence of earlier mathematical coverage.",
+          "evidence": "Output n or d+1 with probability of mixed output dn/[(n+d−1)(n−d+1)]. The inspected references do not cite the focal record.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-rare-catastrophe-law-for-greedy-independent-sets-on-comple--aa4a26f8b875",
+          "material_read": "Finding at mirror offset 0; Relationship to prior work and References near offsets 8545 and 10797",
+          "method": "Local Resultary mirror",
+          "title": "Exact rare-catastrophe law for greedy independent sets on complete bipartite graphs with regular deletions",
+          "trigger": "Strongest object-level overlap and broader exact C4-free regular family"
+        },
+        {
+          "assessment": "Covers undeleted complete multipartite graphs, not generic sparse deletions across the balanced bipartition.",
+          "evidence": "The part containing the first vertex is the full output.",
+          "identifier_or_url": "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+          "material_read": "Indexed output rule and variance setting",
+          "method": "Local Resultary lookup",
+          "title": "Sharp variance of random greedy maximal independent sets on complete multipartite graphs",
+          "trigger": "Dense multipartite input and exact variance"
+        },
+        {
+          "assessment": "Nested-neighborhood condition does not cover the generic deleted-cycle complements.",
+          "evidence": "The result applies to chain graphs, where same-side cross neighborhoods are nested.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+          "material_read": "Indexed statement of graph class and exact output law",
+          "method": "Local Resultary lookup",
+          "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+          "trigger": "Exact laws on a structured bipartite graph class"
+        },
+        {
+          "assessment": "Same process and possible historical relevance; the abstract does not establish coverage or noncoverage.",
+          "evidence": "The abstract describes random-order adsorption and special attention to regular graphs.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Claremont repository abstract; publisher and repository full-text links inaccessible",
+          "method": "Publisher and lawful repository retrieval attempts",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Historical graph RSA including regular graphs"
+        },
+        {
+          "assessment": "Same process, but different input degree and girth regimes.",
+          "evidence": "Finite-girth corrections concern constant-degree regular graphs; bounded-degree concentration concerns the input graph.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1277",
+          "material_read": "Abstract and §§1.1–1.2, pp. 1–3",
+          "method": "Open preprint PDF",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+          "trigger": "Same process, exact results and variance on regular graph classes"
+        },
+        {
+          "assessment": "Sparse random-graph jamming constant, not fixed near-complete bipartite inputs.",
+          "evidence": "The theorem is for a random graph with prescribed degrees and a limiting occupied density.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.05560",
+          "material_read": "Theorem 1.1, p. 3, PDF offset about 7042",
+          "method": "Open preprint PDF",
+          "title": "The greedy independent set in a random graph with given degrees",
+          "trigger": "Potential degree-sequence jamming universality"
+        },
+        {
+          "assessment": "Does not imply the rare-event probability or unnormalized variance on this unbounded-input-degree sequence.",
+          "evidence": "The normalized concentration theorem assumes local convergence and subfactorial path growth.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "Setup on p. 4 and Theorem 1.2 on p. 5, PDF offsets about 14127 and 18541",
+          "method": "Open preprint PDF",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "General graph-limit formulas and concentration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–25 and 30–66"
+      ],
+      "rationale": "In this natural dense perturbation model the typical count is unchanged, yet rare mixed configurations induce linear variance and macroscopic centered moments. The exact leading coefficient depends only on the number of deletions, uniformly over the different local arrangements allowed by fixed D. This explains behavior that a normalized jamming law or a typical-case concentration estimate cannot resolve. The two-point law provides a transparent benchmark across disconnected and connected deletion families.",
+      "residual_risks": [
+        "The theorem addresses final counts, not kinetic or spatial correlations, and does not claim validity for growing deletion degree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

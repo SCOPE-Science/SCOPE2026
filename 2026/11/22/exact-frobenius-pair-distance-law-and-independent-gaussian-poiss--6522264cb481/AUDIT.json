@@ -1,147 +1,96 @@
 {
   "correctness": {
-    "rationale": "The exact polynomial follows from independently checked conditional factorial moments (k)_r(l)_r/(n)_r² for common occupied matrix entries, and D=K+L-2C. Complete direct enumeration agrees for n=1..4, while n=10,20,40 coefficient/normalization checks replay. The joint limit follows from the classical locally uniform Laguerre Perron expansion (Gaussian deficiencies), dominated conditional pgf convergence to exp(t-1) (Poisson one, independent), and an exact distance identity plus the delta method. No finite enumeration is misrepresented as proof of the asymptotic theorem.",
+    "rationale": "The conditional falling factorial moments for shared cells give the finite probability generating function. Classical Laguerre asymptotics give the rank-deficiency limits; the rank-conditioned shared-cell characteristic function converges in L¹ to the Poisson characteristic function, proving asymptotic independence. The raw residual in squared distance is twice the shared-cell count, with the corresponding even-valued limit.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Heuer–Striker classify the polytope and count vertices; Torres proves normality and H-representation.",
-        "The published uniform-vertex covariance result supplies only second moments and the one-variable Gaussian deficiency; its claims do not imply the entire pair-distance law.",
-        "The published product-rank theorem supplies a distinct hypergeometric overlap of omitted points, not the common-edge overlap."
+        "The product theorem counts overlap of omitted labels; the perfect derangement polytope has a common-cell Poisson limit but no random rank deficiencies."
       ],
-      "reasoning": "None of the inspected broader polytope theorems calculates all pairwise Euclidean distances of two uniform vertices. Exact covariance implies their mean squared distance, which is explicitly attributed, but does not determine the full law. No stronger distribution theorem was found in the full texts inspected.",
+      "reasoning": "Neither asserts the joint occupied-cell law across all ranks. The Gaussian deficiency and the perfect-matching Poisson mechanism are acknowledged antecedents.",
       "searches": [
-        "complete bipartite matching polytope uniform random vertex pair distance enumerator shared-edge count Poisson one Hamming",
-        "uniform random partial permutation matrices squared Euclidean distance and asymptotic Poisson overlap independence gaussian unmatched rows",
-        "distance polynomial partial permutation rook monoid derangement numbers two rook placements",
-        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md"
+        "c5a891e46186 Finding and Proof",
+        "5eef45b9fbeb Finding",
+        "Heuer–Striker Propositions 3.4 and 3.6"
       ]
     },
     "checked_sources": [
-      "https://arxiv.org/pdf/2306.11910",
-      "https://arxiv.org/pdf/2012.09901",
-      "https://dmtcs.episciences.org/2772/pdf",
-      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
-      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-gaussian-deficiencies-and-poisson-overlap-corrections-in-random--c5a891e46186/RESULT.md",
-      "https://dlmf.nist.gov/26.15",
-      "https://arxiv.org/abs/2306.11910"
+      "e587fba564ca",
+      "c5a891e46186",
+      "caa6c69c0a56",
+      "5eef45b9fbeb",
+      "arXiv:2012.09901"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Torres's normality and Heuer–Striker's matching-polytope enumeration do not give pairwise distance probabilities.",
-        "Published covariance theorem gives E D but cannot imply higher distance coefficients.",
-        "Published rook-product theorem's hypergeometric overlaps have different supports and events from identical occupied coordinate positions."
+        "Exact covariance gives the mean squared distance; the rank-sum catalogue has invertibility asymptotics, not the joint occupied-cell limit; the product law counts a different overlap."
       ],
-      "reasoning": "The new exact identity uses conditional falling-factorial moments of common occupied cells. The Gaussian one-factor deficiency is acknowledged prior work. Joint Poisson shared-cell independence, the complete exact distribution and sharp distance fluctuation are not direct corollaries of the inspected results without new two-sample calculations.",
+      "reasoning": "The corrected claim is independence of the occupied-cell correction and the two fluctuating ranks, established by conditioning on both ranks and passing to the unconditional joint limit.",
       "searches": [
-        "full Euclidean squared-distance distribution between two independent uniformly chosen partial permutation matrices, exact overlap Poisson and Gaussian rank deficiencies",
-        "complete bipartite matching polytope uniform random vertex pair distance enumerator shared-edge count Poisson one Hamming",
-        "uniform random partial permutation matrices squared Euclidean distance and asymptotic Poisson overlap independence gaussian unmatched rows",
-        "https://arxiv.org/pdf/2012.09901",
-        "https://arxiv.org/pdf/2306.11910",
-        "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-gaussian-deficiencies-and-poisson-overlap-corrections-in-random--c5a891e46186/RESULT.md"
+        "e587fba564ca rank and invertibility limits",
+        "c5a891e46186 product rank and overlap",
+        "caa6c69c0a56 uniform-vertex covariance"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "DLMF §26.15 discusses rook placements and permutations; the new squared Frobenius distance is the Hamming distance of their 0–1 incidence matrices.",
-        "Public random rook-monoid product result treats composition, not incidence-matrix symmetric difference."
+        "Squared Frobenius distance is the Hamming distance of the incidence matrices. The rank of the sum in characteristic two is not its Hamming weight."
       ],
-      "reasoning": "The claim was translated into random rook placements, symmetric-difference/Hamming distance of zero-one partial permutation matrices, and fixed-position agreement counts. The specific two-sample joint law and polynomial were not found in the inspected results. Classical rook polynomials alone count individual matchings and are insufficient to imply the two-sample law without the conditional factorial-moment argument.",
+      "reasoning": "Support size equals the number of singly occupied cells, which can be marked directly in a colored-component census.",
       "searches": [
-        "full Euclidean squared-distance distribution between two independent uniformly chosen partial permutation matrices, exact overlap Poisson and Gaussian rank deficiencies",
-        "rook monoid pair Hamming distance between partial bijections independent Poisson common entries",
-        "Hamming distance between partial permutations number common placements rook placements polynomial distribution",
-        "https://dlmf.nist.gov/26.15"
+        "Resultary: random rook pair symmetric difference, partial injection overlap and pair distance",
+        "arXiv:2012.09901, definitions of the vertex model"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Known rook-number sequence A_{n,k}=binom(n,k)^2 k! is used as input, not presented as novel.",
-        "Own previous finding claims surveyed for Euclidean distance of partial permutation matrices, with no matching claim found."
+        "The complete colored path/cycle census directly yields the finite distance law by a change of weights."
       ],
-      "reasoning": "A tabulation of rank counts or rook polynomials is mathematically distinct from the complete ordered-pair distance polynomial. No public table specifying this full matrix-pair distance spectrum was identified, while the classical rank table is fully credited.",
+      "reasoning": "The finite law is covered by reweighting, regardless of the same-date records' unresolved order.",
       "searches": [
-        "full Euclidean squared-distance distribution between two independent uniformly chosen partial permutation matrices, exact overlap Poisson and Gaussian rank deficiencies",
-        "complete bipartite matching polytope uniform random vertex pair distance enumerator shared-edge count Poisson one Hamming",
-        "rook monoid pair Hamming distance between partial bijections independent Poisson common entries",
-        "https://dlmf.nist.gov/26.15"
+        "Resultary: exact Frobenius pair law in uniform partial permutations",
+        "e587fba564ca Proof, steps 1–3"
       ]
     },
-    "rationale": "Best-knowledge non-coverage after literal and alias/equivalence published-finding corpus searches, own ledger claim inspection, full-text checks of Heuer–Striker, Torres, Gouyou-Beauchamps–Nicaud, and the two closest published uniform-rook results. The covariance result determines only second moments; random-product overlaps are distinct from identical occupied matrix-entry overlaps. Priority remains provisional because an unindexed equivalent may exist.",
+    "rationale": "The distinct claim is the joint Gaussian–Gaussian–Poisson limit for the occupied-cell statistic under independent uniform sampling over all ranks. The finite distance law is retained as a derivation, not claimed separately as new.",
     "residual_risks": [
-      "An unindexed Hamming-distance polynomial or random rook-position coincidence theorem could cover part or all of the distance formula; full historical uniqueness is not certified.",
-      "The univariate Gaussian rank-deficiency limit and exact one-vertex covariance are prior results; neither is claimed as new.",
-      "The conditional common-edge law is tied to the full square board; no claim for rectangular or graph-constrained matchings."
+      "Unindexed two-rook coincidence results could cover the joint limit.",
+      "Allen's rook-polytope thesis could not be read in full."
     ],
     "source_inspections": [
       {
-        "assessment": "Defines the underlying polytope and proves normality/H-representation; no pairwise vertex metric, shared-occupied-cell law or Gaussian–Poisson decomposition",
+        "assessment": "Component census immediately yields the finite distance law, not the claimed joint limit as stated",
         "evidence": [
-          "arXiv:2306.11910v1, §§2–4; journal DOI 10.15446/recolma.v57n2.115853, MSC2020 52B11"
+          "Singly occupied cells: counts 2k−1 and 2k on paths, 2k on non-double cycles, zero on double edges."
         ],
-        "identifier_or_url": "https://arxiv.org/pdf/2306.11910",
-        "material_read": "Full text of version 1, including preliminaries and main normality results; original journal version first page for MSC2020",
-        "method": "arXiv HTML and PDF text, journal PDF page image",
-        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
-        "trigger": "Primary graph-matching polytope geometry, explicitly classifies bipartite k-matching polytopes"
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-finite-field-rank-spectra-for-sums-of-two-rook-matrices-an--e587fba564ca",
+        "material_read": "Finding and proof steps 1–5",
+        "method": "Statement and proof comparison",
+        "title": "Exact finite-field rank spectra for sums of two rook matrices and a characteristic-sensitive invertibility transition",
+        "trigger": "Same space of ordered matching pairs"
       },
       {
-        "assessment": "Counts partial permutation matrices and studies facets/faces/volume; no Frobenius pair-distance polynomial or joint random-sample law",
+        "assessment": "Different overlap statistic",
         "evidence": [
-          "arXiv:2012.09901, Remark 2.3, Definition 3.1, Proposition 3.4"
+          "Counts overlap of omitted images and missing domains in the composition."
         ],
-        "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
-        "material_read": "Complete section 2.1 and section 3, title/abstract and contents of other sections",
-        "method": "arXiv PDF parsed text and page-4 image",
-        "title": "Partial permutation and alternating sign matrix polytopes",
-        "trigger": "The exact matrix-polytope family and partial-permutation vertex characterization"
-      },
-      {
-        "assessment": "Supplies well-established rook enumeration; not the two-sample metric or common occupied cells",
-        "evidence": [
-          "DMTCS Proceedings AM (2010), §4 and displayed partial-injection formula"
-        ],
-        "identifier_or_url": "https://dmtcs.episciences.org/2772/pdf",
-        "material_read": "Section 4 on partial injections and total counts",
-        "method": "full PDF parsed text and page-5 image",
-        "title": "Random Generation Using Binomial Approximations",
-        "trigger": "Uniform partial injection enumeration and rank asymptotics"
-      },
-      {
-        "assessment": "Gives single-vertex covariance and Gaussian deficiency ingredients, which imply the second moment of pair distance but not its entire distribution or shared-entry Poisson independence",
-        "evidence": [
-          "Public exact three-eigenspace covariance result: covariance operator and classical Laguerre mean/variance, not pair-distance probabilities"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-three-eigenspace-covariance-and-growing-anisotropy-of-unif--caa6c69c0a56/RESULT.md",
-        "material_read": "Entire RESULT.md including exact covariance, proof and references",
-        "method": "public full-text file retrieval",
-        "title": "Exact three-eigenspace covariance and growing anisotropy of uniform partial-permutation vertices",
-        "trigger": "Identical polytope and identical uniform vertex measure"
-      },
-      {
-        "assessment": "Compares products/composition and intersections of missing domains with previous images; cannot identify shared matrix-entry overlap or the Frobenius distance of two independent partial permutations",
-        "evidence": [
-          "Public random rook-monoid product result, exact hypergeometric law for product rank"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-gaussian-deficiencies-and-poisson-overlap-corrections-in-random--c5a891e46186/RESULT.md",
-        "material_read": "Entire RESULT.md including exact hypergeometric transition and limit proof",
-        "method": "public full-text file retrieval",
+        "identifier_or_url": "c5a891e46186",
+        "material_read": "Finding and proof",
+        "method": "Statement comparison",
         "title": "Gaussian deficiencies and Poisson overlap corrections in random rook-monoid products",
-        "trigger": "Poisson overlaps and Gaussian ranks for uniform partial maps"
+        "trigger": "Same limiting distribution types"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "scientific_revision",
   "schema_version": 1,
-  "scope_run_id": "6522264c-b481-4d80-aaf6-9ee64d842a8d",
   "value": {
-    "rationale": "The complete Frobenius vertex-pair distance distribution is a natural metric invariant of the classical doubly substochastic polytope, not a parameter-engineered finite slice. The independent discrete Poisson correction provides information erased by first-order Gaussian distance fluctuations and distinguishes shared-edge geometry from pure rank effects. It is an all-dimensional exact polynomial plus a meaningful two-scale limit, not merely a low-order moment or standard enumeration.",
+    "rationale": "The joint limit separates coarse variation of ranks from the occupied-cell correction that actually measures metric coincidence and allows both to be recovered at their natural scales.",
     "status": "PASS"
   }
 }

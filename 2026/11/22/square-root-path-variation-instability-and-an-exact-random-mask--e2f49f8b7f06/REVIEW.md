@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The strict-chamber argument reduces the global two-input problem to finitely many projected step responses, giving threshold independence and attainment. The nontrivial upper bound is established by a Haar-band decomposition of Sylvester spectral indices: an individual step has one Haar coefficient per band, with squared norm at most one-quarter the block length, and variation of each band is controlled by its block amplitudes. The exact expectation is derived by character orthogonality and a binomial absolute Rademacher moment. Exhaustive masks for sizes 2, 4, 8 and randomized projection/chamber checks at sizes 16 through 128 corroborate rather than replace the proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The closest inspected Walsh spectral-shrinkage result is for Hamming-cube graph edge variation; it employs derivatives commuting with Walsh projections, unlike consecutive differences on the natural integer path. The related DCT-II result has the same square-root growth exponent but a distinct sine-transform projection formula; the Haar result has logarithmic growth. Primary full-text accounts of graph signal variation and Walsh sparse recovery do not establish the exact open-path Bernoulli-mask expectation or this Walsh-specific band upper bound. An unindexed general Walsh projection theorem could still cover part of this, so priority is not independently certified.
+PASS
 
-## Value — PASS
-Classical Euclidean nonexpansivity is inadequate for variation-sensitive signal preprocessing. The proven basis-and-order-specific growth law gives a dimension-dependent stability warning, while the exact impulse mean quantifies a natural distribution of spectral active sets without optimizing over exponentially many masks. Its contrast with Haar and with Boolean-cube adjacency has interpretive and methodological value.
+On each closed segment the coefficient secant slopes lie in [0,1] away from DC; equivalently the map difference is an average of spectral masks applied to the input difference, with DC fixed. Every mask occurs on an open strict chamber, so the upper operator bound is attained by a small step perturbation. Modulo constants the path first-difference coordinates have l¹ norm; their unit vectors are cuts h_k, giving the exact max_mask,max_cut reduction. In Haar band j, Walsh characters of the specified least significant frequency bit change sign between the halves of each dyadic block and span the 2^j block detail space. A cut has at most one nonzero Haar coefficient per band, bounded by √(ℓ_j)/2. For masked details, l² contraction and the within- and between-block jumps give V≤4∑|a_b|≤4√(2^j/ℓ_j)‖u‖₂, producing the claimed geometric sum. In the random-mask calculation the first edge has expected difference 1/2, and at every other edge both endpoints are nonzero so the deterministic part is zero; the n/2 separating characters give independent signs scaled by 1/n. The exact even Rademacher absolute moment gives the stated mean and Stirling gives √(n/π); the unit-variation impulse makes the mean a lower bound on the maximum, not equal to it. At n=2 the only nontrivial mask is the identity. Fresh integer Walsh-character enumeration checked all masks and cuts at n=4,8 (8×3 and 128×7), giving maxima 3/2, 11/4 and exact impulse means 1, 13/8. Replay with entries χ_r(i)=(-1)^(r·i), summing the products χ_r(i)χ_r(j) over retained frequencies for each projection numerator; take adjacent differences and divide by n. The frozen verifier was not executed.
 
-## Scope and limits
-Only natural-order real Sylvester Walsh transforms, dyadic sample lengths, ordinary unweighted noncyclic adjacent variation, uniform fixed positive soft threshold, and independent fair masks are covered. The exact worst-case leading constant is unknown; the binomial expression is an **expectation** and a lower bound for the sharp constant, not an exact formula for it. All finite tests and any historical search are qualified by these limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the ordered-path Walsh bound with the exact Bernoulli-mask impulse law. The general mask and cut reduction is a shared piecewise-linear method, and the Rademacher moment is classical. Neither the available Boolean-cube Walsh comparison nor the ordered-path comparisons for other bases cover these two path-specific conclusions.
+
+## value
+
+PASS
+
+Open-path TV is a natural signal roughness measure. The attained two-input gain shows quantitatively that coordinatewise contraction in Walsh coefficients does not control variation uniformly in signal length. The explicit random-mask benchmark identifies typical impulse amplification on the same scale and gives a rigorous lower bound with exact normalization; the result is not just a pair of small-dimensional maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

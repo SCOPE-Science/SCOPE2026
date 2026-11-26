@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checks/verify_inverse.py` from the package root using Python 3. The checker has no external dependencies. It enumerates inverse points both by the explicit phase/quadratic construction and by interval monotonic-phase counts; these separate calculations agreed for 270 parameter/target/cutoff cases. Direct substitution and the exact determinant formula were checked at 21,424 regular preimages. Additional tests covered the inclusion of exact critical phase levels and three shrinking-cutoff tests for each of five phase regimes.
+## correctness
 
-The standalone code is evidence of consistency for finite inputs, **not** an infinite proof. The proof in RESULT.md separately shows the phase list is exhaustive, that the positive quadratic root is unique, that exactly the phase levels \(0<\zeta\le b\pi\) reach \(x=0\), and that every branch contributes the claimed integer count and transport rate. Computation precision is finite and cannot independently certify all real parameters or uniform constants. No independent mathematical audit has been performed.
+PASS
+
+For fixed positive a,b and an interior target, each positive second phase ζ≤a+bπ uniquely determines the segment y=(ζ-ax)/(bπ), on x in (0,1] intersected with [(ζ-bπ)/a,ζ/a]. On it the first phase divided by π is a/x+ζ/π²−ax/π², strictly decreasing. Each of the two distinct first-phase progressions crosses it at most once per integer, equivalently at the unique positive quadratic root. The inverse labels are injective because the actual phases fix both labels. Exactly the phases 0<ζ≤bπ have segments reaching x=0, including equality where y=1−ax/(bπ). Their two disjoint second-phase progressions give the stated floors. Counting integers on each truncated phase interval gives a/ε+O(1) per first-phase progression on an edge-reaching segment and a bounded count elsewhere. The smallest phase is arcsin(sqrt(v)), giving the if-and-only-if threshold, including equality when b<1/2. The phase Jacobian determinant is −ab(1+π²/x²), and the two sine derivatives are nonzero at interior targets. For K>0, each edge-reaching segment has weight 1/K+O(ε); its transverse distance to ζ/(bπ) is ax/(bπ), with x=a/m+O(m⁻²). Summing the distances gives a harmonic logarithm, while exceptional segments and weight rebalancing cost O(ε). This proves the stated W1 upper bound without uniformity near target endpoints or staircase jumps. VERIFICATION.md and checks/verify_inverse.py were inspected; the finite floating-point diagnostics were not run and are not needed for exhaustion or threshold equality.
+
+## originality
+
+PASS
+
+The map, ordinary critical-set framework and similar counting mechanisms are prior. The distinct claim supported here is the fixed-interior-target finite-phase staircase, its exact leading valence, the sharp parameter threshold, and the quantitative transverse empirical law on the given one-step domain. No checked comparator covers this combination or implies it by specialization.
+
+## value
+
+PASS
+
+Inverse multiplicity is a natural invariant of this already studied noninvertible map. Even in a bounded source, regular preimages can be infinite; the exact threshold and phase-dependent leading count distinguish target heights for which this occurs, and the atomic law identifies where the multiplicity resides. The usefulness is for one-step inverse geometry, not forward chaos or security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

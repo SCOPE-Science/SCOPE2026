@@ -1,68 +1,59 @@
-# Parity-dependent Wigner-negativity threshold under Poisson Fock re-preparation and photon loss
+# Parity of the stationary Wigner-positivity interval under Poisson Fock re-preparation
 
 ## Finding
-Let \(n\ge1\) be an integer, and let \(\alpha=r/\gamma>0\). In the loss-and-re-preparation model defined below, the unique stationary occupation probabilities are
+
+Let \(n\ge1\) and \(\alpha=r/\gamma>0\), with re-preparation and loss as defined below. The unique stationary state is number-diagonal with occupations
 \[
 p_k(\alpha)=\frac{\alpha n!\,\Gamma(\alpha+k)}{k!\,\Gamma(\alpha+n+1)},\qquad k=0,\ldots,n.
 \]
-The stationary von Neumann entropy is strictly increasing for \(0<\alpha<1\), strictly decreasing for \(\alpha>1\), and has the unique maximum \(\log(n+1)\) at \(\alpha=1\). The stationary Wigner function is pointwise nonnegative for exactly one initial rate interval \(0<\alpha\le\alpha_n\), where \(\alpha_n=1\) for every odd \(n\), whereas \(1<\alpha_n<\infty\) for every even \(n\). In the two-photon case, \(\alpha_2\) is the unique positive zero of \(\alpha^3-\alpha-2\), approximately \(1.52137970680457\); beyond it the negative Wigner region is one annulus.
+Its von Neumann entropy is strictly increasing on \((0,1)\), strictly decreasing on \((1,\infty)\), and has its unique maximum \(\log(n+1)\) at \(\alpha=1\). The set of rates with pointwise nonnegative stationary Wigner function is an initial interval \((0,\alpha_n]\). The endpoint coincides with the entropy maximum, \(\alpha_n=1\), for every odd \(n\); for every even \(n\) it satisfies \(1<\alpha_n<\infty\). The contribution is the all-index separation by parity together with the strict rate dependence of entropy, not the previously documented two-photon cutoff.
 
 ## Assumptions and scope
-The system consists of one bosonic mode with annihilation operator \(b\), vacuum reservoir, one-photon Lindblad loss of rate \(\gamma>0\), and independent full-state Poisson re-preparation to the pure number state \(\rho_n=\lvert n\rangle\langle n\rvert\) at rate \(r>0\). Its trace-preserving master equation is
+
+There is one bosonic mode with annihilation operator \(b\), a vacuum reservoir inducing single-photon loss at rate \(\gamma>0\), and instantaneous independent Poisson re-preparation to \(\rho_n=|n\rangle\langle n|\) at rate \(r>0\). The trace-preserving equation is
 \[
-\dot\rho=\gamma\left(b\rho b^\dagger-\tfrac12\{b^\dagger b,\rho\}\right)+r(\rho_n\operatorname{tr}\rho-\rho).
+\dot\rho=\gamma(b\rho b^\dagger-\tfrac12\{b^\dagger b,\rho\})+r(\rho_n\operatorname{tr}\rho-\rho).
 \]
-A free harmonic phase rotation may be included: it does not affect number-diagonal stationary states. No thermal excitation, multi-photon loss, selective addition, or feedback control is assumed. A Wigner-positive state means its symmetrically ordered Wigner function is pointwise nonnegative; it need not have a positive Glauber--Sudarshan representation. Rates are scaled only by \(\alpha=r/\gamma\).
+A free harmonic rotation does not affect the diagonal stationary state. There is no thermal excitation or selective addition. Wigner positivity means pointwise nonnegativity of the symmetrically ordered Wigner function, not positivity of the Glauber–Sudarshan representation.
 
 ## Proof
-**Stationary law and uniqueness.** Let \(T_t\) be the zero-temperature loss channel. Its action on a number state is the binomial thinning law
-\[
-T_t(\rho_n)=\sum_{k=0}^n\binom nk e^{-k\gamma t}(1-e^{-\gamma t})^{n-k}\lvert k\rangle\langle k\rvert.
-\]
-Condition on the age \(t\) since the last preparation. Its density is \(re^{-rt}\), so the stationary state is \(\rho_\alpha=\int_0^\infty re^{-rt}T_t(\rho_n)\,dt\). Under \(u=e^{-\gamma t}\), the measure becomes \(\alpha u^{\alpha-1}du\) on \((0,1)\), and beta integration gives the stated \(p_k\). The reset term contracts the trace distance of two evolving states by at least \(e^{-rt}\); hence the stationary state is globally unique. Its balance equations are \(\gamma[(k+1)p_{k+1}-kp_k]+r(\boldsymbol 1_{k=n}-p_k)=0\), with \(p_{n+1}=0\).
 
-**Entropy and majorization.** The ratio \(p_{k+1}/p_k=(\alpha+k)/(k+1)\) is less than, equal to, or greater than unity uniformly in \(k<n\) according as \(\alpha<1\), \(\alpha=1\), or \(\alpha>1\). Thus \(p_k(1)=1/(n+1)\). For \(\alpha_2>\alpha_1\), the likelihood ratio \(p_k(\alpha_2)/p_k(\alpha_1)\) strictly increases with \(k\); therefore every proper low-index cumulative probability strictly decreases with \(\alpha\). For \(\alpha<1\), the descending occupation vector has the original index order; increasing \(\alpha\) strictly reduces each proper sum of the largest components. For \(\alpha>1\), the descending vector has reversed index order; increasing \(\alpha\) strictly increases each proper largest-component sum. Strict Schur concavity of Shannon entropy proves its stated strict monotonicity and unique maximum. For a diagonal density matrix this Shannon entropy is the von Neumann entropy.
+**Stationary law.** Write \(T_t\) for the pure-loss channel and use time units \(1/\gamma\). For initial \(\rho_n\) the output is binomial thinning with transmission \(u=e^{-t}\), with probabilities \(\binom nk u^k(1-u)^{n-k}\). The age since the last Poisson reset in stationarity has density \(\alpha e^{-\alpha t}\); hence the age mixture uses the transmission density \(\alpha u^{\alpha-1}\,du\) on \((0,1)\). The beta integral gives \(p_k\). For any two initial states, conditional on at least one reset their outputs at time \(t\) agree; the no-reset component has weight \(e^{-\alpha t}\) and its trace distance cannot increase under \(T_t\). This proves uniqueness and attraction of the stationary state.
 
-**Wigner polynomial and rate order.** For phase-space amplitude \(w\in\mathbb C\), put \(z=4|w|^2\ge0\). The number-state Wigner formula gives
-\[
-W_{n,\alpha}(w)=\frac2\pi e^{-z/2}P_{n,\alpha}(z),\qquad P_{n,\alpha}(z)=\sum_{k=0}^n(-1)^kp_k(\alpha)L_k(z).
-\]
-Let \(R_a=\int_0^\infty ae^{-at}T_t\,dt\), now measuring time in units of \(1/\gamma\). For \(0<a<b\), the operator resolvent identity reads
-\[
-R_a=\frac ab R_b+\left(1-\frac ab\right)R_aR_b.
-\]
-The vacuum-loss channel \(T_t\) takes each pointwise nonnegative Wigner function to a nonnegative Wigner function, since its Wigner action is a rescaled positive Gaussian convolution. The same holds for its exponential mixture \(R_a\). Applying the identity to \(\rho_n\), if the state at a larger rate \(b\) is Wigner-positive, then the state at every smaller positive rate \(a\) is also Wigner-positive. Thus the Wigner-positive rates form an initial interval. Continuity of polynomial coefficients, together with a uniformly positive leading coefficient, proves closure at any finite positive endpoint.
+**Strict entropy monotonicity.** The ratio \(p_{k+1}/p_k=(\alpha+k)/(k+1)\) orders the occupation vector decreasingly for \(\alpha<1\), uniformly for \(\alpha=1\), and increasingly for \(\alpha>1\). For \(a<b\), the ratio \(p_k(b)/p_k(a)\) strictly increases with \(k\), because successive ratios are multiplied by \((b+k)/(a+k)>1\). Since both vectors sum to one, their differences change sign from negative to positive only once, with possible equality at a single index. All proper lower-index cumulative sums therefore strictly decrease as the rate increases. Below \(1\), these are the proper largest-component sums; above \(1\), their complements are the largest-component sums. Strict Schur concavity of entropy proves the two strict monotonicities. At \(1\) the state is uniform on \(n+1\) levels and attains the maximum.
 
-**The uniform endpoint and parity.** The key existing balanced-beam-splitter identity is
+**Rate ordering for Wigner positivity.** Put \(R_a=\int_0^\infty ae^{-at}T_t\,dt\). If \(0<a<b\), then
 \[
-\frac1{n+1}\sum_{m=0}^{n}\sigma(m,n-m)=\frac1{n+1}\sum_{k=0}^n\lvert k\rangle\langle k\rvert,
+R_a=\frac{a}{b}R_b+\left(1-\frac ab\right)R_aR_b.
 \]
-where \(\sigma(m,n-m)\) is the reduced output of a balanced beam splitter with Fock inputs \(\lvert m\rangle\), \(\lvert n-m\rangle\). Each \(\sigma\) has a nonnegative Wigner function (Vanbever, 2021, Lemma 2 and Eq. (30), building on the nonnegative convolution of two pure-state Wigner functions). Therefore the uniform state \(\rho_1\) is Wigner-positive. Moreover the summand \(\sigma(0,n)\) has polynomial \(\sum_{k=0}^n2^{-n}\binom nk(-1)^kL_k(z)=(z/2)^n/n!\), strictly positive for \(z>0\). Thus \(P_{n,1}(z)>0\) for every \(z>0\). At the origin it is \(P_{n,1}(0)=(1+(-1)^n)/(2(n+1))\).
+Indeed, the composed channel integrates \(T_{t+v}\) by the semigroup law; the convolution of the two exponential densities is \(ab(e^{-at}-e^{-bt})/(b-a)\). Loss and its exponential averages preserve Wigner positivity by scaled positive Gaussian convolution. Thus if \(R_b(\rho_n)\) is Wigner-positive then so is \(R_a(\rho_n)\). With \(z=4|w|^2\), the Wigner function is \((2/\pi)e^{-z/2}P_{n,\alpha}(z)\), where \(P_{n,\alpha}(z)=\sum_{k=0}^n(-1)^kp_k(\alpha)L_k(z)\) and \(L_k\) denotes the ordinary Laguerre polynomial. Continuity at each fixed \(z\ge0\) shows that any finite positive upper endpoint is included.
 
-If \(n\) is odd, the origin value is
+**Wigner positivity at equal rates.** The mixed input \((n+1)^{-1}\sum_{m=0}^n |m,n-m\rangle\langle m,n-m|\) is the normalized projection onto the total-number-\(n\) subspace. A balanced beam splitter preserves that subspace and the projection; reducing one output therefore gives the uniform single-mode state at \(\alpha=1\). Equivalently this is the mean of the reduced outputs \(\sigma(m,n-m)\) for the individual Fock inputs. Each has nonnegative Wigner function: the reduced balanced output is a scaled convolution of the two input Wigner functions, proportional at a fixed amplitude to the trace overlap of one input with a displaced parity conjugate of the other. This is the uniform mixture construction of Vanbever [1, Lemma 2 and Eq. (30)]. The \(m=0\) output is binomial half-loss, with polynomial \((z/2)^n/n!\), by expanding \(L_k\) and summing the binomial coefficients. Its contribution is strictly positive for \(z>0\), as is the polynomial of the uniform state. At the origin the latter has value \((1+(-1)^n)/(2(n+1))\).
+
+**Parity and the upper bound.** For odd \(n\) the origin value equals
 \[
 P_{n,\alpha}(0)=\alpha\int_0^1u^{\alpha-1}(1-2u)^n\,du.
 \]
-Pairing \(u\) with \(1-u\) on \((0,1/2)\) proves this integral strictly negative when \(\alpha>1\), strictly positive when \(0<\alpha<1\), and zero when \(\alpha=1\). The initial-interval property proves \(\alpha_n=1\) for odd \(n\).
-
-If \(n\) is even, the origin value at \(\alpha=1\) is strictly positive as well, so \(P_{n,1}\) is strictly positive on \([0,\infty)\). Its leading coefficient is \(p_n(\alpha)/n!>0\), continuous and locally bounded away from zero at \(\alpha=1\). For \(\alpha\) in a sufficiently small compact neighborhood of unity, the leading term dominates the lower polynomial powers uniformly outside a large compact \(z\)-interval, while uniform continuity preserves positivity inside. Thus \(\alpha_n>1\). On the other hand \(\rho_\alpha\to\rho_n\) as \(\alpha\to\infty\); every nonvacuum pure Fock state has some negative Wigner value, so \(\alpha_n<\infty\). Initial-interval order and continuity supply the one sharp boundary.
-
-**Exact two-photon boundary.** At \(n=2\), direct evaluation yields
-\[
-P_{2,\alpha}(z)=\frac{\alpha^2-\alpha+2-2\alpha^2z+\frac12\alpha(\alpha+1)z^2}{(\alpha+1)(\alpha+2)}.
-\]
-Its unique minimum on \(z\ge0\) is attained at \(z_*=2\alpha/(\alpha+1)\) with value \((-\alpha^3+\alpha+2)/((\alpha+1)^2(\alpha+2))\). Hence positivity holds precisely when \(\alpha^3-\alpha-2\le0\). The cubic has exactly one positive root, between 1 and 2. Above it the upward-opening quadratic is negative between two strictly positive roots; the phase-space negative set is an annulus.
+Pairing \(u\) and \(1-u\) for \(0<u<1/2\) gives a strictly negative value for every \(\alpha>1\). Together with equal-rate positivity and rate ordering, this proves \(\alpha_n=1\). For even \(n\) the equal-rate polynomial is also strictly positive at the origin. This positivity persists for rates in a neighborhood of \(1\): on a compact \(z\)-interval it follows from a positive minimum and continuity, while for all sufficiently large \(z\) the leading coefficient \(p_n(\alpha)/n!\), uniformly bounded below near \(1\), dominates the lower powers with uniformly bounded coefficients. Hence \(\alpha_n>1\). As \(\alpha\to\infty\), \(p_n\to1\) and the polynomial tends to \((-1)^nL_n\). This nonzero polynomial has a negative value on the positive real axis, since its integral against \(e^{-z}dz\) vanishes for \(n\ge1\). The stationary polynomial is negative there for sufficiently large \(\alpha\), giving a finite upper endpoint. The rate order and endpoint closure finish the proof.
 
 ## Verification
-Run `python checker.py` with SymPy installed. The checker tests finite-family exact identities for occupation probabilities, Lindblad balance equations, uniform mixing, Laguerre polynomial normalization and leading coefficients, the balanced-loss identity, the complete \(n=2\) Wigner polynomial/minimum and rational test cases of strict occupation-vector majorization. It passes 642 exact symbolic identities and rational inequalities. The all-\(n\), all-rate claims follow from the analytic resolvent/majorization/beam-splitter proofs, not finite tests. The beam-splitter Wigner-positivity lemma is a cited prior published result; its concrete decomposition and strict positive component are explicitly identified above.
+
+The accompanying `checker.py` is an exact finite check using Python and SymPy. It checks occupation normalization and balance, the equal-rate and balanced-loss identities, and rational examples of strict majorization; its two-photon calculation checks the established special case described below. These checks are not an all-index proof. The all-index result follows from the occupation order, semigroup identity, equal-rate positivity, and parity argument above.
 
 ## Relationship to prior work
-Vanbever (first public 2021-04-30) proves the Wigner positivity of equally weighted initial Fock mixtures, with balanced-beam-splitter decomposition, but does not consider the stationary law of Fock re-preparation competing with continuous photon loss, its rate ordering or odd/even cutoffs. Nugmanov, Zunikov and Khalili (first public 2022-01-10) prove the universal one-half transmissivity threshold for Wigner negativity under a *fixed-duration pure-loss channel acting on a pure non-Gaussian input*; that is not the mixed state obtained by a stochastic reset-age distribution, and their text explicitly distinguishes mixed inputs. Li and collaborators (first public 2023-08-16) implement cascaded selective photon addition rather than full-state Poisson re-preparation; their detailed process is non-equivalent. A broader dissipative quantum-control classification might implicitly contain some special cases; a global novelty theorem is not claimed.
+
+Vanbever [1] proves Wigner positivity of the equally weighted initial Fock mixture. That result is used here at \(\alpha=1\), not claimed as new. Nugmanov, Zunikov and Khalili [2] study the half-transmissivity Wigner threshold for a pure non-Gaussian input subjected to fixed loss. This does not give the sign of the reset-age mixture. Li et al. [3] use cascaded selective photon addition rather than full-state Poisson re-preparation. A separate Poisson-loss result for odd optical cats [4] has the same numerical odd-state boundary but a different family of prepared states.
+
+The separate two-photon renewal-clock record [5] explicitly gives the exponential-clock case \(\alpha^3-\alpha-2=0\). This overlap is exact; publication priority within the shared date is not inferred. For this special case the polynomial is an upward-opening quadratic with minimum \((-\alpha^3+\alpha+2)/[(\alpha+1)^2(\alpha+2)]\) at \(z=2\alpha/(\alpha+1)\); above the cutoff its negativity lies between two positive radial roots, hence on one annulus. This calculation is a check and illustration of the all-index result, not an independent original claim.
 
 ## Limitations
-The result concerns a zero-temperature one-photon loss semigroup, an ideal instantaneous state-preparation operation, and fixed finite photon index \(n\). The even-index threshold is known to exist uniquely, but no general closed form or asymptotic in \(n\) is proved; only the two-photon case is explicitly solved. Wigner positivity is not equivalent to positivity of the Glauber--Sudarshan representation. Physical implementation cost and noise in the preparation operation are outside the model. Independent expert review of publication priority has not occurred.
+
+No closed form or asymptotic is claimed for the general even-index boundary. The analysis does not address arbitrary renewal laws, nonideal re-preparation, finite reservoir temperature or implementation cost. The precedent comparison does not certify exhaustive historical priority.
 
 ## References
-1. L. Vanbever, *In Wigner phase space, convolution explains why the vacuum majorizes mixtures of Fock states*, arXiv:2104.14996, first public 2021-04-30, https://arxiv.org/abs/2104.14996 ; especially Lemma 2 and Eq. (30), full text https://arxiv.org/pdf/2104.14996 .
-2. B. Nugmanov, N. Zunikov, F. Ya. Khalili, *Robustness of negativity of the Wigner function to dissipation*, arXiv:2201.03257, first public 2022-01-10, https://arxiv.org/abs/2201.03257 .
-3. S. Li et al., *Autonomous Stabilization of Fock States in an Oscillator against Multiphoton Losses*, arXiv:2308.08296, first public 2023-08-16, https://arxiv.org/abs/2308.08296 .
+
+1. L. Vanbever, *In Wigner phase space, convolution explains why the vacuum majorizes mixtures of Fock states*, [arXiv:2104.14996](https://arxiv.org/abs/2104.14996), Lemma 2 and Eq. (30).
+2. B. Nugmanov, N. Zunikov and F. Ya. Khalili, *Robustness of negativity of the Wigner function to dissipation*, [arXiv:2201.03257](https://arxiv.org/abs/2201.03257), pp. 1–2.
+3. S. Li et al., *Autonomous Stabilization of Fock States in an Oscillator against Multiphoton Losses*, [arXiv:2308.08296](https://arxiv.org/abs/2308.08296), pp. 1–2.
+4. [*Sharp stationary Wigner negativity onset for Poisson-reprepared odd optical cats*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-stationary-wigner-negativity-onset-for-poisson-reprepared--1f1b1bcb8b19).
+5. [*A sharp mean-clock threshold for renewal-preserved two-photon Wigner negativity*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-mean-clock-threshold-for-renewal-preserved-two-photon-wi--0f4bc643e42b), exponential-wait comparison and relationship to prior work.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:14.429996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All nine adjacent pairs occur: same-letter and successor pairs appear within images, and predecessor pairs across images of a repeated letter. For the weighted recurrence split a window of length k^(m+1) into r whole blocks and two end fragments which themselves form a legal length-k^m window when joined. For attainment maintain a maximizing window starting in the first block of either (c-1,c) or (c,c+1), where c maximizes the level-m block weight. At offset j in either first block, the suffix, r copies of U_c, and the required length-j prefix occur in U_(c-1)^r U_c U_c^r U_(c+1). The lift starts in the first large block, so its new pair (c-1,c) serves for either allowed next maximizer c or c-1; c+1 cannot strictly beat c. At m=0 the invariant holds with the maximizing letter as the first block. Applying this to weights ±1_{a=0}, with the sliding-window step at most one, gives the exact complexity. The cyclic Fourier formula and its difference product yield the median criterion at m=3n, where the parity vector is (0,1,1). The rational cosine of 2 arg(r+ω) lies strictly between 1/2 and 1, so on every progression 3pn both sides of the median criterion occur infinitely often. Thus the range parity and, by differencing and odd r, complexity parity are not eventually periodic at powers. A finite automaton on the inputs 10^m would be eventually periodic, contrary to the reduction modulo 2 of any integer k-regular sequence. The supplied Python and output are finite corroboration only; the block-invariant and parity proof were reconstructed from the frozen text.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both indexed records treat integer r≥4, not just odd r≥5. The October argument uses non-smoothness of the range-of-cosines function to obstruct a constant-coefficient recurrence; the November argument handles both parities with modulus 2r."
+        ],
+        "reasoning": "The larger parameter range strictly includes the frozen one; a different obstruction in one of the records does not remove coverage of the conclusion.",
+        "searches": [
+          "Resultary: infinite odd repetition family; stronger normalized limit interval and even repetition cases",
+          "7b09e62adf22 RESULT.md, Finding and Proof §5",
+          "f292807a24e1 RESULT.md, Finding and Proof §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03837v1",
+        "Resultary 7b09e62adf22 RESULT.md",
+        "Resultary f292807a24e1 RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November source derives g_(3t) even iff |cos(3tθ)|<1/2, then proves nonperiodicity by density on progressions.",
+          "The precursor gives the maximizing-factor increment and power-length formula for the single repetition r=3."
+        ],
+        "reasoning": "For odd r, if complexity at powers were eventually periodic modulo 2, its differences would be too, contradicting the indexed range parity theorem. Thus even the specific frozen parity claim is covered; the published r=3 argument alone would not suffice.",
+        "searches": [
+          "f292807a24e1 RESULT.md, Proof §§3–4",
+          "arXiv:2610.03837v1, Lemma 9 and Proposition 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both indexed findings use the same fixed alphabet, morphism and coding. Their increment r·g_m with initial value 2 telescopes to the frozen sum.",
+          "Allouche et al. Theorem 7 uses only r=3; Remark 4 asks about other repetitions and alphabets."
+        ],
+        "reasoning": "The indexed recurrence is equivalent, rather than a similar result for a different coding or base. The arXiv precursor explains the setup but does not establish the larger family.",
+        "searches": [
+          "Resultary: fixed ternary cyclic a→a^r(a+1), marked-letter binary factor balance and nonregular abelian complexity",
+          "arXiv:2610.03837v1, Theorem 7 and Remark 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b09e62adf22 and f292807a24e1 are distinct exact formula matches confirmed in RESULT.md through the local mirror, not finite tables or title matches."
+        ],
+        "reasoning": "No particular finite table is needed: the indexed recurrence gives exactly the same values at every claimed power-length index.",
+        "searches": [
+          "Resultary: nonregular binary abelian complexity at powers of the substitution length with an exact recurrence"
+        ]
+      },
+      "rationale": "Two distinct indexed full texts cover the mathematical finding. The October 26 entry gives the identical morphism and coding, the identical power-length formula and nonregularity for all r≥4, with a stronger limit-set conclusion. The distinct November 2 entry additionally proves nonperiodicity of the very same range parity; on odd r its modulus-2r first-difference argument gives the frozen assertion modulo 2. This is established scope and implication overlap, not a priority decision based on dates or a claim that the frozen proof is false.",
+      "residual_risks": [
+        "Relation between the same-day records and within-day ordering are not established or needed for the coverage decision.",
+        "The bounded primary and catalogue comparison is not an exhaustive priority history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=3, which the frozen finding excludes, not the entire fixed ternary family.",
+          "evidence": [
+            "Theorem 7 uses σ(a)=aaa(a+1); the recurrence in Lemma 9 has coefficient 3. Remark 4 poses the other-parameter question."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03837",
+          "material_read": "PDF pp. 4–7 and proof of Theorem 7 p. 10; Remark 4, Lemma 9 and Proposition 8",
+          "method": "Primary OA passages and theorem/proof comparison",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Direct r=3 precursor"
+        },
+        {
+          "assessment": "Covers the morphism, the formula and nonregularity for r≥4.",
+          "evidence": [
+            "P_r(1)=2 and P_r(k^(m+1))-P_r(k^m)=r g_m; §5 rules out a linear recurrence by infinitely many Fourier coefficients of the cosine range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-infinite-nonregular-abelian-complexity-family-with-interval-v--7b09e62adf22/RESULT.md",
+          "material_read": "Finding and assumptions; accumulation-set and nonregularity arguments, including §5 at offset 6600",
+          "method": "Local mirror, matched statement and bounded proof passages",
+          "title": "An infinite nonregular abelian complexity family with interval-valued limits",
+          "trigger": "Stronger scope and exact power-length formula"
+        },
+        {
+          "assessment": "Covers the complete finding including the parity obstruction for odd r.",
+          "evidence": [
+            "Range parity at indices 3t and the modulus-2r first-difference obstruction are explicit for all r≥4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-infinite-ternary-morphism-family-with-nonregular-binary-abeli--f292807a24e1/RESULT.md",
+          "material_read": "Finding and exact recurrence; §§3–4, including the offset 5300 passage",
+          "method": "Local mirror, compare formulas and prove implication to modulo 2",
+          "title": "An infinite ternary morphism family with nonregular binary abelian complexity",
+          "trigger": "Same-day stronger indexed theorem and matching parity mechanism"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The theorem addresses a natural question from the r=3 precursor in infinitely many bases. Power-length exact extrema and the parity mechanism are informative beyond verifying individual examples. This is an assessment of the mathematical question and result in isolation; it does not supply an incremental contribution over the covering records.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

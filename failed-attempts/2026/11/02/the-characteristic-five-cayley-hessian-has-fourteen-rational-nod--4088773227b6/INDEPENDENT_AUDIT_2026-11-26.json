@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:40:49.918481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–53",
+        "VERIFICATION.md lines 19–23, source verify.py and verification_output.txt (inspected, not executed)",
+        "Independent bounded check: first-nonzero-coordinate normalization, direct quartic and Jacobian evaluation, local rank tests over F5 and quartic evaluation over F5[t]/(t^2+3); counts reproduced, no separate replay file reported"
+      ],
+      "rationale": "The second-derivative determinant of e3 is -4h. Geometric completeness can be checked without relying on finite enumeration: with exactly three nonzero coordinates, h=0 forces their sum to vanish and a supported partial derivative is their nonzero product. With two nonzero coordinates, a missing-coordinate derivative is their product times their sum, so exactly the opposite-coordinate pairs are singular. With one nonzero coordinate all partials vanish. On the torus write h=(product x_i)(S U-4) with S=sum x_i and U=sum 1/x_i. Singularity there implies U=S/x_i^2 for all i, and SU=4; hence all x_i are of the same magnitude up to signs, with precisely a 3-to-1 sign split. In local coordinates u,v,w the leading forms at the three representatives are uv+uw+vw, -u(v+w)-(v-w)^2, and the negative of 2(u^2+v^2-w^2)-(u+v+w)^2. All are nonsingular modulo 5. The projective quartic is integral and normal by isolatedness; the A1 resolution is crepant with H^1(O)=0, so is K3. Every rational node has a smooth split exceptional conic over the finite field, adding q points. Independently enumerating canonical projective representatives over F5 and F5[t]/(t^2+3) reproduced 56 and 826, and the Jacobian enumeration and local ranks reproduced the 14 rank-three rational nodes. The resolved counts are 126 and 1176. The two Frobenius traces are 100 and 550; the second attains 22·25, forcing every squared eigenvalue to be 25 by the Weil bound. The first trace then yields twenty-one +5 and one -5. The K3 Tate theorem in odd characteristic gives the stated ranks over F5 and geometrically, and the trace formula gives both zeta functions.",
+      "residual_risks": [
+        "The point enumeration alone cannot exclude nonrational geometric singularities; the support/torus argument does. Picard ranks use the K3 Tate theorem, not just the finite enumeration. No Artin invariant is claimed or needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dardanelli–van Geemen Proposition 3.2 gives T=<2>⊕<6> and a rational-curve configuration spanning the rank-twenty Néron–Severi space.",
+          "Livné's modularity theorem as stated in Schütt Theorem 4 gives weight-three CM by the imaginary quadratic field of the discriminant. Schütt Example 15 explicitly identifies the two transcendental eigenvalues at a good inert prime as p and -p."
+        ],
+        "reasoning": "The Cayley resolution over Q is a singular K3 in the Picard-rank-20 sense, with CM field Q(sqrt(-3)). Five is inert. The fourteen rational nodes lift and remain ordinary; blowing up the fourteen disjoint sections over Z_(5) gives smooth relative resolution (on blowup charts the exceptional projective quadrics are smooth and elsewhere the original fibers are smooth). Thus the good-reduction theorem applies to this exact special fiber.",
+        "searches": [
+          "Primary search: Cayley cubic Hessian singular K3 modular form level 12 and inert reduction",
+          "Schütt arXiv:0804.1558 §3 Theorem 4 (Livné)",
+          "Schütt arXiv:0808.1061 p. 10 Example 15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Prior work",
+        "arXiv:math/0409322",
+        "arXiv:0804.1558",
+        "arXiv:0808.1061",
+        "arXiv:1201.4533v3",
+        "Resultary 79d761901c2b and 92cfa7a5781b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known rank-twenty divisor space is rational: in the Sylvester presentation the coordinate nodes and lines and the Cayley nodes and connecting lines are rational. In the e3 chart one can also see twenty independent classes directly as the fourteen rational exceptional curves plus six rational coordinate edges. Eliminating the exceptional block from their intersection matrix leaves the six-edge block (-I+A)/2, where A is edge-adjacency in a tetrahedron, with eigenvalues 4,0,0,0,-2,-2 for A; this block is nonsingular.",
+          "Good reduction transports the twenty divisor-class eigenvalues +5. The remaining two eigenvalues are +5,-5 by the inert CM rule. The fourteen rational tangent conics are smooth and split; the split exceptional contributions to the two zeta functions differ by fourteen +5 factors."
+        ],
+        "reasoning": "The arithmetic claims including both extension formulas follow without using the new finite-field counts. The geometric node orbits are the classical ones; the direct support and tangent checks at 5 supply the elementary good-reduction check, not an additional degeneration or arithmetic invariant. The Picard ranks follow from these established eigenvalues by Tate.",
+        "searches": [
+          "Dardanelli–van Geemen §§1.6, 3.1–3.2 basis and divisors",
+          "Schütt's statement of Livné plus the inert-prime Frobenius rule; check on the given integral Cayley model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dardanelli–van Geemen §3.1 gives the Cayley cubic as sum 1/z_i=0 and its rational Sylvester form, with four extra Hessian nodes and the six connecting lines. The symmetric and Sylvester coordinates are related by x_i=S-2z_i for i<4, x_4=-2S, S=sum z_i. The Sylvester cubic pulls back to -24e3 and this transformation is invertible modulo 5. Hessians therefore describe the same model under this change.",
+          "Shimada's degree-two models concern the Artin-invariant-one surface; the inspected introductory passages do not identify the present quartic model or its F5 descent."
+        ],
+        "reasoning": "The characteristic-zero Cayley object under the alternative Sylvester presentation is genuinely the relevant one, not a different Hessian with the same name. The split node sections of this model persist at 5. No equivalence with a particular Shimada double-plane model or its F5 twist was assumed.",
+        "searches": [
+          "Local Resultary: Cayley cubic Hessian, characteristic five, maximal quadratic extension and supersingular K3",
+          "Dardanelli–van Geemen arXiv:math/0409322 §§3.1–3.2",
+          "Shimada arXiv:1201.4533v3 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 79d761901c2b and 92cfa7a5781b concern a characteristic-five Clebsch/Sylvester model in P4 with eleven nodes, 96 resolved F5-points, and normalized spectrum (+1)^18(-1)^4, also reaching 1176 over F25."
+        ],
+        "reasoning": "The 1176 count just reflects quadratic-extension maximality and cannot identify the model or its zeta over F5. No exact Cayley zeta entry was found in the inspected catalogue. The decision comes instead from the verified broader implication.",
+        "searches": [
+          "Local Resultary: exact Cayley F5 Hessian zeta, fourteen nodes, normalized spectrum and maximal K3; inspected related Sylvester/Clebsch hits"
+        ]
+      },
+      "rationale": "No exact characteristic-five Cayley zeta entry was found in the checked catalogue, but the prior Cayley Hessian lattice computation plus the general CM theorem for singular K3 surfaces already gives this spectrum. The exact rational model and good-reduction hypothesis can be checked directly, and the prior rational divisor description accounts for all twenty algebraic eigenvalues. The failure is established implication, not inferred priority from a date or an unavailable source.",
+      "residual_risks": [
+        "No exact older characteristic-five zeta listing was identified. The specific projective presentation in other supersingular-model catalogues is unresolved; no conclusion relies on identifying such a model or on assigning same-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives relevant explicit rational model, rank and lattice, not an explicit characteristic-five zeta statement",
+          "evidence": "Four Cayley nodes and six connecting lines; rank 20 from a listed rational configuration; T=<2>⊕<6> and NS discriminant -12.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409322",
+          "material_read": "§§3.1–3.2, pp. 7–8, extracted passage offsets 20350–26023",
+          "method": "Original OA PDF text",
+          "title": "Hessians and the moduli space of cubic surfaces",
+          "trigger": "Same classical Cayley Hessian, possible input to exact reduction formula"
+        },
+        {
+          "assessment": "Provides precise general modularity input attributed to Livné",
+          "evidence": "Every singular K3 over Q is modular; its transcendental L-series has weight 3 and CM by Q(sqrt(d)) for discriminant d.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.1558",
+          "material_read": "§3, Theorem 4 and adjacent text on the CM field and Hecke characters, offsets 8750–12384",
+          "method": "Original OA PDF passage",
+          "title": "K3 surfaces with Picard rank 20",
+          "trigger": "Potential stronger theorem controlling Cayley Hessian Frobenius"
+        },
+        {
+          "assessment": "Directly supplies eigenvalues at good inert primes",
+          "evidence": "At inert primes the coefficient is zero, resulting in the two further Frobenius eigenvalues p and -p on H^2.",
+          "identifier_or_url": "https://arxiv.org/pdf/0808.1061",
+          "material_read": "p. 10, Example 15, offsets 28200–30538",
+          "method": "Original OA PDF passage",
+          "title": "Arithmetic of K3 surfaces",
+          "trigger": "Exact eigenvalues rather than just potentially supersingular reduction"
+        },
+        {
+          "assessment": "The inspected material does not identify the Cayley resolution or its arithmetic form",
+          "evidence": "Uniqueness of Artin-invariant-one K3 and description of degree-two projective models.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.4533v3",
+          "material_read": "pp. 1–3, extraction near offset 1569",
+          "method": "Original OA PDF passage",
+          "title": "Projective models of the supersingular K3 surface with Artin invariant 1 in characteristic 5",
+          "trigger": "Possible equivalent geometric model"
+        },
+        {
+          "assessment": "Different Hessian and different F5 Frobenius spectrum; same-day record is not assigned priority",
+          "evidence": "Eleven, not fourteen, nodes; 96 not 126 resolved F5-points; four rather than one negative eigenvalues.",
+          "identifier_or_url": "Resultary 79d761901c2b and 92cfa7a5781b",
+          "material_read": "The two RESULT.md Findings",
+          "method": "Local Resultary mirror",
+          "title": "Characteristic-five Clebsch/Sylvester Hessian K3 maximality and zeta findings",
+          "trigger": "Closest catalogue hits by prime and maximality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–30 and 46–50",
+        "Dardanelli–van Geemen §3",
+        "Schütt's CM and inert-prime passages"
+      ],
+      "rationale": "The arithmetic of this classical Hessian is naturally motivated, but the precise Frobenius spectrum here is a specialization of the known CM rule to a model with a known rational rank-twenty divisor lattice and an elementary ordinary-node good-reduction check. Verifying the counts by enumeration is a useful consistency test, not an independent mathematical gain. The record establishes no further projective or arithmetic invariant beyond this implication.",
+      "residual_risks": [
+        "The verdict is about the incremental result, not the applicability of the point-count method to other models. The record's scoped exclusion of the Artin invariant is respected."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the three-duplication sphere spectrum
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof distinguishes output sets rather than ordered histories, proves the two-step terminal-membership criterion, and obtains a disjoint-set recurrence for exact-three descendants. All quantifiers cover every positive source length and every binary source. The forward verifier exhausts 2046 sources at lengths one through ten; the structurally different reverse-deletion verifier checks 510 sources through length eight. The induction, rather than those finite tests, proves the infinite result.
+## correctness
 
-## Originality
-PASS relative to inspected sources. The closest fixed-error published result determines the exact-two maximum for odd reverse-complement block lengths, and the closest earlier binary spectrum gives \(\binom{n+1}{2}+r\) for **two**, not three, duplications. The new proof resolves overlaps created by a third duplication and yields a full all-length spectrum with \(\binom r2\) curvature. The 2025 source on unbounded-error capacity, the September 2026 manuscript on finite-error coding bounds and two-error spheres, and the February 2026 correcting-code preprint do not state this exact-three spectrum in the inspected material. The 2021 full text was not inspected; an equivalent unindexed derivation remains possible.
+PASS
 
-## Value
-PASS. A fixed-error descendant-sphere law is a natural channel-geometric invariant: its volume enters packing and decoding-complexity assessments. The three-error classification reveals a complete spectrum and exact extremizers, whereas the general odd-block result supplies only the maximum for two errors. It is a meaningful all-length theorem, not an arbitrary short-length census or an unproved extrapolation.
+Track the descendants of the prefix x and the appended symbol b in separate consecutive blocks. In one step two positions i<j give different symbols at output position j+1. Writing c for the complement of b, the word xbc is reachable from x in two steps exactly when x is not all b: append bc if x ends in c, or insert a b at the last cb transition then append c; from an all-b source the initial b-run cannot grow. This gives the stated exact-two recurrence, whose base size is 2. At three steps the ending classes b, bc and cc isolate the three disjoint main families, and D_1(x)bcb lies in D_3(x)b because every one-step descendant is nonconstant. Of the four final single-symbol-block outputs, xbccc is always new; the other three are old if x is not all b by the two-step criterion plus one duplication, and new otherwise because they start with n+1 copies of b (and the bc-ending word would require xbc in D_2(x)). Thus the size increase is binom(n+2,2)+r+3·1_(x=b^n), the increase of the displayed formula. The n=1 base, strict difference n+2−r, binary frequency count, and extrema agree. Fresh direct enumeration, not the frozen scripts, checked all 510 binary sources of lengths 1–8; that is corroboration, not the proof. Both frozen checkers were inspected.
 
-## Scientific limitations
-Only fixed-point-free binary complement, one-symbol duplications, exactly three sequential operations. No claimed optimal correction code or multi-letter alphabet extension. No independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact source-dependent three-duplication sphere law. The closest indexed formulas give the source-dependent two-duplication count or an exact-two maximum. Published results on common descendants, single-symbol descendants, and correcting multiple errors have materially different conclusions from counting distinct exact-three descendants of an arbitrary fixed source. No assertion of priority is made for the embedded two-step formula.
+
+## value
+
+PASS
+
+Distinct received-word counts are basic sphere-packing data for the existing multiple reverse-complement error model. The fixed-source law gives every attainable three-error volume, not just a larger constant-source example: code-size arguments sensitive to source-dependent volume can now distinguish all initial run lengths. The nontrivial overlaps first appearing beyond the established exact-two enumeration make this a natural exact case, without claiming a new optimal code bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

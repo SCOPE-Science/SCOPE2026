@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:27.155947Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, assumptions and Proof",
+        "VERIFICATION.md and checker.py, inspected statically",
+        "Blier-Wong–Cossette–Marceau, Exchangeable FGM copulas, §2 Eqs. (1)–(2), independently specialized as a cross-check"
+      ],
+      "rationale": "The polynomial is grounded and has uniform univariate margins. The mixed derivative is 1+λ(1−2z)[1−2αx−2βy−4(1−α−β)xy]. The bracket is bilinear and is a convex interpolation of its four corner values, so the stated maximum gives both necessary and sufficient nonnegative density on the cube. Strict failure at a vertex forces negative density on a nearby interior box; equality is allowed. Writing s=α+β, the integral of xy[1−αx−βy−(1−s)xy] is (5−2s)/36 and the integral of z(1−z) is 1/6; this yields ρ=λ(5−2s)/27. At the midpoint the bracket before multiplication by (1−z) is (3−s)/4, so the stated normalization gives M=λ(3−s)/24. The linear map from (a,b) has determinant 1/1296. Given a≠0 and |a|,|b|≤1, α=β=(3+b/a)/4 realizes the point with other scaled corners both equal to −(a+b)/2. Finite parameters with a=0 force b=0. The joint positive and negative extrema occur uniquely at (a,b)=(1,−1) and (−1,1); translating the remaining corner bounds gives α+β=1 and both parameters in [0,1]. Thus the math of the stated finite-parameter image and sharp bounds is correct.",
+      "residual_risks": [
+        "The proof uses nonnegative density, not strict positivity at every point; zeros at extreme parameters are allowed. The seeded probes in the frozen checker were not executed and are not needed for the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Eq. (2) characterizes admissibility of general d-variate FGM parameters by 1+sum of coordinate-sign monomials weighted by their θ coefficients being nonnegative for every sign vector.",
+          "For θ12=0, minimize over ε_z to obtain |P ε_x+Q ε_y+R ε_x ε_y|≤1 for all ε_x,ε_y. Multiplying by ε_x ε_y makes the maximum equal to |P|+|Q|+|R| (the two remaining signs are independent). Thus the entire coefficient domain is an ℓ¹ ball, restricted only by the finite chart."
+        ],
+        "reasoning": "The necessary-and-sufficient sign theorem directly contains the claimed corner condition. Substituting the three coefficient expressions gives precisely the same four affine corner inequalities, including equality. The exchangeable-only results later in that paper are not being applied here.",
+        "searches": [
+          "Web: multivariate FGM copulas exact admissible parameter space all sign vectors Bernoulli representation Cambanis necessary sufficient Blier-Wong rho beta trivariate",
+          "Blier-Wong–Cossette–Marceau, Exchangeable FGM copulas, §2 Eqs. (1)–(2), printed p. 207"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and companions",
+        "Resultary suffixes aaf211ec23ca and b104948b0933",
+        "DOI 10.1017/apr.2023.19, §2",
+        "DOI 10.37256/cm.5120242507 (bibliographic/availability only)",
+        "DOI 10.21608/CJMSS.2024.272790.1042 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put S=P+Q. The projection of |P|+|Q|+|R|≤1 onto (S,R) is exactly |S|+|R|≤1 because P=Q=S/2 attains every projected point.",
+          "The frozen a is S+R and b is R−S, and max(|a|,|b|)=|S|+|R|. This transforms the projected diamond to the square. The finite chart removes a=0 except the origin. The two already reported linear dependence formulas carry the square to the parallelogram; their extrema are at the two indicated opposite vertices."
+        ],
+        "reasoning": "The prior theorem plus the exact FGM substitution yields both principal claims, including the excluded diameter and extrema, by immediate linear projection and the singular finite coordinate change. Even if the exact drawing is not printed in the prior paper, the frozen mathematical result is mechanically implied.",
+        "searches": [
+          "DOI 10.1017/apr.2023.19, Eq. (2), specialized to θ12=0",
+          "Frozen RESULT.md Eqs. (2), (5) and finite parameter hypothesis",
+          "Resultary: Chesneau 2024 Proposition 3.1 Omega Xi Remark 3.2 second copula sufficient bound exact validity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expand the frozen bracket in (1−x),(1−y): it is (1−β)(1−x)+(1−α)(1−y)+(α+β−1)(1−x)(1−y). Hence the FGM coordinates are θ12=0, P=θ13=λ(1−β), Q=θ23=λ(1−α), R=θ123=λ(α+β−1).",
+          "The map back has λ=P+Q+R, α=1−Q/λ, β=1−P/λ whenever λ≠0. At λ=0 only P=Q=R=0 is represented by finite parameters.",
+          "Resultary suffix aaf211ec23ca is the identical record, not a distinct precedent."
+        ],
+        "reasoning": "This is exact equality of CDFs and a precise account of the singular chart, not just resemblance to an FGM-type family. The broader FGM theorem applies to the nonexchangeable slice as well; it is stated before specializing to exchangeable FGM.",
+        "searches": [
+          "Resultary: Chesneau second three-parameter non-exchangeable 3D polynomial copula Proposition 3.1 admissibility exact dependence parameter region",
+          "Resultary: Chesneau three-dimensional medial correlation Spearman rho formulas second nonexchangeable polynomial copula",
+          "Blier-Wong–Cossette–Marceau DOI 10.1017/apr.2023.19, Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record reports that Chesneau Table 2 gives |λ|≤1/25 at (5,2); the table was inaccessible and the quoted entry was not independently verified. The published FGM sign criterion gives the exact |λ|≤1/11 there: P=−λ, Q=−4λ, R=6λ.",
+          "The distinct same-day polynomial-power record's indexed summary concerns parity-dependent admissibility for the first construction with power parameters m,θ; it does not establish the second construction's finite-parameter image."
+        ],
+        "reasoning": "Neither a frozen self-match nor an inaccessible reported table supplies evidence of priority. The concrete exact example is recovered mechanically from the general FGM theorem, independent of whether the reported sufficient table entry is correct.",
+        "searches": [
+          "Resultary: Chesneau Table 2 alpha beta lambda sufficient range polynomial copula (5,2)",
+          "Chesneau DOI 10.37256/cm.5120242507 and publisher article/view/2507 (OA attempts)",
+          "Resultary 2026/11/22/SCOPE-sharp-parity-dependent-admissibility-for-polynomial-power-trivar--b104948b0933, indexed statement"
+        ]
+      },
+      "rationale": "The stated family is the θ12=0 slice of the standard trivariate Farlie–Gumbel–Morgenstern (FGM) family, except for a deleted parameter chart at λ=0. The published general FGM admissibility theorem gives the full feasible domain here directly and the joint image is its elementary two-coordinate projection with a chart exclusion. This is verified prior implication, not a refusal to assess because Chesneau's primary article was inaccessible.",
+      "residual_risks": [
+        "The exact original sufficient bound, normalization statements and example table could not be adjudicated from Chesneau's own article. That limitation does not affect the decisive positive FGM prior implication. No claim is made about publication priority for the particular diagram or wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger exact coverage, by direct algebraic specialization and linear projection",
+          "evidence": "Eq. (1) is the general FGM CDF in factors 1−u_i. Eq. (2) is its full sign-vector admissibility criterion, with no exchangeability hypothesis in the displayed result.",
+          "identifier_or_url": "https://doi.org/10.1017/apr.2023.19",
+          "material_read": "§2 Definition and general-family Eqs. (1)–(2), p. 207, Cambridge OA PDF extraction offset 10800–15892",
+          "method": "Bounded OA primary PDF read from Cambridge",
+          "title": "Exchangeable FGM copulas",
+          "trigger": "General FGM coefficient characterization of the exact polynomial slice"
+        },
+        {
+          "assessment": "Frozen record's reported source comparisons unconfirmed, not negative evidence",
+          "evidence": "The available description mentions admissible parameter sets and closed-form rank coefficients; it is not theorem or table text.",
+          "identifier_or_url": "https://doi.org/10.37256/cm.5120242507",
+          "material_read": "Bibliographic publisher/search description only; Proposition 3.1, Remark 3.2 and Table 2 were not retrieved",
+          "method": "Lawful OA DOI and publisher route attempts, including direct PDF route",
+          "title": "On Two Simple, Three-Parameter, Three-Dimensional, Non-Exchangeable Copulas",
+          "trigger": "Originating formula and precise comparison with its sufficient bound, formulas and Table 2"
+        },
+        {
+          "assessment": "Cannot independently compare its exact scope",
+          "evidence": "No primary statement retrieved; no negative inference. The exact equivalent that determines this decision is instead the published general FGM criterion.",
+          "identifier_or_url": "https://doi.org/10.21608/CJMSS.2024.272790.1042",
+          "material_read": "Bibliographic citation in the frozen record only; DOI retrieval timed out",
+          "method": "OA DOI attempt and title/DOI literature lookup",
+          "title": "Three-Dimensional Copulas: A Generalized Convex Mixture Copulas Strategy",
+          "trigger": "Possible related family"
+        },
+        {
+          "assessment": "The indexed statement concerns a different construction; not used as decisive coverage",
+          "evidence": "Power parameters and parity conditions for the polynomial-power construction, not the second copula with the linked xy coefficient.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-parity-dependent-admissibility-for-polynomial-power-trivar--b104948b0933",
+          "material_read": "Indexed summary",
+          "method": "Resultary lookup",
+          "title": "Sharp parity-dependent admissibility for polynomial-power trivariate copulas",
+          "trigger": "Closest distinct same-day indexed record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, Proof and limitations",
+        "General FGM admissible domain, DOI 10.1017/apr.2023.19 Eq. (2), and explicit linear projection in this review"
+      ],
+      "rationale": "An exact attainable joint dependence region is a sensible question, but here the stated geometry is the elementary projection of an already characterized sign polytope. The apparent gap is precisely the singularity of the finite (λ,α,β) chart, not an additional copula feasibility constraint. The validity and extremal claims likewise follow by substitution into the known domain, so no distinct worthwhile mathematical claim survives as a repair.",
+      "residual_risks": [
+        "The result may still be useful explanatory material about this parameterization. That is not a new independent scientific finding under the review standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

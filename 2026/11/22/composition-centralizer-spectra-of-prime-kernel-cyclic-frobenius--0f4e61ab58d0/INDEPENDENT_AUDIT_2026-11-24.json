@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:17:45.890954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–94, 100–104",
+        "Frozen VERIFICATION.md and reproducibility/check.py, check-output.txt (read, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py (frobenius function), (p,r)=(7,3),(13,4),(13,6),(17,8)"
+      ],
+      "rationale": "The commutator subgroup is the prime kernel and is fully invariant; for generator images (a^s,a^t b^k) the conjugation relation is s(u^k−u)=0. With s≠0 faithfulness forces k=1; when k=0 the order relation forces t=0. These constraints are sufficient by the presentation. In normalized color c=t/(1−u^k), a nonzero nonunit is (k,c); its product with (l,d) is (kl,c) for kl≠0 mod r and the trivial map otherwise. A unit acts on colors from the left by x↦sx+t/(1−u), and from the right leaves the nonunit unchanged. Thus the nonunit has p−1 commuting units (its color stabilizer), p(gcd(k,r)−1) commuting nonzero nonunits from zero products, and r−gcd(k,r) others of its own color, plus the trivial map. The affine-unit centralizers have p units for a nonzero translation and p−1 for a nonidentity multiplier; only the latter fixes one color and admits r−1 commuting nonunits. This gives all coefficients and the only coincidence, d=1 with the multiplier stratum, since r≥3 and d<r. The identity and trivial map alone have full centralizer. Nonunit image order is r/d, idempotence is k²=k mod r (2^ω(r) residues including zero), and unit conjugacy consists of the affine classes and one orbit per nonzero k, plus the trivial map. The degree-weighted sum counts ordered commuting pairs, with leading p³ for fixed r as asserted. A separate direct enumeration over all generator image pairs in four explicit groups, comparing their actual values on the two generators under composition, matched the full spectrum and color test, including composite and prime-power complements.",
+      "residual_risks": [
+        "The finite replay is corroboration; the presentation and color calculation prove the full parameter range.",
+        "The divisor-count formula does not extend unchanged to r=2, where the translation size and d=1 size agree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang's broader Frobenius-family treatment determines automorphism groups; Theorem A of García-Blázquez and del Río is an isomorphism classification of groups.",
+          "Bors's construction treats the endomorphism monoids of different nilpotent p-groups, in particular JK-group examples."
+        ],
+        "reasoning": "Neither of the group-level results encompasses centralizers containing nonunits; the endomorphism-monoid treatment for the other p-groups does not specialize to these non-nilpotent groups.",
+        "searches": [
+          "Wang arXiv:1610.05914; García-Blázquez and del Río arXiv:2301.08683; Bors arXiv:1411.4190"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 106–122",
+        "Resultary c65eb67eeb05",
+        "Primary arXiv:1807.10389, 1610.05914, 1411.4190, 2511.15602, 2301.08683"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The automorphism-group result accounts for the affine unit subgroup, not its action on colors of nonunits. The metacyclic commutator-map semigroups use maps on an entirely different generating principle even for the same group.",
+          "The Heisenberg count does not display any cyclic-complement divisor parameter."
+        ],
+        "reasoning": "Counting requires both the unit stabilizers on the nonunit fibers and the kernel of multiplication by k on the complement residues. Those are the structural ingredients in the target result, not consequences of any inspected theorem about a group center, affine automorphisms, or Heisenberg maps.",
+        "searches": [
+          "arXiv:1807.10389 p. 1; arXiv:1610.05914 pp. 1,4; c65eb67eeb05 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DeWolf–Edmunds's presentation includes these groups under k=u⁻¹ in their conjugation convention, but their transformation generators are x↦[x,g] and x↦[g,x].",
+          "Ajith et al.'s endomorphism graph has group elements as vertices; the frozen commuting graph has endomorphisms as vertices.",
+          "The nonunit ideal here is the Rees quotient of the product of a p-element left-zero semigroup and the multiplicative residues modulo r, collapsing the pairs with residue zero."
+        ],
+        "reasoning": "The latter semigroup description follows by normalizing the generator images. There is no identified equivalence of the entire monoid and centralizer statistic to the two inspected primary graph/semigroup constructions, including the usual uncolored zero-divisor interpretation.",
+        "searches": [
+          "Primary comparison of metacyclic commutation semigroups (arXiv:1807.10389) and endomorphism graphs (arXiv:2511.15602)",
+          "Resultary meaning search for composition-centralizer spectra of Frobenius-group endomorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Heisenberg entry gives seven sizes and a two-element center for End(H_p), with |H_p|=p³; it does not give the divisor-dependent Frobenius spectrum. The identical hit for the frozen title is a self-match."
+        ],
+        "reasoning": "This is adjacent exact coverage of the same invariant on a nonisomorphic family, not a formula or table for these prime-kernel cyclic Frobenius groups.",
+        "searches": [
+          "Resultary composition-centralizer spectrum and endomorphism commuting pairs; exact mirror match c65eb67eeb05"
+        ]
+      },
+      "rationale": "The supported distinct claim is the composition-centralizer spectrum and the arithmetic commutation rule for the whole endomorphism monoid of this family, with their calculated consequences. The closest primary comparator covers the same group family but a different transformation semigroup. Existing affine automorphism and metacyclic classification results establish part of the ambient structure, not the interaction with nonunits.",
+      "residual_risks": [
+        "A further primary lookup was unavailable. The bounded search does not exclude unlocated historical general endomorphism-monoid results for semidirect products or exact work on subfamilies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same groups, different monoids",
+          "evidence": "Its trivial center is a group assumption; it generates transformations by commutator maps and compares those semigroups.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.10389",
+          "material_read": "p. 1, offset 350: presentation and definitions of P(G), Λ(G)",
+          "method": "Lawful OA PDF",
+          "title": "Commutation Semigroups of Finite Metacyclic Groups with Trivial Centre",
+          "trigger": "Same underlying group family and composition of transformations"
+        },
+        {
+          "assessment": "Analogous class count for another family",
+          "evidence": "A seven-size spectrum and ordered commuting-pair count for odd-prime Heisenberg groups of order p³, not the arithmetic criterion here.",
+          "identifier_or_url": "c65eb67eeb05",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Composition-centralizer spectra in the smallest odd Heisenberg group family",
+          "trigger": "Exact same invariant in adjacent classified family"
+        },
+        {
+          "assessment": "Unit group coverage",
+          "evidence": "The topic in the inspected statements is Aut(G), not composition centralizers in End(G).",
+          "identifier_or_url": "https://arxiv.org/abs/1610.05914",
+          "material_read": "p. 1 offset 378; p. 4 offset 10800",
+          "method": "Lawful OA PDF",
+          "title": "On the automorphism groups of Frobenius groups",
+          "trigger": "More general elementary-abelian kernel and cyclic complement"
+        },
+        {
+          "assessment": "Methodological overlap on different groups",
+          "evidence": "Abstract and two-sided semidirect product definition concern finite p-groups and the JK examples, not the family under audit.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4190",
+          "material_read": "p. 1 offset 449; p. 2 offset 5200",
+          "method": "Lawful OA PDF",
+          "title": "On the endomorphism monoids of some groups with abelian automorphism group",
+          "trigger": "Semigroup decomposition and commuting endomorphisms"
+        },
+        {
+          "assessment": "Distinct graph",
+          "evidence": "The transformation monoid acts on vertices that are group elements, not endomorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.15602",
+          "material_read": "pp. 2–3 offsets 6200, 8000",
+          "method": "Lawful OA PDF",
+          "title": "Endomorphism and automorphism graphs of finite groups",
+          "trigger": "Possible alias for commuting graph of endomorphisms"
+        },
+        {
+          "assessment": "Classifies the groups only",
+          "evidence": "Group invariants determine isomorphism; no centralizer-size formula in that theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.08683",
+          "material_read": "p. 2 offset 9000, Theorem A",
+          "method": "Lawful OA PDF",
+          "title": "A classification of metacyclic groups by group invariants",
+          "trigger": "Broader metacyclic classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 62–94",
+        "DeWolf–Edmunds arXiv:1807.10389 p. 1 for the distinct yet closely related transformation-semigroup problem"
+      ],
+      "rationale": "The natural smallest prime-kernel Frobenius family allows the complete composition-commutation invariant, not just unit centralizers or its average, to be read off from divisibility in the complement. The field-color rule shows exactly how changing from a prime to a composite complement changes graph connectivity between color classes; together with the distribution it gives directly usable input for commuting-graph and endomorphism-monoid comparisons. This is a uniform structural result, not a table of small examples.",
+      "residual_risks": [
+        "The value is the exact invariant and its structural explanation for this family, not a general classification of finite-group endomorphism monoids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

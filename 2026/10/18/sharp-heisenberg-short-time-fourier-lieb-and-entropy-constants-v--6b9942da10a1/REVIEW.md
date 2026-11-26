@@ -1,21 +1,21 @@
-# Scientific review: exact Heisenberg STFT Gaussian contraction and sharp constants
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal \(L^p\) bound and entropy lower bound are established in Dabra–Dasgupta–Gulia, Theorems 5.1 and 6.2. Here the normalization is independently reconstructed: the Fourier-side Gaussian has unit \(L^2\) norm, and the anisotropic central coordinate change has cancelling phase-space Jacobians. The Gaussian Hessian has determinant \(2^{2n+1}(1+\epsilon^2|v|^2/16)\); its completed-square constant is \(|v|^2/2+c^2/[2(1+\epsilon^2|v|^2/16)]\). Performing the modulation, central translation and radial Gaussian integrals gives the exact Gamma expectation. Dominated convergence supplies a saturating sequence. Christ's strict Young-convolution result, used at the interior exponents appearing in the original Lieb upper-bound proof, excludes global equality for \(p>2\). Differentiation of the moment at \(p=2\) gives the entropy formula. These operations use integrable Gaussian expressions throughout.
+PASS
 
-The accompanying verification program passed all of its matrix, numerical integral, asymptotic, and entropy checks. Finite checks are not offered as substitutes for the analytic identities or the cited nonattainment theorem.
+Checked the continuous transform in the specified 2π Fourier convention and reconstructed the Gaussian integral. The two phase-space Jacobians cancel. For fixed horizontal translation v the shear is confined to the span of j(v) and the central axis, a two-by-two block with determinant 4+ε²|v|²/4. Thus det M=2^d H, H=1+ε²|v|²/16. Since v is orthogonal to j(v), completing the square gives |v|²/2+c²/(2H). The modulation and central-translation Gaussian integrals leave the power H^(1−p/2) and the horizontal radial law πp|v|²/2 ∼ Gamma(n,1). At p=2 the joint spectrogram has mass one; direct expectation of its negative log gives E log H+n+1/2+d/2=d+E log H. The finite Gamma moments justify both quadratic expansions; dominated convergence gives sharpness. In the cited upper bound, the Young step acts on the nonzero functions |f̂|^(p′), |ĝ|^(p′) (with inversion of the first) with input exponents 2/p′ and output p−1, all strictly interior for p>2. Strict Young at those exponents rules out STFT equality. The entropy assertion is an infimum, not a global equality classification. The uploaded numerical support was inspected, not executed, and is not used as proof. In RESULT.md's intermediate Gaussian modulation integral, the differential is understood in the rescaled modulation coordinates (the reciprocal Jacobian belongs to the central translation).
 
-## Originality
+## originality
 
-**PASS (subject to independent priority checking).** The directly motivating paper arXiv:2608.20952 proves the inequality but explicitly states in Remark 5.2 that its proof cannot conclude sharpness. Christ's arXiv:1706.02005 supplies sharp noncommutative Young convolution and its nonattainment, not the sharp constant for this different short-time Fourier transform. The exact finite-anisotropy Gamma integral and entropy formula neither follow from the bare upper bound nor from the absence of convolution extremizers. Published record searches for Heisenberg STFT, Dynin–Folland, Lieb sharpness, Gaussian contraction and entropy, and comparisons with adjacent Gaussian and finite-group problems did not reveal an equivalent or stronger assertion. A general contraction idea in convolution inequalities is known, so its availability does not by itself establish historical priority for the STFT statement; an unindexed equivalent argument is a residual risk.
+PASS
 
-## Value
+The universal inequalities and the Young nonextremizer result are prior work, not credited here. The exact normalized Heisenberg-STFT Gaussian moment and entropy curves and their deficits supply a sharpness proof for a specific question explicitly left by the primary STFT paper. The one-step deduction of STFT nonattainment from interior Young nonattainment is not independently credited as an original mechanism. No checked source covers the distinct quantitative claim.
 
-**PASS.** The motivating source expressly leaves sharpness of a natural noncommutative Lieb bound unresolved. The identity settles that mathematical gap for the full exponent and dimension ranges of the bound, reconciles nonattainment with sharpness, and supplies a quantitative rate measuring approach to the optimal constant. The same calculation proves optimality of the associated Shannon entropy lower bound. This is not an arbitrary parameter slice or a numerical approximation.
+## value
 
-## Closest literature and limits
+PASS
 
-Dabra–Dasgupta–Gulia, arXiv:2608.20952 (21 August 2026), Theorem 5.1, Remark 5.2, and Theorem 6.2; and Christ, arXiv:1706.02005 (2017), Section 5. The sharp constants and nonattainment refer to the defined noncommutative transform for \(p>2\), not to all alternate definitions of STFT on a group. The exact Gaussian formulas do not classify all extremizing sequences or imply an arbitrary-data stability estimate. No assertion of global entropy nonattainment is made.
+Resolves whether the known continuous Heisenberg-STFT bounds can be approached, despite the absence of maximizing pairs for p>2. The complete finite-width curve and leading defects quantify the effect of the noncommutative shear in every dimension, beyond an existence proof for a saturating sequence. No general stability or all-extremizing-sequences assertion is needed for this value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:00:27.079710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof equations (1)–(5) and large-exponent argument",
+        "Frozen VERIFICATION.md and verify.py, inspected rather than executed",
+        "/workspace/branches/independent-replay.py, record 2"
+      ],
+      "rationale": "The divisor identity for J_s turns the quadratic form into a sum of squares with weights J_s(d)/d^2. Expanding each square restricts d to be squarefree and coprime to kl. The resulting multiplicative weight has convolution with mu supported on p and p^2 at each prime. Absolute weighted summability for sigma>1/2 costs at most a factor tau(kl), yielding the uniform mean with local correction R_s(kl). Partial summation gives error exponent alpha=max(0,beta-1+sigma), with at most a log factor and no log needed when beta-1+sigma<0. Averaging the fixed-q square gives C_s A_{q,s}>=0; the q=1 term gives strict positivity, and the harmonic bound on A and telescoping yield both absolutely convergent expressions for c_s. With Q truncated blocks, the retained error is bounded by polylogs times Q+N^alpha sum_{q<=Q}q^(-alpha); the discarded terms are bounded by N^beta Q^(-beta)(1+log Q)^2 plus an endpoint logarithm. For beta<1/2 one can set alpha=0 and balance Q=N^(beta/(beta+1)). For 1/2<=beta<=3/2 take Q=N^(1/3), sigma=1/2+delta: the first-power estimate gives exponent 2beta/3+O(delta) if alpha<=1, and N^alpha is at most N^(2beta/3+delta) otherwise. For beta>3/2 the q sum converges and the retained error is at most N^(beta-1/2+epsilon), while the truncation tail is smaller. This checks both joins and all fixed s>1. Finally C_s factors as zeta(2)^(-1) times product_p(1-p^(-s)/(p+1)), and the q>=2 harmonic tail is O(2^(-beta)) uniformly for beta>=2. Independently, original double sums, Jordan squares and a reindexing by exact gcd agreed over 75 rational cases (s=2,3,4; N=1 through 25; python3 /workspace/branches/independent-replay.py 2).",
+      "residual_risks": [
+        "Finite integer-power computations do not test the real-parameter infinite error estimate, which rests on the proof. No uniformity near s=1, optimality, or joint large-N and large-s statement is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The GCD-matrix paper bounds largest eigenvalues for the kernel gcd(k,l)^(2alpha)/(kl)^alpha with arbitrary normalized coefficient vector.",
+          "Ehm uses Nyman–Beurling Gram kernels from zeta integrals, not the frozen kernel applied to mu."
+        ],
+        "reasoning": "Except at alpha=1 the denominator in the spectral kernel differs; reweighting a vector would not turn an eigenvalue bound into an asymptotic and explicit positive coefficient for that vector. A Gram construction in a different problem supplies no such evaluation.",
+        "searches": [
+          "arXiv:1407.5403v2, equations (27)–(34)",
+          "arXiv:2405.06349v2, Sections 1 and 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.00525v1",
+        "arXiv:1407.5403v2",
+        "arXiv:2405.06349v2",
+        "Resultary 391a260e92a6",
+        "Resultary identical hit 76ce15a480b6 (excluded as independent prior)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One theorem matches all requested data at s=2 only; one strengthens the s=2 error for an excluded class of coefficient vectors; the broad matrix theorem optimizes rather than evaluates a given vector."
+        ],
+        "reasoning": "Together these do not imply the all-real-s Möbius result. The convolution identity and much of the method are standard or shared with the power-two precedent; novelty is assigned to the parameter theorem, not the method or its s=2 specialization.",
+        "searches": [
+          "arXiv:2611.00525v1, Theorem 1.1",
+          "Resultary 391a260e92a6, exact coefficient hypotheses",
+          "arXiv:1407.5403v2, spectral estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At s=2 the kernels and the local correction factors match; beta=1 makes q^(-beta)-(q+1)^(-beta)=1/(q(q+1)), exactly the prior constant series.",
+          "The matching prior states the power-two theorem, not a real family."
+        ],
+        "reasoning": "The equivalent GCD quadratic-form interpretation recovers Azimifard's case verbatim. Varying s in the frozen fixed-denominator problem changes its growth exponent and tail balancing; the s=2 theorem alone cannot be used as a statement for s other than 2.",
+        "searches": [
+          "Resultary: real-exponent Möbius GCD quadratic form with fixed denominator mn",
+          "arXiv:2611.00525v1, equations (1)–(3) and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact family hit is the assigned record itself, not a distinct result.",
+          "The related record gives a positive linear asymptotic with logarithmic-squared error for the same s=2 kernel but with unimodular completely multiplicative coefficients."
+        ],
+        "reasoning": "The stronger numerical error there cannot even be specialized to mu, since mu vanishes off squarefree integers and is not completely multiplicative. No finite table establishes a rate for this infinite family.",
+        "searches": [
+          "Resultary: 76ce15a480b6 (identical record)",
+          "Resultary: SCOPE-uniform-logarithmic-squared-gcd-means-for-unimodular-completely--391a260e92a6"
+        ]
+      },
+      "rationale": "The result at s=2, including the coefficient and error, is exactly covered and properly credited. The claim assessed as distinct is the fixed-denominator Möbius asymptotic for the whole real range s>1, including positive constants, parameter-dependent rates and the large-s constant. The inspected stronger-looking results do not imply it.",
+      "residual_risks": [
+        "An unlocated equivalent theorem for squarefree coprimality means applied to the exact-gcd parametrization might overlap. The comparison is best of current knowledge, not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact s=2 match; no covering real-parameter statement found.",
+          "evidence": "The same Möbius square-power form is cN+O_epsilon(N^(2/3+epsilon)), c>0, with the same coefficient series.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00525v1",
+          "material_read": "Section 1, equations (1)–(3), Theorem 1.1",
+          "method": "OA full-text passages at offsets 0 and 1700",
+          "title": "A power-saving asymptotic for a Möbius-weighted GCD quadratic form",
+          "trigger": "Exact s=2 prior coverage"
+        },
+        {
+          "assessment": "Different general kernel normalization and conclusion.",
+          "evidence": "Uses denominator (kl)^alpha and bounds largest eigenvalues for vectors with sum of squares 1.",
+          "identifier_or_url": "https://arxiv.org/html/1407.5403v2",
+          "material_read": "Matrix/spectral-norm passage and equations (27)–(34)",
+          "method": "OA full-text passages at offsets 28000–33956",
+          "title": "Convergence of series of dilated functions and spectral norms of GCD matrices",
+          "trigger": "General GCD-kernel exponents"
+        },
+        {
+          "assessment": "No coverage of the frozen arithmetic quadratic form in the relevant statements.",
+          "evidence": "Nyman–Beurling Gram kernels expressed via zeta integrals; the mentioned approximant coefficients do not give the fixed Möbius GCD sum.",
+          "identifier_or_url": "https://arxiv.org/html/2405.06349v2",
+          "material_read": "Abstract, Section 1 and Section 2, equation (7), Theorem 2.1, equations (9) and (11)",
+          "method": "OA full-text passages at offsets 0 and 5240",
+          "title": "On certain Gram matrices and their associated series",
+          "trigger": "Gram kernels with Möbius coefficient context"
+        },
+        {
+          "assessment": "Does not specialize to Möbius.",
+          "evidence": "Requires |a(n)|=1 and complete multiplicativity, explicitly excluding mu.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-uniform-logarithmic-squared-gcd-means-for-unimodular-completely--391a260e92a6/RESULT.md",
+          "material_read": "Finding and coefficient assumptions",
+          "method": "Local mirror passages at offsets 0 and 5250, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform logarithmic-squared GCD means for unimodular completely multiplicative coefficients",
+          "trigger": "Indexed stronger power-two error"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:2611.00525v1, Theorem 1.1"
+      ],
+      "rationale": "Keeping the denominator and arithmetic vector unchanged while varying the GCD exponent tests a genuine deformation of the known quadratic form. It gives a qualitative change in scaling, a strictly positive convergent constant throughout the noncritical range, and a quantitative remainder and limiting constant. These require controlling signs and truncation, not just relabeling an exponent in a known estimate. The rates are not claimed optimal.",
+      "residual_risks": [
+        "No estimate at the critical exponent or sharpness of the piecewise bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

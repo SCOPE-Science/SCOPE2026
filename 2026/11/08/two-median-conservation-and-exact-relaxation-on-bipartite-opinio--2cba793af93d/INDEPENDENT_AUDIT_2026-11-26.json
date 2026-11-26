@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:05:44.127436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof's two justifications for uniqueness are invalid as written. With B=(-1,1), uniform cross-weights, and one A opinion moved from −ε to +ε, the nearest observed median switches from −1 to +1 although the profile changes by only 2ε (0<ε<1). Thus the quoted global nonexpansiveness assertion fails for the specified tie rule even though Han et al. v1 states it. Also, two equal opinions of weight 1/2 have a unique median but arbitrarily small splits give two. The corrected proof replaces both premises: if the comparison profile has unique median m, there is mass >1/2 at or below m and also at or above m, so every median of a profile at sup distance d lies in [m−d,m+d]. Along the explicit solution the medians remain unique by positive affine equivariance. The difference of vector fields against any competing solution is consequently bounded by 2d, and the integral inequality and Grönwall give uniqueness. Differentiating the explicit group shifts gives P′=Q−P and Q′=P−Q; the remaining deviations decay as e^(−t), which checks the ODE and initial data. Their median sum and gap then prove the consensus and both rates, with rates active only for nonzero modes. The K2,2 boundary path has matching signs and strictly closer same-sign medians, so its nonconsensus limit is valid. The verification program was inspected and not run; its sample checks cannot establish uniqueness. The complete corrected files are in repairs/3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader graph scope of the initiating model and its general convergence criteria do not give the explicit invariant or initial-condition-to-limit map in the inspected statements.",
+          "The earlier star exact-selection result 690019ac93b9 covers more initial tie cases on stars but is restricted to one singleton part."
+        ],
+        "reasoning": "The broader classes of graphs or tie profiles do not dominate both the specific conclusion and the nonsingleton topology claimed here.",
+        "searches": [
+          "Resultary complete-bipartite and star exact weighted-median flows",
+          "Han et al. arXiv:2404.16318v1 abstract and §III-C; Mei et al. arXiv:2212.08808 and Mohr–Hjorth–Porter arXiv:2406.17552v3 abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired versions in repairs/3",
+        "Han et al. arXiv:2404.16318v1",
+        "Resultary records 2cba793af93d, 690019ac93b9, 8a05ff530e9b and 8d72274b15f4",
+        "Mei et al. arXiv:2212.08808 and Mohr–Hjorth–Porter arXiv:2406.17552v3 (abstracts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a singleton part and unique leaf median, the star result gives the same limiting average; it does not handle two evolving nonsingleton group medians.",
+          "8d72274b15f4 gives an integer-time trajectory from a different projection update on a fully mixed network; it does not give the two-group continuous flow."
+        ],
+        "reasoning": "The credited star implication is genuine but partial. The repaired general statement requires two affine-equivariant group medians coupled by their opposite-group broadcasts; none of these exact comparators provides that two-median closed system for the claimed hypotheses.",
+        "searches": [
+          "690019ac93b9 Finding, assumptions and proof",
+          "8d72274b15f4 Finding, assumptions and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8a05ff530e9b, Finding (1)–(6), has exact e^(−t) and e^(−2t) modes on K_m,n, but its opposite-part response uses means and a reciprocal rational rule.",
+          "Han et al. v1 Definitions 1–2 specify the closest selected observed median, not a mean or projection onto a continuous minimizer interval."
+        ],
+        "reasoning": "Shared rates from within-group common forcing do not make the different drifts equivalent. The selection law changes, for example, if nonmedian opinions move the group mean while leaving its unique median fixed.",
+        "searches": [
+          "Resultary: explicit two-median consensus and exact bipartite modes; reciprocal-bias bipartite exact flow",
+          "Han et al., arXiv:2404.16318v1, Definitions 1–2 and §III-C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2cba793af93d is the assigned record; the related exact catalogue results use a star, a distinct reciprocal drift, or a synchronous discrete rule."
+        ],
+        "reasoning": "The relevant exact database object is a functional trajectory theorem, not a finite numerical table. Self-indexing does not establish independent coverage.",
+        "searches": [
+          "Resultary exact catalogue lookup for two-median conservation and exact relaxation"
+        ]
+      },
+      "rationale": "The same-model star result already contains the singleton-part consensus specialization, now credited in the corrected result. The checked evidence does not establish the exact selection and two modes for the continuous-time observed-median rule with two nonsingleton groups using arbitrary positive common cross-group profiles. Exact mode calculations for other bipartite drifts do not determine the median invariant.",
+      "residual_risks": [
+        "Unindexed exact nonsingleton bipartite results remain possible; catalogue dates alone are not determinations of same-day priority.",
+        "The repair is not a general well-posedness claim for nonunique initial medians or arbitrary row profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Originating model, not the explicit two-group formula in the inspected material; its stated nonexpansiveness is not valid for the closest-observed tie rule",
+          "evidence": [
+            "Theorem 8 asserts a global sup-norm estimate. The sign-switch example in the correctness rationale contradicts that estimate without using any unresolved midpoint tie."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.16318v1",
+          "material_read": "Abstract; Definitions 1–2 (HTML offsets about 15000–19921); §III-C Theorem 8 (about 32000–38435)",
+          "method": "Open-access original HTML",
+          "title": "The Continuous-Time Weighted-Median Opinion Dynamics",
+          "trigger": "Same equations, tie rule and cited uniqueness premise"
+        },
+        {
+          "assessment": "Material overlap in the singleton-part limit, credited in the repair",
+          "evidence": [
+            "The topology is K_1,m with arbitrary positive hub-to-leaf weights; the unique leaf-median branch agrees with the repaired selection formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-consensus-selection-and-a-discontinuous-weight-threshold-o--690019ac93b9",
+          "material_read": "RESULT.md Finding, Assumptions and Proof",
+          "method": "Exact GitHub file in the local mirror",
+          "title": "Exact weighted-median star consensus selection",
+          "trigger": "Earlier exact result for the same flow on a bipartite family"
+        },
+        {
+          "assessment": "Exact mode overlap, but equations and selected functional differ",
+          "evidence": [
+            "Opposite-part means and reciprocal response, not common weighted medians."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reciprocal-bias-bipartite-social-pressure-the-full-equilibrium-c--8a05ff530e9b",
+          "material_read": "RESULT.md Finding (1)–(6)",
+          "method": "Exact GitHub file in the local mirror",
+          "title": "Reciprocal-bias bipartite social pressure",
+          "trigger": "Distinct same-date exact result for complete bipartite ODEs"
+        },
+        {
+          "assessment": "Different topology and update rule",
+          "evidence": [
+            "Synchronous discrete updates project onto a minimizer interval, rather than continuous adjustment toward a selected observed opinion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-frozen-weighted-median-gaps-and-the-exact-polarization-law-on-fu--8d72274b15f4",
+          "material_read": "RESULT.md Finding, Assumptions and Proof",
+          "method": "Exact GitHub file in the local mirror",
+          "title": "Frozen weighted-median gaps and exact polarization",
+          "trigger": "Possible exact median-trajectory equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit invariant determines which consensus is selected, not just whether a group reaches consensus. For two nonsingleton parts the answer suppresses all within-part nonmedian modes and separates two sharp transient rates, with a concrete two-cluster boundary example showing the risk of dropping uniqueness. The repair preserves this full content and its weighted scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

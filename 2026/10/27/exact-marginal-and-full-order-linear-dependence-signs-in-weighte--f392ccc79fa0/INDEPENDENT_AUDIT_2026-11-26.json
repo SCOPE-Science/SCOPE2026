@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:07.010972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After conditioning on each column being nonempty, the independent column states 10, 01 and 11 have probabilities t,t,u. Coverage of the left vertices removes exactly the two single-row configurations of mass h each. The edge means and joint probabilities then give v,a,b,c as stated. Independently, the symmetric coordinate is (1+1_{11})/sqrt(2) and the antisymmetric coordinate is (X_1-X_2)/sqrt(2); their cross-block covariance vanishes by row swap. The symmetric block has diagonal u(t-h)/z^2 and off-diagonal -h u^2/z^2; the antisymmetric block has diagonal (t-h)/z and off-diagonal -h/z. This gives the four claimed eigenvalues; A>0 since nt^(n-1)<1 for all n>=2, and B>A. The inverse blocks have off-diagonals zh/(tB) and zh/(tA), respectively. Transforming back gives q_c as half their difference, q_b as half their sum, q_a=z/u+q_c, and the stated q_0. For q_a the numerator AB-(n-1)uh^2=A^2+(n-1)h(2tA-uh) is strictly positive: the factor t^(n-2)(1+2(n-1)t) in (2tA-uh)/t^2 is below 2 for n=2 and at most 3/2 for n>=3. The covariance signs follow from 0<h<=t^2 and 0<t<1/2. These arguments include n=2 and every 0<p<1, and establish positive definiteness and all strict signs. The supplied checker.py was inspected, not executed; VERIFICATION.md records 2250 exact assertions for 2<=n<=6 and p in {1/5,1/2,4/5}, which is corroboration only. The symbolic check does not depend on that run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected statements analyze stability, influence or mixing of cover measures; they do not give the entrywise precision signs for an arbitrary weighted K_{2,n}."
+        ],
+        "reasoning": "An influence or spectral-independence bound does not fix individual inverse-covariance signs, even when a graph and weight lie within its hypotheses.",
+        "searches": [
+          "arXiv:2106.03366, §1 and Theorem 1.1",
+          "arXiv:2111.03898, §1.1 and Theorem 3",
+          "arXiv:2304.14289, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary mirror record 0606274d4166",
+        "arXiv:2106.03366",
+        "arXiv:2111.03898",
+        "arXiv:2304.14289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest precision theorem has no mixed incident/disjoint cases. The weighted-cover setup gives a partition function model but no cited statement gives its inverse-Hessian sign profile on these variables."
+        ],
+        "reasoning": "Even an exact total cover weight does not supply heterogeneous two-edge derivatives and their matrix inverse signs. For disjoint edges, conditioning on all other indicators leaves only separate unary coverage constraints; hence nonlinear conditional independence there is compatible with the strictly positive linear partial correlation, and cannot imply its sign.",
+        "searches": [
+          "arXiv:2106.03366, weighted-cover definition and mixing statement",
+          "Resultary record 0606274d4166, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Liu–Vigoda define a weighted cover with uncovered-vertex penalty rho and edge activity lambda. Exact covers are rho=0; Bernoulli conditioning gives lambda=p/(1-p).",
+          "The matched occupied-box theorem concerns category occupancies from iid trials and gives uniformly negative off-diagonal covariance and positive off-diagonal precision, not the incident/disjoint distinction."
+        ],
+        "reasoning": "The fugacity formulation is genuinely equivalent to the frozen measure and was checked. Category occupancy is not an equivalent representation of the two-row edge variables conditioned on both rows being used.",
+        "searches": [
+          "Resultary semantic searches for weighted K_{2,n} edge-cover covariance and precision; closest mirror record 0606274d4166",
+          "arXiv:2106.03366, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matched formula/table surfaced in those ranked results; the occupancy hit has different variables. The inspected counting discussion concerns edge-cover counts and sampling."
+        ],
+        "reasoning": "A finite or uniform-cover table does not classify all n and continuous fugacity. An exact parametric entry table could cover the claim, but none was found in the checked material; the frozen numerical checker is not prior coverage.",
+        "searches": [
+          "Two Resultary semantic searches, 50 ranked hits each; mirror record 0606274d4166 inspected",
+          "arXiv:2304.14289, §1.1 edge-cover counting discussion"
+        ]
+      },
+      "rationale": "The weighted edge-cover measure is established, and the occupied-box catalogue result uses related linear-residual terminology. Neither gives the stated closed inverse or the joint covariance/linear-partial-correlation sign law for weighted K_{2,n}. No equivalent coverage was found in the checked evidence; this is not a priority determination.",
+      "residual_risks": [
+        "Catalogue searches are ranked, not exhaustive, and primary comparisons used bounded decisive passages; an independent derivation under reliability, partition-function or covariance terminology may exist.",
+        "No additional focused web query was used for this record; the literature comparison is limited to the inspected primary sources and catalogue results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different model, not covering",
+          "evidence": "Occupancy indicators have uniformly negative marginal and linear partial correlations; the object is not the conditioned K_{2,n} edge vector.",
+          "identifier_or_url": "2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "material_read": "RESULT.md Finding and scope at offset 0, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Occupied-box indicators have a strictly positive precision matrix off the diagonal",
+          "trigger": "Closest Resultary precision-sign overlap"
+        },
+        {
+          "assessment": "Covers model, not frozen invariant",
+          "evidence": "Weight rho^{|unc(S)|} lambda^{|S|}; exact uniform cover at rho=0, lambda=1; Theorem 1.1 treats mixing.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.03366",
+          "material_read": "§1, PDF pp. 3–4, OA offset 9250, model definition and Theorem 1.1 context",
+          "method": "OA primary PDF",
+          "title": "Spectral Independence via Stability and Applications to Holant-Type Problems",
+          "trigger": "Equivalent weighted-cover model and spectral results"
+        },
+        {
+          "assessment": "Mixing result, not a matrix formula",
+          "evidence": "Theorem 3 gives a b-edge-cover mixing bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.03898",
+          "material_read": "§1.1, PDF p. 2, OA offset 6854, Theorem 3",
+          "method": "OA primary PDF",
+          "title": "Rapid mixing for the hardcore Glauber dynamics and other Markov chains in bounded-treewidth graphs",
+          "trigger": "Broader graph-family edge-cover result"
+        },
+        {
+          "assessment": "Sampling context, no coverage in inspected passage",
+          "evidence": "Distinguishes unweighted counts, weighted generalizations and mixing/sampling results.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.14289",
+          "material_read": "§1.1, PDF p. 2, OA offset 4063",
+          "method": "OA primary PDF",
+          "title": "Fast Sampling of b-Matchings and b-Edge Covers",
+          "trigger": "Weighted and unweighted cover counting/sampling comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "K_{2,n} is a natural weighted cover family of growing degree with three distinct pair types, including two inequivalent types of incident edges. The exact inverse provides a nontrivial uniform residual-dependence result: the disjoint-edge sign survives linear adjustment for all other edges, even though the disjoint pair factors after literal conditioning on those edges. The proof separates marginal effects of coverage from effects of inversion and gives exact formulas useful as a benchmark for larger cover models. This is not a mixing, association or nonlinear-dependence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

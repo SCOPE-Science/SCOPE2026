@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:23:22.485907Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 8–54: normalized family and exact analytic proof",
+        "checker.py: symbolic Taylor and finite Fourier checks inspected, not executed",
+        "VERIFICATION.md: frozen attestation states"
+      ],
+      "rationale": "The complement transform is a single common sinc factor times the sum of the two hole-center phases. The center midpoint offset is h=(a−c)/2, and separation D=b+g, giving the stated intensity identity. DC and known span determine g. The occupied-span transform vanishes at 2π/L, so the sample gives cos²(πD/L) with a nonzero prefactor, hence just D and L−D. For each fixed candidate D, the second derivative determines h² with coefficient 4Lg. For the complementary candidate, set v=a+c and H=h²; the second-order comparison forces H'=H+(b²−v²)/4. Expanding the even analytic difference after factoring out the sinc terms, the fourth coefficient is (b−v)(b+v+3g)(H−v²/4)/24. Here H−v²/4=−ac<0; the prefactor at zero is nonzero, and the lower coefficient has already vanished. Thus the fourth derivative eliminates any genuinely different complementary candidate, including all admissible symmetric and D=L/2 cases. The remaining sign of h is exactly reflection; the phase-magnitude data are translation invariant.",
+      "residual_risks": [
+        "No recovery outside the equal-gap, known-span class; no numerical stability or noisy-data bound was checked or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia–Xu pp. 5 and 23–24 give full-magnitude nonuniqueness for three intervals; their explicit triple pair has distinct gap lengths 1 and 2. Their at-most-two-interval uniqueness theorem assumes full magnitudes",
+          "Bianchi introduces the covariogram uniqueness problem for convex bodies and related homometry"
+        ],
+        "reasoning": "The three-interval counterexample is outside the equal-gap subfamily on both sides. The full-magnitude uniqueness statement for fewer occupied intervals does not dominate finite observations of a three-interval occupied set.",
+        "searches": [
+          "Xia–Xu arXiv:2606.19855, Theorems 1.2 and 1.7",
+          "Bianchi, The Covariogram Problem: A Survey, introduction and §6.2"
+        ]
+      },
+      "checked_sources": [
+        "Xia–Xu arXiv PDF",
+        "Bianchi OA survey",
+        "Five listed related Resultary findings",
+        "Rosenblatt–Seymour DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-interval finite-jet theorem uses I(0), I''(0), I⁽⁴⁾(0) for two occupied components",
+          "Three and four equal-width results assume equal occupied lengths and use a sixth derivative; the reduction to finite points is also for equal occupied widths"
+        ],
+        "reasoning": "Equal positive gaps neither force nor are forced by equal occupied lengths. These statements constrain different families and measurements; the distinct same-date four-interval result is not equivalent, regardless of priority.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-finite-jet-fourier-phase-retrieval-for-two-intervals--361050867db3",
+          "2026/11/8/SCOPE-sixth-order-fourier-intensity-recovery-for-three-equal-width-int--df0589a6cbc2",
+          "2026/11/22/SCOPE-sixth-order-fourier-intensity-jets-identify-four-equal-width-int--a2fc9110328e",
+          "2026/10/18/SCOPE-equal-width-interval-diffraction-reduces-exactly-to-finite-point--417f34275d33"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bianchi p. 1 identifies the covariogram/autocorrelation and its transform as Fourier intensity; §6.2 discusses homometric difference multisets",
+          "At the fundamental harmonic only, the span contribution vanishes and occupied and hole intensities agree; at the origin jets the cross term does not vanish"
+        ],
+        "reasoning": "The autocorrelation reformulation keeps the limited data. Taking complements does not turn the full set of four data into samples of two-interval hole intensity, so two-interval full-magnitude uniqueness or jet inversion is not an equivalent theorem.",
+        "searches": [
+          "Resultary equal-gap diffraction, covariogram and finite Fourier-jet comparisons",
+          "Bianchi covariogram survey",
+          "Rosenblatt–Seymour DOI 10.1137/0603035"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-block catalogue result identifies the first integer-span full-spectrum collision at span 12; the gaps have lengths 1 and 2",
+          "The target equal-gap four-data result itself appeared as the closest direct hit, which is not separate coverage"
+        ],
+        "reasoning": "An integer-grid catalogue and its full-spectrum collision do not cover the all-positive-real equal-gap finite-data claim. The inspected exact entries do not enumerate or invert these four measurements for that family.",
+        "searches": [
+          "Resultary Fourier-indistinguishable three-block apertures and equal-gap finite-jet searches",
+          "2026/11/8/SCOPE-the-first-fourier-indistinguishable-three-block-binary-apertures--3e3357db2e1b"
+        ]
+      },
+      "rationale": "The supported distinct claim is global injectivity in the known-span equal-gap three-interval family from these specific four measurements. Neither general full-spectrum phase retrieval, full-spectrum nonuniqueness for unequal gaps, nor the inspected equal-occupied-width or two-interval finite-jet results give that injectivity.",
+      "residual_risks": [
+        "Rosenblatt–Seymour full text was not obtained; an older equal-gap finite-data formulation or an unindexed equivalent may exist. The inspected evidence does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad ambiguity result, not equal-gap finite-data uniqueness",
+          "evidence": "The constructed pair [0,5]∪[6,9]∪[11,12] and [0,1]∪[2,8]∪[10,12] has gap lengths 1 and 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.19855",
+          "material_read": "Abstract, Theorems 1.2 and 1.7, explicit three-interval construction around pp. 5 and 23–24 (offsets near 18100 and 82450)",
+          "method": "OA PDF passage inspection",
+          "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+          "trigger": "Closest cited general interval-union theorem"
+        },
+        {
+          "assessment": "Supplies reformulation and homometry background",
+          "evidence": "Autocorrelation/intensity Fourier relation and discussion of finite difference multisets.",
+          "identifier_or_url": "https://people.dimai.unifi.it/bianchi/lavori/covariogram_survey14.pdf",
+          "material_read": "Introduction p. 1 and §6.2 p. 30",
+          "method": "OA PDF passage inspection",
+          "title": "The Covariogram Problem: A Survey",
+          "trigger": "Equivalent autocorrelation formulation"
+        },
+        {
+          "assessment": "Unresolved access risk, not used as negative evidence",
+          "evidence": "No lawful alternate full text identified in this bounded check.",
+          "identifier_or_url": "https://doi.org/10.1137/0603035",
+          "material_read": "Citation; no decisive full-text passage accessible",
+          "method": "Configured OA attempts via publisher identifier",
+          "title": "The Structure of Homometric Sets",
+          "trigger": "Potential older homometry coverage"
+        },
+        {
+          "assessment": "Different hypotheses and opposite objective",
+          "evidence": "Integer endpoints, uniqueness through span 11 and a collision at span 12 with unequal gaps.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-first-fourier-indistinguishable-three-block-binary-apertures--3e3357db2e1b",
+          "material_read": "RESULT.md finding and collision",
+          "method": "Resultary search and local mirror",
+          "title": "The first Fourier-indistinguishable three-block binary apertures",
+          "trigger": "Exact three-block ambiguity catalogue"
+        },
+        {
+          "assessment": "Two occupied intervals, not the two-hole cross-term observations here",
+          "evidence": "I(0), I''(0), I⁽⁴⁾(0) applied to the indicator of a two-interval set.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-finite-jet-fourier-phase-retrieval-for-two-intervals--361050867db3",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp finite-jet Fourier phase retrieval for two intervals",
+          "trigger": "Same derivatives; potential complement reduction"
+        },
+        {
+          "assessment": "Different constrained family and data",
+          "evidence": "Equal occupied widths and I(0), I''(0), I⁽⁶⁾(0).",
+          "identifier_or_url": "2026/11/8/SCOPE-sixth-order-fourier-intensity-recovery-for-three-equal-width-int--df0589a6cbc2",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sixth-order Fourier-intensity recovery for three equal-width intervals",
+          "trigger": "Same number of occupied components"
+        },
+        {
+          "assessment": "Does not dominate the known-span three-interval theorem",
+          "evidence": "Four equal occupied widths and the zero-frequency jet through order six.",
+          "identifier_or_url": "2026/11/22/SCOPE-sixth-order-fourier-intensity-jets-identify-four-equal-width-int--a2fc9110328e",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary search and local mirror",
+          "title": "Sixth-order Fourier intensity jets identify four equal-width intervals",
+          "trigger": "Distinct same-date related claim"
+        },
+        {
+          "assessment": "Full-spectrum reduction under a different equality constraint",
+          "evidence": "Common occupied width gives a common transform factor; the equal gaps here do not give such a factor for the occupied set.",
+          "identifier_or_url": "2026/10/18/SCOPE-equal-width-interval-diffraction-reduces-exactly-to-finite-point--417f34275d33",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary search and local mirror",
+          "title": "Equal-width interval diffraction reduces exactly to finite-point homometry",
+          "trigger": "Possible equivalent diffraction formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(3), including the complementary-separation branch",
+        "Xia–Xu three-interval full-magnitude counterexample"
+      ],
+      "rationale": "The natural equal-gap restriction salvages recovery in a component count where even full magnitudes can fail generically as a uniqueness guarantee on the unrestricted class. The proof gives a two-candidate inversion rather than merely establishing abstract uniqueness. The final derivative actually resolves a live ambiguity: at L=9 and g=1, (a,b,c)=(3/2,4,3/2) and ((4+√7)/2,3,(4−√7)/2) match DC, the fundamental intensity and the second derivative but differ in the fourth derivative. This is not a claim of optimal measurement count over all possible designs.",
+      "residual_risks": [
+        "Finite noiseless identifiability only; may be poorly conditioned near a degenerating interval or coinciding branches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

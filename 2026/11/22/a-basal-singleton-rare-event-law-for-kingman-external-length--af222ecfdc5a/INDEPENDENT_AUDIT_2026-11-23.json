@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:14:17.840475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one named leaf, the avoidance factors at k=n,...,3 telescope to 2/[n(n−1)]; for n≥3 the n events are disjoint. Conditioned on survival, each history of the other lineages gets the same avoidance factor (depending only on the current k), so those histories retain the (n−1)-Kingman topology and the n-sample holding times are unchanged. At k≥2 the conditional singleton mean is 1+(k−1)(k−2)/(n−2), including k=2. Multiplying by 2/[k(k−1)] and summing gives the claimed mean and, since E[L_n]=2, the claimed covariance. The numerator after removing the positive factor is n−2H_n+2/n, which starts at zero and increases by 1−2/n per step. An independent rational dynamic program on states (k,w) used transition multiplicities binom(w,2), w(k−w), binom(k−w,2) for losses of 2, 1, 0 singletons; it tracked P(R), E[L 1_R] and E[L] and matched through n=25 (n=4 gives 2/3, 7/3 conditional mean, 2/9 covariance). For the limiting claim the held-out leaf contributes the entire height, and each other-stage time is shorter than the corresponding (n−1)-sample time by the factor (m−1)/(m+1) on the same exponential. The expected missing length is 4(H_n−3/2)/(n−2). Janson–Kersting give ordinary external-length variance O(log n/n) in the same pair-rate-one normalization, so the other-leaf length tends to two in L1. The height converges in L1 by summability; no independence between it and the remaining length is necessary for Slutsky. Its Laplace product and nondegeneracy (independent rate-one final interval) are valid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Kersting prove an unconditional CLT and long-edge point-process law; Alimpiev–Rosenberg compute unconditional covariances among six specified tree/time quantities including height, external length and mean basal branch length."
+        ],
+        "reasoning": "A basal-length random variable is not a root-topology indicator. Unconditional limits cannot simply be conditioned on a sequence of events of mass order 1/n; such conditioning needs control of the remainder under that law.",
+        "searches": [
+          "arXiv:1004.5011v2, Theorems 1 and 2 and unconditional variance",
+          "arXiv:2103.13467v2, abstract and Sections 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1004.5011v2",
+        "arXiv:2103.13467v2 (scoped sections above)",
+        "DOI:10.1016/j.tpb.2020.05.002 (metadata and frozen abstract evidence)",
+        "Resultary cherry and pitchfork external-length summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single longest length, a branch-specific conditional distribution, and an unconditional sum each miss the aggregate of the other leaves under this exact condition. The coupling demonstrates precisely why the unconditioned variance becomes usable after conditioning."
+        ],
+        "reasoning": "Survival and the ordinary variance are established ingredients; preserving the other merger topology and bounding the time-change error are additional steps needed for the proposed conditional aggregate statement.",
+        "searches": [
+          "Janson–Kersting same-rate variance and long-branch limit versus the rare-event coupling",
+          "Disanto–Wiehe ranked external edges / root balance (abstract scope as documented in frozen evidence)",
+          "Reppell–Zöllner PMCID:PMC5764821 (frozen conditional branch comparison)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The self-hit is excluded; the nearest cherry and pitchfork covariance results concern counts of local shapes rather than this event. The 2020 source is described in the frozen evidence as studying the longest external edge in relation to root balance."
+        ],
+        "reasoning": "On the singleton split the longest edge is exactly the height, so a longest-edge theorem could cover that summand; it need not say anything about the remaining external lengths, the +2 shift or the finite event covariance.",
+        "searches": [
+          "Resultary: Kingman coalescent conditional total external length root split singleton basal rare event tree height covariance",
+          "Disanto–Wiehe 10.1016/j.tpb.2020.05.002 (basal singleton as maximal root imbalance and as an external edge reaching the root)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The recognized covariance list comprises H_n,L_n,E_n,I_n,B_n and T_k, without the event indicator. Nearby indexed exact cherry-length covariances involve another observable and are size independent, unlike the harmonic formula here."
+        ],
+        "reasoning": "Neither the compendium's list nor the indexed topology covariances supply the conditional mean or the event covariance as a table entry or alias.",
+        "searches": [
+          "Resultary: Kingman coalescent conditional total external length root split singleton basal rare event tree height covariance",
+          "Alimpiev–Rosenberg arXiv:2103.13467v2: specified covariance pairs"
+        ]
+      },
+      "rationale": "Best-of-knowledge support for the aggregate external-length law on an exact rare topology, not for standard singleton survival, the root split probability in isolation, or standard Kingman external-length concentration. The closest longest-branch reference remains only partially accessible; its described statistics do not give the conditional aggregate, and no decisive stronger or equivalent result is evidenced by the inspected material.",
+      "residual_risks": [
+        "The closest 2020 full text was not available; preprint lookup did not complete, not a negative literature result. Earlier unindexed conditioning formulas could exist. The finite covariance is exactly zero at n=3, as stated in the finding; any compressed description of positivity should say n≥4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the unconditional concentration input, not the cited rare condition",
+          "evidence": [
+            "The introduction gives E[L_n]=2 and Var(L_n) asymptotic to 8 log(n)/n; Theorem 2 is an unconditional point-process limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.5011",
+          "material_read": "Introduction, normalization and independence, Theorems 1–2, Proposition 3 and Theorem 4 in the primary PDF text",
+          "method": "Primary PDF text and comparison of variables and quantifiers",
+          "title": "The external lengths in Kingman's coalescent",
+          "trigger": "Exact underlying normalization and variance plus close long-edge asymptotics"
+        },
+        {
+          "assessment": "Specified unconditional pairs with no basal singleton among the variables",
+          "evidence": [
+            "Eq. (4) confirms the height sum; Section 2.4 defines the external aggregate and the uniformly chosen branch separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.13467",
+          "material_read": "Abstract, introduction, and Sections 2.1–2.4 definitions as far as the external-length setup",
+          "method": "Primary PDF text",
+          "title": "A compendium of covariances and correlation coefficients of coalescent tree properties",
+          "trigger": "Possible tabulated stronger covariance theorem"
+        },
+        {
+          "assessment": "Potential priority risk, neither accepted nor excluded as full-text coverage",
+          "evidence": [
+            "The frozen abstract comparison identifies ranked external edges and longest-edge dependence on root balance, not an asserted conditional law of the sum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2020.05.002",
+          "material_read": "DOI bibliographic landing; abstract scope from frozen evidence; no full text independently available",
+          "method": "DOI access and lawful preprint lookup; no authorized full-text download tool was available",
+          "title": "Measuring the external branches of a Kingman tree: A discrete approach",
+          "trigger": "Same root-balance/long-external-branch neighborhood"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This event has probability of order 1/n but a genuine order-one effect on the entire external-length distribution. It supplies an identifiable genealogy for excess external length that is not described by typical Gaussian fluctuations, quantifies the finite association, and isolates the remaining randomness as the height.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

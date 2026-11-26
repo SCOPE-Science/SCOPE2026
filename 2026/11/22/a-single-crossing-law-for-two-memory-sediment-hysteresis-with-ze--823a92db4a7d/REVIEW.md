@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly the explicitly defined piecewise-linear excess hydrograph and a positive two-exponential memory response, with arbitrary continuous positive discharge rating. Subtracting matched-discharge branches gives a positive factor times the difference of two strictly positive hyperbolic-sine expressions. The derivative of \(x\coth x\) is strictly positive for positive \(x\), establishing a strictly decreasing source ratio and **exactly** the three threshold regimes, including equality. Positively weighted averaging proves the zero-area ratio lies strictly inside the two-lobe regime. An elementary integral yields the explicit linear-rating formula; a strict differential inequality proves the same-time unique maxima. The checker's finite tests corroborate but do not replace these analytic arguments. The source-model assumptions, the transverse crossing, and the signed-area orientation are stated rather than inferred from data.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+The repaired finding is saved at /workspace/repairs/5/RESULT.md. In the frozen result the geometric transversality assertion did not follow from continuity of g; in fact for q*=1/2, b=R(1/2), the allowed g(q)=q(1+cuberoot(q−1/2)) makes both branch tangents vertical (parameterize q=1/2+s³). The contrast itself has a negative derivative at q* by its difference quotient, even without differentiating g. The repair keeps the simple sign-changing contrast zero and claims distinct tangent lines only when g is differentiable there. All other conclusions survive: the exact contrast A g f_h(R−b) has g f_h>0 inside; since x coth x increases strictly for x>0, R strictly decreases between b_foot and b_peak. This gives the sharp open interval and rules out interior equality at the endpoints. The cancellation ratio is the weighted average of R with positive weight g f_h, strictly between the endpoints; the signed area is affine in b with negative slope and the two signed lobe integrals cancel nontrivially. For g(q)=q integration gives J, and |U′|≤Ak+Bh<a≤U yields the asserted strict rise and fall of C about t=1. Independent benchmark replay python3 /workspace/branches/review_checks.py gives b_g=0.8540017411631949 and q*=0.4403936786577953; supplied script was read, not executed. The proof is continuum, the calculation a benchmark only.
 
-The specific conclusion assessed is the full necessary-and-sufficient two-memory source-ratio trichotomy, source-rating-independent uniqueness, exact interior zero-area cancellation, and a simultaneous-single-peak construction. Williams (1989) gives a qualitative five-class loop taxonomy, not an inspected exact two-rate theorem; its full article text was unavailable. Mather and Johnson (2014) use an exponential supply term with a discharge-slope term and fit complex measured loops, rather than giving the two independently opposing exponential-memory ratio theorem. Perks and colleagues (2015) describe measured figure-eight events and multiple pathways but do not state the present mathematical classification. Landers and Sturm (2013) address sediment-versus-turbidity calibration, a different observable pair. Later reviews discuss zero scalar-index values and figure-eight loops; those phenomena **are not claimed as new**. Indexed mathematical results on runoff timing, multiple hydrograph peaks, and linear-reservoir hysteresis have different state variables, parameter questions and hypotheses and do not imply the exact branch-ratio thresholds. The plausible uninspected 1989 full text and additional unindexed hydrology literature remain priority risks; this is not a claim of proven historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-For a motivated two-source hydrological memory model, the result gives sharp boundaries separating one clockwise loop, a reverse-oriented two-lobe event, and one counterclockwise loop. It proves that discharge peak order and a single net signed-loop statistic can both conceal a real change in source dominance, even under a rigorously single-peaked response. The classification is invariant under arbitrary positive discharge-rating factors; the cancellation ratio is exact and computable for a linear rating. This provides a self-contained test case for interpreting storm-event hysteresis measurements and validating branch-aware diagnostic algorithms; no empirical superiority or source identifiability is asserted. The value is the structural, complete phase classification, not the mere existence of figure-eight events.
+Figure-eight loops, their mixed orientations, and scalar-area limitations are not new. The distinct finding supported here is the necessary-and-sufficient strength interval independent of rating, the unique interior weighted cancellation ratio, and the synchronized single-peak example for exactly the triangular two-exponential model. Read statements on comparable supply models and exact cancellation do not imply this combination. Historical priority is provisional.
 
-## Closest literature and limitations
+## value
 
-- Williams, “Sediment concentration versus water discharge during single hydrologic events in rivers,” 1989, DOI 10.1016/0022-1694(89)90254-0 (abstract inspected; full article unavailable).
-- Landers and Sturm, “Hysteresis in suspended sediment to turbidity relations due to changing particle size distributions,” 2013, DOI 10.1002/wrcr.20394 (full HTML inspected).
-- Mather and Johnson, “Quantitative characterization of stream turbidity-discharge behavior using event loop shape modeling and power law parameter decorrelation,” 2014, DOI 10.1002/2014WR015417 (full HTML inspected).
-- Perks et al., “Dominant mechanisms for the delivery of fine sediment and phosphorus to fluvial networks draining grassland dominated headwater catchments,” 2015, DOI 10.1016/j.scitotenv.2015.03.008 (author-accepted full PDF inspected).
-- “A Review of Suspended Sediment Hysteresis,” 2024, DOI 10.1029/2024WR037216 (full HTML contextual comparison inspected).
+PASS
 
-The model is normalized, phenomenological, noise-free and not a mass-conserving sediment PDE. It does not certify priority or make predictions for unmodeled sediment dynamics. The analytic proof establishes infinite-parameter results only under its written assumptions. The finite checker is supplementary. Some older full texts could not be inspected. No independent scientific validation was performed.
+The exact open interval decides when a two-source response produces a second lobe with no need to specify the rating. The existence of a unique cancellation ratio inside that interval and a synchronized-single-peak example show specifically why both net area and peak timing can miss a two-lobe response. Those are useful limitations of summary measures in a transparent ideal model, not claims of field calibration or source identifiability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

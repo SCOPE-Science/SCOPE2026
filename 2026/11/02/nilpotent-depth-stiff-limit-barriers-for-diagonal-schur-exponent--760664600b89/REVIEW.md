@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies \(d\ge1\), \(0<\rho<1\), \(h,\kappa>0\) and a fixed positive integer \(k\). Direct substitution of the standard scalar \(\varphi\)-functions into exponential Euler and the two-stage ETD2 corrector produces exact quadratic shift polynomials with coefficients \(p\), \(u=p^2/z\), and \(v=p(z-p)/z\). They satisfy \(0<p<z\), \(u,v>0\), and \(u+v=p\). Substochastic row and column bounds prove strict Euclidean contractivity, independently of the exact dissipativity inequality. The exact exponential is a finite polynomial times \(e^{-z}\). Matrix-power continuity and the exact norm of the truncated shift yield the two piecewise limits, including \(d=1\), \(d=2\), and equality at \(k=d\) or \(2k=d\). No finite computation is treated as a proof of these limits.
+PASS
 
-## Originality — PASS, qualified
+Direct substitution in the specified stages gives aI+ρpJ and aI+ρuJ+ρ²vJ², with u=p²/z, v=p(1−p/z), u+v=p and a+p=1. These coefficients are nonnegative for z>0, and their row and column sums are bounded by a+ρp and a+ρu+ρ²v, respectively, both strictly below 1. The Euclidean norm estimate follows and the dissipativity bound follows from ||J||₂≤1, including d=1 (the scalar, normal boundary case). With h>0 and k fixed, the exact power is exp(−kz) times a polynomial in z and J, while the two numerical powers converge to (ρJ)^k and (ρ²J²)^k. Each surviving shift has norm one. At ceil(d/2)≤k<d, an a-free ETD2 monomial with t linear factors in J has degree 2k−t and order z^(−t), so the first surviving degree is d−1 with t=m=2k−d+1, 1≤m≤k. After scaling by z^m, the sole leading shift is binom(k,m)ρ^(d−1)J^(d−1); terms containing a and the exact power are exponentially small. When k≥d all a-free monomials vanish and the stated algebraic limit is not asserted. At z→0, p=z−z²/2+O(z³), u=z−z²+O(z³), and v=z²/2+O(z³), giving the stated local orders against the exact exponential. Inspected the frozen tests as corroboration, without executing the verifier.
 
-The motivating 2023 Schur-decomposition paper presents diagonal exponentiation with explicitly handled triangular couplings and notes the potential for additional error; the relevant Schur discussion was inspected without finding an exact nilpotent-depth limit for the two specified steppers. The 2005 full-text exponential Runge–Kutta analysis supplies a more general stiff-order framework, but its fixed-operator/regularity setting does not yield the singular \(\kappa\)-dependent explicit residual estimate or the exact piecewise finite-horizon constants. The 2023 Jordan–Schur matrix exponential paper computes the full triangular matrix function rather than the diagonal-only split. Published research records on Lanczos positivity, Jordan norm pencils and Richardson stability concern different algorithms and do not imply the stated limit. Some specialized earlier analyses of nonnormal exponential integrators or equivalent explicit polynomial limits might exist; publication priority is not guaranteed.
+## originality
 
-## Value — PASS
+PASS
 
-The exact defect persists for a positive, norm-contracting and strongly dissipative family, ruling out two usual explanations for poor stiff behavior. The dimension thresholds \(d=2\) and \(d=3\), plus the sharp \(k\)-step nilpotent-depth cutoffs and algebraic post-threshold residue coefficients, make a reusable benchmark for how many explicit coupling edges a diagonal-Schur scheme resolves before fast modes vanish. This is a motivated structural classification for two widely used numerical schemes, not an arbitrary numerical parameter slice. The result does not claim universality across other methods or automatic failure of fixed-stiffness convergence.
+The diagonal Schur split, qualitative splitting errors, and the ETD2 scheme predate the record. The supported distinct result is the exact fixed-positive-step, fixed-iterate defect and sharp post-cutoff ETD2 residue for the strongly dissipative repeated-diagonal Jordan family. The closest inspected method and theory do not supply the dimension/iterate thresholds with these norm constants.
 
-## Remaining limitations
+## value
 
-The operator is a particular Jordan-chain family and the limit fixes \(d,h,k,\rho\) before letting \(\kappa\) grow. General nonnormal matrices, adaptive controllers, arbitrary semilinear perturbations and practical floating-point stability are unproved. Priority relative to all specialized literature remains a risk. The accompanying 2838 checks are finite confirmations and not formal proof certificates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact test family separates positivity and strict Euclidean contraction from correct elimination of fast dynamics, in a diagonal split used for exponential methods. The differing depth thresholds and the sharp algebraic residual despite a zero limiting error give a practical mathematical distinction that a scalar stability or conventional local-order check would miss. The result is appropriately limited to two steppers, fixed iterates, and this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

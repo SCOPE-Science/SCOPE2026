@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:57:40.943713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:56–96; VERIFICATION.md; checker.py:25–84 (inspected, not executed). Replay path: independent diagonal/trace derivation and gamma integrations above. The checker compares finite Gram matrices and scaled norms; the stated verification-note claim of an explicit finite-trace telescoping test is not borne out by the script, and that identity was checked analytically."
+      ],
+      "rationale": "In the exact coefficient norm the basis action sends e_1 to e_0 and e_n to w_n e_{m(n-1)} for n>=2, with distinct targets. Thus the two Gram operators are diagonal and the commutator diagonal is -1 at zero, and w_k^2 minus the unique incoming square w_{k/m+1}^2 when m divides k. Exponential decay beats every polynomial for fixed h, also for every positive Schatten exponent. The finite trace sum telescopes with incoming indices 1 through floor(N/m)+1; the limit is zero. Nonmultiples are positive; on multiples the outgoing/incoming weight-square ratio tends to zero for fixed h. For h tending to zero, h^2 times the outgoing and incoming squares converge away from x=0 to A(x) and C(x)=A(x/m), respectively, uniformly on compact scaled intervals. The exact factors (1-1/n)^s are uniformly bounded for n>=2, so scaled weights near zero are O(x^2+h^2), with exponential tails bounded by a polynomial times exp(-x/m). This proves the local law on the m separate residue classes, and exponential domination extends it to |y|^p for every fixed p>0 and to a supremum limit. The only positive zero of A-C solves exp(2x(1-1/m))=m^2; max(A)=max(C)=m^s exp(-2), attained asymptotically by the outgoing-only branch. The limiting signed integral is zero since integral C=m integral A. Twice the negative mass gives the stated trace coefficient by integrating x^2 exp(-a*x) above the zero. For p=2 the combined integral is 2 integral A^2 minus (2/m) integral AC; the x^4 gamma integrals give exactly the stated coefficient. Small exceptional indices do not affect any limit.",
+      "residual_risks": [
+        "The numerical checker was not replayed and does not prove the limiting quantifiers. Conclusions require fixed m,s,p and the exact coefficient Hilbert norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary power composition has a divisibility diagonal but no derivative-damping weight. The close composition–adjoint product finding treats e_(Mj) mapped to a geometric multiple of e_(Nj); fixed-translate dilation/differentiation has a different degree action."
+        ],
+        "reasoning": "None of these stated laws takes the record's derivative-dependent polynomial weight on a multiplicative degree map as a special case. In particular the geometric all-p coefficient cannot be specialized to the difference of the two x^2-weighted profiles.",
+        "searches": [
+          "Resultary findings a8e9d1ae552d, ba7c08a56403 and 30feb1a39297",
+          "DOI:10.1155/2011/618968"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and cited local mirror records; Allen–Heller–Pons Sec. 6.1; Abdollahi–Mehrangiz indirect account only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known monomial actions and Gram subtraction give ingredients for the diagonal. Existing comparison calculations have constant, geometric, or fixed-translate weights; none resolves the mixed-sign arithmetic branch here."
+        ],
+        "reasoning": "The displayed law requires deriving the derivative-weighted incoming profile on the scaled multiple progression, resolving its sign switch, and evaluating its negative mass. The elementary shared approach is credited; no finished prior claim covers these quantities by substitution.",
+        "searches": [
+          "arXiv:2207.09015 Sec. 6.1",
+          "Local mirror RESULT.md: ba7c08a56403, a8e9d1ae552d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allen–Heller–Pons give the exact monomial action at s=1 after a=e^(-h); their inspected passage computes properties of D, not the difference of its two Gram diagonals."
+        ],
+        "reasoning": "Knowing the singular values or norm of D alone does not give the signed distribution of its commutator; the target-degree placement and cancellation matter.",
+        "searches": [
+          "Resultary: signed self-commutator monomial differentiation/composition boundary spectrum",
+          "arXiv:2207.09015 Sec. 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror has explicit trace-, Hilbert–Schmidt-, and all-p boundary coefficients for the different composition–adjoint product. It does not tabulate the derivative-composition sign root or signed local profiles."
+        ],
+        "reasoning": "There is closely corresponding exact evidence for another operator, but a coefficient match in form or limit scale would not be an identity of signed measures.",
+        "searches": [
+          "Resultary local index, closest exact signed spectral and norm coefficient records",
+          "Local mirror RESULT.md for ba7c08a56403"
+        ]
+      },
+      "rationale": "Exact same-operator action on the Dirichlet slice and a closely related signed self-commutator boundary calculation are already available. The distinct result is the local two-branch law for the derivative-weighted degree map and the resulting positive-degree zero and sharp coefficients; neither an assertion of a new general method nor novelty for the Dirichlet monomial action is supported.",
+      "residual_risks": [
+        "The 2011 primary full text was not recovered. A more general unindexed weighted-partial-permutation limit theorem could cover this case; none was established by the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact action already known; different spectral observable",
+          "evidence": "D_phi e_n=sqrt(M*n*(n-1))*a^(n-1)*e_(M*(n-1)); the passage treats norm and spectrum of D_phi.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09015",
+          "material_read": "Sec. 6.1, pp. 10–11, monomial action passage",
+          "method": "OA PDF literal locate and bounded read",
+          "title": "Composition-differentiation operators on the Dirichlet space",
+          "trigger": "Same exact operator when s=1"
+        },
+        {
+          "assessment": "Close precedent on different weights and degree map",
+          "evidence": "T=C_(rz^m)^* C_(rz^n) gives a geometric e_(Mj) to e_(Nj) action; its self-commutator has a signed diagonal and exact Schatten coefficients, without the derivative polynomial weights.",
+          "identifier_or_url": "2026/11/17/SCOPE-two-ideal-spectral-rigidity-for-damped-monomial-composition-adjo--ba7c08a56403",
+          "material_read": "Local mirror RESULT.md, opening result and degree-action passage",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Two-ideal spectral rigidity for damped monomial composition–adjoint products",
+          "trigger": "Strongest indexed signed boundary-coefficient overlap"
+        },
+        {
+          "assessment": "Shared arithmetic, different boundary",
+          "evidence": "v_n=((dn+1)/(n+1))^s gives v_n minus the incoming v_(n/d) on divisible degrees, without radial damping or differentiation.",
+          "identifier_or_url": "2026/10/18/SCOPE-weak-trace-spectral-defect-of-power-composition-on-dirichlet-typ--a8e9d1ae552d",
+          "material_read": "Local mirror RESULT.md, offsets 0 and 6713",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Weak-trace spectral defect of power composition on Dirichlet-type Hilbert scales",
+          "trigger": "Divisibility-diagonal self-commutator"
+        },
+        {
+          "assessment": "Indirect comparison only",
+          "evidence": "The cited account gives a scalar-times-projection commutator for ordinary power composition rather than the present damped derivative action.",
+          "identifier_or_url": "https://doi.org/10.1155/2011/618968",
+          "material_read": "Frozen citation and inspected later mirror account of Thm. 4.1; primary full text not read",
+          "method": "DOI and alternate OA attempts denied",
+          "title": "Self-Commutators of Composition Operators with Monomial Symbols on the Dirichlet Space",
+          "trigger": "Primary source for ordinary monomial commutators"
+        },
+        {
+          "assessment": "Different placement and observable",
+          "evidence": "A fixed translate or finite band of translates in degree yields singular-value laws, not a multiplicative signed commutator branch.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-theta-function-spectral-edge-transition-for-monomial-dirichlet--0d3a36fdff0e; 2026/10/25/SCOPE-two-scale-singular-spectrum-law-for-polynomially-weighted-dirich--30feb1a39297",
+          "material_read": "Local mirror RESULT.md openings for both results",
+          "method": "Resultary lookup and local mirror read",
+          "title": "A theta-function spectral-edge transition for monomial Dirichlet composition–differentiation operators; Two-scale singular-spectrum law for polynomially weighted Dirichlet dilations",
+          "trigger": "Polynomial derivative weights and damping"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen signed law and sharp formulas; same-operator Dirichlet action and close composition–adjoint comparator"
+      ],
+      "rationale": "The canonical Gram imbalance of an established monomial derivative-composition operator has an exact signed scaling law resolved by degree. It shows specifically where incoming and outgoing energies change order and yields reusable trace, Hilbert–Schmidt, and general Schatten calibrations. These are distinct from an unsigned edge or a norm bound, with no arbitrary parameter slice beyond the natural fixed monomial family.",
+      "residual_risks": [
+        "A specialized result; it does not give a method for general symbols or variable m or Schatten exponents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

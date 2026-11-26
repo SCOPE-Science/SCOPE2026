@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source-domain normalization and zonal addition formula produce the unit-diagonal degree-five Gram kernel. A Newton-binomial expansion on the Johnson scheme yields all four exact rational sector eigenvalues. Three complete modular residue lists rule out every other integer singularity, not just those checked experimentally. At the exceptional order the Gram nullspace is exactly the constant vector. The harmonic polynomial \(H_{27}\) has zero values on the old sampling orbit and nonzero values on all original simplex vertices, establishing independence of the replacement row. `VERIFY.py` independently rederives the identities and checks small Gram matrices and the singular case. Boundary \(m=6\) is explicitly excluded.
+## correctness
 
-## Originality
-PASS under the comparisons recorded in `AUDIT.json`, with residual risk. Dai–Xu's addition theorem and Burcroff's general Johnson-matrix eigenvalue formula provide substantial background and some directly applicable computational ingredients; neither inspected source states the arithmetic \(m=27\) failure, the precise all-integer rank classification, and the single-vertex replacement theorem. The new construction of a degree-five harmonic separating the replacement sample goes beyond the Johnson-scheme orbit spectrum. Related cubic **edge-centroid** results do not imply the quintic **triangle-centroid** classification. Older association-scheme and spherical-design literature may contain an equivalent result, and the general formula makes implicit derivability a material originality caveat.
+PASS
 
-## Mathematical value
-PASS. Identifying the unique high-dimensional failed interpolation order, the exact codimension-one data constraint, and a deterministic one-sample repair addresses sampling identifiability on a natural group orbit. It is not simply one more numerical rank: the conclusion holds uniformly for every integer \(m\ge7\), the exceptional nullspace is explicitly interpreted, and a concrete harmonic separates the replacement vertex from the entire old measurement span. No downstream theorem beyond the stated setting is claimed.
+The ambient harmonic dimension is m-1 in the sense that the polynomials live on the (m-1)-dimensional zero-sum subspace. Independently derived the unit-diagonal zonal polynomial by imposing the Laplace equation on z^5+aRz^3+bR^2z, where z is the coordinate along a unit vector and R is squared norm. The addition formula makes the true evaluation Gramian dim(H_5) times this matrix. For each Johnson sector i, the product of i membership contrasts on disjoint pairs belongs to the i-incidence space and is orthogonal to lower incidence spaces by a pair swap. Summing its kernel action at a triple with one selected member of each pair independently gives the four factored scalars. All modular residue lists match; only the constant sector can vanish for integer m>=7 and only at 27. The independent values at 27 are 0, 855/256, 455/256, 225/256 in sectors of dimensions 1, 26, 324, 2574. The m=6 boundary gives rank ten. At 27 any deleted centroid leaves independent rows because the unique relation has every coefficient nonzero. The tangent Laplacian applied to p5 and R*p3 verifies H_27 is harmonic, and exact substitution gives zero at each unnormalized triangle centroid and 7475/13122 at every unnormalized vertex; normalization preserves both properties. The replacement row is independent, and the stated pseudoinverse interpolation and norm have the correct normalization.
 
-## Limits
-The argument proves the listed full-orbit and one-point-replacement conclusions only. Generic Johnson spectral identities are prior art. The oldest foundational design paper was located bibliographically but not inspected in full; an implicit prior version of the exceptional calculation cannot be excluded. Numerical tests are not relied on for infinite claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected overlaps separate the degree, orbit, or assertion: cubic sampling on exactly the triple orbit, quintic constant-mode failure on two-subset centroids, and a quintic orthogonality resonance at parameter 27 on edge directions. The general kernel and Johnson formulas are known, but no inspected result supplies the conjunction of the all-integer quintic triple-orbit rank classification, exact mean-only defect at 27, and any-vertex repair.
+
+## value
+
+PASS
+
+The third-hypersimplex node set is a natural symmetric sampling orbit. The result gives a usable all-integer criterion for interpolation on that orbit, identifies the exact one-dimensional missing data mode, and shows that any simplex vertex deterministically repairs any single deleted row. The arithmetic obstruction and off-orbit repair add structural content beyond numerical ranks or restating a generic spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

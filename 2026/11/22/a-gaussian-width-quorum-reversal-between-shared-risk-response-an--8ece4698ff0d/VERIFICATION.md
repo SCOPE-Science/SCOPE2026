@@ -5,19 +5,20 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Reproduction and limits
 
-# Reproducibility and verification
-
-Run `python checker.py` with Python 3 from the directory containing the scripts. The checker has no third-party dependencies and uses `fractions.Fraction` to evaluate exact moments, all relevant binomial tails, likelihood ratios, and independent enumeration of adaptive-type configurations. It verifies 560 uniform-risk size/quorum instances, exact second moments, and the six-agent rational example; it separately tests 243 size/quorum cases against nonuniform, finitely supported loss distributions. The verified expected payoff difference is \(827b/8192\) and the achievement difference is \(-85/4096\) for \(N=6\), \(m=2\), \(x=\tau=1/2\).
-
-These finite tests verify the examples and help detect errors in the formulas. They do not certify the strict theorem at arbitrary group size, the large-group central-limit argument, or historical originality. Those claims depend on the full mathematical proof and the scoped source comparisons. Independent audit has not been performed.
+Run `python3 checker.py` using only the standard library. The exact rational check enumerates both the strategic type and auxiliary action vectors and keeps the probability mass and integrated risk of each environment stratum separate. It tests the payoff components without counting contribution costs as saved endowment. The parity counterexample is outside the theorem's hypotheses and shows why independence of the entire type vector from risk matters even if each marginal type is independent of risk. The infinite-size and strict single-crossing assertions are proved in `RESULT.md` under the stated joint independence assumption.

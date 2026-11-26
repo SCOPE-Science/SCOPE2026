@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:08.855783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–36 and 42–63",
+        "Frozen verify.py, lines 76–122; VERIFY_OUTPUT.txt; VERIFICATION.md",
+        "repairs/2/RESULT.md"
+      ],
+      "rationale": "The frozen Finding says every fixed configuration has identical rows, but the constant column words (01)^n and (10)^n are fixed too. The repaired Finding limits the boundary-count formula to column-uniform targets and explicitly gives both discordant fixed points singleton basins. Re-derivation: agreement freezes a column; disagreement lets the east vote decide both rows. Agreement persists, eroding each discordant run by one per step; without agreement the whole word shifts. Fixing a word under k shifts constrains gcd(n,k) independent bits, and inversion over divisors followed by division by period counts orbits. For a uniform target exactly its outbound changes are compulsory initial anchors; all other sites have three choices, subtracting the 2^n anchorless states only for a constant target. A marked zero in a mask gives k gaps bounded by t and counts each labelled mask k times, proving E_n(t), including its two recurrent constant masks at t=0. Disjoint Bernoulli blocks and the union bound give the logarithmic typical time; one anchor gives the sharp n-1. Independent exact enumeration checked 21,840 states for 2<=n<=7, including both exceptional singleton basins and all cumulative depth counts; replay with python3 /workspace/reproductions/independent_finite_checks.py. The frozen verifier and recorded output were inspected, not run; its `cycles` field is a histogram of points, not of orbit counts, now clarified in the repaired RESULT.md. Enumeration does not prove the all-n statements.",
+      "residual_risks": [
+        "Deterministic periodic strip of height exactly two; the probabilistic time limit is for independent fair bits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen's cylinder work is a plausible general counting route; full readable text not obtained. Makowiec's 1997 NEC paper full text was not accessible; the related 1998 preprint actually varies a stochastic error probability.",
+          "Ayyer pp. 1–2 studies a stochastic one-dimensional closed-boundary process, not the synchronous two-row torus."
+        ],
+        "reasoning": "A cylinder counting method or stochastic interface study is not, on inspected evidence, a dominating theorem giving the frozen labelled orbit/basin/depth law.",
+        "searches": [
+          "DOI:10.1007/BF01221109",
+          "DOI:10.1103/PhysRevE.56.5195",
+          "arXiv:cond-mat/9808247v1",
+          "arXiv:1503.00086v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c044dc7d101f",
+        "arXiv:math-ph/0102009v1",
+        "arXiv:1503.00086v2",
+        "arXiv:cond-mat/9808247v1",
+        "DOI:10.1007/BF01221109 (limited)",
+        "DOI:10.1103/PhysRevE.56.5195 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue result gives the terminal mechanism needed to reduce counts to classical shift and gap enumeration, but its Ising extension is about absorbed row-equal configurations, not dynamic counts on the travelling states or the full initial-depth distribution.",
+          "The accessible erosion account does not specialize to these counts."
+        ],
+        "reasoning": "Do not claim the basin law or copy rule is unmatched. The supported contribution is the joint quantitative finite-state classification; the close later parallel account neither establishes older priority nor provides the entire classification as a stronger statement.",
+        "searches": [
+          "Resultary c044dc7d101f, actual Finding and Proof at mirror offset 0",
+          "Gács math-ph/0102009v1, introduction and torus discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17/SCOPE-exact-attraction-basins-and-an-emergent-ising-law-for-two-row-to--c044dc7d101f, Finding and first proof paragraphs: identical seed/east-copy map and longest discordant run on seeded words, n>=3.",
+          "Gács arXiv:math-ph/0102009v1, pp. 1–3: non-simple winding sets may persist and shift, not this four-letter census."
+        ],
+        "reasoning": "The column quotient is exactly equivalent, not just an analogy; credit the catalogue match while distinguishing explicit census data from the qualitative winding argument. The web-query misses are not evidence of absence.",
+        "searches": [
+          "Resultary local semantic comparison: labelled two-row NEC four-state anchor/copy, cyclic runs and 3^(n-b) basins",
+          "Web query: \"two-row\" Toom NEC attractor basin exact deterministic torus cyclic runs anchor copy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c044dc7d101f states both exact basin weights and the partition 4^n-2^n versus 2^n. Its Finding gives the worst and statewise entry times, not the coefficient count E_n(t)."
+        ],
+        "reasoning": "There is a genuine match for the principal basin formulas, not an exact match for every census quantity. This is an all-size counting claim, not a table-lookup claim; no covering joint table was identified.",
+        "searches": [
+          "Resultary local comparison: exact basin weights 3^(n-b) and 3^n-2^n, exact primitive cycles and bounded cyclic-run entrant census"
+        ]
+      },
+      "rationale": "Best-of-knowledge decision for the full labelled two-row census. Credit the material catalogue overlap: the 2026/11/17 entry gives the very same pointwise basins, anchor/copy reduction, discordant shift and depth mechanism for n>=3. It adds Ising output statistics; it does not give the joint finite-size census of primitive orbits and cumulative depths in this record. The dates on the records are documentary context, not priority certification. No inspected earlier theorem covers the full census; neither the familiar shift-word counts nor runs-of-ones counting as standalone combinatorics is a novelty claim. The repair changes only the description of the already-classified period-one discordant orbits.",
+      "residual_risks": [
+        "Jen and Makowiec's inaccessible full texts could contain thin-cylinder special cases. The direct catalogue overlap is substantial; generic circular run enumeration may separately cover the counting ingredient. No publication priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap",
+          "evidence": [
+            "n>=3; same two piecewise basin counts, seedless shift and longest-run rule; adds conditional Ising statistics, not the explicit joint periodic-point and cumulative-depth census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-attraction-basins-and-an-emergent-ising-law-for-two-row-to--c044dc7d101f/RESULT.md",
+          "material_read": "Finding, scope and anchor/basin proof, offset 0–5068",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact attraction basins and an emergent Ising law for two-row Toom dynamics",
+          "trigger": "Exact same strip, boundary-count basin law and time mechanism"
+        },
+        {
+          "assessment": "Related geometry, no covering statement in inspected passages",
+          "evidence": [
+            "Winding non-simple cycles may survive and shift; no explicit thin-strip joint census."
+          ],
+          "identifier_or_url": "arXiv:math-ph/0102009v1",
+          "material_read": "PDF pp. 1–3, including beginning and OA offsets 8349–9461",
+          "method": "OA PDF text",
+          "title": "A Toom rule that increases the thickness of sets",
+          "trigger": "NEC erosion and winding structures on tori"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": [
+            "General attractor-counting methods are plausibly relevant; no thin NEC basin law established from the abstract."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF01221109",
+          "material_read": "Accessible abstract-level description; full text not obtained",
+          "method": "OA availability check and abstract",
+          "title": "Cylindrical cellular automata",
+          "trigger": "General finite-cylinder attractor counts"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": [
+            "Relevant numerical periodic-state study. The related Critical properties preprint cond-mat/9808247v1, pp. 1–2 and 5–6, concerns stochastic critical properties and is not a substitute for this paper."
+          ],
+          "identifier_or_url": "DOI:10.1103/PhysRevE.56.5195",
+          "material_read": "Abstract-level evidence only; APS full-text request blocked",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Ground-state configurations for Toom cellular automata: Experimental hints",
+          "trigger": "Direct periodic NEC configurations"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": [
+            "One-dimensional stochastic model with closed boundaries, not deterministic NEC on a two-row torus."
+          ],
+          "identifier_or_url": "arXiv:1503.00086v2",
+          "material_read": "Opening model definition, p. 1",
+          "method": "OA paper text",
+          "title": "A finite variant of the Toom Model",
+          "trigger": "Possible alternate finite Toom formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and assumptions",
+        "Gács arXiv:math-ph/0102009v1",
+        "Resultary c044dc7d101f"
+      ],
+      "rationale": "The thin periodic quotient is a natural minimum width for distinct north and center votes. The joint census resolves, rather than just estimates, three natural questions: which patterns recur, how many initial states feed each attractor and how rapidly recurrence begins. In particular it separates the exponentially small nonfixed travelling subsystem with no outside predecessors from the basin-rich frozen patterns, and quantifies logarithmic typical versus linear worst-case depth. The repaired statement gives the proper period-one boundary case rather than a new claim based on an arbitrary small example.",
+      "residual_risks": [
+        "No inference to a taller strip, stochastic Toom model, or planar stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

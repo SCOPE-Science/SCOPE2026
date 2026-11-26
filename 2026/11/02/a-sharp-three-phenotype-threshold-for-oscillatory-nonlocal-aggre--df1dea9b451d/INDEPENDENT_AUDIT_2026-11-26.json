@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:58:50.116389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–105 and 115–117; VERIFICATION.md lines 19–23; verify.py"
+      ],
+      "rationale": "The base-state potential gradient vanishes, so the perturbation of the prefactor contributes no first-order term. The Fourier matrix is −k²I+β̃ L_N+qBCᵀ with q=k²μ̃Up(U)K̂(k)≥0. In N=2 the unshifted determinant is −qβ̃(sum B)(sum C): q>0 gives two simple real roots of opposite signs before shifting, and q=0 gives the real diffusion spectrum. N=1 is scalar. For the exact N=3 example the heat kernel is positive, C is strictly positive, and sum(A)=9. After scaling as in the record, the rank-one determinant lemma gives det(zI−L₃−a bcᵀ)=z³+(4−11a)z²+(3+26a)z−33a. At a=1 it has one real root r in (1,2) by strict monotonicity, and its remaining roots form a nonreal pair. In the n=±1 growth matrix the pair has real part (5−r)/2>3/2, larger than the real eigenvalue r−1∈(0,1). Exact cubic Hurwitz margins at |n|=2,3 are 917/2 and 139168425/16384 with all positive coefficients. For |n|≥4 the Hermitian-part bound is Re λ≤−n²+2n²2^{−n²}||b||||c||<0. At n=0 the eigenvalues are 0, −1, −3. Thus only n=±1 are unstable among nonconstant modes, and there is also a slower unstable real eigenvalue there. Independent exact replay: python3 /workspace/review-evidence/reproduce.py 1 (SymPy). The supplied checker and verification note were inspected, not executed.",
+      "residual_risks": [
+        "This is formal local Fourier linearization about the specified homogeneous state; it does not establish a nonlinear patterned orbit, or preclude nonreal modes in a different switching/interaction class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jewell et al.'s Perron–Frobenius obstruction concerns a dominant eigenvalue in a fully attractive sign class; positive aggregate does not imply that sign class, and the witness contains a negative response row.",
+          "The 2025 two-species chase-and-run model has nonreal eigenvalues under other interaction laws.",
+          "Giunta et al. assume symmetry for their descending energy; Taylor et al. analyze a different fecundity-gradient pattern threshold."
+        ],
+        "reasoning": "Entrywise positivity or symmetry is stronger than the frozen sign-sum condition but lacks its required coverage of mixed signs; the two-species examples outside the hypothesis are not counterexamples. No stronger inspected theorem gives both parts of the frozen threshold.",
+        "searches": [
+          "arXiv:2610.29884 §6.2",
+          "DOI:10.1007/s11538-025-01539-6 §3.2",
+          "DOI:10.1007/s00285-022-01824-1",
+          "Taylor et al. DOI:10.1007/s11538-020-00786-z §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 114f3ac2a2ec and ranked local comparisons",
+        "Jewell et al. arXiv:2610.29884 and 2025 chase-and-run paper; Giunta et al. 2022; Taylor et al. 2020 accepted version; Potts–Lewis arXiv:1903.05381"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model rank-one three-phenotype oscillations are prior, but the displayed prior parameters have negative aggregate; mere continuity at that point does not certify reaching a positive sum with persistence and higher-mode control.",
+          "Potts–Lewis rule out unstable complex eigenvalues for two populations by negative trace but allow damped complex eigenvalues. Their N=3 oscillations use general taxis with no switch term.",
+          "The local consumer/resource cutoff comes with common resource relaxation and is not a result about L_N+qBCᵀ."
+        ],
+        "reasoning": "The positive-net obstruction is a reality theorem for all Fourier growth rates at N=2, not just unstable ones; combining this with the positive normalized N=3 certificate and the all-frequency bound is a distinct scientific claim.",
+        "searches": [
+          "arXiv:2610.29884 §6.2",
+          "arXiv:1903.05381 eqs. (12), (16)–(17), §§4–5",
+          "Resultary 114f3ac2a2ec Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A separable response–signal matrix is the rank-one BCᵀ used in Jewell et al.; the positivity here is of 1ᵀA1, not of individual cross-interactions.",
+          "The nearest local threshold is a consumer–resource relaxation model, not reflecting diffusion across phenotype, and the Potts–Lewis matrix has a fixed negative diagonal and a zero-self-taxis structure with no phenotype switching."
+        ],
+        "reasoning": "Testing the shifted determinant before spatial diffusion is stronger than ruling out a complex pair with positive real part by a negative trace. The models are not equivalent under the positive-net constraint.",
+        "searches": [
+          "Local Resultary phenotype switching / rank-one positive-interaction oscillatory spectrum comparisons",
+          "Resultary 114f3ac2a2ec",
+          "arXiv:2610.29884 §4 and §6.2",
+          "arXiv:1903.05381 §§3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-model example has B=(−7.6,29,−22), C=(1,3.9,4.2), with net product −0.6×9.1<0.",
+          "Potts–Lewis Fig. 4 gives a three-population dispersion example with general cross-taxis and no switches; it does not list a witness with the frozen hypotheses.",
+          "Returned local hits are analogues such as 114f3ac2a2ec; no reviewed exact record resolves the positive-net threshold or records the heat-kernel witness."
+        ],
+        "reasoning": "Positive scaling/normalization cannot change the sign of the earlier example's aggregate interaction. Ranked hits do not constitute an exhaustive parameter or literature census.",
+        "searches": [
+          "Ranked Resultary searches for discrete-phenotype positive-net oscillations",
+          "arXiv:2610.29884 §6.2 example",
+          "arXiv:1903.05381 Fig. 4"
+        ]
+      },
+      "rationale": "The supported novelty is the sharp phenotype restriction under positive aggregate interaction in the rank-one switching class, and a normalized positive-aggregate witness with just one unstable spatial harmonic up to sign. It is not generic three-population wave instability or the model itself. The closest same-model wave example has negative aggregate interaction. Distinct adjacent thresholds without the prescribed switching and sign structure do not entail the bound result.",
+      "residual_risks": [
+        "The claim is bounded to the compared evidence; unindexed work and a broader matrix theorem subsuming the sign-sum criterion are possible. No historical priority is inferred solely from no exact ranked hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and signed oscillation overlap; not positive aggregate",
+          "evidence": "Explicit rank-one interaction, three-phenotype complex growth, and entrywise-attractive restriction; example sum product is negative.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29884",
+          "material_read": "§4 p.9 offset 37800 and §6.2 pp.20–21 offset 75000",
+          "method": "Open PDF",
+          "title": "Phenotype-structured nonlocal aggregation models I: signal production and response",
+          "trigger": "Same switching model and three-phenotype oscillation"
+        },
+        {
+          "assessment": "Different two-species dispersion class",
+          "evidence": "Parallel chase-and-run has nonzero imaginary part, unlike the chiral example; no positive-net rank-one reflecting switch hypothesis.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-025-01539-6",
+          "material_read": "§3.2 p.9 offset 27800; Fig. 5 p.18 offset 54000",
+          "method": "Open article PDF",
+          "title": "Chase-and-Run and Chirality in Nonlocal Models of Pattern Formation",
+          "trigger": "Two-species oscillatory growth comparison"
+        },
+        {
+          "assessment": "Not a nonsymmetric rank-one sign-sum theorem",
+          "evidence": "Bounded decreasing energy uses symmetric pairwise responses.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01824-1",
+          "material_read": "Abstract p.1 offset 1035 and §1 p.2 offset 4000",
+          "method": "Open article PDF",
+          "title": "Detecting minimum energy states and multi-stability in nonlocal advection–diffusion models for interacting species",
+          "trigger": "Energy restriction for aggregation"
+        },
+        {
+          "assessment": "Different fecundity-gradient Turing threshold",
+          "evidence": "Different reaction and velocity-filter equations; reports N≥3 in one motion class, not general spectral reality with rank-one positive net.",
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:8845a2db-c699-4b9f-8d6e-a6eaaeb23eb5/files/scz30ps976",
+          "material_read": "Abstract p.1 offset 616, §2 p.5 offset 16000, §3 pp.7–8 offset 33000, introduction/bibliography offsets 9100/122000",
+          "method": "Open accepted-version PDF",
+          "title": "A Non-local Cross-Diffusion Model of Population Dynamics I: Emergent Spatial and Spatiotemporal Patterns",
+          "trigger": "Adjacent N≥3 threshold; full text previously not inspected"
+        },
+        {
+          "assessment": "Strong qualitative prior analogy at N=2/3 but a different spectrum and hypotheses",
+          "evidence": "Two populations can have nonreal damped rates; instability in their three-population example uses cross-taxis γ_ij without rank-one or switch constraints.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.05381",
+          "material_read": "Eqs. (12)–(17), offsets 18700–22005, §4 offsets 27100–33540, §5 and Fig. 4 offsets 44100–46698",
+          "method": "Open PDF",
+          "title": "Spatial Memory and Taxis-Driven Pattern Formation in Model Ecosystems",
+          "trigger": "Possibly equivalent sharp population-count transition highlighted by Taylor et al."
+        },
+        {
+          "assessment": "Different linear coupling and parameters",
+          "evidence": "Two consumer or resource types are excluded with common resource-relaxation rates; three-by-three provides an example.",
+          "identifier_or_url": "Resultary 114f3ac2a2ec",
+          "material_read": "Mirrored RESULT.md Finding, offset 492",
+          "method": "Local Resultary mirror",
+          "title": "Three consumers and three resources are the sharp linear oscillation threshold",
+          "trigger": "Nearest ranked local threshold comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Assumptions, exact spectrum proof; Jewell et al. arXiv:2610.29884 §6.2; Potts–Lewis arXiv:1903.05381 §§4–5"
+      ],
+      "rationale": "Positive aggregate interaction is a natural restriction separating overall attraction from entrywise attraction. The result resolves exactly how many phenotypes are needed for a dominant growing complex mode in that class; neither the previously illustrated negative-net witness nor an entrywise-positive theorem settles it. The three-phenotype example saturates the obstruction under a normalized interaction and identifies all unstable harmonics by a proof across the whole Fourier lattice. The certificate isolates a structural boundary, not merely a new tuple in a known parameter regime.",
+      "residual_risks": [
+        "The boundary is not general across taxis models, and the value here is spectral, not evidence of a nonlinear oscillatory attractor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

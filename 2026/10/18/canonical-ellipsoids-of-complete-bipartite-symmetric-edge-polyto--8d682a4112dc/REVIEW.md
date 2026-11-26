@@ -1,19 +1,21 @@
-# Scientific review: Canonical ellipsoids of complete-bipartite symmetric edge polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object, intrinsic metric, dimension, shape convention, and ranges \(2\le a\le b\) are explicit. The polar facet-normal classification is reconstructed from the connected tight-edge criterion, rather than assumed from a computational list. Every facet-normal has the exact quadratic value one in \(L/(ab)\), proving John feasibility. Balanced sign classes and the pure bipartition direction supply nonnegative weights summing to one whose covariance is \((L/(ab))^{-1}/d\) on the intrinsic zero-sum space; the standard Löwner contact criterion and polarity establish unique John optimality. Uniform signed edge contacts have covariance \(L/(ab)\), each has outer ellipsoid norm one, and their transformed covariance is \(I/d\), establishing Löwner uniqueness and global optimality. The Laplacian spectrum yields the stated semiaxes, determinant, and volumes. An exact rational implementation reproduces both contact certificates across 18 parameter pairs; finite checks are corroboration only.
+PASS
 
-## Originality — PASS (residual priority risk)
+For the standard metric on the zero-sum space H, the tight edge roots span H exactly when their graph is connected. Feasibility forces each positive tight edge to run from a maximum in the first part to a minimum in the second part; negative tight edges run between the opposite extremes. If both parts vary, these graphs have disjoint vertex sets, so a polar vertex must have a constant part. Conversely the listed centered sign normals have every edge tight. The two lists intersect only at the two constant-part contrast normals. Thus all primal facets have support 1 for the candidate shape L/(ab). For the inner optimality certificate, the projected balanced signs have trace a−u_a²/a on the first zero-sum block (respectively b−u_b²/b on the second), and contrast variance bu_a²/(aN) (respectively au_b²/(bN)); permutation invariance eliminates cross terms. Substitution gives the three eigenvalues of the mixed covariance as a/d, b/d and ab/(Nd), with positive weights summing to one even in the smallest and odd-size cases. The whitened polar contacts are isotropic, giving polar Löwner optimality and hence primal John optimality. Each edge root is exposed (all have the same Euclidean norm), the uniform signed roots have covariance L/(ab), and transitivity plus the trace identity makes every whitened outer norm one. Their isotropy proves outer optimality. Symmetry and uniqueness place the centers at zero. The eigenvalues give the stated radii, determinant N/(a^a b^b) and volume ratio d^(d/2).
 
-The closest identified same-object primary source is Higashitani, Jochemko, and Michałek, *Arithmetic aspects of symmetric edge polytopes* (arXiv:1807.07678v1), Proposition 3.4. Its complete-bipartite facet-normal enumeration is a genuine precursor, not the claimed John/Löwner shape and optimality theorem. Chen, Davis, and Korchevskaia (arXiv:2107.12315) determine facet-subgraph structure; D'Alì, Delucchi, and Michałek (arXiv:1910.05193) relate the family to Lipschitz/Kantorovich–Rubinstein geometry; D'Alì, Juhnke-Kubitzke, and Koch (arXiv:2307.04933) treat regular-matroid generalization. Inspected material establishes neither the explicit pair of canonical ellipsoids nor two global contact certificates. The special \(K_{2,2}\) parallelotope overlaps classical geometry, but its higher-parameter family has different facet and vertex structures. Published mathematical-result searches under primal, polar, metric, and graph-root terminology found no direct covering theorem. There remains a real risk of equivalent earlier Banach-space or optimal-design literature; database nonmatches are not priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The result completes a natural two-parameter family of symmetric-edge-polytope metric invariants. It gives sharp homothetic inner/outer ellipsoids despite multiple distinct facet-normal orbits, with universal facet and vertex tangency, exact principal semiaxes, volume, and a graph-Laplacian formula. These geometric measurements are not immediate from enumerating known facets, and the result extends beyond the lone \(K_{2,2}\) cube and prior cactus graph cases to every complete bipartite graph.
+The full two-parameter John shape and positive polar contact certificate, simultaneous exact homothety, and all-facet contact survive the checked comparisons. Neither the published facet rule, the general ellipsoid criterion, the standard symmetric containment bound, nor the indexed same-body results supply the complete claim. The outer shape on its own follows from symmetry and the general contact criterion, and the indexed cactus result already gives the exceptional cube case. This is a bounded statement-level priority assessment, not a priority guarantee.
 
-## Limitations and reproducibility
+## value
 
-Only the specified intrinsic Euclidean metric and the exact complete-bipartite family are covered. Neither arbitrary affine-distance optimality nor every graph is implied. The self-contained analytic proof and exact-rational finite verifier are included. An equivalent prior theorem under another vocabulary is the remaining priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact intrinsic inscribed ellipsoid for a natural two-parameter graph-polytope family is useful beyond counting its facets. The explicit balanced-sign contact measure exposes why both canonical ellipsoids have the same shape up to scale and why both contact sets are exhaustive, including for dense noncactus graphs. This is not just the known cube case or a re-expression of the standard outer symmetry calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

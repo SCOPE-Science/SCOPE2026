@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:42.591562Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the distances of the two unselected agents to the nearer selected site gives the six listed costs. Contiguous median clusters suffice for the optimum on a line, and the three cuts have costs b+c, a+c and a+b; a solution with an unused facility cannot improve on the best cut. After reflection to a≤c, direct expansion reduces the numerator to a²+5ab+5ac+4bc+(a+b)min(a,b)+(b+c)min(b,c)+(a+b+c)min(a+b,c). For a≤b≤c and c≥a+b the deficit 2Z·OPT−N is 3a²+6ab+6b²; for b≤a≤c and c≥a+b it is 4a²+6ab+5b². Within either ordering, taking c≤a+b instead adds (a+b)²−c² to the corresponding deficit. The remaining ordering a≤c≤b gives 4a²+2ab+6ac+2bc+4c². These cover positive gaps including case ties and are strictly positive. For a=b=1 and c=L≥2 the first deficit is 15 and Z·OPT=6L+14, giving the exact nonattained limit 2. The packaged verifier independently enumerates the six report pairs on a bounded rational test set; it was inspected, not executed, and the continuum bound rests on the certificates above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 gives SC(Global Pair)≤(3+h)OPT with nonnegative dispersion h and exactly 4 over the full population class. Its proof bounds each weighted triple and sums the estimates.",
+          "Chan–Lin–Wang give factor 4 and separately analyze mixtures, and Jia's tight unrestricted-population factor 2k specializes to 4 for two facilities."
+        ],
+        "reasoning": "The profile-dependent bound 3+h is never smaller than 3, and the all-population tightness and mixed-rule constants do not determine the four-distinct-agent upper bound 2. The triple-sum identity is applicable, but the inspected theorem does not solve its exact four-site optimization.",
+        "searches": [
+          "arXiv:2608.09061, Theorem 3.3 and proof (including the triple-sum estimate)",
+          "arXiv:2608.22484, introduction and approximation discussion",
+          "arXiv:2608.19633, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and verify.py",
+        "arXiv:2608.09061",
+        "arXiv:2608.22484",
+        "arXiv:2608.19633",
+        "Resultary e3c37f844010 and exact-size/omission alias hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-site D_4=2 witness uses counts (1,2,1) and an unbounded gap ratio; its strict upper result requires three sites with positive integer multiplicities.",
+          "The general Global Pair theorem loses profile information in bounding the weighted numerator by a sum of functions of the individual optimum costs."
+        ],
+        "reasoning": "Splitting a repeated report by a small perturbation preserves the three-site witness's positive denominator and its cost ratio in the limit, so this indexed result supplies the lower bound 2 for four sites by continuity. But a bound on the repeated-report boundary cannot be extended to all positive-gap profiles by continuity; these boundary profiles are not dense in the four-site domain. Neither that comparison nor 3+h gives the required strict four-site upper bound.",
+        "searches": [
+          "Indexed e3c37f844010 RESULT.md, Finding and assumptions, mirrored offsets 0–3015",
+          "arXiv:2608.09061, Theorem 3.3 and proof at text offsets 27320–30901"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Global Pair and Pairwise-Distance both draw an unordered pair weighted by distance. For k=2 the Product-Gap weight has exactly one gap, so gives the identical lottery.",
+          "Indexed 2528be6d3ea2 has a factor 2 and two facilities but charges a sum of distances to all facilities, not distance to the nearer one."
+        ],
+        "reasoning": "The three aliases are genuinely equivalent for the stated mechanism, whereas a factor from a different rule or the additive-to-all-facilities loss is not. The exact four-site nearest-distance bound was not found under these aliases.",
+        "searches": [
+          "Resultary alias searches: Pairwise-Distance, Global Pair, Product-Gap, each with exact four-agent and finite-n variants",
+          "arXiv:2608.09061, Definition 3.1; arXiv:2608.22484, abstract; arXiv:2608.19633, §§1 and two-facility discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed e3c37f844010 gives an exact finite-n symbolic law with D_4=2 on the three-site domain. Indexed 8bb73a39e611 is the five-agent factor 9/4; 905ac68fbec5 is four agents and three facilities with factor 5/2. The one-omission records fix n=k+1 and hence cover n=3 for k=2, not n=4."
+        ],
+        "reasoning": "These are the relevant exact-value comparisons, rather than a numerical table. Their distinct support, facility counts or populations leave the four distinct reports with two facilities unaddressed; the one web lookup supplies no negative evidence.",
+        "searches": [
+          "Resultary exact finite-population aliases and indexed IDs e3c37f844010, 8bb73a39e611, 905ac68fbec5, 100028d5c3f5, 57ea40341f63",
+          "Targeted exact four-agent primary literature web lookup"
+        ]
+      },
+      "rationale": "The lottery and general factor 4 are known. The closest indexed exact factor 2 for n=4 has only three occupied sites and therefore does not supply a sharp strict bound on four distinct reports. No inspected primary or indexed stronger theorem supplies that upper bound or nonattainment in the assigned domain. The pass concerns that supported finite-profile refinement only.",
+      "residual_risks": [
+        "An indexed three-site exact result materially overlaps the lower bound; this says nothing about priority of the two artifacts.",
+        "The relevant full-text passages were targeted, not an exhaustive search of each source, and unindexed or unevaluated exact four-site results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical lottery with broader but weaker upper bound for the assigned profiles",
+          "evidence": [
+            "SC(Global Pair)≤(3+h)OPT; exact unrestricted factor 4. The proof groups the numerator over triples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.09061",
+          "material_read": "Abstract, Definition 3.1, and Theorem 3.3 with main proof, PDF pp. 1, 6, 8–9",
+          "method": "Open-access PDF statement and proof passages",
+          "title": "Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location",
+          "trigger": "Identical rule, potential stronger profile-dependent estimate"
+        },
+        {
+          "assessment": "Equivalent lottery and unrestricted factor, not the stated four-site bound in the inspected passages",
+          "evidence": [
+            "Pairwise-Distance weights unordered pairs by their distance and has factor 4; hybrid guarantee is for a mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22484",
+          "material_read": "Abstract and introduction, PDF pp. 1–3",
+          "method": "Open-access PDF passages",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "Pairwise-Distance alias and possible finite-population refinement"
+        },
+        {
+          "assessment": "At k=2 produces the identical lottery and unrestricted factor 4, not the four-site exact upper bound",
+          "evidence": [
+            "The product of selected consecutive gaps collapses to one distance when k=2; tight factor 2k is over unrestricted populations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+          "material_read": "Abstract and introductory mechanism, bound and two-facility discussion, PDF pp. 1–3",
+          "method": "Open-access PDF passages",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "Equivalent construction and general k-facility bound"
+        },
+        {
+          "assessment": "Transfers the lower bound but not the four-distinct-report upper bound",
+          "evidence": [
+            "D_4=3(4−2)/(4−1)=2 for exactly three sites; nonattainment there and witness with middle multiplicity two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-finite-population-phase-transition-for-three-site-distance--e3c37f844010/RESULT.md",
+          "material_read": "Finding and assumptions, mirrored offsets 0–3015",
+          "method": "Local mirror, exact mathematical statements and support restriction",
+          "title": "Exact finite-population phase transition for three-site distance-weighted two-facility location",
+          "trigger": "Strongest exact n=4 indexed near-match with the same mechanism and value"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four distinct agents form the first two-facility case beyond one omitted agent; two omitted agents can interact through the sampled pair. An exact finite-population benchmark for the standard unmixed lottery separates its true small-instance guarantee from the population-uniform factor 4 and from the guarantees of mixtures. Strictness and the distant fourth agent's limiting obstruction are informative. The useful new component is the sharp upper analysis on the full positive-gap domain, not the coincident-profile lower bound or strategyproofness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

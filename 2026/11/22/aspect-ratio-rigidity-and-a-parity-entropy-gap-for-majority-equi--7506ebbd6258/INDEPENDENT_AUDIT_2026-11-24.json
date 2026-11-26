@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:47:18.954223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The open degree m+n-2 and neighbor count r_i+c_j-2x yield exactly the two fixed-state inequalities including tie retention; an alternating rectangle would force two opposite column-sum differences both >=2. The row multiset then determines the Ferrers representative uniquely. On its boundary, each occupied row-length block has its minimum r+c at the southeast occupied corner, and each unoccupied block its maximum at the northwest unoccupied corner, giving precisely the two turn barriers including full and empty edge blocks. In the width inverse the starting altitude s=(n+2-m)/2>=1. A leading D-run that ends in a valley has length >=s+1; any interior D-run connects an allowed peak to an allowed valley, and the end is symmetric. If there is only one D-run it contains all n+2>=3 D's. Thus removing the first and last D leaves all relevant runs nonempty. A first peak before any D was at height >=s+1 and a final valley below the last D was at height <=-s-1, so they survive their unit shifts. No interior extremum changes altitude. For odd endpoints, reaching a peak directly gives x^(1+a), with a first valley adding z^(2+b), while leaving it directly gives y^(2+a), with a terminal valley adding z^(1+b); internal two-run transitions have z^(3+b)y^a x^a'. The even case has endpoint valley factors z^(1+b) and internal exponent 2+b. These geometric series and the no-peak cases give the stated rank-one sums. The cubic has one real root >1 (its two stationary values are negative) and the conjugate pair has modulus rho^(-1/2), so the growth comparison follows from the simple positive pole. Read RESULT.md, VERIFICATION.md and verify.py; the frozen script was not executed. A separate bounded reproduction in branches/8260f815-b315-49f7-ac49-a009a2c8d7a9/rectangular_count_check.py with output expanded.out corroborated small Ferrers, path and labelled counts. The proof, not the finite reproduction, covers all rectangles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general eventual period-two statement does not count fixed-point classes.",
+          "Resultary's three-row result concerns first-entry times and periods.",
+          "The accessible MaRDI review of the 1988 fixed-point counting paper describes fixed cyclic binary strings and Fibonacci-related counts, not Ferrers rectangles."
+        ],
+        "reasoning": "A theorem limiting possible periods does not enumerate any one period; nor does a local cyclic-run condition cover the rectangular interaction graph. The full 1988 text was not accessible and is not ruled out based on the review alone.",
+        "searches": [
+          "arXiv:1405.2486v1 introductory Theorem 1.1",
+          "Resultary 3349c8eefe09",
+          "Fraenkel–Agur–Klein DOI 10.1016/0012-365X(88)90005-2 and MaRDI review"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 62eef04bbc96 and 3349c8eefe09",
+        "arXiv:1405.2486v1",
+        "arXiv:2608.27669",
+        "OEIS A005314",
+        "MaRDI review of DOI 10.1016/0012-365X(88)90005-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square result supplies the equal-side base case. It does not imply that removing two columns preserves admissible paths or provide a formula at n=m+1.",
+          "The sequence entry does not identify this majority observable with its recurrence."
+        ],
+        "reasoning": "Rectangles of equal parity would follow from an independently available width-two bijection and the old square result, but that bijection is proved here and was not found in the inspected comparison. The odd endpoint count also requires a different weighted valley-to-peak kernel, not a substitution in the square theorem.",
+        "searches": [
+          "Resultary 62eef04bbc96 Finding and limitations",
+          "arXiv:2608.27669 abstract",
+          "OEIS A005314"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 62eef04bbc96 gives exactly 2^n with Ferrers representatives under the same separate row/column action and explicitly excludes rectangles.",
+          "Bujtás et al. use the same Cartesian products but maximize the number of colors in majority C-colorings."
+        ],
+        "reasoning": "The line-graph-of-K_{m,n} or stable Ferrers formulation describes the same observable when one uses the given update and quotient. A color maximum and a relaxation time are different invariants, even on that identical graph. The verified equality with square counts covers only n=m without the new width bijection.",
+        "searches": [
+          "Resultary: square and rectangular rook graphs, majority fixed points/equilibria, Ferrers orbits",
+          "arXiv:2608.27669 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A005314 starts 0,1,2,3,5,... with the stated three-term recurrence, and a_t=A005314(t+1).",
+          "The square-class table/formula is already furnished by the distinct Resultary result."
+        ],
+        "reasoning": "Neither the known sequence in another setting nor the confirmed square formula gives the opposite-parity rectangular interpretation, or the invariance when two columns are added. No exact distinct table of the stated rectangular observable was found in the checked material.",
+        "searches": [
+          "OEIS A005314",
+          "Resultary square enumeration 62eef04bbc96 and rectangular majority lookup"
+        ]
+      },
+      "rationale": "Pass applies to the width-two invariance and complete parity distinction for rectangles, not to Ferrers nesting, the exact square enumeration or the opposite-parity sequence as a numerical sequence. The strongest distinct Resultary match exactly covers the square specialization, but not the rectangular extension. Source coverage and historical priority are separate, and the displayed same day does not order the square and rectangular records.",
+      "residual_risks": [
+        "The 1988 full text was inaccessible via identified routes; the conclusion is bounded by the actual material inspected.",
+        "An unindexed older rectangular classification or equivalent path theorem remains possible. No relative priority between the same-day square and rectangular records is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square overlap, genuinely distinct rectangular scope; no priority inference from same day",
+          "evidence": [
+            "Exactly 2^n and Ferrers rigidity for square boards under S_n x S_n; rectangles explicitly outside its scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-power-of-two-classification-of-majority-equilibria-on-square-r--62eef04bbc96",
+          "material_read": "Mirrored RESULT.md offsets around 429 and 8871, Finding and scope limits",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "A power-of-two classification of majority equilibria on square rook graphs",
+          "trigger": "Strongest distinct same-dynamics, same-quotient exact match"
+        },
+        {
+          "assessment": "Relaxation and periods, not an orbit count",
+          "evidence": [
+            "The inspected statement is about first-entry times and periods on K_3 square K_n."
+          ],
+          "identifier_or_url": "Resultary:3349c8eefe09",
+          "material_read": "Mirrored opening statement",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Sharp parity-dependent majority relaxation on three-row rook graphs",
+          "trigger": "Rectangular rook majority dynamics with parity dependence"
+        },
+        {
+          "assessment": "Review evidence concerns cyclic strings; no full-text exclusion asserted",
+          "evidence": [
+            "The review characterizes cyclic fixed strings by absence of singleton runs and describes Fibonacci-related counts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "MaRDI review text offset 0, not primary full text",
+          "method": "Lawful DOI and ScienceDirect attempts (landing page or 403); inspected identified review",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Plausible older equivalent fixed-point enumeration"
+        },
+        {
+          "assessment": "Period bound only in the relevant passage",
+          "evidence": [
+            "Theorem 1.1 gives eventual period at most two for finite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+          "material_read": "Introduction and Theorem 1.1",
+          "method": "Lawful arXiv HTML bounded passages",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Broader graph-majority dynamics theorem"
+        },
+        {
+          "assessment": "Different optimization problem, not a count of fixed binary states",
+          "evidence": [
+            "The abstract states that the maximum number of colors on K_m square K_n is min(m,n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27669",
+          "material_read": "Abstract p. 1 around offsets 1285–4076",
+          "method": "Lawful OA PDF selected passage",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Same rook graphs and a majority invariant"
+        },
+        {
+          "assessment": "Known sequence, no checked implication of the new majority interpretation",
+          "evidence": [
+            "Starts 0,1,2,3,5,... and has the same recurrence, hence the stated one-index shift."
+          ],
+          "identifier_or_url": "https://oeis.org/A005314",
+          "material_read": "Entry opening with sequence and recurrence",
+          "method": "Public database passage reading",
+          "title": "OEIS A005314",
+          "trigger": "Exact numerical sequence and recurrence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural graph family the theorem determines every symmetry-reduced fixed-state count, with a structural bijection explaining why arbitrarily large aspect-ratio changes preserve the count within one parity. The opposite-parity change alters exponential growth rather than just a boundary term. This is useful new rectangular structure beyond the square count, the known recurrence in another setting, and finite enumeration. It does not quantify labelled populations or primitive two-cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

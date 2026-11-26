@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:12:14.356015Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–118; full residual and combinatorial argument reconstructed",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt; inspected, not executed"
+      ],
+      "rationale": "For a prefix of value m and continuation length ℓ, division of c plus the continuation value by 2^ℓ gives a high-block offset independent of m and a low-block parity independent of m. At each ℓ>0, continuation value zero tests the floor offset, and value 2^ℓ−(c mod 2^ℓ) tests the ceiling offset when distinct; at ℓ=0 the empty continuation tests c. Thus equality of fingerprints is both necessary and sufficient for Nerode equivalence under the actual encoding, and all m are reachable. For c=2^k−1 the offsets are 0, 1, powers 2 through 2^(k−1), and Mersenne numbers 3 through 2^k−1. For the power-offset profile, the difference from t(m) at offset 2^i is 1 XOR the parity of the run of ones from bit i. Two adjacent differences cannot both vanish, and setting isolated ones just at prescribed zeros realizes any legal difference vector, with a higher bit beyond a zero separator freely choosing t(m). This gives 2F_(k+2) profiles for offsets through 2^(k−1). Even prefixes encode exactly the preceding Mersenne fingerprint (division by two sends even power offsets to lower powers and odd Mersenne offsets to lower Mersenne offsets with bit complement); odd prefixes encode exactly that power-offset profile (Mersenne offsets then become power offsets). Both encodings expose every required lower coordinate. Their images are disjoint for k≥2: the visible pairs (0,1) and (2,3) are both complementary for an even prefix, while for an odd prefix this would require three equal consecutive Thue–Morse bits, impossible by t(2a+1)=1−t(2a). At k=1 the four pairs 01, 11, 10, 00 occur at m=0, 1, 2, 5. Hence the exact recurrence adds 2F_(k+2) at each k≥2 and sums to 2F_(k+4)−6; the stated eleven values agree.",
+      "residual_risks": [
+        "The recorded prefix scans and block-DFAO minimizations are finite corroboration, not exhaustive over all shifts or a formal verification. The proof covers only the claimed Mersenne family and word conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi et al. give a general construction and upper bound, a Fibonacci-based lower bound along dyadic shifts, and explicitly ask for exact shifted MSD complexity.",
+          "The broader all-shifts Resultary theorem is restricted to LSD input."
+        ],
+        "reasoning": "A construction or upper bound need not minimize; the more general exact classification is for a different input direction.",
+        "searches": [
+          "arXiv:2512.10017, Theorems 9, 19–20 and Open Problem 2",
+          "Resultary generalized shifted binary Thue–Morse e6401767e080"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.10017",
+        "OEIS A382296",
+        "doi:10.37236/9068",
+        "Resultary 11fc25e0cd30 and e6401767e080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known exact dyadic formula 2F_(j+3) supplies the power-offset subcount in the argument, not the even/odd disjoint decomposition involving the extra Mersenne offsets.",
+          "The inspected general bounds do not imply the recurrence C_k=C_(k−1)+2F_(k+2) for this different offset set."
+        ],
+        "reasoning": "The precise excess beyond the dyadic subproblem comes from counting and separating two reachable families, not merely substituting into the prior formula.",
+        "searches": [
+          "arXiv:2512.10017 §4.2",
+          "OEIS A382296 and linked Biswas proof of the power-of-two formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two indexed all-shift results explicitly read digits least-significant first, including the generalized result at modulus 2.",
+          "Direction changes the minimization: for c=3 an LSD-first residual after ℓ bits of value u has the form t(m+floor((u+3)/2^ℓ)) XOR t((u+3) mod 2^ℓ); the empty input gives t(m+3), lengths ≥1 expose at most both signs of offsets 0 and 1 and just one sign of offset 2. That is at most six residuals, not the ten MSD states.",
+          "Charlier et al. treat membership in multiplier/remainder sets mT+r with 0≤r<m, not an arbitrary inverse additive translate with m=1."
+        ],
+        "reasoning": "Reversing input order or translating a multiplied set does not preserve the state count of the actual complete MSD output automaton.",
+        "searches": [
+          "Thue–Morse additive shift state complexity Mersenne offsets, DFAO/automata shifted sequences and addition",
+          "Resultary 11fc25e0cd30 and e6401767e080",
+          "doi:10.37236/9068"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A382296 displays the matching initial values at c=1,3,7,15 and links finite data through c=12000. Its displayed closed formula is for c=2^j only.",
+          "Closest indexed infinite shifted counts are LSD-first."
+        ],
+        "reasoning": "Known finite cases and the shared first dyadic shift are credited; neither supplies the infinite Mersenne formula.",
+        "searches": [
+          "OEIS A382296 MSD-first state complexity and linked table",
+          "Resultary exact shifted Thue–Morse state counts"
+        ]
+      },
+      "rationale": "The exact all-k MSD-first Mersenne count is distinct in the strongest inspected comparisons. Neither an algorithmic upper bound, the finite OEIS values, the exact dyadic law, nor a least-significant-first minimization establishes it. The carry viewpoint and dyadic subcount should not be credited as novel here.",
+      "residual_risks": [
+        "Biswas's full text was unavailable; its dyadic statement was checked via OEIS. The related multiplication paper comparison is limited to its stated scope. Unindexed or unretrieved prior work could contain a broader counting lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General upper/lower bounds and an exact-count question, not an exact Mersenne answer.",
+          "evidence": [
+            "The additive construction need not be minimal; the lower-bound family uses c=2^j."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.10017",
+          "material_read": "PDF pp. 12, 16–17, Theorems 9, 19–20 and Open Problem 2; extracted offsets near 35073, 46636, 48052, 50668",
+          "method": "OA primary PDF inspection",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Same MSD additive complexity and general bounds"
+        },
+        {
+          "assessment": "Finite overlap; displayed infinite result is dyadic only.",
+          "evidence": [
+            "a(1)=4, a(3)=10, a(7)=20, a(15)=36; a(2^j)=2F_(j+3)."
+          ],
+          "identifier_or_url": "https://oeis.org/A382296",
+          "material_read": "Entry description, initial values, formula and links, offset 0",
+          "method": "OA sequence-entry inspection",
+          "title": "OEIS A382296",
+          "trigger": "Exact MSD state complexity database"
+        },
+        {
+          "assessment": "Credit the dyadic law; exact breadth of manuscript remains uninspected.",
+          "evidence": [
+            "OEIS describes the linked proof of the c=2^j formula."
+          ],
+          "identifier_or_url": "https://github.com/rnbguy/proofs/blob/main/A382296/A382296.typ",
+          "material_read": "OEIS link and statement only; manuscript full text not retrieved",
+          "method": "Lawful retrieval attempted for the linked manuscript and its raw copy",
+          "title": "State Complexity of Thue-Morse Shifts by Powers of Two",
+          "trigger": "Could contain a broader residual theorem"
+        },
+        {
+          "assessment": "Statement is for mT+r in bases that are powers of two; the inspected statement does not give the inverse additive shift.",
+          "evidence": [
+            "Remainder restricted to 0≤r<m."
+          ],
+          "identifier_or_url": "doi:10.37236/9068",
+          "material_read": "PDF abstract, p. 1, offset 0",
+          "method": "OA primary PDF inspection",
+          "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+          "trigger": "Related-looking translation in the title"
+        },
+        {
+          "assessment": "Direction mismatch.",
+          "evidence": [
+            "All shifts for least-significant-first inputs with trailing zeros."
+          ],
+          "identifier_or_url": "Resultary 11fc25e0cd30",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact binary digit formula for least-significant-digit-first Thue–Morse shifts",
+          "trigger": "Exact all-shift count"
+        },
+        {
+          "assessment": "Ordinary Thue–Morse is covered but only for LSD-first inputs.",
+          "evidence": [
+            "Modulus 2 specializes the output alphabet, not the reading direction."
+          ],
+          "identifier_or_url": "Resultary e6401767e080",
+          "material_read": "RESULT.md offsets 220–2405",
+          "method": "Local published-record mirror",
+          "title": "Exact least-significant-first state complexity of shifted binary generalized Thue–Morse",
+          "trigger": "Broader all-shift theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2512.10017 Open Problem 2; OEIS A382296"
+      ],
+      "rationale": "This resolves an infinite, structurally natural subfamily of the exact shifted-automata question. Mersenne shifts form the complementary near-dyadic family to the known power-of-two case and require handling two distinct reachable residual families; the result predicts exact minimal sizes beyond the public finite table.",
+      "residual_risks": [
+        "Not an exact function for all shifts, nor a cross-radix or reading-direction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

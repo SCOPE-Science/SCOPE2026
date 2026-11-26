@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:49:54.731012Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–134, 138–140 and 148–150",
+        "Frozen VERIFICATION.md lines 19–31",
+        "Frozen check_floquet.py inspected, not run; independent symmetric case separated dx/[3x(1−x)(x−1/3)] on [ell,1−ell] and set its integral to 6"
+      ],
+      "rationale": "In logit coordinates the derivative of the return map is exp(∫a x(1−x)dt)>1, and the displacement has opposite limiting signs; thus the unique interior fixed point is repelling and separates the pure-state basins. On that orbit h1<ell<u<h2, ascent and descent traverse the same interval, and the weighted residence density w is the sum of the two reciprocal phase velocities after removing a_i. Its mass is abar T and its first moment is abar hT by integrating the logit drift. Differentiating these two moments gives w(u)u'=abar(h−ell)/(u−ell) and −w(ell)ell'=abar(u−h)/(u−ell), establishing endpoint order and (TV)'=(h−ell)(u−h). The expectation of (x−ell)(u−x) is strictly positive, so TV'>0. The logit and frequency fixed-point multipliers agree by conjugacy, and the weighted mean gives Lambda=abar[h(1−h)−V]. For small T the width is O(T); smooth positive w near h makes the midpoint differ from h by O(T²), and the first phase then gives width vT+O(T²). The normalized smooth density differs relatively from uniform by O(T), giving the variance coefficient v²/12. For large T the divergent ascent and descent times force ell→h1 and u→h2 respectively, and averaging (TV)' gives the asserted limit. Its positivity is the selection-weighted average of h_i(1−h_i) multiplied by abar. Independently at (a1,a2,h1,h2,p,T)=(3,3,1/3,2/3,1/2,12), symmetry and bisection on the elementary ascent-time integral give ell=0.33814357714 and u=0.66185642286. Integrating 1/(x−h1)+1/(h2−x) from ell to u and dividing by T gives Lambda=0.70397655882, and the identity gives V=0.01534114706.",
+      "residual_risks": [
+        "The numerical agreement tests one case only. The theorem uses fixed duty fraction and payoff parameters and the per-unit-time exponent, not monotone decrease of the raw multiplier or any conclusion about feedback or higher-dimensional systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A of Álvarez et al. has no linear term; their full-equation Theorem 5.1 needs zero mean linear coefficient, unlike a_i h_i here. Theorem 5.2 supplies a weaker count under additional hypotheses.",
+          "The indexed same-day three-patch linear result compares growth between periods but is not in the scalar nonlinear class."
+        ],
+        "reasoning": "Count or hyperbolicity results, even when applicable, do not decide a derivative in the period. The comparable patch result relates different models and is not a dominating theorem.",
+        "searches": [
+          "Álvarez–Gasull–Giacomini arXiv:math/0602468v1, Abel periodic-orbit uniqueness and hyperbolicity",
+          "Local Resultary: Abel cycles and period-dependent Floquet results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md relationship to prior work",
+        "Shu–Fu primary PDF",
+        "Álvarez–Gasull–Giacomini primary PDF",
+        "Indexed Resultary matches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shu–Fu's two stage-time equations give the endpoint constraints. The frozen result also needs the selection-weighted mean, derivative of the second residence moment at fixed duty and strict interior variance bound."
+        ],
+        "reasoning": "An equivalent period law can be derived using the older stage-time equations as a starting point, but is not a parameter substitution or immediate consequence of the stated oscillation constructions. Hyperbolicity alone determines neither the sign of Lambda' nor its magnitude or endpoints.",
+        "searches": [
+          "Shu–Fu §3.1 and §3.3 residence-time formulas",
+          "Álvarez et al. Theorems A, 5.1 and 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shu–Fu §3.3 eqs. (12)–(15) uses x(1−x)(a_i x−b_i), equivalent under h_i=b_i/a_i, and prescribes both stage durations from chosen endpoints; §3.1 eq. (8) treats a symmetric example."
+        ],
+        "reasoning": "The same phase equations and oscillations are established. Selecting times for prescribed endpoints is not the fixed-duty derivative of the orbital residence variance or of the Floquet exponent.",
+        "searches": [
+          "Shu and Fu arXiv:2208.13306v1, original scalar switching equations",
+          "Local Resultary: periodic switching, coordination Floquet exponent and variance derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97 treats a three-patch linear system and a finite period comparison.",
+          "2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444 gives exponents in a harmonic Abel family at fixed period; 2026/11/1/SCOPE-sharp-four-window-switching-and-a-two-cycle-fold-in-the-abel-equ--68539f90f799 concerns a different positive-cycle count."
+        ],
+        "reasoning": "Neither fixed-period exponents, a count of cycles, nor a two-period numerical inequality are exact coverage of the all-period residence law. Same-day dating was not used to infer relative priority.",
+        "searches": [
+          "Local Resultary semantic check: exact two-stage variance derivative, Floquet period law, Abel exponents"
+        ]
+      },
+      "rationale": "The supported distinction is the exact derivative and strictly decreasing per-unit-time exponent, with its endpoint rates for all fixed-duty parameter choices. Shu–Fu's exact same scalar model, interior periodic constructions and stage-time formulas are prior art, not discoveries of the frozen record. The compared published and indexed results do not establish the variance/Floquet law on this domain.",
+      "residual_risks": [
+        "An equivalent reparametrization of a periodic-scalar result or an uninspected derivation from endpoint-time formulas remains possible; the judgment does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and explicit endpoint-time prior art; no displayed fixed-duty variance or per-time exponent derivative in compared passages",
+          "evidence": [
+            "Thresholds b_i/a_i and residence times are used to construct repeating oscillations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.13306v1",
+          "material_read": "§3.3 eqs. (12)–(15), pp. 12–14, offsets 23500–24800, and §3.1 eq. (8) near offset 14180",
+          "method": "OA PDF passages and coefficient transformation",
+          "title": "Eco-Evolutionary Dynamics of Bimatrix Games",
+          "trigger": "Same two-stage scalar coordination model"
+        },
+        {
+          "assessment": "Different coefficient constraints or weaker count, no corresponding Floquet-period derivative",
+          "evidence": [
+            "The linear term a_i h_i has positive period mean; direct application of Theorem 5.1 fails."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602468v1",
+          "material_read": "Theorem A p. 2 near offset 3800; Theorems 5.1–5.2 p. 15 near offset 39000",
+          "method": "OA PDF and hypothesis comparison",
+          "title": "A new uniqueness criterion for the number of periodic orbits of Abel equations",
+          "trigger": "Potential broader cubic scalar theorem"
+        },
+        {
+          "assessment": "Related phenomenon in a different model; no formula-level equivalence",
+          "evidence": [
+            "Linear three-patch evolution with equal seasons, including comparison Lambda(2)>Lambda(8)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97",
+          "material_read": "Mirrored Finding",
+          "method": "Local statement comparison",
+          "title": "Exact two-season nonmonotonic growth in a minimal three-patch model",
+          "trigger": "Closest indexed period-dependent Floquet result"
+        },
+        {
+          "assessment": "Different schedules or statistics",
+          "evidence": [
+            "Fixed-period Floquet exponents in one case; four-window positive-periodic-solution fold in the other."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444 ; 2026/11/1/SCOPE-sharp-four-window-switching-and-a-two-cycle-fold-in-the-abel-equ--68539f90f799",
+          "material_read": "Mirrored findings for the harmonic family and four-window family",
+          "method": "Local comparison of equations and conclusions",
+          "title": "Exact periodic solution exhaustion in a harmonic Abel family; sharp four-window switching in the Abel equation",
+          "trigger": "Potential indexed cubic period-orbit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 26–63 and 79–134",
+        "Shu–Fu §3.1 and §3.3 for motivation and comparison"
+      ],
+      "rationale": "The residence derivative resolves the direction of a natural switching-timescale comparison that uniqueness and repulsion cannot answer. Its connection to strict variance growth identifies how the orbit widens while weakening the repulsion per unit time and yields both limiting rates; this is a structural quantitative result rather than another oscillating example.",
+      "residual_risks": [
+        "The derivative concerns an exceptional orbit in a precommitted scalar model, not robustness of interior coexistence in arbitrary games."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

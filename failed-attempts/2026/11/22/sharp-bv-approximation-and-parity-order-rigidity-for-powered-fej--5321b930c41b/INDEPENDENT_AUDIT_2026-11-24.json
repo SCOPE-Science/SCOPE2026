@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:44:09.299920Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–6",
+        "VERIFICATION.md",
+        "checker.py",
+        "python3 -B /workspace/review-evidence/independent_checks.py 3"
+      ],
+      "rationale": "The centered Laurent expansion normalizes the density and its odd cosine pairings give the claimed first absolute moment. The shortest-translation bound is saturated by the half-circle indicator. For equality, the arc leakage function is strictly increasing up to half length, since the density is positive a.e.; in a canonical decomposition of a nontrivial finite-perimeter set every component would have to have half length, hence there is just one component. Coarea and nesting give the same half-circle at almost every nontrivial level. The antipodal kernel has constant term 1/(2 pi a) for odd n and first nonzero term (n/2)^(2q) u^(2q)/(2 pi a) for even n; integrating against 2(delta-u) gives exactly both orders, constants and remainders. For q=2 the center is n²+2 sum_{k=1}^{n-1} k² and the first moment after scaling x=n theta has an integrable O(|x|^-3) tail majorant. Two integrations by parts reduce the sinc moment to the cosine Frullani integral log 2. At arc lengths 0 and 2 pi the true quotient is undefined (the indicators are constant); L at those endpoints means its continuous extension by zero, as in the proof for proper arcs. The frozen checker was inspected, not executed. The independent finite script passed 60 antipodal deficit checks.",
+      "residual_risks": [
+        "The deficit assertion is local on the one-arc family, not a stability estimate on the whole BV unit ball."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fejér record's proof treats even probability densities positive a.e.; the circular drift–diffusion record has a universal moment norm lemma and rigidity for pointwise positive densities."
+        ],
+        "reasoning": "The a.e.-positive theorem covers the isolated zeros of all the powered kernels and thus supplies what the pointwise-positive rigidity version alone would not.",
+        "searches": [
+          "Resultary: arbitrary circle Markov convolution BV norm; c827300bde01 §§1–2; 67dcd0fce75c §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c827300bde01 and 67dcd0fce75c",
+        "Catala et al. pp. 413–414",
+        "Babenko–Kryakin–Staszak pp. 339–341"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic Q_K(d) gives deficit 2 integral_0^delta (delta-u) K(pi-u) du. The ordinary-Fejér proof already computes antipodal constant versus quadratic vanishing of K_n. The powered kernel is a renormalized qth power of K_n."
+        ],
+        "reasoning": "Multiplying the zero order by q and integrating twice gives 2q+2 with the displayed coefficient; a nonzero value gives order two. Pairing this same first moment with the finite Fourier coefficients gives the exact finite sum. What remains outside literal general statements is explicit evaluation, not a new extremal argument.",
+        "searches": [
+          "c827300bde01 proof §§1–4, local mirror offset 2700–7145; Catala et al. Thm. 3.3 and Remark 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c827300bde01, proof §§1–2: Q_K(d)=2 integral_0^pi K(t) min(t,d) dt; sharp norm Q_K(pi); equality for K>0 a.e. exactly two levels on complementary half-circles."
+        ],
+        "reasoning": "This states precisely the norm, equality, and arc-profile conclusions with K=j_(n,q), an even probability density with isolated zeros. The W1 delta-mass moment theorem in the checked 2024 paper is a different norm, not needed for this implication.",
+        "searches": [
+          "Resultary: sharp integrated BV error, circle probability convolution, Fejér parity and powered Jackson first moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching assigned catalogue record is itself; the pertinent distinct entries are c827300bde01 and 67dcd0fce75c. Catala et al. Remark 3.4 identifies the normalized q=2 Jackson family but gives a coarse moment bound."
+        ],
+        "reasoning": "No finite table could establish the all-degree theorem; exact coverage here is by the general formula, not by matching the assigned entry or assuming the q=2 number has already been tabulated.",
+        "searches": [
+          "Resultary: powered Fejér–Jackson BV exact coefficient, even degree antipodal rigidity, Jackson square asymptotic"
+        ]
+      },
+      "rationale": "The exact BV norm mechanism, complete equality theorem and loss profile are already covered by the explicit general even-kernel argument in a distinct same-day indexed record. The comparison proves mathematical coverage, not chronological priority. The powered Fourier factors and numerical Taylor constants need not have been spelled out elsewhere: they follow directly from this stronger result. The q=2 limit is not identified as an exact formula in the checked Jackson literature; it is a routine moment evaluation after applying the covered theorem, not a distinct sharp BV theorem.",
+      "residual_risks": [
+        "No order of publication is inferred from the shared catalogue date.",
+        "Nielsen full text was unavailable; older approximation literature may contain the q=2 moment evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general-kernel coverage; shared date not a priority determination",
+          "evidence": [
+            "Proof gives the sharp Q_K(pi) for any even probability kernel and equality iff a two-level half-circle indicator when K>0 a.e.",
+            "Arc identity specializes directly, and q=1 already makes the parity of the antipodal zero explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-integrated-bv-error-of-fej-r-means-and-a-parity-change-in--c827300bde01/RESULT.md",
+          "material_read": "Finding and proof §§1–4; decisive passage at offsets 2700–7145",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp integrated BV error of Fejér means and a parity change in extremal rigidity",
+          "trigger": "Exact analogue and possible general-kernel coverage"
+        },
+        {
+          "assessment": "Norm overlaps; its stated strict-positivity hypothesis for rigidity is stronger than needed here",
+          "evidence": [
+            "First-geodesic-moment norm and half-circle attainment for probability convolution."
+          ],
+          "identifier_or_url": "Resultary 67dcd0fce75c",
+          "material_read": "Proof §§1–2",
+          "method": "Local mirror",
+          "title": "Sharp circular BV drift–diffusion error and infinitely recurrent extremizers",
+          "trigger": "Universal exact convolution seminorm"
+        },
+        {
+          "assessment": "Same kernel with a Wasserstein moment bound, not the asserted norm theorem",
+          "evidence": [
+            "Uses the degree 2m-2 Jackson kernel and gives a coarse first-moment bound."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00365-024-09686-0",
+          "material_read": "OA PDF pp. 413–414, Thm. 3.3, Remark 3.4",
+          "method": "Primary PDF passage read",
+          "title": "Approximation and Interpolation of Singular Measures by Trigonometric Polynomials",
+          "trigger": "Same squared Fejér Jackson kernel and first moment"
+        },
+        {
+          "assessment": "Different input class, operator question and error functional in the checked passages",
+          "evidence": [
+            "Continuous-function modulus and spline approximation, not the BV residual operator norm here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00365-013-9210-6",
+          "material_read": "pp. 339–341",
+          "method": "Primary paper passage inspection",
+          "title": "Special Moduli of Continuity and the Constant in the Jackson–Stechkin Theorem",
+          "trigger": "Jackson approximation constants"
+        },
+        {
+          "assessment": "Unresolved, no inference of noncoverage",
+          "evidence": [
+            "Access limitation only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/135245",
+          "material_read": "No primary full-text passage was accessible",
+          "method": "DOI and publisher lawful routes attempted, unavailable or 403",
+          "title": "Summation of Multiple Fourier Series in Matrix Weighted Lp-Spaces",
+          "trigger": "Jackson summation and possible sharp-norm overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§1–6 and Limitations",
+        "Resultary c827300bde01 proof §§1–4"
+      ],
+      "rationale": "The norm and its rigidity are meaningful, but these aspects are covered at the general-kernel level. The incremental quantified result is a direct Fourier and endpoint substitution in that theorem, and the q=2 calibration integrates a classical limiting sinc profile. The record does not establish a separate stability bound, a new power/degree asymptotic mechanism or another independently valuable remainder warranting repair.",
+      "residual_risks": [
+        "This judgment is about the incremental finding, not the utility of the general convolution theorem or its formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:40:37.800575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, definitions and proof sections 1–5; independent discriminant sign check",
+        "VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "At the regular polygon the mean vanishes, giving r²=a/k_r and Ω=ω−MC_i−ah. The linearized balance constraint on phases has real rank two, so the local manifold is smooth of dimension M−2. In the co-rotating frame the on-site differential is −A(v_j+exp(2iθ_j) conjugate(v_j)) with A=a(1+ih); coupling adds (MC_r+iMC_i) times the arithmetic mean. Fourier modes pair by k↔2−k modulo M. Outside {0,2}, this is the zero/radial −2a split with multiplicity M−2 each, including self-paired modes. The exceptional block on (u_0,conjugate(u_2)) is complex linear, and after dividing eigenvalues by a its quadratic is μ²+(2−x−iy)μ−(x+iy)(1−ih). The full real spectrum adds its conjugates. Independently, let u=2−x and D=4+x²+4h²−(y−2h)²+2ix(y−2h) be its discriminant. If u>0, the largest real part is (−u+w)/2, where w=|Re√D| and w² is the larger root of z²−Re(D)z−(Im(D))²/4=0. The sign of this last polynomial at u²>0 is the sign of u²−w², and its value there is 4[(1−x)(y−2h)²−(2−x)²(x+h²)]. This proves the exact attraction and instability signs for x<2. At x=2, Im D≠0 unless y=2h, where D>0, so w>0 and there is a positive real part. For x>2 the real trace is positive. For 0<x<1 the crossing expression is negative at y=0 and has the two stated simple zeros. At them just one exceptional root is on the imaginary axis, it cannot be zero as the constant coefficient is nonzero, and the other root has negative real part by the trace; realification gives the simple conjugate pair. At x=0 the expression reduces to y(y−4h); at x=y=0 the exceptional block has roots 0 and −2, yielding two additional real zero directions, and at y=4h≠0 it gives a nonzero imaginary pair. In the strict window the tangent zero directions are semisimple and the normal matrix is Hurwitz. A local quadratic Lyapunov metric on the normal coordinates persists by continuity, giving exponential normal convergence and integrable tangential drift. This is attraction to the local family, not to its chosen representative, and does not decide nonlinear behavior at equality.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee Eq. (35) sets Γ⁻¹=(s+1+a)/[(s+1+2a+iha)(s+1+iha)] in the case of positive identical growth and a Lorentzian frequency distribution of unit width, with real Γ≥0; a and h denote their mean growth and nonlinear frequency shift. The older complex-coupling papers did not yield accessible decisive passages."
+        ],
+        "reasoning": "Put λ=s+1+iha. Then Lee's equation becomes λ(λ+2a)=Γ(λ+a−iha), the present quadratic when Γ=MC_r and C_i=0. But Re s=0 translates to Re λ=1, not Re λ=0, and its hypotheses do not permit obtaining the reactive window merely by substituting a complex Γ. The finite-population spectrum and h–y competition are not covered by that inspected continuum theorem.",
+        "searches": [
+          "Lee–Ott–Antonsen arXiv:1304.3974, §II Eq. (7) and §VI Eqs. (35)–(39)",
+          "Hakim–Rappel DOI 10.1103/PhysRevA.46.R7347; Nakagawa–Kuramoto DOI 10.1016/0167-2789(94)90275-5; Zou–Zhan DOI 10.1137/09075398X"
+        ]
+      },
+      "checked_sources": [
+        "Exact Resultary zero-Kerr overlap records 807118a3b756 and a0832bb5dd4e, and earlier phase-reduction comparisons",
+        "Zhao–Uchida and Lee–Ott–Antonsen, passages above",
+        "Hakim–Rappel, Nakagawa–Kuramoto and Zou–Zhan, access limitations above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen crossing polynomial depends on (y−2h)² and x+h²; setting h=0 destroys the mixed term and fixes the center of the gap at zero. Lee's inspected factor is recovered at y=0 and a shifted spectral parameter."
+        ],
+        "reasoning": "Neither agreement on a lower-dimensional slice nor simulated sign changes with h=0 imply this exact shifted window, its real-part signs, or its endpoint degeneracies. A prior finite identical-amplitude complex-coupling spectrum could imply it directly; none was established from the passages obtained, and the named historical coverage risk remains.",
+        "searches": [
+          "Zhao–Uchida polygon sampling passages; Lee–Ott–Antonsen §VI Eq. (35); exact zero-Kerr Resultary entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 807118a3b756 the M=3 zero-Kerr window is β>6C_r and C_i²>C_r(2β−9C_r)²/[3(β−6C_r)]. In a0832bb5dd4e the purely reactive zero-Kerr setting gives attraction for nonzero coupling at every noncollinear balanced polygon.",
+          "Zhao–Uchida describe the complex mean-field polygon family without Kerr and sample transverse instability over configurations."
+        ],
+        "reasoning": "Using x=3C_r/(β−3C_r), y=3C_i/(β−3C_r), h=0 reduces the frozen criterion to the first formula; x=h=0 reduces it to y≠0, matching the regular member in the second result. Neither comparison includes h≠0, regardless of catalogue dates. Phase-only reductions are not identical to the full amplitude-phase linearization.",
+        "searches": [
+          "Resultary searches for regular polygon/splay, complex reactive mean-field coupling, nonlinear frequency shift and exact stability boundary",
+          "Resultary 807118a3b756 and a0832bb5dd4e; phase-reduction entries 209d4d8aa9d9 and 40d4eb3f4497",
+          "Zhao–Uchida arXiv:2610.08239v1 Eq. (5) and polygon stability section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed formulas cover the triangular zero-Kerr and purely reactive zero-Kerr subfamilies, respectively, not a nonzero h window."
+        ],
+        "reasoning": "No finite numeric table applies to an all-M theorem on a continuum of coupling and shear parameters. The exact symbolic records are pertinent and their overlaps are credited explicitly; finite or ranked search cannot certify archive-wide absence.",
+        "searches": [
+          "Resultary exact-window and spectral catalogue hits 807118a3b756 and a0832bb5dd4e"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact nonzero-Kerr reactive window for the regular finite-population polygon, including its spectral crossings. Closest catalogue statements genuinely overlap the zero-Kerr slices; the most relevant inspected Kerr calculation in primary text has a matching algebraic factor on a real-coupling slice but a different spectral condition. This does not establish priority for the model, the zero-Kerr case or the quadratic structure itself. The older complex-coupling comparisons remain limited by access.",
+      "residual_risks": [
+        "The frozen note credits an earlier exact zero-Kerr window without identifying its source; the zero-Kerr case is not credited as new in this assessment. Older complex Ginzburg–Landau literature may contain an equivalent full finite-population calculation; the plausible named sources could not be inspected at theorem level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong zero-Kerr antecedent, not full nonzero-Kerr comparison",
+          "evidence": "Uses finite zero-order-parameter polygons without Kerr and samples an instability ratio across configurations.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08239v1",
+          "material_read": "Abstract, Eq. (5) and model discussion (offsets 6500–11017), polygon and sampled stability discussion (30810–35990)",
+          "method": "Targeted lawful OA full-text passages",
+          "title": "Heterogeneity-induced chaos in globally coupled Stuart–Landau oscillators",
+          "trigger": "Same complex-coupling family and balanced polygon manifold"
+        },
+        {
+          "assessment": "Exact quadratic correspondence on real-coupling slice after shift, not the same stability statement",
+          "evidence": "Eq. (35) gives the quadratic via the parameter shift noted under broader_coverage; its instability condition is Re s=0 for a Lorentzian ensemble and its Γ is real.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.3974",
+          "material_read": "§II Eq. (7), p. 5; §VI Eqs. (35)–(39), pp. 16–17, including PDF offsets 39600–44086",
+          "method": "Targeted lawful OA author PDF",
+          "title": "Phase and amplitude dynamics in large systems of coupled oscillators: Growth heterogeneity, nonlinear frequency shifts, and cluster states",
+          "trigger": "Kerr-dependent zero-order-parameter instability and possible matching quadratic"
+        },
+        {
+          "assessment": "Exact M=3, h=0 overlap; not Kerr",
+          "evidence": "Under x,y normalization its β and C_i constraints are the zero-Kerr triangle specialization.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-reactive-coupling-window-for-three-coexisting-stuart-landa--807118a3b756",
+          "material_read": "Finding and parameter conditions",
+          "method": "Resultary and exact local mirror",
+          "title": "Sharp reactive-coupling window for three coexisting Stuart–Landau oscillators",
+          "trigger": "Exact reactive window for a regular triangle"
+        },
+        {
+          "assessment": "Covers a broader polygon class on the restricted x=h=0 slice",
+          "evidence": "Noncollinear balanced polygons are normally attracting for nonzero purely reactive coupling without shear.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-population-spectrum-and-slow-relaxation-of-reactive--a0832bb5dd4e",
+          "material_read": "Finding and parameter conditions",
+          "method": "Resultary and exact local mirror",
+          "title": "Exact finite-population spectrum and slow relaxation of reactive balanced states",
+          "trigger": "Exact balanced-state spectrum for finite populations"
+        },
+        {
+          "assessment": "Plausible unresolved coverage",
+          "evidence": "Lee cites it as studying complex coupling; no exact spectrum was obtained.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.46.R7347",
+          "material_read": "Bibliographic metadata and citation in Lee et al.; no full-text passage",
+          "method": "Exact identified lawful DOI and publisher routes; no repository copy found",
+          "title": "Dynamics of the globally coupled complex Ginzburg–Landau equation",
+          "trigger": "Likely early antecedent for globally complex-coupled amplitude dynamics"
+        },
+        {
+          "assessment": "Unresolved at theorem level",
+          "evidence": "Publisher route did not return readable paper text.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(94)90275-5",
+          "material_read": "Bibliographic identification and citation only",
+          "method": "Exact DOI and lawful OA resolution",
+          "title": "From collective oscillations to collective chaos in a globally coupled oscillator system",
+          "trigger": "Early model with complex coupling cited in Lee et al."
+        },
+        {
+          "assessment": "Unresolved at theorem level",
+          "evidence": "Frozen comparison describes real diffusive coupling; retrieved material did not permit verifying the cited appendix.",
+          "identifier_or_url": "https://doi.org/10.1137/09075398X",
+          "material_read": "Citation and description in frozen record; no independent primary theorem passage",
+          "method": "Exact DOI and OA publisher/repository attempt",
+          "title": "Splay States in a Ring of Coupled Oscillators: From Local to Global Coupling",
+          "trigger": "Splay-mode spectral calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and boundary regimes",
+        "Zhao–Uchida polygon stability discussion",
+        "Lee–Ott–Antonsen §VI for the distinct continuum motivation"
+      ],
+      "rationale": "Attractive balance depends on competition between dissipative coupling, reactive coupling and the onsite nonlinear frequency shift. The theorem identifies exactly when shear favors one sign of reactive coupling and moves the two thresholds, gives a coupling range with no stability regardless of shear, and distinguishes genuine spectral crossings from the extra-zero degeneracy. This is a meaningful finite-population design boundary for the full dynamics rather than an extrapolation from a sampled phase model.",
+      "residual_risks": [
+        "No global basin size, general nonregular-polygon classification, or nonlinear threshold conclusion is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:09.331226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–67, VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Normalize the sampled column to Q and let V be a unit orthogonal complement in the column plane. With G=ΨᵀQ and H=ΨᵀV, the two Frobenius-orthogonal residual terms give T_h²=‖(I−QQᵀ)Z_h‖²_F(1+(GᵀH)²/‖G‖⁴). Given the right sketch, G,H are independent standard Gaussian k-vectors and GᵀH/‖G‖ is N(0,1) independent of ‖G‖². This conditional law is constant in the right sketch. Direct projection yields the right factor h/(cos²θ+h²sin²θ)^(1/2) with uniform quadrant angle. The beta ratio W_k/(W_k+ξ²) has parameters k/2 and 1/2, giving B_{q,k} and finiteness exactly for q<k. For q<1 the angular limit is dominated by cos(θ)^(−q); for q>1 substituting cot(θ)=hu leaves, after dividing the angular moment by h, an integrand (1+h²u²)^(q/2−1)/(1+u²)^(q/2), dominated by an integrable bound with decay u^(−min(q,2)). The beta integrals give both constants. At q=1 the displayed elliptic integral and its endpoint expansion apply, but only k>1 admits the full first moment. At q=2 the transformed angular integral is h and the chi-square inverse mean is 1/(k−2). With fixed sketches the signed orthonormal basis converges almost surely and the limiting Gaussian denominator is nonzero. The square-root RMS claim therefore holds for each k≥3 and the second moment is infinite for k≤2.",
+      "residual_risks": [
+        "No inference for shared sketches across many integration steps, stabilization or structured test matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lam–Ceruti–Kressner have the same oblique projection, but their moment bounds require p,ℓ≥4. Nakatsukasa Theorem 3.2 assumes target rank at most right sketch width minus two. Kressner–Lam Theorem 16 assumes r≥2 and p,ℓ≥2. Halko–Martinsson–Tropp Theorem 10.5 is an orthogonal range-finder upper bound with positive oversampling."
+        ],
+        "reasoning": "The inspected oversampled bounds do not establish the unoversampled law. The two prior indexed exact laws, on the other hand, apply with the actual dimensions and ranks; the 6a0180b3e23e angular law is more general in support rank and 23a3fc6123ad is more general in residual/test-space ranks.",
+        "searches": [
+          "arXiv:2409.06384, eqs. (8)–(9), Theorems 2–3; arXiv:2009.11392, eq. (14), Theorem 3.2; arXiv:2302.12761, Theorem 16; arXiv:0909.4061, Theorem 10.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6a0180b3e23e, 23a3fc6123ad, 3c8b1dae290d, 739d1784d937; primary arXiv records 2409.06384, 2009.11392, 2302.12761, 0909.4061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=2, λ=1, ε=h², s=q/2, the half-moment threshold gives the q=1 angular threshold and the same beta constants. For r=1, ℓ=k, ν=k, the conditional multiplier gives cutoff q<k after taking the square root."
+        ],
+        "reasoning": "The two measures fit without additional probabilistic hypotheses. Independence follows directly from the earlier conditional law not depending on the right sketch, and B_{q,k} is the elementary beta moment of the earlier distribution. The log(4/h) equivalent and elliptic K representation do not supply additional sharp precision beyond the defining integral and standard elliptic expansion.",
+        "searches": [
+          "6a0180b3e23e, theorem eqs. (1)–(5); 23a3fc6123ad, Finding, Assumptions and proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6a0180b3e23e, eq. (1), gives the reciprocal spherical quadratic form and eq. (5) gives √(λε) in rank two.",
+          "23a3fc6123ad, Finding and Assumptions, gives a beta-prime normalized squared error increment and explicitly allows conditioning on an independent right sketch."
+        ],
+        "reasoning": "The transformation A=Z_hᵀZ_h identifies the PSD Nyström residual with the Gram matrix of the ordinary orthogonal range-finder residual; its sole eigenvalue is the squared Frobenius error of that residual. This equivalence is exact, not a shared scaling analogy.",
+        "searches": [
+          "Resultary: unoversampled one-vector Gaussian generalized Nyström two singular values and angular moments; 6a0180b3e23e",
+          "Resultary: Gaussian left testing residual-spectrum exact failure law; 23a3fc6123ad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a0180b3e23e eq. (5) gives the exact rank-two mean h for the squared right residual. 23a3fc6123ad gives the precise finite mean multiplier 1+r/(ν−2). 3c8b1dae290d includes the k=1 case on nonsingular symmetric 2×2 matrices. Same-day 739d1784d937 also gives the orthogonal Gaussian squared mean ab, but without the oblique factor."
+        ],
+        "reasoning": "A joint table is unnecessary: the product of the two exact earlier means directly gives h(k−1)/(k−2), as the conditional multiplier is independent. The same-day entry is corroborating mathematical coverage of the angular mean, not evidence of publication order.",
+        "searches": [
+          "Resultary: 6a0180b3e23e, 23a3fc6123ad, 3c8b1dae290d, 739d1784d937"
+        ]
+      },
+      "rationale": "Two earlier explicit Resultary theorems compose directly. Resultary 6a0180b3e23e, eqs. (1)–(5), applied to A=Z_hᵀ Z_h with positive eigenvalues 1,h², gives the law, exact mean h and full small-gap moment spectrum of the squared right orthogonal residual: its PSD Nyström residual is exactly Z_hᵀ(I−QQᵀ)Z_h, rank one. Resultary 23a3fc6123ad applies conditional on the right sketch with r=1, left width k, and rank-one residual, yielding 1+BetaPrime(1/2,k/2) for the squared multiplier. This conditional law is constant, hence independent of the right factor. The product, finiteness cutoff and all leading asymptotics follow with q=2s in the angular law. The elliptic-integral notation for the first moment is the defining integral under this specialization. The constant-forcing ODE is a direct realization of the same matrices, not a distinct convergence result.",
+      "residual_risks": [
+        "No assertion about earliest worldwide priority or same-day record ordering. The rejection follows from explicit earlier indexed laws, not from search scarcity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers right factor, exact mean and angular asymptotic regimes by specialization",
+          "evidence": [
+            "Reciprocal Haar quadratic form; rank-two exact mean √(λε); threshold s=1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e/RESULT.md",
+          "material_read": "Finding eqs. (1)–(5), assumptions and opening proof, offsets 0–4338",
+          "method": "Read local mirror and substitute A=Z_hᵀZ_h",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström error",
+          "trigger": "Exact right-residual law under the Gram-matrix equivalent"
+        },
+        {
+          "assessment": "Covers left multiplier and its moments conditional on randomized right space",
+          "evidence": [
+            "R−1 is BetaPrime(r/2,ν/2) at rank-one residual; ν=ℓ−r+1; conditional law for Q=orth(AX) with independent Y."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad/RESULT.md",
+          "material_read": "Finding, assumptions and Gaussian decomposition, offsets 0–3828",
+          "method": "Read local mirror and specialize residual rank and test dimensions",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Exact conditional oblique multiplier"
+        },
+        {
+          "assessment": "Same algorithm, positive-oversampling estimates do not cover this setting",
+          "evidence": [
+            "p,ℓ≥4 in the cited Gaussian estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.06384",
+          "material_read": "pp. 5–6, eqs. (8)–(9), Theorems 2–3",
+          "method": "Primary PDF passage comparison",
+          "title": "Randomized low-rank Runge–Kutta methods",
+          "trigger": "Same projection and integration application"
+        },
+        {
+          "assessment": "Related decomposition and bounds, not the one-column identity under these hypotheses",
+          "evidence": [
+            "Theorem 3.2 assumes target rank ≤ right sketch width minus two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.11392",
+          "material_read": "p. 14, eq. (14), Theorem 3.2",
+          "method": "Primary PDF passage comparison",
+          "title": "Fast and stable randomized low-rank matrix approximation",
+          "trigger": "Oblique–orthogonal error comparison"
+        },
+        {
+          "assessment": "Different parameter range",
+          "evidence": [
+            "r≥2 and p,ℓ≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.12761",
+          "material_read": "p. 19, Theorem 16",
+          "method": "Primary PDF passage comparison",
+          "title": "Randomized low-rank approximation of parameter-dependent matrices",
+          "trigger": "Potentially dominating Gaussian mean-square estimate"
+        },
+        {
+          "assessment": "Orthogonal range finder and positive oversampling, not a competing exact two-sided formula",
+          "evidence": [
+            "Expected Frobenius upper bound assumes target rank at least two and p≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.4061",
+          "material_read": "pp. 56–57, Theorem 10.5",
+          "method": "Primary PDF passage comparison",
+          "title": "Finding structure with randomness",
+          "trigger": "Classical Gaussian range-finder error estimates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–37 and 62–73; Resultary 6a0180b3e23e and 23a3fc6123ad"
+      ],
+      "rationale": "The distinction between the angular moment transition and the integrability cutoff is useful, but the contribution as presented is a direct combination and parameter specialization of two known laws. Choosing constant forcing only evaluates the known distribution on the same matrices and supplies no new integrator mechanism, repeated-step statement or additional quantitative separation. No independently valuable remainder beyond the covered diagram is established.",
+      "residual_risks": [
+        "This does not rule out a distinct result for other ranks or a full integration analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

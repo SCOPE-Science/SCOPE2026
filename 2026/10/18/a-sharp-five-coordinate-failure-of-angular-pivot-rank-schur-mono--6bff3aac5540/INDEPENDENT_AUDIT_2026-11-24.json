@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:20:20.544749Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The slice has a relative interior point c/2. A vertex can have at most one interior coordinate, since otherwise a two-coordinate transfer gives a feasible line segment, and cannot have zero interior coordinates by nonresonance. An isotropic Gaussian in the intrinsic space is obtained by subtracting the mean from iid Gaussian coefficients, which leaves all strict orders equiprobable. The transfer argument forces greedy saturation in that order. Exactly |H|!(n-|H|-1)! orders expose a given vertex (H,j), and uniform prefix subsets give the asserted tails including r=0,n. Half-quota nonresonance makes the crossing position reverse to n+1-T. A dominant coordinate makes its uniform position pivotal; without one the law is central for n=3,4, and n=2 must be dominant. Majorization cannot create a dominant coordinate under balancing, and comparing the extreme ranks to the nearer central ranks proves convex-order monotonicity there. For five coordinates without a dominant weight, winning pairs are intersecting, so they form a star of at most four edges or lie in a triangle. Hence only h=0,...,4 are possible and the two tails have mass h/10. All six witnesses avoid ties by even capacities and odd half-total. For the example c and d the sorted prefix sums are (6,12,14,16,18) and (6,10,14,16,18); h goes from 1 to 2, so E phi(T_d)-E phi(T_c)=(phi(2)+phi(4)-2phi(3))/10 and the variances are 1/5 and 2/5. Read the supplied code without executing it; fresh exact enumeration of 120 permutations per witness gave all six histograms (/tmp/opencode/frozen-review-replay.py, section 2). That is a check on the witnesses, not a proof of exhaustive real-capacity classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferroni–McGinnis treat the same prism sections and weighted-permutation counts for Ehrhart coefficients. Castillo–Liu gives general braid-fan structure. De Keijzer–Klos–Zhang Algorithm 3 enumerates canonical weighted voting games by minimal winning coalitions and outputs weighted representations."
+        ],
+        "reasoning": "The geometry tools account for the ordering-chamber representation and the voting algorithm makes the finite spectrum computable, but the read statements do not specify the six profiles or address ordering the actual capacity representations by majorization. Enumeration up to game isomorphism generally forgets those comparisons.",
+        "searches": [
+          "arXiv:2202.11808, §1 and Thm. 1.2",
+          "arXiv:1710.01899, braid-fan normal-fan formulation",
+          "arXiv:1204.5213, Algorithm 3 and Thm. 8"
+        ]
+      },
+      "checked_sources": [
+        "Ferroni–McGinnis arXiv:2202.11808",
+        "Castillo–Liu arXiv:1710.01899",
+        "de Keijzer–Klos–Zhang arXiv:1204.5213",
+        "Isbell DOI:10.1090/S0025-5718-1959-0103129-5 (indexed abstract only)",
+        "Shapley–Shubik DOI:10.2307/1951053 (full-text access unsuccessful)",
+        "Resultary 200e766da27b and 1c76a22f265f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An unweighted list of winning families fixes the six possible laws by the prefix formula, but majorization lives on capacity vectors, not on the induced games. The exact Example in the frozen finding identifies two equal-total representations with strict prefix comparison and an increasing number of winning pairs under balancing."
+        ],
+        "reasoning": "A game catalogue alone cannot supply the indicated majorization relation between representatives of different games or the first dimension for this reversal. The inspected Ehrhart, normal-fan, and enumeration results do not imply that sharp comparison.",
+        "searches": [
+          "Pivotal-position convex order or variance under majorization of five half-quota weights",
+          "Isbell 1959 indexed classification description",
+          "arXiv:1204.5213 Algorithm 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict half-quota capacity games are self-dual: exactly one of any coalition and its complement wins. If W_r counts winning r-coalitions then P(T=t)=W_t/binom(n,t)-W_(t-1)/binom(n,t-1). Without a dominant capacity the five-player sequence is (0,0,h,10-h,5,1); with one it is (0,1,4,6,4,1)."
+        ],
+        "reasoning": "This is an exact equivalence for the pivotal position, not for Shapley–Shubik's named-player index. A prior complete self-dual weighted-game table that specifies winning coalitions would therefore also cover the six-law distributional subclaim even without any geometric language.",
+        "searches": [
+          "Resultary and literature: central-prism Gaussian rank law, weighted-majority pivotal position, self-dual five-player games and coalition counts by size",
+          "Shapley–Shubik DOI:10.2307/1951053"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Isbell abstract reports an earlier complete small strong-simple-game catalogue with weighted cases, and that Isbell extends it. The AMS PDF endpoint was denied and the identified JSTOR alternate did not yield readable full text; no entries of the early catalogue were verified. Actual mirror reads of same-day Resultary 200e766da27b and 1c76a22f265f give Gaussian-angle data for partial permutohedra and rank-two matroid bases, respectively."
+        ],
+        "reasoning": "The reported strong-game catalogue is a serious close antecedent for the distributional taxonomy, not dismissed by the absence of an exact phrase. Its individual entries and weights were not seen. The two mirror results classify other polytopes or measure different quantities, so do not give the five-capacity reversal.",
+        "searches": [
+          "Resultary: central-capacity angular ranks and five-player pivotal-position spectra",
+          "Isbell 1959 On the Enumeration of Majority Games, DOI:10.1090/S0025-5718-1959-0103129-5; Gurk–Isbell/von Neumann–Morgenstern small strong-game catalogue",
+          "five-player strong weighted-game table and minimum weights"
+        ]
+      },
+      "rationale": "The supported distinct finding is the sharp majorization statement, including strict reversal of the whole convex order at five coordinates and the location of that witness in the exact six-law spectrum. The random permutation interpretation is classical, and the law spectrum alone is very close to prior voting-game enumeration: a complete table of the relevant winning-coalition families determines it automatically. No independent priority is assigned to the geometric greedy correspondence, basic counting construction, or game taxonomy. The actual comparably weighted representations and sharp convex-order theorem were not found in the inspected statements.",
+      "residual_risks": [
+        "The exact six-law list may already be implicit in the older catalogue referenced by Isbell; the law spectrum is not separately certified original. Weighted-voting papers may also compare normalized weight representations, potentially giving the reversal under different terminology. The decisive older table and complete Shapley–Shubik paper were not accessible. No priority conclusion follows from ranked search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying polytope and Ehrhart enumerations, not the claimed convex-order comparison.",
+          "evidence": "Weighted-permutation counts described for Ehrhart coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.11808",
+          "material_read": "PDF p. 1 and §1, Thm. 1.2 (OA offsets 0, 8700–11072).",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Lattice points in slices of prisms",
+          "trigger": "Identical geometric objects and weighted-permutation combinatorics."
+        },
+        {
+          "assessment": "Structural geometric antecedent, not the distribution under balancing.",
+          "evidence": "The general braid-fan/normal-fan framework accounts for sorting chambers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.01899",
+          "material_read": "PDF p. 2, near OA offset 7587.",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Deformation Cones of Nested Braid Fans",
+          "trigger": "General ordering-chamber normal-fan reduction."
+        },
+        {
+          "assessment": "General enumeration procedure, not a tested table of half-quota rank laws or theorem comparing majorized weights.",
+          "evidence": "Algorithm 3 outputs representations for minimal-winning-coalition lists; Thm. 8 addresses its running time.",
+          "identifier_or_url": "https://arxiv.org/pdf/1204.5213",
+          "material_read": "Abstract; Algorithm 3 and start of Thm. 8, pp. 43–44, OA offset 124630.",
+          "method": "Primary OA PDF passage comparison.",
+          "title": "Solving Weighted Voting Game Design Problems Optimally: Representations, Synthesis, and Enumeration",
+          "trigger": "Potential stronger finite weighted-game enumeration coverage."
+        },
+        {
+          "assessment": "Strong evidence of a prior classification from which laws can be read off if coalitions are supplied; not evidence of a prior sharp convex-order theorem. No whole-document exclusion.",
+          "evidence": "Indexed description reports the known complete list of small strong simple games with majority games identified, and an extension to seven nondummy players.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1959-0103129-5; https://www.jstor.org/stable/2002191",
+          "material_read": "Indexed abstract and bibliographic passages only. No full paper or earlier catalogue entries read.",
+          "method": "Targeted literature search; lawful OA attempts for AMS and JSTOR PDF endpoints.",
+          "title": "On the Enumeration of Majority Games",
+          "trigger": "Plausible direct small-game catalogue coverage of the distributional subclaim."
+        },
+        {
+          "assessment": "The standard named-pivotal-player framework is credited; no full-text novelty inference.",
+          "evidence": "The relevant distinction is distribution of which player is pivotal versus distribution of that player's position.",
+          "identifier_or_url": "https://doi.org/10.2307/1951053",
+          "material_read": "Bibliographic record; lawful DOI and JSTOR routes did not provide readable full text.",
+          "method": "Access attempt and mathematical formulation comparison.",
+          "title": "A Method for Evaluating the Distribution of Power in a Committee System",
+          "trigger": "Classical exact pivotal mechanism."
+        },
+        {
+          "assessment": "Material analogies, not duplicate statements.",
+          "evidence": "Partial permutohedron vertex orbits and mean width; parallel-class angle collision law for rank-two matroid bases.",
+          "identifier_or_url": "Resultary 200e766da27b and 1c76a22f265f",
+          "material_read": "Mirrored findings, offset 0 for both.",
+          "method": "Local Resultary retrieval and mirror reading.",
+          "title": "Gaussian normal-cone angles for partial permutohedra; Gaussian angular spectra for rank-two matroid bases",
+          "trigger": "Closest same-day angular-law and Schur-type catalog statements."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exposed-vertex rank is a canonical directional sampling statistic for a fixed central section, quite different from counting vertices or calculating a voter's influence. It is natural to expect balancing to concentrate it. The proof establishes exactly where that intuition first fails and supplies a reverse convex-order witness, not just a single variance comparison; the six-law spectrum explains the mechanism through changes in winning-pair counts. This is a useful small-dimensional boundary rather than an unmotivated finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

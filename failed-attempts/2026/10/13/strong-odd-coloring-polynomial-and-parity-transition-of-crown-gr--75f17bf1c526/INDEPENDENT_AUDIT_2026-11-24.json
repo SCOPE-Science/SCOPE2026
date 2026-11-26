@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:10:52.236225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–31",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Replay: python /workspace/review_evidence/graph_checks.py 2"
+      ],
+      "rationale": "Each color class must be independent and have zero or odd intersection with every open neighborhood; these classwise tests jointly suffice. A class spanning both shores must be a deleted pair, since all other cross-shore pairs are edges. A side-only class of size r with 2≤r<n produces positive counts r and r−1 at opposite vertices of the missing matching, which cannot both be odd. A whole shore contributes n−1 to every opposite vertex and is allowed exactly when n is even; singletons and deleted pairs always work. A partition without either whole shore chooses s of the n matching pairs and uses 2n−s names, giving the first falling-factorial sum. For even n there are also two partitions with one whole shore and opposite singletons, and one partition with both whole shores. These give precisely the correction terms. The least color counts are n and 2 in the respective parity cases; the palette formula includes q=0 with all terms zero. Independent definition tests checked 349,497 candidate classes for n=3–9 and 120,318 full partitions for n=3–5, agreeing with the class list and all falling-factorial coefficients tested.",
+      "residual_risks": [
+        "Finite tests check candidate-class admissibility through n=9 and all partition coefficients through n=5, not unrestricted n. Color-name injections and the class proof establish the palette polynomial at all q≥0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.4(iii)–(iv) gives the exact scalar on the product. Its proof states all proper classes lie in single rows or columns, and at r<p explicitly exhibits the two positive consecutive neighbor counts.",
+          "Resultary a8a6d125d085 requires an unmatched vertex on each shore and does not extend to the balanced full crown."
+        ],
+        "reasoning": "The broader complete-by-complete product proof already supplies the counting constraint at the full crown endpoint. The partial-matching formula is not a source for that constraint.",
+        "searches": [
+          "Caro et al., arXiv:2410.02336 Theorem 4.4(ii)–(iv), including proof of claim (v)",
+          "Resultary: strict partial matching deletion and the full crown endpoint"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Relationship to prior work",
+        "arXiv:2410.02336 Theorem 4.4 proof",
+        "Local Resultary 3bc0465d6248, a8a6d125d085 and 5c2e597efa59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 2≤r<p, Caro et al. produce opposite-row vertices with r−1 and r neighbors of that color without using parity of p. The full-row neighbor count p−1 permits a full row precisely for p even. The column argument is symmetric.",
+          "For a two-row crown the non-full-shore partitions select any subset of whole two-vertex columns, and when n is even, selecting a full row leaves only singleton or full-row classes on the other row."
+        ],
+        "reasoning": "This yields binom(n,s) ways to choose the pair blocks and exactly two plus one partitions in the full-shore case, followed by naming classes. Nothing beyond the prior parity count and routine enumeration is required; even the even-n correction is implied.",
+        "searches": [
+          "arXiv:2410.02336, Theorem 4.4 proof, printed pp. 20–21 and OA offsets 46900–51694",
+          "Frozen RESULT.md lines 20–34 and Resultary 3bc0465d6248 Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2410.02336, p. 17 direct-product definition, identifies K_n×K_2 with the balanced matching deletion.",
+          "Resultary 3bc0465d6248 Finding and Proof characterize the admissible odd-independent sets in odd crowns; they are precisely the allowable strong-odd color classes."
+        ],
+        "reasoning": "The product factor of size two gives the shores and the size-two columns are the deleted matched pairs. The odd-independence formulation recovers the entire odd-n partition structure, not just the odd minimum.",
+        "searches": [
+          "Resultary: odd independence and strong odd coloring in odd and even crowns",
+          "Primary product comparison: crown K_n×K_2; odd-independent classes and strong odd colorings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odd-crown record 3bc0465d6248 supplies the partition types, not a full arbitrary-palette display. The same-day 5c2e597efa59 counts proper conflict-free colorings, requiring just one unique neighbor color at each vertex.",
+          "The full strong-odd and conflict-free counts differ already at n=4,q=4: the strong-odd formula gives 36 whereas that record gives 384."
+        ],
+        "reasoning": "No exact all-n strong-odd polynomial was printed in the strongest inspected catalogue hits. The failure is based on a mechanical implication of the primary structural proof, not on equating those numerical tables.",
+        "searches": [
+          "Resultary: full crown graph K_n × K_2 strong-odd chromatic polynomial named palettes even crown full shore monochromatic extra exceptional two-color (q)_2 (q)_(n+1) all palettes"
+        ]
+      },
+      "rationale": "Theorem 4.4 of Caro et al. explicitly gives both parity branches of the scalar. More decisively, the argument for claim (v) in its proof excludes every proper nontrivial sub-row or sub-column color class by the positive counts r−1 and r, irrespective of the full row or column size's parity. Only its full-row case uses odd order. Specializing that argument to K_n×K_2 gives the complete class list even for even n. Counting disjoint whole columns and the three possible whole-shore partitions is then direct, so the new wording and displayed polynomial do not establish a distinct exact fact. This judgment is based on the available proof, not a claim that the earlier theorem statement prints the polynomial.",
+      "residual_risks": [
+        "The focused public search was uninformative and does not establish absence of other sources. The negative decision rests on the positive proof-level implication, not a date-based priority inference or a claim about uninspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit scalar and mechanical coverage of both parity polynomial branches",
+          "evidence": [
+            "Claim (v)'s proof rules out r<p with positive consecutive counts and separately uses parity only for r=p. The proof of (iv) confirms full even rows and columns are feasible."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Product definition p. 17 (offset 40650); Theorem 4.4 and proof pp. 20–21 (offset 46900 onward)",
+          "method": "OA primary-text review of the theorem and proof",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Exact invariant, crown as a direct product, and possible implication of the full polynomial"
+        },
+        {
+          "assessment": "Exact odd-crown structural coverage, not displayed even polynomial",
+          "evidence": [
+            "Odd-independent classes larger than singletons are exactly deleted pairs for odd n; the unique optimal partition uses all pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248",
+          "material_read": "Finding and within-shore/mixed-set cases in Proof",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Odd independence and strong odd coloring of odd crown graphs",
+          "trigger": "Same graph and a dual classwise formulation"
+        },
+        {
+          "assessment": "Different condition and count, not scientific coverage",
+          "evidence": [
+            "It requires a uniquely colored neighbor and reports 384 at n=4,q=4. A strong-odd two-coloring of the even crown need not have such a neighbor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-proper-conflict-free-coloring-polynomial-of-crown-graphs--5c2e597efa59/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and first proof step; local offsets 1250–3256",
+          "method": "Local Resultary search and exact mirrored passage",
+          "title": "Proper conflict-free coloring polynomial of crown graphs",
+          "trigger": "Same-day count on identical graph and palettes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and lines 20–34",
+        "Caro et al., arXiv:2410.02336 Theorem 4.4 proof"
+      ],
+      "rationale": "The even-crown excess over square-graph colorings is a useful explicit description in isolation, but it simply counts the two one-shore and one two-shore partitions already forced by the broader product proof. The minimum is explicitly known and the full count here is routine bookkeeping after that proof, with no independently useful unknown exact fact left by narrowing to the even case.",
+      "residual_risks": [
+        "This assessment is confined to the frozen crown enumerator, not to other strong-odd counting questions on graph products."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

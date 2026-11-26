@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:52.081068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, assumptions and bounds; VERIFICATION.md; verify.py (read, not run)",
+        "Separate residue replay: /workspace/branches/0b0b8281-d0f4-4f51-963c-de00979aef78/residue_check.py and residue_counts.txt"
+      ],
+      "rationale": "For even a=2b, T(a)=b(2b+1); differences factor as (b-c)(2(b+c)+1), making the map of b bijective on every residue ring and hence Haar-preserving. The odd class is identified with the even class by a↦-1-a, which preserves T. Condition on the valuation j of U=T(a), of mass 2^(-j-1). Then UV is uniform on 2^j Z_2, since V=T(b) is independent Haar and the unit of U is invertible. For n=2^h u and j<=h, the translated law is still Haar on 2^j Z_2, so the conditional square probability is 1/6 for even j and 1/12 for odd j by even valuation and odd unit 1 mod 8. At n=0 this sums over all j to 5/36. For odd h, j>h brings no squares and the truncated sum is (5/36)(1-2^(-h-1)). For even h the sum through h is 5/36-2^-h/18; for j=h+1,h+2, and j>=h+3 the conditional square probabilities are 1/4, (1/2)1_{u=1 mod 4}, and 1_{u=1 mod 8}, respectively. Their weighted additions are 2^-h times 1/16, 1_{u=1 mod 4}/16, and 1_{u=1 mod 8}/8. This gives exactly the stated c(u), with no change for negative n. Zero is null. The odd branch is minimized only at h=1; in the even branch the positive correction is largest only for h=0 and u=1 mod 8. Independent modular counting at 2^10 gave 299/2048,171/512,27/256,75/512,107/512 for n=0,1,2,3,5; these upper approximations count congruence squares, not necessarily actual 2-adic squares. The analytic disintegration, not the truncation, establishes the exact formula.",
+      "residual_risks": [
+        "No inference about ordinary integer pairs or global density follows. Finite residue checks are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 7.4.1 treats the square-unit index and Eq. (7.4.2) the expectation of a dyadic random-quadratic root count with two random coefficients."
+        ],
+        "reasoning": "A root-count expectation under a different coefficient law and the square-unit density are useful ingredients, not an exact projected probability for a fixed shift of a Haar product.",
+        "searches": [
+          "Shifted 2-adic products under local integration and Igusa-type formulations",
+          "Bürgisser–Kulkarni–Lerario, Nonarchimedean integral geometry §7.4"
+        ]
+      },
+      "checked_sources": [
+        "Three OA primary sources and three named mirrored Resultary comparisons above; shifted-product and exact-density searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 17 gives dyadic congruence solutions for each n at every power of two; the Pell rewrite for the integer equation helps construct pairs. Neither statement weights the projection onto index pairs; solving the equation over the local ring does not specify its coverage in the product Haar measure."
+        ],
+        "reasoning": "Existence and the known uniformity lemma leave the shift-sensitive square mass and extrema to be derived. A general integration method without an observed formula yielding the full mass is not demonstrated coverage.",
+        "searches": [
+          "Bagchi–Zhou-Zheng arXiv:2608.27697 Theorems 13 and 17",
+          "Bliznac Trebješanin arXiv:2603.29565 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed triangular-residue record gives exactly two lifts per target at modulus 2^k when the index is taken modulo 2^(k+1). This yields Haar U,V and eliminates the triangular prefixes from the probability calculation."
+        ],
+        "reasoning": "Originality is assessed against the simpler independent-product formulation; a restatement using triangular numbers is not credited as distinct.",
+        "searches": [
+          "Shifted product UV+n square over Z_2; xy+n=z^2 under Haar inputs",
+          "Resultary exact fibers and moments of triangular residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first related result states congruence solvability for every modulus iff n is not 2 or 5 mod 9, not the local projected measure. A same-day dyadic square-image formula 7/372 is for upper triangular matrix targets in a different probability space."
+        ],
+        "reasoning": "These are substantive neighboring exact records, but not the same table of projected densities or extremizers.",
+        "searches": [
+          "Resultary shifted-product square density, valuation-unit split and sharp constants",
+          "2026/10/13/SCOPE-exact-congruence-obstruction-for-triangular-d-n-pairs--8840d7811f36",
+          "2026/10/18/SCOPE-exact-p-adic-square-image-density-for-upper-triangular-2-times2--f770625ffaa5"
+        ]
+      },
+      "rationale": "The distinct result is the complete parameter-dependent projected mass and both sharp equality classes for a fixed additive shift, equivalently for the product of two Haar integers. The triangular uniformity reduction is known in indexed work, and dyadic solvability in the same equation is known. Those overlaps are not new contributions; neither determines the square probability, its valuation and unit dependence, or its extremizers. Relevant available primary passages and the closest indexed results were checked; no matching full density theorem or exact table was found in those sources.",
+      "residual_risks": [
+        "The inspection is targeted, not a complete literature survey. An unlocated equivalent p-adic integration result could imply the formula; searches do not establish its absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dyadic existence and congruence obstruction, not density",
+          "evidence": [
+            "Theorem 17 has solutions modulo 2^k for every n; Theorem 13 concerns moduli not divisible by 9. Relevant full-text passages are now available, unlike in the frozen search."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27697",
+          "material_read": "Abstract p. 1 and Theorems 13 and 17, PDF pp. 9 and 11 (offsets 1418,28476,32800)",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Diophantine m-tuples of Triangular Numbers",
+          "trigger": "Identical equation and possible dyadic result"
+        },
+        {
+          "assessment": "Integer construction, not projected probability",
+          "evidence": [
+            "The equation T_n T_m+a=r^2 is rewritten as a generalized Pell equation. This current revision differs in title from the frozen bibliography."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.29565",
+          "material_read": "Current v3 PDF, p. 2, offset 4000",
+          "method": "Lawful OA primary passage",
+          "title": "On Diophantine pairs and triples of triangular numbers",
+          "trigger": "Integer pairs for the same shifted equation"
+        },
+        {
+          "assessment": "Square-unit facts and different random coefficient law",
+          "evidence": [
+            "Lemma 7.4.1 and Eq. (7.4.2) give the square-unit index and expected random-quadratic root count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00029-025-01120-y",
+          "material_read": "§7.4, printed pp. 76–77 (offsets 233400–238866)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Nonarchimedean integral geometry",
+          "trigger": "Broader p-adic probability and integration prior"
+        },
+        {
+          "assessment": "Equivalent coverage of uniformity, not of shifted product mass",
+          "evidence": [
+            "Two index preimages for every dyadic residue."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-fibers-and-all-moments-of-triangular-residues-modulo-arbit--eece9c7535ff",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact fibers and all moments of triangular residues modulo arbitrary moduli",
+          "trigger": "Exact triangular-map lemma overlap"
+        },
+        {
+          "assessment": "Congruence existence, not quantitative projected density",
+          "evidence": [
+            "All-modulus solvability characterization invokes the dyadic triangular-residue bijection."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-congruence-obstruction-for-triangular-d-n-pairs--8840d7811f36",
+          "material_read": "Mirrored Finding and dyadic material, offsets 0 and 4726",
+          "method": "Local Resultary mirror",
+          "title": "Exact congruence obstruction for triangular D(n)-pairs",
+          "trigger": "Identical equation, wide local quantifier"
+        },
+        {
+          "assessment": "Different sampled space and square event",
+          "evidence": [
+            "7/372 concerns upper triangular matrix targets, not UV+n in the scalar ring."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-p-adic-square-image-density-for-upper-triangular-2-times2--f770625ffaa5",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact p-adic square image density for upper triangular 2×2 matrices",
+          "trigger": "Same-day indexed dyadic square-density hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md complete formula and equality cases; Bagchi–Zhou-Zheng Theorem 17 for the existence baseline"
+      ],
+      "rationale": "A natural projected local mass sharpens the existing yes/no congruence result. It quantifies uniformly how prevalent admissible pairs are under the index Haar law, and distinguishes shifts with identical local solubility but different valuation/unit biases. The exact parameter classification and sharp attained bounds give useful information for dyadic local calculations, rather than an isolated residue example or a claimed theorem about ordinary integer density.",
+      "residual_risks": [
+        "No claim about counting global Diophantine solutions or a product over primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

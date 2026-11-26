@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:31:11.435722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (read, not executed)",
+        "Fresh replay: python3 /workspace/review_work/check_graph_examples.py, rows beginning '2 power'"
+      ],
+      "rationale": "A size-delta starter can first force only from a minimum-degree vertex v and must be N[v] minus the single target. In the noncomplete path power only the two endpoints have degree k; their starter families are disjoint because each includes its own endpoint and omits the opposite endpoint. Exactly the missing neighbor is forced initially, then precisely one vertex per round: any forcing vertex that sees a later white vertex must also see the first white vertex. In a noncomplete cycle power the closed neighborhoods are cyclic intervals of length L=2k+1. At order 2k+2, the two whites are forceable exactly if nonantipodal, in one round by their antipodes. At n>=L+2 distinct L-intervals can share L−1 vertices only when their centers are consecutive (a two-piece overlap has size 2L−n<=L−2); hence exactly the contiguous starters have two representations and the other starters have a unique first force. For a contiguous black interval of length h>=2k, the two distances through black vertices from any forcing vertex to the white endpoints sum to h+1>2k, so only one boundary can be reached through black vertices from that vertex. Exactly the two white boundary vertices (one if coincident) can be forced, using vertices k steps back into the black interval. This gives both ceiling exponents and the claimed parity. Complete graphs give the stated complements-of-one-vertex case. The independent bit-mask enumeration gave the cycle profiles 24y, 45y^2 and 10y^2+40y^3 at (n,k)=(8,3),(9,3),(10,3), and checked both short path boundaries and an ordinary cycle.",
+      "residual_risks": [
+        "The fresh check is bounded; the all-parameter guarantee comes from the first-force and interval arguments. No formal or external expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al. give Z(P_n^k)=k and Z(C_n^k)=2k in the relevant noncomplete regimes.",
+          "Boyer et al. give the n−1/n−2 coefficient criteria generally, covering the minimum counts and starter criteria when these happen to be the minimum sizes.",
+          "Ferrero et al. give the adjacent starters and ceiling time on the ordinary cycle for n>=5."
+        ],
+        "reasoning": "Existing broad statements cover scalar optima, several small-complement starter regimes, and k=1 cycle times. They do not give the joint distribution of higher-power minimum seeds and synchronous rounds.",
+        "searches": [
+          "Abiad et al. arXiv:2610.03892v1 §3 Propositions 7–8 and proofs",
+          "Boyer et al. arXiv:1801.08910v1 §3 Theorem 1(2)–(3)",
+          "Ferrero et al. arXiv:2511.16335 §3.1 Example 3.1",
+          "Resultary: zero forcing polynomial all minimum forcing sets near-leading coefficient"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–37 and 74–87",
+        "The three primary sources and four mirrored Resultary Findings detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once Z=delta is known, the general first-force argument already forces the closed-neighborhood-minus-target candidate shape; the scalar proof and elementary candidates are not credited as a separate deep contribution.",
+          "The ungraded long-cycle count n(2k−1) remains the same regardless of which starters take an extra synchronous round, and the ordinary-cycle comparison has no interior-hole family."
+        ],
+        "reasoning": "To recover the new refinement requires controlling all simultaneous first targets, multiplicities of representations and the two-ended growth for each resulting shape, rather than merely substituting n,k into a known optimum or count.",
+        "searches": [
+          "Abiad et al. arXiv:2610.03892v1, proofs of Propositions 7–8",
+          "Boyer et al. arXiv:1801.08910v1, Theorem 1",
+          "Ferrero et al. arXiv:2511.16335, Example 3.1",
+          "Resultary strongest cycle census and exact seed classification Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abiad et al. arXiv:2610.03892v1, §3 Propositions 7–8 use the same powers and standard color-change rule.",
+          "Ferrero et al. arXiv:2511.16335, pp. 2–3 and Example 3.1 use simultaneous propagation and give the ordinary-cycle time.",
+          "Resultary 2026/11/2/SCOPE-exact-optimal-zero-forcing-seed-classifications-for-powers-of-pa--816bf7a10356 gives the starter families and orbits but no synchronous-time enumerator."
+        ],
+        "reasoning": "Seed, starter and initial set refer here to the same labeled vertex set. Minimum is cardinality-optimal, not just inclusion-minimal. Fixed propagation of unpowered cycles does not identify the two families for higher powers.",
+        "searches": [
+          "Resultary: minimum zero forcing sets path powers cycle powers propagation time",
+          "Resultary: minimum zero forcing sets on powers of cycles and paths all configurations propagation time cycle powers",
+          "Primary: \"The Zero Forcing Number of Graph Powers\" \"Proposition 7\" zero forcing path cycle powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/18 cycle census Finding has all three minimum-count regimes and the long-cycle closed-neighborhood characterization, but not time.",
+          "The 2026/10/26 connectivity Finding and 2026/11/2 seed-classification Finding state major portions of the same starter families and counts without time profiles.",
+          "The 2026/11/8 path-square Finding gives a size-two coefficient of four for n>=8, counting only a particular minimum-size slice of a different, inclusion-minimal-set polynomial."
+        ],
+        "reasoning": "These are real exact catalogue matches for components, independent of publication order. None of the inspected Findings gives the higher-power time-graded polynomial over all minimum seeds.",
+        "searches": [
+          "Resultary: cycle powers minimum zero forcing propagation-time generating polynomial two families omitted interior neighbor synchronous rounds",
+          "Resultary: minimum zero forcing sets path powers cycle powers propagation time"
+        ]
+      },
+      "rationale": "Credit the prior scalar values, the near-complete size census from the universal zero-forcing polynomial, and ordinary-cycle propagation. Distinct indexed results reproduce much of the starter census and are treated as overlapping content, not dismissed by date or treated as establishing priority. The supported distinct claim is the full synchronous-time refinement in the higher powers: in particular the parity-sensitive split of the exhaustive long-cycle minimum-starter family and its exact multiplicities by time. Neither a scalar nor an unweighted census determines that refinement.",
+      "residual_risks": [
+        "A bounded comparison may miss older circulant or fixed-propagation treatments using other terminology. Matched catalogue components establish overlap, not priority. The originality pass does not extend to those known components in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar coverage, not the time refinement",
+          "evidence": "The propositions state scalar values k and 2k for path and cycle powers, respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892v1",
+          "material_read": "§3, Propositions 7 and 8 (HTML offsets 19922 and 20589) and associated arguments",
+          "method": "Lawful OA HTML",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Same graph powers and invariant"
+        },
+        {
+          "assessment": "Direct near-complete count and set coverage",
+          "evidence": "The n−2 coefficient counts missing nonisolated pairs with unequal external neighborhoods, yielding the cycle boundary and short-path counts; no grading by time is involved.",
+          "identifier_or_url": "https://arxiv.org/html/1801.08910v1",
+          "material_read": "§3 Theorem 1(2)–(3), HTML offset 11263",
+          "method": "Lawful OA HTML",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "General size enumerator might cover near-complete regimes"
+        },
+        {
+          "assessment": "Ordinary-cycle propagation already covered",
+          "evidence": "For ordinary cycles n>=5, the adjacent pairs are the minimal standard sets and lower and upper propagation times coincide at ceil((n−2)/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.16335",
+          "material_read": "pp. 2–3 (offsets 5645, 9868), §3.1 Example 3.1, p. 7 (23915)",
+          "method": "Lawful OA PDF",
+          "title": "Zero forcing propagation time intervals and graphs with fixed propagation time",
+          "trigger": "Same time invariant, possible all-starter statement"
+        },
+        {
+          "assessment": "Equivalent unweighted cycle layer",
+          "evidence": "Gives all three regimes including nk nonantipodal complements and n(2k−1) long-cycle starters, with no time enumerator in the Finding.",
+          "identifier_or_url": "2026/10/18/SCOPE-minimum-zero-forcing-set-census-and-token-jumping-connectivity-o--27af5da49cb2",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local mirror read",
+          "title": "Minimum zero-forcing set census and token-jumping connectivity",
+          "trigger": "Exact same cycle starter census"
+        },
+        {
+          "assessment": "Substantial starter overlap, different refinement",
+          "evidence": "States 2k path starters and n(2k−1) long-cycle starters for a connectivity result.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-connectivity-dichotomy-for-minimum-zero-forcing-on-powers-of-p--8f1eaf3a981b",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local mirror read",
+          "title": "A connectivity dichotomy for minimum zero forcing on powers of paths and cycles",
+          "trigger": "Same starters and counts used in reconfiguration"
+        },
+        {
+          "assessment": "Overlapping exact census, not the synchronous refinement",
+          "evidence": "States classifications, counts and orbits for k>=2, omitting the cycle boundary and not providing a time enumerator in the Finding.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-optimal-zero-forcing-seed-classifications-for-powers-of-pa--816bf7a10356",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact optimal zero-forcing seed classifications for powers of paths and cycles",
+          "trigger": "Same noncomplete path and long-cycle seed families"
+        },
+        {
+          "assessment": "Overlapping path-square minimum layer",
+          "evidence": "For n>=8 the inclusion-minimal polynomial on P_n^2 has four size-two sets; it is not an all-k propagation-time profile.",
+          "identifier_or_url": "2026/11/8/SCOPE-first-move-forcing-in-powers-of-paths-and-the-minimal-zero-forci--850ba66c3452",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary search and local mirror read",
+          "title": "First-move forcing in powers of paths and the minimal zero-forcing spectrum",
+          "trigger": "First-move criterion and exact path-power coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–31 and 44–57",
+        "Primary and Resultary census/propagation comparisons above",
+        "Fresh short and long graph-power examples"
+      ],
+      "rationale": "Powers of paths and cycles are standard forcing test families with the same cardinality among all minimum starters. The full time profile quantifies how geometry rather than seed size changes performance: when the white gap length is even, puncturing the black interval costs an extra round, while it costs none for odd length. The counts and exact boundary regimes make that distinction usable without enumerating seeds; scalar values, complete cases or ungraded starter counts alone would not motivate another result.",
+      "residual_risks": [
+        "The result addresses only standard synchronous propagation from minimum sets on these graph powers, not arbitrary graphs or forcing rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: two-voter reciprocal-JR quality price
+# Independent mathematical audit
 
-**C — PASS.** The definition of reciprocal affordability is taken directly from Boehmer et al., Definition 5.2. With two voters and supported candidates, the entire electorate cannot be unrepresented by a nonempty committee. The singleton affordability threshold is exactly \(2/k\). If the globally best committee violates this, a quality-eligible excluded candidate replaces a lowest-ranked winner, preserving representation of the opposite voter because \(k\ge2\). The exact inequality is algebraic and uses the independent normalization \(h\le1\). A disjoint two-party construction attains equality. The four-seat peak follows from the explicit nonnegative square identity. The packaged exact checker passed 73,710 exhaustive profiles, 3,150 seeded rational profiles, and 49 sharpness witnesses.
+## correctness
 
-**O — PASS subject to publication-priority risk.** Boehmer et al. (arXiv:2609.08830v1, Definition 5.2, Section 5.2, Appendix G) prove the broader electorate/seat-size \(4/3\) bound but do not identify the two-voter fixed-seat optima or the unique four-seat worst case. The older price-of-JR literature uses different welfare/representation objectives. Accessible related mathematical-record summaries and existing claims were checked for the same bound, equivalent formulations, and claims whose logical implications cover it; none found. Previously documented fixed-electorate two-seat statements subsume only the \(k=2\) boundary and are explicitly not claimed as new. Unindexed works and implicit unstated corollaries remain risks; lack of a search hit alone is not novelty proof.
+PASS
 
-**V — PASS.** This determines the exact attainable quality/representation tradeoff for the smallest nontrivial electorate across *all* seat sizes, not an arbitrary fixed-size census. Its unexpected nonmonotone seat-count dependence has a unique worst case at four seats, improving the unrestricted \(4/3\) benchmark to \(8/7\) for two voters. The one-swap construction is algorithmic and the sharp party-list family proves no stronger uniform guarantee is possible. It is not a theorem about stronger reciprocal EJR/PJR fairness or larger electorates.
+The two-person coalition is represented by every nonempty committee because each candidate has an approver. For each voter the singleton demand exists precisely when some approved candidate has quality ≥2/k (an empty approval set has no demand). A top-k committee that violates rJR misses exactly one eligible voter i, and every selected candidate is approved by the other voter. Let t be the least selected quality and choose a qualifying unselected c for i, of quality s∈[2/k,t]. Replacing a quality-t candidate represents i and leaves the other voter represented because k≥2. With Q*≥kt, the resulting ratio is 1+(t−s)/(Q*−t+s)≤kt/((k−1)t+s)≤k/(k−1+2/k), since t≤1. Replacing the denominator by the optimal feasible quality only improves the bound. With k exclusive quality-one candidates for voter 1 and one exclusive quality-2/k candidate for voter 2, rJR forces that last candidate; the feasible optimum is exactly k−1+2/k. This also covers k=2, where s=t=1 and any repair costs zero. The difference 8/7−k²/(k²−k+2)=(k−4)²/[7(k²−k+2)] proves the unique four-seat maximum. The constructive scan and one replacement have the stated sorting or selection complexity with two explicit approval bits. A bounded independent replay, /workspace/branches/replay_1.js, checks all three coalitions in size-(k+1) profiles on two quality levels in twelfths for k=2 through 7 (56, 126, 252, 462, 792, 1287 multiset-index cases). It corroborates the inequality but is not a universal proof or an equality check when 2/k falls off the twelfths grid. The frozen verification code was inspected but not run.
 
-The principal residual risk is priority: an equivalent reduction may appear under a different parameterization in unindexed work. The scientific proof itself is independent of finite search, and the checker is not an infinite certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected sources supply the reciprocal axiom and unrestricted price, and indexed two-seat results overlap the trivial k=2 boundary. They do not supply the exact two-voter price as a function of arbitrary seat count or its unique four-seat maximum. The bounded comparison supports that specific contribution, not a claim to the reciprocal rule or publication priority.
+
+## value
+
+PASS
+
+The smallest nontrivial electorate isolates the effect of seat count on the cost of reciprocal representation. The exact bound and matching examples quantify that effect, showing that the worst loss is neither at two seats, as in an unrestricted construction, nor asymptotically, but exactly at four. The one-swap structural reduction also gives a usable repair with a sharp quality guarantee. This is an exact structural result over all seat counts rather than a numerical check at a few chosen k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

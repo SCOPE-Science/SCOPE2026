@@ -1,15 +1,21 @@
-# Review: spherical strong Morse complexes of once-subdivided stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise face decomposition is reconstructed from the filtration condition (unique earlier neighbor). Explicit vertex orders realize every necessary maximal simplex, so there is no hidden enlargement of the strong complex. For every branching rank, a different-arm apex strongly dominates each center-paired incidence, and then its own outer incidence strongly dominates each remaining inner-to-center incidence. The resulting stable subcomplex is exactly a cross-polytope boundary, whose oriented join cycle yields the integral sign character. The facet count follows from a disjoint classification. The independent finite checker passed all vertex orders through four arms; this is corroboration, not the basis for the unbounded proof.
+## correctness
 
-## Originality — PASS (best available evidence)
-Knudson–Owens-White (arXiv:2609.06844v1) compute the four-edge path, but their path and star theorems do not cover branching once-subdivided stars. The published diameter-three purity criterion does not classify full strong Morse homotopy for diameter four. Donovan–Scoville's same-tree result is for the ordinary Morse complex and produces spheres in a different degree. A published sphere theorem for the bidirected multipath complex has the same final sphere and sign action but a different face condition, including a bound on center indegree absent in the present complex. Targeted indexed and primary-source searches found no dominating same-invariant statement. The original papers and closest public result texts were actually read; unindexed equivalence remains possible.
+PASS
 
-## Mathematical value — PASS
-The natural entire family of subdivided stars has a clean, sharp strong-homotopy type and integral symmetry module, despite exponential facet growth and a dimension gap. This distinguishes the recently introduced strong Morse complex from the older ordinary Morse complex on exactly the same trees, and yields an explicit reduction rather than isolated computations.
+On the unfilled tree a descending link is a discrete set and has a cone vertex exactly when an earlier neighbor is unique. Without a center-matched incidence, each arm supports only a subset of {A_i,C_i} or the isolated B_i; the maximal choices are realizable by processing B-arms before c and other arms after c. An order for a one-B choice also matches c, which causes no problem for downward closure. If D_i matches c, all other u_j come after c, excluding B_j; both advertised extensions with D_i are attained by explicit orders. Its link is coned by A_j for any j≠i. After removing all D_i, each C_i is dominated by A_i. The remaining join is the boundary of the n-cross-polytope. Its equivariant inclusion is a homology isomorphism, and permuting degree-zero join factors of the fundamental cycle contributes the sign of the arm permutation, without requiring equivariance of the deletion order. Of the 2^n join facets, exactly n one-B facets extend to a D-facet; adding the 2n D-facets gives 2^n+n. The all-B and all-A,C facets have distinct dimensions for n≥3. An independent full vertex-order enumeration and link check through n=4 corroborate the proof.
 
-## Scope and risks
-The theorem covers identical two-edge-arm trees with at least three arms. The two-arm path is already known and not claimed as new. No equivariant collapse is asserted, only an equivariant homology isomorphism from an invariant subcomplex. The checker covers finite ranks only; an independent mathematical audit has not been performed. Unindexed prior work might contain an equivalent claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the full strong matching complex in the branching case, specifically its structural collapse, action and facets. The strongest same-tree/same-sphere result is credited for a different simplicial complex.
+
+## value
+
+PASS
+
+This is a natural branching family beyond paths and stars. A strong collapse identifies a canonical embedded sphere supporting the symmetry action, and the full facet classification shows why the much larger nonpure complex cannot be inferred just from its homotopy type or from the ordinary Morse analogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

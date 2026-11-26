@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is confined to algebraically closed characteristic \(3\), \(A=a+b\ne0\), \(B=b-a\ne0\), and the exact discriminant boundary \(D=(ab)^2-(a+b)^3=0\). The coordinate change produces \(C=Awt^2+Bs^3+As^2t+bst^2+t^3\), irreducible because it is primitive linear in \(w\), and its unique singularity is an ordinary cusp. Each axis has a double intersection \(q=b/a\) plus one simple intersection; the transverse cubic derivative equals \(A^3/a^2\ne0\), giving exactly two nodes per axis after the square pullback. The four torus cusp preimages are étale. Kummer-squareclass parity at simple axis intersections proves geometric integrality; the degree-four tame cover of \(\mathbf P^1\) has exactly three index-two branch points and hence genus \(0\). The plane genus-defect sum independently equals \(10\). Exact symbolic verifier passed, including the local discriminant identities and a nonempty-parameter witness. No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS with residual risk
-Kawakita (2017), Section 2, established the family with a characteristic-at-least-five restriction, and Iezzi–Kawakita–Timpanella (arXiv:2306.01928), Section 4, reuse that restriction. Giulietti–Kawakita–Lia–Montanucci (arXiv:1805.06317), Remark 3.1, show a special symmetric Wiman sextic is reducible in characteristic \(3\); that has \(a=b\), excluded here. The previously classified generic characteristic-three locus \(D\ne0\) has four cusps and genus \(6\), and therefore does not imply the six new boundary nodes or genus \(0\) without additional analysis. The positive-characteristic-at-least-five discriminant stratification does not cover the characteristic-three family. Multiple actual mathematical-record, published-paper, cubic-pullback and parameter-alias searches failed to identify a dominating statement. This does not prove historical uniqueness, particularly for unindexed characteristic-three boundary calculations.
+PASS
 
-## Mathematical value — PASS
-The exact discriminant of the three coordinate section cubics gives a canonical, nonempty codimension-one degeneration of the published family. Each of its three collisions produces two new nodes, changes the tame cover branch count from nine to three, and drops normalization genus from \(6\) to \(0\). The complete singularity basket, geometric irreducibility and normalization determine a genuine geometric boundary, not a renamed special case or an arbitrary finite computation. The excluded parameter loci remain unclassified here.
+Writing A=a+b and B=b−a, the quotient cubic becomes Awt²+Bs³+As²t+bst²+t³. It is primitive and linear in w because A and B are nonzero, and its gradient forces its only singularity to be s=t=0. At that point the double tangent has contact three; completing the square in the formal local quadratic reduces the equation to a square equal to s³ times a unit, an ordinary cusp also in characteristic three. Squaring is étale off the axes, so this gives precisely four cusps there. The axis cubic f(v)=v³+av²+bv+1 has f′(v)=b−av and a³f(b/a)=−D. Here ab≠0, the quadratic coefficient at the root is a≠0, and the remaining root is simple and nonzero. At each double contact the quadratic part of the pullback is (a+b)³X²/a²+b(Y−Y₀)², a pair of distinct lines since both coefficients are nonzero. There are two such points per axis; at simple intersections the along-axis derivative is nonzero. The simple intersections on U=0 and V=0 give independent valuation parities for U/W and V/W. Thus the generic pullback is a degree-four field, and finite flatness of squaring (two monic square-root equations on each target chart) implies integrality of the pullback itself. On the normalized cubic only the three simple intersections ramify, with inertia two, including the common odd poles on W=0; Riemann–Hurwitz gives 2g−2=−8+6=−2. This agrees with the sextic genus defect of ten. The displayed cubic for the witness has no F₃ root and avoids the excluded values.
 
-## Closest literature, verification and limits
-Primary texts inspected: Kawakita, *Certain sextics with many rational points* (2017), Section 2, https://doi.org/10.3934/amc.2017020; Iezzi–Kawakita–Timpanella, arXiv:2306.01928 (2023), Sections 2 and 4; Giulietti–Kawakita–Lia–Montanucci, arXiv:1805.06317 (2018), Remark 3.1. The calculations can be reproduced by running `python3 verify_boundary.py` with `sympy`. The theorem is about geometric singularities and normalizations, not about arithmetic point counts or positive-characteristic moduli. An equivalent historical computation cannot be excluded. The original 2017 paper records only May 2017, without a verified exact day; the day-resolved motivating source metadata records arXiv:2306.01928 on 2023-06-02.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier same-family characteristic-three analysis for the cubic quotient, four cusps, the axis discriminant and the Kummer method on D≠0. The contribution supported here is the contrasting complete D=0 stratum with a+b and a−b nonzero: exact double contacts, six new nodes and rational normalization, including integrality at the degeneration. The inspected open-stratum theorem excludes the boundary, and the located literature works in characteristic at least five or on the excluded symmetric Wiman family.
+
+## value
+
+PASS
+
+This is the axis-contact discriminant singled out by the earlier open-locus study of a published family, not an arbitrary parameter slice. It gives the exact geometric nature of the first excluded degeneration: six nodal identifications are added to the four cusps, integrality persists and the normalization drops from genus six to zero. These data matter for the geometry of the family and cannot be inferred just from the degree or the existence of the discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

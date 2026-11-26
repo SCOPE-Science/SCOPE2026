@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:05:24.698537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repeated-root formula follows by substitution and includes index zero in the form x_n=a^n(x_0+nD/a) when a is nonzero. If a=0 the quotient set is finite; if D=0 the sequence is zero or geometric, which misses an open valuation class (unit root) or an open subset of units excluding 1 (nonunit root). For aD nonzero and c=ax_0/D of negative valuation, every n+c has precisely that valuation, so v_p(x_n)=v_p(x_0)+n v_p(a); the same open-set obstructions apply. For integral c, the fixed positive lag d gives a^d+da^d/(n+c). Since positive integers shifted by c are dense in Z_p, for each target z with (da^d)/(z-a^d) a nonzero p-adic integer the ratio can approach z along positive n. If a is a unit, d=(p-1)p^j gives a^d→1 and da^d→0 by Euler's theorem, including at p=2, so every target except 1 eventually meets this condition; 1 is itself a ratio. For p|a, take d→infinity, so both terms tend to zero and every nonzero target meets the condition; zero is the limit of x_n divided by a fixed nonzero term. Denominators along the approximating subsequence can be kept nonzero since their shifted-index limit for that fixed lag is nonzero. The cited dyadic examples have c=1 and c=1/2, respectively. The replay script and recorded numeric log were inspected, not executed; those cases do not prove the all-primes statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The higher-order repeated-root theorem uses canonical initial data and unit root. The general analytic simple-zero theorem in the same paper is broader in analytic input. Garcia et al. §5 instead assumes distinct nonzero roots with ratio not a root of unity."
+        ],
+        "reasoning": "The simple-zero theorem genuinely covers the integral-shift unit-root case by passing to a progression, but not the nonunit root: along indices approaching a given index p-adically while increasing ordinarily, nonunit powers converge to zero, so a nonzero subsequence term prevents an analytic interpolation of that progression. Garcia's canonical-data theorem does not apply to a repeated characteristic root.",
+        "searches": [
+          "arXiv:2408.06949, Theorems 1.4 and 2.2",
+          "arXiv:1607.07951, §5 assumptions and Theorem 5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.07084",
+        "arXiv:2408.06949",
+        "arXiv:1607.07951",
+        "Resultary d44d58770053 and 4c0425f545ea (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification.out"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p not dividing a, take a progression r+Mt with a^M sufficiently close to 1 (M=(p-1)p^j for odd p, M=2 for p=2) and r+c in M Z_p. Its analytic interpolation is a nonvanishing exponential times a linear factor with simple root at -(r+c)/M. In contrast, the p=2 data (2,1,4) and (2,1,6) both violate the good-prime restriction and have opposite outcomes."
+        ],
+        "reasoning": "The interpolated subsequence's ratio set is contained in the original one, so known analytic density implies the full unit-root sufficiency. Neither that theorem nor the good-prime theorem gives the nonunit classification or the valuation obstruction.",
+        "searches": [
+          "arXiv:2408.06949, Theorem 2.2 (analytic f with a simple zero)",
+          "arXiv:2207.07084, Theorem 1.7 (explicit p not dividing aD restriction)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.7 has the identical recurrence and arbitrary starting values but only proves density for p not dividing aD. The same-recurrence Resultary record instead classifies binomidness/divisibility."
+        ],
+        "reasoning": "Quotient and ratio set are synonymous here. A binomid divisibility criterion does not classify topological density; the good-prime result gives only one region of the valuation criterion.",
+        "searches": [
+          "Resultary search on repeated-root second-order p-adic quotient/ratio-set density and exceptional primes",
+          "arXiv:2207.07084, Theorem 1.7",
+          "SCOPE-sharp-binomid-classification-for-integer-repeated-root-recurrenc--d44d58770053, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dyadic quotient-closure hit fixes x_0=x_1=1 and x_(n+2)=a x_(n+1)+x_n, a different family; the same-recurrence hit indexes divisibility. The exact published good-prime result determines only the p not dividing aD region."
+        ],
+        "reasoning": "No finite parameter table can certify the infinite all-prime decision; the relevant exact comparators are indexed closed classifications. These do not settle the same excluded cases, and the frozen numeric examples are not novelty evidence.",
+        "searches": [
+          "Resultary same-family record d44d58770053 and dyadic quotient closure record 4c0425f545ea, exact Findings",
+          "arXiv:2207.07084, Theorem 1.7 (symbolic decision on its prime range)"
+        ]
+      },
+      "rationale": "Credit the established good-prime theorem and the broader simple-zero analytic theorem, which already implies density for unit a and integral shift. The supported contribution is the complete necessity-and-sufficiency decision for arbitrary data at every prime, in particular the nonunit-root branch and the nonintegral-shift obstruction. The strongest same-family indexed record classifies a different property, not ratio density.",
+      "residual_risks": [
+        "The focused general web search was nonresponsive on substance; this is not evidence of absence. A differently phrased classification of nonunit repeated roots could have been missed.",
+        "The simple-zero theorem is read in Antony–Barman's statement; its 2019 attribution was not checked separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Good-prime sufficiency covered",
+          "evidence": "The density hypothesis explicitly requires p not dividing a(x_1-a x_0).",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07084",
+          "material_read": "Theorem 1.7, p. 3, OA offset 9103 onward",
+          "method": "Primary OA PDF passage",
+          "title": "p-adic quotient sets: linear recurrence sequences",
+          "trigger": "Exact repeated-root recurrence and arbitrary initial values"
+        },
+        {
+          "assessment": "Covers unit-root integral-shift sufficiency by the analytic theorem, not the exceptional nonunit branch",
+          "evidence": "Theorem 1.4 has special seeds and unit a; Theorem 2.2 requires an analytic interpolation with simple zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.06949",
+          "material_read": "Theorem 1.4, p. 3, offset 7807; Theorem 2.2, p. 4, offset 13775 (attributed to Miska–Murru–Sanna, Corollary 1.3)",
+          "method": "Primary OA PDF passages",
+          "title": "p-Adic quotient sets: linear recurrence sequences with reducible characteristic polynomials",
+          "trigger": "Repeated roots and potentially stronger ratio-set theorem"
+        },
+        {
+          "assessment": "Different root assumptions; not repeated-root coverage",
+          "evidence": "The section assumes distinct nonzero roots, ratio not a root of unity. Its exceptional-prime footnote is not a repeated-root criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.07951",
+          "material_read": "§5 setup and Theorem 5.2, pp. 11–12, OA offsets 27400 and 28650",
+          "method": "Primary OA PDF passages",
+          "title": "p-adic quotient sets",
+          "trigger": "Second-order classification and primes dividing both coefficients"
+        },
+        {
+          "assessment": "Same family; different invariant",
+          "evidence": "The statement is about binomidness, not quotient-set density.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-binomid-classification-for-integer-repeated-root-recurrenc--d44d58770053/RESULT.md",
+          "material_read": "Finding and assumptions at opening",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp binomid classification for integer repeated-root recurrences",
+          "trigger": "Same recurrence and integer initial values"
+        },
+        {
+          "assessment": "Different recurrence",
+          "evidence": "The characteristic polynomial and seeds are different; there is no reduction to the arbitrary repeated-root family in the inspected statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-prime-power-fibers-and-a-dyadic-quotient-closure-transitio--4c0425f545ea/RESULT.md",
+          "material_read": "Finding and recurrence at opening",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact prime-power fibers and a dyadic quotient-closure transition",
+          "trigger": "Exceptional-prime quotient closures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule completes a density question already posed for the identical recurrence, not a newly chosen test family. It decides exactly which excluded primes yield density, and the obstruction distinguishes two behaviors even when both recurrence coefficients vanish modulo the prime. The nonunit proof is not supplied by the usual analytic interpolation; the fixed-lag ratio argument explains why arbitrarily high valuations of the common exponential factor do not prevent density.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

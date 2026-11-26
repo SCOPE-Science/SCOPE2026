@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:07.472860Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially line 55; VERIFICATION.md and checker.py, read as source",
+        "/workspace/repairs/3/RESULT.md, complete corrected result",
+        "Gateva-Ivanova–Majid arXiv:2308.11427, Thm. 3.4, and arXiv:2409.02939, Prop. 5.3 and Cor. 5.4"
+      ],
+      "rationale": "This verdict is for the repaired RESULT.md. In the frozen image proof (line 55), yᵢ has augmentation zero for i>1, so yᵢyⱼ=0 rather than y₁yⱼ. The theorem survives: with W=im F and c=1, choose y₁ of augmentation one, take a basis zᵢ of W∩Hₙ, and replace zᵢ by y₁+zᵢ. The resulting basis has augmentation one on every vector, so the Aᵣ relations hold, and the images of its PBW words form a basis in each positive degree, including r=1. Re-audit: the PBW product ε(u)v forces all column sums equal as soon as any column is nonzero, and includes the zero map with c=0. In degree d the map is c^(d−1)F. The block square gives c²=c, B²=B, Bu=(1−c)u; c=0 kills all higher images and leaves a square-zero degree-one part. Shears remove u in both cases, and idempotent B is conjugate to a projection with fixed rank; c and r distinguish precisely 2n classes. For finite fields, a rank-s B is counted by choosing its image and one of q^(s(n−1−s)) complements; the extra u fiber has dimension s at c=0 or n−1−s at c=1. Substituting s=r−c gives both exponents r(n−r), and exchanging image with kernel (or Gaussian symmetry) gives the palindromic profile. In the hand check n=q=2, the multiplicities in (c,r) order (0,0),(0,1),(1,1),(1,2) were 1,2,2,1. The stated n=4,q=2 polynomial follows by substituting the Gaussian values 1,7,7,1.",
+      "residual_risks": [
+        "The original proof's image-basis error was not tested by the packaged checker, which addresses matrix-level equations and counts. No uploaded script was executed. The small independent hand check does not establish the arbitrary-field conclusion; that conclusion uses the corrected proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The more general idempotent braided-set work recovers the canonical presentation here and studies particular Veronese and Segre constructions; the finite-solution classification identifies relevant solutions of the form (φ(y),y). The indexed cubic-coordinate-cross result concerns Aₙ,₃ and images Aᵣ,₃ of total rank 1+2r."
+        ],
+        "reasoning": "Neither a classification of set solutions nor of retractions of a different finite-dimensional algebra controls the full graded endomorphism monoid of this infinite-dimensional algebra. Its square-zero and positive-degree PBW image families are a separate classification.",
+        "searches": [
+          "arXiv:2409.02939 Prop. 5.3, Cor. 5.4 and §6",
+          "arXiv:2212.07361 Cor. 3.17",
+          "Resultary 2c6a841831cf, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "Gateva-Ivanova–Majid arXiv:2308.11427 and arXiv:2409.02939",
+        "Colazzo et al. arXiv:2212.07361",
+        "Resultary 2c6a841831cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The canonical presentation determines multiplication and is the crucial premise; the prior map formulas are selected constructions. The compared rank-spectrum result assumes cubic relations and uses total linear rank."
+        ],
+        "reasoning": "The homomorphism criterion starts with a short consequence of the relations. The joint result also requires identifying both algebra image types, proving the complete conjugacy classification under the actual graded automorphism group, and counting the corresponding cases. The compared results supply ingredients or analogies, not a broader map or retraction theorem whose specialization gives the joint classification.",
+        "searches": [
+          "arXiv:2308.11427 Thm. 3.4 and Cor. 6.14, §7 Segre construction",
+          "arXiv:2409.02939 Prop. 5.3 and §6",
+          "Resultary 2c6a841831cf, theorem assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known PBW basis gives multiplication u·v=ε(u)v. Constant column sum is precisely preservation of the augmentation hyperplane, and the resulting automorphisms act on its preserving projections."
+        ],
+        "reasoning": "The linear formulation explains the reduction but is not a new presentation. The literature passages on Veronese/Segre morphisms or isomorphism of solutions concern different maps, domains, targets or degrees.",
+        "searches": [
+          "Local Resultary: graded homomorphisms, retraction spectra, permutation-idempotent Yang–Baxter algebras",
+          "arXiv:2308.11427 and arXiv:2409.02939, canonical presentations and homomorphism passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed polynomial counts a different rank on a distinct cubic coordinate-cross algebra; the Yang–Baxter paper's inspected passages give the PBW basis and concrete maps rather than a joint (c,r) table."
+        ],
+        "reasoning": "Counting arbitrary projections by Gaussian coefficients is standard, and is not a novelty claim; it does not by itself give the two different u fibers, scalar types, and ranks for these graded algebra projections.",
+        "searches": [
+          "Local Resultary 2c6a841831cf, theorem and rank polynomial",
+          "arXiv:2308.11427 Thm. 3.4 and §§6–7"
+        ]
+      },
+      "rationale": "The supported contribution is the complete classification of maps and retractions of the published canonical algebras, not their presentation or the generic finite-field count of complements. The strongest matching published passages establish the canonical presentation and study specific Veronese/Segre maps or the underlying solutions. The closest indexed rank-spectrum result concerns a different finite-dimensional algebra, not a theorem covering this algebra. Repairing the basis argument does not alter the claim, and the same comparisons apply to the corrected result.",
+      "residual_risks": [
+        "This assessment is based on the inspected statements and bounded searches, not exhaustive priority certification. Equivalent results could be indexed under different algebra terminology or a more general classification of hyperplane-preserving maps; generic projection counts and standard linear conjugacy are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algebra and PBW basis, plus narrower morphisms with different grading or target; not the full graded-map theorem in the passages inspected",
+          "evidence": [
+            "Thm. 3.4 supplies the quadratic presentation and basis.",
+            "Cor. 6.14 sends each source generator to a word of degree d in the original algebra; §7 targets a tensor product for the Segre map."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.11427",
+          "material_read": "OA Thm. 3.4, pp. 8–9, offset around 35739; Cor. 6.14 and §7 Segre construction, offsets 106890 and 123040",
+          "method": "Bounded PDF passage reading and presentation comparison",
+          "title": "Quadratic algebras associated to permutation idempotent solutions of the YBE",
+          "trigger": "Exact canonical algebra and known morphisms"
+        },
+        {
+          "assessment": "The canonical presentation matches, but the inspected map statements address Veronese and Segre constructions, not all relations-preserving degree-one matrices or their idempotents",
+          "evidence": [
+            "The Veronese map sends vᵢ to x₁^(d−1)xᵢ; the Segre result concerns the algebra on A₁⊗B₁ mapping to A⊗B."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.02939",
+          "material_read": "OA Prop. 5.3 and Cor. 5.4, p. 20, offset around 84928; §6 offsets 113970 and 124510",
+          "method": "Bounded PDF passage reading and hypothesis comparison",
+          "title": "Quadratic algebras and idempotent braided sets",
+          "trigger": "Broader structure theorem and algebra-morphism results"
+        },
+        {
+          "assessment": "Solution classification, not algebra-map classification",
+          "evidence": [
+            "Corollary 3.17 gives the relevant permutation solution form r(x,y)=(φ(y),y)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.07361",
+          "material_read": "OA Cor. 3.17, p. 13, offset around 61164",
+          "method": "Bounded source statement comparison",
+          "title": "Finite idempotent set-theoretic solutions of the Yang–Baxter equation",
+          "trigger": "Earlier structural theorem on the relevant solutions"
+        },
+        {
+          "assessment": "Substantive analogy, but different algebra and rank and no equivalent statement",
+          "evidence": [
+            "Its image is Aᵣ,₃ with rank 1+2r in the finite-dimensional cubic coordinate-cross setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-rank-spectra-of-algebra-retractions-of-cubic-coordinate-cross-ri--2c6a841831cf",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Rank spectra of algebra retractions of cubic coordinate-cross rings",
+          "trigger": "Closest indexed finite-field retraction spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, map, image, conjugacy and counting theorems",
+        "Published canonical presentation and closest indexed cubic-rank comparison"
+      ],
+      "rationale": "The canonical Yang–Baxter algebras are a published natural family and graded splittings are intrinsic to that family. The joint result shows which retracts die above degree one and which remain in the canonical family, and when two labeled splittings are equivalent under graded symmetries. At the same positive degree-one rank these grading behaviors can differ, so the scalar type is structural, not just an extra counted parameter. The uniform exact frequencies refine that classification rather than reporting a small prime-field computation. The repair preserves the statement and supplies the missing argument for the persistent image type.",
+      "residual_risks": [
+        "No claim of an ungraded map theorem, classification of solution morphisms or applicability to all idempotent Yang–Baxter solutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

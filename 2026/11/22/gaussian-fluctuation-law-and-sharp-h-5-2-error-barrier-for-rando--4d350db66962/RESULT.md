@@ -2,7 +2,7 @@
 
 ## Finding
 
-For the random two-stage diagonally implicit scheme specified below, random stage selection creates a universal \(h^{5/2}\)-scale Gaussian **nodal error process**, even when the vector field is smooth and autonomous. The diffusion coefficient is the third-order elementary-differential combination
+For the random two-stage diagonally implicit scheme specified below, the \(h^{-5/2}\)-rescaled **nodal error process** has a Gaussian limit for smooth autonomous vector fields. The limit may be degenerate. Its diffusion coefficient is proportional to the third-order elementary-differential combination
 \[
 H(y)=Df(y)\bigl[Df(y)f(y)\bigr]-\frac12D^2f(y)[f(y),f(y)].
 \]
@@ -24,7 +24,7 @@ K_{2,n}&=f(U_n+h(1-2\xi_{n+1})K_{1,n}+h\xi_{n+1}K_{2,n}),\\
 U_{n+1}&=U_n+\frac h2(K_{1,n}+K_{2,n}),\qquad U_0=u_0.
 \end{aligned}
 \]
-The corresponding Butcher matrix is \(A(x)=\begin{psmallmatrix}x&0\\1-2x&x\end{psmallmatrix}\) and the weights are \((1/2,1/2)\). Let \(e_n=U_n-u(nh)\). Define the continuous process \(Z_h\) by linearly interpolating the values \(h^{-5/2}e_n\) between consecutive grid points; **do not** interpolate the raw numerical and exact trajectories separately and then subtract, since that would introduce a larger deterministic interpolation defect.
+The corresponding Butcher matrix is \(A(x)=\begin{psmallmatrix}x&0\\1-2x&x\end{psmallmatrix}\) and the weights are \((1/2,1/2)\). Let \(e_n=U_n-u(nh)\). Define \(Z_h\) by linearly interpolating the values \(h^{-5/2}e_n\) at the grid points. By linearity, this is exactly the scaled difference of the two piecewise linear interpolants of \(U_n\) and \(u(nh)\) on the same grid. Subtracting the continuous exact trajectory \(u(t)\) from the piecewise linear numerical trajectory instead would add a deterministic interpolation defect that can be of order \(h^2\) before scaling.
 
 Write \(J(t)=Df(u(t))\), and let \(\Psi(t,s)\) solve \(\partial_t\Psi(t,s)=J(t)\Psi(t,s)\), \(\Psi(s,s)=I\). The claimed limit is in distribution in \(C([0,T];\mathbb R^d)\), with covariance
 \[
@@ -44,7 +44,7 @@ For clarity, the order-three Runge–Kutta coefficients are \(b^\top Ac=x(1-x)\)
 
 **2. Centering and variance.** For \(\xi\sim\mathrm{Unif}[1/2,1]\), exact integration gives
 \[
-\mathbb E[\\xi(1-\\xi)]=\frac16,\qquad
+\mathbb E[\xi(1-\xi)]=\frac16,\qquad
 \mathbb E[\xi^2(1-\xi)^2]=\frac1{30},\qquad
 \mathbb E[\delta(\xi)^2]=\frac1{180}.
 \]
@@ -55,7 +55,7 @@ Thus the third-order local fluctuation is conditionally centered and bounded, wi
 e_{n+1}=\varphi_h(U_n)-\varphi_h(u(nh))
 +h^3\delta(\xi_{n+1})H(U_n)+O(h^4).
 \]
-The martingale-difference term has conditional mean zero. Discrete Gronwall combined with the martingale maximal inequality gives \(\mathbb E\max_{0\le n\le N}\|e_n\|^2\le C_T h^5\) (the deterministic global remainder is \(O(h^3)\)). Because \(D\varphi_h(u)=I+hDf(u)+O(h^2)\), the recursion can be linearized:
+The partial sums \(M_m=\sum_{n<m}h^3\delta(\xi_{n+1})H(U_n)\) form a martingale with \(\mathbb E\max_{m\le N}\|M_m\|^2=O(Nh^6)=O(h^5)\) by boundedness of the coefficients and the martingale maximal inequality. On the common bounded set, \(\varphi_h-I\) is \(O(h)\)-Lipschitz, so summing the error recursion gives \(\|e_m\|\le \max_{j\le N}\|M_j\|+C_T h^3+C h\sum_{n<m}\|e_n\|\). Discrete Gronwall thus gives \(\mathbb E\max_{0\le n\le N}\|e_n\|^2\le C_T h^5\). Because \(D\varphi_h(u)=I+hDf(u)+O(h^2)\), the recursion can be linearized:
 \[
 e_{n+1}=(I+hJ(nh))e_n+h^3\delta(\xi_{n+1})H(u(nh))+r_{n+1},
 \qquad h^{-5/2}\max_{m\le N}\Bigl\|\sum_{n<m}r_{n+1}\Bigr\|\xrightarrow{P}0.
@@ -91,7 +91,7 @@ Run `python verify.py` with SymPy installed. The script independently verifies t
 
 ## Relationship to prior work
 
-Eisenmann, Jans, Kruse and Podhaisky (2026) define this exact uniformly randomized two-stage SDIRK method and establish an \(L^2\) global convergence bound of order \(5/2\) under low regularity and samplewise algebraic stability. The present result addresses the **distribution and exact leading error constant**, rather than restating that bound. Its linear scalar example demonstrates sharpness even with analytic coefficients, and its differential \(H\) identifies when the random leading error cancels. Bochacik, Przybyłowicz and Stępień (2025) study other implicit randomized RK2 constructions, with stability-region and convergence estimates rather than this method's functional error distribution. Published results on antithetically paired randomized *explicit* RK schemes have a different tableau and a different leading differential functional; their existence does not imply this SDIRK theorem. The method itself, standard B-series expansion, and functional martingale CLT are not claimed as new.
+Eisenmann, Jans, Kruse and Podhaisky (2026) define this exact uniformly randomized two-stage SDIRK method, verify the order-three conditions in expectation (Remark 3.3), and establish an \(L^2\) global convergence bound reaching order \(5/2\) (Theorem 7.5). The present result addresses the **distribution and exact leading error constant**, rather than restating that bound or the expected order conditions. Its linear scalar example demonstrates sharpness even with analytic coefficients, and its differential \(H\) identifies when the random leading error cancels. Bochacik, Przybyłowicz and Stępień (2025) study other implicit randomized RK2 constructions, with stability-region and convergence estimates rather than this method's functional error distribution. Published results on antithetically paired randomized *explicit* RK schemes have a different tableau and a different leading differential functional; their existence does not imply this SDIRK theorem. The method itself, standard B-series expansion, and functional martingale CLT are not claimed as new.
 
 ## Limitations
 

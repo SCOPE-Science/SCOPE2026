@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:03:05.418507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64; VERIFICATION.md; verify_velocity_cone.py inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/recheck_frozen_five.py, section 4; solve a three-coefficient LP with evaluation matrix E=(1,v,v^2), nodal inequalities E a>=0, normalization 1^T E a=1 and objective v^T E a. At n=3,4,5,8,12,50 it agreed with the formula (quadratic values 1, 5/6, 3/4, 2/3, 39/62, 119/202)."
+      ],
+      "rationale": "The column marginal ranges over exactly the nodally nonnegative polynomial samples: necessity follows by summing rows and sufficiency by assigning the marginal divided by N_x to every row. The normalized slice is a compact convex subset of the probability simplex. The affine constraints are a >= |b| and the moments are na and n mu_n b. The quadratic normalized slice is a polygon: a vertex must have two distinct active nodes by injectivity of evaluation, and two active nodes fix a ray. An upward quadratic with two roots is nonnegative at every node iff the roots are adjacent; a downward one requires the two endpoints. The resulting mean is -2 mu_n c/(mu_n+c^2-delta_n^2) for signed midpoint c, or zero on the downward ray. This gives both endpoints and every intervening value by mixing. The first adjacent pair gives a strictly larger bound than mu_n since mu_n<1. The midpoints become dense and the envelope converges uniformly to 2c/(1+3c^2), maximized at c=1/sqrt(3). R_2=1 at n=3, but for n>=4 every nonzero polynomial of degree <=2 has support on at least two nodes, so by compactness R_2<1. Moving a mass t from a lower occupied node to velocity 1 increases momentum by t(1-v_k) at unchanged mass, with Frobenius distance at most sqrt(2/N_x)t. The QP objective is coercive and strictly convex in the core; the feasible set is closed convex. This is nonnegativity, not strict positivity at the frontier.",
+      "residual_risks": [
+        "The LP trials are numerical diagnostics only. The exact extremal-ray and compactness arguments establish the full quantifiers. No time-evolution claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day distinct corpus summary advertises a two-node formula in codimension one. Here that codimension occurs for d=1,n=3 and d=2,n=4, not for the general quadratic grid.",
+          "Kormann–Nazarov–Wen's (4.4) is the motivating QP according to the frozen §Prior work, which distinguishes that formulation from a solvability criterion."
+        ],
+        "reasoning": "Credit framework overlap and possible codimension-one coverage, independent of priority. A polytope characterization alone does not evaluate the arbitrary-n quadratic one-dimensional projection: its active sets and evaluated moments have to be determined. Conservation of projected moments by itself imposes no nodal sign constraint.",
+        "searches": [
+          "Resultary: exact fixed-basis positivity and moment feasibility for low-rank kinetic corrections",
+          "arXiv:2606.31662v1 sections 4 and 6; arXiv:2206.09374; doi:10.1007/s10915-024-02684-1 (frozen prior-work locators)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json and references",
+        "Resultary exact target entry and distinct 2923a33e28a1 summary",
+        "Kormann–Nazarov–Wen arXiv:2606.31662 primary retrieval attempted; earlier LoMaC and conservative schemes identified by frozen citations only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic moment-polytope approach supplies the optimization problem; the two-active-nodes classification yields the evaluated J/M quotient. The strict physical gap for quadratics needs n>=4; it is false for n=3. The nearby-target argument is an elementary consequence specifically of a strict gap and endpoint mass transfer."
+        ],
+        "reasoning": "Treat the reduction, cone method and general mechanism once a strict gap is known as precedented or routine. The distinct supported content is the explicit affine/quadratic frontier for the specified grids and the quantified regimes in which feasibility can fail. The available broader summary is not a theorem asserting those evaluated quantities for all grids.",
+        "searches": [
+          "SCOPE-exact-fixed-basis-positivity-and-moment-feasibility-for-low-rank--2923a33e28a1 (summary, attempted RESULT.md)",
+          "arXiv:2606.31662v1 Eq. (4.4) (attempted primary text)",
+          "Frozen RESULT.md lines 47–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct corpus summary gives a reduced velocity-moment polytope with a rank-one witness. The frozen theorem's down-to-velocity reduction matches that general approach when the spatial constant mode is available."
+        ],
+        "reasoning": "The kinetic application is exactly a linear extremum over a normalized nodally nonnegative polynomial cone; naming it a momentum cone does not distinguish it. The evaluated extrema exploit the ordered-grid two-zero structure, not a new equivalence between core and marginal feasibility.",
+        "searches": [
+          "Resultary: fixed-basis positivity and moment feasibility for low-rank kinetic corrections; sampled quadratic polynomial cone",
+          "SCOPE-exact-fixed-basis-positivity-and-moment-feasibility-for-low-rank--2923a33e28a1",
+          "arXiv:2606.31662v1, fixed-core positivity and conservation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself is indexed with the same finite-grid thresholds; that is the same record. In the strongest distinct summary the exact formula is identified for codimension one only, not as an all-n table."
+        ],
+        "reasoning": "A matching low-dimensional value would not establish the all-grid formula or limit. The bounded catalog comparison does not establish absence of an external equivalent table.",
+        "searches": [
+          "Resultary: sampled quadratic cones; exact equally spaced grid momentum thresholds"
+        ]
+      },
+      "rationale": "Pass for the evaluated polynomial-factor frontier, its all-grid comparison, and the explicit near-frontier obstruction, not for the generic fixed-factor reduction or the QP formulation. The leading related corpus record has a genuinely overlapping general framework; the available statements do not establish its coverage of the explicit adjacent-root maximization over arbitrary n or the sharp limit in this specialization. Mathematical comparison is best-of-knowledge, not a priority ruling.",
+      "residual_risks": [
+        "The strongest distinct corpus full text and the motivating primary full text were not available in the attempted retrievals. Same-day dating does not determine priority.",
+        "Specialist literature on finite-support moment bounds or discrete nonnegative-polynomial cones could contain equivalent evaluated frontiers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material framework overlap; possible codimension-one overlap; precise broader coverage unresolved",
+          "evidence": [
+            "Reduced velocity-moment polytope, rank-one witness, exact two-node formula in codimension one in the indexed summary."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fixed-basis-positivity-and-moment-feasibility-for-low-rank--2923a33e28a1",
+          "material_read": "Indexed scientific summary; attempted original Finding unavailable",
+          "method": "Resultary search; lawful local-mirror RESULT.md retrieval attempted",
+          "title": "Exact fixed-basis positivity and moment feasibility for low-rank kinetic corrections",
+          "trigger": "Closest distinct indexed claim; possibly a generalization"
+        },
+        {
+          "assessment": "Primary full-text coverage unresolved; not used for a negative whole-paper judgment",
+          "evidence": [
+            "Frozen RESULT.md lines 70–74 credit this paper's fixed-core mass/momentum positivity formulation and leave general feasibility outside the reviewed claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31662",
+          "material_read": "Frozen attribution to §4 Eq. (4.4) and §6; independent primary text not obtained",
+          "method": "OA retrieval and arXiv HTML alternate attempted",
+          "title": "Positivity-preserving dynamical low-rank methods for the Vlasov equation",
+          "trigger": "Primary source of fixed-core optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–37, 51–64 and §Relationship to prior work"
+      ],
+      "rationale": "The explicit frontier is a practical exact precheck for a natural low-rank correction with conservation modes. It quantifies the benefit and the limit of adding the quadratic mode, and shows that a small approximation error does not guarantee feasible exact repair. Neither the generic linear feasibility problem nor a continuum asymptotic alone gives that finite-grid diagnostic.",
+      "residual_risks": [
+        "Utility requires equal weights, the specified polynomial factors and spatial constant mode; no claim about robustness in a full solver or active-set complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:29:12.556855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–45",
+        "VERIFICATION.md and verify_cycle.cpp lines 10–81 (inspection only; reported run through n=22)",
+        "Independent direct bitmask guard-replacement check, check_cycle_direct.py and direct_check_4_20.txt"
+      ],
+      "rationale": "Independence and domination force cyclic gaps 2 or 3. In a length-3 gap the two interior vertices have unique defenders; moving either adjacent defender toward the gap loses coverage on its other side unless the next gap on that side is short. In a length-2 gap either endpoint can defend the interior vertex exactly when its exterior gap is short. Thus neither consecutive 3s nor the pattern 3,2,3 are allowed, including the cyclic return to a lone 3. The forced 3,2,2 blocks and remaining 2s partition the gap word uniquely. For a+b blocks the count of distinguished-boundary tilings is n*binom(a+b,b); each undistinguished tiling contributes exactly a+b times even with periodic words. The small cases are correct: alternating pairs on C4, no secure pair on C5, all singletons on C3. In each unweighted census the logarithmic derivative has amplitude 1 at a simple smallest-modulus pole; equality in the triangle inequality forces phase 1 because the two allowed lengths are coprime. Thus the stated asymptotics have prefactor 1 and lambda<mu. An independent direct guard-replacement enumeration of every subset at n=4 through 20 matched the entire histogram, including P14=7z^6+2z^7 and P18=27z^8+2z^9; this is a finite cross-check only.",
+      "residual_risks": [
+        "The defense swap is required only to preserve domination. Requiring post-swap independence is a different property."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4 gives the minimum ceil(3n/7) and invokes a path minimum and a known secure domination minimum.",
+          "The ordinary independent dominating comparison permits all lengths 2 and 3 and does not impose the two short gaps after each long one."
+        ],
+        "reasoning": "Optimization over the same families gives a lower bound and an attaining size, not a description of the entire labelled solution space.",
+        "searches": [
+          "arXiv:2002.00002 Proposition 3 and Proposition 4",
+          "Resultary: nearby cycle domination enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused census and neighbouring cycle-domination results",
+        "arXiv:2002.00002 definitions and Proposition 4",
+        "2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The least possible a+3b in the block formula is exactly ceil(3n/7) for the admissible cycle sizes, in agreement with the published proposition.",
+          "The proposition's path-based existence argument supplies no converse characterization of all secure configurations, required for the count and growth rate."
+        ],
+        "reasoning": "The prior minimum is a consequence of the census, not conversely. A characterization of all allowed cyclic patterns is the additional mathematical step; exponential growth is then an ordinary generating-function consequence.",
+        "searches": [
+          "arXiv:2002.00002 Proposition 4 proof",
+          "2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar and Reddy use the same definition, with domination but not independence required after the swap.",
+          "The independent Roman weight enumerator counts ternary functions with forced label gaps, rather than sets satisfying single-guard defense."
+        ],
+        "reasoning": "The same security definition matters for comparison with Proposition 4. Independent Roman weights on the same cycle do not give an equivalent census.",
+        "searches": [
+          "Resultary: independent secure domination on cycles and weighted/cardinality cycle censuses",
+          "arXiv:2002.00002 definitions",
+          "2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned result itself, 2026/11/22/SCOPE-independent-secure-domination-on-cycles-a-complete-two-and-seven--08b14e560196.",
+          "The closest distinct enumerator inspected, 2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498, tabulates a different weight statistic."
+        ],
+        "reasoning": "The scalar minimum formula is not a prior entry for P_n(z). No distinct exact census was returned by this focused comparison; that is not exhaustive database coverage.",
+        "searches": [
+          "Resultary: labelled independent-secure cycle census, 2- and 7-block polynomial",
+          "arXiv:2002.00002 Proposition 4"
+        ]
+      },
+      "rationale": "The minimum independent secure domination number on cycles is credited. The supported distinct claim is the exact labelled census with its canonical block characterization and comparison with the ordinary independent dominating census, not the minimum or the use of the logarithmic cycle count.",
+      "residual_risks": [
+        "Comparisons are focused and do not certify historical priority over all enumerations. The ordinary secure-domination reference Protection of a graph was identified via the primary article's bibliography, not inspected separately; only the inspected minimum result is credited here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine minimum-cardinality coverage, not the full census in the compared result",
+          "evidence": [
+            "Secure replacements are required to dominate; InSD sets also satisfy initial independence.",
+            "Proposition 4 states the minimum ceil(3n/7) outside the small exceptions and uses Proposition 3 for the upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.00002",
+          "material_read": "PDF pp. 2–3 definitions (text near offset 6500); p. 5 Proposition 4 and proof (near 13350); reference [3] near 38631",
+          "method": "Lawful OA PDF text passages",
+          "title": "Algorithmic Aspects of Some Variants of Domination in Graphs",
+          "trigger": "Same invariant, graph family and sharp published minimum"
+        },
+        {
+          "assessment": "Different object and statistic",
+          "evidence": [
+            "Counts functions into {0,1,2} by their Roman weight, with forced label gaps, not domination-preserving swaps."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-independent-roman-weight-enumerator-of-cycles--46324718e498",
+          "material_read": "Mirrored RESULT.md from offset 0, finding and feasible assignments",
+          "method": "Configured local search and mirror",
+          "title": "Independent Roman weight enumerator of cycles",
+          "trigger": "Closest distinct Resultary cycle enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–41",
+        "Minimum-only comparison with arXiv:2002.00002 Proposition 4"
+      ],
+      "rationale": "The invariant is a complete size census of a natural defense property on a basic graph family. The local obstruction and unique block decomposition describe all configurations, not just minimum witnesses, and show that secure sets form an exponentially small fraction of independent dominating sets.",
+      "residual_risks": [
+        "No claim for other graph classes, multiple attacks or swaps required to remain independent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:38:02.942291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each round at most doubles row support, so three rounds are necessary. A second-layer support of size two, caused by a shared edge, cannot participate in success: even the union with a size-four support is too small. Otherwise each second-layer row has four coefficients 1/4, and the last layer succeeds exactly by pairing complementary supports. Contracting the four first-layer pairs gives a loopless 2-regular multigraph. The doubled-pair case has 3 partitions times 2² ways to attach endpoints; the simple-cycle case has 3 cycles times 2⁴ ways, giving 12 and 48, leaving 45 overlaps among 105 matchings. The respective complement graphs on original vertices are K4,4 and a disjoint pair of K2,2, giving 24 and 4 final matching choices. Thus 480 of 11025 pairs complete any fixed first matching, and the quotient is 32/735. Reviewed the frozen verification notes and integer path-count verify.py; the support argument covers the full finite sample space without a new execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Block gossip includes simultaneous componentwise averaging, and stochastic finite-time consensus results treat distinct Bernoulli updates. The two-round matching result uses alternating cycles for spectrum and rank."
+        ],
+        "reasoning": "Neither general gossip convergence nor the two-round spectrum gives the third-matching law on its own. The shortest-topology result is stronger in the relevant finite space: it also classifies every successful triple by the isomorphism type of its edge union.",
+        "searches": [
+          "Loizou–Richtárik arXiv:1905.08645v2 §3.4",
+          "Shi–Anderson–Johansson arXiv:1112.1336v5 §4.3.2",
+          "Resultary 2026/11/2/SCOPE-exact-two-round-matching-averaging-spectrum-and-logarithmic-rank--ace060b21935"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, verification notes and code",
+        "Resultary shortest topology, twelve-contact probability and two-round matching spectrum records",
+        "Loizou–Richtárik §3.4; Ko Chapter 4; Shi–Anderson–Johansson Theorem 5; Boyd et al. pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof fixes M1={01,23,45,67}, allows 60 choices of M2 with no repeated edges, lists the two-four-cycle and eight-cycle cases, and applies the identical complement pairing test to all possible M3."
+        ],
+        "reasoning": "In the first case all four vertices of each four-cycle have its whole vertex set as support; pair the two fours in 4! ways. In the second case each contracted cycle edge supplies two rows, and only opposite edges have complementary supports, so the two resulting bijections give (2!)². This is a direct readout of the exact existing test, not a distinct third-matching phenomenon.",
+        "searches": [
+          "Shortest-consensus edge topologies on eight agents, Proof §3 second-stage list and third-stage complement test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-two-and-only-two-shortest-consensus-edge-topologies-on-eight-age--43d4bc8e974e, proof §§2–3, puts the 12 contacts in three consecutive perfect matching layers and explicitly tests that the last joins disjoint size-four supports.",
+          "Ko §4.3 Theorem 4.5 is deterministic hypercube feasibility/optimality, not the random law."
+        ],
+        "reasoning": "The three-layer subproblem is exactly the same universal averaging product. Asynchronous sequential random sampling of single pairs would not have the same probability, but the distinct indexed proof explicitly reduces to and reports the matching-layer census.",
+        "searches": [
+          "Resultary: eight-agent exact finite-time consensus, matching averaging, alternating cycle counts and shortest pairwise contacts",
+          "Ko, On Matrix Factorization and Scheduling for Finite-Time Average-Consensus, Chapter 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The topologies record reports 480 valid ordered pairs for the fixed first matching, 144 cube and 336 Wagner. It reports 12 and 48 second-stage choices. The separate twelve-contact probability record counts words in a different 28^12 sample space."
+        ],
+        "reasoning": "The explicit 480 matching census, not the asynchronous total, directly gives 480/105² under iid uniform rounds by relabeling.",
+        "searches": [
+          "Shortest-consensus edge topologies on eight agents, exact census in Proof §3",
+          "Resultary 2026/11/22/SCOPE-exact-twelve-contact-consensus-probability-for-eight-agent-rando--866678dfa960"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding classifying shortest eight-agent consensus edge topologies explicitly enumerates the same reduced three-perfect-matching sample space: fixed first matching, 12 and 48 admissible second matchings by cycle type, complementary four-element supports as the exact completion criterion, and 480 ordered completions. Its enumeration and complement test cover the probability and mechanically give the per-type refinements. That record is later-dated: this is evidence of equivalent indexed coverage, not evidence of chronological priority over the frozen record.",
+      "residual_risks": [
+        "The matched catalogue date is later than the frozen record date; actual priority or independent provenance was not established. Earlier unindexed switching-network work may contain similar counts; not needed for the equivalent-coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent matching coverage; later-dated, not an earlier publication claim",
+          "evidence": [
+            "60 choices of second matching; 12 two-four-cycle and 48 eight-cycle cases; third matching joins disjoint four-element supports; 480 ordered pairs for fixed first matching."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-and-only-two-shortest-consensus-edge-topologies-on-eight-age--43d4bc8e974e/RESULT.md",
+          "material_read": "Wagner example and Proof §§2–3, including the census (offset 3490 onward)",
+          "method": "Bounded local mirror text inspection",
+          "title": "Two and only two shortest consensus edge topologies on eight agents",
+          "trigger": "Eight agents and canonical three matching layers"
+        },
+        {
+          "assessment": "Deterministic related result; inspected passages lack this law",
+          "evidence": [
+            "Boolean-hypercube equality in an optimal finite factorization bound."
+          ],
+          "identifier_or_url": "https://thesis.caltech.edu/5763/01/consensus.pdf",
+          "material_read": "Introduction p. 13; §4.3 Theorem 4.5 pp. 24–25",
+          "method": "Bounded OA PDF passages",
+          "title": "On Matrix Factorization and Scheduling for Finite-Time Average-Consensus",
+          "trigger": "Hypercube optimum and possible shortest-schedule census"
+        },
+        {
+          "assessment": "Encompasses the update protocol, not the exact count in the inspected section",
+          "evidence": [
+            "Block gossip averages within connected components of the random edge subgraph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.08645v2",
+          "material_read": "§3.4, offset near 62500",
+          "method": "Bounded OA passage",
+          "title": "Revisiting Randomized Gossip Algorithms",
+          "trigger": "Random synchronous block gossip with disjoint pairs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "For shortest schedules under the natural uniform law, the conditional probability and sixfold contrast would be meaningful exact facts. With the complete matching-layer census and complementary-support test already indexed, the remaining probability normalization and two small factorial counts add no independently useful unknown invariant. The analytic exposition is valid, but uses the same support classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

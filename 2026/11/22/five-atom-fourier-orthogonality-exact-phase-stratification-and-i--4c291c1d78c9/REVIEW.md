@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact Fourier-zero identity \(P(\cos 2\pi t)=0\), with \(P\) quadratic and \(P(1)=1\). The finite difference-set argument is complete for the three and four-clique cases, including half-turn and order-three exceptions. The three-character resonance uses the fixed point \(-1/2\) and Vieta parametrization of the two distinct cosine roots; the final two-character condition is obtained by minimizing the convex quadratic on the closed interval. The rational-weight irrational-frequency example is verified exactly. Standalone checks passed 629 rational resonance samples and 13,061 torsion clique instances; those experiments do not replace the proof for arbitrary frequencies.
+PASS
 
-## Originality — PASS relative to inspected material
+With frequencies in R/Z, every nonzero difference has cosine at one of at most two roots of P, so the allowed differences form an inversion-symmetric set of at most four points. A triangle containing 0 has either an opposite pair or v−u in {±u,±v}, making one vertex a midpoint. For four vertices, when the allowed differences contain the involution, the pair ±u must satisfy 1/2−u=±u, giving order four. Otherwise one can use {0,u,−u,v}; order three for u is excluded by the simultaneous v±u requirements, so 2u=±v. Then the 3u difference and absence of an involution give order five. Fourier inversion on C5 makes the weights uniform; on C4, P(−1)=P(0)=0 forces precisely (1/8,1/4,1/4). Independently a five-character orthonormal basis forces 5w_j=1 by unitarity. The triangle condition is P(x)=P(2x²−1)=0. The only possible fixed cosine is −1/2, giving c=a+b. Distinct roots yield the stated normalized factorization and positivity range: the cubic numerator of c has two positive extremal values, hence one real root between −1 and −1/2, and b>0 requires x<1/2 in that range. P(1)>0 makes the minimum criterion necessary and sufficient even at a double zero. At (8,10,9)/45 the two roots are 1/4 and −7/8; rationality of the angle modulo 1 would force the rational algebraic integer 2·(1/4) to be integral. All assertions concern arbitrary real frequencies, not just torsion.
 
-Fu–Song (arXiv:2607.19858) prove rationality for complete finite spectral pairs; Bell (arXiv:2610.37975, Theorem 6.1 and Appendix A) reproduces the result and treats complete spectral fibers. Li–Wang (Axioms 15 (2026), 563) prove cardinality restrictions for infinite three-dimensional self-affine measures. None of their displayed theorem hypotheses covers a positive-weight five-site measure with a maximal but incomplete three-character family. The main distinguishing result is a complete five-site mass phase stratification, including rational weights admitting irrational maximal frequency differences. Targeted searches of spectral-pair, trigonometric-moment, Fourier-zero and finite atomic cardinality terminology did not find equivalent coverage. A classical unindexed weighted quadrature treatment remains a risk, and the Fu–Song original full manuscript was not directly accessible; the relevant theorem was checked through Bell's substantive reproduction.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural invariant is the maximum possible number of orthogonal Fourier characters on a finite weighted interval of five sites. The complete one-through-five transition and explicit nonuniform curved resonance locus provide a structural classification. The irrational-frequency example shows exactly why complete-spectrum rationality cannot simply be extended to maximal incomplete families. These features are not merely a reparameterization of a lower-support classification.
+The complete-basis rationality assertion is existing work, and the small four-point difference-set fact is also obtainable from classical Kneser theory. The supported distinction is the complete phase classification for positive symmetric weights on these five consecutive sites, including the unique nonuniform four-character regime and an explicit incomplete maximal irrational triple at rational weights. The nearby same-day four-site classification is not an implication or a priority determination for this five-site result.
 
-## Scope and limits
+## value
 
-Only strictly positive reflection-symmetric five-site measures are covered. The proof does not classify general nonsymmetric five-site weights or arbitrary support geometry. Supplementary torsion enumerations are finite, not an exhaustive test of real frequencies. Residual bibliographic risk does not amount to a claim of publication or independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximal family size is a natural invariant of a weighted finite Fourier space. The classification locates distinct mechanisms for the transitions and the exact exceptional nonuniform four-character point. The explicit rational-weight example draws a useful boundary: integer support and rational weights do not force rational frequency differences at a maximal incomplete family, even though full finite spectra are rational in the cited setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

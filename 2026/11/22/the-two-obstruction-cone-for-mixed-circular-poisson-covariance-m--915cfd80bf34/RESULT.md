@@ -34,7 +34,7 @@ whereas for \(a\ge0,c\ge0\), or \(c\le0,a\ge-\mu c\), it is
 \]
 These branches meet at \(a=0,c>0\), but have different one-sided slopes as a function of \(a\). The negative-baseline branch is not detected by the simpler one-frequency nonstationary Poisson cutoff.
 
-For a concrete distinction, take \(r=1/2\), \(a=-1/4\), and \(c=1\). Then the exact admissible interval is \(|b|\le\sqrt7/4\), while the antipodal-pair obstruction alone only gives \(|b|\le4/5\). At the sharp value \(|b|=\sqrt7/4\), all finite Gram matrices at distinct sites remain positive definite. For \(b=67/100\), the eight equispaced sites \(x_j=j\pi/4\) with coefficients \((0,-1,-7,-1,0,-1,-7,-1)\) give the **exact negative** quadratic form
+For a concrete distinction, take \(r=1/2\), \(a=-1/4\), and \(c=1\). Then the exact admissible interval is \(|b|\le\sqrt7/4\), while testing all antipodal pairs only gives \(|b|\le11/16\). The antisymmetric test on those pairs by itself gives \(|b|\le4/5\). At the sharp value \(|b|=\sqrt7/4\), all finite Gram matrices at distinct sites remain positive definite. For \(b=67/100\), which passes all antipodal-pair tests, the eight equispaced sites \(x_j=j\pi/4\) with coefficients \((0,-1,-7,-1,0,-1,-7,-1)\) give the **exact negative** quadratic form
 \[
 \sum_{i,j=0}^7z_i z_j K_{-1/4,67/100,1}(x_i,x_j)
 =-\frac{1217}{1275}<0,
@@ -60,7 +60,12 @@ w_0&=r^{-1},\qquad w_n=1\quad(n\ne0).
 \]
 This follows by multiplying the Fourier series by \(\cos(x-y)\) and \(\cos(x+y)\); absolute summability justifies all interchanges. Conversely, positivity for all finite atomic measures implies positivity of this bounded form on every finitely supported sequence: approximate any trigonometric-polynomial density by atomic Riemann sums and use dominated convergence in weighted \(\ell^2\). The weight \(r^{|n|/2}\) is nonzero on every index. Thus the all-configuration condition is **equivalent** to positivity of the infinite Fourier operator, not merely implied by it.
 
-**Odd Fourier sector.** The indices \(n=2k+1\) carry constant diagonal \(h\), ordinary off-diagonal couplings \(b/2\), and one exceptional edge between \(-1\) and \(1\) with coupling \(b/(2r)\). The two-sided path adjacency with ordinary edge weight \(1\) and one central edge weight \(J>1\) has spectrum \([-2,2]\) plus exactly the two simple eigenvalues \(\pm(J+J^{-1})\). Indeed, the two bound-state eigenvectors decay as \(J^{-|k|}\) away from the central edge, and the ground-state comparison identity bounds the remaining spectrum by the same extremal values; the ordinary tails give the interval \([-2,2]\). Taking \(J=1/r\), the bottom of the odd sector is exactly \(h-\mu|b|\) (also at \(b=0\) by continuity).
+**Odd Fourier sector.** The indices \(n=2k+1\) carry constant diagonal \(h\), ordinary off-diagonal couplings \(b/2\), and one exceptional edge between \(-1\) and \(1\) with coupling \(b/(2r)\). On the path indexed by \(k\), let \(T\) be the weighted adjacency with ordinary edge weight \(1\) and exceptional edge weight \(J=1/r\) from \(k=-1\) to \(k=0\). The positive sequence \(\phi_k=J^{-\min(|k|,|k+1|)}\) lies in \(\ell^2\) and satisfies \(T\phi=(J+J^{-1})\phi\). For any finitely supported \(u\), with \(w_{ij}\) denoting the weight of the undirected edge \(\{i,j\}\), one has
+\[
+(J+J^{-1})\|u\|^2-\langle u,Tu\rangle
+=\sum_{\{i,j\}}w_{ij}\phi_i\phi_j\left|u_i/\phi_i-u_j/\phi_j\right|^2\ge0.
+\]
+This follows by expanding and using the eigenvector equation. Alternating signs conjugate \(T\) to \(-T\), so both endpoints of the resulting two-sided spectral bound are attained. Thus the bottom of \(hI+(b/2)T\) is \(h-\mu|b|\), including \(b=0\).
 
 **Even Fourier sector.** Under \(n=2k\), the off-diagonal coupling is uniformly \(b/2\), while the central diagonal is \(h-c\delta\) and all others are \(h\). This is the full-line Jacobi operator
 \[
@@ -75,7 +80,7 @@ The decaying solution exists uniquely when \(\Delta\ne0\); the spectral interval
 
 **Strictness and boundary.** If \(h=\mu|b|\) and \(b\ne0\), an alternating signed measure on an antipodal pair has zero energy. For \(b<0\) use \(\delta_0-\delta_\pi\); for \(b>0\) use \(\delta_{\pi/2}-\delta_{3\pi/2}\). This is checked either from the odd-sector bound-state eigenvector or directly from the two Poisson values at angle \(0\) and \(\pi\). If \(h=|b|=0\) in the positive cone, then \(c\le0\), \(a=-\mu c\), and \(K=-c\delta\) is a constant kernel (the zero kernel if \(c=0\)); hence not strictly positive definite.
 
-Now suppose \(h>\mu|b|\). The odd sector is strictly positive, so a hypothetical zero-energy finite signed measure must have every odd Fourier coefficient zero. The even sector is also strictly positive except possibly at its one-site-defect boundary; such equality necessarily has \(c>0\) and \(-rc\le a<0\). For \(b=0\), its nullspace is the span of \(e_0\), which cannot be the weighted Fourier sequence of a nonzero finite atomic measure. For \(b\ne0\), its one-dimensional nullspace has components \(u_k=t^{|k|}\) with
+Now suppose \(h>\mu|b|\). The odd sector is strictly positive, so a hypothetical zero-energy finite complex atomic measure must have every odd Fourier coefficient zero. The even sector is also strictly positive except possibly at its one-site-defect boundary; such equality necessarily has \(c>0\) and \(-rc\le a<0\). For \(b=0\), its nullspace is the span of \(e_0\), which cannot be the weighted Fourier sequence of a nonzero finite atomic measure. For \(b\ne0\), its one-dimensional nullspace has components \(u_k=t^{|k|}\) with
 \[
 |t|=\frac{a+rc}{|b|},\qquad
 |t|^2=\frac{a+rc}{a+c/r}<r^2
@@ -83,7 +88,13 @@ Now suppose \(h>\mu|b|\). The odd sector is strictly positive, so a hypothetical
 \]
 Consequently the even Fourier coefficients \(F_{2k}\) of such an atomic measure would tend to zero as \(k\to+\infty\), while \(F_0\ne0\). This is impossible: any finite exponential sum \(F_{2k}=\sum_jz_je^{-2ikx_j}\) that converges to zero has zero coefficients after aggregating equal frequencies, by Cesàro averaging against each conjugate frequency, and therefore also \(F_0=0\). Thus no nonzero finite atomic measure has zero energy. This proves the strictness criterion, including the even-sector boundary.
 
-Finally, the piecewise amplitude formulas follow from \(\mu^2-\delta^2=1\) and
+**Antipodal tests and amplitude formulas.** Let \(u=b\cos(2x)\) for the pair \(x,x+\pi\), and write \(p=P_r(0)\), \(q=P_r(\pi)\). Its diagonal entries are \(p(a+c+u)\) and the off-diagonal is \(q(a-c-u)\). Since \((p+q)/(p-q)=\mu\), the symmetric and antisymmetric eigenvalues are \((p+q)(a+(c+u)/\mu)\) and \((p-q)(a+\mu(c+u))\), respectively. Requiring both to be nonnegative for every \(x\) is equivalent to
+\[
+|b|\le\min\{c+\mu a,c+a/\mu\}.
+\]
+For the stated example this minimum is \(\min\{11/16,4/5\}=11/16\), and \(\sqrt7/4<67/100<11/16\).
+
+The piecewise amplitude formulas for the full cone follow from \(\mu^2-\delta^2=1\) and
 \[
 h^2-c^2\delta^2=(a+rc)(a+c/r).
 \]
@@ -93,7 +104,7 @@ For \(c>0\), feasibility requires \(a\ge-rc\); the even bound is tighter when \(
 The accompanying standalone Python standard-library file `CHECKER.py` verifies 289 exact assertions: Fourier-neighbor and cross-coupling identities across multiple radii and indices, the even-sector boundary factorization, the eight-site rational negative witness, boundary zero rows at \(a=0,b=c\), and a constant-kernel endpoint. Run `python3 CHECKER.py`; the output is `PASS: 289 exact rational/quadratic-field assertions`. The infinite-dimensional equivalence, the Jacobi spectra, the all-radius sharpness and the strictness statement are mathematical proofs above, not consequences of finite numerical tests.
 
 ## Relationship to prior work
-Buhmann and Jäger (2021/2022, arXiv:2105.02586) develop spherical harmonic criteria for nonisotropic and convolutional kernels and discuss the circle Fourier-matrix framework in their Section 5; that framework does not provide this explicit mixed-modulation cone or its two competing spectral defects. Guella and Jäger (2022, arXiv:2205.07396, Sections 2–3) characterize strict positivity for a distinct class of diagonal-eigenfunction expansions, rather than the off-diagonal Jacobi matrix here. Jäger (2020, arXiv:2005.02798) treats general two-sphere coefficient blocks, not this exact circle Poisson cone. A closely related explicit Poisson result (published-finding corpus record `2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9`) determines the sharp threshold and polygonal singularities of \(P_r(x-y)(1+\varepsilon\cos(k(x+y)))\). Taking \(c=0\), \(a=1\), and \(k=1\) recovers its threshold; that earlier one-parameter family does **not** cover the nonzero separation-cosine coefficient, its negative-baseline branch, or the even Jacobi defect. The exact two-obstruction cone and strict finite-site behavior are the additions here.
+Buhmann and Jäger (2021/2022, arXiv:2105.02586) develop spherical harmonic criteria for nonisotropic and convolutional kernels and discuss the circle Fourier-matrix framework in their Section 5; that framework does not provide this explicit mixed-modulation cone or its two competing spectral defects. Guella and Jäger (2022, arXiv:2205.07396, Sections 2–3) characterize strict positivity for a distinct class of diagonal-eigenfunction expansions, rather than the off-diagonal Jacobi matrix here. Jäger (2020, arXiv:2005.02798) treats general two-sphere coefficient blocks, not this exact circle Poisson cone. The earlier harmonic-modulation result [4] gives the sharp threshold and polygonal singularities of \(P_r(x-y)(1+\varepsilon\cos(k(x+y)))\); it covers the \(c=0, a>0\) slice by taking \(k=1\) and scaling. The same-day stationary finite-knot classification [5] covers the \(b=0\) slice: for \(Q(t)=a+c\cos t\) its knots are \(a+rc\) and \(rh\), and strictness within the stationary positive cone is equivalent to \(rh>0\). No precedence within that day is asserted. The addition here is the full mixed cone, including the competition between the spectral defects and the nonstationary, finite-site strict part of the even-sector boundary.
 
 ## Limitations
 The classification concerns first-harmonic separation and sum-angle modulations on a single circle, with real scalar coefficients and \(0<r<1\). It does not classify arbitrary nonstationary or multi-frequency kernels. The sharp even-sector boundary need not have a finite singular Gram matrix, although arbitrarily close exterior parameters have negative finite witnesses by approximation. Novelty is assessed against the listed inspected sources and searchable records, not independently certified; a differently parameterized covariance construction or an unindexed equivalent Jacobi computation is a residual priority risk. Independent validation of the new theorem has not been performed.
@@ -102,4 +113,5 @@ The classification concerns first-harmonic separation and sum-angle modulations 
 1. M. Buhmann and J. Jäger, *Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres*, arXiv:2105.02586 (first public 2021-05-06), https://arxiv.org/abs/2105.02586; open journal full text https://link.springer.com/article/10.1007/s00041-022-09913-x.
 2. J. C. Guella and J. Jäger, *Strictly positive definite non-isotropic kernels on two-point homogeneous manifolds: the asymptotic approach*, arXiv:2205.07396 (first public 2022-05-15), https://arxiv.org/abs/2205.07396; open journal full text https://link.springer.com/article/10.1007/s11117-023-01022-3.
 3. J. Jäger, *Strictly positive definite kernels on the 2-sphere: beyond radial symmetry*, arXiv:2005.02798 (first public 2020-05-06), https://arxiv.org/abs/2005.02798.
-4. *Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances*, public result (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9.
+4. *Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances*, public result (2026), https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9.
+5. *Finite-knot positivity cones for signed periodic Poisson covariances*, public result (2026), https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-finite-knot-positivity-cones-for-signed-periodic-poisson-covaria--2dc7842600c0.

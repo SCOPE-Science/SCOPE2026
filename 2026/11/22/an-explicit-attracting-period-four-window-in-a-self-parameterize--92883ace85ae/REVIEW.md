@@ -1,15 +1,21 @@
-# Scientific review: an attracting period-four window
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The model is exactly the self-parameterized logistic polynomial obtained by inserting the published transformation gain and bias into the published logistic seed. Four explicitly listed disjoint rational boxes are sent strictly into their successors for every real control in the stated interval. The proof of the delicate critical-box inclusion uses concavity and a completed square, not a numerical plot. An exact rational executable check reproduces those comparisons and the uniform bound \(\sup |(F_c^4)'|<16/25\); Banach contraction proves a primitive attracting four-cycle throughout the entire parameter interval. A negative Lyapunov exponent follows for this cycle and the locally attracted orbits. The mathematical argument does not claim to settle all other invariant sets.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** The publicly available 2021 conference text gives the parameter transformation and selected numerical parameters; the 2023 expanded article explicitly prints the resulting logistic polynomial and uses numerical bifurcation and Lyapunov plots. Neither inspected text states the positive-width attracting four-cycle certified here. Actual mathematical database searches for the exact cubic, four-cycle window, equivalent feedback logistic formulas and neighboring cycle phenomena produced records on other rational, stochastic, finite-precision and coupled maps, none of which implies the result for this specific family. The algebraic trapping technique itself is standard. The earlier 2021 paper is treated as the defining public precursor, not as an independently novel map. Unindexed equivalent results and the precursor's exact online-repository release date are residual priorities for human review.
+PASS
 
-## Value
-**PASS.** The literature motivates self-parameterization specifically by its ability to remove undesired periodic windows from the control range while maintaining simple hardware realizations. A certified *open basin* of attraction to a period-four orbit for every control in a nonempty interval directly quantifies a limitation of that proposed robustness, which coarse plots or a finite Lyapunov scan may miss. The certified range is not asserted to be maximal, but nonzero width is mathematically decisive for uniform-robustness questions; no claim about practical cryptographic security is made.
+The published gain and bias give F_c(x)=[3.9+(x+c)/25]x(1−x), which maps [0,1] into itself. For c in [4989/5000,4991/5000], ∂F/∂c=x(1−x)/25≥0. The displayed F' is positive on I₀,I₁ and negative on I₃; evaluate the monotone parameter-state corners for those three boxes. In I₂, t=x−1/2>0 gives F=B_c(1/4−t²)+t/100−t³/25 with B_c=3.92+c/25. The minimum is bounded by the smaller endpoint image at c_min by concavity, and for the upper bound take c_max, discard the nonpositive cubic, and complete the square. Independent Fraction comparisons verify all four strict containments and the stated outward bounds, respectively [0.14899438,0.14972141], [0.50027712,0.50241377], (0.9899788236,0.9899883133), and [0.03943226,0.03949482] for I₀,I₁,I₂,I₃. Uniformly on [0,1], |F'|≤3.94+1/25<4. On I₂, F'=1/100−2B_ct−3t²/25 decreases in both t and B_c; the inclusive endpoint limits −0.009325163072 and 0.008178434132 give |F'|<1/100. The cyclic strict containments give F_c^4(I₀) inside I₀; the uniform Lipschitz bound is strictly below 4³/100=16/25. There is one return-fixed point in I₀ by contraction, and disjointness excludes periods 1 and 2, proving least period 4, with one cycle point per box and an open local basin. The four-step multiplier gives the per-iterate exponent bound including the possibility of a zero multiplier (exponent −∞). These inequalities cover the parameter endpoints as well as the interior, without sampling c.
 
-## Limitations and related literature
-The certified interval is an inner subwindow. This result neither precludes coexistence with chaotic invariant sets nor proves the global basin size. Closest inspected sources are Paul et al., *Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range* (IEEE ICECS, 2021) and Paul et al., *Self-Parameterized Chaotic Map for Low-Cost Robust Chaos* (2023, DOI 10.3390/jlpea13010018). Related indexed four-cycle research concerns distinct maps, so priority remains qualified pending independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model and interval-trapping method are known. The distinct result is a nonzero-width, uniform analytically certified period-four window for the exact ideal logistic polynomial previously studied for broad chaos.
+
+## value
+
+PASS
+
+The parameter slice is motivated by the prior studies' emphasis on eliminating periodic windows in a specific ideal-map configuration. A positive-width interval with an open basin is a mathematically decisive counterexample to parameter-wide absence of periodic attractors; verifying isolated sampled parameters or plotting a coarse sweep would not give that quantitative conclusion. The proof supplies a reusable exact witness in that published family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

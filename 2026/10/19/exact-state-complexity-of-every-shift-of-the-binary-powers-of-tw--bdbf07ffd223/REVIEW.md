@@ -1,23 +1,21 @@
-# Review of the exact shifted powers-of-two automaton count
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem first identifies the accepted binary language exactly, including leading-zero padding and the exceptional accepted zero when the shift is a power of two. For nonpowers, it then classifies all right quotients into the root, sink, a family of infinite quotients indexed by an initial run of ones, finite two-element quotients indexed by the common-prefix overlap, and all padded-word singleton suffixes. Distinguishing cardinalities, lengths, and exceptional words proves the quotients pairwise inequivalent; explicit prefixes prove reachability. The power-of-two case is counted separately, including the boundary shift \(c=1\). The derived sharp dyadic bounds are immediate from the word-length inequalities and explicitly attaining shifts. This is an infinite Myhill–Nerode proof, not an extrapolation from a computation. Independently constructed automata and exact minimization agree for every shift from \(1\) to \(4095\), with additional arithmetic checks against the intended output function.
+PASS
 
-## Originality — PASS within examined evidence
+Reconstructed both languages and all reachable continuation classes in RESULT.md lines 33–65. For a nonpower, 2^k−c for k≥s has binary expansion α at k=s and 1^(k−s)β for k>s; prefixing zeros gives 0*( {α} ∪ 1+β ). It is essential that β starts with zero and |α|<s. Beyond a nonzero prefix, before its first zero the r exceptional suffixes augment 1*β by distinct words shorter than s; a longer initial run reaches 1*β alone. After consuming the first zero, exactly h overlap-prefix lengths leave two suffixes; the longer suffix distinguishes the h pairs. Singletons are precisely the s proper suffixes of β, including the empty suffix, since exceptional-only suffixes also occur among them. The start residual alone has accepted words with arbitrarily many initial zeros, and an impossible prefix reaches the empty residual. For c=2^(s−1), the language 0*({ε} ∪ 1+0^(s−1)) gives the start, sink, 1*0^(s−1), and s−1 singletons, including the s=1 case with no singletons. The bounds follow from 1≤r+h≤|α|≤s−1 and the two stated choices of c realize the endpoints, including their coincidence at s=2. Inspected the bundled checker and saved finite output; the source script was not executed, and the proof is independent of the finite test range.
 
-Moradi, Rampersad, and Shallit's Theorem 21 (arXiv:2512.10017, §4.3) proves the asymptotic \(O(\log c)\) bound for the same indicator and msd-first convention; its explicit unminimized construction does not state an exact formula or a sharp dyadic state-count range. The separately examined 2026 paper on shifts of the Fibonacci word concerns another sequence and cites only the logarithmic behavior of the powers-of-two example. Other general tail-state-complexity results do not assert the quotient classification. Directed searches for minimal DFAs for translated powers of two, complemented binary patterns, right quotients, and precise automaton sizes yielded no corresponding exact theorem. Comparable research records concern synchronizing reset ranks, Thue–Morse odd parts, or string attractors, not this shifted-sparse-indicator state count. Related results about automata for shifts of the Thue–Morse word were compared by implication and concern a different sequence. The remaining risk is an unindexed or differently expressed earlier formula, including one recoverable from prior constructions with additional arguments. This self-review does not certify priority independently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2025 source singles out the shifted powers-of-two sequence as an example of unusually small state complexity and proves only its logarithmic order. The exact minimum is thus a natural unresolved quantitative refinement, not an arbitrary numerical slice. The formula explains state merging through initial-run and padded-prefix overlap, reveals sharp variation of nearly a factor of two among shifts of identical bit length, and provides minimal state costs for every positive shift. It supplies a structural Myhill–Nerode classification rather than a list of finite examples. It does not claim a general theorem for all sparse automatic sequences or for other digit directions and bases.
+The prior logarithmic upper bound and related construction for the identical shifted indicator are credited. The inspected evidence does not already give the minimal complete count, its dependence on bits of c, or the sharp dyadic envelope. This is a bounded statement comparison, not a priority guarantee.
 
-## Closest literature and limitations
+## value
 
-- D. Moradi, N. Rampersad, J. Shallit, *Complexity of Linear Subsequences of \(k\)-Automatic Sequences*, arXiv:2512.10017, Theorem 21, initially 2025-12-10: logarithmic size for the same sequence, no exact minimum given.
-- D. Moradi, P. Popoli, J. Shallit, I. Vukusic, *State Complexity of Shifts of the Fibonacci Word*, arXiv:2603.18858, initially 2026-03-19: related complexity framework but a different characteristic sequence.
-- H. Zantema, W. Bosma, *Complexity of Automatic Sequences* (2022): broad estimates for shifted/tail automatic sequences without the present exact quotient classification.
+PASS
 
-All state counts include a reachable rejecting sink and require correct output for arbitrarily padded inputs. Finite checker cases provide reproducibility but not independence or a formal proof. Overlap search does not exclude every possible unpublished or unindexed equivalent result.
+This is the full exact classification of a natural translated automatic indicator already used as a state-complexity example. The formula separates shifts in the same size band that differ by up to s−2 states and identifies the combinatorial information needed to predict those states. A qualitative upper bound, or minimizing each chosen shift separately, cannot answer that question.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

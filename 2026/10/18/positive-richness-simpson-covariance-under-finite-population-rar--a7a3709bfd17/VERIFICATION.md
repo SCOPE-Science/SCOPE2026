@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact all-population proof appears in `RESULT.md`. The accompanying standalone program `verify_rarefaction_covariance.py` requires Python 3.10 or later and only standard-library dependencies. Execute `python verify_rarefaction_covariance.py`; its deterministic JSON output is `verification_certificate.json`.
+# Independent mathematical audit
 
-The program checks all 270 positive-integer abundance partitions of census sizes 2 through 12 and all 2,375 feasible sample depths. It compares three independent exact-rational calculations (labeled subset enumeration, hypergeometric composition enumeration, and the claimed closed formula), verifies the explicit nonnegative lower bound, and tests the exact strictness/zero conditions. All checks pass, including 1,891 positive and 484 zero covariance instances.
+## correctness
 
-The enumeration through twelve individuals cannot prove an all-population statement; that claim rests on the conditional-pair calculation, algebraic symmetrization, and monotonicity of absence weights. No independently performed audit or mathematical certification is asserted.
+PASS
+
+Exchangeability of sample pairs gives the finite-census index as the expectation. Conditioning on absence of species i, when feasible, gives the same pair probability in the complement census. Cov(I_i,G) is the absence probability times the unconditional-minus-complement index; infeasible terms are zero without defining a conditional expectation. Cancelling the first two factors of the complement falling factorial yields (1). Expansion of the numerator into N(t-1)(N-t)+B(t-a_i), and symmetrization with weights a_i, gives exactly (2); each pair contribution is nonnegative because feasibility-thresholded w_i is nonincreasing in a_i, including at m=2. The first term is strictly positive exactly when 1<t<N and some species can be absent. In all other cases richness or both statistics are constant. Equal abundances annul the correction and attain the lower bound, including nondegenerate positive cases. Independent exact labeled-subset calculation agreed on 2,375 profile/depth pairs, with 1,891 positive and 484 zero.
+
+## originality
+
+PASS
+
+The iid richness–Simpson identity is established in an indexed record, and an indexed same-day Rao statement contains finite-census special cases with broader distances. Neither gives the fixed-census all-profile, all-depth equal-distance identity, two-term lower bound and exact saturation criterion. The same-day Rao result was assessed by mathematical scope, not by assuming an order within the date.
+
+## value
+
+PASS
+
+The result gives an exact dependent-sampling law for two widely used rarefaction summaries. Its sign, attained bound and exact zero threshold give information not available from the two marginal means or an iid calculation; in particular, the loss of covariance as richness saturates is characterized for arbitrary abundance profiles. The Rao comparison shows the equal-distance scope is a real mathematical boundary, not a normalization convention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

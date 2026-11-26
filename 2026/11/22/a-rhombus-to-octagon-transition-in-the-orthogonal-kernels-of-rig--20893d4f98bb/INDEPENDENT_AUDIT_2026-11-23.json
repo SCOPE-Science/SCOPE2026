@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:08:08.234550Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, steps 1–4; supplied VERIFY.py inspected, not executed",
+        "Independent exact quadrant intersections and shoelace areas: python3 /tmp/opencode/frozen_review_replays.py 1; independent differentiation of F(r,t) in step 4"
+      ],
+      "rationale": "On an x-side triangle the projected height satisfies 1−z′/h=(sτ±ax)/(s+a²), with τ=1−z/h; the in-plane y-coordinate is unchanged. For an interior test point the projected height strictly increases, so z′>0, and the other strict triangle conditions give the claimed inequality after taking both signs. Exchanging x,y gives the other inequality. Together they imply |x|/a,|y|/b<τ and a|x|+b|y|<sτ: at least one of a²≤s+b² and b²≤s+a² always holds. These bound the segment projection parameter away from both endpoints on every apex edge, and imply the base conditions. In the normalized first quadrant the two halfplanes share their positive right-hand side s. For a²=L≥M=b², the second dominates when s≤L−M; for s>L−M both are active with intersection ((s+d)/(s+L+M),(s−d)/(s+L+M)). At equality this intersection coincides with the axis intercept and is not an extra vertex. Homothety in height cancels the common integral of τ² against the original pyramid volume; the quadrant areas give the displayed fraction. At d>0 the positive-part correction has leading coefficient d/(4L³), so the second derivatives differ. With fixed p=ab, the rhombic fraction is strictly decreasing in q=L/p, and direct differentiation of the octagonal fraction in t=q+1/q gives the displayed negative derivative. The formulas join continuously, so q=1 uniquely maximizes, including the case of arbitrarily small positive height.",
+      "residual_risks": [
+        "The six finite area checks include (a,b,h)=(5,3,3),(5,3,4),(5,3,5), with quadrant vertex counts 3,3,4 and fractions 81/1700, 128/1025, 461/2006; the exact argument, not these samples, settles the full family.",
+        "Strict open kernel; the face count refers to the base of its closure. The transition is in the interior of s>0 only for a nonsquare base; nothing is asserted for oblique pyramids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík handles arbitrary 3-polytopes qualitatively and gives an axial apex-cutout construction for pyramids in the companion. Exact same-invariant analogues are available for stretched octahedra, higher regular cross-polytopes, and parallelotopes."
+        ],
+        "reasoning": "The axial cutout treats a point on the axis and specified faces, not the full three-dimensional off-axis admissible set. The other exact families are centrally symmetric with a different face structure, so their formulas do not cover the pyramids. The general criterion still requires checking which constraints are redundant and integrating the resulting metric sections.",
+        "searches": [
+          "arXiv:2611.14277v2, §6",
+          "arXiv:2611.13896, §5.3, Lemma 5.14 and Proposition 5.15",
+          "Local Resultary: phase transitions of orthogonal kernels, cross-polytope and parallelotope kernel formulas"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14277v2",
+        "arXiv:2611.13896",
+        "arXiv:2406.01773",
+        "Local Resultary: octahedral and cross-polytope kernels, Gram-diagonal-dominance classification of parallelotope kernels, right-pyramid shadow and section laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6.6 equates admissibility with a 3D orthogonal-cutout property; the companion resolves an axial apex-cutout. Same-family pentagonal-section work has an arcsine law and a different global optimum. The broad search mostly surfaced indexes and is not relied upon to exclude antecedents."
+        ],
+        "reasoning": "A definition of a polyhedral region and an iff tiling theorem do not give the metric thresholds or the shape extremum without a new calculation. The cited same-family probabilities use different spaces of random inputs, so no implication of the claimed normalization or optimum follows.",
+        "searches": [
+          "arXiv:2611.14277v2, Theorem 6.6",
+          "arXiv:2611.13896, Lemma 5.14 and Proposition 5.15",
+          "Primary-literature search on all-face projection / normals and right-pyramid kernel volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this polyhedral question the all-face footpoint locus can also be described as the intersection of the active regions for all faces. The inspected normal-region work treats a maximum-normal criterion for tetrahedra; the local regular-octahedron full-normal formula is ||x||₁+||x||∞<1 with volume fraction 1/4."
+        ],
+        "reasoning": "These are related descriptions of the underlying admissibility test, but neither resolves the five-vertex right rectangular pyramid region or its optimal shape. A square-base right pyramid is still not the regular octahedron or a tetrahedron.",
+        "searches": [
+          "Local Resultary: full-normal locus, all-face projection kernel, right rectangular pyramid",
+          "arXiv:2611.14277v2, Definition 6.1 and Theorem 6.6",
+          "arXiv:2406.01773, Normals and active regions and Proposition 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-record match is the assigned finding itself. Same-family mirror records compute Haar-random centroid-section and orthographic shadow probabilities. They do not tabulate all-face kernel fractions; in the shadow law the square minimizes its own statistic at fixed area and height."
+        ],
+        "reasoning": "Neither a shadow nor a section probability is the volume of the set of a pyramid's interior vantage points satisfying every footpoint constraint; the obvious shape comparison is therefore not an exact table of the current invariant.",
+        "searches": [
+          "Local Resultary: right rectangular pyramid pentagonal-section, five-vertex shadow and all-face kernel volume",
+          "Pavlík, arXiv:2611.14277v2, §6"
+        ]
+      },
+      "rationale": "The all-face invariant and its tiling interpretation are prior. The checked predecessors do not give the resolved inequalities, threshold, volume law, or sharp fixed-area optimum for right rectangular pyramids. Closest comparisons share either the metric statistic on a different body family or the body family with a different probability. The contribution is the exact evaluation and optimizer, not the projection definition or the general polyhedral method.",
+      "residual_risks": [
+        "The targeted comparisons are not an exhaustive history of active regions, normal multiplicity, or kernel volume. An unindexed formula under a different terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative definition and characterization, not the claimed metric evaluation",
+          "evidence": [
+            "The kernel is the set of interior points passing the all-nonempty-face orthogonal-foot conditions; the theorem relates it to bipolar cutouts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14277v2",
+          "material_read": "§6 Definition 6.1 (p. 16, OA offsets 49400–55347) and Theorem 6.6 (pp. 18–19, offsets 56600–62540)",
+          "method": "OA PDF passage inspection",
+          "title": "Thales’s theorem in higher dimensions",
+          "trigger": "Defines the identical invariant and states the general 3D criterion"
+        },
+        {
+          "assessment": "Covers selected axial projection/cutout geometry, not the full right-pyramid invariant",
+          "evidence": [
+            "Lemma 5.14 reduces axial apex-face foot conditions to a closest-point condition in the base face; Proposition 5.15 concerns apex cutout combinatorics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13896",
+          "material_read": "Introduction (p. 2) and §5.3 (pp. 17–19, offsets 60500–68810), Lemma 5.14 and Proposition 5.15",
+          "method": "OA PDF passage inspection",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Companion treatment of pyramid cutouts and face projections"
+        },
+        {
+          "assessment": "Framework and tetrahedral criterion, not the right rectangular pyramid result",
+          "evidence": [
+            "Proposition 10 involves edge projections and acute dihedral edges of a tetrahedron."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.01773",
+          "material_read": "Normals and active regions (p. 3, offsets 5700–10198), Proposition 10 (p. 17, offsets 34800–37728)",
+          "method": "OA PDF passage inspection",
+          "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree",
+          "trigger": "Alternate language of active regions and maximal numbers of normals"
+        },
+        {
+          "assessment": "Matching invariant on a different body",
+          "evidence": [
+            "Volume fraction 1/4 for the regular octahedron, not a right-pyramid parameter family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-regular-octahedron-s-full-normal-locus-has-one-quarter-volum--596428720a97/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–4931",
+          "method": "Local Resultary search and mirror",
+          "title": "The regular octahedron’s full-normal locus has one-quarter volume",
+          "trigger": "Same all-face statistic under a normal-foot alias"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Probability of a pentagonal section by a random plane through the volume centroid; not an interior volume fraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-pentagonal-section-probability-and-aspect-ratio-rigidity-f--12c6c3062fae/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–10916",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp pentagonal-section probability and aspect-ratio rigidity for right rectangular pyramids",
+          "trigger": "Same object and a sharp aspect-ratio extremum"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Random orthographic shadow survival; the square minimizes that probability at fixed area and height."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–5468",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "Same object and fixed-area/height comparison"
+        },
+        {
+          "assessment": "Different body and phase law",
+          "evidence": [
+            "A stretched octahedron has a different threshold and kernel face transition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-axial-anisotropy-induces-a-sharp-orthogonal-kernel-phase-transit--a129853e89b6/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–4916",
+          "method": "Local Resultary search and mirror",
+          "title": "Axial anisotropy induces a sharp orthogonal-kernel phase transition in octahedra",
+          "trigger": "Closest kernel transition and volume analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof; Pavlík arXiv:2611.14277v2, Theorem 6.6"
+      ],
+      "rationale": "The motivating cutout criterion identifies a meaningful admissibility region but not its size. The exact volume tells how restrictive that criterion is across the whole natural family, the transition tells when a second clipping constraint matters, and the nonzero quadratic onset quantifies sensitivity near the boundary. The unique fixed-area optimum makes a genuine shape comparison instead of reporting isolated sample volumes.",
+      "residual_risks": [
+        "A family-specific Euclidean calculation. The open sets remain topologically equivalent across the transition; it is their closure's combinatorial shape and the volume's second derivative that change."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

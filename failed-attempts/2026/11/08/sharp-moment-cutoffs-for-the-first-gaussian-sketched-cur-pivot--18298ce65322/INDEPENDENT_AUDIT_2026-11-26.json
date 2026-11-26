@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:00:46.064412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:7–29,33–44",
+        "VERIFICATION.md:1–21",
+        "verify.py:7–54 (inspection only)",
+        "Analytic replay for s=2: Beta(1,1) is uniform, so at κ=100 the CPQR expected relative loss is 1+99/10001 and the LU expected relative loss is 1+(198/π)arctan(1/100), agreeing with the reported values."
+      ],
+      "rationale": "Using the diagonal cross at index 1 gives residual spectral norm 1; using index 2 gives norm κ. The normalizing σ₂ is 1, yielding E[E^q]=1+(κ^q−1)p for the weak-column selection probability p. The first fixed-order partial-LU row pivot of (SA)ᵀ compares |κS₁₁| and |S₁₂| only. The angle of the two Gaussian coordinates is uniform, giving a two-sided wedge probability (2/π) arctan(1/κ). CPQR compares two independent squared Gaussian column norms scaled by κ² and 1. Dividing the first unscaled squared norm by their sum gives Beta(s/2,s/2), with miss threshold 1/(1+κ²). The beta integral at small z is z^(s/2)/[(s/2)B(s/2,s/2)] times 1+O(z), which gives exactly c_s and the error powers. Combining with the arctangent expansion proves all critical limits and convergence in probability. For s=1 the two rules coincide, as required by the distinct-cutoff assumption s≥2.",
+      "residual_risks": [
+        "The frozen script checks diagonal residual entries, even-height beta polynomials, range bounds and limits; it does not execute either actual pivot rule or independently test the odd-height beta laws. The analytic derivation supplies those claims. No multi-step, finite-precision, sparse-sign, or end-to-end solver conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary theorem considers any number of mutually orthogonal nonzero columns with a unique longest column and every positive sketch height. Both endpoints in (4) equal I_{1/(1+κ²)}(k/2,k/2) for exactly two columns of squared norms κ² and 1. Huh et al. use sparse-sign sketches by default; IterativeCUR treats sketched residuals and other pivots and its cited bound is not based on these selection rules."
+        ],
+        "reasoning": "The earlier catalog theorem actually dominates the probability problem in the frozen scope. The algorithm papers provide motivation and the existing pivot definitions but do not by themselves supply the two exact moment laws.",
+        "searches": [
+          "Resultary 3e3b827418f2, Finding eq. (4) and one-competitor proof",
+          "Huh–Cartis–Nakatsukasa arXiv:2604.05065v1 Appendix B.1.2, Algorithms 4 and 6–7",
+          "Pritchard–Park–Nakatsukasa–Martinsson arXiv:2509.21963 Algorithm 1, §§3.2.1, 4.2"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:24–44,50–61",
+        "Resultary 3e3b827418f2, f6f0d2843eaf, 3ec204a30cf5, 87492150b186",
+        "arXiv:2104.05877v2, 2509.21963, 2604.05065v1 at the inspected locators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With heights k=s and k=1, the earlier law yields the two tails without any new probability estimate. At k=1, I_z(1/2,1/2)=(2/π)arcsin√z and z=1/(1+κ²). Both normalized losses are determined by the single event, and for any fixed k the integrand factor (1−u)^(k/2−1) tends to 1 at the left endpoint."
+        ],
+        "reasoning": "Apply the known law twice, then multiply by κ^q−1 and integrate the leading u^(k/2−1) term to get the phase diagram. The earlier paper's large-height limit is not used; its exact finite-height theorem suffices for the different limit κ→∞. This is a direct corollary, not merely a similar title or method.",
+        "searches": [
+          "Resultary 3e3b827418f2, exact eq. (4) for k≥1 and proof of the competitor law",
+          "Frozen RESULT.md:33–44, deterministic loss and small-threshold asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact column rule of Gaussian sketching then partial LU of the transpose appears in Dong–Martinsson. The first pivot depends only on the first column of the transpose, i.e. on the first sketch row; max absolute entry is ordinary CPQR on that one row."
+        ],
+        "reasoning": "The two selection events are not separate distribution problems: both are instances of the same orthogonal-column comparison, with effective heights 1 and s respectively. This reduction is pathwise before averaging over sketches.",
+        "searches": [
+          "Resultary Gaussian first-pivot comparisons: 3e3b827418f2 and f6f0d2843eaf; compare frozen RESULT.md:24,35–37",
+          "Dong–Martinsson arXiv:2104.05877v2 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-column CPQR probability for all heights (including height one) is already in the catalog theorem. The same-day Cauchy entry has a two-point normalized squared-Frobenius row-skeleton loss, independent of the sketch width, on a distinct 3×2 input. The other catalog results treat a randomized row-norm/squared-entry rule and a first squared QR-pivot loss respectively."
+        ],
+        "reasoning": "The precise diagonal cross-loss comparison is not printed in the passages inspected; its sufficient two-point selection probabilities already are. Do not infer priority from the same-day record or equate different losses.",
+        "searches": [
+          "Resultary 3e3b827418f2, equation (4); f6f0d2843eaf, Finding and Proof; 3ec204a30cf5 and 87492150b186, Findings"
+        ]
+      },
+      "rationale": "The exact earlier CPQR first-pivot result covers both selection laws, not just the CPQR side. Its equation (4) becomes equality for two orthogonal columns and explicitly includes sketch height one. The first fixed-order LUPP step at any height is precisely a one-row CPQR first pivot by the definitions, since one-dimensional column norm is absolute value. Thus substituting heights s and 1 into the same published formula yields both pivot laws; for height 1 the beta-half CDF is the stated Cauchy tail. On the declared diagonal matrix, the conversion to normalized cross moments is a deterministic two-point readout. A first-term beta-integral expansion then gives both cutoffs and constants. No source need print the formulas side by side for this to be mechanical coverage. The same-day Cauchy record reinforces the mechanistic overlap but is not needed for the failure and does not itself assert the diagonal spectral comparison. The mathematics is correct; the failure is lack of a supported distinct scientific claim in this frozen scope.",
+      "residual_risks": [
+        "This is a coverage-by-implication judgment based on an exact theorem, not a claim that a prior work literally printed the comparison or that dates establish priority between same-day records. Further exact or broader precedents may exist outside the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage of both pivot laws, and a direct route to both moment cutoffs",
+          "evidence": "In (4) the lower and upper beta bounds coincide at n=2; all positive integer k are included.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2",
+          "material_read": "Mirrored RESULT.md offsets 0–6331, Finding eqs. (1)–(5), Assumptions, competitor-law proof",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Exact Gaussian-sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Exact first-pivot law for orthogonal columns including height one"
+        },
+        {
+          "assessment": "Meaningful overlap in phenomenon and method, not an equivalent matrix or loss",
+          "evidence": "Projects onto the chosen row of a 3×2 matrix, giving squared-Frobenius loss 1 or 1+t² and a Cauchy miss probability independent of width; gives unbounded mean despite convergence to optimal selection in probability.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-cauchy-first-pivot-law-and-unbounded-expected-row-skeleton-los--f6f0d2843eaf",
+          "material_read": "Mirrored RESULT.md offsets 0–6313, Finding, Assumptions, Proof and related work",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "A Cauchy first-pivot law and unbounded expected row-skeleton loss",
+          "trigger": "Same-day exact Cauchy two-point first-pivot loss with oversampling blindness"
+        },
+        {
+          "assessment": "Different pivot and residual",
+          "evidence": "Chooses by sketched row norms followed by squared-entry selection in that row; treats Frobenius-residual moments.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-gaussian-sketch-width-threshold-for-the-mean-square-stab--3ec204a30cf5",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "A sharp Gaussian sketch width threshold for the mean square stability",
+          "trigger": "Sharp moment threshold for Gaussian-sketched pivoting"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": "Analyzes the selected first squared QR pivot, not normalized cross-approximation error.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-golden-ratio-orientation-transition-for-gaussian-sketched-qr-p--87492150b186",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "A golden-ratio orientation transition for Gaussian-sketched QR pivoting",
+          "trigger": "Expected Gaussian-sketched QR first-pivot loss"
+        },
+        {
+          "assessment": "Known pivot algorithm; inspected passage not a moment-law theorem",
+          "evidence": "Forms Y=ΩA with Gaussian Ω and uses partially pivoted LU on Y* for column selection.",
+          "identifier_or_url": "https://arxiv.org/html/2104.05877v2",
+          "material_read": "§1, around OA offset 7600",
+          "method": "OA bounded text inspection",
+          "title": "Simpler is better: a comparative study of randomized pivoting algorithms for CUR and interpolative decompositions",
+          "trigger": "Direct Gaussian LUPP precedent"
+        },
+        {
+          "assessment": "Known CUR selection setting; inspected bound is not the frozen pivot-moment claim",
+          "evidence": "Algorithm 1 offers LUPP and QRCP, §3.2.1 uses Gaussian entries, and §4.2 states that its bound instead uses Osinsky selection.",
+          "identifier_or_url": "https://arxiv.org/html/2509.21963",
+          "material_read": "Algorithm 1 around offset 25300, §3.2.1 around 29800, §4.2 around 55200",
+          "method": "OA bounded text inspection",
+          "title": "IterativeCUR: Large Rank-Adaptive Approximation From a Small Recycled Sketch",
+          "trigger": "Recycled Gaussian sketches with LUPP and QRCP alternatives for CUR"
+        },
+        {
+          "assessment": "Confirms the known rule and different default sketch",
+          "evidence": "Algorithm 4 uses sparseSign and lu((SA)ᵀ,'vector'); Algorithm 7 uses LUPP by default and offers CPQR or Osinsky alternatives.",
+          "identifier_or_url": "https://arxiv.org/html/2604.05065v1",
+          "material_read": "Appendix B.1.2 Algorithm 4 around offset 122900, Algorithms 6–7 around 129800–133097",
+          "method": "OA bounded text inspection",
+          "title": "Adaptive LSQR Preconditioning from One Small Sketch",
+          "trigger": "Exact transpose pivot rule in a motivating implementation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–29,33–44 and 50–56",
+        "Resultary 3e3b827418f2 eq. (4); f6f0d2843eaf Finding",
+        "Huh–Cartis–Nakatsukasa Appendix B.1.2"
+      ],
+      "rationale": "The distinction between typical loss and mean loss is relevant to the motivating pivot choices, but on the frozen diagonal example the precise cutoffs and critical constants are mechanical readouts of the known two-column law at heights one and s. The cross error is just a relabeling of a known Bernoulli event, with no new loss control or structural step beyond the two-row pivot definition and elementary endpoint expansion. In this scope the result is an instructive example, not an independently needed unknown exact invariant. The separate same-day example already exhibits the qualitative oversampling blindness and rare-event loss for the same pivot mechanism; it is not used to equate the error metrics.",
+      "residual_risks": [
+        "A substantive distinct comparison in a different model could have value, but no such conclusion is in the frozen finding; no repair or extrapolation is asserted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

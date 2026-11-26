@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the claimed theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the full all-field classification and finite-field formulas. It is not dependent on bounded enumeration. The checked scientific source is Uzakbaev, arXiv:2611.00109v1, specifically the definition of Leibniz dialgebras and the six three-dimensional models.
+## correctness
 
-To reproduce the finite tests, run `python check.py` with a standard Python interpreter. `CHECK_OUTPUT.txt` contains the recorded successful run. The code enumerates all matrices for its selected small prime-field dimensions, checks the four idempotent equalities and orbit-count multiplicities, and checks all five identities on every basis triple for every classified product. For two-dimensional underlying algebras over the two prime fields, it additionally enumerates *every* bilinear second product and checks all five identities. The final line must be `VERIFY_OK`.
+PASS
 
-Verified small cases: \((d,q)=(1,2),(1,3),(2,2),(2,3),(3,2)\). Total compatible products respectively: \(3,3,21,39,339\). For the first two cases every possible bilinear second product is also tested. The checker implements prime-field arithmetic, not arithmetic in all extension fields; finite-field uniformity comes from the proof, and its tests do not certify infinite quantifiers.
+Reconstructed the proof over an arbitrary field. Writing x=(u,a), y=(v,b), z=(w,c), the fixed product has V-component bu and zero scalar component. LD4 forces the second product into V since d≥1, and LD2 with z=t forces the pure V×V and Kt×Kt products to vanish by subtraction, not division. Put the surviving second product equal to bPu−aEv. LD5 compares bcPu with bcP²u−acPEv. In LD3 the left is bcP²u−acPEv and the right is bcPu−acEPv+ab(E²−E)w. Independent scalar and vector choices give precisely the four displayed operator relations, and these comparisons also establish sufficiency; LD1, LD2 and LD4 then follow from the formula. Every automorphism preserves the square span V. The two equations v⊣t=v and t⊣t=0 force t to be fixed. Simultaneous conjugacy is thus the orbit problem on ordered decompositions, with block-diagonal stabilizer. For the growth and tail statements, the GL Euler products are bounded uniformly above and below for fixed q. The exponent is 2d²/3 minus the squared centered norm; a balanced triple loses at most 2/3 from 2d²/3, and the Gaussian lattice sum is uniformly bounded (only three shifts occur). Pulling out q^(−t²/2) and summing the remaining half-strength Gaussian proves the tail. CHECK_OUTPUT.txt samples small prime fields only; the all-field and fixed-q results rely on the argument, not on those tests.
 
-Scientific limitation: historical priority remains provisional. An independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The precise dimension-three complex overlap is established and credited. No checked source gives the theorem on this split family for arbitrary dimension and fields. The finite-field stabilizer count is a consequence of the classification proved here, not a separate claim of novelty for counting direct-sum decompositions.
+
+## value
+
+PASS
+
+This is a natural all-dimensional extension of a studied low-dimensional dialgebra problem, not an extra entry in the same dimension-three table. The uniform all-field classification gives an explicit complete invariant for compatible products, including in positive characteristic, and the finite-field distribution specifies how isomorphism types are weighted when a labelled product is chosen uniformly. The routine stabilizer computation is useful as part of this structural result, not a standalone contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

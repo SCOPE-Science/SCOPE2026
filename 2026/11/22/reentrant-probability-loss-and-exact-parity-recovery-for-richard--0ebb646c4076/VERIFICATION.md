@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scientific limits
+# Independent mathematical audit
 
-The independent source-level construction in `verify.py` uses rational \(2\times2\) matrix inversion to form the two backward-Euler resolvents, multiplies each into the active extrapolation step, then checks powers against the analytical stationary-projector formula. This avoids using the claimed rational stationary formula to *construct* the update matrix. Running `python3 verify.py` produced `PASS`, with 3,360 exact rational matrix-power comparisons and row-sum, parity and positivity checks. Separate deterministic numerical brackets checked the unique scalar extremum, crossing positions, and square-root cusp.
+## correctness
 
-The proof, not the finite tests, establishes universal quantifiers over every positive pair of transition rates, every positive step and every integer number of repetitions. Independent audit has not been performed. Generic equal-input algebra and active Richardson stability functions are known and explicitly attributed, and the historical priority of the new sharp specialization is not independently certified. No symbolic solver, third-party package, external hidden data, or time-limited computation is required to replay the verifier.
+PASS
+
+Q has stationary projector Pi with rows (b/s,a/s) and equals -s(I-Pi). Rational functional calculus gives T_h^n=Pi+r(z)^n(I-Pi). For z>0, |r|<1, so the off-diagonals are strictly positive and it suffices to test the minority diagonal m+(1-m)r^n. The derivative numerator f(z)=z²(z-10)-20z-8 is strictly negative up to z=10, strictly increasing thereafter and unbounded, giving a simple nondegenerate minimum past the sole positive zero z_0 of r. Even powers preserve probability; for odd powers the worst minority diagonal vanishes precisely at m_n=c^n/(1+c^n), with exactly two equality endpoints for m<m_n and a single tangency at equality. The expansion of the endpoint level is -c+c^(1-n)(1+c^n)^2 delta/n+O(delta²); the nondegenerate quadratic minimum gives both endpoint expansions. The determinant is r^n, so positive determinant is necessary; it is sufficient here via exp[log(r^n)(I-Pi)] with nonnegative off-diagonals in the exponent. At z_0 all powers are singular; after it all odd powers fail embeddability regardless of nonnegativity. Exact independent inversion verifies the stated two-rate negative diagonal (-82/3185) with a positive square.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the scheme-specific complete rate/step/odd-iterate frontier, including its sharp extremum and cusp constants, for active Richardson backward Euler. The active stability function, scalar zero, equal-input positivity and embedding criteria, and mechanism of parity recovery are not in themselves new.
+
+## value
+
+PASS
+
+An L-stable integrator can produce a negative probability on a bounded step interval in the minimal irreducible kinetic model. The exact rate-imbalance threshold decides whether that failure can happen at any step; the odd-power classification decides whether it can persist after a chosen number of identical steps. This is a complete sharp diagnostic, and the finite-rate embedding distinction prevents confusing output stochasticity with physical continuous-time evolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

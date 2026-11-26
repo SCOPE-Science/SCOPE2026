@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two local neighbourhood arcs and cyclic-gap iff statement prove the all-rank/all-length classification. Every minimum has distinct starts, and weak deficit compositions weighted by actual private-vertex multiplicities give the stated bivariate formula. Projection to junction-only minima and cyclic unit-deficit moves prove exchange connectivity. Independently enumerated hyperedge-neighbourhood cases matched the formula and exchange components. No finite enumeration is used as an infinite proof.
+## correctness
 
-**Originality — PASS, historical priority provisional.** The closest complete prior cycle result is the published `A four-periodic reconfiguration theorem for minimum isolating sets on cycles`, whose full proof was read; it covers **ordinary graphs** and the junction-only subgraph here. The rank-dependent hypercycle private types, complete weighted minimum-set census, and connectivity of the enlarged exchange graph are not stated or implied without new arguments. Peter Borg's 2025 preprint establishes general hypergraph isolation bounds, not the family enumeration. Prior abstract-only hypergraph literature remains a historical-priority risk.
+PASS
 
-**Value — PASS.** The full optimum solution geometry and rank-dependent type distribution of a canonical infinite hypergraph family are determined. At most three private vertices can occur in a minimum, irrespective of size or rank; the number of minima and their connectivity exhibit a sharp mod-four structure. This is stronger than an isolated minimum-size calculation, and the precise enumerator is naturally motivated by counting optimal isolating sets in hypergraphs.
+A private vertex and the junction with the same start hit cyclic intervals of length 3 and 4, respectively. Coverage by four per vertex gives the lower bound; junctions with positive gaps at most four attain it. Nested arcs at a repeated start would make one vertex redundant. In the periodic lift of distinct starts for m>=5, right endpoints are nondecreasing (lengths differ by at most one), so each gap must be covered by its own start. The boundary cases m=3,4 also give that condition directly. Deficits 4-d sum to delta<=3; at a positive deficit the gap admits one junction or r-2 private labels, and at zero it admits only the junction. Marking one start double counts with factor m/k and yields the polynomial and the at-most-delta private bound. For exchange, promote each private vertex to its same-start junction. Advancing a junction by one transfers one deficit from its outgoing gap to the previous gap; a positive donor implies the receiving gap has deficit at most two, so the move is legal and collision-free. Such transfers gather and redistribute all deficits, and a full circuit of one unit advances all marked junctions by one, giving every labelled translation. Zero deficit gives four disjoint periodic minima, hence isolated for k>=2; m=4 is K4 and m=3 has all singletons. A separate direct subset and exchange check confirmed every coefficient and component size for m=3..12, r=3..5.
 
-**Limitations.** Uniform loose cycles only, all orders at least three and ranks at least three; no assertions on arbitrary hypergraphs or nonminimum sets. Independent external validation has not been performed. Some older hypergraph literature was accessible only by abstract.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the rank>=3 census by private-vertex type. The ordinary cycle minimum size, unmarked junction-only count and four-periodic connectivity threshold have direct prior coverage. The private-vertex count and its extension of the exchange statement require identifying a different local coverage rule and its legal decorations; the inspected cycle result alone does not state or imply those counts without that additional analysis. The exchange obstruction is inherited, not independently new.
+
+## value
+
+PASS
+
+The complete type distribution answers how many optimal configurations use each kind of vertex when the uniform rank varies, a question not answered by the ordinary-cycle number or phase transition. It distinguishes ranks and shows that the non-junction contribution is confined to at most three vertices even at arbitrarily large order. This gives an exact benchmark for minimum isolation and for the effect of adding alternative vertices to an exchange system, with modest rather than standalone novelty for connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

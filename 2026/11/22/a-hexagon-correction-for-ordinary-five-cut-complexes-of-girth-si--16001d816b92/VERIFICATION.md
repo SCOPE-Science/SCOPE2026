@@ -5,21 +5,35 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification
 
-# Verification of the hexagon-correction theorem
+The accompanying `verify.py` enumerates connected five-sets, hexagons, the dual's possible six- and seven-vertex faces, disconnected four-set extensions, and the proposed free faces on eight finite graphs. Its recorded output is `verification_output.txt`. The companion `independent_mod2.py` constructs the ordinary cut complexes for five small examples and reduces the boundary matrices over \(\mathbb F_2\); its recorded output is `mod2_output.txt`.
 
-Execute `python3 verify.py` in a directory containing the included program. It uses only the Python 3 standard library and reconstructs every test graph from explicitly listed edges, not from an external graph database. The included `verification_output.txt` is the recorded standard output of a successful run. Run `python3 independent_mod2.py` from the same directory for a separate, direct mod-two simplicial-chain computation of the ordinary cut complexes; the corresponding recorded output is `mod2_output.txt`.
+A bounded reproduction independently checked the live cofaces of each proposed collapse at the moment of deletion, including a theta graph with three hexagons sharing three-edge paths. With \(H=c_5-h_6\) the number of removed three-faces, the checked \((c_5,h_6,B;H)\) are:
 
-The program checks that each test graph has no cycle of length three, four, or five; enumerates all connected induced five-sets and induced six-cycles; compares the membership of every six-set in the Alexander dual with the induced-hexagon test; excludes every seven-set from the dual; exhaustively checks each disconnected four-set's set of connected five-extensions; verifies free faces for connected five-sets outside hexagons; and constructs a rooted spanning-tree removal sequence for the six faces surrounding every hexagon. Its exact counts include Heawood \((c_5,h_6,B)=(252,28,491)\), Möbius–Kantor \((288,24,1101)\), and Pappus \((324,18,2074)\). A theta graph explicitly tests intersecting hexagons.
+| Graph | Counts |
+|---|---:|
+| 10-cycle | (10, 0, 116; 10) |
+| 11-cycle | (11, 0, 199; 11) |
+| Hexagon plus isolates | (6, 1, 121; 5) |
+| Two disjoint hexagons | (12, 2, 320; 10) |
+| Three-branch theta graph | (24, 3, 105; 21) |
+| Heawood | (252, 28, 491; 224) |
+| Möbius–Kantor | (288, 24, 1101; 264) |
+| Pappus | (324, 18, 2074; 306) |
 
-The global statement is mathematically established by Steps 1–5 of `RESULT.md`: the connector lemma, a uniform elementary-collapse scheme, integral Euler/Hurewicz/Whitehead reasoning, and combinatorial Alexander duality. No finite test is used to infer validity for unbounded graphs. The provided checks do not prove shellability, graph automorphism modules, or smaller-order cases.
+In the first five rows a separate mod-two chain calculation also reproduced the stated top Betti numbers. This does not certify integral torsion-freeness or exhaust the family. The connector lemma and elementary collapses give the general integral result; the subsequent homotopy argument is not validated by mod-two ranks alone.

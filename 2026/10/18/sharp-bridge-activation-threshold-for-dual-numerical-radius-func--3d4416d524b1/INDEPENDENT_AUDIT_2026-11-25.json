@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:19.203618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions, and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify_double_star.py inspected, not executed",
+        "Corrected repairs/4/RESULT.md (all sections)",
+        "Independent two-by-two nuclear completion and bounded tests in twenty parameter cases, with threshold-relative beta values"
+      ],
+      "rationale": "The frozen complex equality sentence was false: at p=q=1, beta=2 the optimal vector (1,3/2,1) can be multiplied by -1 with no change in norm or absolute objective, so even an orbit-constant maximizing bridge need not be positive real. The frozen proof's broad permutation-invariance assertion was also false without restriction to graph automorphisms (two equal unit weights on adjacent vs disjoint edges of a three-link path have different adjacency radii). The complete repair retains the true dual value, restricts permutation invariance to the leaf automorphisms, and proves activation for the modulus of every maximizing bridge, with strict real positivity only after phase normalization. Indeed the tree gauge and depth grading give half the nonnegative adjacency radius; modulus and averaging preserve the bridge modulus of any maximizer. The four-node quotient gives the exact determinant condition 4c^2 <= (4-u^2)(4-v^2), together with 0<=u,v<=2. Maximizing first over one angle gives a strictly concave scalar function with derivative at zero of sign beta^2-sqrt(pq). Its unique endpoint/critical point determines the value and forces c=0 even at beta=0 and at the threshold; above threshold strict increase in c forces the positive feasible boundary value. Triangle equality yields the common phase since all nonzero coefficients are counted with positive weight, except for the already zero bridge at beta=0. Independent two-by-two operator/nuclear duality reproduces both branches and bounded grid checks corroborate the witnesses.",
+      "residual_risks": [
+        "Grid checks are finite and not proofs; the analytic feasibility, strict concavity, and equality-in-triangle arguments settle all parameters including equality. No certification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Budzynski et al. develop multipliers, reflexivity and decompositions for weighted directed tree shifts. Sharif studies coefficient norms from unilateral shifts and Banach limits. The earlier general graph-edge result classifies primal strict convexity and smoothness."
+        ],
+        "reasoning": "These frameworks encompass related shifts or the primal norm, but the inspected statements do not evaluate this particular supported dual functional.",
+        "searches": [
+          "Resultary: numerical radius norm graph edge weights dual norm support function spectral radius",
+          "arXiv:1702.00765 p. 1",
+          "arXiv:2303.00876 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Relationship to prior work and references",
+        "Resultary 12716bf88722, c193c24462fb, b2c31d3ca7d8, a8a6e70fd2ac; ce2d9d2c11c2 catalogue summary only",
+        "arXiv:1702.00765 and arXiv:2303.00876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primal spectral representation is used as a starting point. The frozen uniform path case p=q=1, beta=1 sits at equality and is not claimed anew. The general threshold comes from beta^2-sqrt(pq), i.e. the changing active boundary in a reduced support problem, and the complex equality condition additionally needs a common phase."
+        ],
+        "reasoning": "Neither the known special point nor the primal smoothness characterization fixes this dual value, location of the threshold, or above-threshold maximizer modulus through an existing exact theorem found here.",
+        "searches": [
+          "Mirrored Resultary 12716bf88722 Finding/Assumptions and c193c24462fb Finding",
+          "Sharif arXiv:2303.00876 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "12716bf88722 gives the primal adjacency radius and the equivalent Rayleigh support representation. In the present quotient the dual is also twice a minimal nuclear norm of a two-by-two coefficient matrix completed in the entry unused by the lower-triangular variable. The retrieved tensor comparison a8a6e70fd2ac instead has a positive-projective tensor norm over a three-point path and a different three-branch formula."
+        ],
+        "reasoning": "Abstract duality yields a minimization problem; solving it, including its active constraint and optimal bridge behavior, is distinct from relabeling the primal Rayleigh formula. The three-point tensor result is a different constraint and objective.",
+        "searches": [
+          "Resultary: graph-edge numerical-radius norm dual support function double star weighted path spectral radius",
+          "Resultary: projective tensor spectral support function weighted shifts directed trees numerical radius dual",
+          "Resultary: double-star edge coefficients dual numerical radius projective tensor weighted tree shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "12716bf88722 is the strongest exact graph-norm match. c193c24462fb gives binary path-shift run-length/smoothness formulas, not this dual. Same-day b2c31d3ca7d8 has double-star edge activation in a curvature distortion problem. The indexed ce2d9d2c11c2 summary concerns fastest mixing via spectral-gap allocation, but its mirrored statement was unavailable."
+        ],
+        "reasoning": "No matching table of this invariant was found in the inspected results. Identical double-star parameters and the word activation do not identify a common feasible set or support objective; no same-day priority order is inferred.",
+        "searches": [
+          "Resultary: double star graph numerical radius dual norm bridge activation threshold weighted adjacency",
+          "Resultary: projective tensor norm graph numerical radius weighted adjacency Perron root"
+        ]
+      },
+      "rationale": "Best of current evidence for the repaired claim: the primal adjacency formulation and the uniform three-link path special case are not novel, but neither gives the explicit dual value and activation for an independently varied bridge price and arbitrary pendant counts. The phase wording is a correction, not the ground for originality.",
+      "residual_risks": [
+        "Bounded web and local searches do not exclude an unindexed equivalent weighted-path or partial-matrix support calculation. The fastest-mixing mirror was unavailable and its summary alone was not treated as a whole-document comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact primal norm overlap, not the claimed dual evaluation",
+          "evidence": [
+            "N_G=half the weighted adjacency top eigenvalue; Rayleigh representation maximizes sum_e |a_e|r_u r_v over nonnegative unit r. The finding classifies strict convexity and smoothness."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local Resultary search and mirrored passage inspection",
+          "title": "Strict convexity and the full smooth locus of graph-edge numerical-radius norms",
+          "trigger": "Earlier stronger-looking graph-edge spectral formulation"
+        },
+        {
+          "assessment": "Distinct optimization",
+          "evidence": [
+            "The threshold is for Lin–Lu–Yau curvature distortion with its own objective and constraints."
+          ],
+          "identifier_or_url": "Resultary b2c31d3ca7d8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirrored passage inspection",
+          "title": "Sharp two-phase curvature distortion profile of double-star trees",
+          "trigger": "Same-day same graph family and activation phenomenon"
+        },
+        {
+          "assessment": "Later related tensor setting, not an equivalent earlier statement",
+          "evidence": [
+            "Positive-projective tensor norm and positive-contraction dual on a three-point path, with a different three-branch formula."
+          ],
+          "identifier_or_url": "Resultary a8a6e70fd2ac",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirrored passage inspection",
+          "title": "Exact Fremlin tensor norm and two golden-ratio phase transitions",
+          "trigger": "Plausible positive-projective dual equivalent"
+        },
+        {
+          "assessment": "Inspected scope is adjacent, not evidence for the specific support value",
+          "evidence": [
+            "Directed tree multipliers and decomposition in the first; unilateral weighted-shift coefficient norm and Banach limits in the second."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.00765 ; https://arxiv.org/pdf/2303.00876",
+          "material_read": "p. 1, offset 0, of each public text",
+          "method": "Lawful public primary PDF passage inspection",
+          "title": "Weighted shifts on directed trees. Their multiplier algebras, reflexivity and decompositions; On the numerical radius of weighted shifts on ℓ² as a norm on ℓ∞ and connections to Banach limits",
+          "trigger": "Primary weighted-shift and norm context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and Proof in repairs/4/RESULT.md",
+        "Earlier graph-edge primal comparison 12716bf88722"
+      ],
+      "rationale": "The independent bridge multiplier probes a natural face of the primal unit ball. The plateau, sharp threshold and bridge activation give exact information about which graph features support the dual extremum, including the degenerate zero-price case and the transition itself. They apply to a full family, not just an isolated uniform path. The correction preserves this value without making a false claim about complex positivity.",
+      "residual_risks": [
+        "The result is not a general graph support-function computation or a classification for arbitrary nonuniform pendant multipliers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

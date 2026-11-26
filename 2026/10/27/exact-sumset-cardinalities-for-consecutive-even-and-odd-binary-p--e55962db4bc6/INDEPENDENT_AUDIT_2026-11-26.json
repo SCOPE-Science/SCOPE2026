@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:57.876280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At position zero both summands have bit one, so output is zero with carry one. At position 2m the longer summand has bit one; the incoming carry t determines the top two output bits and gives disjoint initial classes. In an inward pair i,2m-i the shorter summand contributes a_i and a_{i-1}, while the longer contributes b_i at both. Thus the two carries and the previous shorter digit contain precisely the constraints needed to extend a candidate word. At position m they meet with independent center bit b_m and shorter bit a_{m-1}. This includes m=1 without any interior steps. Subset propagation counts a bit-pair word once regardless of representations, and the terminal rule counts distinct possible middle bits. With the correspondence A_m=v M^{m-1}w proved, an independently written bit-mask/backward-propagation reproduction, `python3 /workspace/branches/independent-palindrome-4.py`, gave 37 reachable nonempty subsets, all 37 integer residuals v M^k Q(M)w zero, direct enumeration agreeing for m=1..8, and numerator coefficients [2,-7,6,-4,-14,24,-8,0,0]. The characteristic recurrence of M extends the residual zeros for all k by Cayley–Hamilton; Q need not be the characteristic polynomial. The recurrence, initial counts and rational numerator therefore hold exactly, not by extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zakharov treats P_n+P_m but obtains upper estimates for density; Rajasekaran–Shallit–Smith develop the automata framework and obtain exact same-length counts."
+        ],
+        "reasoning": "The estimate does not resolve the overlaps of representations exactly. Automaton recognizability and same-length enumeration do not give the accepted-output counts for the shifted carry alignment without an additional calculation.",
+        "searches": [
+          "arXiv:2402.10808, exact-length sumset estimates",
+          "arXiv:1706.10206 §7.1, Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1706.10206",
+        "arXiv:2402.10808",
+        "OEIS A264964 and exact sequence query",
+        "Resultary a1cd55f4c7e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing exact automaton counts pertain to same-length inputs; the exact-length bounds and power-of-two gap multiplicity have different outputs."
+        ],
+        "reasoning": "The eighth-order scalar recurrence requires the specific length-offset language and its annihilation certificate. No inspected theorem gives those coefficients by specializing parameters or taking an already known series.",
+        "searches": [
+          "arXiv:1706.10206 Theorem 9",
+          "arXiv:2402.10808 pp. 1–3",
+          "Resultary a1cd55f4c7e6 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A264964 counts two same-length binary palindromes, with 3^floor((r-1)/2) sums. Theorem 9 counts two generalized binary palindromes of the same padded length. The closest Resultary hit counts ordered pairs with a power-of-two difference."
+        ],
+        "reasoning": "A longer-length padding of the shorter summand is not in general a palindrome at that length. Also, replacing a sum of two independently constrained length classes by a difference of ordered pairs does not preserve the set of values or the multiplicity convention.",
+        "searches": [
+          "Resultary: mixed-length binary-palindrome sumset counts and adjacent even/odd palindrome sums",
+          "OEIS A264964",
+          "arXiv:1706.10206 §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS exact query returned 'terms do not match anything in the table' (offset 235, 2026-11-26 UTC); A264964 is the same-length item. No exact statement match in the checked Resultary hits."
+        ],
+        "reasoning": "The sequence query and the inspection of the closest structural database entry address numeric and definitional matches, respectively. Neither is absence evidence for every possible transformation or indexing.",
+        "searches": [
+          "OEIS seq:2,7,27,95,345,1259,4629,17019",
+          "OEIS A264964",
+          "Resultary: exact distinct adjacent even/odd binary-palindrome sum counts"
+        ]
+      },
+      "rationale": "The checked prior sources cover automata for palindrome sums, same-length counts, and bounds on exact-length sumsets, but not the mixed-length cardinality law. Neither the closest catalogue item nor the exact sequence search supplied coverage. The pass is for the explicit distinct-sum recurrence and generating function, not the automata method in general or exhaustive publication priority.",
+      "residual_risks": [
+        "Database and primary-source comparisons are bounded; an unreturned differently indexed sequence or stronger exact mixed-length result is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different length and leading-bit conditions",
+          "evidence": [
+            "Generalized palindromes are fixed-length and may be zero-padded; Theorem 9 requires a common length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.10206",
+          "material_read": "§7.1, PDF pp. 12–13, offsets 33656 and 35564, definition and Theorem 9",
+          "method": "OA PDF passage inspection",
+          "title": "Sums of Palindromes: an Approach via Automata",
+          "trigger": "Primary automaton precedent with an exact counts theorem"
+        },
+        {
+          "assessment": "Broader estimates, not the exact count",
+          "evidence": [
+            "Defines P_n and considers P_n+P_m for sumset upper estimates leading to a density upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.10808",
+          "material_read": "PDF pp. 1–3, offsets 0 and 7932",
+          "method": "OA PDF passage inspection",
+          "title": "Most integers are not a sum of two palindromes",
+          "trigger": "Studies the very same exact-length sets with unequal lengths"
+        },
+        {
+          "assessment": "Same-length theorem, not the mixed-length count",
+          "evidence": [
+            "The cardinality for common length r is 3^floor((r-1)/2)."
+          ],
+          "identifier_or_url": "https://oeis.org/A264964",
+          "material_read": "Sequence description and same-length formula, offset 780",
+          "method": "OA website passage inspection",
+          "title": "Numbers that are the sum of two binary palindromes of the same (binary) length",
+          "trigger": "Closest exact related counting sequence"
+        },
+        {
+          "assessment": "No direct numeric match returned",
+          "evidence": [
+            "The response says terms do not match anything in the table."
+          ],
+          "identifier_or_url": "https://oeis.org/search?q=seq%3A2%2C7%2C27%2C95%2C345%2C1259%2C4629%2C17019",
+          "material_read": "Search result at offset 235",
+          "method": "OA website query result",
+          "title": "OEIS exact sequence query",
+          "trigger": "Lookup of the first eight exact values"
+        },
+        {
+          "assessment": "Different operation and multiplicity convention",
+          "evidence": [
+            "The result counts ordered palindrome pairs with difference 2^k, not the number of distinct sums of a fixed even and adjacent odd length."
+          ],
+          "identifier_or_url": "SCOPE-exact-powers-of-two-gap-multiplicities-for-binary-palindromes--a1cd55f4c7e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local full-text mirror",
+          "title": "Exact powers-of-two gap multiplicities for binary palindromes",
+          "trigger": "Strongest thematic Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacent even/odd case is a natural first unequal-length instance of the established binary-palindrome sumset problem. It measures representation collisions through the number of distinct sums, not the easily counted pair multiplicity. The uniform exact recurrence allows arbitrary-length enumeration of the cardinalities without enumerating exponentially many pairs and provides a benchmark for more general sumset bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

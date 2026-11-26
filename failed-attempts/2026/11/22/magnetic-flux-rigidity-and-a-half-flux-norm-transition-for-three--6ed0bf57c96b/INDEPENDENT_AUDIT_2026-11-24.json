@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:11:02.823875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–116",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)"
+      ],
+      "rationale": "Translating by the base Weyl unitary leaves a sum aI+bU+cV with UV=qVU. The two relative frequencies are independent, so the gauge action is onto both phase circles and allows arbitrary coefficient phases to be removed. For two terms the relative unitary has full circle spectrum; for q=1 torus invariance gives the full joint spectrum. For positive weights, a norm-maximizing sequence for the coefficient sum would make both (U-I)h and (V-I)h tend to zero by the exact squared triangle defect. The commutator bound |1-q| <= 2(||(U-I)h||+||(V-I)h||) rules this out, and Cauchy–Schwarz gives the stated |1-q|^2 a min(b,c)/8 gap. Fourier trace orthogonality reduces Young equality for nonzero inputs to proportional coefficient magnitudes and coefficient-sum equality on their common support. At q=-1, Schur's lemma makes the squares scalar in irreducible representations, and the anticommutation eigenspaces give the 2-by-2 Pauli model; a nonempty fiber and the surjective gauge action supply all phases for the norm in the concrete subalgebra. Independently of the frozen trigonometric maximization, the squared singular values of the Pauli pencil have sum 2S and product |a^2-b^2 exp(2iu)-c^2 exp(2iv)|^2. The latter modulus has minimum max(2M-S,0) by the triangle inequality and realizable triangle/collinear configurations. This gives both norm branches, including the junction and all zero-coefficient cases.",
+      "residual_risks": [
+        "The recorded floating-point checker is corroboration only; the audit relies on the exact proof, not a grid or an attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "bc63d044716c, offset 0: arbitrary finite inputs, matched supports, proportional moduli, commutator-isotropy and twisted-phase condition",
+          "f23a9873381d, offset 0: norm, spectra and singular values for arbitrary complex weights"
+        ],
+        "reasoning": "For support of size at most two the isotropy and phase conditions are automatic; on an independent triple, phase alignment follows from the onto torus map and isotropy is exactly q=1. The weighted Weyl pencil generates a gauge-full half-flux Pauli family, so the universal norm statement specializes without losing parameters.",
+        "searches": [
+          "Resultary: arbitrary finite-support quantum-torus endpoint equality",
+          "Resultary: anticommuting rotation-algebra spectra and singular values"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary findings f23a9873381d and bc63d044716c",
+        "arXiv:2611.16350v1",
+        "arXiv:1210.4771v1",
+        "arXiv:2204.04401v1",
+        "arXiv:2402.17353v5 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 gives the sharp constant one, not the three-mode equality classification",
+          "Fang et al. treats u+v in an irrational rotation algebra rather than the weighted three-term half-flux pencil",
+          "The two distinct indexed proofs cover the frozen equality and norm statements independently."
+        ],
+        "reasoning": "The primary convolution paper supplies the starting definition and bound; the compelling coverage comes from the two matched indexed statements, not the general bound or the two-term literature. The coefficient-sum criterion follows also from the indexed endpoint equality criterion by choosing input magnitudes sqrt(t_j) with the desired coefficient-product phases.",
+        "searches": [
+          "arXiv:2611.16350v1 formula (1.3) and Theorem 4.1",
+          "arXiv:1210.4771v1 abstract",
+          "Local-mirror findings bc63d044716c and f23a9873381d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bc63d044716c, RESULT.md offset 1701: the three-noncollinear specialization is proportional magnitudes and integral area times deformation for full support",
+          "f23a9873381d, RESULT.md offset 0: sqrt(2S) for 2L^2<=S and L+sqrt(S-L^2) otherwise"
+        ],
+        "reasoning": "Integrality of deformation times signed area is q=1. L^2=M, and substitution of the three coefficient magnitudes gives exactly the frozen metric transition. The different notation and the phase choices do not change either statement.",
+        "searches": [
+          "Resultary: endpoint Young extremizers, three noncollinear Fourier modes, flux/area",
+          "Resultary: half-flux anticommuting aI+bU+cV norm and squared-amplitude transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index leads to the exact symbolic formulas in two distinct articles, not just titles or a numerical coincidence."
+        ],
+        "reasoning": "An external numerical table is not the relevant comparison for arbitrary real amplitudes and deformation; the exact symbolic indexed statements are stronger evidence than any finite table. Neither indexed comparator is the frozen record itself.",
+        "searches": [
+          "Resultary half-flux exact norm search and local-mirror f23a9873381d RESULT.md",
+          "Resultary quantum-torus endpoint equality search and local-mirror bc63d044716c RESULT.md"
+        ]
+      },
+      "rationale": "Two distinct indexed findings cover the two headline results. The endpoint classification explicitly gives this three-noncollinear-mode equivalence as a specialization, and the half-flux spectral finding explicitly gives the same two-branch norm for arbitrary complex weights. Combining these in convolution notation does not establish a distinct result. Their shared date does not establish temporal priority. The auxiliary elementary gap estimate is not either of the headline contributions and no independently valuable revised claim is established here.",
+      "residual_risks": [
+        "Priority between same-date publications is unresolved; the overlap is established at the level of statements, not an attribution of direction.",
+        "The shared web lookup did not furnish extra evidence; absence of web results is not used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the half-flux portion",
+          "evidence": "Arbitrary complex coefficients for UV=-VU; exact piecewise norm in S and L^2 and coincident junction.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-spectra-and-a-sharp-pseudospectral-hole-transition-for-hal--f23a9873381d",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact spectra and a sharp pseudospectral hole transition for half-flux pencils",
+          "trigger": "Exact half-flux norm overlap"
+        },
+        {
+          "assessment": "Covers equality, including explicit independent-triple specialization",
+          "evidence": "Matched finite supports, proportional magnitudes, isotropy and phase condition; full three-mode equality exactly at integral deformation-area product.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-endpoint-young-extremizers-on-two-dimensional-quantum-tori--bc63d044716c",
+          "material_read": "RESULT.md offsets 0 and 1701",
+          "method": "Resultary and local mirror",
+          "title": "Exact endpoint Young extremizers on two-dimensional quantum tori",
+          "trigger": "Possible broader equality theorem"
+        },
+        {
+          "assessment": "Defines convolution and universal sharp inequality; inspected passages do not give the claimed classification",
+          "evidence": "Coefficientwise convolution on summed deformation; optimal constant one.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16350",
+          "material_read": "v1 formula (1.3), pp. 2–3; Theorem 4.1, p. 14",
+          "method": "OA PDF text with locators",
+          "title": "Convolution on quantum tori I: Sharp Young inequalities and endpoint Sobolev embeddings",
+          "trigger": "Primary source for convolution and Young bound"
+        },
+        {
+          "assessment": "Adjacent, different operator and regime in inspected abstract",
+          "evidence": "Two terms u+v, irrational deformation, spectrum and Brown measure.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.4771",
+          "material_read": "v1 abstract, p. 1",
+          "method": "OA PDF text",
+          "title": "On generalized universal irrational rotation algebras and the operator u+v",
+          "trigger": "Operator norm/spectrum in rotation algebras"
+        },
+        {
+          "assessment": "Different operation in inspected passages",
+          "evidence": "Convolution via comultiplication on Frobenius von Neumann algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.04401",
+          "material_read": "v1 abstract and §2, p. 5",
+          "method": "OA PDF text",
+          "title": "Quantum convolution inequalities on Frobenius von Neumann algebras",
+          "trigger": "Potential alternate convolution equality framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and limitations",
+        "Resultary f23a9873381d and bc63d044716c"
+      ],
+      "rationale": "The transition and equality obstruction are useful facts about the first noncollinear Fourier packet, but the frozen submission reproduces two already covered headline results and does not turn their juxtaposition into a further exact statement. The supporting flux gap is an elementary commutator estimate and is neither shown optimal nor used to give a new quantitative application. There is no supported independently useful gain in the combined record.",
+      "residual_risks": [
+        "No inference that the results themselves are uninteresting or that the sources have an established date order."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

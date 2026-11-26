@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two explicit pairs are chordal by simplicial attachment, connected, nonisomorphic by the multiplicity pattern of degree-two open neighbourhoods, and have the same equitable degree-cell quotient. The exhaustive finite argument reduces all connected chordal eight-vertex graphs to nonempty clique extensions of all connected chordal seven-vertex atlas representatives. Exact isomorphism-based deduplication and simultaneous tuple-interned refinement show no collisions at orders at most seven and exactly two two-member collisions at eight. The resulting enumeration count is independently corroborated by McKay's 1614-graph table. The computer-assisted portion depends on correctly implemented atlas/isomorphism/chordality routines and is reproducible with the included code.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Kiefer–Schweitzer–Selman (arXiv:1503.08792) and Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255) give general \(C^2\)/amenability structural classifications, but their inspected sections and full-text searches do not state the exact connected-chordal minimum and the two first ambiguous pairs. McKay's chordal-graph catalogue gives the ambient 1614 count, not a refinement classification. The related earlier mathematical results include a different restricted 40-vertex problem with a specified equitable quotient, which does not imply this unrestricted sharp eight-vertex result. Multiple targeted literature and mathematical-results searches did not find directly covering findings. Index limitations and possible unindexed folklore remain residual risks, not a claim of exhaustive historical priority.
+PASS
 
-**Value — PASS.** This identifies the first failure of an important isomorphism heuristic within chordal graphs, a natural hereditary class with perfect elimination, and classifies the complete smallest obstruction layer rather than a handpicked instance. The two distinct 13- and 14-edge constructions make explicit how replacing a cycle of attachments by duplicated matchings defeats one-dimensional refinement even though chordality is maintained.
+Independently enumerated connected chordal graphs at each order from the singleton, adjoining a vertex with a nonempty clique neighbourhood. This obviously preserves connectedness and rules out new induced cycles of length ≥4. Conversely a simplicial vertex exists by perfect elimination; deleting one preserves chordality, and paths between surviving vertices can bypass it using an edge of its neighbour clique. I deduplicated by exact canonical adjacency encodings over invariant degree blocks, without the source atlas or hash. The counts are 1,1,2,5,15,58,272,1614; there are 7268 attachments before deduplication at order eight. Joint refinement by exact previous-colour and neighbour-multiset tuples, continuing until the colour partition stops splitting, yielded the same counts of classes through seven and 1612 classes at eight, with nontrivial class sizes 2,2. The order-eight exceptions have 13 and 14 edges. Their degree-cell sizes and quotient rows match the finding: (4,2,2) with rows (0,1,1),(2,0,2),(2,2,1), and (4,4) with rows (0,2),(2,3). The two graphs within each pair have 2 versus 4 distinct degree-two open neighbourhoods, confirming the stated nonisomorphism and agreeing with the doubled-matching versus cycle constructions. The source verifier checks equitability and prints the matrices; the independent replay checks their actual numerical values. The result is restricted to competitors that are themselves connected chordal graphs.
 
-**Scientific limitations.** The classification is restricted to connected chordal graphs of order at most eight. Its finite census relies on reproducible software and is not an independently audited hand enumeration. The mathematical equivalence under \(C^2\) is not claimed to hold against arbitrary nonchordal graphs in a uniqueness theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier inspected sources supply ordinary 1-WL/C² equivalence, structural recognition of amenable graphs, and the chordal object counts, not the first connected-chordal collision census. The strongest substantive match is the later November 8 Resultary result for all chordal graphs, which gives these very two pairs and subsumes the frozen connected version. This is demonstrable equivalent coverage on the connected subdomain, not evidence of earlier priority; the frozen publication_date is October 18 and the inspected matching catalog record is later-dated. The later result alludes to earlier witness identifications without an identified external source; independent priority for the witnesses is not certified. The supported distinct contribution relative to the earlier sources is the minimality and complete first layer in the connected chordal class.
+
+## value
+
+PASS
+
+Chordal graphs form a natural graph class and ordinary refinement is a standard structural invariant. This establishes the first loss of separation in that class and describes every minimal exception, not just one computational example. The explicit quotient profiles and pair shapes give minimal benchmarks and separate this relative threshold from global amenability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

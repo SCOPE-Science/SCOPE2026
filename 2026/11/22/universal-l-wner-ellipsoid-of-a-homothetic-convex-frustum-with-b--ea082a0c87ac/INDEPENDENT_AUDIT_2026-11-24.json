@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:12.399788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and analytic proof §§1–4",
+        "Frozen VERIFICATION.md and verify_frustum.py (inspected, not executed)",
+        "Güler–Gürtuna arXiv:0709.0707, Theorem 2.7"
+      ],
+      "rationale": "The affine shear by the linear interpolation ρ(t)e and the invertible horizontal map A⁻¹ put the common base into Löwner position. In those coordinates prescribe horizontal and vertical squared semiaxes a²,b² and center height c. The two normalized rim heights have mean zero with masses (1±c)/2; their variance is (1−c²)/b², hence b²=(d+1)(1−c²). The upper endpoint gauge then fixes a²=r²(d+1)(1+c)/(d+(d+2)c), and the bottom gauge imposes (d+2)(1−q²)c²+2(1+q²)c−d(1−q²)=0. Its unique nonnegative root is the displayed radical and lies in (0,d/(d+2)] for q<1. Endpoint containment extends to the convex hull. Duplicating any base contact probability on the two levels with the prescribed rim masses gives zero horizontal means and mixed moments. The horizontal covariance is scalar by base isotropy; the contacts have norm one, so the trace remaining after vertical variance 1/(d+1) makes the horizontal covariance I_d/(d+1). This is a sufficient Löwner contact certificate and uniqueness gives global optimality. Positive rim masses persist; at q=0 the lower contacts coincide at the apex, and at q=1 c=0 gives the stated cylinder axes and equal level masses. Strict convexity of the enclosing ellipsoid excludes contacts at interior heights, where every frustum point lies on an open segment between distinct levels.",
+      "residual_risks": [
+        "The script uses exact rational endpoint/moment equalities, but intermediate section tests are floating point. Its printed boundary-check count is 58 whereas the loop tests 28 dimensions in two endpoint regimes (56). Neither diagnostic detail is used as the analytic certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 gives general necessary and sufficient moments; Ivanov–Naszódi's inspected abstract/introduction concern functional extremal-ellipsoid conditions. Gartsman–Linial's subject is the metric polytope."
+        ],
+        "reasoning": "General tests for a proposed optimizer fall short of a structural replacement theorem. No inspected broader product or join theorem supplies this exact two-level result for arbitrary convex bases; a weak search return itself is not evidence of absence.",
+        "searches": [
+          "Primary-literature lookup for covering ellipsoids of convex joins, products and homothetic frusta",
+          "Güler–Gürtuna Theorem 2.7; Ivanov–Naszódi arXiv:2212.11781; Gartsman–Linial arXiv:2305.02113"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and semantic comparisons, including simplex and John-frustum antecedents",
+        "arXiv:0709.0707 Theorems 2.7 and 8.1; arXiv:2212.11781 pp. 1–3; arXiv:2305.02113 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular theorem gives an upper bound on the arbitrary-base optimum after replacing K by L(K), via inclusion. The contact criterion requires mean zero and full isotropy supported on the original frustum."
+        ],
+        "reasoning": "The reverse volume bound requires a new step: lift the angular Löwner contacts of the original K at both levels with correctly coordinated masses and second moments. It is a short structural argument using known tools, not a parameter substitution or a direct monotonicity consequence.",
+        "searches": [
+          "Güler–Gürtuna Theorems 2.7 and 8.1 compared with the Resultary simplex and John-frustum statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 8.1 affinely reduces parallel ellipsoidal slices to circular slices and gives their minimum-volume covering ellipsoid.",
+          "The Resultary John-frustum claims use the inscribed John ellipsoid and exhibit a contact transition, not the covering ellipsoid of the same body."
+        ],
+        "reasoning": "The truncated second-order cone is the same object for ellipsoidal bases only. Inscribed and enclosing ellipsoid problems for the same frustum are different optimizations; polarity does not identify the cited John-frustum claims with the stated covering result.",
+        "searches": [
+          "Resultary searches for arbitrary-base frusta, Löwner covering ellipsoids and base-independent ellipsoid formulas",
+          "Güler–Gürtuna arXiv:0709.0707 §8, truncated second-order cones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact circular/ellipsoidal formula, cone endpoint and ellipsoidal cylinder are antecedents. Resultary 2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-a-sharp-volume-ratio-spectrum-f--bfb9af719d89 gives the exact parallel-truncated regular-simplex case, including covering contacts."
+        ],
+        "reasoning": "The antecedent formulas are exact overlap and are not credited as new. The question beyond those entries is whether replacing the whole base by its Löwner ellipsoid preserves the outer optimizer for every admissible base. That is not covered by either special-family formula.",
+        "searches": [
+          "Resultary exact John–Löwner ellipsoid formulas for frusta",
+          "Güler–Gürtuna §8 Theorem 8.1 and the cone/cylinder regimes"
+        ]
+      },
+      "rationale": "The scalar covering formula for a circular or ellipsoidal frustum is already known, and simplex frusta were covered separately. The supported distinct statement is the arbitrary convex-base replacement principle and simultaneous two-level certificate. Applying affine equivariance can remove an ellipsoidal shape but cannot replace an asymmetric body by its enclosing ellipsoid. The general contact criterion supplies a test, not the moment assembly needed to conclude equality rather than just containment.",
+      "residual_risks": [
+        "A general join or optimal-design lifting statement could exist outside the bounded searches. The single public search was unproductive; it does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage: ellipsoidal bases, including cylinder and cone; general contact criterion but no arbitrary-base replacement in these passages",
+          "evidence": [
+            "§8 starts from ‖B(x̄−c)‖≤x₁ with a≤x₁≤b and affinely reduces to spherical slices.",
+            "Theorem 2.7 states the necessary and sufficient moments for the circumscribed optimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+          "material_read": "PDF p. 8, Theorem 2.7; pp. 30–32, §8 and Theorem 8.1",
+          "method": "Lawful OA PDF, targeted theorem passages",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Exact seemingly equivalent covering ellipsoid of a truncated cone and general contact theory"
+        },
+        {
+          "assessment": "Relevant general background, no frustum replacement in inspected material",
+          "evidence": [
+            "The introduction frames the functional conditions for pairs of log-concave functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.11781",
+          "material_read": "Abstract/introduction, PDF pp. 1–3",
+          "method": "OA primary PDF passage",
+          "title": "Functional John and Löwner conditions for pairs of log-concave functions",
+          "trigger": "A broader extremal-ellipsoid framework could imply the claim"
+        },
+        {
+          "assessment": "Different specified polytope",
+          "evidence": [
+            "The exact optimization concerns the metric polytope, not a general homothetic join."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.02113",
+          "material_read": "p. 1, abstract and setup",
+          "method": "OA primary PDF passage",
+          "title": "On the Löwner-John Ellipsoids of the Metric Polytope",
+          "trigger": "Cited related exact extremal-ellipsoid work"
+        },
+        {
+          "assessment": "Exact strict subfamily overlap, already credited",
+          "evidence": [
+            "A parallel-truncated simplex with vertex layers has an exact Löwner ellipsoid; no arbitrary base is assumed there."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-a-sharp-volume-ratio-spectrum-f--bfb9af719d89",
+          "material_read": "Finding and proof §2",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact John–Löwner ellipsoids and a sharp volume-ratio spectrum for one-vertex simplex frusta",
+          "trigger": "Exact prior covering optimizer on a nonellipsoidal frustum subfamily"
+        },
+        {
+          "assessment": "Same shapes but inscribed rather than enclosing ellipsoids",
+          "evidence": [
+            "Base-independence is via the base's John ellipsoid and the result describes an inner contact transition."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-base-independent-john-ellipsoids-of-homothetic-frusta-with-a-sha--976839cd459e; 2026/10/25/SCOPE-a-universal-john-ellipsoid-contact-transition-for-homothetic-fru--b5af3bdeb35c",
+          "material_read": "Findings and stated contact regimes",
+          "method": "Resultary lookup and local mirror",
+          "title": "Base-independent John ellipsoids of homothetic frusta with a sharp contact transition; A universal John ellipsoid contact transition for homothetic frusta",
+          "trigger": "Closest catalogue claims with arbitrary homothetic bases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Güler–Gürtuna §8; Resultary one-vertex simplex and inscribed-frustum comparisons"
+      ],
+      "rationale": "The result identifies when the base's entire shape may be discarded for an enclosing-ellipsoid problem. It yields the same exact full-dimensional optimizer and a base-derived certificate for nonsymmetric or nonsmooth bases, and resolves whether either level loses its supporting contacts as truncation varies. This is useful structural information not supplied by the known axisymmetric solution alone.",
+      "residual_risks": [
+        "Parallel homothetic copies of one convex base are essential to this argument; no conclusion for nonhomothetic slices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

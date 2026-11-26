@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:52:13.721341Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and kernel argument at lines 26–123",
+        "Frozen VERIFICATION.md and verify_windmill.py, inspected without executing",
+        "Independent symbolic reproduction: python3 /workspace/review-evidence/3-polynomials.py; completed successfully"
+      ],
+      "rationale": "Integrating the two unit-edge hats gives the stated nodal Gram matrix. Eliminating the petal blocks gives the positive hub Schur complement and all five inverse entries with the indicated signs. The L-infinity evaluation norm is the kernel's L1 norm, attained by its sign, and independent edge counting gives the six-term outer formula. Interior evaluation is strictly below the maximum: adjacent endpoint kernels have opposite signs on an interval next to one endpoint (positive diagonal and negative adjacent inverse entry), so the integrated triangle inequality is strict for a proper convex combination. I symbolically verified both shifted polynomial certificates, their positivity, the triangle formula and derivative, and the strict inequalities at k=8 and 9. The k=1 row equality follows by complete-graph symmetry. In the s>=3 certificate some terms vanish at k=1, but the constant term stays positive. The limit 458/225 is the nonattained supremum of this family only.",
+      "residual_risks": [
+        "The symbolic reproduction verifies rational identities, not the functional-analysis steps, which were checked directly. The conclusion is for a single affine element on each unit edge at density one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record e72b2b6a5e15 gives the general edge-kernel formula, sharp graph-family bound 3, and a leafless Q3 example with norm 24877/12075 > 2.",
+          "Kayumov Theorem 1 gives the interval-partition supremum 3 for the indicated second-order L-splines. Oswald Theorem 1 gives unbounded amplification over planar triangulations."
+        ],
+        "reasoning": "The general graph statement supplies a method and supersedes broad novelty about leafless graphs; its bound and general formula do not supply the windmill-specific exact comparison. The interval and two-dimensional results concern different projection spaces.",
+        "searches": [
+          "Resultary record e72b2b6a5e15, sharp dimension-free metric-graph projection",
+          "Kayumov Theorems 1–2; Oswald Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work and limitations sections",
+        "Resultary and local-mirror records e72b2b6a5e15, 569b060b5cf2, 01f1cffc69a6; search hit 492c1ba25446",
+        "Kayumov arXiv:math/0408418 and Oswald arXiv:math/0611573",
+        "Arioli–Benzi DOI 10.1093/imanum/drx029, bibliographic identity only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general formula expresses the norm through a full inverse and maximum over vertices. The reviewed theorem eliminates these for every windmill and compares the resulting rows and amplification uniformly.",
+          "The exact split-graph and star results do not give the k>=9 transition for triangular petals or certify that larger clique petals stay below two."
+        ],
+        "reasoning": "A fixed finite windmill value is computable from general tools. The family cutoff and supremum require additional sign and unbounded-parameter analysis; they are not taken as novel merely because a rational number was absent. Relative priority of the same-day general record is not inferred.",
+        "searches": [
+          "Local-mirror Finding of e72b2b6a5e15",
+          "Local-mirror Findings of 569b060b5cf2 and 01f1cffc69a6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-split record 569b060b5cf2 computes exact norms for an independent set joined to a clique, not for a hub joined to several nontrivial cliques.",
+          "The metric-star record 01f1cffc69a6 allows leaves and gives an exact shortest-arm law, not a bouquet-of-cliques formula."
+        ],
+        "reasoning": "Neither the friendship-graph alias for the triangular case nor the related star and split topologies identify an equivalent parametrized spline space. Coincidence at a complete graph does not establish equivalence of the families.",
+        "searches": [
+          "Resultary searches for windmill/friendship-graph spline projection norms",
+          "Primary interval and finite-element comparisons: arXiv:math/0408418, arXiv:math/0611573, DOI 10.1093/imanum/drx029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No windmill entry with the exact supremum surfaced. The nine-arm hit instead concerns a bridge-length optimum on double stars, not unit triangular petals."
+        ],
+        "reasoning": "A shared integer cutoff or an exact projector norm for a different graph is not a matching table entry. Search non-detection is not proof of absence.",
+        "searches": [
+          "Resultary search for 458/225 together with the projector/windmill topic",
+          "Resultary comparison with the nine-arm affine-projection hit 492c1ba25446"
+        ]
+      },
+      "rationale": "The supported distinction is the all-parameter windmill norm and its norming vertices, strict triangle-petal cutoff at nine, and family supremum. The general metric-graph mass-matrix/kernel identity and the possibility of amplification above two without leaves are not credited as new. The general identity computes each instance, but by itself does not perform the symbolic block reduction and certify the hub/outer comparison and threshold uniformly in both parameters. The nearest exact family results have different topologies.",
+      "residual_risks": [
+        "Arioli–Benzi full text was not accessible in the attempted copies; no claim about all its results is made.",
+        "A prior topology-specific treatment under another graph name may not be indexed. No absolute priority judgment is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method and leafless phenomenon covered; no uniform windmill conclusion in examined claim",
+          "evidence": [
+            "Norm strictly below 3 for each graph, family supremum 3; Q3 example has norm 24877/12075."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-dimension-free-stability-of-metric-graph-linear-spline-pro--e72b2b6a5e15",
+          "material_read": "Finding: mass matrix, kernel, norm bound and hypercube example",
+          "method": "Resultary discovery and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp dimension-free stability of metric-graph linear spline projection",
+          "trigger": "Same operator on a larger graph class"
+        },
+        {
+          "assessment": "Different graph family; prior leafless amplification above two",
+          "evidence": [
+            "Graphs are joins of an independent set with a clique, not joins of a hub with disjoint cliques."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-l-infty-projection-norms-and-norming-vertices-for-complete--569b060b5cf2",
+          "material_read": "Finding: graph class and threshold",
+          "method": "Resultary discovery and local mirror",
+          "title": "Sharp L-infinity projection norms and norming vertices for complete-split metric graphs",
+          "trigger": "Exact topology-specific norms and a threshold at two"
+        },
+        {
+          "assessment": "Different topology",
+          "evidence": [
+            "Stars have leaves; their exact norm does not include separate clique-petal contributions."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6",
+          "material_read": "Finding: exact shortest-arm rule for stars",
+          "method": "Resultary discovery and local mirror",
+          "title": "Exact shortest-arm law for continuous linear spline projection",
+          "trigger": "Shared central junction"
+        },
+        {
+          "assessment": "Related interval antecedent",
+          "evidence": [
+            "Theorem 1: c(+lambda,-lambda)=3 for the indicated interval partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Page 4, Theorems 1–2",
+          "method": "OA primary paper, targeted theorem passage",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Sharp spline projection constants"
+        },
+        {
+          "assessment": "Different dimension and mesh type",
+          "evidence": [
+            "For each J a triangulation of a square into 8J+4 triangles has projector norm at least 2J."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+          "material_read": "Page 4, Theorem 1",
+          "method": "OA primary paper, targeted theorem passage",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Amplification examples for linear finite elements"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not used as negative evidence",
+          "evidence": [
+            "Publisher or alternate requests returned access errors or timeouts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "Bibliographic identity only; no decisive full-text passage retrieved",
+          "method": "DOI/publisher and identified repository copies attempted",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Closest cited metric-graph finite-element antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and row/threshold proof",
+        "General graph comparison e72b2b6a5e15 and complete-split comparison 569b060b5cf2",
+        "Independent symbolic certificates"
+      ],
+      "rationale": "The knot-free unit-edge windmill is a natural leafless test of whether vertex branching and connections within a petal cause amplification above two. The exact answer isolates the triangular case and the first bouquet size that crosses two, with extremizing vertex locations and a limit across petal counts. These are useful quantitative benchmarks beyond exhibiting another graph above two or numerically recomputing a known instance.",
+      "residual_risks": [
+        "No conclusions for unequal or subdivided petals, weighted edges, or a general graph-theoretic classification at two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

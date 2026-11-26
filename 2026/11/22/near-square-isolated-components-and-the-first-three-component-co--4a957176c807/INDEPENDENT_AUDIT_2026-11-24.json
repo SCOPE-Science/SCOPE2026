@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:45:22.400493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–30",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "/workspace/audit_replays/partitions.py (independent exact census)"
+      ],
+      "rationale": "Transfer adjacency is exactly sharing an immediate predecessor in Young's lattice, equivalently symmetric difference of two Ferrers cells. This is invariant under conjugation. Fixed barycentric coordinates are constant on each conjugation orbit and have clique support; rescaling each coordinate by the orbit size yields the stated orbit triangulation. Because the original is flag, one-skeleton compatibility is completeness of cross edges. For the near-square shape, using the two donor row lengths and a recipient among the remaining rows or a new row gives exactly the four displayed distinct neighbors. Comparing columns interchanges A with D and B with C; in each pair the Ferrers symmetric difference is four, including m=3. Thus there is neither a nearby fixed singleton nor an admissible pair orbit incident to the near-square singleton. Independently growing the Young lattice from rank zero, building edges by common-predecessor buckets, and joining admissible orbit representatives only when their cross-edge multiplicity is the product of their sizes reproduced all 24 component counts. At n=24 there are 1575 partitions, 32 orbit vertices and components of size 1, 2 and 29; the isolated vertex is (5,5,5,5,4).",
+      "residual_risks": [
+        "The exact census stops at n=24 and does not address higher homology. Isolation at arbitrary near-square ranks rests on the symbolic four-neighbor argument, not finite tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper determines ambient wedge-of-spheres topology and the axial-morphology paper gives facts about self-conjugate vertices. The synthesis lists conjugation-equivariant models as a direction. The earlier fixed-locus record does handle the same geometric fixed space, but its stated exact range ends at n=22."
+        ],
+        "reasoning": "Ambient homotopy does not fix the homotopy of the involution's fixed locus. The earlier PL model already supplies the method but not the all-m local isolation argument or the new finite threshold.",
+        "searches": [
+          "arXiv:2603.14370v1",
+          "arXiv:2603.22546v1",
+          "arXiv:2606.20773, p. 28",
+          "Resultary c4450043103e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c4450043103e, local-mirror statement, proof and exact census",
+        "arXiv:2603.14370, 2603.22546, 2603.26656, 2606.20773"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier work gives the identical all-cross-pairs orbit test, and includes n=8,15 but does not identify the claimed isolated near-square singleton family. Self-conjugate partitions form an independent set, which does not rule out a compatible orbit of two exchanged partitions."
+        ],
+        "reasoning": "Checking the four neighbors to exclude their swapped-edge orbits gives the genuinely stronger all-rank claim. The sharp first triple threshold requires the further exact census rather than just the earlier fixed-locus construction.",
+        "searches": [
+          "Resultary c4450043103e, RESULT.md Finding, Proof and limitations",
+          "arXiv:2603.22546v1, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-n common-immediate-predecessor formulation is the same graph, whereas the binary-word/Hamming graph differs. The geometric orbit-clique model, including fixed midpoints of swapped edges, is already explicit in Resultary c4450043103e."
+        ],
+        "reasoning": "The geometric fixed space is neither the ordinary orbit quotient nor the induced graph on fixed vertices. Nonadjacency of distinct self-conjugate vertices does not imply isolation from swapped-edge midpoints.",
+        "searches": [
+          "Resultary: fixed partition graph, Ferrers conjugation, compatible orbit cliques and swapped edges",
+          "arXiv:2603.14370v1, p. 2",
+          "arXiv:2603.22546v1, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4450043103e gives exact fixed-space homotopy data through n=22 and expressly leaves higher ranks undetermined. The numerical-topology paper counts ambient simplices and reports ambient Euler characteristics and Betti numbers, not fixed-space components."
+        ],
+        "reasoning": "The current component census overlaps exactly through 22. The endpoint split and n=23 exclusion are outside the earlier exact table. No distinct exact match at these ranks was located in the inspected index.",
+        "searches": [
+          "Resultary: conjugation-fixed partition graph clique complexes, first circles and fixed-space component counts",
+          "arXiv:2603.26656v1, p. 1"
+        ]
+      },
+      "rationale": "The October 18 fixed-locus record already states the admissible-orbit model and classifies orders through 22. Those parts are covered and are not credited here. The supported distinctions are the isolated near-square family at every m≥3 and the sharp enlargement to the n=24 triple-disconnection boundary, with the new n=23 check and the 1,2,29 split of orbit vertices. Neither follows from the earlier small-order table or the ambient and vertex-level classifications.",
+      "residual_risks": [
+        "The broader web lookup was deferred and supplies no negative evidence. An unindexed extension of the earlier census or an unpublished near-square proof is possible. The exact model and the through-22 overlap are credited to actual prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent model and prior component counts through rank 22, not higher ranks",
+          "evidence": "States the orbit-compatibility flag complex including swapped edges and exact homotopy types through n=22, leaving n>22 open.",
+          "identifier_or_url": "Resultary 2026/10/18 record c4450043103e",
+          "material_read": "RESULT.md offsets 0–3493 and 4800–7501",
+          "method": "Local mirror, direct statement/proof/table comparison",
+          "title": "The first circles in conjugation-fixed partition-graph clique complexes",
+          "trigger": "Exact same geometric fixed space, triangulation and earlier census"
+        },
+        {
+          "assessment": "Same transfer graph, different space",
+          "evidence": "Describes the transfer relation and distinguishes binary-word adjacency; theorem concerns the ambient wedge of two-spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.14370",
+          "material_read": "v1 p. 2, offset 5200 and ambient theorem",
+          "method": "Open-access primary text",
+          "title": "The homotopy type of the clique complex of the partition graph",
+          "trigger": "Same underlying graph and exact topological theorem"
+        },
+        {
+          "assessment": "Fixed vertices, not geometric fixed-space isolation",
+          "evidence": "Self-conjugate partitions are precisely fixed vertices and distinct such vertices are not adjacent.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.22546",
+          "material_read": "v1 p. 1, axial statements",
+          "method": "Open-access primary text",
+          "title": "Axial Morphology of the Partition Graph: Self-Conjugate Axis, Spine, and Concentration",
+          "trigger": "Same involution and isolation claims about vertices"
+        },
+        {
+          "assessment": "Ambient census, no matching component count in inspected statements",
+          "evidence": "The tabulated quantities are ambient chi, clique counts and b_n=chi−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.26656",
+          "material_read": "v1 p. 1, offset 0",
+          "method": "Open-access primary text",
+          "title": "Numerical topology of the clique complex of the partition graph",
+          "trigger": "Possible matching exact table"
+        },
+        {
+          "assessment": "Equivariant topology suggested as a direction",
+          "evidence": "The cited passage lists conjugation-equivariant models among further questions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20773",
+          "material_read": "p. 28, offset 90436",
+          "method": "Open-access primary text",
+          "title": "Local Complexity, Overlap Control, and Global Simplicity in Partition Graphs",
+          "trigger": "Potential later synthesis of equivariant results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–36",
+        "The fixed-locus classification through n=22 in Resultary c4450043103e"
+      ],
+      "rationale": "The near-square calculation identifies a structural isolation mechanism for the actual geometric fixed locus, even after exchanged-edge midpoints are admitted. The first triple-disconnection rank is a natural boundary in the existing equivariant topology problem, not an arbitrarily chosen new table endpoint. The exact orbit split at that first rank provides a reproducible benchmark without claiming higher homotopy information.",
+      "residual_risks": [
+        "The finite novelty is confined to n=23,24 and the first threshold; it does not establish a global sequence or a classification of all isolated points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

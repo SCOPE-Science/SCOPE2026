@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:41:27.447842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the unnormalized L² convention, decomposing m=qℓ+j and applying Parseval over ℓ and the integer translations gives F=Σ_j |Zg(x,ω+j/q)|², a sum rather than its density-normalized average. Zak unitarity makes the optimal constants the essential extrema; continuity makes those the ordinary extrema. Put r=e^(−2πw). Poisson summation of the Fourier exponential gives the two geometric tails with common denominator 1+r²−2r cos(2πx) and nonnegative real coefficients a_s,b_s. With C=Σ(a_s²+b_s²)>0 and E=2Σa_sb_s>=0 the derivative of (C+Eu)/(1+r²−2ru)² in u=cos(2πx) has positive numerator E(1+r²+2ru)+4rC. This forces x=1/2 for the minimum and x=0 for the maximum. On these fibers the ω-dependent part is proportional to r^(2ω)+r^(2/q−2ω), strictly convex and symmetric, giving the unique minimum at 1/(2q) and maximum at the identified endpoints modulo 1/q. At the minimum the sum of q squares cannot vanish because the q frequency translates are distinct and an individual square vanishes only at s=1/2. With c=2πw and R=sinh(c)/sinh(c/q), the extrema simplify to (π/w)²(R−q)/(2 cosh²(c/2)) and (π/w)²(R cosh(c/q)+q)/(2 sinh²(c/2)). Expanding R=q+(q−1/q)c²/6+O_q(c⁴) at zero and using R~exp(c(1−1/q)) at infinity gives all stated leading coefficients and ratios, for fixed q. Replay is analytic in RESULT.md:31–84; VERIFICATION.md and verify.py were inspected, not rerun. Their finite numerical checks cannot establish these global extrema.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belov–Semenov's semi-regular criterion includes this lattice but gives norm comparability, not the sharp constants. Belov–Kulikov–Lyubarskii give critical-lattice exact expressions for a different one-pole kernel and estimates in the oversampled regime.",
+          "The earlier two-coset result is broader in the staggering parameter at density two; setting δ=1/2 gives exactly the reviewed q=2 lattice. The later all-q record includes the whole frozen profile and additionally studies a width optimizer at q=2."
+        ],
+        "reasoning": "A qualitative criterion cannot yield exact extrema. The two-coset sharp theorem directly covers q=2 and the all-q formula covers every remaining q, with no optimization over widths needed for equivalence.",
+        "searches": [
+          "arXiv:2610.30037 §2 Theorem 2.1",
+          "arXiv:2212.08915 Theorem 1.1 and Gabor frame bounds passage",
+          "arXiv:2204.02917 §8",
+          "Resultary 0be38cf97cd8 and 35e18197cf00"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked results and exact records 35e18197cf00, 0be38cf97cd8 and 90ef1aec9db1",
+        "arXiv:2204.02917",
+        "arXiv:2610.30037",
+        "arXiv:2212.08915",
+        "Janssen 1996 (bibliographic/citation evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later all-q record proves time monotonicity and derives the factor cosh(c(1/q−2ω)) on the extreme time fibers, fixing exactly the same unique Zak points modulo (1,1/q).",
+          "At δ=1/2, the earlier two-coset proof places the two minimum frequencies at 1/4 and 3/4, and maxima at 0 and 1/2; each pair is one point modulo 1/2.",
+          "Small- and large-c expansions of the exact R-form profile give the frozen sharp width limits; for the condition number the earlier exponential ratio is already algebraically the same."
+        ],
+        "reasoning": "The all-q quantities and uniqueness are explicitly covered, and the limiting coefficients are direct consequences of exact equality throughout the width domain. The distinctions of wording, parametrization and later date do not supply a scientifically distinct remainder; chronology is separate from coverage.",
+        "searches": [
+          "Resultary 35e18197cf00, Finding and proof Steps 3–4",
+          "Resultary 0be38cf97cd8, proof Steps 2–3",
+          "arXiv:2204.02917 §8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 35e18197cf00 the same constants are written with R=sinh(c)/sinh(c/q), c=2πw: division of sinh(c) by 2 cosh²(c/2) or 2 sinh²(c/2) gives tanh(c/2) or coth(c/2) respectively, so the expressions agree exactly.",
+          "The Fourier window is (π/w)e^(−c|ξ|). Fourier transform swaps the lattice coordinates, up to a sign, to (1/q,1); unitary dilation f(t)↦c^(−1/2) f(t/c) then gives lattice (c/q,1/c) and window (π/w)c^(−1/2)e^(−|t|). Thus the primary paper's two-sided exponential is relevant by exact duality, not simply a different window.",
+          "The same-day indexed asymmetric-exponential record 90ef1aec9db1 specializes at equal rates c/2 and maps under dilation t↦2t to the Fourier-side lattice (1/2,1), covering redundancy two, not larger q; date alone gives no order."
+        ],
+        "reasoning": "The all-q catalogue formula is identical without a window or lattice normalization change. Fourier transformation, unitary dilation and scalar renormalization identify the exponential family's spectral quantities; the standard squared-bound normalization must be retained separately from the condition number.",
+        "searches": [
+          "Resultary semantic lookup for exact Poisson integer-redundancy frame bounds and extremal Zak fibers",
+          "arXiv:2204.02917 §8 two-sided exponentials",
+          "Resultary 90ef1aec9db1 symmetric two-sided exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue entries give exact formula tables in symbolic form: 0be38cf97cd8 at half staggering and 35e18197cf00 on all integer redundancies. The latter explicitly evaluates the same two frequencies in proof Step 4.",
+          "For the transformed lattice (c/q,1/c), Eq. (8.1) of the primary PDF gives, after multiplying by (π/w)²/c for window scaling, A_q/q and B_q/q as printed rather than A_q and B_q under the ordinary inequality of its PDF Eq. (3.1)."
+        ],
+        "reasoning": "The direct exact match needs no adjustment. The primary paper's common factor cancels in B/A but must not be silently corrected when comparing the two absolute constants.",
+        "searches": [
+          "Resultary exact Poisson/Gabor constants and optimized redundancy-two profiles; 0be38cf97cd8 and 35e18197cf00",
+          "arXiv:2204.02917 PDF Eq. (8.1), HTML Eq. (8.2)"
+        ]
+      },
+      "rationale": "Verified current equivalent coverage: a distinct indexed later-dated Poisson record supplies the exact all-q constants and extremizing fibers with the same conventions. The width limits follow directly from its formulas and do not leave a separate result. An earlier indexed two-coset calculation already covers q=2, and the 2022 two-sided-exponential formulas give the same condition-number profile via the Fourier/dilation equivalence even though their absolute constants as printed differ by a common factor. The later catalogue match does not establish that the frozen Oct. 26 all-q claim was already known when written or that the later result is independent of it.",
+      "residual_risks": [
+        "Earlier full absolute-constant coverage, including in Janssen, was not determined. Neither the current catalogue equivalence nor the common normalizing factor in the exponential formula establishes historical priority of a particular calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full mathematical match to the frozen bounds and fibers, with additional width optimization; later-dated, not proof of earlier priority",
+          "evidence": [
+            "The Finding gives both sharp R-form bounds on the same lattice, and Step 4 gives extrema at the same ω once x is fixed by Step 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-integer-oversampling-poisson-gabor-bounds-and-optimal-redu--35e18197cf00/RESULT.md",
+          "material_read": "Finding and Steps 1–4, offsets 0–6047; relationship to prior work, offsets 6047–7932",
+          "method": "Read matching local mirror file and matched closed forms, frame normalization and sharp Zak coordinates algebraically",
+          "title": "Exact integer-oversampling Poisson Gabor bounds and optimal redundancy-two width",
+          "trigger": "Exact all-q indexed overlap"
+        },
+        {
+          "assessment": "Exact pre-existing redundancy-two case, not a theorem for q>=3",
+          "evidence": [
+            "At δ=1/2 the two cosets form (1/2)Z and the matched bounds are 2(π/w)² sech²(πw) sinh²(πw/2) and (π/w)² csch²(πw)(cosh²(πw)+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-two-coset-poisson-gabor-frame-bounds-and-optimal-frequency--0be38cf97cd8/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2152; fiber and frequency extrema, 3653–5464",
+          "method": "Read exact mirror passages and specialize δ=1/2",
+          "title": "Exact two-coset Poisson Gabor frame bounds and optimal frequency staggering",
+          "trigger": "Potential direct earlier q=2 specialization"
+        },
+        {
+          "assessment": "Redundancy-two coverage under the duality; date does not establish priority",
+          "evidence": [
+            "Uses unnormalized two-sided exponentials and sharp spectral bounds at lattice (1,1/2) for arbitrary positive rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-half-density-gabor-frame-bounds-for-asymmetric-two-sided-e--90ef1aec9db1/RESULT.md",
+          "material_read": "Finding, assumptions and initial proof, offsets 0–2561",
+          "method": "Read exact mirror statement and compare via equal-rate specialization and Fourier/dilation",
+          "title": "Sharp half-density Gabor frame bounds for asymmetric two-sided exponentials",
+          "trigger": "Distinct same-day redundancy-two dual"
+        },
+        {
+          "assessment": "Exact ratio profile by duality; a common factor 1/q for the absolute bounds as printed, and no matching extremizer assertion in the inspected formula",
+          "evidence": [
+            "The paper uses the squared sum inequality in §3. For window e^(−|t|) and parameters (η/n,1/η), its lower bound is tanh(η/2)[(η/n)csch(η/n)−η csch(η)], with the analogous upper formula. Put η=c, n=q and convert the squared window scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.02917",
+          "material_read": "PDF §3 Eq. (3.1), extracted offsets 18330–19901; §8 Eq. (8.1), offsets 73500–76041; corresponding HTML Eq. (8.2)",
+          "method": "Primary PDF/HTML statement comparison under explicit Fourier/dilation and scalar conversion",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Most plausible older exact source via the frequency-dual two-sided exponential"
+        },
+        {
+          "assessment": "Frame criterion, not this optimal spectral calculation",
+          "evidence": [
+            "Norm comparability for the semi-regular system supplies qualitative frame membership."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30037",
+          "material_read": "Section 2, Theorem 2.1, extracted offset about 11500",
+          "method": "Read theorem statement and compare regular-lattice specialization and norm quantities",
+          "title": "Irregular Gabor Frames for the Poisson Kernel",
+          "trigger": "Same window and broader semi-regular frequency family"
+        },
+        {
+          "assessment": "Single-pole window, with exact critical bounds rather than matching oversampled Poisson bounds",
+          "evidence": [
+            "The window is 1/(t−iw); the exact critical hyperbola has αβ=1, whereas here αβ=1/q<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.08915",
+          "material_read": "Gabor frame bounds passage at offset about 6400 and Theorem 1.1",
+          "method": "Compared window poles and lattice parameters of primary statement",
+          "title": "Gabor frame operator for the Cauchy kernel",
+          "trigger": "Potential exact Cauchy frame-bound coverage"
+        },
+        {
+          "assessment": "Unresolved historical risk, not absence evidence or the basis of the verdict",
+          "evidence": [
+            "Faulhuber–Shafkulovska cite Janssen for earlier sharp frame-bound calculations; precise window coverage unresolved."
+          ],
+          "identifier_or_url": "https://nuhagphp.univie.ac.at/janssen/data/p071.pdf",
+          "material_read": "Bibliographic identification and primary-literature citation only; full text not read",
+          "method": "Attempted lawful OA text recovery; no extractable text obtained",
+          "title": "Some Weyl–Heisenberg frame bound calculations",
+          "trigger": "Potential historical exact calculation for integer-density lattices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact unnormalized spectral extrema for a natural reconstruction window simultaneously quantify conditioning at every integer density; the two width-degeneration regimes are mathematically informative. This is intrinsic value of the package, not a claim that its re-expression or its immediate asymptotic corollaries are distinct from verified existing coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

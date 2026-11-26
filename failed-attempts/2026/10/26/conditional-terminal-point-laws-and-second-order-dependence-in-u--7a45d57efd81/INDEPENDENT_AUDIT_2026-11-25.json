@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:49:14.205676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 61–133",
+        "Pitman, Technical Report 593, p. 7 and Eqs. (23)–(25), pp. 12–13",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 7–91 (inspected, not executed)"
+      ],
+      "rationale": "For fixed cyclic set S of size k, deleting the cycle edges leaves an independent uniform S-rooted forest. The nonroot matrix-tree minor nI−J has determinant k n^(s−1), s=n−k≥1. Removing r prescribed nonroots with no children and reattaching them to the n−r survivors gives k(n−r)^(s−1) forests, including r=s with k^s attachments. The prescribed-set probability at RESULT line 80 is naturally read conditional on the fixed S, as in the preceding construction; without that conditioning a fixed set A can contain cyclic vertices. The factorial-moment sum is over the s nonroots for each S, giving exactly the claimed law conditional on C_n=k, and separately Z_n=0 at k=n. The mean f(s)=s(1−1/n)^(s−1) increases strictly up to feasible s=n−1; the strict negative sign follows by the independent-copy covariance identity. Deleting a specified terminal leaves a uniform map on n−1 vertices and the cyclic count unchanged, which gives the exact covariance identity after summing over terminals. The cycle mass telescopes to survival (n)_k/n^k and yields b_n as the mean. The log expansion cancels the linear-in-k terms and gives n/e+(1−k²/n)/(2e)+o(1) uniformly to n^(3/5); the cycle survival bound handles the complement and gives Rayleigh moment convergence. Then Cov(R,R²)=sqrt(π/2) gives the mixed limit, and empty-bin pair indicators give Var(Z_n)/n→e^(−1)−2e^(−2) and the correlation constant. These arguments cover n=2 and the degenerate k=n forest.",
+      "residual_risks": [
+        "The verification file records small exhaustive runs and numerical diagnostics, not an infinite proof or an independent rerun. The script does not check the second-order regression separately; the audit uses the uniform expansion and tail estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman supplies the conditional forest/permutation representation and prescribed-root forest enumerator; the inspected passages do not state the sharp mixed asymptotics.",
+          "The later indexed 0c1fa0e07cad gives a full finite joint law and the finite covariance identity, and extends negativity to increasing transforms of C_n.",
+          "Soria treats parameter-marked functional graphs generally, and Hansen–Jaworski's available abstract concerns conditional component sizes."
+        ],
+        "reasoning": "The forest enumerator explains the factorial law by one deletion count, but is not by itself evidence for the asymptotics. The exact indexed refinements supply stronger mixed information on precisely the same probability space.",
+        "searches": [
+          "Pitman, Technical Report 593, p. 7 and (23)–(25)",
+          "Resultary 0c1fa0e07cad, exact joint law",
+          "Hansen–Jaworski, Random Mappings with a Given Number of Cyclical Points; Soria, 1996 seminar exposition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 007c2a04bfe9 and 0c1fa0e07cad",
+        "Pitman Technical Report 593",
+        "Soria seminar text",
+        "Hansen–Jaworski public abstract",
+        "Mylläri DOI 10.1239/aap/1037990959 (lookup only)",
+        "Frozen RESULT.md, lines 139–155"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof explicitly expands h_n(k)=n/e+(1−k²/n)/(2e)+O((k+1)/n+(k³+1)/n²+(k⁴+1)/n³) uniformly for k≤n^(3/5); setting k/√n→x gives precisely the frozen order-one shift.",
+          "Multiplying its exact h_n(k) by the classical cyclic mass P_n(C=k)=k(n)_k/n^(k+1) gives n(1−1/n)^n P_(n−1)(C=k) for k≤n−1, with zero at k=n. Multiply by k and sum to get the frozen mixed moment and then the finite covariance. The later refinement states it directly."
+        ],
+        "reasoning": "The apparently distinct second-order statement is in the earlier proof with a uniform error bound, and the finite identity requires only multiplication and summation of exact inputs. The frozen deletion argument is an alternative derivation, not a new invariant.",
+        "searches": [
+          "Resultary 007c2a04bfe9, conditional law and Shar​p mixed asymptotic, offset 5650",
+          "Resultary 0c1fa0e07cad, finite covariance and exact joint law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The leaf count in 007c2a04bfe9 is exactly the mapping's indegree-zero count: cyclic vertices cannot be terminal, and a nonroot has indegree zero exactly when no forest edges point to it. Its K_n is the same cyclic count as C_n.",
+          "The indexed law is empty selected bins after s−1 uniform draws among n bins; its r-bin empty probabilities yield (s)_r(1−r/n)^(s−1)."
+        ],
+        "reasoning": "Neither changing 'leaf' to 'terminal' nor replacing the conditional occupancy representation with factorial moments changes the underlying joint law. Terminal closers are not used as matching evidence.",
+        "searches": [
+          "Local Resultary: conditional cyclic-core / fixed roots / leaf or terminal count, 007c2a04bfe9 and 0c1fa0e07cad",
+          "Pitman Technical Report 593, conditional forests"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "007c2a04bfe9 gives the same conditional moment formula and constants −sqrt(π/2)/(2e) and −sqrt(π/2)/[2e·sqrt((2−π/2)(e^(−1)−2e^(−2)))].",
+          "0c1fa0e07cad states the exact finite b-difference identity in addition to the bivariate law."
+        ],
+        "reasoning": "These are all-n formulas and explicit limiting constants, not sampled numerical coincidences. The later record corroborates coverage at review, not priority before the frozen record.",
+        "searches": [
+          "Local Resultary: 007c2a04bfe9 (Finding and Sharp mixed asymptotic) and 0c1fa0e07cad (exact joint law and covariance)"
+        ]
+      },
+      "rationale": "An earlier distinct indexed record gives the same conditional factorial moments, strict regression and negative sign, covariance and correlation limits, and the same second-order mean expansion in its proof. The finite b-difference identity is a direct consequence of its exact conditional mean and cyclic marginal, and is explicitly stated in another indexed refinement. No substantial distinct part survives these statement-level comparisons. Relative catalog dates distinguish the sources but do not establish broader historical priority.",
+      "residual_risks": [
+        "Full primary text on leaf-count asymptotics (Mylläri), conditional random mappings (Hansen–Jaworski), and related Drmota–Soria work was not available in the inspected material. These access limits do not establish absence or drive the disposition. The earlier indexed expansion and exact law are affirmative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier indexed coverage of the conditional law, sign, asymptotic constants and second-order expansion",
+          "evidence": [
+            "The Finding identifies the conditional occupancy law and strict decrease of the mean.",
+            "The proof's uniform Taylor expansion explicitly has the same (1−k²/n)/(2e) correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9/RESULT.md",
+          "material_read": "Finding from offset 0 and proof section Sharp mixed asymptotic from offset 5650",
+          "method": "Configured local Resultary search and bounded mirror reads",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Same exact conditional law and same covariance constants"
+        },
+        {
+          "assessment": "Later, stronger exact joint description; not relied on as earlier-date priority evidence",
+          "evidence": [
+            "The covariance is n(1−1/n)^n(b_(n−1)−b_n); the joint law also yields the same leading constants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad",
+          "material_read": "RESULT.md Finding and finite covariance derivation, within offsets 0–7992",
+          "method": "Local Resultary search and bounded mirror reads",
+          "title": "Exact joint law of cyclic and terminal vertices in uniform random mappings",
+          "trigger": "Full finite joint law and explicit finite covariance"
+        },
+        {
+          "assessment": "Structural and counting prior, not an independently located statement of the mixed constants",
+          "evidence": [
+            "With the cyclic set fixed, the permutation and rooted forest are conditionally uniform and independent; the forest count is k n^(n−k−1)."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+          "material_read": "Fixed-root volume count on p. 7; Eqs. (23)–(25) on pp. 12–13",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "Known conditional mapping–forest formula"
+        },
+        {
+          "assessment": "Related methods, no specific cyclic/terminal joint formula in the inspected section",
+          "evidence": [
+            "Discusses indegrees and distance from cycles or leaves as graph parameters."
+          ],
+          "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/soria.html",
+          "material_read": "Opening text and marked parameters section, offsets 0 and 3900–6866",
+          "method": "Bounded public-page read",
+          "title": "Random functional graphs: generating-function methods (Soria seminar exposition)",
+          "trigger": "Prior marked functional-graph generating functions"
+        },
+        {
+          "assessment": "Confirmed same conditioning, unverified scope beyond the abstract",
+          "evidence": [
+            "The abstract describes statistics of component sizes with prescribed number of cyclic points."
+          ],
+          "identifier_or_url": "https://researchportal.hw.ac.uk/en/publications/random-mappings-with-a-given-number-of-cyclical-points/",
+          "material_read": "Abstract, offsets 754–1261; full PDF could not be extracted",
+          "method": "Public abstract and attempted lawful full-text extraction",
+          "title": "Random Mappings with a Given Number of Cyclical Points",
+          "trigger": "Exact cyclic-count conditioning, potentially stronger"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence for failure",
+          "evidence": [
+            "Bibliographic match to leaf counts; exact statement-level coverage was not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1037990959",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful OA lookup",
+          "title": "Limit distributions for the number of leaves in a random forest",
+          "trigger": "Potential overlap in conditional leaves for rooted forests"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 007c2a04bfe9, Finding and Sharp mixed asymptotic",
+        "Resultary 0c1fa0e07cad, finite joint law and covariance"
+      ],
+      "rationale": "The exact mixed dependence and second-order cancellation would be valuable for the natural uniform-map model if distinct. The earlier indexed result gives the same phenomenon and constants with a uniform mean expansion, and the finite identity is already determined by its exact formulas. The terminal-deletion proof is neat but adds no distinct exact information or new applicability regime.",
+      "residual_risks": [
+        "The judgment concerns incremental value of the record as frozen, not the interest of the underlying model or the accuracy of the constants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

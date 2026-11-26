@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:09:48.544949Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, graph, spectral bound and energy envelope; frozen VERIFICATION.md, profiles.csv and verify.cpp inspected, not executed",
+        "Replay: python /workspace/branches/9920a42c-b6c0-447a-88f8-c1dd5192b0c8/independent_ising_cut.py; independent output at /workspace/branches/9920a42c-b6c0-447a-88f8-c1dd5192b0c8/independent_profile.csv"
+      ],
+      "rationale": "The line-intersection construction yields the skew graph with degree 16, 216 edges, and common-neighbor parameters 10 and 8. On the mean-zero subspace the strong-regularity equation A²=2A+8I+8·11ᵀ gives eigenvalues 4 and −2. The indicator decomposition gives e(T)≥k(k−3)/3, and b(T)=16k−2e(T) gives the rounded upper bound, with complements covering the other half. An independent implementation enumerated all 134217728 subsets, checked the sector visit totals against binomial coefficients and the update against direct edge sums, and reproduced saturation and every labelled count. The successive slopes in the k≤13 cut envelope are 16,12,8,4,0; maximizing B(k)−(h/J)k gives exactly the plateau magnetizations and the four-sector ties at the stated fields. At zero field the four sectors k=12,13,14,15 have optimum cut 120, giving energy −24J, the stated counts at M=±1 and ±3, and total 1037376. The positive critical sector sums are 630444, 138000, 10035 and 208. Global spin reversal accounts for the negative fields.",
+      "residual_risks": [
+        "The full enumeration was exact and took about 17.9 seconds (the 2^20-subset pilot took about 0.15 seconds). It verifies the labelled zero-temperature result for this fixed graph only; it says nothing about other Hamiltonians or thermodynamic limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite geometry identifies the complementary generalized quadrangle, and the E6 coloring application supplies known chromatic data. Vinci et al. provide the bivariate Ising formalism, not a Schläfli-specific count. Brouwer explicitly lists the 45 independent triples, already giving the k=3 optimum count."
+        ],
+        "reasoning": "General chromatic and spectral data give the cut bound and a route to its saturation, and Ising formalism gives the energy-envelope reduction. Those inputs alone do not count all maximizing subsets. The distinct indexed result is stronger evidence: it explicitly gives the entire count sequence and field classification.",
+        "searches": [
+          "Brouwer Schläfli graph page, Subgraphs and Clique and Independence number",
+          "arXiv:0903.0715 §3.1 and Table 1",
+          "arXiv:1907.09751 §5.2.4 and Table 3",
+          "arXiv:1307.1114 Eqs. (4)–(6)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0fea274efa26 and dd62d76a5e1d",
+        "Brouwer Schläfli graph",
+        "arXiv:0903.0715, arXiv:1907.09751 and arXiv:1307.1114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof uses a partition into nine independent triples, with each vertex adjacent to exactly two vertices of any other triple. Taking m whole triples and r vertices of another gives 3m(m−1)+2mr induced edges for k=3m+r, attaining the rounded bound. It then gives the same magnetic envelope and the complete degeneracy census."
+        ],
+        "reasoning": "The cut formula is closely tied to known data: an independent triple attains the least-eigenvalue bound, so every vertex outside it has exactly two neighbors in it; in a proper nine-coloring the classes are independent triples. Once the exact counts are given, the same affine envelope and sector sums force the identical field law. Different witness masks or subset traversal are corroboration, not a distinct theorem. The match is to a distinct indexed record, not a search return of the frozen record itself.",
+        "searches": [
+          "Resultary 0fea274efa26 proof §§2–4",
+          "arXiv:1907.09751 §5.2.4",
+          "Brouwer's Schläfli graph subgraph and independence data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record states C(k)=2 floor(k(27−k)/3). For t=min(k,27−k), 16t−2 ceil(t(t−3)/3)=2 floor(8t−t(t−3)/3)=2 floor(k(27−k)/3). Its down-spin sectors translate by M=27−2k into exactly the frozen magnetizations, and its labelled counts match."
+        ],
+        "reasoning": "This is equality of exact statements over the same graph, Hamiltonian and full field domain, not a resemblance of graph names or special parameters. The energy and entropy nomenclature does not define a different invariant.",
+        "searches": [
+          "Local Resultary lookup of Schläfli antiferromagnet, constrained cut profile and exact field degeneracies",
+          "Resultary 0fea274efa26, Finding and proof §§1–4, exact local-mirror text",
+          "Vinci et al. arXiv:1307.1114 Eqs. (4)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0fea274efa26 proof §4 prints all fourteen k=0,…,13 optimum cuts and labelled multiplicities, and gives the rest by complement, precisely matching the frozen profiles.csv. Resultary dd62d76a5e1d and Brouwer both give the exact count 45 of edge-free triples only as far as the optimizer census is concerned. Saniga et al.'s Table 1 counts Veldkamp lines, not subsets optimizing a cut."
+        ],
+        "reasoning": "A complete matching table is present, rather than just a shared number at k=3. The exact match applies to labelled subsets and yields all tied-sector and open-interval ground-state counts. The targeted literature query supplied no additional source and is not evidence of absence.",
+        "searches": [
+          "Local Resultary tables for Schläfli induced subgraphs and Ising degeneracies",
+          "Brouwer subgraph orbits",
+          "Targeted literature query on Schläfli maximum cuts, Ising degeneracies and subset orbits"
+        ]
+      },
+      "rationale": "A distinct existing indexed record, 0fea274efa26, gives the same complete mathematical claim: the all-cardinality cut profile, labelled counts at every cardinality, five plateaux, and every critical and zero-field degeneracy and sector. The floor form of its profile is algebraically identical to the ceiling form here. The coverage is exact and leaves no distinct main result for acceptance; it is not a correctness objection or a judgment of historical priority. The mirror path for the matching record bears a later date than the path of the frozen record, and there is no finding here about who established the result first.",
+      "residual_risks": [
+        "Unindexed earlier orbit or Ising tables may exist. The closeout rests on demonstrable exact indexed coverage, not on claiming which record came first or on absence of earlier literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full equivalent coverage, priority unresolved",
+          "evidence": "Same SRG, even rounded cut B(k), open-interval plateaux and counts, transition sectors and sums, zero-field ground energy and multiplicities, and full all-cardinality table.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ground-state-entropy-spikes-of-the-schl-fli-antiferromagne--0fea274efa26/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–4, local mirror offsets 0–6367; comparison of cut proof, critical sectors, and labelled optimizer table",
+          "method": "Read actual statement and table through local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; algebraic translation of profile and magnetization",
+          "title": "Exact ground-state entropy spikes of the Schläfli antiferromagnet",
+          "trigger": "Same graph, Hamiltonian, and exact ground-state degeneracy classification"
+        },
+        {
+          "assessment": "Graph parameters and partial exact optimization coverage",
+          "evidence": "45 three-vertex cocliques in one orbit, exactly the k=3 optimal subsets.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Schlaefli.html",
+          "material_read": "Subgraphs and Clique and Independence number, HTML offsets 0–2977 and 2750–5744",
+          "method": "Inspect stated orbit counts and compare with cut sectors",
+          "title": "Schläfli graph",
+          "trigger": "Exact graph orbit data may already encode the optimum counts"
+        },
+        {
+          "assessment": "Established graph relation; table does not enumerate cut optimizers",
+          "evidence": "Schläfli is the complement of the collinearity graph; the four tabulated Veldkamp-line counts concern different objects.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.0715",
+          "material_read": "§3.1 p. 3 near offset 12350; Table 1 p. 5 near offset 15980",
+          "method": "Read OA identification and compare what the table counts",
+          "title": "The Veldkamp Space of GQ(2,4)",
+          "trigger": "Complementary geometry and possible exact table"
+        },
+        {
+          "assessment": "Known coloring and spectral inputs, not the census",
+          "evidence": "The 27-vertex, 216-edge Schläfli graph serves the E6 spectral/chromatic calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09751",
+          "material_read": "§5.2.4 p. 21 near offset 68000; Table 3 p. 17 near offset 55200",
+          "method": "Lawful alternate submitted-version OA text after inaccessible DOI route",
+          "title": "Coloring the Voronoi tessellation of lattices",
+          "trigger": "Spectral bounds and coloring on the same graph"
+        },
+        {
+          "assessment": "General formalism, not a Schläfli-specific optimizer table",
+          "evidence": "Field-dependent Ising spectrum and bivariate polynomial definitions.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.1114",
+          "material_read": "Abstract p. 1 near offset 1900; Eqs. (4)–(6) p. 2 near offset 11100",
+          "method": "Targeted OA comparison of definitions and computed invariant",
+          "title": "Hearing the Shape of the Ising Model with a Programmable Superconducting-Flux Annealer",
+          "trigger": "General longitudinal-field graph-Ising spectra"
+        },
+        {
+          "assessment": "Exact overlap at k=3 only in the inspected table",
+          "evidence": "45 edge-free triples attain the cut bound in that sector.",
+          "identifier_or_url": "Resultary dd62d76a5e1d",
+          "material_read": "Triple edge-count table near offset 3800",
+          "method": "Compare the local-mirror table to the optimal k=3 sector",
+          "title": "The shattered support complexes of the Schläfli graph under open-neighborhood tests",
+          "trigger": "Potential indexed table of Schläfli induced subgraphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, limitations and multiplicity certificate",
+        "Resultary 0fea274efa26 Finding and proof §§2–4",
+        "Independent exact sector replay and output"
+      ],
+      "rationale": "A complete field-dependent cut and degeneracy law for this natural finite graph is a worthwhile invariant in itself. As a distinct finding here, however, no additional meaningful invariant survives the exact indexed match. Alternative witnesses and an independent reproduction give confidence in the common result, but do not add a new mathematical conclusion to the existing table and theorem.",
+      "residual_risks": [
+        "This judgment is about accepting the duplicate mathematical claim as a separate finding, not the usefulness of the graph invariant or its reproduction."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

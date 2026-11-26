@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:46:53.508904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–78",
+        "Frozen VERIFICATION.md, verify_cycles_inversions.py and verification_output.txt, inspected rather than executed"
+      ],
+      "rationale": "Contracting the open paths formed by two prescribed images gives a bijection from completions to permutations on n−2 objects, adding only the already forced cycles. Among inverted ordered image pairs the two possible fixed points and the two-cycle contribute (a−1)+(n−b)+1=n−(b−a). Hence E[C_n I_{a,b}]=H_{n−2}/2+(n−(b−a))/(n(n−1)), and subtracting H_n/2 verifies the local covariance, including n=2 with H_0=0. Dividing by P(I=1)=1/2 gives the conditional mean. The weighted sum over distances yields −(2n−1)/12, and finite differentiation of the normalized Mallows weight gives q^{-1} Cov_q(C_n,Inv_n). The beta expansion follows at fixed n by the chain rule with q=e^{−beta}.",
+      "residual_risks": [
+        "The recorded finite checks are corroboration, not the proof for arbitrary n. The Taylor remainder is for fixed n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gladkich–Peled, Theorem 1.5, estimates the total mean by order of magnitude across Mallows regimes. He–Müller–Verstraaten, abstract and Theorem 1.1, treat limiting cycle counts at fixed q<1; the limiting fixed-point mean near q=1 even illustrates a noncommutation of limits."
+        ],
+        "reasoning": "These inspected asymptotic statements do not imply the finite-n slope or any individual positional term. The direct indexed match, not the broader Mallows literature, decides coverage.",
+        "searches": [
+          "arXiv:1601.06991",
+          "arXiv:2201.11610"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matching record efaa92233051 and its mirrored Finding",
+        "arXiv:1601.06991",
+        "arXiv:2201.11610",
+        "arXiv:1206.0503"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Gong–Guo pair inv with right-to-left minima and sorting index with cycle count; neither pair is (inv,cyc). The indexed positional law itself already gives the conditional-mean formula and the stated signed Mallows response."
+        ],
+        "reasoning": "Joint equidistribution with different statistics does not prove the required covariance; the catalogue's direct covariance statements do. No mathematical delta remains from expressing them conditionally or by inverse temperature.",
+        "searches": [
+          "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051, Finding",
+          "arXiv:1206.0503, joint equidistribution and bijection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding, equations (1), (2), and (5), gives the same local covariance −(2(b−a)−1)/(2n(n−1)), global covariance −(2n−1)/12, and Mallows derivative in log q at q=1."
+        ],
+        "reasoning": "At q=1, differentiation in log q equals differentiation in q; changing to beta=−log q only changes the sign. The conditional mean is H_n+2 Cov(C_n,I_{a,b}).",
+        "searches": [
+          "Resultary: positional inversion-gap profile and cycle count in a uniform permutation",
+          "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact constants and parameter range were confirmed in the indexed Finding, not inferred from the title or from a finite table."
+        ],
+        "reasoning": "The indexed record concerns the same uniform S_n and the same positions a<b, not an inversion statistic indexed by values or a modified cycle statistic.",
+        "searches": [
+          "Resultary and matching indexed RESULT.md: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ]
+      },
+      "rationale": "A distinct indexed result states the same positional formula and aggregate covariance, and its Mallows derivative is equivalent. The conditional mean and inverse-temperature expansion in the frozen result are immediate consequences, not a surviving distinct result. This is demonstrated catalogue coverage; no external publication-priority claim is needed or made.",
+      "residual_risks": [
+        "No conclusion about priority outside the indexed evidence; the inspected primary passages are not an exhaustive literature review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core claim",
+          "evidence": [
+            "Same positional covariance, aggregate covariance and log-q response."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+          "material_read": "RESULT.md Finding, equations (1), (2), (5), offset 0",
+          "method": "Indexed result and matching local mirror",
+          "title": "Linear inversion-gap profile for cycle count in a uniform random permutation",
+          "trigger": "Strongest same-object indexed result"
+        },
+        {
+          "assessment": "Inspected theorem does not cover the finite-n derivative",
+          "evidence": [
+            "E[C_n] is comparable to (1−q)n+log(n+1), not an exact expansion at q=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.06991",
+          "material_read": "Theorem 1.5, p. 4, offset 13734",
+          "method": "OA PDF text",
+          "title": "On the Cycle Structure of Mallows Permutations",
+          "trigger": "Same Mallows model and total cycle count"
+        },
+        {
+          "assessment": "Different limiting regime in inspected material",
+          "evidence": [
+            "Fixed-q asymptotics for counts of given length; uniform and near-uniform fixed-point limits need not agree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11610",
+          "material_read": "Abstract and Theorem 1.1, pp. 1–2, offsets 0, 3412, 6500",
+          "method": "OA PDF text",
+          "title": "Cycles in Mallows random permutations",
+          "trigger": "Same Mallows weighting and cycle statistics"
+        },
+        {
+          "assessment": "Different pairs of statistics",
+          "evidence": [
+            "(inv,rl-min) is transported to (sor,cyc), not to (inv,cyc)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.0503",
+          "material_read": "Equidistribution p. 2 and bijection p. 7, offsets 7350 and 20383",
+          "method": "OA PDF text",
+          "title": "The Sorting Index and Permutation Codes",
+          "trigger": "Candidate equivalent joint statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Indexed RESULT.md, Finding, efaa92233051"
+      ],
+      "rationale": "The gap profile is a meaningful finite-n dependence invariant: it distinguishes the effect of nearby and distant positional inversions and its sum gives the susceptibility to the Mallows tilt. This is scientific interest in the identity, not new value added by the frozen duplicate.",
+      "residual_risks": [
+        "The identity is first-order and does not characterize the joint law, higher response, or stochastic monotonicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

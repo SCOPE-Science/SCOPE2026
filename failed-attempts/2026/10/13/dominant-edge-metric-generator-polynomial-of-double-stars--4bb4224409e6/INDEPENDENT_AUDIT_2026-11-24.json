@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:34:51.922203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–45 and 49–88",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt, inspected not executed",
+        "Independent replay: /workspace/branches/2a481e3b-df05-4ac8-a811-f1cc6acd337c/independent_check.py (1<=p,q<=4)"
+      ],
+      "rationale": "The last three conditions are precisely the cover requirement. Two omitted leaves on one side give indistinguishable pendant edges, since all other vertices reach both edges via the shared center. Conversely a selected leaf separates same-side pendant edges; a selected center separates opposite-side pendant edges; and the central edge is separated from a pendant edge by the opposite center or, if it is omitted, any of its forced selected leaves. For an independent count, regard the complement of the generator as the omitted vertices. No more than two can be omitted. The valid two-element omissions are a pair of opposite leaves (pq), or one center and a leaf on the opposite side (p+q). All p+q+2 single omissions and the empty omission work. This proves the polynomial and minima for every p,q>=1, including p=q=1. A separate distance-based enumeration tested 3,600 subsets over 1<=p,q<=4 and agreed on both set feasibility and coefficients.",
+      "residual_risks": [
+        "The independent and bundled enumerations cover finite boxes only. The claim excludes zero-leaf sides; the separation proof uses a nonempty opposite leaf set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 3's necessity applies to every edge generator in a nonpath tree, and the construction gives an edge generator by choosing all but one terminal leaf at each applicable vertex.",
+          "Theorem 2.4 gives the lower bound p+q here and its proof gives the same omitted-twin obstruction; Theorem 3.1 / Example 3.3 already gives the balanced scalar 2t for S_(t,t)."
+        ],
+        "reasoning": "This is stronger evidence than a matching minimum formula. For two branching centers, the ordinary theorem and monotonicity characterize every edge generator, after which imposing the cover condition is an exact intersection. The uniform-corona formula alone would not settle the unbalanced all-set claim.",
+        "searches": [
+          "Kelenc–Tratnik–Yero, Remark 3 and proof, pp. 4–5",
+          "Tavakoli et al., Theorem 2.4, Theorem 3.1, Example 3.3 and definitions"
+        ]
+      },
+      "checked_sources": [
+        "Kelenc–Tratnik–Yero, arXiv:1602.00291v1",
+        "Tavakoli et al., DOI 10.5614/ejgta.2023.11.1.16",
+        "Local Resultary searches and inspected record 998815ed22bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p,q>=2 all leaves on the two sides are exactly the relevant legs. A set with at most one omitted leaf per side contains a previously constructed ordinary generator (choose exactly p−1 and q−1 among the available leaves); the necessary condition is already in the same proof. Intersect with the cover rule and count the three possible kinds of omitted pairs to obtain the entire polynomial in that regime.",
+          "For p=1<q, the long leg at v has vertices u,a_1. On a cover it is occupied. The only issue with using the earlier leaf-only construction is if a_1 is omitted and u is selected; substituting u for a_1 preserves its comparisons between edges other than ua_1, since all those distances decrease by one, and the cover separates ua_1 from uv via v or any selected B-leaf. The path p=q=1 is a direct three-edge check."
+        ],
+        "reasoning": "The boundary checks finish correctness but do not leave a substantial original theorem after the main structural claim and coefficients are accounted for. The conclusion is not based on a keyword miss or on the already known balanced minimum alone.",
+        "searches": [
+          "Kelenc–Tratnik–Yero pp. 4–5, solve the all-leg test on S_(p,q); Tavakoli et al. general cover predicate and Example 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cover-plus-at-most-one-leaf-omission statement is exactly the frozen five conditions, not the later vertex-edge domination parameter.",
+          "A leg at either branching center for p,q>=2 is exactly one of the pendant leaf edges, with no leg at the other vertices contributing to Remark 3."
+        ],
+        "reasoning": "Translated the frozen pair of pendant-twin restrictions to the already established ordinary tree-leg restrictions, while retaining the vertex-cover condition as a separate predicate.",
+        "searches": [
+          "Local Resultary: double star, bistar, dominant edge metric all generators and polynomial",
+          "Kelenc–Tratnik–Yero arXiv:1602.00291v1, trees and legs",
+          "Tavakoli et al. DOI 10.5614/ejgta.2023.11.1.16, pendant vertices and caterpillars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact double-star polynomial entry was identified. Resultary 998815ed22bd gives a polynomial and all-set structure for K_(m,n) minus a matching, with m,n>=3, not arbitrary double stars. Its published entry is later than the frozen record."
+        ],
+        "reasoning": "The neighbouring enumerator is not used as priority or exact coverage. The negative originality evidence is the independent implication from the two papers, not a database hit.",
+        "searches": [
+          "Local Resultary double-star/bistar and dominant-edge-generator enumerators",
+          "Resultary 998815ed22bd, matching deletions in complete bipartite graphs"
+        ]
+      },
+      "rationale": "Although no literal double-star enumerator was found, the central all-set claim for arbitrary p,q>=2 follows mechanically from the existing all-but-one-legs necessity and leaf-generator construction for ordinary edge resolution in Kelenc–Tratnik–Yero, Remark 3 and its proof, together with Tavakoli et al.'s cover definition. This covers unbalanced as well as balanced stars in the two-branching-center regime. The polynomial there is just the count of allowed omissions under that criterion, not an independent invariant calculation. The one-leaf boundary is not expressly covered by the leaf-only construction, so this is not a claim that every frozen sentence was previously published; the boundary adds only a routine adjustment and does not salvage the assigned finding as an original contribution.",
+      "residual_risks": [
+        "An explicit earlier published double-star enumerator was not located. The implication assessment relies on the actual ordinary tree proof and the cover intersection, not a claim of literal publication of the polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the all-set resolution component for p,q>=2, including necessity; does not state a dominant polynomial",
+          "evidence": [
+            "Every generator represents all but at most one leg per branching vertex; choosing the corresponding leaves gives a generator"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00291v1",
+          "material_read": "Remark 3 and proof, pp. 4–5, PDF text offsets 15424–18703",
+          "method": "Lawful OA PDF passage reading and specialization of the leg construction",
+          "title": "Uniquely identifying the edges of a graph: The edge metric dimension",
+          "trigger": "Foundational ordinary edge-resolving sets for all trees"
+        },
+        {
+          "assessment": "Same cover condition, direct lower bound for every double star and exact scalar for balanced ones; no all-set polynomial in those passages",
+          "evidence": [
+            "m pendant vertices force dimension at least m; uniform caterpillar dimension lt specializes to 2t"
+          ],
+          "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/1686/pdf_264",
+          "material_read": "Theorem 2.4 and proof, printed p. 201, text offset 12150; Theorem 3.1 and Example 3.3, pp. 202–203, offset 14985",
+          "method": "Lawful journal PDF and comparison of predicates, proof and corona hypotheses",
+          "title": "The dominant edge metric dimension of graphs",
+          "trigger": "Exact parameter and possible double-star or broader scalar coverage"
+        },
+        {
+          "assessment": "Different, later family; not used to decide originality",
+          "evidence": [
+            "Complete bipartite graph with matching removed; m,n>=3; counts omitted vertices"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-matching-deletion-law-for-dominant-edge-metric-generators-of-c--998815ed22bd",
+          "material_read": "Mirrored RESULT.md at offset 0, finding, hypotheses and initial proof",
+          "method": "Local mirror and object/hypothesis comparison",
+          "title": "A matching-deletion law for dominant edge-metric generators of complete bipartite graphs",
+          "trigger": "Closest same-parameter polynomial in the catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–38 and 49–88",
+        "Kelenc–Tratnik–Yero, Remark 3 and proof",
+        "Tavakoli et al., Theorem 2.4 and Example 3.3"
+      ],
+      "rationale": "Double stars and generator counts are natural. In this case the main coefficients are obtained mechanically from the earlier ordinary tree-leg characterization plus elementary cover constraints, and the only extra scope is the routine one-leaf substitution and the three-edge path. No motivated new boundary phenomenon or independently useful unknown exact claim survives that comparison in the frozen finding.",
+      "residual_risks": [
+        "The conclusion is about this double-star enumerator, not the value of all-generator enumerators in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

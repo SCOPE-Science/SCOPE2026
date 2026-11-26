@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:23:52.432515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Accumulating Brownian increments over backwards Poisson spacings gives conditional variances 2D E_j/r weighted by a^(2j). Their sum is finite almost surely and gives a stationary law via the process on a two-sided time axis; synchronously coupled initial states contract by a^N_t, giving uniqueness. The stated rescaling leaves the independent unit-normal mixture with V=sum_j (1−q)q^j E_j. Its mean is one, variance s_a, and fourth centered moment is 3s_a²+6 sum_j w_j^4, since independent unit exponentials have fourth cumulant 6. The density ratio at squared radius 2y is strictly convex in y, finite and continuous by domination on bounded y intervals by e^y V^(-1/2), with finite inverse half-moment from the first exponential. Strict Jensen makes its value >1 at zero; positive mixing mass on a compact interval above 1 makes it tend to infinity. Equal integrated density mass forces a strict dip below 1. This gives precisely +,−,+ for the density difference on the positive half-line. Its integral from zero is positive at the first turning radius and negative at the second because its remaining tail integral is strictly positive; hence there is exactly one positive coverage zero. In the expansion, differentiating the variance-scaled Gaussian twice gives H4(x)phi(x)/4, and the third derivative has L1 norm bounded by C v^(-3). For V≥1/2 the L1 Taylor remainder is O(E|V−1|³)=O(s_a^(3/2)), because sum w_j^4≤s_a². For V<1/2 the Gaussian and its Taylor surrogate are uniformly bounded in L1; the printed exponential lower-tail estimate follows from log E exp(−t(V−1))≤t²s_a/2 at t=1/(2w_0), and even the fourth-moment Markov bound there gives O(s_a²). Integrating H4 phi yields −H3 phi. Its absolute maximum is attained at the smaller positive critical radius u or its reflection: the squared comparison of the two absolute values is exp(2 sqrt(6))>(3+sqrt(6))/(3−sqrt(6))=5+2 sqrt(6), true already from the quadratic lower Taylor polynomial of exp. Summing the signed density integrals across the two Hermite roots gives the stated TV constant with the factor 1/2 convention. Independent high-precision quadrature and direct CDF evaluation (python /workspace/review_checks.py, check 2) reproduce 0.17503751880186475, 0.06882347993760242 and 0.91673548333644960. The uniform CDF remainder and the simple positive root of −H3 phi yield the claimed crossover localization and O(s_a^(1/2)) error. This limit is a→1, not r→0; the uniqueness proof applies to all 0<a<1 without using numerical inversion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine-reset paper gives a framework for moments/cross-moments, not metric expansions in its inspected abstract and introduction. Publisher and alternate OA attempts for Tong et al. did not return theorem text."
+        ],
+        "reasoning": "Moment formulas can provide the variance-mixture cumulants but do not by themselves justify an L1 density remainder or a uniform CDF expansion. The crossing follows from a general strict-convexity argument for suitable positive mixing laws; an uninspected general theorem might subsume that component. No missing theorem was presumed absent.",
+        "searches": [
+          "Tong, Trafimow and Chen DOI:10.1111/anzs.70042",
+          "arXiv:2610.01363v1, abstract and introduction",
+          "normal scale mixture exactly one crossing standard normal central probability variance standardized peakedness two density crossings theorem equal variance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.03363",
+        "arXiv:2204.07215",
+        "arXiv:2610.01363v1",
+        "doi:10.1111/anzs.70042 (access attempt)",
+        "c467d2d0bf3c",
+        "7902035868a9",
+        "8e44a5956c55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pierce's display (23) gives a leading Gaussian with an O(1−epsilon) error, without the frozen sharp constants or the required global L1 remainder; Tal-Friedman et al. give the fourth moment and convergence of the normalized characteristic function. The indexed Student proof uses a Student-specific log-ratio derivative and gives the Hermite H4 correction via existing Student asymptotics."
+        ],
+        "reasoning": "A leading Gaussian limit, kurtosis or unspecified first-order error does not determine the strict sign on every radius or the norm of the global first correction. The Student calculation demonstrates the same limiting Hermite zero elsewhere, not a theorem that applies automatically to the weighted exponential mixing variances.",
+        "searches": [
+          "Pierce arXiv:2204.07215 p. 5 eq. (23)",
+          "Tal-Friedman et al. arXiv:2205.03363 pp. 3–4 eqs. (10)–(13)",
+          "c467d2d0bf3c Proof §§1–2 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tal-Friedman et al. already describe the independent-Laplace stationary sum; its normal-exponential mixture representation is an immediate re-expression. The Student record c467d2d0bf3c instead takes the mixing variance (nu−2)/chi-squared_nu."
+        ],
+        "reasoning": "Passing between product characteristic function, independent Laplace sum and weighted exponential variance is not a new stationary law. The bounded comparison did not furnish a primary theorem with the all-contraction crossing under this variance distribution; the closely related Student result uses a different mixing law and verifies the required monotonicity by a closed formula for that law.",
+        "searches": [
+          "Resultary: Gaussian central mass crossing, reset Brownian stationary law, sharp normal approximation",
+          "Tal-Friedman et al., arXiv:2205.03363 §II, independent Laplace sum and variance normalization",
+          "normal scale mixture exactly one crossing standard normal central probability variance standardized peakedness two density crossings theorem equal variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c467d2d0bf3c gives a unique Gaussian central-mass crossing tending to sqrt(3) for standardized Student nu>2, with a sharper Student-specific shift; 7902035868a9 gives a sqrt(5) boundary for an inverse-Gaussian expansion; 8e44a5956c55 gives two central crossings for a centered standardized exponential."
+        ],
+        "reasoning": "The exact sqrt(3) endpoint and one-crossing phenomenon are already verified in another scale-mixture family. The cases are not alternative parameterizations of the same law, and none of the located results computes the sharp metric coefficients for the reset law or its all-a classification.",
+        "searches": [
+          "Resultary: exact central-mass crossing variance-standardized Gaussian comparison, square-root-three threshold, sharp Kolmogorov and TV constants"
+        ]
+      },
+      "rationale": "The checked sources already give the stationary sum, normalization and qualitative Gaussian limit; the literature also contains an asymptotic Gaussian error statement and related central-crossing theorems for different laws. In the material checked, none gives the all-contraction crossing for the reset law together with the rigorously uniform density/CDF expansions and sharp metric coefficients. The Gaussian variance-mixture argument is general in form, so priority for its crossing mechanism alone is not asserted. The supported distinct mathematical content is the reset-law calibration and sharp metric expansions, not the product representation or Gaussian limit.",
+      "residual_risks": [
+        "Tong–Trafimow–Chen remained inaccessible; general normal scale-mixture comparison principles could predate the crossing mechanism.",
+        "Classical density expansions could provide related bounds under other hypotheses, and a more precise resetting asymptotic may be unindexed. Bounded source retrieval does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR REPRESENTATION AND LIMIT",
+          "evidence": [
+            "Independent Laplace summands; Figure 3 and eq. (13) give standardized Gaussian limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+          "material_read": "Abstract, stationary representation description, §II pp. 3–4 and normalized characteristic-function limit (13)",
+          "method": "Primary OA PDF",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Identical model and weak-reset asymptotic"
+        },
+        {
+          "assessment": "PRIOR LEADING GAUSSIAN APPROXIMATION",
+          "evidence": [
+            "Eq. (23) has an O(1−epsilon) error without the asserted Hermite coefficient or a global norm-level estimate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.07215",
+          "material_read": "Abstract and p. 5 eq. (23) and surrounding passage",
+          "method": "Primary OA PDF",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "Prior approach to Gaussian in the same model"
+        },
+        {
+          "assessment": "MOMENT FRAMEWORK IN INSPECTED PASSAGES",
+          "evidence": [
+            "Moments by matrix exponentials or renewal equations, not the relevant probability metric statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01363v1",
+          "material_read": "Abstract and introduction, offsets 0–4500",
+          "method": "Primary OA HTML",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "Potential general implication from affine resetting"
+        },
+        {
+          "assessment": "ACCESS LIMITATION, NOT EVIDENCE OF NONCOVERAGE",
+          "evidence": [
+            "Publisher/DOI routes returned access errors; no identified accessible repository copy."
+          ],
+          "identifier_or_url": "doi:10.1111/anzs.70042",
+          "material_read": "No theorem text obtained",
+          "method": "OA publisher and alternate retrieval attempts",
+          "title": "Beyond Normality: Gain-Probability Analysis for Symmetric Scale Mixture of Normal Distributions",
+          "trigger": "Plausible general coverage-crossing or expansion theorem"
+        },
+        {
+          "assessment": "SAME PHENOMENON, DIFFERENT MIXING DISTRIBUTION",
+          "evidence": [
+            "Uses inverse chi-square variance and log-ratio derivative (z−3)/(2(nu−2+z)); gives sqrt(3) limit and a Student-specific correction."
+          ],
+          "identifier_or_url": "c467d2d0bf3c",
+          "material_read": "Finding; Proof §§1–2, offsets 1590–3386; §4 Hermite expansion",
+          "method": "Local published mirror",
+          "title": "Exact central-mass crossing and variance-edge escape for standardized Student laws",
+          "trigger": "Strongest matching central-coverage result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical non-Gaussian stationary model, the unique coverage switch gives the direction of calibration error at every radius for every allowed contraction, not merely a near-Gaussian heuristic. Its weak-reset threshold and sharp TV and uniform CDF errors quantify what the known weak limit does not supply. This gives a usable calibration result without extrapolation to drift or other reset processes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

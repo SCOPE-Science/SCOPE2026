@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:05.651139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the nonsingular bases, divided differences give PHP+α(PHQ+QHP), α=(1+δ)⁻¹. For H entries off the selected row and column, the coefficient sign also includes the signs of u_j u_k; the frozen common-sign wording is valid after diagonal sign conjugation making u nonnegative. The displayed absolute row-sum formula is correct for all u. Flattening the complementary |u_j| maximizes their sum for fixed u_i². The row sum is convex in α, and its α=0 maximum (1+√n)²/4 is strictly below even the α=1 value at t=1. This proves the endpoint supremum and strict nonattainment at finite δ; at α=1 differentiation gives the stated cubic with one positive root. The n=3 threshold follows from the lower bound 2−3·2^(−2/3)>0 on the numerator of 2−F_3; n=4 crosses at t=1. Expanding the critical point t=1−n^(−1/2)+O(n^−1) in F_n gives the constant term 3/4. The global claim is only a lower bound. Independent replay passed 78 scoped checks (branches/34c38b52-1530-45dc-854d-3874ff1a05e1/assigned_replay.txt); the uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct rank-one boundary record gives the same diagonal lower bound for the unrestricted global modulus and also proves a global upper bound n and Θ(n) growth. Malick–Sendov gives the general Jacobian; Goulart et al. use Frobenius nonexpansivity."
+        ],
+        "reasoning": "The global growth claim in the indexed comparison is stronger than the frozen global lower-bound interpretation, though neither claims the exact global coefficient. Broader differentiation machinery or Frobenius control by itself would not establish the exact restricted max-entry constant.",
+        "searches": [
+          "Resultary: unrestricted global entrywise maximum norm Lipschitz constant spectral positive part PSD projection full matrix output operator norm sharp dimensional bound",
+          "Malick–Sendov, Theorems 2.7 and 3.7",
+          "arXiv:1908.01606, equation (12)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26 and 28–97; VERIFICATION.md; verify.py",
+        "SCOPE:054e541508a5",
+        "SCOPE:8ac4b9e16f52",
+        "SCOPE:3b499f2228aa",
+        "HAL:inria-00070517v2",
+        "arXiv:1402.2324",
+        "arXiv:1908.01606",
+        "DOI:10.1016/0024-3795(88)90223-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison record shows DΠ=PHP+α(PHQ+QHP), so the nonsingular row functional is the interpolation of PHP and T_P(H)=PH+HP−PHP; it supplies the exact norm of the latter. Bhojanapalli–Jain already exhibit that limiting operator as a rank-one tangent-space projector."
+        ],
+        "reasoning": "For the frozen family the other endpoint has optimized norm (1+√n)²/4 by a two-variable Rayleigh quotient. It is strictly below the comparison objective at p=1/2. Convexity in α and the limit α→1 then force the same open-family supremum, unattained for 0<α<1. The cubic, monotonicity and dimension crossing follow by differentiation or elementary inequalities from the exact same objective; the tangent formula alone would not give this profile.",
+        "searches": [
+          "SCOPE:054e541508a5, Proof steps 1–5 (offset 1700)",
+          "arXiv:1402.2324, p. 10 tangent projector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-rank-one-boundary-diagonal-sensitivity-and-dimension-linea--054e541508a5, Finding and Proof steps 1–3 and 5: max over 0≤p≤1 of np(1−p)+p+2√(n−1)√p(1−p)^(3/2), unique optimizing mass, and n/4+√n/2+3/4+O(n^−1/2)."
+        ],
+        "reasoning": "With p=t²/(1+t²), the given objective becomes the frozen rational F_n(t) exactly, and its critical equation becomes the frozen cubic. Both concern a diagonal entry with an independently bounded symmetric input. The web query returned no results, which adds no negative evidence.",
+        "searches": [
+          "Resultary: one-spike positive semidefinite projection positive part diagonal derivative entrywise max norm sharp K_n cubic root asymptotic",
+          "Web: (\"positive part\" OR \"positive-semidefinite projection\") exact entrywise max norm diagonal derivative rank-one flat negative eigenvalues sharp Lipschitz constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct 054e541508a5 record gives the exact all-dimensional objective, not just a coinciding sample. Published 8ac4b9e16f52 gives the exact unrestricted order-two max-entry constant 3/2."
+        ],
+        "reasoning": "The order-two value is explicitly acknowledged in the frozen record and cannot establish higher dimensions; the full dimensional objective in 054e541508a5 supplies the decisive catalogue overlap.",
+        "searches": [
+          "Resultary: one-spike positive semidefinite projection positive part diagonal derivative entrywise max norm sharp K_n cubic root asymptotic",
+          "SCOPE:054e541508a5, Finding",
+          "SCOPE:8ac4b9e16f52, Finding"
+        ]
+      },
+      "rationale": "A distinct published result gives the same sharp rank-one boundary diagonal profile, unique optimizing mass and three-term asymptotic. The change p=t²/(1+t²) identifies the objectives exactly. Passing from that boundary formula to the supremum over nonsingular members of the same family is an elementary convex interpolation between the two explicit linear endpoints already in its derivative formula; this also gives strict nonattainment. The later index date does not establish any earlier priority, and this is not the identical record: the failure concerns demonstrable current coverage of the claimed sharp law, not an attribution of who discovered it first.",
+      "residual_risks": [
+        "Relative priority and any dependence between the two distinct records are not established by this statement-level coverage. Higham's full text was not inspected; additional earlier coverage may exist. Neither record identifies the exact unrestricted global modulus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct record, equivalent sharp law and stronger global growth; no inference of earlier priority",
+          "evidence": "Same differential family and limiting operator, exact F_n(p), unique maximizing mass, lower bound on the global modulus and matching three-term expansion.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-rank-one-boundary-diagonal-sensitivity-and-dimension-linea--054e541508a5",
+          "material_read": "Finding at offset 0 and Proof steps 1–5 at offset 1700",
+          "method": "OA local mirror",
+          "title": "Sharp rank-one boundary diagonal sensitivity and dimension-linear growth",
+          "trigger": "Exact match on diagonal observable, spectrum, input norm and expansion"
+        },
+        {
+          "assessment": "Exact overlap at n=2 only",
+          "evidence": "Sharp global max-entry factor 3/2 in order two, approached by finite input pairs.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-entrywise-sensitivity-of-two-by-two-positive-semidefinite--8ac4b9e16f52",
+          "material_read": "Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Sharp entrywise sensitivity of two-by-two positive semidefinite repair",
+          "trigger": "Exact order-two comparison"
+        },
+        {
+          "assessment": "Supplies the differential, not the specialized coefficient optimization in passages inspected",
+          "evidence": "Fréchet Jacobian at nonsingular bases and Clarke generalized Jacobian in general.",
+          "identifier_or_url": "https://inria.hal.science/inria-00070517v2/document",
+          "material_read": "p. 10 Thm. 2.7 (offset 17844), p. 21 Thm. 3.7 (offset 40714)",
+          "method": "OA HAL PDF",
+          "title": "Clarke generalized Jacobian of the projection onto the cone of positive semidefinite matrices",
+          "trigger": "General PSD differential machinery"
+        },
+        {
+          "assessment": "Same limiting operator, different objective",
+          "evidence": "P_T(Z)=UUᵀZ+ZVVᵀ−UUᵀZVVᵀ reduces to T_P in the symmetric rank-one case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2324",
+          "material_read": "Abstract and tangent projection formula p. 10 (offset 39639)",
+          "method": "OA arXiv PDF",
+          "title": "Universal Matrix Completion",
+          "trigger": "Equivalent limiting operator"
+        },
+        {
+          "assessment": "Different error problem and norm",
+          "evidence": "Frobenius-norm nonexpansivity and gap-independent approximate projection bounds, not the diagonal entry factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01606",
+          "material_read": "Abstract and p. 5 equation (12) at offset 15259",
+          "method": "OA arXiv PDF",
+          "title": "Accuracy of approximate projection to the semidefinite cone",
+          "trigger": "Broader projector estimates"
+        },
+        {
+          "assessment": "Limited comparison, not a negative finding",
+          "evidence": "Foundational nearest-PSD problem; no full proof comparison made.",
+          "identifier_or_url": "doi:10.1016/0024-3795(88)90223-6",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA attempt; no full text located via the retrieved routes",
+          "title": "Computing a nearest symmetric positive semidefinite matrix",
+          "trigger": "Foundational projector reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact boundary sensitivity is a motivated invariant, but the distinct indexed result already supplies it and its asymptotic. The differences remaining here are a reparameterized stationary equation, elementary dimension comparisons of that objective and the endpoint interpolation consequence. They do not constitute a separate unknown, independently useful sensitivity law; no new fixed-δ or unrestricted optimization is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

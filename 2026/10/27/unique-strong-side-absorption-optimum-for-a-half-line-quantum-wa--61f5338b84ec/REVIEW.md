@@ -1,19 +1,21 @@
-# Scientific review of the half-line absorption optimum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument starts from the published exact absorption integral and independently differentiates its positive, integrable kernels. On the weak side the derivative is positive. Strict concavity up to \(\sqrt3\), explicit bounds on \([\sqrt3,2]\), and an arctangent sign argument for \(\eta\ge2\) exclude every competing optimum. Weighted beta moments prove the sharp \(m^{-3}\) optimum shift and \(m^{-6}\) gain. The reciprocal bias is an exact positive integral. All initial positions \(m\ge2\) and all positive sink strengths are covered. The numerical checker is corroborating evidence, not the proof.
+PASS
 
-## Originality — PASS, best-knowledge
+For H_eff with the stated loss normalization, the rate of norm loss is κ times the boundary occupancy. The retarded boundary resolvent from site m is -(2/Ω)z^m/(1-iηz), where E=Ω[1-(z+z^{-1})/2] and |z|<1 above the real axis. Plancherel gives the two integrals: z=e^{ik} on the band and z=±q off it. This also checks the factors of two and that the objective is total eventual absorption. In RESULT.md proof steps 1–4 differentiation gives P'_m>0 for η≤1, both second derivatives strictly negative on [1,√3], and P'_m<0 on [√3,2] by comparing the bulk lower bound on -B' to 2/(3πη³). For η≥2 the elementary C'_2 formula has negative sign: g(2)>0 and g'=ηh with h(2)>0 and h'>0; weighting its integrand by the increasing q^{2(m-2)} at the one sign change preserves negativity. This proves the unique global crossing for every integer m≥2. Subtraction yields the positive reciprocal integral; the kernel's beta mass is asymptotic to m^-3. For C'_m(1), expanding (1+z)^-2 as (1+(1-z)+O((1-z)^2))/4 gives 1/(2πm³)+3/(4πm⁴)+O(m^-5). With B''(1)=-2/(3π) and C''_m=O(m^-2) uniformly near 1, the stationary displacement and the quadratic improvement give the stated two terms and 3/(16πm⁶). The frozen verification file and inspected verify.py report finite quadrature and truncated-chain checks; the uploaded code was not executed or used as proof. The record does not cover m=1, finite-time optima, or other geometries.
 
-Riberi (arXiv:2605.08056, 2026) derived the same half-line absorption integral and limiting reciprocal symmetry. Those inputs are unambiguously pre-existing. The present result goes beyond that source with an all-coupling unique finite-distance optimizer, a strict reciprocal sign formula and sharp large-distance correction/gain constants. Relevant discrete-time absorption literature and recent tunable-loss implementations address different protocols; direct statement-implication searches revealed no matching theorem. The remaining risk is a broader existing non-Hermitian trapping result not located in the inspected literature. No independent priority audit has been conducted.
+## originality
 
-## Value — PASS
+PASS
 
-An actual boundary-loss parameter must be tuned for maximum total capture, not merely to the mode transition. The result proves that the finite-distance optimum lies strictly beyond that transition and quantifies its displacement and benefit. It resolves a natural transport-optimization question and delineates the regime where weak–strong duality is only approximate. The full range and asymptotic constants are structurally useful despite the small gain for distant launches.
+The distinct contribution is strict, globally unique optimality with a uniform strong-side bracket for every finite m≥2, plus sharp refinements of the large-distance location and value. The exact probability and limiting η=1 optimizer are prior, the leading cubic shift materially overlaps a distinct indexed result, and algebraic subtraction from the prior integral already implies the bias formula and sign. The bias should not be credited as an independent new absorption law. Neither inspected source supplies the full finite-distance classification or both sharp refinements. This is a bounded assessment, not a priority claim.
 
-## Closest prior work and limits
+## value
 
-Riberi, arXiv:2605.08056 (2026), supplies the exact stationary loss integral and the asymptotic symmetry used as inputs. Bach et al., *One-dimensional quantum walks with absorbing boundaries* (2004), and modern leaking-photonic-walk models use different absorption dynamics. The theorem excludes a walker initially at the boundary, finite chains, multiple absorbers, finite-time capture and noise. Verification checks finite truncations but does not establish infinite-volume statements independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question is optimization of a physically defined eventual-capture probability, not numerical improvement alone. The theorem rules out competing maxima on both sides of the boundary-mode transition for every permitted localized start. It explains how a finite-distance optimum differs from the reciprocal limiting optimum and why its gain is parametrically smaller than its displacement. The finite-site classification is the principal value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

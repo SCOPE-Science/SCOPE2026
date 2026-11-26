@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:01:20.678048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/audit-replay.py, ordinal 4"
+      ],
+      "rationale": "Complementation exchanges inclusion-minimal super domination with maximal open irredundance, which is hereditary and hence maximal iff all one-vertex additions fail. A flip affects only witness statuses within distance two, all decided in the radius-four window, with nonexistent neighbors excluded. The padded suffix transitions accept exactly those words; the restriction to n>=2 is necessary. I independently built the window truth table from induced graph neighbor intersections and verified exact shortest-distance inequalities for 233 states including the sink, 403 edges including 58 finalizations, and sink distance zero. Along any accepted word those inequalities give 7|T|-2n>=0. The seven explicit tails give the rounded bound exactly. For three or more blocks, an interior nine-window is one of seven phases, and any window touching a boundary or tail is determined by at most eight nearby periodic symbols and that fixed end. Thus the verified finite factor list exhausts the infinite construction. P1 has only the full super dominating set. Replay: `python /workspace/audit-replay.py 4`; the supplementary literal graph check covers n=2..11, not the infinite quantifier.",
+      "residual_risks": [
+        "The all-length upper bound uses a finite computational certificate; it is not formal proof-assistant verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint's all-path bounds give two candidates in unresolved cases; its corollary settles only some. Resultary 16bec2bc3654 gives the corresponding cycle result with different residue corrections."
+        ],
+        "reasoning": "The path formula selects one candidate in the remaining cases. A cycle formula with different boundary states and a one-sided comparison cannot choose both sides of the path extremum.",
+        "searches": [
+          "arXiv:2611.23464v1 Propositions 2.6–2.7, Theorem 2.8 and Corollary 2.9",
+          "Resultary: path and cycle open-irredundance transfer results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23464v1",
+        "Resultary:214128af23ab",
+        "Resultary:16bec2bc3654",
+        "doi:10.1016/j.disc.2007.10.002 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The census proof has the same witness inequalities, radius-four flip rule, padded eight-symbol suffix and four final sentinels. Its verified vector recurrence is for ordinary integer counts, not for extremal cardinalities."
+        ],
+        "reasoning": "The recognizer does permit a new weighted optimization, but the unweighted recurrence cannot be specialized to a maximum-cardinality formula. The nonnegative 7|T|-2n certificate and the exact witnesses in every residue are additional all-length assertions, not given by the common local test or the prior bounds.",
+        "searches": [
+          "Resultary 214128af23ab, RESULT.md, local mirror offsets 1000–5501",
+          "arXiv:2611.23464v1 Theorem 2.8 and Corollary 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.18 identifies Γ_sp(G)+oir(G)=|V(G)|. The Cockayne et al. abstract treats open irredundance and maximum degree; no full text was obtained for that source."
+        ],
+        "reasoning": "The dual equality for paths is an equivalent claim, not a separate novelty; the inspected general identity has no path-specific evaluation on its own. The older terminology remains a residual risk.",
+        "searches": [
+          "arXiv:2611.23464v1 Proposition 3.16 and Theorem 3.18",
+          "doi:10.1016/j.disc.2007.10.002",
+          "Resultary: labelled path inclusion-minimal super domination / maximal open irredundance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 agrees for 2<=n<=21. The Resultary rational series counts all minimal sets by path order, without marking cardinality."
+        ],
+        "reasoning": "The finite table does not settle every order, and coefficients of the unweighted series do not record the largest set size.",
+        "searches": [
+          "arXiv:2611.23464v1 Table 1",
+          "Resultary 214128af23ab exact path rational census"
+        ]
+      },
+      "rationale": "The supported contribution is the exact path extremal value for every order, not the invariant, complement duality, or the nine-symbol recognizer. The same-day unweighted path census already contains essentially that recognizer; the cardinality optimization, its weighted all-order bound and the explicit sharp boundary words are distinct. No ordering is inferred from the shared date.",
+      "residual_risks": [
+        "Earlier exact path evaluations under alternate open-irredundance terminology were not exhaustively excluded; the older paper was not available in full. The shared automaton is not credited as a new contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial path and general duality coverage",
+          "evidence": "Table 1 (p. 3) covers orders 2–21; Theorem 2.8 (p. 6) gives two candidates; Theorem 3.18 (p. 13) gives the complement invariant identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.23464v1",
+          "material_read": "Table 1; Propositions 2.6–2.7; Theorem 2.8 and Corollary 2.9; Proposition 3.16 and Theorem 3.18",
+          "method": "OA primary-text passage inspection",
+          "title": "Minimal super dominating sets of maximum cardinality",
+          "trigger": "Same path invariant and possible all-order coverage"
+        },
+        {
+          "assessment": "Recognizer is shared; extremal evaluation is not stated or obtained by specializing the unweighted recurrence",
+          "evidence": "The transfer operator advances counts of accepted prefixes one bit at a time; the checked recurrence yields the univariate counting series.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-rational-census-of-inclusion-minimal-super-domination-on-p--214128af23ab",
+          "material_read": "Finding; local criterion, transfer construction and recurrence proof (RESULT.md offsets 1000–5501)",
+          "method": "Resultary search and local-mirror full-text passage inspection",
+          "title": "Exact rational census of inclusion-minimal super domination on paths",
+          "trigger": "Same family and local automaton"
+        },
+        {
+          "assessment": "Related cycle theorem, not a path theorem",
+          "evidence": "The extremal spectrum is cyclic and has downward residue corrections.",
+          "identifier_or_url": "Resultary:16bec2bc3654",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement inspection",
+          "title": "Inclusion-minimal super domination on cycles: a five-gap census and sharp seven-period upper spectrum",
+          "trigger": "Related periodic extremum"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; no negative inference from access limits",
+          "evidence": "The accessible material concerns general open irredundance and maximum degree.",
+          "identifier_or_url": "doi:10.1016/j.disc.2007.10.002",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded lawful OA attempt",
+          "title": "Open irredundance and maximum degree in graphs",
+          "trigger": "Earlier open-irredundance formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, steps 2–4",
+        "arXiv:2611.23464v1 Theorem 2.8 and Table 1",
+        "Resultary:214128af23ab"
+      ],
+      "rationale": "Resolves the remaining exact-value ambiguity for a natural graph invariant on all paths. The all-order weighted certificate and endpoint-corrected sharp words give a usable result beyond finite tables or the unweighted census.",
+      "residual_risks": [
+        "Does not count extremizers or resolve the corresponding extremal problem for general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

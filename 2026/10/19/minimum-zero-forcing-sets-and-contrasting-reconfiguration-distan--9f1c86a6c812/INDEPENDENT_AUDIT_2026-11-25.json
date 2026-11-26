@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:26.972793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verification/verify_pappus_cpp.cpp, verification/verify_pappus_python.py and recorded outputs",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_pappus.py (fort census, all-pair exchanges, generator closure, orbit-weighted breadth-first distances)",
+        "Amended RESULT.md, SLOGAN.txt and REVIEW.md in repairs/4"
+      ],
+      "rationale": "The amended exact jump result and the comparison baseline both check. A nonempty white fort has no outside vertex with exactly one neighbor in it. Such a set cannot lose its first vertex to a force, and a stalled nonempty white set is itself a fort. Independently enumerated all 24204 nonempty forts, marked their supersets, and excluded precisely the seeds whose complements contain a fort. No seed below size seven forces; at seven there are 6912, split evenly by three versus four selected points. All unordered pairs of minima were tested for symmetric difference of size two, and slides additionally for base adjacency. The six explicitly checked incidence generators generate a group of size 216, inducing 29 orbits of size 216 and six of size 108. Full breadth-first distance layers from each orbit give a single connected 97524-edge jump graph with eccentricity seven at all 6912 states, and a connected 10962-edge slide baseline with counts 16:648,17:4968,18:1296. Since the group preserves both move rules, the orbit-weighted check is exhaustive for these invariants. The amended wording distinguishes host automorphisms from automorphisms of the state graphs.",
+      "residual_risks": [
+        "Only the finite order-three incidence graph and the two stated minimum-preserving rules. Bundled code was inspected, not executed; the independent fort-based check is a separate reproduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gentner–Rautenbach girth-six cubic lower bound gives six on Pappus, not an optimum-set reconfiguration profile.",
+          "Geneson et al. treat the general graph and selected families; the inspected statements do not give Pappus distances."
+        ],
+        "reasoning": "Bounds for the forcing number and general construction methods do not evaluate the exact jumps or their shortest paths on all minimum Pappus states.",
+        "searches": [
+          "Dávila–Kenter arXiv:1406.0482 Theorem 1; Gentner–Rautenbach arXiv:1608.00747 abstract and girth bound",
+          "Geneson–Haas–Hogben accessible primary text, general structural results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c9fe15cd9378 exact theorem and proof passages",
+        "arXiv:2009.00220v1, arXiv:1406.0482, arXiv:1608.00747, Brouwer's graph table",
+        "Amended RESULT.md, especially the Finding and Relationship to other results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed proof explicitly restricts the unrestricted-exchange calculation to D, with 178560 edges, while P is traversed in its sliding graph.",
+          "All slides are jumps, so the already known Pappus slide connectivity immediately implies jump connectivity; it gives only upper bounds on jump distances and does not yield the edge total or uniform eccentricity seven."
+        ],
+        "reasoning": "Connectivity alone is not credited as new. The exact added Pappus transitions and their maximum shortest-path distances require a new instance-specific computation; they are not a relabeling or direct consequence of the known slide eccentricity profile.",
+        "searches": [
+          "c9fe15cd9378 RESULT.md Finding (offset 700) and §§3–4 (offset 5300), scope and all located 'jump' passages",
+          "arXiv:2009.00220v1 §1–2 move definition and abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson et al. use symmetric difference of size two, equivalent to the amended token-jump rule.",
+          "The indexed comparison distinguishes adjacency-constrained Pappus slides from unrestricted exchanges and states the latter's exact count only for Desargues."
+        ],
+        "reasoning": "General zero-forcing graph and token jumping here are equivalent definitions, but an exact graph with a slide constraint is not the same transition relation.",
+        "searches": [
+          "Pappus / biaffine incidence graph of order three, minimum blue seed sets, one-vertex exchange",
+          "Geneson–Haas–Hogben arXiv:2009.00220v1, optimal-set graph definition",
+          "Resultary c9fe15cd9378, exact finite classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer gives the incidence deletion model and a group of order 216, not the 35 optimal-set orbits or jump census.",
+          "c9fe15cd9378 exact Pappus entries match 6912 states, 10962 slides and their full eccentricity distribution; Desargues, not Pappus, is the entry with 178560 unrestricted edges."
+        ],
+        "reasoning": "This is verified exact partial overlap, not just similar graph parameters. The amended contribution excludes all repeated Pappus slide data and the scalar census.",
+        "searches": [
+          "Brouwer Pappus graph record, graph model and Group",
+          "Resultary: Pappus Z=7, 6912; slide and jump edge counts and eccentricity distributions"
+        ]
+      },
+      "rationale": "For the frozen broad framing, the minimum seven, the 6912-optimum count and the exact slide theorem are materially covered by distinct indexed result c9fe15cd9378 and cannot be credited anew. The repaired RESULT and slogan make them an explicitly cited baseline. PASS applies only to the exact Pappus jump census and its added comparison: 97524 edges, connectedness, and all 6912 eccentricities equal to seven. The matching indexed theorem and its proof give jumps only for Desargues. Geneson–Haas–Hogben supply the same general jump rule, not these Pappus measurements in the inspected text. No priority is assigned from the path dates.",
+      "residual_risks": [
+        "The overlap establishes coverage, not antecedence: the distinct indexed comparison has a later path date. The earlier AIM group's full text was not retrieved through the attempted route; unindexed jump computations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers the Pappus scalar and slide baseline; gives unrestricted geometry only for Desargues",
+          "evidence": "Pappus: Z=7, 6912 states, 10962 slides, connected, eccentricities 16:648,17:4968,18:1296. Desargues only: 178560 unrestricted edges and connectedness.",
+          "identifier_or_url": "Resultary 2026/11/2, c9fe15cd9378",
+          "material_read": "Local RESULT.md exact theorem, scope, move generation and distances at offsets 700–2569 and 5300–6813; located jump passages",
+          "method": "Local primary mirror comparison of statements and proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Local zero-forcing mobility separates the Pappus and Desargues incidence graphs",
+          "trigger": "Exact same-host forcing and exchange match"
+        },
+        {
+          "assessment": "Framework precedent, not exact matching passage",
+          "evidence": "Minimum sets adjacent iff symmetric difference has size two; abstract lists structural results for forests and selected families. A Pappus keyword miss alone is not used to exclude equivalent results.",
+          "identifier_or_url": "https://arxiv.org/html/2009.00220v1",
+          "material_read": "v1 abstract and §1–2 exact definition, offsets 0 and 4199; literal named-graph check",
+          "method": "Open primary text and hypothesis comparison",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same move rule and likely broader coverage"
+        },
+        {
+          "assessment": "Lower bounds, not the exact mobility profile",
+          "evidence": "The bound (g-2)(delta-2)+2 evaluates to six and provides no count of optimum exchange transitions.",
+          "identifier_or_url": "https://arxiv.org/html/1406.0482; https://arxiv.org/html/1608.00747",
+          "material_read": "Dávila–Kenter abstract and Theorem 1 near offset 7713; Gentner–Rautenbach abstract, girth 5 or 6 bound",
+          "method": "Apply read primary statements to cubic girth six",
+          "title": "Bounds for the Zero-Forcing Number of Graphs with Large Girth; Some Bounds on the Zero Forcing Number of a Graph",
+          "trigger": "General bounds might determine the census"
+        },
+        {
+          "assessment": "Corroborates incidence model and a 216-element group; no optimal-seed orbit or jump data in read passages",
+          "evidence": "Remove one parallel class from AG(2,3); cubic with girth six and a group of order 216.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Pappus.html",
+          "material_read": "Graph-model and Group passages, offset 0",
+          "method": "Read accessible graph table; cited DistanceRegular.org route timed out",
+          "title": "Pappus graph",
+          "trigger": "Exact host definition and known automorphism order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Amended RESULT.md and SLOGAN.txt",
+        "Independent fort and distance reproduction",
+        "c9fe15cd9378 for the comparison baseline and arXiv:2009.00220v1 for the established invariant"
+      ],
+      "rationale": "On a canonical cubic girth-six incidence graph, the maximum optimal-seed travel requirement is a natural minimum-preserving mobility invariant. The amended theorem answers it from every starting seed, rather than just showing reachability (already implied by connected slides). Uniform jump eccentricity seven contrasts with variation and diameter eighteen for local moves on exactly the same seed family. This gives a concrete and reproducible finite benchmark for the established zero-forcing graph, with no reliance on claiming the covered state or slide census as new.",
+      "residual_risks": [
+        "The contrast neither classifies other biaffine graphs nor implies general complexity, forcing-time or optimal-control claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

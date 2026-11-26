@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:35:55.742752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rook graph is L(K_{3,n}); independent dominating sets are maximal matchings and hence precisely three nonattacking cells, since any smaller matching leaves an unused row and column. There is no universal vertex. Every block must participate and therefore has size one or two. With t pairs the block count is 3n−t; t≤2 leaves a singleton in every row, demanding three distinct missing-row pair types. The two-column witness uses every cell of two columns, so any singleton in the missing row completes its pair. At t=3 and n≥4 each row still has a singleton, forcing one pair per missing row. In the notation B₀=(a,b), B₁=(c,d), B₂=(e,f) with row positions as in the Finding proof, each pair’s two columns must both be used by paired cells in its missing row. Thus {a,b}={c,e}, {c,d}={a,f}, {e,f}={b,d}. If c=b then e=a, d=a and f=b; if c=a then e=b and d=f∉{a,b}. These are sufficient, and B₀ fixes (a,b) while B₁ recovers d, so counts are n(n−1) and n(n−1)(n−2) without ordering blocks. For n=3, singleton counts are the missing-row counts: (1,1,1) repeats the two families for 12; (0,0,3) uses the two column derangements for each of the three singleton rows, for 6, and every pair and singleton has its complementary column partner. For (0,1,2) there are 6 row assignments and 6 choices (c,d) of the pair missing the middle row; its singleton at the third column z forces row 1's paired columns c,d and then the two other pairs (d,c),(z,d), each with an available row-2 complementary cell. This gives 36 and total 54. Inspected verify.py and frozen transcript, without executing that script. Independent replay: python3 -I /workspace/independent_reproductions.py uses closed-neighborhood bitmasks and a restricted-growth enumeration of all 21,147 partitions for n=3; finds exactly {6:54}, split 6,36,12 for the three sorted profiles. For n=4 it checks all 2863 disjoint at-most-three-pair candidates and finds 36 valid with 9 blocks. The support's checks for n=5 through 8 are recorded finite evidence, not independently rerun or used to infer the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samadzadeh–Mojdeh's complete multipartite formula is 2k−m for k parts of which m are singletons. A rook graph is not complete multipartite: nonadjacency is not transitive, as (0,0),(1,1),(0,2) show.",
+          "Alikhani et al. address IC=0, |V| or |V|−1 and path/cycle coalition graphs. The present optimum misses |V| by three and its labeled maximizing count is a separate statistic."
+        ],
+        "reasoning": "The inspected broader/numerically extremal results do not give this value or count. The counting preprint is a specific unresolved access risk; an unverified frozen report of a Cartesian-product problem is not used as an independent passage.",
+        "searches": [
+          "arXiv:2306.02079, definition and Proposition 3.4",
+          "DOI:10.7151/dmgt.2543, pp. 1–2 and 5–6",
+          "OA retrieval of ResearchGate:406982240, direct and VPN (both HTTP 403)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.02079",
+        "DOI:10.7151/dmgt.2543",
+        "Resultary:e0517079e538",
+        "Resultary:544834ed7b7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching interpretation gives independent domination number three, without fixing the optimal partition count or the singleton compatibility conditions.",
+          "The frozen relationship section reports an idomatic lower bound 2n and a general upper bound 3n−1; even those numerical bounds leave the formula and census undetermined."
+        ],
+        "reasoning": "The precise count requires determining how missing-row pairs constrain the occupied columns of all singletons and then resolving the exceptional boundary profiles. Neither a general partition bound nor the foundational complete multipartite value entails that structure.",
+        "searches": [
+          "arXiv:2306.02079, Prop. 3.4",
+          "DOI:10.7151/dmgt.2543, near-order cases",
+          "OA for Counting the Number of Independent Coalition Partitions, ResearchGate:406982240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2306.02079, p. 1, gives the same partition definition; p. 5, Prop. 3.4 is for complete multipartite graphs.",
+          "The Resultary 544834ed7b7b Finding concerns 1-fair coalitions of disconnected three-clique clusters, not independent coalitions on the connected rook array."
+        ],
+        "reasoning": "The equivalent line-graph formulation partitions edges of K_{3,n} into matchings whose compatible pairs are maximal matchings. It does not turn the problem into a coalition problem on the vertices of K_{3,n} or into a fair-coalition condition on disjoint cliques. The web outage is not a negative search result.",
+        "searches": [
+          "Resultary: independent-coalition partitions of three-row rook graphs R_{3,n}, IC 3n−3, count n(n−1)^2",
+          "Resultary: K_3 square K_n independent coalition number exact value maximizing partition count",
+          "Web: ‘independent coalition’ ‘Cartesian product’ rook graph ‘coalition polynomial’ Samadzadeh Mojdeh Asadzadeh Alikhani (lookup unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e0517079e538 gives full coalition-partition polynomials for two fixed 12-vertex Archimedean graphs and uses dominating unions, not independent dominating unions.",
+          "No exact product result appeared in the ranked Resultary returns."
+        ],
+        "reasoning": "Even a coincidence in order 12 or in one coefficient would not cover the theorem: the graph, allowed coalitions and full parameter domain have to agree. The closest table hit does not supply a checked independent-coalition optimizer count for this family.",
+        "searches": [
+          "Resultary: coalition polynomial independent coalition partitions Cartesian products rook graph",
+          "Resultary: Counting the Number of Independent Coalition Partitions",
+          "Resultary: maximum independent coalition partitions K_3 square K_n 54"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp optimum and complete maximizing census for the width-three Cartesian product with its exceptional square case. The strongest accessible comparisons concern different graphs, different coalition definitions, or loose bounds. A likely relevant counting preprint could not be independently retrieved; the verdict does not rely on the frozen account of its contents or treat the access failure as evidence.",
+      "residual_risks": [
+        "Asadzadeh–Alikhani, ResearchGate:406982240, was not independently accessible; no absence of overlap asserted for the unread text.",
+        "The web lookup was unavailable; the local ranked searches and checked primary passages are bounded, especially for possible equivalent edge-matching formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, different graph class",
+          "evidence": [
+            "Independent coalition partition definition; 2k−m formula for complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.02079",
+          "material_read": "p. 1 (OA offset 898), p. 5 Proposition 3.4 (offset 15577)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Independent coalition in graphs: existence and characterization",
+          "trigger": "Founding definitions and a plausible complete-graph-derived family theorem"
+        },
+        {
+          "assessment": "Near-order extremal statements and different graph families; no implication from inspected results",
+          "evidence": [
+            "Classification focus on values equal to the order or one below it and on path/cycle coalition graphs."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/DMGT-2543.pdf",
+          "material_read": "pp. 1–2 (OA offset 1560) and pp. 5–6 (11240)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "On independent coalition in graphs and independent coalition graphs",
+          "trigger": "Extremal independent-coalition values and structures"
+        },
+        {
+          "assessment": "Unresolved access risk; no negative claim about uninspected contents",
+          "evidence": [
+            "The source is specifically identified by its title and URL; claims concerning its text are frozen provenance only."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/406982240_Counting_the_Number_of_Independent_Coalition_Partitions",
+          "material_read": "No independent text retrieved. Frozen RESULT.md §Relationship reports basic classes and a Cartesian-products question.",
+          "method": "OA direct and VPN retrieval attempts returned HTTP 403; no identified lawful alternate full text",
+          "title": "Counting the Number of Independent Coalition Partitions",
+          "trigger": "Most plausible same-statistic counting preprint"
+        },
+        {
+          "assessment": "Different graphs and ordinary rather than independent coalitions",
+          "evidence": [
+            "Tests domination of unions without the independent dominating constraint."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/e0517079e538",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact coalition spectra of the two twelve-vertex Archimedean graphs",
+          "trigger": "Exact polynomial and maximal coefficients for fixed graphs"
+        },
+        {
+          "assessment": "Different graph construction and invariant",
+          "evidence": [
+            "Census of 1-fair coalition partitions of disjoint cliques."
+          ],
+          "identifier_or_url": "Resultary:2026/10/26/544834ed7b7b",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary comparison",
+          "title": "Fair coalition extremizers and their census in three-clique clusters",
+          "trigger": "Three-clique structural extremizer census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimum and number of optimal labeled partitions are natural coefficient data for the independent-coalition polynomial of a graph product. The solution determines two entire optimizer families and explains three distinct boundary profiles giving 54, rather than extrapolating or selecting an arbitrary cutoff. The width-three restriction is motivated by the first product case in which maximal matchings have three cells and hence impose pair/singleton compatibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

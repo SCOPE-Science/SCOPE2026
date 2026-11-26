@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:02:06.262915Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Erickson–Kretschmann Proposition 5.1 gives all distinct normalized corner rectangles and row/column strips for this sign convention. There are 2(n-1)^2 corners and 2n strips, also at n=2. On their supports the entries are constant, so squared norms are 1/(ab) and 1/n. Counting gives the exact Mellin formula and strip probability n^(1-s)/[(H_(n-1)^(s))^2+n^(1-s)]. Conditionally on a corner the two orientations are equiprobable and both side lengths have the independent truncated weights a^(-s). Integral comparison for partial sums proves the Beta and log-uniform limits; above s=1 the omitted zeta tail is exactly the one-coordinate total variation error. In the moving window, a partial sum to min(n-1,floor(n^t)) equals log(n) times the integral of exp(-lambda*u) on [0,t], up to bounded error, by monotone sum/integral comparison. The strip numerator is exp(-lambda), negligible compared with log(n)^2. Independence yields the joint limit. In the untilted case the inverse product of the two rescaled lengths converges in distribution to 1/(UV) because the axes are limit-null; strip probability tends to zero even though the strip variable itself is large. Integration over UV<1/z gives (1+log z)/z. Substitution of the three harmonic-sum orders into the exact formula yields all moment constants; the strip term is negligible in each. Collision conditioning is with respect to the initially uniform distinct vertex law. Read VERIFY.py and VERIFICATION.md; the finite checks of the proposed vertex list do not establish completeness, which comes from the published proposition. No execution of the submitted script is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For p,q>=2 the original classification immediately gives [2 H_(p-1)^(s) H_(q-1)^(s)+p*q^(-s)+q*p^(-s)]/[2(p-1)(q-1)+p+q] for uniform distinct vertices. The frozen exact spectrum is its square specialization.",
+          "The Minkowski asymmetry and Gaussian mean-width entries concern different statistics/sampling laws; they are not prior statements of the collision law."
+        ],
+        "reasoning": "The geometry actually needed for the moment and conditional law is already established in the stronger rectangular theorem. The prior directional-exposure result cannot be used in place of that theorem.",
+        "searches": [
+          "arXiv:2311.07522 Proposition 5.1 for rectangular scope",
+          "Resultary 7a2025dcc3e2 and bf1db1bc9d42"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.07522",
+        "Resultary bc04ae7f3e11",
+        "Resultary 9738a052e9b1",
+        "Resultary 7a2025dcc3e2",
+        "Resultary bf1db1bc9d42",
+        "OEIS A051890"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior vertex list implies the exact normalized mass function of the reciprocal support size by one summation, and implies independence of both conditional sides by product factorization.",
+          "The earlier near-critical result's proof uses j^(-1-c/log N)=j^(-1) exp[-c log(j)/log(N)] and integrates over intervals in scaled log j; that calculation yields precisely the required side marginals. The strip correction vanishes by the same normalization. The remaining fixed-s limits follow from the usual harmonic-sum regimes, and the radial law is exp of the sum of two independent standard exponentials."
+        ],
+        "reasoning": "The elementary joint-product and moment consequences of the known structures, taken together, do not supply the claimed distinct localization or fluctuation mechanism. No viable novel remainder was established by deleting the exact overlapping clauses.",
+        "searches": [
+          "arXiv:2311.07522 Proposition 5.1, proof and Remark 5.2",
+          "bc04ae7f3e11, proof Steps 3–4, local mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Squared Euclidean norm of a normalized uniform block is reciprocal support cardinality, so the Mellin spectrum is a weighted cardinality generating function of the known rectangle and strip types.",
+          "Conditional side-length law is literally a truncated Zipf sample, not just a similarly shaped limit: the two-dimensional law is its independent square. The prior renewal law has a different finite distribution, but its proof explicitly uses the same triangular truncated Zipf log Riemann sums and obtains the same one-coordinate crossover density."
+        ],
+        "reasoning": "Under the actual uniform-distinct-vertex law, changing from sizes to collision probabilities and from sizes to scaled log coordinates introduces no new dependence or geometry. The earlier Zipf renewal process itself is not equivalent to the Monge vertex process; the relevant overlap is the shared cutoff sum and limit law.",
+        "searches": [
+          "Erickson–Kretschmann arXiv:2311.07522, Proposition 5.1",
+          "Resultary catalogue checks for Monge vertex collision moments, truncated Zipf / log-coordinate crossover, bc04ae7f3e11 and 9738a052e9b1",
+          "Bounded primary literature search for truncated Zipf laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A051890 gives 2(n^2-n+1), the exact total vertex count supplied by the proposition, not a table of full Mellin moments.",
+          "Resultary bc04ae7f3e11 gives the explicit normalized exp(-lambda*t) marginal under the same exponent scaling; 9738a052e9b1 concerns a distinct dimension problem."
+        ],
+        "reasoning": "No full combined Monge moment table was found. The positive matches are the known exact denominator and the existing crossover law, compared at the statement and proof level.",
+        "searches": [
+          "OEIS A051890 from arXiv:2311.07522 Remark 5.2",
+          "Resultary exact Monge metric quantities and moving Zipf exponent"
+        ]
+      },
+      "rationale": "The prior complete uniform-vertex support list mechanically yields the full norm law and exact tilt factorization. The purported distinctive moving-window law is the same triangular Zipf log-coordinate limit already proved by the logarithmic Riemann sum in the earlier renewal record. Independence here is exact at finite n by the same rectangular enumeration; passing to two copies, dropping a negligible strip weight and transforming the untilted limit by an inverse product do not establish a materially distinct result beyond these deductions. This does not allege that a prior paper literally printed the full combined Monge statement, and does not rely on any inaccessible source.",
+      "residual_risks": [
+        "Rudolf–Woeginger DOI 10.1007/BF01415751 and the surfaced 2022 A discrete truncated Zipf distribution did not yield full text in bounded retrieval attempts. Their stronger coverage is unresolved and is not a basis of the verdict.",
+        "The evidence establishes mechanical implications and a prior matching limit/method, not that a prior source used the identical full wording or combined all Monge consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the uniform norm law, although does not state it as Mellin moments",
+          "evidence": [
+            "Exactly two normalized opposite-corner rectangle orientations of every a<p,b<q, and p complete rows plus q complete columns; the total count is 2(p-1)(q-1)+p+q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.07522",
+          "material_read": "Section 5.1 Proposition 5.1 and Remark 5.2, PDF p. 10, offsets 40476 and about 42014",
+          "method": "OA paper passage inspection",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Complete and broader support classification"
+        },
+        {
+          "assessment": "Same Zipf log Riemann sum and moving-window marginal; no Monge geometry or joint rectangle claim",
+          "evidence": [
+            "The exponent is beta_N=1+c/log N and the limiting marginal is exp(-cu)/integral_0^1 exp(-ct)dt. Its finite age law has an additional renewal factor u_(N,N-k), unlike the Monge side-length law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-near-critical-logarithmic-aging-and-independent-residual-ratios--bc04ae7f3e11/RESULT.md",
+          "material_read": "Finding, assumptions, proof Steps 1 and 3–4, mirror offset 0",
+          "method": "Local published mirror",
+          "title": "Near-critical logarithmic aging and independent residual ratios for Zipf disaster renewals",
+          "trigger": "Exact log-coordinate marginal and equivalent moving-cutoff sum"
+        },
+        {
+          "assessment": "Different statistics, no identical collision claim",
+          "evidence": [
+            "One uses the rectangle vertex list for Minkowski asymmetry; the other samples Gaussian-directional support, not uniform vertices."
+          ],
+          "identifier_or_url": "Resultary 7a2025dcc3e2 / bf1db1bc9d42",
+          "material_read": "Findings, RESULT.md offset 0 for each",
+          "method": "Local published mirror",
+          "title": "Exact Minkowski asymmetry of every rectangular Monge polytope / A sharp rare-vertex mean-width correction for two-row Monge polytopes",
+          "trigger": "Closest other Monge metric results"
+        },
+        {
+          "assessment": "Exact count only",
+          "evidence": [
+            "a(n)=2(n^2-n+1), indexed also as the maximum number of regions formed by n ellipses."
+          ],
+          "identifier_or_url": "https://oeis.org/A051890",
+          "material_read": "Entry formula and interpretation",
+          "method": "OA web entry inspection",
+          "title": "OEIS A051890",
+          "trigger": "Exact square vertex count tabulation pointed out by Remark 5.2"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The collision observable is natural and the assembled formulas can be useful as exposition, but its complete exact law is a direct weighted count of the known vertex types. With the exact product factorization, the three regimes and moving window transfer known one-variable Zipf normalization facts, and the heavy tail is the standard product of two uniforms under inversion. The record does not establish a distinct mathematical gap beyond those mechanically available consequences; neither a broader unsolved geometric regime nor a nontrivial new exact invariant is resolved. No repaired claim is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

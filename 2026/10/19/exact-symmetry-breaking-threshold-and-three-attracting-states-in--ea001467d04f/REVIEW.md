@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-The equilibrium proof exhausts boundary and interior states. Writing the opinion difference as \(s\), it reduces unequal-opinion equilibria to \(\rho=s^2/(a-s)^2\). The discriminant \(s(4a-3s)\) yields the exact cutoff \(\rho=16\). A symmetry decomposition proves the polarized-state eigenvalue crossing. At the rational parameter example, exact characteristic polynomials and strict Routh–Hurwitz determinants prove three exponential local attractors and positive eigenvalues for the two additional equilibria. `verify.py` is reproducible using SymPy. No inference from finite simulations supports a global claim.
+## correctness
 
-## Originality
-The closest parent result is Alutto et al., arXiv:2603.24381v1, whose full HTML has been examined. Its implicit cubic equations and conservative contraction theorem neither state the complete two-person count nor the sharp ratio-16 transverse stability transition. A later same-author paper, arXiv:2606.05825, has a different multiplicative replicator rule. Related 2021 nonlinear-potential work studies a different ODE and was available only at abstract level. Model-specific and semantic literature/record searches did not identify a stronger result that directly implies the complete finding. A hidden equivalent reduction remains a genuine risk.
+PASS
 
-## Mathematical value
-The smallest mutual social network already exhibits a sharp count/stability transition and three locally attracting states at an exact parameter point. This gives a tractable test case for understanding the interplay of initial conviction, social pressure, and dynamic leadership, and directly sharpens a stability-boundary question left conservative in the source.
+In the stated invariant cube let s=X−Z, p=X, q=−Z. The opinion equations force s=u(a+q)=v(a+p)≥0. At s=0 the distinct anchors exclude common nonzero opinion; the only solution is the origin. At s>0 leadership values are interior, and elimination gives (a−p)p²=(a−q)q²=s³/ρ. Equality factors into p=q or pq=s(s−a), so the unequal case requires ρ=s²/(a−s)² and discriminant s(4a−3s). The root s− lies below a for every ρ>0; s+ is admissible and distinct only for √ρ>4, and the coalesced root at equality is already counted. The symmetric and antisymmetric sectors of the full Jacobian give two negative eigenvalues in the polarized sector and a negative transverse trace with determinant of sign ρ−16. At the exact witness, principal-minor computations reproduce the three characteristic polynomials; the symmetric and same-sign branches are strictly Hurwitz, while the cross-sign asymmetric quartic has negative constant term, hence a positive real root. Exchange-negation supplies the twin spectra. The origin is not attracting even relative to the cube: in X=−Z=r,u=v=y, y′=r²[α−(α+4β)y], so arbitrarily close initial points with 0<y<α/(α+4β) cannot converge to y=0. The result is local for fixed anchors; neither nonlinear behavior at equality nor accessibility from the physical initial-opinion plane follows.
 
-## Scope and limitations
-Only equilibria in the fixed-anchor autonomous system are exhaustively classified. Attracting equilibria are local, and proof does not assert all three basins intersect the narrower physical initial-opinion plane. The full dynamics, critical center manifold at equality, and empirical relevance remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general model and equilibrium equations to Alutto et al. and record exact corpus overlap on the polarized-branch stability threshold. The supported distinct contribution is the complete admissible stationary census, with the existence of three simultaneous locally exponentially attracting equilibria at the exact witness. The strongest inspected overlap covers only the polarized branch, and general implicit cubics do not themselves classify the other branches or establish coexistence of three sinks. No priority follows from comparing corpus date labels.
+
+## value
+
+PASS
+
+The smallest mutually coupled example shows that the feedback can sustain three attracting stationary configurations despite exact opposition of the fixed anchors. An exhaustive branch census and an exact coexistence witness discriminate symmetry breaking from a mere linear instability estimate, without claiming physically accessible basins or empirical effects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

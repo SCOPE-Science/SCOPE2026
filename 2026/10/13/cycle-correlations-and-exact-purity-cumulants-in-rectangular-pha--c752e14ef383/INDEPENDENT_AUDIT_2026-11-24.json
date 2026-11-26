@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:19.857361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and artifacts/verify.py",
+        "/workspace/repairs/3/RESULT.md, SLOGAN.txt and VERIFICATION.md"
+      ],
+      "rationale": "The original purity formulas are mathematically correct: the diagonal is 1/d, different edges are pairwise independent, and in the cube of the centered sum the only terms are one-edge cubes and the six orderings of each triangle. The defect is prior coverage, not an algebra problem. In the repaired graph theorem, each column's forest map from vertex phases to root phases and edge ratios is an invertible torus homomorphism, hence the full edge vectors are independent on forests. For arbitrary distinct rows, the diagonal contribution to the squared overlap is m and the rest is X_b†X_a, where the coordinates of the row feature X_a are the distinct characters z_aj conjugate(z_ak), j!=k. Their complex covariance is exactly the identity; in particular a reversed pair is a conjugate, not the same character. In the cyclic product every row contributes one feature and one conjugate, so the independent integrations equate the indices and give the trace of the identity, m(m−1)>0. Each proper subset of the edges of a simple cycle is a forest. The above works for m=2 and disconnected simple graphs and explains the exclusion of m=1. Re-audited the corrected statement, proof and notes; the frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "No joint-independence claim for repeated edges, discrete phase laws, or nonuniform amplitudes. The finite checker cannot establish the theorem in all dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garza Vargas gives exact traffic balance formulas for square iid unimodular matrices, on general edge-labelled graphs. Trotta et al. give the first two fixed-cut purity cumulants; Nakata et al. give phase-random average linear entropy."
+        ],
+        "reasoning": "Traffic can encode square-case intensity products by placing a Gram path and its reverse on every cycle edge and summing over internal column labels. Centering cancels equal column labels on a path pair. The prior balance algorithm then supplies the per-term admissibility test, but not the evaluated length-independent count or the iff independence of the nonlinear images. Rectangular indexing by itself is not a novelty claim.",
+        "searches": [
+          "arXiv:1709.01498, §§2–3 and Eqs. (2)–(5)",
+          "arXiv:2605.10314, Sec. III, Eqs. (23)–(27)",
+          "arXiv:1111.2747, Eq. (5)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0e21877b6a1a, 66fc4902e081 and 104aa867bba8",
+        "arXiv:1709.01498",
+        "arXiv:2605.10314",
+        "arXiv:1407.1169",
+        "arXiv:1111.2747",
+        "/workspace/repairs/3/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known two-column triple balance accounts for the ℓ=3 obstruction. The forest Haar change of variables supplies one direction. The square traffic rule can be specialized by expanding each intensity into two length-two paths, and applying the balance rule after cancellation of the diagonal terms."
+        ],
+        "reasoning": "An evaluated arbitrary-length result requires analyzing balance in this specialization: the centered pair at each edge is a nontrivial ordered column character, and integrating each row forces one common ordered pair around the cycle. This yields the exact witness surviving the modulus-square map, rather than simply inferring nonindependence from the phase law or substituting indices into the known third cumulant. The repaired result stops at that structural classification.",
+        "searches": [
+          "Resultary 0e21877b6a1a, proof of the three-distinct-plaquette case",
+          "Resultary 66fc4902e081, Finding and proof",
+          "arXiv:1709.01498, Sec. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With U=d,V=m and q=∞, the exact earlier catalogue expression 64(3T/2)/(UV)^6, T=choose(U,2)choose(V,3)+choose(U,3)choose(V,2), equals 8(d−1)(m−1)(d+m−4)/(d^5m^5).",
+          "The forest criterion in 66fc4902e081 is for Haar edge phase differences, not sums of characters followed by squared modulus. Single-trace spectral moments in arXiv:1407.1169 are not cumulants of Tr(ρ²)."
+        ],
+        "reasoning": "The purity variables, ensemble, dimensions and centered moment match exactly under the change of labels. The phase-difference criterion gives forest sufficiency columnwise, but a nonlinear map can destroy dependence; necessity for the squared overlaps requires a witness specific to those images.",
+        "searches": [
+          "Resultary: exact third purity cumulants and a cubic-root resonance in random Hadamard states, 0e21877b6a1a",
+          "Resultary: cycle-controlled temporal cumulants, 66fc4902e081",
+          "arXiv:1407.1169, Sec. III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0e21877b6a1a covers the exact original purity expression and evaluates the triples of rectangles including two-column, three-row triangles.",
+          "66fc4902e081 concerns phase differences in a fermionic temporal calculation; 104aa867bba8 treats sphere dot products with a different cycle formula and a later catalogue date."
+        ],
+        "reasoning": "There is exact catalogue coverage for the old cumulant claim and triangle balance. Neither analogue gives all simple-cycle centered product values for the squared overlaps or their graph-indexed factorization classification. Same-day dating does not establish posting order.",
+        "searches": [
+          "Resultary: exact squared-row-overlap cycle product and forest independence",
+          "Resultary 0e21877b6a1a, 66fc4902e081 and 104aa867bba8"
+        ]
+      },
+      "rationale": "For the original purity-cumulant novelty claim the decision is FAIL: Resultary 0e21877b6a1a states the first three purity cumulants in the identical arbitrary rectangular Haar-circle ensemble (its q=∞ case). Skewness also follows by standardizing the same moments. This is explicit coverage, not a search miss or a claim about posting order. The corrected files remove the purity-cumulant claim, credit that result, and claim only the graph-indexed squared-overlap independence classification and evaluated mixed cycle moment for arbitrary length. The forest argument for phase ratios and the Fourier/counting machinery are known. The nonlinear necessity and exact all-cycle result are distinct from those inputs and from the previously evaluated triangle case.",
+      "residual_risks": [
+        "The remaining criterion could also appear in graph moments of phase kernels under different indexing; the comparison is bounded. The known balance rule and the triangle specialization are explicitly outside the distinct claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical purity cumulants; triangle counting overlap",
+          "evidence": "The q=∞ formula and dimensions match; the proof evaluates all balanced triples of rectangles, including the row triangle.",
+          "identifier_or_url": "Resultary 0e21877b6a1a",
+          "material_read": "RESULT.md, Finding and proof, offsets 0–6487",
+          "method": "Catalogue search and local mirror",
+          "title": "Exact third purity cumulants and a cubic-root resonance in random Hadamard states",
+          "trigger": "Exact rectangular third-purity candidate"
+        },
+        {
+          "assessment": "Overlaps phase-ratio method, not the full nonlinear criterion",
+          "evidence": "Joint independence of Haar vertex phase differences exactly on forests, and temporal cycle cumulants for a different observable.",
+          "identifier_or_url": "Resultary 66fc4902e081",
+          "material_read": "RESULT.md, Finding and proof, offset 0",
+          "method": "Catalogue search and local mirror",
+          "title": "Cycle-controlled temporal cumulants and a forest Berry–Esseen theorem for quasifree fermions",
+          "trigger": "Forest iff criterion on phase-labelled graphs"
+        },
+        {
+          "assessment": "Later structural analogue in a different ensemble",
+          "evidence": "Sphere dot products and their cycle cumulants, not squared overlaps of unit phases.",
+          "identifier_or_url": "Resultary 104aa867bba8",
+          "material_read": "RESULT.md, Finding and proof, offsets 0 and 3850",
+          "method": "Catalogue search and local mirror",
+          "title": "Girth from the first cumulant defect of random spherical overlap sums",
+          "trigger": "Cycle-versus-forest invariant for overlaps"
+        },
+        {
+          "assessment": "Broader square-case graph moment machinery",
+          "evidence": "Offers injective traffic graph formulas with red/blue balance and ordinary traffic by summing quotient graphs; evaluates single-trace cycles of the Gram matrix.",
+          "identifier_or_url": "arXiv:1709.01498",
+          "material_read": "Sections 2–3, pp. 3–5, including OA offsets 9500 and 15800",
+          "method": "OA PDF passage inspection",
+          "title": "The traffic distribution of the squared unimodular random matrix and a formula for the moments of its ESD",
+          "trigger": "Exact finite general graph moments"
+        },
+        {
+          "assessment": "Prior first two cumulants",
+          "evidence": "Gives fixed-cut purity expansion, mean and variance.",
+          "identifier_or_url": "arXiv:2605.10314",
+          "material_read": "Section III, p. 4, Eqs. (23)–(27), offset 27716",
+          "method": "OA PDF passage inspection",
+          "title": "Multipartite entanglement of random states of qubits",
+          "trigger": "Independent-phase purity cumulants at fixed cut"
+        },
+        {
+          "assessment": "Same ensemble in square case; different higher moments",
+          "evidence": "Higher single-trace spectral moments E Tr(ρ^3) and E Tr(ρ^4).",
+          "identifier_or_url": "arXiv:1407.1169",
+          "material_read": "Section III, p. 5, Eqs. (11)–(12), offset 34500",
+          "method": "OA PDF passage inspection",
+          "title": "Diagonal unitary entangling gates and contradiagonal quantum states",
+          "trigger": "Original square unimodular ensemble"
+        },
+        {
+          "assessment": "Prior mean linear entropy",
+          "evidence": "Average linear entropy for equal-amplitude phase-random states, not the evaluated graph moment.",
+          "identifier_or_url": "arXiv:1111.2747",
+          "material_read": "p. 3, Eq. (5), offset 21069",
+          "method": "OA PDF passage inspection",
+          "title": "Phase-random states",
+          "trigger": "Prior phase-random entanglement results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md, Finding and Proof",
+        "Resultary 0e21877b6a1a and 66fc4902e081",
+        "arXiv:1709.01498, §§2–3"
+      ],
+      "rationale": "The repaired result gives an exact criterion for when correlations may be ignored among off-diagonal reduced-state intensities in a natural ensemble. It identifies examples of arbitrarily high cycle order where every proper subset factors yet the full centered product is nonzero, with a uniform exact witness. This is useful without claiming a new third purity cumulant or generalizing to other ensembles.",
+      "residual_risks": [
+        "The result does not evaluate general mixed products on graphs with multiple cycles or imply an asymptotic law for purity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

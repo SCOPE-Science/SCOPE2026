@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:15:59.123356Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–62; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent squared-headway reward derivation and 22 small phase/boundary recurrence diagnostics"
+      ],
+      "rationale": "With T normalized to 1 and s=p+q−r, a next-opportunity recurrence gives the residual from the indexed cut after B_n as V=(1−px)/s. At x=1 that cut is before A_{n+1}, whose elapsed time is zero; a passenger arriving at the coincident instant has measure zero. Independently, between consecutive nonempty cycles the cross-cycle headway is G+F′−L, with G geometric on {1,2,…} of parameter s, F′ the next first offset and L the current last offset. The two nonempty-cycle marks are independent of each other and G; F′ equals x with probability (q−r)/s and L equals x with probability q/s. Within a nonempty cycle one adds a gap square x² with probability r/s. The mean uniform forward wait is s/2 times the total mean squared-gap reward per nonempty cycle. Using E G=1/s and E G²=(2−s)/s² gives the stated (2pq x²−2rx+2−s)/(2s). Zero-length gaps are harmless at both endpoints and the labels do not change, so both endpoints are covered by this derivation too. The curvature 2pq/s is positive, and r≥0, giving the unique projected minimizer min{1,r/(2pq)}, even at the transition equalities. For p=q=r=2/5 substitution confirms 7/5 versus 8/5 in normalized units.",
+      "residual_risks": [
+        "The frozen rational-grid/simulation diagnostics do not certify the full continuum. The formula uses time-uniform arrivals, independent labeled cycle pairs, and a joint within-pair law held fixed as x varies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-line paper follows delay propagation from an exogenous delay, with shared stops, overtaking, and dwell-time dynamics. Van Oort et al. study schedules/holding with variable trip times and scheduled passenger arrivals.",
+          "The independent cancellation Resultary theorem requires n≥4 and a guaranteed service."
+        ],
+        "reasoning": "The general headway-square method applies, but these model-specific conclusions do not cover both correlated optional services and geometrically many empty cycles. A guaranteed trip cannot be suppressed by choosing its cancellation probability under the stated hypotheses.",
+        "searches": [
+          "Schmöcker et al., DOI 10.1016/j.trb.2016.07.005, abstract and §§6–7",
+          "Van Oort et al., DOI 10.1007/s12469-012-0054-4",
+          "Resultary 823a33848ec8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5690be0c1bb0 (self-match), 58ef196a455d, 823a33848ec8",
+        "Van Oort et al. 2012 and Schmöcker et al. 2016, OA passages",
+        "Focused primary search of paired cancellations and cyclic inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A realized gap H contributes H²/2 to waiting area, a general renewal-reward ingredient. The two-line article uses passenger wait integrals with constant arrival rates, and its illustrated equal inter-arrivals are an input to a delay study.",
+          "The correlated-scenario co-dispatch finding has a guaranteed trip, unlike the current model, and the independent-cancellation finding cannot vary r at fixed p and q."
+        ],
+        "reasoning": "The generic reward formula does not evaluate the cross-cycle gap between random first and last offsets. Its missing mixed moment and geometric empty-cycle term are what produce the coefficients pq and r and the threshold at r=2pq; neither prior model gives those by reparameterization.",
+        "searches": [
+          "Resultary 823a33848ec8 squared-block reward, RESULT.md offset 3380",
+          "Resultary 58ef196a455d Finding, RESULT.md offset 0",
+          "Schmöcker et al. §§6–7, Eqs. (30)–(32) and the two-line case study"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first Resultary ID is a self-match. The co-dispatch transition record optimizes uniform forward wait with one guaranteed and three optional services, not two optional services with possibly empty cycles.",
+          "Two indexed opportunities may coincide at x=0 or x=1, but the within-pair law applies only at the former instant; treating x as a circle of exchangeable events loses this difference."
+        ],
+        "reasoning": "The wait equals a realized squared-headway reward and can be formulated as imperfect cyclic inspection. The equivalent objective does not identify the same stochastic process in the inspected comparisons; no distinct exact match was found in this bounded comparison.",
+        "searches": [
+          "Resultary 5690be0c1bb0, 58ef196a455d and 823a33848ec8",
+          "Primary search: optimal departure spacing correlated Bernoulli cancellations two periodic services uniform passenger waiting time cyclic inspection correlated availability phase renewal forward recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match was only the assigned finding. The co-dispatch switching formulas and independent-service block formulas pertain to other assumptions."
+        ],
+        "reasoning": "This is an all-feasible-marginals quadratic, not an empirical timing table. The inspected indexed exact results are pertinent comparisons but lack this polynomial or an equivalent evaluation of its stochastic model.",
+        "searches": [
+          "Resultary exact and adjacent timetable laws 5690be0c1bb0, 58ef196a455d, 823a33848ec8",
+          "Targeted search for correlated Bernoulli phase/timing law"
+        ]
+      },
+      "rationale": "Pass the exact paired-Bernoulli phase law, dependence threshold and labeled-boundary distinction, not the residual-life method or the value of spacing reliable services evenly. The strongest inspected Resultary results use either additional guaranteed service and more optional departures, or independent cancellations and guaranteed service. The inspected two-route and unreliable long-headway papers involve propagation of delay or holding/schedule percentiles, not joint Bernoulli service suppression at fixed labeled opportunities.",
+      "residual_risks": [
+        "The limited searches do not exclude an earlier equivalent cyclic-inspection law or an indexed cancellation result in different terminology. Some cited transit sources were not available in full text. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct timetable models; same-day dates alone do not resolve priority",
+          "evidence": [
+            "Correlated scenario model has one guaranteed plus three optional services. Independent cancellation model has a guaranteed service and at least four services."
+          ],
+          "identifier_or_url": "Resultary 58ef196a455d; 823a33848ec8",
+          "material_read": "Local RESULT.md Findings and assumptions; independent-service squared-block reward offset 3380",
+          "method": "Local mirror",
+          "title": "A sharp co-dispatch transition under three-mode correlated service; An order-invariant optimal timetable for independently cancelled departures",
+          "trigger": "Exact transit design results with a co-dispatch transition or cancellation laws"
+        },
+        {
+          "assessment": "Models trip-time variation and holding rather than this cancellation process",
+          "evidence": [
+            "Uses trip-time percentiles/holding policies for passengers timing arrivals from the schedule."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12469-012-0054-4",
+          "material_read": "OA PDF abstract and passenger objective section, offsets 0 and 3890",
+          "method": "OA PDF selected passages",
+          "title": "The impact of scheduling on service reliability: trip-time determination and holding points in long-headway services",
+          "trigger": "Unreliable transit timing and passenger wait"
+        },
+        {
+          "assessment": "Different delay and service model in inspected passages",
+          "evidence": [
+            "Discrete state equations propagate an exogenous delay and account for shared stops/overtaking. The case uses equal scheduled inter-arrivals as input and delays one bus; it does not derive an optimal phase for paired Bernoulli cancellations."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/103483/ (DOI 10.1016/j.trb.2016.07.005)",
+          "material_read": "Accepted PDF abstract offset 0; §§6–7.1, Eqs. (30)–(32) and case assumptions, offset 58799",
+          "method": "OA institutional-repository PDF after alternate retrieval",
+          "title": "Bus bunching along a corridor served by two lines",
+          "trigger": "Strong plausible overlap on shared two-route corridor, headways and uniform-rate waiting"
+        },
+        {
+          "assessment": "Detailed coverage unassessed",
+          "evidence": [
+            "No negative full-text conclusion drawn from limited access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/trsc.1060.0170; Ma, Ferreira and Mesbah (2014), Journal of Transportation Engineering 140, 04014048",
+          "material_read": "Landing metadata or abstract only; full text was not obtained",
+          "method": "Bounded OA attempts",
+          "title": "Optimal Slack Time for Schedule-Based Transit Operations; Measuring Service Reliability Using Automatic Vehicle Location Data",
+          "trigger": "Cited service reliability and schedule literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:9–32 and 55–76; independent squared-gap derivation"
+      ],
+      "rationale": "The model isolates a design effect not captured by reliability marginals: holding p and q fixed, co-failure dependence changes the optimal offset and can make coincidence optimal at either end under different labels. At p=q=2/5, for example, the feasible r range includes zero, independence, and the clipped endpoint regime. The exact formula shows why equal spacing is not a universal rule even when frequencies are fixed, and provides a usable benchmark for any fixed feasible p,q,r.",
+      "residual_risks": [
+        "This is a stylized scheduling benchmark, not an empirical estimate or a recommendation under delays, capacity limits, or phase-dependent physical failure correlations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

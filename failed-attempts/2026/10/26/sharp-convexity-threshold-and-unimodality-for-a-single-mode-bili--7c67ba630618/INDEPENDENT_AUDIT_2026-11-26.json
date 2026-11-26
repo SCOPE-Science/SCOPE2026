@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:24.083610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized mode gives the stated scalar objective. Direct differentiation gives j''=lambda−q and q'(t)=6F(2F−Dt)/t^5, proving the clipped maximizer. At a positive threshold equality j'' can vanish only at one point, so j' still increases strictly; below threshold continuity gives negative curvature on an interior interval even if the maximum is at an endpoint. For uniqueness, reparametrize by m=F/(kappa+c), a bijection onto a positive interval below F/kappa. The objective in m is strictly convex: its second derivative is 1+lambda(3F^2−2kappa Fm)/m^4>0. The original j' sign argument gives monotonicity on either side of the sole minimizer, including endpoint cases. Inspected artifacts/verify.py without execution and independently checked the advertised instance: lambda_c=1/64, j''(3)=−117/8000, j'(99/100)<0<j'(999/1000). In the PDE sources a literal L2 control penalty introduces the domain-volume factor; this does not change the theorem for the stated scalar lambda.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both papers study spatially varying bilinear fractional control with a quadratic penalty and pointwise control bounds; Bersetche et al. describe first- and second-order optimality conditions."
+        ],
+        "reasoning": "The model specializes to the scalar objective (with the volume factor absorbed into lambda), but the local optimality results do not give a sharp global Hessian sign threshold or exclude all competing minima in its nonconvex range.",
+        "searches": [
+          "arXiv:2310.05059v1, p. 1",
+          "arXiv:2301.13058v3, pp. 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.05059v1",
+        "arXiv:2301.13058v3",
+        "2026/11/22/SCOPE-sharp-convexity-and-exact-minimizer-phase-boundary-for-the-berno--2fee720f095b",
+        "2026/11/8/SCOPE-sharp-symmetry-breaking-in-one-step-rank-one-projected-euler-con--7e7474413cd3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The PDE formulation yields j after the eigenmode restriction and penalty normalization; the convexity threshold then requires the global maximization of its particular Hessian defect. The envelope's threshold concerns a different function."
+        ],
+        "reasoning": "No inspected result supplies the combined sharp threshold and global one-minimum conclusion as a specialization of its theorem. Reduction to an elementary objective explains the limited value but is not literal theorem coverage.",
+        "searches": [
+          "arXiv:2310.05059v1 and arXiv:2301.13058v3, model and optimality passages",
+          "Bernoulli envelope RESULT.md, offsets 0 and 4762"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-convexity-and-exact-minimizer-phase-boundary-for-the-berno--2fee720f095b, RESULT.md offsets 0 and 4762: soft-label Bernoulli forward–backward envelope",
+          "2026/11/8/SCOPE-sharp-symmetry-breaking-in-one-step-rank-one-projected-euler-con--7e7474413cd3: projected matrix-control threshold"
+        ],
+        "reasoning": "The logistic envelope has a different nonlinearity and parameter, not the eigenmode resolvent with a quadratic control penalty; the rank-one projected Euler setting has a different objective and a multiplicity transition. Neither gives this classification by relabeling.",
+        "searches": [
+          "Resultary: single-mode bilinear-control convexity threshold and unique minimizer",
+          "Resultary: scalar convexity threshold with uniqueness in the nonconvex range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved conceptual threshold match concerns a Bernoulli envelope, not max[(2FDt−3F²)/t^4] on the translated control interval."
+        ],
+        "reasoning": "This is a parameter-dependent functional identity and shape classification rather than a tabulated number; the relevant exact index comparison is the same formula/objective over the same admissible interval. No such match was established.",
+        "searches": [
+          "Resultary: exact rational Hessian threshold for constant positive aligned single-mode fractional bilinear control"
+        ]
+      },
+      "rationale": "The bounded exact and conceptual comparisons did not establish prior coverage of the combined explicit Hessian threshold and all-lambda single-mode minimizer statement. The primary papers supply the bilinear PDE objective and local optimality theory, not the exact reduced classification. The routine nature of that classification is a separate value issue, not evidence of a prior source stating it.",
+      "residual_risks": [
+        "A differently parameterized scalar reciprocal least-squares example may contain the same calculation; indexed negative evidence is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent, no exact classification in inspected material",
+          "evidence": "Quadratic tracking and regularization under a fractional bilinear state equation and pointwise controls.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.05059v1",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Bounded original OA text inspection",
+          "title": "Adaptive finite element approximation of bilinear optimal control with fractional Laplacian",
+          "trigger": "Cited motivating PDE model"
+        },
+        {
+          "assessment": "Local optimality scope, not the frozen global threshold",
+          "evidence": "General bilinear model and first-/second-order conditions, without the scalar sharp curvature cutoff in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.13058v3",
+          "material_read": "pp. 1 and 3, OA offsets 0 and 10061",
+          "method": "Bounded original OA text inspection",
+          "title": "Bilinear optimal control for the fractional Laplacian: analysis and discretization",
+          "trigger": "Broader PDE model and possible optimality theorem"
+        },
+        {
+          "assessment": "Thematic analogue only",
+          "evidence": "Scalar logistic forward–backward envelope, not a resolvent tracking objective.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-convexity-and-exact-minimizer-phase-boundary-for-the-berno--2fee720f095b",
+          "material_read": "RESULT.md, offsets 0 and 4762",
+          "method": "Indexed record and local full-text mirror passages",
+          "title": "Sharp convexity and exact minimizer phase boundary for the Bernoulli envelope",
+          "trigger": "Closest indexed shape-classification hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a valid teaching or smoke-test example, but it does not establish a substantive benchmark gap. Once the control is constant and both data are on the same mode, the fractional operator enters only as a scalar shift. The regularization cutoff is a routine single-critical-point Hessian maximization, and uniqueness follows immediately from strict convexity in the fitted amplitude for every positive regularization. The proposed solver-calibration use does not explain why that exact cutoff is needed for a nontrivial test or for a property of the unreduced bilinear problem. This is a value rejection, not a claim that the formula is false or already published.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

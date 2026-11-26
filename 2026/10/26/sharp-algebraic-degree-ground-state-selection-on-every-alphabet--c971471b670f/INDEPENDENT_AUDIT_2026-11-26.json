@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:38:13.356587Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The restricted adjacency I+K is primitive by the directed N-cycle and the self-loops. Maximizing invariant measures are all mixtures of the N fixed Dirac measures, not just the N extremal ones. K has exactly the two intersecting simple cycles, so det(I−zK)=1−z^(N−1)−z^N. The positive right and left vectors in RESULT.md satisfy the eigen-equations by rho^N=rho+1. Their entrywise product is 1 except at the exceptional vertex where it is rho^(−N); normalizing gives the stated p and all finite-temperature vertex masses, since I+exp(−beta)K has the same eigenvectors. The Perron transition law is (1−a)I+aQ with a=q rho/(1+q rho), q=exp(−beta). Constant cylinders converge to p and nonconstant cylinders have mass at most their number of transitions times a. The exceptional mass u recovers rho by (u^(-1)−N)/(N−1), hence has degree N by Selmer's irreducibility theorem. The inspected Jenkinson–Pollicott Corollary has bound equal to the number of length-one cylinders for range two, exactly N here. Since (P_beta−I)/q tends to rho(Q−I), the corresponding matrix powers converge to the exponential and give stationary finite-dimensional distributions, not a path-space assertion. Replay: RESULT.md lines 18–74 and the cited irreducibility theorem; verify.py and VERIFICATION.md report finite samples and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jenkinson–Pollicott prove the general upper bound, not its attainment in the inspected corollary. Renormalization and Puiseux frameworks cover selection for locally constant potentials and compute small examples."
+        ],
+        "reasoning": "These theorems can compute or constrain the measure given the graph, but an upper bound or general selection algorithm does not furnish a family attaining it in the two-energy subclass.",
+        "searches": [
+          "arXiv:2610.19990v1, Section 3",
+          "arXiv:0903.1212, Section 6.2",
+          "Garibaldi–Thieullen (2012), Section 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2610.19990v1",
+        "arXiv:0903.1212",
+        "Garibaldi–Thieullen (2012)",
+        "Conrad's exposition of Selmer's theorem",
+        "Resultary November 17 rational-frequency record and targeted catalogue searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Selmer gives the field degree of rho and the general Markov formulas give weights as functions of eigenvectors. Attainment here requires the nonconstant exceptional weight rationally recovering rho and the uniform construction with exactly the diagonal ground-state transitions.",
+          "The prior four-symbol example uses 0, −1 and −2; the renewal example compares a fixed atom to a different equilibrium on a frequency shift."
+        ],
+        "reasoning": "Neither prior example mechanically implies all-N saturation under the stated restrictions. The exact scaling law follows directly from this construction, rather than being a separate general novelty claim.",
+        "searches": [
+          "Jenkinson–Pollicott Section 3 Corollary",
+          "Chazottes–Gambaudo–Ugalde Section 6.2",
+          "Resultary: binary rational-frequency shifts with root rho^N=rho+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 17 rational-frequency-shift record has the same polynomial with N=k+1, but it is the equality of two pressure branches in a binary shift with renewal generators 0^m1^(km), not the claimed cylinder marginal of an N-vertex graph.",
+          "In the frozen result the identity perturbation of the Wielandt digraph's adjacency is precisely a lazy Parry chain; the exact overlap to test is this lift and its exceptional stationary mass, not the spectral root alone."
+        ],
+        "reasoning": "The matched polynomial does not identify the Markov chains, the maximizing measures, or an algebraic degree for the one-symbol cylinder. No statement-level match to the lifted selection family was found in these checks.",
+        "searches": [
+          "Resultary: overlapping-cycle Perron polynomial and matrix lifts for fixed-point ground-state selection",
+          "Resultary: Wielandt digraph companion matrix two overlapping directed cycles lengths N and N-1, Parry stationary probability degree N, identity plus exponential times adjacency zero-temperature selection fixed points nearest neighbor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior four-symbol example's relevant root of x^4−4x²−2x+1 has degree 3 because the polynomial is (x+1)(x³−x²−3x+1), with the cubic irreducible by the rational-root test; its mass recovers that root and not a degree-four one. Selmer covers exactly the frozen polynomial family but not the invariant of interest."
+        ],
+        "reasoning": "Exact selected mass/degree is the relevant invariant, not a known entry for the polynomial or a generic irrational ground-state barycenter.",
+        "searches": [
+          "Resultary: all-N algebraic degree / fixed maximizing states / Parry and companion digraph aliases",
+          "Chazottes–Gambaudo–Ugalde, explicit four-state weights, Section 6.2",
+          "Selmer trinomial irreducibility, Conrad Theorem 1.1"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit saturation of the degree bound for every N>=3 subject to exactly two energies and all extremal maximizing measures fixed, with the full finite-temperature law. Neither the classical graph, its companion polynomial, Selmer's theorem, nor Perron normalization is claimed as new. The strongest inspected earlier fixed-point selection example has smaller degree and more energy values, and the same-polynomial catalogue match solves a different pressure-transition problem.",
+      "residual_risks": [
+        "The external search was low yield; an unindexed use of the same classical graph and lazy transfer-matrix construction remains possible.",
+        "Statement-level checking does not establish exhaustive historical priority or rule out every possible recoding or matrix lift."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound established; no matching attainment in inspected statement",
+          "evidence": "Range-r potential gives degree at most the number of length-(r−1) cylinders for a limiting cylinder of length at most r.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19990v1",
+          "material_read": "Section 3 Corollary, OA offset around 24500",
+          "method": "OA primary text",
+          "title": "An elementary proof of Brémont's theorem on the convergence of equilibrium measures at temperature zero",
+          "trigger": "The upper bound claimed sharp"
+        },
+        {
+          "assessment": "Exact nonstandard lemma confirmed",
+          "evidence": "x^n−x−1 is irreducible over Q for every n>=2, attributed to Selmer (1956).",
+          "identifier_or_url": "https://kconrad.math.uconn.edu/blurbs/ringtheory/irredselmerpoly.pdf",
+          "material_read": "p. 1, Theorem 1.1, offset 63",
+          "method": "OA full-text passage for Selmer's theorem in Conrad's exposition",
+          "title": "Irreducibility of x^n-x-1",
+          "trigger": "Degree proof depends on all-N irreducibility"
+        },
+        {
+          "assessment": "Similar four-state mechanism; different degree and energies",
+          "evidence": "Four fixed maximizing states on the full four-shift; relevant Perron root of the quartic with a rational factor and three energy values.",
+          "identifier_or_url": "https://arxiv.org/pdf/0903.1212",
+          "material_read": "Section 6.2, PDF pp. 14–15, offsets 44386–46947",
+          "method": "OA primary paper",
+          "title": "Zero-temperature limit of one-dimensional Gibbs states via renormalization: the case of locally constant potentials",
+          "trigger": "Earlier fixed-point states with irrational selected weights"
+        },
+        {
+          "assessment": "Related technique and small graph examples",
+          "evidence": "Includes a 3-by-3, two-component selection case, not an inspected all-size fixed-point example.",
+          "identifier_or_url": "https://www.math.u-bordeaux.fr/~pthieull/Recherche/Publications/Garibaldi_Thieullen2012_01.pdf",
+          "material_read": "Section 6.1, pp. 167–168, OA offset 148400",
+          "method": "OA primary paper",
+          "title": "Description of Some Ground States by Puiseux Techniques",
+          "trigger": "General explicit algebraic selection framework"
+        },
+        {
+          "assessment": "Exact algebraic overlap, not equivalent thermodynamic invariant",
+          "evidence": "Rewarding 00 yields P(t)=max(t,log(1+exp(t))/(k+1)); equality has rho^(k+1)=rho+1. The model is binary with two candidate fixed atoms and a renewal measure, not N fixed-state maximizers with the frozen lazy transition law.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-nearest-neighbor-pressure-and-coexistence-in-rational-freq--8fb4352bba3d",
+          "material_read": "Finding at offset 0, including renewal generator and pressure branches",
+          "method": "Local mirror primary text",
+          "title": "Exact nearest-neighbor pressure and coexistence in rational frequency shifts",
+          "trigger": "Same Perron trinomial family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This provides a sharp witness to a general algebraic bound in a restrictive class where finite-temperature marginals alone hide the concentration on fixed ground states. It turns a possibility allowed by the bound into an explicit maximal-degree example at each alphabet size, and makes the rare-jump dynamics computable without an asymptotic selection algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

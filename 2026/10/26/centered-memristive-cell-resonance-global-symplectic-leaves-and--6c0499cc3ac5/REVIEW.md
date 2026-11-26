@@ -1,11 +1,21 @@
-# Scientific review: centered memristive-cell resonance
+# Independent mathematical audit
 
-**Correctness — PASS.** The fourth-order companion Jacobian is the squared ratio of the extreme coefficients of the centered Laurent operator. At the midpoint, the null equation for the auxiliary sequence separates exactly into two conserved parity indices. A global coordinate inverse reconstructs all four original states, and the resulting two-step map factors into two planar shears. The exact fixed-point derivative has trace \(2+4T^2L'(u)L'(v)\) and determinant one. These identities yield the stated classification, with no assumption that finite checks prove a universal statement. A global area-preserving return map on each invariant leaf forbids an asymptotically attracting periodic orbit.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2026 article of Innocenti, Tesi, Di Marco, Pancioni and Forti derives the same original difference equation, identifies the centered operator, and gives a more general invariant manifold in Remark 4. These are expressly prior contributions. The new theorem instead supplies a global pair of separate parity integrals, a symplectic-shear conjugacy, all prime period-two configurations, exact full-space Floquet types, and a consequent obstruction to attracting periodic orbits. The authors' 2025 methodological paper provides the more general discretization framework, not this specific classification. Semantic searches against the available research index and primary literature did not identify a dominating statement, but absence of search hits is not proof of absolute priority.
+PASS
 
-**Mathematical value — PASS.** The sharp unique centered threshold and complete leafwise classification explain an otherwise hidden structural transition in a physical model designed to generate complex discrete dynamics. The universal neutral multipliers and prohibition of periodic attractors constrain which numerical behaviors can occur at the centered parameter, while the explicit passive example realizes distinct transverse Floquet types without changing the device characteristic. This is a structural dynamical result rather than an isolated arithmetic evaluation.
+In the five-point equation the two extreme coefficients come only from Δλ² and are λ²/T² and (1−λ)²/T². Both are nonzero in the open interval; the recurrence can be solved globally in either direction and the signed companion determinant is the positive ratio (1−λ)²/λ². At λ=1/2, z_{k+1}=z_{k−1}. In the state ordering in RESULT, (E,O)=(p2,p1) and (νe,νo)=(z_k,z_{k−1}) with k even. The remaining two p coordinates are reconstructed linearly for fixed E,O from the definitions of νe,νo. In this chart one step is (E,O,νe,νo)↦(O+2T(νe−L(E)),E,νo,νe). Two steps thus fix the labels and apply two unit-determinant shears. Period two forces an alternating scalar sequence; every such sequence satisfies the equation and has prime period precisely when the values differ. The leaf Jacobian is the product of the two triangular shear derivatives, with trace 2+4T²L′(u)L′(v) and determinant 1; the full derivative has two additional unit eigenvalues. At either trace boundary the pair is called parabolic in the stated spectral sense, without a Jordan or nonlinear-stability assertion. A periodic orbit cannot attract an open set: its finite set of F²-label pairs excludes nearby points with other invariant pairs; return maps on the individual leaves additionally preserve area. This proof uses no passivity assumption beyond the illustrative example and does not depend on executing the packaged finite checks.
 
-The argument applies to the explicitly given fourth-order mixed-Euler discretization. It does not describe the endpoint schemes, imply nonlinear stability of elliptic cycles, or establish attraction properties of the continuous-time circuit. A general geometric-integration theorem or an unindexed earlier midpoint memristor analysis may have overlapping implications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the explicit global full-state reduction and complete period-two return spectrum for this particular fourth-order recurrence. The model, midpoint operator, implicit parity relation, and general symplectic-shear method are prior or immediate; they are not distinct contributions here. The strongest inspected primary passages do not state the full normal form and sharp Floquet classification.
+
+## value
+
+PASS
+
+For a discrete circuit model intended to support nontrivial dynamics, the exact centered chart reduces a four-state return problem to a family of planar maps without losing orbits or excluding leaves. The complete Floquet criterion identifies all possible linear transverse types directly from device derivatives and rules out attracting periodic behavior at the centered parameter, while allowing both an elliptic and a hyperbolic example within one passive characteristic. This is a model-specific dynamical boundary, not a claim of nonlinear elliptic stability or a new generic integrator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

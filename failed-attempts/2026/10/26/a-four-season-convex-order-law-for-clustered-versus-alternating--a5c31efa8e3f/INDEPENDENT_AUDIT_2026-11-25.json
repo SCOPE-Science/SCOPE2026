@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:42:03.516861Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–72",
+        "Frozen VERIFICATION.md, verify.py, certificate.json (inspected, not executed)"
+      ],
+      "rationale": "Inversion gives y_{t+1}=a y_t+(1−a)K_t⁻¹ and an attracting positive fixed point of the four-step map, whose slope is a⁴. In coordinates z=(y−c)/d, the cyclic respective solutions starting just before a high season are (D,−D,D,−D) and (B,−E,−B,E); substitution directly checks each update. The sorted partial-sum differences are d(B−D), d(B+E−2D), d(B−D). The first factor difference has numerator 2a(1−a), the second 2a(1−a)², both with denominator (1+a)(1+a²). All are strictly positive. Equality of total reciprocal sums gives the common harmonic mean 1/c; strict Karamata for reciprocal, and comparison of the extrema, give all population consequences. The variance in reciprocal coordinates is D²d² versus (B²+E²)d²/2, giving the ratio (1+a)²/(1+a²). The six labeled schedules split into the alternating orbit of size two and the clustered orbit of size four.",
+      "residual_risks": [
+        "The supplied rational cases do not prove the universal claim. The convex order and variance identity are specifically for inverse abundance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Sacker gives general attraction and orbit/mean formulas; Zhang et al. compare window lengths for a fixed cyclic vector, not the two permuted environmental schedules. Primary text of AlSharawi–Rhouma could not be read on the tried OA routes."
+        ],
+        "reasoning": "The general existence and scalar means alone do not establish strict order of all partial sums. Changing a moving-average window is not a reduction to permuting the forcing in this exponentially weighted recurrence.",
+        "searches": [
+          "DOI 10.1080/10236198.2012.726988, Theorem 2.1 and §3",
+          "DOI 10.1186/s13660-018-1737-4, cyclic moving averages",
+          "DOI 10.1155/2010/215875, §§3.3–3.5 and Example 3.4 lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/2/…82af4891f015",
+        "Yang–Sacker–Haskell 10.1080/10236198.2012.726988",
+        "Zhang–Shi–Xi–Chen 10.1186/s13660-018-1737-4",
+        "AlSharawi–Ben Haj Rhouma 10.1155/2010/215875 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three strict partial-sum comparisons and all population consequences except the explicitly written variance ratio and equivalent harmonic-mean wording are directly stated. Common reciprocal average is exactly harmonic-mean equality."
+        ],
+        "reasoning": "For the exact prior spectra center at (1+r+r²+r³)/2. The grouped absolute deviations are (r−1)(r+1)²/2 and (r−1)²(r+1)/2, each twice. The alternating absolute deviation is (r−1)(r²+1)/2 four times. The common affine scale cancels in the variance ratio, leaving (r+1)²/(r²+1), the frozen formula. No additional comparison lemma is needed.",
+        "searches": [
+          "Resultary 2026/11/2/…82af4891f015, Finding and Steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its Finding at offset 0 specifies the same positive, unharvested, deterministic recurrence with constant r>1; the four-season schedules (L,L,H,H) and (L,H,L,H) are rotations of those here."
+        ],
+        "reasoning": "Phase shifts permute the entries and leave all sorted sums, means and extrema unchanged. Replacing population by biomass and R by r is immaterial.",
+        "searches": [
+          "Resultary 2026/11/2/…82af4891f015, strict inverse-biomass majorization, four-season Beverton–Holt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact grouped weights are {1+r,r+r²,1+r³,r²+r³}; alternating weights are {1+r²,1+r²,r+r³,r+r³}. Both use the same positive affine rescaling."
+        ],
+        "reasoning": "The symbolic four-coordinate spectra, not a numeric table of sample parameters, determine the exact invariant for all r>1. A separate finite-instance database cannot add meaningful coverage here.",
+        "searches": [
+          "Resultary 2026/11/2/…82af4891f015, RESULT.md offset 2180, Step 2 exact seasonal reciprocal spectra"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding (…82af4891f015) states the same strict majorization, convex-sum and mean/trough/crest conclusions under identical assumptions, with a common reciprocal average. Its LLHH and LHLH are cyclic shifts of HHLL and HLHL. It gives exact reciprocal spectra, from which the only added exact variance ratio follows by squaring centered entries. This determines formulation equivalence and direct implication, not chronological or authorial priority. The inaccessible historical paper is not a basis for the verdict.",
+      "residual_risks": [
+        "The catalogue record is dated November 2, 2026 and the frozen record October 26, 2026. No temporal precedence is inferred; the scientific comparison is independently demonstrated equivalence/coverage.",
+        "No primary historical statement was established for the inaccessible harvesting article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage with mechanically implied extra variance ratio",
+          "evidence": "Identical model and schedules up to phase, same strict comparisons, and full exact spectra.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-strict-inverse-biomass-majorization-law-for-four-season-bevert--82af4891f015/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; positive orbit, exact reciprocal spectra and consequences, offset 2180; prior-work discussion, offset 4680; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passages, phase equivalence and calculation from exact spectra",
+          "title": "A strict inverse-biomass majorization law for four-season Beverton–Holt populations",
+          "trigger": "Exact four-season clustered/alternating inverse-biomass comparison"
+        },
+        {
+          "assessment": "Background attraction and averages, not the claimed strict order in inspected passages",
+          "evidence": "Positive cycle attracts globally; general relation between periodic-state and capacity averages.",
+          "identifier_or_url": "https://dornsife.usc.edu/robert-sacker/wp-content/uploads/sites/256/2023/06/Yang-Sacker-BH.pdf",
+          "material_read": "Abstract p. 2; Theorem 2.1 p. 4; §3 p. 8 including pointer to Appendix C",
+          "method": "Accessible primary PDF passages",
+          "title": "Resonance and attenuation in the n-periodic Beverton–Holt equation",
+          "trigger": "General periodic orbit, mean and four-period formulas"
+        },
+        {
+          "assessment": "Different comparison",
+          "evidence": "Increasing moving-average window yields a majorized vector for fixed data.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-018-1737-4",
+          "material_read": "Introduction pp. 1–2, offsets 800 and 3790",
+          "method": "OA primary PDF passages",
+          "title": "Majorization involving the cyclic moving average",
+          "trigger": "Cyclic majorization analogy"
+        },
+        {
+          "assessment": "Historical relationship unresolved; not adverse evidence",
+          "evidence": "Frozen citation points to Theorems 3.3, 3.5 and Example 3.4 for order-dependent means and harvesting. This characterization was not independently confirmed.",
+          "identifier_or_url": "https://doi.org/10.1155/2010/215875",
+          "material_read": "Frozen secondary characterization at RESULT.md line 84; no primary passages obtained",
+          "method": "Lawful OA DOI and Hindawi/Wiley routes attempted",
+          "title": "The Discrete Beverton-Holt Model with Periodic Harvesting in a Periodically Fluctuating Environment",
+          "trigger": "Ordering and harvesting predecessor in the frozen bibliography"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 2026/11/2/…82af4891f015, Finding and Step 2"
+      ],
+      "rationale": "The mean-versus-bottleneck tradeoff is intrinsically meaningful, but the distinct catalogue finding gives that exact tradeoff in its stronger convex-order form and supplies the full spectra. The added harmonic-mean language is equivalent to the common reciprocal sum; the variance ratio is immediate central-moment arithmetic on the known spectra and does not survive as a separate valuable finding.",
+      "residual_risks": [
+        "Does not assess any genuinely new population objective or extension to other seasonal multisets."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:34:04.952284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T=A⁻¹ and μ=bᵀAb, p=(A−μI)b, one has PTp=−μq and bᵀTp=1−μ(bᵀTb)≠0 by strict Cauchy–Schwarz for a non-eigenvector start. Thus the normalized projected cosine strictly exceeds the cosine between p and Tp. The latter is at least 2√κ/(κ+1) by the spectral secant inequality λ²≤(a+c)λ−ac on [a,c]=[1/M,1/m], completed by the square ((a+c)⟨Tp,p⟩−2ac)² for unit p. The two-column normalized Gram spectrum is 1±t; its condition number and the residual fraction √(1−t²) then follow with strict inequalities. Multiplying a putative dependence among b, Ab and A⁻¹b by the active eigenvalues yields a degree-two polynomial; exactly two active values force rank one in the projected block and t=1. To check sharpness, rescale the three spectral values to {r⁻¹,1,r} with outer weights ε, let d=r+r⁻¹−2, and use the equal laws of X and 1/X. Their common mean is 1+εd, common variance εd(r+r⁻¹−εd), and covariance 1−(1+εd)². This reproduces the exact t and its strict limiting gap. The infimum is over the class allowing at least three dimensions, or any fixed dimension ≥3 by padding; at fixed dimension two t=1 and no full-rank block exists. The stated rank and dimension scope supports this reading. No floating-point conclusion follows. The frozen symbolic and sampled checker was inspected without treating its finite tests as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithm 2.2 shares exactly the initial inverse/forward pair, and Theorem 3.3 orders mixed versus split indicators in the no-breakdown case.",
+          "The standard unconstrained Kantorovich cosine bound is precisely the lower bound before projection, with the finite-dimensional inequality independently reconstructed."
+        ],
+        "reasoning": "The algorithmic comparison does not optimize the centered pair. The unconstrained angle floor supplies a bound after one establishes the special PTp identity, but not its sharpness under simultaneous centering and the relationship p=(A−μI)b; unconstrained equality vectors need not satisfy that constraint.",
+        "searches": [
+          "Lund–Schweitzer arXiv:2610.21603 Algorithm 2.2 and Theorem 3.3",
+          "primary: The angle of an operator and positive operator products Gustafson cosine positive definite operator antieigenvalue 1968 PDF",
+          "Yan–Wu DOI 10.1155/2013/894824"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_first_block.py (read only)",
+        "arXiv:2610.21603",
+        "73acc417d39d",
+        "975f072affe2",
+        "Gustafson and Yan–Wu bibliographic records only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp three-mode construction concentrates spectral mass at the geometric midpoint while maintaining two small outer weights. The resulting covariance/variance limit meets the classical lower bound yet every finite member has a strict projection gap."
+        ],
+        "reasoning": "Neither the unconstrained inequality, generic covariance sign, nor the mixed/split indicator comparison supplies this admissible sharpness and nonattainment; those are the part requiring new mathematical argument.",
+        "searches": [
+          "arXiv:2610.21603 Algorithm 2.2, Theorem 3.3; Resultary 73acc417d39d and 975f072affe2; classical antieigenvalue cosine"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectral-measure formulation is −Corr(X,1/X) for nonconstant X with spectral weights ||Π_λb||². The inspected 975f072affe2 instead gives a sharp bound for freely chosen monotone codings of a fixed ordinal frequency profile."
+        ],
+        "reasoning": "Reversing the reciprocal sign makes it a monotone coding, but the fixed-mass bound √[p₁p_m/((1−p₁)(1−p_m))] can tend to zero even with κ fixed and does not account for the constrained reciprocal relation. It does not give the spectral interval infimum.",
+        "searches": [
+          "Resultary: first forward/inverse projected block and Pearson reciprocal correlation",
+          "primary: extended Krylov subspace initial forward inverse vectors angle correlation reciprocal random variables sharp lower bound Kantorovich Greub Rheinboldt centered",
+          "primary: Grüss inequality lower bound correlation X 1/X Pearson reciprocals Kantorovich correlation monotone secant slopes sharp 2 sqrt min max correlation coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "73acc417d39d gives the exact envelope of the third-step ratio ρ₃ᴹ/ρ₃ˢ via a univariate rational optimization with a cubic stationarity equation; 975f072affe2 gives the different endpoint-mass correlation law."
+        ],
+        "reasoning": "The third-step ratio cancels the common residual outside span{b,A⁻¹b}. The individual projected initial pair's angle normalizes by both ||PAb|| and ||PA⁻¹b|| and is not that ratio. Neither exact indexed formula gives the claimed curve or its nonattained optimality.",
+        "searches": [
+          "Resultary: condition-number envelope for the first mixed/split extended Krylov step; ordinal correlation floor"
+        ]
+      },
+      "rationale": "Credit the classical antieigenvalue cosine bound and the extended-Krylov block itself as prior. The supported distinct result is sharp optimization under the coupled centering/projection constraint, with strict nonattainment and an explicit admissible extremal sequence; the Gram and residual formulas are consequences, not separate novelty.",
+      "residual_risks": [
+        "The two historical primary texts were not successfully retrieved; an exact sharp reciprocal-correlation theorem in unindexed literature remains possible.",
+        "The exact Gram expression is a standard algebraic consequence once the constrained angular frontier is known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic antecedent, different theorem",
+          "evidence": "Algorithm inputs [A⁻¹v₁,Av₁] to block Gram–Schmidt; theorem compares ρᴹ and ρˢ, without a sharp κ-only projected-pair angle.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21603",
+          "material_read": "Algorithm 2.2 PDF offset 25866; Theorem 3.3 and lead-in offset 52370",
+          "method": "OA primary PDF",
+          "title": "On the stability of basis construction in extended Krylov subspace methods",
+          "trigger": "Same initial split-channel block"
+        },
+        {
+          "assessment": "Distinct later dated result; not equivalent",
+          "evidence": "Optimizes ρ₃ᴹ/ρ₃ˢ, whose numerators are collinear residuals; its bound is Γ(κ), not the normalized initial Gram condition number.",
+          "identifier_or_url": "73acc417d39d",
+          "material_read": "Finding, local indicator definitions and start of Proof at offsets 0–2850",
+          "method": "Published Resultary local mirror",
+          "title": "A sharp condition-number envelope for the first mixed–split extended-Krylov orthogonalization gap",
+          "trigger": "Closest exact indexed spectral-condition envelope"
+        },
+        {
+          "assessment": "Different fixed-mass optimization",
+          "evidence": "The floor uses endpoint category masses and arbitrary monotone code spacings, rather than a reciprocal coding with spectral bounds.",
+          "identifier_or_url": "975f072affe2",
+          "material_read": "Finding at offset 0 and proof reduction at offset 2200",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp correlation floor for two increasing codings of one ordinal variable",
+          "trigger": "Possible Pearson-correlation reformulation"
+        },
+        {
+          "assessment": "Do not claim these inaccessible papers exclude stronger coverage",
+          "evidence": "The standard unconstrained cosine inequality is identified and proved independently in the frozen proof; no claim to it as new.",
+          "identifier_or_url": "DOI 10.1090/S0002-9904-1968-11992-5; DOI 10.1155/2013/894824",
+          "material_read": "Indexed bibliographic identification; substantive passages of these two primary papers unavailable",
+          "method": "Lawful OA publisher / identified OA reader attempts",
+          "title": "The angle of an operator and positive operator products; A Bauer–Hausdorff Matrix Inequality",
+          "trigger": "Classical cosine inequality and possible exact antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivated quantity is the unavoidable input correlation of the batched initial forward/inverse vectors in a named algorithm. The exact attainable limit, including how it forces normalized block ill-conditioning near κ=1, is more informative than a nonsharp inequality or the fact that orthogonalization may be necessary. It is specifically an exact-arithmetic restriction, not an analysis of completed basis quality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

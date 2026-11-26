@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:57.806312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With 0<γ<1 all single-spin flips have positive rates, hence the finite ring has one stationary law. For distinct i,j, stationarity of σ_iσ_j gives a decay term −2C_ij and the two neighbor-source terms γ_i/2 and γ_j/2. Thus distinct hot spins have zero pair correlation, and with i hot and j cold the remaining factor is exactly α=γ/4. For each cold run of length l the two Dirichlet endpoints are distinct hot sites, yielding boundary values (1,0), (0,1) or (0,0). With (1,0), writing λ=(1−√(1−4α²))/(2α), the unique interior solution is C_j=(λ^j−λ^(2l+2−j))/(1−λ^(2l+2)), as checked by the recurrence and endpoints. At j=1 this gives a_l=λ(1−λ^(2l))/(1−λ^(2l+2)), equivalently the stated continued fraction from elimination. At a hot site the mean energy influx is J times the sum of the two correlations: its rate is 1/2 and the energy change is 2Jσ_i(σ_{i−1}+σ_{i+1}). There are two boundary contributions Ja_l per run and none from hot–hot pairs. Energy balance and zero hot inverse temperature give the stated outflux and entropy production. The map x↦α/(1−αx) is increasing with derivative strictly between zero and one on [0,λ], and its iterates from zero have strictly decreasing positive increments. Therefore a split replacing l by p,l−p raises the sum, and a one-unit transfer from a length at least two larger to a shorter one raises the sum. Every positive length composition with r≤min(h,c) can be realized by r nonempty hot gaps. The unique minimizing run count is one; the maximizing count and balanced lengths, and the c=1 and h=c cases, follow. The strict split comparison is a refinement of run lengths; it does not order a move that also merges other runs. A fresh rational full-generator solution for N=4, h=c=2, γ=3/5 gave Q_h/J=120/391 for one cold block and 3/5 for alternation, as predicted. The frozen verifier was inspected, not executed; the all-size result rests on the argument, not those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauer–Cornu generalizes kinetic parameters but retains alternating sites.",
+          "Indexed 9e699494b23d and e9b7e6a1abe7 treat a star and a three-spin triangle, respectively, not all finite rings of size at least four.",
+          "Indexed 40ac4bb02a8c concerns a period-three four-spin factorization obstruction."
+        ],
+        "reasoning": "Greater generality in rates for a staggered geometry or exact results on another graph do not cover the fixed-count arrangement theorem. The two-point equations may be general machinery without a proved fragmentation law.",
+        "searches": [
+          "Bauer–Cornu arXiv:1712.02273 abstract and conclusion; Lavrentovich introduction and Sections II, IV",
+          "Resultary other multibath Ising geometries"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_hot_domains.py",
+        "Schmüser–Schmittmann and Schmittmann–Schmüser",
+        "Lavrentovich",
+        "Bauer–Cornu and its citation of Rácz–Zia",
+        "Local Resultary exact self-match and three distinct nearby results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known stationarity and heat-current formalism supplies the input two-point equations; the alternating calculation fixes one run length, and the junction treats a spatial profile in the size limit.",
+          "The frozen proof exploits the exact vanishing of correlations between distinct hot spins to separate finite runs; the strict concavity then orders sums over cold-run partitions."
+        ],
+        "reasoning": "The known special cases neither identify every finite-l endpoint coefficient nor imply sharp extrema and equality cases under arbitrary arrangements. One needs the two-boundary reduction and then the discrete rearrangement proof.",
+        "searches": [
+          "Schmüser–Schmittmann Section II and stationary entropy discussion; Schmittmann–Schmüser Section II; Lavrentovich Sections II and IV; Bauer–Cornu introduction and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schmüser–Schmittmann cond-mat/0206345 Section II fixes a staggered bath pattern, as does Schmittmann–Schmüser cond-mat/0212616 Section II.",
+          "Lavrentovich arXiv:1201.3906 Section IV takes an infinite-hot limit in a different, one-junction geometry."
+        ],
+        "reasoning": "The alternating solution corresponds to l=1 everywhere after clock normalization. Relabeling cannot change cold-run lengths without changing the bath geometry. The infinite-junction spatial profile does not give the finite two-boundary response of arbitrary l.",
+        "searches": [
+          "Focused literature search for arbitrary bath placement, infinitely hot sites and run/domain dependence in a Glauber ring",
+          "Resultary semantic searches for run sums, placement extrema, staggered chains and infinite junctions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 2bd73b7fe9bf catalog match is the assigned record itself.",
+          "The indexed triangle heat law compares bath counts for a different size and geometry; the indexed star current law gives component currents for a hot hub and cold leaves.",
+          "The cited primary exact formulas cover particular alternating or one-interface geometries, not an arbitrary cold-length partition."
+        ],
+        "reasoning": "No alternate tabulation or exact formula covering the same arrangement classes appeared in the bounded checks. A fixed geometry matching an extremal pattern is not a census or formula for all placements.",
+        "searches": [
+          "Resultary run-sum, arbitrary placement and sharp extrema searches; primary alternating/junction heat-current formulas"
+        ]
+      },
+      "rationale": "Credit is for the arbitrary-placement finite-ring run decomposition and strict sharp rearrangement law at fixed bath counts. The stationary two-point equation, heat convention and the alternating case have prior counterparts. No inspected primary or indexed result covers the full fragmentation law.",
+      "residual_risks": [
+        "No priority chronology inferred from shared dates; bounded searches do not rule out earlier arbitrary-pattern results.",
+        "The Rácz–Zia full text was not obtained; the stated comparison with its geometry relies on the later citation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers alternating geometry, with a clock convention to normalize",
+          "evidence": "Even periodic ring with temperatures assigned by site parity; heat evaluated from the staggered stationary correlations.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0206345",
+          "material_read": "Section II p. 2; heat/entropy discussion p. 9",
+          "method": "Targeted OA PDF extraction",
+          "title": "Non-equilibrium stationary state of a two-temperature spin chain",
+          "trigger": "Foundational stationary two-point and heat-current results"
+        },
+        {
+          "assessment": "Inspected model alternates reservoirs",
+          "evidence": "Each bath is attached to one parity of an even ring.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0212616",
+          "material_read": "Section II p. 2, model definition",
+          "method": "Targeted OA PDF extraction",
+          "title": "Stationary correlations for a far-from-equilibrium spin chain",
+          "trigger": "Possible general stationary correlation law"
+        },
+        {
+          "assessment": "Different geometry and limit",
+          "evidence": "Two chain halves joined at a junction; the infinite-hot case yields a spatial flux profile in the large-size limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.3906",
+          "material_read": "Introduction p. 3, Section II pp. 5–6, Section IV pp. 9–10",
+          "method": "Targeted OA PDF extraction",
+          "title": "Steady-state properties of coupled hot and cold Ising chains",
+          "trigger": "Closest infinite-hot junction"
+        },
+        {
+          "assessment": "Still alternating placement",
+          "evidence": "Equal or unequal clocks on the two parities; introduction identifies Rácz–Zia as the periodic alternating model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.02273",
+          "material_read": "Abstract p. 1, introduction p. 2 and conclusion p. 16",
+          "method": "Targeted OA PDF extraction",
+          "title": "Thermal contact through a two-temperature kinetic Ising chain",
+          "trigger": "Exact heat currents with expanded kinetic parameters"
+        },
+        {
+          "assessment": "Direct text not assessed; secondary attribution only",
+          "evidence": "OA route returned 404; the later introduction describes a periodic alternating model.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.49.139",
+          "material_read": "Not obtained directly; model characterized in Bauer–Cornu p. 2",
+          "method": "Targeted OA attempt and comparison of the later citation",
+          "title": "Two-temperature kinetic Ising model in one dimension: Steady-state correlations in terms of energy and energy flux",
+          "trigger": "Earliest staggered heat-flux work cited"
+        },
+        {
+          "assessment": "Different observables or graphs",
+          "evidence": "A period-three four-point defect, a star with hot hub, and a three-spin triangle with two bath assignments, respectively.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-four-spin-obstruction-to-two-point-factorization-in-a-periodic--40ac4bb02a8c; 2026/11/22/SCOPE-exact-multibath-stationary-law-and-decoupled-heat-currents-on-an--9e699494b23d; 2026/11/22/SCOPE-exact-three-terminal-heat-law-and-sharp-rectification-bound-on-a--e9b7e6a1abe7",
+          "material_read": "RESULT.md findings and model scopes",
+          "method": "Local Resultary searches and mirror inspection",
+          "title": "A four-spin obstruction to two-point factorization; Exact multibath stationary law and decoupled heat currents; Exact three-terminal heat law and sharp rectification bound",
+          "trigger": "Strongest distinct indexed patterns and exact heat-transport claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an arbitrary-arrangement theorem on a studied nonequilibrium model, not another calculation for one selected arrangement. Infinite-hot decorrelation makes the total heat depend only on cold-run lengths even in a finite correlated spin system. The reduction explains the exact effect of splitting, and yields sharp design rules with equality cases at each bath count. Neither finite-hot baths nor arbitrary redistributions with a simultaneous merge are included in the strict split assertion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

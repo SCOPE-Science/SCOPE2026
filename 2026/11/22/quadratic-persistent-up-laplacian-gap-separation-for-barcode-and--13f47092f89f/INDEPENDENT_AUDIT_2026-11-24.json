@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:50.266118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39, VERIFICATION.md and checker.py lines 5–36 (supplied code inspected, not executed)",
+        "/workspace/branches/2a930d96-8298-4136-8445-da5ea5654f02/independent_matrix_check.py and independent_matrix_check.log"
+      ],
+      "rationale": "The two connected level-zero graphs have integral cycle rank m=(2m+1)−(m+2)+1. The book retracts to its shared edge; deleting an open facet from the bipyramid sphere leaves a disk, and the n−1 leaf additions do not change contractibility. The leaf additions give the disk the same vertex and edge counts as the book. Thus the integral modules are one essential degree-zero interval and m degree-one intervals [0,1), with identical face vectors at each level. Keeping the entire edge space makes the persistent up-Laplacian BBᵀ, with nonzero spectrum given by BᵀB. The book Gram matrix is 2I+11ᵀ; the disk Gram matrix is the vertex-pinned principal submatrix of the prism graph Laplacian, as seen by orienting the sphere coherently. This includes n=3 (both rings are simple triangles). Paths from pinned to surviving vertices have length at most n, so the path energy bound gives μ≥1/[n(2n−1)]. Using sin(πi/n) on both rings vanishes at the pinned vertex; rung energies vanish and each ring's quotient is that of the Dirichlet n-edge path. Thus μ≤2(1−cos(π/n))≤π²/n². The disk's largest eigenvalue lies between 3 (test a coordinate vector) and 6 (Gershgorin), so both stated ratios have the claimed orders. Independent replay for 3≤n≤12 checked both Gram constructions and full column rank modulo a prime with floating-point eigenvalue checks. The supplied checker uses floating-point rank and omits zero leaf rows in its disk spectra; exact ranks, leaf-adjusted counts and all-n bounds follow from the proof, not that finite code.",
+      "residual_risks": [
+        "Finite floating-point spectra are consistency checks only. The estimates establish the two ratios for these constructions, not a universal maximum ratio over all filtrations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Botnan–Dong give a Cheeger-type estimate for nonbranching persistent up-Laplacians. Anh–Dik–Anh bound the eigenvalue drift under a single simplex insertion at fixed scale."
+        ],
+        "reasoning": "The former pertains to the disk side but cannot cover the shared book edge of degree m≥5. The latter is a local stability upper bound, neither a construction matching both invariants nor a lower bound on the relative gap between such pairs.",
+        "searches": [
+          "arXiv:2408.16741, Theorem 4.10",
+          "arXiv:2506.21352, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09610, 2408.16741, 2506.21352",
+        "Resultary 4cecc1e63468 and 13f47092f89f (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kirchner–Vittorietti provide reconstruction and computational machinery in the inspected passages. Botnan–Dong use dual nonbranching geometry for estimates."
+        ],
+        "reasoning": "The two concrete pieces can be analyzed with known graph-spectral tools, but the paired result needs a branching witness with bounded smallest positive eigenvalue and a pinned nonbranching witness with an inverse-square gap, and leaf-adjusted matching f-vectors and integral modules. Those choices and the comparison are not furnished by the prior qualitative principle or the disk-side framework.",
+        "searches": [
+          "arXiv:2611.09610, introduction and section outline, OA offsets 4875, 10900 and 121884",
+          "arXiv:2408.16741, p. 17 Theorem 4.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirchner–Vittorietti arXiv:2611.09610, pp. 1–2, describes extra nonzero-spectral information beyond same-barcode comparisons and states a reconstruction/computation contribution."
+        ],
+        "reasoning": "Here the comparison is equivalently between nonzero spectra of final triangle-boundary Gram matrices since all edges persist. The known qualitative fact that spectra can differ does not force a growing ratio of gaps even without the levelwise face-vector constraint.",
+        "searches": [
+          "Web: persistent Laplacian same barcode same face numbers spectral gap separation two simplicial filtrations quadratic separation",
+          "Resultary: persistent Laplacian same barcode different nonzero spectrum spectral separation filtration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13f47092f89f is the same frozen record. Distinct Resultary 4cecc1e63468, RESULT.md Finding and spectrum passage at offset 1026, treats sparse polytopes with identical face vectors and graph-spectral/tree separation."
+        ],
+        "reasoning": "The distinct match uses the degree-zero ordinary Laplacian of a polytope graph, not the degree-one triangle-boundary up-Laplacian, and has no two-level integral-persistence condition. No separate exact family with all these controls was identified.",
+        "searches": [
+          "Resultary: same persistence barcode same face vector paired simplicial filtrations quadratic separation of smallest positive persistent up-Laplacian eigenvalue"
+        ]
+      },
+      "rationale": "The claim surviving comparison is an explicit quantitative extreme-eigenvalue separation for pairs matching both integral persistence and levelwise face vectors. Spectral information beyond the barcode, the definition of the operator and graph-Laplacian estimates are not new. The closest available statements do not give the paired construction or imply its gap ratios with these controls.",
+      "residual_risks": [
+        "An equivalent construction may exist in examples or appendices beyond the inspected passages or under ordinary (nonpersistent) up-Laplacian terminology. The checked comparison is not a comprehensive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative and computational overlap; no paired quantitative separation in these passages",
+          "evidence": "Highlights extra nonzero-spectral information; develops new chain spaces and reconstruction, with algorithm/runtime comparisons described for §5.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09610",
+          "material_read": "PDF pp. 1–2 and p. 22, offsets 4875, 10900, 121884: introduction, contributions and section description",
+          "method": "OA PDF passages",
+          "title": "New persistent chain spaces: identifying and computing the relevant persistent Laplacians of a filtration",
+          "trigger": "Closest explicit discussion of persistent spectral information beyond equal barcodes"
+        },
+        {
+          "assessment": "Covers methodology for disk-side regime, not the paired comparison",
+          "evidence": "Nonbranching hypothesis excludes the book and the estimate does not match filtrations by persistence and face vector.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16741",
+          "material_read": "Abstract, p. 1, offset 320; Theorem 4.10, p. 17, offset 80762",
+          "method": "OA PDF passages",
+          "title": "The persistent Laplacian of non-branching complexes",
+          "trigger": "Potential general theorem on dual-graph spectral bounds"
+        },
+        {
+          "assessment": "Local upper bound, not a witnessed separation",
+          "evidence": "Fixed-scale eigenvalue shift after inserting a simplex is bounded by 2‖∂σ‖².",
+          "identifier_or_url": "https://arxiv.org/abs/2506.21352",
+          "material_read": "Theorem 3.1, p. 6, offset 16856",
+          "method": "OA PDF passage",
+          "title": "Lipschitz Bounds for Persistent Laplacian Eigenvalues under One-Simplex Insertions",
+          "trigger": "Quantitative persistent eigenvalue comparisons"
+        },
+        {
+          "assessment": "Different Laplacian and invariants",
+          "evidence": "Ordinary graph Laplacians and tree counts of one-skeleta, not persistent degree-one up-Laplacians and integral modules.",
+          "identifier_or_url": "2026/10/11/SCOPE-spectral-and-spanning-tree-separation-of-sparse-polytope-f-vecto--4cecc1e63468",
+          "material_read": "Local RESULT.md Finding and spectrum passage, offsets 0 and 1026",
+          "method": "Local published record mirror",
+          "title": "Spectral and spanning-tree separation of sparse polytope f-vector twins",
+          "trigger": "Closest distinct equal-face-vector spectral-separation match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–36 and 44–45"
+      ],
+      "rationale": "The witness rules out recovering even the asymptotic order of this gap from the barcode augmented by levelwise face counts. Exact simplex counts and ranks make the growing disparity attributable to incidence geometry, not unequal size or homology. It gives both a quadratic lower-end contrast and a linear upper-end contrast in explicit complexes.",
+      "residual_risks": [
+        "The witness is for unnormalized up-Laplacians of abstract two-stage filtrations, not the full Hodge spectrum, geometric realizability, or Vietoris–Rips data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

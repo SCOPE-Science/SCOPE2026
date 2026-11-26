@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The diagonal equilibrium equation and full three-dimensional circulant Jacobian give exact eigenvalues. Monotonicity of \(\sin u/u\) on each positive sine lobe and of \(\tan u+u/2\) beyond the lobe midpoint proves that each lobe contributes exactly one potential sink branch and one exact stability window. An elementary comparison separates different windows. Uniform cotangent expansions and an integral comparison of the arithmetically spaced lobe centers derive the coefficient \(9/(8\pi)\), with an \(O(\varepsilon^3)\) boundary estimate. These are analytic arguments for all indices, not extrapolations from the finite supplementary checker.
+## correctness
 
-**Originality (PASS, subject to a named historical risk).** The full 2007 Sprott–Chlouverakis paper supplies the common synchronization and spectral formulas, the principal Hopf threshold and discussion of multiple equilibria, but does not state or tabulate the disjoint infinite family of full-dimensional hyperbolic sink windows or its exact asymptotic parameter-measure law. Published mathematical-record searches found related global origin-stability results above the unit-damping threshold, not this interval-and-measure theorem. The inaccessible full 1999 Thomas article is a real residual risk; a matching earlier theorem there would supersede the novelty assessment.
+PASS
 
-**Value (PASS).** Beyond individual spectral calculations, the result classifies the complete multiplicity of a dynamically natural family of sinks at every positive damping and gives the sharp abundance/density law for windows accumulating at the conservative limit. The count and density quantify a physically meaningful alternation between stable synchronous behavior and its loss; they do not assert a global attractor classification.
+A synchronous equilibrium has b=sin u/u for u≠0. The cyclic Jacobian gives exactly the strict test −2b<cos u<b. By oddness only u>0 is needed. On a positive sine lobe, the derivative numerator of g(u)=sin u/u is u cos u−sin u, strictly decreasing because its derivative is −u sin u. Thus only the decreasing branch passes cos u<b; for k=0 the branch starts at the excluded u=0. After v_k, the second inequality holds precisely before the unique zero of tan u+u/2, which increases from −∞ to a positive value. Applying g to this branch yields (H_k,F_k); converting the root identities to threshold formulas gives the stated square roots. The endpoint inequalities 1+f_{k+1}²>4+h_k² give disjointness, so there is one positive sink at admissible b and its negative partner, with no endpoint sinks on these branches. Setting f=v−δ_F and h=v+δ_H gives δ_F=v⁻¹+O(v⁻³), δ_H=2v⁻¹+O(v⁻³) from the cotangent expansion. Inserting into the denominators gives F=v⁻¹+v⁻³/2+O(v⁻⁵), H=v⁻¹−4v⁻³+O(v⁻⁵), hence width (9/2)v⁻³+O(v⁻⁵). A partial window at ε contributes O(ε³), and the full-window tail starts at v=ε⁻¹+O(1) on a lattice of step 2π; integral comparison gives ∑v⁻³=ε²/(4π)+O(ε³) and ∑v⁻⁵=O(ε⁴), proving the measure formula for all sufficiently small ε. Independent bounded bisection on u cos u+2 sin u confirms H_0≈0.328990102242739 and H_1≈0.119910744243336. The frozen numerical script was inspected, not executed. Its crossing description refers to the right endpoint in u, which is the lower damping endpoint H_k, not F_k. No nonlinear endpoint or nonsynchronous stability claim is needed.
 
-**Limits.** Only synchronous hyperbolic sinks are counted. Boundary points are excluded; no nonlinear Hopf cycles or global attracting behavior is claimed. The original 1999 full text remains uninspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Repeated synchronous branch creation and stability loss are already documented, as are the synchronous scalar and spectral equations, the principal window, and the boundary mechanisms. The distinct supported result is the exact disjoint-window and sparsity theorem: an exhaustive full-space synchronous count and a sharp width and damping-parameter measure asymptotic. The substantive originality rests especially on the latter quantitative statements, not the existence of high-lobe stable branches or the Hopf condition.
+
+## value
+
+PASS
+
+For this standard nonlinear flow, the exact count and disjointness distinguish an infinite sequence of locally stable synchronous branches from overlapping windows. The explicit leading measure and remainder quantify the scarcity of stable parameter values despite infinitely many windows. This is a parameter-level statement, not a claim about the basins or about other attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

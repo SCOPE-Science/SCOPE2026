@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:39.074919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–79 and 81–93; VERIFICATION.md and reentrant_verify.py inspected, not executed",
+        "Independent exact replay: python3 /workspace/branches/5f5364c2-7597-49b8-97c0-a37a6970ac98/record5_witness_check.py; epsilon=10^-6, n=2 through 6; all witness signs and final symmetric diagonal dominance checked by rational row reduction. At n=2 the positive witnesses give (6/7,2/7) and (1/7,2/7); the first Jacobian has eigenvalues 3/7 and -1."
+      ],
+      "rationale": "For an isolated pair the stated inverse gives two positive coordinates below c and above b only. At c and b a coordinate is zero; at sqrt(bc) the rows are proportional but the right-hand sides are not, so no exceptional positive solutions fill the gap. The disjoint pair gaps interlace the listed witnesses. At a gap midpoint the designated numerator is -1/2 and the determinant is 1/4, so that coordinate is -2 before coupling. All witness matrices are nonsingular; the positive and negative coordinate margins persist under small positive off-block coupling and then on an open neighborhood in the zero-diagonal off-diagonal parameter space. The resolvent bound is valid since M(n-1)epsilon<=1/8 and the numerator is at most delta/16. Invertibility and the strict signs persist on alpha-intervals about the witnesses, and the negative intervals separate the positive components regardless of behavior at other singular parameters. Each early Jacobian has a saddle block (negative determinant); the remaining blocks have either a saddle or two eigenvalues with negative real parts, and a singleton has eigenvalue -1. The hyperbolic splitting and an unstable direction survive perturbation. At the final witness the symmetric part is positive definite by strict diagonal dominance: paired rows have within-pair symmetric coefficient < b_k and cross sum < 1/2; a singleton's row sum is (n-1)epsilon<1 for n>=3 under the imposed coupling bound. The relative-entropy Lyapunov derivative is strictly negative off equilibrium, and its sublevel sets are compact inside the positive orthant, proving convergence from every strictly positive initial state. This does not claim stability within entire components.",
+      "residual_risks": [
+        "The replay is finite and does not independently simulate asymptotic dynamics. The all-n signs and dynamical conclusions come from the construction, perturbation, and Lyapunov arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lechón-Alonso et al. report mean transition count approaching one in their random simulations and provide a general procedure for finding a final feasibility threshold. Neither inspected result is a deterministic existence lower bound on the number of earlier components.",
+          "The accessible AlAdwani–Saavedra abstract concerns general feasibility conditions in parameter space; full text was not inspected."
+        ],
+        "reasoning": "An eventual feasible tail constrains behavior above the threshold, not the number of components below. A random-community statistic does not imply the worst-case growing lower bound. General parameter-feasibility techniques do not supply the required matrices with strict margins without a further construction.",
+        "searches": [
+          "Lechón-Alonso et al. around Fig. 2, p. 3, extracted offsets 14200 and 17950; Supplementary Note 2 §2.3, pp. 8–10",
+          "AlAdwani–Saavedra DOI 10.1016/j.ecolmodel.2022.109900"
+        ]
+      },
+      "checked_sources": [
+        "Lechón-Alonso et al. DOI 10.1038/s41467-026-69151-3, main Fig. 2 and electronic supplementary note",
+        "AlAdwani–Saavedra DOI 10.1016/j.ecolmodel.2022.109900 (access limited)",
+        "Resultary focused searches including 8a580c543a57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest direct prior overlaps are finite repeated feasibility reversals and a general final threshold. The original proof selects pair blocks with independently spaced gaps, interlaces explicit witnesses, and controls strict signs and hyperbolicity under complete coupling."
+        ],
+        "reasoning": "A single reversal is not distinct. To force a linearly growing number one must combine separated gaps without eliminating the other blocks' positive witnesses, then replace off-block zeros without losing any strict sign or desired stability condition. This construction and witness contrast are not mechanical parameter substitutions into the inspected thresholds or fixed-size examples.",
+        "searches": [
+          "Lechón-Alonso et al. Fig. 2 and Supplementary Note 2 §2.3; frozen RESULT.md lines 23–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The main paper's Fig. 2 uses the same kind of uniform self-limitation scan and shows a four-population example with repeated reversals. Supplementary Note 2 gives an explicit mixed-sign 3-by-3 matrix with re-entry.",
+          "Exact re-evaluation of that supplementary example gives positive solutions at alpha=7 and 13 and a negative first coordinate at alpha=17/2."
+        ],
+        "reasoning": "Equilibrium feasibility can be compared via positivity of the shifted inverse at nonsingular witnesses, not only by ecological terminology. The cited paper therefore genuinely covers finite nonmonotonicity; a finite example or a mixed-sign matrix does not itself give an arbitrary-size open all-positive family.",
+        "searches": [
+          "Resultary queries on robust feasibility reversals and positive off-diagonal (alpha I+B)^(-1)1 components; local citation search for 10.1038/s41467-026-69151-3",
+          "Lechón-Alonso et al. DOI 10.1038/s41467-026-69151-3, main paper and Supplementary Note 2 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No verified catalogue match gives the exact lower bound for all n. Resultary 8a580c543a57 concerns transverse stability of two-cycles, not feasibility of positive equilibria. The primary article and supplement give finite examples, not an all-n component table."
+        ],
+        "reasoning": "The relevant exact object is a family of separated components under strict positivity and perturbations; a matching count at one dimension would overlap but not establish this quantified family. No exact analogue was verified in retrieved records.",
+        "searches": [
+          "Resultary title and shifted-inverse component queries; Resultary 8a580c543a57; published Fig. 2 and its Supplementary Note 2 examples"
+        ]
+      },
+      "rationale": "Re-entrant feasibility for uniform self-limitation, the sufficiently-large-alpha feasibility tail, two-species exclusion versus coexistence, and standard diagonal Lyapunov reasoning are not credited as new. The closest inspected primary result shows finite reversals and a random-community asymptotic. The distinct claim is the deterministic, growing component lower bound on an open set with all off-diagonal competition entries positive, with a stability contrast at selected witnesses. It is not given by the identified finite examples or the general final-threshold method. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "The extracted four-population caption does not identify its complete interaction matrix or exact component count; the linked reproducibility deposit DOI 10.5281/zenodo.17742734 locates a software archive but its figure-generation files were not inspected. This may affect the extent of fixed-size overlap.",
+        "The 2022 full text was not accessible, and earlier scalable constructions under different terminology remain possible. Neither limitation is treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite reversals and eventual feasibility, not the growing robust all-positive lower bound in inspected passages",
+          "evidence": "Caption gives a four-population repeated-reversal example; supplement gives a final feasibility threshold procedure and a mixed-sign 3-by-3 re-entry example. At 17/2 that matrix gives (-10/153,-2/51,70/153), between positive solutions at 7 and 13.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-026-69151-3",
+          "material_read": "Main original pp. 3, Fig. 2 text and caption, extracted offsets 14200 and 17950; electronic Supplementary Note 2 §2.3 pp. 8–10, offsets 24800 and 29750–33730",
+          "method": "Bounded original PDF-text passages from article and electronic supplement; independent exact solution of the supplementary matrix at three parameters",
+          "title": "Robust coexistence in competitive ecological communities",
+          "trigger": "Same self-limitation parameter scan and strongest finite feasibility-reversal comparison"
+        },
+        {
+          "assessment": "General framework indicated; unresolved in unread full text",
+          "evidence": "Accessible description addresses how model parameters determine feasible equilibria; it does not furnish the submitted constructive lower bound.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ecolmodel.2022.109900",
+          "material_read": "Landing page and abstract only",
+          "method": "DOI lookup and separate repository retrieval attempt (403/timeout)",
+          "title": "Feasibility conditions of ecological models: Unfolding links between model parameters",
+          "trigger": "Potential general feasibility framework encompassing the parameter slice"
+        },
+        {
+          "assessment": "Different invariant and model",
+          "evidence": "Transverse stability of periodic orbits in a discrete-time system, not existence of equilibria under uniform self-limitation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-reentrant-transverse-stability-of-synchronous-two-cycles-i--8a580c543a57",
+          "material_read": "Indexed finding description",
+          "method": "Configured Resultary search",
+          "title": "Sharp reentrant transverse stability of synchronous two-cycles",
+          "trigger": "Related re-entry hit in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–19 and 35–79; Lechón-Alonso et al. Fig. 2 and Supplementary Note 2"
+      ],
+      "rationale": "The construction shows that one scalar diagonal loading can generate arbitrarily complicated feasible sets even in completely connected competitive communities, in contrast to finite reversals or typical behavior in a random ensemble. Strict sign margins distinguish a robust parameter-space phenomenon from isolated singularities. The instability/global-attraction contrast prevents interpreting the early positive solutions as robust dynamical coexistence and makes the witnesses useful for separating feasibility from stability.",
+      "residual_risks": [
+        "This is a lower bound, not an exact maximum or an assessment of how often the phenomenon occurs. The matrices begin near paired modules and the stability statements apply at and near the exhibited witnesses only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

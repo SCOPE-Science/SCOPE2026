@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:59:57.037110Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, and Proof",
+        "Frozen VERIFICATION.md and verify.py",
+        "Franco–Velázquez, published Example 3.8"
+      ],
+      "rationale": "The published reaction directions and rate constants give the two stated mass-action equations. Orthogonality to (-1,1,1) and (1,0,-1) gives m1=m3 and m2=0. For a fixed s>0, the first equation forces cXY=s, and the second then forces Y=rs and X=1/(cr)=e^(-E2). For the time-dependent proof take the ratios X=x/x_* and Y=y/(ru); differentiating each relative entropy gives the stated two nonnegative dissipations with a minus sign and the moving-reference term r u'(1-Y). The signal stays uniformly positive and bounded and q=|u'|/u is integrable. Entropy controls x,y from above, and Gronwall gives a bound up to any putative maximal positive existence time. The inward-pointing equations and displayed scalar comparison inequalities keep both concentrations positive, give global existence and bound both away from zero eventually. The perturbation is integrable, so the dissipations have finite integral; bounded x',y',u' on the eventual compact positive domain give uniform continuity, forcing each dissipation to vanish in the limit. Thus Y→1 and XY→1. At the detailed-balance initial state both first derivatives vanish, while u'(0)=1, so x''(0)=a for every a,b>0 and the quadratic transient follows. X3 can also have a transient, but its final value tracks the final signal and is not a signal-independent set point. The recorded algebraic checker was inspected, not run, and is not the convergence proof.",
+      "residual_risks": [
+        "The all-rate assertion is conditional on a signal satisfying the stated assumptions; it is not an assertion that every energy allows such a normalized input. In particular u'(0)=1 and the logarithmic rate bound imply u(0)≥1.",
+        "If the signal happens to return to its initial level, X3 also returns to its initial level; this does not give X3 adaptation across different admissible final levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.15 covers convergence under the signal decay assumptions in this nonzero-conservation-law example with a positive steady state.",
+          "Theorem 3.3 and Proposition 3.5 address nontrivial responses under genericity, perturbation or robustness alternatives; they do not provide the coefficient or its nonvanishing for every positive rate in the printed network."
+        ],
+        "reasoning": "Credit the broader convergence theorem and structural adaptation condition, but they do not supply the full corrected assignment together with the exact all-rate transient.",
+        "searches": [
+          "Franco–Velázquez, Proposition 2.15, Theorem 3.3 and Proposition 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Franco–Velázquez, published Example 3.8, Proposition 2.15, Theorem 3.3 and Proposition 3.5",
+        "Local Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The structural theory with the corrected conservation space identifies X2 as the possible signal-independent output. It does not exclude exceptional transients for all fixed positive rates. Evaluating the ODE at the detailed-balance initial state kills both first derivatives; differentiating then gives x''(0)=K1 with no cancellation by any other rate."
+        ],
+        "reasoning": "Neither structural adaptation nor general convergence alone implies the exact all-parameter claim. The transient test is an explicit additional argument that closes the exceptional-rate issue for this example.",
+        "searches": [
+          "Compare the published warning about nontrivial response and the generic/perturbed-rate results with the exact initial-time calculation in the frozen Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.8 states that m(3)=0 for all conservation laws, calls species (3) the product, and concludes N3=e^(-E3). Its actual vectors give span{(1,0,1)}, so coordinate (2) vanishes instead.",
+          "The source's printed rates give X3's limiting value r times the limiting signal; this is not an equivalent way to state the printed fixed X3 set point."
+        ],
+        "reasoning": "For this fixed example, the zero-conservation-law coordinate criterion and the signal-independent steady concentration select the same coordinate X2. With the species labels and reactions held fixed, the correction is not a renaming.",
+        "searches": [
+          "Franco–Velázquez, DOI 10.1007/s00285-026-02344-y, published Example 3.8",
+          "Focused literature lookup for corrections to the detailed-balance adaptation example and coordinate assignment",
+          "Resultary lookup for the same chemostatted two-reaction network and adaptation correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused ranked catalogue returns inspected supplied no materially comparable exact record. The published text of Example 3.8 was the decisive exact-example comparison and gives the conflicting assignment."
+        ],
+        "reasoning": "The source contains a directly comparable example, not an earlier statement of the corrected law; the catalogue lookup is bounded, not a proof of absence.",
+        "searches": [
+          "Local Resultary lookup for this Franco–Velázquez example, its species-2 correction and the all-rate transient"
+        ]
+      },
+      "rationale": "The general convergence conclusion is covered by the motivating paper; the distinct supported claim corrects its explicit coordinate assignment and proves a nonzero, exact second-order transient for that coordinate at every positive kinetic choice, rather than only a generic or perturbed choice. The printed network and constants, not a relabelled network, are essential to the comparison. No exact earlier result covering this correction and the all-rate coefficient was established in the bounded search.",
+      "residual_risks": [
+        "A poorly indexed correction or equivalent calculation could exist. The focused external search was unhelpful and is not negative evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified a real conflict between the printed species assignment and the printed network and constants",
+          "evidence": [
+            "The example prints X1 reversible with X2+X3 and X3 reversible with X1, then asserts the adapting product is species (3) and m(3)=0."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02344-y",
+          "material_read": "Published PDF p. 32, Example 3.8, extracted offset about 104171",
+          "method": "Lawful publisher PDF text passage",
+          "title": "The adaptation property in non-equilibrium chemical systems",
+          "trigger": "Primary printed example whose adapting coordinate is corrected"
+        },
+        {
+          "assessment": "Convergence is covered; the exact all-positive-rate transient law is not supplied by the compared general results",
+          "evidence": [
+            "The convergence theorem applies under the checked positive-steady-state and conservation-space hypotheses; the other compared statements address perturbed/generic response or robust adaptation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02344-y",
+          "material_read": "Proposition 2.15 (PDF pp. 20–21, offset about 64000), Theorem 3.3 (pp. 23–24), Proposition 3.5 (pp. 31–32)",
+          "method": "Lawful publisher PDF text passages",
+          "title": "The adaptation property in non-equilibrium chemical systems",
+          "trigger": "Broader convergence and adaptation theorems could already cover the remaining claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, steady state and initial-time calculation",
+        "Franco–Velázquez, Example 3.8 and Proposition 3.5"
+      ],
+      "rationale": "This resolves a substantive error in a published example used to illustrate structural adaptation: it changes which species is predicted to reject changes in the final signal level. The exact transient coefficient establishes genuine adaptation, not merely a species with a constant equilibrium, for all rates in the motivating example. That is a useful precise correction even though the underlying general convergence theory remains unchanged.",
+      "residual_risks": [
+        "A single chemostatted network is treated; no all-network all-rate assertion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

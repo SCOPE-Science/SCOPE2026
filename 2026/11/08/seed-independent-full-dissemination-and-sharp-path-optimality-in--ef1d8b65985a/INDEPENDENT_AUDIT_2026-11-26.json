@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:41.835131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55",
+        "Frozen VERIFICATION.md lines 19–26 and verify.py lines 27–110, inspected only",
+        "Independent replay: python3 /workspace/branches/af9f5a56-8e3c-43b0-94a1-33623538e1c9/record5_replay.py (46 exact assertions; path, star and two degree-matched nonisomorphic trees)"
+      ],
+      "rationale": "Root the tree at the seed and pre-sample independent local event sequences at activation. The informed parent stays informed, and an initially ignorant child can first become informed only through its parent. Hence only the parent's own next event changes its count j of informed neighbors while it is active. At count j the next local event is transmission with probability (d−j)/(d−j+α_v j). The root starts at j=0, whose factor is 1, and a nonroot starts at j=1; both stop the success test at j=d. Local success events are functions of disjoint randomness, and induction on the rooted tree identifies their conjunction with full dissemination. For a common α the reciprocal factors with j and d−j pair to (1+αu)(1+α/u)≥(1+α)², strictly for unequal indices. Thus the exponent is sum_v(d_v−1)=n−2 and equality holds exactly for maximum degree at most two. This includes the two-vertex tree, whose product is empty. A separate exact three-state recursion agrees for all seeds on representative shapes and both homogeneous and heterogeneous rates.",
+      "residual_risks": [
+        "The frozen stdout's word 'distinct' is erroneous: 567 tree/profile iterations and 2958 root comparisons count repetitions. In verify.py lines 34–37 the code depends only on k mod n; examining k² and the first difference 3k+9 modulo n gives 4 unique sampled codes at n=6 and 7 at n=7, not 22 each. With all trees through size five this gives 468 distinct labeled tree/profile inputs and 2319 distinct labeled tree/profile/root inputs. This affects the stated breadth of the frozen check, not the proof or the independent exact replay.",
+        "Tree structure, permanent informed status, and source-wise rates constant across neighbors are essential to the argument; the path extremum is for a common ratio only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cayley-tree paper establishes homogeneous infinite-tree survival from a branching process. Karrer–Newman Section II factors a scheduled contact density and a post-infection recovery survival probability. The other works concern forgetting on a lattice or average terminal stifler density in simulations."
+        ],
+        "reasoning": "Regular infinite trees are not the finite irregular setting. Ordinary recovery against infection age is not contact-driven cessation whose hazard changes upon informing a child. No broader inspected result covers that dependence and the finite all-informed extremal comparison.",
+        "searches": [
+          "arXiv:2005.11440, Section 3 and Theorem 2.1",
+          "arXiv:1003.5673, Section II exact tree message passing",
+          "arXiv:1202.4019 and arXiv:1112.2239, model and objective"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.11440, 1003.5673, 1112.2239, 1202.4019",
+        "Resultary 2f9e3a0273aa and the self-hit ef1d8b65985a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Cayley-tree result gives a maximum-offspring factor at α=1 and iid offspring below the root. The frozen proof needs vertex-specific factors, their equality for root and nonroot at each fixed degree and rate ratio, and a strictly sharp paired-factor inequality."
+        ],
+        "reasoning": "The same branching idea suggests the finite extension, and local homogeneous factors are prior. Literal specialization of infinite survival or the SIR product does not supply heterogeneity, root invariance, and the path extremum.",
+        "searches": [
+          "Compare arXiv:2005.11440 Lemmas 3.2 and 3.4 with the local independence and factor pairing in frozen RESULT.md lines 20–55",
+          "Compare the mirrored Resultary SIR root correction with the frozen root/nonroot factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At α=1 the all-children endpoint of Lemma 3.2 equals the frozen local factor. Mirrored record 2f9e3a0273aa gives an all-vertices finite-tree product with an explicit root correction in a lifetime-based SIR process."
+        ],
+        "reasoning": "Full dissemination on a rooted tree is the event of maximum possible offspring at every vertex. The indexed SIR statement concerns the same event but a different law for cessation; its root correction generally depends on the seed degree, unlike the present local-factor cancellation.",
+        "searches": [
+          "Resultary: finite-tree full outbreak/full dissemination and seed dependence",
+          "Maki–Thompson maximum local offspring, Junior–Rodríguez–Speroto Lemma 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only equivalent indexed finding found was ef1d8b65985a itself; 2f9e3a0273aa has different factors. The exact law in Theorem 2.2 is for terminal stifler counts on an infinite regular tree."
+        ],
+        "reasoning": "Neither the terminal-count law nor the different-process indexed formula is an exact source for this finite irregular tree probability or for the path optimizer.",
+        "searches": [
+          "Resultary full-outbreak and finite-tree dissemination entries",
+          "Junior–Rodríguez–Speroto, Theorem 2.2 exact terminal-stifler law"
+        ]
+      },
+      "rationale": "The local all-children probability at α=1 and the branching-process idea have clear prior coverage. The supported distinct contribution is the arbitrary finite-tree product with source independence for vertex-dependent ratios, together with the sharp homogeneous path extremum, not the local competing-clock calculation.",
+      "residual_risks": [
+        "The comparison is bounded to the indexed findings and relevant primary sources examined. Other unlocated finite-tree rumor models may have equivalent ingredients; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct local and methodological predecessor; different global theorems",
+          "evidence": "For d children, the maximum-offspring probability is (d+1)!/(d+1)^(d+1), the frozen nonroot factor at degree d+1 and α=1. Lemma 3.4 instead addresses equivalence of infinite survival with branching-process survival.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.11440",
+          "material_read": "PDF pp. 2–4 (model, Theorems 2.1–2.2), p. 7 Lemma 3.2 equation (3.2), pp. 8–9 Lemma 3.4 (OA offsets 7000–12846, 15736, 22000 and 27000–33738)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "The Maki–Thompson rumor model on infinite Cayley trees",
+          "trigger": "Same local contact-stifling mechanism at α=1"
+        },
+        {
+          "assessment": "Different cessation mechanism; not a general theorem covering this model",
+          "evidence": "Transmission at delay τ uses a contact density s(τ) multiplied by the survival of an individual recovery duration with density r. In the frozen CTMC, cessation depends on neighbor states and successful transmissions, not an independent recovery duration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5673",
+          "material_read": "PDF p. 2, §II opening model, contact/recovery kernel and message construction (offsets 9913–14161)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Message passing approach for general epidemic models",
+          "trigger": "Plausible general exact dynamics on trees"
+        },
+        {
+          "assessment": "Different statistic and setting",
+          "evidence": "The per-seed statistic is an average final stifler density from simulations on networks, not an exact probability for all vertices of a finite tree.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.2239",
+          "material_read": "PDF p. 3, model/simulation and spreading capacity discussion (offsets 13000–20470)",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Absence of influential spreaders in rumor dynamics",
+          "trigger": "Comparisons of alternative seeds for a stifling rumor"
+        },
+        {
+          "assessment": "Different dynamics and objective",
+          "evidence": "Spreaders and stiflers may forget at rate one; the results are extinction/survival on a lattice, not full coverage with permanent informed status.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.4019",
+          "material_read": "PDF pp. 1–2, abstract and model (offsets 0–5946 and 5983–7614)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "A spatial stochastic model for rumor transmission",
+          "trigger": "Neighbor-mediated stifling in rumor transmission"
+        },
+        {
+          "assessment": "Real overlap in event and factorization, not equivalent dynamics or conclusion",
+          "evidence": "The lifetime-based SIR model gives product_v m_{d_v−1} times m_{d_s}/m_{d_s−1}, generally retaining a seed factor. The same-day date is not priority evidence.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-full-outbreak-source-ranking-depends-only-on-degree-on-every-hom--2f9e3a0273aa",
+          "material_read": "Mirrored Finding and Assumptions and scope (offsets 0–6209)",
+          "method": "Local Resultary search and mirrored primary text",
+          "title": "Full-outbreak source ranking depends only on degree on every homogeneous tree",
+          "trigger": "Closest distinct indexed finite-tree all-vertices product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–17 and 19–55",
+        "Cayley-tree local law and indexed lifetime-SIR product compared above"
+      ],
+      "rationale": "The full-coverage observable yields an exact finite-tree invariant despite vertex-dependent contact and cessation rates and root-dependent child counts. At common ratio it both collapses the topology to the degree multiset and completely identifies the optimal shape, with strict loss at any branch vertex. This answers a natural seed-choice and topology question that mean-reach and infinite-survival results do not settle.",
+      "residual_risks": [
+        "No extremum for heterogeneous ratios or claim for mean reach or arbitrary networks follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

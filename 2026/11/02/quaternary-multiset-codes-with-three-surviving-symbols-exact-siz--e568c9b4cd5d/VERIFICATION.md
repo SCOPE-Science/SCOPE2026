@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproduction and logical limits
 
-Run `python verify.py` in a directory containing the verifier. It requires Python 3.9 or newer, but no third-party packages or external data. The verifier constructs every nonnegative four-part composition of each length from five to eight, compares pairwise multiset-intersection compatibility to disjoint three-symbol deletion shadows, enumerates every size-optimal compatible subset via increasing-index bitmask recursion, and independently recounts the same subsets from exceptional-word selections and four heavy-coordinate categories. It then evaluates fixed-point counts for all 24 permutations of the four-symbol alphabet and recomputes the orbit counts by Burnside averaging. It checks the four-constant construction at further lengths nine through seventeen and ends with `QUATERNARY_THREE_SURVIVOR_VERIFICATION_OK` on success.
+Run `python verify.py` using Python 3.10 or newer. No third-party packages or external data are needed. For lengths five through eight, the verifier lists every nonnegative four-part composition and verifies that disjoint three-symbol deletion shadows agree with the pairwise intersection test. It enumerates all codebooks of the known optimal sizes by increasing-index recursion, recounts them using exceptional words and heavy-coordinate pools, and checks fixed-point counts under the 24 alphabet permutations. The corresponding Burnside averages give the orbit counts. The ordinary reproducibility log is `verification_output.txt`.
 
-The mathematical proof handles all \(n\ge5\), including lengths beyond the finite verification range. The finite programs verify only their stated instances and make no independent publication-priority determination. The optimal-cardinality proof is algebraic-combinatorial; the orbit counts require finite exhaustive enumeration as described in the proof and executable code. The recorded `verification_output.txt` is an ordinary reproducibility log, not an independent audit certificate.
+The code also checks sample lengths beyond eight for the known optimal-size argument. These extra tests do not extend the optimizer census beyond length eight. The labelled census has a separate combinatorial derivation in `RESULT.md`; the orbit census relies on finite exhaustive enumeration.

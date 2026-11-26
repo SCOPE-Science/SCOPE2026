@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:58:08.519199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, One-coordinate algebra, Case table and Indispensability of mixing",
+        "Frozen VERIFICATION.md and check_eight_moments.py (read only; numerical valid-input diagnostics, not a complete feasibility implementation)",
+        "Replay: python3 -B /workspace/review_evidence/torus_small_exact.py"
+      ],
+      "rationale": "For two effective projected nodes the Hankel determinant is c_1 c_2(u_1-u_2)^2, regardless of the total mass. The order-two recurrence gives exactly the displayed sum and product of nodes by Cramer's rule; the weights then come from an invertible Vandermonde system. A single effective node has nonzero total mass; a zero marginal has all four moments zero. Distinct two-dimensional atoms must separate along at least one of the two coordinates, so if neither axis has two effective nodes a feasible measure is one atom or zero. When both axes separate, unequal weights fix the pairing, or equal weights give two mixed moments differing by the nonzero product c(z_1-z_2)(w_1-w_2). A one-node partner fixes the common coordinate. A vanished partner forces opposite weights and a common coordinate; the first moment on the separating axis is then nonzero and the mixed ratio recovers the hidden coordinate. Invalid marginal discriminants, coefficients and moduli can be rejected, and recomputing all eight moments of the candidate establishes feasibility for arbitrary data. The equal-weight swap proves indistinguishability by every axial sample. Independent Gaussian-integer grid enumeration had 3081 distinct full signatures and 2757 distinct axial signatures, with every feasible marginal type present.",
+      "residual_risks": [
+        "Exact input and arithmetic model; no noisy-data stability or global eight-sample minimality follows.",
+        "The bounded grid is a check, not the injectivity proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 10 establishes identifiability; the same paper's stated reconstruction theorem uses a larger set. Sauer gives multivariate Hankel interpolation with finite truncations. Cuyt–Lee give the Prony line method and the shifted Vandermonde equations (7)–(8), followed by division by the unshifted weight. Kunis et al. study a distinct Toeplitz approach."
+        ],
+        "reasoning": "The decisive broader construction is the shift with a separating base direction, not the larger reconstruction set of the identifiability paper, nor an assertion that multivariate Prony can always use these specific indices.",
+        "searches": [
+          "arXiv:2107.10348 Corollary 10 and Theorem 11",
+          "arXiv:1603.03944 Algorithm 1",
+          "arXiv:1610.06329 equations (6)–(8) and §§3–4",
+          "arXiv:1506.00450 introduction and separation discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Cuyt–Lee arXiv:1610.06329",
+        "Diederichs–Kolountzakis–Papageorgiou arXiv:2107.10348",
+        "Sauer arXiv:1603.03944",
+        "Kunis et al. arXiv:1506.00450",
+        "Resultary fdf20826bc61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a valid two-atom input at least one axial 2-by-2 Hankel matrix is rank two since one coordinate separates. If it is x, take Δ=e_1 and δ=e_2 in (7)–(8). Ordinary Prony on (0,0),(1,0),(2,0),(3,0) recovers z_j and c_j. Using (0,1),(1,1), (8) solves d_1+d_2=Y_1, z_1 d_1+z_2 d_2=H. It gives d_j=c_j w_j individually and division recovers w_j. There is no assumption that w_1 differs from w_2 or that Y_1, Y_0 are nonzero. If y separates, switch x and y; the union of inputs is precisely Ω.",
+          "The phase variables exp(Φ) and exp(Φ_shift) suffice as torus points, so the paper's subsequent logarithmic recovery and its Nyquist-strip restriction introduce no additional requirement. When neither axis separates, the at-most-two model leaves just zero or a singleton. Unit-modulus and eight-moment residual validation makes this recovery a membership test."
+        ],
+        "reasoning": "This is a direct specialization with a rank-based choice between two already available orientations. The particular case table and weight-pairing implementation are a reformulation, not a new constructive result. Axis-only nonidentifiability is the elementary ambiguity of pairing two equal-weight marginals.",
+        "searches": [
+          "Cuyt–Lee arXiv:1610.06329 §3, eqs. (7)–(8), PDF offsets 12500–18998",
+          "Frozen RESULT.md, case table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The eight indices are Γ_4^2. The Cuyt–Lee variables on the torus can be taken to be the coordinate exponentials themselves, not choices of their logarithms. The closest distinct index hit fdf20826bc61 treats positive measures on one circle and infinite lacunary frequencies."
+        ],
+        "reasoning": "The hyperbolic cross gives exact equivalence for uniqueness; identification shifts expressed directly in phases give a constructive comparison. The one-circle indexed hit has different domain, weights and data.",
+        "searches": [
+          "Resultary: constructive eight-sample inversion of two complex atoms on the two-torus, hyperbolic cross, axial marginal cancellation",
+          "Cuyt–Lee, §§2–3 identification shifts",
+          "Diederichs–Kolountzakis–Papageorgiou, Theorem 9 and Corollary 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact eight-index algorithm hit in the inspected Resultary results. The assigned result's match is itself, not prior evidence. The exact eight-sample index set needs no database census: it is the union of the two six-sample choices obtained by interchanging the axes in (7)–(8)."
+        ],
+        "reasoning": "The index set is explicit and finite; matching the equations' required indices is stronger evidence of coverage than a missing title or table.",
+        "searches": [
+          "Resultary constructive eight-sample inversion comparison above",
+          "arXiv:2107.10348 Theorem 9",
+          "arXiv:1610.06329 eqs. (7)–(8) with n=d=2"
+        ]
+      },
+      "rationale": "Hyperbolic-cross uniqueness is already known, as the record acknowledges. The explicit inversion is also mechanically obtained from the existing Prony plus identification-shift equations: the fixed eight samples supply the two possible coordinate orderings of their six-sample distinct-projection design. Rank chooses a separating axis for every genuine two-atom measure. No collision-disentangling theorem or extra sampling is required once that axis is chosen, even if the other marginal completely cancels. The frozen pair-matching presentation is different but the constructive guarantee and feasibility follow directly.",
+      "residual_risks": [
+        "The general literature query did not complete; the FAIL rests on inspected original constructive equations and the explicit reduction, not an inaccessible or missing hit.",
+        "No conclusion on the least possible number of arbitrary Fourier indices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly yields the constructive guarantee from the fixed union of the two coordinate orientations",
+          "evidence": [
+            "Under distinct base phases, shifted samples give a Vandermonde system for A_ji=α_j exp(Φ_ji); dividing yields the shifted phase already paired to the base phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.06329",
+          "material_read": "Prony base samples, identification shifts §3 eqs. (7)–(8), and §4 collision discussion; offsets 12500–18998 include the decisive equations and phase recovery",
+          "method": "Original OA PDF passages and analytic specialization",
+          "title": "Multivariate exponential analysis from the minimal number of samples",
+          "trigger": "Closest constructive precedent using a mixed sample"
+        },
+        {
+          "assessment": "Covers uniqueness, but the stated constructive theorem uses more samples",
+          "evidence": [
+            "Γ_{2N}^d identifies at most N atoms, and the corollary proof is explicitly distinguished from a reconstruction algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.10348",
+          "material_read": "Theorem 9 p. 11, Corollary 10 and Theorem 11 pp. 12–13",
+          "method": "Original OA PDF passages",
+          "title": "How many Fourier coefficients are needed?",
+          "trigger": "Exactly the frozen hyperbolic cross"
+        },
+        {
+          "assessment": "General background, not relied on for an exact eight-sample guarantee",
+          "evidence": [
+            "Uses shifted Hankel samples over interpolation indices and finite truncations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.03944",
+          "material_read": "Hankel setup p. 2 and Algorithm 1 p. 13",
+          "method": "Original OA PDF passages",
+          "title": "Prony’s method in several variables: symbolic solutions by universal interpolation",
+          "trigger": "General symbolic reconstruction"
+        },
+        {
+          "assessment": "Different Toeplitz sampling and stability framework",
+          "evidence": [
+            "Describes multilevel Toeplitz/kernel recovery and separation-dependent stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.00450",
+          "material_read": "Opening and separation discussion p. 8",
+          "method": "Original OA PDF passages",
+          "title": "A multivariate generalization of Prony’s method",
+          "trigger": "Related multivariate recovery design"
+        },
+        {
+          "assessment": "Different setting and outcome",
+          "evidence": [
+            "Positive two-atom measures on a circle, infinite lacunary frequency sequences, and Kaczmarz residuals."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-metric-category-and-dimension-zero-phase-diagram-for-lacunary--fdf20826bc61",
+          "material_read": "Original indexed Finding at offset 0",
+          "method": "Bounded indexed original text inspection",
+          "title": "A metric, category and dimension zero phase diagram for lacunary Fourier data",
+          "trigger": "Closest distinct indexed two-atom Fourier hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and case table",
+        "Cuyt–Lee eqs. (7)–(8)",
+        "Diederichs–Kolountzakis–Papageorgiou Corollary 10"
+      ],
+      "rationale": "The problem of a fixed exact torus sampling design is natural, and the algorithm can be a useful exposition. But its efficiency and degeneracy guarantees for this eight-sample design follow from the existing shift construction, an elementary branch choice, and residual checking. Neither a nontrivial new inversion theorem nor a global minimality result remains; the two-weight swap is a direct marginal ambiguity.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:48:38.331058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5 of proof",
+        "VERIFICATION.md, verify_affine.py, verify_affine_cpp.cpp and verify_output.txt (inspected, not executed)"
+      ],
+      "rationale": "The point localization follows by enumerating endpoint types: point–point intervals have no intermediate points; point–line and line–line intermediate points lie on a selected endpoint line. Thus q²≤a+qb. At size q, equality forces q disjoint lines, a parallel class; length-four intervals between two such lines cover their points and each transversal. At size q+1 for q≥3, at least q lines are selected. An incomplete class containing s≥2 selected lines leaves a missing class line with at most q+1−s covered points. With q pairwise intersecting lines, their union plus one point covers at most q²−q+2<q²; with q+1 pairwise intersecting lines, no unselected line is on a shortest path. This proves the extension classification and count without double counting. At q=2 identify line vertices with subdivided edges of K4 on the four points. Intersecting selected lines AB and AC force the selected point to be D, and the resulting intervals miss line BC. A selected line AB with points C,D covers CD by their connecting geodesic and all four cross lines by the point–line geodesics. These give exactly six minimal triples in addition to 24 extensions. Distinct classes are disjoint as vertex sets, so the exchange threshold and graphs follow directly.",
+      "residual_risks": [
+        "The finite checks concern coordinate examples; the proof only assumes the stated axioms of an existing plane. The exclusion of minimal sets is only at cardinality q+1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projective statement has g=2q, bases with q point and q line vertices indexed by flags, and connected threshold min(q+1,2q−2)."
+        ],
+        "reasoning": "Deleting the line at infinity and its points changes parallel-line distance from two to four. The projective basis formula is not an induced-subgraph geodetic theorem and does not imply the affine all-line bases or the q+1 classification.",
+        "searches": [
+          "Projective-plane geodetic bases and threshold, mirrored RESULT.md",
+          "General geodetic-set and affine/projective-plane geodetic graph literature"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: Geodetic bases of finite projective-plane incidence graphs flag rigidity simultaneous exchange threshold 25deca33c37d",
+        "2026/10/18/SCOPE-geodetic-bases-of-finite-projective-plane-incidence-graphs-flag--25deca33c37d",
+        "2026/11/22/SCOPE-seventy-two-minimum-edge-guards-and-a-four-swap-mobility-thresho--1a2a97eb3abe",
+        "https://bibliotekanauki.pl/articles/743733.pdf",
+        "https://arxiv.org/pdf/1509.04944",
+        "https://arxiv.org/pdf/2308.08970"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both closest full statements specify different coverage or different distances. The affine parallel-class geodetic set is not even a dominating vertex set: an unselected line has no selected point neighbor."
+        ],
+        "reasoning": "The exchange graph in the frozen result is an immediate consequence once the basis classification is known; it is not a separate novelty claim based on the general exchange definition. The affine basis and near-minimal classifications are not inherited from the compared results.",
+        "searches": [
+          "Projective geodetic result, Finding and exchange definition",
+          "Mirrored AG(2,3) edge domination theorem, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chartrand–Harary–Zhang §3 distinguishes inclusion-minimal from minimum. Hon et al. p. 1 uses shortest-path intervals in the ordinary definition. Stober–Weiß arXiv:2308.08970 uses planes in constructions of geodetic graphs, a different property."
+        ],
+        "reasoning": "The ordinary interval-cover notion is the same as in the general geodetic-set literature. A geodetic graph or a strong-geodetic cover is not equivalent: a single selected length-four path per parallel pair can cover at most one nonclass line, whereas an ordinary interval contains many such lines.",
+        "searches": [
+          "Chartrand–Harary–Zhang, Geodetic Sets in Graphs, §3",
+          "Hon et al., arXiv:1509.04944",
+          "Focused graph/design search for affine-plane incidence geodetic number and geodetic sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact affine geodetic entry is the assigned record itself. The distinct order-three graph entry counts size-seven edge-dominating matchings, not geodetic vertex sets."
+        ],
+        "reasoning": "Matching the underlying affine graph or the number 72 is not an invariant match: the earlier comparison counts selected edges satisfying edge-neighborhood cover, not size-four sets satisfying vertex interval cover.",
+        "searches": [
+          "Resultary title and identifier search for projective/affine incidence geodetic bases",
+          "Catalogue hit on the order-three affine incidence graph, 1a2a97eb3abe"
+        ]
+      },
+      "rationale": "The supported distinct result is the affine-plane basis classification and sharp near-minimum rigidity including the exceptional order two. The related projective flag bases, geodetic-set definitions, and domination/exchange results do not supply that classification.",
+      "residual_risks": [
+        "Harary–Loukakis–Tsouros full text was not retrievable via the cited access points. The unnamed affine vertex-domination source was not independently identified. The positive comparison is to the identified primary and catalogue text, not an exhaustive priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but not covering",
+          "evidence": [
+            "Flag bases and different threshold in the projective incidence graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-geodetic-bases-of-finite-projective-plane-incidence-graphs-flag--25deca33c37d/RESULT.md",
+          "material_read": "Finding, offsets 126–1764",
+          "method": "Local mirror",
+          "title": "Geodetic bases of finite projective-plane incidence graphs: flag rigidity and a sharp simultaneous-exchange threshold",
+          "trigger": "Closest same-invariant plane analogue"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The theorem is for edge-dominating flag sets and their exchanges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-seventy-two-minimum-edge-guards-and-a-four-swap-mobility-thresho--1a2a97eb3abe/RESULT.md",
+          "material_read": "Finding, offsets 120–1367",
+          "method": "Local mirror",
+          "title": "Seventy-two minimum edge guards and a four-swap mobility threshold in the ternary affine-plane incidence graph",
+          "trigger": "Exact same order-three graph and a threshold census"
+        },
+        {
+          "assessment": "Background definitions, no affine classification in the inspected passage",
+          "evidence": [
+            "Inclusion-minimal and minimum are distinguished."
+          ],
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/743733.pdf",
+          "material_read": "§3, p. 134, offsets 13200–14864",
+          "method": "OA PDF passage",
+          "title": "Geodetic Sets in Graphs",
+          "trigger": "Possible coverage by classical minimal-set theory"
+        },
+        {
+          "assessment": "Background notion of geodetic number",
+          "evidence": [
+            "The definition uses graph shortest-path intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.04944",
+          "material_read": "p. 1, offsets 3250–4412",
+          "method": "OA PDF passage",
+          "title": "Convexities in Some Special Graph Classes—New Results in AT-free Graphs and Beyond",
+          "trigger": "General graph-class interval methods"
+        },
+        {
+          "assessment": "The inspected construction concerns a different use of geodetic",
+          "evidence": [
+            "Constructions of graphs with unique geodesics do not classify interval-covering sets of the given incidence graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.08970",
+          "material_read": "Introduction p. 2, around offset 6000",
+          "method": "OA PDF passage",
+          "title": "Geodetic Graphs: Experiments and New Constructions",
+          "trigger": "Public search hit for geodetic objects arising from affine/projective planes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen basis and near-minimum theorems",
+        "Mirrored projective-plane comparison"
+      ],
+      "rationale": "The result identifies the full minimum family and the first possible near-minimum obstruction in a natural family of incidence graphs. The q+1 gap is an actual extension/classification result, not merely the evaluation of one small graph, and the six order-two triples show exactly where that rigidity first fails.",
+      "residual_risks": [
+        "Higher inclusion-minimal cardinalities and more general block designs are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

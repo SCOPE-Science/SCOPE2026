@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Exact checks and limits
+# Independent mathematical audit
 
-The files `states.json` (120 explicit records) and `verify.py` (Python 3 standard library only) reproduce the complete finite-state certificate. Execute `python3 verify.py` from any directory; it locates the table beside the script.
+## correctness
 
-The checker verifies 120 distinct and reachable records, the seed, both transitions at every state (240 exact integer edges), the histogram of coordinate spreads `0:10, 1:100, 2:10`, and 31 distinct first coordinates. Because both transformations preserve the finite set and every integer index descends by binary division to the seed, closure proves the unrestricted theorem without an index cutoff.
+PASS
 
-The separate direct polynomial recurrence check examines all indices from 0 through 12000, asserts five-class discrepancy at most two, and checks the exact polynomial and sharp vector at index ten. That secondary numerical check is corroborating evidence, not the proof of the infinite statement.
+Parity forces the lowest digit to be 1 for 2k+1 and allows 0 or 2 for 2k, giving the two stated recurrences and the seed (t,1). The adjacent evaluations follow the stated transitions for every positive index by halving. In the fifth-cyclotomic quotient the coefficients relative to the fifth bucket determine the spread, since the only relation among the five basis powers is their sum. I independently constructed the orbit in a five-integer array representation modulo all-ones, with cyclic rotation for multiplication by t and subtraction of the minimum for normalization. `python3 /workspace/independent_replay.py hyperbinary` checks the 120 exact states against the frozen table, both successors of each, histogram (10,100,10), and 31 distinct first coordinates. Binary-index induction, not a bounded run over indices, proves the full bound. At m=0 the zero expansion is the only one; direct digit enumeration at m=10 gives lengths 2,3,3,4,5 and residue counts (1,0,1,2,1). I separately checked the all-fence transfer without relying on access to the cited corollary: binary digits b_i and hyperbinary digits e_i are linked by e_i+c_i=b_i+2c_{i+1}, with 0/1 carries and boundary carries zero. For b_i=0 the allowed interior carry relation is c_i≤c_{i+1}, and for b_i=1 it is c_i≥c_{i+1}. The length equals the binary popcount plus the number of nonzero carries. Choose an even binary word with leading 1 and trailing 0: both boundary inequalities are automatic, and the internal bits realize any prescribed path of order-ideal membership inequalities. Thus every oriented path occurs (possibly using a dual orientation convention), and the resulting monomial shift, or shift plus exponent reversal in the cited correspondence, preserves spread. The empty fence has one ideal. Digits 1010 yield the three-vertex fence with two minima below a common maximum and ideal counts (1,2,1,1,0), attaining spread two.
 
-Expected successful output:
+## originality
 
-```
-EXACT_120_STATE_CLOSURE_AND_REACHABILITY_PASS 120
-ALL_240_TRANSITIONS_CLOSED_PASS
-FIFTH_RESIDUE_SPREAD_HISTOGRAM_PASS {0: 10, 1: 100, 2: 10}
-INDEPENDENT_COEFFICIENT_RECURSION_PASS 12001
-SHARPNESS_AT_TEN_PASS
-VERIFY_OK
-```
+PASS
 
-The mathematical proof also uses a previously published hyperbinary/fence ideal correspondence; this verifier does not independently derive that literature result. The bounds do not classify all equality indices or assert behavior for other moduli. Self-review was completed, with historical-priority uncertainty recorded; independent external validation was not performed.
+The distinct claim is the exact uniform spread at most two for all five length residues and its sharp all-fence counterpart, with an explicit exact orbit. The fence/length correspondence and the underlying prospect of finite fifth-root evaluations are not credited as new. In particular, a substantial identified prior group-finiteness theorem already explains existence of a finite specialized orbit, but its available statement neither calculates the normalized coefficient spread nor gives sharpness or the 120-state histogram. Prior statements about modulus three, modular Stern values, and zeros of q-rational denominators are not equivalent to the sharp mod-five length claim. The strongest matching Resultary scientific summary is the frozen record itself.
+
+## value
+
+PASS
+
+The natural length-refined count, not just the Stern total, has an exact uniform bound across all indices. The sharp spread quantifies a gap that group finiteness alone leaves open and gives the same constraint for every rank distribution of an arbitrarily oriented fence. The explicit exact orbit provides a short reusable certificate for the unbounded family, and m=10 is a genuine extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

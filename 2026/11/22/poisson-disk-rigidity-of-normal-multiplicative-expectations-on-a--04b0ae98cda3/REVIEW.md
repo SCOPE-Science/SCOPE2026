@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The key nonstandard step is exact irrational-commutation rigidity: for every positive first Fourier index, multiplicativity of a normal state forces its moment to vanish. Positivity removes negative first indices; powers of the sole surviving analytic generator determine the remaining moments. A boundary first moment would require a normal state on the diffuse circle algebra concentrated at a Haar-null point, an impossibility. Norm-convergent Poisson series give one bounded invertible density for every interior parameter; normality and ultraweak Fourier density give uniqueness. The entropy identity follows from harmonic Poisson integration of logarithms; supplementary quadrature checks are not substituted for proof.
+## correctness
 
-## Originality — PASS, with bibliographic qualification
-Ji [1] explicitly proves an existence family for real nonnegative parameters and the Arveson-finiteness counterexample. Complex phase rotation by itself is routine. The independently compared statement is exhaustive classification of **all** normal multiplicative expectations (including the absence of nonfaithful normal cases), forced by irrational commutation and positive normal Fourier extension; this is not stated in [1]. Blecher–Labuschagne [2] establishes abstract normal representing-measure existence, not this concrete complete moduli classification. General character theory may yet give a broader implication, which is the main residual bibliographic risk. The hyperbolic Cauchy/Poisson divergence formula is established classical material [3] and is not separately claimed as novel.
+PASS
 
-## Mathematical value — PASS
-The motivating 2026 construction answers an existence problem by producing uncountably many expectations, leaving their entire normal moduli unresolved. Classifying every admissible normal expectation is a natural invariant of precisely that operator algebra; it settles the uniqueness and completeness of the family, and shows positivity and normality rule out all boundary phenomena rather than merely supplying examples. The exact entropy identifies a useful quantitative geometry on those fully classified states, without claiming that the underlying classical identity is new.
+For each n>0 and any m, both V and U^n V^(m-1) belong to A. Their two products differ by the nontrivial scalar lambda^(-n) but have equal values under a scalar multiplicative functional. The transverse Fourier coefficients vanish, including negative n by the adjoint relation; powers and adjoints of V give the remaining moments. The trace on W*(V) has Haar spectral law, so equality in the first-moment norm bound would require a normal state to charge a zero spectral projection at one point. For interior zeta the displayed density has the correct conjugate placement: the coefficient of V^(-m) is zeta^m for m>=1. Its integral is one and its positive lower bound proves faithfulness. Analytic polynomial multiplicativity extends by separate ultraweak continuity in each argument, and density of all Laurent monomials gives uniqueness among normal extensions. For entropy, log|1-conj(w)v| is a harmonic boundary datum, and its Poisson expectation at zeta is log|1-conj(w)zeta|; substitution yields the specified symmetric ratio with equality only at zeta=eta. The supplied quadrature script was inspected, not rerun; the proof does not need finite numerical evidence.
 
-## Closest literature and limits
-Primary comparisons: Ji arXiv:2611.17636v1, Theorem 2.1 and construction (2.9)–(2.16); Blecher–Labuschagne arXiv:2101.04619, introduction and generalized Hoffman–Rossi results; Nielsen–Okamura arXiv:2101.12459, Section 3 on wrapped-Cauchy divergences. Remaining risks include a more general older characterization of normal characters of ordered crossed-product/Dirichlet algebras. Nonnormal expectations are out of scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is exhaustiveness for all normal multiplicative scalar expectations and the consequence that all are faithful, not existence along complex radial rotations or the classical entropy identity. Ji constructs the same algebra and radial expectations but does not establish the classification in the relevant construction and theorem. The checked broader representing-measure framework extends characters already given on the analytic algebra; it does not identify them all there.
+
+## value
+
+PASS
+
+For the explicit counterexample algebra, the natural next question is whether the exhibited expectations exhaust the possibilities and whether nonfaithful normal examples are hidden. The Fourier rigidity and Haar-null boundary argument answer both exactly and identify each density. That complete classification is useful independently of the known entropy identity; rotating the old construction or restating Cauchy divergence alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

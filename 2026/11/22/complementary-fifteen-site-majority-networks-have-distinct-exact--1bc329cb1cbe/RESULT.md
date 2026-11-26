@@ -1,58 +1,50 @@
 # Complementary fifteen-site majority networks have distinct exact attraction-basin spectra
 
 ## Finding
-Let \(\mathcal E=\binom{\{1,2,3,4,5,6\}}{2}\), so \(|\mathcal E|=15\). The *triangular* graph \(T(6)=L(K_6)\) joins two different elements of \(\mathcal E\) when they intersect; its complement, the *Kneser* graph \(KG(6,2)\), joins them when they are disjoint. On each graph run synchronous binary open-neighbor strict majority with incumbent retention on a tie. For each initial configuration \(x\), let \(\tau(x)\) be the first nonnegative \(t\) such that \(F^{t+2}(x)=F^t(x)\), and let \(p(x)\in\{1,2\}\) be the eventual least period.
 
-For **both** graphs, \(F^5=F^3\) on the entire \(2^{15}\)-state space and the sharp maximum entrance time is three. The *complete* first-entry/period populations are:
+Consider the 15 two-element subsets of \(\{1,\ldots,6\}\), indexed lexicographically from zero. On the triangular graph \(T(6)=L(K_6)\) two distinct sites are neighbors if their subsets intersect. At each update, all sites simultaneously adopt the strict majority of their open neighbors, retaining their own opinion on a tie. Write \(F\) for this map, \(t\) for the first time the state lies on its eventual periodic orbit, and \(p\) for that orbit's least period. The basin of a **temporal** orbit includes all labelled states reaching it, including the states on the orbit itself; no quotient by spatial symmetries is taken.
 
-| graph | \((p,t)=(1,0)\) | \((1,1)\) | \((1,2)\) | \((1,3)\) | \((2,0)\) | \((2,1)\) |
+**Triangular-graph transient census.** The sharp maximum entrance time is three: \(F^5=F^3\) and \(F^4\ne F^2\) as maps. The complete labelled first-entry counts are
+
+| \((p,t)\) | \((1,0)\) | \((1,1)\) | \((1,2)\) | \((1,3)\) | \((2,0)\) | \((2,1)\) |
 |---|---:|---:|---:|---:|---:|---:|
 | \(T(6)\) | 164 | 8544 | 15600 | 6660 | 1080 | 720 |
-| \(KG(6,2)\) | 502 | 4426 | 13680 | 5040 | 5340 | 3780 |
 
-All omitted pairs \((p,t)\) have population zero. In particular there are 164 fixed configurations and 540 distinct primitive two-orbits for \(T(6)\), versus 502 fixed configurations and 2670 primitive two-orbits for \(KG(6,2)\).
+All other entries are zero. The complete orbit-basin spectrum on \(T(6)\) is
 
-Define the basin of a temporal orbit \(O\) to be \(B(O)=\{x:\text{the forward orbit of }x\text{ eventually reaches }O\}\), including its periodic configurations. The complete **orbit-basin size spectrum** is:
+| Least period | Basin size | Number of temporal orbits |
+|---:|---:|---:|
+| 1 | 1 | 120 |
+| 1 | 22 | 30 |
+| 1 | 236 | 12 |
+| 1 | 13678 | 2 |
+| 2 | 2 | 180 |
+| 2 | 4 | 360 |
 
-| graph | least period | basin size | number of distinct attractor orbits |
-|---|---:|---:|---:|
-| \(T(6)\) | 1 | 1 | 120 |
-| \(T(6)\) | 1 | 22 | 30 |
-| \(T(6)\) | 1 | 236 | 12 |
-| \(T(6)\) | 1 | 13678 | 2 |
-| \(T(6)\) | 2 | 2 | 180 |
-| \(T(6)\) | 2 | 4 | 360 |
-| \(KG(6,2)\) | 1 | 1 | 360 |
-| \(KG(6,2)\) | 1 | 10 | 140 |
-| \(KG(6,2)\) | 1 | 10944 | 2 |
-| \(KG(6,2)\) | 2 | 2 | 2460 |
-| \(KG(6,2)\) | 2 | 20 | 210 |
+The two basins of size 13678 belong to consensus. Exactly \(1800/32768\) of the initial states, under the uniform measure, reach a primitive two-cycle.
 
-Thus an unbiased uniformly random initial configuration reaches an oscillating attractor with respective probabilities \(1800/32768\) and \(9120/32768\), whose ratio is \(76/15\); the complementary graphs have equal sharp settling times but markedly unequal oscillatory basins. Both giant fixed basins belong to the two consensus configurations: sizes \(13678\) and \(10944\) on the respective graphs.
+**Comparison to the published complementary baseline.** The complement is \(KG(6,2)\), where neighbors are disjoint subsets. For this graph the result in [1] already established the entire basin and first-entry census under the same rule: sharp entrance time three, consensus basin size 10944 for each consensus state, and 9120 of 32768 initial states reaching a primitive two-cycle. Thus the complement has the **same sharp depth** as \(T(6)\) but \(76/15\) times its probability of eventual oscillation. The Kneser census is used as prior data, not claimed as new; the comparison rests on resolving the transient and basin structure for the triangular graph.
 
-## Assumptions and scope
-The vertices are all unordered two-element subsets of \(\{1,\ldots,6\}\), indexed lexicographically beginning with index zero for \(\{1,2\}\). Each state \(x\in\{0,1\}^{15}\) gives one opinion per graph vertex. For any graph vertex \(e\), write \(N(e)\) for its open neighborhood and \(d\) for the common degree (eight for \(T(6)\), six for \(KG(6,2)\)). The simultaneous update at \(e\) is one if \(2\sum_{f\in N(e)}x_f>d\), zero if the strict reverse inequality holds, and \(x_e\) in case of equality. There are no random updates or tie coin flips. All counts concern labelled configurations with the fixed vertex indexing. An attractor is an individual temporal orbit, not an orbit under spatial graph automorphisms.
+## Exact finite proof
 
-## Proof
-The claim is a **finite, exhaustive exact-arithmetic theorem**, not an extrapolation from samples. The supplied `verify_iterates.py` enumerates the full interval of binary integers from zero to \(2^{15}-1\), which bijects with all configurations through their fifteen binary digits. For each ordered pair \((e,f)\), it includes \(f\) in \(N(e)\) exactly when the two root edges meet, or exactly when they do not meet, according to the graph. It then computes every output bit with the displayed integer majority inequality, with ties retaining the input bit. No approximate arithmetic is used.
+For a state \(x\), let \(d_i\) be the degree of vertex \(i\) in the spanning subgraph of \(K_6\) whose edges are the sites with opinion one. Then the number of neighbors of site \(ij\) with opinion one is \(d_i+d_j-2x_{ij}\): only the site itself is counted twice, and it is not its own neighbor. There are eight open neighbors. Adding the incumbent as one vote converts strict majority with retention at a tie to an integer threshold, hence
 
-For each of the \(32768\) initial configurations the program calculates the six exact iterates \(F^0(x),\ldots,F^5(x)\) and checks \(F^5(x)=F^3(x)\). It obtains the least entrance time by testing \(F^{t+2}(x)=F^t(x)\) consecutively for \(t=0,1,2,3\); on entry, the least period is one if the next state is identical and two otherwise. It increments a frequency table for the pair \((p,t)\). Since \(F^5=F^3\), the two states at times three and four form the eventual orbit; their smaller integer identifier provides an unambiguous orbit key. Tallying all \(32768\) initial states against this key yields the orbit basins and their complete multiplicities. The script asserts every tabulated entry and confirms both total basin and first-entry mass equal \(32768\).
+\[
+F(x)_{ij}=\mathbf 1\{d_i+d_j-x_{ij}\ge5\}.
+\]
 
-Independently, `verify_paths.cpp` reconstructs the graph using integer-pair adjacency (without the Python bitmask-neighborhood builder), computes the same update function through loops over neighbor lists, and traverses each functional-graph component until a previously seen state is reached. It identifies cycle lengths and orbit representatives, back-propagates entrance depths and basin identifiers along all predecessor paths, and asserts the two displayed frequency tables and the sharp entrance bound. This is a separate whole-space cycle-decomposition method, rather than a re-expression of the two-step iterate test.
+The enumeration domain is the entire integer interval \([0,32767]\), whose bits biject with the labelled configurations. The transition computed by this formula can equally be computed by storing the 15 neighbor masks. For each state compute \(x_0=x\) and \(x_{j+1}=F(x_j)\) through \(x_5\). Verify \(x_5=x_3\); then the first \(j\in\{0,1,2,3\}\) for which \(x_{j+2}=x_j\) is its entrance time, and the least period is one if \(x_j=x_{j+1}\) and two otherwise. The integer \(\min(x_3,x_4)\) identifies the resulting orbit uniquely: two different orbits of a function do not share a state. Count one state per entry in the resulting \((p,t)\) histogram and one count towards the orbit identified by this minimum. Group the nonempty orbit counts by their least period and basin size. Evaluating these integer loops gives the two tables; the total mass of either census is 32768. Consensus is checked by tallying the keys \(0\) and \(32767\). The lexicographically indexed seed \(695\) follows \(695\to111\to7\to0\to0\), giving the sharp lower bound three.
 
-For transparent witnesses of sharpness, under the stated lexicographic bit order, initial integer 695 on \(T(6)\) follows \(695\mapsto111\mapsto7\mapsto0\), while initial integer 63 on \(KG(6,2)\) follows \(63\mapsto28704\mapsto32\mapsto0\). Neither begins its eventual fixed orbit before time three. These explicit trajectories are also reproducible by the checker.
+The standalone `verify_iterates.py` implements the neighbor-mask iteration and table checks. `verify_paths.cpp` instead computes all transitions with neighbor lists and follows the arcs of the functional digraph, assigning each cycle state depth zero and propagating depths and orbit identifiers back along predecessor paths. Their checks for \(KG(6,2)\) additionally reproduce the prior baseline; those checks do not establish priority. Replay with `python3 verify_iterates.py`, or `c++ -O2 -std=c++17 verify_paths.cpp -o verify_paths && ./verify_paths`.
 
-## Verification
-Run `python3 verify_iterates.py`. With a C++17 compiler, run `c++ -O2 -std=c++17 verify_paths.cpp -o verify_paths` followed by `./verify_paths`. Both programs use only standard languages and standard libraries; the compiled executable is generated locally and is not needed as a supplied dependency. Their assertions were executed successfully on the exact supplied sources. The first checks \(65536\) initial graph-state pairs directly, and the second independently checks \(65536\) functional-graph states. The complete labelled state spaces are exhausted in each case; there is no statistical uncertainty or untested initial state.
+## Prior coverage and scope
 
-## Relationship to prior work
-The classical theorem of Goles and Olivos establishes eventual fixed or two-periodic behavior for finite symmetric threshold automata; it does not state the entrance depths or orbit-by-orbit basin sizes for these two complementary fifteen-vertex graphs. The general 2011 treatment of bi-threshold networks likewise addresses permitted periods and constructions, not these finite attraction spectra. A published classification of two-cycles in line-graph majority dynamics by incidence half-factors gives relevant structural coverage of recurrent configurations on the triangular graph; *the recurrent-state counts here are not claimed as an independent general advance*. The present claim instead includes every transient configuration and its eventual temporal orbit on both complementary graphs, with exact basin-size multiplicities. Related published majority-basin computations for the Shrikhande and rook graphs address a different graph pair and do not imply these tables. No covering identical basin census was found in the searches documented in the companion scientific review.
-
-## Limitations
-The theorem is specific to the two canonical fifteen-vertex graphs built from two-subsets of a six-element set; it does not assert a formula for arbitrary root size. Its proof is exhaustive finite arithmetic rather than a compact symbolic count or a general graph-family classification. A full historical-priority guarantee is not possible: a closely related line-graph recurrent-classification paper was available through indexed summaries but its primary full text was not obtainable in this review. The published summary concerns recurrent states rather than attraction-basin multiplicities, but unexpected supplementary material could affect novelty. No independent external mathematical audit has yet been performed.
+The general symmetric-threshold result of Goles and Olivos [2] limits the eventual periods to one and two, but gives neither of the tables above. Existing results on line-graph half-factors and on fixed states of Johnson graphs [3,4] concern recurrent configurations; the counts at \(t=0\) above are not presented as a separate new contribution. Those works do not count the transient predecessors by first-entry time or the sizes of their eventual basins. Related exact basin calculations on the Shrikhande and rook graphs [5] concern a different graph pair. This result is a complete finite enumeration for the specified triangular graph and a comparison with [1], not a formula for arbitrary \(L(K_n)\), an update rule with randomized ties, or a general statement about graph complements.
 
 ## References
-1. E. Goles and J. Olivos, *Comportement periodique des fonctions a seuil binaires et applications*, Discrete Applied Mathematics **3** (1981), 93–105, https://doi.org/10.1016/0166-218X(81)90034-2 (published April 1981; day not established).
-2. C. J. Kuhlman, H. S. Mortveit, D. Murrugarra and V. S. A. Kumar, *Bifurcations in Boolean Networks*, first public preprint of 2011-08-15, https://arxiv.org/abs/1108.2974 (the dated archival starting source).
-3. *Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a (index summary inspected; full text inaccessible).
-4. *Spectral twins separate under majority dynamics: exact Shrikhande–rook attraction censuses*, published research record, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-spectral-twins-separate-under-majority-dynamics-exact-shrikhande--a7ee2eb89698 (index summary inspected; different graphs).
+
+1. [*A three-step majority cutoff and two basin scales on the fifteen-vertex Kneser graph*](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-three-step-majority-cutoff-and-two-basin-scales-on-the-fifteen--43ead5e098c9), 17 November 2026, Finding (same rule, full \(KG(6,2)\) census).
+2. E. Goles and J. Olivos, *Comportement périodique des fonctions à seuil binaires et applications*, Discrete Applied Mathematics **3** (1981), 93–105. [DOI](https://doi.org/10.1016/0166-218X(81)90034-2).
+3. [*Incidence conservation and half-factor classification of two-cycles in line-graph majority dynamics*](https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-incidence-conservation-and-half-factor-classification-of-two-cyc--61b3de3ad47a), 1 November 2026, Finding and Limitations.
+4. [*Threshold-graph rigidity and a power-of-two equilibrium type law*](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-threshold-graph-rigidity-and-a-power-of-two-equilibrium-type-law--ae2949f214d6), 17 November 2026, Finding and scope.
+5. [*Spectral twins separate under majority dynamics: exact Shrikhande–rook attraction censuses*](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-spectral-twins-separate-under-majority-dynamics-exact-shrikhande--a7ee2eb89698), 2 November 2026, Finding.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:17.915619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The model is independent Poisson resetting for identical starts, not a shared clock. Conditioning on reset times gives the convolution series and response H=q*q-uq; in Laplace space q transforms to (1-exp(-sqrt(s)))/s, so the integrated erfc transforms give the stated elementary H. The convolution bound sums to u^(-1/2) exp(-rho u) F(rho sqrt(u)), where F(z)=1/sqrt(pi)+z exp(z^2)(1+erf(z)); differentiating gives uniform q_rho=O(u^-1/2) and partial_rho q_rho=O(1+sqrt(u)) on the tail for 0<=rho<=1/2. The order-statistic derivative is integrably dominated by u^(-(N-k-1)/2) when N-k>3. The dimensional derivative acquires d^4/D^2. The binomial derivative and the Jacobian -q'=a give exactly Beta(N-k+1,k); G behaves as -2/(pi^2 x^4) at zero and is bounded near one (0<H<=u(1-q) for small u). H''/a is first positive, then negative, then positive because y-3/2+2 exp(-3y) has precisely two positive roots. Since H' starts at zero, is negative at large u and tends to zero from below, it crosses exactly once from positive to negative. H therefore crosses zero once, with strictly negative slope, since H(0+)=0 and H tends to minus infinity. The density ratios for lowering k or increasing N increase strictly in x; subtracting their value at the crossing makes their product with the signed G strictly positive in the comparison integral. This proves sign ordering, not monotonic magnitudes. For k=N phi_*+c at bounded c, beta mean drift and variance give the two terms of order N^-1; a signed third moment of order N^-2 and fourth moment of order N^-2 bound the Taylor remainder. Endpoint tails are exponentially small even after shifting the first beta shape by four to bound the x^-4 singularity. Evaluating the expansion at c_* plus and minus a fixed multiple of N^-1 traps the unique continuous zero by the strict sign ordering. Independent high-precision convolution and direct time-integral checks, including opposite signs at (N,k)=(20,6),(20,7), reproduced u_*, phi_*, the derivative ratio and c_* to the stated precision. Replay: python /workspace/branches/f39ae6a2-daf0-460f-881b-85c61671c7e8/brownian_rank_sensitivity_reproduce.py (mpmath). The numerical checks do not establish the asymptotic error or a global resetting optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent exact finite-N order-statistic mean law already has the identical-start binomial reduction. It reports rank ordering for optimized rates and a leading large-N threshold. Biroli et al. give the same kernel H, the finite derivative condition N>4 for k=1, and the first-arrival population crossover."
+        ],
+        "reasoning": "These are substantive overlaps. Ordering global minimizers does not determine signs of one-sided derivatives at zero, and the first-rank population result does not cover arbitrary fixed admissible ranks.",
+        "searches": [
+          "arXiv:2609.23542, Eqs. (4)–(5), fixed fraction discussion and Supplementary Information",
+          "arXiv:2303.18012, independent-resetting protocol A, Eqs. (16)–(19)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (support inspected, not executed)",
+        "Resultary 04cdd5cb60a4 and 805d28b64016 (self-match)",
+        "arXiv:2609.23542, 2303.18012 and 1906.05619"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-N law and response kernel are inputs from which one can derive the beta formula by differentiation and substitution; that reformulation alone is not credited as new. The local law needs a sign-change proof and strict likelihood-ratio comparison. The offset further needs the beta mean drift, curvature correction and an error estimate uniform in a neighborhood of the critical rank."
+        ],
+        "reasoning": "Neither finite-N availability of the mean, a plot of optimal rates, nor the limiting quantile determines the two-axis sign law or the coefficient mechanically. The shift uses both the drift and variance, and the claimed O(N^-1) rank error requires controlling the singular endpoint and the local Taylor error.",
+        "searches": [
+          "arXiv:2609.23542, mean law and supplementary searches for fixed rank, rank fraction, finite-size, 1/N and asymptotic",
+          "arXiv:2303.18012, first-variation kernel",
+          "arXiv:1906.05619, Brownian quantile threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belan's critical quantile is about 0.412 in the same Brownian setting and the time counterpart is about 0.7439 L^2/D. Vatash et al. report the same limiting fraction in the large-N rank problem. The distinct Resultary bands finding changes the model to heterogeneous starts and studies quantile-response reversals."
+        ],
+        "reasoning": "At a fixed limiting fraction the finite-ensemble beta variable concentrates, so the quantile-response crossing agrees with the leading fraction. Neither replacing k/N by a quantile nor studying a mixture supplies the O(1) change of the critical rank as N grows.",
+        "searches": [
+          "Resultary: Brownian rank/population threshold, critical rank, finite-size shift and alternating rank bands",
+          "arXiv:1906.05619, infinitesimal quantile restart criterion",
+          "arXiv:2609.23542, rank fraction and finite-size terms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 805d28b64016 hit is this frozen record. The distinct 04cdd5cb60a4 addresses heterogeneous distances; the literature gives the leading fraction and finite-N profiles, not an independent exact offset in the passages checked."
+        ],
+        "reasoning": "Profiles or a leading numerical threshold do not state the coefficient of the order-one shift, and the frozen record's catalogue entry is not independent coverage.",
+        "searches": [
+          "Resultary: exact rank/population ordering and finite-size shift, identical-start Brownian search",
+          "Resultary 805d28b64016 and 04cdd5cb60a4",
+          "arXiv:2609.23542, finite-N versus quantile-limit figures and discussion"
+        ]
+      },
+      "rationale": "The finite-N mean law, single-searcher response, first-rank population crossover and leading critical fraction are established prior coverage. The supported distinction is the exact two-axis ordering for the admissible general-rank local sign, and especially the explicit nonzero order-one correction for the continuous critical rank. The inspected results do not state or directly give that correction.",
+      "residual_risks": [
+        "An equivalent calculation in unindexed order-statistic asymptotics or a supplement outside the inspected passages remains possible. This is statement-level coverage, not comprehensive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean-law and leading-threshold overlap; no explicit general-rank local-ordering or affine correction in material read",
+          "evidence": "Independent clocks, exact rank survival and mean integral, reduction to binomial order statistics, global optimal-rate ordering and convergence to a threshold near 0.412. The supplementary search was not an exhaustive proof of noncoverage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23542",
+          "material_read": "p. 2 Eqs. (4)–(5), offset about 14500; p. 3 fixed-fraction discussion, offsets about 18700–22848; targeted passages in the Supplementary Information beginning p. 12, offset about 84472",
+          "method": "Lawful OA PDF, bounded page passages and targeted supplement search",
+          "title": "Rank-dependent optimal resetting in multiparticle search",
+          "trigger": "Same finite-population model, ranks and leading threshold; plausible stronger result or supplementary expansion"
+        },
+        {
+          "assessment": "Exact overlap on H and the special first-rank response, not the two-axis result",
+          "evidence": "The erfc form of Eq. (19) is H. For k=1 it gives the same derivative integral and finite domain N>4, with the reported numerical population crossing near 7.3264773.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.18012",
+          "material_read": "pp. 5–6, Eqs. (16)–(19), PDF offsets about 20500 and 24500, HTML offset about 22400",
+          "method": "OA PDF and corresponding HTML passage",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Same zero-rate response and exact population crossover for the first arrival"
+        },
+        {
+          "assessment": "Prior leading quantile/time crossing, not a finite-population correction",
+          "evidence": "Numerical thresholds q_0 about 0.412 and T_d0 about 0.7439 L^2/D from the restart criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.05619",
+          "material_read": "p. 2 infinitesimal quantile criterion and Fig. 2, offsets about 12600–16000",
+          "method": "OA PDF passages",
+          "title": "Median and Mode in First Passage under Restart",
+          "trigger": "Same nominal critical fraction in an equivalent quantile limit"
+        },
+        {
+          "assessment": "Different starting-distance model and observable; no equivalent finite-N law",
+          "evidence": "Heterogeneous mixture quantile-response reversals do not address the identical-start finite-N kth mean or its affine critical-rank shift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-arbitrarily-many-alternating-rank-bands-under-heterogeneous-brow--04cdd5cb60a4/RESULT.md",
+          "material_read": "Mirrored Finding on the heterogeneous mixture/quantile response",
+          "method": "Configured local catalogue and OA mirror",
+          "title": "Arbitrarily many alternating rank bands under heterogeneous Brownian resetting",
+          "trigger": "Distinct similar indexed rank-sensitivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign tells whether weak resetting improves the expected time of a specified hit, and the exact two-axis law constrains how that answer can change with the target rank or the population. The correction is on the scale of physical integer ranks: it shifts the continuous decision boundary by roughly two required arrivals relative to the limiting fraction. These are useful distinctions for the finite-population model and do not assume global rate optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three adjacency energies, exact projector-weight tables, rank-one Lyapunov trace identity, four rational lifetime coefficients and sign-changing polynomial comparison together prove the one accepted claim for all integers \(n\ge5\) and all positive common loss rates. The all-size positivity certificate is algebraic; finite Krylov and Lyapunov computations additionally check actual physical graphs rather than claiming numerical enumeration proves the infinite family.
+## correctness
 
-**Originality — PASS on examined evidence; historical priority provisional.** The closest directly overlapping publication is Lugão et al. (arXiv:2203.14384), whose full Section 3 treats Johnson graphs with two marked vertices, projector matrix elements, and Hermitian spatial-search performance, but not the non-Hermitian two-sink conditional lifetime or its sharp size-seven geometry transition. Novo et al. (arXiv:1412.7209) prove coherent absorption via the trap-generated Krylov space and discuss some finite transfer times, without triangular-graph two-sink all-size formulas. Varbanov et al. (arXiv:0803.3446) optimize hitting under a different Poisson measurement protocol. Prior spectral formulas are credited rather than counted as novel. A possible unrecognized exact general rank-one loss identity or historical Johnson-graph treatment remains an explicit priority risk.
+PASS
 
-**Mathematical value — PASS.** Two site placements have identical eventual capture probability yet different conditional loss-rate optima. The strict adjacency-to-disjoint switch between \(n=6\) and \(n=7\), plus two finite-rate crossovers, provides a structural design criterion for frustrated coherent transport and exact benchmarks across an infinite graph family; it is not merely a reparameterization of a known probability or a small fitted numerical effect.
+For the point/pair incidence matrix B, A=BᵀB−2I and BBᵀ=(n−2)I+J. The projected symmetric and antisymmetric absorber vectors are orthogonal at each energy by pair-exchange symmetry. Projection onto the centered incidence space and its two complements independently gives the stated weights, with exactly three and two positive weights respectively. Any eigenvector of the active generator with real part zero would, by the dissipative quadratic form, be orthogonal to the loss vector and thus be a pure energy vector; each such direction couples. Therefore the active part is strictly stable and the captured probability is 5/binom(n,2). Conditioned on capture the initial active density is I₅/5. For a rank-one energy sector write q_j=(Xv)_j/v_j=x_j+iz_j for the integrated density X. The diagonal Lyapunov equations give x_j=1/(κw_j). The off-diagonals are iκv_jv_k(q_j+conjugate(q_k))/(2(e_j−e_k)), so z_j=(2w_j)⁻¹∑_{k≠j}(w_j+w_k)/(e_j−e_k). Pairing the real contributions in ∑X_jj gives Tr X=∑x_j+κ∑w_j z_j², with both rate coefficients positive (e.g. the maximum-energy term in the second sum is nonzero). The independent incidence-based exact replay reproduces all four rational functions and every optimized-difference certificate coefficient; it checks the fixed-rate signs and exact squared-rate crossings 59392/293 and 2500/51 separately. A direct exact Lyapunov linear solve corroborates the general identity on an independent non-flat example.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the exact conditional lifetimes and their all-n adjacent/disjoint placement classifications (separately optimized and at common rate), not the five-mode rank or eventual captured fraction. Two general indexed capture-rank theorems already imply those ancillary statements, and one single-sink result gives a flat-weight specialization of the lifetime identity. None of these statements supplies the two geometry-dependent conditional lifetimes or the placement thresholds. Same-day dates do not resolve priority.
+
+## value
+
+PASS
+
+Both geometries remove the same part of the initial mixture eventually; finite conditional transport instead shows a switch as dimension changes. The exact optimized boundary and fixed-rate alternatives resolve two distinct decisions for all triangular graphs in scope and supply a benchmark in an infinite natural graph family. The strength optimum balances the 1/κ and κ contributions rather than just reflecting the common rank result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

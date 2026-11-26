@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:11.686069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof §§1–5",
+        "Frozen VERIFICATION.md and VERIFY.py (inspected, not executed)",
+        "/workspace/audit_evidence/replay.py 3; /workspace/audit_evidence/results.txt"
+      ],
+      "rationale": "The normalized radial integrals diagonalize in the specified common monomial basis with total-degree multiplicity binom(k+d-1,d-1). With m=k+d, the density ratio of scaled Beta(m,s+1) to Gamma(m,1) strictly decreases on (0,s) and is zero beyond s; normalization forces one crossing and hence strictly positive CDF difference for 0<t<s. Kernel integration gives the exact trace, using the primitive (v/(1-v))^d/d; positivity turns it into the trace norm. At each fixed degree the first variation is m(m+1)/2 times the difference of the Gamma(m,1) and Gamma(m+2,1) CDFs, giving the stated eigenvalue. Multiplicity cancels the factorial to 1/[k!(d-1)!]; summing recovers the first variation of the exact trace. Pointwise positive diagonal convergence plus convergence of these total masses gives trace-norm convergence without an unjustified uniform Taylor estimate. The adjacent-eigenvalue comparison reduces to t(t+2) versus (k+d)(k+d+1), proving the claimed staircase for the limiting error operator, including ties. Independently checked 12 numerical quadratures including nonintegral weights and 20 adjacent ties.",
+      "residual_risks": [
+        "The replay has finite cutoffs and floating-point tolerance. The proof is for centered balls and fixed d,t, not large-dimension or growing-radius asymptotics, and the staircase is for the first-order coefficient, not the finite-s maximizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 gives a general weak limit of matrix coefficients, and Theorem 4.5 a disk case for individual operator norms. Radial form diagonalization and general Toeplitz compactness theory are also prior."
+        ],
+        "reasoning": "Broader symbol scope for a weaker topology does not cover a positive canonically identified difference or its rescaled trace-class law.",
+        "searches": [
+          "Ma–Yan–Zheng–Zhu arXiv:2603.04051 Thms. 1.3 and 4.5",
+          "Bauer–Fulsche arXiv:1905.12246v2 §1",
+          "Esmeral–Paternina Montalvo DOI 10.1007/s10958-025-07728-x, Thm. 3.4 and Remark 3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and strongest matched record above",
+        "Primary passages listed in source_inspections",
+        "Focused primary-literature search for the exact Bergman–Fock error and sharp spectral scaling returned no relevant additional comparison."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disk formulas provide direct inputs to the density-ratio and fixed-degree expansion arguments. The prior sharp disk norm uses the largest individual-localizer eigenvalues."
+        ],
+        "reasoning": "Neither individual norm convergence nor pointwise spectral expansion controls the signed or rescaled sum over degrees. The crossing argument and matching first-order total masses establish that additional inference; the defect can even be largest on degree one when both individual norms occur on constants.",
+        "searches": [
+          "arXiv:2603.04051, Theorem 4.5 proof",
+          "arXiv:2603.04051 Theorem 1.3",
+          "Gröchenig–Ortega-Cerdà §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting beta=1, r=sqrt(s), R=sqrt(t), alpha=s, sigma=0 in the centered-disk formulas gives the frozen d=1 spectra.",
+          "Published record SCOPE-universal-cubic-root-spectral-drift-at-a-two-annulus-fock-locali--6bb4d239ab20 concerns a two-annulus, pure-Fock optimizer near a quartic-flat threshold."
+        ],
+        "reasoning": "The reparametrized disk spectra are equivalent to known spectral ingredients. The published Fock optimizer is a different observable under a different perturbation; it does not furnish the Bergman–Fock defect. Same-day dates are not used to infer priority.",
+        "searches": [
+          "Local Resultary search for Bergman–Fock scaling/trace-class defect and radial Fock localization/spectral transitions",
+          "Ma–Yan–Zheng–Zhu arXiv:2603.04051, Thm. 4.5 and (4.17)–(4.18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby indexed annulus result concerns a different spectral family. Primary formulas give the exact individual disk spectra and incomplete-gamma disk masses, not the first-order defect coefficients, trace identity or transition thresholds."
+        ],
+        "reasoning": "The exact-formula check is applicable even though the result is not a finite table; credit matching individual eigenvalues but not a match of defect quantities.",
+        "searches": [
+          "Local Resultary spectral scaling and Fock-localizer searches",
+          "Ma–Yan–Zheng–Zhu (4.17)–(4.18)",
+          "Gröchenig–Ortega-Cerdà DOI 10.1007/s00209-022-03087-4, §2 (3)–(6)"
+        ]
+      },
+      "rationale": "The radial spectra, weak convergence and sharp limit of individual disk-localizer operator norms are established inputs. The exact positive defect, its first-order trace-class limit in all dimensions, and the limiting defect's maximizing-degree transitions are distinct from the strongest available comparisons. The judgment is confined to those claims and the inspected sources.",
+      "residual_risks": [
+        "Equivalent or stronger results under beta/gamma or localization asymptotics terminology may remain unindexed. No priority claim is inferred from dates or lack of a search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact disk spectral input and weak/individual norm limits, not the claimed error operator law",
+          "evidence": [
+            "Centered disk attains (4.17); its beta integral and the Fock gamma integral match d=1 under the fixed substitution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.04051",
+          "material_read": "Thm. 1.3; Thm. 4.5 and (4.17)–(4.18), OA offsets 9089 and 75924",
+          "method": "Bounded OA full-text passages",
+          "title": "Localization operators on Bergman and Fock spaces",
+          "trigger": "Same scaling and disk symbols"
+        },
+        {
+          "assessment": "Known weighted disk diagonalization",
+          "evidence": [
+            "Monomial sequence representation for radial forms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10958-025-07728-x",
+          "material_read": "Theorem 3.4 and Remark 3, PDF p. 7, OA offset 28695",
+          "method": "Bounded OA PDF passage",
+          "title": "Radial Toeplitz Forms on the Weighted Bergman Space over the Unit Disk",
+          "trigger": "Same radial Bergman spectral framework"
+        },
+        {
+          "assessment": "Known Fock spectral ingredient",
+          "evidence": [
+            "The disk integrals of |z|^(2k) times the Gaussian equal pi^(-k) gamma(k+1,pi rho^2)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00209-022-03087-4",
+          "material_read": "§2, (3)–(6), PDF p. 4, OA offset 12830",
+          "method": "Bounded OA PDF passage",
+          "title": "Marcinkiewicz-Zygmund inequalities for polynomials in Fock space",
+          "trigger": "Exact incomplete-gamma disk integrals"
+        },
+        {
+          "assessment": "Relevant context, no matching claim in the passage",
+          "evidence": [
+            "Survey setting and compactness criteria via Berezin transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.12246v2",
+          "material_read": "§1, OA offset 1036",
+          "method": "Bounded OA full-text passage",
+          "title": "Berger-Coburn theorem, localized operators, and the Toeplitz algebra",
+          "trigger": "Broader Bergman/Fock operator theory"
+        },
+        {
+          "assessment": "Distinct comparison",
+          "evidence": [
+            "Pure-Fock two-annulus gamma-integral spectrum and cubic-root maximizing-degree displacement, with no Bergman scaling."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-universal-cubic-root-spectral-drift-at-a-two-annulus-fock-locali--6bb4d239ab20",
+          "material_read": "RESULT.md, radial localization and optimizer statement",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "Universal cubic-root spectral drift at a two-annulus Fock localization",
+          "trigger": "Closest published radial Fock optimizer overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact defect, limit and d=t=1 example",
+        "Ma–Yan–Zheng–Zhu Theorems 1.3 and 4.5"
+      ],
+      "rationale": "This gives exact error control and a complete first variation for a naturally scaled approximation of localization operators, rather than a rephrased eigenvalue limit. Trace norm controls all modes; the staircase describes which degree governs the sharp approximation error, with d=t=1 witnessing that the error need not be largest on constants.",
+      "residual_risks": [
+        "The demonstrated value is for radial ball scaling; no comparable control for nonradial symbols is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

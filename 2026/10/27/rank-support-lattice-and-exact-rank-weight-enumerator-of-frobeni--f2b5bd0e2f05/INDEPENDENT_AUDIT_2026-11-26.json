@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:00:41.260669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, hypotheses and Proof Steps 1–4",
+        "Frozen VERIFICATION.md, verify_rank_profile.py, and verify_output.txt lines 1–9"
+      ],
+      "rationale": "The splitting condition implies p does not divide |A| and d divides m. Covariance under Frobenius and Fourier inversion identify the spectra with base-field functions; an orbit of length ℓ_i contributes a free seed in F_{q^{ℓ_i}} and its entire conjugate span. The normal basis realizes Frobenius as a cyclic shift of d independent vectors, so the ambient module is F_q[T]/(T^d−1) even when p divides d. Every invariant subspace is the ideal of (T^d−1)/f in that module, equivalently W_f of dimension deg f. The sum of seed spans is the ideal for the lcm of their annihilators. Independently, containment of the whole support in W_f is equivalent to each seed lying in the intersection W_f∩W_{T^{ℓ_i}−1}=W_{gcd(f,T^{ℓ_i}−1)}. Thus the cumulative count is q^{Σ_i deg gcd(f,T^{ℓ_i}−1)}. It factors over primary exponents; consecutive differences within each chain give the stated exact-support factors, including the one zero choice at exponent zero. The character of full exponent N has orbit length d, so the factors are positive for all exponent choices. The top-chain difference divided by its cumulative count is 1−q^{-deg(P)t_P}. The trivial group has d=1 and one seed, giving 1+(q−1)z. A separate small check at q=2, A=C_3 has orbit lengths 1 and 2 and a single repeated factor (T+1)^2; the cumulative counts 1,4,8 give 1+3z+4z² and full-rank probability 1/2, matching the captured output.",
+      "residual_risks": [
+        "Captured exhaustion concerns six cyclic examples (55,122 words) and one direct noncyclic transform in small prime-base fields. The supplied code was inspected but not executed; arbitrary prime powers and repeated roots are supported by the module argument, not by extrapolating the tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aguirre–Neumann gives the single-element k-normal count by summing polynomial totients over divisors. For one seed, the checked primary factor reduces to that totient. Generating tuples in a common modulus are closely analogous, but the bounded Jordan-totient/module lookup did not yield an inspected primary theorem imposing the distinct T^{ℓ_i}−1 seed constraints."
+        ],
+        "reasoning": "A one-element formula is exact boundary coverage. Counting tuples all in one cyclic residue module uses common local sizes, unlike the Fourier situation where each seed may be restricted to a different Frobenius kernel. An existing theorem for generators drawn from these heterogeneous cyclic submodules would be relevant stronger coverage; none was established by the bounded checks.",
+        "searches": [
+          "arXiv:2007.11169, §2 and Theorem 2.2",
+          "polynomial Jordan totient least common multiple Fq order several finite field elements different subfields joint conjugate span k-normal rank enumerator Frobenius module tuples divisors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.20062v1",
+        "arXiv:2601.09201",
+        "arXiv:2007.11169",
+        "Resultary bd4012acfc55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seed-description theorem is the exact parametrization needed. Its Hamming product treats each nonzero orbit as an independent contribution to weight; the k-normal result instead counts one element by a Frobenius order. For several seeds, the dimension of the generated subspace can change at fixed tuple of individual ranks because the primary supports need not match."
+        ],
+        "reasoning": "The link from the Fourier ensemble to joint support requires identifying the sum of cyclic spans with the annihilator lcm, then counting simultaneous containment with the different seed constraints. After that identification the primary differences are elementary. This is not a new single-element normality theorem, and the existing positional enumerator cannot be specialized to yield the rank enumerator.",
+        "searches": [
+          "arXiv:2605.20062v1, Theorem 3.1 and Proposition 8.2",
+          "arXiv:2007.11169, Theorem 2.2",
+          "arXiv:2601.09201, §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier paper's seeds range over the same subfields, but its symbol-Hamming product counts whole nonzero orbits. The q-order paper identifies one element's order degree with its conjugate-span dimension.",
+          "On a length-two orbit over F_2, a nonzero F_2 seed and a seed in F_4 outside F_2 have the same positional mask, but rank one versus rank two."
+        ],
+        "reasoning": "The right equivalent question is to count the lcm of all Frobenius annihilators in the cyclic ambient module. Positional support does not determine this lcm or even its degree, and adding the separate seed ranks does not compute the dimension of their sum.",
+        "searches": [
+          "arXiv:2605.20062v1, Theorem 3.1 and Propositions 8.1–8.2",
+          "arXiv:2601.09201, §2.2",
+          "Fq order, k-normality and field-value rank enumerator aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant inspected positional-support entry counts realizable time/frequency positional support pairs over complex functions on C_9. The targeted ranked results did not identify an exact indexed heterogeneous seed rank-support table."
+        ],
+        "reasoning": "A positional-support incidence census does not measure the base-field span of frequency values, and does not apply to the finite-field ensemble. An index miss is not evidence of absence in older or unindexed sources.",
+        "searches": [
+          "Local Resultary: finite-field Fourier field-value rank support, Frobenius rank enumerator and positional Fourier support",
+          "Resultary bd4012acfc55, Finding"
+        ]
+      },
+      "rationale": "The contribution is the exact field-value rank-support census of the complete Fourier code, a modest synthesis of Fourier orbit descent and finite-field module counts. Neither the orbit seed description, the cyclic Frobenius lattice in itself, nor the single-seed q-order/totient law is new. The claimed joint statistic counts heterogeneous orbit seeds by the subspace generated together, rather than by separate span dimensions or nonzero positions. The inspected sources do not give this joint census or a stronger such census with the same heterogeneous subfield constraints.",
+      "residual_risks": [
+        "An older general polynomial-module enumeration for heterogeneous cyclic submodules, or a broader joint normality law, could imply the formula. The checked sources establish substantial ingredients, not exhaustive priority. Limited literal queries in the reorganized unversioned Fourier preprint were not used to infer document-wide noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact seed parametrization overlap; different enumerated invariant",
+          "evidence": "One F_{q^{ℓ}} seed per orbit; positional symbol-Hamming factor 1+(q^{ℓ}−1)z^{ℓ}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.20062v1",
+          "material_read": "Theorem 3.1 p. 4, Proposition 8.1 p. 9, Proposition 8.2 p. 10 (v1)",
+          "method": "OA primary full-text passages, version matched to citation",
+          "title": "Cyclotomic finite-field Fourier spectra: Galois descent, native subfields, and residual coding",
+          "trigger": "Identical finite-abelian Fourier ensemble and a weight product"
+        },
+        {
+          "assessment": "One-element order and dimension overlap",
+          "evidence": "The Frobenius annihilator of a single element has degree equal to its conjugate-span dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.09201",
+          "material_read": "§2.2 p. 2",
+          "method": "OA primary full-text passage",
+          "title": "On Fq-Order of Polynomials and Properties of r-Primitive and k-Normal Elements over Finite Fields",
+          "trigger": "Equivalent Frobenius-annihilator formulation"
+        },
+        {
+          "assessment": "Exact one-element k-normal census; not the multi-seed support calculation",
+          "evidence": "Counts are sums of polynomial totients over divisors of the ambient T^n−1 of the relevant degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.11169",
+          "material_read": "§2, Theorem 2.2 pp. 3–4",
+          "method": "OA primary full-text passage",
+          "title": "Existence of primitive 2-normal elements in finite fields",
+          "trigger": "Exact single-seed counts, including annihilator divisor dependence"
+        },
+        {
+          "assessment": "Different field and support notion",
+          "evidence": "The counted pairs are sets of nonzero input and frequency positions for complex-valued functions on C_9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-positional-fourier-support-incidence-on-the-cyclic-nine-po--bd4012acfc55/RESULT.md",
+          "material_read": "Finding, local mirrored record",
+          "method": "Local Resultary search and mirrored passage inspection",
+          "title": "Exact positional Fourier support incidence on the cyclic nine-point group",
+          "trigger": "Exact Fourier support enumeration indexed under similar terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, rank-support definition, product formula and C_15 repeated-root example",
+        "arXiv:2605.20062v1, Proposition 8.2 for contrast with positional weight"
+      ],
+      "rationale": "The objects and weight arise naturally from complete base-field Fourier spectra and the rank metric, and positional statistics cannot answer the rank question. The result gives which field-value subspaces are possible, the number at each particular support, and a sharp full-support probability from orbit lengths, including cases where reducing Frobenius to a square-free spectrum would lose information. It gives exact populations without exhaustively enumerating q^{|A|} inputs, rather than a small-instance table.",
+      "residual_risks": [
+        "Value is an exact structural enumeration, not evidence of a decoding, distance, or covering improvement. The conclusions do not apply to truncated spectra or arbitrary residuals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

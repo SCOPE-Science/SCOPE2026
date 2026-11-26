@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:58:36.375966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the corrected proof and both stated asymptotics under arclength sampling, with ordered pairs and normalization Q=N/P³. For straight-side length L and each end-piece mass m, the projected reference distance integral is A(m)=4L³/3+4mL²+2m²L, with A(m)−P³/6=−2m²L−4m³/3. The rectangle's flat ends project exactly. The stadium's outward horizontal first moment is 2r² per cap by integration of r cos θ against r dθ. With both orders and straight-side total length 2L, this adds 16Lr²; cap-cap collapse costs only O(r³). Independently expanding the two square-root powers and asinh in the exact opposite-side integral gives J_L(a)−J_L(0)=La²(log(2L/a)−1/2)+O(a³+a⁴/L) for a≤L/5. The two ordered copies with a=2r therefore add 8Lr² log(L/r)−4Lr²+O(r³). For end-side pairs integrate min(2r,2r²/s) at horizontal distance s, obtaining O(r²[1+log(L/r)]) on a straight side and O(r³[1+log(L/r)]) after the cap-length factor; end-end corrections are O(r³). Thus the stadium nonlog term before normalization is (12−2π²)Lr² and the rectangle's is −12Lr². Dividing by each P³ gives, respectively, 3/2−π²/4 and −3/2, with uniform remainder O(η³[1+log(1/η)]) for 0<η≤1/10, since the relative denominator correction is O(η). Subtracting at equal width and straight-side length gives the claimed limit 3−π²/4>0. The original numerical quadrature was inspected but not run; it is not a certificate for either coefficient or the asymptotic error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lens law gives only the leading integral coefficient (1/32)∫h² with an O_h(ε²) error. The proof leaves terms at that very order and explicitly excludes uniform error over profiles with unbounded Lipschitz constants. Stadium cap profiles vary with aspect ratio and have tip singularities. Shen gives the universal lower bound and sharpness; Tokmachev's inspected sections give a disk upper bound."
+        ],
+        "reasoning": "Neither universal inequality fixes a next-order coefficient. Substituting a stadium cap layer into the fixed-profile formula would require different hypotheses and a remainder smaller than the term sought.",
+        "searches": [
+          "Resultary 5e66fde6292b fixed-profile collapsing convex lenses, Finding, assumptions and proof",
+          "arXiv:2611.21661v1 Theorem 1.1 and sharpness",
+          "Tokmachev official MathNet full text §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 28c76116152b, 5e66fde6292b, fb1616479c47, e9fe3b5c1d68 (self-hit)",
+        "Shen arXiv:2611.21661v1",
+        "Tokmachev MathNet znsl7205, official PDF §§1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rectangle formula implies the frozen leading stadium law by the O(η²) transfer proved in the original assessment, but that transfer discards the order that the repair resolves. The lens proof also discards terms at order ε² and rules out the needed uniformity for unbounded profile slopes."
+        ],
+        "reasoning": "The corrected proof retains the horizontal first moment of each semicircular cap, uses its arclength in the normalization and shows that vertical cap corrections are of strictly smaller order. It thus computes the term unavailable from the leading transfer and the fixed-profile law. No ordering of distinct same-day publications is assumed.",
+        "searches": [
+          "28c76116152b actual rectangle Finding",
+          "5e66fde6292b actual lens Finding and remainder discussion",
+          "Shen rectangle sharpness passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shen and Tokmachev use the same perimeter-normalized boundary mean, not interior averages or random-line chords. The exact rectangle profile at t=2η is for the equivalent observable on a different shape. The focused alias lookup gave no plausible exact stadium formula; most results were off-topic."
+        ],
+        "reasoning": "Equal chord observables must have the same endpoint sampling measure. The repair compares them at the same width and side length; here the second-order term is genuinely different, rather than a rescaling of rectangle aspect ratio. An exact stadium boundary-pair formula could be implicit coverage and was specifically sought.",
+        "searches": [
+          "Resultary targeted searches for the stadium next-order term and exact constant 3/2−π²/4",
+          "Primary search using stadium, capsule and racetrack aliases, mean Euclidean distance or average chord length for two independent arclength-uniform boundary points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rectangle entry gives Q_rect=1/6+t²(¼ log(2/t)−3/8)+O(t³ log(1/t)), i.e. coefficient −3/2 in η². The bound stadium self-hit ends at O(η²). Other catalogue hits on parallelograms compare boundary and interior means, and canonical stadium stability concerns a different functional."
+        ],
+        "reasoning": "The strongest exact formula tables the flat-ended comparison, not its cap-sensitive increment. No distinct retrieved catalogue statement tables the sharpened stadium coefficient. This is not a claim that none exists.",
+        "searches": [
+          "Resultary same-day exact rectangle 28c76116152b, thin stadium e9fe3b5c1d68, and coefficient-specific lookups",
+          "Focused alias lookup for exact arclength boundary-pair profiles"
+        ]
+      },
+      "rationale": "The validated claim is the nonlogarithmic quadratic coefficient for semicircular caps, its smaller uniform remainder, and the resulting quantitative difference from flat ends. Shared leading logarithmic behavior is covered at the frozen precision and is not claimed as a distinct contribution in the repair.",
+      "residual_risks": [
+        "The focused stadium/capsule/racetrack search identified no primary table for iid arclength boundary points, but older integral-geometry or stochastic-geometry formulae could do so. Priority between same-day related statements cannot be inferred. A more general result that resolves the quadratic term uniformly through a scale-dependent cap layer would materially affect originality; the inspected lens theorem does not do this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original accuracy by transfer, not the new rounding-dependent term",
+          "evidence": "Exact aspect-ratio profile expands with t²(¼ log(2/t)−3/8); at t=2η its nonlogarithmic coefficient is −3/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-boundary-chord-mean-distance-profile-of-euclidean-rectangl--28c76116152b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror statement passage",
+          "title": "Sharp boundary chord mean-distance profile of Euclidean rectangles",
+          "trigger": "Exact comparator and implication for the original claim"
+        },
+        {
+          "assessment": "Leading logarithm only, with different profile hypotheses and no usable quadratic error refinement",
+          "evidence": "Fixed Lipschitz profile with zero-endpoint hypotheses; proof leaves O_h(ε²), not uniform over unbounded slopes.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-logarithmic-mean-distance-law-for-collapsing-convex-le--5e66fde6292b",
+          "material_read": "Finding at offset 0, nonuniformity after offset 2356, proof expansion at offsets 4100–6456",
+          "method": "Resultary hit and bounded local mirror passages",
+          "title": "Universal logarithmic mean-distance law for collapsing convex lenses",
+          "trigger": "Strongest same-day broader-profile analogue for the identical functional"
+        },
+        {
+          "assessment": "Establishes universal baseline, not the rounding coefficient",
+          "evidence": "Q>1/6 for planar convex bodies, with rectangular thin-limit sharpness.",
+          "identifier_or_url": "https://arxiv.org/html/2611.21661v1",
+          "material_read": "Thm. 1.1 near offset 1373; sharpness by rectangles near offset 26400",
+          "method": "OA bounded HTML passages",
+          "title": "A Sharp Perimeter Inequality for Mean Distances on Convex Curves",
+          "trigger": "Same normalized boundary mean and sharp flat limit"
+        },
+        {
+          "assessment": "Same functional; inspected statements give universal inequalities rather than the thin stadium expansion",
+          "evidence": "Defines θ(K), discusses 1/6 as a lower-bound conjecture, and proves θ(K)/per K≤2/π. A stadium keyword miss is not treated as negative whole-document evidence.",
+          "identifier_or_url": "https://www.mathnet.ru/links/b051cbe5c6ccc9c523712474fc53b41d/znsl7205.pdf",
+          "material_read": "§§1–2, pp. 250–251, extraction offset 3996 onward",
+          "method": "Official lawful MathNet PDF passage after landing-page lookup",
+          "title": "Mean distance between random points on the boundary of a convex figure",
+          "trigger": "Older primary paper on the same observable, not merely chords by random lines"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The logarithm comes from a boundary-minus-interior distance comparison, not the perimeter-normalized boundary mean here.",
+          "identifier_or_url": "2026/11/1/SCOPE-universal-linear-and-angular-logarithmic-saturation-for-thin-par--fb1616479c47",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror statement passage",
+          "title": "Universal linear and angular logarithmic saturation for thin parallelograms",
+          "trigger": "Possible alternative logarithmic thin-shape formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shared logarithmic term alone cannot distinguish a sharp rectangular degeneration from a C¹,¹ rounded one. The revised theorem quantifies the first rounding-sensitive term with a strict positive comparison at a physically natural fixed width and straight-side length. This identifies exactly where the cap first moment enters; it is not merely better error bookkeeping on a known leading term and does not assert extremality over other caps or convex bodies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:40:48.865329Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, rank analysis and exact line-search proof",
+        "Frozen VERIFICATION.md and CHECK.py",
+        "Independent exact algebraic and rational replay"
+      ],
+      "rationale": "For the uniquely specified thin-polar direction, the derivative of the squared Frobenius objective along the update ray vanishes at sum(s_i)/r, which is positive at nonzero rank r. The new singular values are the absolute centered deviations, including zeros before the rank is recomputed. Rank one vanishes, and rank two gives an equal pair or zero. Three centered signed numbers sum to zero, so when all three are nonzero the largest absolute deviation is the sum of the other two. On (a,at,a(1-t)) the three deviations in absolute value and units of a are 1/3, |t-2/3|, t-1/3; sorting gives exactly the two stated ratios and scale factors, including t=1/2 and the equal rank-two pair at t=2/3. The fixed equation 3t^2-t-1=0 yields the asymmetric ratio and q=t-1/3; the spectrum never loses rank and the objective scales by q^(2k). Independent replay: python3 /workspace/branches/replay_exact_audit.py 2 verified the exact Q(sqrt(13)) similarity of the spectra and checked 680 integer-spectrum starts with rational arithmetic. The supplied CHECK.py was read but not executed.",
+      "residual_risks": [
+        "Outside scope: arbitrary orthogonal completion at a singular iterate, approximate polar operations, momentum or nonisotropic objective. The replay alone is not a proof over all real spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first comparison allows arbitrary rectangular real matrices, positive curvature scaling and arbitrary rank, including a nonterminating ray for each rank >=3. Jawanpuria et al.'s one-step optimal coefficient agrees with line search on a fixed rank isotropic block after scaling."
+        ],
+        "reasoning": "The catalogue result dominates the minimal-dimension barrier. The primary Muon theory supplies related method and step formulas; it is not cited as independently printing the precise projective map.",
+        "searches": [
+          "Resultary 748c30f86df2 arbitrary-rank theorem",
+          "arXiv:2610.27747v1 Proposition 8, optimal polar-direction step on quadratics",
+          "arXiv:2605.11850v1 and arXiv:2605.13079v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 748c30f86df2",
+        "arXiv:2610.27747v1",
+        "arXiv:2605.11850v1",
+        "arXiv:2605.13079v1",
+        "arXiv:2502.02900",
+        "arXiv:2409.20325 Proposition 5",
+        "OpenReview TVTwgZp0qe (snippet/access probe only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=3 the known signed deviations sum to zero, so sort the absolute values as (a,b,c) with a=b+c. Apply the very same recurrence at mean 2a/3 to obtain the two branches and their rank-loss junction. Requiring t=1/(3t-1) gives the stated asymmetric exact example."
+        ],
+        "reasoning": "The exact formulas not literally stated in the broader record are mechanical one-variable consequences of an identical dynamical map, not a different classification, bound, or mechanism.",
+        "searches": [
+          "Compare frozen RESULT.md, three-value invariant and projective law, with the active-rank centering recurrence in Resultary 748c30f86df2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 748c30f86df2, Finding and (1)–(2): active singular-value subtraction by their mean and full low-rank termination classification.",
+          "Li–Hong, arXiv:2502.02900 §1, distinguishes the nuclear-scaled direction from the unscaled Muon polar direction."
+        ],
+        "reasoning": "Positive scalar equivalence of update rays with exact line search removes the only apparent difference of method. The sorted absolute deviations give the same exact spectra, not just analogous rates.",
+        "searches": [
+          "Local Resultary: thin-polar and nuclear-scaled polar exact line-search finite termination",
+          "Spectral norm steepest descent exact line search; iterated componentwise absolute deviations from the mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 2026/11/2/SCOPE-the-rank-two-finite-termination-resonance-of-nuclear-scaled-pola--748c30f86df2, Finding points 1–3 and proof (2): exact finite-iteration classification and at r=3 spectrum (2,1,1) with factor 1/3."
+        ],
+        "reasoning": "This is an exact indexed classification match, not a title or numerical-table analogy. Its later catalogue date alone is not evidence of authorship or priority.",
+        "searches": [
+          "Local Resultary search for exact rank-two termination, three singular values and nonterminating geometric polar descent"
+        ]
+      },
+      "rationale": "Distinct Resultary record 748c30f86df2 covers the principal rank-two/rank-three termination boundary and stronger arbitrary-rank and rectangular cases for the same exact-line-search map. Nuclear scaling only rescales the ray: at the isotropic quadratic G=lambda*E, multiplying the thin-polar direction by lambda*sum(s_i) divides the minimizing coefficient by that factor, leaving the iterate unchanged, even after rank loss. That record derives mean subtraction explicitly and gives the t=1/2 ray. From its general recursion, the sum-zero identity and sorting the three displayed centered deviations give the projective map without any new dynamical premise, and solving one quadratic gives the asymmetric witness. The witness is not quoted as literally printed there; it is an immediate corollary of that recurrence. There is demonstrable coverage and no sufficiently distinct remainder; no first-discovery or chronology claim is made from catalogue dates.",
+      "residual_risks": [
+        "OpenReview full text unavailable; verdict rests on independently verified indexed coverage.",
+        "Catalogue dates do not establish discovery priority, and the exact asymmetric formula was derived rather than claimed to be literally in the comparator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central claim and explicitly gives the recurrence which implies the refinements",
+          "evidence": "The line step is 1/(lambda*q) at active rank q in the nuclear-scaled direction. It subtracts S/q, gives the same rank-two resonance and for each r>=3 a ray of factor (r-2)/r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-rank-two-finite-termination-resonance-of-nuclear-scaled-pola--748c30f86df2/RESULT.md",
+          "material_read": "Finding, assumptions, and proof around eq. (2), mirror offsets 0–2219 and 3582–6046",
+          "method": "Local Resultary catalogue and mirrored source passages",
+          "title": "The rank-two finite-termination resonance of nuclear-scaled polar descent",
+          "trigger": "Strongest local exact rank barrier and geometric orbit match"
+        },
+        {
+          "assessment": "Close primary method coverage; fixed-step lifted convention rather than an explicit projective analysis",
+          "evidence": "One-step coefficient 1/tr(U^T H U) reduces to 1/(lambda*r) on a fixed active rank with isotropic H=lambda*I. The examined material does not display the two projective branches or the drop-rank junction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+          "material_read": "Theorem 3, §5 Lemma 4, App. C Proposition 8 and Remark 2",
+          "method": "Original OA HTML, bounded passage reading",
+          "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+          "trigger": "Same thin-polar quadratic setting and optimal one-step coefficient"
+        },
+        {
+          "assessment": "Method background, not the fine-scale dynamics",
+          "evidence": "Uses reduced singular-vector factors and identifies the zero-regularization matrix-sign update with common Muon variants.",
+          "identifier_or_url": "https://arxiv.org/html/2605.11850v1",
+          "material_read": "Abstract, §1, §3 Example 3.6",
+          "method": "Original OA HTML, passage reading",
+          "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+          "trigger": "Thin-polar matrix-sign convention and Muon connection"
+        },
+        {
+          "assessment": "Related stability and rate question in inspected passages",
+          "evidence": "Deterministic full-batch exact-polar analysis and average singular-scale learning-rate result are not the projective centering law.",
+          "identifier_or_url": "https://arxiv.org/html/2605.13079v1",
+          "material_read": "§3.1, §4.1, §6",
+          "method": "Original OA HTML, passage reading",
+          "title": "Spectral Flattening Is All Muon Needs: How Orthogonalization Controls Learning Rate and Convergence",
+          "trigger": "Exact polar iteration and mean-singular-scale stable step"
+        },
+        {
+          "assessment": "Relevant direction normalization, not the exact termination theorem",
+          "evidence": "The normalized polar and nuclear-scaled polar updates have the same direction up to a positive factor, which exact line search cancels.",
+          "identifier_or_url": "https://arxiv.org/html/2502.02900",
+          "material_read": "§1 spectral quadratic model and polar directions",
+          "method": "Original OA HTML, passage reading",
+          "title": "A Note on the Convergence of Muon",
+          "trigger": "Recognize nuclear-scaled alias of the polar ray"
+        },
+        {
+          "assessment": "Unresolved source risk, not used to conclude coverage or absence",
+          "evidence": "The snippet refers to exact line search with an idealized polar update, but no exact theorem from the paper was verified.",
+          "identifier_or_url": "https://openreview.net/pdf?id=TVTwgZp0qe",
+          "material_read": "Search-result abstract snippet only; identified PDF/attachment not retrieved",
+          "method": "Literature lookup plus bounded OA attempts on identified copies",
+          "title": "A Quadratic Lens on Muon",
+          "trigger": "Plausible exact-line-search quadratic overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and rank-three proof",
+        "Resultary 748c30f86df2 exact recurrence and full rank barrier"
+      ],
+      "rationale": "The dimension barrier is an instructive idealized optimizer benchmark, but the broader equivalent theorem already supplies that barrier and explicit nontermination. After subtracting that coverage, the claimed increment is just sorting three given absolute deviations and solving the resulting fixed-ratio quadratic. No separate termination classification of the projective trajectories, worst-case rate, or other independent implication is proved. That routine explicit specialization does not establish distinct mathematical value under the stated standard.",
+      "residual_risks": [
+        "No value claim made for fuller symbolic dynamics or for practical approximate, momentum-based Muon updates."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

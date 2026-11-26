@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:13:09.806521Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(6), lines 5–90",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent conditional-K derivation, vacancy-moment expansion and four-vertex flood-fill enumeration"
+      ],
+      "rationale": "Given K=k, the occupied set is a uniform k-subset, so each of the m-1 tree edges has occupancy probability k(k-1)/(m(m-1)). Forest Euler gives E[C|K=k]=k(m+1-k)/m. The first three factorial moments of the vacancy count U=m-K are (m)_j*q_j, j=1,2,3. The conditional-mean identity gives J=((2E[U]-(m-1))*Var(U)+E[(U-E[U])^3])/m; expanding in q_j gives (1), and the same algebra is valid for its real extension without a probability interpretation. With two balls, K is 2 with probability (m-1)/m and E[C|K=2]-E[C|K=1]=1-2/m, which gives the stated positive value. For m>=4, the positive ordered modes a,a^2,b,ab,c have three coefficient sign changes after omitting the zero at m=4. The real t=0 and 1 zeros, positive t=2 value and negative a^t tail force and exhaust the three distinct roots. The sign-variation proof is valid for real exponents: factoring the smallest exponent and differentiating uses Rolle between consecutive roots and also before the first root if the first two coefficient signs agree. For m=3 omit the zero-base term on t>0; two sign changes are exhausted by t=1 and the root after 2. For the load limit Var(U)/m tends to z*(1-(1+lambda)*z), z=exp(-lambda), and the third central moment is O(m), yielding (3). For bounded beta at t=m*L+beta, L=log(2), 2E[U]-(m-1)=1-beta-L/2+O(1/m), Var(U)/m=(1-L)/4+O(1/m) and the third central moment divided by m is (3L^2-2L)/8+O(1/m). The last term follows by expanding the distinct-site centered moment q3-3*q1*q2+2*q1^3 to order m^-2; repeated-site terms are lower order at z=1/2. These combine to the linear expression (6) with uniform error, first trapping the unique crossing in a bounded additive window, then giving (2). An independent enumeration of 4^n allocations with component counts by flood fill for both four-vertex paths and stars gives J=0, 0.09375, 0.041015625, -0.0457763671875 for n=1,2,3,4.",
+      "residual_risks": [
+        "Enumeration is only corroboration, not a proof for all orders. The real extension need not be a stochastic covariance away from integer n; at m=3 the positive-time extension drops the 0^t mode, and there is no use of 0^0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The component polynomial encodes the induced-component count jointly with selected cardinality for arbitrary graphs. Conditioning on K and using occupancy weights can recover this mixed moment mechanically. The inspected passages do not establish its sign pattern as the sample count varies.",
+          "Complete bipartite graphs include the stars but not arbitrary trees, and their indexed one-crossing theorem uses independent failures. The fixed-sample primary source studies frequency-count approximation rather than a graph covariance sign."
+        ],
+        "reasoning": "The general polynomial framework covers enumeration, not the ordered-zero assertion for the particular exponential sum with fixed-ball weights. Applying elementary general real-exponent Descartes to this sum still requires the mode sorting, exact small-time zeros and tail argument.",
+        "searches": [
+          "Tittmann–Averbouch–Makowsky (arXiv:0812.4147v2) §2.1",
+          "Resultary --a1cf5d6d5f12 exact finding and --1578d7ac2ea5 exact finding",
+          "Bartroff–Goldstein (arXiv:1202.0909) p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related mirror records --2f001dd5cbba, --a1cf5d6d5f12 and --1578d7ac2ea5",
+        "Tittmann–Averbouch–Makowsky §2.1 and Bartroff–Goldstein p. 1",
+        "Independent Poissonized/fixed-sample comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For independent site retention with probability p, the tree covariance is m*p*(1-p)*(1-2*(m-1)*p/m). At Poissonized mean load with p=1-exp(-lambda), the crossing mean is m*log(2)+1+O(1/m), distinct from m*log(2)+0.7431513155...+O(1/m).",
+          "At fixed K the polynomial controls the conditional moments, but the third central occupancy moment contributes to the displacement of the root in the fixed-n case."
+        ],
+        "reasoning": "The mismatch in additive constants demonstrates why direct Poissonized substitution, even with the same leading boundary and even for stars, does not yield the claimed fixed-n threshold. A one-crossing result for the Poisson mixture does not imply one crossing in its coefficients.",
+        "searches": [
+          "Resultary --a1cf5d6d5f12 independent-site claim; arXiv:0812.4147v2 induced-component enumeration",
+          "Independent Poissonized versus fixed-sample comparison using the forest identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first indexed one-crossing theorem uses independent site percolation on complete bipartite graphs; the second uses independent retention on trees and counts isolated retained vertices instead of components. The primary sources address a graph component polynomial under independent failures and fixed-ball frequency counts, respectively.",
+          "At fixed n the vacancy events have q2 differing from q1^2; independent site retention matches fixed-n only after conditioning on total ball count in a Poissonized model, not by assigning the same marginal occupancy probability."
+        ],
+        "reasoning": "The retained-count/induced-component wording is equivalent to the observable but not to the law. Isolation is a different statistic from the component count. Neither a conditioning change nor nearest-integer rounding preserves a crossing theorem automatically.",
+        "searches": [
+          "Resultary occupancy/fragmentation and retained-count/induced-component covariance searches; --a1cf5d6d5f12 and --1578d7ac2ea5",
+          "Tittmann–Averbouch–Makowsky arXiv:0812.4147v2 §2.1",
+          "Bartroff–Goldstein arXiv:1202.0909 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching mirror file is the assigned record. The available polynomial computes finite graph counts, and the distinct indexed formulas concern independent site sampling."
+        ],
+        "reasoning": "The finite path/star covariance values are routine recomputations and not credited as results. Exact component tables supply finite moments after occupancy reweighting but do not give the unique root for all m or the exact displacement constant.",
+        "searches": [
+          "Resultary exact assigned entry --2f001dd5cbba and strongest distinct indexed entries --a1cf5d6d5f12 and --1578d7ac2ea5",
+          "Exact induced-subset enumeration framework in arXiv:0812.4147v2 §2.1"
+        ]
+      },
+      "rationale": "The forest identity, exchangeable subset moments and uniform occupancy moments are standard ingredients. The supported distinct claim is the exact fixed-ball sign classification for all trees and its sharp finite-size displacement, not just the existence of a component enumerator or the independent-site crossing at leading load log(2). The closest exact same-day theorem has both a different graph class and a different joint occupancy law.",
+      "residual_risks": [
+        "An older fixed-sample tree theorem or stronger result for exchangeable occupancy could cover the sign classification. No priority order is inferred from same-day indexing. The inspected component polynomial establishes broad enumeration coverage, not proof either way about all prior analyses of its specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in observable and crossing type, not the same law or graph class.",
+          "evidence": "Unique covariance crossing for retained count and induced-component count on K_{a,b} under independent site retention, except K_{1,1}.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-crossing-occupancy-fragmentation-law-for-site-percolated-c--a1cf5d6d5f12",
+          "material_read": "Finding and model, offset 0",
+          "method": "Resultary search and exact local mirror statement",
+          "title": "A one-crossing occupancy–fragmentation law for site-percolated complete bipartite graphs",
+          "trigger": "Strongest indexed match on exact covariance and single crossing"
+        },
+        {
+          "assessment": "Different count and distinct stochastic dependence.",
+          "evidence": "Compares total retained vertices with retained isolated vertices under independent retention.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-tree-interval-for-the-occupancy-isolation-covariance-swi--1578d7ac2ea5",
+          "material_read": "Finding and model, offset 0",
+          "method": "Resultary search and exact local mirror statement",
+          "title": "A sharp tree interval for the occupancy–isolation covariance switch",
+          "trigger": "Tree-specific indexed covariance switching result"
+        },
+        {
+          "assessment": "Underlying exact enumeration overlap; the inspected specialization uses independent failures.",
+          "evidence": "The induced component polynomial tracks size and component count and gives a site-failure probability specialization.",
+          "identifier_or_url": "https://arxiv.org/html/0812.4147v2",
+          "material_read": "§2.1, OA text offsets 7900–9699",
+          "method": "Primary OA passage",
+          "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+          "trigger": "Exact graph generating function for the same two statistics"
+        },
+        {
+          "assessment": "Same allocation law but targets occupancy frequency counts rather than graph adjacency.",
+          "evidence": "The main described bound concerns counts of boxes with prescribed occupancy in uniform allocations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.0909",
+          "material_read": "Page 1, OA text offsets 0–1982",
+          "method": "Primary OA PDF passage",
+          "title": "A Berry–Esseen Bound for the Uniform Multinomial Occupancy Model",
+          "trigger": "Same fixed-ball model, plausible general occupancy coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sign classification and finite-size theorem",
+        "Independent Poissonized comparison",
+        "Related indexed percolation covariance claims"
+      ],
+      "rationale": "The sign of an occupancy–fragmentation covariance reports whether samples occupying more sites tend to create or consolidate occupied components in a precise mixed-moment sense. The exact all-tree sign transition under sampling with replacement is a useful structural classification. The finite displacement is informative rather than cosmetic: it separates the actual sampling model from independent thinning even though both have the same leading threshold.",
+      "residual_risks": [
+        "Covariance is not a statement of stochastic ordering, higher-order fluctuations or causal fragmentation. Tree universality does not extend directly to cyclic graphs or nonuniform allocations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

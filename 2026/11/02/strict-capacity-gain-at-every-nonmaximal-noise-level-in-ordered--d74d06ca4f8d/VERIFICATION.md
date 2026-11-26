@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Use Python 3.11 or later, without third-party packages. From the directory containing all the supplied artifacts, run:
+## correctness
 
-```sh
-python3 verify.py
-python3 series_certificate.py
-```
+PASS
 
-Both commands were run against these actual files. The first produced `VERIFY_OK` after checking the exact channel matrix, output mixture, constant conditional entropy, and positive gaps with high-precision optimization at six crossover probabilities. The second produced `SERIES_CERTIFICATE_OK` from exact rational formal power-series arithmetic and recovered the coefficients through order ten of the entropy gain. The recorded full outputs are `verify_output.txt` and `series_output.txt`.
+The three rows have equal conditional entropy, so capacity maximizes output entropy. For t=1−2p>0 the two-bit transition matrix is invertible, so distinct input laws give distinct outputs; strict concavity and reverse-complement symmetry give the unique symmetric optimizer. The two endpoint slopes of the symmetric output entropy are t² ln((1+t²)/(1−t²))>0 and t ln((1−t)/(1+t))<0 for 0<t<1, proving full support and strict gain over the equiprobable restriction. At p=0 the respective alphabets have three and two distinguishable letters; at p=1/2 all rows coincide. Independently group outputs by whether their bits agree: put x=t², q=(1−x)/2+xβ, z=tβ/q. Output entropy in nats is ln 2+h(q)−q[(1+z)ln(1+z)+(1−z)ln(1−z)]/2. The analytic stationarity equation divided by t² has value −2β at t=0 and nonzero β derivative. Parity and the implicit-function theorem make B=β/x analytic near x=0. The grouped gain divided by x³ expands as 2B−B²−3xB²+x²(2B/3−B²+2B³)+O(x³). Stationarity gives B=1−3x+(34/3)x²+O(x³); substitution gives the gain coefficients 1, −3, 32/3 in nats, with the asserted bits conversion. The independent finite numerical checks corroborate these coefficients, not the all-noise result.
 
-These checks are finite or formal calculations and do not, by themselves, establish an all-parameter assertion; the analytic concavity proof and implicit-function argument are essential. Neither proof assistant certification nor independent mathematical auditing is claimed.
+## originality
+
+PASS
+
+The exact channel, symmetry reduction, and repetition baseline are known. The strongest exact-model prior gives a numerical comparison, not the strict all-noise conclusion and sharp high-noise expansion. Credit is limited to the strict/interior-optimizer analysis and the quantified cancellation, not the model or the optimization itself.
+
+## value
+
+PASS
+
+For the exact fixed channel in which prior numerical curves were nearly indistinguishable, the result resolves whether there is a genuine advantage and shows why it is hard to see: the optimizing mixed-symbol weight is second order in t, and the advantage is sixth order. The explicit higher terms make this a quantitative explanation of a prior comparison, not just a positive but arbitrarily tiny numerical improvement or a claim about practical storage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

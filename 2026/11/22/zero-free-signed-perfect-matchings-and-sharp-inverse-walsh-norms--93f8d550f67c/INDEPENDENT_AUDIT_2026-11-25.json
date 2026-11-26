@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:57.808520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–60; VERIFICATION.md, lines 19–25; verify.py, lines 9–120 (inspected, not executed)",
+        "Independent replay: python3 /workspace/audit_evidence/desargues.py"
+      ],
+      "rationale": "Independent exact replay used the two-copy disjoint-2-subset graph, row-by-row subset dynamic enumeration, a breadth-first tree gauge, and direct character sums in both directions. It recovered 60 matchings, 20 per edge, pair-extension frequencies 0:60, 4:75, 6:120, 8:60, 10:120, and all the claimed reduced multiplicities. The product expansion gives 60-40|S| plus four times an even sum modulo 8 for any signing, which proves uniform nonvanishing without sampling. The connected graph has a 19-dimensional cut space; switching by a single vertex changes the sign, and cut-equivariance of the reciprocal forces support on the affine all-odd boundary fiber. Chord restriction is bijective on this fiber because a cycle supported on a tree is zero. The direct reciprocal sum scaled by 60 recovered 1343 nonzero values and absolute numerator 557056 over 60·2048. The l1 norm is attained on a delta; the l-infinity norm is attained by taking the signs of the kernel at one output. Orthogonal Fourier diagonalization gives 1/4 and condition number 15.",
+      "residual_risks": [
+        "The bipartite labels are by two disjoint pairs rather than pair/triple containment; they are equivalent by complementing the triple labels. The original comparison tests corresponding direct and Walsh sums in the H(5,2) representation, and only absolute histograms between its two different gauges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Renteln's adjacency acts on matchings of K_{2n}, with adjacency defined by disjointness; the present operator acts on the edge cube of a fixed cubic graph."
+        ],
+        "reasoning": "A spectrum of a graph on perfect matchings cannot be specialized by parameter to this Fourier convolution. General diagonalization supplies no evaluated multipliers.",
+        "searches": [
+          "Paul Renteln, On the spectrum of the perfect matching derangement graph, DOI 10.1007/s10801-021-01105-y",
+          "Wanless, §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit and the two distinct records above",
+        "Wanless 2005",
+        "Renteln 2022",
+        "Frozen RESULT.md, prior-work section and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known count fixes W(0) only. Pair moments can explain the congruence once given, whereas the complete signed spectrum and reciprocal kernel require the full switching-class calculation."
+        ],
+        "reasoning": "Generic Fourier and permanent methods and the unsigned count were prior input; the combined evaluated signed data do not follow from those cited results by a substitution.",
+        "searches": [
+          "Wanless, §§1–2; Renteln, introduction; Resultary Pappus and Desargues matroid Finding sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex switching and the signed permanent of the bipartite adjacency are equivalent formulations here. Wanless studies dense ±1 supports, not this fixed sparse 0/±1 pattern."
+        ],
+        "reasoning": "Compared under both GP(10,3) and H(5,2), and under Walsh and permanent conventions; no distinct matching claim was identified.",
+        "searches": [
+          "Resultary signed Desargues graph perfect matching Walsh lookup",
+          "Primary literature signed permanent/Walsh/perfect matching spectra lookup",
+          "Wanless, Permanents of matrices of signed ones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Desargues graph hit is the assigned record itself. The inspected Pappus table uses 42 different matchings; the inspected Desargues matroid table uses 110 rank-three bases and has 72 zero modes."
+        ],
+        "reasoning": "Shared vocabulary or a graph/matroid name does not identify the incidence family, hence these evaluated tables do not cover the claim. No distinct exact matching table was identified.",
+        "searches": [
+          "Resultary: zero-free signed Desargues perfect matchings, Pappus recovery, complete Walsh spectrum of Desargues matroid bases"
+        ]
+      },
+      "rationale": "Credit the classical graph descriptions, previously counted unsigned matchings, switching, and Fourier diagonalization. The supported distinction is the universal signed nonvanishing and evaluated complete graph-specific reduced spectrum and reciprocal kernel norms. The closest inspected alternatives change the support object, not just notation.",
+      "residual_risks": [
+        "Bounded literature coverage does not establish priority. The van Gans thesis landing page was reached but thesis text was not verified; specific prior Desargues anti-forcing/reconfiguration passages were not identified. Earlier unindexed signed data remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different support class",
+          "evidence": [
+            "Discusses permanents of ±1 matrices, including Hadamard and zero-permanent questions, not signings restricted to this sparse support."
+          ],
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/wangconjLAMA.pdf",
+          "material_read": "Abstract p. 427 and §2 p. 428",
+          "method": "OA full-text passages",
+          "title": "Permanents of matrices of signed ones",
+          "trigger": "Closest signed-permanent zero/nonzero literature"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": [
+            "Matchings of K_{2n} are vertices and disjointness defines adjacency."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-021-01105-y",
+          "material_read": "Introduction pp. 215–217",
+          "method": "Primary article passages",
+          "title": "On the spectrum of the perfect matching derangement graph",
+          "trigger": "Candidate broader spectral theorem"
+        },
+        {
+          "assessment": "Different graph, regardless of date",
+          "evidence": [
+            "42 Pappus matchings, norm 1637/210."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pappus-perfect-matching-fourier-recovery-five-absolute-levels-an--6f0383a3295f",
+          "material_read": "Finding, matching support and norm",
+          "method": "Published local mirror",
+          "title": "Pappus perfect-matching Fourier recovery",
+          "trigger": "Nearest matching-convolution method and table"
+        },
+        {
+          "assessment": "Different objects, regardless of date",
+          "evidence": [
+            "110 bases of a rank-three matroid, 72 zero modes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-walsh-spectrum-of-desargues-matroid-bases-and-two-zero--e94144cd35f4",
+          "material_read": "Finding, incidence family and spectral zeros",
+          "method": "Published local mirror",
+          "title": "Complete Walsh spectrum of Desargues matroid bases",
+          "trigger": "Same name and Walsh table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–28 and 36–60; exact independent reduction and reciprocal replay"
+      ],
+      "rationale": "The Desargues graph is a natural highly symmetric cubic bipartite support, not a tailored sparse matrix. Invertibility for every signing is not assured by the unsigned count, and the complete spectrum and exact inverse norm quantify sensitivity of recovery to perturbations in different norms. The arithmetic support and exact sparsity are useful beyond a yes/no nonvanishing test, without claiming a general graph-family theorem.",
+      "residual_risks": [
+        "Scope is one graph and the given unnormalized operator; it does not imply stability or invertibility for other cubic bipartite supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

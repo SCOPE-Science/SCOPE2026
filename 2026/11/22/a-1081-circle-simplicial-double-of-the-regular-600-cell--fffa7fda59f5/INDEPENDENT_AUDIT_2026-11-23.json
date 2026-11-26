@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:13:12.176395Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, verify_600.py (inspection only), spanning_tree.json and verify_output.txt",
+        "Independent replay: python3 /workspace/branches/196191c0-98be-4f88-9af6-2571e933bfb9/replay.py",
+        "Parent-array replay: python3 /workspace/branches/196191c0-98be-4f88-9af6-2571e933bfb9/check_tree.py <path-to-frozen-spanning_tree.json>"
+      ],
+      "rationale": "The double has one vertex per original edge and one adjacency per pair of opposite edges in a boundary tetrahedron; no simplex of dimension at least two fits in a 3-dimensional boundary. An independent exact reconstruction at unit circumradius in Q(sqrt(5)) recovered all 600 tetrahedra by affine-rank and strict support tests, using the classical identification/count to ensure completeness. It gave 720 vertices, 1800 edges, degree 5 throughout, and one component. Removing each double edge in turn and taking the shortest alternate path gives girth 6, with a six-cycle witness. The supplied parent array was separately relabelled into this reconstruction and all 719 parent edges and root paths verified. The quotient map contracting a spanning tree is a homotopy equivalence to a wedge of 1800−720+1=1081 circles; no assertion that this quotient is literally an embedded retract is needed. The integral homology and fundamental group follow.",
+      "residual_risks": [
+        "Only the standard convex {3,3,5} boundary and this doubling operation were audited; no symmetry-module or other-polytope conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For n=3 and r=2 the stated bound is only floor((3−4)/3)=−1 connectivity."
+        ],
+        "reasoning": "The weak Cohen–Macaulay bound asserts nonemptiness here, not connectedness, so it does not subsume the case.",
+        "searches": [
+          "arXiv:2506.10436v2, Theorem A and §3"
+        ]
+      },
+      "checked_sources": [
+        "Lesh–Schreiner–Wahl arXiv:2506.10436v2",
+        "MathWorld 600-Cell; 600-Cell Graph search result",
+        "Resultary results for the opposite-edge formulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Without connectedness, graph rank from these counts is 1080 plus the number of components.",
+          "The primary theorem's connectivity bound here is −1."
+        ],
+        "reasoning": "The exact rank and wedge are conditional textbook deductions only after proving connectedness; the counts and general bound do not provide that premise or exclude shorter cycles.",
+        "searches": [
+          "Lesh–Schreiner–Wahl arXiv:2506.10436v2, Definition 2.1 and Theorem A; MathWorld 600-Cell"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding, not a separate predecessor.",
+          "Lesh–Schreiner–Wahl arXiv:2506.10436v2, Definition 2.1; MathWorld 600-Cell Graph."
+        ],
+        "reasoning": "The double is the graph of opposite original-edge pairs in tetrahedral cells of the hexacosichoron. The classical skeleton has 120 vertices and 720 edges, not 720 vertices and 1800 edges. Neither the skeleton nor the unrestricted disjoint-edge matching complex is the equivalent object.",
+        "searches": [
+          "600-cell opposite edges tetrahedron graph 720 vertices 1800 girth six simplicial double Lesh Schreiner Wahl 600-cell 1081 edge graph",
+          "Resultary: 600-cell opposite-edge adjacency graph simplicial double regular polytope 720 vertices 1800 edges connected 1081 homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld documents the 120 original vertices, 720 original edges, 600 tetrahedra, five tetrahedra per edge and classical coordinates."
+        ],
+        "reasoning": "These f-data already supply the double's size and valence, but do not tabulate its components, girth or homotopy type. No independent opposite-edge graph table was located in the returned evidence.",
+        "searches": [
+          "MathWorld 600-Cell and 600-Cell Graph; opposite-edge web and Resultary queries above"
+        ]
+      },
+      "rationale": "Best of knowledge: the new part is the connectedness and exact classification of the opposite-edge graph, including girth, not the classical face counts or the graph-to-wedge reduction. No inspected result covers that classification.",
+      "residual_risks": [
+        "The same graph may be catalogued under another name or described by an uninspected symmetry construction; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the construction but the theorem does not supply connectedness here",
+          "evidence": [
+            "Theorem A and its proof give floor((n−2r)/(r+1))-connectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.10436v2",
+          "material_read": "Open HTML, Introduction, Definition 2.1 and §3 theorem/proof passages",
+          "method": "Compared the definition and substituted the boundary dimension and doubling parameter in the connectivity inequality",
+          "title": "The double of a simplicial complex",
+          "trigger": "Exact doubling operation and potentially dominating connectivity theorem"
+        },
+        {
+          "assessment": "Covers the input polytope geometry and counts, not the opposite-edge graph classification",
+          "evidence": [
+            "The two coordinate order conventions differ by an even permutation; radius-two short-edge length is 2/phi."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/600-Cell.html",
+          "material_read": "Coordinate families, edge length, incidence counts and skeleton distinction",
+          "method": "Read the reference entry and compared its coordinate permutation convention",
+          "title": "600-Cell",
+          "trigger": "Exact coordinate and incidence reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md; Lesh–Schreiner–Wahl Theorem A; exact reconstruction"
+      ],
+      "rationale": "For a canonical regular 3-sphere triangulation the general doubling theorem leaves even connectedness open. Resolving it and giving the exact wedge rank and a shortest-cycle invariant supplies concrete data for comparison with doubles of other 3-spheres.",
+      "residual_risks": [
+        "A single finite classification, not a general connectivity theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

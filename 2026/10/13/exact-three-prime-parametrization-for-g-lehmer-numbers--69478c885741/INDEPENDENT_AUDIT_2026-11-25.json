@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:40:52.545080Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–163",
+        "VERIFICATION.md:20–47",
+        "verify.py (inspected)",
+        "arXiv:1401.4708v1 §5 Prop. 13",
+        "python3 /workspace/replay/5.py (passed independent sieve and direct predicate)"
+      ],
+      "rationale": "Odd G-Lehmer numbers are squarefree: a repeated prime divides Φ(n) but not n±1. For each distinct odd prime u, the ratio (u−β(u))/u is at least 4/5; for three primes this gives Φ≥64n/125. Since n≥105, F≤n+1<128n/125≤2Φ, so a positive integer quotient is necessarily 1. Multiplying the equality by the product of the signs and putting x_i=β(p_i)p_i gives ∏(x_i−1)=∏x_i−1; expansion gives the pairwise sum equal to the single sum. With all positive x_i≥5 the pairwise sum is larger, and with all negative x_i it is positive while the single sum is negative. For the two mixed cases, completing the product gives the displayed (q−t−1)(r−t−1)=t²+t+1 and (p−s+1)(q−s+1)=s²−s+1. The right sides are positive. If both factors were negative, the lower bounds 5 on the positive-residue primes and 3 on the negative-residue primes bound the product by (t−4)² or (s−4)² respectively; in the first case such a negative-factor pair already requires t>4. These bounds are strictly less than the right sides. Ordering the positive distinct factors accounts for uniqueness; substitution back gives both converses, and the residue classes make the distinguished prime distinct. The published semiprime result covers two primes (also the same ratio bound with exponent two works for n≥15); no composite odd one-prime case survives squarefreeness. My smallest-prime-factor sieve factored odd n rather than looping over the frozen three-prime tuples. Among 635,805 integers with three distinct prime factors and no multiplicities up to 5,000,000, precisely the seven reported values passed the direct divisibility test and each had quotient 1. The proof, not the finite sweep, proves the parametrization.",
+      "residual_risks": [
+        "Only odd inputs with three distinct prime factors are classified; the lower bound of four for a proper-divisor counterexample is valid, not asserted sharp. Infinitude of the families and the general proper-divisor question are unresolved by this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grau et al. report that all known examples have equality and ask about proper divisibility; they do not assert universal equality. Their neighboring large prime-count lower bounds apply to the ordinary Lehmer problem.",
+          "Schettler's Thms. 4.2–4.3 are about squarefreeness/divisibility and Korselt conditions for the whole-unit PID analogue; the distinct-prime-factor lower bound in Thm. 5.2 concerns polynomial rings over finite fields. The k-Lehmer preprint concerns ordinary φ(n)|(n−1)^k."
+        ],
+        "reasoning": "None of these broader-looking statements contains the rational-prime-support-three norm-one equality locus. The question in the original paper is not an earlier theorem.",
+        "searches": [
+          "arXiv:1401.4708v1 §5 Prop. 13, surrounding proper-divisor question and prime-support bounds",
+          "Schettler, Lehmer's totient problem and Carmichael numbers in a PID, §§4–5; arXiv:1012.2337v2 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1401.4708v1 §5",
+        "Schettler author PDF §§4–5",
+        "arXiv:1012.2337v2",
+        "OEIS A235864, A182140, A182221",
+        "Resultary c278d2b5669d",
+        "Focused primary-literature query on the Gaussian proper-divisor question and prime-support restriction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-prime proposition requires twin primes with sum divisible by 8 and yields equality; its hypothesis excludes three-prime support.",
+          "For integer n in Z[i], the PID quotient size is n², and for inert p the whole unit group has size p²−1, whereas the Gaussian Euler factor here is p+1; the choice of group and the right-hand integer both change. The cyclicity record instead studies an asymptotic for squarefree semiprimes."
+        ],
+        "reasoning": "The prime-power law is useful input, but the specific classification uses a quotient bound and nontrivial restrictions on signs and translated positive factors. The inspected prior exact statements do not evaluate that three-prime equality locus.",
+        "searches": [
+          "Direct comparison of arXiv:1401.4708v1 §5 Prop. 13 and Question 2 with support-three hypotheses",
+          "Whole-group versus norm-one specialization of Schettler's results to Z[i]",
+          "Resultary c278d2b5669d comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grau et al. use the same condition Φ(n) | n−β(n); their Prop. 13 has support two. The signed product and the two quadratic factorizations characterize support three.",
+          "Schettler uses the whole quotient unit group and quotient size, not the norm-one group and n−β(n). Resultary c278d2b5669d studies gcd(n,Φ(n))=1 on semiprimes instead of Φ(n) | n−β(n)."
+        ],
+        "reasoning": "The similarly named classical, PID and Gaussian cyclicity predicates are not equivalent, even when using Gaussian integers or the same Φ. No priority is inferred from a same-day date.",
+        "searches": [
+          "Gaussian Euler function G-Lehmer proper divisor three prime factors; signed-prime symmetric equation and both factor products",
+          "arXiv:1401.4708v1 §5, Schettler PID analogue, published Resultary G-Lehmer and factor patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sequence records give definitions, example values, and computation formulae. They include already-known examples of the equality locus rather than a proof about the quotient for all three-prime inputs.",
+          "The local search retrieved a related Gaussian cyclic semiprime record but no exact G-Lehmer classification on the checked statements."
+        ],
+        "reasoning": "A membership iterator or enumerated list does not provide a structural classification by support or an exact pair-of-divisors condition. The seven sample integers are not credited as novel.",
+        "searches": [
+          "OEIS A235864 G-Lehmer divisibility; A182140 Gaussian equality; A182221 composite equality outside A071700",
+          "Published Resultary G-Lehmer equality and divisor-pair lookup"
+        ]
+      },
+      "rationale": "The Gaussian Euler product law, the odd two-prime classification and the known equality examples are prior. On the inspected evidence the distinct contribution is the exact odd three-prime classification, including the necessary equality, exclusion of two same-sign patterns, and two reversible divisor parametrizations. The brief support bound is a corollary, not a sharp general sieve barrier.",
+      "residual_risks": [
+        "Bounded searches and OA comparisons cannot rule out an unindexed equivalent factorization or a stronger odd support bound elsewhere. The decision does not attribute priority to the known examples or to basic quotient estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior two-prime equality and observed examples, not a general or three-prime equality theorem",
+          "evidence": [
+            "Prop. 13: n=pq G-Lehmer iff twin-prime pair with 8|p+q, giving equality. The question about a proper divisor is posed after noting known examples have equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.4708v1",
+          "material_read": "§5 pp. 8–9, OA PDF offsets 25000–32927; Prop. 13 and Question 2 including the lead-in",
+          "method": "OA primary passage comparison of definitions and theorem hypotheses",
+          "title": "Fermat test with Gaussian base and Gaussian pseudoprimes",
+          "trigger": "Defines the exact predicate and poses the quotient question"
+        },
+        {
+          "assessment": "Different group and right-hand side; does not settle the odd Gaussian norm-one Lehmer claim",
+          "evidence": [
+            "Uses |U(R/(r))| dividing |R/(r)|−1 in the PID analogue, with |Z[i]/(n)|=n². Thm. 5.2 is a lower bound for F[x]."
+          ],
+          "identifier_or_url": "https://web.math.ucsb.edu/~jcs/Schettler.pdf",
+          "material_read": "Abstract/intro and §2, pp. 1–2 offsets 0–4798; Thms. 4.2–4.3 and §5, offsets 9800–20043, including Thm. 5.2 and Gaussian setup",
+          "method": "OA author-hosted PDF keyword locate and bounded theorem/definition reads",
+          "title": "Lehmer's totient problem and Carmichael numbers in a PID",
+          "trigger": "Cited plausible broader work with a Gaussian-integer specialization and prime-count results"
+        },
+        {
+          "assessment": "Ordinary Euler φ and power of n−1, a different condition",
+          "evidence": [
+            "Defines the k-Lehmer condition φ(n)|(n−1)^k and discusses classical support bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.2337v2",
+          "material_read": "Abstract and introduction, p. 1 offsets 0–2452",
+          "method": "OA PDF definition comparison",
+          "title": "On k-Lehmer numbers",
+          "trigger": "Search hit on prime counts and Lehmer variants by two of the original authors"
+        },
+        {
+          "assessment": "Known numerical data but no support-three quotient theorem or divisor form shown",
+          "evidence": [
+            "A235864 uses divisibility, A182140 equality, and A182221 restricts composite equality by excluding the special two-prime branch."
+          ],
+          "identifier_or_url": "https://oeis.org/A235864 ; https://oeis.org/A182140 ; https://oeis.org/A182221",
+          "material_read": "The three entries' definitions, example lists and computation formulas; author dates 2014-01-16, 2012-04-14 and 2012-04-19",
+          "method": "OA public entry comparison",
+          "title": "OEIS Gaussian divisibility, equality and restricted equality sequences",
+          "trigger": "Exact database coverage of the target predicate and sample equality cases"
+        },
+        {
+          "assessment": "Different predicate and support; not equivalent coverage",
+          "evidence": [
+            "G-cyclicity is gcd(n,Φ(n))=1 and the asymptotic concerns odd squarefree semiprimes."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exceptional-asymptotic-for-gaussian-cyclic-semiprimes--c278d2b5669d",
+          "material_read": "Mirrored RESULT.md Finding offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and mirror read",
+          "title": "Exceptional asymptotic for Gaussian cyclic semiprimes",
+          "trigger": "Closest same-day indexed result involving Gaussian Φ and prime support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1401.4708v1 §5 Prop. 13 and proper-divisor question",
+        "RESULT.md:18–50,101–150",
+        "Independent symbolic check and direct sieve replay"
+      ],
+      "rationale": "This is the first support layer beyond the published twin-prime case in the inspected classification, directly tied to the explicit proper-divisor question. Its main value is not the easy quotient bound alone (counting distinct positive-residue primes strengthens that coarse bound even at four primes). The two reversible families turn a global divisibility search in three primes into a divisor enumeration of one quadratic integer for each distinguished prime, and identify the exact admissible residue patterns. A researcher studying this equality sequence or attempting a higher-support search can use that structural description and recover every low-support member, not just a bounded list.",
+      "residual_risks": [
+        "No quantitative estimate for the number of generated triples or proof of infinitude. No claim to resolve the general Lehmer problem or establish a best prime-support bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

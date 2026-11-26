@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:18.297448Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assesses /workspace/repairs/4/RESULT.md. The finite moments and Gaussian limit are unchanged; the repaired claim credits as its contribution the exact finite self-normalized moments and treats the limit as a broader-theorem consequence. In the proper-complex convention S=Σ|g_j|² is Gamma(n,1), independent of the uniform sphere direction and hence independent of Y=T/S². At two frequency points Wick contractions with k=0,1,2 cross-pairs in each direction have counts [4,16,4] and give E[|P(t)|⁴|P(s)|⁴]=4n⁴+16n²|D_n(t−s)|²+4|D_n(t−s)|⁴. Normalized Haar yields ∫|D_n|²=n and ∫|D_n|⁴=Σ_{|k|<n}(n−|k|)²=(2n³+n)/3. Therefore ET=2n² and ET²=4n⁴+(56n³+4n)/3. Divide respectively by ES²=n(n+1) and ES⁴=n(n+1)(n+2)(n+3) before subtracting the mean squared: the displayed rational variance follows, with n Var(Y_n)→8/3. Independent boundary checks: n=1 is identically one; n=2 has Y_2=1+2U(1−U) for U uniform on [0,1], giving mean 4/3 and variance 1/45. For the limit, U_n=(S−n)/n is O_P(n^−1/2), and Y_n−2=(H_n−2U_n²)/(1+U_n)². The fourth Wick polynomial has mean zero, no quadratic chaos, and covariance 4|r_n|⁴. Its n-scaled integrated variance tends to 8/3. In each connected q-vertex Wick cumulant the factors off a spanning tree have moduli ≤1; successively integrating leaves bounds the remainder by ||r_n||_1^(q−1). The sine bound gives ||r_n||_1≤(1+log n)/n, so the cumulants of √n H_n of orders q≥3 vanish. Moments, Gaussian determinacy and Slutsky establish the limit with either centering. The added proof of its coverage by the Gaussian-array theorem is also correct: averaging the quartic Wick integrand over M=2n nodes is exact, the standardized real two-vector has component correlations bounded by 1/d at cyclic distance d, and off-diagonal fourth powers satisfy both uniform row summability and the ordinary-index averaged tail test (wrap pairs at distance d number 2d, contributing an O(1/M) bound). The rank-four polynomial is fixed, and the √M-scaled variance tends to 16/3. Finite package checks were inspected but not rerun; they are not the proof of the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bardet–Surgailis triangular-array CLT applies to the rank-four Gaussian polynomial on the oversampled grid and thus covers the Gaussian-limit component after algebraic cancellation.",
+          "The cited continuous fixed-covariance Breuer–Major comparison is not by itself a direct fit to these n-dependent periodic covariances, while the triangular-array extension is.",
+          "Ling et al. prove order estimates for expectations with a real trigonometric basis, not this exact proper-complex finite-n ratio variance."
+        ],
+        "reasoning": "The strongest general theorem was applied rather than dismissed as different wording. Its input of variance convergence is not an output giving exact moments of the finite random denominator quotient.",
+        "searches": [
+          "Bardet–Surgailis arXiv:1104.4732 §3 and Theorem 1(ii), (3.1)–(3.6)",
+          "Nourdin–Nualart arXiv:1807.09740 Theorem 1.1",
+          "Ling et al. arXiv:2503.16786 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_random_fourier.py and corrected RESULT.md",
+        "Local Resultary records 2ac4e1c327c6, 0d5fa733eb8c, dcec63467712 and 9c95f80668e4",
+        "arXiv:1104.4732",
+        "arXiv:1807.09740",
+        "arXiv:2503.16786",
+        "Borwein–Lockhart (abstract/access attempts)",
+        "ScienceDirect S030441499900071X (excerpt/access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For M=2n equispaced samples, the Wick quartic integral equals the grid average exactly. Use m=4 and the bound 1/d for cyclic distance. Ordinary off-diagonal tails are controlled by 2Σ_{d>K}d^−4 plus (2/M)Σ_d d^−3 from wrap-around; if M≤K there are no terms. The variance condition follows from Var(H_n)=4(2n³+n)/(3n⁴). This is an explicit reduction of the CLT to the broader theorem.",
+          "Expected norm behavior or a CLT with a given variance parameter does not determine the all-n cancellations between radial moments and Fourier Wick pairings that give the finite variance formula."
+        ],
+        "reasoning": "The repaired result does not claim an original CLT. The finite formula uses standard Wick and radial tools but evaluates the exact observable for every n; it is not the specialization of a finite variance statement identified in the compared sources.",
+        "searches": [
+          "Bardet–Surgailis Theorem 1(ii), PDF offsets 37300–42551",
+          "Local unimodular and Gaussian Mahler-measure full-text Findings",
+          "Borwein–Lockhart expected L^p norms abstract and lawful access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen ratio is exactly the integrated square of the periodogram normalized by total sample power, up to conventions that cancel. ‘On the integral of the squared periodogram’ is a close primary lead: the visible publisher excerpt describes a sample periodogram of a stationary Gaussian series and asymptotic distribution of functionals, but the full text could not be obtained in the lawful attempts.",
+          "The exact unimodular-coefficient overlap 2ac4e1c327c6 is a fourth-norm law with deterministic denominator and agrees with the leading normalized 8/(3n) scale, rather than the all-n proper-complex-Gaussian variance."
+        ],
+        "reasoning": "Matching observables under periodogram conventions is substantive. Coefficient-law changes do not cancel: at n=2 the random-phase ratio is constant whereas the Gaussian sphere ratio has variance 1/45. No full-text noncoverage verdict is drawn from the squared-periodogram excerpt.",
+        "searches": [
+          "Local Resultary exact normalized Gaussian Fourier quartic/Nikolskii variance, random unimodular fourth moment and Gaussian Mahler measure",
+          "Primary query for integrated squared periodogram, continuous frequency, Gaussian white noise and normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest exact target hit is a self-match. The distinct exact 2ac4e1c327c6 expression is a phase formula; 0d5fa733eb8c is a logarithmic integral in the Gaussian ensemble, not a quartic ratio.",
+          "The Resultary summary of dcec63467712 reports a broader finite-support Haar-phase formula; the associated mirror text was unavailable. Another inspected hit, 9c95f80668e4, concerns third centered moments of the phase observable."
+        ],
+        "reasoning": "Look for an exact finite expression, not agreement of a growth scale or one numeric coefficient. Neither an exact phase law nor an exact logarithmic variance is a database entry for this ratio.",
+        "searches": [
+          "Local Resultary exact finite variance of Gaussian normalized Fourier fourth moment, Gaussian log-Mahler variance, phase fourth-moment variance and additive-energy law",
+          "Primary integrated squared-periodogram comparison"
+        ]
+      },
+      "rationale": "The distinct supported contribution after repair is the finite-n rational variance of the Haar-integrated squared periodogram divided by its squared sample power, for proper-complex Gaussian consecutive analytic coefficients. The CLT is not credited as a separate original result: it follows from Bardet–Surgailis Theorem 1(ii) by exact oversampling, covariance summability and cancellation of the quadratic component. No compared theorem supplied the finite-n variance of this ratio.",
+      "residual_risks": [
+        "Uninspected squared-periodogram or norm-asymptotic theorem details and unindexed earlier exact calculations remain possible; no priority claim beyond bounded comparison.",
+        "The CLT is retained as mathematical context and does not contribute to the originality PASS."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly applicable after exact quadrature, with wrap-around tail check; no exact finite ratio moment conclusion",
+          "evidence": [
+            "Theorem 1(ii) requires uniformly summable rank-power cross correlations, vanishing average tail, a limiting function and positive limiting variance; all are checked in the repaired comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.4732",
+          "material_read": "§3 covariance assumptions (3.1)–(3.3), Theorem 1(ii) conditions (3.5)–(3.6), pp. 8–9, offsets 37300–42551",
+          "method": "Targeted OA PDF",
+          "title": "Moment bounds and central limit theorems for Gaussian subordinated arrays",
+          "trigger": "Stronger CLT for changing Gaussian covariances"
+        },
+        {
+          "assessment": "Relevant fixed-covariance method, not a direct match to the periodic changing-covariance triangular array",
+          "evidence": [
+            "The theorem treats a stationary process with a fixed covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.09740",
+          "material_read": "Theorem 1.1, OA offset 6755",
+          "method": "Targeted OA full text",
+          "title": "The functional Breuer–Major theorem",
+          "trigger": "Gaussian integral CLT and possible broad coverage"
+        },
+        {
+          "assessment": "Material unresolved details, not evidence of noncoverage",
+          "evidence": [
+            "The visible passage introduces asymptotic distribution of periodogram functionals; it does not establish what finite normalized moments are proved."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S030441499900071X",
+          "material_read": "Visible indexed publisher excerpt with stationary Gaussian periodogram definition; theorem text not recovered",
+          "method": "Primary search and bounded lawful publisher OA attempts; no lawful alternate identified in follow-up lookup",
+          "title": "On the integral of the squared periodogram",
+          "trigger": "Alternative time-series formulation of the quartic numerator"
+        },
+        {
+          "assessment": "Real ensemble and expectation order bounds, rather than the finite proper-complex variance",
+          "evidence": [
+            "The basis is real trigonometric and the theorem states estimates of order for expected factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.16786",
+          "material_read": "Introduction and Theorem 1.1, offsets 0 and 6235",
+          "method": "Targeted OA full text",
+          "title": "Average Nikolskii factors for random trigonometric polynomials",
+          "trigger": "Same named norm-ratio problem, Gaussian family"
+        },
+        {
+          "assessment": "Expected norm asymptotics in visible evidence, theorem-level details not verified",
+          "evidence": [
+            "The accessible description concerns expected L^p norms of boundary values."
+          ],
+          "identifier_or_url": "Proc. AMS 129 (2001), 1463–1472; https://www.cecm.sfu.ca/~pborwein/PAPERS/P140.pdf",
+          "material_read": "Accessible abstract/index description; author-PDF extraction unusable, AMS retrieval unsuccessful",
+          "method": "Abstract plus bounded lawful author and publisher copy attempts",
+          "title": "The expected L^p norm of random polynomials",
+          "trigger": "Possible expected complex-polynomial norm overlap"
+        },
+        {
+          "assessment": "Same ensemble; exact formula for another observable",
+          "evidence": [
+            "Integrates log modulus, not a normalized fourth power."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-two-term-variance-law-for-the-logarithmic-mahler-measure-of-gaus--0d5fa733eb8c",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local Resultary and exact mirror",
+          "title": "Two-term variance law for the logarithmic Mahler measure of Gaussian polynomials",
+          "trigger": "Proper-complex consecutive Gaussian ensemble and exact variance"
+        },
+        {
+          "assessment": "Strong overlap in invariant but a deterministic denominator and phase rather than Gaussian model",
+          "evidence": [
+            "The finite phase variance is parity-dependent and has leading unnormalized term 8n³/3."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local Resultary and exact mirror",
+          "title": "Exact finite variance of the fourth moment of a random unimodular polynomial",
+          "trigger": "Same quartic observable and leading variance after normalization"
+        },
+        {
+          "assessment": "Summary identifies Haar phases; no whole-document verdict from an index hit",
+          "evidence": [
+            "The summary gives a phase variance 8T(A)+32Q(A)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-random-phase-fourth-moment-variance-detects-the-non-Sidon-relati--dcec63467712",
+          "material_read": "Local index summary; exact mirror file unavailable",
+          "method": "Local Resultary and bounded mirror lookup",
+          "title": "Random-phase fourth-moment variance detects the non-Sidon relation",
+          "trigger": "Broader exact fourth-moment formula on finite supports"
+        },
+        {
+          "assessment": "Third-centered-moment comparison for phase coefficients, not finite Gaussian ratio variance",
+          "evidence": [
+            "The statement concerns a skewness/third-moment inequality on finite supports."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-four-term-progressions-as-the-first-skewness-obstruction-for-ran--9c95f80668e4",
+          "material_read": "Local mirror Finding",
+          "method": "Local Resultary and exact mirror",
+          "title": "Four-term progressions as the first skewness obstruction for random phase fourth moments",
+          "trigger": "Adjacent phase-poly moment problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fourth power of the Nikolskii factor is a natural, rotation-invariant shape statistic for a standard random analytic polynomial; equivalently it measures spectral concentration after removing sample power. Its exact variance for every n supplies a quantitative benchmark on the complex sphere, including finite-size differences from fixed-amplitude phases that a shared leading coefficient cannot distinguish. The precision is independently useful for finite degrees and is not furnished by an array CLT or coarse expectation bounds. No claim of a new general Gaussian limit principle is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:33.272940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual increments start at one, and a nearest choice gives one while a farther choice flips the preceding increment. Hence depths never decrease, the newest vertex attains the height, and zero increments cannot be adjacent. Independence gives F_i(z)=z[p_i F_(i-1)(z)+(1-p_i)F_(i-2)(z)]. Reversal R_i(s)=s^i F_i(1/s) gives the determinant recurrence for R_n(-s): the off-diagonal product is s(1-p_i) and the diagonal is p_i (initial entry 1). In the interior, dividing by the positive diagonal on both sides gives a real symmetric weighted path; each eigenvector is determined by its first coordinate, so eigenvalues are simple. Bipartite symmetry gives exactly floor(n/2) nonzero positive/negative pairs and, for odd n, one zero. Reversing and normalizing at z=1 gives a product of r Bernoulli factors times z^h. Compactness of the Bernoulli parameter cube handles p_i=0 or 1. The deterministic odd-index resets make each even increment exactly its independent nearest-parent indicator, proving converse realization. At fixed mean, averaging two Bernoulli parameters raises every convex expectation by the nonnegative second-difference term; choosing the most separated pair at every step drives the parameter spread to zero (the sum of centered squares decreases by half the squared spread). The adjacent-integer secant proves the universal lower bound on integer-valued laws; both extremizers are realized by the reset schedules. The upper variance equality is equality in the sum-of-squares bound, and for the lower one the quadratic secant is strict off the adjacent integers, with the mean forcing a point mass when integral. A line segment between parameter vectors with the same sum realizes intermediate variances by continuity, including the degenerate cases. Independent finite corroboration: at n=8, for all 128 schedules with nearest weights 1/3 or 2/3, enumerated the 128 parent-choice histories per schedule and summed products of integer weights after clearing denominator 3^7; each vector of counts indexed by n minus the maximum depth equaled the reversed recurrence coefficients. This auxiliary check does not supply the general factorization; the frozen verify.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen descriptions identify the tree antecedent as a homogeneous model studying tree structure and walks, weighted matching real-rootedness as standard, and fixed-mean binomial maximality in convex order as the general Hoeffding inequality."
+        ],
+        "reasoning": "Matching real-rootedness covers the generic factorization step once the tree polynomial has been identified as a weighted path polynomial. Hoeffding's inequality transfers after the representation; neither theorem supplies the depth identification, the exact full family attainability or the schedule attaining each extremizer. No whole-document exclusion is asserted for uninspected texts.",
+        "searches": [
+          "Tang–Wang–Wu arXiv:2607.02916, homogeneous Bernoulli predecessor trees",
+          "Wagner arXiv:0803.1659, weighted matching real-rootedness",
+          "Tang–Tang arXiv:1908.10024v1, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary e657978f31a7, 358f9a90bdb3 and f91e17ff4f60 (indexed scientific statements)",
+        "arXiv:2607.02916, 0803.1659, 1908.10024v1 and 1102.3613v1 (identified; targeted primary retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof derives a path determinant from the independent tree choices and explicitly resets p_i to 1 at odd times; the even choices then realize each Bernoulli parameter independently. The two generic convex inequalities apply directly once that attainable family is known."
+        ],
+        "reasoning": "A homogeneous occupation result could give an inclusion on a slice. General real-rootedness and convex order account for the associated abstract inequalities, but not the converse construction over the schedule family, simultaneous variance sharpness in the tree, or attainment along fixed-mean controls.",
+        "searches": [
+          "RESULT.md:31–84 compared to Proposition 4.2 of arXiv:1102.3613v1, the weighted matching-polynomial method, and Theorem 2.1 of arXiv:1908.10024v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tree's increment chain has time-dependent transitions P(1|0)=1 and P(1|1)=p_i, initialized at 1. Resultary e657978f31a7 gives finite Bernoulli representations and a parameter spectrum for stationary antipersistent binary Markov occupations. The frozen citation describes Dekking–Kong as an analogous homogeneous real-rootedness result."
+        ],
+        "reasoning": "This chain mapping identifies actual overlap in the occupation statistic and root method, not merely similar terminology. Fixed homogeneous or stationary parameters do not give all time-dependent schedules and cannot realize an arbitrary vector of r Bernoulli parameters via the alternating reset schedule. A genuinely time-dependent occupation theorem with these controls would be closer; none was verified.",
+        "searches": [
+          "Resultary: arbitrary time-inhomogeneous antipersistent Markov occupation count, Poisson-binomial and two-predecessor height",
+          "Dekking–Kong arXiv:1102.3613v1, Proposition 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalog entry f91e17ff4f60 is the frozen claim itself. Earlier e657978f31a7 gives a stationary antipersistent occupation parameter spectrum, and 358f9a90bdb3 is an iid binary-sequence adjacent-pattern count dichotomy."
+        ],
+        "reasoning": "These are pertinent exact representations or spectra but do not constitute an independent table of the attainable laws over the varying attachment schedules. Adjacent-pattern statistics of iid words have different input and counting rules.",
+        "searches": [
+          "Resultary: exact time-inhomogeneous two-predecessor height-law family, maximal/minimal fixed-mean risks; antipersistent Markov occupation Bernoulli parameter spectrum"
+        ]
+      },
+      "rationale": "Credit is confined to the exact time-inhomogeneous tree-height family, its converse schedule realization and the resulting simultaneously sharp tree envelopes. Weighted matching real-rootedness, the binomial convex-order maximum for independent Bernoulli sums, and the adjacent-integer lower benchmark are not independent novelty claims. The closest occupation laws and general inequalities do not establish the attainable family under the tree's attachment controls in the material that could be compared. This judgment is limited by access to the pinpointed primary sources and by the possibility of an equivalent occupation-count formulation.",
+      "residual_risks": [
+        "An equivalent result for time-varying occupation counts with P(1|0)=1, P(1|1)=p_i could cover the representation and possibly its reset converse.",
+        "The pinpointed literature and closest mirror record did not yield original passages; no claim of exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Meaningful stationary-chain overlap, not verified coverage of time-dependent controls",
+          "evidence": [
+            "Stationary antipersistent binary chain, finite independent-Bernoulli factorization and limiting parameter spectrum."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-limiting-bernoulli-parameter-spectrum-of-antipersistent-markov-o--e657978f31a7",
+          "material_read": "Indexed scientific summary; targeted full-record mirror attempt did not return passages",
+          "method": "Resultary and targeted mirror lookup",
+          "title": "Limiting Bernoulli parameter spectrum of antipersistent Markov occupations",
+          "trigger": "Closest independent Bernoulli occupation representation"
+        },
+        {
+          "assessment": "Same-model antecedent credited, but no unsupported whole-document exclusion",
+          "evidence": [
+            "Frozen description identifies homogeneous probabilities and one-endedness, branch/trunk structure and random-walk collisions as topics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02916",
+          "material_read": "Frozen descriptions of Sections 1–3; primary passage not obtained in targeted OA attempt",
+          "method": "Pinpointed arXiv lookup and comparison to RESULT.md:89–98",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Same underlying homogeneous attachment model"
+        },
+        {
+          "assessment": "Homogeneous occupation analogue as described in the frozen source; theorem scope not independently confirmed from full text",
+          "evidence": [
+            "RESULT.md:92,104 identifies a negative-real-root statement for the homogeneous antipersistent model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1102.3613v1",
+          "material_read": "Frozen description of Proposition 4.2; targeted OA retrieval did not furnish the passage",
+          "method": "Pinpointed OA attempt and reduction to the height-increment chain",
+          "title": "Multimodality of the Markov binomial distribution",
+          "trigger": "Potentially equivalent occupation polynomial real-rootedness"
+        },
+        {
+          "assessment": "Standard tools credited; novelty not assigned to either abstract result",
+          "evidence": [
+            "RESULT.md:92,99–102 identifies the Hoeffding bound and matching real-rootedness. The frozen proof separately derives the depth-to-determinant reduction and realizes all controls."
+          ],
+          "identifier_or_url": "arXiv:1908.10024v1; arXiv:0803.1659",
+          "material_read": "Frozen pointed citations (especially Tang–Tang Theorem 2.1) and mathematical implications; no primary text passage from the targeted attempts",
+          "method": "Pinpointed OA retrieval attempts and independent proof comparison",
+          "title": "The Poisson binomial distribution — Old & New; Weighted enumeration of spanning subgraphs with degree constraints",
+          "trigger": "Broader Hoeffding convex-order inequality and matching-polynomial real-rootedness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full attainable-law description for a finite, geometrically defined random tree under independent time-varying probabilities is a natural structural result. It converts fixed-mean design into explicit schedules simultaneously bounding every convex loss and classifies the exact variance range, without misidentifying the actual increments as independent or claiming tail ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

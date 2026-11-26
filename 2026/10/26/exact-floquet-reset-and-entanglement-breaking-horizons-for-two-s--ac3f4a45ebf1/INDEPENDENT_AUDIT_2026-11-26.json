@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:51.959943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5 of the proof",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "requirements.txt",
+        "Independent affine, exact polynomial-coefficient and Choi calculations"
+      ],
+      "rationale": "Reconstructing the dissipator from the off-diagonal jump entries 1±1/√2 gives Bloch rates −1,−2,−3 and z drift 2√2; conjugation swaps x and z. The homogeneous generators add to −4I. Composing the affine translations in physical time gives k(1−v³)(1,0,v) and k(u(1−u⁶),0,(1−u³)(1+u⁵)); dividing by 1−u⁸ gives the displayed fixed states. Independently cross-multiplied and checked all polynomial coefficients in the two purity defects and their strict gap. The regrouped centered polynomial is positive for 0<u<1. In an eigenbasis of the reset state, the nontrivial partial-transpose block has off-diagonal a/2 and determinant (1−a)²δ²/16−a²/4, so the inclusive threshold and integer ceilings hold. Writing C=e^(h D1/2), B=e^(h D2), C²=A gives (CBC)^(m+1)=C(BA)^mBC; EB closure under composition gives the one-cycle upper bound, and the purity ordering gives the lower bound. The boundary defect is tanh²(h/2)(1+2 sech h)/9=h²/12+O(h⁴), and the purity gap is O(h⁴). Multiplying the ceilings by 2h gives the claimed logarithm and O(h) remainder. The pure averaged fixed state has δ=0, so the positive finite-time identity weight never meets the EB criterion.",
+      "residual_risks": [
+        "The supplied 196-check count is recorded evidence only; the verifier is finite and its near-threshold sign checks use tolerances. The all-dwell conclusion rests on the exact proof.",
+        "The horizons are section-to-section horizons, not first passage at arbitrary times along an unmatched partial leg."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 gives eventual EB iff primitive for continuous-time quantum Markov semigroups.",
+          "Trinh's two-qubit product-noise threshold applies to the reset Choi state."
+        ],
+        "reasoning": "Broad theorems cover generic EB structure, not the finite-dwell fixed states and comparison of the two phase sections.",
+        "searches": [
+          "Primary literature lookup: switched qubit channels, Floquet Lindblad switching and entanglement breaking",
+          "Hanson–Rouzé–França arXiv:1902.08173, Theorem 2.1",
+          "Trinh arXiv:2606.31243, Eq. (4)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00046",
+        "arXiv:2606.31243",
+        "arXiv:1902.08173",
+        "Resultary 8e247c0a93d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For Trinh's product noise A⊗B take A=I/2 and B=τ; C_abs=δ/2 and λ*=δ/(2+δ).",
+          "Wang's averaged state is pure, so the semigroup is not primitive in Theorem 2.1."
+        ],
+        "reasoning": "The generic reset threshold and the averaged no-finite-EB conclusion are covered. The finite-dwell defect factors, strict phase ordering, phase bracketing and explicit asymptotic scale require the additional affine and algebraic work in this record.",
+        "searches": [
+          "Trinh arXiv:2606.31243, Eq. (4)",
+          "Hanson–Rouzé–França arXiv:1902.08173, Theorem 2.1",
+          "Wang arXiv:2610.00046, Example 2.2 and Remark 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang uses the same jump pair and discusses a fast-switching interpretation, but treats the averaged pure attractor.",
+          "Resultary 8e247c0a93d2 uses repeated rotated unital phase damping; it can reach a depolarizing channel with a maximally mixed replacement state."
+        ],
+        "reasoning": "The latter dynamics are unital; this finite-dwell system has a nonzero, section-dependent fixed Bloch vector. Neither limiting average nor unital depolarization identifies these two affine translations.",
+        "searches": [
+          "Resultary: finite-switching qubit reset and entanglement-breaking horizons",
+          "Wang arXiv:2610.00046, Example 2.2 and Remark 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related indexed result concerns repeated interleaved unitary phase damping; the motivating example gives the pure averaged fixed state, not finite-dwell two-section formulas."
+        ],
+        "reasoning": "This is a continuum of exact identities, not a tabulated census. The most pertinent indexed formula and same-model example were compared directly rather than inferring absence from a missing table.",
+        "searches": [
+          "Resultary search for the switched reset/EB statement",
+          "Wang Example 2.2 and Remark 2.3"
+        ]
+      },
+      "rationale": "Credit Wang for the exact dissipator pair and pure averaged stabilization, and credit known separability and eventual-EB results for the general threshold and obstruction. The supported distinct claim is the finite-dwell two-section solution, including the exact purity comparison and resulting sharp horizons and rapid-switching law; the sources examined do not supply this model-specific calculation as a theorem or an immediate parameter specialization.",
+      "residual_risks": [
+        "Bounded search and primary-source passages do not establish global priority; other quantum-control work might contain equivalent finite-dwell calculations.",
+        "The date of the distinct Resultary record does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same system and pure averaged stabilization; not the finite-dwell result in the inspected example",
+          "evidence": "q=1/√2, conjugate half-turn, and fast switching through the Trotter interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00046",
+          "material_read": "Example 2.2 and Remark 2.3, PDF pp. 2–3",
+          "method": "Bounded OA primary text inspection",
+          "title": "Lie-Wedge Stratification and Pure-State Stabilizability in Single-Channel Qubit Control",
+          "trigger": "Exact motivating dissipator pair"
+        },
+        {
+          "assessment": "Covers the generic reset EB criterion by specialization",
+          "evidence": "C_abs=√((1−Tr A²)(1−Tr B²)); λ*=C_abs/(1+C_abs).",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31243",
+          "material_read": "PDF p. 2, Eq. (4) and surrounding threshold statement",
+          "method": "Bounded OA primary text inspection",
+          "title": "Absorption capacity of separable noise: Bell-mixing thresholds on entanglement and teleportation",
+          "trigger": "General Bell-product mixture threshold"
+        },
+        {
+          "assessment": "Covers the obstruction for the averaged model",
+          "evidence": "Eventual EB iff primitive for a continuous-time quantum Markov semigroup.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.08173",
+          "material_read": "PDF p. 11, Theorem 2.1",
+          "method": "Bounded OA primary text inspection",
+          "title": "Eventually Entanglement Breaking Markovian Dynamics: Structure and Characteristic Times",
+          "trigger": "General finite-time EB characterization"
+        },
+        {
+          "assessment": "Related finite-depth EB optimization, different channels and invariant states",
+          "evidence": "Repeated unital phase damping with the same interleaved unitary, not two nonunital alternating Lindblad legs.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-entanglement-breaking-thresholds-for-repeated-rotated-qubi--8e247c0a93d2",
+          "material_read": "Original finding about fixed interleaved rotations and exact depolarization",
+          "method": "Local Resultary search and statement-level comparison",
+          "title": "Sharp entanglement-breaking thresholds for repeated rotated qubit channels",
+          "trigger": "Closest distinct indexed EB record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite-switching formulas and section conventions",
+        "Wang Example 2.2"
+      ],
+      "rationale": "This quantifies a singular finite-control effect in an existing pure-state stabilization example: every positive dwell gives finite EB while the averaged dynamics never become EB in finite time. The exact phase comparison and logarithmic horizon (including its scale) determine when that operational difference appears, rather than merely showing convergence of the channels at each fixed time.",
+      "residual_risks": [
+        "The finding is for the specified ideal control and equal dwell times; no perturbative robustness or general Floquet law is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

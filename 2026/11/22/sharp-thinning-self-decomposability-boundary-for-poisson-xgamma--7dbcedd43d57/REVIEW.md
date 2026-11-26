@@ -1,15 +1,21 @@
-# Scientific review: Poisson–xgamma thinning boundary
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Gamma-mixture representation produces the stated rational probability-generating function. Complex-conjugate factorization yields positive compound-Poisson intensities for every positive rate. The 1979 canonical-coefficient characterization reduces binomial-thinning self-decomposability to nonincrease of \(b_n\). The first difference is a rational multiple of a strictly concave quartic with one relevant root; every higher difference is strictly positive on the candidate interval by a uniform modulus bound certified at exact rational endpoints. The monotone-mass counterexample is valid for every integer count, not just a finite range. The executable checker provides  finite exact-rational diagnostics, not an infinite certificate. Risk: applicability of the cited classical criterion depends on its exact nonnegative-integer notion of binomial thinning, explicitly adopted in the result.
+## correctness
 
-## Originality — PASS (with historical-priority risk)
-The original 2020 Poisson–xgamma article derives the count family and standard characteristics, but the accessible text does not contain the thinning self-decomposability phase boundary. The 2021/2022 open-access article provides an overlapping one-parameter count family and an INAR model **with Poisson–xgamma innovations**; its relevant sections do not assert the stationary marginal criterion derived here. Steutel and van Harn's classical result establishes the general coefficient condition and is fully acknowledged; it leaves the model-specific quartic threshold and uniform higher-coefficient inequality uncomputed. Closest accessible published mathematical records concerning *other* compound-Poisson and thinning phase diagrams do not imply this theorem. Partial access to later generalizations, unindexed prior literature, and the possibility of an equivalent formulation in broader mixture theory remain priority risks. No independent novelty certification is asserted.
+PASS
 
-## Value — PASS
-The classification yields a nontrivial sharp boundary between two recognized decomposition structures for a published, applied count distribution. It gives usable exact jump intensities and an all-thinning decomposition criterion; the explicit strictly decreasing-mass counterexample demonstrates why elementary shape diagnostics do not settle time-series marginal decomposability. It is not a numerical-precision upgrade or a finite table lookup. The result does not claim universal statistical-model superiority or parametric closure under thinning.
+The mixing density puts weights 1-q and q on gamma shapes one and three; Poissonization gives the stated mixture with common NB parameter q and normalizes at one. Complex-root factorization shows b_n=q^n[3-2 Re(u^n)]>0 with summable b_n/n. For the analytic pgf, thinning at c approaching one forces each b_n-b_(n+1)>=0 by expanding the quotient to first order in 1-c. Conversely, if those differences are nonnegative, integrate (v-1)(log G)'(v)=sum_n (b_n-b_(n+1))(v^n-1) along v=1-s+sz for c<=s<=1 with weight ds/s; the logarithm of the quotient has nonnegative summable positive-degree coefficients. This verifies the criterion independently in this setting. Directly using Re(u) and Re(u²) gives b_1-b_2=q(1-q)P(q)/(1+d)^2. Substitution q=(1+theta)^(-1) gives the quartic, strictly increasing for positive theta; the signs at q=7/10 and 71/100 locate the unique boundary. For every n>=2 the conjugate term is bounded by |u|^n |1-qu| and yields the sufficient strict inequality 9(1-q)(1+q(1-q))³>4, which holds for 0<=q<=71/100 by the derivative's one interior maximum and exact endpoint bounds. Thus all later comparisons are strict everywhere in the surviving region, including the first-term tie at the boundary. At theta=2/5, b_1-b_2=-2390/170569 while p_(n+1)-p_n=-8q^n(5(n-1)²+4)/16807<0 for every n>=0. Independent exact checks and output: branches/1733d608-ca72-4d03-9d19-fc070f81b70c/independent_check.py and independent_check.log; the frozen checker was inspected, not executed.
 
-## Limitations and reproducibility
-The proof is analytic for all positive rates and all positive canonical indices. Only the supportive finite algebra is checked by \(\texttt{checker.py}\); no confidence claim about unseen mathematical literature is built into that test. Direct application to model fitting or time-series estimation is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct geometric/shape-three mixture record 669cf2e9718e is exact broader coverage of the compound-Poisson baseline, not of the pointwise thinning frontier or the decreasing-mass witness. Its theorem is uniform over q at a fixed mixture weight. The xgamma specialization instead follows a curve of changing mixture weights p=1-q, and the surviving sharp boundary is outside its uniform guarantee. Credit the compound-Poisson formula as overlapping context, not an independent new claim. The quartic frontier and the full-support witness survive the comparison.
+
+## value
+
+PASS
+
+For this applied count family, the result reduces an infinite marginal-feasibility test to a single sharp parameter boundary with its equality structure, and the exact monotonically decreasing PMF on the excluded side shows why elementary shape and ordinary compound-Poisson structure do not suffice. The improvement over a sufficient uniform-in-rate region is a pointwise classification, not a numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

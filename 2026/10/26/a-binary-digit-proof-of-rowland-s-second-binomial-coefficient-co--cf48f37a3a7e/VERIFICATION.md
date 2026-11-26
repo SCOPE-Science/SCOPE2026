@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-The bundled standalone Python 3 program `verify.py` independently generates the original floor-sum exceptional residue classes exactly as written by Rowland (2011) and compares them with the binary-mask criterion. Every odd prime \(p\le3000\) is tested; the 429 tests cover all residues modulo \(2^{1+\lfloor\log_2(2p)\rfloor}\) for each such prime. For every odd prime \(p\le197\), the verifier additionally checks all positive \(n\) in one full binary period by forming \(\binom{n-1}{2p-1}\) as an exact integer, checking integrality of the corrected quotient and its parity. That second test encompasses 44 primes and 11,816 exact binomial calculations.
+# Independent mathematical audit
 
-Actual output from the prepackaging execution:
+## correctness
 
-`VERIFY_OK: 429 odd primes <=3000, all residues of Rowland parametrizations; 44 odd primes <=197 and 11816 exact integer-binomial checks`
+PASS
 
-To reproduce: execute `python verify.py` from the extracted files using the Python standard library. The verifier does not call external services and makes no probabilistic assumptions. All tested finite cases corroborate the equations; the universal theorem depends on the algebraic proof in `RESULT.md`, especially the digitwise coefficient identity. No independent mathematical audit has been performed, and prior-literature searches cannot certify global novelty.
+For positive n and odd prime p, the binomial identity gives p E_p(n)=C-A with C=binom(n-1,2p-1) and A=(p+1)(n_1-1) times the indicator of p dividing n. Lucas modulo p gives zero if p does not divide n and n_1-1 modulo p otherwise, so p divides C-A. Since A is even and p odd, Lucas modulo 2 then gives the mask condition, also for n<2p. For the printed floor sum, fix digit e_h of j and let f_h be the h-th zero position of m-1, indexed from zero. Exactly the first r=f_h-h one positions of m contribute, with coefficient 2^(h+1) plus the terms 2^(h+a-1) for 2<=a<=r, which sums to 2^f_h even when r=1. Thus j fills exactly the complementary bits of m-1 without carries, yielding a bijection onto all 2^z mask classes, including the residue n=0 modulo 2^L via n-1. Dividing the defining equality by two gives the stated fractional part. The proof is universal; the independent limited check through p=47 and the larger author-recorded checks in VERIFICATION.md/verify.py are corroboration only; the uploaded script was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct contribution is a proof of the full floor-sum residue-set equivalence in Rowland's printed Conjecture 2. The Lucas arithmetic and already known preliminary fractional-part reduction are not credited as the novelty. No covering proof was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+This resolves an explicitly posed all-prime conjecture, explaining why its floor-sum list has no duplicate residues and replacing an implicit search with a single mask test. The value lies in explaining and exhausting the exact printed parametrization, not in recomputing examples or applying Lucas alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

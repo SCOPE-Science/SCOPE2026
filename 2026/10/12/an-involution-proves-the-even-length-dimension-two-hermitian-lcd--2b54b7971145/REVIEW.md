@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The five projective column classes reduce the Hermitian Gram determinant by Cauchy--Binet to the parity of the number of pairs drawn from distinct odd-multiplicity classes. Thus even-length LCD vectors have exactly two odd entries and odd-length LCD vectors exactly three. The coordinatewise parity flip changes length by one, is nonnegative, is equivariant under projective transformations, and has an explicit inverse. A minimum-distance-one output would have parity weight one and is impossible. Exhaustive projective-orbit replay through even length \(20\) confirms the bijection.
+PASS
 
-## Originality
+Dual distance at least 2 excludes exactly the zero columns. An admissible generator's projective column multiplicities give its class up to the projective-linear permutations: row operations give the projective action, and coordinate scaling and permutation account for column representatives and ordering. Hermitian Cauchy–Binet evaluates the Gram determinant as ∑_{i<j}m_i m_j modulo 2, because a pair from different projective classes contributes the norm 1 and a pair from the same class contributes zero. With t odd entries, the result is binom(t,2) modulo 2; among t=0,…,5 it is nonzero only at t=2,3, the even- and odd-length cases respectively. Nonsingularity also gives rank two. Flipping entries by +1 for even and −1 for odd entries is nonnegative, changes the length n to n+1, and maps parity weight 2 to 3. The odd side has d=(n+1)−max m′; d=1 would force multiplicities (n,1,0,0,0) up to order, of parity weight 1. The same update reverses the map and commutes with every projective permutation, proving the bijection on classes. The source convention 1≤k≤n−1 gives even n≥4 here. Independent arithmetic checked all 32 parity patterns and the 60 projective permutations, with a direct n=4 to 5 test of 50 admissible vectors and two orbits on each side. The supplied finite verifier was examined, not executed.
 
-PASS. The August 2026 primary source explicitly states this equality as an open question after finite classifications through substantial ranges. Its full text contains the corresponding-vector framework but no parity involution or all-length proof. Exact-formula, source-notation, projective-multiplicity, and parity searches found no prior resolution. A prior current-ledger result from the same source concerns automorphism groups of four near-optimal families and does not imply this identity.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves an explicit new classification question and replaces finite numerical evidence by a constructive all-length explanation. The bijection is simple enough to transfer representatives and strong enough to establish equality of equivalence-class counts for every even length at once.
+The primary paper explicitly poses this exact all-even-length question. Its projective multiplicities and finite counts are prior; the supported new part is the parity involution proving the first identity on the stated equivalence classes for all even n≥4. No prior statement or implication supplying that involution or the resulting general identity was found in the checked sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This closes an explicitly posed classification question for all even lengths in scope. An involution on projective multiplicities explains the count equality and yields matching equivalence classes, rather than simply extending the finite tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

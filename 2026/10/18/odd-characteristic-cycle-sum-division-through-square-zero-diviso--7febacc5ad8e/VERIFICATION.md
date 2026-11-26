@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using standard Python 3. The script constructs multiplication by normalized cycle lengths and enumerates pairs in finite divisor-supported algebras. It verifies the divisor-zeta block isomorphism, the exact divisible-pair count, and selected multiplicative retraction identities independently of the displayed counting formula (the count is obtained from image sets).
+## correctness
 
-Tested positive-characteristic prime-field pairs are `(3,1)`, `(3,3)`, `(3,6)`, `(3,9)`, `(5,5)`, `(5,10)`, and `(7,7)` (the first coordinate is the prime characteristic and the second is the cutoff index). Five characteristic-two checks are controls only. The largest enumerated odd-characteristic sample has 625 elements and 271441 divisible ordered pairs. The tests cover a finite subset of the theorem's parameters; the proof gives the general result, including nonprime finite coefficient fields.
+PASS
 
-The mathematical argument uses (i) the exact normalized cycle product, (ii) a divisor-zeta matrix with integral unit determinant, (iii) a direct multiplicative retraction, and (iv) the three exhaustive local multiplication cases. No external or infinite certification has been performed.
+For i=p^k d and j=p^l e with d,e prime to p, the normalizing factor gcd(d,e)lcm(d,e)/(de)=1 leaves coefficient p^min(k,l). Thus all positive-p-valuation basis products with each other vanish, and a valuation-zero factor acts by lcm on prime-to-p indices without changing the other valuation. The coordinate map multiplies correctly since indicators of d|r and e|r multiply to the indicator of lcm(d,e)|r; the same unit-triangular divisor matrix acts separately on each valuation, so inversion works even in characteristic p. Independently, the span of lengths not dividing m is an ideal (a nonzero basis product has index a multiple of each input); hence discarding those lengths gives a unital projection to R_m and proves the full-to-finite existence assertion. Also checked the stated, different retraction: truncation of positive valuations commutes with maximum and preserves positivity if a≥1; if a=0 all positive parts vanish on both sides. Prime-to-p gcd cutoff commutes with lcm by checking prime exponents. In a block, scalar α≠0 solves first for the scalar of X then its vector, uniquely; nonzero pure-vector A gives one scalar on the line Kv and q^a arbitrary vector choices; A=0 reaches only zero with q^(a+1) choices. Counting targets by first factor gives (q−1)q^a·q^(a+1)+(q^a−1)q+1, then independent multiplication over τ(u) blocks. At a=0 this gives (q−1)q+1 per field, as required. It applies to all finite extensions of F_p; it counts ordered inputs (A,B) for which a solution exists, not triples or the size of a global fiber. The frozen code was inspected, not executed: it works with the normalized multiplication, counts images without asserting each solution-fiber cardinality, and samples retraction identities in prime fields. The independent proof check, not this supplemental enumeration, validates the general cases.
+
+## originality
+
+PASS
+
+The distinct supported claim is the odd-characteristic cycle-division criterion with explicit finite-field solvable-pair and cutoff-fiber counts, not novelty of the cycle product, marks/zeta coordinates, the square-zero mechanism by itself, or the binary case. The Burnside-ring identification yields substantial structural coverage in a different language; the cited binary division theorem and inspected modularly relevant mark material do not give the odd-characteristic division package.
+
+## value
+
+PASS
+
+There is a concrete division problem beyond binary coefficients in the cited formal-sum framework. The result connects finite supports in the full algebra to a small finite ring, provides a coefficient-level criterion and determines how often division is possible, as well as how many cutoff solutions exist. The count is elementary after the block reduction, but the combination answers a motivated solvability and enumeration question for all odd fields, rather than selecting isolated cases or counting already enumerated configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

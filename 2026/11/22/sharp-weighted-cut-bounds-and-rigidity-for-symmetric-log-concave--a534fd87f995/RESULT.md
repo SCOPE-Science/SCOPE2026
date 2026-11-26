@@ -22,11 +22,11 @@ Further, write \(X\overset d=AU\), where \(U\) is uniform on \([-1,1]\) and \(A>
 L_f-\frac43\max_t C_f(t)
 =\frac16\mathbb E\frac{(A-A')^2}{\max(A,A')}\ge0.
 \]
-The latter identity is valid under the weaker hypothesis of an even unimodal density, without log-concavity.
+The latter identity is valid for an even unimodal density with finite first absolute moment, without log-concavity.
 
 ## Assumptions and scope
 
-The line carries its standard Euclidean metric. Segment lengths are weighted by \(|X-Y|\); no normalizing by the number of crossing pairs is used. The same absolutely continuous distribution generates both endpoints. An even log-concave density is allowed to have bounded support and to have an endpoint discontinuity; it is nondegenerate, and therefore has positive finite first moment. The mixing radius is strictly positive almost surely for a nondegenerate density. No inequality here is asserted for arbitrary unequal pairs of measures or for higher-dimensional cuts.
+The line carries its standard Euclidean metric. Segment lengths are weighted by \(|X-Y|\); no normalizing by the number of crossing pairs is used. The same absolutely continuous distribution generates both endpoints. An even log-concave density is allowed to have bounded support and to have an endpoint discontinuity; it is nondegenerate and has finite, strictly positive \(\mathbb E|X|\). In the extension to even unimodal densities, finiteness of \(\mathbb E|X|\) is a separate hypothesis, needed for the finite ratios and the subtraction of expectations. The mixing radius is strictly positive almost surely. No inequality here is asserted for arbitrary unequal pairs of measures or for higher-dimensional cuts.
 
 ## Proof
 
@@ -48,11 +48,11 @@ L_f=2I_1-I_2,\qquad I_2=\int_0^\infty g(t)^2\,dt.
 
 If equality holds, the continuous nonnegative defect \(g(t)^2-g(2t)\) vanishes throughout the positive support. Consequently \(h(t)=-\log g(t)\) is continuous, convex, and obeys \(h(2t)=2h(t)\). **Convexity plus this doubling equation alone is enough to make \(h\) linear:** the slopes of the chords from the origin are monotone in \(t\), while their values at \(t\) and \(2^k t\) coincide for every integer \(k\) before the support endpoint; for unbounded support any two arguments can be bracketed by dyadic rescalings. For bounded support the equality is impossible because for \(t\) in the upper half of the support, \(g(2t)=0<g(t)^2\). Therefore \(g(t)=e^{-t/b}\) for some \(b>0\). Since \(g'(t)=-2f(t)\) almost everywhere, \(f\) is precisely the centered Laplace density. Conversely that density has \(I_2=I_1/2\), establishing equality.
 
-**4. The uniform endpoint and its rigidity.** Every even unimodal density \(f\) is nonincreasing for nonnegative arguments, so its positive half-line profile has the Stieltjes mixture representation
+**4. The uniform endpoint and its rigidity.** Let \(f\) be an even unimodal density with \(\mathbb E|X|<\infty\). Such a density has a representative that is nonincreasing for positive arguments, so its positive half-line profile has the Stieltjes mixture representation (as an identity of densities almost everywhere)
 \[
 f(x)=\int_{(0,\infty)}\frac{\mathbf1_{\{|x|\le a\}}}{2a}\,H(da),\qquad H(da)=-2a\,df(a).
 \]
-The boundary mass identity \(\int H(da)=2\int_0^\infty f(x)dx=1\) follows by integration by parts; boundary terms vanish for every integrable nonincreasing density. Therefore \(X=AU\) in law, with \(U\sim\operatorname{Unif}[-1,1]\) and \(A\sim H\) independent. Conditioning on radii \(a,b>0\), with \(a\ge b\), elementary integration gives
+The boundary mass identity \(\int H(da)=2\int_0^\infty f(x)dx=1\) follows by integration by parts; boundary terms vanish for every integrable nonincreasing density. Therefore \(X=AU\) in law, with \(U\sim\operatorname{Unif}[-1,1]\) and \(A\sim H\) independent. In particular \(\mathbb EA=2\mathbb E|X|<\infty\). The cut formula in Step 1 still gives a maximum of \(I_1\) at \(0\) in this setting. Conditioning on radii \(a,b>0\), with \(a\ge b\), elementary integration gives
 \[
 \mathbb E|aU-bU'|=\frac a2+\frac{b^2}{6a},\qquad
 \mathbb E|aU|=\frac a2.
@@ -84,7 +84,7 @@ Correa, Griesbach, Harb, and Hommelsheim (2026) study total-length-weighted sepa
 
 ## Limitations
 
-This result is restricted to one-dimensional iid samples of a common symmetric log-concave law; the upper inequality extends to all even unimodal densities, while the lower inequality requires the log-concavity of the tail. The equality proofs require nondegeneracy. No extension to dissimilar endpoint distributions, higher-dimensional cutting hyperplanes or non-length segment weights is asserted. The historical-priority comparison is based on accessible scientific sources and semantic record searches; older literature using different names for the Gini–absolute-deviation ratio remains a possibility and should be independently checked.
+This result is restricted to one-dimensional iid samples of a common symmetric log-concave law; the upper inequality extends to even unimodal densities of finite first absolute moment. The lower inequality is proved using log-concavity of the tail. The equality proofs require nondegeneracy. No extension to dissimilar endpoint distributions, higher-dimensional cutting hyperplanes or non-length segment weights is asserted. The historical-priority comparison is based on accessible scientific sources and semantic record searches; older literature using different names for the Gini–absolute-deviation ratio remains a possibility.
 
 ## References
 

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:48:25.683622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–92",
+        "VERIFICATION.md, lines 19–25",
+        "checks/shell_phase_check.py, shell_phase_distribution.py and shell_transform_3d.py plus their .txt outputs (inspected, not executed)",
+        "NIST DLMF §§10.17 and 10.21 fixed-order asymptotic formulas used in the proof"
+      ],
+      "rationale": "Polar radial integration and the Bessel differentiation rule give (2 pi)^(d/2) x^-d [f(x)-f(qx)] with f=x^(d/2)J_(d/2); at zero the volume is positive. From f''+f=(d-1)f'/x, the energy f^2+f'^2 increases strictly in the integral sense. It yields alternating signs of the difference at consecutive extrema and strict |f'(x)|>|f'(qx)| at any zero, so all crossings in a gap have the same orientation and are simple. The first gap before alpha_1 has no root by monotonicity. Implicit differentiation makes q x_n(q) strictly increasing; it tends to 0 at q=0 and alpha_n at q=1 (the limiting sign of F_q/(1-q) at any fixed interior point is the derivative sign, opposite to the sign at the left endpoint). At stationary points q x_n=alpha_m, the second derivative is X^2 f''(alpha_m)/f'(X) and is nonzero. The fixed-order Bessel expansions give alpha_j=pi(j+gamma)+O(1/j), alternating extrema of magnitude proportional to alpha_j^((d-1)/2), and uniform normalized profile cos(pi u)+O(1/n) in the gap. Equating critical heights gives the two parity limits, and expansion of alpha_m/X gives the stated first correction, with a uniform O(1/n) unscaled bound by the gap endpoints. A Riemann sum on each parity away from m/n endpoints suffices for weak convergence, since the omitted fractions can tend to zero. The cosine change of variables gives the stated integrable density and central window law, including epsilon=0 and 1/2. The midpoint behavior and the d=3 reduction follow directly.",
+      "residual_risks": [
+        "The packaged finite distribution and phase comparisons print the differences; some limits have no closeness assertion in those scripts. This is numerical illustration, not evidence of all-index or fixed-d limit validity. The analytic proof is decisive. No uniformity in increasing d is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 zero-interlacing result and November 16 trajectory result have the same all-d positivity and simplicity hypotheses and give the required finite-index geometry, including stationary radii via equality of extremal heights in the latter.",
+          "The Weick abstract concerns an intensity-related transform and radial electron density for spherically symmetric structures; no decisive phase-law statement was available there."
+        ],
+        "reasoning": "Even the broader analytic continuation and exact finite stationary-radius characterization do not state the asymptotic relative phase within the gaps or its density. The unavailable optical sources cannot be assessed beyond the passages actually available.",
+        "searches": [
+          "Resultary 08d6dce0baa0 and 4dce7d426125, Finding/Proof passages",
+          "Weick 1974 abstract and lawful full-text attempts",
+          "Urcid–Padilla DOI 10.1364/AO.44.007677"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 08d6dce0baa0 and 4dce7d426125",
+        "Weick 1974, PMC1334498 abstract and full-text attempts",
+        "arXiv:2109.05118v1, §§1–2",
+        "10.1364/AO.44.007677 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact characterization at each m,n is an implicit equality of heights, not their relative signs and growth across m proportional to n. The phase proof extracts both the alternating sign and the dimension power, uses uniform gap control, and then pushes forward the parity mixture."
+        ],
+        "reasoning": "The law is not just a restatement of the zero count or uniformity of the radius distribution. The measurable phase profiles, first radius offset, and density transition are the added conclusions; standard Bessel asymptotics supply ingredients rather than a theorem on these empirical samples.",
+        "searches": [
+          "Resultary 4dce7d426125 stationary characterization; frozen RESULT.md, lines 69–92",
+          "Related annular diffraction source arXiv:2109.05118v1, §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After rescaling Fourier frequency for convention and outer radius, the thick annular-indicator Fourier zeros are exactly the zeros of the weighted Bessel difference f(x)-f(qx). The first two matched Resultary records study precisely that object and recover gap and turning-point results. This is not surface measure or a shell eigenvalue cross-product."
+        ],
+        "reasoning": "The exact overlapping finite-index statements are the same mathematics in the two formulations. Planar beam-pattern and shell-profile transformations alone are not the sampling law under review.",
+        "searches": [
+          "Local Resultary: annular Fourier/Bessel zero interlacing and stationary trajectories",
+          "Weick 1974 diffraction spherical shell and transform zeros literature search",
+          "arXiv:2109.05118v1, planar annular-ring Bessel profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exactly one simple root per gap and n-1 nondegenerate stationary points are exact indexed statement matches. The two indexed records are dated later, not evidence of earlier priority. The decisive density and parity formulas were not present in the inspected passages."
+        ],
+        "reasoning": "No finite Bessel-zero table can establish this weak limit; a match must give the dimension-indexed high-frequency law or an implication controlling the same normalized quantity.",
+        "searches": [
+          "Resultary local shell zero trajectories, highest relevant returned statements 08d6dce0baa0 and 4dce7d426125",
+          "Weick title and PubMed Central identifier lookup"
+        ]
+      },
+      "rationale": "The supported distinct claim is the parity-resolved high-index phase and radius correction, and the resulting dimension-dependent density and central-window law. Credit exact overlap in the zero and stationary-point censuses with the two inspected Resultary records dated after this frozen record, and earlier planar census background acknowledged by the frozen record. Those facts are not credited as the distinctive contribution. The historical diffraction comparison remains limited but does not by itself defeat the phase-law claim.",
+      "residual_risks": [
+        "The full Weick paper and exact planar diffraction comparison were unavailable through the attempted lawful routes. Historical equivalent phase formulas cannot be ruled out. No publication priority inferred from catalogue dates or an unsuccessful search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the gap census in a later-dated source",
+          "evidence": "One simple positive zero in every successive J_(d/2-1) gap, no other positive zeros, for the same shell.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0/RESULT.md",
+          "material_read": "Finding and proof of gap count and endpoint continuation",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+          "trigger": "Exact all-dimensional Fourier-shell object"
+        },
+        {
+          "assessment": "Exact n-1 census and characterization in a later-dated source",
+          "evidence": "Same all-d nondegenerate stationary points obtained by equality of Bessel extremum heights; inspected passage does not give the limiting phase distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-every-indexed-fourier-zero-of-a-concentric-annulus-has-exactly-o--4dce7d426125/RESULT.md",
+          "material_read": "Finding, critical-point proof and prior-work description",
+          "method": "Local Resultary mirror",
+          "title": "Every indexed Fourier zero of a concentric annulus has exactly one fewer stationary point than its index",
+          "trigger": "Exact stationary-census overlap"
+        },
+        {
+          "assessment": "Related physical transform; phase-law coverage unresolved, not a negative finding",
+          "evidence": "Abstract describes the relation between an intensity-derived P(r) and radial-density-derived g(x), not an inspectable theorem about a dimension-parity phase distribution.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1334498/",
+          "material_read": "Bibliographic record and abstract only; publisher PDF and Europe PMC render did not provide readable full text",
+          "method": "Focused literature search; lawful OA requests to PMC, Europe PMC and Cell",
+          "title": "Note on the Theory of X-Ray Diffraction by Spherical Shell Structures",
+          "trigger": "Frozen record identifies Weick (1974) as potential spherical-shell antecedent"
+        },
+        {
+          "assessment": "Adjacent aperture background",
+          "evidence": "Gives a planar annular-ring far-field Bessel profile; the inspected passages do not treat trajectories of its zeros as thickness varies.",
+          "identifier_or_url": "https://arxiv.org/html/2109.05118v1",
+          "material_read": "Sections 1–2, offsets about 4726 and 4946",
+          "method": "Lawful OA full text",
+          "title": "Discretization of Annular-Ring Diffraction Pattern for Large-Scale Photonics Beamforming",
+          "trigger": "Related original diffraction source with annular aperture"
+        },
+        {
+          "assessment": "Unresolved direct coverage beyond inspected bibliographic material",
+          "evidence": "The interlacing record reports a diffraction-formula comparison, which is secondary evidence, not a direct reading of this paper.",
+          "identifier_or_url": "https://doi.org/10.1364/AO.44.007677",
+          "material_read": "Landing page/abstract only; full text not read",
+          "method": "Lawful OA attempt via exact DOI",
+          "title": "Urcid–Padilla annular-aperture diffraction paper",
+          "trigger": "Earlier planar diffraction precedent cited by the matched interlacing record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–30 and 69–92",
+        "Resultary comparison to the two gap and census statements"
+      ],
+      "rationale": "The phase law resolves information lost in both the finite census and the uniform unscaled distribution of radii. It supplies a quantitative way to predict where critical zeros accumulate within a Bessel gap, separates the two interleaved sequences and explains the change from suppression in dimension two to an integrable midpoint singularity in dimensions four and above. This is a motivated quantitative asymptotic for a natural family of transforms.",
+      "residual_risks": [
+        "Value concerns this fixed-dimension phase and radius law; the result is not a general optical model or a statement about arbitrary radial profiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

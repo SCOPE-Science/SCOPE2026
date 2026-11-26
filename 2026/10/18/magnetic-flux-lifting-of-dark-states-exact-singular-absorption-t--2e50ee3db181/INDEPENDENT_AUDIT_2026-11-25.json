@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:00.292060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–60",
+        "VERIFICATION.md and verify_flux.py (inspected, not executed)"
+      ],
+      "rationale": "Dissipativity forces every real eigenvalue to have an eigenvector of the Hermitian cycle vanishing at the detector. At nonexceptional flux the Fourier energies are distinct and every Fourier vector has detector amplitude n^(-1/2). At zero flux exactly the sine lines of the paired energies are dark; on the bright restriction all eigenvalues are strictly damped, so each dark line is algebraically simple. Independently, the rank-one secular equation is 1+(i gamma/(2n)) sum_l (z-e_l(Phi))^(-1)=0. For the pair near E_k its energies have midpoint E_k+O(Phi^2) and half-splitting of magnitude v_k |Phi|+O(Phi^3), with v_k=2|sin(theta_k)|/n. Writing z as the midpoint plus c Phi^2, the two terms have sum tending to -2c/v_k^2; all other terms have real limits. Equating the imaginary part of the resulting sum to 2n/gamma gives Im c=-n v_k^2/gamma, confirming the author's perturbative width and normalization. At t=s/Phi^2, analytic projections tend to orthogonal sine lines with weights (2/n)sin^2(d theta_k); interference vanishes and the bright complement is uniformly exponentially damped (a fixed lower-half-plane contour suffices even at a defective bright eigenvalue). Integrated distinct slow branches have denominators bounded away from zero by their distinct limiting real energies. Each diagonal term is its exact perturbed weight divided by its decay rate; if the initial dark overlap is zero the weight is O(Phi^2), which proves boundedness rather than merely a zero scaled limit. Thus the coefficient is gamma/4 times the stated trigonometric sum. Fourier orthogonality of the length-r geometric sum gives the full N-cycle sum Nr-r^2; odd-cycle doubling permutes residues and pairing halves the sum, while even-cycle labels run once through the nonzero residues modulo m=n/2. This confirms both parity formulas and all zero-coefficient sites. Finally, tracing the integrated-survival Lyapunov equation gives gamma X_00 equal to the decaying dimension, n away from zero and floor(n/2)+1 on the bright restriction at zero. The frozen numerical script was not executed; the argument is finite-dimensional and analytic.",
+      "residual_risks": [
+        "The small-flux estimates keep n and positive gamma fixed. The survival limit is for s>0 and need not describe the bright transient at s=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous non-Hermitian trapping and unthreaded ring degeneracies are established; the inspected even-ring perturbation in arXiv:0903.3288 varies sink strength rather than flux. The magnetic triangle work measures the target stroboscopically. The half-flux record gives an exact characteristic polynomial for arbitrary flux and a relaxation theorem about a fixed antipodal state near pi."
+        ],
+        "reasoning": "The spectral machinery and known exceptional phases are genuine coverage. Neither a different monitoring protocol nor a relaxation law near pi is an encompassing theorem for the claimed survival at weak flux. Zero and pi are not gauge equivalent; in particular an even ring has two unpaired bright energies at zero, but none at pi.",
+        "searches": [
+          "Agliari–Mülken–Blumen arXiv:0903.3288",
+          "Mülken et al. arXiv:0705.3700",
+          "Varbanov–Krovi–Brun arXiv:0803.3446",
+          "Wang et al. arXiv:2402.15843",
+          "Resultary 9c2164f9c4e0 Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed results 578f2f6ca62d, 8d7e31b3966a, 9c2164f9c4e0",
+        "arXiv:0903.3288, 0705.3700, 0803.3446, 2402.15843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Chebyshev determinant in 9c2164f9c4e0 encodes the zero-flux eigenvalue leakage coefficient as well: at x=cos(2 pi k/n), T_n(x)=1, U_{n-1}(x)=0 and dU_{n-1}/dx=-n/sin^2(2 pi k/n). Implicit differentiation with cos(Phi)=1-Phi^2/2+O(Phi^4) gives the same width. Its actual survival theorem uses a wholly dark initial antipode at half flux and equal modal weights."
+        ],
+        "reasoning": "Do not count an eigenvalue-width recalculation or the overlapping mean limits as independent novelty. A characteristic polynomial gives no initial-state weights; an integrated survival time cannot determine the multiexponential profile. The zero-flux law requires identifying and controlling the projections of an arbitrary site with generally nonzero initial bright weight, the missing bright transient for s>0, and the parity-specific site sums. These are not a parameter substitution into the stated half-flux survival theorem.",
+        "searches": [
+          "578f2f6ca62d exact mean Finding",
+          "8d7e31b3966a exceptional-phase expansion",
+          "9c2164f9c4e0 determinant eq. (1) and spectral projection proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "578f2f6ca62d uses an odd ring, point source, equal hopping J and one local population loss rate kappa; its sitewise term kappa j(N-j)/(8J^2 sin^2(phi)) yields exactly the frozen odd coefficient for J=1. 8d7e31b3966a uses rho(0)=I/n for even rings and gives the weak-flux coefficient kappa(m^2-1)/(24J^2)."
+        ],
+        "reasoning": "Opposite flux orientation does not change the leading even-in-flux singularity. The mixed-state term equals the average of two copies of the r=0,...,m-1 sitewise sequence gamma r(m-r)/4 divided by 2m; matching that average is not a determination of individual site weights or their survival curves. Catalogue dates do not resolve priority.",
+        "searches": [
+          "Resultary magnetic-ring trapping/mean-time/slow-survival matches 578f2f6ca62d, 8d7e31b3966a, 9c2164f9c4e0; original Finding passages via local mirror"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact mean formulas settle an odd site-resolved coefficient and an even mixed coefficient; the indexed exact mode sum gives equal weights 2/n at half flux from the antipode. No exact matched entry among these states the zero-flux site-dependent profile."
+        ],
+        "reasoning": "This is a parameterized asymptotic law and not an appropriate finite numeric-table lookup. The exact-result catalogue supports the identified partial coverage, not identity of the time-dependent curves.",
+        "searches": [
+          "Resultary exact ring entries 578f2f6ca62d, 8d7e31b3966a and 9c2164f9c4e0, Finding and indicated proof passages"
+        ]
+      },
+      "rationale": "Credit the uncovered site-resolved zero-flux relaxation profile across both parities and its sitewise mean-time consequences on even rings. The exact odd-ring mean already covers the odd coefficient; the exact even-ring mixed mean covers its site average. The half-flux result gives a closely related relaxation mechanism and a shared exact spectral polynomial, but its antipodal profile at half flux does not contain this zero-flux, arbitrary-site time-dependent statement. The trace identity, static dark-space classification and generic decay mechanism are not original contributions here.",
+      "residual_risks": [
+        "An earlier general rank-one absorption treatment might include a stronger weak-splitting projection law; the checked passages do not establish such coverage.",
+        "Discovery search results about superconducting flux trapping were irrelevant and cannot establish absence. The matched catalogue dates do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of odd mean-time coefficient, not the survival profile",
+          "evidence": "The singular sin(phi)^(-2) term has coefficient kappa j(N-j)/(8J^2); the possible sin(phi)^(-1) term disappears under Phi^2 rescaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-flux-optimization-of-absorption-time-on-odd-magnetic-cycle--578f2f6ca62d",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local result mirror",
+          "title": "Exact flux optimization of absorption time on odd magnetic cycles",
+          "trigger": "Identical odd-ring site/sink and a stronger exact mean formula"
+        },
+        {
+          "assessment": "Covers mixed-state mean and therefore the site-average coefficient",
+          "evidence": "rho(0)=I_n/n and weak-flux coefficient kappa(m^2-1)/(24J^2), not a sitewise profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-flux-optimization-of-mean-capture-time-on-even-quantum-rin--8d7e31b3966a",
+          "material_read": "Finding and initial-state assumptions, offset 0; endpoint expansion at offset 5600",
+          "method": "Local result mirror",
+          "title": "Exact flux optimization of mean capture time on even quantum rings",
+          "trigger": "Same even cycle and loss, exact weak-flux divergence"
+        },
+        {
+          "assessment": "Shared spectral machinery with a different flux point and fixed initial state",
+          "evidence": "Uses midpoint momenta (2k+1)pi/n and exactly equal dark weights for the antipode at pi; general characteristic polynomial gives eigenvalues but not site-resolved time dynamics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-half-flux-leakage-and-a-bessel-survival-law-for-an-abs--9c2164f9c4e0",
+          "material_read": "Finding, assumptions and Proof §§1–4, offsets 0 and 4137",
+          "method": "Local result mirror",
+          "title": "Quadratic half-flux leakage and a Bessel survival law for an absorbing quantum ring",
+          "trigger": "Same continuous detector and multimode scaling near an exceptional flux"
+        },
+        {
+          "assessment": "Shares unthreaded cycle/trapping background; checked perturbation differs",
+          "evidence": "Studies trap configurations and an even ring with paired energies perturbed in small trap strength Gamma.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.3288",
+          "material_read": "PDF p. 1 offset 2350 and p. 4 offset 27555",
+          "method": "OA primary text",
+          "title": "Continuous-Time Quantum Walks and Trapping",
+          "trigger": "Explicit cycle trapping and degenerate Fourier energies"
+        },
+        {
+          "assessment": "Established survival framework",
+          "evidence": "Continuous-time-walk trapping with an imaginary Hamiltonian term; the inspected statement does not specialize to weak flux with fixed loss.",
+          "identifier_or_url": "https://arxiv.org/abs/0705.3700",
+          "material_read": "PDF p. 1, offsets 542 and 5457",
+          "method": "OA primary text",
+          "title": "Survival Probabilities in Coherent Exciton Transfer with Trapping",
+          "trigger": "Continuous sink survival spectra"
+        },
+        {
+          "assessment": "Symmetry obstruction background with a different measurement protocol",
+          "evidence": "Defines hitting via measurements at Poisson times and relates it to an invariant unobserved space.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.3446",
+          "material_read": "PDF p. 1 offset 2027 and p. 5 offset 36019",
+          "method": "OA primary text",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Dark invariant subspaces and infinite hitting time"
+        },
+        {
+          "assessment": "Magnetic/dark-state analogy, not continuous irreversible detection",
+          "evidence": "The target is measured every tau after unitary evolution; the illustrated magnetic ring is a triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15843",
+          "material_read": "PDF p. 2 offset 11108 and p. 3 offsets 16913 and 20800",
+          "method": "OA primary text",
+          "title": "First Hitting Times on a Quantum Computer: Tracking vs. Local Monitoring, Topological Effects, and Dark States",
+          "trigger": "Magnetic flux and local detection on a cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–27 and 48–60",
+        "Resultary exact mean and half-flux analogues 578f2f6ca62d, 8d7e31b3966a, 9c2164f9c4e0"
+      ],
+      "rationale": "The full site-resolved transient explains how a static dark probability becomes a set of long-lived absorption channels, rather than merely giving another mean or an ultimate detection probability. The parity-dependent coefficients and exceptional starts distinguish genuine lifetime divergence from a finite discontinuity. Those differences are useful benchmarks for this standard continuous trapping geometry.",
+      "residual_risks": [
+        "Scope is a uniform, fixed finite ring with one Markovian sink; usefulness for jointly large rings or stroboscopic detection is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:36.578740Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–85, VERIFICATION.md, and verify.py (inspected, not executed)",
+        "repairs/5/RESULT.md and VERIFICATION.md; fixed-image proof, explicit example and preserved rank convention",
+        "python3 /workspace/reproduce.py 5: exact test of inverse-image meet, join and implication tables and of idempotence as an algebra operator on (2,2), (2,3), (3,2), (2,2,2), (2,3,2); checks each rank coefficient and per-dual-image count. For (2,3,2), idempotent ranks/counts (2,2),(5,3),(12,2),(14,1)"
+      ],
+      "rationale": "The finite p-morphism equation represents precisely the Heyting endomorphisms. For the frozen general normal form, a level cannot send two points to different target levels because its fixed strict source suffix would have to cover and also omit points of the higher target antichain. The nondecreasing level sequence visits every level above its first and cannot revisit any of them, because cross-level comparability would force that repeated level's image to be a singleton. This verifies the frozen classification and its surjection-based counts. The repaired retraction theorem has a direct proof: a dual idempotent fixes its image, an upset with a first occupied level j, a nonempty subset C there and the full fixed suffix above it. A source on level j cannot jump to a fixed higher nonsingleton level because its upper cone maps onto that entire higher level, not just its selected point. If j>1, each point below level j must map below every c in C while still lying in the image; this forces C to be a singleton and the whole prefix to collapse to it. If j=1 the image subset C is fixed and the remaining bottom points map freely into C. Both constructions satisfy back-lifting. Restricting upsets to the dual image and using surjectivity onto that image gives the stated algebra rank. The rank families are disjoint with gap 2^(n_2)−1 between their closest values. Thus the polynomial counts all and only idempotents, with the stated multiplicity for each specified dual image.",
+      "residual_risks": [
+        "The frozen checker checks total idempotents, not rank-resolved idempotent counts; the independent replay does the latter on bounded cases. The general claim follows from the written proof, not finite testing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier transfer uses E(S)={y: ↑y=S∪{y}}, transitions weighted by the surjection count and exponents given by the upset count of S. It evaluates the all-endomorphism rank polynomial for every positive width vector. The broader duality gives a correspondence but does not evaluate the retraction polynomial. Surjective self-map counting does not by itself count retractions onto proper images."
+        ],
+        "reasoning": "The earlier recurrence covers the arbitrary-width all-endomorphism invariant, not just the uniform parameters. Its state and coefficient sums do not mark which points of S are fixed by maps with that image.",
+        "searches": [
+          "Resultary 6af93dfcdf0d nonuniform suffix transfer",
+          "Resultary layered-frame bounded-morphism transfer, surjective variant",
+          "Bezhanishvili et al. arXiv:2103.02530, Thm. 2.6; arXiv:2302.07913, Thm. 2.2 and Lemma 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6af93dfcdf0d, weak-order monotone-map and layered surjective p-morphism entries",
+        "arXiv:2103.02530 pp. 3,5 and arXiv:2302.07913 p. 3",
+        "Adams–Koubek–Sichler DOI 10.1007/BF01278594 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known E(S) frontier logic for nonsingleton antichains transfers level by level with the corresponding width; merely replacing the uniform widths or simplifying the exact arbitrary-width recurrence is not treated as a new contribution. The earlier recurrence aggregates by total suffix image, not whether a map fixes it. The available 1985 abstract describes lower bounds and rigidity for small monoids, not an exact Boolean-cascade retraction census."
+        ],
+        "reasoning": "The retained invariant uses the fixed-image condition and determines which subsets are realized as dual images of retractions and how many retractions fix each. This is additional structure beyond the earlier all-map rank polynomial; it is established directly rather than by claiming a new all-map census.",
+        "searches": [
+          "Resultary 6af93dfcdf0d Finding and Proof §§2–4 versus frozen normal form and retraction census",
+          "Adams–Koubek–Sichler DOI 10.1007/BF01278594"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite duality equates algebra idempotents with idempotent bounded-morphism self-maps. Weak-order ordinary retraction results and all-monotone-map recurrences do not impose back-lifting. The Resultary equal-width all-endomorphism formula is exactly the frozen one when n_i=m, with k=h−j and t=r."
+        ],
+        "reasoning": "Duality does not turn an ordinary monotone retraction count into a Heyting count; the image must satisfy the stronger local lifting condition. For the known equal-width classification the formulas are identical, not distinct rediscoveries under new notation.",
+        "searches": [
+          "Resultary: Boolean cascade endomorphisms; bounded-morphism ranks; Heyting algebra idempotents",
+          "arXiv:2103.02530 Esakia quotients and p-morphisms",
+          "arXiv:2302.07913 preservation of implication"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier rank-polynomial entry 6af93dfcdf0d supplies all-map coefficients, but no coefficients restricted to idempotents. An ordinary monotone-map entry is on the wrong mapping class. A one-parameter integer-sequence comparison does not determine a multivariate-by-width rank polynomial and no standalone retraction table was located by these checks."
+        ],
+        "reasoning": "An exact rank table for all maps is not enough to identify the rank table of retractions: at the same rank there may be both idempotents and nonidempotents, such as the identity and nontrivial upper permutations at full rank.",
+        "searches": [
+          "Resultary: Heyting endomorphism rank census and idempotents",
+          "Resultary: weak-order map and retraction enumerations"
+        ]
+      },
+      "rationale": "Pass is limited to the repaired fixed-image classification and rank census of retractions. Earlier Resultary record 6af93dfcdf0d gives exactly the equal-width all-endomorphism normal form and census, and a recurrence for the same all-endomorphism rank invariant on arbitrary widths, even singleton ones. Its transition proof already gives the essential mechanism of the frozen nonuniform normal form. The replacement expressly credits that coverage and no longer proposes the census or its closed-form simplification as a contribution.",
+      "residual_risks": [
+        "Unseen portions of the 1985 article and other older literature may contain an equivalent retraction description. The accessible material is not a priority certificate; its absence from search results is not a negative result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers uniform classification and nonuniform census; its counting states do not track fixation of the image",
+          "evidence": [
+            "Its hypotheses for the recurrence are a_i≥1; E(S) and each surjection produce the exact nonuniform rank polynomial. Section 3 analyzes singleton/full frontier transitions and §4 gives the rank counts for all endomorphisms."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-frontier-rigidity-and-exact-heyting-endomorphism-rank-census-for--6af93dfcdf0d/RESULT.md",
+          "material_read": "Finding and scope offsets 0–3420; Proof §§1–4 at 3470–7170 and 7000–9737",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Frontier rigidity and exact Heyting endomorphism-rank census for finite weak orders",
+          "trigger": "Decisive match to the normal form and rank census"
+        },
+        {
+          "assessment": "Establishes duality and the setting, not the retained numerical census in inspected statements",
+          "evidence": [
+            "A Boolean cascade has spectrum a finite linear sum of antichains; p-morphisms are the finite dual maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.02530",
+          "material_read": "PDF p. 3 offset 10988 and Theorem 2.6 p. 5 offset 21047 with adjacent quotients passage",
+          "method": "OA PDF passage inspection",
+          "title": "Profiniteness and representability of spectra of Heyting algebras",
+          "trigger": "Primary source for Boolean cascades and bounded morphisms"
+        },
+        {
+          "assessment": "General dual equivalence; not a numerical specialization of the retraction count",
+          "evidence": [
+            "Inverse image preserves implication for Esakia morphisms, giving the natural language for the proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.07913",
+          "material_read": "Theorem 2.2 and Lemma 2.3 p. 3, offset 8565",
+          "method": "OA PDF passage inspection",
+          "title": "Heyting frames and Esakia duality",
+          "trigger": "Potential broader dual form of the invariant"
+        },
+        {
+          "assessment": "Material access risk; abstract insufficient for whole-paper comparison",
+          "evidence": [
+            "The abstract discusses lower bounds on the size of the endomorphism monoid, 0-endomorphism rigidity when its size is two, and a proper class of such algebras."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01278594",
+          "material_read": "Publisher abstract only; PDF and page retrieval redirected and no lawful repository copy was recovered",
+          "method": "OA DOI and alternate-copy attempt",
+          "title": "Endomorphisms and homomorphisms of Heyting algebras",
+          "trigger": "Direct historical work on Heyting endomorphism rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and fixed-image proof; nonuniform rank recurrence in Resultary 6af93dfcdf0d"
+      ],
+      "rationale": "Retractions distinguish the sizes of images that are fixed homomorphic reductions of the algebra and the multiplicity of reduction maps, rather than averaging over all endomorphisms of the same image size. The fixed-image proof identifies their permitted geometry and determines the exact count for every possible dual image and algebra rank over arbitrary nonsingleton widths. This natural restriction of the endomorphism monoid yields data not recoverable by substituting parameters into the all-endomorphism rank polynomial.",
+      "residual_risks": [
+        "Counts retraction maps, not isomorphism classes of retracts or arbitrary embedded Heyting subalgebras. No claim with singleton levels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

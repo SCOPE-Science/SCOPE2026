@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:09.375213Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the discounted-cycle identity: subtracting the pure-return transform from the renewal quotient and applying stopped Dynkin to the return potential yields (k2-k1) times the killed search integral of exp(-st) x phi_s'(x), divided by the discounted home-return deficit. The integrating-factor identity (exp(-k2*x^2/2) phi_s')'=s exp(-k2*x^2/2) phi_s and the bounded negative-tail solution give |x phi_s'| bounded by the Gaussian Mills bound. The time-changed Brownian representation of search makes the short-time killing error exponentially small. The centered OU variance is 2t+O(t^2) and phi_s''(0)=s phi_s(0), giving expected integrand 2s phi_s(0)t+o(t). The one-sided home slopes give deficit C_s sqrt(t/pi)+O(t); the left slope is positive from the positive hitting transform and its integrating factor, and the right slope must be negative since q_s<=1 and a zero slope would give q_s''(0+)=s>0. Global bounds by constants times t and sqrt(t), respectively, justify both dominated-convergence steps for the assigned independent W, giving exactly the stated coefficient. The ratio 4/sqrt(pi) compares clock factors (or actual leading amplitudes at unequal stiffness); equal stiffness gives exact equality in law. No uniform-in-s, inversion or moment-interchange claim is accepted. Inspected VERIFICATION.md and CHECKER.py: their Brownian-search, harmonic-return finite-rate integrals corroborate but do not prove the arbitrary-clock result; the packaged script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two give general finite-stochastic-return renewal/MFPT formulas. Linn–Lawley derives a full-distribution frequent-reset limit for instantaneous resets, in particular a rescaled exponential law, not a correction around the uninterrupted return OU time."
+        ],
+        "reasoning": "Generic renewal identities do not supply the short-time orders and coefficient after subtraction of the pure-return transform; the other distributional limit uses a different protocol and scale.",
+        "searches": [
+          "arXiv:2307.16294v3, Eqs. (4) and (6)",
+          "arXiv:2406.08975v1, Eq. (6)",
+          "arXiv:2302.05409v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Resultary 1c82f789b3f9 and 2e2bcdad24d0",
+        "arXiv:2610.18814v1, 2307.16294v3, 2406.08975v1 and 2302.05409v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean coefficient is minus the formal slope at s=0 of the proposed transform correction: C_0^{-1}=integral_0^1 exp(k2*y^2/2)dy and phi_0(0)=1. It does not determine a function on s>0.",
+          "Taking the zero mark in the second record gives phi_s(0) as a limit plus an exact finite-rate renewal representation in a special case. It gives neither the next nonzero order nor the arbitrary-clock coefficient."
+        ],
+        "reasoning": "The two closest results account separately for the known mean and the leading distributional limit. Recovering the reviewed coefficient requires controlled cancellation to order r^-2 in the discounted numerator and a cusp estimate in the denominator, not substitution into either prior asymptotic.",
+        "searches": [
+          "Resultary 1c82f789b3f9, finding and proof",
+          "Resultary 2e2bcdad24d0, exact marked renewal transform and boundary-layer limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Switching harmonic potentials with a target visible in both phases are the same model for Poisson search alarms. In Dubey–Pal the transform appearing in the MFPT formula is the no-reset search transform, not the discounted transform of the full alternating completion time.",
+          "The target-visible home-return renewal framework of Biswas–Kundu–Pal concerns the same decomposition, not the claimed high-rate response."
+        ],
+        "reasoning": "Identified the reset/return aliases and compared the observable and order, rather than equating all first-passage transforms.",
+        "searches": [
+          "Resultary: rapid stochastic OU return, renewal interruption and Laplace first-passage correction",
+          "arXiv:2610.18814v1",
+          "arXiv:2307.16294v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1c82f789b3f9 proves the mean clock-moment law. Resultary 2e2bcdad24d0 gives a same-day joint transform limit with alarm counts and search exposure under free Brownian search and Poisson alarms; at zero mark this recovers the leading completion transform."
+        ],
+        "reasoning": "Compared actual mathematical records. No numerical table can settle a distributional assertion quantified over all admitted clock laws and fixed positive Laplace parameters. The same-day date was not used to determine priority.",
+        "searches": [
+          "Resultary: renewal-clock moment law for OU stochastic-return first passage",
+          "Resultary: fast-alarm Laplace laws with target-visible harmonic returns"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp fixed-positive-s transform coefficient across all stated clocks and search stiffnesses. The known mean correction, renewal machinery, and leading transform limit are credited and are not accepted as new. The closest exact renewal formula still needs a higher-order cancellation/short-time calculation, and its displayed asymptotics do not give that calculation or the clock law.",
+      "residual_risks": [
+        "Search and passage comparisons are not exhaustive; an unnoticed next-order expansion of an exact renewal formula could overlap, especially in the Brownian/Poisson subcase.",
+        "No historical priority between same-day records is inferred. The inspected arXiv alternate supplied the material for the publisher-inaccessible frequent-reset paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mean, not the positive-s correction",
+          "evidence": "The mean correction is (k1-k2) sqrt(pi) times the scale integral and E[W^2]/E[sqrt(W)] at order r^-3/2.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9",
+          "material_read": "RESULT.md offsets 0–2475 and 2117–5360",
+          "method": "OA local Resultary mirror",
+          "title": "Sharp r^{-3/2} clock-moment law for stochastic-return Ornstein–Uhlenbeck search",
+          "trigger": "Acknowledged same-model mean result"
+        },
+        {
+          "assessment": "Related leading law and exact renewal kernel for a submodel, not the correction",
+          "evidence": "Zero count/exposure marks recover the pure-return transform as the Brownian/Poisson limit. The marked renewal identity is exact but the displayed boundary-layer result is leading order.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-joint-fast-alarm-law-for-reset-counts-and-search-exposure-with--2e2bcdad24d0",
+          "material_read": "RESULT.md offsets 0–4117, 4117–7898 and 10350–12519",
+          "method": "OA local Resultary mirror",
+          "title": "A joint fast-alarm law for reset counts and search exposure",
+          "trigger": "Closest matching completion-time transform"
+        },
+        {
+          "assessment": "Model and Poisson MFPT covered",
+          "evidence": "The search first-passage transform enters the mean formula; its use there is not a transform of the alternating full completion law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18814v1",
+          "material_read": "Abstract and Eqs. (4)–(6), printed pp. 7–8",
+          "method": "OA preprint PDF text",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Exact switching-harmonic model under Poisson clocks"
+        },
+        {
+          "assessment": "Renewal machinery is prior",
+          "evidence": "The renewal recurrence treats success during return and permits random intervals; the displayed MFPT specialization does not supply the fixed-s high-rate OU asymptotic.",
+          "identifier_or_url": "https://arxiv.org/html/2307.16294v3",
+          "material_read": "General renewal and MFPT discussion, Eqs. (4), (6), offsets 4500–12654",
+          "method": "OA preprint HTML",
+          "title": "Search with stochastic home-returns can expedite classical first passage under resetting",
+          "trigger": "General target-visible stochastic-return framework"
+        },
+        {
+          "assessment": "Different application and mean observable",
+          "evidence": "The general mean formula is applied to drift diffusion with a linear return potential.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08975v1",
+          "material_read": "Mean first passage time, Eq. (6), offsets 13960–17960",
+          "method": "OA preprint HTML",
+          "title": "Drift-diffusive resetting search process with stochastic returns: speed-up beyond optimal instantaneous return",
+          "trigger": "Broader stochastic-return formulas"
+        },
+        {
+          "assessment": "Does not cover a finite OU return phase",
+          "evidence": "Instantaneous-reset rare successes give a rescaled exponential limit rather than an order r^-3/2 correction about a finite OU time.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409v1",
+          "material_read": "PDF pp. 2–4, offsets 5700–12165",
+          "method": "OA arXiv alternate to inaccessible publisher text",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Potential broader frequent-reset distribution theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result separates the effect of the clock law from a genuinely distribution-level diffusion response, with sharp sign and order and a comparison between equally paced periodic and Poisson alarms. The mean law alone leaves that response undetermined, and neither a bound on the mean nor the leading convergence in law could calibrate these fixed-s corrections. The value is the sharp pointwise profile, not a claim about uniform error, density inversion, or engineering performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

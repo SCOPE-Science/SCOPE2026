@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-A half-line compression is identified explicitly for each parity. The bilateral two-periodic edge is computed by Floquet analysis. In the enhanced-edge regime, the larger root of the quadratic supplies an explicit positive square-summable eigenvector; the ground-state identity proves no larger spectral value exists. The opposite regime follows by positive-form domination plus preservation of the periodic essential edge. Comparing the two quadratic roots yields the necessary and sufficient convergence criterion, while truncating the positive eigenvector gives the exponential error bound. The algebraic identities and representative finite sections were checked with `check.py`. Finite tests are not an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The 2011 constant-background bilateral formula is a strict special case. The 2022 determinantal method treats fixed finite patterns. The 2026 alternating-tail paper computes exact finite-position threshold conditions but not the explicit pair of distinct remote-defect limits or their convergence classification. Published-record and own-ledger searches, including moving one-spike and periodic weighted-shift aliases, did not yield a statement that implies the complete theorem. The independent Jacobi/SSH defect literature is the main residual risk: an equivalent upper-band defect eigenvalue might have been published under different terminology.
+PASS
 
-## Mathematical value — PASS
-The natural defect-escape operation normally suggests convergence of operator invariants to a bulk quantity. Here an exact phase transition shows complete convergence can fail although the exceptional edge goes to infinity. The complete parity-dependent classification, explicit upper eigenvalues, and quantitative rates resolve a well-posed operator invariant rather than a specially selected numerical case.
+Phase covariance reduces twice the numerical radius to the Jacobi spectral supremum. Translate the defect to 0,1; within each parity the half-lines are nested compressions with dense union. The periodic tail has essential upper edge S=u+v by Floquet theory (or the test vectors on long constant stretches at the band maximum and the row-sum bound). For c<=u, comparison on absolute values with the unperturbed Jacobi operator gives the matching upper bound at every finite depth. For c>u the larger root lambda of F_u(z)=c z^2-(u^2+c^2)z+c(u^2-v^2) lies above S because F_u(S)=-S(c-u)^2. It is reproduced by the reflected positive decaying mode with central value 1, adjacent value r=(lambda-c)/v and cell ratio rho=uv/(c lambda-u^2). Indeed (lambda-c)(c lambda-u^2)=c v^2 gives lambda r=v+u rho and lambda rho=(u+v rho)r. Both r>0 and 0<rho<1; the positive-eigenfunction quadratic-form identity rules out higher spectrum. The half-line truncation loses exactly one boundary term in the eigenvector Rayleigh relation, with size O(rho^m) and retained norm bounded below. If a<b<c, both larger roots are between S and 2c, and F_a(z)-F_b(z)=(b^2-a^2)(z-2c) makes the a-replacement root strictly larger. For a<c<=b the other phase sits at S, establishing the full dichotomy, including equality cases and a=b. The worked example recomputes to 1.563137556011 for the even limit.
 
-## Prior-work and scope limitations
-References and implication comparisons are given in `RESULT.md` and `AUDIT.json`. The homogeneous case and the finite-depth threshold are not claimed to be new. The result does not address higher-period tails, multiple defects, or a parameter-uniform rate near threshold. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the fixed-c unequal-background pair of exact limiting radii, their strict ordering/dichotomy and the geometric estimate. The homogeneous case and a stronger statement about the finite-depth plateau are established. There is genuine mathematical overlap with the companion quartic-window proof; the companion expressly credits the fixed-c limit as existing work and does not present it as its new result. That overlap is not evidence of an independent earlier discovery, and the shared date does not determine priority.
+
+## value
+
+PASS
+
+A defect displaced to infinity converges locally back to the unperturbed coefficients, yet the numerical radius need not converge, because the translated spectral defect remembers the lattice phase. The exact criterion and ordering identify precisely when that failure happens, and the decay bound sets the finite-distance scale of the two limits. These are natural global spectral questions for the first nonconstant periodic background, not parameter-picked examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

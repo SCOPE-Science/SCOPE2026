@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Closed-neighborhood isolation converts each hyperpath vertex into an interval of width three or four on its edge-index line. The sharp \(\lceil m/4\rceil\) lower bound follows from width four, and a junction construction attains it. The defect identity \(4q-m=\sum p_h+\sum d_h+b_0+b_q\) is bijective for defect at most three; every private-vertex boundary multiplicity is incorporated. Coefficient extraction gives the four integer polynomials. Independent literal-hypergraph exhaustive enumeration for 39 parameter pairs and 640 recurrence comparisons passed. Risk: finite checks alone do not establish arbitrary length; the written bijection carries that burden.
+## correctness
 
-## Originality
-PASS under best-knowledge priority assessment, with material residual risk. The 2026-11-12 Baluci–Borg paper studies a general bound for the minimum size, not multiplicity. The 2026-11-18 Li–Zhang–Qu paper studies structural extremal hypertrees but not this path-specific optimal-set count. Prior loose-hypercycle exact isolation counts are not a corollary source for the open-boundary polynomial: the path has distinct terminal multiplicities and one optimum at four edges, in contrast with the cycle. Published mathematical-index records, relevant literature, and earlier theorem statements were compared for equivalent claims. No covering enumeration was found; absence from search does not prove historical uniqueness. Full original text of the 2024 Li–Zhang–Ye paper was not obtained.
+PASS
 
-## Value
-PASS. Minimum isolating sets are the natural optimal intervention configurations for partial domination of a hypergraph. The exact *number* of optimal configurations, including a sharp rigidity phenomenon at one residue class and all three nontrivial boundary-defect classes, is not entailed by the known scalar isolation bound or the circular analogue. The three-degree polynomial in the number of four-edge blocks is a genuine infinite-family enumeration useful for counting and sampling alternative minimum interventions. No claim of a general hypertree classification is made.
+A private vertex covers a length-3 edge interval and a junction a length-4 interval before clipping. The bound q=ceil(m/4) is attained for m≥2 by using junctions 2,6,…,4q−6 and last junction min(4q−2,m−1); the last interval reaches m and starts no later than the first uncovered edge, with q=1 interpreted as just the last junction. An optimum cannot include nested or equal intervals. For increasing ends and starts, the width deficit telescopes to the sum of private bits, consecutive overlaps and the two overhang bits. Since t≤3, an overlap equal to 3 forces length 4 on both sides; all reconstructed endpoint increments are positive. The first start and last end force all reconstructed intervals to be valid: ending at most m+1 implies start at most m−1 for length 3 and m−2 for length 4. Private choices have weight a−1 plus one for each coincident path endpoint. For q≥2 put G=1+az/(1−z); the claimed series is G^(q−2)(G−az³/(1−z))²/(1−z), which through z³ equals G^q/(1−z)−2az³. Its coefficient is sum_k binom(q,k)binom(t,k)a^k minus 2a when t=3. Single-vertex covers at m=1,2,3,4 count r,2r−1,r,1 directly. Zero defect forces exact width-four tiling, hence uniqueness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of current knowledge: the all-length labelled minimum-set multiplicities and the two endpoint weights are not covered by the inspected isolation-number theory or the available circular enumeration. The minimum size by itself is elementary and is not the novelty basis.
+
+## value
+
+PASS
+
+The degeneracy of optimum isolation, not just its cardinality, describes robustness of the best choices on a standard acyclic uniform family. The exact labelled formulas give all-length alternatives and identify complete rigidity at multiples of four. The boundary correction explains where cutting a periodic geometry changes the count, without relying on arbitrary size cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

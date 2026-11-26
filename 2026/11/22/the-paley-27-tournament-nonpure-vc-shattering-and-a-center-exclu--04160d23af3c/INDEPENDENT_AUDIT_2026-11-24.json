@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:48:14.756948Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md, verify_python.py, verify_cpp.cpp, orbit_table.csv and both recorded outputs, inspected without running the shipped programs",
+        "Independent exhaustive reproduction: /workspace/reproductions/paley27.py"
+      ],
+      "rationale": "I recomputed the exact census with independent code. In the stated F_3 basis multiplication by u is the linear map (a,b,c)→(−c,a+c,b). The powers of u cycle through 26 nonzero elements; its even powers give Q. For each query vertex I constructed the bitset of positive centers. A support recursively partitions the full center set into the 2^k Boolean trace cells; ordinary shattering requires each cell be nonempty, and the off-support test clears the support bits in each cell first. Exhaustion through size four gave counts (1,27,351,2925,5967) and (1,27,351,2925,0), respectively. No support of size five or larger can be shattered since at most 27 distinct traces can occur. Orbit traversal by translations by 1,u,u², multiplication by u², and Frobenius generated all 22 four-support orbits with the recorded trace counts and representatives, including the seven ordinary orbits of sizes 1053 five times and 351 twice. I checked the listed witness centers and the unique in-support witness for mask 1. Deleting all triangles under the 5967 tetrahedra leaves exactly the orbit of (0,1,10), 351 triangles; each of 351 pairs occurs in exactly three of these. For homology I used coordinates for 2-cycles on just the triangles omitting 0: coefficients on triangles containing 0 are determined by the cycle equations on opposite edges, and the cone boundaries give a basis. Binary elimination in these 2600 cycle coordinates gives rank 2249. The full 2-skeleton has vanishing reduced homology below degree two, and there are no higher faces above degree three, so Betti numbers are 351 and 3718. Replay: python3 /workspace/reproductions/paley27.py.",
+      "residual_risks": [
+        "Finite field order 27 and the stated open-neighborhood convention only; mod-two homology is not an integral homology or homotopy classification. The group census is for the specified affine semilinear group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2210.03789v2 pp.4–6 gives lower bounds at sufficiently large field orders; §4.2 experiments treat prime q up to 300 and report VC dimension",
+          "Rank-five result's P4 quantifies over all four-sets and fails at order 27"
+        ],
+        "reasoning": "The asymptotic theorem and prime-field experiment do not enumerate four-sets over F_27. No reading of the convention around zero changes that scope. The threshold quantifier addresses universal outside extension, not a census of individual ordinary supports.",
+        "searches": [
+          "arXiv:2210.03789v2, asymptotic bounds and numerical section",
+          "Rank-five genericity and four-variable deletion threshold original statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.03789v2, definitions/bounds and experiments",
+        "Original Resultary statements of rank-five and deletion threshold records, and Paley-25 and Paley-81 censuses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m(27)=2 indeed proves outside realization of all eight patterns on every triple",
+          "P4 failure merely supplies at least one four-set with a missing outside pattern"
+        ],
+        "reasoning": "The record's outside assertion is that every four-set lacks a pattern, which does not follow from universal-extension failure. Neither threshold determines the ordinary four-face incidence needed to count the 351 maximal triangles or the boundary image whose rank gives the homology.",
+        "searches": [
+          "Sharp four-variable deletion thresholds, Finding/Assumptions and Proof §4",
+          "Rank-five genericity threshold, Finding/Assumptions and bounded-range census",
+          "McDonald–Sahay–Wyman §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McDonald–Sahay–Wyman study the residue-translate concept and discuss the zero difference and an outside-center convention at pp.2–3",
+          "Deletion threshold table gives m(27)=2, the minimum outside-witness count over triples and their patterns"
+        ],
+        "reasoning": "Concepts are open tournament neighborhoods. Reversing the tournament orientation exchanges the signs away from centers in the support, so the outside-witness statement still proves all triples have all eight patterns. Ordinary traces at a center in the support are not constrained by that count. Homology of the all-traces complex differs from homology of the complex of subsets with a common positive witness.",
+        "searches": [
+          "Resultary on Paley-27 neighborhood or quadratic-residue translate VC shattering, off-support extension, and shattering complex",
+          "arXiv:2210.03789v2 pp.2–6 and §4.2 pp.14–16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-the-paley-27-tournament-nonpure-vc-shattering-and-a-center-exclu--04160d23af3c: identical record",
+          "2026/11/8/SCOPE-the-exact-paley-25-shattering-polynomial-and-its-exceptional-tri--d709a1a3fcdd and 2026/11/22/SCOPE-three-exceptional-quartet-orbits-and-a-rank-five-shattering-plat--c53aa05fd9d3: distinct undirected Paley graphs",
+          "2026/11/8/SCOPE-sharp-four-variable-deletion-thresholds-for-paley-tournaments--9f37c0d19d9b, exact m(q) table: m(27)=2"
+        ],
+        "reasoning": "The matching self-hit is not independent corroboration. The two undirected examples are real structural analogues but do not specify these tournament coefficients. The triple table is genuine exact coverage of one constituent and is credited. No shared date establishes priority.",
+        "searches": [
+          "Resultary on Paley-27 exact shattering counts and exceptional triple orbits",
+          "Original Findings for Paley-25 and Paley-81 shattering polynomials and the exact threshold table at q=27"
+        ]
+      },
+      "rationale": "The all-triples off-support constituent is covered by the exact prior outside-witness threshold. The supported distinct contribution is the quantified ordinary/off-support gap at size four, the exact ordinary census and orbits, and the associated nonpure incidence and mod-two homology. These are not implied by failure of universal four-query extension or by analogous computations at other fields.",
+      "residual_risks": [
+        "Unindexed finite enumerations remain possible. The different zero/center conventions in the cited VC paper were not settled beyond the compared passages; its prime-field numerical scope is clear."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related class; asymptotic bounds and prime-field table do not cover F_27",
+          "evidence": "Discusses zero and center exclusion early; the later computation is for prime q up to 300 and reports dimension, not the support complex.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03789v2",
+          "material_read": "pp.2–6 on definitions and bounds; §4.2 pp.14–16 on experiments",
+          "method": "Primary paper text",
+          "title": "The VC-dimension of quadratic residues in finite fields",
+          "trigger": "Same residue-translate concept and exact numerical VC evidence"
+        },
+        {
+          "assessment": "Covers the off-support triple property; not a four-set shattering census",
+          "evidence": "m(27)=2, where m is the minimum outside-witness count over triples and their patterns.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-four-variable-deletion-thresholds-for-paley-tournaments--9f37c0d19d9b",
+          "material_read": "Finding/Assumptions and Proof §4, exact m(q) table",
+          "method": "Local mirror original text",
+          "title": "Sharp four-variable deletion thresholds for Paley tournaments",
+          "trigger": "Exact same field in outside-extension table"
+        },
+        {
+          "assessment": "Weaker negative statement at order 27",
+          "evidence": "Fails P4 at 27; P4 asks for all patterns on all four-sets, not existence of an individually shattered four-set.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-rank-five-genericity-threshold-for-finite-paley-tourname--981ee7b69845",
+          "material_read": "Finding, Assumptions and bounded-range census",
+          "method": "Local mirror original text",
+          "title": "A sharp rank-five genericity threshold for finite Paley tournaments",
+          "trigger": "Possible coverage of outside four-set shattering"
+        },
+        {
+          "assessment": "Different order and undirected model",
+          "evidence": "Studies the undirected Paley graph on 25 points with its own polynomial and orbit census.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-paley-25-shattering-polynomial-and-its-exceptional-tri--d709a1a3fcdd",
+          "material_read": "Original Finding",
+          "method": "Resultary comparison",
+          "title": "The exact Paley-25 shattering polynomial and its exceptional triples",
+          "trigger": "Exact analogous finite support polynomial and exceptional faces"
+        },
+        {
+          "assessment": "Substantive analogy, different incidence relation and order",
+          "evidence": "Undirected P_81, with its own polynomial, unshattered quartet orbits and maximal four-supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-exceptional-quartet-orbits-and-a-rank-five-shattering-plat--c53aa05fd9d3",
+          "material_read": "Original Finding",
+          "method": "Resultary comparison",
+          "title": "Three exceptional quartet orbits and a rank-five shattering plateau in the Paley graph of order 81",
+          "trigger": "Same-day support and orbit census analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Independent exact reproduction",
+        "Prior deletion and rank-five threshold statements, which illustrate the separate finite questions"
+      ],
+      "rationale": "This is the first nonprime order congruent to three modulo four, a natural test for residue-translate VC phenomena outside prime fields. Exact enumeration gives a real change in extremal dimension upon excluding centers, and extreme ordinary supports leave a nonpure facet layer that is a balanced design. The mod-two ranks characterize the resulting finite complex beyond the dimension alone; this is a complete canonical incidence classification, not a handpicked support or another computation of the known triple threshold.",
+      "residual_risks": [
+        "Finite example only; no general-field or integral topological conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

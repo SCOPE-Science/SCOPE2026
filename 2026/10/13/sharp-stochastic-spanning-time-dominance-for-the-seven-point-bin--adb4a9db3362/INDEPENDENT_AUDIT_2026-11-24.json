@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:19.633900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The random choices are independent physical positions. For t>=1 the failure numerator is the sum of plane-mass powers minus twice the sum of rank-one-subspace mass powers plus eight times the zero-mass power: a tuple spanning a plane, a line, the zero space, or the whole space is counted with respective weights 1, 3-2, 7-14+8, 0. In the simplex this is 7*3^t-14. The sum of plane occupancies is 21+4c0. If c0=0 and all occupancies are at most three, they equal three; the incidence Gram matrix 2I+J and total mass seven force every nonzero multiplicity to be one. Any nonsimplex thus has a plane with at least four positions, giving failure numerator at least 4^t > 7*3^t for t>=7. For t=3 through 6, independently enumerated all 3432 nonnegative eight-tuples of total seven (2696 full rank), testing rank via an independent triple of distinct nonzero vector types with nonzero XOR. For each exact subset of physical positions, a surjection from the reads to that subset counts precisely the tuples using all of it. Summing surjection counts over deficient subsets verifies the four baseline numerators, strictness, minima 24,192,1080,5280 and precisely the 42 stated profiles at every deadline. This is different from the frozen subspace dynamic program, which was inspected, not executed. Replay: node /workspace/branches/independent-checks.js (record 3 block). For two or fewer reads spanning is impossible; rank and the tails are invariant under row-basis changes and column permutations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "v2 Theorem 5.1 gives non-strict sampled-rank optimality in every transitive matroid, so it covers the Fano plane for zero-free profiles. Replacing zero draws by independent nonzero draws can only increase rank, extending the inequality to them.",
+          "Kong et al.'s dominance condition requires restriction-rank domination, available for MDS codes; rank-three binary length-seven simplex is not MDS. Gross et al. give a sharp expectation theorem."
+        ],
+        "reasoning": "The general v2 result is definite mathematical coverage of the non-strict order, not merely similar vocabulary. It does not determine the sharp excess probabilities. MDS and expectation optimality results do not imply these finite tails.",
+        "searches": [
+          "Kovačević v2 Section 5, A transitive matroid's full rank-tail stochastic dominance",
+          "Kong et al. Section II Lemma II.5 and Theorem II.6",
+          "Gross et al. arXiv:2610.07370v1 Section IV"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2605.23291v1/v2, 2610.02931v1, 2610.07370v1, 2501.12274v2, 2507.20639v1, 2603.06489v1",
+        "Resultary 10/25 binary [7,3] expectation spectrum and 11/8 Fano triple-family slowness",
+        "doi:10.3390/math13030540 (abstract/landing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kovačević v1 leaves the arbitrary deadline question open; v2 resolves it non-strictly by concavity. In the Fano special case strictness can also be recovered from v2 by checking the Hessian at uniform: on zero-sum directions the failure Hessian is a positive scalar multiple of 2*((3/7)^(t-2)-(1/7)^(t-2)) times the identity, using the incidence Gram matrix. A second maximum of the concave root of success would contradict a strict local maximum. Replacing zero draws strictly increases success for a full-rank profile with zeros, since all-zero draws can be replaced by a spanning tuple with positive probability.",
+          "The narrow four-gap claim requires a separate extremum over nonuniform integral multiplicities. Random-access sampling stops at the span containing a prescribed vector, not spanning the full space."
+        ],
+        "reasoning": "Do not treat the equality criterion as historically prior or as a separate major advance over v2: it has a direct additional proof using that theorem. The exact deficits and minimizer certification are not consequences of that proof, of optimizing expected time, or of a one-vector access theorem.",
+        "searches": [
+          "Kovačević v1 Section 5 Further questions and v2 Theorem 5.1 proof",
+          "Kong et al. Section IV Theorem IV.3",
+          "Boruchovsky et al. arXiv:2501.12274v2 Problem 1",
+          "Delić–Ivetić doi:10.3390/math13030540"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a single container the general recovery-tail formula specializes to this subspace-lattice formula; individual columns are types sampled with probabilities c_i/7.",
+          "Sampling independent triples is the same event as spanning by deadline 3. At later deadlines the correct analogue is an upper tail of the sampled rank, not independence of all observations."
+        ],
+        "reasoning": "These reductions identify exact overlap for the counting identity and t=3 ordering. A correct evaluation formula alone does not compare all multiplicity profiles or solve the distinct second-place problem.",
+        "searches": [
+          "Resultary: binary [7,3] simplex coverage depth and all-deadline spanning tails",
+          "Kong et al. arXiv:2610.02931v1 Section II, Theorem II.3 and Eq. (9)",
+          "Kovačević arXiv:2605.23291 Theorem 3.1 v1 and Theorem 5.1 v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-parameter census uses all 2696 full-rank profiles, gives the exact expectation spectrum of 11811 labeled codes and has the same 42 second-level profiles. Its table aggregates by expectation, not by individual deadlines.",
+          "The stochastic slowness record concerns fair families of triples under a completion-time statistic, not stopping at full column rank."
+        ],
+        "reasoning": "Even a sharp summed tail gap and its minimizers do not imply four individual sharp gaps, which depend on the actual tail coefficients. The 42 matching profiles are explicit structural overlap for the expectation objective only.",
+        "searches": [
+          "2026/10/25/SCOPE-complete-coverage-depth-spectrum-of-binary-7-3-linear-codes--100f06d5938c",
+          "2026/11/8/SCOPE-unique-stochastic-slowness-of-the-fano-plane-among-minimally-sup--b9683933a5db"
+        ]
+      },
+      "rationale": "Credit the known probability formula, t=3 optimum, and later general non-strict rank-tail theorem. The distinctive supported contribution is the explicit strict Fano comparison by deadline, in particular the exact second-place gaps and all minimizers at four deadlines; the later non-strict result comes close to the order statement but none of the inspected results determines those gaps. The expectation census has the same second-place geometry for a different objective, not the four pointwise comparisons. Record dates are not used as proof of precedence.",
+      "residual_risks": [
+        "The inaccessible Delić–Ivetić full text and possibly unindexed exact rank-reliability results leave a bounded literature risk. The public expectation census was not treated as evidence about uninspected intermediate data; the exact matching expectation minimizers are disclosed. No precedence is inferred from later catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "v1 covers t=3; v2 update covers all non-strict tails, not second-place gaps",
+          "evidence": "v2 Eq. (5.2) maximizes each rank tail at uniform by concavity and automorphism averaging.",
+          "identifier_or_url": "https://arxiv.org/html/2605.23291v1 ; https://arxiv.org/html/2605.23291v2",
+          "material_read": "v1 Theorem 3.1 and Section 5 Further questions; v2 Section 5 Theorem 5.1 and its proof, HTML around offsets 27050–31501",
+          "method": "ArXiv open HTML passages",
+          "title": "Maximum Probability of Independence in Transitive Matroids",
+          "trigger": "Rank-tail comparison in a transitive projective matroid"
+        },
+        {
+          "assessment": "Covers the recovery-tail evaluation and MDS dominance; simplex result is for expected time",
+          "evidence": "Theorem II.3 is the general subspace-tail sum. The rank-dominance theorem has hypotheses not supplied by a non-MDS simplex, and Theorem IV.3 minimizes expectation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02931v1",
+          "material_read": "Section II Theorem II.3 Eq. (9), pp. 6–7; Lemma II.5 and Theorem II.6, pp. 7–8; Section IV Theorem IV.3, p. 20",
+          "method": "Open PDF passages",
+          "title": "The Coverage Depth Problem in Distributed DNA Data Storage",
+          "trigger": "Same stopping event; accessible full text resolves the frozen abstract-only caveat"
+        },
+        {
+          "assessment": "Unique simplex minimizer for expectation, not simultaneous deadlines",
+          "evidence": "The lower bound controls the expectation and has equality at zero mass on zero and uniform projective mass.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07370v1",
+          "material_read": "Section IV Theorem IV.1 and Corollary 3, pp. 7 and 11–12",
+          "method": "Open PDF passages",
+          "title": "Optimal Codes for the Coverage Depth Problem and the Performance of Random Codes",
+          "trigger": "Strong prior simplex optimization theorem"
+        },
+        {
+          "assessment": "Exact expectation census, not a table of pointwise minima",
+          "evidence": "The second expectation is 17/4, compared with 47/12 for simplex; Step 4 gives the same 42 multiplicity profiles at 17/4.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-coverage-depth-spectrum-of-binary-7-3-linear-codes--100f06d5938c",
+          "material_read": "Finding and proof, RESULT.md mirror through offset 6819",
+          "method": "Local Resultary and mirror",
+          "title": "Complete coverage-depth spectrum of binary [7,3] linear codes",
+          "trigger": "Exact same-parameter table and structural runner-up"
+        },
+        {
+          "assessment": "Different stopping event",
+          "evidence": "Stops when the span contains a prescribed e_i, not when it reaches dimension three.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.12274",
+          "material_read": "Problem 1, p. 4 in v2 PDF",
+          "method": "Open PDF passage",
+          "title": "Making it to First: The Random Access Problem in DNA Storage",
+          "trigger": "Similar column-sampling stopping time"
+        },
+        {
+          "assessment": "Unresolved precise relevance, not evidence of noncoverage",
+          "evidence": "No full-text result was relied upon to accept or reject originality.",
+          "identifier_or_url": "https://doi.org/10.3390/math13030540",
+          "material_read": "Landing/abstract only; full text not accessible in bounded lawful attempts",
+          "method": "OA source lookup",
+          "title": "On the Maximum Probability of Full Rank of Random Matrices over Finite Fields",
+          "trigger": "Related full-rank extremum cited in the transitive-matroid paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-deadline reliability is a natural objective when the read budget is fixed; expected stopping time does not determine it. The sharp quantitative gaps and identification of every nearest competitor at the first four nontrivial deadlines give a reusable benchmark for the smallest binary projective instance and distinguish the unique optimum from its next-best multiplicity pattern. The cutoff at seven is mathematically motivated by the plane bound, not an arbitrary search horizon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

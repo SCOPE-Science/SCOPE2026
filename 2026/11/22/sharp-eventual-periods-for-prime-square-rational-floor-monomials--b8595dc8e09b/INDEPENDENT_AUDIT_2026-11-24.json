@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:36:13.900718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit index modulo p, division with remainder and invertibility of p² modulo n reduce the gcd to gcd(n,t_r). At n=pm the gcd is m gcd(p,ap^(k−2)m^(k−1)), so the only exception to the zero value on multiples of p is (k,n)=(2,p). CRT lets a unit fiber realize H=1 immediately before a shift into a nonunit fiber if p does not divide the shift, and lets any prime in Q witness failure of a shift not divisible by that prime. After imposing pQ divisibility, a shift of p-adic order one would force equal prime supports on every lift of a given unit mod p (choose n divisible by exactly one prime of Q in a symmetric difference). For p not dividing k, the nonzero binomial slope runs through all representatives u+jp; u and u+p are coprime and the latter is greater than one. For p dividing k the slope vanishes so pQ suffices. All CRT witnesses recur at arbitrarily large n, including for p=2; if Q=1 the same argument applies without auxiliary primes. The isolated exception prevents starting at or before p and averaging each unit fiber by CRT gives the density; one partial period and one exceptional point give a uniform O(P) remainder. Both examples were checked independently against the floor-based predicate across two periods in /workspace/branches/reproduce_decisive.py; the frozen finite parameter sweep was inspected, not executed or used as a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-composite record states an explicit, potentially nonminimal period bQ and square-denominator spike at √b, assumes at least two distinct prime divisors for its main statement, and expressly acknowledges that its reduction also applies at prime powers.",
+          "Banks–Shparlinski's inspected theorems assume irrational coefficients."
+        ],
+        "reasoning": "The broader quadratic reduction gives the quadratic spike and density here upon specialization, but does not prove minimum period or address higher exponents. The irrational-coefficient asymptotics give neither.",
+        "searches": [
+          "Resultary: rational quadratic-floor coprimality with composite and square denominators",
+          "2026/11/22/…fae658412cdc/RESULT.md, Finding, Assumptions and Proof §§1–3",
+          "Banks–Shparlinski arXiv:2205.00253, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalog and mirrored RESULTs b7932551eaf2 and fae658412cdc",
+        "Banks–Shparlinski arXiv:2205.00253"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed-composite argument recovers H and the exceptional point in the quadratic case without a criterion for minimality. The prime-denominator result has no lift fibers modulo p²."
+        ],
+        "reasoning": "Minimality requires comparing prime supports between lifts and proving via the binomial slope that they cannot all coincide when p∤k; this is not supplied by either inspected statement, including for the even prime.",
+        "searches": [
+          "Compare prime-denominator least-period theorem and mixed-composite Proof §§1–3 with frozen proof Steps 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 8 result concerns the very same indicator at denominator p, with exact p·rad(lcm t_r); its scope explicitly excludes composite denominators."
+        ],
+        "reasoning": "Replacing p by p² in that expression does not predict the exponent-dependent collapse; and the record at denominator p is periodic from n=1 for all k≥2.",
+        "searches": [
+          "Resultary: exact periods for rational floor monomial coprimality, prime and prime-square denominators",
+          "2026/11/8/…b7932551eaf2/RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formulas in the matches are for denominator p or a generally nonminimal composite period, not an exact prime-square period table or the p|k criterion."
+        ],
+        "reasoning": "A numerical match for one triple or a nonminimal period table would not establish the universal least-period law.",
+        "searches": [
+          "Resultary exact-period / prime-square / rational floor-coprimality lookup",
+          "Matched Resultary Findings b7932551eaf2 and fae658412cdc"
+        ]
+      },
+      "rationale": "The distinct result is the least eventual period for a prime-square denominator at every exponent k≥2, in particular its exact p-adic loss governed by k. The prime-denominator CRT lemma and the quadratic periodic-plus-spike/density machinery have direct antecedents and are not the originality basis.",
+      "residual_risks": [
+        "A targeted primary search was unavailable; an unlocated general rational least-period theorem remains a priority risk. The other literature references were not independently checked in full.",
+        "No publication order is inferred for the two same-day findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the prime denominator antecedent, not prime squares",
+          "evidence": [
+            "P=pQ and no composite denominator is asserted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-periods-and-a-prime-denominator-transition-law-for-rationa--b7932551eaf2/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–2484",
+          "method": "Compared hypotheses and displayed least period",
+          "title": "Exact periods and a prime-denominator transition law for rational floor-polynomial coprimality",
+          "trigger": "Same indicator and least-period CRT structure"
+        },
+        {
+          "assessment": "Quadratic model and spike already follow from its reduction; exact period and higher exponents are distinct, regardless of same-day ordering",
+          "evidence": [
+            "Assumptions: P is explicit, not asserted least; zero-remainder fiber proof gives n=√b alone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-mixed-composite-rational-quadratic-floor-coprimality-densi--fae658412cdc/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–3, offsets 0–5044",
+          "method": "Specialized its remainder and local-prime calculation at b=p²; separated least onset from least period",
+          "title": "Exact mixed-composite rational quadratic-floor coprimality densities",
+          "trigger": "Seemingly stronger composite and square-denominator treatment"
+        },
+        {
+          "assessment": "Does not cover this rational law",
+          "evidence": [
+            "Both principal theorems explicitly require every coefficient to be irrational."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.00253",
+          "material_read": "PDF p.3 Theorems 1.1–1.2 and Remark 1.3",
+          "method": "Compared coefficient hypotheses and asymptotic, not merely title",
+          "title": "On the greatest common divisor of integer parts of polynomials",
+          "trigger": "Broader polynomial coprimality literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prime squares are the first denominator where the exponent derivative controls the p-adic part of the true periodicity length. The criterion distinguishes periods that an upper-period or density theorem cannot separate, and the sharp period and onset give the exact finite cycle needed for rational floor coprimality. The quadratic spike and CRT averaging alone are not the contribution supporting this assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

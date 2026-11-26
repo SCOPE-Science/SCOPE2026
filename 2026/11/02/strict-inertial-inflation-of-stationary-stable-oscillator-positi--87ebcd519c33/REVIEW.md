@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a fully quantified theorem for positive harmonic coefficients, symmetric \(1<\alpha<2\) stable noise, and masses up to critical damping. The stationary impulse kernels follow from the two negative characteristic roots and the double-root limit. Their \(L^\alpha\) norms are derived by a beta substitution, with the gamma quotient and critical endpoint checked algebraically. The decisive nonstandard step is strict positivity of the mass derivative: the digamma difference has a Laplace integrand involving \(\sinh((\alpha-1)t/2)/\sinh(t/2)\), strictly below \(\alpha-1\) for every positive argument. This proves strict monotonicity on the complete interval, not merely at sampled parameter values. Matching coupling and \(|x|\)-test bounds produce exact \(W_1\); the analytic Taylor expansion yields its sharp nonzero linear coefficient. The included standard-library checker passes 197 finite assertions, but the universal claim is established by the written argument.
+PASS
 
-## Originality — PASS, qualified
+The stable linear drift has force-to-position impulse G_m=(exp(-λ_s t)-exp(-λ_f t))/Δ with positive decay rates. The stationary Lévy convolution exists, any initial deterministic contribution decays, and the position characteristic exponent uses I_m=∫G_m^α. The substitution u=exp(-Δt/m) gives the beta integral mΔ^(-α-1)B(a,α+1); the recurrence and the relations among a, m and Δ give the displayed gamma formula. At the repeated root G_mc=(t/m_c)exp[-γt/(2m_c)], so direct integration gives the stated critical value, also recovered from the gamma ratio. For 1<α<2 the log derivative of the gamma factor is positive by the frozen digamma integral and strict sinh inequality; a increases from 0 to infinity, with continuous endpoint scales. Larger dilation strictly increases absolute-value tails at positive thresholds, not the signed laws in stochastic order. Common-noise coupling yields an upper bound on W1 given by the difference of mean absolute values, which is also a lower bound by the triangle inequality. The Fourier moment integral (2/π)∫(1-exp(-s^α))/s² ds gives E|Zα|=2Γ(1-1/α)/π by parts. Independently expand the beta integral by subtracting 1 inside its integrand: B(a,α+1)=1/a-ψ(α+1)-γ_E+O(a). The pole term is Δ^(-α)/(αλ_s)=I0[1+(2α-1)δ+O(δ²)] for δ=κm/γ², and the finite term contributes -I0 α[ψ(α+1)+γ_E]δ. This gives exactly Rα and the reported linear W1 coefficient, positive by the strict log derivative at a=0. Read RESULT.md, VERIFICATION.md, check.py and the recorded 197-check output; the frozen script was not run. The finite evidence does not justify the universal claims; these apply only to the position marginal and the stated noise and mass range.
 
-The prior 2017 harmonic stable oscillator paper already establishes the impulse-response and stationary scale-integral representation. This is openly reused, not relabeled as new. Jin–Tao (arXiv:2610.32217v1) prove a general \(m^{1/\alpha}\) bound, and Baldovin–Guéry-Odelin–Trizac (arXiv:2207.09357v1) analyze harmonic characteristic functions and control. Their inspected texts do not state the complete strict mass-inflation theorem or its sharp \(W_1\) derivative. General gamma-quotient inequalities, as surveyed by Qi–Agarwal (2019), may cover the auxiliary special-function inequality, but do not by themselves identify the oscillator's stationary position response. The distinction depends on a new normalization and implication comparison, not a title search. Historical-priority review is still needed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated exactly solvable test case for the 2026 general invariant-measure approximation problem. It proves a systematic, strictly signed inertia effect throughout the entire nonoscillatory range; establishes the exact Wasserstein distance; identifies a sharp order-one improvement in the small-mass exponent; and explicitly distinguishes the non-Gaussian regime from mass-invariant Gaussian equilibrium. The result says nothing about nonlinear drift, oscillatory masses, or finite \(W_1\) for stable indices at most one.
+The supported distinct contribution is the evaluated harmonic invariant-position scale and its quantitative Wasserstein mass response, especially the explicit strictly positive first-order coefficient. The stationary impulse integral is already known. The sign inequality for the evaluated quotient is also implicitly covered by a classical Wallis-ratio theorem and is not credited as a new inequality. Neither this special-function result nor the known oscillator integral or general bound gives the explicit coefficient without evaluating and expanding the singular small-mass scale. No inspected source gives that quantitative conclusion.
 
-## Residual risks
+## value
 
-The underlying stable integral and harmonic Green functions were known. A more general special-function monotonicity theorem could imply the gamma quotient inequality, and unlocated stochastic-oscillator work might already state the same mass effect. The finite checker is corroboration rather than a certificate for real-parameter quantifiers. Nothing has undergone independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The harmonic model is a natural benchmark for the invariant-measure Smoluchowski–Kramers bound. An exact, strictly positive linear coefficient distinguishes its error from the general m^(1/α) estimate and from mass-independent Gaussian behavior. The formula across all nonoscillatory masses additionally quantifies a position-marginal comparison, not just kinetic energy or qualitative damping regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

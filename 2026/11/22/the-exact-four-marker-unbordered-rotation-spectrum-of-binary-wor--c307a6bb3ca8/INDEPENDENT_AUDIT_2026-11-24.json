@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:39:03.499701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 43–69",
+        "VERIFICATION.md, verify_rational.py, verify_words.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/49632433-cf1f-46e9-9c1d-ccf437c931ff/independent_four_gap_check.py --max-n 20"
+      ],
+      "rationale": "A start with equal first and last bit is immediately bordered; the remaining cuts are at bit transitions. The proof's prose says a 1 before a zero run, where it should say a 1 after a zero run; the actual strict tests examine the correct transition cuts. For the 1-start 1 0^a 1 0^b 1 0^c 1 0^d the final 1 0^d is a border iff a>=d; otherwise only the two-one suffix can match, iff a=c and b>=d. Reversal gives the companion zero-start test. In summing cyclically, the strict baseline counts unequal neighbors; one repeated opposite gap strictly below both others removes two cuts, with two more removals when the larger gaps are also equal. This gives exactly the stated weak-order law, including periodic words. A separate exact replay summed all 75 ordered weak orders (class counts 3,16,24,32), reproduced each numerator and compared the series with direct tests of all rotations of all 20,349 indexed words of lengths 4–20. Marking a 1 accounts for the n/4 factor without a freeness assumption. The double pole or lower order away from z=1 cannot affect the n^3 terms; at 1, D~24(1-z)^4 and P'_2(1)=-12, P'_3(1)=-48. The four witnesses and the exact periodic-word count are consistent with these identities.",
+      "residual_risks": [
+        "The finite direct tests are diagnostic; the border test and exhaustive weak-order partition supply the all-length argument. Counts are for indexed positions, not necklace classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The introduction of Fully bordered words derives at least two unbordered conjugates for a primitive binary word from the two Lyndon orders; Theorem 2 characterizes exactly two. The indexed three-marker results express the count by adjacent gap inequalities."
+        ],
+        "reasoning": "The general result already gives no singleton, and the zero fiber follows from periodicity. Neither it nor the exact three-marker law gives the four-marker opposite-equality effects and the joint sizes of the higher fibers.",
+        "searches": [
+          "Holub–Müller, Introduction and Theorem 2",
+          "Harju–Nowotka DOI 10.1016/j.jcta.2004.07.009",
+          "Resultary: exact unbordered conjugate spectrum with three ones"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records in the named checks and source_inspections",
+        "Holub–Müller, arXiv:1504.02222",
+        "OEIS A321162",
+        "Harju–Nowotka source attempt and bounded primary keyword lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing class criteria do decide some events relevant to individual cuts or to u=2. The frozen computation instead identifies which opposing gap equalities obstruct multiple cuts simultaneously, and separates all 75 rank patterns by the resulting count."
+        ],
+        "reasoning": "A single-cut classification can be used to recompute the cyclic statistics, and is not credited here as independently new to the extent of that overlap. The total mixed-border enumerator is not sufficient for this transformation; one still needs a joint cyclic analysis and all-length counting, including the distinction between three and four cuts that the fully bordered characterization does not address.",
+        "searches": [
+          "Holub–Müller Theorem 2",
+          "2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8",
+          "Frozen proof, cyclic test aggregation and 75-cell counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holub–Müller characterize fully bordered pairs by membership in their recursively defined family F. For primitive binary words distinct conjugates correspond to distinct starting positions; proper powers have no unbordered cuts.",
+          "The October four-marker threshold entry classifies ordinary-unbordered and Abelian-bordered words by three gap inequalities, with total length enumerator 4z^8/((1-z)(1-z^2)^2(1-z^4))."
+        ],
+        "reasoning": "Fully bordered pairs describe the u=2 fiber, not the other positive fibers. Ordinary-unbordered is the disjoint union of Abelian-unbordered and ordinary-unbordered/Abelian-bordered, so the earlier mixed-border criterion can be genuinely relevant at the cut level. Its stated enumerator, even supplemented by an Abelian-unbordered total, does not recover how good cuts cluster within each circle.",
+        "searches": [
+          "Resultary: four-marker ordinary and Abelian borders, opposite gaps and rotation generating functions",
+          "Holub–Müller, arXiv:1504.02222, definition of fully bordered and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A321162 is the maximum number of unbordered conjugates over all binary words of length n, not a fixed-weight histogram.",
+          "2026/11/22/SCOPE-the-exact-prefix-normal-cut-spectrum-of-binary-necklaces-with-fo--3de6902e3f58 counts prefix-normal cuts, a distinct condition; the exact ordinary-unbordered catalogue hit is this record itself."
+        ],
+        "reasoning": "Neither the unrestricted maximum, the prefix-normal count table, nor the mixed-border single-word enumerator is a table of the indexed ordinary-unbordered class sizes.",
+        "searches": [
+          "OEIS A321162 internal entry",
+          "Resultary: fixed-composition unbordered rotations, four-marker prefix-normal cuts and border thresholds"
+        ]
+      },
+      "rationale": "Credit the general absence of a singleton primitive unbordered-conjugate class, the known characterization of the two-conjugate fiber and the prior cut-level ordinary/Abelian gap analysis. The distinct contribution supported here is the joint cyclic count law and exact four-class distribution at weight four, particularly the opposite-gap correction in the rotation count and the simultaneous rational series for the classes; neither the verified general characterization nor the available closest catalogue statement evaluates that profile.",
+      "residual_risks": [
+        "The October four-marker entry's full statement and Harju–Nowotka full text were not retrieved. A prior fixed-weight computation or fuller cut-level overlap may have escaped this bounded check; access failures are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real partial coverage of the qualitative lower bound and the u=2 fiber, not the complete profile",
+          "evidence": "Theorem 2 says the pair (u,v) is fully bordered iff it lies in F; the definition requires exactly two unbordered conjugates.",
+          "identifier_or_url": "https://arxiv.org/html/1504.02222",
+          "material_read": "Introduction, §2 definition, recursive family and Theorem 2",
+          "method": "Bounded official HTML after OA attempts",
+          "title": "Fully bordered words",
+          "trigger": "General binary exactly-two characterization might include the weight-four fiber"
+        },
+        {
+          "assessment": "Closest same-composition cut-level overlap; available statement is not the joint cyclic profile",
+          "evidence": "Classifies ordinary-unbordered but Abelian-bordered weight-four words by three inequalities and gives one rational all-length enumerator for that intersection.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8",
+          "material_read": "Specific catalogue summary including the enumerator; exact mirror passage unavailable",
+          "method": "Resultary and bounded local-mirror attempts",
+          "title": "The four-marker threshold separating ordinary and Abelian borders",
+          "trigger": "Identical weight and a related gap criterion for ordinary unbordered words"
+        },
+        {
+          "assessment": "Same statistic for three markers only",
+          "evidence": "Unequal adjacent gaps each produce one unbordered rotation; the spectrum is 0,2,3.",
+          "identifier_or_url": "2026/10/26/SCOPE-three-marker-border-correlation-a-local-gap-law-and-its-exact-di--8c6645349a80",
+          "material_read": "Catalogue summary",
+          "method": "Resultary",
+          "title": "Three-marker border correlation: a local gap law and its exact distribution",
+          "trigger": "Same cyclic statistic and gap parametrization"
+        },
+        {
+          "assessment": "Different invariant; maximum, not histogram",
+          "evidence": "The %N field specifies the unrestricted maximum, and %C attributes a general upper bound to Harju–Nowotka.",
+          "identifier_or_url": "https://oeis.org/A321162/internal",
+          "material_read": "Entry heading, sequence and definition/comments",
+          "method": "Bounded public entry after OA attempt",
+          "title": "Maximum number of unbordered conjugates for a binary word of length n",
+          "trigger": "Possible indexed sequence for the same rotation statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, gap law and proof",
+        "Three-marker catalogue statement and Holub–Müller Theorem 2 for comparison"
+      ],
+      "rationale": "Four markers are the natural next sparse case where two opposite gaps can interact, whereas the three-marker rule uses only neighbors. The exact law detects this first nonlocal obstruction and separates the exceptional populations at every length; it gives concrete comparison data for extending rotation counts to higher weights, rather than just a bounded enumeration or maximum.",
+      "residual_risks": [
+        "Limited to weight four and ordinary borders. It does not give a higher-weight rule or a general necklace reconstruction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

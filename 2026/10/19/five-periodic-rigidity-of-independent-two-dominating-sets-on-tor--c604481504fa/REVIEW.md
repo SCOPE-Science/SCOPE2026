@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every cyclic five-vertex column of an independent two-dominating set has exactly two selected vertices: zero- and one-vertex columns each violate two-domination plus adjacent-column independence. Each pair has a unique center, and disjoint adjacent columns force consecutive centers to differ by one. The two residual uncovered row types force a constant direction of motion, whose periodic closure is equivalent to divisibility by five. The converse checks all three unselected row types directly; distinctness follows from the first two column centers. The proof covers every \(n\ge3\), independently of the finite enumeration. `verify_direct.py` and `verify_transfer.py` reproduce the reported finite cases with independent representations.
+PASS
 
-## Originality — PASS, with risks
+The simple-cycle hypothesis n >= 3 makes the two adjacent columns distinct. Each column has at most two selected vertices by independence on C5. An empty column forces both adjacent columns to contain every row; a singleton at row r forces both adjacent columns to contain the adjacent rows r+2 and r-2. Both are impossible. Write each independent pair uniquely as {t-1,t+1}; disjoint adjacent pairs have centers differing by +1 or -1 modulo 5. The unselected rows t+2 and t-2 each require a neighbor from the adjacent column with the corresponding center t+1 or t-1. Thus the two neighboring centers are opposite steps from t, and every consecutive increment is the same. Closure is equivalent to 5 dividing n. Conversely, this recurrence supplies the required outside neighbors, including two within the column at t; the first center and first step distinguish the ten labelled sets. The official 2016 paper uses matching graph and kernel definitions. An independent exact witness check, `python3 /workspace/branches/replay_2_3.py`, verifies the ten distinct C5 x C10 sets, each with 20 selected vertices of inside-degree zero and 30 outside vertices of inside-degree 2 or 4. The all-n conclusion is analytic, not extrapolated from this check. Inspected the two frozen checker sources without executing them.
 
-The exact closest primary statement, Bednarz–Włoch (2016) Theorem 2.5, asserts that an independent two-dominating set in \(C_m\square C_n\) exists only if both factors are even or their orders agree. The explicit valid family on \(C_5\square C_{10}\), and indeed on all \(C_5\square C_{5k}\), disproves its necessity and determines every such set for the fixed five-cycle factor. The 2016 Corollary 2.6 already gives ten sets in the equal-order \(C_5\square C_5\) case; that datum is credited, not treated as new. Nagy's 2015 preprint gives broader \(k\)-independent domination context but not this product classification. Bednarz–Hernández-Cruz–Włoch (2015) and Włoch (2012) address the underlying kernel notion. Searches for alternative notations, periodic configurations, database records, and prior records returned no covering exact result; this does not prove worldwide priority. Some related archival papers were inspected only in relevant sections, and unindexed equivalent formulations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete infinite-family classification tied to the failure of a printed necessary-and-sufficient theorem, with a sharp and unexpected modular existence threshold and explicit enumeration of every configuration. It corrects a meaningful mathematical boundary in the source literature, not an arbitrary computed example. Its scope is deliberately limited to a five-cycle factor.
+The unequal-order family and exact ten-pattern classification for the fixed first factor are distinct on the evidence inspected. The 2016 theorem purports to give broader coverage, but its claimed necessity actually excludes the verified new examples. The equal-order case is credited rather than treated as a new count.
 
-## Independent status
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+C5 is the smallest odd cycle that permits nontrivial two-element independent columns; the local necessity proves an all-length rigidity statement, not merely a short-grid check. The explicit family overturns a printed general existence criterion while replacing it on this factor by an exact classification and count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

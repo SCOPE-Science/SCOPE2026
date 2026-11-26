@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the stated five-point strict separation
+# Independent mathematical audit
 
-Execute `python3 verify_wordlength_c5.py` with standard Python. Rational intervals are computed for \(\sqrt5\), \(\sqrt{7/10}\), \(\log2\), \(\log3\), and \(\log(7/5)\), using integer-square-root enclosure and the positive atanh series with explicit positive upper-tail bound. The script checks strict upper ratio \(19/40\) using rational comparisons and prints interval endpoints for readability. Its run returned `exact rational witness certified` and `strict upper bound: 19/40 < 1/2`, with ratio interval approximately \((0.4724676671819746,0.4724676671888323)\).
+## correctness
 
-The analytic local lower bound uses a uniform Taylor expansion and Fourier orthogonality; an explicit first/second-harmonic family achieves the value \(1/2\) in the limit. Compactness makes the strict global comparison an attainment theorem. The script verifies the witness and does **not** independently certify the all-functions Taylor argument, global optimality, or an optimizer classification. No independent audit has occurred.
+PASS
+
+With Fourier multipliers (0,1,2,2,1), Parseval gives energy S+z² for u=a+x+y, where a=sqrt(1-S), S=||x||²+||y||², and z=||y|| for the second harmonic. Expansion of u² log(u²) gives deficit 2z²-2<x²y>-2<xy²>+< (x+y)^4 >/6+S²/2+O(S^(5/2)); the separate third moments vanish. In this real five-point Fourier decomposition ||P₂(x²)||=||x||²/sqrt(2) and <x⁴>=3||x||⁴/2. If z/S tends to infinity, the quadratic term dominates the numerator on the S² denominator scale. Consequently finite liminf sequences can be restricted to z=O(S), on which the pure first-harmonic quartic term gives 3S²/4 together with the normalization correction. The estimate reduces to 2z²-sqrt(2)Sz+3S²/4=2(z-S/(2sqrt(2)))²+S²/2. The displayed cosine path saturates the inequality because its second harmonic has the optimal norm and phase. Thus the exact local limit is 1/2. I independently computed the witness using integer cyclic correlations combined with Parseval, and exact rational enclosures of the entropy using the range-reduced -log(1-t) series. Its ratio is in (0.472467667182636,0.472467667182637), with exact rational comparison to 19/40. A neighborhood of 1 has quotient exceeding the witness; its compact admissible complement contains a global minimizer by continuity, even if some entries are zero.
+
+## originality
+
+PASS
+
+The contribution supported as distinct is the strict global comparison for this word-length form and resulting nonconstant attainment. The earlier exact local constant and global lower estimates are credited separately.
+
+## value
+
+PASS
+
+For a canonical cyclic-group word-length energy, this resolves a concrete question left by the near-constant upper bound: the minimizing regime is genuinely nonlocal. The strict witness gives both a better certified bound and attainment rather than just a minor numerical improvement. Its second-mode cost and threshold distinguish it from the nearest-neighbor example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

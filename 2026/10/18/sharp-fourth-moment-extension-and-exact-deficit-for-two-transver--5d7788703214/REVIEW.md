@@ -1,12 +1,21 @@
-# Scientific assessment: sharp two-axis Fourier extension
+# Independent mathematical audit
 
-## Correctness — PASS
-For any finite abelian group of order at least four, convolution fibers split exactly into the origin, the two nonzero axes, and the cross-axis region. The complete algebraic eight-term identity in the result follows from this partition. Each term is nonnegative: two applications of Cauchy--Schwarz, inversion-pair bounds, triangle inequality, and the strict coefficient \(2N-6-2/(N-1)>0\) for \(N\ge4\). The latter terms force all nonzero extremizers onto one axis, after which Fourier Plancherel classifies them as characters. The normalization is checked explicitly. A standard-library checker directly tests the identity and sharp cases on cyclic and noncyclic examples. Limit: numerical checks alone do not establish the unrestricted claim, and groups of order two or three are outside it.
+## correctness
 
-## Originality — PASS, subject to historical search limits
-Koh--Shen arXiv:1003.4240 establishes the qualitative finite-field extension criterion that excludes reducible curves with linear factors from a field-uniform bound, but does not establish an exact finite-size norm or equality cases for the two axes. Iosevich--Koh arXiv:0804.4505 studies nondegenerate quadratic level sets, a different support geometry. The more recent arXiv:2405.16647 has sharp inequalities on other surfaces and references intersecting lines as intermediate fibers, but not as this Fourier-extension support. Relevant published research-record queries for two-line \(L^4\) extension, subgroup convolution energy, and the order-three exception revealed no stronger theorem implying the exact eight-term identity or the claimed full rigidity. The prior order-three split-cone result has the distinct mixed-axis maximizer and therefore does not imply the \(N\ge4\) theorem. Residual risk: a general older additive-energy theorem for intersecting subgroups may provide an equivalent argument; unindexed literature and independent priority review remain outside this assessment.
+PASS
 
-## Mathematical value — PASS
-The problem is the sharp fourth-moment Fourier-extension norm of a canonical singular/reducible finite-field curve, a natural boundary case excluded by the usual no-linear-factor theorem. Its answer holds for every finite abelian base group rather than one prime field, and the exact positive defect gives rigidity and a quantitative decomposition of the failure of extremality. The strict threshold between group orders three and four is structural rather than a minute correction to a known numerical constant. The theorem does not claim field-uniform extension bounds or sharp results for arbitrary curves.
+Reaudited repairs/5/RESULT.md and SLOGAN.txt. The two ordered off-axis pairs yield 4GH in the energy; the two axis convolutions account for every noncentral axis fiber and the origin is counted once. Partitioning the squared-product sum by t+(s−t) gives the nonzero-axis expression N(2λG+G²−R_u)−Δ_u and its vertical analogue. Expansion gives the eight-term identity, checked independently by exact polynomial arithmetic (python3 -B /workspace/review-evidence/rederive.py, section 5). Cauchy–Schwarz in each fiber and at the antipodal products, inversion as a permutation on the punctured axes, and the triangle inequality prove termwise positivity without constraints on group exponent. The two mixed terms are θ_N GH+(2N−4−θ_N)(GH−bc), proving the added stated consequence, including θ_4=4/3. Orthogonality yields L2 source mass M/(2N−1) in squared norm and counting fourth moment N²Q/(2N−1)^4; deficit equality forces GH=0 and the single-axis Fourier transform has single-point support if nonzero. The original three-order ratio 14349/4624 was independently verified exactly, but is not a contribution in the repair. The frozen verify_axes.py was inspected only: checks use floating-point tolerances even on integer inputs and its order-three witness uses 1.186, not the exact frozen 6/5; neither is needed for the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The frozen claim treated the sharp bound and equality geometry as part of the contribution. That part has exact coverage by another theorem including order four, and the order-three failure was already known. The corrected files claim only the exact nonnegative termwise deficit and its separate quantitative information, not novelty of the sharp bound, equality, or order threshold. The two strongest inspected treatments control a centered-moment majorant; neither supplies this decomposition. Even their stated mixed-mass coefficient for N≥5 is smaller than the explicit coefficient here, and the endpoint record does not state this termwise identity at N=4. PASS is limited to the valuable repaired remainder, not the original combined novelty claim.
+
+## value
+
+PASS
+
+The natural sharp deficit now yields separately observable convolution-fiber variance, antipodal-product variance, phase-cancellation and balance information, and a strictly positive explicit mixed-axis product control at order four, uniform over the group type. This can distinguish near-extremizing arrays with the same coarse masses and gives a stronger stated two-axis product bound than the compared higher-axis estimate for N≥5. The repair does not rely for value on a different normalization or a second proof of the known constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

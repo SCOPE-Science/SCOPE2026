@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each even coordinate the all-ones operator squares to zero and has one length-two Jordan summand. A tensor contracting homotopy proves that the sum of these operators has rank \((V-C)/2\), rather than merely bounding it. For each odd coordinate the all-ones operator is diagonalizable with eigenvalues zero and one; parity-weighted binomial expansion yields the exact \(h_0,h_1\) multiplicities. The two corresponding wave summands satisfy respectively \(T^4=I\) and \(T^6=I\). A direct fixed-kernel calculation produces all six \(F(t)\), and Möbius inversion then gives exact primitive orbit populations. Nonzero even-coordinate rank and positive odd-coordinate primary dimensions exhibit states of exact periods four and three, so their direct sum has period twelve. All quantifiers and graph conventions are explicit in RESULT.md. Independent finite implementations gave matching output in `check_matrices.stdout.txt` and `check_bruteforce.stdout.txt` (nineteen binary graph families through 36 vertices, plus direct dynamics on 266,576 states). These experiments are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Over characteristic two the adjacency is dI plus the sum of the coordinate all-ones operators. On odd factors the all-ones operator is a projection; signed parity sums of its tensor multiplicities give h₀,h₁, both positive. On even factors each operator has one rank-one square-zero block and qᵢ−2 trivial blocks. The sum N is square-zero because the factors commute. On a tensor block with any two-dimensional square-zero factor, a contracting map in that factor satisfies NH+HN=I: the contributions from every other factor cancel in characteristic two. Thus rank N is (V−C)/2, positive, and the two adjacency sectors have kernel dimensions z₀,z₁ for their nilpotent parts. The wave is invertible, with T²−I=A T on the two-row space. On A=N this gives fixed dimensions z₀ and 2z₀ at 1 and 2, and T⁴=I. On A=I+N there are no fixed vectors except zero at 1, T³=diag(A,A), and T⁶=I. This gives every entry of the fixed table by adding dimensions and using the gcd of the time and the sector order. Strict inclusions of the fixing spaces give least periods 2 and 4 in the first sector and 3 and 6 in the second; zero gives 1, and joining 4 and 3 gives 12. Inverting the fixed counts and dividing by the least period gives the orbit census. An independent binary rank calculation for K₂□K₂□K₃ reproduced ranks 22,20,14,16,4,0 for Tᵗ−I and hence the six tabulated populations and 1310700 primitive twelve-cycles.
 
-Vlasov (arXiv:1311.4297, 2013, Sections 3 and 6.1) develops the standard reversible two-time-level construction but does not provide the mixed-arity Hamming-graph fixed-point census. Klavžar–Peterin (DOI 10.1002/jgt.20084, 2005, Sections 1–4) characterizes Hamming graph embeddings, not finite-field wave orbits. Valyuzhenich (arXiv:2003.01571, 2020, eigenfunction material) treats ordinary real Hamming eigenfunctions and minimum bitrades; real eigenvalue multiplicities alone do not give nonsemisimple characteristic-two Jordan ranks when factors have even size. Related published complete-multipartite reversible-wave, strongly-regular-graph reversible-wave, and reversible hypertorus results concern, respectively, different edges, diameter at most two, or cyclic factors with distinct nilpotent structures. The present uniform fixed-census with sharp period twelve for mixed-parity Cartesian-clique graphs is not implied by their statements. Relevant semantically indexed published mathematical findings and accessible prior claims were compared by operator and graph family, not just by title. Residual risk: unindexed historical results or unexamined wider algebraic wave frameworks may subsume the claim; the review does not assert exhaustive world-wide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete two-parameter-style (indeed arbitrary-dimensional and mixed-alphabet) recurrent-orbit classification for a canonical graph product family. The parity of the factor cardinalities forces two competing wave clocks, with a sharp period-twelve resonance, and the full labelled period census resolves every recurrence class, not merely the global order or one small example. The characteristic-two tensor-rank lemma is an explanatory mechanism that separates these dynamics from ordinary real-spectral descriptions. The unrestricted all-parity variants and spatial-symmetry quotients remain outside the claim.
+Inspected sources cover the reversible second-order construction and closely related exact wave censuses. They do not furnish the mixed Cartesian-clique modular rank and multiplicity data needed for these closed counts with unequal alphabet sizes. The exact order twelve is not unprecedented on other graph families. The supported distinction is its uniform occurrence and the explicit census on this family, not novelty of the update or of Möbius inversion.
 
-## Scope and residual limits
+## value
 
-The theorem is for \(d\ge3\), at least one odd and one even \(q_i\), and finite fields of characteristic two. The graph is loopless, vertex-labelled, and uses unit neighbor-sum weights. All six least periods arise; no statement on arbitrary graph products, external disturbances, or infinite alphabets is made. Numerical checks use only binary fields. Publication searches and full-text comparisons reduce but cannot eliminate historical-priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural reversible dynamics on Cartesian clique products can have huge state spaces even for small products. The explicit counts for every period, over every characteristic-two state field and without equal factor sizes, replace enumeration and explain how local parity produces a sharp combined period and all its divisors. The nontrivial tensor rank is informative independently of the example and the standard orbit inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

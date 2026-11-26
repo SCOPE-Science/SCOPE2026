@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:26:18.404419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reduced Laplacian of this simple graph determines every independent edge weight. Connected feasible support has positive determinant; a strictly positive feasible design excludes disconnected maximizers. On the positive-definite feasible locus the log determinant has strictly negative second variation in every nonzero weight direction. Thus simultaneous relabeling forces the unique optimizer to be constant on the two edge orbits, and b=0 cannot maximize. On the constant and zero-sum subspaces of the two vertex parts the nonzero eigenvalues are 2(a+(n−1)b), nb and 2a+(n−2)b, the latter two with multiplicity n−1; this gives the stated normalization. As an independent threshold/stationarity check, let d=a+(n−1)b and h=2a+(n−2)b. Splitting a cross-edge incidence vector into part-symmetric and antisymmetric directions gives resistances R_match=1/(nd)+(2−2/n)/h and R_other=1/(nd)+1/(nb)+(1−2/n)/h. The gradient of log tree weight is resistance. Hence at a>0 the stationarity condition is t R_other−R_match=0; multiplying by nb(y+n−1)(2y+n−2) gives exactly Q(y). At a=0 the cost-normalized inequality gives the stated deletion threshold, including equality by strict concavity. Q has a single positive root when its constant is negative, and has strictly positive coefficients of y and y² at and above threshold. At the low-price boundary, setting z=ty gives the positive-root limit z→n and the reported budget shares. The inspected rational cofactor checker is supplementary; the independent argument is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al. give determinant design and marginal resistance; the inspected convex selector relaxation is bounded and uses fixed candidate weights, not this continuous expense model. Ge–Dong give broader matching-dependent enumeration and resistance on K_{m,n} minus partial matchings."
+        ],
+        "reasoning": "No substitution of a trace-inverse or spectral-gap optimizer is justified. The graph-specific prior formulas do, however, give the inputs for this log-det optimization directly.",
+        "searches": [
+          "arXiv:1604.01116v2 §§2–4",
+          "arXiv:1904.07766 Theorems 1.3, 1.5 and 5.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary SCOPE-20261025-1ae0e33a18ed (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Ge–Dong arXiv:1904.07766",
+        "Khosoussi et al. arXiv:1604.01116v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With m=n=p, Theorem 5.7(3) gives the threshold as the ratio of the missing-edge and present-edge effective resistances by the log-det first-order conditions. For all y=a/b, expand the matching-edge product as ∏(1+(y−1)1_{e∈T}). Theorem 1.3 gives the tree weight divided by b^(2n−1) as n^(2n−2)∑_k binom(n,k)[2(y−1)/n]^k(1−k/(2n)). The binomial sum is (1+s)^(n−1)(1+s/2) at s=2(y−1)/n, giving the entire two-orbit polynomial, not just its value at the deletion endpoint."
+        ],
+        "reasoning": "Ordinary strict log-det concavity and matching symmetry reduce the problem to this known polynomial; inserting the linear budget and differentiating gives the quadratic and equality case without another graph-specific theorem. The later indexed record explicitly performs the full optimization.",
+        "searches": [
+          "arXiv:1904.07766 pp. 2 and 15; arXiv:1604.01116v2 marginal log-tree-connectivity and MAXDET sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding optimizes the same grounded determinant over independently chosen nonnegative conductances with the same exact two-price budget and n≥3. Its y formula is identical after simplifying D²−8tC to 4n(n+2t²−2t); its prefactor n^(n−2)(B/n)^(2n−1) equals B^(2n−1)/n^(n+1)."
+        ],
+        "reasoning": "This is exact coverage with a changed price symbol and radical simplification, not a title-level match or a different graph or objective. It does not establish chronology of discovery.",
+        "searches": [
+          "Resultary semantic search for determinant-optimal conductance allocation with a priced perfect matching in complete bipartite graphs",
+          "SCOPE-20261025-1ae0e33a18ed, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result SCOPE-20261025-1ae0e33a18ed is a symbolic all-n classification, stronger than a numerical table. Theorem 1.5 gives the unoptimized crown tree enumerator at unit weights."
+        ],
+        "reasoning": "The symbolic result covers every proposed table row; unweighted crown enumeration alone would only cover the boundary objective value.",
+        "searches": [
+          "Resultary semantic search for the priced matching threshold, exact optimum and crown support",
+          "arXiv:1904.07766 Theorem 1.5"
+        ]
+      },
+      "rationale": "A distinct indexed finding establishes the same unrestricted optimizer, threshold including equality, and maximum, not merely the same graph. Its later publication date is not evidence of earlier priority, and the two records have different identifiers. Separately, the earlier matching-resistance and matching-containment formulas yield the support threshold and the remaining optimization by standard log-det conditions and a short scalar calculation. The small-price shares are a direct limit of the already covered allocation, not a separable new theorem.",
+      "residual_risks": [
+        "Historical relationship between the two catalogue records is not established; their publication dates and separate IDs do not show first discovery. This does not remove the verified equivalent coverage or the prior mathematical implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, not a claim of earlier publication or priority",
+          "evidence": "Same budget, all asymmetric designs admitted, identical t_c, identical positive ratio after simplification, identical optimal value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-price-threshold-deletion-of-a-perfect-matching-in-determinant-op--1ae0e33a18ed/RESULT.md",
+          "material_read": "Finding, assumptions, proof (offsets 0–6085), relationship to prior work (7721–10372), METADATA.json identifiers and dates",
+          "method": "Local mirrored text and statement comparison",
+          "title": "Price-threshold deletion of a perfect matching in determinant-optimal bipartite networks",
+          "trigger": "Exact indexed match to the model, deletion rule and optimizer"
+        },
+        {
+          "assessment": "Covers the graph-specific polynomial and threshold inputs by direct specialization; does not itself state the design problem",
+          "evidence": "Theorem 1.3 counts all trees containing each fixed size-k matching; 5.7(3) supplies both deleted and retained edge resistances for m=n=p.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+          "material_read": "p. 2 Theorems 1.3 and 1.5; p. 15 Theorem 5.7(3), offsets 5150–6967 and 48089–50280",
+          "method": "Primary OA PDF text and substitutions in the stated formulas",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Prior matching containment and crown marginal derivatives"
+        },
+        {
+          "assessment": "General design and derivative ingredients; inspected optimization is not the exact matching-price theorem",
+          "evidence": "Candidate-edge weights are fixed and relaxed selector variables bounded; this is not uncapped conductance allocation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+          "material_read": "Abstract; pp. 6–10, marginal resistance derivative, §§4.1–4.4 fixed edge selection and convex relaxation",
+          "method": "Primary OA PDF section inspection",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Same D-optimal tree criterion and potential general conductance-budget formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cost at which an entire redundant edge class drops out is a meaningful engineering and mathematical question. But the submitted classification supplies no further usable case beyond the identical indexed optimizer; the boundary is also a direct prior crown-resistance ratio, and the small- and large-price/size consequences are routine limits of that optimizer. As submitted it does not add a new design rule or substantive new insight to the covered result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

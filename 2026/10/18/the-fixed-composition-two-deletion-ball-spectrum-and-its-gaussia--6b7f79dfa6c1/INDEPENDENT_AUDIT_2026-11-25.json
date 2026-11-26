@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:07:02.197053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–104",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/audit-evidence/deletions.py (executed)",
+        "/workspace/branches/audit-evidence/analytic.md, section 1"
+      ],
+      "rationale": "Greedy embedding gives one canonical mask per distinct descendant. Classifying by adjacent, nonadjacent, and final-pair deletions yields the two endpoint and interior singleton penalties, including n=2. Alternating positive run compositions then give the full marked series; sampling distinct coordinates without replacement gives the mean, with the disjoint-pair term absent for n<4. For the limit, conditioning on the endpoint types turns floor(R/2), up to an integer shift, into a hypergeometric variable with population n−2, k−1 successes, and n−k−1, n−k, or n−k−2 draws respectively. This follows by complementing one run-composition binomial. Each endpoint law gives transition variance asymptotic to 4n alpha²(1−alpha)² and mean 2k(n−k)/n+O(1), so the hypergeometric CLT gives the same limit in the mixture. The bounded-by-O(n) singleton corrections and centered quadratic remainder vanish on the n^(3/2) scale. Multiplication by the limiting derivative 2 alpha(1−alpha) gives exactly the claimed centered Gaussian variance. A separately written prefix-subsequence DP reproduces the full histograms, means, and transition moments for all 16,380 words at lengths 2–13.",
+      "residual_risks": [
+        "Finite verification does not prove the arbitrary-length claim or the normal limit; the combinatorial and hypergeometric arguments supply these. No sparse-density limit is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later all-finite-alphabet theorem enumerates the unconditioned length-by-ball-size polynomial and includes the binary per-word identity, but has no source weight mark."
+        ],
+        "reasoning": "A broader alphabet does not compensate for projection onto the marginal; the stated polynomial cannot be conditioned on an unrecorded statistic. A composition refinement of its method is possible in principle and not itself an existing coverage statement.",
+        "searches": [
+          "Resultary: 8af4e5cf362e, Finding (offsets 0–4891)",
+          "DOI:10.1109/TIT.2002.806155",
+          "arXiv:1202.1644, introduction"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/TIT.2002.806155 (primary inaccessible)",
+        "arXiv:1202.1644",
+        "arXiv:1802.00703",
+        "arXiv:2204.02201",
+        "Resultary: 6c9fe70986cc, 998990bf0c5f, 8af4e5cf362e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic identity supplies ball sizes once the run profile is known; the unconditioned laws sum over k. Neither gives the needed fixed-content profile frequencies or the variance of transitions under conditioning."
+        ],
+        "reasoning": "The frozen proof combines known ingredients but must add two-content run enumeration and fixed-content fluctuations. In particular a marginal variance does not imply the stated conditional Gaussian law at arbitrary density.",
+        "searches": [
+          "DOI:10.1109/TIT.2002.806155",
+          "Resultary: 6c9fe70986cc, 8af4e5cf362e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liron–Langberg study per-source counts, extremal strings and run bounds. Atashpendar et al. count compatible supersequences and their embeddings; Wang–Wang use balanced insertion and deletion in fixed-length balls.",
+          "The two-marker catalogue result actually overlaps at k=2 but not at arbitrary weight or interior scaling."
+        ],
+        "reasoning": "Reversing source and received word changes what is conditioned on and can retain embedding multiplicity; fixed-length radius one changes the descendant set entirely. Neither is an equivalent conditional spectrum. The explicit fixed-weight-two special case is credited as overlapping, not as a stronger result.",
+        "searches": [
+          "arXiv:1202.1644",
+          "arXiv:1802.00703, §V.B",
+          "arXiv:2204.02201",
+          "Resultary: 998990bf0c5f, 8af4e5cf362e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact mean and variance record averages over all source contents. The later size-law catalogue record enumerates the full unconditioned law; the other later hit is restricted to two ones."
+        ],
+        "reasoning": "These are relevant exact formula records, but none tabulates the full fixed-weight coefficient array. The bounded catalogue search does not establish priority globally.",
+        "searches": [
+          "Resultary: 6c9fe70986cc, 998990bf0c5f, 8af4e5cf362e"
+        ]
+      },
+      "rationale": "The per-word run identity and runs CLT are not credited as original. The supported distinction is the fixed-content law of distinct descendants, with the marked exact spectrum, mean and composition-dependent normal limit together. Prior inspected laws either omit the source-weight coordinate, enumerate a different ball, or condition on the received word. The foundational Swart–Ferreira text was not accessible; no inference about its whole contents is made.",
+      "residual_risks": [
+        "Swart–Ferreira could contain additional conditional results beyond the credited per-word identity.",
+        "An unindexed composition refinement or earlier runs-statistics calculation may cover some components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the per-word identity; additional contents unresolved",
+          "evidence": [
+            "Both available accounts attribute an exact deterministic double-deletion formula to this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2002.806155",
+          "material_read": "No primary full text retrieved; attribution checked in RESULT.md lines 108–111 and earlier catalogue 6c9fe70986cc",
+          "method": "DOI/repository and publisher availability checks",
+          "title": "A note on double insertion/deletion correcting codes",
+          "trigger": "Original double-deletion run identity"
+        },
+        {
+          "assessment": "Per-source bounds and extremizers, not the stated fixed-content law",
+          "evidence": [
+            "The inspected statement fixes a source and extremizes over run counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "Abstract and introduction, p. 1 and OA offsets 500 and 4100",
+          "method": "Primary OA passage inspection",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Exact descendant counts and runs"
+        },
+        {
+          "assessment": "Different conditioning and invariant",
+          "evidence": [
+            "Double-deletion counts concern compatible parents and embedding weights given subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.00703",
+          "material_read": "Abstract; §V.B, OA offset 81700",
+          "method": "Primary OA passage inspection",
+          "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+          "trigger": "Hamming weight and double deletions"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": [
+            "Fixed-length Levenshtein distance allows insertion balancing deletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.02201",
+          "material_read": "Abstract and radius-one object definition",
+          "method": "Primary OA passage inspection",
+          "title": "On the Size Distribution of Levenshtein Balls with Radius One",
+          "trigger": "Distribution of related binary ball sizes"
+        },
+        {
+          "assessment": "Prior marginal moments; later sparse specialization and much broader but unconditioned exact law",
+          "evidence": [
+            "One law fixes k=2; the other two do not fix Hamming weight."
+          ],
+          "identifier_or_url": "Resultary: 6c9fe70986cc, 998990bf0c5f, 8af4e5cf362e",
+          "material_read": "Local mirrored RESULT.md Findings, and 6c9fe70986cc prior-work passage at offset 4300",
+          "method": "Local catalogue lookup and original statement comparison",
+          "title": "Exact variance of binary two-deletion sphere size; exact two-marker deletion sphere law; exact size distribution over every finite alphabet",
+          "trigger": "Same descendant statistic in exact catalogue laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–36 and 108–114",
+        "Resultary: 6c9fe70986cc and 8af4e5cf362e for the unconditional comparisons"
+      ],
+      "rationale": "Fixed composition is a natural coding constraint that removes the random weight component of variation. The exact distribution across each weight class gives ball sizes and probabilities unavailable from the unconditional law; the limit quantifies nonzero residual fluctuations and how their leading scale changes with density. This is a complete conditional classification, not just an isolated conditional moment or a new proof of the run identity.",
+      "residual_risks": [
+        "Binary alphabet, exactly two deletions, and interior limiting densities for the CLT."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:24.324964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the full input path first: level k uses exactly 2^{N_k} independent Bernoulli bits, so a_k=E(ζ_k|ξ)=(1−2r_k)^{2^{N_k}}, and the centered parities are independent across levels conditional on that path. The summable Hoeffding bound and then Fubini give a quenched almost-sure Cesàro error tending to zero for almost every environment, for each fixed α. On the sign strong-law event λ_k=2r_k2^{N_k} changes exponentially at α=1/2. Below it, a_k≤e^(−λ_k) tends to zero and the normalized bracket tends to zero uniformly by the partial-sum lemma; the conditional covariance matrix has diagonals 1 and off-diagonal ζ_{j−1}, and the scaled jumps are bounded by √(2/n), giving the martingale functional CLT. For α=0 the mean is identically zero at k≥1. Above the threshold Σr_k2^{N_k}<∞ along almost every input path, so conditional union bounds, Borel–Cantelli, and Fubini give finitely many negative parities; Y−X becomes constant, not necessarily zero. At criticality λ_k=2^{k/2−floor(k/2)}2^(−X_k/2). Bernoulli and exponential bounds make the mean uniformly close to 1 on X_k≥M and to 0 on X_k≤−M as M grows. A fixed strip has O_M(√m) expected visits by the local binomial bound, hence zero limiting visit fraction almost surely by dyadic Markov/Borel–Cantelli and monotonicity. Taking the countable intersection over M then gives the stated uniform occupation-time approximation. In the proof's index shift, compare with the centered partial sum through m−1 and add the single initial term 1/n; for a comparison at the same m the literal endpoint bound is 3/n rather than 1/n. Either gives the claimed uniform limit. Donsker and Brownian zeros of Lebesgue measure zero give joint convergence of (rescaled X, Q_n); the time-one positive occupation has Beta(1/2,1/2), with the stated mean and variance. For a direct necessity check, on each partition block [a,b] the product of walk increments minus Σ_{j=a+1}^b ζ_{j−1} is the martingale sum with coefficients (X_{j−1}−X_a)ζ_{j−1}+(Y_{j−1}−Y_a), multiplying ξ_j. Summing over m equal time blocks, isometry bounds the squared error after division by n by 2(1/m+1/n). A hypothetical Brownian pair would force its block product sums, as m grows, to its deterministic covariance, contradicting the arcsine bracket limit. Countably many integer horizons suffice. The supplied checker was inspected, not executed; finite parity checks cannot establish these limiting claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier require every coefficient probability to be in [ε,1−ε]. This covers α=0 and excludes every α>0 of the frozen model.",
+          "Collevecchio et al. give the deterministic-correlation bracket criterion and a limit for deterministic sign transforms η_k=f(X_{k−1}/√k)ξ_k, with sign-valued f. The frozen coefficients are neither a fixed state-only sign transform nor uniformly elliptic.",
+          "The fixed-p annealed path result uses the conditional parity product; its summability proof via visits of N_k assumes a single fixed p."
+        ],
+        "reasoning": "The general criterion is applicable after computing the quenched bracket; it does not compute it. Theorem 19 yields a bracket ∫f(B_s/√s) ds for a sign-valued f. In particular a signed positive/negative transform yields 2 times positive occupation minus t, not the frozen 0/1 bracket density. The frozen reduction is a Cesàro approximation of parities, not pointwise replacement of an increment by a scalar indicator times ξ.",
+        "searches": [
+          "arXiv:2610.01658v1 Assumption (G) and Theorem 2",
+          "arXiv:2010.16000v2 Theorems 6 and 19",
+          "Resultary 3f4699511d3e and 7c73c3dd0a01"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01658v1",
+        "arXiv:2010.16000v2",
+        "Resultary 3f4699511d3e and 7c73c3dd0a01, mirrored RESULT.md files",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-p annealed paper already writes (1−2p)^{2^{N_k}} and uses independence of coefficient rows, so the corresponding levelwise parity identity is not credited as a method novelty.",
+          "The elliptic theorem implies the fair endpoint; the deterministic bracket criterion implies the exclusion of a bivariate Brownian limit once the nonconstant critical bracket has been proved."
+        ],
+        "reasoning": "The necessary new argument analyzes parity means at the sign-dependent exponential scale, controls visits near zero, and transfers the centering to almost every fixed environment; none of the inspected theorems supplies these α>0 conclusions as a corollary. No claim is made to a new Brownian occupation law, invariance theorem, or full critical two-coordinate law.",
+        "searches": [
+          "arXiv:2610.01658v1 Sections 2–3",
+          "arXiv:2010.16000v2 Theorems 6 and 19",
+          "Resultary 7c73c3dd0a01 proof steps 1–2 and 3f4699511d3e finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest dyadic-sparsity result uses O(log n) active binary digits and coefficient probabilities bounded away from both endpoints, with a deterministic Cesàro bias criterion.",
+          "The annealed path-equivalence result uses exactly the same inclusion-induced rule and conditional mean, but fixed p, independent of level. The targeted literature lookup returned no relevant threshold source; that is not negative coverage evidence."
+        ],
+        "reasoning": "Here all 2^k coefficients at level k can contribute as the input varies and each bit has the same vanishing probability for α>0; neither deleting all but O(log k) bits nor taking p fixed is equivalent. The relevant intensity is 2r_k 2^{N_k}, not just the number of available bits or an unconditional mean. At the boundary its fluctuation is governed by the entire input path.",
+        "searches": [
+          "Resultary: bootstrap walks Boolean inclusion-induced sparse dyadic Bernoulli parity exponentially vanishing coefficient probabilities floor alpha n quenched critical arcsine occupation time cross variation",
+          "Primary literature: bootstrap random walks quenched inclusion-induced Bernoulli sparse exponential probabilities critical 1/2 arcsine Brownian occupation time Hamza Tournier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical time-one positive occupation law is Beta(1/2,1/2) with mean 1/2 and variance 1/8. The closest indexed sparse results characterize a Brownian correlation or annealed coupling cost, not an arcsine bracket for this level-dependent family."
+        ],
+        "reasoning": "The arcsine marginal and its moments are known and not original. There is no finite table or census of this infinite-time quenched threshold in the claim. The novel comparison is whether this particular predictable bracket converges to the occupation functional in the first place.",
+        "searches": [
+          "arXiv:2010.16000v2 Section 4 and the classical Brownian occupation law",
+          "Local Resultary search on parity, arcsine and bootstrap cross-variation"
+        ]
+      },
+      "rationale": "Verified coverage is partial: the α=0 endpoint is already uniformly elliptic, the predictable covariance criterion is classical in bootstrap walks, and the arcsine law is classical. The distinct supported claim is a quenched transition in the full inclusion-induced model with these exponentially decaying coefficient probabilities, including the critical reduction of its random parities to positive occupation time. The closest checked techniques and results do not provide that transition or reduction.",
+      "residual_risks": [
+        "Other sparse-coefficient families or differently indexed stronger results may exist. No exhaustive priority claim is made, and dates of the distinct indexed records were not used to dismiss them.",
+        "The known α=0 endpoint, general Brownian criterion, and arcsine law are credited as prior. The finding does not identify the full critical pair process."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers α=0 but not the vanishing-probability family.",
+          "evidence": [
+            "Uniform lower and upper bounds on success probabilities are required for the stated quenched independent Brownian limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+          "material_read": "Sections 2–3, inclusion-induced representation, Assumption (G), Theorem 2, Propositions 4–5; offsets about 6460 and 20700",
+          "method": "Open arXiv text, targeted statement and assumptions reads",
+          "title": "Are random random walks normal?",
+          "trigger": "Same inclusion-induced model and quenched invariance result"
+        },
+        {
+          "assessment": "General criterion applies; critical example is a different sign-transform model and does not cover this phase transition.",
+          "evidence": [
+            "The proof of Theorem 6 requires convergence of the normalized cross-bracket in probability to a deterministic linear function for a Brownian limit.",
+            "Theorem 19 gives the pair (B, ∫ f(B_s/√s)dB_s) and cross-bracket ∫ f(B_s/√s)ds under the deterministic sign-transform hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2010.16000v2",
+          "material_read": "Theorem 4 and Corollary 5 near offset 13000; Theorem 6 near 20200–20485; Section 4, Theorem 19 near 52600",
+          "method": "Open arXiv text, bounded statement and proof reads",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General Brownian criterion and possible same critical sign-transform result"
+        },
+        {
+          "assessment": "Different sparsity mechanism, hypotheses, and limiting bracket.",
+          "evidence": [
+            "O(log n) active binary-digit coefficients with elliptic probabilities; independence iff their number diverges in natural density, and Brownian correlation is a Cesàro limit of products of one minus the active probabilities."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-dyadic-sparsity-criterion-for-quenched-brownian-independ--3f4699511d3e",
+          "material_read": "Mirrored RESULT.md, finding and assumptions",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "A sharp dyadic-sparsity criterion for quenched Brownian independence in random bootstrap walks",
+          "trigger": "Closest indexed quenched sparse bootstrap transition"
+        },
+        {
+          "assessment": "Covers the conditional parity device; fixed-p annealed law and coupling do not imply the quenched α>0 transition.",
+          "evidence": [
+            "All Bernoulli(p) coefficients have a common fixed p. The annealed law is equivalent to independent walks after their shared first step, by summability involving the fixed-p bias (1−2p)^{2^{N_k}}."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-annealed-path-equivalence-and-optimal-finite-edit-coupling-for-b--7c73c3dd0a01",
+          "material_read": "Mirrored RESULT.md, offset 0, finding, assumptions and proof steps 1–2",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "Annealed path equivalence and optimal finite-edit coupling for Bernoulli bootstrap walks",
+          "trigger": "Same coefficient representation and exact parity law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model tests a natural limit of elliptic bootstrap-walk results: the exponentially small activation probability competes with an exponentially large random number of included bits. The full threshold rather than an arbitrary parameter slice is identified, and the critical behavior shows that two diffusive marginals can share a genuinely random macroscopic bracket. This adds a distinct mechanism, not a new proof of the arcsine law alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

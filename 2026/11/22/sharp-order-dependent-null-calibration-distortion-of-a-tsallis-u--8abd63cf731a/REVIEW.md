@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-Under the fully specified uniform null, the complete spacing vector is Dirichlet with nonzero negative covariances. The exact variance formula follows by direct quadratic expansion. The exponential representation and a bounded-weight triangular-array Lindeberg argument give the true Gaussian scale; elementary power integrals then give the rational variance and its sharp order-wise ratio. At the integer Tsallis order \(\theta=2\), rational finite-sample formulas and the source's own Monte Carlo table provide separate cross-checks. The bundled standard-library checker passed 1607 deterministic assertions and generated 25000 raw uniform observations for a supplementary variance comparison. The numerical experiment is not used as proof.
+PASS
 
-## Originality: PASS, with priority qualifications
+For the specified fully known uniform null, the n+1 complete spacings have the Dirichlet(1,…,1) law. The statistic gives both endpoint weights zero. The diagonal term is nB_n and the ordered off-diagonal sum subtracts A_n²−B_n over the same denominator (n+1)²(n+2), giving the claimed correction. All interior weights are positive, so the gap is zero at n=2 and strictly positive from n=3. The profile integrals are m=1/[2(θ+1)] and b=2/[3(θ+2)(2θ+1)]; the exact variance times n tends to b−m²>0. For the fixed-order CLT, represent the spacings by independent unit exponentials divided by their sum, and center each coefficient by A_n/(n+1). The centered coefficients sum to zero and are uniformly bounded, their squared sum divided by n tends to b−m², and the third absolute moments give a Lyapunov ratio O(n^(−1/2)); the exponential sum divided by n tends to one. This proves the CLT and, comparing to the stated printed formula, gives b/(b−m²). The difference identities against 4 and 32/5 verify strict bounds and their sharp limiting orders. The exact-mean-centered two-sided normal rule rejects asymptotically at the claimed Gaussian tail, not nominal size. Independent rational power-sum checks for n=2,…,300 at θ=2 and the standard-normal tail reproduce the example and cutoffs. This decision verifies the theorem for the written statistic and variance; the correspondence with the cited article is supported by the frozen equation locators and matching numerical benchmark but not by independently inspected primary equations or Table 1.
 
-The primary 2022 paper was read through its full-text rendering, including its equation (8), Theorem 7, equation (11), simulation quantiles in Table 1 and references. It prints the marginal-beta variance sum but does not state the covariance-corrected formula, sharp factor \(4<\rho(\theta)<32/5\), or the actual limiting null size of the printed-variance normal cutoffs. The 2021 fractional-entropy predecessor and the relevant sections of the 2024 fractional-generalized successor use distinct score functions and do not state this source-specific theorem. The classical general theory of linear combinations of uniform spacings (including Huffer, 1988) covers the underlying joint-spacing methodology and is expressly excluded from the originality claim. Its full text was not available; generic-statistic coverage, including possible unrecognized earlier applications, remains a residual priority risk. Published claims and mathematical implications, rather than title resemblance alone, were compared.
+## originality
 
-## Value: PASS
+PASS
 
-The finding gives the exact sample-size correction and quantifies how the reported normal approximation changes its null size across every fixed admissible Tsallis order. At nominal \(5\%\), order \(2\) produces limiting actual rejection probability \(1.57944924\times10^{-6}\). At \(n=100\), the corrected normal cutoffs closely match the source's independent Monte Carlo critical values, whereas the printed ones are substantially wider. This is a practically consequential calibration result, not a generic warning about dependence or a small improvement to an arbitrary coefficient. It applies only to printed-variance normal calibration, not to Monte Carlo quantiles.
+Credit classical uniform-spacing covariance and limit theory and the original CRTE statistic and cutoffs. The supported distinction is a source-specific correction with a complete order-dependent inflation law, sharp bounds and a worked null-size consequence, not a new general spacing theorem. No earlier erratum or distinct catalogue entry was verified to supply that comparison. Primary access limitations leave source attribution and historical priority provisional.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A correction to an actual proposed inferential calibration is worthwhile when the distortion materially changes the conclusions. The result gives the sharp size distortion profile across all fixed permitted entropy orders, attributes it to omitted spacing correlations, and shows that a nominal 5% rule can have asymptotic size about 0.000158% at θ=2. That is substantively more than displaying the standard covariance identity, while making no claim against simulation-calibrated implementations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

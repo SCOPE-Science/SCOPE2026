@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the sector-centered registration and the full concentration ranges. Integration of the wrapped Cauchy density gives the branch-safe reciprocal arccot representation in Equation (1). The exact second derivative in Equation (2) is strictly positive at every nonuniform concentration; this proves the positive three-point divided-difference witness whenever at least four distinct lattice sectors exist. The symmetry argument excludes every conditionalized location, not merely the registered location. At two and three sectors the central probability is a complete coordinate for each symmetric family, and explicit monotonic endpoint maps prove full equality after concentration refitting. The registered-case test follows from a positive-cell multinomial CLT and the delta method. The accompanying standard-library checker passes 2,814 supporting numerical assertions, but the analytic argument, not finite experiments, establishes the infinite statements.
+PASS
 
-## Originality — PASS, with remaining historical-priority risk
+Independently derive the bin formula with the circle automorphism g(z)=(z−ρ)/(1−ρz): its boundary argument derivative is the Poisson kernel, and for z_±=exp(i(θ±h)) the quotient g(z_+)/g(z_−) is (a−b cos θ+ic) divided by its conjugate. The bin arc has image argument increment in (0,2π), and c>0, fixing that increment to twice the argument in (0,π). With y=(a−bx)/c and t=arccot y, the second derivative of the reciprocal mass is 2π(b/c)²(1−yt)/[(1+y²)²t³]. This is strictly positive at ρ>0 since yt≤0 for y≤0 and arctan(1/y)<1/y otherwise. At m≥4 there are three distinct cosine nodes; strict convexity proves the positive adjacent secant contrast, while the registered sampled model has affine reciprocal probabilities. A positive-ρ integrated law is nonuniform since its bin formula is strictly increasing in cos θ. If an arbitrary sampled phase matches it, the two reflected off-center sites force sin ν=0 at nonzero concentration. The reciprocal probabilities are affine again, excluding equality. At m=2,3 all noncentral probabilities agree within each registered vector, and both central probabilities vary continuously and strictly over [1/m,1), proving exact coincidence and unique refitting. Uniform belongs to both. For fixed positive cell probabilities the empirical contrast is a smooth function of empirical frequencies near the true vector. The n^−1/3 threshold dominates n^−1/2 null fluctuations and tends to zero below every fixed positive alternative contrast; vanishing empirical cells have probability tending to zero. This test is for registered sampled laws, not for unrestricted phase. Replay: frozen RESULT.md eqs. (1)–(5) and Steps 4–6, with VERIFICATION.md and check.py inspected, not executed. Independent Simpson quadrature with 2048 panels per bin for m=4, ρ=1/2 gives p≈(0.5686116674,0.1720208696,0.0873465934,0.1720208696) and K_4≈1.5808166313. The all-parameter proof is analytical; neither off-center integrated parents nor uniform power against concentrations tending to zero is asserted.
 
-The most relevant source is Mardia and Sriram, *Families of Discrete Circular Distributions with Some Novel Applications*, arXiv:2009.05437 (2020), published in *Sankhya A* (2022). It defines both wrapped Cauchy constructions and includes a Theorem 2 under universal grid-spacing and origin quantifiers for the same continuous parent density. The result here instead classifies equality of two separately refitted discrete parameter families at each fixed resolution, including a free conditionalized angular location. Relevant full-text sections, the related Girija et al. and Imoto et al. discrete wrapped Cauchy texts, and semantic published-record searches were checked without identifying this implication or a stronger covering statement. The source mass formulas are prior art; the four-sector strict reciprocal-curvature threshold and two/three-sector family equality are the proposed addition. A previously unlocated derivation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The difference between the two discretization mechanisms is fundamental to circular likelihood choice. Exact observational equivalence below four sectors is an information-theoretic impossibility result; disjointness above the threshold is a positive identifiability result. The three-sector probability contrast is computable and produces a consistent registered-location discrimination rule at every fixed positive concentration. This resolves a natural resolution-design question, not an arbitrary parameter slice.
+Best of current knowledge, the distinct contribution is fixed-resolution equality or disjointness of the refitted wrapped Cauchy families under the specified centered-bin model, including separation under sampled phase refitting for m≥4 and the contrast. The definitions, wrapped Cauchy integrals, and normalized sampled pmfs are prior material.
 
-## Important limitations
+## value
 
-The marginalized parent location is fixed at the sector center; a general off-center marginalized mode is not classified. The scalar empirical contrast is not a universal free-location test. Uniformity is a shared boundary, so the stated consistency is for fixed positive concentration, not shrinking alternatives. No independent audit or exhaustive historical-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact cutoff resolves a natural population identifiability question for two widely applicable constructions: indistinguishability is absolute at low resolution because the refitted model families coincide, while above it the centered-bin population law cannot be imitated by refitting either concentration or sampled location. The explicit computable contrast supplies pointwise consistent discrimination for the registered models. An equal-concentration comparison would not give these conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:54:23.132497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially assumptions and proof steps 1–4",
+        "VERIFICATION.md and check.py (inspection)",
+        "Independent bounded exact reproduction, independent_leaf_check.py (24 parent histories, 16 affine subset events across mixed schedules, symbolic nonlinear pair census)"
+      ],
+      "rationale": "With w=c+d>0, W_t=tw+c(t−2), so the artificial independent categorical draw assigning w/W_t to each existing label and the rest to a dummy outcome is well defined, including at t=2 and for d<0 in the stated range. Conditional on any current leaf set, singleton deletions and no deletion have exactly the probabilities in the true process; adding the new leaf gives equality of leaf-set histories, not of whole trees. Independent draws then give the joint survival product on the deterministic active intervals, and inclusion-exclusion recovers the finite law. An increasing test function restricted to one-hot support has nonnegative increments from its all-zero value; for disjoint test blocks, cross-products of the increments vanish. Conditioning proves concatenation of independent negative-associated families, and negating both composed tests gives the decreasing-block closure used here. Distinct vertex labels give disjoint input blocks even for overlapping calendar intervals. Factoring the exponential moments for either sign and applying the bounded Bernoulli inequality gives Hoeffding. For every positive kernel at size three the two seed indicators are complementary. For size four the size-three shape fixes total weight b+2, where b=f(2)/f(1); the seed/third-leaf joint probability is b/[2(b+2)] and their marginals are (b+1)/[2(b+2)] and (b+1)/(b+2), giving the stated negative covariance; the two seeds cannot both survive. At size five, the three equally likely size-four branches (attach to center, other seed leaf, or vertex 2) directly give the stated marginals and joint law. Subtraction gives g²−8g−41 over the positive denominator, and the unique positive root is 4+√57. Exact independent enumeration confirms all six nontrivial pair formulas and the affine survival product on two mixed observation schedules. The frozen checker itself was inspected, not executed.",
+      "residual_risks": [
+        "The threshold is for f(1)=f(2)=1 and f(3)=g, not a classification of arbitrary nonlinear kernels. The negative-association result uses at most one observation per vertex and the specified seed edge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bryc–Minda–Sethuraman already identify the exact affine total-count Markov path transition and give a path large-deviation theorem. The 2025 Hartle–Krapivsky Eq. (34) treats the uniform recursive total count and the 2026 paper gives limiting empirical joint degree–leafdegree statistics. Dubhashi–Ranjan establish allocation negative association."
+        ],
+        "reasoning": "A total count records whether an old leaf died, not which label. The count path cannot serve as a general theorem for all cross-horizon labeled events. Allocation theorems do imply negative association once the new representation is built, not the applicability of that representation to history-dependent degree attachment.",
+        "searches": [
+          "Bryc–Minda–Sethuraman, arXiv:0809.4741 §§1.1–1.2.1 and Theorem 1.3",
+          "Hartle–Krapivsky arXiv:2602.01021 and arXiv:2511.04085",
+          "Dubhashi–Ranjan, Balls and Bins §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 2026/11/2/SCOPE-birth-rank-covariance-kernel-for-leaves-in-random-plane-recursiv--d0a0acafc19c",
+        "Resultary: 2026/11/22/SCOPE-a-thirteen-vertex-reversal-in-rare-leaf-odds-for-leaf-driven-pre--eeb5cdaa3828",
+        "https://arxiv.org/abs/0809.4741",
+        "https://doi.org/10.1017/jpr.2020.49",
+        "https://www.brics.dk/RS/96/25/BRICS-RS-96-25.pdf",
+        "https://arxiv.org/html/2602.01021v1",
+        "https://arxiv.org/html/2511.04085v1",
+        "https://arxiv.org/pdf/0803.1129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact count transitions and survival-product arguments plus the general allocation inequality account for important ingredients and special cases. They leave the exact labeled categorical representation with arbitrary affine kernel and mixed horizons to be established."
+        ],
+        "reasoning": "Hoeffding is standard once negative association is proved and is not a separate originality claim. The other results do not deduce the positive covariance threshold, which depends on unequal size-four total weights on stars and paths under the nonlinear kernel.",
+        "searches": [
+          "Plane-recursive record, Joint survival argument",
+          "Lyon–Mahmoud §5.1 and Dubhashi–Ranjan §2",
+          "Bryc–Minda–Sethuraman Eq. (1.1) and affine identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lyon–Mahmoud give survival products and nonpositive pairwise covariance for independent deterministic age-based parent choices. The plane-recursive record Eq. (1) has an all-subset common-horizon product with denominator 2t−1 and no root among monitored labels."
+        ],
+        "reasoning": "A nonroot degree in the plane model equals its slot weight, but the root receives one extra slot (outdegree plus one) and starts alone. The forbidden-gap argument substantially overlaps the survival mechanism; the common-horizon product is not literally the seed-edge ordinary-degree product, whose degree-proportional normalizer at size t is 2t−2. Neither statement handles the full mixed-horizon affine model or the nonlinear witness. Uniform independent parent selection is an inherited allocation special case.",
+        "searches": [
+          "Resultary queries on labeled leaf survival, leaf covariance reversal and recursive trees",
+          "Lyon–Mahmoud, Trees grown under young-age preferential attachment §5.1",
+          "Plane-oriented recursion, Stirling-permutation plateaux and birth-rank covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The common-horizon plane-recursive record gives exact probabilities but for a distinct root/slot law. The separate thirteen-vertex record uses leaf-neighbor counts in the weight, and compares total two- versus three-leaf odds, not named-leaf covariance."
+        ],
+        "reasoning": "Exact results in these closely related finite models do not tabulate the size-five threshold for ordinary-degree kernels or its named-pair signs. No negative priority conclusion follows merely from the bounded search.",
+        "searches": [
+          "Resultary birth-rank covariance kernel, d0a0acafc19c",
+          "Resultary thirteen-vertex rare-leaf odds reversal, eeb5cdaa3828",
+          "Primary literature search for exact preferential-attachment leaf laws and covariance"
+        ]
+      },
+      "rationale": "The distinct contributions are the mixed-observation labeled leaf-status law for affine ordinary-degree weights, its resulting negative association, and the sharp earliest-size nonlinear reversal with an exact threshold in the displayed family. Aggregate leaf-count processes, deterministic parent-choice survival products, and allocation negative association are established and are not credited as new. Plane-recursive slot survival is a particularly close common-horizon mechanism, but is not the same seed normalization or the full stated result.",
+      "residual_risks": [
+        "An older exact labeled degree-weighted survival construction could affect priority. The plane-recursive comparison flags an unretrieved 1993 branch-leaves study; no conclusion is made about its contents. Relative priority is not inferred from the date on the separate leafdegree reversal record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive mechanism overlap but distinct model and claim scope",
+          "evidence": [
+            "At step t there are 2t−1 uniform slots and one forbidden slot per surviving nonroot leaf; Eq. (1) uses one common final time."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-birth-rank-covariance-kernel-for-leaves-in-random-plane-recursiv--d0a0acafc19c",
+          "material_read": "RESULT.md offsets 0–4257, Finding, assumptions and joint survival proof",
+          "method": "Local mirror",
+          "title": "Birth-rank covariance kernel for leaves in random plane recursive trees",
+          "trigger": "Closest exact labeled-survival statement"
+        },
+        {
+          "assessment": "Genuine aggregate path coverage, not labeled status",
+          "evidence": [
+            "Exact count Markov chain for affine attachment and path large deviations of scaled count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.4741",
+          "material_read": "§1.1 Eq. (1.1), p. 1 offset ~2180; §1.2.1 pp. 5–6 offsets ~16450–20622; Theorem 1.3 p. 5 offset ~14809",
+          "method": "Bounded OA PDF passages",
+          "title": "Large deviations for the leaves in some random trees",
+          "trigger": "Same affine attachment and possible exact path coverage"
+        },
+        {
+          "assessment": "Known product/negative covariance mechanism for independent age weights",
+          "evidence": [
+            "Common-horizon deterministic parent-choice law gives the product and pairwise nonpositivity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2020.49",
+          "material_read": "§5.1 Lemma 5.2 and Theorem 5.1 pp. 920–921, offsets ~47700–52817",
+          "method": "Bounded PDF passages",
+          "title": "Trees grown under young-age preferential attachment",
+          "trigger": "Exact labeled leaf survival and covariance"
+        },
+        {
+          "assessment": "Generic negative association inherited",
+          "evidence": [
+            "Independent allocations have negatively associated occupancy variables."
+          ],
+          "identifier_or_url": "https://www.brics.dk/RS/96/25/BRICS-RS-96-25.pdf",
+          "material_read": "Introduction p. 5 and §2 p. 6, offsets ~10005–10972",
+          "method": "Bounded OA PDF passages",
+          "title": "Balls and Bins: A Study in Negative Dependence",
+          "trigger": "General theorem in equivalent allocation language"
+        },
+        {
+          "assessment": "Empirical degree–leafdegree laws, not the labeled finite history",
+          "evidence": [
+            "Limiting distributions and fluctuations concern empirical classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.01021v1",
+          "material_read": "Abstract and §II, offsets 0–4137 and 5750–10050",
+          "method": "Bounded primary HTML passages",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Same degree-based tree setting and leaf terminology"
+        },
+        {
+          "assessment": "Aggregate transition in the uniform recursive case",
+          "evidence": [
+            "The expression tracks total count, not assigned birth labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.04085v1",
+          "material_read": "§III Eq. (34), offset ~28600",
+          "method": "Bounded primary HTML passage",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Potential count-law or leaf-driven coverage"
+        },
+        {
+          "assessment": "Different kernel input and observable",
+          "evidence": [
+            "Weight a+leaf-neighbor count; threshold size thirteen for total-leaf odds."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-thirteen-vertex-reversal-in-rare-leaf-odds-for-leaf-driven-pre--eeb5cdaa3828",
+          "material_read": "RESULT.md offsets 0–3500",
+          "method": "Local mirror",
+          "title": "A thirteen-vertex reversal in rare-leaf odds for leaf-driven preferential attachment",
+          "trigger": "Similar exact first sign reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen affine joint law and five-vertex boundary",
+        "Exact independent mixed-horizon and nonlinear finite checks",
+        "Prior aggregate and plane-recursive statements"
+      ],
+      "rationale": "The categorical reduction makes an entire labeled and mixed-time law accessible despite degree reinforcement, a stronger input than aggregate count dynamics for questions about birth cohorts or specified labels. The earliest-size nonlinear witness then identifies where even pairwise repulsion can fail, with a natural one-parameter boundary that can be used exactly. The finite result is motivated by the structure of the affine theorem rather than an arbitrary instance.",
+      "residual_risks": [
+        "The Hoeffding consequence is generic and need not be sharp. The nonlinear theorem does not decide later sign changes or all degree kernels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

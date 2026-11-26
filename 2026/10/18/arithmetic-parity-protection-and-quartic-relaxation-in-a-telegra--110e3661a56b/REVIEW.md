@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-time Fourier formula follows from commuting Peierls Hamiltonians and the stationary two-state telegraph characteristic function. The sine-equality congruence determines all protected modes without a finite-state census. For even cycles the protected-index involution yields both the nonconvergent oscillations and the exact mod-four stationary profile. For odd cycles a sharp attainable sine-separation identity, positivity of the slow-mode residues and nonvanishing trigonometric-polynomial arguments establish the *exact* logarithmic return-probability exponent. The rationalized square-root expansion proves the quartic large-size limit. Direct conditional-Liouville matrix exponentials agree with the independent Fourier formula in finite test cases, but the proof does not depend on that enumeration.
+PASS
 
-## Originality — PASS, with priority limitations
+For S-eigenvalue exp(−ia_k), the energy is 2h cosθ cos a_k + 2h X_t sinθ sin a_k. On each ordered coherence the sum and difference of the two telegraph-conditioned amplitudes give q''+2λq'+B²q=0, with (q,q')=(1,0) at time zero by stationarity. This yields the stated damped, critically damped, or oscillatory scalar factors. Unprotected terms all decay; the diagonal contributes 1/N. The sole possible off-diagonal protection requires 2(k+l)=N mod 2N. For even N, l=N/2−k pairs opposite cosines. If cosθ≠0, all protected off-diagonal frequencies are nonzero, and the pair {0,N/2} uniquely contributes at absolute frequency |4h cosθ|, with coefficient 2/N² in the cosine form at x=0. The finite trigonometric polynomial cannot converge; its Cesàro mean and that at any site vanish. At cosθ=0 the complete involution sum is N(−1)^x at x=0 or N/2 and zero otherwise; the two fixed points when 4 divides N are removed, giving the normalized stated law and its zero or excess antipodal value. For odd N the sine-difference factors each attain their individual lower bound simultaneously at k=floor(N/4)+1,l=floor(N/4): k−l=1 and k+l lies half a unit from N/2. This proves b_N. For b_N<λ the common slow exponential has a nonzero finite trigonometric coefficient, positive when evaluated at zero; larger |B| decay strictly faster. For b_N=λ the highest-order t coefficient is nonzero by the same argument. For b_N>λ the whole prefactor of e^(-λt) is a finite trigonometric sum nonzero at zero. In all cases positive mean-square of the nonzero coefficient gives an arbitrarily late subsequence attaining the logarithmic exponent. Rationalizing the gap gives the stated quartic constant. The uploaded verify_flux.py was inspected, not executed. In a separate bounded check, direct integration of the two conditional position density matrices was compared with exponentials of the two-state transfer on each Fourier coherence. For h=1, N=3,5,6,8, θ=π/2 or 0.7, λ=0.2, the displayed b_N expression, or 3, and t=0.5 or 2.4, all 48 site-vector comparisons agreed within 2.67×10^−11. This finite corroboration is not the proof of any limit.
 
-Kendon–Tregenna (arXiv:quant-ph/0209005) and Chandrashekar–Srikanth–Banerjee (arXiv:quant-ph/0607188) concern coined discrete-time walks. Solenov–Fedichkin (arXiv:quant-ph/0506096) and Fedichkin–Solenov–Tamon (arXiv:quant-ph/0509163) use independent position monitoring, rather than globally shared Peierls noise. Wold et al. (arXiv:1206.2174) give antecedent telegraph methods. Asapanna et al. (arXiv:2510.16204) identify a closely related momentum-protection mechanism, but for an altogether different discrete-step Floquet lattice. No inspected claim or directly broader theorem covered the full parity, fourfold profile and sharp quartic rate. General spectral-averaging theorems might imply this specialization; these negative comparisons do not certify publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-Perfectly correlated environmental switching can preserve coherence even at arbitrarily long times, unlike local monitoring. The exact even/odd obstruction, exceptional half-phase profile, and quartic odd-ring long-time relaxation constant give meaningful structural benchmarks for correlated-noise ring devices. The result is not just a finite-dimensional computation or a minor bound improvement. It does not establish a finite-tolerance mixing-time law, experimental robustness to independent bond fluctuations, or full density-matrix convergence.
+The supported distinction is the pointwise/Cesàro classification for globally shared sign switching of a uniform Peierls phase, with a sharp *visible return-probability* exponent. Modewise telegraph dephasing and static sine-dispersion degeneracies are established ingredients. Static mixing results give exactly the same limiting spatial profile in a boundary subcase but do not supply the full stochastic classification or the return exponent. The inspected correlated-noise alternatives vary real hopping strengths, not the two commuting real and chiral hopping components separately.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A single uniform fluctuating field is a natural correlated-noise model. The exact parity obstruction separates nonconvergence under noise from convergence to a nonuniform profile and uniform Cesàro behavior. On odd cycles the exact logarithmic rate for the observable, with its quartic scaling and coefficient, resolves a slow-relaxation mechanism that simple-spectrum mixing or a generic dephasing bound does not quantify. It is not a finite-error N⁴ mixing-time theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

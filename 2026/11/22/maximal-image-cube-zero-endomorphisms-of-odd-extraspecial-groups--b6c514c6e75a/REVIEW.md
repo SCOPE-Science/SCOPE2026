@@ -1,19 +1,21 @@
-# Scientific review: maximal-image cube-zero endomorphisms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the known singular symplectic normal form of exponent-\(p\) extraspecial group endomorphisms (odd \(p\)). Maximal proper image rank forces the horizontal image to be Lagrangian. For each such image \(W\), cube zero reduces exactly to square zero of \(B=A|_W\) and a single annihilator condition on the central functional. The square-zero kernel–image count, quotient-surjection extension count, and central functional subtraction are bijective and yield the stated formula. Positive \(s=0\) contribution gives existence; dimension bounds exclude square-zero maximal-image endomorphisms. Independent finite exhaustive matrix enumerations for the stated cases match the formula. Finite experiments do not replace the general argument.
+PASS
 
-## Originality — PASS relative to checked literature
+A homomorphism induces a scalar c on the derived center and a linear A on V. The commutator identity imposes omega(Av,Aw)=c omega(v,w), and subtracting the group-law cocycle shows that the remaining central function ell is additive, hence linear over the prime field. If c≠0, A is invertible and so is the homomorphism. For c=0 the image of A is isotropic and the graph map has rank at most n+1; equality requires a Lagrangian W and ell nonzero on ker A. Surjectivity to W identifies A³=0 and ell A²=0 with B²=0 and ell vanishing on im B, where B=A|W. For rank s, choose im B⊂ker B and an isomorphism W/ker B→im B; this yields the two Gaussian binomials and |GL_s|. The extension count is the number of surjections from an n-dimensional complement to W/im B times p^(ns); ell choices are p^(2n-s)-p^n since im B⊂ker A. A square-zero linear map on the full 2n+1-dimensional group coordinate space has rank at most n. The positive s=0 term attains rank n+1 for cube zero and excludes index two. Direct independent enumeration for n=2,p=3 gives 138240 and 414720 by s=0,1, totalling 552960, and the n=1 formula specializes to 48 and 480 at p=3,5.
 
-Anil Kumar–Pradhan (2019, arXiv:1908.00331) classifies all endomorphisms and counts all isotropic images, but not cube-zero maximal-rank fibers. The published square-zero weight-one Rota–Baxter enumeration for Heisenberg Lie algebras is relevant by an equivalent normal form for square-zero singular maps; its full theorem and proof were inspected. **The square-zero rank distribution is already covered**, and it is not claimed. The present exact formula instead enumerates non-square-zero cube-zero maps at the largest possible proper image size via the new square-zero restriction \(A|_W\) and a surjection condition. Searches for cube-zero Heisenberg endomorphisms, nilpotency index three, Lagrangian-image nilpotents, and analogous Rota–Baxter statements found no directly covering result, but incomplete historical indexing and reductions from broader nilpotent orbit formulas remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact maximum-image stratum and the earliest nilpotency index that can realize it are natural structure invariants of the endomorphism monoid. The formula counts an infinite family rather than a chosen small case; the summands resolve the geometry of square-zero restrictions to Lagrangian images and the lift multiplicities. It differentiates the first two nilpotency layers in a way that neither the total endomorphism count nor the published square-zero census provides. This is a bounded contribution, not a classification of the whole nilpotent monoid.
+Credit the constrained maximal-image composition-index-three enumeration, not the ambient endomorphism form, maximal image bound in isolation, known Lagrangian counts, or square-zero marginal. Neither the directly inspected ambient count nor the available related statements supplies the joint image-size and cube-zero refinement.
 
-## Limits and source comparisons
+## value
 
-The result is confined to exponent-\(p\) extraspecial groups at odd primes and the top proper image size. Its full-text comparison sources are Anil Kumar–Pradhan, arXiv:1908.00331 (Theorem \(\Omega\), §5) and *Rank distribution of square-zero weight-one Rota–Baxter operators on finite Heisenberg Lie algebras* (2026). Other near sources on Heisenberg rank gaps and extraspecial retractions address different predicates. Possible unindexed cube-zero specializations of general nilpotent matrix enumeration are a residual historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The top proper image size is intrinsic to the monoid. Counting its first composition-nilpotent layer, with the sum resolved by the rank of the restriction to the image, separates otherwise conflated high-rank endomorphisms across every rank and odd prime. The exact joint invariant gives more than an isolated finite case or the elementary index obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

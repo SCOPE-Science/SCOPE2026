@@ -1,11 +1,21 @@
-# Review: adjacent-swap derangements
+# Independent mathematical audit
 
-**Correctness — PASS.** The invariant and all-pattern construction are explicit. Each bubble in the canonicalization moves the chosen item along its permitted half-line while displacing all others within their own permitted half-lines. This proves connectivity for arbitrary \(n\ge2\), not just the tested \(n\). The adjacent-edge obstruction yields precisely the two frozen cyclic shifts, including the coalescence at \(n=2\). Exact breadth-first search verifies the supplementary non-isometry witness at \(n=6\). The two independent Python verifiers confirm every component through \(n=9\) and every canonical path through \(n=8\). The diameter bound is deliberately nonsharp.
+## correctness
 
-**Originality — PASS, with explicit residual risk.** Four targeted published-finding corpus searches and published-literature comparisons found no statement determining the connected components of fixed-point-free permutations under single adjacent swaps. Baril–Vajnovszki and Korsh–LaFollette (2004) permit nonadjacent swaps and three-rotations, hence their all-derangement Gray codes cannot imply adjacency-only connectivity. Baril–Mansour–Petrossian (2014) classify stricter excedance-board data without local-swap reachability; Ehrenborg–Steingrímsson (2000) enumerate excedance-set statistics. Chitturi–Krishnaveni (2016) study adjacent *value successions*, which are distinct from legal adjacent-position swaps. Mütze's full survey distinguishes the generators. A potentially relevant 2013 Eindhoven thesis PDF was inaccessible (web download returned HTTP 403); bibliographic overlap cannot be ruled out, but no decisive covering claim was found.
+PASS
 
-**Value — PASS.** The natural local-update chain on fixed-point-free assignments breaks into exponentially many irreducible classes, rather than merely being disconnected in isolated small examples. A canonical algorithm describes every reachable set, an exact frozen-state classification identifies absorbing states, and a six-letter example shows geodesic detours even inside components. This supplies a structural obstruction and an explicit operational diagnostic for constrained permutation samplers.
+For the repaired claim, every legal graph edge is exactly a swap of consecutive positions whose endpoint also belongs to the full derangement list. The fresh verifier enumerates all n! words at n=2,...,5, filters by the literal fixed-point condition, computes exact BFS distances and compares to the Kendall pair-disagreement count for every reachable unordered pair. I executed it: vertex counts 1,2,9,44; respective reachable pair counts 0,0,11,188; no detours. Independently reasoned the upper and lower bounds for all n>=6. The displayed path acts in the first five positions and its eight prefixes have no fixed point; T_n=(7,...,n,4) is fixed throughout and has no fixed point even at n=6. Only five pair orders change between the endpoints: 1 with 2,5,6 and 6 with 2,5. Each step on an unrestricted geodesic would decrease disagreement by one. The only decreasing first swaps are (1,2) and (5,6) as label pairs, which respectively fix positions 2 and 5; no tail swap decreases disagreement. Every path length has odd parity, and the seven legal prefix swaps reach the target, proving exact distances 7 and 5 even when additional tail moves are allowed. Fresh BFS also independently confirmed those distances at n=6. Verification front matter is byte-identical to the original.
 
-Scientific limitation: the work does not characterize the full distribution of component sizes or exact component diameters, and no independent external check of priority was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct repaired result is the sharp order threshold for within-component isometry and an exact detour persisting at all larger orders. Verified broader work covers the discarded connectivity claims, not this shortest-path result. The closest same-domain detour allows arbitrary switches, while the closest same-question first-detour theorem uses a different class of permutations.
+
+## value
+
+PASS
+
+Once exact connectivity of the signature sectors is known, it is natural to ask whether standard Kendall geodesics already suffice for optimal routing within them. The answer is not a trivial consequence of disconnectedness: every connected pair retains its distance through order five, while a concrete local obstruction first forces a two-step surcharge at six and cannot be bypassed using extra labels at any larger order. The exact boundary and persistence make the witness independently useful, rather than retaining a covered theorem with a cosmetic disclaimer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:00:43.606501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md lines 43–78, the cube is invariant and the nonnegative cross-derivatives give comparison with the two homogeneous scalar extremal solutions, also for reducible W and mixed-side starts. The scalar field g(y)=tanh(2y)/2−y is restoring on either side. Its cubic and quintic terms give (y⁻²)'=8/3−64/(15 y⁻²)+O(y⁴); first y⁻²=(8/3)t+O(log t), then the derivative after subtraction of the linear and log terms has an integrable O(log t/t²) residual. Only strictly one-sided starts bound all inverse squares by the two scalar envelopes. For irreducible W the stationary left-vector projection removes the simple Perron eigenvalue; every remaining eigenvalue has real part <1 even when W is periodic, so W−I on that subspace is exponentially stable under the vanishing transverse perturbation. The weighted mean has quadratic transverse error, hence its inverse-square derivative has at most O(t^{3/2} exp(−2ηt)) additional error; all node inverse squares differ from the mean's by o(1). W=I really can retain distinct constants: same-sign distinct scalar starts are nonzero time translates, shifting the constant by 8/3 times the time shift. In the nonstationary homogeneous variational equation all matrices commute. As an independent check, a(t)−1=g'(y(t)) and its integral is log|g(y(t))/g(y(0))|, giving exactly the −(3/2)log t term and a finite constant. This is a matrix factorization, not nonlinear mode decay, and works for Jordan blocks. Ran python3 /workspace/audit_checks.py, check 3, reproducing all decisive rational coefficients using the differential recurrence h'=1−4h² with h=tanh(2y)/2; the proof, not finite tests, establishes the quantifiers. The frozen verifier was inspected, not executed. Its narrative miscounts the sample matrices: verify.py lines 19–24 contain two irreducible and two reducible examples; this does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boudourides' global contraction theorem requires β L_f<1; βL_f=1 here. Its equilibrium theorem does give transverse linear stability for irreducible W.",
+          "Kaye's inspected theorem derives a scalar mean-field ODE, not the exact finite-network asymptotics.",
+          "The later monostability frontier record gives precisely 8t/3−8 log(t)/5+C+o(1) for all coordinates on the complement of the strong-stable set for irreducible N≥2. Strictly one-sided starts cannot be in the exponentially decaying exceptional set, by the scalar envelope, so this portion is covered by the later statement."
+        ],
+        "reasoning": "Identify genuine broader coverage of the irreducible law separately from antecedence. Neither an equilibrium spectral result nor scalar mean-field closure settles the stated nonstationary network response.",
+        "searches": [
+          "arXiv:2609.10580 Theorems 2.2 and 3.2",
+          "Kaye DOI:10.1098/rsif.2026.0267 Theorem 3.1",
+          "Resultary 2026/11/1/…5f085f4d7690 Eq. (3) and exceptional-leaf proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10580",
+        "DOI:10.1098/rsif.2026.0267 lawful repository PDF",
+        "Resultary 3ecc92a730da, 5f085f4d7690, bf3050d364d8 local-mirror passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous subspace and logistic derivative are inherited; scalar Taylor calculation gives the homogeneous log coefficient, and the integrated tangent factor can be expressed by log|g(y(t))/g(y(0))|. These derivations alone are not independent novelty claims.",
+          "For shared C the comparison needs exponential transverse tracking and a quadratic forcing estimate in the mean; neither a diameter bound of order t^{−1/2} nor the linearization at equilibrium on its own gives the coordinate expansion. The later strong-stable-foliation result does transfer the common constant."
+        ],
+        "reasoning": "Credit routine ODE tools and the direct later implication, while distinguishing the supported antecedent gap in the combined quantitative statement.",
+        "searches": [
+          "arXiv:2609.10580 equilibrium cusp spectrum and strict contraction",
+          "Resultary 2026/10/18/…3ecc92a730da §§4–5",
+          "Resultary 2026/11/1/…5f085f4d7690 exceptional-set discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under r=2y the diameter witness in the same-day record reduces to r'=−r+tanh r and derives the same scalar leading law after rescaling. The general theorem controls max x−min x, not signed deviation from 1/2 (in particular it is silent for homogeneous trajectories of zero diameter).",
+          "The equilibrium matrix −I+W in Boudourides gives exponential exponents at the equilibrium, not the t^{−3λ/2} multipliers along a nonstationary orbit."
+        ],
+        "reasoning": "Equivalent scalar variables and the leading scalar overlap are credited. Diameter control and a static matrix do not state the coordinate logarithmic asymptotic or the nonstationary multipliers.",
+        "searches": [
+          "Resultary: logistic threshold cusp componentwise inverse square logarithmic relaxation and spectral transient",
+          "arXiv:2609.10580 Theorems 2.2 and 3.2",
+          "Resultary 2026/10/18/…3ecc92a730da RESULT.md offsets 0–7684"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Record dated Nov. 1 contains the exact pair 8/3, −8/5 and common C, not an approximate table or a different normalization.",
+          "The same-day diameter and Nov. 2 contrast results have the coefficient 3/2 for t times squared contrast, not the coordinate log law or a graph-mode multiplier."
+        ],
+        "reasoning": "This is an analytic asymptotic theorem rather than a table; the strongest exact indexed match was compared at the equation level and its date and scope are recorded.",
+        "searches": [
+          "Resultary logistic threshold network critical logarithmic relaxation",
+          "Resultary 2026/11/1/…5f085f4d7690",
+          "Resultary 2026/10/18/…3ecc92a730da",
+          "Resultary 2026/11/2/…bf3050d364d8"
+        ]
+      },
+      "rationale": "The model, cusp, scalar embedding and equilibrium spectra are background, and the simple attraction and scalar leading law alone are not the basis of the pass. The distinct content supported at the frozen publication is the precise one-sided logarithmic law across arbitrary row-stochastic W, irreducible common-constant matching, and the quantified time-dependent mode factors. The Nov. 1 indexed result demonstrably covers the matching irreducible asymptotic (indeed a wider basin), not just a similar exponent. It is dated later and does not establish antecedent coverage or settle provenance; it also does not supply the nonstationary variational factor in the inspected statements. The strongest same-day match gives a diameter envelope rather than these claims; no within-day order is inferred.",
+      "residual_risks": [
+        "Targeted rather than exhaustive primary-text coverage, particularly other general monotone and asymptotic-phase results.",
+        "The later dominant irreducible theorem is real overlap; dates and scientific statements alone do not establish dependence.",
+        "No within-day priority is asserted for the distinct same-day diameter result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict contraction and static spectral background, not the nonstationary law",
+          "evidence": [
+            "Theorem 2.2 βL_f<1; Theorem 3.2 J*=−I+aW with a=1 at the cusp."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10580",
+          "material_read": "Theorems 2.2 and 3.2, PDF pp. 3 and 5",
+          "method": "Primary PDF, equation and hypothesis comparison",
+          "title": "Collective Hysteresis and Multistability in Threshold Networks",
+          "trigger": "Same finite network, logistic cusp and spectral theorem"
+        },
+        {
+          "assessment": "Scalar mean-field equation and continuum/spatial model; not the finite-network quantitative statement in inspected material",
+          "evidence": [
+            "Theorem 3.1 gives x'=−x+F(αL+βx)."
+          ],
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/202475/1/rsif20260267.pdf",
+          "material_read": "Abstract, Theorem 3.1 around PDF p. 3, and spatial discussion around p. 13",
+          "method": "Lawful primary repository PDF, bounded passages",
+          "title": "From individual thresholds to collective hysteresis: a mechanistic model of the dawn chorus",
+          "trigger": "Same scalar threshold mechanism; possible broader cusp results"
+        },
+        {
+          "assessment": "Leading scalar and critical synchronization overlap only; the result concerns diameter within one solution",
+          "evidence": [
+            "q=4 yields R≤r solving r'=−r+tanh r, with limsup sqrt(t)R≤sqrt(3/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-nonlinear-synchronization-envelope-for-logistic-threshold--3ecc92a730da/RESULT.md",
+          "material_read": "Finding, scope, §§4–5 in offsets 0–7684",
+          "method": "Local mirror full-statement and proof passage comparison",
+          "title": "Sharp nonlinear synchronization envelope for logistic threshold networks",
+          "trigger": "Strong same-day match for critical relaxation and comparison"
+        },
+        {
+          "assessment": "Genuine broader equivalent coverage of the irreducible critical expansion in a later indexed result; no established antecedent or nonstationary variational coverage",
+          "evidence": [
+            "The exponential exceptional set excludes strictly one-sided starts, and the off-set critical formula has exactly 8/3, −8/5 and a shared C."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-global-monostability-frontier-and-critical-logarithmic-rel--5f085f4d7690/RESULT.md",
+          "material_read": "Finding, Eq. (3), and proof of exceptional-leaf distinction, offsets 315–2800 and 7271–8190",
+          "method": "Local mirror bounded passages, mathematical implication and chronology checked separately",
+          "title": "Exact global monostability frontier and critical logarithmic relaxation in logistic threshold networks",
+          "trigger": "Exact coefficient/common-constant match and broader basin"
+        },
+        {
+          "assessment": "Relevant to homogenization but not a node logarithmic formula",
+          "evidence": [
+            "βδ(W)≤4 and sharp limsup tD²≤3/2 for contrast."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-contrast-extinction-critical-slowing-and-reentrant-pattern--bf3050d364d8",
+          "material_read": "Beginning of local-mirror Finding",
+          "method": "Bounded local-mirror statement comparison",
+          "title": "Sharp contrast extinction, critical slowing, and reentrant pattern stability in logistic threshold networks",
+          "trigger": "Closely matched later threshold comparison across broader parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural equality boundary of a published contraction criterion, the new quantitative content is the logarithmic renormalization of critical delay and the distinction between topology-independent bulk coefficients and an irreducibility-dependent common phase. The mode response also resolves how the algebraic corrections depend on a graph eigenvalue when equilibrium-only rates are insufficient. These are useful exact benchmarks in the deterministic model, not claims about finite-amplitude modes or animal data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

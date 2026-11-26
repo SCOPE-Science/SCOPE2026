@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:52:11.002543Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar numerator is positive on the real nonpositive spectrum and the denominator never vanishes; r(0)=1 handles normalization and h=0. The Taylor recurrence gives coefficients 1,1,1/2,1/6,1/24,1/144,0,−1/1728 through degree seven. For distance d≤5 only shortest walks contribute at h^d, giving a positive coefficient. At distance six the coefficient at h⁶ vanishes: (L^7)_{0,6}=14(A^6)_{0,6}−(A^7)_{0,6} gives 28 for C₁₂ and 13 for C₁₃, so the h⁷ term remains positive. At distance seven the h⁷ term is strictly negative, with two shortest walks on C₁₄ and one for n≥15. No extrapolation in n is used. Exact independent rational inversion for n=3–6 matched the distance-class formulas; for n≤5 their off-diagonal numerators are positive for h>0, and for n=6 only the distance-one sign depends on Q(h)=5h⁴−12h³−102h²−144h−72, via the numerator −2hQ. Descartes or the independent Sturm count gives one positive root, numerically 6.36885080963102, with Q(6)<0<Q(7); diagonals are positive by spectral calculus. At large h the scalar leading term gives T=I−12L⁺/h+O_n(h⁻²), and the periodic second differences and mean-zero condition give the displayed Green kernel. Its nearest-neighbor coefficient is (n−1)(n−5)/(12n), positive for n≥6. In normalized row coordinate x=d/n the leading negative positions tend to the set x(1−x)<1/6, whose length is 1−1/√3. For each fixed n, rationality ensures eventual sign or identically zero even at vanishing leading coefficient; at most two signed residues solve the equality, so they do not influence the iterated limit. The packaged replay is python artifacts/verify_cycle_pade.py with the dependency in artifacts/requirements.txt. Both files were inspected, not executed; the original 438-assertion run is recorded support, not independent verification. The classification concerns exact end steps, with small/large neighborhoods per fixed n and no intermediate-step classification for n≥7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The eight-state theorem guarantees small-step positivity for arbitrary conservative generators up to seven states and exhibits an eight-state directed pure-birth failure.",
+          "The general zero absolute-monotonicity radius and the eight-dimensional nilpotent/Metzler counterexample do not constrain the order of a symmetric cycle exhibiting that failure.",
+          "The strongly regular graph results include C₄ and C₅ but not C_n for n≥6, and are later records."
+        ],
+        "reasoning": "Existence of a counterexample in a larger generator class gives no converse at sizes 8–13 in the cycle subclass. The broader sufficient guarantee through seven only partly overlaps the positive-small-step regime.",
+        "searches": [
+          "Resultary 4aad2a3f58ab Theorem 1",
+          "Resultary 2a383c6386f9 and 4defdf9c32e5",
+          "arXiv:1303.6651 p. 6",
+          "Essentially Negative News About Positive Systems Example 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 98f4ce42b84c",
+        "Resultary 4aad2a3f58ab",
+        "Resultary 164458fb3547",
+        "Resultary 2a383c6386f9",
+        "Resultary 4defdf9c32e5",
+        "arXiv:1303.6651",
+        "Zappavigna–Colaneri–Kirkland–Shorten, Example 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier §3 explicitly states T=I−12L⁺/h+O_n(h⁻²) and the full kernel g_d=(n²−1)/(12n)−d(n−d)/(2n). That immediately gives eventual negative positions except at the bounded number of zero-leading residues, and the endpoint-region fraction 1−1/√3.",
+          "The earlier Relationship to prior work says 'all small steps are nonnegative' in contrasting with the directed pure-birth case; its proof and theorem give no all-size small-step analysis, and a global reading is false at distance seven in C₁₄.",
+          "The scalar coefficient cancellation alone does not account for the sign at distance six on C₁₂ and C₁₃; the distinct shortest-walk and wrapping contributions must be checked."
+        ],
+        "reasoning": "Treat the spatial formula and limit as covered by direct mathematical implication. The primary absolute-monotonicity result and the earlier larger-step cycle dichotomy do not give the sharp small-step cycle-size split; that split uses the ordered Taylor/walk argument and exceptional distance-six checks.",
+        "searches": [
+          "Resultary 98f4ce42b84c Proof §3 and Relationship to prior work",
+          "Resultary 4aad2a3f58ab Theorem 1",
+          "arXiv:1303.6651 p. 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier unit-rate periodic diffusion generator Q_n equals −L_n. Its scalar R is the same Gauss rational map and the statement is in the same step units.",
+          "The earlier Finding has the identical C₆ quartic, positive root and positivity interval. A later six-cycle record repeats the large-step/small-size classification."
+        ],
+        "reasoning": "Changing the signs by passing between a generator and a Laplacian does not create a new claim. Compare the partition into size regimes after adding the h↓0 quantifier at each fixed size.",
+        "searches": [
+          "Resultary 98f4ce42b84c",
+          "Resultary 164458fb3547",
+          "[2/2] Padé periodic diffusion, cycle Laplacian and Markov end-step positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact indexed match exists for the short-cycle rational formulas, the quartic and its h₆ root, and the earlier invariant given by the large-step Green kernel.",
+          "The later duplicate-scale record likewise covers the small cycle and large-step dichotomy. The bounded lookup found no materially matching tabulation of the fourteen-site small-step transition."
+        ],
+        "reasoning": "Credit the exact matches even though they use periodic mesh terminology. A finite step or finite size table, without controlling the first nonzero entry coefficient and the all-larger-size family, would not establish the new threshold.",
+        "searches": [
+          "Resultary 98f4ce42b84c Finding and Proof §§1–3",
+          "Resultary cycle threshold, Padé positivity and fourteen-site cutoff",
+          "Resultary 164458fb3547"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp fourteen-site threshold for arbitrarily small steps and the consequent split between sizes 6–13 and sizes ≥14. Direct earlier coverage establishes the all-step cases through five, the large-step boundary at six, and the identical exact six-cycle horizon. It also supplies the full large-step Green coefficient, from which the spatial fraction follows directly; neither the coefficient nor its sign-count corollary is credited as independent novelty. The earlier record's informal small-step nonnegativity remark does not prove a cutoff and, if read as all cycle sizes, is corrected by the distance-seven calculation. The frozen three-way classification is not covered by the earlier dichotomy.",
+      "residual_risks": [
+        "An unindexed periodic-grid theorem giving the exact small-step size cutoff, or a more general sharp distance criterion that implies it, could alter the originality judgment. The broad lookup yielded no useful match; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact and implied coverage of the large-step law, n≤5, and six-cycle horizon; no valid fourteen-site small-step cutoff",
+          "evidence": "The exact quartic equals Q. The proof gives the full cycle Green kernel and the O_n(h⁻²) remainder; its unrelated informal small-step sentence cannot cover the proven large-cycle counterexamples.",
+          "identifier_or_url": "98f4ce42b84c",
+          "material_read": "Finding at offset 0; Proof §§1–3 including offsets 5400–7468; Relationship to prior work near offsets 8210–9821",
+          "method": "Resultary and bounded local-mirror full-text passages",
+          "title": "Six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion",
+          "trigger": "Exact same cycle map, six-cycle threshold and large-step calculation"
+        },
+        {
+          "assessment": "Broader class, different threshold",
+          "evidence": "All generators up to seven states are small-step safe; the sharp eight-state example is directed pure birth.",
+          "identifier_or_url": "4aad2a3f58ab",
+          "material_read": "Finding and Theorem 1 at offset 0 onward",
+          "method": "Resultary and local mirror",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Possible broader theorem covering the small-step obstruction"
+        },
+        {
+          "assessment": "Later overlapping cycle record",
+          "evidence": "Same C₃–C₆ and n≥6 large-step conclusions, dated 2026-10-25.",
+          "identifier_or_url": "164458fb3547",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Resultary and local mirror",
+          "title": "The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "Same map and threshold language"
+        },
+        {
+          "assessment": "Later result restricted to strongly regular graphs",
+          "evidence": "Covers C₄ and C₅, but the long cycles do not satisfy the graph hypotheses.",
+          "identifier_or_url": "2a383c6386f9",
+          "material_read": "Finding and graph hypotheses",
+          "method": "Resultary and local mirror",
+          "title": "Exact Gauss–Legendre diffusion positivity on all strongly regular graphs",
+          "trigger": "Potential domination by a more general exact graph result"
+        },
+        {
+          "assessment": "Later strongly regular result, not the sharp long-cycle cutoff",
+          "evidence": "The stated criterion is graph-side and covers only the strongly regular family.",
+          "identifier_or_url": "4defdf9c32e5",
+          "material_read": "Finding and relationship passages, offsets 0–6480 and 7400–9849",
+          "method": "Resultary and local mirror",
+          "title": "Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs",
+          "trigger": "Exact interval theorem with uniform conductance"
+        },
+        {
+          "assessment": "General radius zero, not a graph-size theorem",
+          "evidence": "The single [2/2] approximant has ψ⁽⁶⁾(0)=0 and R_{2/2,4}=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6651",
+          "material_read": "p. 6 near OA offset 21737, Π_{2/2,4} case",
+          "method": "Bounded OA PDF passage",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General positivity radius for the identical Padé map"
+        },
+        {
+          "assessment": "General positive-system example, not a symmetric conservative cycle",
+          "evidence": "Negative (1,8) entry for the nilpotent shift and a related Hurwitz Metzler example.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Example 3, pp. 13–14, OA offsets 36590–44070",
+          "method": "Bounded OA author-preprint passage",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Small-step failure for the same approximant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinct small-step threshold is a motivated sharp boundary for a standard diffusion model and timestep method. It distinguishes failure that can be avoided by shrinking the step on intermediate meshes from failure that persists at arbitrarily small positive steps on every larger cycle. The vanishing sixth coefficient and the two sizes where walk counts must settle its sign provide a structural reason for the precise threshold; value does not rest on recomputing the known quartic or row kernel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

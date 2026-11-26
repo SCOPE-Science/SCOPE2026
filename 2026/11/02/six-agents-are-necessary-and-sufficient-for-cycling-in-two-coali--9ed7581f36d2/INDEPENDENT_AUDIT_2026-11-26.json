@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:03.313668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–27",
+        "VERIFICATION.md lines 19–23",
+        "check.py lines 7–109",
+        "Independent replay: python3 /workspace/audit_cycle.py"
+      ],
+      "rationale": "A one-coalition state has no destination, and a singleton with zero cost cannot leave by strict improvement. Thus the cycle test uses exactly unordered nontrivial bipartitions. I independently enumerated all labeled simple graphs and used unordered pairs of actual vertex sets, Fraction costs, and Kahn topological elimination rather than the frozen checker’s masks, cross-products and DFS. Every state was eliminated for every graph. The (graphs, graph-partition states, profitable moves) counts by n=2,3,4,5 were (2,2,0), (8,24,12), (64,448,576), (1024,15360,27520), totaling (1098,15834,28108). Each symmetric enemy relation is one of these graphs; n=1 is trivial. The same independent replay generated the six-agent enemy relation from the displayed coordinates with the strict cutoff; starting from {2,3,4,5}|{1,6}, the movers (1,3,2,4) twice give costs 1>3/4, 1/4>0, 2/3>1/2, 1/2>1/3 twice and restore the partition. The distance-10 pair is correctly treated as friends. The later singleton states do not involve singleton departures.",
+      "residual_risks": [
+        "The lower bound is a finite exhaustive computation; it does not prove a structural acyclicity theorem beyond five agents. No frozen script was executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 is an existence theorem, not an acyclicity result below a cutoff or a general size-minimality theorem. The strongest related indexed cycling threshold concerns a different model with vacancies."
+        ],
+        "reasoning": "Neither existence in the wider prior model nor its HIS/UIS observation includes the needed lower bound for all symmetric enemy relations.",
+        "searches": [
+          "arXiv:2602.05888v1 §1.1, Theorem 3.3, Table 2",
+          "Resultary two-coalition line cutoff cycle, smallest size and graph acyclicity"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 3–24, 29–37",
+        "arXiv:2602.05888v1 §1.1, Theorem 3.3 and Table 2",
+        "Resultary 98f96f04544e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.3 invokes its explicit cycle with no singleton coalitions, not a size bound or reduction to smaller cycles. The Schelling threshold uses moves to vacancies on a connected complete bipartite host graph."
+        ],
+        "reasoning": "Dropping agents from a cycle can change the enemy fractions, source sizes and profitable moves; the prior existence proof gives no reduction that yields the reported six-agent cycle, and no argument excluding cycles through five. The vacancy theorem has no demonstrated implication for the frozen game.",
+        "searches": [
+          "arXiv:2602.05888v1 Theorem 3.3 proof and Table 2",
+          "Resultary 98f96f04544e Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 1.1, p. 2 uses fraction-of-enemies cost with distance strictly greater than the cutoff and strictly improving jumps. Theorem 3.3, p. 5 says the Table 2 example works for HIS and UIS since it has no singleton coalitions."
+        ],
+        "reasoning": "The prior cutoff model and the twelve-agent witness are genuinely comparable; recasting cutoff preferences as an undirected enemy graph gives the larger domain for the new lower bound, not a reason to transfer lower bounds from a different utility model.",
+        "searches": [
+          "arXiv:2602.05888v1, Cutoffλ-Jump, two coalitions, HIS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 has two groups of six positions each; repeated positions represent distinct agents.",
+          "The distinct indexed record uses K₃,₃ with three red agents, one blue agent and two vacancies, under single-peaked own-color utilities."
+        ],
+        "reasoning": "The literal table is a twelve-agent witness, not six. The indexed six-vertex result counts sites, not players in two unlabeled coalitions, and has a different move and payoff rule.",
+        "searches": [
+          "arXiv:2602.05888v1 Table 2",
+          "Resultary six-vertex finite-improvement boundary, 98f96f04544e"
+        ]
+      },
+      "rationale": "The literature supplies nonconvergence by example, but not the smallest population. The verified improvements are a six-agent line-cutoff witness and an all-symmetric-graphs exclusion through five; the prior twelve-agent result supplies neither.",
+      "residual_risks": [
+        "Comparison is bounded; it does not exclude an unpublished smaller-witness construction or a separately stated equivalent five-agent bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same cutoff-cycle question, different and nonminimal witness",
+          "evidence": "Two six-member coalitions in the prior Cutoff₄ cycle; no singleton states in the proof’s witness, no sharp population statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.05888v1",
+          "material_read": "§1.1 p. 2, Theorem 3.3 and proof p. 5, Table 2 p. 6 (OA text around offsets 11800 and 38200–44088)",
+          "method": "OA primary PDF passages and witness table",
+          "title": "Metric Hedonic Games on the Line",
+          "trigger": "Same cost and update model; closest prior cycle"
+        },
+        {
+          "assessment": "Different model and invariant",
+          "evidence": "Six vertices, four agents and two vacancies in the K₃,₃ construction; single-peaked own-color-fraction utilities, not fraction-of-enemies coalition cost.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-six-vertex-finite-improvement-boundary-for-single-peaked--98f96f04544e",
+          "material_read": "Finding and model assumptions in mirrored RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A sharp six-vertex finite-improvement boundary for single-peaked jump Schelling games",
+          "trigger": "Closest distinct indexed six-size cycling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–27",
+        "arXiv:2602.05888v1 Theorem 3.3 and Table 2"
+      ],
+      "rationale": "The result turns an established failure of convergence into an exact boundary in a natural game model: every smaller individual-enemy graph is acyclic, and a real-line example already realizes the first possible cycle. The stronger graph lower bound separates the effect of small population from constraints of the line embedding, and the explicit witness makes the boundary reusable.",
+      "residual_risks": [
+        "The threshold is not asserted for UIS, other update conventions, or more than two coalitions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

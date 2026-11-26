@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:36:24.228045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 20–73 and 78–83 (boundary equations, exact profiles, witnesses)",
+        "VERIFICATION.md, lines 19–25; checker.py, lines 5–78 (symbolic identities and numerical diagnostic design, inspected, not executed)"
+      ],
+      "rationale": "The two mixed boundary problems give Da'+μa=-1 and Db'+μb=1. Their sum yields DS'+μS=0, and a=qS gives DSq'=-1. With p=exp(∫μ/D), the oriented slopes are p(x)^(-1) times the integrals of p/D over [x,L] and [0,x], respectively; this gives strict positivity precisely away from the respective reflecting endpoint, including the claimed one-sided endpoint signs. Conversely the compatibility conditions and C³ data give C¹ coefficients, uniform ellipticity, and both backward equations. The mixed problems are unique; stopping the reflected process at absorption uses the zero normal derivative and bounded solution and gives finite mean and the claimed interpretation. Dπ=1/S verifies zero flux and q(0)-q(L)=1 gives normalization when both endpoints reflect. Substitution verifies the one-profile alias and the exact D=1+x example. In the oscillatory family the slope error is at most c/(nπ), hence the profile-pair C¹ error is O(1/n), while the diffusivity error in L∞ is c/(1-c); continuity makes the endpoint value also a valid essential-supremum lower bound. The ellipticity bounds hold uniformly, but not a uniform derivative bound on D. Brownian normalization here is D=1 (generator ∂xx). The 'absorbing-side derivative zero' wording in the necessity paragraph is a slip: the displayed conditions, argument, and theorem put derivative zero at reflection.",
+      "residual_risks": [
+        "No claim of formal or external verification. The independent checks were analytic; the reported numerical BVP agreement was not rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-day reset-rate and mean/variance records solve related two-observable inverse problems, but their data are obtained by altering reset rates or by measuring two moments, not opposite mixed-boundary means.",
+          "Bal–Chou's own inverse theorem uses a time distribution at a fixed initial position and partial coefficient knowledge. Keidar–Reuveni–Sokolov use one profile with known constant diffusivity; Cristofol–Roques use short-time moments; Abundo recovers an initial-position law."
+        ],
+        "reasoning": "These inverse problems are not stronger statements about the same observation map and do not dominate its C¹ inverse topology. A shared date does not establish priority.",
+        "searches": [
+          "Resultary: two mean profiles/reset rates; mean and variance passage-time inversion; inverse first hitting",
+          "arXiv:cond-mat/0310681; arXiv:2611.03831v1; arXiv:1702.06859v1; arXiv:1405.5333v1"
+        ]
+      },
+      "checked_sources": [
+        "Bal–Chou arXiv:cond-mat/0310681 and Breiman scale/speed framework as cited there",
+        "Keidar–Reuveni–Sokolov arXiv:2611.03831v1",
+        "Cristofol–Roques arXiv:1702.06859v1",
+        "Abundo arXiv:1405.5333v1",
+        "Resultary records b85c2498a4eb, bc65c3676333, 83bd72a1edfb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical result implies paired uniqueness via the explicit transformation above; exact uniqueness is not itself a stability estimate.",
+          "A positive lower bound for diffusivity error despite C¹ convergence of both mixed profiles, even at μ=0 and uniformly positive D, requires control or construction of the missing second derivative; the inspected statements do not supply this result for these data."
+        ],
+        "reasoning": "Credit direct identifiability implications rather than treating new names for scale/speed as new facts. The explicit elliptic instability with this compatibility class and experimental choice remains distinct in the inspected literature.",
+        "searches": [
+          "Bal–Chou, §2 opening and subsequent first-exit setup; same-day Resultary two-reset-rate and two-passage-time profile Findings and Proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bal–Chou explicitly credits identifiability from the right-exit probability and the mean two-absorbing exit time, using natural scale and speed measure.",
+          "For the paired mixed data, p_R=(F-G+G(0))/(F(L)+G(0)) is the right-exit profile and M=F-F(L)p_R is the two-absorbing mean. Conversely F=M-M'(L)p_R/p_R'(L) and G=M+M'(0)(1-p_R)/p_R'(0) by the reflecting derivatives. Thus exact identification, as distinct from the topology and witness, is classically equivalent."
+        ],
+        "reasoning": "The equality of generators and the linear boundary corrections give exact equivalence on admissible data, so the inverse uniqueness alone does not carry originality. The paired compatibility statement and quantitative discontinuity result must be assessed separately.",
+        "searches": [
+          "Resultary: opposite reflecting/absorbing mean first-passage profiles and paired inverse reconstruction",
+          "Bal–Chou, arXiv:cond-mat/0310681, §2, pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed check located the assigned finding and distinct reset-rate and mean/variance comparators. The result is an inverse theorem on a function class, not a finite classified invariant; its worked formulas and witnesses are not entries from a database or table."
+        ],
+        "reasoning": "An exact database/table test beyond the indexed statement check is inapplicable to this infinite-dimensional theorem.",
+        "searches": [
+          "Resultary: two mixed-boundary mean first-passage profiles, drift/diffusion compatibility"
+        ]
+      },
+      "rationale": "Credit classical scale/speed identification and the ordinary two-equation inversion, including the exact data equivalence described below. The supported distinct contribution is the paired opposite mixed-boundary formulation with its intrinsic compatibility and stationary-tail readout, together with an explicit uniformly elliptic zero-drift discontinuity witness in C¹→L∞ for that measurement scheme. The closest inspected statements do not present or imply that instability merely from identifiability. This is not a claim of priority for simultaneous inverse-diffusion recovery, nor for one-profile ambiguity in general.",
+      "residual_risks": [
+        "Bounded index and literature comparison, not a priority finding; older equivalent paired-data stability statements could exist.",
+        "The Xiang–Zhou–Xiang passage-moment source cited in a related record was not verified beyond indirect characterization; the available landing page was not article full text. Its possible scope is not counted as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical uniqueness covers the exact identification after re-expressing the data; no paired-profile C¹ instability in these passages.",
+          "evidence": "Right-exit probability and mean two-sided exit time identify μ and σ via natural scale and speed. The main inverse problem instead uses one starting location and the distribution of first-exit times.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0310681",
+          "material_read": "§2, pp. 3–5, text offsets 10800–20151 (identifiability paragraph, setup and own inverse theorem)",
+          "method": "Bounded OA full-text passages; direct transformation of observations",
+          "title": "On the reconstruction of diffusions from first-exit time distributions",
+          "trigger": "Strong classical equivalence candidate"
+        },
+        {
+          "assessment": "Substantial analogue, different experiment; no priority inferred from date.",
+          "evidence": "Distinct Poisson reset rates with a positive Wronskian identify coefficients; one reset rate is insufficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§2–4",
+          "method": "Resultary index and matching public text from local mirror",
+          "title": "Two reset-rate first-passage profiles uniquely reconstruct drift and diffusivity",
+          "trigger": "Same-day two spatial mean profiles"
+        },
+        {
+          "assessment": "Different observable pair; not a theorem for swapped mixed boundaries.",
+          "evidence": "Uses mean and variance profiles from one reflecting–absorbing setup and establishes one-mean ambiguity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-passage-time-profiles-identify-drift-and-diffusivity-and-cha--bc65c3676333/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–5",
+          "method": "Resultary index and matching public text from local mirror",
+          "title": "Two passage-time profiles identify drift and diffusivity",
+          "trigger": "Same-day two-profile reconstruction and criterion"
+        },
+        {
+          "assessment": "Related one-profile problem; different domain and coefficient assumptions.",
+          "evidence": "Half-line realizability and detection with specified diffusivity under the reversible potential convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-nested-gumbel-detection-layers-at-the-inverse-first-passage--83bd72a1edfb/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary index and matching public text from local mirror",
+          "title": "Two nested Gumbel detection layers at the inverse first-passage threshold",
+          "trigger": "Same-day inverse passage compatibility"
+        },
+        {
+          "assessment": "One-profile precedent, not joint variable-coefficient paired reconstruction.",
+          "evidence": "On a half-line, known constant diffusivity permits recovery of the potential subject to admissibility.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03831",
+          "material_read": "pp. 1 and 3, offsets 0 and 10000",
+          "method": "Bounded OA full text",
+          "title": "The Inverse Mean First-Passage Time Problem",
+          "trigger": "Closest cited mean-time inversion"
+        },
+        {
+          "assessment": "Different forward data map.",
+          "evidence": "Short-time expectation and variance data, not mixed-boundary mean exit times.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.06859",
+          "material_read": "p. 1 and introduction, offsets 0 and 4000",
+          "method": "Bounded OA full text",
+          "title": "Simultaneous identification of diffusion and drift terms",
+          "trigger": "Broader two-coefficient identification candidate"
+        },
+        {
+          "assessment": "Different unknown.",
+          "evidence": "Recovers an initial-position distribution from first-hitting data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5333",
+          "material_read": "Opening statement, p. 1 around offset 250",
+          "method": "Bounded OA full text",
+          "title": "One-dimensional reflected diffusions with two boundaries and an inverse first-hitting problem",
+          "trigger": "Same boundary and inverse-problem vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 20–33 and 51–73; Bal–Chou, §2"
+      ],
+      "rationale": "Reversing only the boundary roles gives a concrete design using means rather than full distributions, with a direct model-compatibility test and a stationary density readout for a third, both-reflecting setup. The exact uniformly elliptic counterexample shows why smooth-looking passage profiles and control of their first derivatives do not suffice for uniform diffusivity recovery. This topology-specific obstruction is useful even though the central identification algebra is classical.",
+      "residual_risks": [
+        "No statistical guarantee for noisy or sparse curves; no multidimensional or different stochastic-convention extension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

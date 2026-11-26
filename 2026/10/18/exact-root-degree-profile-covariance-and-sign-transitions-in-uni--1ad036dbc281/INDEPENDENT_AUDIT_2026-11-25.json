@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:58.705552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The count includes the root; the mixed marked derivative consequently includes the direct term kzT^k. The stated bivariate generating functions, their derivatives, and the Lagrange extraction give the displayed mixed moment, with k=0 contributing no direct term and k=n−1 handled by zero out-of-range coefficients. An independent derivation uses the cycle lemma: given multiplicities a_j, the number of trees is (1/n)n!/∏a_j!, and for root degree d it is d/(n−1) times the multinomial for the residual profile of the ordered d-forest obtained by removing the root. Their ratio is d a_d/(n−1), so the conditional root mean is Σ_j j²a_j/(n−1). The profile itself has the distribution of that of a uniform weak composition (X_i) of n−1 into n coordinates. By exchangeability the mixed moment equals E N_(n,k) times E[Σ_i X_i² | X_1=k]/(n−1). With m=n−1−k the latter sum in the numerator has mean k²+m+2m(m−1)/n by stars-and-bars factorial moments. Subtracting E R_n=3(n−1)/(n+1) times E N_(n,k) yields P_n(k) over the stated denominator. The binomial factor is positive at every feasible k. Direct evaluation at k=0,1,2,3,4 gives the claimed signs and the last positive sizes 3,7,24 for k=2,3,4; the convex polynomial is already positive and increasing at k=5. At n=2 the tree is deterministic. The binomial ratio tends to 2^(−k−1) for fixed k, and the polynomial prefactor scales as stated. The two balancing equations follow from deterministic total vertex and child counts. A fresh enumeration recursively combined nested child-tuples over ordered positive compositions of n−1, verifying 72 exact covariance and balance checks on 6,917 shapes for 2≤n≤10. Frozen VERIFICATION.md and verify_plane_root_degree.py were inspected, not executed; their separate preorder-word replay through n=11 is documented there, and neither bounded test proves the general identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson gives the asymptotic root and global offspring marginals and a cyclic-shift coupling. Enumerations of Ordered Trees lists separate root-degree and global degree counts and degree/level counts.",
+          "Patterns in Trees gives exact counts of compatible multiset occurrences in a broad model. The leaf-count record gives a stronger joint/ordering theorem, but only for leaves."
+        ],
+        "reasoning": "The independent profile coupling alone does not identify the distinguished root under rotation. The general patterns are relevant, but the joint count here requires anchoring one statistic at the root and including overlapping occurrences, not just taking a given evaluated count. The stronger leaf theorem does not encompass the other k.",
+        "searches": [
+          "Janson arXiv:1112.0510v1 §7.10, §7.11, Ex. 9.1 and Lemma 16.1",
+          "Dershowitz–Zaks, Enumerations of Ordered Trees §§3, 5; Patterns in Trees, Theorem 1 and rooted example",
+          "Resultary 19bd34709e33, stochastic-order theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_plane_root_degree.py",
+        "Janson arXiv:1112.0510v1",
+        "Dershowitz–Zaks, Enumerations of Ordered Trees and Patterns in Trees",
+        "Resultary 19bd34709e33, ba566fae9851, 14337d651546"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pattern theorem requires disjoint non-slot nodes; an example obtains a root-sensitive count by separately excluding non-root cases. The root can itself be the counted degree-k vertex, which is a separate term in the frozen mixed generating function.",
+          "The cycle-lemma route still uses a conditional root bias from ordered-forest counting, computes second moments conditional on a marked box, and analyzes their cancellation and strict signs. The leaf-record formula directly gives only k=0."
+        ],
+        "reasoning": "Root anchoring and overlap bookkeeping make the patterns theorem a plausible route to the result, not a demonstrated specialization of an already evaluated formula for the whole claim. Likewise the two marginal limits cannot determine the covariance. The exact leaf implication is credited, not counted as distinct.",
+        "searches": [
+          "Dershowitz–Zaks, Patterns in Trees, p. 5 disjointness convention, p. 9 Theorem 1, p. 14 root-sensitive example",
+          "Janson Lemma 16.1; Resultary 19bd34709e33, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform plane trees are the same uniform ordered Catalan model as in 19bd34709e33, which gives Cov(D,L)=(m−1)/(m+2). Substituting m=n−1 gives exactly the audited k=0 covariance (n−2)/(n+1) in the common range.",
+          "Same-day ba566fae9851 compares root branching to the depth-h population, not to outdegree classes; 14337d651546 asks the same kind of child-count question but in random recursive trees."
+        ],
+        "reasoning": "The leaf case is equivalent by a change of size parameter, not merely similar. Depth versus degree is a change of statistic and the recursive law changes the distribution. None covers the whole finite collection by reindexing. The catalogue dates are not used to decide equivalence or historical priority.",
+        "searches": [
+          "Resultary root children versus degree-profile covariance in Catalan/plane trees",
+          "Resultary 19bd34709e33, ba566fae9851 and 14337d651546",
+          "Janson arXiv:1112.0510v1, Example 9.1 and Lemma 16.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact leaf covariance and conditional counts are present in 19bd34709e33. The inspected exact root/profile analogue for recursive trees and the depth-profile covariance are distinct arrays. The older ordered-tree formulas inspected are separate component counts."
+        ],
+        "reasoning": "No inspected source tabulates the mixed plane-tree covariance across non-leaf degree classes or its exact thresholds; a bounded comparison does not exclude another evaluated formula.",
+        "searches": [
+          "Resultary exact plane-tree root-versus-profile covariance and sign thresholds",
+          "Resultary 19bd34709e33, 14337d651546, ba566fae9851",
+          "Dershowitz–Zaks, Enumerations of Ordered Trees §§3, 5"
+        ]
+      },
+      "rationale": "Do not credit the separate root and profile marginals, the cycle-lemma representation, or the k=0 covariance as uncovered content: the last is exactly reproduced by a distinct leaf-count record and dominated there by conditional leaf ordering. The supported distinct claim is the full finite root-versus-children-count profile law, especially the evaluated non-leaf coefficients and complete finite sign thresholds. Neither the matched leaf, depth or recursive-tree records nor the primary passages give a stronger evaluated result covering it.",
+      "residual_risks": [
+        "The pattern framework and other rooted enumeration techniques may permit another derivation; bounded inspection, including the imperfect report scan, does not settle absolute priority.",
+        "No historical ordering claim is based on same-day catalogue metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model equivalence, marginal limits and profile representation; not the evaluated mixed result",
+          "evidence": [
+            "Lemma 16.1 couples the preorder sequence to an allocation sequence by cyclic shift; the first entry is not preserved by that shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1112.0510v1",
+          "material_read": "§§7.10–7.11 (offsets 69889, 71400), Example 9.1 (83710), Lemma 16.1 (248946)",
+          "method": "Lawful OA HTML substantive passages",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Exact allocation representation and same-model marginal laws"
+        },
+        {
+          "assessment": "Prior exact marginal and degree/level enumeration, not a matching root/global crossed count in the inspected passages",
+          "evidence": [
+            "The introduction lists totals for degree-d nodes and trees with root degree r separately."
+          ],
+          "identifier_or_url": "https://www.cs.tau.ac.il/~nachumd/papers/Enumerations.pdf",
+          "material_read": "Introduction p. 1 (offset 542), §§3 and 5 (15123, 29800)",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Enumerations of Ordered Trees",
+          "trigger": "Primary exact Catalan-tree degree counts"
+        },
+        {
+          "assessment": "Substantial general tool; not demonstrated coverage of the full evaluated formula and signs",
+          "evidence": [
+            "Occurrence non-slot nodes are required to be disjoint; the root example filters out non-root cases separately."
+          ],
+          "identifier_or_url": "https://groups.csail.mit.edu/tds/papers/Zaks/TM-271.pdf",
+          "material_read": "p. 2 (offset 1446), definition p. 5 (6492), Theorem 1 p. 9 (13749), root-sensitive example p. 14 (22932)",
+          "method": "Lawful OA PDF targeted passages; imperfect scan text",
+          "title": "Patterns in Trees",
+          "trigger": "General pattern enumerations potentially sufficient to derive a mixed moment"
+        },
+        {
+          "assessment": "Exact matching k=0 subcase and stronger conditional-ordering claim for leaves",
+          "evidence": [
+            "With m edges its exact covariance is (m−1)/(m+2), and it proves monotone-likelihood-ratio ordering given root degree."
+          ],
+          "identifier_or_url": "Resultary 19bd34709e33",
+          "material_read": "Mirrored RESULT.md, Finding and scope, first 2249 characters at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and mirrored full-text passages",
+          "title": "Root-degree ordering of leaf counts in uniform Catalan trees",
+          "trigger": "Same root/profile question for leaves and exact covariance"
+        },
+        {
+          "assessment": "Different profile indexed by depth, not outdegree",
+          "evidence": [
+            "The sign uses n+1−h−2h² for the depth-h population."
+          ],
+          "identifier_or_url": "Resultary ba566fae9851",
+          "material_read": "Mirrored RESULT.md, Finding and scope",
+          "method": "Resultary search and mirrored full-text passages",
+          "title": "A sharp depth crossover for root branching in uniform plane trees",
+          "trigger": "Distinct same-day record with same model and root degree"
+        },
+        {
+          "assessment": "Different recursive-tree sampling law",
+          "evidence": [
+            "The non-leaf profile and 22-vertex threshold concern random recursive trees, not uniform plane shapes."
+          ],
+          "identifier_or_url": "Resultary 14337d651546",
+          "material_read": "Mirrored RESULT.md, Finding and scope",
+          "method": "Resultary search and mirrored full-text passages",
+          "title": "A twenty-two-vertex sign reversal and geometric root-degree profile in random recursive trees",
+          "trigger": "Same covariance question and sign transitions for another tree distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root degree is a canonical distinguished local statistic and the outdegree counts are the natural global profile, with two deterministic constraints. The theorem quantifies signed dependence which their separate laws and uniform proportions cannot predict. The strict finite sign reversals for degrees 2, 3 and 4, and strict positivity above that range, give meaningful precise cutoffs beyond an isolated leaf formula or a single small computation. The fixed-degree limit does not claim anything uniform in k.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:03:45.804008Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and VERIFICATION.md with recorded bitmask, set and symmetry evidence",
+        "Independent replay: /workspace/branches/e1d556f9-68e7-4bee-a089-48a6bb1e0a75/independent_check.py; saved independent_check.out in the same directory"
+      ],
+      "rationale": "For an exterior vertex, the complement trace is the set-theoretic complement in the code, so distinctness transfers and globality fails exactly for full original traces. For either graph, fixing a center, the other 15 vertices have distinct two-element traces on its six neighbors: each pair of the six has precisely the center and one other vertex as common neighbors. Deleting one neighbor preserves distinctness and nonemptiness of these pair traces, and the center has the full five-set trace. Thus all 16·6=96 five-subsets of neighborhoods are LD but not global, and none can be repeated because two neighborhoods intersect in only two vertices. The same trace argument gives faithfulness of neighborhood actions. A fresh exhaustive reproduction checked all subsets through size five in both graph/complement pairs; minimum 5 in each, LD counts 1584/1968 and global counts 1488/1872. Exhausting the legal exchanges gave jump edges 18432/27072, slide edges 8160/11520, and all-source distances gave connected graphs with all eccentricities 5 for jumping and 6 for sliding. The explicit edge-preserving permutation groups reach orders 192 and 1152, the upper bounds from the faithful local actions on C6 and 2K3. Orbits were reproduced as 192 six times, 96 three times and 48 once, versus 576 three times and 144 once. Common SRG parameters give A²=4I+2J in both cases and force the same adjacency spectrum; the different counts thus establish the separation.",
+      "residual_risks": [
+        "Exhaustion establishes the result only for these two labelled finite graphs, not any general SRG enumeration formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm.13 gives scalar LD bounds on square rook grids of side at least 14; Thm.14 gives the global LD upper bound for side at least 11. The generalized token-jumping paper defines both move rules on other feasibility problems."
+        ],
+        "reasoning": "Neither result includes the side-four census in its stated domain or forces code multiplicities, orbits or exchange distances. Identical rules alone do not transfer solutions between admissible-state families.",
+        "searches": [
+          "Hayat et al. §6.2 Theorems 13–14 and Proposition 10",
+          "arXiv:2411.12582v2 Introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.0772, 1411.5275 and 2411.12582v2",
+        "Hayat et al. DOI 10.7153/jmi-2023-17-105",
+        "Resultary b1d04ec503f1 (self), 5a3b8b760e77 and 7b3432c6fd0d",
+        "Honkala–Hudry–Lobstein DOI 10.1016/j.ipl.2015.04.005 (not inspected in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook identifying-code slide graph has 2,208 states at size six and 14,976 edges, with radius/diameter six; the audited rook global LD slide graph has size-five states, 1,872 vertices and 11,520 edges. Only landing/abstract-level access was available for the optimal-code ensemble paper."
+        ],
+        "reasoning": "Matching eccentricity values do not imply matching exchange graphs. Scalar bounds and the globality criterion do not enumerate the admissible five-sets. No negative coverage conclusion is drawn about the inaccessible ensemble full text.",
+        "searches": [
+          "Resultary 5a3b8b760e77 Finding and 7b3432c6fd0d Finding",
+          "Honkala–Hudry–Lobstein DOI 10.1016/j.ipl.2015.04.005",
+          "arXiv:1312.0772 globality and family tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hernando–Mora–Pelayo define global LD using both the graph and its complement. Hayat et al. use the same exterior-vertex binary-LD condition. Gravier et al. distinguish every pair by closed-neighborhood signatures."
+        ],
+        "reasoning": "Exterior open or closed traces are identical when the exterior vertex is unselected, so binary LD is a relevant alias; identification of selected vertices as well is a different predicate and does not encode complement domination.",
+        "searches": [
+          "arXiv:1312.0772 global location-domination and graph/complement tables",
+          "arXiv:1411.5275 identifying codes in strongly regular graphs",
+          "DOI 10.7153/jmi-2023-17-105 binary location-domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit b1d04ec503f1 is the assigned record itself. The distinct catalogues count 96 Shrikhande and 2,208 rook identifying codes, not the audited 1,488 and 1,872 global LD codes. The inspected LD tables give scalars for other families or larger grids."
+        ],
+        "reasoning": "The strongest inspected same-host exchange tables count a different feasible layer. No inspected independent table contains the exact global LD census or exchange quantities.",
+        "searches": [
+          "Resultary exact Shrikhande/rook global LD census query",
+          "Resultary 5a3b8b760e77 and 7b3432c6fd0d",
+          "arXiv:1312.0772 scalar tables; Hayat et al. §6.2 small solver cases"
+        ]
+      },
+      "rationale": "The global location-domination definition, complement test, standard exchange rules and graph automorphism groups are background. The supported distinct claim is the exact pairwise comparison of global optimum multiplicities and exchange geometry. The closest distinct Resultary census uses identifying codes rather than global LD; the closest regular-graph literature concerns scalar parameters, with the same-family grid statements out of the audited order range. Priority is provisional given a genuinely relevant inaccessible optimal-ensemble paper.",
+      "residual_risks": [
+        "The inaccessible 2015 ensemble paper and unindexed graph-specific computations leave historical-priority risk. No claim of exhaustive bibliographic coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Predicate and scalar tables for other graph families",
+          "evidence": [
+            "A global LD-set is an LD-set of both the graph and its complement. Inspected tables cover paths, cycles, wheels, complete and complete bipartite graphs, stars and bi-stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.0772",
+          "material_read": "Definitions pp.1–2 (offsets 977,3300); table discussion pp.5–7 (14500,18097,20639)",
+          "method": "Primary OA text",
+          "title": "On global location-domination in graphs",
+          "trigger": "The identical parameter and possible exact tables"
+        },
+        {
+          "assessment": "Exact host family, but scalar statements and solver examples at larger side lengths",
+          "evidence": [
+            "Theorem 13 is for square grids S(n) with n≥14. Theorem 14 gives the global LD upper bound ⌊(3n−4)/2⌋ for n≥11. Reported exact solver cases start at S(11)."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/jmi-17-105.pdf (DOI 10.7153/jmi-2023-17-105)",
+          "material_read": "§6.2, pp.1618–1620, OA offsets 70750–80216, including Theorems 13–14 and Proposition 10",
+          "method": "Official open publisher PDF, relevant text passages",
+          "title": "On the binary locating-domination number of regular and strongly-regular graphs",
+          "trigger": "Same code predicate for square rook grids and their complements"
+        },
+        {
+          "assessment": "Not global LD",
+          "evidence": [
+            "Identifying codes distinguish any two vertices of the graph by closed-neighborhood traces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.5275",
+          "material_read": "Abstract and definition pp.1–2, OA offsets 1100 and 4077",
+          "method": "Primary OA text",
+          "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+          "trigger": "A related code notion on strongly regular hosts"
+        },
+        {
+          "assessment": "Distinct identifying-code feasible layer; no implication to the full global LD census",
+          "evidence": [
+            "The first gives 2,208 rook identifying codes at size six and 14,976 slide edges. The second counts 96 Shrikhande and 2,208 rook identifying codes."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-six-slide-mobility-of-minimum-identifying-codes-in-the-fou--5a3b8b760e77; 2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp six-slide mobility of minimum identifying codes in the four-by-four rook graph; Optimal identifying-code exchange geometry of the Shrikhande and rook graphs",
+          "trigger": "Same host graphs and exact code exchange results"
+        },
+        {
+          "assessment": "Same move vocabulary, not a result on these global LD spaces",
+          "evidence": [
+            "Jumping can put a removed token elsewhere; sliding restricts the replacement to a neighbor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.12582v2",
+          "material_read": "Introduction at OA offset 3050",
+          "method": "Primary OA text",
+          "title": "Reconfiguration Using Generalized Token Jumping",
+          "trigger": "Possible general reconfiguration implication"
+        },
+        {
+          "assessment": "Unresolved potential historical overlap, not used for a noncoverage inference",
+          "evidence": [
+            "Title and accessible description concern the ensemble of optimal dominating and locating-dominating codes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ipl.2015.04.005",
+          "material_read": "Bibliographic/abstract-level material only; OA full text not recovered",
+          "method": "DOI direct and public alternate routing; no repository copy identified",
+          "title": "On the ensemble of optimal dominating and locating-dominating codes in a graph",
+          "trigger": "Plausible optimum census on closely related objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact statistics and move definitions; independent two-host enumeration"
+      ],
+      "rationale": "Shrikhande and the rook graph are a canonical pair with the same strongly regular parameters and spectrum. Their exact different global-optimum multiplicities and exchange edge counts therefore give a meaningful obstruction to parameter- or spectrum-based recovery. The orbit and diameter data give a reproducible comparison of how those distinct optimal spaces can be navigated.",
+      "residual_risks": [
+        "A finite witness distinguishing these invariants, not a general structural characterization of all cospectral pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

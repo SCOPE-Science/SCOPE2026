@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The package's `verify.py` is a self-contained standard-library Python 3 program. Run `python3 verify.py` to reproduce all exact finite checks; its output was captured in `verification_output.txt` and ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-The exhaustive cyclic loops cover all \(\binom{p-1}{2}\) anchored three-element supports and all \(2^p-1\) nonempty candidate subsets for \(p=5,7,11\). Anchoring one support point at zero is without loss of generality by translation. For each candidate the program checks difference-set disjointness and domination by \(D=A-A\), not merely local maximality in a sampled search. Finite-field checks enumerate all subsets on the smallest binary and ternary spaces. Explicit coordinate lists and direct maximality checks confirm the rank-two negative witnesses at \(p=5,7,11\); cyclic gap constructions are independently tested for primes \(13\) through \(53\).
+## correctness
 
-The infinite-dimensional theorems for \(p=2,3\), the complement lifting, and the all-primes-at-least-thirteen statement are proved symbolically in `RESULT.md`. No finite experiment is cited as proof beyond its completely exhausted fixed finite domain. Previous literature covers some individual negative examples; historical novelty is not independently certified. No external mathematical audit has been performed.
+PASS
+
+The exact independent-domination criterion follows from overlap of translates and the condition for adding an outside vertex. In characteristic two and in the collinear ternary case D is the entire difference subgroup, so the subfactors are exactly transversals. In the noncollinear ternary case the only allowed nonzero differences within the nine-element difference subgroup are the two nonzero elements of <a+b>; a maximal choice therefore fills exactly one of its three cosets in each outer coset. This proves both ternary sizes and all counts of actual subsets. Rank one in characteristic two is vacuous. For exceptional cyclic orders independent enumeration of all anchored triples and all candidate subsets gives the claimed table; anchoring by translation does not change the difference set or subfactors. In the plane the fiber witnesses work because no nonzero forbidden difference has zero projection and the projected sets are independently dominating; independently reconstructed greedy witnesses have sizes (5,7), (7,13), (22,31) against the fiber witnesses respectively. For p>=13, independence for A={0,1,3} requires each cyclic gap to be at least four, and domination requires it to be at most seven. Thus exactly 4k<=p<=7k is needed for k>=2. At p=13,17,19 the two displayed sizes work; for p>=23 write p=5k+s with 0<=s<=4, k>=4; both k and k+1 meet the inequalities. These negative witnesses lift by independent choices in difference-subgroup cosets, so no larger dimensions need enumeration. Bounded checks were independently written and run: replay python3 /workspace/branches/01139dfa-c2e7-448b-bf77-7b2f503dcd2a/record1_independent.py with smoke, finite, or gaps (SHA-256 c5737b7f3526d9080e04a2309c73a2b21e4c1ad30cde6813f1cfca95409c759a); no frozen script was executed.
+
+## originality
+
+PASS
+
+The supported distinct claim is the uniform all-prime/all-rank three-point classification and exact binary and ternary subfactor descriptions and counts. The independent-set representation, particular small examples, and a fixed cyclic support classification are not credited as new here.
+
+## value
+
+PASS
+
+The result answers a motivated three-point extension problem uniformly in prime and rank. It isolates exactly the two structural positive families and three exceptional cyclic cases, exhibits the rank-two boundary, and describes and counts every subfactor in the positive binary and ternary families. That gives both a decision criterion and an exact packing description, not merely a finite recensus of known examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

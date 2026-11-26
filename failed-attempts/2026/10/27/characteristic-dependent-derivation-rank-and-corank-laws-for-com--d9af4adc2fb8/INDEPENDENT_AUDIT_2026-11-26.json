@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:27.771727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two Leibniz equations on distinct and equal basis elements are sufficient by bilinearity. The squares for different parts are linearly independent in pairs (each has a nonzero projection onto the other's part, where that other's square has zero projection), forcing block diagonality. In characteristic two the blocks are symmetric with the ones vector in the radical, even when the part size is zero in the field. In odd characteristic write the i-th block as alpha_i I plus an alternating matrix H_i, using equality of the diagonal entries within each part. The equation for neighboring parts is H_j 1 = (2 alpha_i - alpha_j) 1. Multiplication by 1^T and the unit size n_j imply alpha_j=2 alpha_i for all i!=j. For s=2 this forces both scalars to vanish since 3 is a unit; for s>=3 it also forces all scalars equal and then zero. The converse is immediate. Congruence with a basis starting at the ones vector, not an orthogonal splitting, gives arbitrary symmetric or alternating forms on m_i=n_i-1 coordinates, preserving rank. Counting by the radical gives the Gaussian factor, and division of GL(2j,q) by the symplectic group gives the nonsingular alternating factor. For symmetric forms one border of a nonsingular or corank-one block yields q^r(q-1) choices, whereas a larger radical cannot be repaired, giving the stated symmetric recursion and product. Normalizing by all forms and writing the Gaussian coefficient as a product yields the displayed finite masses. Their summable quadratic envelopes prove total variation including along fixed parity, and independent finite blocks give convergence of the sum to the convolution. The defect used is relative to sum m_i, so ambient corank is larger by s. Direct bounded replay built the full Leibniz system for K_{3,2}, enumerated the kernel over the prime field and row-reduced each derivation for rank: F_2 gave 1+4t+7t^2+4t^3, F_5 gave 1+4t^2. This checks two cases, not the extension-field or limit claims; the frozen verify.py was inspected but not executed. No result is inferred for the excluded odd cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The positive-characteristic theorem prescribes the complete linear space for general graphs; the earlier twin-block work assumes characteristic zero. The Resultary projection-derivation ranks record imposes D^2=D and does not give the all-derivation count."
+        ],
+        "reasoning": "For complete multipartite graphs the twin classes are the parts and the neighbor set of a class contains all other parts. The structural conditions reduce exactly to the stated block families by the scalar elimination, with no extra ranks to classify.",
+        "searches": [
+          "Reis–Cadavid arXiv:2006.11934v1 Theorem 3.1 and Corollary 3.2",
+          "Cadavid–Rodiño Montoya–Rodriguez arXiv:1807.02493v2",
+          "Resultary: derivation ranks via twin blocks"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–88, VERIFICATION.md and verify.py",
+        "arXiv:2006.11934v1, 1211.0504, 1807.02493v2 and 1703.07266",
+        "EJC 23(2) #P2.8",
+        "Resultary alternating-form comparator above",
+        "2026/11/22/SCOPE-twin-partition-universality-of-projection-derivation-ranks-in-ch--5645a714267a",
+        "2026/10/26/SCOPE-tutte-specialized-derivation-rank-spectra-recover-the-girth-of-h--72db712673b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The twin criterion yields arbitrary, independent matrix blocks after congruence. The three probability theorems give quantitative total-variation bounds for exactly the symmetric law and both parities of the alternating law."
+        ],
+        "reasoning": "Multiply the exact block enumerators because ranks add, and push the independent product of marginal laws through the sum because total variation contracts under measurable maps. This derives both the finite and limiting graph statements, although the prior papers do not phrase them as complete multipartite polynomials.",
+        "searches": [
+          "Reis–Cadavid Theorem 3.1 applied to multipartite twins",
+          "Fulman–Goldstein Theorems 4.1, 5.1, 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reis–Cadavid Theorem 3.1 gives the twin-block, off-diagonal and block-sum conditions. Fulman–Goldstein Sections 4 and 5 treat the full symmetric and alternating rank laws, including the skew-symmetric interpretation for odd q."
+        ],
+        "reasoning": "Each admissible derivation block is rank-equivalent by congruence to a zero row and column plus a free matrix over the same finite field. Thus the proposed block defect equals the corank variable in the matrix laws; the minimum shift s only affects ambient corank, not the distributions claimed.",
+        "searches": [
+          "Resultary: complete multipartite graph evolution algebra derivation rank polynomial",
+          "Resultary: Reis–Cadavid twin-partition criterion",
+          "Fulman–Goldstein arXiv:1211.0504 Sections 4 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite matrix census for both families is in Fulman–Goldstein (21) and (24), with limiting probabilities (20), (23), and (26). The October Resultary alternating-form record also gives the same fixed-parity marginal law."
+        ],
+        "reasoning": "The terms of the finite rank census are the coefficients of the frozen form polynomials in product notation. For symmetric corank d, rewriting the denominator product of (q^i-1) gives q^{-d(d+1)/2}/Phi_d(q); for alternating d=2k or 2k+1, the extra numerator q^d gives q^{-d(d-1)/2}/Phi_d(q). These are exact laws, not matches at isolated field sizes.",
+        "searches": [
+          "Resultary: exact symmetric/alternating corank limits and multipartite derivation rank polynomials",
+          "Fulman–Goldstein Eq. (20)–(21), (23)–(24), (26)–(27)",
+          "2026/10/26/SCOPE-parity-paired-first-order-probability-spectra-of-random-alternat--8846a7e64ecd"
+        ]
+      },
+      "rationale": "This is not a verbatim previous multipartite rank-polynomial statement, but the whole claimed census and limit are mechanically implied by Reis–Cadavid's general derivation criterion and Fulman–Goldstein's exact finite rank and stronger total-variation estimates for the two unrestricted matrix families. The remaining work is finding the twin classes, eliminating the scalar diagonals by the two-line unit-size argument, passing to the quotient by the ones vector, and taking independent products. No new corank law or rank-counting problem remains after these translations.",
+      "residual_risks": [
+        "No separately stated exact graph polynomial was located in the bounded search; the verdict is implication by available theorems, not a claim of verbatim duplicate publication. Excluded resonant cases were not evaluated as potential new results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural input; not an enumerator by itself",
+          "evidence": "Twin-class block decomposition, skew off-diagonal entries and block-sum/diagonal constraints, including characteristic sensitivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11934v1",
+          "material_read": "Theorem 3.1 and proof, pp. 8–9 near offset 25500; Corollary 3.2 and Example 3.1, pp. 9–10",
+          "method": "OA full text, bounded passages",
+          "title": "Derivations of Evolution Algebras Associated to Graphs Over a Field of Any Characteristic",
+          "trigger": "Exact general derivation-space criterion"
+        },
+        {
+          "assessment": "Exact marginal laws with stronger quantitative convergence",
+          "evidence": "Section 4 explicitly includes even q, and Section 5 explicitly transfers the rank counts to odd-q skew-symmetric matrices. These are the unrestricted quotient-block laws used here.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0504",
+          "material_read": "Section 4 pp. 12–13, equations (20)–(21) and Theorem 4.1; Sections 5.1 and 5.2 pp. 18 and 22, equations (23)–(24), (26)–(27), and Theorems 5.1 and 5.5",
+          "method": "OA full text, bounded passages",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Possible direct coverage of both rank and total-variation laws"
+        },
+        {
+          "assessment": "Covers nonsingular alternating counts and odd-q symmetric counts; the even-q full census is independently supplied by Fulman–Goldstein",
+          "evidence": "Alternating nonsingular formula agrees, and radical choice passes from nonsingular to rank-refined counts.",
+          "identifier_or_url": "https://doi.org/10.37236/4072",
+          "material_read": "PDF p. 2, Theorems 1 and 2",
+          "method": "OA full text, bounded passage",
+          "title": "Pairs of Quadratic Forms over Finite Fields",
+          "trigger": "Classical finite form counts cited in the record"
+        },
+        {
+          "assessment": "Same marginal law, not a derivation classification",
+          "evidence": "Its radical-corank weights are P_q q^{-d(d-1)/2}/Phi_d(q) on the corresponding parity.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-paired-first-order-probability-spectra-of-random-alternat--8846a7e64ecd",
+          "material_read": "Finding: exact finite law, parity limit and tail bound",
+          "method": "Published record full-text passages",
+          "title": "Parity-paired first-order probability spectra of random alternating forms",
+          "trigger": "Direct overlap with fixed-parity marginal law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Ranks of derivations give a sensible additional invariant, and the contrasting parity is a useful illustration. Under precisely the hypotheses where no scalar-diagonal coupling survives, however, the exact facts claimed are just the independent product and convolution of established laws. A finite-field re-expression of those laws does not supply a distinct substantive result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

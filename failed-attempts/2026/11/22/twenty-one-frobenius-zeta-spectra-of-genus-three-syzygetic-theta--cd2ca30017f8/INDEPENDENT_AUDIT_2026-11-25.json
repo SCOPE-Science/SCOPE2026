@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:58.650189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof; verifier code and tetrad_frobenius_22.csv inspected as evidence",
+        "/workspace/review-evidence/tetrads.py and tetrads.log (independent fixed-point inversion and F3 factors)"
+      ],
+      "rationale": "Let H be the hyperelliptic pencil, so K=2H. An odd theta characteristic has an effective degree-two divisor D with 2D in |2H|. This linear system is the pullback of quadratic divisors on the base, so an odd D must consist of two distinct ramification points, rather than a fiber (which has two sections). This yields the Frobenius-equivariant 28 edges. For four edges, cancel pairs of ramification points using 2W=H and, when needed, complement the parity subset using the ramification divisor R∼4H. A parity subset of size two or four cannot give a divisor in |H| or |2H|, since those systems are pulled back and supported branch fibers have even multiplicity. Thus only empty or full parity subsets work, giving exactly the four-cycles or perfect matchings. My independent program generates these graph families directly and reconstructs cycle lengths by inversion from fixed counts of powers. It agrees with all 22 rows in the frozen CSV and recovers 21 full profiles, 18 four-count prefixes, 21 five-count prefixes, the unique collision in both components, and the sharp witnesses 7^45 versus 5^3 15^20. Distinct cycle profiles give distinct zeta functions by the same inversion. The two irreducible factor degree patterns exist over every odd field, and the explicit F3 examples' factors independently pass irreducibility checks. At line 26, 'torsor of odd theta characteristics' should read as a plane in the torsor of all theta characteristics, consisting of odd points; the odd locus itself is not a torsor. The proof via parity subsets is unaffected.",
+      "residual_risks": [
+        "The 21 is an abstract spectrum over all 22 formal branch types, not an assertion that all occur over every small field. The cutoff five reconstructs the zeta function, not the branch profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergvall identifies tetrads with isotropic planes and counts 315; the tetrad stabilizer is in Table 2 and the moduli discussion uses the symplectic-side character. In arXiv v1 §3.6 concerns Göpel subsets, not tetrads. The 2016 dissertation could not be inspected.",
+          "The Cayley-octad result is geometric conditional on a stable octad, but its computed cycle classification explicitly covers every abstract S8 class.",
+          "Plaumann–Sturmfels–Vinzant Lemma 6.5 concerns syzygetic four-bitangent sets and their conic and pairings."
+        ],
+        "reasoning": "The classical geometric results give shared input rather than by themselves proving exact cycle rows. The nearest exact record goes beyond this, treating the whole abstract parameter domain needed here. Possible restrictions on which octads occur over particular fields do not restrict its 22-class combinatorial table.",
+        "searches": [
+          "Bergvall arXiv:2106.13072v1, §§2.8, 3.7 and Table 2; Bergvall 2016 dissertation §3.6, DiVA PDF and alternate lawful routes",
+          "Plaumann–Sturmfels–Vinzant arXiv:1008.4104, Lemma 6.5; Cayley-octad local mirror Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Exact 0711f6ea9770 local mirror statement and full table, including key rows and formulas",
+        "Bergvall 2021 v1, Plaumann–Sturmfels–Vinzant, Elsenhans–Jahnel passages above",
+        "Bergvall dissertation citation/access checks only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact record gives N_n=∑_(d|n) d c_d and Z=∏_d(1−T^d)^(-c_d). Applying the first five instances to its given rows produces 21 distinct prefixes, with the sole collision already present in the full profiles. The rows 7^45 and 5^3 15^20 have the same zero four-prefix and fifth entries 0 and 15."
+        ],
+        "reasoning": "The five-count theorem is not stated separately there, but is a direct finite projection-and-comparison of the fully tabulated invariant using the given formula. Realizing the sharp witnesses on hyperelliptic curves uses standard existence of irreducible polynomials of the prescribed degrees; the particular characteristic-three examples are concrete illustrations of the same already tabulated ambiguity.",
+        "searches": [
+          "Cayley-octad 0711f6ea9770, local mirror Finding extension-count formula and table; frozen RESULT.md first-five theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Cayley-octad Finding identifies bitangents with pairs and tetrads with 210 quadrilaterals and 105 matchings on eight labels. Its proof uses the same even-subset quotient and the same four-edge parity test.",
+          "Elsenhans–Jahnel identifies the stabilizer of a Cayley octad with S8 acting on its eight points."
+        ],
+        "reasoning": "A bijection between the two abstract eight-label sets induces equivariant bijections on the two tetrad families: all group action data under study agree. The geometric objects should not be equated as curves, but the finite-scheme permutation problem depends only on the shared action.",
+        "searches": [
+          "Resultary: Frobenius fifteen/natural extension spectra of syzygetic tetrads, Cayley octad S8 cycle-profile census; decisive exact record 2026/11/22/SCOPE-frobenius-spectra-and-rational-descent-criterion-for-the-315-syz--0711f6ea9770",
+          "Elsenhans–Jahnel arXiv:1710.07279, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding table offsets 0–3610 gives the total and each component for all 22 classes. For (4,2,2) and (4,1,1,1,1), the total is 1^7 2^10 4^72, with matching profile 1^3 2^3 4^24 and quadrilateral profile 1^4 2^7 4^48. For (7,1) and (5,3) the totals are 7^45 and 5^3 15^20."
+        ],
+        "reasoning": "The table is a separate exact match, not the frozen record itself and not just an analogue on a different permutation set. Column and ordering conventions translate directly. Comparison yields exactly 21 distinct rows and already settles the persistent collision.",
+        "searches": [
+          "Resultary exact tetra­d Frobenius comparison; local mirror RESULT.md for 0711f6ea9770, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Demonstrable exact coverage, not an inference about which record came first. A distinct same-day Cayley-octad record classifies the identical 315-point S8 permutation representation for all 22 abstract partitions, with the very same component tables and formula for extension counts. The 21 spectra, unique collision and five-count comparison follow directly from its rows; replacing the octad labels by hyperelliptic branch labels supplies no new permutation invariant. The hyperelliptic field examples supply realizations, not a new arithmetic table or recovery theorem independently of that coverage. This decision does not rely on the inaccessible thesis or on an assumed order within the day.",
+      "residual_risks": [
+        "Relative chronology of the two same-day records is not determined, and no precedence is claimed.",
+        "An older equivalent character or cycle table may exist, but its presence or absence is not required for the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably covers the exact abstract cycle table and its stated decoding consequences; relative priority not established.",
+          "evidence": "22 rows on the very same two 105/210 families; identical componentwise collision and sharp example rows; explicit fixed-count and zeta formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-spectra-and-rational-descent-criterion-for-the-315-syz--0711f6ea9770/RESULT.md",
+          "material_read": "Mirrored Finding, table, extension-count formula, scope and proof reduction, offsets 0–5918",
+          "method": "Resultary lookup and bounded local mirror passage inspection",
+          "title": "Frobenius spectra and rational-descent criterion for the 315 syzygetic tetrads of a Cayley octad",
+          "trigger": "Distinct same-day exact table with equivalent S8 tetrad action"
+        },
+        {
+          "assessment": "Identifies the object and symplectic stabilizer; inspected passages are not an explicit 22-class S8 cycle table.",
+          "evidence": "315 tetrads correspond to isotropic two-planes; the moduli discussion uses a symplectic-side character.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13072v1",
+          "material_read": "§2.8 p. 9 offsets 28300–33069, Table 2 p. 13 offset 38450, §3.7 pp. 17–18 offsets 50680–53672",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Arithmetic and topology of classical structures associated with plane quartics",
+          "trigger": "Classical arithmetic tetrad and isotropic-plane comparison"
+        },
+        {
+          "assessment": "Supports the S8 identification; inspected passage is not the cycle table.",
+          "evidence": "The octad subgroup acts as the full symmetric group on eight octad labels, with finite-field realizability restrictions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.07279",
+          "material_read": "PDF pp. 2–3, offset 5400 onward",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On plane quartics with a Galois invariant Cayley octad",
+          "trigger": "Justifies the equivalence of Cayley-octad labeling and the abstract S8 action"
+        },
+        {
+          "assessment": "Classical geometric support, not the exact Frobenius classification in the inspected passage.",
+          "evidence": "A syzygetic set determines a conic and has three pairings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4104",
+          "material_read": "Lemma 6.5, pp. 19–20, offset 66800 onward",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Quartic Curves and Their Bitangents",
+          "trigger": "Primary geometry of the syzygetic relation in the alternative setting"
+        },
+        {
+          "assessment": "Full text uninspected, no claim of content or noncoverage.",
+          "evidence": "Frozen bibliography refers to §3.6; whether it contains an equivalent character table was not verified.",
+          "identifier_or_url": "https://www.diva-portal.org/smash/get/diva2:1426010/FULLTEXT01.pdf",
+          "material_read": "Citation only; PDF and alternate lawful DiVA routes unavailable",
+          "method": "Lawful OA PDF and alternate-route access attempts",
+          "title": "Cohomology of arrangements and moduli spaces (Olof Bergvall)",
+          "trigger": "2016 attribution of the combinatorial action in the frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and verification; compared against the exact Cayley-octad table and extension-count formula"
+      ],
+      "rationale": "The field-of-definition question is natural and the theorem is correct, but the submitted contribution recomputes a complete existing table for the same action. The additional five-coordinate interpretation and sharpness check are mechanical comparisons of those data, plus standard irreducible-factor realizations in a different geometric presentation. There is no separately established substantive new invariant or valuable remainder in the frozen claim, so no repaired finding is asserted.",
+      "residual_risks": [
+        "This is a judgment on incremental mathematical value of this exact frozen contribution, not on the value of hyperelliptic theta geometry or the original combinatorial table."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

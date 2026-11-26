@@ -1,15 +1,21 @@
-# Scientific review: two-coordinate total-variation homogenization
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact distance for two iid Bernoulli factors follows by enumerating the four atoms. The new bound reduces, after swapping the two laws and complementing both coordinates, to \(t\in[1,2]\) with total parameter increment \(d>0\). Marginalization gives \(\operatorname{TV}\ge\max\{|a|,|b|\}\), while the event that both coordinates equal one gives \(\operatorname{TV}\ge|va+ub|\). If the increments disagree in sign, the marginal bound already exceeds \(d\). Otherwise their normalized maximum \(h\) obeys both \(\operatorname{TV}/d\ge h\) and \(\operatorname{TV}/d\ge1-(2-t)h\), whose maximum is always at least \(1/(3-t)\). Combining with the exact homogenized distance proves the stated constant. The known asymptotic example reaches \(8/9\) in the limit. A standalone exact checker passes 35,828 rational parameter quadruples and four sharpness tests. The analytical inequalities, not finite enumeration, verify the continuum.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The principal antecedent is A. Kontorovich, *TV homogenization inequalities* (arXiv:2601.04079), Theorem 1.5: its general-dimensional constant is much smaller, and the paper expressly proposes \(8/9\) as the conjectured optimum, using an example with exactly two coordinates for the upper bound. The later paper *A homogenization principle for total variation* (arXiv:2604.03882), Theorem 4, establishes a broader positive-constant inequality but also leaves the sharp factor unresolved. Both available full texts were inspected in their introductory results, proofs, and pertinent related-work/open-problem passages. Existing work thus provides the sharpness witness but not the universal two-coordinate lower bound established here. Searches of published mathematical findings and related literature for Bernoulli TV homogenization, exact two-site constants, alternative formulations and parameterized lower bounds did not identify a dominating result. The searched index cannot establish uniqueness; an unindexed equivalent proof remains a risk.
+PASS
 
-## Value — PASS
-The result proves the first nontrivial fixed-dimension case of a specifically formulated sharp-constant conjecture. It closes the gap between a known two-site obstruction and a general but quantitatively much weaker positive-constant bound. Its short proof reveals how one-coordinate marginals and the two-success event work together, and supplies a new pooled-mean-sensitive certificate. This is a natural structural special case, not an arbitrary numerical slice. It does not resolve the full conjecture for three or more coordinates.
+For two iid product laws the four signed atom differences, divided by the difference of the single-site means, are -(2-t), 1-t, 1-t, t; hence homogeneous TV is d(1+|1-t|)/2. If d=0 the bound is vacuous and both homogenized laws agree. Otherwise common complementation and exchange of laws give t >= 1 and differences a+b=d>0. Opposite signs give a marginal TV at least d. For a,b >= 0 set h=max(a,b)/d and u,v the pooled coordinate means. The marginal TV bounds give TV/d >= h; the event 11 yields (va+ub)/d = 1-((1-v)a+(1-u)b)/d >= 1-(2-t)h. Their maximum is at least 1/(3-t), including all allowed boundaries. Undo complementation and use (2-w)(1+w)=9/4-(w-1/2)^2 at w=|1-t| to obtain the chain through 8/9. In the cited epsilon family the atom differences are epsilon, epsilon, 0, -2 epsilon, so the ratio is 8/(9-3 epsilon) and its limit proves sharpness. The new exact replay `python3 /workspace/branches/frozen_math_checks.py` checked 1,296 quadruples on a distinct 1/5 mesh plus an extra limiting-family example. The replay is supplementary, not a continuum proof. No claim of pointwise optimality at each pooled mean is made.
 
-## Scientific and access limitations
-The sharpness family is credited to the prior paper. The mass-sensitive term need not be sharp separately for every pooled mean. Both central primary full texts were accessible; priority beyond these sources and the searched mathematical records cannot be certified. Neither finite testing nor the self-review is independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content is the matching universal two-site lower bound for the known 8/9 obstruction and the stronger pooled-mean inequality. Primary statements supply the obstruction, conjecture and weaker broader bounds, not these lower bounds. The closest inspected Resultary statements concern a single sum approximation or rare-event asymptotics, not the pair of labeled products. This is a bounded coverage judgment, not a priority guarantee.
+
+## value
+
+PASS
+
+Two coordinates are the first nontrivial dimension and already contain the known upper obstruction to a named sharp-constant conjecture. Proving no two-site pair can do worse is a natural structural boundary. The proof gives a useful parameter-sensitive certificate from marginal and joint-success events, rather than a numerical optimization of selected parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

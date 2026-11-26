@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim quantifies over all graph-edge subsets of size at most three in a fixed, completely specified 18-edge graph. A second independent perfect-matching enumerator confirms exactly ten perfect matchings. The cover by maximal matching simplices is a good cover because all nonempty intersections are simplices, so the nerve theorem is applicable. `CERTIFICATE.json` supplies 2,632 elementary collapse pairs over 988 nerves; `VERIFY.py` checks every pair has a unique coface in the **entire current face set**, not merely an incidence count in one skeleton. Each nonvoid residual is an actual connected graph, and its cycle rank computes the integral homotopy wedge. Direct original-complex Euler calculations and full fault multiplicity checks independently agree. Code and certificate have been replayed from their actual accompanying file paths. No inference from finite data to an infinite family is made.
+## correctness
 
-## Originality: PASS against inspected evidence
-The closest preexisting Dürer perfect-matching calculation proves only the **intact** complex collapsible; its equivariant refinement also concerns the intact complex. Neither implies any homotopy type after graph-edge deletion, nor the exact fault census or exceptional triples. The full published Dürer **ordinary matching-complex** result concerns a different simplicial complex and does not cover extendibility after faults. The two primary papers treat honeycombs and polygonal line tilings rather than this polyhedral graph. Targeted semantic searches for the graph's names, edge-orbit faults, matching preclusion, perfect-extendibility and equivalent nerve formulations found no matching covering claim. Unindexed equivalences and mathematical publication priority remain residual risks.
+PASS
 
-## Value: PASS
-A three-edge bound is naturally singled out by the cubic graph's degree: deleting the three incident edges of a vertex already eliminates all perfect matchings. The complete atlas reveals a sharp and nonmonotone topological response: one-edge fault types distinguish all three natural edge classes, two-edge faults attain exactly ranks zero, one and two, and at three faults rank two disappears while precisely two alternating rim deletions produce rank three, with twenty cases void. This is a natural finite fault-tolerance classification of a canonical cubic polyhedral graph, beyond the previously known intact contractibility.
+Independent replay (python /workspace/branches/replay_durer.py) scanned every six-edge subset covering all 12 vertices, giving precisely ten perfect matchings. Exactly the matchings avoiding each fault survive. Their simplex cover has simplex intersections whenever nonempty; the nerve theorem applies. Independently built the nerve as the union of simplices on matching indices sharing each graph edge, then read the frozen certificate as data and verified every one of 2,632 unique codimension-one proper coface deletions with respect to the whole current nerve, over all 988 faults. Each nonempty residue is connected and at most one-dimensional, so contracting a spanning tree gives the actual circle-wedge homotopy type with rank E-V+1, not just homology. Direct Euler computations on the original complexes agree. The reproduced (void, point, one, two, three circles) rows are (0,1,0,0,0), (0,6,6,6,0), (0,78,63,12,0), (20,662,132,0,2); one-edge types checked individually and the only rank-three faults are (0,2,4) and (1,3,5). This checks the supplied witnesses rather than independently rediscovering them.
 
-## Scope and evidence limitations
-This is a graph-specific theorem and a full finite certificate for at most three deleted edges, not a statement about larger faults, the topology of ordinary matching complexes, or induced persistence maps. Source coverage is not a proof of uniqueness; independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact nonzero-fault homotopy atlas, not intact contractibility. Searches and statement comparisons found no distinct same-object fault atlas or theorem giving those ranks. Same-graph results for arbitrary matchings, independent sets, and cut complexes compare different objects.
+
+## value
+
+PASS
+
+Three deletions are a natural cutoff in this cubic graph: a vertex star is already fatal. The atlas distinguishes the three edge classes after a single fault and shows that rank two disappears at three faults, while exactly the two alternating rim faults create rank three. The combination of this topological sensitivity with the 20 void cases gives a useful exact benchmark for extendible-matchings topology, beyond an intact complex or a mere perfect-matching count. No persistence-map consequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

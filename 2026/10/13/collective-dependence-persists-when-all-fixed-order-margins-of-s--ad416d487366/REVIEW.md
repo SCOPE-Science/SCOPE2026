@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed density and parameter range are those of the known positive spherical copula. The power-coordinate substitution produces an exact Dirichlet law and logarithmic-slack expectation, giving the joint KL identity. Dirichlet aggregation rigorously identifies each fixed-dimensional marginal; Taylor expansions and Pinsker's inequality prove fixed-order independence. In the joint limit the linear gamma/digamma terms cancel, giving a strictly positive profile. A binomial-to-Poisson argument proves the strictly positive total-variation lower bound independently of the information calculation. Boundary cases \(c=1\) and non-spherical distributions are excluded, and the lower bound is not asserted sharp. High-precision checks in the accompanying verifier confirm beta-integral identities and finite examples, but the proof is analytic.
+## correctness
 
-## Originality — PASS, with priority risk
-The most directly relevant primary density source is Bernard–Müller–Oesting, *Lp-norm spherical copulas*, Corollary 11, Theorems 10 and 12; it identifies the model and density but not the entropy and high-dimensional coexistence theorem. Sundgren's *Uniform and radial Dirichlet copulas* explicitly discusses the Dirichlet connection for a special symmetric-parameter slice, which is acknowledged; its manuscript does not state the fixed-ratio joint KL profile or the full-dimensional total-variation separation. Perlman–Wellner discuss Euclidean low-dimensional spherical copulas, while Ma–Sun provide the general copula-information identity, not these model-specific limits. A search of related mathematical records and scientific literature did not locate the high-dimensional statement under equivalent terminology. The formula is derived from known densities by standard special-function identities, so the possibility of an unstated or differently formulated earlier corollary remains a genuine bibliographic priority risk. No uniqueness of the result or independent priority certification is asserted.
+PASS
 
-## Value — PASS
-The result answers a natural inference issue for a canonical exchangeable copula model: does every fixed subcollection becoming asymptotically independent force the growing vector to approach the independence law? It does not, even in this absolutely continuous family. A closed limiting information profile and a constructive positive total-variation gap quantify what remains. The effect is not an arbitrary isolated numerical invariant: it separates local and collective dependence in a model used to assess high-dimensional copulas and provides a concrete statistic that detects the distinction. The finite gamma identity supports, but is not the whole motivation of, the finding.
+Power coordinates y_i=x_i^p and slack w=1−Σy_i turn the published density into Dirichlet(α,…,α,β): the Jacobian is α^d Πy_i^(α−1), and Γ(1+α)=αΓ(α) gives the normalization because dα+β=1+α. Relative to Q_d, the log likelihood on support is −logΓ(β)−(d−1)logΓ(1+α)−t log w. The beta log moment, finite since β>0, yields the exact KL formula. Aggregation into the slack leaves β+(d−k)α=1−(k−1)α, so the marginal has the same family and exponent at dimension k. Setting m=k−1, the quadratic terms combine to ζ(2)[m(m+1)−(m²+m)/2]α², proving the stated coefficient and the O_k(α³) remainder; Pinsker gives TV convergence. At t=1/c the order-one Euler terms cancel. As a function of t the limiting KL has derivative tψ'(1−t)>0 and value zero at zero; the digamma pole dominates the log-gamma term as t tends to 1. Under Q_d the number of coordinates with x_i^p>1/2 is Binomial(d,1−2^(−1/p)), with limiting mean log(2)/c; under P at most one can occur. The zero-versus-positive probability of at least two proves a liminf lower bound, not convergence or sharpness of the full TV. Own replay: python3 /workspace/review_replay.py 5; Q_d simplex radial integration in logistic coordinates checked normalization and KL at (d,p)=(2,3),(3,7),(5,9) to 42 digits and gave 0.40939007008601165 and 0.04782868294631568 for the two c=2 quantities. The submitted diagnostics were inspected, not executed; finite quadrature does not prove the limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The family, density, and distributional/entropy tools are prior. The distinct finding is the quantitative comparison in the admissible dimension-growing regime p=c(d−1): a nonzero full KL profile with a separate full TV obstruction, even though every fixed-order marginal tends to the product law with the given KL asymptotic. A known finite-dimensional spherical density or a general identity for copula entropy is not, by itself, this comparison.
+
+## value
+
+PASS
+
+The spherical model has a natural dimension-dependent admissibility threshold. Holding p/(d−1) fixed shows quantitatively that weak information in each bounded subset of coordinates need not make the full law approximately independent, even in TV. A finite KL profile, fixed-order decay coefficient and a concrete distinguishing event give independently usable comparisons; no claim of sharp full TV is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

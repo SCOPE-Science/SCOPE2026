@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:04.254020Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 34–73",
+        "Frozen VERIFICATION.md lines 18–22 and check_triangles.py lines 11–158 (inspected, not executed)",
+        "Independent complementary-image/kernel enumeration: /workspace/review-evidence/finite-checks.js, finiteFieldTriangles, replay with node. At n=2,3,4 over F_2, obtained 8,58,802 idempotents and 6,2184,752640 ordered proper triangles respectively. The rank-211 coefficient at n=3 was 168 and rank-222 at n=4 was 3360; support and cyclic symmetry held in all three tables."
+      ],
+      "rationale": "Fix P with E=im P and K=ker P. Choosing E and a complement gives the first Gaussian factor times q^(r(n−r)). From PQ=0 the only nonzero blocks of Q map E and K into K. Idempotence requires D=Q|_K to be a projection and C=Q|_E to have image in im D; hence rank D=s, so r+s≤n. For rank u of C (equivalently rank QP), choose its image and then a surjection from E, giving [s choose u]_q ∏_(i<u)(q^r−q^i). For R, its image W must lie in B=ker Q, avoid E, and have dimension t. The space E∩B has dimension r−u; choose the quotient image of W in B/(E∩B), then each of its q^(t(r−u)) lifts complements E∩B within its preimage. Once W is chosen, R must be zero on E and the identity on W; it is freely chosen on a complement of E+W with values in W, giving q^(t(n−r−t)). This yields the combined exponent t(n−t−u) and requires t≤n−r−s+u. The summation bounds and all nonnegative exponents follow; in particular n−t−u≥r+s−2u≥0 in a nonzero term. Three pairwise sum inequalities are necessary directly from the three containments and sufficient by taking u=max(0,r+s+t−n). This check includes zero and identity ranks. The proper-rank cycles have distinct vertices, since a repeated vertex would entail its zero square. The pairwise bounds give maximum floor(3n/2), and the balanced listed ranks attain it. For n=2m and ranks m, u=m is forced, D is the identity on K, C is an isomorphism, and R is the unique projection with image ker Q and kernel E. This gives the stated GL_m factor and full rank of every reverse product by cycling the argument.",
+      "residual_risks": [
+        "Independent finite check is restricted to q=2 and n≤4; arbitrary prime powers and sizes follow from the proof. Counts use ordered triples, not unlabelled cycles or similarity classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang counts pairs of arbitrary matrices with AB=BA=0 using a generating series; Ferraz et al. count q^(k(n−k)) idempotent generators of a rank-k left ideal; the compressed graph supplies the zero-product incidence description."
+        ],
+        "reasoning": "The broader objects in these works do not carry the needed triple-count theorem. Mutual rather than one-sided annihilation in particular rules out the full-rank reverse products in the extremal triangle. A count of isolated idempotents or graphs of outgoing adjacencies does not handle the closure constraint.",
+        "searches": [
+          "Huang arXiv:2110.15566, Thm. 1.2 and §3.1",
+          "Ferraz–Polcino Milies–Taufer arXiv:1711.09289, Thm. 3.3",
+          "Đurić–Jevđenić–Stopar arXiv:1810.02776, §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.02776 §3; arXiv:2402.11256 §§1,3 and Thm. 3.8; arXiv:2110.15566 Thm. 1.2 and §3.1; arXiv:1711.09289 Thm. 3.3",
+        "Resultary records 3c6fd019df5a, 0caa4d1d1d52 and eb89da364cb8, Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair-rank formula specializes at rank PQ=0 to the distribution of r,s and u=rank QP. No inspected result counts rank-t R with im R in ker Q and ker R containing im P. The audited proof determines dim(ker Q∩im P)=r−u and adds the quotient lifting count and projection extensions."
+        ],
+        "reasoning": "The pair table is a strong input but not the answer: it must be weighted by the joint conditional completion count, which depends on u. Summing independent edge degrees or using a pair marginal without u does not yield closure. At even saturation the usual common-complement/isomorphism count is elementary once the triple constraints have been reduced; its standard counting ingredients are not separately original.",
+        "searches": [
+          "Resultary 2026/10/12 joint pair-rank Finding, 3c6fd019df5a",
+          "Compressed graph incidence model §3 and ideal-generator formula Thm. 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Đurić–Jevđenić–Stopar, arXiv:1810.02776, §3 pp. 8–9: directed edge iff the previous kernel contains the next image.",
+          "Patil–Momale–Jadhav, arXiv:2402.11256, §§1,3 and Theorem 3.8: adjacency is undirected OR of the two zero products, in dimension two. Its proof gives a cyclic one-sided zero-product triangle for fields other than F_2."
+        ],
+        "reasoning": "Idempotents correspond to complementary image/kernel pairs, so the directed triangle is precisely a cyclic incidence on those pairs; a compressed-graph edge treats arbitrary image/kernel pairs, while the dimension-two undirected graph can also count adjacencies outside the oriented cycle condition. Existence in dimension two does overlap and is not credited as new. Neither inspected graph statement is a full weighted triple census.",
+        "searches": [
+          "Resultary search for finite-field idempotent zero-product triangles, annihilating pairs, and joint rank distributions",
+          "Primary literature search for idempotent graph triangles, compressed zero-divisor graphs, and mutual annihilation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records address pair ranks or their asymptotic defects. The dimension-two graph source reports girth, not a count by triple rank. The reported F_2 girth 4 is inconsistent with its OR adjacency: the rank-one projections with rows (10;00), (00;11), (01;01) have PQ=QR=RP=0 over F_2 by direct multiplication."
+        ],
+        "reasoning": "There is actual pair-level exact coverage, including the zero forward-rank slice of the earlier joint rank table, but it is not the three-idempotent table. The binary-field witness gives a direct check of the conflict, so the girth claim is not evidence against the census.",
+        "searches": [
+          "Resultary joint rank distribution of pairs 3c6fd019df5a, pair census with idempotent product 0caa4d1d1d52, one-sided annihilating pairs eb89da364cb8",
+          "Patil–Momale–Jadhav arXiv:2402.11256, Theorem 3.8 and proof"
+        ]
+      },
+      "rationale": "The supported distinction is the all-rank census for three cyclic one-sided constraints, including the extremal multiplicity and reverse ranks. The image/kernel graph, pair counts, and dimension-two existence are prior background. The earlier exact pair distribution does determine the prefix marginal by (r,s,rank QP) but not the conditional third-idempotent count. No inspected comparison supplies that count or the full rank-refined triple law.",
+      "residual_risks": [
+        "The searches were bounded; unlocated finite-geometric or matrix graph censuses may contain a completion formula or an equivalent exact enumeration. Priority beyond the checked statements is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Incidence model is direct background, not a census of three complementary pairs with cyclic incidences.",
+          "evidence": "(V_1,W_1)→(V_2,W_2) iff W_1 contains V_2.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.02776",
+          "material_read": "§3, pp. 8–9, image/kernel pair representation and adjacency",
+          "method": "Open primary preprint text",
+          "title": "Compressed zero-divisor graphs of matrix rings over finite fields",
+          "trigger": "Same matrix algebra and directed zero-product relation"
+        },
+        {
+          "assessment": "Overlaps on dimension-two existence outside F_2; undirected rule and no rank-refined census. Its reported binary girth conflicts with explicit matrices under its stated adjacency.",
+          "evidence": "The proof outside F_2 explicitly has A_1 A_2=A_2 A_3=A_3 A_1=0. For F_2, the audited witness is a triangle even under the OR rule.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.11256",
+          "material_read": "§1 adjacency definition p. 2 and Theorem 3.8 plus proof pp. 10–11; PDF text offsets 43200–45714 for theorem and examples",
+          "method": "Open primary PDF text",
+          "title": "On the idempotent graph of matrix ring",
+          "trigger": "Same idempotent vertices, direct three-cycle and potential binary conflict"
+        },
+        {
+          "assessment": "Different constraints and arity; does not imply the census.",
+          "evidence": "Counts arbitrary matrix pairs with AB=BA=0 by a generating series, not three idempotent ranks with cyclic one-sided products.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "Theorem 1.2 p. 4 and §3.1 p. 8",
+          "method": "Open primary PDF text",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Exact enumerative theorem for zero products in matrix rings"
+        },
+        {
+          "assessment": "Covers individual-idempotent multiplicity, not correlated zero products.",
+          "evidence": "A rank-k left ideal has q^((n−k)k) idempotent generators.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.09289",
+          "material_read": "§3, Theorem 3.3 p. 6",
+          "method": "Open primary PDF text",
+          "title": "Left ideals in matrix rings over finite fields",
+          "trigger": "Prior idempotent generator exact counts"
+        },
+        {
+          "assessment": "Exact relevant pair marginal, not completion to a cycle.",
+          "evidence": "Ranks of E,F,EF,FE are enumerated jointly; take rank EF=0.",
+          "identifier_or_url": "2026/10/12/SCOPE-joint-rank-distribution-for-products-of-two-finite-field-idempot--3c6fd019df5a",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror, revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint rank distribution for products of two finite-field idempotents",
+          "trigger": "Earlier reverse-rank-refined pair distribution for the first two projections"
+        },
+        {
+          "assessment": "Pair census, not triples despite three-rank phrasing.",
+          "evidence": "Ranks are ranks of E,F and an idempotent product EF, which can be zero.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-three-rank-census-of-idempotent-matrix-pairs-with-idemp--0caa4d1d1d52",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete three-rank census of idempotent matrix pairs with idempotent product",
+          "trigger": "Exact zero-product slice for finite-field idempotents"
+        },
+        {
+          "assessment": "Asymptotic pair law, not finite-size triple census.",
+          "evidence": "Concerns rank defects for E,F,FE under EF=0.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-five-residue-joint-rank-defect-law-for-one-sided-annihilating--eb89da364cb8",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A five-residue joint rank-defect law for one-sided annihilating idempotents",
+          "trigger": "Same one-sided annihilation and reverse-product rank statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–29 and 37–68",
+        "Compressed-graph and exact pair-law comparisons above"
+      ],
+      "rationale": "Rank-refined directed triangle counts are a natural exact invariant of this idempotent graph beyond single-edge degrees. The result resolves which ranks can coexist in a cyclically noncommutative configuration, quantifies every such profile, and identifies the saturation phenomenon with maximal reverse ranks. The completion step addresses dependent edge constraints, not simply multiplying known pair statistics or relabeling an existing census.",
+      "residual_risks": [
+        "The value is for the exact ordered triangle census; similarity-orbit classification and longer cycles are not resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

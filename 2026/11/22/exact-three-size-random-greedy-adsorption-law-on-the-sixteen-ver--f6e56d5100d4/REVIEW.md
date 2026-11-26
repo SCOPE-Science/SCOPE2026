@@ -1,9 +1,0 @@
-# Self-review
-
-**Correctness — PASS.** The vertex-mask recurrence follows from exchangeability of the next available rank. The finite 16-site census checks all 65,536 masks; a second target-specific recursion checks every one of the 42 output probabilities; 384 cube automorphisms certify orbit transitivity. Exact arithmetic gives the distribution, means, and both stochastic inequalities. The claim is finite and no numerical sampling is extrapolated to a larger dimension.
-
-**Originality — PASS, qualified.** Queries of mathematical-records results and primary literature compared the same graph, nearest-neighbor hard-core random order, set-size spectra, maximal-independent-set orbit equivalences, and broader random sequential adsorption formulations. Pippenger's classical work analyzes regular high-girth and related large graphs, not the sixteen-site cube census. Dhara–van Leeuwaarden–Mukherjee prove random-graph limiting jamming results, not this distribution. Other four-cube classifications concern distinct invariants; the earlier exact truncated-octahedral jamming law is for a different 24-site graph. The 1989 full text was inaccessible, and unindexed finite-volume calculations remain a genuine historical-priority risk.
-
-**Value — PASS.** The canonical four-cube, equivalently a sixteen-site periodic square grid, provides an exact small-volume benchmark for nearest-neighbor adsorption and random greedy independent-set selection. The complete labeled distribution establishes its first odd terminal cardinality among hypercubes of dimensions at least two, explains the gap between uniform maximal-set and process-generated sampling, and quantifies optimum-packing amplification. These data distinguish kinetic sampling from combinatorial counting on a natural finite substrate; no arbitrary parameter slices are introduced.
-
-Self-review: passed. Independent audit: not yet performed.

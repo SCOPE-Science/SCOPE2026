@@ -1,15 +1,21 @@
-# Scientific review — fixed-damping BallotRank counterexample
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is five alternatives with complete strict ballots, arbitrary positive integer gadget multiplicity \(k\), and fixed \(0<d<1\). Each of six two-ballot gadgets changes exactly one runner-pair margin by \(2\), and balanced placement of \(A\) creates no other margins. The final ballot makes \(A\) a one-vote strict Condorcet winner. Every transition column is defined because the winning-margin self-loops and pairwise losses provide positive column totals. In the limit the runners form an explicitly stated nonuniform four-state Markov chain while \(A\) remains absorbing. The resolvent exists for every \(d<1\). Solving the four runner equations yields the positive rational function for \(B-A\). For fixed finite \(k\) the undamped chain is uniquely absorbed at \(A\), proving the noncommuting limits. Independent exact-rational program reconstruction additionally gives a positive score gap at \(d=17/20\), \(k=25\). Finite checks support, but do not replace, the analytic argument.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest primary source, Todd–Volić, arXiv:2601.14015v2, defines BallotRank, proves the undamped Condorcet property, and warns that damping does not guarantee it. Its inspected sections 2, 4, 6, and 7 do not give the present all-\(d<1\) five-alternative profile family, exact limiting gap, or noncommuting-limit statement. The older Bana–Jamroga–Naccache–Ryan convergence voting (arXiv:2102.01995) uses a different Markov matrix and permits a Condorcet winner to lose; it does not entail this claim for BallotRank's particular self-loop and normalization. McGarvey's paired-ballot margin construction is standard and is not claimed as original. Searches for mathematical-record aliases, standard PageRank constructions, and exact-source claims found no implication-equivalent theorem. An unindexed or differently named treatment remains possible; search absence is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result settles a concrete fixed-damping extremal question suggested by the BallotRank authors' high-damping empirical success and stated robustness questions. It proves that **no positive damping constant strictly below one** can uniformly guarantee a Condorcet winner, even if the number of alternatives is fixed at five. The precise gap, finite rational example, and noncommuting limits explain why the undamped guarantee does not extend uniformly to large electorates. The finding does not rely merely on a tiny parameter improvement or recomputation of a known table.
+The two-ballot gadget reverses every runner comparison except its designated one. Placing A at opposite ends doubles the runner margins while tying every A comparison, before the final ballot gives A four one-vote victories. Each runner column has at least one loss of order k; the A-entry and the bounded BallotRank self-loop vanish in the limit. A's column is exactly e_A. With t=(1-d)/5 the runner equations eliminate to (4-3d^3-d^4)b=t(4+6d+5d^2+d^3); factoring (1-d) yields the stated positive limiting B-A gap for every fixed 0<d<1. Resolvent continuity implies strict reversal at finite k for each d. For fixed k each runner has positive one-step transition to the absorbing A, proving the reversed high-damping limit and noncommutativity. The separately stated 601-voter fraction was reproduced exactly by reconstructing the ballots and using rational determinants in independent_checks.py (python /workspace/independent_checks.py).
 
-## Closest literature and limitations
-Todd and Volić (2026), arXiv:2601.14015, is the definitionally closest work. Bana et al. (2021), arXiv:2102.01995, is a different Markov social-choice rule. McGarvey (1953), DOI:10.2307/1907926, supplies a familiar constructive motif. This is a worst-case existence theorem, not a statement about typical elections, minimal voter counts, minimal candidate numbers, or the case \(d=1\). No independent audit or exhaustive literature-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary BallotRank work uses precisely the same weighting and raises fixed-damping extremal examples, but the inspected comparison does not supply the five-alternative family, all-d quantifier, limiting gap, or reversed limits. The nearby convergence-voting results use a different normalization. No distinct covering indexed record was identified in the bounded searches.
+
+## value
+
+PASS
+
+This supplies a small-alternative finite obstruction for every fixed positive subunit damping and resolves the specific extremal direction raised in the BallotRank paper. The one-vote victories and noncommuting limits explain why moving damping close to one is not a profile-uniform remedy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:11:05.313821Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–76, VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent replay: python3 /workspace/review-work/exact_finite.py 3; output /workspace/review-work/3.log"
+      ],
+      "rationale": "The pole edge forbids a face containing both poles. Deleting them yields a join X of Ind(P_{ell_i-1}); the two pole cones have bases Y_u,Y_v which are joins of Ind(P_{ell_i-2}), with the actual inclusions into X. The path formula follows by folding vertex 3 onto vertex 1 (its open neighborhood contains that of vertex 1), leaving P_2 disjoint from P_{n-3}, and treating P_0,P_1,P_2 explicitly. Thus X is contractible exactly when some length has residue 2, and the bases are contractible exactly when some length has residue 0; each noncontractible join has formal sphere dimension R-1. For all lengths 1 mod 3, the path endpoint inclusion is obtained by attaching a cone on the contractible Ind(P_{3a-2}); gluing along this subcomplex gives a homotopy equivalence, and joins preserve it. The first pole cone then leaves a contractible space and the second gives S^R. With a residue-0 arm both bases are contractible so the cones preserve X. In the remaining case, X is contractible, hence both maps through it are null, and the two cones yield the wedge of two S^R. If all arms have length 2 the join-unit convention means the bases have empty realization; the interior simplex and two isolated poles give exactly three components. This is an all-parameter homotopy proof, not a Betti-number extrapolation.",
+      "residual_risks": [
+        "The independent replay checks reduced Euler characteristic in the listed 70 instances; the frozen mod-2 Betti check was inspected, not run. Neither finite check proves integral homotopy; that conclusion comes from the cone argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theta subdivision classification uses three pole-to-pole paths; the terminal-wedge theorem uses one common pole."
+        ],
+        "reasoning": "Neither theorem includes a direct edge plus three or more additional paths between the same two poles.",
+        "searches": [
+          "Przytycki–Silvero DOI 10.1007/s13398-024-01594-z, Prop. 3.5 and Ex. 3.8",
+          "Daundkar–Panja–Prasad arXiv:2303.08798v2, Thm. 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: bde2bc93e75e, 6c30629962ff, 500c0c0501a0, f46cbcd26419, db96fec92047",
+        "Przytycki–Silvero, Daundkar–Panja–Prasad, Adamaszek (primary passages above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vertex and edge cofibre sequences give conditional splittings; subdivision reduces path lengths in appropriate circumstances."
+        ],
+        "reasoning": "The tools require further determination of the actual pole attachments or analysis of the residue-dependent multitheta base cases. They do not mechanically give the phase table or the two-summand bound uniformly in the number of paths.",
+        "searches": [
+          "Adamaszek arXiv:1106.6250v4, Props. 3.1 and 3.4",
+          "Przytycki–Silvero Prop. 3.5 and Ex. 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6c30629962ff has nonadjacent poles and mixed lengths 3,4; 500c0c0501a0 studies induced forests; f46cbcd26419 studies two-independence and only three paths."
+        ],
+        "reasoning": "The same graph name or sphere dimension does not identify the graph operation or the face condition. In particular, including the pole edge removes faces containing both poles and changes the homotopy pushout.",
+        "searches": [
+          "Resultary comparisons: edge-spined or adjacent-pole multitheta, parallel paths, ordinary independence complex",
+          "2026/11/22 records 6c30629962ff, 500c0c0501a0, f46cbcd26419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical record is not separate coverage. The same-day 6c30629962ff gives an unspined 3/4-arm sphere collapse; earlier db96fec92047 gives S^1 ∨ S^{p−1} for p length-3 unspined paths."
+        ],
+        "reasoning": "Neither the catalogue entries nor the primary theta case table give the four phases for the spined family; the date shared by two records alone establishes no order.",
+        "searches": [
+          "Ranked Resultary multitheta searches; exact record bde2bc93e75e and distinct entries 6c30629962ff, db96fec92047"
+        ]
+      },
+      "rationale": "No inspected source covers ordinary independence homotopy for a direct pole edge with arbitrarily many additional arms of arbitrary mixed residues. The nearest same-day recorded calculation omits the pole edge and restricts arm lengths to 3 and 4; its sphere agrees in the overlapping length regime, but its graph and result are not equivalent. This is a bounded assessment, not a priority claim.",
+      "residual_risks": [
+        "A targeted web query returned generic subdivision material, not useful negative evidence. A broader theorem under different terminology or an unindexed equivalent could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph, matching sphere degree in a restricted residue regime",
+          "evidence": [
+            "Lengths 3 and 4, both required; no edge between poles; sphere S^{m+q−1}."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-explicit-integral-sphere-collapse-for-mixed-three-and-four-ed--6c30629962ff",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local published mirror",
+          "title": "An explicit integral sphere collapse for mixed three- and four-edge arms",
+          "trigger": "Strongest distinct same-day ordinary independence overlap"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "First classifies induced-forest faces for unspined graphs; second uses two-independence on three unspined paths of lengths 2,2,ell."
+          ],
+          "identifier_or_url": "2026/11/22 records 500c0c0501a0 and f46cbcd26419",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Induced-forest complexes of subdivided multi-theta graphs; four periodic integral homotopy types of two-independence complexes",
+          "trigger": "Same-day complexes on theta graph families"
+        },
+        {
+          "assessment": "Substantial nearby result, fewer routes",
+          "evidence": [
+            "Three-path theta subdivisions have point, sphere or two-sphere wedge type, with dimensions potentially different."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13398-024-01594-z",
+          "material_read": "Prop. 3.5 and Ex. 3.8, example at PDF p. 7, OA offsets 19000–22187",
+          "method": "Primary OA PDF",
+          "title": "Khovanov homology, wedges of spheres and complexity",
+          "trigger": "Primary theta-graph classification"
+        },
+        {
+          "assessment": "Different gluing operation",
+          "evidence": [
+            "Terminal wedges identify one endpoint only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.08798v2",
+          "material_read": "Thm. 3.8, PDF pp. 8–9, offsets 32600–36150",
+          "method": "Primary OA PDF",
+          "title": "Independence complexes of wedge of graphs",
+          "trigger": "Arbitrary number of glued paths"
+        },
+        {
+          "assessment": "Tools, not a covering formula",
+          "evidence": [
+            "Edge deletion and wedge splitting under contractibility or null-map hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.6250v4",
+          "material_read": "PDF pp. 1, 3–4; Props. 3.1 and 3.4 at offsets 11412 and 13647",
+          "method": "Primary OA PDF",
+          "title": "Splittings of independence complexes and the powers of cycles",
+          "trigger": "General cofibre tools potentially implying classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Three-path baseline in Przytycki–Silvero Example 3.8"
+      ],
+      "rationale": "This classifies a natural generalization of the theta graph at the level of homotopy, not merely homology. Both the collapse to a point when residues 0 and 2 mix and the sharp two-summand limit, independent of how many arms occur, are useful distinctions. The exact pole-attachment test explains why adding arbitrarily many routes does not create higher wedge multiplicities.",
+      "residual_risks": [
+        "Limited to the direct-edge, internally disjoint model; no claim about unspined graphs or equivariant or simple-homotopy type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:17.714533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–35 and proof §§1–6, lines 38–76",
+        "VERIFICATION.md lines 3–24; verify.py lines 5–72",
+        "python3 /workspace/audit-work/independent_checks.py 5"
+      ],
+      "rationale": "By Cayley–Hamilton in both characteristics, AB is nilpotent iff tr(AB)=0 and det(A)det(B)=0; no tacit trace constraint on AB is needed. Each nonzero nilpotent B has image=kernel a line L, and each of the q+1 lines supports q−1 such B. Thus the cone including 0 has q² elements. For invertible A, write B=u⊗ℓ with ker ℓ=L=span(u) for each nonzero candidate. Then tr(AB)=ℓ(Au)=0 precisely when A leaves L invariant. The fiber size is 1+(q−1) times the number of invariant lines (where the 1 counts B=0), i.e. 2q−1/1 for odd split/nonsplit and q²/q for even scalar/nonscalar. In characteristic two the unique square root of −det(A) gives the repeated eigenvalue, with one eigenline for a nonscalar; in odd characteristic, at fixed nonzero s=−det A the equation a²+bc=s gives q(q−1) solutions with b≠0, plus 2q or 0 with b=0 for square or nonsquare s. Multiplying by (q−1)/2 proves both odd multiplicities without centralizer tables. A=0 has q³ choices; for nonzero nilpotent A=E₁₂ the nontrivial linear trace condition is B₂₁=0, giving q² and annihilator size q. The two trace-zero, at-least-one-nilpotent incidences each have size H=q³+(q²−1)q² and overlap I=q²+(q²−1)q. Then 2H−I gives the common polynomial. Summing annihilator sizes over zero, nonzero nilpotent and invertible A gives 3q³−q²−q; subtraction factors as stated and any nonzero nilpotent 2×2 matrix has square zero. An independent exact enumeration in GF(8), using (AB)²=0 on 262144 ordered pairs, yielded 8520 nilpotent and 1464 zero products, with fiber multiplicities 441,70,1 at sizes 8,64,512. This is supplementary; the proof is for every prime power. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "This is a count of ordered pairs, not distinct resulting matrices. No higher-dimensional or prescribed-nonzero-trace count is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier indexed formula applies to independent uniform samples from a whole finite unital ring, including full matrix algebras, using the semisimple quotient. Sarma–Subedi use whole-ring or special subring samples."
+        ],
+        "reasoning": "V_q is not closed under ordinary matrix multiplication, including in characteristic two, so it cannot be substituted as a ring in those theorems. Uniform full-ring counts do not prescribe the conditional trace-zero frequencies or their invertible-fiber variation.",
+        "searches": [
+          "Sarma–Subedi arXiv:2610.07892v1 PDF pp. 1, 8, Theorem 2.24",
+          "Resultary mirror 57a121d9f066, Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 81–90",
+        "arXiv:2610.07892v1; arXiv:2310.00477; Zaid–Sarmin–Khasraw Theorem 3.3",
+        "Resultary mirror 57a121d9f066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two nonzero nilpotents the proportional case in Lopatin yields zero product, whereas an E₁₂/E₂₁ representative has nonzero trace product. This recovers the core double-nilpotent overlap but supplies no counts for the mixed invertible/nilpotent case. Whole-ring multiplication by an invertible A is a bijection of the sampling space, eliminating variation in that case."
+        ],
+        "reasoning": "These are substantive overlaps, not just titles. The mixed trace restriction is precisely where the earlier results lack the incident eigenline counts and the split/nonsplit or repeated-root fiber classification; the complete result is not a specialization of the checked sources.",
+        "searches": [
+          "arXiv:2310.00477 Theorem 3.4, case m=2",
+          "arXiv:2610.07892v1 Theorem 2.24",
+          "Resultary 57a121d9f066, exact formula and sampling hypothesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invertible fibers are the trace-polar intersection with the rank-one nilpotent cone; projectively they count invariant lines on the projective line. Lopatin's type (1) orbits account for shared lines when both factors are nilpotent, and type (2) has distinct lines."
+        ],
+        "reasoning": "The eigenline formulation explains why split, nonsplit, scalar and Jordan types differ. It retrieves standard ingredients and real overlap on the nilpotent-pair subproblem, but the inspected orbit theorem is not about the trace-zero space with one invertible factor.",
+        "searches": [
+          "websearch: \"traceless 2x2 matrices\" nilpotent product finite field trace determinant fibers split nonsplit",
+          "Lopatin arXiv:2310.00477, Theorem 3.4 and Corollary 3.5",
+          "Resultary: 57a121d9f066 and related rectangular-product records"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lopatin enumerates GL₂ orbits of tuples of nilpotent matrices. The zero-product paper counts an annihilator in a different sample set of 2×2 matrices over Z_p. The indexed ring formula gives 2q^(−2)−q^(−4) for k=2 in full M₂(F_q), not the trace-conditioned polynomial."
+        ],
+        "reasoning": "An orbit count is not an ordered pair count with arbitrary traceless factors. The checked tables and formulas have different populations or events, not complete conditional fiber tables for the assigned population.",
+        "searches": [
+          "Lopatin arXiv:2310.00477 pp. 6–7 Theorem 3.4 and Corollary 3.5",
+          "Zaid–Sarmin–Khasraw (2025), Theorem 3.3, p. 6",
+          "Resultary mirror 57a121d9f066 exact ring profile"
+        ]
+      },
+      "rationale": "Credit the trace-conditioned pair census and its complete characteristic-dependent fibers, not the nilpotent cone size, orbit types, determinant criterion, or whole-ring probabilities. The strongest inspected sources cover uniform whole-ring sampling or pairs of individually nilpotent factors. The latter overlaps an exact intersection subcount but not the mixed-factor incidence and complete tables.",
+      "residual_risks": [
+        "Exact incidence under the alternative language of projective polar conics or sl₂ over finite fields may be indexed differently. Bounded searches, including an uninformative literature hit, are not evidence of universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform ring and triangular/scalar-diagonal ring comparisons, not trace-conditioned",
+          "evidence": "The sampling space is the ring whose probability is being measured, not a non-ring linear slice.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07892v1",
+          "material_read": "PDF p. 1 definition, p. 8 §2.3 Theorem 2.24, offset 27609",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Nilpotent Product Probability of Finite Rings",
+          "trigger": "Same product event over finite matrix rings"
+        },
+        {
+          "assessment": "Supplies the double-nilpotent orbit structure; no jointly trace-conditioned population with invertible factors",
+          "evidence": "Type (1) tuples are proportional multiples of E₁₂ and type (2) contains a nonzero E₂₁ term; every individual factor in both is nilpotent.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.00477",
+          "material_read": "PDF pp. 6–7 Theorem 3.4 and Corollary 3.5, offset 23127; abstract",
+          "method": "Lawful OA PDF locate then read",
+          "title": "On m-tuples of nilpotent 2×2 matrices over an arbitrary field",
+          "trigger": "GL₂ orbit types and trace-product invariants could supply all or part of the count"
+        },
+        {
+          "assessment": "Whole-ring count is materially related but not a broader theorem covering trace-zero sampling",
+          "evidence": "Formula samples uniform independent elements of an associative unital ring; on M₂(F_q) it uses n_i=2 regardless of any matrix trace.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-nilpotent-product-probability-profiles-of-finite-rings--57a121d9f066/RESULT.md",
+          "material_read": "Finding, assumptions and radical reduction, mirror offsets 0–2300",
+          "method": "Configured Resultary search and local-mirror reading",
+          "title": "Complete nilpotent-product probability profiles of finite rings",
+          "trigger": "Strongest indexed general exact counts for all product lengths"
+        },
+        {
+          "assessment": "Uses a different sample set and only zero products",
+          "evidence": "The theorem takes matrices with entries in Z_p−{0} inside all 2×2 matrices; it does not impose zero trace or discuss nilpotent-product fibers.",
+          "identifier_or_url": "https://jims-a.org/index.php/jimsa/article/download/1838/432/9172",
+          "material_read": "Abstract and PDF p. 6 Theorem 3.3, offset 17318",
+          "method": "Lawful journal OA PDF locate then read",
+          "title": "The Zero Product Probability of Some Finite Ring of Matrices Based on the Order of the Annihilator",
+          "trigger": "Potential earlier exact zero-product subcount"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, both conditional tables, proof §§4–6",
+        "Resultary 57a121d9f066 full-ring comparison"
+      ],
+      "rationale": "The trace-zero slice is the canonical trace kernel and, in dimension two, is exactly where nilpotent factors coincide with the singular ones. It is not an arbitrarily chosen matrix subset. The exact conditional incidence reveals strong arithmetic heterogeneity, including forced zero as the only right factor for nonsplit invertible A in odd characteristic, while the aggregate nilpotent probability is uniform as a polynomial across characteristics. Separating actually zero products from nonzero nilpotent outcomes makes the census usable as a finite-field calibration and not a recomputation of whole-ring probabilities.",
+      "residual_risks": [
+        "The value is the natural exact low-dimensional classification, not novelty of elementary eigenline or quadratic incidence arguments or significance in all dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

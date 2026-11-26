@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:26.831026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each u the determinant-one companion matrix has trace u; its characteristic polynomial splits with distinct roots or stays irreducible exactly according to the nonzero discriminant sign. The sign proof in RESULT.md lines 25–59 concerns one common starting trace t. For p>8 the union of roots is the nine distinct values −6 through 2, with only f_0 and f_4 sharing a root (−2). Off those roots the indicator product is either 32 or 0; on the roots it is at most 16. In the product expansion the nonempty subsets are nonsquares: eight containing {0,4} have precisely one repeated root, whose removal lowers the number of distinct simple roots in the squarefree kernel by two relative to nominal degree and adds at most one to the sum error. The others are squarefree. Summing the Weil coefficients gives 129−16=113 and summing both errors gives 144+8=152. Thus 32N≥p−113sqrt(p)−152, strictly positive at 14000 and increasing thereafter. Independent Python 3 replay at /workspace/branches/5aa5a643-178d-4769-bfe7-a3c43841a834/independent_check.py (output run.log) used Euler character values and the two translated linear factors, and exhausted all t for all 1651 odd primes below 14000, including 3, 5 and 7 where the analytic distinct-root assumption does not apply. It reproduced the complete forty-prime exception list, the sole all-minus gap at 233, and full support at 229 and 239. The next prime after 233 is 239. The replay verifies the bounded range, and the analytic inequality is needed for the infinite range. VERIFICATION.md and the supplied verify.py were inspected without executing author code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wright states asymptotic pattern counts and occurrence for sufficiently large primes.",
+          "a2fa4afbd655 gives all 64 ordinary six-position words for p≥461, with 457 the last obstruction.",
+          "0ce25ceb3ddb considers chi_p(x²+j) for four positions and has cutoff 197."
+        ],
+        "reasoning": "The asymptotic theorem and classical multiplicative bound offer broader methods for occurrence, not sharp classification. The ordinary six-position result neither controls a common nine-position block nor reaches 239, and a four-polynomial family with additive shifts of a single square does not cover these five translated discriminants.",
+        "searches": [
+          "Wright arXiv:1111.2236 Theorem 2.3",
+          "Resultary a2fa4afbd655 (six linear positions)",
+          "Resultary 0ce25ceb3ddb (four shifted x² signs)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1111.2236",
+        "arXiv:2607.17418",
+        "arXiv:2402.10737",
+        "Local Resultary a2fa4afbd655, 0ce25ceb3ddb, 50a43fac6cf7, d08a73e76429, 9c148c4c1298"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each target word, one needs at least one ordinary length-nine preimage with all nine signs nonzero.",
+          "At p=239 there are at most 230 nonzero length-nine starts versus 512 ordinary words, so a theorem realizing every such ordinary word cannot give the boundary by direct specialization."
+        ],
+        "reasoning": "A finer theorem selecting appropriate preimages could settle the product classification, but the inspected asymptotic and short-word theorems do not do so. The same-day six-block record is credited as a close analogue in method, not dismissed by date; its scope and threshold do not imply this result.",
+        "searches": [
+          "Resultary a2fa4afbd655, Finding and scope",
+          "Wright Theorem 2.3, p. 10",
+          "Buchaev–Tsfasman introduction, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With x=t−2 and sigma_j=chi_p(x+j), the target signs are sigma_j sigma_{j+4} for j=0,...,4, on nonzero length-nine blocks.",
+          "Buchaev–Tsfasman count ordinary four- and five-position character patterns; the indexed trace-zero commutator record 9c148c4c1298 studies fibers over chain rings."
+        ],
+        "reasoning": "The length-nine product map is the elementary equivalent formulation. Neither five ordinary consecutive characters nor separate trace-zero fibers fix the joint constraints on these five products of a common block. Individual attainment of traces is not the simultaneous claim.",
+        "searches": [
+          "Resultary: split/nonsplit trace fibers, consecutive quadratic-character signs",
+          "Buchaev–Tsfasman arXiv:2607.17418, abstract and introduction",
+          "Cohen arXiv:2402.10737 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "50a43fac6cf7 covers length-five ordinary signs in nonprime fields; d08a73e76429 has four ordinary signs over odd finite fields; a2fa4afbd655 has six ordinary consecutive signs in prime fields.",
+          "The primary pattern-count passages concern direct characters of shifts, not discriminant products. Cohen's quadruple theorem is in characteristic five."
+        ],
+        "reasoning": "An exact census of ordinary nine-coordinate words with zero exclusions could be projected and would supply finite product counts. The identified exact lists and formulas do not tabulate that input or the target products. The independent computation is evidence for correctness, not for absence of another table.",
+        "searches": [
+          "Resultary: exact short quadratic-character word exception lists and split/nonsplit trace fibers",
+          "Buchaev–Tsfasman arXiv:2607.17418 pp. 1–2",
+          "Cohen arXiv:2402.10737 Theorems 1.1–1.2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the simultaneous sharp prime cutoff, exceptional set and boundary obstruction for the five consecutive trace discriminants with their shared root. Nonzero discriminant classification and Weil expansion are established ingredients. The closest inspected indexed character-universality results use different polynomials or ordinary shifted linear arguments. No inspected statement supplies this exact five-product classification; this is not a proof of historical priority.",
+      "residual_risks": [
+        "An indexed lead c2bf4cbf3153 on four shifted Gaussian-norm signs was available only as a search snippet; its local text was not retrieved and the lead is not used as negative evidence.",
+        "An uninspected exact length-nine table or theorem selecting joint preimages could imply the cutoff. The bounded comparison does not rule out such prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic coverage, not exact cutoff",
+          "evidence": [
+            "Universal pattern occurrence and asymptotic counts at large p; adjacent discussion of Weil estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.2236",
+          "material_read": "Theorem 2.3 and adjacent estimates, p. 10, OA offset about 24970",
+          "method": "Targeted OA preprint passages",
+          "title": "Quadratic Residues and Non-residues in Arithmetic Progression",
+          "trigger": "Broader simultaneous character-pattern occurrence theorem"
+        },
+        {
+          "assessment": "Ordinary signs, not the products of nine signs",
+          "evidence": [
+            "Arbitrary four- and five-position patterns in the sequence of ordinary residues/nonresidues of 1,...,p−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.17418",
+          "material_read": "Abstract and introduction pp. 1–2, OA offset 0",
+          "method": "Targeted OA preprint passages",
+          "title": "Quadratic residue patterns of length 4 and 5",
+          "trigger": "Potential exact length-five pattern counts"
+        },
+        {
+          "assessment": "Different sign constraints and lengths",
+          "evidence": [
+            "All-square or all-nonsquare triples, and quadruples of one sign in characteristic five."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.10737",
+          "material_read": "Theorem 1.1 p. 2 and Theorem 1.2 p. 3",
+          "method": "Targeted OA preprint passages",
+          "title": "Triples and quadruples of consecutive squares or non-squares in a finite field",
+          "trigger": "Exact short consecutive pattern results"
+        },
+        {
+          "assessment": "Related method and sharp result, different variables and cutoff",
+          "evidence": [
+            "Six ordinary consecutive signs, universality at and above 461, with a missing all-residue word at 457."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-six-block-quadratic-character-universality-from-prime-461--a2fa4afbd655",
+          "material_read": "Finding and scope, local mirror RESULT.md offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Sharp six-block quadratic character universality from prime 461",
+          "trigger": "Closest same-day indexed simultaneous prime cutoff"
+        },
+        {
+          "assessment": "Different family and number of signs",
+          "evidence": [
+            "Four chi_p(x²+j) signs, cutoff 197, and a missing all-plus word at 193."
+          ],
+          "identifier_or_url": "Local Resultary 0ce25ceb3ddb",
+          "material_read": "Finding, local mirror RESULT.md offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "The sharp prime threshold for all four quadratic character signs",
+          "trigger": "Indexed variant with quadratic polynomials"
+        },
+        {
+          "assessment": "Different field range, sign pattern size or trace condition",
+          "evidence": [
+            "Nonprime-field length-five ordinary words; odd-field length-four ordinary words; trace-zero split/nonsplit commutator fibers over finite chain rings."
+          ],
+          "identifier_or_url": "Local Resultary 50a43fac6cf7; d08a73e76429; 9c148c4c1298",
+          "material_read": "Findings and scopes, local mirror RESULT.md at offset 0 for each",
+          "method": "Local Resultary search and mirror reads",
+          "title": "Indexed finite-field character and trace comparators",
+          "trigger": "Possible exact character census or equivalent trace formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five is the first short consecutive window with an actual branch-root collision when p>8, giving a natural scope rather than an arbitrary slice. The exact prime cutoff and exception set determine when every five-coordinate sequence of regular split and nonsplit types is available at consecutive traces, which a generic asymptotic character bound does not decide. The unique last obstruction is a useful precise boundary witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

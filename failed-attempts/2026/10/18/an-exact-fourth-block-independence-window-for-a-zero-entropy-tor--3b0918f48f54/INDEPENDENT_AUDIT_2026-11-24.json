@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:35:22.983575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:42–81",
+        "Frozen VERIFICATION.md:19–23",
+        "Frozen verify.py:26–50, 80–128",
+        "Independent bounded replay: python3 -B /tmp/opencode/independent_torus4.py (no frozen script executed)"
+      ],
+      "rationale": "The headline four-block formula is correct on independent rederivation, but its required exact breakpoint certificate as frozen does not solve the claimed linear systems. In verify.py:37–48, u,v,w are the rows of M; the scalar triple products replace rows and thus solve M^T X = rhs, not M X = rhs. For y=1/2, x+y=1, 3x+y+3a=5/2, the true isolated concurrence is (x,y,a)=(1/2,1/2,1/6); the code instead obtains (13/6,-2,5/6) and discards the triple. The 31 listed rows also repeat y=0 and y=1. Independent exact enumeration by intersecting the first two nonparallel lines in the (x,y) plane as functions of a and substituting in the third found 27 qualifying triples among 29 distinct lines, all at a=1/6, not the recorded twelve. Independent exact vertical-strip integration returned 1/3, 2/9, -1/9, -5/18, -1/3 at the five interpolation nodes. Away from the sole isolated breakpoint, all feasible vertices are affine and each area at most quadratic, confirming the formula. Pair independence is Haar pushforward by a full-rank integral map; the half-period y-shift kills odd moments; Walsh inversion gives the word law. The first piece has its sole zero at 1/(4√3), the second never vanishes, and a polynomial Bowen covering bound proves zero entropy, excluding Bernoulli because the factor is nontrivial. The failure is in the original required certificate, not a counterexample to the probability law.",
+      "residual_risks": [
+        "The independent analytic argument and exact rational arithmetic are not formal verification."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/25 SCOPE-exact-hidden-four-bit-dependence-in-a-zero-entropy-skew-shift--3b15bfec2e92, Finding: the same piecewise correlation for all equally spaced quadruples after replacing α by h²α; also gives a nonconsecutive witness.",
+          "Lemma 2.1 gives a general even-moment Fourier sum for the same signs."
+        ],
+        "reasoning": "The stronger indexed statement at h=1 is the exact frozen result. An unevaluated earlier even-moment sum is broader representational coverage, not by itself the evaluated piecewise law.",
+        "searches": [
+          "Resultary: zero-entropy skew shift fourth-order dependence in arithmetic progressions",
+          "arXiv:nlin/0410066v1, Lemma 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and matching source mirror records listed above",
+        "arXiv:nlin/0410066v1 exact cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S4=Z0+Z1+Z2+Z3, fair pairwise independent signs give E[S4^4]=4+6·6+24C=40+24C; take n=4 and q=2 in (2.0.7).",
+          "The indexed exact evaluation plugged into 4-bit Walsh inversion recovers each word probability and the entropy formula without additional analysis."
+        ],
+        "reasoning": "Isolating C in the 2004 general moment expansion is mechanical. An explicit evaluation still requires work from that source alone. The distinct indexed exact formulas, unlike the moment representation, already imply the complete frozen assertion.",
+        "searches": [
+          "arXiv:nlin/0410066v1, Eq. (2.0.7)",
+          "Both matching indexed Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26 SCOPE-exact-fourth-order-dependence-phases-of-a-binary-skew-rotation-c--6d6bad371067, Finding: identical piecewise law and exceptional phases in exchanged torus coordinates.",
+          "Bernardo–Courbage–Truong, equations (1.0.12)–(1.0.16): same orbit formula after scaling the torus, with the signs simultaneously negated."
+        ],
+        "reasoning": "Coordinate exchange preserves Haar probability and the observed orbit after relabeling. Global sign negation does not affect the fourth product or the resulting four-word law.",
+        "searches": [
+          "Resultary: toral skew shift / binary skew rotation, half-circle four-bit law",
+          "arXiv:nlin/0410066v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Findings explicitly provide the complete consecutive law, with the same breakpoint and exceptional phases. Neither is the identical frozen record."
+        ],
+        "reasoning": "This is direct indexed coverage of the exact claim, independently of any publication-priority inference from catalogue dates. A separate numerical table is not needed to demonstrate the exact overlap.",
+        "searches": [
+          "Resultary local search and source inspection: SCOPE-exact-hidden-four-bit-dependence-in-a-zero-entropy-skew-shift--3b15bfec2e92",
+          "Resultary local search and source inspection: SCOPE-exact-fourth-order-dependence-phases-of-a-binary-skew-rotation-c--6d6bad371067"
+        ]
+      },
+      "rationale": "The exact evaluated law and uniform phases have distinct, verified indexed coverage, including a stronger progression result. This is a finding of current coverage, not an assertion that either later-dated catalogue entry had priority over the frozen record. The 2004 paper separately supplies a general Fourier representation and already covers the object and low-order context; no explicit earlier evaluation is established by this review. No scientifically distinct remainder of the submitted central claim warrants a repair.",
+      "residual_risks": [
+        "Bounded prior-literature search cannot certify historical priority.",
+        "The Courbage–Hamdan and Dooley–Quas references were not separately inspected; the exact indexed coverage already decides the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object and general exact even-moment representation; inspected passages do not exhibit the evaluated piecewise function.",
+          "evidence": [
+            "Sign convention reverses the half-circle signs but leaves the fourth product invariant.",
+            "The n=4,q=2 specialization gives C through E[S4^4]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/nlin/0410066",
+          "material_read": "Introduction and Section 2 relevant passages; pp. 6–7, Eqs. (1.0.12)–(1.0.16); p. 9, Lemma 2.1 and Eq. (2.0.7)",
+          "method": "OA v1 paper text with bounded passages",
+          "title": "Multidimensional Gaussian sums arising from distribution of Birkhoff sums in zero entropy dynamical systems",
+          "trigger": "Same toral process and observable; plausible general overlap"
+        },
+        {
+          "assessment": "Covered by stronger exact result; no historical priority inference.",
+          "evidence": [
+            "Same consecutive piecewise law, and Θ(h²α) for arbitrary integer observation spacing h."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-hidden-four-bit-dependence-in-a-zero-entropy-skew-shift--3b15bfec2e92",
+          "material_read": "RESULT.md offsets 0–6499 and 6499–9473",
+          "method": "Local source mirror",
+          "title": "Exact hidden four-bit dependence in a zero-entropy skew shift",
+          "trigger": "Strong indexed semantic match"
+        },
+        {
+          "assessment": "Equivalent evaluated law and exceptional phases.",
+          "evidence": [
+            "Interchange coordinate names to recover the frozen dynamical system and observable."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-fourth-order-dependence-phases-of-a-binary-skew-rotation-c--6d6bad371067",
+          "material_read": "RESULT.md offsets 0–6114 and 6114–9010",
+          "method": "Local source mirror",
+          "title": "Exact fourth-order dependence phases of a binary skew rotation",
+          "trigger": "Strong indexed semantic match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–40",
+        "Compared arXiv:nlin/0410066v1 for the natural observable and moment context"
+      ],
+      "rationale": "In isolation the evaluated law answers a natural first potentially nontrivial finite-window question for a standard zero-entropy sign process: all smaller distinct-time marginals are uniform, yet the fourth block is usually not, and isolated irrational phases restore its uniformity. This assessment of mathematical utility is not credit for a separate contribution where indexed coverage already exists.",
+      "residual_risks": [
+        "A uniform consecutive block does not establish independence for arbitrary four observation times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

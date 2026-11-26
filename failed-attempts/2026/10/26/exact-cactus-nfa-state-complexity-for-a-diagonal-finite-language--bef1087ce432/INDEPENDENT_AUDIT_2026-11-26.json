@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:00.954485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35; VERIFICATION.md; independent finite topology enumeration in /workspace/review-evidence/cactus.js (node /workspace/review-evidence/cactus.js), yielding unrestricted/cactus minima (4,4) and (5,6) for k=2 and 3."
+      ],
+      "rationale": "For each of the k accepted words choose a length-two accepting path. Two chosen paths cannot share the middle state, since splicing them would accept an off-diagonal word. A middle state cannot be initial or final, since then a word of length one is accepted. Three such middle states with the same final force two distinct four-cycles sharing an edge at the initial state. Thus at least ceil(k/2) distinct finals are needed. Pairing the paths at their finals realizes this bound with four-cycles meeting only at the start and a pendant path for an odd singleton. A shared final attains the unrestricted bound k+2, including k=1,2 where the overhead is zero. The proof counts states, not transitions, and covers nonunambiguous NFAs.",
+      "residual_risks": [
+        "The finite enumeration is corroboration only; the general lower bound and construction give the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grobler–Koziel–Siebertz provide existence for all regular languages but not the state minima in their theorem. Record 3 covers all nonempty length-two relations under the same convention."
+        ],
+        "reasoning": "Existence alone is not coverage; the exact arbitrary-relation theorem is coverage of this special case.",
+        "searches": [
+          "arXiv:2610.11717, Theorem 1.1, p. 2",
+          "Assigned record 3, RESULT.md lines 5–13 and 29–42"
+        ]
+      },
+      "checked_sources": [
+        "Indexed Resultary record 00e635271147",
+        "Assigned record 3",
+        "arXiv:2610.11717"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each nonempty rectangle contained in the diagonal is a singleton, so its rectangle cover number is k. Substitution into the two general minima gives k+2 and 1+k+ceil(k/2)."
+        ],
+        "reasoning": "Both independent comparisons leave no distinct mathematical remainder in the frozen finding; the overhead just subtracts the two known minima.",
+        "searches": [
+          "00e635271147, RESULT.md Finding and proof/relationship",
+          "Assigned record 3, rectangle-cover definition and minima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result gives the very same diagonal-language unrestricted and bipartite-cactus state minima, with one initial state and epsilon-free transitions."
+        ],
+        "reasoning": "No translation changes the alphabet, graph model, or cost; the three displayed conclusions (including overhead) coincide.",
+        "searches": [
+          "Resultary: diagonal or equality length-two language, bipartite cactus NFA exact state minima",
+          "2026/10/18/SCOPE-exact-state-cost-and-matching-rigidity-for-diagonal-languages-in--00e635271147, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct record has the same two exact symbolic values and more detailed structural information, not merely isolated numerical matches."
+        ],
+        "reasoning": "The index record is a positive exact hit, verified in its finding, not a title match or the frozen item itself.",
+        "searches": [
+          "Configured Resultary index, diagonal cactus NFA state-cost and matching-rigidity record 00e635271147; local mirror RESULT.md"
+        ]
+      },
+      "rationale": "The exact finding is covered in the same model by a distinct indexed diagonal-language result, which also gives rigidity. Independently, the arbitrary-relation theorem in assigned record 3 implies all of the finding. Demonstrated coverage is decisive; this is not a claim about discovery order.",
+      "residual_risks": [
+        "Catalog labels 2026-10-18 and 2026-10-26 are not by themselves evidence of public priority or independent origination. This does not weaken the exact coverage comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS; additional planar/tree minima and optimal-form rigidity",
+          "evidence": [
+            "Finding states the exact diagonal unrestricted and cactus minima under the matching conventions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-state-cost-and-matching-rigidity-for-diagonal-languages-in--00e635271147",
+          "material_read": "RESULT.md Finding and proof/relationship, offsets 0 and 4863",
+          "method": "Configured Resultary index and local repository mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact state cost and matching rigidity for diagonal languages",
+          "trigger": "Direct exact-match search result for diagonal cactus automata"
+        },
+        {
+          "assessment": "Existence theorem is broader in languages but does not supply an exact minimum",
+          "evidence": [
+            "The theorem asserts existence of an epsilon-free bipartite-cactus NFA for every regular language."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11717",
+          "material_read": "Theorem 1.1, p. 2, PDF text offset 4750",
+          "method": "Open primary PDF",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Primary theorem for the exact graph model"
+        },
+        {
+          "assessment": "COVERS as a specialization",
+          "evidence": [
+            "b(R)+2 and 1+b(R)+ceil(b(R)/2) specialize at b(R)=k."
+          ],
+          "identifier_or_url": "Assigned record 3",
+          "material_read": "RESULT.md lines 5–13 and 29–42",
+          "method": "Direct frozen file review",
+          "title": "Exact cactus state complexity of every two-letter finite language",
+          "trigger": "Distinct frozen generalization with the same optimizing model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–7 and 41–47; indexed record 00e635271147 Finding."
+      ],
+      "rationale": "A sharp linear cactus overhead is a useful illustrative example, but the record contains only the already covered diagonal minima and their difference. It supplies neither a new exact invariant nor additional structure of minimizers beyond the indexed stronger diagonal result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

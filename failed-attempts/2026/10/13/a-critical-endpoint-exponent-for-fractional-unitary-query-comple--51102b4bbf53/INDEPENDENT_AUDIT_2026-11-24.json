@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:56.282917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–177; VERIFICATION.md lines 19–46; artifacts/verify.py inspected, not executed",
+        "arXiv:2610.01940v1 Definition 3, Theorem 1, Appendix D.2 Eq. (D21), §V"
+      ],
+      "rationale": "The cited bound is Appendix D.2 Eq. (D21) of arXiv:2610.01940v1, before restricting t away from the endpoints. The same model and uniform error convention apply. The degree/jump reduction can also be checked on H=diag(δ,δ+θ) for 0≤θ<2π−δ: starting from |+⟩, twice the output coherence is a Laurent polynomial P of degree at most 2N after N controlled forward/inverse queries, and trace-norm control of the output bounds |P(θ)−e^{itθ}| by ε. The shifted difference P(θ+δ)−e^{itδ}P(θ) is bounded by 2ε on the arc of length 2π−2δ (endpoints by continuity); at 2π−δ periodicity makes its magnitude at least 2sin(πt)−2ε. The trigonometric Remez bound used in the source has factor T_{4N}(sec(δ/2))≤exp(4Nδ) for 0<δ<1; a complex polynomial can be handled by rotating its maximum to the real axis and taking the real part. This recovers the recorded lower bound in its positive regime. The universal Theorem 1 upper bound has no fixed-endpoint restriction. For both scalings the sine term is πcε^α(1+O(ε^{2α})); the bracket in D21 is (1−α)log(1/ε)+log(πc/4)+O(ε^{2α}), independently of δ. Near an endpoint the relevant unitary has spectral arc length at most (2π−δ)min(t,1−t); centering it gives channel error at most four times the sine of one-quarter of that arc length. For α>1 this is o(ε), giving zero queries near zero and at most one near one. The critical scaling and exact optimality near one are not claimed.",
+      "residual_risks": [
+        "The upper bound is imported from the primary source, not a new QSVT construction. The previously stated additive GQSP complexity is noted in the anchor's introduction; this review does not certify that earlier proof or equate its query/error formulation with an improvement of Eq. (D21). No conclusion at α=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier algorithmic work provides gap-dependent fractional-query bounds, but the deciding stronger prior coverage is the anchor's same-model universal upper bound and separate explicit lower bound valid before imposing fixed t separation.",
+          "Motlagh–Wiebe state a different additive complexity estimate; it does not provide the endpoint classification, and the offending originality overlap here already follows from the later anchor alone."
+        ],
+        "reasoning": "The uniform jump-adaptive conjecture is broader and open in the anchor; its being open does not make this direct consequence of already-proved inequalities new.",
+        "searches": [
+          "arXiv:0810.3843v2 black-box fractional-time gap dependence",
+          "arXiv:1806.01838 §5.3 QSVT",
+          "arXiv:2308.01501v2 Theorem 10 GQSP",
+          "arXiv:2610.01940v1 Theorem 1 and Appendix D.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01940v1, 0810.3843v2, 1806.01838 and 2308.01501v2",
+        "Focused Resultary comparison, excluding the frozen self record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D21 is Q≥(4δ)⁻¹ log(sin(πt)/(4ε)); Theorem 1 is a δ⁻¹log(1/ε) upper bound for every t. §V says the identity or one query achieves error O(min(t,1−t))."
+        ],
+        "reasoning": "A sine Taylor expansion and α<1 prove the first branch, and cε^α=o(ε) for α>1 proves the second. These are routine parameter substitutions, including uniformity when δ varies; there is no materially unresolved step addressed in the claim.",
+        "searches": [
+          "arXiv:2610.01940v1 Eq. (D21), Theorem 1 and §V (Dependence on t)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing s=min(t,1−t) rewrites the two endpoints as the same sin(πs) lower bound with the same universal upper bound. The anchor also discusses identity or one query at error O(s)."
+        ],
+        "reasoning": "The symmetric jump-size formulation used by the anchor directly dominates the power-law restatement; distinguishing upper and lower endpoint query counts does not remove this equivalence.",
+        "searches": [
+          "Resultary: fractional-power controlled oracle endpoint exponents and sin(πt) jump-dependent complexity",
+          "arXiv:2610.01940v1 §V and Appendix D.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked searches did not surface another material catalogue comparison. The assigned finding itself is not prior coverage. The external query gave no relevant evidence."
+        ],
+        "reasoning": "This is a continuous asymptotic law, not a finite table entry; absence of a second indexed standalone theorem does not counter the primary-source implication.",
+        "searches": [
+          "Resultary: three focused fractional-unitary endpoint/query-model searches; compare assigned self record ...51102b4bbf53",
+          "External bounded exact-topic literature query"
+        ]
+      },
+      "rationale": "The endpoint exponent law is mechanically implied by the same-model bounds and endpoint discussion already published in arXiv:2610.01940v1. The precise α wording is not stated there, but substituting min(t,1−t)=cε^α in D21 and its universal upper bound gives the entire logarithmic branch, while its stated O(min(t,1−t)) approximation already gives the other branch. The elementary centering constant does not change the law or resolve the critical crossover.",
+      "residual_risks": [
+        "The exact power-law wording might be independently stated elsewhere, not needed for this verdict. The evidence proves coverage by implication, not identical phrasing or an assertion about the entire earlier literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication; no assumption mismatch at the endpoints",
+          "evidence": [
+            "Eq. (D21) precedes fixed-t specialization. Theorem 1 uses a universal constant, and §V explicitly discusses identity/one query for small endpoint distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01940v1",
+          "material_read": "Introduction offset about 10233; Definition 3 and Theorem 1 pp. 5–6 offsets 22000–26139; §V p. 7 offsets 30021–30294; Appendix D.2 p. 14 offsets 51200–56144",
+          "method": "OA PDF bounded passages and independent implication check",
+          "title": "Optimal query complexity for fractional quantum evolution",
+          "trigger": "Same model and inequalities yielding the exact recorded claim"
+        },
+        {
+          "assessment": "Relevant predecessors; D21 is the decisive stronger comparison",
+          "evidence": [
+            "These provide gap-dependent fractional-query results; the upper construction is not a new contribution in the frozen finding."
+          ],
+          "identifier_or_url": "arXiv:0810.3843v2; arXiv:1806.01838",
+          "material_read": "Fractional approximation and gap/error dependence in the former; fractional query construction §5.3 in the latter",
+          "method": "Lawful OA bounded literature comparison",
+          "title": "Approximating Fractional Time Quantum Evolution; Quantum singular value transformation and beyond",
+          "trigger": "Earlier gap-dependent fractional-query bounds and universal construction"
+        },
+        {
+          "assessment": "Reports additive bound, not independently adjudicated here; no need to use it to establish prior implication",
+          "evidence": [
+            "The stated complexity is O(1/δ+log(1/ε)), with a gap lower bound Ω(1/δ); that statement does not articulate the α transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.01501v2",
+          "material_read": "Abstract and Theorem 10 statement; anchor's discussion of the stated complexity in its introduction",
+          "method": "OA PDF bounded passages",
+          "title": "Generalized Quantum Signal Processing",
+          "trigger": "Plausible stronger prior fractional-query algorithm"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–73, 191–215",
+        "arXiv:2610.01940v1 §V and Appendix D.2"
+      ],
+      "rationale": "The statement is a useful explanatory reading of prior bounds, but its two regimes follow by the same elementary substitution and little-o comparison already made available by the anchor. No nontrivial crossover threshold, uniform adaptive upper construction, or independent endpoint classification beyond those bounds is established. Clarification alone is not a distinct scientific finding here.",
+      "residual_risks": [
+        "No proposed rewrite or narrowed repair resolves α=1 or the anchor's adaptive conjecture."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

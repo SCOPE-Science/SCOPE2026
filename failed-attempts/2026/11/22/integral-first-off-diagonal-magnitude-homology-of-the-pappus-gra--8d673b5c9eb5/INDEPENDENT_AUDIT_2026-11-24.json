@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:31:12.807687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; VERIFICATION.md; pappus_exact.py and pappus_exact_output.txt (inspected as text)",
+        "/workspace/independent_checks.py (pappus) and /workspace/independent_checks.log"
+      ],
+      "rationale": "Independent exhaustive reconstruction from the LCF word used Floyd–Warshall distances, all tuples with one to three interior entries, and deletion exactly when the resulting tuple belonged to the lower length-four group. It matched all five chain and boundary profiles and the endpoint counts. The ranks computed modulo 2 are the integral ranks: B3 is a directed incidence matrix, with a ground vertex added and its row deleted for columns having just one surviving face. It is totally unimodular. Every length-four degree-three chain has exactly one distance-two step, and the graph has no 4-cycle, so that step has exactly one geodesic refinement. Thus each row of B4 has exactly one signed unit. The nonzero columns have disjoint supports and generate a primitive subgroup, independently of sign. These facts verify the asserted unit nonzero Smith factors, and the independently checked chain condition gives torsion-free H3. The result is Z^2 for each of 108 ordered pairs, Z for each of 36, and zero otherwise, totaling Z^252.",
+      "residual_risks": [
+        "No conclusion about the integral automorphism representation or unspecified bidegrees; these are statements about abelian groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Girth at least 7 is needed for the relevant vanishing, above Pappus girth 6. The analogous projective-plane incidence computation has different hypotheses and does not cover the Pappus 9_3 configuration."
+        ],
+        "reasoning": "Neither broader vanishing nor the projective-plane special family gives the Pappus ranks. The demonstrated coverage is instead the exact earlier Pappus table plus elementary matrix structure.",
+        "searches": [
+          "Asao–Hiraoka–Kanazawa arXiv:2101.09044v1, Thm. 1.3 and Cor. 1.4; Resultary finite projective-plane first-off-diagonal analogue"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and coefficient-variant searches",
+        "Primary and mirror passages in source_inspections",
+        "Elementary implication verified independently from the endpoint chain definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In degree 3 there are two interior deletions with opposite signs; this is a grounded directed incidence matrix. In degree 4 every row of the boundary corresponds to the unique refinement of the one length-two step of a degree-three chain, since girth six rules out two distinct common neighbors."
+        ],
+        "reasoning": "The first fact forces B3 to be primitive, the second forces B4 to be primitive. Hence H2 and H3 are torsion-free in each endpoint block as subgroups of the corresponding torsion-free cokernels. The universal coefficient theorem identifies the prior mod-two dimension with the integral rank with no Tor correction. This is a direct corollary without any new enumeration or delicate prime-specific estimate. This does not claim the older record explicitly stated the integral result.",
+        "searches": [
+          "Earlier Pappus RESULT.md, offsets 0–3354: Finding, Assumptions and Proof",
+          "Frozen RESULT.md lines 19–33: signed deletion boundary and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record uses the identical graph, length, endpoint ordering and chain conventions, with coefficients F2. The primary comparators give a chain-space framework and computations for other graph classes, not an explicit Pappus integral table."
+        ],
+        "reasoning": "The coefficient change is the only mathematical difference between the same-graph tables. A coefficient change can matter in general, but primitivity of the adjacent boundaries in this bidegree makes this coefficient change exact.",
+        "searches": [
+          "Resultary: Pappus endpoint-localized first-off-diagonal magnitude homology, integral torsion and coefficient variants",
+          "Asao–Izumihara arXiv:2003.08058v1 and Gu arXiv:1809.07240v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The integral exact hit is the frozen record itself. The distinct earlier hit, 0976e6ab38f3, gives the full F2 table including both boundary ranks and verifies girth six."
+        ],
+        "reasoning": "There is no independent exact integral wording in the inspected hits, but every rank entry and the graph property needed to read it integrally are already available together.",
+        "searches": [
+          "Resultary: integral Pappus MH(3,4), first off-diagonal 252, distance-two rank two and distance-four rank one"
+        ]
+      },
+      "rationale": "The earlier Pappus result explicitly stops at F2 and does not assert integral torsion-freeness. Nevertheless its exact endpoint table together with its verified no-square hypothesis already gives this integral classification by immediate boundary-matrix consequences of the chain definition. The Smith replay is valid but does not supply a logically independent new classification.",
+      "residual_risks": [
+        "Priority for explicit statements of integral Pappus groups or the general no-square torsion-free observation is not claimed; the verdict relies on demonstrated implication, not unlocated papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mod-two predecessor; integral conclusion follows with elementary boundary argument",
+          "evidence": "Ranks 2, 1 and 0 by the claimed endpoint distances, total 252, girth six, and explicit restriction of stated conclusion to F2.",
+          "identifier_or_url": "SCOPE-endpoint-localized-first-off-diagonal-magnitude-homology-of-the--0976e6ab38f3",
+          "material_read": "RESULT.md Finding, Assumptions, Proof; offsets 0–3354",
+          "method": "Published-record mirror",
+          "title": "Endpoint-localized first off-diagonal magnitude homology of the Pappus graph",
+          "trigger": "Identical graph, endpoint split and bidegree"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Dimension q^2 for distinct points or distinct lines in finite projective-plane incidence graphs; hypotheses do not include the Pappus configuration.",
+          "identifier_or_url": "SCOPE-endpoint-localized-first-off-diagonal-magnitude-homology-of-fini--f51b07cd11f1",
+          "material_read": "RESULT.md Finding",
+          "method": "Published-record mirror",
+          "title": "Endpoint-localized first off-diagonal magnitude homology of finite projective-plane incidence graphs",
+          "trigger": "Characteristic-independent same-bidegree result on related incidence graphs"
+        },
+        {
+          "assessment": "Does not yield this nonvanishing table",
+          "evidence": "The girth vanishing threshold in this bidegree is at least seven.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.09044v1",
+          "material_read": "Thm. 1.3 and Cor. 1.4, p. 2 around offset 7600",
+          "method": "OA PDF",
+          "title": "Girth, magnitude homology, and phase transition of diagonality",
+          "trigger": "General first-off-diagonal girth theorem"
+        },
+        {
+          "assessment": "Framework only in inspected passage",
+          "evidence": "Relative simplicial-chain model, no Pappus table stated there.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.08058v1",
+          "material_read": "p. 1, statement of scope and homological model",
+          "method": "OA PDF",
+          "title": "Geometric approach to graph magnitude homology",
+          "trigger": "Relative-chain model potentially covering the same integral calculation"
+        },
+        {
+          "assessment": "No Pappus coverage established in inspected passage",
+          "evidence": "Names trees, diagonal graph classes, icosahedron and cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.07240v1",
+          "material_read": "p. 1, list of result families",
+          "method": "OA PDF",
+          "title": "Graph magnitude homology via algebraic Morse theory",
+          "trigger": "Possible integral computations for a covering class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Earlier Pappus RESULT.md Finding and Proof",
+        "Boundary-structure implication in this review"
+      ],
+      "rationale": "The named graph and first nonvanishing girth boundary are reasonable motivations. However, in this single bidegree every computed endpoint rank was already published and there is no remaining all-prime ambiguity after examining the immediate incidence and unique-refinement structures. The larger exact Smith replay does not add a useful separate quantitative invariant, and the frozen claim does not assert a broader structural theorem or an integral representation. A newly formulated general statement would require its own review, not repair by relabeling this table.",
+      "residual_risks": [
+        "A broader no-square theorem would be a different claim; its priority and value are not settled by this review."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

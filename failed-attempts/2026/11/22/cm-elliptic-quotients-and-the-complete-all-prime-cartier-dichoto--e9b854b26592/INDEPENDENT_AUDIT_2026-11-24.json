@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:12:15.970742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69, VERIFICATION.md, and check.py (read only)",
+        "Independent algebra and finite replay: python3 /workspace/branches/04498606-3b75-4ac7-9e53-8e04ebd207d5/independent_check.py",
+        "Cardona–Quer arXiv:math/0203165 §5 and the classical H_{−20}/Deuring inputs"
+      ],
+      "rationale": "The theorem is geometric and excludes p=2,5. At a nonzero root write t=x²; t²−5t+5=0 cannot also satisfy t²−3t+1=0, as their difference would force t=2, not a root. At zero f′=5. With c=d² and K=5+2c, the elliptic cubic discriminants are nonzero since K(K−4c)=5. The reciprocal map is an involution, and its two fixed fields (using it alone or with the hyperelliptic involution) are obtained from u=x+c/x and v±=y(x±d)/x²: x solves a quadratic over either fixed field and y is recovered from x and v±. Substitution gives the two stated cubics and (u,v)↦(−u,iv) identifies them. The two norm/pullback products are [2] on their diagonal and zero off it by the signs of the involution and torsion-freeness of Hom. Thus the product map has degree 4 and is prime to p. For E+, c₄=80(3+2c) and Δ=64K(K−4c)²; simplifying using c²=5 gives j=632000+282880c and the stated CM polynomial. Deuring's split/inert criterion then gives the ordinary/supersingular elliptic dichotomy. The degree-four isogeny identifies the p-divisible groups (in particular p-torsion), so the Jacobian has Cartier rank 2 or 0 and p-rank 2 or 0. In the latter case a=2 equals the dimension, which characterizes superspeciality over the algebraic closure; the conclusion is not inferred just from supersingular slopes. Quadratic reciprocity for (−5/p) gives the listed classes. The independent bounded replay checks the cubic identities and j symbolically and the Hasse–Witt ranks for odd p<50 other than 5.",
+      "residual_risks": [
+        "The independent finite replay is a smaller spot check than the frozen range p<200; it neither certifies that complete run nor substitutes for the structural proof.",
+        "No isomorphism of principally polarized abelian varieties with an elliptic product is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardona–Quer classifies the D₈ elliptic-involution quotients and gives the j-invariants of the two quotient isomorphism classes as functions of t. Tafazolian–Top arXiv:2509.00273 gives the prime-degree CM type and Newton slopes: at degree 5 the type on Q(i,√5) is induced from Q(√−5). Their newer work covers Chebyshev supersingularity and maximality, including the p≡1 mod 4 degree-five cases p≡13,17 mod 20."
+        ],
+        "reasoning": "The Tafazolian–Top slope results are not claims about p-torsion or a-numbers by themselves; the decisive route to the finer invariant is the known elliptic quotient structure with degree prime to p.",
+        "searches": [
+          "Cardona–Quer arXiv:math/0203165 §5, Prop. 5.1 and (12)",
+          "Tafazolian–Top arXiv:2509.00273 §§2–3 and arXiv:2611.14198v1 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary e9b854b26592",
+        "arXiv:math/0203165, 2611.10255v1, 2509.00273, 2611.14198v1",
+        "Takei McGill thesis metadata and attempted OA routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonhyperelliptic involution W and its product with the hyperelliptic involution give degree-two quotients with orthogonal pullbacks; in the prior D₈ diagram they are conjugate and isomorphic over the algebraic closure. The dual composite [2]×[2] gives degree 4. The prior formula identifies their CM field by the class polynomial at t=1/5. Good reduction away from 2,5 permits specialization of this prime-to-p isogeny (or the same involution construction in the special fiber), so Deuring's split/inert classification determines the square of the elliptic p-torsion. The thesis full text was not available to read through the cited and alternate OA routes."
+        ],
+        "reasoning": "Knowing the split degree is essential: mere equality of Newton slopes would not force a maximal a-number. The earlier degree-two quotient architecture, exact j formula and standard prime-to-p invariance do force it in this case. The explicit invariants are obtained directly from the known reciprocal substitution, without a new exceptional-prime analysis.",
+        "searches": [
+          "Cardona–Quer Prop. 5.1, quotient-isomorphism diagram and (12)",
+          "Kazemifard–Tafazolian Prop. 3.6",
+          "Tafazolian–Top arXiv:2509.00273 CM type and slope formula",
+          "L K Takei Arithmetic Aspects of Triangle Groups Thesis McGill 2014 eScholarship Takei thesis PDF 5.2 Hasse Witt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit e9b854b26592 is the frozen record itself. Cardona–Quer uses X⁵+X³+tX and the frozen curve becomes that model at t=1/5. Kazemifard–Tafazolian Prop. 3.6 explicitly studies the same X₅ and supplies the reciprocal symmetry and the Klein-four subgroup, including the exceptional automorphism group at p=11."
+        ],
+        "reasoning": "The normalized D₈ parameter and the Chebyshev notation represent the same geometric characteristic-zero curve, not just nearby moduli. The p=11 group enlargement does not remove the involutions.",
+        "searches": [
+          "Resultary: Chebyshev x^5−5x^3+5x, degree-four elliptic quotient, H_{−20}, all-prime Cartier/superspecial dichotomy",
+          "Cardona Quer genus 2 D8 two elliptic quotients j invariant explicit y^2 x^5 x^3 x isogeny D8 superspecial Jacobians degree 4",
+          "Kazemifard–Tafazolian arXiv:2611.10255v1 Proposition 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The D₈ CM table includes t=1/5 explicitly. Taking √t=√5/5 in (12) gives 64(3+2√5)³/[(1+2√5/5)(1−2√5/5)²] and its conjugate, exactly the asserted j values. The newer Tafazolian–Top table and corollary concern the supersingular/maximal framework, not the full p-torsion group scheme."
+        ],
+        "reasoning": "The characteristic-zero parameter, its CM property and the exact elliptic invariant are already recoverable from prior exact data by direct substitution. No prior table of the full p-torsion is asserted from a slope classification.",
+        "searches": [
+          "Cardona–Quer arXiv:math/0203165 equation (12) and CM parameter table, p. 20 (offsets 68070–74301)",
+          "Tafazolian–Top arXiv:2611.14198v1 Table 1 and Corollary 6.2",
+          "Exact Hilbert class polynomial H_{−20}"
+        ]
+      },
+      "rationale": "The decisive earlier material is Cardona–Quer, §5, equation (12) and the CM table on p. 20. The frozen quintic normalizes by x=√(−5)X and scaling y to the already tabulated D₈ model Y²=X⁵+X³+tX at t=1/5. The prior j formula at this t is exactly the two conjugate H_{−20} values, not just a generic CM existence statement. Kazemifard–Tafazolian give the reciprocal involution for the same curve; its two conjugate elliptic quotients give the standard (2,2)-split Jacobian, so the degree is 4. These quotient data and good reduction imply the p-torsion and superspecial dichotomy by standard prime-to-p specialization and Deuring. Writing the old involution's invariants in explicit coordinates is a routine calculation; it does not leave a distinct result. The judgment does not rely on inability to retrieve Takei.",
+      "residual_risks": [
+        "Takei §5.2 remains unread; its precise central-fiber overlap is unknown and has no bearing on the concrete Cardona–Quer implication.",
+        "This establishes prior coverage of the mathematics by specialization and standard implications, not the first publication of the exact cubic coordinate presentation or the residue-class table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior exact data and quotient structure",
+          "evidence": "Provides the X⁵+X³+tX model, exact j formula for both classes, and t=1/5 explicitly in the D₈ CM list; conjugate involutions give isomorphic quotients.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0203165",
+          "material_read": "§5 Proposition 5.1, pp. 19–21, offsets 68070–74301, including (12), quotient diagram, model and CM table; reference [3] at 95210 onward",
+          "method": "Primary OA PDF, located and read bounded passages",
+          "title": "Curves of genus 2 with group of automorphisms isomorphic to D₈ or D₁₂",
+          "trigger": "Earlier D₈ quotient and exact CM invariant formulas"
+        },
+        {
+          "assessment": "Same underlying involutions, including the Klein-four subgroup in the characteristic-11 exception",
+          "evidence": "Explicit reciprocal symmetry; the full group is dihedral of order eight outside the exceptional allowed characteristic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10255",
+          "material_read": "Prop. 3.6 and proof, pp. 7–8, extracted offsets 27500–32927",
+          "method": "Primary OA PDF passage",
+          "title": "Automorphisms of Kummer and Artin–Schreier Curves Defined by Chebyshev Polynomials",
+          "trigger": "Exact X₅ and reciprocal automorphisms in allowed characteristics"
+        },
+        {
+          "assessment": "Already implies elliptic-square isogeny type over characteristic zero and the Newton split/inert behavior; by itself not the p-torsion computation",
+          "evidence": "Degree-five CM field and type induced from Q(√−5), and Newton-slope formula.",
+          "identifier_or_url": "https://arxiv.org/html/2509.00273",
+          "material_read": "§§2–3 offsets 9300–14700 and Prop. 4.1.1 offsets 38800–44300",
+          "method": "Primary OA HTML passages",
+          "title": "CM theory, maximal hyperelliptic curves, and Chebyshev polynomials",
+          "trigger": "Earlier characteristic-zero CM and Newton information on the same curve"
+        },
+        {
+          "assessment": "Covers supersingularity in the specified p≡1 mod 4 scope and describes CM factors; not equated with superspeciality",
+          "evidence": "Same normalized degree-five Chebyshev polynomial and degree-five supersingularity at p≡13,17 mod 20 in that scope.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14198v1",
+          "material_read": "Intro and Thm. 1.1 offsets 0–6979, §§3–4 offsets 15800–28500, Table 1 and Cor. 6.2 around offsets 44500–50980",
+          "method": "Primary OA HTML passages",
+          "title": "A Complete Classification of Maximal Hyperelliptic Curves Related to Chebyshev Polynomials",
+          "trigger": "Exact Chebyshev family and supersingularity classes"
+        },
+        {
+          "assessment": "Unresolved overlap, not negative evidence",
+          "evidence": "No claim about the actual central-fiber calculation in §5.2 is based on inaccessible text.",
+          "identifier_or_url": "https://www.math.mcgill.ca/darmon/theses/takei/thesis.pdf ; alternate https://mcgill.scholaris.ca/bitstreams/79695f1a-d9b3-4105-9370-f34ae12f6344/download",
+          "material_read": "Bibliographic identification and the frozen record's description only; no thesis full-text passage retrieved",
+          "method": "OA retrieval attempted on cited PDF and institutional repository alternate, including configured fallback",
+          "title": "Arithmetic aspects of triangle groups",
+          "trigger": "Cited §5.2 on the family containing the t=1/2 central fiber"
+        },
+        {
+          "assessment": "Self-match, not a separate priority source",
+          "evidence": "Identical statement and record identifier.",
+          "identifier_or_url": "2026/11/22/SCOPE-cm-elliptic-quotients-and-the-complete-all-prime-cartier-dichoto--e9b854b26592",
+          "material_read": "Finding and exact frozen record comparison",
+          "method": "Local index and frozen statement",
+          "title": "CM elliptic quotients and the complete all-prime Cartier dichotomy for a genus-two Chebyshev curve",
+          "trigger": "Top exact Resultary hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof, and limitations",
+        "Cardona–Quer §5 Prop. 5.1, (12), CM table",
+        "Kazemifard–Tafazolian Prop. 3.6"
+      ],
+      "rationale": "Superspecial versus merely supersingular is a meaningful distinction. Here the known D₈ quotient data and exact t=1/5 CM calculation already force the finer result using the prime-to-p isogeny, and the explicit maps are the routine invariants of the known reciprocal involution. The frozen claim does not leave an uncovered, scientifically valuable case or invariant to repair.",
+      "residual_risks": [
+        "The conclusion is about incremental value of this fixed curve classification, not the value of studying other fibers, twists or arithmetic Frobenius polynomials."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

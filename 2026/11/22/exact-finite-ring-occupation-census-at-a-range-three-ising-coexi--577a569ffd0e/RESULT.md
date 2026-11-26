@@ -1,59 +1,61 @@
-# Exact finite-ring occupation census at a range-three Ising coexistence field
+# Exact spin-word classification at a range-three Ising coexistence field
 
 ## Finding
-For every integer \(n\ge7\), let \(\sigma_i\in\{0,1\}\) be spins on a cyclic ring, with subscripts taken modulo \(n\), and define
-\[
-E_n(\sigma;h)=J\sum_{i=0}^{n-1}\sum_{d=1}^3\mathbf1\{\sigma_i=\sigma_{i+d}\}-h\sum_{i=0}^{n-1}\sigma_i,\quad J>0.
-\]
-At \(h=10J/3\), one has \(E_n\ge -nJ\). Equality is attainable exactly for \(n\in\{8,9,10\}\cup\{12,13,\ldots\}\). Whenever attainable, the *entire* polynomial counting configurations attaining this bound by their occupied-spin number is
-\[
-P_n(y)=\sum_{\substack{a,b\ge0\\4a+5b=n}}\frac{n}{a+b}\binom{a+b}{a}y^{3(a+b)}.
-\]
-Consequently the coefficient at occupation number \(k\) is nonzero precisely for \(k=3(a+b)\) with \(4a+5b=n\); the displayed rational form always gives an integer. For \(n=7,11\), all states have strictly higher energy and the displayed sum is empty, not the actual ground-state polynomial.
 
-For a uniformly chosen minimizing configuration at the coexistence field, let \(K_n=\sum_i\sigma_i\). With \(\lambda>1\) the unique positive root of \(\lambda^5=\lambda+1\), put \(p_4=\lambda^{-4}\), \(p_5=\lambda^{-5}\), and \(L=4p_4+5p_5\). Then
+Let \(n\ge7\), and let \(\sigma_i\in\{0,1\}\) be a binary word on a labeled ring, with indices modulo \(n\). Consider the range-three Hamiltonian
 \[
-\frac{K_n-\mu n}{\sqrt n}\Longrightarrow\mathcal N(0,v),\quad
-\mu=\frac3L,\qquad v=\frac{9p_4p_5}{L^3}>0,
+E_n(\sigma;h)=J\sum_{i=0}^{n-1}\sum_{d=1}^3\mathbf1\{\sigma_i=\sigma_{i+d}\}-h\sum_{i=0}^{n-1}\sigma_i,\qquad J>0.
 \]
-with \(\operatorname{Var}(K_n)/n\to v\) and \(\mathbb E[K_n]/n\to\mu\), where \(n\) ranges through all sufficiently large integers. Numerically \(\mu\approx0.6724342484\) and \(v\approx0.0251867731\). The exact occupation polynomial, commensurability exceptions, and fluctuation coefficient are the contribution; the bulk phase boundary and residual entropy were previously established.
+At \(h=10J/3\) one has \(E_n\ge -nJ\). **A word attains the bound if and only if every cyclic run of ones has length three, and every cyclic run of zeros has length one or two**, with both symbols present. Equivalently, the equality words are precisely arbitrary cyclic concatenations of \(1110\) and \(11100\), with a unique decomposition into those blocks when block starts are interpreted as the first ones in their runs. In particular, all those blocks can be mixed in any order, and no other local pattern can realize the coexistence energy.
 
-## Assumptions and scope
-All \(2^n\) labeled binary configurations are distinct, with periodic boundaries and positive equal first-, second-, and third-neighbor same-spin penalties. Each unordered distance-\(d\) bond is counted once by the oriented sum for \(n\ge7\). The magnetic field couples to the number of \(1\) spins; converting to the conventional \(\pm1\) Ising normalization rescales its field. The result concerns the single specified coexistence field and does not classify off-field ground states. The Gaussian limit is for the uniform measure on its equality configurations, not for finite-temperature Gibbs measures.
+## Scope
+
+Each of the \(2^n\) labeled configurations is distinct; rotations are not quotiented out. The chosen field couples to the number of ones, and the interaction penalty is equal at distances one through three. The claim is about saturation of the coexistence energy, not a classification at other fields or the actual minimizers at sizes unable to saturate it.
 
 ## Proof
-Write \(w(\sigma)=3E_n(\sigma;10J/3)/J\). Track the last three spins by a de Bruijn state \(a=b_0+2b_1+4b_2\in\{0,\ldots,7\}\), oldest first. Appending \(b\in\{0,1\}\) makes state \(j=\lfloor a/2\rfloor+4b\) and contributes \(3(\mathbf1\{b=b_0\}+\mathbf1\{b=b_1\}+\mathbf1\{b=b_2\})-10b\) to \(w\). Define the potential, indexed in increasing state order,
-\[
-(p_0,p_1,p_2,p_3,p_4,p_5,p_6,p_7)=(0,-3,-4,-9,-7,-10,-11,-12).
-\]
-Checking both outgoing arcs at each of eight states proves
-\[
-3(\mathbf1\{b=b_0\}+\mathbf1\{b=b_1\}+\mathbf1\{b=b_2\})-10b+3\ge p_j-p_a.
-\]
-Summing this inequality around a closed walk telescopes the potential and yields \(w(\sigma)+3n\ge0\). Equality requires every transition to be tight. Their complete directed edge list is
-\[
-0\to4,\quad1\to4,\quad3\to1,\quad3\to5,\quad4\to6,\quad5\to2,\quad5\to6,\quad6\to7,\quad7\to3.
-\]
-Vertices \(0,2\) occur in no closed tight walk. Every closed walk in the other six states is obtained by concatenating one of two excursions from state \(3\) back to state \(3\): \(3\to5\to6\to7\to3\) (four sites), or \(3\to1\to4\to6\to7\to3\) (five sites). Both append exactly three occupied spins. Their concatenations provide every minimizing spin configuration because length-\(n\) closed de Bruijn walks are in bijection with labeled periodic binary spin words. This gives the necessary and sufficient condition \(n=4a+5b\). For \(n\ge7\), the representable values are \(8,9,10\) and every \(n\ge12\) (the Frobenius gap for 4 and 5 is 11).
 
-Fix nonnegative \(a,b\) with \(4a+5b=n\), and let \(t=a+b\). The number of cyclic-site-labeled walks consisting of \(a\) four-excursions and \(b\) five-excursions is \(\frac nt\binom ta\): mark one of the \(t\) occurrences of state 3, choose the corresponding order of excursion types, and then use the \(n\) possible marked site positions; each underlying labeled walk is counted \(t\) times. All have \(K_n=3t\). Summing gives \(P_n\).
-
-Let \(B(y)\) be the six-state tight adjacency matrix with each transition weighted by \(y\) if it appends spin 1, otherwise by 1. Then \(P_n(y)=\operatorname{tr}B(y)^n\). The nonzero eigenvalues satisfy \(x^5=y^3(x+1)\); the remaining eigenvalue is zero. For real \(y>0\), the strongly connected six-state graph is primitive, since its two cycle lengths have gcd 1, and its simple Perron root \(\rho(y)\) is analytic near \(y=1\). Therefore the moment generating function of \(K_n\) has the uniform local form
+For a triple of consecutive bits \((b_0,b_1,b_2)\), oldest first, let \(a=b_0+2b_1+4b_2\). Appending \(b\in\{0,1\}\) sends \(a\) to \(j=\lfloor a/2\rfloor+4b\). In units of \(J/3\), that arc contributes \(3\sum_{s=0}^2\mathbf1\{b_s=b\}-10b\) to the energy. Put
 \[
-\log\mathbb E e^{tK_n}=n(\log\rho(e^t)-\log\rho(1))+O(\theta^n)
+(p_0,p_1,p_2,p_3,p_4,p_5,p_6,p_7)=(0,-3,-4,-9,-7,-10,-11,-12),
+\qquad
+q(a,b)=3\sum_{s=0}^2\mathbf1\{b_s=b\}-10b+3+p_a-p_j.
 \]
-for \(t\) in a fixed complex neighborhood of zero and some \(0<\theta<1\). Analytic differentiation gives the mean and variance limits and the characteristic-function Taylor expansion gives the Gaussian limit. Differentiating \(\rho(y)^5=y^3(\rho(y)+1)\), or equivalently using excursion probabilities \(p_4=\lambda^{-4},p_5=\lambda^{-5}\) with \(p_4+p_5=1\), gives \(\mu=3/L\) and \(v=9p_4p_5/L^3\). The limit variance is strictly positive since both excursion types occur.
+Substitution gives the entire local defect table:
 
-## Verification
-Run the standalone Python 3 script `verify.py` without nonstandard dependencies. It checks all 16 potential inequalities, the exact tight-edge set, equality polynomials against exhaustive enumeration of all \(2^n\) configurations for \(7\le n\le19\), and independently compares the unweighted six-state transfer trace against the polynomial formula for \(1\le n\le150\). These finite checks corroborate but are not substitutes for the all-size arguments above.
+| \(a\) | \(q(a,0)\) | \(q(a,1)\) |
+|---:|---:|---:|
+|0|12|0|
+|1|6|0|
+|2|8|2|
+|3|0|0|
+|4|6|0|
+|5|0|0|
+|6|4|0|
+|7|0|2|
+
+Triples from a periodic word form a closed walk. The potential cancels around it, so \(3(E_n+nJ)/J\) is exactly the sum of its nonnegative local defects. An equality word must use only zero-defect arcs. State 0 has no incoming zero-defect arc and state 2 has no outgoing one, so neither occurs on such a closed walk. After their removal, every closed walk visits state 3, and its first return from 3 is either
+\(3\to5\to6\to7\to3\), appending \(1110\), or \(3\to1\to4\to6\to7\to3\), appending \(01110\). The concatenation of these return words is cyclic; each return contributes the run \(111\) followed by one zero, with an additional zero just before a run when its return is the five-step one. This proves the necessity of the stated run constraints. Conversely, any cyclic word with the stated runs has a unique occurrence of triple \(110\) at each one-run's end (including the first following zero). Between such triples the word traverses precisely one of the two listed walks according to the zero-run length. All defects vanish, so the bound is attained. The run starts are intrinsic to the word, which proves the decomposition assertion without choosing an origin.
+
+## Counting and fluctuation consequences
+
+These are included as consequences and alternative derivations of transfer-matrix quantities, not as independent priority claims. With \(a\) blocks of length 4 and \(b\) of length 5, the occupation is \(3(a+b)\). Marking a block start gives \(n\binom{a+b}{a}\) choices of marked labeled configuration and each labeled word is counted \(a+b\) times. Thus the occupation polynomial for equality words is
+\[
+ P_n(y)=\sum_{4a+5b=n\,,\ a,b\ge0}\frac{n}{a+b}\binom{a+b}{a}y^{3(a+b)}.
+\]
+The representable lengths for \(n\ge7\) are \(8,9,10\) and every \(n\ge12\) (the four consecutive lengths \(12,13,14,15\) are representable, and one can add 4). At 7 and 11 the displayed sum is empty, not the polynomial of actual ground states.
+
+For completeness, path counting gives \(P_n(y)=\operatorname{tr} B(y)^n\), with the six-state adjacency matrix weighted by \(y\) for appending a one. The only simple cycles have lengths 4 and 5, each with weight \(y^3\), and share vertices, so \(\det(I-zB(y))=1-y^3(z^4+z^5)\). The adjacency is primitive (the graph is strongly connected and the two lengths are coprime). Its Perron root \(\rho(y)\) is simple and obeys \(\rho^5=y^3(\rho+1)\). Analytic separation near \(y=1\) gives
+\[
+\log\frac{P_n(e^s)}{P_n(1)}=n\bigl(\ell(s)-\ell(0)\bigr)+O(\theta^n),\qquad \ell(s)=\log\rho(e^s),\quad 0<\theta<1,
+\]
+uniformly in a small complex neighborhood of zero: the trace is the sum of powers of all eigenvalues, and the ratio of each other eigenvalue to the separated Perron branch has modulus uniformly bounded below 1. Write \(\lambda=\rho(1)\), \(p_i=\lambda^{-i}\) for \(i=4,5\), and \(L=4p_4+5p_5\). Differentiating \(e^{3s}(e^{-4\ell(s)}+e^{-5\ell(s)})=1\) gives \(\mu=\ell'(0)=3/L\) and \(v=\ell''(0)=9p_4p_5/L^3\). Analytic differentiation gives the limits of mean and variance divided by \(n\), and taking \(s=iu/\sqrt{n}\) and canceling the linear term gives \((K_n-\mu n)/\sqrt n\Rightarrow\mathcal N(0,v)\) for the uniform equality law as \(n\to\infty\).
 
 ## Relationship to prior work
-Gastner (2015) demonstrated that occupation constraints and finite ring size can change Ising magnetization statistics, for nearest-neighbor chains. Zarubin, Kassan-Ogly and Proshkin (2020) treated zero-field Ising chains with interactions through the third neighbor. More decisively, Zarubin and Kassan-Ogly (2022) studied the *same first-through-third-neighbor field-dependent model* by an eight-state transfer matrix and determined its bulk phase boundaries, residual entropy, and magnetization. Their general finite-volume transfer expression can in principle encode the present finite counts. The present result does not re-claim any of those bulk conclusions: it gives an explicit finite-ring occupied-site polynomial, the sharp ring-size attainment exceptions, a two-excursion equality-state bijection, and a critical occupation central-limit law and exact fluctuation coefficient. No claim of priority over unpublished or unindexed derivations is made.
 
-## Limitations
-This result concerns one equal-coupling coexistence field and rings of length at least seven. At sizes seven and eleven the universal bound is strict; their actual minimum energies are not classified by this theorem. It neither establishes uniqueness of any phase boundary nor a finite-temperature critical phenomenon. The full finite-volume transfer representation in Zarubin and Kassan-Ogly (2022) is a substantial prior-art overlap: it could support a different derivation of these specialized finite-size results; historical priority of the explicit formulas requires independent checking. Gaussian convergence is asymptotic; the finite-size law is discrete.
+Zarubin and Kassan-Ogly [1] study the same field-dependent range-three model, its finite-volume trace and characteristic polynomial (Sec. II, Eqs. (2)–(4)), phase orders (Sec. III, Eqs. (25), (27)), and the coexistence entropy and residual magnetization (Eq. (56)). In their normalization \(s_i=2\sigma_i-1\), equal interactions are \(J_i=-1\) and their field is \(10/3\). In particular, their Eq. (4) already implies the weighted equality-state determinant: at dimensionless coupling \(K_i=-q\) and dimensionless field \(B=10q/3+\tfrac12\log y\), rescale each eigenvalue by \(e^{5q/3}y^{-1/2}\). At \(q\to\infty\) the normalized coefficient of degree four tends to \(-y^3\) from \(-2\cosh(2B)\), that of degree three tends to \(-y^3\) from the term with \(\sinh(2(K_2+K_3))\sinh(2K_3)\cosh B\), and the others vanish except the leading degree eight. The normalized trace projects onto equality configurations by the energy bound, giving the same nonzero eigenvalue equation and occupation counts. The contribution here is instead a configuration-level classification: the exact iff run constraint for every labeled ring, including arbitrary changes between the two pure patterns. Neither a list of pure periodic orders nor a field-marked trace resolves that criterion on individual words. The limiting mean density is the prior residual magnetization converted to occupied fraction.
 
-## References
-- M. T. Gastner, *The Ising chain constrained to an even or odd number of positive spins*, arXiv:1502.02883 (first public 2015-02-10), https://arxiv.org/abs/1502.02883.
-- A. V. Zarubin, F. A. Kassan-Ogly and E. B. Proshkin, *On the ground-state frustration of the Ising model with interactions up to the third neighbors*, arXiv:2002.05430 (2020), https://arxiv.org/abs/2002.05430.
-- A. V. Zarubin and F. A. Kassan-Ogly, *Frustration and ordering in Ising chain in an external magnetic field with third-neighbor interactions*, arXiv:2206.06753 (first public 2022-06-14), https://arxiv.org/abs/2206.06753.
+## Reproducibility and limitations
+
+The 16-entry integer defect table is an exact local certificate. The accompanying `verify.py` checks the tight arcs and enumerates finite-ring counts, which are supplementary to the all-ring closed-walk proof. No finite-temperature claim or assertion about sizes failing the equality bound is made.
+
+[1] A. V. Zarubin and F. A. Kassan-Ogly, *Frustration and ordering in Ising chain in an external magnetic field with third-neighbor interactions*, arXiv:2206.06753 (2022), https://arxiv.org/abs/2206.06753.

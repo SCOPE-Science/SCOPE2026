@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is every prime \(p\ge5\) and every positive block depth \(L\); the \(z=0\) case is separate. The proof verifies the critical nonstandard fact that single-digit zeros are interior and isolated using the exact recurrence, the formal prime-power generating-function identity, and \(T_0=T_1=1\). It then derives every zero-run multiplicity from uniquely located forbidden blocks and every nonzero-run multiplicity from the exact count \(E_h\) of consecutive admissible prefixes. These are infinite, all-primes arguments, not inferences from finite testing. The standalone checker passed 125,867 exact recurrence-based index comparisons across all tested primes to 101 and block sizes to 15,000. Remaining correctness risk is independent verification of the combinatorial run-bijection; no independent audit is claimed.
+## correctness
 
-## Originality — PASS within inspected evidence
-Noe (2006) Theorem 8.5 and equation (13) already establish the base-prime digit criterion. Kohen (arXiv:2411.03681v1, 2024) Proposition 7 and Section 3 discuss the digit product, symmetry, and densities. Rampersad–Shallit (2022) treat congruences of related combinatorial sequences by finite automata. These facts are expressly credited: neither a digit product nor a mere density is novel here. The inspected material does not give the **complete maximal run-length spectra at every depth**, the exact high-prefix adjacency count, or the sharp global nondivisibility run bound for all primes. The closest related mathematical-record results concern different sequences, prime powers, or two-point residue correlations; none inspected implies the full claimed classification. Searches are not proof of priority, and an implicit preexisting formulation in word-combinatorics remains possible.
+PASS
 
-## Value — PASS
-A primary research question for prime-divisible combinatorial sequences is how the zero positions are arranged, not just what their asymptotic density is. The exact classification reveals a strong dichotomy: either no terms are divisible, or zero runs of unbounded prime-power lengths coexist with a **uniform prime-dependent finite bound** on nonzero runs. Giving exact multiplicities of both kinds at each finite block depth is a natural complete invariant, with substantive structural content beyond pointwise Lucas factorization. This scope is not a generic arbitrary slice or an unexplained experimental count.
+For p>=5 the digit rule follows directly from the Laurent constant term under Frobenius: the least-significant digit factor has exponents of magnitude <p, so in taking the constant term only its exponent zero can match the higher factors. The recurrence excludes adjacent zero digits by descent, using invertibility of 3j, and T_0=T_1=1. From the generating function F and F=(1−2x−3x²)^((p−1)/2)F(x^p) modulo p, T_(p−1)=(-3)^((p−1)/2)≠0, so both boundary digits are allowed. With a nonempty forbidden set, consecutive admissible integers in a full block have a shared high prefix, change one digit to its successor in the ordered allowed alphabet, and reset the lower j digits from p−1 to 0. Their distance is 1+(d'−d−1)p^j. Isolated forbidden digits make d'−d either 1 or 2; each of the z single-digit holes occurs with a^(L−j−1) high prefixes, and both block endpoints are allowed. This proves exactly the zero runs of length p^j with the stated counts and global maximality, using the most significant forbidden digit for the equivalent block construction. For nonzero runs, each allowed high prefix gives the interior gaps and the two edge pieces. Each adjacent allowed high-prefix pair joins precisely one right and one left piece. The carry changes one digit across one of p−1−2z adjacent allowed pairs, giving the stated E; distinct mergers cannot span another run inside a length-p block since that block has a zero. The 0,1 pair ensures a join for L>=2, and the largest joined or interior run is strictly below p and attained globally. For z=0 all indices are allowed; no finite uniform nonzero-run bound is asserted. Independent direct modular polynomial convolution verified both histograms on seven (p,L) cases, including zero-free, one-hole, and two-hole alphabets.
 
-## Limitations and verification status
-No classification of primes having nonempty single-digit zero sets is claimed; it is a separate question. Higher powers and arbitrary-index endpoints are outside scope. Priority against unindexed sources and formal independent verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct result is the joint exact finite-block length census and sharp global bound when the digit alphabet has a hole, not the digit-product theorem, admissible population, or the known p=5 zero-free case. Related primary and catalog statements inspected do not give these exact multiplicities or the jointly sharp dichotomy.
+
+## value
+
+PASS
+
+Run lengths are intrinsic to the natural ordering of this classical sequence, and complete base-p blocks are matched to the Lucas product. Density alone misses the coexistence of arbitrarily long divisible stretches and a uniformly bounded sharp maximum of nondivisible stretches. Exact multiplicities with endpoint accounting clarify how holes propagate across scales, and give more information than the admissible population or example runs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

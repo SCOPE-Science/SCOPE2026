@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification and mathematical limits
 
-Run `python verification/check.py` from a directory containing this standalone script. The implementation requires Python 3 standard library only. It reconstructs the exponent-\(p\) finite Heisenberg multiplication and the full regular left-convolution matrix for \(p=3,5,7\). Exact row reduction is carried out modulo primes \(\ell\equiv1\pmod{3p}\), with primitive \(p\)- and cube roots in the test field. It checks the independently calculated predicted nullity \(Z+(p-1)p\mathbf1_{\{F=0\}}\) at \(n=1\) against full-matrix rank in 15 cases. All completed runs returned `VERIFY_OK`.
+# Independent mathematical audit
 
-The checker tests the one-Heisenberg-plane case in auxiliary finite characteristic; it does not prove the theorem over \(\mathbb C\), nor does it exhaust infinitely many primes, weights, or dimensions. The proof in `RESULT.md`, specifically the regular representation multiplicities, quantum-binomial trace argument, and recurrence for geometric kernel dimension, is required for unrestricted correctness.
+## correctness
+
+PASS
+
+Independently, K=⟨g,h⟩ has order p³ since [g,h] generates the center and the two projections are independent. Left translation splits the regular space into p^(2n−2) copies on right cosets Kx. In coordinates g^i h^j [g,h]^k on K, Fourier transform in j and k makes h diagonal and g a cyclic shift in i. At zero central frequency a further Fourier transform gives each ordered pair of p-th roots once per coset. At each nonzero central frequency the h-diagonal runs through the p distinct roots of unity, with one clock–shift copy for each of the p j-frequencies. The two determinant permutations of a cyclic bidiagonal matrix give ∏_j(λ−a−cζ^j)−b^p=(λ−a)^p−c^p−b^p. For b≠0 the kernel recursion determines every coordinate from one, including the multiple-root case; if b=0 at a singular block then c≠0 and the diagonal entries are distinct. This establishes geometric nullity separately from algebraic multiplicity. The two-circle intersection bound, zero-coefficient strata and equilateral equal-weight case check directly. The three separation examples follow from equality in the triangle inequality, the cyclotomic degree obstruction to 2^(1/p), and the unique equilateral ordering permitted by a p-th-root phase, respectively. The packaged modular rank checker was inspected, not run. Independent phase-count arithmetic on its 15 inputs confirms a minor reporting limitation: none has Z=0 and F=0, contrary to the prose saying it tests a purely nonabelian case. It does not check characteristic polynomials or the all-n theorem; the analytic reconstruction checks the omitted stratum.
+
+## originality
+
+PASS
+
+The exact ternary unweighted nullity is already covered and is not individually novel. The supported distinct claim is the full weighted, all-odd-prime factorization together with its geometric rank strata and how the two singular loci intersect, rather than the known Heisenberg representations or Cayley decomposition.
+
+## value
+
+PASS
+
+For the minimal support with genuinely noncommuting generators, the theorem gives all singular weights and exact information loss (the geometric kernel dimension), even at defective blocks where a spectral multiplicity is misleading. The combination of phase resonances and a separate Fermat condition, with examples of both mechanisms occurring separately and together, provides a useful complete classification rather than another evaluation of the unweighted ternary case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

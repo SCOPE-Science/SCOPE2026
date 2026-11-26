@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of characteristic-three Pascal-line fibers
+# Independent mathematical audit
 
-The proof in `RESULT.md` derives the formula for every finite field \(\mathbb F_{3^m}\), \(m\ge2\), by a normalized cross-product computation, a four-exclusion quadratic-character sum, and the sharply triply transitive projective conic action. That symbolic derivation, not finite experimentation, supplies the infinite-family theorem.
+## correctness
 
-`verify_pascal3.py` was executed with Python 3 and SymPy. It constructed the extension fields \(\mathbb F_9,\mathbb F_{27},\mathbb F_{81}\) from explicitly checked irreducible polynomials, enumerated normalized ordered triples, and confirmed the exact three formulas. The output counts were \((18,48,144)\), \((504,5808,7488)\), and \((5850,225264,243360)\), respectively, for tangent/secant/exterior normalized triples. The program also checked the total of \(60\binom{q+1}{6}\) counted hexagons in each field.
+PASS
 
-An additional independent check enumerated all \(12,600\) cyclic hexagons over \(\mathbb F_9\) by direct opposite-side cross products. It verified the Pascal collinearity and found all \(91\) rational lines, with multiplicities \(108\) on each of the ten tangents, \(64\) on each of the forty-five secants, and \(240\) on each of the thirty-six exterior lines. This direct calculation does not rely on the normalized formula used for the general proof.
+The standard conic is rational over each finite field here and PGL₂ acts sharply triply transitively. Chords at finite u,v have coefficients [1,−u−v,uv]; the two relevant intersections in the normalized order are proportional to [−ab,0,1] and [bc,bc,b+c−1]. Their joining coefficients and the characteristic-three discriminant are as stated. For A=a(b−1) nonzero, the reciprocal change is projective bijective, giving exactly the four exclusions. Recomputing their discriminants gives two squares at c=1,a, a linear expression in b at c=∞, and a quadratic in a at c=b (except for b=−1) of nonzero discriminant (b−1)^2. At c=b the two roots are b and b/(b+1)^2 for b≠−1; the latter is admissible. At c=∞ the zero b=(a+1)^2/a is admissible for a≠0,1,−1. The corresponding omitted character and zero contributions yield the three stated normalized totals. Rational-line type is transitive: tangency and split unordered pairs follow from the conic action; nonsplit conjugate pairs are transitive because any two nonrational degree-two parameters are related by a rational affine transformation using the basis 1,α. Divide by twelve for the free dihedral action on six distinct vertices and by the appropriate number of lines; all factors are positive for q≥9. A separately written F9 direct collinearity enumeration with i²=−1 found all 12,600 hexagons and precisely the claimed per-line multiplicities on 91 rational lines.
 
-Reproduction: run `python verify_pascal3.py` in a directory with the supplied script and Python 3 plus SymPy. The script uses no network and no external input files.
+## originality
 
-Limits: checks at three finite field orders cannot certify the infinite theorem; the full proof's four-exclusion character-sum identities remain the decisive argument. Independent audit: not performed.
+PASS
+
+The three exact fixed-line rational multiplicities in characteristic three are the supported distinct claim. Credit the classical Pascal map and available geometric one-fiber description, and distinguish conditional tangent/secant existence from counts for all three types.
+
+## value
+
+PASS
+
+The distribution by rational-line orbit, including the exceptional nonsplit case and the sharp smallest field, is a natural arithmetic invariant of the Pascal map. It gives actual fibers rather than a mean or possible image. The small-characteristic change in the exclusion arithmetic makes this more than routine continuation of the adjacent-field formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

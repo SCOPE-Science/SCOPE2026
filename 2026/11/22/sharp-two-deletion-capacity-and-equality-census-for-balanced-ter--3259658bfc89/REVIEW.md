@@ -1,19 +1,21 @@
-# Scientific review: balanced ternary two-deletion codes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a complete 90-source reduction to a finite compatibility graph, a unique-increasing-index enumeration of every clique, and an explicit legal four-word witness. Two independent implementations respectively use exact deletion-shadow intersections and LCS dynamic programming; both determine 1164 compatible pairs, 1788 triples, 144 four-codeword optima, and no five-codeword optima. The symmetry action is exact and the 14-orbit census sums to 144. Exact rational primal/dual witnesses independently establish the fractional optimum five. These computations were rerun from the packaged scripts, without third-party solver assumptions. The check is finite and does not purport to generalize by experimental induction.
+PASS
 
-## Originality — PASS (historical qualification)
+The 90 sources are precisely the ordered strings with two of each of three labeled symbols. Two sources are confusable if and only if they both contain the same length-four subsequence: duplicate deletion choices from one source contribute one read, not several. Independently generated all sources and the 54 admissible reads by filtering Cartesian products, tested subsequences by a greedy scan, and iteratively grew increasing lists of sources with disjoint read masks, using the union of occupied read masks rather than a compatibility graph. Each admissible codebook appears once, since it has a unique increasing order. The counts from sizes 0 to 5 are 1,90,1164,1788,144,0; absence of size five excludes larger codes. The four-word example was found among the 144. The images of the 14 frozen representatives are pairwise disjoint and exactly exhaust the 144, with four classes of size six and ten of size twelve, for the stated action of symbol relabelings and reversal. Independently tested both fractional certificates in integer units: primal objective 300/60 and maximum read load 60/60; dual has 30 positive reads of weight 1/6 and minimum source coverage 6/6. Weak duality proves exactly five, distinct from the integer optimum four. Replay: python3 /workspace/reproductions/2.py. This exhaustive argument applies to the specified length, composition, and ordered read channel only.
 
-Farnoud–Milenkovic (arXiv:1312.2163v1) treat regular multipermutation Ulam codes and general bounds, not the precise 90-vertex maximum-four shadow code or its exhaustive equality census. The already published balanced ternary length-six one-deletion study addresses a weaker channel and is not an implication of this two-deletion optimum. Published binary two-deletion and unordered multiset-deletion results differ in alphabet or output semantics. Semantic research comparisons did not reveal a dominating claim. A directly relevant 2014 conference paper by Sala–Gabrys–Dolecek was available as an abstract only; its full text remained inaccessible, leaving a genuine historical-priority risk. A failed search does not prove novelty, and this is a self-review, not an independent priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed composition \((2,2,2)\) is the smallest uniformly repeated ternary multipermutation space and is a natural finite benchmark for unordered-position deletion synchronization where output order matters. The exact two-deletion capacity, all equality configurations and fractional-to-integral gap answer complementary optimization questions with explicit future use as benchmark instances for short-word code design and polyhedral bounds. The result is more than routine substitution: the LP has optimum five, so a nontrivial integral obstruction excludes five codewords.
+Best-of-knowledge pass for the precise ordered-shadow packing number, maximizing-codebook and orbit censuses, and fractional optimum. The strongest same-parameter Ulam hit has a different metric and symmetry, not a conflicting enumeration of this problem; the same-source one-deletion theorem is a different confusability graph. Full-text limitations for the direct multipermutation literature remain material risks, not support for negative coverage claims.
 
-## Scientific limitations and closest sources
+## value
 
-All assertions are for six positions and exactly two deletions; no claim is made about different compositions, longer lengths, burst deletions, or Kendall adjacent-swap errors. The exact exhaustive enumeration is replayable, not independently audited. Relevant literature: https://arxiv.org/abs/1312.2163 ; https://doi.org/10.1109/ISIT.2014.6875338 (full text unavailable); https://arxiv.org/abs/1507.07628 ; and the already published one-deletion study linked in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Composition (2,2,2) is the smallest uniformly repeated ternary source space, a natural benchmark for ordered deletions with repeated symbols. It gives an exact integral obstruction not captured by the natural deletion-shadow LP, which permits five rather than four. Moreover the census specifies all equality configurations up to the channel's natural symmetries, useful for comparing short-code designs and stronger relaxations even though no asymptotic claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:20.592974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two length-L substituted blocks share their first L−1 symbols and have opposite final bits by induction, so a factor starting at qL+r is exactly the r-rotation of U_(k,p_q). Both block types occur; their weights (L−δ)/3 and (L+2δ)/3, δ=(−1)^k, differ by one, separating their profiles. For h=ℓ−1, subtracting ∑_c occ(cu) or ∑_c occ(uc) from occ(u) for every h-word u recovers the initial or terminal h-word. Thus within one circular block equal profiles force equal cut bridges, and conversely a cut only deletes circular occurrences crossing it, all determined by the bridge. For m=2h≤2^j, any m-factor meets at most two aligned j-blocks; the common prefix makes it a cyclic m-factor in the first block. All cyclic possibilities occur via adjacent block types 00 and 10. Both pairs occur in each of the two blocks after three substitutions and in their longer iterates, since higher iterates begin with the appropriate expanded 0-block. Consequently for k≥j+3 each U_(k,a) has the whole bridge language, giving 2P_p(m). The frequency counts starts: type-a blocks have natural density π_a and contribute occ_cyc(v,U_(k,a)) cut offsets out of L, counted with multiplicity even for a circularly periodic block. For ℓ=3, 11 and 0000 are forbidden (even positions are zero, and adjoining odd zeros would require adjacent ones in the desubstituted word); circular four-factors are linear p-factors by the common-prefix argument. Ones are at odd positions, so each circular gap contains either one or three zeros. Each long gap contributes one instance to each A count and each short gap one to each B count, tallying 0010 by its preceding long gap and 0100 by its following long gap. If g₃,g₁ are the gap counts, g₃+g₁=block weight and 4g₃+2g₁=L; substituting the weights gives the tabulated positive frequencies for k≥4. In the sum of their squares with denominator 324L² the numerator is 16(L+2δ)²+12(L−4δ)²+2(L+8δ)²=30L²+384, giving 5/54+32/(27L²). Independent bounded enumeration at the minimum general thresholds for ℓ=2,…,6 and for explicit k=4,…,9 corroborated the counts and collision law. Replay: python3 /workspace/branches/da73aa29-1e4f-40f3-8cb3-c0c66db45c58/record5_recheck.py; adjacent record5_recheck_results.txt records the run. The two frozen scripts in verification/ were inspected, not executed. Enumeration is not the proof of the stated sufficient thresholds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parreau et al. determine a complexity relation at order two and prove 2-regularity; this is actual overlap with the ℓ=2 count, not a higher-order partition.",
+          "The ordinary factor-complexity formula gives the binary specialization P_p(m); the separate frequency record gives frequency 2/(3L) per distinct factor at dyadic length L."
+        ],
+        "reasoning": "Those statements determine quantities entering the result, but neither a count of all words nor their individual frequencies tells how the words group by overlapping counts through length ℓ. Regularity of one sequence at ℓ=2 does not imply a profile-frequency theorem for ℓ≥3.",
+        "searches": [
+          "arXiv:1405.3532 Proposition 34 and Corollary 41",
+          "Resultary generalized period-doubling factor complexity b359a69047d4 and factor frequency 86b62049d181"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–6; VERIFICATION.md; verification/check_direct.py and verification/check_general.py (static inspection)",
+        "arXiv:1402.5843 and arXiv:1405.3532",
+        "Resultary 8148ba3a1211, b359a69047d4, 86b62049d181 and d2b1e5730ed7",
+        "Independent bounded check and log cited under correctness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic proof groups factors by conjugacy; the 2-Abelian proof retains boundary information specifically at order two. Neither establishes that at an arbitrary order the cut language in each dyadic block is the full ordinary length-(2ℓ−2) factor language.",
+          "The uniform whole-factor frequencies in 86b62049d181 will yield the profile probabilities after class sizes are known. They do not supply the cut bridge multiplicities or the gap-count step yielding the twelve masses."
+        ],
+        "reasoning": "The implications stop short of the core claim: classification and context saturation must be proved, and the nonuniform explicit spectrum requires the circular gap analysis. The collision formula itself is then a consequence of those exact masses, not a separately asserted priority claim.",
+        "searches": [
+          "arXiv:1402.5843 §5.1 proof of Proposition 17",
+          "arXiv:1405.3532 §5 Propositions 34–35",
+          "86b62049d181 exact dyadic specialization in Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 17 gives two cyclic-conjugacy classes at dyadic scales for one-discrepancy substitutions; the order-two paper's Prop. 35 relates 2-Abelian classes to abelian signatures of a two-block coding plus starting information.",
+          "Resultary 8148ba3a1211 gives a bijection of cyclic-conjugacy classes under length doubling, and Lie-complexity entry d2b1e5730ed7 concerns completely represented cyclic classes."
+        ],
+        "reasoning": "A cyclic class is not an ℓ-Abelian class (counts crossing the cut can change). The number two counts the two block families before the within-family profile partition. Completely represented cyclic classes are also a different statistic. The reviewed paper's Prop. 17 should be credited for the cyclic class count and rotation reduction, not cited as a statement about profile frequencies or, from that proposition alone, representation of every rotation.",
+        "searches": [
+          "Resultary dyadic cyclic classes, higher Abelian profiles, period-doubling bridge contexts, and collision frequency searches",
+          "Cassaigne et al., arXiv:1402.5843, Proposition 17 and Example 1",
+          "Parreau et al., arXiv:1405.3532, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There are exact known word or cyclic class counts and an exact dyadic frequency for each distinct factor, but no independently matching twelve-profile table or collision law in the checked passages.",
+          "The supplied and independent enumerations are checks of the frozen table, not separate historical tables."
+        ],
+        "reasoning": "To aggregate an exact factor frequency table into a collision law one still needs the profile classes and their cardinalities; even a uniform factor distribution need not induce uniform profiles.",
+        "searches": [
+          "Resultary lookup of twelve three-Abelian profiles, dyadic bridge multiplicities, and collision formula for period doubling",
+          "Comparisons to generalized factor spectra 86b62049d181 and the explicit 2-Abelian relation in arXiv:1405.3532"
+        ]
+      },
+      "rationale": "Cyclic complexity at dyadic lengths, order-two Abelian complexity, ordinary factor complexity, and even the dyadic whole-factor frequencies have substantive prior coverage. Credit those ingredients. The distinct content of the frozen result is the all-order dyadic partition by cut bridges with stabilization in each block, the resulting profile-frequency formula, and the earlier-threshold three-Abelian table and collision law. None of the inspected matching statements supplies that partition or the profile probabilities. Same-day dates do not establish priority, and the comparison is bounded.",
+      "residual_risks": [
+        "There is no inferred priority among same-day records, and a bounded search does not exclude an earlier higher-order equivalence or profile-frequency calculation.",
+        "The substitution notation discrepancy in the extracted cyclic-complexity example was not resolved against an image; the comparison also uses the exact indexed dyadic cyclic result for the intended word."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLIC_CLASS_COVERAGE_NOT_PROFILE_COVERAGE",
+          "evidence": "Prop. 17 is a two-class result for binary uniform substitutions of its stated one-discrepancy form. Its proof reduces nonaligned factors to conjugates of aligned factors. The extracted example has inconsistent substitution notation relative to the named word; the exact dyadic cyclic statement for the frozen period-doubling word is also explicit in 8148ba3a1211.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5843",
+          "material_read": "§5.1 Proposition 17 and Example 1, PDF pp. 13–14 around OA offsets 48600–53000.",
+          "method": "Original OA PDF passage and scope comparison.",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Same named word and two cyclic classes at precisely the dyadic lengths."
+        },
+        {
+          "assessment": "ORDER_TWO_PARTIAL_COVERAGE",
+          "evidence": "Proposition 34 is an exact relation for the order-two complexity; Prop. 35 is an order-two coding and initial-letter criterion. Cor. 41 proves order-two regularity, not an all-ℓ dyadic frequency law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3532",
+          "material_read": "Abstract; §5 Proposition 34 and Proposition 35 near OA offset 65270, Corollary 41 near 77476.",
+          "method": "Original OA PDF passage analysis of order, normalization and statement.",
+          "title": "A new approach to the 2-regularity of the ℓ-Abelian Complexity of 2-Automatic Sequences",
+          "trigger": "Exact 2-Abelian complexity of the same word and boundary-sensitive equivalence."
+        },
+        {
+          "assessment": "MATERIAL_FREQUENCY_INGREDIENT",
+          "evidence": "Every distinct binary length-L factor at the dyadic scales has frequency 2/(3L); determining profile masses additionally requires the size of each profile class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-all-length-factor-frequency-spectra-of-generalized-period--86b62049d181/RESULT.md",
+          "material_read": "Local-mirror Finding, offset 0, binary dyadic specialization.",
+          "method": "Compare the indexed exact individual-factor frequency theorem with the probability measure on profiles.",
+          "title": "Exact all-length factor frequency spectra of generalized period doubling",
+          "trigger": "Same dyadic length and natural-frequency normalization."
+        },
+        {
+          "assessment": "ORDINARY_FACTOR_COUNT_COVERAGE",
+          "evidence": "Its binary specialization determines P_p(m), not the count, labeling or frequencies of the longer ℓ-Abelian profile classes.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-factor-and-aligned-window-complexity-of-generalized-per--b359a69047d4",
+          "material_read": "Local-mirror Finding at offset 0.",
+          "method": "Statement and invariant comparison.",
+          "title": "Complete factor and aligned window complexity of generalized period doubling",
+          "trigger": "An exact expression for the ordinary factor complexity in the formula under audit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The problem asks how local pattern counts distinguish dyadic factors of a canonical substitution word, a stronger statistic than cyclic or ordinary factor complexity. The bridge partition explains the exact all-order count at a sufficient threshold. The nonuniform three-Abelian profile probabilities give an exact distribution of signatures of factor starts and a chance of agreement not determined by the mere fact that there are twelve classes. No sharp general threshold or coding capacity is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

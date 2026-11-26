@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:05:02.675126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72, SLOGAN.txt, VERIFICATION.md and checker.py (inspected, not run)",
+        "/workspace/repairs/2/RESULT.md and /workspace/repairs/2/SLOGAN.txt",
+        "/workspace/replays/2.py and /workspace/replays/2.log: Python 3.12.3, 1,098 labelled graph masks through five vertices; all rankings, fixed ordered pair by relabelling"
+      ],
+      "rationale": "The original RESULT.md theorem under its explicit i.i.d. atomless assumptions is correct. The opening wording and standalone SLOGAN.txt omitted identical distribution; the slogan on the broader independent-only reading is false (even one edge with independent priorities uniform on disjoint ordered intervals gives deterministic indicators and zero covariance). The supplied complete replacements put the i.i.d. atomless hypothesis in both public statements. With a common atomless law all ranks are uniform. On an edge, conditional on the peak at u and its priority x, the valley probability at v is at least the integral of (1-t)^(d_v-1), or 1/d_v, strictly above its unconditional 1/(d_v+1). For a nonedge with common neighbors, conditioning on their priorities separates the two events, and the conditional peak probability strictly decreases with their maximum. Given that maximum t the minimum is t times an independent positive variable (equal to t for a single common neighbor), so the mean conditional valley probability increases strictly with t. The covariance is strictly negative by the independent-copy covariance identity. With no shared neighbor the relevant inputs are disjoint. The exact joint integral and beta expansion agree, including zero private degrees. Hoeffding on n(n+1) bounded means, each at tolerance gamma/12, gives simultaneous covariance error at most gamma/4; the gamma/2 rule then separates edges from nonedges with the claimed failure bound. Isolates cause no exceptional case.",
+      "residual_risks": [
+        "The replay is finite; general signs and the sampling guarantee follow from the proof, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Counting Peaks on Graphs enumerates prescribed single-type peak sets, with a different degree convention.",
+          "The permutation and mass-redistribution papers study prescribed extrema patterns on paths/cycles in the inspected passages."
+        ],
+        "reasoning": "The graph peak enumerator has a broader graph domain but different output. These statements do not give mixed indicators and their uniform lower/upper comparison on arbitrary pairs.",
+        "searches": [
+          "arXiv:1708.08493; arXiv:1209.0693; arXiv:1308.2183"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned self-hit cc36f3dd3737, cycle fb83bca256ed and complete bipartite be28b20aeff8",
+        "arXiv:1708.08493, 1209.0693, 1308.2183"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle kernel implies cycle identification from population covariances. The graph peak-set count does not state the mixed joint statistic, and a covariance of totals combines diagonal, edge, and nonedge contributions."
+        ],
+        "reasoning": "The proof needs opposite conditional monotonicity for nonedges and an explicit positive margin on edges. Hoeffding is standard given that margin, so the claimed contribution is the structural sign and margin and their recovery consequence, not the concentration inequality.",
+        "searches": [
+          "arXiv:1708.08493; fb83bca256ed; be28b20aeff8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier cyclic permutation cross-covariance kernel has signs + at offsets ±1, − at ±2 and zero elsewhere off diagonal (n≥5).",
+          "The complete-bipartite record is about the covariance of two totals, not entries of the labelled matrix."
+        ],
+        "reasoning": "A uniform rank permutation and common-law atomless priorities are equivalent; the cycle record covers a true subfamily, while aggregating rows and columns does not recover pairwise signs.",
+        "searches": [
+          "Resultary: opposite-extremum covariance graph reconstruction from random rankings",
+          "Resultary: fb83bca256ed; be28b20aeff8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title returned the assigned record itself. The distinct exact tables or formulas give a circulant kernel or a covariance of totals, respectively."
+        ],
+        "reasoning": "The circulant entries account for the covered cycle case, not the general graph entry formula, edge margin, or recovery guarantee.",
+        "searches": [
+          "Resultary: exact title and local-extrema pair covariance hits; fb83bca256ed; be28b20aeff8"
+        ]
+      },
+      "rationale": "Credit the earlier cycle sign law and overlap in the extrema observables. The surviving claim is the uniform arbitrary-simple-graph trichotomy, explicit ordered edge margin and quantitative graph recovery from full repeated labelled extrema vectors. No equivalent or dominating statement was established in the checked sources. The repaired scope is exactly the i.i.d. model used in these comparisons.",
+      "residual_risks": [
+        "The broad literature lookup did not retrieve relevant additional results and is not negative evidence. Unindexed equivalent formulations in random orientations, ranking or extrema literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier partial coverage on cycles",
+          "evidence": "B0=−1/9, B±1=7/72, B±2=−7/360, zero at other offsets for cyclic rankings n≥5.",
+          "identifier_or_url": "Resultary fb83bca256ed",
+          "material_read": "Mirrored RESULT.md Finding and Proof §1, offset 0",
+          "method": "Resultary search and statement inspection in local mirror",
+          "title": "Sharp two-channel Fourier sampling of cyclic permutation extrema",
+          "trigger": "Most direct pairwise special case"
+        },
+        {
+          "assessment": "Related aggregate, not equivalent",
+          "evidence": "Covariance of the total peak and valley counts on K_{a,b}, not ordered-pair covariance.",
+          "identifier_or_url": "Resultary be28b20aeff8",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Local statement inspection",
+          "title": "A one-crossing peak–valley covariance law on complete bipartite graphs",
+          "trigger": "Same-day graph-extrema covariance overlap"
+        },
+        {
+          "assessment": "Prescribed peak-set enumeration in inspected material",
+          "evidence": "Algorithm counts labellings with given peak sets and uses a degree-at-least-two peak convention.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.08493",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA original PDF passage",
+          "title": "Counting Peaks on Graphs",
+          "trigger": "Exact graph-extrema enumeration may subsume pair formulas"
+        },
+        {
+          "assessment": "Prior combinatorial ingredients; no general mixed graph claim in passage",
+          "evidence": "Counts permutations with given peak sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0693",
+          "material_read": "PDF p. 1, offset 1505",
+          "method": "OA original PDF passage",
+          "title": "Permutations with given peak set",
+          "trigger": "Exact peak/valley enumeration"
+        },
+        {
+          "assessment": "Related cycle patterns",
+          "evidence": "Relates crater/mound configurations to permutation extrema on cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2183",
+          "material_read": "PDF pp. 1, 21, 28, offsets 0, 64323, 84843",
+          "method": "OA original PDF passages",
+          "title": "On Meteors, Earthworms and WIMPs",
+          "trigger": "Cycle-local peaks and valleys"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md: Finding and recovery proof"
+      ],
+      "rationale": "The covariance signs recover all labelled adjacencies and distance-two pairs without observing the priorities, and the uniform edge gap turns population identifiability into a finite-sample guarantee. This survives the public scope repair and is stronger than a motif calculation or application of Hoeffding alone.",
+      "residual_risks": [
+        "No claim of minimax sample efficiency, missing-data recovery, or dependent ranking observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

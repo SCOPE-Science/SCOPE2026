@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:22:34.398383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36; VERIFICATION.md and verify.py inspected, not executed",
+        "Fresh backtracking through all permutations satisfying pair orbits computed from enumerated invertible matrices: /workspace/branches/review4_pair_orbits.py. Counts (two-local, additive) were (6,6), (384,48), (5040,168), (29160,180) for (q,n)=(2,2),(3,2),(2,3),(4,2) respectively; the extension-field test uses F₂[t]/(t²+t+1)."
+      ],
+      "rationale": "Unital K-algebra automorphisms fix K and preserve the unique maximal ideal V. Square-zero multiplication makes every invertible K-linear map on V extend to an automorphism. Interpolating the pair (v,a1+v) forces the radical part of any two-local map to depend only on v. On V, the pair (v,cv) forces homogeneity with the same c, and independent pairs must stay independent. This permutes projective directions over the finite field; every such permutation with an independent nonzero scale on each direction is two-local by extending independent pairs to bases, or by homogeneity for dependent pairs. Composition gives the stated wreath product and order. The triple (v,w,v+w) forces additivity and hence, with homogeneity and injectivity, invertible K-linearity. When n=1 or (n,q)=(2,2) the two-local group is already GL. Else, scaling just one direction for q>2, or swapping x+y with z for three independent vectors when q=2, violates additivity. These arguments do not require the prime-field hypothesis of the frozen finite checker.",
+      "residual_risks": [
+        "The finite orbit checks complement the proof; they do not extend it to semilinear witnesses, arbitrary rings or nonsplit algebras."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The associative paper proves rigidity for specific nilpotent filiform and null-filiform families. The Jordan paper's Theorem 4.1 restricts the pair witnesses and excludes characteristic two. The nilpotent Lie result gives existence of non-automorphic two-local maps over an algebraically closed characteristic-zero field."
+        ],
+        "reasoning": "These hypotheses do not cover arbitrary finite fields and all witnesses on the unital split associative algebra; an existence or rigidity theorem in those categories does not provide its full group, exceptional rigidity, or three-point threshold. No applicable broader exact result appeared in the inspected passages.",
+        "searches": [
+          "arXiv:2305.13720 pp. 2–3, arXiv:1911.03194 pp. 11–12 Theorem 4.1, arXiv:1602.05187 Theorem 3.2; targeted search for a general square-zero or vector-action result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.13720, arXiv:1911.03194 and arXiv:1602.05187 theorem passages",
+        "Resultary 9a18c2c0e02d Finding and 5a2bf881d608, 5ed4a5a0ef10 summaries; focused 2-closure/local-automorphism search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5ed4a5a0ef10's summary uses linear local automorphisms and square/cube constraints for tK[t]/(t⁴); the associative literature's null-filiform products include nonzero e_i e_j=e_{i+j}. These conditions differ from V²=0 and unconstrained arbitrary set maps."
+        ],
+        "reasoning": "One-point witnesses with imposed linearity or restrictions due to higher powers give no arbitrary-map two-local classification here. The new comparison is specifically between the independent projective-fibre freedoms at two evaluations and the exact restoration of additivity at three. No priority order was inferred from a same-day date.",
+        "searches": [
+          "Resultary same-date 5ed4a5a0ef10 and nearest fibre/GL analogues; arXiv:2305.13720 null-filiform multiplication and rigidity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The radical group is exactly GL(V)'s 2-closure on V: its ordered pair orbits distinguish the zero cases, nonzero dependent pairs with each exact scalar ratio, and independent pairs. The later 9a18c2c0e02d characterizes point-image shattering by independence, not the permutations preserving all these orbits. 5a2bf881d608's summary concerns projective directions and central fibres in a Heisenberg Lie algebra."
+        ],
+        "reasoning": "An earlier exact 2-closure computation in the vector action would cover the main group after the radical reduction. The shattering criterion is not that computation, and the Lie-algebra fibre analogy does not identify the pair-witness actions. The cyclic scalar centralizer describes this closure only after identifying the orbits.",
+        "searches": [
+          "Focused search for 2-local zero-product and square-zero automorphisms and finite general linear group 2-closures; Resultary 9a18c2c0e02d and 5a2bf881d608"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed material and primary theorem passages do not give the same all-q,n group or exact local-vs-global exceptions. Order tables for ordinary GL would supply only the subgroup order, not N!(q−1)^N for the full local group."
+        ],
+        "reasoning": "The claim is an infinite structural and counting result, not merely four finite group orders. A tabulation of these orders alone would not establish the action or the three-local classification.",
+        "searches": [
+          "Resultary semantic lookup for the square-zero two-local group and finite-field GL orbit/closure classifications, including matches 5a2bf881d608, 5ed4a5a0ef10, 9a18c2c0e02d"
+        ]
+      },
+      "rationale": "The distinct supported content is the complete two-local group of unital split square-zero algebras over all finite fields, including the sharp equality cases and collapse to GL at three evaluations. The exact equivalent 2-closure formulation is a real priority risk; no earlier matching computation or theorem implying this full result was verified in the bounded search.",
+      "residual_risks": [
+        "A prior computation of GL(V)'s exact 2-closure on vectors, or a general interpolation theorem implying it, could subsume much of the group classification. The search did not rule this out; incomplete mirror access is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different algebra families, not the claimed classification",
+          "evidence": "Filiform and null-filiform nilpotent associative algebras; the null-filiform product has nonzero e_i e_j=e_{i+j}.",
+          "identifier_or_url": "arXiv:2305.13720",
+          "material_read": "PDF pp. 2–3, scope and null-filiform multiplication",
+          "method": "Primary OA PDF passages",
+          "title": "Local and 2-local automorphisms of finite-dimensional nilpotent associative algebras",
+          "trigger": "Closest cited associative-algebra rigidity theorem"
+        },
+        {
+          "assessment": "Not applicable as an unrestricted finite-field associative result",
+          "evidence": "Excludes characteristic two and requires Λ-symmetric interpolating matrices.",
+          "identifier_or_url": "arXiv:1911.03194; DOI:10.1080/03081087.2020.1845595",
+          "material_read": "PDF pp. 11–12, Theorem 4.1",
+          "method": "Primary OA PDF passages",
+          "title": "Description of 2-local derivations and automorphisms on finite-dimensional Jordan algebras",
+          "trigger": "Possible general linearity theorem for two-local maps"
+        },
+        {
+          "assessment": "Lie-category existence result, not a group census for square-zero associative algebras",
+          "evidence": "Finite-dimensional nilpotent Lie algebras of dimension at least two admit non-automorphic 2-local maps in the paper's characteristic-zero setting.",
+          "identifier_or_url": "arXiv:1602.05187",
+          "material_read": "Abstract and PDF pp. 6–7, Theorem 3.2",
+          "method": "Primary OA PDF passages",
+          "title": "2-local automorphisms on finite-dimensional Lie algebras",
+          "trigger": "Known nonlinear two-local maps on nilpotent algebras"
+        },
+        {
+          "assessment": "Does not compute the 2-closure; also later dated",
+          "evidence": "Point-image shattering criterion is independence of both lists.",
+          "identifier_or_url": "Resultary 9a18c2c0e02d",
+          "material_read": "RESULT.md Finding, offset 372",
+          "method": "Indexed local mirror",
+          "title": "Point-image shattering of finite general linear groups",
+          "trigger": "Related action of GL on ordered vector lists"
+        },
+        {
+          "assessment": "Visible scope indicates a Lie analogue; no whole-record exclusion based on the summary",
+          "evidence": "Projective directions and central fibres, in a three-dimensional Heisenberg Lie algebra.",
+          "identifier_or_url": "Resultary 5a2bf881d608",
+          "material_read": "Indexed summary; decisive local-mirror passage not obtained",
+          "method": "Resultary comparison plus bounded mirror attempt",
+          "title": "Projective-and-fiber classification of all two-local automorphisms of the three-dimensional Heisenberg Lie algebra",
+          "trigger": "Closest projective-fibre structure"
+        },
+        {
+          "assessment": "Visible scope differs; no priority or whole-record verdict from the summary",
+          "evidence": "Linear local maps on tK[t]/(t⁴), constrained by square and cube identities.",
+          "identifier_or_url": "Resultary 5ed4a5a0ef10",
+          "material_read": "Indexed summary; local-mirror retrieval timed out",
+          "method": "Resultary comparison plus bounded mirror attempt",
+          "title": "Field-dependent local automorphisms of the three-dimensional null-filiform associative algebra",
+          "trigger": "Same-date local associative-automorphism classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md complete proof and exceptions, comparison with the cited rigidity/existence results"
+      ],
+      "rationale": "The square-zero family isolates how much local agreement can fail to enforce linearity over finite fields. It gives the full discrepancy group rather than just examples and pins down the small-field exception and exact two-to-three evaluation boundary. This is a useful classification for the natural first radical-square-zero test family, beyond the elementary identification of the ordinary automorphism group or computation of a tiny example.",
+      "residual_risks": [
+        "The contribution is a short exact classification, with no claimed rigidity outside this square-zero family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

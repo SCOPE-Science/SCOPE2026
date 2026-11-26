@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:41.190727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–32",
+        "Frozen VERIFICATION.md, lines 19–34; check_bfs.py and check_cycles.py; check_bfs.out and check_cycles.out"
+      ],
+      "rationale": "Removing an edge leaves exactly its endpoints and the old hole free, so a distinct replacement must join the hole to one of those endpoints; each of the 2m choices is legal and gives a distinct neighbor. The noncommon edges of two matchings split into alternating cycles and, if the holes differ, one even path. At least |M∖N| flips must insert missing target edges. The first deletion of a source edge of any original cycle must use the hole outside that cycle and insert a nontarget edge, giving one separate extra flip per cycle. Equality is attained by walking the hole along the path and then switching each cycle with the final hole as a pivot, using j+1 flips for j source edges on the cycle and returning the pivot to its initial location. Transitivity follows from relabeling. A path on k selected source blocks has 2^k k! choices; a j-block cycle has 2^(j−1)(j−1)! choices modulo rotation and reversal, including j=2. The labeled product with the unchanged blocks gives the exponential generating function; summing the logarithm gives the stated closed form, also normalized at z=1 to the number of possible matchings. Maximum distance uses all blocks and the largest possible number of cycles. For even m only 2-block cycles occur; for odd m the extra block either extends one cycle to three or forms the one-block path. These give the stated top coefficients; m=1 is the separate one-block-path case. Equal eccentricities give the same radius and diameter.",
+      "residual_risks": [
+        "The saved BFS and component-enumeration runs agree through m=5 and were inspected, not rerun. The proof covers all m; the recorded tests do not establish all m by themselves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aichholzer et al. describe the same combinatorial flips for general graphs, alternating-path transport, and a j+1-flip switch when the hole is adjacent to a cycle. Their double-counting discussion at Theorem 15 identifies one extra flip per cycle. Lindzey's association scheme classifies pair types on the identical state space. Brenner et al. prove Hamilton-connectedness on the identical graph, a different invariant."
+        ],
+        "reasoning": "Completeness makes all adjacent-hole switches available, so the known component argument yields the exact t+c distance without solving any additional reachability problem. Hamilton-connectedness alone would not imply it.",
+        "searches": [
+          "arXiv:2508.18457, §2, pp. 5–6 and §4.2, p. 10, Theorem 15",
+          "arXiv:1811.06160, §11, Theorem 56 and following association scheme, pp. 37–38",
+          "arXiv:2607.04687, §1 and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.18457 §§2 and 4.2",
+        "arXiv:1811.06160 §11",
+        "arXiv:2507.00813 Remark 4.19",
+        "arXiv:2607.04687 §1 and Table 1",
+        "Resultary 4215f72aa114, df80d3d712a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixing a source matching leaves a stabilizer of order 2^m m!. For the known orbital with path length 2k, a common edges, and b_j cycles of length 2j (j≥2), m=k+a+Σ j b_j. The joint stabilizer fixes the path pointwise, since the source hole specifies one endpoint, has order 2 on each common edge, and has 2j color-preserving symmetries on each 2j-cycle; copies of an identical component can be permuted. Thus the type has size 2^m m! / [2^a a! ∏(2j)^{b_j} b_j!]. The distance is k+Σ(j+1)b_j by the prior component-switch analysis in the complete graph. Summing these sizes with that distance as exponent and dividing by m! gives (1−2uz)^(-1) exp(u) exp(Σ_{j≥2} (2^{j−1}/j)u^j z^{j+1}), exactly the frozen series."
+        ],
+        "reasoning": "The weight on an orbital and its multiplicity are automatic from the established component metric and standard orbit stabilizer on the established orbital list. The geometric crossing-free theorem is supportive, but is not treated as an identity of geometric and combinatorial graphs: the combinatorial switches plus the cycle-entry lower count suffice. The EGF simplification and top-degree enumeration add no distinct theorem beyond this deterministic specialization.",
+        "searches": [
+          "arXiv:2508.18457, direct text at offsets 16430 and 34500",
+          "arXiv:1811.06160, direct text at offset 109700 (Theorem 56 and scheme)",
+          "Resultary 4215f72aa114, prior-work discussion at offsets 7800–9860"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4215f72aa114 gives the same graph expressed as minimum dominating sets in the odd triangular graph, with the same t+c, EGF, radius/diameter and antipodal counts. For m≥2 a dominating set of m edges in the line graph must cover at least 2m of the 2m+1 underlying vertices (otherwise an uncovered pair yields an undominated edge), so these edges are exactly near-perfect matchings. Replacing a dominating-set vertex corresponds to a single-edge flip. The bipartite peer df80d3d712a4 uses K_(n,n) and a different metric."
+        ],
+        "reasoning": "The triangular-graph record is substantive exact equivalent coverage, but is dated later and is not used as earlier art. That equivalence is by the shared state graph, not just numerical matching. The decisive earlier implication comes from the primary results below.",
+        "searches": [
+          "Resultary queries for one-edge flips of odd matchings, almost-perfect matching distance spheres, triangular graph domination and near-perfect matching cycle metrics",
+          "Resultary 4215f72aa114, Finding and Proof at offsets 0–7932; df80d3d712a4, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later catalogue record is an exact generating-function match. Lindzey provides the existing full orbital indexing by partitions with one odd part; the odd part is the even path plus its last endpoint and the remaining parts are cycle sizes, counting common edges as 2. Bamberg–Klawuhn describe the corresponding odd-size Gelfand pair."
+        ],
+        "reasoning": "This is not a failure based on a small numerical table. The exact earlier classification uses types fine enough that the distance is a deterministic weight on each type, and the count in each type follows directly from its stabilizer.",
+        "searches": [
+          "Resultary exact distance layer / sphere searches; inspected hits 4215f72aa114 and df80d3d712a4",
+          "arXiv:1811.06160, §11, Theorem 56 and definition of A_λ; arXiv:2507.00813, Remark 4.19"
+        ]
+      },
+      "rationale": "The result is correct, but the distance and the enumeration are mechanically implied by the earlier odd-matching flip analysis and the known near-perfect matching orbitals. Aichholzer et al. give the combinatorial path and cycle switches and identify the unavoidable cycle-entry overhead; on a complete graph every direct cycle entry is available. Lindzey already classifies the pair orbitals on the very same near-perfect matchings. Their distance weights and orbit sizes give the frozen EGF by a direct orbit-stabilizer sum, detailed below. Thus the closed form is not an independently distinct exact invariant under the review standard. No earlier explicit printing of the entire EGF was found; the later exact catalogue match is corroborating evidence about equivalence, not the basis for earlier coverage.",
+      "residual_risks": [
+        "An earlier explicit printing of the EGF was not established; the failure is the demonstrable mechanical implication, not a claim about an identical earlier printed formula. The Theorem 15 numbering is that of the inspected Aichholzer arXiv text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the component metric in this specialization",
+          "evidence": "In the combinatorial setting an adjacent-hole switch costs j+1, resets the hole, and the alternating path is directly flippable. Theorem 15 passage identifies the per-cycle extra entry; its full formula includes a geometric obstruction that is absent here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.18457",
+          "material_read": "§2, pp. 5–6 (offset 16430); §4.2, p. 10, Theorem 15 and preceding lower-count paragraph (offset 34500)",
+          "method": "Primary open PDF passages",
+          "title": "Flipping odd matchings in geometric and combinatorial settings",
+          "trigger": "Same rules; likely exact complete-graph distance from known switches"
+        },
+        {
+          "assessment": "Earlier exact orbital types; multiplicities by their joint stabilizers",
+          "evidence": "The symmetric-group orbitals are partitions with one odd part recording the path, and even parts recording cycles including common edges. Proposition 57 uses the fixed-extra-vertex perfect-matching bijection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.06160",
+          "material_read": "§11, Theorem 56 and scheme definition, pp. 37–38, offset 109700; Proposition 57",
+          "method": "Primary open PDF passages",
+          "title": "Intersecting Families of Perfect Matchings",
+          "trigger": "Same near-perfect state space and pair-orbit enumeration"
+        },
+        {
+          "assessment": "Confirms the odd-size matching scheme, not an explicit distance series",
+          "evidence": "Describes extension to the odd-order Gelfand pair with symmetric vertex group and hyperoctahedral stabilizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.00813",
+          "material_read": "Remark 4.19, pp. 14–15 (offsets 61600–66594)",
+          "method": "Primary open text, localized comparison",
+          "title": "Bamberg and Klawuhn, arXiv:2507.00813",
+          "trigger": "Independent account of matching association schemes and near-perfect orbitals"
+        },
+        {
+          "assessment": "Same graph; different invariant",
+          "evidence": "Defines the same one-flip graph of almost-perfect matchings; Theorem 3 gives Hamilton-connectedness, not a distance polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.04687",
+          "material_read": "§1, p. 4 and Table 1 p. 5 (offsets 10500, 15400)",
+          "method": "Primary open text, localized passages",
+          "title": "Hamilton paths and cycles in flip graphs of (almost-)perfect matchings",
+          "trigger": "Same graph and potentially stronger earlier graph-theoretic theorem"
+        },
+        {
+          "assessment": "Full equivalent later match, not basis for earlier coverage",
+          "evidence": "Same distance, sphere EGF, diameter and antipodal counts. The peer itself points to the prior flip analysis for the metric.",
+          "identifier_or_url": "4215f72aa114",
+          "material_read": "RESULT.md, Finding and Proof (offsets 0–7932) and prior-work discussion (offsets 7800–9860)",
+          "method": "Resultary search and bounded local mirror passages",
+          "title": "Distance spheres of minimum dominating sets in odd triangular graphs",
+          "trigger": "Strong exact indexed match under an alternative state model"
+        },
+        {
+          "assessment": "Different object and moves",
+          "evidence": "Uses size-(n−1) matchings in K_(n,n) and a permutation-cycle metric.",
+          "identifier_or_url": "df80d3d712a4",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "An exact cycle-potential metric for sliding near-perfect bipartite matchings",
+          "trigger": "Indexed near-perfect matching distance with a cycle count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–16 and 21–45",
+        "arXiv:2508.18457 §2 and Theorem 15 passage; arXiv:1811.06160 §11"
+      ],
+      "rationale": "The complete-graph matching flip metric and its sphere counts concern a natural object, and the explicit formula is a useful presentation. But the exact fact sought is a direct weighted restatement of the known orbital counts and complete-graph component metric. Its radius, diameter and top-layer numbers follow from the same weights and do not supply an independent gap. There is no supported distinct valuable remainder in the frozen result; no repaired finding is submitted.",
+      "residual_risks": [
+        "The decision does not rule on other statistics, such as multiplicities of shortest flip sequences, which are not claimed or derived here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

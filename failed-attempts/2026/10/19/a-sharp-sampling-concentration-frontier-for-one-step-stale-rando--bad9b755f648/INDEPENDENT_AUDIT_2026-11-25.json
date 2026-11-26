@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:15:02.061522Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Center at A^{-1}b. On coordinate i the i.i.d. update is (y,z) -> (y−βξz,y), ξ Bernoulli(p_i). With h=βp/(1+βp) and c=h+β²p/2, Q=[[1,−h],[−h,c]] is positive definite since c>h>h². Direct expansion of the conditional Q-energy gives drift (β²p/2−h)(y²+z²); the mixed term cancels by βp(1−h)=h. Its sign is exactly that of pβ²+β−2. Comparison of Q with the Euclidean square gives geometric decay, exact conservation, or geometric growth for the state pair. At and above threshold the instantaneous mean square is also bounded below by a positive constant times the preceding pair's mean square: (1−p)y²+p(y−βz)² is positive definite because 0<p<1. Finite summation with fixed positive a_i, decreasing βcrit(p), and nonzero starts supported on a maximizing coordinate give the global frontier. The expansion at p=1/n is correct. Verification notes and rational checker were inspected, not executed; the all-time result is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carson–Ma, p. 7, eqs. (11)–(15) and Theorem 1: general sufficient uniform identity bound 2/[1+2(n^{-1/2}+n^{-1})] for delay one, not the exact frontier.",
+          "Avron et al., §7 Theorem 4, p. 16: inconsistent reads with underrelaxation and a sufficient bound.",
+          "Costa–Fragoso full theorem passage not obtained; the distinct Resultary proof explicitly constructs the positive covariance lift, and is enough for the comparison."
+        ],
+        "reasoning": "The asynchronous sufficient-rate results are not alone decisive evidence of exact coverage; the exact equivalence comes from the distinct stale additive identity model.",
+        "searches": [
+          "Carson–Ma arXiv:2609.15605 Theorem 1",
+          "Avron–Druinsky–Gupta arXiv:1304.6475 §7",
+          "Costa–Fragoso DOI 10.1006/jmaa.1993.1341"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_stale_rgs.py (inspection only)",
+        "Distinct Resultary 2026/10/18/SCOPE-sharp-row-diversity-threshold-for-one-step-stale-randomized-kacz--1b839e7f4866",
+        "arXiv:2609.15605; arXiv:1304.6475; DOI 10.1006/jmaa.1993.1341 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof gives a positive definite W and a positive covariance map with L(W)=W at equality and L²(W)≽(1+η)W above. For 0<p<1 every nonzero rank-one initial covariance becomes positive definite within at most three updates: branch states are independent vectors whenever both coordinates of the pair are nonzero, and every nonzero start reaches such a pair on a positive-probability path."
+        ],
+        "reasoning": "Once positive definite, the evolved covariance dominates a positive multiple of W, giving the nonvanishing/growth conclusions for each nonzero start from the same prior lift, not merely for an exhibited start. The specific frozen Q is an alternative certificate of that frontier.",
+        "searches": [
+          "Distinct Kaczmarz RESULT.md, proof of exact strict threshold, offsets 3878–6096; frozen RESULT.md lines 35–59"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-sharp-row-diversity-threshold-for-one-step-stale-randomized-kacz--1b839e7f4866, Finding and scalar reduction: e^{k+1}=e^k−αe^{k−1}_{I_k}e_{I_k}, independent choices, arbitrary deterministic initial pair, iff α+α² max p_i<2."
+        ],
+        "reasoning": "Compare to RESULT.md lines 18–33: the one-step-old residual is added to the current iterate in both, and after diagonal cancellation the transition matrices are equal, not just analogous.",
+        "searches": [
+          "Resultary: sharp row diversity threshold one step stale randomized Kaczmarz identity alpha alpha squared p max additive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Kaczmarz entry explicitly lists precisely the polynomial inequality, necessity at equality, and supercritical exponential growth; it even solves the equivalent minimum dimension feasibility problem."
+        ],
+        "reasoning": "This is confirmed statement-level exact catalog coverage, not a matching title or an unidentified numerical table. The closed-form βcrit and uniform expansion follow immediately from that polynomial.",
+        "searches": [
+          "Resultary: sharp row diversity threshold one step stale randomized Kaczmarz identity alpha alpha squared p max additive; exact Kaczmarz RESULT.md, offsets 0–6096"
+        ]
+      },
+      "rationale": "A distinct Resultary result already proves the same sharp criterion and boundary classification for exactly the same stochastic process. The frozen diagonal system's centered update is the identity-system additive stale Kaczmarz update, with α=β and the same sampling and initial pairs. Replacing the Euclidean norm by the norm with fixed positive diagonal weights changes neither the mean-square boundary nor geometric rates. The frozen text gives a different short Lyapunov certificate, not a distinct sampling frontier. No priority inference is needed from catalog dates.",
+      "residual_risks": [
+        "Earlier published sources may also imply the scalar recursion's exact threshold; that bibliographic question is not needed to establish the distinct exact indexed overlap.",
+        "No claim of historical priority or originality of either record's specific certificate is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the principal claim",
+          "evidence": "Same Bernoulli scalar dynamics; iff α+α² max p_i<2 and boundary behavior.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-row-diversity-threshold-for-one-step-stale-randomized-kacz--1b839e7f4866/RESULT.md",
+          "material_read": "Finding, assumptions, scalar reduction and proof, offsets 0–6096",
+          "method": "Resultary search and local-mirror source inspection",
+          "title": "Sharp row-diversity threshold for one-step-stale randomized Kaczmarz",
+          "trigger": "Exact polynomial and additive one-commit-old identity iteration in search result"
+        },
+        {
+          "assessment": "Broader sufficient condition only",
+          "evidence": "Uniform identity specialization is strictly below the exact frontier, e.g. at n=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.15605",
+          "material_read": "p. 7, eqs. (11)–(15), Theorem 1, OA offsets around 23200–26376",
+          "method": "Bounded primary text inspection",
+          "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis",
+          "trigger": "Closest cited asynchronous algorithm framework"
+        },
+        {
+          "assessment": "Different read assumptions and sufficient underrelaxation criterion",
+          "evidence": "Inconsistent read need not correspond to a committed vector; the theorem requires β<1.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.6475",
+          "material_read": "p. 7 discussion of reads; §7 Theorem 4, p. 16",
+          "method": "Bounded primary text inspection",
+          "title": "Revisiting Asynchronous Linear Solvers: Provable Convergence Rate Through Randomization",
+          "trigger": "Older asynchronous RGS analysis"
+        },
+        {
+          "assessment": "Possible older broader coverage, not needed for the decision",
+          "evidence": "No explicit specialization verified from this paper.",
+          "identifier_or_url": "https://doi.org/10.1006/jmaa.1993.1341",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded lawful OA retrieval; decisive full-text theorem not obtained",
+          "title": "Stability Results for Discrete-Time Linear Systems with Markovian Jumping Parameters",
+          "trigger": "Older general covariance stability criterion cited by the exact match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp nonuniform-sampling boundary for a stale update would be useful as a new result, but the identity-system theorem already supplies it. Diagonal weighting and rebranding the same process do not create a new stability regime. The alternative positive quadratic certificate is a compact proof, with no separate scientifically needed invariant or new boundary established as the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

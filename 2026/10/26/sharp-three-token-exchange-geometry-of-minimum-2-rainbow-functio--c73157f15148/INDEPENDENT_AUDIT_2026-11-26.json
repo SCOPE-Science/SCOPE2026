@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:47:05.855075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I verified by a fresh exact enumerator /workspace/review-evidence/rainbow.py, not by executing either frozen program. The slot set dominates Q5=Q4□K2: an unchosen slot at an occupied Q4 vertex is covered by the twin, and at an empty vertex it must be covered by a horizontal neighbor of its own color. Weight is slot count. An exact depth-at-most-seven search branches on the least uncovered Q5 vertex: every extending solution must choose one of its six closed neighbors, and forbidding earlier siblings' choices makes each path the canonical first-choice path for that solution. Each additional choice can cover at most six more points, justifying the only size prune. This gives no dominating set below seven and 320 of size seven. Bit-coordinate permutations, translations and the global color swap generate the stipulated group; the generated orbits exhaust exactly the overlap-zero and overlap-one classes in sizes 192 and 128. With named colors the token distance is the size of a one-sided difference (half the symmetric difference). Exact pairwise intersection counts agree at distances 3 through 7 (4320,1440,22080,11520,11680), and vanish at distances 1 and 2. The delta=3 edges give the equitable rows (15,12) and (18,9), hence degree 27 and 4320 edges. BFS from one representative of each of the two symmetry orbits has graph-distance shell sizes (1,27,213,79) in both cases; symmetry gives eccentricity three everywhere. This establishes connectivity, radius and diameter. The distance histogram is for token distance, not graph shortest-path distance; all conclusions use endpoints-only feasibility and are specific to Q4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 equality-case enumeration concerns (6k,3l) or (3k,6l), not (4,4).",
+          "The 2019 title is specifically on scalar minimum weights for C4 and C8 strips; optimizer coverage was not verified because the article was inaccessible.",
+          "The 2025 primary abstract announces exact scalar values and bounds for products of cycles."
+        ],
+        "reasoning": "No checked broader result is a classification of the stated exchange edges, distances, or partition; scalar optimum results are not claims about optimizer geometry.",
+        "searches": [
+          "Stępień–Szymaszkiewicz–Zwierzchowski DOI 10.1007/s10878-013-9658-0, Theorems 3–4",
+          "Shao–Li–Erveš–Žerovnik DOI 10.1007/s40009-018-0779-y",
+          "Brezovnik–Rupnik Poklukar–Žerovnik DOI 10.26493/1855-3974.3168.74d"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1007/s10878-013-9658-0 and 10.26493/1855-3974.3168.74d, passages specified above",
+        "Östergård author archive listing; 2000 and 2019 papers not read in full",
+        "Resultary c9e2c260f397 and 5892cf5f68ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A list of optimum code representatives can be expanded to configurations, but a static list or minimum number does not itself supply intersection distances, the connected first exchange radius, or the distinguished equitable rows. The 2015 lower-bound equality counts are inapplicable at (4,4)."
+        ],
+        "reasoning": "The distinct result concerns the relation among optimum configurations, not a renaming of the minimum or a count obtained just by expanding code equivalence classes. Exact coverage by inaccessible original publications is unverified.",
+        "searches": [
+          "Compare code classification scope and scalar domination papers against the token-distance histogram and exchange graph",
+          "Compare Resultary c9e2c260f397 and 5892cf5f68ec Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stępień et al., p. 668 abstract, explicitly identifies 2-rainbow domination on G with domination on G□K2.",
+          "Here the cube-product bijection also preserves the size and intersection of labeled slot sets. The full Q5 cube symmetry need not preserve the distinguished color coordinate, whereas the claimed equitable partition does."
+        ],
+        "reasoning": "A static length-five code classification would be substantial overlap on configuration types. The supported new assertions concern pairwise distances and the exchange graph, including a color-coordinate-dependent equitable partition.",
+        "searches": [
+          "Q4 2-rainbow domination / C4□C4 toroidal rainbow functions",
+          "Q5 domination; length-five optimal radius-one binary covering codes and exchange graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-five entry in the covering-code paper was not accessible. The available author archive page provides a length-eight radius-two supplement, not a length-five table.",
+          "Resultary c9e2c260f397 also finds 320 rainbow optima and a connected exchange graph, but on the Clebsch graph with weight 6, threshold 2, degree 9, diameter 5; 5892cf5f68ec is a weight enumerator for outer-independent functions on triangular graphs."
+        ],
+        "reasoning": "A covering-code classification might imply the static labeled count by orbit–stabilizer; the catalogue passages give neither the same problem nor these exchange metrics. A bounded search does not certify absence.",
+        "searches": [
+          "Östergård–Weakley DOI 10.1002/1520-6610(2000)8:6%3C391::AID-JCD1%3E3.0.CO;2-R and author's archival page",
+          "Resultary searches for exact Q4, 320 optima, three-token exchange geometry"
+        ]
+      },
+      "rationale": "Do not credit the cube equivalence, the minimum weight, or optimal-code classification as new. Pass on the supported distinction of the sharp first nontrivial exchange radius and its full exchange-graph structure, not on the static optimum census. No accessible finding or passage establishes the exchange theorem; two plausible primary sources could not be inspected in full and remain explicit risks.",
+      "residual_risks": [
+        "The primary 2000 covering-code paper and the 2019 strip paper remain inaccessible; uninspected coverage cannot be excluded, particularly for the static census already disclaimed as novel.",
+        "Unindexed literature on the metric between optimal covering codes could contain exchange overlap. No publication-wide priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of equivalence; different equality cases",
+          "evidence": [
+            "G□K2 equivalence and lower-bound equality families exclude (4,4)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9658-0",
+          "material_read": "Abstract p. 668, offset 0; Theorems 3–4, p. 673 around offset 13161",
+          "method": "Lawful OA primary PDF",
+          "title": "The Cartesian product of cycles with small 2-rainbow domination number",
+          "trigger": "Exact cube-domination equivalence and possible optimizer census"
+        },
+        {
+          "assessment": "Potential static-census coverage; exact comparison limited by access",
+          "evidence": [
+            "Wiley retrieval returned 403; available supplement is length 8, radius 2, size 12, not length 5."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/1520-6610(2000)8:6%3C391::AID-JCD1%3E3.0.CO;2-R",
+          "material_read": "Bibliographic scope and author's archive page https://users.aalto.fi/~pat/8-2-12.html; no primary length-five table read",
+          "method": "Direct and configured alternate lawful PDF/DOI retrieval failed; inspected author supplement listing",
+          "title": "Classification of binary covering codes",
+          "trigger": "Static classification of optimal length-five codes"
+        },
+        {
+          "assessment": "Treat scalar minimum as prior context; optimizer and exchange coverage unresolved",
+          "evidence": [
+            "Publisher retrieval hit redirect errors; no repository copy was recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40009-018-0779-y",
+          "material_read": "Bibliographic title only; article not read",
+          "method": "Lawful publisher and DOI recovery attempts; no identified available full-text copy",
+          "title": "The 2-Rainbow Domination Numbers of C4□Cn and C8□Cn",
+          "trigger": "Includes the relevant four-cycle strip"
+        },
+        {
+          "assessment": "Scope inspected: scalar counts and bounds; no inference about the entire text",
+          "evidence": [
+            "Abstract announces scalar exact values for infinite families and lower and upper bounds elsewhere."
+          ],
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.3168.74d",
+          "material_read": "Primary abstract, p. 1, offset 914 onward",
+          "method": "OA journal PDF passage",
+          "title": "The 2-rainbow domination number of Cartesian product of cycles",
+          "trigger": "Recent broader exact results for toroidal grids"
+        },
+        {
+          "assessment": "Distinct graph and move geometry",
+          "evidence": [
+            "Clebsch, weight six, two-token threshold, degree nine and diameter five."
+          ],
+          "identifier_or_url": "Resultary c9e2c260f397",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Antineighborhood involution and sharp two-token mobility of minimum rainbow functions on the Clebsch graph",
+          "trigger": "Closest indexed exchange theorem, also 320 minima"
+        },
+        {
+          "assessment": "Different constraints and graph",
+          "evidence": [
+            "Outer-independent labelings of T_n, n≥5."
+          ],
+          "identifier_or_url": "Resultary 5892cf5f68ec",
+          "material_read": "Opening Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Outer-independent two-rainbow weight enumerator of triangular graphs",
+          "trigger": "Same-day related indexed exact rainbow census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical minimum covering problem, the exact minimum number of simultaneous token changes needed for any move is also sufficient for connecting all optimum states, and three such moves always suffice to go between them. The two displayed equitable rows record how the minimum exchange interacts with double labels. These are useful exact reconfiguration facts, not merely a new tabulation of already classified static optima. They do not describe paths through higher-weight or partially feasible states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

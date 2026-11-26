@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For positive finite parameters, an explicit Gibbs global-balance calculation establishes the unique stationary law; forward/backward spin-flip ratios establish the exact entropy rate. Transfer-matrix correlations supply all finite-size factors, and applying the spin generator to two opposite lagged correlations proves the temporal-asymmetry identity. The optimum follows from strict decrease of its logarithmic derivative; no finite enumeration is substituted for an infinite argument. The independent standard-library checker passed 152 deterministic assertions, including generator and path-sum comparisons.
+## correctness
 
-## Originality — PASS (qualified)
-Godrèche (2011) supplies the earlier stationary-Gibbs directed-chain mechanism with bounded bias but does not present the assessed finite-size entropy-production expression or the independent-coupling strongly directed temperature optimum. The 2024 Weiderpass–Sharma–Sethi preprints extend the model to the stronger nonreciprocal region and give the transition generator and correlations, rather than the claimed dissipation identity and sharp temperature optimization. Aguilera et al. (2021) consider entropy in a parallel-update asymmetric network; Godrèche and Luck (2018) concern Gaussian rather than binary spin systems. Earlier formulas make some derivation steps straightforward; equivalently published or unindexed results remain a publication-priority risk. One already available three-spin calculation of path-entropy statistics is a special case of the finite-size expression and is not presented as new; the new theorem concerns all ring sizes at least four and the sharp thermodynamic optimum.
+PASS
 
-## Mathematical value — PASS
-A Gibbsian stationary law cannot reveal the strong nonequilibrium drive in static measurements. The exact dissipation–time-arrow identity offers a direct dynamical diagnostic for any finite ring. The complete finite-size formula and unique optimal-temperature law quantify a physically motivated competition between asymmetric driving and low-temperature domain-wall suppression, with sharp coupling-dependent temperature selection in a regime distinct from the earlier nonnegative-bias model.
+For finite beta the aligned- and opposed-neighbor rates are positive. The even part has detailed balance against the periodic Gibbs law; the odd part contributes a telescoping difference of adjacent bond variables to total inflow minus outflow. Irreducibility yields the unique Gibbs stationary distribution. Aligned neighbors give zero log stationary flux ratio, and opposed neighbors give −4 beta K times the left bond. The latter bond is fair conditional on the opposed neighbors; the conditional weighted log is 2 beta K gamma_o, so the rate per spin is beta K gamma_o(1−C2). Under Gibbs the bond variables are tilted independent signs of mean z conditioned on product +1, giving C2=(z²+z^(N−2))/(1+z^N). In the lag difference the even terms cancel and the odd term is +gamma_o(1−C2) with the specified right-minus-left sign. Twelve fresh finite-ring bond-support checks confirm all three identities. In the infinite-chain objective x*tanh(p x)*sech²x the log derivative is strictly decreasing in x from +infinity to −2 and decreases strictly in p at every positive x. Its unique zero is the global maximum, decreasing in p for x*=beta*J. Its limit at infinity solves 2x tanh x=1 by uniform decay of the additional log-derivative term on x at or above that positive bound. Continuity in p gives the endpoint at p=2; independent high-precision roots match both constants.
 
-## Limits and references
-This result assumes homogeneous continuous-time single-spin flips, periodic geometry and fixed physical couplings with \(K>J>0\). Its temperature-optimality theorem is only for the infinite-chain entropy density. Primary sources: Godrèche (2011), https://arxiv.org/abs/1102.0141; Weiderpass, Sharma and Sethi (2024), https://arxiv.org/abs/2410.23615 and https://arxiv.org/abs/2411.00059. Related general entropy treatments: Aguilera et al. (2021), https://doi.org/10.1038/s41467-021-20890-5; Godrèche and Luck (2018), https://arxiv.org/abs/1807.00694. Unindexed prior work and independent evaluation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generator, Gibbs-invariance mechanism and lag slope as a correlation observable are established or directly implicit in prior directed-Glauber work; in particular the large-bias rate already occurs in Godrèche–Luck (2015), not just in the cited 2024 papers. The distinct claim is the explicit stationary path-entropy evaluation at every stated ring size, its identification with the lag slope, and the sharp thermodynamic temperature optimum along this fixed-coupling path. Same-date entropy records cover a three-spin case and a zero-reciprocity boundary, not this combined theorem. This is not a priority claim for the model or strong regime.
+
+## value
+
+PASS
+
+The Gibbs law is insensitive to the odd rate, so a stationary observable cannot diagnose this particular arrow of time through configuration weights alone. A closed finite-ring dissipation density and its quantitative calibration by initial left/right lag distinguish dynamics on that common law. The unique sharp dimensionless temperature window and limiting endpoints tell when dissipation is largest along a fixed coupling ratio; those do not follow as a physical interpretation from stationarity alone. The combination is worthwhile without claiming a new Ising dynamics or a general thermodynamic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:55:42.844837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–48",
+        "Frozen VERIFICATION.md, verify_matrix.py, verify_bitsets.py and verification_output.txt (inspected; uploaded scripts not executed)",
+        "Brouwer–Van Maldeghem, Strongly Regular Graphs, §10.11, pp. 257–258",
+        "/workspace/audit_replays/chang.py (independent exact trace-cell refinement and maximality census)"
+      ],
+      "rationale": "The four representatives agree with the classification and the supplied switches. The independent replay constructs them by diagonal sign conjugation of the Seidel matrix and checks degrees and common-neighbor counts. A support's label traces partition the centers. A queried vertex extends a shattered support exactly when it splits every current trace cell into two nonempty parts. Since shattering is hereditary, this recursion is exhaustive through size four. For closed neighborhoods the replay uses open neighborhoods of the complement, which complement every trace without changing shattering. All eight coefficient rows and maximal open-triple counts match. There are only 28 center concepts, fewer than the 32 distinct traces needed at size five, so the eight polynomials are complete. Subtracting the triple-shadow of all shattered quadruples gives 0,1328,1624,1786 maximal triples, and the independent check that every pair extends excludes smaller facets. All four rows have shattered quadruples, so both dimensions are exactly four and the claimed purity split follows.",
+      "residual_risks": [
+        "RESULT.md line 45 overstates what both supplied scripts check: the matrix script checks pair extension, whereas the bitset script checks pair counts and the quadruple shadow but does not assert pair extension. The matrix check and the independent replay both verify the fact; the purity verdict is unchanged. The enumeration is for this four-graph class only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Johnson paper bounds and characterizes the VC-dimension for Johnson graphs. Brouwer–Van Maldeghem identify the four classes and the precise switching sets. The general graph VC-dimension text defines the closed convention."
+        ],
+        "reasoning": "A dimension bound or exact dimension determines only the largest degree, not the coefficients or inclusion-maximal supports. The exhaustive graph-class theorem fixes the inputs but not the trace census.",
+        "searches": [
+          "arXiv:2007.16042v1, Theorems 3.6–3.7",
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs, §10.11",
+          "Coudert et al., SEA 2024, p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 43076c96fc46, 08634914be96, 2d1512d0c583 and 293323715435",
+        "arXiv:2007.16042v1",
+        "Brouwer–Van Maldeghem §10.11",
+        "Coudert et al., SEA 2024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The neighborhood homology and first-order rank-four records already distinguish the graphs, but report Betti numbers and truth vectors respectively. The VC-dimension theorem is only for Johnson graphs and has no profile data."
+        ],
+        "reasoning": "Prior separation already rules out novelty of the generic conclusion 'the graphs are distinguishable'. It does not supply the full profile or the open purity classification for these invariants. Actual enumeration of all traces and their inclusion-maximal supports is needed.",
+        "searches": [
+          "Resultary 2d1512d0c583, Finding and output",
+          "Resultary 293323715435, Finding and offsets 0,3910",
+          "arXiv:2007.16042v1, Theorems 3.6–3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T(8)=J(8,2); the Chang representatives are switches, not Johnson graphs. A Lovász neighborhood face requires a common adjacent center, whereas a shattered support requires a center for every trace, including the full support. The matching switch has 2960 Lovász triangular faces versus 2936 shattered triples. The closed formulation is equivalent to the open formulation on the complement by complementing all traces."
+        ],
+        "reasoning": "The matching graph and parameter set do not make the complexes equivalent. The complement reduction moves to a different graph family, and dimension computations count neither the individual supports nor their facets.",
+        "searches": [
+          "Resultary: Chang graphs open and closed neighborhood shattering, triangular and Johnson graph profiles",
+          "Resultary 2d1512d0c583, Finding and verification_output.txt",
+          "Coudert et al., Practical Computation of Graph VC-Dimension, SEA 2024, p. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact triangular formulas specialize at n=8 to (1,28,378,2800,9520) open and (1,28,378,1960,2520) closed. The class tables cover graph identification, and the related Resultary output tabulates faces of a different complex. No earlier switched-Chang shattering table or exact open maximal-triple count was located in the inspected material."
+        ],
+        "reasoning": "The triangular comparator is already fully covered. Reconstructible adjacency and previously tabulated graph invariants are not the exact shattering or facet data.",
+        "searches": [
+          "Resultary: complete open and closed neighborhood shattering polynomials for triangular and switched Chang graphs",
+          "Resultary 43076c96fc46 and 08634914be96, Findings",
+          "Resultary 2d1512d0c583, output offset 1344",
+          "Brouwer–Van Maldeghem §10.11"
+        ]
+      },
+      "rationale": "The exact T(8) polynomial rows and other distinguishing invariants are prior coverage, and are not credited here. The supported contribution is the complete open and closed coefficient vectors of the three switched Chang graphs and the resulting distinction in open shattered-support facets. The best same-family prior enumeration is of common-neighbor faces, not all traces; the actual counts differ. The inspected classification and VC-dimension sources do not give the new rows or maximal triples.",
+      "residual_risks": [
+        "Additional primary literature queries were deferred and supply no negative evidence. An unindexed exact switched-graph computation may exist; the decision rests on the inspected literature and indexed match comparisons. No novelty is claimed for the triangular rows or for distinguishing these four graphs by any invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of open T(8), not the switches",
+          "evidence": "Complete open-neighborhood formula for triangular T_n specializes at n=8 to the stated row.",
+          "identifier_or_url": "Resultary 2026/10/18 record 43076c96fc46",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local-mirror formula comparison",
+          "title": "Exact open-neighborhood shattering profiles of triangular graphs",
+          "trigger": "Exact triangular open row"
+        },
+        {
+          "assessment": "Exact coverage of closed T(8), not the switches",
+          "evidence": "Complete closed formula for J(n,2) yields the stated comparator at n=8.",
+          "identifier_or_url": "Resultary 2026/11/8 record 08634914be96",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local-mirror formula comparison",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular Johnson graphs",
+          "trigger": "Exact triangular closed row"
+        },
+        {
+          "assessment": "Johnson dimension characterization, not Chang coefficient census",
+          "evidence": "Upper bound four and exact VC-dimension criterion for open neighborhoods in Johnson graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "v1 Theorem 3.6, PDF p. 9, offset 25102; Theorem 3.7, p. 18, offset 46186",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same neighborhood concept family and possible formula for comparator and switches"
+        },
+        {
+          "assessment": "Closed dimension convention, no matching profile in inspected passage",
+          "evidence": "Defines graph VC-dimension via closed neighborhoods rather than a coefficient or maximal-support table.",
+          "identifier_or_url": "Coudert et al., SEA 2024",
+          "material_read": "OA PDF p. 4, offset 12617",
+          "method": "Primary-text definition comparison",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Plausible broad closed-neighborhood VC enumeration"
+        },
+        {
+          "assessment": "Exact representative classification, not shattering counts",
+          "evidence": "States the four classes and identifies the switches by matching, an 8-cycle and a disjoint triangle and pentagon in K_8.",
+          "identifier_or_url": "https://doi.org/10.1017/9781009057226",
+          "material_read": "Author preprint §10.11, pp. 257–258, PDF offset 846201",
+          "method": "Lawful author-preprint passage comparison",
+          "title": "Strongly Regular Graphs",
+          "trigger": "Exhaustive class catalogue on exactly (28,12,6,4)"
+        },
+        {
+          "assessment": "Different complex and known prior separation",
+          "evidence": "Uses common-adjacent-center faces and mod-two Betti numbers; matching switch has 2960 common-neighbor triangular faces versus 2936 shattered triples.",
+          "identifier_or_url": "Resultary 2026/11/1 record 2d1512d0c583",
+          "material_read": "RESULT.md Finding offset 0 and verification_output.txt offset 1344",
+          "method": "Local-mirror comparison of definitions and one decisive count",
+          "title": "Neighborhood homology distinguishes all four strongly regular (28,12,6,4) graphs",
+          "trigger": "Same exact graphs and a prior neighborhood simplicial-complex census"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Rank-three equivalence and rank-four distinction via first-order formula truth vectors, not trace census.",
+          "identifier_or_url": "Resultary 2026/11/2 record 293323715435",
+          "material_read": "RESULT.md offsets 0 and 3910",
+          "method": "Local-mirror comparison of observable and theorem",
+          "title": "Four distinct rank-four theories of the Chang parameter graphs",
+          "trigger": "Exact prior separation of same four graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof of completeness and maximality",
+        "Independent chang.py census",
+        "Existing neighborhood homology and first-order distinctions compared under originality"
+      ],
+      "rationale": "The natural open and closed support complexes measure neighborhood trace diversity beyond the common VC dimension and common strongly regular parameters. The census gives reusable exact data for all four graphs, separates the three cospectral Chang graphs under both conventions, and identifies a structural distinction: the open triangular complex is pure while every Chang open complex has both triple and quadruple facets. This is meaningful independently of earlier distinctions by different invariants.",
+      "residual_risks": [
+        "This is a finite exact classification, not a formula for arbitrary strongly regular graphs or a theorem about the shattering effect of general Seidel switching."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

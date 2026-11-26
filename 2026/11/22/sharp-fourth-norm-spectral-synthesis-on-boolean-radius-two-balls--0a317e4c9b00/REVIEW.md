@@ -1,19 +1,21 @@
-# Review: sharp fourth-norm synthesis on Boolean radius-two balls
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The parity embedding turns the radius-two ball into the origin plus all complete-graph edges. Strict complex convexity of the fourth Walsh moment with the zero-frequency coefficient fixed gives one optimizer; hidden edge-transitive symmetry and conjugation make it a real two-level profile. Character averaging yields the explicit quartic, and its strict convexity gives the unique real cubic root. Counting triangles and four-cycles in the complete graph verifies the exact sign transition. Uniform polynomial moments for Rademacher sums and a coercive moment estimate establish the asymptotic law, not merely a conjectured normal approximation. The included checker passed 214 supplementary exact or numerical checks, and its scope is finite.
+PASS
 
-## Originality — PASS against the inspected evidence
+By character modulation the supremum of the Fourier max-to-fourth-norm ratio equals that for the zero-frequency numerator, and scaling normalizes sum f=1. With this normalization the fourth-power objective is coercive and strictly convex on the finite-dimensional complex affine space (injective Walsh transform), so its unique minimizer is fixed by complex conjugation and by the permutation group of the m=d+1 parity coordinates. Under x→(x,sum x), the support becomes exactly zero and the complete edge shell. The two real orbit coefficients are 1-u and u/binom(m,2). Uniform sign vectors count each character twice; the edge sum ((sum eta_i)^2-m)/2 gives the stated t_j and counting factor 2^(-d/4). The real quartic is strictly convex and coercive, with derivative -4 at zero, so the cubic has one root u>0. Independently expanded the moment-generating polynomial of sum eta_i and recovered the second, third and fourth edge moments and the polynomial for M'_m(1); its sign is positive for m=3,4,5 and negative for m>=6. The support indicator is optimal precisely for m=3,4, since its normalized derivative is -32(m-4)(m-3)(m-2)/(m^2-m+2)^3. Jensen and the u=1 competitor imply |u_m-1|=O(1/m). From the exact edge moments, mt has moments through degree four tending to (1,0,2,8,60), so the rescaled objective converges uniformly on bounded v=m(u-1) to Q(v). Comparing the bounded minimizers with every fixed v, all subsequential limits minimize the strictly convex Q, with unique minimizer satisfying v^3+6v-8=0. This also gives the exact asymptotic prefactor. Every extremizer is consequently a modulation and scalar of the unique zero-frequency profile, and all such profiles attain the ratio. Exact replay: python3 /workspace/review_evidence/algebra.py (SymPy; Walsh block).
 
-Iosevich, Li and Yu, arXiv:2609.25404v1 (2026), provide a relevant general synthesis framework and an exact theorem for transitive affine supports whose indicator is an optimizer. A Boolean radius-two Hamming ball has two edge/origin orbits; its optimizing coefficient becomes nonuniform and eventually negative, so their transitive statement does not imply this theorem. Bhowmik, Deodhar and Iosevich, arXiv:2508.12194v1 (2025), give general finite spectral-synthesis bounds rather than this support-specific sharp quartic. Indexed Hamming Turán-mass and Walsh sampling-concentration results solve different optimization problems. The first two primary articles were read in full in available HTML; several indexed records were available only as summaries, which are not enough to declare their full texts noncovering. An older equivalent result remains a literature risk, and no formal uniqueness assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-Boolean Hamming radius-two balls are a canonical Fourier support family; optimizing a synthesis norm over them is motivated independently of finding a favorable finite parameter. The theorem identifies the exact sharp constant and complete complex extremizers for all dimensions, detects the signed-origin transition at dimension five, and proves a Gaussian/chi-square scaling law for large dimensions. These outcomes go substantially beyond a generic spectral-synthesis bound or a finite numerical table.
+The strongest distinct same-day Resultary hit really does use the same edge-shell representation and a Gaussian quadratic model, but its full Finding defines an infimum of counting l1/l2 on a radial two-dimensional input space. That is not this sharp counting linfinity/l4 synthesis, which starts on the entire supported complex space and has a different finite optimizer and limiting moment equation. No priority claim is needed. General finite synthesis and transitive-support background provide methods, not the nonuniform profile, threshold or asymptotic read here.
 
-## Limitations
+## value
 
-The proof covers only Boolean groups, Hamming radius two, and the fourth Fourier norm with counting measure. The all-dimensional cubic is implicit but uniquely specified; it is not a universal elementary radical identity. The finite checker independently tests many instances but does not prove the infinite statement. External audit and exhaustive prior-art certification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The radius-two Hamming ball is a standard finite Fourier support and the sharp synthesis ratio is a pre-existing exact-norm question. The result goes beyond using visible coordinate symmetry: the parity embedding forces the two noncentral layers together even though the indicator stops being optimal. The exact low-dimensional sign boundary and all extremizers determine when positivity can or cannot be imposed without losing the sharp constant, and the chi-square quartic fixes a sharp asymptotic coefficient rather than only order of growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

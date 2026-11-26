@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The file `checker.py` is self-contained Python 3 standard-library code. Run it with `python checker.py` from a directory containing this file. It uses integer arithmetic throughout. It checks the original quantified definition of forward confluence against an independently stated structural criterion for every relation on six carriers of at most four worlds, and also counts their confluence instances. It independently sums admissible lower-source rows over upper-source rows for five further positive level-size pairs and compares against the closed formula. Finally it checks the exact rational relative-error inequality for all \(1\leq a,b\leq8\) by integer cross-multiplication.
+## correctness
 
-The following outputs were obtained from the standalone packaged code before delivery:
+PASS
 
-```
-BRUTE 1 1 11
-BRUTE 1 2 185
-BRUTE 2 1 281
-BRUTE 1 3 10943
-BRUTE 2 2 11401
-BRUTE 3 1 33497
-ROW_SUM 1 4 2547617
-ROW_SUM 2 3 1252925
-ROW_SUM 3 2 3771875
-ROW_SUM 3 3 847519079
-ROW_SUM 4 3 3223875731057
-ALL_CHECKS_OK
-```
+For a strict comparison of sources m<t, an upper target must occur in both rows, whereas a lower target is witnessed by any upper target in row t or, if that row has no upper targets, only by itself. This gives precisely the two intersection restrictions; reflexive source comparisons impose nothing. For zero empty upper parts, the column sum is H^b without the nonempty-row condition, and the empty-row completions have no all-one columns: subtract B^b-(B-1)^b. For z>0 empty upper parts, each lower target gives 2^z-1 ordinary patterns and one all-present pattern with 2^a lower-source completions, accounting for every term of the exact formula. In the proposal law the factor 2^a on each all-one column cancels its 2^a equally likely lower-source completions, so conditioning on confluence is exactly uniform. One upper row is empty with probability (2^{b-1}/H)^b, independently across columns, giving the claimed bound by a union over rows, not by assuming row independence. Dividing by 2^{(a+b)^2} gives 2^{-ab}(1+2^{a-b}-2^{-b})^b for the relaxation; replacing the base by 1+2^{a-b} costs relative error at most b2^{-b}, uniformly in a, and gives all stated regimes. The audit's separate up-set evaluation checked every relation for all six positive (a,b) with a+b<=4, including 185 versus 281 and 11,401 at (2,2).
 
-These are bounded finite tests. They do not constitute an infinite proof. The proof in `RESULT.md` derives the exact formula and probability estimate for every positive \(a,b\), including all untested sizes. No independent audit has been performed.
+## originality
+
+PASS
+
+Credit the rooted-fork specialization and established FIK semantics. The strongest indexed overlaps, including a same-day two-sided census, do not give the unrestricted one-direction count with both sizes free or its sampling and uniform error analysis. This is a bounded statement-level finding, not a priority certification.
+
+## value
+
+PASS
+
+Complete two-level orders are a natural branching family beyond chains and rooted forks. The census retains the asymmetry of the two levels and distinguishes the balanced and strongly unbalanced rarity regimes. The same structure gives exact uniform sampling with at most two proposals in expectation, an independently useful way to generate valid frames without the rarity cost of rejecting from all relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

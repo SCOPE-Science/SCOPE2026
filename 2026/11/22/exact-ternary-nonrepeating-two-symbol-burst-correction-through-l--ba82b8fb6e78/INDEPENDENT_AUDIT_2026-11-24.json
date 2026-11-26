@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:08:27.164642Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two sources, a common received word implies the difference support is contained in the union of the two chosen nonwrapping length-two windows. Conversely, choose the second source's letters on the first window outside the second, the first source's letters on the second outside the first, the common letters off the union, and either on the intersection. The received word need not be proper; this also covers zero or one overwrite change. For 2≤n≤4 the first and last windows cover the word. For n≥5 two sources with the same interior are confusable by those windows, giving the q(q−1)^(n−5) bound. At five the q shifts of (0,1,2,3,4) modulo q are proper even at q=2, and distinct shifts differ at all five coordinates. A fresh output-ball enumeration on the frozen JSON witnesses checked properness and disjoint outputs at lengths 2–7, with full interior coverage at 5–7. The lower bounds therefore match the projected upper bounds, and the first length permitting eight messages is seven. Replay: /workspace/branches/395462f8-1235-4814-8586-fe978cca103c/independent_ball_check.py and independent_ball_check_output.txt in that directory. This is a check of the explicit lower-bound witnesses, not an inference of a general achievability theorem. Uploaded scripts were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Repeat-avoidance transducers, profile-vector channel codes, and homopolymer-free Hamming metric bounds cover neighboring models. The structured-bursts paper could not be assessed from primary full text: IEEE access was unsuccessful and the IBM page did not yield the target abstract."
+        ],
+        "reasoning": "These verified neighboring results do not give a construction saturating the constrained burst bound at n=6,7. The possibility of an earlier exact construction in the inaccessible paper is open.",
+        "searches": [
+          "DOI 10.1109/ISIT.2012.6284044 structured burst correction",
+          "arXiv:1606.01799 §4.3",
+          "arXiv:1410.8837 pp. 1–2",
+          "arXiv:2305.10741 §II"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1109/ISIT.2012.6284044 (access unresolved)",
+        "arXiv:1410.8837",
+        "arXiv:1606.01799",
+        "arXiv:2305.10741",
+        "Resultary 0306b325f309",
+        "Resultary 12842b36c852",
+        "Resultary dfdfffbd79be",
+        "Resultary 7bf1a47a6de0",
+        "Resultary 531630cac2ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting the first and last two coordinates is a standard burst upper bound; counting only proper interiors strengthens the unconstrained projection count in this model. The cited binary result has no proper-source constraint; the Hamming bounds do not address arbitrary unequal pairs of two-window shapes."
+        ],
+        "reasoning": "Neither puncturing nor those analogues supply compatible proper extensions of all ternary interiors. Achievability at six and seven requires the separate disjoint-ball witnesses. No originality is credited for the general confusability criterion in isolation.",
+        "searches": [
+          "arXiv:2305.10741 minimum-Hamming-distance bound and construction comparison",
+          "Resultary 0306b325f309 six-bit burst result",
+          "DOI 10.1109/ISIT.2012.6284044 structured burst"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homopolymer-free here means no equal neighbors in the source, but Hamming distance is not the two-window condition. Resultary 0306b325f309 has the same adjacent overwrite geometry on arbitrary binary length-six words. Resultary 12842b36c852 and dfdfffbd79be impose a related proper source but address respectively deletion and known-position erasure."
+        ],
+        "reasoning": "Equal Hamming weights need not give equal confusability: differences in coordinates 1,3,5 cannot be covered by two adjacent pairs, whereas 1,2,3 can. Deletion and known erasure have different output information, and an unrestricted binary optimum does not yield the constrained ternary optimum.",
+        "searches": [
+          "Local Resultary ternary homopolymer-free nonrepeating adjacent length-two substitution burst correction",
+          "Local Resultary binary length-six two-symbol burst and ternary proper deletion/erasure",
+          "arXiv:2305.10741 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary unrestricted length six has maximum four in 0306b325f309. Proper ternary single-deletion capacities in 12842b36c852 are 1,1,3,4,8,12,22 in its stated range; the erasure record gives E_5=23 and E_7=92. The identical frozen Resultary hit is not independent coverage."
+        ],
+        "reasoning": "The numerical tables have different assumptions even where numbers coincide, so they cannot resolve the queried six-entry profile. The frozen witness codebooks are evidence for correctness only.",
+        "searches": [
+          "Local Resultary short-block two-symbol burst and proper ternary capacities",
+          "Resultary 0306b325f309, 12842b36c852, dfdfffbd79be Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the evaluated ternary optimum under the simultaneous proper-source and adjacent-substitution requirements, including the exact length-six and length-seven saturating codebooks and hence the eight-message boundary. The two-window interior bound is a constrained form of the classical burst puncturing argument, and the five-letter shifts alone are routine. The strongest examined catalog comparisons either change the alphabet and source, or change the channel/code property. Primary inspection distinguished relevant constrained-code and structured-error work; the 2012 full text remains an unresolved access risk, not negative evidence or grounds for failure.",
+      "residual_risks": [
+        "The primary 2012 structured-burst paper was not readable; it might give an earlier relevant construction or a stronger result.",
+        "A specialized constrained-code table or an earlier construction could still cover the exact small lengths; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Access unresolved; no whole-work noncoverage inference.",
+          "evidence": "The identified primary paper could not be read from the available lawful routes.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2012.6284044",
+          "material_read": "Bibliographic identification only; no usable primary passage",
+          "method": "IEEE landing and stamp-PDF retrieval; identified IBM page; targeted literature lookup",
+          "title": "On codes for structured bursts",
+          "trigger": "Plausibly relevant short structured-burst construction"
+        },
+        {
+          "assessment": "Different observation object and channel; the title in the inspected PDF differs from the citation title in the finding.",
+          "evidence": "Profile vectors enumerate substrings; error notions include synthesis, coverage and sequencing.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8837",
+          "material_read": "PDF title page and p. 2, profile and channel discussion (OA offsets 0 and about 9933)",
+          "method": "OA PDF bounded passages",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Potential shared alphabet constraint and substitution channel"
+        },
+        {
+          "assessment": "Not an evaluated adversarial block optimum in inspected passages.",
+          "evidence": "The substitution simulations used point errors; the p. 21 passage says burst-style errors were not included in that simulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.01799",
+          "material_read": "Abstract and §4.3 pp. 20–21 (OA offsets 0, about 58550 and 62400)",
+          "method": "OA PDF bounded method and experiment passages",
+          "title": "Modular non-repeating codes for DNA storage",
+          "trigger": "Combines repeat restrictions and error correction"
+        },
+        {
+          "assessment": "Hamming-distance rather than two-window-confusability bounds.",
+          "evidence": "The (n,M,d)_q definition uses minimum Hamming distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.10741",
+          "material_read": "Abstract and §II Definition 2.1 (OA offsets 0 and about 6500)",
+          "method": "OA PDF scope and definition passages",
+          "title": "Bounds on Size of Homopolymer Free Codes",
+          "trigger": "Homopolymer-free code bounds may dominate the profile"
+        },
+        {
+          "assessment": "Binary unrestricted inputs rather than ternary proper inputs.",
+          "evidence": "Length-six maximum is four with zero, one or two adjacent flips.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-equality-cases-for-six-bit-correction-of-one-length-two-burst--0306b325f309/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local Resultary and exact passage inspection",
+          "title": "Equality cases for six-bit correction of one length-two burst",
+          "trigger": "Exact nearby short-block optimum under the same burst geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The concrete unknown in this model is whether every proper interior admits a mutually compatible extension at these short lengths. The witnesses permit one-burst protection at the shortest admissible blocklength supporting a three-bit payload, with a rigorous impossibility at every shorter length. This makes the finite cutoff operationally meaningful within the stated mathematical model, rather than crediting the elementary puncturing argument alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

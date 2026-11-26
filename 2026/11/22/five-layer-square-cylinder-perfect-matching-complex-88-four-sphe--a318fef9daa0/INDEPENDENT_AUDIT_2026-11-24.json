@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:49:37.894697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Scope and Proof; VERIFICATION.md; code/checker.py (inspected, not executed); evidence/checker_output.json",
+        "Independent replay: python3 /workspace/independent-checks/square_cylinder.py 5; /workspace/independent-checks/results.txt"
+      ],
+      "rationale": "The input is the extendibility complex, not all matchings. In an independent exact implementation I generated the coordinate graph and branched on a remaining vertex of minimum remaining degree to enumerate 450 perfect matchings. Their nonempty subfaces number 183,543, all lying in ten-edge facets. A cover-count and XOR-of-covers reconstruction found 88,171 elementary collapse pairs, verifying membership, codimension, uniqueness of the cover and maximality of the upper face. The core has f-vector (36,427,1850,3129,1759). Contracting a spanning tree, the triangle relators eliminate each of the remaining 392 generators; a queue of triangles with one surviving edge rechecked this. Independent sparse integer row operations returned 392, 1458 and 1671 unit pivots for ∂2, ∂3 and ∂4, with zero remainders. Unit Smith factors ensure free cokernels and hence torsion-free homology; the boundary ranks and connectedness leave exactly Z^88 in degree four. With π1 trivial, Hurewicz gives representatives in π4 for a basis, and the resulting wedge map is a homology equivalence between simply connected CW spaces, hence a homotopy equivalence. Nonzero H4 rules out pure dimension-nine shellability. For the symmetry check I enumerated unions of whole edge-permutation cycles lying in some perfect matching, deduplicated across matchings. A nonempty union of c cycles contributes (−1)^(c+1) to the reduced alternating trace, and the empty union contributes −1. This directly reproduces the degree-four character on the original complex without relying on equivariant collapses. The trace pairs in lexicographic (k,s) order are (88,4),(8,4),(0,0),(0,−8),(0,12),(8,4),(0,0),(0,−8). Character inner products give the five stated pairs, including seven copies of the trivial representation.",
+      "residual_risks": [
+        "No assertion for other lengths, for the ordinary matching complex, for an integral representation lattice, or for the quotient's integral homotopy type. The invariant count is a rational representation result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 25 covers C_n×P2 circular ladders, all cubic; Problem 27 proposes studying other symmetric families.",
+          "Theorem 1.1 covers open P3×P_{2n} rectangular grids, with a contractible first case and Fibonacci-count sphere wedges thereafter."
+        ],
+        "reasoning": "The target has five cross-sections and degree-four interior layers, unlike a cubic ladder, and is neither open nor three rows wide. The broader motivating question does not settle its exact topology.",
+        "searches": [
+          "Focused primary search for homotopy of perfect-matching complexes of square cylinders and grids",
+          "Agarwal–Basak arXiv:2608.30601v2 Theorem 25 and Problem 27; Chandrakar et al. arXiv:2611.18058v1 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Agarwal–Basak Thm. 25 and Problem 27; Chandrakar et al. Thm. 1.1",
+        "Four closest Resultary comparisons plus exact graph self-hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-family hypotheses exclude C4×P5. The open-grid comparison lacks the five wraparound edges. The planar D4 character concerns different homology degrees and has no five-layer reversal factor."
+        ],
+        "reasoning": "Neither a homotopy classification of the neighboring graph nor an unrelated action with D4 as a factor implies the wedge or all sixteen trace values for the target. Same-date comparison records are assessed on content rather than presumed chronology.",
+        "searches": [
+          "Statement-level comparison of Theorems 25 and 1.1 and closest cylinder, open-grid and symmetry Resultary findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "...03e64720fa75, Finding/Scope, uses all matchings of P4×C4 (a 16-vertex graph). ...c3d331ce4341 uses extendible matchings but on P3×C6 and gets 34 three-spheres."
+        ],
+        "reasoning": "Swapping Cartesian factors does not change the graph, but neither graph becomes C4×P5. Ordinary matching includes faces discarded by the perfect-matching functor, so the ordinary invariant cannot be substituted.",
+        "searches": [
+          "Resultary: perfect-matching extendibility complex of C4 square P5, square cylinder, P2 square P2 square P5",
+          "Compare ordinary and extendible matching formulations in ...03e64720fa75 and ...c3d331ce4341"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact C4×P5 match is the assigned record. The same-vertex-count comparator ...557d374d590c uses P4×P5 with 31 edges instead of 36, and proves a wedge of five three-spheres.",
+          "...5a898f04008f gives a D4 character for the planar P4×P4 perfect-matching complex, not the target's D4×C2 representation."
+        ],
+        "reasoning": "A same-count or same-symmetry table hit does not identify the graph or the homology representation. The exact self-hit is not an independent source.",
+        "searches": [
+          "Resultary: perfect matching complex C4×P5, 88 four-spheres, four-by-five grid and square-cylinder character"
+        ]
+      },
+      "rationale": "The strongest catalogued neighbors differ in either the graph or the allowed partial matchings. The broader primary theorems treat cubic circular ladders and open three-row grids, neither of which includes the target. The supported distinct claim is the exact wedge and full natural rational character for this extendibility complex; no general family novelty is inferred.",
+      "residual_risks": [
+        "The inspected comparison set does not certify priority against unindexed equivalent computations. No within-day priority assumed for distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct cubic family; broader problem, not a result for target",
+          "evidence": "Circular ladders are C_n×P2, with the perfect-matching theorem for that family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601v2",
+          "material_read": "Abstract p. 1 offset 0; Theorem 25 p. 16 offset 60000; Problem 27 p. 17 offset 63700",
+          "method": "Focused primary search and OA PDF passages",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Potential broader circular-ladder coverage"
+        },
+        {
+          "assessment": "Same functor, different open grid family",
+          "evidence": "P3×P_{2n}; Theorem 1.1 includes the dimensions and Fibonacci counts for that family only.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+          "material_read": "Definition p. 1 offset 400; Theorem 1.1 p. 2 offset 7500",
+          "method": "Focused primary search and OA PDF passages",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Broad grid perfect-matching theorem"
+        },
+        {
+          "assessment": "Different graph, within-day order unresolved",
+          "evidence": "P4×P5 (31 edges), no periodic direction, wedge of five three-spheres.",
+          "identifier_or_url": "2026/11/22/SCOPE-five-three-spheres-in-the-four-by-five-grid-perfect-matching-com--557d374d590c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Five three-spheres in the four-by-five grid perfect-matching complex",
+          "trigger": "Closest equal-order 4×5 result"
+        },
+        {
+          "assessment": "Different length and functor",
+          "evidence": "Ordinary matching complex of P4×C4, with two four-spheres and 27 five-spheres.",
+          "identifier_or_url": "2026/11/17/SCOPE-integral-homotopy-of-the-four-by-four-square-cylinder-matching-c--03e64720fa75",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Integral homotopy of the four-by-four square cylinder matching complex",
+          "trigger": "Square cylinder and integral sphere wedge"
+        },
+        {
+          "assessment": "Different factors and vertex count; within-day order unresolved",
+          "evidence": "P3×C6 with 18 graph vertices, wedge of 34 three-spheres.",
+          "identifier_or_url": "2026/11/22/SCOPE-thirty-four-three-spheres-in-the-perfect-matching-complex-of-the--c3d331ce4341",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Thirty-four three-spheres in the perfect-matching complex of the three-layer hexagonal cylinder",
+          "trigger": "Same cylinder functor, possible nearby factors"
+        },
+        {
+          "assessment": "Different graph and action; within-day order unresolved",
+          "evidence": "Planar P4×P4 under D4, with H2=E and H3=η, not the target reversal action.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-complete-square-symmetry-character-of-the-four-by-four-perfe--5a898f04008f",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "The complete square-symmetry character of the four-by-four perfect-matching complex",
+          "trigger": "Nearby D4 character for a perfect-matching complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Scope; original and independently reproduced character tables; nearby cylinder and open-grid statements above"
+      ],
+      "rationale": "This canonical periodic analogue of an open four-by-five grid gives an exact benchmark for the extendible-matching topology of noncubic cylinders, where ladder theorems do not apply. The dimension drop from nine to four, pure nonshellability, and full symmetry splitting supply different information. In particular, retaining the path reversal as well as square symmetry distinguishes the two parity sectors and determines the precise seven-dimensional invariant space; a nonequivariant Betti computation would not answer that question.",
+      "residual_risks": [
+        "Single finite graph; no family formula or equivariant homotopy splitting follows from the rational character."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

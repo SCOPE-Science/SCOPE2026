@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:55:35.945898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 51–69. Each b is labeled by its number i of preceding a's; these labels are weakly increasing and their multiplicities uniquely specify the word. Their sum is C. A set of occupied interior gaps uniquely determines the maximum possible number of alternating b selections: each gap supplies at most one, and taking one from each leaves an a on either end and between consecutive choices. Independent gap multiplicities yield (1), and setting z=1 gives [u^(B-j)](1-u)^(-j-2) times binomial(A-1,j), including B<j, A=1 and C=0. In the stable regime C<A, B>=C, the positive labels give unrestricted partitions, so J is their number of distinct sizes. The minimum area for j sizes is triangular, and any excess may be added to the largest distinct part. For fixed r>=2 the avoidance numerator lies between 1 and a polynomial in C; Hardy–Ramanujan then gives the logarithmic estimate. Removing one part of size k gives the exact mean. For k<=C^(3/5), the partition ratio is exp(-pi k/sqrt(6C))(1+o(1)) uniformly by Taylor expansion; monotonicity bounds the remaining sum by C times an exponentially small ratio in C^(1/10). This gives the asserted mean constant. Independently, at C=10 the four one-size partitions correspond to divisors of 10; two sizes give 22 by positive multiplicity counts, and four sizes force 1,2,3,4, leaving 15 three-size partitions. Both supplied checkers and their stored outputs were inspected, not executed; their bounded tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparison record gives exact factorial moments over all A,B,C fibres and exact conditional alternating-pattern probabilities.",
+          "Fazekas–Huang–Mercaş provide bounded alternating-run templates and a general fixed-pattern additive approximation, not the exact law in those passages.",
+          "Menon–Singh count embeddings in unrestricted words; Bilotta et al. concern contiguous alternating factors."
+        ],
+        "reasoning": "The exact factorial moments address the same variable and dominate the distribution calculation. The general approximation and other pattern models are not substitutes for this direct stronger coverage.",
+        "searches": [
+          "Resultary 045006e3e432, factored Gaussian-binomial factorial moments",
+          "arXiv:2610.06717 Lemma 5.2 and Theorem 5.7",
+          "arXiv:2306.07870; arXiv:1210.7620"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 045006e3e432",
+        "Resultary 0fe673644af7",
+        "Resultary b40371a80999",
+        "arXiv:2610.06717",
+        "arXiv:2510.07159",
+        "arXiv:2306.07870 (abstract)",
+        "arXiv:1210.7620 (abstract and introduction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When A>C and B>=C, the identical gap law specializes to the unrestricted distinct-size mark on partitions of C.",
+          "The first marked moment in that unrestricted product has GF (sum_{k>=1}q^k) times the ordinary partition GF; the support is the triangular lower bound with excess put into the largest part.",
+          "For fixed r the marked coefficient count below r is between 1 and a fixed polynomial in C, so dividing by p(C) gives the displayed logarithmic scale."
+        ],
+        "reasoning": "The low-area mean and rarity need no further word enumeration or new partition asymptotic. They do not survive as independent exact invariants after removing the already covered joint law, even without establishing an earlier printed statement of every consequence.",
+        "searches": [
+          "Resultary 045006e3e432 exact H-law",
+          "arXiv:2510.07159 §4.2",
+          "Hardy–Ramanujan, partition asymptotic, Proc. Lond. Math. Soc. (1918)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparison defines H as the number of occupied interior b-gaps and states (ab)^k a occurs iff H>=k. The pattern is exactly a(ba)^k.",
+          "Richomme bijects the binary class to partitions of C with B slots including zeros and largest positive part at most A. J counts occupied positive part sizes other than A."
+        ],
+        "reasoning": "The first formulation preserves the entire parameterized law, not just a pattern or one probability. In the stable chamber the upper size and length restrictions become vacuous and no part A is possible.",
+        "searches": [
+          "Resultary: anchored alternating scattered subsequences with fixed a, b and ab; occupied interior b-gaps",
+          "2026/11/22/SCOPE-gaussian-factorial-moments-for-alternating-scattered-patterns-in--045006e3e432, RESULT.md offsets 0–11606",
+          "arXiv:2510.07159 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-B series in 045006e3e432 is [t^B] product over interior i of (1+(y-1)tq^i), divided by the product over i=0..A of (1-tq^i); it also gives the same fixed-composition binomial total.",
+          "0fe673644af7 uses the number of parts in the stable law for ab^t a. b40371a80999 counts total interior letters, not the number of occupied interior gaps."
+        ],
+        "reasoning": "Each interior factor rewrites to 1+ytq^i/(1-tq^i), proving equality of all coefficients rather than a match of a few small tables. The older sandwich-pattern comparison does not yield this equality.",
+        "searches": [
+          "Resultary: exact alternating-pattern Parikh class distribution and Gaussian factorial moments",
+          "Resultary 045006e3e432, exact fixed-A,B series",
+          "Resultary 0fe673644af7 and b40371a80999"
+        ]
+      },
+      "rationale": "Distinct Resultary record 045006e3e432 defines precisely the same H=J in the same binary Parikh fibres, and gives precisely the same joint enumerator and fixed-composition totals as well as stronger factored factorial moments. Its additional asymptotic is in a different regime, but the frozen low-area assertions are direct specializations using Richomme's bounded partition bijection and standard partition asymptotics. No priority is inferred from a same-day date; the issue is verified coverage.",
+      "residual_risks": [
+        "Same-day overlap establishes coverage, not order or independent discovery.",
+        "The original Hardy–Ramanujan DOI passage was unavailable and a wider literature search on partition statistics was deferred; no assertion of historical priority for the mean, rarity or other partition consequences is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the joint and fixed-composition laws and gives extra factorial moment formulas",
+          "evidence": [
+            "H counts occupied interior gaps",
+            "Fixed-A,B product and threshold H>=k",
+            "Exact fixed-fibre alternating-pattern probabilities"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-gaussian-factorial-moments-for-alternating-scattered-patterns-in--045006e3e432/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0–6495 and 6495–11606",
+          "method": "Bounded full-text excerpts from the published-record mirror and algebraic coefficient comparison",
+          "title": "Gaussian factorial moments for alternating scattered patterns in binary Parikh-matrix classes",
+          "trigger": "Identical alternating pattern family and conditioned binary-word law"
+        },
+        {
+          "assessment": "Same fibres; inspected results do not assert exact occupied-gap law",
+          "evidence": [
+            "Bounded alternating-run templates",
+            "General additive approximation with exact boundary cases"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Lemma 5.2, printed p. 149, OA offset 35627; Theorem 5.7, PDF p. 13, offset 50939",
+          "method": "OA primary passages on alternating runs and fixed-pattern probability",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same Parikh fibres and exact or approximate subsequence probabilities"
+        },
+        {
+          "assessment": "Supplies the exact base bijection; the distinct-size mark follows from the matching gap law",
+          "evidence": [
+            "Bounded partition of C with B slots including zero slots; largest permitted part A"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "§4.2, pp. 19–20, OA offsets 71039 and 74226",
+          "method": "OA primary passages",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Word-partition equivalence"
+        },
+        {
+          "assessment": "Different restricted partition statistic",
+          "evidence": [
+            "ab^t a-avoidance corresponds to at most t-1 parts, not at most t-1 distinct sizes"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gaussian-enumerator-and-stable-partition-law-for-binary-sc--0fe673644af7",
+          "material_read": "RESULT.md, first 6148 characters and following stable-law passage",
+          "method": "Published-record mirror excerpts",
+          "title": "Exact Gaussian enumerator and stable partition law for binary scattered sandwich-pattern avoidance",
+          "trigger": "Stable partition probabilities in identical fibres"
+        },
+        {
+          "assessment": "Tracks total interior letters rather than support size",
+          "evidence": [
+            "I=sum of interior multiplicities"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999",
+          "material_read": "RESULT.md, opening Finding passage",
+          "method": "Published-record mirror excerpt",
+          "title": "Exact sandwich-subsequence profiles within binary Parikh-matrix classes",
+          "trigger": "Interior-gap distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditional alternation law is a natural reconstruction invariant, but the exact law and stronger moment information for it are already available. The stable-chamber material is the same law with vacuous partition restrictions; its remaining estimates use standard partition counting directly. The frozen contribution does not supply an independent unknown fact of that type after this coverage is accounted for.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

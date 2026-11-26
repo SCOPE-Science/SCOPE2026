@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite-state Markov generator is reconstructed from exact patch-extinction and colonization rates, and transient-state absorption-time equations are derived. Every automorphism-lumped system is checked against the full state transitions. Polynomial Cramer identities prove the four rational formulas for all positive rates. Exact subtraction yields the displayed factorization, whose denominator is positive; Descartes' rule and rational endpoint signs certify exactly one positive crossover. Independent full-state rational Gaussian elimination verifies witness rates without reusing the lumping. A complete vertex-permutation census gives the four-vertex/minimal-link statement.
+## correctness
 
-Limit: the model is Markovian and starts fully occupied; stochastic persistence under other ecological mechanisms is not claimed.
+PASS
 
-## Originality
-**PASS, with an explicit coverage boundary.** Hanski–Ovaskainen established weighted landscape metapopulation capacity and Frank established that incorporating stochasticity can change ecological ranking conclusions. Thus the broad qualitative disagreement is **prior art**, not the novelty. Van de Bovenkamp–Van Mieghem derived exact SIS survival times for complete and star graphs, and Holme–Tupikina computed small-graph SIS extinction-time functions for all connected graphs through eight vertices. The latter result already covers availability of raw exact lifetimes for the paw and cycle in principle. Its inspected article does not state their matched-link adjacency-spectral ranking reversal, its unique positive colonization-rate crossover, or the simultaneous sharp four-patch and four-link minimum. Those specific conclusions require exact cross-topology implication comparisons that the new proof supplies. Exact witness, alias, spectral, metapopulation, and SIS source searches did not locate a covering assertion.
+In the full-occupancy finite chain, from each nonempty state there is a positive-probability path of only extinctions to the absorbing state, so each transient backward system is invertible at every positive rate. The independent replay builds the full 15-state backward matrix for each graph and solves it symbolically over the rate variable without orbit lumping. The four rational functions and both factored differences match. The cycle-minus-paw sign is the sign of F: the denominator is positive, F has exactly one descending coefficient sign change, and its constant and leading terms have opposite signs. Exact endpoint substitution verifies the bracket and exact evaluation at rate two gives 237101/648778. The two adjacency characteristic polynomials give strict paw superiority since x³−x²−3x+1 changes sign between 2 and 3. With three links, the star has larger spectral radius than the path, and the numerator of star-minus-path is a positive-coefficient polynomial times λ² over positive factors. At n≤3 each nonempty connected fixed-size stratum has one type. At n=4 the lower link stratum is the tree pair, and the four-link pair arises by removing two adjacent or two disjoint edges from the complete graph. This verifies both levels of minimality under the stated constraints.
 
-Risk: a preexisting small-graph dataset could permit immediate recovery of the witness, and an inaccessible page of the Frank paper or other work might present the pair without searchable metadata. The abstract of Frank's article was available but its article body could not be verified from the authorized institutional route, which instead returned unrelated publisher material; no unsupported full-document noncoverage claim is made.
+## originality
 
-## Value
-**PASS.** Spectral landscape capacity and finite-population extinction lifetime answer ecologically different questions but are both commonly used as indicators of persistence. Matching both patch number and link number removes two major confounders. The smallest graph pair and its certified crossing tell precisely when a more spectrally connected four-patch landscape survives for a shorter stochastic time; the sharp cutoff has operational meaning as a limitation on simple graph-based conservation ranking, rather than an arbitrary isolated rational calculation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct contribution is the sharp equal-order/equal-link minimal disagreement under full occupancy, with a global exclusion of the smaller link stratum. Older exact all-small-graph computations include the raw instances, but their compared statements do not give the all-rate ordering and exclusion. The later dated Resultary corridor record is an explicit equivalent of the paw–cycle crossing itself, and another later dated record explicitly gives the star–path mean inequality; the crossing and inequality are not distinct standalone claims across the catalogue. These overlaps are credited, but do not establish earlier coverage of the combined sharp minimum or settle priority/provenance.
+
+## value
+
+PASS
+
+Equal order and size hold the patch and link budgets fixed for a motivated comparison of two inequivalent persistence measures. The minimality theorem isolates the first structural obstruction and excludes a reversal on either four-patch tree at any positive rate. The crossover certificate says precisely on what rate side the spectral ranking fails, not just that a counterexample can occur. Value is in the combined sharp boundary and comparison, not in recomputing all small-graph lifetimes or asserting a new general ecological phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

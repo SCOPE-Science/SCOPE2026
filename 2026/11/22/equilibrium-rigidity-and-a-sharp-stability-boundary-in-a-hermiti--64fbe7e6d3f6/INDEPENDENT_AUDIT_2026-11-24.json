@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:31.696401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–65; independent proof reconstruction and monotonicity bound for mixed active modes",
+        "Frozen VERIFICATION.md and CHECK.py, inspected without execution"
+      ],
+      "rationale": "Functional calculus gives 0≤X−X²≤I/4 and hence forward invariance under 0<B≤2I. If X is fixed and C=B⁻¹, then CXC=X−X². An eigenvector v with Xv=v would give XCv=0 and therefore ⟨v,Cv⟩=0, impossible. Thus X−X² has support S=ran X. Invertibility gives ran(CXC)=CS, so C reduces S. On S, X is invertible and the positive matrix X^(1/2) C X^(1/2) has square X²(I−X). Its unique positive square root is X(I−X)^(1/2), yielding C=(I−X)^(1/2) on S and the asserted commuting projection formula, including X=0. Conversely each eligible projection satisfies the equation. Ranks in each eligible eigenspace index the compact Grassmannian components. In a common eigenbasis the Hermitian derivative has real multiplier b_i b_j(1−x_i−x_j) on each real coordinate. An omitted b>1 produces b²>1, so only the fully occupied X_* can attract exponentially. Its inactive and mixed multipliers are strictly subunit under the proposed condition. On the active square [1,√3]² the multiplier b/a+a/b−ab decreases strictly in each argument, with opposite corners 1 and −1; hence all interior pairs are strictly inside. Frobenius norm diagonalization and derivative continuity give a local contraction, with equivalent estimates in any fixed matrix norm. The uniform exponential estimate, differentiated for each iterate at the fixed point, forces spectral radius <1, which rules out b=1, b=√3, and b>√3 via diagonal modes. No boundary behavior slower than exponential is ruled out by this argument.",
+      "residual_risks": [
+        "Finite rational examples do not verify the all-dimensional theorem; the argument is analytic.",
+        "No result about global attraction or couplings outside the stated Hermitian positive-definite range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "They introduce the general BXB† logistic construction with X replaced by X(I−X). Appendix C gives separated scalar maps for a diagonal two-mode example restricted to the diagonal dynamics and examines invariant measures in non-diagonal cases."
+        ],
+        "reasoning": "The broader ambient formulation includes positive Hermitian couplings, but it does not prescribe the supports of arbitrary fixed Hermitian matrices or check all derivative modes. A diagonal invariant subspace does not by itself certify ambient attraction.",
+        "searches": [
+          "Pawela–Życzkowski arXiv:2303.06176v2 §V Eq. (6) and Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and matching records 3bff36abf380, 0b7aaac99411, 4a87b2f6b447",
+        "Pawela–Życzkowski arXiv:2303.06176v2",
+        "Navickas et al. DOI 10.3934/dcdsb.2011.16.927"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known scalar diagonal multiplier 2−b² detects the √3 obstruction. It cannot exclude noncommuting stationary matrices or bound eigenmodes coupling unequal active b values.",
+          "In the fluctuation record one mode has b=2, which by itself has multiplier −2 at the fully occupied equilibrium. The quoted transverse exponent therefore cannot assert full ambient attraction of that equilibrium."
+        ],
+        "reasoning": "The surviving contribution is not the numerical endpoint alone: support rigidity and the absence of a stricter off-diagonal stability threshold across all finite dimensions are the decisive additions.",
+        "searches": [
+          "arXiv:2303.06176v2 Appendix C",
+          "Navickas et al. §3.2.1",
+          "Resultary/SCOPE 3bff36abf380 mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B=√a I reduces the map to X↦aX(I−X); the published scalar specialization already gives 1<a<3 for convergence to the nonzero fixed eigenvalue.",
+          "Writing C=B⁻¹ yields the equivalent positive congruence CXC=X−X²; its supportwise solution uses the unique positive square root of X²(I−X). No separate exact classification stated in this equivalent form was identified in the comparisons."
+        ],
+        "reasoning": "Scalar spectral dynamics establish the isotropic case, and standard square-root theory is a tool, not a previously identified classification of the supports and all perturbation modes for this equation.",
+        "searches": [
+          "Resultary/SCOPE search for matrix logistic fixed points, spectral stability, and equivalent congruence equation",
+          "Focused primary-literature search for Hermitian matrix logistic fixed points and the positive-congruence/Riccati formulation",
+          "Navickas et al., DOI 10.3934/dcdsb.2011.16.927 Eq. (2), §§2.1, 3.2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact general classification hit 64fbe7e6d3f6 is the reviewed record itself.",
+          "The strongest distinct hit 3bff36abf380 treats diag(2,b), 1<b<√3, and an invariant-channel fluctuation law with transverse exponent log(b/2). Same-day factor non-identifiability hits 0b7aaac99411 and 4a87b2f6b447 treat contrasting dynamics for different factors of BB*."
+        ],
+        "reasoning": "For this unbounded-dimensional theorem, exact indexed findings rather than numerical tables are the meaningful comparison. Neither the common interval nor contrasting behavior of other factors gives the reviewed classification.",
+        "searches": [
+          "Resultary/SCOPE local semantic lookup for matrix logistic equilibrium rigidity and transverse stability"
+        ]
+      },
+      "rationale": "The map, scalar dynamics, and scalar stability window are prior; the fixed-point rigidity for arbitrary strictly positive Hermitian anisotropic coupling and the sharp ambient stability classification are not present in the closest inspected statements. In particular, the matching interval in the earlier two-mode fluctuation record concerns stability transverse to an invariant channel, not stability of the matrix equilibrium against all perturbations.",
+      "residual_risks": [
+        "The checked precedents are not an exhaustive search of Riccati/geometric-mean or related matrix dynamics literature; no absolute priority claim.",
+        "The scalar threshold and same-interval two-mode precedent are credited as overlaps, not independent discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct map precedent; inspected dynamics do not state the reviewed stationary classification",
+          "evidence": "Eq. (6) is B H_t(I−H_t)B†; the appendix discusses diagonal decoupling and invariant measures for N=2.",
+          "identifier_or_url": "https://arxiv.org/html/2303.06176v2",
+          "material_read": "§V incl. Eq. (6), HTML offsets 17000–23200; Appendix C, offsets 34800–42549",
+          "method": "Targeted OA HTML section reading",
+          "title": "Matrix logistic map: fractal spectral distributions and transfer of chaos",
+          "trigger": "Original paper with the same map, general couplings, and two-mode tests"
+        },
+        {
+          "assessment": "Scalar-coupling specialization already has the relevant scalar threshold",
+          "evidence": "X_{n+1}=aX_n(I−X_n), idempotent decompositions, and nonzero eigenvalue convergence for 1<a<3.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2011.16.927",
+          "material_read": "Eq. (2) p. 928, §2.1 and §3.2.1 pp. 937–938",
+          "method": "Targeted OA passage reading of the author-hosted PDF at https://minvydasragulskis.com/sites/default/files/publications/DCDS_2011.pdf",
+          "title": "The logistic map of matrices",
+          "trigger": "Earlier scalar-coupling matrix logistic dynamics"
+        },
+        {
+          "assessment": "Different observable and scope; not an ambient equilibrium criterion",
+          "evidence": "The statement uses D_b=diag(2,b) and an invariant diagonal curve, with a transverse fluctuation law at 1<b<√3 and exponent log(b/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-transverse-fluctuation-cancellation-in-a-matrix-logisti--3bff36abf380",
+          "material_read": "Mirrored RESULT.md offsets 235–1855",
+          "method": "Local Resultary lookup and mirror passage reading",
+          "title": "A unique transverse fluctuation cancellation in a matrix logistic map",
+          "trigger": "Strongest distinct indexed same-map overlap, including the exact active interval"
+        },
+        {
+          "assessment": "Factor non-identifiability, not stationary rigidity for B=B*>0",
+          "evidence": "The first compares rank-one factors with the same BB*; the second compares full-rank factors with opposite dynamics.",
+          "identifier_or_url": "Resultary/SCOPE 0b7aaac99411 and 4a87b2f6b447",
+          "material_read": "Mirrored indexed findings for both records",
+          "method": "Local Resultary lookup and mirror passage reading",
+          "title": "Fixed-coupling non-identifiability and full-rank chaos–extinction comparisons",
+          "trigger": "Distinct same-day matrix-logistic results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, fixed-set and stability proofs",
+        "The source papers for the general map and the scalar limit"
+      ],
+      "rationale": "This is a complete equilibrium classification of an established noncommutative dynamical map in a natural coupling regime. It distinguishes repetition-induced fixed manifolds from genuinely noncommuting fixed points and proves that unequal-eigenvalue perturbations cannot silently tighten the scalar local threshold. The exact criterion simultaneously treats nonattraction, degeneracy, and both neutral boundaries.",
+      "residual_risks": [
+        "The significance is rigidity and local exponential stability, not a global convergence or chaos theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

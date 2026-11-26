@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_alias.py` using Python 3 standard library. The program checks both exact-parameter trajectories through the fourth and fifth host counts; the analytically derived fifth-census ratio; root residuals and derivative identities at reproduction multipliers 2 and 4; and 500 reproducible small perturbations of the host ratios that each retain two distinct positive parameter reconstructions. The script prints PASS only after all assertions succeed.
+# Independent mathematical audit
 
-The decisive infinite-family evidence is analytical, not the finite script: exact recurrence substitution proves the shared first four host counts; the nonzero derivative at each compatibility root plus the implicit function theorem proves the open set. Numerical root-finding is not used to infer uniqueness of all compatible roots or any result about longer data sequences.
+## correctness
+
+PASS
+
+For r_j=H_{j+1}/H_j, positivity forces R>max r_j and fixes each P_j=log(R/r_j) for j=0,1,2. Equating cH_0 reconstructed at the first two parasitoid updates gives exactly the displayed F=0. Either admissible root gives a positive c and P_0 and regenerates the observations, so the elimination loses no conditions. Writing L=log 2 and b=sqrt 2, the two trajectories give P_1=L/2 and 3L/2 and then P_2=L(1-1/b) and 2L(1-1/(2b)), respectively. These imply H_1=1, H_2=b and H_3=b exp(L/b) for both. At r_0=1 and r_1=b, differentiating each quotient at equality with common value K gives the derivative difference (1-K)(1/(R-1)-1/(R-b)). Since K=L at 2 and 2L at 4, the roots are simple with opposite signs. The implicit-function theorem gives locally unique branches in disjoint admissible neighborhoods; reconstruction and the invertible H_0-plus-ratios chart give openness in four real host coordinates. Nonconstancy persists because r_1 is bounded away from 1. The common r_2 cancels from the difference in P_3, leaving Lb and fifth-census log ratio L(1-b). This proves neither an exact count of all roots nor general five-census recovery. Independent bounded check: 65-digit forward iteration, centered inverse derivatives and fifth ratio agreed (/workspace/review_checks.py, aliases); the supplied script was inspected but not executed and its finite perturbations are not the openness proof.
+
+## originality
+
+PASS
+
+The distinct claim is regular two-branch inversion failure for a finite exact host-only output in the fixed-searching-coefficient map. The closest checked indexed result concerns forced trajectories with model parameters fixed. General identification methods and knowledge of the forward model are not evidence of the finite inverse result. Full-text access to several plausible classical sources was limited; the decision is bounded by that evidence.
+
+## value
+
+PASS
+
+The three host ratios match the number of positive unknowns after fixing the searching coefficient. Two regular inverse branches on an open set give a concrete obstruction to global recovery that parameter counting, equilibrium examples, and generic local arguments would miss. This pinpoints what four exact host observations cannot ensure, without claiming noise performance or a general result at five observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The weak-descent bijection counts every subsequence embedding in a repeated increasing-permutation block, including the boundary cases for the empty target and for a source with a single block. The lower bound on weak descents is attained by a periodic permutation prefix, and a strictly improving length argument eliminates incomplete target cycles for source repetitions at least two. Strict log-concavity follows from a ratio whose positive factors strictly decrease; the bivariate generating function follows from a negative-binomial sum. The positive simple dominant pole and an interior Stirling saddle give the asserted rate and logarithmic correction. Actual independent finite dynamic-programming checks and generating-function recurrences agree. The rate of minimal subword entropy is **bounded above**, not determined exactly.
+## correctness
 
-## Originality — PASS, subject to literature uncertainty
-The closest direct predecessor is Fang's binary alternating-word analysis: the \(q=2\) case is already published, as is general rationality for any fixed periodic pair. Fang's all-alphabet bound is \(\frac12\log_2(1+\sqrt2)\), whereas the new complete \(q\ge3\) classification and bound \(\log_2\beta_q\) are more specific and strictly stronger for every such alphabet size. Menon and Singh vary the binary source word while fixing a target, a distinct optimization. Bukh and Saatashvili (2025) obtain substantially different optimal-rate bounds using alternating permutations; their large-alphabet asymptotics may dominate the bound here for sufficiently large alphabets, but do not yield the exact maximizing targets or counts for the source built from one repeated permutation. No covering many-letter extremal statement was found in the inspected primary literature or searched mathematical records. Older generalized binomial-coefficient literature remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-This is an exact characterization of **every** most frequent target in an infinite natural class of many-letter periodic source words, not a finite table or a restatement of binary results. Its strict logarithmic concavity identifies all ties and its entropy consequence supplies a quantitative improvement for each alphabet size at least three in an existing optimization question. The true minimum entropy rates remain unknown; no claim is made that the constructed-family upper bound dominates all later large-alphabet estimates.
+The copy index jumps exactly at weak descents. Subtracting cumulative jumps gives the multiset count binom(m+ell-1-delta,ell). The delta+1 increasing runs have capacity q each. For each r<m, the best count within (r-1)q<ell<=rq grows strictly in ell, and is strict in the required direction as delta increases from r-1. At ell=qr, achieving minimum delta forces every run to equal P_q. The r=m band and the empty word contribute at most one, and m=1 has the stated exception. Factorial cancellation gives positive, strictly decreasing adjacent ratios (each product-factor derivative has numerator -qm-j); the negative-binomial sum over m gives the bivariate enumerator. The limiting adjacent-ratio equation has one interior root alpha=(1-rho)/(1+(q-1)rho), with rho=(1-rho)^q. The limiting ratio has strictly negative derivative at alpha; on a fixed interior neighborhood the finite ratio differs uniformly by O_q(1/m), so the optimizing integer differs from alpha*m by O_q(1). Stirling then gives the stated -1/2 log m, with exponential factor rho^-m=beta_q^(qm). The subsequence of source lengths qm bounds the existing global rate; it does not identify it. Independent bounded enumeration by position masks reproduced every occurring target count and the entire maximizing set at (q,m)=(3,2),(3,3),(3,4),(4,3),(5,3), with maxima 4,10,28,15,21. The frozen DP checker was inspected, not executed; its reported generating-function recurrence is for row sums, not a standalone proof of the bivariate identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit Fang's binary calculation, rationality framework and alphabet-independent upper estimate, and Bukh–Saatashvili's stronger large-alphabet estimates for the global minimum. The supported distinct contribution is the fixed-source q>=3 all-target extremal result with its explicit mode, enumerator and refined rate. A later indexed record has the same occurrence formula, an exact partial overlap, but does not establish earlier coverage of this frozen result or state its cross-length refined extremum. No priority beyond inspected evidence is certified.
+
+## value
+
+PASS
+
+The complete maximizer classification and one-or-two-adjacent mode rule solve a natural periodic-source benchmark, not merely one target count. The prefactor-scale asymptotic distinguishes the maximum from the total number of admissible embeddings, and the explicit all-q construction provides a useful reference against other constructions even where stronger global upper bounds exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The package contains two self-contained Python 3 programs using distinct graph implementations and orbit-classification algorithms. The scripts `direct_checker.py` and `functional_checker.py` were executed, producing identical JSON files with complete period/first-entry-time populations. The command `cmp direct_output.json functional_output.json` completed successfully.
+# Independent mathematical audit
 
-Each enumerator processes all 16,384 initial binary states separately for both fourteen-vertex graphs, and the classification outputs sum to 16,384 per graph. The state-indexed SHA-256 digests are `a3f0f53509bb55025eeb957bdc84ad7cc290b5ef2c91c911aa8060e78cbabf10` for the first graph and `21340a7eb526c4436ba4799764212dc6fc55f52ba13e4237209bd66632865cb5` for the switched graph. The complete count table is in RESULT.md and the JSON output.
+## correctness
 
-The labelled initial configuration represented by integer 3482 on the first graph has iterates, at times zero through eleven: `3482,13586,3474,13330,3472,13314,2448,9218,400,8194,384,8194`. The first periodic time is nine. The switched graph's initial integer 1245 has iterates `1245,4508,9309,5012,9293,5008,9229,912,8205,912` at times zero through nine, first periodic at seven. Bit position \(v\) is vertex \(v\). Both witnesses enter two-cycles, not fixed points.
+PASS
 
-Cospectrality follows analytically from a four-vertex orthogonal switching identity and nonisomorphism from a triangle-neighbor common-intersection invariant. Numeric spectral agreement was also observed, but the proof does not rely on floating-point eigensolvers. A symbolic characteristic polynomial factorization was compared independently during the analysis.
+The four switched vertices form an independent set; every incidence column into that set has zero or two ones, and J4/2−I4 complements the two-one columns and fixes the zero columns. Conjugation by the displayed involution proves adjacency cospectrality. Both graphs are cubic and connected. The unique triangle has external neighbors 4,5,6 whose common-neighbor intersection is {0} in G and empty in H; this proves nonisomorphism independent of the dynamics. A fresh exact enumeration of all 16,384 states per graph, with vertex v at bit v and at least two of its three open neighbors needed for output 1, reproduces every displayed count, both statewise digests and the witness trajectories. Fixed-point counts are 18/14, recurrent period-two state counts are 402/150 (hence 201/75 orbits), and the total p=1 basins are 3504/4036. There are 12 depth-nine states on G and 60 depth-seven states on H, and no states at greater depth. The witness cycles begin, respectively, with 8194↔384 at time nine and 912↔8205 at time seven. The exact characteristic polynomial also matches. The literature supports minimum order fourteen for connected nonisomorphic cospectral cubic graphs. The sentence saying Godsil–McKay prove the minimum is imprecise: their §2.3(c) reports it and cites the earlier census. This does not affect the minimum or any proof in the record.
 
-No assertion is made about unexamined infinite families or unindexed publications. Independent external auditing has not been performed.
+## originality
+
+PASS
+
+The mathematical novelty supported by this search is the pair-specific recurrent/depth populations and basin-versus-fixed-point comparison at the first cubic order. It is not the graph construction, minimum spectral-pair order, universal period bound, or general phenomenon that cospectral graphs can differ dynamically.
+
+## value
+
+PASS
+
+The first available order for a cubic adjacency-cospectral pair fixes a natural comparison class before enumeration. This exact benchmark separates three useful notions—fixed-state abundance, collective fixed basin and worst entry time—and shows that the graph with more fixed states can have a smaller basin. The full period–depth distributions can test proposed spectral predictions for strict-majority dynamics without relying on a tie convention or a sample of starting states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

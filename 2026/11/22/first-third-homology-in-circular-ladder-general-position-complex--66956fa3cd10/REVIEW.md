@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is exactly the six finite graphs \(C_n\square K_2\), \(3\le n\le8\). The supplied source program independently constructs all forbidden graph-metric triples, checks all \(2^{2n}-1\) nonempty subsets, builds every signed integral simplicial boundary, and obtains integral ranks using unimodular \(\pm1\) pivots with zero residual entries. Every nonzero Smith invariant is one, excluding torsion in the homology groups. The computed rank table is cross-checked by a separate Smith-normal-form implementation. The proof asserts no infinite-range conclusion.
+PASS
 
-## Originality — PASS against inspected sources
+I independently recomputed the distances by breadth-first search from every vertex of the explicit Cartesian-product graph, not by the supplied formula. A triple is excluded exactly when twice the maximum of its three distances equals their sum: concatenating geodesics for the two shorter distances then gives a shortest path containing the third vertex. Enumerating increasing faces by adding one vertex and testing all newly introduced triples is exhaustive by heredity. No face of size ≥5 survives. From the signed chain matrices I recomputed Smith forms over ℤ using SymPy 1.14.0; all nonzero factors have absolute value one. Thus im ∂_(i+1) is saturated in C_i, and H_i embeds into a free cokernel, so it is free. The complete 1-skeleton is connected. For n=3..8, the boundary ranks (r1,r2,r3) are (5,7,0),(7,6,2),(9,31,10),(11,31,18),(13,71,56),(15,73,72). The dimensions then give reduced Betti triples (3,1,0),(15,0,0),(5,9,0),(24,3,0),(7,27,0),(32,15,4), with no unlisted reduced homology. In particular H̃3 first occurs at n=8 with rank 76−72=4. Replay: python3 /workspace/review_evidence/ladder_homology.py; results in ladder_homology.log in that directory. I inspected the supplied proof and unit-pivot implementation without running the supplied code. Verification is for n=3..8 only.
 
-The closest primary literature [1] determines the maximum size of a general-position set of each cylinder but does not determine its integral homology, and [2] develops general-position polynomials chiefly for other graph families. A full-text comparison of both accessible works found no integral homology table for the six circular ladders and no theorem implying the four-dimensional third-homology rank at order eight. Searches for geodesic general-position complexes, cylindrical grids, circular ladders and aliases found no exact indexed statement; other graph complexes (matching, cut, independence, Rips) are different invariants. Residual risk: an uncatalogued equivalent finite calculation may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question arises because [1] proves the general-position number is four already at \(n=4\), so tetrahedra exist, yet the actual top integral homology is zero at each of the four intervening orders and becomes free of rank four at \(n=8\). A complete six-order homology profile with integral torsion checks identifies a meaningful sharp finite onset invisible to the published extremal cardinality. The exact natural cutoff matters; it is not an arbitrary selected dimension or relabeling.
+Best-knowledge pass for the exact integral homology of these geodesic general-position complexes and the first H̃3 threshold, not for the underlying forbidden-triple construction, the general-position number, or the topology of other complexes on these graphs.
 
-## Literature and limitation
+## value
 
-[1] Klavžar, Patkós, Rus, Yero, *On general position sets in Cartesian products*, https://arxiv.org/abs/1907.04535, §3, Theorem 3.2.
+PASS
 
-[2] Iršič, Klavžar, Rus, Tuite, *General Position Polynomials*, https://doi.org/10.1007/s00025-024-02133-3.
+For this canonical family of known general-position dimension, the first top-dimensional cycle is not where tetrahedra first exist. The sharp onset and torsion-free full profiles distinguish that phenomenon from the already-known extremal size, and give exact tests for any proposed cyclic-ladder homotopy or chain model. The finite end point is dictated by the first occurrence, not an arbitrary truncation. No homotopy-type classification or result beyond the cutoff is inferred.
 
-The homotopy type and the orders beyond \(n=8\) are not proved, and unindexed equivalents remain possible.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

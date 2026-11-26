@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:18:02.175296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93; VERIFICATION.md and verify_sensor_schedule.py inspected but not executed",
+        "Lam–Leung, arXiv:math/9511209, Theorems 3.1, 3.3, and 4.8 and the definition of symmetric minimal sums",
+        "Independent replay: python /workspace/branches/a7892fec-683f-47d3-8c16-39dddf217be9/independent_cyclotomic_check.py; saved independent_cyclotomic_check.txt alongside it. Exact remainders give no zero at N=8, eight representatives with s_0=+1 (16 total) at N=12, and 19 such representatives at N=15 with exactly one two-switch representative, +++++-----+++++."
+      ],
+      "rationale": "Each unit observation projector has isotropic half-trace and doubled-angle anisotropy s_t ζ^(−t), where ζ=exp(iπ/N). Thus the information eigenvalues are (N±|P_s(ζ)|)/(2σ²). At fixed trace the lower eigenvalue and determinant are maximized at zero anisotropy, while the trace of the positive-isotropic-prior posterior covariance is minimized there. Direct telescoping gives (1−ζ)P_s(ζ)=s_0+s_(N−1)+2Σ_switch s_t ζ^t, using ζ^N=−1. At a zero this gives k+1 roots for even k and k for odd k; the distinct exponents modulo N prohibit antipodes after absorbing each sign. Lam–Leung's prime-polygon classification and asymmetric support lower bound imply no such nonempty relation for power-of-two N, and otherwise at least p terms with equality only for a rotated p-gon. Independently, this short-relation lemma follows by residue splitting at repeated prime factors (the corresponding cyclotomic extension has degree that prime). At square-free even order, splitting over the largest odd prime q makes its coefficient sums all equal by the q-th cyclotomic polynomial over the coprime-order subfield. If q>p, an empty class forces all the sums to vanish and one reduces the order; with only 2 and p left, each nonempty class contains roots with the same sign, so ≤p terms require one per class, all of the same sign. Order two alone permits no nonzero antipode-free relation. Consequently k≥p−1. Equality requires a p-gon containing s_0; modulo N its nonzero locations are M,2M,…,(p−1)M with M=N/p. These switches force alternating equal blocks, and the block factor Σ_j(−ζ^M)^j indeed vanishes. For N=2^a p^b this same alternating block polynomial is monic of degree φ(2N) and vanishes at ζ, hence equals Φ_(2N). Divisibility and the nonoverlap of its p shifted quotient blocks force and suffice for an arbitrary ±1 first block of length M, giving exactly 2^M schedules.",
+      "residual_risks": [
+        "Finite enumeration supports only the tested lengths. The source's constructive output label gives a range endpoint, not exhaustive enumeration of that interval: the script lists specific further horizons. The exactly-two statement concerns minimum-switch isotropic schedules; the census for all isotropic schedules is confined to the one-odd-prime family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "One prior scheduling theorem gives a general mixed-integer convex optimization formulation, and the other studied schedule is periodic and infinite-horizon with frequency constraints. The distinct catalogue theorem classifies nonnegative real Φ_(30t) multiples having support diameter <20t for dyadic t as antipodal-pair mixtures, with a sharp triangle at 20t."
+        ],
+        "reasoning": "The general optimization framework is not an analytic formula for the exact switching optimum or its equality set. Support diameter is not the number of terms; the restricted cone theorem for Φ_(30t) does not classify general binary switch minima or the one-odd-prime family.",
+        "searches": [
+          "arXiv:2304.02692v2, Theorem 1",
+          "arXiv:1305.5601v2, Section II",
+          "Resultary: 2026/11/8/SCOPE-sharp-antipodal-rigidity-below-two-thirds-of-a-cyclotomic-period--311989a6e17a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9511209",
+        "arXiv:2304.02692v2",
+        "arXiv:1305.5601v2",
+        "Resultary: 2026/11/8/SCOPE-sharp-antipodal-rigidity-below-two-thirds-of-a-cyclotomic-period--311989a6e17a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lam–Leung explicitly covers symmetric prime polygons and bounds the asymmetric minimal sums away from the relevant weight. For one odd prime, the schedule block factor is the usual cyclotomic polynomial, and the binary census then follows by the degree/nonoverlap argument. The cone theorem requires an a priori support-diameter restriction and ordinary Φ_(30t) divisibility."
+        ],
+        "reasoning": "The classical lemma is sufficient for the short root-sum statement and the one-odd-prime factorization is elementary. The least-switch rigidity result additionally ties root weights to noncyclic switches, excludes antipodes from the distinct switch positions, and uses equality plus an attainable block construction; these do not follow from imposing a support diameter or citing a general scheduling solver.",
+        "searches": [
+          "arXiv:math/9511209, Theorems 3.1, 3.3, 4.8; Corollaries 3.2 and 3.4",
+          "arXiv:2304.02692v2, Theorem 1",
+          "Resultary antipodal rigidity record, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact isotropy is a Littlewood-polynomial zero at the primitive 2N-th root; encoding its sign changes by signed roots gives an antipode-free positive relation. The root-sum lower bound and prime-polygon equality are already covered by Lam–Leung's minimal-sum framework."
+        ],
+        "reasoning": "The schedule theorem does not claim novelty for those root sums. The application recovers the noncyclic switches from the relation by telescoping and handles the two distinct endpoint parities; the inspected root-sum theorem is not itself a switch or sensor census.",
+        "searches": [
+          "Resultary semantic checks for sensor switching, planar rotation tight Gramian, and antipode-free cyclotomic rigidity",
+          "arXiv:math/9511209, minimal positive vanishing sums, Theorems 3.3 and 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue entry does give exact counts of normalized zero-one multiples below a diameter bound for Φ_(30t). Lam–Leung classifies minimal vanishing sums in the relevant short-weight regime. Neither enumerates the binary half-period schedule class by switches."
+        ],
+        "reasoning": "The result is not a tabulated cyclotomic coefficient or finite optimum. The actual related exact enumeration counts a different cone slice, under a different invariant and family of root orders.",
+        "searches": [
+          "Resultary semantic search and mirror inspection of 2026/11/8/SCOPE-sharp-antipodal-rigidity-below-two-thirds-of-a-cyclotomic-period--311989a6e17a, offset 0",
+          "arXiv:math/9511209, Theorems 3.3 and 4.8"
+        ]
+      },
+      "rationale": "The fixed-trace information comparison, cyclotomic divisibility, and the minimal vanishing-sum ingredient are classical. The supported distinct content is the specific binary rotating-sensor problem's exact least-switch law and equality rigidity for arbitrary horizons with odd factors, together with its all-isotropic-schedule classification in the one-odd-prime family.",
+      "residual_risks": [
+        "The broad search did not verify a separate Littlewood or signed-trigonometric precedent and is not evidence of absence. A separately stated equivalent switch theorem in uninspected sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the mathematical ingredient, not the switch statement.",
+          "evidence": "Minimal relations reduce to square-free order up to rotation. For three or more distinct primes asymmetric minimal sums have support at least p_1(p_2−1)+p_3−p_2>p_3; symmetric minimal sums are prime polygons.",
+          "identifier_or_url": "arXiv:math/9511209",
+          "material_read": "Theorem 3.1 and Corollary 3.2, pp. 6–7 (offset 16666); Theorem 3.3 and Corollary 3.4, pp. 7–8 (offset 19207); Theorem 4.8, pp. 11–12 (offset 28336) and preceding symmetric-sum definition",
+          "method": "OA PDF passage inspection",
+          "title": "On Vanishing Sums of Roots of Unity",
+          "trigger": "Exact cyclotomic lower bound and equality precedent"
+        },
+        {
+          "assessment": "Covers broader optimization setup, not the resolved analytic minimum and schedule rigidity.",
+          "evidence": "Models sensor scheduling as mixed-integer convex optimization.",
+          "identifier_or_url": "arXiv:2304.02692v2",
+          "material_read": "Theorem 1, MIQP for Sensor Scheduling, HTML offset 26830",
+          "method": "OA HTML passage inspection",
+          "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+          "trigger": "General constrained sensor scheduling"
+        },
+        {
+          "assessment": "Different temporal setup and constraints.",
+          "evidence": "Uses periodic sensor scheduling on an infinite horizon with frequency and periodicity constraints.",
+          "identifier_or_url": "arXiv:1305.5601v2",
+          "material_read": "Section II, HTML offset 6288",
+          "method": "OA HTML passage inspection",
+          "title": "Optimal Periodic Sensor Scheduling in Networks of Dynamical Systems",
+          "trigger": "Scheduling under activation constraints"
+        },
+        {
+          "assessment": "Material cyclotomic overlap, different invariant, assumed divisibility, and order family; does not cover binary schedules.",
+          "evidence": "At order 30t with t dyadic, F of diameter <20t is a monomial shift of (1+X^(15t))A with deg A<5t; 1+X^(10t)+X^(20t) attains the first non-antipodal diameter.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-antipodal-rigidity-below-two-thirds-of-a-cyclotomic-period--311989a6e17a",
+          "material_read": "Finding, Assumptions, and proof opening, RESULT.md offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp antipodal rigidity below two-thirds of a cyclotomic period",
+          "trigger": "Closest catalogue overlap in antipode-free cyclotomic relations and exact enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–15 and 37–81",
+        "arXiv:2304.02692v2, Theorem 1"
+      ],
+      "rationale": "The switch budget is a natural extra constraint on attaining the best information matrix. The theorem provides a sharp, all-horizon prime-factor rule and a rigidity result that identifies the only least-switch realizations. The separate exact family census shows that uniqueness at the switch optimum need not imply uniqueness of isotropy. This gives structural information not supplied by a numerical optimum or an optimization formulation.",
+      "residual_risks": [
+        "The conclusions use the tuned angle, equal independent noise, no process noise, one of two coordinate sensors per observation, and the noncyclic switch count. They do not optimize anisotropic schedules for power-of-two horizons or establish robustness to changing the angle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

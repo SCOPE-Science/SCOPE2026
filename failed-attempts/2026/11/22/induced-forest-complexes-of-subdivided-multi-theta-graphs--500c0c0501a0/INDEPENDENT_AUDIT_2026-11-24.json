@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:56:25.400109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, scope and Proof",
+        "VERIFICATION.md; verify.py; verification_output.txt (static inspection)",
+        "Carnero Bravo arXiv:2307.13271v1, Theorems 2, 3 and 34",
+        "Bahri–Bendersky–Cohen–Gitler arXiv:1011.0094v5, Definition 2.1 and Construction 2.2"
+      ],
+      "rationale": "Each internal vertex has degree two, so every simple cycle uses two entire arms and has vertex set {s,t}∪A_i∪A_j. These sets are incomparable because the arm blocks are disjoint and nonempty, hence are precisely the minimal nonfaces. Dual facets are their complements in the full N-element ground set (including the two ghost vertices of the dual). To remove a nonrepresentative vertex w in A_i from the dual, pair faces containing w but not its representative a_i with those obtained by adjoining a_i; deleting pairs in descending size gives elementary collapses. The surviving faces are the subsets of at most m−2 arm representatives. Their reduced integral homology is concentrated in degree m−3 with rank m−1: in the full simplex the boundaries of all (m−2)-simplices containing a fixed vertex form a basis for the cycles of the truncated chain complex; they have distinct faces omitting the fixed vertex, and the cone contraction supplies spanning. This gives rank two reduced H_0 for m=3 as well. The duality shift N−j−3 therefore gives d=N−m. The original complex includes the full 2-skeleton by triangle-freeness. With simple connectivity and no lower reduced homology, successive Hurewicz applications give spherical representatives in degree d≥2; the resulting homology equivalence from a wedge of d-spheres is a homotopy equivalence by Whitehead. A separate argument via one-point suspension (in the originality analysis) gives the same full result. The frozen mod-two checker and recorded finite output were inspected but not executed and are not the proof of the integral homotopy statement.",
+      "residual_risks": [
+        "No assertion for direct pole edges, extra graph edges, finite-degree stages of the forest filtration or equivariant homotopy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo Theorem 34 gives F_∞(K_{p,q}) homotopy equivalent to a wedge of (p−1)(q−1) two-spheres, in particular m−1 for p=2.",
+          "Kim–Santos §3.1 gives the abstract one-point-suspension formula joining the antistar with the two single endpoints and the link with the full edge, including an iterated formula.",
+          "Carnero Bravo Lemma 33 concerns adjoining a universal vertex, not subdivision. Przytycki–Silvero Example 3.8 concerns ordinary graph independence, not induced forests."
+        ],
+        "reasoning": "The bipartite theorem alone gives just the base case. In combination with the published simplicial operation, however, it covers all arm lengths; a graph-filtration-specific subdivision theorem is not required. Neither the unrelated apex nor ordinary-independence comparison is the basis of the failure.",
+        "searches": [
+          "Carnero Bravo arXiv:2307.13271v1, Lemma 33 and Theorem 34",
+          "arXiv:0912.4235v2, §3.1 one-point suspension for arbitrary simplicial complexes",
+          "Przytycki–Silvero DOI:10.1007/s13398-024-01594-z, Example 3.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.13271v1, 1011.0094v5, 0912.4235v2",
+        "DOI:10.1007/s13398-024-01594-z, Example 3.8",
+        "Resultary 2ee4d6cf4a9a and c09a6254ab6b",
+        "Frozen RESULT.md, minimal nonfaces and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stellar subdivision of the distinguished edge in the published one-point suspension inserts w at its midpoint, replacing edge * link by boundary-of-edge * (w * link). The other piece is boundary-of-edge * deletion. The union is exactly boundary-of-edge * K, the usual suspension, after subdivision. Thus one split already gives a PL homeomorphism of realizations to the suspension for any K.",
+          "With the block specification above there are exactly Σ_i(ℓ_i−2)=N−m−2 splits. Suspensions of the connected wedge of m−1 two-spheres from Theorem 34 give the wedge of m−1 spheres of dimension 2+Σ_i(ℓ_i−2)=N−m."
+        ],
+        "reasoning": "The reduction requires only the immediate cycle description, substitution into the established minimal-nonface rule, and the standard subdivision interpretation of the displayed one-point suspension. It gives all the parameters and the homotopy assertion, not just mod-two homology, a narrow special case or a heuristic. The frozen alternate proof contains no further stated invariant or equivalence to retain as a distinct claim.",
+        "searches": [
+          "Bahri et al. Definition 2.1, Construction 2.2 and following iteration passage, arXiv:1011.0094v5 §§2",
+          "Kim–Santos arXiv:0912.4235v2, §3.1",
+          "Carnero Bravo arXiv:2307.13271v1, Theorem 34"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bahri et al. define K(J) by replacing each vertex of a minimal nonface by the entire block of j_i duplicates. Their Construction 2.2 and §2 explicitly identify a single split with edge * link union boundary-of-edge * deletion and iterate it to every J.",
+          "The minimal nonfaces of the induced-forest complex of K_{2,m} are exactly {s,t,a_i,a_j}. Taking j_s=j_t=1 and j_{a_i}=ℓ_i−1 produces exactly the frozen full list {s,t}∪A_i∪A_j. Thus the reviewed complex is the earlier construction K(J), not merely a complex with related numbers."
+        ],
+        "reasoning": "This identifies every allowed multi-theta complex with an instance of the published multiwedge construction. The ordinary independence complex of the underlying theta graph is a different construction and was not used to infer coverage.",
+        "searches": [
+          "Primary literature: simplicial wedge one-point suspension minimal nonfaces Bahri Bendersky Cohen Gitler realization suspension theorem K(J)",
+          "arXiv:1011.0094v5, Definition 2.1 and Construction 2.2",
+          "Kim–Santos arXiv:0912.4235v2, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected partial-matching deletion record 2ee4d6cf4a9a yields a wedge of (p−1)(q−1) two-spheres when no edges are deleted, so it overlaps the same K_{2,m} base case but not the longer arms as stated.",
+          "The inspected full one-subdivision record c09a6254ab6b classifies facets and gives a facet polynomial for subdivided complete graphs, not a homotopy type."
+        ],
+        "reasoning": "This is a theorem rather than a specific exact data table; the relevant index check seeks equivalent theorem statements. The catalogue has material base-case overlap without needing to infer priority from the common date. The stronger full implication rests on the earlier primary sources, not absence of a separate exact indexed entry.",
+        "searches": [
+          "Resultary: variable-length multi-theta induced-forest homotopy type, complete bipartite, and subdivision",
+          "Resultary 2ee4d6cf4a9a and c09a6254ab6b, Findings"
+        ]
+      },
+      "rationale": "The entire stated classification is mechanically implied by the known complete-bipartite result and the known simplicial wedge (one-point suspension). The important comparison is to a general operation on simplicial complexes, not to graph-level subdivision theorems. This is positive evidence of prior implication, not a failure based on access or inconclusive search.",
+      "residual_risks": [
+        "No claim about the earliest explicit naming of the exact variable-length family. The decision follows from verified older statements and their exact implication even if the corollary was not separately named."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers base case and supplies standard duality/wedge tools",
+          "evidence": "Theorem 34 gives F_∞(K_{p,q}) ≃ wedge of (p−1)(q−1) two-spheres, numbered Theorem 33 in v3. Lemma 33 handles joining a universal vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.13271v1",
+          "material_read": "Abstract p. 1; Theorems 2 and 3 p. 3; Lemma 33 and Theorem 34 p. 24 around OA offsets 51500–51742",
+          "method": "Lawful arXiv OA passage inspection",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "Identical invariant and K_{2,m} case"
+        },
+        {
+          "assessment": "Decisive coverage of arbitrary block sizes; the chosen J is identical to the frozen complex",
+          "evidence": "A minimal nonface of K(J) is precisely the union of whole blocks of a minimal nonface of K. A single split has the link joined with the edge and the deletion joined with its boundary; iteration realizes all J.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.0094v5",
+          "material_read": "pp. 5–6, Definition 2.1, Construction 2.2, Eq. (2.1) and iteration discussion; offsets 14130–18932",
+          "method": "OA literal locate and bounded PDF passage inspection",
+          "title": "Operations on polyhedral products and a new topological construction of infinite families of toric manifolds",
+          "trigger": "General minimal-nonface block substitution and simplicial wedge"
+        },
+        {
+          "assessment": "General abstract-complex one-point suspension, independently matches simplicial wedge formula",
+          "evidence": "S_w(L) is the union of each new single vertex joined to the antistar and the new edge joined to the link; paper provides the iterated edge-to-simplex version as well.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4235v2",
+          "material_read": "Title page; §3.1 pp. 6–7, formula passage at offset 16700",
+          "method": "Citation from arXiv:0907.1186, OA literal locate and bounded PDF passage inspection",
+          "title": "Companion to ‘An update on the Hirsch conjecture’",
+          "trigger": "Potential realization equivalence via one-point suspension"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Computes ordinary independence complexes I(θ), excluding adjacent vertex pairs, not cycle-minimal nonfaces.",
+          "identifier_or_url": "https://doi.org/10.1007/s13398-024-01594-z",
+          "material_read": "Example 3.8, p. 7",
+          "method": "OA source passage inspection",
+          "title": "Khovanov homology, wedges of spheres and complexity",
+          "trigger": "Explicit theta graph subdivision and wedge terminology"
+        },
+        {
+          "assessment": "Base-case overlap; does not itself address longer arms",
+          "evidence": "Applying p=2, q=m, t=0 to its complete-bipartite formula yields the m−1 two-spheres.",
+          "identifier_or_url": "Resultary 2026/11/22/2ee4d6cf4a9a",
+          "material_read": "RESULT.md Finding, t=0 branch",
+          "method": "Resultary search and local mirror passage",
+          "title": "Integral homotopy of induced-forest complexes under partial matching deletion",
+          "trigger": "Same-day exact homotopy result for a family including the base case"
+        },
+        {
+          "assessment": "Related graph operation; a facet result, not a homotopy classification",
+          "evidence": "Classifies facets of full one-subdivisions and gives a facet polynomial for S(K_n).",
+          "identifier_or_url": "Resultary 2026/11/8/c09a6254ab6b",
+          "material_read": "RESULT.md Finding, facet classification",
+          "method": "Resultary search and local mirror passage",
+          "title": "Facets of induced-forest complexes of full graph subdivisions",
+          "trigger": "Induced forests under subdivision in the indexed findings"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "Carnero Bravo Theorem 34",
+        "Bahri et al. Definition 2.1 and Construction 2.2",
+        "Kim–Santos §3.1"
+      ],
+      "rationale": "The graph family and invariant are natural, but the sole added conclusion over K_{2,m} is the dimension shift obtained by a standard block substitution and one-point suspensions. It is a direct deduction with no additional equivariant, functorial or filtration-level conclusion. The alternate proof and finite sanity checks do not establish a separate worthwhile result once this full earlier implication is taken into account.",
+      "residual_risks": [
+        "Other questions on this family might have value, but no such claim is established in the frozen record; no repair is asserted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

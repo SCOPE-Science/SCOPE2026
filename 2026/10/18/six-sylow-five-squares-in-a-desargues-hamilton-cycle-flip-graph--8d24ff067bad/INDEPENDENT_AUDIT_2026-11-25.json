@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:50:30.073546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md, verify_subsets.py, verify_cycles.py and their logs",
+        "/workspace/branches/check_4.py (run with Python 3)"
+      ],
+      "rationale": "The graph is bipartite cubic. In a Hamilton cycle, consecutive distinct lower vertices have a unique common upper vertex if their union is a triple, and none otherwise. Thus a Hamilton tour is recovered exactly from its cyclic lower-vertex order when the ten successive unions are distinct triples. Fixing one lower vertex and one direction per order exhausts the unoriented, unrooted states and gives 24 cycles. For the alternate Petersen representation, label upper vertices by complements of two-sets; containment becomes disjointness. On the cyclic set of ground labels, write A_i={i,i+1}, B_i={i,i+2} mod 5. The A-shell has successive indices 2j mod 5 in alternating layers, with spoke to B_(2j+2) in the opposite layer. The B-shell has successive steps j↦j±3 in this positional numbering, giving GP(10,3). In a cubic graph complementing a Hamilton edge set gives a perfect matching and does not change symmetric differences; an alternating single flip is therefore exactly a connected nonempty degree-two difference. Independent replay /workspace/branches/check_4.py checks all 276 state pairs on the direct Hamilton edge sets; connected difference lengths/counts are 10:84 and 18:60, with all other differences of split shapes (6,6), (6,10), (10,10). Neighbor sets and two-step reachability give (1,7,16) at every vertex, and the length-18 graph has two size-twelve components of degree five. Exceptional edges are exactly those with no common neighbor; their components are six squares, with one neighbor per vertex in each other square, giving all fifteen cross-square perfect matchings. The permutation action is transitive with order-five stabilizer; labelling gH by grg⁻¹ for a chosen stabilizer generator is well-defined and has 24 values, since the centralizer of a five-cycle is its cyclic subgroup. The replay verifies that the square labels are the four generators of one Sylow subgroup and within-square neighbors are the second and third powers. By the normalizer action each cross-square neighbor set is one stabilizer orbit: the order-five subgroup acts transitively on the other five Sylow subgroups. This reproduces the finite conclusions independently of the supplied matching and tour implementations.",
+      "residual_risks": [
+        "The count is of unoriented, unrooted cycles and the move graphs are restricted to Hamiltonian complements; no larger-graph extrapolation is supported."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haugland covers a family of generalized Petersen Hamilton counts and so dominates the state count.",
+          "Ito et al. allow arbitrary perfect matching states and alternating-cycle lengths. Mütze flips path pairs in a particular Hamiltonicity construction."
+        ],
+        "reasoning": "The broader perfect matching framework contains the move relation after two restrictions, but the properties of its unrestricted graph do not imply the degree, connectivity or orbit structure of the restricted graph. The middle-level existence theorem is not a structural census of these flips.",
+        "searches": [
+          "Haugland DOI 10.61091/jcmcc126-18 recurrences in n",
+          "Ito et al. arXiv:1907.01700",
+          "Mütze arXiv:1404.4442"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.61091/jcmcc126-18",
+        "arXiv:1111.2413, 1404.4442, 1907.01700",
+        "Resultary 71a59bae158a and f46dd29846e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting states supplies neither pairwise differences nor connectivity after requiring a single alternating cycle of a specified length.",
+          "The later decagon result's neighborhood C5⊔2K1 and count of 24 zero-common-neighbor edges give the same intrinsic exceptional edge set and degree two there. An order-five vertex stabilizer would fix the two exceptional neighbors, so with the transitive coordinate action of degree 24 this places them inside the same Sylow fiber; thus local structure and symmetry can be very close to the square theorem. The inspected catalogue passages do not expressly state the six-square cross-matchings or length-18 component decomposition."
+        ],
+        "reasoning": "Older cycle counts and general flip definitions do not mechanically furnish the new structure. The later local geometry overlaps substantively and can force squares when combined with stabilizer data, rather than being an unrelated theorem because of different wording; there is no basis here to use it as antecedent evidence. The length-18 component count needs more than a total transition count.",
+        "searches": [
+          "71a59bae158a finite metric/local geometry and coordinate-symmetry passages",
+          "Haugland Appendix A and Ito et al. alternating-cycle definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haugland's h_3(10) counts exactly the Hamilton states because GP(10,3) is Desargues.",
+          "Replacing a Hamilton cycle by its complementary perfect matching preserves symmetric difference. The decagon-mobility record imposes the same restriction and compares the same flip rule; the other Resultary entry treats all 60 perfect matchings and hexagon/octagon moves."
+        ],
+        "reasoning": "The census and the matching-complement formulation are genuinely equivalent at the stated parameters. Exact transition comparisons must use Hamiltonian complements, not general Desargues matching mobility.",
+        "searches": [
+          "G(10,3)/GP(10,3), Desargues, Q_5(2,3); Haugland DOI 10.61091/jcmcc126-18",
+          "Resultary 71a59bae158a (decagon mobility), f46dd29846e2 (Desargues matching flips)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix A lists h_3(10)=24, exact prior coverage.",
+          "Mütze–Weber's n=2 entry is one constructed Hamilton cycle, not a census.",
+          "The later-dated catalogue entry lists 84 decagon pairs, 60 length-18 pairs, 24 zero-common-neighbor edges, and the same (1,7,16) layers."
+        ],
+        "reasoning": "Credit published exact state data and document material exact later transition overlap. No antecedent table for the two length-18 components or the restricted Sylow-square incidence was established by the inspected sources.",
+        "searches": [
+          "Haugland Appendix A, p. 277",
+          "Mütze–Weber arXiv:1111.2413 Table 1",
+          "Resultary 71a59bae158a Finding and finite metric/local geometry"
+        ]
+      },
+      "rationale": "The census of 24 Hamilton cycles is verifiably prior published work (Haugland 2025), not tentative novelty. The supported distinct contribution is the classification of restricted Hamiltonicity-preserving transitions, especially the intrinsic and equivariant six-square structure and the length-18 decomposition. A distinct later-dated catalogue entry substantially covers the length-ten threshold and local/metric classification, and the count of length-18 transitions; the overlap is real and neither catalogue date alone nor rephrasing establishes historical priority.",
+      "residual_risks": [
+        "Unindexed Desargues reconfiguration data or stronger symmetry results could affect priority. The state count already has confirmed priority elsewhere.",
+        "The later exact catalogue overlap is documented separately from chronological priority; no independence or priority is assigned to it from its date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit prior exact count, no transition classification in the inspected results",
+          "evidence": "h_3(10)=24 for generalized Petersen G(10,3).",
+          "identifier_or_url": "https://doi.org/10.61091/jcmcc126-18",
+          "material_read": "Recurrence description and Appendix A, printed p. 277 (PDF text near offset 46000)",
+          "method": "Primary OA PDF passage",
+          "title": "On the number of Hamiltonian cycles in the generalized Petersen graph",
+          "trigger": "Plausible exact earlier census of Desargues Hamilton cycles"
+        },
+        {
+          "assessment": "Not full state census and not a restricted transition graph",
+          "evidence": "Tabulates the constructed family, one Hamilton cycle for n=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.2413",
+          "material_read": "Section 6 Table 1, p. 23",
+          "method": "Primary OA PDF passage",
+          "title": "Construction of 2-factors in the middle layer of the discrete cube",
+          "trigger": "Possible exact small middle-level table"
+        },
+        {
+          "assessment": "Different path-pair operation and existence purpose",
+          "evidence": "Flips local path pairs in a constructed two-factor; does not state the finite pair graph here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.4442",
+          "material_read": "Abstract p. 1 and construction passage p. 5",
+          "method": "Primary OA PDF passages",
+          "title": "Proof of the middle levels conjecture",
+          "trigger": "Earlier Hamiltonicity-preserving flipping in middle levels"
+        },
+        {
+          "assessment": "General framework, not the induced/restricted exact graph",
+          "evidence": "Consecutive perfect matchings differ by an alternating cycle, without a Hamilton-complement or length-ten condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.01700",
+          "material_read": "Abstract and move definition, p. 1",
+          "method": "Primary OA PDF passage",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "General alternating-cycle move model"
+        },
+        {
+          "assessment": "Substantial direct overlap in a separate later-dated record; relation and priority not established",
+          "evidence": "Same 24/84/degree-seven/distance-layer and 60 length-18 counts; neighborhood C5⊔2K1 and edge orbits of sizes 60 and 24, the latter with no common neighbor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-decagon-mobility-and-local-pentagons-among-desargues-hamil--71a59bae158a/RESULT.md",
+          "material_read": "Finding, near offsets 0–1800; finite metric and coordinate-symmetry subsections, near offsets 4300–6300",
+          "method": "Resultary search and local mirror passages",
+          "title": "Sharp decagon mobility and local pentagons among Desargues Hamilton cycles",
+          "trigger": "Same graph, states, threshold and local properties"
+        },
+        {
+          "assessment": "Different state restriction and flip lengths",
+          "evidence": "All 60 matchings, with six- and eight-cycle flips rather than Hamilton-complement states and shortest feasible Hamilton-preserving moves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-hexagon-isolation-and-octagon-bridges-in-desargues-perfect-match--f46dd29846e2/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Hexagon isolation and octagon bridges in Desargues perfect matchings",
+          "trigger": "Same base graph and matching reconfiguration terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, independent exact pair enumeration and comparison to Ito's unrestricted alternating-cycle model"
+      ],
+      "rationale": "The natural first nontrivial middle-level state space tests whether alternating swaps can transform Hamilton tours while retaining Hamiltonicity. The sharp smallest usable move length, short-path connectivity and intrinsic organization of the shortest moves into six group-labelled fibers explain the connectivity structure rather than just count states. The deceptively plentiful length-18 moves fail to connect all states, illustrating why length and admissibility matter. These exact results are useful benchmarks for reconfiguration on middle levels and cubic graphs.",
+      "residual_risks": [
+        "The benchmark is confined to this graph and the specified move type; the known state count is not itself the valuable addition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

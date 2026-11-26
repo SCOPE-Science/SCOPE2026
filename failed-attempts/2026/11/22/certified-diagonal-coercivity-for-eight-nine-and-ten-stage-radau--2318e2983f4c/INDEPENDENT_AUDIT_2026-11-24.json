@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:37:27.597202Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79",
+        "check.py, lines 8–110",
+        "VERIFICATION.md, lines 19–25",
+        "Independent rational interval and LDL replay, stage counts 8, 9 and 10"
+      ],
+      "rationale": "The degree-s cardinal interpolants vanishing at zero yield A_s^{-1} by differentiation at the positive Radau nodes. The shifted Jacobi sign brackets each contain one distinct interior node, exhaust the degree, and leave every divided difference denominator separated from zero. The independently written exact-rational replay, without execution of the supplied checker, confirmed all ordered root brackets, positive weights, matrix interval row-sum error bounds below 1/20000, and positive rational LDL pivots for C_0−I/1000. Symmetry bounds the spectral error by the maximum row-sum error. Thus the specific displayed rational weights really give the strict Euclidean lower bound 19/20000 at all three stage counts.",
+      "residual_risks": [
+        "Only the specific matrix-level statement was certified; this is not a floating-point or PDE preconditioning performance guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The old diagonal-stability statement covers the Radau IIA class, not merely s≤7.",
+          "In the newer Stokes paper the computed smallest eigenvalues are negative for one choice of W at s=8,9,10. The comparison to shifted convolution coercivity is not the decisive coverage."
+        ],
+        "reasoning": "The actual containing class is all standard Radau IIA methods. Failure of a specific diagonal in the Stokes paper is not failure of diagonal stability or evidence of a mathematical gap at those three stage counts.",
+        "searches": [
+          "Hundsdorfer–Schneid (2.7), §3.3",
+          "Henríquez–Lee–Rhebergen arXiv:2611.08429v1, Lemma 1 and §5",
+          "Banjai–Lubich arXiv:1702.08385, abstract and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "CWI report NM-R8901",
+        "arXiv:2611.08429v1",
+        "arXiv:1702.08385",
+        "Resultary 6fd24a6c7ad7",
+        "Identical entry 2318e2983f4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old theorem yields a positive lower bound at each stage. Positive definiteness is open in D, so rational weights exist by density. Positive rescaling then allows any prescribed finite Euclidean lower bound when no normalization is imposed.",
+          "A direct check using only standard positive Radau quadrature illustrates the ease of construction: for x interpolated by q=t p and W*=diag(b_i/c_i), x^T W*A^{-1}x=∫_0^1 p(t)(p(t)+tp'(t))dt=(∫_0^1 p(t)^2dt+p(1)^2)/2. Exactness through degree 2s−2 also gives C*=diag(b_i/c_i²)/2+e_s e_s^T/2. This is a comparison proof, not a claim of priority for the formula."
+        ],
+        "reasoning": "The original witnesses and their exact numerical inequality are correct, but the existence they are intended to settle is covered even with rational diagonals and an arbitrary unnormalized positive bound. No optimality, constrained rational metric, meaningful normalized target, or demonstrated downstream improvement distinguishes these choices.",
+        "searches": [
+          "Hundsdorfer–Schneid (2.7), §3.3 and congruence comparison with the frozen C_s",
+          "Henríquez–Lee–Rhebergen §5 motivating failed diagonal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2.7) requires a diagonal D with both D and DA+A^T D positive definite; §3.3 explicitly says Radau IIA satisfies it and cites Frank–Schneid–Ueberhuber (1985).",
+          "A^T(DA^{-1}+A^{-T}D)A=A^T D+DA, so positive definiteness is preserved both ways."
+        ],
+        "reasoning": "Passing to the inverse, taking a factor of 1/2, or changing the name to stage-weighted coercivity does not change the strict feasibility question.",
+        "searches": [
+          "Primary literature lookup for Radau IIA, diagonal stage weights and symmetrized inverse Butcher matrices",
+          "Collocation Runge–Kutta diagonal stability, Gauss/Radau, Dekker–Verwer and Hairer–Wanner",
+          "Hundsdorfer–Schneid CWI report NM-R8901, (2.7) and §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Entry 2318e2983f4c is the frozen finding itself. Distinct entry 6fd24a6c7ad7 gives a 9:1 metric and sector result for a two-stage pressure-surrogate operator, not the three rational vectors.",
+          "The numerical eigenvalues in the Stokes paper are for its own diagonal, not an exact table for the frozen W_s."
+        ],
+        "reasoning": "No literal prior table of the chosen integers was located. That does not make this general feasibility problem original. The two-stage exact record is a relevant related construction but is not the basis for the all-stage coverage judgment.",
+        "searches": [
+          "Resultary by meaning for inverse-stage Radau coercivity and diagonal accretivity; 2318e2983f4c and 6fd24a6c7ad7",
+          "arXiv:2611.08429v1 §5 numerical eigenvalues"
+        ]
+      },
+      "rationale": "The claimed feasibility gap is already covered, under the alias diagonal stability, by the all-stage Radau IIA statement in Hundsdorfer–Schneid §3.3 together with (2.7). Their DA+A^T D≻0 is exactly equivalent by invertible congruence to DA^{-1}+A^{-T}D≻0. Henríquez–Lee–Rhebergen's failed particular W does not negate that known existence result. The particular rational vectors were not found in prior sources and are not implied as literal numerical data. They are alternative witnesses for the covered feasibility claim, with no intrinsic choice of scale or uniquely motivated bound; they do not support the frozen originality rationale.",
+      "residual_risks": [
+        "The exact numerical witnesses were not shown to occur in prior work. Historical priority for the explicit b_i/c_i formula is not determined here and is not needed to establish the older all-stage feasibility coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the main strict feasibility assertion, by congruence, for the full Radau IIA class.",
+          "evidence": "Eq. (2.7): a diagonal D such that D and DA+A^T D are positive definite. Section 3.3: 'The Gauss methods, as well as the Radau IA and IIA methods and the two-stage Lobatto IIIC method satisfy (2.5) and (2.7).'",
+          "identifier_or_url": "https://ir.cwi.nl/pub/5914/5914D0.pdf",
+          "material_read": "Title and introduction in CWI report NM-R8901 (1989), offsets 0–3808; Eq. (2.7) and Remark 2.1, PDF p. 5 offsets 8020–9400; §3.3, PDF p. 7 offsets 15010–18154; relevant references, offsets 27400–30398",
+          "method": "OA primary PDF: locate Radau and Eq. (2.7), then read the decisive passages",
+          "title": "An Algebraic Characterization of B-convergent Runge-Kutta Methods",
+          "trigger": "Older classical diagonal-stability statement plausibly covering all Radau IIA stages"
+        },
+        {
+          "assessment": "One unsuccessful weight choice, not a general statement of unknown diagonal feasibility.",
+          "evidence": "For that W the smallest eigenvalues at s=8,9,10 are approximately −0.0023, −0.00768, −0.0105; the authors say to find a different W.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08429v1",
+          "material_read": "Lemma 1, p. 5; §5 pp. 14–15, offsets 66000–68212",
+          "method": "Bounded primary PDF passage reading",
+          "title": "Preconditioning for the time-dependent Stokes equations: stage-weighted Radau IIA and weighted discontinuous Galerkin time-stepping",
+          "trigger": "Motivating positivity criterion and the three stage counts"
+        },
+        {
+          "assessment": "Related but distinct convolution coercivity; not the all-stage diagonal-stability prior statement.",
+          "evidence": "The arbitrary-order Radau result uses an exponential scaling or corresponding shift and treats the convolution differentiation symbol.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.08385",
+          "material_read": "Abstract, offset 3700; §3.4 Theorem 3.1, offset 24900",
+          "method": "Primary PDF passages",
+          "title": "Runge–Kutta convolution coercivity and its use for time-dependent boundary integral equations",
+          "trigger": "General Radau coercivity result cited as potential overlap"
+        },
+        {
+          "assessment": "Two-stage structured operator, not the exact frozen triples of weights.",
+          "evidence": "The 9:1 metric concerns the two-stage pressure-surrogate operator involving A^{-1} and A^{-2}; its first-stage to last-stage ratio agrees with b_i/c_i at s=2.",
+          "identifier_or_url": "Resultary 2026/11/22, 6fd24a6c7ad7",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror passages",
+          "title": "A unique diagonal accretivity metric and exact sector for the two-stage Radau surrogate",
+          "trigger": "Closest distinct catalogue match on exact Radau diagonal metrics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scale note and Limitations",
+        "CWI report NM-R8901 Eq. (2.7) and §3.3",
+        "arXiv:2611.08429v1 §5"
+      ],
+      "rationale": "The motivating criterion is meaningful, but it was already satisfied for all stage counts by known diagonal stability. The rational data are separate admissible choices, not values of an intrinsic or optimized invariant. The absolute lower bound can be scaled arbitrarily and the finding supplies neither a scientifically needed normalization nor a reason these weights improve conditioning or preconditioner performance. Exact verification of these particular witnesses therefore does not resolve a remaining worthwhile gap as stated.",
+      "residual_risks": [
+        "The rejection is not a claim of mathematical falsity or of uselessness for a future application with independently motivated constraints."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

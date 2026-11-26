@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:29.861084Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md and verify.py, inspected statically",
+        "/workspace/branches/09c6e9a6-f9ed-4b4a-8365-2447258737b6/independent_census.py and independent-run.txt"
+      ],
+      "rationale": "Under lax splitting the two downward-closed witnesses can be made disjoint. The first side selects at most one y per x, and moving all matching rows there cannot create a violation on either side. Satisfiability is therefore exactly the existence of a selection that leaves at most one z-value per y unselected. An unmixed fibre is irrelevant, and four mixed fibres already give a failing subteam by taking one row of each output from each: the three x-values cannot cover the four fibres. Thus every minimal failure has at most four used fibres, and if four then exactly eight rows. The independently reproduced finite census exhausts multisets of the 49 mixed Boolean states (49, 1225, 20825, 270725 candidates), up to renaming only y. It confirmed the size distributions: k=1 empty; k=2 {4:3,6:6,7:12}; k=3 {6:36,7:12,8:102}; k=4 {8:135}. Testing all single deletions is sufficient by downward closure; explicit witnesses of each allowed size were separately verified by direct split enumeration. Zero or one mixed fibre cannot fail. This proves the spectrum, the count 306 and sharpness of eight for unbounded finite Y.",
+      "residual_risks": [
+        "Finite exact verification is not a formal proof artifact. The theorem depends on set semantics, only the three displayed coordinates, at most three x-values, and Boolean z; no claim is made for larger alphabets or additional attributes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barlag et al. give a general equivalence between quantifier-free coherence and FO-rewritability, and study the decision problem, not numeric restricted-domain spectra. The same-day bounded-alphabet theorem concerns repeated dep(x,y) and reversed dep(y,x) with a bound on Y, not two chained atoms and free Y."
+        ],
+        "reasoning": "These claims cover neither the imposed endpoint bounds together nor the required counts and sharp threshold.",
+        "searches": [
+          "arXiv:2605.31269, quantifier-free coherence and first-order rewriting",
+          "CSL 2026, unrestricted coherence classification",
+          "2026/11/22/SCOPE-sharp-bounded-alphabet-obstruction-width-for-repeated-dependence--50be52782e73"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary comparison",
+        "Inspected primary coherence papers and exact obstruction records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted proof extends a construction with z=x, which cannot keep its witnesses within the two-value output bound as the determinant grows. Restricting the earlier binary-determinant theorem to Boolean outputs does not extend its x-domain. The generic FO criterion gives no sharp number or census under the two cardinality promises."
+        ],
+        "reasoning": "Neither unrestricted lower obstructions nor a bound for fewer x-values determines the finite cutoff for this slice. The finite reduction and census close a distinct gap.",
+        "searches": [
+          "CSL 2026 Theorem 25 proof, PDF p. 21",
+          "Binary determinant six-tuple census and labeled counting formulas",
+          "arXiv:2605.31269, coherence and rewriting result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The CSL paper identifies the exact same lax formula and proves its unrestricted incoherence. The restricted census can equivalently be phrased as inclusion-minimal failures to split a ternary relation into x→y and y→z pieces, keeping x and z named."
+        ],
+        "reasoning": "This is a genuine same-formula comparison, not a renamed different atom. Unrestricted incoherence does not specify what happens when both endpoint domains are restricted.",
+        "searches": [
+          "Resultary lookup on ternary input, Boolean outcome, chained functional-dependency split, and minimal obstructions",
+          "Disjunctions of Two Dependence Atoms, DOI:10.4230/LIPIcs.CSL.2026.10, Theorem 25 and coherence table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact predecessor for two x-values has sizes 4 and 6 and labeled counts 2 C(b,2) C(c,2)^2 and (4 C(b,2)+44 C(b,3)) C(c,2)^3 in terms of |Y|=b and |Z|=c. Those are not the three-x counts modulo y renaming. The indexed frozen result itself is excluded as independent prior coverage."
+        ],
+        "reasoning": "An exact table in a smaller determinant domain and another equivalence convention does not cover all three-input patterns. In particular the new table contains size 7 and size 8 entries, absent in the binary case.",
+        "searches": [
+          "Resultary lookup for a 3-input/Boolean-output 306-pattern obstruction list",
+          "2026/10/25/SCOPE-a-sharp-six-tuple-obstruction-theorem-for-a-binary-determinant-i--1faf692a71cb, Finding and scope"
+        ]
+      },
+      "rationale": "The same chained dependence formula and the binary-determinant obstruction problem are prior work. The inspected sources do not cover the ternary/Boolean domain slice, its two additional obstruction sizes, or the complete 306-pattern census.",
+      "residual_risks": [
+        "Historical priority is not certified. An unindexed database-theoretic forbidden-pattern theorem under a different terminology remains possible; the search does not rule it out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes unrestricted incoherence, not the bounded-endpoint theorem",
+          "evidence": [
+            "Table and Theorem 25 mark the same formula as incoherent; proof uses an extension of a z=x construction."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "Published PDF pp. 3–4 definition and table, p. 13 Theorem 25, p. 21 proof; OA offsets near 11384,12878,47804,81666",
+          "method": "Open-access primary PDF",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exact same chained formula in the general classification"
+        },
+        {
+          "assessment": "Exact two-x predecessor; the x-domain cannot be enlarged by specialization",
+          "evidence": [
+            "Sizes 4 and 6, with explicit counts for labeled Y and Z."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-six-tuple-obstruction-theorem-for-a-binary-determinant-i--1faf692a71cb",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Resultary local mirror",
+          "title": "A sharp six-tuple obstruction theorem for a binary determinant in dependence logic",
+          "trigger": "Closest exact same-formula obstruction census"
+        },
+        {
+          "assessment": "General coherence characterization; no restricted numeric bound in the relevant result inspected",
+          "evidence": [
+            "For quantifier-free dependence logic, coherence for some k is equivalent to universal FO-rewritability and FO-rewritability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "PDF pp. 2–3, offsets 7975–11188, coherence definition, characterization and statement of algorithmic focus",
+          "method": "Open-access primary PDF",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Plausible broader coherence/rewriting theory"
+        },
+        {
+          "assessment": "Different atom pattern and bound, not same-day equivalent coverage",
+          "evidence": [
+            "Uses r copies of dep(x,y) and one dep(y,x) with a bound on the Y domain."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-bounded-alphabet-obstruction-width-for-repeated-dependence--50be52782e73",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp bounded-alphabet obstruction width for repeated dependence",
+          "trigger": "Distinct same-day obstruction-width theorem with bounded alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and census",
+        "CSL 2026 unrestricted result and binary-determinant predecessor"
+      ],
+      "rationale": "The chained functional-dependency split is a canonical incoherent two-atom formula; the ternary/Boolean promise is a natural finite-domain step beyond the sharp binary-determinant theorem. Eight is an explicit sharp local witness bound independent of the intermediate-domain size, and the complete catalogue gives usable obstruction information beyond a decision procedure or a nonsharp bound, including the unexpected exclusion of size five and the emergence of sizes seven and eight.",
+      "residual_risks": [
+        "No general formula for larger domains is established; the value is the sharp bounded-domain theorem and exact catalogue."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

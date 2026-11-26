@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:16:54.589830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 26–56, VERIFICATION.md and verify_cyclic_quintic_hasse.py (inspected)",
+        "Independent replay: python3 /workspace/reproductions/1.py (SymPy 1.14); /workspace/reproductions/1.out"
+      ],
+      "rationale": "Simple roots give smoothness at the finite ramification points, the Y derivative handles the other affine points, and the Z derivative handles infinity. The order of x, y and dx at infinity is -5, -4 and -6, respectively; at finite branch points dx has order 4. These orders give the stated six independent holomorphic forms. Rewriting with denominator y^(11j) and extracting exponents 11k+10 gives the three coefficient blocks. Independent multinomial extraction, exact determinants, gcd and localized ideal calculation reproduce the factors and show middle block rank exactly one on the support; the other ranks there are zero and three. H=0 is reduced; the map from the ordered coordinates (a,b) to (s,t) is étale away from the discriminant, so pullback does not change the multiplicity two. The divisor uses the linearized Frobenius determinant, not entrywise rooted functions on parameter space. Over F121 the square of the semilinear middle block is represented, up to conjugation by field Frobenius, by B3 times its field conjugate. Its rank one and nonzero trace imply that powers have rank one. A replay over a third quadratic presentation verifies 72 and 0 over F11, 13832 and 210 over F121, and relabeling by four generating adjacent swaps gives orbit sizes 30,60,120.",
+      "residual_risks": [
+        "For a nonperfect ground field interpret the absolute Cartier operator and entrywise roots after geometric or perfect base change, or use relative Cartier with a Frobenius twist. No geometric stable-rank stratification beyond the stated field census was tested. The orbits are branch presentations, not curve isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi abstract treats automorphism groups of order >10 and one-parameter order-eight/order-ten families via superspeciality.",
+          "Resultary 2026/11/2 record ending 0f4b95dc67cd treats cyclic trigonal genus four in characteristic seven; record cd9bc2f15ac0 treats genus-six cyclic quintics in characteristic two."
+        ],
+        "reasoning": "Neither the target invariant nor characteristic/family matches those broader-looking results. Standard coefficient extraction is a method and not itself the explicit fact claimed.",
+        "searches": [
+          "arXiv:2605.29624v2, abstract and introduction preview",
+          "Resultary: double Hasse divisor cyclic quintic quintics Cartier characteristic eleven"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1701.06065v1 and 2605.29624v2 bounded primary extracts",
+        "Resultary comparisons cited above",
+        "Frozen prior-work section lines 58–65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "19374ffc0100 has four branch points and a squared equianharmonic factor in characteristic 11; ee8a7cc2d3ba has one parameter with p=10n+1>13; d3e702373472 concerns characteristic 31 and a genus-four equation."
+        ],
+        "reasoning": "None of the available statements implies the localized polynomial and census at the claimed parameters. In particular the one-parameter rank-four statement excludes the characteristic in question.",
+        "searches": [
+          "Resultary records ending 19374ffc0100, ee8a7cc2d3ba and d3e702373472; arXiv:1701.06065; arXiv:2605.29624"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badr–Lorenzo García abstract restricts its representative stratification to p=0 or p>13; the frozen text locates the five-branch model in Lemma 3.3."
+        ],
+        "reasoning": "Changing branch order or homogeneous coordinates accounts for the old model; it does not account for the new Hasse polynomial. The rank claim is for unrooted coefficient/Frobenius matrices and the census counts normalized presentations.",
+        "searches": [
+          "arXiv:1701.06065, abstract and cited Lemma 3.3",
+          "Resultary: five branch characteristic 11 cyclic quintic genus 6 doubled Hasse divisor Cartier rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact arithmetic summary 19374ffc0100 describes two exceptional genus-four parameters and one unordered configuration, not the three orbits here."
+        ],
+        "reasoning": "The accessible matched arithmetic concerns different curves; no independently matched ordered-pair table was located.",
+        "searches": [
+          "Resultary: characteristic 11 five simple branch points Hasse determinant F121 210 30 60 120"
+        ]
+      },
+      "rationale": "Credit the existing five-branch model and the related doubled-divisor examples. The distinct result is the explicit characteristic-11 two-parameter Hasse divisor with its geometric rank and split-field arithmetic stratification. Nothing in the accessible comparisons supplies those statements for this family.",
+      "residual_risks": [
+        "Decisive fuller passages and adjacent full records were not accessible in the targeted reader; the catalogue evidence is summary-level. Broader cyclic-cover results and unindexed exact censuses could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model-level overlap; accessible characteristic range excludes 11",
+          "evidence": [
+            "Abstract: characteristic p=0 or p>13."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.06065",
+          "material_read": "Abstract and beginning of §1, extract lines 9–36; Lemma 3.3 attribution in the frozen result only",
+          "method": "OA PDF bounded extract; targeted passage retrieval unavailable",
+          "title": "A note on the stratification by automorphisms of smooth plane curves of genus 6",
+          "trigger": "Same plane-quintic model"
+        },
+        {
+          "assessment": "Scope overlap only, not a demonstrated source of the claimed stratification",
+          "evidence": [
+            "The abstract describes one-parameter groups of order eight and ten and superspeciality rather than nonordinarity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.29624",
+          "material_read": "v2 abstract and early §1, extract lines 11–32",
+          "method": "OA PDF bounded extract",
+          "title": "Superspecial plane quintics with large automorphism groups",
+          "trigger": "Nearby arithmetic plane-quintic classification"
+        },
+        {
+          "assessment": "Four-branch case, not a dominating family",
+          "evidence": [
+            "Equation y^5=x(x-1)(x-lambda)^2; two exceptional parameters in one configuration."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 record ending 19374ffc0100",
+          "material_read": "Indexed scientific summary",
+          "method": "Semantic catalogue comparison",
+          "title": "Doubled equianharmonic Hasse locus in a genus-four cyclic quintic",
+          "trigger": "Same degree and characteristic with doubled Hasse vanishing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and assumptions; exact audit replay"
+      ],
+      "rationale": "The full smooth two-dimensional five-point configuration family is natural. The multiplicity, rank rigidity, and contrasting split-field censuses provide more than an example or a rerun of a published arithmetic table.",
+      "residual_risks": [
+        "Does not give Newton polygons or general fields' stable ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

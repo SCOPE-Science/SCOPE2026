@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:54.038838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A two-date rule is exactly a continuation event A in the time-a filtration of mass 1-q, modulo null sets. Reversing Brownian increments on [0,a] and applying reflection gives a half-normal law for D=M_a-B_a; independent increments and reflection give an independent future maximum S_h with half-normal scale sqrt(h). Thus the objective is C_a+E[1_A G_h(D)] with G_h(d)=E[(S_h-d)_+] and G_h'(d)=-erfc(d/sqrt(2h))<0. Subtract the threshold gain before comparing two equal-mass events: the difference then has constant sign, strict off the quantile level, proving both extrema and uniqueness. Differentiation of H combines the two Gaussian-prefactor terms into 2 sqrt(h/a)/pi times exp(-bz^2/(2ah)), with the remaining term -z f_a(z) erfc(z/sqrt(2h)); hence H'=f_a G_h, H(0)=C_a and H(infinity)=C_b. Quantile windows of fixed mass slide continuously between extreme events, yielding all intermediate values without extra randomness. Inverse quantile differentiation gives U'=-G_h(u_q), L'=-G_h(v_q), with U''<0<L''; the endpoints extend continuously to q=0,1, and the positive interior width is symmetric and strictly concave, uniquely widest at 1/2. Replay: python3 /workspace/reproduction/frozen_checks.py 2, using layer-cake integration in the future-maximum variable rather than integrating the closed gain. At (a,b,q)=(1,2,1/2), it gives U=1.06233964388872721, L=0.86392408400965072, W=0.1984155598790764898. The original checker was inspected but not executed; finite quadrature supports the explicit formula only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beiglböck et al. give the general maximizing barrier and warn in Remark 7.1 that minimizing in the general problem may lead to a genuinely randomized rule.",
+          "Deng–Zhang work with a continuous tail obstacle, equivalent to an atomless target. Bayraktar–Miller cover finite atomic laws for a Lipschitz terminal payoff f(B_tau)."
+        ],
+        "reasoning": "Binary laws are inside the old maximizing theorem, but not Deng–Zhang's stated law class. Bayraktar–Miller's stated observable is not the path maximum; enlarging the state or adapting dynamic programming is not the published evaluated solution. The general minimization warning is not a requirement of randomization for this special problem.",
+        "searches": [
+          "DOI 10.1007/s00440-017-0805-x, Corollary 1.2; Remark 7.1",
+          "arXiv:2610.01585v1, atomless; variational inequality",
+          "arXiv:1604.03042, Abstract; Brownian motion; Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Beiglböck et al., DOI 10.1007/s00440-017-0805-x",
+        "Deng–Zhang arXiv:2610.01585v1",
+        "Bayraktar–Miller arXiv:1604.03042v5",
+        "Resultary published mathematics search and record 10a2261b11b9",
+        "Frozen result and verification materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two dates the general maximizing barrier and the prescribed mass already imply the upper quantile selector once the drawdown law is identified. Event complementation interchanges minimizing at q and maximizing at 1-q, since the objective values sum to C_a+C_b.",
+          "The inspected results do not perform the half-normal gain integration, show how to realize every intermediate expectation in this filtration, or analyze the strict width profile."
+        ],
+        "reasoning": "Structural selection, and consequently the complementary minimizer, are not claimed as standalone novelty. The supported contribution evaluates the frontier and gives its attainable-value and strict curvature consequences; it is not a relabeling of the general maximizing theorem or an application asserted for atomless laws.",
+        "searches": [
+          "DOI 10.1007/s00440-017-0805-x, Corollary 1.2 and Remark 7.1",
+          "arXiv:1604.03042v5, Theorem 1",
+          "arXiv:2610.01585v1, Theorem 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 10a2261b11b9 estimates a Brownian running maximum from one sign observation under squared loss and optimizes its observation time; it neither constrains a stopping-time law nor optimizes expected stopped maximum.",
+          "Beiglböck et al., Corollary 1.2, does include binary laws for maximization."
+        ],
+        "reasoning": "Drawdown and negative drawdown describe the same state after reversing sign conventions. The older barrier has genuine overlap with the upper selector, unlike the sign-sensor problem. Neither comparison gives an evaluated two-sided attainable interval.",
+        "searches": [
+          "Resultary: two-date Brownian maximum expected running maximum prescribed stopping-time law binary target drawdown threshold",
+          "Resultary: Brownian maximum stopping time exactly two deterministic dates inverse error function symmetric width",
+          "Resultary: sharp two-date Brownian maximum frontier and its symmetric width"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No equivalent exact indexed result appeared in the returned ranked matches; the closest inspected Resultary match, 10a2261b11b9, gives an exact but different 16/21 sensor-time constant."
+        ],
+        "reasoning": "This continuous three-parameter frontier is not a sequence or standard table entry; a matching exact formula in the published corpus, rather than a numerical benchmark or another Brownian-maximum constant, would be decisive.",
+        "searches": [
+          "Resultary: binary stopping-time law exact Brownian running maximum two deterministic atoms threshold at intermediate date",
+          "Resultary: Brownian expected running maximum stopping time with law q delta_a plus one minus q delta_b, drawdown barrier"
+        ]
+      },
+      "rationale": "Known coverage includes the maximizing drawdown-barrier principle for the binary law, and the complementary relation of the two optimization problems is elementary for two dates. Credit is limited to the evaluated two-sided frontier, constructive nonrandomized full-interval attainment and the sharp width as a function of the binary mass, not a new general barrier theorem. No earlier equivalent evaluation was identified in the inspected evidence.",
+      "residual_risks": [
+        "An unindexed binary evaluation or an uninspected worked example may exist. Targeted full-text and ranked-catalogue searches do not certify absolute priority.",
+        "The prior maximizing barrier directly covers binary laws, so an originality statement for the maximizing selector by itself would overclaim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of maximizing geometry; not the evaluated two-sided interval",
+          "evidence": "Corollary gives a drawdown hitting barrier for finite 2/3-moment laws; minimization remark allows genuine randomization in general.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-017-0805-x",
+          "material_read": "Corollary 1.2 p. 2, offset near 4215; Remark 7.1 p. 24, offset near 86932",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Geometry of distribution-constrained optimal stopping problems",
+          "trigger": "Same running-maximum optimization and general barrier covers binary laws"
+        },
+        {
+          "assessment": "Atomless assumption excludes the tested binary law",
+          "evidence": "Continuous tail obstacle and an implicit variational-inequality characterization.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01585v1",
+          "material_read": "Section 1, (1.1)–(1.2), offsets 1534–6704, and Theorem 2.6 near offset 19494",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Distribution-constrained maximum stopping of maximum type",
+          "trigger": "Same drawdown and objective"
+        },
+        {
+          "assessment": "Finite-atom control framework for different stated payoff",
+          "evidence": "Objective is a Lipschitz terminal payoff f(B_tau), not the running maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03042",
+          "material_read": "Version 5 pp. 1–2 and Theorem 1 p. 10, near offset 38750",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Distribution-constrained optimal stopping",
+          "trigger": "Finite atomic stopping laws include this date constraint"
+        },
+        {
+          "assessment": "Same process and maximum, different observable and decision",
+          "evidence": "One predetermined sign bit for mean-square estimation, not expected maximum at a distribution-constrained stopping time.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-16-21-horizon-sign-sensor-rule-for-brownian-running-maxi--10a2261b11b9",
+          "material_read": "Mirror RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A sharp 16/21 horizon sign sensor rule for Brownian running maxima",
+          "trigger": "Closest Brownian-maximum ranked corpus match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two deterministic dates give the first nontrivial atomic target law in a natural Brownian optimization problem. The explicit endpoints and nonrandomized interpolation calibrate every feasible expected maximum, not just an optimal stopping event. The widest attainable range at equal stopping masses holds for every date pair and supplies a quantitative benchmark not available from a barrier existence theorem alone. No atomless or multi-date extension is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:13:04.475482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the conditional product-Poisson mass and the exact tilt Q/B∝h_n, with h_n the squared falling-factorial correction, zero above n. The Legendre change of variable sends its n roots in (−1,1) to negative roots of the mass polynomial; factoring gives a Bernoulli sum with variance at most its mean, itself at most the Bessel mean <μ=√z by the decreasing tilt. Shifting the mass recurrence proves E_Q K²=(μ/n)² E_Q(n−K)². Expanding its quadratic about k0=nμ/(n+μ) gives 2μd=(1−μ²/n²)(d²+Var_Q), with d=k0−E_Q K≥0 by Jensen and d≤μ; hence d≤1. For B, the Bessel mgf with t=v√(2/μ) gives the standard normal mgf limit and uniform exponential moments for the centered/scaled K. Alternatively E_B K²=μ² by the mass ratio and the classical I1/I0 expansion gives E_B K=μ−1/4+O(μ⁻¹). On every fixed centered window the log h_n ratio equals −δ_n S_n+o(1), δ_n=√2 μ^(3/2)/n; the global majorant exp(C μ(|k−μ|+1)/n) follows by summing increments below floor(μ), with ratio ≤1 above. Thus, for finite c, the unnormalized ratios converge in distribution with a uniform p>1 moment bound, so both normalization and the expectation defining TV converge; this is the precise content of the source's asymptotic L1 wording. The Gaussian likelihood crosses 1 at −δ/2, giving 2Φ(δ/2)−1, including δ=0. For μ^(3/2)/n→∞ and μ=o(n), the mean gap μ²/(n+μ)+O(1) dominates √μ, yielding TV→1 by Chebyshev at the midpoint. Inspected the supplied checker/output without running it. A separate bounded recurrence check (normalizing consecutive-mass ratios around the modes, geometric tail estimate starting at μ+40√μ+100) gave TV 0.02488222, 0.51704034 and ≈1 at n=262144 for μ=n^(1/2), n^(2/3), n^(4/5), respectively; it corroborates but does not prove the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duan–Lyu–Powell's Theorem 2.10 is a CLT for linear statistics under finite limiting costs and growing row/column dimensions; their Proposition 8.7 uses cloned margins with a fixed base cost.",
+          "The reviewed prior's dense bounded-Lipschitz estimate explicitly does not strengthen to TV in its setting."
+        ],
+        "reasoning": "A fixed 2×2 table with odds ratio tending to zero violates the dimensional and bounded cost-contrast assumptions. Weak CLTs alone would not control TV for varying lattice laws. No inspected broader result shows this TV profile in the necessary regime.",
+        "searches": [
+          "arXiv:2610.14616 Assumptions A/B, Theorem 2.10 and Proposition 8.7",
+          "Fisher noncentral hypergeometric triangular-array lattice local limit or rare-event normal approximation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "arXiv:2610.14616",
+        "SCOPE 9f41c170e8e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterioration is governed by the tilt size √2 z^(3/4)/n, which does not occur as a controlled variable in the prior fixed-parameter dominated-convergence proof.",
+          "Classical binomial and Poisson local approximations offer another proof route: represent Q and B as normalized squares of binomial and Poisson masses, respectively. That route still needs control of the rare-event normalization and tails and a comparison of the moving centers."
+        ],
+        "reasoning": "Neither the fixed-parameter comparison nor the general large-table CLT yields the exact TV limit by specialization. The nontrivial step is controlling the accumulation of the finite-population correction relative to fluctuations, not restating known pointwise masses or a CLT.",
+        "searches": [
+          "SCOPE 9f41c170e8e8, fixed parameters and domination argument",
+          "arXiv:2610.14616, Theorem 2.10 and Section 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odds are z/n²; in SCOPE 9f41c170e8e8 the same falling-factorial comparison appears with z=θ1θ2, θ1 and θ2 fixed positive.",
+          "Duan–Lyu–Powell treat the conditional-Poisson construction under different large-table hypotheses."
+        ],
+        "reasoning": "The exact masses represent the same family, so fixed-z convergence is real overlap, not a different distribution. The frozen limit sends z→∞ and retains the falling-factorial correction at precisely the order of one standard deviation; the fixed-z result gives no such statement.",
+        "searches": [
+          "Primary literature on Fisher noncentral hypergeometric, fixed 2×2 conditional Poisson and Bessel local limits",
+          "Resultary: conditional Poisson rare cells discrete Bessel and TV crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact catalogue statement is TV convergence to a discrete Bessel law for θ1 and θ2 fixed; its proof uses fixed-Poisson domination."
+        ],
+        "reasoning": "The exact formula in that entry does not assert a uniform approximation over growing parameters or a table of limiting distances at z/n^(4/3) fixed. Catalogue dates were not used to infer priority.",
+        "searches": [
+          "Resultary catalogue: discrete Bessel fixed-margin rare-cell limits and exact TV crossover",
+          "SCOPE 9f41c170e8e8, RESULT.md"
+        ]
+      },
+      "rationale": "The distinct claim is the growing-parameter breakdown scale and exact crossover in total variation, including separation within the vanishing-odds regime. The Fisher mass, fixed-parameter Bessel limit and classical Bessel normal approximation are not themselves originality claims.",
+      "residual_risks": [
+        "A more directly applicable lattice local-limit or uniform approximation theorem for the Fisher noncentral hypergeometric law in vanishing-odds arrays might imply the profile; the inspected comparison does not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the fixed-dimension singular-odds array or the required comparison in TV.",
+          "evidence": [
+            "Assumptions A/B require a finite uniform cost limit and growing dimensions; the stated statistic CLT is not a lattice local limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.14616",
+          "material_read": "PDF pp. 6–7 (offset 26000), Theorem 2.10 p. 10 (44950), dense-convergence limitation p. 16 (76200), cloned-margin Proposition 8.7 pp. 36–37 (172800)",
+          "method": "Targeted OA PDF reading",
+          "title": "Poisson contingency tables, Gibbs permutations, and entropic optimal transport",
+          "trigger": "Same conditional-Poisson object and broader asymptotics"
+        },
+        {
+          "assessment": "Actual fixed-z overlap, no established uniform growth or crossover result.",
+          "evidence": [
+            "The two rare-cell intensities are fixed θ1,θ2 and the Bessel parameter is their product."
+          ],
+          "identifier_or_url": "SCOPE 9f41c170e8e8",
+          "material_read": "RESULT.md offsets 0 and 5700, Finding/assumptions and dominated-convergence step",
+          "method": "Published record via local mirror",
+          "title": "Connected support gives independent rare-cell Poisson counts and conditional rare-cell limits",
+          "trigger": "Same exact 2×2 mass and Bessel comparison in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equal-margin 2×2 array is a canonical rare-cell model. The result gives a sharp criterion for using a Bessel approximation in TV as the rare-cell count itself grows. It explains why support separation becomes essentially complete well before z becomes comparable to n², and the Gaussian profile quantifies an approximation error that a fixed-parameter theorem or ordinary CLT does not resolve.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

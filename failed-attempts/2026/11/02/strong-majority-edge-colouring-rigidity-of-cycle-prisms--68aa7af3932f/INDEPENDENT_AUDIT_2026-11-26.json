@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:44:06.431588Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–44",
+        "Frozen VERIFICATION.md and verify.cpp (inspected, not executed)",
+        "Kalinowski et al., arXiv:2605.23828, §3, PDF p. 6"
+      ],
+      "rationale": "Every edge has four neighboring edges, so two colors must split them 2–2. At rungs S_{i-1}+S_i=2 for S_i=T_i+B_i. If S alternates 0 and 2, consecutive top-rail constraints force their common rung first to 1 and then to 0. Thus B_i=1-T_i. Subtracting the top and bottom constraints then gives T_{i+2}=1-T_i, and either rail equation gives R_{i+1}=1-R_i. The top pattern has least period four, so cyclic consistency requires 4|n. When this holds, T_0,T_1,R_0 are three independent bits and recover all indexed assignments, giving exactly eight. For all n≥3 the even Hamiltonian cycle can be alternately colored, with its perfect-matching complement receiving a third color; properness in the cubic graph gives exactly two neighbors of each other color. One color is impossible. In the cube a witness is top 0011, bottom 1100 and rungs 0101; this contradicts the input-degree parity condition literally stated in Kalinowski et al. §3.",
+      "residual_risks": [
+        "The result uses open edge neighborhoods, not a vertex-based majority condition. The general proof, not the reported finite checks, establishes the count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 ladder theorem includes both cyclic closures, including all P_n. The same-day perfect-code theorem gives b(G)=2p(G) for connected cubic graphs and explicitly points to earlier prism-specific work. The three-color general bound inspected requires minimum degree at least five, unlike the prisms."
+        ],
+        "reasoning": "The older ladder theorem specializes verbatim. The same-day relation is not used to infer chronological priority or an independent prism census.",
+        "searches": [
+          "Resultary: cyclic cubic ladders 40a590861d75, perfect-code rigidity ae45f30e76b9",
+          "arXiv:2607.00212v1; arXiv:2608.04122v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40a590861d75, ae45f30e76b9, f0815fe7bf25",
+        "Kalinowski et al. arXiv:2605.23828",
+        "Freyberg–Marr DOI 10.1007/s00373-024-02766-9",
+        "Collins et al. DOI 10.1007/s00373-025-02950-5",
+        "Antoniuk et al. arXiv:2607.00212v1 and Pękała–Przybyło arXiv:2608.04122v2, abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ladder proof counts three free bits for the prism. The paper states that two colors can occur only if all input degrees are even; the actual local parity necessity is d(u)+d(v)-2 even on every edge uv."
+        ],
+        "reasoning": "Taking n=4 in the already covered prism theorem immediately supplies the advertised counterexample. Nor is the correction to parity a new structural theorem: it follows by splitting an edge's neighbors equally.",
+        "searches": [
+          "40a590861d75, Finding and proof continuation at mirror offset 4731",
+          "Kalinowski et al., §3, PDF p. 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For P_n the binary edge constraint is exactly open-neighborhood balance on the 4-regular L(P_n), or a sign vector in the kernel of its adjacency matrix. Collins et al. Prop. 8 instead uses closed neighborhoods on P_n itself."
+        ],
+        "reasoning": "The definition gives the exact line-graph equivalence; there is no equivalence to the closed-neighborhood census on the underlying graph. Those related results are not the decisive overlap.",
+        "searches": [
+          "Open-neighborhood balanced vertex coloring of the line graph; Freyberg–Marr DOI 10.1007/s00373-024-02766-9",
+          "Closed-neighborhood balance of the prism; Collins et al. DOI 10.1007/s00373-025-02950-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40a590861d75 gives precisely the residue-class index and count eight using two named colors on the indexed graph. f0815fe7bf25 gives a two-color star/complement coloring of cubic K_4."
+        ],
+        "reasoning": "This is exact indexed coverage for the infinite prism family, with the same counting normalization; the K_4 entry addresses odd-degree feasibility separately.",
+        "searches": [
+          "Resultary: strong majority edge indices and two-color census of prisms and ladders (40a590861d75); complete graph cases (f0815fe7bf25)"
+        ]
+      },
+      "rationale": "The earlier October 18 catalogue record 40a590861d75 already proves the identical finite-simple prism result for every n≥3, with the same named/indexed counting convention, in a theorem also covering twisted ladders. Its proof yields the three-bit classification itself. The cube witness is an instance of that theorem, and the existence of an odd-input-degree counterexample is independently covered by the earlier K_4 result. This is direct existing coverage, not an inference from similar titles or from simultaneous dates.",
+      "residual_risks": [
+        "No earliest-publication claim is made. The comparison of more general recent coloring bounds is limited to inspected passages; it does not affect the exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct complete coverage of prism claim",
+          "evidence": [
+            "Same C_n square K_2, n≥3, index 2 exactly at n=0 mod 4, otherwise 3; eight indexed two-named-colorings in the feasible case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-strong-majority-edge-index-and-two-colour-rigidity-of-cyclic-cub--40a590861d75/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; prism count proof continuation, offset 4731",
+          "method": "Local mirror and statement/proof comparison",
+          "title": "Strong-majority edge index and two-colour rigidity of cyclic cubic ladders",
+          "trigger": "Exact same prism and invariant plus twisted family"
+        },
+        {
+          "assessment": "Confirms quoted parity assertion; cycle result concerns C_n, not P_n",
+          "evidence": [
+            "‘Observe that Maj′(G) can be equal to 2 only if the degrees of all vertices of G are even.’ Proposition 21 gives an upper bound under even input degrees, not that necessity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "§3 opening and cycle result, PDF p. 6; Proposition 21, p. 11",
+          "method": "Open-access passage inspection",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Claimed counterexample to a primary source"
+        },
+        {
+          "assessment": "Equivalent balance condition, inspected family covers circulants, no prism line-graph census in those passages",
+          "evidence": [
+            "The zero sum is over open neighbors; the classified family in §3.1 consists of four-regular circulants."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-024-02766-9",
+          "material_read": "PDF pp. 1–2 and §3.1, pp. 6–9",
+          "method": "Open-access definition and family theorem comparison",
+          "title": "Neighborhood Balanced Colorings of Graphs",
+          "trigger": "Exact alternative name for binary line-graph condition"
+        },
+        {
+          "assessment": "Different graph and neighborhood",
+          "evidence": [
+            "The neighborhood includes the vertex itself and the colorings are on the prism vertices, not the vertices of its line graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02950-5",
+          "material_read": "PDF p. 2, Example 7 and Proposition 8, pp. 25–26",
+          "method": "Open-access theorem and definitions",
+          "title": "Closed Neighborhood Balanced Coloring of Graphs",
+          "trigger": "Prism and modulo-four result"
+        },
+        {
+          "assessment": "General reduction, with explicit reference to earlier prism-specific result",
+          "evidence": [
+            "Binary counts are twice the number of efficient dominating sets; the Relationship section identifies prior prism-specialized coverage."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-perfect-code-rigidity-of-two-colour-strong-majority-edge-colouri--ae45f30e76b9",
+          "material_read": "Finding and Relationship, mirror offset 4980",
+          "method": "Local mirror",
+          "title": "Perfect-code rigidity of two-colour strong-majority edge colouring of cubic graphs",
+          "trigger": "Same-day overlapping cubic theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Catalogue 40a590861d75, Finding and proof",
+        "Kalinowski et al. §3"
+      ],
+      "rationale": "The exact prism census would be useful if unknown, but the full dichotomy and all eight assignments are already supplied. The cube counterexample is automatic from that census, and the parity correction follows from the definition; there is no distinct remaining contribution.",
+      "residual_risks": [
+        "This assesses the submission's contribution, not the value of the previously obtained ladder theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:52:35.940104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Maximality on an open path is exactly independence plus domination: end gaps are at most one and successive chosen vertices are two or three apart. The resulting unsigned recurrence has parity word (1,1,0,0,1,0,1), with the defining triple returning at 7. Since each character contributes a sign, odd count gives only odd multipliers. For the even-count residues the signed recurrence tracks partial selections ending at j and W_n=F_{n-1}+F_n. Independently multiplying e=(1,1,0) on the right by A_+, A_-, then five A_+ gives (1,1,1), (1,0,-1), (0,0,1), (0,1,0), (1,0,0), (0,1,1), and e; this verifies invariance in the correct reverse order for the appended signs. Direct independence and domination tests on binary words give (total count, count containing the specified vertex) = (2,1), (2,1), (4,2), (12,6) at lengths 2, 3, 5, 9 respectively, certifying the four seeds. The block applies from length 3 on, and the n=2 seed is handled separately. At n=1 the multipliers are ±1. Exact Walsh diagonalization gives the stated result over C or R. The frozen checker was read, not executed; the finite checks are not used to prove periodicity or the extension identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The match treats every n≥2 in the same parameter regime. The inspected Bisdorff–Marichal, Nagy, and Wood passages concern unsigned orbit/counting, conditions for k-dominating independence, or extremal number of maximal sets."
+        ],
+        "reasoning": "The decisive coverage comes from the exact all-length prior result, not from the broader unsigned literature. The latter does not supply the signed cancellation direction in the inspected passages.",
+        "searches": [
+          "Resultary match 294497a01d79",
+          "arXiv:math/0701647, arXiv:1504.03224, arXiv:1104.1243"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 294497a01d79, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:math/0701647",
+        "arXiv:1504.03224",
+        "arXiv:1104.1243"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its Step 2 uses (+,-,+,-,+,-,+) to negate W_n for every prefix; Step 4 gives length 2, 3, 5 Walsh-zero seeds and iterates the negating block; Step 5 applies Fourier diagonalization. The frozen (+,+,+,+,+,-,+) block preserves W_n and uses a separate n=9 seed for residue 2."
+        ],
+        "reasoning": "Negating a Walsh zero preserves it, so the prior argument already establishes the exact exceptional residues and explicit witnesses. A new sign choice preserving the nonzero value as well does not change the operator theorem. The earlier block also implies preservation after two repetitions.",
+        "searches": [
+          "OA mirror of 294497a01d79, RESULT.md character offsets 2350–5050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record uses signed independent dominating binary words and identifies their sums with the multipliers of convolution by the indicator of maximal independent sets in the same binary path cube. Its invertible residues {0,1,4,6} are the complement of {2,3,5}."
+        ],
+        "reasoning": "Independent domination is exactly inclusion-maximal independence. The different terminal transfer coordinates encode the same Walsh polynomial; normalization is irrelevant to zero and nonzero eigenvalues.",
+        "searches": [
+          "Resultary search for period-seven Walsh invertibility of open-path maximal independent sets and signed independent domination; matched 294497a01d79",
+          "OA mirror of 294497a01d79, RESULT.md, theorem and Steps 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched published database entry resolves the actual all-length classification, not merely the unsigned Padovan numbers. A000931 was cited only for unsigned enumeration context and not used to establish or refute signed coverage."
+        ],
+        "reasoning": "The matched database record is stronger evidence than a matching sequence or finite truth table: its proof constructs Walsh zeros and proves the other coefficients nonzero by parity. Unavailable literature is not negative evidence.",
+        "searches": [
+          "Resultary 294497a01d79",
+          "OEIS A000931 (reference in frozen source; full page access unsuccessful)"
+        ]
+      },
+      "rationale": "A distinct published-corpus record, 294497a01d79, already states and proves the same all-length criterion for n≥2 and constructs witnesses for precisely the same residues. The n=1 addition follows immediately from the single point support. The difference between seven-step preservation and seven-step negation is a transfer variant, not a new classification or existence theorem. This is a coverage decision, not an inference of priority from a catalogue date.",
+      "residual_risks": [
+        "General literature and database coverage is bounded; no absolute historical priority is inferred.",
+        "A000931 full-text access was unsuccessful; the exact match independently settles coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classification, parity direction and constructive singular direction",
+          "evidence": "Steps 2 and 4–5: a seven-sign block multiplies every coefficient by −1, the three seeds have zero coefficient, and convolution is invertible iff all coefficients are nonzero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/16/SCOPE-period-seven-walsh-invertibility-of-maximal-independent-set-path--294497a01d79/RESULT.md",
+          "material_read": "Finding and Steps 1–5, including mirror character offsets 2350–5050",
+          "method": "Resultary identification and bounded OA local-mirror inspection",
+          "title": "Period-seven Walsh invertibility of maximal-independent-set path convolution",
+          "trigger": "Exact published mathematical match"
+        },
+        {
+          "assessment": "Unsigned cycle enumeration in the inspected passage, not the path Walsh criterion",
+          "evidence": "The enumerated objects are cycle maximal independent sets and their symmetry orbits.",
+          "identifier_or_url": "arXiv:math/0701647",
+          "material_read": "p. 1, OA offset 1389",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Same admissible gaps; possible enumerative precursor"
+        },
+        {
+          "assessment": "Inspected material concerns counting/existence, not a signed path spectrum",
+          "evidence": "The objective is counting k-dominating independent sets.",
+          "identifier_or_url": "arXiv:1504.03224",
+          "material_read": "p. 1, OA offset 402",
+          "method": "Bounded primary-text OA inspection",
+          "title": "On the number of k-dominating independent sets",
+          "trigger": "Independent-domination formulation"
+        },
+        {
+          "assessment": "Unsigned extremal count, not path convolution",
+          "evidence": "The inspected text concerns bounding the number of maximal independent sets.",
+          "identifier_or_url": "arXiv:1104.1243",
+          "material_read": "p. 1, OA offset 1010",
+          "method": "Bounded primary-text OA inspection",
+          "title": "On the number of maximal independent sets in a graph",
+          "trigger": "Possible general maximal-set-count theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An all-length Walsh-zero classification with constructive witnesses would be worthwhile if unknown. It is already established in this form, with a different exact seven-sign transfer supplying all witnesses. The n=1 check is immediate, and a replacement block that makes the signed value equal rather than opposite does not supply an independently motivated invariant, new spectral classification, or useful unresolved consequence in this record. No surviving repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

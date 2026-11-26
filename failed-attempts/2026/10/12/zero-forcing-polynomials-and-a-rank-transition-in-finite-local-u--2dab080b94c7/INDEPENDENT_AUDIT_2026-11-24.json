@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:35:22.292073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a finite local ring, unit status is precisely nonzero residue; hence distinct vertices are adjacent iff their two residues do not sum to zero. This yields the balanced complete multipartite graph in residue characteristic two and a complement consisting of K_s plus (q−1)/2 copies of K_(s,s) in odd characteristic. Each residue fiber consists of twins. Three white fibers leave every blue vertex with at least two white neighbors; two distinct white fibers allow a blue vertex in a fiber that misses one residue to force the other white. When the required source is in one of the white fibers a blue vertex is available since s>=2. The graph has no isolates, so one remaining white can always be forced. This gives the polynomial, all minimizers, and the exact inversion from N and c. The rank-two witnesses fit the odd regime and K_(s,s). In the remaining regime nilpotence gives m/m² nonzero, thus s>=q>=4. Rank two cannot accommodate three or more parts of size at least three: each part must use a distinct isotropic line in a nondegenerate real bilinear plane. The squared-difference matrix of distinct real labels, repeated within each part, has rank at most three and the exact pattern. Thus M=N−mr gives the claimed transition. Independent replay python /workspace/audit_checks.py 2 exhausts every initial subset for Z/4, Z/8, Z/9 and the F4 dual numbers and tests each coloring against the profile rule; the 16-vertex case gives {14:96,15:16,16:1}. Finite corroboration is separate from the rank and forcing proofs. The recognition statement is relative to the stated graph class, not ring reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer et al. give all three top coefficients, with Theorem 1(3) explicitly excluding the twin pairs, and Proposition 4 gives the full all-nonsingleton complete multipartite formula.",
+          "Barrett et al. cover odd residue order through the real rank-at-most-two complement criterion and give the induced rank-three obstruction for even q>=4. The rank bound for squared Euclidean distances on a line gives the missing matching upper bound on any complete multipartite graph: repeat one real coordinate within each part."
+        ],
+        "reasoning": "These are exact applicable prior results; no graph-specific rank or forcing obstruction remains to be proved, beyond identifying the fibers and applying the local size inequality.",
+        "searches": [
+          "arXiv:1801.08910, Theorem 1(1)–(3), Proposition 4 and Proposition 13",
+          "doi:10.13001/1081-3810.1137, equation (4.1), Corollary 2 and Observation 6(b)",
+          "minimum rank real symmetric complete multipartite rank 3 graph minimum rank complete multipartite graphs complement of disjoint union of cliques rank 3",
+          "arXiv:1502.07541, Euclidean distance matrix equation (3) and rank bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and AUDIT.json",
+        "arXiv:1801.08910",
+        "doi:10.13001/1081-3810.1137",
+        "arXiv:1502.07541",
+        "doi:10.1155/jom/6300309",
+        "Resultary 530736dc27df, 6afb52747484, 06d7fb11edde, 734f2fdfa13f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd: rank two gives Z>=N−2; Theorem 1(3) both counts and characterizes the size N−2 sets by unequal punctured neighborhoods of two nonisolates. Nontwin pairs equal pairs from different residue classes, so z(N−2)=C(q,2)s²>0; the other two coefficients follow from Theorem 1(1)–(2). Even: Proposition 4 already gives these statements.",
+          "The K_(3,3,3) induced minor-of-pattern restriction is by a principal submatrix, so it bounds rank below by three; distinct real part labels give a rank-at-most-three squared-distance matrix. Substituting N=qs immediately gives q=N²/(N²−2c), s=N/q."
+        ],
+        "reasoning": "The apparently new combined statement follows from known coefficients, known graph patterns and standard exact rank results. The recognition algebra and parity comparison are automatic once those are specialized; they do not supply a surviving nonmechanical claim.",
+        "searches": [
+          "Boyer Theorem 1(3) proof and Proposition 4 proof",
+          "Barrett Corollary 2 and Observation 6(b); squared-distance matrix rank bound equation (3)",
+          "Frozen RESULT.md lines 76–95, recovery identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Even residue order gives q equal multipartite parts; the odd complement is a clique and a disjoint union of complete bipartite components. Equivalently the odd graph is a join of an independent class and disjoint clique pairs, not a disjoint union.",
+          "The local total graph with zero deleted, indexed record 06d7fb11edde, uses sum-a-zero-divisor and a deletion, not the same graph. The co-maximal graph comparator 530736dc27df has another adjacency rule."
+        ],
+        "reasoning": "The exact graph formulations are needed to use the real rank classification and the general extremal-coefficient theorem; the disjoint-union multiplication rule does not apply to the odd join.",
+        "searches": [
+          "Resultary: ordinary zero forcing polynomial of finite commutative local nonfield unit graph adjacency when sum is a unit, residue cosets q and s same odd even polynomial, real minimum rank 2 or 3, not total graph",
+          "zero forcing polynomial join graphs graph join complete multipartite disjoint cliques zero forcing sets formula",
+          "Boyer et al., pages 3–5: extremal coefficients and multipartite formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located 6afb52747484 fort classification on complete multipartite graphs implies the even profiles; Boyer et al. already give the exact polynomial. 06d7fb11edde supplies a similar residue-coset result for a different local total graph, and its comparison here is only catalogue-level.",
+          "530736dc27df gives u^(N−2)(u+s)(u+s(q−1)) for a one-factor full co-maximal graph. At q=2 this coincides with the frozen polynomial, but the graphs are the nonisomorphic split K_s join I_s and K_(s,s) for s>=2."
+        ],
+        "reasoning": "A shared polynomial does not identify the exact graph or a prior theorem on the full local unit family. The decisive coverage is the independent statement-level specialization, not a matching number or the absence of a ranked hit.",
+        "searches": [
+          "Resultary: unit graph finite local ring, sum-unit not sum-zero-divisor, ordinary zero forcing polynomial and real rank transition",
+          "Resultary 530736dc27df, one-local-factor specialization; 06d7fb11edde and 6afb52747484 comparisons"
+        ]
+      },
+      "rationale": "The entire finding is covered by direct specialization and elementary inversion. Boyer et al. Proposition 4 directly gives the even polynomial and profiles. For the odd branch, Barrett–van der Holst–Loewy equation (4.1) and Corollary 2 give mr<=2 on exactly this complement shape (and mr>=2 since it is connected and noncomplete). Thus M=N−2 and no forcing set is smaller. Boyer et al. Theorem 1(1)–(3), not merely its multipartite proposition, gives the complete polynomial on that branch: its n−2 pairs are precisely nontwin pairs of nonisolates, here all pairs from different fibers. Distinct residues have distinct missing-neighbor fibers and s>=2 gives a witness outside the two vertices. The remaining real rank values follow from K_(s,s) and the induced K_(3,3,3) obstruction (Barrett et al. Observation 6(b)) plus the classical rank <=3 univariate squared-distance matrix, using one coordinate per part. This is exactly the frozen upper witness, expressed in distance notation. M=N−mr then gives the transition. Solving the resulting known coefficient identity for q and s, which already specify the graph, is mechanical rather than a distinct theorem at the claimed level. The decision rests on these verified implications, not on unavailable literature or on an exact-title match.",
+      "residual_risks": [
+        "Lawful full-text access did not succeed for the cited unit-graph sources doi:10.1080/00927870903095574, doi:10.1142/S0219498815500024 and doi:10.1155/jom/6300309, or the local total-graph mirror file. No absence or priority conclusion is inferred from those limitations.",
+        "No unrestricted graph recognition is asserted or proved; a distinct split graph has the same polynomial already at q=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 4 covers the even formula; the general top coefficient theorem covers the odd formula with the rank bound. Proposition 13 is for disjoint union only.",
+          "evidence": "z(G;n−2) counts unordered nontwin nonisolated pairs; the proof shows exactly their complements force. Proposition 4 gives the polynomial when all part sizes are at least two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Theorem 1 and proof pp. 3–4, PDF offset 12450; Proposition 4 and proof p. 5 offset 17090; Proposition 13 p. 11",
+          "method": "Open full-paper passage comparison",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Direct formula for both finite local graph types"
+        },
+        {
+          "assessment": "Odd complement is in the characterized class; the real K_(3,3,3) value directly obstructs even q>=4.",
+          "evidence": "Corollary 2 gives mr<=2 for complements of form (4.1); Observation 6(b) gives mr_R(K_(3,3,3))=3.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/275/275",
+          "material_read": "Observation 6(b) p. 7, offset 22940; Theorem 1, (4.1), pp. 8–9; Theorem 2 and Corollary 2 p. 11, offset 39270",
+          "method": "Open ELA PDF, direct decisive passages; DOI 10.13001/1081-3810.1137",
+          "title": "Graphs Whose Minimal Rank Is Two",
+          "trigger": "Known real minimum-rank branches and even obstruction"
+        },
+        {
+          "assessment": "Applicable by assigning each part one point on the real line, repeated within the part.",
+          "evidence": "A squared-distance matrix is the sum of two rank-one terms and a term of rank at most the Euclidean dimension, hence rank<=3 in dimension one.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.07541",
+          "material_read": "PDF p. 3, equation (3) and rank discussion, offsets 20370–22750",
+          "method": "Open paper passage comparison",
+          "title": "Euclidean Distance Matrices: Essential Theory, Algorithms, and Applications",
+          "trigger": "Potential prior coverage of the rank-three upper witness"
+        },
+        {
+          "assessment": "Close algebraic setting and a q=2 polynomial collision, but not the same graph or all-q theorem.",
+          "evidence": "Full co-maximal uses generation by two elements; at one local factor it is complete split, unlike a local sum-unit graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-zero-forcing-polynomials-recognize-comaximal-graphs-with-no-fiel--530736dc27df/RESULT.md",
+          "material_read": "Finding at mirror offset 0 and one-local-factor specialization",
+          "method": "Resultary search and mirror statement comparison",
+          "title": "Zero forcing polynomials recognize comaximal graphs with no field local factors",
+          "trigger": "Ring-level polynomial recognition and possible exact overlap"
+        },
+        {
+          "assessment": "Algebraic structure is credited; no whole-document absence assertion is needed for the positive coverage decision.",
+          "evidence": "The recorded material describes the same residue-fiber structure and a different dominating-resolving deletion problem.",
+          "identifier_or_url": "doi:10.1155/jom/6300309",
+          "material_read": "Frozen account of Proposition 1 and the determining invariant; new lawful full-text attempts were unsuccessful",
+          "method": "Preserved source evidence and DOI/alternate retrieval attempts",
+          "title": "Dominant Metric Dimension of Unit Graphs of Finite Commutative Rings",
+          "trigger": "Same graph and residue fiber decomposition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The statement is a clear worked example connecting ring residue structure, a forcing polynomial and rank, but the entire exact outcome is mechanically implied by the cited graph theorems and elementary coefficient inversion. It does not provide an independently useful unknown exact fact or a surviving substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

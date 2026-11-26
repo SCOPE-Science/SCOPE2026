@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:42:58.529857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof Steps 1–5",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "A pair in distinct rows and columns has exactly the other two rectangle corners as possible geodesic intermediates; a full selected rectangle is the only obstruction. Thus each unordered pair of rows may occur together in at most one column. If a column is full it consumes all three pairs and the others have sizes at most one. Without a full column, j distinct row pairs can be placed injectively in labelled columns, with empty/singleton choices elsewhere. These two disjoint cases give the face polynomial. A facet cannot have an empty column. With a full column, every other singleton is blocked from growing. Without a full column, zero or one pair leaves an augmentation (create a pair, or enlarge the unique pair to a triple). With exactly two pairs, a pair-to-triple addition duplicates the other pair, and a singleton is blocked precisely when it is in the common row of the two pairs. With three pairs, all augmentations of any nonempty column duplicate a used pair. These types give n·3^(n−1), 3n(n−1) and (n)₃·3^(n−3) facets respectively, of sizes n+2,n+2,n+3; the third type is absent at n=2. This establishes the unrestricted formulas and nonpurity exactly where claimed. An independent obstruction-mask check reproduced {4:12} facets at n=2 and {5:45,6:6} at n=3, with 334 faces at n=3. The frozen script was read, not run.",
+      "replay": "python3 /workspace/branches/audit-visibility.py; output in /workspace/branches/audit-visibility.out",
+      "residual_risks": [
+        "The independent finite check corroborates boundaries only; the column argument proves all n. The frozen verifier's arithmetic loop covers 89 values in total, including the five finite graph-check values, not 89 additional orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General rook results give the structure and maximum; Brešar–Yero give μ⁻(Km□Kn)=m+n−1.",
+          "Bryant–Fu's institutional abstract studies attainable edge counts of C4-saturated subgraphs of complete bipartite graphs; full text was not accessible through repository and journal attempts."
+        ],
+        "reasoning": "The general maximal/minimal sizes or even the set of attainable saturated edge counts do not determine labelled multiplicities. The accessible evidence does not settle whether the older proof has a structural classification already.",
+        "searches": [
+          "arXiv:2112.13024 Lemma 3.5 and Corollary 3.7",
+          "arXiv:2307.02951 Corollary 7",
+          "Bryant–Fu saturation edge counts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.13024",
+        "arXiv:2307.02951",
+        "DOI 10.1016/S0012-365X(02)00371-0 (abstract only)",
+        "arXiv:2412.03066",
+        "arXiv:2507.01851",
+        "Resultary 13f06d064e94 and 31f5e6c0ef6e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound μ⁻ gives n+2 for m=3; the maximum-Zarankiewicz identification and the saturation edge-count problem also concern support sizes, not labelled frequencies.",
+          "The finite choice of distinct row-pair supports and the forced common-row singletons are the further enumeration here."
+        ],
+        "reasoning": "The earlier statements inspected do not by themselves give either enumerator; the exact count and its structural derivation are the supported increment. A broader result with labelled saturation counts would change that assessment if found.",
+        "searches": [
+          "Cicerone–Di Stefano–Klavžar arXiv:2112.13024",
+          "Brešar–Yero arXiv:2307.02951",
+          "Bryant–Fu institutional abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cicerone–Di Stefano–Klavžar Lemma 3.5 and Corollary 3.7 (PDF pp. 7–8): no full induced 4-cycle; maximum is a Zarankiewicz number.",
+          "Under the equivalent 3-by-n binary-matrix and bipartite-incidence formulations, facets are exactly the C4-saturated subgraphs of the fixed labelled host K3,n.",
+          "The closest three-row catalogue record 13f06d064e94 uses direct adjacency and total visibility."
+        ],
+        "reasoning": "The matrix and saturation aliases are exact equivalences, not novelty. The direct-product total-visibility problem uses different adjacency and quantified pairs and is not equivalent.",
+        "searches": [
+          "Resultary: three-row rook ordinary visibility polynomials and facets",
+          "arXiv:2112.13024",
+          "Bryant–Fu DOI 10.1016/S0012-365X(02)00371-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalogue hit is this frozen finding itself. The same-day C5 clique-blowup record has a different host, and the direct-product result changes adjacency and visibility type.",
+          "The cited exact visibility formulas are for complete bipartite graphs themselves, not for the rook graph whose chosen cells are encoded by edges of a complete bipartite host."
+        ],
+        "reasoning": "Neither the indexed comparisons nor the exact polynomial statements inspected reproduce the coefficient sequences. These are bounded searches, not a proof of nonexistence of a matrix table.",
+        "searches": [
+          "Resultary: exact K3□Kn face/facet counts; three-row binary C4-free and saturated labelled support counts",
+          "arXiv:2412.03066 Proposition 3.2",
+          "arXiv:2507.01851 Theorem 14"
+        ]
+      },
+      "rationale": "Pass is for the exact labelled face and facet enumerators and their counted support decomposition, not the C4-free encoding, the smaller facet size, or priority of the unweighted size spectrum. No inspected source determines the labelled counts. The Bryant–Fu full-text gap is real and keeps priority for the structural portion provisional.",
+      "residual_risks": [
+        "Bryant–Fu's unavailable text may overlap with the facet structure or the unweighted spectrum; wider labelled saturation and matrix literature may contain an equivalent count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the encoding and maximum identification, not the claimed counts in the compared passages.",
+          "evidence": "At most three vertices per induced 4-cycle; maximum equals z(r,s;2,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "Lemma 3.5 and Corollary 3.7, PDF pp. 7–8",
+          "method": "Open-access primary text",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Same graph invariant and C4-free equivalence"
+        },
+        {
+          "assessment": "Direct coverage of the smaller size n+2.",
+          "evidence": "μ⁻(Km□Kn)=m+n−1.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Corollary 7, PDF p. 10",
+          "method": "Open-access primary text",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Minimum facet size of the same graphs"
+        },
+        {
+          "assessment": "Material possible overlap with the facet-size spectrum or classification; abstract does not establish labelled enumeration.",
+          "evidence": "Abstract defines C4-saturation by missing-edge addition and studies all possible edge counts in a complete bipartite host.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00371-0",
+          "material_read": "Institutional abstract at https://scholar.nycu.edu.tw/en/publications/csub4sub-saturated-bipartite-graphs/; no full text",
+          "method": "Institutional public record; attempted lawful repository and journal full text, blocked by HTTP 403",
+          "title": "C4-saturated bipartite graphs",
+          "trigger": "Exactly the saturated incidence formulation of facets"
+        },
+        {
+          "assessment": "Different graph family in the explicit formula.",
+          "evidence": "Proposition 3.2 computes a complete bipartite graph's polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+          "material_read": "Definition 3.1, Proposition 3.2, PDF pp. 6–7",
+          "method": "Open-access primary text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Prior exact visibility polynomials"
+        },
+        {
+          "assessment": "Does not specialize to the rook graph.",
+          "evidence": "Its graph is Km,n, not the rook product.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.01851",
+          "material_read": "Theorem 14, PDF pp. 7–8",
+          "method": "Open-access primary text",
+          "title": "On the Visibility Polynomial of Graphs",
+          "trigger": "Bipartite polynomial alias or overlap"
+        },
+        {
+          "assessment": "Different product and visibility notion.",
+          "evidence": "Direct product K3×Kn and total visibility rather than Cartesian product and ordinary visibility.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-three-row-tensor-cliques-pure-total-visibility-complexes-and-a-p--13f06d064e94",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror",
+          "title": "Three-row tensor cliques: pure total-visibility complexes",
+          "trigger": "Closest three-row product catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Steps 2–5",
+        "arXiv:2307.02951 Corollary 7"
+      ],
+      "rationale": "Three rows are the first width with distinct pair supports that interact. Their exact labelled occupancy and saturation distributions refine scalar maximum and minimum-size results; in particular they distinguish a large class of non-maximum maximal configurations from the largest facets and provide an exact test family for extremal and counting questions with more rows. The value is in the complete distributions, not rediscovery of their extrema.",
+      "residual_risks": [
+        "No claim is made of arbitrary-width results or unlabelled enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

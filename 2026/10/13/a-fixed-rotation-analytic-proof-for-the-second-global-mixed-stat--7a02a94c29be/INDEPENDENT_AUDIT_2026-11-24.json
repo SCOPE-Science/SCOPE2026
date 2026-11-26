@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:02.011536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–99",
+        "Frozen VERIFICATION.md lines 19–25; verify.py lines 4–70 (inspected, not executed)",
+        "Guan et al. arXiv:1311.5809v1 p. 2 and §III.B; Munro et al. arXiv:quant-ph/0103113 Eqs. (14)–(16)"
+      ],
+      "rationale": "Direct product-basis calculation gives a shorter independent certificate. Put ψ_s=(|00⟩+s i|11⟩)/√2 for s=±1. In the specified MEMS, ψ₋ and ψ₊ have weights g+γ/2 and g−γ/2, and |01⟩ has weight 1−2g. After (I+i X⊗X)(R_y(π/2)⊗I)/√2 their respective images are |0⟩⊗|+y⟩, |1⟩⊗|+y⟩, and i|+x⟩⊗|−y⟩, with |±y⟩=(|0⟩±i|1⟩)/√2 and |+x⟩=(|0⟩+|1⟩)/√2. The remaining exp(iχ Y⊗Y) applies exp(±iχY) on the first qubit according to the second qubit's Y eigenvalue, preserving the product structure. Under T_B just the second factors conjugate; the three products remain orthonormal, since the first pair shares the same first-qubit unitary and the third has an orthogonal second factor. Thus the PT eigenvalues are g±γ/2, 1−2g and 0, proving both spectra including rank drops at the joins/endpoints. Squaring and summing the weights gives the stated purity ranges. Unitary conjugation then outputs the prescribed local copy of the MEMS. Below purity 1/3 the all-purity claim is trivial: a negative eigenvalue −a of the trace-one PT would force purity at least a²+(1+a)²/3>1/3, and two-qubit PPT implies separability.",
+      "residual_risks": [
+        "The fixed witness applies to the indicated canonical MEMS representative at each purity, not to every arbitrary local orientation of that state. No higher-dimensional PPT criterion or broader gate classification is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Di–Liu's abstract says the rank-two mixed-state perfect-entangler condition is the same as for pure states; this already covers rank-two existence. Munro et al. determine the MEMS curve, with both branches and local equivalences, but not this gate witness."
+        ],
+        "reasoning": "A fixed-spectrum rank-two result cannot provide the rank-three inverse construction. The correct comparison keeps both the target spectrum and which rotations are quantified explicit.",
+        "searches": [
+          "DOI 10.1007/s11433-007-0075-1, indexed Springer abstract and bounded lawful full-text attempts",
+          "arXiv:quant-ph/0103113 Eqs. (14)–(16)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.5809v1",
+        "Di–Liu DOI 10.1007/s11433-007-0075-1 abstract",
+        "arXiv:quant-ph/0103113",
+        "Resultary ...7ef856b6a6b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Guan explicitly distinguishes analytic proof for the other family, U_c(π/8,π/8,χ), from numerical evidence for this one; that result has a different Cartan kernel.",
+          "Rank-two existence follows from Di–Liu within their scope but does not imply rank-three existence or the fixed inverse rotation. The external query produced no useful hit and has no negative evidentiary force."
+        ],
+        "reasoning": "Neither the numerical report of the same locus, the analytic proof on another locus, nor the prior rank-two condition implies the stated exact rank-three construction.",
+        "searches": [
+          "arXiv:1311.5809v1 abstract, p. 2 and §III.B",
+          "DOI 10.1007/s11433-007-0075-1 abstract",
+          "Bounded external exact-family query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guan's inverse-MEMS local scan for the same Cartan family checks separable inverse images, which is the same existence problem. The source presents a numerical scan, not the fixed witness or exact spectrum.",
+          "A local phase rotation just changes the MEMS representative; it does not remove the need to prove separability of the inverse image uniformly in purity and χ."
+        ],
+        "reasoning": "The inverse-gate and entangling-power formulations were compared on the same two-qubit canonical curve. The new exact statement establishes the uniform witness, not a change of phase convention.",
+        "searches": [
+          "Resultary: U_c(π/4,χ,0), inverse-MEMS fixed R_y(π/2), rank-three χ-independent PPT spectra",
+          "arXiv:1311.5809v1 §III.B, pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Guan's scan already identifies the same family; it does not supply an analytic PT identity on the continuum.",
+          "Same-day ...7ef856b6a6b1 concerns full-rank fixed-spectrum MEMS to isospectral Bell-diagonal conversion under non-entangling channels, not this inverse local rotation and rank-three spectrum."
+        ],
+        "reasoning": "No inspected catalogue entry or supplied grid gives the exact analytic witness across the two continuous parameters. Numerical identification of the family is credited as prior coverage, not excluded by differing wording.",
+        "searches": [
+          "Resultary searches on the exact family, rotation and PPT spectrum; comparison with same-day ...7ef856b6a6b1",
+          "Guan §III.B numerical results"
+        ]
+      },
+      "rationale": "Guan et al. already reported the exact family from a numerical inverse-MEMS search. The supported distinct content is the continuous analytic rank-three certificate with one fixed rotation and its common witness for both branches, not discovery of the gate family or rank-two existence.",
+      "residual_risks": [
+        "The Di–Liu full proof was not accessible; the comparison is limited to the published rank-two scope in the abstract. A later or differently notated rank-three proof may escape bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact locus reported numerically; no fixed-rotation analytic argument in decisive passages",
+          "evidence": [
+            "Authors distinguish the analytic first family from numerical evidence for the second; the inverse-MEMS local search reports U_c(π/4,χ,0)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.5809v1",
+          "material_read": "Abstract p. 1 offset 1200; p. 2 offset 13500; §III.B pp. 3–4 offsets 20384 and 27350",
+          "method": "OA PDF bounded passages",
+          "title": "Entangling power of two-qubit gates on mixed states",
+          "trigger": "Same gate family, MEMS curve and global definition"
+        },
+        {
+          "assessment": "Rank-two overlap; theorem details beyond abstract not claimed",
+          "evidence": [
+            "Abstract identifies the rank-two perfect-entangler condition with the pure-state condition."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11433-007-0075-1",
+          "material_read": "Indexed Springer abstract; full text unavailable on attempted routes",
+          "method": "Publisher abstract and lawful DOI/PDF retrieval attempts",
+          "title": "Entanglement capacity of two-qubit unitary operator for rank two mixed states",
+          "trigger": "Broader rank-two perfect-entangler characterization"
+        },
+        {
+          "assessment": "Same target family, not an inverse-gate witness",
+          "evidence": [
+            "The piecewise g(γ) and phase-equivalent target matrix produce the stated purity intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0103113",
+          "material_read": "PDF p. 3 offset 21500, Eqs. (14)–(16)",
+          "method": "OA PDF bounded passage",
+          "title": "Maximizing the entanglement of two mixed qubits",
+          "trigger": "MEMS definition and purity coverage"
+        },
+        {
+          "assessment": "Distinct non-entangling-channel necessary condition",
+          "evidence": [
+            "Full-rank fixed-spectrum conversion to an isospectral Bell-diagonal target, with 2λ₂+λ₃<λ₁, does not imply this gate-family construction."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 ...7ef856b6a6b1",
+          "material_read": "RESULT.md offsets 0–2984, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded passage",
+          "title": "An exact continuum envelope for the full-rank fixed-spectrum entanglement problem",
+          "trigger": "Closest catalogued MEMS/continuum hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27, 64–99, 106–114",
+        "Guan et al. arXiv:1311.5809v1 §III.B"
+      ],
+      "rationale": "An exact construction closes the analytic gap left by the reported numerical second family. It certifies attainment at all purities over the full gate interval rather than at a grid of purity and gate parameters, and eliminates rotation search by giving a single explicit rotation and separable inverse images. The nontrivial rank-three scope is scientifically useful independently of the known rank-two existence.",
+      "residual_risks": [
+        "Not a characterization of all possible rotations, all rank-three perfect entanglers, or all global perfect entanglers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

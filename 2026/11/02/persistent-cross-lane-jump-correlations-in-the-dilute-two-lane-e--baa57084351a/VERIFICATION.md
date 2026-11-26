@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and analytical verification
 
-The program `verify.py` uses only the Python standard library. Run `python3 verify.py` from the directory containing this file. It performs 60 tracked exact rational cases (40 reduced-generator mixed-tilt identities, eight zero-coupling identities, nine independently built full two-lane position-generator mixed-tilt identities, and three large-ring rational estimates).
+# Independent mathematical audit
 
-For the physical \(N^2\)-state generator, independent entry and exit rates are constructed directly from the occupation-based jump rule. The mixed derivative of the leading eigenvalue of the two-field tilted generator is evaluated using finite linear Poisson equations with exact fractions; the same algorithm is independently applied on the reduced relative chain. Stationarity is checked by exact row and column balances. The numerical evidence agrees with the closed formula for the tested systems and rational rates.
+## correctness
 
-The general proof is analytical: reversibility of the relative displacement, the explicit discrete Poisson solution for total-count intensity, effective conductance for signed count, an arithmetic–harmonic mean inequality, and a fixed-time coupling with independent Poisson walkers. The finite-state checks are not a proof of all ring sizes or continuous parameters. No proof assistant or external independent certification was used. Independent audit status remains not performed.
+PASS
+
+Direct application of the endpoint occupancy rule gives the two directed rates c_d and c_{d+1} in the relative coordinate, with c_0=c_1=p+a/2 and all other edges p. Reverse rates match across each relative edge, and the two-position in- and out-rates balance for uniform product initialization. The total-count Poisson corrector has flux differences J_d-J_{d+1}=c_d+c_{d+1}-2(p+a/N) and the zero-circulation condition sum J_d/c_d=0. Substitution verifies the stated fluxes, including the symmetry-paired special edges and the single ordinary edge at N=3. The total-count martingale bracket averages to 2(p+a/N)+2E_N: linear terms cancel by stationarity and the gradient squares contribute twice per undirected edge. The signed lift corrected increments are N/(R_N c) on each forward edge, so its bracket average is 2N/R_N. The endpoint corrections are bounded for fixed N and do not change linear variance growth. Taking one quarter of the difference gives C_N; strict arithmetic–harmonic mean inequality gives positivity unless a=0, and E_N tends to a^2/(3p). For the reverse limits, bound the integrated first-disagreement intensity by |a| times the occupation of {0,1,N-1} by the unconditional stationary baseline walk, whose expectation is 3t/N; no uniformity conditional on agreement is needed. Bounded-rate Poisson domination makes all fixed-degree mixed moments uniformly integrable. Thus the two limits differ for a nonzero coupling, without extending to t growing jointly with N. Independently reproduced exact values by the per-lane mixed martingale bracket (15 cases across N=3,4,5,9,17, both signs and zero coupling); e.g. 11/420 for N=3, p=1, a=-3/4. Replay: python3 -B /workspace/branches/frozen_review_replay.py 3. Frozen script inspected, not executed.
+
+## originality
+
+PASS
+
+The rate family, product law and stationary mean currents are already known. The checked papers and catalogue entries do not give or directly imply the stated finite-sector two-count mixed cumulant and its order-of-limits boundary. No claim of exhaustive priority is made.
+
+## value
+
+PASS
+
+This is a minimal canonical sector that cleanly distinguishes independent stationary positions from dynamically correlated integrated counts. The exact size-dependent law identifies a persistent covariance from a vanishing fraction of interaction states, with a different fixed-time limit. That boundary matters for dilution arguments and gives a reproducible fluctuation benchmark without assuming finite-density or crossover-scale results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

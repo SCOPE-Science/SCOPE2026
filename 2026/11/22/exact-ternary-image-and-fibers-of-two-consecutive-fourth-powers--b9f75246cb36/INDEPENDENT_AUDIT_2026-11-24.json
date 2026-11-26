@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:28:22.144904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centering with t=2x+1 gives 8G=t^4+6t²+1. For t≡±1 mod 3 the target is 1 mod 3 and the derivative is a unit, giving exactly one root per class at every finite level and full 3-adic coverage of that output ball. On t=3s the normalized displacement is H(s)^2, with H(s)=sR(s) and R(s) the Hensel square root of 1+(3/2)s² congruent to 1. Factoring R(s)^2−R(u)^2 shows H(s)−H(u) is s−u times a factor congruent to 1 modulo 3; hence H induces a bijection at each precision and on the inverse limit. The singular outputs are c+27H(s)^2/4, disjoint from the first ball. For k≤2 the singular branch contains 3^(k−1) inputs and one output. For k≥3 there are nine lifts from each square root modulo 3^(k−3) to s modulo 3^(k−1), including the modulus-one case k=3. At j>0 a zero square has 3^floor(j/2) roots; an even positive or zero valuation 2a<j with square unit part has 2·3^a, and other targets have none. Summing the image by attained valuations gives Q_3 and the limit 1/3+(3/8)/27=25/72. Independent finite replay compared each target for k=1…9, confirming counts 2,4,10,29,85,254,760,2279,6835 and all fiber sizes; the all-k argument is analytic, not inferred from this check.",
+      "replay": "python3 /workspace/branches/5eec4682-818e-4f97-a28e-6a70b97103d2/replay_record5.py; replay_record5.json alongside it",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding–Zieve: finite-field value-set counts and sums of distinct values; the 2016 accessible excerpt concerns quartics X⁴+aX²+bX over an odd finite field.",
+          "The Sun retrieval yielded a landing page/abstract only for the modulo-a-prime article. Cao's accessible abstract/search text concerns Chevalley–Warning/Ax–Katz counts over finite fields; full-text material was unavailable in the bounded attempt."
+        ],
+        "reasoning": "Field results do not determine the singular 3-adic lift or the number of lifts of each target. The accessible abstract-level evidence for other relevant titles is narrower than a claim of full-text noncoverage.",
+        "searches": [
+          "Ding–Zieve arXiv:2309.14979 Lemma 3.1 and Theorem 1.3",
+          "2016 A note on value sets of quartic polynomials",
+          "Sun DOI 10.1016/S0022-314X(03)00067-2",
+          "Cao: p-Adic valuations associated to fibers and images of polynomial functions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; corrected repairs/5/RESULT.md",
+        "arXiv:2309.14979 Lemma 3.1 and Theorem 1.3",
+        "Resultary b9f75246cb36, 28273bb8be35, 8ba022218fce, 95be8e892285, 35db6c8e1cdf",
+        "2016 quartic value-set excerpt; Sun DOI landing page; Cao abstract/search text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest general consecutive-power record starts at exponent 6 at p=3; the centered coefficient here is nonunit and the actual singular normal form has a factor 3³ before a bijective square coordinate."
+        ],
+        "reasoning": "The additional factor of 3³, the nine lifts, and the output square condition have to be derived for this map. None of the inspected nearby exact theorems applies by setting its parameters to these values; generic lifting techniques supply tools rather than the stated result.",
+        "searches": [
+          "Ding–Zieve Lemma 3.1; Resultary 8ba022218fce and 95be8e892285 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit b9f75246cb36 is this frozen record. Distinct same-day 28273bb8be35 treats the Faulhaber sum Σ_{j=1}^n j^4 over Z_7, and 8ba022218fce treats the exponent 2p^s with s≥1.",
+          "Ding–Zieve Lemma 3.1 treats X⁴+aX² over finite fields with a≠0."
+        ],
+        "reasoning": "The affine input and unit output transformations reduce the claimed map precisely to X⁴+6X²; at the field reduction the quadratic coefficient vanishes, and finite-field cardinality is not a fiber theorem for the mixed-characteristic tower. The other consecutive-power records use different maps, primes or exponents, not cosmetic renamings.",
+        "searches": [
+          "Resultary: exact ternary image and fibers of two consecutive fourth powers; even quartic X⁴+6X² over prime-power rings",
+          "Ding–Zieve arXiv:2309.14979, Lemma 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b9f75246cb36 is the assigned record itself; no distinct exact count table was verified. 28273bb8be35 gives full fibers for a different fourth-power sum at 7; 95be8e892285 gives a second fiber moment for unit quadratic coefficient; 35db6c8e1cdf gives energy of quartic graphs at p≥5."
+        ],
+        "reasoning": "A moment statistic cannot generally determine the individual fibers and the unit-coefficient condition excludes 6 at three. A coincident keyword or small image count is not an equivalent sequence for this map.",
+        "searches": [
+          "Resultary: x^4+(x+1)^4 exact ternary image counts and fiber tables",
+          "Resultary: consecutive even-prime-power sums, quartic collision zeta and quartic graph energy"
+        ]
+      },
+      "rationale": "The inspected works do not determine this combination of centered even quartic with coefficient 6, the prime three, and target-by-target lift counts. Credit is for the exact singular image and finite fibers together with smooth-branch coverage, not Hensel's lemma, finite-field counts or the square-root formula by themselves. The check is bounded; relevant abstract-only sources are not used to assert whole-paper noncoverage.",
+      "residual_risks": [
+        "Abstract-only comparison for the 2016 quartic paper and Sun (Section 5 unavailable); the scope of any additional results was not proved from their abstracts. An exact general local quartic theorem or unindexed equivalent might yet cover the map."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified finite-field cardinalities/sums only, not these prime-power-ring fibers",
+          "evidence": [
+            "Lemma 3.1 uses odd finite-field order and a nonzero coefficient;",
+            "Theorem 1.3 concerns sums of distinct values over finite fields"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.14979",
+          "material_read": "Theorem 1.3 (p. 2, text offset 6040), Lemma 3.1 (p. 6, offset 17900)",
+          "method": "OA PDF targeted text",
+          "title": "On sums of powers of consecutive squares over finite fields, and sums of distinct values of polynomials",
+          "trigger": "General even quartic value-set theorem"
+        },
+        {
+          "assessment": "Distinct map at another prime, no priority inferred from same day",
+          "evidence": [
+            "Sum of the fourth powers from 1 to n, over Z_7"
+          ],
+          "identifier_or_url": "Resultary 28273bb8be35 (2026-11-22)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Complete seven-adic image and fibers of consecutive fourth-power sums",
+          "trigger": "Near-exact lexical and same-day match"
+        },
+        {
+          "assessment": "Different exponents",
+          "evidence": [
+            "x^(2p^s)+(x+1)^(2p^s); at p=3 and s≥1 does not include exponent 4"
+          ],
+          "identifier_or_url": "Resultary 8ba022218fce (2026-11-22)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Exact odd-prime fibers of consecutive even prime-power sums",
+          "trigger": "Potential broader same-type family"
+        },
+        {
+          "assessment": "Nonmatching coefficient and output statistic",
+          "evidence": [
+            "x⁴+cx² with c a unit; second fiber moment, not complete fibers"
+          ],
+          "identifier_or_url": "Resultary 95be8e892285 (2026-11-22)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Prime-power collision zeta and first-lift reversal for unit perturbations",
+          "trigger": "Same centered quartic form over prime powers"
+        },
+        {
+          "assessment": "Finite-field scope in excerpt; full-text comparison unresolved",
+          "evidence": [
+            "Excerpt treats X⁴+aX²+bX over an odd finite field"
+          ],
+          "identifier_or_url": "2016 ScienceDirect article, title search",
+          "material_read": "Search excerpt; no full text obtained",
+          "method": "Lawful OA request returned 403",
+          "title": "A note on value sets of quartic polynomials",
+          "trigger": "Broader quartic value-set claim"
+        },
+        {
+          "assessment": "Cannot exclude additional relevant discussion from material not read",
+          "evidence": [
+            "Identified article concerns congruences modulo a prime"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0022-314X(03)00067-2",
+          "material_read": "Landing page/abstract only; no Section 5",
+          "method": "Lawful DOI OA retrieval",
+          "title": "Cubic and quartic congruences modulo a prime",
+          "trigger": "Cited quartic congruence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural sum of consecutive powers the singular class is genuinely different from the two smooth classes. Its square obstruction and lift factor solve the congruence and determine the multiplicity of every solution at every precision, beyond selected finite counts or an image-density estimate. This survives the corrected scaling and provides a reusable complete local invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

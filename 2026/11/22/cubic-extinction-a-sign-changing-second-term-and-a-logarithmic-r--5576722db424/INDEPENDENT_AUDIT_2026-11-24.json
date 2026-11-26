@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:22:05.458970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–35 and 37–76; the wedge and summability argument independently reconstructed.",
+        "Independent bounded symbolic check: substitute x=1−y−m(γ+1)y³/γ² into the original Euler predator update and expand Δy through degree 5. The coefficients are −δm(γ+1)/γ², −δm(γ−1)(γ+1)/γ³, and −δm(γ+1)(γ²+γm−γ+1)/γ⁴.",
+        "Frozen VERIFICATION.md and check.py inspected, not executed; the finite trajectory test at resonance tests a finite diagnostic, not convergence to L."
+      ],
+      "rationale": "The coincidence is genuine: positive equilibria obey x=1−y and the reduced equation (m(γ+y)−α)(1−y)−βy(γ+y)=0. At α=mγ the constant term vanishes and the linear coefficient is m−βγ, so at β=m/γ the equation has a double root at zero with nonzero quadratic term. In coordinates v=y and w=x+y−1 the exact increment is δmv²[γw−(γ+1)v]/[γ(γ+v)(1−v+w)] and the transverse update is W=(1−δ(1−v+w))w+(V−v). On |w|<ηv the increment is strictly negative, of order v³ with bounds on both sides, and V/v≥1−Cv². Since |1−δ|<1, shrinking the wedge gives |W|<ηV, V>0 and 1−V+W>0. Thus v descends to zero; division by v gives transverse contraction and w/v→0. Reciprocal-square increments then tend to 2A. Division by v³ gives a uniformly contractive recurrence with limiting forcing −A and fixed point −κ, where κ=A/δ. Once w=O(v³), the error w+κv³ obeys a stable recurrence with forcing O(v⁴). Dividing by V⁴ preserves eventual contraction since V/v→1, so w=−κv³+O(v⁴). This yields scalar coefficients A, B=A(γ−1)/γ and C=A(1−1/γ+1/γ²+m/γ) with a negative sign in the map. Expanding the reciprocal square gives increment 2A+2Bv+(2C+3A²)v²+O(v³). First summation gives v=(2An)^(−1/2)+O(n^(−1)); the next gives v^(−2)=2An+[4B/√(2A)]√n+O(log n). Inverting yields coefficient −B/(2A²) and the claimed sign and remainder. At γ=1, B=0 and v²−1/(2An)=O(log n/n²), so subtracting the harmonic increment leaves a summable error, including O(v³). This gives an actual finite orbit-dependent clock remainder, with log coefficient (2C+3A²)/(2A)=1+m+3δm.",
+      "residual_risks": [
+        "All sufficiently small points in the stated wedge for fixed positive m and γ and 0<δ<2; no full basin, boundary y=0, flip endpoint δ=2, or uniformity in the parameters is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-model paper's transcritical calculation requires a nonzero quadratic coefficient 2(βγ²−α₀)/γ²; at the proposed slice this coefficient vanishes.",
+          "The scalar summation mechanism is generic once the cubic, quartic and quintic coefficients are known. It is not a theorem that determines these coefficients, the original-coordinate tracking, or attraction of the stated wedge for the exact two-dimensional map.",
+          "The frozen record cites the continuous cubic cusp; the original text of that comparison was not obtained independently. Even a continuous normal form does not by itself determine the discrete Euler-clock coefficient: the map is not the flow, and 3A² arises from the discrete reciprocal-square increment."
+        ],
+        "reasoning": "Allow full credit to existing normal-form and parabolic-iteration mechanisms. Neither a continuous-time order-of-contact result nor the inspected nondegenerate discrete theorem gives the quantitative map statement by specialization.",
+        "searches": [
+          "Liu–Ma–Hu Theorem 4 and adjacent center-manifold coefficient in the open article",
+          "Du–Hu–Zheng–Cheng–Liu DOI:10.3934/dcdsb.2024023, attempted lawful publisher DOI and alternate public publisher route",
+          "Focused parabolic higher-order iteration lookup; comparison with scalar recurrence in frozen RESULT.md equations (3)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Ma–Hu DOI:10.3390/math12182872, equation (3), Theorem 4 and adjacent calculation",
+        "2ba15cb5a76c RESULT.md in the local mirror",
+        "Du et al. DOI:10.3934/dcdsb.2024023, access limitations as described"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting β=m/γ into the discrete paper turns its required nonzero transverse-center quadratic coefficient into zero. The included theorem therefore cannot be specialized to get the result.",
+          "A two-term expansion in the plankton variables does not fix the cubic locking of x+y−1 in this Euler map; and its nonzero negative quartic-induced correction is not the cancellation case that produces the finite logarithmic clock here."
+        ],
+        "reasoning": "The overlapping contributions are the prior model, a cusp mechanism and the idea of two-term critical asymptotics. The compared statements do not supply the original-coordinate wedge/locking and explicit discrete asymptotics on this critical slice.",
+        "searches": [
+          "Liu–Ma–Hu open PDF p. 3 equation (3) and p. 7 Theorem 4",
+          "2ba15cb5a76c RESULT.md, mirror offsets 0 and 2100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold is α=mγ and α=βγ² in the notation of the exact-model paper, giving β=m/γ. Its Theorem 4 explicitly imposes α₀=mγ and α₀≠βγ², the opposite of the claimed degeneracy.",
+          "The equivalent transverse description is x+y−1=−κy³+O(y⁴) (the stated limit follows). The nominally similar plankton prey correction is in another map and with different leading prey geometry and coefficients."
+        ],
+        "reasoning": "Compared the original coordinates, the center/transverse coordinates, and the threshold expressed either as β=m/γ or as α=βγ² after restriction to invasion. Matching the model alone does not match the parameter regime and asymptotic claim.",
+        "searches": [
+          "Focused primary literature lookup on the coincident discrete invasion/fold threshold, cubic slowing, and higher-order parabolic extinction",
+          "Liu–Ma–Hu DOI:10.3390/math12182872 equation (3) and transcritical Theorem 4",
+          "Resultary two-term critical extinction and prey correction; mirror record 2ba15cb5a76c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed predecessor gives a leading n^(−1/2) predator law with an explicit n^(−1) coefficient −3(1+c)/(2θ) for a different Holling-II plankton map; the coefficient does not reverse sign there. No separate inspected entry gives this exact model's pair of coefficients or its γ=1 clock."
+        ],
+        "reasoning": "An exact asymptotic catalog entry could preempt the claim even if written in different dynamical variables. The compared exact law has different equations, coefficients and scope; the bounded search is not priority proof.",
+        "searches": [
+          "Resultary critical invasion and two-term extinction, with exact indexed comparison 2ba15cb5a76c",
+          "Exact-model Liu–Ma–Hu equation (3) and Theorem 4 at the boundary equilibrium"
+        ]
+      },
+      "rationale": "The exact model and generic cubic slowing are not new. The compared exact-model paper excludes this slice in its transcritical theorem. The distinct result is the quantitative extinction law for positive Euler orbits on this slice, with model-specific transverse locking, sign change, and finite discrete clock at γ=1. A different plankton map already has a substantial two-term extinction result. The cited continuous cusp is close background; its exact source passage could not be independently retrieved and is not relied on to prove noncoverage.",
+      "residual_risks": [
+        "The comparison is bounded. The continuous precursor full passage was not independently verified, and equivalent asymptotic work on the degenerate Euler slice could be unindexed. A focused search miss was not treated as proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, the inspected transcritical theorem does not cover the stated slice",
+          "evidence": "α₀=mγ but Theorem 4 assumes α₀≠βγ², which fails at β=m/γ.",
+          "identifier_or_url": "https://doi.org/10.3390/math12182872",
+          "material_read": "Open PDF equation (3), p. 3 (offset 10000); Theorem 4 and preceding nondegeneracy calculation, p. 7 (offset 37800)",
+          "method": "Lawful open original PDF passages",
+          "title": "Some Bifurcations of Codimensions 1 and 2 in a Discrete Predator–Prey Model with Non-Linear Harvesting",
+          "trigger": "Exact Euler model at the boundary interaction of thresholds"
+        },
+        {
+          "assessment": "Material conceptual overlap, different governing map and quantitative law",
+          "evidence": "The predator correction is −3(1+c)/(2θ)n^(−1) and the prey relation is in different variables; there is no sign-changing coefficient or stated resonant clock in the compared claim.",
+          "identifier_or_url": "2026/11/17/SCOPE-universal-two-term-critical-extinction-and-a-saturation-independ--2ba15cb5a76c",
+          "material_read": "RESULT.md, bounded passages at offsets 0 and 2100",
+          "method": "Local published record mirror",
+          "title": "Universal two-term critical extinction and a saturation-independent prey correction in a discrete plankton map",
+          "trigger": "Strong indexed overlap: explicit two-term critical extinction and prey correction"
+        },
+        {
+          "assessment": "Credit the attributed continuous-time precursor; precise document-wide coverage not verified",
+          "evidence": "The available attribution is to a continuous-time normal form, distinct from statements on forward Euler orbit coefficients. Access failure is not evidence that no overlapping result exists.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2024023",
+          "material_read": "No readable original passage independently obtained; frozen RESULT.md attributes the cusp to §3, Theorem 3.1",
+          "method": "Lawful open retrieval attempts via publisher DOI/HTML and alternate publisher page",
+          "title": "High codimension bifurcations analysis in a predator-prey system with Michaelis-Menten type predator harvesting",
+          "trigger": "Very close continuous-time system and cited cubic cusp"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–35 and 37–76",
+        "Liu–Ma–Hu equation (3) and the exclusion in Theorem 4",
+        "Indexed two-term plankton comparison 2ba15cb5a76c"
+      ],
+      "rationale": "The slice is dictated by coincident thresholds, not chosen to fit a computation. It resolves the local positive dynamics where the ordinary quadratic transcritical coefficient vanishes. The explicit two-term rate reveals a sign change invisible to leading-order cubic slowing; at the cancellation point the finite renormalized inverse-square clock distinguishes discrete-step effects. Transverse locking puts the asymptotic in the population variables for an open wedge, not only on a formal invariant curve.",
+      "residual_risks": [
+        "The usefulness is local to the degenerate boundary and the stated discretization; it does not give global ecological conclusions or a near-threshold crossover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

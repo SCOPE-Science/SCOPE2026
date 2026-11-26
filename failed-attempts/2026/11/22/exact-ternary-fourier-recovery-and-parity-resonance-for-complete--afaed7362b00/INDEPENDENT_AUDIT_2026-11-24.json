@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:23:30.390050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With counting convolution the characters diagonalize the operator (use the inverse characters for the positive-sign DFT). The palettes are disjoint, hence at least one shore is monochromatic; inclusion–exclusion gives the two signed-power terms and the double-monochromatic correction in (1). On the balanced hyperplane the zero equations have right-hand sides −1 and 2, whose only signed-power solutions yield exactly the listed even/even cases. Orthogonality gives the shore residue counts, including the empty support at t=r, and multiplying counts yields Z and rank/nullity. The trivial multiplier gives the maximum by the triangle inequality. For even/even all multipliers are 0 mod 9; for other parities they are 0 mod 3. All-nonzero frequencies with opposite nonzero shore sums exist even on singleton shores and attain the asserted respective bounds. An independent direct integer character-sum enumeration (not the supplied DFT) checks every coefficient for (2,2), (2,3), (2,4), (4,4), with ranks 15, 81, 179, 1719 and gaps 9, 3, 9, 9. The all-width proof is not inferred from those four tests.",
+      "replay": "/workspace/branches/e2f17955-c341-458a-8a68-4d643cc632d3/exact_repro.py; repro_small.log and repro_selected.log in the same directory",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted q-chromatic polynomial sums q raised to the sum of vertex weights times color labels over proper colorings",
+          "External-field Potts framework encodes color-dependent weights"
+        ],
+        "reasoning": "Taking the palette size 3, q=omega and positive weight representatives of the frequencies encodes individual character sums up to label phase. Neither inspected framework passage states the explicit zeros and rank; the distinct earlier same-family result does.",
+        "searches": [
+          "arXiv:2403.19573v2, Abstract and §1",
+          "arXiv:1311.4348v1, Abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof",
+        "Frozen verify.py and VERIFICATION.md",
+        "Resultary 7178f35c336a and 2b34d08d2568",
+        "arXiv:2403.19573v2 and arXiv:1311.4348v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record gives the per-frequency integer formula and |P|, while explicitly leaving the sharp gap and general nonzero multiplicities unlisted."
+        ],
+        "reasoning": "The triangle bound and the zero character give the maximum. The prior signed powers reduce mod 3 to (−1)^m,(−1)^n, giving a 9 divisor for even/even; using all-nonzero coordinates and opposite nonzero shore sums gives 9 or 3 as appropriate. Multiplicities merely choose zero-coordinate positions and apply the prior U,V counts to the remainder. Neither step adds a nonroutine independent theorem.",
+        "searches": [
+          "7178f35c336a, Finding, Assumptions and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7178f35c336a, Finding: W=0 off balance and W=3(u_A+u_B+1−3·1_{s_A=0}) on balance, with the identical five-case table",
+          "2b34d08d2568, Finding and Frequency blocks: constant-plus-one-site sampling Gram spectrum"
+        ],
+        "reasoning": "On balance s_A=0 iff s_A=s_B=0, so the 2026-11-16 multiplier is exactly (1). The sampling Gram restriction is genuinely different and is not the closest match.",
+        "searches": [
+          "Resultary: parity-rigid ternary Fourier recovery on all complete bipartite graphs",
+          "Resultary: thin-side Fourier sampling spectra for bipartite colourings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier zero-count table implies the same Z: B_r=rU_{r-1}, D_r=rV_{r-1}, E_r=binom(r,2)U_{r-2}, using the earlier all-parity U,V; it lists ranks 15, 179 and 1719 on the very same examples."
+        ],
+        "reasoning": "This is equality of formulas and indexed results, not an inference based on coincident sample values or titles.",
+        "searches": [
+          "Resultary: 7178f35c336a, Finding and Verification"
+        ]
+      },
+      "rationale": "A distinct earlier indexed Resultary result already states the same per-character multiplier, five zero types, count and rank for the same labeled ternary K_{m,n} with counting convolution. The thin-side Gram comparison in the frozen record overlooks this exact match. The explicitly listed conditioning and general multiplicity recipe are straightforward consequences of that same multiplier and its support/sum parameters, not new coverage of the full classification.",
+      "residual_risks": [
+        "Further equivalent results might exist in weighted chromatic theory; this cannot undo the directly verified prior overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on central claim; routine consequences suffice for residual gap/multiplicities",
+          "evidence": [
+            "Finding, offsets 0–3648: complete signed law, five zeros and E formula",
+            "Limitations within offsets 4826–9644: sharp gap and all nonzero multiplicities not listed"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-parity-rigid-ternary-fourier-recovery-on-all-complete-bipartite--7178f35c336a/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2, Verification and Limitations",
+          "method": "Resultary local mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity-rigid ternary Fourier recovery on all complete bipartite graphs",
+          "trigger": "Exact same-family all-frequency hit"
+        },
+        {
+          "assessment": "Different restricted Gram spectrum",
+          "evidence": [
+            "Finding at offsets 0–4607 and Limitations within 4607–9504: constant and one-site characters under uniform proper coloring"
+          ],
+          "identifier_or_url": "Resultary 2b34d08d2568 (2026-11-01)",
+          "material_read": "Finding, Frequency blocks, Limitations",
+          "method": "Local mirror",
+          "title": "Exact Fourier sampling spectra and a thin-side conditioning transition for bipartite colourings",
+          "trigger": "Frozen closest-source attribution"
+        },
+        {
+          "assessment": "Encodes weights, not the claimed all-width cancellation classification",
+          "evidence": [
+            "Definition by weighted sum over proper colorings"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.19573v2",
+          "material_read": "Abstract and §1, offsets 0–3643",
+          "method": "OA text",
+          "title": "q-Chromatic Polynomials",
+          "trigger": "Weighted graph framework for the same sums"
+        },
+        {
+          "assessment": "General encoding, not this classification in the inspected passage",
+          "evidence": [
+            "Relationship of external-field Potts partition functions to graph polynomials"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1311.4348v1",
+          "material_read": "Abstract and §1, offsets 0–4500",
+          "method": "OA text",
+          "title": "The Potts model and chromatic functions of graphs",
+          "trigger": "External-field formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An all-degree parity-sensitive Fourier kernel and rank would be useful, but those are already determined at these full parameters. The surviving arithmetic is a residue check and explicit frequency in the known formula, plus a re-tabulation of its parameter classes. No distinct nonroutine extension warranting repair remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

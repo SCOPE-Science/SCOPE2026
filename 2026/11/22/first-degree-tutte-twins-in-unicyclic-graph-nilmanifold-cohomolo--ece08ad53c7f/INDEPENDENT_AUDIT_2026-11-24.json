@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:04.989163Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–63",
+        "Frozen VERIFICATION.md:19–33",
+        "Frozen checks/verify_unicyclic_six.py and checks/verification_output.json (static inspection)",
+        "Independent independent_check.py, census.json and four per-graph JSON outputs"
+      ],
+      "rationale": "Contracting the n-c bridges of a connected unicyclic graph gives T_G=x^(n-c)(y+x+...+x^(c-1)); at fixed order the cycle length can also be read from T_G(1,1). An independent census over labelled edge sets, canonically quotiented and using the subset-rank definition of the actual Tutte polynomial, gives 1,2,5,13 unlabelled classes and only the two listed ties, at n=6. Structurally, cycle length 3 at n=6 allows attachment-size patterns (3,0,0), (2,1,0) and (1,1,1) with 4,2,1 rooted-tree possibilities, respectively. Only the attached fork and the chain-plus-leaf repeat a degree profile. For c=4 the two extra vertices give a single chain, two leaves at one vertex, or one leaf at each of two vertices either adjacent or opposite; only the latter pair ties. The other cycle lengths at n=6 give one graph each. Nomizu's theorem identifies the dimensions with those of the graph CE complex (which is defined over Q and extends to the real invariant complex). Exact rational elimination in an independent implementation confirms every differential rank and Betti entry in the four vectors, including the total ranks 1280/1320 and 1280/1316 and the splits 76/75 and 76/77 at degree three. The replay also checks d squared on all 4096 basis monomials per graph, Poincare duality and Euler characteristic.",
+      "replay": "python3 /workspace/branches/d154a6e8-24ec-45dd-8e8e-6bb36659293b/independent_check.py",
+      "residual_risks": [
+        "The reported ancillary NetworkX/SymPy author implementation was not independently authenticated or relied upon.",
+        "Claims are about rational Betti dimensions, not integral torsion, cup product, or higher-order graph census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 17 decomposes each b_i into essential contributions from induced supports, and Theorem 23 gives a general degree-three graph formula. The path recurrence and table give full Poincare polynomials for paths, not unicyclic attachments."
+        ],
+        "reasoning": "The general support decomposition still requires determining the essential dimensions. The degree-three formula can account for low-degree differences, but not the total inequalities. The path recurrence is for a different graph family and cannot be specialized at n=6 to either cyclic pair.",
+        "searches": [
+          "arXiv:2402.14188, Theorems 17 and 23 and Example 24",
+          "arXiv:2611.17014, Proposition 5.3 and Table 6",
+          "Resultary graph-Lie-algebra Betti and unicyclic cohomology comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Aldi et al., arXiv:2402.14188 and arXiv:2611.17014",
+        "Local Resultary, earlier zonotope comparison and assigned mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The C4 witness and graph invariants can be recognized in the earlier zonotope work, and an applicable general b3 formula is in the graph-Lie-algebra literature. Neither supplies the exact higher-dimensional CE ranks. In particular, the two common zonotope polynomials do not predict the differing Betti totals."
+        ],
+        "reasoning": "The existence of a Poincare-polynomial split can follow from lower-degree information once a pair is known; it does not imply a total Betti split. The four complete rational profiles and the two exact total differences require the independent rank calculations, combined with the exhaustive twin identification.",
+        "searches": [
+          "arXiv:2402.14188, p. 5 offset 11200 and p. 8 offset 21600",
+          "Earlier unicyclic zonotope record ae7e706cbf12, Finding offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed n the Tutte match here is equivalent to equal unique-cycle length. The zonotope result explicitly uses the adjacent- and opposite-leaf extensions of C4, which share both cycle length and the total degree profile."
+        ],
+        "reasoning": "The previous C4 witnesses are exactly the same graph pair even though described under another invariant. They do not establish a cohomology-rank separation or the second pair and minimality census.",
+        "searches": [
+          "Resultary: degree and Tutte twins in connected unicyclic graphs, cycle length and Betti/Poincare polynomial",
+          "2026/11/17/SCOPE-eulerian-cycle-correction-and-degree-data-rigidity-of-unicyclic--ae7e706cbf12, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match ece08ad53c7f is the assigned record itself. The six-vertex row in Table 6 is the path P6 and has degree 11; it cannot be any of the four dimension-12 cases. Example 24 gives b3=74 for a different six-vertex unicyclic graph, not a full cohomology table for these pairs."
+        ],
+        "reasoning": "Neither the exact self-match nor the inspected path table/single graph example is an independent table of the target Betti data. The primary query did not supply a usable further table; this is not evidence of absence.",
+        "searches": [
+          "Resultary: exact graph nilmanifold Betti vectors for degree/Tutte twins",
+          "arXiv:2611.17014, p. 19 Table 6",
+          "arXiv:2402.14188, p. 8 Example 24"
+        ]
+      },
+      "rationale": "The supported contribution is the paired finite classification with complete Betti data, in particular the two exact separations of total rational Betti rank at the first size. The four-cycle pair already occurs in a distinct prior record. Its twin status and the use of the CE model, support decomposition, or a formula for b3 are not separately original contributions. The inspected broader results do not supply the higher Betti entries or totals of the two pairs.",
+      "residual_risks": [
+        "An unindexed graph-nilmanifold atlas with full Betti data or a stronger applicable exact formula could affect coverage; the bounded search is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for one pair of graphs; different theorem about it",
+          "evidence": "The two adjacent/opposite-leaf extensions are named explicitly and share a radius polynomial. They share degree profile and cycle length, but no rational CE ranks follow.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-eulerian-cycle-correction-and-degree-data-rigidity-of-unicyclic--ae7e706cbf12/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Eulerian-cycle correction and degree-data rigidity of unicyclic zonotope vertex radii",
+          "trigger": "Same six-vertex nonisomorphic C4 pair under a degree-conditioned invariant"
+        },
+        {
+          "assessment": "General support and degree-three antecedent, not a whole-polynomial or exact total calculation for these graphs",
+          "evidence": "Induced-support sum of essential dimensions, explicit b3 formula, and a different six-vertex b3 example.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.14188",
+          "material_read": "p. 1 offset 1925; Theorem 17 p. 5 offset 11200; Theorem 23 and Example 24 p. 8 offset 21600",
+          "method": "OA PDF, selected primary passages",
+          "title": "On the cohomology of Lie algebras associated with graphs",
+          "trigger": "General graph CE theorem with small examples"
+        },
+        {
+          "assessment": "Exact but for paths, not unicyclic graphs",
+          "evidence": "Path-only recurrence b_(n+2)=(1+x^2)b_(n+1)+x(1+x)^2 b_n; table includes P6, not the four unicyclic graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17014",
+          "material_read": "Proposition 5.3 p. 18 offset 53800; Table 6 p. 19 offset 55500",
+          "method": "OA PDF, targeted statement and table",
+          "title": "Poincare polynomials of nilmanifolds associated with path graphs",
+          "trigger": "Complete polynomials in a graph family, with a six-vertex row"
+        },
+        {
+          "assessment": "Same assigned finding; not distinct prior evidence",
+          "evidence": "The two pairs and the complete Betti data match the frozen result.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-degree-tutte-twins-in-unicyclic-graph-nilmanifold-cohomolo--ece08ad53c7f",
+          "material_read": "Theorem at offset 603",
+          "method": "Local Resultary search and mirror",
+          "title": "First degree–Tutte twins in unicyclic graph-nilmanifold cohomology",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–16 and 29–63",
+        "Independent census and rank replay",
+        "Aldi et al. degree-three formula and earlier zonotope Finding"
+      ],
+      "rationale": "Degree sequence and the Tutte polynomial are natural joint graph descriptors. The exact totals show that even the total rational cohomology is not fixed by the joint invariants, a stronger information-loss statement than finding a difference at one degree. The complete pairs at the first possible order give concrete counterexamples and exact benchmark profiles for broader formulas, not simply new names for the known four-cycle pair or a substitution into a low-degree formula.",
+      "residual_risks": [
+        "Minimality applies only to these invariants among connected simple unicyclic graphs. No claim on ring type or larger order follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

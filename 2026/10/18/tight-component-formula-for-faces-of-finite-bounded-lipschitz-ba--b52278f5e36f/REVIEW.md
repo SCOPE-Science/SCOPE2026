@@ -1,15 +1,21 @@
-# Scientific review: finite bounded-Lipschitz faces
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement separates nonconstant boundary points from interior points and the two constant endpoints. For nonconstant boundary functions, the sum norm is the finite maximum of independently indexed signed coordinate values plus oriented edge slopes. Its active inequalities are exactly the product of signed sup-norm anchors and tight-oriented edges. Common active-equality increments propagate as an affine rescaling of the function plus one constant per tight component. One free constant survives for each anchorless component; the common slope parameter survives precisely if no component contains both anchor signs. The resulting nullity is \(u+\varepsilon\), equal to minimal-face dimension. No infinite-sampling inference enters the proof. Exact rational rank computations reproduced the same dimension on 46,000 boundary configurations, including two distinct four-point examples from the motivating paper; the proof itself covers arbitrary real finite metrics.
+## correctness
 
-## Originality — PASS
-The closest direct source, Hille–Theewis (2023, Section 6; arXiv:2305.08500v1), gives necessary conditions and explicitly exhibits a non-extreme function satisfying their tested local conditions; it does not state the complete component formula. Their 2022 paper gives only a half-space / linear-programming method. The tight-graph connectivity characterization of Bredies–Chirinos Rodriguez–Naldi (arXiv:2304.14039v1) concerns pinned pure Lipschitz seminorm balls rather than the sum norm. Targeted semantic and bibliographic searches showed no equivalent finite BL sum-norm theorem in retrieved publications, and historical claim-level comparisons found no duplicate. Residual risk: a non-indexed earlier paper or an abstract active-facet statement that implicitly specializes to the same graph formula.
+PASS
 
-## Mathematical value — PASS
-This closes a concrete missing sufficiency question for finite BL sum-norm extreme points, motivated directly by two counterexamples in the 2023 paper, and computes the dimension of *every* minimal face rather than merely testing vertices. The resulting quadratic-time connected-component criterion works for all finite metrics, including spaces with disconnected tight graphs, and is useful for reducing finite dual bounded-Lipschitz norm optimization to genuinely extreme potentials. It is not a restatement of an existing pure-Lipschitz connectivity theorem: the coupling of positive and negative anchors is essential.
+The sum of the two maxima is the maximum over all products of a signed coordinate and an ordered-pair slope. Equality occurs exactly when both separate maxima are attained. For a nonconstant boundary point the anchor and tight-edge sets are nonempty and L>0. By finiteness, the inactive inequalities are strict along all sufficiently small segments in the nullspace of the active rows, making its nullity exactly the face dimension. Comparing all active-pair rows first with one edge fixed and then with one anchor fixed gives a common r=sign(f_i) h_i at all anchors, and slope change -r on all oriented tight edges. Consequently h_i+(r/L)f_i is a constant c_C on each component. A positive anchor fixes c_C=r/L, a negative one fixes c_C=-r/L, and both signs together force r=0; no anchor gives an independent offset. These relations suffice for all active rows and yield exactly u+epsilon. The constants ±1 are extreme by coordinatewise equality in the sup-norm bound; interior points are not extreme and the singleton case is an interval. Scanning all pairs and traversing the tight graph is quadratic in arithmetic operations and comparisons, not a bit-complexity or floating-point guarantee.
 
-## Scope and risks
-No infinite-space extension, vector-valued generalization, or algorithm for enumerating all vertices is claimed. The exact-rational tests are finite checks only. All comparison sources cited in the scientific audit are read at the indicated levels, with the unresolved bibliographic risk noted. No independent scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the explicit dimension of every minimal face at nonconstant boundary points for the finite real sum norm, including the resulting full extremality characterization. The same-norm LP description is classical; the closest indexed graph result uses the same anchoring mechanism to prove vertex conditions for unit-edge graph metrics. Neither comparator supplies the full affine nullity formula for arbitrary faces and real finite metrics. No priority claim is made for the anchor mechanism itself.
+
+## value
+
+PASS
+
+The criterion addresses a natural finite sum-norm extremality problem where the motivating literature supplies exact examples but local saturation alone is insufficient. The graph invariant detects both unanchored degrees of freedom and an independent global slope degree of freedom, yielding all minimal-face dimensions by an O(|S|^2) scan and traversal instead of forming and ranking product constraints. It also explains why a disconnected tight graph can support an extreme point. This all-face, arbitrary-metric calculation is useful independently of the discrete grid problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

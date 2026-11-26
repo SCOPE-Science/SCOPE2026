@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify_q4.py`. The standalone script uses only Python 3 standard-library modules `collections`, `fractions`, and `itertools`. It requires no network, local tables, or other files.
+## correctness
 
-The first enumeration covers **every** assignment of fifteen signs on a fixed spanning tree of the four-cube, and explicitly tests all thirty-two graph edges. It obtains 990 admissible potentials. The second enumeration grows Hamming-weight layers by intersecting all parent constraints; it gives exactly the same set independently of the first tree parametrization. A third phase generates all \(2^4\cdot4!=384\) cube automorphisms and both signs, exhaustively partitions the 990 potentials into sixteen disjoint orbits, and checks the sixteen exact representatives with their orbit sizes and squared Euclidean norms. The group-action result is cross-checked by Burnside's fixed-point sum of 12,288. Exact rational arithmetic verifies the ten squared-norm shell counts and their total of 990.
+PASS
 
-The saved script was run to completion, emitting `ALL EXACT CHECKS PASSED`. Its exhaustive coverage proves the finite-domain assertions conditional on the mathematical identification of polar vertices with all-edge-tight functions and on the correctness of simple integer program semantics. The proof and script do not address higher-dimensional cubes or independent scientific validation.
+For the repaired claim, path averaging of molecules gives the edge polytope, whose polar vertices correspond to connected spanning tight-edge graphs. In a bipartite graph, a tight path between endpoints of any cube edge has odd length, so the integer difference is odd and must be ±1. Conversely all-edge tightness gives full rank on the zero-sum hyperplane. An independently written exact enumeration (python3 /workspace/branches/independent_checks.py 4) ranges over even-class heights bounded by distance from the root and uses intersections to extend independently at odd vertices. It obtains 990 potentials and recovers all sixteen representative words, sizes, ranges and centered squared norms by orbit traversal with coordinate swaps, bit flips, and negation. The shell pairs (S, count) are (4,2), (23/4,32), (7,112), (31/4,224), (8,204), (39/4,192), (11,128), (47/4,32), (12,48), (16,16). A normalized support equation gives plane distance S^(-1/2), not necessarily distance to the bounded face. The radial heights (2,3,2,1,0) have S=47/4 and force every point of the exposed face to have coordinate at vertex 0 at most zero, but the orthogonal projection has coordinate 1/94. The repair correctly proves and illustrates this distinction. Repaired scope is the standard Euclidean structure on the coordinate zero-sum space and the specified signed graph group, not arbitrary Euclidean identifications or all abstract symmetries.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the complete signed-orbit and supporting-hyperplane shell refinements. The exact prior total 990, all-tight height characterization, sharp centered inradius and contact count are expressly not novel. The public square/graph transport terminology is unnecessary for novelty: the alias ranking or height function refers to the same counted set and was explored separately.
+
+## value
+
+PASS
+
+This is a complete classification of the canonical Hamming four-cube transportation ball under its natural action, not a selected list of facets. A user studying symmetric transport polytopes can now identify every orbit from explicit representatives and know how many facets support at each radial offset, data unavailable from the raw facet total and centered inball radius. The repaired separation of affine distances from true distances to faces keeps the geometric interpretation precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

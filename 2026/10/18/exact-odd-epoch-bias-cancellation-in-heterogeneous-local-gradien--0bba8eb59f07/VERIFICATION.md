@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The derivation in `RESULT.md` verifies every critical quantifier and boundary analytically: scalar curvatures are strictly positive, all center choices are allowed, the local step lies strictly inside the individual contraction interval, and the epoch count is a positive integer. Unique tuning is a necessary-and-sufficient property of the dimensionless polynomial level sets. Exact expressions establish the rational example and all asymptotic statements are proved rather than extrapolated.
+# Independent mathematical audit
 
-The companion file `verify.py` runs without third-party dependencies. It performs 1,148 successful checks, including exact rational agreement between iterated local-gradient updates and the affine communication-round map for several curvature and center families, fixed-point verification, exact biased/unbiased examples, numerical bracketing of odd-epoch steps, and large-odd-epoch asymptotic consistency using 80-digit decimal arithmetic. The integer check count is reported by the program upon replay. These finite computations are corroboration, not an exhaustive search of all real parameters or a substitute for the derivative and compactness arguments in the proof.
+## correctness
 
-Only synchronized communication-round outputs are asserted to converge to the global minimizer at exceptional tuning. Intermediate local states remain generally different. The uniqueness classification holds uniformly in client centers; it does not prevent accidental exactness for a special fixed center vector. Robustness under nonuniform mixing, perturbed steps, stochasticity and finite precision remains unproved. Independent external audit has not been performed.
+PASS
+
+A local round has multiplier (1-alpha*h_i)^E and center coefficient one minus that multiplier. The strict individual stability interval makes the mean round multiplier strictly contractive. Comparing normalized center coefficients at the limit for every center vector gives equality exactly when all F_E(alpha*h_i) agree. F_1 is constant. For even E>=2, F_E strictly decreases on (0,2): the geometric-sum derivative is positive in u=1-z both for u>=0 and, using even parity, for u<0. For odd E>=3 the branch z<1 has values above 1 and strictly decreases, whereas z=1+t, 0<t<1, has values below 1. Its derivative has the sign of E*t^(E-1)+(E-1)*t^E-1, strictly increasing from -1 to 2E-2. Hence three levels of curvature are impossible and distinct equal distortions require 1<alpha*a<alpha*b<2. For rho=b/a in (1,2), put x=alpha*b-1 and y=(x+1)/rho-1. The equality is x^E-rho*y^E=rho-1; the left side is strictly increasing (derivative E*(x^(E-1)-y^(E-1))) and its values at x=rho-1 and x=1 bracket rho-1 strictly. This rederives uniqueness and excludes the endpoint rho=2. Since 0<y<2/rho-1<1, the exact identity gives x^E -> rho-1, hence E*(1-x) -> -log(rho-1) and the synchronized multiplier tends to -q*(rho-1). The cubic rule follows by factoring the difference of 3-3z+z^2. The two witness fixed points and multipliers agree with independently iterated exact rational local steps.
+
+## originality
+
+PASS
+
+The affine map and surrogate curvature distortion are already known, and comparing all center coefficients is a direct application of that surrogate formula. The distinct result is the full parity/level-set classification on the individually stable interval, including the sharp curvature-ratio obstruction, unique tuning and the asymptotic. The strongest inspected surrogate theorem and neighboring records give no covering theorem for these claims.
+
+## value
+
+PASS
+
+The uniform-in-centers formulation isolates when an ordinary local update schedule does not distort the minimizer, rather than exploiting an accidental symmetric set of centers. The sharp obstruction at a curvature ratio of two, impossibility for three curvature levels, unique tunable exception and its precise stability-boundary approach answer a meaningful fixed-step question in an established scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

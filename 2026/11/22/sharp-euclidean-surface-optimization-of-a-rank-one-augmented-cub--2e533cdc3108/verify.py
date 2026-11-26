@@ -25,8 +25,7 @@ for n in (2,3,4,5):
         assert abs(hull.area-s)<3e-7*max(s,1),(n,t,hull.area,s)
         num+=1
 
-# Test all named facet normal offsets and their rank using vertices,
-# and verify there are no other distinct facet directions in modest dimension.
+# Test all named facet normal offsets and their rank using vertices.
 from itertools import combinations
 for n in (2,3,4,5):
     pts=vertices(n,1.)
@@ -42,17 +41,22 @@ for n in (2,3,4,5):
         assert np.linalg.matrix_rank(on-on[0],tol=1e-9)==n-1
 print('CUBE_SIMPLEX_BOUNDARY_CHECK_PASS',num,'hull volume+area pairs, all subset facet ranks through dimension 5')
 
-# Exact symbolic verification of the critical polynomial and strict sign pattern.
+# Check the exact critical polynomial, then evaluate its coefficients and root.
 import sympy as sp
 z=sp.symbols('z')
 v3=1+3*z+sp.Rational(3,2)*z**2+z**3/6
 s3=6+(6+3*sp.sqrt(2))*z+(sp.Rational(3,2)+sp.sqrt(3)/2)*z**2
 f3=sp.expand(3*sp.diff(s3,z)*v3-2*s3*sp.diff(v3,z))
+r2, r3 = sp.sqrt(2), sp.sqrt(3)
+claimed = (9*(r2-2) + (-9+3*r3+9*r2)*z
+           + (3+6*r3-sp.Rational(9,2)*r2)*z**2
+           + sp.Rational(3,2)*(1+r3-r2)*z**3)
+assert sp.expand(f3-claimed) == 0
 coeff=[sp.N(sp.expand(f3).coeff(z,j),30) for j in range(4)]
 assert float(coeff[0])<0 and all(float(c)>0 for c in coeff[1:])
 from scipy.optimize import brentq
 root=brentq(sp.lambdify(z,f3,'numpy'),0,2,xtol=1e-14)
 quot=float(sp.lambdify(z,s3/v3**sp.Rational(2,3),'numpy')(root))
 assert abs(root-0.428630637733420)<3e-12
-assert abs(quot-5.762637024562116)<3e-12
+assert abs(quot-5.762637024562115)<3e-12
 print('CUBE_SIMPLEX_SHARP_ISOPERIMETRY_PASS',root,quot)

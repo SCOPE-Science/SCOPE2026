@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local polynomial identity, collision-free swaps, permanent zero clusters and complete transient/periodic dichotomy are proved. Two explicit transfer matrices establish the recurrences; Möbius inversion gives all orbit lengths and the finite zeta function. The separate `verify.py` checks 24,676 exact-integer assertions for cyclic lengths 1 through 12; this is supplemental, not the universal proof.
+## correctness
 
-**Originality — PASS under available evidence.** Fukś and Jin (2020) already proved and discussed fundamental motion and blocking for rule 56528; those ingredients are expressly prior. Formenti and Kamilya (2026) treat finite-configuration periods of distinct reversible second-order rule 115. Neither inspected full article states the present complete finite-ring point/cycle counts or zeta Euler product. Generic de Bruijn and necklace techniques are acknowledged. Search cannot establish absolute historical priority.
+PASS
 
-**Value — PASS.** The natural complete classification works at every ring length and every iterate, and gives an exact rational zeta function, explicit transient cutoff and quantitative dominance of frozen states. This is not merely a small finite census.
+The rule number and polynomial describe disjoint swaps of each isolated zero with the 1 immediately to its left (also consistent on rings of size 1 and 2). Once a zero belongs to an adjacent pair it never moves; while mobile it advances one site each step and hence cannot complete a circuit past an original permanent zero pair. This proves the bound and recurrent split. The only word avoiding both forbidden blocks is all ones. Pair-state closed walks give the indexed cyclic no-101 word count (including the small-ring repeated indices); the characteristic polynomial is u(u³−2u²+u−1) and the first traces are 2,2,5. The matrix is irreducible with a loop, hence primitive. The complementary traveling sector repeats an admissible word of length gcd(N,t) under the t-th iterate, giving the Lucas term and Möbius cycle and zeta formulas. Independent functional-graph enumeration from the integer truth table reproduced every sector, transient bound and iterate count for N=1–14 and t=1–2N; replay: python3 /workspace/branches/replay_3_4_5.py 3. The frozen verifier's loop actually checks fixedness after N+1 steps, not N (verify.py lines 43, 49–50). The independent replay checks true entry time, and the universal bound follows from the proof, not the frozen computation.
 
-**Scope and priority risk.** This concerns only finite cyclic rule 56528, not general cellular automata. The model was investigated in 2020; the recent 2026 reference motivates the separate comparison of periodic spectra. No independent review or exhaustive priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the local particle dynamics to the earlier rule papers, the fixed/traveling languages to that dynamics, and the counting tools to standard transfer and necklace methods. The assessed contribution is the exact finite-ring temporal spectrum for this particular rule: a global capture/translation argument identifies which two spatial languages suffice, and their indexed counts yield every time-iterate trace and primitive period. Neither inspected rule paper gives that finite-ring result or a more general orbit formula specializing to it.
+
+## value
+
+PASS
+
+For an established blocking, number-conserving rule, the exact temporal orbit spectrum answers which finite periodic motions survive and how many trajectories have each primitive period, across all ring sizes. It gives concrete counts for fixed points, translating states and the asymptotic dominance of the frozen sector without constructing exponentially large transition graphs. Its value is the complete finite-ring invariant, not a new local motion law or a new general zeta method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

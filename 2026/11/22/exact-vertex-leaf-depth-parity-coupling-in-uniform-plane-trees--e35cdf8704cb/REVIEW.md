@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statistics and sampling law are exact: every rooted ordered \(n\)-vertex tree has probability \(C_{n-1}^{-1}\). The root decomposition records leaves separately from nonleaves and reverses both depth signs on subtrees. Differentiating the resulting formal bivariate equation produces the mixed derivative \(z/(2\sqrt{1-4z})+z/2-z^2\), whose \(n\)-th coefficient is exactly \((n/2)C_{n-1}\) for \(n\ge3\). The two variance formulas follow from independent second derivatives. Exhaustive rational enumeration through eleven vertices corroborates all five moments. No finite check is substituted for the algebraic all-size proof.
+## correctness
 
-**Originality — PASS, qualified.** Meir–Moon (1999), Janson (2005) and Chen–Li–Shapiro (2005/2007) already address vertex-depth parity and, in the last paper, the first leaf-depth parity moment. Their relevant full-text statements do not give the cross-moment \(\mathbb E[X_nY_n]\), the exact signed leaf variance, or the joint correlation \(2/\sqrt5\). The leaf-count parity paper by Chen–Shapiro–Yang (2005) concerns a different parity notion. Closest indexed mathematical records discuss signed leaves versus cherry counts in a full binary tree and other degree/depth statistics, rather than these same two statistics on unrestricted plane trees. Historical priority remains open to unseen bivariate enumerations.
+PASS
 
-**Value — PASS.** This is a natural comparison of total bipartition imbalance with the imbalance among terminal vertices. It supplies a uniform exact finite-size covariance and a sharp nonzero asymptotic correlation, identifying the precise \(4/5\) fraction of signed-leaf variance accounted for by optimal linear prediction from global parity. Neither that magnitude nor this coupling follows from the known individual means. The result is not claimed as a general joint limit theorem.
+For uniform plane-tree shapes, the root decomposition reflects both signed marks on each child subtree and adds a leaf mark only at a singleton root. Write B=F(z;0,0), D=1−B, z=BD and w=1−2B. The first-derivative equations have factor 1+z/D² and give F_s=z and F_t=zD. The second-derivative equations have factor 1−z/D²=w/D and give F_ss=z(1−2z)/w, F_st=zD/w−z² and F_tt=(zD+2z³)/w. Thus for n≥3 the mixed coefficient is half the central binomial coefficient at n−1, i.e. n C_(n−1)/2; the first all-vertex mean is zero. The leaf raw square is n/2+2(n−2)C_(n−3)/C_(n−1), algebraically the stated expression before centering. The Catalan ratios give both variances, with respective linear terms n/2 and 5n/8; the correlation limit follows without a CLT. At n=3 the same extraction includes C_0 and all denominators are nonzero. Both variables are nonconstant for n≥3 (compare the star and the tree with one length-two arm and all other arms of length one).
 
-**Closest sources and limits.** Meir and Moon, *On the bipartition numbers of random trees, II* (1999); Janson, *Congruence properties of depths in some random trees* (2005); Chen, Li and Shapiro, *The butterfly decomposition of plane trees* (2005/2007), especially its Corollary 4.3 and Proposition 4.4. The research establishes the claim only for uniform plane-tree shapes and neither proves a joint central limit theorem nor excludes all prior equivalent formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed distinct result is the exact same-tree mixed moment and leaf-parity variance and the resulting correlation, not the known marginals or the all-vertex parity limit theory. The closest inspected results do not determine these joint statistics under the assigned law.
+
+## value
+
+PASS
+
+The statistics are natural signed bipartition imbalances before and after restriction to terminal vertices. Exact joint covariance gives a sharp measure of the information retained by that restriction, and the 4/5 least-squares fraction is not fixed by marginal enumeration or an all-vertex CLT. The result is useful as an exact benchmark for joint marked-tree results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

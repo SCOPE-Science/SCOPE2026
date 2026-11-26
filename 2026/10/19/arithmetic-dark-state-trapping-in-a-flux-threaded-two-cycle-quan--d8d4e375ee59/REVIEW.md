@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the nondecaying space using the imaginary part of a dissipative eigenvalue, reduces hub-dark states to common Dirichlet path eigenfrequencies, normalizes each cancellation vector, and evaluates the physical sitewise survival projector. Explicit assumptions exclude flux values that permit additional single-cycle states. Independent matrix reconstruction compared 10,816 site probabilities and six non-Hermitian spectra; finite checks complement but do not prove the all-length statements.
+## correctness
 
-**Originality — PASS (self-review).** The closest inspected background comprises the four-coin figure-eight photonic walk of Lorz et al. (arXiv:1809.00591), survival in a coined Grover ladder of Segawa et al. (arXiv:2205.13188), and stroboscopically monitored chiral single-ring transport of Finocchiaro et al. (arXiv:2507.10669). Their dynamical protocols or geometries differ; the exact two-cycle gcd rule, general two-flux site sum and quadrature plateau were not found there. Familiar Dirichlet path eigenvectors are not asserted to be new. Equivalent results under unrelated terminology remain possible.
+PASS
 
-**Scientific value — PASS.** Two loops joining at a lossy site form a natural interference network. The theorem gives a complete all-size dark-mode count and location-dependent perfect-absorption criterion, and its quarter-turn plateau predicts identical survival probabilities across otherwise inequivalent site positions. This reveals a geometrical design rule for single-particle trapping and dissipation, not merely a small numerical instance.
+A real eigenvalue of K forces zero hub amplitude by the imaginary part of its quadratic form. Hub-dark eigenspaces reduce H and K, and the complementary finite-dimensional propagator decays even with Jordan blocks. Cutting the hub leaves two simple Dirichlet path spectra; coincidence of 2J cos(πk/m) and 2J cos(πℓ/n) means k/m=ℓ/n=r/g, 1≤r<g. The two nonzero coupling factors contain 1−(−1)^k exp(iφ_m) and 1−(−1)^ℓ exp(iφ_n), respectively; each comes from the last sine amplitude, whose ratio to the first is (−1)^(k+1). The hub row kills every single-path candidate and makes exactly one normalized linear combination at each overlap. Squared projections give the stated sine sums. If g∤j the r=1 term is positive; if g|j all terms vanish, including the empty sum for coprime lengths. Shortest distance min(j,i−j) has the same divisibility since g|i. At quadrature the squared boundary factors are both 2, so each side has a common coefficient 2/(m+n); the sum of sine squares is g/2 at nondivisible sites and zero elsewhere. Equal lengths mean two separately labeled branches of that length. The independent replay /workspace/branches/frozen-review-replay.py diagonalizes the full Hermitian matrix in a uniform phase gauge and computes the hub-null intersection of its numerical eigenspaces: 10 cases, including equal and coprime lengths, with projector error below 1e−10. The frozen author's checker is finite corroboration; the analytic proof supplies completeness.
 
-**Limits.** Uniform nearest-neighbor hopping, two simple cycles, generic nontrivial flux, single hub loss and no-jump dynamics are required. No finite-time relaxation rates or disordered robustness are claimed. Independent mathematical and priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The shared-hub constraint, Dirichlet spectra and dark projections are standard ingredients. Available comparisons do not imply the complete unequal-length magnetic classification and site formula, including uniform quadrature survival; neither a generic hub treatment nor a result restricted to magnetic triangles supplies that classification.
+
+## value
+
+PASS
+
+The figure-eight is a natural minimal network where attaching two rings at the sink preserves dark modes even though each generic-flux ring alone would be fully absorbing. The result determines where absorption is complete and, at quadrature, exactly how much remains from every other site. This yields a design-relevant contrast between coprime and arithmetically aligned cycle lengths, not merely a statement about eigenspace dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

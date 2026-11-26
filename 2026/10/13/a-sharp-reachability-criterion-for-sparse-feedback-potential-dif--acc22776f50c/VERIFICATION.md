@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The sufficiency proof was checked by tracing a unilateral deviation through the directed observation graph. If \(j\notin R_i\), no observation parent of \(j\) can lie in \(R_i\); otherwise the final edge would make \(j\) reachable. Therefore every opponent state-action coordinate outside \(R_i\) is identical under the baseline and the deviation, and the nuisance term is invariant when \(K_i\cap R_i=\varnothing\).
+# Independent mathematical audit
 
-The sharpness construction was checked symbolically. Along a path \(v_0=i\to v_1\to\cdots\to v_m=k\), the dynamics \(x_{t+1}^j=a_t^j\) and copy feedback \(a_r^{v_r}=x_r^{v_{r-1}}\) propagate a deviation \(\delta\) exactly one edge per period. With nuisance term \(c_m^i=C a^k\), the exact payoff change is
-\[
--\delta^2\sum_{r=0}^{m}\alpha^r+\alpha^m C\delta.
-\]
-The bundled verifier evaluates a length-two instance and checks positivity for an explicit admissible \(\delta\).
+## correctness
 
-Finite replay does not prove the infinite family; the general statement rests on the induction and path argument in RESULT.md. No claim is made for physically coupled dynamics, optimizer existence, uniqueness, or Hamiltonian-system reduction.
+PASS
+
+Reconstructed RESULT.md lines 21–69. Compare trajectories from the same initial state. No observation edge leaves R_i for its complement. All players outside R_i are opponents whose unchanged feedback rules thus see identical inputs at time t; their uncoupled updates preserve equality at t+1. Induction gives exact state-action invariance outside R_i, so under the support separation each nuisance stage cancels and the unilateral payoff difference equals the potential difference. Any maximizer therefore passes the Nash comparison in the admissible class. Sharpness uses a simple path to k in the intersection, scalar dynamics x_next=a and a distinct scheduled copy at each edge. The zero initial state and baseline give zero potential, which is a global upper bound; the unilateral impulse gives exactly −δ²∑_{r=0}^m α^r+α^m Cδ, positive for the displayed interval. For m=2, α=1/2, C=1 and δ=1/20 the gain is 13/1600. Extra edges are allowed, not forced to be active. Supports are permitted dependency sets, so no necessity is claimed for every individual nuisance function. The theorem compares feedback policies from the initial state for which the potential is maximized; it does not assert off-path optimality from other states or existence. Read VERIFICATION.md and verify.py without running the uploaded verifier; the universal result rests on the induction and smooth finite-stage counterexample.
+
+## originality
+
+PASS
+
+The own-state-only conclusion and the abstract policy-potential decomposition are established prior results. The distinct result supported here is their concrete sharp support criterion for directed sparse feedback with uncoupled dynamics, including the converse counterexample for every supplied observation graph with a reachable nuisance vertex. An inaccessible adjacent finite-horizon paper leaves the specific risk documented below.
+
+## value
+
+PASS
+
+The criterion allows feedback to use some other players' states while retaining a single maximization formulation, which own-state-only sufficiency cannot explain. Transitive rather than direct influence is essential, as the smooth witness gives a deviation that reaches a payoff-relevant player only after several stages. The matching necessity for a guarantee based only on support makes the distinction actionable without claiming optimizer existence or equilibrium at off-path states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

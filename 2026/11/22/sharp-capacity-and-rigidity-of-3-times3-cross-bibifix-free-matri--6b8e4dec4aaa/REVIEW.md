@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition quantifies over all ordered matrix pairs, including a matrix paired with itself, and both proper square-overlap sizes. Disjoint top-left and bottom-right alphabet sets follow at size one. At size two, equality occurs only between uniquely indexed left/right matrix classes, which form complete bipartite conflict components; this is a direct exhaustive partition of the unrestricted candidates. Their independence numbers, the exact unused-center count, and the unique integer maximizer prove the all-alphabet upper bound and constructions. Binary equality was checked by direct matrix enumeration and by an independent integer program. The proof—not finite experimentation—establishes the all-alphabet result.
+## correctness
 
-## Originality — PASS, with stated priority risk
-Blackburn (arXiv:1303.1026, Section 4, Theorem 5) already gives the exact *one-dimensional* three-letter non-overlapping code capacity. Barcucci et al. (arXiv:1502.05275, Section 4) already lift such codes into cross-bibifix-free matrix codes, establishing the matching lower bound but not an upper bound for arbitrary matrix codes. The newly proved conflict-graph decomposition establishes that the lower bound is universally sharp and classifies all equality cases, including binary non-lift optima. Searches for diagonal square overlaps, matrix bibifix codes, and optimum codebooks found no dominating two-dimensional result. The closely named general-translation matrix literature studies a stronger and distinct condition. An inaccessible full text of one such later paper and unindexed equivalent graph formulations remain priority risks.
+PASS
 
-## Value — PASS
-This is a natural first nontrivial square dimension in the two-dimensional synchronization model; it gives sharp capacity over every alphabet and an equality-case rigidity transition, not merely a new construction. It shows that one-dimensional lifts are forced for alphabets of size at least three even though off-diagonal degrees of freedom could potentially avert overlaps, while binary alphabets exhibit 28 genuinely non-lift equality cases. The theorem resolves a basic finite-dimensional optimization and supplies a closed-form design count. It does not purport to solve higher dimensions or stronger translation-overlap models.
+Checked RESULT.md lines 27–58 from the literal corner-overlap definition, including self-pairs. The observed corner sets A,B are disjoint. A two-square equality requires the prefix matrix center in B and the suffix matrix center in A; the common square is a unique component label. For sizes a,b this yields abq² disjoint complete bipartite components with side sizes bq⁴ and aq⁴, plus ab(q−a−b)q⁶ isolated vertices. A maximum takes the whole larger side (either entire side on a tie), giving ab(q−min(a,b))q⁶. With a≥b, equality in a≤q−b is necessary, and comparing the integers next to q/3 gives the unique smaller size floor((q+1)/3). This forces both large-alphabet orientations and the stated labeled count. For q=2, the four K(16,16) per orientation give sixteen choices each; only the two constant-side choices per orientation are unrestricted diagonal lifts. Inspected VERIFICATION.md and all three scripts without executing them. Their finite scope is supplementary; the exact graph argument supplies the universal upper bound and equality cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of current evidence, the claimed distinction is the unrestricted square-overlap upper bound and labeled rigidity, including the binary non-lifts. The numerical lower bound and the lift are prior; the exact capacity and classification are not established by those prior claims.
+
+## value
+
+PASS
+
+Order three is the first order with both corner-symbol and proper two-square constraints. It is natural to ask whether the standard diagonal-lift construction loses capacity or misses optimizers. The exact answer distinguishes the rigidity for every q≥3 from the 28 binary non-lifts that the construction misses, supplying structural information not contained in the lower-bound construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

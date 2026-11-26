@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:17:25.325295Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem uses all interior-peak-position profiles with multiplicity and the unnormalized Walsh transform. For prescribed peaks, an adjacent pair makes the event impossible, and maximal chains of peaks two apart force alternating patterns on disjoint windows of independent continuous ranks. Their probabilities are products of E_(2r+1)/(2r+1)!. The tangent differential recurrence divides only by 2r+1, so each probability is in Z_(2). Expanding the character product leaves 1 modulo 2 in Z_(2) after dividing by n!. This proves the exact valuation and rank, including the singleton groups at n=1,2. The sum of all Walsh multipliers is 2^|I_n| f_n(empty)=2^(|I_n|+n-1), since a peak-free permutation decreases up to 1 and then increases. Hence the common gcd has no odd prime factor and has the asserted dyadic part; this does not claim an attained minimum multiplier magnitude. The uploaded checker was inspected, not executed. A separate direct permutation enumeration and integer Walsh transform checked every frequency and the gcd for n=1 through 9; replay: /workspace/branches/cb983fd9-85ae-459d-a9c4-09bca3f58c25/direct_peak_replay.py and direct_replay_n1_9.log in that directory. This is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching record also computes singleton multipliers and proves sharpness of the uniform congruence modulus, the inverse norm bound and the determinant valuation.",
+          "The primary peak-set count theorem and the alternating-permutation series are ingredients but not stated all-frequency valuation theorems."
+        ],
+        "reasoning": "The competing indexed theorem already covers the central assertions; exact-profile enumerability alone would not have established coverage.",
+        "searches": [
+          "Resultary e4965c4f4ad5",
+          "Billey, Burdzy and Sagan, arXiv:1209.0693, pp. 2–3",
+          "Stanley, arXiv:0912.4240, Eq. (1.3)"
+        ]
+      },
+      "checked_sources": [
+        "e4965c4f4ad5",
+        "241a4544ed1f",
+        "arXiv:1209.0693",
+        "arXiv:0912.4240"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known valuation supplies the exact dyadic part of the gcd. Walsh orthogonality gives sum_S W_n(S)=2^|I_n| times the peak-free count, a power of two, so every odd prime is excluded from the gcd at once."
+        ],
+        "reasoning": "The gcd is not stated in the matching record and is not a consequence of valuation alone, but with the classical peak-free count it is a routine consequence requiring no additional arithmetic invariant.",
+        "searches": [
+          "Resultary e4965c4f4ad5, Theorem and convolution consequences",
+          "arXiv:1209.0693, no-peak enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e4965c4f4ad5 uses W_n(S)=sum_pi (-1)^|P(pi) intersect S| with the same interior-position set and all n!, explicitly stating v2(W_n(S))=v2(n!) for every S and the trivial n=1,2 convention."
+        ],
+        "reasoning": "W_n and Lambda_n are identical, not merely related by scaling or a change to the descent profile.",
+        "searches": [
+          "Resultary: permutation peak-position Fourier, all-frequency dyadic valuation",
+          "Resultary e4965c4f4ad5, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate descent-pattern record uses descent indicators on F_2^(n-1). The peak Fourier match is a full theorem, not just a finite table. The focused public-literature lookup yielded no independent exact table of this same peak spectrum."
+        ],
+        "reasoning": "Descent-to-peak is nonlinear, so a descent spectrum cannot be substituted character by character. A finite table or negative search does not decide all-dimensional priority.",
+        "searches": [
+          "Resultary: peak-profile and descent-profile Walsh spectra",
+          "Resultary 241a4544ed1f, Finding and Proof"
+        ]
+      },
+      "rationale": "A different indexed Resultary record, e4965c4f4ad5, covers the identical unnormalized all-frequency valuation, nonvanishing and invertibility, on exactly the same profile, including the n=1,2 edge cases. It also establishes singleton sharpness and a determinant valuation. It does not state the exact gcd, but that gcd follows mechanically from its valuation plus the classical peak-free count by the single Walsh row-sum identity. No distinct substantive claim survives. This is a finding of equivalent coverage, not a finding of chronological priority; the record under review is not counted as a duplicate of itself.",
+      "residual_risks": [
+        "Relative precedence of the indexed same-day records is not established; unindexed earlier treatments may exist. Neither uncertainty negates their demonstrated statement-level overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the all-frequency valuation and invertibility; gcd handled by implication, not attributed as stated",
+          "evidence": "Same W_n; all S; v2(W_n)=v2(n!); n=1,2 sole multiplier n!; singleton sharpness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-uniform-dyadic-rigidity-of-permutation-peak-position-fourier-tra--e4965c4f4ad5/RESULT.md",
+          "material_read": "Finding, scope and proof offsets 0–3197 and 2100–5127; convolution passage located at offset 5175",
+          "method": "Resultary search; bounded local-mirror text inspection",
+          "title": "Uniform dyadic rigidity of permutation peak-position Fourier transforms",
+          "trigger": "Exact same statistic and transform"
+        },
+        {
+          "assessment": "Classical input, including peak-free count; inspected statements do not give the Walsh conclusions",
+          "evidence": "Exact peak-set enumerator and the 2^(n-1) count of peak-free permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0693",
+          "material_read": "PDF pp. 2–3, offsets 3300–7225",
+          "method": "OA bounded PDF-text reading",
+          "title": "Permutations with given peak set",
+          "trigger": "Primary enumeration for the very same peak positions"
+        },
+        {
+          "assessment": "Classical ingredient; survey, not original source",
+          "evidence": "The tangent series has coefficients E_(2r+1)/(2r+1)!.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4240",
+          "material_read": "p. 2, equation (1.3)",
+          "method": "OA bounded PDF-text reading",
+          "title": "A Survey of Alternating Permutations",
+          "trigger": "Verify the odd zigzag normalization"
+        },
+        {
+          "assessment": "Different profile and group, not a substitute for peak Fourier data",
+          "evidence": "The variables encode descents, not strict interior peaks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fibonacci-fourier-rank-of-permutation-descent-patterns--241a4544ed1f/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–2936 and 1800–4910",
+          "method": "Resultary search; bounded local-mirror text inspection",
+          "title": "Fibonacci Fourier rank of permutation descent patterns",
+          "trigger": "Closest related exact Walsh spectrum on a permutation-position profile"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A structural valuation of the peak-position spectrum would be valuable for explaining invertibility on the Boolean group. That structural theorem is already covered. The only differently stated exact invariant, the gcd, records a one-step consequence of the known valuation and the peak-free count rather than a new obstruction, sharp magnitude, or independent arithmetic classification. No nonroutine surviving value claim is established for this record as a distinct contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

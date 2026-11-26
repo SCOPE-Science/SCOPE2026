@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:55.460493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof steps 1–4",
+        "VERIFICATION.md and code/check_profiles.py (read)",
+        "Independent replay: python3 audit_rm.py"
+      ],
+      "rationale": "In least-significant-bit-first integer evaluation order, the least active index s gives blocks of length r=2^s and pairs of complementary blocks. Each cyclic downward transition of the upper-bit truth table joins exactly two zero blocks. Among its cyclic increments, the last (longest) carry occurs twice, while each shorter carry through j+1 bits occurs 2^(k-j-1) times. Prefix parity is an invertible change of variables, so half the toggle count has the asserted polynomial, including the k=0 and k=1 boundaries. The zero-window counts recover runs by second differences. Mixed runs determine s and t, while a pure run of length 2r at the upper endpoint equals the pure-run profile of the next scale. The constant words are separated by W_1, and the two alternating words have the unique nonconstant doubleton profile. As a separate finite check, audit_rm.py built affine words as bitsets, intersected successive circular rotations of the zero-symbol bitset to count starts directly, and verified every coordinate of every joint profile and the parameter multiplicities for 1≤m≤10. The range of the theorem is justified by proof, not by this replay.",
+      "residual_risks": [
+        "Only the specified cyclic windows and binary integer order are covered; the independent finite test stops at m=10."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier proof gives F_{m,b}(t,j) for each word and all b, with multiplicity 2μ_q(j).",
+          "Ma–Luo's cyclic simplex code has length q−1 in primitive-field-power order; this is not the full affine integer-order evaluation code."
+        ],
+        "reasoning": "The earlier wordwise parametrization is stronger than its published marginal summary for purposes of this implication. The related simplex theorem does not cover it.",
+        "searches": [
+          "4ba592bdb146, Proof steps 1–3",
+          "arXiv:1911.02184v1, Section 4, Theorem 2",
+          "arXiv:2109.13764v1, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4ba592bdb146 and 0fd3d918ba43",
+        "arXiv:1911.02184v1",
+        "arXiv:2109.13764v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Proof step 2 explicitly computes the all-b weight formula for fixed t,j. Step 3 doubles the endpoint/interior coefficient counts for the constant bit. Step 4 gives the intervals for W_2 and their shared endpoints."
+        ],
+        "reasoning": "On each interval, W_2 identifies j once H is fixed, and the shared endpoints produce identical pure runs. The alternating profile has W_2=N and multiplicity two among nonconstant words; all other nonconstant profiles have multiplicity four. There are N/2 consecutive attainable nonconstant W_2 values, and the two constants add two profiles. No new structural argument or table is needed.",
+        "searches": [
+          "4ba592bdb146, Finding, Assumptions and Proof steps 1–4, text offset 0–5105"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary record 4ba592bdb146 uses (t,j,B,q,H) in place of (s,t,r,k,2^k) and the identical cyclic order. The nonconstant zero-run multiset determines and is determined by the window-weight vector.",
+          "Shi–Zhu–Helleseth, arXiv:2109.13764v1, Theorem 2, gives the general zero-run-to-b-weight identity, not the code-specific law."
+        ],
+        "reasoning": "The earlier run multiset is equivalent to a complete joint profile, not merely to a separate marginal. Reparameterization does not change the mathematical object.",
+        "searches": [
+          "Resultary: natural binary order Reed–Muller cyclic windows and ordered first-order binary Reed–Muller enumerators",
+          "Primary literature search: natural-order first-order Reed–Muller, Walsh sequency and zero runs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier b=2 enumeration gives exact interior and shared-endpoint multiplicities for all m. Later record 0fd3d918ba43 describes the run count determining the run multiset and is not evidence of earlier priority."
+        ],
+        "reasoning": "No static joint table is needed: the earlier exact symbolic b=2 census plus its run parametrization provides the full counts. W_1 separates the apparent constant-word collision at W_2=N.",
+        "searches": [
+          "Resultary ordered first-order Reed–Muller cyclic window-weight spectra: 4ba592bdb146 and 0fd3d918ba43",
+          "4ba592bdb146, Proof step 4 (b=2 enumeration)"
+        ]
+      },
+      "rationale": "The earlier ordered RM(1,m) result is not merely a list of independent marginals. Its proof fixes a parameter pair for each word, gives that word's weight simultaneously for every window length, and counts exactly the words with each pair. Its steps 1–3 already contain the same run law and parameter multiplicities. Its step 4 also identifies adjacent endpoint overlaps at b=2. For nonconstant words, W_2−N/2=H−j, so a value in the interior of one dyadic interval determines (H,j) uniquely. At an overlap, (H,H/2) and (H/2,0) both give H/2 runs of length 2B and hence the identical whole vector. The constants are distinguished by W_1. Thus (W_1,W_2) determines the full vector and the frozen counts and multiplicities follow directly from the earlier result. This is established prior coverage by implication even though the earlier headline is about marginal enumerators.",
+      "residual_risks": [
+        "Search coverage is bounded. The strength of this rejection does not depend on whether an even earlier Walsh- or coding-theory source exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the run law and joint classification by direct implication",
+          "evidence": "Wordwise F_{m,b}, both run lengths and multiplicities, and exact adjacent-interval endpoint overlaps at b=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof steps 1–4; text offset 0–5105",
+          "method": "Published record text and parameter-by-parameter proof comparison",
+          "title": "Complete cyclic window-weight enumerators of ordered first-order binary Reed–Muller codes",
+          "trigger": "Strong earlier catalogue match"
+        },
+        {
+          "assessment": "Overlapping, later record, not used for priority",
+          "evidence": "Full run multiset is determined by run count; spectra and multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-b-symbol-spectra-of-lexicographically-ordered-first-ord--0fd3d918ba43/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–8248",
+          "method": "Published record text",
+          "title": "Complete b-symbol spectra of lexicographically ordered first-order Reed–Muller codes",
+          "trigger": "Close catalogue match"
+        },
+        {
+          "assessment": "Different code and coordinate order",
+          "evidence": "Cyclic simplex code, length q−1 and primitive-power order.",
+          "identifier_or_url": "arXiv:1911.02184v1",
+          "material_read": "Section 4, Theorem 2, p. 10",
+          "method": "Primary PDF passage",
+          "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+          "trigger": "Related exact symbol-window distributions"
+        },
+        {
+          "assessment": "Covers the general conversion from cyclic zero-run counts to window weight",
+          "evidence": "w_b=n−Σ_{i≥b}(i−b+1)Ψ(0^i).",
+          "identifier_or_url": "arXiv:2109.13764v1",
+          "material_read": "Theorem 2, p. 3, Eq. (1) and ensuing discussion",
+          "method": "Primary PDF passage",
+          "title": "The connections among Hamming metric, b-symbol metric, and r-th generalized Hamming metric",
+          "trigger": "General zero-run formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof step 4",
+        "Resultary 4ba592bdb146, Proof steps 2–4"
+      ],
+      "rationale": "A joint spectrum is a natural object and marginal spectra need not in general determine it. Here the available prior wordwise result is an exception: its b=2 endpoint arithmetic and run law already give the full joint census by direct combination. What remains is an explicit restatement and deduplication, not an independently useful new exact fact under the value standard. No distinct valuable narrower theorem was established for repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

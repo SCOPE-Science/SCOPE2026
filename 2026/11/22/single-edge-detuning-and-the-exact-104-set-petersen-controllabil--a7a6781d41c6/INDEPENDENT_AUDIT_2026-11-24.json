@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:31.351219Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86 and VERIFICATION.md; checker.py inspected, not executed",
+        "Independent replay: python3 /workspace/replay/petersen.py"
+      ],
+      "rationale": "Exact rational reconstruction gives E_2 and E_5 dimensions 5 and 4, and U_2 and U_5 dimensions 4 and 3. For delta=t−1, L(t)=L(1)+delta bb^T. The constant direction and U_2,U_5 are fixed; on the span of the two projections a,c of b the quadratic is lambda^2−(2t+5)lambda+6t+4. Its discriminant is 4t^2−4t+9>0, and evaluating at 0,2,5 excludes all collisions for positive nonunit t. The split block is invisible if S misses T. If S meets T and the restrictions are independent, neither split eigenvector vanishes there. If the restrictions are dependent, the only candidate invisible lines are c−2a and b: the first is orthogonal to b and is not an eigenline of L(1), hence not of L(t); on the second the rank-one update adds only a multiple of b and L(1)b is not parallel to b. These cases establish visibility for every fixed positive nonunit t. Independent rational tests of all 1024 coordinate subsets confirm that injectivity on U_2 implies injectivity on U_5, and that of the 105 rank-four four-sets only {3,7,8,9} misses T. At t=1 the unperturbed PBH ranks apply. The reconstructed count vectors by size 0–10 are [0,0,0,0,104,210,203,120,45,10,1] nonunit and [0,0,0,0,0,162,195,120,45,10,1] unit, giving both polynomials and the sharp minima.",
+      "residual_risks": [
+        "Exact fixed-parameter PBH controllability does not settle control energy near t=1 or one-signal control over an unknown parameter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum eigenspace multiplicity bounds input count; distance regularity at diameter two gives m≥5 at unit weights.",
+          "The generalized Petersen theorem includes the unweighted Petersen graph and constructs a minimum consecutive-outer set; it does not list all sets or permit one detuned conductance."
+        ],
+        "reasoning": "The known stronger unweighted family result covers the t=1 minimum, not the unit all-set census or the nonunit criterion and counts.",
+        "searches": [
+          "Yuan et al. Nature Communications 4:2447, p. 3, eqs. 3–4",
+          "Zhang–Camlibel–Cao CDC-ECC 2011, Theorem 1",
+          "Resultary 5e26f62694e6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a7a6781d41c6, 5e26f62694e6, 30587e524e61, 64180d9dff2f",
+        "Yuan et al. 2013; Zhang–Camlibel–Cao 2011; arXiv:1403.4868; Farrugia–Sciriha repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known general multiplicity and diameter bounds supply cardinality constraints, not PBH ranks of all restrictions or their implications.",
+          "The available Farrugia–Sciriha abstract specifies adjacency/signless Laplacian criteria and a leader/follower formulation; it does not advertise the specified weighted combinatorial-Laplacian census."
+        ],
+        "reasoning": "Neither the general PBH machinery nor knowledge of the sharp unweighted minimum settles the nonunit no-resonance statement, the invisibility cases, the simultaneous restriction-rank implication or the resulting enumerators.",
+        "searches": [
+          "Yuan et al., eqs. 3–4; Zhang–Camlibel–Cao, Theorem 1; Resultary 5e26f62694e6; Farrugia–Sciriha repository abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit a7a6781d41c6 is the target itself.",
+          "The same-day cube result 64180d9dff2f has a parameter-stable class of 16 actuator pairs on Q_3, not placements on the Petersen graph.",
+          "Zero-forcing equivalence uses controllability for every matrix of a qualitative class, not this specified family of weighted Laplacians."
+        ],
+        "reasoning": "GP(5,2) is the Petersen graph, but not the cube or a complete bipartite graph; the fixed weighted combinatorial Laplacian condition cannot be identified with strong structural controllability across a qualitative class.",
+        "searches": [
+          "Resultary: Petersen/generalized-Petersen coordinate actuators and one-link-detuned controllability polynomials",
+          "Web: single-edge weighted Petersen Laplacian PBH actuator sets",
+          "arXiv:1403.4868, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact all-subset polynomial exists for a single-link defect of complete bipartite graphs, a different family.",
+          "The same-day three-cube record enumerates pairs for that graph; the exact Petersen 104-set match in the inspected catalog was the target."
+        ],
+        "reasoning": "The exact enumerators in those comparators do not enumerate subsets of the labelled Petersen graph.",
+        "searches": [
+          "Resultary: weighted Petersen 104 four-actuator sets and single-link exact actuator polynomials",
+          "Resultary 30587e524e61 and 64180d9dff2f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact coordinate-placement classification and enumerators, with an identical placement criterion throughout the positive nonunit regime. The unweighted minimum of five and the general multiplicity bound are already covered and receive no separate originality credit. Among the inspected claims none gives the full unit census or the positive-nonunit Petersen result.",
+      "residual_risks": [
+        "Farrugia–Sciriha full text remained inaccessible; possible finer overlap beyond the abstract and other unindexed prior work remains open. The focused websearch miss is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the multiplicity lower bound, not a labelled placement census",
+          "evidence": [
+            "Maximum geometric multiplicity, or maximum algebraic multiplicity for symmetric networks, governs the general input count."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/ncomms3447.pdf",
+          "material_read": "p. 3, equations (3)–(4), PDF text offset about 13771",
+          "method": "Primary OA PDF",
+          "title": "Exact controllability of complex networks",
+          "trigger": "General exact control theorem might cover actuator minima"
+        },
+        {
+          "assessment": "Covers a lower bound at unit weights, not all placements or positive detuning",
+          "evidence": [
+            "dm≥n−1 is necessary for distance-regular coupling."
+          ],
+          "identifier_or_url": "https://pure.rug.nl/ws/files/13905758/2011ProcCDCZhang.pdf",
+          "material_read": "Theorem 1, p. 6, PDF text offset about 34683",
+          "method": "Primary OA repository PDF",
+          "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+          "trigger": "Distance-regular diffusion includes the unit Petersen graph"
+        },
+        {
+          "assessment": "Different matrix-family quantifier",
+          "evidence": [
+            "Zero forcing is characterized by control across the graph's qualitative class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+          "material_read": "p. 2, text offset about 14480",
+          "method": "Primary OA PDF",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Possible alternate coordinate-control classification"
+        },
+        {
+          "assessment": "Abstract concerns related placement criteria but not this advertised Laplacian regime; full article scope not resolved",
+          "evidence": [
+            "Abstract expressly names adjacency matrix and signless Laplacian and k-omnicontrollability."
+          ],
+          "identifier_or_url": "https://www.um.edu.mt/library/oar/handle/123456789/28166",
+          "material_read": "Repository abstract and access notice, HTML text offset 400; no full text read",
+          "method": "Lawful OA repository lookup; attached article restricted",
+          "title": "Controllability of undirected graphs",
+          "trigger": "Possible finer leader-set results on undirected graphs"
+        },
+        {
+          "assessment": "Covers the unit minimum only among the enumerated claims",
+          "evidence": [
+            "Constructs minimum consecutive-outer actuators for the unweighted family and attains the multiplicity bound."
+          ],
+          "identifier_or_url": "Resultary 5e26f62694e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Multiplicity-optimal consecutive outer actuators on every generalized Petersen graph",
+          "trigger": "Unweighted GP(5,2) specialization"
+        },
+        {
+          "assessment": "Exact results for different graphs, not competing Petersen enumerators",
+          "evidence": [
+            "Complete bipartite all-subset polynomial; 16 parameter-stable pairs for Q_3 at positive nonunit conductance."
+          ],
+          "identifier_or_url": "Resultary 30587e524e61 and 64180d9dff2f",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror",
+          "title": "Exact actuator-set polynomials for a single-link defect in complete bipartite networks; Parity-rigid two-actuator control of a three-cube with one detuned edge",
+          "trigger": "Exact same perturbation and census style, including a distinct same-day result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "General control bounds and neighboring exact fault enumerators listed above"
+      ],
+      "rationale": "The canonical Petersen graph has highly repeated Laplacian eigenvalues; breaking symmetry at one link naturally raises the question of whether fewer chosen vertices suffice and whether placements change at special weights. The full PBH census answers both, distinguishes 104 placements from the multiplicity prediction alone, and excludes placement transitions anywhere in the positive detuned regime. The explicit finite rank criterion is reusable without computing parameter-dependent eigenvectors.",
+      "residual_risks": [
+        "No extension to other graphs, multiple exceptional conductances or robust energy control was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

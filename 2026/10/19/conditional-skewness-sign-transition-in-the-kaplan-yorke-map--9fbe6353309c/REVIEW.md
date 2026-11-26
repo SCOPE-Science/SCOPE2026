@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reduces all three conditional moments to unique bounded solutions of the doubling-map transfer recurrences. The identity \(\alpha^2Pm_2=v\) cancels the lower-order cubic contributions; the remaining Fourier modes give \(\kappa_3(x)=\frac{3\alpha^5}{4}(\frac1{1-\alpha^3}+\cos(2\pi x))\). The sign-region and identifiability conclusions follow without asymptotics or numerical extrapolation. A standalone exact rational checker confirms the recurrence algebra at signed sample values but is not substituted for proof.
+## correctness
 
-**Originality (PASS, subject to stated bibliography risk).** The closest published same-object research provides the conditional mean and variance only and explicitly excludes higher conditional cumulants. Its equations are even in \(\alpha\) and do not imply the new signed skewness law. Liang's accessible full 2015 treatment develops the transfer operator and information flow, not this conditional third-moment formula. The 1979 original chapter was accessible only at the opening two pages; no claims about its unread pages are made. Targeted literature and published research searches found no stronger equivalent moment theorem; nonappearance is not treated as formal uniqueness proof.
+PASS
 
-**Value (PASS).** This is a natural boundary of second-order inference in a classical chaotic skew product. Positive and negative contractions have identical first and second fiberwise moments but sharply different third-order sign patterns, with a complete and monotone positive-skewness fiber fraction for negative contraction. Two global moments recover the otherwise hidden sign, while positive unconditional cubic moment coexists with negative local cubic moment on most fibers in the negative regime.
+Lebesgue marginal gives equal inverse-branch weights. Writing c=cos(2πx) and P for their averaging operator, the first conditional moment solves m₁=c+αPm₁, hence is c; P kills c and I−αP is invertible. The conditional variance solves v=α²P(c²+v), yielding α²[(1−α²)⁻¹+c]/2. To check the cubic directly rather than subtracting raw polynomials, condition on the previous base point U. The new forcing is c(x) on both branches; after subtracting c(x), the ordinate is α times the old ordinate. Thus κ₃=α³P(κ₃+3cv+c³), with Pc³=0 and P(cv)=α²(1+c)/4. Resolving this equation gives the claimed κ₃, as P kills c on the next iteration. These recursions work in L∞ or L¹ under the stated moment assumptions. The variance has a positive lower bound when α≠0 and vanishes at zero. For negative α the prefactor reverses the inequality; the two zeros pertain to the continuous representative. Arc length gives the increasing proportion with limiting values 0 and 1/3. Integrating the raw profiles yields the stated global moments: the variance gives |α|, the cubic separates its two signs, and α=0 is handled separately. Independent replay, python3 /workspace/frozen_math_replay.py 2, compares direct dyadic-history cubics for ten parameter/base pairs at truncation depth 17, allowing for the discarded tail. This corroborates, but does not prove, the functional identity.
 
-**Limitations.** The base marginal must be Lebesgue and the fiber third moment finite. There is no formula for the full conditional distribution. Later pages of the 1979 original were not accessible, and uncatalogued equivalent results remain a bibliographic risk. Independent review was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established map, transfer operator and exact conditional variance are not the distinct contribution. The inspected prior results leave the conditional cubic unevaluated, including its sign-region measure and the signed identifiability it yields. No stronger evaluated law has been identified in the accessible comparisons.
+
+## value
+
+PASS
+
+The first conditional moment that distinguishes the contraction sign gives a sharp qualitative distinction: all fibers have positive skewness for positive contraction, but a negative contraction has a varying positive minority despite a positive global third moment. The explicit proportion and a minimal pair of global moments recovering the signed parameter make the cubic identity useful as an exact benchmark rather than another unevaluated moment recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

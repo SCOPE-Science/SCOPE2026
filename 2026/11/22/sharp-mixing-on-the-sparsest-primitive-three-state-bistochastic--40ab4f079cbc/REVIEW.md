@@ -1,19 +1,21 @@
-# Review of the minimal-support mixing theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every positive position of a doubly stochastic matrix belongs to a permutation in its Birkhoff support. Two distinct permutations need at least five positions. With exactly five positions they share one position, and their union permits exactly two matchings. The off-diagonal shared-position case is the sole primitive orbit, which gives the parameterization. Direct characteristic expansion yields the displayed quadratic, discriminant and two branches. Strict derivative signs establish the sole minimizer. Cayley--Hamilton and zero-pattern incompatibility establish a nontrivial Jordan block; the generic total-variation asymptotic follows exactly. The included symbolic verification was executed successfully. Finite numerical tests are not the proof of the real-parameter theorem.
+PASS
 
-## Originality
+The frozen spectral formula is mathematically correct: on the sum-zero plane its quadratic is z^2+pz+2p-1; the real-root radius strictly decreases to the discriminant zero and the conjugate radius then strictly increases. At the double eigenvalue, the zeros preclude the scalar-on-the-plane form Pi+lambda(I-Pi), so the nilpotent term is nonzero and the generic n prefactor follows. The repaired claim no longer treats this as an independent optimization. In the repaired theorem Birkhoff support unions have at least five cells unless they are a single permutation. A five-cell union has a shared cell and a unique alternating square; diagonal shared cells give reducibility, whereas the off-diagonal pairs have one orbit, a three-cycle plus a transposition, and the mixture is primitive by the cycle and loop. Writing P=B23 C with C the displayed three-cycle gives P^3=B23 B13 B12 by conjugation and C^3=I. All edge orders are induced by vertex relabelings. Determinants of candidate cubes fix the real parameter via injectivity of x^3, even at p=1/2. In the representative B13 B23 B12, the first diagonal entry exceeds the other two by (1-p)^3; the remaining swap cannot stabilize the matrix since entries (1,2) and (1,3) differ by p(1-p)^2. Thus each labeled sweep has a unique root within the five-entry primitive bistochastic class. The exact rational checker `python3 /workspace/repairs/4/verify.py` passed 9 feasible supports, 6 primitive supports and 114 labeled sweeps; uniqueness over the continuum rests on the proof, not the grid.
 
-PASS relative to inspected evidence, with explicit residual historical uncertainty. The first-public primitive-matrix source gives broad bounds and no minimal-support optimization. The three-transposition quadratic-population return is fully positive and actually isospectral to the cube of the five-transition family, so its collision spectrum is significant prior coverage. Its theorem does not classify the sparsest primitive uniform-stationary one-step kernels or optimize across them. The fully positive heat-sweep has another three-factor design criterion. The exact Birkhoff-coefficient law covers a reduction ingredient, not the spectral optimum. The directed-triangle model has six positive entries and optimizes finite-time variation. A much older equivalent calculation cannot be ruled out by an indexed search alone. The complete public-source and implication comparisons are recorded in the structured audit.
+## originality
 
-## Value
+PASS
 
-PASS. Minimizing the number of possible transitions is a natural sparsity constraint on a finite ergodic process, and five is its exact three-state threshold under a uniform invariant distribution. The sharp optimum and the unavoidable generic polynomial prefactor identify an important distinction between asymptotic spectral efficiency and finite-time performance.
+Frozen originality fails for the central sharp mixing claim as an independent result: the exact matrix cube, not just an isospectral relative, is an already studied sweep. For the heat branch p>1/2 the previously optimized sweep rate gives the one-step optimum by taking cube roots. The earlier population result covers the cubic spectrum for all interior p at the same parameter and the generic Jordan term. The repaired finding instead claims the support threshold and the exhaustive, unique minimum-support cube-root correspondence. That support-constrained inverse problem is not settled by the earlier forward products or general stochastic-root classifications inspected here.
 
-## Scope and limitations
+## value
 
-The theorem does not optimize finite-time total variation, arbitrary three-state chains with more than five transitions, or chains with a nonuniform stationary measure. Historical priority requires further specialist scrutiny, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repair identifies an exact homogeneous realization of a time-ordered heterogeneous triangle sweep, with the smallest possible number of allowed transitions compatible with primitive uniform stationarity. It characterizes every such sparse realization and settles labeled uniqueness, including at singular weight, so a researcher designing or inferring a sparse one-step kernel from these three-step observations can use the exact claim. Value is not assigned to republishing the prior optimal rate or Jordan effect in different units.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

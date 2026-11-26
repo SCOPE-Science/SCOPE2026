@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:32:44.804510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–53",
+        "VERIFICATION.md and both checker sources"
+      ],
+      "rationale": "The ambient metric bounds every skeleton route below by its sum of factor distances. For different moving coordinates, perform the initial coordinate's move to the target vertex first, the vertex-to-vertex moves next, and the move into the terminal interior last. For different underlying edges in the same moving coordinate, a factor shortest path must pass through a vertex, where all other moves can be inserted. On a single edge copy the direct subsegment is shortest: otherwise the factor edge's endpoints could be joined by a shorter route. For two distinct copies of the same geodesic edge of length ℓ, a route must project in the moving coordinate through a departure endpoint and an arrival endpoint. A common endpoint gives the horizontal lower bound s+t or 2ℓ−s−t (attainable while making all other moves there); opposite endpoints require at least ℓ in that projection, no better than the smaller common-endpoint cost. The other projections require their layer distance. Thus the detour is twice the minimum of the four distances of the two arclength positions from the endpoints. For z≥0 it exceeds z exactly when both coordinates are in (z/2,ℓ−z/2), with area (ℓ−z)_+². The b_i(b_i−1) ordered copy pairs, each of mass ℓ²/Λ², give the survival law; vertices are null. Integrating q z^{q−1} against the survival for q>0 yields the stated moment, and the scaled conditional survival is (1−z)² on [0,1]. The positive weights make the downward jumps of the one-sided second derivatives at all positive lengths identifiable. Finally, conditional on a distinct copy pair, at a threshold within x∈[0,ℓ] of the layer distance the ambient horizontal CDF is 2x/ℓ−(x/ℓ)² and the intrinsic horizontal CDF is (x/ℓ)² by two planar triangle area computations. Their difference is zero at the endpoints and elsewhere outside that interval; weighting recovers the exact correction and its strictness condition.",
+      "residual_risks": [
+        "Frozen replay paths are python check_product_detour.py and python check_product_multifactor.py. The recorded 138,064 exact-rational comparisons test sampled coordinates; they are not independent audit reruns or general probability certificates. The universal proof was checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garijo–Márquez–Silveira integrate weighted intrinsic edge-pair distances and give a general algorithm for their scalar mean. Baptista–Kennedy–Mugnolo study intrinsic arclength means, bounds and spectral relations."
+        ],
+        "reasoning": "General algorithms for the mean alone give no tail or coupled difference distribution. Vertex-metric Cartesian additivity does not provide a formula at pairs of interior points in differing layers. The relevant missing step is the global collapse to parallel copies of the same underlying edge, followed by the exact shifted CDFs.",
+        "searches": [
+          "arXiv:2103.11676, equations (3)–(5) and Theorem 3.1",
+          "arXiv:2312.04952, mean-distance definition",
+          "Doyle–Graver, DOI 10.1002/jgt.3190060410"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f7acb75ca8b2 and distinct 2026/11/1 intrinsic-distance records",
+        "arXiv:2103.11676",
+        "arXiv:2312.04952",
+        "Doyle–Graver DOI/OA attempt",
+        "Product-graph source descriptions in the toroidal record, with unfulfilled primary access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The toroidal proof uses same-edge endpoint turning in a two-cycle unit setting. The more general accessible metric-graph primary material treats intrinsic means, and the available catalogue descriptions of product comparators concern vertex distances or eccentricities."
+        ],
+        "reasoning": "The audited result implies the equilateral toroidal correction but not conversely: the latter fixes one edge length, only two layer coordinates in total, and cyclic factors. The extension replaces cyclic geometry by the factor-geodesic endpoint lower bound and covers all types of interior routes in the product. The inspected scalar-mean theorems do not give this signed CDF correction or inverse law. Unavailable product papers were not treated as checked exclusions.",
+        "searches": [
+          "Resultary f7acb75ca8b2, RESULT.md proof and prior work",
+          "arXiv:2103.11676, Theorem 3.1",
+          "Product-graph comparators Cheng–Qiu–Shen (2011), Qiang et al. (2020) cited in the toroidal record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The toroidal result gives P(Δ>z)=(m+n−2)(1−z)²/(4mn) on [0,1] for unit cycles, and its shifted CDF terms P−Q equal −2h(1−h) for the opposite CDF-difference orientation."
+        ],
+        "reasoning": "With two unit cycles, Λ=2mn and the weighted copy count is mn(m+n−2), giving the same coefficient and the same conditional law and layer correction. That equivalence only covers unit cycles; variable edge lengths change the mixture support and give nontrivial knot identification. The catalogue date is not used to settle priority for the special case.",
+        "searches": [
+          "Resultary: continuous mean distance, same-edge Beta detours, layer-shifted CDF correction, weighted all-factor products",
+          "Resultary f7acb75ca8b2, RESULT.md, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records give intrinsic arclength laws or inversion results for specific graph families or short thresholds. The equilateral torus is the exact overlapping detour-family hit."
+        ],
+        "reasoning": "A weighted-star inverse or an intrinsic histogram in isolation does not specify the distribution of an ambient-minus-intrinsic distance comparison under matched sampling. No inspected table recovers the asserted all-factor weighted lengths from detour derivative jumps.",
+        "searches": [
+          "Resultary: exact detour distributions, layer-shifted CDF corrections, weighted product metric tomography",
+          "Distinct 2026/11/1 records on complete bipartite metric graphs, weighted stars, edge-selective short-distance laws, and short-distance geodesic histograms"
+        ]
+      },
+      "rationale": "The distinct supported claim is the joint extension to arbitrary positive geodesic weights and finite numbers of factors, with the full all-threshold detour and CDF correction and an identifiable weighted length spline. The equilateral two-cycle survival, conditional Beta law, and CDF correction are direct overlaps, not new special-case claims here.",
+      "residual_risks": [
+        "Doyle–Graver 1982 and the cited Cheng–Qiu–Shen and Qiang et al. product papers were unavailable in primary full text.",
+        "The frozen record mentions an earlier unit-cycle calculation without identifying it in its references. Its relationship to the structurally equivalent indexed toroidal result is unresolved. No priority is assigned by date alone.",
+        "The searches were bounded; the decision does not preclude differently phrased or unindexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case overlap; general weighted case and chronology of the precursor not established by this record",
+          "evidence": [
+            "Unit C_m × C_n survival coefficient (m+n−2)/(4mn), Beta(1,2) conditional law, and shifted P−Q CDF correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-network-detour-and-distance-laws-for-equilateral-toroidal--f7acb75ca8b2/RESULT.md",
+          "material_read": "Finding offsets 0–4436; proof offsets 4436–8292; prior-work comparison",
+          "method": "Local Resultary search and mirrored RESULT.md passages",
+          "title": "Exact network detour and distance laws for equilateral toroidal grids",
+          "trigger": "Strongest indexed overlap on the detour law and shifted CDF"
+        },
+        {
+          "assessment": "Prior for weighted continuous intrinsic means; not the paired metric comparison in these passages",
+          "evidence": [
+            "Definitions integrate d(p,q) over edge pairs; theorem provides a scalar mean algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.11676",
+          "material_read": "PDF p. 5 equations (3)–(5), p. 6 Theorem 3.1",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Continuous mean distance of a weighted graph",
+          "trigger": "General method for weighted edge-interior distance integrals"
+        },
+        {
+          "assessment": "Intrinsic mean statistic, no coverage of the detour distribution in inspected passages",
+          "evidence": [
+            "ρ(G)=|G|^(−2) times the integral of intrinsic distance over G×G."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.04952",
+          "material_read": "PDF p. 4, arclength mean definition and comparison scope",
+          "method": "Bounded OA primary PDF excerpts",
+          "title": "Mean distance on metric graphs",
+          "trigger": "Metric graph means and geometry"
+        },
+        {
+          "assessment": "Historical exact scope not verified from full text",
+          "evidence": [
+            "1982 mean-distance reference; no readable full-text passage obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+          "material_read": "Bibliographic identification; full text not retrievable",
+          "method": "Lawful DOI/OA lookup",
+          "title": "Mean distance for shapes",
+          "trigger": "Historical continuous-distance context and possible broader example coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Assumptions",
+        "Resultary f7acb75ca8b2 restricted geometry"
+      ],
+      "rationale": "The one-skeleton restriction is a natural network-routing constraint. Detecting exactly when it matters transforms a potentially full edge-pair geometric problem into a shape-independent weighted spline; the correction retains layer-distance data and the derivative jumps recover the weighted aggregate length spectrum. For instance, two three-vertex path factors with edge lengths (1,1) and (2,2) have the same detour law and Λ as factors with (1,2) and (1,2); the theorem recovers the aggregate but cannot distinguish those allocations.",
+      "residual_risks": [
+        "Does not infer topology or factor labels, cover nongeodesic edges, or compare ambient volume-uniform sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

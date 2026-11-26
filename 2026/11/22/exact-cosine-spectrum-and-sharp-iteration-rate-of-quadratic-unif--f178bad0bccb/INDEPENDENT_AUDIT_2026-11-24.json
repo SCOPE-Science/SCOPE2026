@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:42.237683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75",
+        "Frozen VERIFICATION.md and spectral_check.py"
+      ],
+      "rationale": "The clamped endpoint rows of the Greville collocation matrix are the endpoint coordinate rows. At the first cell midpoint, writing u=nx, the outer spline is (1−u)^2 and the spline two indices to its right is u²/2; the middle value follows from partition of unity. Thus the first interior row is (1/4,5/8,1/8), with its reflection at the other end. A regular interior cell midpoint has (1/8,3/4,1/8) by the uniform quadratic recurrence. The first and last formulas both apply at n=2. The restricted matrix T on the zero-endpoint coefficients is symmetric with off-diagonal entries 1/8 and diagonal entries 5/8 at both ends, 3/4 elsewhere. Set v_0=−v_1 and v_{n+1}=−v_n, making every row the same three-term stencil. The sin((i−1/2)jπ/n) vectors satisfy both boundary conditions and the recurrence, with distinct eigenvalues (3+cos(jπ/n))/4 for j=1,…,n. They form a basis; their squared norms are n/2 for j<n and n for j=n. Evaluation at the distinct Greville nodes is onto via continuous interpolation, and the coefficient-to-spline map is injective. The n nontrivial eigenfunctions plus the two affine eigenfunctions span the image. Since the restriction on that image is invertible, the ambient space splits into the image and the infinite-dimensional kernel, so this also determines the full complex spectrum. Subtracting Lf leaves zero endpoint samples; the first iterate gives the interior sample coefficients, then m−1 steps apply T. The stated power expansion follows and normalizing by γ_n^(m−1) leaves a nonzero bounded rank-one limit; the lower bound on the sharp rate also follows by testing the leading sine spline. Taylor expansion gives the claimed π²/8 constant. The independent replay python3 /workspace/checks/frozen_math_checks.py 5 uses de Boor evaluation of each proposed coefficient spline, testing 170 modes for n=2,…,18 without calling the supplied basis-code checker.",
+      "residual_risks": [
+        "'Second-largest' refers to the largest eigenvalue below the repeated eigenvalue 1, not the second eigenvalue in a list counted with multiplicity. The operator-norm iteration asymptotic fixes n, and the gap limit lets n grow separately. No uniform-in-n remainder is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 paper reduces general nonzero spectral values to the collocation matrix and proves qualitative spectral bounds and geometric convergence in terms of a spectral parameter; p. 11 specifically leaves the eigenvalues and eigenfunctions undetermined in its account and conjectures the fixed-degree limit.",
+          "The broader partition-of-unity spectrum candidate could not be inspected at full-text level; the exact-title/PII lookup did not identify a lawful alternate."
+        ],
+        "reasoning": "Verified general spectral inclusion and a convergence theorem in terms of an unknown parameter do not give the exact quadratic eigenvalue list or the π²/8 coefficient. Coverage by the inaccessible candidate is neither confirmed nor ruled out.",
+        "searches": [
+          "arXiv:1402.2403v1 pp. 5–7 Theorems 3–4, p. 11 Conjecture 1",
+          "arXiv:1312.5546v1 p. 1",
+          "\"On the spectrum of positive linear operators with a partition of unity property\" S0022247X14011470 Schoenberg eigenvalues preprint PDF Gonska Rasa"
+        ]
+      },
+      "checked_sources": [
+        "Nagler–Cerejeiras–Forster arXiv:1402.2403v1",
+        "Nagler–Kähler arXiv:1312.5546v1",
+        "Resultary index and local mirror Findings 984e83e290bd and f4ef6a89f29b",
+        "ScienceDirect PII S0022247X14011470 (identification only, full text not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first line of Conjecture 1 concerns γ tending to 1 for each fixed degree as the number of subintervals grows; its separate fixed-mesh limit lets the degree grow. The 2014 rate theorem supplies neither the exact γ in degree two nor a sharp rescaled gap.",
+          "An exact result for the cubic top eigenvalue does not solve even the quadratic top problem; the outlier work considers the opposite edge of the cubic spectrum."
+        ],
+        "reasoning": "The established collocation reduction is credited as prior. The precise boundary block and its diagonalization supply quantitative information beyond that reduction. The frozen theorem establishes only the degree-two uniform-mesh instance of the first limit and the stronger exact data for that case.",
+        "searches": [
+          "arXiv:1402.2403v1 pp. 5–7 finite-matrix reduction and convergence theorem; p. 11 Conjecture 1",
+          "Resultary 984e83e290bd and f4ef6a89f29b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent finite formulation is an anti-reflecting midpoint tridiagonal block, not just a Toeplitz matrix with unchanged endpoints. Nagler–Cerejeiras–Forster identify the general collocation matrix, but the inspected passage uses Gershgorin rather than identifying and diagonalizing this block.",
+          "The distinct exact Perron quantization record 984e83e290bd instead uses a tangent equation for degree three and gets leading gap coefficient π²/6."
+        ],
+        "reasoning": "A classical tridiagonal eigenvalue list is not by itself a prior identification of this operator with the appropriate boundary stencil. The cubic relation cannot give the degree-two spectrum by parameter renaming.",
+        "searches": [
+          "uniform Schoenberg operator exact eigenvalues spectrum cosine quadratic Greville spectral gap fixed degree convergence",
+          "Resultary: clamped uniform quadratic Schoenberg–Greville cosine spectrum and sharp fixed-degree spectral gap",
+          "arXiv:1402.2403v1 pp. 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top indexed exact match is the identical frozen item. The distinct exact cubic Perron and boundary-outlier Findings (984e83e290bd, f4ef6a89f29b) concern a tangent-root top eigenvalue and localized low modes, respectively, in degree three."
+        ],
+        "reasoning": "Neither distinct source tabulates the quadratic cosine list or half-grid eigenfunctions. Their same-day dates are not grounds to dismiss them; the degree, boundary problem and claimed spectral data differ.",
+        "searches": [
+          "Resultary: clamped uniform quadratic Schoenberg–Greville cosine spectrum and sharp fixed-degree spectral gap",
+          "uniform Schoenberg operator exact eigenvalues spectrum cosine quadratic Greville spectral gap fixed degree convergence"
+        ]
+      },
+      "rationale": "The finite collocation reduction and abstract geometric convergence are known, and the sine diagonalization of a constant-coefficient stencil is standard. What survives the inspected comparisons is the specific clamped quadratic operator identification, including its boundary entries, exact eigenvalues and eigenfunctions, and the sharp degree-two gap coefficient. The related exact cubic findings do not give these quadratic statements.",
+      "residual_risks": [
+        "The partition-of-unity spectrum candidate remains an unresolved access risk. An exact computation in earlier spline literature or stronger later quantitative gap theorem may remain; the assessment is about the inspected sources, not exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior reduction and qualitative convergence, not the frozen exact degree-two data",
+          "evidence": [
+            "Nonzero operator eigenvalues are matrix eigenvalues; Gershgorin controls their location. Theorem 4 is geometric convergence using spectral data; p. 11 explicitly separates fixed-degree and fixed-mesh conjectural limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2403v1",
+          "material_read": "pp. 5–6 collocation reduction and containment; p. 7 Theorem 4; p. 11 Conjecture 1",
+          "method": "OA PDF passage comparison of operator, spectral results and asymptotic quantifiers",
+          "title": "Lower bounds for the approximation with variation-diminishing splines",
+          "trigger": "Same operator family, general spectral reduction and the quoted conjecture"
+        },
+        {
+          "assessment": "The inspected passage addresses approximation bounds, not the exact quadratic spectrum; no whole-paper exclusion inferred from it",
+          "evidence": [
+            "The stated focus is lower approximation bounds and iterative properties for equidistant knots."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.5546v1",
+          "material_read": "p. 1 description of equidistant-knot approximation and iteration objectives",
+          "method": "Compare OA PDF introductory passage to exact list and spectral-rate claim",
+          "title": "A lower bound for the uniform Schoenberg operator",
+          "trigger": "Earlier treatment of uniform operators and iterates"
+        },
+        {
+          "assessment": "Unresolved candidate, not evidence of noncoverage or coverage",
+          "evidence": [
+            "No theorem statement was verified from this hit."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X14011470",
+          "material_read": "Title/search identification only; no full-text conclusions read",
+          "method": "OA access attempt returned HTTP 403; targeted alternate-copy lookup returned no source",
+          "title": "On the spectrum of positive linear operators with a partition of unity property",
+          "trigger": "Potential broader covering spectral theorem"
+        },
+        {
+          "assessment": "Exact cubic top nontrivial eigenvalue but not the quadratic spectrum",
+          "evidence": [
+            "Uses a tangent-equation root and gives a cubic gap expansion with leading coefficient π²/6 and an n^−5 correction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-perron-quantization-and-a-boundary-correction-for-cubic-sc--984e83e290bd",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror, compare degree, quantization equation, number of eigenvalues and gap coefficient",
+          "title": "Exact Perron quantization and a boundary correction for cubic Schoenberg splines",
+          "trigger": "Strongest indexed same-family exact rate"
+        },
+        {
+          "assessment": "Cubic low outliers and localized modes, not complete quadratic eigenvalues or the quadratic iteration rate",
+          "evidence": [
+            "The claim concerns low spectral boundary modes in degree three."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-boundary-spectral-outliers-in-cubic-schoenberg-greville-averagin--f4ef6a89f29b",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror, compare spectral location and degree",
+          "title": "Boundary spectral outliers in cubic Schoenberg–Greville averaging",
+          "trigger": "Closest other indexed clamped spectral boundary comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–14, 34–40, 65–75",
+        "Nagler–Cerejeiras–Forster arXiv:1402.2403v1 p. 11 Conjecture 1"
+      ],
+      "rationale": "A fixed-degree fine-mesh spectral question for this natural positive spline operator was explicitly posed independently of the computation. The exact quadratic spectrum explains both iterates on fixed meshes and the sharp shrinking-gap constant, and supplies actual spline modes rather than a numerical range. This is useful in choosing and interpreting iteration scales and goes beyond the qualitative limit or a generic stencil calculation.",
+      "residual_risks": [
+        "The value is for uniform clamped quadratic splines. It does not rely on claims for other degrees, irregular meshes, or joint degree-and-mesh limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

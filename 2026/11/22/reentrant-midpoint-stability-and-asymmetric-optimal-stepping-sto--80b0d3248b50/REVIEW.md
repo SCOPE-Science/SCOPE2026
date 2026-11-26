@@ -1,24 +1,21 @@
-# Scientific review: Reentrant midpoint stability and asymmetric optimal stepping-stone placement for two dispersal scales
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one- and two-species functions are explicitly normalized in `RESULT.md`. A symmetric squared-coordinate reduction proves the exact derivative; exact polynomial root isolation gives three sharp midpoint-stability reversals and four open phases. At length \(L=14\), Descartes' rule, integer-bracketed roots and a strict exact rational comparison prove that the locally preferred central site is beaten by precisely two reflected global sites. `CHECK.py` passed 1,169 supplementary assertions. No finite enumeration is used to claim a continuum proof.
+PASS
 
-## Originality — PASS on inspected material
+Independence within each two-hop journey gives the stated product. For h=L/2, u=(x-h)^2 and b=ell^2, the stage-denominator product apart from a constant is D_b=(u+b-h^2)^2+4bh^2, positive on the whole feasible interval. Its one-scale minimizer is max(0,h^2-b), including the strict quartic central optimum at equality. With two scales the derivative of the log-loss in u has the sign of (u+1-h^2)D_100+9(u+100-h^2)D_1. At u=0 this is exactly the stability cubic in h^2; the three disjoint exact sign brackets exhaust its roots and give the alternating nondegenerate types stated. At h=7 the numerator instead is the stated H(u): two simple positive roots are bracketed and exhaust the positive roots by Descartes' rule. The log-loss has derivative signs +,-,+ in u and the endpoints u=49 are not minima. The rational product comparison at x=1 strictly beats the midpoint; only the two reflected minima then remain, tied by symmetry. The integer signs, coefficients, root isolation, denominator comparison and reported locations were recomputed independently. No claim about the three degenerate boundary lengths is needed.
 
-The main prior coverage risk is Hodgson et al. (2012), who explicitly optimize stepping-stone positions for population range-shift speed; their objective, kernel and population dynamics differ from the present two-stage multi-species survival objective. Gracanin and Mikac (2023) study multi-species corridor suitability; Saura, Bodin and Fortin (2013) study stepping-stone routes and range expansion; Melià et al. (2016) use multi-species connectivity aggregation. Nearest published mathematical records concern Perron spectra under exponential transport and habitat-area allocation rather than this objective. Actual query comparisons and source inspections are recorded in `AUDIT.json`. A more general prior theorem not located in the searches remains possible; no exhaustive novelty certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Simultaneous connectivity planning for differently mobile species naturally uses a multi-species tradeoff. The difference between **local** midpoint stability and **global** passage success is a substantial design warning, while three reversals as the separation changes are an exact structural phase classification. A one-species comparison proves this effect cannot occur for just one dispersal scale. No unmeasured ecological benefit, all-distance global phase diagram, or independent validation is claimed.
+The supported distinct finding is the two-scale two-hop three-switch local stability law and the coexisting strictly inferior local midpoint at L=14. A same-day sibling supplies the one-scale two-hop comparison and demonstrates asymmetric placement on a longer, three-hop route. It does not prove the mixed-scale effect. Ecological midpoint placement and geometric averaging both have precedents.
 
-## Sources and scientific limitations
+## value
 
-- Gracanin and Mikac (2023), https://doi.org/10.1007/s10980-023-01628-8, first public 2023-03-15; motivating multi-species corridor study.
-- Hodgson et al. (2012), https://doi.org/10.1371/journal.pone.0047141; closest single-species stepping-stone positioning study, different population-dynamic objective.
-- Saura, Bodin and Fortin (2013), https://doi.org/10.1111/1365-2664.12179; network dispersal and range expansion, not equivalent two-stage kernel.
-- Melià et al. (2016), https://doi.org/10.1038/srep23705; multi-species geometric aggregation of connectivity metrics.
+PASS
 
-The fixed log-logistic tail and weights are deliberately stylized; the model ignores patch area, costs, alternative routes, environmental forcing and actual metapopulation viability. Public article access and historical novelty checks remain incomplete outside the inspected materials.
+This is a motivated minimal placement problem with competing dispersal scales. It proves both multiple losses and returns of local stability and a strict disagreement between the midpoint test and global design, excluding the latter mechanism for the one-scale control. The exact global example with a strict certificate is useful beyond a plot of changing curvature; the finding does not depend on a purported ecological effect size.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

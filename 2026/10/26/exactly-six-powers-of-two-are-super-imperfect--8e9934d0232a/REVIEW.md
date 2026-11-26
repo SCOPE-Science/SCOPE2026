@@ -1,15 +1,21 @@
-# Self-review of the powers-of-two super-imperfect classification
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof's first lemma identifies odd inputs with power-of-two \(\beta\)-values by inspecting every prime-power exponent; the key valuation identity for the geometric factor follows from \(p^2\equiv1\pmod8\). Thus the iteration equation forces the exact Fermat-index set encoded by the binary digits of \(a-1\). Two exhaustive arguments settle the parity split: a mod-sixteen contradiction for every even \(a\ge4\), and a first-omitted-bit congruence modulo \(2^{2^j+1}\) for all non-special odd exponents. The remaining Fermat primality and factorization statements are directly checkable. The verifier supplies additional finite checks, but the logical proof itself covers all positive exponents.
+## correctness
 
-## Originality (PASS, within inspected evidence)
-Tóth's arXiv:1111.4842v1 Sections 7–8 establish only the special-exponent family \(a=2^k-1\), and OEIS A200758 lists the known cases. Neither inspected source proves that an arbitrary positive exponent outside that special family is impossible. Equivalent square-totient terminology, broader iterate inequalities, Fermat number reductions, and indexed research records were searched; none returned an applicable all-exponent classification. An unindexed earlier converse remains a publication-priority risk.
+PASS
 
-## Value (PASS)
-The statement answers a natural infinite restricted case of Tóth's open problem, proving there are no other super-imperfect powers of two. Unlike a finite computation or a new list of examples, this is a complete necessity-and-sufficiency classification, based on the structure of prime-power \(\beta\)-values and binary congruences.
+For odd B, multiplicativity forces each beta(p^e) to be a power of two. Even e gives an odd integer greater than one. For odd e=2t+1 the geometric factor in beta(p^e) has 2-adic valuation v2(t+1), by repeatedly halving its geometric length and using p^2=1 mod 8. If t>0 the factor exceeds t+1, so it is not a power of two. Thus B is a squarefree product of Fermat primes, with the indices forced by the set bits of a-1. For even a>=4, beta(2^a) is 11 mod 16 while the prescribed product is 3 or 15. For odd a>1, at the first omitted index j below the top digit, beta(2^a) is -1/3 modulo 2^(2^j+1); the forced product is the prefix without F_j, which differs from -1/3 by an odd multiple of 2^(2^j). This forces a=2^k-1. The product then is F_1 through F_(k-1); pairwise coprimality and composite F_5 exclude every k>=6, irrespective of later Fermat primes. Independently checked primality by trial division of each F_0 through F_4 up to its square root, the exact factorization F_5=641*6700417, and the two iterates for all asserted exponents, including 31. The frozen finite script, inspected but not executed, is corroboration rather than the exclusion proof.
 
-## Scope and limits
-No claim is made for inputs that are not powers of two. The classification has not been independently audited. Reference material: Tóth, arXiv:1111.4842v1; OEIS A200758; prime-power arithmetic and the explicit compositeness of \(F_5\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six examples and the theorem restricted to a=2^k-1 are prior. The distinct contribution supported by the inspected sources is the unrestricted converse for powers of two. A later-dated catalogue record explicitly subsumes it; this overlap is credited, without making a publication-priority claim from catalogue dates alone.
+
+## value
+
+PASS
+
+The powers-of-two subfamily is the natural home of all the known examples. Excluding every other exponent is an exact infinite classification that is useful independently of the open general problem. The first-missing-bit obstruction explains why the known Fermat-prefix construction is forced, rather than simply extending a numerical search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

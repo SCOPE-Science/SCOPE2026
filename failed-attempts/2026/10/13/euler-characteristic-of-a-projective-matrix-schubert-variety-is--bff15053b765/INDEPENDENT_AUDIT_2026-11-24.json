@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:20.803721Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The row-and-column weights in RESULT.md are pairwise distinct, so the projective fixed locus consists exactly of the coordinate lines lying in the variety. For E_ij every northwest rank is 0 except those in the southeast quadrant of (i,j), where it is 1. Monotonicity of the rank bounds makes membership equivalent to r_w(i,j)>0, or i>=m_j. The complex-algebraic torus identity for compactly supported Euler characteristic applies without a smoothness assumption; projectivity identifies this with ordinary topological Euler characteristic. The j-th summand ranges from j to n: equality in all lower bounds forces the first j values to be the j largest for each j, and equality in all upper bounds is equivalent to w(1)=1. This includes n=1 and gives 9 for 132, whose only nonautomatic condition is the northwest 2-by-2 determinant. The frozen artifacts/verify.py checks membership and the extremal statements for n<=7, not the torus identity. The decision rests on the all-n proof, not on executing the uploaded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both indexed proofs explicitly state the general chi_c(Y)=chi_c(Y^{C*}) identity for complex algebraic C*-varieties. The permanental proof uses the same row-plus-column weight action and single-entry matrices as coordinate fixed points.",
+          "Brion's localization theorem provides general background under its stated equivariant embedding hypotheses; it is not being used as a verbatim proclamation of the Schubert formula."
+        ],
+        "reasoning": "The general Euler identity gives the count of surviving coordinate points for any invariant projective subvariety in pairwise distinct coordinate weights. The higher minors cannot affect these points; only the prescribed rank-zero submatrices can.",
+        "searches": [
+          "arXiv:math/9802063, Brion, Theorem 3",
+          "Resultary permanental record 3bf84398a9a2 and type-A quiver record d4e8176110ce, Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and artifacts/verify.py",
+        "Knutson–Miller arXiv:math/0110058",
+        "Brion arXiv:math/9802063",
+        "Resultary records 3bf84398a9a2, d4e8176110ce and b13467fc6f51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use the distinct row-plus-column weights from the permanental proof on the row/column invariant Schubert cone. The general torus Euler formula gives one unit for each surviving [E_ij].",
+          "Applying the northwest inequalities to E_ij excludes it precisely when r_w(i,j)=0; the count then follows columnwise with no rank computation beyond the zero pattern."
+        ],
+        "reasoning": "The conjunction of these established ingredients directly implies the whole Euler formula, and elementary bounds for a minimum in a prefix give all the claimed extremizers. The other indexed varieties' particular numerical conclusions are not themselves being asserted to imply the formula.",
+        "searches": [
+          "Knutson–Miller, Definition 1.3.2 and row/column rescaling discussion",
+          "Resultary permanental record 3bf84398a9a2, Proof offsets 1990–3313",
+          "Resultary type-A quiver record d4e8176110ce, Proof offsets 2930–3990"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knutson–Miller use northwest ranks of the transpose permutation matrix. The zeros in column j of this rank matrix are exactly the positions i<m_j.",
+          "The indexed type-A quiver record computes Euler characteristic from a different support pattern (r_{i,i+1}>0); it does not identify its statistic with a permutation rank support."
+        ],
+        "reasoning": "Positive-rank count, allowed coordinate axes, and the prefix-minimum sum are three forms of the same statement. This is not a calculation on the flag Schubert variety or an equality with the matrix Schubert dimension.",
+        "searches": [
+          "Resultary semantic comparison: projective matrix Schubert varieties, Euler characteristic, positive northwest rank entries and left-to-right minima",
+          "Knutson–Miller, arXiv:math/0110058, Definition 1.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest returned indexed comparisons were the quiver, permanental and principal-minor formulas on different varieties, rather than a permutation-indexed Euler table or the same formula.",
+          "Knutson–Miller explicitly record the variety for w=132 but not its projective Euler value there."
+        ],
+        "reasoning": "This is a uniform formula, not an invariant for one benchmark with a known numerical database. No exact matching table or literal formula was identified in the comparisons, but that does not defeat coverage by implication. No priority is inferred from the date of the principal-minor record.",
+        "searches": [
+          "Resultary semantic comparison: projective matrix Schubert Euler characteristic and prefix minima",
+          "Knutson–Miller, Example 1.3.4",
+          "Resultary principal-minor record b13467fc6f51"
+        ]
+      },
+      "rationale": "The literal prefix-minimum statement was not located as a separate prior theorem. However, it is a mechanical consequence of the existing projective coordinate fixed-point calculation and the published northwest rank definition; the conversion to prefix minima, extremizers, and example require no intervening structural theorem. This is coverage by implication, not a claim of verbatim prior publication.",
+      "residual_risks": [
+        "Search was not exhaustive and did not establish whether the literal prefix-minimum wording is older. The failure rests on the direct implication, not on a presumed matching publication or negative search result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact hypotheses and elementary input, not an explicit projective Euler computation in these passages",
+          "evidence": [
+            "Northwest rank is bounded by the corresponding block rank of w^T; Example 1.3.4 is the northwest 2-by-2 rank-one condition; row/column rescaling preserves the variety."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0110058",
+          "material_read": "Definition 1.3.2 and Example 1.3.4 (p. 11), and row/column invariance discussion at p. 31",
+          "method": "Original OA paper, bounded passage inspection",
+          "title": "Gröbner geometry of Schubert polynomials",
+          "trigger": "Primary definition and w=132 example"
+        },
+        {
+          "assessment": "General localization background; its specific embedding hypothesis is not silently dropped",
+          "evidence": [
+            "Restriction in equivariant cohomology to fixed points is an isomorphism after inversion of finitely many nontrivial characters under the theorem's hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/9802063",
+          "material_read": "Theorem 3, p. 9",
+          "method": "Original OA paper, bounded passage inspection",
+          "title": "Equivariant cohomology and equivariant intersection theory",
+          "trigger": "General torus localization"
+        },
+        {
+          "assessment": "Distinct variety; supplies the immediately applicable general method and identity",
+          "evidence": [
+            "Every coordinate point survives for minors replaced by permanents of order at least 2; the proof explicitly gives the general compactly supported Euler identity before concluding mn."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-every-nontrivial-permanental-variety-has-ambient-euler-character--3bf84398a9a2/RESULT.md",
+          "material_read": "Proof, offsets 1990–3313",
+          "method": "Indexed record, bounded original passage",
+          "title": "Every nontrivial permanental variety has ambient Euler characteristic",
+          "trigger": "Same ambient row/column weights and fixed-point count"
+        },
+        {
+          "assessment": "Different object and formula; another instance of the same general coordinate-support mechanism",
+          "evidence": [
+            "Only one arrow has rank one at a coordinate point; the count is the sum of d_i d_{i+1} for positive single-arrow rank bounds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-euler-characteristic-of-projective-type-a-quiver-loci-ignores-hi--d4e8176110ce/RESULT.md",
+          "material_read": "Finding and Proof, in particular offsets 2930–3990",
+          "method": "Indexed record, bounded original passage",
+          "title": "Euler characteristic of projective type-A quiver loci ignores higher rank conditions",
+          "trigger": "Euler count of the support of a projectivized rank-defined cone"
+        },
+        {
+          "assessment": "Different variety; no priority inference",
+          "evidence": [
+            "All 2^n tensor-coordinate fixed points belong to that variety."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-projective-principal-minor-variety-has-ambient-euler-charact--b13467fc6f51/RESULT.md",
+          "material_read": "Finding and proof at approximately offset 2694",
+          "method": "Indexed record, bounded original passage",
+          "title": "The projective principal-minor variety has ambient Euler characteristic",
+          "trigger": "Same-day indexed Euler formula in tensor coordinates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The object and invariant are natural and the formula is a useful expository example. As a standalone result, however, a standard fixed-point rule and the defining rank conditions reduce the invariant immediately to counting permitted coordinates. The bounds, extremizers and 132 example are elementary evaluations of that count. There is no distinct surviving nonmechanical claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the quartic root-sampling finding
+# Independent mathematical audit
 
-## Correctness
-PASS. The addition theorem identifies the normalized Gram entry with the quartic zonal polynomial. The harmonic projection was independently derived from the Laplacian and compared to the Gegenbauer recurrence. The complete-graph unsigned incidence matrix proves the Johnson eigenspace dimensions and all three exact rational eigenvalues. Their signs, all lower-sector transitions, the sharp dimension-uniform bounds, and the three equiangular dimensions follow from explicit polynomial factorizations, not sampled extrapolation. The standalone exact-rational checker passed tests for dimensions 4 through 25, including direct complete Gram matrices through dimension 12. It supports but does not replace the universal proof.
+## correctness
 
-## Originality
-PASS with bounded historical-priority risk. The closest published fixed-rank root sampling spectra, covering type-\(A_4\) and type-\(A_5\), do not give the variable-rank result. The closest uniform-rank simplex-root result concerns odd harmonic degrees three and five, and its two-level signed-incidence argument does not cover even quartics and three Johnson sectors. Other published type-\(D\) quartic spectra concern different root vectors. The Zandieh–Han–Avron reconstruction paper and Mohammadpour–Waldron group-orbit design paper do not report the present evaluated type-\(A\) quartic spectrum. Harmonic-index design and Johnson graph results provide classical machinery, not a published stronger coverage of the claimed dimensions. An unindexed older equivalent association-scheme table is possible; this is not independent priority certification.
+PASS
 
-## Value
-PASS. The positive type-\(A\) root orbit is a canonical high-symmetry family for sampling exact-degree spherical harmonics. The theorem gives every sharp interpolation-energy bound for every rank, an exact global minimum, and two symmetry-sector bottleneck changes. The equiangular classification is a natural and independent geometric question because distinct root pairs have exactly two inner-product classes: the degree-four harmonic embedding identifies those classes in precisely three ranks, including a 210-point Gram matrix with a 209-dimensional degenerate eigenspace. These are structural classifications, not just a finite numerical recomputation or a small gain in a bound.
+In ambient dimension n−1, solving the axis-invariant degree-four harmonicity equations and normalizing at the axis gives P(t)=[(n+1)(n+3)t⁴−6(n+1)t²+3]/[n(n−2)]. The addition theorem with probability measure and h_n^−1/2 evaluation gives this polynomial as the Gram entry, with diagonal 1. Distinct roots give only 0 and ±1/2; evenness and the unsigned incidence identities CᵀC=2I+A and CCᵀ=(n−2)I+J give the constant, standard, and complementary sectors of dimensions 1,n−1,N−n and the three stated rational eigenvalues. They are all positive (including n=4), so the map onto the data is surjective, not necessarily injective on harmonic coefficients. I independently obtained all eigenvalue differences and verified the forward difference of the standard eigenvalue: its numerator is negative at 5 and 6, positive at 7, and after translating n=7+s all its coefficients are positive for s≥0. The constant eigenvalue increases, the two-row one decreases to 7/8, and the pairwise differences certify the minima and the two ties. There are both incident and disjoint pairs even at n=4, so equiangularity is exactly (a−b)(a+b)=0; the factors (n−21)(n+1) and (n−15)(n−5) give the only three dimensions. At n=21 the off-diagonal inner products are +1/133, giving the printed rank-one update and multiplicity 209. Independent symbolic replay: harmonic() in /workspace/calculations/algebra_checks.py. The supplied finite test code was inspected but not executed; in particular one checked four-cycle on each chosen four-set need not be an exhaustive basis (already at n=4), whereas the incidence proof gives the full multiplicity. No assertion of an optimal equiangular packing or unnormalized norm bound is needed.
 
-## Closest literature and limitations
-See the referenced 2022 harmonic sampling work, the 2023 finite-group orbit design work, classical Johnson-graph theory, and the inspected fixed-rank and odd-degree root studies. The theorem is only about exact degree four and does not establish optimal spherical packing or full-domain harmonic reconstruction. Historical novelty has not received independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The diagonalization mechanism is classical and the earlier indexed A₄ and A₅ results already give the exact n=5 and n=6 spectra, including the n=5 equiangular correlations. The PASS is for the combination of the all-rank quartic analysis, sharp least-sector/bound classification, and completeness of the quartic-kernel equiangular cases, including n=15 and 21. It is not for rediscovering either fixed-rank spectrum, for new Johnson graph spectral theory, or for generic constructions of equiangular lines.
+
+## value
+
+PASS
+
+Unlike a new computation of generic Johnson eigenvalues, this gives the sharp normalized interpolation cost on a natural all-rank root configuration and explicitly identifies which symmetry sector limits conditioning and when. It also completely determines when the two root-pair types become equiangular in this specific harmonic embedding, including the all-positive 210-line case. The useful content is the joint exact behavior across ranks, not the two known low-rank examples or a generic Seidel sign pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

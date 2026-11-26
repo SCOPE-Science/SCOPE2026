@@ -1,24 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem specifies unordered distinct graph points, pairwise vertex-disjoint unoriented simple cycles, each-cycle length cutoff, and integral top homology. The standalone standard-library verifier reconstructs all 1,168 cycles and 56 eligible triples, each of whose exact signed local chain products is closed. Its complete mod-two reduction has rank 9,094 out of 9,120 degree-three columns, while the 26 natural generators have an integral determinant-one minor, establishing the exact free rank 26 and primitive full generation. A separate 20-by-20 unit minor proves the face lattice is primitive. Every octagon triple is checked equal to an integral two-term face-torus combination in all 9,120 coordinates. The weight-three reduced chain model uses An–Drummond-Cole–Knudsen's proven comparison. The binary rank is used only as a rational rank bound, not as an integral saturation certificate.
+PASS
 
-## Originality (O): PASS relative to inspected evidence
+Independent replay: python /workspace/review-evidence/3.py. It reconstructs GP(10,2), enumerates every simple cycle via its least edge, verifies girth 5 and 1,168 cycles, and enumerates all relevant vertex-disjoint triples: no cycle over length 10 fits alongside two cycles of length at least 5. The 56 triples split 20/30/6 at maxima 5/8/10. Using a different vertex numbering, consecutive reduced half-edge differences, and signed exterior products, the replay gives 9,120 top chains, 22,800 degree-two chains, 56 zero integer boundaries, binary differential rank 9,094, and unit minors (-1,+1) for the 20 and 26 chosen chains. This gives a rational kernel of dimension 26, and the full unit minor gives an integral coordinate retraction: no finite index remains. Every octagon chain matches a signed pair of distinct pentagon chains in all coordinates; independently, each octagon is the outer boundary of two pentagons sharing an edge, with no new vertices, so this relation is compatible with the other two disjoint cycles. The first 20 elements of the basis span a primitive lattice, leaving a free rank-six quotient. The exhaustive maximum-length list rules out generation at nine as well as eight. The weight-three reduced comparison theorem, its natural embedding maps, and its tensor product on disjoint subgraphs identify the signed cycle products with actual geometric tori of the unordered space, not merely cycles in an arbitrary chain complex. The frozen verifier and output were inspected, not executed.
 
-The published dodecahedral three-particle computation fixes only the *abstract* top group \(\mathbb Z^{26}\), with no product-torus classification. A second published full result analyzes dodecahedral *two*-particle length-specific tori, which cannot determine weight-three homology. The foundational planar graph braid second-homology result has a different homological degree. Detailed searches for triples of pentagons/octagons/decagons, generalized Petersen notation, the 56 triples, lattice primitivity and ten-cycle thresholds returned no stronger same-object theorem. The two closest published texts and the relevant foundational works were compared by statements, not by titles. Indexed search incompleteness and uninspected equivalent work remain risks.
+## originality
 
-## Value (V): PASS
+PASS
 
-The dodecahedron is a canonical Platonic cubic graph; its pentagonal faces and first two longer simple-cycle lengths are a natural geometric hierarchy. The earlier exact rank leaves unresolved whether short geometrically visible cycles supply a *primitive* third-homology lattice. The sharp answer is structurally informative: 30 distinct octagon triples add **no** integral direction, six ten-cycle triples contribute exactly the six missing primitive directions, and 26 explicit disjoint-cycle products provide an integral basis. This is a natural complete integral generation result, not an isolated rank recomputation or a tiny arbitrary parameter improvement.
+The ambient top rank and general chain/geometric-class machinery are known. The distinct contribution is an identified integral basis of product tori and the primitive strict cycle-length filtration up to the sharp threshold, including every octagon relation in this graph. Neither an arbitrary integral nullspace basis nor a two-particle torus lattice computes that filtration.
 
-## Sources and limitations
+## value
 
-- An, Drummond-Cole and Knudsen, arXiv:1708.02351: basis of the homology-computing complex, not its evaluated dodecahedral geometric generators.
-- An and Knudsen, arXiv:2008.10371: second homology of planar graph braid groups, not the degree-three length cutoff.
-- Published 2026-11-08 rank-26 calculation on the same three-point dodecahedral space: previously establishes only ambient rank.
-- Published 2026-10-25 length-pair classification on two-point dodecahedral space: differs in configuration weight and degree.
+PASS
 
-Limits: exact finite graph only; no claims about lower homology, general graphs, homotopy type, or publication priority beyond inspected sources. No independent mathematical validation has been performed.
+The dodecahedral graph and its face loops give a natural geometric filtration of a known configuration-space group. Knowing that face tori already span a primitive rank-20 subgroup, that all allowable octagons add nothing, and that six specific ten-cycle tori supply exactly the missing primitive generators distinguishes geometry and integral structure invisible to the known Betti number. This is an exact usable basis and cutoff, not a repeat of the rank calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument is for the exact mean-field ODE in equation (2.1) of Cao and Gong. Reflecting endpoints, mass conservation, and the deficit-coordinate transformation are explicit. The rank-one first-row linearization gives eigenvalues \(-(1-1/(2k))\) and \(-1\); exact positive left coefficients yield a nonvanishing slow amplitude. The nonlinear error is quadratic and the stable flow is exponentially small, so the logarithmic-amplitude correction is integrable. For more than three opinions, the source at the far extreme is integrable after multiplying by \(e^t\); descending exact integrating-factor identities then give all polynomial powers and factorial coefficients. The three-opinion boundary has nonintegrable resonant forcing and a different exact limit. Exact symbolic Jacobian/remainder checks for five opinion radii and numerical diagnostics for three radii were replayed from the provided verification program. Their finite range is not a substitute for the proof.
+PASS
 
-## Originality
+With N=2k in deficit coordinates, the reduced linearization is upper triangular with diagonal −(1−1/N),−1,…,−1. The positive left eigenvector normalized by c₁=1 has cⱼ=Ncⱼ₋₁+j. Consequently H=c·b is comparable to the mean deficit and |H′+(1−1/N)H|=O(H²). The convergence hypothesis and positivity give an eventual exponential bound from this scalar differential inequality alone, and integration of the logarithmic derivative then proves a finite strictly positive amplitude, not just an upper rate. Neither endpoint can be reached at finite time from a nonendpoint by ODE uniqueness, so both jump rates are positive on any finite interval and a positive mass propagates along each adjacent edge. The exact last-state identity (eᵗb_N)′=eᵗv(b_{N−1}+b_N) supplies positive B, finite when 2(1−1/N)>1. For d≥2 the other integrating factors have derivative eᵗb_{d+1} plus an integrable remainder; successive integrations give the claimed factorials and are o(e^{−(1−1/N)t}). If N=2, the preliminary decay gives b₂=o(e^{−t/2}); substitution into the last-state identity yields a derivative tending to C²/2 and a Cesàro limit. The reflected system has the same normalization. The attained-consensus assumption is essential and is not claimed to classify basins.
 
-PASS with historical-priority uncertainty. Direct inspection of Cao–Gong arXiv:2605.28984, especially (2.1), Proposition 3.2, Theorem 2, Theorem 3 and its Section 4 open questions, finds convergence regions and a weak three-state upper rate, but not exact all-radius decay amplitudes or the polynomial minority cascade. Nearby earlier Cao–Reed (2025) and Cao–Cortez (2025) papers use different opinion update rules. Existing related historical records address the same source's exploration-regularized model and its unstable uniform equilibrium, not the approach to the stable extreme and remote minority hierarchy. The scalar stable eigenvalue is a standard local linearization consequence; the substantive strict positive constants and joint hierarchy are not asserted to be novel in isolation from the complete theorem. Search limitations and the risk of an unidentified general triangular-flow asymptotic theorem remain.
+## originality
 
-## Value
+PASS
 
-PASS. Quantifying convergence for general integer opinion radius is an explicit open mathematical direction in the motivating paper. The theorem distinguishes the aggregate rate of near-consensus disagreement from the faster, polynomially structured survival of more distant opinions. It also discovers a dimension-specific resonance in the three-state model. These are natural observables within the original opinion system, not arbitrary numerical cutoffs or renamed generic bounds.
+The model, a sufficient mean condition and the endpoint eigenvalues are known. The checked material does not already give a positive leading amplitude on every nonstationary trajectory in the assumed basin, the common-amplitude factorial cascade, or its three-opinion nonlinear replacement. An endpoint eigenvalue or coarse exponential bound alone does not imply any of those results.
 
-## Boundaries
+## value
 
-Proven only for deterministic mean-field trajectories actually converging to one extreme, including known sufficient initial-mean basins. No global basin classification, finite-population absorption estimates, or independent scientific audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the full hierarchy of deterministic minority states once extreme consensus is known, including strict nonvanishing of the amplitudes and the distinction between repeated linear modes and a nonlinear resonance. These are observable quantitative features not supplied by a coarse rate bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

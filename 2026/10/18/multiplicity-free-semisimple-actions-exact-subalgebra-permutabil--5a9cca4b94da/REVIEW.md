@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis makes the abelian ideal a multiplicity-free semisimple module; its invariant subspaces are exactly the sums of the distinct simple constituents. Every Lie subalgebra outside that ideal is classified as a coset-parameterized one-dimensional extension of such a sum. The proof disjointly counts ideal–ideal, ideal–exterior, and exterior–exterior permutable ordered pairs. The mixed count follows from a graph-of-linear-maps enumeration, and the exterior–exterior count from the absence of one-dimensional invariant subspaces in every remaining quotient. The exact finite-field checker independently builds subalgebras and tests bracket closure for five concrete cases, including both two-constituent examples. Finite checking is not used to infer the general formula.
+PASS
 
-## Originality — PASS (self-review)
+Chinese-remainder projections classify invariant subspaces; every exterior subalgebra is uniquely a coordinate submodule plus a normalized h-translate modulo that submodule. Mixed closure is invariance of the projected sum; fixing the intersection and the image gives exactly the Gaussian count times the number of graph maps. Two exterior subalgebras permute iff their translations agree off the union of their summands, since there are no invariant lines in the quotient. This is also exactly the commutation condition for the unique nonzero retractions with those images. Gaussian polynomial degrees give dominance for d≥5; for (2,2) the mixed term has degree 6 and exterior pair term degree 4, while G₄² and N² have degree 8 and leading coefficients 1 and 4. The explicit small-case polynomials and 89/169 follow by expansion. An independent bracket-closure census of ALL ambient subspaces, not assuming the exterior classification, checked 2,664 subspaces in the q=3 case and 2,825 in the q=2 case. It found respectively N=312 with ordered counts (44,944; 5,536; 784) and N=419 with (139,876; 4,276; 325) in the zero-, one-, and two-exterior categories.
 
-The closest motivating source, Muhie–Otera–Russo, *On the number of modular pairs in finite dimensional Lie algebras on finite fields* (arXiv:2609.19086v1, first public 16 September 2026), introduces the invariant and treats other Lie algebras. The complete published three-dimensional plane-count calculation does not reach the present at-least-five-dimensional multiplicity-free action. The published elementary-abelian Frobenius *group* analogue is not a Lie-subalgebra commutativity formula and assumes a single irreducible constituent; it does not supply the mixed Gaussian graph count or the multiple-factor exterior-pair product. The comparison includes the full available mathematical record for each of those closest results. Actual literature/index searches did not identify an implication or a stronger covering theorem, though a previously unindexed equivalence in modular-pair, lattice, or factorization terminology remains possible. Novelty is not inferred merely from a failed keyword search.
+## originality
 
-## Value — PASS
+PASS
 
-The pair-count formula is a natural exact invariant for an infinite family of finite-dimensional solvable Lie algebras. Its factorization for pairs of non-ideal subalgebras is structural, and the limiting degree jumps from one quarter in ideal dimension four to one in all larger dimensions. The answer is more informative than the routine enumeration of invariant subspaces, and isolates a meaningful distinction between subalgebra abundance and their permutability. It is not a claim about more general modules.
+For the repaired claim: the mixed finite-field count and resulting full probability/limit are distinct from the earlier commuting-retraction census, the standard invariant, and the different Lie and group families checked. The repair explicitly credits the earlier exterior counts and proves their exact relation rather than inferring novelty from different terminology.
 
-## Scientific limitations and literature
+## value
 
-The argument does not treat repeated irreducibles or linear factors. Distinct polynomials of the same degree multiset cannot be distinguished by this invariant. Computational experiments cover only finite instances. An equivalent theorem under different counting terminology is the main remaining originality risk; no external peer assessment has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mixed term resolves the only class of pairs not given by abelianness and the earlier retraction count. It provides a uniform exact invariant for varying constituent degrees, with a genuine boundary case: in dimension d=4 for the ideal the competitors contribute at the same scale to the denominator, while only the ideal–ideal pairs lead in the numerator. This is not simply re-evaluating the prior product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

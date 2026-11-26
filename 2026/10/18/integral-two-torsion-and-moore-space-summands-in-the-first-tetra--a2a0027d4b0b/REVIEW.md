@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A simplex belongs to the open-neighborhood complex exactly when contained in the explicitly generated neighborhood of a graph vertex, so generating and deduplicating all subsets is exhaustive. For \(n=6\) and \(n=7\), the complete directed Hasse graphs have respectively 8,620/41,940 and 136,220/839,580 vertices/covers; topological sorting consumes all vertices, certifying acyclicity of the prescribed pairings. The resulting critical-cell profiles are \((1,0,1,142)\) and \((1,0,1,772)\). All 798 and 3,848 dimension-two-to-three pivots are exact units. The resultant single integer Morse attaching rows have gcd two, so the resulting simply connected three-complexes are the asserted Moore-space wedges. The \(n=5\) comparison has a separately verified acyclic matching, and \(n=4\) is immediate. The included stand-alone Python reproduces these exact facts; integer computations, not sampled field ranks, control torsion. Risk: the finite proof is computer-assisted and requires independent reproduction, not an external proof assistant.
+PASS
 
-## Originality — PASS, with residual risk
+A fresh exact implementation generated the open-neighborhood faces from the common-witness condition and checked all oriented Hasse covers. For n=6 it found 8620 faces, 4238 matching pairs and 41940 covers; for n=7 it found 136220 faces, 67723 pairs and 839580 covers. Both directed graphs are acyclic. The critical profiles are (1,0,1,142) and (1,0,1,772) with no further cells. Exact oriented cancellation from degree three to degree two reproduced the respective rows with 31(+2), 23(−2), 88(0), and 125(+2), 131(−2), 1(−4), 515(0). Indeed the signed Morse differential uses alternating paths through the matched 2-to-3 incidences, all unit pivots; unrelated dimensions are not needed for this row. Each degree row has gcd 2. The Morse CW model has a single 0-cell, no 1-cells and one 2-cell, so its 2-skeleton is S² and the attaching maps of 3-cells are determined by their degrees. A unimodular change on the wedge of attaching 2-spheres is realized by a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. Its cofiber gives the degree-two Moore space plus 141 or 771 free S³ summands. At n=5 the independently checked profile is one vertex and eleven 3-cells; at n=4 the graph is K4 and the complex the boundary of a tetrahedron. This establishes the asserted first two occurrences in the finite range, not a map between the two cases.
 
-The compared literature includes Kahle's common-neighborhood construction and random-graph results, Matsushita's general neighborhood fundamental groups, the directly read all-parameter scale-one Johnson clique-complex statement, and the directly read triangular-graph neighborhood homology calculation. These other Johnson/triangular results use respectively a different complex (clique rather than open-neighborhood) or a different Johnson rank (two-subset rather than three-subset) and cannot imply this exact integral Moore summand. Queries under tetrahedral Johnson, hypersimplex, graph-Hom, open neighborhood, and two-torsion gave no directly covering indexed result. Risk remains of another representation of this finite calculation under association-scheme or Hom-complex terminology; failed searches alone do not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Johnson graphs on fixed-sized subsets are canonical combinatorial families. The natural first nontrivial three-subset cases produce **genuine integral torsion**, invisible in rational homology, at the sharp threshold \(n=6\) after two torsion-free cases, and retain it at \(n=7\). A complete Moore-space wedge decomposition is strictly stronger than a known-or-computable Betti vector and resolves the attaching-degree obstruction. The result does not purport to be a general-family theorem, and its exact finite threshold is mathematically motivated rather than an arbitrary labeled subcomplex.
+The distinguishing contribution is the integral homotopy classification in the two first tetrahedral parameters, especially the n=7 Moore summand and its 771 three-spheres. A later catalogue record gives the identical n=6 answer only. Earlier rank-two triangular computations and same-day closed-neighborhood or rank-two models do not supply the n=7 result or a broader theorem covering both.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural graph family and the first torsion boundary is a meaningful finite cutoff. An integral homotopy type at both first tetrahedral parameters, rather than field Betti numbers, determines whether the attaching maps give an actual Moore-space summand and records the exact free sphere counts. The n=7 case remains distinct even accounting for the later n=6 overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

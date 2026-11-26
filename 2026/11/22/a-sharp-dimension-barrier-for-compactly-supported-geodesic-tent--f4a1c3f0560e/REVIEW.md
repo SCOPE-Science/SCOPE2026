@@ -1,15 +1,21 @@
-# Scientific review of the geodesic tent dimension barrier
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification quantifies over every real cutoff \(c>0\), integer spherical dimension \(d\ge1\), and finite site configuration. On the circle, exact Fourier integrals are nonnegative. For \(c\ge\pi\), a hemisphere-sign covariance representation gives a positive-semidefinite feature integral, and a four-site antipodal construction proves failure of strict definiteness. For \(0<c<\pi\), the Legendre differential equation and integration by parts yield an exact coefficient identity; the generating-function expansion bounds its remainder, and the classical fixed-angle Legendre asymptotic forces infinitely many negative spectral coefficients. Restriction of high-dimensional spheres to a great two-sphere is valid. The accompanying numerical verifier passed 21 supplementary assertions but is not used to prove the infinite sign statement.
+## correctness
 
-## Originality — PASS relative to inspected records
-The closest complete mathematical research result, *Exact spherical dimension and support boundary for the quadratic geodesic Askey kernel* (27 October 2026), classifies the **square** of the truncated tent and proves a distinct threshold at dimension four; its complete public statement and proof do not give the present **linear** kernel result. Feng and Ge's *Isotropic Positive Definite Functions on Spheres*, arXiv:2604.11187v1, analyzes truncated exponents \(\delta\ge3/2\) on the two-sphere, not \(\delta=1\). Gneiting's survey and Beatson–zu Castell–Xu provide sufficient positive-definiteness results at larger powers and standard circle conditions. A statement search across the published mathematical record and two existing research ledgers found no equivalent all-dimension linear cutoff theorem. None of those searches proves absolute uniqueness: an older unlocated equivalence remains possible.
+PASS
 
-## Value — PASS
-The linear tent is the minimal-piecewise-affine compactly supported radial profile. The theorem precisely distinguishes its full cutoff behavior on a circle from every higher spherical dimension, identifies the only admissible higher-dimensional support regime, and gives the explicit spectral mechanism and its decay rate. This is a substantive boundary for localized geodesic covariance construction, not just a numerical counterexample or a substitution into the known quadratic result.
+For 0<c<π the circular Fourier integrals are c² at zero and 2(1−cos nc)/n² otherwise. For c≥π the truncation is inactive everywhere, including at c=π; the hemisphere-sign product averages to 1−2θ/π, so adding the positive constant c−π/2 gives PSD in every dimension. Two distinct antipodal pairs with coefficients (1,1,−1,−1) witness failure of strict PD. On S², integrate the Legendre ODE twice: [sin θ P_n(cos θ)] at θ=c contributes −sin c P_n(cos c), while zero has no boundary term, giving the exact displayed sign and normalization of I_n. The generating-function expansion into frequencies n−2k has nonnegative weights summing to one; away from the central k range integrated frequencies give O(1/n), and in the central range the weights are O(1/n) and the sum of frequency reciprocal bounds contributes the log, including the two resonances. In DLMF 18.15.12–13, taking M=1 and simplifying the signed binomial gives the claimed amplitude and phase and an O_c(n^(−3/2)) pointwise error. Dividing by n(n+1) yields the stated leading term and remainder. For rational c/(2π) the equally spaced orbit has at least three points: their cosines sum to zero and cannot all vanish. For irrational c/(2π) density gives both signs bounded away from zero. The lower-order error cannot remove these strict subsequence signs. Schoenberg's criterion and equatorial S² restriction exclude all higher dimensions.
 
-## Limitations and sources
-The Legendre asymptotic is for fixed proper support and is not uniform near its endpoints. It gives no effective first negative index. Its novelty assessment is necessarily conditional on indexed material and inspected primary works. Principal references: Feng–Ge (arXiv:2604.11187), Gneiting (arXiv:1111.7077), the NIST DLMF §18.15 Legendre asymptotics, and the published quadratic Askey dimension classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result proves the exact per-cutoff PSD boundary and an infinite-sign asymptotic for the linear profile. Its framework and positive side are classical. Earlier truncated-power statements include a threshold conjecture, a result at and above power 3/2 for small support, and a close quadratic calculation; the inspected results do not imply the frozen linear classification or its coefficient asymptotic. The quadratic proof supplies a related method and should be distinguished from an earlier theorem covering this claim.
+
+## value
+
+PASS
+
+This gives a useful exact dimension and support boundary for the simplest compact geodesic covariance candidate. It rules out even cutoffs arbitrarily close to π on S² while the untruncated limit is PSD, and identifies the negative high-frequency mechanism and its scale. The distinction between a strict sign obstruction at every proper support and merely lacking a sufficient criterion is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

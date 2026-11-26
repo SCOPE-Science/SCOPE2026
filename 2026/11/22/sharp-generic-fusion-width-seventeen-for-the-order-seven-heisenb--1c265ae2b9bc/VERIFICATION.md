@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 verify_q7.py` with a standard Python interpreter; the script has no dependencies beyond the standard library. It regenerates all four kernel arrays from fixed SHA-256 counter streams, constructs the exact \(2401\times2499\) differential in \(\mathbb F_8\), checks the full orbit coverage and independently compares selected entries to direct polynomial finite differences, and obtains full rank \(2401\) with nonzero residues \(1,6,6,1\). The stored pivot-column and parameter hashes disambiguate the witness points and minors. Computational outputs are exact; no real or complex floating-point approximations occur.
+# Independent mathematical audit
 
-The significance of the finite-field calculations is nonvanishing of four minors in the cyclotomic coefficient ring \(\mathbb Z[\zeta_7]\). The ring map \(\zeta_7\mapsto\alpha\in\mathbb F_8\) and complex embedding lift nonzero residues to nonzero characteristic-zero determinants. Full Jacobian rank implies dominance; the independent scaling dimension bound makes seventeen minimal. Any repeat run with a failed assertion invalidates this certificate.
+## correctness
 
-This check does not certify all individual decompositions, any worst-case bound at seventeen, the geometry over characteristic two, or numerical stability. Independent mathematical audit has not been performed.
+PASS
+
+In standard UT3 coordinates the induced translation by k has i-row phase zeta^(s k_x(i_y-k_y)). Commuting with it forces the row-k kernel coefficients a_(i-k) with the inverse phase, as in the frozen formula; the output commutant's basepoint row is arbitrary. Dualizing via the invariant pointwise pairing identifies H_s* with H_(-s) and expresses a channel as the diagonal trilinear tensor with independent commutants in its three slots. Thus permutation of the central triple preserves the variety up to linear equivalence. The automorphism (x,y,z) -> (lambda x,y,lambda z) gives the scaling symmetry. The triples split into all zero (1 pair), one zero (18), nonzero with a repeated entry (18), and nonzero with all distinct entries (12, represented by 1,2,4). The 2-dimensional scaling fiber bounds the affine one-channel dimension by 145, hence sixteen have dimension at most 2320 < 2401. Independent NumPy construction, indexed by derivative coordinates, and exact byte-valued F8 elimination reproduced all four rank-2401 minors, their pivot hashes and residues 1,6,6,1. The root of order seven defines reduction from Z[zeta_7] to F8; nonzero residues imply nonzero complex determinants at the integral lifts. Surjective complex differentials imply dominance. Constructibility and removal of the proper sixteen-channel closure yield actual width 17 on a nonempty open set, not just border width.
+
+## originality
+
+PASS
+
+The available statements support a distinct result at the first possible filling order for q=7, not a new channel model or new dimensions at orders at most sixteen. The closest indexed same-model result explicitly stops at sixteen. The untwisted model's separate Fourier alias was considered. This is a best-of-knowledge conclusion subject to the specified access risks.
+
+## value
+
+PASS
+
+The first possible filling rank at q=7 is a natural conjecture test and model-complexity invariant. Lower orders, including the known penultimate dimension, cannot decide whether this rank actually fills, much less whether exact generic representability follows. Four exact cross-type certificates resolve this finite but substantive gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

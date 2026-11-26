@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The symbolic proof checks the exact factorization at the attaining coefficient and examines all low residues of the orbit modulo \(b^d+1\). The reduction is exhaustive because \(b^d\equiv-1\) and the coefficient bound is strictly below twice the larger modulus. The excluded high-representative branch and the three smaller branches each receive a separate inequality or congruence contradiction. No machine output is used to close an unproved infinite step.
+# Independent mathematical audit
 
-The bundled `verify.py` computes the complete coefficient residue orbit over all \(2d\) exponent classes for 300 families (even bases \(2\)–\(20\), exponent pairs up to \(d=60\)) using integer modular inverses. It also directly brute-forces all smaller coefficients for a finite selection of small parameter cases. The test has no external dependencies. These finite experiments corroborate but cannot certify the infinite theorem or publication priority.
+## correctness
 
-The theorem applies to arbitrary integers satisfying the stated congruences, not necessarily Carmichael numbers. A complete independent mathematical review and priority verification have not been performed.
+PASS
+
+Let C=b^c+1 and B=b^d+1. Then B=2 mod C, C is odd, and B,C are coprime. The proposed coefficient attains the product divisibility by (B+b^c)b^(d-c)+1=B(b^(d-c)+1). Independently, reducing n modulo 2d gives k=±b^j+sB (0≤j<d), with n+j divisible by d, hence by 2c. Multiplying kb^n+1 by b^j shows that the C congruence is s=0 mod C on the minus branch, and s=−b^j mod C on the plus branch. The minus branch needs s≥C and already exceeds B+b^c; the plus branch needs s≥1, and j<c requires s≥2 because 1≤b^j<b^c=C−1. For j≥c the plus branch is at least B+b^c. This independently excludes all smaller positive k even when either factor is composite. The observed verification metadata does not represent an independent audit; verify.py was inspected rather than executed, and its finite parameter range is not needed for the proof.
+
+## originality
+
+PASS
+
+Supported distinct claim is the uniform two-designated-factor least positive coefficient under the stated nested even-ratio hypothesis. The strongest exact catalogue hit is the frozen item itself. The primary abstracts support the distinction from sharp single-Fermat-prime bounds and Carmichael classifications; no distinct equivalent pair minimum was substantiated in the inspected evidence.
+
+## value
+
+PASS
+
+This gives the exact first coefficient forcing two prescribed plus-one factors to coexist, a natural strengthening of single-factor restrictions in the sequence k b^n+1. It distinguishes an exact joint threshold and explicit attaining exponent from separate size obstructions, and treats composite factors as well. Solving the simultaneous signed-residue optimization is more than restating CRT or substituting an exponent into a single-factor bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

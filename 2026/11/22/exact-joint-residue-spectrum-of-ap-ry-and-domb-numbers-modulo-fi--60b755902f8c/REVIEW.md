@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The theorem fixes the unsigned Domb normalization and ordered residue pairs, including zero-length digit blocks. Independent Lucas factorization follows from carry-free binomial factors for the Apéry sum and an exact four-variable multinomial-square representation for the Domb sum. The explicit digit table reduces every pair to either a diagonal unit pair or a zero-Apéry/unit-Domb pair. A fourth-root cyclic coefficient extraction gives both integer frequency formulas; their mass is exactly \(5^L\). Positivity for \(L\ge3\) and the leading-digit-four extension prove infinite occurrence. The executable exact-integer checker has passed 300 direct comparisons, all complete small-level comparisons, and eleven exact formula levels. No finite test is treated as an infinite proof.
+PASS
 
-## Originality (O) — PASS within inspected sources, with material priority risk
+Reconstructed both digit reductions from the defining unsigned sums. Lucas for binomial(n,j) and the first carry in n+j eliminate precisely the disallowed Apéry terms. For Domb, grouping the multinomial-square sum by two of the four parts gives the stated integer definition by Vandermonde, and only carry-free multinomial terms survive. Independent single-digit evaluation gives (1,1),(0,4),(3,3),(0,1),(1,1). With g marking 3, the diagonal census is (2+g)^L in Z[g]/(g^4-1). Subtracting it from (3+g+g^2)^L leaves a coefficient vector with Fourier values 5^L-3^L, 3^L-1, 0, 0 at 1,-1,i,-i; inversion recovers exact residue labels, counts, bias and L=0. All eight cells are positive at L=3 and padding with digit 4 preserves each pair at infinitely many distinct indices. Fresh replay: python3 -B /workspace/reviews/reproduce.py 4; direct Pascal-residue sum evaluations for 250 indices (complete blocks through L=3) and independent pair-transition checks through L=12 passed. Finite checks are not the all-index proof.
 
-The closest earlier theorem is Malik–Straub's 2015/2016 Lucas result (Theorem 3.1). It already implies both single-sequence digit products, and the present census is not independent of that strong input. Straub's January 2023 paper (Theorems 1.2–1.3) strengthens related congruences modulo prime squares; it does not state the joint Apéry–Domb pair histogram. The separate-sequence generating-function analysis by Caruso and collaborators is not a covering joint census either. Targeted primary-literature and published-result searches found no explicit same-parameter joint matrix, the seventeen missing pairs, or the conditional four-class bias. That is a bounded originality comparison, not a claim that the prior Lucas theorem is weaker in every logical sense. An unlocated prior exercise or an implicit pre-existing group-ring calculation could cover this result, so independent historical verification remains desirable.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The joint law compares two classical prime-congruence sequences at exactly the first prime where the Apéry digit set has zero classes while all five Domb digits are units. The conclusion is a complete, all-depth indexwise classification, not merely a single checked congruence: only eight of twenty-five pairs are possible, each appears infinitely often, and the conditional Domb distribution on Apéry zeros has a sharp \((3^L-1)/2\) imbalance rather than uniformity at finite scales. The explicit joint finite-scale invariant offers natural benchmark data for more general joint congruence problems, while requiring no speculative downstream theorem.
+Pass the precise ordered full histogram for classical Apéry and unsigned Domb modulo five, not Lucas congruences, Domb-only sign bias or cyclic Fourier inversion. The searched equivalent labels and inspected stronger candidates do not supply the conditioned four-unit census; the reported Domb-only sign work overlaps its mechanism but not the full supported result on available evidence. No priority guarantee.
 
-## Closest sources and limitations
+## value
 
-- A. Malik and A. Straub, *Divisibility properties of sporadic Apéry-like numbers*, arXiv:1508.00297, Theorem 3.1 and Sections 5–6: strongest directly relevant pre-existing prime-Lucas coverage; source of the digit-product method.
-- A. Straub, *Gessel–Lucas congruences for sporadic sequences*, arXiv:2301.12248, originally posted 2023-01-28, Theorems 1.2 and 1.3: motivating literature and a stronger individual prime-square statement, but no joint census.
-- Caruso–Fürnsinn–Vargas-Montoya–Zudilin, *Galois groups of Apéry-like series modulo primes*, 2026: studies both classical sequences in a different separate generating-function setting.
+PASS
 
-No extension modulo prime squares or general prime is claimed. Independent mathematical audit and exhaustive historical priority checking remain unperformed.
+For two standard unsigned binomial sums the complete census identifies a rigid cross-sequence constraint: the nonzero Apéry stratum forces exact equality, whereas the zero stratum exhibits exact quadratic-character bias without any order-four component. The missing cells and finite-depth bias, including their crossover in support, are useful baseline data for comparative mod-five behavior; this is more than evaluating the five digit terms or re-proving Lucas. The contribution is a modest explicit classification, not a new congruence technique.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

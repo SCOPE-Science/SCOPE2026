@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is for the precise Hare FJR+ inequalities. Every candidate with nonzero assignment at the top level must have maximal voter support; the required unelected candidate therefore witnesses an existing EJR+ violation. The one-unelected-candidate argument bounds the level-two support by the EJR+ quota; the small-electorate argument prevents any newly eligible contributing voter. The four-voter witness is established by strict rational upper bounds at all three old-profile levels and a valid equality certificate afterward. The accompanying exact-arithmetic script verifies all displayed witness quantities, but does not substitute for the universal proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** Teh's Proposition 5.5 proves nonmonotonicity only using a six-voter, four-seat, seven-candidate construction; the paper's full HTML manuscript, including Appendix D.1, does not state the universally monotone two-seat regime or the sharp 3/4/5 boundary. Dong–Peters characterize other monotone proportionality axioms and predate the FJR+ definition. Targeted theorem and literature searches using the exact FJR+ object, low seat counts, aliases, and the numeric boundary returned only distinct voting-rule monotonicity problems. General priority is not certified; discoverability and unpublished treatments remain risks.
+PASS
 
-**Value — PASS.** The originating article identifies nonmonotonicity as a limitation of a new, polynomially checkable strong proportionality axiom. This result locates the first actual seat-count obstruction and gives tight voter/candidate boundary cases, separating two-seat robustness from a minimal three-seat failure. The sharpness matters for using FJR+ in small committees and for evaluating the tradeoff against EJR+ monotonicity; it is not a simple restatement of the published larger example.
+The six inequalities agree with Teh's Hare Definition 3.1, including the elected-candidate cap and weak quota inequality. At level one a positive-weight voter has no winner approvals and cannot have acquired one. At level k, kZ<=sum_c support_active(c)y_c<=nY<=kZ forces every positively weighted candidate to be approved by all n active voters. Positive weight in the allocation must reach some unelected candidate because each active voter approves at most k-1 winners and each can supply at most z_i. That universally approved unelected candidate and the n still-underrepresented voters already give a pre-expansion certificate with x=1 per voter on that candidate and z_i=1/k. Thus at k<=2 all levels are covered. At k=3 and l=2, if there is only one unelected candidate then every active voter must approve it. EJR+ initially forces their number below 2n/3; summing their individual capacity bounds then gives 2Z<2(n/3)Y. With no unelected candidate a positive row is impossible. If n<=3, every initially unrepresented voter has an empty ballot or would already violate level-one EJR+ singly. At the new intermediate level such a voter cannot supply 2z_i with at most one approved winner; the other voters who stay below level two have unchanged ballots. For the witness the pre-change upper bounds Z<=Y, Z<=5Y/4, and 3Z<=3Y all exclude 4Y/3. In the middle bound, the two mins are bounded by convex combinations of their stated arguments, which apply to all real nonnegative weights, not only a grid. The post-change certificate assigns one approved winner and one approved loser in each row, respects the cap exactly, and has Z=4=(4/3)Y with Y=3. A fresh exact-rational replay checked the witness and bounds; replay with python replays/5.py. Packaged verifier and output were inspected, not executed. The small-parameter exhaustiveness rests on the case arguments, not profile enumeration. Minimal voter and candidate counts are at k=3, not claimed for all k.
 
-The scope is only approval additions for elected candidates, Hare FJR+, and fixed committees. No result for Droop-FJR+ or temporal variants is claimed. No independent external mathematical validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the sharp small-parameter classification and single-approval witness, not for the definition or the existence of some nonmonotonicity.
+
+## value
+
+PASS
+
+For a recently defined representation property, this distinguishes genuine robustness on one- and two-member committees from failure at three, and establishes independent lower bounds on electorate and candidate sizes at that threshold. The gain is not just a smaller instance: the top-level reduction and the support obstruction explain why counterexamples need an intermediate level and at least two unelected candidates at k=3. This is a structural result about Hare FJR+, not a claim about voters' real-world strategic behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

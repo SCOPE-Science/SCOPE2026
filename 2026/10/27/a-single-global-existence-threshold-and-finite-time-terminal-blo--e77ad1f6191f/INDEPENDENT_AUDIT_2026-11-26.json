@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:52:05.091646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited half-period theorem applies: B=sin t>0 on (0,π), A is half-period even and has the required +−+ sign pattern there, B reverses sign after π, and the transformed convexity numerator is ≥3(1+a)>0. Independently, writing b=∫B=1−cos t, u=∫A, return coefficients of orders 3,4,5 are u(T), ∫bA, and ∫b²A+3u(T)²/2 by triangular expansion and integration by parts. This verifies the scale 2√(−a). A positive periodic solution's parameter derivative has a strictly negative periodic Green formula because its multiplier exceeds one. Near a=−1 each surviving positive orbit is cut down to ≤4 over [π/4,3π/4]; x^(−2) then satisfies w'≥−w/4−2δ, forcing any periodic initial condition ≤8 for δ≤0.001. The same inequality ensures a bounded flow on [0,T] from 0≤r≤8 for δ≤0.0001. At δ=0 the integrated reciprocal equation precludes a periodic solution, and uniform negative small-r displacement plus compactness on the remaining interval transfer nonexistence to δ>0 small. At any putative interior right endpoint, positive initial conditions stay away from zero by the small-r sign and entire profiles are bounded from above by monotonicity; continuous dependence and hyperbolicity extend the component, a contradiction. Early-time x'≥κx³ bounds left-endpoint initial values uniformly, but existence to T at the limit would extend the forbidden branch. A finite terminal positive solution must tend to +∞ since even a bounded subsequence would give a common positive lifespan by local ODE continuation. Bounded maxima on a subsequence would instead give a periodic limit. The supplied numerical checks were read as samples, not used as evidence of a certified threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The half-period theorem proves at most one repelling cycle under the frozen coefficient signs and transformed convexity; it does not decide which parameters have a cycle."
+        ],
+        "reasoning": "There is no existence implication from the uniqueness bound; the additional estimates and continuation are required.",
+        "searches": [
+          "Bravo Trinidad–Tian–Zhao Thm. 1 and Prop. 7",
+          "Focused Abel threshold literature search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, abel_threshold_checker.py, checker_output.txt",
+        "arXiv:2610.19340v1",
+        "2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source already proves small-cycle birth near zero, and its coefficients immediately give the square-root scale. It does not give the crucial uniform cutoff near −1 or limiting escape at a negative parameter."
+        ],
+        "reasoning": "The local expansion and hyperbolicity alone do not force a nontrivial internal threshold or rule out an exit at a coefficient boundary. The new boundary estimate and global continuation yield the stated classification.",
+        "searches": [
+          "arXiv:2610.19340v1 Lem. 2 Eq. (19) and Thm. 2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior paper's (α,β,γ)=(a,1,0) reduces exactly to this family, and region (H) here is −1<a<0."
+        ],
+        "reasoning": "This is actual overlap in equation, parameter interval and uniqueness theorem; the global existence/terminal assertion is different.",
+        "searches": [
+          "Resultary: harmonic Abel exact positive periodic solutions and parameter thresholds",
+          "arXiv:2610.19340v1 Eq. (18), region (H)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed result is a five-parameter Abel family with two explicit rational periodic solutions of opposite stability; the frozen checker has two sample roots and no enclosure."
+        ],
+        "reasoning": "Neither a distinct family nor the numerical samples provide this parameter census or an exact critical value; the result claims an implicit threshold, not a tabulated number.",
+        "searches": [
+          "Resultary Abel-cycle hits; 2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444"
+        ]
+      },
+      "rationale": "Pass is for the global existence interval, branch ordering and terminal mechanism, not for prior uniqueness, repulsion or local bifurcation. The exact-family primary source supplies the latter, but not the nonexistence region near −1 or the finite-time terminal classification needed to turn local existence into a single global threshold.",
+      "residual_risks": [
+        "Bounded searching cannot exclude an unindexed parameter-continuation theorem giving analogous explicit coefficient-boundary estimates; no journal publication of the cited preprint was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers at most one repeller and small-cycle birth, not the claimed global threshold and blow-up",
+          "evidence": "Region (H) gives at most one cycle; the existence argument is only for sufficiently small negative α at fixed positive β.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19340v1",
+          "material_read": "PDF pp. 2, 15–18, text offsets 7200, 49750, 55511–58472 and 58882",
+          "method": "OA primary PDF, Theorem 1, Eq. (18), Lemma 2, Proposition 7 and Theorem 2 proof",
+          "title": "Uniqueness of Limit Cycles for Abel Equations and Planar Systems",
+          "trigger": "The exact Abel family"
+        },
+        {
+          "assessment": "Different coefficient family and question",
+          "evidence": "Two explicit nonzero rational solutions of opposite stability, not a threshold classification of the one-parameter family.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444",
+          "material_read": "RESULT.md statement",
+          "method": "Local mirror",
+          "title": "Exact periodic solution exhaustion in a harmonic two-rational-cycle family",
+          "trigger": "Closest Abel-cycle catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It converts a motivated exact-family local bifurcation and upper bound into a global positive-cycle parameter census, and identifies an endpoint escape rather than a finite-amplitude collision. This is dynamical information not encoded by the repelling multiplier alone. No location or blow-up exponent is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

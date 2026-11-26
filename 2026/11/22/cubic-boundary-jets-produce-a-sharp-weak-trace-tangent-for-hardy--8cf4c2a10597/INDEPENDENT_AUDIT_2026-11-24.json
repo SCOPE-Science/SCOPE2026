@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:50.365973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–19 and 21–81; frozen VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent exact replay: with D=(e^x/x)d/dx and J=e^(−3x/2)/√x, D²J/J=e^(2x)(3x²+10x+5)/(4x⁴). With x=u+v the transformed squared kernel integrates as 2048∫∫e^(−2u−4v)(v−u)² du dv=96. For the trace-class factorization the squared norm of e^(−ax+bu)1_{u<x} is 1/[4a(a−b)] for the two stated pairs (a,b)."
+      ],
+      "rationale": "For |z|=1 write u=sin²(arg z/2). Then |φ|²=1−u and |h|²=64u³. Squaring the perturbed symbol gives |ψ_ε|²≤1−cu with c=1−16/100−64/10000>0, except for equality at the contact point. The maximum principle and nonconstancy give disk self-maps. The power difference quotients on the monomial basis are bounded by n|h| times the (n−1)st power of the larger symbol modulus. Their squared sum is dominated by 64u³(2−cu)/(cu)³, a bounded majorant off a single null point, so joint dominated convergence proves the complex Hilbert–Schmidt derivative. Summing n²|φ|^{2n−2} gives exactly 64∫(2−u)dm=96 for the squared norm, with normalized arc measure. Under w=(1+z)/(1−z), the Hardy unitary gives 16F(2w+1)/(w+1)²+32F′(2w+1)/(w+1). Laplace inversion gives the triangular kernel 16e^(−t)(t−4u)e^u for 0<u<t/2. Output dilation is unitary and transforms this to 32√2(−T+R) with T kernel e^(−2x)ue^u and R kernel e^(−2x)(x−u)e^u, both for u<x. The triangular composition factors of R have squared Hilbert–Schmidt norms 1/4 and 1/3, hence R is trace class. For T the inverse energy in y=e^(2x)Tg is ∫e^(−2x)|y′|²/x² with mass ∫e^(−4x)|y|². Smooth compactly supported y are a core by approximating g and canceling its weighted moment with arbitrarily small L² corrections far out. The Liouville change dξ/dx=xe^(−x) has length one; multiplying y by e^(−3x/2)/√x gives the positive potential printed in the record. Closure from the core embeds the form into H₀¹, and min–max with the whole Dirichlet interval for the lower bound and interior intervals for trial functions gives s_n(T)∼1/(πn) without assuming bounded endpoint potential. Ky Fan inequalities with an index shift proportional to n in both directions show that trace-class R does not affect the coefficient. This proves n s_n(A)→32√2/π, and the Schatten threshold and logarithmic partial-sum limit follow directly from that positive coefficient.",
+      "residual_risks": [
+        "The singular-value law is for the tangent at zero only, not a fixed nonzero composition difference. The argument does not establish a theorem for arbitrary boundary jets or symbols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the p=2 ray case of Theorem 6.4, take u(x)=xe^x, v(x)=e^(−2x). Input u is locally L² and output v is L². If x_k is given by U(x_k)=2^k with U(x)=∫₀ˣt²e^(2t)dt, each band is the interval [x_k,x_{k+1}] and B=1. Its σ bound is 2^{k/2}e^(−2x_k)/2. This is summable for negative k; for large positive k, U(x_k)≍x_k²e^(2x_k) and x_k≥c k give exponential decay. The theorem applies and gives (1/π)∫₀^∞xe^(−x)dx=1/π. Corollary 5.4's simpler globally L² input assumption does not apply to xe^x.",
+          "Allen–Heller–Pons's Dirichlet criterion is for unweighted D_φ f=f′∘φ in its Dirichlet-space setting; the other paper's compact difference/boundary jet criterion does not give an individual tangent Weyl coefficient.",
+          "The exact relevance of some blocked Hardy composition-differentiation texts cannot be determined from titles or access failure."
+        ],
+        "reasoning": "Checked a stronger spectral theorem including the nonintegrable input weight at infinity; it fully covers T's asymptotic. The actual composition-path theorem uses a Hardy-to-half-plane identification, a nonseparable-to-separable reduction modulo trace class, and a separate differentiability and energy calculation, none of which is supplied by the weighted Hardy integral-operator theorem.",
+        "searches": [
+          "Evans–Harris–Lang arXiv:math/0003215, §1 formula (1.2), §2 hypotheses (2.1), Corollary 5.4, §6 definitions (6.1)–(6.4) and Theorem 6.4",
+          "Allen–Heller–Pons arXiv:2207.09015 Theorem 4.6 and arXiv:2207.12635 Theorem 3.5",
+          "Fatehi–Hammond DOI:10.1090/proc/15056 and lawful open lookup for full text"
+        ]
+      },
+      "checked_sources": [
+        "Evans–Harris–Lang arXiv:math/0003215, with exact local-weight applicability verified above",
+        "Allen–Heller–Pons arXiv:2207.09015 and 2207.12635; related primary access limitations as listed",
+        "Local indexed records 0f3b2f3cef76, 19b79a8d5f82, 30feb1a39297, 0a655f5761e7, 21bbfbb8b055 and identical match 8cf4c2a10597"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known spectral formula gives the exact 1/π for T once the principal term is exhibited. To transfer it to the original problem requires establishing the factor 32√2 by exact unitary changes and controlling the additional kernel as trace class; the theorem applies only to a kernel v(x)u(t)1_{t<x}, not directly to the tangent's full kernel.",
+          "Neither compactness/HS membership comparison nor the related two-scale limits give the squared energy 96 and the individual singular sequence for this specific path derivative."
+        ],
+        "reasoning": "The finding is not passed as a new proof of the known principal Weyl coefficient. The distinct claim is an operator-level identification and exact norm/spectrum result for a natural composition difference tangent not present in those broader operator hypotheses.",
+        "searches": [
+          "Evans–Harris–Lang Theorem 6.4 and the stated operator in §2",
+          "0f3b2f3cef76, 19b79a8d5f82 and 30feb1a39297 indexed scientific statements",
+          "Allen–Heller–Pons Theorems 3.5 and 4.6 in the respective papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is M_{(1−z)^3}C_φD on classical H²: it is neither ordinary weighted composition nor the unweighted composition-differentiation operator, and not a fixed nonzero difference or a self-commutator.",
+          "The exact equivalent spectral problem is the triangular kernel proportional to e^(−2x)(x−2u)e^u1_{u<x}. Its weighted-Volterra principal term already has a prior Weyl law, but treating the full kernel as that separable operator would omit R and is not an operator identity."
+        ],
+        "reasoning": "Compared the derivative, weighted composition-differentiation, Laplace kernel and Weyl formulations. Equivalent wording is not a novelty claim; priority for the reduced principal spectrum is explicitly ceded.",
+        "searches": [
+          "Primary lookup for Hardy composition-differentiation/weighted composition, its Schatten limits and the relevant weighted Hardy–Volterra Weyl asymptotic",
+          "Resultary Hardy coefficient, composition-difference and differentiation-composition spectral comparisons 0f3b2f3cef76, 19b79a8d5f82, 30feb1a39297, 0a655f5761e7 and 21bbfbb8b055"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8cf4c2a10597 is the assigned record itself. The fixed-Hardy setting of the two-tap result has radial symbol rz and a two-scale counting law. The polynomially weighted derivative analogue includes an H² coefficient regime but uses radial contraction and a two-scale limit. The same-day weighted Bergman result gives an energy/boundary threshold on a different space and operators, not this tangent's coefficient. The rotation-difference and self-commutator entries likewise have different operators."
+        ],
+        "reasoning": "Compared exact spectral laws and energies, including same-day records, at the level of symbol, space, spectral quantity and limiting regime. No separate indexed exact formula covering this tangent was identified; the index is not a guarantee of historical priority.",
+        "searches": [
+          "Resultary exact singular-value/weak trace and Hardy tangent search: 8cf4c2a10597, 19b79a8d5f82, 30feb1a39297, 0f3b2f3cef76, 0a655f5761e7 and 21bbfbb8b055"
+        ]
+      },
+      "rationale": "Credit the concrete Hardy composition-path derivative, its exact squared energy and its sharp singular-value residue after the explicit spectral reduction. Do not credit a new Weyl law for weighted Volterra operators: a verified older theorem already covers the reduced principal operator T and gives exactly 1/π. It does not identify the Hardy tangent, establish Hilbert–Schmidt differentiability and energy of the path, or put the conjugated kernel, which is not of its separable form, into that class modulo a trace-class remainder. The closest related Hardy and Dirichlet statements inspected do not supply that identification or the combined result.",
+      "residual_risks": [
+        "Bounded priority assessment; blocked Fatehi–Hammond full text is a specific material risk, and the Acharyya–Wu and Yang–Yuan comparisons had limited original access.",
+        "An earlier exact Hardy boundary-jet reduction or a more general applicable composition-differentiation singular-value theorem could change priority. The verified Volterra theorem is already credited for the reduced principal spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the reduced T's exact singular asymptotic; does not directly cover the full tangent",
+          "evidence": "Theorem 6.4 allows a locally L² input weight and requires dyadic-band ℓ¹ control with the stated output weight. The ray bands for xe^x and e^(−2x) satisfy it; α₂=1/π and the diagonal-product integral is one.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0003215",
+          "material_read": "§1 formula (1.2); §2 (2.1)–(2.2); Corollary 5.4; §6 (6.1)–(6.4) and Theorem 6.4, PDF offsets 0, 9980, 45400, 56350 and 64600",
+          "method": "Lawful original open PDF, passages by offset",
+          "title": "The approximation numbers of Hardy-type operators on trees",
+          "trigger": "Closest verified stronger general result for the exact weighted Volterra principal term"
+        },
+        {
+          "assessment": "Dirichlet-space class criterion, not a weighted H² tangent limit",
+          "evidence": "D_φ is f′∘φ and the HS criterion involves an area integral of |φ′|²/(1−|φ|²)^4.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.09015",
+          "material_read": "§4 Theorem 4.6 and adjacent criterion, open HTML offsets about 36200–41184; references near offset 69300",
+          "method": "Open original article text, bounded passages",
+          "title": "Composition-Differentiation Operators on the Dirichlet Space",
+          "trigger": "Same differentiation/composition arrangement, possible norm-ideal theorem"
+        },
+        {
+          "assessment": "Related compactness/boundary-data conclusion, not the exact tangent regime",
+          "evidence": "The result links compactness of differences to boundary data of the symbols rather than to an ordered singular-value coefficient for a directional derivative.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.12635",
+          "material_read": "Theorem 3.5, open HTML offsets about 48600–53589",
+          "method": "Open original article text, bounded passage",
+          "title": "Compact Differences of Composition Operators on Weighted Dirichlet Spaces",
+          "trigger": "Boundary-data test for compact composition differences"
+        },
+        {
+          "assessment": "Plausible closer result remains unresolved; no negative inference from access",
+          "evidence": "The citation verifies the article identity and Hardy composition-differentiation topic; it is insufficient to establish weighted boundary-jet or tangent coverage.",
+          "identifier_or_url": "https://doi.org/10.1090/proc/15056",
+          "material_read": "Citation in open arXiv:2207.09015 references; no readable full text of the cited paper obtained",
+          "method": "Lawful AMS and open-copy lookup",
+          "title": "Composition-differentiation operators on the Hardy space",
+          "trigger": "Closest identified Hardy-space subject and possible sharp direct comparison"
+        },
+        {
+          "assessment": "Unresolved beyond available descriptions; not independent document-wide noncoverage",
+          "evidence": "Acharyya–Wu publisher lookup redirected repeatedly; the Yang–Yuan full text was unavailable by attempted routes.",
+          "identifier_or_url": "DOI:10.1007/s00020-017-2374-x; Yang–Yuan Cambridge article 946FD41322692349BB9BA4B62C91BC93",
+          "material_read": "Citation and descriptions in the frozen record; original full text not independently retrieved",
+          "method": "Lawful publisher lookups",
+          "title": "Compact and Hilbert–Schmidt Differences of Weighted Composition Operators; Schatten class composition operators on the Hardy space",
+          "trigger": "Possible class or norm control for a weighted Hardy composition path"
+        },
+        {
+          "assessment": "Different spaces/symbols or spectral limit; no priority conclusion from the same-day date",
+          "evidence": "First case is an affine weighted Bergman difference, second is a radial Hardy weighted composition with two-tap multiplier, third is a radially contracted weighted derivative with a rescaled two-scale law.",
+          "identifier_or_url": "Resultary 0f3b2f3cef76, 19b79a8d5f82 and 30feb1a39297",
+          "material_read": "Indexed scientific statements for the listed records",
+          "method": "Local Resultary comparison",
+          "title": "Sharp tangential Hilbert–Schmidt boundary and angular energy; Two-scale singular-value laws for two-tap Hardy weighted compositions; Two-scale singular-spectrum law for polynomially weighted Dirichlet operators",
+          "trigger": "Closest indexed HS boundary and spectral formulae"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–19 and Proof §§1–5",
+        "Evans–Harris–Lang Theorem 6.4 to distinguish the previously known principal spectral theorem from the new operator example"
+      ],
+      "rationale": "An affine symbol with quadratic boundary contact and a cubic perturbation gives a concrete path of composition differences whose Hilbert–Schmidt tangent is at the weak-trace endpoint but not trace class. The exact ordered coefficient and logarithmic residue quantify the failure of trace-class regularity; the Hilbert–Schmidt energy alone cannot read it off. The nontrivial reduction from the composition path to a spectral model gives an exact example for Hardy boundary-jet analysis rather than merely substituting weights into the known Volterra asymptotic.",
+      "residual_risks": [
+        "Concrete tangent example only; no fixed-perturbation asymptotic, multi-jet theorem or classification is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

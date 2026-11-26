@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:49:44.001808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent complete reproduction, python3 /workspace/evidence/heawood_replay.py, returned HEAWOOD_REPLAY_OK. It catalogues all nonempty independent subsets and all vertices each can witness by open-neighbourhood inclusion, then enumerates exact covers with at most eight blocks by always covering the least remaining vertex. This canonically selects one block of each possible partition at a time. A branch can be pruned if an unmet vertex has no neighbour left, since a future witness block must be nonempty and entirely contained in its remaining neighbourhood. This yields no valid partitions below eight and 2,751 at eight. On each side it also independently counts witnesses down to one block (the uploaded side checker instead filters for at least four), obtaining 49, 140, 21, 1 at 4–7 and the asserted collinear/pencil and (1,1,2,3) profiles at four. In a mixed class there is no common neighbour at all. Pair counts were recovered directly from the eight-block states by restricting to the two sides; (4,4), (4,5), (5,4), (5,5) give 2401,161,161,28 respectively. Every valid edge is equivalent to equal eight-block restrictions after deleting its moved vertex, and conversely two distinct partitions with the same such restriction differ by exactly that move. This independently yields 11,662 edges, degrees 0:21, 2:56, 5:224, 6:476, 7:168, 10:1806, components 21 singletons and orders 966 and 1764, the dual profiles at 1764, and the 616/322/28 split at 966. The isolate set equals that constructed directly from all 21 incident flags. Multiplying by 8! gives 110,920,320. The uploaded code was inspected, not run. In the side-pairing prose, witness coverage must be tested after all merges jointly (as the code does). The prior-work paragraph's shorthand '350 mixed optimum classes' should read '350 optimum partitions with mixed classes'; the Finding already has the correct wording and counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 derives χ_td=2q+4 for the incidence graph family, giving 8 here; the relevant q=2 passage treats candidate class sizes.",
+          "The four-fold total-domination result counts overlapping tuples of vertex-subset witnesses."
+        ],
+        "reasoning": "The theorem covers the optimum palette size but does not classify all partitions or moves; overlapping tuples of dominating sets are not proper partitions into witness colour classes.",
+        "searches": [
+          "Alaei and Kazemi, Filomat 38(25), §4, Theorem 4.3 and q=2 proof",
+          "2026/10/25/SCOPE-exact-four-fold-total-domination-witnesses-of-the-heawood-graph--0b0ea03f39a5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local published matches listed above",
+        "arXiv:1307.7486",
+        "Alaei–Kazemi, Filomat 38(25), Theorem 4.3 and Heawood case"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-colour result has 126 named freezes indexed by 21 flags and six colour orders and one mobile component of order 1980.",
+          "The four-colour results have two-homogeneous or locally identifying constraints; neither uses optimal total-dominator validity."
+        ],
+        "reasoning": "Shared flag geometry is existing structural overlap, not proof that these particular eight-block decompositions are precisely the immobile optima, nor of the counts and component split. Same-day neighbouring findings are compared scientifically without inferring publication order.",
+        "searches": [
+          "Filomat §4, Theorem 4.3 and q=2 proof",
+          "2026/11/2/SCOPE-fano-flags-and-the-unique-mobile-sector-of-heawood-3-colourings--78dac1ccb780",
+          "2026/11/22/SCOPE-four-palette-two-homogeneous-recolouring-of-the-heawood-graph-50--c5f87023de97",
+          "2026/11/22/SCOPE-frozen-colourings-and-a-sharp-two-vertex-mobility-threshold-for--3487b14e2bb2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kazemi uses the vertex-first open-neighbourhood condition. The dominated-colouring mirror uses the class-first condition: each class lies in some open neighbourhood.",
+          "Mixed classes cannot lie in any open neighbourhood in the Heawood graph, and the assessed census includes 350 partitions containing such classes."
+        ],
+        "reasoning": "The conditions are not interchangeable even when their optimum counts happen to agree. Fano point–line duality interchanges the two sides but does not reverse the quantifier order. Quotienting names gives partitions, not a graph with vertices identified under automorphisms of H.",
+        "searches": [
+          "Resultary: Heawood graph total dominator coloring 2751 optimal unlabelled partitions mixed classes recolouring graph 11662 components 966 1764 incident flags",
+          "arXiv:1307.7486 Definition 1.1",
+          "2026/10/18/SCOPE-pencil-rigidity-and-recoloring-components-of-dominated-colorings--29c49fb8469d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit e5dc20f24a13 is the same frozen finding, not a separate enumeration. Nearby enumerations c5f87023de97 and 3487b14e2bb2 give different component counts on named four-colourings.",
+          "The primary web query yielded a general book link without a relevant passage; no negative conclusion is drawn from it."
+        ],
+        "reasoning": "The exact invariants require the same 14 distinguished vertices, unlabelled eight-block partitions, and the same legal-move rule. Recolouring censuses for a different predicate and palette have no direct table coverage.",
+        "searches": [
+          "Resultary: Heawood graph total dominator coloring 2751 optimal unlabelled partitions mixed classes recolouring graph 11662 components 966 1764 incident flags (limit 50)",
+          "Websearch: Heawood graph total dominator colouring 2751 optimal partitions mixed classes recolouring graph 11662 966 1764"
+        ]
+      },
+      "rationale": "The scalar minimum is known and not an original contribution. The full census of optimal unlabelled partitions, mixed cases, and the associated one-vertex recolouring graph goes beyond the inspected scalar theorem and neighbouring Heawood classifications. One close flag indexing genuinely recurs, but for a different state space and constraint.",
+      "residual_risks": [
+        "No historical priority beyond the inspected statements is certified. A separate graph-colouring enumeration could use different nomenclature or be unindexed.",
+        "The broad web lookup furnished no substantive passage; positive comparisons rely on the primary text and published records actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same vertex-first definition",
+          "evidence": "Each vertex must be adjacent to all members of some colour class.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7486",
+          "material_read": "Definition 1.1, p. 2, text offset about 5300",
+          "method": "OA primary text",
+          "title": "Toat Dominator Chromatic number of a Graph",
+          "trigger": "Original total-dominator definition and aliases"
+        },
+        {
+          "assessment": "Covers scalar χ_td(H)=8; checked theorem and q=2 passage do not supply census or moves",
+          "evidence": "General scalar formula 2q+4, with Heawood treated at q=2.",
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2024/38-25/38-25-21-23911.pdf",
+          "material_read": "§4 Theorem 4.3, PDF text offset about 20200, and q=2 reasoning at about 22372",
+          "method": "OA primary PDF",
+          "title": "The Moore graphs; total domination and total dominator chromatic numbers",
+          "trigger": "Known optimum in the same graph family"
+        },
+        {
+          "assessment": "True flag overlap; different colourings and reconfiguration invariant",
+          "evidence": "126 named proper three-colour freezes (21 flags × 6 colour orders); mobile component of order 1980.",
+          "identifier_or_url": "2026/11/2/SCOPE-fano-flags-and-the-unique-mobile-sector-of-heawood-3-colourings--78dac1ccb780",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Fano flags and the unique mobile sector of Heawood 3-colourings",
+          "trigger": "Same graph and exact matching geometric flag count"
+        },
+        {
+          "assessment": "Different domination quantifiers",
+          "evidence": "Every colour class lies in some open neighbourhood; optimum 2(q+1).",
+          "identifier_or_url": "2026/10/18/SCOPE-pencil-rigidity-and-recoloring-components-of-dominated-colorings--29c49fb8469d",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local published mirror",
+          "title": "Pencil rigidity and recoloring components of dominated colorings",
+          "trigger": "Same projective-plane incidence family and near-name colouring problem"
+        },
+        {
+          "assessment": "Different configuration space",
+          "evidence": "Counts four-tuples of total dominating sets, permitting overlap.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-four-fold-total-domination-witnesses-of-the-heawood-graph--0b0ea03f39a5",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local published mirror",
+          "title": "Exact four-fold total-domination witnesses of the Heawood graph",
+          "trigger": "Same graph and total domination with an exact census"
+        },
+        {
+          "assessment": "Different local colouring constraint and palette",
+          "evidence": "Every open neighbourhood has two colours; component types 2520 singletons and 504 seven-vertex trees.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-palette-two-homogeneous-recolouring-of-the-heawood-graph-50--c5f87023de97",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Four-palette two-homogeneous recolouring of the Heawood graph",
+          "trigger": "Same graph and exact one-vertex mobility census"
+        },
+        {
+          "assessment": "Different locally identifying condition and palette",
+          "evidence": "Named four-colour states, 6048 isolates and components of sizes 882 and 6860.",
+          "identifier_or_url": "2026/11/22/SCOPE-frozen-colourings-and-a-sharp-two-vertex-mobility-threshold-for--3487b14e2bb2",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Frozen colourings and a sharp two-vertex mobility threshold",
+          "trigger": "Another natural Heawood coloured mobility census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Fano incidence graph is a canonical test case rather than an arbitrary finite slice. Class counts answer whether an optimal colouring can violate the class-first domination condition while still giving every vertex a witness. The exact move graph answers which optimal states can be reconfigured without raising the palette: a whole dual block-profile sector is inaccessible from any mixed state, and the incident flags are precisely the isolates. Neither feature follows just from the known scalar optimum. This is a finite benchmark and structure classification, not a formula for larger planes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

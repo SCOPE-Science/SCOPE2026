@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:12.694972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen mathematics is not rejected as false. Binomial convolution of the logarithmic weight recurrence is exact, and monotonicity identifies the ordered singular values. For fixed n, j^α a_(n,j)≤1 and tends to 1, which verifies the frozen weak-norm equality and strong nonmembership at αp≤1. For the frozen regularly varying limits, near X/(nt)=1 use uniform regular variation, while on the exponentially small complement and j in a bounded rescaled interval the log of the ratio is O(log(nt)) uniformly, by monotonicity and polynomial bounds on the weights. For larger j use a_(n,j)≤w_j and the Potter majorant; choose its exponent so the pth power is integrable. This verifies the frozen leading equivalents. The narrowed claim was audited afresh: on |X−m|≤m/2 expand log(1+(X−m)/(j+m)) through the cubic, with error bounded by C|X−m|^4/(j+m)^4. The third centered moment is O(m) and the fourth O(m²); the complementary relative logarithm is O(log m) uniformly in j, with exponential probability. The resulting uniform relative error O(m^−2) sums absolutely at s=αp>1 with total error O(m^(−s−1)). The trapezoidal half-endpoint term and the variance contribution combine exactly to −(1+st)/(2(1+s)); j=1 independently yields −α(1+t)/2 in the normalized operator norm. Expanding each leading term at m+d verifies the two different effective additive shifts. The frozen NumPy/SciPy file was inspected, not executed. The new standard-library /workspace/repairs/5/verify.py was successfully run; ten finite parameter choices check both coefficients with an analytic tail bracket up to floating-point rounding. The infinite proof does not depend on the diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "948fb95b2a1e covers the same monotone regularly varying family, including the pure powers, at first order.",
+          "c3e225ab48a7 gives polynomial profile with Bohr-almost-periodic modulation and arbitrarily slow normalized convergence in that broader setting.",
+          "Same-day 584d3bbf84fe gives a difference between arithmetic-mean and Aluthge iterations for non-isometric 2-isometric shifts, not the individual norms of exact-power compact shifts."
+        ],
+        "reasoning": "The first-order theory is material coverage, removed as a contribution. A qualitative or first-order law cannot determine a second coefficient without a quantified expansion. Neither the heterogeneous almost-periodic rate statement nor cancellation between two different transforms on 2-isometries is an expansion of this orbit.",
+        "searches": [
+          "arXiv:2611.07728v1 p. 1, qualitative compact Aluthge convergence",
+          "Resultary: universal regularly varying and almost-periodic Aluthge profiles; same-day fourth-order Schatten cancellation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 948fb95b2a1e and 94c988f93c7b (exact indexed summaries)",
+        "Resultary c3e225ab48a7, 8ed808d0b606, 304047bdec1c and 584d3bbf84fe (indexed summaries)",
+        "arXiv:2611.07728v1 p. 1 and bound comparison to Proposition 5.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "94c988f93c7b explicitly describes a power-decaying quasinilpotent shift retaining weak quasi-norm 1 throughout Aluthge iteration while its operator norm goes to zero.",
+          "948fb95b2a1e covers the same leading regime including sharp Schatten mass.",
+          "The repaired result determines the limit of m^s times the difference of the mass from its leading term, and the limit of m times the relative operator-norm error; the two normalized limits are explicit and nonzero."
+        ],
+        "reasoning": "The weak endpoint statement already contains the frozen obstruction, regardless of whether the public example is stated for every α and t; exact full-text quantifier scope is unresolved. The other indexed statement subsumes the frozen leading laws. Excluding both from novelty is substantive rather than a disclaimer added to the old claim. Neither available prior statement implies the repaired lattice-plus-variance coefficient, operator-norm correction, or distinct effective shifts.",
+        "searches": [
+          "Resultary exact indexed statements of 94c988f93c7b and 948fb95b2a1e",
+          "Targeted Finding lookups on the matching records and Proposition 5.8 in arXiv:2611.07728v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "948fb95b2a1e gives the normalized profile s_(floor(nu)+1)/w_n → (t+u)^(-β) uniformly for bounded u for monotone regularly varying unilateral shifts, as well as sharp Schatten mass and effective rank tn/(βp−1).",
+          "The primary first-page text of Stanković fixes the same transform convention and states qualitative limits; the frozen comparison credits Proposition 5.8 with the binomial formula."
+        ],
+        "reasoning": "Taking u=0 gives the top singular value equivalent since w_floor(nt)/w_n→t^(−α). The indexed effective rank is the mass relative to the top singular value raised to p, and the stated normalized mass is the integral of (t+u)^(−αp), equal to t^(1−αp)/(αp−1); the same coefficient follows by monotonicity a_(n,j)≤w_j and Potter domination. This is exactly the frozen leading mass after rescaling to m=nt. This scaling/translation cannot supply the normalized 1/m coefficient of the repaired claim.",
+        "searches": [
+          "Resultary: Aluthge strong Lorentz ideal convergence weak endpoint positive compact power weights 94c988f93c7b 948fb95b2a1e universal singular value layer regularly varying compact monotone unilateral shifts",
+          "Stanković arXiv:2611.07728v1, Proposition 5.8 lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact record c463d19a6de1 is the bound item, not independent corroboration. Targeted searches surfaced the two prior first-order/weak records and different asymptotic models, not a distinct record with the exact-power two coefficients.",
+          "11/8 records 8ed808d0b606 and 304047bdec1c are indexed as stretched-exponential unilateral and bilateral profiles respectively."
+        ],
+        "reasoning": "These are infinite asymptotics rather than missing table entries. Stretched-exponential profiles have different summability and scales; those statements are not second terms for polynomial tails. A bounded search miss is not proof of uniqueness.",
+        "searches": [
+          "Resultary: Aluthge polynomial exact power two term correction Schatten norm binomial (1+st)/(2(1+s)) operator norm 1+t variance Euler–Maclaurin",
+          "Web: iterated Aluthge transform weighted shifts power law two-term Schatten binomial operator norm second order asymptotic n power Stanković"
+        ]
+      },
+      "rationale": "Originality FAIL for the frozen presentation: it advances the regularly varying leading equivalences and the critical weak-ideal obstruction as findings without crediting two directly overlapping published claims from 2026-11-17. This is a material prior-coverage concern, not an access verdict. The repaired claim removes both from the contribution, credits them, and asserts only the exact-power next-order coefficients with their remainders and the resulting distinct additive shifts. Best of current knowledge the indexed first-order results and qualitative convergence theorem do not give these coefficients; no matching next-order result surfaced in the targeted comparison.",
+      "residual_risks": [
+        "Primary theorem passages from the two closest published findings and Stanković Proposition 5.8 were not independently recovered; the scopes attributed to them are bounded as above. In particular there is no full-text exclusion of a second-order calculation in an appendix.",
+        "A broader quantitative result on binomial smoothing of power-law sequences could subsume a coefficient. The result does not assert priority against such an unlocated theorem or extend the correction to arbitrary slowly varying factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading equivalents after rescaling; next-order scope unresolved",
+          "evidence": "Uniform normalized profile (t+u)^(-β), sharp Schatten mass and effective rank tn/(βp−1) for βp>1.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-universal-linear-singular-value-boundary-layer-for-regularly-v--948fb95b2a1e",
+          "material_read": "Exact indexed summary; targeted Finding passage did not return",
+          "method": "Resultary and OA mirror attempt",
+          "title": "A universal linear singular-value boundary layer for regularly varying Aluthge shifts",
+          "trigger": "Same transform, same monotone regularly varying unilateral family and normalization"
+        },
+        {
+          "assessment": "Direct overlap with claimed obstruction; exact parameter scope unresolved",
+          "evidence": "A power-decaying quasinilpotent shift retains weak quasi-norm 1 through every iterate despite operator norm tending to zero.",
+          "identifier_or_url": "2026/11/17/SCOPE-strong-lorentz-ideal-convergence-and-a-sharp-weak-endpoint-for-c--94c988f93c7b",
+          "material_read": "Exact indexed summary; targeted Finding passage did not return",
+          "method": "Resultary and OA mirror attempt",
+          "title": "Strong Lorentz-ideal convergence and a sharp weak endpoint for compact Aluthge iterates",
+          "trigger": "Same sharp weak obstruction, constant and type of example"
+        },
+        {
+          "assessment": "Prior formula credited; no whole-document priority clearance claimed",
+          "evidence": "First page defines Δ_t and states convergence for compact operators and a Schatten limit. The frozen report cites Proposition 5.8 for the exact weights and qualitative convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07728v1",
+          "material_read": "First-page abstract and introduction; independent targeted Proposition 5.8 passage attempt timed out; frozen self-review records its contents",
+          "method": "Primary PDF text excerpt and OA literal query attempt",
+          "title": "Singular values of iterated Aluthge transforms of compact operators",
+          "trigger": "Primary transform convention, known binomial representation and convergence"
+        },
+        {
+          "assessment": "Different initial operator class and observable",
+          "evidence": "Rates are for a difference of iterates for non-isometric 2-isometric unilateral shifts, not the individual orbit of a decaying compact exact-power shift.",
+          "identifier_or_url": "2026/11/22/SCOPE-fourth-order-schatten-cancellation-between-mean-and-aluthge-iter--584d3bbf84fe",
+          "material_read": "Exact indexed summary",
+          "method": "Resultary",
+          "title": "Fourth-order Schatten cancellation between mean and Aluthge iterations of two-isometric shifts",
+          "trigger": "Same-day hit on higher-order Aluthge Schatten rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving contribution is not the already available leading law or a cosmetic rate rewrite. At the canonical exact-power ideal threshold model, the correction resolves how the positive binomial variance contribution and negative discrete summation correction compete, yields a sharp signed bias of the first-order mass approximation, and shows that the norm and finite-p mass require different time shifts. The uniform control over singular rank required to get the mass error makes it more than a fixed-coordinate Taylor computation. The corrected result is useful for precision estimates of the same canonical orbit without claiming a new general regular-variation theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

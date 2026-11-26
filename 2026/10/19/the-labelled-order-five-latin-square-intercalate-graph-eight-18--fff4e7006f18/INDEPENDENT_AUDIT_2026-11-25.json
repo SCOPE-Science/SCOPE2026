@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:33.888445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md; verification/ checkers and stored outputs; certificates/latin5_components.bin",
+        "Replay: python3 /workspace/reproductions/latin5.py /workspace/source/2026/10/19/the-labelled-order-five-latin-square-intercalate-graph-eight-18--fff4e7006f18/certificates/latin5_components.bin; /workspace/reproductions/latin5.log"
+      ],
+      "rationale": "Independently enumerated the 56 reduced squares by cell-level row/column bitmasks. Each labelled square has a unique normalization (symbol-normalize row zero and sort the remaining rows by column zero), so expansion by 24 row orders and 120 symbol bijections is exhaustive and injective. Intercalates are exactly the 2-cycles of the relative symbol permutation for a pair of rows. Using this switch generator, BFS found 17,280 isolated squares and eight 18,000-square components, each of degree four, giving 288,000 edges. The parity triple is invariant because each move transposes two permutations in each coordinate's collection; direct counting gives 4,320 isolates and two mobile components in each of the four listed parity classes. Normalizing all choices of first row and column permutation from one representative of each type gives exactly the 6 and 50 reduced-square orbits. Isotopy acts by graph automorphisms and is transitive on all mobile states, hence the stabilizer of each component is transitive within it. Independent BFS from one root per component gives the claimed 14 coefficients with final nonempty shell 13, establishing both radius and diameter for each such component. Independently reconstructed every certificate byte and matched the frozen SHA-256 ce71d8163426d2c0d139614f33225224948d267553e76aa2ff6cda7bc5c556f6.",
+      "residual_risks": [
+        "Exhaustive for order five and 2-by-2 switches only; radius and diameter are not assertions about the disconnected full graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wanless, Propositions 1–2, pp. 555–556, gives the general cycle-length parity effect and the parity relation. His class switching study ranges beyond order five.",
+          "November 2 Resultary Finding treats added longer moves and states the same intercalate-only baseline."
+        ],
+        "reasoning": "The general parity result covers parity preservation and the parity restriction but not connectivity within a parity class. A longer-move graph by itself does not specify the distances in the intercalate-only subgraph; the later Resultary record expressly repeats the baseline.",
+        "searches": [
+          "Wanless, Cycle Switches in Latin Squares, DOI 10.1007/s00373-004-0567-7",
+          "Local Resultary match 2026/11/2/SCOPE-eight-chambers-of-order-five-latin-square-cycle-switching--dbe31f8b4eec"
+        ]
+      },
+      "checked_sources": [
+        "Wanless (2004), DOI 10.1007/s00373-004-0567-7",
+        "Resultary 8c526bb9770b and dbe31f8b4eec",
+        "Frozen RESULT.md §§ Finding and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quotient and its degree data record allowed changes of class, not which labelled representatives or words in switches are reachable. The prior parity identity allows four triples at order five."
+        ],
+        "reasoning": "The two classes, degree four on the mobile orbit, parity conservation and the total square count do not determine the number of connected components per parity or any labelled BFS profile. Those are the independently checked additions.",
+        "searches": [
+          "Wanless full text, pp. 550–552 and 555–556; October 26 matched Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wanless, pp. 550–552, defines graphs on isotopy/main classes and gives the order-five case. In that quotient the non-group class switches to itself.",
+          "Resultary 2026/10/26/SCOPE-labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b, RESULT.md Finding and proof, gives eight size-18,000 mobile components, 17,280 isolates, their parity split and diameter 13, with an even-isotopy orbit description."
+        ],
+        "reasoning": "Isotopic squares are not identified in the assigned graph, so the quotient formulation is not equivalent. The October 26 catalogue match is equivalent on these invariants and has a later recorded date, not evidence of an earlier result.",
+        "searches": [
+          "Local Resultary search for the labelled order-five intercalate-switch graph",
+          "Primary literature search for Wanless, Latin-square cycle switches, and labelled order-five components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wanless gives the two class vertices, one atomic and one self-switching with four intercalates.",
+          "The October 26 exact match records the same labelled census and diameter; the November 2 Finding repeats the labelled intercalate-only census."
+        ],
+        "reasoning": "The literature census is at the class level, not an exact table of labelled connectivity. The two catalogue matches are material and are not a demonstrated pre-October-19 table.",
+        "searches": [
+          "Local Resultary matches 8c526bb9770b and dbe31f8b4eec; Wanless order-five case pp. 551–552"
+        ]
+      },
+      "rationale": "Credit the known square and isotopy counts, parity invariance and parity constraint, and the known four intercalates on the non-group type. The inspected primary switching paper addresses the quotient and does not give the labelled reachability census or sharp metric profile. Two distinct catalogued records reproduce core numerics, but their recorded dates are later; these are genuine equivalences or reuse, not demonstrated earlier coverage. Pass the labelled component structure and distances, not the precursor results.",
+      "residual_risks": [
+        "No absolute priority claim; catalogue dates are recorded dates, and earlier unindexed labelled computations may exist. The frozen report's access caveat for Wanless was overcome in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage; different vertex universe",
+          "evidence": "Its two order-five quotient vertices are isolated as distinct vertices; the non-group class has self-switches. Even-length switches preserve all parity coordinates; the sum of parities is fixed by order.",
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+          "material_read": "Author PDF, printed pp. 548, 550–552 and 555–556; order-five case and Propositions 1–2",
+          "method": "Lawful author-hosted full text, bounded passages at the definitions, order-five case and parity propositions",
+          "title": "Cycle Switches in Latin Squares",
+          "trigger": "Closest primary work on the same move and order"
+        },
+        {
+          "assessment": "Same principal labelled invariants; later recorded date",
+          "evidence": "17,280 isolates, eight components of order 18,000, the same parity split and diameter 13; adds even-isotopy description.",
+          "identifier_or_url": "2026/10/26/SCOPE-labeled-5-times5-latin-square-intercalate-graph-eight-equal-comp--8c526bb9770b",
+          "material_read": "RESULT.md, Finding and parity/isotopy proof",
+          "method": "Local Resultary match and original record passage",
+          "title": "Labeled 5-by-5 Latin square intercalate graph: eight equal components",
+          "trigger": "Exact local catalogue match"
+        },
+        {
+          "assessment": "Later broader move-set study, overlapping at its baseline",
+          "evidence": "Reports the same eight mobile components and isolate count before adding longer switches.",
+          "identifier_or_url": "2026/11/2/SCOPE-eight-chambers-of-order-five-latin-square-cycle-switching--dbe31f8b4eec",
+          "material_read": "RESULT.md, Finding, length-two baseline",
+          "method": "Local Resultary match and original record passage",
+          "title": "Eight chambers of order-five Latin-square cycle switching",
+          "trigger": "Strong related catalogue hit with broader move sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wanless, pp. 550–552 and Propositions 1–2",
+        "Frozen Finding and independent exhaustive reproduction",
+        "Resultary dbe31f8b4eec, length-two baseline"
+      ],
+      "rationale": "This is the first order singled out in the classical switching study where a class can self-switch by an intercalate but the order-five quotient on distinct classes is edgeless. The labelled problem is therefore substantive: even with a single mobile isotopy orbit, the moves split every allowed parity into two distinct mobile components, and the sharp worst-case switch count between reachable mobile states is 13. These are useful reference data for testing proposed reachability invariants and comparing enlarged move sets; the later chamber study uses the intercalate-only census as just such a baseline.",
+      "residual_risks": [
+        "Finite small-order classification, not an asymptotic claim or a classification of all Latin trade graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

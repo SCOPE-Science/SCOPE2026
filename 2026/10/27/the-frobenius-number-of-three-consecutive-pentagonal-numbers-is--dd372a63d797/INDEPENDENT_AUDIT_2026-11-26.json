@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:41.172674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The triple has gcd one: a+c−2b=3 while a and b are consecutive residues modulo 3. I symbolically expanded the area identity and all eighteen claimed weighted congruence reductions in review-evidence/checks.py (argument 4, SymPy). Substituting n=48+r+6j verifies integer affine coefficients with the required positivity and order on every residue branch, not just at samples. The three outside corners generate the complement of the staircase; each reduction preserves the residue, keeps the coordinates nonnegative and lowers the positive weight. Every residue has a nonnegative expression in b,c modulo a by gcd one, and hence reduces to the staircase. Its cardinality a forces exactly one pair per residue. Adding an a-generator cannot lower the value, so the staircase gives the full Apéry set. The two corner weights suffice for the maximum; their winning differences have positive coefficients in j on all branches, and the winning weights minus a expand to the displayed cubics. A separate shortest-path computation in the review script compares the entire Apéry set at two arguments per class. Those finite checks are corroboration; the identities and descent prove the universal claim. The supplied verifier was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen's theorem gives eventual quasipolynomiality for eventually positive integer-valued polynomial generators and even representation-count variants.",
+          "Komatsu treats triangular triples; Lepilov et al. give residue formulas for consecutive squares and cubes. The generalized-star source was inaccessible beyond a privacy placeholder."
+        ],
+        "reasoning": "Shen applies to the ordinary pentagonal polynomials, so the qualitative eventual property is covered; its abstract theorem does not give the mod-six constituents, threshold or shape. Other explicit formulas inspected have different generator polynomials. The generalized-star title alone does not establish the relation between families.",
+        "searches": [
+          "Bobby Shen arXiv:1510.01349v3 abstract",
+          "Komatsu arXiv:2206.13054 Introduction",
+          "Lepilov–O'Rourke–Swanson 2014 square and cube theorems",
+          "Yin–Mu–Komatsu generalized star numbers 202407.2280/v1"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A069757",
+        "arXiv:1510.01349v3",
+        "Lepilov–O'Rourke–Swanson 2014",
+        "arXiv:2206.13054",
+        "Resultary e2d53bad3bc7",
+        "Resultary 5449523f59ed",
+        "Resultary 33e5bd0eea32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General eventual quasipolynomiality supplies neither the correct period and degrees nor a cutoff of 48.",
+          "Gluing exclusions in the same-object records distinguish symmetric indices without locating the least residue representatives of nonsymmetric triples. Classical Rødseth machinery computes individual instances; its successful use for other powers is a methodological precedent."
+        ],
+        "reasoning": "Producing the six uniform positive reduction triples, proving their validity from a specific cutoff, and covering all residue minima goes beyond the implications of the inspected statements. The literal cubic table is not inferred from the OEIS prefix.",
+        "searches": [
+          "arXiv:1510.01349v3 p.1",
+          "Resultary e2d53bad3bc7 and 5449523f59ed proof sections",
+          "Lepilov–O'Rourke–Swanson residue-class theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A069757 is the Frobenius sequence of precisely the same triples.",
+          "The two indexed symmetry records address exactly the ordinary pentagonal triple and identify symmetric indices {2,3,5,40}; their proofs use the gluing criterion, exceptional pairwise gcds and representation exclusions."
+        ],
+        "reasoning": "The named sequence and indexed semigroups match, but finite Frobenius entries or an all-parameter binary symmetry test are not equivalent to a full uniform Apéry description. The nonsymmetric branches are not computed by the symmetry arguments I inspected.",
+        "searches": [
+          "Web: \"three consecutive pentagonal numbers\" Frobenius number formula Apéry",
+          "OEIS A069757",
+          "Resultary e2d53bad3bc7 and 5449523f59ed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A069757 links Dale's n=2 through 1000 table.",
+          "The matching symmetry-record Findings list special indices and their values; the six-phase tetrahedral record gives exact branch data and rectangular Apéry sets for gcd-normalized consecutive tetrahedral numbers."
+        ],
+        "reasoning": "Finite exact values overlap the evaluations in their range but not the proof of any constituent on an entire residue class. The tetrahedral branch data and shape cannot be transferred to the pentagonal triple merely by matching the period.",
+        "searches": [
+          "OEIS A069757 and its b-file link",
+          "Resultary e2d53bad3bc7, 5449523f59ed and 33e5bd0eea32"
+        ]
+      },
+      "rationale": "The supported addition is the exact period-six branch data, the n≥48 guarantee and the full explicit pentagonal Apéry staircase. Eventual quasipolynomiality by itself and many exact values are covered. The inspected same-object symmetry proofs do not produce these staircase parameters, and the comparison is bounded rather than a priority claim.",
+      "residual_risks": [
+        "The generalized-star preprint's technical content was not verified; a family reduction is not established or excluded by the retrieval failure.",
+        "An earlier unindexed explicit pentagonal formula or L-shape calculation remains possible. The focused web query returned the OEIS overlap only; that is not an exhaustive negative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite tabulation of the same invariant",
+          "evidence": "Ordinary pentagonal triples; no all-parameter branch table in the inspected entry.",
+          "identifier_or_url": "https://oeis.org/A069757",
+          "material_read": "Entry beginning at offset 0; reference to Dale's n=2..1000 table",
+          "method": "Bounded public-page reading",
+          "title": "Frobenius numbers of semigroups of three consecutive pentagonal numbers",
+          "trigger": "Exact sequence match"
+        },
+        {
+          "assessment": "Qualitative property covered",
+          "evidence": "Eventually positive integer-valued polynomial inputs yield eventual quasipolynomiality, including ordinary Frobenius as m=l=1; the abstract supplies no pentagonal constituents.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.01349",
+          "material_read": "v3 abstract and start of section 1.1, PDF p.1, offset 0",
+          "method": "Bounded OA paper reading",
+          "title": "The parametric Frobenius problem and parametric exclusion",
+          "trigger": "General theorem may subsume eventual quasipolynomiality"
+        },
+        {
+          "assessment": "Different generator families",
+          "evidence": "Mod-four squares and eighteen cube branches in the inspected theorems, not ordinary pentagonal generators.",
+          "identifier_or_url": "https://www.math.purdue.edu/~iswanso/LepilovORourkeSwanson.pdf",
+          "material_read": "Abstract/introduction (offset 0), square theorem (offset 4498), cube theorem (offset 16931)",
+          "method": "Bounded OA paper reading",
+          "title": "Frobenius numbers of numerical semigroups generated by three consecutive squares or cubes",
+          "trigger": "Closest explicit polynomial-triple methodology"
+        },
+        {
+          "assessment": "Different polygonal sequence",
+          "evidence": "p-Frobenius and prior p=0 formulas for triangular triples.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13054",
+          "material_read": "Abstract and Introduction pp.1–3, offsets 0 and 4975",
+          "method": "Bounded OA paper reading",
+          "title": "The Frobenius number for sequences of triangular numbers associated with number of solutions",
+          "trigger": "Polygonal family and generalized p-Frobenius"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "OA 32-character privacy page and HTTP 403 on public page; no mathematical overlap inferred from the title.",
+          "identifier_or_url": "https://www.preprints.org/manuscript/202407.2280/v1",
+          "material_read": "Privacy placeholder only; no technical passage retrievable",
+          "method": "OA lookup and public page request",
+          "title": "The p-Frobenius Number for the Triple of the Generalized Star Numbers",
+          "trigger": "Frozen plausible generalized-family comparison"
+        },
+        {
+          "assessment": "Exact family, different claim",
+          "evidence": "Pairwise gcd and gluing bounds determine symmetry; no general residue minima in these passages.",
+          "identifier_or_url": "Resultary e2d53bad3bc7",
+          "material_read": "Finding at offset 0; proof offset 1339 to 4814",
+          "method": "Bounded local-mirror reading",
+          "title": "Complete symmetry classification for consecutive pentagonal triples",
+          "trigger": "Exact generator family"
+        },
+        {
+          "assessment": "Exact family, different claim",
+          "evidence": "Only n=2,3,5,40 are symmetric; the proof tests three gluing pairs and does not supply residue representatives for n≥48.",
+          "identifier_or_url": "Resultary 5449523f59ed",
+          "material_read": "Finding at offset 0; proof from offset 2240 through the gluing case split and conclusions",
+          "method": "Bounded local-mirror reading",
+          "title": "Exactly four symmetric semigroups from consecutive pentagonal numbers",
+          "trigger": "Exact generator family"
+        },
+        {
+          "assessment": "Different generator family",
+          "evidence": "Gcd-normalized tetrahedral generators and rectangular Apéry sets, not the ordinary pentagonal staircase.",
+          "identifier_or_url": "Resultary 33e5bd0eea32",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local-mirror reading",
+          "title": "Six-phase Frobenius law and symmetry for normalized consecutive tetrahedral numbers",
+          "trigger": "Similar six-phase explicit Apéry result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Consecutive ordinary pentagonal generators are a natural established test family, with a published sequence but no uniform formula in that entry. The branch distinctions and finite cutoff are explicit; the full staircase also answers every minimal-residue query without rerunning a search on roughly n² residues. This is materially stronger than eventual existence or another finite tabulation and does not depend on 48 being optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

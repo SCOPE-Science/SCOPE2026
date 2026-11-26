@@ -1,19 +1,21 @@
-# Scientific review — simplicial vertices of uniform random interval graphs
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim has a complete finite endpoint-order derivation and a separate infinite-limit argument. For each tagged interval, a non-clique neighborhood exists exactly when another interval ends in its interior before a different interval begins there. Partitioning by the final interior left endpoint gives the exact conditional integral; distinct scaled short intervals receive asymptotically independent left/right Poisson endpoint fields. The factorial-moment argument establishes the marked process and a two-window exponential obstruction bound controls unbounded interval-length marks in fixed interior bands. The harmonic lower bound has a direct exact adjacent-matching overlap correction. Executed standard-library checker: 67,598 exact assertions, including all ranked endpoint pairings for one through six intervals and nine rational conditional-integral cases. Finite checks are auxiliary, not proofs of the limiting statements.
+PASS
 
-## Originality: PASS, with historical-priority uncertainty
+Two disjoint neighbors of a tagged interval yield an interior right endpoint before an interior left endpoint, and the converse follows from the same ordering (their owners are necessarily distinct). Partitioning by the last interior left endpoint gives the proposed finite formula; the two exclusions for any other interval cannot coexist. At distinct tagged positions each fresh interval contributes a single local endpoint with the stated marginal first-order rate, with all multiple-endpoint contributions O(n^-2). The independent endpoint Poisson limits thus give the conditional factorization and the last-left-point formula for f. The bounded-window factorial moments converge by dominated convergence; on a compact set of endpoint-mark volume v they are bounded by (2v)^k, so the Laplace-functional factorial expansion also converges absolutely and proves the Poisson law. The two separated endpoint subwindows bound the long-mark contribution by a uniformly vanishing exponential tail. Integration gives the precise interior log-odds means. In the harmonic calculation setting s=1-a and 1-b=su gives the integral of (1-u^(2n))/(1-u^2); the expected overlap is one by uniform matching of endpoint ranks. The attached check.py was read, not executed; its finite checks are supplementary to this reconstruction.
 
-The closest same-model literature concerns edge/degree distributions, independence, cliques and graph limits; none of the materially inspected theorems supplies a simplicial endpoint-order probability or marked Poisson law. A published result on simpliciality in almost-complete independent-edge graphs is not transferable without proving interval-edge dependence; paired-interval component/coverage covariance does not imply the new local event. The relevant source full-text inspections, searches and implication comparisons are recorded in `AUDIT.json`. Scheinerman's 1988 original article and the body of a 2001 independence-number paper were not accessible, so their full contents cannot be certified as non-covering. No independent priority determination is claimed.
+## originality
 
-## Value: PASS
+PASS
 
-The result determines a natural local-removability statistic in the archetypal interval-graph model. The spatial rate \(1/[x(1-x)]\) explains sharply why any interior band has a finite Poisson population while the untrimmed boundary requires separate treatment. Rescaled-length endpoint-order marks are retained rather than discarded, and exact finite probabilities facilitate further quantitative questions. The result stands without claiming a global simplicial-count limit or downstream algorithmic theorem.
+The marked intensity, count law and tagged exact probability were not supplied or implied by the strongest inspected published comparisons. This is an evidence-bounded assessment, not certification of historical priority.
 
-## Scope and limitations
+## value
 
-The conclusion is for the independent uniform endpoint model and left endpoints in fixed strict interior bands. The Poisson convergence is vague on the marked interior space; the full-domain total count is not characterized. The older model-origin full text was not inspected and broader historical coverage is an open risk. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies a sparse, geometrically interpretable statistic in a standard dense random graph model, with nonconstant spatial intensity and location-dependent mark law. It yields local counts, joint independence and finite-size probabilities without conflating interior limits with global boundary behavior; the logarithmic global lower bound shows why that distinction matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

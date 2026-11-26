@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from a complete cyclic edge-intersection list for the open octahedral normal chamber, an exact shoelace identity, and a rational derivative whose sign is certified by a decreasing quadratic on the full parameter triangle. Separate evaluations and continuity handle all chamber walls. An explicit diagonal-parallel area polynomial and Brunn concavity transfer the upper bound to all affine planes and prove its strict equality condition. Both packaged checkers were executed. The finite rational sample is corroboration, not a substitute for the general proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest published background concerns the cube's different extremizing orientation (Ball), the cuboctahedron's two-orbit symmetry (Matteo), its surface triangulations (Feng–Yuan), and general cross-section-body geometry (Meyer). Public result indexing surfaced tetrahedron-inscription and section-combinatorics problems on the same or related solids, but no recorded exact cuboctahedral section-area extremum or directional formula. The closest full texts on the cuboctahedral structure and triangulation were materially inspected. The general Meyer article and the full text of a related public record were inaccessible; the remaining priority risk is acknowledged rather than treated as refuted.
+PASS
 
-## Value — PASS
-The natural extremal area of a canonical Archimedean solid is given exactly, with all maximizing and minimizing central directions and a global affine-plane equality classification. The full rational section-area profile and coordinate-balancing mechanism reveal a structural change from the containing cube, whose maximum is in the face-diagonal direction. These are substantive geometric facts, not a mere reparametrization or a computational table.
+Independently project the central section onto the yz-square. For sorted a≥b≥c, a>c, the same-sign quadrants each lose a corner triangle of area (b+c)^2/[2(a+b)(a+c)], and the opposite-sign quadrants each lose (b−c)^2/[2(a+b)(a−c)]. For the former quadrants the cut-line intercepts on the sides of the square both obey |by+cz|≤a; for the latter quadrants this slab bound is automatic and the inequality from the other sign of by+cz is redundant. Multiplying the remaining area by ||u||/a yields the stated formula, including ties short of the body diagonal. The derivative numerator N(s,r) strictly decreases in r<s² for s>0 and has nonnegative endpoint 6s(1−s)^2; the diagonal-envelope log derivative is positive for s>0. The lower-envelope squared difference is s³[4(1−s²)+s+s³], strictly positive for 0<s≤1. At a=b=c the central section is a regular hexagon, and the path c=b attains the whole interval between the two extrema. Evenness and Brunn concavity reduce the affine maximum to the central one and force a body-diagonal normal at equality. Independently, at 0≤h≤2 the diagonal section is the slice of [h/2−1,1]^3 at sum h: singleton negative-sum inequalities give the lower bounds and pair inequalities follow from x_i≤1. After translation the cube has side m=2−h/2 and the sum is s=m+1. The simplex-area inclusion-exclusion gives √3(s²−3)/2, the stated profile; it decreases strictly, has a triangular facet at h=2 and no section beyond. This proves the full affine equality assertion and handles the degenerate cases.
 
-## Limitations
-The conclusion is specific to the regular cuboctahedron in the stated Euclidean normalization. Neither a complete noncentral section-area distribution nor historical uniqueness is established. The scientific assessment is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the explicit central-area law, strict balancing, sharp equality directions and maximizing-orientation affine profile. The strongest inspected matches share the body and sections but count vertices, measure shadows, or optimize a different inscribed object. General central-section concavity supplies the reduction, not the body-specific formula or extremizers. This is not a priority certification.
+
+## value
+
+PASS
+
+A natural sharp slicing problem for a standard solid. The exact directional law is useful beyond a single benchmark: it identifies a strict balancing mechanism, classifies both central extrema, and resolves possible noncentral equality with a full profile in the maximizing orientation. The maximizing direction differs from the ordinary cube benchmark. None of the area or equality information follows just from the existing side counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

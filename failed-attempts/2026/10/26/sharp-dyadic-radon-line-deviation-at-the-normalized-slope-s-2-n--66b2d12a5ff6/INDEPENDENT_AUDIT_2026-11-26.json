@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:52:54.767554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–59",
+        "Frozen VERIFICATION.md, verify.py, and verification_output.txt inspected as evidence only; recorded exact slope comparisons through n=11 and all column comparisons through n=7.",
+        "Béjian–Faure, Exp. 13, §4; Spiegelhofer, arXiv:1710.01560, pp. 1,3, exact maxima and discrepancy identity"
+      ],
+      "rationale": "With N=2^n and s/N the target slope, the reversed column bits are independent selectors of coefficients e_i=(b_i-x_i)/2, x_0=0, x_{i+1}=(x_i+b_i)/2. Their sum is s/N by telescoping the offset at t=N-1. Thus the positive maximum P(s) is at least the magnitude Q(s) of the negative minimum, and the column with reversed slope bits attains P(s) by selecting all positive coefficients. For optimization over slope bits, the two affine Bellman candidates from state x intersect at x=1/2, with difference (1-u_{m-1})(1/2-x), where u_1=1/2 and u_m=1-u_{m-1}/2. This proves the asserted piecewise affine form inductively, including ties and endpoints. The intercept recurrence a_1=1/2 and a_m=a_{m-1}+(1-u_{m-1})/2 yields V_n(0)=n/6+7/18+(-1)^n/(9·2^n), with an admissible optimizing bit word. It holds also for n=1 and zero slope. This is entirely consistent with the independent exact discrepancy identification recorded under originality. The faulty historical comparison is not required for the proof.",
+      "residual_risks": [
+        "Finite recorded checks are not the proof of the all-n result. The target is pixel-index vertical displacement for slope s/N; no other geometric or inverse-transform claim has been validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rim states the identical bit-linear offsets and a weaker n/2 uniform bound. The older chord geometry theorems use s/(N-1) and their global p/6 estimates alone do not transfer the correction. Smirnov–Karpenko's exact per-index analysis, unlike its global bound alone, gives the profile and the same reversed-bit witness. The discrepancy theorem treats the exact same numerical invariant after multiplying by two."
+        ],
+        "reasoning": "The objection to substituting the global chord bound is correct but insufficient. The full chord proof and the exact discrepancy theorem are materially stronger comparisons.",
+        "searches": [
+          "Rim arXiv:2610.23363 Lemma 2.1; Ershov–Karpenko arXiv:1712.05615v1 Eq. (3), Theorems 1–2; Smirnov–Karpenko arXiv:2311.10064 Prop. 1 and §3; discrepancy extrema via Béjian–Faure"
+        ]
+      },
+      "checked_sources": [
+        "Béjian–Faure, Numdam SDPP_1977-1978__19_1_A10_0; arXiv:1710.01560; arXiv:2311.10064; arXiv:1712.05615v1; arXiv:2610.23363; Resultary 57068b08083f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical B_k are strictly increasing for k>=1. For n>=2 the first maximizing index in I_n is strictly less than 2^n, and for n=1 the allowed s=1 gives B_1=1. Therefore max_{0<=s<2^n}P(s)=B_n/2, including the alternating correction and the correct strict upper endpoint. The tilted target leaves the chord optimizer unchanged and adds exactly its evaluated s rev_n(s)/[N(N-1)] term."
+        ],
+        "reasoning": "The earlier results plus simple exact transformations prove the claimed finite correction and calibration, with no new extremal search or optimization needed. This is stronger than a shared asymptotic or a mere normalization caveat.",
+        "searches": [
+          "Béjian–Faure Exp. 13, §4; Spiegelhofer arXiv:1710.01560 Theorem A discussion and Eq. (3); Smirnov–Karpenko arXiv:2311.10064 Eq. (3.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For r=i+1<=n, the distance ||s/2^r|| to the nearest integer equals |e_i|, since the fractional part is (b_i+x_i)/2. The first n terms sum to P(s)+Q(s); the tail r>=n+1 sums to s/N=P(s)-Q(s). Thus 2P(s)=sum_{r>=1}||s/2^r||=sD_s^* in base two by the classical exact discrepancy formula, with the value at s=0 set to zero.",
+          "Writing E_chord for the error at slope s/(N-1), E_N=E_chord+st/[N(N-1)]. In reversed bit i, the chord coefficient is e_i-s/[2^(i+1)(N-1)], which remains nonnegative on b_i=1 (x_i<=1-2^(-i)), and nonpositive on b_i=0. Thus the chord's bit-reversed witness still maximizes, and P(s)=q(s)+s rev_n(s)/[N(N-1)] for the published positive chord maximum q(s)."
+        ],
+        "reasoning": "These are exact, pointwise conversions including the one-sided versus absolute distinction, not merely matching leading logarithmic coefficients or similar digital lines.",
+        "searches": [
+          "Binary van der Corput discrepancy and tilted Takagi alias; arXiv:1710.01560 pp. 1,3; Béjian–Faure Exp. 13 §4",
+          "Normalized-slope versus endpoint-joining ADRT; arXiv:2311.10064 Eq. (3.1) and maximizing bits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical maximum on I_k=[2^(k-1),2^k] is B_k=k/3+7/9+(-1)^k/(9·2^(k-1)); the first attaining index is (2^(k+1)+(-1)^k)/3. Spiegelhofer's explicit table also starts with d_1=1, d_3=3/2, d_5=7/4, d_11=17/8. A same-date Resultary discrepancy hit 57068b08083f instead concerns Stern-sequence residues modulo nine."
+        ],
+        "reasoning": "The literature supplies the exact all-k dyadic maxima, stronger than a finite table or a limsup. The Resultary Stern residue record is not equivalent.",
+        "searches": [
+          "Resultary dyadic line error/ADRT and van der Corput discrepancy; Spiegelhofer arXiv:1710.01560 p. 1 exact first maxima and p. 3 table; Béjian–Faure §4 (vi) and Table numérique"
+        ]
+      },
+      "rationale": "There is positive earlier coverage of both proposed contributions. The sharp finite correction is exactly half the classical Béjian–Faure maximum of scaled van der Corput discrepancy on the dyadic interval. The per-slope profile and bit-reversed witness also follow directly from the exact chord profile of Smirnov–Karpenko, by a coefficient sign-preserving normalization change. Rim's coarse n/2 bound at the same normalization is not the strongest prior comparison. This is a coverage failure, not an argument from a failed search or inaccessible paper.",
+      "residual_risks": [
+        "Did not determine whether the ADRT-to-discrepancy identification itself has been explicitly printed elsewhere. That does not undo exact prior coverage of the submitted sharp invariant and the mechanical per-slope conversion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary prior exact coverage under an equivalent formulation",
+          "evidence": "The fixed dyadic interval maximum is explicitly obtained at a_n. The discrepancy identity and the exact first-maximum coordinates are reproduced in arXiv:1710.01560 pp. 1,3.",
+          "identifier_or_url": "https://www.numdam.org/item/SDPP_1977-1978__19_1_A10_0/",
+          "material_read": "Original scanned Exp. 13, §4 proof and claim (vi) that D is maximal on I_n at a_n (PDF p. 12, text near offset 22445); consulted numerical table locator p. 14",
+          "method": "Lawful OA Numdam scan and bounded text comparison; used the readable Spiegelhofer transcription for formulas poorly recovered by scan extraction",
+          "title": "Discrépance de la suite de van der Corput",
+          "trigger": "Classical exact sequence and dyadic-block maxima"
+        },
+        {
+          "assessment": "Explicitly states the exact alias and prior all-scale maximum, not just its limsup",
+          "evidence": "Reports Béjian–Faure first maxima at ((2^(k+1)+(-1)^k)/3, k/3+7/9+(-1)^k/(9·2^(k-1))) on [2^(k-1),2^k]; Eq. (3) gives d_s as the sum of distances to the nearest integer and p. 1 identifies ordinary and star discrepancy here.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.01560",
+          "material_read": "pp. 1,3: Theorem A and ensuing paragraph, text offsets 1648–5797; §3 equations (3)–(4) and preceding table, offsets 11150–14143",
+          "method": "Bounded primary OA text inspection; cross-checked its attribution against the 1978 scan",
+          "title": "Discrepancy results for the van der Corput sequence",
+          "trigger": "Readable statement of exact prior discrepancy identity and maxima"
+        },
+        {
+          "assessment": "Exact per-slope part transfers; global chord inequality is not the normalized-slope maximum",
+          "evidence": "Computes q(x) with maximizing t_i=x_(p-1-i). The change of target adds st/[N(N-1)] and preserves the witness; evaluating that term gives the exact profile at slope s/N.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10064",
+          "material_read": "Definition and Proposition 1, pp. 2–3, offset 4700; §3, Eq. (3.1) and extremizing column derivation, pp. 4–5, offsets 11000 and 15800",
+          "method": "Primary OA passage comparison",
+          "title": "Analyzing Deviations of Dyadic Lines in Fast Hough Transform",
+          "trigger": "Exact same dyadic lines under endpoint-joining normalization"
+        },
+        {
+          "assessment": "Adjacent earlier chord global bounds, not alone equivalent to normalized-slope exact maximum",
+          "evidence": "Exact p/6 for even p, odd asymptotic p/6-1/18; comparison line joins the endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.05615v1",
+          "material_read": "Eq. (3) and symmetry, p. 6, offset 13400; §4 Theorems 1–2, offsets 32600 and 38200",
+          "method": "Primary OA passage comparison",
+          "title": "Fast Hough Transform and Approximation Properties of Dyadic Patterns",
+          "trigger": "Early sharp dyadic path deviation results"
+        },
+        {
+          "assessment": "Same object, nonsharp bound",
+          "evidence": "Identical digital offsets and slope s/N with deviation upper bounded by n/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23363",
+          "material_read": "Lemma 2.1, p. 5, offset 20700",
+          "method": "Primary OA theorem inspection",
+          "title": "Explicit Oblique Inverses of the Approximate Discrete Radon Transform",
+          "trigger": "Exact target normalization and original comparison bound"
+        },
+        {
+          "assessment": "Different sequence and statistic; not the source of the failure",
+          "evidence": "Concerns Stern-sequence residue counts modulo nine, not scaled base-two van der Corput discrepancy.",
+          "identifier_or_url": "Resultary 2026/10/26/...--57068b08083f",
+          "material_read": "Indexed subject comparison",
+          "method": "Local Resultary search",
+          "title": "A sharp non-square-root dyadic discrepancy for a Stern residue pair",
+          "trigger": "Same-date dyadic discrepancy search hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23 and 61–70",
+        "Béjian–Faure Exp. 13 §4, Spiegelhofer arXiv:1710.01560 pp. 1,3; Smirnov–Karpenko arXiv:2311.10064 §3"
+      ],
+      "rationale": "Exact row errors at the s/N slope would be a useful sampling tolerance if the invariant were previously unknown. Here the finite sharp value is an exact change of variables from a known extremum, and the entire slope-specific profile and witness are routine transfers of the existing chord formula. A self-contained Bellman rederivation does not leave a distinct mathematical result under review, and no further computational enclosure, application theorem or new extremal characterization is established by the frozen claim. No surviving repair is warranted for these submitted claims.",
+      "residual_risks": [
+        "This is not a judgment that the normalization or an expository link between disciplines is useless; it is a rejection of the submitted exact invariant as a distinct scientific contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

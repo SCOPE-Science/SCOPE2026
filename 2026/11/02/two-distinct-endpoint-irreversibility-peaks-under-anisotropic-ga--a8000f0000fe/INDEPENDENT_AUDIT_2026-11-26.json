@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:21:13.285978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: 3–58",
+        "VERIFICATION.md: 19–23",
+        "verify_multiscale.py: 1–35",
+        "Independent termwise Laplace expansion and exact rational tail bounds"
+      ],
+      "rationale": "The OU variances conditioned on shared cycle age t are v_j=1−(1−q_j)e^(−k_j t); the conditional Gaussian Jeffreys divergence is additive, with each term (v/q+q/v−2)/2. Exponential cycle integration gives J(r)=F_(1/2)(r)+100 F_(9/10)(r/100); the prefactor 100 cancels when differentiating. In a separate exact calculation, expand q/v=q Σ_(n≥0) a^n e^(−ns), a=1−q, and differentiate u²/(u+n) to get 1−n²/(u+n)² per term. At cutoff 16 the discarded derivative tail is positive and less than a^17/2 per coordinate; rational comparisons give J′(1), J′(20)>10^−4 and J′(3), J′(200)<−10^−4. This independently establishes the critical signs from the stated Gaussian model. An extremum on each closed bracket is interior by the endpoint derivative signs. Since the Laplace formula is real analytic and nonconstant, zeros of J minus its attained extremal value are isolated locally, so these extrema are strict. No uploaded code was executed. The independent calculation is replayable in review_checks.py, ou().",
+      "residual_risks": [
+        "At least two strict maxima, not a complete stationary-point count or a global ranking of the peaks.",
+        "This is conditional endpoint divergence per cycle time, not divergence computed after mixing over age and not total pathwise entropy production."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day 3fdf1f9dc897 concerns a renewal-clock envelope at fixed mean spacing. e2e36c9da59c concerns preference switches between Poisson and periodic clocks in a two-rate Gaussian system. RESULT.md:61 distinguishes recurrent-erasure work costs."
+        ],
+        "reasoning": "An envelope over clocks at a given spacing does not imply multimodality along the Poisson one-parameter subfamily as spacing varies. Preference switches compare two functions and do not by themselves imply multiple extrema of either function separately.",
+        "searches": [
+          "Resultary: Gaussian endpoint divergence across reset-clock laws",
+          "Resultary 3fdf1f9dc897 and e2e36c9da59c",
+          "Gupta–Olsen–Krishnamurthy 10.1038/s42005-025-02277-w"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md: 60–69",
+        "Resultary 31e22fdf4f67, 2ba8a9b03b55, e2e36c9da59c and 3fdf1f9dc897",
+        "arXiv:2605.28445 and 2211.15372; DOI 10.1038/s42005-025-02277-w (lawful full-text retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a fixed cycle age the separate-coordinate Gaussian law supplies additivity; varying a common r then evaluates the two response derivatives at r and r/100. A single-scale extremum or comparison with a periodic protocol supplies neither their relative magnitude nor the four combined signs."
+        ],
+        "reasoning": "The formula and general possibility that summed responses can be multimodal are not claimed as new. The finite exact signs for this specifically motivated statistic introduce a separate counterexample beyond the available claims.",
+        "searches": [
+          "Farago arXiv:2605.28445",
+          "Resultary 31e22fdf4f67, 2ba8a9b03b55 and e2e36c9da59c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:60–68 identifies Farago's harmonic reset-cycle symmetric-KL formulation as the closest basis. Mori–Olsen–Krishnamurthy is described in the returned search summary in terms of stochastic entropy production with random reset positions."
+        ],
+        "reasoning": "Jeffreys divergence is another name for the sum of the two KL directions; this alias alone is not novel. Mixing Gaussian endpoint laws first or using pathwise entropy production changes the functional. The exact witness must use the age-conditioned observable and common rate.",
+        "searches": [
+          "Resultary: anisotropic Gaussian reset cycle, two relaxation rates, two endpoint KL peaks",
+          "arXiv:2605.28445, arXiv:2211.15372",
+          "Primary literature search: Poisson OU resetting conditional endpoint Jeffreys divergence versus rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2ba8a9b03b55 is summarized as a single harmonic-particle peak result. Same-day 31e22fdf4f67 concerns a reset-cadence reversal in Poisson versus periodic endpoint KL rates. e2e36c9da59c has the closest two-rate common-clock setting but reports switches, not peak counts for J."
+        ],
+        "reasoning": "The indexed statements lack the asserted derivative sequence or two Poisson-frequency peak intervals. Same-day records were compared on content, not presumed earlier or later.",
+        "searches": [
+          "Resultary: finite-width KL peak and anisotropic Gaussian reset peaks",
+          "Resultary 2ba8a9b03b55, 31e22fdf4f67, e2e36c9da59c"
+        ]
+      },
+      "rationale": "Credit harmonic Gaussian endpoint and reset-cycle calculations as background. The supported distinct claim is the explicit two-scale non-unimodality witness for the Poisson-frequency objective, certified by alternating derivative signs. Do not credit a general theory of multiple modes or priority over unchecked work.",
+      "residual_risks": [
+        "Farago's exact primary comparison and the closest Resultary full texts were unavailable; an unindexed example or implication could overlap. No retrieval miss was counted as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the stated cycle observable background; the extent of multimode coverage remains unchecked",
+          "evidence": [
+            "RESULT.md distinguishes its two-scale witness from Farago's harmonic resetting-cycle setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.28445",
+          "material_read": "Frozen characterization at RESULT.md:60–68; primary full text not retrieved",
+          "method": "Targeted official OA HTML and PDF attempts",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "Closest harmonic symmetric-KL cycle observable"
+        },
+        {
+          "assessment": "The accessible scope is stochastic entropy production, not an established match for the age-conditioned endpoint witness",
+          "evidence": [
+            "Search summary mentions stochastic entropy production with random resetting positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "Search summary and RESULT.md:60–69; no full-text passage retrieved",
+          "method": "Primary literature search and targeted lawful OA attempts",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Possible different name for resetting irreversibility"
+        },
+        {
+          "assessment": "Protocol preference is a different observable from a Poisson-rate extremum",
+          "evidence": [
+            "Summary reports switches of the preferred protocol, not stationary points or their absence in J."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-reentrant-reset-clock-preference-switches-in-a-two-rate-ga--e2e36c9da59c",
+          "material_read": "Indexed statement; underlying full record unavailable",
+          "method": "Local Resultary search and targeted source access attempts",
+          "title": "Three reentrant reset-clock preference switches in a two-rate Gaussian system",
+          "trigger": "Two relaxation rates, common reset clock and closely related endpoint observable"
+        },
+        {
+          "assessment": "Related observable, but threshold compares periodic and Poisson clocks",
+          "evidence": [
+            "Summary gives a protocol-comparison reversal, not two Poisson-frequency maxima."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-reset-cadence-reversal-and-a-logarithmic-temperature-fr--31e22fdf4f67",
+          "material_read": "Indexed statement; underlying full record unavailable",
+          "method": "Local Resultary search and targeted source access attempts",
+          "title": "A unique reset-cadence reversal and a logarithmic temperature frontier",
+          "trigger": "Same-day result on endpoint symmetric KL versus reset cadence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: 6–55, 60–65"
+      ],
+      "rationale": "A specific exact witness tests frequency tuning for a natural conditional endpoint objective. It shows that two ordinary Gaussian modes at distinct relaxation scales invalidate any blanket unique-peak assumption for this optimization, even with independent reset coordinates and a single global clock. The rational sign proof avoids mistaking numerical noise near the shallow second peak for a real extremum. This does not imply multimodality of physical entropy production.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

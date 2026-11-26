@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:59.300308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0 ≤ t ≤ d, a length-t walk ends at a target precisely when the source's last d−t letters match the target's first d−t letters. Thus all-one at t means every one of q^(d−t) disjoint initial classes of size q^t is occupied. This gives both the exact product count and binomial empty-class law; all-one is absorbing, so subtracting successive cumulative counts is valid. At t=0 only all-one hits, at t=d every nonzero state hits, and a singleton cannot hit by d−1. The sole infinite hitting time belongs to all-zero; this is a clock to all-one, not to either unanimous configuration. At t=(1±ε)log_q(d), with the appropriate integer rounding, the mean empty count diverges or vanishes, respectively. At binary d=2^h+h+c the empty-class means at h−1, h, h+1 are 2^(2^(h−1)+c+1), 2^c, 2^(c−1−2^h). Independence at each time gives the Poisson limit at h and the two adjacent hitting masses without requiring independence across times. An independent direct-update census agreed at (2,1),(2,2),(2,3),(2,4),(3,1),(3,2), including finite counts (1,6560,44064,14400,510) and one nonhit at (2,4); this corroborates only finite cases. The frozen verification paths are verify_exhaustive.py and verify_reachability.py with their recorded outputs; neither frozen program was executed in this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Boolean-walk and primitive recurrent-state results already cover the qualitative conclusion of two fixed configurations. Height bounds do not count initial states entering at a specified t.",
+          "The 1994 broadcasting article was identified; full-text retrieval was blocked. The frozen abstract account concerns broadcast/gossip routing protocols rather than a labelled random-initial-state law."
+        ],
+        "reasoning": "Known graph dynamics cover the propagation framework, but the product depends on identifying and enumerating the distinct source sets. No conclusion about unseen full text is drawn.",
+        "searches": [
+          "arXiv:0805.0275v1, Theorems 2.10 and 3.8",
+          "arXiv:2104.04403, §§2.2–3.1.2",
+          "DOI:10.1137/S0097539791197852"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0805.0275v1",
+        "arXiv:2104.04403",
+        "DOI:10.1137/S0097539791197852 (metadata; limited abstract evidence)",
+        "Resultary:8ab3558fe450",
+        "Resultary:ce6906b9edb4",
+        "Resultary:4cb49f213f10",
+        "Resultary:6df120673c37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primitiveness implies eventual convergence of all nonzero states, but is compatible with many different transient counts. Independent-binomial occupancy yields the limit once the graph-specific class sizes and dimension/time relation have been proved."
+        ],
+        "reasoning": "The ingredients are standard and the application is elementary, but the class product and a dimension sequence with constant intermediate missing mean and asymptotically forced adjacent steps are not given by recurrence or by another graph's window. No new general Poisson theorem is claimed.",
+        "searches": [
+          "arXiv:0805.0275v1 §§2–3",
+          "arXiv:2104.04403 §§2.2–3.1.2",
+          "Resultary 4cb49f213f10 and 8ab3558fe450"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent event is simultaneous occupancy of all disjoint suffix blocks under independent vertex bits, not a usual fixed-draw coupon collector. The primary-literature lookup did not return relevant hits and contributes no negative evidence.",
+          "Resultary records 8ab3558fe450 and ce6906b9edb4 give OR windows through overlapping Johnson shadows or cube neighbourhoods, not the disjoint de Bruijn suffix census."
+        ],
+        "reasoning": "A coverage theorem for these exact nested suffix partitions under the same seeding law would be equivalent. The compared OR-window results neither have these partitions nor give probabilities for projections on them.",
+        "searches": [
+          "Local Resultary: de Bruijn OR consensus, random initial states, suffix occupancy and Poisson cutoff",
+          "Primary-literature query: exact OR consensus clocks on de Bruijn networks, occupancy and coupon collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant indexed claims concern a Wielandt graph, random colourings of de Bruijn edges, Johnson dynamics or a Boolean cube. None of those invariant statements tabulates the synchronous vertex-OR first-entry counts on full directed de Bruijn graphs."
+        ],
+        "reasoning": "Counts for an edge-colouring output or a different graph's stopping time are not interchangeable with this table. This is a targeted comparison, not a completeness claim about literature or databases.",
+        "searches": [
+          "Local Resultary: exact de Bruijn OR first-entry census and empty suffix classes",
+          "Resultary 4cb49f213f10, 6df120673c37, 8ab3558fe450, ce6906b9edb4"
+        ]
+      },
+      "rationale": "Qualified to the all-size labelled hitting census and the lattice-scale random-initialization law for this graph. General OR propagation, primitiveness and independent-block Poisson approximation are prior; the checked general results do not supply the exact suffix partition or its hitting invariant, and the closer cutoff analogues have different obstruction sets.",
+      "residual_risks": [
+        "The 1994 broadcasting full text was inaccessible; an exact multi-source formulation in it or unindexed communications literature is not excluded.",
+        "Searches are bounded. Neither standard propagation nor the Poisson law of small numbers is claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative dynamic background, not the specified hitting census",
+          "evidence": [
+            "Height bounds and cycle classification are not initial-state shell counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0805.0275v1",
+          "material_read": "OA §§2–3, Theorems 2.10 and 3.8",
+          "method": "Bounded full-text comparison",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General dynamics and potential transient-count coverage"
+        },
+        {
+          "assessment": "General antecedent",
+          "evidence": [
+            "Support propagation and primitive strong-graph periodic-state criterion account for eventual convergence and fixed points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.04403",
+          "material_read": "OA §§2.2–3.1.2, including the primitive case",
+          "method": "Bounded full-text comparison",
+          "title": "Dynamical properties of disjunctive Boolean networks",
+          "trigger": "Support-map and recurrent-state coverage"
+        },
+        {
+          "assessment": "Residual historical risk, not classified as non-covering in full",
+          "evidence": [
+            "Available description concerns deterministic routing and gossip/broadcast protocols."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539791197852",
+          "material_read": "DOI metadata; abstract description in the frozen evidence; primary full text not read",
+          "method": "Lawful OA retrieval attempted, publisher access blocked",
+          "title": "Broadcasting and Gossiping in de Bruijn Networks",
+          "trigger": "Same graph family and information propagation"
+        },
+        {
+          "assessment": "Same broad mechanism, different graph and source of dependence",
+          "evidence": [
+            "Overlapping Johnson shadow cliques under sparse seeding are not disjoint suffix classes."
+          ],
+          "identifier_or_url": "Resultary:8ab3558fe450",
+          "material_read": "Relevant mirrored finding statement on uncovered obstructions",
+          "method": "Local Resultary comparison",
+          "title": "A hierarchy of Poisson consensus windows in disjunctive Johnson dynamics",
+          "trigger": "Closest Poisson OR-window analogue"
+        },
+        {
+          "assessment": "Different graph and density/time window",
+          "evidence": [
+            "Hamming-neighbourhood obstructions at a one-step density threshold, not a dimension-indexed suffix-block product."
+          ],
+          "identifier_or_url": "Resultary:ce6906b9edb4",
+          "material_read": "Relevant mirrored finding statement",
+          "method": "Local Resultary comparison",
+          "title": "A Gumbel consensus window and exact terminal shells for Boolean-cube OR dynamics",
+          "trigger": "Related exact-shell and random-seed cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula gives the count of all labelled inputs meeting any deadline, and the entire biased reliability curve, on a standard directed network. This is more informative than its exponent or its fixed points: it quantifies d versus log_q d and identifies the sparse dimension subsequences where each of two adjacent clocks retains positive mass. The dimension window is forced by keeping the mean number of empty classes finite, rather than selected as an arbitrary numerical slice. Value is in the exact graph-specific invariant and calibration, not in a new general occupancy principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

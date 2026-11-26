@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:53:49.942226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rate-(n−i)α exponential log-gaps give independent Beta((n−i)α,1) ratios. A violation is the event R_(i+1)(1+R_i)>1. The zero event detects every triangular triple, since the two immediate predecessors of any possible largest stick dominate any other pair below it; the count itself is only of consecutive triples. Conditioning yields q_i=a∫x^(a−1)[1−(1+x)^(−b)]dx. Expanding the exponential and x^a with one-sided remainders gives 0≤(π²/12)ab−q_i≤(3ζ(3)/4)a²b+(π²log(2)/24)ab². The adjacent joint probability is at most q_i β_(i+2) log 2. For an independent check of the process approximation: write F for the indicators through i−2 and J for I_(i−1). I_i is independent of F. The conditional deviation from q_i, averaged over J given F, equals 2|E[I_i J|F]−q_i E[J|F]|. Summing the expected deviations while replacing the conditional laws by independent Bernoulli(q_i) laws bounds process TV by 2Σ(P(I_i I_(i−1)=1)+q_i q_(i−1)); Poissonizing the independent coordinates costs O(Σq_i²). Coupling intensities adds at most their summed absolute difference. These give the claimed two error orders and apply even outside the critical regime (where the bound can be vacuous). Riemann sums give the stated density and mean π²λ/36, including the empty limit at λ=0. For supercritical n³α²→∞ with nα→0, the relative variance is O(1/(n³α²)+1/(n²α)); both denominators diverge. Capping α by n^(−4/3) preserves this regime and monotonicity of the uniform-ratio construction extends the conclusion. An independent algebraic recomputation confirmed the constants. CHECK.py was inspected, not executed; its frozen finite diagnostics are not a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brennan–Callow–Lin (3.24), (3.26) give general unbounded-law integrals, not a uniform moving-index asymptotic. Resultary 8d0ac1d44459 gives fixed-positive-shape quadratic decay; 6f2f08f38b12 treats a strictly positive log-density on the full line with two tail slopes, which is not the Pareto log-length support."
+        ],
+        "reasoning": "A broad formula for one finite probability need not provide a growing-sample joint law. Neither fixed-shape decay theorem has the hypotheses needed for this sparse moving-Pareto regime.",
+        "searches": [
+          "arXiv:2604.27573v2 §3.3",
+          "arXiv:2611.04436v1 Lemma 3.1 and Theorem 3.2",
+          "Local Resultary: fixed-shape Pareto and broader two-tail triangle-free asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.04436v1",
+        "arXiv:2604.27573v2",
+        "Resultary:7bf1f00a0539",
+        "Resultary:8d0ac1d44459",
+        "Resultary:6f2f08f38b12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-n proof already uses disjoint log-gaps off adjacent sites and the same inclusion of an adjacent pair in a one-event intersection with a gap < log 2. In the fixed-n argument all disjoint pairs may be discarded at its error order; at n³α² of constant order their aggregate can instead be order one. The fixed-shape O_α(n log n) error likewise cannot be read uniformly toward zero shape."
+        ],
+        "reasoning": "The process result reuses those local ingredients and standard Poisson approximation, but needs parameter-tracked intensity error and retention of the independent rare events at disjoint sites. A separate monotone cap is needed to reach arbitrary supercritical sequences. The earlier endpoint statements do not imply the asserted uniform bound, rank law and full threshold merely by substituting parameters into them.",
+        "searches": [
+          "Resultary 7bf1f00a0539 RESULT.md §§3–4, mirror offset 4740 to 6811",
+          "Resultary 8d0ac1d44459 RESULT.md fixed-shape theorem",
+          "Arratia–Goldstein–Gordon (1990) DOI:10.1214/ss/1177012015 (method cited in the frozen proof)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barczy–Lovas give the equivalent exact finite-sample avoidance event and integrals. Resultary 7bf1f00a0539 gives the fixed-n α→0 avoidance expansion and the conditional distribution of a single marked violation. The admitted primary-literature lookup did not supply a relevant comparison."
+        ],
+        "reasoning": "The logarithmic-gap and ratio versions are equivalent, and the prior fixed-n mark weights are proportional to the same rank factor. However the prior single-event law cannot be substituted for the multi-event Poisson process at critical joint scaling.",
+        "searches": [
+          "Local Resultary: Pareto sticks, moving shape index, small-shape triangle-free probability and spatial Poisson violations",
+          "Primary-literature query: Pareto random sticks moving shape, triangle-free critical window and Poisson approximation",
+          "arXiv:2611.04436v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit special-shape/n=3 evaluations and the fixed-n endpoint expansion were located; their outputs are avoidance probabilities at fixed sample size, not total variation to a Poisson grid process or the sharp large-n avoidance limit."
+        ],
+        "reasoning": "Those exact evaluations and expansions are antecedents, not equivalent tables or evaluations of the claimed distribution.",
+        "searches": [
+          "Local Resultary: exact Pareto triangle-free probability, small-shape expansion, consecutive violations",
+          "arXiv:2611.04436v1 Corollary 3.3 and Remark 3.5"
+        ]
+      },
+      "rationale": "The closest fixed-n endpoint already contains the same leading local coefficient, triangle criterion and adjacent-event mechanism. The defended contribution is the uniform-in-n process approximation with a growing sample, the limiting spatial intensity, and the threshold including the out-of-window avoidance limit; not the local coefficient, finite exact integral, or rare-event approximation theorem by itself.",
+      "residual_risks": [
+        "The fixed-n endpoint proof is closely related and should receive credit for the local mechanism; the originality assessment concerns the uniform and moving-shape conclusions only.",
+        "No negative conclusion follows from the unproductive primary-literature lookup; an unidentified equivalent joint-limit result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ratio representation and finite integrals",
+          "evidence": [
+            "Independent Beta((n−i)α,1) ratios and exact finite-n integrals; Remark 3.5 gives qualitative endpoints at n=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.04436v1",
+          "material_read": "OA §3, Lemma 3.1(iii), Theorem 3.2, Corollary 3.3 and Remark 3.5",
+          "method": "Bounded full-text comparison",
+          "title": "Pick-up sticks problems for exponential and Pareto distributions",
+          "trigger": "Same sample model and avoidance event"
+        },
+        {
+          "assessment": "General finite-law integral framework",
+          "evidence": [
+            "The integral admits unbounded densities but the inspected formulas do not supply the moving-Pareto Poisson approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.27573v2",
+          "material_read": "OA §3.3, especially (3.24) and (3.26)",
+          "method": "Bounded full-text comparison",
+          "title": "Fibonacci numbers and the probability of polygon formation using random length sticks",
+          "trigger": "Broader unbounded sampling laws"
+        },
+        {
+          "assessment": "Covers the local leading coefficient and key overlap observation, not the joint-limit statement",
+          "evidence": [
+            "Fixed-n α² coefficient π²n(n−1)(n−2)/36, O_n(α³) remainder, conditional single-event index weights, and adjacent intersection bounded via the next gap being less than log 2."
+          ],
+          "identifier_or_url": "Resultary:7bf1f00a0539",
+          "material_read": "Mirrored theorem and §§3–4, with direct comparison of the proof at offsets 4740–6811",
+          "method": "Local Resultary mirror examination",
+          "title": "Two Pareto shape-index endpoints for triangle-free sticks",
+          "trigger": "Closest same-statistic small-shape and marked law"
+        },
+        {
+          "assessment": "Fixed positive shape, different regime",
+          "evidence": [
+            "log P(no triangle)=−α log(φ)n²/2+O_α(n log n) with α fixed."
+          ],
+          "identifier_or_url": "Resultary:8d0ac1d44459",
+          "material_read": "Mirrored RESULT.md §§1–5, main rate and shape condition",
+          "method": "Local Resultary comparison",
+          "title": "Sharp quadratic decay for triangle-free Pareto stick samples",
+          "trigger": "Same probability for growing samples"
+        },
+        {
+          "assessment": "The inspected hypotheses exclude one-sided log-Pareto support",
+          "evidence": [
+            "The density is required to be strictly positive on the whole real line."
+          ],
+          "identifier_or_url": "Resultary:6f2f08f38b12",
+          "material_read": "Mirrored finding hypotheses concerning the log-density and its two tail slopes",
+          "method": "Local Resultary comparison",
+          "title": "Two-tail triangle-free stick samples: a sharp rare-event exponent",
+          "trigger": "Potential stronger tail-law coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies a natural noncommuting-limits problem: the window α on the scale n^(−3/2) determines when a first triangle can occur and whether complete avoidance is likely. The explicit rank intensity says where the consecutive-order violations concentrate, beyond a scalar avoidance probability, and the grid approximation supplies a quantitative finite-size law. It does not count all triangular subsets and its quantitative bound can be uninformative outside the sparse regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

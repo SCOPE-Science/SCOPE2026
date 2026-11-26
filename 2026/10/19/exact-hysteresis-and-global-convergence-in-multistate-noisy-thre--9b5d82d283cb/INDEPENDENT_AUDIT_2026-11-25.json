@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:14.763538Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enumerating repeated-label and all-distinct outcomes yields z_i(1+z_i−S). At a fixed point the received coordinates satisfy one quadratic. For its two roots a>b, ab=p/[k(1−p)] and a+b=S+kab give the asserted converse as well: p/k=(1−p)ab<b, so the recovered x belongs to the simplex. The ratio equation gives a finite fixed-point set at each p. The weighted Cauchy–Schwarz bound makes the tangent Jacobian positive definite; its high/low splitting and group-contrast eigenvalues give instability for r≥2 and attraction exactly on the upper one-high branch, aside from the unit-eigenvalue cases. The one-high scalar increment at the uniform threshold is positive for small positive perturbations and at the fold is −Cu(u−u*)², repelling points immediately below u*. The monotone increments on these one-sided intervals and absence of intervening fixed points justify the nonlinear endpoint conclusions. Differentiating p(t) gives its sole maximum at k−1 for r=1. The map is the gradient of the stated convex potential on the simplex; the supporting-plane inequality gives a bounded Lyapunov function with increments at least half the step squared. Steps therefore vanish, every accumulation point is fixed, and an orbit with vanishing steps and a finite fixed-point accumulation set converges. Exact substitution of t=3 and t=4/3 gives the rational witness and stated spectra; the r=2 branch stays below p_lin in this example. The frozen verifier was read, not run; its finite tests do not establish convergence or endpoint stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary noisy paper explicitly leaves arbitrary opinion counts as further work; the uncorrupted plurality paper uses the three-sample rule but does not introduce positive replacement noise. The multistate q-voter theorem is for a different rule."
+        ],
+        "reasoning": "Neither the binary noisy result nor the multistate uncorrupted result contains the regime k≥3, 0<p<1 for this map. Multistate q-voter results are not broader statements for this same update.",
+        "searches": [
+          "d’Amore–Ziccardi HAL PDF pp. 4–5",
+          "arXiv:1310.2858 p. 2",
+          "Nowak–Stoń–Sznajd-Weron model description"
+        ]
+      },
+      "checked_sources": [
+        "HAL hal-04860011v1; DOI 10.1016/j.tcs.2024.115030",
+        "arXiv:1310.2858",
+        "DOI 10.1038/s41598-021-85361-9",
+        "Resultary cc3a3169f81d",
+        "Resultary 235cd640600d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 the two threshold formulas coincide at 1/3; the audited claim starts at k=3, where the fold is strictly above the linear threshold. The Potts record is a stationary-state classification, not convergence of every orbit."
+        ],
+        "reasoning": "The binary case neither predicts coexistence nor controls the multistate directions; the finite-population theorem is not implied in reverse. Showing the positive-noise cubic map is a convex gradient and has finitely many fixed points supplies a separate all-orbit argument.",
+        "searches": [
+          "HAL hal-04860011v1 pp. 4–5, binary threshold and many-opinion question",
+          "Resultary cc3a3169f81d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d’Amore–Ziccardi have independent uniform message replacement, but two opinions. The noisy q-voter uses panel unanimity and decision noise. The driven three-state Potts record uses continuous-time Glauber dynamics even though it also obtains a seven-equilibrium regime."
+        ],
+        "reasoning": "Panel unanimity and decision noise are not sample plurality with independent pre-decision noise. Identical equilibrium counts for some regimes do not establish equivalence of the update maps or their trajectories.",
+        "searches": [
+          "HAL hal-04860011v1, pp. 4–5",
+          "DOI 10.1038/s41598-021-85361-9, model description",
+          "Resultary cc3a3169f81d Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc3a3169f81d classifies equilibria of a driven Potts ODE; 235cd640600d treats stationary count modes of a finite unanimity-two noisy voter process."
+        ],
+        "reasoning": "A stationary count mode of a random finite process is not a fixed point of this deterministic map. The retrieved exact classifications do not supply this threshold pair or global orbit theorem.",
+        "searches": [
+          "Resultary multistate noisy plurality/3-majority fold, equilibria and convergence; cc3a3169f81d and 235cd640600d"
+        ]
+      },
+      "rationale": "The same communication-noise mechanism is known for binary 3-majority and the sampling rule is known without noise. The actual compared statements do not give the two positive-noise deterministic multistate thresholds, the exhaustive stability classification or convergence of every simplex orbit for this particular map.",
+      "residual_risks": [
+        "Equivalent formulas in uninspected specialist Potts or majority-vote literature are not excluded by these comparisons. No novelty is claimed for the base update mechanism or generic coexistence in multistate models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage of binary mechanism and threshold only",
+          "evidence": [
+            "Binary stochastic threshold 1/3; authors explicitly raise the many-opinion transition as future work."
+          ],
+          "identifier_or_url": "https://hal.science/hal-04860011v1/file/main.pdf",
+          "material_read": "HAL PDF pp. 4–5, offsets 9394 and 15177",
+          "method": "Read published open copy passages",
+          "title": "Phase transition of the 3-majority opinion dynamics with uniform communication noise",
+          "trigger": "Closest theorem with the same noise and three-sample rule"
+        },
+        {
+          "assessment": "Same basic plurality rule, no positive communication noise",
+          "evidence": [
+            "Three sampled opinions; majority with uniform random tie-breaking; finite stochastic process."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2858",
+          "material_read": "p. 2, offset 5779",
+          "method": "Read open PDF rule and scope",
+          "title": "Simple Dynamics for Plurality Consensus",
+          "trigger": "Multistate three-majority mechanism"
+        },
+        {
+          "assessment": "Qualitative overlap only; different update equation",
+          "evidence": [
+            "Unanimous panels for conformity and an independent-decision noise mechanism."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-021-85361-9",
+          "material_read": "Abstract and model description, pp. 1–2, offsets 0 and 4900",
+          "method": "Read open text",
+          "title": "Discontinuous phase transitions in the multi-state noisy q-voter model: quenched vs. annealed disorder",
+          "trigger": "Competing explanation of exact multistate coexistence"
+        },
+        {
+          "assessment": "Different continuous-time Potts dynamics; no equivalent orbit result",
+          "evidence": [
+            "Driven Glauber Potts ODE; one or seven stationary points."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-logarithmic-strong-drive-fold-and-complete-stationary-state-ce--cc3a3169f81d",
+          "material_read": "RESULT.md Finding",
+          "method": "Read published record text",
+          "title": "A logarithmic strong-drive fold and complete stationary-state census",
+          "trigger": "Three-state coexistence with three ordered nodes and three saddles"
+        },
+        {
+          "assessment": "Different stochastic object",
+          "evidence": [
+            "Stationary count modes for finite unanimity-two updates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-multistate-noisy-voter-modes-exact-equilibrium-and-a-two--235cd640600d",
+          "material_read": "RESULT.md Finding",
+          "method": "Read published record text",
+          "title": "Finite multistate noisy-voter modes",
+          "trigger": "Exact multistate noisy-voter coexistence classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact split between the loss of linear attraction at the disordered state and the disappearance of ordered attractors gives a genuine deterministic coexistence regime, with endpoint and rational checks. Global convergence adds information not implied by the equilibrium list: no orbit has a nonfixed accumulation point. The result is useful without claiming finite-population escape times or stationary laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

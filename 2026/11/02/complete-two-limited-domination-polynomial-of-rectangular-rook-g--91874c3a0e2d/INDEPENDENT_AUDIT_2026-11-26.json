@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:55.754964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The selected-cell constraint is r_i+c_j≤2, and domination forbids a full omitted row and column simultaneously. Without a full line every incidence degree is at most two. A row of degree two confines all omissions to its two columns; if both columns had extra omissions in different rows, a selected cross cell would see one row omission and two column omissions. Hence the only nonmatchings are the two-edge star, the 3-cell rectangle and the 4-cell rectangle, up to transposition. With a full row there can be at most two full rows, and any other row has at most one omission. Two full rows permit no extra omission; with one full row, two extra omissions in different columns violate the cross constraint, and in the same column give a nonfull column of degree at least three. Each surviving configuration satisfies both constraints directly. The families are disjoint for m,n≥4; the matching count chooses a bijection, each three-cell block has four choices, and the slab counts choose the indicated full lines and optionally one outside cell. The maximal exponents and their coefficients give the stated minimum and multiplicity, including the tied orientations on a square. Independent code testing rook adjacency directly in branches/38eca682-5783-4f93-b41a-da41a44cf453/independent_enum.py matched complete 4×4 and 4×5 histograms and classifications (553 and 1,036 feasible sets, with 12 and 6 minimizers); the proof handles all m,n≥4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The latter proves min{m max(1,n−k), n max(1,m−k)} and gives the exact minimizing slabs and counts for k<min(m,n). Its proof enforces rigid occupancies at equality; it does not classify partial occupancies away from equality."
+        ],
+        "reasoning": "The broader all-capacity optimum covers the optimum at k=2 on every frozen board. It does not settle the disjoint classification for all feasible omitted sets.",
+        "searches": [
+          "Tepeh, arXiv:2606.22428, §4 and special square proposition",
+          "Resultary 3f6b93fa9eef, Finding and Proof offsets 0–6946"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary 3f6b93fa9eef and 2e67445867a0",
+        "arXiv:2606.22422",
+        "arXiv:2606.22428",
+        "arXiv:2401.00716"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting k=2 in 3f6b93fa9eef gives min{mn−2m,mn−2n}, with exactly the two-line omitted configurations and the same binomial counts. Its degree-sum condition is the same starting point. In contrast, the three-cell block and full-line-plus-one patterns contribute at nonextremal sizes not described by the equality analysis."
+        ],
+        "reasoning": "The optimum and its multiplicity are mechanical specializations and receive no new credit. The new argument limits nonextremal incidence configurations and counts them; neither the equality statement nor ordinary domination counts provide those restrictions or coefficients.",
+        "searches": [
+          "3f6b93fa9eef, exact value and rigidity statements and equality proof",
+          "arXiv:2606.22428 and arXiv:2401.00716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook adjacency is the line graph of K_(m,n), or the unequal-alphabet two-coordinate Hamming adjacency. The complement constraint on a nonedge of the omitted incidence graph is degree sum at most two, along with no simultaneous full row and column.",
+          "On regular graphs the selected-side formulation is (1,m+n−4)-domination. Total [1,2]-domination as in Resultary 2e67445867a0 instead constrains selected neighbors at every vertex; it is not an alias."
+        ],
+        "reasoning": "These encodings define the comparison class precisely; ordinary edge-cover-style row/column coverage captures domination but drops the selected-cell capacity condition. The broad primary query added no decisive source, not evidence of absence.",
+        "searches": [
+          "Resultary search on limited-domination enumeration and rectangular rook rigidity",
+          "Primary query: \"limited domination\" rook graphs \"polynomial\" complete bipartite 2-limited dominating sets enumeration",
+          "Božović et al., arXiv:2606.22422; Mertens, arXiv:2401.00716, §3 and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue entry lists exact minima and minimizer multiplicities, not full histograms. Mertens enumerates the unfiltered dominating sets. The separate total [1,2] record defines a different family."
+        ],
+        "reasoning": "Neither a single extremal coefficient on every board nor the ordinary size histogram is the claimed capacity-filtered polynomial.",
+        "searches": [
+          "Resultary full size enumerator, rectangular rook rigidity and total [1,2]-domination",
+          "Mertens, Domination Polynomial of the Rook Graph, Theorem 4"
+        ]
+      },
+      "rationale": "Credit is limited to the complete classification of feasible complements and their size polynomial. The rectangular minimum, the minimizing slab classification, and the exact counts of minimizers are already covered by Resultary 3f6b93fa9eef, not just by the previously noted 4×4 special case. They are valid corollaries here but not distinct contributions.",
+      "residual_risks": [
+        "An indexed or unindexed identical enumerator under regular-graph (1,t)-domination or a bipartite incidence formulation might not have surfaced.",
+        "The catalogue comparison identifies mathematical coverage, not independently established external-publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes optimum and extremizers, does not provide size polynomial",
+          "evidence": "Low-capacity equality forces whole parallel slabs; number of choices is binomial, doubled in the symmetric tied case.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-limited-domination-and-low-capacity-rigidity-for-rectangul--3f6b93fa9eef",
+          "material_read": "RESULT.md Finding, scope, proof and verification scope, offsets 0–6946",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact limited domination and low-capacity rigidity for rectangular rook graphs",
+          "trigger": "Broader statement on identical boards and capacity convention"
+        },
+        {
+          "assessment": "Same parameter, useful terminology distinction",
+          "evidence": "Ordinary domination plus a bound on unselected neighbors of selected vertices, distinct from requiring total domination.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+          "material_read": "p. 1, abstract and definition material near OA offset 1755",
+          "method": "OA paper passage inspection",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Original parameter and possible aliases"
+        },
+        {
+          "assessment": "Covers special-case minimum",
+          "evidence": "The result for K_(k+2) □ K_(k+2) gives size 8 for the 4×4 board at k=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+          "material_read": "§4, square-product proposition around p. 8 / OA offset 27565",
+          "method": "OA paper passage inspection",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Same product family and sharp bound"
+        },
+        {
+          "assessment": "Different concept family",
+          "evidence": "Bipartite edge representation and row/column coverage enumerate ordinary dominating sets without the capacity filter.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.00716",
+          "material_read": "§3 and Theorem 4, pp. 4–5, OA offsets near 12755 and 14258",
+          "method": "OA paper passage inspection",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Same graph and polynomial by cardinality"
+        },
+        {
+          "assessment": "Different condition",
+          "evidence": "Every vertex, including each selected vertex, is required to have one or two selected neighbors.",
+          "identifier_or_url": "2026/11/8/SCOPE-total-1-2-domination-on-rectangular-rook-graphs-a-sharp-cutoff-a--2e67445867a0",
+          "material_read": "Finding definition",
+          "method": "Resultary comparison",
+          "title": "Total [1,2]-domination on rectangular rook graphs",
+          "trigger": "Potential terminology collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The value is the rigidity of all feasible complements at the first capacity that permits nonmatching small components, and the resulting full size distribution. It reveals which nonextremal configurations are possible and distinguishes coincident powers arising from different shapes. This is materially stronger than the known optimum and covers a natural infinite graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

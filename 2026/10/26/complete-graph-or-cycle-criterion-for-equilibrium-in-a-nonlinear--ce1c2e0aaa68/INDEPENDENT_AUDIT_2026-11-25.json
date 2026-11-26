@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:20:07.215633Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated positive rates, the log reverse/forward edge ratio is 2 z_i F(J sum_{k in N(i)} z_k). The oriented ij-square affinity is 2 z_i z_j[H(R_j)-H(R_i)] for an underlying edge, and zero for a nonedge. Vanishing on squares is sufficient as any two flip paths with the same endpoints are related by interchanging successive distinct flips and cancelling double flips. Differentiating F gives an even F' strictly decreasing with |a| when J>0 and 0<s<1 (the strict decrease of F' uses s); H is then even and strictly decreasing for positive arguments since |x+1|>|x-1|. Thus all square equalities hold exactly when |R_i|=|R_j| for each edge and spin assignment. Assigning all plus spins forces equal degrees across the edge. At common degree d>=3, if the reduced neighborhoods differ, flipping one spin in their symmetric difference gives absolute sums d-3 and d-1, a contradiction. Equal closed neighborhoods propagate through a connected component and make it a clique. Degree two components are cycles; degrees zero and one give cliques, and all these types satisfy the square condition. The cycle Ising weight uses linearity of F on the three possible local fields, and the clique weight has the correct magnetization-layer log increment. On P3 the positive magnitude 2[2F(J)-F(2J)] follows from strict concavity; on K4, 3A+B=F(3J) and A-B=F(J) verify the displayed couplings with B<0. All-positive transition rates give an irreducible finite chain (the empty graph is trivial), and the edge terms (a-b)log(a/b) in stationary entropy production are nonnegative, vanishing simultaneously exactly at detailed balance. At the excluded linear-response endpoints all graphs are reversible. The bundled floating-point checker was inspected, not executed; it is a finite diagnostic, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical cycle test supplies the configuration-space integrability condition; the same-model paper supplies special cases on particular hosts."
+        ],
+        "reasoning": "Neither the generic integrability criterion nor the special cases provide the graph-texture rigidity statement: one must translate squares to equal absolute neighbor sums and then force identical reduced neighborhoods at degree at least three.",
+        "searches": [
+          "Kolmogorov reversibility for single-spin-flip configuration hypercubes; compare arXiv:0911.4011 and arXiv:2609.19591v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_graph_balance.py",
+        "arXiv:2609.19591v1",
+        "arXiv:0911.4011",
+        "Resultary 1b530a390287 and 310e9425ff23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier response identity gives the square test when combined with the classical cycle criterion. Periodic-chain and Curie–Weiss results prove the corresponding reversible geometries, and square-lattice currents give a nonreversible case."
+        ],
+        "reasoning": "Knowing the special geometries and generic square test does not give necessity for every other graph. Strict response curvature, regularity across edges, and the closed-neighborhood constraint at larger degrees jointly close that gap, with no finite-size assumption.",
+        "searches": [
+          "arXiv:2609.19591v1 Eq. S62, Eqs. S63–S65, Supplement S4 and abstract compared with the frozen square and neighborhood arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Chen–Kwek–Wang Eq. S62 expresses the identical function F as a log rate ratio; the field K(m_k plus or minus 1/N) in the Curie–Weiss discussion is the clique field when K=NJ and h=0.",
+          "Godrèche–Bray study directed rates and Gibbs stationarity on specified lattices, not exact reversibility for this symmetric nonlinear rate family on arbitrary interaction graphs."
+        ],
+        "reasoning": "Magnetization-layer balance and periodic ring balance are the two admissible special geometries, not equivalent statements of their exhaustive componentwise classification. Gibbs stationarity alone need not be detailed balance.",
+        "searches": [
+          "Resultary exact title and nonlinear spin-flip reversibility / graph queries",
+          "arXiv:2609.19591v1 Eqs. S62–S65 and Supplement S4",
+          "arXiv:0911.4011 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b530a390287 studies a synchronous probabilistic cellular automaton on periodic rings, with reversibility at p=1/2.",
+          "310e9425ff23 concerns a Bell-measurement matching chain, not Ising single-spin flips."
+        ],
+        "reasoning": "The bounded index check found differently defined chains, not an exact classification or a table from which this parameter-uniform graph theorem follows.",
+        "searches": [
+          "Resultary exact title and spin-flip / equilibrium / graph search; inspected nearest result passages 1b530a390287 and 310e9425ff23"
+        ]
+      },
+      "rationale": "The supported distinct claim is the necessary-and-sufficient topology classification for the exact uniform-coupling, zero-field, continuous-time strong-dephasing rates. The rates, the log response, the cycle and clique cases, and nonequilibrium behavior on a square lattice are not claimed as new. Neither the strongest inspected same-model passages nor the nearby indexed findings identify the reversible graphs over all finite simple graphs. This is a bounded best-of-knowledge judgment, not historical priority certification.",
+      "residual_risks": [
+        "Ranked index and targeted source inspections do not rule out an unindexed arbitrary-graph theorem for the same or a more general response; the broader public search wave was deferred.",
+        "No claim is made about finite-dephasing or synchronous dynamics, quantitative entropy production, or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and admissible special cases; no exhaustive topology theorem in these passages",
+          "evidence": "Eq. S62 has the same F; setting K=NJ and h=0 gives the finite clique field, while the ring calculation yields the Ising coupling F(2J)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19591v1",
+          "material_read": "Abstract (p. 1, offset 2675), Supplement Eq. S62 and Curie–Weiss Eqs. S63–S65 (p. 22, offset 120654), and periodic-chain detailed balance in Supplement S4 (p. 28, offset 155788)",
+          "method": "Lawful open-access PDF, targeted passage comparison",
+          "title": "Dephasing-Enhanced Response and Phase Transitions in Quantum Boltzmann Samplers",
+          "trigger": "Identical rates, possible same-model graph classification"
+        },
+        {
+          "assessment": "Related rate-constraint setting, different rates and scope",
+          "evidence": "The inspected discussion studies conditions for retaining an equilibrium measure for specified directed lattice models.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.4011",
+          "material_read": "Introduction, p. 3, offset 4758",
+          "method": "Open-access PDF passage inspection",
+          "title": "Nonequilibrium stationary states and phase transitions in directed Ising models",
+          "trigger": "Equilibrium conditions for local single-spin-flip rates"
+        },
+        {
+          "assessment": "Distinct synchronous ring dynamics",
+          "evidence": "Its reversible parameter line p=1/2 has a second-neighbor Ising stationary law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-sharp-reversible-line-and-odd-even-correlation-law-for-a-two-p--1b530a390287",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror, statement comparison",
+          "title": "A sharp reversible line and odd-even correlation law for a two-parameter probabilistic cellular automaton",
+          "trigger": "Indexed nearby periodic-spin reversibility finding"
+        },
+        {
+          "assessment": "Distinct matching dynamics",
+          "evidence": "The witness concerns Bell-measurement matchings, not a spin hypercube on an arbitrary interaction graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-reversibility-criterion-and-a-finite-nonequilibrium-witnes--310e9425ff23",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror, statement comparison",
+          "title": "Exact reversibility criterion and a finite nonequilibrium witness",
+          "trigger": "Indexed nearby reversibility classification and finite witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem closes a natural gap left by the known ring, clique and square-lattice cases: the graph alone decides detailed balance throughout the interior parameter range. The open three-vertex path is a sharp small obstruction while the reversible K4 has a four-spin term, separating non-pairwise effective interactions from steady currents. This is a complete graph-structural criterion, not a tabulated parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

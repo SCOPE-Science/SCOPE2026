@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The update rule is fixed precisely (four neighbors, three positive votes required, ties resolved to zero). The zero-set transforms and the point/line phase projections are explicit; two separately constructed incidence representations exhaust all 8192 shore inputs and agree on the exact 821 stable phases, geometric classes, exceptional fiber counts, temporal orbit census, and first-entry distribution. The reduction of the 26-vertex dynamics to the two 13-bit transformations and a recurrent symbol swap proves the 67,108,864-state census without extrapolation. Verification programs have been run on the exact packaged sources.
+PASS
 
-## Originality
+In zero-set coordinates each update takes the opposite shore's secants (threshold two for zeros). On a noncollinear set the two-step secant map is extensive. A noncollinear set without a quadrangle is a triangle or has at most one point off a line containing three or more points: two off-line points and two of the collinear points avoiding the intersection with their joining line would give a quadrangle. These sets are fixed. A quadrangle can be put at the three coordinate points and (1,1,1); its first double-secant image adds (1,1,0),(1,0,1),(0,1,1), and the secants of this seven-point set cover every point at least twice. Thus quadrangle-containing sets reach the full shore in four updates. The collinear inputs go to the empty shore; their count, including the empty set, is 1+13+78+52+13=157. This explains the two exceptional fibers and why all 819 other fibers are singletons. I independently exhausted the 8192 masks using the Singer difference set {0,1,3,9} in Z/13 with an explicit F_3^3 coordinate identification (python3 /workspace/checks/plane.py). It reproduced the geometric phase sets, fibers 157 and 7216, and all first entry counts on each shore, including 936 at time four. The recurrent phase bijection turns the full update into swap on 821 x 821 symbols. Product fibers then give the claimed 821 fixed states, 336610 primitive two-cycles, exact basin multiset and joint first entrance counts. The factorization is exhaustive, not a direct replay of 2^26 states. The frozen proof and both supplied scripts were inspected, not executed.
 
-PASS under checked literature, with residual historical-priority uncertainty. The 1980 general period-two theorem and the 2011 general threshold-network analysis cover possible eventual periods but not the geometric phase classes or numerical basin spectra. The published Heawood study proves an analogous swap representation for the Fano plane but has 58 symbols and a shorter cutoff; its statements do not imply the ternary-plane 821-symbol classification. The published stopping-set table concerns a separate erasure-peeling predicate, not two-step threshold dynamics. A 2024 projective-plane partition paper studies structural existence of friendly partitions, not exact temporal attraction basins. No exact equivalent was located in the performed literature and mathematical research searches. Search failure alone does not prove absolute priority.
+## originality
 
-## Value
+PASS
 
-PASS. The first even-degree projective-plane incidence case after the cubic Fano plane has a genuine geometric change in the stable secant patterns: noncollinear triples, collinear triple-plus-point, and full line-plus-point motifs. The 819 singleton recurrent-phase fibers versus two extraordinarily unequal absorbing fibers (157 and 7216), together with a sharp four-update cutoff, provide a complete, natural and independently reproducible dynamical benchmark. It is not merely a renaming of the general period-two theorem or a routine numerical substitution into a known orbit formula.
+The bipartite swap and eventual-period-two restrictions have precedents. The bounded comparison found no source giving or implying the sharp PG(2,3) open-neighbor strict-majority cutoff, stable phase classification and complete fiber/basin/entry census together, or the main new PG(2,3) census separately. The same-day incidence-graph record is materially relevant but distinct; no same-day priority was inferred.
 
-## Closest literature and limits
+## value
 
-The complete texts or directly relevant sections of the 2011 threshold-network paper, the published Heawood phase-projection result, the published order-three stopping-set result, and the projective-plane friendly-partition study were compared for their statements and implications. General threshold convergence, Fano geometry, and classical projective incidence properties are prior work. The claim applies only to this specified graph and tie convention. A differently indexed complete computation may exist. All nonstandard finite classifications rest on the supplied, runnable exhaustive shore-level certificates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural even-degree projective incidence graph is a test case where the general period theorem says nothing about a sharp transient bound or the distribution of attraction. The complete census explains why three geometric classes yield 819 isolated phases and why only two exceptional phase symbols carry almost all of the nontrivial attraction. It provides exact benchmark data for a related family already studied on smaller cubic incidence graphs; it does not claim a theorem for other orders or tie conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

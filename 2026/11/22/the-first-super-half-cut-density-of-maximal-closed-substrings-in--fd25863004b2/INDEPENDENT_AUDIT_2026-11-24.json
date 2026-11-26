@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:49:48.368924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–39; VERIFICATION.md, lines 19–35; verify_direct.py, lines 9–58; verify_bits.cpp, lines 10–65",
+        "Fresh reproduction: python3 /workspace/branches/479a902c-a461-426c-91fe-8e9f6d4d046e/independent_census.py 14; full_run.txt in the same directory"
+      ],
+      "rationale": "The claim concerns positional occurrences and one-based internal cuts in indexed binary words. The proof tests all proper borders at all starting positions (including overlaps), then rules out closed one-letter extensions only on available sides. For a zero-based interval [i,j] the crossed one-based cuts are i+1 through j inclusive, so the difference marks at i+1 and j+1 count exactly the desired occurrences. A freshly written exact enumeration independently exhausts all words at lengths 2 through 14 and gives (1,1,2,2,3,3,4,4,5,5,6,7,8). The only pairs at eight crossings at length 14 are 00101110100011@8, 00111010001011@6, 11000101110100@6 and 11010001011100@8; reversal with g mapped to 14-g and complementation give the four distinct pairs from the first. The maximum at length 13 equals, rather than exceeds, its ceiling-half benchmark. This proves the finite first threshold and rigidity, not an asymptotic statement.",
+      "residual_risks": [
+        "Exact executable finite verification, not a proof-assistant certificate. No conclusion for n>14."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 gives 3(s−1) as an upper bound for the block-cut count; Proposition 14 gives binary examples attaining at least floor((s−1)/2).",
+          "7dac807522c9 gives F₂(n)≥floor(n/2)+1 for every n≥13, explicitly not an exact unrestricted maximum.",
+          "803721df3753 gives the exact cut maximum a+b−1 in the particular family (0^a1^b)^k, k≥3."
+        ],
+        "reasoning": "These results cover broader lengths but have weaker bounds or restrict the word family. They do not yield the upper bounds through 14 or the exclusion of any other orbit.",
+        "searches": [
+          "arXiv:2611.11552v1 §7, Theorem 12 and Proposition 14",
+          "Resultary 7dac807522c9 and 803721df3753"
+        ]
+      },
+      "checked_sources": [
+        "Faro–Marino–Pavone arXiv:2611.11552v1",
+        "Fischer–Köppl arXiv:2610.38114v1",
+        "Badkobeh et al. DOI 10.1016/j.tcs.2025.115628 (abstract only)",
+        "Resultary 7dac807522c9, 803721df3753, 5387a5bb0a25, 721addc2bb68"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialization of 7dac807522c9 at n=14 gives 11000101110100@6 with eight listed crossings, the reversal of the frozen headline witness. At n=13 its bound 7 equals ceil(13/2) rather than exceeding it.",
+          "The published near-half lower bound does not assert a ceiling-half upper bound."
+        ],
+        "reasoning": "The construction already witnesses super-ceiling density at 14 but neither excludes an earlier example nor proves that its orbit exhausts the maximizers. The accepted finite claim is an exact classification, not originality of the witness or a refutation of a published upper-bound conjecture.",
+        "searches": [
+          "Resultary 7dac807522c9, RESULT.md, offsets 0 and 2980",
+          "arXiv:2611.11552v1 §7, Proposition 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faro–Marino–Pavone use the same occurrence-based MCS cut measure when the block is the whole input.",
+          "Fischer–Köppl output the MCS occurrences of a supplied string. Their output predicate can feed a cut census, but their algorithmic guarantee does not give maxima over all binary strings."
+        ],
+        "reasoning": "Neither restricting the input to binary nor turning a single-string reporting algorithm into an outer exhaustive search recovers a prior stated extremal spectrum or rigidity result. The closest exact formulation is handled by direct comparison with the same-day construction.",
+        "searches": [
+          "arXiv:2611.11552v1 §7",
+          "arXiv:2610.38114v1, Theorems 2–3",
+          "Resultary MCS occurrence and cut-density matches including 7dac807522c9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed match is a construction, not a census; the frozen record's own hit is not a second source.",
+          "5387a5bb0a25 and 721addc2bb68 concern total occurrence counts on four-run and symmetric five-run words, respectively, not cut counts for unrestricted binary words."
+        ],
+        "reasoning": "No matching complete table or rigidity classification was established by these comparisons. The exact length-14 lower witness is nevertheless covered as stated above.",
+        "searches": [
+          "Resultary MCS census matches: 7dac807522c9, 803721df3753, 5387a5bb0a25, 721addc2bb68",
+          "arXiv:2611.11552v1 §7"
+        ]
+      },
+      "rationale": "The exact unrestricted finite maxima, the exclusion of earlier ceiling-half excesses, and the exhaustive classification at 14 survive the closest comparisons. The same-day persistent-density record already supplies F₂(14)≥8 and one representative of the very same orbit (hence all four witnesses by symmetry); no independent originality or chronological priority is credited for that construction. The construction does not show maximality, uniqueness, or absence of earlier excesses.",
+      "residual_risks": [
+        "No within-day priority inferred for 7dac807522c9.",
+        "Badkobeh et al. full text was not accessible. An unindexed equivalent finite census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same setting and motivating bounds, not the exact cutoff",
+          "evidence": "Upper bound 3(s−1), binary lower examples floor((s−1)/2); the sharp leading constant is left open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11552",
+          "material_read": "v1 §7, Theorem 12 PDF p.12 (offset 44037), Proposition 14 p.13 (offset 45871)",
+          "method": "OA PDF passage comparison",
+          "title": "Internal Queries for Maximal Closed Substrings",
+          "trigger": "Same MCS cut count, potential stronger bound"
+        },
+        {
+          "assessment": "Different quantifier",
+          "evidence": "Enumerates the MCSs of one given T, with an output-sensitive complexity result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.38114",
+          "material_read": "v1 abstract/intro p.1 (offset 465), Theorems 2–3 p.9 (offset 37082)",
+          "method": "OA PDF passage comparison",
+          "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+          "trigger": "Potential prior exhaustive enumeration"
+        },
+        {
+          "assessment": "Substantial partial coverage; same-date ordering not established",
+          "evidence": "Lower bound floor(n/2)+1 for n≥13; at 14 gives the same eight-crossing orbit, but no universal upper bound or uniqueness.",
+          "identifier_or_url": "2026/11/22/SCOPE-persistent-strict-half-density-for-binary-maximal-closed-substri--7dac807522c9/RESULT.md",
+          "material_read": "Finding and explicit construction, offsets 0 and 2980",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Persistent strict-half density for binary maximal closed substrings",
+          "trigger": "Strongest distinct same-parameter Resultary match"
+        },
+        {
+          "assessment": "Restricted word family",
+          "evidence": "Exact maximum a+b−1 on (0^a1^b)^k, k≥3.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-maximal-closed-occurrences-and-cut-density-in-binary-block--803721df3753",
+          "material_read": "Finding: periodic two-block family and cut maximum",
+          "method": "Local Resultary comparison",
+          "title": "Exact maximal closed occurrences and cut density in binary block words",
+          "trigger": "Potential exact census overlap"
+        },
+        {
+          "assessment": "Full-statement coverage not assessed",
+          "evidence": "Accessible material describes definitions and general enumeration; no negative inference is made from lack of access.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2025.115628",
+          "material_read": "Landing page and abstract only",
+          "method": "Publisher lookup and focused lawful copy search; no full text obtained",
+          "title": "Finding maximal closed substrings",
+          "trigger": "Earlier work on the same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and witness intervals",
+        "Faro–Marino–Pavone, §7",
+        "Resultary 7dac807522c9, Finding and explicit construction"
+      ],
+      "rationale": "The binary cut-extremal function is the same local-density observable as in the published bounds. The stronger rounded half benchmark asks exactly when a cut first supports more than ceiling-half many occurrences. The first excess and the unique extremizer orbit distinguish an exact finite boundary from merely producing high-density examples, and supply a useful benchmark for future structural bounds.",
+      "residual_risks": [
+        "The ceiling-half benchmark is not a published conjecture; the finite result does not resolve the asymptotic constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

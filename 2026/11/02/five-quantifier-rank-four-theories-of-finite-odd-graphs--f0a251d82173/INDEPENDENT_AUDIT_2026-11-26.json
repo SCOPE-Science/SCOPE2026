@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:15.828785Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "Frozen VERIFICATION.md, verify_odd_graphs.py, verification_output.txt",
+        "/workspace/branches/independent_checks.py"
+      ],
+      "rationale": "For k>=3, a fresh fourth vertex meeting all three sets is obtained by a one-element replacement in X. If X meets both other sets, retain up to two witnesses, then there are k+1 choices of added element and at most two forbidden equalities. If it misses one other set, add one of that set's k elements and retain a witness for the intersecting set; the replacement cannot equal the disjoint set and at most one choice equals the other set. If X misses both, their intersection has size at least k-1 in its complement, so add a common element. To be adjacent only to X, choose among the k+1 k-subsets of its complement; each of Y and Z rules out at most one choice, by equality or by missing its sole element outside X, which cannot both occur for the same set. For adjacency to two specified vertices, their union must have size k+1: the unique candidate is its complement. It is already selected if the third vertex is that complement, and otherwise is adjacent to the third vertex precisely for the top triple. Pair labels are recoverable from adjacency and the rank-one common-neighbor test (including equality repetitions among the chosen points); the top bit is exactly the all-three adjacency extension in the all-E case. To verify the symbolic table, the four Venn capacities for the third set give the stated integer interval for t, and comparison of endpoints yields |v-w|<=k-u and k-u-1<=v+w<=k+u. Cells AA, AI, AE, EE are feasible exactly at u=k-1, u>=1, u<=1, u>=k-2, respectively. II and IE are always feasible for k>=3: set v=w=floor(k/2) for II, and v=max(1,u-1), w=k-1 for IE. Symmetry supplies the other cells. Top and star both extend any E pair by symmetry and explicit constructions. The distinct-pair extension signatures therefore separate in 1,2,3,4,5 counts, and the five complete rank-two types, not just counts, agree across k>=5. Equality repetitions add a uniform repeated-pair type in the tail, since rank-one types for {X,Z} use the same three available pair labels and codegree test. Vertex transitivity then gives the four-round result. The representative bound follows from strict increase of the binomial orders. Along two successive edges the endpoint sets differ by at most one replaced element; closing an odd walk in 2r+1 steps requires r>=k to reach a disjoint neighbor of the start, proving unbounded odd girth. Independent replay `python3 /workspace/branches/independent_checks.py 4` works directly with subset neighborhoods through k=6 and agrees, including equality of complete distinct-pair type sets at 5 and 6. Frozen checker and recorded output inspected, not executed.",
+      "residual_risks": [
+        "The bound of 462 is sharp only within the family. The finite replay does not prove the infinite statement; it is proved by the symbolic table and rank recursion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October Kneser rank-three census includes these odd graphs and gives the three regimes k=1, k=2, k>=3. The other rank-three catalogue theorem places odd graphs with k>=3 in its low-intersection regime.",
+          "The q-Kneser result uses subspaces over a finite field and a rank-four obstruction relative to the Rado graph, not this diagonal's cutoff."
+        ],
+        "reasoning": "Rank-three equivalence is strictly weaker here; the exact gap is the division of its k>=3 class at rank four. Spectral odd-girth methods and finite-field overlap do not determine the four-round classes in the set-disjointness language.",
+        "searches": [
+          "Resultary 61c0c6f31c38 and 1c874041f529, general classical Kneser rank-three classifications",
+          "Resultary 9d563960deab, q-Kneser bounded-rank work",
+          "arXiv:1202.2300, odd-girth and spectral characterization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 73a571449450, 61c0c6f31c38, 1c874041f529 and 9d563960deab",
+        "arXiv:1003.4865 and arXiv:1202.2300",
+        "Biggs 1979 bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day result 73a571449450 varies the ground-set size while holding the subset size three; the target has varying subset size and ground-set size 2k+1.",
+          "Generic fixed-uniformity stabilization for n>=4k does not apply to 2k+1.",
+          "EF framework and spectral characterizations supply tools or structural context, not the needed cross-k extension types."
+        ],
+        "reasoning": "The strongest related same-rank Resultary result is non-covering for the classification irrespective of within-day order. The single-instance relationship is recorded without inferring priority. A rank-three census cannot imply the strict rank-four distinctions k=3,4,>=5 or the rank-four tail without additional new type analysis.",
+        "searches": [
+          "Resultary 73a571449450 and 61c0c6f31c38, original findings and parameter ranges",
+          "arXiv:1003.4865 Theorem 3.3",
+          "arXiv:1202.2300 odd-graph construction and main theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conventional index may be shifted by one; the equivalent family is KG(2k+1,k), not KG(n,3) with n varying.",
+          "The survey's Theorem 3.3 equates four-round EF with agreement at rank at most four, in the correct language."
+        ],
+        "reasoning": "Compare theorems after matching the family and the logic, not merely the Kneser/odd or EF terminology. No inspected equivalent formulation settles the cross-k rank-four partition.",
+        "searches": [
+          "Resultary odd graphs O_k, near-diagonal Kneser KG(2k+1,k), four-round EF and first-order quantifier-depth partition",
+          "Pikhurko–Verbitsky arXiv:1003.4865 §3; van Dam–Haemers arXiv:1202.2300 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "73a571449450 gives seven rank-four classes at fixed k=3, with individual n up to 11 and a tail n>=12. It covers one graph of this assignment, O_3=KG(7,3).",
+          "61c0c6f31c38 gives a genuine exact lower-rank census, not the claimed rank-four table."
+        ],
+        "reasoning": "Credit the matching instance and lower-rank census. The fixed-k partition has no second odd-graph member to compare with O_3, and neither table determines the required new five-profile census.",
+        "searches": [
+          "Resultary semantic search for exact Kneser/odd graph rank-four census and four-move types",
+          "Resultary 73a571449450, exact three-subset Kneser classification",
+          "Resultary 61c0c6f31c38, eight rank-three Kneser types"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp cross-k rank-four partition along n=2k+1. Published catalogue work already settles the lower-rank partition on this family. The strongest same-rank related record works at fixed subset size three, sharing the single graph KG(7,3) but not comparing any two different odd graphs. Neither that slice nor the broader lower-rank result supplies the k=3,4 rank-four separations or the k>=5 equality.",
+      "residual_risks": [
+        "The Biggs full text could not be checked. External literature searches were limited; unindexed or implicit prior equivalent results remain possible. No within-day priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only the single shared family member O_3, not a cross-k comparison.",
+          "evidence": "Fixed subset size 3; n=m<=11 or n,m>=12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-seven-exact-four-round-theories-of-three-subset-kneser-graphs--73a571449450/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Seven exact four-round theories of three-subset Kneser graphs",
+          "trigger": "Strongest exact same-rank Kneser census"
+        },
+        {
+          "assessment": "Lower rank; true overlap, not the asserted rank-four partition.",
+          "evidence": "Class H contains 2k+1<=n<=3k-2 for k>=3, including the odd-graph tail at rank three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-eight-rank-three-theories-of-finite-kneser-graphs-with-a-sharp-3--61c0c6f31c38/RESULT.md",
+          "material_read": "Finding and classification table, offsets 0–8649",
+          "method": "Local Resultary search and mirror read",
+          "title": "Eight rank-three theories of finite Kneser graphs",
+          "trigger": "Broader exact classical Kneser census"
+        },
+        {
+          "assessment": "Only rank three; no rank-four implication.",
+          "evidence": "Lists the low-intersection regime 2k+1<=n<=3k-2 separately from n=3k-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-three-round-theories-of-nontrivial-kneser-graphs--1c874041f529/RESULT.md",
+          "material_read": "Finding and hypotheses, offsets 0–5742",
+          "method": "Local Resultary search and mirror read",
+          "title": "Four three-round theories of nontrivial Kneser graphs",
+          "trigger": "Same-day broader Kneser logical classification"
+        },
+        {
+          "assessment": "Different subspace family and different equivalence comparison.",
+          "evidence": "A common rank-three theory for subspace graphs with n>=2k, and a rank-four obstruction versus the Rado graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-point-extension-universality-and-a-rank-four-obstruction-for--9d563960deab/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Two-point extension universality and a rank-four obstruction for q-Kneser graphs",
+          "trigger": "Potential analogous rank-four result in a larger Kneser setting"
+        },
+        {
+          "assessment": "General framework, not the odd-graph theorem.",
+          "evidence": "Graph adjacency/equality language and correspondence between EF game length and quantifier depth.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "PDF pp. 1, 12–14, in particular Theorem 3.3",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Logical Complexity of Graphs: A Survey",
+          "trigger": "General graph depth and bounded-rank classification"
+        },
+        {
+          "assessment": "Spectral/odd-girth characterization, no rank-four partition from the inspected statement.",
+          "evidence": "Identifies the Odd graphs as Kneser graphs K(2D+1,D); treats distance-regularity, odd girth, and spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.2300",
+          "material_read": "PDF p. 1, introduction and characterization topic",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "An odd characterization of the generalized odd graphs",
+          "trigger": "Same odd graph family and plausible stronger structural characterization"
+        },
+        {
+          "assessment": "No full-text conclusion; historical-priority risk.",
+          "evidence": "Full-text access unsuccessful; no claim that the paper was searched internally.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1749-6632.1979.tb32775.x",
+          "material_read": "Bibliographic identification only; full text not accessible",
+          "method": "DOI access attempt and lawful repository-copy lookup",
+          "title": "Some odd graph theory",
+          "trigger": "Historical work on the identical graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Resultary 61c0c6f31c38 lower-rank classification"
+      ],
+      "rationale": "The natural odd-graph family retains an unbounded graph invariant, odd girth, while its first-order rank-four types stabilize. The exact cross-k cutoff and optimal within-family representative size quantify that gap. This goes beyond the already known lower-rank classification and identifies the precise extension patterns that matter.",
+      "residual_risks": [
+        "No claim about higher ranks, logic with counting, or representative sizes outside the odd-graph family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

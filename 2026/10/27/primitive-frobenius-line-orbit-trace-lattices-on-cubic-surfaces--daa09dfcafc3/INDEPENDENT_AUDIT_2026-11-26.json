@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:53.360944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The classes of the 27 lines generate P: the e_i occur, and h is obtained by adding e_i+e_j to the class h−e_i−e_j. Averaging over the finite cyclic action shows that orbit sums span the rational fixed space; the integral fixed kernel is saturated. Thus the quotient order is the gcd of maximal-rank minors of a trace basis, not a rational rank or eigenvalue statistic. An independent enumeration used ordered pairwise-skew sextuples rather than reflection words: there are 72 unordered sextuples, giving 51,840 distinct permutations by recovering h'=(H+Σe'_i)/3 and all line images. Every Weyl element lies in this set by the action on the basis, and cardinality gives equality. Conjugating under the whole group gives 25 classes. Euclidean integer elimination on the trace vectors followed by fraction-free maximal minors reproduces all 25 rows. Only the types (order,rank,cycles) (3,3,3^9), (6,2,3^1 6^4), (9,1,9^3) have index 3, with class sizes 480, 4320 and 5760. Index 3 forces a cyclic quotient; every order-nine trace is 3H, and H is primitive. Finite-field Brauer vanishing identifies the fixed group with arithmetic Picard. The finite enumeration is exhaustive in the Weyl group, not a claim that all types occur over every field. The slogan that traces give rational cone generators should not be used as an effective-cone theorem without separate justification.",
+      "replay": "python3 /workspace/evidence/replay_four.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier 2026-10-25 degree-five Finding computes Z/3 for (3,1,1), Z/2 for (4,1), and 0 for the other five W(A4) classes using ten curves. The 2026-11-22 degree-four Finding computes defects among W(D5) classes using 16 curves.",
+          "Elsenhans–Jahnel identify the permutation group preserving the cubic line intersections and study possible Galois images."
+        ],
+        "reasoning": "The earlier work establishes a precedent for this invariant and method, not a theorem covering degree three. The quartic record is a later analogue, and Weyl action/realization results do not compute the cubic integral trace span.",
+        "searches": [
+          "Resultary: integral Frobenius trace del Pezzo classifications, including 14de99fa5b64 and bba2ad817ad0",
+          "Elsenhans–Jahnel arXiv:1006.0721 and Moduli spaces and the inverse Galois problem for cubic surfaces"
+        ]
+      },
+      "checked_sources": [
+        "Banwait–Fité–Loughran arXiv:1606.00300 §7.1",
+        "Elsenhans–Jahnel arXiv:1006.0721 p. 1; Moduli spaces and the inverse Galois problem for cubic surfaces pp. 1,23",
+        "Swinnerton-Dyer 10.1017/S0305004100076106 p. 449",
+        "Resultary 14de99fa5b64, bba2ad817ad0, 70136773ee2a, 8a178617dee9 and d458bb2de263"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical line representation supplies the input; the cubic table gives type statistics, while the closest trace-lattice theorem is explicitly in degree five."
+        ],
+        "reasoning": "Knowing a type's cycles and rational fixed rank does not establish its integral generation by orbit sums. For the rank-one order-nine row alone the 3H conclusion follows from the known rank, primitive H and H-degree 9 of each trace; the credited result is the full classification including what happens in higher rank, which needs the placement of orbits in the integral Picard lattice and a new saturation calculation.",
+        "searches": [
+          "Banwait–Fité–Loughran §7.1 type table; degree-five Resultary 14de99fa5b64 Finding; Elsenhans–Jahnel intersection-action passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary tables list H¹(F,Pic), not the cohomology of the line-relation lattice R=ker(Z^27→P). Taking invariants of the presentation identifies the stated quotient with H¹(<F>,R), since H¹ of the permutation module is zero.",
+          "The indexed graph-Jacobian result 70136773ee2a treats K(Γ)^F, not fixed Picard modulo line traces; the Steiner-trihedral support result 8a178617dee9 treats a nine-line lattice without Frobenius."
+        ],
+        "reasoning": "The relation-lattice formulation is equivalent here and is a real possible overlap; the inspected results compute different modules or cohomology functors. The common appearance of 3 is not a mathematical identification.",
+        "searches": [
+          "Resultary: Frobenius-fixed Picard orbit-trace lattice; cubic line orbit sums and integral saturation",
+          "Swinnerton-Dyer, The Brauer group of cubic surfaces",
+          "Banwait–Fité–Loughran arXiv:1606.00300 §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 25-type table lists order, reciprocal class measure, eigenvalues, H¹(F,Pic), line orbits, and i(S), defined as the size of the largest Galois-invariant collection of pairwise skew lines. Reciprocal measures 108,12,9 give the already-known exceptional-row class sizes 480,4320,5760."
+        ],
+        "reasoning": "These data locate the rows but supply neither their trace quotient indices nor the orbit-sum coordinates needed to read off saturation. i(S) is not [P^F:T(S)].",
+        "searches": [
+          "Banwait–Fité–Loughran arXiv:1606.00300 §7.1 pp. 20–22",
+          "Resultary: cubic 27-line integral trace quotient, all 25 Weyl types"
+        ]
+      },
+      "rationale": "Classical Weyl/Frobenius data and the earlier degree-five orbit-trace method are prior. Credit is limited to the integral quotient for the 27-line cubic case. The checked sources do not state that quotient or already supply its exact lattice indices.",
+      "residual_risks": [
+        "The bounded comparisons do not exclude an earlier matching calculation in the terminology of cyclic cohomology of the line-relation module or norm maps. The existing degree-five result is genuine method precedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior type input; different i(S) and H¹",
+          "evidence": "The table uses the Galois-invariant skew-line collection index and gives appropriate class measures and line cycles, not integral trace indices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00300",
+          "material_read": "§7.1, pp. 20–22, OA offsets 67500–75894",
+          "method": "Lawful OA PDF passages and table comparison",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Exact cubic Frobenius table and potentially ambiguous index"
+        },
+        {
+          "assessment": "Same invariant in a different degree",
+          "evidence": "W(A4), ten exceptional curves, seven types; two nontrivial trace quotients.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-frobenius-trace-lattices-and-arithmetic-cones-of-degree--14de99fa5b64",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror statement",
+          "title": "Integral Frobenius trace lattices and arithmetic cones of degree-five del Pezzo surfaces",
+          "trigger": "Closest earlier orbit-trace result"
+        },
+        {
+          "assessment": "Weyl background, no trace quotient in the inspected passage",
+          "evidence": "Permutations preserving the 27-line intersection matrix form W(E6).",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.0721",
+          "material_read": "p. 1, OA offset 1300",
+          "method": "Lawful OA PDF passage",
+          "title": "The discriminant of a cubic surface",
+          "trigger": "Classical full 27-line action"
+        },
+        {
+          "assessment": "Studies a different coefficient lattice and question",
+          "evidence": "Computes H¹(k,Pic V) in the number-field Brauer–Manin setting rather than H¹ of the line-relation lattice.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100076106",
+          "material_read": "p. 449, OA PDF offset 0",
+          "method": "Lawful OA original-paper passage",
+          "title": "The Brauer group of cubic surfaces",
+          "trigger": "Possible cohomological alias"
+        },
+        {
+          "assessment": "Later, degree-four comparison, not prior cubic coverage",
+          "evidence": "W(D5) classification for orbit sums of 16 exceptional curves.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-frobenius-trace-defects-on-quartic-del-pezzo-surfaces--bba2ad817ad0",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror statement",
+          "title": "Integral Frobenius trace defects on quartic del Pezzo surfaces",
+          "trigger": "Nearby del Pezzo trace-defect classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The integral generator question for the distinguished 27 curves is natural; the invariant tells when these Galois-stable orbit sums suffice for a primitive arithmetic lattice basis and what obstruction remains otherwise. The full answer has a nonuniform outcome across the geometric Frobenius types, and the order-nine witness is an effective primitive hyperplane class missing from the trace span. This is a usable new column of integral information beyond the classical type table, not a renaming of its index or a recomputation of its cycle counts. It makes no new claim about Frobenius realization or effective cones.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

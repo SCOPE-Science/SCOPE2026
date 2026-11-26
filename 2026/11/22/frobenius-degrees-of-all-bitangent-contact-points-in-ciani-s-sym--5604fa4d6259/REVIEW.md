@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the complete 28-line bitangent list and independently computes the restricted quadratic contact equations. Frobenius orbits are obtained from the square classes of their discriminants in the base and quadratic fields; the norm identity proves exactly when a pair of conjugate lines yields degree-four contacts. Special hyperflex parameters are treated separately. A quadratic Jacobi sum counts the marked parameters. The dependency-free exact verifier independently enumerates rational lines and also constructs all 28 bitangents over the quadratic extension, matching the complete orbit classifications for eight prime fields. No finite sample is used as a proof of the universal assertion.
+## correctness
 
-## Originality — PASS, with residual risk
-Janasz–Pokora–Zieliński (arXiv:2308.16514) give the symmetric pencil and complex bitangent incidence; Bethea–Brazelton (arXiv:2410.09242) give geometric orbit structures. The closest full-text mathematical record on this exact pencil classifies line descent and expressly leaves the rational contacts unclassified. A different full-text six-parameter census counts *rational* bitangent contact types only over the field of five elements. Neither result implies the current all-prime-power contact-support Frobenius cycles, including the six degree-four points when two quadratic characters are negative. Unindexed historical computations are a residual priority risk; failed search alone is not novelty proof.
+PASS
 
-## Value — PASS
-A bitangent line defined over the quadratic extension can have both contact points only over a quartic extension. The classification determines this precise geometric descent obstruction, its exact marked-parameter frequency, and the full zeta function of the natural reduced bitangent contact-support scheme throughout the pencil. This is a structural arithmetic refinement, not a recomputation of rational bitangent lines.
+At a singular point with m nonzero coordinates, the derivative equations on their squares have eigenvalues 2-lambda and 2+(m-1)lambda, giving exactly the stated exclusions. The three disjoint line lists have 4+12+12 members and their binary restrictions are squares, so the odd-characteristic bitangent count gives completeness. The sign and mixed discriminants are in k, equal up to square factors to -3 and 3-lambda; when a line has degree two no contact on it can have degree one because a smooth contact point determines the tangent line. In the coordinate-zero group the discriminant is -4lambda/(1-w); the two choices differ by a square when both radicals are rational. If w is nonrational its quadratic norm is 16lambda^2/e. For nonzero lambda the norm criterion therefore gives unresolved contacts over the quadratic line field precisely when both d and e are nonsquares; if only e is nonsquare and w is rational, the discriminant is already in k. The reduced hyperflex support has one point per line at lambda=0 or 3 only; characteristic five excludes the latter fiber. The two-nonsquare character sum gives (q-chi(-1))/4; the excluded d=-3 has 1-d=4, and d=-1 at lambda=0 must be removed exactly for q=3 modulo 8. Unique tangents give disjoint supports, so the cycle counts and zeta factors follow. I tested the entire dual projective plane over the quadratic line field for each smooth prime-field parameter at p=5,7,11,13, using binary quartic square extraction rather than the radical line list; all cycle counts agreed. An additional scan over F25 checked all rational lines and degree-one contacts there, not the nonrational line orbits over F25. Replay: python3 /workspace/branches/reproductions/ciani.py. The all-prime-power scope follows from the algebra, not these checks.
 
-## Limits
-The theorem assumes characteristic at least five and smooth literal parameter fibers. Hyperflex multiplicities are discarded in the reduced support. It does not classify curves modulo isomorphism or other quartic families. External independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the uniform Frobenius classification on all reduced contact supports and particularly the criterion and census for degree-four contacts over quadratic line fields. The pencil, its geometric line groups, line descent, all three binary square restrictions, and the two special complex hyperflex examples are not new. The earlier restrictions provide the equations, but the key nonrational case requires a further quadratic-field square-class computation and an exact parameter count; no inspected earlier statement supplies that characterization. The same-day Fermat computation directly overlaps the lambda=0 case, not the full marked family.
+
+## value
+
+PASS
+
+For the natural geometric collection of all theta contacts, the arithmetic data ask more than the field of its bitangent lines. The exact square-class obstruction and its prevalence characterize when the line field misses the contact field, give the actual reduced scheme zeta function, and distinguish this from a recalculation of line orbits or of a single special quartic. The motivation holds for the marked pencil, not for an unclaimed census of isomorphism classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

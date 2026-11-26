@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:39.105859Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a fixed time in a two-sided stationary rate-one Poisson process the backward age and successive interval lengths are independent unit exponentials. Brownian increments conditional on these lengths are independent Gaussians, so unconditionally the weighted contributions are independent centered Laplace variables c^jY_j of variance c^{2j}. The sum is square-summable in variance; translating the two-sided construction gives stationarity, while synchronous coupling contracts any initial difference by c^{N_t}→0 almost surely, including coalescence at the first reset for c=0. For χ_s(u)=1/(1+s²u²), χ_{b^j/√2}/χ_{a^j/√2}=q_j+(1−q_j)χ_{b^j/√2}, q_j=(a/b)^{2j}; the j=0 factor cancels. Centering and summability of b^{2j}−a^{2j} give the claimed almost-sure and L² convergence. The log-Laplace integral follows by differentiating in u, giving derivative −2s²u/(1+s²u²) and zero value at u=0. Integrating x² against each symmetric density difference yields b^{2j}−a^{2j}, proving Lévy integrability by a positive summable majorant; the sign is strictly positive, with the a=0 convention. The increment distributions compose by the transform ratios; consistent finite-dimensional distributions with an independent π₀ start yield the claimed process and centered increments give the natural-filtration martingale. Symmetric unimodality follows by convolution and limit of the Laplace laws. A shifted symmetric interval has probability no greater than at zero and has arbitrarily small probability sufficiently far away. Since the first nontrivial mixture term is unbounded with positive probability and independent of the rest, the average is strictly smaller for every r>0. Equivalently, conditional on common unit exponentials E_j, the stationary Gaussian variance V_c=Σ c^{2j}E_j increases strictly for a<b, so every such Gaussian central probability decreases strictly. Jensen gives both convex-order claims, with strictness for nondegenerate centered noise and strictly convex tests with finite expectations. Inspected checker.py lines 10–77 but did not execute it; its finite rational identities, quadrature and truncation checks neither prove the process statements nor bear on priority.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The self-decomposability formula and Lévy–Khintchine scaling determine the remainder for every fixed scale ratio; the order can be applied separately to every factor of the published stationary series.",
+          "Grzywny et al. Appendix B.3 gives a stationary AR(1) fixed-point relation for each c under a broader driving model, not an explicit cross-c ordering in the inspected passage.",
+          "The Sato-related independent-increments article's returned abstract is about representing individual self-decomposable laws, not this stationary family; the original text was not inspected (HTTP 403)."
+        ],
+        "reasoning": "For any square-integrably summable independent family of centered self-decomposable factors with nondecreasing scales, split each larger scale into the smaller scale and its ID remainder. Their independent sum converges when the remainder variances sum. The Lévy measure is the sum of the differences of the scaled kernels, giving the exact frozen kernel at scales b^j/√2 and a^j/√2. The same decomposition includes zero initial scale by taking the whole factor as remainder. This termwise implication needs no assertion that the reset laws are time marginals of one self-similar Sato process.",
+        "searches": [
+          "arXiv:2301.11625v1 Introduction (self-decomposability and remainder cocycle)",
+          "arXiv:2412.15626v1 Appendix B.3",
+          "Resultary: self-decomposable laws convolution order Lévy measure monotonicity Sato additive process reset multiplier"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.03363v2",
+        "arXiv:2301.11625v1",
+        "DOI:10.1088/1367-2630/aced1d",
+        "arXiv:2412.15626v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary product specifies all scale factors; for a<b the ordered scaled-Laplace remainder has the positive difference of the scaled Lévy kernels, so there is no missing positive-definiteness step beyond the classical termwise rule.",
+          "All stationary ratios multiply consistently. Centered increments of summable variance give a martingale by the standard extension construction and Jensen gives strict convex order.",
+          "Each published Laplace factor is a Gaussian with an independent exponential variance; using the same exponential sequence produces V_b>V_a almost surely (already j=1). Gaussian central probabilities 2Φ(r/√V)−1 are strictly decreasing for all r>0."
+        ],
+        "reasoning": "Even the strict every-threshold result is a direct consequence of the prior representation, independent of any putatively new ordering theorem. The independent-increment process is the standard consistency construction for the convolution order already obtained by scale remainders; the explicit increment law is their elementary rational-transform expression. Single-c density and ergodicity papers need not state these observations for the combination of verified prior facts to cover the scientific contribution.",
+        "searches": [
+          "arXiv:2205.03363v2 PDF pp. 2–3, Eq. (6)–(8)",
+          "arXiv:2301.11625v1 PDF Introduction Eq. (1) and cocycle",
+          "DOI:10.1088/1367-2630/aced1d PDF p. 2; arXiv:2412.15626v1 Appendix B.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tal-Friedman–Roichman–Reuveni identify the stationary position as an independent Laplace sum with term variance 2Da^{2j}/r, including the full-reset Laplace endpoint.",
+          "Jurek’s self-decomposition premise gives an independent infinitely divisible remainder when a single self-decomposable law is split at a smaller scale."
+        ],
+        "reasoning": "At D=1/2 and r=1 write the known jth factor as c^jY_j. For j≥1 split the b^j factor at scale ratio q=(a/b)^j, using the monotone Laplace Lévy kernel exp(−|x|/s)/|x|. Its remainder transform is exactly (1+q²s²u²)/(1+s²u²)=q²+(1−q²)χ_s(u). The independent product of these known scale remainders is precisely the advertised Bernoulli/Laplace factorization, not merely a similar fixed-c equilibrium.",
+        "searches": [
+          "Resultary: stationary partial resetting Brownian independent additive noise convolution ordering by reset multiplier Laplace-series stationary distribution",
+          "Resultary: self-decomposable laws convolution order Lévy measure monotonicity Sato additive process reset multiplier",
+          "arXiv:2205.03363v2 Eqs. (5)–(8)",
+          "arXiv:2301.11625v1 Introduction Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest returned risk-ordering summary, b70921ae9d3c, concerns convex losses of squared displacement at fixed stationary mean-square displacement; its original matching mirror path could not be retrieved.",
+          "The 4da625e6e09e summary concerns joint rare Brownian-gas excursions; d94e7ab13290 concerns alternating or refractory equilibria and self-decomposability. Neither summary is an exact formula comparison."
+        ],
+        "reasoning": "The suggested fixed-mean-square ordering compares a rescaled squared statistic, unlike the unscaled laws compared here. No exact database match was confirmed. This check is bounded by the summary/mirror access and does not support the FAIL; the mathematical prior implication from inspected primary passages does.",
+        "searches": [
+          "Resultary: stationary partial resetting Brownian independent additive noise convolution ordering by reset multiplier Laplace-series stationary distribution",
+          "Resultary: self-decomposable laws convolution order Lévy measure monotonicity Sato additive process reset multiplier"
+        ]
+      },
+      "rationale": "Verified prior coverage by direct implication, not a claim that a prior resetting paper explicitly states the entire package. The published stationary Laplace series and classical self-decomposition of each scale factor give the convolution order and infinitely divisible remainder term by term. The explicit mixture, Lévy kernel, consistent martingale and strict distributional comparisons require only direct scale changes, standard convolution consistency and elementary inequalities. No independently distinct substantive remainder of the frozen claim is established. This verdict does not depend on any inaccessible source or on a later index hit.",
+      "residual_risks": [
+        "The checked reset passages need not exhaust the direct prior literature: an explicit earlier same-model ordering may also exist. The verdict is established as coverage by implication, not by a claim of locating first explicit publication.",
+        "The independent-increments article and later b70921ae9d3c catalogue hit were available only in preview or summary; their exact scope is not asserted and neither affects the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stationary-series premise for all multipliers, with scale/variance normalization verified",
+          "evidence": [
+            "Eq. (6) sums independent Laplace variables, Eq. (7) gives their transform and Eq. (8) gives variances 2Da^{2j}/r. At full reset Eq. (5) reduces to a single Laplace transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03363v2; DOI:10.1103/PhysRevE.106.054116",
+          "material_read": "PDF §II pp. 2–3, Eqs. (5)–(8), including full-reset specialization and Laplace series (OA offset 14650 onward)",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Diffusion with partial resetting",
+          "trigger": "Identical stochastic-reset stationary laws and possible termwise general implication"
+        },
+        {
+          "assessment": "Supplies the standard independent ID remainder rule; together with the known stationary series directly yields the main claim",
+          "evidence": [
+            "The Introduction gives for each t>0 an ID remainder X_t independent of the smaller scaled copy e^{−t}X, and records the remainders' cocycle. Uniqueness of the Lévy triplet and scaling yield the difference measure for this specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11625 (v1)",
+          "material_read": "PDF pp. 1–2 (offsets 1980 and 4216 onward), Lévy–Khintchine paragraph and Introduction Eq. (1) and cocycle discussion",
+          "method": "Targeted OA PDF reading and explicit specialization to the Laplace kernel",
+          "title": "Some definite integrals arising from selfdecomposable characteristic functions",
+          "trigger": "General stronger self-decomposition and remainder scaling"
+        },
+        {
+          "assessment": "Related stationary-law premise; no use of this bounded passage for a whole-paper noncoverage claim",
+          "evidence": [
+            "Closed density/transform work for the partial-reset model, not an advertised cross-multiplier increment law in the inspected material."
+          ],
+          "identifier_or_url": "DOI:10.1088/1367-2630/aced1d",
+          "material_read": "PDF p. 2 on partial-reset dynamics",
+          "method": "Bounded primary PDF comparison",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Related same-model exact density work"
+        },
+        {
+          "assessment": "The inspected argument gives fixed-parameter stationarity, not direct cross-parameter order",
+          "evidence": [
+            "Embedded AR(1) recursion and X_∞ distributed as cX_∞+Y_{T_1} for fixed c."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.15626v1",
+          "material_read": "Appendix B.3, pp. 57–58, OA offset 266578",
+          "method": "Targeted OA PDF passage reading",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Broader model potentially implying cross-multiplier order"
+        },
+        {
+          "assessment": "Single-law related construction in preview; no whole-paper coverage inference, not relied upon for verdict",
+          "evidence": [
+            "Preview describes representations of a self-decomposable X₁ by independent-increment processes."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0304414902000984",
+          "material_read": "Search-result abstract only; full text not retrieved",
+          "method": "Search-result scope inspection and lawful access attempt (HTTP 403)",
+          "title": "Self-similar processes with independent increments associated with self-decomposable laws",
+          "trigger": "Possible direct general auxiliary process construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The raw-law comparison is physically natural and stronger than variance monotonicity, but the frozen result is a routine application of the already published explicit stationary Laplace series to standard scale remainders. The auxiliary martingale, strict Jensen comparison and every-threshold Gaussian variance coupling are immediate consequences of those available premises, and the written kernel is direct Lévy scaling. The package is useful exposition, without a supported new structural or exact-invariant contribution under this standard. No genuine surviving repair was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

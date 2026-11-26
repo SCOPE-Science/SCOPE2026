@@ -1,0 +1,83 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:12:32.245537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the full Boolean edge group the normalized Walsh characters diagonalize the counting convolution, with eigenvalues the unnormalized signed matching sums. Cutting at used rungs forces identical horizontal matchings on the remaining row paths; no-rung matchings give just the two coincident and two opposite alternating tilings at even circumference. Factoring out all rung signs gives the stated cycle transfer trace and, in even length, the two opposite-offset products U,V with UV=product(y_i). Flipping the upper and lower signs together at one column preserves all y_i while flipping both U and V, which justifies all attaining choices. The all-positive count is Lucas plus two in even length, and its parity excludes zeros off multiples of three. The single plus among otherwise negative y_i gives trace zero by B(-1)^3=-I and trace(B(-1)^2 B(1))=0; at even multiples the odd number of minus signs cancels U+V. At 6|n both the total and every signed sum are divisible by four: the count is 0 modulo four by the sixth power of B(1), and rung and horizontal usage counts F_n and F_(n-1)+1 are even (remove the occupied columns to obtain path tilings, plus one mixed matching for each horizontal edge). All-negative y_i gives trace 2 cos(n pi/3), giving magnitude one in the nonresonant odd case, one with U+V=2 in the nonresonant even case, two at odd multiples of three, and four at even multiples with U+V=2. The trivial character attains the triangle-inequality maximum, including n=3. The deposited verifier transforms every mode through n=7; its separate formula comparison is exhaustive only through n=5 and uses 2,000 test entries at each of n=6,7. Independent edge-subset enumeration and exact transforms confirmed counts 4,9,11,20,29, positive gaps 2,1,1,4,1, and nullities 192,0,0,124928,0 for n=3..7. Replay: python /workspace/branches/90d33f67-8f9c-4545-9567-17f2317df09a/prism_independent_check.py. Finite results corroborate, not prove, the all-length theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier prism theorem covers every n>=3 and gives a constructive exponential lower bound 2^(2n)4^k on nullity at n=6k+3 or 6k+6; the November 22 finding has no multiplicity result.",
+          "The nearby Möbius-ladder record 9565cf662a87 concerns a twisted closure, but it is the untwisted earlier prism result that is decisive."
+        ],
+        "reasoning": "This is a dominating result on identical parameters and normalization, not an inference from a graph with a different seam or from an unsigned matching polynomial.",
+        "searches": [
+          "Resultary: prism dimers cyclic ladder perfect matching signed Walsh convolution inversion spectral gaps",
+          "ed342431e104 Proof §§4–6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed342431e104 full RESULT.md",
+        "Resultary 9565cf662a87 indexed claim",
+        "arXiv:2003.09602 abstract/search evidence for unsigned counting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior explicitly states invertibility iff 3 does not divide n and the identical sharp least positive magnitudes. Its Eq. (1) covers the full signed multiplier formula. Its matching total N_n=L_n+2[even] is attained by the trivial character and bounds every other character sum."
+        ],
+        "reasoning": "The prior implies every claimed output, including the ratio defining the sharp nonzero-space condition number. The shorter single-plus witness is proof simplification, not an independently new theorem or a new quantitative family; the earlier record even uses its length-three seed --+.",
+        "searches": [
+          "ed342431e104, Finding and Proof §§1–6, full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary record ed342431e104, Finding and Proof §§1–2, gives exactly W=(product r_i) tr(product T(y_i))+[even](S_0+S_1), with identical y_i under renaming and a shift of the column indices."
+        ],
+        "reasoning": "Perfect-matching incidence, full binary frequency group, counting convolution and matrix weights all coincide. Relabelling rung/rail symbols and switching the names of the opposite offsets do not change the formula.",
+        "searches": [
+          "Resultary: prism dimers cyclic ladder perfect matching signed Walsh convolution inversion spectral gaps",
+          "Web: prism graph perfect matching Fourier Walsh signed dimer convolution invertibility cyclic ladder minimum signed matching partition function modulo 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives exactly the full residue table for least positive magnitudes, the Lucas-plus-two count, and lists nullities 192 and 124928 at n=3,6.",
+          "Lekshmi–West arXiv:2003.09602 search/abstract identifies prior unsigned prism matching counts; unsigned counts alone are insufficient for the signed gap."
+        ],
+        "reasoning": "The complete gap table, not merely isolated small values, was already present in the directly inspected Resultary record.",
+        "searches": [
+          "Resultary: prism dimers cyclic ladder perfect matching signed Walsh convolution inversion spectral gaps",
+          "Web: Lekshmi West number perfect matchings prisms Hwang Lei Yeh Zhang distribution crown perfect matchings cyclic ladder signed Lucas number"
+        ]
+      },
+      "rationale": "The earlier November 16 Resultary record covers the same unnormalized edge-incidence convolution, the entire pointwise signed multiplier formula, the invertibility boundary, and the sharp 1/2/4 positive singular-value law. It actually gives more information on zero multiplicities. The particular compact witness and choice of trigonometric evaluation in the November 22 proof do not produce a new claimed spectral invariant. The newer condition-number wording is an immediate consequence of the prior gap and the prior exact count via the trivial frequency.",
+      "residual_risks": [
+        "The earlier historical literature on signed periodic dimer sums was not exhaustively traced; the exact prior Resultary coverage suffices regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the claimed theorem and stronger zero-mode information",
+          "evidence": [
+            "Finding has the case split 4 if n=0 mod 6, 2 if n=3 mod 6, 1 if 3 does not divide n, and the same inversion boundary.",
+            "Proof §§1–2 gives the exact count and every signed multiplier; §§4–5 prove witnesses and exponential families."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-modulo-six-walsh-stability-law-for-perfect-matchings-of-cycle--ed342431e104/RESULT.md",
+          "material_read": "Complete RESULT.md, particularly Finding, equation (1), and proof §§1–6",
+          "method": "Read local mirror full text and aligned edge labels, parameter scope and formula",
+          "title": "A modulo-six Walsh stability law for perfect matchings of cycle prisms",
+          "trigger": "Exact same graph, signed Fourier operator, normalization, and sharp residue gaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The prism inversion and gap law is a natural exact invariant, but this record presents it again with only immediate reformulations (the maximal singular value and ratio) and a convenient alternative attainment proof. It identifies no new family, quantitative stability phenomenon, independently needed certificate, or improvement on the earlier zero-mode result. A correct reproduction is useful as a check, not a distinct finding. No genuinely new valuable corrected claim was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

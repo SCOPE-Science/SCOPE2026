@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:44:57.712798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The norm of normalized convolution is the absolute kernel mean by taking the sign of the real kernel at the identity, and self-adjointness gives the L1 endpoint by duality. The same sign witness works over either scalar field. Adding an independent sign Y changes the cubic kernel from E3 to E3+Y E2, and the average of |E3+E2| and |E3-E2| is max(|E3|,|E2|). This gives the stated increment and the pointwise equality condition. Newton identities on signs give the displayed E2 and E3. For even n, s=0 witnesses strict increase; for odd n, the points |s|=1 contribute zero increment. At positive odd s>=3 the squared comparison factors with sign given by (s(s-2)-3n)(s(s+2)-3n). The corresponding open intervals exactly partition the interior of [3,n(n+2)] except their shared endpoints. This proves equality exactly at 3n=r(r+2) for odd r>=3: in the converse n=r(r+2)/3>=r+2 and n is odd, so both adjacent lattice points are available. Integrality is r congruent to 1 or 3 mod 6, giving the two families and count sqrt(X/3)+O(1). Read the frozen proof, verification notes and code without executing uploaded code. Direct sign enumeration for dimensions 3–8 and exact comparisons through n=300 were separately reproduced (including plateaus 225 and 261 above the frozen check range). Replay: /workspace/branches/3899ca18-66a6-441f-9dec-532d71e4c5c2/cubic_walsh_independent_check.py. The bounded check is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. cover general character families and fixed-degree scaling. The separate indexed lattice-phases result treats the same cubic norm and gives distinct parity-dependent second-order asymptotics; a distinct quartic plateau result concerns a different degree."
+        ],
+        "reasoning": "The general kernel identity is an antecedent of the present proof. Asymptotic parity separation in subleading coefficients does not certify exact equality at particular consecutive sizes; degree four does not specialize to degree three.",
+        "searches": [
+          "Defant et al., arXiv:2208.06467, finite-family projection constants",
+          "Defant et al., arXiv:2302.00233, arbitrary Walsh families and Gaussian/Hermite asymptotics",
+          "Resultary: cubic or quartic Walsh plateau and parity-gap findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cubic_walsh.py",
+        "Resultary 9446d18c2d3c and 42034a3637a6",
+        "arXiv:2208.06467 and 2302.00233",
+        "DOI:10.1007/BF02988302 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related exact binomial formula splits the signs of the kernel at 0 and plus or minus sqrt(3n-2) in each fixed dimension. Conditioning on the final sign instead tests the product (E3+E2)(E3-E2), i.e., pairs of neighboring next-dimension kernel signs."
+        ],
+        "reasoning": "For odd n the noncentral next-dimension root, if it lands at the even site r+1, yields 3n+1=(r+1)^2. If it lies between even sites, the opposed pair contributes a strictly positive increment. The prior fixed-dimension formula and cubic-root equation provide ingredients, but neither mechanically identifies the no-opposed-pair criterion or its parity boundary. The substantive assertion is the exact bridge between the norm equality and the root location, not the elementary solution of the square equation.",
+        "searches": [
+          "42034a3637a6 mirrored RESULT.md offsets 0–5485",
+          "arXiv:2302.00233 Theorem 3.1, p. 9",
+          "Integer cubic Krawtchouk zero condition versus next-dimension sign changes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a family of Walsh characters the projection constant is the expected absolute character sum. The related lattice-phases record proves by translation averaging that the real projection constant is attained by the canonical Fourier projection."
+        ],
+        "reasoning": "The canonical endpoint norm and the real Boolean subspace projection constant can be compared under the same definition via translation averaging. Under that equivalence the cited sources identify each L_n, but a formula for each term is not itself a consecutive equality characterization.",
+        "searches": [
+          "Resultary: consecutive dimension equalities of cubic Walsh endpoint norms and Boolean projection constants",
+          "arXiv:2208.06467 Theorem 8.1.1; arXiv:2302.00233 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9446d18c2d3c is the same finding. The distinct same-day 42034a3637a6 includes a finite binomial boundary formula for every L_n, but its actual finding is a second-order asymptotic and subsequential ranges. The Krawtchouk paper was identified but its full text was not recovered."
+        ],
+        "reasoning": "The finite formula in the distinct result can reproduce any finite prefix; it is not an all-dimension classification of equality. For every odd n the plateau condition is equivalent to a noncentral even-lattice zero of the cubic kernel in dimension n+1, not to a zero in dimension n; the central zero in dimension n+1 alone cannot encode a plateau. Known root tables on their own lack the link to zero increments.",
+        "searches": [
+          "Resultary: cubic Walsh norm plateau sequence and exact cubic Boolean formulas",
+          "Resultary 9446d18c2d3c and 42034a3637a6, exact findings",
+          "Habsieger–Stanton DOI 10.1007/BF02988302, integer Krawtchouk zeros"
+        ]
+      },
+      "rationale": "The known norm identity, fixed-degree asymptotics and cubic Krawtchouk algebra are not new. The supported distinct claim is the exact one-step equality classification for the cubic endpoint norms and its positive-part formula. The strongest same-invariant comparisons give the exact per-dimension norm or its asymptotics, not the pointwise one-step comparison and infinite zero-increment set. An integer root in the next even dimension is another formulation of the new plateau criterion; the arithmetic of those roots is not a separately new claim.",
+      "residual_risks": [
+        "No relevant open copy of Habsieger–Stanton was recovered; this is not evidence that the root arithmetic is new. A differently indexed equivalent consecutive-norm result remains possible. No precedence is inferred from dates shared by the two related indexed entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact per-dimension expression for a more general class",
+          "evidence": "The formula identifies the projection constant with E|sum of characters| on the cube.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06467",
+          "material_read": "Theorem 8.1.1, PDF p. 102 (OA offset 392423)",
+          "method": "Primary OA PDF passage",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "Kernel expression for the same projection constant"
+        },
+        {
+          "assessment": "Known kernel expectation and large-dimension behavior; not the exact equality law",
+          "evidence": "Theorem 3.1 gives the expected absolute Walsh sum for arbitrary character families.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+          "material_read": "Theorem 3.1, PDF p. 9 (OA offset 29349), and fixed-degree asymptotic context",
+          "method": "Primary OA PDF passage",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Later analysis of the same cubic norm and fixed-degree scaling"
+        },
+        {
+          "assessment": "Same norm and genuine overlap on tools and per-dimension formula; different result for lattice asymptotics",
+          "evidence": "Its Step 1 gives both the cubic kernel and a finite binomial boundary formula; its Finding gives second-order subsequential ranges, not an infinite zero-increment classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-two-lattice-phases-and-a-strict-parity-gap-in-cubic-boolean-proj--42034a3637a6/RESULT.md",
+          "material_read": "Finding, assumptions, and proof steps 1–2, offsets 0–5485",
+          "method": "Resultary local mirror, exact bounded text",
+          "title": "Two lattice phases and a strict parity gap in cubic Boolean projection constants",
+          "trigger": "Exact same cubic norm with parity-sensitive behavior"
+        },
+        {
+          "assessment": "Exact coverage of historical integer-root statements not established",
+          "evidence": "The access attempts did not produce a usable paper; no statement in that paper is inferred from its title.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02988302",
+          "material_read": "Bibliographic identification only; no recovered relevant full text",
+          "method": "Lawful DOI and Springer OA attempts and a discovery lookup",
+          "title": "More zeros of Krawtchouk polynomials",
+          "trigger": "Potential coverage of integer root locations used in the equality criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This classifies exactly when extending the ambient cube adds no endpoint norm, despite the strictly enlarged cubic span. It reveals a sparse but infinite parity-sensitive obstruction and gives a quantitative increment formula. One can use this exact comparison to distinguish finite-dimensional norm behavior that per-dimension leading asymptotics do not resolve.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

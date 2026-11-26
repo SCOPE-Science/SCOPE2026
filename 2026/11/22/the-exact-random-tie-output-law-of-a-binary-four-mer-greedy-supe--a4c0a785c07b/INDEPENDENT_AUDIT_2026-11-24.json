@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:05:46.334027Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md, both verify scripts and saved outputs inspected without execution",
+        "Independent replay: python3 /workspace/branches/52235bc0-f32b-4ea1-b17e-8a5a8085ff82/audit.py; audit_run.txt in the same directory"
+      ],
+      "rationale": "A literal multiset of component strings is a sufficient state. For each ordered pair of distinct component positions the proper overlap is tested; all maximizers, including zero if necessary, receive equal conditional mass and are counted separately even when leading to the same next state. Each transition reduces component count by one, so exact rational recursion over the resulting states is exhaustive. Fresh literal replay, not the frozen endpoint reduction, evaluated 418 states and exactly reproduced every listed mass, normalized to one. Weighting by length gives 3209609/249480. No output above 17 occurs; one legal path to 17 uses overlaps 3,3,3,3,2,1,0 and ends at 00001000100110101. A word of length m has m−3 four-mer positions, so eight distinct four-mers require m≥11, attained by 00101000011. Thus length 17 alone exceeds (3/2)·11. Reversal reverses every ordered pair and its merged word, while complementation preserves pair order; each maps maximal-overlap choices bijectively at every state and preserves probabilities.",
+      "residual_risks": [
+        "The exhaustive law is for the specified eight reads and stagewise uniform ordered pairs, not a fixed random priority over all future ties, arbitrary instances, or biological sequence data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c5782f9cc70b gives a maximum ratio 17/11 over distinct binary four-mer sets, including precisely the orbit containing this set, with a 17-bit witness; 25f98f2d59f0 identifies the minimum obstruction size and the same orbit.",
+          "The primary texts address deterministic approximation bounds and tie behavior, not the stagewise uniform ordered-pair law on the specified input."
+        ],
+        "reasoning": "The deterministic theorems subsume the extrema, not transition frequencies or exact probabilities. The claimed additional finding is confined to the law and its derived stochastic quantities.",
+        "searches": [
+          "Resultary 25f98f2d59f0 and c5782f9cc70b, local-mirror Findings",
+          "arXiv:2609.01365v1 abstract and v2 §1; CPM 2015 four-letter Greedy slides 12–17"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches of four-mer extrema, output length spectra, and exact random-tie laws",
+        "Local-mirror Findings 25f98f2d59f0, c5782f9cc70b, 570894b19121, 1f99cb2640b2",
+        "arXiv:2609.01365 v1 and v2 indicated passages; Kulikov–Savinov–Sluzhaev CPM 2015 slides"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orbit and worst length 17 already appear in exact deterministic statements. The new tail probability depends on each encountered state's maximal-pair branching count as well as on which paths reach 17.",
+          "Even the general exact-recursion method applied in a nearby stochastic study does not provide this instance's reachable transitions, intermediate probabilities, or expectation."
+        ],
+        "reasoning": "A worst-case witness and general bound show that some path succeeds and none is worse; they cannot recover the probability of the event or the law of the other outcomes. The recurrence must actually be evaluated on the specified object.",
+        "searches": [
+          "Compare Resultary 25f98f2d59f0, c5782f9cc70b and 1f99cb2640b2 Findings with frozen recurrence and PMF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform conditional ordered pairs make this the probability-weighted version of the fixed-instance greedy merge tree, rather than a count of terminal lengths or uniformly weighted full histories.",
+          "The exact random-tie phase law in 1f99cb2640b2 uses all eight binary three-mers; having eight input components does not make its states or overlap maxima those of this four-mer set."
+        ],
+        "reasoning": "The known stochastic methodology is related but the displayed theorem does not include this input. Deterministic tie order or uniform sampling of complete paths is not equivalent to the stated transition law.",
+        "searches": [
+          "Resultary: uniform random ordered maximum-overlap ties, eight binary four-mers and 13939/1995840",
+          "Resultary 1f99cb2640b2/RESULT.md Finding",
+          "Frozen RESULT.md proper-overlap assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "570894b19121 enumerates attainable lengths 19–27 on all 16 binary four-mers. It is neither a law nor the same input.",
+          "The exact random law 1f99cb2640b2 is for three-mers; the exact eight-four-mer census determines which sets have a strict 3/2 loss but not how often."
+        ],
+        "reasoning": "No checked separate table gives the seven exact masses under the submitted tie rule. Differences in input set and whether the table records probabilities are material.",
+        "searches": [
+          "Resultary: binary four-mer greedy support and exact probability table",
+          "570894b19121/RESULT.md and 1f99cb2640b2/RESULT.md Findings",
+          "25f98f2d59f0/RESULT.md Finding"
+        ]
+      },
+      "rationale": "Best-of-knowledge support is for the full exact stochastic output-length law of the specified instance, not the previously indexed existence, minimal input size, orbit, optimum 11, maximum 17, or generic tie recurrence. The strongest distinct same-day records cover those deterministic endpoints on exactly this input. A same-day random-tie study computes a law for all binary three-mers, not this subset of four-mers. No compared statement supplies the exact probability distribution for this input without new state evaluation. The common catalogue date does not establish relative priority.",
+      "residual_risks": [
+        "There may be a separate unindexed exact computation. Relative priority of same-day indexed findings is unresolved. The frozen v1 title/author attribution warrants bibliographic correction; it does not affect the reproduced theorem or the comparison of the actual sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the underlying deterministic instance, not its stochastic law.",
+          "evidence": [
+            "Four size-eight obstructions, optimum 11 and worst length 17, with the submitted representative."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-eight-binary-four-mers-are-necessary-and-sufficient-to-cross-the--25f98f2d59f0",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Compare exact representative, orbit, extrema and tie quantifier",
+          "title": "Eight binary four-mers are necessary and sufficient to cross the strict 3/2 Greedy threshold",
+          "trigger": "Same minimum-size extremal instance and ratio"
+        },
+        {
+          "assessment": "Exact worst-case coverage, not a uniform-tie probability statement.",
+          "evidence": [
+            "Sharp ratio 17/11 attained by four sets including the submitted one."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Compare extrema, witness and input",
+          "title": "Sharp worst-case greedy ratio for distinct binary four-mers",
+          "trigger": "Stronger deterministic theorem over all distinct binary four-mer subsets"
+        },
+        {
+          "assessment": "Deterministic attainable lengths for all 16 reads, not this law.",
+          "evidence": [
+            "Its support is 19–27 on the full binary four-mer input."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-greedy-superstring-length-spectrum-for-the-binary-four--570894b19121",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Compare support and input set",
+          "title": "Complete greedy-superstring length spectrum for the binary four-mers",
+          "trigger": "Exact length spectrum for four-mer Greedy"
+        },
+        {
+          "assessment": "Related exact methodology for a different read set, no coverage of the submitted distribution.",
+          "evidence": [
+            "Its instance is the complete set of binary three-mers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-random-tie-overlap-phase-law-for-the-complete-binary-three--1f99cb2640b2",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Compare ordered-tie model, concrete inputs and outputs",
+          "title": "Exact random-tie overlap phase law for the complete binary three-mers",
+          "trigger": "Closest stochastic overlap-law analogue"
+        },
+        {
+          "assessment": "Deterministic bounds, not this fixed-input exact law. The frozen citation conflates title/version and should be corrected bibliographically.",
+          "evidence": [
+            "v1 states a general 9/4 ratio lower bound; v2 introduction addresses fixed-length guarantees and tie behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.01365",
+          "material_read": "v1 front matter and abstract offset 0; v2 §1 p. 4 offset 14839",
+          "method": "OA bounded passages by version and compare stated claims",
+          "title": "Disproving the Greedy Superstring Conjecture (v1); The Greedy Superstring Conjecture Is False (v2)",
+          "trigger": "General Greedy lower bounds, fixed read lengths and tie behavior"
+        },
+        {
+          "assessment": "Deterministic overlap-cycle/approximation analysis in compared material, not this PMF.",
+          "evidence": [
+            "Discusses the length-four conjecture and overlap-cycle analysis."
+          ],
+          "identifier_or_url": "https://cpm.cs.helsinki.fi/cpm15/26_Kulikov.pdf",
+          "material_read": "CPM 2015 slides 12–17, PDF offsets 5000 and 10959",
+          "method": "OA presentation passages and comparison of objective",
+          "title": "Greedy Conjecture for Strings of Length 4",
+          "trigger": "Same read length and overlap approximation problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions",
+        "Independent exact replay transcript",
+        "25f98f2d59f0 and c5782f9cc70b, Findings establishing extremal motivation"
+      ],
+      "rationale": "The instance is motivated by the smallest strict 3/2 binary four-mer obstruction and the sharp extremal ratio, not by selecting a random small parameter slice. The exact stochastic invariant determines the robustness of that genuine worst-case obstruction to a natural tie rule: the failure probability is about 0.698%, and the full law quantifies the other outputs. This is additional usable benchmark data for randomized tie behavior, not a recomputation of the deterministic maxima.",
+      "residual_risks": [
+        "This is a benchmark for one symmetry orbit under a specified tie rule, not an average-case theorem for all four-mer inputs or all randomized Greedy implementations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

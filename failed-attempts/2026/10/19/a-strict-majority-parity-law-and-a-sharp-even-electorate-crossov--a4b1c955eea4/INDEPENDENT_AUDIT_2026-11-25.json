@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:40.214287Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For strict rather than randomized ties, adding voter 2m to an odd electorate loses exactly the event of m correct votes in the old electorate and a final incorrect vote; adding voter 2m+1 to an even electorate gains exactly the old tie followed by a correct vote. Adding two voters to the even electorate gains from m old successes followed by two successes, and loses from m+1 old successes followed by two failures. This gives the frozen conditional increment; tilting the Beta law by u^(m+1)(1-u)^m gives the strictly positive numerator m(alpha-beta)+alpha+2m+1. A2=E[Theta^2]<p. Dominated convergence and reflection of the beta density about 1/2 give L-p=integral over (1/2,1) of (1-u)(f(u)-f(1-u))>0, so at most one even tie and a finite first strict exceedance follow. At (2,1) the mass is 2(k+1)/((n+1)(n+2)); summing it gives both frozen formulas, equality at 8 and A10=15/22. This proof handles all stated real shape parameters. Inspected frozen RESULT.md lines 33–72, VERIFICATION.md and verify.py. The latter is an exact rational finite corroboration (replay with Python 3); no new script execution or formal verification is needed for this analytical result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "54094fecb0a2 proof gives C_{r+1}-C_r=binom(2r+1,r)(alpha)_{r+1}(beta)_{r+1}(alpha-beta)/((alpha+beta)_{2r+2}(alpha+beta+2r+2)), where C_r=A_{2r+1}; this is positive on the full frozen shape domain",
+          "5099ff0be1f8 concerns odd-size changes for a finitely supported mixture and is not the decisive overlap",
+          "2510.16808 supplies the stationary law and asymptotic advantage with the strict threshold; 2607.14288 Theorem 3 alone provides odd advantage, not the required monotonicity"
+        ],
+        "reasoning": "The indexed exact odd increments, unlike odd advantage alone, give all odd-to-odd comparisons needed in the strict-tie reduction.",
+        "searches": [
+          "Resultary 54094fecb0a2 and 5099ff0be1f8",
+          "arXiv:2510.16808 Theorem 1 and Proposition 2",
+          "arXiv:2607.14288v1 Theorem 3 and Appendix B",
+          "DOI 10.1007/BF00187435"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 54094fecb0a2 and 5099ff0be1f8",
+        "arXiv:2510.16808 and arXiv:2607.14288v1",
+        "10.1007/BF00187435 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact strictly positive odd increments, plus the identity A_{2m}=A_{2m-1}-T_m/2",
+          "Conditionally on u the tie ratio is [(2m+2)(2m+1)/(m+1)^2]u(1-u) <= (2m+1)/(2m+2) < 1, so averaging gives T_{m+1}<T_m"
+        ],
+        "reasoning": "A_{2m+2}-A_{2m} is the prior positive odd increment plus (T_m-T_{m+1})/2. The even term is below its previous odd by half a tie and below its following odd by known odd monotonicity. The known limiting advantage and A2<p imply the finite boundary, with the special value following from the known mass. The exact even increment is likewise the prior exact odd increment plus the difference of two elementary beta-binomial masses.",
+        "searches": [
+          "Local mirror: 54094fecb0a2 RESULT.md proof offset 2664–4605",
+          "arXiv:2510.16808 pp. 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix B (B1)–(B8) identifies the same Pólya–Eggenberger family and reports Berg's odd-electorate theorem",
+          "No identical title or ID was returned by the bounded searches; the distinct 54094fecb0a2 finding uses the same beta mixture."
+        ],
+        "reasoning": "For any Bernoulli mixture, if T_m is its even tie probability then A_{2m}=A_{2m-1}-T_m/2 by binomial exchangeability (among 2m tied outcomes, the last voter is incorrect with probability one half). Thus fair-tie even accuracy is equivalent to preceding odd accuracy; strict-tie even accuracy is not identical but has an explicit correction.",
+        "searches": [
+          "Resultary: beta-binomial even strict majority, exact frozen title, (2,1) cutoff",
+          "Braha–de Aguiar arXiv:2607.14288v1, Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact cutoff table surfaced in the bounded indexed evidence; Theorem 1 gives the count mass for each n and k."
+        ],
+        "reasoning": "At (2,1) the mass is linear in k, and the exact strict-tail formula and 8/10 boundary are direct arithmetic, independent of whether they have been printed in a table.",
+        "searches": [
+          "Resultary searches for frozen title and (2,1) formula",
+          "arXiv:2510.16808 Theorem 1"
+        ]
+      },
+      "rationale": "The distinct indexed finite-peak finding does give the exact signed odd-electorate increments for the same beta mixture, in its proof. The even classification is a mechanical consequence of those increments and the fair-tie/strict-tie relation with the previous odd electorate, not just a topic match. The stipulated asymptotic advantage and stationary count law are also prior results. The simplest integer cutoff and closed forms evaluate the known beta-binomial mass by a sum of successive integers; no independently surviving theorem is established for that remainder. This is a coverage decision, not an inference of priority from posting dates or missing text.",
+      "residual_risks": [
+        "Ranked Resultary retrieval was bounded and did not establish exhaustive duplicate absence.",
+        "Original Berg full text not inspected; separate historical even-size coverage remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive implication",
+          "evidence": [
+            "Exact C_{r+1}-C_r is strictly positive at alpha>beta, which transfers using the decreasing half-tie correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-unique-finite-peak-in-independence-optimism-for-beta-mixed-maj--54094fecb0a2/RESULT.md",
+          "material_read": "Finding and proof, decisive offset 2664–4605",
+          "method": "Ranked local Resultary discovery; local mirror statement and bounded proof read at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique finite peak in independence optimism for beta-mixed majorities",
+          "trigger": "Identical beta mixture and odds"
+        },
+        {
+          "assessment": "Related, not a covering statement",
+          "evidence": [
+            "Odd electorates and finitely supported latent law."
+          ],
+          "identifier_or_url": "5099ff0be1f8",
+          "material_read": "Indexed finding on support-size bounds",
+          "method": "Resultary and local mirror",
+          "title": "A sharp support-size law for majority-accuracy reversals under shared environments",
+          "trigger": "Related sizes and mixture comparison"
+        },
+        {
+          "assessment": "Covers law and asymptotic advantage",
+          "evidence": [
+            "Beta-binomial stationary free-voter probabilities; strict threshold floor(n/2)+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.16808",
+          "material_read": "Theorem 1 and Proposition 2, pp. 4–5",
+          "method": "OA PDF",
+          "title": "Generalizing Condorcet's Jury Theorem to Social Networks",
+          "trigger": "Exact stationary model and threshold"
+        },
+        {
+          "assessment": "Odd-size individual benchmark and historical correspondence",
+          "evidence": [
+            "n=2s+1 in the comparison; Appendix B reports Berg's odd-size inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14288v1",
+          "material_read": "Theorem 3 pp. 20–21, eqs. (20)–(22); Appendix B pp. 40–41",
+          "method": "OA PDF",
+          "title": "Majority Correctness in Social Networks: From Well-Mixed Electorates to Complex Networks",
+          "trigger": "Same law and Berg antecedent"
+        },
+        {
+          "assessment": "Historical coverage beyond the quoted odd theorem unassessed; not a basis for FAIL",
+          "evidence": [
+            "Appendix B (B7) attributes the odd comparison to Berg."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00187435",
+          "material_read": "Secondary account in arXiv:2607.14288v1 Appendix B; no original full text read",
+          "method": "Official retrieval attempt timed out",
+          "title": "Condorcet's jury theorem: dependency among voters",
+          "trigger": "Historical Pólya–Eggenberger majority theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The tie-as-failure convention raises a natural question, but the frozen answer uses a correction of known monotone accuracies by elementary, decreasing tie masses. The example cutoff is a direct tail evaluation of the known stationary law at the smallest integer asymmetry. It illustrates the convention, but does not leave a nonmechanically implied exact invariant or independent structural contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

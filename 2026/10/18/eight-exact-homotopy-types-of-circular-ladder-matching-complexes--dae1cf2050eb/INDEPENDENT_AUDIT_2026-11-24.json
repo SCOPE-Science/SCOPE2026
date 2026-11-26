@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:51:54.007958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I rebuilt the rim/rung graph and independently enumerated matchings by treating the lowest available graph vertex as either unmatched or joined to one available neighbor. The repaired toggling rule gives 117732 faces including the empty face, 714010 nonempty-poset cover incidences, 58845 matched pairs, and only one critical vertex and forty six-cells at n=10. In a directed cycle the disjoint matching forces alternation of up and down steps. The earliest used toggle must be undone by a downward step whose two faces were both available at that stage; that cover would instead have been matched. Thus the repaired proof supplies a direct acyclicity argument. Discrete Morse theory gives a one-point skeleton below dimension six, so the six-cells each attach trivially and the space is a wedge of forty S^6. This is 5-connected but not 6-connected; the covered smaller cases have nonzero reduced integral homology in some degree at most five. As a check on the frozen table I also reduced integral incidence relations in topological order, obtaining the zero 2x2 matrix at n=5, the identical nonzero rows (1,0,−1,0,0,0,0,0) at n=8 and an identity minor in rows 3 and 14 at n=9. Unit pivots cancel corresponding sphere–cell pairs: attaching maps to the lower d-sphere wedge are determined by degrees via Hurewicz (d≥2), and unimodular basis changes are realized by wedge homotopy equivalences of source and target. This substantiates the integral homotopy claims, not just the reported mod-two homology. No recurrence is inferred.",
+      "replay": "python3 /workspace/branches/independent-prism.py 10 (omit 10 to reproduce the frozen eight cases)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The grid is open: horizontal edges are only successive pairs, without wraparound. The path/cycle formulas are for single paths and cycles. Polygonal line tilings have cycles arranged in a chain and no closure, with a general contractible-or-wedge result."
+        ],
+        "reasoning": "No inspected broader theorem covers the cyclic rim product with this exact sphere dimension and multiplicity. Adding wraparound changes the graph and the matching simplices; it is not a parameter specialization of an open strip calculation.",
+        "searches": [
+          "Braun–Hough arXiv:1606.01204v1 grid definition and abstract",
+          "Donovan–Scoville arXiv:2207.13780v1 Propositions 25–26",
+          "Bayer–Jelić Milutinović–Vega arXiv:2211.12559v2 §3, polygonal line tiling"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_prism.py (read only); repaired RESULT.md",
+        "arXiv:2608.30601v2, 1606.01204v1, 2207.13780v1 and 2211.12559v2",
+        "Resultary 94cb26be0034 and 217ee7d98ffe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first exact calculation ends at eight; the twist comparison is expressly for two eighteen-vertex graphs. The earlier homologous nonzero groups in dimensions ≤5 do exclude 5-connectivity there, but do not establish it at ten."
+        ],
+        "reasoning": "The first 5-connected conclusion uses the known lower cases plus the new ten-rung certificate. No recurrence or stronger exact formula was found in the inspected statements from which the n=10 result would be mechanical.",
+        "searches": [
+          "Problem 26 in arXiv:2608.30601v2",
+          "actual scope passages of Resultary 94cb26be0034 and 217ee7d98ffe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary introductions identify M(G) with Ind(L(G)). Agarwal–Basak's actual circular-ladder results concern Ind(G) and perfect matching, and §6 Problem 26 expressly lists ordinary matching as future work."
+        ],
+        "reasoning": "The line-graph independence formulation is equivalent and was included in the exact-ten-rung search, unlike ladder independence or the perfect-matching complex. The latter do not determine this complex by deleting or adding the unreported faces.",
+        "searches": [
+          "ordinary matching complex of C_n Cartesian K_2 and independence complex of its line graph",
+          "Agarwal–Basak arXiv:2608.30601v2, Introduction and Problem 26",
+          "Braun–Hough arXiv:1606.01204v1, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "94cb26be0034 reproduces all six rows for n=3..8, including both mixed-dimensional wedges. 217ee7d98ffe reproduces the 24 S^5 at n=9 and compares the twisted closure. The exact n=10-oriented search returned these as relevant comparators but no n=10 statement."
+        ],
+        "reasoning": "The earlier-range overlap is exact, not just equal Betti numbers, and is removed from the asserted contribution. The ten-rung result is not in those bounded statements. No priority is inferred from listed dates.",
+        "searches": [
+          "Resultary: ordinary matching complex 10 rung circular ladder C10 Cartesian K2 40 six-spheres 117732 homotopy prism P10 line graph independence complex",
+          "94cb26be0034 and 217ee7d98ffe, Findings"
+        ]
+      },
+      "rationale": "The narrowed contribution is the exact n=10 type and its place as the first 5-connected case. Exact earlier-range types are explicitly credited. The named open classification problem, closest exact tables and relevant neighboring complexes do not imply the ten-rung certificate.",
+      "residual_risks": [
+        "An unindexed exact calculation or general formula for ordinary matching complexes of prisms or of their line graphs may exist. Bounded search and an open-problem citation are not a proof of bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly separates the unresolved ordinary complex",
+          "evidence": "Line-graph identity and Problem 26",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601v2",
+          "material_read": "Introduction, PDF p. 2 (offset 3205); §6 Problem 26, p. 17 (offset 63144)",
+          "method": "Primary OA PDF text inspection",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graph family and potentially conflated complex"
+        },
+        {
+          "assessment": "Open rather than circular ladder domain",
+          "evidence": "Graph definition and statement of results in the abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1606.01204v1",
+          "material_read": "Introduction, PDF pp. 1–3 (offsets 0 and 3145)",
+          "method": "Primary OA PDF text inspection",
+          "title": "Matching and Independence Complexes Related to Small Grids",
+          "trigger": "Potential broader grid calculation"
+        },
+        {
+          "assessment": "Techniques relevant, graph hypotheses differ",
+          "evidence": "Single cycles/paths or a string of edge-intersecting cycles",
+          "identifier_or_url": "arXiv:2207.13780v1; arXiv:2211.12559v2",
+          "material_read": "Propositions 25–26, pp. 10–11 offset 30326; tiling definition in §3 p. 5 offset 10088",
+          "method": "Primary OA PDF text inspection",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex; General polygonal line tilings and their matching complexes",
+          "trigger": "Matching-complex results on cycles and adjacent polygon tilings"
+        },
+        {
+          "assessment": "Exact equivalent types for n=3..9, no ten-rung extension in those claims",
+          "evidence": "Full displayed integral wedges in each Finding",
+          "identifier_or_url": "Resultary 94cb26be0034 and 217ee7d98ffe",
+          "material_read": "RESULT.md offsets 76–2526 and 86–1986, including Findings and scopes",
+          "method": "Local mirror direct statement inspection",
+          "title": "Initial integral homotopy types of circular-ladder matching complexes; Twist-sensitive five-sphere wedges in nine-rung cubic ladder matching complexes",
+          "trigger": "Exact range/graph overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary circular-ladder problem is identified before the computation. Ten follows the covered consecutive range, exhibits a new first connectivity threshold, and supplies an exact compact-certificate checkpoint for conjectures in a family whose smaller cases alternate between pure and mixed sphere dimensions. The claim is not a palette change, an arbitrary parameter slice, or a mod-two table entry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is finite and all its parameters are specified. A Catalan decomposition and an independent exhaustive permutation filter produce identical source lists. The exact compatibility-graph search exhaustively rules out a fourteen-word code; thirteen explicit codewords have disjoint deletion sets. For lengths one through five, integral covers match the attained capacities. At length six, two checked integer vectors scaled by 308 supply matching feasible primal and dual LP values \(4434/308=2217/154\). The verification uses the actual standalone delivered files; no experiment is extrapolated to arbitrary lengths.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Smith (2006) and Raykova (2006) study reconstruction from entire minor decks, not decoding after a *single* adversarial deletion. Gabrys et al. (2014) study this channel over the full permutation group, but give general asymptotic theory and signature constructions rather than exact Catalan-source length-six packings or their fractional gap. The published restricted-permutation deletion-sphere distribution is about the size of one vertex's shadow, not the packing of mutually disjoint shadows. Research-index and literature searches for the exact value, pattern-avoidance aliases, deletion/insertion duality, and fractional incidence packings found no stronger result implying the stated exact pair. This is not a proof of global priority; unindexed results could exist.
+PASS
 
-**Mathematical value — PASS.** The shadow-packing LP is the natural upper relaxation for single-deletion-correcting codes. It is exactly integral for the first five Catalan lengths but first fails at six, where its *floor* also overstates actual capacity. A sharp, independently checkable small counterexample to rounding the packing relaxation and its exact rational witness are useful when evaluating constrained-source code bounds. The contribution is narrow but answers a natural invariant and is not merely a reformulation of a known whole-deck reconstruction test.
+Independent code enumerated all permutations through length six, filtered by the defining 132 test, and constructed each shadow by positional deletion and rank standardization as a set. The empty output at n=1 is included. Codes are cliques in the disjoint-shadow graph. Exhaustive inclusion branches, with removal of each previously branched vertex, cover all cliques; a proper coloring bounds the number of further clique vertices and justifies pruning. The independent search returned M=(1,1,2,3,6,13) and checked the displayed 13-word code. At lengths 1–5 the supplied integral output covers hit every shadow and have sizes matching the code sizes. At length 6 all exact nonnegativity, primal capacity and dual covering checks pass with common denominator 308 and primal and dual numerators 4434. Weak duality gives P=(1,1,2,3,6,2217/154), so length 6 is the first gap in optimal values and the first strict floor gap, 13<14. This is not a claim that the earlier packing polytopes are integral. Replay: run python3 /workspace/branches/f34594ec-4a49-4274-b3f9-40cf067acff0/reproduce_independent.py /workspace/source/2026/11/22/the-first-fractional-single-deletion-packing-gap-for-132-avoidin--1f96402b4ab9/LP_CERTIFICATE.json. The uploaded Python was inspected, not run.
 
-Limitations: no general-length capacity formula, no classification of all optimal codebooks, and no independent expert audit. The upper bound is a complete finite proof implemented with checkable coloring-pruning logic rather than a simple paper-only inequality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact finite optimum profile and the strict first rounding gap in this avoidance class. The channel, compatibility-graph reduction and sphere-size information are not credited as new. A distinct same-channel indexed result was compared by its statement, not dismissed by date.
+
+## value
+
+PASS
+
+The standard fractional incidence bound is an independently motivated computational substitute for exact packing in a hereditary permutation class. The first strict slack after rounding demonstrates a real limitation of that substitute: it leaves open size 14 even though size 13 is the exact maximum. Exhaustion of all preceding lengths certifies that this is the smallest counterexample in the class rather than an arbitrary test instance. The complete profile also distinguishes two natural Catalan deletion channels despite equal source counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

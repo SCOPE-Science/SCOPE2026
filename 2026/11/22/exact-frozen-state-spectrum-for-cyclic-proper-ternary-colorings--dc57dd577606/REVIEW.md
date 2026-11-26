@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bijection between proper cyclic ternary colorings and mod-three-closed binary increment words has a three-to-one multiplicity. A legal swap is equivalent to three consecutive equal increments, established by inspecting the two outer neighbors of the swapped pair; the cyclic triangle boundary is included. The full four-state transfer and cubic roots-of-unity filter are expanded explicitly, with independently verified characteristic determinants. The exact arithmetic recurrence and existence witnesses prove the all-length conclusions. The bundled `verify.py` independently enumerates colorings through length 13 and closed sign words through 20; these checks are supporting evidence, not infinite certification.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+An indexed proper coloring is specified by its first named color and a cyclic sign word. If p of the increments are +1, closure is 2p−n≡0, equivalently p+n≡0 (mod 3). An adjacent swap is allowed exactly when both outside neighbors are the third color, or equivalently the surrounding three increments are equal; the same argument works on the triangle where the outside neighbors coincide. Frozen words thus avoid 000 and 111, not isolated signs. The weighted trace over states 00,01,10,11 counts indexed cyclic words with no division for periodic orbits; summing the three twists implements closure and cancels the factor 1/3 against three initial colors. Direct determinant expansion gives (1−z−z²)(1+z+z²) and, for either nontrivial twist, (1−z)(1+z+z³). The traces and Newton sums produce the stated Lucas term, cubic recurrence and rational generating function, subtracting the length-two coefficient 6 (length one is zero). Minority-run capacity excludes the admissible weights at lengths 3,5,7; alternating words at even lengths and (001)^3 followed by alternating pairs at odd lengths at least nine give valid cyclic witnesses including the closing triples. The cubic has one negative real root −alpha (local extrema are positive), and the conjugate pair has modulus alpha^(-1/2) by the root product. Thus the Lucas root dominates and division by 2^n+2(−1)^n yields the claimed asymptotic fraction. /workspace/evidence/reproduce_other_checks.py verified counts for n=3..27 by a separate twelve-state trace over actual consecutive color triples. That check supports, but does not replace, the all-length proof.
 
-The closest adjacent-swap paper derives algorithms and rigid structures for proper three-colorings of paths, without enumerating cyclic frozen states [2]. The 1988 majority-rule paper counts cyclic binary no-triple words without the mod-three closure condition [3]. Restricted order swaps [1] and single-vertex recoloring [4] do not imply the stated count. The particular roots-of-unity weighted refinement might appear in unindexed symbolic-dynamics work; neither keyword search nor semantic database ranking establishes absolute originality.
+## originality
 
-## Value — PASS
+PASS
 
-For cyclic proper ternary colorings, a fundamental reconfiguration obstruction is the exact number of states that admit no first move. The theorem gives all lengths, a sharp three-length nonexistence list, a rational generating function, and a quantitative exponentially decaying frozen fraction. These are intrinsic mobility statistics for a natural constrained swap system; they are not an arbitrary parameter slice or merely a finite census.
+The supported claim is the exact congruence-refined cycle count, exceptional lengths and asymptotics for named proper colorings under adjacent legal swaps. The swap model, path rigidity and generic weighted transfer methods are not claimed as new. The precise forbidden-word statement attributed in the frozen record to Agur et al. was not independently verified and is not used as negative coverage evidence.
 
-## Limits and closest literature
+## value
 
-Only degree-zero states are enumerated, not components or reachability of moving states. Closest works are [2] (same swap rule on a path), [3] (binary no-triple cyclic words without ternary closure), [1] (constrained order swaps), and [4] (recoloring instead of swaps). Priority against unindexed earlier work remains open; no independent mathematical audit has occurred.
+PASS
 
-[1] https://doi.org/10.4230/LIPIcs.MFCS.2021.8
+Isolation is the most immediate obstruction to moving within proper adjacent-swap colorings. Indexed cycles are the simplest family where the local obstruction must satisfy global color closure. The count resolves every length, explains the small odd exceptions, and gives an exponential rate for the proportion of states with no permitted first move. It does not claim to classify larger components or add a new general transfer-matrix method.
 
-[2] https://arxiv.org/abs/2511.06473
-
-[3] https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf
-
-[4] https://arxiv.org/abs/2206.09268
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

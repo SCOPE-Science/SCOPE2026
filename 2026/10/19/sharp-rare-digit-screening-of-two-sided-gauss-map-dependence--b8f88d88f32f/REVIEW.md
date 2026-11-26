@@ -1,19 +1,21 @@
-# Scientific review: rare-digit screening in the Gauss map
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact conditional two-sided density follows from the standard Gauss natural-extension density by the branch substitution \(x=1/(k+u)\) and the exact exceedance probability. Marginal integration telescopes without truncation. A uniform Euler--Maclaurin expansion establishes the second-order dependence kernel; dominated convergence and a normalized likelihood-ratio Taylor expansion then justify both continuous and countable-digit total-variation and mutual-information limits. The leading digit information constant follows from an explicitly checked partial-fraction identity and \(\zeta(2)=\pi^2/6\). The companion checker independently confirms the key polynomial identity and an exact special-function representation of quadrant probabilities. Its finite numerical tests are supporting checks, not a substitute for the analytic uniform bounds.
+PASS
 
-## Originality
+With x=1/(k+u) the Jacobian cancels the numerator from the natural-extension density. The stationary event probability is log(1+1/N)/log 2 and integration in v telescopes to the stated conditional marginal. Write z=1/N and s=u+v. The branch sum divided by z is 1+(1/2-s)z+(s²-s+1/6)z²+O(z³), uniformly by Euler–Maclaurin on s∈[0,2]. Multiplication by log(1+z)/z and (1+uz)(1+vz) gives first-order cancellation and second-order coefficient (u−1/2)(v−1/2). The marginals are uniformly 1+O(z). For KL relative to their conditional product the linear term integrates to exactly zero, and the uniform quadratic expansion gives 1/288; the L¹ integral with a factor 1/2 gives 1/32. On any pair of digit bins the likelihood ratio is a product-measure conditional average before taking the expansion; the relative uniform error therefore survives on the full countable alphabet. Digit 1 is exactly the positive half of u−1/2 and all other bins lie in the negative half, preserving the TV coefficient. Independently, the variance of the bin means is 1/12 minus the within-bin variance sum ∑[k(k+1)]⁻³/12=(10−6ζ(2))/12, giving π²/12−3/4 and hence the reported digit KL coefficient. This checks both constants, the Lebesgue-digit limit, and the use of conditional marginals and natural logarithms. The frozen checker was inspected, not executed; the separate `python3 /workspace/checks/frozen_math_checks.py 3` checks the trigamma ratio at nine sample points and the exact within-bin variance identity. These tests do not establish the uniform remainder or the infinite-alphabet limit, which are analytic.
 
-PASS under the completed statement/implication comparisons, with a historical-priority residual risk. Sinai--Ulcigrai's 2007 article supplies the natural-extension measure and proves a continued-fraction renewal theorem, not the conditioned two-sided information rates. Kesseböhmer--Schindler analyze large-digit events, conditional kernels and mixing, not the exact \(N^{-2}\) conditional dependence kernel or the \(N^{-4}\) mutual-information coefficient for the two neighbors. Jin--Singh--Zhang--Hildebrand calculate particular one-digit and repeated-string frequencies, not the rare-digit conditioned mutual-information limit. The supplied established kernel enables the present asymptotic calculation but does not itself state the sharp second-order interaction or the two information constants. Related findings on different expanding systems, toral observations and finite-digit information were compared by implication, not title; their hypotheses and observables do not include this conditioned Gauss natural-extension law. No comprehensive independent historical-priority audit has been performed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The two adjacent digits of a continued fraction are natural observables for the Gauss shift, and exceptional large digits are central to its rare-event theory. Here a rare central digit screens *both* sides. A uniform leading copula term proves that dependence disappears quadratically in total variation yet quartically in information, with exact constants after a countable-alphabet quantization. The unchanged leading total-variation coefficient under digit quantization is a structural feature, not a generic consequence of data processing. The result supplies precise conditional-memory benchmarks for studying clusters of unusually large continued-fraction digits.
+The Gauss invariant kernel is established and the branch-conditioned joint density is its direct consequence, not a standalone originality claim. The supported distinct contribution is the sharp second-order interaction and the resulting continuous and digit-level TV/MI laws. No inspected earlier statement gives these or a stronger result covering them without the new cancellation and projection computations.
 
-## Closest literature and limits
+## value
 
-Sources: Sinai and Ulcigrai, arXiv:0710.1283v1, §§1--2; Kesseböhmer and Schindler, arXiv:1604.06612, §§1,4; Jin and collaborators, arXiv:2403.16761v1, Theorem 3 and §4. The Gauss natural-extension kernel and the marginal large-digit probability are previously known and explicitly credited. The conclusion is restricted to the ordinary stationary Gauss digit process with an integer threshold and immediate neighbors; it does not imply an analogous law for every continued-fraction algorithm or longer observation block. Equivalent priority under other nomenclature remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rare central digits give a natural test of how much the immediate past and future continue to depend on one another beyond a limiting product law. The exact leading term makes the rates quantitative and reveals a useful distinction: the nearest-digit projection preserves the leading TV signal because it preserves its sign partition, but strictly reduces the leading information constant because it averages the interaction within bins. This is useful independently of any claim about longer windows, arbitrary initial laws, or other continued-fraction algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

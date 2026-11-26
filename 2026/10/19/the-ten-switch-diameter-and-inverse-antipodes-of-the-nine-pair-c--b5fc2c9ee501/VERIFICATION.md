@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducible finite-distance verification
 
-Run `python3 verify_python.py` to enumerate the complete derangement matching spaces and perform breadth-first search on explicitly built switching graphs. Run `g++ -std=c++17 -O2 verify_cpp.cpp -o crown_check && ./crown_check` for an independently enumerated perfect-matching search with direct on-demand neighbor generation. Both are standard-library-only standalone programs. Their expected JSON outputs are `verify_python.out` and `verify_cpp.out` (format differs, mathematical fields match).
+Run `python3 verify_python.py` for complete searches on explicitly constructed switch graphs. Alternatively compile and run `g++ -std=c++17 -O2 verify_cpp.cpp -o crown_check && ./crown_check` for on-demand neighbor generation in the breadth-first searches. The recorded outputs are `verify_python.out` and `verify_cpp.out`. The per-size summary fields agree; the C++ output additionally exposes the smaller cycle-type profiles in the `types` fields.
 
-The verification spans **all** matching states, not a random sample, for each \(4\le n\le9\). Conjugation of derangements preserves matching flips; a BFS from every cycle-type representative therefore suffices to determine the complete eccentricity and farthest-vertex spectrum. For \(n=9\), each BFS visits exactly \(133,496\) states; all eight cycle types are represented. Both programs independently verify a unique inverse at distance ten for cycle type \((3,3,3)\), with no source of another type attaining distance ten.
-
-The analysis certifies only the displayed six finite sizes, not an asymptotic theorem. A verification program successfully reproducing an output file is not independent external mathematical review.
+For the first-occurrence claim, check connectedness and maximum eccentricity for each of \(n=4,5,6,7,8\). The exact diameters are \(3,4,6,7,8\), and the known nine-symbol diameter ten is also recomputed. The nine-symbol histogram and antipode census are reproduced in the output as endpoint context, not claimed as distinct new findings. There is no diameter extrapolation to arbitrary \(n\).

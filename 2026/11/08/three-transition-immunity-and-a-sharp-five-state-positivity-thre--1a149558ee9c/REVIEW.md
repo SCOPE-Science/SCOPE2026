@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A topologically ordered generator has a divided-difference path expansion. The first four derivatives of the Padé function at nonpositive real arguments have nonnegative sign, proving unconditional positivity for every graph of depth at most three. A separate Taylor-walk argument treats arbitrary generators with four or fewer states, including the zero cubic coefficient. Exact Jordan-block algebra gives the complete five-state witness, all absorbing-column remainders, and the unique root threshold. The standalone exact-rational verifier was executed from its source and returned `VERIFY_OK exact_formula+derivative+root+small_graph_trials 192`. The exhaustive five-state entrywise check is symbolic; sampled graphs are supplementary only.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 source proves eventual positivity of the Padé \([0/2]\) factor on its Fokker--Planck generator class and identifies potential small-step failure without the current graph-depth and exact five-state threshold. The 2012 positive-systems paper concerns mainly diagonal Padé maps and does not classify the \([0/2]\) finite conservative state count. The closest published eight-state result is for the different \([2/2]\) Padé function. Comparisons of published mathematical records used aliases, parameter implications, and both exact map formulas; no directly covering result was found. Unindexed classical matrix-function literature remains a priority risk. A failed search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The specific order-two L-stable factor is proposed for positivity-sensitive numerical probability evolution. A graph-topology condition guaranteeing nonnegative mass-conserving output for arbitrarily many states and arbitrary steps, together with the smallest conservative counterexample and its exact step window, resolves a natural reliability question not quantified by stability or a generic eventual-positivity statement. The result does not extrapolate to arbitrary cyclic chains or full multiphysics solvers.
+With y=1+x and D=1+y² the first three z-derivatives at z=-x have numerators 4y, 4(3y²-1), and 48y(y²-1) over D²,D³,D⁴. They give nonnegative divided differences through order three by simplex integration, including coincident nodes. Triangular resolvent expansion therefore gives positivity for every DAG of the stated depth. For a four-state shortest route of length three, any four-transition walk would contain a removable repetition; thus Q⁴ contributes only three transitions and a negative hold (at least the source), giving strict positivity from the coefficient -1/4 when the cubic coefficient vanishes. Shorter routes use coefficients 1 and 1/2, unreachable entries are zero by reachability block structure, and conservation follows from Q1=0. For the five-state witness invert the transient denominator D I/2 - h(1+h)N + h²N²/2 modulo N⁴. Transient coefficients agree with the derivative expressions. Subtracting their partial sums from 1 gives the four absorbing numerators over D to powers 1 through 4: h(h+2), h²(h²+4h+2), h⁴(h²+6h+6), h⁴(h⁴+8h³+12h²-4). The last quartic is strictly increasing on h>0 and crosses zero exactly once. The transient block has three internal superdiagonal ones, not four as one incidental sentence says; the displayed generator and N⁴=0 calculation are correct.
 
-The principal sources compared are Itkin--Kazbek (2026, arXiv:2608.22703v1), Zappavigna--Colaneri--Kirkland--Shorten (2012, DOI 10.1016/j.laa.2011.12.021), the public 2026 eight-state \([2/2]\) Markov positivity note, and the general Bolley--Crouzeix positivity barrier. The proof is exact arithmetic; the numerical value of the root is merely illustrative. No independent mathematical verification or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge assessment of the joint topology/minimality/exact-threshold theorem; the map and eventual-positivity framework are not new.
+
+## value
+
+PASS
+
+The graph-depth condition gives an all-step guarantee at arbitrary dimension and rates, and the exact minimal witness quantifies a reliability failure for a natural L-stable alternative to the exponential. Neither is a full-solver guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

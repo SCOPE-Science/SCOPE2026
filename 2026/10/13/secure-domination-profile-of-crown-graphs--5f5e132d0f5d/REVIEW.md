@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces secure domination to a local matched-pair state analysis. The key swap argument is symmetric on the two sides: after an attack on \(A\), only the number and state of selected vertices in \(B\) can create a new domination failure on \(A\). The four cases \(q=0,1,2,\ge3\) yield exactly \(\Phi_A\); symmetry yields \(\Phi_B\). The multinomial count then follows because matched-pair labels are interchangeable once their states are fixed. An independent brute-force checker verified the criterion against the definition for every subset of \(\operatorname{Cr}_n\) for \(3\le n\le8\), and also checked every bivariate coefficient and the stated minimum counts.
+## correctness
 
-Risk: exhaustive checking is finite and does not prove the theorem. The general proof is therefore the primary correctness evidence. The small-boundary counts are consequences of the exact formula and were independently checked computationally.
+PASS
 
-## Originality
-PASS for the retained claim. Searches were made for the exact object and aliases including “crown graph,” “\(K_{n,n}\) minus perfect matching,” secure domination, secure dominating sets, and secure-domination polynomial. The closest public results found were: a complete-multipartite secure-domination polynomial, a crown-graph restrained-domination profile, a secure-domination number for chain graphs, secure-domination polynomials for paths, and a connected-secure domination polynomial for several elementary families. None of those statements implies the index-sensitive crown classification here.
+Reconstructed the defender exchange proof for ordinary domination (closed neighborhoods). Both predicates guarantee initial domination: each vertex outside a shore's selection has an adjacent selected opposite-side vertex, including in the unique-defender case. In line 42 the p=0 swap argument uses initial domination, which forces the entire B shore selected if p=0; thus b_i really is still selected after exchanging b_j for a_i with j≠i. With p≥1 the exchange leaves at least two selected vertices in A, so in either case the B side is safe. On A, after losing a defender, q≥3 leaves at least two selected in B; for q=2, a 00 attack needs a retained defender from a 11 pair, while a 01 attack can retain its own matched B vertex. When q=1 and an A vertex is outside, it must be the sole such vertex and adjacent to the defender, exactly (a,c,d)=(1,0,1); q=0 requires no outside A vertex. Reflecting gives the other predicate. Multinomial counting is valid by labeled pair assignments. At n≥5 and size at most four neither shore can be full, and one selected vertex on a shore would force n−1 on the other; therefore both occupancies must be two and d≥1. The two stated profiles then give the stated minimum-set count. A fresh adjacency-mask replay at /workspace/branches/audit_crown.py checked the predicate and every bivariate coefficient for each n=3,…,8; minimum size and count outputs were (3,14), (4,62), (4,70), (4,135), (4,231), (4,364). Exhaustion on this range checks the implementation and small boundaries, not the infinite proof.
 
-A 2016 paper on secure restrained domination is a genuine residual risk because indexed literature explicitly associates it with crown graphs and comparisons between secure and secure-restrained domination. Its abstract and publication metadata were read, but the full text could not be obtained without an unavailable interactive institutional step. Accordingly, the scalar value \(\gamma_s(\operatorname{Cr}_n)\) is not claimed as new, and the originality claim is restricted to the complete all-set state classification and bivariate enumerator. A searchable 2014 dissertation surveying secure domination was inspected; it treats complete bipartite graphs extensively but a full-text search found no “crown” occurrence.
+## originality
 
-## Value
-PASS. Crown graphs are a canonical one-factor deletion from complete bipartite graphs. For secure domination, deleting that matching is not a cosmetic perturbation: whether a defender is the matched nonneighbor of the attacked vertex controls swap feasibility. The theorem isolates this obstruction exactly and counts all secure configurations by their two side sizes. This is a natural structural refinement of scalar secure domination and of the complete-multipartite polynomial, and the minimum-set profile follows without an arbitrary parameter slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The retained claim is the ordinary secure-domination all-set classification and side-size enumerator for crowns. The scalar minimum is explicitly excluded from priority, and the small-set counts are consequences and comparison context. The closest inspectable same-graph results use different predicates; material similarities are credited below.
+
+## value
+
+PASS
+
+The result isolates how the deleted matching affects defender exchanges and counts all sets by side sizes, including which rare marginal occupancies can be secure. This is a natural refinement of the scalar invariant on a standard graph family and gives more information than the stricter same-graph analogues or the single shared coefficient with complete prisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

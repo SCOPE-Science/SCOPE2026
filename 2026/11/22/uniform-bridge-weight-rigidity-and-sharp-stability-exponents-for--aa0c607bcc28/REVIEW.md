@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof covers all real symmetric entrywise-nonnegative stochastic kernels supported on a one-bridge join of cliques of orders at least five, including asymmetric interior weights. The center-to-bulk conductance reduction is exact for four-level test vectors and yields a uniform upper bound. The rational identity \((g-f(c))(1+c)=(c-c_*)^2\) proves the sharp bridge deviation modulus. The gateway-holding estimate follows from inverse effective-conductance deficits. A fully normalized explicit stochastic kernel, a four-site weighted-variance estimate, and an eigenvalue-separation argument establish the finite lower bound for all size ratios. The Taylor expansions establishing optimal exponents are justified by the same two-sided path variational estimates. The accompanying script checks full matrices, quotient spectra, exact identities and asymmetric samples; no finite test is presented as a proof of the infinite claim.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual priority risk
-Boyd, Diaconis, Parrilo and Xiao (2009) compute the exact optimal *balanced* one-bridge barbell chain and its limiting bridge weight, and Jafarizadeh (2025) treats *unequal* extended barbells, including a single bridge. Those exact optimizer results and their direct asymptotic restatements are prior work, not the contribution claimed here. The final claim instead asserts a quantitative converse for **every** feasible near-optimizer without orbit assumptions, with finite explicit deviation bounds and two sharp exponents. The inspected formulations supply optimal examples or rates but not this all-near-optimizers inverse theorem. Searches also compared a partial-matching bridge result (requires at least two bridges), a crown-graph near-optimality result (different graph), and general geometric conductance bounds. Full source sections and exact implications were considered rather than relying on titles. Unindexed literature and mathematically equivalent robustness bounds are residual risks; this is not an independent publication-priority certificate.
+PASS
 
-## Value — PASS
-FMMC semidefinite problems are often solved approximately, and the optimizer or a symmetric ansatz alone does not control each edge of an arbitrary near-optimal kernel. Here the precise observable bridge probability and gateway holding mass are certified directly from the achieved spectral objective, uniformly across unequal community sizes, and the square-root and linear scales cannot be improved in exponent. This is a structural numerical-design stability statement, not a mere formula recomputation.
+For any admissible P, the centered spectral progress is no greater than the infimum Rayleigh quotient of I−P on 1⊥. A vector constant on each bulk has energy only at the three effective links A,c,B; minimizing over the gateways gives R(U−V)², while the centered norm squared is at least the bulk-only variance (U−V)²/s. A zero link gives a disconnection and zero progress, so the bound extends to boundary weights. The inequalities A,B≤1−c and (g−f(c))(1+c)=(c−c*)² give the bridge bound; the resistance difference 1/R−1/f(c) is at least the gateway holding sum, giving its claimed bound. The proposed stochastic kernel has two bulk zero-sum eigenvalues −x/n and −x/r and the given four-state quotient. Testing its variance at the bulk barycenter yields a Poincaré constant ≤1/(gs)+2/x+2/g≤1/(gs)+C/g. For n,r≥4 the quotient perturbation norm relative to the isolated bulks plus central block is ≤3x/4; the second eigenvalue is ≥1−gs from the same path test and lies strictly above all negative magnitudes and the other nontrivial modes. This verifies the finite sandwich for SLEM rather than just a one-sided gap. Compactness ensures attainment; substituting the sandwich gives the bounds for every optimizer. With balanced growing sizes the same comparison gives d(P)/s→R(c,h), and α=2g/(1−c*)²=1 gives R(c*,h)/g=1−h+O(h²), while the vanishing-holding loss is exactly quadratic from the displayed identity. Taking size large before sending the perturbation to zero establishes exponent sharpness, not tight finite constants.
 
-## Scope and remaining limits
-The constructive finite approximation requires both clique orders at least five; no claim is made for nonreversible chains, exact optimizer-face uniqueness, or all possible off-bridge edgewise rigidity. The approximate solutions must reach the displayed relative performance level against the explicit universal benchmark. Equal-side large-clique limits justify exponent optimality. Publication priority beyond examined sources remains unsettled.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the finite, uniform inverse stability theorem over all admissible kernels and its sharp exponents. It is not for obtaining an optimal SLEM or a bridge weight for an exact optimizer, for the limiting balanced bridge constant, or for a generic bottleneck estimate.
+
+## value
+
+PASS
+
+The result certifies robustness of actual bottleneck weights in arbitrary nearly fastest matrices rather than only producing one familiar optimizer. Constants uniform in both clique sizes and their ratio force an entry-level constraint even for nonsymmetry-reduced near optima, and the separate perturbations establish the best possible exponents in the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

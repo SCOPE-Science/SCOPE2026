@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is a single standalone Python 3 script using only the standard library. Run `python3 verify.py` in the directory containing this file. It carries out direct finite row/column-set and row/column-multiset type refinements separately, not merely a call to the histogram sufficient condition. It compares the independent graded-depth-one partition with the explicit degree-triple partition; checks refinement monotonicity; verifies that distinct marked-neighbor degree histograms imply distinct depth-two types; enumerates every binary square matrix of sizes one, two, and three; and evaluates 2,100 seeded random matrices at the declared sample densities \(0.25\), \(0.5\), and \(0.75\).
+## correctness
 
-Direct replay produced:
+PASS
 
-```
-VERIFY_OK exhaustive_binary_square_matrices 530 random_trials 2100 parameter_batches 21
-small_exact_depth2_full_counts {1: 2, 2: 8, 3: 144}
-density,size (0.25, 20) full_depth2,not_full_depth1,ordinary_two (51, 100, 78)
-density,size (0.25, 40) full_depth2,not_full_depth1,ordinary_two (96, 100, 100)
-density,size (0.25, 64) full_depth2,not_full_depth1,ordinary_two (100, 100, 100)
-density,size (0.25, 96) full_depth2,not_full_depth1,ordinary_two (100, 100, 100)
-density,size (0.5, 20) full_depth2,not_full_depth1,ordinary_two (86, 100, 100)
-density,size (0.5, 40) full_depth2,not_full_depth1,ordinary_two (99, 100, 100)
-density,size (0.5, 64) full_depth2,not_full_depth1,ordinary_two (100, 100, 100)
-density,size (0.5, 96) full_depth2,not_full_depth1,ordinary_two (100, 100, 100)
-density,size (0.75, 20) full_depth2,not_full_depth1,ordinary_two (39, 100, 93)
-density,size (0.75, 40) full_depth2,not_full_depth1,ordinary_two (94, 100, 100)
-density,size (0.75, 64) full_depth2,not_full_depth1,ordinary_two (99, 100, 100)
-density,size (0.75, 96) full_depth2,not_full_depth1,ordinary_two (100, 100, 100)
-```
+Reconstructed the asymptotic argument for independent Bernoulli markings at each fixed 0<rho<1 and two named reflexive relations. Depth one is exactly (atom,row degree,column degree) because the row and column sizes are known; depth two detects each row's histogram of column degrees at marked cells and the transposed histogram at each column. In fact the two histograms plus the atom give the exact depth-two type: they give the respective own degrees by summation, and the unmarked counts at each opposite degree are its globally fixed marginal count minus the marked count. Pairwise distinct histograms on both sides suffice, but are not assumed necessary for cell injectivity. For a fixed pair of rows, columns where entries agree contribute zero; at a disagreement the column degree equals its degree with both rows removed plus one. Conditioning on all such reduced degrees therefore leaves disjoint bins of independent centered variables taking values -1,0,1. Their characteristic function is nonnegative, and Gaussian domination on [-pi,pi] gives the required O_rho(m^(-1/2)) zero-sum bound. A central window of order sqrt(n) reduced degrees has point masses bounded below by a rho-dependent multiple of n^(-1/2) by Stirling, so Chernoff and the union bound ensure all these bins have at least order sqrt(n) columns with failure O_rho(sqrt(n) exp(-c_rho sqrt(n))). Multiplying the conditional bounds and adding that failure gives o(n^(-2)) for each pair and hence no collisions on either side with probability tending to one. Hoeffding bounds both ranges of degrees by O(sqrt(n log n)), giving at most O(n log n) depth-one types. A union bound excludes monochromatic rows and columns; same-atom equivalence is then an ordinary bisimulation by the availability of both colors for each named move. Finite Boolean closure gives the two claimed algebra sizes and the sharp quotient ratio. An independent exact enumeration of the direct depth-two signature (replay: /workspace/branches/record-2-independent.py) reproduced the supplemental 2, 8 and 144 fully separated matrices at sizes 1, 2, 3, respectively. The frozen code was read, not executed; these finite counts are not evidence for the limiting probability bound. No assertion uniform over varying densities or all finite n is needed.
 
-All finite comparisons passed. Random tests are diagnostics and do not constitute a proof of an asymptotic almost-sure claim. The general theorem uses the exact conditional histogram-difference identity, independent-bin anti-concentration, and concentration estimates established in RESULT.md. No independent mathematical audit was performed.
+## originality
+
+PASS
+
+The distinct content supported here is the sharp dense random cell-modal depth and simultaneous ordinary collapse, with an exact independent-bin argument, not generic graded refinement semantics or the extremal quotient ratio. The known sparse deterministic extremal example materially overlaps the ratio and terminal algebras but makes a different parameter and minimal-depth assertion. No verified stronger result covering the fixed-density random statement was found in the comparisons below.
+
+## value
+
+PASS
+
+For a standard product of two equivalence frames with one random atom, the sharp minimal modal depth and contrast between the two resulting algebras answer a natural typical-case expressivity question, not merely an example giving the maximum ratio. The conditioned-degree-bin argument gives a usable mechanism for separating profiles in a model where taking full degrees as independent would be wrong. The value is specific to the fixed-density theorem and does not require a sparse threshold theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

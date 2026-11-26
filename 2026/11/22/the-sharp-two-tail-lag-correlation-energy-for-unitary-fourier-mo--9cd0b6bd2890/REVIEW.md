@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-For each column, the objective involves only four endpoint entries. Identity (1) in `RESULT.md` decomposes a weighted endpoint contribution into a phase-alignment loss and three explicit real squares; its polynomial part is checked using exact rational evaluations. Summing the additional unused-mass term and using the four full row norms gives the universal maximum \(5/4\). Equality forces exactly four active columns, all with endpoint entry moduli \(1/2\); the phase relation and pairwise orthogonality yield the stated complete class. A four-by-four Walsh block reaches the bound for every \(N\ge4\). The statistical corollary is derived from the independent proper-symbol fourth-moment identity (arXiv:2610.02843, Lemma 1 and Appendix A). Finite tests are checks, not proofs for all dimensions.
+PASS
 
-## Originality (O) — PASS, relative to inspected sources
+For each column, let A be its mass on rows 0,N-1, B on rows 1,N-2, and s=A+B. Cauchy–Schwarz bounds the lag N-2 energy by AB and AM–GM bounds lag N-1 by A²/4; the deficits expand to the three phase/amplitude terms stated in RESULT.md. The gap from AB+A²/4 to s(7A+3B)/16 is exactly 3(A-B)²/16. Since s≤1 and the row sums give ΣA=ΣB=2, summing gives 5/4. Equality forces s=0 or 1, and in the latter case A=B=1/2, all four moduli are 1/2, and the lag terms are in phase. Row normalization forces four active columns. Their inner products give precisely the stated product of antipodal factors; the interior block is free. The Walsh construction attains the bound, including at N=4, and Fourier columns give 5/N. Separately, AB≤s/4 and A²/4≤A/4 prove the single-lag values 1 and 1/2, attained by the Walsh block and by a two-row Hadamard block respectively. Independent proper symbols give the two covariance pairings plus the diagonal fourth-cumulant correction; with μ4<2 the statistical minimum follows with the claimed sign.
 
-The closest full primary source is Y. Xiong et al., *On the Optimality of OFDM for Aperiodic Ranging*, arXiv:2610.02843 (2026-10-02), including the exact single-lag results, prefix EISL theorem, and Appendices A/B/G/H/I. Its known single-lag terminal values add to \(3/2\), but the sharp joint maximum is \(5/4\). Its prefix claims cannot be restricted to a non-prefix pair while preserving optima. The previously studied full EISL is not the same objective. Targeted searches for endpoint-pair aperiodic energies, Fourier/Walsh equivalents, relevant published-finding corpus statements and relevant available published claims did not reveal a matching theorem. This is evidence for noncoverage only within the inspected material, not a proof of universal novelty. The original 2025 unitary-OFDM article was compared via its precise quoted results in the 2026 source, rather than independently from full text.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-The result answers an explicit and natural non-prefix tail-delay optimization question, supplies an exact dimension-independent constant and all equality cases, and quantifies a nonzero loss caused by incompatible individually optimal lags. It also gives the sharp improvement over complete OFDM for every \(N>4\) in the proper, sub-Gaussian random-symbol regime. The sum-of-squares defect yields a quantitative certificate for departures from optimal structure.
+The joint equal-weight optimum for the two last lags in arbitrary dimension and its equality classification are distinct on the searched evidence. Single-lag optima, prefix optima and the fourth-moment formula are prior results, not part of this originality pass.
 
-## Limitations and closest literature
+## value
 
-No optimality is asserted for weighted tail lags or arbitrary non-prefix sets, nor for symbols with fourth moment at least two. The possibility of equivalent statements in unindexed literature remains; no independent mathematical validation has been performed. References and comparisons are in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The last two aperiodic lags are a natural adjacent tail window: they probe the overlap of only four extreme rows. The exact compatibility loss of 1/4 and equality family answer whether one orthonormal basis can realize both individually optimal sidelobes and identify precisely when the inverse DFT ceases to solve the selected-window design problem. This is not a re-evaluation of the prefix result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

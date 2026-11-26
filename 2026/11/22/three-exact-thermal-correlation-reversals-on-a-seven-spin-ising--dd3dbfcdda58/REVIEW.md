@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-arc formula, exact three-variation Descartes certificate, four alternating rational signs and independent 128-state exact Gibbs enumerations establish three and only three simple inversions for the specified seven-cycle. Subdividing a bond with strong ferromagnetic exchange gives at least three inversions for all larger cycles.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** Prior decorated-bond and five-path constructions give one or two reversals, not three. The searched published-finding corpus records, accessible prior claims and read full primary texts did not establish the three-reversal theorem. Unindexed equivalent work remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** An explicit and all-root-certified threefold thermal correlation reentrance on a simple unicyclic spin network is a motivated nonlinear response phenomenon, with an unbounded family extension. It is not a minimum-order or thermodynamic transition claim.
+In the high-temperature spin expansion, the partition sum keeps the empty and full cycles; the numerator for the (0,3) pair keeps exactly the two arcs, which have opposite signs. Thus the normalized correlation is (A−B)/(1−AB), with positive denominator at finite beta>0. I independently used q=exp(2 beta) and represented each positive arc factor as (q^j−1)/(q^j+1). After crossing the positive denominator, the numerator at q=1+y is a degree-51 integer polynomial with exactly three coefficient sign variations. Exact enumeration of 128 spin configurations reproduces the ratios and the strict signs +,−,+,− at q=21/19,11/9,7/5,2. The disjoint intervals therefore contain at least three distinct zeros, and Descartes bounds total multiplicity by three on y>0. All are simple, and there are no further zeros; neither beta=0 nor beta=infinity belongs to the domain. Inserting any fixed number of arbitrarily strong positive bonds in series preserves the four signs when the strength is finite but sufficiently large. Analyticity and the alternating signs ensure at least three isolated reversals on each resulting longer cycle.
 
-Closest literature: arxiv:0901.3181, arxiv:1003.0200, and the 2026 five-path two-reversal result. Scientific limitations are stated in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-arc reduction and thermal reversals themselves are known ideas. The supported distinction is the seven-vertex simple cycle with three rigorously counted simple temperature zeros and its at-least-three extension. The closest inspected zero-count comparator uses five parallel paths and equal bond magnitudes, with two reversals. The primary single-reversal, hierarchical and reentrant examples do not cover the claim. The frozen text cites an unidentified five-site two-reversal result: its stated conclusion alone does not imply three, but a possible broader statement could not be checked.
+
+## value
+
+PASS
+
+A nearest-neighbor graph with only two competing arcs and one negative edge might appear to allow only a single change in which arc dominates. A fixed seven-spin example with three changes shows that removing network complexity does not enforce a two-reversal bound. The all-temperature exact count and simplicity distinguish it from a numerical sign plot, and the extension separates the small witness from a size-specific effect. This is a finite frustration example, not a thermodynamic phase-transition result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

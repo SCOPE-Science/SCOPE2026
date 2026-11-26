@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:49:22.564813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjacency in the canonical word is controlled by the later bit. One-runs give the true-twin classes, except that the initial vertex joins the first such class iff a₁=1. A separating zero distinguishes different one-runs. For n≥3 only vertices of the final zero-run can be leaves, and they are leaves iff the final one-run has length one; K₂ has (s,t)=(1,1). The first, middle and last allowed block-pair classes give U,V,W, with V(0)=0. Separating the four singleton-pair cases yields R, then the geometric series yields the coefficientwise count. Siblingless words begin 00, end 1 and avoid 11, giving the Fibonacci recurrence; leafless words end 11, leaving n−3 free bits. The four order-four words 0001,0011,0101,0111 give (0,3),(1,0),(1,1),(3,0), while orders two and three are symmetric. This verifies the universal claims by proof; the separate bounded reproduction check_threshold_words.py also checked every word through n=12 and 539 cumulative coefficients. The supplied verification.py was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fürnsinn–Gangl–Rubey state equality of joint counts after swapping s,t in all connected graphs and in connected chordal graphs, not in each subclass.",
+          "Banerjee–Mehatari give the canonical word and total count, not the joint census.",
+          "Resultary 9e5b1d6a672a gives both joint and marginal formulas and states additional asymptotic results."
+        ],
+        "reasoning": "Symmetry of a larger class does not settle the threshold subclass. The source that does cover the result is the exact threshold-specific census, not the encoding or the superfamily theorem.",
+        "searches": [
+          "Fürnsinn–Gangl–Rubey arXiv:2505.03665, connected graph and chordal symmetry",
+          "Banerjee–Mehatari arXiv:1610.08816, threshold creation code",
+          "Resultary 9e5b1d6a672a, n≥3 enumeration and limits"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary 9e5b1d6a672a",
+        "arXiv:2505.03665 v2",
+        "arXiv:1610.08816"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The counterpart's equal formulas and run description give P₄ by coefficient extraction, all zero marginals, and absence of simultaneous zeros because s=0 forces the final one-run to have length one."
+        ],
+        "reasoning": "Orders two and three are immediate, the strict difference starts at order four, and adding the K₂ coefficient and printing P₄ leave no substantively distinct claim.",
+        "searches": [
+          "Resultary 9e5b1d6a672a Finding and canonical-run proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The counterpart Finding (offset 0) defines the same s and t, counts isomorphism classes, and states H_{S,T}=E_{S,T}+A_SC_{S,T}/(1−B_S)."
+        ],
+        "reasoning": "Set S=p,T=q, and identify counterpart J_m=B_m and its finite R_m=D_m. The terms (A_S,B_S,C_{S,T}) equal (U_p,V_p,W_{p,q}); E_{S,T} is the frozen R_{p,q} without the K₂ indicator.",
+        "searches": [
+          "Local Resultary connected threshold graphs exact joint sibling–tuft enumeration",
+          "SCOPE-sibling-tuft-asymmetry-in-connected-threshold-graphs-exact-joint--9e5b1d6a672a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entry supplies every n≥3 coefficient by mixed difference and explicitly gives F_{n−2} and 2^{n−3}. The remaining n=2 coefficient follows from the unique graph K₂."
+        ],
+        "reasoning": "This is exact catalogue coverage of the census, stronger than checking sample tables.",
+        "searches": [
+          "Local Resultary threshold-graph exact sibling/tuft census and zero marginals",
+          "Exact joint generating-function entry in Resultary 9e5b1d6a672a"
+        ]
+      },
+      "rationale": "A distinct same-day catalogue record gives the exact bounded joint census and Fibonacci/power-of-two zero marginals, and further limiting results. The frozen series differs only by the unique graph at n=2. Exact identity of the enumerators establishes coverage, not publication order.",
+      "residual_risks": [
+        "No direction of priority is inferred from the common catalogue date.",
+        "The counterpart's extra asymptotic claims were not needed or audited; the exact joint equivalence is sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all main mathematical claims at n≥3; the n=2 extension is immediate",
+          "evidence": "H_{p,q}=C_{p,q}−1_{p≥1,q≥1}z² under the exact coefficient identification above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sibling-tuft-asymmetry-in-connected-threshold-graphs-exact-joint--9e5b1d6a672a/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and canonical-run proof (offset 0)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sibling–tuft asymmetry in connected threshold graphs: exact joint enumeration and limiting separation",
+          "trigger": "Identical statistics, graph class, and exact census in local catalogue"
+        },
+        {
+          "assessment": "Motivates the restriction but does not establish the threshold census",
+          "evidence": "The same statistics are symmetric in the connected and connected chordal superfamilies.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.03665",
+          "material_read": "arXiv v2 definitions and main connected symmetry, p. 2; chordal statement p. 5 and theorem passage p. 20 (OA offsets 0, 12291 and 59406)",
+          "method": "OA primary PDF passages",
+          "title": "Unexpectedly, a Symmetry on Unlabeled Graphs",
+          "trigger": "Primary symmetry theorem directly motivating the subclass problem"
+        },
+        {
+          "assessment": "Established unique encoding and total count, not joint-statistic overlap by itself",
+          "evidence": "A connected canonical binary word begins in zero and ends in one; this yields 2^{n−2} words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.08816",
+          "material_read": "Introduction, p. 2, OA offset 0",
+          "method": "OA primary PDF passage",
+          "title": "On the normalized spectrum of threshold graphs",
+          "trigger": "Canonical creation-code representation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The subclass failure and exact joint census address a well-motivated problem, but both are covered. The only extra boundary entry is K₂, and the displayed order-four polynomial is an immediate readout of the same known census. Neither supplies an independently worthwhile remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

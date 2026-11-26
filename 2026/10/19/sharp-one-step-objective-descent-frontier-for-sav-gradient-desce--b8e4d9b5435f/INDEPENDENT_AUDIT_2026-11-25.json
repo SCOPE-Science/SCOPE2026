@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:36:03.455645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–43 and 47–123; supplied VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent high-precision bisection and exact rational arithmetic: u*=0.09974525904287852385614577…, h*=0.97493280401545327419141688…; derivative signs +/− at 0.099745258 and 0.099745260 by exact rational comparison; x⁺=62610498909/66125389160 at x=21/20, h=49/50, with strictly positive objective difference as printed in the record and auxiliary square ratio 2614074576100000000/2732854432225903441<1."
+      ],
+      "rationale": "For the initialized first step, write t=x², u=t−1 and α=h/(1+hβ), where β=2tu²/(1+u²). Then x⁺=x(1−αu) and (r⁺)²=r²/(1+hβ)². The equilibria t=0,1 are fixed; otherwise β>0. For t≥2, 0<αu<1/2 (with ≤1/2 for its large-h bound), so 0<(x⁺)²<t and strict quartic descent follows. For 0<t<2, t≠1, h≤1, the sign of x is preserved and comparison with the equal-energy partner 2−t gives α≤2/[t+sqrt(t(2−t))], equivalently h d(u)≤2. For u<0 we have d(u)<2; for 0<u<1, d''(u)=−(1−u²)^(-3/2)+8(u−1)(u²+4u+1)/(1+u²)^3<0, with d'(0)=1 and d'(1−)=−∞. This proves the cutoff and all equality cases up to the cutoff; the same maximizer gives expansion up to h=1 and the multiplier 1−2h at a minimum gives an expanding initialization for every h>1. Along x=sqrt(1−ε), h=ε^(-3), 1+hβ~2/ε and x⁺~1/(2ε), giving the stated objective and auxiliary asymptotics.",
+      "residual_risks": [
+        "Finite computations corroborate specific constants and a witness, not the universal argument. No Lean or expert attestation is inferred. Exact arithmetic, consistent initialization, zero splitting, and the first unrelaxed step only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original-energy stability results concern stabilized/improved or weighted schemes; standard SAV experiments with a double well involve a different spatial gradient flow.",
+          "The precise Resultary first-step rank/Loewner criterion is for relaxed SAV on SPD quadratics."
+        ],
+        "reasoning": "Neither the stabilized or relaxed schemes nor the SPD setting dominates the unrelaxed nonconvex class claimed here.",
+        "searches": [
+          "arXiv:2405.03403, arXiv:2304.11288, arXiv:2411.17403",
+          "Resultary a0d231eadf0f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.02942",
+        "arXiv:2405.03403",
+        "arXiv:2304.11288",
+        "arXiv:2411.17403",
+        "Resultary records 9ab7620e177b and a0d231eadf0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unconditional decrease is of r², not of F; the related standard-SAV defect is qualitative and uses a different discretization.",
+          "The sharp threshold requires a comparison across the well, a strict interior maximum, and a separate obstruction above the local linear threshold."
+        ],
+        "reasoning": "The prior algorithm is an input to the proof, not a descent theorem mechanically implying the maximum, equality regime, or divergence rates.",
+        "searches": [
+          "arXiv:2301.02942 Theorem 1 against the frozen first-step quartic inequality",
+          "arXiv:2405.03403 Introduction and Example 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (2.4)–(2.5) give exactly the step after zero splitting; no original-energy quartic cutoff occurs in Theorem 1.",
+          "Resultary 9ab7620e177b uses the same zero-splitting update for a strongly convex quadratic, characterizing a long-time ghost limit."
+        ],
+        "reasoning": "The update is equivalent, but the quartic dynamics and universal first-step comparison are not equivalent to a quadratic trajectory limit.",
+        "searches": [
+          "Resultary semantic lookup of unrelaxed SAV, original-objective spikes and first-step cutoffs",
+          "arXiv:2301.02942 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9ab7620e177b and a0d231eadf0f supply different threshold/limit targets; 56e0d8f06f8b and f950ba79895d concern positive-root or square-law SAV-BE on quadratics."
+        ],
+        "reasoning": "The indexed mathematical records are applicable to a duplicate check; no exact value or equivalent quartic extremum was identified in those matches. This is an analytic all-real threshold, not a finite tabulation problem.",
+        "searches": [
+          "Resultary semantic lookup for SAV step thresholds and unrelaxed energy amplification; strongest exact record paths below"
+        ]
+      },
+      "rationale": "Credit the unrelaxed update and modified-energy law to Liu–Shen–Zhang, and the qualitative original-energy defect to established SAV literature. The supported distinct contribution is the quantitative sharp all-initialization frontier and equality structure for this quartic step, together with the divergent first-step separation. Neither the same-update quadratic recurrence nor the nearby relaxed first-step rank criterion covers it.",
+      "residual_risks": [
+        "Bounded search cannot exclude an equivalent treatment in the wider SAV discretization literature; the web lookup did not add useful evidence. Record dates alone were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm and modified-energy law already known; no quartic frontier in that law",
+          "evidence": [
+            "The theorem dissipates r²; §2.2 changes the update."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.02942",
+          "material_read": "§2.1 equations (2.4)–(2.5) and Theorem 1, p. 4; relaxation §2.2 equation (2.7)",
+          "method": "OA primary PDF passages",
+          "title": "An efficient and robust SAV based algorithm for discrete gradient systems arising from optimizations",
+          "trigger": "Original algorithm and energy theorem"
+        },
+        {
+          "assessment": "Closest qualitative original-energy overlap, but different scheme and setting",
+          "evidence": [
+            "Standard SAV can increase original energy; Cahn–Hilliard Example 4.2 is spatial; the theorem concerns improved/stabilized SAV."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.03403",
+          "material_read": "Introduction p. 2, Theorem 2.1 p. 5, §4.1 and Example 4.2 pp. 16–18",
+          "method": "OA primary PDF passages",
+          "title": "Improved scalar auxiliary variable schemes for original energy stability of gradient flows",
+          "trigger": "Double-well original-energy failure and stability"
+        },
+        {
+          "assessment": "Different method",
+          "evidence": [
+            "Optimizes the auxiliary scalar in gradient-flow schemes rather than analyzing the frozen unrelaxed scalar step."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.11288",
+          "material_read": "Introduction p. 2, §3.1 pp. 4–5, Theorem 3.1",
+          "method": "OA primary PDF passages",
+          "title": "A novel energy-optimal scalar auxiliary variable (EOP-SAV) approach for gradient flows",
+          "trigger": "Possible original-energy correction result"
+        },
+        {
+          "assessment": "Identifies modified versus original energy distinction, not the frozen cutoff",
+          "evidence": [
+            "The proposed weighted method changes the gradient-flow discretization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.17403",
+          "material_read": "§§2.1–2.2 p. 4 and the weighted method in §3",
+          "method": "OA primary PDF passages",
+          "title": "A weighted scalar auxiliary variable method for solving gradient flows: bridging the nonlinear energy-based and Lagrange multiplier methods",
+          "trigger": "SAV large-step original-energy instability"
+        },
+        {
+          "assessment": "Same update, different potential and limit",
+          "evidence": [
+            "Strongly convex quadratic, nonstationary long-time limit with vanishing modified energy."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reciprocal-ghost-limits-of-the-unrelaxed-scalar-auxiliary-variab--9ab7620e177b/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Exact local Resultary mirror file",
+          "title": "Reciprocal ghost limits of the unrelaxed scalar auxiliary-variable method",
+          "trigger": "Strongest same-update indexed match"
+        },
+        {
+          "assessment": "Different method and geometry",
+          "evidence": [
+            "Relaxed SAV on SPD quadratics; matrix rank/Loewner condition is not the quartic scalar frontier."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-rank-budget-barrier-for-first-step-original-energy-desce--a0d231eadf0f/RESULT.md",
+          "material_read": "Finding and Proof",
+          "method": "Exact local Resultary mirror file",
+          "title": "A sharp rank-budget barrier for first-step original-energy descent",
+          "trigger": "Strongest indexed first-step universal criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of sharpness",
+        "Liu–Shen–Zhang, arXiv:2301.02942 §2.1"
+      ],
+      "rationale": "The double well is a natural minimal nonconvex test of whether the unconditional auxiliary-energy guarantee controls the actual objective. An exact global cutoff strictly below the local threshold rules out inferring universal descent from linear stability, and the divergence construction rules out even a qualitative bound of original by improved auxiliary behavior for large first steps. Both conclusions are useful for testing first-step safeguards.",
+      "residual_risks": [
+        "The numeric cutoff is tied to the chosen shift and potential; this is not a recommendation for later steps, other SAV variants, or PDE solvers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

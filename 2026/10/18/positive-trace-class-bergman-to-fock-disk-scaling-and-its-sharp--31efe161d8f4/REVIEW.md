@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The radial eigenvalues follow from monomial orthogonality and beta/gamma normalization. A decreasing likelihood ratio yields strict positivity of the canonically identified difference. The kernel trace integration gives its exact trace norm. The density expansion gives the first-order eigenvalues; their positive sum equals the limit of the scaled traces, so a discrete Scheffé argument proves convergence in trace norm rather than merely degreewise. A rational consecutive-mode comparison proves the staircase. The reproducibility script passed 52 finite checks; these are corroboration, not the proof.
+## correctness
 
-**Originality — PASS (self-review, residual priority risk).** Ma–Yan–Zheng–Zhu explicitly present the one-dimensional beta and gamma eigenvalues and weak/norm limits for disk symbols. Those expressions are credited. The newly assessed claim is the *positive cross-space difference*, its *exact trace-class formula for all dimensions*, its *first-order trace-class limit*, and *mode-switching sharp leading operator-norm coefficient*. The inspected source statements, the radial-form literature and searched research records do not furnish these claims. A more general unindexed beta-to-gamma asymptotic theorem could overlap part of the calculation; independent priority checking is still necessary.
+PASS
 
-**Value — PASS (self-review).** Upgrading a weak Bergman-to-Fock degeneration to an exact positive trace-class comparison gives quantitative control over the **entire** localization spectrum, not a fixed finite family of eigenvalues. The first-order trace and the explicit ball-size thresholds identify which holomorphic degree controls worst-case convergence. Centered balls are natural sharp localization symbols in the motivating paper, not arbitrarily selected numerical cases; the all-dimensional result supplies a reproducible benchmark for stronger convergence questions.
+The normalized radial integrals diagonalize in the specified common monomial basis with total-degree multiplicity binom(k+d-1,d-1). With m=k+d, the density ratio of scaled Beta(m,s+1) to Gamma(m,1) strictly decreases on (0,s) and is zero beyond s; normalization forces one crossing and hence strictly positive CDF difference for 0<t<s. Kernel integration gives the exact trace, using the primitive (v/(1-v))^d/d; positivity turns it into the trace norm. At each fixed degree the first variation is m(m+1)/2 times the difference of the Gamma(m,1) and Gamma(m+2,1) CDFs, giving the stated eigenvalue. Multiplicity cancels the factorial to 1/[k!(d-1)!]; summing recovers the first variation of the exact trace. Pointwise positive diagonal convergence plus convergence of these total masses gives trace-norm convergence without an unjustified uniform Taylor estimate. The adjacent-eigenvalue comparison reduces to t(t+2) versus (k+d)(k+d+1), proving the claimed staircase for the limiting error operator, including ties. Independently checked 12 numerical quadratures including nonintegral weights and 20 adjacent ties.
 
-**Closest literature and scope.** Ma et al., arXiv:2603.04051v1, Theorems 1.3 and 4.5 and their proof in Section 4, already handle one-dimensional disk norm limits and provide the basic eigenvalues. Esmeral–Paternina Montalvo (2025) provide radial Bergman diagonalization; Gröchenig–Ortega-Cerdà (2022) provide Fock incomplete-gamma context; Bauer–Fulsche (2019) discuss general Bergman/Fock operators. No claim is made for nonradial symbols, jointly growing dimension, or independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The radial spectra, weak convergence and sharp limit of individual disk-localizer operator norms are established inputs. The exact positive defect, its first-order trace-class limit in all dimensions, and the limiting defect's maximizing-degree transitions are distinct from the strongest available comparisons. The judgment is confined to those claims and the inspected sources.
+
+## value
+
+PASS
+
+This gives exact error control and a complete first variation for a naturally scaled approximation of localization operators, rather than a rephrased eigenvalue limit. Trace norm controls all modes; the staircase describes which degree governs the sharp approximation error, with d=t=1 witnessing that the error need not be largest on constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

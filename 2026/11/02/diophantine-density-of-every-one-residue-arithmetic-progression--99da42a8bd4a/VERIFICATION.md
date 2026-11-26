@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The checker enumerates every specified finite obstruction and exact modular inverse assertion; its expected output begins `VERIFY_OK` and reports `obstructions=81675` and `odd_inverse_pairs=13412`. The same script checks that the union of residue classes one and three modulo four has minimum approximation error exactly \(1/q\) over the sampled reduced fractions.
+## correctness
 
-The proof of the infinite statement is entirely arithmetic. It requires Dirichlet's pigeonhole approximation lemma, the parity of reduced modular inverses, and explicit fractions with denominators \(mt\pm1\). The finite checks cannot establish the universal quantifiers alone. The claimed publication priority is subject to the stated unindexed-literature risk; no independent scientific audit is claimed.
+PASS
+
+The claim uses all sufficiently large denominators q, every numerator prime to q, v strictly below q, and fixed cutoff L. If r=0, restrict to positive multiples of M=m ceil(L/m) and apply pigeonhole to floor((q-1)/M)+1 circle points to get error at most M/q. For odd v an inverse or its negative has an odd representative; if it is below L, an odd multiplier bounded by L+2 reaches L without reaching q for sufficiently large q. These give exponent 1, which is maximal since every nonzero modular distance is at least 1/q. For m>=3, take p=t, q=mt-1 for r=1 and q=mt+1 for r>=2. The fractional part for every admissible v lies respectively in (1/m,2/m) or ((r-1)/m,r/m), both contained in [1/m,1-1/m]. The pairs are reduced and unbounded in q, ruling out every positive exponent; zero is admissible once the progression is nonempty below q. The two mod-4 classes partition the odd class, as claimed.
+
+## originality
+
+PASS
+
+The supported addition is the complete one-class classification and the explicitly periodic maximal subadditivity counterexample, not the density definition, the previously covered progressions or failure of subadditivity as such.
+
+## value
+
+PASS
+
+A single residue class is a natural first test of the uniform approximation density; the exact classification resolves all moduli, including noncoprime residues and fixed cutoffs. The odd exception and the mod-4 partition expose behavior hidden by the separate aperiodic non-subadditivity construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

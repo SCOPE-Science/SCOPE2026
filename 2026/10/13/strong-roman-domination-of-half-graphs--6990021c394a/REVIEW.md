@@ -1,12 +1,21 @@
-# Review of Strong Roman domination of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The lower bound is reconstructed from the exact nested neighborhoods. The smallest-index zero vertex on the \(B\)-side can only be defended by an \(A\)-vertex that is adjacent to every zero vertex of \(B\); this forces an excess label of \(\lceil(n-\beta)/2\rceil\) above the positive baseline. The largest-index zero vertex on \(A\) gives the symmetric excess. The resulting separable bound is minimized exactly at one positive vertex per side for odd \(n\), and at one or two positives per side for even \(n\), with the one-sided boundary cases checked separately. The endpoint construction attains the bound. For odd \(n\), equality plus adjacency forces the two positive vertices to be \(a_1\) and \(b_n\), and their labels are then forced. The even nonuniqueness construction satisfies the defining defender loads exactly. The bundled checker exhaustively tests 449,345 bounded-weight labelings for \(3\le n\le7\).
+## correctness
 
-## Originality
-PASS. The 2017 foundational full text was inspected at the definition, complexity, bounds, and tree sections; it introduces strong Roman domination and proves bipartite NP-completeness but contains no half-graph or chain-graph specialization. The 2018 same-invariant paper explicitly lists MSC \(05C69\) and studies other special graph families; targeted full-text searches found no chain or Ferrers result. Exact searches and semantic searches under half graph, chain graph, Ferrers graph, and bipartite permutation graph did not locate a theorem implying the parity formula or odd-order uniqueness. Nearby exact strong-Roman results concern complete multipartite graphs or unrelated extremal constructions and do not imply the nested-neighborhood theorem.
+PASS
 
-## Value
-PASS. Half graphs are canonical chain graphs and a standard extremal model for nested bipartite neighborhoods. The result gives a closed parity law on an infinite bipartite family despite strong Roman domination being hard even on bipartite graphs, and it identifies a sharp structural transition: odd orders have a unique optimum concentrated at the two opposite universal endpoints, while every even order has a second qualitatively different optimum. This is a natural exact benchmark rather than an arbitrary finite slice.
+The defender of the least-index zero in B necessarily sees every B-zero, and the defender of the greatest-index zero in A sees every A-zero. Thus for positive-support sizes α,β, the weight is at least g_n(α)+g_n(β) with g_n(t)=ceil((n+t)/2), also when one side has no zeros. A zero support on one side forces full support on the other, giving weight at least n+ceil(n/2); this is strictly above the target for odd n≥3, and for even n it ties at n=4 and exceeds the target thereafter. With both supports nonempty the bound gives n+1 for odd n and n+2 for even n. For odd n equality forces one positive on each side. If a1 is not the positive A-vertex, b1 must be the sole positive B-vertex, forcing all a2,…,an positive and contradicting n≥3; duality forces bn. Equality fixes their labels. The endpoint function attains both bounds, and for n=2q the alternate label q at a2 covers exactly the n−2 B-zeros, while q+1 at bn covers all n−1 A-zeros; its weight is n+2. All labels respect the cap. An independent support/composition enumeration checked 449,345 labelings at orders 3–7, with values 4,6,6,8,8 and respective optimizer counts 1,28,1,49,1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The standard invariant and its label rule are prior. The supported distinct claim is the exact parity-dependent strong Roman value on the staircase half-graph family together with the exact uniqueness split. The strongest same-graph indexed result has a different domination constraint, and the strongest same-invariant indexed result has incompatible graph hypotheses. The inspected primary works do not provide this specialization.
+
+## value
+
+PASS
+
+The half graph is the canonical nested-neighborhood bipartite family, so it tests how a neighbor-load constraint changes both the exact optimum and its stability under changing graph order. The parity law distinguishes consecutive orders and, more substantially, determines when the two extreme defenders are forced versus when the same minimum admits different support patterns. This exact invariant and optimizer split are independently useful benchmarks rather than a small-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:57.905098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Attaching one extra vertex to the roots identifies root-marked forests with spanning trees of an augmented complete graph. Incident edge weight z gives reduced Laplacian (n+z)I-J and determinant z(n+z)^(n-1); extracting coefficients gives R_(n,k). In both ensembles, a tagged size s gives a factor binom(n-1,s-1) times the relevant tree count on s vertices times the forest count on n-s vertices with k-1 components. In the rooted law the adjacent ratio therefore equals kn/((k-1)(n-k)) times (1-(k-1)/(n-s)), strictly decreasing on the claimed common support. The upper boundary has ratio zero, and the deterministic laws at k=1 and k=n give the remaining cross inequalities. Single crossing gives stochastic order and shared inverse quantiles give the simultaneous coupling. In the unrooted law the two-forest count follows by Lagrange extraction of (T^2-T^3+T^4/4)/2 with T=ze^T, or directly from the earlier exact table formula. The quotient H_m=(m-1)(m+6)/(2m^2) satisfies H_m-H_(m+1)=(m-2)(5m+3)/(2m^2(m+1)^2). The three-versus-two tagged mass ratio on common support is proportional to H_(n-s). It increases from s=1 to s=2 at every n>=5, while the larger support of the two-component law forces a drop to zero at s=n-1. The latter also disproves the opposite LR order. At n=4 the ratio is constant on the common support (H_2=H_3), then zero, and at n=3 the three-component size is deterministically one. Thus five is exactly minimal; none of this disproves ordinary stochastic order in the unrooted model. Independent replay of all 1024 edge subsets at n=5 recovered unrooted tagged count vectors (16,12,18,64,0) and (15,12,18,0,0) and checked the LR cross-products for both ensembles (/workspace/review_checks.py, forests). This is bounded corroboration; supplied code was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson describes both allocation weights. Gibbs fragmentation general theory and two-forest inclusion/moment results do not directly order these marginals. The Rényi formula displayed in A105599 instead gives an explicit finite sum for every unrooted component count, including k=1,2,3."
+        ],
+        "reasoning": "The relevant broader result is the exact count formula, not a general conjecture on refinement monotonicity. Only the adjacent residual counts with one and two components matter for the unrooted LR quotient.",
+        "searches": [
+          "Janson arXiv:1112.0510 Examples 11.6–11.7",
+          "McCullagh–Pitman–Winkel arXiv:0704.0945 Theorem 8",
+          "Kassel–Kenyon–Wu arXiv:1203.4858 Theorems 3 and 5",
+          "Rényi exact count of labeled forests with k components; OEIS A105599 formula"
+        ]
+      },
+      "checked_sources": [
+        "Pitman, Corollary 10 equation (30) and Theorem 4",
+        "OEIS A105599 FORMULA and EXAMPLE",
+        "arXiv:0704.0945, arXiv:1112.0510, arXiv:1203.4858",
+        "Resultary 62df3cde05c9, ed243c251c12, 7b55eb17213d and ab8e34d0c60c",
+        "Łuczak–Pittel publisher abstract, DOI 10.1017/S0963548300000067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pitman's adjacent-k pmf quotient cancels the tagged tree factor and leaves a positive constant times 1-(k-1)/(n-s). In the unrooted convolution the same cancellation gives a positive constant times F_(n-s,2)/F_(n-s,1). The Rényi sum at one and two components makes this ratio (m-1)(m+6)/(2m^2) at m=n-s. Its consecutive difference has sign of m-2, so the initial reversal starts at n=5, and the support drop disproves the reverse order."
+        ],
+        "reasoning": "No genuinely new coefficient identity or comparison theorem is needed; the implications use direct quotients and a rational difference. The later Resultary ab8e34d0c60c derives the same two-component normalization in a covariance problem, but is neither the temporal basis of rejection nor a claim to the adjacent-k size order.",
+        "searches": [
+          "Pitman equation (30); OEIS A105599 recurrence and Rényi closed sum",
+          "Resultary ab8e34d0c60c, proof §1, two-component normalization and tagged-size law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman's equation (30) is the exact rooted tagged-size marginal; Theorem 4 already supplies a deletion coupling. Resultary 62df3cde05c9 is an Ewens-weighted split coupling, ed243c251c12 studies component count covariances, and 7b55eb17213d orders root counts under balancing on a different graph. None is an equivalent restatement of the full frozen finding."
+        ],
+        "reasoning": "The rooted order is a sign property of quotients of the very same prior marginals, not a new distributional calculation. The nonmatching coupling and root-count records are not substitutes for this evidence.",
+        "searches": [
+          "Resultary: tagged vertex component size likelihood-ratio order and unrooted two-to-three incomparability",
+          "Pitman, Coalescent Random Forests, Corollary 10 (30)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A105599's FORMULA section records the tagged-block convolution and the Rényi sum, with the latter attribution entry dated 2014-10-08. Its EXAMPLE lists rows beginning 3,3,1; 16,15,6,1; and 125,110,45,10,1, giving the candidate's normalizations at the threshold. Taking component index two in the sum gives F_(m,2)=(m-1)m^(m-2)-3 binom(m-1,2)m^(m-3)+3 binom(m-1,3)m^(m-4), exactly the frozen closed form after simplifying."
+        ],
+        "reasoning": "These are counts for the same unrooted labeled forests, not numerically coinciding rooted counts. A finite prefix alone would not supply the sharp boundary for all n, but the exact all-order formula does after the immediate quotient and sign test.",
+        "searches": [
+          "labeled forests two unrooted trees 1 3 15 110 1080 13377 forest count; OEIS A105599"
+        ]
+      },
+      "rationale": "The explicit order statements are not asserted in the prior sources inspected, but both are mechanically implied by verified prior exact formulas for the same laws. Pitman's rooted tagged distribution determines the rooted comparison by division. The unrooted boundary is a direct calculation from the exact fixed-component count formula attributed to Rényi and documented before this record in OEIS A105599, combined with the same elementary tagged-component decomposition already used for that triangle. The decision does not rely on a later indexed result or a missing full text.",
+      "residual_risks": [
+        "The original publication underlying the Rényi attribution and the Łuczak–Pittel full paper were not read. The actual exact formula was inspected in the dated database entry, and covers the count regardless of this attribution limit.",
+        "Catalogue results do not exhaust possible explicit previous statements of the order. The mechanical implication, rather than a claim about the first use of the words likelihood-ratio order, determines the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct formula implies rooted LR order; coupling explicitly prior",
+          "evidence": "Uniform root-marked forest sequence by deleting edges of a rooted tree; explicit exact law of the tagged size.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/457.pdf",
+          "material_read": "§3 Theorem 4, and Corollary 10 equation (30), paper p. 183",
+          "method": "Lawful OA PDF passages",
+          "title": "Coalescent Random Forests",
+          "trigger": "Same rooted ensemble and tagged-size distribution"
+        },
+        {
+          "assessment": "Exact all-order prior coverage of decisive unrooted ratios via component indices 1 and 2",
+          "evidence": "Tagged-block recurrence and the closed finite-sum formula attributed to Rényi in the dated 2014-10-08 entry. The m=2 specialization has three explicit terms and simplifies to the frozen formula.",
+          "identifier_or_url": "https://oeis.org/A105599",
+          "material_read": "COMMENTS through FORMULA and EXAMPLE, offsets 920–4208",
+          "method": "Public database entry, page inspection",
+          "title": "OEIS A105599: Number of forests with n nodes and m labeled trees",
+          "trigger": "Exact formula and table for the frozen unrooted counts"
+        },
+        {
+          "assessment": "Partial mathematical overlap; later indexed, different LR random variable",
+          "evidence": "Same F_(n,2) normalization and size law, but compares conditional degree, not tagged-size laws across component counts.",
+          "identifier_or_url": "Resultary 2026/11/2 ab8e34d0c60c",
+          "material_read": "Original finding and proof §1–2, offsets 1749–3988",
+          "method": "Resultary local mirror",
+          "title": "A nonvanishing local–global covariance in uniform two-component Cayley forests",
+          "trigger": "Same two-forest law and an LR comparison"
+        },
+        {
+          "assessment": "Different conclusions in inspected passages",
+          "evidence": "Consistent Markovian splitting and Gibbs-form characterization, not tagged-size adjacent-layer LR.",
+          "identifier_or_url": "https://arxiv.org/pdf/0704.0945",
+          "material_read": "pp. 3–5 and Theorem 8, p. 13",
+          "method": "Lawful OA PDF passages",
+          "title": "Gibbs fragmentation trees",
+          "trigger": "Possible encompassing fragmentation order theorem"
+        },
+        {
+          "assessment": "Gives weights for both ensembles",
+          "evidence": "Component-size allocation weights without explicit LR directions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.0510",
+          "material_read": "Examples 11.6–11.7, pp. 40–43",
+          "method": "Lawful OA PDF passages",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Both forest laws as weighted allocation models"
+        },
+        {
+          "assessment": "Inclusion probabilities and moments, not this order boundary",
+          "evidence": "Floating component observables for two-component spanning forests.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.4858",
+          "material_read": "Theorems 3 and 5, pp. 3–5",
+          "method": "Lawful OA PDF passages",
+          "title": "Random two-component spanning forests",
+          "trigger": "Two-component uniform forest quantities"
+        },
+        {
+          "assessment": "More general historical coverage unresolved",
+          "evidence": "Abstract describes asymptotic size regimes and phase transition; full text was not available on the attempted routes.",
+          "identifier_or_url": "10.1017/S0963548300000067",
+          "material_read": "Publisher abstract only",
+          "method": "Publisher and lawful OA attempt",
+          "title": "Components of Random Forests",
+          "trigger": "Uniform unrooted labeled forests with fixed edge count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rooted-versus-unrooted contrast is well motivated and the boundary is exact. For this narrow claim, however, both sides reduce to adjacent ratios of existing exact counts and a support comparison. The frozen scope adds no independent structural principle or order result beyond this routine consequence of the known laws.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

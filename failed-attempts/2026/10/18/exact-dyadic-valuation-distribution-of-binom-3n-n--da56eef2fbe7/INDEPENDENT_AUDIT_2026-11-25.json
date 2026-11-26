@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:12:39.374151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 26–47. Kummer counts carry-outs in n+2n, including exactly one possible extra carry beyond the k padded input digits, from state (1,1); the next position cannot carry. The two middle states have identical outgoing weights and equal terminal weight, so can be merged. The three continuation equations are A=1+x(A+B), B=1+x(A+zC), C=z+xz(B+C). Eliminating gives the stated rational function. Its denominator equals (1−x−x²)(1−xz)−x²(1−x)z², which gives the Fibonacci zero layer, no single-carry layer, and the stated degree-two and degree-three functions. Differentiation at z=1 and coefficient extraction give both finite moments, including the k=0 boundary; the linear and constant variance terms are 11k/12 and −14/9. Independent bounded replay: for k=0..14 histogram 2*n.bit_count()−(3*n).bit_count() over 0<=n<2^k using Legendre's formula. The 32,767 length–index pairs agree with the polynomial recurrence, low strata and both moments. The frozen script and VERIFICATION.md were inspected, not executed; the finite check is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day record counts the complete joint law of nu_2(binom(2n,n)) and nu_2(binom(3n,n)); one variable remains after summing over the first valuation.",
+          "The fixed-row papers count entries varying the lower index within a fixed upper index. The digit-sum CLT and covariance law recover the leading mean and variance coefficient, not finite corrections."
+        ],
+        "reasoning": "The joint result is strictly stronger for these exact hypotheses, unlike the general fixed-row or asymptotic literature, and gives the marginal uniformly at all cutoff lengths.",
+        "searches": [
+          "Resultary 767a9e2b871f Finding and Proof §§2–3",
+          "arXiv:1001.1783v3 §§1–2",
+          "arXiv:1604.07089v5 Theorem 0",
+          "arXiv:1803.02178v2 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 767a9e2b871f, 499526ba814d, a941d310bb46",
+        "arXiv:1001.1783v3, arXiv:1604.07089v5, arXiv:1803.02178v2",
+        "Barat–Grabner 2001, author manuscript",
+        "OEIS A003714, A029907, A036556"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting u=1 in the joint transfer matrix yields exactly the frozen four-state matrix and terminal vector (1,1,1,z). The same-day Finding already prints the exact finite marginal mean.",
+          "Taking coefficients through degree three or differentiating the specialized rational series twice and dividing length-L coefficients by 2^L recovers the remaining formulas. No different boundary model or new count is used."
+        ],
+        "reasoning": "The substantive claim is mechanically implied by the joint result even if not all derived finite formulas were printed therein. This comparison neither treats the frozen record itself as prior coverage nor infers an order from the shared date.",
+        "searches": [
+          "Resultary 767a9e2b871f Finding and Proof §§1–3",
+          "arXiv:1803.02178v2 §1 Eq. (1.1), §2 Theorem 1 and Eq. (2.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day joint law counts Y=nu_2(binom(3n,n)) over the identical strict dyadic cutoffs. On setting u=1 and renaming (v,length variable)=(z,x), its numerator becomes (1+x)(1−zx) and its denominator is 1−(1+z)x−(1−z+z²)x²+z(1+z)x³.",
+          "The digit-sum alias 2*s_2(n)−s_2(3n) leads to a known asymptotic result, not another exact finite formula in that paper."
+        ],
+        "reasoning": "The joint law is an algebraically verified exact match after marginalization, including the terminal carry, not just a similarity of bibliographic titles, carry methods or limit laws.",
+        "searches": [
+          "Resultary: binom(3n,n) dyadic, n+2n carry, joint valuation with binom(2n,n)",
+          "Resultary 2026/10/18/SCOPE-exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f",
+          "arXiv:1803.02178v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A003714 comments give the no-adjacent-ones parity criterion; the A029907 generating function is the valuation-two layer up to one factor of x; A036556 records odd valuations, not the exact valuation-one fibre.",
+          "The later exact univariate record prints the same rational function and mean. The later exact joint record gives factorial-moment and variance information as well."
+        ],
+        "reasoning": "Databases account for specific low-order layers but do not provide the entire distribution as such. The later mirrors confirm exact overlap, not priority over the frozen record. The decisive evidence for coverage is the distinct same-day joint theorem.",
+        "searches": [
+          "OEIS A003714, A029907, A036556",
+          "Resultary 2026/11/2/SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d",
+          "Resultary 2026/11/2/SCOPE-exact-finite-block-joint-two-adic-valuations-of-two-binomial-coe--a941d310bb46"
+        ]
+      },
+      "rationale": "Distinct same-day Resultary record 767a9e2b871f demonstrably covers the full claimed marginal at every cutoff. Its bivariate law gives exactly this rational function on setting the first valuation's weight to one, including the same terminal carry weight and the explicitly printed finite mean. The low strata, second factorial moment and variance follow mechanically. This is a failure of independent scientific distinctness on the evidence, not a chronological or authorship judgment: no authoritative within-day priority was established.",
+      "residual_risks": [
+        "No authoritative ordering within either same-day record's date was established; the judgment is about demonstrated coverage only.",
+        "An additional earlier exact source could still exist. OA retrieval of arXiv:0802.2654 timed out; that is not evidence about its contents and does not affect the decisive exact comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by marginalization at all stated cutoffs; within-day priority unresolved",
+          "evidence": "P_L(u,v) weights both valuations; u=1 gives the entire frozen series. The Finding also gives E[Y]=L/2−2/3+(3+(-1)^L)/(6*2^L).",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-dyadic-joint-valuation-law-for-two-binomial-factors--767a9e2b871f",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§1–3, including mirrored offsets 0–3486 for definitions, full rational formula and terminal vector",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic joint valuation law for two binomial factors",
+          "trigger": "Distinct same-day theorem on the identical moving diagonal, with an extra valuation weight"
+        },
+        {
+          "assessment": "Equivalent univariate law; not evidence of earlier priority",
+          "evidence": "Same rational function, exact mean and zero/one layers with a merged three-state carry transfer.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-dyadic-valuation-law-for-binom-3n-n--499526ba814d",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic valuation law for binom(3n,n)",
+          "trigger": "Later exact match"
+        },
+        {
+          "assessment": "Later exact overlap, not evidence of earlier priority",
+          "evidence": "Normalized joint law and explicit generating function for the second factorial moment of the target marginal.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-block-joint-two-adic-valuations-of-two-binomial-coe--a941d310bb46",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-block joint two-adic valuations of two binomial coefficients",
+          "trigger": "Potential explicit finite higher moments"
+        },
+        {
+          "assessment": "Known asymptotic context, not the exact finite law",
+          "evidence": "Use the A=1,3 binary digit-sum pair and weights 2,−1 for mean k/2 and variance 11k/12 at leading order.",
+          "identifier_or_url": "arXiv:1803.02178v2",
+          "material_read": "§1 Eq. (1.1), p. 2 covariance formula; §2 Theorem 1 and Eq. (2.4)",
+          "method": "OA primary PDF",
+          "title": "A joint central limit theorem for the sum-of-digits function, and asymptotic divisibility of Catalan-like sequences",
+          "trigger": "Equivalent digit-sum representation and leading covariance"
+        },
+        {
+          "assessment": "Different variable and cutoff",
+          "evidence": "Counts entries in a fixed Pascal row rather than a moving diagonal.",
+          "identifier_or_url": "arXiv:1001.1783v3",
+          "material_read": "Abstract and §§1–2",
+          "method": "OA primary PDF",
+          "title": "The number of nonzero binomial coefficients modulo prime powers",
+          "trigger": "Exact digital valuation enumeration"
+        },
+        {
+          "assessment": "Not the moving diagonal at the inspected theorem",
+          "evidence": "Digit-word formulas apply to fixed-row valuation counts.",
+          "identifier_or_url": "arXiv:1604.07089v5",
+          "material_read": "Theorem 0",
+          "method": "OA primary PDF",
+          "title": "The number of binomial coefficients divisible by a fixed power of a prime",
+          "trigger": "Broader fixed-row digit-word enumeration"
+        },
+        {
+          "assessment": "Relevant method antecedent, different statistic",
+          "evidence": "Digital enumeration of fixed-row binomial valuations.",
+          "identifier_or_url": "Barat–Grabner (2001)",
+          "material_read": "Author manuscript §§1–4",
+          "method": "OA author manuscript",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Digital-word methods for exact valuation distributions"
+        },
+        {
+          "assessment": "Partial layer and parity coverage",
+          "evidence": "Known parity criterion and valuation-two count; odd valuation does not specify exact valuation one.",
+          "identifier_or_url": "A003714; A029907; A036556",
+          "material_read": "A003714 comments (2003-03-08); A029907 FORMULA; A036556 comments (2004-06-06)",
+          "method": "OA sequence entries",
+          "title": "OEIS sequence comparisons",
+          "trigger": "Exact coverage of individual layers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete dyadic distribution is a meaningful invariant in itself, but this separate package adds no independently useful unknown exact fact beyond the fully covering joint law. The marginal and its finite corrections are immediate specialization, coefficient extraction and differentiation; printing the second factorial moment explicitly is not a distinct mathematical gain. No surviving nonmechanical claim warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

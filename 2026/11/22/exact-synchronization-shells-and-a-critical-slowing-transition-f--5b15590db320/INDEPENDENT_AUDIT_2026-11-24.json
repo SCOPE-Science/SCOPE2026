@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:02:00.433588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Iterating the word-overlap update t times gives a q-ary NOR tree on the initial coordinates ending with the output's prefix of length d-t. Its q child blocks have disjoint terminal-word classes; different output prefixes give disjoint blocks partitioning all initial coordinates. At t=d there is just one block, so every configuration reaches the uniform oscillator. At d-1 the q blocks can be independently set to yield different outputs (constant leaf inputs realize either polarity), so the bound is sharp. Block independence gives the CDF for integer t and the exact labelled counts and phase split; uniformity persists, so this is first uniform time, not first hit of the all-one phase. For phi(x)=(1-x)^q, the second iterate's derivative is strictly unimodal and h(x)-x has at most three zeros by Rolle. They are 0,p_*,1; the expansions at the endpoints give the signs and yield attraction to the respective endpoints off p_*. For the smaller error along a fixed parity, L=-log(error) satisfies L_{next}=qL+O(1); starting once L is large and summing the normalized recurrence bounds it above and below by positive multiples of q per pair of updates. Odd parity has the same scale by the one-step map. Thus m=q^(d-t) and error switch from m*error diverging to vanishing across t=2 log_q d plus or minus a sufficiently large fixed constant. At p_* the exact integer-s tail is the stated doubly exponential bound; p=0,1 give T=0. These arguments require fixed q and p for the asymptotics. New exact graph enumeration for (q,d)=(2,1),(2,3),(2,4),(3,2),(4,2) checked the first-entry law at p=1/2,2/5 and the fair-bit phase counts; e.g. the (2,4) shells are (2,6560,2400,36288,20286). Replay: python3 /workspace/reviews/reproduce.py 1; /workspace/reviews/reproduce-output.txt. Bundled code and recorded output were read, not executed; the asymptotics are proved, not inferred from these cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McIntosh's overlap/path framework explains the underlying word graph; the inspected sections do not give the NOR first-uniform law.",
+          "Aledo et al. treat arbitrary digraphs with self-input explicitly added at every vertex. Kuhlman et al.'s cited complete-graph theorem is about bi-threshold dynamics.",
+          "The Kautz branch has q+1 fixed states plus the oscillator and uses no loops, and the cube result has a different underlying graph, density scale and observable."
+        ],
+        "reasoning": "None of these inspected results is a theorem giving the assigned probability and both time scales by specialization. A method or qualitative endpoint phenomenon common to them is not a distinct claim here.",
+        "searches": [
+          "McIntosh, Linear Cellular Automata via de Bruijn Diagrams §§7.1–7.2",
+          "Kuhlman et al. arXiv:1108.2974",
+          "Aledo et al. Mathematics 8:1812 §§1–2",
+          "Local Resultary 48d4337f2670 and 505355558b26"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and labelled verification files",
+        "Resultary 48d4337f2670, 36af38db9d12 and 505355558b26",
+        "Pearl author report and article abstract/reprint access attempts",
+        "McIntosh §§7.1–7.2",
+        "Kuhlman et al. arXiv:1108.2974",
+        "Aledo et al. DOI 10.3390/math8101812"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Kautz text explicitly mentions the single uniform oscillator in full-word de Bruijn NOR, and proves the shared scalar iteration and convergence, but uses its critical bias to evaluate limiting frozen basin mass (q+1)p_*^2.",
+          "The OR theorem's single ancestor-block OR and nested NOR do not have the same time probabilities: after one graph step the Bernoulli-one probabilities are 1-(1-p)^q versus (1-p)^q.",
+          "The frozen attribution to Pearl concerns one-tree critical behavior, not a result about the q^(d-t) jointly sampled graph blocks. The attempted primary retrieval did not yield a readable theorem passage."
+        ],
+        "reasoning": "Changing to unrestricted word blocks with the right independence/counting, proving the joint first-uniform CDF, and balancing off-critical error with the number of remaining blocks are needed for the claimed clock regimes. The common tree recurrence and known qualitative oscillator are not by themselves the quantitative joint law.",
+        "searches": [
+          "Resultary 36af38db9d12, finding and Exact census around offset 3954",
+          "Resultary 48d4337f2670, finding, proof and Relation to prior work, offsets 0–3200 and 6800–10615",
+          "Pearl UCLA author report and published DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On this de Bruijn graph first recurrent time equals first spatially constant time, but need not equal first all-one time. The scalar recursion is an alternating Boolean tree calculation, not in itself a graph stopping law.",
+          "The Kautz probability uses m_t=(q+1)q^(d-t-1) and has an extra (q+1)p_t^(q^(d-t-1))(1-p_t)^(q*q^(d-t-1)) term for frozen states.",
+          "A Kautz graph on a cyclic alphabet of q+1 symbols can map to a full-word graph by successive differences on an extra letter. Pulling back a configuration is then constant on fibers, rather than the independent initialization required by the Kautz CDF."
+        ],
+        "reasoning": "Identical scalar iteration and related word graphs do not make the different Bernoulli initialization and stopping events interchangeable. The graph-time law is not the root distribution of a single minimax tree.",
+        "searches": [
+          "Local Resultary de Bruijn incoming NOR/OR uniform first-entry and word graph recursion",
+          "Resultary Kautz NOR 48d4337f2670, same graph OR 36af38db9d12, cube NOR 505355558b26",
+          "Pearl DOI 10.1016/0004-3702(80)90037-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact same-graph OR formula for hitting all ones is (1-(1-p)^(q^t))^(q^(d-t)); it is a different rule and event.",
+          "Exact NOR tables in the Kautz record have an additional term and different graph sizes, including q+1 fixed states at t=0 not present here.",
+          "No earlier exact NOR de Bruijn first-uniform histogram or distribution was identified in the inspected comparisons."
+        ],
+        "reasoning": "The closest retrieved exact indexed distributions genuinely overlap in method, but do not tabulate or determine the claimed de Bruijn NOR law. No negative inference is drawn from off-topic web results.",
+        "searches": [
+          "Resultary 36af38db9d12 exact OR consensus census, 48d4337f2670 exact Kautz NOR first-entry CDF and histograms, 505355558b26 cube NOR"
+        ]
+      },
+      "rationale": "Credit the recurrent uniform oscillator already mentioned in the close Kautz record, the word-prefix partition in the same-graph OR proof, and the isolated critical point and endpoint convergence of the elementary NOR-tree probability map. The retained distinct claim is the de Bruijn NOR first-uniform-time distribution and the logarithmic-depth versus full-depth timing law. The closest Kautz theorem shares the scalar recursion and the disjoint-tree method, but tests a different event under a different word constraint and has a separate frozen contribution. Its critical observable is fixed-phase mass, not synchronization time. The same-graph OR distribution is a different hitting probability without the critical map. Neither is an exact statement on the assigned initial distribution and NOR first-uniform event. The comparison does not claim priority ordering between same-day records.",
+      "residual_risks": [
+        "The matched Resultary records share the assigned record's date, and within-day ordering is unknown. Coverage is compared independently of that chronology.",
+        "Pearl's decisive original full-text passage could not be extracted. Indeed a combination of prior tree and overlap facts is the main risk of an unindexed equivalent; no absolute novelty is asserted. The verdict relies on statement-level comparison of the most closely matching readable results, not on failed retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in ingredients, and explicit mention of the de Bruijn oscillator; different stopping law and critical conclusion",
+          "evidence": "Kautz excludes adjacent repeats and has fixed one-hot modes as well as the oscillator, its CDF has a frozen term, and its main critical result is limiting frozen mass.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-frozen-alphabet-phases-and-exact-first-entry-laws-for-nor-dynami--48d4337f2670",
+          "material_read": "Local mirror finding, assumptions, prefix collapse, endpoint argument and prior-work discussion, including offsets 0–3200 and 6800–10615",
+          "method": "Resultary local index and OA mirror",
+          "title": "Frozen alphabet phases and exact first-entry laws for NOR dynamics on Kautz digraphs",
+          "trigger": "Same NOR recursion with an exact first-entry law on an overlapping word graph family"
+        },
+        {
+          "assessment": "Same word-block structure, different dynamical rule",
+          "evidence": "First all-one time under OR has CDF (1-(1-p)^(q^t))^(q^(d-t)); no NOR alternation or fixed-point bias in the stated law.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-poisson-cutoff-in-exact-or-consensus-clocks-on-de-bruijn-netwo--36af38db9d12",
+          "material_read": "Finding at offset 0 and Exact census around offset 3954",
+          "method": "Local Resultary search and OA mirror",
+          "title": "A Poisson cutoff in exact OR consensus clocks on de Bruijn networks",
+          "trigger": "Exact hitting law on the same graph"
+        },
+        {
+          "assessment": "Related phenomenon but no coverage of this timing law",
+          "evidence": "Undirected cube, open-neighborhood rule and moving bias 1/2+c/d for attractor selection.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-poisson-attractor-selection-and-a-sharp-density-window-for-nor-d--505355558b26",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary search and OA mirror",
+          "title": "Poisson attractor selection and a sharp density window for NOR dynamics on Boolean cubes",
+          "trigger": "NOR critical phenomenon and uniform oscillator"
+        },
+        {
+          "assessment": "Exact primary theorem passage not verified; give no priority to the common scalar dynamics as a contribution of this record",
+          "evidence": "The abstract studies uniform independent random leaves on a minimax tree, not word-graph synchronization. This does not by itself rule out further overlap in the full article.",
+          "identifier_or_url": "https://doi.org/10.1016/0004-3702(80)90037-5; https://ftp.cs.ucla.edu/pub/stat_ser/r21.pdf",
+          "material_read": "Published abstract; UCLA report text extraction returned only page breaks and report label; ACM reprint inaccessible",
+          "method": "Lawful OA and identified reprint route attempted",
+          "title": "Asymptotic Properties of Minimax Trees and Game-Searching Procedures",
+          "trigger": "Alternating Boolean tree recursion and critical bias attributed to Pearl"
+        },
+        {
+          "assessment": "Word-diagram background only in passages read",
+          "evidence": "Nodes encode symbol sequences, links encode overlap and evolution neighborhoods.",
+          "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/comun/cf/debruijn.pdf",
+          "material_read": "§§7.1–7.2, pp. 19–20",
+          "method": "OA PDF passage inspection",
+          "title": "Linear Cellular Automata via de Bruijn Diagrams",
+          "trigger": "Same graph and overlap framework"
+        },
+        {
+          "assessment": "Different dynamical hypotheses",
+          "evidence": "Discusses synchronous versus asynchronous bi-threshold dynamics and a complete-graph case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+          "material_read": "p. 3 and Theorem 3.1 p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Boolean threshold periodicity theorems"
+        },
+        {
+          "assessment": "Directed NOR overlap with different self-input convention and different claim",
+          "evidence": "Adds each site itself to incoming inputs, and demonstrates other periods on directed constructions.",
+          "identifier_or_url": "https://doi.org/10.3390/math8101812",
+          "material_read": "Definition 1 p. 2 and §2 p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Coexistence of Periods in Parallel and Sequential Boolean Graph Dynamical Systems over Directed Graphs",
+          "trigger": "Prior directed NOR network periodicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same finite network can have a typical synchronous first-entry time of order log d or almost the entire worst-case depth depending on a single fixed initialization bias. This is a meaningful distinction for inhibitory Boolean dynamics on a standard graph, quantified by an exact joint first-entry law; it is not a claim of new single-tree probabilities or mere recovery of an eventual oscillator. No approaching-critical window is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

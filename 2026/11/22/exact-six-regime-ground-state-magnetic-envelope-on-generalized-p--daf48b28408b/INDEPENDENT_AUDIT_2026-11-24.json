@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:49:01.456641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47; VERIFICATION.md and verify_potts.py (checked as text)",
+        "/workspace/branches/reproduce-4.py (independent exact cycle means and periodic witnesses)"
+      ],
+      "rationale": "On a labeled n-cycle, the two previous inner colors and the previous outer color suffice to count each of the three types of edge once as the next cell is appended, and the number of preferred colors on that cell. A closed walk with a fixed starting index gives exactly the cyclic cell constraints. For n≥5 the unoriented step-two edges do not double-count. I independently computed the minimum cycle mean at h=-1,0,5/4,7/4,3 using exact integer arc costs and all start states and lengths 1 through 27. The resulting means are 1/2,0,-1,-3/2,-3. This is a proof for walks of arbitrary length: any closed walk is a concatenation in edge counts of simple directed cycles, each of length at most 27, and its mean is a convex combination of theirs. Interpolating lower bounds at consecutive critical fields and using 0≤K≤2n on the outer rays gives the full six-line bound, per cell. Independently enumerating 1-, 4- and 5-cell words produces witnesses at (period,P,K)=(4,2,0),(4,0,2),(5,0,4),(4,1,4),(5,3,6),(1,3,2). These periods tile every n divisible by 20 and adjacent witnesses attain jointly at ties. Truncation and wrap-around change the excess energy by O_h(1). At any differentiability field, the affine line from an arbitrary minimizer touches G_n, so its slope lies between the two secants at h±epsilon; take n→∞ and then epsilon→0. For n divisible by 20 this argument is exact inside each interval, including the two open rays. It establishes occupations per cell, not per vertex.",
+      "residual_risks": [
+        "No statement about the exact phase boundaries for every incommensurate n, or about finite-temperature singularities, is entailed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shrock's next-nearest-neighbor calculation uses square-lattice strips, with usual zero-field Potts Hamiltonian. Their later magnetic transfer framework describes strips of the square, triangular and honeycomb lattices.",
+          "Shrock–Xu's stated zero-temperature chromatic specialization counts proper colorings under color weights; some exposed branches of the audited envelope have P>0."
+        ],
+        "reasoning": "The generic exact transfer technique does not give the numerical hull without an additional graph-specific calculation. A proper-coloring enumerator omits the violated-edge configurations needed for the finite H/J result.",
+        "searches": [
+          "arXiv:cond-mat/0007505 abstract and introduction",
+          "arXiv:0907.0925 abstract",
+          "arXiv:1009.1182 abstract",
+          "arXiv:cond-mat/9612249 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published-record mirror, b67d093a5d08 and 53cc4211ae87",
+        "arXiv:cond-mat/0007505, 0907.0925, 1009.1182 and cond-mat/9612249 passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At h=3/2 the dodecahedron has energy -12J, or -6/5 per cell in J units, whereas the limiting/commensurate envelope is -5/4.",
+          "The transfer and chromatic statements inspected do not evaluate the competing commensurate minimizers in the finite-ratio low-temperature limit."
+        ],
+        "reasoning": "The older finite member does not imply the split at 5/4 and 7/4, nor exact attainment along all multiples of 20. The different values at 3/2 directly distinguish the prior and current envelopes.",
+        "searches": [
+          "Resultary b67d093a5d08 local-mirror RESULT.md offsets 0–2295 and 1971–5245",
+          "arXiv:0907.0925 p. 1; arXiv:1009.1182 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective can be viewed as a minimum cycle mean for a finite strip transfer graph or as exposed faces of the achievable normalized (K,P) pairs.",
+          "The dodecahedron hit is on exactly GP(10,2) and uses the same one-color field; a separate five-chamber hit instead uses triangle expansions and two ordered color fields."
+        ],
+        "reasoning": "Taking a lower hull, or taking the zero-temperature fixed-ratio limit of the partition sum for precisely the same strip and field, is equivalent to the exact envelope. Switching the graph or the field specification is not such a reduction.",
+        "searches": [
+          "Resultary: generalized Petersen GP(n,2) three-state antiferromagnetic Potts magnetic field ground-state envelope zero-temperature",
+          "Resultary: generalized Petersen graph Potts model chromatic polynomial magnetic field zero-temperature GP(n,2)",
+          "Literature: generalized Petersen graph GP(n,2) Potts antiferromagnet magnetic field zero-temperature ground state transfer matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct exact dodecahedron table b67d093a5d08 has transitions -1,0,3/2,3. The distinct same-date table 53cc4211ae87 has five branches for a two-field triangle-expansion problem.",
+          "No distinct retrieved table computes this family-wide curve; the literature search returned nearby graph-model or zero-temperature results."
+        ],
+        "reasoning": "Neither exact table has the required graph and parameter scope. In particular the dodecahedral energy disagrees with the limiting energy at h=3/2, so that table cannot be read as the required answer.",
+        "searches": [
+          "Resultary searches for the generalized Petersen magnetic ground-state envelope and its chromatic equivalent, as listed under equivalent_formulations",
+          "Literature search for generalized Petersen GP(n,2) magnetic ground state and transfer matrix"
+        ]
+      },
+      "rationale": "The minimum-mean-cycle calculation is a method, not itself the discovery. The surviving distinct result is the exact family-wide envelope with its five critical fields, commensurate equality and slope plateaux. The closest checked exact prior is for the same Hamiltonian on GP(10,2) and has a different interior diagram. The closely related Potts transfer matrices and weighted chromatic results do not furnish the required envelope on this graph sequence at fixed H/J.",
+      "residual_risks": [
+        "An earlier strip-specific envelope could be unindexed. Search returned ScienceDirect PII S0378437198005688, with a generic snippet on zero-temperature Potts graphs and no demonstrated GP(n,2) magnetic statement; OA retrieval returned HTTP 403, so no priority conclusion is based on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap on a single finite graph; distinct diagram",
+          "evidence": [
+            "The dodecahedron has a single middle critical field 3/2 and energy -12J at that field."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-zero-temperature-magnetic-field-diagram-of-the-three-st--b67d093a5d08",
+          "material_read": "RESULT.md offsets 0–2295 and 1971–5245",
+          "method": "Local published-record mirror",
+          "title": "Complete zero-temperature magnetic-field diagram of the three-state Potts antiferromagnet on the dodecahedron",
+          "trigger": "Exact same-Hamiltonian comparison on GP(10,2)"
+        },
+        {
+          "assessment": "Different graphs and fields",
+          "evidence": [
+            "The ground-state envelope covers triangle expansions of cubic bipartite graphs under two ordered fields."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-five-chamber-two-field-potts-ground-energy-on-bipartit--53cc4211ae87",
+          "material_read": "RESULT.md beginning, offsets 0–2200",
+          "method": "Local published-record mirror",
+          "title": "Universal five-chamber two-field Potts ground energy on bipartite graph expansions",
+          "trigger": "Distinct same-date exact magnetic-envelope hit"
+        },
+        {
+          "assessment": "Exact zero-field model on a different graph",
+          "evidence": [
+            "Width-two square-lattice strips, with ferro- and antiferromagnetic interactions and free, cyclic, or Möbius longitudinal boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0007505",
+          "material_read": "Abstract and introduction, p. 1, near offset 1050",
+          "method": "Primary OA text",
+          "title": "Exact Partition Function for the Potts Model with Next-Nearest Neighbor Couplings on Strips of the Square Lattice",
+          "trigger": "Exact Potts result with strip next-nearest-neighbor edges"
+        },
+        {
+          "assessment": "Different named strips and a framework rather than this evaluated hull",
+          "evidence": [
+            "The abstract identifies square, triangular, and honeycomb strips for the partition-function construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.0925",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA text",
+          "title": "Structure of the Partition Function and Transfer Matrices for the Potts Model in a Magnetic Field on Lattice Strips",
+          "trigger": "Strongly related magnetic transfer-matrix framework"
+        },
+        {
+          "assessment": "Related formalism, not evidence of evaluated GP(n,2) finite-ratio envelope",
+          "evidence": [
+            "The stated weighted-set chromatic limit counts proper colorings with weights on favored colors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA text",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "External-field zero-temperature specialization"
+        },
+        {
+          "assessment": "Different graph families and zero-field chromatic limit in inspected passage",
+          "evidence": [
+            "Circuit, wheel, biwheel, bipyramid and ladder families enter limiting chromatic-polynomial calculations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9612249",
+          "material_read": "Abstract, p. 1, near offset 952",
+          "method": "Primary OA text",
+          "title": "Ground State Entropy of Potts Antiferromagnets: Families of Graphs with W(q) Functions that are Nonanalytic at 1/q=0",
+          "trigger": "Cardinality or ground-state formula on related families could be mistaken for a magnetic result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and independent cycle means",
+        "Exact GP(10,2) comparison b67d093a5d08"
+      ],
+      "rationale": "This solves the zero-temperature magnetic response of a named infinite family rather than tabulating an isolated periodic graph. The extra intermediate plateau and the split between its two transition fields distinguish the limiting response from the natural dodecahedral member. The finite witnesses and universal lower bound give exact energies at a useful sequence of finite sizes as well as rigorous asymptotic occupations elsewhere.",
+      "residual_risks": [
+        "The result does not count minimizers or classify magnetization at the critical fields beyond witness coexistence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

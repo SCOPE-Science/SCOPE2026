@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:50.983966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For interior k, the two nonnegative mass-recurrence coefficients sum to 1−p/n≤(n/(n+1))^p, and the endpoint probability p^(n−1) is absorbed in a uniform C_p n^−p bound. The mass at 1 is a_n=Γ(n−p)/(Γ(n)Γ(1−p)). For any fixed k≥2 the ratio h_{n,k}/a_n is an average of its previous value and the ratio at k−1, with weight p(k−1)/(n−p) on the latter. The weight lies in (0,1) for n≥k, has divergent sum, and hence forces convergence to 1 by induction on k. This proves n^p h_{n,k}→1/Γ(1−p) for each fixed k. Conditional recursion for g_u(k)=Γ(k−u)/Γ(k) multiplies its expectation by 1−pu/n. For 0<u<1 the summable approximation error against the uniform mass bound is O(n^−p), negligible at scale n^−pu. For u>1, summable domination of the fixed-k limits gives exactly ζ(u)/Γ(1−p). At u=1, subtract the exact atom a_nΓ(s) from the transform at u=1−s before sending s to zero. With R_n(s)=Γ(n−p+ps)/(Γ(n)Γ(1−p+ps)), the result for the shifted reciprocal sum is R'_n(0)=p a_n[ψ(n−p)−ψ(1−p)]. To replace (k−1)^−1 by k^−1, the correction Σ_{k≥2}h_{n,k}/[k(k−1)] equals a_n+o(n^−p) by fixed-k convergence and domination, so the critical finite part is as stated. The pole-subtracted identity extends to both signs of s near zero; the difference between its summands and k^−1+s is uniformly O(k^−2+δ) for k≥2 and |s|≤δ<1/2. At s=b/log n, R_n(s)/R_n(0)→exp(pb), and Γ(s)/log n→1/b for b≠0, yielding the claimed crossover; b=0 follows from the fixed critical expansion. This checks signs, constants and critical cancellation without inferring unbounded moments from weak convergence. Frozen exact and numerical check evidence was inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang has the same process, O(n^−p) uniform point masses, the reciprocal-moment bounds in all three regimes, and the exact gamma transform. General α-diversity and tree-root-cluster works supply Mittag–Leffler limits."
+        ],
+        "reasoning": "Neither a weak limit nor a uniform point-mass upper bound determines the effect of fixed small counts in a singular expectation. The credit for the exact transform and regime orders is stronger than just observing a common limit distribution.",
+        "searches": [
+          "Liang arXiv:2610.29156v1 §3.2 equations (3.5)–(3.8)",
+          "Dolera–Favaro arXiv:1809.09276",
+          "Businger arXiv:1710.05671v3 Lemma 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker source and output",
+        "arXiv:2610.29156v1, 2003.04441v1, 1710.05671v3 and 1809.09276",
+        "Resultary 18c6626adc7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liang's identity plus the summable gamma-ratio comparison and mass bound give the subcritical coefficient. The known transform supplies the pole-subtraction starting point for the critical and moving-window regimes: the shifted reciprocal uses its derivative at the pole, and the uniform near-pole comparison yields the crossover. For the actual critical inverse moment, the finite part needs cancellation of a_n against the unshifted-versus-shifted correction. Fixed-count local limits also give the supercritical ζ coefficient."
+        ],
+        "reasoning": "The subcritical formula is directly covered by prior estimates. The crossover has a short derivation from the transform once the small-count pole is isolated and the approximation justified uniformly through both sides. The critical finite-part and supercritical results require further small-count information and summable-limit arguments, not just a scalar weak-limit statement or the bounds at each fixed exponent. The originality pass rests on the distinct sharp transition, not on claiming the prior identity or the three orders are new.",
+        "searches": [
+          "Liang arXiv:2610.29156v1 §3.2 compared with frozen proof lines 36–75",
+          "Miyazaki–Takei arXiv:2003.04441v1 Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero-restart walk of Miyazaki–Takei has exactly the frozen movement-count kernel. Its root-cluster representation gives the same law as the percolated recursive-tree root cluster. The θ=0 Pitman–Yor predictive rule increments the block count with probability pK_n/n. The related thinned Yule process is not by itself a Yule–Simon identification."
+        ],
+        "reasoning": "Movement count, root-cluster size and zero-strength block count are genuine aliases, so sharp inverse-moment results in any would cover this one. The passages reviewed in these aliases concern model identification, positive moments and scaling limits, not the same finite-time reciprocal-moment asymptotics.",
+        "searches": [
+          "arXiv:2003.04441v1 §§2, 2.1, 2.3",
+          "arXiv:1710.05671v3, root cluster/recursive tree",
+          "arXiv:1809.09276, α-diversity and Poisson–Dirichlet",
+          "Focused web lookup for inverse moments and Yule–Simon/Pitman–Yor equivalents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 18c6626adc7b concerns the same movement clock but a quartic crossover in a symmetric step-size noise observable at scale n^(p/4), not u near one in a count inverse moment. The closest exact formula found is Liang's finite-time gamma expectation, which is not itself D_n(u)."
+        ],
+        "reasoning": "Neither the indexed crossover values nor the exact gamma-transform entries are tables of the reviewed sharp reciprocal-moment constants. The gamma transform can, however, supply several aspects by implication and is credited accordingly.",
+        "searches": [
+          "Resultary: zero-restart movement count reciprocal moments, Mittag–Leffler crossover; matching 18c6626adc7b",
+          "Liang arXiv:2610.29156v1 §3.2"
+        ]
+      },
+      "rationale": "The movement clock, its scaling limit, Liang's exact gamma transform and uniform mass bound, the three orders, and the direct subcritical gamma-ratio coefficient implication receive prior credit. The distinct contribution supported by this audit is the sharp small-count-controlled side and the critical finite part, together with an explicit moving-exponent law across the boundary. Existing transform and point-mass bounds are important inputs here; the reviewed results did not establish the critical correction to the shifted reciprocal or the complete sharp transition for actual reciprocal powers.",
+      "residual_risks": [
+        "Generalized-Stirling, random partition or recursive-tree results on small root clusters could supply a closer sharp equivalent; the sources and passages inspected do not exhaust those literatures.",
+        "The exact gamma transform is already established and is very close to the moving-window calculation. The assessment does not rely on the lack of an exact search hit, or assert priority for subcritical powers or phase-transition orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong exact/implication overlap; the sharp critical correction and full transition were not stated in the passage",
+          "evidence": "Uniform O(n^−p) mass bound, inverse orders and E[Γ(K_n−u)/Γ(K_n)]=Γ(1−u)Γ(n−pu)/(Γ(1−pu)Γ(n)), 0<u<1.",
+          "identifier_or_url": "https://arxiv.org/html/2610.29156v1",
+          "material_read": "§3.2, p. 7 in PDF layout, equations (3.5)–(3.8)",
+          "method": "Bounded primary-text inspection",
+          "title": "Normal approximation and self-normalized moderate deviations for the minimal random walk with random step sizes",
+          "trigger": "Exact transform and inverse moments in the same process"
+        },
+        {
+          "assessment": "Same movement-count process and established limit law; not the reciprocal asymptotics reviewed here",
+          "evidence": "q=0 and initial movement give conditional rate pH_n/n; Corollary 2.2 gives scaled convergence and positive integer moments k!/Γ(1+kp). Section 2.3 gives the recursive-tree representation.",
+          "identifier_or_url": "https://arxiv.org/html/2003.04441v1",
+          "material_read": "PDF pp. 3, 5–6, §§2, 2.1, 2.3 and Corollary 2.2",
+          "method": "Bounded primary-text inspection",
+          "title": "Limit theorems for the ‘laziest’ minimal random walk model of elephant type",
+          "trigger": "Same process and Mittag–Leffler scaling"
+        },
+        {
+          "assessment": "Root-cluster moment and limit overlap; Yule connection, not an identification with a Yule–Simon law",
+          "evidence": "Root-cluster moments and Mittag–Leffler limit obtained from a thinned Yule process.",
+          "identifier_or_url": "https://arxiv.org/html/1710.05671v3",
+          "material_read": "PDF pp. 6–7, Lemma 3 and surrounding root-cluster discussion",
+          "method": "Bounded primary-text inspection",
+          "title": "The shark random swim (recursive-tree/Yule root cluster)",
+          "trigger": "Equivalent root-cluster law under percolation"
+        },
+        {
+          "assessment": "Equivalent θ=0 process and limit; passage did not resolve sharp small-count inverse moments",
+          "evidence": "The α-diversity limit for the partition count has the Mittag–Leffler specialization at zero concentration.",
+          "identifier_or_url": "https://arxiv.org/html/1809.09276",
+          "material_read": "PDF pp. 1–3, two-parameter Poisson–Dirichlet and α-diversity setup",
+          "method": "Bounded primary-text inspection",
+          "title": "A Berry–Esseen theorem for Pitman's alpha-diversity",
+          "trigger": "Encodes the same count process via a broader partition family"
+        },
+        {
+          "assessment": "Material model overlap, different observable, threshold and scaling",
+          "evidence": "Quartic crossover for symmetric step-size noise at scale n^(p/4); does not formulate the movement-count inverse moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-mittag-leffler-quartic-crossover-for-symmetric-minimal-w--18c6626adc7b",
+          "material_read": "Mirrored RESULT.md finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue lookup and bounded mirror read",
+          "title": "A sharp Mittag–Leffler quartic crossover for symmetric minimal walks",
+          "trigger": "Same movement clock and crossover language in an indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Inverse powers measure the effect of paths with very few movements, information lost under the usual clock scaling limit. The zeta factor identifies the discrete fixed-count contribution, the critical constant distinguishes the actual reciprocal from the convenient gamma-ratio proxy, and the logarithmic window gives a coherent interpolation where estimates at fixed exponents do not apply uniformly. The exact constants and crossover let a reader distinguish typical scaling from rare-count domination, rather than merely restating the known orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

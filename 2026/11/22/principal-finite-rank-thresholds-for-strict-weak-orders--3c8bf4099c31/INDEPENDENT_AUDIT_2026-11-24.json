@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:24.425605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Induct on the target rank simultaneously for all marked hosts. A one-point type either joins a marked level (decrementing exactly its unused capacity) or creates a level at one of the cuts (selecting a gap pivot of width u_j, leaving capacity u_j−1, and splitting the gap). For threshold t+1 each join thus needs capacity at least t+1, and each cut needs a pivot of width at least t+1 with both subgaps of rank at least t. These conditions suffice as all unchanged resources already meet threshold t. This proves the marked min and the max–min gap recurrence, including empty gaps, depleted levels and the unmarked empty host. The root pivot criterion recursively forces and is forced by an ordered width-dominating copy of B_t, which is exactly an induced copy. Its length and sum satisfy the displayed recurrences; size equality excludes all unused vertices and extra levels, giving uniqueness. Increasing an eligible host's level size realizes the threshold on every larger size, and the constant-width formula follows from the pattern's length and maximum. Greedy matching keeps the earliest eligible position and preserves any possible suffix. The final proof is unbounded; weakorder_rank_verify.py and verification_output.txt were inspected, not rerun. They record 2,047 positive compositions through size 11, 627,231 marked count states and 1,200 additional comparisons, not a formal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kubiś–Shelah prove finite witness-list existence under amalgamation hypotheses, without selecting a single principal witness or computing its size for this class.",
+          "López-Callejas–Navarro-Castillo compute the interval ranks for the hereditary class of finite linear orders."
+        ],
+        "reasoning": "General finite witness lists need not be principal. The linear-order decomposition models cut moves but omits the mandatory same-level move.",
+        "searches": [
+          "https://users.math.cas.cz/kubis/pdfs/ranksEvasPS_ver2.pdf, Proposition 2",
+          "https://arxiv.org/html/2604.14461, §6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14461",
+        "Kubiś–Shelah rank manuscript, Proposition 2",
+        "Resultary/SCOPE c6b1f4492328",
+        "Resultary/SCOPE 9f715eba65cf",
+        "Resultary/SCOPE 23acc2a81818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 3-point chain has rank 2 in the finite linear-order class and rank 1 in strict weak orders, since it cannot realize the same-level type.",
+          "The component-rank theorem splits resources inside chain components and among free components; it does not supply the ordered between-level choices and same-level capacities of this rank."
+        ],
+        "reasoning": "No inspected result implies the marked max–min recurrence or the specific principal witness by substitution or by forgetting ordering or incomparability data.",
+        "searches": [
+          "arXiv:2604.14461, Theorem 6.4 and Proposition 6.5",
+          "Kubiś–Shelah Proposition 2",
+          "SCOPE-a-component-rank-staircase-theorem-and-sharp-kernels-for-finite--c6b1f4492328, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite-variable equivalence compares level widths capped at the variable bound. At width two it identifies (2,2,2,3,2,2,2) with (2,2,2,2,2,2,2), although their extension ranks are 3 and 2.",
+          "The equivalence-relation staircase sorts unordered class sizes; (2,1,1) and (1,2,1) have the same multiset but weak-order ranks 1 and 2."
+        ],
+        "reasoning": "Neither the capped first-order invariant nor the unordered staircase is an equivalent formulation of the ordered resource game.",
+        "searches": [
+          "Resultary semantic comparison: marked one-point-extension rank on finite strict weak orders / total preorders / ordinal sums of antichains; recursive principal induced witness",
+          "2026/11/8/SCOPE-unrestricted-finite-variable-theories-and-order-spectra-of-finit--9f715eba65cf/RESULT.md",
+          "2026/11/22/SCOPE-the-staircase-law-for-one-point-extension-ranks-of-finite-equiva--23acc2a81818/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact size law occurs in the local index for disjoint unions of chains. Its unique rank-t kernel has chain lengths 2^t−1 through 1, not the ordered antichain widths B_t. The unordered equivalence-relation entry instead has triangular minimum size."
+        ],
+        "reasoning": "A match on every integer of the sequence is real overlap, but not a table of this rank on weak orders or a matching extremal classification.",
+        "searches": [
+          "Resultary semantic comparison: principal weak-order rank threshold and sharp size 2^(t+1)−t−2; exact extremal kernel",
+          "2026/11/22/SCOPE-a-component-rank-staircase-theorem-and-sharp-kernels-for-finite--c6b1f4492328/RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinction is the exact marked rank and principal induced threshold for ordered antichain levels, with its specific unique extremizer. Neither the finite-list existence theorem nor the closest same-day component-rank finding supplies that result; the latter does share the exact extremal size law for a different class. No priority or newness is attributed to the bare numerical sequence or to the general rank.",
+      "residual_risks": [
+        "The same-day indexed component-rank result is materially related, and chronological priority is not established.",
+        "The consulted primary sections and semantic index are not an exhaustive survey of earlier games on total preorders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear-order class, not weak-order rank",
+          "evidence": [
+            "Threshold 2^t−1 for finite linear orders and a marked interval criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14461",
+          "material_read": "§6 Theorem 6.4 and Proposition 6.5, OA offsets 91797 and 92492",
+          "method": "Original OA HTML passages",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Exact rank definition and finite interval formula"
+        },
+        {
+          "assessment": "General finite witness lists, not the explicit principal weak-order threshold",
+          "evidence": [
+            "A finite list of substructures detects a finite rank threshold under the stated amalgamation assumption."
+          ],
+          "identifier_or_url": "https://users.math.cas.cz/kubis/pdfs/ranksEvasPS_ver2.pdf",
+          "material_read": "Proposition 2, extracted-text offset 10300",
+          "method": "Original OA PDF text passage",
+          "title": "Evolution systems — an ordinal rank measuring universality",
+          "trigger": "Possible broader finite witness theorem"
+        },
+        {
+          "assessment": "Same sharp size but different class and witness; date does not settle priority",
+          "evidence": [
+            "Rank-t minimum has chains of sizes 2^t−1 down to 1 and a marked gap-and-component test."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-component-rank-staircase-theorem-and-sharp-kernels-for-finite--c6b1f4492328/RESULT.md",
+          "material_read": "Finding at offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror source passage",
+          "title": "A component-rank staircase theorem and sharp kernels for finite disjoint unions of chains",
+          "trigger": "Strongest indexed analogue; identical minimum sizes"
+        },
+        {
+          "assessment": "Distinct invariant",
+          "evidence": [
+            "FO^k equivalence compares height and widths capped at k."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unrestricted-finite-variable-theories-and-order-spectra-of-finit--9f715eba65cf/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror source passage",
+          "title": "Unrestricted finite-variable theories and order spectra of finite weak orders",
+          "trigger": "Identical structures, potential equivalent logical invariant"
+        },
+        {
+          "assessment": "Unordered staircase, not principal threshold for ordered levels",
+          "evidence": [
+            "Distinct classes are matched without order and the minimal size is t(t+1)/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-staircase-law-for-one-point-extension-ranks-of-finite-equiva--23acc2a81818/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror source passage",
+          "title": "The staircase law for one-point-extension ranks of finite equivalence relations",
+          "trigger": "Same rank with the order of classes forgotten"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes a class-relative extension rank for every finite host and marked subset in a natural ordered class with genuinely different cut and same-level challenges. Knowing there is a finite witness list cannot tell whether it is principal or identify the smallest host. The exact induced witness, its unique equality case, and a direct greedy decision procedure answer those structural and algorithmic questions even though the size sequence itself is shared by a different class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

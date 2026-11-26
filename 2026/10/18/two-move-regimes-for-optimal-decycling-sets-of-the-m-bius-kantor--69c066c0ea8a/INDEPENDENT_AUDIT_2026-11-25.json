@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:12:23.369897Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a size-k deletion S the retained graph has 24−3k+e(S) edges. For k≤4 the retained vertex set is nonempty and the forest bound gives 2k−e(S)≥9, impossible. The displayed five-set leaves a tree; at size five every forest has 2−e(S) components, so only e(S)=0,1 occur. A fresh implementation used leaf stripping to enumerate every five-set, then tested all unordered pairs by intersection size four and, for slides, adjacency of the two differing vertices. It obtained 672 sets (192 with no internal edge, 480 with one), and matched the certificate's literal ordered state and edge lists. All-pairs unweighted shortest paths gave finite distances everywhere: jump has 5664 edges, degrees 13:96, 15:336, 17:48, 19:96, 25:96, and eccentricity 5 at every root; slide has 1848 edges, degrees 4:288, 5:144, 6:96, 7:48, 9:48, 10:48, and eccentricities 7:96, 8:560, 9:16. Both pair-distance histograms, both SHA-256 fingerprints, and the length and minimality of the certified two diameter paths were checked independently. Replay: python3 /workspace/branches/independent_mk.py (NumPy/SciPy); output independent_mk.out in the same directory. The fingerprint encoding is in fact a compact object with keys states and edges holding the two arrays. The proof's crude forest bound is used only for nonempty retained sets; neither this restriction nor the serialization gloss changes a Finding claim. No larger graph, temporary size changes, or weighted moves are tested.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hertz fixes |F∩X| and |F∩Y| and chooses swaps within X or within Y, with a tabu-search objective extending forests; original-edge slides in this bipartite graph instead cross sides.",
+          "The generalized Petersen decycling-number references are acknowledged for the size optimum; no matching exact exchange result was established from accessible material."
+        ],
+        "reasoning": "A numerical optimum theorem or algorithm to find one optimum supplies neither the entire support nor its connectivity and all-pairs metrics. A same-side heuristic deals with an incompatible move constraint.",
+        "searches": [
+          "DOI:10.12386/A2013sxxb0022",
+          "DOI:10.1016/j.dam.2014.09.005",
+          "Hertz 2021, DOI:10.7155/jgaa.00567 §2, PDF p.8"
+        ]
+      },
+      "checked_sources": [
+        "Hertz, DOI:10.7155/jgaa.00567",
+        "Wei–Li, DOI:10.12386/A2013sxxb0022 (limited access)",
+        "Gao et al., DOI:10.1016/j.dam.2014.09.005 (limited access)",
+        "Resultary b91350f1784b, cfe9401b705a, c5d7e6e6df56, 445764726c21 and 2b99cf38fc97"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-side swaps conserve two part counts; token jumps do not impose that invariant, and token slides change the counts.",
+          "The independently checked metric profiles use the complete set of feasible five-masks, not the existence of some five-mask or a bound on maximum forest order."
+        ],
+        "reasoning": "No identified prior statement implies the complete configuration spaces and their degree, eccentricity and distance profiles; the known optimum five alone provides no such implication.",
+        "searches": [
+          "Hertz 2021 §2, PDF p.8, exact solution-space and neighborhood definitions",
+          "Resultary b91350f1784b, cfe9401b705a, c5d7e6e6df56, Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation maps minimum feedback vertex sets bijectively to maximum induced forests and preserves a single swap and its adjacency restriction.",
+          "Resultary GP(7,2), b91350f1784b, gives 70 optimum states and disconnected slides, for another graph."
+        ],
+        "reasoning": "Change of terminology or taking complements would not be original; the same-property census for a different graph is not the target census. Hertz restricts forest swaps to the same bipartition side and is not the same reconfiguration graph.",
+        "searches": [
+          "Resultary: GP(8,3) Möbius–Kantor minimum feedback vertex set / decycling-set exchange / maximum induced forest reconfiguration",
+          "Hertz DOI:10.7155/jgaa.00567, neighborhood passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest same-graph set-count record cfe9401b705a gives 192 weak-total metric bases, 144 of which induce at least two edges, hence are not target states. Its 7-diameter exchange graph is not either target graph.",
+          "Closest published corpus optimum-decycling analogues for GP(7,2), Pappus and Desargues have different cardinalities, base graphs and/or distance profiles."
+        ],
+        "reasoning": "The apparent shared number 192 is not a lookup for the independent optimum deletion sets. A possible proper intersection does not determine the sets or either exchange graph. No matching exact census table was identified.",
+        "searches": [
+          "Resultary: GP(8,3) minimum decycling sets 672, token jumping diameter 5, sliding radius 7 diameter 9",
+          "Resultary: same-graph extremal set enumerations and generalized Petersen forest-swap tables"
+        ]
+      },
+      "rationale": "The scalar decycling number five is not an originality claim. No inspected statement or indexed table establishes the full optimum census together with these two exact exchange graphs and their metrics. The nearest forest-exchange method fixes side cardinalities and cannot imply the result for either of these move rules. This judgment is specific to the evaluated classification and is not priority certification.",
+      "residual_risks": [
+        "Relevant full text and supplements for Wei–Li and Gao et al. were not accessible; an earlier exact static census cannot be excluded.",
+        "Focused index searches do not exclude other unindexed computations or establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method with a different state restriction and move rule",
+          "evidence": [
+            "Defines fixed per-side cardinalities and replacement within the same side; LargeForest is an upper-bounding search."
+          ],
+          "identifier_or_url": "https://doi.org/10.7155/jgaa.00567",
+          "material_read": "§2, PDF page 8, offset 24600 through the introduction to §3",
+          "method": "Lawful OA PDF, literal lookup followed by bounded passage reading",
+          "title": "Decycling Bipartite Graphs",
+          "trigger": "Closest primary forest-exchange neighborhood"
+        },
+        {
+          "assessment": "Cannot assess full-text coverage; scalar value explicitly credited in the audited finding",
+          "evidence": [
+            "No claim is made that the full paper was inspected."
+          ],
+          "identifier_or_url": "10.12386/A2013sxxb0022",
+          "material_read": "Bibliographic identification; no relevant passage retrievable from the publisher route",
+          "method": "DOI/publisher access attempt",
+          "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+          "trigger": "Same family and optimum independent of reconfiguration"
+        },
+        {
+          "assessment": "Unresolved full-text census risk, not evidence against originality",
+          "evidence": [
+            "The known scalar optimum is excluded from the originality assertion."
+          ],
+          "identifier_or_url": "10.1016/j.dam.2014.09.005",
+          "material_read": "Bibliographic/landing route only; full text access denied by publisher",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Decycling number of generalized Petersen graphs",
+          "trigger": "Most plausible prior family census"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "70 optima; slides split as 14K1 + 14K2 + 7P4; jumps have diameter 7."
+          ],
+          "identifier_or_url": "Resultary b91350f1784b",
+          "material_read": "RESULT.md §Finding",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "A mixed token-slide phase and a connected jump metric for minimum decycling sets of GP(7,2)",
+          "trigger": "Same optimum-set transition rules"
+        },
+        {
+          "assessment": "Different feasibility condition and exchange profile",
+          "evidence": [
+            "Only 48 of its 192 sets are independent; 144 have at least two induced edges. The degrees and diameter of its exchange graph are different."
+          ],
+          "identifier_or_url": "Resultary cfe9401b705a",
+          "material_read": "RESULT.md §Finding",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Three geometric types and a uniform seven-move exchange radius for weak-total metric bases",
+          "trigger": "Identical base graph and superficially matching count 192"
+        },
+        {
+          "assessment": "Different generalized Petersen graph",
+          "evidence": [
+            "Its state space has 2860 minimum sets, not 672."
+          ],
+          "identifier_or_url": "Resultary c5d7e6e6df56",
+          "material_read": "RESULT.md §Finding",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "Sharp locality costs for optimal feedback set relocation on the Desargues graph",
+          "trigger": "Direct two-rule analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural choice between unconstrained relocation and adjacency-only relocation leaves reachability intact on a standard symmetric cubic graph, but changes eccentricity from uniform 5 to three strata with radius 7 and diameter 9. Knowing the precise optimum state space and distinct distance costs is useful for benchmarking fixed-cardinality cycle-breaking dynamics; it is not a recomputation of the known optimum size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

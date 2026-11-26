@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:33:18.402735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42; VERIFICATION.md, check_theta.py and check_output.txt inspected. Reported finite results: 9 instances, 2829 pairs, 21 Lefschetz checks; the script was not executed for this audit."
+      ],
+      "rationale": "At each stage the lower faces carry a fixed mandatory marker (both poles, then one pole, then a_i), and every face with that marker pairs along a single pivot b_1, beta_1, alpha_1 or c_i. All remaining competing one-vertex extensions of a lower face also carry the marker and omit the pivot, so have been removed by larger lower faces. Any higher coface would force a competing one-vertex extension. The counts are respectively 2^(m-1), 2 times 3^m 2^(q-1), and the sum of 3^(i-1)5^(m-i)3^q over i=1,...,m. The last stage contracts each interval component a_i c_i to c_i, not to the empty set. The survivor join of m+q two-point factors is precisely the named crosspolytope boundary. The degree hypothesis makes the two poles intrinsic; deleting them identifies the paths by length, proving the automorphism group. The invariant pole-free inclusion is a homology isomorphism even though the chosen elementary collapse is not equivariant. On degree-zero reduced homology reversal preserves the two long-factor components and swaps the two short-factor components. Joining the difference cycles gives a generator; transposition of two factors exchanges two vertices in every joined simplex and contributes minus one. Hence the stated integral character holds.",
+      "residual_risks": [
+        "Reported finite sample includes (1,1), which is outside the full-automorphism-group scope; the checks in that case concern natural symmetries only. No equivariant collapse or formal proof certificate inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ternary theorem classifies sphere-versus-contractible homotopy possibilities hereditarily. Three-arm theta complexes have a finite residue reduction."
+        ],
+        "reasoning": "Two short arms give an induced C6; for q=1 the induced cycles have lengths 7 and 8, so the ternary result is relevant only at homotopy level. The three-arm analysis is relevant to all three-arm instances but does not handle the arbitrary mixed number of arms or the integral action.",
+        "searches": [
+          "Kim arXiv:2101.07131v3 Theorem 1.1",
+          "Przytycki–Silvero §3 and Example 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Kim arXiv:2101.07131v3; Przytycki–Silvero DOI 10.1007/s13398-024-01594-z; Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-arm classification covers homotopy types via reduction, the all-short character is for one arm family, and the edge-spined theorem classifies homotopy phases."
+        ],
+        "reasoning": "One can recover the count from total face excess once this particular crosspolytope is proved to be a collapse target, but those antecedents do not prove the target or the two independent sign factors and reversal parity via the mixed pole-free join.",
+        "searches": [
+          "Przytycki–Silvero Example 3.8 versus frozen steps 1–4",
+          "Resultary db96fec92047 and bde2bc93e75e Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published theta classification is up to homotopy for three arms; Resultary db96fec92047 concerns the all-length-three case with a surviving circle and the top character."
+        ],
+        "reasoning": "Ordinary homotopy type does not specify collapses onto a fixed triangulation or the degree of a graph symmetry. All-short arms are not the mixed family under relabeling or path reversal.",
+        "searches": [
+          "Resultary: mixed length-three/four-arm collapses and integral arm-permutation/pole-reversal homology",
+          "Przytycki–Silvero, Example 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen self-hit is not independent. The nearby bde2bc93e75e concerns edge-spined graphs, and 83e5f9091fe0 concerns matching complexes of mixed two-/three-edge arms."
+        ],
+        "reasoning": "An edge between the poles removes the entire doubly occupied sector. A matching complex is a different object; in particular these records do not tabulate the present fixed survivor family or its count or character. Same-day ordering is not assumed.",
+        "searches": [
+          "Resultary: exact collapse counts to crosspolytope spheres; integral sign characters for theta independence complexes"
+        ]
+      },
+      "rationale": "Prior theta results give substantial homotopy-level overlap, especially the three-arm classification, and an earlier all-short family has a closely related character. Neither specifies or entails the mixed-family collapse onto the named subcomplex together with its integral symmetry action. The count is a consequence of the specified collapse/survivor and is not being credited as an independent advance.",
+      "residual_risks": [
+        "No exhaustive priority claim. Existing unpublished or unindexed constructive reductions for mixed families cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial three-arm homotopy coverage only",
+          "evidence": "Reduces theta computations to finite cases with contractible, sphere, or two-sphere-wedge homotopy outcomes.",
+          "identifier_or_url": "https://doi.org/10.1007/s13398-024-01594-z",
+          "material_read": "OA PDF §3, Example 3.8; PDF p. 7, printed p. 102, extraction offsets around 16850–19038 and Example 3.8",
+          "method": "Targeted OA PDF passage",
+          "title": "Khovanov homology, wedges of spheres and complexity",
+          "trigger": "Closest primary theta independence result"
+        },
+        {
+          "assessment": "Applicable only to part of this family, no action or collapse",
+          "evidence": "Ternary graphs characterized by the hereditary contractible/sphere homotopy alternative.",
+          "identifier_or_url": "https://arxiv.org/html/2101.07131v3",
+          "material_read": "Theorem 1.1, OA HTML offset 1250",
+          "method": "Targeted OA HTML passage",
+          "title": "The homotopy type of the independence complex of graphs with no induced cycles of length divisible by three",
+          "trigger": "General sphere-or-contractible theorem"
+        },
+        {
+          "assessment": "Related nonidentical claims",
+          "evidence": "All-short arm character with S¹ wedge; adjacent-pole edge-spined versus nonadjacent-pole graph; matching versus vertex independence complex.",
+          "identifier_or_url": "Resultary records db96fec92047, bde2bc93e75e, 83e5f9091fe0",
+          "material_read": "Mirrored RESULT.md Finding passages from offset 0",
+          "method": "Local search and mirror",
+          "title": "Resultary multitheta independence and matching comparisons",
+          "trigger": "All-short and same-day candidates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and proof; Kim Theorem 1.1; all-short Resultary db96fec92047"
+      ],
+      "rationale": "A natural finite graph family tests where the ternary criterion stops applying and where the all-short circle disappears. The fixed simplicial survivor and separate integral symmetry character give usable information about those independence complexes beyond sphere homotopy type. The closed count is useful for replay but is not the primary value.",
+      "residual_risks": [
+        "Restricted to these two arm lengths with both present. No equivariant homotopy classification follows just from this character."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

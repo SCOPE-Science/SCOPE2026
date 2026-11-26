@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:24:45.680089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–190 and 192–312; VERIFICATION.md and verify.py inspected (not executed)",
+        "Liu et al., practical Algorithm 3 and Eq. (6)",
+        "Independent rational arithmetic: python /workspace/review-check.py 1 (2745 stable initializations and 9 cycle tests)"
+      ],
+      "rationale": "The practical update divides h_i x_i by γh_i under the floor inequality (ties do not change the quotient). In signed coordinates x has the starting sign before first entry; from x_0>γ it decreases by η until the first integer N_i for which x_0−N_iη≤γ. The landing point is greater than γ−η>−γ. This proves the exact ceiling even if the final saturated step changes sign: the proof's informal magnitude wording should be read as subtraction in the starting signed coordinate. Negative starts follow by odd symmetry. The core is invariant because |1−η/γ|<1. Outside it, 0<η<2|x| gives strict decrease of |x|; positive curvatures give strict objective decrease away from zero. At and above η=2γ the signed points ±η/2 are exchanged, including equality. At η=γ the shrinkage law subtracts γ from the magnitude up to zero; its exact iteration gives the first all-zero iterate. The common linear multiplier after max N_i squares in the quadratic objective.",
+      "residual_risks": [
+        "Real-arithmetic result under exact refresh, no moment memory or decay and inactive floor, not a statement about floating-point exact minimizer hitting, stochastic updates or nondiagonal objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Sophia full-Hessian theorem uses fixed parameter choices in a different update and bounds finite-accuracy complexity, not the all-η phase boundary of the practical update.",
+          "The clipped-GD strong-convexity theorem assumes η≤1/(L0+cL1) and bounds time to a prescribed accuracy. On the normalized scalar quadratic the direct smooth choice is L0=1/γ, L1=0, so this comparison is sufficient only to η=γ and is not an exact passage or stopping law even there."
+        ],
+        "reasoning": "The wider guarantees and familiar smooth-loss descent explain why a contraction regime is expected, but do not supply the missing sharp excluded-range cycles and exact entry and hitting formulas.",
+        "searches": [
+          "Liu et al. Sophia, ICLR Theorem F.3 and Eq. (18); arXiv:2305.14342v1 Theorem 4.3",
+          "Koloskova–Hendrikx–Stich arXiv:2305.01588, deterministic Theorems 2.3 and 2.5"
+        ]
+      },
+      "checked_sources": [
+        "Liu et al. ICLR 2024 and arXiv v1; arXiv:2305.01588; closest indexed AGC and other scalar optimizer comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The practical update establishes the recurrence; the Sophia theorem does not quantify initial-value-dependent first passage. The deterministic clipped-GD result discusses the ηc displacement limit and finite-accuracy cost, without the exact core entry and minimizer hitting laws. AGC's two-cycle agrees with the saturated-step mechanism only within its bounded middle zone."
+        ],
+        "reasoning": "The exact normalized update is prior content; so are the generic method and qualitative phase picture. Checking fixed-direction signed translations down to the first core crossing, then matching that crossing to the exact multiplier and exhibiting the all-excluded-rate counterexample, proves the sharper package rather than applying a prior accuracy bound verbatim.",
+        "searches": [
+          "Sophia Algorithm 3/Eq. (6) and full-Hessian convergence theorem",
+          "Revisiting Gradient Clipping, Theorem 2.5 and following clipping-overhead explanation",
+          "Indexed AGC exact Finding (three-zone map and both transitions)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For one scalar the map is ordinary clipped gradient descent on x²/(2γ) with clipping threshold 1. Equivalently it is gradient descent on the Huber potential with derivative clip(x/γ,1). At η=γ the map is soft-thresholding, already standard as a map.",
+          "Koloskova–Hendrikx–Stich's deterministic clipped gradient descent is therefore a same-map antecedent in one dimension. The Sophia diagonal iteration is the independent product of those scalar maps, not a claim about ordinary norm clipping in higher dimensions."
+        ],
+        "reasoning": "Renaming clipped GD or the soft-threshold operation is not new. The comparison concerns the precise dynamics, including the overshoot at the first core entry and the parameter-dependent exact event times.",
+        "searches": [
+          "Sophia quadratic stability and exact clipping boundary; Liu et al. Algorithm 3, Eq. (6)",
+          "Resultary: Huber loss fixed step scalar gradient descent saturation map clipped quadratic soft threshold finite time convergence two-cycle exact entry time",
+          "Huber gradient descent scalar cycle fixed step size saturated gradient quadratic linear clipped sharp convergence two cycle threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day result has a three-zone clipped gradient, including the outer branch λx instead of a constant sign. Its explicit two-cycle interval pertains to 2/h≤η≤2/λ and beyond that it has large-start geometric divergence.",
+          "Other nearby indexed phase portraits include clipped heavy-ball, scaled CS-SAM, and composite trust-region gradient descent; the tested aliases did not surface an exact Sophia-map census or first-passage formula."
+        ],
+        "reasoning": "This is an all-real-parameter phase boundary/event law rather than a tuple of table values. Matching the number 2 and a two-cycle mechanism in AGC does not give the whole map or the resonance result.",
+        "searches": [
+          "Resultary: Sophia stability clipping quadratic two-cycle and finite-time hitting",
+          "Resultary: exact entry time soft threshold clipped/Hüber scalar descent",
+          "SCOPE-agc-s-parameter-norm-floor-restores-the-raw-quadratic-stability--b70cb735aae2"
+        ]
+      },
+      "rationale": "The practical algorithm and scalar gradient-clipping map class are known, as are the qualitative transient/contraction split and soft-thresholding. The supported distinct claim is the exact joint calibration for practical diagonal quadratic Sophia: an all-start iff stability range with explicit obstruction throughout the excluded range, the clipped-core first passage law and exact resonance hitting time. The compared known analyses of the same scalar recurrence as clipped gradient descent bound accuracy or transient overhead, rather than giving that all-start description. Closest indexed analogue AGC behaves differently beyond a second outer threshold.",
+      "residual_risks": [
+        "A statement of the same scalar dynamics under Huber descent or saturated feedback terminology may exist outside the passages checked. The same-day indexed AGC date is not a priority judgment. The unavailable OpenReview route was not used as evidence of absence; accessible versions supplied the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports practical normalization; simplified convergence theorem does not give all claimed dynamics",
+          "evidence": "Algorithm 3 uses m/max{γh,ε} followed by clipping at 1. Theorem F.3 instead gives a finite-accuracy full-Hessian runtime bound for its specified parameter choice.",
+          "identifier_or_url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/06960915ba8674c7a898ec0b472b80ff-Paper-Conference.pdf",
+          "material_read": "Algorithm 3 p. 2 (near offset 9300), Eq. (6) p. 4 (near 21800), Appendix F Eq. (18) and Theorem F.3 pp. 20–21 (near 119000); arXiv v1 corresponding passages",
+          "method": "Bounded OA text comparison of two accessible versions",
+          "title": "Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training",
+          "trigger": "Primary algorithm definition and candidate stronger convergence theorem"
+        },
+        {
+          "assessment": "Covers generic bounded-rate/overhead analysis, not sharp all-start event law",
+          "evidence": "The strongly convex theorem bounds time to positive accuracy for η≤(L0+cL1)^{-1} and explains the initial ηc step cap. It does not imply exact first entry, cycles for every supercritical step, or finite exact hitting at the matched step.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.01588",
+          "material_read": "Clipping rule at p. 1; Theorems 2.3 and 2.5 and explanatory passages pp. 5–6 (offsets 32000–38377 and 40620–44250)",
+          "method": "OA literal location and bounded result reads",
+          "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+          "trigger": "Generic deterministic clipped-GD comparison, identical scalar recurrence under specialization"
+        },
+        {
+          "assessment": "Related but different saturation map and dynamical conclusions",
+          "evidence": "The clipped gradient has a λx outer branch and cycles confined to a bounded interval of step sizes in the stated construction; fixed saturation at all large magnitudes is not its rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-agc-s-parameter-norm-floor-restores-the-raw-quadratic-stability--b70cb735aae2/RESULT.md",
+          "material_read": "Original Finding and assumptions, local offsets 0–3789",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "AGC's parameter-norm floor restores the raw quadratic stability ceiling",
+          "trigger": "Closest indexed sharp scalar quadratic stability and cycle comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen stability boundary, core entry law, finite-time result and stated limitations",
+        "Liu et al. practical update versus fixed-parameter convergence theorem"
+      ],
+      "rationale": "For the concrete optimizer update, this determines the stable parameter range uniformly over positive diagonal curvature spectra, gives a simple failure witness for every excluded step, and gives an exact time to stop clipping and an exact hitting prediction at the matched step. This is a useful calibration and implementation benchmark under explicitly idealized hypotheses. The value lies in the exact finite trajectory and sharp stability test together, not in the soft-threshold identity or generic local linearization alone.",
+      "residual_risks": [
+        "Does not give tuning guarantees when curvature is approximate, stale or coupled, or when momentum or weight decay is used."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

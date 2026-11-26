@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:42.289464Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the iid product-uniform null and nonzero integer frequencies, write D=n^-1 a^T H b with H the sample-centering projection. E|D|^2=tr(H)/n^2. Haar balance for each coordinate has only the within-mode pairing and, when frequencies agree up to sign, a crossed pairing with the all-equal overlap removed. Indeed, a singleton index cannot balance, so only a 2+2 split or all four indices equal is possible, even for harmonically related frequencies. A single crossing contracts to the off-diagonal square sum of H^2, (n-1)/n, before division by n^4. For the two double crossings let B=sum_ij H_ij^4; inclusion-exclusion gives respectively (n-1)^2-2(n-1)^2/n+B and (n-1)-2(n-1)^2/n+B, using tr(H^4)=n-1. These produce all four displayed covariance cases. There are PQ unordered reverse-sign pairs and 2PQ(P+Q-2) unordered pairs sharing exactly one absolute frequency, which gives the rectangular formula. If (P+Q)/n^2 tends to c, the variance/mean ratio tends to 1+2c. At n=2 the final two cases coincide; the introductory phrase 'four values' should be read as four cases, as explicitly qualified in the scope. Replay: python3 /workspace/independent_checks.py 3 (seventh-root quadrature with numerical complex evaluation for n=2,3,4); the source checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dHSIC propositions give asymptotic null moment expansions. The circular paper's Appendix B concerns linear asymptotic covariance, citing Csörgő."
+        ],
+        "reasoning": "The broader tests include characteristic-function discrepancies in a weighted norm, but their quoted asymptotic moments do not determine the finite fourth-order centering and sign contractions or their grid accumulation.",
+        "searches": [
+          "Resultary: kernel or HSIC null moments covering circular mode covariance",
+          "Pfister et al., arXiv:1603.00285, Props. 3.10–3.11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index (four focused searches) and mirror ef72097d56bd, b0242623025d",
+        "García-Portugués et al. arXiv:2104.14620v1",
+        "Pfister et al. arXiv:1603.00285",
+        "Székely–Rizzo–Bakirov arXiv:0803.4101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The univariate Sobolev record has M of order n^2 for standardized skewness, via additive resonances. The circular-independence Appendix B works at the asymptotic linear-discrepancy level."
+        ],
+        "reasoning": "Here the correction is to variance/mean, controlled by P+Q even if PQ is much larger, via shared absolute-frequency coordinates. It does not follow from the univariate third-moment crossover or from fixed-mode linear asymptotic covariance.",
+        "searches": [
+          "Resultary: rectangular harmonic bandwidth crossover for circular independence",
+          "Resultary mirror b0242623025d, cutoff regime",
+          "arXiv:2104.14620v1, Appendix B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The main Resultary match was the same record 74cbdae33897. García-Portugués et al. use the same empirically centered factorization discrepancy, with Appendix B giving asymptotic covariance of linear real/imaginary discrepancies. Distance covariance uses a weighted empirical characteristic-function factorization gap too."
+        ],
+        "reasoning": "These are alternate representations or aggregations of the same discrepancy idea, not an existing finite-n covariance of squared signed Fourier modes. The continuous-frequency weighted-norm identity does not resolve individual discrete mode pairs.",
+        "searches": [
+          "Resultary: exact finite-sample Fourier-energy covariance for circular independence",
+          "García-Portugués et al., arXiv:2104.14620v1, Sec. 3 and Appendix B",
+          "Székely–Rizzo–Bakirov, arXiv:0803.4101, Eq. (2.8) and Thm. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Rayleigh–Watson record states zero covariance for distinct univariate positive harmonics and exact weighted Watson moments. The cubic Sobolev record states univariate variance (n-1)/n times the sum of squared weights, and a third moment governed by a+b=c resonances."
+        ],
+        "reasoning": "Neither exact entry tabulates the signed bivariate energy covariance. In particular, neither has the sample-centering projection coupling the X and Y frequencies in this statistic.",
+        "searches": [
+          "Resultary: exact harmonic covariance tables under circular uniformity",
+          "Resultary mirrored RESULT.md findings ef72097d56bd and b0242623025d"
+        ]
+      },
+      "rationale": "The factorization discrepancy and weighted circular-independence framework are known. The distinct claim is the finite-null squared-energy covariance law under product Haar, including the opposite-sign split, and its exact growing-rectangle consequence. The nearest univariate Resultary moment formulas and the broader weighted-norm frameworks do not compute those cross-coordinate contractions. No equivalent result was established by the bounded searches; this is not a historical priority claim.",
+      "residual_risks": [
+        "The independent web query did not return a material source; that is not negative evidence.",
+        "Csörgő's original paper was not retrieved; possible finite moments beyond the asymptotic result cited by García-Portugués et al. were not checked.",
+        "General exact kernel or permutation-moment results not located may overlap after specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same discrepancy; asymptotic linear covariance, not the exact finite squared-energy law in inspected passages",
+          "evidence": [
+            "Sec. 3 compares empirical joint characteristic coefficients to products of empirical marginal coefficients.",
+            "Appendix B treats asymptotic real/imaginary discrepancy covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.14620v1",
+          "material_read": "Sec. 3 factorization equations (OA offsets 24176–27971) and Appendix B from offset 95400",
+          "method": "Lawful OA full-text bounded passages",
+          "title": "Nonparametric tests of independence for circular data based on trigonometric moments",
+          "trigger": "Defining discrepancy and closest circular covariance analysis"
+        },
+        {
+          "assessment": "Asymptotic moment expansions, not this finite harmonic-pair law",
+          "evidence": [
+            "The propositions expand the mean and variance of dHSIC under the null."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.00285",
+          "material_read": "p. 12, Props. 3.10–3.11",
+          "method": "Lawful OA PDF passages",
+          "title": "Kernel-based Tests for Joint Independence",
+          "trigger": "Possible broader exact moment theorem"
+        },
+        {
+          "assessment": "Finite-sample weighted norm identity for distance covariance, not the claimed pair-moment law",
+          "evidence": [
+            "The norm integrates a squared characteristic-function discrepancy over Euclidean frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.4101",
+          "material_read": "Sec. 2, Eq. (2.8) and Thm. 1, pp. 6–7",
+          "method": "Lawful OA PDF passages",
+          "title": "Measuring and testing dependence by correlation of distances",
+          "trigger": "Weighted factorization gap in an equivalent framework"
+        },
+        {
+          "assessment": "Univariate exact moments for different statistics",
+          "evidence": [
+            "Z_{n,k}=n^-1|sum_j exp(ik Theta_j)|^2; distinct positive harmonic energies are uncorrelated."
+          ],
+          "identifier_or_url": "Resultary ef72097d56bd",
+          "material_read": "Finding and Assumptions, mirrored RESULT.md from offset 0",
+          "method": "Local SCOPE mirror",
+          "title": "Exact finite-null Rayleigh–Watson harmonic correlation",
+          "trigger": "Closest exact harmonic covariance item"
+        },
+        {
+          "assessment": "Exact univariate third moment, no signed bivariate match; no priority inference from date",
+          "evidence": [
+            "The univariate M/n^2 crossover is in skewness; the variance has no cross-frequency contribution."
+          ],
+          "identifier_or_url": "Resultary b0242623025d",
+          "material_read": "Finding and Assumptions, mirrored RESULT.md from offset 0",
+          "method": "Local SCOPE mirror",
+          "title": "Cubic resonance and sharp skewness-optimal truncation for circular Sobolev tests",
+          "trigger": "Apparent overlap of n^2 bandwidth scale and exact Fourier moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete signed-pair covariance table provides an exact input to the variance of arbitrary finite weighted harmonic sums under a natural null and explains when independence-style fixed-grid variance estimates miss a macroscopic contribution. It identifies a dependence mechanism due to marginal frequency sharing, not merely a larger-grid numerical correction. No null distribution approximation or level guarantee is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

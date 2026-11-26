@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:38.169146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–77",
+        "VERIFICATION.md, line 21",
+        "verify.py, lines 9–60 (inspected, not executed)"
+      ],
+      "rationale": "The strict positive loss in each column makes e^(-Mt) a positive-cone contraction in the 1-norm and bounds total population by scalar comparison. Susceptibles are eventually bounded away from zero by comparing with S'=ν-(μ+λ_max)S, so LaSalle applies even for S(0)=0. The critical Lyapunov derivative is -μ(S-S_*)²/S; on S=S_* invariance forces λ=0, and the stable residual stage system has no nonzero bounded complete orbit. For the infected-block rank-one resolvent, K(t)=β^T e^(-Mt) P≥0 has positive integral and is positive on some interval; a strict triangle inequality rules out imaginary roots other than 0, decay rules out roots with Re z>0, and the simple-factor derivative is S_*d>0 since d=∫tK(t)dt. For w=ℓ^T x>0, λ≤Cw, so |(log w)'|→0. Choose a late starting time with this derivative bounded by ε below both stable decay rates. Ratios w(t-v)/w(t) then converge to 1 for fixed v and are bounded by exp(εv) in the late-time convolutions; initial transients divided by w vanish. Thus x/w→q/d, λ/w→1/(S_*d) and (S-S_*)/w→-1/(μd). The reciprocal derivative tends to 1/(μS_*²d²), yielding all three scaled limits and logarithmic incidence by integral comparison. If w=0 initially, λ≤Cw and a scalar differential inequality keep w=λ=0, giving exact exponential dynamics. This reasoning allows q_j=0 and does not assume irreducibility. The supplied finite check was inspected only; it does not verify the general rate or cumulative incidence.",
+      "residual_risks": [
+        "Critical finite-dimensional rank-one model with strict column losses; no near-critical, nonlinear-incidence, or subleading convergence claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Li–Shuai allow general multistage progression/amelioration and nonlinear incidence; the inspected critical result is disease-free convergence by LaSalle.",
+          "The renewal paper covers age-of-infection incidence and gives global disease-free stability at equality, not an inverse-time limit."
+        ],
+        "reasoning": "Broader dynamical model coverage for convergence does not dominate the quantified critical asymptotics, and the closest model imposes reachability not required here.",
+        "searches": [
+          "Guo–Li–Shuai DOI 10.1137/110827028 Theorem 4.1 and critical-case proof",
+          "arXiv:1707.03489 Theorem 1 and Eq. (11)",
+          "arXiv:2512.11003 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.11003",
+        "DOI 10.1137/110827028",
+        "arXiv:1707.03489",
+        "Resultary 4eddf338581a, ba3881dcd4ec, 034d42e3e132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest direct prior result is global threshold stability including R0=1 for the same stage formulation under reachability.",
+          "The silent-face alternative and strict-convolution comparison with the positive center amplitude are not provided by the inspected stability statements."
+        ],
+        "reasoning": "Convergence alone does not determine amplitudes. A simple-center normal form is a known route to the local rate, but its application does not by itself identify all transmitting initial data, nor the normalized constant and cumulative law across arbitrary finite permitted transfers.",
+        "searches": [
+          "Earn–McCluskey arXiv:2512.11003 equation and Theorem 1 comparison",
+          "Guo–Li–Shuai Theorem 4.1",
+          "arXiv:1707.03489 Theorem 1 and critical Lyapunov calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ODE and threshold are present in Earn–McCluskey, with source reachability assumed.",
+          "The coefficient d is the first time moment of the unnormalized nonnegative renewal kernel β^T exp(-Mt)P. The inspected renewal theorem establishes threshold convergence, not a formula for that asymptotic coefficient."
+        ],
+        "reasoning": "Changing to a renewal or a center-amplitude parameter does not make the threshold stability statement equivalent to a rate. Standard local center calculations can nonetheless recover the rate after identifying the quadratic coefficient and excluding non-silent trajectories from faster decay.",
+        "searches": [
+          "Rank-one multistage threshold amplitude, inverse-transfer moment and critical t^-1 profiles in Resultary",
+          "Uniform-susceptibility stage ODE, arXiv:2512.11003 pp. 2–3 and Theorem 1",
+          "Renewal-kernel formulation, arXiv:1707.03489 §3.1 and Eq. (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4eddf338581a gives explicit relaxation and log exposure for a specific heterogeneous-susceptibility SLEIRS model.",
+          "ba3881dcd4ec gives an amplitude vector for a four-stage saturating-incidence system without the susceptible recruitment state.",
+          "034d42e3e132 gives critical amplitudes and log exposure for a vaccinated SEIR model with nonlinear contact response."
+        ],
+        "reasoning": "These are substantive comparable precedents, but their coefficients and hypotheses do not cover arbitrary rank-one stages or the present silent-face characterization. No exact entry was identified; catalogue ranking is not a priority certificate.",
+        "searches": [
+          "Resultary semantic comparison of d=β^T M^-2 P, logarithmic cumulative incidence and critical t^-1 stage profiles",
+          "Mirrored Resultary findings 4eddf338581a, ba3881dcd4ec, 034d42e3e132"
+        ]
+      },
+      "rationale": "Credit the same ODE, reproduction threshold and global threshold attraction to prior work, and the generic simple-center mechanism to standard theory. The distinct contribution is the quantitative coefficient and profile theorem with its global initial-state dichotomy, including stages not reachable from the recruitment state. No examined stronger claim yields this entire result without a fresh model-specific spectral, nonlinear and initial-face analysis.",
+      "residual_risks": [
+        "Standard transcritical theory makes the local rate mechanism familiar; an uninspected more quantitative theorem for renewal systems or an equivalent model-specific formula could reduce the distinct content.",
+        "No exhaustive priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and threshold attraction; not the four quantitative limits or the full initial-face dichotomy.",
+          "evidence": [
+            "Theorem 1 gives global asymptotic stability at R0≤1 under stated source reachability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.11003",
+          "material_read": "PDF pp. 2–3, offsets 14500 and 19000; Theorem 1 and proof, p. 8, offsets 64500–69042",
+          "method": "Compare model, source reachability, theorem and conclusion",
+          "title": "Global stability of epidemic models with uniform susceptibility",
+          "trigger": "Same ODE and equality threshold"
+        },
+        {
+          "assessment": "Prior threshold stability, no stated quantitative amplitude in inspected theorem and proof.",
+          "evidence": [
+            "Critical case uses LaSalle to conclude disease-free convergence."
+          ],
+          "identifier_or_url": "https://sites.ualberta.ca/~myli/research/ps_files/multistage_2012.pdf",
+          "material_read": "PDF pp. 2–3, p. 8 Theorem 4.1, and p. 9 critical proof; offsets 7000, 28069, 31000",
+          "method": "Compare critical hypothesis and conclusion",
+          "title": "Global dynamics of a general class of multistage models for infectious diseases",
+          "trigger": "Broader multistage threshold dynamics"
+        },
+        {
+          "assessment": "Covers global threshold stability, not the specific rates or initial-state alternative.",
+          "evidence": [
+            "At equality the Lyapunov bound retains susceptible-state dissipation and yields convergence by LaSalle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1707.03489",
+          "material_read": "PDF pp. 4–5 model and Theorem 1; p. 7 Eq. (11), offsets 8500, 13904, 18300–19559",
+          "method": "Compare threshold theorem and Lyapunov bound at equality",
+          "title": "Global stability properties of renewal epidemic models",
+          "trigger": "Possible stronger renewal asymptotics for the stage formulation"
+        },
+        {
+          "assessment": "Distinct heterogeneous susceptibility and active-state assumption.",
+          "evidence": [
+            "Coefficient depends on susceptibility variance in a specified five-compartment system."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 4eddf338581a",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Compare stage class and amplitude dependence",
+          "title": "Critical SLEIRS relaxation reveals a susceptibility variance law",
+          "trigger": "Closest explicit critical profile and logarithmic cumulative catalogue comparison"
+        },
+        {
+          "assessment": "Different saturating-incidence model without susceptible recruitment.",
+          "evidence": [
+            "Explicit four-stage amplitude at threshold for nonzero states, not a general transfer-matrix dichotomy."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 ba3881dcd4ec",
+          "material_read": "Mirrored RESULT.md Finding and proof, offset 0",
+          "method": "Compare state variables, assumptions and quantitative limits",
+          "title": "Critical date-palm mite extinction is globally stable with a universal relaxation profile",
+          "trigger": "Critical stage-vector amplitude comparison"
+        },
+        {
+          "assessment": "A different fixed stage model with nonlinear contact response.",
+          "evidence": [
+            "Vaccinated SEIR reduction, not the general rank-one arbitrary-stage theorem."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12 034d42e3e132",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Compare incidence and coefficient structure",
+          "title": "Closed critical threshold and sharp algebraic relaxation in a vaccination model",
+          "trigger": "Critical amplitudes plus logarithmic exposure in another model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, lines 3–77",
+        "Earn–McCluskey Theorem 1 and model comparison"
+      ],
+      "rationale": "The transfer structure affects critical amplitudes through a kernel time moment not specified by the reproduction threshold. Exact global stage-vector scaling, logarithmic cumulative incidence despite vanishing prevalence, and a criterion distinguishing exponential decay in a reducible network are useful quantitative information beyond the fact of convergence. This is not a claim of a new local bifurcation mechanism.",
+      "residual_risks": [
+        "Application is to the exact critical model, not a finite-population empirical claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

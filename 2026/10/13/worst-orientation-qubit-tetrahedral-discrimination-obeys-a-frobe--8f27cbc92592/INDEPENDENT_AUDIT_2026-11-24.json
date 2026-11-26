@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:12.658318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, assumptions and proof",
+        "VERIFICATION.md",
+        "verification/verify.py, lines 7–81"
+      ],
+      "rationale": "Reconstructed the qubit minimum-error SDP with priors 1/4 and strict feasibility. With dual variable H=((1+s)I+c·σ)/8, domination of each weighted state is exactly s≥||c−(t+TRv_j)||, and tr H=(1+s)/4. Thus the objective is a Euclidean enclosing radius, independent of t for every R. The tetrahedral mean and second moment give the mean squared distance from c as ||T||²_F/3+||t−c||², a lower bound on the enclosing radius squared. A proper eigenframe makes the four squared distances at t equal to that bound. Conversely equality forces c=t and all four squared norms equal; orthogonality of the three nonconstant coordinate-pair sign columns on the four vertices forces each off-diagonal Gram entry to vanish. This also covers singular and degenerate T. If T=0, all rotations attain and every Gram matrix is zero; if the eigenvalues are distinct, the three ordered eigenaxes have 3!×4 proper sign choices. At an attaining frame the advertised effects are positive, sum to I by the zero mean, and give the dual value by direct trace multiplication; division by zero is avoided using I/4 for T=0. As a concrete strict case, T=diag(1,0,0) has radius 2/3 when a vertex is oriented along the channel axis (the projections are 1 and −1/3), versus 1/√3 at a Gram-diagonal orientation. The included verification/verify.py was inspected but not executed; its documented finite tests cannot establish the continuous minimum or the necessity statement.",
+      "residual_risks": [
+        "The result uses single-copy equal-prior output discrimination with an optimized POVM for each orientation; it does not address best-orientation encoding, collective measurements or unequal priors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fixed-ensemble result covers the decoder optimization for every individual R. Lee et al. solve the isotropic noisy-tetrahedron case; the strongest title-level arbitrary-channel optimization lead had no readable primary statement."
+        ],
+        "reasoning": "A fixed-ensemble algorithm does not give the stated continuous minimization or identify all minimizers. An isotropic channel has no nontrivial orientation comparison. The title-only lead is a risk, not evidence for coverage or non-coverage.",
+        "searches": [
+          "General arbitrary mixed-qubit fixed-ensemble discrimination",
+          "Arbitrary qubit noise channel minimum-error signaling optimization",
+          "DOI 10.1103/PhysRevA.106.032422, §IV.C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1204.2313",
+        "DOI 10.1007/s11128-023-04080-4",
+        "DOI 10.1103/PhysRevA.106.032422",
+        "Resultary 3224a6fbb21b",
+        "quant-ph/0011032 (mismatched citation)",
+        "Arbitrary-qubit-noise signaling title lead (no primary passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lee et al.'s depolarized tetrahedral ensemble gives (1+p)/4 with coincident maximum-confidence and minimum-error measurement; this is exactly T=pI. The indexed tight-frame result supplies the tetrahedral second moment, not an extremum after anisotropic contraction."
+        ],
+        "reasoning": "The prior fixed-R calculation and tight-frame identity are building blocks; turning them into a sharp lower bound attained exactly at Gram-diagonal rotations additionally requires the equal-radius eigenframe construction and necessity.",
+        "searches": [
+          "arXiv:1204.2313, Eq. (6)",
+          "DOI 10.1007/s11128-023-04080-4, Corollary 2",
+          "DOI 10.1103/PhysRevA.106.032422, §IV.C Eqs. (57)–(59)",
+          "Resultary 3224a6fbb21b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bae–Hwang, Eq. (6), give P_guess=1/N+r through fixed signal and complementary polytopes. Rouhbakhsh–Ghoreishi, Corollary 2, explicitly preserve the POVM and guessing probability under a common admissible translation of weighted Bloch vectors."
+        ],
+        "reasoning": "These are prior mechanisms and overlap exactly at fixed ensemble or translation invariance. Neither inspected statement optimizes the radius over rotations of an affine regular tetrahedron.",
+        "searches": [
+          "Resultary: tetrahedral/SIC optimal qubit discrimination, affine channel, enclosing-ball minimax and Frobenius contractions",
+          "arXiv:1204.2313 geometric fixed-ensemble formulation",
+          "DOI 10.1007/s11128-023-04080-4 geometric mixed-state discrimination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3224a6fbb21b, RESULT.md Finding, characterizes a regular signed tetrahedron by the frame identity for an extremal geometric-discord task and also treats a random-access encoding bound."
+        ],
+        "reasoning": "This is exact overlap in the frame, not in the objective, channel or optimizer claim; there is no finite table capable of establishing the frozen arbitrary-real-channel statement.",
+        "searches": [
+          "Resultary semantic lookup: tetrahedral qubit frame, guessing after affine channel and exact optimal orientation"
+        ]
+      },
+      "rationale": "The supported distinct claim is the arbitrary affine-channel minimum over common tetrahedral rotations and its exact Gram-diagonal equality criterion. Fixed-ensemble discrimination, common-translation invariance, tetrahedral tight frames and the isotropic case are already covered. No examined stronger claim mechanically implies the anisotropic minimization and equality classification.",
+      "residual_risks": [
+        "An equivalent affine-simplex enclosing-ball theorem or the unresolved signaling paper could alter priority; bounded comparisons are not proof of absence.",
+        "The incorrect Clarke arXiv citation is collateral to the mathematical proof and should not be relied upon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior decoder geometry; no rotation minimization in the inspected result",
+          "evidence": "Equal-prior P_guess=1/N+r with r from signal and complementary polytopes.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.2313",
+          "material_read": "PDF p. 3, Eq. (6)",
+          "method": "Lawful OA bounded passage inspection",
+          "title": "Optimal Discrimination of Qubit States – Methods, Solutions, and Properties",
+          "trigger": "Foundational geometry for fixed qubit discrimination"
+        },
+        {
+          "assessment": "Explicitly covers common-translation invariance, not which rotated channel ensemble is worst",
+          "evidence": "A common admissible translation of weighted Bloch vectors preserves the guessing probability and optimal POVM.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-023-04080-4",
+          "material_read": "PDF p. 7, Corollary 2",
+          "method": "Lawful OA bounded passage inspection",
+          "title": "Geometric bloch vector solution to minimum-error discriminations of mixed qubit states",
+          "trigger": "Arbitrary specified mixed-qubit ensembles and geometric invariances"
+        },
+        {
+          "assessment": "Covers the depolarizing/isotropic instance, not the anisotropic optimizer",
+          "evidence": "For ρ_x=p|ψ_x⟩⟨ψ_x|+(1−p)I/2 the reported confidence is (1+p)/4 and the measurement coincides with the tetrahedral minimum-error measurement.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.106.032422",
+          "material_read": "Sec. IV.C, PDF p. 7, Eqs. (57)–(59)",
+          "method": "Lawful OA bounded passage inspection",
+          "title": "Maximum-confidence measurement for qubit states",
+          "trigger": "Noisy tetrahedral specialization with equal priors"
+        },
+        {
+          "assessment": "Same tetrahedral frame geometry; different objective and no noise-orientation minimization",
+          "evidence": "The frame identity Σ_a r_ar_a^T=(4/3)I characterizes equality for the geometric-discord task.",
+          "identifier_or_url": "Resultary 3224a6fbb21b",
+          "material_read": "Local-mirror RESULT.md, Finding at offset 0",
+          "method": "Local catalogue and passage inspection",
+          "title": "Exact tetrahedral maximizers of geometric discord for four states",
+          "trigger": "Strongest exact tetrahedral frame catalogue hit"
+        },
+        {
+          "assessment": "Unresolved scope, not negative evidence",
+          "evidence": "The title identifies channel signaling and minimum-error detection but not a worst tetrahedral orientation, exact formula or equality criterion.",
+          "identifier_or_url": "https://scispace.com/papers/optimization-of-quantum-states-for-signaling-across-an-3c7h51pxs7",
+          "material_read": "Search title only; no readable primary statement",
+          "method": "Lawful retrieval attempted",
+          "title": "Optimization of Quantum States for Signaling Across an Arbitrary Qubit Noise Channel With Minimum-Error Detection",
+          "trigger": "Closest title-level arbitrary channel signaling comparison"
+        },
+        {
+          "assessment": "The supplied arXiv identifier is wrong; not used as evidence for originality",
+          "evidence": "quant-ph/0011032 identifies Villavicencio and Romo's ‘Dynamical analysis of the buildup process near resonance’, not the Clarke paper.",
+          "identifier_or_url": "DOI 10.1103/PhysRevA.64.012303; supplied arXiv ID quant-ph/0011032",
+          "material_read": "Supplied arXiv PDF identification; journal landing access unavailable",
+          "method": "Lawful OA identifier check",
+          "title": "Experimental realization of optimal detection strategies for overcomplete states (as cited)",
+          "trigger": "Frozen ideal tetrahedron comparison and bibliographic check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof of the attaining POVM and exact equality condition"
+      ],
+      "rationale": "The formula gives a sharp worst-orientation receiver-performance invariant for a standard four-state signal family without numerical orientation or measurement optimization. The exact eigenframe criterion and usable attaining measurement matter alongside the scalar, including for anisotropic, nonunital and rank-deficient channels. This value is specific to the worst-orientation question, not a claim about best encoding fidelity.",
+      "residual_risks": [
+        "A receiver fixed independently of orientation or a multiple-use setting is outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

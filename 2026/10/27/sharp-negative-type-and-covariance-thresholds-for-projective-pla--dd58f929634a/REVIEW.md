@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence identities \(M\mathbf1=(q+1)\mathbf1\) and \(MM^T=qI+J\) hold for every projective plane and imply singular values \(q+1\) and \(\sqrt q\), with multiplicities one and \(N-1\). Decomposing the two incidence halves into symmetric and antisymmetric mean lines and paired orthogonal sectors gives the four displayed eigenvalues of the powered distance and covariance matrices. The antisymmetric distance block is strictly negative for all nonnegative exponents, and the only threshold is the unique zero of the positive-branch block. Centered Gram ranks give the asserted embedding dimensions. The Gaussian Fourier representation makes every finite distinct-point Euclidean Gaussian Gram matrix strictly positive definite. For ordinary distance, both remaining Gaussian eigenvalues factor explicitly and yield the exact bandwidth boundary. Independent finite-matrix diagnostic calculations corroborate the analytic spectra but are not substituted for proof.
+PASS
 
-## Originality — PASS within bounded literature comparison
+Counting incidences gives MM^T=M^T M=qI+J and constant row and column sums q+1; each side has N=q^2+q+1 vertices. The two constant sectors and the paired zero-sum subspaces reduce both kernels to scalar ± blocks, with restricted singular value sqrt(q). For D_p the antisymmetric constant block starts at −1 at p=0 (off-diagonal convention) and is strictly decreasing because (q+1)log 2<q log 3; the lower paired block is strictly negative. The upper paired block changes sign at the unique root of (3/2)^p−(1/2)^p=1/sqrt(q), an increasing function from zero to infinity. At the root precisely N−1 mean-zero eigenvalues vanish; the centered Gram matrix has rank N there and 2N−1 strictly below. The zero diagonal and strictly positive off-diagonal squared distances give distinct points in the Gram realization. For the exponential kernel at t>0, the constant symmetric eigenvalue and upper paired block are positive; the two remaining displayed inequalities are exactly the other eigenvalue tests. Below or at the exponent threshold strict positivity for every t>0 follows from the Fourier representation of the Gaussian on the distinct embedded points. For p=1 and z=exp(−t), the two tested blocks factor as (1−z)(1−qz+q^2 z^2) and (1−z^2)(1−sqrt(q) z). The former is positive, and the latter gives exactly t=(log q)/2 as the positive boundary, with kernel rank N+1 there; t=0 is the separate rank-one case. For supercritical p the small-t derivative is negative on the positive distance block, while the large-t limit is I. Independent symbolic factorization and an exact shortest-path check on a cyclic Fano difference-set model gave boundary rank 8 and reproduced the stated q=2,p=2 example with the antisymmetric inequality failing alone.
 
-The fully inspected geometric source De Winter–Lazebnik–Verstraëte concerns extremal cycle counts, while Sánchez's fully inspected negative-type source provides a general finite metric criterion and complete-bipartite example rather than projective point–line incidence threshold. Known Heawood adjacency spectra do not individually imply a statement of the full powered-distance kernel classification without a nontrivial metric and character decomposition. The closest indexed projective-incidence results encountered concern Vietoris–Rips homotopy and neighborhood complexes, not positive definiteness; these are not treated as globally exhaustive, and their indexed summaries are not interpreted as inspected full text. Residual risk: an older association-scheme or negative-type paper could express an equivalent sharp formula or a stronger theorem that covers this calculation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The projective-plane incidence graph is a canonical infinite family of diameter-three, highly regular discrete spaces. Its powered shortest-path metric has an exact non-obvious exponent cutoff depending on the plane order, a large rank collapse at the boundary, and a completely explicit two-parameter covariance criterion. The particularly sharp ordinary-distance bandwidth transition is useful for constructing admissible or inadmissible radial covariance models on these geometries, including non-Desarguesian planes. This is a structural infinite-family classification, not a small arbitrary table or normalization observation.
+The exact negative-type root and both Gram embedding ranks have material separately indexed coverage and are not credited here as a distinct contribution. The supported distinct component is the evaluated projective-plane powered-exponential covariance region, including its exact positive ordinary-distance threshold and covariance endpoint rank. The strongest primary sources provide the equivalent Gibbs/Q-matrix problem and general radial positivity machinery, not an evaluated projective-plane cutoff or this powered two-parameter region. The prior generalized-quadrangle classification is for a materially different graph and has a different phase and nullity.
 
-## Verification and limitations
+## value
 
-The released checker was run with NumPy and SciPy; 66 diagnostic assertions passed for projective-plane orders 2, 3 and 5. The formal proof assumes an existing finite projective plane. It does not classify the topology of all supercritical bandwidth regions, and independent audit or validation has not occurred. The review is self-review only and the originality search is bounded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural infinite family of diameter-three finite geometries, the result tells exactly which powered radial exponential matrices can be covariance matrices, including examples where only one of two genuine obstructions fails. The simple ordinary-distance positive threshold and its large boundary nullspace quantify a sharp difference from all-bandwidth negative type and from the known quadrangle phase. The covariance classification and rank are useful even without counting the connected components of the powered parameter region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

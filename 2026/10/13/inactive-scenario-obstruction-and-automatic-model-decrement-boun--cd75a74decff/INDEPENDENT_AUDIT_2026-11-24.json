@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:51.056482Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, particularly the Finding, Assumptions and Proof; VERIFICATION.md; artifacts/verify_inactive_scenario.py and its recorded output",
+        "Kumar–Mahato–Ghosh, arXiv:2503.06476v1, §3.1, Eq. (3.1), Eq. (3.4), Theorem 3.1"
+      ],
+      "rationale": "The exact scalar model is bounded below by w+w²/2=−1/2+(w+1)²/2 everywhere, and at w=−1 the two affine terms are −1 and −2, so the lower bound is attained uniquely with θ=−1/2. Only the first scenario is active at zero, giving directional derivative −1; the inactive product is M>0 and hence exceeds every negative bound of the stated form. Both affine functions meet the smoothness and convexity conditions, and the robust max is bounded below since it grows at both infinities. The obstruction applies to any step prescription requiring the exact direction and the stated all-scenario test at this point; it does not refute convergence conditional on the test. For the general model, G=Ψ_x+∥·∥²/2 is strongly convex and G(0)=0, so G(0)≥G(v)+∥v∥²/2 at its minimizer. The norm bound follows, and each objective's baseline-adjusted model is bounded by Ψ_x(v)=θ−∥v∥²/2. Active scenarios have zero baseline offset and obey the claimed product bound. The frozen supporting script and saved output were inspected, not executed; the calculation here is analytic.",
+      "residual_risks": [
+        "The general mathematics is verified for the exact baseline-adjusted model and the all-scenario inequality as displayed. The exact wording of the separate 2026 printed Assumption 4.1(15) and Step 2 could not be independently inspected in full text; the source-specific attribution remains qualified.",
+        "The result does not verify an inexact subproblem bound or a revised convergence theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible follow-up already proves exact subproblem descent and negativity of the optimal value at noncritical points in general dimension and objective count.",
+          "The two new-looking inequalities are immediate from the common model definition and strong convexity. The separate predecessor and Newton full texts were not retrieved."
+        ],
+        "reasoning": "The broad existing descent theorem and standard convex bounds cover the positive ingredients, not the exhibited incompatibility with an extra uniform raw-gradient test.",
+        "searches": [
+          "arXiv:2503.06476v1, Theorem 3.1 and Eqs. (3.1), (3.4)",
+          "DOI 10.1080/00036811.2024.2426219 predecessor and DOI 10.1007/s11075-026-02381-0 Newton comparison"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary index and the Wolfe-grid finding above",
+        "arXiv:2503.06476v1",
+        "DOIs 10.1080/02331934.2026.2692698, 10.1080/00036811.2024.2426219 and 10.1007/s11075-026-02381-0 (access or attribution limited as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier model implies the decrement and norm estimates by exact minimization, so those estimates are not independent novelty.",
+          "The affine family gives exact θ=−1/2 and ∇f₂(0)·v=M for arbitrary M>0. The earlier active-only descent result does not give this counterexample to the stricter test."
+        ],
+        "reasoning": "The surviving improvement over prior positive descent theory is a specific algebraic witness to nonimplication, not a better bound for active directions or a new convergence proof.",
+        "searches": [
+          "arXiv:2503.06476v1, §3.1 and Algorithm 3.1",
+          "Exact article title and DOI lookup for the non-monotone algorithms and Assumption 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier descent definition uses only active scenarios. Eq. (3.1) uses all scenarios with objective-value offsets, not a maximum of unshifted gradients.",
+          "Neither the active-only characterization nor the inspected earlier Step 2 states nonexecutability when one adds the all-scenario unshifted test."
+        ],
+        "reasoning": "A baseline shift is essential. Robust directional descent and descent for every scenario are not equivalent; the family separates them with an exact direction in the same baseline-adjusted model.",
+        "searches": [
+          "Resultary semantic comparisons for inactive-scenario obstruction, baseline-adjusted max-model and robust steepest descent",
+          "arXiv:2503.06476v1, §3.1 and Algorithm 3.1",
+          "Exact-title/DOI lookup for 10.1080/02331934.2026.2692698"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest nearby finding, 2026/10/4/SCOPE-exact-scale-frontier-for-the-one-sided-wolfe-grid-in-robust-stee--7a86ea802018, treats a single-scenario quadratic and a scale obstruction to a dyadic Wolfe grid."
+        ],
+        "reasoning": "That indexed witness cannot encode the claimed inactive-scenario mechanism with opposite raw signs. The assertion is a symbolic continuous family and comparison with exact model equations, not a tabulated numerical case.",
+        "searches": [
+          "Published Resultary semantic index for robust steepest descent counterexamples and inactive scenarios"
+        ]
+      },
+      "rationale": "The supported distinct claim is a source-model obstruction: a family with strict actual robust descent and unbounded positive inactive-scenario product while the exact subproblem value stays fixed. The active-set descent criterion and exact proximal-model bounds are standard antecedents or elementary consequences of the available earlier model; they do not earn separate originality credit. The best inspected evidence does not cover the explicit counterexample or the specific incompatibility it diagnoses.",
+      "residual_risks": [
+        "The named non-monotone and Newton articles and the monotone predecessor could not be inspected in full. Neither the exact source attribution nor historical priority is certified; the comparison supports the mathematical witness for the stated model and test."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior model and descent coverage, but not the explicit obstruction",
+          "evidence": "Its robust direction test uses active scenarios; its Step 2 solves the model without the extra all-scenario test. The model itself implies the two positive estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.06476",
+          "material_read": "§3.1, pp. 5–6 (OA offsets approximately 16200–20700), Eq. (3.1), Eq. (3.4), Theorem 3.1; Algorithm 3.1 p. 7 (offset about 21617)",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "Global Convergence and Rate Analysis of the Steepest Descent Method for Uncertain Multiobjective Optimization via a Robust Optimization Approach",
+          "trigger": "Exact predecessor model and active-scenario descent"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; attribution to the specific equation and step remains a limitation",
+          "evidence": "The exact-title and DOI lookup identified the journal item and a ResearchGate record; neither yielded lawful readable full text in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.1080/02331934.2026.2692698",
+          "material_read": "Bibliographic identification only; no assumption or algorithm passage retrieved",
+          "method": "Publisher and DOI OA routes, DOI repository recovery, and identified ResearchGate record attempted",
+          "title": "Non-monotone steepest descent algorithms for robust counterparts of uncertain multiobjective problems",
+          "trigger": "Exact Assumption 4.1(15) and Step 2 targeted by the counterexample"
+        },
+        {
+          "assessment": "Shared model supported indirectly; example priority unresolved in this paper",
+          "evidence": "The publisher refused access and no lawful repository copy was identified. The follow-up explicitly supplies the baseline-adjusted model and active criterion.",
+          "identifier_or_url": "https://doi.org/10.1080/00036811.2024.2426219",
+          "material_read": "No direct full text retrieved; accessible 2025 follow-up's account of the model was inspected",
+          "method": "DOI, publisher OA and repository-copy attempts; bounded comparison to the explicitly related OA follow-up",
+          "title": "Steepest descent method for uncertain multiobjective optimization problems under finite uncertainty set",
+          "trigger": "Monotone predecessor might already give a matching example or positive bounds"
+        },
+        {
+          "assessment": "Newton assumptions not independently compared",
+          "evidence": "Retrieval did not yield a full-text passage or a lawful alternate copy. This is not evidence against overlap.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-026-02381-0",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "DOI/publisher OA and repository recovery attempts",
+          "title": "Hybrid Newton's descent method with nonmonotone line search for robust multiobjective problems",
+          "trigger": "Closely related nonmonotone formulation and possible model-decrement overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, affine witness and exact replacement bounds",
+        "arXiv:2503.06476v1, model and active-scenario descent criterion"
+      ],
+      "rationale": "An algorithm cannot require both the exact standard subproblem minimizer and a negative upper bound on all raw scenario-gradient products on the full finite-scenario class. The witness isolates the reason from curvature, line search and solver error: even affine scenarios give a fixed, genuinely descending exact step, while arbitrary inactive slopes defeat the proposed requirement. This diagnoses what to test in this model rather than merely rederiving a proximal inequality.",
+      "residual_risks": [
+        "There is no conclusion about algorithms that impose the extra condition as a true input hypothesis, about failure of ungated algorithms, or about global convergence after a modification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

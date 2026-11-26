@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:16.427433Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–74; VERIFICATION.md; verify.py (read only)",
+        "/workspace/branches/440de3e8-4f6c-4cfe-9394-838290c1365f/replay_mass.py"
+      ],
+      "rationale": "The continuous endpoint mass of one transformed component is a/(2πc); its Poisson kernel has ratio q=(a-c)/(a+c). Averaging the absolutely convergent Fourier series retains precisely the multiples of n and gives the stated mass. For odd n both q→q^n and x→(1+x)/(1-x) are strictly increasing, and q_i strictly decreases with c; the extreme component scales bracket the root, including the all-equal case. For n=2m the displayed second derivative factors into nonnegative factors times the bracket (2m-1)(1+R^m)-2 sum_{j=1}^{m-1}R^j, which is at least m(1+R^m) by the secant bound for R^j (including R=0 by continuity). Curvature can vanish only at isolated points, and mass diverges at both log-scale ends, giving strict convexity and a unique minimizer. In the balanced two-scale case reflection fixes the even minimum at g=√(ab). The odd root has s=log(c/g)>0 and obeys (u/v)^n=1-2u^n for 0<u≤r≤v<1. Taking logs gives n(log v-log u)=O(r^n), so s=O(r^n/n) by the positive derivative of log(v/u). Consequently u^n is asymptotic to r^n and the derivative at zero is (1-r^2)/r, giving the claimed coefficient. Finite independent checks found direct-grid/formula agreement within 6.33e-81, and odd displacement ratios tending to 1 (0.999650183 at n=5 and 0.9999999965 at n=13 for scales 1,9).",
+      "residual_risks": [
+        "The independent replay is bounded and is not a proof of the all-parameter statement or an assessment of finite-precision conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result states strict convexity in log scale for all even n and additionally derives large-node asymptotics for unequal endpoint weights. Suzuki et al. require Schwartz decay and set the mapped endpoints to zero."
+        ],
+        "reasoning": "The catalogue covers the actual Cauchy setting and goes beyond it; the older Schwartz-weight convergence theorem does not cover this endpoint or optimization.",
+        "searches": [
+          "Resultary: Möbius trapezoidal quadrature Cauchy mixture strict convexity logarithmic scale even nodes mass overestimate",
+          "Suzuki–Hyvönen–Karvonen arXiv:2407.13650v2, Remark 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and exact local result file",
+        "Suzuki–Hyvönen–Karvonen",
+        "Trefethen–Weideman"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general alias identity retains modes divisible by n. The indexed result applies it to precisely the same component ratio and adds the parity extrema and displacement."
+        ],
+        "reasoning": "General aliasing alone is not the calibration theorem. The indexed exact formula and its parity theorem cover all unequal-scale cases; when all scales coincide the same single-component formula gives odd exactness and even minimum 1 at c=a, with strict even curvature off the center by the same factorization.",
+        "searches": [
+          "Resultary: Möbius transformed trapezoidal rule Cauchy mass calibration Fourier aliasing Poisson kernel",
+          "Trefethen–Weideman DOI 10.1137/130932132, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-parity-sharp-exactness-and-scale-optimization-for-cauchy-mixture--4c38c0a9043c, RESULT.md offset 1350 onward, states the same transformed density, grid, and parity classification."
+        ],
+        "reasoning": "Its scale L is c, its positive cotangent and absolute Jacobian give exactly the same density as negative cotangent with positive derivative by centering, and its 0 endpoint replaces 2π without changing the periodic grid.",
+        "searches": [
+          "Resultary: unshifted Möbius trapezoidal quadrature centered Cauchy mixture odd even node mass exact scale parity classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed theorem's Balanced two-scale refinement states both min(Q_n-1)=2ρ^n/(1-ρ^n) and log(L_n/√(ab)) asymptotic to 2ρ^(n+1)/(n(1-ρ²)); its proof derives the matching root equation."
+        ],
+        "reasoning": "This is exact formula coverage from the indexed full result, not an inference from finite tabulation or the search summary.",
+        "searches": [
+          "Resultary: equal weight two scale Cauchy mixture odd node exact mass scale root displacement asymptotic"
+        ]
+      },
+      "rationale": "A distinct indexed record covers the substantive claim in full: same centered positive mixture, continuous endpoint, zero-phase grid, finite-node formula and parity classification, strict convexity, and both balanced two-scale formulas including the precise odd displacement. Its catalogue date is later than the frozen record's date; this is verified existing coverage, not evidence of earlier priority or attribution. The all-equal boundary is an immediate single-kernel case, not a distinct remaining contribution.",
+      "residual_risks": [
+        "The external keyword search was uninformative; no conclusion is drawn about exhaustive literature priority or the relationship between the two dated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent coverage with additional results; later catalogue date not a priority finding.",
+          "evidence": "Exact finite-node classification and Balanced two-scale refinement state the convexity, exact even bias, and sharp odd displacement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-sharp-exactness-and-scale-optimization-for-cauchy-mixture--4c38c0a9043c/RESULT.md",
+          "material_read": "RESULT.md, offset 1350–4029; convexity and root proof around offsets 5200 and 7400",
+          "method": "Local Resultary mirror",
+          "title": "Parity-sharp exactness and scale optimization for Cauchy-mixture Möbius quadrature",
+          "trigger": "Strongest relevant indexed hit across all four searches"
+        },
+        {
+          "assessment": "Prior transformation and quadrature, different endpoint and hypotheses.",
+          "evidence": "Positive monotonic Schwartz weights; Remark 3.3 implements zero mapped endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.13650v2",
+          "material_read": "Abstract, §2.1, Remark 3.3 (PDF p. 11)",
+          "method": "OA PDF",
+          "title": "Möbius-Transformed Trapezoidal Rule",
+          "trigger": "Same quadrature framework"
+        },
+        {
+          "assessment": "General aliasing mechanism, not the claimed mixture optimization in the inspected passage.",
+          "evidence": "Fourier modes at nonmultiples of the node count cancel in the discrete mean.",
+          "identifier_or_url": "https://doi.org/10.1137/130932132",
+          "material_read": "§2, equations (2.4)–(2.8)",
+          "method": "OA text reading",
+          "title": "The Exponentially Convergent Trapezoidal Rule",
+          "trigger": "Classical aliasing step"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding; indexed exact finite-node and balanced two-scale statements"
+      ],
+      "rationale": "Calibration of the mass without renormalization is a natural numerical question, and the convexity and displacement are scientifically useful as results. But the surveyed index already supplies the same usable formulas and stronger nearby results. The reviewed package adds no distinct exact invariant or nonroutine refinement beyond that coverage.",
+      "residual_risks": [
+        "This does not detract from the mathematics or imply any conclusion about priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

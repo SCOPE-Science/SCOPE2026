@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:58:23.316911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–47 and 49–90",
+        "VERIFICATION.md, lines 19–27; verify.py, lines 6–58, inspected only",
+        "/workspace/review-evidence/5-threshold-replay.md"
+      ],
+      "rationale": "The uniform inverse-branch weights give a triangular conditional update on the centered linear and quadratic observables, with linear multiplier sδ, quadratic multiplier b and cross coefficient −(1−d)/4. This forces the reverse-directed third moment to vanish and expresses the other as a sum of environment products. Odd products vanish by symmetry; the expectation of an even block is a product of independent adjacent-pair flip increments. This gives the all-lag formula, generating function and parity covariance. Grouping successive odd/even lags reduces the sign to the finite geometric series in z/b²; zeros occur precisely in the stated two classes at the boundary. The identity b²/d=(1/d+6+9d)/16 has unique minimum 3/4 at d=1/3, giving p=1/8 as the sharp envelope; for p<1/8 both root endpoints are inside (0,1). The other algebraic discriminant zero, p=1/2, has no admissible double root in d. Strict asymmetry already at lag one proves nonreversibility everywhere in the stated domain.",
+      "residual_risks": [
+        "The sign threshold is annealed. At p<1/8, δ must still lie inside the claimed window for any positive lag. It is not a statement for arbitrary switching environments, observables or parameters at the excluded endpoints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahsoun et al. analyze annealed correlation decay for i.i.d. random intermittent maps. Cloez–Hairer prove Wasserstein ergodicity for random switching, not exact two-time third moments.",
+          "The frozen comparator for Porfiri–Belykh is Markov-switching synchronization of coupled tent maps. Independent OA retrieval did not expose that paper's primary passages."
+        ],
+        "reasoning": "General mixing or switching results can supply a framework but do not produce the exact coupled sign-product evaluation, a repeatable modulo-four pattern, or the sharp envelope in (p,d).",
+        "searches": [
+          "Bahsoun–Bose–Duan, arXiv:1305.6588",
+          "Cloez–Hairer, arXiv:1303.6999",
+          "Porfiri–Belykh, doi:10.1137/17M111136X"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 100–114",
+        "OA arXiv:1305.6588 and arXiv:1303.6999",
+        "Resultary deterministic third-order, i.i.d. quadratic correlation, and directed covariance records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A deterministic polynomial identity gives each conditional update, but the Markov increment average changes the generating denominator to (1−bv)(1−zv²). Its competing factors give the four residue classes, and optimizing b²/d gives the threshold.",
+          "The older deterministic Tefas appendices were not recovered; no assertion of whole-paper noncoverage is based on metadata."
+        ],
+        "reasoning": "The checked prior formula and general correlation theory do not mechanically give these evaluated mixed moments and sharp finite-parameter boundary together. An exact prior extension to this Markov model would be material, but none was established by the bounded inspection.",
+        "searches": [
+          "Tefas et al., doi:10.1109/TSP.2003.811245, Appendix A (as cited in the source)",
+          "Deterministic third-order Resultary record, RESULT.md Finding offset 0",
+          "Bahsoun–Bose–Duan, arXiv:1305.6588, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is the difference of two stationary cubic correlations with coincident time arguments. The earlier full-branch record computes the array with strictly positive two gaps and reversal contrast for one deterministic map.",
+          "Both use the centered linear/quadratic polynomial transfer. Replacing the earlier map by one of the two fixed tents reproduces the component deterministic update, not the expectation of a run of correlated slopes."
+        ],
+        "reasoning": "Coincident-time language and the transfer formulation expose a genuine overlap in method and statistic, but the change to a stationary complementary Markov environment is essential to the sign changes and cannot be implemented by a deterministic gap relabeling.",
+        "searches": [
+          "Markov switching complementary skew tent maps mixed third-order correlations time reversal asymmetric lag moments Tefas",
+          "Resultary: 2026/10/18/SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact earlier formula has positive gaps, A and θ as constants of one full-branch map, and contrast θAB/12 for adjacent gaps 1,2.",
+          "The other indexed comparators compute an i.i.d. switched squared-coordinate correlation and a paired deterministic tent sign–coordinate covariance, respectively."
+        ],
+        "reasoning": "The exact indexed results concern different stochastic laws or observables; none of their stated formulas supplies all terms, the p threshold, or the full switched sign classification. This comparison is not a claim of catalogue completeness.",
+        "searches": [
+          "Resultary local mirror: deterministic exact third-order correlations, 2026/10/18/SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa",
+          "2026/11/1/SCOPE-noise-induced-quadratic-jordan-resonance-in-randomly-switched-sk--3359bfd9dd8c",
+          "2026/11/17/SCOPE-exact-markov-sign-dynamics-with-a-hidden-directed-covariance-mod--4c1cf441f778"
+        ]
+      },
+      "rationale": "An earlier exact deterministic full-branch result uses the same polynomial mechanism and studies cubic reversal contrasts. It neither averages complementary maps under a persistent Markov chain nor implies the resulting all-lag sign diagram. The inspected stochastic comparators concern independent intermittency or general ergodicity; the closest Markov-switching tent-map citation requires a different synchronization objective in the frozen description and could not be fully inspected. The supported distinct claim is the evaluated directional-moment law and sharp four-phase switching threshold, not polynomial transfer or third-order correlations in general.",
+      "residual_risks": [
+        "Tefas appendix, Porfiri–Belykh and the suggested ETH thesis were not obtained. The named specific risk is an older exact analysis of switched affine tents or equivalent mixed third moments, not a reason to infer absence or fail by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material polynomial transfer and reversal overlap, deterministic scope",
+          "evidence": "C_j,m=B θ^j sum_(q=0)^(m−1) A^(m−1−q) θ^q /12, with j,m>=1 and one map T; C_1,2−C_2,1=θAB/12.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa",
+          "material_read": "RESULT.md Finding offset 0, through the positive-gap formula and reversal contrast",
+          "method": "Resultary local mirror",
+          "title": "Exact third-order correlations distinguish full-branch interval maps with identical linear and quadratic autocorrelations",
+          "trigger": "Exact cubic reversal law for a closely related full-branch tent system"
+        },
+        {
+          "assessment": "Different map class and switching law",
+          "evidence": "I.i.d. composition of intermittent maps, with annealed correlation decay as the objective.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.6588",
+          "material_read": "p. 1, offset 0",
+          "method": "Lawful OA full text",
+          "title": "Decay of correlation for random intermittent maps",
+          "trigger": "Exact scope comparison for randomized interval-map correlation"
+        },
+        {
+          "assessment": "General ergodicity rather than exact cubic correlations",
+          "evidence": "Wasserstein exponential ergodicity result for random switching does not determine the signed moments.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6999",
+          "material_read": "pp. 5–6, offset 15258",
+          "method": "Lawful OA full text",
+          "title": "Exponential ergodicity for Markov processes with random switching",
+          "trigger": "Potential general stochastic-switching coverage"
+        },
+        {
+          "assessment": "Independent scope comparison unresolved",
+          "evidence": "The author-copy request returned 403 and the DOI route found no copy. The frozen account attributes the formulas to a single deterministic skew tent; that attribution is not an independent whole-paper inspection.",
+          "identifier_or_url": "doi:10.1109/TSP.2003.811245",
+          "material_read": "Frozen citation to Appendix A (A-12)–(A-14); no independent primary passage obtained",
+          "method": "Lawful author-copy and DOI/repository retrieval attempts",
+          "title": "Performance analysis of correlation-based watermarking schemes employing Markov chaotic sequences",
+          "trigger": "Plausible closest historical tent-map third-order correlation formulas"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "403 and no repository copy; frozen description concerns mean-square synchronization rather than the stationary observable here.",
+          "identifier_or_url": "doi:10.1137/17M111136X",
+          "material_read": "Frozen relationship-to-prior-work summary only; no independent full text recovered",
+          "method": "Lawful DOI/repository retrieval attempts",
+          "title": "Memory matters in synchronization of stochastically coupled maps",
+          "trigger": "Plausible earlier analysis of Markov-switched tent maps"
+        },
+        {
+          "assessment": "Unresolved relevance; not treated as evidence of coverage or noncoverage",
+          "evidence": "Reported PDF resolved to a landing page and the handle retrieval errored.",
+          "identifier_or_url": "https://hdl.handle.net/20.500.11850/145704",
+          "material_read": "No thesis passage or reliable detailed title recovered",
+          "method": "Lawful OA attempt at reported PDF and handle",
+          "title": "Diss. ETH Nr. 14475 (search citation)",
+          "trigger": "Only hit of the targeted primary-literature query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 15–47 and 76–90",
+        "/workspace/review-evidence/5-threshold-replay.md"
+      ],
+      "rationale": "For a natural stationary full-branch benchmark with reversible switching, the observed spatial law is already irreversible at lag one while higher-lag directional moments cross a sharp explicit boundary. The all-lag calculation identifies exactly when and at which residue classes a sign-based diagnostic would change its conclusion about direction; the simultaneous covariance law distinguishes that information from second-order correlation. The threshold is in switching persistence, not an arbitrary slice or an onset of irreversibility.",
+      "residual_risks": [
+        "The sign diagram is for one observable and one symmetric complementary environmental model; it does not characterize reversal statistics for general random maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

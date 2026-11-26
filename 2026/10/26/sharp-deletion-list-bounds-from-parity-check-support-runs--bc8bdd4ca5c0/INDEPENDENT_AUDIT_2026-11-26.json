@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:10:57.546999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed received word, the rightmost insertion representatives are the two appends and the insertion opposite to the symbol at each of the n−1 other positions, giving n+1 distinct parents. Deleting positions i and j from the same parent gives the same output only if entries i through j are constant; thus each parent's deletion set is an interval. The n edges each flip exactly the corresponding check coordinate and consecutive edges share a parent, so the edge syndromes recover the mask as the XOR of odd-parent intervals. Its 2r padded boundaries require at least r odd parents. For the proposed y the prescribed symbols do not conflict even with a single zero between support runs. The selected intervals reproduce those edge syndromes, and the actual syndrome of X_1 is r−1+Σ_j ℓ_j t_j=1 mod 2, ruling out global complement. For a single even run one odd parent alone would have to be constant on the whole support and would in fact be even. The block of ℓ−2 ones gives exactly two odd parents, including the ℓ=2 case. Unique tiling by 0 and 11 gives F_{n+1}, including the zero mask. Read the frozen proof, checker and recorded output; independently tested all masks and outputs through n=8 by canonical rightmost insertions with `python /workspace/branches/review-computations/check_finite.py`. The finite run corroborates the all-length argument, and does not classify the exceptional masks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited binary qualifications use d>1 or d>t and the alternating counterexample has d=1. The nearby Resultary linear-code result optimizes dimension subject to list size two up to length ten."
+        ],
+        "reasoning": "Rate/distance bounds and dimension optimization do not give the worst-case count for each individual fixed mask, or separate masks with the same dimension and Hamming distance by support runs.",
+        "searches": [
+          "arXiv:2610.23270v1, Theorem 7 and Corollary 8 as scoped by Remark 9, and Remark 10",
+          "Resultary: binary linear two-list single-deletion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.23270v1",
+        "Resultary 964e0d173874",
+        "Resultary 7c5ff1200899"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 9 states that C_L with c_1+c_3+⋯+c_{2L−1}=0 is (1/(2L−1),L)-list-decodable. The frozen proof instead represents h as the XOR of the intervals of odd parents for each received word."
+        ],
+        "reasoning": "The prior cap on C_L does not imply the odd-parent interval bound for arbitrary supports, even-run obstruction, or the Fibonacci exceptional bound. The frozen finding makes no insertion-output assertion.",
+        "searches": [
+          "arXiv:2610.23270v1, pp. 8–9, Remarks 9–10",
+          "Resultary: run-sensitive parity-check deletion ambiguity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 9 uses parity on odd coordinates at length 2L−1, so has r=L singleton runs; its bound is L. The frozen exact deletion count is also L there."
+        ],
+        "reasoning": "The alternating mask is literally a case of the theorem, not a separate invariant. Arbitrarily placed and nonsingleton runs are not interchangeable by general coordinate permutation because deletions retain the original order.",
+        "searches": [
+          "Resultary: single-deletion parity hyperplanes, parity-check support runs",
+          "arXiv:2610.23270v1, Remark 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby catalogue entries concern exact short-block dimension for two-list linear codes (964e0d173874) and unrestricted codebook sizes for prescribed list bounds through length seven (7c5ff1200899)."
+        ],
+        "reasoning": "Neither optimization stores L(h) per check mask, much less an all-length classification with the prescribed exceptions. Finite author-side enumeration is corroboration, not an existing covering classification.",
+        "searches": [
+          "Resultary: parity hyperplane deletion parent lists, n−r+1 support-run bound, binary single-deletion list capacity"
+        ]
+      },
+      "rationale": "The checked predecessor supplies a list cap for the alternating singleton-run family, not the run-sensitive result for arbitrary fixed hyperplanes. Credit that family as overlap; the new content is the all-mask interval-XOR bound and its stated sharpness regimes and prevalence. No stronger covering result was verified.",
+      "residual_risks": [
+        "The targeted primary-literature search service was unavailable; this is not evidence against coverage. The accessible named predecessor and catalogue hits were compared, but older synchronization-code equivalents or unindexed exact calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the alternating-family cap, not the stated arbitrary-mask theorem",
+          "evidence": [
+            "Length 2L−1, check on odd coordinates, d=1, claim of (1/(2L−1),L)-list decodability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23270",
+          "material_read": "v1, pp. 8–9, Remark 9 and adjacent scope of the bounds; located around extracted offsets 25,616 and 26,607",
+          "method": "Open-access primary PDF, targeted passage comparison",
+          "title": "A Generalized Half-Singleton Bound for List Decoding of Insertion/Deletion Errors",
+          "trigger": "Explicit binary parity-check list-decoding counterexample"
+        },
+        {
+          "assessment": "Nearby indexed objectives differ from the fixed-mask invariant; no full-text exclusion claimed on this basis",
+          "evidence": [
+            "The former fixes list size two and optimizes dimension; the latter optimizes unrestricted sizes subject to a list cap."
+          ],
+          "identifier_or_url": "Resultary 964e0d173874; 7c5ff1200899",
+          "material_read": "Catalogue statements on optimized dimension or codebook size, respectively",
+          "method": "Local semantic search and comparison of indexed objects",
+          "title": "Resultary short-block single-deletion list decoding results",
+          "trigger": "Possible exact enumeration or subsuming table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case distinct-parent ambiguity is a receiver-relevant invariant of the highest-rate proper binary linear codes. The result explains structurally why coordinate geometry, not just the number of parity checks or the Hamming distance, controls this ambiguity, and gives attainable values for exponentially nearly all masks without a length cutoff. The unresolved regime is expressly delimited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

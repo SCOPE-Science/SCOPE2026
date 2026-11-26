@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The program requires only the standard library and ends with `VERIFY_OK` if all assertions hold.
+## correctness
 
-The checker constructs the Lie brackets from seven independent structure constants and verifies the alternating law and all basis-triple Jacobi identities in three fields. It independently checks the central derivation rule on all ordered basis pairs, enumerates every possible central map, and checks pointwise commutator membership for every generator direction. Over \(\mathbb F_2\), it additionally tests all \(256\) elements of the algebra against the noninner example and checks all \(16\) central maps against all elements. Direct enumeration of inner linear maps yields \(32\) different maps, agreeing with the center dimension.
+PASS
 
-Observed counts: over \(\mathbb F_2\), eight central almost-inner maps versus four central inner maps; over \(\mathbb F_3\), nine versus nine; over \(\mathbb F_4\), sixteen versus sixteen.
+The displayed bracket realizes the free quotient: up to degree four, alternating brackets and Jacobi give spanning lists of lengths 2,1,2,3, with [u,y]=[v,x] the degree-four relation; the displayed eight-dimensional algebra realizes those dimensions (Jacobi in the only nontrivial distinct-generator triple uses that relation). The derived ideal is abelian, and the degree-four part is exactly the center. In the class-three quotient, after removing a lifted Heisenberg inner derivation a central almost-inner map sends x to lambda u and y to mu v. Its value at x+y has to be on the u+v line, so lambda=mu and the class-three map was inner. Lifting an inner adjustment leaves a central derivation on the original algebra killing its derived ideal. For a pure generator direction alpha x+beta y, its central commutator slice is the span of alpha a+beta b and alpha b+beta c; lower-degree brackets cannot add central directions by cancellation. The same span remains available after adding any derived-ideal vector, because the two bracket witnesses u,v commute with that ideal. For images (pa+hb,rb+sc), the membership determinant is alpha beta times alpha(s-h)+beta(p-r). The two axis cases are automatic. Two different nonzero scalars force s=h and p=r, precisely the central inner maps. In F2 only one equation remains, allowing the stated noninner representative. The center gives inner dimension five. An independent F2 replay enumerated every allowable pair of generator images, extended by the derivation identities, checked all basis pairs and all 256 pointwise conditions, and found 64 almost-inner maps, precisely 32 inner.
 
-This is a finite computational check, not a universal proof. The universal statement rests on the structural reduction and determinant calculation in `RESULT.md`. The count of all almost-inner maps also uses that the class-three quotient has only inner almost-inner derivations, proved there. An independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Pass for the sharp field-size dichotomy in the specified free class-four algebra, including the binary witness and rigidity at every other finite field. Infinite-field rigidity, known non-inner almost-inner derivations, and field-extension effects in other algebras are credited, not claimed as new.
+
+## value
+
+PASS
+
+This is the first possible class in the canonical two-generator free series where the known rigidity statement can fail over F2. The explicit obstruction distinguishes field cardinality from characteristic, gives an exact local-versus-global witness over the smallest field, and identifies precisely when field extension removes it in this example. That is a motivated boundary of a known theorem, not a census of an arbitrary small algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

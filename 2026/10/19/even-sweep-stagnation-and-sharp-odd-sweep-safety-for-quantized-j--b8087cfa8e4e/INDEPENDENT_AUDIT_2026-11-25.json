@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:30:53.606577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–73; VERIFICATION.md, lines 18–22; verify_quantized_jacobi.py, lines 20–124 (static inspection)",
+        "Independent p=3, d=2 midpoint check (predecessor 7/16, midpoint 15/32, ties up to 1/2); cycle C4 with r=31/32 has kappa=63, g_63(−1)=−31/32, g_65(−1)=−33/32, and g_64(+1)=1."
+      ],
+      "rationale": "Resetting the inner guess gives E_k=I-(I+rP) sum_{j=0}^{k-1}(-P)^j. Symmetry reduces its norm and convergence to the scalar polynomial g_k. At +1 the eigenvalue is 1 for even k (and the tested right-hand side gives a zero correction on every refresh) and −r for odd k. At −1 it is 1−k(1−r). For odd k write delta=1−r. On nonnegative λ one has g=−λ^k+delta·λ(1+λ^k)/(1+λ), so g≥−r using λ^k≤λ and g≤delta; for k≥3 with delta(k+1)≤2 the latter is at most r, while k=1 gives g=−rλ directly. On λ=−t, g=t^k−delta sum_{j=1}^k t^j≤rt^k. Summing the secant bound for t^j on j=0,...,k gives g+r≥(1+t^k)(1−delta(k+1)/2). Dropping the j=0 term instead gives g≥(1−k·delta/2)t^k−k·delta/2, strictly above −1 when k·delta<2. The nonnegative half also lies strictly between −1 and 1, and the −1 spectral endpoint proves necessity and the sharp rate deterioration when present. The predecessor of 1/d is (1−2^(-p))/d for dyadic d, so the midpoint and ties-to-even direction are as stated. The stochastic graph coupling has the +1 eigenvector and the sign vector gives −1 for bipartite instances; r<1 keeps the original operator SPD.",
+      "residual_risks": [
+        "The 29,781 reported checks were not replayed in full; the exact inequalities establish the unrestricted spectral result. Post-storage arithmetic including the residual must be exact here; the result is not a finite-precision or wall-clock guarantee. The odd threshold is necessary only under the stated extra −1 eigenvalue hypothesis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lindquist et al. analyze storage perturbations for stationary iterations and separately give the matched residual restart equivalence. Tamstorf et al. treat quantization's effect on definiteness and multigrid cycles; Suzuki–Iwashita use nested Krylov/Richardson."
+        ],
+        "reasoning": "The broad mixed-precision settings motivate this question but do not imply exact r on all safe odd counts, the case with stored inner spectral radius exactly 1, or the necessary bound for −1 via a specialization of an inspected theorem.",
+        "searches": [
+          "Resultary: matrix splitting quantization restarted stationary iteration mixed precision Jacobi refinement polynomial Neumann series spectral radius",
+          "arXiv:2610.06414 §2 and Thm. 2.1; arXiv:2007.06628 §4; arXiv:2505.20719 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Inspected OA passages and Resultary comparator listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polynomial itself is the elementary partial geometric sum. The known ±1 test modes certify lower bounds, but do not control interior spectral values for arbitrary symmetric P."
+        ],
+        "reasoning": "The nontrivial implication is uniform control for all spectral values, with equality and a sharp guaranteed stability boundary, plus a rounding realization that reaches the stored endpoints while the target is SPD. The related formulas and examples do not give that implication without the new interval argument.",
+        "searches": [
+          "arXiv:1909.07506 Thm. 2.1 and arXiv:2610.06414 Algorithm 2.1 and restart derivation; Resultary 2b7ae97c3b61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lindquist et al., Algorithm 2.1 and §2.1, prove a restart equivalence using the matching split A=M+N.",
+          "Zhang–Trogdon, Theorem 2.1, give the truncated Neumann series when the underlying iteration is contractive."
+        ],
+        "reasoning": "Calling the inner process Neumann evaluation or stationary refinement gives the same finite polynomial. Matching the residual with the stored split would give the ordinary power (−P)^k, not I−C_k(I+rP); it eliminates the mismatch term that controls the positive odd-sweep threshold. The inspected equivalences are therefore not statements of the same result.",
+        "searches": [
+          "Resultary: quantized Jacobi restarted correction exact residual stored coupling even odd sweeps stagnation sharp threshold Perron mode",
+          "Resultary: residual-refreshed Jacobi correction P Perron mode even sweeps quantized storage midpoint",
+          "External: ‘A Mixed-Precision Model for Matrix-Splitting Methods’ Lindquist Appelhans Jackson Derlaga 2026 restarted stationary corrections exact residual inner iteration; polynomial Jacobi splitting spectral endpoint eigenvalue parity Neumann polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tamstorf et al. show a quantized matrix becoming indefinite, not a Jacobi odd/even boundary. Record 2b7ae97c3b61 gives exact finite-sweep residual amplification for a strictly triangular class."
+        ],
+        "reasoning": "No matching exact threshold or example table was retrieved by these bounded checks. The triangular model has a nilpotent inner operator and cannot encode the ±1 endpoint pair here. Fixed numerical performance instances would not suffice for the universal symmetric-interval estimate.",
+        "searches": [
+          "Resultary: ‘Even-sweep stagnation and sharp odd-sweep safety for quantized Jacobi’",
+          "Resultary: quantized Jacobi stored P exact residual restarted correction even odd sweep spectral stability",
+          "Tamstorf et al., Figure 7; Resultary 2b7ae97c3b61 Finding"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combination of the uniform sharp odd-sweep estimate and parity split under the exact-residual/stored-coupling mismatch, realized by literal binary ties-to-even storage. Truncated Neumann polynomials, graph endpoints, and midpoint rounding alone are standard. The closest inspected schemes do not supply the mismatch with this boundary spectrum and do not state the resulting sharp scalar bound.",
+      "residual_risks": [
+        "An earlier equivalent specialization in polynomial preconditioning or two-stage splitting remains possible; bounded searches and selected passages do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest method but uses matched splitting for restart equivalence",
+          "evidence": "Uses A=M+N in the exact equivalence derivation; separately bounds stored-coefficient stationary errors.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06414",
+          "material_read": "Thm. 2.1 p. 3 offsets 10400–14256; Algorithm 2.1 and §2.1 pp. 7–8 offsets 23635–27352",
+          "method": "Primary OA PDF passage comparison",
+          "title": "A Mixed-Precision Model for Matrix-Splitting Methods",
+          "trigger": "Closest prior restart and quantized matrix splitting"
+        },
+        {
+          "assessment": "Truncated series prior ingredient",
+          "evidence": "x_k=sum B^j b for (I−B)x=b and convergence under ||B||<1, not distinct residual/inner operators at the endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.07506",
+          "material_read": "Theorem 2.1 p. 2 offsets 5347–7818",
+          "method": "Primary OA PDF passage comparison",
+          "title": "A Probabilistic Analysis of the Neumann Series Iteration",
+          "trigger": "Underlying polynomial and convergence conditions"
+        },
+        {
+          "assessment": "Quantization context, different algorithms and witnesses",
+          "evidence": "Studies definiteness under quantization and robustness of their multigrid V-cycle; includes quantized-indefiniteness example.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.06628",
+          "material_read": "§4 Thms. 4.1 and 4.3 and Remark 4.4 pp. 8–10 offsets 31293–39879; Fig. 7 p. 20 offsets 80600–83164",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Discretization-Error-Accurate Mixed-Precision Multigrid Solvers",
+          "trigger": "Prior quantization failures and correction robustness"
+        },
+        {
+          "assessment": "Different architecture in the material read",
+          "evidence": "Nested FGMRES/Richardson rather than fixed restart polynomial; no whole-document noncoverage conclusion drawn from the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.20719",
+          "material_read": "Abstract p. 1 offsets 1522–5112",
+          "method": "Primary OA scope comparison",
+          "title": "A Nested Krylov Method Using Half-Precision Arithmetic",
+          "trigger": "Nested inner/outer low-precision solvers"
+        },
+        {
+          "assessment": "Different spectral class, observable and bound",
+          "evidence": "Strictly lower-triangular inner Jacobi residual amplification and nonexpansion threshold in degree and row magnitude, not outer mismatch correction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sparse-branching-transient-law-for-diagonally-dominant-tri--2b7ae97c3b61",
+          "material_read": "RESULT.md offsets 0–3800 and 7096–9088",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp sparse branching transient law for diagonally dominant triangular systems",
+          "trigger": "Closest indexed exact Jacobi-sweep threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–19 and 34–73",
+        "Lindquist et al., §2.1 and Algorithm 2.1 for motivation"
+      ],
+      "rationale": "The exact boundary separates three practically distinguishable behaviors of a motivated correction architecture: every even count can stall, a long range of odd counts does not improve the worst-case contraction, and excessive odd counts can destabilize a positive-definite target. Exact binary round-to-nearest witnesses show that the mismatch need not be an arbitrary perturbation. The uniform sharp estimate over the symmetric spectral interval, not just the scalar stagnation, supplies the substantive result.",
+      "residual_risks": [
+        "Witnesses are near a low-precision conditioning limit; they do not establish typical performance for well-conditioned problems or under subsequent rounded arithmetic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

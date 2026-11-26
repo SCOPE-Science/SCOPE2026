@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:44:56.569781Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–164, VERIFICATION.md, verify.py (read only)",
+        "Replay: python3 /workspace/reproduction.py 5"
+      ],
+      "rationale": "Both rates are strictly positive and bounded above; uniformly over initial states, in a fixed block there is positive probability of absorption before a reset, or of a reset followed by absorption during a reset-free interval. A uniform positive block bound follows by dominating resets by the upper rate and retaining the lower-rate clock; it gives finite uniformly bounded means. Independently, kill the environment at reset with subgenerator Q−Λ and couple it to Brownian absorption before the first reset. Writing B_0=Λ−Q, the expected pre-event occupation operator is K=∫Pr(τ_B>t)exp(−tB_0)dt=B_0^(−1)(I−exp(−ℓ√B_0)). The renewal load is K1 and its phase-preserving continuation kernel is KΛ. Rearrangement gives (I−h(B_0)Q)v=h(B_0)1; the normalized symmetric/antisymmetric basis yields the stated Schur complement with a positive denominator. For ν→∞, the fast eigenmode inverse 1/h_+ is superalgebraically small also after one r derivative on compact sets. Dividing by νh_+ leaves h_-/p up to O(ν⁻³) in C¹; λ_-=r−η²/ν+O(ν⁻³) and p=1−η²/ν²+O(ν⁻⁴) yield both coefficients and uniformity. The slow limit is the two-rate average; strict convexity follows since the derivative with respect to z of the numerator of 4r³h″ is e^z(z²−3z+3)>0. The derivative of h crosses zero uniquely at the positive z_*; Taylor expansion with c bounded proves the stated offset and the signed comparison, excluding balanced c. The difference derivative is strictly negative in a fixed neighborhood for large ν, and bracketing c on either side of ccrit puts the unique zero at r_*+ccrit/ν+O(ν⁻²). A fresh physical-coordinate renewal solve reproduced ccrit≈22.2301179837920 for ℓ=η=1 and scaled shifts 22.46642, 22.25350, 22.23245 at ν=10³,10⁴,10⁵, respectively. Those computations are corroboration, not the uniform-limit proof.",
+      "residual_risks": [
+        "Only a local zero near r_* at rapid switching; no conclusion at the exactly balanced coordinate to this order. No claims for a zero intensity or reset of the environment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arutkin–Reuveni include persistent Poisson redraws but explicitly leave first passage as an extension. Pal–Kundu–Evans use time since the previous reset; Singh–Pal use a single fixed rate."
+        ],
+        "reasoning": "A general environment framework with no first-passage solution does not imply the second-order asymptotic. Renewal by particle age or constant intensity has different memory or no environment.",
+        "searches": [
+          "arXiv:2509.25365v1, 1512.08211v2 and 2202.02715v1; DOI 10.1088/1751-8121/ab97e0; primary query for autonomous dichotomous positive reset rates and fast-switching first passage"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e307799ab9d0, 62ce19fec6eb, d81198b1ba84",
+        "arXiv:2509.25365v1, 1512.08211v2, 2202.02715v1, 2504.02466v1; DOI 10.1088/1751-8121/ab97e0 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact mean and benchmark are available in the compared statements, but a first-order correction proportional to h′(r) is zero at r_*. No compared earlier statement fixes the positive second-order offset or controls r derivatives near that zero."
+        ],
+        "reasoning": "Even with the renewal identity in hand, fast-mode cancellation, the second-order calculation and uniform local analysis are needed. Credit the benchmark and exact-model overlap separately from the supported sharp threshold.",
+        "searches": [
+          "Persistent-rate findings of e307799ab9d0 and 62ce19fec6eb; Arutkin–Reuveni concluding first-passage passage; Baouche–Kurzthaler equations (15)–(17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e307799ab9d0 gives m=(h_L(B)−Q)^(−1)1 with h_L=1/h. Reflecting/translating position maps the target and starting point, and its per-direction switch parameter equals ν/2. Averaging gives exactly the bound mean."
+        ],
+        "reasoning": "This is genuine equivalent coverage of the exact mean, not a mere title match. It is later and proves a distance reversal, not the rate critical window or earlier priority.",
+        "searches": [
+          "Resultary: persistent dichotomous Brownian reset clock, exact search mean, fast refresh and sign reversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact later mean match is credited. The same-date record 62ce19fec6eb assumes reset intensity 0 in one phase, addresses finite refresh optimization and gives a first-order expansion. The later d81198b1ba84 is about stationary localization, not a first-passage threshold."
+        ],
+        "reasoning": "These exact indexed results are material but do not give the fixed-positive-amplitude second-order coefficient at r_*; no priority is inferred from the shared date.",
+        "searches": [
+          "Resultary e307799ab9d0, 62ce19fec6eb, d81198b1ba84"
+        ]
+      },
+      "rationale": "The supported contribution is the second-order critical window and displaced local zero for two strictly positive intensities with persistent environment. The exact renewal formula is a natural substrate, not a new general renewal principle, and has an equivalent statement in a later catalogue record. The closest same-date computation is for an on/off limit and does not establish the positive-two-rate threshold.",
+      "residual_risks": [
+        "Bressloff's original full text was not verified. A general persistent Markov-modulated first-passage expansion could still be unlocated; the targeted search is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model precedent, not a first-passage result",
+          "evidence": "Rates are redrawn after exponential holding times, unaffected by resets. First passage is named an important extension.",
+          "identifier_or_url": "https://arxiv.org/html/2509.25365v1",
+          "material_read": "Introduction/model offsets 1200–3862 and conclusion 36600–38686",
+          "method": "OA HTML passages",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "Contains the same persistent environment family"
+        },
+        {
+          "assessment": "Equivalent exact mean in later record, different optimization variable",
+          "evidence": "The equation m=(h_L(B)−Q)^(−1)1 and its two-eigenvalue formula match the mean under the stated change of variables.",
+          "identifier_or_url": "Resultary 2026/11/8, e307799ab9d0",
+          "material_read": "Finding offset 0–3400 and Proof §§1–2 offset 3200–5877",
+          "method": "Local mirror",
+          "title": "Distance-driven reversal of search efficiency under a persistent two-state reset clock",
+          "trigger": "Same exact persistent two-rate search model"
+        },
+        {
+          "assessment": "On/off threshold, not the two-positive-rate critical window",
+          "evidence": "Rates are 0 and ρ; the reported rapid-refresh expansion is first order and concerns a finite-speed optimum.",
+          "identifier_or_url": "Resultary 2026/11/2, 62ce19fec6eb",
+          "material_read": "Finding and assumptions, mirror offset 0–3510",
+          "method": "Local mirror",
+          "title": "A square-root search barrier and a finite-speed optimum for telegraph resetting",
+          "trigger": "Same-day persistent switching and fast refresh"
+        },
+        {
+          "assessment": "Age-dependent protocol, not persistent autonomous phase",
+          "evidence": "Intensity is a function of elapsed time since the previous reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.08211v2",
+          "material_read": "PDF p. 1 offsets 850–2249",
+          "method": "OA PDF passage",
+          "title": "Diffusion under time-dependent resetting",
+          "trigger": "Time-dependent intensity and mean first passage"
+        },
+        {
+          "assessment": "Different protocol in the stated model",
+          "evidence": "A particle starting at x_0 is reset to x_R at a constant rate r.",
+          "identifier_or_url": "https://arxiv.org/html/2202.02715v1",
+          "material_read": "Abstract, offset 615 onward",
+          "method": "OA HTML passage",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Closest first-passage Brownian-reset result in the follow-up primary query"
+        },
+        {
+          "assessment": "Supports benchmark only",
+          "evidence": "The passive case gives the Poisson mean and the equation for z_*≈1.59362.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.02466v1",
+          "material_read": "PDF p. 3, equations (15)–(17)",
+          "method": "OA preprint PDF passages",
+          "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+          "trigger": "Check the passive benchmark"
+        },
+        {
+          "assessment": "Unresolved access; no exclusion inferred",
+          "evidence": "Cited author link returned 404 and the DOI route did not expose full text.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+          "material_read": "DOI landing and identified author-copy attempt; no manuscript read",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Plausible switching first-passage comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–66, 121–164"
+      ],
+      "rationale": "The usual first-order fast-refresh calculation cannot decide the sign at the Poisson optimum. The positive second-order effect and rate shift sharply separate improvement from deterioration at the same mean rate, and quantify the correction where this ambiguity matters.",
+      "residual_risks": [
+        "Value is the local near-optimum comparison, not optimal control over all reset processes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

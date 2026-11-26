@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:36:34.001961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The undirected modulo-three edge rule gives 24 distinct vertices and four neighbors per vertex. Nonempty, distinct closed-neighborhood intersections are exactly the domination and symmetric-difference hitting conditions; adding any sensor preserves them. An independent signature-based enumeration (not a run of the frozen verifiers) covered all 735471 eight-subsets and 1307504 nine-subsets, finding zero and 48 respectively. Monotonicity then rules out all smaller subsets; every returned nine-set is minimum. The 48 sets in the census agree with the actual frozen OPTIMA.txt. The mask 0x901669 decodes to the nine stated stage/address pairs and has stage profile (4,3,2). Translation preserves the flip indices, rotation sends the flip at stage i to that at i+k, and the reflection of the stage pair (i,i+1) has outgoing stage 2-i and flips bit 2-i. These maps form the group of eight translations extended by the six rotations/reflections of the stage triangle. The replay checked all 27648 ordered-pair/map tests and verified that the representative orbit is the census; its size is 48, so the action is free and transitive. Each stage profile permutation occurs eight times. No determination of the full graph automorphism group is needed. UTC replay on 2026-11-24: /workspace/branches/144062aa-650b-4b97-986d-bf5a4186d99e/audit_b3.py, audit_result.json, size8_complete.json and size9_complete.json.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucaud gives the general lower bound |V|/3, hence 8 here; the upper construction explicitly assumes dimension at least four.",
+          "Chen–Lu–Miao concern paths and cycles. Ferrero et al. treat minimum rank and zero forcing."
+        ],
+        "reasoning": "The prior lower bound applies but does not settle whether 8 is possible or give an orbit census. The upper construction's dimension hypothesis excludes the exact case under review.",
+        "searches": [
+          "Foucaud, §4.2, Proposition 4.3 and Theorem 4.4",
+          "Chen–Lu–Miao arXiv:0908.2750v1",
+          "Ferrero et al. arXiv:1607.07522v1"
+        ]
+      },
+      "checked_sources": [
+        "Foucaud 2009 §4.2",
+        "arXiv:0908.2750v1",
+        "arXiv:1607.07522v1",
+        "Resultary 28d4aa60f087, 699d5268ac70, 380a4a48c0b5, 529792b7a045, 927981eb4c2a and the identical current entry c7c512193632"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tightest relevant thesis claim inspected gives at least 8 sensors and an upper construction outside dimension three.",
+          "The broader identifying-code predicate gives a general decision problem, not its answer or the configuration orbits at this size."
+        ],
+        "reasoning": "The graph drawing and general inequalities do not entail the claimed absence of eight-sets or the exact nine-set classification by substitution. These require the separate finite exhaustion and group action check.",
+        "searches": [
+          "Foucaud 2009 thesis, pp. 46–49",
+          "Resultary 28d4aa60f087, 699d5268ac70, 380a4a48c0b5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucaud's definition (p. 46) and BF3 drawing (p. 47) give the same address-flip graph with wraparound.",
+          "Ferrero et al. use the conventional consecutive-layer graph with r+1 layers, without cyclic closure, and different invariants."
+        ],
+        "reasoning": "Wrapped and cyclic refer to the same object in the thesis, whose comparison is substantive; conventional layered butterfly is not an alias of this 24-vertex network. The exact catalogue self-match c7c512193632 is not another claim.",
+        "searches": [
+          "Local Resultary: identifying codes, minimum sensor placements and symmetry for the three-stage wrapped/cyclic binary butterfly",
+          "Foucaud 2009 thesis §4.2; Ferrero et al. arXiv:1607.07522v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match in Resultary is the current record, not independent prior evidence.",
+          "28d4aa60f087 and 699d5268ac70 concern 32-vertex binary and 27-vertex ternary de Bruijn graphs; 380a4a48c0b5 concerns length-two Kautz graphs; 529792b7a045 and 927981eb4c2a concern Fibonacci and Lucas cubes.",
+          "Figure 4.4 draws the BF3 graph rather than tabulating its codes."
+        ],
+        "reasoning": "Similar objectives, an exact count of similar size, or a different word-address graph do not give this table or its 48 natural-group images. No independent exact table was established in the bounded check.",
+        "searches": [
+          "Resultary: exact minimum identifying-code censuses and symmetry penalties on address networks",
+          "Foucaud §4.2, Figure 4.4 and its surrounding results",
+          "Focused public literature search for exact cyclic butterfly identifying codes"
+        ]
+      },
+      "rationale": "The supported distinction is the exact first cyclic degree-four butterfly census, including one free orbit of all 48 labeled minima and its stage profiles. The definition, lower bound 8 and analogous code investigations on other graphs are prior work. The comparison is bounded, not a first-priority certification.",
+      "residual_risks": [
+        "An unindexed exact BF3 evaluation could exist; no global priority claim is made.",
+        "The precise first public release day of the June 2009 thesis was not verified. Dates of same-day catalogue neighbors do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and broader bounds; no exact BF3 optimum or census in the relevant section",
+          "evidence": "BF3 is displayed, but the lower bound is 8 and the constructive upper bound requires at least four stages.",
+          "identifier_or_url": "https://perso.limos.fr/ffoucaud/Publications/MastersThesis/memoire_master2_florent_foucaud_codes_identifiants_2009.pdf",
+          "material_read": "§4.2 pp. 46–49; Fig. 4.4, Prop. 4.3 and Thm. 4.4; offsets 97375–103456",
+          "method": "OA primary thesis PDF",
+          "title": "Les codes identifiants dans certaines classes de graphes",
+          "trigger": "Same wrapped butterfly and same identifying-code objective"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Deals with paths, odd cycles and locating-dominating sets on cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2750v1",
+          "material_read": "Abstract p. 1 and Theorem 3 p. 3, offsets 0 and 8081",
+          "method": "OA primary article",
+          "title": "Identifying codes and locating-dominating sets on paths and cycles",
+          "trigger": "Cited exact code antecedent"
+        },
+        {
+          "assessment": "Different butterfly definition and invariant",
+          "evidence": "r+1 layers with consecutive-layer edges, giving (r+1)2^r vertices; not the modulo-three graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.07522v1",
+          "material_read": "§2 p. 2, offset 4300",
+          "method": "OA arXiv PDF",
+          "title": "Minimum rank and zero forcing number for butterfly networks",
+          "trigger": "Butterfly graph-name alias check"
+        },
+        {
+          "assessment": "Analogous finite classifications, different graph definitions",
+          "evidence": "The binary de Bruijn record has 32 vertices and minimum 12; the ternary de Bruijn record has 27 vertices with its own unrestricted and reversal minima. The other entries vary Kautz alphabet or Fibonacci/Lucas dimension.",
+          "identifier_or_url": "Resultary 28d4aa60f087, 699d5268ac70, 380a4a48c0b5, 529792b7a045, 927981eb4c2a",
+          "material_read": "The mirrored RESULT.md findings",
+          "method": "Local mirror",
+          "title": "Related exact identifying-code censuses on de Bruijn, Kautz, Fibonacci and Lucas graphs",
+          "trigger": "Strong catalogue census and symmetry matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three is the smallest stage count in this degree-four cyclic family, where the known upper construction does not apply. The exact gap above the general lower bound is useful as a benchmark for identifying codes on the correct wrapped topology. The complete placement census and single free orbit are stronger than one optimum and answer whether genuinely different minimum sensor patterns occur. This is a natural finite boundary case, not an arbitrary parameter cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

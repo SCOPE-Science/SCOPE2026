@@ -1,21 +1,21 @@
-# Scientific review: critical epsilon-outside RMSProp
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact step \(h=2\varepsilon/L\), the smoothness inequality leaves the strict decrement \(h\sum_i g_i^2\sqrt{w_i}/(\varepsilon+\sqrt{w_i})^2\), with \(w_i\ge(1-\beta)g_i^2\). Strong convexity supplies compact spatial sublevels, and the memory filter remains bounded, so convergence of the decreasing objective forces every spatial limit point to be its unique minimizer. The gradient filter then vanishes. Bounds on objective sublevels and the memory filter also prove full-state Lyapunov stability.
+PASS
 
-On scalar quadratics, the exact no-hit multiplier is \(-(\varepsilon-\sqrt{v_{k+1}})/(\varepsilon+\sqrt{v_{k+1}})\). An eventually contractive equation for \(v_k/(a^2|x_k|^2)\) proves that ratio tends to one; consequently the reciprocal-amplitude increment tends to \(2a/\varepsilon\). Cesàro's lemma gives both stated inverse-time limits, with finite-hit exceptional initial data explicitly exhibited. Exact-rational and numerical checks are corroboration, not a replacement for this infinite-time argument.
+At h=2ε/L the smoothness decrement is at least h∑ g_i²√w_i/(ε+√w_i)², where w is the new memory. A nonzero gradient component forces w_i>0, so the decrement is strict off the minimizer. Coercivity bounds x, and the memory filter then bounds v on the same orbit. Vanishing decrements and compactness force x→x_*; the stable filter with input g²→0 yields v→0. Uniform bounds in terms of the initial objective gap and initial memory prove Lyapunov stability in the full state. In the scalar quadratic with L=a and no finite zero, eventually x reverses sign and q_k=|x_{k+1}/x_k|→1. The error y_k−1 for y_k=v_k/(a²x_k²) satisfies an affine recurrence with coefficient β/q_k² eventually bounded strictly below one and forcing tending to zero. Hence y_k→1; telescoping reciprocal amplitudes, whose increments tend to 2a/ε, gives both claimed limits. The finite-hit example is exact: v_1=124/125+1/125=1, h=1, x_1=1/10−(1/5)/2=0. Zero positions remain zero and their memory decays geometrically.
 
-## Originality — PASS under inspected evidence
+## originality
 
-Loh, Mireles James, Xu, and Tao, arXiv:2610.30078v1 (first public 2026-10-21), analyze this exact dynamical update, but their Sections 4–5 state globally attracting behavior for the **strict** subcritical bound and nontrivial cycles or instability strictly beyond the frontier. No conclusion about global attraction at equality follows from either strict inequality. Dimitrieski et al., arXiv:2603.15823, likewise use a strict stability bound. The rate statements inspected in arXiv:2504.19426 and arXiv:2608.30382 involve different optimizers or step conditions. Related published search records concern other adaptive methods, and the closest published period-two records do not address the neutral equality case. The exact \(k^{-1}\)/\(k^{-2}\) limits were not covered in the statements inspected. A wider historical normal-form implication remains a residual priority risk; no claim of exhaustive historical uniqueness is made.
+PASS
 
-## Mathematical value — PASS
+The closest primary theorems for the same new-memory update are strict on either side of the threshold and do not establish global stability at equality. The exact scalar dichotomy and constants overlap with a later-indexed scalar Resultary finding; that overlap is credited and no provenance inference depends on its date. In particular it does not supply the general endpoint stability theorem for coupled strongly convex L-smooth objectives and arbitrary initial memory. No earlier matching endpoint theorem or exact limiting law was established in the sources examined.
 
-The endpoint is a natural missing boundary in the established stability/bifurcation phase diagram. The theorem decides convergence there for all smooth strongly convex objectives and identifies a sharp nongeometric rate on an exact scalar model. The universal constants, lack of leading-order dependence on memory retention, and exceptional finite-hit mechanism distinguish this from routine strict-rate interpolation. No quantitative general-dimensional convergence rate is asserted.
+## value
 
-## Limitations
+PASS
 
-Only the epsilon-outside, uncorrected and deterministic update with \(0<\beta<1\) is treated. The polynomial rate is for nonterminating scalar quadratics. Further historical priority checking and independent audit remain open.
+The exact step boundary is a natural missing regime: the linearized scalar spatial multiplier is −1 and strict-step geometric estimates cease to apply. The proof extends global stability to that boundary even for coupled smooth strongly convex objectives and arbitrary memory, and the scalar law quantifies the nonlinear slowdown with exact constants and a real finite-hit exception. This changes the boundary classification rather than making a numerical adjustment to a strict step-size bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

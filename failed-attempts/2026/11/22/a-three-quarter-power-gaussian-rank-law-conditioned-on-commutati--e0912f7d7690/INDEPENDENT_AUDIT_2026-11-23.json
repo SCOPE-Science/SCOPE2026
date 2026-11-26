@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:00:47.874290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–68",
+        "Szegő, Orthogonal Polynomials, Theorem 8.22.3",
+        "Frozen VERIFICATION.md, lines 19–31; check.py and check_output.txt"
+      ],
+      "rationale": "For a partial identity with support S, comparison of the domains of the two compositions requires x∈S iff f(x)∈S for every x in the domain of f. This condition is sufficient, so the commuting partial bijections are independent restrictions to S and its complement. Counting rank-j partial bijections gives R_m=m!L_m^(0)(−1); cancellation against the number of choices of S gives the two coefficient factors. Their convolution is L_n^(1)(−2) by squaring the ordinary Laguerre generating function, and the empty-set case is consistent. In the Perron formula the ratio at (α,x)=(1,2) versus (0,1) has prefactor e^(−1/2)2^(−3/4)sqrt(n) and exponential factor exp(2(sqrt(2)−1)sqrt(n)); uniform sampling supplies 2^−n. At k=n/2+s with s=x n^(3/4)+O(1), 2sqrt(k)+2sqrt(n−k)=2sqrt(2n)−sqrt(2)s²/n^(3/2)+O(s⁴/n^(7/2)), and [k(n−k)]^(−1/4)=sqrt(2)n^(−1/2)(1+o(1)). The remainder and coefficient equivalents are uniform for bounded x. This yields the local prefactor 2^(1/4)/sqrt(π) and exponent −sqrt(2)x². Compact Riemann sums and the unit integral of the limiting density give tightness and weak convergence, with variance parameter 1/(2sqrt(2)). This proves the limiting law, not a moment limit inferred from numerics. The recorded exhaustive checks are for n≤4 only; the large-n variance and probability ratios are diagnostics. The script and output were inspected, not run.",
+      "residual_risks": [
+        "The result does not concern two unrestricted maps or quantify convergence of conditional moments from the stated weak limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.7 gives admissibility of exponentials when the nonnegative log coefficients lie between suitable power bounds; 1≤g_j≤2 and 2≤2g_j≤4 meet it with both powers zero. Theorem C gives the uniform lattice local formula for the associated tilted sizes. By contrast, the specific Granovsky–Stark single-positive-pole condition is not the decisive route, since ζ(s)+ζ(s+1) also has a pole at s=0."
+        ],
+        "reasoning": "The determining assumptions are verified directly for both F and F²; their means and variances are exact derivatives. This is actual coverage by a stronger local-limit theorem, not a suggestion that analytic combinatorics might prove the claim.",
+        "searches": [
+          "Primary literature: Hayman admissible fragmented permutations sets lists cycles exp(z/(1−z)) Laguerre strongly Gaussian Khinchin local central limit Flajolet Sedgewick",
+          "Cantón et al., Theorem C, Eq. (4.6) and Theorem 5.7, Eq. (5.14)",
+          "Granovsky–Stark, arXiv:math/0701584, Theorems 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Araújo–Bentz–Konieczny, arXiv:1205.1664",
+        "Szegő, Theorem 8.22.3",
+        "Cantón et al., DOI 10.1007/s00009-023-02579-9",
+        "Granovsky–Stark, arXiv:math/0701584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact centralizer formula gives the convolution weights; the Perron ratio directly gives the event asymptotic. Uniform local limits for F and its square at a common tilt yield the complete compact-window profile by a product divided by a total-size probability, as exhibited above."
+        ],
+        "reasoning": "The rare-event constant and the conditional variance and local density all follow directly from the established theorems on these exact functions; the remaining weak convergence is the normalized local-density argument.",
+        "searches": [
+          "Araújo–Bentz–Konieczny, Prop. 2.2 and Lemmas 2.3–2.4; Szegő, Theorem 8.22.3; Cantón et al., Theorems C and 5.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Commuting pairs correspond to partial bijections whose labelled chain and cycle components have a binary color marking membership in S. Per color, sets of chains and cycles have EGF F. The exact color-size split given the total n equals conditioning two independent F-tilted sizes on sum n."
+        ],
+        "reasoning": "The color/size-split interpretation is an exact re-expression, not an analogy. The tilt cancels at fixed total, so the broader result applies to the conditional weights without choosing a new measure on the semigroup.",
+        "searches": [
+          "Resultary: symmetric inverse monoid idempotent commuting probability centralizer rank conditioned Gaussian Laguerre n^(3/4)",
+          "Resultary: weighted assemblies with generating function exp(z/(1−z)), Laguerre two colors conditioned sum",
+          "Cantón et al., §§2, 4.2 and 5.3; weighted assembly comparison Granovsky–Stark, arXiv:math/0701584"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title result is the assigned record itself. Nearby indexed nilpotent ranks and weighted representation counts concern different statistics and conditioning. The independent exact predecessor for the finite law is the established two-block centralizer decomposition, not an independent numeric table of the local limit."
+        ],
+        "reasoning": "No independent exact statement in this semigroup terminology was verified in the bounded index check; the failed originality decision instead rests on verified mathematical implication.",
+        "searches": [
+          "Resultary exact rank/commutation query above; Resultary: negative-argument Laguerre Perron asymptotic coefficient local central limit convolution conditioned split n^(3/4)",
+          "Resultary IDs 2026/11/8/SCOPE-nilpotent-rank-distributions-in-square-zero-symmetric-inverse-mo--481f45b06c9a and 2026/9/18/SCOPE-exact-local-limit-weighted-representation-counts--4e870c1cf2eb",
+          "Araújo–Bentz–Konieczny, arXiv:1205.1664, §2"
+        ]
+      },
+      "rationale": "The finite count is a direct consequence of the known centralizer split and the sharp probability equivalent is a direct ratio of two Perron evaluations. The conditional local limit is also a mechanical consequence of an existing stronger local-limit theorem that applies here. Let F(z)=exp(g(z))=(1−z)^−1 exp(z/(1−z)), g_j=1+1/j for j≥1, and a_k=[z^k]F. Cantón–Fernández–Fernández–Maciá, Theorem 5.7, makes both F and F² Hayman-admissible: the coefficients of g and 2g are bounded between positive constants, so choose R=1 and β=λ=0 in (5.14). These are strongly Gaussian and their Theorem C gives uniform local Gaussian probabilities. For independent tilted sizes X_r,Y_r with Pr(X_r=k)=a_k r^k/F(r), the exact conditional law given X_r+Y_r=n is the frozen rank law, by cancellation of the tilt. The sum is the Khinchin family of F². The individual mean m(r)=r g′(r)=(1−r)^−2−1 and variance σ²(r)=r m′(r)=2r(1−r)^−3. Set m(r)=n/2, so the sum's mean is n, with variance 2σ² and σ²∼n^(3/2)/sqrt(2). The two individual local probabilities at k and n−k divided by the sum probability at n therefore give (1/(sqrt(π)σ)) exp(−(k−n/2)²/σ²)(1+o(1)) uniformly on compact scaled windows, exactly the frozen limit. This uses the prior uniform LLT for all three factors without a new asymptotic lemma. No prior word-for-word statement of the semigroup experiment was needed for this implication.",
+      "residual_risks": [
+        "The full text of Konieczny (2020), DOI 10.1080/00927872.2020.1782926, was not obtained in the bounded lawful attempts; the abstract/title cannot resolve any additional rank-refined results. Neither that access limitation nor a claim of earliest historical priority is needed for the demonstrated general-theorem coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by verified specialization and conditioning",
+          "evidence": [
+            "Hayman admissibility implies strong Gaussianity. Theorem C gives a uniform local Gaussian approximation to normalized tilted coefficients. Theorem 5.7 covers log coefficients bounded between fixed positive constants, including both log F and log(F²)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02579-9",
+          "material_read": "Metadata and introduction (offset 0), §4.2 Theorem C Eq. (4.6), p. 15 (offset 40800), and Theorem 5.7, p. 22 (offset 61055)",
+          "method": "Lawful publisher OA PDF, literal locators and bounded offset passages",
+          "title": "Khinchin Families, Set Constructions, Partitions and Exponentials",
+          "trigger": "Potential stronger local-limit theorem for exactly the tilted coefficient families needed"
+        },
+        {
+          "assessment": "Exact finite split antecedent, not the conditional asymptotic statement",
+          "evidence": [
+            "Every commuting partial bijection restricts to the idempotent's support and its complement, and composition there is blockwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1664",
+          "material_read": "§2, p. 4, Proposition 2.2 and Lemmas 2.3–2.4, offsets 13958–15517",
+          "method": "Bounded OA original passages",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Exact underlying idempotent centralizer count"
+        },
+        {
+          "assessment": "Direct coverage of the analytic equivalents whose ratio gives the sharp event probability",
+          "evidence": [
+            "Perron's fixed negative-argument Laguerre asymptotic includes the exponential, n-power and x-dependent prefactor."
+          ],
+          "identifier_or_url": "https://people.math.osu.edu/nevai.1/SZEGO/szego%3Dszego1975%3Dops%3DOCR.pdf",
+          "material_read": "Theorem 8.22.3, p. 208, near offset 579407",
+          "method": "Bounded original PDF passage",
+          "title": "Orthogonal Polynomials (fourth edition)",
+          "trigger": "Classical formula for numerator and denominator in sharp rare-event probability"
+        },
+        {
+          "assessment": "Not the decisive matching theorem; distinguishes total-size and summand-count results and assumptions",
+          "evidence": [
+            "Theorem 4 concerns a tilted total-size local probability under Theorem 3's single-positive-pole continuation assumptions, not a stated conditional color-size split."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701584",
+          "material_read": "Theorems 3–4, §6 pp. 20–22, near offset 61221; §3 summand-statistic context",
+          "method": "Bounded OA original passages",
+          "title": "Meinardus' theorem on weighted partitions: extensions and a probabilistic proof",
+          "trigger": "Plausible weighted-assembly theorem for the alternative formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Cantón et al., Theorems C and 5.7",
+        "Szegő, Theorem 8.22.3"
+      ],
+      "rationale": "The effect of conditioning on a natural rare commutation event is interpretable, but the exact count is the standard split, the sharp probability is a direct classical coefficient ratio, and the local law follows by conditioning two instances of a covered strongly Gaussian family at their joint mean. No independently useful unknown invariant or nonmechanical structural step remains among the stated claims.",
+      "residual_risks": [
+        "The valuation is specific to this idempotent/partial-bijection experiment and does not address the distinct unrestricted commutation problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

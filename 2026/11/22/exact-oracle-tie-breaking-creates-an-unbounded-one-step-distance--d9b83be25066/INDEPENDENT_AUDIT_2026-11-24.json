@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:45:22.835973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constrained minimizer is (0,0) and the gap is au+(u²+v²)/2 with Hessian I. On the default disk, q=0 forces precisely the face u=0, |y|≤√(a²+2ap). If q≠0, the asserted point on that face satisfies ball and halfspace stationarity with multipliers |q|/b>0 and p+a−p|q|/b≥0; the Lagrangian is strictly convex, proving uniqueness even at a=0. Then ||d||=||g|| and Cauchy–Schwarz makes the step the unconstrained line minimizer with 0<η≤1. Its final point has inner product ap with d (since (x₁+ae₁)·d=0); its transverse component has squared size p²(b−|q|)²/||d||². This gives the stated ratio. Its bracket is 2b²−2(ap+b|q|), hence R<2; substituting a=1, q=p³ gives R→2. On the tied face set w=p²+y², C=p(p+a). The ratio is (w−p²)/p² up to C and 1+(p+a)(a−p)/w thereafter on [p²,(p+a)²]. Monotonicity yields the two claimed maxima; continuity and y=0 give the full range. At a=p the second branch is constant, so y²=ap is a maximizer but not the only one; when a=0 the face degenerates and the ratio is zero. The off-tie limit is 2a/(p+a) and is strictly below a/p for a>p. With a=1, p=n⁻² and y=√p the step accepts the oracle output in full, with point-distance factor n and gap ratio (p/2)/(p+p²/2)=1/(2+n⁻²). Only the first update is covered. The source checker was inspected, not executed; its finite tests are ancillary to the exact reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two adaptive-method results bound objective error under quadratic growth. The older distance theorem requires solution-controlled Type-I/II radius hypotheses. The projection theorem requires radius at most the Polyak radius."
+        ],
+        "reasoning": "For a=1,q=0 the default radius is 1+p instead of the admissible solution radius p and exceeds the Polyak radius (p+p²/2)/(1+p). The distance theorems do not apply; objective convergence is compatible with unbounded relative distance at one step.",
+        "searches": [
+          "arXiv:2611.11354v1, Theorem 3.1 and Corollary 3.2",
+          "arXiv:2605.08850v2, Theorem 3.1",
+          "Richtárik–Mahran, arXiv:2609.33383v1, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2611.11354v1, arXiv:2605.08850v2 and arXiv:2609.33383v1",
+        "Resultary 09315b59bb24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adaptive theorem controls the gap, which can have a term linear in normal distance at a boundary minimizer. The exact decrease and projection results both need radii smaller than the witness radius. The relaxed witness fails the exactness hypothesis."
+        ],
+        "reasoning": "The exact tie face and short-step clipping analysis, rather than applying any of the checked statements, produce the piecewise envelope and its discontinuity. None of the cited rates forces it or contradicts it.",
+        "searches": [
+          "arXiv:2611.11354v1, Algorithm 1 and convergence theorem",
+          "arXiv:2605.08850v2, Theorem 3.1 and Proposition B.1",
+          "arXiv:2609.33383v1, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 gives the exact local linear minimization and clipped segment step at default ||∇f||/L.",
+          "Proposition B.1 uses a relaxed output (ρ>1) to increase distance under damping; the example's exact output decreases distance.",
+          "The Resultary comparison uses relative oracle error at radius ||x−x★||; at zero error it returns x★."
+        ],
+        "reasoning": "This is indeed the published adaptive short-step method. Distance increase under a relaxed oracle is not equivalent to unbounded distance over exact ties of that method, and a supremum factor 2 for relative-error outputs does not identify the sharp squared ratio 2 off ties here.",
+        "searches": [
+          "Kolzenburg–Richtárik, arXiv:2611.11354v1, Algorithm 1",
+          "Richtárik–Gruntkowska–Li, arXiv:2605.08850v2, Appendix B.7 and Proposition B.1",
+          "Resultary 09315b59bb24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed distance-amplification record has a dimension-at-least-two supremum distance factor 2 at positive oracle error, at the solution-controlled radius. The checked appendix constructs one relaxed-oracle example rather than classifying these exact outputs."
+        ],
+        "reasoning": "These exact neighboring numbers and witnesses are for different quantities and assumptions. No independent table or exact family covering the stated tie envelope was identified in checked sources.",
+        "searches": [
+          "Resultary search for local oracle exact-tie distance amplification and BroxGD first-step initialization; comparison 09315b59bb24",
+          "arXiv:2605.08850v2, appendix distance counterexample"
+        ]
+      },
+      "rationale": "The algorithm, gradient-radius initialization and objective convergence are established. The distinct claim is the exact first-step distance envelope and discontinuity, including unbounded amplification on one fixed quadratic by exact tie selection and the sharp bound when selection is unique. The closest checked negative examples have materially different oracle or radius hypotheses.",
+      "residual_risks": [
+        "The Carmon et al. Appendix A lead was not available as a read full-text passage from the located source. Older or unindexed exact local-oracle examples are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm; not a point-error classification",
+          "evidence": "Default radius ||∇f(x₀)||/L, exact LMO and clipped short step; convergence conclusion is about objective error.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11354v1",
+          "material_read": "Algorithm 1 (p. 11), Theorem 3.1 and Corollary 3.2 (p. 12)",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "An Adaptive Short-Step Variant of BroxGD with Linear Convergence under Quadratic Growth",
+          "trigger": "Defines the algorithm and default initialization"
+        },
+        {
+          "assessment": "Exact decrease under different radii; separate counterexample uses a relaxed output",
+          "evidence": "Type-I/II solution-controlled radius conditions do not include 1+p for the stated witness. B.1 applies to ρ>1, with the exact point in that example decreasing distance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08850v2",
+          "material_read": "Theorem 3.1 (p. 6); Appendix B.7 and Proposition B.1 (pp. 29–31)",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "Broximal Gradient Descent: A Projection-Free Sister of Projected Gradient Descent",
+          "trigger": "Distance-decrease and distance-increase claims for BroxGD"
+        },
+        {
+          "assessment": "Different radius regime",
+          "evidence": "Projection behavior assumes t≤(f(x)−f★)/||∇f(x)||.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.33383v1",
+          "material_read": "Theorem 2 and its setup (p. 2)",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "Local LMO is Secretly a Projection Method!",
+          "trigger": "Projection and Fejér assertions for local LMOs"
+        },
+        {
+          "assessment": "Different error model and radius",
+          "evidence": "Supremum distance factor 2 at positive relative error for dimension at least two, with solution-dependent radius; at zero relative error the oracle returns x★.",
+          "identifier_or_url": "Resultary 09315b59bb24",
+          "material_read": "Finding and assumptions in RESULT.md",
+          "method": "Read matching record in local mirror",
+          "title": "Dimension-sensitive breakdown of relative local oracle accuracy",
+          "trigger": "Nearby exact distance-amplification spectrum"
+        },
+        {
+          "assessment": "Unresolved secondary lead, not evidence of noncoverage",
+          "evidence": "Available description concerns exact ball optimization for strictly convex objectives, not a confirmed statement about ties in a local linear oracle.",
+          "identifier_or_url": "https://hub.valency.io/works/W_yjnp8tap_v1",
+          "material_read": "Search result and landing-page material only, not Appendix A",
+          "method": "Focused literature search and open-access retrieval attempt",
+          "title": "Broximal Point Method search hit citing Carmon et al., Appendix A",
+          "trigger": "Potential older exact ball-oracle comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example isolates a genuine failure mode of a documented default radius and exact oracle on a fixed condition-number-one objective. The sharp unique-oracle bound shows the blowup is tied to the permitted exact selection, not simply ill-conditioning or proximity to a tie; the gap contraction rules out conflating it with failure of objective descent. This meaningfully delimits first-step point-distance guarantees without claiming anything about eventual convergence or practical tie policies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:07:34.326188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The NB generating function gives the two factorial moments, each divided by the positive-count mass after truncation. The point mass contributes to the mean but not to the second factorial moment, so variance minus the distribution's own mean is exactly −1+At−B²t², with A,B>0. At t=1 its sign is that of 1−(r+1)(1−q)^r. I checked the factorization of the endpoint derivative A−2B² using u=1−q: the auxiliary derivative h'_r(u)=r(r−1)u^(r−2)(1−u) and h_r(1)=1 give the asserted strict sign reversal at r=1. In the size-biased law of Y−1 the statistic is k, so the log-q derivative of A/B is its strictly positive variance (convergent differentiated series on each compact subinterval of 0<q<1). The limits 0 and +infinity give a unique A/B=2. For r>1 the positive vertex is below 1, and at A=2B one has B>1 and a negative endpoint value −(B−1)². The vertex and endpoint signs give all five regimes, including the interior double root and the roots B^(−2),1 at q_c. For r≤1 the derivative is strictly positive on the open retention interval, even at r=1, giving precisely the stated exceptions at t=1. An independent exact PGF differentiation (`python3 /workspace/checks/dispersion.py`, SymPy) gave −1, 2479941473/21532234108 and −421000000/37681409689 at the three witness weights. That computation is a witness, not a continuum proof. Frozen verification material was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Godwin passages supply the law, moments or regression specification rather than a classification of mixture dispersion for all real shape parameters.",
+          "The DOI full text of Böhning–Friedl was not available on this check; its scope cannot be adjudicated from a failed retrieval."
+        ],
+        "reasoning": "A general mixture-moment theorem or a geometric-base analysis determines the polynomial or its r=1 subcase, respectively; covering the full result would additionally require inequalities controlling the vertex, discriminant and endpoint together across r and q. No such dominating statement was established in the material read.",
+        "searches": [
+          "Resultary: complete under/overdispersion phase classification for one-inflated zero-truncated negative-binomial across shape, rate, and inflation weight",
+          "Godwin (2012) Chapter Four §2.1; arXiv:2402.02272 pp. 4–5; DOI 10.1111/insr.12570 Appendix B access attempt"
+        ]
+      },
+      "checked_sources": [
+        "Godwin 2012 dissertation §2.1",
+        "arXiv:2402.02272 p. 4 eq. (8) and surrounding regression sections",
+        "Resultary four-query comparison and cited non-self records",
+        "10.9734/AJPAS/2023/v22i3487 and 10.1111/insr.12570 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior same-law moments imply Δ by direct subtraction. The phase proof additionally needs sign(A−2B²)=sign(1−r) and strict global increase of A/B proved via the size-biased excess-count law.",
+          "The compared additive Bernoulli-plus-NB record (Resultary 2026/11/22, suffix eb5c7d74b649) concerns hazard/log-curvature, not a structural-one mixture of conditional positive counts."
+        ],
+        "reasoning": "Direct quadratic algebra is prior-implied, but by itself leaves both the shape demarcation and global root geometry undetermined. The strict shape inequality and unique additional q threshold require further arguments even after taking the known formulas as given.",
+        "searches": [
+          "Resultary: whether published one-inflated zero-truncated negative-binomial moment formulas imply the full sharp r=1 and two-crossing dispersion classification",
+          "Godwin (2012) Chapter Four §2.1; arXiv:2402.02272 p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godwin (2012), printed pp. 78–80, treats the same structural-one mixture of a positive-truncated NB and gives its mean and variance; Godwin (2024), equation (8), specifies the same law in a different NB parametrization.",
+          "The ranked Resultary self-match is the assigned record, not a second source. The nearest compared independent hit concerns additional zeros and infinite divisibility of integer-shape NB."
+        ],
+        "reasoning": "Complementing the structural-one fraction gives the retention t, and changing NB parametrization does not change the dispersion sign; the basic quadratic is thus already determined. Neither the change of mixture coordinates nor the zero-inflation infinite-divisibility threshold classifies its admissible roots.",
+        "searches": [
+          "Resultary: one-inflated zero-truncated negative binomial equivalent formulations variance mean dispersion cutoff",
+          "Primary literature: \"one-inflated zero-truncated negative binomial\" (underdispersion OR overdispersion OR equidispersion) \"r=1\" OR \"two roots\"",
+          "Godwin (2012) Chapter Four §2.1; arXiv:2402.02272 equation (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top-10 comparison produced a self-match and different-object results, including the integer-shape zero-inflated NB infinite-divisibility threshold (Resultary path 2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f/RESULT.md).",
+          "The 2023 excess-ones paper was not accessible in primary full text on this check."
+        ],
+        "reasoning": "An exact fitted table or isolated dispersion sign would not itself give the two unique parameter boundaries over the continuous family. The compared non-self record does not even tabulate the same statistic or sampling law. This is a ranked screen, not an exhaustive table search.",
+        "searches": [
+          "Resultary: exact database or table of dispersion thresholds for one-inflated zero-truncated negative-binomial counts",
+          "Jolayemi–Aderoju DOI 10.9734/AJPAS/2023/v22i3487"
+        ]
+      },
+      "rationale": "Qualified for the full phase diagram: the probability model, moments and quadratic reduction are covered or immediate from prior work, not original. The positive evidence is a distinct quantified statement about shape, ordered cutoffs, and strict interior root counts; the inspected same-law sources establish the ingredients but not the global shape inequality or the unique discriminant transition.",
+      "residual_risks": [
+        "Historical priority is not certified. The 2023 full text and the 2016 Godwin journal article (10.1002/bimj.201600063) were not independently compared in full; either could anticipate parts of the classification.",
+        "The 2012 formula extraction was degraded and the Böhning–Friedl comparison is access-limited. Ranked matches cannot exclude earlier equivalents or a broader direct corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and its first two moments; no global sign classification in the inspected passage",
+          "evidence": [
+            "Positive NB law with extra one mass; §2.1 mean and variance."
+          ],
+          "identifier_or_url": "https://dspace.library.uvic.ca/bitstream/handle/1828/4315/Godwin_Ryan_PhD_2012.pdf",
+          "material_read": "Chapter Four §2.1, printed pp. 78–80 (text offset 178204); formula extraction degraded",
+          "method": "Read bounded OA dissertation passage",
+          "title": "Econometric Analysis of Non-Standard Count Data",
+          "trigger": "Same structural-one NB mixture and moment formulas"
+        },
+        {
+          "assessment": "Its likelihood parametrization yields the same law, not the phase theorem",
+          "evidence": [
+            "Equation (8) specifies the OIZTNB mass function; the surrounding material concerns regression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.02272",
+          "material_read": "pp. 4–5, especially p. 4 eq. (8), text offset 15401",
+          "method": "Read bounded OA primary preprint passage",
+          "title": "One-inflated zero-truncated Poisson and negative binomial regression models",
+          "trigger": "Same law in an expanded exposition"
+        },
+        {
+          "assessment": "Coverage unresolved, not a negative comparison",
+          "evidence": [
+            "Title and citation identify the exact excess-ones model."
+          ],
+          "identifier_or_url": "https://doi.org/10.9734/AJPAS/2023/v22i3487",
+          "material_read": "Frozen citation/title; independent primary full-text inspection unavailable",
+          "method": "Lawful OA retrieval attempted",
+          "title": "On Zero-Truncated Negative Binomial with Excess Ones",
+          "trigger": "Exact same family could contain dispersion cases"
+        },
+        {
+          "assessment": "Treat possible geometric subcase overlap as a limitation; no whole-paper exclusion",
+          "evidence": [
+            "Frozen AUDIT describes Appendix B calculations for geometric and Poisson bases; not independently confirmed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/insr.12570",
+          "material_read": "Frozen citation and Appendix B description only; primary full-text access attempt failed",
+          "method": "Lawful OA retrieval attempted",
+          "title": "One-Inflation and Zero-Truncation Count Data Modelling Revisited",
+          "trigger": "Plausible moment and dispersion implications for positive-count mixtures"
+        },
+        {
+          "assessment": "Different mixture, shape domain, and invariant",
+          "evidence": [
+            "Structural zero and compound-Poisson infinite divisibility, without zero truncation or a dispersion phase law."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f/RESULT.md (mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "material_read": "Relevant statement and model in RESULT.md",
+          "method": "Local mirror comparison",
+          "title": "Sharp infinite-divisibility threshold for zero-inflated negative-binomial laws of integer shape",
+          "trigger": "Closest non-self ranked threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance relative to one's own mean is a standard unconditional summary for positive-count mixtures. A pair of underdispersed endpoint laws does not control their mixture: here the theorem says exactly when intermediate structural-one mass reverses and then reverses back the sign. The uniform real-shape result, strict cutoffs and exact witness are useful beyond a routine moment calculation, without claiming regression-residual, inference or Poisson-characterization consequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

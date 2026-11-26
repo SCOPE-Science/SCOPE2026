@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:22.192282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting ordinary large-shore vertices leaves an incidence forest with a+k vertices, c components and a+k-c edges, hence sum(degree-1)=a-c. At k=a-1 all special vertices must have degree two and their suppressed edges form a tree. The choices of this tree, the assignment of distinct B labels, and the a+1 independent ordinary states biject to the event, giving its exact uniform conditional law and count. For k=a-2 the degree sum permits only a two-component forest of pairs, or one triple and otherwise pairs in a connected incidence tree. In the triple case contracting its three endpoints leaves a tree on a-2 vertices with endpoint multiplicity 3 for each edge incident to the contracted vertex; labelled Prüfer weights give 3a^{a-4}, with the one-vertex case interpreted separately at a=3. For a=2 only the two-component case occurs. No lower class can contribute beyond O_a(b^{a-3}(a+1)^b); the remainder is empty when a=2. Total variation from conditioning is exactly the excluded mass. The second-to-first count ratio is κ_a/(b-a+2), yielding the claimed TV law. The conditional isolated count is binomial and the conditional largest size is a+b minus that count, so the binomial LLN and CLT transfer by TV; the O_a(1) centering difference vanishes on the sqrt(b) scale. All this holds only for fixed a. Correction to the comparison prose at line 114: b/(b+3) is hub connection on K_{2,b}; 3/(b+3) is disconnection, also the exact TV error. The theorem already gives the correct error. Read VERIFICATION.md and verify.py without running them; the checker uses int.bit_count(), available in Python 3.10+, despite the proof document's Python 3.9 compatibility wording.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-date biclique result covers all connector classes by a finite-coefficient sum and uses the same rank bound; Stones gives exact fixed-edge counts and one-shore core counts in its enumeration.",
+          "The catalogue's split-graph Cayley-core result is for spanning trees of a different host. The rooted biclique result weights components via their root choices, unlike the uniform unrooted law."
+        ],
+        "reasoning": "The known exact counts are broad enough to encode the numerical values, not to specify the original-space conditional product law without structural identification. Stark's differing asymptotic regime alone would not exclude coverage by his exact formulas; the source access limitation is retained.",
+        "searches": [
+          "Resultary 8b705888a4e2, fcf037526538, 7b55eb17213d",
+          "10.1016/j.disc.2012.10.026",
+          "10.46298/dmtcs.1248, Theorems 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Stones 10.46298/dmtcs.1248 §4.2 and Theorems 2–3",
+        "Resultary 8b705888a4e2, fcf037526538 and 7b55eb17213d",
+        "Stark 10.1016/j.disc.2012.10.026 (abstract/access limitation above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed formula F_{a,b}=∑_{j=0}^{a-1} binom(b,j)c_{a,j}(a+1)^{b-j} already gives the order hierarchy; its c_{a,j} remain counts of ordered incidence patterns in general.",
+          "Stones's component enumeration can also recover the top two numerical coefficients by regrouping by A blocks and expanding bipartite-tree EGF weights. For an A block of size i, the B-series is exp(iy) times i^{-1}∑_r S(i-1,r)(iy)^r, from the tree count i^{j-1}j^{i-1} (with the singleton convention). The top two powers receive the one-block leading and next coefficients and the leading coefficients from two blocks."
+        ],
+        "reasoning": "Thus the counts themselves, and the once-identified polynomial orders, are not independent innovations. The count-only expressions do not identify the probability law after deleting and then reattaching B labels. Even using the prior bound and connector formula, equality and one-unit slack must be resolved into the Cayley tree, two pair components and weighted triple contraction to supply the specified law and a closed rate. Conditioning then makes that rate a full-space TV statement, rather than only an asymptotic total count.",
+        "searches": [
+          "Resultary 8b705888a4e2, Proof §1, offsets 1378–2645 and its coefficient section",
+          "Stones, printed pp. 319–321 and Eqs. (4)–(5) in Theorems 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The special B vertices of the frozen theorem are precisely the connectors in 8b705888a4e2 and the one-shore degree-at-least-two core of Stones after removing that shore's leaves and isolates.",
+          "The exact total-variation error is the complement of the uppermost connector class, not merely the difference of two component-size distributions."
+        ],
+        "reasoning": "The core representation itself is not new. The new statement uses saturation of the rank bound to identify its full labelled law, and the first unsaturated cases give the leading probability of missed forests. The exact two-hub special case receives no originality credit.",
+        "searches": [
+          "Resultary fixed-shore biclique forest Cayley core and degree-product spanning-forest thresholds",
+          "Stones 10.46298/dmtcs.1248 §4.2 and Theorems 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The connector formula gives explicit c_{a,j} for a=3,4,5, covering those finite coefficient evaluations; Stones gives a general algorithm yielding labelled counts by edge number and core size.",
+          "Exact enumeration of fixed a examples does not prove the closed coefficient for every a or give the identity of the conditional law on labelled configurations."
+        ],
+        "reasoning": "The finite instances are prior-covered numerically. The general explicit TV coefficient and the arbitrary-shore sampling representation require a result about these core classes, not replication of the reported entries.",
+        "searches": [
+          "8b705888a4e2 Proof §1, explicit small-shore coefficients",
+          "Stones 10.46298/dmtcs.1248, Theorem 3 fixed-edge sum indexed by core size"
+        ]
+      },
+      "rationale": "Exact biclique-forest enumeration and connector-rank bounds are already available, including formulas that determine every count in the frozen theorem implicitly. The surviving content is the general fixed-shore conditional product representation on the labelled forest space and its explicit arbitrary-a sharp TV error via the two classified top core types. Neither the known exact-count algorithms nor the closest indexed connector formula states this law, and obtaining it requires identifying and evaluating the extremal classes, not just reading a table or reindexing the count. No chronological priority is inferred between the same-date records.",
+      "residual_risks": [
+        "Stark's unavailable exact-enumeration text and other published conditional sampling results could contain a closer formulation. A focused lookup without a decisive match is not negative evidence.",
+        "The conditional Cayley-core law and explicit general correction, not exact enumerability or the rank bound, are the scope of this assessment. The separate same-date exact connector result precludes any priority inference from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong implicit coverage of enumeration, not the frozen structural conditional approximation",
+          "evidence": [
+            "Theorem 2 partitions forests by connected components with the labelled bipartite tree weights. Theorem 3 sums over a core shore size j and number k of reattached leaves."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/1248/download",
+          "material_read": "Printed pp. 313–314 definition, §4.2 pp. 319–321, and Theorems 2–3; core passages around offsets 17887–22356 and the theorem passage 26069–28634",
+          "method": "Original open paper, targeted text and equation inspection",
+          "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+          "trigger": "Same host, labelling, unrooted measure and special-core mechanism"
+        },
+        {
+          "assessment": "Shares core deletion, rank bound and exact summed count; general Cayley/weighted-triple law not supplied by the displayed unevaluated coefficients",
+          "evidence": [
+            "Defines c_{a,j} as ordered acyclic special-neighbourhood tuples, gives the binomial-basis forest formula, and evaluates small a."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-degree-product-spanning-forest-thresholds-and-the-first-co--8b705888a4e2",
+          "material_read": "Mirrored RESULT.md Proof §1, including the rank inequality and ordered neighbourhood coefficients at offsets 1378–2645, plus the exact sum and sample coefficients",
+          "method": "Local catalogue and mirrored original proof comparison",
+          "title": "Sharp degree-product spanning-forest thresholds and the first correction",
+          "trigger": "Closest independent indexed result on the identical connector construction for thin bicliques"
+        },
+        {
+          "assessment": "Exact formula's treatment of the top two fixed-shore classes remains unresolved",
+          "evidence": [
+            "No primary formula or appendix passage available for full-text comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2012.10.026",
+          "material_read": "Landing page/abstract only; identified primary PDF inaccessible on attempted route",
+          "method": "Lawful open-text request; publisher PDF returned 403",
+          "title": "The asymptotic number of spanning forests of complete bipartite labelled graphs",
+          "trigger": "Exact forest-count formulas might contain stronger coverage even if stated asymptotics differ"
+        },
+        {
+          "assessment": "Different host and sample space",
+          "evidence": [
+            "Spanning trees in a complete split graph; not the unrooted forests of a biclique with arbitrary isolated large-shore vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-total-variation-cayley-core-approximation-for-split-graph--fcf037526538",
+          "material_read": "Mirrored statement and host/measure assumptions",
+          "method": "Local catalogue and mirrored statement comparison",
+          "title": "Sharp total-variation Cayley-core approximation for split-graph spanning trees",
+          "trigger": "Closest indexed conditional approximation by name and structure"
+        },
+        {
+          "assessment": "Different measure and statistic",
+          "evidence": [
+            "Component roots bias the counts by component sizes, so uniform rooted and uniform unrooted laws are not interchangeable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-bipartition-balancing-orders-rooted-forest-component-counts-in-l--7b55eb17213d",
+          "material_read": "Mirrored statement and rooted-measure scope",
+          "method": "Local catalogue and mirrored statement comparison",
+          "title": "Bipartition balancing orders rooted forest component counts",
+          "trigger": "Rooted biclique-forest law might imply a component approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The approximation replaces a uniform law on acyclic labelled edge sets by a uniformly subdivided Cayley tree and independent choices at the remaining large-shore vertices. The explicit TV rate controls all labelled events and yields a transparent binomial/normal component approximation; the two error sources separate disconnected pair cores from the first larger hyperedge. This is more than a new table of forest counts and does not claim uniformity in growing small-shore size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

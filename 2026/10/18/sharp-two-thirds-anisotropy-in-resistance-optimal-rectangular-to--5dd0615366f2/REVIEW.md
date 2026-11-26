@@ -1,19 +1,21 @@
-# Review of sharp two-thirds anisotropy in resistance-optimal rectangular tori
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof treats every independently chosen conductance, not merely a symmetric ansatz. Strict positive curvature of the trace-inverse objective and edgewise identifiability establish unrestricted uniqueness, hence symmetry under graph automorphisms. The Fourier-mode stationary equation has a unique positive solution, and the exact periodic resolvent identity gives the fixed-width limit. Matching first and second terms is justified by explicit dominant orders. The included standalone `verify.py` independently checks full weighted Laplacian spectra, trace pseudoinverses, Green identities, and representatives of the asymptotic balance; it passed 1,296 assertions. Numerical evidence is not used as an infinite proof.
+PASS
 
-## Originality
+Reconstructed the unrestricted optimization and fixed-width limit in RESULT.md lines 46–103. On the connected-support simplex, X=L+11ᵀ/(mn) is positive definite, and the trace-inverse second variation is the trace of a positive congruence of the square of X^(−1/2)HX^(−1/2), times two. It is strictly positive because distinct simple-graph edge coordinates appear in distinct off-diagonal entries. Boundary sequences tending to disconnected support have diverging inverse-gap cost. Existence, strict convexity and translation invariance thus give one optimizer with constant weights by direction, both positive by connectivity. Differentiating the exact Fourier trace at x=h/(1+τ) gives the stated Φ; strict convexity in y/h (not necessarily in τ) and the derivative signs at the two ends give uniqueness. Exchange symmetry at equal lengths gives τ=1. The cycle resolvent follows from periodizing the exponential line kernel. As an independent replay of the singular constants, for p=1,2 use g_p(t)=(4sin²(πt)+c)^(−p): its total variation is ≤2c^(−p), so the Fourier sum differs from m∫g_p by O(c^(−p)). The p=1 integral is 1/√(c(c+4)) by a tangent substitution; negative differentiation gives the p=2 integral (c+2)/(c(c+4))^(3/2). When c=τb_l and τ=z m^(−2/3), the relative errors are O(1/(m√c)), uniformly for z in compact positive intervals and fixed n. The exact zero-mode sum is (m²−1)/12 (also the constant term of the small-c cycle resolvent after the pole 1/c). The resulting scaled derivative tends to 1/12−S_n/(4z^(3/2)), bracketing the unique root, and the scaled trace correction is z_n/12+S_n/(2√z_n)=z_n/4. Equal design has hT=m²/6+O_n(m). Independent direct Fourier sums and bisection in y/h at n=3, m=98,304 gave scaled ratio 2.28840 and scaled correction 0.57261, near the analytic 2.28943 and 0.57236; this is illustrative, not the limit proof. Inspected VERIFICATION.md and verify.py without executing the supplied script; its recorded 1,296 finite checks are supplementary (the Green-loop checks values, not an independent derivative certificate). The two-term law is for hT with fixed n≥3, not jointly diverging widths. The variance interpretation uses mean-zero diffusion with identity noise covariance on the mean-zero subspace.
 
-**PASS, subject to residual literature risk.** Ghosh–Boyd–Saberi (2006, 2008) develop general resistance-optimal conductance allocation and graph symmetry. Bamieh–Jovanović–Mitra–Patterson (2011) develop Fourier-mode coherence scaling for periodic local-feedback networks. Tovar et al (2026) develop general network architecture under conductance cost models. The primary papers and their relevant sections were inspected; none yields the fixed-width optimal anisotropy exponent and its explicit coefficient as a stated result. Searches of the published-results index and literature using Kirchhoff index, coherence, torus, anisotropy, and equivalent budget terminology found no equivalent specialization. General convexity and Fourier diagonalization are prior knowledge, not claimed as new. Unindexed specialist literature could still contain an equivalent result.
+## originality
 
-## Value
+PASS
 
-**PASS.** Unlike generic graph optimization, the result gives the full allocation rule for the infinite rectangular-torus family and identifies the exact singular limiting law, with a quantitative factor-two improvement over uniform spending. The geometric fixed cross section and large longitudinal circumference motivate this narrow regime. The explicit two-thirds scaling and leading correction supply concrete mathematical information for choosing anisotropic resource ratios rather than routine normalization.
+The generic convex optimization framework and the two-thirds mechanism for the width-two prism have prior coverage. The distinct content supported here is the sharp fixed-n≥3 cycle-product allocation and trace correction in terms of the entire transverse spectrum. The methods are closely related; this is a bounded comparison, not a priority determination.
 
-## Limits
+## value
 
-All graph edges have identical linear conductance price. Both graph factors are cycles of length at least three. The limit keeps the second circumference fixed. The finite ratio is defined implicitly by a unique scalar root. No proof for arbitrary inhomogeneous edge prices, open boundaries or simultaneous two-parameter growth is claimed. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For every fixed transverse cycle this determines how much conductance buys connectivity versus the dominant long-direction resistance, with an explicit transverse-spectrum prefactor and quantified leading departure from the zero-band cost. The leading factor-of-two saving over equal spending is interpretable, but the main value beyond the earlier prism is the shared conductance balance across all transverse modes and its sharp width-dependent correction, not the exponent in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

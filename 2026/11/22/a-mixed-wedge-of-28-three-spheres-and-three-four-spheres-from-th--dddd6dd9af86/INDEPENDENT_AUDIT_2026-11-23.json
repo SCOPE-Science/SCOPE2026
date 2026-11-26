@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:23.317674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py (inspected, not executed), with accompanying review, audit, metadata, slogan and verification notes",
+        "Independent replay: python3 /workspace/branches/3fb5fd81-591a-482a-b9c9-624d1e909c07/repro.py (repro.out and findings.md alongside)"
+      ],
+      "rationale": "For a fixed block, the best eligible subface is the intersection with that filled block. Thus the minimum outside-block cardinality predicate is exact. It gives the full 3-skeleton and 45 four-simplices: 18 of profile (3,2,0) and 27 of profile (3,1,1). No larger face is possible. The finite replay reproduced all 300 nonempty faces and all 134 matching pairs, sorted the reversed Hasse orientation on 1,053 incidences without a cycle, and found one critical vertex, 28 critical 3-cells and three critical 4-cells. The unit-incidence signed elimination for the top differential is valid: the upward matched and downward unmatched incidences form an acyclic dependency relation, and subtracting the multiple of the matched upper boundary removes the lower coefficient while preserving a cycle. All three integral Morse columns vanish (critical masks 62, 440, 454). Thus the Morse CW complex has 3-skeleton a wedge of 28 three-spheres. Hurewicz identifies its pi3 with H3, so every 4-cell attaching map is null; appending them wedges three four-spheres. This establishes homotopy type, not only Betti numbers. A separate mod-two calculation gives (8,28,56,42) for boundary ranks.",
+      "residual_risks": [
+        "The full finite enumeration is specific to these three nine-vertex labelled facets; mod-two ranks alone would not establish the integral attaching statement.",
+        "The frozen checker uses int.bit_count(), which requires Python 3.10 or later; the Python 3.8 compatibility claim in RESULT.md is inaccurate. This is a replay prerequisite, not a defect in the certificate or theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4.3 gives collapsibility at most m(t+1)-1 for m facets; neither this nor the chordal Leray bounds determine the Morse differential. The same-day theorem for all three block sizes >=2 yields B3=28 and B4=3 at (3,3,3) and states this case was previously calculated and is not claimed as new. The same-day pair-cycle theorem for any number of triples gives fourth homology, but not degree three or the attaching statement."
+        ],
+        "reasoning": "The broader wedge theorem does mathematically imply this case, but its text explicitly treats that case as the existing special computation, not as antecedent coverage. The pair-cycle statement subsumes one invariant only.",
+        "searches": [
+          "arXiv:2611.14384v1 Introduction, Section 4 Theorem 4.2, Corollary 4.3 and Example 4.4",
+          "Resultary 281f28404372, full theorem/proof and Relationship to prior work",
+          "Resultary 1dfcb36ecbc3, full finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Kim–Lew arXiv:2109.03030v1; Selvaraja arXiv:2611.14384v1",
+        "Resultary 281f28404372 and 1dfcb36ecbc3",
+        "Targeted web and Resultary queries above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim–Lew's two-block proof excludes only the single six-vertex face in its own ground set. Three pairwise six-vertex boundaries do occur in the assigned complex, but the three-block faces are additional data. The integral pair-cycle result gives rank three in degree four directly, and leaves H3 and homotopy open in its statement."
+        ],
+        "reasoning": "Neither the occurrence of these three spheres nor a bound on homology in high degrees alone determines the whole mixed wedge. The count and the attaching argument on the entire 3-block complex are substantive.",
+        "searches": [
+          "Kim–Lew introductory extremal construction and Theorem 1.5",
+          "Selvaraja Section 4 Corollary 4.3 and Example 4.4",
+          "Resultary 1dfcb36ecbc3 §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The object is the union of three radius-two tolerance pieces around the full blocks, equivalently the tolerance of the clique complex of 3K3. For three blocks this is not the construction with facets that are complements of the blocks; nor is it the tolerance of an unfilled graph."
+        ],
+        "reasoning": "In the actual case a face has at most five vertices. In Selvaraja's complement-of-blocks example all proper subsets of nine vertices are faces; hence the identical number and size of the disjoint blocks there does not yield the assigned space.",
+        "searches": [
+          "Resultary: 2-tolerance complex three disjoint filled triangles three disjoint simplices wedge 28 S3 and 3 S4 homotopy; Alexander dual",
+          "Web: two tolerance complexes disjoint three simplices filled triangles homotopy Kim Lew Selvaraja tolerance complexes mixed wedge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite hit is the assigned record, and the broader three-block proof explicitly records that special case. The foundational displayed example yields one S4 for two triangles, not two integral ranks for three triangles."
+        ],
+        "reasoning": "Neither the prior example nor an earlier exact table located in this bounded comparison contains the nine-vertex mixed wedge.",
+        "searches": [
+          "Resultary exact mixed-wedge query above, including hits 281f28404372 and 1dfcb36ecbc3",
+          "arXiv:2109.03030v1 Introduction; arXiv:2611.14384v1 Example 4.4"
+        ]
+      },
+      "rationale": "The earlier two-disjoint-facet sphere and general tolerance bounds do not classify this three-facet object. The contemporaneous explicit generalization records this as its previously calculated special case; no independently prior complete classification was located.",
+      "residual_risks": [
+        "Equivalents under another guise may be unindexed. The relative ordering between the assigned result and the same-day extension is supported by the extension's explicit acknowledgment, not inferred from time-of-day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction but only a two-block type and general bounds in the relevant statements",
+          "evidence": [
+            "Two facets of size t+1 have a tolerance complex equal to the simplex boundary S^(2t)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.03030v1",
+          "material_read": "Introduction: definition, example after Conjecture 1.4 and Theorem 1.5",
+          "method": "Primary OA full text, targeted sections",
+          "title": "Leray numbers of tolerance complexes",
+          "trigger": "Source of tolerant construction and two-disjoint-block extremal sphere"
+        },
+        {
+          "assessment": "Bounds include this input; its sharpness sphere uses a different complex",
+          "evidence": [
+            "Example 4.4 takes F_i=W minus A_i; for m=3 the three F_i each have six vertices at t=2, unlike the present facets of cardinality three"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14384v1",
+          "material_read": "Abstract, introduction and Section 4, including Corollary 4.3 and the complete Example 4.4",
+          "method": "Primary OA full text, targeted sections",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "Broader tolerance results applicable to chordal clique complexes and few facets"
+        },
+        {
+          "assessment": "Exact extension that credits the special case as previously calculated",
+          "evidence": [
+            "x=y=z=2 gives B3=12+16=28 and B4=3; text quotes the exact mixed wedge and disclaims originality for that finite case"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-tolerance-complexes-of-three-disjoint-simplices-a-uniform-in--281f28404372/RESULT.md",
+          "material_read": "Full result, including cover and incidence proof and explicit prior-work comparison",
+          "method": "Published local full-text mirror",
+          "title": "Two-tolerance complexes of three disjoint simplices: a uniform integral sphere-wedge formula",
+          "trigger": "Potentially dominating exact homotopy classification"
+        },
+        {
+          "assessment": "Exact partial overlap in H4 and complementary structure, not a full wedge theorem",
+          "evidence": [
+            "Rank binomial(r,2) and an explicit integral fourth-homology basis; no lower-degree or homotopy classification"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-integral-pair-sphere-lattice-in-two-tolerance-complexes-of-disjo--1dfcb36ecbc3/RESULT.md",
+          "material_read": "Full result, mixed-face elimination, integral pair basis and limitations",
+          "method": "Published local full-text mirror",
+          "title": "Integral pair-sphere lattice in two-tolerance complexes of disjoint triangles",
+          "trigger": "Same complex at r=3, with a potential exact topological statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kim–Lew introductory example; Selvaraja Section 4; frozen exact matching and Resultary broader theorem"
+      ],
+      "rationale": "The first balanced three-facet counterpart to the classical two-facet sphere exhibits two genuine adjacent homotopy dimensions, showing why a Leray bound or the sum of visible top-dimensional spheres is not a topology classification. Its complete integral homotopy type is a useful small benchmark for wider tolerance classifications.",
+      "residual_risks": [
+        "No claim to classify four or more blocks, unequal block sizes, or actions on homotopy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

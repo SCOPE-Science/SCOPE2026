@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The optimal-length lemma uses only the fact that all first occurrences precede all second occurrences, so two different doubled labels cannot both have contiguous runs. The exact count separates optima by their unique doubled label; allowable labels are precisely left-to-right records of the second permutation, and each smaller label occurring later there independently chooses which side of the doubled pair it occupies. This proves an injective word count, not an embedding count. The lower extremal proof double-counts missing smaller labels and analyzes equality; the upper extremal proof bounds each record's exponent and checks both equality cases. The only boundary exception is handled at alphabet size one. An independent brute-force subsequence search verified all permutations through alphabet size five; a separate permutation census verified both structural equality classifications through size nine.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest sources are Asahiro et al., *Approximation Algorithms for the Longest Run Subsequence Problem* (CPM 2023, DOI 10.4230/LIPIcs.CPM.2023.2), Schrinner et al., *The Longest Run Subsequence Problem* (WABI 2020, DOI 10.4230/LIPIcs.WABI.2020.6), Dondi and Sikora, *Further Complexity Results* (CPM 2021, arXiv:2011.08119), and the later Asahiro et al. *Approximability ... Complementary Minimization* (WABI 2025, DOI 10.4230/LIPIcs.WABI.2025.3). These works define the optimization problem, its hardness, exact algorithms and approximation algorithms. Their inspected treatments do not contain the weighted-record multiplicity formula or the sharp Fibonacci-versus-factorial equality classifications for concatenated permutations. Comparisons also included published mathematical research records and available earlier research claims, with no matching theorem identified. OEIS A001048 independently contains the numerical factorial combination counting *upper-equality permutations*, but not its present run-subsequence interpretation. As always, an equivalent unindexed statement could exist, and the early 2023 Japanese report was accessible as bibliographic metadata rather than complete full text; the full English CPM 2023 paper was inspected.
+PASS
 
-## Mathematical value — PASS
-For two-permutation words, the optimum length is always fixed at the smallest unavoidable slack, yet the **number of distinct optimal output words** can range from linear to exponential in the alphabet size. The closed record statistic gives an exact, directly computable multiplicity for every second permutation. Both extreme multiplicities have necessary-and-sufficient structural characterizations, with exact enumeration of all permutations realizing each extreme: Fibonacci tilings at the lower extreme and two short initial-prefix families at the upper extreme. This is a natural solution-degeneracy invariant for a genome-scaffolding optimization model rather than an arbitrary parameter slice. The theorem does not improve the hardness or approximation guarantees for general inputs.
+Both copies of two different labels cannot be used: the later first copy separates the earlier first copy from its second copy. Hence the length is at most m+1, with equality realized by doubling m. An optimum doubling i must retain all other labels; a value larger than i must be selected after i in the second permutation. This is feasible exactly at a record i=π_t. Of the smaller labels, exactly i−t can choose their side of ii; each choice vector uniquely determines a word because the order on each side is fixed. Write d_s=i_s−t_s for the r records. Each nonrecord is missing at its preceding record, so sum d_s≥m−r and sum 2^{d_s}≥m. Lower equality forces d_s∈{0,1} and no double-counted missing label: the first block must be (1) or (2,1), and deletion with relabeling preserves equality. For the upper bound, d_s≤m−r and r≤2^{r−1} with equality only at 1 or 2; both record-position/value bounds must be tight, giving exactly the two disjoint prefixes stated for m≥2. The tiling recurrence and factorial counts follow, with m=1 checked separately.
 
-## Remaining limitations
-The theorem concerns only the concatenation of two distinct-symbol permutations, counts distinct words rather than embeddings, and does not extend automatically to arbitrary two-occurrence strings. Full-text coverage is limited to the accessible sources cited above; an unindexed equivalent remains possible. Computational tests are finite, and the infinite result rests on the combinatorial proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-permutation record formula and its exact extremizer families, rather than the numerical sequence or the elementary length, are the distinct claim. Retrieved LRS results on hardness/approximation and published special cases do not cover this enumeration.
+
+## value
+
+PASS
+
+The natural length optimum is the same on the entire host family, while the diversity of optimal words varies from linear to exponential. The exact record statistic explains that difference and identifies every extremizing arrangement, a structural enumeration not supplied by approximation or length algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

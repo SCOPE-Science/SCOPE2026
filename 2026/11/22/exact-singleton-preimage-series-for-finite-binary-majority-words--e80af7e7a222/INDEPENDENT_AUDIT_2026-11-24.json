@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:44.190401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 35–70",
+        "VERIFICATION.md and verify.py, inspected as frozen evidence",
+        "Independent replay: python3 /workspace/review_checks/frozen_replay.py 4"
+      ],
+      "rationale": "The before-reading state counts each two-bit starting pair once. Appending a bit gives exactly one new input realization for each compatible previous realization and endpoint pair. The end pairs are all counted; no end constraint is imposed. Saturation at two preserves the exact-one predicate because no contributions are negative. An independent present/multiple-set construction yielded 30 reachable states, four accepting, and no edge back to the start. The whole-vector residual of the degree-nine polynomial is -2 at the start and zero elsewhere; applying the transition operator kills that residual. This gives the recurrence for every m>=1 (not at m=0), and exact low coefficients give the displayed numerator. All 16 listed counts and a separate brute-force histogram through m=12 agreed.",
+      "residual_risks": [
+        "Direct enumeration is a finite check; the saturated update and whole-state identity establish the unbounded count. The record does not claim minimal denominator or automaton."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen proves pointwise recurrences for arbitrary strings, including a telescoping recurrence for N(S). Salo studies generalized inverses of shift maps. The Biehl–Witkowski primary text could not be retrieved."
+        ],
+        "reasoning": "Jen's general pointwise method can be used to set up the aggregation. It does not evaluate it. A generalized inverse of the shift does not count uniquely invertible finite targets with both boundary bits counted.",
+        "searches": [
+          "Jen (1989) exact pointwise Rule 232 recurrences, pp. 441–442",
+          "Salo arXiv:2209.13373, von Neumann regularity",
+          "Biehl–Witkowski DOI 10.1155/2021/7501405, access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Jen (1989), §4 Case e",
+        "Resultary 9a5867630f75, da4a182e6a5a, b9fa18b7332d",
+        "Salo arXiv:2209.13373",
+        "Biehl–Witkowski DOI 10.1155/2021/7501405 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jen supplies the exact input to the sum of indicators 1[N(S)=1], not an all-length evaluation. The image-language counts use the predicate N(S)>0 instead, and the cyclic exact-one count differs even for short words."
+        ],
+        "reasoning": "Knowing every pointwise recurrence defines a brute-force computation at any given length but does not mechanically supply this closed rational evaluation. The new calculation concerns closure of saturated predecessor counts and the resulting polynomial identity.",
+        "searches": [
+          "Jen §4 Case e pp. 441–442",
+          "First-image subshift and cyclic singleton records, Findings and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen's N(S) counts predecessors for a specified finite string. The same-day cyclic singleton series is defined by a cyclic map on n bits rather than an unrestricted linear map with m+2 input bits.",
+          "The degree-nine denominator of the linear series is a common factor, but the linear counts start 0,0,2,8 while the cyclic counts start 2,4,0,6."
+        ],
+        "reasoning": "For the same local rule the relevant path functional changes from the sum over all endpoints to the trace. Fiber size one is a nonlinear test; neither the common factor nor an alignment of local triples transfers this aggregate enumeration.",
+        "searches": [
+          "Resultary: finite Rule 232 singleton preimage series and uniquely invertible majority outputs; b9fa18b7332d, 9a5867630f75, da4a182e6a5a",
+          "Jen §4, Case e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bilateral first-image record enumerates allowed spatial blocks, explicitly not their preimages. The cyclic image formula counts nonempty fibers and the cyclic singleton formula measures different fibers."
+        ],
+        "reasoning": "None of these exact enumerations counts the same statistic on the same domain.",
+        "searches": [
+          "Resultary 9a5867630f75 bilateral first-image subshift, da4a182e6a5a cyclic image, b9fa18b7332d cyclic singleton"
+        ]
+      },
+      "rationale": "The contribution is the evaluated singleton count over all unrestricted-end output words by length, not the pointwise predecessor recurrence or the existence of a finite-state representation. The strongest same-day periodic singleton result is a material neighbor but assesses different fibers, and the closest classical pointwise formula does not evaluate this global threshold count.",
+      "residual_risks": [
+        "A previously unindexed evaluation of the singleton series or a deeper structural link to the cyclic series may exist. No inference of priority from the same-day listings or of noncoverage from the inaccessible title is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior pointwise theory, not evaluated all-output singleton count",
+          "evidence": [
+            "The recurrence F_k=F_{k-1}+F_{k-3} is part of the Rule 232 treatment; on p. 442, N(S), the total number of preimages for any string, is given by a telescoping recurrence."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "§4 Case e, pp. 441–442, PDF text offsets 44024–47321",
+          "method": "OA PDF reading",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Exact arbitrary-output recurrence for the same local rule"
+        },
+        {
+          "assessment": "Attainability only",
+          "evidence": [
+            "The scope states the enumeration counts allowed spatial blocks, not the number of preimages of a block."
+          ],
+          "identifier_or_url": "9a5867630f75",
+          "material_read": "Finding and Assumptions and scope, offsets 0–1848",
+          "method": "Resultary and local mirror",
+          "title": "The exact first-image subshift and entropy of binary majority cellular automaton",
+          "trigger": "Exact finite-block enumeration for the same majority shift"
+        },
+        {
+          "assessment": "Periodic image rather than open singleton count",
+          "evidence": [
+            "Defines a_n=|im F_n| for indexed periodic rings; excludes inverse-fiber sizes and nonperiodic boundary cases."
+          ],
+          "identifier_or_url": "da4a182e6a5a",
+          "material_read": "Finding and Assumptions offsets 0–2300; relationship and limitations offsets 6800–8600",
+          "method": "Resultary and local mirror",
+          "title": "Exact cyclic image counts and spectral growth for elementary majority cellular automaton Rule 232",
+          "trigger": "Exact indexed image count of the same rule"
+        },
+        {
+          "assessment": "Different boundary; a common factor does not establish equivalence or priority",
+          "evidence": [
+            "The input variables repeat cyclically, giving a different series with degree-18 denominator and small-length counts 2,4,0,6."
+          ],
+          "identifier_or_url": "b9fa18b7332d",
+          "material_read": "Finding and Assumptions, frozen lines 5–39; relationship and limitations",
+          "method": "Resultary and direct frozen statement inspection",
+          "title": "Exact singleton-predecessor spectrum of cyclic binary majority Rule 232",
+          "trigger": "Same-day same-rule singleton count with shared denominator factor"
+        },
+        {
+          "assessment": "Different inverse problem on shifts",
+          "evidence": [
+            "The setup concerns deciding existence of weak generalized inverses of cellular automata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "Abstract and introduction",
+          "method": "OA arXiv text",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Possible exact-inversion antecedent"
+        },
+        {
+          "assessment": "Access-limited; not used as evidence of noncoverage",
+          "evidence": [
+            "The attempted routes returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2021/7501405",
+          "material_read": "No primary text retrieved",
+          "method": "Lawful DOI and two publisher PDF routes",
+          "title": "Investigating Transformational Complexity: Counting Functions a Region Induces on Another in Elementary Cellular Automata",
+          "trigger": "Cited comparison for local environments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: Finding, Assumptions and scope, and finite-state proof",
+        "Jen §4 Case e and Resultary 9a5867630f75"
+      ],
+      "rationale": "An attainable observation need not determine the unobserved source word, including its two end bits. The all-length singleton spectrum resolves this exact finite reconstruction invariant for a classical local rule. It gives both an effective test for an individual target and a recurrence for how many targets pass, complementing the earlier image-language and per-target counts.",
+      "residual_risks": [
+        "The result is not global invertibility, a full multiplicity distribution, or a classification with other boundary conditions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

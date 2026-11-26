@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The derivation uses a complete deck-isometry classification: vertical translations have minimum length \(b\), nonidentity even horizontal powers have minimum \(2a\), and odd glide powers have minimum \(\sqrt{a^2+\operatorname{dist}(2y,b\mathbb Z)^2}\). Flatness ensures half the minimum displacement is the injectivity radius, and area sampling gives the exact uniform folding law. Direct integration proves the CDF, atom transitions, and first two moments. The sharp extremum follows from an explicit cubic and a strict variance-contraction identity beyond the first transition, with Jensen's inequality placing the cubic extremum strictly inside its regime. Finite checker tests verify substantial inputs but are not relied on as infinite proofs.
+PASS
 
-## Originality: PASS, historical priority provisional
+Both frozen and narrowed variance statements are mathematically correct. In normal form, the two orientation classes give shortest squared lengths min(4a²,b²) and a²+dist(2y,bZ)². The fundamental rectangle has area ab, and folding a uniform position modulo b gives the asserted uniform D, CDF and two cap transitions. Integrating on the uncapped interval and adding the capped mass gives the stated moments and variance normalization 1/(4s). Inserting v=√3s at the first cap gives the cubic; strict Jensen puts its unique positive stationary point inside that regime. Beyond the cap the original comparison is valid by contraction of pairwise differences; the repaired text verifies this directly via L_t=min(1,√(L_s²+t²−s²)) with the same D. This map is Lipschitz with constant at most (1+t²−s²)^(−1/2)<1 on [0,1], so the pairwise formula strictly decreases the positive variance for s<1. Positivity there follows by varying D in a small uncapped interval; s≥1 is degenerate. Independent numerical evaluation gave s*=0.24009981141289302 and W*=0.007976414224378097, only a rounding check. The uploaded checker was inspected, not run; all-real conclusions follow analytically. The corrected RESULT.md and SLOGAN.txt were checked against these derivations.
 
-Davis–Recio-Mitter (arXiv:1912.07411v1, §2 and the cut-locus construction) already establish the pointwise deck-geodesic framework. Eyll (2025) proves systolic stability and investigates different variances. The inspected portions of those primary texts do not state the all-aspect spatial law with two atoms or the unique global maximizing variance constant. Searches for pointwise injectivity radius, nearest deck transformations, shortest geodesic loops, local systole and flat Klein-bottle probability laws found no direct covering statement. Earlier literature may contain the derived formula and was not exhaustively ruled out; independent priority review is warranted.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The ratio of spatial injectivity-radius variance to total area measures a natural geometric nonhomogeneity on the complete similarity moduli of flat Klein bottles. Its complete exact law exposes two genuine cap transitions and a nontrivial, unique global optimal shape. The all-aspect sharp bound is not a textbook numerical identity nor a value at one arbitrary parameter, and the same distribution provides reproducible statistics for geometric sampling.
+PASS for the repaired sharp spatial variance theorem, not for the original novelty attribution of the distribution and its atom transitions. Sabourau already gives both pointwise deck-displacement branches for the identical normal form. The law, density and atoms follow mechanically by folding a uniform coordinate and imposing the cap. The repair attributes the geometric formula, makes the pushforward supporting evidence only, and retains the nonmechanical global variance optimization, not found in the inspected literature or catalogue.
 
-## Limits and verification
+## value
 
-The metric is flat, the quotient is the specified two-generator Klein bottle, and sampling is uniform area. The closed formula and global inequality do not extend by assertion to deformed metrics. The standalone checker uses exact rational deck-orbit comparisons and independent approximate numerical integration for selected parameters, in addition to the universal analytic proof. The authorship and publication priority of the new mathematical argument are not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Area normalization gives a genuine comparison across flat metrics rather than across arbitrary sizes. The exact constant and unique shape identify where local short-loop geometry is most heterogeneous; the strict comparison beyond the first transition is needed to certify global, not merely local, sharpness. Spatial heterogeneity is a different question from minimizing the shortest loop or maximizing a pointwise radius. The repaired claim omits routine pushforward novelty while preserving this motivated extremal result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

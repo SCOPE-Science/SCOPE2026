@@ -1,12 +1,21 @@
-# Scientific review: exact FCSR-denominator and reversal spectrum
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact domain consists of binary order-five de Bruijn cycles modulo rotation, a family of \(2048\) elements. Their 2-adic repeating expansion is \(-S/(2^{32}-1)\), so the reduced connection denominator is the stated gcd quotient, without approximation. The exhaustive vertex-pairing method considers all \(2^{16}\) local bijections and is complete because every Euler circuit induces precisely one collection of such bijections; the induced edge permutation must be a single \(32\)-cycle. An independent full Eulerian depth-first search yields exactly the same \(2048\) distinct sequences. The binary de Bruijn property, two gcd computations, reversal/complement relations, two linear complexity algorithms, sixteen reversal-pair counts, ten marginal counts, and each data-table record are verified by the packaged standalone checker. The two marginal and paired frequency distributions each total \(2048\), leaving no omitted order-five cycle. The higher-order spectrum is not proved.
+## correctness
 
-## Originality: PASS against inspected sources, with a remaining access risk
-Klapper and Goresky define FCSR connection denominators, not the restricted order-five census. Etzion and Lempel determine distributional properties of ordinary binary linear complexity of de Bruijn sequences and treat reversal and complementation in that different sense; this does not imply the arithmetic gcd spectrum. Etzion's later article on linear complexity remains in the same finite-field theory. Zhao, Wen, Zhang, and Jin study 2-adic bounds and counts for general prime-power-period sequences, and the accessible abstract does not report the exact condition of possessing every five-bit block once. Their complete article could not be inspected, so a hidden exact conditional theorem cannot be ruled out. Ren and Winterhof prove general possible reversal changes in 2-adic complexity, but neither their construction nor their general formula yields the exact \(632\) order-five count or sharp ratio \(1285\). There was no matching claim in available comparative research records, and exact-parameter/equivalent-name searches found no direct duplication. Negative search is not a proof of historical priority; unindexed tables remain a residual risk. The source inspections and their access levels are recorded in `AUDIT.json`.
+PASS
 
-## Mathematical value: PASS
-The connection denominator is a classical, specifically motivated measure of register predictability, while binary de Bruijn cycles form the canonical finite family with uniform complete five-bit factor coverage. The complete ten-level denominator spectrum gives exact frequencies for high and low 2-adic complexity within this natural restriction. The independent sixteen-class paired reversal census quantifies how much this arithmetic complexity changes under reading reversal: \(632\) cycles and a sharp factor of \(1285\), even when binary linear complexity stays fixed. It therefore distinguishes two established sequence-complexity models in a structured universal-cycle family. The finite classification is an exact, self-contained natural benchmark rather than a sample, arbitrary slice, or restatement of known bounds. It does not claim a cryptographic implementation or higher-order generalization.
+For a 32-bit periodic word the 2-adic series is -S/(2^32-1); reducing that rational gives the stated positive connection denominator. Rotation multiplies S by a unit modulo 2^32-1 and complement sends S to 2^32-1-S. The unique cyclic occurrence of 00000 fixes rotation but not reversal or complement. I independently generated every canonical word by extending the fixed zero prefix one bit at a time, rejecting repeated length-five factors, and explicitly checking the four wraparound factors. Each admissible word follows one path, and any pruned path cannot be completed. Exact rational reduction reproduced all 2048 CSV rows, all ten (g,q) cells and sixteen unordered reversal cells with counts per cycle, the 632 changed cycles (316 two-element orbits), and the sharp ratio 1285 at {3,3855}. For binary linear complexity, the period denominator over GF(2) is (1+X)^32, and taking the reciprocal preserves the multiplicity at X=1. I independently calculated this multiplicity from the coefficients after substituting X=1+Y using binomial parity. Both g=3855 cycles have linear complexity 31 including the stated witness. This proves only the finite order-five classification and the indicated elementary invariances.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the exact restricted marginal and joint census and its extremal consequences, not for the classical 2-adic representation or the already known failure of general reversal invariance. No inspected statement supplies the census or a dominating conditional result.
+
+## value
+
+PASS
+
+Order five gives a natural complete universe of universal binary cycles, not a sample selected for an extreme example. FCSR denominator and reversal are established invariants and operations of independent interest. The marginal and joint data provide a reusable exact benchmark showing the prevalence and sharp size of the arithmetic asymmetry even though binary linear complexity cannot detect it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

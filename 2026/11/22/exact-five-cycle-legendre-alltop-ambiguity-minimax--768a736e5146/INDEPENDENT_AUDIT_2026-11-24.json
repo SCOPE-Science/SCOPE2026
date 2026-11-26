@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:38:16.069346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91, VERIFICATION.md and checker.py",
+        "Independent exact replay: python /workspace/review_evidence/replay_3.py (SymPy)",
+        "Bojarovska–Flinth arXiv:1503.05800, Theorem 2.2"
+      ],
+      "rationale": "Recomputed all 25 exact ambiguity squares by summing pairs of terms with the cosine of their phase difference, matching the frozen convention and table. The counting-measure squared norm is 5+4t^2. The (0,±1) and (±1,±2) squares meet at the bracketed cubic root t*=0.3784945225024826..., with exact interval bounds placing every other squared ambiguity strictly more than 0.96 above the common value there. The normalized (0,1) branch is strictly increasing from 0 through t*, ruling out 0<=t<t*. For t>t*, the polynomial M(5+4t^2)^2-P_(1,2)(t), with M equal to the squared proposed margin, vanishes at t* and has positive derivative on the nonnegative half-line: its derivative is bounded below by (4/5)t^3-(21/8)t^2+(2/5)t+8, using M>3/40. This proves a strict global comparison with no cutoff on t and yields exactly six active shifts. The independent fixed-parameter value is 0.07274258488949..., versus the optimum 0.27802114614038.... The positive margin meets the published nonvanishing criterion for recovery up to global phase; it is not a full-spark test.",
+      "residual_risks": [
+        "The domain is exactly real t>=0: signed factors 1+t chi(j) for t>1 are part of that domain. No complex-parameter or arbitrary-window optimum is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li proves uniform nonvanishing bounds in prime dimension for a sufficiently small real weight and subsequent full-spark regularization; Remark 3.4 permits 0<delta<1/10 with suitable error tolerance. The optimum here exceeds that sufficient range.",
+          "The complex-parametric Resultary result ...c114096c73ba concerns 1+z delta_0, not a complex extension of the Legendre mask; Bojarovska–Flinth gives a general injectivity criterion."
+        ],
+        "reasoning": "An inclusion of p=5 in a lower-bound theorem or a complex parameter on a different mask does not supply a sharp five-cycle optimizer or the equality cases.",
+        "searches": [
+          "Li v1 Theorem 3.2 and Remark 3.4, and Li v2 §3.1",
+          "Bojarovska–Flinth Theorem 2.2",
+          "Resultary complex impulse and Alltop Gabor studies"
+        ]
+      },
+      "checked_sources": [
+        "Primary sources and Resultary comparisons in source_inspections",
+        "Resultary ...768a736e5146 identified as the assigned record, not a prior duplicate",
+        "Focused primary-literature search; no additional decisive source returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-parameter and small-weight prior lower estimates do not yield the two branches' cubic equality or bound all larger real weights. The earlier impulse repair changes only one site and classifies zeros, rather than weighting by the quadratic character and optimizing the minimum magnitude.",
+          "Phase-retrieval injectivity is a direct implication of the prior criterion once positivity is known, and is not a separate original result."
+        ],
+        "reasoning": "Exact minimax and its equality cases require an additional cyclotomic calculation and a global comparison; they are not special cases of the inspected bounds or criteria.",
+        "searches": [
+          "Li v1 Theorem 3.2 and Remark 3.4; Bojarovska–Flinth Theorem 2.2",
+          "Resultary ...30922f9c96fe and ...c114096c73ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li uses T_k f(j)=f(j-k), M_l f(j)=omega^(lj), and exactly the target seed at p=5 with delta=t. Dividing by the squared norm gives the same normalized self-ambiguity.",
+          "The exact same-day match ...768a736e5146 is the assigned finding itself; the other five-cycle stability result ...7ef56071638e concerns three-site supports and a lifting-condition-number optimum."
+        ],
+        "reasoning": "The seed identity is literal, not a novelty claim. The distinct optimized family is not converted into the sparse family by changing the Gabor convention.",
+        "searches": [
+          "Li arXiv:2609.09614v1, conventions and proof of Theorem 3.2",
+          "Resultary: five-cycle Legendre–Alltop ambiguity minimax and cyclic Gabor conditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical optimum and six shifts appear in the assigned catalogue hit, not an independent table. The same-day finite-phase-alphabet classification ...dbadd7cf2ec4 concerns full spark. The Alltop five-erasure index hit ...80965acafb26 concerns coherence for p>=29 in its summary; its mirror passage was unavailable."
+        ],
+        "reasoning": "A full-spark classification of a finite window alphabet or a coherence census is not a tabulation of the minimum normalized ambiguity for the specified continuous parameter. No independent exact optimizer table was located by the bounded check.",
+        "searches": [
+          "Resultary catalogue: five-cycle ambiguity margins, cubic chirp repairs, phase alphabets and Alltop coherence"
+        ]
+      },
+      "rationale": "The Legendre–Alltop seed, the choice t=1/12, and the phase-retrieval criterion are existing results. The inspected work does not supply the exact sharp five-cycle value over the entire nonnegative real family, its unique optimizer, or the complete active set. The seed comparison is specifically to Li's v1; current v2 substantially changed its seed.",
+      "residual_risks": [
+        "An inaccessible or unindexed exact calculation for either the real or complex Legendre-mask family could overlap. An unsuccessful lookup is not evidence of absence; no worldwide priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same seed and fixed weight, not unrestricted exact optimization",
+          "evidence": "Sets a(j)=omega^(j^3) and b(j)=(1+delta chi(j))a(j) at delta=1/12; treats sufficiently small alternatives by a lower bound and employs additional regularization for full spark.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v1",
+          "material_read": "Cover and p. 1 conventions, proof of Theorem 3.2 p. 6 offset 19418, Remark 3.4 p. 7 offset 22800",
+          "method": "OA arXiv v1 PDF passages",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Exact same perturbation seed and normalization"
+        },
+        {
+          "assessment": "Current version substantially revises the construction",
+          "evidence": "§3.1 is now 'A universal constant–Chu seed'; v1 is the source of the analyzed character-weighted seed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v2",
+          "material_read": "§3.1 p. 6, offset 15069",
+          "method": "OA arXiv v2 PDF passage",
+          "title": "Li's revised Gabor construction",
+          "trigger": "Version-specific prior seed comparison"
+        },
+        {
+          "assessment": "Established injectivity criterion, no parameter optimization",
+          "evidence": "Nonzero self-ambiguity at all shifts implies injectivity up to global phase.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorem 2.2 p. 4, offset 15400",
+          "method": "OA arXiv PDF passage",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "General criterion cited for the downstream consequence"
+        },
+        {
+          "assessment": "Different support restriction and objective",
+          "evidence": "Optimizes lifting condition number for three-site windows.",
+          "identifier_or_url": "Resultary: SCOPE-sharp-stability-of-three-site-gabor-tomography-on-the-five-cycle--7ef56071638e",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local index and mirror passage",
+          "title": "Sharp stability of three-site Gabor tomography on the five-cycle",
+          "trigger": "Exact optimized design on the same cycle"
+        },
+        {
+          "assessment": "Different mask and invariant",
+          "evidence": "Studies omega^(j^3)+t delta_0 and its ambiguity zeros.",
+          "identifier_or_url": "Resultary: SCOPE-arithmetic-resonance-in-positive-impulse-repairs-of-cubic-cyclic--30922f9c96fe",
+          "material_read": "Finding, offset 0",
+          "method": "Local index and mirror passage",
+          "title": "Arithmetic resonance in positive-impulse repairs of cubic cyclic chirps",
+          "trigger": "Cubic-chirp perturbation under another parametrization"
+        },
+        {
+          "assessment": "Does not contain the Legendre-masked family",
+          "evidence": "Uses 1+z delta_0 and a lifting condition-number objective.",
+          "identifier_or_url": "Resultary: SCOPE-optimal-complex-impulse-in-prime-cyclic-gabor-tomography-a-sharp--c114096c73ba",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local index and mirror passage",
+          "title": "Optimal complex impulse in prime cyclic Gabor tomography",
+          "trigger": "Potential broader complex-parameter result"
+        },
+        {
+          "assessment": "Different objective and window family",
+          "evidence": "Classifies full-spark windows on finite alphabets rather than a continuous ambiguity-margin optimum.",
+          "identifier_or_url": "Resultary: SCOPE-a-five-point-phase-alphabet-reversal-for-full-spark-cyclic-gabor--dbadd7cf2ec4",
+          "material_read": "Claim on root-of-unity alphabets",
+          "method": "Local index and mirror comparison",
+          "title": "A five-point phase-alphabet reversal for full-spark cyclic Gabor windows",
+          "trigger": "Close same-day five-point Gabor classification"
+        },
+        {
+          "assessment": "Not used to certify whole-record scope",
+          "evidence": "Indexed claim concerns five-erasure coherence at primes p>=29; no primary passage was obtained.",
+          "identifier_or_url": "Resultary: SCOPE-first-five-erasure-coherence-saturation-for-prime-dimensional-alltop-gabor--80965acafb26",
+          "material_read": "Index summary only; local mirror passage unavailable",
+          "method": "Local index and mirror attempt",
+          "title": "First five-erasure coherence saturation for prime-dimensional Alltop Gabor systems",
+          "trigger": "Alltop Gabor hit involving a five-element invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li v1 proof of Theorem 3.2 and Remark 3.4, establishing the prior design and fixed weight",
+        "Frozen global minimax proof and independently checked exact fixed-parameter comparison"
+      ],
+      "rationale": "For a previously motivated design seed, the smallest prime cycle covered by the construction gives a useful exact parameter-selection benchmark. The positive improvement over t=1/12 is more than threefold in normalized minimum ambiguity, and the six bottleneck shifts identify the actual constraint on tuning. Strict global uniqueness and an exact continuous-parameter value are substantive within this motivated family, regardless of whether some unrelated window performs better.",
+      "residual_risks": [
+        "No optimum over arbitrary windows, complex perturbations, or an additional full-spark regularizer is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

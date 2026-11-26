@@ -1,19 +1,21 @@
-# Review of sharp edgewise Hodge stability on finite two-rail ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every unweighted open ladder with at least two rungs, the proof derives the full edge-gradient projector by orthogonal rail-symmetry decomposition. The previously known exact rung Green block is inserted into the other blocks, whose coefficient signs are then proved. Total variation yields each rung row sum, and the rail row sum simplifies to a value strictly below two. A monotonic central-rung comparison, exact five-rung lower bound, and explicit signed maximizing data establish the sharp constant and attainment for every size. The finite positive defect identity and even/odd asymptotics follow algebraically. The independently reconstructed exact rational projection checker corroborated 67,101 assertions; infinite proofs do not depend on enumeration.
+PASS
 
-## Originality — PASS within inspected evidence
+The edge gradients split into orthogonal identical-rail data and the range of z -> (z,Dz/2,-Dz/2), whose Gram matrix is (2I+D^TD)/2. This recovers all blocks. For the tridiagonal inverse, left and right homogeneous solutions are alpha^(1-i)+alpha^i and its reversal; the endpoint conditions are reflection across the end half-steps, and the discrete Wronskian gives the factor rho/(1-alpha^(2n)) in 2G. Their strict monotonicity gives the exact rung row sum by telescoping the total variation. As a separate rail check, the consistently oriented square-cycle matrix C has Gram matrix T=4I-adjacency(P_{n-1}), so the cut projector is I-C T^-1 C^T. For a rail edge at h, positivity and unimodality of the Dirichlet Green row of J=T^-1 give the absolute row sum 1+2 sum_k J_hk=2-J_h1-J_h,n-1<2 (for n=2 the last two terms use the same index). The rung row is a decreasing function of alpha^(j-1)+alpha^(n-j) over the allowed range; its minimum argument occurs at the central rung(s). The exact small-n rail maxima are 3/2, 5/3 and 13/7 for n=2,3,4; for n>=5 the lower bound after discarding the positive quadratic is 2+29/627, proving global dominance and the threshold. The exact deficit identity has a strictly positive bracket, and substituting the central t_n gives both parity constants and the root rate. A sign vector of the extremal row attains the norm.
 
-The strongest close source is *Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees* (published-finding corpus, 4 October 2026). Its **entire RESULT.md** was compared: it already gives the exact finite rung–rung transfer-current kernel, which is therefore explicitly credited as prior information. It does not state the full all-edge sharp maximum norm, the rigorous rail-versus-rung comparison, the first five-rung amplification threshold, the center maximizer or the parity-dependent sharp finite-size defect. The primary graph-Hodge paper of Jiang et al. (arXiv:0811.1067), transfer-current paper of Kassel–Wu (arXiv:1312.2946), infinite-ladder source of Klenke (arXiv:1704.00182), and general electrical-flow bounds of Schild–Rao–Srivastava (arXiv:1708.01632) were inspected in material detail. A relevant spanning-tree rung theorem is not misrepresented as original. Database searches including cut projection, edge transfer current, exact ladder operator norms and first finite thresholds did not expose an equivalent conclusion. Residual priority risk: an older electrical or finite-element source may give an equivalent all-edge norm without using these terms.
+## originality
 
-## Value — PASS
+PASS
 
-Bounded independent edge errors are naturally controlled by the induced maximum norm of the least-squares Hodge projector. The all-size formula and finite sign-vector equality show exactly how much entrywise instability can occur. The nontrivial change of regime at five rungs, central versus rail extremizer comparison, and two distinct parity-sharp exponential corrections supply meaningful stability and boundary-effect information beyond the known Green kernel.
+The preceding weighted-ladder kernel covers exactly the rung-to-rung Green block and is credited as such. The distinct October 26 contribution relative to the earlier and same-day sources inspected is the all-edge absolute row-sum optimization, rail-row competition, exact threshold and sharp parity defect. The November 2 record is a direct claim-level match (not a distinct theorem on these points), but the evidence places it later than the frozen October 26 record; this is not evidence of earlier coverage or of either record's independence from the other.
 
-## Scope and limitations
+## value
 
-Only ordinary, unweighted, open-ended two-rail ladders are covered. Weighted, periodic, and wider-strip cases are not claimed. Historical priority remains provisional and this work has not undergone independent mathematical or bibliographic validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Open two-rail ladders form a canonical bounded-width network. The exact worst edge amplification under Euclidean edge fitting answers whether and where this local geometry amplifies bounded noise. Strict sub-two rail rows, the first super-two ladder, and the boundary-sensitive sharp parity constants cannot be inferred from an infinite rung kernel or a global logarithmic estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

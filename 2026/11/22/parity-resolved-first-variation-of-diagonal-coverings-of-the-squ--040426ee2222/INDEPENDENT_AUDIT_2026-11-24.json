@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:52.700610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shorter circle arc containing a grid site gives its length as the additive distance, and an arc in a grid gap gives an endpoint with sum at most 1/n. Thus for n≥3 the additive maximizing locus is exactly antipodality; each such point has a site with both coordinate distances positive, giving strict improvement for p>1 by compactness. The derivative of the ℓ_p norm at 1 is −(a+b)H(a/(a+b)); continuity of t^p log(t) through zero for p near 1 gives a uniform expansion near a+b=1/2. The optimizer has normal displacement δ=O(ε), because the short arc near antipodality contains a site and bounds F_1 by 1/2−|δ|. Select the site nearest each semicircle midpoint, a uniformly positive distance from the endpoints. For δ=εz, their affine coefficients are z−h_+ and −z−h_−, where h_±=H(1/2+2e_±)/2. Their minimum is at most −(h_++h_−)/2. At a minimizing phase this bound is attained to first order by z=(h_+−h_−)/2, since the other sites inside either arc have no larger entropy penalty. At the chosen odd phase x=−1/4 neither endpoint is a grid site; for even n, z=0 so endpoint sites keep distance 1/2. Even n gives e_+=e_− and maximizes both offsets at 1/(2n); odd n gives e_++e_−=1/(2n) and entropy concavity puts the minimum at the endpoints. Entropy Taylor expansion yields both size corrections. For n=2 the additive radius is at most 1/2 by averaging the two site distances, and (0,1/2) attains 1/2 for all p. Substituting n=3 gives the stated known coefficient. An independent 20,000-phase sample at each n=4,…,16 corroborated the reduced minimum only; the frozen script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 3.4 uses a discrete 4-cycle and shows failure of a covering-product inequality for p>1; this is not a variational formula on the square torus.",
+          "The two-layer result uses a continuous circle times a two-point metric space with free centers in the sum metric. The two-disk results concern optimal Euclidean placements, not this fixed design."
+        ],
+        "reasoning": "The unrestricted covering-number comparisons do not determine the fixed-site radius, and their discrete or Euclidean geometry does not provide its derivative.",
+        "searches": [
+          "Cieliebak and Cieliebak, arXiv:2611.15599v1 §3, Example 3.4",
+          "Resultary covering hits: two-layer metric circles, rectangular flat-torus two-disk, well-rounded flat-torus two-disk"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary and mirror: 1d1462528a8a and 3933b51515b2, related two-disk results",
+        "arXiv:2611.15599v1, §3, Example 3.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-site argument already localizes to the antipodal locus, expands the entropy term, and balances competing affine losses for three specific distances, H(x), H(1/6−x) and H(1/3−x).",
+          "The assigned result instead shows that the controlling distances for arbitrary n are those to the two semicircle midpoints, and computes whether the grid phases differ by a whole or half step."
+        ],
+        "reasoning": "The localization and competition are precedent, not new in themselves. The three-site formula does not fix the optimizing phase or coefficient at other n, and the whole-step branch is absent there. Obtaining both branches uses the grid dependence and a minimization over phase, not substitution into the three-site theorem.",
+        "searches": [
+          "Three-site onset, proof (1)–(4), local mirror offsets 0–4365",
+          "Cieliebak and Cieliebak, Example 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct three-site record uses precisely the same fixed-site metric and restricted covering radius, gives log(12)/4−5log(5)/24, and proves strict onset. The target's own index hit is not prior evidence."
+        ],
+        "reasoning": "The three-site coefficient is exactly the n=3 specialization, which is not credited as new. The inspected statement fixes the sites at j/3, not at all j/n.",
+        "searches": [
+          "Resultary: fixed diagonal equispaced sites, square flat torus, p=1 right derivative and first-order onset",
+          "Local mirror: three-site onset ...--1d1462528a8a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed value is n=3. The all-size exact two-layer record tabulates/characterizes a different invariant. The general search returned unrelated results and is not used as absence evidence."
+        ],
+        "reasoning": "No applicable exact table was identified; this check compares symbolic entries and the known special value against the all-size formula.",
+        "searches": [
+          "Resultary indexed sharp coefficients and exact covering radii: ...--1d1462528a8a, ...--3933b51515b2",
+          "Focused primary-literature search for fixed diagonal torus p=1 covering variation"
+        ]
+      },
+      "rationale": "Credit the three-site result and its first-variation method; the supported distinct claim is the sharp n≥4 fixed-diagonal classification and parity-dependent coefficients. The closest examined results do not resolve the general grid-phase minimum or the even/odd switch. This is a scoped conclusion from checked evidence, not a claim of exhaustive priority.",
+      "residual_risks": [
+        "Searches were focused and do not exclude an unindexed all-size fixed-design calculation.",
+        "The two onset records have the same indexed date; no intra-day chronology is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the three-site case and substantive method overlap; no general n in inspected statement",
+          "evidence": [
+            "Fixed j/3 sites, same antipodal locus and entropy loss, affine competition of exactly three sites."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-first-order-onset-of-a-three-site-covering-of-the-flat-squ--1d1462528a8a/RESULT.md",
+          "material_read": "Finding, assumptions and proof (1)–(4), offsets 0–4365",
+          "method": "Resultary and local GitHub mirror",
+          "title": "Sharp first-order onset of a three-site covering of the flat square torus at p=1",
+          "trigger": "Matching geometry and coefficient"
+        },
+        {
+          "assessment": "Related counterexample; not this fixed-site derivative",
+          "evidence": [
+            "X=Z/4Z with its induced circle metric, three balls in the product for p>1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15599v1",
+          "material_read": "OA metadata and §3 Example 3.4 (offset about 18600)",
+          "method": "Primary OA full text, bounded passage",
+          "title": "Covering numbers of metric spaces",
+          "trigger": "Product metric covering above p=1"
+        },
+        {
+          "assessment": "Different object, metric and choice of sites",
+          "evidence": [
+            "Circle times two-point space with a sum metric and freely chosen centers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-n-center-covering-radii-on-two-layer-metric-circles--3933b51515b2/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local GitHub mirror",
+          "title": "Exact n-center covering radii on two-layer metric circles",
+          "trigger": "All-size exact circle product covering result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first-order radius for a natural prescribed torus design is useful beyond showing strict onset. In the odd case moving O(p−1) off the antipodal locus strictly improves the first-order optimum over restricting to that locus: the best purely antipodal penalty is H(1/2+1/(2n))/2, strictly above the mean of the two endpoint entropies divided by two by strict concavity. Even n instead requires no such displacement. This gives a concrete reason for the sharp distinction and its surviving finite-size correction without claiming optimal unconstrained placements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

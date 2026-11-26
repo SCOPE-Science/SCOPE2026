@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-step identity for the renormalized complex iteration is exact, as is the logarithmic potential telescoping law. The proof controls all iterate heights by induction, then establishes unbounded positive real drift from bounded total vertical increase, so the limiting principal argument genuinely vanishes. It obtains a uniform explicit bound without relying on finite experiments. A final Cesàro limit establishes the normalizer statement. No unproved analytic lemma is needed except elementary complex logarithm and its convergent power series. Finite diagnostics in `verify.py` test rather than certify the proof.
+## correctness
 
-**Originality — PASS on the inspected literature, with priority risk.** The motivating primary paper proves fixed-drift asymptotic quasi-mixing and existence of a finite orbit-height limit; it leaves its drift-dependence as a parameter-dependent quantity. The new uniform \(\beta\downarrow0\) asymptotic and coefficient \(\pi\) are not implied by knowing only that this height is finite at each fixed drift. Searches of the indexed mathematical records under translated Boole, small drift, parabolic height, Pommerenke, quasi-mixing, and equivalent transfer normalizers did not yield an equivalent formula. General parabolic-iteration work has methodological proximity; the complete text of Ivrii's 2026 manuscript could not be inspected. This means novelty is evidence-based, not a claim of exhaustive priority.
+PASS
 
-**Mathematical value — PASS.** The coefficient resolves the previously undetermined amplitude of the natural inverse-square quasi-mixing normalizer as its drift approaches the parameter at which the dynamical ergodic regime changes to inverse-square-root mixing. This is a singular limit of a canonical invariant from the source, not an arbitrary sequence or routine numerical constant. Its exact constant and uniform quantitative bound are useful for interpreting any two-scale crossover between the mixing regimes, although no such joint crossover theorem is asserted.
+Verified the telescoping proof and both normalizations. For h=β² and w=x+iy=β T_β^n(i), the two real recurrences give y≥β, x≥0, and 0<t=h/|w|²≤1 at every step. In the factorization w_next−1=(w−1)(1+h/w), arg(w−1) is in (0,π) and the second argument is in (−π/2,0), since its real part is positive. Their sum is in (−π/2,π), and w_next−1 is in the upper half-plane, so the arguments add without a branch correction. For |a|≤1/4 the logarithm error has absolute value at most |a|²/[2(1−|a|)]≤|a|²; here |a|²=h t. The bound t≤2 log(1+t) makes the total imaginary error at most 2h log(y/β). The initial phase is π+β−arctan β, whose excess is in [0,β³/3]. To justify the uniform bootstrap, y≤4π implies y_next≤8π, and then the telescoping inequality implies y_next≤π+β³/3+2β²log(8π/β)<4π: the added expression is increasing up to β=1/4, where it is less than 1. Thus y_n increases to a finite limit; its increments tending to zero force t_n→0 and x_n→+∞. The phase tends to zero and the asserted error bound follows. The real increments tend to h, hence x_n/n→h; in scaled coordinates u_n=β y_n/(π|w_n|²), giving the fixed-drift limit and then the stated iterated limit. At zero drift, T_0^n(i)=iB_n with B_{n+1}=B_n+1/B_n and B_n²/n→2, giving the claimed Poisson baseline.
 
-**Closest literature and limits.** Aaronson (arXiv:2609.00217), Proposition 3.1, fixes the separate exponent regimes but not the singular height amplitude. Ivrii (arXiv:2606.19260) and Arizmendi–Salazar–Wang (arXiv:1811.12545) remain background comparisons; the former's full text was inaccessible. Error optimality, joint limits, and arbitrary inner maps are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the quantitative vanishing-drift height law and the resulting sharp singular prefactor in the stated order of limits. Existence of the finite height, the fixed-drift inverse-square law, and the zero-drift inverse-square-root baseline are already known, including for this map.
+
+## value
+
+PASS
+
+Turning on translation changes the time exponent discontinuously. The known positive-drift coefficient was given by a limiting orbit height, so it left open how large the normalization gets near the zero-drift regime. This result gives the exact divergence exponent and constant with an explicit drift range and error for a natural single-pole model. It answers a parameter question rather than merely restating the known fixed-drift time law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two states counting distinct nonempty subsequences by their final letter form an exact three-dimensional affine transfer, including the empty-word boundary. Both formal generating functions follow from matrix geometric series. The key nine-dimensional rational identity has an explicitly exhibited polynomial-vector certificate, checked by direct exact polynomial multiplication; no unverified infinite extrapolation is needed. The iid formula follows by substitution and partial fractions, with the empty-word and constant-word cases covered. The standalone checker verifies the certificate and independently enumerates all binary words through length 11 by composition; lengths through 9 are checked by constructing actual subsequence sets. Risks: no mathematical gap found in the stated matrix and ring assumptions; exact calculations are confined to integer coefficients.
+PASS
 
-## Originality — PASS on inspected sources
+The repaired proof counts distinct words, not embeddings. Appending zero makes the complete ending-zero set equal to the old subsequence set with a zero appended, including previously present words. For inclusive counters (i,j) this gives (i+j,j), with the symmetric update for one and D=i+j-1. Splitting the weighted word sums by their last letter gives separate 2-by-2 and 3-by-3 systems for i,j and i^2,j^2,ij. I checked the determinants, adjugate entries and both resulting rational series by exact symbolic arithmetic independently of the frozen 9-state certificate. The empty term is one, and on either axis the series encode the unique constant word with D=n+1. Division by the binomial count normalizes the fixed-composition moments. Independently, the Stern-pair update gives D+1=d(2m+1) and taking the appropriate row differences gives the fair iid shifted-square OGF (4-z)/(1-5z/2+z^2/2); subtracting the shifted mean squared gives the stated, now attributed variance. The retained composition result and the attributed specialization are both mathematically correct.
 
-Primary full-text comparison included Flaxman–Harrow–Sorkin (2004), which evaluates extremal counts and random-string benchmarks but does not supply a binary fixed-composition second-moment function, and Collins (2013), which derives first moments. The Biers-Ariel–Godbole–Kelley first-moment extension (2017/2018) was also inspected and is not a second-moment theorem. Published searchable comparisons for random subsequences, conditional compositions, equivalent second-moment transforms and deletion-ball diversity did not identify an equivalent claim. The closest indexed findings involve *contiguous substrings*, exactly-two-deletion balls, and subsequence *universality*, different observables that do not imply the present full-length scattered-subsequence variance. The standard transfer-matrix method and all previously established expectations are acknowledged rather than claimed as new. Risk: specialized unindexed formulas or implicit equivalent evaluations in a broader treatise remain possible; search failure is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The rational bivariate second-moment function simultaneously resolves every fixed-composition variance for the natural diversity statistic measuring all deletion outcomes. Its uniform-source specialization uncovers an exponential variance scale and a strictly growing squared coefficient of variation, information not implied by any known first-moment formula. This is an infinite-domain closed evaluation with an exact finite symbolic certificate; the first-moment calculation alone would not meet the same value threshold. Limitations include the lack of a distributional limit, sharp tails, and general-alphabet variance formulas.
+PASS applies to the repaired composition-resolved second-moment evaluation only. The original scope was too broad: the evaluated fair iid second moment and variance follow directly from Stanley's already evaluated Stern-row square sums and the known mean, and the composition first moments are determined by the published arbitrary-bias mean. The repaired Finding no longer claims any of those as new and makes the exact Stern reduction explicit. The strongest checked Stern results sum over all indices; the later exact joint deletion-ball result marks deletion radii under fair iid words. Neither separates binary host compositions. The retained explicit bivariate function has distinct content on the inspected evidence; this is not a proof of priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For the natural count of all distinct binary deletion outcomes, the two-variable evaluation gives exact conditional variability for each composition without summing over the individual words. It distinguishes fluctuations within a fixed letter composition from fluctuations under mixing, and evaluates the moment for every Bernoulli bias. These uses belong to the nontrivial square-moment evaluation; the already implied unweighted formula and general expectation are not counted as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

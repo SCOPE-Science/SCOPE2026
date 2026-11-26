@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independence of the radicands over the cyclotomic field follows from prime-adic valuations (each selected rational prime is unramified there); Kummer theory supplies the full translation group and monomial basis. This proves the \(p^n\) distinct roots, integrality, rational irreducibility, exact semidirect Galois group, and faithful affine action. The good-prime splitting cases exhaust the affine cycle types, and Chebotarev counts their conjugacy-stable unions. The all-prime factor-degree bound is verified separately by explicit finite-field extension arguments, including characteristic \(p\). Exact modular-factor checks from the standalone verifier passed in 265 prime/case instances, of which 22 have repeated reductions. Computation is supporting evidence, not a proof for infinitely many primes.
+PASS
 
-## Originality — PASS with stated risk
+At primes of Q(zeta_p) over the distinct radicands, the valuations are one on the matching radicand and zero on the others, giving independent Kummer classes. The resulting monomial basis both separates the root sums and permits the cyclotomic coefficient automorphisms fixing the radicals; the translations and these automorphisms act faithfully by t -> ut+v. This proves integrality, irreducibility and the splitting-field identification. At discriminant-good primes the root reductions are distinct, so the Frobenius cycles give the factor degrees. In particular a radicand prime is necessarily bad (vary its tag at fixed other tags to see a collision); p is bad since all reduced roots coincide. Thus the nonzero residue test at good q congruent to 1 mod p is legitimate. A nonzero translation has only p-cycles; a scalar u != 1 gives a unique fixed point after translating and all other cycles of length ord(u). The counts are conjugacy-stable and yield the claimed natural densities. At bad primes no squarefree pattern is asserted: characteristic p gives (X - sum ell_j)^(p^n), and for other q all reduced roots lie in F_(q^ord_p(q)) or F_(q^p), as appropriate, including when a radicand reduces to zero. The degree bound is sharp at good translation primes and only implies all-prime reducibility when n >= 2. As an independent check on the example, (X^3-7)^3-270X^3 gives the stated degree-nine polynomial: cube X^3-7=3*2^(1/3)*5^(1/3)*X at its roots. The supplied VERIFICATION.md and VERIFY.py were inspected; the stated 265 finite tests are package evidence, not a rerun and not the proof. Replay the analytical check in RESULT.md Steps 1–5.
 
-The full text of Messerschmidt's arXiv:2611.10034v1 was inspected at the definition, all main results, coefficient-integrality lemma and final theorem. It treats symbolic coefficient recursion and symmetry, not splitting types modulo primes or their densities. The classical square-root Swinnerton–Dyer literature supplies only the exponent-two model. Exact statement/implication comparisons with indexed recent prime-density/Galois classifications concerned different polynomial families, including monomial preimages of roots of unity and biquadratic node fields. No directly covering claim was located. Important risk: general Kummer and Chebotarev theory immediately supplies the last steps once the affine action is derived, so an unindexed textbook example or earlier generalization could subsume the statement. The search results cannot prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete splitting-type and prime-density law for a mathematically natural odd-exponent specialization of a freshly studied radical-elimination family. It yields an explicit quadratic/congruence-free factorization decision at every good prime, identifies the sharp dichotomy between zero and \(p^n\) roots in the congruence class \(1\pmod p\), supplies a universal degree-\(p\) factor bound even at bad primes, and extends the classical all-prime reducible yet rationally irreducible phenomenon to every odd prime exponent and arbitrary rank. It is not an isolated parameter computation; it does not claim new Kummer or Chebotarev theory.
+Credit the explicit factor-degree and residue-test classification of these radical-sum polynomials, with exact prime densities and a sharp bound across all reductions. Neither the root-product construction nor existence of irreducible polynomials reducible at every prime is new. The searches and actual statements inspected did not show the specific splitting law or a published result already giving it in this family. This is a best-of-knowledge finding, not a priority guarantee.
 
-## Scientific limitations
+## value
 
-Only odd prime exponents and independent prime radicands are covered. The exact type table excludes discriminant primes while the degree bound includes them. Unindexed implicit prior coverage cannot be excluded. No effective density error terms are established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural odd-exponent extension of the Swinnerton–Dyer family, this gives more than another example of global irreducibility with locally reducible reductions: it determines the complete squarefree factor-degree spectrum and its frequencies and gives an arithmetic test on the radicands with no need to construct or factor the degree-p^n polynomial. In particular the contrast between no linear factors versus exactly one, and the uniform bound even at collisions, make it usable as an explicit family with very different local behaviors. The standard ingredients and the already-known existence phenomenon are not credited independently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

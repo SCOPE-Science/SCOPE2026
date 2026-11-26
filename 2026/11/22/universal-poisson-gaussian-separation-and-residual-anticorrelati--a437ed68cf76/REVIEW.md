@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact original-subset conditioning formula is proved directly. A normalized product-Bernoulli tilt yields the explicit finite-size total-variation inequality, while Bernoulli Poisson approximation, conditional binomial CLT and uniform moment bounds establish the joint marked-Poisson/normal limit and finite covariance. The source checker independently tests the conditional identity and explicit bound on complete, cycle and star hosts; it reports 590 successful exact comparisons. The proof, not finite enumeration, covers arbitrary host sequences. All activity and edge-density assumptions are explicit; the zero-density case is excluded only from the Gaussian component.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** Scott–Sokal's hard-core framework [1] does not itself evaluate this subdivision dilute limit. Barbour–Brown's general point-process approximation [2] and geometric torus example do not imply the concrete degree-dependent rate and Gaussian midpoint component without an additional exact reduction. The most closely overlapping checked subdivision result [3] concerns maximal independent sets, a different Gibbs observable. Indexed searches under subdivision, incidence, Poisson, entropy-screening, graph-universal and Gaussian terminology found related techniques but no stronger statement that directly covers all components. Unindexed equivalent formulations remain a historical risk.
+PASS
 
-**Mathematical value — PASS.** A natural graph operation creates two site populations with sharply different scaling orders, despite a single common fugacity. The result identifies exactly when original occupations universally decouple, shows that their surviving rare intensity depends only on the host's degree distribution, and uncovers a finite negative cross-covariance hidden by the independent Gaussian limit. The resulting reentrant original-occupation response on dense regular hosts is a motivated structural phenomenon rather than a parameter-specific isolated computation.
+For an occupied original subset A, exactly I(A)=Σ_{v∈A}d_v−e(A) midpoint sites are blocked. Summing over the other sites factors the original marginal into the stated Bernoulli law Q tilted by F=(1+c/n)^e(A). For K=|A|, 0≤F−1≤(c/2n)K(K−1)e^(cK/2). Expanding ordered pairs under Q, their weights contribute at most c²e^c, and the remaining independent mgfs at most exp[c(e^(c/2)−1)], giving exactly the displayed constant. Since EF≥1, normalization costs at most E(F−1) in total variation; F≤e^(cK/2) also bounds all fixed moments of K under the actual law uniformly. Uniform nq_v=c exp(−c d_v/n)+O_c(1/n) and Σq_v²=O_c(1/n) give the marked Poisson Laplace functional and the normalized partition limit by logarithms. Independently verify joint convergence by drawing a Bernoulli(p_n) array on all m_n midpoint sites independently of A and then deleting the blocked successes to produce Y_n. The deletion count has expectation at most np_n E K=O_c(1); the normalization is asymptotic to √(βcn), so the difference is negligible while the independent full array has the binomial CLT. The exact conditional mean mp_n−p_n I(A) gives the raw covariance: the internal-edge term tends to zero by uniform third moments; the other term uses uniform integrability of products of Poisson mark integrals (bounded by K²) and np_n→c. The Poisson covariance is ∫t c e^(−ct) μ(dt), giving the stated negative limit. With μ=δ_ρ, differentiating c e^(−ρc) verifies the unique maximum at 1/ρ of the limiting mean, not a finite-size extremum claim.
 
-**Limitations.** The limit is for fixed rescaled activity, not an all-activities phase diagram. The Gaussian law needs positive limiting dense edge fraction. The total-variation constant is not optimized. Independent bibliographic or scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General hard-core partition identities, Poisson approximation, and joint Poisson–normal limits with residual covariance in other models are antecedents. The verified distinct package here concerns equilibrium occupation of the two vertex populations of a one-subdivision, with a graph-uniform labeled TV estimate, degree-profile intensity and explicit negative raw covariance across arbitrary dense hosts in scope. The examined earlier statements do not give this package.
+
+## value
+
+PASS
+
+The model separates rare original-site occupancy from bulk midpoint occupancy without requiring graph symmetry. The marked law captures degree heterogeneity, and the nonzero raw covariance shows what disappears under Gaussian-scale independence. These are natural equilibrium observables; the explicit uniform bound and partition correction make the mechanism quantitative without implying a phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:35:01.725228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–50; VERIFICATION.md lines 18–22; verify.py; verification_output.txt",
+        "/workspace/branches/c54a28e8-9fc4-4f11-b3fb-2912e6ef0ca0/independent_replay.py",
+        "/workspace/branches/c54a28e8-9fc4-4f11-b3fb-2912e6ef0ca0/replay_summary.txt",
+        "/workspace/branches/c54a28e8-9fc4-4f11-b3fb-2912e6ef0ca0/replay_witness.json"
+      ],
+      "rationale": "Disconnected four-sets have shore splits 4+0 (all), 3+1 (the singleton misses its matched vertex), or 2+2 (both matching edges are absent); these disjoint classes have 30, 120, 15 members. A face of the dual is exactly a set containing none of them. The separate exact replay builds the full face poset and reproduces 768 faces and 350 disjoint matching pairs; topological sorting all 2,832 covers in the match-reversed graph reaches all 768 nodes. With orientations by increasing vertex order, each signed pivot contributes −[u:f]/[u:t] to the other facet terms. Acyclicity makes the gradient recursion finite, and the 66 integral coefficients from the unique critical four-cell are all zero; mod-two ranks are not needed. Forman's theorem gives one vertex, 66 three-cells, one four-cell and no other cells. The three-skeleton is a wedge of 3-spheres, is 2-connected, and Hurewicz identifies its π3 with H3; the attaching map has the computed zero degree vector and is nullhomotopic. Alexander duality for 12 vertices takes degrees 4 and 3 to original reduced homology degrees 5 and 6 via 9−i, with ranks 1 and 66 and no torsion. Purity follows from equal complement sizes. The lower-dimensional field homology obstructs both pure shellability and Cohen–Macaulayness over every field.",
+      "residual_risks": [
+        "This is a finite graph-specific computation. Only the dual has a full homotopy-type assertion; the original complex has an integral homology assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.1 covers complete K_(m,n); Theorem 7.18 concerns Cartesian clique prisms",
+          "The sequel's inspected introduction names disjoint unions, squared paths, and grids"
+        ],
+        "reasoning": "A broader parameter range in those graph families does not cover deletion of this perfect matching. The literature search produced no usable additional result; the comparisons rely on the actual statements read.",
+        "searches": [
+          "arXiv:2304.13675v2 §§7.1, 7.3 and arXiv:2407.08158v1 introduction",
+          "Targeted published-literature search for cut complexes of bipartite graphs and crowns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675v2; arXiv:2407.08158v1; Resultary 3313df6acc87, 9ac5fb7f228c, d93d5f89968c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete K_(6,6) has ordinary four-cut type wedge of 100 S⁴",
+          "The five-crown record describes only its own size; the other crown results concern k=3"
+        ],
+        "reasoning": "Deleting a graph edge can turn connected induced four-sets into disconnected ones, introducing cut facets and removing faces from the Alexander dual. A wedge type for the original complete bipartite graph, or for a different vertex count/cut size, does not determine the integral topology of this new dual.",
+        "searches": [
+          "Theorems 7.1 and 7.18 in arXiv:2304.13675v2",
+          "Resultary 3313df6acc87, 9ac5fb7f228c, d93d5f89968c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prism is the Cartesian product with intra-shore edges and matching rungs, rather than the categorical product with off-diagonal cross-edges",
+          "9ac5fb7f228c and d93d5f89968c use the same crown but ordinary three-cut complexes"
+        ],
+        "reasoning": "Aliasing the crown as a product does not make it the cited prism. Both cut parameter and graph construction matter, as does ordinary versus total disconnection. The original-complex homology and the dual wedge are compared as connected claims via Alexander duality, not as unrelated keywords.",
+        "searches": [
+          "Resultary ordinary four-cut or Alexander dual for six-crown, K6×K2, and K6,6 minus a perfect matching",
+          "Bayer et al. arXiv:2304.13675v2 Definition 7.16 and §7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3313df6acc87 computes the five-crown ordinary four-cut, yielding a single sphere degree in the dual",
+          "Table 1 is a family summary, not an exact six-crown four-cut entry"
+        ],
+        "reasoning": "A same-day computation at five pairs is a substantive neighbor but is not a table entry at six pairs. Its degrees and ranks do not yield the mixed-dimensional wedge in this record.",
+        "searches": [
+          "Resultary crown ordinary four-cut and adjacent sizes",
+          "arXiv:2304.13675v2 Table 1"
+        ]
+      },
+      "rationale": "The strongest inspected neighboring results are for ordinary four-cuts of the five-crown and for ordinary three-cuts of general crowns. Published complete-bipartite and Cartesian prism theorems do not include the six-crown. No exact equivalent or covering result was established in the inspected material.",
+      "residual_risks": [
+        "No date-based priority is inferred from the catalogue. An unindexed or independently computed exact six-crown case is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the crown in these theorems",
+          "evidence": [
+            "Complete-bipartite theorem gives 100 S⁴ for K_(6,6)",
+            "Cartesian prism theorem gives 10 S⁶ for its different six-pair graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.13675v2",
+          "material_read": "Table 1 at OA offset 7240; §7.1 Theorem 7.1 near offset 111450; §7.3 Definition 7.16 and Theorem 7.18 near offset 148450",
+          "method": "Lawful OA original HTML",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Complete bipartite and clique-prism classifications might cover crown four-cuts"
+        },
+        {
+          "assessment": "No covering theorem identified from inspected scope",
+          "evidence": [
+            "Highlights disjoint unions, squared paths, grids"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.08158v1",
+          "material_read": "Abstract and introduction at OA offset 0",
+          "method": "Lawful OA original HTML",
+          "title": "Topology of Cut complexes II",
+          "trigger": "Possible newer families subsuming the four-cut example"
+        },
+        {
+          "assessment": "Natural adjacent example, not the same parameter or a family theorem",
+          "evidence": [
+            "Five-crown original type wedge of 26 S⁴ and dual type wedge of 26 S³"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-five-crown-four-cut-complex-is-a-wedge-of-twenty-six-four-sp--3313df6acc87",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "The five-crown four-cut complex is a wedge of twenty-six four-spheres",
+          "trigger": "Same ordinary cut parameter at immediately smaller crown size"
+        },
+        {
+          "assessment": "Covers ordinary three-cuts, not four-cuts",
+          "evidence": [
+            "At six pairs gives ranks 19 in degree 6 and 6 in degree 8, for k=3"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-two-degree-integral-homology-of-crown-graph-three-cut-complexes--9ac5fb7f228c",
+          "material_read": "RESULT.md finding, cut definition, and six-crown specialization",
+          "method": "Local Resultary mirror",
+          "title": "Two-degree integral homology of crown-graph three-cut complexes",
+          "trigger": "General crown result with two integral homology groups"
+        },
+        {
+          "assessment": "Different cut parameter despite additional character information",
+          "evidence": [
+            "Ordinary three-cut homology and its symmetry action"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-crow--d93d5f89968c",
+          "material_read": "RESULT.md finding and stated cut parameter",
+          "method": "Local Resultary mirror",
+          "title": "Integral and equivariant homology of three-cut complexes of crown graphs",
+          "trigger": "Possible stronger theorem for the same crown family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Bayer et al. arXiv:2304.13675 Theorem 7.1",
+        "Resultary 3313df6acc87",
+        "Independent exact replay summary"
+      ],
+      "rationale": "The six-crown is the next crown after the inspected five-crown at the same natural cutoff, and the complete bipartite graph is a closely related benchmark. The exact example changes the pattern from a single reduced homology degree to two adjacent integer degrees, neither top-dimensional, and identifies an integral wedge for the dual rather than merely computing field Betti numbers. It supplies a specific useful test case for structural or computational predictions about cuts of crowns and matching deletions.",
+      "residual_risks": [
+        "Does not imply recurrence in larger crowns, minimality of this example among all graphs, or the full homotopy type of the original cut complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

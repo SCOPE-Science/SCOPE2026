@@ -1,15 +1,21 @@
-# Scientific review: Shattered maximal-independent-set traces on forests are precisely induced-matching sides
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes the statement for every finite forest by induction on the vertex set. It correctly uses the positive-vertex branch when the leaf is outside the support but its neighbor is in the support, avoiding the invalid shortcut of only fixing the neighbor negative. The selected induced-matching edges are isolated from the residual because the residual is outside \(N[u]\) and the attached vertex is a leaf. Empty graphs and isolated vertices are covered. Exhaustive tests across 3,272 labeled forests through six vertices are corroboration, not the proof.
+## correctness
 
-## Originality — PASS (best-knowledge, residual historical risk)
-The most directly relevant inspected primary work is Liu–Shangguan–Skokan–Xu (2024), Lemma 27, bounding the same MIS hypergraph's VC dimension by *bipartite* induced matching number. This is insufficient for the exact ordinary induced-matching theorem even on the four-vertex path. Kahn–Park (2019) and Palmer–Patkós (2022) concern MIS enumeration and induced-matching constructions, not a forest-wide support equivalence. Searches of equivalent terminology and available published mathematical records did not identify dominating coverage. Unindexed priority remains possible.
+PASS
 
-## Mathematical value — PASS
-All shattered vertex supports of a natural finite relational solution class receive a structural classification, and the exact VC dimension for every forest reduces to an established graph invariant. The five-cycle provides a sharp demonstration of why acyclicity is necessary. This is not a finite census, routine reindexing, or marginal parameter improvement.
+The one-side condition is read as explicitly defined in the assumptions: the chosen matching covers all of S and has exactly one endpoint of each edge in S (without the coverage clause the shorthand in the Finding would be vacuous). An induced matching yields every trace by choosing a label-consistent endpoint per edge and extending the resulting independent set. For the converse, no isolated vertex belongs to a shattered support and its all-positive pattern makes S independent. For a leaf v and neighbor u, if v is queried, its negative label forces u into the independent set, and with the other labels all positive this proves they lie outside N[u]. If u is queried instead, fix its positive label and independence again keeps the other queries outside N[u]. In either case every witnessing maximal independent set containing u restricts to a maximal independent set of F−N[u], because no vertex there is adjacent to u and all other vertices of N[u] are excluded. Induct there and append uv; there are no extra adjacencies to either endpoint. If neither endpoint is queried, deleting v preserves the witnesses by dropping v and adding u only if it becomes undominated; conversely a maximal independent set after deletion extends by adding v exactly when u is absent. Isolates and the empty case then complete the induction. On C5, {0,2} realizes all four traces, and every four vertices induce a path, not two disjoint edges. The five-cycle has VC dimension exactly two (its maximal independent sets have size two). A fresh enumeration at /workspace/branches/2db30912-cf6b-47b3-b347-a06502761454/forest_mis_reproduction.py matched the frozen counts: 3,272 forests in orders 0–6, 197,635 support queries, 33,226 shattered supports, and exact equality of the two separately computed support families; it also reproduced the C5 obstruction. Output: forest_mis_reproduction_output.txt alongside the script. The frozen code and output were inspected, not rerun. The finite checks do not prove the unrestricted statement.
 
-## Limits
-No claim about the Littlestone dimension or cyclic graphs is made. The matching-to-MIS lower direction was already a known construction. The 2024 inequality is not claimed as novel; only its sharpened forest characterization is under review. Exhaustive historical-priority validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the converse for every individual shattered support of an arbitrary forest. The forward endpoint-selection argument is not new, and the C5 example also appears within the frozen cograph record's census. The closest primary general theorem gives private neighbors satisfying only a cross-side condition; known special families and enumeration results are not the forest converse.
+
+## value
+
+PASS
+
+The converse supplies a structural certificate for every shattered support, not merely an extremal dimension, and its pendant reduction makes the criterion constructive. Forests permit arbitrary branching yet admit an exact ordinary-matching criterion unlike general graphs; C5 shows the restriction cannot simply be removed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

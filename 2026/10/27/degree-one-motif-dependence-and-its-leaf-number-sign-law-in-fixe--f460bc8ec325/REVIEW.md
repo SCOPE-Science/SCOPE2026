@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on a chosen graph vertex having degree one gives an exact finite hypergeometric count, separated by whether the vertex lies outside the motif, represents a motif leaf, or represents a motif vertex of degree at least two. The algebra proves the normalized mixed-moment expression, its one-transition law, and strict dependence on the motif leaf count for all claimed integer parameters. The packaged verifier independently enumerates 72 fixed-edge graph/motif cases with exact rational arithmetic and passes 2,896 rational monotonicity-grid checks. These finite calculations corroborate, but do not replace, the complete analytic argument.
+## correctness
 
-**Originality — PASS (best knowledge, with priority risk).** Searches for fixed-edge degree-one/subgraph covariance and leaf-sensitive motif correlations found no exact equivalent. Janson's 2006 arXiv paper was inspected through its degree-count and fixed-edge sections and covers related asymptotic degree statistics rather than the finite all-motif identity. The earlier 1990 Janson subgraph-count paper was accessible only as an abstract; an equivalent formula there or in unindexed literature cannot be excluded. Independent historical priority checking remains desirable. Related fixed-edge isolated-vertex moments and independent-edge degree-one/motif results have different hypotheses; neither claim by itself implies the present formula.
+PASS
 
-**Mathematical value — PASS.** The number of degree-one vertices is a standard local sparsity statistic, and motif counts measure different global graph patterns. The theorem determines the entire sign phase diagram on its natural finite parameter domain via a single exact formula, identifies the motif leaf number as the only topology-sensitive input after fixing order and size, and supplies an explicit path/star sign reversal within the same graph ensemble. This distinguishes graph patterns that simple edge-count arguments do not separate.
+Independently conditioned in the reverse order from RESULT.md: fix an injection and condition on all h motif edges being present. The remaining m−h edges are uniform on N−h choices. For a test vertex outside the image, the degree-one probability is (n−1) C(U−h,m−h−1)/C(N−h,m−h); at a motif leaf it is C(U−h+1,m−h)/C(N−h,m−h); at an image of a motif vertex of degree at least two it is zero. Weight by (n−k)/n and ℓ/n, and divide by the positive marginal (n−1)C(U,m−1)/C(N,m). Cancellation gives the stated normalized mixed moment and the covariance factor. The zero binomial convention covers m=h, including k=n; h≤m≤U also keeps all claimed denominators nonzero. The slope in ℓ is positive and the function of 1/m is affine, proving the stated strict sign comparisons. The sign parameters are n,m,k,h,ℓ, not a list omitting m. Exact integer replay: multiply (N)_h/(U)_h by [(n−k)(m−h)(n−1)+ℓ(U−h+1)]/[n(n−1)m], cancelling by gcd before multiplication; n=12,m=10,k=6,h=5 gives 41664/49555 and 11284/9911 for ℓ=2,5. For H=P3 at n=5 the ratios at m=2 and 6 are 3/4 and 21/20. Read the frozen verification notes and verifier source; did not run it. Its selected finite checks are corroboration, not a full-order proof.
 
-**Scientific limitations.** The result is for noninduced embeddings, integer \(h\le m\le\binom{n-1}{2}\), and motifs without isolated vertices. A full-text historical comparison with the 1990 functional-limit source is incomplete; independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the extension to leaf-bearing motifs, the exact ℓ term and the matched-size opposite-sign witness, not for the already stated minimum-degree-two formula or its single-crossing consequence. The earlier no-leaf law excludes the additional overlap case v=an image of a leaf, and does not give its contribution. No inspected source establishes the full leaf-bearing statement.
+
+## value
+
+PASS
+
+The extension identifies precisely which motif feature enters a natural mixed observable after size and edge count have been fixed. The path and star show that ignoring that feature can reverse the prediction at the same graph and motif sizes. This is stronger than repeating the no-leaf formula or recomputing one isolated example, while still restricted to noninduced embeddings with no isolated motif vertices and the stated edge range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly the normalized finite-zero coefficient energy defined in `RESULT.md`, for \(1<p<\infty\) and \(0<r<1\). The one-zero and antipodal minima follow from sharp Hölder inequalities and the even/odd decomposition. For the repeated zero, the explicit vector built from the unique minimizer of the dual strictly convex series satisfies both value and derivative constraints, and its energy achieves the Hölder lower bound. The geometric variable's exact stop-loss transform proves strict convex-order growth and therefore a *unique* jet interaction threshold. Quadratic comparisons with the \(L^2\) minimizer prove the full exponent dichotomy; geometric-to-exponential convergence proves the boundary constant; dual-vector convergence proves confluent-node continuity. The proofs do not substitute finite truncations for infinite results.
+PASS
 
-## Originality — PASS relative to inspected primary text
+The repair at repairs/2/RESULT.md corrects Step 6: if D is the minimum of the q-norm (not its q-th power), the energy is D^(-p), not D^(1-p). For example at p=2,r=1/2 the jet norm D=1/sqrt(15) gives energy 15, not sqrt(15). Both constraints follow for a_n=-|w_n|^(q-2)w_n/D^q from stationarity against the second constraint vector and pairing against w; sharp Hölder gives optimality. The perturbed constraint vectors converge in ell^q, remain independent by their first two coordinates, and the trial t=0 and reverse triangle inequality uniformly bound the minimizing multipliers. Their positive minimum norms thus converge and the corrected power proves confluence. For the rest: sharp Hölder and the even-coordinate projection give the single/antipodal formulas and the endpoint limits of the explicit crossing. For Y_s=(1-s)N_s, conditioning on N_s>floor(u/(1-s)) gives the claimed stop-loss formula. Its derivative is nonnegative on each floor interval and positive above the smallest atom except at isolated thresholds. Integration against the positive-a.e. second derivative of |1+by|^q gives strict convex expectation growth at every nonzero b; the minimizing b is nonzero because the derivative at zero is q. Comparing at the larger-s minimizer yields strict growth of F_q. The exact quadratic minimum s/(1+s), monotonicity of probability L^q norms, and F_q(s)~s as s tends to zero prove the interaction inequalities and uniqueness. The normalized geometric tails are uniformly exponentially bounded near s=1, so uniform integrability and bounded minimizers give the exponential limit. The independent finite KKT witness and collision checks are evidence/2/reproduce.py and replay.txt; proof, not truncation, covers all p and r in the claim.
 
-The sharp general moment duality of Abakumov–Chalendar–Poltoratski (arXiv:2611.02159, Theorem 3.1) already gives an abstract finite-zero variational characterization and is **not** new. Cheng–Mashreghi–Ross (arXiv:1802.04646, Section 6) had already defined unique finite-zero extremals with multiplicity; that general framework is **not** new. The claim evaluated here is the quantified nonadditivity of *two* zero constraints: its sharp opposite-point phase curve, the distinct repeated-zero phase curve with uniqueness from geometric convex order, its universal \(p=2\) dividing line, and the confluence connecting two genuinely distinct nodes. The relevant sections of the closest full texts do not assert these comparisons; the 2021 optimal-approximant source concerns zeros of approximants rather than prescribed zeros of the interpolating function. There is an unresolved publication-priority risk that the sharp finite comparison occurs in older worked examples or under equivalent Banach-space interpolation language.
+## originality
 
-## Value — PASS
+PASS
 
-Normalized extremal energies are central to testing admissible zero sets in analytic coefficient spaces; nonadditivity of zero constraints matters when building unions or colliding zeros. The result supplies two natural two-zero benchmark geometries, a complete quantitative sign diagram for each, and a true sharp radius for both (one elementary, one uniquely characterized variationally). It also distinguishes the Hilbert case by an exact equality of two ostensibly different placements. The strict convex-order lemma is structural, not a finite table computation; no global infinite-zero-set conclusion is claimed.
+The corrected package presents one-zero and antipodal formulas as benchmarks, not as a new duality theorem or a priority claim for elementary substitutions. The supported contribution is the normalized geometric monotonicity argument yielding an all-radius repeated-zero interaction classification, a boundary variational constant, and transfer of strict signs to nearby distinct zeros. The examined prior finite-zero and multiplicity frameworks do not supply that quantitative classification.
 
-## Closest literature and limits
+## value
 
-- E. Abakumov, I. Chalendar, A. Poltoratski, arXiv:2611.02159 (2026): general sharp moment duality and regular polygons, not a two-zero interaction phase diagram.
-- R. Cheng, J. Mashreghi, W. T. Ross, arXiv:1802.04646 (2018): finite-zero extremal existence, including repeated zeros, not a quantitative collision phase classification.
-- R. Cheng, W. T. Ross, D. Seco, arXiv:2104.08014 (2021): zeros of optimal polynomial approximants, different minimization problem.
+PASS
 
-The unique confluent crossover is implicit, and independent publication-priority review has not occurred. Every finite numerical check is supplementary to the analytical proof.
+Repeated zero constraints arise naturally from colliding prescribed zeros. A unique sign boundary against the twice-single benchmark, with a rigorous boundary constant and openness for genuinely distinct pairs, addresses a motivated quantitative question beyond sharp interpolation duality. The strict monotonicity argument controls a continuum of radii; leaving the crossing implicit does not weaken its uniqueness or sign characterization. The repair is not accepted merely for correcting a normalization typo.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

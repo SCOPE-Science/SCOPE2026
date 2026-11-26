@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized determinant depends on one real parameter inside the complete simultaneous-permutation commutant. The factorization, derivative, monotone critical-point equation, and global comparisons cover every parameter and the diagonal boundary. The proof's strict \(p>2\) condition rules out equality ambiguity at the Hilbert exponent. The independent endpoint argument proves the real 3-by-3 sign-determinant maximum exactly. The finite enumeration and numerical checks agree with these symbolic and analytic facts; no finite test is used to infer uniqueness on a continuum.
+PASS
 
-## Originality — PASS, with residual priority risk
+Scaling off-diagonal entries to -1 gives eigenvalues r-2,r+1,r+1 and equal column p-norms; diagonal matrices give quotient 1. On (0,2) the logarithmic derivative has the sign of 1-r-r^(p-1), with its unique zero in (0,1). Negative parameters in [-1,0] give at most the value at zero; those below -1 and parameters at least 2 give values below 1 by comparison with |r|^3. At r=1/2 the columns are orthogonal and their norms strictly decrease from p=2, giving a value above 1 for p>2. This proves global uniqueness up to scale. Substitution of r^p=r(1-r) yields B_p and B_3=phi, with phi^3>4. The three-coordinate embedding proves only a lower bound on the full real constant. At p=2 the sharp bound follows by Cauchy–Binet and the Gram determinant inequality, with infinite sequences handled by finite truncation. At infinity, multiaffinity reduces every minor bound to a sign matrix; divisibility by 4, the Euclidean Hadamard bound below 8, and the attaining sign matrix prove the sharp value 4. Thus the sharp-real-endpoint interpolation prediction fails, without conflicting with complex interpolation. The frozen script was inspected, not executed; its sampled exponents do not certify the continuum optimum.
 
-Feldman's 2026 Plücker theorem gives a general sign-matrix lower bound and leaves the super-Hilbert sharp constants open; it does not optimize the simultaneous-permutation commutant or derive the golden-ratio lower bound. The separately published complex sharp-constant note yields the upper bound \(C^{\mathbb R}_{3,3}\le\sqrt3\), which does not imply the new lower bound or real extremizer classification. The Hadamard maximal-determinant survey addresses the sign endpoint rather than the interior real exponent optimization. Full text of Feldman's preprint and of the complex comparison note was examined. Unindexed older real determinant and tensor-norm results remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This computes the exact extremal profile of the canonical permutation-equivariant subfamily in a newly posed sharp-constant problem. At the first dimension without a real Hadamard matrix, it yields a golden-ratio witness strictly stronger than the direct sign-matrix bound and distinguishes real and complex endpoint interpolation in a precise, constructive way. It does not claim the unrestricted real optimum.
+The checked general Plücker theorem gives a sign-matrix lower bound, the catalogue's exact interior formula is complex, and maximal-determinant tables concern sign matrices. These cover background and endpoints but do not give the unique real permutation-equivariant optimum or the resulting golden-ratio witness. The decision is limited to the statement as scoped, not unrestricted real sharpness or first-ever real interpolation failure.
 
-## Limitations and closest literature
+## value
 
-The claim leaves the global real constant and all nonsymmetric maximizing configurations open. Its significance is the explicit interior witness, exact symmetric optimality, and failure of interpolation from *sharp real* endpoints; no complexity or universality beyond these facts is proposed. Primary comparison: arXiv:2608.00983, Theorem 2.1 and Problem P1. Secondary comparisons: the posted full text of *Exact complex Plücker constants above the Hilbert exponent* and Browne–Egan–Hegarty–Ó Catháin (2021).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family is the commutant of simultaneous permutations, not an arbitrary parameter slice. Its complete optimum gives a nonsign extremizer, improves the sign-matrix lower bound at p=3, and supplies an explicit obstruction to a tempting sharp-real-endpoint estimate. This is substantive even though it leaves the full real optimum open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

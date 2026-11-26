@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:24:25.912117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any invertible real T to Hilbert space and any x, apply the two operator norm bounds to the coordinate vectors and the signed copies of x: sum_i x_i² = sum_i N(x_i e_i)² ≤ ||T^(−1)||² sum_i ||T(x_i e_i)||² = ||T^(−1)||² E||T(sum_i eps_i x_i e_i)||² ≤ (||T|| ||T^(−1)||)² N(x)². Here the orthogonality is in the Rademacher expectation, not an assumption that the Te_i are orthogonal. The identity attains the resulting sharp bound since N≤||·||_2 with equality on e_i. Substitution t_i=x_i² gives the bounded packing LP, whose dual is exactly fractional cover; the singleton constraints ensure boundedness and the finite rational LP gives rational value. Cliques of G are independent sets of its complement. Perfection gives integrality on every nonempty induced subgraph by complement closure and omega≤chi_f≤chi; conversely the strong perfect graph theorem gives an induced odd hole or antihole. The two matching certificates are uniform weights 1/2 on vertices and on cycle edges for the former, and uniform 1/k on vertices and on the 2k+1 cyclic translates of a maximum independent k-set for the latter. This gives (2k+1)/2 or (2k+1)/k, nonintegral for k≥2. Replay: frozen RESULT.md proof §§1–4 and the Rademacher calculation here. The finite rational checker was inspected, not executed; it is not used to prove any of the general quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krivine and Raynaud–Tradacete give general factorizations through L^p for p-convex/concave operators; Raynaud–Tradacete §6 includes the normalized lattice separation/comparison. These passages are related structure, not a claim that they literally state the graph formula or that their qualitative factorization proves sharpness by itself.",
+          "The elementary Hilbert cotype comparison is sharp here on the atom sequence because sign changes preserve N and each coordinate atom is normalized. The more general graph-duality result of Borodulin-Nadzieja et al. concerns sum norms and a different invariant."
+        ],
+        "reasoning": "No approximate lattice-factorization constant or isometry classification is substituted for the exact lower bound; the unrestricted step follows from the exact Hilbert second-moment identity in the cotype comparison.",
+        "searches": [
+          "Banach lattices 2-convex 2-concave distance Hilbert renorming product constants Lindenstrauss Tzafriri exact; Theorem 1.d.8",
+          "Raynaud–Tradacete Lemma 17; Krivine Théorème 2; Maurey Type, Cotype and K-Convexity",
+          "arXiv:2404.01733v1; arXiv:2605.14072v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary matched records including da23138814f6",
+        "arXiv:2305.13125v1, 2404.01733v1 and 2605.14072v1",
+        "Krivine 1973–74 Numdam article",
+        "Raynaud–Tradacete 2010 author copy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older result proves the exact RHS for canonical sum norms and explicitly does not assert arbitrary isomorphism distortion.",
+          "The cotype calculation bounds the Euclidean norm of x by the distortion of any T times N(x), giving equality with the prior canonical computation. The graph integrality characterization is then obtained immediately from SPGT and uniform fractional covers/packings of the induced obstructions."
+        ],
+        "reasoning": "This is a concrete mathematical implication of the verified prior formula with standard Hilbert and graph comparisons, not a speculative overlap or an argument from a failed search.",
+        "searches": [
+          "Resultary da23138814f6 RESULT.md, offsets 0–4410; arXiv:2605.14072v1 Theorem 4.6; Chudnovsky–Robertson–Seymour–Thomas, SPGT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fakhoury defines the same p-convexification at p=2 but studies isometries.",
+          "The prior canonical sum-norm theorem gives ||id:g_F→ell_1||=tau*(F). On setting u_i=x_i², N(x)²=g_F(u) and ||x||_2²=||u||_1; all u≥0 arise."
+        ],
+        "reasoning": "The two canonical norm calculations are identical under this substitution; the question about unrestricted maps is resolved by the deterministic consequence of Rademacher averaging given under correctness, not by treating the earlier paper's different terminology as identical.",
+        "searches": [
+          "Resultary: fractional clique covers, quadratic combinatorial Hilbert Banach–Mazur distance and named predecessor",
+          "Fakhoury arXiv:2305.13125v1; Resultary da23138814f6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "da23138814f6 gives the general exact cover value on canonical sum norms rather than listing particular graphs.",
+          "The three named noninteger examples are instances of the same simple odd-cycle/odd-complement certificates; finite checks are not novelty evidence."
+        ],
+        "reasoning": "The closest catalogue coverage is a general formula, so an exhaustive numeric table is unnecessary. No separate verbatim unrestricted-distance entry is relied on.",
+        "searches": [
+          "Resultary exact and named-prior comparison, da23138814f6",
+          "Frozen checker.py and named exact C5, C7 and complement-C7 examples"
+        ]
+      },
+      "rationale": "The closest earlier indexed result supplies the exact same numerical invariant on the square variables, not merely a similar LP: for g_F(u)=max_F sum_(i in F)|u_i| it gives ||id:g_F→ell_1||=tau*(F). Substituting u_i=x_i² makes that norm exactly the squared canonical Hilbert distortion. The standard Hilbert cotype comparison applied just to x_i e_i gives that same distortion as a lower bound for EVERY real-linear isomorphism (calculation under correctness). Thus the older formula and elementary unconditional atomic comparison mechanically give even the unrestricted identity, including optimality of the coordinate comparison. The earlier result itself does not assert unrestricted Banach–Mazur distance. The induced-perfectness statement then follows from the classical coloring bounds and odd-hole/antihole obstruction with uniform weights. There is no separate surviving claimed result beyond these implications. This is implication coverage, not a claim that the same Hilbert-distance sentence was located verbatim.",
+      "residual_risks": [
+        "Bounded, nonexhaustive literature comparison; no claim about first publication of the Hilbert wording.",
+        "The public Maurey handbook manuscript URL was not readable. Its access failure is not a basis for the verdict: the exact cotype inequality needed for the logical implication is written out under correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact canonical formula; unrestricted result follows via the sharp unconditional comparison",
+          "evidence": "Finite fractional cover for the coordinate operator norm between set-sum spaces, explicitly distinguished from arbitrary Banach–Mazur isomorphisms in the source.",
+          "identifier_or_url": "2026/10/11/SCOPE-fractional-clique-cover-norms-and-the-sharp-two-threshold-for-gr--da23138814f6",
+          "material_read": "mirrored RESULT.md, Finding and scope, offsets 0–4410",
+          "method": "Resultary ranked search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Fractional clique-cover norms and the sharp two-threshold for graph-generated Banach spaces",
+          "trigger": "Strongest exact predecessor for the cover value"
+        },
+        {
+          "assessment": "Same family, not a distortion theorem",
+          "evidence": "Signed-permutation/isometry rigidity question, with restrictions at exponent 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.13125v1",
+          "material_read": "pp. 1–3, norm and Theorem 1.1, offsets 0, 7600–10045",
+          "method": "bounded OA PDF passages",
+          "title": "Isometries of p-convexified combinatorial Banach spaces",
+          "trigger": "Exact p=2 object"
+        },
+        {
+          "assessment": "Structural context only",
+          "evidence": "Defines the sum norm rather than the square-root max of coordinate squares.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.01733v1",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "The Zoo of combinatorial Banach spaces",
+          "trigger": "Related canonical norm family"
+        },
+        {
+          "assessment": "Other invariant; does not state metric integrality",
+          "evidence": "Characterization through sum-norm geometric duality and extreme points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14072v1",
+          "material_read": "p. 1 and pp. 10–11, offsets 1868 and 33200–38732, including Theorem 4.6",
+          "method": "OA PDF bounded passages",
+          "title": "Geometric duality, perfect graphs, and the Sierpiński space",
+          "trigger": "Competing induced perfect-graph criterion"
+        },
+        {
+          "assessment": "General factorization background; not used as sole sharp bound",
+          "evidence": "Applying the theorem to identities gives lattice isomorphism under matching convexity and concavity; extraction obscures some displayed inequalities.",
+          "identifier_or_url": "https://www.numdam.org/article/SAF_1973-1974____A24_0.pdf",
+          "material_read": "Theorem 2 and corollaries, printed pp. 5–7, offsets 15490–21250",
+          "method": "lawful Numdam scan, bounded extraction",
+          "title": "Théorèmes de factorisation dans les espaces réticulés",
+          "trigger": "General convex/concave Hilbert factorization"
+        },
+        {
+          "assessment": "General comparison and lattice norm background, not exact clique theorem",
+          "evidence": "Lattice homomorphism from p-convex to p-concave factors through L^p; for normalized constants the proof compares the intermediate norm to the endpoint norms.",
+          "identifier_or_url": "https://www.icmat.es/miembros/ptradacete/assets/images/portfolio/2010ieot.pdf",
+          "material_read": "§6, Lemma 17 and proof, offsets 107800–111547; Remarks 1 and 5 located at 16298 and 35568",
+          "method": "author's OA copy, bounded passages",
+          "title": "Interpolation of Banach lattices and factorization of p-convex and q-concave operators",
+          "trigger": "Lawful clearer source for lattice normalization and factorization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying question about unrestricted distance is natural and the exact value is usable, but the submitted increment is the routine atomic cotype comparison applied to a previously evaluated equivalent norm invariant, followed by the standard odd-hole/antihole obstruction. It claims no additional optimization result (such as classification of optimal forms), obstruction or quantitative invariant beyond that mechanical conversion. No independently useful unknown exact remainder is established as framed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

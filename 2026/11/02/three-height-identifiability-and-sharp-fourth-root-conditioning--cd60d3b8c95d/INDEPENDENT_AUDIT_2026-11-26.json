@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:14.866000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the change of variables a=log(2A)−sH², s=1/(2σ²), t=2sH; it is bijective on a real, s>0, t≥0. In u=z² the unknown affine term cancels in the second divided difference. For t>0, differentiating g_t(u)=√u tanh(t√u) twice gives the numerator x sech²x−tanh x−2x² sech²x tanh x over 4u^(3/2), x=t√u. The first two terms are negative because tanh x−x sech²x vanishes at 0 and has positive derivative for x>0; the expansion g_t(u)=tu−t³u²/3+O(u³) handles a knot at zero. Thus F′(t)<0, and bounded error in log cosh(t√u)=t√u+O(1) together with strict concavity of √u gives F→−∞. A unique t therefore exists exactly for Δ≤0; subtraction fixes s, one log reading fixes a, and equality of divided differences fixes the third. A physical triple exists exactly when s>0 as well. With two log readings held fixed, s(t) and a(t) are determined for freely varied nearby t, remaining admissible by continuity, one-sided at zero. The u² Taylor term is −t⁴u²/12 and its divided difference is −t⁴/12. On the fixed-two-reading path, s(t)=s0+t²/2+O(t⁴), H is asymptotic to t/(2s0), and the third reading differs by (u2−u0)(u2−u1)F(t). The leading coefficient is nonzero, ruling out every larger exponent. Also |F′(t)|≥c t³ for sufficiently small t≥0, so integration gives |F(t)−F(t′)|≥c′|t−t′|⁴ and a pairwise local 1/4 estimate for t, then for H since s stays positive and is locally Lipschitz in t and the readings. This is local at physical ground points with positive finite σ, not a bound uniform as σ leaves that regime. The mpmath script is finite corroboration, not needed for any universal inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lushi–Stockie describes an earlier four-location point-source recovery and deals itself with emission rates at known locations. Newman's Bayesian inversion considers uncertainty and multiple unknowns, including background, and notes sensor-layout and dispersion–emission tradeoffs.",
+          "The single-profile fitting abstract describes likelihood equations for noisy Gaussian measurements, not a symmetric pair identifiability result."
+        ],
+        "reasoning": "A four-location uniqueness statement for a differently calibrated transport model and more general noisy inference do not imply global uniqueness with unknown width at any three fixed nonnegative heights. Full-profile Gaussian identification would also not imply separation by three evaluations.",
+        "searches": [
+          "Lushi–Stockie arXiv:0908.1589, p. 2 and Hogan et al. technical-report reference",
+          "Newman et al. arXiv:2408.01298, pp. 1,11; Gaussian profile estimation in one dimension, DOI 10.1364/AO.46.005374"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and both supporting files by inspection",
+        "Stockie (2011), Kumar et al. (2021), Lushi–Stockie (2009) and Newman et al. (2024) relevant original passages",
+        "Hagen et al. abstract",
+        "Resultary local three-point design, transect and puff records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward formula alone supplies neither strict monotonicity of its second divided difference in the unknown height-to-variance parameter nor the cancellation through order two when spread and amplitude both vary. The known-width designs cannot model that cancellation."
+        ],
+        "reasoning": "The order-four indistinguishability path and uniform-in-knot uniqueness within the model require the new analytic comparisons. Prior forward formulas are necessary premises but not a statement-level implication of either conclusion.",
+        "searches": [
+          "Stockie §§3.1–3.2; Kumar Eq. (1) and methods; indexed two-image and Gaussian transect design Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stockie §3.1 Eq. (3.8), with σ²=2r and a combined amplitude, is the identical forward profile; §3.2 specifies the method-of-images reflecting boundary.",
+          "The indexed two-image Gaussian three-point design fixes both centers and common width and estimates two fluxes and background."
+        ],
+        "reasoning": "The rescaling truly identifies the same forward model. It does not provide an inverse from three values. Two fixed centers with two independently unknown fluxes and a background are not equivalent to a common unknown amplitude, unknown width and unknown height with background removed.",
+        "searches": [
+          "Vertical reflected Gaussian plume, two Gaussian images, equal-amplitude symmetric Gaussian pair with unknown scale/width and three point values",
+          "Resultary: reflected Gaussian pair three-point inverse or design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both literature equations are exact prior entries for the forward reflected law. Indexed three-point image-source and Fisher transect results give different sample-design invariants; the free-space puff records use snapshots, not the stationary reflected vertical profile."
+        ],
+        "reasoning": "There is no finite list of geometries that can certify the assertion for arbitrary distinct real knots. The check was for exact catalogue statements under the same sampling and parameter regime, not for an unrelated measurement table or one coincident example.",
+        "searches": [
+          "Resultary: Gaussian image three-point designs, transect sampling, and finite observations of Gaussian pollutants",
+          "Stockie Eq. (3.8); Kumar et al. Eq. (1)"
+        ]
+      },
+      "rationale": "The reflected two-image forward factor is standard and is not original. The distinct claim is the global identifiability and explicit compatibility criterion for every prescribed three-height geometry with unknown common spread, together with minimality and the sharp boundary modulus for that finite-sample problem. The accessible competing results use different data, known spread or centers, or estimate different parameters. No inspected result covers the distinct claim.",
+      "residual_risks": [
+        "Hogan et al. (2005) RODS report was not directly available; its earlier uniqueness claim is known here from the citing paper only.",
+        "Hagen full text and Characterizing Variations in Concentration Data Measured From Unknown Releases, DOI 10.1029/2019EA000669, were not obtained. Implicit prior results in specialized finite-sample Gaussian-profile work are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same forward law; inspected passages do not supply the inverse theorem",
+          "evidence": [
+            "Vertical factor exp(−(z−H)²/4r)+exp(−(z+H)²/4r), σ²=2r, reflecting boundary."
+          ],
+          "identifier_or_url": "https://www.sfu.ca/~jstockie/atmos/paper.pdf",
+          "material_read": "§3.1 Eq. (3.8), p. 7 offset 24850; §3.2 method of images and Eq. (3.9), p. 8",
+          "method": "OA PDF original passages",
+          "title": "The Mathematics of Atmospheric Dispersion Modelling",
+          "trigger": "Exact same reflected vertical factor"
+        },
+        {
+          "assessment": "Same forward factor in practical deployment, different inverse data and calibration",
+          "evidence": [
+            "Reflective-ground image terms; practical fitting uses integrals across the plume and parameters informed by meteorological measurements."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/amt-14-5987-2021",
+          "material_read": "PDF p. 3 offset 16714 and Eq. (1) p. 5 offset 23507",
+          "method": "OA PDF original passages",
+          "title": "Mobile atmospheric measurements and local-scale inverse estimation",
+          "trigger": "Reflected environmental model plus multilevel inversion"
+        },
+        {
+          "assessment": "Known-location emission estimates in this paper; earlier four-location claim reported second-hand",
+          "evidence": [
+            "Authors distinguish their known-source-location setup from Hogan et al.'s single-source location and strength inversion from four locations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0908.1589",
+          "material_read": "p. 2 offsets 7686–10678 and reference p. 14 offset 89935",
+          "method": "OA PDF original passages; referenced report not obtained",
+          "title": "An inverse Gaussian plume approach for estimating atmospheric pollutant emissions from multiple point sources",
+          "trigger": "Earliest close inverse precedent and cited original report"
+        },
+        {
+          "assessment": "No corresponding exact three-height result in the material read",
+          "evidence": [
+            "Joint stochastic estimation, dispersion–emission tradeoffs and sensitivity to sensor layout."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.01298",
+          "material_read": "Abstract p. 1 and identifiability/geometry discussion p. 11 offset 42480",
+          "method": "OA PDF original passages",
+          "title": "Probabilistic Inversion Modeling of Gas Emissions",
+          "trigger": "Joint inference with unknown spread and source properties"
+        },
+        {
+          "assessment": "Different parameter and observable design problem",
+          "evidence": [
+            "Centers and width fixed; rank and Fisher-optimality for two fluxes and background."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-singular-and-doubly-optimal-three-point-designs-for-two-gaussian--f0ea65f75ed4/RESULT.md",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Singular and doubly optimal three-point designs for two Gaussian image sources",
+          "trigger": "Closest indexed reflected and three-point comparison"
+        },
+        {
+          "assessment": "Single-profile noisy likelihood in the abstract; full-text comparison unresolved",
+          "evidence": [
+            "Abstract describes maximum-likelihood parameter equations for noisy Gaussian profile data."
+          ],
+          "identifier_or_url": "https://doi.org/10.1364/AO.46.005374",
+          "material_read": "PubMed abstract only",
+          "method": "Indexed abstract; bounded DOI and PMC access attempts",
+          "title": "Gaussian profile estimation in one dimension",
+          "trigger": "Potential equivalently phrased inverse-profile result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical model with confounded amplitude, spread and height, determining whether a prescribed finite vertical profile is sufficient is meaningful rather than just counting parameters. Arbitrary distinct knots, including a surface knot, make the result independent of an optimized sensor design. The compatibility test and sharp boundary instability explain why exact uniqueness does not imply reliable near-ground height recovery. This is an idealized inverse-model result, not a guarantee under noise or model mismatch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

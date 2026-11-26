@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The global support reduction is strict off the first seven primes. The ratio bound \(\sigma(n)/n<17017/3072\) and the certified cutoff \(C_7(52{,}000{,}000{,}000)>17017/3072+0.1691\) exclude the infinite tail. The exact-rational/interval checker covers all 2,596 exponent tuples below the cutoff and isolates the unique candidate.
+PASS
 
-## Originality
+Replacing each ordered prime by the corresponding first-seven prime at fixed exponents weakly increases sigma(n)/n and strictly decreases C_7 if any prime changes. The reduced integer remains above 5040 because the seven-prime primorial is already above it. C_7 is strictly increasing (positive argument and positive derivative of P_7). The Euler-factor bound is 17017/3072; the independent interval evaluation gives C_7(52000000000)>5.7095380290666298, larger than that bound plus 0.1691. I independently enumerated the reduced candidates by starting at the primorial and adjoining prime factors in nondecreasing order; unique factorization gives exactly one visit to each tuple up to the cutoff. An integer fixed-point replay, /workspace/branches/review-4-integer-replay.py, uses rational Euler–Maclaurin bounds at N=4096, logarithms by the atanh series with power-of-two reduction and a geometric tail bound, and a bounded exponential series. It verifies all 2596 tuples: the candidate gap is enclosed between 0.1690334982267305186 and 0.1690334982267306759, the ratio is exactly 62496/12155, and every other reduced tuple has lower interval endpoint above 0.1691 (the smallest such endpoint exceeds 0.18329). Together with the strict support reduction and tail, this proves the global unique minimum. The frozen checker and recorded output were inspected, not executed.
 
-PASS with residual risk. The closest source is Mishra–Sarkar, arXiv:2609.26787v1, which proves the sign inequality in a broad class and describes finite candidate checks, but the inspected text does not report the sharp gap or its unique minimizer. Danesh’s recent Robin-defect preprint concerns a different, untruncated defect. The candidate integer itself is already listed in OEIS A004490; that fact is not claimed as new. The referenced Mathematica notebook was not retrieved, so overlap risk remains documented.
+## originality
 
-## Value
+PASS
 
-PASS. The result determines a sharp positive margin and unique extremizer for the natural seven-distinct-prime-factor layer, rather than only a yes/no inequality check. It is a quantitative benchmark for the truncation and is not presented as a result about all integers or the Riemann hypothesis.
+The supported distinct result is the sharp uniform additive gap and its unique optimizer at exactly seven distinct prime factors. The parent inequality and the optimizer's appearance under other divisor-extremal criteria are not new. The inspected statements do not supply or mechanically imply the sharp gap for the stated objective.
 
-## Limitations
+## value
 
-The conclusion is restricted to \(\\(\omega(n)=7\)\) and the stated gap. The supplied Python certificate is reproducible but has not received an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Seven is the first support size beyond the predecessor's analytic small-support range, so the slice is motivated by the existing argument. The exact worst case gives a certified uniform additive allowance for this truncation in that layer, not just a sign or a numerical estimate at a famous integer. A researcher comparing truncations or improving the finite checks can use both the tolerance and its unique obstruction. No wider Robin or Riemann-hypothesis implication is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

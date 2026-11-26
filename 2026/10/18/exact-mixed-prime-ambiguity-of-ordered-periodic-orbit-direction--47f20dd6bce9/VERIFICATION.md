@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From the package directory, execute `python3 verify.py` with Python 3.9 or later. The script uses only the standard library, enumerates every single cycle at lengths 2 through 10, verifies signatures directly at all nonzero times, checks group class counts, and generates constructive witnesses with pairwise-distinct image lists at lengths 6, 10, 14 and 22. Expected final output is `VERIFIED`.
+## correctness
 
-The uniform formula for all odd primes follows from the written phase-prefix tree proof and block construction. Finite examples do not establish its quantifiers. The exact full class-size distribution for arbitrary composite cycle lengths is not claimed. No independent audit was performed.
+PASS
+
+For a fixed labeled order and a single cycle, anchoring the least point at phase zero makes a cycle equivalent to its phase assignment. At stage i the nonzero-time entries for the next point are the indicator of A_i translated by its phase; replacing the time-zero entry by zero makes this exact. All extensions yielding the prescribed row form one coset of the translation stabilizer, whose order divides gcd(2p,i). If its order is p at i=p, A_p is the even residues. Invariance by addition of p would send any earlier nonempty subset out of the evens or force any later superset to contain every odd residue. Hence such a path has no size-two branch; other paths have at most p-1 size-two branches. With uniform choice at each node every completed leaf has probability at least 2^{-(p-1)}, proving the upper bound even with dead ends. The adjacent-pair construction has free bits on p-1 links and total flip parity odd. Its p-step iterate flips within each block, while nonmultiples of p give comparisons determined by blocks, proving attainment.
+
+## originality
+
+PASS
+
+The signature, phase reconstruction and a witness family have substantial overlap with adjacent work. The supported distinct claim is the sharp maximum over all signatures for 2p, not composite nonuniqueness or a large explicitly constructed fiber by itself.
+
+## value
+
+PASS
+
+The theorem measures exactly how much a complete ordered observation can fail to identify a cycle in the natural mixed-prime family following the known prime case. It shows that two distinct arithmetic branching mechanisms cannot compound, closing an actual factor-p gap between a natural general bound and attainability. This is useful without a broader classification of interval maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

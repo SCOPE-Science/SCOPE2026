@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:42.395553Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–80 and supporting VERIFICATION.md/verify.py (supplied code inspected, not executed)",
+        "arXiv:1406.3958, Theorems 1–2 and §3.1–3.2",
+        "Independent bounded check: /workspace/branches/f71f155c-5468-4404-be50-bcfa834b11b0/check_record2.py and check-full.txt; exhausts 8191 insertion words for orders 2 through 14 using graph matchability and graph distances"
+      ],
+      "rationale": "The largest permutation symbol has an increasing suffix after it (otherwise its neighbors form a triangle with it). If this suffix has length one the insertion is I1. If it has length at least two, no prefix symbol can exceed its last symbol, since that would create a four-cycle involving two suffix vertices and the maximum. Thus the last symbol is the second largest, and removing it and relabelling the maximum inverts I2. This verifies the unique encoding; the graph also determines the order of each pair of values. The insertions attach a leaf at the corresponding active endpoint, up to relabelling. With all inactive vertices required covered, I1 sends 01 to {00,11} and 11 to {10}, and I2 interchanges the roles of the two endpoints, sending 10 to {00,11} and 11 to {01}. Thus the even-stage state {00,11} survives exactly the complementary disjoint pairs. Repeating an insertion attaches to the nonleaf and adds one leaf; switching attaches to the active leaf and extends the internal spine without changing the leaf count. Consequently L=2 plus the adjacent equalities and diameter is n-L+1 for n>=3. Pair orientation differences (conditioned) or usual bit differences (unconditioned) give independent fair indicators by an invertible binary transform. The leaf-resolved count, strict decrease up to the zero cutoff, and both diameter laws follow; the conditional mean and variance are 3m/2 and (m-2)/4, giving the asymptotic Gaussian limit for m>=3. Odd order is impossible and n=2 is the single matched edge.",
+      "residual_risks": [
+        "The independent enumeration is bounded; the all-order claim rests on the proof. This is not a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1–2 and Lemmas 5–6 provide the bijection, caterpillar form, and leaf/diameter laws without matching conditioning",
+          "The cited Mészáros article returned HTTP 403 in bounded direct and alternative retrieval attempts; no decisive text was read there"
+        ],
+        "reasoning": "General procedures to decide matching on individual trees do not by themselves enumerate eligible words or resolve their leaf distribution. No stronger statement producing that enumeration was found in the inspected material; the inaccessible source is not negative evidence.",
+        "searches": [
+          "arXiv:1406.3958, §2 and §3",
+          "Mészáros, DOI 10.1002/rsa.21167, candidate general matching theory"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and local-mirror comparison",
+        "arXiv:1406.3958",
+        "DOI 10.1002/rsa.21167 (inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unconditional law only tracks the number of adjacent bit equalities. At length four, words 0110 and 0010 each have one equality, but the former has complementary pairs and the latter does not"
+        ],
+        "reasoning": "The prior leaf/diameter relationship immediately converts the new conditioned leaf law to diameter, but the unrestricted marginal does not determine the matching event. The new filter supplies the missing joint information.",
+        "searches": [
+          "Acan–Hitczenko §3.1 Lemma 5 and §3.2 eq. (3.1) and Lemma 6",
+          "Resultary Cayley-tree comparison, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The web query returned the Acan–Hitczenko paper; its inspected Theorems 1–2 and §3 are about unrestricted permutation trees",
+          "The distinct Resultary finding studies conditional leaves in uniformly labelled Cayley trees, with an occupancy law; the exact frozen hit was the same finding, not a comparator"
+        ],
+        "reasoning": "The exact count of perfectly matchable permutation-tree words by leaves is equivalent to the event probability and conditional leaf law. A count or occupancy law with Cayley-tree labelling weights cannot be transferred to the inversion-word uniform distribution.",
+        "searches": [
+          "Web: ‘On random trees obtained from permutation graphs’ perfect matching caterpillar",
+          "Resultary: evaluate the matching/leaf laws in SCOPE-a-binomially-thinned-occupancy-law-for-leaves-of-perfectly-match--c9fabb3d2982"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed records yielded the identical record and the Cayley-tree occupancy comparison; Theorem 1 counts all tree permutations and Lemmas 5–6 specify unconditional quantities, not the matching-refined count"
+        ],
+        "reasoning": "A relevant exact enumeration must count words with a perfect matching at labelled order 2m, preferably refined by leaf count. No independent table or family formula with that scope appeared in these sources.",
+        "searches": [
+          "Resultary search results for perfect matchability and conditional leaves",
+          "arXiv:1406.3958, Theorem 1, Lemmas 5–6"
+        ]
+      },
+      "rationale": "The distinct result is the perfect-matching filter and resulting conditional finite laws and change in typical diameter for the uniform tree-permutation ensemble. The encoding, caterpillar geometry and unconditional distributions are credited to Acan and Hitczenko. The strongest distinct indexed matching comparator is for a different ensemble and does not establish this filter or diameter shift.",
+      "residual_risks": [
+        "Bounded literature search; a more general enumeration could have an unlocated specialization. The cited determinantal paper was not available in the checked routes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes prior structural and unconditional inputs",
+          "evidence": "Counts 2^(n-2) permutations via the insertions; proves the caterpillar shape, leaf count and diameter identities.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3958",
+          "material_read": "§2 Theorems 1–2, PDF pp. 3–4; §3.1 Lemma 5 and §3.2 eq. (3.1), Lemma 6, p. 5",
+          "method": "OA PDF, relevant passages",
+          "title": "On random trees obtained from permutation graphs",
+          "trigger": "Primary paper on the same uniform family"
+        },
+        {
+          "assessment": "Same conditioning property but different uniform tree class",
+          "evidence": "The conditional leaf count is an occupancy law for Cayley trees, not a word law for permutation trees.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-binomially-thinned-occupancy-law-for-leaves-of-perfectly-match--c9fabb3d2982",
+          "material_read": "Original finding",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A binomially thinned occupancy law for leaves of perfectly matchable trees",
+          "trigger": "Closest distinct indexed conditioned leaf result"
+        },
+        {
+          "assessment": "Not assessed beyond bibliographic scope; a specialization is not ruled out",
+          "evidence": "The title concerns matching theory for trees; no inspected statement establishes the claimed ensemble laws.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21167",
+          "material_read": "No full text or theorem passage retrieved",
+          "method": "Bounded direct and alternate OA retrieval attempts, HTTP 403",
+          "title": "Matchings on trees and the adjacency matrix: A determinantal viewpoint",
+          "trigger": "Referenced general matching theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 60–80",
+        "arXiv:1406.3958, §3"
+      ],
+      "rationale": "Perfect matching is a natural global constraint with nontrivial consequences in this random caterpillar model: it forbids equalities within every disjoint insertion pair, lowering the number of leaves and changing diameter at linear scale from about n/2 to 3n/4. The local word criterion and leaf-resolved probabilities explain the mechanism and quantify the conditional bias beyond the already known unconditioned binomial law.",
+      "residual_risks": [
+        "The quantitative shift concerns this particular uniform ensemble and perfect matchability, not general random trees or maximum matchings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

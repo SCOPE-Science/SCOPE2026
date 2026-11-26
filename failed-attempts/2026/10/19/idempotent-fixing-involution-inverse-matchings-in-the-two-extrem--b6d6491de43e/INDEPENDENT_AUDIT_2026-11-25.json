@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:12.782506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39",
+        "Frozen VERIFICATION.md lines 19–22 and check_extremal.py lines 5–51",
+        "Independent finite enumeration and explicit one-sided counterexample"
+      ],
+      "rationale": "The actual theorem and both formulas are correct. For monotone maps of the same rank, write the interval kernel blocks and the images in increasing order. Mutual inverse requires each image to meet the other's blocks exactly once; conversely the two transversals force g(a_i)=b_i and f(b_i)=a_i for the ordered images of f and g, proving the composites. Frozen line 18 incorrectly describes the one-sided statement as an equivalence: f=(1,1,2) and g=(1,1,3) have im(g) a transversal of f's kernel, but fgf=(1,1,1). The required two-sided criterion at lines 14–17 is nevertheless true by the ordered argument just given. At rank two, b<=c maps to cut a and images b,c+1; the new images straddle c, and a straddles the old images in the cut convention a<=a<b. The other branch reverses this substitution, and all straddling cases are idempotent. At rank n-1 the missing value of each map must belong to the other's doubled block, which the two exchanged nonidempotent branches satisfy, and z=c or c+1 gives exactly the idempotents. The bounds on the cuts and image values hold also for n=3 where the classes coincide. Constants and the identity cover rank one and rank n. An independent in-memory enumeration checked both formulas, order, rank, inverse equations, involutivity and the idempotents on 987 map/formula pairs for n=3 through 9, counting the coinciding class twice at n=3. The bundled n=3 through 8 code was inspected, not executed.",
+      "residual_risks": [
+        "The main theorem does not describe intermediate-rank classes. The erroneous one-sided gloss is not a lemma of the reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higgins 2026 covers all of O_n with a permutation matching, not necessarily involutory or idempotent-fixing.",
+          "The 2024 divisible rectangular-band result gives an involution matching from a permutation matching when the column/row ratio is integral; rank two has ratio n/2, corank one n/(n-1).",
+          "Natural involutions of larger orientation-preserving monoids do not restrict via the canonical inverse, since O_n is not closed under it."
+        ],
+        "reasoning": "Wider rank coverage by ordinary permutation matchings is not a stronger theorem for the specific inverse involution property. The divisibility route covers even-n rank two without the explicit idempotent-fixing formula, and does not cover corank one for n>=3.",
+        "searches": [
+          "arXiv:2610.01912v1 Theorem B",
+          "DOI:10.1007/s00233-024-10430-0 Proposition 2.3 and §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5cd29258f395 and adjacent records",
+        "arXiv:2610.01912v1",
+        "Higgins 2024 Proposition 2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5cd29258f395 states involution, both inverse identities and fixation of exactly the idempotents, and proves the claims from the displayed branches.",
+          "In its proof no inequality requires n>=4; at n=3 both rank labels refer to the same class, and the nonidempotents (1,1,2) and (2,3,3) are exchanged."
+        ],
+        "reasoning": "Dropping the artificial n>=4 cutoff in that argument yields the frozen theorem, including the one small boundary case. Older permutation-matching results alone would not yield it.",
+        "searches": [
+          "Resultary 5cd29258f395 Finding, Assumptions and scope, mutual inverse proof",
+          "Higgins 2026 §1 and Theorem B; Higgins 2024 Prop. 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier catalogue entry uses rank-two notation (a;b,c) for cut a, images b,c; its branches are (c-1;a,b) when a<b, identity when b<=a<c, and (b;c,a+1) when c<=a.",
+          "Its corank-one notation [d;m] gives [m;d+1] when m<d, identity for m in {d,d+1}, and [m-1;d] when m>d+1."
+        ],
+        "reasoning": "Identify (a;b,c) there with (c;a,b) in the frozen naming of cut and images, and (d,m) there with (c,z) in the frozen top-rank naming. Relabeling the roles, not merely using the same parameter values, proves equality of both piecewise formulas.",
+        "searches": [
+          "Resultary: isotone/order-preserving chain transformation monoids, idempotent-fixing inverse involutions at rank two and corank one",
+          "Resultary 5cd29258f395, exact formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5cd29258f395 records both exact uniform formulas, and also fixed-point and two-cycle counts. The later catalogue entry 52b52c0dc724 states both families for n>=3; other entries address corank one or bounded whole monoids."
+        ],
+        "reasoning": "This is direct catalogue coverage of a theorem with formulas, not overlap only in a numerical census. The later entries corroborate subject coverage but are not needed for the determination.",
+        "searches": [
+          "Resultary 5cd29258f395; adjacent 3808605db638, 69983c3a6535, 8e73af163646 and 52b52c0dc724"
+        ]
+      },
+      "rationale": "A distinct indexed record has the same closed formulas and properties at both extremal ranks for every n>=4. The only difference from its stated range is the coinciding n=3 class, and the compared formulas and proof apply there without modification. This is demonstrated overlap, not a priority inference from dates or a failure based on the unread 2019 paper.",
+      "residual_risks": [
+        "Publication precedence and the relationship between the catalogue entries are not established by their path dates. The 2019 text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical formulas and guarantees on the main range n>=4; proof applies at n=3",
+          "evidence": [
+            "Both displayed branches from each family coincide after notation is changed; this entry also counts fixed points and two-cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-idempotent-fixing-inverse-involutions-on-the-extreme-green-strat--5cd29258f395/RESULT.md",
+          "material_read": "Finding, both piecewise definitions, transversal proof and start of enumeration, offsets 0–4431",
+          "method": "Local mirror",
+          "title": "Idempotent-fixing inverse involutions on the extreme Green strata of isotone monoids",
+          "trigger": "Same two ranks and matching properties"
+        },
+        {
+          "assessment": "Whole-monoid permutation matching, not the stronger matching type",
+          "evidence": [
+            "Theorem B states permutation matching; §1 gives the obstruction to restricting the larger monoid's canonical inverse map."
+          ],
+          "identifier_or_url": "arXiv:2610.01912v1",
+          "material_read": "§1 and Theorem B, pp. 1–2, around offset 5100",
+          "method": "OA PDF passage inspection",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "Whole-monoid permutation-matching result"
+        },
+        {
+          "assessment": "Divisibility-based involution existence, only partial coverage here",
+          "evidence": [
+            "The conversion is for a rectangular setting with am columns and m rows and assumes a permutation matching."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00233-024-10430-0",
+          "material_read": "§2, PDF p. 3, and Proposition 2.3, journal pp. 145–146",
+          "method": "OA PDF passage inspection",
+          "title": "Finite regular semigroups with permutations that map elements to inverses",
+          "trigger": "Involution conversion and orientation-preserving antecedents"
+        },
+        {
+          "assessment": "No coverage conclusion from this source",
+          "evidence": [
+            "Orientation-preserving/reversing scope in title; the nonrestriction comparison instead uses the readable sources above."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00233-019-10018-z",
+          "material_read": "Citation only; no readable full text obtained",
+          "method": "Lawful retrieval attempt",
+          "title": "Involution matchings, the semigroup of orientation-preserving and orientation-reversing mappings, and inverse covers of the full transformation semigroup",
+          "trigger": "Cited older matching result for a larger monoid"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36",
+        "Resultary 5cd29258f395",
+        "Higgins 2026 Theorem B and Higgins 2024 Proposition 2.3"
+      ],
+      "rationale": "As mathematics, a uniform closed involution fixing all idempotents at two natural ranks strengthens mere existence of a permutation matching and handles the odd-size case not reached by rank-two divisibility. This intrinsic value is already represented in the catalogue. The overlapping n=3 boundary does not by itself motivate a new result.",
+      "residual_risks": [
+        "No distinct scientifically valuable remainder is established by the frozen record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

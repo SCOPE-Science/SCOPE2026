@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:38:00.906898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/5/RESULT.md; frozen RESULT.md, lines 5–38 and 40–102",
+        "arXiv:2610.40113v1, §II.2 Eqs. (11)–(12), Eq. (15)",
+        "Frozen verify_tail.py and VERIFICATION.md, inspected, not executed; code integrates on the finite rescaled-clock interval [0.04,4] and does not certify errors or the limit",
+        "Independent replay python3 /tmp/opencode/frozen_math_rechecks.py: direct two-dimensional rescaled density quadrature over [0.05,5]^2 and positive variance integral rather than a Bessel reduction; for H=.73, tau=.62, lambda=1.37, beta=.9, alpha=.65, k=.74, density-equivalent ratios at q=20,40,80 were .990183952, .995070811, .997530183."
+      ],
+      "rationale": "The repaired RESULT.md states explicitly the conditional normal law already used in the frozen proof: knowledge of conditional mean and variance alone does not imply the mixture. For example, an equal conditional mixture of centered normals with variances dV(s) and 3dV(s) has the stated variance but a heavier far tail. The repair also fixes the Bayes version for every x≠0; densities and conditional versions at zero are not needed. Integration of the positive variance kernel gives as-ac plus the positive remainder H(2H-1) exp(-s/tau) times the integral of r(s+r)^(2H-2) exp(-r/tau) over r>0. Thus the rescaled phase is u+w+1/(uR_q), with R_q<=w and q times the difference from u+w+1/(uw) tending to lambda*c/(uw^2) uniformly on positive compacts. The latter comparison phase has a unique minimum 3 and Hessian [[2,1],[1,2]]. For localization, putting v=1/(uR_q) makes the singular amplitude factor R_q^(-1/2)=sqrt(u)sqrt(v). One unit of the exponent absorbs sqrt(v), leaving integrable gamma weights and the uniform phase gap off the saddle. The convergent local Gaussian integral has factor 2*pi/(q sqrt(3)); the Jacobian and likelihood give q^(alpha+k-1) sqrt(lambda)/(sqrt(4*pi*a*beta) Gamma(alpha) Gamma(k)). The finite intercept produces exp(-lambda*c), not an extra power of q. Normalization of the same localized density gives inverse Hessian covariance and limiting Gaussian correlation -1/2.",
+      "residual_risks": [
+        "Finite quadrature is only a check, not a certificate. Weak convergence identifies the correlation of the limiting Gaussian; it need not by itself establish convergence of raw conditional Pearson correlations. The theorem is for fixed time and parameters, not simultaneous distance/time or tempering limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaunt supplies the generalized-gamma Stein operator and tail formulas for exact products; the inspected statements do not identify the joint conditioning law for this nonlinear clock model.",
+          "The shared-gamma record studies simultaneous upper tails of multiple products and localization of their common factor. That is not the two-factor joint posterior given a real-valued fixed-time observation."
+        ],
+        "reasoning": "A product-tail theorem with asymptotically exponential factor densities may yield the marginal with additional comparison. The inspected exact formulas do not assert the finite shift and two-latent conditional limit together.",
+        "searches": [
+          "Gaunt arXiv:1507.07696 Proposition 2.3, Theorem 3.1 and Corollary 3.4",
+          "Springer–Thompson DOI 10.1137/0118065",
+          "Local Resultary 47da9162b900 exact finding"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary",
+        "arXiv:2610.40113v1",
+        "arXiv:1507.07696",
+        "DOI 10.1137/0118065 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhao et al. use clock self-averaging at lambda*t≫1 and the large-time variance approximation before taking the spatial tail; Gaunt's exact gamma product applies directly only if V(s)=as."
+        ],
+        "reasoning": "Replacing the clock by its mean removes the large-clock saddle and cannot imply this fixed-time tail or conditional selection. The prior linear model misses the order-one exponent correction and its marginal distribution does not imply a conditional two-variable CLT.",
+        "searches": [
+          "arXiv:2610.40113v1 Eqs. (35)–(43)",
+          "arXiv:1507.07696 Corollary 3.4",
+          "Local Resultary 8f7fb9d15625 and 47da9162b900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For V(s)=as, lambda X^2/(4a beta) is the product of independent unit-rate gamma variables with shapes alpha,k,1/2. Gaunt's gamma-product tails recover the corresponding unshifted density; this is not literally a normal times D*S.",
+          "The stationary Gaussian renewal/reset walk record 3b2f8e97d592 instead conditions jump count and reset age in a different model with exponential tails."
+        ],
+        "reasoning": "The linear model is equivalent to a known product distribution; the nonlinear clock factor lambda V(S_t)/a is not gamma. The earlier conditional renewal law is not a reparameterization of the continuous independent gamma mixture.",
+        "searches": [
+          "arXiv:2610.40113v1 Eqs. (11)–(12), (35)–(43)",
+          "arXiv:1507.07696 §3",
+          "Local Resultary: extreme fixed-time displacement, gamma products, hidden clock and diffusivity; records 8f7fb9d15625, 3b2f8e97d592 and 47da9162b900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is a self-match; the nearest distinct same-model record 8f7fb9d15625 computes squared-displacement-window correlations. The exact integral in Zhao et al. is not an evaluated fixed-time far-tail equivalent; the gamma-product formula evaluates the exactly linear clock case."
+        ],
+        "reasoning": "The matching model and integral do not by themselves list either the finite intercept multiplier or the joint latent Gaussian law.",
+        "searches": [
+          "Local Resultary fixed-time tempered fractional Laplace density and conditional gamma-clock/diffusivity; assigned record and 8f7fb9d15625",
+          "arXiv:2610.40113v1 §III.3 exact integral and tail",
+          "arXiv:1507.07696 gamma-product density and tail formulas"
+        ]
+      },
+      "rationale": "The Gaussian mixture, the exactly linear-variance product reference law, and its generic stretched exponent are prior. The repaired statement credits those results precisely. The specific shifted-variance contribution to the sharp fixed-time equivalent and the simultaneous latent Gaussian limit are supported as the distinct contribution, subject to the bounded comparisons below; a general transfer argument for exponentially shifted product factors is a particular residual priority risk for the marginal part alone.",
+      "residual_risks": [
+        "Coverage in the inaccessible original Springer–Thompson paper cannot be ruled out from its metadata. Broader results on products of asymptotically shifted factor densities or conditional saddle limits may subsume some components; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gaussian propagator and exact mixture are prior. This result uses the source's shape=rate×t clock specialization. Its tail limit differs from the source's large-time approximation.",
+          "evidence": [
+            "Eqs. (11)–(12) specify the conditional Gaussian and incomplete-gamma variance; Eqs. (38)–(43) invoke large-time clock concentration before the spatial tail."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.40113v1",
+          "material_read": "§II.2 Eqs. (11)–(12), Eq. (15); §III.3 Eqs. (35)–(43), offsets 11419, 19245 and 34505–39333",
+          "method": "OA primary text",
+          "title": "Non-Gaussian transport in tempered fractional Laplace motion",
+          "trigger": "Same model and apparently different tail"
+        },
+        {
+          "assessment": "Covers the linear reference density and marginal tail; no shifted-clock conditional law in the cited results.",
+          "evidence": [
+            "Theorem 3.1 gives product densities and Corollary 3.4 their tail asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.07696",
+          "material_read": "Proposition 2.3, Theorem 3.1, Corollary 3.4; OA offsets 26294, 60324 and 67500",
+          "method": "OA primary text",
+          "title": "Products of normal, beta and gamma random variables: Stein operators and distributional theory",
+          "trigger": "Equivalent exact gamma product and broader tail theory"
+        },
+        {
+          "assessment": "No negative whole-text coverage inference; comparison relies in part on Gaunt's accessible text.",
+          "evidence": [
+            "DOI 10.1137/0118065 identifies the potentially relevant original paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0118065",
+          "material_read": "Bibliographic identification only; no primary full text retrieved",
+          "method": "Direct and alternate lawful OA retrieval attempts failed",
+          "title": "The distribution of products of beta, gamma and Gaussian random variables",
+          "trigger": "Earlier product-distribution theorem"
+        },
+        {
+          "assessment": "Same transport model but a different observable and asymptotic.",
+          "evidence": [
+            "Squared time-window displacement correlations and long-window corrections, not single-displacement tails."
+          ],
+          "identifier_or_url": "Resultary:8f7fb9d15625",
+          "material_read": "Mirrored RESULT.md offsets 0–4643",
+          "method": "Local catalogue and mirror",
+          "title": "Two-scale volatility correlations in tempered fractional Laplace motion",
+          "trigger": "Closest same-model catalogue record"
+        },
+        {
+          "assessment": "Different model and latent variables.",
+          "evidence": [
+            "Stationary renewal/reset walk, exponential tail and conditional jump count/reset age."
+          ],
+          "identifier_or_url": "Resultary:3b2f8e97d592",
+          "material_read": "Mirrored RESULT.md offsets 0–3629",
+          "method": "Local catalogue and mirror",
+          "title": "Rare-displacement clocks and exact far-field calibration in Gaussian-jump renewal/reset transport",
+          "trigger": "Conditional hidden-clock analogy"
+        },
+        {
+          "assessment": "Related mechanism, not the claimed two-dimensional posterior.",
+          "evidence": [
+            "Simultaneous exceedances with a shared gamma factor, rather than two independent latent inputs conditioned on a displacement value."
+          ],
+          "identifier_or_url": "Resultary:47da9162b900",
+          "material_read": "Mirrored RESULT.md offsets 0–3358",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp simultaneous extremes and latent localization for shared gamma products",
+          "trigger": "Gamma-product latent localization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof",
+        "arXiv:2610.40113v1 §III.3"
+      ],
+      "rationale": "The repaired result identifies the eventual fixed-time tail of a specified transport model rather than treating the clock as deterministic. The difference in limit orders is substantive. A sharp multiplier quantifies finite correlation time, and the joint limit shows that both hidden variables move to the large scale with negatively correlated fluctuations. Neither is a consequence of reporting a stretched exponent alone.",
+      "residual_risks": [
+        "No assertion about the crossover distance for experiments, joint time–distance limits or pathwise rare-event dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

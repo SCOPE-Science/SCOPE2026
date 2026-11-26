@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:42:35.770684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and 44–124; frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Repaired /workspace/repairs/2/RESULT.md and VERIFICATION.md",
+        "Resultary 3992334979d1 finite covariance input checked against the repaired rederivation"
+      ],
+      "rationale": "For the repaired claim, conditioning on the tree and marks through vertex j gives E[C_n|F_j]=M_n(p)C_j/M_j(p). The root-attachment indicator I_j is independent of earlier history, and E[I_j X_j]=p/(j-1). The local covariance splits into M_n times a telescoping reciprocal-product difference minus p/((j-1)(j-1+p)); summing proves the finite input identity, including p=0 and p=1. For lambda=(1-p)log n bounded, expansion of the log product has a uniform error bounded by a constant times (1-p)^2 times the convergent inverse-square sum, and the controlled tails of T_n(p) yield uniform convergence to zeta(2)-1. The global bound e^(-lambda(H_n-1)/log n)(log n/n+lambda) excludes both 0 and infinity as limits of rescaled maximizers, which exist by continuity. Compact-window convergence and the unique maximum of lambda exp(-lambda) then identify every maximizing sequence and the peak. In the frozen original the weighted subset lemma correctly uses log-concavity of elementary symmetric functions and conditions separately on the last-item indicator, allowing a nested full-vector coupling with shared alternative parents and marks. Its strict tail is also exactly 1-(1-p)^d. The rising factorial identity for the root cluster gives 2M_n(2p)-M_n(p)-M_n(p)^2 for variance, with positive leading coefficient for fixed p<1 by strict digamma increase, verifying the original decorrelation calculation.",
+      "replay_paths": [
+        "The repaired RESULT.md gives the exact moment summation, uniform tail control, and convergence argument.",
+        "At n=3 the path and star have equal probability, degrees 1 and 2, and conditional means 1+p+p^2 and 1+2p, giving covariance p(1-p)/4, including 1/16 at p=1/2. The original companion verify.py describes a larger exact finite replay, not a proof of the optimizer."
+      ],
+      "residual_risks": [
+        "The conclusions do not assert finite-n optimizer uniqueness or concern the retained root degree. Finite diagnostics do not certify uniform convergence or the optimization over p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baur's introduction studies p(n) tending to one on the 1/log n scale for the root-cluster marginal. The targeted-cutting article studies original root-degree tails with a Bernoulli parent representation. The indexed conditioned-tree proof already constructs nested root-attachment sets sharing all alternative parents."
+        ],
+        "reasoning": "Using common retention marks and the connectivity recursion transfers the prior coupling pointwise; that removed claim is a direct corollary. The marginal critical-percolation theorem does not settle original-degree/cluster covariance or its peak.",
+        "searches": [
+          "Baur arXiv:1407.2508, near-critical recursive percolation",
+          "Eslava–López–Ortiz DOI:10.1017/jpr.2024.40",
+          "Resultary nested root-degree coupling 5277d5b0e024"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3992334979d1, 5277d5b0e024, c15d28dd041a",
+        "arXiv:0711.0080, arXiv:1407.2508, DOI:10.1017/jpr.2024.40",
+        "Frozen and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directly overlapping record says its positive asymptotic coefficient is not asserted uniformly toward p=1. Fixed-p covariance is of order n^p, whereas the repaired peak occurs for p depending on n. The repaired analysis supplies a uniform profile and bounds that exclude optimizing sequences outside it."
+        ],
+        "reasoning": "A pointwise fixed-parameter equivalent cannot be differentiated or substituted at p_n to obtain the supremum without further work. The known exact finite sum is the starting identity, but the sharp global extremal limit requires additional uniform estimates. The prior root-cluster marginal likewise supplies neither the vanishing prefactor nor the extremal constant.",
+        "searches": [
+          "Resultary 3992334979d1 Finding, Assumptions and Proof §2; RESULT.md critical-window proof",
+          "Baur arXiv:1407.2508 abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary K_n and R_n are exactly D_n before deletion and C_n(p) after deletion. Its summand 1/t-1/(t+p) is p/(t(t+p)); subtract from 1 and telescope 1/[t(t+1)] to get the identical A_n(p). Zhang's forest degree instead counts retained attachments."
+        ],
+        "reasoning": "The finite covariance was removed from the novelty claim because the comparison is an algebraic identity for the same random variables. The retained-degree literature cannot be substituted to obtain a covariance peak for the original degree.",
+        "searches": [
+          "Resultary: exact root-degree–percolation-cluster dependence, 3992334979d1",
+          "Zhang et al. arXiv:0711.0080"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3992334979d1 supplies the full finite joint generating polynomial and fixed-p covariance constant, not the global optimizing retention. c15d28dd041a has a high-retention n/log n comparison, but its second observable is the singleton-component count."
+        ],
+        "reasoning": "The exact catalogue overlap against the original claim is affirmative. The different singleton statistic is not an equivalent table or formula for the repaired claim, and an empty literature query is not priority evidence.",
+        "searches": [
+          "Resultary 3992334979d1 exact covariance and asymptotic decoupling",
+          "Resultary c15d28dd041a high-retention covariance",
+          "Focused literature lookup for original root degree–percolated cluster covariance optimizer"
+        ]
+      },
+      "rationale": "The final claim is restricted to near-critical covariance as a function of the retention parameter and its global maximum and optimizer. The exact covariance formula, original-degree coupling and fixed-retention laws are not claimed as new. The strongest indexed predecessor supplies the same finite input but expressly gives only fixed-p asymptotics. Published critical-window cluster laws are for a marginal, not this smaller covariance response. The sharp covariance peak, constant, and localization of all maximizers survive the comparison.",
+      "residual_risks": [
+        "The focused literature search returned no further results; some supplemental paper retrievals timed out (arXiv:2110.15050 and 1512.05275). No absence inference is made. The two same-day indexed items' dates alone do not order their work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite covariance and fixed-p asymptotics exactly, but not the repaired optimizer",
+          "evidence": "M_n times [1-sum(1/t-1/(t+p))] minus 1, plus an explicit nonuniformity note at deterministic endpoints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-root-degree-percolation-cluster-dependence-and-asymptotic--3992334979d1",
+          "material_read": "Finding at offset 0, Assumptions near offset 2706, Proof §2 from offset 3978",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact root-degree–percolation-cluster dependence and asymptotic decoupling in recursive trees",
+          "trigger": "Exact covariance match"
+        },
+        {
+          "assessment": "Construction directly transfers to the removed conditional-order claim",
+          "evidence": "Nested weighted root-attachment sets with common nonroot alternative parents.",
+          "identifier_or_url": "2026/10/26/SCOPE-root-degree-conditioning-orders-the-nonroot-offspring-vector-in--5277d5b0e024",
+          "material_read": "Finding, proof steps 1–3, especially offsets 2635 and 4567",
+          "method": "Resultary local mirror",
+          "title": "Root-degree conditioning orders the nonroot offspring vector in recursive trees",
+          "trigger": "Potential prior conditioned-tree coupling"
+        },
+        {
+          "assessment": "Retained forest degree and size marginals",
+          "evidence": "The forest degree gains an edge only on a retained attachment.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.0080",
+          "material_read": "p. 2, offset 10276",
+          "method": "Open primary PDF",
+          "title": "Degree and component size distributions in generalized uniform recursive tree",
+          "trigger": "Same percolation tree, possibly different definition of degree"
+        },
+        {
+          "assessment": "Near-critical root-cluster marginal, not the repaired joint response",
+          "evidence": "Treats p(n) tending to one, including 1-p(n) of order 1/log n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2508",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 0 and 3412",
+          "method": "Open primary PDF",
+          "title": "Percolation on random recursive trees",
+          "trigger": "Same near-critical retention window"
+        },
+        {
+          "assessment": "Coupling precedent for targeted cutting, not covariance optimization",
+          "evidence": "Uses root-attachment Bernoulli variables in root-degree tail comparisons.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2024.40",
+          "material_read": "pp. 2–3, offsets 8519 and 11043",
+          "method": "Open primary text",
+          "title": "Quenched worst-case scenario for root deletion in targeted cutting of random recursive trees",
+          "trigger": "Possible original-root-degree joint law"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Covariance with the number of singleton components, not original root degree.",
+          "identifier_or_url": "2026/11/8/SCOPE-root-cluster-and-singleton-component-anti-covariance-in-percolat--c15d28dd041a",
+          "material_read": "Indexed finding",
+          "method": "Resultary local search and comparison",
+          "title": "Root-cluster and singleton-component anti-covariance in percolated recursive trees",
+          "trigger": "Nearby n/log n covariance regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and global-bound proof",
+        "Resultary 3992334979d1 fixed-p comparison; Baur arXiv:1407.2508 marginal critical window"
+      ],
+      "rationale": "The repaired theorem determines where the joint response is strongest in a natural stochastic model: it vanishes at both deterministic retention endpoints and has a peak on a shrinking scale invisible to fixed-p asymptotics. The exact (zeta(2)-1)/e factor and localization of every maximizer distinguish the size and location of that effect, rather than reprinting a finite formula or optimizing a numerical grid.",
+      "residual_risks": [
+        "No uniform statement for another tree family, another variable pair, or peak correlation follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:03:58.308503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the source’s column-as-initial-heading convention, as made explicit by CHECKER.py propagating column masses with C: the positive turn has weight l, so the first harmonic is λ=p+ic. Uniform stationarity and the independent turn increments give E[conj(U_i)U_{i+d}]=λ^d and E[U_iU_{i+d}]=0. Hence all second-order displacement statistics depend only on λ. The two projected variances agree exactly by quarter-turn invariance. With S_N=ΣU_i, the difference of the two fourth cumulants is therefore Re E[S_N^4]/4, as seen by expanding (e^{-iθ}S_N+e^{iθ}conj(S_N))^4/16 at θ=0 and π/4; mixed terms of angular order ±2 vanish. Independently sum this raw fourth moment over sorted times, including equal times. For block sizes m_1+…+m_b=4 each term has multinomial weight 4!/∏m_j!, and the gap following block j contributes the geometric factor of harmonic 4−(m_1+…+m_j). In the rate limit the number of placements divided by N tends to one for fixed gaps, and the sums are absolutely dominated since |λ|,|η|<1. Put R=λ/(1−λ) and E=η/(1−η). The compositions with one, two, three, and four blocks give respectively 1, 8Re R+6E, 12|R|²+24E Re R, and 24E|R|². Dividing by four and using |1+2R|²=W/h gives the exact contrast in the source. Each individual cumulant rate also exists: the strictly positive tilted matrix has a simple eigenvalue at 1, separated in modulus from the other eigenvalues; use its analytic spectral projector on a small complex disk and the nonzero initial overlap. The normalized moment generating function is that eigenvalue to the Nth power times a nonzero analytic multiplier plus exponentially small error; Cauchy estimates give bounded derivative remainders. The slope of Δ in η is strictly positive since h,W>0. Strict positivity of the four weights gives precisely 2|p|−1<η<1−2|c|, so the inverse and open endpoint formulas follow, including the c=0 infinite upper limit and the p=c=0 sign test.",
+      "replay": "Expand the ordered compositions (4); (1,3),(2,2),(3,1); (1,1,2),(1,2,1),(2,1,1); (1,1,1,1) with gap factors indexed by suffix orders as above. Exact rational spot check for (p,c,η)=(1/10,−1/2,−1/2) gives Δ=−1/212. Inspected but did not run the supplied symbolic and finite-step checker. Under a row convention the signed one-step correlation would be conjugated; Δ alone cannot fix that convention. Slow nematic decay can affect convergence of finite-time estimates, not prove bad conditioning of the exact inverse in Δ (its derivative at fixed p,c is 2h(1−η)^2/(3W)). No finite-sample or boundary assertion is validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OA preprint excerpts in Sadjadi et al. introduce general forward higher-moment transforms including fourth cumulants. Frozen documentation points to Eqs. 28–36 and qualitative dependence on second angular harmonics.",
+          "The exact envelope record 0a534892a5b1 uses continuous-time Poisson tumbling, rather than summing integer-time gaps including ties."
+        ],
+        "reasoning": "The continuous-time gap integrals do not substitute for the geometric sums in this walk; the discrete mixed angular terms and positivity interval are different. A general discrete forward formula is stronger evidence of plausible coverage, but the inspected excerpts do not give the particular strict comparison or its prerequisites.",
+        "searches": [
+          "Sadjadi et al., DOI 10.1103/PhysRevE.91.062715, and same paper arXiv:1507.07378; fourth moment transform framework",
+          "Resultary fixed persistence/chirality sharp fourth-cumulant envelopes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14446v1 (located excerpts)",
+        "arXiv:1507.07378 (same-paper located excerpts)",
+        "Resultary d16437974fb4, ec488e19dc0f, 0a534892a5b1 (summaries)",
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The located covariance law in Sherf et al. only provides p,c; a nematic higher-gradient term alone does not establish the exact Δ or strict derivative across every admissible coin.",
+          "The cited forward framework supplies general methods for moments and known second-harmonic dependence. The exact fourth angular contrast here requires the C4 degeneracies, all coincident-time terms, and long-time slope extraction; neither available fourth-moment excerpts nor summary evidence supplies a ready formula for all of them.",
+          "A scalar return-probability correction is not by its statement the directional harmonic, and its exact scope beyond the summary remains unresolved."
+        ],
+        "reasoning": "Information at higher order is not enough to prove global injectivity and sharp attainability. If an earlier exact formula directly reduces to this same fourth angular contrast on this coin, the algebraic inverse would not independently establish priority; access limits leave this a live risk.",
+        "searches": [
+          "Sherf et al., arXiv:2611.14446, Appendix A and B",
+          "Sadjadi et al., arXiv:1507.07378, fourth-order transforms and applications",
+          "Resultary d16437974fb4 matching return probability statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sherf et al., Appendix A locate excerpt, makes the same mode invisible to two-time velocity correlations; Appendix B locate excerpt places it in higher gradients.",
+          "The axial-minus-diagonal contrast is equivalently one quarter of the real fourth complex displacement-moment rate. The same-day Resultary return-probability record targets hidden memory with a different statistic, an m^-2 correction, not this exact harmonic on the supplied summary."
+        ],
+        "reasoning": "Equivalent parametrizations of the coin are clearly prior. The distinct observable and globally monotone sharp inversion for it are the substantive test, not simply whether any fourth-order or return statistic depends on nematic memory.",
+        "searches": [
+          "Resultary search for discrete four-heading angular fourth cumulant nematic identification and anisotropy",
+          "Sherf et al., arXiv:2611.14446, nematic eigenvalue and higher-gradient passage",
+          "Sadjadi et al., arXiv:1507.07378, fourth cumulant and Eqs. 28 onward"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogued overlaps include a return correction for a planar four-state walk, directional fourth-cumulant phases for a continuous-time chiral walker, and continuous-time sharp envelopes. Their summaries do not give the stated discrete axial-minus-diagonal rate law and its realizable open interval."
+        ],
+        "reasoning": "An m^-2 return correction, a sign chart, or a range for a different dynamics is not a parameter-to-contrast table for this problem. The same-date return record is distinct; no chronological priority is inferred from its date.",
+        "searches": [
+          "Resultary searches for directional fourth cumulant four-state chiral coin exact inverse at fixed polar harmonic",
+          "Compare catalogued d16437974fb4, ec488e19dc0f, and 0a534892a5b1"
+        ]
+      },
+      "rationale": "Credit the prior chiral coin, covariance blindness, and broad fourth-moment forward machinery. Supported distinction is the exact strict inversion and full open realizability interval for one axial-versus-diagonal fourth-cumulant rate difference with a positive discrete coin, not higher-harmonic sensitivity in general. The comparisons are best-of-knowledge and the strongest unresolved risk is implicit exact specialization of a prior forward formula.",
+      "residual_risks": [
+        "Closest full-text bounded passage retrieval was incomplete; snippets do not exclude earlier exact formulas or an immediate specialization of a general forward result.",
+        "Return-probability full source could not be inspected; summary alone does not establish exact overlap or order of discovery.",
+        "Unindexed persistent-walk inversion work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coin and second-order invisibility established; complete fourth-order passage unavailable",
+          "evidence": [
+            "Nematic preference for collinear over orthogonal headings, velocity correlations from polar eigenvalue powers, nematic term in higher gradients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14446v1",
+          "material_read": "OA locate excerpts p.4 offset 20626, p.18 Appendix A offset 79675 and Appendix B offset 82936; frozen prior-work comparison",
+          "method": "Lawful OA passage location; bounded offset/keyword retrieval not completed",
+          "title": "The active chiral random walk",
+          "trigger": "Same square-lattice coin and possible higher-gradient coverage"
+        },
+        {
+          "assessment": "Material forward overlap; exact specialized implication unresolved",
+          "evidence": [
+            "Fourth cumulants accessible through moment transforms; reported second-harmonic sensitivity predates this finding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.07378; DOI 10.1103/PhysRevE.91.062715",
+          "material_read": "OA locate excerpts p.7 offset 57320, p.8 offset 68276 after Eq. 28, p.9 offset 77034; frozen citation notes",
+          "method": "Publisher access denied; same-paper lawful arXiv locate excerpts; bounded passage retrieval timed out",
+          "title": "Persistent-random-walk approach to anomalous transport of self-propelled particles",
+          "trigger": "Strongest plausible broader discrete forward-moment coverage"
+        },
+        {
+          "assessment": "Conceptual overlap; no demonstrated equivalence",
+          "evidence": [
+            "An m^-2 correction to return probabilities records hidden axis memory despite universal displacement covariance."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-sharp-return-probability-signature-of-hidden-nematic-memory-in--d16437974fb4",
+          "material_read": "Returned catalogue summary only",
+          "method": "Local Resultary semantic lookup; matching full source retrieval did not complete",
+          "title": "A sharp return-probability signature of hidden nematic memory in a planar four-state walk",
+          "trigger": "Same-day hidden mode with a different observed statistic"
+        },
+        {
+          "assessment": "Continuous-time model and distinct observables/inverse scope",
+          "evidence": [
+            "Velocity-jump sign sectors and Poisson-tumble forward envelopes, not discrete integer-time axial-versus-diagonal contrast tomography."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 records ec488e19dc0f and 0a534892a5b1",
+          "material_read": "Catalogue summaries and frozen comparative notes",
+          "method": "Local Resultary searches and frozen package inspection",
+          "title": "Directional fourth-cumulant phases and reentrant reversal effects in a chiral four-state walker; Sharp fourth-cumulant envelopes at fixed persistence and chirality in planar run-and-tumble motion",
+          "trigger": "Exact projected fourth-cumulant results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The missing parameter is genuinely invisible to an entire class of natural second-order observations, not just a single selected statistic. One precisely defined extra fourth-order rate recovers it and gives a sharp admissibility test and unique positive reduced coin; this is quantitatively useful beyond demonstrating sensitivity. It does not recover redundant operation weights or promise reliable finite-data inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

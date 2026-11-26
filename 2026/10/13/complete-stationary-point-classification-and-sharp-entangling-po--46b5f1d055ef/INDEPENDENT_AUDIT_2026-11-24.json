@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:35:02.295786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim in /workspace/repairs/5/RESULT.md corrects the frozen table's literal labels ‘strict global minima/maxima’: two points share each global value, so each is a strict local extremum attaining the corresponding global value, not a strict global extremum at an individual point. All point sets, phases, values and equality cases are unchanged. The Haar normalization checks: the two-copy Haar moment on each qutrit is (I+swap)/12; in the purity swap trace the terms with zero or two input swaps each contribute 27, and the two remaining contractions are the realignment and partial-transpose fourth moments. Thus the linear entropy is 5/8−(I_R+I_T)/144. In the real Cartesian spin-one basis, with swap S, Q=3P0=|Ω⟩⟨Ω| for Ω=Σ_i|ii⟩, and x=e^{iα}, y=e^{iβ}, the gate is (1+y)I/2+(1−y)S/2+(x−1)Q/3. Realignment interchanges I,Q and partial transpose interchanges S,Q; both moments can therefore be evaluated on the singlet, antisymmetric and traceless symmetric spaces of dimensions 1,3,5. Independent replay (python /workspace/branches/independent_reproduction.py 5, SymPy) reproduces the entire Laurent phase identity, the elimination factorization, all eight stationary values and Hessian determinants, without executing the supplied code. For exhaustion, B(α)=20+5e^{iα}+2e^{2iα} has modulus at least 13, so β-stationarity lies on two smooth sign branches locally. Along each branch E=A(c)±√Q(c)/216, c=cos α; by β-stationarity the derivative along the branch equals the α partial. For sin α≠0, a necessary equation is 9(Q′)^2−4(65+40c)^2Q=0, whose exact factorization −500(4c+5)(8c+19)(64c²+64c+115) is strictly negative for |c|≤1. At α=0 and π, B is positive real, so the β-stationarity condition gives exactly 0, π/2, π, 3π/2, each also α-stationary. The determinant signs, with positive αα at (0,0) and negative αα at (π,π/2), classify the two definite pairs and two saddle pairs; periodicity and compactness give all global equality cases. This proves the all-phase result analytically, not by sampling. It is specifically for independent Haar pure inputs, unnormalized linear entropy, and spin-invariant two-site unitaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general spectral-projector result proves stationarity for relative phases each 0 or π. Its spin-one illustration computes the two nonentangling and two 20/81 corners; equations (60)–(61) and their discussion identify the latter as saddles.",
+          "Low–Goswami's Fig. 8 is time-averaged entangling power as a function of coupling ratio, including the L=2 chain."
+        ],
+        "reasoning": "The general corner theorem supplies only four points here. The noncorner pairs have β=±π/2 so cannot be recovered by imposing corner phases on these same projectors. A time-average along an evolution cannot be read as the pointwise supremum over the two independent phases.",
+        "searches": [
+          "arXiv:2609.09276v1, corner theorem and §IV.3 eqs. (46)–(64)",
+          "arXiv:2605.20661v2, §V.2 eq. (36) and Fig. 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_spin1.py, requirements.txt and package scientific notes; final repaired RESULT.md",
+        "arXiv:2312.14484v1 Table 4",
+        "arXiv:2609.09276v1 §IV.3",
+        "arXiv:2605.20661v2 §V.2",
+        "Configured Resultary and focused primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old harmonic formula determines the whole mathematical function, but supplies no branch derivative inequality on −1≤cos α≤1 in the inspected passage.",
+          "The prior treatment of the entangling corner identifies directional differences (saddle behavior), not exclusion of other stationary values."
+        ],
+        "reasoning": "Candidate endpoint values can be obtained by substitution once the points are known. What is not supplied by a normalization or corner-theorem corollary is the global exclusion: the β reduction introduces two branches, both of whose slopes must be controlled on a whole interval, and the Hessians must be assigned at the newly certified points. The sign-definite elimination and full-torus comparison supply this step.",
+        "searches": [
+          "arXiv:2312.14484v1 Table 4 and comparison with RESULT.md equations (1)–(4)",
+          "arXiv:2609.09276v1 §IV.3 and §V trajectory discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinguishable-particle Table 4 row includes all three phase shifts, with exactly the five cosine harmonics of the frozen gate function.",
+          "The projector phases are twice the scattering shifts modulo a common phase; the identical normalized variables are α=2(δ0−δ2), β=2(δ1−δ2)."
+        ],
+        "reasoning": "The entire scalar function is prior, not just a scattering slice. The distinguishable row, not the spin-projected deuteron row, is the correct comparison. The exact full-function equivalence does not supply an explicit classification of its stationary points or the sharp global equality set.",
+        "searches": [
+          "arXiv:2312.14484v1 Table 4, distinguishable spin-one scattering",
+          "arXiv:2609.09276v1 §IV.3, three-projector BLBQ gate",
+          "Focused query: \"131/324\" spin-1 entangling power stationary phase gates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially equivalent separate finding was located in the bounded catalogue comparison; the focused web search also produced no relevant answer.",
+          "The prior exact table is a table of entangling-power functions, not stationary values. The same-spin section of Low–McGinnis explicitly gives 20/81 at the two entangling corners."
+        ],
+        "reasoning": "There is positive equation-level overlap for the function and exact corner values; it is credited as such. No exact table of the remaining points or sharp equality set was identified in the inspected material. A query or literal-string miss does not prove absence.",
+        "searches": [
+          "Configured Resultary search for stationary-phase torus of isotropic two-spin-one gates, entangling power and 131/324",
+          "Kirchner et al. Table 4",
+          "Literal 131/324 search in Low–McGinnis §IV.3 alongside its formulas and bounds"
+        ]
+      },
+      "rationale": "The prior exact phase function and four corner cases are credited and excluded from the distinct claim. On the inspected evidence, the surviving result is the exhaustive stationary set, noncorner critical values and types, and sharp all-phase bound with equality gates. Merely substituting the prescribed corners or a fixed Hamiltonian trajectory cannot establish the exhaustion or uniform equality conditions. The repair changes only extremum terminology and leaves this comparison intact.",
+      "residual_risks": [
+        "The full phase function was previously public, so another optimization under scattering phase conventions or fixed-projector-gate terminology could exist outside the inspected material. Bounded catalogue and web searches are not an exhaustive priority determination.",
+        "No expert attestation or formal verification is asserted. The normalization and analytic sign proof, not numerical sampling, support the stated scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PHASE_FUNCTION; NO EXTREMUM CLASSIFICATION IN MATCHING PASSAGE",
+          "evidence": "The 1/648 expression has constant 156 and cosine coefficients −6,−65,−10,−60,−15 for twice or four times the specified relative phase combinations; the phase substitution yields every term of equation (1).",
+          "identifier_or_url": "https://arxiv.org/html/2312.14484v1",
+          "material_read": "Distinguishable spin-one scattering operator passage, Eq. (16); Table 4 distinguishable-particle row and following discussion, HTML text offsets 39700–41293",
+          "method": "Lawful arXiv HTML, literal location and bounded statement inspection",
+          "title": "Entanglement in Few-Nucleon Scattering Events",
+          "trigger": "Possible exact prior phase formula and optimization in the same spin channels"
+        },
+        {
+          "assessment": "COVERS FOUR CORNERS AND SADDLE BEHAVIOR; NOT THE FULL STATIONARY SET IN INSPECTED RESULTS",
+          "evidence": "The two entangling corner powers equal 20/81, and the paper distinguishes corner saddle behavior on the full torus from a trajectory's extrema.",
+          "identifier_or_url": "https://arxiv.org/html/2609.09276v1",
+          "material_read": "Corner theorem scope; §IV.3 three-projector example, including eqs. (60)–(62) and saddle explanation; §V relevant trajectory remark",
+          "method": "Lawful arXiv HTML, targeted section and equation comparison",
+          "title": "Universal Entanglement Dynamics of Unitary Operators",
+          "trigger": "Identical three-projector spin-one family and explicit stationarity theorem"
+        },
+        {
+          "assessment": "RELATED HAMILTONIAN FAMILY; DIFFERENT TIME-AVERAGED QUESTION",
+          "evidence": "Fig. 8 plots time-averaged entangling power against θ for lengths 2, 4 and 6; this does not give the two-phase pointwise equality set.",
+          "identifier_or_url": "https://arxiv.org/html/2605.20661v2",
+          "material_read": "§V.2, Hamiltonian (36), Fig. 8 and following discussion, HTML text offsets 77700–80249",
+          "method": "Lawful arXiv HTML, bounded section inspection",
+          "title": "Entangling Power: A Probe of Symmetry and Integrability in Quantum Many-Body Systems",
+          "trigger": "Same spin-one BLBQ model may include an all-gate optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp phase-torus benchmark is needed to decide which fully spin-invariant two-qutrit gates maximize Haar-averaged output entanglement, and those gates are directly accessible by tuning two BLBQ couplings. The best invariant gate is not among the four previously analyzed corners (131/324 exceeds 20/81), and even on the α=0 branch the noncorner stationary gates are saddles. Exhaustion and exact stability types show which phase configurations are genuinely optimal rather than extremal only along a chosen evolution; this is a substantive exact classification for a natural family, not a repackaging of the known phase polynomial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:08.675256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75",
+        "VERIFICATION.md lines 1–23",
+        "checker.py (inspected, not run)"
+      ],
+      "rationale": "Reconstructed the lower bound including both parities. With excess e and Q=e+1, every length-Q integer window starting at a=0,…,N must hold two one-occurrences, counted with multiplicity, and the outer markers must span at least N zeros. For odd m=2k+1, disjoint windows force N<kQ. For even m=2k they again force N<kQ; when N≥(k−1)Q, the partitions starting at 0 and at r=N−(k−1)Q each exhaust the markers in ordered pairs, hence the first lies at or beyond r and the last at or before kQ−1. Thus 2N<(m−1)Q in every case. In the construction at h=N/(m−1)>0, the floor levels floor(ih) embed a target using the specified ceiling indices: if a=0 then i=1 and the middle gap bound is direct; if a>0 then ih<a+h and jh≥a+b+h. The available suffix is at least c by (m+1−j)h≥c, also when a+b=0 and j=2. Flooring preserves all required integer gaps. The total telescopes to N+floor(2h). For unrestricted length, the product maximum floor(T²/4)≤2N<floor((T+1)²/4) at T=floor(sqrt(8N+1)) proves the exact minimum of k+floor(2N/k); N=0 gives length two separately as well.",
+      "residual_risks": [
+        "The argument concerns scattered subsequences of the complete two-one layer, not contiguous factors, higher weights or arbitrary selected target families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Introduction reports hardness for selected equal-length binary words with exactly two nonconsecutive ones. Lemma 2 treats a different encoded single-marker family.",
+          "The Middendorf DOI route provided a landing page/abstract only; no lawful full-text copy was located."
+        ],
+        "reasoning": "A complexity result over arbitrary selected instances is not an exact extremum of the complete layer, which includes adjacent ones and demands universal coverage. The broader historical literature is not exhausted.",
+        "searches": [
+          "arXiv:1309.0422 Introduction and Lemma 2",
+          "Middendorf DOI 10.1016/0304-3975(92)00074-2 and lawful OA alternate search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Relationship to prior work",
+        "Resultary 8c74ff467567 and 998990bf0c5f",
+        "arXiv:1309.0422",
+        "DOI 10.1016/0304-3975(92)00074-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest same-family record explicitly supplies a two-unit envelope, including the leading 2√2 constant, not a finite-length equality theorem. Its Proof at offsets 2317–4292 double-counts incidences to get R d≥2(K+1), and selects ones in two residue classes for an upper construction. These steps do not give the two shifted disjoint-window partitions joined by the span condition, or the floor-level construction at an arbitrary prescribed m.",
+          "The frozen fixed-m formula implies the corresponding unrestricted asymptotic and finite table; the converse does not follow."
+        ],
+        "reasoning": "The proven all-length exact optimum and the exact zeros-versus-ones frontier refine the overlap. The asymptotic constant and the checked finite minima are not separate originality claims.",
+        "searches": [
+          "8c74ff467567 RESULT.md Finding, Verification and underlying marker/window argument",
+          "arXiv:1309.0422 Introduction and Lemma 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same family can be described as all permutations of N zeros and two ones. With e extra zeros, zero levels of the source one-occurrences give a twofold cover of consecutive integer windows for adjacent-marker targets, plus the span constraint from the all-interior-zero target.",
+          "The indexed envelope uses this marker/window reduction but only bounds the optimum within two units."
+        ],
+        "reasoning": "The multiset-window condition is necessary for universality; it alone is not a formula for all embeddings. No exact fixed-composition law was established by the inspected incidence argument.",
+        "searches": [
+          "Resultary searches for full binary weight-two subsequence covers and fixed marker composition",
+          "Resultary record 8c74ff467567, RESULT.md",
+          "Frozen RESULT.md lines 27–39"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8c74ff467567 gives lengths 2,5,7,9,10,12,14,15,17,18,20 for target lengths 2 through 12, all agreeing with the frozen unrestricted formula.",
+          "998990bf0c5f concerns deletion descendants per word, not universal hosts."
+        ],
+        "reasoning": "The exact finite table overlaps those instances; it cannot cover arbitrary N or optimize for arbitrary prescribed m.",
+        "searches": [
+          "Resultary record 8c74ff467567 RESULT.md Finding and Verification",
+          "Resultary record 998990bf0c5f"
+        ]
+      },
+      "rationale": "The inspected close coverage concerns the same layer and already gives its sharp leading overhead and a finite exact table, but does not give either the all-length exact optimum or the fixed-composition law. The latter optimizes using a stronger parity-sensitive packing argument and an attaining gap construction.",
+      "residual_risks": [
+        "Priority beyond the inspected literature is not established; the full 1994 Middendorf article was not available through the lawful access routes checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: asymptotics, bounded error and exact small instances",
+          "evidence": "The result gives a two-unit envelope, using window incidence counting and a two-residue-class construction, and reports an exact BFS table through target length 12. The inspected proof provides neither the exact lower packing argument nor the construction at prescribed m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "material_read": "RESULT.md Finding and Verification; Proof offsets 2317–4292",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A two-unit envelope and sharp square-root overhead for binary weight-two subsequence covers",
+          "trigger": "Identical complete weight-two target family"
+        },
+        {
+          "assessment": "Different claims and input families",
+          "evidence": "Selected sets of equal-length weight-two words are described in the hardness discussion; Lemma 2 uses an encoded one-marker family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0422",
+          "material_read": "PDF p. 1 Introduction and p. 4 Lemma 2",
+          "method": "Targeted OA PDF passages",
+          "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+          "trigger": "Related hardness for two-one inputs and a marker construction"
+        },
+        {
+          "assessment": "Full text unavailable; not classified as non-covering on that basis",
+          "evidence": "The available secondary description covers hardness of selected instances, not the full-layer optimum.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)00074-2",
+          "material_read": "Landing page/abstract, and the hardness description in arXiv:1309.0422 p. 1",
+          "method": "DOI and lawful OA alternate search",
+          "title": "More on the Complexity of Common Superstring and Supersequence Problems",
+          "trigger": "Primary source of related weight-two hardness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–75",
+        "Resultary 8c74ff467567 Finding and Verification"
+      ],
+      "rationale": "This is an exact extremal result for a natural complete target layer. Fixing the number of ones reveals an entire composition tradeoff, gives a short explicit optimal host for each budget, and explains why the square-root asymptotic rounds to a particular exact integer at every length.",
+      "residual_risks": [
+        "No claim is made for higher fixed target weights or general SCS instance complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

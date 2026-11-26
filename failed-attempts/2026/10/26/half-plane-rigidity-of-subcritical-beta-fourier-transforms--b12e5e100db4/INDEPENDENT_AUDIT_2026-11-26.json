@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:37.300270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53",
+        "Frozen VERIFICATION.md lines 19–23 and verification_output.txt lines 1–27",
+        "Frozen check_halfplane.py and check_beta_fourier.py (inspected, not executed)",
+        "DLMF 13.6.9, 10.27.6 and §10.21",
+        "arXiv:2106.03378v2 Eq. (5) and Eqs. (8)–(11)"
+      ],
+      "rationale": "The global claim is correct and has a direct segment proof, avoiding the uniform endpoint localization sketched in the frozen proof. Let z₀=x+iy be a zero, δ=a−s/2 and G(u)=e^(−uz₀/2)F(uz₀), 0≤u≤1. The positive beta integral on the real axis gives y≠0. Kummer's ODE gives (u^s G′)′−(z₀²u^s/4+δz₀u^(s−1))G=0. Integrate against conjugate G: the boundary term at 1 vanishes because G(1)=0, and at 0 because G is analytic, G(0)=1 and s>0. All integrals converge. The imaginary part divided by y gives x=−2δ·(∫₀¹u^(s−1)|G|²du)/(∫₀¹u^s|G|²du); the quotient is strictly greater than one. This directly proves the sign for every zero and pure imaginary location at equality. In the symmetric case the normalized Bessel reduction with ν=(s−1)/2 gives precisely z=±2ij_{ν,n}; Jν has simple positive zeros and there is no zero at z=0. These steps do not rely on the finite root searches or the frozen proof's abbreviated parameter-uniform Rouché and Cauchy estimates.",
+      "residual_risks": [
+        "The alternate proof audits the stated theorem, not the quantitative remainder or parameter-uniform root labeling in the frozen proof's auxiliary localization argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4's signed half-plane part and Corollary 1 require s≥2. The conic bound is vacuous for the subcritical parameters. Remark 7 attributes additional one-parameter families to Wynn.",
+          "The older Proposition 2 assertion has s>0, covering the whole frozen parameter range under the Whittaker dictionary, although its claimed real-part bound is not valid for arbitrary real roots."
+        ],
+        "reasoning": "The later high-s theorem alone is not coverage, and the earlier bound cannot be accepted indiscriminately. The earlier asserted restriction is exactly relevant, and the existing segment identity proves it when z is nonreal.",
+        "searches": [
+          "arXiv:2106.03378v2 Proposition 2, Proposition 4, Corollary 1 and Remarks 3, 7",
+          "DLMF §13.22; Tricomi 1950 and Saff–Varga 1978 historical leads"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–13, 17–53 and 59–71",
+        "arXiv:2106.03378v2 Propositions 2, 4, Eq. (5), Eqs. (8)–(15), Corollary 1, Remark 7",
+        "DLMF §§13.9, 13.22, 10.21 and Eqs. 13.6.9, 10.27.6",
+        "Resultary 1985d778d78f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On precisely that segment, set w(u)=M_{k,ℓ}(uz₀). Its equation is w″+[−z₀²/4+kz₀/u+(1/4−ℓ²)/u²]w=0. Multiplying by conjugate w on [ε,1] and taking the imaginary part cancels both the derivative energy and inverse-square term, with no requirement that their separate integrals converge at zero.",
+          "As ε→0, w(u)=C u^(s/2)(1+O(u)), so the leading term of w′ conjugate(w) is real and its imaginary part is O(u^s). For Im z₀≠0 the identity gives Re z₀=2k·(∫₀¹|w|²/u)/(∫₀¹|w|²), proving the older stated bound on the whole frozen domain.",
+          "Euler positivity excludes real beta roots. DLMF gives the classical equality specialization."
+        ],
+        "reasoning": "The proof is a direct projection of the already published segment identity with an elementary endpoint check, and it verifies the prior explicit stronger assertion on exactly the claimed domain. No new uniform zero-continuation theorem is required. This is a confirmed implication, not a priority inference from a search hit or a date alone.",
+        "searches": [
+          "arXiv:2106.03378v2 Green–Hille Eqs. (8)–(11), segment choice preceding Eqs. (12)–(13), and Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittaker M_{k,ℓ} has the same nonzero roots with ℓ=(s−1)/2 and k=s/2−a. Proposition 2 transcribes an earlier assertion Re z>2k for k>0, Re z<2k for k<0, and imaginary roots for k=0, with 2ℓ+1>0.",
+          "The displayed counterexample has a=−1 and its exceptional root is real. The frozen assumptions 0<a<s force all roots to be nonreal by Euler positivity.",
+          "The 2026/10/25 Resultary record treats the Fourier-axis phase and nonvanishing, equality and local near-symmetric drift, but explicitly excludes global localization."
+        ],
+        "reasoning": "For this transform zeros in the Laplace variable correspond to Whittaker zeros, not just Fourier-axis zeros. The restriction of the previously asserted stronger Whittaker bound is valid on the frozen positive-beta domain; the independent segment argument verifies it there. The earlier Resultary record by itself would not establish global coverage.",
+        "searches": [
+          "arXiv:2106.03378v2 Eq. (5), Proposition 2, Counterexample 1 and Remark 7",
+          "DLMF §§13.9 and 13.22, Eq. 13.6.9, Eq. 10.27.6",
+          "Resultary asymmetric beta phase rigidity and complex-zero drift: 1985d778d78f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct Resultary record states the Bessel equality and local drift but not the all-zero half-plane law. DLMF indexes the Whittaker/Kummer equivalence and supplies the symmetric exact reduction and Bessel zeros; large-zero data are not an exact census of wrong-side exceptions."
+        ],
+        "reasoning": "The finding is a parameter-uniform theorem rather than a decimal/tabular invariant. The indexed equality is already exact; the decisive asymmetric overlap is the stated Whittaker restriction and its verified implication, not a finite zero table.",
+        "searches": [
+          "Local Resultary search for asymmetric beta Fourier zeros and phase rigidity: 1985d778d78f",
+          "DLMF §13.9 and §13.22, Eq. 13.6.9, §10.21"
+        ]
+      },
+      "rationale": "The claim's entire subcritical domain lies in the earlier stronger Whittaker assertion attributed to Tsvetkov's 1941 Theorem 7, as explicitly transcribed in Boussaada–Mazanti–Niculescu Proposition 2. Its known failure for certain real roots outside the beta range does not affect this restriction. More decisively, the published Green–Hille identity and the published choice of the origin-to-root segment give the stronger real-part bound for every nonreal zero with s>0: keep the lower endpoint ε>0 and take the imaginary part of the segment-parametrized Whittaker equation before letting ε→0. The singular inverse-square term is real and the imaginary endpoint term vanishes. Thus the exact covered positive-beta restriction is verified, rather than inferred from a disproved broad assertion or by extrapolating the later s≥2 corollary. The Bessel equality case is classical. The frozen claim does not state a separately valuable quantitative theorem about parameter-uniform root strings.",
+      "residual_risks": [
+        "The original 1941 note and Wynn full text were not directly inspected. Tricomi's 1950 article was identified but its open full text was not retrieved; the historical record may contain additional coverage. The failure rests on the accessible stated overlap and exact verified implication, not on unavailable sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Older exact coverage on the admissible nonreal restriction, confirmed via the paper's published segment method; the later formal half-plane result has a more restrictive stated range.",
+          "evidence": [
+            "Proposition 2 is explicitly a transcription of Tsvetkov's Theorem 7. Counterexample 1 is a=−1 and real, outside the frozen assumptions. In the segment proof one can take the imaginary part after rescaling the equation, before taking the singular endpoint limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03378v2",
+          "material_read": "Eq. (5) p. 4; Proposition 2 and Counterexample 1 p. 5 (offsets 11330–15924); Proposition 4 pp. 6–7; Eqs. (8)–(15) pp. 7–9 (offsets 20900–27568); Corollary 1 and Remark 7 pp. 9–10; historical references",
+          "method": "Lawful OA PDF bounded passage inspection",
+          "title": "Some Remarks on the Location of Non-Asymptotic Zeros of Whittaker and Kummer Hypergeometric Functions",
+          "trigger": "Exact Whittaker alias, classical asserted bound and its correction, and the proof identity."
+        },
+        {
+          "assessment": "The broad assertion lacks a proof there and has a known real-root exception outside the frozen class; the restriction is confirmed independently of that gap.",
+          "evidence": [
+            "The reported hypothesis is 2ℓ+1>0; the asserted bound fixes Re z relative to ±2|k|, stronger than a signed half-plane."
+          ],
+          "identifier_or_url": "Dokl. Akad. Nauk SSSR 32(1), 10–12 (1941), Theorem 7",
+          "material_read": "Theorem 7 as transcribed and discussed in arXiv:2106.03378v2 p. 5; original note not directly read",
+          "method": "Exact statement in an accessible later primary analysis, supplemented by a mathematical proof of the relevant restriction",
+          "title": "On the roots of Whittaker functions",
+          "trigger": "An explicitly reported stronger same-domain assertion in different parameters."
+        },
+        {
+          "assessment": "Reported on the lines s=2a±1; not used as evidence for full subcritical coverage.",
+          "evidence": [
+            "Remark 7 reports a∈{α,α+1}, b=2α+1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1973-0318529-7",
+          "material_read": "Comparison in arXiv:2106.03378v2 Remark 7 only; direct Wynn full text not read",
+          "method": "Accessible comparative passage; lawful DOI/AMS PDF retrieval attempted without success",
+          "title": "On the zeros of certain confluent hypergeometric functions",
+          "trigger": "Early same-function zero-location theorem cited in the frozen record."
+        },
+        {
+          "assessment": "Equality and Whittaker identification are classical; the large-zero descriptions are not used to rule out finite exceptions.",
+          "evidence": [
+            "Eq. 13.6.9 gives the centered symmetric M in terms of Iν, rotated to Jν by Eq. 10.27.6; §10.21 gives the relevant real simple positive Jν zeros."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/13.22",
+          "material_read": "§§13.9, 13.22, Eq. 13.6.9, Eq. 10.27.6, §10.21",
+          "method": "Bounded official open reference passage inspection",
+          "title": "DLMF: Confluent Hypergeometric and Bessel Functions",
+          "trigger": "Classical zero equivalences, exact Bessel specialization, and zero tables/asymptotics."
+        },
+        {
+          "assessment": "Exact overlap for the axis, symmetry and fixed-index perturbation, but not global trajectories.",
+          "evidence": [
+            "States asymmetric nonvanishing and the centered phase law on the Fourier axis, symmetric Bessel zeros and fixed-index drift; excludes classification of remaining zeros."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-phase-rigidity-and-complex-zero-escape-for-asymmetric-beta-fouri--1985d778d78f/RESULT.md",
+          "material_read": "Finding and analytic argument, offsets 0–4838; limitations near offset 7600",
+          "method": "Local Resultary mirrored full-text passage inspection",
+          "title": "Phase rigidity and complex-zero escape for asymmetric beta Fourier transforms",
+          "trigger": "Strongest distinct indexed claim on the same beta transform."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–13 and 38–53",
+        "arXiv:2106.03378v2 Proposition 2 and Green–Hille segment calculation",
+        "DLMF Eq. 13.6.9 and §10.21"
+      ],
+      "rationale": "The full location of beta-transform zeros is a natural question. As frozen, however, the result restates an already asserted and directly verifiable restriction of the stronger classical Whittaker bound, plus the classical equality. The more elaborate zero-continuation route does not supply a separately stated, useful new invariant or theorem on the zero strings. Finite checker results do not change the scientific contribution.",
+      "residual_risks": [
+        "No assessment of a materially stronger future theorem on parameter-uniform root trajectories is implied."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

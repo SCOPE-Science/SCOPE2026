@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:58.732783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marker count and counts of 02 and 12 fix the split and the Parikh vectors of both binary segments. The only free pair coordinate is 01; subtracting the cross term ad leaves the sum of the two internal coordinates. All exponents in each binary factor occur. When both degrees are positive every interior sum has at least two decompositions, and only the two aligned monotone endpoints can be singletons; when either degree is zero the other factor gives the binary singleton criterion, including empty segments. Binary coefficient-one terms are the entire factor when the smaller positive letter count is 1 and just 0, 1, ab−1, ab when both counts are at least 2, by Gaussian-binomial symmetry/unimodality and the two partitions of 2. Summing the disjoint mono/mono, mono/mixed, and mixed/mixed cases gives the stated rational series and cubic. An independent Python enumeration grouped every ternary word for n=1,…,10 by the three letter counts and the three unredundant mixed-pair counts; it matched the regular expression on every one-marker word and reproduced the first ten counts. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "26e221758afc handles any number r≥1 of distinct markers and gives both feasible support and every multiplicity for A,B≥1. Lejeune–Rigo–Rosenfeld give general class machinery and non-context-freeness for the unrestricted language."
+        ],
+        "reasoning": "The unrestricted language theorem alone does not supply the slice. The marker-gap theorem makes the claimed structural factorization a special case and is substantially more specific than the earlier general algorithms.",
+        "searches": [
+          "Resultary 26e221758afc, equations (1)–(2); arXiv:2001.11732, pp. 5–8 and Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 26e221758afc, Finding and Assumptions",
+        "Lejeune–Rigo–Rosenfeld, arXiv:2001.11732",
+        "Richomme, arXiv:2510.07159v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking coefficient one in the product leaves both endpoints when both gap factors have positive degree (each interior degree has at least two splits), and reduces to the already known binary criterion when one factor is constant.",
+          "If the total word uses only one binary symbol plus the marker, the marker position determines the word. Across all contents, concatenating the disjoint cases gives z(A²+2AT+2B²) with A=(1+z)/(1−z), T=2z²(1+z+z²)/(1−z)², B=z²/(1−z)²."
+        ],
+        "reasoning": "This is a mechanical extraction of the regular language and its enumerator from the stronger theorem and the published binary classification; the exact printed numerator is not necessary for coverage.",
+        "searches": [
+          "26e221758afc, Finding eq. (2) and support [H,H+S]; arXiv:2001.11732, Theorem 3; arXiv:2510.07159v1, Remark 4.8 and Lemma 4.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2) in 26e221758afc, at r=1, is the identical two-factor Gaussian-binomial convolution with H=a0 b1 and K=#ab. The deck counts and fixed composition together supply precisely the one- and two-letter signature."
+        ],
+        "reasoning": "Identifying the single labeled marker with 2 gives literal equality of the fibers, not just analogous terminology.",
+        "searches": [
+          "Resultary one-marker ternary 2-binomial singleton and scattered two-deck fibers; exact hit 26e221758afc, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit tabulates fibers by an exact coefficient formula, rather than printing the all-content singleton length sequence. The literature gives the known binary singleton expression used in evaluating the coefficient-one cases."
+        ],
+        "reasoning": "No exact overall sequence table was needed to decide coverage: the explicitly indexed stronger fiber formula and known binary criterion recover the series. No claim of a comprehensive sequence database search.",
+        "searches": [
+          "Resultary comparison against 26e221758afc; arXiv:2001.11732, Theorem 3; arXiv:2510.07159v1, Remark 4.8"
+        ]
+      },
+      "rationale": "The distinct indexed result on exact two-deck spectra and fiber multiplicities with distinct marker letters explicitly gives the full-support polynomial product for every fiber, including r=1. Under a,b,c1→0,1,2 and fixed totals, its fibers are identical to these 2-binomial classes. The remaining coefficient-one operations and length summation are direct; the unmixed total-content cases excluded by the other theorem are trivial. This establishes coverage of the scientific contribution, not publication priority between two records listed under the same date.",
+      "residual_risks": [
+        "No priority or posting order is inferred from the shared catalogue date. The verdict is about demonstrable overlap and mechanical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all mixed-total one-marker fibers as r=1, but does not print the overall singleton length enumerator.",
+          "evidence": [
+            "Every fiber is the coefficient of the product of Gaussian binomials over the marked gaps; the complete support is [H,H+S]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc/RESULT.md",
+          "material_read": "Finding and Assumptions, equation (2), offsets 0–2201",
+          "method": "Resultary query and direct inspection of local mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-deck spectra and fiber multiplicities with distinct marker letters",
+          "trigger": "Closest exact Resultary match on marked scattered two-decks"
+        },
+        {
+          "assessment": "Contains exactly the binary component and a different unrestricted non-context-freeness result.",
+          "evidence": [
+            "Theorem 3 gives the six-term binary regular expression; Theorem 17 does not address the fixed-marker slice."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+          "material_read": "Theorem 3 (p. 3), general class-generation machinery (pp. 5–8), Theorem 17 (p. 14)",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Binary singleton input and unrestricted ternary classification"
+        },
+        {
+          "assessment": "Establishes the binary criterion and partition correspondence, not the marked ternary language.",
+          "evidence": [
+            "The binary class is singleton iff init(w)=final(w)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159v1",
+          "material_read": "Remark 4.8 and Lemma 4.12 (pp. 19–20)",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Coefficient-one characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "One marked letter is a natural sparse ternary regime and the explicit series is a useful corollary. But the substantive new structure claimed for this record is already supplied by the stronger marker-gap fiber formula, and the remaining work is a coefficient-one filter with a known binary criterion followed by routine summation. The exceptional monochromatic totals are immediate; no independently valuable scientific remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

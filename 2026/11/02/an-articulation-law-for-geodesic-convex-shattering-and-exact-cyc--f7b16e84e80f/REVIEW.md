@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geodesic decomposition at a cut vertex proves the rooted factorization and excludes forbidden cross-factor support traces. Counting root-containing supports only once gives the exact correction term. For cycles, the two-side rooted pair classification is complete; the cyclic-gap criterion for unrooted triples and the four-point obstruction establish every coefficient. The degree and top coefficient of the bouquet polynomial are then forced. The extracted independent enumerator confirms 1,089 mixed rooted graph pairs, six bouquets and rooted cycle cases through length 12. No finite computation is used as an infinite proof.
+## correctness
 
-## Originality — PASS within checked literature
-The closest primary material is Thiessen–Gärtner's 2022 general graph-convexity VC bounds, Chepoi's 2024 graph halfspace/separation theory and Chornomaz's 2022 shattering-extremal closure-system theory. The mathematical comparison found neither a rooted full-support gluing polynomial nor the heterogeneous cycle-bouquet formula in their examined relevant statements. General hull-number/VC identities do not by themselves give an enumerator for all support sizes, and halfspace bounds apply to a smaller concept class. The standard shattering definitions and single-cycle facts are expressly not claimed as new. Historical priority under alternative terminology is not fully established.
+PASS
 
-## Mathematical value — PASS
-The identity is an unrestricted decomposition theorem for all finite rooted graph factors, giving an exact VC-dimension recursion from local rooted ranks and full component dimensions. It solves every coefficient for an infinite family of heterogeneous cycle bouquets and explains the length-independent dimension versus length-dependent extremal multiplicity. This structural computation is more informative than a one-off count or textbook specialization.
+A shortest path between vertices of one factor never leaves it, since leaving and returning would repeat the articulation. Between factors every shortest path goes through the root and consists of two factor geodesics. Thus rooted convex sets glue freely, and any nonempty unrooted convex set lies in one factor. For a root-free support meeting two or more factors, each nonempty local trace can be tested together with a positive vertex of another factor, forcing a rooted hypothesis; the empty local trace is realized by the root alone. Conversely the rooted factor witnesses glue to realize every trace. A support containing the root and meeting two factors elsewhere fails the trace with two cross-factor positives and the root negative. Single-factor supports are shattered exactly in their factor. Hence the product counts exactly the root-free supports coming from the rooted factors, the differences add the remaining single-factor supports, and the only duplicate is the singleton root, counted t times. Taking the maximum of the achievable product and single-factor sizes proves the dimension law, including trivial factors. On a cycle a rooted shattered pair chooses one nonantipodal vertex per side; same-side or antipodal pairs cannot be shattered. An unrooted triple is shattered precisely when each gap is strictly less than half the circumference; a gap at least half gives a shortest path through the third point, including the equality case. Among four cyclic points some pair of consecutive gaps totals at most half, ruling out every four-point support. Inclusion-exclusion of the upper gap bounds yields the two stated T_m formulas. All single-factor cycle corrections have degree at most three, so only the product contributes at degree 2t when t>=2, with coefficient the product of h_i^2.
 
-## Scope and residual risks
-The result is confined to unweighted graph geodesic convexity and static VC-shattering. It does not claim an online dimension formula or independent validation. A previously published equivalent rooted-amalgamation formula not indexed under the searched terms remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the rooted articulation polynomial, the associated dimension law, and the heterogeneous cycle-bouquet polynomial and maximum-support counts. A distinct same-date indexed record covers the unrooted cycle profile exactly; that ingredient receives no originality credit, and the indexed date alone does not order the results. The strongest inspected hull and bouquet results do not give the rooted identity or the bouquet census.
+
+## value
+
+PASS
+
+Cut vertices give a natural decomposition for geodesic convexity, but a scalar VC bound alone does not determine how supports spanning factors are counted. The rooted law locates that missing constraint and gives an exact computation from strictly smaller graphs. For heterogeneous cycle bouquets it explains why dimension is independent of cycle length while extremal multiplicities depend sharply on the lengths. The useful new content is the gluing structure and the resulting bouquet census, not a repeat of the unrooted single-cycle numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

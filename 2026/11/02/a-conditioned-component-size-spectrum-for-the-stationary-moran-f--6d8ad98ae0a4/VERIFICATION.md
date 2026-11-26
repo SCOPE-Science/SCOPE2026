@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3's standard library. The program reconstructs every admissible independent parent-choice vector on \(2\le n\le6\), accumulates the resulting component-size histogram and root count, and compares its rational expectations after several exponential tilts with a separately implemented exact triangular recurrence. It also compares the integral formula with finite-size recurrences at six tilt values. The verified run returned `PASS: 170 independent exact-enumeration, recurrence, and numerical assertions`.
+## correctness
 
-The proof's non-finite inputs are the explicitly stated independent-Bernoulli local central limit estimate, the Euler approximation of a finite triangular system and McDiarmid's bounded-difference inequality. The program is not an infinite-sample proof and does not independently establish literature priority. The complete mathematical justification and hypotheses are in `RESULT.md`.
+PASS
+
+For fixed interior alpha the tilt is a product measure, preserves the law on every root-count level and has a unique finite positive parameter. The interior Bernoulli variance is linear in n. Fourier inversion gives the local probability at floor(alpha n): near zero the centered log characteristic function is -Var(N)s^2/2+O(n|s|^3), and the sin^2 bound controls the remaining Fourier integral. The mean counts satisfy the stated triangular linear recurrence; normalized by n this is Euler's method with step 1/(n-1), order-one smooth coefficients, and a vanishing grid and normalization discrepancy. The time-changed Yule transition is geometric and t/q(t) has derivative p(t)/q(t), which proves conservation of size mass. Replacing a single independent choice cuts and reattaches at most one descendant subtree, affecting at most four old/new count contributions. Exponential concentration therefore transfers across the order n^(-1/2) conditioning event. Fixed-k convergence and equal unit size mass control both tails beyond a fixed K and yield weighted l1 and the two total-variation kernels. The supplied finite verifier was inspected, not used as proof of the exact-conditioning limit.
+
+## originality
+
+PASS
+
+The exact linear-root-count conditioning and entire weighted empirical spectrum are distinct from the directly checked unconditioned marginal and fixed-two-root result. The model, independent root indicators and unconditioned half-density marginal are credited; the evidence supports distinctness of the stronger conditional claim, not global priority.
+
+## value
+
+PASS
+
+The typical density alone misses a natural family of atypical forest laws. The result gives the complete explicit component spectrum for every interior density and controls vertex mass, not merely typical-component probabilities. That control is needed for the uniform-vertex law and excludes escape of mass into sizes beyond any finite observation window as that window grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

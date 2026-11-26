@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:29:02.989994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–37 (universal proof)",
+        "VERIFICATION.md lines 2–20; verify.py lines 39–145 and verification_output.txt (inspection only)",
+        "Ehrenborg–Hetyei Thm. 7.1; Marietti–Testa arXiv:math/0703351 Thm. 8.1 and Cor. 8.3"
+      ],
+      "rationale": "In a bipartition, the off-diagonal adjacency block B has rank m: a nonzero minor requires a matching, while the submatrix of a maximum matching has exactly one perfect matching (two would produce an alternating cycle). The negative eigenvalue count is rank B by the singular-value decomposition. The forest dominance complex has top reduced integral homology of rank one in degree m−1. For any maximum matching the oriented join of the endpoint differences embeds as a cycle: a closed neighborhood contains its vertex's matched edge or an unmatched vertex. By König's theorem a minimum cover has m vertices, one from each matched edge. It is a facet because each of its vertices has a neighbor outside it, and the outside is independent, so adjoining any outside vertex introduces its full closed neighborhood. Coefficient extraction at the cover facet vanishes on boundaries and has value s_M(C)=±1 on the matching cycle, proving that the cycle is primitive. Comparing the coefficients at C and gC gives the stated sorting-sign formula. Coordinate restriction of E_- to C is injective by negative definiteness (the complementary vertex set is independent), hence an isomorphism by dimension. If a cover replaces a by its matched partner b, the unique restricted basis vector supported at a on the old cover has quadratic form 2x_b<0: other neighbors of a must stay in both covers. The determinant sign therefore acquires the same reversal and row-order correction as s_M. The single-swap graph is connected: after contracting matching edges the unforced implications form a partial order on the matched-edge endpoint choices, since the contracted graph is a forest. One can change coordinates along that order to reach the coordinatewise meet of two admissible assignments, respecting all forced choices. Thus sign(d_C)/s_M(C) is constant. The natural restriction identity d_(gC) det(g|E_-)=s_g(C)d_C combines this with the integral coefficient formula. Isolated vertices are excluded from faces and E_-, disconnected components present no exception, and for m=1 the same proof gives the action on reduced H0.",
+      "residual_risks": [
+        "The finite recorded 96-forest/344-action check uses numerical eigenspaces and samples at most five automorphisms per enumerated tree. It was not replayed and is not used to certify the infinite theorem; the exact proof is in RESULT.md lines 21–37.",
+        "The claim excludes m=0 and makes no stronger equivariant sphere-model or spectral-lattice assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forest theorem is nonequivariant. Its refinements give a labelled collapse and a generator associated to a maximal resolution, not an invariant spectral model. The inspected neighborhood/Alexander-duality work supplies general constructions but no negative determinant character. The catalogue fixed-space theorem is stronger on arbitrary subgroups' geometry, but computes the orientation by Euler characteristic rather than spectral or facet signs."
+        ],
+        "reasoning": "Credit the sphere theorem, the crosspolytope method and the explicit indexed topological character. Their statements do not cover the bridge to the canonical negative spectral subspace.",
+        "searches": [
+          "Ehrenborg–Hetyei Thm. 7.1",
+          "Marietti–Testa arXiv:math/0703351 Thm. 8.1, Cor. 8.3; arXiv:0705.1461v1 Prop. 4.10",
+          "Matsushita–Wakatsuki arXiv:2312.02639v2 §§1–2",
+          "Public query: forest dominance complex equivariant orientation character negative adjacency eigenspace determinant automorphism matching minimum vertex cover Marietti Testa Ehrenborg Hetyei (service unavailable; no retry)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary afa2267db268",
+        "Ehrenborg–Hetyei Thm. 7.1",
+        "arXiv:math/0703351, 0705.1461v1 and 2312.02639v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known endpoint-difference generator makes extraction of a facet coefficient natural, but does not compare its transition signs to a negative definite adjacency restriction. The orbit formula does determine the same values, but passing to negative eigenspaces would need an additional argument: det(g|E_-)=(-1)^(m−dim(E_-)^<g>), and equality to the orbit formula requires identifying the invariant negative index with the matching number of the simple orbit forest. The invariant adjacency operator is weighted and can have a diagonal term from a flipped central edge; one cannot simply equate it with the simple adjacency matrix in the orbit theorem."
+        ],
+        "reasoning": "Neither the known homotopy type and generator nor the orbit-Euler formula omits merely a routine parameter substitution to get the asserted spectral bridge. The frozen proof supplies a separate mathematical comparison via all minimum covers and their determinant orientations.",
+        "searches": [
+          "Marietti–Testa arXiv:math/0703351 Thm. 8.1 and Cor. 8.3 compared with RESULT.md proof §§2–5",
+          "Resultary afa2267db268 RESULT.md finding and proof §§1–4, offsets 0–6100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same dominance face predicate and all m≥1 forests, afa2267db268 gives χ(g)=(-1)^(m−ν(Q_<g>(F))) with Q the simple orbit forest. This covers the underlying sign character in a different form. The Alexander-duality theorem D(G)^∨=N(complement G) changes to a complementary neighborhood complex and its inspected statement does not link the result to adjacency inertia."
+        ],
+        "reasoning": "The orbit sign is demonstrably equivalent as a function of g (both compute the same orientation line), independent of the index chronology; it is not an identical theorem about E_- or oriented minimum covers. Normalize D(F) as complements of dominating sets, not the complex of minimal dominating sets.",
+        "searches": [
+          "Resultary queries on forest dominance, top homology orientation and negative adjacency determinant",
+          "Matsushita–Wakatsuki arXiv:2312.02639v2 Thm. 1.1",
+          "Resultary afa2267db268, finding and integral orientation proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct 2026-11-17 index record has an exact formula for the same orientation character, including disconnected and isolated-vertex cases. Its formula and proof use geometric orbit-fixed spaces and maximum matching in the orbit forest, not the determinant or the product of the three sorting signs."
+        ],
+        "reasoning": "This is a family-level formula search, not a numerical table test on individual trees. The matching character is credited without claiming priority from chronology alone or mistaking it for coverage of the spectral equivalence.",
+        "searches": [
+          "Local Resultary search for full forest dominance orientation, negative adjacency eigenspaces and minimum-cover sign; exact finding read for afa2267db268"
+        ]
+      },
+      "rationale": "The sphere, its matching-number dimension, and the endpoint-difference generator technique are already established; the full topological sign also has a distinct indexed formulation via orbit-forest matching numbers. The supported distinct contribution here is the explicit identification with the determinant on the negative adjacency eigenspace for every forest, together with the arbitrary maximum-matching/minimum-cover coefficient comparison. The fixed-space record does not assert this spectral identification or the sorting formula; it is not evidence that the topology alone determines the spectral side without proof. No general publication-priority claim is made.",
+      "residual_risks": [
+        "The targeted public search was unavailable, not negative evidence. An unindexed earlier spectral-orientation formula or a general result yielding it remains possible. The directly inspected sources distinguish the spectral bridge while establishing overlap in the topological character itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the topological sign by a different formula, not spectral identification",
+          "evidence": "Fixed spaces are dominance complexes of simple orbit forests; reduced Lefschetz gives the sign (-1)^(ν(F)−ν(Q_<g>(F))).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-geometric-subgroup-fixed-spheres-and-orientation-characters-of-f--afa2267db268",
+          "material_read": "RESULT.md finding, assumptions and proof §§1–4, offsets 0–6100",
+          "method": "Local mirrored full text",
+          "title": "Geometric subgroup-fixed spheres and orientation characters of forest dominance complexes",
+          "trigger": "Exact same topology and complete integral orientation character"
+        },
+        {
+          "assessment": "Same dominance complex and sphere theorem; no signed action in inspected theorem",
+          "evidence": "Defines dominance faces by complements; the forest complex is simple-homotopy equivalent to a sphere.",
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/Papers/Independence.pdf",
+          "material_read": "Theorem 7.1, author PDF p. 12, text around offset 35960",
+          "method": "Lawful author-hosted PDF after the DOI returned a landing page only",
+          "title": "The topology of the independence complex",
+          "trigger": "Original forest dominance sphere result"
+        },
+        {
+          "assessment": "Covers homotopy dimension and resolution generator, not spectral identity",
+          "evidence": "Collapse to a crosspolytope with dimension from the matching number; product of endpoint differences for a maximal resolution and chosen ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0703351",
+          "material_read": "§8, Theorem 8.1 p. 23 and Corollary 8.3 p. 25, offsets around 78824 and 84112",
+          "method": "OA PDF passages",
+          "title": "Cores of simplicial complexes",
+          "trigger": "Potential equivariant implications of collapse and generator"
+        },
+        {
+          "assessment": "Covers the nonequivariant crosspolytope result",
+          "evidence": "Dom(F) collapses onto a crosspolytope boundary with dimension determined by the matching number; the adjacent matching-complex theorem concerns a different complex.",
+          "identifier_or_url": "https://arxiv.org/abs/0705.1461v1",
+          "material_read": "Proposition 4.10, p. 9, offset around 26500",
+          "method": "OA PDF passage",
+          "title": "A Simple Uniform Approach to Complexes Arising from Forests",
+          "trigger": "Uniform forest-complex theorems"
+        },
+        {
+          "assessment": "Relevant duality, not the negative adjacency orientation theorem",
+          "evidence": "Identifies the Alexander dual of D(G) with the neighborhood complex of the complement; the inspected statements give bounds and homology results, not the spectral determinant on all automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02639v2",
+          "material_read": "Introduction, Theorem 1.1 and surrounding results, pp. 1–3, offsets around 1806, 4960 and 9000",
+          "method": "OA PDF passages",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "Potential coverage via duality or general dominance homology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–37 and 42–46",
+        "Resultary afa2267db268, complete sign and fixed-space comparison",
+        "Marietti–Testa arXiv:math/0703351 §8"
+      ],
+      "rationale": "The orientation sign is the only nontrivial integral homology datum left after the classical sphere theorem, and the identification with a natural spectral subspace gives a structural bridge between two graph constructions for a whole class, including part-flipping actions and permutations of components. The exact minimum-cover recipe computes the same scalar without numerical diagonalization or a specially adapted matching. This is useful beyond either the nonequivariant sphere theorem or tabulating signs on a few trees, even though the orbit-forest formula also computes the topological sign.",
+      "residual_risks": [
+        "Neither the comparison of orientation characters nor the cover recipe asserts an equivariant homotopy equivalence to the unit sphere in E_-."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:49:48.138048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A selected clique is represented by at most one label; an unrepresented clique is dominated exactly when an adjacent clique is represented. Independence is likewise equivalent on supports, so the map preserves the minimum cardinality and all minimum configurations are precisely labelled lifts. A slide changes either one label within a selected clique or one base support vertex along a base edge while preserving shared labels. Counting these disjoint types gives the Hamming fibers, shared-label-indexed complete bipartite cross-edges, and all the displayed vertex, edge and degree formulas. Connected fibers and freely liftable base moves give the component bijection. For the metric, deleting stationary projected moves from any lifted path yields a base walk; each mismatched vertex still present at every step needs one distinct local move. Conversely, along any base walk, pay once for those persistent mismatches and set the label at each target vertex's last insertion whenever it was not persistent. This reaches the exact target labels and attains the bound, including the length-zero walk; disconnected supports give infinity. The diameter and regularity consequences follow by lifting a geodesic for the upper bound and by the degree formula. On C_n, gaps of size 2 or 3 characterize independent dominating supports, and n≥4 allows k=ceil(n/3) with d=3k−n feasible short gaps. Counting a marked starting token counts each support k times. A directed slide swaps a 2,3 or 3,2 consecutive gap pair; for each order choose its start and d−1 of the other k−2 gaps short. Division by two counts each undirected edge, including n=4,5,6 with k=2 and the stipulated zero binomials. This reconstructs the formulas in RESULT.md lines 53–61 for arbitrary graph size and positive integral fiber sizes. The frozen finite enumerator was inspected, not executed, and its reported BFS and subset checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle paper models ordinary cycle i-graphs, including the bracelet description for C_(3k+1) and short-gap configurations. The construction results inspected in arXiv:2303.06299 give different realizability transformations."
+        ],
+        "reasoning": "A theorem specifying the base cycle graph determines the input to the lift but not the lift. A Cartesian product of fixed graphs would also miss the dependence of which labelled coordinates exist on the occupied support.",
+        "searches": [
+          "arXiv:2303.06299 §5; arXiv:2303.08190 bracelet graphs and cycle i-graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.06299",
+        "arXiv:2303.08190",
+        "Resultary 7a3966ab4b58",
+        "Resultary cf69f6b23fb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary-cycle i-graph data give b_n and e_n without any clique multiplicities. The structural formulas add arbitrary multiplicity dependence; the metric compares all support walks using a penalty for labels never made free by departure."
+        ],
+        "reasoning": "Base shortest distances or a reachability reduction identify neither which labels must move nor how a walk can free a label. For a base edge with a shared occupied clique of multiplicity >1 not all pairs of lifts are adjacent, so interpreting this as ordinary clique substitution on the i-graph is not a valid implication. Cycle blowup counts are consequences of the new lift with known base data and not credited as a separate base theory.",
+        "searches": [
+          "arXiv:2303.06299 Lemmas 5.1 and 5.5; arXiv:2303.08190 ordinary cycle i-graphs; Resultary 7a3966ab4b58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 5.1 enlarges a maximal clique in a graph already realized as an i-graph. Lemma 5.5 adds isolated vertices to the seed, thus forcing extra tokens and leaving the i-graph unchanged. The true-twin websearch did not find a decisive primary statement."
+        ],
+        "reasoning": "Replicating true twins in the host is neither enlarging a clique of the reconfiguration graph nor forcing isolated tokens. Even a reachability quotient would not specify weighted cross-edges or the shortest distance between particular labels.",
+        "searches": [
+          "\"independent dominating set\" \"true twins\" token sliding reconfiguration clique blow-up",
+          "Brewster–Mynhardt–Teshima arXiv:2303.06299, Max Clique Replacement Lemma and Inflation Lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-family record 7a3966ab4b58 concerns minimum alteration/deletion sets in C_n[K_q]. The distinct same-day record cf69f6b23fb8 concerns 100 minimum sets and slide components of the single Desargues graph."
+        ],
+        "reasoning": "The first matches the underlying family but not the invariant or graph of slides. The second matches reconfiguration but not the host substitution or labelled distances. Neither supplies an exact table or theorem covering the assigned claim.",
+        "searches": [
+          "Resultary clique blowup minimum independent domination C_n[K_q] and slide reconfiguration; Resultary minimum independent dominating set token-slide components"
+        ]
+      },
+      "rationale": "Pass the full labelled token-slide graph and exact distance lift for variable clique multiplicities, with counting consequences, not base cycle counts, simple reachability preservation, or the standard graph blowup operation. Inspected i-graph construction and ordinary-cycle results are different operations or describe only the base graph. No checked source gives the shared-label adjacency condition together with the exact persistent-mismatch metric for the substituted host.",
+      "residual_risks": [
+        "A directly applicable true-twin reachability citation was not identified; reachability preservation by itself is not credited as original.",
+        "A broader token-slide lift or distance theorem under vertex replication or graph substitution terminology may exist outside the passages checked. Historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph operations",
+          "evidence": "Lemma 5.1 enlarges a maximal clique in the i-graph; the inflation proof adds k−i(G) isolated host vertices and obtains the identical i-graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06299",
+          "material_read": "Lemma 5.1 p. 13 and Lemma 5.5 with proof p. 16",
+          "method": "OA text locate and bounded passage read, offsets 34762 and 43250",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Primary i-graph constructions, replacement and inflation"
+        },
+        {
+          "assessment": "Ordinary-cycle structure is prior, not the labelled blowup",
+          "evidence": "Bracelet vertices record the two short gaps, with degree 2 or 4 depending on their positions; the paper identifies the bracelet graph with the ordinary cycle i-graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08190",
+          "material_read": "Bracelet adjacency and identification with I(C_(3k+1)), pp. 9–10; Observation 3.4 p. 11",
+          "method": "OA text locate and bounded passage read, offsets 24804–27453 and 28618",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Prior cycle input to the specialization"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Deletion thresholds and counts of minimum alteration sets of C_n[K_q], not the token-slide graph.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-minimum-independent-domination-alteration-sets-of-cyclic-c--7a3966ab4b58",
+          "material_read": "RESULT.md Finding and §1",
+          "method": "Local Resultary and mirror",
+          "title": "Exact minimum independent domination alteration sets of cyclic clique blowups",
+          "trigger": "Indexed identical cycle blowup family"
+        },
+        {
+          "assessment": "Single-host analysis, not substitution",
+          "evidence": "One fixed host has 100 minimum sets and specified slide components.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimum-independent-domination-on-the-desargues-graph-has-five-d--cf69f6b23fb8",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary and mirror",
+          "title": "Minimum independent domination on the Desargues graph",
+          "trigger": "Distinct same-day indexed i-graph match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete structural and metric rule for a natural host-graph operation. It gives exact nonuniform component, adjacency and enumeration data without constructing the exponentially many labelled states first. In particular it distinguishes a compulsory within-clique move from a free label change on reentry along a support walk, information not given by the component quotient. It is an exact characterization, not a claim of polynomial-time evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

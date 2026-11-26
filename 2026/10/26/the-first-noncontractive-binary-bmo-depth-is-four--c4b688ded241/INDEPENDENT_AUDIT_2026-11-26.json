@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:27:40.912190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; VERIFY.py (inspected only); DUAL_CERTIFICATES.json (data)",
+        "Independent exact replay: python3 /workspace/branches/replay-4.py"
+      ],
+      "rationale": "For real depth-three leaf data with F_3(x) ≤ 1, fix folding signs ε and root mean-deviation signs s. The linear objective has coefficients ε_i(8s_i−Σs) and the maximum over s equals 64 times the folded root mean deviation. The 63 inequalities correctly encode the seven node bounds and the orthant, with eight free leaf variables and 24 nonnegative auxiliaries. For each certificate, nonnegative row multipliers give the required leaf coefficients, nonnegative auxiliary coefficients, and right-hand side at most 64, proving a bound for all real points in the sign region. Independent replay canonicalized all 4^8 colorings by subtree swaps and confirmed exact coverage by 1,540 supplied cases, and verified the multiplier identities, signs and bounds in rational arithmetic; maximum certified bound 64. The root bound also gives the four-leaf descendant bound by applying it to two identical copies of the four-leaf datum (no change in input tree BMO or folded root deviation). The two-leaf case follows from the reverse triangle inequality. Nonconstant nonnegative data give equality. Direct 16-leaf recomputation yielded F_4(x)=5 and F_4(|x|)=41/8, with only the folded root above 5.",
+      "residual_risks": [
+        "Finite exact certificate for the real, equal-split, arithmetic-mean L1 seminorm; no claim about the sharp depth-four or unlimited-depth constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The alpha-tree theorem compares L1 and L2 norms, not the nonlinear map x ↦ |x| in L1.",
+          "Classical interval BMO has absolute-value contractivity over all subintervals; an all-interval input seminorm can exceed the fixed-tree one."
+        ],
+        "reasoning": "Neither inspected theorem implies the claimed rooted finite-depth contraction.",
+        "searches": [
+          "Slavin–Vasyunin arXiv:1501.00097, Thm. 1.8",
+          "Dafni–Gibara arXiv:1905.00144, Thm. 5.18"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.14459v1",
+        "Resultary record 730d79821946",
+        "arXiv:1501.00097",
+        "arXiv:1905.00144"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published 16-leaf example gives precisely 41/40.",
+          "Even with contractivity through depth two and failure at four, the two candidates for first failure are three and four; only the depth-three bound resolves the choice."
+        ],
+        "reasoning": "No novelty is assigned to the witness or the smaller-depth facts. The new input relative to that primary work is the exact unrestricted eight-leaf proof.",
+        "searches": [
+          "Mohajer arXiv:2610.14459v1, Thm. 4.2 and §6",
+          "Resultary 730d79821946 Finding and verification formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound is for arbitrary root mean, not for the separate zero-root-average constant.",
+          "2026/11/1/SCOPE-the-first-amplification-depth-for-absolute-values-in-binary-tree--730d79821946 has the same unrestricted depth-three and first-depth statements."
+        ],
+        "reasoning": "The alternate amplification wording is mathematically identical in this setting. The separate record establishes statement overlap, but neither provenance nor precedence follows from its catalogue label.",
+        "searches": [
+          "Resultary semantic searches on absolute-value folding/amplification, real equal-split binary L1-BMO, c_3(2), and the eight-leaf/first-depth formulations",
+          "Mohajer arXiv:2610.14459v1, p. 2 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mohajer lists unknown c_3(2) between c_2(2)=1 and c_4(2)≥41/40.",
+          "The separately indexed match uses 910 representatives and a 290-row formulation, unlike the frozen 1,540-orbit, 63-row formulation."
+        ],
+        "reasoning": "An exact catalogue overlap exists, not a finding unique to this entry. The other entry is listed under 2026/11/01 and provides no demonstration of earlier coverage of the frozen work; no claim of exclusive priority is supported.",
+        "searches": [
+          "Resultary searches for the exact depth-three constant and first noncontractive binary depth; inspected Resultary record 730d79821946",
+          "Mohajer §6"
+        ]
+      },
+      "rationale": "Mohajer explicitly leaves the unrestricted rooted depth-three value and the least failing depth open; the earlier depth-four witness is not new. A separate Resultary record states the same theorem and uses the same cited example, with a materially different certificate formulation; it is listed on a later catalogue date. The mathematical overlap is established, but there is no evidence that this is prior coverage of the assigned result, or that either proof derives from the other. The distinct contribution relative to the verified prior literature is the depth-three bound resolving the threshold.",
+      "residual_risks": [
+        "The overlapping catalogue record's provenance is unresolved; catalogue dates do not settle priority.",
+        "The focused web search produced no additional result; this is not evidence of exhaustive historical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the witness and lower depths; does not cover depth three",
+          "evidence": [
+            "§6 explicitly says c_3(2) is undetermined and asks for the least depth.",
+            "Thm. 4.2 contains the same 16-leaf datum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14459",
+          "material_read": "v1 p. 2, Theorem 4.2 pp. 21–22, §6 p. 28",
+          "method": "OA PDF passage inspection",
+          "title": "Sharp Constants and Extremizers in Homogeneous Tree BMO",
+          "trigger": "Exact constant and motivating open problem"
+        },
+        {
+          "assessment": "Equivalent theorem; different proof formulation and unresolved provenance",
+          "evidence": [
+            "Same c_3(2)=1 and first amplification at four; 910 representative cases and 290 rows."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-the-first-amplification-depth-for-absolute-values-in-binary-tree--730d79821946",
+          "material_read": "Finding; certificate formulation",
+          "method": "Local Resultary search and local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first amplification depth for absolute values in binary-tree BMO",
+          "trigger": "Substantive equivalent Resultary match"
+        },
+        {
+          "assessment": "Norm comparison, no implication to folding proved by that theorem",
+          "evidence": [
+            "Sharp L1/L2 comparison on α-trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.00097",
+          "material_read": "Theorem 1.8, pp. 3–4",
+          "method": "OA PDF passage inspection",
+          "title": "Inequalities for BMO on α-Trees",
+          "trigger": "Potentially broader tree inequality"
+        },
+        {
+          "assessment": "Different averaging family",
+          "evidence": [
+            "Contractivity for the classical interval BMO seminorm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00144",
+          "material_read": "§5, Theorem 5.18, p. 17",
+          "method": "OA PDF passage inspection",
+          "title": "BMO on Shapes and Sharp Constants",
+          "trigger": "Nearby absolute-value contraction theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mohajer arXiv:2610.14459v1 §6",
+        "Frozen RESULT.md Proof"
+      ],
+      "rationale": "This is the exact missing case of a specifically posed extremal problem. The four-leaf scalar bound and the known depth-four failure do not settle the eight-leaf inequality. The result fixes the first failing depth and the sharp last contractive constant, not just a sampled or approximate bound.",
+      "residual_risks": [
+        "No new optimal depth-four value or general-arity conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

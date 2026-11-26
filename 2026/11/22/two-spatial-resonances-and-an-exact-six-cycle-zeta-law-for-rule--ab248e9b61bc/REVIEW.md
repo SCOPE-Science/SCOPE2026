@@ -1,19 +1,21 @@
-# Scientific review — exact temporal six-cycles of Rule 22
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full local space-time construction is a bijection for any labelled ring size. All cyclic strongly connected components of the time-height one, two, three and six graphs are reconstructed by `verify_transfer.py`, and the integer characteristic polynomial of each is checked by Newton identities. This gives the exact sixth-over-second determinant quotient and, by a formal trace identity, the all-length temporal six-orbit formula. Independent exhaustive direct Rule 22 simulations for every \(3\le n\le20\) confirm each computed fixed-return count. These finite experiments corroborate but do not replace the transfer proof.
+PASS
 
-## Originality — PASS (historical qualification)
+An anchored length-n closed walk on pairs of p-bit time histories enforces the exactly-one rule at every site and time. It determines a unique initial row fixed by F_n^p and conversely is determined by that row. Anchor and orientation are retained, so the trace counts labelled configurations, not rotation/reflection classes. A fresh bitwise reconstruction and Kosaraju decomposition gave the stated cyclic SCCs. The only branching block has 60 vertices, with 12 vertices of outdegree two within the block; all paths to the next such vertex have length five. The nonbranching vertices induce an acyclic graph, so eliminating them by the Schur complement reduces det(I−zA) on that block to the determinant of I minus the weighted branch adjacency with weights z^5 per path. Enumerating all 324 collections of disjoint directed branch cycles (including the empty collection), with sign minus per cycle, gives 1−6z^10+9z^20−4z^30=(1−z^10)^2(1−4z^10). All other cyclic components are simple cycles of lengths [1,2] at heights 1 and 3, [1,2,4] at height 2 and [1,2,4,8,8,8] at height 6. This independently gives both determinant identities, also reconfirmed via exact Newton identities in a separate reconstruction. The formal log derivative extracts all trace differences; fixed-by-1 is contained in fixed-by-3 and the trace equality makes them equal. Thus only fixed-by-2 must be subtracted from fixed-by-6 to count exact period six. The coefficients are 24 on multiples of eight, and 10(4^(n/10)+2) on multiples of ten, with addition on multiples of forty. Dividing by six counts temporal orbits and the table agrees. Replay: node /workspace/rule22-replay.js. The two supplied scripts were read, not executed; their bounded direct enumeration alone is not the all-length proof.
 
-McIntosh's earlier patterns and Martínez et al.'s \(n=8\) and \(n=10\) examples establish that these initial spatial resonances are **not** newly discovered. The claim concerns their complete labelled six-orbit population across **all** ring lengths and the new exact sixth-return determinant factors. The full accessible posted fourth-period and fifth-period Rule22 proofs have been compared, including their transfer blocks; neither implies this sixth-period calculation. General finite-seed theory treats a different domain. Unindexed historical monograph material could still contain a more general count, so absolute priority is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The sharply restricted spatial support \(8\mid n\) or \(10\mid n\), and the coexistence of a constant-size family with an exponentially growing family, constitute a natural complete temporal-period classification for a canonical chaotic elementary rule. Unlike a small-ring catalogue, the explicit zeta quotient proves all labelled counts and growth mechanisms.
+Credit the historical finite tables, the known period-six patterns, and the extended de Bruijn method. The distinct claim is the complete labelled, oriented, all-circumference period-six census and its exact determinant factorization for Rule 22; the independent check also proves the all-length absence of primitive period three, which was reported in the historical finite-table context. No priority claim is made for the existence of the smallest examples or for the general method.
 
-## Limitations
+## value
 
-No attraction basins, other least periods, spatial-symmetry quotients or infinite-ring transient behaviour are claimed. Independent external validation and fully exhaustive historical priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a complete exact temporal orbit census at a natural return time for a standard cellular automaton. It distinguishes a bounded population from an exponential one, accounts for their coexistence, and proves the omission of all other circumferences rather than extrapolating a finite cycle table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

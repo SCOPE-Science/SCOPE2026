@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:03.175834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The trace inverse on the constant-vector complement is strictly convex: along a nonzero symmetric variation H its second derivative is 2 tr(A⁻¹HA⁻¹HA⁻¹)>0 for positive definite A. The edge-to-Laplacian map is injective, the trace diverges at disconnection, and scaling to exhaust the budget improves the objective. Thus the minimizer exists, is unique, and is invariant under every original-vertex permutation, with positive spokes. The unsigned incidence Gram matrix (n−2)I+J yields one nonzero constant-block eigenvalue (n+1)y, n−1 two-dimensional blocks with trace nx+(n+1)y and determinant ny(2x+y), and m−n eigenvalues 2y; this includes n=3 and x=0. Summing reciprocal eigenvalues gives the stated A_n and C_n. On substituting y=B/[m(Pt+2Q)], the derivative is PA_n+C_n(P−4Q)/(2t+1)^2. It is positive for P≥4Q; otherwise it increases strictly to a positive limit. This gives the positive root or the unique boundary minimizer, including equality at 4C_n/(A_n+C_n). As a boundary cross-check, at x=0,y=1 the squared norm of L⁺ applied to an original-edge difference is 2(n+2)/n², obtained by eliminating the new-vertex coordinates. This agrees with the derivative of the trace formula per original edge. The cutoff reduces to n²−7n−6>0 at equal prices, equivalent to n≥8 for these integer sizes, and the exact ratio satisfies nr_c(n)→8. The supplied rational checker was read but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi formulate general all-pairs resistance optimization and establish strict convexity.",
+          "The clique-bouquet record explicitly deletes internal edges under a price condition, but for cliques meeting at one common hub and threshold 2N/(N−1)."
+        ],
+        "reasoning": "General optimization and symmetry supply the framework, not the two-orbit trace and its price threshold. T(K_n) shares clique edges across added triangles and is not a hub bouquet; the bouquet theorem does not subsume this family.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, equation (2) and §2.7",
+          "Resultary eaa2b980f9e3, resistance-optimal clique bouquets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Ghosh–Boyd–Saberi journal paper",
+        "Yang–Klein arXiv:1403.1851v1",
+        "Resultary eaa2b980f9e3, 6b01fb4d937e and 93a220470d32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior fixed unit value supplies no original-edge versus spoke sensitivity. Strict convexity identifies uniqueness from an optimizer but does not identify its support.",
+          "The frozen result computes the topology-specific inverse trace for every t=x/y, whose derivative determines the switch at 8(n+1)/(n²+n+2), including equality."
+        ],
+        "reasoning": "The exact frontier is not a substitution of the fixed unit index into the general theorem. It requires additional spectral or sensitivity analysis of this topology with the two independently priced edge classes.",
+        "searches": [
+          "Yang–Klein Theorem 4.3, fixed unit-resistor Kirchhoff index",
+          "Ghosh–Boyd–Saberi §2.7, strict convexity",
+          "Resultary 93a220470d32, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the subdivision of K_n plus the original edges, i.e. an auxiliary vertex for every original pair, not a planar triangulation, clique book, bouquet, or multipartite graph.",
+          "Yang–Klein use the same triangulation operation, but give a fixed unit-conductance index rather than an optimizer as a function of P/Q."
+        ],
+        "reasoning": "Changing the name of the topology does not change the claim, but fixed unit conductances evaluate the objective at x=y only and do not solve the price-dependent design.",
+        "searches": [
+          "Resultary: Kirchhoff-index optimization on triangulated complete graphs, incidence expansion / subdivided clique, priced original edges and spokes",
+          "Yang–Klein arXiv:1403.1851, triangulation definitions and Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The clique-book record gives equal-price deletion of a single spine in K_2∨(mK_s); it does not have one new vertex per pair of original clique vertices.",
+          "The distinct same-day complete-tripartite record gives deletion of one orbit at 24m/(15m−7) for K_{m,m,m}, not for T(K_n)."
+        ],
+        "reasoning": "Analogous deletion phenomena are not an exact match to the family or scalar frontier. No exact formula/table match for the frozen topology and price model was established in the bounded index comparisons.",
+        "searches": [
+          "Resultary: priced Kirchhoff support patterns and sharp shortcut deletion",
+          "Resultary 6b01fb4d937e and 93a220470d32"
+        ]
+      },
+      "rationale": "The supported distinct content is the two-priced, topology-specific optimizer and its sharp support frontier on T(K_n), not general Kirchhoff-index design, strict convexity, or an unweighted graph index formula. The strongest inspected exact-topology and priced-transition comparisons do not supply that frontier or mechanically imply it.",
+      "residual_risks": [
+        "A specialized unindexed weighted triangulation design or additional equivalent theorem could overlap; the bounded primary-text and index comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and strict convexity already known",
+          "evidence": "Fixed-total-conductance all-pairs problem and proof of strict convexity in edge weights; no matching topology-specific frontier in the compared sections.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+          "material_read": "p. 1 equation (2); p. 7 §2.7, locator offset 26427",
+          "method": "OA primary-text comparison",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General resistance-design and uniqueness theorem"
+        },
+        {
+          "assessment": "Exact topology, different design model",
+          "evidence": "Defines T(G) and unit-resistor convention, then computes its Kirchhoff index at those fixed conductances.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.1851",
+          "material_read": "v1 pp. 1–2 and §4 Theorem 4.3, p. 11, locator offset 34940",
+          "method": "OA primary-text comparison",
+          "title": "Resistance distance-based graph invariants of subdivisions and triangulations of graphs",
+          "trigger": "Exact triangulation operation and same invariant"
+        },
+        {
+          "assessment": "Closely related, not the same family",
+          "evidence": "Cliques attached at a common hub; deletion threshold d_i/c_i≥2N/(N−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-internal-edge-price-threshold-for-resistance-optimal-c--eaa2b980f9e3/RESULT.md",
+          "material_read": "RESULT.md Finding, graph and threshold",
+          "method": "Local-mirror statement comparison",
+          "title": "Universal internal-edge price threshold for resistance-optimal clique bouquets",
+          "trigger": "Unrestricted priced clique-based design with deletion"
+        },
+        {
+          "assessment": "Related deletion mechanism in a different topology",
+          "evidence": "Unique equal-price deletion of the hub-pair edge in K_2∨(mK_s).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-zero-spine-optimal-conductance-design-for-clique-books--6b01fb4d937e/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement comparison",
+          "title": "Zero-spine optimal conductance design for clique books",
+          "trigger": "Equal-price deletion of a direct clique edge"
+        },
+        {
+          "assessment": "Distinct result, not dismissed on date",
+          "evidence": "Complete tripartite graph K_{m,m,m}, with loss of the A-to-C orbit at P/Q≥24m/(15m−7).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-priced-complete-tripartite-resistance-design-has-an-exact-shortc--93a220470d32/RESULT.md",
+          "material_read": "RESULT.md Finding, exact graph and frontier",
+          "method": "Local-mirror statement comparison",
+          "title": "Priced complete-tripartite resistance design",
+          "trigger": "Same-day sharp priced shortcut deletion for the same objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact design decision for a standard graph transformation and a physical all-pairs objective. It identifies when all direct clique connections are useless even at equal edge prices, without disconnecting the network, and quantifies the transition on the 1/n price-ratio scale. The unrestricted optimizer, its support, and unique behavior at the exact threshold are useful beyond computing an index at a fixed allocation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

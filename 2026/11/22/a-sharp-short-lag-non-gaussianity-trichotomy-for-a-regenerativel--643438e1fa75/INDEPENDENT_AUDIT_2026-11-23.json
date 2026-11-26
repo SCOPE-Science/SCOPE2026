@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:43:15.011505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Physical cycles have positive mean duration d/(a+b); occupation weighting by d exp(−by) gives stationary age Exp(a+b). Stationarity yields EU_t=(a+b)t/(ad) and exact linear MSD. Conditional on initial age, lack of reset for u operational units has probability exp(−au), independently of that age. The physical clock consumed is (d/b)exp(−bY₀)(1−exp(−bu)), producing the stated truncated-power survival for H_t. After the first reset any age is ≤−log(1−η)/b for η<1; this bounds U_t−H_t by t/[d(1−η)] and the second-moment error by O(t²). The exponential tail gives finite second moments at short positive lags, then stationarity and Cauchy–Schwarz give finiteness at every fixed lag. For γ<1, changing to x=exp(−bu) and integrating −log(x) against d[(x/(1−x))^γ]/γ gives B(γ,1−γ)/(γb²); both boundary terms vanish. At γ=1 the tail integrand after removing 2η² is (1/b²u)+O(1) at small u; the lower cutoff is −log(1−η)/b and the below-cutoff integral is O(η²). For γ>1, stationarity, stochastic continuity and uniform integrability of the speed squares yield L² convergence of U_t/t to V₀ with second moment (a+b)/[d²(a−b)]. The exact conditional Gaussian fourth-moment identity supplies all three stated excess-kurtosis constants. The raw fourth moment, unlike normalized kurtosis, stays finite and tends to zero at short lag. The supplied VERIFICATION.md and checker.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chechkin et al. develop general Gaussian subordination framework and explicit short-time raw kurtosis in a diffusivity model with finite stationary second diffusivity moment.",
+          "Huang develops renewal and continuum-limit machinery, including a zero-interruption Zeno example and an MSD scaling analysis."
+        ],
+        "reasoning": "The Gaussian-mixture ratio and the finite-speed-second-moment principle are covered in substance; these do not evaluate the first-reset cutoff for an infinite-speed-second-moment law. Neither inspected antecedent supplies the sharp power and logarithm with constants.",
+        "searches": [
+          "arXiv:1611.06202v2 abstract and §III equations (57)–(59)",
+          "arXiv:2611.16383v1 §§4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2611.16383v1",
+        "arXiv:1611.06202v2 (PRX 7, 021002)",
+        "Resultary 643438e1fa75, b61b2d92b360 and ae147207556c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static Gaussian mixture would give an infinite fourth moment for γ≤1, whereas at every finite positive lag the first excursion is exponentially bounded in operational time.",
+          "The cutoff −log(1−η) in dimensionless operational time separates a β-integral from a critical logarithm; this comes from joint speed and reset dynamics, not the one-time speed tail alone."
+        ],
+        "reasoning": "The reviewed prior formulas account for the general mechanism and the moment-finite branch in principle but do not give the finite-lag regularization leading to the three-way classification.",
+        "searches": [
+          "arXiv:1611.06202v2 equations (57)–(59)",
+          "arXiv:2611.16383v1 §§4–5",
+          "RESULT.md equations (1)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalently the stationary dimensionless operational speed W=e^(bY) grows according to dW/dη=W² between jumps and resets to 1 with intensity γW in dimensionless physical time; its stationary survival is w^(−1−γ), w≥1.",
+          "Huang uses internal-state changes at jumps with state-dependent holding-time means; the inspected geometrically accelerating and MSD cases do not give this stationary speed/reset law. Chechkin et al. have a different evolving diffusivity."
+        ],
+        "reasoning": "The conditionally Gaussian displacement can be called diffusing diffusivity, but equal mixture form is not equal clock law: the reset intensity growing with speed and the stationary initial age are both essential to regularizing the lag integral.",
+        "searches": [
+          "arXiv:2611.16383v1 §§4–5 (internal renewal, geometric acceleration)",
+          "arXiv:1611.06202v2 §III (diffusing diffusivity, superstatistics)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "643438e1fa75 is the identical indexed record. b61b2d92b360 calculates static kurtosis of exponential-age porous-medium packets; ae147207556c treats long-time fluctuations of time-averaged quadratic displacement with Pareto renewals."
+        ],
+        "reasoning": "Neither separate match tabulates this lag-dependent normalized fourth moment or the same first-reset survival; identical indexing is not corroboration.",
+        "searches": [
+          "Resultary 643438e1fa75, b61b2d92b360 and ae147207556c"
+        ]
+      },
+      "rationale": "Pass for the stationary accelerated-clock short-lag trichotomy and exact constants, not for Brownian subordination, Gaussian-mixture moments, or geometric acceleration by themselves. The checked antecedents use different clock dynamics, a finite-speed-moment superstatistics example, or different kurtosis observables and time regimes.",
+      "residual_risks": [
+        "Older or differently named stationary renewal-clock and integrated-diffusivity work could contain equivalent asymptotics; this was a bounded statement-level comparison, not exhaustive priority verification.",
+        "No finite-mesh convergence from Huang's discrete walk is established or accepted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related origin; no clock equivalence in the inspected regimes.",
+          "evidence": [
+            "§4 addresses geometrically decreasing exponential waits and a Zeno case; §5 uses waiting means β(k+1)^(β−1)Δt to study MSD."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16383v1",
+          "material_read": "Abstract, §4 pp. 12–14 (offsets 42500–47464), §5 pp. 15–16 (offsets 48000–54426)",
+          "method": "OA original PDF passage inspection",
+          "title": "Continuous-Time Random Walks with Internal Stochastic Renewal Process",
+          "trigger": "Internal renewal and geometric acceleration were the model motivation"
+        },
+        {
+          "assessment": "Covers the generic moment method and specific finite short-time moments, not this power/logarithm transition.",
+          "evidence": [
+            "Short-time raw kurtoses are 9, 4, and 25/9 in dimensions 1, 2, and 3 for that model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.06202v2",
+          "material_read": "Abstract and §III, pp. 1, 7–9, offsets near 2600 and 50500–55045, equations (57)–(59)",
+          "method": "OA arXiv paper; APS endpoint returned 403 but the arXiv full text was accessible",
+          "title": "Brownian Yet Non-Gaussian Diffusion: From Superstatistics to Subordination of Diffusing Diffusivities",
+          "trigger": "Broadly equivalent Gaussian subordination and short-time kurtosis"
+        },
+        {
+          "assessment": "Static mixture, not a displacement-increment process.",
+          "evidence": [
+            "The objects averaged over exponential age are porous-medium packets, not accumulated Brownian operational times."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-kurtosis-identifiability-threshold-for-renewal-aged-por--b61b2d92b360",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Resultary lookup and original record mirror",
+          "title": "An exact kurtosis identifiability threshold for renewal-aged porous-medium packets",
+          "trigger": "Catalogue threshold for kurtosis in a renewal-age mixture"
+        },
+        {
+          "assessment": "Different fluctuation observable and long-time limit.",
+          "evidence": [
+            "The theorem concerns time-averaged quadratic displacement under Pareto renewals."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c",
+          "material_read": "Original Finding, mirror offset 0",
+          "method": "Resultary lookup and original record mirror",
+          "title": "A sharp Gaussian-logarithmic-stable trichotomy for renewal resetting",
+          "trigger": "Competing logarithmic renewal trichotomy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly linear MSD here coexists with divergent excess kurtosis even though each finite positive lag has a finite fourth moment. The sharp transition and the model-specific first-reset cutoff explain why the naive instantaneous-speed mixture fails and quantify the short-lag signal in all regimes. The power, logarithm and finite plateau are substantive, not just the standard statement that mixed Gaussian variances can be non-Gaussian.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

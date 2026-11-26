@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:42:54.091427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–27 and 33–89",
+        "Frozen VERIFICATION.md and VERIFY.py inspected, not executed",
+        "Independent endpoint algebra and full-matrix exact test cases with 1≤q≤p≤4"
+      ],
+      "rationale": "Connectivity and B>0 give positive definiteness on the whole feasible simplex. The log determinant has strictly negative second derivative in every nonzero gain direction, since it is minus the squared Frobenius norm of the conjugated diagonal direction. Thus the optimizer is unique; within-class permutation invariance forces common gains without imposing a restriction. The two zero-sum class subspaces and the constant-vector two-by-two block give the stated determinant even for a singleton class. On the budget line b=(B−pa)/(tq), the endpoint derivatives simplify to pQ(t)/[Bq(B+pqt)] and R(t)/[Bt(B+pq)], where R(t)=p²(B+q)t−(B+p)(B+pq). The denominators are positive. Q has a unique positive zero when B<q² and strictly positive values for all t>0 when B≥q², including B=q². Strict decrease of the derivative makes t_lo<t_hi, gives a unique interior root between the thresholds, and puts each threshold equality at its indicated endpoint. At t=1, Q(1)=B[B+q(p+1−q)]>0 and R(1)=B[p(p−q−1)−B], giving the inclusive cutoff and star corollary. Independently checking the endpoint expressions and matrix decomposition reproduces the example; a separate symbolic and exact finite comparison confirmed the identities and 30 full-matrix determinant cases. No finite check is used to infer an unrestricted parameter theorem.",
+      "residual_risks": [
+        "No independent rerun of the uploaded 6682-check suite; the proof and bounded independent comparisons address the decisive identities. No claim for nonunit bipartite edges, arbitrary vertexwise prices, or integer selection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al. give log-determinant design over affine constraints, including a continuous relaxation, but no two-price shunt phase diagram in the material checked. Joshi–Boyd discuss sensor frequencies and D-optimality in generic design.",
+          "The indexed D-optimal thresholds concern deleting rungs of a Möbius ladder or deleting a priced perfect matching among the original edges of K_{n,n}, not grounding either whole vertex class on a fixed K_{p,q}."
+        ],
+        "reasoning": "A generic optimization formulation determines how to pose the problem but does not give its exact support partition. Fixing all base bipartite edges and varying shunts gives a different reduced Laplacian variation than redistributing edge conductance within the original graph.",
+        "searches": [
+          "arXiv:1604.01116 §§4.1 and 4.4",
+          "10.1109/TSP.2008.2007095 D-optimal sensor frequency formulation",
+          "Resultary records 00e372929d94 and 1ae0e33a18ed"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0602575; DOI 10.1109/TSP.2008.2007095; arXiv:1604.01116 and 1511.02012",
+        "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, Stanford summary only: adjustable original edge weights and total pairwise effective resistance",
+        "Resultary ebfcf6b0163e, 00e372929d94, 1ae0e33a18ed, 3040bc2335f8, bd015dfc5cdd, and 623da493ba70 (Kirchhoff-index edge design on pineapple graphs)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established formulation yields log-det optimization and generic first order conditions. To get the present thresholds one still needs the two-block decomposition, the actual signed rational endpoint identities, the budget-dependent root count of Q, and the strict ordering of the two cutoffs.",
+          "With the same two-price graph in ebfcf6b0163e, the E-optimal transition is stated in terms of target rate p(1−√(α/β)); the A-optimal expressions for K_{2,q} and stars have cubic support conditions and can reactivate hubs."
+        ],
+        "reasoning": "A direct implication would require an objective-specific support theorem or explicit solution for the same Laplacian family. Neither generic tractability nor a deletion formula with different shunts or objectives establishes the stated classification.",
+        "searches": [
+          "arXiv:1604.01116 problem (P2)",
+          "Resultary ebfcf6b0163e, Finding and §7",
+          "Resultary 3040bc2335f8 and bd015dfc5cdd, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adding a virtual ground vertex makes L+diag(g) the reduced Laplacian. With cost c_i, π_i=c_i g_i/B and candidate shunt scale B/c_i, the budget becomes ∑π_i=1 and the exact objective has the MAXDET form (P2), regardless of the optimization semantics of discrete edge selection. The forest identity gives another equivalent determinant interpretation.",
+          "The indexed K_{p,q} pinning result uses exactly these gain variables and price classes, but maximizes λ_min rather than the product of eigenvalues. The A-optimal analogues minimize a sum of inverse eigenvalues."
+        ],
+        "reasoning": "The determinant and virtual-ground formulations are equivalent and credited. The smallest eigenvalue and trace inverse are not equivalent objectives, and their different thresholds cannot be reused as determinant thresholds.",
+        "searches": [
+          "Resultary exact matches for two-price bipartite grounding, D-optimal/weighted-tree design, A-optimal grounding and E-optimal pinning",
+          "arXiv:1604.01116 §4.4, problem (P2)",
+          "arXiv:math/0602575 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These mathematical records give exact cutoffs for distinct objectives or variables. The A-optimal star hub, for example, is ungrounded on a bounded middle-budget interval, unlike the one-sided D-optimal star cutoff."
+        ],
+        "reasoning": "The claim is an analytic all-parameter threshold, not a finite data entry. The precise matching criteria were checked in the relevant catalogue entries; their exact numbers do not transfer.",
+        "searches": [
+          "Resultary exact threshold searches, same-graph pinning ebfcf6b0163e, reentrant grounding 3040bc2335f8 and bd015dfc5cdd; same-objective edge design 00e372929d94 and 1ae0e33a18ed"
+        ]
+      },
+      "rationale": "The checked work covers the D-optimal framework, continuous determinant design, and several closely matching models with other objectives or differently assigned conductances. The explicit support diagram for unrestricted grounding on unit K_{p,q}, including both price thresholds, the disappearance of the low-price regime at B=q², and the equal-price budget cutoff, was not covered by the checked specific statements or their immediate implications. No originality is assigned to generic log-det concavity, symmetrization, tree-count interpretation, or standard endpoint optimality criteria.",
+      "residual_risks": [
+        "A bounded search and targeted primary excerpts cannot exclude a different published derivation of the K_{p,q} shunt support thresholds under virtual-ground terminology. Date labels were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers determinant interpretation, not allocation thresholds",
+          "evidence": "det(I+L) counts weighted rooted spanning forests.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602575",
+          "material_read": "Theorem 5, primary PDF p. 5, offset 13494",
+          "method": "Bounded arXiv PDF text",
+          "title": "Matrix-Forest Theorems",
+          "trigger": "Rooted-forest form of the exact objective"
+        },
+        {
+          "assessment": "Covers general D-optimal design formulation in the specified passage",
+          "evidence": "Repeated uses can be represented as normalized measurement frequencies under a log-det design objective; no particular bipartite shunt boundary is supplied there.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/sensor_selection.pdf",
+          "material_read": "Primary PDF p. 3, offset 19452",
+          "method": "Lawful author-hosted PDF passage",
+          "title": "Sensor Selection via Convex Optimization",
+          "trigger": "General D-optimal allocation theory"
+        },
+        {
+          "assessment": "Includes the relevant continuous MAXDET formulation at the level of optimization form; no specialized support solution in these passages",
+          "evidence": "Candidate edges contribute π_i times their reduced edge Laplacians, with 0≤π_i≤1 and ∑π_i=k in the relaxation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+          "material_read": "§4.1 p. 7, offset 18042; §4.4 pp. 10–11, offsets 27064–31471, Eqs. (21)–(22) and problem (P2)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Reduced-Laplacian weighted determinant design and its continuous relaxation"
+        },
+        {
+          "assessment": "Different spectral objective",
+          "evidence": "The optimization addresses the eigenvalue controlling pinning speed, not determinant.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.02012",
+          "material_read": "Primary PDF pp. 7–8, offset 19000",
+          "method": "Bounded public arXiv PDF text",
+          "title": "Enhancing speed of pinning synchronizability: low-degree nodes with high feedback gains",
+          "trigger": "Diagonal pinning gains and network resource allocation"
+        },
+        {
+          "assessment": "Strong model overlap but E-optimal",
+          "evidence": "The objective is maximization of the smallest eigenvalue; the two-price transition is in a target eigenvalue, with boundary p(1−√(α/β)).",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e",
+          "material_read": "Indexed Finding and §7 two-price result, offsets 0 and 8950",
+          "method": "Configured Resultary search and bounded mirror text",
+          "title": "Exact heterogeneous-price pinning on complete bipartite networks",
+          "trigger": "Same graph, independent diagonal gains and two prices"
+        },
+        {
+          "assessment": "A-optimal rather than D-optimal; different support patterns",
+          "evidence": "The star hub can reactivate at large budget. For K_{2,q} the trace-inverse hub test is q(q−1)(B/q)≥(B/q+2)^3.",
+          "identifier_or_url": "Resultary bd015dfc5cdd and 3040bc2335f8",
+          "material_read": "Both indexed Findings at offset 0",
+          "method": "Configured Resultary search and bounded mirror text",
+          "title": "Reentrant hub grounding in A-optimal noisy-star consensus; Reentrant optimal hub grounding on two-hub bipartite networks",
+          "trigger": "Almost identical graph/gain model and the same question about dropping a vertex class"
+        },
+        {
+          "assessment": "Different conductance variables or graph; not ignored on the basis of date",
+          "evidence": "The Möbius-ladder result removes rungs and the bipartite edge-design result removes original matching edges; neither optimizes virtual shunts on a fixed base graph.",
+          "identifier_or_url": "Resultary 00e372929d94 and 1ae0e33a18ed",
+          "material_read": "Both indexed Findings at offset 0",
+          "method": "Configured Resultary search and bounded mirror text",
+          "title": "Sharp rung-deletion prices and critical-scale D-optimality on Möbius ladders; Price-threshold deletion of a perfect matching in determinant-optimal edge design",
+          "trigger": "Explicit two-price support thresholds with the same determinant interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and budget-price classification",
+        "Resultary ebfcf6b0163e and bd015dfc5cdd for comparison to other objectives"
+      ],
+      "rationale": "The exact thresholds locate where a whole class goes unsupported in a natural determinant design over all independent gains. They distinguish small-budget two-sided support transitions from the high-budget disappearance of the low-price endpoint, and give a usable equal-price budget rule for stars and other unbalanced bipartite networks. This class-level support information is not supplied by an optimization routine or by analogous trace-inverse or eigenvalue designs.",
+      "residual_risks": [
+        "The result is model-specific; the interior optimum is specified by a scalar root and no cross-graph design rule is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

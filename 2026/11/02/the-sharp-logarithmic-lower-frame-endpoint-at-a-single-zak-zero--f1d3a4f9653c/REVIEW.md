@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim fixes the exact lattice, the deleted atom, the polynomial-logarithmic weights, and the quantifiers. Zak unitarity gives the precise weighted negative-Sobolev synthesis inequality. The duality argument explains why the constant subtracted in the Hardy estimate must equal the value at the sole zero; the two-dimensional \(r^{-2}\) singularity is otherwise not square integrable. Dyadic shell Bernstein estimates plus the adjoint discrete Hardy inequality prove the included endpoint. The explicit Dirichlet-block test family has logarithmic Sobolev norm squared \(o(N^3)\) for \(\beta<1\) but singular integral at least \(cN^3\), independently proving necessity. The Gaussian theta zero and Riesz–Fischer/lower-semi-frame equivalence are sourced premises, not newly invented computations. No finite experiment substitutes for an infinite proof.
+PASS
 
-## Originality — PASS within available evidence
+The lattice shift reduces deletion to index zero, and Zak unitarity turns synthesis into multiplication of a mean-zero polynomial by φ. The weighted negative Fourier norm dualizes to a point remainder: any representing function h satisfies φ̄h=ψ−d, and square integrability forces d=ψ(p) by the nonintegrable two-dimensional r^−2 singularity. Conversely subtract that constant and apply Cauchy–Schwarz to recover the synthesis inequality. In a spatial annulus of radius 2^−i the contribution of shell j is at most min(2^(j−i),1) times a_j=2^j‖ψ_j‖_2. The low-frequency part is bounded by convolution with a summable kernel; the high-frequency tail is the adjoint discrete Hardy inequality, giving the square cost Σ(1+j)^2 a_j^2. Monotonicity yields all β≥1. For β<1 the disjoint normalized frequency blocks all equal one at p, have real point remainders of the same sign, and lie in modulus below 1/2 on the relevant outer annuli once j≥i+K. Their weighted norm squared is o(N^3) while the annular remainder norm squared is bounded below by a constant times N^3, excluding the inequality. Completeness after deletion follows since an annihilator multiplied by φ̄ must be constant and 1/φ is not square integrable. The displayed point remainders divided by φ̄ give biorthogonals. For this complete minimal family, Riesz–Fischer is equivalent to Besselness of the biorthogonals; that Bessel bound gives the lower analysis bound by synthesis and completeness, and conversely the lower analysis bound applied to finite sums of biorthogonals gives their Bessel bound. The Gaussian expansion also checks directly by the Jacobi product: with q=e^−π and z=πξ−iπx only 1+q exp(2iz) vanishes in the cell; its derivative factor at p is −2π(u+iv), and the remaining prefactor is q^(1/4) times ∏_(ℓ≥1)(1−q^(2ℓ))^3, yielding the frozen coefficient.
 
-The closest published mathematical claim, *Sharp logarithmic asymptotics of critical Gaussian Gabor biorthogonals* (2026), establishes the individual dual-vector growth \(\|\gamma_\lambda\|_2^2\asymp\log(e+R)\) and explicitly declines any assertion of optimal weights. Together with Zikkos's 2026 sufficient summability criterion, it implies a lower semi-frame for this parameter family when \(\beta>1\), **not** at the critical \(\beta=1\), and proves no \(\beta<1\) obstruction. Hart et al. (2025) establish Zak exactness and kernel structure, not this endpoint. Targeted claim/equivalence searches did not reveal a matching implication or table. The 1999 Lyubarskii–Seip full text was unavailable; its abstract concerns sharp Nyquist-density Gabor summability in Hilbert scales, so equivalent hidden coverage remains an explicitly recorded risk rather than being declared absent.
+## originality
 
-## Value — PASS
+PASS
 
-A necessary-and-sufficient weight threshold answers which concrete polynomial-logarithmic weights actually realize the previously established lower semi-frame phenomenon. It recovers an endpoint excluded by the known sufficient biorthogonal-norm criterion and gives a structural single-simple-Zak-zero universality principle. The exact boundary is mathematically motivated by the critical two-dimensional Hardy inequality, not selected for a finite computation.
+Credit exactness and the simple-zero geometry, the existence of some positive weights, and sufficiency for β>1 in the Gaussian case to the verified antecedents and their combination. The distinctive result is the endpoint β=1 and matching necessity below it, with the sharp threshold extending to all windows with a quantitatively simple single Zak zero. The strongest inspected statements do not entail this distinction; overlap with equivalent critical logarithmic inequalities or uninspected portions of the Nyquist summability paper remains a qualified risk.
 
-## Limits and evidence
+## value
 
-The result treats one simple Zak zero and a specific radial weight family, not globally optimal arbitrary weights. References and complete proof are in RESULT.md; the fundamental published source articles were inspected in their relevant sections, while one closely relevant 1999 full text remained inaccessible. No independent mathematical audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp endpoint left undecided by the available individual-biorthogonal summability criterion. It distinguishes the harmonic divergence of that sufficient test from failure of a lower semi-frame, settles the converse with an explicit counterfamily, and identifies a transferable mechanism for every window with a single quantitatively simple Zak zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

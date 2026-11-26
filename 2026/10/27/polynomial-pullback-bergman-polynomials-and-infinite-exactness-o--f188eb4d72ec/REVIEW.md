@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof converts an unrestricted planar Bergman orthogonality problem to the polynomial trace \(T_s(w)=\sum_{P(\zeta)=w}s(\zeta)/P'(\zeta)\). A Laurent coefficient at infinity bounds the trace degree uniformly, and the polynomial area substitution formula supplies the exact norm, independent of branch points and connectivity. Disk moments and the polynomial capacity formula then give the least-squares equality constant. The standalone exact symbolic checker returned `CHECK_OK` for 130 fiber-trace comparisons. Finite checks supplement a general proof rather than certify an infinite claim.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Ransford's 2026 bound is prior, including its disk equality and asymptotic sharpness. Gustafsson–Putinar–Saff–Stylianopoulos's 2008 Proposition 7.2 is a genuinely covered special case \(P(z)=z^d-1\): it is expressly not claimed as new. Simanek's 2014 work covers general polynomial lemniscates asymptotically but does not supply the finite all-degree exact transfer identity. Targeted mathematical search results did not reveal the general arbitrary-\(P\) formula; an older representation through trace or proper-map Bergman theory may exist and remains the primary priority risk. The available evidence warrants only best-knowledge priority, not a proof of uniqueness.
+PASS
 
-**Value — PASS.** The entire natural family of polynomial inverse-disk compacta, regardless of connectedness, saturates a newly motivated capacity inequality at infinitely many degrees. Explicit minimizers and a transfer identity for arbitrary target sets make this more than a one-off equality example. The result does not describe exceptional nonmultiple degrees or all equality sets.
+For a regular value w, partial fractions identify the z^{-1} coefficient at infinity of s(z)/(P(z)−w) with the sum of s(ζ)/P′(ζ) over the fiber; the polynomial part contributes nothing. Expanding in w, the term of index j is s(z)/P(z)^{j+1} times w^j. With deg s≤d(m+1)−2, all j≥m are O(z^{-2}); the trace is polynomial of degree <m, identically zero for m=0. The real Jacobian |P′|² leaves precisely this trace when testing against P′ Q_m^E(P)/d. Critical values are a finite null set, and the area formula is valid for Borel targets without boundary hypotheses. It also gives d regular preimages a.e. and the squared norm factor d/d²; boundedness and positive area follow from properness and that same area formula. Positive definiteness proves uniqueness. For the disk the monomial w^{k−1} has squared norm πR^{2k}/k in dx dy, hence the unique monic derivative divided by n=dk is P′P^{k−1}/d. Integration gives exactly P^k+c and the squared derivative minimum πnR^{2k}. The exterior Green function gives cap=R^{1/d}, including disconnected or critical-level lemniscates. The proof includes degree one and m=0 (vacuous testing if the Bergman degree is zero). Inspected but did not run verify.py; an independent check via direct rational simple-fiber sums and reciprocal Taylor coefficients (python3 reproductions/frozen_math_checks.py, pullback) passed 60 finite comparisons, which do not establish the universal result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass on the arbitrary-positive-area Borel target transfer with its stated degree and norm, together with its general equality application. Credit prior exact rotationally symmetric lemniscates and the prior capacity inequality. The disk-target corollary is not distinct from the filled-disk specialization of a later mirrored annular-lemniscate result. No inspected evidence covers the full arbitrary-target statement.
+
+## value
+
+PASS
+
+The identity transfers a uniquely determined full Bergman minimization, not just orthogonality in a restricted subspace, across arbitrary positive-area targets. It explains sharpness of a motivated capacity bound on a natural infinite-degree equality class, including disconnected and noncircular examples, with explicit equality conditions for the minimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

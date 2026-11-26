@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:53:35.027297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed k, small and large positive constant vectors are strict sub- and supersolutions, using double stochasticity, slopes (2,2,4) at zero and bounded recruitment. Monotone iteration and strict subhomogeneity (scaling one positive fixed point to first contact with another gives a strict inequality) give a unique positive equilibrium; primitivity makes every nonzero orbit positive after finitely many steps, and the two monotone iterations trap it. At perfect mixing the total 3 gives x0=(2/3,1,4/3), a=(2/9,1/2,4/9) and 1−a·v=11/18. The Jacobian I−diag(a)v1ᵀ is invertible, and the positive local IFT branch is the unique positive equilibrium for D^k near P. Differentiating and summing gives aᵀ(D^k−P)x0/(1−a·v) with error O(||D^k−P||²). On the zero-sum plane 2D=I+C satisfies (I+C)^3=−I, from C^3=I and I+C+C²=0 there. Exact iteration on b=x0−(1,1,1) gives the six scaled numerators 4,−1,−5,−4,1,5 divided by 33. Since the norm error is O(4^−k), signs are eventual and strict in each specified class. With two habitats D^k−P=λ^k(I−P), λ real, so an analytic noncritical response is either locally constant or has a first nonzero monomial, giving only constant or parity signs (λ=0 is exact mixing). Independent replay: python3 /workspace/independent_checks.py 1; 27 numerical signs are diagnostic, not the proof of an onset or of infinitely many switches.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bravo's Theorem 1 applies to Eq. (11), and the §3 criterion explicitly says convergence does not determine which side finite k lies on at equality.",
+          "Resultary 0d23b062c337 gives a policy-uniform upper bound K* attained at an optimally chosen rank-one matrix."
+        ],
+        "reasoning": "Neither convergence nor an optimal-policy ceiling resolves the sign around the isolated carrying-capacity total for the prescribed powers.",
+        "searches": [
+          "Bravo de la Parra, Theorems 1–2 and equality case, DOI 10.3390/math14193624",
+          "Resultary: Sharp adaptive-dispersal population ceiling for Beverton–Holt patch networks"
+        ]
+      },
+      "checked_sources": [
+        "10.3390/math14193624",
+        "10.1016/j.jtbi.2025.112331 (primary text unavailable)",
+        "10.1007/s00285-023-01984-8",
+        "Resultary 62355f0e64e2 (self), c0a5c849bd97, 0d23b062c337"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bravo gives the limit but not a sign from convergence at equality; one needs the nonzero directional derivative and its phase.",
+          "Grumbach et al. establish two-patch rate-response types. Segura et al. are reported to vary migration intensity; this is a provisional comparison because full text was not recovered independently."
+        ],
+        "reasoning": "Contrast an eventual periodic sequence of equilibrium signs under integer iteration with either a convergence theorem or intensity-dependent changes across different migration matrices.",
+        "searches": [
+          "10.3390/math14193624 §3 p. 9",
+          "10.1016/j.jtbi.2025.112331",
+          "10.1007/s00285-023-01984-8 abstract and Eqs. (1)–(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-point derivative at v1ᵀ applied to the decaying complex eigenmodes gives the same comparison as the residue formulation.",
+          "Grumbach et al. use a one-step dispersal probability δ, not powers of one fixed D. The exact catalogue match is the assigned record itself."
+        ],
+        "reasoning": "A one-step parameter sweep need not reproduce the phases of a fixed directed matrix power or their nonzero response pairing.",
+        "searches": [
+          "Resultary: repeated dispersal fixed matrix nonlinear equilibrium finite k transient six-phase",
+          "10.3390/math14193624 §3; 10.1007/s00285-023-01984-8 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "62355f0e64e2 is the identical record, not an independent antecedent. c0a5c849bd97 has the exact inequality Λ(2)>Λ(8) for linear continuous-time seasonal growth."
+        ],
+        "reasoning": "That exact example concerns another observable and timescale, not the six equilibrium coefficients.",
+        "searches": [
+          "Resultary: repeated three-habitat carrying capacity six-phase asymptotic",
+          "Resultary: exact two-season nonmonotonic growth in a minimal three-patch metapopulation"
+        ]
+      },
+      "rationale": "The supported increment is the fixed-D, integer-k sign sequence at equality in the perfect-mixing benchmark, including its six nonzero coefficients and dimension obstruction. The closest same-model paper expressly leaves the finite-k direction at equality unresolved. Neither a varied rate in a different family nor a rank-one optimal-bound result settles this. This is not a priority claim for the Beverton–Holt model, the implicit function theorem, or multiple biomass crossings under varied intensities.",
+      "residual_risks": [
+        "The primary multiple-crossing passage in Segura–Marvá–Franco was not recovered; a stronger result in that work or other asymptotic literature is not ruled out.",
+        "No claim of global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and limiting comparison covered; the inspected theorem does not give the claimed law at equality.",
+          "evidence": "In the equality case, however, convergence alone does not determine whether the realized total lies above or below the benchmark for finite k.",
+          "identifier_or_url": "https://doi.org/10.3390/math14193624",
+          "material_read": "Publisher PDF, p. 6 Eq. (11) and Theorem 1; §3 p. 9 equality case",
+          "method": "Lawful publisher asset mathematics-14-03624.pdf; offsets 28130 and 40980",
+          "title": "Dispersal and Total Population Size in Discrete-Time Metapopulation Models",
+          "trigger": "Same G(D^k x) model and benchmark"
+        },
+        {
+          "assessment": "Possible overlap not fully assessed. The available description concerns a varied intensity.",
+          "evidence": "Frozen comparison identifies the varied migration intensity as the control, not the integer repetition count.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2025.112331",
+          "material_read": "DOI redirect; frozen RESULT lines 67 and 76 describing §3; no independent primary passage",
+          "method": "DOI and publisher page/PDF access attempts",
+          "title": "Dispersal in multi-patch metapopulation models: The impact of patch number and network topology",
+          "trigger": "Closest plausible multipatch crossing result"
+        },
+        {
+          "assessment": "Relevant earlier rate effects; different control family.",
+          "evidence": "The discrete-time two-patch Beverton–Holt model uses the one-step dispersal rate δ.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01984-8",
+          "material_read": "Springer PDF p. 1 and §2 p. 5 Eqs. (1)–(2)",
+          "method": "OA PDF passage inspection",
+          "title": "The effect of dispersal on asymptotic total population size in discrete- and continuous-time two-patch models",
+          "trigger": "Same demographic response comparator in two-patch systems"
+        },
+        {
+          "assessment": "Different linear dynamical quantity and independent variable.",
+          "evidence": "Λ(2)>Λ(8) for the principal Floquet growth exponent when the environmental period varies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-two-season-nonmonotonic-growth-in-a-minimal-three-patch-me--c0a5c849bd97/RESULT.md",
+          "material_read": "Finding and start of scope, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact two-season nonmonotonic growth in a minimal three-patch metapopulation",
+          "trigger": "Fixed directed three-cycle and minimum-patch phenomenon"
+        },
+        {
+          "assessment": "Upper envelope over policies, not signed deviations for fixed-matrix powers.",
+          "evidence": "A single optimal rank-one allocation attains K*=B/q−C.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-adaptive-dispersal-population-ceiling-for-beverton-holt-pa--0d23b062c337/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp adaptive-dispersal population ceiling for Beverton–Holt patch networks",
+          "trigger": "Same recruitment and carrying-capacity comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-k direction matters precisely where the established limiting comparator is indecisive. An exact network with infinitely many strict sign switches despite convergence, and a sharp dimension requirement for that particular sign pattern, show a qualitative limitation of inferring benefits from fast mixing. The switches compare distinct systems and their magnitude tends to zero; no ecological field effect or oscillating trajectory is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

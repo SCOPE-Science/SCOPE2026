@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:52:20.031274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially steps 3–4",
+        "Repaired RESULT.md and VERIFICATION.md in /workspace/repairs/4/",
+        "Frozen verify.py, including the bounded optimizer search and exact small-torus trace calculation"
+      ],
+      "rationale": "The frozen optimizer localization is not justified: the two axial lower bounds and the O(log n) normalized trial cost give only t_n=O(log n) and t_n=Ω(1/log n), not a fixed compact interval for differentiating the compact-uniform Green-function expansion. The repaired proof uses strict convexity in u=Pt/(Pt+Q), where the weighted Laplacian is affine, and positive-definite trace inverse strictly convex. Fixed tests at a<t_0<b both have strictly larger leading costs than t_0, and convexity traps the true optimum between them. An arbitrary bracket yields convergence, and a fixed bracket licenses uniform differentiation. The repair also distinguishes the two endpoint layers: each contributes A(t)[coth(π√t m)−1]/(2m), not the combined contribution; with m=min(j,n−j) the bound O_K((1+m)^2 exp(−c_K m)/m) holds through two derivatives. Reconstructing the resolvent by the Poisson kernel, subtracting the singular endpoint model, and summing the exponential correction verifies A(t)=1/(2π√t) and the displayed C(t). Stationarity and g''(t_0)=P/(4πt_0^(3/2)) give shift coefficient −4πt_0^(3/2)[C(t_0)+2t_0C'(t_0)], which simplifies to the displayed κ. The leading cost changes quadratically in the shift, so the trace constant is 2QC(t_0). Strict convexity and edge-class symmetry still handle unrestricted allocations and n=3; deleting a whole edge class disconnects, P=Q is exactly symmetric, and the unordered pair sum is n² times the trace. The corrected final proof retains the original theorem and requires no numerical certification. The supplied verifier was inspected, not executed.",
+      "residual_risks": [
+        "The numerical search in verify.py is confined to a prescribed range and is not evidence of asymptotic localization. The bracket proof supplies that step.",
+        "No new test replay or formal proof-assistant certificate. Prices and budget must be fixed and positive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unweighted comparisons in Rossi–Frasca–Fagnani give the leading logarithm at unit fixed weights. Cserti develops fixed infinite-lattice point-to-point formulas. Liu arXiv:2604.14192 analyzes finite anisotropic grids with boundary reflection, not the periodic toroidal trace.",
+          "Izmailian–Huang treat a genuinely same-type periodic anisotropic lattice, but §III B eqs. (30)–(32) use the parity-restricted point-pair observable, and Appendix A resolves twisted sums for that context."
+        ],
+        "reasoning": "A fixed-network asymptotic for maximally separated pairs, or a fixed unweighted logarithm, does not directly give uniform two-term asymptotics for the untwisted trace and derivatives on a priced optimizer path.",
+        "searches": [
+          "anisotropic square torus effective resistance conductance optimization directional prices logarithmic finite-size correction trace pseudoinverse",
+          "Izmailian Huang exact asymptotic two point resistance finite rectangular periodic toroidal resistor network anisotropy aspect ratio Green constant trace",
+          "arXiv:1309.2172",
+          "arXiv:cond-mat/9909120v4"
+        ]
+      },
+      "checked_sources": [
+        "10.1137/050645452",
+        "arXiv:1309.2172, cond-mat/9909120v4, 1005.1434 and 2604.14192v1",
+        "10.1088/1751-8121/ad79cc (abstract/attempted full text)",
+        "Resultary 47a3f2d5bfca and 58e191d42f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n even, the half-diagonal resistance in Izmailian–Huang has numerator 1−(−1)^(j+k) in the spectral sum. The trace sum includes the even-parity modes as well and excludes only the zero mode. Their twisted expansions address the weighted parity components, not directly the target's untwisted zero-mode-deleted sum. The endpoint asymptotic technique is related and credited.",
+          "The D-optimal record mentions earlier resistance-optimal square tori generically, but attaches no resistance reference or alternate formula in the inspected discussion or references. This could refer to the present result and does not independently establish coverage."
+        ],
+        "reasoning": "Differentiable fixed-anisotropy trace coefficients in the exact target normalization would make the subsequent stationary expansion relatively direct. None of the inspected primary statements provides those coefficients with the needed scope, or supplies the specific optimized theorem by direct substitution.",
+        "searches": [
+          "arXiv:1005.1434 §III B eqs. (30)–(32), Appendix A eq. (A5)",
+          "arXiv:1309.2172 pp. 7–8",
+          "Resultary 47a3f2d5bfca, Relationship to prior work at offset 9200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kirchhoff index equals n² times the trace, so optimizing either is the same question. Ghosh–Boyd–Saberi pp. 38–39 supply the convex allocation framework and uniqueness for a total-conductance budget; affine price budgets permit the analogous convex reduction.",
+          "The Resultary D-optimal torus 47a3f2d5bfca uses the weighted spanning-tree enumerator, i.e. a log determinant, rather than trace inverse."
+        ],
+        "reasoning": "Equivalent normalization of the target and alternative allocation coordinates do not recover the result from determinant optimization. General convex methods do cover the base argument, not its specific finite-size expansion.",
+        "searches": [
+          "priced resistance-optimal square torus horizontal vertical conductance ratio logarithmic correction",
+          "square torus Kirchhoff index priced horizontal and vertical conductances optimizer trace expansion",
+          "Ghosh–Boyd–Saberi, nonnegative weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "47a3f2d5bfca has the same direction-wide price model but maximizes spanning trees in a growing price regime. 58e191d42f66 has a two-term resistance-optimal trace for C_n×K_2 and a power-law rung ratio. Neither table/formula pertains to the claimed fixed-price square-torus drift.",
+          "10.1088/1751-8121/ad79cc is highly plausible fixed-network lattice Green-function literature. Only abstract/landing material was accessible; the DOI and lawful repository recovery did not provide readable full text."
+        ],
+        "reasoning": "No numerical table is needed to decide the displayed symbolic κ. The closest exact indexed formulas are for other objectives or geometries. The inaccessible fixed-network paper is a residual risk, not negative evidence.",
+        "searches": [
+          "square torus Kirchhoff index priced horizontal and vertical conductances optimizer trace expansion",
+          "square periodic lattice torus anisotropic reciprocal Laplacian eigenvalue sum asymptotic constant Dedekind eta Green function massless pseudoinverse trace Kirchhoff index explicit weighted anisotropy lattice sums",
+          "Resultary 47a3f2d5bfca and 58e191d42f66"
+        ]
+      },
+      "rationale": "For the repaired final claim, the general conductance optimization framework and classical fixed-network toroidal Green-function asymptotics are antecedents. The same-geometry indexed determinant-optimal design has a different objective and price scaling; the same-objective indexed prism design has only one growing cycle. No inspected matching result supplies the compact-differentiable untwisted trace asymptotic and its fixed-price optimizer drift on the unrestricted square torus. Credit is limited to the explicit drift and optimized trace, not independent novelty of the Green-function constant, convex uniqueness, or symmetry reduction.",
+      "residual_risks": [
+        "Specialized historical Green-function papers may treat the same fixed-anisotropy constant with differentiable errors. The named unavailable 2024 torus paper and the generic cross-reference do not settle this. No absolute priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Base convex allocation theorem, not priced torus drift.",
+          "evidence": [
+            "Minimize R_tot with nonnegative conductances and sum g=1; existence and uniqueness; trees, wheels, barbells among examples."
+          ],
+          "identifier_or_url": "10.1137/050645452",
+          "material_read": "pp. 38–39, budget and uniqueness passage around offset 5000",
+          "method": "Author-hosted OA PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General graph conductance optimization and uniqueness"
+        },
+        {
+          "assessment": "Fixed unit weights, not directional parameter, optimizer or drift.",
+          "evidence": [
+            "R_ave=(1/N)∑_{i≥2}1/λ_i and R_ave∼(log N)/(4π) for comparable sides."
+          ],
+          "identifier_or_url": "arXiv:1309.2172",
+          "material_read": "pp. 7–8, spectral expression and comparable-side limit",
+          "method": "OA arXiv paper",
+          "title": "Average resistance of toroidal graphs",
+          "trigger": "Leading logarithm for toroidal trace"
+        },
+        {
+          "assessment": "Related coth/endpoint asymptotics of twisted, parity-restricted sums for a fixed point pair; not the optimized zero-mode-deleted trace.",
+          "evidence": [
+            "Half-diagonal numerator 1−cos(Mθ_m+Nφ_n)=1−(−1)^(m+n); periodic point-pair sum decomposed into two twists."
+          ],
+          "identifier_or_url": "arXiv:1005.1434; 10.1103/PhysRevE.82.011125",
+          "material_read": "Periodic-boundary §III B, eqs. (30)–(32), offsets 26610–29390; p. 10 scope and Appendix A equations (A1), (A5), offsets 56368 and 59600 onward",
+          "method": "OA arXiv paper, bounded formula inspection",
+          "title": "Asymptotic expansion for the resistance between two maximally separated nodes on an M×N resistor network",
+          "trigger": "Anisotropic fixed torus and explicit constant expansions"
+        },
+        {
+          "assessment": "Could bear on fixed-network C(t); not used as evidence of absence.",
+          "evidence": [
+            "Accessible abstract describes discretization error for the flat torus and its regular square lattice."
+          ],
+          "identifier_or_url": "10.1088/1751-8121/ad79cc",
+          "material_read": "Abstract/landing scope only; no readable full text",
+          "method": "Lawful DOI and same-paper repository recovery",
+          "title": "Laplacian operator and its square lattice discretization: Green function vs. lattice Green function for the flat 2-torus and other related 2D manifolds",
+          "trigger": "Exact periodic discrete Green function"
+        },
+        {
+          "assessment": "Fixed finite network and boundary/mirror calculations, not the periodic trace optimizer in inspected passages.",
+          "evidence": [
+            "Point-to-point formula and boundary reflection, with separate numerical corrections."
+          ],
+          "identifier_or_url": "arXiv:2604.14192v1",
+          "material_read": "Abstract and p. 2 finite-grid boundary passage",
+          "method": "OA arXiv paper",
+          "title": "Closed-Form Analytical Solution for Effective Resistance in Finite 2D Anisotropic Resistor Grids via Jacobi Theta Functions",
+          "trigger": "Finite anisotropic Green functions"
+        },
+        {
+          "assessment": "Different objective and price scaling; unreferenced generic comparison to resistance-optimal tori does not establish another match.",
+          "evidence": [
+            "Optimizes weighted spanning trees at Q=κn, with n^−2 law and n^−3 correction."
+          ],
+          "identifier_or_url": "Resultary 47a3f2d5bfca",
+          "material_read": "Finding, plus Relationship to prior work and references from offset 9200",
+          "method": "Local indexed mirror",
+          "title": "A linear price crossover in D-optimal conductance allocation on square tori",
+          "trigger": "Same graph and linear directional prices"
+        },
+        {
+          "assessment": "Different growing geometry.",
+          "evidence": [
+            "C_n×K_2 with ratio of rung-to-ring conductance of order n^−2/3."
+          ],
+          "identifier_or_url": "Resultary 58e191d42f66",
+          "material_read": "Finding at offset 0",
+          "method": "Local indexed mirror",
+          "title": "Mesoscopic rung allocation in resistance-optimal prism networks",
+          "trigger": "Same trace optimization with directional prices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof §4",
+        "General graph design baseline and fixed periodic pair-resistance comparison"
+      ],
+      "rationale": "The natural design objective asks which direction to favor when conductance costs differ, with every edge independently available for investment. The leading optimum splits expenditure equally between directions, but the explicit κ resolves a systematic slow finite-size deviation and quantifies its dependence on price. The second trace term supplies a comparably precise attainable performance benchmark. Neither is a rephrasing of the leading-log fixed-network bound.",
+      "residual_risks": [
+        "No varying-price asymptotic, alternative objective, or rectangular-torus claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

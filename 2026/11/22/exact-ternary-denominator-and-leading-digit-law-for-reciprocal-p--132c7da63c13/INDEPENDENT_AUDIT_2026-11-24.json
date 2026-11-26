@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:14.789378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–59",
+        "Frozen checker.py lines 5–81 and VERIFICATION.md line 21 (finite replay: python3 checker.py from the record directory)"
+      ],
+      "rationale": "For n prime to 3 the geometric difference quotient gives U_n/n congruent to (-1)^(n-1); tripling n multiplies U_n by exactly 3 times a unit congruent to 1, since a^m=(-1)^m(1+3t) gives the factor 3(1+3t+3t^2). This proves both the term valuation and its normalized unit. Scaling the finite prefix by 3^(hr) kills all lower layers. At n=3^r the surviving unit is 1, and at n=2·3^r it is -2=1 mod 3. The d surviving terms therefore give d, nonzero for d=1,2, including r=0 and at jumps N=3^r. This proves the denominator and digit for all stated a,h,N. The a=4 example is outside the theorem; at N=2 it violates integrality under the claimed r=0 normalization. The supplied finite tests were inspected, not run or used as proof.",
+      "residual_risks": [
+        "The proof is restricted to full prefixes, a≡−1 mod 3, and positive integral h. The finite checker does not by itself prove uniformity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaber's inspected results treat ordinary and alternating infinite tails for powers one and two. The generalized Jacobsthal fiber theorem restricts its primes to p≥5 and the base to a primitive root."
+        ],
+        "reasoning": "Neither provides a stronger theorem about reciprocal sums from which this prime-three, all-h finite law follows.",
+        "searches": [
+          "Primary literature search on Jacobsthal reciprocal denominator and Lucas valuation laws",
+          "Resultary 987cbad182a0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed records 132c7da63c13, 62b53b6d7002, 987cbad182a0",
+        "arXiv:2207.12857v1",
+        "Frozen RESULT.md lines 20–57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard LTE gives v_3(U_n)=v_3(n); the frozen proof additionally establishes U_n/n modulo 3 and checks both maximal-depth indices."
+        ],
+        "reasoning": "A valuation-only statement does not control cancellation of two terms at the same depth. The signed unit and its use in the sum are essential; an unsigned harmonic power sum at odd h in fact has cancellation at that tie. No inspected prior theorem gives the stated joint law as a parameter substitution.",
+        "searches": [
+          "Gaber arXiv:2207.12857v1 §§1–2",
+          "Standard lifting-the-exponent identity applied to (a+1)U_n(a)",
+          "Resultary 62b53b6d7002 and 987cbad182a0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit 132c7da63c13 is the frozen item itself. Record 62b53b6d7002 and Gaber both treat inverse infinite tails."
+        ],
+        "reasoning": "A real floor or bound for an inverse infinite tail is not a congruence for the reduced finite prefix, even at the shared standard Jacobsthal base.",
+        "searches": [
+          "Resultary: generalized Jacobsthal finite reciprocal sums, exact 3-adic denominator, ternary leading digit",
+          "arXiv:2207.12857v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact record match: 132c7da63c13; distinct nearby records inspected: 62b53b6d7002 and 987cbad182a0."
+        ],
+        "reasoning": "The exact hit is the item under review, while the other entries index different invariants. A table of Jacobsthal terms would not be a table of these reduced-prefix invariants across a,h,N.",
+        "searches": [
+          "Resultary semantic search on finite-prefix valuation and leading units (including the generalized-base formulation)"
+        ]
+      },
+      "rationale": "The inspected prior statements concern real inverse tails, term valuations, or fibers of individual terms. None covers the exact joint finite-prefix valuation and normalized digit across the stated bases and powers. The elementary term valuation by itself does not resolve the tie between two maximal-depth summands.",
+      "residual_risks": [
+        "An unindexed general theorem on valuation and units of finite reciprocal sums could cover the result. The comparison does not certify bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the finite-prefix law",
+          "evidence": "The introduction limits its sums to infinite ordinary and alternating tails and their squares; the inspected theorems bound reciprocals of those tails.",
+          "identifier_or_url": "https://arxiv.org/html/2207.12857v1",
+          "material_read": "Abstract and §1; Theorems 2.1–2.2 including continuation, extracted characters 0–11196",
+          "method": "Lawful OA arXiv full-text passages",
+          "title": "On the reciprocal sum of Jacobsthal numbers",
+          "trigger": "Closest primary work on the same reciprocal sequence"
+        },
+        {
+          "assessment": "Different arithmetic invariant and range",
+          "evidence": "Real inverse of the infinite reciprocal-square tail of standard Jacobsthal numbers, with exact floor and error formula.",
+          "identifier_or_url": "Resultary 62b53b6d7002",
+          "material_read": "RESULT.md from offset 0, statement and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact inverse-tail floors for reciprocal squares of Jacobsthal numbers",
+          "trigger": "Strongest distinct reciprocal-family index hit"
+        },
+        {
+          "assessment": "Does not cover the claim",
+          "evidence": "Counts residue fibers of individual terms under p≥5 and a primitive-root hypothesis, not a reciprocal-prefix sum; prime 3 is excluded.",
+          "identifier_or_url": "Resultary 987cbad182a0",
+          "material_read": "RESULT.md chars 0–4782",
+          "method": "Local Resultary mirror",
+          "title": "Exact prime-power fiber spectrum for generalized Jacobsthal sequences",
+          "trigger": "Distinct same-date indexed result on the generalized sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–15 and 43–59"
+      ],
+      "rationale": "The exact reduced denominator at 3 and the next unit digit are natural arithmetic invariants of finite reciprocal prefixes. The uniform no-cancellation result is useful precisely when two summands attain the minimal valuation, a regime where the analogous ordinary harmonic power sums can cancel. It gives both invariants for every positive power and permitted base without computing the large reduced fraction. Its contribution is elementary and prime-specific, not a general theory of reciprocal sums.",
+      "residual_risks": [
+        "The exact first digit is not a calculation of higher digits or the prime-to-three denominator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

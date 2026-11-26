@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:20:02.491098Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–94",
+        "Li–Zhang arXiv:2608.21556v1 pp. 1–2, gluing criterion compared with its separate existence claim",
+        "VERIFICATION.md and verify_ci_asympt.py (inspection only)"
+      ],
+      "rationale": "For the three-generated CI gluing, write U=<b,c> and S=aU+dN_0. Since d is in U and gcd(a,d)=1, the least element in each residue class modulo d is a times the corresponding least representative from U, with residue permuted by a. This gives F=a(bc-b-c)+(a-1)d. If m=d, use a>=m/b and bc-b-c>=b^2-b-1 to get m[b+(m-1)/b-2]>=2m sqrt(m-1)-2m. If m=ab, then d>=m and the bound is m(a+b-2)-a>=2m sqrt(m)-(5/2)m, since b>=2. For the upper bound take b=floor(sqrt(m)), c=b+1. For m>=4, m exceeds the two-generator Frobenius number and both minimal generators, so it is a nonminimal positive element of U. A coprime a>m/b yields a valid minimal gluing with multiplicity m. Inclusion–exclusion over squarefree divisors loses at most 2^omega(m), whereas (4^omega(m)+1) phi(m)/m exceeds that loss. The factorial lower bound on the product of distinct prime divisors gives 4^omega(m)=m^{o(1)}, hence the witness has a,b~sqrt(m) along all m and the Frobenius ratio tends to 2. The lower bound matches and symmetry gives g=(F+1)/2 pointwise and for the minima. At m=4 the claimed class is nonempty (for instance <4,6,9> is the gluing with a=3,b=2,c=3,d=4).",
+      "residual_risks": [
+        "The proof uses classical CI gluing and CI symmetry, not the conflicting separate realizability assertion in Li–Zhang v1. Finite checks of Apéry numbers, coprimality windows and small gluings do not establish uniform asymptotics. No exact minimum at a specified m is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected fixed-multiplicity and embedding-dimension algorithms optimize over all numerical semigroups, not just CI. The unrestricted g(5,3)=6 example lists <5,6,8> and <5,6,7>, both with F=9, so neither is symmetric. Full text of the named 2012 paper was not obtained."
+        ],
+        "reasoning": "An unrestricted optimum is not in general a constrained optimum and does not establish a sharp CI constant; the class difference is demonstrable already in the examples. The uninspected 2012 text is an explicit residual risk.",
+        "searches": [
+          "García-García et al. arXiv:1712.05220v1 §§3–4",
+          "Robles-Pérez–Rosales DOI 10.1090/S0025-5718-2011-02561-5, lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 623c83ace2d1",
+        "Li–Zhang arXiv:2608.21556v1",
+        "García-García et al. arXiv:1712.05220v1",
+        "Moscariello arXiv:1608.06137v2",
+        "Robles-Pérez–Rosales access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square proof assumes m=s^2. In the frozen all-m witness at a square, choosing a=s+1 gives <s^2,s(s+1),(s+1)^2>, not the exact minimizing triple. Gluing supplies formulas and admissibility, not optimization over the arbitrary integer m."
+        ],
+        "reasoning": "A subsequential limit cannot give the all-integer limit without control between squares. The two multiplicity branches and the coprime multiplier window are what extend the matching bounds to arbitrary factorizations of m. No source compared supplies that extension.",
+        "searches": [
+          "Resultary 623c83ace2d1 scope and square proof",
+          "Li–Zhang pp. 2 and 5",
+          "García-García et al. §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Frobenius and genus optimizations are affinely equivalent within the CI class by symmetry. Individual triple formulas were known; Li–Zhang p. 5 identifies fixed-pair Frobenius/genus minimization as a follow-up. Resultary 623c83ace2d1 covers the exact square slice."
+        ],
+        "reasoning": "An individual triple formula or presentation criterion does not optimize over the generators. The genus limit is not separate novelty from the Frobenius limit.",
+        "searches": [
+          "Local Resultary and primary-literature searches for fixed-multiplicity minima of three-generated CI and symmetric numerical semigroups",
+          "Moscariello arXiv:1608.06137v2 and Li–Zhang arXiv:2608.21556v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At m=s^2, 623c83ace2d1 states the exact minimum g=s^2(s-1), F=2s^2(s-1)-1, with unique minimizer <s^2,s(s+1),s^2+1>. The unrestricted algorithm examples do not provide CI values across multiplicities."
+        ],
+        "reasoning": "This is an exact infinite subfamily, not merely a finite example. It already supplies the constants along every square and beats the reviewed construction there, but leaves the non-square and all-multiplicity estimates unresolved.",
+        "searches": [
+          "Resultary 623c83ace2d1 Finding and exact minimizer proof",
+          "García-García et al. §§3–4 computed examples"
+        ]
+      },
+      "rationale": "Classical gluing and individual Frobenius expressions are known, and an indexed result gives a stronger exact optimum on the square-multiplicity subfamily. The supported distinct claim is a limit through every integer multiplicity, with explicit two-sided estimates and a uniform coprimality-window construction, not an exact optimum or a claim of priority for the square slice.",
+      "residual_risks": [
+        "A matching all-integer asymptotic could remain in older symmetric-semigroup literature, including the inaccessible cited 2012 paper. The square optima are explicitly credited as covered on that subfamily."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger on the square subfamily, not all m",
+          "evidence": "Exact square minimum g=s^2(s-1) and unique minimizer <s^2,s(s+1),s^2+1>.",
+          "identifier_or_url": "Resultary 623c83ace2d1, 2026/10/26; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2600",
+          "method": "Local Resultary mirror text inspection",
+          "title": "Sharp minimum genus at square multiplicity for three-generated complete intersections",
+          "trigger": "Same minimization problem restricted to squares"
+        },
+        {
+          "assessment": "Prior gluing criterion and fixed-pair question, not the asymptotic; v1's separate existence range is unreliable at (3,4)",
+          "evidence": "p. 5 lists minimizing F or g at fixed (e,m) as a follow-up. The separate condition m>=2e-1 conflicts at (3,4) with the explicit valid gluing 3<2,3>+4N_0; this does not invalidate the gluing criterion used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.21556v1",
+          "material_read": "pp. 1–2 OA offsets 4500–7282 and gluing criterion at 7280; p. 5 offset 16400",
+          "method": "Bounded original OA PDF inspection and explicit m=4 cross-check",
+          "title": "A Complete Characterization of Realizable (Embedding Dimension, Multiplicity) Pairs for Complete Intersection Numerical Semigroups",
+          "trigger": "Same admissible class and starting gluing theorem"
+        },
+        {
+          "assessment": "Unrestricted rather than CI optimization",
+          "evidence": "The g(5,3)=6 example attains the unrestricted minimum with nonsymmetric semigroups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.05220v1",
+          "material_read": "p. 1 abstract offset 843 and pp. 3–4 offsets 10038–13789",
+          "method": "Bounded original OA PDF inspection and symmetry check on displayed examples",
+          "title": "Frobenius number and minimum genus of numerical semigroups with fixed multiplicity and embedding dimension",
+          "trigger": "Exact optimizer algorithms with the same two indexing parameters"
+        },
+        {
+          "assessment": "Individual triple formulas, not uniform CI minima",
+          "evidence": "The inspected statement computes Frobenius quantities for specified pairwise-coprime triples, rather than optimizing at each multiplicity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.06137v2",
+          "material_read": "p. 1 OA offset 0",
+          "method": "Bounded original OA PDF inspection",
+          "title": "Moscariello's three-generator Frobenius formula work",
+          "trigger": "Equivalent Frobenius formula via minimal relations"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "Access failure is not a negative comparison.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-2011-02561-5",
+          "material_read": "No relevant full-text passage obtained",
+          "method": "Bounded lawful OA attempts and repository lookup",
+          "title": "The Frobenius problem for numerical semigroups with embedding dimension equal to three",
+          "trigger": "Possible classical three-generator CI coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Li–Zhang p. 5 fixed-pair question",
+        "García-García et al. §§3–4 unrestricted algorithms",
+        "Resultary 623c83ace2d1"
+      ],
+      "rationale": "The complete-intersection restriction changes the admissible class materially, and the fixed-multiplicity question is independently motivated. The theorem supplies the optimal leading constants through all multiplicities, including arbitrary prime factorizations not controlled by the square optima, plus explicit witnesses and a uniform lower bound. The value is the sharp extremal law over the whole class, not the known gluing formula or the affine genus conversion alone.",
+      "residual_risks": [
+        "No exact generic minimizer, best error term, or higher embedding-dimension constant is established. The explicit coprimality bound may be loose at small multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

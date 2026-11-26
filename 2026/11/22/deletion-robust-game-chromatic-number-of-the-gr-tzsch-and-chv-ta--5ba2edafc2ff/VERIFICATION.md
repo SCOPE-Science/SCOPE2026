@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The claim is verified by two independently constructed programs, `game_color_check.cpp` (C++17) and `game_color_check.py` (Python standard library). Both are self-contained, use no external data or imports beyond the Python standard library, and enumerate every vertex deletion for the two fixed finite labelled graphs.
+## correctness
 
-```sh
-g++ -std=c++17 -O2 game_color_check.cpp -o game_color_check
-./game_color_check
-python3 game_color_check.py
-```
+PASS
 
-Both runs completed with the terminal `ALL CHECKS PASS`. For all 11 Grötzsch deletion indices and all 12 Chvátal deletion indices, both implementations separately reported `game3=0` and `game4=1`, with explicit three-colourable and non-two-colourable checks. Original graphs are checked to be four-chromatic, and four game colours are sufficient on each.
+The bound graphs match the pentagon Mycielskian and the explicit Chvátal edge list, the latter checked against the standard NetworkX generator. Independent exhaustive ordinary colouring with dynamic vertex ordering excludes three colours for each original and two for every deletion, and finds proper colourings with four and three respectively. For the game, each proper partial colouring has its turn fixed by occupancy parity. Completion is Alice-winning; a blocked uncoloured vertex is irrecoverable because no colours can be removed. On the remaining states the disjunction on Alice turns and conjunction on Bob turns give exact backward induction by decreasing uncoloured count. Equivalence under global palette permutations justifies canonical keys and keeping only one unused-colour representative; no vertex symmetry or monotonicity of wins with palette size is assumed. Read both frozen source programs and checked a separately written bit-state search and its full output: four-colour wins for both originals, and across all 23 deletions Bob wins at three colours and Alice at four. The ordinary lower bounds exclude every smaller palette not examined as a game. These are exact results for the stated rules and labelled graphs.
 
-Every game search recursively examines *all* legal assignments of a palette colour to an uncoloured vertex, with existential choice on Alice turns and universal choice on Bob turns. The uncoloured count strictly decreases. Memoized states differ only by permutations of the palette names; no unproved graph automorphisms are used. A fully coloured position is Alice-winning, and an uncoloured vertex with all colours appearing on neighbours proves immediate Bob victory since colours cannot be erased. No randomized, partial, timed-out, or depth-limited search is used. The proof is for precisely 23 finite deletion games, not for a general class of critical graphs.
+## originality
 
-No human-independent verification or formal-proof certificate is claimed.
+PASS
+
+Credit ordinary criticality and the full Grötzsch game number as known. The contribution assessed is the whole vertex-deletion persistence classification for the Alice-first game on both graphs: ordinary chromatic number drops, while the game number does not. The closest prior deletion result supplies only the ordinary Chvátal values; the closest exact game results concern different graphs or the original unmodified Grötzsch graph.
+
+## value
+
+PASS
+
+These are classical small triangle-free, ordinarily 4-critical graphs, so the deletion family is intrinsic, not an arbitrary sample. The precise divergence of ordinary and adversarial criticality is established on every deletion in both examples, supplying reusable witnesses and exact benchmarks in the ordinary Alice-first game. This is stronger than observing a discrepancy on one labelled vertex and cannot be read off from known ordinary colourings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

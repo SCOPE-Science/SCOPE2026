@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The level partition is an exact equitable quotient because every vertex at one side/level has the same neighbor multiplicities. Equal heights give central-edge symmetry; adjacent heights make the taller root the center of a regular-tree ball. With a gap of at least two, round \(a+1\) leaves paired leaf-distance classes plus one core. In the next round the core endpoints split because their multiplicities toward the paired boundary are \(d\) and \(1\). Core refinement then proceeds inward from both ends, while the endpoint asymmetry propagates back through the paired classes. These independent strict-split clocks are exactly \(\lfloor(a+b+2)/2\rfloor\) and \(2a+3\). The stable cells are explicit automorphism orbits. The standalone checker confirms 2,500 quotient instances and 32 full graphs.
+## correctness
 
-## Originality
-PASS with residual priority risk. Repeated published-finding corpus searches using double-Bethe, joined perfect-tree, equitable-partition, color-refinement, \(1\)-WL, and Weisfeiler--Leman terminology returned no matching result. The inspected Bethe-tree literature is spectral, while Krebs--Verbitsky supplies only the general refinement/universal-cover framework. Current and prior archive ledgers contain no double-Bethe claim. The closest private result is the spider-tree depth formula, but the present family has no degree-distinguished central junction; that difference creates a new three-regime phase transition and the \(2m+3\) delayed-propagation term.
+PASS
 
-## Value
-PASS. The result gives a closed all-parameter iteration law on a standard exponentially branching tree construction and exhibits a nonmonotone-looking phase structure invisible from vertex count alone. Most notably, the answer is independent of branching factor, yet changes qualitatively when the two heights move from equal, to adjacent, to separated by at least two. The separated regime is governed by two simultaneous propagation clocks, giving a structural explanation rather than a finite table.
+Every level is an automorphism class within its rooted half and has constant multiplicities to neighboring levels, so the weighted path recurrence is exact. Starting from uniform color, leaves separate in round 1. Until round a+1 (for a=m<b), induction peels one paired level from the ends each round: the next newly exposed boundary vertices see d copies of the preceding peeled class, and all interior classes not yet touching a peeled class retain their common color (degree d+1). With a=b, at round a only the two roots share the residual color and they are paired by a graph symmetry. With b=a+1 the taller root has d+1 identical branches of height a and the tree is a regular-tree ball; sphere peeling reaches the center at round b. For b>=a+2 the core B_{a+1},...,B_b has L=b-a>=2 classes of the quotient path that share one color at round a+1. At round a+2 its two endpoint signatures see d and 1 copies of the preceding paired color, respectively; interior core members see neither. Thereafter, among core vertices still sharing a color, only the two residual endpoints see an already individualized core neighbor. If distinct they see distinct such colors; if one vertex remains it is already a singleton. Inductively the remaining core block after j peeling steps has length L-2j, until length at most one. The exact core time is a+1+floor(L/2), including L=2,3. Old colors prevent singleton levels from merging or interacting with earlier paired levels. The paired classes first split at a+3 for P_a, which sees the two different core endpoints; then at each step only the next outward pair has a neighbor in a split pair. The final paired leaf class splits at 2a+3. Stable partitions cannot begin before the last strict split; after both clocks stop the discrete level quotient is stable. Colors distinguish these levels and no automorphism can merge distinct stable colors; rooted symmetries are transitive within a level. In the symmetric cases center/central-edge symmetries act transitively within the paired spheres. Fresh independent quotient recurrence checked 192 cases at d=2,3,4 and 1<=a,b<=8, including terminal quotient partitions; the paired clock example (a,b,d)=(1,6,2) and core clock (1,9,2) exercise each regime of the maximum. Supplemental case and recurrence notes: /workspace/branches/a7facf79-0d71-4de0-a9d9-8a84fe715125/record-3-independent-check.md. This is bounded corroboration, not an all-parameter certificate or fresh full-graph enumeration. Read frozen VERIFICATION.md and verify.py without executing the frozen code.
 
-## Closest literature and limitations
-Krebs--Verbitsky (2014) is the methodological source for refinement depth. Rojo--Medina (2006) and Rojo (2007) are object-side Bethe/generalized-Bethe sources. No inspected source states the exact iteration law. Generalized level-dependent branching and unequal branching factors remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported new content is the exact three-regime stopping time, especially the delayed return wave in the unequal-height case. Standard results already give the rooted-neighborhood characterization and imply stable colors equal automorphism orbits on a tree. The nearest exact-depth findings handle different graph families or supply a general bound rather than this depth. No inspected comparison covers the formula; the bounded search cannot establish historical priority.
+
+## value
+
+PASS
+
+The exact stabilization depth of root-joined perfect trees is a motivated benchmark for refinement on a natural branching family. The threshold at a height gap of two, delayed re-splitting of the shorter side, and crossover between outward and inward clocks are not captured by order bounds or by reading leaf distance alone. Independence of branching factor d>=2 quantifies a structural phenomenon rather than a table of specially tuned instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

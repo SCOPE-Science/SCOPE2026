@@ -1,15 +1,21 @@
-# Scientific review: exact binomial-quantile allocation in a biased two-bin depletion race
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies a bounded first-emptying stopping time and extends the same independent bin-choice sequence to a fixed total of \(n\) draws. Conditional post-stopping binomial counts give the precise weighted positive-part expectation. Its forward difference is a binomial CDF minus \(1-p\), divided by \(p(1-p)\); strictly positive binomial atoms ensure a unique quantile crossing, with a precisely identified possible adjacent tie. For fixed \(p\), Berry–Esseen and uniform integrability justify the optimal-allocation and minimum-remainder asymptotics. The independent rational recurrence checker passes 7,074 assertions. No inference from finitely many tests to an infinite statement is used.
+## correctness
 
-## Originality — PASS, subject to historical limitations
-The most directly related full article is Correa et al., arXiv:2602.12523v2: its equal-probability theorem and its isolated unequal-probability example do not imply the present all-\(n\), all-\(p\) quantile characterization. Zhou, Wang and Zhang (2026, DOI 10.1287/opre.2025.2228) present a related symmetric terminal-inventory model. Their abstract and bibliographic material were examined, but the full text could not be inspected; possible undiscovered coverage is explicitly a residual priority risk. Standard newsvendor quantile optimality is not claimed to be new. The exact identification of the stochastic stopping objective with a binomial asymmetric loss is the essential new bridge. Targeted bibliographic and mathematical-claim searches found no directly covering result; a negative search by itself is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Correa et al. demonstrate that proportional allocation need not optimize the unequal-selection problem, but provide no general two-bin optimizer. The present result gives a complete finite characterization for arbitrary bias, resolves ties, and quantifies the asymptotic direction, size, and residual cost of the bias correction. These provide usable structural and quantitative answers for the model's natural first nonsymmetric case, rather than a routine reparameterization or a single-instance numerical improvement.
+Generate iid labels even after the bounded first-emptying time T, but do not remove any more balls. Exactly one bin survives when n≥2, including a=0,n with T=0; R=n−T. If bin 1 survives, the fixed-horizon deficit (a−B)_+ is the number of label-2 draws after T, and (B−a)_+=0. Their expected contributions conditional on the stopped history are qR and zero. If bin 2 survives, reverse the roles to obtain pR for the positive excess (B−a)_+. Dividing by the respective probabilities and adding proves the identity. Taking successive integer differences gives (F_B(a)−q)/(pq), whose slopes increase strictly because every binomial atom is positive. Since F_B(0)=q^n<q and F_B(n−1)=1−p^n>q, the first q-crossing is interior, and a zero slope gives exactly the adjacent tie shown. For fixed p, Berry–Esseen and positive normal density near z_p bracket the quantile between np+√(npq)z_p plus and minus a p-dependent bounded integer correction. The standardized binomial has unit second moment, providing uniform integrability of both hinge losses; the normal moments at Φ(z_p)=q give limiting normalized loss φ(z_p)/(pq), hence the stated leading remainder. Read frozen VERIFICATION.md and verify.py without executing them. Independent exact enumeration of iid label histories at 208 allocations, covering four adjacent ties and degenerate splits, agrees with the formula and optimizing sets (python -I /workspace/branches/independent_checks.py 2). The asymptotic and all-real-p statements are justified by proof, not enumeration.
 
-## Closest literature and limits
-Primary: Correa et al., *About a ball removal process on bins* (2026), https://arxiv.org/html/2602.12523v2, particularly Section 3. Related: Zhou et al., *Optimal Inventory Allocation for Indifferent Goods Under Dynamic Substitution* (2026), https://doi.org/10.1287/opre.2025.2228, public abstract only. The result does not treat three or more bins, state-dependent probabilities, or biases tending to zero or one with the total. Independent historical-priority assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binomial critical fractile and Gaussian limit calculations are standard once the objective is a binomial check loss. The supported distinction is the exact fixed-horizon loss representation of the biased first-depletion remainder, and the resulting all-size optimizer and explicit fixed-bias asymptotics in the same model as the prior unequal-selection example. Correa et al. already identify the phenomenon and conjecture a root-n scale in their unequal-selection discussion; the bound formula provides the precise two-bin shift. No inspected source gives or otherwise determines the exact reduction and optimizer for arbitrary bias and allocation. Scoped decision; not an absolute priority claim.
+
+## value
+
+PASS
+
+For the first nonuniform case of a published allocation problem, the identity turns a stopping-time objective into an explicit static binomial loss. It replaces single-instance comparisons with a full finite rule including exact ties and gives the sign and leading size of the correction to proportional allocation plus the optimal expected remainder. The result addresses a natural two-bin question, without claiming a general multibin theorem or uniformity for p approaching the endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

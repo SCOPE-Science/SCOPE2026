@@ -1,16 +1,21 @@
-# Scientific review: sharp run capacity for universal binary palindromic subsequences
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's domain and quantifiers are all finite binary host words, every target order \(k\ge1\), and every exact host-run count \(r\ge1\). The lower bound uses two explicit complementary palindromic targets of maximum possible alternating-run count, together with the fact that a subsequence with as many runs as its host must start in the host's first run. The upper bound gives word families of length \(2k\) with exactly the required number of runs; deleting their endpoints produces exactly \(k-1\) complete binary arches on each side. The embedding argument handles both first-letter possibilities of a palindrome and covers the boundary case \(k=1\). The length bound follows from the two constant palindromic targets. The fixed-run extremum follows by inversion and a one-letter extension of an even-run witness. No enumerative extrapolation is used for an infinite conclusion.
+## correctness
 
-The standalone `verify.py` passed witness tests for all \(1\le k\le28\), complete binary-host checks through length \(12\), and exact-run witness tests through \(r=36\). These corroborate, but do not replace, the constructive proof.
+PASS
 
-## Originality — PASS, with residual risk
-Barker et al., *Scattered Factor-Universality of Words* (arXiv:2003.04629v1), introduce the ordinary subsequence-universality framework and the binary arch factorization. Their treatment of palindromes concerns **palindromic host words** and ordinary test patterns. Their inspected introduction, main combinatorial section and conclusion do not give the minimum run count for arbitrary hosts containing all **palindromic test patterns**. Adamson et al., *\(k\)-Universality of Regular Languages* (arXiv:2311.10658v1), address ordinary universal words belonging to regular languages, not the restricted palindromic test spectrum.
+In any subsequence embedding, the host-run indices of the first positions of successive pattern runs strictly increase. Equality of total run counts forces the first letters to agree. For odd k the two alternating palindromes have k runs and opposite first letters; for even k, reflecting an alternating half gives k−1 runs (only the middle pair merges), again with both first letters possible. The resulting lower bound is 2 ceil(k/2), including k=1,2. For (0011)^m, deleting the initial 0 gives 01(10 01)^(m−1) and a residual 1, and deleting the final 1 gives 001(10 01)^(m−1); these each have 2m−1 complete binary blocks. Appending 01 for the odd witness adds one complete block to the corresponding truncated decompositions, leaving only the same possible residual 1. The k=1 endpoint check requires zero blocks. Such blocks embed the remaining k−1 symbols individually, because a palindrome can use the initial 0 or the final 1 according to its common endpoint letter. The witnesses have the stated runs and length 2k, which is necessary by the two constant palindromes. Inverting the run bound gives capacity at most 2 floor(r/2); for odd r>1, appending 0 to the preceding even-run witness adds exactly one run. Constant words give capacity zero at r=1. For unrestricted universality the two alternating patterns need k+1 runs; k+1 alternating host runs of length k realize any pattern by assigning its first run to host run 1 or 2 and successive runs in order.
 
-Additional public research-index comparisons located ordinary binary subsequence-universality laws and length-bounded palindrome-duplication codes. These neither imply the parity-sensitive bound \(2\lceil k/2\rceil\) nor the simultaneous shortest witness construction. Related existing studies enumerate palindromic subsequences of a **fixed alternating host** or the ordinary universality of a **palindromic host**; neither is the same domain. Unindexed equivalent results and deductions from broader general pattern-class theorems remain possible; no independent originality adjudication is claimed.
+## originality
 
-## Mathematical value — PASS
-The problem is a natural restricted-spectrum analogue of classical scattered-factor universality. Host run count measures alternating structure and is a fundamental resource distinct from total length. The result identifies the exact resource required to realize an exponentially sized palindrome test family at every length, proves that minimum length and minimum runs can be attained together, and isolates a strict even/odd discrepancy with unrestricted subsequence universality. It gives a sharp structural boundary, not a reparameterization of an ordinary-universality formula or a finite table of observations. Its scope is binary, noncyclic, and subsequence-based, without a classification of every optimum host.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the sharp arbitrary-host run minimum and its simultaneous attainment with the shortest length, not the arch lemma or the separate 2k minimum. The strongest inspected overlap is an exact census of shortest hosts in the identical palindrome-subsequence class, refined by ordinary arch index, not by runs; the supported distinct result is the uniform run extremum and fixed-run capacity.
+
+## value
+
+PASS
+
+Runs measure the number of alternating blocks needed to realize a universal host independently of its length. The exact even-order saving despite retaining all constant and maximal-run palindromes, along with simultaneous shortest length, quantifies what restricting the test language buys. This is a structural extremum for all orders, not a new proof of the standard arch lemma or merely a shortest-length tally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

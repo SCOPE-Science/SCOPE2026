@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `verify_onehole.py` uses two search algorithms independent of the claimed period–GCD calculation: letterwise KMP-state BFS tracking forbidden occurrence residues, and direct subset BFS over the factor NFA of the allowed block code. Both enumerate shortest obstructions, with independent transition implementations.
+# Independent mathematical audit
 
-Command: `python3 verify_onehole.py` (Python 3 standard library only).
+## correctness
 
-The recorded run (`verification_output.txt`) checked every binary missing block of lengths 2 through 8 (508 cases) and, independently with the factor NFA, every missing block of lengths 2 through 6 (124 cases). All distances agreed with the mathematical formula, and the example of length 25 was produced by the automaton BFS. The complete theorem for all finite alphabets with at least two letters and all lengths at least two is justified by the written proof, not inferred from finite checking.
+PASS
 
-A separate `python3 verify_residue_dp.py` checks the critical weighted-residue Hamilton path statement using an exact directed Held–Karp dynamic program for every one of the 1,022 formal period inventories with \(2\le k\le10\). Its output is recorded in `residue_dp_output.txt`. This is numerical corroboration for the constructive argument, not an infinite proof.
+For each boundary alignment, wholly observed blocks must avoid u and the two partial end blocks can always be extended to allowed blocks using the free symbol and |Σ|≥2. This includes the case of a word contained in one partial block. Thus a missing factor has an occurrence in every residue. Selecting one per residue gives a spanning path with gaps either proper periods or at least k+1; Kruskal's component numbers are the successive gcds, yielding the lower bound. Conversely, join translated copies of a subgroup path by positive steps p_i. Its endpoint shift within the smaller subgroup has no effect on the sequence of quotient cosets, and the last k+1-step stage generates the remaining quotient. Each stage yields exactly the recorded difference in copy-count-weighted component numbers. For any nonconsecutive overlapping copies the intervening gaps are all periods, and the sum below k is a period by chaining the defining symbol equalities. Hence all prescribed occurrences can coexist and attain the bound. The empty list and period-one cases, strict drop for a bordered word, and length-25 example check. Independent subset BFS on an explicit per-codeword path automaton confirmed all 241 binary holes at k=2–6 and ternary holes at k=2–4 combined; source scripts were inspected, not run. Replay: python3 /workspace/branches/independent_replay.py 3; output /workspace/branches/independent_replay.out.
 
-Independent scientific review has not been performed. Scientific priority beyond the cited inspected literature and indexed records is not independently certified.
+## originality
+
+PASS
+
+The supported distinct claim is the exact formula for all one-hole fixed-length codes, in particular the interaction of multiple proper periods. The unbordered answer was already known, and the reduction to alignment obstructions is not itself novel. The frozen wording suggesting an independent second presentation is imprecise: Fici–Pribavkina–Sakarovitch explicitly attribute their proposition to Pribavkina (2009). No examined source covers the general bordered formula.
+
+## value
+
+PASS
+
+This resolves the naturally parameterized shortest obstruction problem beyond the benchmark unbordered case. It gives a cheap computation from periods without materializing the allowed code and explains how successive periods affect attainable length. The matching constructive path proves the arithmetic is not just a lower bound or fit to small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

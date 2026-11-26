@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient-cancellation lemma follows by extracting the lowest nonzero degree of the signed Thue–Morse block polynomial. The exhaustive enumeration is finite, complete for all nonexceptional signed words of lengths up to \(17\), and normalized only by the rigorous sign-complement symmetry. Exact integer polynomial arithmetic modulo \(x^7\) suffices for every divisibility test through stage six. The enumeration checks every length from \(2\) through \(17\), with no six-completable prefix before length \(17\), then one normalized extremizer at length \(17\). Independently expanded completing blocks confirm the witness's six-completion and failure of seven-completion. No finite test is misused to claim a general formula.
+## correctness
 
-## Originality — PASS within examined evidence
-The directly motivating work, Khovanova and Madhavarapu (2026), establishes the general bound \(\lambda(i)\le2^{i-2}+1\) but does not supply a matching lower bound or classify minimizers at \(i=6\). published-finding corpus semantic searches for six-completions, least period \(256\), and Thue–Morse coefficient completion did not identify a matching result. The accessible earlier/current claims were compared for false-start fair-duel and completion terminology. The residual risk is equivalent unindexed finite computational work.
+PASS
 
-## Value — PASS
-The integer \(\lambda(6)\) is a natural instance of the prefix-threshold invariant expressly introduced in the motivating paper and tied to the least achievable period in a false-start game. Proving the sharp threshold and classifying all shortest attaining prefixes is a substantive finite rigidity fact, not a chosen arbitrary slice of an unrelated enumeration. It does not settle the asymptotic question.
+With y=1−x the signed block polynomial is −∏_{j<i}(1−y^{2^j}), so its first nonzero x coefficient is −2^{i(i−1)/2} at degree i. Translating a block for appending multiplies by y to the preceding length, which leaves this leading coefficient unchanged; appending the prescribed number cancels degree i without disturbing lower degrees. This proves the divisibility test and justifies truncation through degree six in the exhaustion. Sign inversion preserves stage admissibility and exchanges the appended blocks with their complements. At each length there is just one normalized exceptional word; both length-one words are exceptional. The independent bounded replay checked all 131054 normalized nonexceptional words of lengths 2–17, with zero survivors through 16 and the single survivor T4T0 at 17, giving two words before normalization. Direct materialized arithmetic yields stage counts (−1,−1,−1,−1,−2,−4,−12) and length 960 after stage six. The stage-seven coefficient is −192675840, not divisible by 2^21, so the first failed stage is seven. By the source's period theorem the tail repeats T8 (up to its stated sign convention), with least period 256; the two halves are complements, so no proper divisor of 256 can be a period. Period 256 therefore requires stage-six admissibility and cannot occur at a shorter nonexceptional length. Admissibility through six alone does not imply period exactly 256 for other words. This is an exact finite computation for the sixth stage, not a formula for all stages or a formal certificate.
 
-## Limits
-The finite exhaustion depends on reproducibility of the bundled integer scripts. There is no independent third-party audit or external certification. Equivalent unpublished computations cannot be ruled out conclusively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original paper already gives the completion recursion, period correspondence, length-17 construction and general bound giving λ(6)≤17. Credit only the sharp lower bound and uniqueness up to sign at equality, and hence the first length attaining the known witness period. Neither the upper-bound construction nor the period map is new.
+
+## value
+
+PASS
+
+The originating work's λ(i) bounds leave an explicit gap between its witness and the true minimum at stage six. Closing that gap and identifying every equality case resolves a natural exact boundary, and supplies a proved datum on the tightness of the proposed Thue–Morse-based upper-bound family and the attainable periods for short false starts. The value is the lower bound and rigidity, not the already-known witness or a claim to resolve general growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

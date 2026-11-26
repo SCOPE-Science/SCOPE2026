@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every face either excludes or includes the added hub edge. This gives the exact union \(J_n*J_n\cup_{K_{n,n}}(c*K_{n,n})\), with no leaf-capacity exclusions omitted. For \(n\ge2\), the join of two connected one-skeleta is simply connected; because the attaching complex is a connected graph, its inclusion is nullhomotopic. The homotopy cofiber therefore splits as \((J_n*J_n)\vee\Sigma K_{n,n}\). Spanning-tree contractions and the join–smash identity prove the integral sphere multiplicities. The full standalone verifier checks face sets, counts and independent mod-two ranks for \(2\le n\le10\); these are corroboration rather than an infinite proof. Boundary \(n=1\) is separately checked by direct simplex structure.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The complete-bipartite base join is already covered by Singh and is explicitly treated as background. Vega treats two-matching complexes but not this adjacent-hub triangular-book family. A published computation on identical underlying triangular-book graphs computes **directed multipath** complexes, which have twice oriented arcs and a directed-cycle ban, rather than degree-two subsets of undirected edges. An exact two-matching result on \(K_{3,5}\) has a different graph and does not imply a one-edge-activation law. A quadrilateral-book ordinary matching theorem has different pages and edge-degree constraints. Actual searched terminology included triangular book, \(K_{1,1,n}\), degree-bounded two-matching, join with independent set, and complete-tripartite. No accessible broader theorem implies the new cofiber/retraction formula. This is best-known originality, not a uniqueness certificate; an unindexed equivalent may exist.
+PASS
 
-**Mathematical value — PASS.** The uniform formula quantifies a natural one-edge topological transition from a bipartite biclique to an infinite family of edge-sharing triangle books, with newly created integral degree-two classes and preserved degree-three classes. For \(n\ge3\) these give two genuinely distinct homotopy dimensions, and both sphere multiplicities grow quadratically/quartically. The proof supplies a reusable structural interface: the inclusion of a graph-shaped attaching subcomplex in a simply connected join is null. This is not merely a new name for the bipartite base result or a restatement of homology ranks.
+The two spoke families are disjoint and every page vertex automatically respects the cap two. Deleting the hub-edge vertex leaves J_n*J_n; fixing that vertex in a face leaves a degree slot of one at each hub, so its link is precisely K_{n,n}. Their union is the mapping cone of the link inclusion. For n≥2 the join of the two connected graphs is simply connected, and the attaching graph is connected and one-dimensional, so its inclusion is based nullhomotopic by contracting a spanning tree and checking the circle generators. The null attachment splits the cofiber under the deletion complex, giving the claimed homotopy retraction. Spanning-tree collapses compute the first Betti numbers of J_n and the link as binom(n−1,2) and (n−1)^2; the join is the suspension of the smash, and the new summand is the suspension of the link. This proves the integral homotopy types, including the contractible deletion and S² book at n=2 and both simplices at n=1. The deposited verify_book.py and verification_output.txt were inspected, not executed; the recorded mod-two finite checks for 2≤n≤10 are corroborative, not the homotopy argument.
 
-**Closest literature and limitations.** Singh, arXiv:2006.13632, Section 4 (bipartite joins); Vega, arXiv:1909.10406 (two-matching topology); Caputi–Collari–Smith, arXiv:2601.05670 (directed multipath, first public 2026-01-09); and published finite reports on directed triangular books and \(K_{3,5}\) two-matchings. The proof does not extend to arbitrary generalized books or varying degree capacities. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact complete-bipartite deletion complex is established background, as the frozen record correctly credits. The supported distinct claim is the natural paired edge-addition splitting and its explicit S² increment on triangular books, retaining the earlier S³ summands.
+
+## value
+
+PASS
+
+For a natural graph family the effect of inserting one specified edge is determined at the level of the inclusion and integral homotopy, not only of Betti ranks. It produces mixed-dimensional wedges from a pure-dimensional deletion type for all n≥3, and isolates exactly which classes persist. The value is in this paired transition; computing the familiar bipartite type alone would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

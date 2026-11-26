@@ -1,15 +1,21 @@
-# Scientific review: critical fourth-power cycle neighborhood complex
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is the complete torsion-free integral homology and the vanishing positive-degree mod-two cup products for exactly the open neighborhood complex of \(C_{16}^{(4)}\). Sixteen explicit graph neighborhoods generate precisely 2,712 nonempty simplices. Every one of 999 free-face pairs is checked against its current unique maximal coface, leaving a four-dimensional complex with face vector \((16,98,243,255,102)\). Its signed integer boundary matrices have unit-only Smith invariants and respective ranks \((15,83,153,101)\), yielding integral ranks \((1,0,7,1,1)\) in degrees zero through four. Independently, the original mod-two chain matrices give the same Betti ranks. Seven independent degree-two cocycles and a nonbounding four-cycle evaluate to a zero seven-by-seven Alexander–Whitney pairing. The reproducible checker, certificate, full proof and expected output are all included. Homotopy type, fundamental group and integral cup coefficients are not claimed.
+## correctness
 
-## Originality
-**PASS, with residual indexing uncertainty.** The closest fully inspected result on all cycle powers proves sphere mapping-torus homotopy types only for \(n\ge4k+1\). The fully inspected fourth-power refinement similarly assumes \(n\ge17\), establishing an explicit collapse and a nonzero product \(H^1\smile H^3\), not this exceptional length sixteen. The 2026 Namiq paper gives 2-linear resolution criteria for neighborhoods of a bipartite subclass; the present degree-eight graph has triangles and does not satisfy the criterion. Shukla's older title and abstract restrict to 4-regular circulants or maximum-degree-three graphs, excluding the present 8-regular graph. Searches under fourth-power, circulant, open-neighborhood and boundary-length aliases in the published research records identified no equivalent or stronger theorem covering the exact claim. The possibility of unindexed prior calculations remains.
+PASS
 
-## Value
-**PASS.** The order sixteen is the first circumference excluded by a published stable theory at \(n\ge17\), not an arbitrary finite slice. It is the exact failure boundary for the two-step lifting argument. The stable even-length case has nontrivial first-degree topology and degree-one/degree-three cup multiplication; the critical complex instead has seven new integral second-homology generators, no first homology, and zero positive mod-two cup multiplication. This supplies a useful and structurally differentiated boundary case for any effort to sharpen stable-range theorems, without requiring a general new infinite-family theorem.
+The graph is simple and the neighborhood is open. In the frozen certificate a free face with just one immediate coface has no higher cofaces and the pair can be removed by a genuine simplicial collapse. The checked 999 pairs leave face counts (16,98,243,255,102) and dimensions at most four; the reduced signed boundaries have unit Smith ranks (15,83,153,101). Independently of that collapse, `/workspace/branches/reproduce_critical_c16.py` enumerates lexicographically ordered nonempty tuples via the common-neighbor predicate and reduces the full signed boundary matrices over Z. Replay with `python3 /workspace/branches/reproduce_critical_c16.py`: the original f-vector is (16,120,432,784,784,432,128,16), and all nonzero Smith factors are units, with ranks (15,105,320,463,320,112,16). A ±1 pivot splits off a unit by column and row operations, and every residual matrix reduces to zero. The resulting images are saturated, so ker ∂i / im ∂(i+1) has no torsion. The Betti ranks are (1,0,7,1,1,0,0,0). Over F2 on the full complex, independent elimination gives a seven-element degree-two cohomology basis and a generator of degree-four homology. Alexander–Whitney pairs the first and last triangles of each increasing 4-simplex with their common middle vertex. All 49 products evaluate to zero on that generator. This is the entire positive-degree multiplication: H^1 is zero and degrees above four vanish. A separate recomputation of the collapse and pairing likewise verified the frozen collapse counts and obtained zero with a different nonbounding four-cycle, of support 98 rather than 102. These are exhaustive finite calculations for the specified graph, not a homotopy classification.
 
-## Sources and remaining limitations
-Primary literature inspected: M. R. Namiq, arXiv:2606.03573 (June 2, 2026); S. Shukla, arXiv:1802.04526 (abstract and scope). Closest publicly available mathematical results inspected in full: *Sphere mapping-tori in neighborhood complexes of every stable cycle power* (October 25, 2026) and *A cyclic four-dimensional collapse and a nonzero cup product for fourth-power cycle neighborhood complexes* (November 1, 2026). Their precise lower bounds exclude this result. The complete integral cohomology ring, the fundamental group, and cases of other powers at their analogous boundaries remain open here. Unindexed equivalent literature is the principal residual originality risk; no external mathematical audit has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact integral groups and degree-two mod-two pairing are supported as distinct at n=16. Two closely related, earlier indexed results state stable-range hypotheses that exclude this object; the exact indexed match is the assigned record itself. The standard Alexander–Whitney formula and homology algorithms are not originality claims.
+
+## value
+
+PASS
+
+The circumference 16 is the first omitted case of the stable fourth-power theorem, not an arbitrary small graph. It witnesses a sharp failure of the stable additive description and isolates a new possible degree-two multiplication that is not settled by the ranks. The exact integral groups and complete mod-two multiplication are useful baseline invariants for extending the stable analysis across the boundary without claiming a full homotopy decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:44.883636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Corrected repairs/4/RESULT.md, Finding, assumptions and proof",
+        "Frozen RESULT.md, particularly lines 16–21, 31–37, 41–100",
+        "Da Costa et al., arXiv:2310.19270, Theorem 3.1 and Appendix B",
+        "Frozen VERIFICATION.md and verify_spherical_transform.py, inspected but the script was not executed"
+      ],
+      "rationale": "For the corrected claim, the radial L2 norm squared is at most 4 pi/3 by s=tanh r. The half-line cosine transform of sech is (pi/2) sech(pi s/2), obtained independently from the beta integral after v=e^(2r). Integration by parts against the derivative of sech and product-to-sum give the stated transform and exponential decay. Writing F(s)=s sech(c s) for c=pi/2, the transform is pi^2 times [F(omega+lambda)-F(omega-lambda)]/lambda. It is even and the continuous zero value is 2 pi^2 F'(omega), whose sign is that of 1-c omega tanh(c omega). For lambda>0, combining the translated cosh denominators leaves the sign of lambda coth(c lambda)-omega tanh(c omega). The first function increases strictly from 1/c to infinity because sinh(x) cosh(x)>x for x>0; the second increases from zero to infinity. This gives the inclusive cutoff, unique positive zero beyond it, and full repaired sign including lambda=0. The continuous L2 radial profile and integrable transform meet the L2-Godement hypotheses; the supercritical interval has positive Plancherel measure. An independently written decimal bisection using the exponential form of tanh and Machin's pi formula corroborated omega*=0.76373914287512802042949…; this calculation was not needed to certify the analytic sign.",
+      "residual_risks": [
+        "No formal certificate or independently recomputed finite-configuration witness is necessary here; the L2 positivity equivalence establishes the universal statement and its converse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general L2-Godement theorem supplies a test rather than evaluates its sign. Proposition B.2 gives unmodulated positive integer powers. The indexed damped-cosine result gives 3 omega^4+2(a^2+1) omega^2 <= (a^2-1)^2 for the exponential envelope."
+        ],
+        "reasoning": "Integer-power positivity at zero modulation does not decide products with geodesic cosine. The exponential result is a different family, not a covering theorem for radial envelopes in general.",
+        "searches": [
+          "arXiv:2310.19270, Theorem 3.1 and Proposition B.2",
+          "Resultary 99a263d091a0, exponentially damped geodesic cosine"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.19270",
+        "De Marchi–Schaback §8.4",
+        "Resultary 99a263d091a0",
+        "Resultary a9366ccdb6a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=2, Appendix B yields 2 pi^2 sech(pi lambda/2) at omega=0. The frozen and repaired claims additionally analyze the sign when the two frequency shifts straddle zero. The exponential envelope theorem cannot be positively mixed to give sech^2, which is strictly concave near r=0 whereas positive mixtures of those exponents are convex."
+        ],
+        "reasoning": "Transform machinery and the unmodulated value are prior-covered. Neither the known sign before shifting nor the exponential-envelope threshold mechanically provides the hyperbolic addition reduction and strict root classification. The repair at zero follows directly from the result's original analytic calculation and is not assigned separate novelty.",
+        "searches": [
+          "Resultary 99a263d091a0, mirror Finding at offset 0",
+          "Da Costa et al., Appendix B pp. 24–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hyperbolic transform for the repaired result reduces to comparing the two shifts of F(s)=s sech(pi s/2). Appendix B handles sech(r)^a without shift; the line-kernel result uses Euclidean Fourier positivity."
+        ],
+        "reasoning": "The Euclidean shifted Fourier positivity and the hyperbolic PSD criterion are not equivalent here. The latter divides a shifted odd sine transform by lambda and may introduce a negative band.",
+        "searches": [
+          "Resultary comparison for H^3 geodesic cosine modulation and negative band",
+          "Da Costa et al., arXiv:2310.19270, Appendix B",
+          "De Marchi–Schaback, Nonstandard Kernels and their Applications, §8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exponential result treats an exact threshold and a low-frequency negative interval for exp(-ar) times cosine. The indexed sech-power result treats line ambiguity functions instead. The sech transform identity is covered; no inspected exact entry provides the claimed root equation for the hyperbolic squared-sech modulation."
+        ],
+        "reasoning": "The table-level identity is an ingredient, not the sign comparison or threshold. Dates of related entries do not settle priority.",
+        "searches": [
+          "Resultary 99a263d091a0 and a9366ccdb6a1, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Standard Fourier transform of sech, checked against De Marchi–Schaback §8.4 and derived via beta integral"
+        ]
+      },
+      "rationale": "The supported distinct claim is the nonzero-modulation cutoff and complete sign for the squared-sech envelope on curvature -1 H^3, not the transform framework, Fourier sech identity, unmodulated kernel, or general idea of a geodesic modulation cutoff. The closest indexed cutoff uses a different envelope and does not imply this one.",
+      "residual_risks": [
+        "The bounded targeted literature search produced no usable additional exact match; it does not establish absence in older or differently indexed kernel literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unmodulated antecedent and applicable machinery, not modulated sign",
+          "evidence": [
+            "Proposition B.2 states positive definiteness of the integer-power hyperbolic secant kernel on H^3. At power two the transform reduces to 2 pi^2 sech(pi lambda/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.19270",
+          "material_read": "Theorem 3.1; Appendix B pp. 24–25 (OA offsets 113520 and 116998)",
+          "method": "OA primary PDF text",
+          "title": "Invariant kernels on Riemannian symmetric spaces: a harmonic-analytic approach",
+          "trigger": "Same space and same envelope at zero modulation; general criterion"
+        },
+        {
+          "assessment": "Same cutoff phenomenon; distinct profile and inequivalent threshold",
+          "evidence": [
+            "For exp(-ar) cos(omega r) its threshold is a quartic inequality in omega, and it gives a negative low-frequency interval above cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-oscillation-threshold-for-exponentially-damped-geodesic-co--99a263d091a0/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Published result via local mirror",
+          "title": "Sharp oscillation threshold for exponentially damped geodesic cosine",
+          "trigger": "Closest exact cutoff for the same distance modulation and geometry"
+        },
+        {
+          "assessment": "Euclidean line antecedent",
+          "evidence": [
+            "The Fourier transform of sech is a positive sech and its squared translation-invariant kernel on the line is positive definite."
+          ],
+          "identifier_or_url": "https://drna.padovauniversitypress.it/system/files/papers/Schaback-2009-NKA.pdf",
+          "material_read": "§8.4, p. 38, OA offset 59201",
+          "method": "OA primary PDF text",
+          "title": "Nonstandard Kernels and their Applications",
+          "trigger": "Squared hyperbolic secant kernel and Fourier calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected repairs/4/RESULT.md",
+        "Da Costa et al. Appendix B",
+        "Resultary 99a263d091a0"
+      ],
+      "rationale": "This is an exact admissibility boundary for a natural modulated version of an established radial H^3 kernel. It decides whether a distance profile works on every configuration and, on failure, specifies the entire forbidden spectral band, including its single positive boundary. A Euclidean computation or the unmodulated theorem cannot substitute; strict monotonicity after combining two shifted terms yields both directions and the inclusive threshold. The corrected zero-frequency sign completes the classification without enlarging the scientific claim beyond this profile.",
+      "residual_risks": [
+        "No conclusion about other decay powers or hyperbolic dimensions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

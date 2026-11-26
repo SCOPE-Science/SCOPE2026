@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:40:53.580680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent Poisson clocks with rates p_i preserve the iid discrete label sequence. The last first-arrival clock is unique almost surely; its density p_j exp(-p_j t) multiplies independent factors F_i(t) for at least two arrivals, or p_i t exp(-p_i t) for the other singleton. For U=1 integrate against d(-exp(-p_j t)); the lower boundary vanishes since N>=2 and F_i(0)=0, and the upper vanishes by boundedness and p_j>0. Differentiation replaces a factor by p_i² t exp(-p_i t). Each ordered U=1 product-rule term is p_i/p_j times the corresponding ordered U=2 contribution. Subtracting the U=2 contributions and summing both orientations of an unordered pair yields (p_i-p_j)² times the common kernel. The kernel is strictly positive at all t>0 and bounded above by t exp(-(p_i+p_j)t). Therefore equality holds exactly for uniform weights. At N=2 the empty-product kernel is (p_1+p_2)^(-2)=1. A separate exact rational occupancy-state and kernel comparison tested 125 weight vectors and 634 assertions; for (1,2,3), the masses are 287/600 and 71/200 and their difference is 37/300; for (1,1,1), both equal 7/18. Replay: python3 /workspace/reviews/evidence/1-coupon-check.py. This is finite corroboration, not the all-size proof. Frozen verifier inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long's PGF covers arbitrary positive weights and later siblings. The pairwise kernels in Long control radial derivatives of binomial moments; Adler–Oren–Ross study expectations and bounds for unequal probabilities."
+        ],
+        "reasoning": "The broad PGF contains the coefficients as data but does not compare them. The radial dissipation inequalities do not imply the sign of this signed linear combination of point masses at a fixed sampling law.",
+        "searches": [
+          "arXiv:2606.31391 Proposition 2.1, Theorem 1.1, Remark 1.2 and Sections 4–5",
+          "Adler–Oren–Ross, The Coupon-Collector's Problem Revisited, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Long arXiv:2606.31391",
+        "Myers–Wilf arXiv:math/0304229",
+        "Adler–Oren–Ross author-hosted paper",
+        "Resultary conditional likelihood-ratio record and indexed three- and four-type comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At sibling index two, coefficients [z] and [z²] of Proposition 2.1 are exactly the starting A and B sums. The identity F_i'=p_i² t exp(-p_i t) is the specific bridge; integration by parts and pairing give the sign and the exact heterogeneity kernel."
+        ],
+        "reasoning": "The new conclusion is a local comparison of previously expressible atoms, not a new distribution formula. Extracting or evaluating the two coefficients alone leaves a signed difference with no positivity or equality criterion; the derivative bridge and symmetrization supply that content.",
+        "searches": [
+          "arXiv:2606.31391 Proposition 2.1 and marked coefficients; comparison of its radial square terms",
+          "Resultary 2026-11-02 strict likelihood-ratio decay of singleton abundance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first sibling's deficit is precisely the count of types seen exactly once at first coverage. The 2026-11-02 conditional likelihood-ratio record gives the size-biased Poisson-binomial law given continuous completion time and compares different conditioning times."
+        ],
+        "reasoning": "Integrating the conditional law recovers the common probability inputs. The likelihood-ratio relation compares distributions at two times and does not order two masses of the same unconditional law.",
+        "searches": [
+          "Resultary: unequal coupons sibling collector completion singleton atom P(U=1) P(U=2) pairwise probability square",
+          "Web: coupon collector siblings unequal probabilities singletons probability exactly one exactly two Myers Wilf Long radial transform Doumas Spektor mass comparison pairwise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Myers–Wilf give the complete uniform sampling law; the exact uniform tie follows there. The indexed three- and four-type comparisons concern a fixed small alphabet and compare tails with uniform sampling."
+        ],
+        "reasoning": "These recover relevant boundary values or compare different sampling laws, not the exact all-alphabet gap at arbitrary nonuniform weights.",
+        "searches": [
+          "Myers–Wilf arXiv:math/0304229v1 Section 4, equations (44)–(47)",
+          "Resultary: unequal coupons sibling collector completion singleton atom P(U=1) P(U=2) pairwise probability square"
+        ]
+      },
+      "rationale": "The full distribution and Poisson coefficient formulas are not new. The checked sources furnish the two atoms, but no checked result furnishes their nonuniform difference as a positive pairwise-square sum or asserts the resulting strict all-size comparison. Long's related pairwise-square dissipation applies to a different functional. This is a bounded statement about checked sources, not a priority certification.",
+      "residual_risks": [
+        "An older occupancy identity could already compare these coefficients or give the same integration-by-parts reduction under another name.",
+        "The frozen supporting audit cites Myers–Wilf equation (49); the inspected arXiv v1 numbers the uniform singleton formula (47). This is a citation detail, not a change to the mathematical claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying distribution; different inequalities",
+          "evidence": [
+            "Proposition 2.1 integrates the product of nonfinal marked Poisson factors; the square terms later in the paper govern radial derivatives of factorial/binomial moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31391",
+          "material_read": "Theorem 1.1, Remark 1.2, Section 2 Poisson/PGF construction and Proposition 2.1, and passages on marked coefficients and local/radial pair dissipation in Sections 3–5",
+          "method": "Public PDF text, paginated",
+          "title": "Radial Transform Extremality for the Siblings of the Coupon Collector",
+          "trigger": "Closest all-weight PGF and pairwise-square method"
+        },
+        {
+          "assessment": "Covers uniform specialization",
+          "evidence": [
+            "Equation (47) gives the unconditional all-size uniform singleton masses in v1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "Section 4 definitions and equations (44)–(47), including the uniform count argument",
+          "method": "Public PDF text",
+          "title": "Some New Aspects of the Coupon-Collector's Problem",
+          "trigger": "Uniform exact singleton mass formula"
+        },
+        {
+          "assessment": "Same underlying process; inspected treatment is expectation-level",
+          "evidence": [
+            "Section 3 bounds the expected deficits via conditioning and the independent Poisson clocks."
+          ],
+          "identifier_or_url": "https://oren.ieor.berkeley.edu/pubs/coupon.pdf",
+          "material_read": "Unequal-probability part and expectation/bound computations",
+          "method": "Author-hosted public PDF text",
+          "title": "The Coupon-Collector's Problem Revisited",
+          "trigger": "Classical unequal-weight sibling Poisson model"
+        },
+        {
+          "assessment": "Covers conditional distribution, not asserted unconditional adjacent-atom comparison",
+          "evidence": [
+            "Its conditional PGF is zF'_t(z)/Q(t), with strict likelihood-ratio decay as t increases."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-strict-likelihood-ratio-decay-of-singleton-abundance-at-nonunifo--261de08382e0",
+          "material_read": "Finding and conditional PGF/size-bias argument",
+          "method": "Published RESULT.md mirror",
+          "title": "Strict likelihood-ratio decay of singleton abundance at nonuniform coupon coverage",
+          "trigger": "Same stopped count for arbitrary weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural stopping time, the smallest two possible deficit masses provide a direct local test distinguishing identical coupon weights from every heterogeneous vector, in every finite dimension. The nonnegative pair decomposition identifies the cause of strictness, rather than supplying a table of coefficient evaluations. It does not assert a global mode or stochastic-order theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

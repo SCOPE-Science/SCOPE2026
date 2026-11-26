@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact mathematical proof consists of a point-to-geodesic distance identity, a reciprocal one-variable minimax analysis, an isometric comparison of the four sides, and elementary monotonicity. See `RESULT.md` for hypotheses, full quantifiers, equality case and endpoint limits.
+## correctness
 
-`verify.py` computes actual hyperbolic distances between points on semicircle geodesics using \(\operatorname{arcosh}(1+|z-w|^2/(2\operatorname{Im}z\operatorname{Im}w))\), with golden-section minimization along each geodesic. It checks thirteen cross-ratio parameters and their peak formulas, samples both side-type envelopes, and verifies the relabeling symmetry. Reproduce with:
+PASS
 
-```text
-python3 verify.py
-```
+Send a semicircle with endpoints u<v to the imaginary axis by (z−u)/(v−z), then take |Re|/Im to obtain the claimed hyperbolic sine of distance. On the designated side z=iy, set x=y/√λ. The distance envelope in these units is min{x,x⁻¹,(x+x⁻¹)/(λ−1)}. By reciprocity restrict to x≤1, where the first neighbor suffices and the opposite side becomes active only for x>(λ−2)^−1/2 when λ>3. The envelope increases to this switch and then strictly decreases to x=1, making its reciprocal pair the only maxima. For λ≤3 the maximum is only at x=1, where all three contacts tie exactly at λ=3. The half-turn exchanges opposite sides. Relabeling cyclically via λ(z−1)/((λ−1)z) gives the other side type with τ=λ/(λ−1). At κ=max(λ,τ), the larger-type value dominates the smaller-type value κ/(κ−1), strictly unless κ=2, where all four sides share it. Thus the two pieces of sinh²δ meet at κ=3 and respectively increase and decrease, giving the unique extremizing shape and the limiting value. Independent checks using the minimum of a direct cosh-distance function verified sampled side peaks and contact multiplicities; replay with python3 -I -B branches/frozen_review_checks.py from /workspace.
 
-Observed result: `PASS: 5335 direct/analytic checks, 5 symmetry comparisons, phase endpoints`.
+## originality
 
-The numerical checks are finite and are not an infinite proof. The results are only for nondegenerate ideal geodesic quadrilaterals in hyperbolic curvature \(-1\). Historical-priority completeness and independent external mathematical validation remain unestablished.
+PASS
+
+The supported distinct result is the all-shape side-slimness envelope, the sharp nonregular class and the change in side-point maximizers. The regular ideal-square case and the general notion of side slimness are credited overlaps. The strongest available comparisons concern either a restricted regular shape, interior clearance, a different contact condition, or infimal opposite-side distances; none yields this side-restricted envelope in the material inspected.
+
+## value
+
+PASS
+
+The slimness of ideal geodesic polygons is natural, but a regular-square calculation does not predict even the extremizing quadrilateral shape. The full one-dimensional profile reveals a sharp nonregular maximum, contacts with all three other sides exactly there, and two maximizing points per active side beyond it. That is a useful exact benchmark for shape dependence and nearest-side geometry, beyond a coarse slimness bound or an opposite-side separation formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

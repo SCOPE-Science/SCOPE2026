@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:54:00.923283Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38, VERIFICATION.md and verify.py; frozen script inspected, not executed. Independent exact inverse-subset BFS, replay with python3 /workspace/reproductions/inverse_automata_audit.py, agreed on all 66 cases for n=2..12, including 21 nonsynchronizing cases."
+      ],
+      "rationale": "Modulo gcd(n,h), b is the identity and a is a common translation, so distinct residue classes cannot merge. When coprime, the +h cyclic order makes 0 the predecessor of h. For any proper nonempty interval, inverse b adds 0 at the left only if the old left endpoint is h, deletes only a right endpoint if it shrinks, and otherwise leaves the interval fixed. Empty preimages cannot subsequently become full; after the first full preimage it remains full, so use only the prefix of the reverse scan through first attainment. Each of the at least n-1 growth steps adds one point; between two such steps the left endpoint must move from 0 to h by decrements of one and non-growing b steps cannot help. The n-2 gaps thus cost at least n-h rotations each. Starting from {h}, inverse b gives {0,h}; shifting by h via inverse a^(n-h) and applying inverse b extends the successive intervals through all of Q. The bound and word coincide, including n=2, with no rotations between growth steps.",
+      "residual_risks": [
+        "The reproduction is bounded to n<=12; the formula for larger n rests on the interval argument. The frozen verifier's other reported checks were not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Don gives a general quadratic upper bound; Rystsov gives a group-generation criterion and explicit word for a regular group and simple idempotent; Volkov gives general sufficient conditions for synchronization. The distinct indexed result covers exactly this generator family and proves uniqueness of the minimizer as well."
+        ],
+        "reasoning": "The broader journal/preprint passages do not establish optimality, but the stronger indexed exact theorem does.",
+        "searches": [
+          "Don Proposition 15; Rystsov arXiv:2501.19166 Theorems 4.4–4.5; Volkov arXiv:2306.13317v3 Corollaries 3–4; strongest Resultary Finding and Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Distinct exact jump-distance Resultary record; Don Proposition 15; Rystsov 2025 Theorems 4.4–4.5; Volkov Corollaries 3–4; frozen prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rystsov's f(y^(-1)f)^(n-2), with f=b and y=a^h, gives precisely the submitted word; group generation is exactly gcd(n,h)=1. The indexed Section 2 additionally bounds every word: the effective-jump counts of all trajectories occupy distinct residues modulo n, giving a trajectory with n-1 or more jumps and disjoint gaps of at least n-h rotations."
+        ],
+        "reasoning": "The prior construction goes only as far as an upper bound, but the indexed all-words lower bound supplies the missing optimality for exactly the same directed transitions.",
+        "searches": [
+          "Rystsov arXiv:2501.19166 Equation (10), Theorems 4.4–4.5; matching Resultary Sections 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem has b(x)=x+1, a(0)=d and all other points fixed by a, left-to-right composition, and no additional generator. It states gcd(n,d)=1, length 1+(n-2)(n-d+1) and word a(b^(n-d)a)^(n-2)."
+        ],
+        "reasoning": "Substitute d=h and exchange the names of the two letters. This is a literal renaming, not cycle reversal or introduction of a unit-cost inverse. It preserves the length and applicability of all quantifiers.",
+        "searches": [
+          "Resultary semantic searches on exact jump threshold, gcd criterion and cyclic permutation plus simple idempotent; 2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed length is a symbolic formula for the same parameters and its Verification includes finite exact subset-BFS counts for n<=11. The separate nonmatching block-collapse record uses a collapse of at least two states to a fixed value, not this one-source jump."
+        ],
+        "reasoning": "The symbolic indexed result establishes full coverage, stronger than any bounded case table.",
+        "searches": [
+          "Resultary exact length and word query; matching Resultary Finding and Verification; frozen verify.py"
+        ]
+      },
+      "rationale": "A distinct Resultary record proves the identical all-parameter directed unit-cost formula and word, and also proves literal uniqueness. This is demonstrable coverage, not an attribution or precedence decision based on catalogue dates. The prior classical h=1 case and the papers giving a criterion or upper witness alone would not suffice for this conclusion.",
+      "residual_risks": [
+        "Precedence and derivation are not adjudicated. Earlier precise coverage in the 2000 or 2022 simple-idempotent papers remains unchecked; the exact indexed comparison is already decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage and strictly stronger uniqueness statement",
+          "evidence": "Section 2 proves both letter-count lower bounds; Section 3 constructs the witness, and Section 4 checks equality of those bounds forces the literal word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-jump-distance-reset-thresholds-and-unique-shortest-words-f--982722496edf/RESULT.md",
+          "material_read": "Finding, scope and proof through Section 4; offsets 0–5073",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact jump-distance reset thresholds and unique shortest words for cyclic unitary automata",
+          "trigger": "Exact distance-dependent length and single jump"
+        },
+        {
+          "assessment": "Criterion and witness covered; inspected passages do not give the matching lower bound",
+          "evidence": "G=<y> and f(y^(-1)f)^(n-2) specialize exactly as above.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.19166",
+          "material_read": "pp. 6–9, definition, Equation (10) and Theorems 4.4–4.5",
+          "method": "OA PDF passages",
+          "title": "Černý type automata and rank conjecture",
+          "trigger": "Simple idempotent and regular cyclic group construction"
+        },
+        {
+          "assessment": "General bound; not an exact formula in the inspected passage",
+          "evidence": "The excluded state 0 and contracting state h give synchronization under coprimality and upper bound (n-1)^2.",
+          "identifier_or_url": "10.37236/5616",
+          "material_read": "p. 7, Proposition 15, around offset 16900",
+          "method": "Accessible full-text passage",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "Copime excluded-to-contracting distance in circular DFAs"
+        },
+        {
+          "assessment": "Existence, not optimal length",
+          "evidence": "Primitive automata with a defect-one letter synchronize; this input has kernel type (2,1,...).",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13317v3",
+          "material_read": "p. 4, Corollaries 3–4, near offset 12450",
+          "method": "OA preprint passage",
+          "title": "Synchronization of primitive automata",
+          "trigger": "Defect-one and simple kernel type"
+        },
+        {
+          "assessment": "Exact distance-specific coverage unresolved on these sources",
+          "evidence": "Available abstracts concern bounds for simple-idempotent automata and do not resolve this specialization. Access limits do not determine the verdict.",
+          "identifier_or_url": "10.1007/BF02732984; 10.1007/s10559-022-00428-3",
+          "material_read": "Search-result abstracts only; no full text read",
+          "method": "Publisher and identified alternate routes checked for lawful OA",
+          "title": "Estimation of the Length of Reset Words for Automata with Simple Idempotents; Černý's Conjecture for Automata with Simple Idempotents",
+          "trigger": "Plausible earlier exact result for a cyclic regular group"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; matching Resultary Finding and Sections 2–4"
+      ],
+      "rationale": "An exact directed threshold across linear and quadratic regimes is mathematically useful. The audited finding does not add a new invariant or independently stated structural theorem beyond the distinct published exact result, which even identifies the unique shortest word. A different proof of the threshold in this record does not establish a further scientific claim of the proposed scope.",
+      "residual_risks": [
+        "No wider inverse-interval theorem is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:38.283310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The numerical and all-length conclusions are correct with a corrected transfer matrix; the frozen proof contains a false pivotal matrix identity. In RESULT.md lines 38–52 the B_0 row omits B_0→U_1, which must be permitted by overlap and odd parity. The printed M violates row symmetry and gives (M^3)_{ZZ}=10, not a_2=11. The corrected row is (0,0,1,0,1,1,0), as in checker.py; it gives exactly the printed reduced matrix B. Independently, with d=1−z, the Z cofactor of I−zB is R=d^3−z^2(1+z)^2 and the determinant is dR−2z^2. Thus (R/det−1)/z is the asserted generating function. B^2 is positive; zero extension and one-cell parity repair at a suitable end for each even boundary component give a_n ≤ L_n ≤ a_{n+2}, including a trivial empty case. The entropy is per column. Independent flood-fill exhausted 87,381 patterns at lengths 0–8 and obtained 1,3,11,37,127,445,1559,5451,19061. Replay: /workspace/branches/8fc74a14-0ccb-4c37-ac46-589ccd7264f5/independent_odd_ladder.py and independent_odd_ladder.out. This confirms finite cases, not the asymptotic. The failed item is the displayed proof identity, not the corrected theorem.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Callard p.54 describes the planar odd-shift parity constraint and soficity, not the open-ladder spectrum. The indexed strip result gives the full labelled presentation, as well as entropy and periodic-point information."
+        ],
+        "reasoning": "The planar qualitative result does not itself specialize to the exact count; the stronger strip presentation does. Periodic-point counts should not themselves be equated with open-ladder counts.",
+        "searches": [
+          "Callard thesis, Soficity of multidimensional subshifts §7.1",
+          "Resultary parity-corrected-zeta record 9dc9baf1be25, Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 9dc9baf1be25",
+        "Callard thesis §7.1 and bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its E state represents the empty frontier, its label is the new column, and every transition closing a component requires odd parity. The supplied matrix includes D_0→T_1 and D_0→B_1."
+        ],
+        "reasoning": "With an initial empty frontier, feed the n columns and then one empty column. Paths are deterministic in the labels and those returning to E accept exactly the legal open ladders. Consequently the required OGF is [M(I−zM)^−1]_{EE}; cofactor evaluation gives the frozen rational function. This is a direct boundary specialization of the exact existing presentation, not a new parity automaton or new counting theorem.",
+        "searches": [
+          "9dc9baf1be25/RESULT.md Proof §1, mirror offset 2000–4936"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched shift uses identical nearest-neighbor two-row adjacency, finite-component parity and unrestricted infinite components; its entropy is log of the same quintic root per column."
+        ],
+        "reasoning": "The shape letters E,T,B,D there are Z,U,D,B here. This is the same entropy problem, not an analogous higher-dimensional model.",
+        "searches": [
+          "Resultary: two-row odd-component / odd-island shift, finite odd components and entropy",
+          "SCOPE-exact-entropy-and-parity-corrected-zeta-of-the-two-row-odd-islan--9dc9baf1be25, RESULT.md, Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record explicitly gives log λ with quintic t^5−4t^4+3t^3−5t^2+2t+1. No explicit matching open-ladder GF was found in the inspected passage, but its numerical transition matrix is exact."
+        ],
+        "reasoning": "Coverage is not inferred from a few coincident finite coefficients or title similarity.",
+        "searches": [
+          "Resultary exact entropy and parity-corrected zeta of the two-row odd-island shift, id 9dc9baf1be25"
+        ]
+      },
+      "rationale": "A distinct indexed result proves the identical entropy for the same strip rule and supplies the labelled parity matrix that directly gives the entire open-ladder series. There is demonstrated coverage of both parts; neither calendar-date ordering nor dependence is inferred.",
+      "residual_risks": [
+        "The Cassaigne work was unavailable for comparison. The same indexed date does not establish which exact record came first. Neither uncertainty affects demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct entropy coverage; open counts mechanically implied",
+          "evidence": [
+            "Correct seven-state transition matrix, odd closure rule, deterministic labels, and explicit quintic entropy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-entropy-and-parity-corrected-zeta-of-the-two-row-odd-islan--9dc9baf1be25/RESULT.md",
+          "material_read": "Finding; Proof §§1–2, offset 2000–4936",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Exact entropy and parity-corrected zeta of the two-row odd-island shift",
+          "trigger": "Same shift and claimed entropy"
+        },
+        {
+          "assessment": "Inspected passage is background, not an exact strip calculation",
+          "evidence": [
+            "Finite-component parity rule and planar soficity; lists Cassaigne, Odd shift, as unpublished results (2010)."
+          ],
+          "identifier_or_url": "https://www.acallard.net/publications/thesis.pdf",
+          "material_read": "§7.1 printed p.54, extraction offset 222800; Cassaigne bibliography entry near offset 703050",
+          "method": "OA PDF extraction and bounded passage reading",
+          "title": "Soficity of multidimensional subshifts",
+          "trigger": "Cited original description of the odd shift"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Entropy of a natural strip and finite odd-component enumeration are meaningful invariants, but this frozen contribution adds only evaluation of a standard resolvent entry of the already-available exact presentation. Fixing the matrix transcription would not leave a genuinely distinct valuable claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

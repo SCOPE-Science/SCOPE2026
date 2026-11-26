@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nilpotent-coordinate universal property, invertibility criterion via the cotangent space, constructive conjugacy of every idempotent, and automorphism centralizer count are proved with full quantifiers in RESULT.md. The exact formula follows from orbit-stabilizer; the logarithmic concentration follows from a uniform three-point window bound with an exponential gap of order \(p^d\) overwhelming Gaussian coefficients of log-size \(O(d^2)\). Independent direct finite enumeration of all maps for \((p,q,d)=(2,2,2),(2,4,2)\) confirms the rank strata. Risk: finite checks do not replace the symbolic proof; only unital coefficient-preserving endomorphisms are covered.
+## correctness
 
-**Originality — PASS on the inspected evidence, with priority risk.** The primary truncated-polynomial/group-algebra source Chebolu–Corry–Grimm–Hatfield (2021), Sections 2–5, studies units and ideals, not the retraction orbit stratification. Balogh (2022), Sections 1–2, counts unitary subgroups rather than algebra-map idempotents. An earlier exact computation for the \(p=2,d=2\) exterior algebra is an included special case, and explicitly not new. Scientific searches and relevant existing algebra records do not imply the all-dimensional formula or the logarithmic rank law. Risk: older finite-local-algebra or modular group-algebra literature may contain an equivalent enumerator; this is not a claim of exhaustive publication priority.
+PASS
 
-**Value — PASS.** Retracts are canonical split quotient subalgebras of a standard modular group algebra. The theorem gives a complete exact infinite-family invariant and a non-obvious phase of typical retractions: their logarithmic generator-codimension produces image sizes on the scale of ambient dimension divided by the number of generators. The asymptotic claim is not a special case of the known four-dimensional count.
+The frozen exact count is correct, but not new. In the truncated algebra every maximal-ideal element has p-th power zero. Lifts e(x_i) on the image tangent block and x_j-e(x_j) on its complement have invertible linear part and conjugate the idempotent to the coordinate map. The centralizer has the two invertible diagonal blocks and the stated independent higher-degree coefficient choices. The repaired theorem uses the identical known count directly. On writing b=d-k, the exponent is p^d h_d(b)-b(d-b+1) with h_d(b)=d-b-(d-2b)p^(-b). The Gaussian coefficient contributes between zero and d^2 to the base-q log. The adjacent difference is -1+((p-1)(d-2b)+2)/p^(b+1); below floor(log_p d)-1 it is at least 1/2 for large d, and from floor(log_p d)+1 onward at most -1/(2p). Each exterior stratum therefore loses a uniform positive multiple of p^d in log mass to an endpoint stratum, uniformly dominating the O(d^2) log error. Summing over at most d+1 terms gives the repaired probability bound. On the window, d p^(-B_d) is between 1/p and p^2, as claimed. No finite check is needed for the limit; the included script was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+This verdict applies only to the repaired fixed-field concentration theorem. The frozen claim of a new all-p,q,d rank enumerator fails: the earlier October 26 Resultary record gives that exact formula and the coordinate-conjugacy theorem. The repair removes these as contributions and credits them as inputs. The earlier record's comparison with dimension fixed and q growing does not give a fixed-field probability bound as dimension grows.
+
+## value
+
+PASS
+
+The surviving claim answers a natural distributional question about a standard finite local algebra: a typical map discards only logarithmically many generators, yet its image dimension is down by a factor of order d. Locating the integer ambiguity in a genuine three-index window uses adjacent ratios and compares all ranks, not an arbitrary small-parameter test or a rephrasing of the prior count. The exact enumeration is a useful input, not the asserted advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

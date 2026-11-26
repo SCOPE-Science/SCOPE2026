@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:05:18.703407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, Assumptions and Proof",
+        "VERIFICATION.md, verify.py and verification_output.txt (read; original checker not executed)",
+        "Independent replay: python3 /workspace/checks/review_2_3_5.py 5"
+      ],
+      "rationale": "There are 286 triples minus 13·4 collinear triples, so 234 unordered bases; each point is in 54 and each pair in nine bases. Expanding the product of three Boolean signs gives the multiplier 234−108k+36·binom(k,2)−8·binom(k,3)+8t(S), where t(S) counts the collinear triples in the k-point subset. The expansion gives residue 2 modulo four, and complementing S changes the sign because bases have odd size. Independently I constructed the plane as the affine 3-by-3 grid with four directions at infinity, checked the unique line through each pair, removed each line's triples, and summed the signed basis contributions directly at every one of 8192 masks. This reproduces all k≤6 incidence shells, all 16 signed levels with their multiplicities, and the stated −2 witness in the frozen labeling. The trivial character gives 234 and the triangle inequality bounds all moduli by 234. The orthogonal Walsh basis gives rank 8192, inverse norm 1/2 and condition number 117 in counting convention. The integer matrix determinant is the product of all eigenvalues, all of exact valuation one, hence has valuation 8192.",
+      "residual_risks": [
+        "Only PG(2,3) with Boolean incidence vectors of unordered bases. The inverse norm is for counting convolution; probability normalization rescales it but not the condition number."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1a9938b7ebb8 proves dyadic nonvanishing for complements of Steiner triple-system blocks. Its 13-point example is full rank but has 260 allowed triples, unlike the 234 here from four-point lines. 417690500a98 concerns PG(r−1,2), not base field three.",
+          "b675066942c8 uses Witt hexads rather than basis triples, and 7bff204e2bc4 uses ternary colorings of the Fano plane rather than the present Boolean group."
+        ],
+        "reasoning": "The broader nonvanishing theorems have different hypotheses and do not classify this spectrum. Even an applicable congruence theorem would not by itself imply the full multiplicities or attainment of modulus two.",
+        "searches": [
+          "Resultary 1a9938b7ebb8 and 417690500a98 for general dyadic basis-spectrum theorems",
+          "Brändén–González D’León Theorem 1.1; Resultary b675066942c8 and 7bff204e2bc4 for broader related Fourier constructions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0906.1071v1, 1304.0089v1 and 1604.04429v1",
+        "Resultary 1384cdd85f59, 1a9938b7ebb8, 417690500a98, d0e69f631382, 17c865f9e680, b675066942c8 and 7bff204e2bc4",
+        "Manitoba configurations thesis §4.4 and Ghent thesis §4.3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For line-free S of size k, t=a_3, a_0=13−4k+binom(k,2)−t, and a_1=4k−2binom(k,2)+3t; these follow from counting lines, incidences, and pairs on lines. A proper bicoloring is exactly a_0=a_4=0.",
+          "At k=5, a line-free set has t≤3; t=3 is ruled out by the proper size census. If t=0 then a_1=0, impossible: the four lines through an outside point would partition five selected points into intersections of even size. The 117 sets with a full line have t=4. Thus remaining t=1,2 counts are determined by total binom(13,5) and total t=52·binom(10,2), yielding 468 and 702.",
+          "At k=6, line-free sets have 2≤t≤4 and exactly 234 have t=4, by the proper size census. The 468 sets with a full line have t=5: the two extra points determine a line meeting the full line at one point. Then binom(13,6) and total t=52·binom(10,3) give 78 and 936 at t=2,3. A full line is unique in either shell since two lines have union size seven.",
+          "The k≤3 shells come from the counts of sets and collinear triples. At k=4 the only possibilities are t=0,1,4, with thirteen full lines and total t=52·10. The four-arc result also gives the t=0 count directly."
+        ],
+        "reasoning": "This explicit reduction recovers every (k,t) count of the Finding from the existing exact bicoloring data and routine incidence identities; it needs no new exhaustive enumeration. Evaluating the sign polynomial in each shell and using complement symmetry gives the full 16-level table. The exact −2 shell, the maximum at the trivial character, the inverse norm and the two-adic determinant valuation are consequences. The same-day source is distinct; its relative posting order is not used.",
+        "searches": [
+          "Resultary 17c865f9e680, RESULT.md offset 0–4596, exact proper bicoloring size census and line-test proof",
+          "Resultary d0e69f631382 four-arc Finding; Brändén–González D’León basis count and definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multiplier is the basis polynomial evaluated at ±1 point signs, or the eigenvalue of the Boolean Cayley graph generated by the basis masks. Equivalently, for the binary incidence code with 234 coordinates indexed by bases, the corresponding word weight is (234−λ)/2.",
+          "Brändén–González D’León lists PG(2,3) with 13 elements and 234 bases and studies stability of basis polynomials. Gill et al. use a ternary code whose generator rows are lines, with a subcode puncturing to the ternary Golay code; that is not the binary basis-incidence code.",
+          "The closest exact equivalent is not a stated code weight enumerator. It is the exact proper-bicoloring count by size in Resultary 17c865f9e680, expressed as forbidding empty and full line intersections of a subset. The geometry thesis matches concern realizations or flag matchings, not this census."
+        ],
+        "reasoning": "The exact t-distributions at each subset size determine the signed table by substitution and complement symmetry. For line-free subsets of size k, writing a_j for the number of lines meeting S in exactly j points gives a_0=13−4k+binom(k,2)−t from the first two incidence moments. Thus proper bicolorings give exact counts for one boundary value of t on each of the decisive shells, and those counts fix all the remaining entries by double counting as detailed below.",
+        "searches": [
+          "Resultary lookup for PG(2,3) basis Walsh spectrum, point bicolorings and Fourier recovery",
+          "Brändén–González D’León arXiv:0906.1071v1 pp. 2, 4; Gill et al. arXiv:1604.04429v1 §§1.1, 3.1",
+          "Primary lookup for PG(2,3) point-subset orbits and collinear-triple/line-intersection distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1384cdd85f59 is the frozen self-match. d0e69f631382 gives 234 four-arcs, the (k,t)=(4,0) census slice. The proof of 17c865f9e680 gives an exact size census of proper masks: 234 of size six, 234 of size seven and none of any other size. Its assumptions are the same 2-(13,4,1) plane design.",
+          "The exact Witt hexad spectrum in b675066942c8 has 4096 frequencies and four nonzero levels −12, 4, 52, 132; it is for a different support."
+        ],
+        "reasoning": "The proper-mask table gives the exact (k,t)=(6,4) count and the absence of (k,t)=(5,3) for line-free sets, not just a global total. This exact boundary information, combined with the elementary moments, reconstructs the entire spectrum. Absence of a literal Walsh table in the same-plane source does not avoid coverage.",
+        "searches": [
+          "Local Resultary 1384cdd85f59, d0e69f631382, 17c865f9e680, b675066942c8",
+          "Primary lookup for a complete PG(2,3) point-set orbit/incidence table; Group Realizations of Configurations §4.4 and Ghent thesis §4.3.3"
+        ]
+      },
+      "rationale": "The spectrum is correct but already covered by a short implication from the distinct same-day Resultary result 17c865f9e680 for the exact same PG(2,3) line design. That result gives precisely 234 proper bicolorings with six points of color 1, none with five. Those two exact facts determine the missing five- and six-point incidence distributions using the first two line-intersection moments and elementary count identities. The smaller shells already follow from elementary incidences (the four-arc slice also has independent exact overlap). Hence all sixteen signed levels, their multiplicities, and the sharp recovery constants are covered, despite different terminology and no explicit spectral table in the bicoloring result. This is an implication judgment, not an inference of publication priority from same-day dating.",
+      "residual_risks": [
+        "The implication from the distinct same-day bicoloring source is established, but it does not establish which result was posted or discovered first. Older explicit spectral tables or alternative derivations were not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes same object, known number of bases and a stability result, not the sign-value distribution",
+          "evidence": [
+            "PG(2,3): 13 elements, 234 bases; no finite projective geometry has the weak half-plane property."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0906.1071v1",
+          "material_read": "pp. 2 and 4, definition, Theorem 1.1 and table, text offsets 4700 and 10100",
+          "method": "OA primary PDF passages",
+          "title": "On the half-plane property and the Tutte group of a matroid",
+          "trigger": "Same matroid and the polynomial whose sign evaluations are the spectrum"
+        },
+        {
+          "assessment": "Different code and alphabet",
+          "evidence": [
+            "The code is the ternary span of line-incidence rows; a subcode punctures to the [12,6,6] ternary Golay code."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.04429v1",
+          "material_read": "§1.1 p. 1 and §3.1 pp. 7–9, offsets 3500, 23500 and 28600",
+          "method": "OA primary PDF passages",
+          "title": "Conway's groupoid and its relatives",
+          "trigger": "Same plane and a possible code-enumerator formulation"
+        },
+        {
+          "assessment": "Quadrics and a Witt design on twelve points, not this basis census",
+          "evidence": [
+            "Constructs the 5-(12,6,1) Witt design using PG(2,3) minus one point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.0089v1",
+          "material_read": "pp. 1–2, offset 2200",
+          "method": "OA primary PDF passage",
+          "title": "A Model of the Witt Design W12 based on Quadrics of PG(2,3)",
+          "trigger": "Exact geometry of the same projective plane"
+        },
+        {
+          "assessment": "Substantive coverage: exact boundary counts there imply all signed multiplicities in the assigned result",
+          "evidence": [
+            "All proper named bicolorings have color-class sizes six and seven. The mask test rejects exactly empty or full line intersections; the exact census gives 234 of weight six and 234 of weight seven."
+          ],
+          "identifier_or_url": "Resultary 17c865f9e680",
+          "material_read": "RESULT.md offset 0–4596: Finding, Assumptions, and Full exact finite certificate",
+          "method": "Local mirror full-text passage and exact mathematical reduction",
+          "title": "A sharp two-flip geodesic defect for the proper bicolorings of the ternary projective plane",
+          "trigger": "Exact known counts of same-plane subsets for which no line is monochromatic"
+        },
+        {
+          "assessment": "Exact (k,t)=(4,0) overlap",
+          "evidence": [
+            "234 four-arcs as shattered supports."
+          ],
+          "identifier_or_url": "Resultary d0e69f631382",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror full-text passage",
+          "title": "Three-line shattering in the ternary projective plane",
+          "trigger": "Exact same-plane small subset count"
+        },
+        {
+          "assessment": "Different basis families; no exact coverage at PG(2,3)",
+          "evidence": [
+            "Steiner triple-system complements, including a 13-point full-rank example; projective geometries over F₂ in the second result."
+          ],
+          "identifier_or_url": "Resultary 1a9938b7ebb8 and 417690500a98",
+          "material_read": "Mirrored Findings and scopes",
+          "method": "Local mirror full-text passages",
+          "title": "Uniform dyadic nonvanishing for the Walsh transform of Steiner matroid bases; Sharp dyadic Fourier divisibility and the first singular rank of binary projective matroid bases",
+          "trigger": "General results on the same Fourier and recovery questions with overlapping sizes"
+        },
+        {
+          "assessment": "The matched classifications are of realizations and flag matchings, not the requisite point-subset profiles",
+          "evidence": [
+            "Theorem 4.4.1 requires characteristic three for representation of the plane; Proposition 4.3.5 counts five flag-matching isomorphism classes."
+          ],
+          "identifier_or_url": "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/d901e9b1-8e57-4632-abfe-7b7f60105287/content ; https://backoffice.biblio.ugent.be/download/472524/1877863",
+          "material_read": "Manitoba §4.4 pp. 57–58 (offset 94650); Ghent §4.3.3 Proposition 4.3.5 pp. 100–101 (offset 239200)",
+          "method": "OA primary PDF passages after localizing PG(2,3)",
+          "title": "Group Realizations of Configurations; Ghent thesis section Flag matchings of PG(2,3)",
+          "trigger": "Primary search hits for configurations and classifications of the exact plane"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and incidence-geometry proof",
+        "Independent replay of complete spectrum and shells",
+        "Resultary 17c865f9e680 exact proper-bicoloring census and the implication in originality.claim_vs_prior_implication"
+      ],
+      "rationale": "The convolution and its sharp gap are natural mathematical quantities. For this narrow finite result, however, the entire announced exact census and recovery data are mechanically recoverable from an existing exact bicoloring census by the displayed incidence identities. There is no demonstrated new invariant calculation left over, no broader result, and no substantive surviving claim to repair; an additional certificate or repackaging the covered data does not supply value under the finite-invariant standard.",
+      "residual_risks": [
+        "The equivalent spectral presentation can be a useful reference, but utility of presentation does not establish an uncovered exact result or a general theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:11.239664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the whole ambient group, each Fourier character is one eigenvector of counting convolution. The ternary zero-sum filter gives the average of three products with local factors 2 at a frequency-symbol match and -1 otherwise, i.e. (-1)^n times the sum of three signed powers (-2)^(c_j) divided by 3. This is integer-valued because each power is 1 modulo 3; negation symmetry also gives real eigenvalues, whose moduli are the singular values. Divide a putative vanishing sum by the smallest signed power. A unique minimum leaves an odd integer; three minima leave 3; two minima force the remaining exponent to exceed the minimum by one. For n>=2 this gives exactly (m,m,m+1) up to permutation with m>=1 and n=3m+1. Counting ambient words gives the factor of three and the stated multinomial nullity. The normalized probability for one ordered count triple differs from the central equal-count probability at length 3m by (3m+1)/(3(m+1)); Stirling then gives the claimed constant and relative O(1/n) along the singular progression only. A separate phase-count check on dual coset representatives at n=2 through 7 gave nonzero ambient nullities only at 4 and 7, namely 36 and 630. RESULT.md lines 35–61 give the all-length replay; check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beck–Zaslavsky Example 3.4 counts flows on parallel-link dipoles. The general Cayley eigenvalue formula gives a character sum for any symmetric support and the Hamming example gives 3c_0-n, not a sum of three signed powers. The attempted Encyclopedia and Hall enumerator sources did not yield readable text and do not establish absence of a covering formula."
+        ],
+        "reasoning": "Compositional Fourier/weight-enumerator methods recover the basic multiplier representation after specialization, which is not asserted as new. The inspected general theorem does not evaluate these support-specific zero sums or their multiplicities; the ordinary flow polynomial gives only the trivial frequency. A stronger explicit classification for the full-weight single-check distance graph would cover the claim, but none was established.",
+        "searches": [
+          "arXiv:math/0309331 Example 3.4",
+          "arXiv:2609.09222 Eq. (2.1) and Theorem 11.1",
+          "coding theory \"single parity check code\" \"complete weight enumerator\" coset full support words character sum Hamming graph induced spectrum distance n",
+          "https://encyclopediaofmath.org/wiki/MacWilliams_identities"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Resultary self-match, same-code polytope, ternary surjection spectrum, balanced Fourier slice, and parity-check alias summary",
+        "Beck–Zaslavsky arXiv:math/0309331",
+        "Spectral Algebras of Abelian Cayley Graphs arXiv:2609.09222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The surjection finding uses diagonal-colour symmetry and even-length resonance. The Fourier-slice finding takes minors indexed by fixed-weight subsets, not a convolution by a checksum-zero full-weight indicator. The available parity-check alias summary describes low-interaction character sampling on the whole hyperplane; full text was not obtained."
+        ],
+        "reasoning": "A character-sum representation does not decide when its signed terms cancel. The useful additional step is the parity obstruction for the minimum exponent, which gives an exact if-and-only-if and lets one sum its ambient multiplicity. Restrictions of Fourier matrices to an entire checksum hyperplane or to fixed-weight slices are not that convolution operator.",
+        "searches": [
+          "arXiv:2609.09222 §§2.1, 11",
+          "Resultary 2026/11/22/SCOPE-a-parity-resonant-complete-fourier-spectrum-for-ternary-surjecti--7eb1b49cbfc7",
+          "Resultary 2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c",
+          "Resultary 2026/11/8/SCOPE-sharp-conditioning-and-the-ternary-threshold-for-balanced-finite--efbde5ac5a6a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-code polytope record's Finding and proof steps 1–3 give a Cayley graph on the checksum subgroup, with only two-coordinate opposite-sign and three-coordinate equal-sign steps. The primary Cayley spectral-algebra paper gives the general character-sum eigenvalue formula and treats the coordinate-step ternary Hamming graph in §11."
+        ],
+        "reasoning": "The equivalent Cayley graph here uses all full-support checksum-zero words as steps, not those two/three-coordinate generators or Hamming distance-one steps. The restriction to the checksum subgroup has a triple copy on the ambient group, since frequencies differing by the all-ones vector coincide on the support. This reduction does not identify its spectrum with that of a different connection set.",
+        "searches": [
+          "Fourier spectral rank and exact nullity of ambient ternary Cayley convolution by all nowhere-zero words of coordinate sum zero; zero counts (m,m,m+1) for ternary dipole flows and full-weight single checksum code",
+          "arXiv:2609.09222 §§2.1, 11",
+          "Resultary 2026/11/22/SCOPE-fourier-spectrum-and-sharp-connectivity-of-the-ternary-single-ch--edbec7283669"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nullity and density entry is identical to the frozen record. The distinct surjection record classifies a full-group ternary convolution spectrum with even-length extra balanced-frequency zeros on a different support. The same-code polytope record computes a Laplacian spectrum for pair and triple generators."
+        ],
+        "reasoning": "Neither distinct catalogue entry tabulates these multipliers or reproduces the mod-three full-support rank law. Same dates are not used to infer order or independence.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-three-step-singularity-law-for-ternary-nowhere-zero-flow-convo--6d4f1c02d992",
+          "Resultary 2026/11/22/SCOPE-a-parity-resonant-complete-fourier-spectrum-for-ternary-surjecti--7eb1b49cbfc7",
+          "Resultary 2026/11/22/SCOPE-fourier-spectrum-and-sharp-connectivity-of-the-ternary-single-ch--edbec7283669"
+        ]
+      },
+      "rationale": "The supported distinct result is the full-length exact cancellation and ambient-rank law for the full-weight part of the ternary single-check code, including its multiplicities and asymptotic nullity density. Character diagonalization and modular flow counts are established. The closest inspected graph spectra use different generators or supports and do not give the claimed cancellation criterion. This comparison does not certify historical priority.",
+      "residual_risks": [
+        "An equivalent specialization may exist in complete weight-enumerator, signed-weight or distance-graph literature. The bounded retrievals of the Encyclopedia MacWilliams page and Hall's Weight and Distance Enumeration did not produce full text.",
+        "The parity-check alias comparison remains limited to its available summary. Same-day catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same ambient operator, balanced-count criterion and asymptotic nullity.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-step-singularity-law-for-ternary-nowhere-zero-flow-convo--6d4f1c02d992",
+          "material_read": "Frozen RESULT.md Finding and proof",
+          "method": "Local package and catalogue identity comparison",
+          "title": "A three-step singularity law for ternary nowhere-zero flow convolution",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Classical scalar flow count, not a Fourier rank theorem",
+          "evidence": "The mK_2 examples enumerate modular flows on parallel links, e.g. the three-link polynomial (k-1)(k-2).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0309331",
+          "material_read": "PDF p. 7, Example 3.4, offset 24984",
+          "method": "Bounded OA PDF reading",
+          "title": "The Number of Nowhere-Zero Flows on Graphs and Signed Graphs",
+          "trigger": "Same dipole and modular flow-count literature"
+        },
+        {
+          "assessment": "Covers diagonalization but not this connection-set classification",
+          "evidence": "The general eigenvalue is the sum of the character over the support; the ternary Hamming example uses signed coordinate basis vectors and gives the linear composition law 3c_0-n.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09222",
+          "material_read": "PDF pp. 2–3, offset 8310, Eq. (2.1) and Lemma 2.2; p. 9, offset 29290, §11 and Theorem 11.1",
+          "method": "Bounded OA PDF reading",
+          "title": "Spectral Algebras of Abelian Cayley Graphs",
+          "trigger": "General Cayley spectral theory and explicit elementary ternary-group case"
+        },
+        {
+          "assessment": "Same code but different adjacency and spectral operator",
+          "evidence": "The one-skeleton generator supports are of size 2 or 3; its Laplacian eigenvalue is 3/2 times a cubic in the frequency counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fourier-spectrum-and-sharp-connectivity-of-the-ternary-single-ch--edbec7283669/RESULT.md",
+          "material_read": "RESULT.md Finding, Assumptions and proof steps 1–3, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Fourier spectrum and sharp connectivity of the ternary single-check codeword polytope",
+          "trigger": "Same checksum code with a complete weighted-by-composition spectrum"
+        },
+        {
+          "assessment": "Different support and zero law",
+          "evidence": "The support consists of onto words; new balanced-frequency zeros arise at even lengths, beyond the diagonal-translation-forced zeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-resonant-complete-fourier-spectrum-for-ternary-surjecti--7eb1b49cbfc7/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "A parity-resonant complete Fourier spectrum for ternary surjections",
+          "trigger": "Closest same-group convolution cancellation law"
+        },
+        {
+          "assessment": "Different finite Fourier matrix",
+          "evidence": "Fixed k-subset row and column labels on [2k], with an invertibility law for that matrix.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-conditioning-and-the-ternary-threshold-for-balanced-finite--efbde5ac5a6a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Sharp conditioning and the ternary threshold for balanced finite Fourier slices",
+          "trigger": "Potential equivalent fixed-weight Fourier construction"
+        },
+        {
+          "assessment": "Summary describes a different sampling operator; bounded access risk remains",
+          "evidence": "Samples low-interaction characters on all checksum-zero words rather than convolving by the all-nonzero subset.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c",
+          "material_read": "Catalogue summary; decisive full text was not obtained",
+          "method": "Local catalogue and attempted exact-source retrieval",
+          "title": "Exact alias spectra and the binary Nyquist boundary for parity-check Fourier sampling",
+          "trigger": "Potential overlap on the single-check hyperplane"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dipole is a canonical nowhere-zero flow family, and ambient counting convolution asks a natural recoverability question not answered by counting its flows. The exact singular progression, description of every invisible mode, and quantitative rate of loss give a usable rank classification across all lengths. The value is the cancellation and rank law, not the standard character filter; no claim is made about stable inversion away from zero or arbitrary graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

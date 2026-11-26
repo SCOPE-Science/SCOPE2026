@@ -1,15 +1,21 @@
-# Scientific review: two fixed-width windows
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is defined for integer \(r\ge2\) and \(n\ge2r+1\), and every hypothesis is exactly two nonoverlapping length-\(r\) windows, allowing adjacency. Any five ordered coordinates fail the alternating trace `10101`. Four-point shattering forces the `0101`, `1010`, `1111`, and `0000` inequalities on their three spacings and exterior gaps. The all-negative trace can only place two windows in three large gaps, giving \(n\ge3r+3\). Equality has three candidate geometric cases; the `0110` trace excludes one and reduces the others to a reflected pair. The 16-row affine table gives actual legal windows for all labels for every \(r\ge2\). A dependency-free checker validates the table for 999 values of \(r\), and exhausts 92,099 four-point supports across six values of \(r\) and all chain lengths from \(2r+1\) through the onset. Finite checks do not replace the full proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest fully inspected published results concern *one* exact-width interval and *at most two* arbitrary-width intervals; their theorems neither imply the first possible four-shattering length for **exactly two equal-width windows** nor the identification of the two critical extremal supports. Johnson (2021), Section 2 and Theorem 5, studies substrings of an individual word and a general alternation bound, not this two-parameter family. No matching statement appeared in targeted research-record and literature searches. Possible unindexed work on paired equal-duration events or consecutive-ones matrices remains a priority risk; absence of search hits is not a mathematical novelty proof.
+PASS
 
-## Value — PASS
-This is a natural restricted multi-interval concept family at the boundary between dimension two and four. The sharp onset \(n=3r+3\) and the exactly two mirror-related extremal supports isolate a structural finite-size boundary invisible in the standard VC bound for arbitrary unions of two intervals. The rigid-support description can inform exact finite sample-design questions; the claim needs no further downstream theorem to have structural content.
+The alternating positive positions of 10101 require three windows, giving the universal upper bound. On four points let a,b,c be the successive differences and L,R the outer zero-gap lengths. The two alternating traces force a+b,b+c>=r+1 and L+a,R+c>=r. Those spans exclude any three queries in one window, so 1111 must split 2+2 and a,c<=r-1. Now 0000 can use only the gaps L,b-1,R: two must have length at least r or one must have length at least 2r. The two-gap cases give n>=3r+3, and the single-gap cases give n>=4r+2>3r+3. At equality the outer-outer case forces (L,a,b,c,R)=(r,1,r,1,r). The outer-middle case forces (r,1,r+1,c,r-c), or its reflection. In 0110 the two positive queries cannot share a window (their distance is at least r), so the interval strictly between the two excluded exterior queries must fit both windows. Its length is r+1 in the first case and r+1+c in the second, eliminating the first and forcing c=r-1 in the second. The affine witness table realizes all 16 traces for the reflected candidate, including r=2 and placements with adjacent windows, and the same placements embed in any larger chain. Independently, enumerating slack compositions before, between and after the windows and projecting the resulting binary strings tested 184191 supports for 2<=r<=8 from n=2r+1 through n=3r+3 and recovered exactly the two critical supports at each onset.
 
-## Closest literature and limitations
-Hunter R. Johnson, *Binary strings of finite VC dimension*, 2021, https://arxiv.org/abs/2101.06490; *Exact online ranks and shattering polynomials of fixed-width intervals on finite chains*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef; *Finite online-shattering thresholds for unions of two intervals*, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-finite-online-shattering-thresholds-for-unions-of-two-intervals--3374b1fb8ebf. Distinguish fixed width and exactly-two from unrestricted interval unions. Neither lower-support polynomials nor online dimension are claimed. Historical unindexed equivalences remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest available comparators cover the VC upper bound of four for unrestricted unions of two intervals, or a single fixed-width window. They do not decide when exactly two disjoint copies of the same fixed-width integer interval can realize all four-point labelings, nor the equality classification for the smallest chain. The only exact indexed statement located is the assigned record itself. The pass is for the sharp restricted onset and rigidity, not the standard alternating-trace bound.
+
+## value
+
+PASS
+
+On the natural fixed-width family, the general VC upper bound alone leaves open whether the length budget permits four fully independent responses. The exact threshold answers that question and the complete two-support rigidity identifies all optimally small query configurations, rather than one witness or an asymptotic estimate. The packing constraints distinguish the theorem from routine interval-class dimension bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

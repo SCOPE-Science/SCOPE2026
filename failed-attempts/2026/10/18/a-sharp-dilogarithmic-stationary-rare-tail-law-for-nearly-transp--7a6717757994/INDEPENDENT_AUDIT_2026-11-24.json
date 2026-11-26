@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:13:36.939136Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rate-one exponential Poisson age and preceding gaps give independent Brownian increments with Laplace transform (1-theta^2/2)^(-1). Geometric weights give the invariant product, with uniqueness by synchronous coupling. Independently expanding its log as the sum over m>=1 of (theta^2/2)^m/[m(1-e^(-mh))], h=-log(1-delta), gives Lambda/h-log(1-theta^2/2)/2+O(h): the remainder in 1/(1-e^-x)=1/x+1/2+O(x) is globally O(x) for x>0, and the resulting geometric sum converges locally uniformly, including derivatives. Since 1/h=1/delta-1/2+O(delta), this yields exactly the order-one term B. The stated second derivative is positive, and the first derivative increases from zero to infinity, so the fixed positive saddle is unique. The tilted characteristic-function modulus bound follows by squaring its individual denominators; the first floor(1/(2 delta)) factors give a Gaussian majorant up to delta^(-1/2) and an integrable far-tail bound with exponentially small integral. Together with local cumulant convergence this justifies uniform density convergence by Fourier inversion. Tail integration on z=y+delta v then gives sqrt(delta)/(t_y sqrt(2 pi Lambda''(t_y))) under the exponential tilt, leaving the displayed exp(B). This is ratio-one at each fixed y>0, not an endpoint-uniform assertion. The supplied checker was inspected, not run; the prefactor was checked analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vysotsky Theorem 6.1 is an LDP, not relative-error asymptotics; p. 2 describes Najim Theorem 3.1 as a weighted-sum LDP. Vysotsky p. 20 also discusses the light-tailed weighted-sum LDP of Kiesel–Stadtmüller.",
+          "Van Leeuwaarden–Temme §§2–3 give a sharp expansion for finite sums of power-weighted positive exponentials, not the asserted infinite geometric Laplace series."
+        ],
+        "reasoning": "The inspected large-deviation and saddlepoint results are relevant antecedents but do not by themselves yield the exact frozen correction. The actual coverage evidence is the same-model sharp comparator.",
+        "searches": [
+          "Vysotsky arXiv:1909.00374 Theorem 6.1 and discussion of weighted-sum LDPs",
+          "van Leeuwaarden–Temme 2011, uniform asymptotic expansion for weighted sums of exponentials",
+          "Focused literature lookup: sharp deviations for geometric weighted Laplace sums and q-product stationary reset tails"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3e4e01201dc0, e56c39b9e83a, 1d7c3b0372cd",
+        "Vysotsky arXiv:1909.00374",
+        "van Leeuwaarden–Temme author manuscript",
+        "Di Bello et al. arXiv:2305.13722v2",
+        "Grzywny et al. arXiv:2412.15626v1 opening",
+        "Assefa et al. arXiv:2610.01363v1 opening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp comparator's proof uses compact-tilt Euler–Maclaurin estimates. At u_epsilon the saddle stays in a compact neighbourhood of t_y inside the transform domain; cumulant derivative bounds are uniform there. The Fourier majorants for the small and large frequency regions continue to apply to the moving saddle, giving the same local limit and tail integration. The rate expansion thus applies to the relative asymptotic, rather than to its log alone.",
+          "The fixed-parameter stationary laws and q-products are known but do not alone prove the local-limit estimate and ratio-one tail."
+        ],
+        "reasoning": "The pointwise statement at fixed u does not alone allow an O(epsilon) displacement in u without tracking an order-one factor. The same compact-tilt proof applies along the moving saddles, and the explicit rate Taylor expansion tracks precisely that factor. No new limit regime remains after this conversion.",
+        "searches": [
+          "3e4e01201dc0 sharp-asymptotic proof, local mirror offsets 4646–8810",
+          "Di Bello et al. arXiv:2305.13722v2 Appendix D",
+          "Grzywny et al. arXiv:2412.15626v1 stationary density and moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3e4e01201dc0 states the sharp relative tail with scale sqrt(epsilon), dilogarithmic cumulant Lambda_ell, and endpoint factor (1-ell^2 t^2)^(-1/2). Use D=1/2, r=1, ell=1/sqrt(2), a=c=e^(-epsilon). Then Lambda_ell=Lambda/2 and I_ell(u)=I(2u)/2.",
+          "For the same physical displacement use u_epsilon=epsilon y/delta. Since 1/(2 epsilon)=1/delta-1/2+O(delta), expansion yields I_ell(u_epsilon)/epsilon=I(y)/delta+[y t_y-I(y)]/2+o(1)=I(y)/delta+Lambda(t_y)/2+o(1). The limiting saddle is t_y and sqrt(epsilon)/sqrt(Lambda_ell''(t_y)) is asymptotic to sqrt(delta)/sqrt(Lambda''(t_y))."
+        ],
+        "reasoning": "These transformations reproduce the entire frozen prefactor, including exp(-Lambda/2), not just the exponential rate. The change of threshold uses local uniformity from the comparator proof, not substitution into a merely pointwise assertion.",
+        "searches": [
+          "Resultary: sharp weak partial resetting stationary tails, dilogarithm, saddlepoint and endpoint correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct sharp match: 2026/11/8/SCOPE-sharp-weak-partial-reset-stationary-tails-with-a-dilogarithmic-r--3e4e01201dc0, Finding and sharp-asymptotic proof.",
+          "Rate-only comparisons: 2026/10/27/SCOPE-dilogarithmic-rare-displacement-law-for-weak-proportional-resett--e56c39b9e83a and 2026/11/2/SCOPE-dilogarithmic-large-deviations-of-stationary-brownian-positions--1d7c3b0372cd."
+        ],
+        "reasoning": "The sharp match is a different record, not a duplicate search return for the frozen record. The other two matches corroborate rate-level overlap only.",
+        "searches": [
+          "Resultary: dilogarithmic large deviations, partial reset stationary displacement, and exact endpoint factor"
+        ]
+      },
+      "rationale": "The full sharp asymptotic is covered at the level of mathematical content by a distinct published Resultary record, 2026/11/8/SCOPE-sharp-weak-partial-reset-stationary-tails-with-a-dilogarithmic-r--3e4e01201dc0. The same stationary model, series, saddle and endpoint correction become the frozen formula under the change from epsilon=-log(c) to delta=1-c^2, including the order-one factor from the rate conversion. This is a finding of equivalent published coverage at review, not a finding that the November-labelled record predates the October-labelled frozen record, nor an attribution of derivation or historical priority.",
+      "residual_risks": [
+        "Historical precedence among equivalent records was not established; their displayed dates alone are not a priority ruling.",
+        "Direct full-text access to Najim and Kolb–Wübker (DOI 10.1112/blms.70314) was unsuccessful, and Kiesel–Stadtmüller was compared only via Vysotsky. Earlier broader precise-deviation coverage remains possible; it is not needed to establish the verified catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the full sharp formula after parameter and threshold conversion; dates do not establish historical priority",
+          "evidence": [
+            "Pointwise sharp tail with sqrt(epsilon), Lambda_ell and the Euler–Maclaurin endpoint factor, and compact-tilt proof supporting the nearby moving-threshold specialization."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-weak-partial-reset-stationary-tails-with-a-dilogarithmic-r--3e4e01201dc0",
+          "material_read": "RESULT.md Finding at offset 0 and proof offsets 4646–8810, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and bounded local-mirror statement/proof comparison",
+          "title": "Sharp weak partial-reset stationary tails with a dilogarithmic rate",
+          "trigger": "Same sharp stationary tail and plausible normalization equivalence"
+        },
+        {
+          "assessment": "Logarithmic rate, not sharp correction",
+          "evidence": [
+            "Theorem 6.1 is an LDP. Discussions of Najim and Kiesel–Stadtmüller are not direct inspections of their papers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.00374",
+          "material_read": "Theorem 6.1 and nearby discussion, p. 20 offsets 70344, 72014; p. 2 offset 7388",
+          "method": "Primary OA PDF passages read",
+          "title": "Contraction principle for trajectories of random walks and Cramér's theorem for kernel-weighted sums",
+          "trigger": "Potential broader kernel-weighted deviation theorem"
+        },
+        {
+          "assessment": "Different weights and finite sum of positive exponentials",
+          "evidence": [
+            "The object is a finite sum with weights j^alpha, not the geometric stationary series of symmetric Laplace variables."
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/18559/18559B.pdf",
+          "material_read": "Abstract and §§2–3, offsets 0, 3400, 10000",
+          "method": "Author-manuscript passages read",
+          "title": "A uniform asymptotic expansion for weighted sums of exponentials",
+          "trigger": "Sharp saddlepoint theorem for related weighted variables"
+        },
+        {
+          "assessment": "Prior stationary transform context, distinct from the reviewed sharp prefactor in inspected passages",
+          "evidence": [
+            "Stationary density and q-binomial/q-Pochhammer identities supply the transform input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.13722",
+          "material_read": "arXiv v2 opening and Appendix D (offset 50349)",
+          "method": "Primary OA passages read",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Same model and stationary q-product"
+        },
+        {
+          "assessment": "No direct full-theorem comparison",
+          "evidence": [
+            "Vysotsky characterizes it as a stronger weighted-sum LDP."
+          ],
+          "identifier_or_url": "Najim, Electronic Journal of Probability 7 (2002), paper 4",
+          "material_read": "Secondary characterization of Theorem 3.1 in Vysotsky p. 2; no primary text obtained",
+          "method": "Lawful Project Euclid retrieval attempted; use of Vysotsky limited to its cited characterization",
+          "title": "A Cramér type theorem for weighted random variables",
+          "trigger": "Potential general weighted-sum theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, the sharp stationary tail identifies a meaningful rare-event scale and a nonvanishing relative correction for a natural near-identity reset mechanism; a logarithmic LDP cannot substitute for it in relative probability estimates. This is value of the content, not a distinct contribution from changing epsilon to delta; the equivalent-coverage failure prevents acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

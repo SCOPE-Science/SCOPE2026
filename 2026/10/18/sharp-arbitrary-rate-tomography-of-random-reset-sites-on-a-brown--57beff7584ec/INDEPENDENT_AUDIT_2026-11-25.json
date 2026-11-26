@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:59:49.944957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With one attempt stopped by absorption or exponential reset, its mean duration is (1-a_r)/r and its success probability is a_r. Renewal is valid because initial and reset draws have the same law; the killed interval resolvent gives the stated cosh transform. For the difference of two laws with at most N atoms, normalization adds the q=0 row to the 2N-1 positive rate rows. For K distinct folded nodes in the signed support, choose K rows: Cauchy–Binet for the even power series has nonnegative terms by generalized Vandermonde/Schur positivity, with a strictly positive ordinary Vandermonde term in the squared nodes on both axes. This also handles q=0 or t=0. On the quadratic grid, triangular Chebyshev conversion and Hankel rank find the actual atom count, and the leading positive definite block, annihilator roots and Vandermonde solve give exactly the nodes and masses. An independent rational instance L=4, D=1, q=log 2, t=(0,1), w=(1/4,3/4) gives scaled means (15/19,198/59,3675/422), Hankel determinant 3/256 and annihilator (Z-1)(Z-5/4). The open ordered interior model has dimension 2N-1, so invariance of domain gives the asserted continuous-data lower bound, including the trivial zero-probe obstruction for N=1. Entire transform equality on an open interval gives all even moments, which identify the pushforward by t^2 on the compact closure. Only folded sites are identified; the count uses a known upper bound, and no noisy-data stability or arbitrary-grid algebraic inversion is asserted. Frozen verification notes are not independent certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7c4ab5c0453e assumes a known deterministic starting point and uses an additional exit-direction observable at designed rates; 2af4cf3521b4 uses full curves for two targets on a line.",
+          "Abundo prescribes a full temporal FPT distribution or exit-side probability; Méndez et al. study forward distributed-resetting FPT in a different setting."
+        ],
+        "reasoning": "Recovering more with more channels or full curves does not imply uniqueness from this single channel at arbitrary rates. In the frozen experiment the initial law equals the reset law and orientation is unobservable.",
+        "searches": [
+          "Resultary two-target MFPT tomography and finite-rate two-channel ring tomography",
+          "arXiv:2410.16889 inverse first-passage with resetting; arXiv:2401.01125 distributed resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "arXiv:2605.08414v1, 2401.01125, 2410.16889; DOI:10.5802/smai-jcm.53",
+        "Resultary 7c4ab5c0453e, 2af4cf3521b4, 6de9da8f8562, acf0d7ce781d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Hankel/Prony reconstruction applies after the special-grid Chebyshev change of coordinates.",
+          "The general forward equation plus a grid inversion does not establish injectivity at off-grid probes; the application needs an all-node cosh minor argument, the probability normalization row and the admissible parameter dimension."
+        ],
+        "reasoning": "General moment and total-positivity methods are credited. The claim is the verified sharp observation theorem for this transform, not novelty of Prony, generalized Vandermondes, or invariance of domain.",
+        "searches": [
+          "Kunis–Möller–von der Ohe, DOI:10.5802/smai-jcm.53 p. 88, moment-matrix Prony",
+          "arXiv:2605.08414v1 Eq. 28 with the RESULT.md cosh minor lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2605.08414 Eq. 28 has the same averaged single-ring forward observable, but the inspected analysis gives forward response and optimization rather than its sparse inverse.",
+          "acf0d7ce781d identifies folded reset distances from equality of full first-passage laws at a fixed rate; 6de9da8f8562 extracts an antisymmetric component from a current curve."
+        ],
+        "reasoning": "A complete temporal law at fixed rate or a signed current curve is not a finite set of means at varying rates. Folding is shared, not evidence of an equivalent observation map.",
+        "searches": [
+          "Resultary sparse ring reset tomography with two channels and finite-rate sharp count",
+          "Resultary reflection-blind current tomography and equality of fixed-rate FPT laws by folded reset distance",
+          "arXiv:2605.08414v1 Eqs. 27–30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed finite-rate result counts probes for two channels on a special grid, not 2N-1 arbitrary one-channel rates.",
+          "The primary discrete-site formulas are forward expressions at given sites rather than a tabulation of inverse identifiability cutoffs."
+        ],
+        "reasoning": "There is no canonical numeric table for a universal identifiability threshold across arbitrary designs; the closest exact indexed and primary finite-atomic cases were compared as the applicable surrogate. Neither matches the claimed threshold in this protocol.",
+        "searches": [
+          "Resultary finite-rate sparse Brownian resetting tomography; nearest record 7c4ab5c0453e",
+          "arXiv:2605.08414v1 Eqs. 29–30 two discrete reset positions"
+        ]
+      },
+      "rationale": "The forward protocol, renewal identity, reflection symmetry and moment machinery are not new. The supported distinct claim is the exact model-specific finite-rate limit with arbitrary positive distinct rates for the single averaged mean observable, together with identification of its full information content. The strongest inspected comparisons change the observable, initial-law protocol, probe design, or target geometry.",
+      "residual_risks": [
+        "Bounded comparisons cannot exclude an unindexed equivalent cosh-sampling/reset inverse result or a broader inverse theorem specializing to exactly these data; no claim of historical priority for the underlying tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD_IDENTITY_COVERED",
+          "evidence": "Averaged mean for a general reset density followed by two-site specialization; does not supply the finite-rate inverse in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08414",
+          "material_read": "v1 PDF p. 6 Eqs. (27)–(30), offset 40198",
+          "method": "Primary OA PDF passage",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same observation and ring model"
+        },
+        {
+          "assessment": "DIFFERENT_FORWARD_SETTING",
+          "evidence": "Distributed resetting MFPT comparisons and optimization in a one-dimensional search setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "p. 1 abstract/introduction, offset 847",
+          "method": "Primary OA PDF passage",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Random reset positions and scalar FPT data"
+        },
+        {
+          "assessment": "DIFFERENT_DATA",
+          "evidence": "Prescribes a law of passage time or exit probability rather than a list of scalar means across rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.16889",
+          "material_read": "pp. 1, 12–13, offsets 810 and 43693",
+          "method": "Primary OA PDF passages",
+          "title": "Inverse first-passage problems of a diffusion with resetting",
+          "trigger": "Plausible inverse-resetting precedent"
+        },
+        {
+          "assessment": "METHOD_COVERED",
+          "evidence": "Hankel/Toeplitz moment matrices and Vandermonde recovery are established primitives.",
+          "identifier_or_url": "https://doi.org/10.5802/smai-jcm.53",
+          "material_read": "PDF p. 2 (printed p. 88), offset 2833",
+          "method": "Primary OA PDF passage",
+          "title": "Prony's method on the sphere",
+          "trigger": "Atomic moment reconstruction"
+        },
+        {
+          "assessment": "DIFFERENT_PROTOCOL",
+          "evidence": "Known deterministic start, means plus final direction, and quadratic grid for oriented sites.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-rate-two-channel-tomography-for-sparse-brownian-res--7c4ab5c0453e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp finite-rate two-channel tomography for sparse Brownian resetting",
+          "trigger": "Strongest matching finite-rate inverse record"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY_AND_DATA",
+          "evidence": "Real line, two targets, and full scalar functions of the rate.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-target-mean-first-passage-tomography-of-a-random-resetting-l--2af4cf3521b4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two-target mean first-passage tomography of a random resetting law",
+          "trigger": "MFPT inverse for general reset measures"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Membrane current accesses the reflection-antisymmetric component, not the frozen single-mean protocol.",
+          "identifier_or_url": "2026/11/2/SCOPE-boundary-current-tomography-and-its-reflection-blind-subspace-in--6de9da8f8562",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Boundary-current tomography and its reflection-blind subspace",
+          "trigger": "Mirror-identifiability overlap"
+        },
+        {
+          "assessment": "RELATED_FOLDING_NOT_SAME_OBSERVATION",
+          "evidence": "Uses complete first-passage laws at a fixed rate to distinguish reset-distance laws, rather than MFPTs across rates.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-fixed-mean-first-passage-laplace-and-variance-envelopes-fo--acf0d7ce781d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp fixed-mean first-passage Laplace and variance envelopes",
+          "trigger": "Equivalent reset-distance identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single accessible scalar response per rate retains exactly the folded law, and a freely chosen finite design attains the information-theoretic count for sparse laws. This separates intrinsic symmetry loss from avoidable experimental design restrictions and provides an exact inversion option; it is not merely an optimized rate computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:35:28.811697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63, VERIFICATION.md, checker.py (inspected)",
+        "/workspace/branches/2a792479-eb3d-471d-bd84-94df1ecc7d13/record5_check.py (independent n≤9 trace/adjacency checks, n≤8 mod-two boundary ranks)"
+      ],
+      "rationale": "The nontrivial-stabilizer coset sum vanishes at a primitive nth root, whereas a single swap changes the sum by a nonzero difference of distinct roots. Thus the forbidden sets are Johnson-independent. Any trace fiber with nonextreme free weight contains an edge, so it has a primitive extension. At |S|=r the only singleton fibers are the relevant extreme trace(s), and their sets are S or its complement, whose stabilizers agree; this includes the balanced case. Larger supports exceed a weight constraint. Primitive cyclic blocks guarantee attainment. The fixed-density Möbius sum counts labeled words, not rotation classes. The Johnson separation gives purity and fills every missing simplex boundary by the other facets through an outside vertex, all present in the complex. Hence restoring missing cells wedges on top-dimensional spheres. The full skeleton is a wedge of binom(n−1,r) such spheres (collapse the contractible star of one vertex), so the original complex is a retract up to homotopy, is (r−2)-connected, and has the claimed top Betti number. The connected graph case and the discrete r=1 case agree separately. This is an integral homotopy argument; the finite mod-two rank tests are only corroboration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Johnson-stable-set criterion is general and covers the matroid step",
+          "The cyclic-switch catalogue theorem uses a fixed switch count, and the isolated-run theorem uses a forbidden contiguous factor",
+          "The multidimensional necklace manuscript treats fixed-content counting and algorithms"
+        ],
+        "reasoning": "No inspected broader source includes the primitive fixed-Hamming-weight shattering criterion. The fixed-switch result is cardinality-based, whereas here support aperiodicity at rank r is decisive; neither grammar has the other's selection rule.",
+        "searches": [
+          "arXiv:1411.0935",
+          "Resultary a836f384a08b, 0ffe62df9806",
+          "arXiv:2108.01990v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.09516v1, 2108.01990v2, 1411.0935",
+        "Hartman–Sawada author manuscript",
+        "Local Resultary a836f384a08b, 0ffe62df9806, 8ab146fd984a, 58a19a580a50",
+        "Frozen RESULT.md, lines 65–77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stable Johnson nonbases yield sparse paving; its independence-complex homotopy type is standard",
+          "None of these inspected statements gives the first cyclic moment obstruction to adjacent periodic words and the consequent arbitrary-support trace classification"
+        ],
+        "reasoning": "The wedge conclusion is a classical consequence after constructing the right complex. The needed cyclic step and trace-fiber argument are not automatic from the older necklace count, prefix algorithms or the results for other word families.",
+        "searches": [
+          "arXiv:1411.0935",
+          "arXiv:1801.09516v1",
+          "Hartman–Sawada fixDenRank.pdf",
+          "Resultary a836f384a08b and 58a19a580a50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation exchanges k and n−k, with the same rotational stabilizers",
+          "For rank r, periodic nonbases form a Johnson stable set, so the complex is an independence complex of a sparse paving matroid",
+          "Resultary 8ab146fd984a and 58a19a580a50 study Fourier structure, not these trace fibers"
+        ],
+        "reasoning": "The matroid reformulation describes the facet-deletion structure but requires identifying these particular nonbases and showing that all traces extend. Studying the same words via a transform does not supply that identification.",
+        "searches": [
+          "primitive fixed-weight binary necklaces shattering supports VC dimension cyclically aperiodic",
+          "Resultary: fixed-density primitive words, cyclic shattering, radical-period Fourier rigidity",
+          "arXiv:1411.0935, Johnson stable sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top-face count A(n,k) is the known fixed-density Lyndon count multiplied by n",
+          "The nearest distinct catalogue records do not give the shattered-support family, while the exact title hit is the frozen item itself"
+        ],
+        "reasoning": "Prior coverage of the number of primitive words is credited; a count of words or prefix classes does not classify all Boolean traces on arbitrary indexed subsets.",
+        "searches": [
+          "arXiv:1801.09516v1 §1",
+          "Hartman–Sawada fixed-density necklace ranking and unranking",
+          "Resultary: exact cyclic shattering and fixed-density primitive words"
+        ]
+      },
+      "rationale": "The fixed-density necklace enumerator is classical, and the topology is an application of known sparse-paving/independence-complex structure once the Johnson separation and trace classification are identified. What is distinct on the checked evidence is the determination of all indexed shattered supports for this cyclic primitive class, including the arithmetic description of the missing facets. Neither the topology theorem in isolation nor the necklace count is credited as new. This is a bounded comparison, not proof of priority.",
+      "residual_risks": [
+        "A broader result on trace families of matroid bases or a prior Johnson separation result for periodic sets could cover additional steps; the bounded checks do not rule out an unindexed equivalent of the exact cyclic classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the count",
+          "evidence": "Fixed-density Lyndon count L(n,d)=(1/n)∑_{j|gcd(n,d)} μ(j) binom(n/j,d/j); labeled count is nL(n,d).",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09516",
+          "material_read": "v1, p. 1 §1, offset 0",
+          "method": "OA PDF",
+          "title": "A Pascal-like Bound for the Number of Necklaces with Fixed Density",
+          "trigger": "Exact enumeration overlap"
+        },
+        {
+          "assessment": "Prefix constraints, not this arbitrary-support classification",
+          "evidence": "Ranking/unranking and prefix-counting with fixed density are the studied problems.",
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/fixDenRank.pdf",
+          "material_read": "p. 1, introduction, offset 0",
+          "method": "OA author manuscript",
+          "title": "Ranking and Unranking Fixed-Density Necklaces and Lyndon Words",
+          "trigger": "Could imply extension tests for partial assignments"
+        },
+        {
+          "assessment": "Related enumeration, no trace implication shown",
+          "evidence": "Fixed-content enumeration and algorithms for multidimensional necklaces are addressed, rather than simultaneous realizability of traces.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.01990",
+          "material_read": "v2 p. 1, abstract/introduction, offset 0",
+          "method": "OA PDF",
+          "title": "Combinatorial Algorithms for Multidimensional Necklaces",
+          "trigger": "Potential broader fixed-content necklace theorem"
+        },
+        {
+          "assessment": "Direct coverage of the stable-set to matroid step",
+          "evidence": "States the one-to-one correspondence between stable sets in J(E,r) and sparse paving matroids; the cyclic trace family is not part of that construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0935",
+          "material_read": "p. 2, extracted offset 8649–9561",
+          "method": "OA PDF locator and bounded offset read",
+          "title": "On the number of matroids compared to the number of sparse paving matroids",
+          "trigger": "Johnson-stable deletion as an exact matroid reformulation"
+        },
+        {
+          "assessment": "Distinct class of words",
+          "evidence": "A fixed number of cyclic switches gives a uniform-matroid result; no arithmetic deletion of rank-r faces by rotational stabilizers.",
+          "identifier_or_url": "Resultary a836f384a08b",
+          "material_read": "RESULT.md, offsets 0–7508",
+          "method": "Local mirror",
+          "title": "Exact cyclic switch classes: uniform shattering and trace multiplicity",
+          "trigger": "Closest same-day indexed shattering and sphere wedge"
+        },
+        {
+          "assessment": "Different predicate and support condition",
+          "evidence": "A forbidden contiguous factor controls admissible words, not primitivity at fixed weight.",
+          "identifier_or_url": "Resultary 0ffe62df9806",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Isolated run-factor avoidance preserves consecutive-window shattering",
+          "trigger": "Same-day cyclic shattering"
+        },
+        {
+          "assessment": "Different transform question",
+          "evidence": "Fourier support and convolution for labeled primitive words over finite abelian groups do not supply the fixed-density shattering statement.",
+          "identifier_or_url": "Resultary 8ab146fd984a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Radical-period Fourier rigidity of primitive words",
+          "trigger": "Same-day theorem on primitive words and Fourier constraints"
+        },
+        {
+          "assessment": "Different claim even on shared parameters",
+          "evidence": "Results concern Walsh spectrum and convolution, not shattered supports or homotopy.",
+          "identifier_or_url": "Resultary 58a19a580a50",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Full Fourier support of balanced primitive binary words at odd half-length",
+          "trigger": "Overlap in the balanced primitive domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivation is to determine how passing from the uniform Boolean layer to primitive words changes indexed membership-query expressivity. The answer identifies every obstruction, shows the VC dimension is unchanged while top supports are removed in an arithmetic pattern, and gives the exact resulting homotopy invariant. The full trace criterion is stronger than the single VC number and is not furnished by enumerating necklaces or by the generic matroid topology theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

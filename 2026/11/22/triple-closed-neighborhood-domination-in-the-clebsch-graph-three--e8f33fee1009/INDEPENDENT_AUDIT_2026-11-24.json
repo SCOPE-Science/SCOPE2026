@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:06:07.465213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:11–30",
+        "VERIFICATION.md",
+        "verify_cayley3.py:6–57 and cayley3_output.json",
+        "verify_even3.py:5–59 and even3_output.json",
+        "Independent replay: python3 /workspace/branches/9df72a26-b787-4ee9-b9c1-7a40ac1bf46d/independent_check.py; matching evidence in full_result.json in that directory"
+      ],
+      "rationale": "Independently enumerated all 65,536 labelled masks against the 16 closed neighborhoods, giving counts 312,1872,1580,560,120,16,1 at sizes 10–16 and none smaller. The even-word model is equivalent because its four chosen weight-four generators are a basis and their sum is the fifth; distance four is exactly one of these five XOR differences. A separate loop in that model tested all 8,008 six-hole sets, including every subset having a claimed degree sequence, confirming the if-and-only-if type classification with counts 40,192,80; triangle-freeness converts those sequences to 3K2, C5 plus an isolate, and C6. The action by translations and permutations gives three respective orbits of those exact sizes. Indexing pairs of distinct optimum hole sets by overlap at least 6−t gives zero edges at t=1 and, at t=2, 5,220 edges, degrees 39 on 120 and 30 on 192 vertices, one component and eccentricity 3 at every vertex. There is also an independent short check of the lower bound: two distinct closed neighborhoods intersect in two vertices. For a feasible seven-hole set, the first two incidence moments of its intersection sizes with closed neighborhoods are ∑i=42 and ∑binom(i,2)=42. As i≤3, equality forces 14 neighborhoods meeting in three holes and two meeting in none. The union of the latter two contains ten vertices, leaving only six possible holes, a contradiction. Larger feasible holes would contain feasible seven-hole sets. The frozen scripts and outputs were inspected but not executed; the separate reproduction also verifies the converse shape test not expressly asserted by the submitted scripts.",
+      "residual_risks": [
+        "The enumeration proves the result only for the specified labelled 16-vertex graph; it does not address the ten-regular complement or other graph families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first title identifies general upper bounds for the relevant domination invariant; its cited PDF was not extractable.",
+          "The comparison with Henning–Kazemi is limited by unavailable repository full text; the frozen work distinguishes the total/open-neighborhood predicate.",
+          "The coding paper abstract explicitly defines K(n,r,μ) for covers of all points and treats variants with repeated words; a full-text check of possible antipodal variants was unavailable."
+        ],
+        "reasoning": "Neither a general upper bound nor an unconstrained covering-code minimum determines classification of labelled antipodal optima or exchange distances. The inaccessible papers are not asserted to be negative coverage evidence.",
+        "searches": [
+          "Cockayne–Thomason, An Upper Bound for the k-Tuple Domination Number (2008)",
+          "Henning–Kazemi, k-tuple total domination in graphs (2010)",
+          "Bounds for binary multiple covering codes, doi:10.1007/BF01388486"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e8f33fee1009, 99315adae8ca, 142d52a30ab7",
+        "MathWorld Clebsch graph",
+        "Kéri covering-code table index",
+        "doi:10.1007/BF01388486 (abstract)",
+        "Cited Clebsch domination sources (limited retrieval as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The power-domination papers start from sensor triples, classify induced triples or blind spots, and analyze their own exchange/slide dynamics.",
+          "The fold and strongly regular parameters give a direct lower bound but do not decide the three orbit types or the degrees and eccentricities of the optimum exchange graph.",
+          "Even a coincident unrestricted coding optimum would leave antipodal realization and the full exchange census to be proved."
+        ],
+        "reasoning": "The finite census answers a separate optimum-space question; its structural and mobility data require classifying admissible hole sets and comparing them, not substituting parameters into a general bound or known code table.",
+        "searches": [
+          "Resultary 99315adae8ca and 142d52a30ab7, Finding passages",
+          "Coding multiple-cover abstract and Kéri table index",
+          "Clebsch graph folded-cube description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Clebsch graph is the antipodal fold of the binary 5-cube. Each radius-one Hamming ball has exactly one point from each of the six antipodal pairs in the corresponding closed neighborhood.",
+          "Thus the exact coding translation is a simple antipodally invariant radius-one triple-covering code in length five, with size twice the graph set size; arbitrary multiple-covering codes do not have to be invariant.",
+          "Distinct Resultary entries 99315adae8ca and 142d52a30ab7 use a propagation-based sensor predicate, not closed triple coverage."
+        ],
+        "reasoning": "The code formulation is genuinely equivalent only with antipodal invariance, and a covering of farthest-off points or minimum power domination is a different condition. Exact unrestricted covering parameters therefore cannot be read as this classification.",
+        "searches": [
+          "\"triple domination\" \"Clebsch graph\" closed neighborhood",
+          "binary antipodal multiple covering codes length 5 radius 1 three-fold minimum size folded cube Clebsch perfect multiple covering exact tables",
+          "Resultary: Clebsch graph domination and exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8f33fee1009 is exactly the assigned result, not distinct coverage. The two same-day power-domination results were read in the mirror and count 320 optimum sensors of size three.",
+          "The public Kéri table index lists length/radius ranges for ordinary covering codes and classification references; the index did not identify an antipodally constrained triple-cover exchange census.",
+          "No exact distinct source for the 312 feasible omissions and their optimum exchange invariant was established."
+        ],
+        "reasoning": "Matching the graph or length/radius parameters is insufficient. The minimum, labelled solution types and two-replacement statistics would need to refer to the triple closed covering predicate, or to the mathematically equivalent antipodal code problem.",
+        "searches": [
+          "Resultary: Clebsch triple closed domination, induced holes and replacement",
+          "Kéri tables for bounds on covering codes (HUN-REN SZTAKI)",
+          "Binary multiple covering codes, length five and radius one"
+        ]
+      },
+      "rationale": "The object and the selection constraint are standard, but no compared source establishes the joint classification of minimum closed triple covers, their counts and reconfiguration graph. A narrower exact claim about ordinary covering-code minima, if found, would not by itself give this incidence and exchange structure. This is a bounded statement-level decision and does not rely on the zero-result literature query.",
+      "residual_risks": [
+        "An unindexed or inaccessible paper or table could contain an equivalent antipodal classification. The compared coding-paper full text and the two general domination full texts were not retrieved.",
+        "An empty direct search is not proof of no prior result; the strongest distinct available Findings concern power domination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different coverage condition and solution space; no priority inferred from the shared date",
+          "evidence": [
+            "The results classify minimum power-dominating sensor triples and their exchanges/slides, not closed neighborhood triple covers."
+          ],
+          "identifier_or_url": "99315adae8ca; 142d52a30ab7",
+          "material_read": "Mirrored RESULT.md Findings at offset 0 for both",
+          "method": "Local Resultary search and local GitHub mirror",
+          "title": "Resultary Clebsch power-domination and blind-spot findings",
+          "trigger": "Same graph, exact optimization and exchange; strongest distinct index hits"
+        },
+        {
+          "assessment": "Confirms model, not relied on to exclude possible domination literature",
+          "evidence": [
+            "The five-regular folded graph has 16 vertices and 40 edges."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/ClebschGraph.html",
+          "material_read": "Public page around offset 200",
+          "method": "Lawful public website read",
+          "title": "Clebsch Graph",
+          "trigger": "Equivalent folded-cube form"
+        },
+        {
+          "assessment": "No independent full-text comparison or claim of noncoverage",
+          "evidence": [
+            "The title concerns a k-tuple domination upper bound."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20064/vol-064-paper%2021.pdf",
+          "material_read": "Title and frozen citation; extractable full text unavailable",
+          "method": "Direct and VPN OA attempts at cited PDF",
+          "title": "An Upper Bound for the k-Tuple Domination Number",
+          "trigger": "Cited primary source for the relevant covering invariant"
+        },
+        {
+          "assessment": "The supplied open-versus-closed distinction was not independently confirmed against full text",
+          "evidence": [
+            "The cited title explicitly concerns total domination."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2010.01.009",
+          "material_read": "Title and frozen comparison; full text not retrieved",
+          "method": "Lawful DOI and repository check",
+          "title": "k-tuple total domination in graphs",
+          "trigger": "Potentially confounded triple-domination terminology"
+        },
+        {
+          "assessment": "General multiple-cover bounds are relevant; no full-text determination of an antipodal case",
+          "evidence": [
+            "The abstract defines K(n,r,μ) for whole-space coverage and mentions repeated words. Publisher retrieval redirected and the alternative returned access denial."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01388486",
+          "material_read": "Publisher/index abstract only; no table or theorem text retrieved",
+          "method": "Literature search, OA direct/VPN and DOI recovery, plus identified public mirror access attempt",
+          "title": "Bounds for binary multiple covering codes",
+          "trigger": "Primary coding formulation with candidate exact numerical tables"
+        },
+        {
+          "assessment": "Scope as listed is ordinary covering bounds/classifications, not a verified exact table for this constrained multiple cover",
+          "evidence": [
+            "Lists binary covering-code bounds for n≤33 and R≤10 and points to classification sources; no exchange census is identified by the index."
+          ],
+          "identifier_or_url": "https://old.sztaki.hu/~keri/codes/index.htm",
+          "material_read": "Public table index, offsets 0–3086",
+          "method": "Lawful OA public page",
+          "title": "Tables for bounds on covering codes",
+          "trigger": "Possible known exact code table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–14,23–30",
+        "Independent full enumeration: labelled shapes, affine orbits and optimum replacement graph",
+        "Resultary 99315adae8ca and 142d52a30ab7 for the contrast in predicates"
+      ],
+      "rationale": "The five-regular Clebsch graph is a standard highly symmetric test object for neighborhood covering. The exact type/orbit structure and sharp jump from a wholly isolated optimum space to a connected space at radius and diameter three are the main value, beyond just computing a minimum on 16 vertices. They give a precise benchmark for minimum closed-neighborhood cover enumeration and for how simultaneous replacements change reachability.",
+      "residual_risks": [
+        "No claim about arbitrary strongly regular graphs, optimal-code families, or general reconfiguration bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

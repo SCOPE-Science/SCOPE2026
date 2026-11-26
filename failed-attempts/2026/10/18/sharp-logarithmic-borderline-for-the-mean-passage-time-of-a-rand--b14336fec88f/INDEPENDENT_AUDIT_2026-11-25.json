@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:42.582884Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite iid rates define a continuous nondecreasing operational clock A_t, independent of the unit-rate symmetric walk. Conditional time change is valid including zero-rate intervals. Reflection gives survival at operational time a from x as the sum of the unrestricted kernel at displacements 1−x through x. This is between h_1(a) and 2x h_1(a), since every term is at most the mass at 0. Monotonicity sandwiches the mean between the positive-epoch and zero-included epoch sums times τ. At epochs the clock has transform φ(τs)^m; the h_1 Fourier kernel 1+cos θ is nonnegative so Tonelli sums it to the resolvent even in the divergent case. Only θ=0 is singular, since P(R>0)>0; s=τ(1−cos θ) gives a Jacobian comparable to s^(−1/2) near zero. Karamata yields the asserted Laplace deficit for 0<α<1, Potter bounds separate the strict power cases, and u=1/s gives the critical integral and the strict cutoff κ>1. The proposed critical tails are continuous, decreasing above their cutoff and tend to zero. No positive or finite moment is used. The finite checker was inspected, not executed, and cannot establish convergence at the critical endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levit–Reuveni's survival identity is formulated even for general rate dynamics; their S3B has the fixed-period iid specialization for any rate law.",
+          "The later Markov-modulated theorem explicitly admits a single state and then yields the same iid iff and power-log cutoff."
+        ],
+        "reasoning": "The earlier exact survival formula implies the iid mean test. The later single-state inclusion is a separate statement-level overlap and does not establish earlier priority. The Cox time-change framework alone would not state a first-passage threshold.",
+        "searches": [
+          "Levit–Reuveni Eq. (2), Appendix A and supplement S3B",
+          "Arutkin–Reuveni arXiv:2302.07041 p. 2",
+          "Resultary Markov-modulated clocks record 646f79744713"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification files",
+        "Levit–Reuveni arXiv:2609.26925v1 Eq. (2), Appendix A, S3B",
+        "Arutkin–Reuveni arXiv:2302.07041",
+        "Bingham–Goldie–Teugels, Regular Variation (standard transform theorem)",
+        "Resultary records 646f79744713 and b4b9679cb1ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Eq. (2) together with S3B gives the h_1 kernel times the m-th power of the one-block transform, so summing gives division by 1−φ without any rate assumption.",
+          "Earlier Appendix A uses 1−φ(s)~Cs^α for pure-power tails. The standard general replacement is Γ(1−α)s^αL(1/s). In the summed integral at α=1/2 this is exactly ds/[s L(1/s)], and κ>1 is the classical logarithmic integral cutoff."
+        ],
+        "reasoning": "The earlier article does not assert the expanded critical boundary in words, but the combination is a direct corollary of the exact same-model survival and the classical transform law. A constructed log-corrected tail illustrates it; it does not supply a separate new claim.",
+        "searches": [
+          "arXiv:2609.26925v1 Eq. (2), S3B, Appendix A equations (8)–(10)",
+          "Bingham–Goldie–Teugels, Regular Variation, Laplace form of Karamata's theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At x=1 the prior sine/cotangent survival kernel reduces to 1+cos θ and the transform is φ(τ(1−cos θ))^m at m full blocks.",
+          "Equivalently, for the unrestricted epoch walk with this characteristic function, the survival at mτ from 1 is its return mass plus its mass at displacement 1; Fourier inversion bounds the latter by the former. The finiteness criterion is the Green-function integrability at zero."
+        ],
+        "reasoning": "This identifies the criterion with a summation of an existing exact formula, not a merely similar power exponent from a different model. The walk is killed within a block, not only on endpoint observations.",
+        "searches": [
+          "Rate-resampled symmetric half-line first passage, random-clock renewal resolvent and subordinate simple-walk Green function (literature and Resultary)",
+          "Levit–Reuveni arXiv:2609.26925v1 Eq. (2) and supplement S3B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed results 646f79744713 and b4b9679cb1ff include the exact iid criterion or the logarithmic subcase; their catalog dates are November 8 and November 2, 2026, respectively. No older direct match surfaced in those returned index results."
+        ],
+        "reasoning": "The quantity is an infinite-time finiteness condition over whole classes of rate laws, not a numerical table invariant. The materially relevant database comparison is theorem-to-theorem, not a match on a sample tail or a numerical finite-time survival value.",
+        "searches": [
+          "Resultary lookups for fixed-period iid absorption, sharp Laplace criterion and critical logarithmic tails"
+        ]
+      },
+      "rationale": "The primary predecessor provides the exact same-model survival for general rate laws, including the block-Laplace product. Specializing to x=1 and full epochs and summing its nonnegative geometric series gives the claimed iff directly. The older Appendix A does not state the arbitrary slowly varying cutoff and must not be read as ruling out finite mean at index 1/2. But the cutoff is the direct substitution of the standard Laplace form of Karamata's theorem into that resolvent, with no additional model-specific estimate. An independent theorem beyond these implications is not established. The later indexed overlaps are separately recorded and are not the basis of a priority claim.",
+      "residual_risks": [
+        "An earlier general random-clock or recurrence result may also state the criterion explicitly. The decision is based on verified earlier implications, not a negative literature search.",
+        "The later indexed dates alone imply no priority or independence of rediscovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact survival and product general in the specified model; explicitly handles pure-power asymptotics, not arbitrary slowly varying critical factors.",
+          "evidence": [
+            "Appendix A describes the transform of integrated rate as a product over block durations and uses the Tauberian expansion with a positive constant C.",
+            "At x=1 Eq. (2) has kernel 1+cos(πp); S3B allows general g and the product gives its m-th power at a full epoch."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26925v1",
+          "material_read": "p. 3 Eq. (2) (offset about 15850), p. 6 Appendix A (about 28830–32444), p. 10 supplement S3B (about 47511)",
+          "method": "OA PDF text passage inspection",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Identical model and exact survival, closest primary predecessor"
+        },
+        {
+          "assessment": "Time-change framework, not the claimed absorbed-walk mean criterion.",
+          "evidence": [
+            "Conditional on the rate path, the jump count is Poisson with parameter the integrated rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.07041",
+          "material_read": "OA PDF p. 2, offset about 10800",
+          "method": "OA PDF text passage inspection",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "Earlier random-rate clock framework"
+        },
+        {
+          "assessment": "Theorem-level overlap via one state; later catalog date.",
+          "evidence": [
+            "Same integral in stationary rate-Laplace deficit; one-state case is permitted and gives iid rates and the critical power-log threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-first-passage-criterion-and-correlation-invariant-tails-fo--646f79744713",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp first-passage criterion and correlation-invariant tails for Markov-modulated heavy-tailed Poisson clocks",
+          "trigger": "Broader theorem with potential exact iid specialization"
+        },
+        {
+          "assessment": "Exact log-power overlap in the same block-resampling model; later catalog date.",
+          "evidence": [
+            "Tail u^(−1/2)(log u)^β gives finite mean iff β>1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Marginal multiplicative jump-rate disorder: a sharp three-factor transition in mean first passage",
+          "trigger": "Exact critical-logarithm subcase"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The critical boundary is meaningful: two realizable rate tails with the same power index yield opposite mean first-passage behavior, so the power index does not decide the passage question at equality. The arbitrary-law condition is also a practical test. Their mathematical coverage by earlier results is the separate reason the frozen finding does not pass.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

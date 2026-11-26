@@ -1,15 +1,21 @@
-# Scientific review: sharp first Walsh-zero degree for cyclic independent sets
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is that every cycle length \(3k\) has a zero Fourier coefficient at Hamming weight \(k+1\) and none at lower weight. The transfer trace is established directly by the cyclic independent-set expansion. Its two matrices factor as \(A_-=R\), \(A_+=TR\), with \(R^3=-I\), \(T^2=I\). The indicated ping-pong domains give a faithful projective free product \(C_3*C_2\); the trace-zero determinant/parity calculation forces a conjugate of the order-two generator. Cyclic syllable reduction then forces \(n\ge 3(p+1)/2\), and hence the sharp lower Hamming bound. The direct identity \(A_+A_-^2A_+=-A_-\) constructs a witness at every length. All quantifiers and small cases start at the simple cycle \(n=3\). Two independently computed finite checks passed; those checks are supporting evidence, not the all-size proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-The earlier archived cycle-indicator result establishes nonvanishing at every frequency exactly for lengths not divisible by three, which is treated as known. A separate archived result identifies all zeros of degree at most three and explicitly does not cover higher degrees; it implies the present threshold only at cycle lengths three and six. The new theorem determines the **growing** sharp threshold at all lengths divisible by three, beginning with a new sharp degree-four statement at nine vertices, and supplies a structural free-product argument. The accessible published published-finding corpus Lucas-cube covariance theorem concerns centered first-degree Gram eigenvalues, while its graph-exclusion Fourier-interpolation result is a restricted square matrix rather than full-group convolution. Levit–Mandrescu study the uniform specialization \(I(C_n;-1)\); Radchenko–Rodriguez Villegas give the general transfer trace but not the asserted mixed-sign Hamming threshold. No checked result logically determines the all-length sharp minimum. The absence of a discovered equivalent is not a uniqueness proof; unindexed graph-polynomial and lattice-gas literature remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The first Fourier-zero Hamming degree is a natural boundary for stable identification of low-degree Walsh signals under convolution with an important hard-core configuration set. Determining it for every singular length, rather than a finite list, separates low-band recoverability from unavoidable higher-band loss and gives explicit extremizers. The free-product proof explains why a nontrivial linearly growing threshold appears, despite more complicated total nullities. The result neither claims a complete spectrum nor supplies noise-stability bounds.
+Trace the product by summing cyclic 0/1 labels: A_s(x_{j-1},x_j) is zero for adjacent ones and otherwise gives s if x_j=1 and 1 if x_j=0. Over F2 both matrices have projective transfer period three, with odd trace off lengths divisible by three. For a trace-zero product at such a multiple, M=I+2B and tr B=-1 imply det M=-1 mod 4, hence det M=-1 rather than +1. Cayley–Hamilton gives a nontrivial projective involution. With R=A_- and T=A_+R^{-1}, direct multiplication gives R^3=-I and T^2=I. The stated intervals work: R and R^2 send V into U and T sends U into V. A cyclically reduced alternating word can be rotated to start with T and end with R^a; conjugation by R^b with b nonzero and b different from a gives a reduced word with R syllables at both ends, taking V into U. This proves faithfulness along with the evident nonidentity single-factor syllables. A finite-order projective word therefore cyclically reduces to one factor; the involution type is T. With p odd plus signs, write it cyclically as p copies of T separated by positive R-gaps. For p=1 the gap is a positive multiple of three. For p>=3 a multiple-of-three gap must exist or the word is cyclically reduced of infinite order. Trim three from a gap of at least six, or cancel TR^3T at a length-three gap and concatenate its neighboring gaps. This preserves the torsion type and yields n>=3(p+1)/2 by induction. Thus |S|>=k+1 at n=3k. The trace of +-- is zero and A_+A_-^2A_+=-A_- increases length by three and minus weight by one, proving attainment at every k. Character diagonalization is for the full Boolean group with the unnormalized indicator; n=3 is a simple triangle as required. Both frozen verifiers and recorded evidence were inspected, not executed. Direct parity-intersection summation over independently generated cycle sets (python3 /workspace/review_checks.py 2) gives first weights 2,3,4,5 at n=3,6,9,12 and no zeros at other n through 14. The universal proof does not rely on these bounds.
 
-## Closest literature and limitations
-The prior exact invertibility dichotomy is acknowledged rather than republished as the new contribution. The small-degree classification is logically weaker for \(n\ge9\). The multivariate polynomial and transfer trace in the 2021 paper are prerequisite machinery but do not themselves assert the zero-degree bound. No full characterization of all singular Fourier modes, all nonzero multiplier magnitudes, or extension beyond cycles is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-length first-zero weight, not the known modulo-three invertibility boundary, is the supported distinct claim. The earlier low-degree classification overlaps and implies the first two singular cases; it does not settle the growing threshold at n>=9 in the material compared. The unrestricted cyclic transfer formula is prior machinery, not the new claim.
+
+## value
+
+PASS
+
+The first zero is exactly the lowest degree at which a Walsh component can be lost in cyclic hard-core convolution. Sharp all-length injectivity and explicit witnesses clarify the singular regime beyond both mod-three invertibility and bounded-degree lists. The free-product reduction provides a structural reason for the linear threshold. This is noiseless injectivity, not a bound on noise amplification or a full nullity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

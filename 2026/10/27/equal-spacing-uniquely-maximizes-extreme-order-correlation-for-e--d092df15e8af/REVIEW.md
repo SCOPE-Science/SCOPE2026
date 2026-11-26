@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The indicator representation yields exact minimum, maximum, and cross moments. The derived derivative of squared correlation factors into a positive factor and an affine polynomial. Both endpoint evaluations are strictly positive by inequalities valid for all integers \(n\ge2\). It follows that the optimum is unique at equal spacing. A standard-library exact-rational checker independently verifies finite subcases. The proof, not the finite checks, establishes universal quantification.
+## correctness
 
-**Originality (O): PASS at the qualified, evidence-based level of accessible comparisons.** Papadatos (arXiv:2205.14360v1) proves the related support-geometry statement for two draws; the new theorem covers every sample size, including the nontrivial regime \(n\ge3\). The closest published results optimize probability *weights* on a fixed support rather than support *geometry* with equal weights. Search phrases and result IDs, parameters, and implications are documented in AUDIT.json. Broader unlocated equivalent results remain a historical-priority risk. Some relevant published summaries, not all full primary texts, were accessible.
+PASS
 
-**Value (V): PASS.** A natural constrained-extremal question receives a complete classification for an infinite family of sample sizes. This identifies a geometric rigidity persisting precisely when weight-extremality fails; it is not just a single sample-size computation.
+Normalize the support to 0,t,1. The minimum and maximum are linear combinations with weights t,1-t of two nested threshold indicators each. The four cross covariances are ab, b²−a, a², ab, giving D+Fw at w=t(1−t), where D=ab and F=(b−a)²−a. The variance product has coefficients AB, L=−4AB+2C(A+B), K=(A+B−2C)². Exact polynomial coefficient arithmetic confirmed the frozen identities for the derivative factor at 0 and 1/4. At 0 the factor after extracting 2ab(1−b) is at least 3b²/16. At 1/4 the frozen bound using a/b²≤9/16 gives a positive factor because 81b³−369b²+127b+80≥80−37b>0 when b≤4/9. The derivative factor is affine, so it is strictly positive throughout. F≥0 even at n=2, where F=0 and the covariance is still positive. The positive variances and w≤1/4 with equality only at t=1/2 prove the strict maximum. Evaluation there gives the stated formula and the values 8/19 and 1/4 at n=2 and 3.
 
-**Scientific limits.** Equal atom masses and exactly three locations are essential assumptions; no claims are made about simultaneous weight/support optimization or more atoms. Historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content supported by the comparison is strict support-location optimality for n≥3, not the n=2 optimizer or the evaluation of the correlation at the midpoint. No available prior result inspected settles the n≥3 location optimization with equal masses.
+
+## value
+
+PASS
+
+The fixed-equal-mass problem is the natural location analogue of the two-draw discrete extremum. Three points are the first support with an adjustable gap ratio. Proving strict optimality at every sample size, including where changing masses can improve upon uniformity, resolves that first variable-gap problem and distinguishes the two optimization regimes. The value is in the global location comparison and equality criterion, not in reevaluating the known midpoint formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

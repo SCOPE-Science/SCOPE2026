@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For positive fixed pulse amounts, constant competition K, death rate and horizon, exact piecewise integration gives F_q(y). Its derivative has sign opposite the strictly increasing quadratic g_q(y), so an endpoint maximizer or a unique interior global maximizer exists and the cutoff is exact, including equality. The root equation yields strict horizon monotonicity and derivative bounds; a direct sign test at sqrt(q) yields the sharp midpoint crossing and the strict order of two horizons. The exact asymptotic follows by expansion of the positive root. An extracted standalone Python checker completed 187,417 supplementary assertions, including quadrature independent of the closed integral; sampled checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almeida et al. arxiv:2307.11614 (2023)/J. Math. Biol. 2024 model SIT and optimize integrated infectious cases numerically, with freely variable pulse sizes and times.",
+        "Almeida et al. arxiv:2011.04449 (2020)/JDE 2022 analyze actual mosquito population controls with state-dependent objectives.",
+        "Ramirez and Gordillo (2016), DOI 10.1155/2016/8492107 optimize pulse doses and costs with a dynamic wild-population state, not the simplified integral utility."
+      ],
+      "reasoning": "A theorem optimizing wild-population extinction, epidemic burden or release expenditure for a fully coupled dynamical system does not imply a unique argmax of a different integral mating-pressure functional under pinned initial impulse and arbitrary unequal doses. Each primary source was compared at the level of the objective, constraints and resulting claims; a general control framework alone is not a proven mathematical domination relation.",
+      "searches": [
+        "2023 Almeida Bellver Arnau Privat Rebelo vector-borne disease instant releases exact cumulative sterile mating fraction timing two doses",
+        "2022 Almeida Duprez Privat Vauchelet optimal control sterile mosquitoes two pulses integrated mating fraction constant wild male fixed first release",
+        "optimal interval two equal bolus doses Emax effect first order elimination maximize area under effect finite horizon formula",
+        "sterile insect technique instantaneous release optimal timing two releases first zero suppress mating 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.11614",
+      "doi:10.1007/s00285-024-02159-9",
+      "arxiv:2011.04449",
+      "doi:10.1016/j.jde.2021.12.002",
+      "doi:10.1155/2016/8492107",
+      "doi:10.1111/j.1365-2125.2011.03925.x",
+      "doi:10.1080/17513758.2021.1887380 (abstract only)",
+      "A sharp dose-independent endpoint rule for a one-generation sterile-insect release (2026, published research record)",
+      "The exact anti-phase fluctuation law for two oral doses (2026, published research record)",
+      "A sharp reentrant two-peak window for delayed unequal Bateman inputs (2026, published research record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 instant-release paper: §4 gives generic timing sensitivities, §5.1 numerical epidemic-optimal pulse plans; no closed quadratically reduced timing rule for this integrand.",
+        "2011 Emax review: the known increase in cumulative effect from dividing a dose establishes that a temporal trade-off exists, but does not force an arbitrary unequal two-dose plan to cross the horizon midpoint exactly once.",
+        "2020/2022 SIT population-control source: theorem and optimality descriptions concern different state-based objectives; no inspected assertion logically implies the above quadratic sign law."
+      ],
+      "reasoning": "The new statement fixes doses and the first pulse, maximizes the integral of S/(K+S), and proves exact unique global timing with a second midpoint transition. Prior infection, cost, population and pharmacodynamic examples do not imply this optimizer without the nontrivial exact derivative/sign comparison supplied here. The novelty claim is limited to that theorem; general exponential survival, instantaneous SIT releases and saturating mating competition are acknowledged prior facts.",
+      "searches": [
+        "two bolus dose Michaelis Menten saturation finite horizon unequal pulse size optimal second injection time exact midpoint transition",
+        "sterile insect male mating competition constant wild males two impulsive releases maximize cumulative sterile mating probability exponential survival analytic optimal waiting time",
+        "2023 Almeida Bellver Arnau Privat Rebelo vector-borne disease instant releases exact cumulative sterile mating fraction timing two doses",
+        "2022 Almeida Duprez Privat Vauchelet optimal control sterile mosquitoes two pulses integrated mating fraction constant wild male fixed first release",
+        "two pulses exponential decay concave response optimal spacing dose saturation exact analytic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wright, Winter and Duffull (2011), DOI 10.1111/j.1365-2125.2011.03925.x, identify Emax/one-compartment pharmacodynamic schedule dependence; its relevant analytical discussion is not the exact finite-horizon two-release optimal-time theorem.",
+        "published-finding corpus indexed hits for query on two oral doses include The exact anti-phase fluctuation law for two oral doses (2026, published research record), a periodic squared-fluctuation criterion rather than a saturating time-integral criterion.",
+        "Indexed unequal Bateman dose peak result A sharp reentrant two-peak window for delayed unequal Bateman inputs (2026, published research record) counts local peaks for two kinetic stages; no maximization of Emax integral."
+      ],
+      "reasoning": "In pharmacodynamic notation the same functional has instantaneous Emax response with a one-compartment exponentially decaying concentration. This real equivalence restricts novelty to the exactly specified optimization theorem, not the response law or the broad insight that scheduling matters. The retrieved periodic variance and modality statements are not stronger than, nor do they entail, a finite-horizon integral-utility optimizer.",
+      "searches": [
+        "Two finite-horizon positive impulses of unequal sizes into a linearly decaying compartment; maximize integral of saturating Emax response S/(K+S); exact optimum and log(2+(B+K)/A) bifurcation, midpoint crossing",
+        "two bolus dose Michaelis Menten saturation finite horizon unequal pulse size optimal second injection time exact midpoint transition",
+        "two pulses exponential decay concave response optimal spacing dose saturation exact analytic",
+        "Emax first order decay two unequal bolus pulses integrated saturating effect optimal inter-release timing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical research item A sharp dose-independent endpoint rule for a one-generation sterile-insect release (2026, published research record) studies a Beverton–Holt one-generation endpoint rather than an exact continuous waiting-time optimization.",
+        "Earlier accessible own-file titles and recoverable claims were compared for sterile releases, unequal two impulses, and saturating cumulative response; no matching result recovered."
+      ],
+      "reasoning": "The claimed output is a continuum of unique optimizers and two exact parameter-dependent transitions, not a tabulated finite value. Neither a previously checked finite table nor an identified exact formula covers it. Absence of a match is only supporting evidence, not by itself proof of novelty.",
+      "searches": [
+        "Two finite-horizon positive impulses of unequal sizes into a linearly decaying compartment; maximize integral of saturating Emax response S/(K+S); exact optimum and log(2+(B+K)/A) bifurcation, midpoint crossing",
+        "sterile insect male mating competition constant wild males two impulsive releases maximize cumulative sterile mating probability exponential survival analytic optimal waiting time",
+        "two bolus dose Michaelis Menten saturation finite horizon unequal pulse size optimal second injection time exact midpoint transition"
+      ]
+    },
+    "rationale": "The explicit continuous two-fixed-release objective, global unique optimum and the two sharp transitions have no directly covering statement in the inspected primary material or indexed research hits. The earlier epidemic and pest-control studies optimize different dynamical objectives; pharmacodynamic schedule dependence is known but does not in itself logically imply this closed global optimum. Historical priority remains provisional and is not inferred solely from search misses.",
+    "residual_risks": [
+      "The older Huang et al. 2021 full article was not accessible; only its abstract was compared, leaving possible unstated broader results.",
+      "A general optimal-impulse theorem for one-compartment Emax models outside retrieved indexing may subsume the exact formula; no absolute priority claim is made.",
+      "The ecological competition proxy is a simplified observable, not an established predictor of field eradication; this affects applicability rather than the mathematical comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NONCOVERING for the precise claim on inspected material: its objective is integrated infected-human burden under a coupled nonlinear population model, not integrated mating-pressure with constant wild-male pool and a pinned first pulse.",
+        "evidence": [
+          "arXiv original posting July 21, 2023; abstract describes numerical optimal release strategies.",
+          "Journal full text §1.1 introduces sterile-male deaths and fertility competition; §4 derives general gradients; §5.1 reports numerical 10/20-release infection-minimization plans."
+        ],
+        "identifier_or_url": "arxiv:2307.11614; https://doi.org/10.1007/s00285-024-02159-9",
+        "material_read": "ArXiv v1 title, abstract and dated posting; published open full-text sections 1.1, 4 and 5.1 (release model, sensitivities and SIT pulse-optimization results).",
+        "method": "Primary abstract, model equations and relevant numerical and theoretical results read as publicly accessible HTML.",
+        "title": "Vector-borne disease outbreak control via instant releases",
+        "trigger": "Most direct motivating primary source on instantaneous sterile-insect control and timing of multiple pulses."
+      },
+      {
+        "assessment": "Different feasible controls and a state-dependent pest population criterion; no visible implication of exact second-pulse timing for a fixed-competition integral proxy.",
+        "evidence": [
+          "Introductory exposition explicitly minimizes wild-population or release-budget endpoints; its optimal controls are characterized by population ODE dynamics and constraints.",
+          "ArXiv abstract says models include eggs, males, females and sterile males and aim to optimize release protocols; no same fixed-mating-pressure objective."
+        ],
+        "identifier_or_url": "arxiv:2011.04449; https://doi.org/10.1016/j.jde.2021.12.002",
+        "material_read": "Author-public full-text HTML available on ResearchGate: abstract, introduction, mathematical control objectives, theorem/algorithm descriptions and explanatory examples; arXiv abstract and publication metadata checked.",
+        "method": "Read relevant author-supplied full-text sections and mathematical objectives, rather than infer noncoverage from title.",
+        "title": "Optimal control strategies for the sterile mosquitoes technique",
+        "trigger": "Potentially dominating earlier mathematical optimal-control theorem for sterile-male release."
+      },
+      {
+        "assessment": "The primary optimization varies release amounts to meet female-population and economic constraints; it does not yield the claimed exact global two-fixed-pulse integral mating-response theorem.",
+        "evidence": [
+          "Authors specify a female-population state, equal or controlled interpulse schedules, production bounds, and simulated annealing under population constraints.",
+          "Results compare approximately optimized plans for schedules with fixed 10- or 15-day interpulse times."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2016/8492107",
+        "material_read": "Open full article: abstract, pulse model and release-cost optimization setup, §3 search method and §4 timing examples.",
+        "method": "Read detailed primary HTML of pulse-state model and stochastic optimizing scheme.",
+        "title": "Approximating Optimal Release in a Deterministic Model for the Sterile Insect Technique",
+        "trigger": "Earlier pulsed sterile-male release and interpulse-time optimization, a potential exact predecessor."
+      },
+      {
+        "assessment": "Establishes mechanistic scheduling dependence of saturating Emax effects (recognized as known), but inspected results do not provide this unique finite-horizon two-bolus optimizer, simultaneous-to-staggered cutoff, and midpoint reversal.",
+        "evidence": [
+          "Article contrasts one large dose with multiple smaller spaced doses and explains nonlinear schedule dependence qualitatively.",
+          "No inspected result is a universal inequality or optimum for an arbitrary unequal pair with one fixed initial impulse."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2125.2011.03925.x",
+        "material_read": "Open full article: model definitions, non-steady-state discussion, time/dose-response interpretation, scheduling-dependence section and conclusions.",
+        "method": "Inspected explicit pharmacodynamic scheduling argument and its worked unequal-regimen example.",
+        "title": "Understanding the time course of pharmacological effect: a PKPD approach",
+        "trigger": "Cross-domain equivalent saturating input-response model might imply the proposed optimization result."
+      },
+      {
+        "assessment": "No whole-document noncoverage conclusion. Its abstract concerns population dynamics and persistence/extinction of wild mosquitoes; residual possibility of a broader hidden scheduling result remains.",
+        "evidence": [
+          "Published online February 18, 2021; abstract describes impulsive releases and extinction periodic solutions.",
+          "Full-text access was unavailable, so internal propositions could not be exhaustively compared."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/17513758.2021.1887380",
+        "material_read": "Bibliographic page and abstract via search; publisher full text returned access denial.",
+        "method": "Abstract-level only, with scope and limitation explicitly recorded.",
+        "title": "Impulsive release strategies of sterile mosquitos for optimal control of wild population",
+        "trigger": "Related primary work on periodic impulsive releases and wild population control."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a1cf68e-e395-40a5-807c-ce00b8b6a4de",
+  "value": {
+    "rationale": "The model isolates the biologically interpretable question of how the timing of a second fixed sterile-male batch alters aggregate competition against fertile males. It provides an exact simultaneous-vs-staggered boundary and a distinct, nonobvious midpoint reversal that requires an unequal dose threshold; it also identifies where a universal half-horizon heuristic fails. The all-parameter formula, strict global uniqueness, comparative statics and limits create a checkable baseline for coupled ecological-control models, while limitations explicitly prohibit extrapolation to eradication or clinical impact.",
+    "status": "PASS"
+  }
+}

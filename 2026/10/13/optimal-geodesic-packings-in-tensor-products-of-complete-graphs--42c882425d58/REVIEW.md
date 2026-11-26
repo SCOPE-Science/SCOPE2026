@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** In the direct product of complete graphs of orders at least three, any nonadjacent pair has distance two and every edge extends to a two-edge geodesic. Thus all maximal geodesics have exactly three vertices, establishing the \(\lfloor mn/3\rfloor\) upper bound. The six displayed arrays have digit classes of precisely three cells inducing two edges and at most two empty cells. Every side length at least three decomposes into threes and at most one four or five, leaving at most one deficient tile in the product grid; the lower bound follows for every dimension. A standalone standard-library checker validated all six patterns, 2,304 larger constructed instances and independent small-board path searches. Finite checks are corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** A targeted literature comparison included the full open-access texts of the foundational geodesic-packing paper (arXiv:2210.15325) and a later paper on induced matchings and edge-open packings in direct products (arXiv:2406.04020). The former proves the general packing upper bound and treats Cartesian rook graphs, not the direct tensor-product exact value. The latter's product results concern different edge-set invariants, not vertex-disjoint maximal geodesics. Searches for induced-three-vertex-path packings, near-path-factors of complements of rook graphs, direct-product variants and exact tables found no statement shown to imply this result. However, older graph-tiling terminology and incomplete indexing remain possible sources of equivalence; unsuccessful searches are not proof of novelty.
+PASS
 
-**Value — PASS.** The result exactly determines a natural min-max invariant on every two-factor complete-graph tensor product with both factors of order at least three. More structurally, it proves near-perfect induced three-vertex-path tilings of all rectangular complements of rook graphs and gives a linear-output constructive algorithm using six finite certificates. The sharpness is not a mere rounding of a known upper bound: attaining that bound for every pair of dimensions requires the tiling argument and exceptional residue blocks.
+If both coordinates differ, vertices are adjacent. If only one differs, a vertex whose two coordinates avoid both endpoints exists using the size-at-least-three hypotheses; this proves diameter two. Each edge extends at either end to a two-edge geodesic by repeating the opposite endpoint's row and taking a third column. No singleton is maximal either. Thus all maximal geodesics contain exactly three vertices and an induced P_3 is always a maximal geodesic in the full graph. Independently parsing the arrays from the frozen statement, every label occurs on three distinct cells and exactly one of the three unordered cell pairs shares a coordinate. Thus the block sizes 3×3, 3×4, 3×5, 4×4, 4×5, 5×5 yield 3,4,5,5,6,8 paths and 0,0,0,1,2,1 uncovered cells, respectively. Transposition and translation preserve within-triple relations. Each size at least three splits into threes and at most one four or five; only one block can have neither side three. The global holes number at most two and is congruent to mn modulo three, proving that the packing attains the universal counting bound. Edges between different triples are allowed by the definition. The argument extends to every admitted rectangle, independently of the frozen output's finite board sample.
 
-The result does not cover tensor factors of order below three, classify all optimizers, or determine geodesic transversals. The scientific review here is not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The counting upper bound is prior; the distinct claim is attaining it with induced-P_3 bricks for every rectangular complement of a rook graph. The closest same-day record has the same formula and a six-brick strategy but in the Cartesian rook graph, not its complement. Neither it nor the primary packing results inspected supplies the target lower bound. The decision is bounded by the inspected evidence and does not decide priority.
+
+## value
+
+PASS
+
+The direct product of two complete graphs is a basic graph-product family. Having established diameter two, attaining the generic packing bound throughout that family is a natural exact invariant question, not settled by diameter or rounding alone. The certificates give an explicit construction and exact coverage of all but the residue number of vertices at all admitted side lengths, including both exceptional residues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-theoretic identity counts the only three possible cycle supports and corrects the all-open overlap exactly. Conditioning by the binomial edge total gives the exact joint polynomial and hypergeometric mean. The Bernoulli differentiation identity yields the mixed covariance, and Descartes' sign rule plus endpoint values certify exactly one physical zero (the second positive zero lies above one). Pascal differences and a verified cubic identity prove the complete conditional concavity criterion. An independent enumeration implementation verifies the full joint table and covariance across ten graphs. The equal-arm asymptotic follows from logarithms of the exact root equation; enumeration is not used for that infinite-length conclusion.
+PASS
 
-## Originality — PASS, qualified
+Any cycle must use both terminals and exactly two full paths, even when the retained spanning subgraph is disconnected. Thus the count by which M exceeds B is the completed-pair length sum minus m on the all-open event (where every edge was counted twice). Correcting the all-bridges PGF on the three disjoint exactly-two-path events and on the all-open event gives the stated polynomial. As a separate first-moment check, an edge in arm a has bridge probability p−p^{a+b}−p^{a+c}+p^m; summing and applying the Bernoulli likelihood derivative yields the covariance. Its bracket Q has exactly two coefficient sign changes after equal degrees are merged, Q(0)>0, Q(1)=m−a²−b²−c²<0, and positive leading coefficient. Descartes therefore forces one simple root in (0,1) and one simple root above 1, proving the physical signs. Conditioning on k open edges changes each pair event to a hypergeometric inclusion probability. Pascal's identity twice makes all preterminal curvature terms nonpositive; the final plus-m correction leaves numerator 6abc−sum a²(a−1), with the sum over arms. Independently, for m−2 open edges the two missing edges on the same arm of length a leave a−2 bridges, whereas missing edges on distinct arms leave all m−2 as bridges; this gives the same terminal curvature together with f(m)=0 and f(m−1)=sum a(a−1)/m. The equal-arm root equation bounds p_L^{2L−1} between (4L)^{-1} and L^{-1}, hence p_L^L=O(L^{-1/2}); taking logarithms and expanding proves the stated two-term order of the error. Independent replay: python /workspace/independent_checks.py (theta routine), using rank drops on edge deletion, confirmed full exact coefficient counts on (2,2,5), (2,2,6), and (3,4,5); their terminal curvatures are 1/6, −22/45, and 97/66. Read the submitted checker and verification notes without executing them. Enumeration does not certify the all-arm classification.
 
-The 2015 general bridge-identity paper gives broad differential techniques and the context for bridge fragility, but no explicit three-path theta joint law, single-crossing certificate, or edge-budget curvature classification in the sections inspected. The 2012 arbitrary-graph algorithm computes component size distributions, which do not state the presented bridge-count regression. A published cactus theorem proves conditional concavity for edge-disjoint cycle networks, whereas theta paths create overlapping cycles, and the terminal-convex cases are outside its scope. Searches covered exact claim aliases and likely generalizations; an earlier obscure reliability-polynomial specialization could remain undiscovered, so absolute priority is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The three-path theta graph is a canonical simple noncactus network with overlapping cycles, making it the natural test of how much a cactus-graph percolation phase law survives overlapping cycle structure. The theorem gives a closed full distribution for arbitrary arm lengths, guarantees a single change in bridge fragility, and precisely classifies the loss of conditional concavity; the last property is qualitatively absent from the preceding cactus class. These are structural distinctions, not isolated numerical improvements.
+The prior bridge-response identities, cactus law, and theta reliability marginal are established material. The supported distinct result is the explicit joint statistic and sharp covariance/curvature classification for overlapping cycles in the three-arm family. No checked primary or catalog statement covers that theorem; theta reliability counts terminal connection alone, and the cactus result depends on edge-disjoint cycles.
 
-## Closest literature and risks
+## value
 
-Elçi–Weigel–Fytas (arXiv:1509.00668) and Allard et al. (arXiv:1201.4369) were read in accessible full text. The published cactus bridge-count result was read in full for implication comparison. Cox's 2013 thesis on network reliability was relevant to theta topology, but its large PDF could not be inspected in full; its unresolved coverage is a priority risk, not a proven novelty gap. The claim is limited to common-parameter independent edge retention on three-path theta networks, and no independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural minimally overlapping-cycle family for testing limits of cactus bridge results. It preserves a unique fragility maximum for all arm lengths but can violate fixed-edge concavity, with the violation pinned to one budget and decided by a sharp explicit inequality. That contrast and the equal-arm threshold scaling are more informative than isolated reliability or enumeration values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

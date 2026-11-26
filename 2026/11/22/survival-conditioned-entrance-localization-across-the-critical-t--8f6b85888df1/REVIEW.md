@@ -1,15 +1,21 @@
-# Scientific assessment — survival-conditioned entrance localization
+# Independent mathematical audit
 
-## Correctness
-**PASS, self-review.** The proof begins from the exact killed Bessel kernel, not an assumed conditional entrance distribution. The two-index Fourier representation yields uniform microscopic and diffusive Gaussian estimates and exponential off-diagonal control. Those inputs justify three separately normalized summation regimes, the terminal tightness needed for joint independence, and the counting-measure dominated convergence for the finite-state limit. The `checker.py` program passed 3,622 exact-rational and numerical assertions; an independent numerical comparison using `numerical_check.py` showed the predicted movement toward the three limit laws. Finite computations do not replace the infinite-limit proof.
+## correctness
 
-## Originality
-**PASS against inspected evidence; historical-priority risks remain.** Pollett's full 2026 paper establishes the killed chain's quasi-stationary attraction and its endpoint/survival asymptotics, while the new claim determines the *initial state of a successful long survivor* and its joint independence from the terminal state. The classical birth–death QSD work of van Doorn includes fixed/finite initial support; an available same-model marginal result likewise does not establish a conditional entrance law. Literature searches of similar claims and equivalent formulations did not find a statement covering all three entrance phases. The full texts of related drifted-Brownian and general birth–death sources were not accessible; their abstracts cannot establish noncoverage. A broad ratio-limit theorem may supply an alternative route and represents a genuine residual priority risk.
+PASS
 
-## Value
-**PASS.** The phase boundary is mathematically natural: a survivor-size-biased initial distribution becomes nonnormalizable exactly at the exponent two. The new theorem explains *where a long-surviving trajectory typically began*, not merely how long it survived or where it ends. Its critical logarithmic-uniform entrance spans every polynomial scale, a qualitatively different behavior invisible to marginal quasi-stationary limits.
+Tilting the killed symmetric kernel of rate d/2 in each direction gives the factor exp(-lambda t)rho^(j-i); reflection subtracts the kernel from the reflected start. The initial rho^i cancels exactly. In the sine integral, v=u/sqrt(t) and j<=L log(t) permit replacement of sin(jv)/(jv) by one uniformly on bounded u, with Gaussian domination. For diffusive i, evaluation of the remaining Gaussian sine integral gives A_d y exp(-y^2/(2d)), y=i/sqrt(t), in tB_t/j; for i<=t^(1/2-delta), replacing the other sine ratio yields A_d in t^(3/2)B_t/(ij). Bounding both sines linearly also gives the global ij t^(-3/2) bound. Telescoping the Bessel difference for i>=2j uses j indices comparable to i, and shifting the unrestricted Fourier integral by an imaginary h=min(k/(2dt),1) gives the stated t^(-1/2) times exp[-c min(k^2/t,k)] bound. These estimates control the large-i tail; the global bound makes the small-diffusive-i remainder O(epsilon^(2-beta)) below beta=2. The weighted diffusive Riemann sum then gives the normalized gamma transformation in the finding. At beta=2 the harmonic sum up to t^u contributes u log(t) for 0<u<1/2, the total contributes (1/2)log(t), and the mass above sqrt(t) is lower order. At beta>2 the global bound is summable against i^(-beta)rho^j; counting-measure dominated convergence gives total variation after normalization. The terminal tail j>L log(t) is negligible by the geometric majorant, and in each regime the joint restricted weights factor with j rho^j. The terminal normalization is rho/(1-rho)^2. In the QSD recurrence a pi_(j+1)+b pi_(j-1)=(a+b-theta)pi_j with pi_0=0, theta=lambda gives the positive double-root solution j rho^j; larger theta cannot give positive weights, and smaller theta gives a larger law by an increasing likelihood ratio relative to j rho^j. Thus the identification as the minimal QSD is correct. The two frozen scripts and recorded results were inspected, not executed; no finite probe substitutes for the uniform limits.
 
-## Scope and limitations
-Rates and the polynomial tail exponent are fixed, and the starting distribution is exactly critical-geometric with a power correction. No extension to general slowly varying corrections, time-dependent parameters, path-space limits, uniform error rates, independent verification or exhaustive historical priority is asserted. The optional numerical checks are corroborating only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit classical killed kernels, QSD selection, and the materially overlapping same-day terminal/survival asymptotics. The distinct supported result is the joint posterior law of the initial and terminal sites, particularly the critical uniform law on normalized logarithmic scales and the independence statement across the three regimes. No accessible statement gives that joint result or the uniform-in-start information that would imply it. This is a limited statement comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+The result identifies which starting states account for survival even when the terminal law is unchanged. It distinguishes diffusive, logarithmically spread and lattice-localized entrances with exact limits and shows they decouple from the terminal site. In particular the log-uniform threshold law contains information absent from the logarithmic survival prefactor alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

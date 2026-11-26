@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:53:47.624309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated normalized five-coordinate points with both sums zero (85 and 199), and all rational dual forms modulo constants and scalars (400 and 1464). The exact sizes and multiplicities agree at every bin, and the two point/pair incidence moments agree. Enumerating every two-dimensional subspace by unique reduced echelon bases and testing all four binary cubic coefficients gave 15 and 27 rational lines. Section line profiles (none, one, three nonconcurrent, three concurrent) are (310,75,5,10) and (1230,189,35,10); no two-line case. The geometric residual-line argument also uses smoothness: if a plane restriction had a repeated line, on that line the gradient of the surface would be controlled by a single quadratic (the normal derivative), which vanishes somewhere on the geometric line. The ten maximizing equations are exactly X_i+X_j=0; on each, the other coordinates A+B+C=0 have cubic sum 3ABC, yielding three concurrent lines and 3q+1 points. Triangles give 3q. The same census independently recovered all 43 frozen S5 orbit rows (13+30). A nonzero form never vanishes on the whole surface point set, so the four-coordinate evaluation is injective. Each projective dual row contributes q-1 different words of weight N_q-z, giving the full stated weight enumerator and distances 63 and 165. Replay: python3 /workspace/audit-replay/5.py; output /workspace/audit-replay/5.txt. Exhaustion is for the specified model and fields only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen source notes credit the split del Pezzo generalized-weight/extremal-section theory and describe Bergvall–Gounelas as classifying geometric anticanonical section types. Neither cited scope specifies the counts of rational planes by rational-point cardinality on this model.",
+          "Resultary 9b45ce52c311 treats the same model in characteristic greater than five but its catalog statement concerns point–line rather than plane–point incidence."
+        ],
+        "reasoning": "The larger geometric or field scope of these comparisons does not imply a finer section histogram. In particular geometric section types are not enough to determine the rational point-count distribution of all sections.",
+        "searches": [
+          "Boguslavskii, Sections of the Del Pezzo Surfaces and Generalized Weights, https://www.mathnet.ru/eng/ppi392; Little arXiv:0802.2349 §4.4",
+          "Bergvall–Gounelas arXiv:1904.10249 §4; Hirschfeld DOI 10.1017/CBO9781107325579.020; Brundu–Logar–Polli arXiv:2207.04493"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, verification/clebsch_section_census.py and data/clebsch_section_orbits.json",
+        "Resultary f7e8ec2c06aa (self-hit), 9b45ce52c311 (summary)",
+        "Boguslavskii, Little, Bergvall–Gounelas, Brundu–Logar–Polli and Hirschfeld (frozen comparison and targeted passage requests)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three concurrent rational lines give the known 3q+1 section size and the minimum-distance deduction. The counts at all smaller section sizes do not follow from that extremum.",
+          "Knowing the whole rational point set lies on surface-lines motivates the pair of fields. It does not mechanically give the sizes and multiplicities of the sections meeting those lines at distinct or coincident points."
+        ],
+        "reasoning": "Even the incidence moments and the known maximal value leave the many intermediate bins undetermined. The exact census and orbit/line breakdown supply additional information, whereas the code weight conversion is just an implication of that census.",
+        "searches": [
+          "Compare the Boguslavskii/Little maximal section/minimum-distance statements credited in RESULT.md lines 64–67 with the histogram",
+          "Compare Resultary 9b45ce52c311 with the plane–point invariant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this projective evaluation code the map z to N_q-z and multiplication by q-1 give a reversible conversion between the section histogram and ordinary weight enumerator.",
+          "The distinct catalog match 9b45ce52c311 counts rational points by the number of geometric surface-lines through them, not rational planes by rational points in their sections."
+        ],
+        "reasoning": "A published weight distribution on these same modeled surfaces and evaluation points would cover the claim. Neither point-to-line data nor generalized Hamming weights are that distribution.",
+        "searches": [
+          "Resultary: Clebsch diagonal/untwisted cubic plane and hyperplane section-size spectra at 7 and 11",
+          "Literature search for Clebsch plane-section distribution and complete weight distributions for cubic del Pezzo evaluation codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalog entry f7e8ec2c06aa is the identical frozen result, not independent prior coverage.",
+          "The distinct entry 9b45ce52c311 mentions the same two fields for the empty line complement, not either of the complete hyperplane histograms."
+        ],
+        "reasoning": "The precise field match is explained by these fields' exceptional line coverage. An unindexed numerical table remains possible, but no comparable exact prior table was found in available statements.",
+        "searches": [
+          "Configured Resultary comparison for exact section tables and the paired field sizes 7 and 11",
+          "Literature search for exact Clebsch section/weight tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the complete section-size distributions and their orbit and line profiles for this fixed Clebsch model. Classical geometry, point–line incidence, and maximal-section or minimum-distance results are credited, not claimed as new. Full code weights are an equivalent presentation of the census, not a second independent novelty claim.",
+      "residual_risks": [
+        "Targeted primary full-text passages and the distinct Resultary mirror were not independently obtained. Scope comparisons are confined to available statements and clearly identified frozen descriptions.",
+        "Unindexed same-model section or Hamming-weight tables, in particular in older finite-geometry literature, could cover the counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct point–line distribution in available statement; no full-text noncoverage claim",
+          "evidence": [
+            "The summary counts points on exactly 0, 1, 2, or 3 of the geometric 27 lines and identifies the line complement as empty at 7 and 11."
+          ],
+          "identifier_or_url": "9b45ce52c311",
+          "material_read": "Configured Resultary indexed scientific summary; full mirror text not retrieved",
+          "method": "Resultary similarity query and targeted mirror retrieval attempt",
+          "title": "Arithmetic incidence and zeta function of the Clebsch cubic's line complement",
+          "trigger": "Same model, same exceptional fields, broader field range"
+        },
+        {
+          "assessment": "Credited maximum and generalized weights; a full prior histogram is not evidenced by the accessed material",
+          "evidence": [
+            "The frozen inspection reports code parameter and maximal-section arguments on pages 19 and 26, not full ordinary weight multiplicities."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/ppi392",
+          "material_read": "Frozen description of maximal-section arguments and code parameters; independent passage retrieval unsuccessful",
+          "method": "Targeted lawful source request and comparison against frozen RESULT.md lines 65–70 and AUDIT.json",
+          "title": "Sections of the Del Pezzo Surfaces and Generalized Weights",
+          "trigger": "Section counts and code invariants could cover the same frequencies"
+        },
+        {
+          "assessment": "Extremal section/minimum distance credited; not adequate evidence of full histogram coverage",
+          "evidence": [
+            "Frozen review describes the Eckardt-point minimum-distance principle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0802.2349",
+          "material_read": "Frozen account of §4.4 and Theorem 17; independent excerpt request timed out",
+          "method": "Targeted OA request and frozen comparison",
+          "title": "Algebraic Geometry Codes from Higher Dimensional Varieties",
+          "trigger": "Cubic evaluation codes and possible earlier weight distribution"
+        },
+        {
+          "assessment": "Geometric types do not by themselves count rational hyperplanes with each finite-field intersection size",
+          "evidence": [
+            "The frozen source locates geometric section classifications in §4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.10249",
+          "material_read": "Frozen account of §4; independent OA retrieval failed",
+          "method": "Targeted OA request and comparison of hypotheses and invariant",
+          "title": "Cohomology of moduli spaces of Del Pezzo surfaces",
+          "trigger": "Anticanonical section types over moduli"
+        },
+        {
+          "assessment": "Known point-on-line phenomenon is relevant motivation; exact contents of the historical paper remain unresolved",
+          "evidence": [
+            "Frozen RESULT.md lines 67,70 distinguish line incidence from section sizes and explicitly flag the unavailable article body."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781107325579.020",
+          "material_read": "Frozen description of publisher summary, no independently obtained full text",
+          "method": "Targeted lawful source request and review of the stated subject",
+          "title": "Cubic surfaces whose points all lie on their 27 lines",
+          "trigger": "Historic work on these exceptional fields could contain a numerical section table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These fields are singled out by the known empty line complement for the model, not by an arbitrary sample. The complete distribution gives the frequency of each rational section size rather than just the maximum, distinguishes concurrency and triangle contributions to large cuts, and supplies the ordinary weight distribution of the corresponding natural evaluation codes. Exact multiplicities are useful finite invariants even without a general-q theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

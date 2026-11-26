@@ -1,109 +1,47 @@
-# Universal linear variance for temporal repetitions in the noisy voter model
+# Degree- and lag-independent variance bound for temporal repetitions in the noisy voter model
 
 ## Finding
 
-For every connected finite or countably infinite locally finite graph \(G=(V,E)\) with at least two vertices, every observation vertex \(u\), noise parameter \(0<\varepsilon\le1\), and integers \(d,L\ge1\), define
-
+Let \(G=(V,E)\) be a connected finite or countably infinite locally finite graph with at least two vertices, let \(u\in V\), and take integers \(d,L\ge1\). Set
 \[
 R_L^{(d)}=\sum_{t=1}^{L}\mathbf1\{X_t(u)=X_{t+d}(u)\}.
 \]
-
-Under the synchronous fair-noise noisy voter dynamics defined below,
-
+In the synchronous fair-noise voter model below, for every \(0<\varepsilon\le1\),
 \[
-\boxed{\operatorname{Var}(R_L^{(d)})\ge\frac{\varepsilon^2}{4}L.}
+\operatorname{Var}(R_L^{(d)})\ge \varepsilon^2 L/4.
 \]
+This strengthens the degree- and lag-dependent lower bound of [2]. Unlike that bound, this estimate is independent of the degree of \(u\) and the lag, and applies to all sample lengths, including \(L\le d\). At \(\varepsilon=1\) the bound is attained for every \(L,d\).
 
-For \(\varepsilon=1\), equality holds for every \(L,d\). For fixed \(0<\varepsilon<1\), the variance dichotomy in Lemma 2.3 and conditional central limit theorem in Theorem 2.7 of Benjamini, Helman Tov and Zhukovskii [1] give the further conclusions
-
-\[
-\boxed{\lim_{L\to\infty}\frac{\operatorname{Var}(R_L^{(d)})}{L}=v_{G,u,d,\varepsilon}\in[\varepsilon^2/4,\infty),}
-\]
-
-\[
-\boxed{\frac{R_L^{(d)}-\mathbb ER_L^{(d)}}{\sqrt L}\Longrightarrow N(0,v_{G,u,d,\varepsilon}).}
-\]
-
-The constant \(v_{G,u,d,\varepsilon}\) is finite by the covariance-decay estimate in [1]. For \(\varepsilon=1\), these asymptotic conclusions hold with \(v_{G,u,d,1}=1/4\). Thus the logarithmic-variance alternative for the **unthinned** repetition statistic raised explicitly in [1, Section 2.2] cannot occur under the stated dynamics.
+As an application, \(\operatorname{Var}(R_L^{(d)})/L\) converges to a finite constant \(v_{G,u,d,\varepsilon}\ge\varepsilon^2/4\), and \((R_L^{(d)}-\mathbb E R_L^{(d)})/\sqrt L\) converges in distribution to \(N(0,v_{G,u,d,\varepsilon})\). The qualitative linear variance and unthinned CLT conclusions for \(0<\varepsilon<1\) were already obtained in [2] using [1].
 
 ## Assumptions and scope
 
-At time zero, \((X_0(v))_{v\in V}\) are independent fair \(\{0,1\}\)-valued bits. At each integer time \(t\ge1\), every vertex \(v\) independently either (i) refreshes to a new fair bit with probability \(\varepsilon\) or (ii) with probability \(1-\varepsilon\), copies the previous-time opinion of a uniformly sampled neighbor of \(v\). Choices and refresh bits at all distinct vertex-time positions are mutually independent and independent of the initial bits. The updates are simultaneous. Local finiteness and positive degree ensure that the copy distribution is well-defined. Observations are at one fixed vertex \(u\), across all times \(t\in\{1,\dots,L+d\}\). No stationarity assumption is made.
-
-The finite-time variance bound also holds on a countable locally finite graph without requiring positive recurrence, reversibility, transitivity, finite diameter, or a finite-graph limit. The random variables in the bound are the *unmodified, consecutive-time* lag comparisons.
+Initially the vertex opinions \(X_0(v)\) are independent fair bits. At each time \(t\ge1\), simultaneously at each vertex \(v\), either refresh to a fresh independent fair bit with probability \(\varepsilon\), or copy the previous-time opinion of a uniformly sampled neighbor with probability \(1-\varepsilon\). The refresh flags, sampled neighbors, and fair bits are independent across vertex-time points, and independent of the initial bits. Positive finite degree makes the uniform copy rule well-defined. No stationarity is assumed.
 
 ## Proof
 
-**1. Conditional ancestor representation.** Set \(\sigma_t(v)=2X_t(v)-1\). For every possible initial position \((v,0)\) and refresh position \((v,s)\), let \(Y_{v,s}\) be an independent Rademacher sign. The source at \((v,0)\) is used initially, and the source at \((v,s)\) is used precisely if a refresh occurs there. Let \(\mathcal A\) denote the collection of all refresh flags and neighbor-copy arrows, but no source signs. Tracing arrows backward from each \((u,t)\) terminates after at most \(t\) steps at a unique initial position or refresh position. Write its source label as \(A_t\), measurable with respect to \(\mathcal A\). Consequently \(\sigma_t(u)=Y_{A_t}\), with source signs independent of \(\mathcal A\). This is a finite backward tracing argument even on an infinite locally finite graph.
+Write \(\sigma_t(v)=2X_t(v)-1\). Let \(\mathcal A\) contain all refresh flags and copy choices, but none of the fair signs. By tracing the copy choices backwards from \((u,t)\), the observed sign is \(Y_{A_t}\) where \(A_t\) is its initial or refresh source, measurable with respect to \(\mathcal A\), and \(Y_a\) are mutually independent Rademacher signs independent of \(\mathcal A\). The tracing takes at most \(t\) steps, including on an infinite graph.
 
-**2. Exact conditional variance.** The equality indicator is
-
-\[
-\mathbf1\{X_t(u)=X_{t+d}(u)\}=\frac{1+Y_{A_t}Y_{A_{t+d}}}{2}.
-\]
-
-For each unordered pair of *distinct* source labels \(\{a,b\}\), let \(m_{ab}(\mathcal A)\) count how many indices \(t\in\{1,\ldots,L\}\) have \(\{A_t,A_{t+d}\}=\{a,b\}\). Terms with \(A_t=A_{t+d}\) are deterministic when conditioned on \(\mathcal A\). For distinct unordered pairs, the characters \(Y_aY_b\) are centered and orthogonal in \(L^2\) of the independent source signs, even if the pairs share one endpoint. Thus
-
+The repetition indicator at index \(t\) equals \((1+Y_{A_t}Y_{A_{t+d}})/2\). Equal-source terms are deterministic conditional on \(\mathcal A\). For distinct source labels \(a,b\) let \(m_{ab}\) count the indices with unordered pair \(\{a,b\}\). The characters \(Y_aY_b\) have conditional mean zero and are pairwise orthogonal across distinct unordered pairs, because some independent centered sign occurs exactly once in the product. Hence
 \[
 \operatorname{Var}(R_L^{(d)}\mid\mathcal A)
-=\frac14\sum_{\{a,b\}:\,a\ne b}m_{ab}(\mathcal A)^2.
-\tag{1}
+=\tfrac14\sum_{\{a,b\}:a\ne b} m_{ab}^2.
 \]
+Only finitely many terms contribute. If \(u\) refreshes at both \(t\) and \(t+d\), its pair of labels is exactly \(\{(u,t),(u,t+d)\}\). Each such event contributes at least one to the sum of squared multiplicities, and pairs from different such indices are distinct by their smaller time label. Each event has probability \(\varepsilon^2\) even though the events can overlap. Taking expectations and using total variance yields the claimed bound.
 
-There are finitely many contributing pairs for fixed \(L,d\), so the identity requires no infinite-series interchanges.
+For \(0<\varepsilon<1\), equation (7) and Lemma 2.3 of [1] bound the variance by \(O(L)\) and show that it is either \(O(\log L)\) or \((v+o(1))L\) for some \(v>0\). The lower bound rules out the former and gives the floor on \(v\). The statistic \(S_T^{(d)}\) of [1] is \(R_{T-d}^{(d)}/(T-d)\); its variance is at least \(\varepsilon^2/[4(T-d)]\). Thus \((\log T)/T^2=o(\operatorname{Var}(S_T^{(d)}))\), as required by Theorem 2.7(1) of [1]. The variance-standardized normal limit there and the variance asymptotic give the claimed limit with normalization \(\sqrt L\).
 
-**3. The forced distinct-pair witnesses.** For each \(t=1,\ldots,L\), let \(E_t\) be the event that \(u\) independently refreshes at both times \(t\) and \(t+d\). On \(E_t\), the ancestor pair is exactly
-
-\[
-\{A_t,A_{t+d}\}=\{(u,t),(u,t+d)\},
-\]
-
-whose entries are distinct because \(d\ge1\). Moreover these unordered pairs are different for different indices \(t\), because the smaller of their two time labels is \(t\). Each such pair contributes a squared multiplicity of at least one to (1). Therefore, for every realization of \(\mathcal A\),
-
-\[
-\operatorname{Var}(R_L^{(d)}\mid\mathcal A)
-\ge\frac14\sum_{t=1}^{L}\mathbf1_{E_t}.
-\]
-
-Since each event \(E_t\) has probability \(\varepsilon^2\), whether or not different events overlap, total variance gives
-
-\[
-\operatorname{Var}(R_L^{(d)})
-\ge\mathbb E[\operatorname{Var}(R_L^{(d)}\mid\mathcal A)]
-\ge\frac14\sum_{t=1}^L\Pr(E_t)
-=\frac{\varepsilon^2L}{4}.
-\]
-
-No sign cancellations can occur because the coefficient of each degree-two character is a **nonnegative** multiplicity. This is the crucial mechanism that prevents the sublinear variance scenario.
-
-**4. Asymptotics.** The original model and statistic coincide with those in [1]. Equation (7) of [1] gives \(\operatorname{Var}(R_L^{(d)})=O(L)\), uniformly in \(L\) for fixed \(d,\varepsilon\). Lemma 2.3 of [1] says that its variance is either \(O(\log L)\) or is asymptotic to a strictly positive constant times \(L\). The proved lower bound rules out the first case and provides the quantitative coefficient floor. For \(S_T^{(d)}=R_{T-d}^{(d)}/(T-d)\), the same lower bound implies
-
-\[
-\operatorname{Var}(S_T^{(d)})\ge\frac{\varepsilon^2}{4(T-d)},
-\]
-
-hence \((\log T)/T^2=o(\operatorname{Var}(S_T^{(d)}))\), verifying exactly the hypothesis of Theorem 2.7(1) in [1]. Its centered, variance-standardized Gaussian limit together with the positive limiting variance coefficient yields the displayed \(\sqrt L\)-normalized CLT. When \(\varepsilon=1\), every observation \(X_t(u)\) is an independent fair bit; the lag-equality indicators form independent fair bits (their associated time edges form a forest), so the variance is exactly \(L/4\) and the standard Bernoulli CLT applies directly.
-
-## Verification
-
-The included `verify.py` is standard-library Python 3 code. Run `python3 verify.py` from the extracted file directory. It checks the conditional Walsh variance identity by exhaustive source assignments for 2,048 short ancestor sequences, exactly computes the finite joint dynamics using rational transition probabilities on two- and three-vertex graphs, checks the lower bound for multiple lags and lengths, and tests equality at complete refresh. In total it reports 2,084 passed exact checks.
-
-The infinite-graph conclusion, the all-length inequality, and the asymptotic normal law do **not** follow from the finite checker. They follow from steps 1–4 and the cited theorems, respectively.
+At \(\varepsilon=1\) the observed signs are independent over time. The edges \(\{t,t+d\}\), \(1\le t\le L\), form disjoint paths in the residue classes modulo \(d\). The independent vertex signs yield independent fair edge products: given those products, the vertex signs are freely specified at precisely one root of each path and then uniquely determined on the rest. The repetitions are therefore independent fair indicators with variance \(1/4\), giving equality and the ordinary Bernoulli CLT.
 
 ## Relationship to prior work
 
-Benjamini, Helman Tov and Zhukovskii [1], first publicly available July 4, 2022, introduce this exact synchronous model, the lag-repetition statistic, and an upper bound on its variance. Their Lemma 2.3 proves an \(O(\log L)\)-versus-positive-linear dichotomy, and explicitly leaves open whether variance can be sublinear. Their Theorem 2.7 gives a normal limit for the **original** statistic subject to a lower-variance growth hypothesis, and also analyzes a thinned statistic with established positive variance. Neither the universal positive finite-time lower bound nor the resulting removal of the growth hypothesis for the original statistic is stated in the inspected source.
+Benjamini, Helman Tov and Zhukovskii [1, §2.2] asked whether the *unthinned* statistic could have sublinear variance. For \(0<\varepsilon<1\) and \(L\ge d+1\), [2] showed that its variance is at least \(\frac12\varepsilon^{\Delta+4}(1+\lfloor(L-d-1)/(2d+2)\rfloor)\), where \(\Delta\) is the finite degree at the observation site. Their proof allows arbitrary initial laws independent of the updates for that lower bound, and obtains the unthinned CLT from [1] for independent fair initial bits. The present contribution is the stronger quantitative bound on the stated fair-start model, not the first qualitative resolution of the sublinear-variance question or of the conditional CLT. Conditioning on all ancestries exposes nonnegative squared multiplicities and does not require isolating individual refresh bits from their descendants.
 
-Pymar and Rivera [2] study a different, asynchronous noisy-voter density process over vertices (rather than one site's lag-repetition time series). Carro, Toral and San Miguel [3] study aggregate and network heterogeneity properties under an annealed approximation. Their accessible abstracts do not entail the displayed pathwise-ancestry variance floor. The historical literature on influences, spin systems, and orthogonal decompositions may contain a broader inequality; its application here is not claimed to be definitively historically first.
+## Verification and limitations
 
-## Limitations
-
-The bound uses unbiased independent refresh signs, strictly positive refresh probability, synchronous copying (no negations), and nonnegative indicator coefficients. It does not establish an optimal constant for \(0<\varepsilon<1\), an explicit formula for the limiting variance on general graphs, Berry–Esseen bounds, or results for biased refresh, asynchronous updates, or nonlinear majority dynamics. The normal limit for \(0<\varepsilon<1\) invokes previously proved results [1]; it is not an independent proof of the underlying mixing CLT. Source [2] and [3] were compared via abstracts/model descriptions rather than their complete bodies. Independent mathematical validation and definitive priority investigation remain outstanding.
+The accompanying `verify.py` checks finite instances of the variance identity and bound with independent sign enumeration and exact finite-state rational dynamics. The universal inequality follows from the proof, not from these cases. No optimality is asserted for \(0<\varepsilon<1\); no results for biased or asynchronous updates are claimed. The asymptotic step uses the cited theorem rather than an independent CLT proof.
 
 ## References
 
-[1] I. Benjamini, H. Helman Tov, M. Zhukovskii, *Global information from local observations of the noisy voter model on a graph*, Annals of Probability 51(5) (2023), 1963–1992, DOI: 10.1214/23-AOP1637. First public preprint July 4, 2022, arXiv:2207.01224. Open full text: https://arxiv.org/html/2207.01224v2 .
-
-[2] R. Pymar, N. Rivera, *Asymptotic behaviour of the noisy voter model density process*, arXiv:2112.01478. https://arxiv.org/abs/2112.01478 .
-
-[3] A. Carro, R. Toral, M. San Miguel, *The noisy voter model on complex networks*, Scientific Reports 6 (2016), 24775, DOI: 10.1038/srep24775. https://www.nature.com/articles/srep24775 .
+1. I. Benjamini, H. Helman Tov and M. Zhukovskii, *Global information from local observations of the noisy voter model on a graph*, Ann. Probab. 51(5) (2023), 1963–1992, DOI [10.1214/23-AOP1637](https://doi.org/10.1214/23-AOP1637), [arXiv:2207.01224v2](https://arxiv.org/html/2207.01224v2).
+2. *Uniform linear variance for single-vertex noisy-voter repetitions on locally finite graphs*, [Resultary 2026-10-25, record 3fff36789a8d](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-uniform-linear-variance-for-single-vertex-noisy-voter-repetition--3fff36789a8d/RESULT.md).

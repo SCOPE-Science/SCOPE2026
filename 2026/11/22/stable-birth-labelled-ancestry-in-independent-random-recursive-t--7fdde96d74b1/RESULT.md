@@ -6,14 +6,15 @@ Take \(q\ge2\) independent uniform recursive trees on the same increasing birth 
 
 The coincidence count obeys the exact finite-state birth law
 \[
-\mathbb P(S_{k+1}=s+1\mid S_k=s)=\frac{s}{k^q},\qquad 1\le s\le k,\quad k\ge1.
+\mathbb P(S_{k+1}=s+1\mid S_k=s)=\frac{s}{k^q},
+\qquad (k,s)=(1,1)\text{ or } k\ge2,\ 2\le s\le k.
 \]
 It therefore converges almost surely to a finite integer \(S_\infty\), and
 \[
 \mathbb E S_\infty=\mu_q:=\prod_{k=1}^{\infty}\left(1+\frac1{k^q}\right),\qquad
 \mathbb P(S_\infty>S_n)=\frac{\mu_q}{(q-1)n^{q-1}}+O_q(n^{-q}).
 \]
-For the natural two-tree case, \(\mu_2=\sinh(\pi)/\pi\approx3.67608\), and, for every integer \(n\ge2\) and \(1\le s\le n\),
+For the natural two-tree case, \(\mu_2=\sinh(\pi)/\pi\approx3.67608\), and, for every integer \(n\ge2\) and \(2\le s\le n\),
 \[
 \mathbb P(S_\infty=S_n\mid S_n=s)
 =\frac{\Gamma(n)^2}{\Gamma(n-\sqrt{s})\Gamma(n+\sqrt{s})}.
@@ -26,7 +27,7 @@ Although the number of shared *individual parent edges* in two trees grows like 
 
 ## Assumptions and scope
 
-A *uniform recursive tree* on \([n]\) means an increasing rooted labelled tree with root \(1\), equivalently the independent uniform choice of a parent \(P(j)\in[j-1]\) at each birth \(2\le j\le n\). Across the \(q\) trees, all parent choices are independent. A vertex is counted only when **all** its ancestral edges agree, rather than merely its immediate parent. There is no optimization or relabelling of the vertices. Statements are exact for every indicated finite \(n\), while asymptotic statements hold as \(n\to\infty\) with fixed integer \(q\ge2\). In the Gamma formula, \(1\le s\le n\) guarantees positive Gamma arguments for \(n\ge2\).
+A *uniform recursive tree* on \([n]\) means an increasing rooted labelled tree with root \(1\), equivalently the independent uniform choice of a parent \(P(j)\in[j-1]\) at each birth \(2\le j\le n\). Across the \(q\) trees, all parent choices are independent. A vertex is counted only when **all** its ancestral edges agree, rather than merely its immediate parent. There is no optimization or relabelling of the vertices. Statements are exact for every indicated finite \(n\), while asymptotic statements hold as \(n\to\infty\) with fixed integer \(q\ge2\). The conditional Gamma formula uses \(2\le s\le n\) for \(n\ge2\): birth two always joins, and every subsequent step permits both a join and no join, so precisely these conditioning events have positive probability.
 
 ## Proof
 
@@ -55,7 +56,7 @@ For \(q=2\), applying \(\Gamma(z+1)=z\Gamma(z)\) to partial products and taking 
 \]
 Every two-tree realization has \(S_2=2\). With \(n=s=2\), Euler's sine product reduces this expression to \(-\sin(\pi\sqrt2)/(\pi\sqrt2)\).
 
-**4. Sharp probability of late new ancestral agreements.** Let \(H_{n,q}=\sum_{k=n}^{\infty} k^{-q}\). Bonferroni's inequalities for the independent no-birth trials *conditional on the state staying at \(s\)* imply
+**4. Sharp probability of late new ancestral agreements.** Let \(H_{n,q}=\sum_{k=n}^{\infty} k^{-q}\). Given \(C_n\), consider for each \(k\ge n\) the event that all parents of vertex \(k+1\) equal one vertex in the fixed set \(C_n\). These events are independent given \(C_n\), with probabilities \(s/k^q\) for \(|C_n|=s\). The first such event, if any, is exactly the first new agreement after time \(n\), since until that event the agreement set stays \(C_n\). Bonferroni's inequalities thus imply
 \[
 0\le sH_{n,q}-\left[1-\prod_{k=n}^{\infty}(1-s/k^q)\right]
  \le \frac12 s^2H_{n,q}^2.

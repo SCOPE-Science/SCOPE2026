@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:43.170105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63; VERIFICATION.md lines 19–21; CHECK.py inspected, not executed",
+        "Faber–Pandharipande Theorem 2",
+        "Replay: python3 /workspace/reproduction/4.py"
+      ],
+      "rationale": "Faber–Pandharipande Theorem 2 gives H_g(x)=4^{−g}[u^{2g}](u/sin u)^{x+1}. For each multiplicity partition, Legendre's digit-sum formula gives ν_p((2a+1)!)≤⌊a/s⌋. Set f=Σ λ_a⌊a/s⌋ and t=q−f. The large-part count is at most f, and the small-part count is at most r+st by the weight constraint. Applying the multinomial valuation inequality to the two groups separately yields the frozen denominator bound. For t≥1, r+st<(p−1)t gives ν_p((r+st)!)≤t−1, hence D≤E−1. Otherwise f=q and the length is ≤q+r, with equality only for q copies of s and r copies of 1. Its denominator is q!r!(p!)^q6^r with valuation E; Wilson's theorem gives the claimed sign and unit. Monicity of rising factorials, translation x↦x+1 and the p-unit 4^{−g} preserve sharpness. This includes r=0 and p=2g+1 and does not assume q! is a p-unit. An independent exact differential recurrence S A′+(x+1)S′A=0 in u=t² verified integrality, vanishing and the nonzero top residue on 153 prime/genus pairs, including 43 with p dividing q!.",
+      "residual_risks": [
+        "The recurrence tests the stated algebraic normalization in finite cases; the geometric generating identity is an input, and the general proof is by valuation. No claim is made for p=2,3 or p>2g+1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmes computes E and isolates the unique length-m extremal term. The proof's bounds D≤E−1 for t≥1, N_{≥s}≤f and N_{<s}≤r+st do not require j=m."
+        ],
+        "reasoning": "The stated existence theorem alone does not determine the largest index; the inequalities in its published proof supply the necessary stronger information.",
+        "searches": [
+          "Holmes arXiv:2610.30274v1 §3.1 equations (4), (8)–(12), Lemmas 3.3–3.5, Corollary 3.6 and Proposition 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Holmes arXiv:2610.30274v1; Faber–Pandharipande arXiv:math/9810173; Adelberg DOI landing record; Resultary 1125ac7254c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=0, equations (8) and (10) give N_{≥s}+N_{<s}≤q+r. At length exactly q+r the only such partition is Holmes's λ*. His inequalities give a strict denominator drop at t≥1."
+        ],
+        "reasoning": "Every longer partition must have t≥1, hence vanishes in the scaled reduction. At length q+r the previously isolated unit reduces by (p!)/p≡−1; all smaller lengths cannot affect the leading term. These are direct consequences with no new denominator estimate.",
+        "searches": [
+          "Holmes Lemmas 3.4 and 3.5, proof equations (8) and (10)–(12), OA offsets 28742 and 30500–34150"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holmes treats the rising-factorial coefficient polynomial of (u/sin u)^z; the geometric Hodge polynomial is its affine translate scaled by 4^{−g}.",
+          "Holmes §1 (M3) connects the Minkowski denominator to generalized Bernoulli/Nørlund polynomials; this alone does not establish equivalence of the residue laws."
+        ],
+        "reasoning": "Over the residue field the Hodge translation/scaling is invertible and the monic factorial basis preserves the leading degree and unit. So checking Holmes's arithmetic in that basis addresses the same invariant, not merely the same global denominator.",
+        "searches": [
+          "arXiv:2610.30274v1 §3.1; Faber–Pandharipande arXiv:math/9810173 Theorem 2; Adelberg DOI 10.1016/S0012-365X(98)00363-X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1125ac7254c7 compares finite-genus minima for the number of integrals needed to witness the Minkowski denominator, with the same generating input."
+        ],
+        "reasoning": "A minimum-cardinality witness census through genus 10 does not give the all-genus top coefficient or its residue. This catalogue comparison is distinct and is not the basis for rejection.",
+        "searches": [
+          "Local Resultary semantic lookup for one-point linear Hodge prime-denominator cutoffs and leading residues"
+        ]
+      },
+      "rationale": "The exact degree and Wilson unit are not stated as such by Holmes, but are mechanical consequences of his explicit partition proof: its actual equations already bound the counts of large and small parts separately, isolate the same extremal term and rule out every t≥1 term. Simply retaining the length bound before specializing to j=m gives the cutoff; reducing the already isolated unit gives the residue.",
+      "residual_risks": [
+        "Adelberg's unavailable full text leaves historical attribution open. Rejection rests on the inspected Holmes argument, not on access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical implication, not a verbatim statement",
+          "evidence": "Equations (8),(10) bound the length at t=0; (12) and its conclusion bound D at t≥1; λ* is isolated at m.",
+          "identifier_or_url": "https://arxiv.org/html/2610.30274v1",
+          "material_read": "§1 (M3); §3.1 equation (4), Lemmas 3.1–3.5, Corollary 3.6, Proposition 3.7; decisive proof offsets 30500–34150",
+          "method": "Lawful OA HTML",
+          "title": "Denominators of Hodge integrals and Minkowski numbers (Holmes)",
+          "trigger": "Same partition basis, exponent and extremal coefficient"
+        },
+        {
+          "assessment": "Known normalization",
+          "evidence": "Generating series is ((t/2)/sin(t/2))^{x+1} for these one-point linear Hodge integrals.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9810173",
+          "material_read": "Theorem 2, OA HTML offsets 7500–9600",
+          "method": "Lawful OA HTML",
+          "title": "Hodge integrals and Gromov–Witten theory (Faber–Pandharipande)",
+          "trigger": "Primary Hodge generating identity"
+        },
+        {
+          "assessment": "Potential overlap not established",
+          "evidence": "Holmes cites the Nørlund coefficient-denominator connection; neither that citation nor the abstract verifies a matching cutoff or unit.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(98)00363-X",
+          "material_read": "Landing/abstract and Holmes §1 (M3); full text not retrieved",
+          "method": "DOI landing and publisher access attempt; no access bypass",
+          "title": "Arithmetic properties of the Nörlund polynomial (Adelberg)",
+          "trigger": "Possible equivalent generalized Bernoulli arithmetic"
+        },
+        {
+          "assessment": "Related, not the same invariant",
+          "evidence": "Finite-genus minimal witness counts, rather than the prime-specific top degree or unit.",
+          "identifier_or_url": "Resultary 1125ac7254c7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "The first three-witness genus for one-pointed linear Hodge denominators",
+          "trigger": "Same denominator and Hodge family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; Holmes §3.1 proof of Lemma 3.5"
+      ],
+      "rationale": "Locating the largest Hodge index attaining the maximum denominator is a natural refinement, but on this scope it is already determined by the length inequalities and the sole extremal partition in the cited proof. Recording that immediate residue does not establish an independently unknown invariant, new valuation mechanism or classification below the cutoff.",
+      "residual_risks": [
+        "This judgment does not diminish the usefulness of the underlying denominator theorem or assert that the top residue was printed previously."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

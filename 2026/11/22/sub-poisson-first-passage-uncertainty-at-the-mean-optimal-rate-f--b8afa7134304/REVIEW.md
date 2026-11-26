@@ -1,24 +1,21 @@
-# Review of finite-contact threshold optimization
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The reflected boundary-local-time normalization is explicit, and the hitting-time/first-contact decomposition gives the stopping-time Laplace transform. Differentiation at the Laplace origin yields dimensionally consistent first and second cumulants. For every positive contact threshold, the strictly decreasing stationary-point map from \((1,z_0)\) to \((0,\infty)\) proves global uniqueness; at its root the variance-minus-squared-mean expression cancels to an exact strictly negative square. A convexity argument proves a strict optimal-rate gap relative to full renewal. A standalone standard-library checker passes 549 diagnostic assertions, including high-precision transform derivatives. Finite checks are corroboration, not proof of universal assertions.
+PASS
 
-## Originality
+For the specified regulator dX=√(2D)dB+dL and jumps in position only, solve the bounded interior hitting-time ODE with u(0)=1 and set φ=−u′(0). Multiplying u by exp[−(h−ℓ)φ] gives the reset backward equation and the reflection condition F_x+F_ℓ=0. Stopping at the first regulator level h gives the claimed transform: at that level X=0, and for s>0 the bounded terminal term at deterministic time tends to zero. The limit at s=0 is 1; expanding the logarithm at zero gives both finite cumulants. With z=x₀√(r/D), the sign of the derivative is that of z−2+2e^(−z)+λz(z−1). It is negative through z=1 (the λ term is zero at 1, not strictly negative as the proof's prose says), then changes sign exactly once by the strict decrease of Λ from +∞ to 0 on (1,z₀). It is positive for z≥z₀. The expansions follow by inversion at z₀, where Λ′=−1/z₀ and Λ″=(z₀²+2z₀−2)/(z₀²(z₀−1)), and the simple pole at 1 with residue 1−2/e. Subtraction of the first two cumulants in the form V−M² gives −2∂_r M−b², with b=h e^z/√(rD); hence at the optimum V=M_H(M_H+2b)>0 with M_H=(e^z−1)/r, and V<M². If contact is erased, the no-reset passage transform is exp[−(x₀+h)√(s/D)], giving the stated renewal optimizer q=z₀/(1+λ). For q>1 the claimed comparison with Λ(q) reduces to strict convexity of N(q), vanishing with its derivative at z₀; for q≤1 it is immediate. No h=0 claim beyond a limit is needed.
 
-PASS with priority qualification. Bressloff (2022, arXiv:2203.04868), section 3, already gives the retained-local-time *mean* in equation (3.17); a later public result, *A sharp two-site cusp for boundary-reaction throughput under position-only resetting*, gives the entire inverse-local-time transform and includes this one-reset-site case. Those ingredients are explicitly credited and are not submitted as new. Reuveni (arXiv:1512.01600) gives coefficient of variation one under complete renewal at mean-optimal Poisson restarting. The present exact strictly negative variance deficit at the **nonrenewal finite-contact mean optimum**, its strictly monotone finite-threshold optimizer, and its second-order separation from the full-reset optimum were not stated in the inspected prior material. General transform and subordinator theory may imply portions indirectly; independent publication-priority review remains advisable.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Whether surface-reaction progress survives a reset is a central modeling distinction. The exact optimal-dispersion identity quantifies a complete and surprising difference from a standard universal renewal-first-passage fluctuation law, while the sharp optimizer inequalities identify the tunable rate for all positive thresholds. It is not just a numerical point, a change of symbols, or an unsupported physical extrapolation; the result isolates the precise nonrenewal source of reduced optimal dispersion. The model scope is deliberately limited.
+Pass is for the finite positive threshold joint optimizer, optimal-dispersion and reset-protocol comparison, not for the already known MFPT, full transform, or complete-renewal benchmark. The known transform permits computation of both cumulants but specializing it to one site does not supply the all-threshold minimizer classification, exact stationary cancellation, or strict comparison. No directly covering optimization theorem was identified in the bounded comparison.
 
-## Closest literature and limits
+## value
 
-- P. C. Bressloff, *Threshold surface reactions and local time resetting*, arXiv:2203.04868 (first public 2022-03-09), especially sections 2.3 and 3.
-- *A sharp two-site cusp for boundary-reaction throughput under position-only resetting*, public 2026 result, full `RESULT.md` inspected. It supplies the entire transform but studies a different optimization objective (large-contact throughput and two reset sites).
-- *Power-law survival versus exponential rescue for retained and refreshed surface-reaction thresholds*, public 2026 result, full `RESULT.md` inspected. It treats heavy-tailed random thresholds and survival, not fixed-threshold optimal variance.
-- S. Reuveni, *Optimal stochastic restart renders fluctuations in first passage times universal*, arXiv:1512.01600: accessible abstract establishes the complete-renewal fluctuation benchmark.
+PASS
 
-No finite-sample estimation or experimental verification is claimed. Existing full-transform theorems are not described as discoveries. Literature novelty is assessed against the compared mathematical claims and remains subject to independent checking.
+A physically meaningful change in what a reset erases alters a familiar renewal optimum law. The exact, strictly positive variance deficit and the ordering of optimal rates for every h>0 distinguish the protocols; the second-order separation explains why their small-threshold rates can appear similar. This is more than a new presentation of the known mean.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

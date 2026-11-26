@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:19:14.801845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, derivation and exact example",
+        "Frozen VERIFICATION.md and checker.py, inspected without execution",
+        "Independent dyadic trace-gap comparison"
+      ],
+      "rationale": "For a traceless strictly positive-off-diagonal real 2×2 generator part, its square is (d²+pq)I. The centered propagator product has determinant one and half-trace C=cosh(uT)cosh(vT)+h sinh(uT)sinh(vT), with u=aφ, v=b(1−φ). Strict positivity gives a simple pair of positive eigenvalues, and h>−1 follows from ab>|d_A d_B| and the positive off-diagonal cross-terms. Writing C as the affine combination of cosh(T√x) at x=(u+v)² and x=(u−v)² with weight (1+h)/2 shows strict Jensen for h<1 and strict secant extrapolation for h>1; the averaged eigenvalue uses that same affine combination in x before applying cosh. Thus the exact sign and equality case hold. Computing the T⁴ discrepancy between C and cosh(qT) gives (1−h²)u²v²T⁴/6; dividing by the leading arcosh derivative denominator qT and by T yields the stated quadratic correction. The coefficient of the fastest cosh is positive, so the long-period limit is the duty-weighted average of the phase exponents. The witness gives a²=5/4, b²=7 and ab h=3; its two endpoint exponents have opposite signs by the stated rational square comparisons. For the other sign one can take equal positive switching rates with dose-dependent sensitive growth and fixed tolerant growth: the symmetric traceless parts are nonparallel, giving h<1. The saturating-law witness lies in the frozen assumptions, which do not require the tolerant growth rate to exceed the active one under the selected dose.",
+      "residual_risks": [
+        "No claim for additional phases, higher dimension, altered duty fraction, or nonlinear or clinically validated dynamics. The displayed T=4 decimal is ancillary; the exact sign reversal for a sufficiently long cycle follows without it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gunnarsson–Magnússon–Foo give existence of a half-period schedule with no greater growth, but the construction can change φ. Gunnarsson's 2026 weighted-matrix comparator assumes arbitrarily short cycles. The 2007 cooperative result lower-bounds growth by a different averaged generator with geometric off-diagonals.",
+          "Greene's deterministic trace-gap identity has no Hermitian or positivity restriction; the separate probabilistic theorems do have distributional hypotheses."
+        ],
+        "reasoning": "The 2025 existential claim permits a different averaged generator, so it does not yield the fixed-φ sign. The 2007 lower bound is no larger than the arithmetic-average comparator by off-diagonal AM–GM and Perron monotonicity, so it does not decide the difference. The unrestricted 2014 identity instead yields the needed fixed-φ finite comparison by the exponential substitution.",
+        "searches": [
+          "Gunnarsson–Magnússon–Foo DOI:10.1038/s41540-025-00571-5, p. 3 and Supplementary Note 1 §4.1",
+          "Gunnarsson arXiv:2611.00295v1 §§2.1, 4.1 and equation (4)",
+          "Clairambault–Gaubert–Perthame arXiv:0704.3820 Thm. 2.1",
+          "Greene §3"
+        ]
+      },
+      "checked_sources": [
+        "Greene (2014), Corollary 3.4",
+        "Resultary db73cac36bd9 and index comparison with 4263112dfd77",
+        "Gunnarsson–Magnússon–Foo (2025) article and supplement",
+        "Gunnarsson arXiv:2611.00295v1",
+        "Clairambault–Gaubert–Perthame arXiv:0704.3820"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the dyadic comparison above, the entire chain Λ(T/2^j) is strictly ordered with common sign det[A,B], or constant when the determinant vanishes. The first-order expansion of the two-phase product as T/2^j→0 gives its limit α(φA+(1−φ)B). Traceless anticommutation A₀B₀+B₀A₀=2ab hI gives [A,B]²=4a²b²(h²−1)I, so det[A,B]=4a²b²(1−h²). For h>−1 this has sign 1−h. The four-pulse example also expressly shows that a common scalar shift can place zero between strictly ordered stability exponents."
+        ],
+        "reasoning": "Dyadic ordering and the rapid limit give exactly the frozen strict trichotomy for every period; an equality case stays constant down the whole chain. This uses no hypothesis outside the frozen matrix class, even if the four-pulse application is narrower. The 2014 identity with elementary Perron and two-eigenvalue formulas already supplies the mechanical deduction regardless of the order of same-day catalogue entries. The numerical dose law illustrates the property but does not salvage a distinct sharp general law, and no separate repair is claimed.",
+        "searches": [
+          "Greene 2014 Corollary 3.4",
+          "Resultary db73cac36bd9, offsets 3980–5541 and 6740–8036",
+          "Gunnarsson rapid-cycle averaged comparator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greene's unrestricted deterministic identity is tr(X²Y²)−tr((XY)²)=det[X,Y]. The four-pulse record explicitly compares largest eigenvalues at a common positive determinant and replaces the exponential commutator by a positive scalar times the generator commutator."
+        ],
+        "reasoning": "Take X=exp(φTA/2), Y=exp((1−φ)TB/2). The grouped product X²Y² is one period T; (XY)² gives the same-duration rate Λ(T/2). The two products have identical positive determinants, positive entries, and Perron eigenvalues strictly ordered by trace. Because each phase exponential is cI+sM with s>0, the sign of Λ(T)−Λ(T/2) is exactly sign det[A,B]. This is a strict fixed-duty comparison whenever the determinant is nonzero, valid for every T.",
+        "searches": [
+          "Greene DOI:10.13001/1081-3810.1999, Lemma 3.3 and Corollary 3.4",
+          "Resultary db73cac36bd9, proof equations (1)–(2)",
+          "Arbitrary two positive-off-diagonal 2×2 generator period-monotonicity literature comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact four-pulse record db73cac36bd9 states both directions of grouped-versus-alternating order, equality, and contrasting growth/decline after a common scalar loss. Its full proof supplies a scope-independent commutator calculation before specializing rates. The exact frozen record was separately identified as itself. The distinct record 4263112dfd77 was not readable beyond its indexed summary."
+        ],
+        "reasoning": "The meaningful catalogue overlap is the analytic four-pulse law and general calculation, not an external table of the witness numbers. The alternate grouping is precisely a same-fraction period halving. The four-pulse record uses a different restricted application and is dated the same day, so neither an identical record nor earlier within-day publication is asserted.",
+        "searches": [
+          "Resultary all-period two-state Floquet and pulse-order comparison; db73cac36bd9 and 4263112dfd77"
+        ]
+      },
+      "rationale": "The main all-period sign law is a direct corollary of an older arbitrary-2×2 trace identity after substituting the two phase exponentials and taking the dyadic fast-period limit. The distinct four-pulse catalogue result gives the explicit spectral substitution and shift-based reversal mechanism in a related two-phenotype class. The mathematics therefore overlaps beyond matching terminology or a numerical parameter; no within-day priority is inferred. The exact frozen numbers and its convex proof are not a new independent sign theorem.",
+      "residual_risks": [
+        "No within-day priority claim for the catalogue records. The Patra–Klumpp full text was not read. A bounded additional literature search did not locate an explicit general fixed-duty theorem, but the demonstrated corollary does not depend on an exact verbal match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies fixed-duty dyadic ordering under the frozen hypotheses, not an explicit Floquet theorem in the paper",
+          "evidence": [
+            "Corollary 3.4 gives tr(ABAB)−tr(A²B²)=−det(AB−BA) for arbitrary 2×2 matrices, with no Hermiticity constraint."
+          ],
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1999",
+          "material_read": "§3, PDF p. 721, Lemma 3.3 and Corollary 3.4 near offset 14900; separate probabilistic theorems p. 718",
+          "method": "OA author-hosted primary PDF passages",
+          "title": "Traces of Matrix Products",
+          "trigger": "An arbitrary-two-matrix identity directly relevant to halving the period"
+        },
+        {
+          "assessment": "Explicit spectral conversion and same-duty ordering; general proof ingredients overlap despite a restricted model statement",
+          "evidence": [
+            "The exact trace identity is stated for arbitrary 2×2 X,Y; the affine exponential argument gives the generator-commutator determinant sign. The equal scalar-loss argument gives opposite stability outcomes for the two finite schedules."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-waking-rate-boundary-for-four-pulse-persister-treatment--db73cac36bd9/RESULT.md",
+          "material_read": "Finding offsets 0–2821, trace comparison/equations (1)–(2) offsets 3980–5541, stability comparison offsets 6740–8036, attribution offsets 9270–10400",
+          "method": "Published record via local mirror",
+          "title": "A sharp waking-rate boundary for four-pulse persister treatment schedules",
+          "trigger": "Alternating versus grouped monodromies, equivalent to period halving at fixed duty fraction"
+        },
+        {
+          "assessment": "Same model class, but does not imply the fixed-duty comparison",
+          "evidence": [
+            "The halved phase fraction is chosen as a new φ₂ from the sensitive-fraction trajectory and need not equal φ₁."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41540-025-00571-5",
+          "material_read": "Article pp. 3–4 and Supplementary Note 1 §§1, 4.1, especially p. 16 near offset 43000",
+          "method": "OA article and supplement PDF passages",
+          "title": "Optimal dosing of anti-cancer treatment under drug-induced plasticity",
+          "trigger": "Earlier same-model treatment period-halving result cited by the rapid-cycle source"
+        },
+        {
+          "assessment": "Covers arithmetic rapid averaging, not fixed-duty all-period sign",
+          "evidence": [
+            "Assumes arbitrarily short cycles and uses a time-weighted arithmetic average generator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.00295v1",
+          "material_read": "§2.1 and Methods equation (4), offsets about 12480 and 50600",
+          "method": "OA full-text HTML passages",
+          "title": "Sharp transitions between optimal therapy regimes reveal robust dosing strategies against drug-induced persistence",
+          "trigger": "Frozen comparator's source and matching two-phenotype model"
+        },
+        {
+          "assessment": "Comparator differs and cannot supply the trichotomy",
+          "evidence": [
+            "The off-diagonal averages are geometric and the diagonal averages arithmetic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0704.3820",
+          "material_read": "Thm. 2.1, PDF p. 3 near offset 9300",
+          "method": "OA PDF passage",
+          "title": "An inequality for the Perron and Floquet eigenvalues of monotone differential systems and age structured equations",
+          "trigger": "General prior comparison to an averaged periodic generator"
+        },
+        {
+          "assessment": "Not cleared from full text; unnecessary for established coverage",
+          "evidence": [
+            "The title and available description concern phenotype-switching evolution; no technical conclusion is drawn from them."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1478-3975/12/4/046004",
+          "material_read": "Bibliographical identification; full text unavailable",
+          "method": "Lawful OA access attempt",
+          "title": "Emergence of phenotype switching through continuous and discontinuous evolutionary transitions",
+          "trigger": "Plausibly relevant older periodically switched phenotype model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope and exact dose-response example",
+        "Gunnarsson rapid-cycle assumptions",
+        "Resultary four-pulse stability comparison"
+      ],
+      "rationale": "Whether the sign of net growth survives taking the infinitely rapid approximation at fixed generators and treatment fraction is a meaningful stability question. The exact example translates the sign comparison into opposite qualitative forecasts in a specified rate model, not merely a small numerical change. Scientific motivation and explanatory use are real even though the law is covered and the particular parameters do not constitute a separately validated new contribution.",
+      "residual_risks": [
+        "No optimal-treatment recommendation or clinical efficacy follows. A useful illustration and self-contained alternative proof do not remedy the failed originality axis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of weak-flux monitored quantum-triangle detection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact three-state Hamiltonian is compressed onto the two-dimensional no-detection subspace in the symmetric/antisymmetric basis. The resulting exact matrix yields a simple isolated dark eigenvalue for fixed non-revival sampling intervals and a first-order split double eigenvalue at each positive full revival. The corresponding expansions give squared-modulus losses \(9t^2\alpha^2/2\) and \(t^2\alpha^2\). Uniformly bounded two-dimensional spectral projections establish limiting survival exponentials and exponential tails, thereby covering every moment. The supplied independent full-Hamiltonian matrix-exponential check and Lyapunov-mean computations passed 49 checks. The mathematical argument, not finite numerical tests, proves the infinite-attempt result.
+PASS
 
-## Originality — PASS (qualified)
+The survival norm is ||K_alpha^n d||^2 for K the compression of U to the undetected sites. Fourier decomposition has a uniform mode of phase u and a two-dimensional sector with phases w exp(±i beta). The symmetric undetected vector has squared uniform-mode weight 2/3, while the antisymmetric vector is entirely in the latter sector. Projecting the rotation gives the diagonal entries (2u+w cos beta)/3 and w cos beta, and opposite off-diagonal entries ±w sin beta/sqrt(3). Off revival the dark eigenvalue is simple and the other squared modulus is (5+4 cos(3t))/9<1. The second-order dark-amplitude coefficient has real part −3t^2/2 + (3t^2/2) Re[1/(exp(3it)-1)] = −9t^2/4; squaring gives the required rate 9t^2/2. The dark spectral projector tends to the initial-state projector. At revival, after removing the common phase and dividing K−I by alpha, the leading matrix is the skew rotation with simple eigenvalues ±it and orthogonal eigenspaces. The average of the diagonal second-order terms in either eigenvector is −t^2. Squaring 1±it alpha−t^2 alpha^2 gives loss t^2 alpha^2 to leading order. Both channels have this decay, their initial norm weights sum to one, and the oscillating cross term vanishes because the projected directions become orthogonal. Bounded projectors and strict positive scaled losses give a uniform C exp(−c alpha^2 n) survival bound at each fixed positive t; this gives eventual detection and uniform integrability for every scaled integer moment, with limit m!/Lambda^m. This holds for either sign of alpha, requires sufficiently small nonzero alpha, and has no uniformity in t near a revival. A fresh full-Hamiltonian, finite-parameter calculation at /workspace/branches/9e580f8c-17c6-4c50-80ed-6c02e76f847a/full_hamiltonian_check.py corroborated spectral losses, survival at one point and scaled means at t=1 and 2pi/3; e.g. at alpha=0.005 the scaled means were 0.222240057147 and 0.227987937706. This is not a proof of all moments. Supporting verification files were read, not executed.
 
-The closest source is Wang et al., *First Hitting Times on a Quantum Computer* (arXiv:2402.15843), particularly its dark-state sections and on-site survival-operator appendix. It already gives the three-site Hamiltonian, zero-flux dark state, phase-factor coincidence conditions, and qualitative near-resonance slow decay. The present claim adds a parameter-specific singular-limit law for the *initial antisymmetric dark state*: an explicit non-revival decay coefficient, a different full-revival coefficient, an exponential limiting attempt distribution and moment limits. These are not stated in the inspected source sections. Friedman et al. (arXiv:1611.05676) provide first-detection renewal relations, while Thiel et al. (Phys. Rev. Research 2, 043107) classify dark/bright detection probability. Neither checked statement implies these two weak-flux coefficients. No matching result was identified in targeted research-record searches. Priority beyond the inspected records and primary literature remains a residual risk; independent validation has not occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The main source emphasizes finite observation windows and slowly escaping states near phase coincidences; the exact \(\alpha^{-2}\) clock, full limiting distribution, and sampling-resonance change in rate quantify a natural unresolved detection-efficiency scale. The rate discontinuity describes noncommuting small-flux and exact-revival limits and supplies directly testable finite-window detection predictions. This is not a rephrasing of the known zero-flux darkness or total eventual detection probability.
+Wang et al. give exactly the same model, stroboscopic protocol and zero-phase dark state, and explicitly study phase coincidences and slow survival eigenvalues. Those are not claimed as new. The inspected strongest related formulas do not give the initially dark, fixed-t weak-flux limit with unit limiting survival weight, the two distinct exact coefficients, or the all-moment limit. The distinction between a simple long-lived mode and a two-mode revival at fixed t is substantive, not a change of normalization.
 
-## Limitations
+## value
 
-Fixed strictly positive sampling interval, near-zero but nonzero magnetic phase, ideal on-site projective measurements, noiseless three-state coherent dynamics, one coherent antisymmetric initial state. No statement about the crossover when sampling time approaches revival simultaneously with flux, and no independence/priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same three-site experiment has different sharp escape rates depending on whether the sampling interval lands exactly on a revival. Determining the factor 9/2 and the entire distribution with moment convergence distinguishes real long-lived dynamics from a small-probability return tail. The result is a checkable exact benchmark for monitoring protocols and for the nonuniform limits near revival; it does not claim the joint crossover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

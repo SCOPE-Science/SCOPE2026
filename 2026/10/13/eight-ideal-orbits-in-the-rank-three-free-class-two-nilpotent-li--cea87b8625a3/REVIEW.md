@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every field \(\mathbb F_q\), every automorphism of the free class-two Lie algebra is a central shear followed by a transformation induced by \(\mathrm{GL}_3\). An ideal is uniquely described by an admissible pair \((U,W)\), together with a graph map, and the shear subgroup acts transitively on those graph maps. The exterior-product ranks \(0,2,3\) for \(\dim U=0,1,\ge2\) yield exactly eight possible intrinsic pairs. The exterior-square duality identifies the line/plane orbits. Counting graph lifts gives each table entry and the total/dimension polynomial. A nondegenerate invariant pairing gives the dimension-reversal property. Direct exhaustive subspace and orbit checks for fields of orders two and three completed successfully; they are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with bibliographic qualification
+The derived space equals the center Z, and any automorphism inducing g on V must induce ∧²g on Z. Conversely these actions and arbitrary central shears preserve the bracket. Writing U for the projection of an ideal and W for its central intersection, the necessary and sufficient bracket condition is V∧U⊆W. For each admissible pair the ideal modulo W is a graph U→Z/W, with q^{u(3−w)} choices. A difference between two graph maps lifts and extends to a shear on V, so all the lifts of a fixed pair are conjugate. The dimensions of V∧U are 0, 2 and 3 for u=0, u=1 and u≥2, respectively. For u=0 the exterior action is the projective contragredient action on V*, transitive in each dimension; for u=1,w=2 the plane is forced by U; for w=3 only U varies. This proves transitivity and separation of all eight strata, including exactly three singleton orbits, four of size Q and one of size qQ. Sorting by u+w gives the polynomial and summing gives 3+(q+4)Q. The volume pairing is symmetric, nondegenerate and invariant (cyclically permuting the three exterior factors preserves sign), so ideal orthogonals give the claimed reciprocity also in characteristic two. A fresh exhaustive RREF and orbit calculation at q=2,3 found 2825 and 56632 subspaces, 45 and 94 ideals, and the exact eight orbits in each case; scripts and outputs are in /workspace/branches/2e4b655e-6ba3-43c6-9f6f-53577ab10954/. The frozen verifier was inspected, not run; neither prime-field test substitutes for the field-uniform proof.
 
-Kofinas–Papistas (2010, DOI `10.1080/00927870903004360`) supply relevant generators of automorphisms for relatively free nilpotent Lie algebras in characteristic zero; the accessible abstract does not state an ideal orbit theorem, although inaccessible full text remains a comparison risk. Voll (2004, arXiv:math/0409383) computes broad normal/ideal enumeration zeta functions for this same free class-two family; its full-text introduction, central theorem, and proof address counting finite-index objects, not quotienting individual ideals by full automorphisms. In particular, ideal counts alone cannot establish the eight orbit sizes. Targeted comparisons with published mathematical statements did not locate an equivalent distribution. This supports, but cannot prove globally, originality of the **orbit-refined** theorem; the total ideal count is not claimed as an independent novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The ideal classification of the first non-Heisenberg free two-step nilpotent Lie algebra is a motivated and complete intrinsic invariant. Exact orbits and stabilizer information are strictly more informative than a zeta coefficient: they distinguish ideals up to isomorphism of their embedding into a fixed free algebra and can inform the enumeration of characteristic quotients and nilpotent structures. Uniformity across all prime powers, including characteristic two, and explicit orbit sizes provide a reusable baseline for higher-rank orbit problems rather than an arbitrary numerical slice.
+Pass specifically for the full ambient automorphism-orbit classification of actual finite-field ideals, not for the aggregate count, the individual stratum counts without their orbit interpretation, or the dimension polynomial alone. A stronger indexed count gives every (u,w) stratum size and therefore all the numerical enumerators by specialization. It does not establish that each stratum is a single orbit. Nearby indexed orbit results classify different objects, and the primary zeta and abstract Lie-algebra classifications do not give the rank-three ambient action on these ideals in the inspected passages. The later displayed date of the count record does not by itself establish priority or dependence.
 
-## Material limitations and risks
+## value
 
-The historical Kofinas–Papistas primary paper was inspected through its publication record and abstract, not its inaccessible complete text. General ideal-enumeration literature may contain a not-yet-identified equivalent orbit decomposition; search absence does not prove novelty. Finite-field verifiers cover only \(q=2,3\) and do not replace the field-uniform symbolic proof. Independent external audit has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the first rank where the free two-step center has dimension three, the ideal dimension alone already fails to separate conjugacy: the two dimension-three types are the center and the qQ noncentral ideals forming a single other orbit. The result gives exact equivalence criteria, representatives and orbit sizes for kernels under changes of the full free algebra, including nongraded choices and characteristic two. This is useful information distinct from recomputing counts by dimension or identifying abstract algebra types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

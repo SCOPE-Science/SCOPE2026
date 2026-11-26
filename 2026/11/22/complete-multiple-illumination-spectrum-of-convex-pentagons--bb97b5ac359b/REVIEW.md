@@ -1,15 +1,21 @@
-# Scientific review: multiple illumination of convex pentagons
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed normal-fan compatibility criterion follows from strict semicircle containment of incident oriented edge directions. The five exterior turns partition the cases into no failed adjacent-pair test, exactly one, or two adjacent failures. The first case has a two-vertex-per-direction lower bound and matching cyclic edge covers. The other cases have explicit incompatible triples and three-direction covers; these continue to work at exact equality. The proof quantifies over every direction and every positive integer multiplicity. An exact-integer finite checker tests 26,277 rational angle configurations and 31 incidence profiles, but the infinite theorem relies on the analytic argument, not enumeration.
+## correctness
 
-## Originality
-**PASS at the inspected-source level.** Sriamorn (arXiv:2306.13517v1, section 3.3) gives the regular-polygon spectrum and a sufficient condition for the pentagon's two-fold value five. Those results partially cover the first branch and its smallest nontrivial multiplicity, but do not provide the full two-branch characterization, the opposite strict-boundary regime, or the incompatible-triple argument. Full scientific statements concerning even-sided antipodal normal fans, arbitrary quadrilaterals, and products of equiangular pentagons were separately compared; none contains the five-sided unrestricted theorem. Unindexed equivalent arguments and later versions remain priority risks.
+PASS
 
-## Mathematical value
-**PASS.** Determining all multiplicities for the first unconstrained odd polygon size beyond a triangle is a natural complete classification within the arbitrary-polygon illumination problem, which the original paper explicitly leaves open at the algorithmic level. The theorem identifies a sharp and geometric condition for whether repetitions enjoy a fractional discount, gives exact boundary behavior including parallel-edge degeneracies, and provides matching finite constructions and obstruction certificates.
+The vertex test is exactly the intersection of the two strict inward half-circles of its incident edges, and any direction satisfying it also lights the interiors of both edges. A pair of vertices has a common direction iff the incident oriented edges have a complementary circular gap greater than pi. In the adjacent and nonadjacent configurations the internal gaps are individual turns below pi, so the only candidate is the complementary gap. Thus a neighboring pair is compatible iff its two turns sum to less than pi, and a diagonal is compatible iff the complementary neighboring turn pair sums to greater than pi. Nonconsecutive failed neighboring tests are impossible since their four turns sum to 2pi minus a positive fifth turn. With no failure, compatibility is C5, the two-hits-per-direction bound is sharp by taking copies of the five pairs and a three-pair cover for odd m. With failed tests {i} or {i,i+1}, the respective incompatible triples are {i,i+1,i+3} and {i,i+1,i+2}; they force 3m. Three compatible pair directions in the first case, and two pair directions plus an inward direction at i+1 in the second case, give the matching covers. Uniform half weights on the five cycle pairs or one unit on each direction of the three-cover establish the fractional bounds with the same incidence certificates. Equality is handled exactly by strict inwardness. Independent replay: python3 -I -B /workspace/reproduce.py 5 checked 26,277 exact turn fans, including 12,120 equality cases, by a half-step angular mesh that includes critical rays; exact multicover recursion on 31 maximal-incidence profiles matched for m=1..4. This is bounded corroboration, not the unrestricted proof; the uploaded checker was only inspected.
 
-## Limitations and provenance
-Only strictly convex polygons with five genuine vertices are treated. The verifier tests a finite exact rational grid; no comprehensive classification of optimizers or higher polygon orders is claimed. The comparison is grounded in inspected source statements and identified published scientific records; independent historical priority assessment remains useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected sources cover the regular pentagon for all multiplicities and the favorable unrestricted two-fold case. The favorable upper bound for higher multiplicities is incremental (repeat a two-fold cover and append a three-direction cover as needed). The distinct contribution is the exact arbitrary-pentagon classification, especially the incompatible triple and 3m lower bound when any test fails, including equality, with the sharp fractional dichotomy. No inspected stronger statement covers this remainder. This is a best-of-current-knowledge comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+This resolves a natural first odd-sided polygon case beyond triangles with arbitrary, not regular, turns. It identifies exactly when repetition lowers the per-fold cost below three and why parallel-critical equalities destroy that gain. The incompatible triple is a useful finite obstruction and the constructive direction choices match it for every multiplicity; the contribution is more than computing a few polygon examples or iterating the known two-fold favorable case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

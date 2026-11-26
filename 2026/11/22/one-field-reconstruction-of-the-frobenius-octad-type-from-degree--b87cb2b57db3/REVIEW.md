@@ -1,19 +1,21 @@
-# Self-review: one-field exceptional-curve flag reconstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the finite-field blow-up of a Galois-stable general-position octad, in characteristic at least five; the theorem classifies the possible Frobenius permutation types without claiming that every type occurs over every field. The 240 exceptional divisor classes are taken from the complete classical seven-pattern list, not inferred merely from a bounded experiment. The intersection matrix is exact, and the Frobenius action is the coordinate permutation on the eight exceptional-point indices. All 22 conjugacy partitions are exhausted, and finite fixed-flag sets are enumerated by two structurally different implementations: orbit decompositions and direct sorted-set invariance. Both generate the full 22-row table, establish its injectivity, and independently check the \((5,3)\)–\((7,1)\) arity boundary. The scripts are replayable from the supplied files. The generality follows from the classification of all \(\mathfrak S_8\) cycle types, not from a claim that finite-field samples prove an infinite theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+The classical exceptional-class list in the chosen blowup lattice identifies curves uniquely and is Frobenius-equivariant by permutation of the eight multiplicities. Independently generating the orbit of E_1 under adjacent-coordinate swaps and the quadratic Cremona reflection yields all 240 classes and total pair histogram (6720,15120,6720,120). Testing invariant pairs as fixed singletons or 2-cycles and invariant triples as 1+1+1, 1+2 or 3, and counting triangles among fixed curves by common-neighbor intersections, reproduces all 22 rows. The low-arity collision is structural: the two odd-order permutations (5,3) and (7,1) must fix each curve in a fixed pair; in both cases only a Bertini-complementary pair of intersection 3 survives. For (7,1) a triple cannot be stable, since there are only two fixed curves and no 3-cycles. In (5,3), stability of a 3-orbit requires the 5-cycle to fix its classes. In the cubic family the possible 3-orbits with the zero and double point on the moving three indices have positive pair intersections; the four skew triples come from the moving exceptional divisors, lines, and their Bertini complements. The all-types conclusion is finite exhaustion, not extrapolation. For sharp necessity even among actual surfaces over a shared field, realize both types over sufficiently large extensions F_(5^r) with r=1 mod 105: for each type the general-position open subset of the product of restrictions of scalars of P^2 from F_(5^ell) is geometrically integral and nonempty; Lang–Weil gives simultaneous realization, and the chosen residue class preserves the cycle lengths.
 
-Winter–van Luijk (arXiv:1901.06945, Corollary 1 and Remark 5) already give the total \(60{,}480\) pairwise-disjoint triples and geometric Weyl graph orbit facts; these are expressly not original. Desjardins–Winter (arXiv:2210.11659, Theorem 2.1 and subsequent sections) give the 240-curve catalogue and study intersections/concurrency, not the fixed-flag arithmetic character table. Kulkarni (arXiv:2109.14106) studies arithmetic Weyl actions and inverse Galois realizations, not these four fixed-flag statistics. A related earlier arithmetic statement determines the eight-point Frobenius partition from three extension-field genus-four tritangent counts; it does not establish the one-field exceptional-curve pair/triple table or its arity-two failure. Searches in published mathematical findings and previously available research claims did not locate an equivalent table. A legacy unindexed \(E_8\)/\(S_8\) permutation-character computation could nonetheless cover it; this is a genuine residual priority risk rather than proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The eight-point Galois cycle partition is the concrete descent datum of a rational blow-up marking. The theorem identifies a complete diagnostic using only the ground-field finite étale exceptional-curve incidence flags and establishes a sharp boundary: even the entire intersection-labeled pair profile fails on \((5,3)\) and \((7,1)\), whereas disjoint triples distinguish them. Thus it gives a natural, exact local-to-global-marking reconstruction criterion with a motivated obstruction, rather than an arbitrary isolated count. The result is conditional on the marked blow-up and is not a computation of Picard or Brauer torsion.
+Credit the classical E8 configuration, the known geometric pair and triple totals, and the other reconstruction of the same octad from tritangent data. The distinct claim is this single-base-field incidence character test and its precise arity obstruction on the marked S_8 subgroup.
 
-## References and limitations
+## value
 
-Primary sources examined are Winter–van Luijk's open-access \(E_8\) graph article; Desjardins–Winter's complete exceptional-curve classification and its concurrence applications; and Kulkarni's degree-one del Pezzo Galois paper. The published geometric triple count and 240-curve list are incorporated as prerequisites. The proof does not classify all possible Weyl Frobenius types for unmarked degree-one surfaces or prove universal existence of every octad partition over a fixed small finite field. Historic unindexed incidence tables remain a possible originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An arithmetic marking invariant from one field and low-order geometry is a motivated alternative to extension-field measurements. The collision shows exactly why every intersection-labeled pair statistic can fail, and gives a concrete geometric witness for the information gained by skew triples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

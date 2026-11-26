@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The covariance identity is obtained from exact partition sums conditioned on rim occupation, with a specified wheel convention and indices. Its low-activity sign follows from a first-order coefficient cancellation; its high-activity sign follows from the leading independent-set counts on odd paths/cycles. The asymptotic transfer-root calculation controls the ratio of the two-point cycle probability to the square of the one-point probability, with uniform errors for Lambert-scaled activity. This proves the universal profile and existence of zeros at the stated location without asserting uniqueness. A standalone exhaustive enumerator and standard-library numerical checks corroborate finite and asymptotic regimes; their scope is documented.
+PASS
 
-## Originality — PASS on examined evidence
+Deleting occupied sites and their closed neighborhoods gives the unmarked, single-marked and double-marked polynomials C_n+z, z P_{n-3} and z² P_{n-6}; the neighborhoods are disjoint, even at n=7. The constant and linear coefficients of P_{n-6}(C_n+z)-P_{n-3}² are 0 and 1. For n=2m+1 the largest independent-set counts for the two paths and cycle are 1, m and n at degrees m-2, m-1 and m. Hence the covariance tends to (n-m²)/n²<0. In the vacant-hub conditional law the relative pair deficit is q²+O(|q|^{n-4}), with q=−z+O(z²); the rim occupation is z(1+o(1)). The total-covariance identity adds the hub-occupation probability p_n to the negative relative deficit with prefactor (1−p_n) times the squared rim occupation. In the stated window, z e^{nz}=e^s and n z²=o(1), giving C_n∼e^{nz} and p_n/z²→e^{−s}, uniformly for bounded s. A sign bracket at s=±1 gives a zero whose s-coordinate tends to zero by uniform convergence. Since dW(ne^s)/ds=W/(1+W)≤1, its displacement from W(n) also tends to zero. This establishes existence, not uniqueness. The bounded independent replay at n=7,9,11 matched all marked polynomial coefficients and top numerator coefficients −2,−7,−14; the finite profile checks are supplementary.
 
-Scott–Sokal's full open work provides the standard univariate path/cycle formulas and a general multivariate hard-core framework, not the distance-three wheel covariance or its activity window. Alikhani–Peng's wheel polynomial and independence-root analysis gives the unmarked partition function \(C_n+z\); it does not provide the marked pair coefficient, covariance sign reversal or Lambert-\(W\) scaling. Relevant search comparisons include wheel equilibrium occupation covariance, pair-marked wheel polynomials and logarithmic hub-mediated crossovers. Closest research-record hits concern wheel spanning trees, dynamic adsorption, a canonical (fixed-size) cycle model, and distinct helm-leaf correlations, none implying this exact equilibrium wheel-rim claim. A previously unindexed equivalent formula remains possible; this is not a claim of independently certified priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise distance-three rim pair is the first nonadjacent odd separation on the rim. Its covariance isolates a competition between the negative exclusion chain and a positive shared-hub mixture. A new finite-size dilute scaling window at \(W(n)/n\) and a universal normalized crossover profile quantify the mechanism; this is an exact natural equilibrium observable, not a generic restatement of a known wheel partition function. It can serve as a benchmark for hub-mediated correlations in other join graphs.
+The wheel normalizer and path/cycle transfer are prior machinery. The distinct content is a sign crossover of a marked equilibrium observable and its explicit asymptotic window and profile. Neither the inspected transfer results nor the closest distinct catalogue result on fans covers that claim. This is a best-of-knowledge assessment, not global priority certification.
 
-## Scope and residual risks
+## value
 
-Only odd rim length at least seven, uniform activity and rim separation three are treated. No uniqueness of roots, all-activity sign classification, or true thermodynamic phase transition is established. Earlier work may contain an uncatalogued equivalent marked-correlation result, especially in graph-polymer or statistical-mechanical literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural local occupation pair on a canonical hub-and-rim graph separates two opposing mechanisms: conditional rim repulsion and a shared all-empty-rim event. The explicit normalized profile and additive o(1) location on the n z scale quantify when the latter overtakes the former. This is more informative than finite sign examples or the wheel partition function and gives a useful sharp reference example for covariance sign under graph joins.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

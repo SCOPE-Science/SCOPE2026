@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:56.306156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–62",
+        "Frozen VERIFICATION.md and VERIFY.py, particularly lines 20–60 of VERIFY.py",
+        "Alimonti–Kann, TCS 237 (2000), §4 cited as the standard cubic MAX CUT hardness input"
+      ],
+      "rationale": "On the constant direction W and K are the identity; on its orthogonal complement K=(1-theta)W, with W's eigenvalues in [3/5,1] by the cubic adjacency bound. Hence the condition bound holds even for disconnected G. The Neumann series and the positive rank-one term give entrywise positivity, and symmetry gives column as well as row stochasticity. With J the orthogonal projection onto constants, the same splitting gives K^{-1}=(I+L_G/9-theta J)/(1-theta). Writing y=Kx reduces the reciprocal dual ratio to the maximum of y^T K^{-1}y on the cube; strict convexity forces sign vertices. In the primal ratio use a sign s with s^Tx=||x||_1 and Cauchy–Schwarz in the K-metric, with equality only along K^{-1}s for maximizing s. The sign-adjusted numerator of each coordinate of K^{-1}s is at least 1-theta>0, giving the stated normalization and converse. Since s^T L_G s=4c(s) and s^T J s=b(s)^2/n, the total possible penalty is at most 1/100, below a one-edge gain of 4/9, which also proves the balance tie-break. The bound M=1/mu<1.7n makes the reciprocal error at most eta M^2/(1-eta M)<0.03 for eta=1/(100n^2), n>=4. After scaling by at most 9/4 and allowing the exact balance bias 9/400, the error in cut recovery is <0.1. Rational matrix construction has polynomial bit complexity, e.g. by minors of the integer matrix 12I-A and exact rational arithmetic. Thus the known cubic MAX CUT hardness gives a polynomial-time reduction to the advertised additive approximation of mu, not of an individual coordinate update. The support code was inspected as finite evidence, not executed.",
+      "residual_risks": [
+        "The finite rational examples are not a general proof and were not rerun. The Alimonti–Kann publisher full text was not recovered; the standard cubic hardness theorem is used, not reproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nutini et al. introduce the sharp norm parameter in the Gauss–Southwell bound and evaluate it for diagonal quadratics",
+          "Hendrickx–Olshevsky's incidence-matrix norm construction is broader in graph and p, but the examined propositions do not impose or produce a positive stochastic inverse Hessian",
+          "Bodlaender et al. DOI 10.1007/BF02123011: repository/abstract located, theorem passage unavailable after lawful attempts"
+        ],
+        "reasoning": "Neither the inspected norm construction nor the rate-parameter statements give the narrowed hardness with stochasticity, strict positivity, and uniform spectral conditioning. Full-text overlap in the 1990 article remains unresolved, not ruled out by a retrieval failure.",
+        "searches": [
+          "Bodlaender Gritzmann Klee van Leeuwen 1990 Computational complexity of norm-maximization quadratic form hypercube maximum over signs theorem",
+          "Nutini et al. PMLR 37 (2015), strongly convex, diagonal",
+          "Hendrickx–Olshevsky arXiv:0908.1397, Propositions 2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f612abe8e8c (self-hit) and b6094ff64b5e",
+        "Nutini et al. §§3–4",
+        "Hendrickx–Olshevsky §2",
+        "Bodlaender et al. bibliographic material",
+        "Alimonti–Kann citation and Kann compendium"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cubic MAX CUT supplies the hard source problem; Hendrickx–Olshevsky quantify recovery of MAX CUT from their incidence norm",
+          "The frozen proof shows simultaneous admissibility of the shifted/inverted form, a rank-one perturbation selecting minimal imbalance, and a reciprocal-error bound for evaluating mu"
+        ],
+        "reasoning": "Do not claim novelty of the source problem or of MAX CUT recovery in an unrestricted norm formulation. The theorem requires turning the cut form into an inverse of a positive well-conditioned stochastic quadratic while retaining exactly the two-tier optimizer and a uniform absolute precision budget. That is not a supplied corollary of the inspected reduction.",
+        "searches": [
+          "Alimonti Kann Some APX-completeness results for cubic graphs maximum cut theorem cubic MAX CUT 2000",
+          "Hendrickx–Olshevsky Proposition 2.2, approximation transfer",
+          "Nutini et al. §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 6f612abe8e8c is the record under review; distinct b6094ff64b5e uses A-delta(a)^2/A for diagonal-quadratic simplex sensitivity",
+          "Hendrickx–Olshevsky Proposition 2.1 states max over the l-infinity unit ball of ||M(G)x||_p = 2 maxcut(G)^(1/p); at p=2 the squared form is the graph Laplacian quadratic"
+        ],
+        "reasoning": "The plain cut term is prior, including its exact cube formulation. The comparison after dualizing curvature is with the shifted and perturbed form I+L_G/9-theta J, whose inverse is an admissible Hessian after rescaling. The known incidence norm does not by itself give the inverse-resolvent class or the balanced-optimum law. The diagonal-simplex result likewise overlaps in imbalance and hardness but concerns a different functional.",
+        "searches": [
+          "Resultary: sign-vector maximization inverse quadratic form positive doubly stochastic stochastic matrix condition number maximum cut NP-hard",
+          "Hendrickx–Olshevsky arXiv:0908.1397, MAXCUT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen VERIFY.py enumerates four example cubic graphs only",
+          "Distinct diagonal-simplex record uses number partition imbalance for its own sensitivity; no corresponding cubic graph law in its Finding"
+        ],
+        "reasoning": "The exact object sought is a symbolic all-graph curvature and optimizer law, not the four example values. A known table of cubic max cuts would not determine the curvature from the cut size alone, because the secondary optimum b_G enters separately.",
+        "searches": [
+          "Resultary search for positive stochastic inverse quadratic and maximum-cut curvature; IDs 6f612abe8e8c and b6094ff64b5e"
+        ]
+      },
+      "rationale": "Credit sharp l1 curvature and the incidence-matrix max-cut norm identity to prior work. What is supported as distinct is their conditioned positive stochastic realization with an exact secondary optimizer criterion and a recovery guarantee at inverse-quadratic additive precision for the curvature itself. Generic hypercube hardness alone is not a claim about this inverse-matrix class.",
+      "residual_risks": [
+        "Bodlaender et al. full text and the decisive Alimonti–Kann passage could not be inspected. The former remains a priority risk if it already realizes the relevant positive stochastic subclass. Neither lack of access nor same-day indexing establishes historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct same-day result with conceptual overlap; date does not establish order",
+          "evidence": "A-delta(a)^2/A with the minimum weighted sign imbalance, and a binary-encoded equal-partition question for diagonal-quadratic simplex prediction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cross-norm-stability-and-partition-complexity-of-diagonal--b6094ff64b5e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp cross-norm stability and partition complexity of diagonal quadratic prediction",
+          "trigger": "Closest distinct catalogue match for sign imbalance plus sharp-parameter hardness"
+        },
+        {
+          "assessment": "Prior curvature parameter and diagonal calculation",
+          "evidence": "Dual gradient bound with sharp mu_1; for diagonal Hessian, mu_1=(sum_i 1/lambda_i)^(-1).",
+          "identifier_or_url": "https://proceedings.mlr.press/v37/nutini15.pdf",
+          "material_read": "Pages 3–4, offsets 13600 and 18800, §§3–4",
+          "method": "Bounded OA PDF reads",
+          "title": "Coordinate Descent Converges Faster with the Gauss–Southwell Rule than Random Selection",
+          "trigger": "Primary definition and prior sharp l1 calculation"
+        },
+        {
+          "assessment": "Prior incidence/cut identity and approximation transfer, not the inspected structured inverse Hessian result",
+          "evidence": "For p>=1 the infinity-to-p incidence norm is twice maxcut(G) to the power 1/p; Proposition 2.2 bounds the error after taking the p-th power of the normalized approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/0908.1397",
+          "material_read": "Propositions 2.1 and 2.2, offsets 7005–8941",
+          "method": "Bounded OA PDF read; preprint after publisher PDF HTTP 403",
+          "title": "Matrix p-norms are NP-hard to approximate if p differs from 1, 2, and infinity",
+          "trigger": "Strong direct overlap with hypercube maximum and rounding reduction"
+        },
+        {
+          "assessment": "Exact scope inaccessible; no whole-document coverage conclusion",
+          "evidence": "Listing identifies the paper, but it cannot resolve whether the argument already treats a closer matrix subclass.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02123011",
+          "material_read": "Repository listing/abstract only; no decisive theorem passage",
+          "method": "Lawful DOI, publisher PDF and repository retrieval attempts",
+          "title": "Computational complexity of norm-maximization",
+          "trigger": "Plausible older overlapping hypercube norm-hardness treatment"
+        },
+        {
+          "assessment": "Hardness input, not evidence of the stochastic realization; no primary theorem passage independently recovered",
+          "evidence": "Compendium notes APX-completeness for degree-bounded variants; exact cubic theorem is cited in the frozen text and is the standard input.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(98)00158-3",
+          "material_read": "Landing/abstract only; coauthor's Compendium, MAXIMUM CUT entry at https://www.csc.kth.se/~viggo/wwwcompendium/node85.html, bounded offset 0",
+          "method": "Lawful DOI/publisher attempts; OA HTML for the secondary compendium",
+          "title": "Some APX-completeness results for cubic graphs",
+          "trigger": "Source of cubic MAX CUT hardness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Nutini et al. §§3–4"
+      ],
+      "rationale": "The construction answers a concrete optimization question: can the exact l1 certificate used to assess a Gauss–Southwell bound remain hard to evaluate on benign, uniformly well-conditioned Hessians? It shows that positivity, stochastic normalization and good spectral conditioning do not make sharp parameter evaluation easy, while identifying the worst gradient signs and preserving polynomially bounded input and requested precision. This is not a claim about the cost of a step or the observed trajectory.",
+      "residual_risks": [
+        "No constant-relative hardness or actual greedy-trajectory lower bound is furnished."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

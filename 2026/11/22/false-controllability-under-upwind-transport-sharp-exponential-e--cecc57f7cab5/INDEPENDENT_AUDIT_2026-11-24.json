@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:32:57.934409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scope is one scalar terminal output, not full-state controllability; no renormalization of the indicator functions is used. Limits are along endpoint-aligned meshes only. The continuum overlap is zero through T*=g/v and equals vt-g on the rising part ending at (g+a)/v. For the upwind system the nilpotent shift exponential gives a Poisson kernel. The number of source–target pairs of cells at offset n+r is min(r,2A-r) for 1≤r≤2A-1; in particular the first term is at n+1, not n. The output contributes exactly one factor of h. This gives strict positivity and Cauchy–Schwarz gives minimum squared input norm 1/G_h. For fixed subcritical T, the response divided by h times the Poisson mass at n tends to ρ/(1-ρ)² near T, by the geometric ratio bound, where ρ=vt/g. The same upper bound with ρ replaced by its maximum below T-δ controls the earlier integral by a strictly larger exponential rate. Stirling gives the response scale h^(3/2); squaring and integrating on the endpoint scale h/[2(g/T-v)] gives the asserted h^4 prefactor and exponential. In the arrival window the centered Poisson law converges to Z+s with bounded second moments; since A/√n tends to infinity, the triangular truncation contributes vanishing error after division by √n. For z≤0 with λ=n+z√n≥0, Cauchy–Schwarz bounds E(N_λ-n)_+ by √λ times √Pr(N_λ≥n), at most √n exp(-z²/4) by the Poisson rate inequality -log(1-u)-u≥u²/2. This justifies an integrable bound for the squared rescaled response over the growing negative half-window; on bounded nonnegative z the second moment bound suffices. The time scaling supplies the remaining √(gh)/v. For the critical integral let Q(w)=Φ(-w) and J=∫₀^∞φ²=1/(4√π). Integration by parts gives ∫wQφ=1/(2√(2π))-J and ∫w²Q²=(2/3)[1/√(2π)-(5/2)J], with both integrals over w≥0. Expanding (φ-wQ)² yields (1-1/√2)/(3√π). Above arrival, the overlap as a function of the physical Poisson shift is bounded and Lipschitz, while hN converges in mean square to vt, yielding the stated Gramian limit on the stated interval. Inspected checks/upwind_gramian_check.py without executing it: finite matrix exponential and numerical asymptotic diagnostics, not a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former treats Markov-chain upwind representations and diffusive fluctuations, including constant-velocity uniform-mesh CLT behavior",
+          "The latter gives the separated continuum example and identifies a coarse-grid upwind artifact"
+        ],
+        "reasoning": "The general fluctuation analysis is an ingredient. The inspected results do not give a sharp prefactor for the squared scalar impulse integral below arrival, nor its explicit positive-part Gaussian integral across the physical arrival time.",
+        "searches": [
+          "Delarue–Lagoutière arXiv:0712.3217, §3.4",
+          "Inoue–Sato arXiv:2610.28205, Remark 2.3 and §§5.2, 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:cecc57f7cab5 (identical record)",
+        "arXiv:2610.28205",
+        "arXiv:0712.3217",
+        "Large time behaviors of upwind schemes by jump processes (title only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vanishing transport overlap establishes continuum onset but does not measure the discrete Gramian",
+          "A CLT describes the position on the fluctuation scale. The frozen result additionally has a weighted stop-loss response and its controlled square integral, and a separate rare-event endpoint asymptotic"
+        ],
+        "reasoning": "The sharp constants rely on how the two fixed intervals weight rare Poisson shifts and on integrating the response in time. The inspected qualitative, probabilistic, and continuum results do not supply the combined implication.",
+        "searches": [
+          "arXiv:2610.28205 PDF pp. 4, 10–11",
+          "arXiv:0712.3217 PDF pp. 11–12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inoue and Sato Remark 2.3 use b=1_(0,a) and c=1_(d,d+a); d=a+g is the same separation at unit speed",
+          "Their §5.4 expressly identifies apparent controllability caused by upwind numerical diffusion in a separate transport example",
+          "The additional literature search surfaced Large time behaviors of upwind schemes by jump processes, but no scientifically decisive passage from that hit was accessible"
+        ],
+        "reasoning": "Qualitative numerical cross-talk and continuum travel time are the same mechanisms, not new claims. An equivalent quantitative formulation would have to analyze the triangle-weighted Poisson response integrated in square, or prove an equivalent sharp minimum-energy law.",
+        "searches": [
+          "Resultary: upwind false target controllability and arrival crossover",
+          "Literature: sharp upwind leakage and Poisson/jump-process asymptotics at the physical arrival of separated interval observations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary cecc57f7cab5 matches exactly but is the frozen record itself",
+          "The checked probabilistic analysis concerns trajectory fluctuations, not a table of scalar Gramian prefactors"
+        ],
+        "reasoning": "A Poisson probability table or Gaussian integral table would not specify the physical mesh normalization, two triangular weights in the squared response, or endpoint time integration. No distinct exact table for the stated invariant was found.",
+        "searches": [
+          "Resultary: h^4 exponential subcritical Gramian",
+          "Resultary: h^(3/2) Gaussian arrival layer and fixed-interval upwind target energy"
+        ]
+      },
+      "rationale": "The indicator travel-time example, numerical-diffusion artifact, and probabilistic description of upwinding have prior coverage. The supported distinct contribution is the sharp subcritical scalar Gramian prefactor and rate with the unit-target energy reciprocal, and the integrated Gaussian moving-arrival law with evaluated critical constant for the stated fixed geometry and semidiscrete mesh family.",
+      "residual_risks": [
+        "No paper passage was available for the named large-time/jump-process hit.",
+        "A sharp interval-integrated upwind leakage estimate under a different control or probability formulation could escape bounded discovery; absolute priority is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative and setup coverage, not the sharp discrete asymptotics",
+          "evidence": "The response of disjoint right-shift indicators is zero through first arrival; §5.4 identifies apparent controllability caused by upwind numerical diffusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28205",
+          "material_read": "Remark 2.3 (PDF p. 4, offset 27669), §§5.2 and 5.4 (pp. 10–11, offsets 80153 and 92000)",
+          "method": "OA PDF",
+          "title": "Controllability Allocation Scores for Linear Infinite-Dimensional Systems",
+          "trigger": "Same continuum actuator/observer model and false controllability mechanism"
+        },
+        {
+          "assessment": "Covers probabilistic ingredients, not the scalar Gramian implication in the passages inspected",
+          "evidence": "A constant-velocity uniform-grid CLT describes upwind fluctuations; no separated-indicator squared transfer integral appears in that comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.3217",
+          "material_read": "§3.4, PDF pp. 11–12, offsets about 40020–43530",
+          "method": "OA PDF",
+          "title": "Probabilistic Analysis of the Upwind Scheme for Transport",
+          "trigger": "Broader upwind Markov-chain and diffusion-scale analysis"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence for or against coverage",
+          "evidence": "The available result identifies a jump-process upwind topic but does not expose a statement about physical arrival, separated observations, or an input-output Gramian.",
+          "identifier_or_url": "https://www.academia.edu/171948155/Large_time_behaviors_of_upwind_schemes_by_jump_processes",
+          "material_read": "Title in search results only; no substantive paper passage",
+          "method": "Literature search and lawful OA retrieval attempts",
+          "title": "Large time behaviors of upwind schemes by jump processes",
+          "trigger": "Potentially relevant sharp upwind jump-process literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The problem measures when a scalar reachability test on an upwind grid conflicts with finite physical propagation. Exact positivity alone hides an exponentially large energy cost whose power and prefactor are now specified. The arrival-window law distinguishes that artifact from genuinely reachable output and gives a testable scale for the transition. The leading constants being independent of a fixed positive interval width makes this more than a numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

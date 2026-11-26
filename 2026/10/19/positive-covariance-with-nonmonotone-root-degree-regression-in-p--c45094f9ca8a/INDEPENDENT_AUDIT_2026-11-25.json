@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:27.696072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof; VERIFICATION.md and verify.py (read only)",
+        "Corrected RESULT.md and VERIFICATION.md",
+        "review_checks/finite_checks.py, case 5",
+        "Resultary a3885e62cb19, equations (3)–(6)"
+      ],
+      "rationale": "For Q=2(n−1), the degree-1 survival multiplier is 1−1/Q and the degree-2 mass evolves by (1−2/Q)r_n+p_n/Q, so the masses agree from their common n=3 initialization. Counting separately whether the root is a leaf gives restricted first-moment recurrences u_{n+1}=(1−2/Q)u_n+p_n and v_{n+1}=(1−3/Q)v_n+(1−2/Q)p_n+u_n/Q. Normalizing by p_{n+1} gives E[L_n|D_n=1]=2n/3, while the complement of the drop multiplies by (2n−5)/(2n−3), telescoping to 1/(2n−5). Thus the drop is zero at n=3, strict for n≥4, and followed by a larger conditional value at the positive-probability star outcome. The cited earlier covariance is valid for exactly this seed. In the frozen broader proof the covariance increment follows by cancellation of the two conditional mixed-product terms and induction on both marginal means. With p_n∼1/√(πn), Var(D_n)∼(2−4/π)n and Var(L_n)∼n/9, all original asymptotic constants check. Independent exact rational joint-state propagation (`python3 review_checks/finite_checks.py 5`) checked the conditional means, covariance sum and both variance calculations through n=25. The packaged checker did not itself test the leaf second moment in its history loop, contrary to the original verification notes; the corrected notes describe its actual scope.",
+      "residual_risks": [
+        "The conditioning at degree 2 is undefined at n=2. The proof uses the two-vertex edge seed and counts all leaves, not only nonroot leaves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brightwell–Luczak prove concentration for global degree frequencies; Peköz–Röllin–Ross give joint limits involving finitely many initial vertex degrees. The historical branch article abstract reports exact and limiting branch-size and branch-leaf laws, but its full text was not available in the checked routes."
+        ],
+        "reasoning": "Neither of the two inspected theorems identifies the two restricted leaf-count means. The branch model is close; possible implications of archival full joint laws remain a risk, not evidence of coverage.",
+        "searches": [
+          "arXiv:1012.5550, §1, Theorem 1.1",
+          "arXiv:1402.4686, §1.1, Theorem 1.1",
+          "doi:10.1002/rsa.3240040204 and alternate legal full-text availability for the same paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3885e62cb19",
+        "arXiv:cond-mat/0207107",
+        "arXiv:1012.5550",
+        "arXiv:1402.4686",
+        "arXiv:2602.01021",
+        "doi:10.1002/rsa.3240040204 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact covariance fixes E[D_nL_n] after adding the product of the marginal means, but does not determine the root-class moments u_n and v_n. Krapivsky–Redner study moments of the aggregate degree counts; the 2026 leafdegree profile uses a local neighbor count."
+        ],
+        "reasoning": "The repaired result uses distinct one-step equations for u_n and v_n and a telescoping normalized difference. It is not implied by the earlier sign, covariance sum, or the cited global and local marginal statistics.",
+        "searches": [
+          "Resultary a3885e62cb19, equations (1)–(6), (14)–(15)",
+          "arXiv:cond-mat/0207107, pp. 2, 6",
+          "arXiv:2602.01021, abstract and §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier indexed finding uses the same edge seed, attachment denominator and root and leaf variables. Its q_k=p_k, and expanding its (4) reproduces both summands in the frozen covariance formula. Hartle–Krapivsky's N_{k,l} tracks degree and number of leaf neighbors, not the total number of leaves conditional on the seed vertex's degree."
+        ],
+        "reasoning": "The earlier exact covariance is equivalent under notation only and is removed from novelty. Neither renamed leaf-neighbor profiles nor that covariance is the repaired conditional mean claim.",
+        "searches": [
+          "Resultary semantic search for initial root degree and global leaf covariance or conditional regression",
+          "Resultary a3885e62cb19, equations (3)–(6)",
+          "arXiv:2602.01021, §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A positive exact match for the covariance sum and asymptotic was found. Its statement and proof concern marginal means and one mixed product, not conditional leaf means for root degrees 1 and 2."
+        ],
+        "reasoning": "Positive index evidence is credited in the repaired file; bounded checks did not locate a distinct source giving the repaired finite-size regression. A finite table of simulations would not establish the all-size formula.",
+        "searches": [
+          "Resultary query for root-degree and total-leaf exact covariance and nonmonotone regression",
+          "Resultary a3885e62cb19, Finding and Proof; literal location query for conditional"
+        ]
+      },
+      "rationale": "Pass only for the repaired claim: the two exact conditional leaf means at root degrees 1 and 2, and the resulting nonmonotonicity. The earlier exact covariance result is credited and used as context, not restated as a contribution. The covariance and marginal moments do not determine this regression. No covering conditional statement was identified in the available closely relevant material.",
+      "residual_risks": [
+        "An archival branch decomposition or more general finite joint distribution could encode the same conditional formulas. The closest historical branch full text was not inspected; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers covariance component of original; not the repaired regression",
+          "evidence": "Same seed and variables; its sum (4), sign (5), and equivalent (6) match the original covariance result exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19/RESULT.md",
+          "material_read": "Finding, assumptions and proof through equations (1)–(15), beginning at offset 0",
+          "method": "Statement-level comparison of mirrored article",
+          "title": "Oldest-hub degree has positive square-root covariance with leaf abundance",
+          "trigger": "Exact apparent match in model and covariance claim"
+        },
+        {
+          "assessment": "Related aggregate moments, not covering",
+          "evidence": "Quantities include E[N₁²] and E[N₁N₂] for global degree counts, rather than conditional means for a fixed vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0207107",
+          "material_read": "Abstract and pp. 2, 6, joint aggregate moments and leaf-count second moment",
+          "method": "Primary PDF bounded passages",
+          "title": "Finiteness and Fluctuations in Growing Networks",
+          "trigger": "Finite preferential-attachment leaf-count and mixed moments"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Theorem concerns degree-class concentration rather than the root/global-leaf regression.",
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5550",
+          "material_read": "Abstract and §1, Theorem 1.1",
+          "method": "Primary PDF bounded passages",
+          "title": "Vertices of High Degree in the Preferential Attachment Tree",
+          "trigger": "Same degree-proportional tree"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "The finite degree vector of initial vertices has no extensive leaf-count coordinate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.4686",
+          "material_read": "Abstract and §1.1, Theorem 1.1",
+          "method": "Primary PDF bounded passages",
+          "title": "Joint Degree Distributions of Preferential Attachment Random Graphs",
+          "trigger": "Joint laws involving initial vertices"
+        },
+        {
+          "assessment": "Not covering the conditional global statistic",
+          "evidence": "The joint profile is degree and number of leaf neighbors in a local vertex profile.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.01021",
+          "material_read": "Abstract and §II, definition of N_{k,l}",
+          "method": "Primary PDF bounded passages",
+          "title": "Leaves of Preferential Attachment Trees",
+          "trigger": "Close joint degree and leaf statistic"
+        },
+        {
+          "assessment": "Unresolved historical risk, not negative full-text evidence",
+          "evidence": "Abstract describes exact and limiting branch sizes and leaves via generalized urns; it does not state the repaired conditional statistic.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240040204",
+          "material_read": "Bibliographic abstract only",
+          "method": "DOI/publisher and alternate lawful copy lookup; no full-text inspection",
+          "title": "On the Structure of Random Plane-Oriented Recursive Trees and Their Branches",
+          "trigger": "Possible archival branch-leaf/root-branch overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding",
+        "Resultary a3885e62cb19, covariance sign"
+      ],
+      "rationale": "The exact regression drop is an all-size witness that the known positive covariance does not correspond to monotone dependence of the conditional mean on the root degree. It compares the natural, equally probable first two degree classes, is strict from the first nontrivial size, and tends to one leaf. The positive-probability maximum-degree star rules out monotone decrease as well. This identifies precisely where a covariance-only interpretation fails without presenting the covariance as new.",
+      "residual_risks": [
+        "This gives a conditional mean profile at selected canonical degree values, not the full profile or stochastic dependence in stronger senses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

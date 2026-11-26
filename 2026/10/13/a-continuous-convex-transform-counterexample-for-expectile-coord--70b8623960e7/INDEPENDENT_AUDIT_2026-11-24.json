@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:51:33.606299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–92",
+        "Frozen VERIFICATION.md and verification/check.py, read without executing the supplied code",
+        "Independent exact replay in this rationale",
+        "Eberl–Klar published Eq. (4) and Remark 6 Eq. (8)"
+      ],
+      "rationale": "The uniform background gives f_X≥η/2 on (0,2); the square-map density of Y is f_X(√y)/(2√y) almost everywhere on (0,4) and is integrable even at zero by substitution. The two cdfs meet the strict interval-support condition, and Q_Y(F_X(x))=x² exactly. At levels (1/6,1/4,1/3), solving the discrete balance equations for J and J² gives coordinates (3/7,3/5,3/4) and (5/7,1,6/5), with successive slopes 5/3 and 4/3. If u_i and v_i are the continuous expectile coordinates, put D=(v₂−v₁)(u₃−u₂)−(v₃−v₂)(u₂−u₁). In the published Eq. (8), the left side minus right side is 2D/[(u₃−u₁)(v₃−v₁)], so D>0 violates it, as well as convexity. The expectile score is strongly decreasing in its threshold with constant min(α,1−α), and Lipschitz in the observation with constant max(α,1−α), hence the root shifts by at most five times the coupling L¹ distance at the three chosen levels. Here those distances are at most 3η and 12η, the latter using the 4-Lipschitz square map. Adjacent abscissa gaps remain positive; the pairwise ordinate and abscissa errors are at most 120η and 30η. The product error bound (372/7)η+7200η² leaves D≥74534937/8750000000>0 at the specified η. The constants and strict inequality were independently reproduced with exact arithmetic; replay: python3 /workspace/branches/3882fb2e-b9e5-407b-a2d5-8087ac90d2b0/record3_exact_check.py. The discrete calculation alone is not the continuous theorem. The implication is answered negatively; it was not a theorem asserted by Eberl–Klar.",
+      "residual_risks": [
+        "The certificate concerns the discrete coordinates and perturbation constants; full-support absolute continuity and preservation of the strict sign require the accompanying analytic coupling proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 gives the pointwise symmetric-level s₂ inequality, not convexity or comparisons for arbitrary triples.",
+          "The Zeng–Zhuang–Hu comparison is cited in the dispersive catalogue record in the context of dilation order and expectile spacings; primary full text was not recovered."
+        ],
+        "reasoning": "The symmetric levels test a restricted family of triples containing the median expectile at level 1/2; the frozen witness uses three levels strictly below 1/2. The available secondary information about dilation and two-level spacing is not a checked stronger theorem or an equivalent counterexample for Eq. (8).",
+        "searches": [
+          "Eberl–Klar Theorem 5 and Remark 6",
+          "Zeng–Zhuang–Hu 10.1017/jpr.2022.49, dispersive orders induced by risk-measure differences"
+        ]
+      },
+      "checked_sources": [
+        "Eberl–Klar 10.1007/s00362-022-01331-x",
+        "Eberl–Klar arXiv:1908.08243",
+        "The Resultary dispersive and s₂/sf comparison records above",
+        "Zeng–Zhuang–Hu 10.1017/jpr.2022.49 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dispersive comparator has Q_Y′/Q_X′=1,1,5,1,1 on successive intervals.",
+          "The small-smoothing s₂/sf comparator has first atom weights 0.60 and 0.15; the smoothing bumps have width 2ε² and the background mass is ε."
+        ],
+        "reasoning": "The dispersive example's ordinary transformation slope drops from 5 to 1, so that pair does not satisfy the premise here. The smoothed s₂/sf pair also fails the ordinary convex-transform premise for small ε: at probabilities 0.14, 0.16 and 0.20 the X quantiles all lie in the first bump, while Y moves from the first to the second bump and then stays within the second. The first secant slope of Q_Y∘F_X then diverges as ε→0; the second is bounded since its numerator is at most 2ε² and its denominator is at least 0.04/sup f_X, of order at least ε². These are nearby order separations, not mechanical implications of the frozen one.",
+        "searches": [
+          "Resultary dispersive comparator Finding and quantile slopes, offset 0",
+          "Resultary s₂ versus sf comparator Finding, seeds (1)–(2) and smoothing (5), offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Eq. (4) is the inverse-expectile cdf; Remark 6 Eq. (8) is convex transformation order between these transformed cdfs and explicitly notes the missing implication.",
+          "The earlier skewness paper's Eq. (2) gives the normalized all-triples criterion for quantiles."
+        ],
+        "reasoning": "Substituting inverse expectiles into the published transform criterion gives exactly e_Y∘e_X⁻¹; a strict sign reversal of the adjacent slopes violates Eq. (8). The quantile criterion gives the premise, not its preservation by taking expectile coordinates.",
+        "searches": [
+          "Eberl–Klar 10.1007/s00362-022-01331-x / arXiv:2108.06138, expectile-transformed distributions and skewness order",
+          "Eberl–Klar arXiv:1908.08243, quantile all-triples criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed Finding uses piecewise-linear quantiles and violates a two-level strong expectile-dispersive inequality.",
+          "The second uses two unequal finite-support seeds and smoothing to separate the s₂ and sf orders."
+        ],
+        "reasoning": "This is an exact counterexample rather than a tabulated invariant; the relevant exact lookup is for prior counterexamples to the same implication. Neither matched entry states the premise/conclusion pair of this witness or gives its three-point quadratic-transform construction.",
+        "searches": [
+          "Resultary: convex transformation order versus expectile skewness, continuous counterexample and all-triples Eq. (8)",
+          "2026/10/12/SCOPE-a-continuous-counterexample-to-dispersive-order-implying-strong--f9ae5109b95a",
+          "2026/10/12/SCOPE-the-expectile-s-2-order-does-not-imply-the-sf-order--004cf4c56c39"
+        ]
+      },
+      "rationale": "The primary source asks about precisely this comparison and does not assert the implication. Its symmetric-level theorem is a different statement. The closest catalogue examples also concern continuous laws and expectile orders, but the strongest matching constructions do not provide a counterexample under the ordinary convex transformation hypothesis here. The supported distinct content is the explicit continuous all-triples counterexample preserving that exact premise, not the coordinate formulation or smoothing as generic techniques.",
+      "residual_risks": [
+        "The Zeng–Zhuang–Hu full passage was not recovered. No absolute literature priority is asserted; the judgment rests on the inspected statements and constructions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formulation is prior; the checked passage leaves the implication unproved",
+          "evidence": "The paper identifies inverse-expectile cdfs, proves symmetric s₂-order preservation, and explicitly says its results are not strong enough to derive the all-triples comparison.",
+          "identifier_or_url": "10.1007/s00362-022-01331-x; arXiv:2108.06138",
+          "material_read": "Published PDF Eq. (4) p. 4 and Theorem 5 plus Remark 6 and Eq. (8) p. 6",
+          "method": "Bounded OA primary passages, matched to the preprint",
+          "title": "Stochastic orders and measures of skewness and dispersion based on expectiles",
+          "trigger": "Exact Eq. (8) implication and a potentially stronger skewness theorem"
+        },
+        {
+          "assessment": "Characterization of ordinary convex transformation, not the claimed separation",
+          "evidence": "Normalized comparison uses quantile coordinates, not expectiles.",
+          "identifier_or_url": "arXiv:1908.08243; 10.1111/sjos.12518",
+          "material_read": "Eq. (2), preprint p. 3",
+          "method": "Bounded OA primary passage",
+          "title": "Expectile based measures of skewness",
+          "trigger": "All-triples quantile analogue invoked in the later paper"
+        },
+        {
+          "assessment": "Different orders; its pair is not ordinarily convex-transform ordered",
+          "evidence": "Dispersive comparison from nondecreasing quantile difference and violated two-level spacing; Q_Y′/Q_X′ drops from 5 to 1.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-continuous-counterexample-to-dispersive-order-implying-strong--f9ae5109b95a",
+          "material_read": "Finding and quantile slopes at offset 0–2881; related literature around offset 4663",
+          "method": "Bounded local-mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A continuous counterexample to dispersive order implying strong expectile-dispersive order",
+          "trigger": "Closest continuous counterexample contrasting ordinary and expectile orders"
+        },
+        {
+          "assessment": "Different antecedent and consequent; the small-smoothing witness fails the ordinary convex transform premise",
+          "evidence": "All-α symmetric expectile skewness premise and an sf violation; masses and bump widths allow a direct comparison of ordinary transformation secants.",
+          "identifier_or_url": "2026/10/12/SCOPE-the-expectile-s-2-order-does-not-imply-the-sf-order--004cf4c56c39",
+          "material_read": "Finding and construction at offset 0–3098 and related discussion around offset 8350",
+          "method": "Bounded local-mirror primary record, same snapshot",
+          "title": "The expectile s₂-order does not imply the sf-order",
+          "trigger": "Adjacent Eberl–Klar question and similar continuous smoothing"
+        },
+        {
+          "assessment": "Exact scope remains unverified",
+          "evidence": "The secondary discussion concerns dilation order and all-level spacings; it is not enough to rule out stronger overlap.",
+          "identifier_or_url": "10.1017/jpr.2022.49",
+          "material_read": "Bibliographic information and secondary discussion in the dispersive comparator; no primary full text",
+          "method": "Bounded lawful OA lookup returned no repository copy",
+          "title": "Dispersive orderings induced by differences of inter risk measures",
+          "trigger": "Plausible adjacent result comparing standard orders and expectile spacings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, explicit smoothing and margin",
+        "Eberl–Klar Remark 6 Eq. (8) and Theorem 5"
+      ],
+      "rationale": "The example resolves a specific order-implication question raised in the primary paper, without contradicting its positive symmetric-level theorem. It gives a quantitative witness with explicit smoothing, an everywhere positive density on the interior of the support, and an exact convex transformation. Thus it identifies a genuine boundary of the known preservation result rather than exploiting atoms or a change of normalization.",
+      "residual_risks": [
+        "No classification across other transforms or regularity classes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

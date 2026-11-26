@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:04:39.681203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–76 and accompanying verification notes and scripts (inspected, not executed)",
+        "/workspace/branches/7fbf552a-6823-4291-8882-792273a37e41/audit_record2.py"
+      ],
+      "rationale": "For population sizes N_c and split count b, deleting the matching subtracts exactly m-b from the count sum_c binom(N_c,2), denoted F. Transferring a vertex from a class at least two larger than another strictly decreases F, so its minimizers are precisely balanced sizes. When m=3t they are even and can be realized with b=0. In either other residue, balance forces two odd populations, and one split realizes the lower bound F_min+1 on F+b. The other possibility for equality is b=0 and F=F_min+1; this is exactly the balanced distribution of monochromatic pairs among the three colors, since balancing the pair counts minimizes F over even sizes. Thus there are no further minimizers. Evaluating energy on those pair counts gives the displayed minimum. Counting named colors, labeled pairs and both orientations of the split gives B=2(t+1)A for the one-split and no-split counts in the two nonzero residues. Matching symmetry gives a uniform conditional split location. The balanced multinomial is asymptotic to (3 sqrt(3)/(2 pi m))3^m in all residues; the extra factor 3(2t+3) is asymptotic to 2m and gives the other prefactor and the common residual entropy. Independent enumeration over graph edges for m=2–6 gave energy/count pairs (0,18), (0,6), (4,180), (8,450), (12,90); split counts 12,0,144,360,0. An independent pair-counting DP matched the full ground-state split histogram for m=2–18; large-index prefactors were checked in all residues.",
+      "residual_risks": [
+        "The proof is for exactly three named colors, uniform positive coupling and parts of size two. Numerical asymptotics and finite counts corroborate but do not replace the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sokal gives the general Potts/Tutte expansion and proper-color specialization.",
+          "Asgarli–Whitehead McGinley–Xue count by maximum monochromatic degree via a restricted sum of chromatic polynomials of contractions."
+        ],
+        "reasoning": "A full Potts polynomial for the stated family would give energy and multiplicity by its first nonzero coefficient in the equal-spin edge variable; the general expansion is not such an evaluation and is not split-refined. The maximum-degree threshold in the defective polynomial is different from the total-edge statistic. The proper 3-color specialization vanishes for m>3.",
+        "searches": [
+          "arXiv:math/0503607 §2.2",
+          "arXiv:2605.05550 §2, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches 4725ceae9993 and 988c93637068",
+        "Bollobás–Scott §1",
+        "Sokal §2.2",
+        "Asgarli–Whitehead McGinley–Xue Theorem 2.1",
+        "PII 0012365X86901731 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlapping Resultary and contraction theorems constrain a maximum degree. Already at m=4 a balanced (3,3,2) assignment with three split pairs has maximum monochromatic degree 2 and E/J=6, whereas a one-split ground state with the same populations also has maximum monochromatic degree 2 but E/J=4."
+        ],
+        "reasoning": "Even fixing populations, the covered statistic fails to distinguish these minimizers from nonminimizers. General expansions may provide a brute-force route, but the exact equality cases and split ratio require the independent parity-versus-balancing calculation.",
+        "searches": [
+          "Resultary record 988c93637068, Finding as read from the local mirror",
+          "arXiv:2605.05550 §2",
+          "arXiv:math/0503607 §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this family, E/J=2m(m-1) minus the maximum 3-cut size; the degeneracy counts its maximizers with named parts. Bollobás–Scott's inspected abstract and §1 give general cut and internal-edge bounds.",
+          "The graph-specific clique-partition abstract concerns partitioning edges into cliques, not partitioning vertices into three named colors to minimize monochromatic edges."
+        ],
+        "reasoning": "Exact maximum-3-cut multiplicities here would be genuine equivalent coverage for the corresponding unrefined counts. The inspected bounds do not yield those counts, and an edge-clique partition is a different optimization variable.",
+        "searches": [
+          "Resultary meaning search for three-state Potts minima, split pairs and ground-state degeneracy on cocktail-party graphs",
+          "Bollobás–Scott, Max k-cut and judicious k-partitions",
+          "Clique partitions of the cocktail party graph, PII 0012365X86901731"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit ending 4725ceae9993 is the bound record itself.",
+          "The distinct result ending 988c93637068 gives defective-coloring counts on K_n minus a matching, including the cocktail-party graph (Finding, offsets 0–4991)."
+        ],
+        "reasoning": "The first hit is not prior evidence; the second has the same family and named colors but not a census of optimizers of the total monochromatic-edge objective. The shared date does not settle order or priority.",
+        "searches": [
+          "Resultary meaning search for three-state cocktail-party graph energy, degeneracy and split law"
+        ]
+      },
+      "rationale": "The distinct supported result is the exact optimizer structure, ground-state multiplicity and residue-dependent prefactor for the total-edge antiferromagnetic objective on this matching-deleted family. Neither the inspected maximum-3-cut theory nor the exact overlapping defective-coloring finding establishes that classification.",
+      "residual_risks": [
+        "Full text of the clique-partition paper was not accessible in the lawful attempt, so only its abstract was compared.",
+        "An equivalent specialized max-3-cut or partition enumeration could exist outside the inspected sources; no global priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record",
+          "evidence": "Exact match to the energy, multiplicity and split law under review.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-state-potts-frustration-and-a-split-pair-entropy-anomaly-o--4725ceae9993",
+          "material_read": "Indexed record and bound Finding and proof",
+          "method": "Configured Resultary meaning search and frozen-record comparison",
+          "title": "Three-state Potts frustration and a split-pair entropy anomaly on cocktail-party graphs",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Overlapping family, different count",
+          "evidence": "Counts assignments with bounded maximum same-color degree, not minimum total same-color edges or split-pair optimizer distributions.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-blind-defective-chromatic-polynomials-of-matching-deleted--988c93637068",
+          "material_read": "RESULT.md Finding offsets 0–4991 and prior-work discussion after 4991",
+          "method": "Configured Resultary search and local mirror reader",
+          "title": "Parity-blind defective chromatic polynomials of matching-deleted graphs",
+          "trigger": "Same matching-deleted family and named-color count"
+        },
+        {
+          "assessment": "Relevant general framework, not optimizer coverage",
+          "evidence": "Contraction sum over A with maximum degree at most d; optimizing |A| is not that restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.05550",
+          "material_read": "§2, Theorem 2.1, p. 3, offset 8215",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Defective Chromatic Polynomials",
+          "trigger": "Stronger-looking general contraction formula"
+        },
+        {
+          "assessment": "General bounds rather than this exact census",
+          "evidence": "Bounds on crossing and internal edges, not labeled optimizer multiplicities on cocktail-party graphs.",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/scott/Papers/kcut.pdf",
+          "material_read": "Abstract p. 1 and §1 summary p. 5, offset 9083",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Max k-cut and judicious k-partitions",
+          "trigger": "Complementary objective of exact maximum 3-cut"
+        },
+        {
+          "assessment": "General expansion and proper-color specialization",
+          "evidence": "No evaluation of the leading nonzero equal-spin coefficient for this family in the inspected statement.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "§2.2 pp. 4–5, offsets 11238–19685",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "General Potts partition function and evaluation at three colors"
+        },
+        {
+          "assessment": "Abstract concerns edge-clique partitions, detailed coverage unverified",
+          "evidence": "The abstract gives an edge-clique partition bound and design equality cases, not vertex 3-cuts.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0012365X86901731",
+          "material_read": "Indexed abstract; full-text retrieval unsuccessful",
+          "method": "Indexed primary abstract and lawful OA retrieval attempt",
+          "title": "Clique partitions of the cocktail party graph",
+          "trigger": "Same graph and superficially similar partition title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and equality cases",
+        "Sokal §2.2 for the customary proper-color specialization"
+      ],
+      "rationale": "The family isolates frustration induced by using fewer spin colors than parts on a standard dense graph. The optimizer census distinguishes two parity-constrained mechanisms with identical energy rather than just returning the minimum cut complement. The ratio of the two sectors explains why one exceptional matching pair becomes typical in two residue classes, and why the normalized entropy alone misses a factor of order m in the ground-state count. These are concrete data for zero-temperature measures on this family.",
+      "residual_risks": [
+        "No finite-temperature phase conclusion; the entropy is the logarithmic ground-state multiplicity per vertex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

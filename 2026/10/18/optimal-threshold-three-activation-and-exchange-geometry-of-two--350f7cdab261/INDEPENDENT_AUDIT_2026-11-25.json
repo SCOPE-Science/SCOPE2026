@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:37:02.802106Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed both adjacency graphs and checked the degree, all common-neighbor counts, and the distinct local graph types. On a six-regular graph an inactive set persists precisely if it contains a nonempty induced subgraph of minimum degree at least four. The final inactive set is the union of all such subgraphs disjoint from the seeds: no member of any such subgraph can be activated first, and the final inactive set itself is stable. Enumerating these subgraphs gave largest triple closures of 5 and 7 and exactly 864 and 720 percolating four-sets. Monotonicity excludes all smaller sets. A separate synchronous update using precomputed neighbor triples gave the stated rounds. Comparing every pair of optimum configurations and computing bitset distance layers from every configuration reproduced each move edge, connectivity, radius, diameter, eccentricity distribution and all diameter-witness distances. Enumerating and checking the specified actions reproduced all orbit rows. The independent run compared full labeled states, activation times, exchange edges and orbit invariants against certificate.json (SHA-256 224cee59db2384166af4bb653d47e137fa61bb317cdde0350d1650d75c3ea632). Replay: python3 /workspace/branches/check_record3.py <record-directory>/certificate.json. The result is exact for the stated graphs, threshold and explicit actions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hamming graph formula gives the rook minimum size four at n=4, r=3.",
+          "The random-regular-graph results do not give exact finite tables for the specified pair; the threshold-three example in the abstract is for random five-regular graphs."
+        ],
+        "reasoning": "Credit the stronger Hamming theorem for cardinality, but not for enumerating the optimum states; Shrikhande is not the Hamming graph. The other primary results concern a different input family or a different feasible-set predicate.",
+        "searches": [
+          "arXiv:1905.01942 Theorem 2.1",
+          "arXiv:1407.7361 abstract and §II.A",
+          "arXiv:1406.6576 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.01942",
+        "arXiv:1407.7361",
+        "arXiv:1406.6576",
+        "Resultary c419a426f80c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rook minimum size four follows directly from Theorem 2.1. Both graphs have the same degree/intersection parameters but different threshold-three minimum-family sizes and jumping diameters in the independently reproduced census.",
+          "The threshold-four catalogue result classifies a different family under a different activation rule."
+        ],
+        "reasoning": "Knowing the minimum seed size or a general feasibility algorithm does not determine the finer family and exchange invariants. The original claim credits the previous cardinality theorem rather than treating its instance as a novelty.",
+        "searches": [
+          "arXiv:1905.01942 Theorem 2.1",
+          "arXiv:1407.7361 §II.A",
+          "Resultary c419a426f80c RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum-degree-four complement condition is equivalent to threshold-three activation at degree six; the general duality is prior-covered.",
+          "The inspected token-sliding paper uses independent-set feasible states, not optimal contagious sets."
+        ],
+        "reasoning": "The known core formulation explains the feasibility test and the known move rule explains a transition, but neither gives the labeled feasible families or their distances for this pair.",
+        "searches": [
+          "Resultary: threshold-three percolating seeds, minimum contagious sets, four-core removal, rook and Shrikhande",
+          "arXiv:1407.7361 §II.A",
+          "arXiv:1406.6576 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest located exact comparative census, c419a426f80c, concerns threshold four and minimum size six; its 864 rook sets are not the 864 threshold-three four-sets. No matching threshold-three configuration table was located in the bounded search."
+        ],
+        "reasoning": "Coincidence of a graph pair and numeric count does not imply equality of the labeled optimum family or any exchange invariant.",
+        "searches": [
+          "Local Resultary/SCOPE: minimum threshold-three activation, orbit census and token-jump/slide geometry on 4-by-4 rook and Shrikhande graphs"
+        ]
+      },
+      "rationale": "The rook minimum size, the activation/core duality and the move terminology are prior-covered and are not the distinct contribution. The evidence supports the narrower exact threshold-three census and configuration-geometry comparison; none of the inspected primary statements or nearest catalogue hit covers it.",
+      "residual_risks": [
+        "An unindexed finite census or reconfiguration table using contagious-set, dynamic-monopoly or core-deletion terminology could overlap. The bounded comparisons do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rook cardinality, not the census or metrics",
+          "evidence": "The dimension-two minimum-size formula at n=4 and r=3 gives 4.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.01942",
+          "material_read": "PDF p. 3, Theorem 2.1, OA text offset 6269",
+          "method": "Primary open text, theorem and parameter specialization",
+          "title": "Percolating Sets in Bootstrap Percolation on the Hamming Graphs",
+          "trigger": "Stronger exact minimum-cardinality theorem for Hamming graphs"
+        },
+        {
+          "assessment": "Covers the duality, not the fixed-graph classification",
+          "evidence": "The inactive remainder has internal degree at least d_i-l_i+1; the abstract's threshold-three random example has degree five.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.7361",
+          "material_read": "PDF pp. 1 and 3, abstract and §II.A, OA text offsets 2065 and 16211",
+          "method": "Primary open text, compared thresholds and core-degree formula",
+          "title": "Minimal Contagious Sets in Random Regular Graphs",
+          "trigger": "Potential overlap via the equivalent induced-core formulation"
+        },
+        {
+          "assessment": "Terminology only for this claim",
+          "evidence": "The moved token follows an edge while the configuration remains an independent set.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6576",
+          "material_read": "PDF pp. 1–2, OA text offsets 2352 and 4792",
+          "method": "Primary open text, compared feasible states and theorem scope",
+          "title": "Linear-Time Algorithm for Sliding Tokens on Trees",
+          "trigger": "Reconfiguration using the same move name"
+        },
+        {
+          "assessment": "Different threshold and seed family",
+          "evidence": "At threshold four both minima have size six; among Shrikhande inclusion-minimal sets there is also an orbit of size-seven sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-unique-seven-seed-orbit-separates-threshold-four-contagion-on--c419a426f80c",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 6100",
+          "method": "Local mirror statement comparison",
+          "title": "A unique seven-seed orbit separates threshold-four contagion on the Shrikhande and rook graphs",
+          "trigger": "Nearest local catalogue result on the same graph pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural nonisomorphic pair with identical strongly regular parameters supplies exact witnesses that optimum-family size, optimal activation time and jumping geometry are not fixed by those parameters, even with equal optimum cardinality. In particular every rook jumping state has eccentricity four, whereas 288 Shrikhande states have eccentricity five. The precise orbit and distance data distinguish feasible local moves from global access and quantify the separation; this is more than a recomputation of the known rook minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:00.779030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parida–Moura Definitions 3.1 and 4.1 match the two edge conditions; W_n has n vertices and rim C_{n-1}. In these graphs every vertex has an incident edge. If B_i is contained in B_j with i distinct from j, an edge incident to j is either ij, violating endpoint incomparability, or an edge whose union contains third block B_i. Thus all blocks are distinct and globally incomparable, hence nonempty proper subsets for the cases in question. An independent bitset DFS enumerated all possible blocks for each vertex in fixed path/rim order, checking completed edge-unions against chosen third blocks and forbidding any future covered blocks. The final rim edge is checked, and for the wheel each spoke is also checked. Symmetry fixes the first block by size or the wheel center and first rim block by sizes and intersection; these tuples classify the relevant orbits of ground-set permutations. Pruning with too few permissible remaining blocks cannot suppress a completion. Exhaustion returned no assignments for P11@6, C10@6, W11@7, with respectively 132485, 183853, 564770 DFS states. The same computation found P10@6, C9@6, W10@7 as positive controls, and direct antichain and edge-union checks passed all four listed seven-point sequences for the indicated graphs. Replay: python3 /workspace/replay/05-cff.py; the run is recorded in /workspace/replay/05-cff-output.json. This is reproducible exhaustive computation, not formal verification or merely the frozen artifact's assertion. No assignment on up to the excluded ground-set size can exist, since smaller assignments embed in a set of that size with unused points. Subgraph monotonicity propagates the P11 lower bound to larger paths and cycles of length >=11. Parida–Moura Table 4 provides the remaining small upper bounds; C11@7 and C12@7 were also found and directly checked (C11: 1,234,235,236,27,246,456,346,347,357,567; C12: 12,13,14,15,16,67,36,234,35,57,47,27). For W12 the cited Corollary 4.16 applies since C11 has no isolates and t(C11)=7=t(1,11)+1, the latter by Sperner. Independently, on seven points the rim projections outside the hub block must form an antichain of eleven sets by the spoke constraints, hence at least six points lie outside the hub. The nonempty hub would be a singleton; global incomparability then makes all rim blocks disjoint from it, giving the impossible C11@6. Adding a disjoint singleton to the seven-point C11 family proves the eight-point upper bound. The wheels and all stated path and cycle ranges follow.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-radix theorem gives upper bound 3k+2=8 when n is in (4*3^(k-1),2*3^k] with k=2, covering n=13–15 but not yielding seven.",
+          "The universal-vertex lemma raises the parameter under the one-above-Sperner hypothesis, which for C11 requires the new lower bound. It does not alone exclude W11 on seven points.",
+          "The inspected hypergraph paper passage discusses graph-CFF bounds and asymptotic path/cycle results, not the exact thresholds. The thesis chapter supplies exact values through P10,C9,W10 and tabled upper bounds."
+        ],
+        "reasoning": "The general tools are material dependencies, but do not give the new lower bounds or the seven-point upper witnesses above order twelve.",
+        "searches": [
+          "Parida–Moura Theorem 6.12 and Corollary 4.16",
+          "Parida dissertation Cover-free families on graphs and hypergraphs, Chapter 4",
+          "Idalino–Moura DOI 10.1007/s10878-026-01429-0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and computation artifacts",
+        "Parida–Moura arXiv:2605.12634",
+        "Parida dissertation Chapter 4",
+        "Idalino–Moura DOI 10.1007/s10878-026-01429-0",
+        "Resultary SCOPE-d0cab96518f2, SCOPE-359614356792, SCOPE-0da0bb4ef6f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining a new P11 lower bound with monotonicity and known upper bounds settles P11–P12 and C11–C12; the C11 equality then allows the published universal-vertex result to settle W12.",
+          "No theorem in the inspected prior statements provides the three missing lower bounds or the new seven-point witnesses. The exact known smaller cases are positive controls, not implications of the required negative cases."
+        ],
+        "reasoning": "Separate the computationally established threshold cases and upper improvements from the routine deductions they enable. The transfer to W12 and the other orders should not be credited as separately original.",
+        "searches": [
+          "Parida–Moura Table 4, Theorem 6.12 and Corollary 4.16",
+          "Parida thesis small exact values, §4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph-CFF statement is equivalent to a binary incidence matrix in which neither edge column dominates the other and no OR of two edge columns dominates a third column. The no-isolates implication permits restricting to an antichain on these graphs.",
+          "The matching-related Resultary entry concerns graph-CFFs for disjoint edges, not the same incidence constraints or graph orders in the path/cycle/wheel calculation."
+        ],
+        "reasoning": "The graph and incidence formulations impose the same constraints, and wheel orders agree between the record and the paper. General unstructured CFF bounds or results on a different graph do not identify these threshold values.",
+        "searches": [
+          "Resultary: graph cover-free families paths cycles wheels exact seven-point P11 C10 W11",
+          "Parida–Moura arXiv:2605.12634 Definitions 3.1 and 4.1",
+          "Idalino–Moura DOI 10.1007/s10878-026-01429-0, graph/hypergraph specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4's C10=7 upper bound and the P,C,W entries (7,7,8) at n=11,12 are unbolded, unlike its exact entries. The dissertation has the same numerical bounds in its Table 4.4, describes bold entries as exact, and its exact-value Theorem 4.6.5 ends at P10/C9 and Corollary 4.6.8 at W10.",
+          "Resultary SCOPE-d0cab96518f2 is this same record. The distinct SCOPE-359614356792 states t(E14)=6=t_e(E14)+1 for a matching of seven edges. The same-day SCOPE-0da0bb4ef6f9 concerns connected mutual visibility, not cover-free families."
+        ],
+        "reasoning": "A numeric match in an upper-bound table is not exact coverage of the claim, and the exact catalog match is the assigned record, not corroborating prior coverage.",
+        "searches": [
+          "Parida–Moura Table 4, column entries and boldface in HTML",
+          "Parida dissertation Table 4.4, Theorem 4.6.5 and Corollary 4.6.8",
+          "Resultary exact path/cycle/wheel small cover-free numbers"
+        ]
+      },
+      "rationale": "The Parida–Moura article and the related Parida dissertation have just the upper bounds or exact smaller orders in the corresponding table and boundary theorems. The distinct work is excluding the three next cases at the old ground-set size and constructing seven-point families past the table where the general image of the mixed-radix bound is eight. The propagated equalities and the application of the universal-vertex lemma are consequences, not independent novelties. The best-of-knowledge result does not establish priority over unindexed constructions.",
+      "residual_risks": [
+        "Earlier or parallel constructions in specialized superimposed-code or structured group-testing literature under different wording may escape the bounded search.",
+        "The thesis comparison is based on its graph-CFF table and named exact-value theorems, not a claim to have checked every passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definitions and upper bounds, not the missing exact values",
+          "evidence": "Unbolded upper bounds for C10 and the relevant orders 11,12; exact endpoints at smaller orders; mixed-radix value eight for n=13–15; universal-vertex transfer with the required threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.12634",
+          "material_read": "Definitions 3.1 and 4.1 (PDF pp. 9, 11–12; offsets 43111, 51704); Table 4 (p. 5, PDF offsets 18000–19000, HTML boldface checked); Corollary 4.16 (p. 17, offset 71577); Theorem 6.12 (HTML around 111186)",
+          "method": "OA PDF and HTML passages",
+          "title": "Cover-free families on graphs",
+          "trigger": "Direct prior article for the definition, upper bounds and potential exact coverage"
+        },
+        {
+          "assessment": "The checked table and corresponding exact-value theorems do not close the target cases",
+          "evidence": "Same upper-bound table through n=12 and stated exact results ending at P10, C9 and W10.",
+          "identifier_or_url": "https://ruor.uottawa.ca/items/467fbba5-7718-473c-a316-308c19fd89ab",
+          "material_read": "Chapter 4 overview; Table 4.4 (PDF p. 46, around offset 128115); Theorem 4.6.5 (p. 74, 213738); Corollary 4.6.8 (p. 75, 216425)",
+          "method": "Lawful OA PDF from university repository",
+          "title": "Cover-free families on graphs and hypergraphs",
+          "trigger": "Plausible duplicate or stronger coverage in the introducing author's dissertation"
+        },
+        {
+          "assessment": "General context, no exact coverage established in the inspected passages",
+          "evidence": "Cites Parida–Moura and describes bounds for graph-CFFs and asymptotic path/cycle results.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-026-01429-0",
+          "material_read": "Graph-CFF bounds and path/cycle discussion (p. 28, offset 84850); related reference (p. 29, offset 90765)",
+          "method": "OA PDF passages",
+          "title": "Cover-free families on hypergraphs and combinatorial group testing",
+          "trigger": "Broader setting might specialize to the same path and cycle results"
+        },
+        {
+          "assessment": "Identical record",
+          "evidence": "Same graph orders, ground-set sizes and wheel convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+          "material_read": "Mirror RESULT.md exact values and wheel convention",
+          "method": "Local catalog mirror text",
+          "title": "Exact small cover-free-family numbers for paths, cycles, and wheels",
+          "trigger": "Exact database hit"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Matching of seven disjoint edges, not any of the listed paths, cycles or wheels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-second-gap-one-matching-for-graph-cover-free-families--359614356792",
+          "material_read": "Claim of exact t and t_e for E14",
+          "method": "Local catalog statement",
+          "title": "A second gap-one matching for graph cover-free families",
+          "trigger": "Closest distinct graph-CFF catalog hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These orders are motivated by the first unresolved entries of a published small-order census, not an arbitrary sample. Closing the six- and seven-point thresholds and replacing eight with seven for orders 13–15 addresses a concrete construction problem posed by the gap between the source's small cases and its general bound. Exact lower and upper witnesses distinguish where an additional point really becomes necessary and give useful benchmarks in the published graph-CFF family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

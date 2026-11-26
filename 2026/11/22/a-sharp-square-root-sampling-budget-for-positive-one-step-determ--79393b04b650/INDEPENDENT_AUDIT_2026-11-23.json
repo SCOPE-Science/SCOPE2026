@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:36.057545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited final statement and complete corrected RESULT.md in /workspace/repairs/4. The frozen summary called the endpoints smallest/largest even at s=n, contrary to its own proof; they are infimum/supremum and at s=n the actual range is (1,K). Its description of a minimal-dimension rational witness also conflated the first failure dimension 35 with the displayed sharp witness at 37. The repair distinguishes them and supplies a rational example at 35. Proof replay: v,w are orthonormal and the off-axis coefficient of Aφv is nonzero exactly under the stated nondegeneracy condition. All ordinary basis rows coincide; row 1 has leverage 1 versus 1/(n−1), so Q-DEIM and every full-rank selector must sample it. The sampled w-to-v coefficient is −d=−(n−s)/(s√(n−1)). The reduced scalar's sinusoid cos 2φ−d sin 2φ has amplitude √(1+d²); for d>0 both extremizers are nondegenerate, and for d=0 they are limits. The strict sign criterion d<2√K/(K−1) yields the stated sharp row count and its fixed-K growth, with an attained zero or negative when the strict inequality fails. At K=2,s=2 the sign test changes from (n−2)²−32(n−1)=−32 at 34 to +1 at 35; the quadratic roots exclude all n=3,…,34. For z=(−35,6,…,6) in dimension 35, ||z||²=2449 and the entry sum is 169; z has both required nonzero components, and A=I+zzᵀ/2449 gives row sums −3466/2449 and 3463/2449, hence the exact −3/4898. In dimension 37 the two row sums −3/2 and 17/12 give −1/24, exactly its lower endpoint (√(1+d²)=37/12); the full and three-row quotients are 99/74 and 4/9. This checks the repair by exact algebra, not by a new certificate. Original verify.py and its descriptions were inspected, not executed; the script checks the 37-dimensional witness and finite QR/quotient diagnostics, not the new dimension-35 example or the general proof. The scope is one retained vector, distinct unweighted rows, and the specified exact-arithmetic family only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergermann uses the next Krylov vector for DEIM/Q-DEIM row selection, optionally adds rows, and retains the first m for the whitened projection.",
+          "The known distortion-gap construction compares two-row selection objectives on a different Krylov basis (vectors on disjoint coordinate supports), without a Ritz-sign conclusion. The nonreal example retains two vectors; the one-step GMRES example has a different selection objective and output, and uses an involution to make SAb vanish."
+        ],
+        "reasoning": "The existence of general spectral pathologies or arbitrarily distorted sampled bases does not give the fixed-start sharp necessary-and-sufficient row law in the corrected statement. The exact embedding envelope is the closest stronger-looking theorem and is tested directly below.",
+        "searches": [
+          "Bergermann arXiv:2604.07158v2 Eq. (2.18) and Algorithms 4.2, 5.3",
+          "Resultary 64c030573be9, f48cbf6a3e92, 15c0a9d20140 and 46affa6189d7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md and verify.py; corrected /workspace/repairs/4/RESULT.md",
+        "Bergermann arXiv:2604.07158v2",
+        "Resultary 64c030573be9, f48cbf6a3e92, 15c0a9d20140, 46affa6189d7 and b134208d5d2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exceptional row and the ordinary row type are orthogonal as vectors in R². Hence the sampled Gram eigenvalues are 1 and τ=(s−1)/(n−1). Rescaling for the known universal distortion envelope gives ε=(1−τ)/(1+τ), and the corresponding off-axis factor is (1−τ)/(2√τ)=(n−s)/(2√((n−1)(s−1))).",
+          "The actual family factor d=(n−s)/(s√(n−1)) is smaller by a ratio 2√(s−1)/s for s<n. The envelopes coincide at s=2 but differ strictly for 2<s<n. The universal factor would give an order-n sufficient row budget at fixed K, not the sharp order-√n budget here.",
+          "The earlier proof already bounds the scalar via ||Mv||/(vᵀMv), for the sampled metric M; this direction-dependent intermediate bound is credited. It does not construct the forced coordinate family or demonstrate attainability while the start, Krylov space and full-rank Q-DEIM row pattern stay fixed."
+        ],
+        "reasoning": "Direct substitution into the published universal envelope does not give the claimed row law, and the known arbitrary-metric sharpness example does not keep the coordinate sampling constraints. The new ingredient is the one-outlier geometry with its fixed directional attainment, not a new proof of the abstract spectral bound.",
+        "searches": [
+          "64c030573be9 RESULT.md offsets 0–6244, proof steps 2–5",
+          "46affa6189d7 RESULT.md offsets 0–5623, proof steps 1–3",
+          "Frozen RESULT.md and corrected RESULT.md, forced row and directional scalar steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sketched FOM scalar in 64c030573be9 is exactly the dsRR scalar at one retained vector. It fixes a squared-norm embedding distortion ε and gives sharp radius (K−1)/(2√(1−ε²)), with attainability over arbitrary admissible two-dimensional metrics and starts.",
+          "The current scalar depends on the direction of v in the sampled metric and the rank-one Krylov geometry, as well as distortion."
+        ],
+        "reasoning": "Changing the algorithm name is not novelty. The distinction is the fixed-start attainable range with a forced coordinate-row pattern and its sharp count, not the abstract interval at a prescribed embedding distortion.",
+        "searches": [
+          "Resultary: one-vector sketched Ritz/Rayleigh quotient, positive stability, Q-DEIM coordinate oversampling",
+          "64c030573be9 RESULT.md Finding and proof steps 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact scalar bounds are for prescribed embedding distortion, not the dimension/row-count family. An identical frozen record is not a separate comparison.",
+          "The same-day −1/24 numerical hit belongs to a matrix-valued convolution square on a cyclic group, with no Krylov sample, so the shared number is not theorem coverage."
+        ],
+        "reasoning": "No inspected distinct theorem supplies the complete count for the structured full-rank sketches. This is a bounded evidence comparison, not a claim that no earlier example of a negative rational quotient exists.",
+        "searches": [
+          "Resultary: sharp row count, one-step negative Ritz value, −1/24 witness",
+          "Exact-source comparisons 64c030573be9, 15c0a9d20140, f48cbf6a3e92, 46affa6189d7; same-day numeric hit b134208d5d2a"
+        ]
+      },
+      "rationale": "For the corrected finding, the supported distinct contribution is the exact uniformly sign-safe coordinate row count and its attainable directional envelope for a Q-DEIM-compatible family, not qualitative spectral pollution, the quotient formula, or the mere existence of a small rational example. The strongest general norm-distortion result is sharp on a larger class but yields a strictly looser bound on this family for 2<s<n. The two rational witnesses corroborate the family classification and are not separate priority claims.",
+      "residual_risks": [
+        "The bounded comparison does not establish priority against unindexed coordinate-selection constructions.",
+        "At s=2 the known universal envelope agrees exactly after computing this family's Gram spectrum; originality is not based on that general bound or on the negative scalar by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the one-retained/two-selection-vector implementation; no exact family row law in the relevant method passages.",
+          "evidence": [
+            "Pivoted QR on the basis transpose, select from V_{m+1}, add distinct rows if needed, project on V_m after whitening."
+          ],
+          "identifier_or_url": "arXiv:2604.07158v2",
+          "material_read": "Original PDF Eq. (2.18) p. 8; Algorithms 4.2 p. 13 and 5.3 p. 18; OA text offsets 28250, 45600 and 62500",
+          "method": "Original OA PDF bounded passages",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Check genuine dsRR rather than an unrelated sampled quotient"
+        },
+        {
+          "assessment": "Exact distortion-only envelope and qualitative sign failure are known; direct use here is generally loose, and arbitrary-metric attainment is not a coordinate construction.",
+          "evidence": [
+            "Interval centered at (μ+L)/2 with radius (L−μ)/(2√(1−ε²)); sharpness from dense two-dimensional metric and varying start.",
+            "Proof step 3 credits the direction-dependent Cauchy–Schwarz upper bound before relaxing to ε."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-one-vector-sketching-envelope-and-positive-stability-thres--64c030573be9/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–5, offsets 0–6244",
+          "method": "Primary RESULT.md through local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems",
+          "trigger": "Same one-vector scalar and robust positivity threshold under a prescribed distortion"
+        },
+        {
+          "assessment": "Different SPD construction and a gap in sampled-basis conditioning, without a Ritz or row-count sign theorem.",
+          "evidence": [
+            "Two-column basis on disjoint supports; condition number 3; exact √N ratio across selection objectives."
+          ],
+          "identifier_or_url": "Resultary 2026/11/08 f48cbf6a3e92",
+          "material_read": "RESULT.md finding and scope, offset 0–2200",
+          "method": "Local mirror primary statement",
+          "title": "Unbounded distortion gap for minimum-singular-value row selection on well-conditioned Krylov spaces",
+          "trigger": "Nearly identical basis-size and Q-DEIM geometry may imply a sharp positivity law"
+        },
+        {
+          "assessment": "Known related spectral pathology, but a two-retained-vector conjugate pair is different from a one-retained-vector row-count sign law.",
+          "evidence": [
+            "Nonreal eigenvalues in a two-dimensional Ritz pencil."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 15c0a9d20140",
+          "material_read": "RESULT.md finding, retained dimension and pencil description",
+          "method": "Local mirror bounded passages",
+          "title": "Optimal two-row sketches can produce nonreal Ritz values for condition-two SPD systems",
+          "trigger": "Condition-two SPD plus deterministic coordinate-sketch spectral failure"
+        },
+        {
+          "assessment": "Controls SAb and a least-squares residual under basis-only selection; no sharp sign threshold for a family with two-vector Q-DEIM selection.",
+          "evidence": [
+            "Threshold (1+√(s/n))/(1−√(s/n)) for SAb annihilation; paired projected-start construction and residual blowup."
+          ],
+          "identifier_or_url": "Resultary 2026/11/02 46affa6189d7",
+          "material_read": "RESULT.md finding, scope, and proof steps 1–3, offsets 0–5623",
+          "method": "Local mirror primary passages",
+          "title": "Sharp coordinate-sampling threshold and unbounded one-step sketched GMRES residual on near-identity SPD systems",
+          "trigger": "Related coordinate threshold with a constant start and SPD spectral bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired finding quantifies an actual sampling-budget limitation of a deterministic algorithm: every full-rank selection is equivalent, yet fixed-size samples can give increasingly negative Ritz values on uniformly well-conditioned SPD inputs. The exact directional law changes the sufficient scaling predicted by a distortion-only argument from linear to square-root within a natural one-outlier symmetry class. A precise within-family sharp row budget and rational failure at its first negative dimension are useful test cases, without implying any all-SPD sufficient budget or finite-precision behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

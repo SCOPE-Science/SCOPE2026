@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify_tripartite.py` depends only on Python 3 standard-library modules. Running `python3 verify_tripartite.py` on the exact packaged source produced `TRIPARTITE_CHECKS_PASSED 344785`.
+# Independent mathematical audit
 
-* `exact_counts(n)` reconstructs the labelled three-shore count from the displayed finite factorial formula. `brute_counts(n)` independently enumerates all matchings by a lowest-unprocessed-vertex recursive decomposition. Their histograms agree exactly for each \(1\le n\le5\).
-* For each \(2\le n\le16\) and activity parameter \(c\in\{0.2,1,2,5\}\), the code normalizes the finite law, calculates total variation including limiting probability outside finite support, and checks the claimed explicit upper bound.
-* For \(c=2\), direct probability sums at even \(n=80\) and odd \(n=81\) produce opposite distinct-shore covariance signs, as predicted.
+## correctness
 
-These checks corroborate arithmetic and finite formulas; no finite program independently proves infinitely many instances. The mathematical proof establishes all-size TV bounds, convergence of polynomial moments, and strictly opposite asymptotic covariance limits. The theorem is for fixed \(c>0\), equal activities, and exactly balanced three-part complete graphs; no finite-\(n\) universal sign assertion or independently validated historical priority is claimed.
+PASS
+
+Each monomer vector fixes the three cross-part edge counts via the vertex-balance equations. Choosing uncovered vertices, partitioning the covered vertices by partner part, and matching the corresponding blocks gives C_n(u)=(n!)³ divided by the six stated factorials. An out-of-range monomer coordinate forces an inadmissible edge count. Dividing by maximum-matching weight yields j=(sum u−ε)/2 missing dimers. With n=2m, the weight ratio to its limiting factorial weight is a product of three f_m(j−u_i)∈[0,1]; with n=2m+1 it has additionally the prefactor (1+1/m)(2m/(2m+1))^j. The deficit of each factorial ratio is at most the sum of its factor deficits, giving even defect bounded by 3j(j+1)/(2m) and odd defect bounded by 1/m+j/(2m+1)+3(j+1)(j+2)/(2m). The even law has normalizer ≤cosh x and its TV deficit is bounded by the missing fraction of that normalizer; in the odd case the finite normalizer is ≥1, so TV is bounded by the sum of the absolute weight deviations. The parity-weighted factorial moments yield exactly the two displayed constants. The finite weights are dominated by twice the corresponding factorial weights, allowing convergence of quadratic moments as well as probability. The limit is a multinomial split of the parity-conditioned Poisson total R, whose falling second moment is x² and whose first moment is x tanh x or x coth x. This gives the stated strict covariance signs. For distinct sites, exchangeability uses U_i U_j across parts and U_i(U_i−1) within one part, with denominators n² and n(n−1); multiplying each covariance by n² gives the same limit.
+
+## originality
+
+PASS
+
+The material distinction is the quantitative joint Gibbs law on the balanced three-part graph and the parity-dependent limiting two-site sign, not the maximum-matching count or the covariance calculation for a prescribed conditioned Poisson law in isolation. The strongest equilibrium analogue has a two-shore deterministic count difference and a Bessel law. The strongest tripartite analogue changes the sampling mechanism to irreversible deposition; the same sign-reversal terminology does not identify the same probability law or covariance scale.
+
+## value
+
+PASS
+
+The O(1) near-perfect window is dictated by the activity scale, and exposes a genuine sign change in equilibrium dependence that would be invisible to a density law. The explicit TV bounds and the convergence of quadratic moments quantify separate even and odd limits. Agreement across within-part and cross-part distinct sites is a useful structural fact for interpreting spatial correlations, and differs from the two-shore mechanism of the closest equilibrium analogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

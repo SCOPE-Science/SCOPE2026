@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Beta-function mode norms give the precise normalized scalar kernel. A concavity bound for the argument of a shifted circle proves monotonicity on each centered circle through the first zero and gives the exact optimal radius. The half-plane Möbius coordinate reduces the boundary to an explicit trigonometric function whose derivative, extrema, endpoint limits, and equality cases determine the complete boundary crossing count. Nonvanishing of the complex derivative shows every interior zero regular. Explicit first and second derivatives yield the unique resonant contact condition and square-root splitting. The included checker verifies representative and randomly selected real parameters; its finite checks are corroboration only.
+## correctness
 
-**Originality — PASS, qualified.** The standard radial harmonic kernel is known (Engliš, arXiv:1601.03716v1), so its formula is not new. The inspected primary statement concerns kernel asymptotics, not the boundary zero staircase or all-exponent contact rigidity. The 2010 holomorphic weighted kernel zero theorem addresses a different function space, as do the closest published radial analytic-kernel results. A possible older equivalent description of real parts of complex powers remains a priority risk, and one earlier boundary-kernel paper was not available in full.
+PASS
 
-**Mathematical value — PASS.** The sharp first nodal radius and exact real-exponent boundary crossing count characterize canonical harmonic evaluation geometry; the infinite exceptional weights and their square-root contacts give a nontrivial structural transition. This classification is more than a kernel expansion or a finite computation and may guide nodal-domain and interpolation analysis.
+Integrating the radial weight gives squared monomial norm Γ(p)n!/Γ(p+n); the analytic and anti-analytic series share only the constant, so their sum minus 1 gives the stated kernel. For r<=ρ_p, strict Bernoulli gives pr<1. The argument ψ(δ)=arg(1+r exp(iδ)) is strictly concave for 0<δ<π and has tangent slope r/(1+r) at zero. Consequently θ+(p+1)ψ(π-θ) lies strictly between 0 and π and the real part decreases strictly along the upper half of each circle to its unique minimum (1+r)^(-p) at -r. This proves the inradius including uniqueness. In u=(1-t)^(-1) the analytic derivative of u^p does not vanish, giving regular real levels. On Re u=1/2, the derivative of cos(pφ)/cos^p(φ) alternates at jπ/(p-1). Odd-index minima are negative and even-index maxima cross the target exactly as in A_p and D_p, with strict boundary cutoffs at φ=π/2. The endpoint divergence sign is cos(pπ/2), or sin(pπ/2) at odd integer p; the start value is sublevel and a final increasing interval contributes one crossing exactly for positive divergence. Reflection and u=1/2 handle the lower side and -1. At contact u=exp(iπ/3), for B=Re u^p-1/2 the derivatives are B_x=p, B_y=0, B_yy=-p(p-1)/2 and B_p=-π√3/6. These give quadratic contact and the stated coefficient and direction of splitting. All checks are in the scalar product disk. The frozen numerical check and recorded output were inspected but not executed.
 
-**Limitations.** Global interior connected-component topology, arbitrary radial weights, and higher-dimensional analogues remain open here. Numerical verification is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The kernel family and power/Möbius formulation are not new. A later-dated indexed result matches the exact radius and antipodal zero. The complete all-real-p unit-boundary staircase and exponent-driven tangency law are distinct from that later record's fixed-exponent radial nodal opening and were not established by the inspected earlier work.
+
+## value
+
+PASS
+
+A first-zero radius answers when kernel zeros become possible; the boundary classification answers a different question about how many zeros reach the unit circle as the weight varies. It gives an exact count including endpoint and double-contact exceptions, and quantifies how crossings disappear. These are natural invariants of a standard weighted harmonic kernel, not numerical scans or a claim of full nodal topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

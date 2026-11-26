@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized ball Poisson density and the surface-mean convention are explicitly fixed. The axial derivative is an exact difference of two positive powers. Its sign equation is equivalent to a strictly decreasing scalar ratio, establishing global completeness, correct endpoint classification and uniqueness of the minimizing latitude. The critical-radius formula follows by algebra, and the quartic, square-root and quadratic coefficients follow by Taylor expansion with strictly positive denominators. The standalone finite checker passed 1,972 diagnostic assertions; correctness for infinitely many dimensions and real parameters is from the written proof, not this finite replay.
+PASS
 
-## Originality — PASS (best-knowledge, provisional priority)
+Write U=G(x) where x=ξ·e. Each reciprocal power is strictly convex on [−1,1]. G′ is strictly increasing, G′(1)>0, and G′(−1)=0 exactly at p/(1−p)=A^k/B^k, equivalent to q_c=tanh((d+2)atanh r). The angular derivative vanishes at both poles and otherwise exactly at roots of G′. If G′(−1)<0 the poles are strict maxima and the unique interior critical coordinate is the global minimizing latitude, at two points on the circle and a (d−2)-sphere otherwise. If G′(−1)≥0 the profile is strictly increasing off the endpoint; the weak pole is a minimum, and is nondegenerate unless equality holds. The height difference has the sign of q. Solving G′=0 gives a−bx₀=2at/(1+t), a+bx₀=2a/(1+t); the terms combine as t^(k−γ)+1=1+t, yielding the stated valley value. The endpoint values follow directly, and inversion of the strictly increasing threshold gives the stated r_c and its dimension asymptotic. For δ=q_c−q, put D=cγb(A^(−k)+B^(−k))/2 and E=cγkb²(A+B)/(AB(A^k+B^k)); then G′(−1)=−Dδ and G″(−1) at threshold is E>0. The implicit root shift is (D/E)δ+O(δ²), the quadratic contrast is (D²/(2E))δ²+O(δ³), and 1−cos θ=θ²/2+O(θ⁴) gives the angular distance and the threshold term (E/8)θ⁴. These are the printed constants, at fixed d,r, and include p=1/2 and threshold equality. RESULT.md lines 66–106 are supported by this analytic reconstruction. CHECK.py was inspected without running the submitted numerical tests.
 
-Golzy–Markatou's 2018 full preprint defines and studies spherical Poisson kernel mixtures, proving identifiability and algorithm convergence, but its main text and appended proofs do not state this antipodal two-source sharp modal threshold or critical degeneration. Došlá's 2009 full article gives general modality criteria and explicit *line-Cauchy* mixtures, not the spherical Poisson antipodal critical parameter formula, full critical locus or quantitative sharp birth coefficients. Related published results indexed under two-source Poisson, wrapped Cauchy and spherical mixture modality were searched, as were semantic research records for antipodal Poisson mixtures, angular peaks and critical radius equivalents. No equivalent or dominating result was found among checked materials; an unindexed historical exact calculation is a genuine remaining risk, not ruled out by search absence. A general two-component line-mixture criterion is acknowledged; the new object and exact dimension-family formula are compared on their mathematical consequences, not just titles.
+## originality
 
-## Value — PASS
+PASS
 
-The number and location of peaks of a positive harmonic-measure superposition controls whether two opposing interior poles appear separately as boundary modes. The exact dimension-dependent separating radius, entire critical-point locus, phase boundary, and sharp contrast/angle exponents constitute a complete natural classification for the smallest nontrivial spherical two-source model. The factor \(d+2\) governs the resolution threshold uniformly across all dimensions and gives a sharp inverse-dimensional resolution scaling. This supplies structural and quantitative information beyond a numerical example or routine isolated bound. No general clustering accuracy, non-antipodal configuration, or broader Poisson-mixture theorem is asserted.
+The known Poisson-kernel model and its wrapped-Cauchy representation in d=2 are credited. The bounded literature comparison supports as distinct the two-antipodal angular classification, closed threshold and valley formulas, and explicit weak-peak collapse constants across all indicated dimensions. Nearby same-day results on other point configurations are not treated as nonexistent or presumed later; their mathematics differs. The identity of the frozen record with its own catalogue listing is not independent prior evidence.
 
-## Limitations and closest literature
+## value
 
-The exact solution assumes equal source radii and antipodality. Publication priority cannot be established solely by searches; older spherical-mixture literature may contain an unindexed reformulation. The 2018 Golzy–Markatou preprint and 2009 Došlá article were inspected in their public full-text versions, including the relevant mathematical sections, and the generality/limitations of their implications were compared. A separate human audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two distinct source atoms need not create two detectable angular modes. This natural exact classification says precisely how a weaker source loses its peak, how increasing dimension changes the resolution threshold, and on what angular and contrast scales the peak becomes hard to distinguish. The quantitative critical constants and the latitude degeneracy give more information than component identifiability or a one-off numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

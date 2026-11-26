@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has a complete finite-state generator proof: the one-bond geometric-sum identities show that every clockwise and counterclockwise rate maps with the same \(t^{2-2K}\) factor under the specified involution. All forbidden hops, diagonal holding rates, arbitrary nonnegative left-bias factor, and endpoint particle sectors are included. Marked path laws, spectral scale and mixing times follow from standard finite-state Markov semigroup conjugacy; the independent exact-rational enumerator passed 90,832 marked transition checks. The arithmetic tests do not stand in for the all-parameter proof.
+PASS
 
-## Originality — PASS (qualified)
+Checked the published rate convention. Combining complement with reflection sends a marked bond to the reflected bond with its orientation unchanged and changes old source/target occupations (a,b) to (K−b,K−a). Using [K]_t−[b]_t=t^b[K−b]_t and the reciprocal finite sum, the transformed rate is exactly t^(2−2K) times the original. The same direction-specific factor 1 or q multiplies both rates, including q=0, and the forbidden-hop zeros match. Summation gives the diagonal, so the generator proof works also in the one-state sectors. Positive scalar multiplication and permutation give the spectral, semigroup and path-law statements, and relabeling the successful marks gives the current and jump-count identities without a sign change. At q=0 the model is still irreducible within each nontrivial sector: a legal backward adjacent move can be effected by one forward hop along each arc of the complementary directed path. At empty intermediate sites do the arrival first, at full ones the departure first; these local precedence constraints along a path have no cycle. The allowed undirected nearest-neighbor transfers connect the sector. Thus stationary laws are uniquely transported, and the worst-start total-variation distance at time s is the original one at t^(2−2K)s, giving the inverse time factor for mixing. Frozen exact script read as supporting evidence, not executed.
 
-The primary Ayyer–Misra paper gives these rates and two individual stationary-law symmetries, while expressly distinguishing each from a dynamical isomorphism (arXiv:2310.03343, Sections 2 and 3.3). A published result on the same model gives stationary current asymmetry *without* a reciprocal-parameter generator conjugacy; generic misanthrope factorization similarly does not supply a pathwise transformation. Searches of published mathematical records, relevant literature and accessible prior research claims yielded no stronger covering statement. The exact identity is algebraically accessible from published model definitions, so an implicit earlier observation remains a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a process-level structural symmetry relating different parameter and particle-number sectors, not a relabeling of an equilibrium formula. It recovers an exact time-rescaled isomorphism from two transformations known individually to fail dynamically, and transfers spectra, relaxation, transition probabilities and complete marked current fluctuations, which are not determined by the known stationary weight or mean-current laws. The family is the entire finite homogeneous deformed-exclusion model, not a selected small numerical slice.
+The distinct established claim is complementary-sector marked generator conjugacy at reciprocal deformation, including its exact deterministic clock. The published stationary symmetries and all standard consequences of generator conjugacy receive no independent novelty credit. The rate calculation is short but establishes a stronger dynamic equivalence not supplied by composing equalities of stationary weights.
 
-## Scientific limits
+## value
 
-No claim is made for open reservoirs or site-dependent rates, for the equality of complementary currents at unchanged \(t\), or for explicit numerical spectra. Independent literature priority assessment and independent proof audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural motivating gap is between two known stationary symmetries and what happens away from stationarity. The simultaneous complement and reflection with reciprocal t recovers the complete finite dynamics, including directional current fluctuations at any time, and relates sectors and relaxation clocks before any diagonalization or stochastic asymptotics. This is a useful exact structural equivalence, rather than a restatement of the equilibrium invariances or a numerical special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:34:46.296563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–26,28–103",
+        "VERIFICATION.md:19–25",
+        "check.py (frozen source, not executed)",
+        "Fresh exhaustive bounded edge-history enumeration for N=4–8"
+      ],
+      "rationale": "After the first attachment, degree-two vertices are nonadjacent; an attachment promotes any such endpoint and creates one new degree-two vertex. With M=2N−3, incidence probabilities for the root, a degree-two vertex and a degree-two root neighbor are D/M, 2L/M and 2K/M. For a root incident edge to have a degree-two endpoint, it either joins a degree-two root neighbor, or the root itself has degree two, accounting for K+2J rather than K. The root stays of degree two with probability 1−2/M at each step while J=1; starting at P(J_4=1)=1/3 gives E J_N=1/(2N−5). At N=4, the root has degree three and two degree-two neighbors in two of three histories, and degree two and no such neighbors otherwise; L_4=2 deterministically. The linear recurrences for μ, ℓ and k give the displayed closed forms by substitution and that base. Expand Cov(D+I,L+1−C). Conditional expectations give Cov(D,1−C)=−2c/M and Cov(I,L)=c/M, so together with Cov(D,L) these terms give (1−1/M)c. The remaining term is Cov(I,1−C)=2μℓ/M²−(k+2EJ)/M; substitution gives the exact forcing. The lower polynomial 16N²−124N+258 is positive and increasing on integers N≥4. Dividing the recurrence by μ_(N+1) produces a convex update toward a target tending to 1/12 with divergent total update weight, giving c_N/√N→√π/12. The marginal scales also follow directly: E[D_N(D_N+1)]=2M by a telescoping recurrence, so Var(D_N)∼(4−π)N; total conditional variance for L gives v_(N+1)=(1−4/M)v_N+2ℓ/M−4ℓ²/M². Since ℓ/M→1/4, averaging for v_N/N has step weight asymptotic to 3/N and target 1/12. These yield the stated correlation constant. Fresh exact enumeration of all labelled histories (extend each history along each current edge, with equal weight at fixed N) through N=8 gave covariances 0, 2/75, 46/735, 94/945, 1030/7623 at N=4–8, matching the recurrence. The frozen checker was not run.",
+      "residual_risks": [
+        "Enumeration checks only the finite range and is not the argument for positivity or the asymptotic. Model is uniform over edges, not vertices and edges together; degree-two vertices are not ordinary graph leaves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest same-model paper is credited in RESULT.md:105–106,113 with Appendix C marginal means and variances, studied separately; primary passage lookups and the HTML alternative timed out. The RRSC indexed statements describe the degree law or primordial-degree limit under a different vertex-or-edge rule."
+        ],
+        "reasoning": "Separate marginal results cannot determine the mixed moment, and results for vertex-or-edge selection do not specialize just by relabeling stages. No usable general covariance result dominating this process surfaced in the listed evidence.",
+        "searches": [
+          "Krapivsky Lucas Random Recursive Simplicial Complexes HSC homogeneous edge attachment primordial degree covariance degree-two vertices joint moment 2608.26547",
+          "arXiv:2608.26547 Appendix C (129)–(156)",
+          "Resultary RRSC records ending 95de61bf8b42 and 8f9cb22b4d0c"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:105–120",
+        "Krapivsky–Lucas arXiv:2608.26547 (frozen citation and search identification)",
+        "Resultary records ending a3885e62cb19, 95de61bf8b42 and 8f9cb22b4d0c (indexed claims)",
+        "Hartle–Krapivsky, Janson and Cooper–Uehara (scope from frozen citations, not independently verified full texts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model marginal updates do not supply E[I(1−C)|G]=(D−K−2J)/M, the mixed-step term coupling the selected edge with both statistics. The tree statement involves a different probability of changing the boundary in the same attachment that hits the root."
+        ],
+        "reasoning": "It is the new root-neighbor closure and root-degree-two exception, not substitution into marginal asymptotics or import of the analogous tree exponent, that produce the exact recurrence. Once covariance and marginal variances are known, the correlation consequence is routine and not a separate originality claim.",
+        "searches": [
+          "RESULT.md:29–100 versus 105–120",
+          "arXiv:2608.26547 Appendix C",
+          "arXiv:2602.01021",
+          "Resultary tree covariance record ending a3885e62cb19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct exact-model match was the assigned record itself. The distinct tree record states positive covariance of the oldest hub's degree with global degree-one leaf count and asymptotic 2√n/(3√π)."
+        ],
+        "reasoning": "This is a genuine thematic predecessor, not an equivalent formulation: one new edge versus two, degree-one versus degree-two boundary, and different joint increments and coefficient. The self-match does not establish priority.",
+        "searches": [
+          "Resultary: uniform edge attachment HSC(2) covariance primordial degree degree-two vertices",
+          "Resultary: exact recurrence Cov(D_N,L_N) uniform edge attachment triangles",
+          "Resultary record ending a3885e62cb19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact HSC(2) covariance table appeared among the displayed indexed matches. The rational small-N table obtainable from the frozen checker and the independent enumeration are tests of this finding, not prior entries."
+        ],
+        "reasoning": "The invariant is a joint statistic by process size. A table of degree frequencies or individual degree-two counts would lack the paired observable and cannot replace the covariance result.",
+        "searches": [
+          "Resultary: exact recurrence Cov(D_N,L_N) uniform edge attachment triangles",
+          "RESULT.md:4–21,102–103; VERIFICATION.md:21–25"
+        ]
+      },
+      "rationale": "The supported increment is the exact mixed covariance, its sign and its leading constant in the fixed HSC(2) growth process. The model and marginals are credited. A close analogous covariance in a preferential-attachment tree is acknowledged; neither that indexed theorem nor the available descriptions of the same-model literature give this mixed statistic. Full-text access limitations remain.",
+      "residual_risks": [
+        "Appendix C and the strongest tree analogue could not be independently retrieved in full; exact coverage in those texts or a broader theorem about attachment remains possible. Failed access is not evidence against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model and marginal formulas credited; no paper-wide negative conclusion from failed access",
+          "evidence": [
+            "RESULT.md:105–106,113 identifies the same edge process and separate marginal calculations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.26547",
+          "material_read": "Search identification and frozen characterization of Appendix C, eqs. (129)–(156); no independent primary passage retrieved",
+          "method": "Targeted literature lookup, OA full-text query and lawful arXiv HTML alternate",
+          "title": "Random Recursive Simplicial Complexes",
+          "trigger": "Exact same HSC(2) process and both observables"
+        },
+        {
+          "assessment": "Strong thematic precedent; distinct model, boundary and coefficient in available statement",
+          "evidence": [
+            "One-edge BA tree, degree-one leaves, asymptotic 2√n/(3√π)"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "material_read": "Indexed statement; full mirror unavailable",
+          "method": "Resultary search and targeted mirror access attempt",
+          "title": "Oldest hub degree has positive square-root covariance with leaf count",
+          "trigger": "Very similar oldest-hub/whole-boundary joint statistic and growth exponent"
+        },
+        {
+          "assessment": "The cited comparison is a one-edge tree, not this two-complex",
+          "evidence": [
+            "Single-edge attachment and a leaf statistic, per RESULT.md:108"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.01021",
+          "material_read": "Frozen description at RESULT.md:108 and reference; no full text retrieved",
+          "method": "OA lookup attempted",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Relationships between degree and leaf statistics under preferential attachment"
+        },
+        {
+          "assessment": "Different attachment rule and marginal degree law",
+          "evidence": [
+            "RRSC(2) degree distribution, not HSC(2) primordial-degree/degree-two-count covariance"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-complete-degree-law-of-the-two-dimensional-random-recursive--95de61bf8b42",
+          "material_read": "Indexed statement",
+          "method": "Resultary search",
+          "title": "The complete degree law of the two-dimensional random recursive simplicial complex",
+          "trigger": "Candidate same-dimensional simplicial-complex comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–21,29–51,69–100"
+      ],
+      "rationale": "Measuring the oldest vertex jointly with the global degree-two boundary answers a natural dependence question that both marginals leave open. The exact finite positive sign and the growing covariance with decaying correlation distinguish absolute dependence scale from normalized dependence. The special mixed-incidence correction also has structural content; omission changes finite covariances.",
+      "residual_risks": [
+        "No joint distribution, multivariate limit theorem, or other attachment model is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

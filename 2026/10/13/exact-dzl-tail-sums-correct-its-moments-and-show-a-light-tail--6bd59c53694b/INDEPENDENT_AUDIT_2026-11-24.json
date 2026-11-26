@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:25.507938Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write z=e^(−μ) and a=μ/[2(1+μ)]. The defining PMF equals (b+c y)z^y, where b=1−(1+a)z>0 by e^μ>1+μ and c=a(1−z)>0. Hence the difference telescopes to total mass 1 and P(Y>=k)=(1+ak)z^k. Summing the nonnegative increments of k^r gives the raw moment identity; the weights 1 and 2k−1 for r=1,2 with the three elementary geometric sums give the printed corrected moments. The PGF equals b/(1−zs)+c zs/(1−zs)^2, algebraically the frozen form; c>0 leaves an uncancelled pole of order two. Equivalently p_y~c y z^y, so the MGF converges for t<μ and its terms do not tend to zero at or above μ. At μ=1 independent direct summation gives mean 0.8121451054212745, second raw moment 2.0253494665568038 and variance 1.3657697942970708 (rounding). Reading the original PDF and transcribing Eqs. (18), (21), (22) gives 0.4904943422160591, 1.5084302478481624 and 1.2678455481021979 respectively; they cannot be alternate forms of the PMF moments. `python /workspace/audit_checks_1_5.py 2` independently sums PMF weights and verifies the corrected formulas. The five claimed Table 1 rows at μ=0.5,0.8,1,1.5,2.5 agree at printed precision. The μ=0.1 row is not recovered (even the printed mean 14.024 differs from 14.0500005); the frozen claim scopes the check to selected rows, not the whole table. The exponential-moment conclusion uses the stipulated standard probability meaning of light-tailed, not a claim about informal shape comparisons or larger kurtosis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard tail summation and exponential convergence give the needed facts as tools. The original abstract uses 'heavy-tailed behavior' and p. 7 relates 'heavier tails' to rising kurtosis; its own survival is a linear polynomial times an exponential.",
+          "The matching EDBuE record corrects divergent printed moment series for a different survival law and derives MGF boundary t<−log θ, not the DZL source-specific discrepancies."
+        ],
+        "reasoning": "No new generic summation or tail criterion is claimed. Broader standard formulas provide the route to the correction, but do not constitute an earlier accounting of these DZL equation and table conflicts. The related EDBuE item is an analogue, not an implication about the DZL law or its published statements.",
+        "searches": [
+          "Original Alotaibi–Elshahhat PDF p. 1 abstract, p. 4 distribution, pp. 5–7 moments and tail interpretation",
+          "Resultary EDBuE correction record 84b71ec57d7a"
+        ]
+      },
+      "checked_sources": [
+        "Alotaibi and Elshahhat, Mathematics 14 (2026), 397, DOI 10.3390/math14030397, official full PDF relevant passages",
+        "Resultary 84b71ec57d7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior PMF already implies the corrected moments and positive exponential moments. But the same paper's explicitly proposed Eq. (18) fails already at μ=1, Eq. (21) is not the second raw moment, and Eq. (22) is not its variance. In the formal MGF sense the implication from the PMF is incompatible with a heavy-tail characterization.",
+          "Neither the EDBuE correction nor generic degree-one exponential tails identify those source-specific analytic versus numeric conflicts."
+        ],
+        "reasoning": "Acceptance is for identifying and resolving consequential errors in the cited model paper, not for treating routine transform or moment identities following from its PMF as independently novel.",
+        "searches": [
+          "Alotaibi–Elshahhat PDF p. 4 Eqs. (3)–(5), p. 6 Eqs. (15)–(22), p. 7 Table 1 and tail language",
+          "Resultary 84b71ec57d7a Finding compared by law and formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distribution can be expressed by the survival difference or a positive linear-polynomial factor times z^y. In Eq. (15) the source shifts the survival to k+1; Eq. (16) uses μ/(1+μ) instead of μ/[2(1+μ)]. Eq. (21) subtracts the displayed mean square despite its raw-moment label, and Eq. (22) subtracts it again.",
+          "The numerical difference at μ=1 rules out algebraic equivalence after reconciling lattice survival conventions."
+        ],
+        "reasoning": "For a nonnegative lattice variable the relevant tail at k is P(Y>=k), not P(Y>k). Applying it to the precise source-defined PMF is corrective rather than a restatement of the source's shifted moment formulas.",
+        "searches": [
+          "Resultary: DOI 10.3390/math14030397 and DZL moment correction aliases",
+          "Resultary: Exact DZL tail-sums correct its moments and show a light tail",
+          "Original Alotaibi–Elshahhat PDF, Eqs. (3)–(5) and (15)–(22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 at μ=1 prints 0.8121 and 1.3658, corroborating the corrected mean and variance, not the displayed equations. Four additional specified rows agree; the μ=0.1 mean is a counterexample to agreement of the entire table.",
+          "The bounded Resultary results did not supply a matching DZL correction; the closest actual checked statement was the EDBuE result."
+        ],
+        "reasoning": "Selected matching rounded entries do not supply corrected analytic identities, the transform boundary, or the diagnosis of the equation/table inconsistency. Failure to obtain a corrigendum search result cannot rule out a correction.",
+        "searches": [
+          "Original paper DOI 10.3390/math14030397, Table 1 p. 7",
+          "Resultary searches by DOI, finding title and DZL moment correction",
+          "Public literature search by DOI and corrigendum (unavailable)"
+        ]
+      },
+      "rationale": "The supported distinct claim is a source-specific correction: the primary paper's analytic moments contradict its own defining PMF and selected numerical results, and its advertised heavy-tail language needs the formal tail qualification. The general tail-sum and geometric-series techniques are not new. No already corrected DZL statement was identified by the bounded checks; the corrigendum lookup was unavailable and does not count as a negative result.",
+      "residual_risks": [
+        "A publisher, author, or unindexed corrigendum could exist; the public corrigendum query was unavailable and publisher HTML was inaccessible, though the original PDF was accessible. No whole-table or higher-moment validation is asserted. The PDF extraction of the μ=0.1 variance cell is not relied upon because its displayed mean alone excludes agreement of that row."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Core correction confirmed; only selected rows are corroborated",
+          "evidence": "The survival coefficient in the definition includes the factor 2; the later displayed sums shift the argument and omit that factor. Eq. (21) and then Eq. (22) each subtract the squared displayed mean. Table 1 reports 0.8121 and 1.3658 at μ=1, and prose invokes heavy-tailed behavior or heavier tails.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-14-00397/article_deploy/mathematics-14-00397.pdf",
+          "material_read": "p. 1 abstract; p. 4 Eqs. (3)–(5), offset 18400; pp. 5–6 moment construction and Eqs. (15)–(22), offsets 31000 and 34800; p. 7 Table 1 and kurtosis discussion, offset 40940",
+          "method": "Lawful publisher PDF, bounded original formula and table passages; numerical comparison against direct PMF summation",
+          "title": "A New Discrete Model of Lindley Families: Theory, Inference, and Real-World Reliability Analysis",
+          "trigger": "Defining paper and exact passages being corrected"
+        },
+        {
+          "assessment": "Methodological analogue, different model and correction; same-day date does not establish order",
+          "evidence": "Treats EDBuE, whose original moment series and whose boundary t<−log θ differ from the DZL equation/table conflict and boundary t<μ.",
+          "identifier_or_url": "Resultary 84b71ec57d7a",
+          "material_read": "Local RESULT.md Finding, model and corrected formulas",
+          "method": "Published-record local mirror",
+          "title": "Correct tail-sum moments expose the EDBuE light-tail boundary",
+          "trigger": "Closest matching title, technique, and tail-boundary correction in indexed scientific results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction resolves a large numerical disagreement in the first moment and incompatible second-moment/variance prescriptions for a recently proposed distribution. Those errors matter for users calibrating or interpreting the model; the exponential-moment cutoff also distinguishes formal tail behavior from finite-range skewness or kurtosis. The contribution is the explicit, verified correction of the underlying model paper, not a routine derivation presented as a new general theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

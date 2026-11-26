@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:11:45.198556Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the abstract probability model, independence and the Poisson zero- and one-count masses give q_s(x)=1−s+s(1+x)e^(−x) and total failure q_s(B/m)^m. Taking the negative log gives B f_s(B/m), with f_s(x)=ℓ_s(x)/x and ℓ_s=−log q_s. Differentiation gives ℓ_s'=sx e^(−x)/q_s, and the sign of ℓ_s'' is that of (1−s)(1−x)+s e^(−x), strictly decreasing from 1 through its only zero above 1. Therefore N=xℓ_s'−ℓ_s starts at 0, rises, then falls strictly to log(1−s)<0 and has exactly one positive zero ξ_s; f_s'=N/x². The monotone sides of the peak imply strict adjacent-integer bracketing after clamping at one. At B=jξ_s the j-count wins and at B=(j+1)ξ_s the (j+1)-count wins; between these endpoints the two per-budget values are respectively strictly decreasing and increasing, so there is one crossing, with no nonadjacent ties. The brackets are disjoint, establish the complete step order, and give the claimed asymptotic and strict count error. For the first tie, put A=e^t−1−t at B=2t. Expansion gives P₂−P₁=s e^(−2t)[(1−s)A²−t²], so A/t=1/√(1−s); A/t increases strictly from zero to infinity. The stated degenerate s=0 and s=1 cases also check. These are equal expected trial sizes, not fixed total counts or unequal splitting. Replay: frozen RESULT.md lines 30–55; VERIFICATION.md and check.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6c42718054c6 gives a closely analogous staircase of ordered crossings for the expected number of viable habitats, stated for quorum r≥3.",
+          "Frozen RESULT.md lines 61–67 reports related stochastic and experimental work under different objectives, dynamics or empirical designs. Primary-text recovery for those articles did not yield decisive passages, so this characterization is not independently certified."
+        ],
+        "reasoning": "The generic crossing argument transfers whenever a suitable normalized payoff has a strict single peak. The inspected expectation theorem does not establish that peak for a negative log failure function, nor the exact first transition in the gated probability problem.",
+        "searches": [
+          "Resultary 6c42718054c6, Finding and assumptions",
+          "Grevstad 1999, Shea–Possingham DOI 10.1046/j.1365-2664.2000.00467.x, Koontz et al. DOI 10.1002/ece3.4226, Bajeux et al. DOI 10.1016/j.jtbi.2019.03.012"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9af56973f262, 6c42718054c6, ae3e6f6f2f0f and b5700e6d7b92",
+        "Grevstad, Shea–Possingham, Koontz and Bajeux primary retrievals (limited or unavailable)",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader-looking staircase analogue optimizes a different per-budget payoff and does not include the two-founder independently gated log-failure curve.",
+          "The closest gated two-site record allows changing both doses at fixed site count; it gives neither the strict log-failure-per-dose maximum nor intersections for all adjacent counts here."
+        ],
+        "reasoning": "Neither matching qualitative optima nor reusing the adjacent-peak comparison proves the single curvature change in the audited objective or the explicit first-tie equation. The model-specific calculation and resulting complete equality classification are the distinct content.",
+        "searches": [
+          "Resultary 6c42718054c6 at offsets 545 and 688",
+          "Resultary ae3e6f6f2f0f at offsets 316 and 1465",
+          "Frozen RESULT.md lines 36–55"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing at-least-one success is exactly maximizing a sum of negative log failure probabilities, not a sum of success probabilities.",
+          "ae3e6f6f2f0f uses essentially the same per-site gated two-founder probability, but fixes two sites and permits unequal effort. b5700e6d7b92 treats a two-date survival proxy and allocation switch, not all positive integer counts."
+        ],
+        "reasoning": "The log-failure formulation is an exact alias under independence. The two-site variants have different choice sets even where the per-trial success function agrees; unequal-split behavior neither refutes nor supplies this equal-mean count law.",
+        "searches": [
+          "Resultary: independent two-founder Poisson receptivity optimal count staircase",
+          "Resultary ae3e6f6f2f0f and b5700e6d7b92"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9af56973f262 is the self-record. The distinct catalogue hits cover different optimization domains or objectives.",
+          "The literature lookup located PMC6145030, but alternate retrievals did not yield readable primary passages evaluating the exact model."
+        ],
+        "reasoning": "A numerical release-number grid or a single two-site transition would not exhaust this all-budget law. No inspected independent threshold table or statement covers it; the external access limits prevent conclusions about uninspected tables.",
+        "searches": [
+          "Resultary exact two-founder staircase, same-law allocation, and nearby Poisson activation thresholds",
+          "Koontz Oldfather Melbourne Hufbauer Parsing propagule pressure 10.1002/ece3.4226 PMC full text Allee stochastic simulations"
+        ]
+      },
+      "rationale": "The supported distinction is the exact all-budget adjacent-crossing law and first transition for this equal-mean, independently gated Poisson at-least-one objective. Qualitative intermediate optima and a related count staircase are not claimed as new. The closely matching per-site law with unequal splits and the closely matching staircase with an expected-number objective were compared separately. Older ecological priority remains provisional given access limits.",
+      "residual_risks": [
+        "Historical priority against full Grevstad and other unavailable primary texts remains unresolved.",
+        "The comparable same-day expectation staircase shares the abstract monotonic crossing mechanism. No priority assignment follows from the common date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related count-switch theorem with a different objective and quorum range",
+          "evidence": [
+            "Maximizes expected number of viable habitats and proves ordered consecutive crossings."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6",
+          "material_read": "Finding, objective and r≥3 assumption",
+          "method": "Local mirror RESULT.md offsets 545 and 688",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Closest structural staircase"
+        },
+        {
+          "assessment": "Fixed two sites and unequal splitting; not a count staircase",
+          "evidence": [
+            "Bernoulli suitability, Poisson count and a two-arrival threshold are present, but the decision variable is effort allocation between two sites."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f",
+          "material_read": "Finding and two-site allocation assumptions",
+          "method": "Local mirror RESULT.md offsets 316 and 1465",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited habitats",
+          "trigger": "Closest per-site probability law"
+        },
+        {
+          "assessment": "Related single switch under a distinct success proxy and decision domain",
+          "evidence": [
+            "Two dates are fixed and the resource can be reallocated; the claim is not a variable-count classification."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92",
+          "material_read": "Two-date allocation comparison",
+          "method": "Local mirror RESULT.md offset 3115",
+          "title": "A single budget switch from concentrated to equal two-date introductions",
+          "trigger": "Budget-dependent exact switch with a two-founder proxy"
+        },
+        {
+          "assessment": "Material unresolved priority check; no inference from inaccessibility",
+          "evidence": [
+            "Frozen source describes a qualitative stochastic-simulation result; publisher retrieval was blocked."
+          ],
+          "identifier_or_url": "DOI 10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2",
+          "material_read": "Only frozen RESULT.md lines 63–71 characterization; no primary theorem recovered",
+          "method": "DOI/publisher access attempt",
+          "title": "Factors influencing the chance of population establishment: Implications for release strategies in biocontrol",
+          "trigger": "Older intermediate optimum under variability and cooperation"
+        },
+        {
+          "assessment": "No primary result read; overlap not excluded",
+          "evidence": [
+            "Frozen source reports a distinct sigmoid establishment law and evolving states; retrieval was blocked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2664.2000.00467.x",
+          "material_read": "Only frozen RESULT.md lines 63 and 73 characterization",
+          "method": "DOI/publisher access attempt",
+          "title": "Optimal release strategies for biological control agents: An application of stochastic dynamic programming to population management",
+          "trigger": "Potential earlier exact release-count optimization"
+        },
+        {
+          "assessment": "Potential empirical comparison, not independently adjudicated at theorem level",
+          "evidence": [
+            "Publisher path blocked and lawful alternate routes yielded no usable passages. Frozen RESULT.md reports empirical trials and demographic simulations."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6145030/",
+          "material_read": "Bibliographic identification and frozen source's description only, not primary methods or results",
+          "method": "DOI/publisher, lawful PMC article and Europe PMC retrieval attempts",
+          "title": "Parsing propagule pressure: Number, not size, of introductions drives colonization success in a novel environment",
+          "trigger": "Main motivation for varying episode count at fixed total resources"
+        },
+        {
+          "assessment": "No primary result recovered",
+          "evidence": [
+            "The located citation addresses time to establishment; no available theorem-level comparison establishes or excludes coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2019.03.012",
+          "material_read": "Frozen reference and characterization only",
+          "method": "DOI and ScienceDirect retrieval attempts",
+          "title": "Influence of components of propagule pressure, Allee effects, and stochasticity on time to establish introduced populations",
+          "trigger": "Possible related stochastic threshold law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the abstract equal-mean stochastic trial problem, a continuous intermediate optimum alone cannot tell which integer trial count wins at a given budget. Strictly ordered unique switches, the complete equality classification, and the exact first transition answer that finite-budget question without having to check arbitrarily many counts. The result is a mathematical benchmark for the independent model, not advice for real-world introductions or a claim about unequal allocations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

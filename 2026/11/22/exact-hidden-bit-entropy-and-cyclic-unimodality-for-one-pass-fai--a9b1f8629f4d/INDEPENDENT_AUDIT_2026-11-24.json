@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:48:04.983037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a proper selected subset, each new transposition merges two permutation cycles, so the final permutation's cycle supports equal the forest components. Only distinct spanning paths can therefore collide among proper subsets. The full cycle word splits the spanning-tree permutation into two cycles at its last switch, so it can collide only with a word missing two edges. Both types of comparison cancel to t_j U = U t_i, with U the intervening product. Each component of the cycle minus those two edges contains one endpoint of each deleted edge; transport within each component must cross every path edge, hence the omitted edges must be the first and last. With every path edge used once, each starting endpoint reaches its opposite endpoint exactly when the traversals are in increasing chronological order on both arcs. This covers the zero-edge path case when the extremes touch and k=3. It yields precisely two distinct size-two fibres (the two output cycle counts differ). Interleaving the two increasing arcs gives k*2^(k-2) schedules. Doubling two masses gives Shannon loss 4/2^k, max mass 2/2^k, and collision sum (2^k+4)/2^(2k); the order average loses exactly 1/(k-1)! bits. Forest injectivity also follows from the component partition. Scope is distinct transpositions used once and fair independent bits; only the last average needs a uniform public order. The all-k proof is decisive. The frozen checker was inspected, not run: its displayed counter totals 277398 exhaustive groups +125 sampled orders +246 forest orders =277769; the forest masks are inputs to one check per order, not separate counted groups.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 restates Dénes's characterization of trees by all full edge orderings yielding a full cycle.",
+          "Mironov studies conditional mixing for a public random-pair schedule with independent hidden exchange bits."
+        ],
+        "reasoning": "The tree theorem supplies cycle supports for proper subsets, not their cross-subset equality. A repeated-switch mixing theorem on the broad random-pair model is not an exact fibre or entropy theorem in the distinct one-use cycle regime.",
+        "searches": [
+          "Tsujie–Uchiumi arXiv:2211.05422, Theorem 1.2",
+          "Mironov arXiv:2611.03959v1, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary a9b1f8629f4d",
+        "Cameron–Stott arXiv:2010.14902",
+        "Tsujie–Uchiumi arXiv:2211.05422",
+        "Mironov arXiv:2611.03959v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's RESULT.md lines 26–42 use the classical forest component invariant, then separately cancel products and enforce both directed path traversals."
+        ],
+        "reasoning": "The invariant leaves k spanning paths with identical supports and does not determine their equalities. The new comparison resolves their equality and the second type of collision simultaneously; the fair-bit entropy conclusions follow from that classification, not from the classical lemma or mixing alone.",
+        "searches": [
+          "Cameron–Stott Theorem 2.3",
+          "Tsujie–Uchiumi Theorem 1.2",
+          "Mironov arXiv:2611.03959v1 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron–Stott p. 3 defines multiplicity by varying the full edge order of a fixed tree; Theorem 2.3 counts distinct full products of a tree as the product of degree factorials."
+        ],
+        "reasoning": "Transposition factorization multiplicity is a plausible alias, but order variation on a fixed tree is not the map varying edge subsets in one cycle schedule. In particular it does not compare products from two distinct spanning trees or the full cycle and a two-edge omission.",
+        "searches": [
+          "Resultary: fixed-order cycle transposition subword fibres and cyclic unimodality",
+          "Primary search: cycle transposition products and minimal factorizations",
+          "Cameron–Stott arXiv:2010.14902"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching entry a9b1f8629f4d is this very result; its mirrored theorem and collision proof were inspected. No distinct matching entry was established in the bounded lookup."
+        ],
+        "reasoning": "The self-match is not separate scientific coverage or a priority comparison. A table of circular unimodal-order counts, even if available, would not encode bit-string fibres or show that those orders cause ambiguity.",
+        "searches": [
+          "Resultary: fixed-order cycle transposition subword fibres, cyclic unimodality, and entropy"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete fixed-order private-subword fibre classification and resulting conditional entropy law on a simple cycle. The tree-cycle lemma is classical, and the rank-order count and entropy algebra are not asserted as independently new. No inspected distinct result covers the classification or implies it without the additional path-transport argument.",
+      "residual_risks": [
+        "An exact subword-collision criterion under another factorization terminology could be unindexed. The bounded primary search did not provide further results; this is not negative evidence or a priority guarantee.",
+        "Novelty is not claimed for the standalone unimodal permutation count or the elementary entropy identities given the fibres."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not distinct coverage",
+          "evidence": "Same two size-two fibres, increasing-arc criterion, order counts and entropy formulas.",
+          "identifier_or_url": "Resultary a9b1f8629f4d",
+          "material_read": "Mirrored RESULT.md theorem offset 780 onward and proof offsets 5189–6989",
+          "method": "Resultary search and local mirror reading",
+          "title": "Exact hidden-bit entropy and cyclic-unimodality for one-pass fair switching on cycles",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Related, different product map",
+          "evidence": "Counts distinct products when every edge of a fixed tree is used and its order varies.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.14902",
+          "material_read": "p. 3 definition and p. 7 Theorem 2.3 (text offsets 6400 and 16430)",
+          "method": "OA full-text passages",
+          "title": "Trees and cycles",
+          "trigger": "Transposition cycle multiplicities for fixed graphs"
+        },
+        {
+          "assessment": "Classical input, no fixed-order subword comparison in the inspected theorem",
+          "evidence": "Every full edge ordering gives a full cycle iff the graph is a tree.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.05422",
+          "material_read": "p. 2 Theorem 1.2, text offset 4416",
+          "method": "OA full-text passage",
+          "title": "Upper Embeddability of Graphs and Products of Transpositions Associated with Edges",
+          "trigger": "Full product over a graph, including graphs with cycles"
+        },
+        {
+          "assessment": "Related random-switch model, different conclusion and regime",
+          "evidence": "Conditional mixing estimates for publicly chosen random pairs, not the complete fibres of a schedule on one simple cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03959v1",
+          "material_read": "p. 1 model and result, text offsets 455 and 2668",
+          "method": "OA full-text passages",
+          "title": "Mixing Time of the Random-Pair Monte Shuffle",
+          "trigger": "Public switch schedules and hidden fair bits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single cycle is the first connected departure from universally injective one-pass forests. The classification determines exactly which public schedules lose information and which hidden words are ambiguous, rather than giving only an upper bound, an asymptotic mixing estimate, or computed small cases. This is a useful finite boundary result for distinct-switch networks and is not a cryptographic security claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

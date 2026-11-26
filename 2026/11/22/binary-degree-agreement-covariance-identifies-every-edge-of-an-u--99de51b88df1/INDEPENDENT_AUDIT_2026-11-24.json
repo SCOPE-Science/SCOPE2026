@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:47:56.481581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A signed edge difference has masses (a,1−2a,a) with a=p(1−p)>0 and a≤1/4. At a nonedge the two bits use disjoint signed variables; at an edge their only shared variable is the signed difference on that edge, even if the endpoints have common neighbors. Given its value the bits are independent, and the conditional means depend only on its magnitude by symmetry. The variance of the nonzero-magnitude indicator is 2a(1−2a), giving exactly the stated covariance times the product of central-mass gaps. As an independent check on the gap bound, each signed law is a mixture of a point mass at zero and the p=1/2 signed law with mixing weight 4a. Given j active laws, the gap by Vandermonde is C(2j,j)/(4^j(j+1)), positive and decreasing in j with consecutive ratio (2j+1)/(2j+4). Thus the mixed gap is at least b_n for all j≤n−2, with the empty sum included. Under the probability floor, 2a(1−2a)≥a≥ε(1−ε), giving c_n as stated. There are at most n² distinct means in the empirical covariance formula, each obeying Hoeffding for the independent repeat experiments. With accuracy c_n/8, the covariance error is at most 3c_n/8, yielding strict separation at c_n/2 and the stated count 32c_n⁻² log(2n²/δ). Stirling gives the n⁶ factor. This is a sufficient guarantee, not a minimax claim; stable labels and identical per-edge probabilities across the two replicas are essential model assumptions. Inspected RESULT.md, VERIFICATION.md and verify.py as text; the attached finite checks were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first uses induced subgraphs/principal submatrices; the second supplies inhomogeneous independent edges, not reconstruction from bits; the third estimates alignment in correlated graph pairs."
+        ],
+        "reasoning": "More informative graph observations and more general edge probabilities do not supply recovery from this coarsening; each uses a different observation or inference target.",
+        "searches": [
+          "Graph Reconstruction from Random Subgraphs, DOI 10.4230/LIPIcs.ICALP.2022.96",
+          "Inhomogeneous random graphs, arXiv:math/0504589",
+          "Seeded graph matching, arXiv:1304.7844"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3c5511e203cb, 4f959cf417db, b4fe0bc105ae and 84757c3565b5",
+        "arXiv:math/0504589",
+        "arXiv:1304.7844",
+        "DOI 10.4230/LIPIcs.ICALP.2022.96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Raw-degree covariance on an edge is p(1−p); equality-bit covariance additionally depends on the strictly positive central-gap factors at both endpoints. The vertex-threshold formulas use dependent edge retention and invert the real-valued degree covariance."
+        ],
+        "reasoning": "Little is needed to get raw-degree recovery, but taking equality bits is nonlinear: the former formula cannot be applied to the coarsened statistics. Showing both strict gaps and controlling their size are additional steps.",
+        "searches": [
+          "Resultary vertex-threshold records 4f959cf417db and b4fe0bc105ae, and isolation-only record 3c5511e203cb",
+          "Direct comparison with raw-degree covariance in independent bond percolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Isolation-only record 3c5511e203cb uses covariance of site-percolation retained-and-isolated bits and a negative edge sign. The Poisson-binomial record 84757c3565b5 characterizes monotonicity of tilted characteristic functions rather than graph support."
+        ],
+        "reasoning": "Equality of two degrees is a zero test of a signed sum, not an isolation event on marginal retained vertices. The observations and shared randomness differ, and sign change alone cannot equate these laws.",
+        "searches": [
+          "Resultary: degree-agreement covariance, binary percolation tomography, isolation-only tomography",
+          "Resultary: characteristic-function monotonicity of Poisson-binomial laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed exact formulas are the two vertex-threshold matrix laws, the site isolation-bit sign criterion, and the identical frozen result; the latter is not separate coverage."
+        ],
+        "reasoning": "The exact catalogue entries were compared for sampling and observation. A finite list of host covariance matrices would not determine the arbitrary-probability theorem.",
+        "searches": [
+          "Resultary: host-graph reconstruction from degree covariance and covariance tomography for vertex-threshold random subgraphs",
+          "Resultary: isolation-only tomography and binary degree agreement"
+        ]
+      },
+      "rationale": "The strongest inspected covariance tomography precedents recover under a different percolation mechanism or from a different observable. Neither raw-degree covariance nor an old fact about the distribution of a Bernoulli sum establishes the support and recovery guarantee for this equality-only channel. This judgment is bounded, not historical priority.",
+      "residual_risks": [
+        "An equivalent formulation in uninspected literature on collision observations or latent-variable graph recovery remains possible.",
+        "The novelty assessment is for the equality-bit support and its quantitative guarantee, not for conditioning, Bernoulli concentration, or inference from raw degrees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact recovery through a distinct channel",
+          "evidence": "Under site percolation the retained-and-isolated bits have negative covariance on host edges.",
+          "identifier_or_url": "2026/11/8/SCOPE-isolation-only-tomography-and-the-exact-percolation-parameter-am--3c5511e203cb",
+          "material_read": "RESULT.md theorem, text offset 0",
+          "method": "Resultary lookup and matching local mirror",
+          "title": "Isolation-only tomography and the exact percolation parameter ambiguity",
+          "trigger": "Closest binary covariance sign recovery"
+        },
+        {
+          "assessment": "Different mechanism and observable",
+          "evidence": "The full degree covariance obeys 12Σ=Q+Q² under vertex-threshold sampling.",
+          "identifier_or_url": "2026/10/18/SCOPE-host-graph-reconstruction-from-degree-covariance-in-vertex-thres--4f959cf417db",
+          "material_read": "RESULT.md theorem, text offset 0",
+          "method": "Resultary lookup and matching local mirror",
+          "title": "Host-graph reconstruction from degree covariance in vertex-threshold subgraphs",
+          "trigger": "Similar graph covariance inversion"
+        },
+        {
+          "assessment": "Does not cover equality-only replica observations",
+          "evidence": "Uses Στ=aτQ+cτQ² for full degrees under vertex-threshold sampling.",
+          "identifier_or_url": "2026/11/8/SCOPE-covariance-tomography-for-vertex-threshold-random-subgraphs--b4fe0bc105ae",
+          "material_read": "RESULT.md theorem, text offset 0",
+          "method": "Resultary lookup and matching local mirror",
+          "title": "Covariance tomography for vertex-threshold random subgraphs",
+          "trigger": "Generalized threshold reconstruction"
+        },
+        {
+          "assessment": "Related distribution theory, not covariance recovery",
+          "evidence": "Characterizes integer laws through characteristic-function behavior under tilts; does not give the gap bound or the graph statement.",
+          "identifier_or_url": "2026/10/18/SCOPE-finite-strong-characteristic-function-monotonicity-characterizes--84757c3565b5",
+          "material_read": "RESULT.md theorem, text offset 0",
+          "method": "Resultary lookup and matching local mirror",
+          "title": "Finite strong characteristic-function monotonicity characterizes shifted Poisson-binomial laws",
+          "trigger": "Potential Bernoulli-sum gap overlap"
+        },
+        {
+          "assessment": "Observation law differs",
+          "evidence": "Studies samples of random induced subgraphs or principal submatrices.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2022.96",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA passage",
+          "title": "Graph Reconstruction from Random Subgraphs",
+          "trigger": "Prior recovery from partial graph observations"
+        },
+        {
+          "assessment": "Provides the model background",
+          "evidence": "Independent edges with pair-specific probabilities; degree-agreement tomography is not this statement.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0504589",
+          "material_read": "Section 2, equation (2.3), p. 7, text offset 21728",
+          "method": "Primary OA passage",
+          "title": "The Phase Transition in Inhomogeneous Random Graphs",
+          "trigger": "Potential broader independent-edge model"
+        },
+        {
+          "assessment": "Different inference target and observations",
+          "evidence": "Graph pairs and latent label alignment, not edge-support recovery from degree agreements.",
+          "identifier_or_url": "https://arxiv.org/html/1304.7844v4",
+          "material_read": "Section 2.2, text near offset 3500",
+          "method": "Primary OA HTML passage",
+          "title": "Seeded Graph Matching for Correlated Erdős–Rényi Graphs",
+          "trigger": "Potential paired graphs inference overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The observation channel erases degree magnitudes and both edge lists, yet the exact sign pattern of a second-moment statistic still reconstructs an arbitrary labelled host with heterogeneous probabilities. Establishing strictness for every edge and giving a uniform positive margin makes the result useful for lossy graph measurement rather than a restatement of raw-degree covariance. The sample estimate is not asserted optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

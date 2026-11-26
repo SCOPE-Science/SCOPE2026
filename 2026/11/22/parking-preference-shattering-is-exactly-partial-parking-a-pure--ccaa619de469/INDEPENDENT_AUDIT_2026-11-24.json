@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:16:47.646348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54",
+        "Frozen VERIFICATION.md, check_parking.py and check_output.txt, inspected without execution",
+        "Kenyon–Yin, arXiv:2103.17180, §2.1"
+      ],
+      "rationale": "Two queries in a row cannot both be true. For distinct rows, the all-positive pattern and coordinatewise downward closure imply that filling unqueried rows with ones is valid, so the sorted queried targets must obey j_(r)≤n−s+r. At s=n an all-positive witness requires at least one target 1; declaring exactly the target-1 queries false would then leave no preference equal to 1. Conversely for s≤n−1 the partial thresholds are all at least 2, so replacing every target 1 by 2 preserves the sorted partial criterion. Fill unused rows with ones; a true query receives its target, and a false query receives 1 for target >1 or 2 for target 1. This is coordinatewise bounded by the valid clamped tuple and realizes every bit pattern. For n=1 the construction on queries is vacuous and only the empty support survives. For each chosen row set, empty spots in circular parking with n+1 spots give (n+1−s)(n+1)^(s−1) by rotation symmetry; a distinguished vacant spot is never preferred or traversed and cuts the circle into the successful linear case. Binomial summation and removal of s=n yield the closed face polynomial. Appending a new row at target 1 preserves the old thresholds at their shifted indices, so all facets have size n−1. The s=n−1 coefficient and negative evaluation at −1 give the stated facet and reduced Euler numbers. The provided exchange witness is valid: adding one element repeats a row and adding the other gives two targets n. The rank-zero n=1 and uniform rank-one n=2 exceptions follow directly.",
+      "residual_risks": [
+        "The recorded enumeration through n=5 (with supplementary target counts through n=6 and witness checks through n=8) is not an independently rerun or all-size certificate. The proof does not need those finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.1 characterizes which prescribed s target values can be completed and Theorem 2.2 enumerates those ordered partial lists."
+        ],
+        "reasoning": "Completion of specified positives does not enforce any inequalities of the form a_i≠j simultaneously. Coordinatewise downward closure handles many false answers but cannot change a queried 1 downward. An upward substitution exploiting the s≤n−1 threshold is additional, so the checked partial-parking result is not a stronger Boolean classification.",
+        "searches": [
+          "Kenyon–Yin, arXiv:2103.17180, §2.1, Proposition 2.1 and Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Kenyon–Yin arXiv:2103.17180",
+        "Resultary ccaa619de469, 3a70e5b20052, e127590b865a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old criterion yields all-positive feasibility. At s=n, even a full classical target vector has an impossible mixed labeling; at s≤n−1, replacing 1 by 2 safely completes every mixed labeling."
+        ],
+        "reasoning": "The old numerical formula alone cannot distinguish these two regimes. Once the exact shattering equivalence is established the face polynomial is a direct corollary; purity and the exchange obstruction further identify the nature of this complex, not a new count of partial parking functions.",
+        "searches": [
+          "Kenyon–Yin Prop. 2.1 and Thm. 2.2; compared with frozen necessity and sufficiency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary match is the assigned statement. Distinct nearby records give edge-membership queries for deranged matchings or queries of whether two points share a noncrossing block. The focused web lookup returned no useful scholarly match."
+        ],
+        "reasoning": "One-hot support shattering is exactly the preference-query problem. Neither catalogue analogue has the parking language, rowwise value substitution, or same trace relation; the web lookup is bounded, not proof of nonexistence.",
+        "searches": [
+          "Literature: \"parking functions\" \"VC dimension\" shattering preference equality queries Boolean incidence partial parking functions",
+          "Resultary ccaa619de469, 3a70e5b20052 and e127590b865a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kenyon–Yin's exact count is of ordered partial parking functions, not supports realizing every trace. The checked nonself catalogue face enumerations have different ground sets."
+        ],
+        "reasoning": "A face coefficient is obtained from the old count only after proving that all and only the appropriate row placements are shattered and that full-size supports must be deleted. The enumerative consequence is credited as such.",
+        "searches": [
+          "Resultary ccaa619de469, 3a70e5b20052 and e127590b865a",
+          "Kenyon–Yin Theorem 2.2, |PF(m,n)|"
+        ]
+      },
+      "rationale": "The partial-parking criterion and count are established inputs, not new enumerative results. The checked passages do not give the mixed positive/negative Boolean support criterion for the one-hot embedding of classical parking functions. Exact catalogue self-matches are not independent prior results; the closest distinct shattering records concern other concepts and query ground sets. The supported addition is the full trace characterization and its complex consequences.",
+      "residual_risks": [
+        "The focused search did not produce a useful independent source on this exact VC problem. An equivalent formulation as an incidence complex or specialization of a broader shattering theorem could remain unlocated. The earlier source credited for the partial-parking count was not separately retrieved; that count is already credited as known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known partial list input, not full Boolean traces",
+          "evidence": "Sorted preferences bounded by n−m+i; |PF(m,n)|=(n−m+1)(n+1)^(m−1). Count attributed there to an adaptation of Pitman–Stanley.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.17180",
+          "material_read": "§2.1, printed p. 4, offsets 13973–17133, Prop. 2.1 and Thm. 2.2",
+          "method": "Primary PDF passages",
+          "title": "Parking Functions: From Combinatorics to Probability",
+          "trigger": "Same partial completion inequalities and exact count"
+        },
+        {
+          "assessment": "Identical assigned record, not separate evidence",
+          "evidence": "Precisely the support criterion with s≤n−1 and induced complex corollaries.",
+          "identifier_or_url": "2026/11/22/SCOPE-parking-preference-shattering-is-exactly-partial-parking-a-pure--ccaa619de469",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md and frozen text",
+          "title": "Parking-preference shattering is exactly partial parking",
+          "trigger": "Exact semantic hit"
+        },
+        {
+          "assessment": "Different concepts",
+          "evidence": "Edge predicates on perfect matchings of a cocktail-party graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-boolean-shattering-of-deranged-pairings-a-pure-complex--3a70e5b20052",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "Complete Boolean shattering of deranged pairings",
+          "trigger": "Full support criterion and face polynomial"
+        },
+        {
+          "assessment": "Different queries and concepts",
+          "evidence": "Same-block queries on parity-restricted noncrossing partitions and a criterion involving crossing graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-selective-shattering-of-noncrossing-partitions-and-connec--e127590b865a",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "Parity-selective shattering of noncrossing partitions",
+          "trigger": "Related complete shattering analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen classification, face polynomial and exchange proof",
+        "Known partial-parking count and distinct shattering comparisons"
+      ],
+      "rationale": "The theorem identifies every shattered support in a natural Boolean encoding, rather than just bounding the dimension or counting positive completions. In particular it explains the exact obstruction at full size and separates purity from the matroid property. The complete face data and sharp classification are useful for comparison with other preference-based concept classes.",
+      "residual_risks": [
+        "Neither the Euler characteristic nor the exchange calculation classifies homotopy, homology, or online learning dimension; none is needed or claimed here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

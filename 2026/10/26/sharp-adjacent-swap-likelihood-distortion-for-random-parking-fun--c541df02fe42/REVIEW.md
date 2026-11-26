@@ -1,23 +1,21 @@
-# Scientific review: sharp adjacent-swap likelihood distortion
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact probability law \(p_n(\sigma)\propto\prod_j\ell_j(\sigma)\) is independently recoverable by counting permitted parking preferences for each car and is published in Colmenarejo et al. (2020, Proposition 3.3) and Pinsky (2024, Theorem 1). For an adjacent rise at positions \(i,i+1\), the two directly swapped suffix lengths change from \((A,B)\) to \((B-1,1)\). A later suffix length can change only if its value lies strictly between the two swapped values and is a new record beyond position \(i+1\); each such change multiplies the mass by \((j-i)/(j-i-1)\). This yields an exact product identity for every allowed permutation. The elementary bounds on the local factor and telescoping suffix product give the sharp envelopes, with explicit permutations realizing both endpoints. Finite global optimization is reduced to a convex one-variable function. The detailed proof covers \(n=2,3\) and both extreme positions, and makes no unjustified asymptotic inference from the finite checks.
+PASS
 
-Independent direct parking simulation through \(n=5\), complete permutation/swap enumeration through \(n=8\), and 475272 exact assertions in `checker.py` corroborate the formulas and witnesses. These experiments are auxiliary evidence only; the proof covers every \(n\ge2\).
+For a fixed spot order, when car sigma_j arrives, the smaller-labeled cars occupy exactly their designated spots; the allowed preferences for sigma_j run from one past the nearest larger label on its left up to j. This proves the fiber product by induction over arrivals. For a rise a<b at i,i+1, the two old distances A,B satisfy A+1<=B<=i+1 and the two new distances are B-1,1. A later nearest larger predecessor changes only for a value strictly between a and b with no larger entry in the intervening suffix; then its distance increases from j-i-1 to j-i. Thus the local factor is between 1/(i+1) and i/(i+1), and the later factors lie between 1 and their full telescoping product n-i. The increasing order and the stated (2,...,i,1,n,i+1,...,n-1) order realize the respective extremes, including empty prefix or suffix. For the global maximum, t+(n+1)/t-2 sqrt(n+1)=(t-sqrt(n+1))^2/t gives the rounding error; the endpoint and small-n inequalities follow from the exact envelopes. Independent raw preference enumeration through n=5 confirmed both extrema at each position, checking 1, 6, 36 and 240 rising swaps respectively.
 
-## Originality (O): PASS, with a historical-priority caveat
+## originality
 
-Published ingredients **already include** the complete mass formula (Colmenarejo et al., arXiv:2009.01124, Proposition 3.3; Pinsky, arXiv:2404.11529, Theorem 1) and global maximum/minimum masses (Pinsky, Corollary 4). They are not claimed as new. The present statement instead optimizes a *ratio of two masses connected by a particular inversion-creating adjacent swap* simultaneously across all outcome permutations at every position, and identifies its sharp witnesses and worst-case growth. Inspection of the relevant primary full texts found no such adjacent-cover extremal statement. Searches for weak-order equivalents, likelihood-ratio extremizers, and permutation adjacent-transposition parking laws in mathematical literature and research records identified no stronger covering result. This finding is a nontrivial inequality extracted by new case analysis and telescoping, not a restatement of the pointwise mass identity or its global extremizers.
+PASS
 
-Closest comparisons: Pinsky (2024) studies exact mass, marginal last-car location, and records; Colmenarejo et al. (2020) study parking fibers and \(k\)-Naples enumeration; Diaconis–Hicks (2017) study parking preference coordinates; Harris et al. (2022) change the parking rule. Unseen earlier work on adjacent reordering of parking fibers is a residual risk. A missing independent exhaustive priority investigation is not evidence of novelty by itself.
+The mass identity and global atom extrema are known and are not credited as new. The supported distinct claim is the exact mass-ratio envelope on rising adjacent covers, the positionwise witnesses and the resulting global maximum over covers. None of the closest inspected statements gives this optimization; the affected suffix factors must be located and bounded with simultaneous attainment. This is a best-of-knowledge decision.
 
-## Value (V): PASS
+## value
 
-The model has a strongly nonuniform permutation law whose global mode is increasing, making local inversion-change comparisons a natural structural question. The result determines exactly **how far** a single inversion-creating adjacent transposition can increase or decrease mass at each of the \(n-1\) locations, with opposite behavior at the terminal position and sharp amplification of linear order in \(n\). It supplies exact extremizers, the first sample size where monotonicity fails, and the optimal position scale \(i\asymp\sqrt n\). These quantitative effects are not captured by global extremizer formulas or the typical-mass asymptotics; they sharpen the local geometry of a probability measure on permutations.
+PASS
 
-## Restrictions and risk
+Knowing the increasing outcome is the most likely does not tell whether a single new inversion makes a nearby outcome less likely. The exact positionwise envelope gives the first size allowing an increase, distinguishes the last position from all earlier positions for n>=4, and shows a single local move can amplify mass by order n at positions of order sqrt(n). These are quantitative features of the classical permutation law not supplied by its global mode or an isolated example.
 
-Only classical successful parking functions with uniform preference-vector sampling and adjacent rising swaps are treated. No statement about arbitrary transpositions or modified parking laws follows. Historical priority remains to be examined independently; no independent scientific audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

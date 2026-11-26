@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** Both agents' utility changes are independently derived from neighbor-color counts and equal the same signed quantity, \((r_i-r_j-1)/((m-1)k)\), for an opposite-color swap across parts. This is necessary and sufficient for a profitable swap; within-part swaps cannot improve either agent. The resulting balanced occupancy condition characterizes equilibria for every permitted population, including zero populations. The exact welfare identity proves equivalence to global utility maximization through strict integer-square convexity. Multinomial counting, minority-pair depletion and indicator moments give the enumerator, deterministic path length, distribution and moments without assuming particular move choices. The self-contained verifier checks tens of thousands of exact profiles and individual moves; finite checks are corroborating evidence, not an all-size proof.
+## correctness
 
-**Originality (PASS, residual specialist-priority risk).** Agarwal et al.'s regular-graph price-of-stability-one result covers existence of an optimal equilibrium, not the new stronger assertion that every equilibrium in this family is optimal. Bilò et al.'s general finite-improvement and regular-graph inefficiency bounds are also strictly weaker in this specialization and do not give the occupancy spectrum, exact equilibrium enumerator or the choice-independent two-seat hitting-time law. Kreisel et al.'s complexity and robustness findings address different conclusions. Exact-phrase, algebraic-equivalence and model-based searches did not identify a dominating source. A specialist unpublished preprint or unsearched terminology remains possible, so originality is a best-knowledge judgement, not an independent priority certificate.
+PASS
 
-**Value (PASS).** The theorem identifies an infinite, highly connected network class where individual bilateral improvements always lead to global social optimality despite inefficiency on more general regular graphs, provides every equilibrium by an explicit occupancy test and closed enumerator, and supplies an exact strategy-independent convergence clock and distribution on matching-complement networks. Unequal part sizes and three-seat parts exhibit natural, demonstrable boundaries to the welfare and clock conclusions. This is a structural classification and nontrivial full-distribution result for a motivated social-dynamics model rather than a numerical slice or arbitrary parametrization.
+With common degree d=(m-1)k, the red and blue gain for exchanging a red in part i and a blue in part j is (r_i-r_j-1)/d for each. A gap of at least two guarantees both requisite seats exist; within-part swaps have zero gain. The directed monochromatic neighbor count is a constant minus 2 sum_i r_i^2, so the same balancing move strictly improves welfare by 4(r_i-r_j-1)/d; all balanced vectors have the same welfare. Choosing the larger parts and their red subsets proves the census, with endpoints R=0 and R=mk covered. For k=2, writing b<=m for a chosen minority (either color at a tie), the number of opposite monochromatic pairs is m-b+T, so every improving step consumes one of each kind until T=0. Pair-category enumeration and two- and four-seat inclusion probabilities give the law and its moments. Independently checked 4,928 labeled colorings in four networks with exact adjacency-based rational payoffs, explored all terminal path lengths for 205 two-seat colorings, and verified the unequal-part and three-seat boundary witnesses. No uploaded scripts were executed.
 
-**Scientific limitations.** The theorem does not cover unequal part sizes, more than two colors, vacancies, nonlinear utilities, or non-mutual swaps. It does not claim priority against all literature, and it does not claim independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the equal-part exact equilibrium/optimum identification with the two-seat dynamical clock, not the known regular-graph potential or the textbook occupancy law. The closest inspected catalogue records change the utility or the graph and do not give this conclusion for every population on the stated multipartite networks.
+
+## value
+
+PASS
+
+The characterization closes the distinction between some equilibrium and every equilibrium in a natural regular family. The two-seat theorem determines exactly how many swaps even an adversarial choice of improvements must use, and therefore yields the exact random-start law without a stochastic swap rule. The three-seat witness shows why strict welfare increase alone is inadequate for that prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

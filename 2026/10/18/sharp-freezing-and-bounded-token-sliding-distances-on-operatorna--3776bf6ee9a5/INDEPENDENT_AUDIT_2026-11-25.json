@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:41.802989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–66",
+        "VERIFICATION.md:3–25",
+        "CHECKS.txt",
+        "verify.py",
+        "Replay from /workspace: python3 branches/eaaf79e9-308b-484f-900e-2530fbe516a1/independent_two_token_check.py 5 6",
+        "branches/eaaf79e9-308b-484f-900e-2530fbe516a1/bfs_results.txt:1–29"
+      ],
+      "rationale": "Pairwise-intersecting families of complete-graph edges are stars or the three edges of a triangle; any fourth edge forces a common center. A slide in a star of size at least four must avoid its old center while meeting at least three distinct retained leaves, which is impossible. This proves the isolated-state counts and the absence of states above n−1. One token has diameter two since intersecting edges use three labels, leaving two labels for a common disjoint edge. For two tokens each retained edge yields n−3 replacements with the other endpoint as new center, and label permutations are transitive. Independent exhaustive BFS on the directly generated slides reproduced the entire target-orbit table: 30 and 60 states, degrees 4 and 6, respective base histograms (1,4,10,14,1) and (1,6,21,29,3), all eccentricities four. These cases suffice for the upper bound because any two states use at most six labels and the legal moves on those labels embed into the full graph. Two two-edge stars at the same center with disjoint leaf pairs require four slides: the first cannot add a target edge, the second would reach a state with the common center and only one target edge, and the third would have to change centers. For three tokens, each slide must change type between triangle and star. The two-step graph on triangles is exactly J(n,3) by sharing two labels, so the triangle metric is twice Johnson distance and each star endpoint contributes one more edge via its adjacent triangles. For n=5 all eccentricities are four: triangles can intersect in exactly one point, and stars with the same leaves and different centers have no common neighbor but have neighbors sharing two labels. For n=6 triangle eccentricity is six by disjoint triples, star eccentricity five by a triangle with one common support label; star-star distance is at most four. For n=7 opposite types can have disjoint supports and give seven, while star-star distance is at most six. For n≥8 triangles have eccentricity seven and each star has a disjoint star at distance eight. The edge counts follow from the degree and state counts. The independent finite BFS was necessary for the supplied two-token upper-bound proof; it was not an extrapolation to arbitrary n. The submitted checker was inspected but not executed.",
+      "residual_risks": [
+        "Independent enumeration covers the two finite cases required by the proof. The three-token formulas, large-n results and frozen region are proved combinatorially, not certified by that enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avis–Hoang's general structural discussion supplies context and the move definition; the tree/forest-specific results and Demaine et al.'s tree algorithms do not apply to the cyclic Kneser hosts.",
+          "The known freezing for categorical clique products in b6e6ba498da2 concerns a different graph family and k≥3."
+        ],
+        "reasoning": "A general definition, an algorithm for trees, or freezing in another disjointness-like graph does not mechanically yield the sharp transition and metric simultaneously for KG(n,2).",
+        "searches": [
+          "Avis–Hoang arXiv:2203.16861v3 and arXiv:2301.00317v1",
+          "Demaine et al. arXiv:1406.6576v2",
+          "Resultary b6e6ba498da2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact entries 0e6ceb0ba770, f27159e6fd24, f2da2f07c4da, 1e74501e0c1c, b6e6ba498da2",
+        "arXiv:2203.16861v3",
+        "arXiv:1406.6576v2",
+        "arXiv:2301.00317v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Johnson distance identity applies only after proving exactly which triangles share a pointed-star intermediate. Three-token radius and diameter also depend on the max-over-neighborhood intersection and the attainable support configurations.",
+          "Neither the thin-spider metric nor the same-host results with different moves imply the two-token six-label cutoff and finite distances or the k≥4 isolation threshold."
+        ],
+        "reasoning": "The existing structural ingredients do not supply the frozen exact classification via a change of names or substitution of n and k.",
+        "searches": [
+          "Resultary 0e6ceb0ba770, f27159e6fd24 and f2da2f07c4da",
+          "arXiv:2203.16861v3, introduction",
+          "RESULT.md:29–63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen graph's types for k=3 are triples A and pointed four-sets (a,Q), with incidence a∈A⊂Q. The pointed four-set degrees are 3, not the degree 4 of the ordinary inclusion graph of triples and four-sets, and the graph is not a simple subdivision of J(n,3).",
+          "The exact doubled-Johnson mismatch in Resultary 0e6ceb0ba770 is for thin-spider two-hop relocation, not the frozen host, state space, or slide rule."
+        ],
+        "reasoning": "Using Johnson distance between triangles is not equivalent to specifying the full reconfiguration graph with pointed stars; endpoint neighborhoods as well as the small-n extrema must be derived.",
+        "searches": [
+          "Resultary for three-token Johnson-incidence metrics and Kneser token sliding",
+          "Johnson incidence graphs J(n,m,m+1)",
+          "Resultary 0e6ceb0ba770"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed same-host power-domination triples have radius 4 and diameter 5 for n≥8 but are not independent triples; the indexed isolating-set theorem uses unrestricted replacement and a larger class of configurations.",
+          "The same-day triangular Johnson record 1e74501e0c1c computes a Banach-lattice norm, not a reconfiguration distance. No exact table for the two-token case was identified in the checked indexed results."
+        ],
+        "reasoning": "Matching host or occupancy alone does not identify an entry when the configurations or adjacency differ. The same-day record was examined rather than discounted by date.",
+        "searches": [
+          "Resultary for KG(n,2) freezing, two-token diameter, three-token metric, Johnson incidence",
+          "Resultary f27159e6fd24, f2da2f07c4da, 1e74501e0c1c"
+        ]
+      },
+      "rationale": "The distinct supported claim is the complete occupancy classification with sharp two-token distances and the precise Johnson-based three-token metric and radius/diameter transition on independent sets of KG(n,2). The nearest comparisons concern other moves, other state spaces even on the same host, or the ordinary unpointed incidence relation. The standard star/triangle fact and the Johnson distance formula are ingredients, not asserted novel.",
+      "residual_risks": [
+        "Bounded comparisons do not establish historical priority. The full Johnson-incidence paper was not accessible; a closer treatment of pointed incidence or of this specific Kneser token-sliding graph could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structurally related, different graph and move",
+          "evidence": "The doubled-Johnson mismatch with a mixed-state correction concerns independent sets of thin spiders under two-hop relocation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-hop-token-reconfiguration-metrics-on-thin-spiders--0e6ceb0ba770/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 3400",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-hop token reconfiguration metrics on thin spiders",
+          "trigger": "Strongest metric analogue"
+        },
+        {
+          "assessment": "Different state space and extremal metric",
+          "evidence": "Minimum power-dominating triples with no common endpoint have radius 4 and diameter 5 for n≥8; they are not the independent triples examined here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-five-slide-extremals-and-a-radius-four-diameter-five-split-for-k--f27159e6fd24/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 1300",
+          "method": "Local Resultary mirror",
+          "title": "Five-slide extremals and a radius-four/diameter-five split for Kneser power-domination triples",
+          "trigger": "Same Kneser host and three-token distances"
+        },
+        {
+          "assessment": "Different state space and move rule",
+          "evidence": "All three-edge types except P₄ are admitted and moves replace one edge without the disjoint-slide constraint; the diameter there is three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimum-isolating-sets-and-three-step-reconfiguration-in-operato--f2da2f07c4da/RESULT.md",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimum isolating sets and three-step reconfiguration in KG(n,2)",
+          "trigger": "Some overlapping configurations on same host"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The weighted two-subset differences give a free two-convex Banach-lattice norm, not a configuration distance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-orbit-two-summing-transition-for-triangular-johnson-gr--1e74501e0c1c/RESULT.md",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-orbit two-summing transition for triangular Johnson graphs",
+          "trigger": "Same-day indexed graph and orbit terminology"
+        },
+        {
+          "assessment": "General structural and realizability context",
+          "evidence": "The inspected material defines token sliding and frames structural questions, without the KG(n,2) occupancy formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.16861v3",
+          "material_read": "p. 1 abstract and introduction, offsets 0 and 3500",
+          "method": "OA primary PDF",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "General structural coverage of the same move"
+        },
+        {
+          "assessment": "Restricted host family",
+          "evidence": "The graph on which tokens slide is assumed a tree, which these Kneser graphs are not.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6576v2",
+          "material_read": "p. 1 abstract and p. 3, offsets 0 and 9015",
+          "method": "OA primary PDF",
+          "title": "Linear-Time Algorithm for Sliding Tokens on Trees",
+          "trigger": "Known token-sliding reachability and distance work"
+        },
+        {
+          "assessment": "Unresolved source relationship; not evidence of either coverage or absence",
+          "evidence": "The frozen graph is pointed, so it is not ordinary triple/four-set inclusion; no claim about the inaccessible paper's other results is made.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X2500678X",
+          "material_read": "Title only; full text unavailable in the attempted routes",
+          "method": "Bounded lawful OA direct and alternate route attempts",
+          "title": "The Terwilliger algebra of the incidence graphs of Johnson graphs J(n,m,m+1)",
+          "trigger": "Possible incidence-graph formulation of the three-token metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–24,29–63",
+        "Independent two-token BFS log: branches/eaaf79e9-308b-484f-900e-2530fbe516a1/bfs_results.txt"
+      ],
+      "rationale": "Kneser graphs are canonical disjointness graphs and this resolves a natural exact reconfiguration invariant across every occupancy: not only where reachability fails but also how far reachable configurations can lie. The pointed-incidence model gives an explicit state-pair distance and explains the small-n radius/diameter changes. The compact finite computation is tied to a proved six-label cutoff, not an arbitrary census.",
+      "residual_risks": [
+        "The characterization is for independent-set token sliding on KG(n,2); it does not address higher-uniformity Kneser graphs or other moves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

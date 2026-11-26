@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete six-symbol backtracking recursion enumerates \(341{,}280\) admissible named colourings. The local-change lemma limits every possible new violation to an incident edge or a four-vertex path containing the recoloured vertex; these are exhaustively checked. The five-colour states are all isolated. Eleven BFS traversals of the **named**, not quotient, state graph each visit all states. The group action justifies weighting their eccentricities. Independently, a second program checks all \(115{,}975\) partitions of the Petersen graph's ten vertices and confirms exact counts, degree distribution and orbit structure. See the explicit recursions, proofs and runnable programs in `RESULT.md`.
+## correctness
 
-**Originality — PASS, with uncertainty.** The closest fully inspected historical star-colouring paper (Albertson et al., 2004) gives structural bounds and no matching Petersen reconfiguration classification. Chen et al. (2012 online) prove a general six-colour existence bound, not connectivity. Johnson et al. (2014) study proper-colouring recolouring without the star constraint. Hojny–Pfetsch (2015 preprint) study colourability polytopes, not distances under local recolouring. Targeted mathematical-record searches and accessible historical-claim comparisons found no result implying the sharp palette threshold together with these exact counts and eccentricities. Search failure does not prove novelty, and unindexed sources are an acknowledged risk.
+PASS
 
-**Value — PASS.** The result separates existence of an optimum star colouring from mobility among optima: every optimum is locally frozen, whereas adding only one colour connects the entire named-colour state space. The exact radius, diameter, edge and degree counts give a full quantitative description of a natural constrained reconfiguration process on a canonical cubic graph, not merely a numerical estimate of a colouring parameter. The finite scope and computational dependency are stated explicitly.
+Independently reproduced the named graph and all claimed degree/eccentricity counts with /workspace/petersen_replay.py (run `OPENBLAS_NUM_THREADS=1 python -B /workspace/petersen_replay.py`, with NumPy/SciPy). The pentagon/pentagram/spoke presentation was checked against all pairs of the assigned KG(5,2) vertices. Enumerate proper restricted-growth codes with at most six blocks; for a middle edge uv in a proper colouring, a forbidden alternating P₄ exists with that middle edge iff u has another neighbour of v's colour and v has another neighbour of u's colour. Their distinct colours ensure four distinct vertices. This yields no partitions below five and exactly 64 and 410 for five and six blocks. Expanding by all named colour permutations gives 341,280 distinct codes (the five-block case has just one unassigned name). For each omitted coordinate, sort all valid codes by the other nine coordinates: each bucket is exactly a clique of size at most six, and each edge lies in exactly one such clique. This independent adjacency construction gives 1,094,400 edges and degree multiplicities 3:14,400; 4:64,800; 6:108,000; 7:86,400; 8:21,600; 10:46,080. The 7,680 codes avoiding name 5 induce no edges. Independently enumerating graph automorphisms by consistent adjacency assignments gives 120 and eleven partition orbits. Full named-state shortest paths from each orbit representative reach every state; one six-block orbit of 30 partitions has eccentricity 14 and the other ten have 15. Multiplying orbit sizes by 720 gives 21,600 and 319,680 respectively, proving radius 14, diameter 15, and minimum nonempty connected palette six. Source C++ and Python and their logs were inspected, not executed; in particular the Python partition quotient by itself cannot establish named distances.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct supported claim is the sharp mobility threshold and exact geometry of named, star-preserving one-vertex reconfiguration on the Petersen graph. The established star-colouring condition and general existence results are not new; the comparison does not rely on a priority claim for the isolated χ★(P)=5 value. No inspected covering reconfiguration theorem or matching indexed census was found.
+
+## value
+
+PASS
+
+Petersen is a canonical cubic graph, and the move constraint is the standard one-vertex reconfiguration move restricted to star colourings, not a chosen ad hoc slice. The first extra palette colour changes complete freezing to global connectivity, and the exact distances and degree data give concrete benchmarks for constrained recolouring and for distinguishing named-state geometry from quotient geometry. The value rests on this mobility and metric classification, not on recomputing an ordinary colouring invariant or merely finding a single valid star colouring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:59.253054Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate m to zero. If s=S_1 and t=S_0/s, positive adjacent masses with p_1≥p_0 give 1<t≤2 and S_2/S_1≤2−t. The nonincreasing positive survival ratios bound the right mean contribution by s/(t−1) and the left contribution from below by Σ_{j≥1}(1−st^j)_+, using both integrable tail-sum identities. Their difference F_s(t) is strictly increasing in s. At s*=a², (1+s*)(1/a−1)=1. On [1/a,2], F_{s*} decreases strictly before t=2 and is zero at 1/a. On each remaining open interval with d active terms, multiplying the derivative by (t−1)² gives s*t^d[d(t−1)−1], so there is no interior maximum. At t_d=(s*)^(−1/d), F is 1/(t_d−1)−(d−1+s*); the function (y−1+s*)(exp(L/y)−1), L=−log s*, is strictly increasing on y≥2 since 1−exp(−v)>v−v²/2 for v>0 and L<2(1−s*). It is one at y=2, exhausting all t>1 including t=2 and ruling out any other equality. At equality S_{−1}=1, every right survival meets its geometric majorant, p_1=p_0, and the mean is zero. The resulting survivals have ratios a,a,b,b,… with 0<b<a, sum to a finite signed mean, and attain the bound. Separate exact rational arithmetic verifies the five-point IFR counterexample, with mean zero and tail 16/49. Bounded checks: `python3 /workspace/independent_reproduction.py 2` independently recovered a=0.5698402909980532659…, a²=0.3247179572447460260…, b=0.2451223337533072399…; it does not prove the continuum optimization. The frozen `verification/check.py` was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bound attributed to Shah in Ai et al. §1.2 handles nonnegative lattice IFR and thresholds k≤EX; the cited equality example is geometric, not the present adjacent-mass extremizer.",
+          "Alqasem et al. prove an e⁻¹ bound on P(X>EX−1) for log-concave masses. At integer mean that event includes the mass at the mean."
+        ],
+        "reasoning": "Neither the below-mean IFR bound nor the PMF-log-concave result dominates the sharp upper-tail theorem with its adjacent-mass constraint. The latter would not even admit the equality law.",
+        "searches": [
+          "arXiv:2610.24726v1 §1.2 and Theorem 2",
+          "arXiv:2208.12702 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24726v1 §1.2 and Theorem 2",
+        "arXiv:2208.12702 Theorem 1.1",
+        "Shah ORC 65-12 (1965), as quoted only",
+        "Resultary records 63465052f50d, 759865d2dcdc, a7db5ef46966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio-one hypothesis permits γ=1/2 in the earlier theorem, giving 1/4, strictly below the new constant. Substituting γ=1 is invalid and 16/49<1/3 independently refutes the extrapolated inequality.",
+          "Even when EX=m, the earlier e⁻¹ probability includes p_m; that statement does not yield a sharp result for the strictly above-m event on this larger class."
+        ],
+        "reasoning": "The published sharp local-ratio formula neither specializes to the new value nor yields its two-rate unique equality case. No inspected general theorem makes the ratio-one optimization redundant.",
+        "searches": [
+          "arXiv:2610.24726v1 Theorem 2, PDF p. 3",
+          "arXiv:2208.12702 Theorem 1.1, PDF p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2 uses the same survival event and a parameter γ bounding p_(m+1)/p_m, but only for 0<γ≤1/2.",
+          "Resultary's sharp integer-mean lower tail treats finitely supported PMF-log-concave laws and P(X≤EX), not the translated IFR survival event S_1 with local condition p_1≥p_0>0."
+        ],
+        "reasoning": "Translation reduces the new theorem to m=0 but does not change the ratio; a reflected lower-tail event does not transfer the IFR hypothesis or PMF class. The extremal PMF is not log-concave because p_0=p_1<p_(−1).",
+        "searches": [
+          "discrete IFR mean upper tail adjacent masses p_m and p_(m+1) equal ratio 1 sharp constant a^2",
+          "\"adjacent-mass-one\" discrete increasing failure rate",
+          "arXiv:2610.24726v1, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked Resultary results did not surface the exact ratio-one IFR statement. The closest inspected records concern integer-mean lower tails, mean-mode ratios on at most five sites, or minimal finite-support half-mass failure, all for log-concave masses."
+        ],
+        "reasoning": "These have different event or distributional restrictions and do not tabulate or give the present exact threshold; ranked results do not establish global absence.",
+        "searches": [
+          "\"A sharp adjacent-mass-one bound for discrete increasing-failure-rate tails\"",
+          "\"0.324717957244746\" IFR survival",
+          "\"adjacent-mass-one\" discrete increasing failure rate"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp ratio-one IFR inequality and unique equality law, not a new general mean-tail theorem. The closest same-event theorem gives only 1/4 by applicable specialization. No equivalent result was identified in inspected sources; priority is qualified.",
+      "residual_risks": [
+        "The original 1965 report was not inspected; another result in that or other historical reliability work could overlap.",
+        "Ranked catalogue searches and targeted paper comparisons do not certify exhaustive bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly weaker specialization at the ratio-one premise, not the sharp ratio-one theorem",
+          "evidence": [
+            "Theorem 2 (text near offset 10650) restricts γ to (0,1/2] and gives γ/(1+2γ).",
+            "§1.2 (near offsets 8300–9100) quotes Shah's k≤μ bound; p. 11 (near offset 41460) identifies ORC 65-12."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24726",
+          "material_read": "PDF p. 3 §1.2 and Theorem 2; Shah reference on p. 11",
+          "method": "OA primary PDF passages located and read",
+          "title": "On the probability that a discrete IFR random variable exceeds its mean",
+          "trigger": "Closest prior same-event local mass ratio theorem and pointer to older lattice IFR work"
+        },
+        {
+          "assessment": "Quoted statement does not cover the target claim; other original contents not assessed",
+          "evidence": [
+            "For 0≤k≤μ, the quoted bound is P(X≥k)≥(μ/(1+μ))^k, attained by a geometric law."
+          ],
+          "identifier_or_url": "Berkeley Operations Research Center Report ORC 65-12 (1965)",
+          "material_read": "Citation and specific bound quoted by Ai et al., not the original report",
+          "method": "Citation-level comparison",
+          "title": "Bounds for Lattice Distributions Having Monotone Hazard Rate with Applications",
+          "trigger": "Historical primary source on the relevant IFR class"
+        },
+        {
+          "assessment": "Different event and hypothesis",
+          "evidence": [
+            "Text near offset 6100 yields P(X>EX−1)≥e⁻¹ under PMF log-concavity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12702",
+          "material_read": "PDF p. 2, Theorem 1.1 and reflected event",
+          "method": "OA primary PDF theorem passage",
+          "title": "On a Conjecture of Feige for Discrete Log-Concave Distributions",
+          "trigger": "Potential general discrete log-concave mean-tail coverage"
+        },
+        {
+          "assessment": "Different class and event",
+          "evidence": [
+            "Infimum e⁻¹ for P(X≤EX) with finite support, log-concave masses and integer mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-integer-mean-lower-tail-for-discrete-log-concave-laws--63465052f50d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp integer-mean lower tail for discrete log-concave laws",
+          "trigger": "Closest local index hit for a sharp discrete mean-tail bound"
+        },
+        {
+          "assessment": "Probability-mass ratio to mode, not a survival bound",
+          "evidence": [
+            "Monotone PMF-log-concave laws on 2–5 points."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-mean-mode-constants-for-monotone-log-concave-laws-on-at-mo--759865d2dcdc",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp mean–mode constants for monotone log-concave laws on at most five atoms",
+          "trigger": "Adjacent lattice masses near mean"
+        },
+        {
+          "assessment": "Different half-mass question and different distribution class",
+          "evidence": [
+            "Minimal-support failure for PMF-log-concave laws, not IFR ratio one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-eight-atoms-are-minimal-for-a-discrete-log-concave-half-mass-fai--a7db5ef46966",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Eight atoms are minimal for a discrete log-concave half-mass failure at an integer mean",
+          "trigger": "Finite-support tail witness at integer mean"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal or increasing adjacent masses are a natural endpoint condition of the existing discrete IFR problem. The theorem raises the directly available quarter bound, supplies the actual sharp extremizer in the larger survival-log-concave class, and shows by a small exact witness why the prior three-point mechanism does not extend. Its precision is useful for anyone trying to classify the full ratio curve; it does not claim to solve that curve.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

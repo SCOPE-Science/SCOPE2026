@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:48:34.347003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Verification; VERIFICATION.md lines 19–27; verify.py inspected only",
+        "Independent replay: python /workspace/reproductions/exact_2_to_5.py (check 3), including ties at c*, c_all and β=βcrit"
+      ],
+      "rationale": "Diagonalizing the 2×2 surplus equations into sum and contrast gives the four assigned-indicator solutions and makes the feasibility test exhaustive. The inverse is entrywise nonnegative, so fewer distress indicators raise values. Both-high is maximal solvent; both-low is uniquely both insolvent. For one low firm the all-solvent candidate is feasible iff A>B and c≥B/A. Before then the low firm cannot be solvent in any candidate; the single-default candidate is feasible iff F(c)≥0 and dominates both-default if available. If F<0 both-default is feasible and unique, since both valuations fall below threshold. Convexity with opposite endpoint signs isolates one root; F(B/A)=(B/A)(βcrit−β), giving the strict interval condition and, at equality, no two-default band. Fixed marginals give event weights (1−2p+q,p−q,p−q,q), with max(0,2p−1)≤q≤p and 0<p<1. The affine slope is 2p(1−p)(1−d), including one-sided endpoint interpretation; the rational example's lowest possible value bound is 1/470 on the stated c interval.",
+      "residual_risks": [
+        "The frozen marker describes exact checks, but two ancillary numerical root-location assertions in the bundled verifier use float sqrt; the proof and independent identities do not rely on them.",
+        "A static algebraic result with threshold ties solvent; negative values allowed in general and other equilibrium selections need not obey the same law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general static value equation and existence of a greatest solution are prior. Weber–Weske use interbank liabilities and fire sales, greatest price-payment values, and sampled networks."
+        ],
+        "reasoning": "The two-firm equations are indeed a specialization, not a new model framework; existence of maximal valuations does not give the competing threshold locations. Weber–Weske's outside-ownership market-value factor is not the comparative-static outside-asset path used here.",
+        "searches": [
+          "Dasaratha–Venkatesh–Vohra arXiv:2406.12818v1 Eq. (1), Proposition 1",
+          "Elliott–Golub–Jackson DOI 10.1257/aer.104.10.3115",
+          "Weber–Weske DOI 10.1186/s41546-017-0020-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.12818v1; DOI 10.1038/s41598-018-23689-5; DOI 10.1186/s41546-017-0020-9; QFRC 304; Resultary 49a66e29944c summary only; Elliott et al. access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Petrone–Latora find lower correlation raises dynamic double-default probability after seven periods at sufficiently low capital; Weber–Weske show nonmonotone integration effects under a single shock. Neither varies q at fixed Bernoulli marginals in this model."
+        ],
+        "reasoning": "Expected count is not double-default probability. Conditional default counts from the exact single-shock consistency tests, not generic equilibrium existence or the sign in another statistic, determine the zero/negative/positive slopes.",
+        "searches": [
+          "Petrone–Latora DOI 10.1038/s41598-018-23689-5 pp. 6–8 and 12",
+          "Dasaratha–Venkatesh–Vohra Eq. (1)/Proposition 1 and Weber–Weske pp. 14–16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chiarella–Lo–Huang QFRC 304 pp. 2–3 addresses stochastic leverage and first passage, not reciprocal equity.",
+          "Closest ranked Resultary hit 49a66e29944c is summarized as a star-network default distribution result under log-convex tails, not these static thresholds; the exact mirror path did not resolve."
+        ],
+        "reasoning": "No same normalized family under a reparameterization was found; different debt/leverage processes or a star do not identify this two-point equilibrium statistic.",
+        "searches": [
+          "Resultary two-firm reciprocal equity, Bernoulli shock correlation, exact maximal-equilibrium default count",
+          "Two-firm default correlation and integration primary literature search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No surfaced exact table gives c*=smaller root of F, c_all=B/A and βcrit=(A−B)²(A+B)/(AB). Weber–Weske display a sampled 100-bank default-count trend, declining until c≈0.8 then increasing."
+        ],
+        "reasoning": "A numerical integration sweep of a different equilibrium or an exact result for another network distribution is not a tabulation of this analytic law.",
+        "searches": [
+          "Resultary exact thresholds for reciprocal cross-ownership and shock correlation; 49a66e29944c",
+          "Weber–Weske p. 15 and Figure 2a"
+        ]
+      },
+      "rationale": "Existing network models already establish the static valuation machinery, nonmonotone integration effects and negative correlation effects for other statistics. The distinct conclusion is the exact joint classification for the normalized two-firm path and maximal-equilibrium expected default count, with phase ties and the strict distress-cost condition. No inspected source implies the complete classification without the new consistency inequalities.",
+      "residual_risks": [
+        "Equivalent elementary two-bank derivations may be unindexed. The Elliott et al. full text and the ranked star-result mirror were not inspected; neither gap is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not specialized phase law",
+          "evidence": [
+            "V_i=e_i+Σ_j C_ij V_j−β1_{V_i<v*}; unique maximal equilibrium."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.12818v1",
+          "material_read": "Eq. (1), offsets 8857–9363; Proposition 1, 29051–31519",
+          "method": "OA HTML passage inspection",
+          "title": "Optimal Bailouts in Diversified Financial Networks",
+          "trigger": "Same discontinuous valuation and maximal selection"
+        },
+        {
+          "assessment": "Four-state Markov model and double-default risk; not exact expected-count slope",
+          "evidence": [
+            "π12(t=7) falls as correlation rises in a low-capital regime."
+          ],
+          "identifier_or_url": "10.1038/s41598-018-23689-5",
+          "material_read": "PDF pp. 2–3, 6–8, 12; offset 48294 for reversal",
+          "method": "OA PDF passage inspection",
+          "title": "A dynamic approach merging network theory and credit risk techniques to assess systemic risk in financial networks",
+          "trigger": "Direct qualitative correlation reversal in two banks"
+        },
+        {
+          "assessment": "Qualitative simulated nonmonotonicity but distinct asset path and clearing object",
+          "evidence": [
+            "100-bank simulations and Figure 2a; cross-holding factor adjusts market value."
+          ],
+          "identifier_or_url": "10.1186/s41546-017-0020-9",
+          "material_read": "PDF pp. 6 and 14–16, offsets 14960, 42500, 45236, 48370",
+          "method": "OA PDF passage inspection",
+          "title": "The joint impact of bankruptcy costs, fire sales and cross-holdings on systemic risk in financial networks",
+          "trigger": "Integration and greatest-equilibrium default counts"
+        },
+        {
+          "assessment": "Different default mechanism and statistic",
+          "evidence": [
+            "Default is a dynamic leverage first-passage event."
+          ],
+          "identifier_or_url": "QFRC Research Paper 304 (2012)",
+          "material_read": "Abstract and model overview, PDF pp. 2–3, offsets 513 and 4349",
+          "method": "OA primary PDF comparison",
+          "title": "Modelling Default Correlations in a Two-Firm Model with Dynamic Leverage Ratios",
+          "trigger": "Two firms and default dependence"
+        },
+        {
+          "assessment": "Attribution supported indirectly; earlier specialized full-text coverage unresolved",
+          "evidence": [],
+          "identifier_or_url": "10.1257/aer.104.10.3115",
+          "material_read": "Publisher landing only; indirect citation in Dasaratha et al.",
+          "method": "DOI/publisher OA attempts, 403/no readable alternate located",
+          "title": "Financial Networks and Contagion",
+          "trigger": "Foundational close static model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof 3–5 and worked example; Petrone–Latora p. 8 and Weber–Weske Fig. 2a for comparative motivation"
+      ],
+      "rationale": "The normalized integration path keeps the symmetric no-shock valuation fixed. Along that controlled comparison the exact condition for a distress interval separates no effect, negative effect and positive effect of correlation, and the positive-valuation example rules out negative book value as a necessary artifact. This supplies a transparent analytic benchmark distinguishing conditional contagion from direct joint shocks, beyond a single numerical witness.",
+      "residual_risks": [
+        "Not a policy or empirical prediction; scope is two firms, binary shocks and expected count rather than loss quantiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

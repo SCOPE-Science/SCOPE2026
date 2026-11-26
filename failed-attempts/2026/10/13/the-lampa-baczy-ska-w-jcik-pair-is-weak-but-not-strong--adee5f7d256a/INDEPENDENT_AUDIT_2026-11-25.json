@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:57.741153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact enumeration grouped all 15 integer line-pair cross products per arrangement by primitive projective coordinates, then evaluated x²+y²−25z² at those points. For Q₁ the conic contains two classes of three lines and one of two lines; for Q₂ it contains two of three and two of two. The dual-conic tests 25a²+25b²−c² are (9,9,625,16,484,16) and (9,25,9,16,16,625), hence all intersections with the conic are transverse. Bézout gives 12 line–conic incidences each, leaving respectively 4 and 2 nodes after subtracting the multiple classes; these residual points cannot be shared by two lines or they would have occurred in the line-pair census. Thus the profiles are (4,1,2) and (2,2,2), while t₂,t₃,t₄=(6,3,2) for both. For each line, count its distinct projective classes and add 2 minus its number of classes on the conic. The respective counts are (4,3,3,5,4,3) and (3,6,3,4,4,3); adding the conic counts 7 and 6 yields the stated r_j. The degree map identifies the unique conic, so its profile alone obstructs equivalent W_C. The weak claim uses the published mdr values 4 and 3; no new syzygy computation was made. Reviewed RESULT.md lines 28–56 and VERIFICATION.md; the independent replay (independent_incidence_replay.py) used the procedure above, not the uploaded verifier. There is no claim about other realizations or other characteristics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary arrangement article gives the equations, weak vector and distinct mdr values",
+          "The indexed reduction record's proof starts with a characteristic-zero incidence computation for both arrangements, finer than either requested summary"
+        ],
+        "reasoning": "Weak global counts alone do not imply the conic obstruction. Its coverage comes from the finer full census for these exact inputs together with the degree-coloured incidence definition, not from the mere existence of a general reduction theorem or a matching weak vector.",
+        "searches": [
+          "arXiv:2403.16870v1 Definition 7 and Main Theorem",
+          "DOI:10.1007/s10711-025-01063-w Definitions 2.13–2.15 and 5.1–5.2",
+          "Resultary exceptional prime reductions of the same rational weak pair"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.16870v1",
+        "DOI:10.1007/s10711-025-01063-w",
+        "Resultary exact exceptional-prime record --e1656cb2eddd and its certificate source",
+        "DOI:10.4064/ba240508-29-8 (journal access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each indexed row (onlines,onconic), multiplicity is len(onlines)+int(onconic), and the onconic flag picks the unique degree-two component",
+          "Counting the flagged rows by multiplicity and tallying component memberships yields the frozen profiles and r_j without solving for any further point"
+        ],
+        "reasoning": "Once the labeled rows are known, the profiles are a filtered histogram, r_j is a histogram of column sizes, and inequality of W_C follows from the degree-preserving incidence definition. This is direct information extraction, not an issue of whether enumerating new incidences from the original equations would be novel.",
+        "searches": [
+          "Indexed --e1656cb2eddd verify.py, incidence(lines) and the rational singular-point print loop; DOI:10.1007/s10711-025-01063-w Definition 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bromboszcz–Jarosławski–Pokora Definitions 2.13–2.15 and 5.2",
+          "Distinct Resultary record --e1656cb2eddd, characteristic-zero labeled singular census"
+        ],
+        "reasoning": "Different conic profiles or different component-count histograms are equivalent witnesses here for the requested non-equivalence: either is read directly from the labeled ordinary singular incidence table. The strong-pair terminology does not produce a new combinatorial fact from that table.",
+        "searches": [
+          "Resultary: Lampa–Baczyńska–Wójcik weak not strong, conic profile and component incidence counts",
+          "Primary lookup: Weak Ziegler pairs of conic-line arrangements with ordinary singularities; strong Ziegler pair W_C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rational intersection census in RESULT.md offsets 3140–4196 identifies 11 points per arrangement and labels the emitted certificate complete",
+          "verify.py offsets 0–2300 use the same two lists of six coefficients and produce (onlines,onconic) for each singular point; the terminal output loop prints both entire rational censuses"
+        ],
+        "reasoning": "This is not just an article on the same arrangements. The exact existing census algorithm and its printed rows retain the line membership list and conic bit at each singular point, with ordinary singularities verified in characteristic zero. This table is sufficient data for every incidence quantity in the frozen claim.",
+        "searches": [
+          "Resultary: exact weak Ziegler pair and rational conic-line incidence census",
+          "Local mirror --e1656cb2eddd, RESULT.md, VERIFICATION.md, verify.py"
+        ]
+      },
+      "rationale": "The weak-pair article does not itself give the strong comparison. However, a distinct indexed record for the exact same labelled pair supplies the complete characteristic-zero singular incidence census in its checked source package. Inspecting the census generator and its output loop shows that the frozen profiles and r_j are projections of its exact tabulated data, and the non-strong conclusion follows immediately by the published definition. The failure is demonstrable implication coverage, not a priority inference from catalogue dates or a claim that the distinct record states ‘not strong’ verbatim.",
+      "residual_risks": [
+        "The Bulletin full text was not independently read; the arXiv version supplied the equations and mdr facts.",
+        "The nearby record's stronger incidence data establish implication coverage; the index date alone is not a priority determination and the result does not depend on finding the literal later label in earlier text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes weak pair; no strong-equivalence decision in the inspected statements. No separate claim about unread journal text.",
+          "evidence": "Both have (6,1;6,3,2) and the reported mdr values are 4 and 3.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.16870v1; DOI:10.4064/ba240508-29-8",
+          "material_read": "ArXiv PDF pp. 2–3, Definition 7 and Main Theorem, offsets about 5994 and 6900; journal landing/retrieval attempt only",
+          "method": "Checked equations, common weak vector and the published mdr input; compared its classification with the later stronger definition.",
+          "title": "Weak Ziegler pairs of conic-line arrangements with ordinary singularities",
+          "trigger": "Primary construction of the exact pair"
+        },
+        {
+          "assessment": "The strong criterion fails if the degree-preserving incidence data differ.",
+          "evidence": "W_C includes component degrees and incidences, singularity types and r_j; a strong Ziegler pair requires equivalent W_C.",
+          "identifier_or_url": "https://doi.org/10.1007/s10711-025-01063-w",
+          "material_read": "PDF p. 5 Definitions 2.13–2.15 at offset about 12788 and p. 12 Definition 5.2 at about 36209",
+          "method": "Compared the data retained by W_C with the distinguishing conic profiles and component tallies.",
+          "title": "On plus–one generated arrangements of plane conics",
+          "trigger": "Definition of the stronger invariant and the strong-pair criterion"
+        },
+        {
+          "assessment": "The characteristic-zero subcomputation provides exact equivalent coverage for the frozen combinatorial distinction. The reduction theorems themselves concern a different main question.",
+          "evidence": "The program takes the union of all line-pair intersections and conic-line intersections, records (onlines,onconic) for every point, checks the eleven-point count, and prints the complete two rational singular-point lists.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-exceptional-prime-reductions-of-a-rational-weak-ziegler-pa--e1656cb2eddd",
+          "material_read": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: RESULT.md Rational intersection census and Verification, VERIFICATION.md correctness passage, verify.py line lists, conic_points, incidence, and terminal printing loop (offsets 0–2450 and 5180 onward)",
+          "method": "Matched input coefficients and read the record structure and emission of every singular point's memberships; compared the induced filtered and column-count histograms with the frozen quantities.",
+          "title": "Exact exceptional-prime reductions of a rational weak Ziegler pair",
+          "trigger": "Same arrangement pair with potentially dominating exact incidence data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing weak from strong for this named pair is a natural question. But once the exact existing labeled incidence census is accounted for, the frozen result extracts two simple projections and applies a definition, with no unresolved incidence computation or new obstruction beyond those data. It is a useful annotation of that census, not a new exact invariant under the stated value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

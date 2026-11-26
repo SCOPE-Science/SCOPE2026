@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:46:47.618005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The deterministic cycle v=(F/γ)(1−e^(−γt)) gives the stated survivor after integrating the hazard. The singular hazard at zero for −1<α<0 is integrable; the positive terminal hazard gives finite moments of every order. With f=(1−e^(−y))^α, H=∫f, the reciprocal elasticity H/(yf)=∫_0^1 f(sy)/f(y)ds strictly increases for α>0 and decreases for α<0: the sign of the logarithmic derivative of each interior ratio is the sign of α times the positive difference sy/(e^(sy)−1)−y/(e^y−1). The rank elasticity of Qγ is this reciprocal at y=γQγ; y strictly increases with γ at fixed rank. Consequently the two mean-normalized quantiles cross once, in the claimed direction. Subtracting a supporting line of a strict convex test at their common crossing value gives strict inequality when its expectations are finite. The α=0 law is exactly exponential. Renewal variance asymptotics give CV² as the count Fano. At small γ, pointwise Weibull convergence is moment-controlled: small positive damping is dominated by a fixed-damping survivor for α>0 and by the Weibull survivor for α<0. For ε=κγ^(−α−1), the terminal-rate-scaled survivor equals e^(−y−εcα)e^(−εDα(y/ε)), with bounded Dα=H−id−cα and ∫(1+u)|Dα(u)|du finite. Integrating the survival difference with weights 1 and 2y gives errors O(ε²) and O(ε³); the ratio has coefficient 2cα. Independent scaled-survival quadrature at F=λ=1, α=−1/2,1,2 and γ=.2,1,5,80 reproduced both Fano directions and the predicted large-γ coefficients; the supplied script was inspected but not run. The order concerns iid noiseless cycles and the Fano limit, not finite-time count noise.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arab et al. Theorem 5.11 proves scale-invariant order comparisons for the enlarged log-logistic K family defined in Definition 5.1. The compared order and family do not identify Hα.",
+          "Takeishi–Akimoto derive the zero-damping density and an α=1 damped stationary velocity density. The general renewal Fano identity requires an input waiting-time variance, not an ordering."
+        ],
+        "reasoning": "Even a general relative-order criterion must be supplied a monotone elasticity for this Hα and cannot supply the explicit strong-damping coefficient without analyzing the limiting hazard layer. The inspected comparisons do not establish those inputs.",
+        "searches": [
+          "10.1007/s00362-025-01730-w Theorem 5.11",
+          "arXiv:2603.14164 Eqs. (16)–(17), (39)–(43)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.14164 §§II–III",
+        "10.1007/s00362-025-01730-w Defs. 2.4, 5.1 and Thm. 5.11",
+        "Resultary 9a98ab22b41e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Eq. (16) directly gives the Weibull moment ratio at zero friction. The finite-friction section analyzes α=1 through the stationary velocity.",
+          "Cross-friction strictness here follows from y fα/Hα, and the first correction depends on ∫[(1−e^(−u))^α−1]du, not just the existence of an exponential terminal tail."
+        ],
+        "reasoning": "Credit the endpoint calculation as mechanically implied by the prior density. It does not imply a strict global hierarchy with reversed direction for negative powers or the explicit convergence rate to Poissonian count noise.",
+        "searches": [
+          "arXiv:2603.14164 Eqs. (3)–(4), (16), (39)–(43)",
+          "10.1007/s00362-025-01730-w Def. 2.4 and Thm. 5.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The damped survivor after changing units to y=γT is a proportional-hazards family exp(−εHα(y)); γ changes ε, not just units. For α≠0 the small-time hazard power coefficient is the same while the terminal hazard changes with γ.",
+          "Takeishi–Akimoto define the identical velocity-power hazard. Arab et al. compare a distinct distorted-odds family, not this one. The direct catalogue hit is the assigned record itself."
+        ],
+        "reasoning": "The quantile-ratio and convex-risk formulations are relative-dispersion statements about a changing shape, not automatic invariance in a scale family. The exact same model supplies a prior endpoint and a special-exponent distribution, not the audited parametric order.",
+        "searches": [
+          "Resultary: velocity power stochastic reset, friction, normalized waiting-time star/convex order and count Fano (9a98ab22b41e)",
+          "arXiv:2603.14164 §§II and III",
+          "10.1007/s00362-025-01730-w Definitions 2.4 and 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue returned the audited record, not a distinct exact match. The primary article gives an exact Weibull density at γ=0 and the α=1 stationary velocity density at positive friction."
+        ],
+        "reasoning": "Those exact distributions cover the zero-friction Fano endpoint and allow extra computations for α=1, but are not a table of the all-parameter order or coefficient.",
+        "searches": [
+          "Resultary exact model and Fano endpoints/leading coefficients (9a98ab22b41e)",
+          "arXiv:2603.14164 §III, exact wait and velocity laws"
+        ]
+      },
+      "rationale": "The deterministic hazard model, its frictionless Weibull law and the count-variance renewal relation are prior or standard. The supported distinction is the sign-resolved strict relative-dispersion and convex order for all positive frictions and α>−1, together with the model-specific strong-damping coefficient. Neither general order definitions nor a known cycle law at one exponent supplies these conclusions without the elasticity sign and the boundary-layer estimates.",
+      "residual_risks": [
+        "Older proportional-hazard or transformed-exponential family comparisons with the exact Hα were not exhaustively checked.",
+        "The user-visible significance is restricted to deterministic post-reset velocity evolution and iid renewal timing; no conclusion for thermal acceleration is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, frictionless density and a damped special exponent, not the claimed combined order and expansion",
+          "evidence": [
+            "Eq. (16) is a Weibull survival derivative with coefficient λF^α/(α+1); its scale cancels from the Fano ratio.",
+            "The damped stationary velocity calculation is for α=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.14164",
+          "material_read": "Primary Sec. II Eqs. (3)–(4) p. 2; Sec. III.A.3 Eqs. (16)–(17) pp. 4–5; damped case Eqs. (39)–(43) p. 7",
+          "method": "Compared exact dynamics, Weibull density, and damped observables",
+          "title": "Breakdown of Linear Response Induced by Velocity-Dependent Stochastic Resetting",
+          "trigger": "Identical driven velocity-power reset model"
+        },
+        {
+          "assessment": "Distinct family and order, no applicable dominating claim verified",
+          "evidence": [
+            "The compared scale-invariant result is for an enlarged log-logistic K family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00362-025-01730-w",
+          "material_read": "Primary Def. 2.4 p. 4, Def. 5.1 p. 13 and Thm. 5.11 p. 19",
+          "method": "Compared transform order, generating family and scale hypotheses",
+          "title": "Stochastic orders and shape properties for a new distorted proportional odds model",
+          "trigger": "Candidate broad lifetime-order theorem"
+        },
+        {
+          "assessment": "Same assigned record, not independent prior coverage",
+          "evidence": [
+            "Identical noiseless velocity-reset model and both signs of the strict ordering."
+          ],
+          "identifier_or_url": "Resultary 9a98ab22b41e",
+          "material_read": "Indexed claim and local RESULT.md around offset 900",
+          "method": "Compared exact model, order, endpoints and coefficient",
+          "title": "A universal friction ordering of reset-clock fluctuations under power-law velocity resetting",
+          "trigger": "Exact local catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fluctuation question is distinct from the known mean-velocity response: a damping change is proved to order every normalized convex waiting-time risk, not just the variance. The sharp Weibull-to-exponential Fano range and signed approach rate quantify when damping regularizes versus increases relative count noise, with a direction reversal as the velocity-power sign changes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

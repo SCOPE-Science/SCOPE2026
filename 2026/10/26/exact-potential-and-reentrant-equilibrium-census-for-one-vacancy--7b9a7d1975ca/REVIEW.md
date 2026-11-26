@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantified graph cases have at least three nonempty parts, so the cross-part occupied-neighbor denominators \(H_i=N-s_i-1\) are strictly positive. A within-part jump changes neither utility nor part counts; a cross-part jump has a potential increment exactly equal to the moving occupant's utility increment, verified by explicit one-coordinate quadratic differences. For two colors, the sum of the prospective utilities of separate red and blue deviators from a mixed full part exceeds their present utility sum by \(1/H_j\); hence all full parts must be monochromatic. For pure full parts, the two displayed cross-multiplied inequalities are equivalent to non-improvement, yielding an if-and-only-if equilibrium classification. Labeled vacant vertices, red occupancy choices, and monochromatic full-part choices are counted disjointly in the polynomial. The equal-part polynomial and the \(K_{2,2,b}\) integer feasibility example follow algebraically. Direct graph-based rational enumeration checked 35,349 states and 243,582 legal moves, including the corresponding polynomial coefficients; finite enumeration is supporting evidence, not universal proof.
+PASS
 
-## Originality — PASS, with residual risks
+For a cross-part move, there is one vacancy outside the part of the mover both before and after, so the two occupied-neighbor denominators are H_i and H_j, both positive. The old same-type count outside i is R_t-x_it and the new one outside j is R_t-x_jt-1. A ±1 difference of the proposed quadratic in x gives these two terms with opposite signs, so the potential increment exactly equals the utility gain; within-part moves change neither. For opposite-color agents in a mixed full part the two present payoffs sum to 1 and their separate counterfactual payoffs to (H_j+1)/H_j: each departure excludes no opposite-type agent from its own numerator. One would strictly improve. With full parts pure, comparing each color's old quotient with its new quotient gives the stated non-strict inequalities at equilibrium. The labeled choices are disjoint, hence the polynomial with the vacancy-location multiplier and binomial coefficient; for equal parts the inequalities are automatic and the denominator of the fraction is hm times 2^(hm-1), allowing zero population of either color. For K_{2,2,b}, adding the inequalities forces b<=5, and the allowed r for b=2,3,4,5 are {0,1}, {1}, empty, {2}, respectively. Independent replay from adjacency, rational utility and pair counts covered 16 graph/type cases, 35,349 states and 243,582 moves; direct equilibrium totals at b=3,4,5 were 68,96,252. Finite replay supports, but does not replace, the proof.
 
-The 2023 arXiv and 2025 journal full texts of Narayanan–Sabbagh–Voudouris analyze the same fractional unlike-neighbor jump model, but their single-vacancy potential theorem applies to regular graphs and spiders, not general unequal-part complete multipartite graphs. Equal-part potential convergence is **covered** and is not presented as a novel consequence. A previously considered complete-bipartite specialization has only two parts, which does not imply the full-part interaction criterion or the size-dependent arithmetic reentrance with three parts. The 2023 Friedrich–Lenzner–Molitor–Seifert full text uses a single-peaked utility, and the 2025 Li–Narayanan–Opatrny–Xu full text uses swap moves and different utility functions. Targeted searches of mathematical research records and public literature found no implication-equivalent description of the full asymmetric multipartite equilibrium polynomial. The absence of a retrieved result is not proof of uniqueness: older congestion-game embeddings or unindexed treatments might imply the potential, and unpublished multipartite equilibrium enumerations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The equilibrium criterion resolves a complete natural infinite family for a strategically meaningful model: it determines every stable binary assignment, including unequal community sizes and prescribed red counts. Exact coefficient formulas provide the entire equilibrium spectrum, not only existence. The mixed-full-part impossibility is structural, whereas the size-sensitive two-sided inequalities expose an integer nonmonotonicity that is absent from the regular and bipartite specializations: mixed full-part colors can be stable for a vacancy community of size three, unstable at size four, and stable again at size five. This reveals how vacancy-induced normalization and indivisible agent counts affect equilibrium; no downstream theorem or independent validation is asserted.
+There is real existing coverage of regular-graph convergence and a close catalogue result for two parts. Neither establishes the exact h>=3 unequal-part increment and binary classification or the three-part arithmetic example. No novelty is credited merely for convergence on regular graphs.
 
-## Closest work and limits
+## value
 
-See the detailed source comparisons and residual risks in `AUDIT.json` and the cited primary papers in `RESULT.md`. Only one vacancy, unconstrained jumps, complete multipartite networks and binary colors for classification are covered. Arbitrary-type potentiality is proved but arbitrary-type equilibrium classification is not.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The utility is an established strategic model, and finding all binary equilibria at any population is substantially stronger than proving some equilibrium exists. The mixed-full-part obstruction and nonmonotone three-part witness show what vacancy-dependent normalization and integer occupancies change on unequal graphs. The polynomial is a labeled census supported by a structural criterion rather than a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

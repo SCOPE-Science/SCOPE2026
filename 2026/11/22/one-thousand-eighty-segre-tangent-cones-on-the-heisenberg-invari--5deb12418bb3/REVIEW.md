@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Exact local equations give two independent linear terms and three rank-one \(2\times3\) minors after elimination. The determinantal ideal is prime of height two, while the established integral fourfold has dimension four; consequently the initial ideal cannot strictly contain those minors. This yields the exact associated graded algebra, Hilbert series, multiplicity three, and smooth Segre exceptional divisor. Explicit finite-group symmetry sends this local germ to every known singular point. The bundled checker verifies the critical polynomial identities and rank. Risks: the proof of blowup smoothness depends on the standard smooth-projectivized-tangent-cone criterion, not on an independent computer resolution.
+## correctness
 
-**Originality (O): PASS, with residual historical risk.** The full November 2026 primary text establishes the defining cubics, 1080 points and tangent-space dimension six and describes the length-seven nonreduced Jacobian singularity scheme; it does not state or prove the rank-one determinantal tangent cone, Hilbert–Samuel multiplicity three or its smooth blowup. The older Gruson–Sam full text concerns related abelian-surface degenerations and a different fivefold, not the same isolated germs. Semantic research-record queries for the exact 1080-point fourfold, its Segre tangent cone, and Horadam terminology found no equivalent claim; the closest hits concern other Segre loci and singularities. Horadam (1957) is a directly relevant but inaccessible original source, so historical novelty is not absolute. No search result alone is treated as proof of novelty.
+PASS
 
-**Value (V): PASS.** The natural previously classified but locally unresolved 1080 singularities of a new explicit universal-theta model receive a uniform tangent-cone and blowup description. This determines actual local multiplicity and a smooth exceptional threefold at every singularity, providing geometric data not implied by tangent-space dimension or Jacobian-scheme length alone. It is not an arbitrary invariant of a contrived subfamily and does not claim a new hyperkähler classification.
+At [1:-1:0:...:0], dehomogenize at x0 and put x1=-1+a, x2=b. The linear parts of f0 and f4 are -3b and 3a; their equations solve for a,b with order at least three, since the other terms not involving a,b are cubics. The remaining f1,f2,f3 divided by 3 start with u3*u6-u4*u7, u4*u8-u5*u6 and u5*u7-u3*u8. They are three independent minors of the stated two-row matrix. The rank-one ideal is prime of dimension four (Segre parametrization), so a larger initial ideal would have dimension at most three, contrary to the dimension-four local ring; completion preserves the associated graded. For uniformity, index the coordinates by the affine plane over F3. The projective Heisenberg stabilizer of the representative is exactly the order-three subgroup of phase characters agreeing at its two support sites: no nonidentity translation fixes a two-element support. Its Heisenberg orbit has 27 points. The normalizer preserves the invariant cubic space, and its Sp(4,F3) quotient acts transitively on the 40 lines of F3^4, giving 40 disjoint 27-point orbits distinguished by their stabilizers. This already exhausts the 1080 singular points of the cited primary classification. The graded dimensions (d+1)*binomial(d+2,2) sum to the claimed Hilbert series and give multiplicity 3; the three independent quadrics make all three formal generators minimal in height 2. On the blowup the projectivized cone is a smooth Cartier exceptional divisor: a local equation is a nonzerodivisor, and a regular quotient by that equation implies the total local ring is regular. The ideal of the divisor restricts to the Segre O(1), giving its normal O(-1,-1). The symbolic support file was inspected, not executed; the local computation was reconstructed directly and the global facts checked against arXiv:2611.16593v1. The geometric facts extend from characteristic-zero algebraically closed base changes of the rational equations. This is about blowing up the reduced points, not the Jacobian scheme or an analytic identification of germs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported contribution is the associated graded local algebra on this particular invariant fourfold, with the resulting ordinary point blowup. The fourfold itself, its degree, the singular point census, tangent-space dimension, rank-drop description and abstract Segre algebra are not new. The judgment is based on the inspected comparison, not a certified first-priority claim.
+
+## value
+
+PASS
+
+Determining the full tangent cone at every point of an important explicit fourfold answers a natural local-geometric question left open by a tangent-space dimension and a nonreduced singular scheme. The Segre structure gives both the precise multiplicity and an explicit one-step resolution with known exceptional divisors and normal bundles, useful for later birational calculations without assuming any stronger analytic equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

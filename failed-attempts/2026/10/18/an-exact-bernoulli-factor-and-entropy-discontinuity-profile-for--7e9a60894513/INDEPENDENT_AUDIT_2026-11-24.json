@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:41:14.280599Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71; VERIFICATION.md lines 19–25; verification/check_rctm.py (inspected, not executed).",
+        "Irfan–Khan §III and Algorithms 1–2; Khan–Jeoti Eqs. (3)–(5)."
+      ],
+      "rationale": "On each half the branch lengths are k copies of 1/μ and one of θ/μ, each onto the interval interior with an affine inverse. Inverse images multiply Lebesgue measure by branch length, so summing the lengths gives invariance and composing gives independent branch labels. Shrinking inverse cylinders give a generating coding up to the null branch-boundary preimages and hence the claimed one-sided isomorphism. Reflection pairs the lengths, so writing the branch label as side and index factors its probability as the fair bit law times the stated index law. This proves output-path nonidentifiability at fixed Lebesgue initialization. Shannon entropy of the generating partition gives log μ−(2θ/μ)log θ. The full symbolic shift has entropy log(2k+2); the metric gap is the divergence of the index law from the uniform law. Differentiation gives dh/dθ=k log(1/θ)/(k+θ)² and the two endpoint limits on each strip give the asserted monotonicity and even-parameter jumps. These are symbolic one-sided limits, not assertions about the pointwise discontinuous map at an undefined even parameter. Odd integral parameters are admitted by the mathematical definition, unlike the implementation's stated parameter domain.",
+      "residual_risks": [
+        "All probabilities refer to exact real arithmetic and a uniform stationary seed, not individual deterministic seeds, cryptographic security, or finite-precision implementations. Finite word checks in the package are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrionuevo et al. define the interval map with arbitrary branch orientation in Eq. (8). Before Theorem 1 they compute full word probabilities ∏ L_{k_i}, show the intervals generate, and state that the GLS operator preserves Lebesgue and is Bernoulli. The entropy passage gives −Σ L_k log L_k for the generating interval code."
+        ],
+        "reasoning": "Take the finite affine intervals from the RCTM and the two orientations prescribed by reflection. This is a special case in the earlier theorem's own variables, with no need for a new conjugacy or measure argument.",
+        "searches": [
+          "Barrionuevo Burton Dajani Kraaikamp ergodic properties generalized Lüroth series Bernoulli shifts lengths of intervals arbitrary signs 1996 pdf exact entropy",
+          "Acta Arith. 74, Eq. (8), Theorem 1 and generating-entropy computation"
+        ]
+      },
+      "checked_sources": [
+        "Barrionuevo et al., Acta Arith. 74 (1996), GLS Eq. (8), Theorem 1 and entropy computation; arXiv:2408.05580; DOI 10.3844/jcssp.2015.517.525; Resultary f962e6d95c5c; bibliographic DOI 10.1109/MICC.2013.6805880."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem's factor ∏ L_{k_i} applies with L_{s,j}=1/μ on ordinary branches and θ/μ on terminal branches. In particular L_{0,j}=L_{1,j} for all j. A finite alphabet of size 2(k+1) with all positive-length branches gives all words and hence full shift entropy log(2k+2)."
+        ],
+        "reasoning": "The equal pairs turn iid branch coordinates into the frozen fair side and independent hidden labels by direct probability factorization. Standard Shannon entropy and the printed length list yield the metric formula; subtracting it from log(2k+2) is the divergence to uniform. The one-sided profile follows by one differentiation and the limits of θlog θ, with alphabet size changing by two. These consequences use the prior formulas directly, without a new invariant computation or obstacle.",
+        "searches": [
+          "Generalized Lüroth series Eq. (8), Theorem 1 proof and entropy formula; Irfan–Khan §§III–IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published scaled center interval starts at 1/2−{μ/2}/μ=k/μ and ends at its reflection; its two monotone halves are normalized onto the unit interval. Algorithm 2 tests x≥0.5.",
+          "The strongest accessible indexed overlap f962e6d95c5c gives Bernoulli coding for a different, countably branched geometric tent map, not the RCTM by another name."
+        ],
+        "reasoning": "The threshold is exactly the side coordinate for the published map, not a new observation scheme. The indexed record uses a common construction but a different interval-length law; the decisive equivalence is the signed generalized Lüroth specialization.",
+        "searches": [
+          "Resultary: scaled modulo tent map exact Bernoulli factor threshold bits product entropy; robust chaotic tent map modulo scaling branch itinerary independent labels invariant Lebesgue",
+          "Irfan–Khan arXiv:2408.05580, §III and Algorithms 1–2; Khan–Jeoti DOI 10.3844/jcssp.2015.517.525, Eqs. (3)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Irfan–Khan §V reports empirical block entropy for 8-bit outputs, not the exact metric or branch entropy. Indexed matches checked concern other dynamical systems or Bernoulli-cylinder questions, not a table of this parameter profile. A focused 2013 title/DOI search did not yield a verified full text."
+        ],
+        "reasoning": "The natural lookup object is a formula over a continuum parameter, not a numerical sequence table. No literal exact-profile listing was identified in these checked passages; that does not rebut stronger theorem coverage.",
+        "searches": [
+          "Resultary: Khan Jeoti RCTM threshold bit generator entropy log mu theta branch entropy discontinuity; uniform seed threshold bits iid fair Bernoulli hidden radial labels tent map",
+          "Modified chaotic tent map with improved robust region, DOI 10.1109/MICC.2013.6805880; arXiv:2408.05580 Information Entropy Analysis"
+        ]
+      },
+      "rationale": "The signed generalized Lüroth theorem already gives the full generating Bernoulli coding with exact probabilities equal to interval lengths and the corresponding entropy. The earlier papers give exactly the normalized modulo branches and the side readout. Choosing their branch intervals and their left-increasing/right-decreasing orientations in that theorem directly gives the frozen system. Equal-length pairs immediately factor the exact branch probabilities into a fair bit and the stated independent index; the scalar profiles use just the known length list and alphabet size. No separate substantive new claim survives the implication check. This is not a finding that the exact parameter formulas were printed in the triggering paper, and does not rely on inaccessible 2013 material.",
+      "residual_risks": [
+        "The 2013 full paper was not obtained, and the search is not an exhaustive priority investigation. The verified general coverage suffices independently of that missing text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger result: directly covers the frozen generating Bernoulli coding and length-law entropy.",
+          "evidence": "The paper proves λ(a_1=k_1,…,a_n=k_n)=∏ L_{k_i} for arbitrary signed branches and identifies the partition as generating. The entropy passage is −Σ L_k log L_k.",
+          "identifier_or_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa74/aa7442.pdf",
+          "material_read": "Eq. (8) and coding estimate (9), OA offsets 6740–9515; cylinder products and Theorem 1, offsets 11800–15973; generating entropy computation, offsets 20300–21696",
+          "method": "Primary literature search and OA PDF bounded passage comparison",
+          "title": "Ergodic properties of generalized Lüroth series",
+          "trigger": "Prior general theorem for signed affine full-branch maps"
+        },
+        {
+          "assessment": "Exact mathematical map and threshold in narrower implementation domain; measured entropy is not the frozen KS entropy.",
+          "evidence": "The central endpoints are 1/2±{μ/2}/μ, with the center rescaled and other branches not rescaled. The readout compares x with 0.5. The entropy discussion reports empirical 8-bit sample entropy 7.9967 on average.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2408.05580",
+          "material_read": "§III Eqs. (2)–(5), §IV Algorithms 1–2, §V Information Entropy Analysis; OA offsets 12324, 18750, 31359",
+          "method": "OA full-article passage comparison",
+          "title": "Cryptographically Secure Pseudo-Random Number Generation (CS-PRNG) Design using Robust Chaotic Tent Map (RCTM)",
+          "trigger": "Exact original measure-theoretic map and readout"
+        },
+        {
+          "assessment": "Establishes the prior center/exterior branch construction.",
+          "evidence": "The equations set the normalized interval and apply reciprocal fractional-part scaling only on the central branches.",
+          "identifier_or_url": "https://thescipub.com/pdf/jcssp.2015.517.525.pdf",
+          "material_read": "Eqs. (3)–(5), OA offsets 15100 and 17100 (approx. pp. 520–521)",
+          "method": "OA PDF passage comparison",
+          "title": "On the Enlargement of Robust Region of Chaotic Tent Map for the Use in Key Based Substitution-Box (S-Box)",
+          "trigger": "Earlier same-map paper"
+        },
+        {
+          "assessment": "Genuine method overlap in a different map; not direct coverage of the exact normalized modulo-tent family.",
+          "evidence": "It has countably many geometric weights d q^j and a graph-tube result, rather than equal left/right pairs of finitely many lengths with a collapsing terminal branch.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-logarithmic-graph-tube-law-and-bernoulli-structure-of-the--f962e6d95c5c",
+          "material_read": "Mirrored RESULT.md offsets 0–4076",
+          "method": "Resultary and local-mirror passage comparison",
+          "title": "Exact logarithmic graph-tube law and Bernoulli structure of the geometric tent map",
+          "trigger": "Closest exact Bernoulli indexed match"
+        },
+        {
+          "assessment": "Unresolved access risk; not part of the basis for failure.",
+          "evidence": "Confirmed cited DOI; no scientific statement from the conference full text is used.",
+          "identifier_or_url": "https://doi.org/10.1109/MICC.2013.6805880",
+          "material_read": "Bibliographic identification only; no lawfully accessible full text established",
+          "method": "Focused exact-title/DOI literature search and OA retrieval attempt",
+          "title": "Modified chaotic tent map with improved robust region",
+          "trigger": "Cited earlier same-map conference predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; earlier printed branch equations; Barrionuevo et al. Theorem 1 and entropy formula."
+      ],
+      "rationale": "It is useful to distinguish empirical randomness tests from an exact measure statement, and the math is a sound explanatory application. But for this already-defined pair of mirrored full-branch partitions the exact bit law, entropy and jump are mechanical readouts of interval probabilities and alphabet size. No independent unknown dynamical obstruction, different observation law, or nontrivial exact invariant remains after the general result is applied. The continuum assumptions also give no new practical finite-precision or security conclusion.",
+      "residual_risks": [
+        "This scientific-value judgment does not deny pedagogical utility. Finite precision and computational unpredictability are not part of the frozen mathematics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

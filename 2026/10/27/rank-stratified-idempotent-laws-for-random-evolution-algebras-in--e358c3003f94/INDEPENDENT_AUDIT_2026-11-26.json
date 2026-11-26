@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:21.432562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify.py, reported matrix-stratum enumeration and direct idempotent counts"
+      ],
+      "rationale": "The idempotent equation in the specified natural basis is x=Aᵀx^[2]. Its fixed space is binary-linear. In a minimal nontrivial dependence among binary-independent fixed vectors over F_q, normalize one coefficient and compare the relation with its semilinear image. The remaining vectors are F_q-independent, so every coefficient equals its square, contradicting binary independence. Thus the fixed dimension is at most s by containment in im(Aᵀ). For an F_q frame of r fixed-point candidates, its squared frame spans an r-plane. The kernel must miss this plane. The kernel is uniform and the transverse kernels are graph lifts of (n−s)-planes in the quotient, giving q^{r(n−s)}[n−r:n−s]_q choices. Conditional on transversality, the image frame is uniform by left GL_n invariance. Summing over all candidate frames cancels its cardinality and gives the claimed moment α. Division by |GL_r(2)| converts frames to binary subspaces; binary Gaussian inversion gives the signed formula. The r=0 moment is one; rank zero has only zero as idempotent, and rank one gives the stated Bernoulli law. Equivalently α=∏_{j=0}^{r−1}(1−q^{j−s})/(1−q^{j−n}), so it is identically one for s=n and tends to one at fixed n,s. The latter moments are exactly those of uniform GL_s(2) by transitivity on binary r-frames, completing the limit.",
+      "residual_risks": [
+        "Six small field/dimension enumerations were reported, not freshly run. Exhaustion there is not evidence of exhaustion elsewhere. The proof needs uniform labelled matrices and characteristic two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey has a random evolution algebra question and the mean on invertible matrices; Fulman–Goldstein concerns the rank statistic itself.",
+          "The later full-matrix result gives the law aggregated over all ranks and an aggregate conditioned only on singularity; its large-n limit fixes q."
+        ],
+        "reasoning": "The marginal rank law alone does not determine a statistic within exact rank strata. A single mixture over singular ranks does not invert to the individual conditional laws. The fixed-q large-n limit is not the fixed-n,s large-q limit here.",
+        "searches": [
+          "arXiv:2610.22248v1, Question 22 and Remark 23",
+          "arXiv:1211.0504, random finite-field matrix ranks",
+          "Resultary 7d365bfcd94e, full-matrix characteristic-two idempotent law"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22248v1",
+        "arXiv:2310.12368",
+        "arXiv:1211.0504",
+        "doi:10.1017/S0017089500020164",
+        "Resultary 3591a9c3116b and 7d365bfcd94e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known perfect-matrix formulas have ordered-frame moments equal to one. The new conditional moment has the nontrivial q-dependent kernel-transversality factor α; for rank one it gives q^{n−1}(q−1)/(q^n−1)."
+        ],
+        "reasoning": "An invertible fixed-space law, the first moment at full rank, and an aggregate singular law do not imply those q-dependent exact-rank moments. The new count treats how a prescribed candidate frame meets the random kernel before applying the fixed-frame method. The limiting GL_s(2) law is a consequence of these moments, not a new GL_s(2) distribution formula.",
+        "searches": [
+          "Resultary 3591a9c3116b, Finding and proof",
+          "Resultary 7d365bfcd94e, Finding and singular-conditioned proof",
+          "arXiv:2610.22248v1, Remark 23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact random statistic is dim_F2 Fix(Aᵀ∘Frob_2); idempotent algebra in Wei–Zou means E²=E and concerns isomorphism classes.",
+          "Resultary 3591a9c3116b gives 2^{dim Fix(C)} including zero for uniform C in GL_n(2) in the invertible case."
+        ],
+        "reasoning": "Subtracting one converts that catalogue statistic exactly to K when s=n. Invertible semilinear descent does not equate each singular rank-s map to an invertible s-dimensional map with that same law: already the finite-q rank-one probability is less than one for s<n.",
+        "searches": [
+          "Resultary: characteristic-two perfect evolution algebra nonzero idempotent distribution",
+          "arXiv:2310.12368, introduction",
+          "doi:10.1017/S0017089500020164, semilinear Frobenius normal forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The perfect-algebra entry gives the exact overlapping s=n distribution. The full-matrix entry gives unconditional and aggregated singular distributions, not individual rank strata."
+        ],
+        "reasoning": "There is exact indexed coverage of the full-rank boundary and of a mixture of the singular laws, but not of the individual rank-conditioned frequencies in those passages. Index dates are not by themselves proof of priority.",
+        "searches": [
+          "Resultary: exact rank-stratified semilinear fixed spaces and binary evolution-algebra idempotent count laws",
+          "Resultary 3591a9c3116b and 7d365bfcd94e, exact law passages"
+        ]
+      },
+      "rationale": "The exact law on each singular rank stratum, and its fixed-rank field-size limit, are the distinct contributions. The perfect-algebra distribution and the binary fixed-frame and Gaussian inversion methods are established ingredients. Exact full-rank and all-matrix laws must not be credited to this record.",
+      "residual_risks": [
+        "Bounded literature and index comparison cannot exclude an equivalent unindexed distribution for uniformly rank-conditioned Frobenius-semilinear matrices. Algebra isomorphism classes and random labelled matrices remain separate ensembles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping full-rank first moment only",
+          "evidence": "Mean one nonzero idempotent with a uniform invertible labelled structure matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22248v1",
+          "material_read": "Question 22 and Remark 23 (indexed offsets 86429 and 72963)",
+          "method": "OA full-text passage inspection",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Same random-algebra statistic"
+        },
+        {
+          "assessment": "Distinct invariant and ensemble",
+          "evidence": "The property E²=E means the matrix is nonsingular; the objects counted are isomorphism classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "Introduction, p. 2",
+          "method": "OA full-text passage inspection",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Exact finite-field idempotent enumeration with ambiguous terminology"
+        },
+        {
+          "assessment": "Related invertible normal form, not probability on a singular rank stratum",
+          "evidence": "Frobenius equivalence and geometric fixed vectors do not supply the q-dependent transverse-kernel probabilities for this ensemble.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500020164",
+          "material_read": "Abstract and normal form discussion, pp. 1–2 of retrieved text, offsets 964 and 4459–4894",
+          "method": "Indexed primary text passages",
+          "title": "Semilinear Transformations over Finite Fields are Frobenius Maps",
+          "trigger": "Potential general semilinear fixed-space reduction"
+        },
+        {
+          "assessment": "Deals with rank/corank, not the requested conditional semilinear statistic",
+          "evidence": "Inspected distributional statements concern ranks of random finite-field matrices and allied ensembles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0504",
+          "material_read": "Abstract and §1, pp. 1–3",
+          "method": "OA full-text passage inspection",
+          "title": "Stein's Method and the Rank Distribution of Random Matrices over Finite Fields",
+          "trigger": "Possible coverage by joint exact-rank random matrix theory"
+        },
+        {
+          "assessment": "Exact full-rank coverage",
+          "evidence": "Total idempotents have the law of 2^{dim Fix(C)} for uniform C in GL_n(2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-field-independent-idempotent-count-law-for-characteristic-two-pe--3591a9c3116b/RESULT.md",
+          "material_read": "Finding and proof passages (starting around offset 60)",
+          "method": "Local Resultary search and mirrored passage",
+          "title": "Field-independent idempotent count law for characteristic-two perfect evolution algebras",
+          "trigger": "Exact same statistic in the perfect case"
+        },
+        {
+          "assessment": "Later overlapping marginal law, not exact-rank law",
+          "evidence": "Uniform sampling over all ranks and a mixture conditioned on singularity; the limit there takes n large at fixed q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-full-matrix-idempotent-law-for-binary-characteristic-evoluti--7d365bfcd94e/RESULT.md",
+          "material_read": "Finding at offset 77 and proof passages around 1777–3747",
+          "method": "Local Resultary search and mirrored passage",
+          "title": "The full-matrix idempotent law for binary-characteristic evolution algebras",
+          "trigger": "Broader exact law that might imply conditioning on rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, rank-one case and field-size limit",
+        "arXiv:2610.22248v1, Question 22 and Remark 23"
+      ],
+      "rationale": "Rank is a natural invariant of the algebra's multiplication image. Conditioning on it identifies what the perfect law and the mixture hide: finite-field variation already at rank one, exact probabilities up to the maximal possible idempotent count at any rank, and a universal binary fixed-space limit at fixed rank. The complete conditional classification is more informative than the unconditional mean or a finite table.",
+      "residual_risks": [
+        "No conclusion about random isomorphism classes, other matrix ensembles, odd characteristic, or growth of n with q."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

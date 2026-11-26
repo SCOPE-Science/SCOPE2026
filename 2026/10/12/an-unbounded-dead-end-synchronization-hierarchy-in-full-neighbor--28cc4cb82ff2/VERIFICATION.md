@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The exact finite checker is `verify.py`; execute `python3 verify.py` from its directory with Python 3 and no third-party dependencies. It enumerates every pointwise filter core on the listed factor sizes, thereby testing all finite filters on those sets, including the improper filter. The product check covers \(8{,}784\) pairs in dimensions \((1,1)\), \((1,2)\), \((2,2)\), \((3,2)\), and \(300\) reproducible seeded pairs in dimension \((3,3)\), through rank \(7\).
+## correctness
 
-For every integer \(1\leq n\leq16\), it constructs the \(n+1\)-world transitive three-relation witness, checks both mixed relation-composition inclusions, checks every lower-depth closed formula at all worlds and verifies failure of the depth-\(n\) formula at the designated root. Its recorded terminal output is:
+PASS
 
-```
-VERIFY_OK: 8784 finite filter-product pairs, ranks 0..7; 16 transitive counterframes, ranks 0..n+2; last witness edges R/R1=(122, 121)
-```
+For E(A,B)=(A×Y)∪(X×B), a generating rectangle U×V lies in E iff U⊆A or V⊆B: otherwise choose one outside point in each coordinate. Upward closure gives the necessary membership in the corresponding factor filter; conversely pair a witnessing factor set with the whole opposite space. This works also for an empty side, for nonprincipal filters and for all A,B. Iterating from E(∅,∅) and computing the coordinate boxes on cylinders proves every closed γₙ. In the Kripke separator, take S the transitive strict order on n points with a disjoint loop, put R₁=R₂=S and R=S plus the arrow from the first chain point to the loop. The extra arrow has no incoming predecessor at its origin, and composes only with the loop on its right, so R is transitive. Both mixed composites lie in S⊆R, the sound direction for mix. A box power of falsity means absence of a path of exactly that length. No path from anywhere other than the root encounters the extra arrow; at the root lengths k<n have paths in all three relations, and at n only the synchronous relation has a path. With n=1 the chain is a singleton and the same witness refutes γ₁. All lower axioms are thus validated globally, so soundness proves strict nonderivability and the finite-subset consequence. Frozen RESULT.md lines 24–56 suffice symbolically; recorded finite checks were inspected, not rerun.
 
-The universal statements are established by the symbolic rectangular-union and reachability proofs, not by finite enumeration. The checker neither attempts to prove arbitrary infinite-filter behavior nor asserts an independent review.
+## originality
+
+PASS
+
+No inspected distinct result covers the conjunction of synchronous dead-end iteration for arbitrary normal full neighborhood products and depth-by-depth separation over three copies of K4 plus mix. The rectangle/filter infrastructure and mix schema are prior; the serial completeness theorem cannot supply the strict hierarchy, and exact reverse-mix/elimination results use different assumptions or address a different claim. Kudinov's earlier nonserial bimodal work is relevant; the readable 2023 summary shows the older completeness framework's closed formulas in a two-box language. The verdict is on the stated restricted hierarchy, not priority for product semantics, all variable-free principles, or nonfinite axiomatizability of a full product logic.
+
+## value
+
+PASS
+
+The theorem identifies a reusable product invariant that only becomes informative in the nonserial setting and demonstrates with uniformly small witnesses why iterating the dead-end law is not redundant over the natural mix base. This cleanly separates a genuine nonserial obstacle from the known serial picture. The value does not rely on claiming completeness or non-finite axiomatizability of the full logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

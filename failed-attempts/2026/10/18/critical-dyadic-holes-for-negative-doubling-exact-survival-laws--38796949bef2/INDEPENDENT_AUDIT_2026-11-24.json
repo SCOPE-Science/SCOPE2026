@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:06:41.379054Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The negative branches are affine with slope -2, so length-L codes correspond to equiprobable dyadic cells of width 2^(-L) off endpoints. The inward one-sided codes at the center begin 00 followed by alternating bits, or the complement, agreeing with the proposed two forbidden words. The equality-defect transformation bijects each binary word with its initial bit and a defect word. The forbidden patterns become precisely 1 followed by r=m-2 zeros. Counting by the last 1 gives b_N=1+sum_{j=1}^r b_(N-j) (b_0=1 and b_k=0 for k<0), giving the stated generating function via a_L=2b_(L-1). Appending all ones in defect coordinates extends each allowed word when r>=1, and r=0 uses all zeros. The recurrent renewal component has gaps 1 through r, so for r>=2 its Perron parameter solves sum_{j=1}^r lambda^(-j)=1; r=0 and 1 have constant and linear word counts. The count gives the dimension upper bound, and the renewal measure with cylinder bound C lambda^(-L) gives the lower bound since intervals of size 2^(-L) meet a bounded number of level-L cells. Entropy also follows from the coding, or directly from exponential growth of dyadic-cell coverings and uniformly expanding Bowen balls. At dyadic boundaries every nonzero dyadic rational eventually visits the hole center, so only the zero circle point can survive among these exceptional points; the two alternating endpoint codes there do not alter entropy or dimension. Formula (4) tests exactly n windows in n+m-1 bits, so the finite-time and escape rate follow including both degenerate cases. Write r=m-2 and t=1-lambda/2. The small root of t(1-t)^r=q lies in [q,2q] for large m, since rq tends to zero and the function is increasing on that interval. Uniform Taylor expansion gives t=q+rq^2+O(r^2q^3), then -log(1-t)=q+(r+1/2)q^2+O(r^2q^3). This confirms the sign, logarithm base and remainder. The other algebraic root t=1/2 is not the positive-entropy branch.",
+      "reproducibility": "Inspected VERIFICATION.md and VERIFY.py without executing the uploaded script. Independent exact replay via ordinary doubling and its two-word correlation matrix is given under originality. It also reproduces the boundary checks: at m=2 a_L=2 for L>=1, so survival is 2^(-n); at m=3 a_L=2L for L>=1, so survival is (n+2)/2^(n+1); at m=4 the length-4 and length-5 counts are 14 and 24, giving survival at n=1,2 of 14/16 and 24/32. The supplied enumeration and high-precision tests are finite corroboration; frozen expert, independent audit and Lean channels report not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general full-shift theorem gives F(z)=z/(z-2+r_F(z)) with r_F the sum of entries of the inverse correlation matrix. The reduced equal-length pair meets its hypotheses. The largest-pole and entropy/escape statements are compatible with the recurrent component and degenerate cases here.",
+          "The decreasing Lorenz source includes this hole in its general entropy/dimension setting. Lu–Steiner–Zou give general entropy and dimension results for binary open shifts."
+        ],
+        "reasoning": "The general correlation theorem computes exact counts with a two-by-two substitution; combined with the standard entropy/dimension relation for equal-ratio cylinders, it covers these observables more strongly than a qualitative staircase theorem does.",
+        "searches": [
+          "arXiv:1905.11767 Definition 2.2, Theorems 2.3 and 2.5, Remark 2.6 and Corollary 2.7",
+          "arXiv:2610.03327 setup and Theorem 1.5",
+          "arXiv:2509.04227 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.11767",
+        "arXiv:2610.03327",
+        "arXiv:1112.5390",
+        "arXiv:2509.04227",
+        "Resultary 8027a957802c",
+        "Resultary 414ad20a8f03",
+        "Resultary ca3ad35b54de",
+        "Resultary c3e891785474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the pair with only one-bit cross overlaps the older theorem's matrix is M(z)=[[z^(m-1),1],[1,z^(m-1)]]. Since its symmetric eigenvalue is z^(m-1)+1, r_F(z)=2/(z^(m-1)+1). Inserting and replacing z by 1/u gives F(1/u)=(1+u^(m-1))/(1-2u+u^(m-1)), exactly (1).",
+          "Uniform cylinder probabilities give (4) from this exact coefficient sequence. Its pole obeys lambda^(m-2)(2-lambda)=1; isolating the root near 2 gives t(1-t)^(m-2)=q. The uniform Taylor calculation in correctness yields the full displayed logarithmic and constant second-order terms and O(q^3 log^2(1/q)), not merely a matching coefficient in a related model.",
+          "Dettmann's related preperiodic h^2|ln h| coefficient agrees, but its general-location Eq. (23) is presented as numerically supported and uses fixed locations; it is not treated as a proof for the shrinking central sequence."
+        ],
+        "reasoning": "The only computation needed beyond identifying the two binary cylinders is inserting their trivial overlap polynomials and expanding the resulting scalar root. The exact claim is mechanically implied, even though its formula and remainder are not written out verbatim in the general theorem. The defect-code proof is a useful alternate derivation of already determined observables, not a distinct frozen classification or invariant.",
+        "searches": [
+          "arXiv:1905.11767 §2 Definition 2.2, Theorems 2.3 and 2.5",
+          "arXiv:1112.5390 §4 Eq. (23)",
+          "Resultary c3e891785474"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If D(x)=2x mod 1 and R(x)=-x mod 1, then T=RD=DR. Since R(H_m)=H_m, T^j x=R^j D^j x has identical membership in H_m for every j and x, including endpoints. The survivor sets and survival laws are identical; T^2=D^2 gives the entropy equality, not a claimed conjugacy of T and D.",
+          "The two ordinary doubling forbidden binary words are 01^(m-1) and 10^(m-1). Alternating bit complementation in time transfers the negative-branch symbolic language to the positive one, preserving word counts.",
+          "For the two positive words there are no proper self-overlaps and the two cross-overlaps have length exactly one, including m=2."
+        ],
+        "reasoning": "The reflection-invariant hole makes the orientation sign irrelevant to these observables, and the ordinary binary language falls directly under the older general exact count theorem. The symmetry is not merely analogy with the fixed-location positive holes studied by Dettmann.",
+        "searches": [
+          "arXiv:1905.11767 Definition 2.2 and Theorem 2.3",
+          "arXiv:1112.5390 §§3–4",
+          "Resultary symmetric dyadic multinacci escape statistics / negative doubling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8027a957802c has the same zero-entropy phases at m=2,3; ca3ad35b54de gives exact survival on a parameter range containing those two levels; 414ad20a8f03 covers the golden-mean entropy and dimension at m=4.",
+          "c3e891785474 matches all H_m, the shifted recurrence, all-depth exact survival and entropy/dimension, and adds mean entrance time; its explicit small-hole statement is only gamma=q+O(m 4^(-m))."
+        ],
+        "reasoning": "There is substantial exact entry-level overlap, especially in the all-depth record. Its later catalogue date does not establish priority against this frozen record; it is not the basis for finding earlier coverage. The published correlation theorem supplies that independent basis.",
+        "searches": [
+          "Resultary same central hole H_m, negative doubling, multinacci escape",
+          "Resultary 8027a957802c, 414ad20a8f03, ca3ad35b54de, c3e891785474"
+        ]
+      },
+      "rationale": "The exact all-depth law is a direct specialization of the existing correlation-matrix theorem, not merely a problem for which rationality was previously known. Reflection reduces survival to ordinary doubling exactly, and its two forbidden words have correlation matrix with diagonal z^(m-1) and off-diagonal 1. Substituting that matrix in the verified general count formula gives the entire claimed numerator and denominator, not just the asymptotic rate. Its largest pole, the equal cylinder lengths and a Taylor expansion of the pole equation yield all the quantitative claims, including the second-order coefficient and remainder. The failure is established by the published general theorem and this direct substitution, not by search misses, inaccessible texts or inferred order of indexed records.",
+      "residual_risks": [
+        "Catalogue order is not a determination of actual historical priority, and the exact indexed overlap does not by itself justify rejection.",
+        "An even earlier exact special-case statement may exist, but is not needed for the shown implication from the published general count theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage via substitution",
+          "evidence": "Definition 2.2 and Theorem 2.3 give the correlation matrix and exact reciprocal generating function F=z/(z-q+r_F); Theorem 2.5 and Remark 2.6 address the dominant pole, and Corollary 2.7 escape.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11767",
+          "material_read": "Primary theorem and definitions, PDF pp. 4–5, OA offsets 14550–20509; introductory context also inspected",
+          "method": "Lawful OA arXiv passages with the exact definition, formula, and pole theorem read by offset",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "General exact correlation method covers the two-cylinder full shift"
+        },
+        {
+          "assessment": "General structural overlap, not the decisive exact formula",
+          "evidence": "Negative doubling with general centered-containing holes, and dimension devil's-staircase structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03327",
+          "material_read": "Abstract/setup, PDF pp. 1 and 5, offsets 0 and about 16000; Theorem 1.5, p. 7, about offset 19800",
+          "method": "Lawful OA arXiv passages",
+          "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
+          "trigger": "Same negative map and holes containing 1/2"
+        },
+        {
+          "assessment": "Matching coefficient in related setting, not basis for exact prior coverage",
+          "evidence": "Computes expansions for holes based at zero and gives a numerically supported general-location expression matching the preperiodic logarithmic coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5390",
+          "material_read": "§3 PDF pp. 3–4, offsets about 13400–19500; §4 Eq. (23), p. 6, offsets about 23800–26700",
+          "method": "Lawful OA arXiv passages",
+          "title": "Open circle maps: Small hole asymptotics",
+          "trigger": "Positive doubling reduction; prior logarithmically enhanced corrections"
+        },
+        {
+          "assessment": "General dimension and symbolic framework",
+          "evidence": "Includes doubling with holes; gives entropy/dimension formulas without the specialized finite-time law in the compared passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.04227",
+          "material_read": "Abstract, p. 1, offsets 0–2060; Theorems 1.1–1.2, PDF pp. 4–5, offsets about 13300–16500",
+          "method": "Lawful OA arXiv passages",
+          "title": "Hausdorff dimension of double base expansions and binary shifts with a hole",
+          "trigger": "General entropy and dimension for positive doubling holes"
+        },
+        {
+          "assessment": "Substantial exact coverage; later date not used to decide priority",
+          "evidence": "Same set of H_m, exact recurrence, entropy and finite-time law; first entrance mean additionally, but only first-order escape expansion with O(m 4^(-m)) remainder explicitly.",
+          "identifier_or_url": "Resultary c3e891785474",
+          "material_read": "Mirrored RESULT.md offsets 0 and 3200, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Exact multinacci escape statistics for symmetric dyadic holes",
+          "trigger": "Strongest exact indexed all-depth matching theorem"
+        },
+        {
+          "assessment": "Partial exact coverage at the first depths",
+          "evidence": "Zero-entropy classification and exact subthreshold survival include a=1/4,3/8; a=7/16 lies inside the golden-mean plateau [3/7,4/9].",
+          "identifier_or_url": "Resultary 8027a957802c; 414ad20a8f03; ca3ad35b54de",
+          "material_read": "Mirrored RESULT.md Findings at the same snapshot",
+          "method": "Resultary semantic lookup and local mirror passages",
+          "title": "Symmetric negative doubling phase, golden-mean and escape records",
+          "trigger": "Dominating parameter intervals containing degenerate and onset depths"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The symmetric dyadic family is natural and the formulas are useful benchmarks. As a separate contribution, however, the finite counts and boundary depths are determined by a two-entry overlap calculation in the existing exact method, and the quoted refinement is the second-order Taylor coefficient of the same known pole equation, with a routine uniform remainder on t=O(q). The alternate defect coding does not yield a distinct scientific claim beyond those mechanically determined outputs in the frozen finding. There is no supported new valuable remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

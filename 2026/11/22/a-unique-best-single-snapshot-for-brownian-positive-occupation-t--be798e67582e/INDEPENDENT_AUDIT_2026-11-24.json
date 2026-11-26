@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:08.599915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3), closed form and series",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt (inspected; supplied script not executed)",
+        "Independent record5_check.py: bracket G(r)=C, evaluate x=exp(-r) and V(x), and compare with the integrated arcsine-power series"
+      ],
+      "rationale": "For standard Brownian motion starting at zero, at a predetermined time x>0 the full observation is equivalent to Z=B_x/sqrt(x). Two independent conditional Gaussian residuals that share Z have unconditional sign-input correlation rho_x(s)rho_x(t); the Gaussian orthant identity therefore gives the stated double integral for Var(E[Q|B_x]). In log time the two straddling rectangles contribute zero to the derivative, while the two same-side squares give e^(-2r)(C-G(r))/pi. This can be justified by splitting at the moving boundaries (the boundary terms cancel by continuity) and using the locally integrable kernel (e^(a+b)-1)^(-1/2). Integrating H'' over the square gives G=H(2r)-2H(r); G rises strictly from zero to infinity, so the derivative changes sign exactly once. The endpoints x=0 and x=1 are covered, with V(0)=0 and V(1)=(1-log 2)/4. Projection in L² yields risk 1/8-V(x). Independent scalar evaluation gives x=0.58958511090724239247 and risk 0.02553546323245417006; the closed variance agrees with an independently evaluated 100,000-term arcsine series to 7.90e-15, within the uniform bound 1.60e-11. The series tail follows from a decreasing cubic bound. The line calling the result 'minimax' is a terminology slip: the objective proved is minimum unconditional Bayes risk under a specified Brownian law, not a worst-case criterion.",
+      "residual_risks": [
+        "Numerical evaluations corroborate constants only; global uniqueness rests on the analytic derivative.",
+        "No conclusion about unknown drift, noisy or quantized data, adaptive timing or multiple observations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altmeyer studies occupation-functional approximation from discretely observed paths; Ivanovs–Podolskij studies optimal estimators for supplied observation grids.",
+          "Cui–Chronopoulou §3.1, Proposition 1, optimizes sparse times for integrated error of process-path reconstruction."
+        ],
+        "reasoning": "A grid estimator can supply the conditional mean when restricted to a particular grid, but does not optimize a free scalar time. Optimizing integrated process-state error is not optimizing error for the integral of a nonlinear sign function.",
+        "searches": [
+          "arXiv:1706.03418",
+          "arXiv:2001.02517",
+          "arXiv:2304.07661"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ec7f7a8efc6a",
+        "arXiv:2001.02517",
+        "arXiv:1706.03418",
+        "arXiv:2304.07661"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prescribed-grid Bayes estimation is covered background.",
+          "Neither path-estimation risk nor one-bit risk gives the moving full-state variance kernel and its unique crossing."
+        ],
+        "reasoning": "To obtain the claimed result still requires computing and globally comparing the captured variances for the varying full-state experiment. The existing optimization results do not dominate it with matching target and data.",
+        "searches": [
+          "arXiv:2001.02517, §1 and Brownian occupation discussion",
+          "arXiv:2304.07661, §3.1 Proposition 1",
+          "Resultary ec7f7a8efc6a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-sign specialization of the mirror result observes sign(B_x) only and gives 16/(16+pi²) and risk 0.0420112771, not the current design or constants.",
+          "Ivanovs–Podolskij formulates conditional-moment estimation from fixed grids."
+        ],
+        "reasoning": "Rescaling the observed Brownian state to a standard normal is invertible at any given positive x; replacing that state by its sign is not. Minimizing squared error and maximizing captured variance are equivalent here, but only within the same observation class.",
+        "searches": [
+          "Resultary: exact one-bit optimal sampling for Brownian occupation under relative Gaussian noise, ec7f7a8efc6a",
+          "arXiv:2001.02517"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest mirror entry tabulates/derives a different exact optimizer and risk even at zero added noise; its datum remains a bit."
+        ],
+        "reasoning": "The exact design benchmark is a pair of continuous optimization constants with an observation model, not an entry in a table of arcsine-law quantities. The closest indexed exact numbers are for a different information constraint.",
+        "searches": [
+          "Resultary semantic lookup on one-snapshot Brownian positive occupation design; closest distinct record ec7f7a8efc6a (mirror Finding)"
+        ]
+      },
+      "rationale": "No inspected source establishes the full-real-state, fixed-in-advance one-point optimum for Brownian positive occupation. Conditional-mean estimation and Gaussian orthant identities are prior ingredients. The supported distinction is the exact design risk as a function of time and its unique optimizer, not conditional expectation, the arcsine law, or occupation estimation in general.",
+      "residual_risks": [
+        "Bounded source comparison does not certify historical priority; an older equivalent sparse-design derivation may exist.",
+        "The same-date mirror record was compared by mathematical content, not treated as evidence of publication ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related distinct claim; not equivalent",
+          "evidence": "The datum is S=sgn(B_x+sqrt(eta x)Z); at eta=0 the optimum is 0.6184864582 and minimum risk is 0.0420112771.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-one-bit-optimal-sampling-for-brownian-occupation-under-rel--ec7f7a8efc6a/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offset 0–2650",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact one-bit optimal sampling for Brownian occupation under relative Gaussian noise",
+          "trigger": "Same Brownian target and deterministic single-time optimization"
+        },
+        {
+          "assessment": "Partly overlapping estimation method; different design question",
+          "evidence": "Works with fixed observation grids and conditional occupation and local-time estimation; the inspected setup does not optimize one interior observation time.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.02517",
+          "material_read": "§1, PDF pp. 3–4 (text offsets 7950 and 9800)",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal estimation of some random quantities of a Lévy process",
+          "trigger": "Conditional-mean occupation-time estimation"
+        },
+        {
+          "assessment": "Related approximation target, not evidence of exact one-shot coverage",
+          "evidence": "L² occupation approximation from discrete observations; its scope does not state the one-shot full-state optimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03418",
+          "material_read": "PDF p. 1, abstract and introductory setup",
+          "method": "OA PDF passage inspection",
+          "title": "Approximation of occupation time functionals",
+          "trigger": "Directly related occupation approximation literature"
+        },
+        {
+          "assessment": "Different target and risk",
+          "evidence": "The criterion concerns integrated squared error for estimation of process values, not squared error for a sign-occupation functional.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.07661",
+          "material_read": "§3.1 Proposition 1, PDF p. 5 (text offset 12640)",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal Sampling for Estimation of Fractional Brownian Motion",
+          "trigger": "Optimal observation timing for Brownian-family processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact kernel, uniqueness and endpoint benchmark",
+        "Resultary ec7f7a8efc6a, exact one-bit specialization",
+        "Cui–Chronopoulou §3.1, distinct process reconstruction target"
+      ],
+      "rationale": "One noiseless state is a natural sparse-information constraint, and Brownian positive occupation is a nonlinear path summary for which optimal timing for reconstructing the path is not a substitute. An exact global location and risk solve that design problem and give testable benchmarks against terminal or one-bit observations. The explained-variance comparison is substantive (about 79.57% at the optimum versus 61.37% at the endpoint under the same experiment); the analytic uniqueness rules out alternative equally good deterministic designs.",
+      "residual_risks": [
+        "Benchmarks are law- and sensor-specific; they are not general guarantees for practical path reconstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

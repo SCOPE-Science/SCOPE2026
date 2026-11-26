@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:37:38.861175Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The degree-ell harmonic space comprises the matrix coefficients of Sym^ell(C^2); Schur orthogonality for Haar probability introduces the factor ell+1 in the kernel. Even ell descends to A5 regardless of antipodal representative. The class weights 1,15,20,12,12 and half-angles 0, pi/2, pi/3, pi/5, 2pi/5 give the stated restricted character. Schur orthogonality on the unweighted target gives sector dimension d_rho^2 and convolution scalar 60(ell+1)m_rho/d_rho. The kernel projectors and pseudoinverse correctly give the range and the unique minimum-norm interpolant. The nonidentity characters repeat under ell+60 and the identity increment adds one regular character, giving the permanent full rank from 60. An independent exact Chebyshev recurrence in Z[phi], `python3 /workspace/branches/replay_2_3.py`, gives both rank tables, first rank 60 at 20 and last deficiency at 58; the latter has multiplicities (0,3,3,4,5). Rank 59 loses only the trivial sector. Equal remaining sector eigenvalues make the restricted character constant away from the identity; by the angle residues this is possible only in degree 0 or 58 modulo 60. Only 58 is rank 59, and its character is 59 at the identity and -1 elsewhere, making G=3540 I-59*11*. Bounded nonidentity character values prove the stated conditioning estimate; the nonzero entry at perpendicular lines excludes exact full orthogonality. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both exact-sampling records give all nine binary-icosahedral sectors and exact ranks for both parities. The recurrence specializes to the same symmetric-power multiplicities indexed by the five central-even sectors.",
+          "The 1974 abstract advertises representation restriction and symmetrization, not a stated sampling Gram classification; full text unavailable by attempted lawful routes."
+        ],
+        "reasoning": "The all-degree full-vertex theorem is a strict extension and its even case mechanically covers the frozen spectral theorem. The rank-59 notion here refers to tightness on the image, not full parity-space tightness in de93ffb99594, but the latter's full spectrum still decides image tightness.",
+        "searches": [
+          "Resultary 13f75a70c530, all-degree recurrence and exact-degree rank tables",
+          "Resultary de93ffb99594, all-degree and parity-sharp assertions",
+          "DOI 10.1088/0305-4470/7/17/004, icosahedral representation restriction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 13f75a70c530 and de93ffb99594 actual mirrored findings",
+        "arXiv:2507.01358v1",
+        "DOI 10.1088/0305-4470/7/17/004 abstract",
+        "arXiv:0906.2109v2",
+        "arXiv:math/0607446"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-degree recurrence gives every rank-59 case and each sector eigenvalue; testing equality in that finite list is a mechanical operation. At degree 58 it states that all 59 positive eigenvalues are 120. On compression and rescaling these become 120*59/2=3540. The sole missing line sector is the constant sector, also identifiable by harmonic strength.",
+          "The parity-sharp record gives the asymptotic 1+O(1/ell) conditioning and the full-parity tightness distinction."
+        ],
+        "reasoning": "The projector and unique rank-59 tight degree follow from already determined spectra and the constant-sector obstruction. Taking the pseudoinverse of that projector gives the stated interpolation norm with no additional spectral theorem. The closed residue expression is a standard character transform of the explicitly given kernel, not a new independent invariant beyond the exact sectors and matrices already covered.",
+        "searches": [
+          "Resultary 13f75a70c530 degree 58 and the nine-sector integer recurrence",
+          "Resultary de93ffb99594 conditioning and full-parity tightness",
+          "arXiv:2507.01358v1 degree-58 harmonic strength"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "13f75a70c530 gives the full 120-vertex matrix K_ell=[U_ell(<x,y>)] and explicitly states that the Haar-probability reproducing kernel is (ell+1)K_ell.",
+          "In even degree K_ell duplicates rows and columns across antipodes. For the isometry T from line data to duplicated vertex data divided by sqrt(2), the frozen Gram is ((ell+1)/2)T* K_ell T."
+        ],
+        "reasoning": "This is exact compression and scaling, not a different band or sampling problem. The five central-even irreducibles of 2I factor through A5. The rank, sector multiplicities and every positive eigenvalue transfer; the extra 60 null eigenvalues are from the odd antipodal space.",
+        "searches": [
+          "Resultary exact-degree harmonic 600-cell sampling spectra, 13f75a70c530 and de93ffb99594",
+          "arXiv:2507.01358v1 §1.1 and Theorem 1.2(iii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Taking the even indices of the 13f75a70c530 exact table yields the frozen table, including first full rank 20 and last defect 58. The recurrence gives the actual values throughout, not just ranks.",
+          "Hirao–Nozaki–Tasaka separately give the exact global harmonic vanishing degree set on 2I, including 58."
+        ],
+        "reasoning": "The earlier literature's global sums only give absence of the trivial sector, not the complete table (e.g. degree 12 has rank 51 despite not being a global vanishing degree). The distinct indexed exact-sampling result directly covers the table and its continuation.",
+        "searches": [
+          "Resultary 13f75a70c530 rank rows through degree 59 and matrix translation law",
+          "arXiv:2507.01358v1 Theorem 1.2(iii)"
+        ]
+      },
+      "rationale": "A distinct indexed record, 13f75a70c530, determines the exact-degree Gram spectrum and ranks on all 120 vertices for both parities, including the equal 59 positive values at 58. Even-degree antipodal compression with the source-norm rescaling yields this frozen spectrum, including the five sectors, and the later inspected parity-sharp record also gives the conditioning rate. The rank-59 uniqueness and reconstruction statements then follow mechanically. This is a finding of demonstrable equivalent coverage, not a claim that the later-dated catalogue labels establish historical precedence. The unavailable 1974 text is not the basis for failure.",
+      "residual_risks": [
+        "Historical publication priority is not settled by catalogue timestamps. The full Backhouse–Gard article was not accessible and may have useful older equivalent calculations.",
+        "The frozen cumulative-band comparator lacked a bibliographic locator; in any event band surjectivity alone would not imply exact-degree surjectivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage, not the identical record. Catalogue date is later than the frozen label and is not used to assert priority.",
+          "evidence": "Nine-irrep recurrence, exact rank table, 60-degree translation, and 59 positive eigenvalues all 120 at degree 58 in U_ell normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-exact-degree-harmonic-sampling-spectrum-of-the-600-cell--13f75a70c530/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and harmonic-kernel formula, mirror offsets 0–3857.",
+          "method": "Actual bounded local-mirror statement.",
+          "title": "The exact-degree harmonic sampling spectrum of the 600-cell",
+          "trigger": "Exact spectrum on the full 600-cell, the strongest dominating parameter regime."
+        },
+        {
+          "assessment": "Corroborates broader spectrum and conditioning; its full-parity tightness statement does not itself assert codimension-one tightness.",
+          "evidence": "Full nine sectors, even threshold 60, deficiency at 58, and asymptotic condition number. Exact full tightness is classified on the entire parity space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-sharp-exact-degree-harmonic-sampling-on-the-600-cell--de93ffb99594/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–3908.",
+          "method": "Actual bounded local-mirror statement.",
+          "title": "Parity-sharp exact-degree harmonic sampling on the 600-cell",
+          "trigger": "Exact spectral translation, persistent rank thresholds, and tightness/conditioning comparison."
+        },
+        {
+          "assessment": "Covers the trivial-sector obstruction, including at 58, not all sectors.",
+          "evidence": "Harmonic strength is vanishing of the global degreewise sum; even evaluation gives the 60-line sum up to a factor of two.",
+          "identifier_or_url": "arXiv:2507.01358v1",
+          "material_read": "§1.1 PDF p. 1 near offset 4300 and Theorem 1.2(iii), PDF p. 3 near offsets 10900–11294.",
+          "method": "Actual OA PDF passages.",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Precise known degreewise vanishing on 2I."
+        },
+        {
+          "assessment": "Material historical risk, not evidence of exact coverage or noncoverage.",
+          "evidence": "Abstract discusses restriction from SO(4) and symmetrization, without detailing multiplicity or sampling tables.",
+          "identifier_or_url": "DOI 10.1088/0305-4470/7/17/004",
+          "material_read": "Indexed abstract only; publisher PDF access failed and an identified public PDF route was unavailable.",
+          "method": "Publisher and alternate lawful retrieval attempted; no full-text conclusion drawn.",
+          "title": "The representation theory of the icosahedral group",
+          "trigger": "Plausible older source for the needed representation restrictions."
+        },
+        {
+          "assessment": "Class geometry ingredients; does not give the normalized sampling results in the compared passage.",
+          "evidence": "Binary-icosahedral class representatives fix the relevant half-angles.",
+          "identifier_or_url": "arXiv:0906.2109v2",
+          "material_read": "§3 Table 1, OA HTML offsets about 10715–14142.",
+          "method": "Actual OA paper passage.",
+          "title": "Quaternionic Representation of Snub 24-Cell and its Dual Polytope Derived From E8 Root System",
+          "trigger": "Quaternionic representatives and class angles."
+        },
+        {
+          "assessment": "A global design fact, not the one-degree spectrum.",
+          "evidence": "Identifies the 120-point 600-cell as an 11-design.",
+          "identifier_or_url": "arXiv:math/0607446",
+          "material_read": "Table 1, PDF p. 4 (printed p. 102), around offset 13100.",
+          "method": "Actual OA PDF passage.",
+          "title": "Universally optimal distribution of points on spheres",
+          "trigger": "Design and sampling geometry of the vertex set."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact-degree sampling on this configuration is well motivated and the analysis is correct; the assessed exact invariant and rank/tightness cutoff are nevertheless mechanically available from a stronger indexed exact spectrum on the same vertices. Reexpressing it with five character rows and the normalization appropriate for interpolation is useful exposition, but no independently valuable new finding survives this coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

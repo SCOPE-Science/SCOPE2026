@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:40:07.814343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–136",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "python3 /workspace/audit-replay/frozen_checks.py 1"
+      ],
+      "rationale": "Full-state Poisson regeneration gives the unique stationary joint law by exponential-age sampling, with finite moments. A backward exponential-age resolvent independently yields the spatial transform. Its difference from the Brownian transform has factors q²(DB−v²)[α+(1−p)(r+Dq²)] over a strictly positive denominator, so at any nonzero frequency it can vanish only at balance, including both endpoint mixtures. Substitution then gives the Laplace law. Off balance the stationary variance has nonzero slope 2(DB−v²)/(BΛ). For the two-time check, trajectories with an intervening reset give zero covariance with the initial position; conditional on no reset, the expected net drift from initial mode S is vS(1−exp(−βt))/β, with Brownian increments of mean zero. The stationary occupation of the ballistic modes is [α+(1−p)r]/Λ, and averaging the sign-memory kernel on a regenerative age, or stationarity of XS, gives E[XS]=vπ_ball/B. Substitution at balance yields the claimed Cₚ(t), its strict ordering and the inverse for every t>0. The independent symbolic replay of the backward resolvent confirms the factorization, balance substitution, and variance slope.",
+      "residual_risks": [
+        "Single-lag recovery presumes the other parameters and exact stationary covariance are known. No assertion of finite-sample conditioning, zero-rate extensions, or more general resetting protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The basic exponential-age resolvent and Brownian Laplace reference are established. The intermittent paper treats propagation, resetting MSD and first arrival; those quantities are not the stationary lag statistic E[X₀Xₜ]. The 2D analogue has a rotational diffusion mechanism."
+        ],
+        "reasoning": "The claimed separation requires a stationary position–mode cross-moment and its propagation from a stationary observation time, not just a fresh-start displacement law or a first-arrival comparison. No inspected earlier broader result yields that full covariance ordering for this model.",
+        "searches": [
+          "arXiv:2401.16849 and published counterpart, transient propagation, NESS and mean-squared displacement",
+          "arXiv:1102.2704 Eq. (3), diffusion with resetting",
+          "arXiv:2008.03294, active-Brownian reset protocols"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.16849 / DOI 10.1103/PhysRevE.109.034103",
+        "arXiv:1808.06450, arXiv:2008.03294, arXiv:1102.2704",
+        "Resultary e9f574cebd88, a1ab52a1b12f, f3cc5401e836"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general p spatial law is the p-weighted average of the fixed protocol laws by exponential-age sampling. The 2024 paper explicitly treats that averaging at p=1/2. The later endpoint covariance formulas interpolate at positive lag, but the earlier published endpoint propagators alone do not state stationary two-time separation."
+        ],
+        "reasoning": "The static cancellation is an algebraic specialization, not the standalone originality basis. The stationary lag theorem couples the mode-position moment to the probability of no intervening reset, which is distinct from the earlier cited one-time and first-passage results.",
+        "searches": [
+          "Flaquer-Galmés et al. Eqs. (28)–(30), Appendix A Eqs. (A1)–(A5)",
+          "Resultary exact spatial aliasing and strict temporal separation, finding and proof",
+          "Evans–Majumdar arXiv:1808.06450 abstract and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flaquer-Galmés et al., Eqs. (28)–(30), evaluate the endpoint stationary resolvents at reset rate r; Appendix A Eqs. (A1)–(A5) averages the two endpoints for equiprobable phases.",
+          "Evans–Majumdar's stationary marginal is independent of the reset-orientation parameter in an always-ballistic model."
+        ],
+        "reasoning": "The first is the same process for the fixed protocols and provides the common static starting point. The second is conceptually similar but changes the internal dynamics and does not yield this balance or Cₚ(t).",
+        "searches": [
+          "DOI 10.1103/PhysRevE.109.034103 / arXiv:2401.16849: diffusive and relocation reset phases, stationary propagators and random phase",
+          "arXiv:1808.06450: reset-orientation independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22 … e9f574cebd88 gives the same all-mixture Laplace law at v²=D(r+b) and a separate off-balance Laplace design with a different rate.",
+          "2026/10/26 … a1ab52a1b12f gives the balance and both endpoint covariance formulas with strict all-positive-lag ordering.",
+          "2026/11/8 … f3cc5401e836 gives single-lag mixture recovery for a different diffusive run-and-tumble model."
+        ],
+        "reasoning": "The first is material static overlap (θ=1−p); the second, plus affinity of the initial stationary law in the reset mixture [and absence of surviving covariance after a reset], covers the continuous-p covariance and its elementary inversion. Both entries are later. The run-and-tumble item has a different mode space and is not the same theorem.",
+        "searches": [
+          "Resultary local searches: intermittent diffusion/ballistic resetting, stationary Laplace aliasing, temporal separation and one-lag recovery"
+        ]
+      },
+      "rationale": "Credit the 2024 intermittent-walk paper with the underlying renewal resolvent, both fixed reset protocols and the half mixture; the static family follows by mixture linearity and algebra from that machinery. The supported distinction is the sharp stationary two-time separation of all the indistinguishable mixtures in this particular model, and hence exact one-lag recovery, not a new stationary resolvent. The strongest exact catalogue overlaps are later than the frozen item and are identified explicitly below.",
+      "residual_risks": [
+        "The frozen literature account should be read with the explicit equiprobable Appendix A antecedent; the novelty is not an absence of prior mixed protocols.",
+        "Focused literature and catalogue scan only; later equivalent coverage has been separated from evidence of earlier priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, static formulas and equiprobable antecedent; inspected text does not supply all-mixture lag separation",
+          "evidence": [
+            "Eq. (28) uses r times the renewal-free transform evaluated at s=r; Appendix A starts at phase probabilities 1/2, 1/4, 1/4 and averages stationary cases I and II."
+          ],
+          "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/03/127.pdf ; DOI 10.1103/PhysRevE.109.034103",
+          "material_read": "Published title page, §II random phase, §III Eqs. (28)–(30), Appendix A Eqs. (A1)–(A5)",
+          "method": "Public author-hosted original PDF; lawful alternate to publisher route",
+          "title": "Intermittent random walks under stochastic resetting",
+          "trigger": "Identical diffusion/relocation model and reset endpoints"
+        },
+        {
+          "assessment": "Earlier analogous phenomenon, different process and time-dependent observables",
+          "evidence": [
+            "Stationary orientation-reset independence coexists with orientation-dependent survival and absorption times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "Opening statement and conclusion",
+          "method": "OA primary PDF passage inspection",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Earlier static blindness to a reset parameter"
+        },
+        {
+          "assessment": "Distinct active process and classical baseline respectively",
+          "evidence": [
+            "Orientation and position reset protocols in 2D differ from the three-mode intermittent walk; Eq. (3) integrates a Brownian kernel at exponential age."
+          ],
+          "identifier_or_url": "arXiv:2008.03294 ; arXiv:1102.2704",
+          "material_read": "Active-Brownian abstract; Brownian resetting Eq. (3)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Active Brownian Motion in two dimensions under stochastic resetting; Diffusion with stochastic resetting",
+          "trigger": "Alternative active motion and reference Brownian baseline"
+        },
+        {
+          "assessment": "Later material static overlap; no lag recovery there",
+          "evidence": [
+            "Every mixture has Laplace rate √(r/D) at v²=D(r+b); off-balance Laplace design does not equate to the Brownian reference rate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-likelihood-ratio-ordering-and-exact-laplace-design-by-mixe--e9f574cebd88",
+          "material_read": "Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp likelihood ratio ordering and exact Laplace design by mixed reset modes",
+          "trigger": "Same three-mode model and Laplace balance"
+        },
+        {
+          "assessment": "Later equivalent endpoint formulas and ordering",
+          "evidence": [
+            "C_B(t)>C_D(t)>C_BM(t) for t>0 with the same explicit endpoint coefficients; the record also studies an integrated gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-spatial-aliasing-and-strict-temporal-separation-in-intermi--a1ab52a1b12f",
+          "material_read": "Finding and covariance proof passage around offset 4700",
+          "method": "Local mirror passage inspection",
+          "title": "Exact spatial aliasing and strict temporal separation in intermittent resetting",
+          "trigger": "Same balance and proposed strict lag order"
+        },
+        {
+          "assessment": "Later parallel theorem for a different process",
+          "evidence": [
+            "Diffusive run-and-tumble has no intermittent switch between diffusion-only and ballistic-only phases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-static-state-blindness-and-a-sharp-temporal-memory-crossover-und--f3cc5401e836",
+          "material_read": "Finding, offsets 87–1603",
+          "method": "Local mirror passage inspection",
+          "title": "Static state blindness and a sharp temporal memory crossover under resetting",
+          "trigger": "Same combination of static blindness and one-lag recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 13–41 and 98–136",
+        "Flaquer-Galmés et al. published resetting model and endpoint stationary propagators"
+      ],
+      "rationale": "The covariance formula resolves an actual identifiability obstruction: every one-time position statistic loses dependence on p exactly at balance, while every strictly positive stationary lag separates all mixtures and Brownian resetting. The proof exposes the remaining signed ballistic memory and gives an exact observable for the masked parameter. The value is the stationary temporal invariant and its scope, not just a static factorization or algebraic inverse.",
+      "residual_risks": [
+        "No statistical efficiency, noisy recovery, or path-observation experiment is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

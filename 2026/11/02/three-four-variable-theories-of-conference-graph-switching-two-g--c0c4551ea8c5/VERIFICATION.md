@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify_conference_reduct.py` with a standard Python 3 installation; compare its standard output with `verify_conference_reduct_output.txt`. The script builds finite fields from explicit irreducible polynomials, constructs each quadratic-residue conference graph, verifies signed pair orthogonality and enumerates **all** compatible fourth-point requests at the stated sample orders. It checks the formula, attained minimum, the small-order separating configurations, and sharp deletion examples. Tested orders: \(5,9,13,17,25,29\). The output is included verbatim.
+## correctness
 
-The mathematical proof of the unrestricted-depth and arbitrary-order statements is the signed-matrix extension calculation and the indefinite pebble-game strategy in `RESULT.md`. Finite output does not establish the theorem alone; in particular no unenumerated conference graph is covered by a computer certificate. Historical novelty remains qualified by access to older two-graph literature. Independent mathematical audit has not been conducted.
+PASS
+
+I reconstructed the unrestricted proof. With A the adjacency matrix, A²=(v−1)I/4−A+(v−1)J/4 and AJ=(v−1)J/2, so S=2A+I−J gives S²=vI−J. Expanding the indicator of an allowed sign triple modulo simultaneous negation gives (1+t_a t_b s_ax s_bx+t_a t_c s_ax s_cx+t_b t_c s_bx s_cx)/4. Summing and subtracting the third anchor's contribution gives the stated (s_e+τ)ε_e terms. Each is at most 2, and triangles exist at every admissible v≥9 and attain the bound for all-positive requests. Every pair has both signs at all v≥5. These extension properties maintain partial isomorphisms after arbitrary pebble reuses (including copying a surviving anchor for equality), not merely fresh moves. At v=5 every four-set is a path. At v=9 the triangles form a cubic triangle-free auxiliary graph on six vertices, necessarily K3,3, giving the rook graph. In it (1,1),(1,2),(2,3),(3,3) is an induced pair of disjoint edges, hence an all-positive four-set; a triangle admits no all-positive fourth point. This gives the two rank-four separators, whereas rank-three sentences can rename bound variables with only three live names. The least representative orders are within the conference-graph family under review. After at most (v−13)/4 deletions, three-anchor extensions still exist; with at least 13 vertices surviving, requests over fewer anchors may also be padded to three. Deleting exactly the (v−9)/4 witnesses of an all-positive triangle request preserves the anchors and makes the rank-four obstruction true. The recorded Paley cases are checks, not premises of the proof.
+
+## originality
+
+PASS
+
+The identifiable contribution is the uniform four-variable classification and sharp arbitrary-deletion guarantee in the conference two-graph language, including the exact attainable extension minimum. Switching and the signed-matrix identity are background. No inspected statement supplies or implies the full distinct contribution; priority is qualified by incomplete access to classical sources.
+
+## value
+
+PASS
+
+This classifies an unbounded family in a natural switching-invariant language, giving three distinct cases and the first distinguishing rank. The sharp deletion result quantifies which local requests remain realizable under arbitrary damage and exhibits a logically detectable extremal failure. The exact uniform count and attained minimum make this more than a rank check for familiar examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

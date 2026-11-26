@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:29:47.780014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Schur complement is positive by the SPD hypothesis; independent scalar and planar noises realize the specified mobility. With F(phi)=-R(phi)Jh/m, Ito's formula gives dF=(R(phi)h/m)dphi+Theta R(phi)Jh dt, the latter term being exactly the Stratonovich correction. A cycle separates into the endpoint difference and a conditional-mean-zero independent-driver stochastic integral; the cross-covariance is zero, not an assumption of independence of the two displacements. The angular first harmonic gives the mean; its second harmonic gives the signed aa^T term and integral of the rotated traceless Schur complement. Division by tau yields covariance per time (not half that tensor). Complete cycles are iid; the uniformly bounded partial-cycle second moment gives the covariance limit and negligible CLT remainder, and a maximal fourth-moment bound gives the almost sure drift for all times. In the K=kI case the axes are parallel/perpendicular to a; the positive Schur-complement contribution and negative angular contribution combine to the stated square gap. The derivative has the sign of 1+4z-exp(2z), whose only strictly positive zero is unique by strict concavity and the positive slope at zero; the gap vanishes at both ends. Independently checked the benchmark matrix by scalar angular moments and quadrature, and root 0.6282156043130848385 and coefficient 0.4072643775890737501 by high-precision bisection. Replay: python3 -B /workspace/branches/frozen_review_replay.py 2. This confirms the optimizer only in the isotropic K case with h nonzero and is not an optimization of sorting fidelity. Frozen script and requirements inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 tensor already applies to arbitrary SPD mobility, including isotropic A (though its axis-reversal example requires strict alpha<m). Cleuren–Eichhorn gives the deterministic coupled mean and mentions future second-moment applications; Chaki et al. give second moments with Poisson resetting and independent angular/translational drivers."
+        ],
+        "reasoning": "The October 26 formula covers the whole deterministic model including K=kI. Neither the motivating first-moment work nor Poisson second moments supply a different priority argument for the deterministic tensor.",
+        "searches": [
+          "Resultary 5e7e897c019d Finding and Proof (arbitrary SPD)",
+          "Cleuren–Eichhorn arXiv:2603.19430v1 Eqs. (6)–(8); Chaki–Olsen–Löwen arXiv:2406.17550v2 Secs. II and V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and verify_transport.py",
+        "Resultary 5e7e897c019d and 2f5a16bb9aac",
+        "arXiv:2603.19430v1, 2406.17550v2 and 1410.6057"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula is dev(Sigma)=2 beta Hfun(u)(S_0-gamma(u)H), with Hfun=(1-exp(-4u))/(4u), gamma=2m/(1+exp(2u)), and H the traceless ff^T."
+        ],
+        "reasoning": "For A=kI, S_0=mH. Thus the axis gap is 2 beta Hfun(u)(m-gamma(u))|f|^2, exactly |f|^2(1-exp(-2u))^2/(2 tau). The strict maximizer was not located as a stated result in this prior text; it follows by differentiating this covered expression and using convexity of the exponential. Conversely Poisson axis reversal does not imply the deterministic optimum.",
+        "searches": [
+          "Resultary 5e7e897c019d, Finding traceless tensor and Proof §2–3 (angular harmonic factor and alpha condition)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the October 26 text set beta=Theta, A=K, c=h, S=E, u=z, f=-Jh/m. A fixed laboratory rotation to reset angle zero takes a to f and conjugates both covariance terms.",
+          "The unreset tracking-point shift in arXiv:1410.6057 is X_TP=X_CoH+R(theta)r."
+        ],
+        "reasoning": "A fixed rotation preserves position continuity at reset and shows exact equivalence to the prior tensor. By contrast, a body-fixed translation to a zero-coupling tracking point would change the position reset by an angular endpoint jump; the unreset result alone is not an equivalent deterministic-reset claim.",
+        "searches": [
+          "Resultary local search on periodically reoriented coupled Brownian colloid covariance and diffusion axes; 5e7e897c019d RESULT.md offsets 0–5661",
+          "arXiv:1410.6057 PDF Eq. (1) and Eq. (33)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 26 Proof §2 states Sigma as the sum of 2 beta times the rotation average of S and the endpoint covariance, with the same exp(-4u) and exp(-2u) terms, and gives the iid CLT. The alternate Poisson sources have different clock/averaging kernels."
+        ],
+        "reasoning": "This is exact catalogue formula coverage after coordinate and notation translation, not just a benchmark coincidence. The root coefficient need not be tabulated for the underlying gap law to be covered.",
+        "searches": [
+          "Local Resultary formula comparison 5e7e897c019d and distinct same-date Poisson record 2f5a16bb9aac",
+          "arXiv:2406.17550v2 Sec. V, Eqs. (57)–(64)"
+        ]
+      },
+      "rationale": "The distinct 2026-10-26 Resultary record states and proves the same general coupled deterministic-periodic centered tensor and CLT, with equivalent drift and exactly the same noise and reset protocol. The specialization to K=kI and its positive drift-aligned gap follow algebraically. The earlier text does not explicitly maximize that gap; its maximization is a direct scalar calculation from the covered formula, not evidence that the tensor or anisotropy law is distinct. This is statement coverage, not a priority or authorship determination.",
+      "residual_risks": [
+        "Focused web lookup was low-yield; the literature history of an explicit optimum was not resolved. Existing exact tensor coverage is demonstrable without settling that priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general tensor and CLT; algebraically covers special case; does not explicitly state this gap optimizer",
+          "evidence": "Same Ito displacement decomposition, iid cycles, covariance and drift; exact traceless formula at arbitrary SPD.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unique-isotropic-reset-period-and-diffusion-axis-reversal-for--5e7e897c019d/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3, especially offsets 0–5661; additional later proof/limits text checked for a gap optimizer",
+          "method": "Local mirror, mathematical normalization and parameter comparison",
+          "title": "A unique isotropic reset period and diffusion-axis reversal for coupled Brownian colloids",
+          "trigger": "Closest exact coupled deterministic reset/covariance match"
+        },
+        {
+          "assessment": "Adjacent, not equivalent; no inference of priority from date",
+          "evidence": "Centered coupled tensor with Poisson intervals rather than deterministic resets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac",
+          "material_read": "Finding and reset protocol in RESULT.md",
+          "method": "Local mirror statement comparison",
+          "title": "Poissonian orientation resets invert the diffusion axes of a thermally diffusing colloid",
+          "trigger": "Distinct same-date result on orientation-reset coupled covariance"
+        },
+        {
+          "assessment": "Prior drift but not covariance in the passages inspected",
+          "evidence": "Eq. (8) is the periodic mean current; the conclusion suggests second-moment applications.",
+          "identifier_or_url": "https://arxiv.org/html/2603.19430v1",
+          "material_read": "Colloid sec. (ii), Eqs. (6)–(8) around offset 14000; concluding second-moment remarks near offset 23500",
+          "method": "OA bounded passages",
+          "title": "Sorting by Resetting",
+          "trigger": "Same deterministic mobility/reset model"
+        },
+        {
+          "assessment": "Different coupling and Poisson protocol",
+          "evidence": "Independent body-frame translational and rotational drivers without h; orientation-only long-time second moments for Poisson resetting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.17550v2",
+          "material_read": "Sec. II Eqs. (1)–(6) and Sec. V Eqs. (57)–(64), PDF pp. 3–4 and 14",
+          "method": "OA PDF passages and model comparison",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Exact orientation-reset covariance in published primary comparison"
+        },
+        {
+          "assessment": "Unreset coordinate decomposition is related but not a no-position-reset equivalence",
+          "evidence": "The rotating body-fixed offset induces nonzero translation–rotation coefficients and generates a position jump at the shifted point on reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6057",
+          "material_read": "PDF p. 11, Eq. (1), and p. 19, Eq. (33)",
+          "method": "OA PDF passages and tracking-point transformation",
+          "title": "Brownian Motion of Arbitrarily Shaped Particles in Two Dimensions",
+          "trigger": "Possible coordinate-equivalent earlier coupled Brownian moment result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The centered dispersion tensor is a worthwhile observable, but it and the positive gap are already covered. The new scalar peak calculation is a routine optimization of a one-variable profile directly supplied by that coverage; it addresses only the gap, not a new sorting/diffusion tradeoff or regime. No separate value-bearing remainder or repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

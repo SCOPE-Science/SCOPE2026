@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:28.456384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 5–105",
+        "Frozen VERIFICATION.md and verification/check.py (inspection only; supplied checker not executed)",
+        "Barbiero–Hitaj density-sampling definition, DOI 10.1007/s41096-024-00185-w §5"
+      ],
+      "rationale": "The weights are positive and bounded by a summable geometric sequence. Normalizers cancel in adjacent ratios. At fixed α, the log increment of the higher/lower rate ratio is (1+α)[F(n+1)−F(n)]−α(b−a), where F=log((1+e^(−ax))/(1+e^(−bx))). For an independent check of the turn, write F'=b/(1+e^(bx))−a/(1+e^(ax)). Its sign changes exactly once from positive to negative because (1+e^(bx))/(1+e^(ax)) rises strictly from 1 to infinity. If F'≥0, then b/(1+e^(bx))≥a/(1+e^(ax)); comparing their squares times e^(bx) and e^(ax) shows F''<0 there. Thus whenever d(x)=F(x+1)−F(x)>0, x is before the maximum of F, and F'(x+1)<F'(x) whether x+1 is before or after that maximum. Hence d decreases strictly while positive and cannot re-enter its positive region. The first step sets the full threshold by d(0)=H; every positive level has at most one downward crossing, giving the strict steps and tie cases. H/(b−a) is a strictly decreasing average as b increases, from (1+e^a)⁻¹ to 0, so c(a,b) decreases from e^(−a) to 0 and the claimed restoration rate is unique where it exists. At fixed θ, the positive unit decrements h_n of the strictly convex log(1+e^(−θx)) decrease to zero; the adjacent log masses are (1+α)h_n−αθ, yielding strict discrete log-concavity, all modes and the adjacent ties. The two witness ratios reduce to the stated exact rational inequalities; scalar bisection independently gives b_*≈2.19009277655 for the example.",
+      "residual_risks": [
+        "The rate order is for fixed shape and the modal cutoffs for fixed rate. The argument does not classify simultaneous parameter changes or ordinary stochastic ordering in the non-MLR regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The plausible exponentiated-family search hit yielded only an abstract-level description of density/hazard shapes; the inspected access attempts did not recover full text. Neither same-parent identity nor a fixed-shape two-rate likelihood-ratio assertion is established for that candidate."
+        ],
+        "reasoning": "Separate log-concavity, density shape or hazard-shape results are not ratio shape results. A theorem about the actual continuous two-rate density ratio would be stronger, and its possible implication is explicitly considered below.",
+        "searches": [
+          "Targeted older continuous generalized/exponentiated half-logistic, fixed shape, two-rate density-ratio unimodality",
+          "Published discrete and continuous parent definitions as identified in Barbiero–Hitaj §5 and §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Barbiero–Hitaj DOI 10.1007/s41096-024-00185-w and 10.1007/s10479-023-05807-3",
+        "Resultary 7674c0e10f4b, 85698de6e3a0, 5b53a656fb3e",
+        "Targeted discrete and stronger continuous-antecedent literature checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same continuous parent, the log derivative of its two-rate ratio is −α(b−a)+(1+α)F'(x). A prior theorem proving this ratio is decreasing or rises once then falls would already enforce a single turn in its integer samples. The first step then determines all-integer monotonicity by log(R_1/R_0)=−α(b−a)+(1+α)H. None of the matched accessible passages states that stronger result; the exact PMF and qualitative mode observation alone do not prove a shape theorem for a difference of two log densities."
+        ],
+        "reasoning": "The comparison uses the actual sampling reduction, not absence of an identical statement. The new global step is the single-turn rate-ratio analysis; first-pair algebra and the logistic-average inversion are consequences once that shape is established. The exact modal cutoffs are a simpler corollary of this family’s adjacent-mass calculation and are not the main originality basis.",
+        "searches": [
+          "Barbiero–Hitaj model papers, generalized sections and OA phrase checks for likelihood ratio",
+          "Targeted fixed-shape continuous parent ratio/unimodality check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first paper's generalized mass is obtained by normalizing the continuous density evaluated at integers, agreeing with the bound weight after dropping a constant independent of n. The second paper uses S(n)−S(n+1); its generalized mode discussion concerns that different count law."
+        ],
+        "reasoning": "Rate θ is reciprocal scale; the normalization does not change adjacent-ratio signs. Replacing sampling by adjacent survival differences is not a rate convention change and does not preserve the count ratio or mode formula.",
+        "searches": [
+          "Barbiero–Hitaj density-mimicking generalization §5; reciprocal scale as rate; compare normalized density samples vs. survival differences",
+          "Barbiero–Hitaj discrete survival-preserving model §4.1 Eq. (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7674c0e10f4b proves a one-interior-maximum transition for a wrapped continuous XLindley ratio; 85698de6e3a0 compares two ungeneralized half-logistic discretizations at the same rate, with a log 3 mass-difference crossover; 5b53a656fb3e gives exact shape modal cutoffs for the type-I survival-preserving law."
+        ],
+        "reasoning": "All three are materially close enough to compare, but different families or comparisons. Neither the log 3 cutoff nor the survival-mode cutoffs give this same-model two-rate boundary. No within-day priority inference is made.",
+        "searches": [
+          "Resultary for generalized discrete half-logistic, same-family likelihood ratio, rate cutoff and modal staircase; IDs 7674c0e10f4b, 85698de6e3a0 and 5b53a656fb3e"
+        ]
+      },
+      "rationale": "Barbiero–Hitaj define the same sampled-density count model and note the possibility of positive modes, but the inspected generalization does not give its fixed-shape pairwise rate phase diagram. The strongest matching catalogue and published alternatives treat either a different discretization or a different family. An earlier single-turn theorem for two rates in the same continuous parent would imply much of the discrete result by sampling; no such comparison was identified in the accessible relevant passages, and the limits of the targeted search are recorded below.",
+      "residual_risks": [
+        "Bounded best-knowledge assessment, not historical priority certification. Inaccessible exponentiated-family paper named above; an earlier same-parent continuous ratio single-turn theorem could imply the main discrete classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same count law, with qualitative nonzero-mode observation rather than the claimed pairwise rate classification",
+          "evidence": "The sample-and-normalize definition gives the exact masses, but the inspected section does not evaluate the two-rate adjacent-ratio sign or its turn.",
+          "identifier_or_url": "https://doi.org/10.1007/s41096-024-00185-w",
+          "material_read": "§5 Generalization, printed p. 392; OA PDF text offsets 54100–57393",
+          "method": "OA primary PDF passages",
+          "title": "A Discrete Version of the Half-Logistic Distribution Based on the Mimicking of the Probability Density Function",
+          "trigger": "Originating paper for the exact density-sampling law"
+        },
+        {
+          "assessment": "Different generalized discrete law",
+          "evidence": "Probability masses as differences of sampled survival; illustrates nonzero and adjacent modes for that law.",
+          "identifier_or_url": "https://doi.org/10.1007/s10479-023-05807-3",
+          "material_read": "§4.1 Eq. (11), PDF p. 12/print p. 38, OA offset 38500; mode discussion p. 13/print p. 39, offset 42380",
+          "method": "OA primary PDF passages",
+          "title": "Discrete half-logistic distributions with applications in reliability and risk analysis",
+          "trigger": "Same authors and similar generalized half-logistic nomenclature"
+        },
+        {
+          "assessment": "The exact hypotheses differ in family, comparison or discretization",
+          "evidence": "Wrapped continuous XLindley; same-rate comparison of ungeneralized sampled and survival counts; type-I survival-preserving modal staircase, respectively.",
+          "identifier_or_url": "Resultary 7674c0e10f4b, 85698de6e3a0 and 5b53a656fb3e",
+          "material_read": "Finding in each mirrored RESULT.md, offset 0",
+          "method": "Local mirror bounded passages",
+          "title": "Sharp likelihood-ratio order transition after wrapping the XLindley law; Likelihood-ratio ordering and sharp discretization bias for two half-logistic counts; The exact modal staircase of the type-I generalized discrete half-logistic law",
+          "trigger": "Distinct same-day rate-order, discretization and mode matches"
+        },
+        {
+          "assessment": "Unresolved model identity and statement; not evidence against prior coverage",
+          "evidence": "Available description concerns density and hazard shapes, with no visible fixed-shape comparison of two rates. No conclusion about full text is drawn.",
+          "identifier_or_url": "https://www.researchgate.net/publication/263086572_The_Exponentiated_Half-Logistic_Family_of_Distributions_Properties_and_Applications",
+          "material_read": "Available search-result description only; no primary full-text passage recovered",
+          "method": "Targeted literature search and lawful OA attempts at the returned author-sharing and alternate copies; HTTP 403",
+          "title": "The Exponentiated Half-Logistic Family of Distributions: Properties and Applications",
+          "trigger": "Candidate continuous antecedent under an alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, witness and scope",
+        "Barbiero–Hitaj density-sampling generalization §5"
+      ],
+      "rationale": "For a motivated count model, this identifies exactly when increasing rate orders the observations by likelihood ratio and when it instead gives a single ratio peak. At small shape it shows that increasing the second rate further can restore the stronger order after a small increase fails, and gives the exact unique restoration criterion. This provides a useful parameter comparison for monotone testing or modeling, beyond the existing observation that modes need not be at zero. The mode staircase supplements rather than carries the value case.",
+      "residual_risks": [
+        "No empirical advantage or universal stochastic comparison is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

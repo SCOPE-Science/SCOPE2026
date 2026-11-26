@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:50:48.302028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact mean by conditioning on the focal vertex's neighbor set. Given degree d>0, the conditional expected score is 1+(d−1)θ+(N−d)σ−d, with θ the adjacency probability of two uniform neighbors and σ that of a uniform neighbor and nonneighbor. Translation invariance gives pθ+(1−p)σ=p. Averaging over D∼Bin(N,p) with isolated score zero leaves (1−θ)P(D≥2). In one coordinate the ordinary difference of two points in [−r,r] has triangular density; the central interval contributes 3/4 and, when r>1/3, the wrapped tails contribute (3r−1)²/(4r²). Independence across coordinates gives θ=ρ^m. Above 1/3 the derivative sign is that of E_N−H_m; the binomial elasticity E_N is nonincreasing in p (constant for N=2), whereas H_m is strictly increasing from 0 to infinity, since rρ' increases and both other factors are nondecreasing. Below 1/3 the mean increases strictly. The coefficient of z in 1/E_N increases strictly from N=2 onward, giving strict left movement of the crossing as N rises. At fixed m, H_m∼27(3/4)^{m−1}(r−1/3)/(2κ_m); monotonicity bounds the displacement by O(E_N(p_m)) so N(r−1/3)→0. Then the exponential factor at the moving root has asymptotic ratio one to (1−p_m)^{N−2}, yielding the stated equivalent. At fixed N the Taylor expansions at 1/2 give locally uniform convergence in c=m(1/2−r); max values cannot escape because the binomial tail is bounded by binom(N,2)e^{−4c} and the geometric factor is O(c) at zero. The limiting (1−t)B_N(t) has the unique maximum by the strictly decreasing product ((1−t)/t)E_N(t). The three-vertex checks follow from B_2=p². The analytic proof is for the annealed expectation only. The frozen checker and its reported finite tests were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 exact-mean paper also studies limit laws in radius regimes. The separate weak-law paper studies a one-dimensional interval regime and limit 1/4. Only abstract/metadata of the 2024 distribution paper were accessible."
+        ],
+        "reasoning": "A law at prescribed radii does not give the location of a finite-n maximizer, nor does its qualitative dense limit determine a sharp displacement on the maximizing sequence.",
+        "searches": [
+          "Yuan arXiv:2611.09765v1, §2.2 and radius-regime results",
+          "Yuan arXiv:2602.10055v1, abstract/introduction",
+          "Yuan 2024 DOI 10.1214/24-BJPS615"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary optimizer and asymptotic searches",
+        "Yuan arXiv:2611.09765v1 and arXiv:2602.10055v1",
+        "Yuan 2024 DOI 10.1214/24-BJPS615 abstract/metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formula determines a function for each (n,m), but does not analyze the strictly increasing geometric penalty vs. the binomial elasticity, the elasticity's strict sample-size comparison, or tightness of optimizing high-dimensional radii."
+        ],
+        "reasoning": "Deriving a stationary equation is immediate; proving a single crossing, its strict ordering, and the two sharp limits is not merely a re-expression or tabulation of the prior mean.",
+        "searches": [
+          "Yuan arXiv:2611.09765v1, Theorem 1 and surrounding exact-mean section",
+          "Resultary: radius tuning in random geometric graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuan's bracket 1−(1−p)^N(1+Np/(1−p)) is exactly B_N(p), with the same isolated-vertex convention and piecewise ρ."
+        ],
+        "reasoning": "Writing the mean as a binomial tail is equivalent to the prior factorization. Optimizing that mean is different from optimizing an edge-weighted statistic or the realized graph index.",
+        "searches": [
+          "Resultary: exact finite geometric friendship-paradox mean and maximizing radius",
+          "Yuan arXiv:2611.09765v1, Eqs. (1.1)–(1.2), §2.2 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is a1604de93f9c, the same assigned RESULT.md. No distinct exact optimizer or parameter table surfaced among retrieved matching records."
+        ],
+        "reasoning": "The self-match supplies no independent prior coverage; an isolated tabulated optimum would not settle the quantifiers or the two limiting laws.",
+        "searches": [
+          "Resultary: finite optimizer and strict n ordering",
+          "Resultary: fixed-m large-n displacement and fixed-n high-dimensional tuning"
+        ]
+      },
+      "rationale": "Yuan's exact mean is clearly covered prior work and is not accepted as a new claim. The audited contribution is the all-n,m optimizer, its strict vertex-count ordering, and the two asymptotic optimization laws. The inspected exact-mean theorem does not give those statements; their proof uses a parameter-uniform elasticity comparison and separate asymptotic control at the maximizing root. The only exact indexed optimizer match found is the assigned record itself.",
+      "residual_risks": [
+        "The 2024 paper's full text and unindexed historical radius-design results were not exhausted.",
+        "Search misses and a literal keyword miss do not establish absence; the pass is bounded to the available compared statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean covered, optimizer not supplied by the inspected theorem",
+          "evidence": "Same zero score at isolation and same κ(r) times binomial bracket.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09765v1",
+          "material_read": "Eqs. (1.1)–(1.2), §2.2 Theorem 1 (OA offset 22799), radius-regime passages",
+          "method": "Primary OA full-text comparison",
+          "title": "Limit laws for the friendship paradox in random geometric graphs",
+          "trigger": "Identical statistic, parameters and geometric model"
+        },
+        {
+          "assessment": "Different goal and regime",
+          "evidence": "One-dimensional interval and weak-law limit, not the all-size torus optimization.",
+          "identifier_or_url": "https://arxiv.org/html/2602.10055v1",
+          "material_read": "Abstract and introduction, offset 0 onward",
+          "method": "Primary OA passages",
+          "title": "The weak law of large numbers for the friendship paradox index",
+          "trigger": "Same index and radius dependence"
+        },
+        {
+          "assessment": "Exact broader overlap unverified",
+          "evidence": "The identified topic is asymptotic distribution; no full-text statement about optimizing radius was inspected.",
+          "identifier_or_url": "https://doi.org/10.1214/24-BJPS615",
+          "material_read": "Abstract and metadata only",
+          "method": "Lawful access lookup",
+          "title": "Asymptotic distribution of the friendship paradox of a random geometric graph",
+          "trigger": "Earlier graph-statistic work by the same author"
+        },
+        {
+          "assessment": "Assigned record itself",
+          "evidence": "Same statement, path identifier and theorem; not distinct evidence of coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-optimal-geometric-radius-for-the-expected-friendship-pa--a1604de93f9c/RESULT.md",
+          "material_read": "Finding from offset 558 onward",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique optimal geometric radius for the expected friendship paradox, with two boundary limits",
+          "trigger": "Exact optimizer and both limits in index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Radius is the natural design parameter of a canonical geometric graph construction. The optimizer resolves the exact competition between neighborhood closure and sampling enough neighbors, giving a finite-size ordering and quantitatively distinct limiting locations for many vertices versus many dimensions. Knowing the expectation at fixed radius does not answer this design question. No claim about realized graphs or applications is needed for the exact classification to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

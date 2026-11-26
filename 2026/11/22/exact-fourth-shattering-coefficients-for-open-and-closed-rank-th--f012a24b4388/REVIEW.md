@@ -1,19 +1,21 @@
-# Scientific review: exact Kneser fourth coefficients
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Four distinct queried triples are completely specified up to ground-point relabeling by fifteen nonempty four-bit Venn-cell multiplicities whose four row sums equal three. Exhaustion of the 666 distinct-query profiles is finite and complete for all orders. The actual center traces depend only on whether the center uses up to three points outside the query union, which yields a minimal-external-point classification. Exact factorial multiplicities, divided by 24 to remove query order, give both coefficient tables. The packaged Python verifier reproduced the entire table, while a separate C++ direct support enumeration independently confirmed the complete order-nine degree-zero-through-four prefixes. The larger-order claims rely on the exhaustive-profile proof, not finite experimental extrapolation.
+PASS
 
-## Originality — PASS, qualified
+Checked the finite reduction for every n>=3: each ordered support determines the multiset of nonzero four-bit point-incidences and is uniquely determined by it up to relabeling. For an internal subset S of size k<=3, completing it to a center takes exactly 3-k external points; the open trace is the complement of the incidence OR, and the closed trace adds equality with a queried triple only for k=3. The largest, over the 16 traces, of their least external costs is precisely the activation threshold. Factorial placement counts on a given ground subset and division by 24 correctly give unordered coefficients, since every support uses distinct queries. Independently generated shapes by adjoining each next triple as a subset of old points plus canonically introduced new points, deduplicating the resulting incidence multisets, then evaluated each trace cost by internal subset size. This regenerated 666 shapes, all 15 buckets, and the unique first active profile (1,2,4,8,15,15) in both modes at n=9. It gives 1260 in both modes at n=9 and 280350 versus 607950 at n=10. Collecting the stable coefficients yields exactly the stated three-term difference. The all-n result follows from the complete reduction, not numerical extrapolation.
 
-Full-text comparisons were made with the Johnson/Hamming neighborhood work of Adler–Benediktsson–Macpherson, the graph VC algorithm paper of Coudert–Csikós–Ducoffe–Viennot, and related disjointness literature. The closest indexed published Kneser result gives the exact *dimension* and witnesses, and another gives the **six-support** classification at order thirteen. Neither implies the full **four-support coefficient sequences**, especially the closed-neighborhood correction. Search covered equivalent formulations, statement-level implication, stronger-coverage work, and exact tables. Inaccessible or unindexed equivalent literature remains a priority risk, not mathematical evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The fourth layer is the first nontrivial higher-rank layer of three-set Kneser disjointness neighborhoods. Counting all supports for every ambient order is a natural refinement of the already-known VC-dimension threshold, and the comparison of closed and open neighborhoods exhibits a structural difference that appears one order after the common rank-four onset. The formulas supply all integer coefficients, their sharp activation conditions, and matching leading asymptotic terms. This is not an arbitrary small slice or a recomputation of a known VC dimension.
+The open onset and the common-core open witness are prior coverage; novelty here is the exact all-order two-family coefficient census, including the classification of all first-layer supports and the distinct closed activations, not shattering existence or the witness itself.
 
-## Limits
+## value
 
-The 666-profile census is proof-critical and supplied as readable standalone source. It does not classify higher support sizes; no general VC-dimension theorem is claimed. All originality conclusions are best-knowledge and subject to priority risks. Independent scientific validation is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This refines a natural VC-dimension threshold to exact counts on a standard graph family and quantifies how equality of query and center affects shattering. The first-layer rigidity, several earlier closed activation thresholds, and identical leading coefficient despite a positive closed surplus give information not encoded by maximum dimension or by isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

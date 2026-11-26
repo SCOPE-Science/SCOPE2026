@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:17:14.306783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–39, VERIFICATION.md and verify.py; supplied code inspected but not executed.",
+        "Independent replay: /workspace/branches/5aba39b3-d0f9-4453-a1c4-ac275f970ffe/r2_spotcheck.py and r2_spotcheck.out. Across 19 eligible m≤20, scanned the full coefficient box, including nonprimitive triples, plus a separate monic scan. The six positive-leading minima at m=5,11 and four elsewhere matched the list."
+      ],
+      "rationale": "For squarefree d=4m(m+1)−1 and m≥1, the field discriminant is −d. Scaling a root by A yields an integral generator with discriminant −dt², for a nonzero integral index t. Thus 4AC≥d>4m² and the displayed polynomial attains m+1. At that cap d>(m+1)² forces |t|=1, B is odd, and AC≥m(m+1) forces each positive coefficient A,C to be at least m. The three remaining pairs give B²=1 or 4m+5; the latter also requires |B|≤m+1. Changing overall sign covers negative leading coefficients. For monic polynomials the norm of u+vω is ((2u+v)²+dv²)/4: when |v|=1 the odd trace has magnitude at least one, and |v|≥2 gives a strictly larger norm. The element ω attains the monic minimum, giving the ratio m. The quadratic has nonzero discriminant and no fixed square divisor (already f(0)=−1), so the classical quadratic squarefree-value theorem applies.",
+      "residual_risks": [
+        "The finite check does not establish density or uniformity; these follow from the proof and the classical theorem. No statement about nonsquarefree d, or infinite occurrence of the symmetric exception, follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former bounds the quadratic invariant by a discriminant lower bound and an asymptotically matching upper bound. The latter gives O_n(sqrt(|Disc(K)|)) for defining coefficients in broader degree."
+        ],
+        "reasoning": "The broader estimates do not bound the literal number of minimizers or detect when a symmetric exceptional polynomial appears.",
+        "searches": [
+          "arXiv:2602.06943v1, Lemma 2.4",
+          "arXiv:2610.20600v1, Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "Arango-Piñeros et al. arXiv:2602.06943v1",
+        "Bhargava–Vemulapalli arXiv:2610.20600v1",
+        "Rudnick squarefree notes",
+        "Resultary c36cc14a214a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rounding the prior lower bound plus the displayed witness already gives H_all=m+1; the norm bound and squarefree density are classical ingredients."
+        ],
+        "reasoning": "Those implications do not give the exact number and shape of minimizing polynomials. The additional rigidity step excludes index greater than one and restricts the coefficient product, leaving a square-test exceptional pair rather than merely the attained height.",
+        "searches": [
+          "arXiv:2602.06943v1, Lemma 2.4",
+          "Rudnick squarefree notes §1, Ricci reference",
+          "Frozen RESULT.md lines 25–36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior coefficient maximum invariant is the same as H_all. For monic polynomials the constant coefficient is the norm, not a Weil height or Mahler measure."
+        ],
+        "reasoning": "The family list asks for literal polynomials before quotienting under variable substitutions; an invariant bound or a height of elements is not an equivalent optimizer classification.",
+        "searches": [
+          "Focused primary-literature search for imaginary quadratic defining-polynomial coefficient heights and extremizers",
+          "arXiv:2602.06943v1, §2.3, Lemma 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest coefficient-norm catalogue result treats quadratic polynomials on Euclidean balls, not the coefficient box of defining polynomials of an imaginary quadratic field."
+        ],
+        "reasoning": "Neither its exact constants nor the searched catalogue give this family's optimizer list; a finite discriminant table alone would not imply the uniform exception criterion.",
+        "searches": [
+          "Two Resultary local queries for exact quadratic field coefficient minima and extremizers",
+          "Resultary 2026/10/11/SCOPE-exact-real-and-complex-quadratic-hilbert-coefficient-constants-w--c36cc14a214a"
+        ]
+      },
+      "rationale": "The invariant, universal lower bound and quadratic squarefree theorem are prior. The nonmonic height alone is an elementary sharpness example and the monic formula follows from the standard norm identity; the supported distinction is the complete literal minimizing-polynomial classification for the family together with its exact monic comparison, not the lower bound or infinitude in isolation.",
+      "residual_risks": [
+        "A classification in the language of reduced binary quadratic forms or another normalization could evade these bounded searches. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact invariant and lower bound are prior; no complete equality-case list here",
+          "evidence": "The lower bound is sqrt(|Disc(K)|)/2 with an asymptotically matching upper bound.",
+          "identifier_or_url": "https://arxiv.org/html/2602.06943v1",
+          "material_read": "§2.3 definition and Lemma 2.4; HTML text offsets 3608–5686 and 36269–41757",
+          "method": "Lawful OA primary text",
+          "title": "Counting number fields of fixed degree by their smallest defining polynomial",
+          "trigger": "Same coefficient-height invariant and imaginary-quadratic bounds"
+        },
+        {
+          "assessment": "General existence bound, not the optimizer class or monic comparison",
+          "evidence": "Thm. 1 uses a degree-dependent constant times the square root of the discriminant magnitude.",
+          "identifier_or_url": "https://arxiv.org/html/2610.20600v1",
+          "material_read": "Thm. 1, offsets 0–2970",
+          "method": "Lawful OA primary text",
+          "title": "The existence of small defining polynomials for number fields",
+          "trigger": "Potentially broader defining-polynomial bound"
+        },
+        {
+          "assessment": "Confirms classical nature and applicability of the quadratic theorem",
+          "evidence": "The notes describe the local square-divisor obstruction and cite Ricci for the general quadratic case.",
+          "identifier_or_url": "https://www.math.tau.ac.il/~rudnick/courses/sieves2015/squarefrees.pdf",
+          "material_read": "§1 p. 1, offsets 0–2471; bibliography p. 7 at offset 17091",
+          "method": "Lawful OA notes; Ricci original not inspected",
+          "title": "Squarefree values of quadratic polynomials",
+          "trigger": "Density theorem used for infinitude"
+        },
+        {
+          "assessment": "Different coefficient invariant and domain",
+          "evidence": "No fixed number field or discriminant enters that coefficient-norm problem.",
+          "identifier_or_url": "Resultary c36cc14a214a",
+          "material_read": "Matched statement on coefficient norms for polynomials on Euclidean balls",
+          "method": "Local Resultary",
+          "title": "Exact real and complex quadratic Hilbert coefficient constants",
+          "trigger": "Closest coefficient-height catalogue neighbor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–42; Arango-Piñeros et al. Lemma 2.4"
+      ],
+      "rationale": "The family lies just above the previous integral discriminant-height cap and realizes the sharp next cap. Classifying all ways to attain it identifies precisely when the generic four positive-leading optimizers gain two symmetric exceptions, information a height bound cannot give. The exact comparison with monic coefficients isolates the cost of requiring integral generators on the same family. Value rests on this complete equality classification, not on another proof of discriminant bounds, density or unboundedness alone.",
+      "residual_risks": [
+        "Restricted to this near-cap family; no uniform equality classification for imaginary quadratic fields in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

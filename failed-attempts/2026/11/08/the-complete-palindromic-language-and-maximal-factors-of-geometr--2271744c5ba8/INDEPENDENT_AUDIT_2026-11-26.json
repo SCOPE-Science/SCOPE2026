@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:59:54.856512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The successive gaps between 1s in a factor are a consecutive, strictly increasing block of geometric gaps. Three or more 1s would require this block of length at least two to equal its reverse. Zero and centered single-1 words occur with arbitrary padding. For exactly two 1s the internal gap fixes the unique marked pair and hence fixes the occurrence once the symmetric padding is given. The left boundary at index 0 gives H_0=1; later levels stop one place short of the preceding 1, while the right gap is strictly longer. The padded endpoints first fail symmetric extension at precisely H_t, including both t=0 and b=2,t=1. Substituting the padding bounds gives the reported endpoints and disjoint length sets (the b=2 level-zero lengths are even and the others odd). The frozen verification note and script were inspected, not executed; the infinite conclusion follows from the gap argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 and Remark 9 supply general bounds and boundedness for automatic words, not exact factors. Work on finite palindrome languages or prefix palindromic length has a different scope. The reflection record, unlike these papers, gives broader two-marker factor data for exactly this word."
+        ],
+        "reasoning": "The word and quantifiers agree for reflection complexity across all bases; equality of left and right padding is just a restriction of its more general allowed padding.",
+        "searches": [
+          "arXiv:math/0106121v1, Theorem 12 and Remark 9",
+          "arXiv:2311.13003v2, abstract and §1",
+          "arXiv:2009.02934v2, abstract",
+          "Resultary reflection-complexity record, Step 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Distinct local reflection-complexity record --e7e8ab2eb348",
+        "arXiv:math/0106121v1",
+        "arXiv:2311.13003v2",
+        "arXiv:2009.02934v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a later marked pair j and length n, Step 5 gives the allowed leading paddings as 0 through min(d_{j-1}-1, n-1-d_j) at active level j. For symmetric padding h, set n-1-d_j=2h; all h up to d_{j-1}-1 lie in the active range d_j<n≤d_{j+1}. Lower-level pairs cannot have equal paddings except the separately handled base-two level-zero case. Steps 3 and 5 give level zero's two starts and explicitly handle the base-two exceptions."
+        ],
+        "reasoning": "This is exactly the stated H_j criterion (H_0=1). Neither a zero nor a single-1 palindrome is maximal. Adding 1s to a two-1 palindrome is excluded by Step 2, and adding zeros is possible precisely below the cap. The maximal words, lengths and count formulas are routine consequences.",
+        "searches": [
+          "Reflection record RESULT.md local mirror, offsets 2100–4237 and 5100–6680"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reflection record uses the same one-sided word, with index zero equal to 0. Step 1 gives every zero and single-1 factor; Step 2 gives uniqueness of a two-marker occurrence and excludes reversal for any factor with three or more markers. Step 5 describes allowable padding and reversal as swapping the two paddings."
+        ],
+        "reasoning": "Palindromes are the fixed points of this same reversal condition, including single-1 factors with the marker exactly centered. Differing headline invariants do not separate the claims.",
+        "searches": [
+          "Resultary search for exact palindrome language and maximal factors of the power-support/geometric-marker word",
+          "SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348, Proof Steps 1–3, 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The generalized-Cantor palindrome result concerns another word. The same-word minimal-absence and repetition records count different objects. The reflection record is an exact all-length classification sufficient to extract the counts, rather than a finite table of palindromes."
+        ],
+        "reasoning": "A separately labelled table is unnecessary: each allowed centered factor contributes one count at its stated length, and the length ranges follow by substitution.",
+        "searches": [
+          "Local Resultary: power-support palindromes and reversal complexity; compared exact reflection, minimal-absent-factor, marked-repetition and generalized-Cantor palindrome records"
+        ]
+      },
+      "rationale": "The distinct same-word reflection-complexity record does not headline palindromes, but its Steps 1–3 and 5 already give the required factor data. Restrict its exact reversal condition to the fixed points of reversal and take the last allowed symmetric padding for maximality. This recovers the entire frozen classification and spectrum with no further substantive result. The same displayed date does not establish chronological priority in either direction; the finding is failed for demonstrable distinct-record coverage, not for a claim about who was first.",
+      "residual_risks": [
+        "The comparison establishes mathematical coverage, not temporal priority between same-day records. It does not establish whether an earlier equivalent also exists in the literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the frozen result",
+          "evidence": "Step 2 gives strictly increasing marker gaps and unique occurrence; Step 5 specifies the allowed leading-zero counts and when reflected padding occurs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+          "material_read": "Proof Steps 1–3 and 5, offsets 2100–4237 and 5100–6680",
+          "method": "Local-mirror query and bounded passage reading",
+          "title": "Exact reflection complexity and oscillation of geometric-support automatic words",
+          "trigger": "Same exact word, bases and reversal operation"
+        },
+        {
+          "assessment": "General boundedness, not the exact language",
+          "evidence": "Remark 9 derives bounded palindrome complexity for automatic words from linear factor complexity.",
+          "identifier_or_url": "arXiv:math/0106121v1",
+          "material_read": "Theorem 12 and Remark 9",
+          "method": "Open full-text passages",
+          "title": "Palindrome complexity",
+          "trigger": "General automatic-word palindrome bounds"
+        },
+        {
+          "assessment": "Different hypothesis; no identified coverage",
+          "evidence": "The scope requires few distinct palindromes; the power-marker word has infinitely many zero-only palindromes.",
+          "identifier_or_url": "arXiv:2311.13003v2",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "Open PDF passages",
+          "title": "Critical exponent of binary words with few distinct palindromes",
+          "trigger": "Possible exact classification of binary palindrome languages"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Prefix palindromic length measures a minimum number of factors in a prefix decomposition, not factor occurrence or extension.",
+          "identifier_or_url": "arXiv:2009.02934v2",
+          "material_read": "Abstract, p. 1",
+          "method": "Open PDF passage",
+          "title": "On prefix palindromic length of automatic words",
+          "trigger": "Possible coverage among automatic-word palindrome results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact palindrome language and maximal-factor family for a natural automatic word would be useful, but here they amount to taking fixed points and the endpoint of an existing exact padding range. The frozen statement adds no independently needed exact datum beyond that range.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

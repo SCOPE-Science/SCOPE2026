@@ -1,19 +1,21 @@
-# Scientific review of the minimum suffixient-set census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is exact for all integer parameters \(q\ge2\), \(k\ge2\) and \(r_i\ge2\), with a unique terminal letter. A mixed factor of the infinite periodic word identifies its phase from its first change of letter; every mixed right-branch in the finite word must therefore be caused by the sentinel at the end. This gives precisely the two long SREs, while the remaining SREs are short unary-to-next-run branches. Distinct end offsets give independent \(k\)-fold occurrence choices. The full direct substring checker confirms the list and its endpoint sets on 246 varied instances and exhaustively enumerates minimum sets in four small examples. The proof, rather than the tests, covers all parameters.
+PASS
 
-## Originality
+In the linear word P^k# with q,k>=2, distinct letters, and r_i>=2, a factor containing # occurs only once. Every other nonunary factor has a unique phase modulo |P|, since its first ordered letter change fixes that phase. It is right-maximal exactly when it is a suffix of P^(k-1): it then occurs both before the final # and at the previous period boundary before a_0. A unary factor shorter than its run has the self follower and its cyclic successor, and if it belongs to the last run it can also have #. The full unary last run has the two boundary followers a_0 and #, whereas the other full unary runs have only one. These cases, including the empty word, place every extension under a listed candidate in suffix order. The candidates are all extensions and have distinct last two symbols (the two long ones end in a_(q-1)a_0 and a_(q-1)#), so none is a suffix of another. This also supplies the suffix direction intended in the aside about a_0 in proof step 2. Each short candidate has one end offset per period, distinct between the first and last positions of any run by r_i>=2. The long candidates have just the last-period first position and the terminal position as their respective single endings. Every smallest set chooses one from each disjoint end class, giving 2q+1 positions and k^(2q-1) sets. For attractors, the q+1 one-letter factors give the lower bound. Choose each last run position of the first period and #. A nonunary factor without # can be shifted so that its first ordered change aligns with the first-period occurrence of that change: the leading unary segment fits in the chosen first-period run, so the shifted occurrence stays inside the text and meets the selected run end. Unary factors end-align there, and marked factors meet #. The supplied literal-substring verifier and captured output were inspected, not run: 246 parameter instances, 12358 extensions and four direct counts of minimum sets corroborate the proof; these are not infinite certificates.
 
-**PASS against inspected evidence.** The 2026 Köppl–Kucherov source defines and maintains suffixient sets, and Cenzato et al. give general suffixient-array constructions. The full 2025/2026 Fujimaru–Navarro–Romana–Urbina paper likewise concerns broad bounds and distinct Fibonacci/episturmian families, not this periodic family. None of these inspected primary texts supplies this symbolic all-parameter SRE classification or count. The closest published special-family formula is for *string attractors* of the unmarked distinct-run powers, not for suffixient sets of the marked word; string attractors cover all factors, whereas suffixient sets require endings of right extensions and have larger minimum cardinality here. The checked published research records do not contain a corresponding suffixient-set theorem. Indexed retrieval and external literature search cannot rule out all unindexed equivalents.
+## originality
 
-## Value
+PASS
 
-**PASS.** Suffixient sets are a computable repetitiveness measure used in compressed pattern indexes. Determining all optimal position sets is more informative than computing their size, and generally difficult for factor-covering structures. This theorem provides a complete, length-independent characterization and an exact enumeration for arbitrary alphabet sizes, repetition counts and independent run lengths in a natural class of highly repetitive texts. It quantifies a gap of \(q\) positions from minimum string attractors on the same sentinel-terminated text, a concrete reason the two measures are not interchangeable.
+The general correspondence between supermaximal extensions and optimum suffixient sets and the attractor comparison are not the distinct contribution. The supported contribution is the explicit SRE list and exact minimum-set census for the entire marked distinct-run family. The closest retrieved sources give general methods, unrelated symbolic families, or finite binary coverage rather than this parameterized theorem.
 
-## Evidence and limitations
+## value
 
-Primary literature: arXiv:2604.27548v1, full MFCS 2026 HTML (definitions and SRE representation); Cenzato et al., Theory of Computing Systems 70, article 50 (open full text); Fujimaru et al., arXiv:2506.05638v7 (full HTML); the related published cyclic-bigram attractor result (complete `RESULT.md`). Verification files: `verify.py`, `verify_output.txt`. The conclusion depends on the unique terminal marker and all runs having length at least two. There is no claim of a general classification of periodic words, and no independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distinct contiguous letter runs isolate local within-run branching from periodic phase and sentinel branching, making this a natural family in which to understand exact suffixient complexity. The theorem does more than compute the size: it exhibits every optimum, explains why varying run lengths does not affect their number, and distinguishes this suffix-ending condition from the attractor invariant on the same text.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

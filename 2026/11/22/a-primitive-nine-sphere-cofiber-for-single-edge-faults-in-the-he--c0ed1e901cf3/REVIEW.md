@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a finite, completely specified domain: all 21 incidences of the Fano plane and their single-edge deletions. The standard-library certificate constructs every perfect matching and all downward-closed faces; it checks 43 complete gradient Hasse graphs for acyclicity and independently calculates raw mod-two boundary ranks. The critical cells give the absolute sphere wedges; a relative Morse cancellation with unit incidences gives free relative integral homology, and the integral long exact sequence gives a primitive split inclusion. The resulting primitive degree matrix between simply connected sphere wedges determines the cofiber sphere wedge. The computation is exhaustive for the claimed graph, rather than an extrapolation. Its integral conclusion uses exact acyclic Morse reductions, not field homology alone.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2022 foundational paper determines honeycomb perfect-matching complexes, not Fano incidence edge faults. Public record `0994476b8c0d` already establishes the intact Heawood sixteen-sphere type, and record `170613b1af40` already establishes a rational symmetry character for that intact type. These results are credited, not reclaimed. Their theorems do not determine single-edge fault spaces, relative cofibers, or induced integral maps. Targeted searches did not identify an equivalent edge-deletion theorem; indexed-search absence is not proof of historical novelty. The principal residual risk is uncatalogued equivalent work on extendible matchings or Fano incidence deletions.
+PASS
 
-## Value — PASS
-The Heawood graph is a canonical cubic, highly symmetric incidence graph. The first graph-edge fault is a natural robustness boundary. Its effect is not encoded by the known intact homotopy type or rational symmetry character: seven primitive second-homology classes survive, nine disappear, and the cofiber has a precise wedge-of-spheres type. This exact integral map, valid for all 21 faults, is a motivated structural classification, not an arbitrary parameter slice or an isolated Betti number.
+The Fano incidence labeling and the matching recursion give all 24 perfect matchings; choosing the 16 avoiding a given incidence before taking their downward closure is essential. A fresh bounded reconstruction checked all 21 deletion complexes and their relative sets, including 2,201/1,552/649 nonempty cell counts, 1,092/772/320 matching pairs, and all 43 complete Hasse digraphs. Critical profiles are one vertex and sixteen 2-cells for X, one vertex and seven 2-cells for each X_e, and nine 2-cells only for each relative set. Replay: python3 /workspace/branches/2e31800b-749d-4233-9aca-c63ddbbc7a21/heawood_repro.py. The frozen verifier was inspected, not executed, and its mod-two checks are only corroborative. The absolute acyclic matchings give CW wedges without 1-cells; the relative chain matching cancels integral signed unit incidences and leaves free homology in degree two alone. The long exact sequence gives the split primitive injection with free rank-nine quotient. There is also a direct check of the map deduction: based maps from S² representing a basis for a complement exist by Hurewicz; adjoining them to the actual inclusion extends it to a homology equivalence X_e ∨ (nine S²) → X, hence a homotopy equivalence by simply connected Whitehead. Simplicial cofibration identifies the ordinary quotient with the homotopy cofiber. The finding concerns lost quotient directions, not a canonical choice of nine killed basis elements.
 
-## Limits
-No simultaneous multi-edge faults, family-wide theorem, equivariant splitting, or independent audit is claimed. The result depends on a finite exhaustive, inspectable certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact extendibility complex and its rational symmetry are covered by earlier results. The faulted space and the primitive integral cofiber statement survive those comparisons. Primary-text and corpus coverage is bounded; the unrelated external search results give no positive evidence of novelty.
+
+## value
+
+PASS
+
+The Fano incidence graph is a canonical symmetric cubic graph and one missing incidence is a natural first perturbation of its matching families. The result identifies the integral type of the surviving subgroup and the homotopy cofiber, information that a count of removed matching facets or a Betti table could not supply. An exact primitive inclusion for all single deletions is a useful benchmark for comparing extendibility complexes and their maps. The already-known sixteen-sphere intact calculation is not counted toward the increment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

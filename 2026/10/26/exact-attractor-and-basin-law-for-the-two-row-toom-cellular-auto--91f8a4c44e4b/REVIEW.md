@@ -1,19 +1,21 @@
-# Review of the two-row NEC attractor and basin law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** For the stated torus, the north vote is the opposite-row spin in the same column. Equal-spin columns receive two identical votes and remain fixed; discordant columns let the east votes decide and therefore copy the entire east column. The exact four-symbol identity proves monotone invasion of uniform anchors and pure shift evolution on the all-discordant subsystem, with no missing periodic cases. The fixed-target basin formula follows by treating precisely the cyclic change-point columns as compulsory initial anchors. A marked-anchor counting bijection proves the bounded-composition transient distribution; the longest-run argument proves the sharp time bound. Direct finite-state code checks every configuration for \(2\le n\le8\). The only unproved extensions are to different geometries or rules, which are not claimed.
+PASS
 
-## Originality
+The frozen Finding says every fixed configuration has identical rows, but the constant column words (01)^n and (10)^n are fixed too. The repaired Finding limits the boundary-count formula to column-uniform targets and explicitly gives both discordant fixed points singleton basins. Re-derivation: agreement freezes a column; disagreement lets the east vote decide both rows. Agreement persists, eroding each discordant run by one per step; without agreement the whole word shifts. Fixing a word under k shifts constrains gcd(n,k) independent bits, and inversion over divisors followed by division by period counts orbits. For a uniform target exactly its outbound changes are compulsory initial anchors; all other sites have three choices, subtracting the 2^n anchorless states only for a constant target. A marked zero in a mask gives k gaps bounded by t and counts each labelled mask k times, proving E_n(t), including its two recurrent constant masks at t=0. Disjoint Bernoulli blocks and the union bound give the logarithmic typical time; one anchor gives the sharp n-1. Independent exact enumeration checked 21,840 states for 2<=n<=7, including both exceptional singleton basins and all cumulative depth counts; replay with python3 /workspace/reproductions/independent_finite_checks.py. The frozen verifier and recorded output were inspected, not run; its `cycles` field is a histogram of points, not of orbit counts, now clarified in the repaired RESULT.md. Enumeration does not prove the all-n statements.
 
-**PASS with residual risk (self-review).** The closest primary material is Gács's 2001 full-text account of NEC erosion and noncontractible toroidal structures, Jen's 1988 general cylinder-attractor methods (abstract available), Makowiec's 1997 numerical toroidal study (abstract available), and Ayyer's 2015 *different* stochastic interface model (full text inspected). Statement-level comparison finds no source establishing the explicit two-row fixed-basin dependence on cyclic boundary count, the all-size exact transient-depth census and the accompanying closed orbit classification together. Source, alias, parameter and equivalence searches in the published mathematical research index and in primary literature did not locate a covering result. Absence from search is not a proof of novelty. Full-text restrictions on Jen and Makowiec leave a named possibility of earlier equivalent work.
+## originality
 
-## Value
+PASS
 
-**PASS (self-review).** The result describes a natural minimal transverse periodic realization of an erosion rule and exposes a strong dichotomy: an exponentially large family of travelling recurrent configurations, but no external basins for those travelling orbits; nonconstant fixed attractors with an explicit boundary-count basin law; exponentially vanishing consensus probability despite local erosion; and logarithmic typical convergence versus linear worst-case convergence. These are natural dynamical quantities, not arbitrary small-size tabulations.
+Best-of-knowledge decision for the full labelled two-row census. Credit the material catalogue overlap: the 2026/11/17 entry gives the very same pointwise basins, anchor/copy reduction, discordant shift and depth mechanism for n>=3. It adds Ising output statistics; it does not give the joint finite-size census of primitive orbits and cumulative depths in this record. The dates on the records are documentary context, not priority certification. No inspected earlier theorem covers the full census; neither the familiar shift-word counts nor runs-of-ones counting as standalone combinatorics is a novelty claim. The repair changes only the description of the already-classified period-one discordant orbits.
 
-## Scientific limits
+## value
 
-All results apply to the deterministic two-row torus with \(n\ge2\); the verifier covers a finite range and does not prove an infinite statement. Uninspected primary full texts remain an originality risk. This review is not an independent scientific certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The thin periodic quotient is a natural minimum width for distinct north and center votes. The joint census resolves, rather than just estimates, three natural questions: which patterns recur, how many initial states feed each attractor and how rapidly recurrence begins. In particular it separates the exponentially small nonfixed travelling subsystem with no outside predecessors from the basin-rich frozen patterns, and quantifies logarithmic typical versus linear worst-case depth. The repaired statement gives the proper period-one boundary case rather than a new claim based on an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

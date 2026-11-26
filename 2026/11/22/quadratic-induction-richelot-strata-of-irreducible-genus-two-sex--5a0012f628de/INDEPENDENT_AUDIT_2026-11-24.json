@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:25:49.457108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–48",
+        "VERIFICATION.md lines 19–25",
+        "Katsura–Takashima, arXiv:2003.00633 and 2108.06936",
+        "Independent replay: /workspace/branches/b9bfefa9-4c3e-456e-9b2d-02b60499d225/independent_census.py and independent_census_output.txt"
+      ],
+      "rationale": "An invariant matching for a six-cycle can only pair opposite roots, so the kernel is defined over k (not pointwise rational). The base-point-free pencil of the three quadratic divisors has degree two and is separable in odd characteristic; its deck transformation pairs the roots, is determined on three of them, and descends because Frobenius permutes the pairs. Conversely, a projective involution commuting with the six-cycle acts as its displacement by three. The Richelot pencil criterion gives geometric decomposition exactly on this locus. For the polarized descent, use the product of the pushforwards to the two degree-two elliptic quotients by the lifted involution and its product with the hyperelliptic involution. The two self-composites with pullbacks are [2] and the cross-composites vanish by the opposite involution actions. The resulting degree-four map has pullback twice the principal polarization and kills the classes from each paired Weierstrass divisor, so its kernel is exactly the canonical Richelot kernel. A rational change of coordinate may change the scalar on the sextic but not these lift tests. In split coordinates both lifts (and maps) are defined over k. In nonsplit coordinates x↦d/x, the lifts use opposite square roots of d³; Frobenius swaps the quotient maps, giving the polarized quadratic Weil restriction, not an isomorphism of the source Jacobian. The degree-three parameter test gives (q³−q)/6 per involution in each case (nonsquares in the cubic field for the split case, nonsquare discriminants of x²−tx+d for the nonsplit case). Centralizer orders supply the two stated counts without multiplicity. Over odd extensions the nonsplit identity x⁶f(d/x)=d³ f(x) pairs opposite nonzero character contributions. The contribution at 0 is −1 and there are two points at infinity, giving Q+1; in particular the odd coefficients of the Weil numerator vanish by the trace and reciprocity. A new exact enumeration inspected all p⁶ monic coefficient vectors for p=3 and 5 by irreducibility and binary-form invariance; it found 116 and 2580 irreducibles, with nonsplit counts 12 and 200. Independent F_(p²) character sums yielded the claimed b histograms, using b=(N₂−p²−1)/2. No frozen scripts were executed.",
+      "residual_risks": [
+        "The finite census establishes only q=3 and 5. The general result does not follow from enumeration, and there is no converse from odd trace balance to this type of Richelot kernel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reis gives (q³−q)/6 for each order-two transformation in degree six, covering the numerical input; Katsura–Takashima give the geometric criterion and construction.",
+          "The newer splitting-profile paper assumes a sextic factored into three rational quadratics."
+        ],
+        "reasoning": "The counts and geometric criterion are covered rather than claimed as new. Their hypotheses/conclusions do not separately classify the descent of the two elliptic maps for a Frobenius six-cycle or give the field-by-field monic-model trace masses.",
+        "searches": [
+          "Reis, arXiv:1811.02537, Theorem 1.4 and §4",
+          "Katsura–Takashima decomposed Richelot criteria",
+          "arXiv:2611.27775v1, rational-quadratic splitting profiles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.02537, 2003.00633, 2108.06936, and 2611.27775v1",
+        "Resultary 2fb8330f5a6a, c62d75defa8a, f438c0014807, and 3885560c7ffe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Frobenius matching and geometric pencil are known; if the two lifts are conjugate, odd-trace cancellation is a consequence and is not claimed as a new general fact. Determining their action needs the x↦d/x lift and the nonsquare d³ test.",
+          "The known per-involution count fixes each total but says nothing about the F_(q²) point counts needed for the complete conditional histogram."
+        ],
+        "reasoning": "The proof uses familiar ingredients, and the trace consequence is elementary once descended. The precise unit of novelty is the arithmetic identification for these models and the exact, weighted conditional spectral census, not a purported new Richelot principle.",
+        "searches": [
+          "Reis, Theorem 1.4",
+          "Katsura–Takashima, Theorem 1 and Proposition 4.5",
+          "Resultary c62d75defa8a and 2fb8330f5a6a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2fb8330f5a6a already records one rational kernel for branch partition (6). Resultary c62d75defa8a has an odd-trace/Weil-restriction phenomenon but with rational branch points.",
+          "The prior conjugate-factor construction discusses an isogeny to the source Jacobian for a product of rational quadratics, rather than descent of this polarized Richelot quotient."
+        ],
+        "reasoning": "Replacing monic models with arithmetic isomorphism classes or replacing a polarized quotient with a source isogeny changes the claim. Sharing the trace identity or a kernel count does not give the same descent and spectrum stratification.",
+        "searches": [
+          "Local Resultary: genus-two Richelot Frobenius kernels, nonsplit Rosenhain loci and induced Jacobians",
+          "Katsura–Takashima, arXiv:2003.00633 and 2108.06936",
+          "arXiv:2611.27775v1, decomposable-case discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f438c0014807 covers the ambient F3 isomorphism classes by branch cycles, 3-rank and rational point count; its displayed data do not isolate the nonsplit involution and the degree-two trace together.",
+          "3885560c7ffe describes extremal F5 classes only; its (6) class has b=17, unlike this nonsplit stratum."
+        ],
+        "reasoning": "These are actual table overlaps at the ambient-class level, not a matching table for conditional nonsplit Weil-polynomial masses with monic-model weights. A full automorphism-resolved census with enough branch and trace data could permit a weighted reconstruction; no such verified table underlies this verdict.",
+        "searches": [
+          "Resultary finite-field genus-two census: f438c0014807 and 3885560c7ffe",
+          "Primary literature lookup for finite-field genus-two automorphism/twist tables and F3/F5 Weil polynomials"
+        ]
+      },
+      "rationale": "Count formulas and geometric decomposition criteria are established inputs, and the invariant-kernel observation is not a distinct priority claim. The supported contribution is the conjunction of arithmetic descent for the canonical polarized quotient on the irreducible-sextic locus, trace cancellation there, and exact nonsplit marked-model masses by Weil numerator in the two fields. The closest passages cover ingredients and adjacent families but not the weighted spectra or that combined classification.",
+      "residual_risks": [
+        "An older automorphism-resolved exact finite-field table could permit an equivalent reconstruction. The Magma handbook attempt exposed a landing page only and was not used to rule out overlap. A focused external table lookup added no decisive sources and is not negative priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the per-involution fixed-polynomial count.",
+          "evidence": "At order two and degree six it gives (q³−q)/6.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.02537",
+          "material_read": "Theorem 1.4 (p. 2, offset 4026) and §4 (offset 20425)",
+          "method": "Bounded open full-text passages",
+          "title": "On the existence and number of invariant polynomials",
+          "trigger": "General theorem for the exact involution counts"
+        },
+        {
+          "assessment": "Established geometric relationship; inspected statements do not specify this monic-model arithmetic spectrum.",
+          "evidence": "Order-two reduced automorphisms characterize decomposed isogenies; lifts give product constructions.",
+          "identifier_or_url": "arXiv:2003.00633 and arXiv:2108.06936",
+          "material_read": "Proposition 4.5 (p. 7, offset 23904) and Theorem 1 (p. 7, offset 18289), respectively",
+          "method": "Bounded open full-text passages",
+          "title": "Counting Richelot isogenies between superspecial abelian surfaces; Decomposed Richelot isogenies of Jacobian varieties of hyperelliptic curves and generalized Howe curves",
+          "trigger": "Equivalent geometric involution statement and product construction"
+        },
+        {
+          "assessment": "Conjugate-factor Weil-restriction isogeny in a different input domain, not the claimed polarized quotient census.",
+          "evidence": "Starts from three rational quadratic factors and discusses the Jacobian up to isogeny.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.27775v1",
+          "material_read": "p. 1, offset 688; p. 3, offset 11219",
+          "method": "Bounded open full-text passages",
+          "title": "Richelot splitting profiles with three rational quadratic factors",
+          "trigger": "Closest primary arithmetic descent discussion"
+        },
+        {
+          "assessment": "Substantive ingredient/family overlap; not the same arithmetic classification. No same-day priority inferred.",
+          "evidence": "One invariant kernel for a six-cycle; odd-extension cancellation for a different family with rational branch points.",
+          "identifier_or_url": "Resultary 2fb8330f5a6a and c62d75defa8a",
+          "material_read": "Matching-cycle finding for (6) and nonsplit Rosenhain arithmetic finding",
+          "method": "Local Resultary mirror",
+          "title": "Nine Frobenius spectra of the fifteen genus-two Richelot kernels; The nonsplit Rosenhain locus",
+          "trigger": "Equivalent kernel observation and closest odd-trace statement"
+        },
+        {
+          "assessment": "Neither inspected result tabulates the nonsplit Richelot trace masses.",
+          "evidence": "The F3 census weighs arithmetic classes by different invariants; the F5 (6) example has b=17.",
+          "identifier_or_url": "Resultary f438c0014807 and 3885560c7ffe",
+          "material_read": "F3 displayed branch-cycle census and F5 displayed extremal (6) case",
+          "method": "Local Resultary mirror",
+          "title": "Joint branch-cycle and Jacobian 3-rank census for genus-two curves; Three extremal genus-two classes over F5",
+          "trigger": "Possible equivalent small-field exact tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 6–30 and 40–48",
+        "Independent census output",
+        "Resultary f438c0014807"
+      ],
+      "rationale": "This concerns a canonical quotient selected by an irreducible branch divisor, not an arbitrary slice of coefficients. The arithmetic type tells whether the geometric elliptic factors are individually defined over the base and predicts vanishing odd traces on one stratum. The q=3 and q=5 tables are complete marked-model spectra at the first two odd field sizes and distinguish a single spectral class from four with differing masses; the weights are meaningful for sampling monic models and are not supplied by an unweighted list of possible Weil polynomials. Their use is deliberately finite.",
+      "residual_risks": [
+        "No claim for spectral weights in larger fields, nor identification of the original Jacobian with its Richelot codomain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

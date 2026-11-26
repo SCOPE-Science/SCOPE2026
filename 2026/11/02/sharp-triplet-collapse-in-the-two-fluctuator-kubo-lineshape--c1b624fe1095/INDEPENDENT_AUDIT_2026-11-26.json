@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:27.685220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65; VERIFICATION.md and check_spectrum.py inspected, not executed",
+        "Exact symbolic lumped three-state resolvent, derivative factor, minimum value and threshold/shoulder evaluations in /workspace/independent_checks.py section 5. The computed values are 0.34128722336301965 and 1.3748285497209227 in the dimensionless units."
+      ],
+      "rationale": "At the individual flip rate gamma the stationary one-sign phase factor satisfies f''+2gamma f'+v²f=0 with data (1,0), and independence gives C=f², including the repeated-root case. The characteristic roots have negative real parts, so the transform converges. Independently lumping the two mixed sign states gives the row generator gamma times [[−2,2,0],[1,−2,1],[0,2,−2]] on shifts (−2v,0,2v), with weights (1/4,1/2,1/4). Its exact resolvent gives the displayed real-part spectrum, whose denominator and numerator are positive. By even extension and Fourier inversion its mass is C(0)=1. With t=(gamma/v)² and z=(omega/v)², the positive denominator leaves the derivative sign as −sign(P_t(z)). P_t(0)>0 and P_t' factors as 3(z+16t+4)(z−(8−20t)/3). For t≥2/5 the minimum over z≥0 is at zero; otherwise the minimum sign is that of 343t²+106t−17, with one positive threshold t_*. Thus below it there are two simple positive roots of P_t, producing a valley and then a peak on each half-axis; above it there are none. At t_* its positive minimum is a double root since P_t'' there is positive, so the derivative vanishes without reversal and gives two nonzero horizontal shoulders at the asserted detuning. The strict central peak never disappears, and the positive-frequency curve at equality still decreases strictly despite the horizontal tangent.",
+      "residual_risks": [
+        "The proof assumes stationary symmetric Markov flips and positive gamma and v; the zero-switching distribution is not smooth. No formal verification or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product phase formula includes arbitrary identical N, and the generic exchange calculation includes the known finite-state resolvent framework. Berthelot's illustrated mode crossover is for one fluctuator; the discussion after the product turns to the many-fluctuator Gaussian limit."
+        ],
+        "reasoning": "The broader formula covers the density but not by itself the bifurcation root signs of its derivative. No inspected general morphology theorem implies these signs at the binomial rates.",
+        "searches": [
+          "Berthelot et al. DOI 10.1155/2010/494738 with lawful OA alternate",
+          "Wódkiewicz–Shore–Eberly DOI 10.1364/JOSAB.1.000398",
+          "Resultary telegraph spectral and shape-transition comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Ranked Resultary matches and Berthelot primary passages above",
+        "Targeted literature queries for the exact threshold and the 1984 paper",
+        "Blume DOI 10.1103/PhysRev.174.351 full-text OA attempt returned 403 with no identified repository copy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The N=2 product fixes the function and can be integrated algebraically. The single-fluctuator peak merger concerns at most a doublet; the indexed symmetric three-state model has two central sign changes; stationary harmonic filters use a density of responses, not an optical phase transform."
+        ],
+        "reasoning": "Extracting the precise topology of the stationary set requires more than substituting N=2 into the correlation function: the derivative cubic must have its endpoint sign controlled and its positive minimum located and signed for all parameters. This yields the distinct off-center merger with a persistent central peak.",
+        "searches": [
+          "Berthelot §2.3 including N=2 specialization; §2.2 Eq. (2.8) and Fig. 2",
+          "Resultary 5659a83fdb9d, 6545f70803ac and 05e5507224ba, actual assumptions and findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berthelot supplies phi_N=(phi_1)^N and the single-sign factor. The present model is equivalently the binomial three-state exchange chain, with endpoints jumping to the middle at 2gamma and middle to each endpoint at gamma. In indexed 5659a83fdb9d both rates along each edge are equal and the stationary weights are uniform."
+        ],
+        "reasoning": "The indexed three-state generator cannot be obtained by a uniform time or frequency rescaling of the binomial chain. The spectrum could equally be represented as a convolution of the identical single-telegraph spectra; that representation does not classify its modes.",
+        "searches": [
+          "Resultary independent identical telegraphs, triplet collapse and three-state exchange",
+          "Berthelot et al. §§2.2–2.3; summed-process three-state Markov reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed uniform three-state model has two different critical ratios (positive roots in squared units of 81y³−81y²−5y+1), with central quartic flatness. The two-telegraph filter record has critical ratio 1/2 in switching-to-filter-relaxation units and reports divergent support-boundary peaks. Exact-number search produced no usable comparable entry."
+        ],
+        "reasoning": "These are different thresholds not just different unit conventions: the generators or observables differ, and their degeneracies do not match finite nonzero horizontal shoulders.",
+        "searches": [
+          "Exact 0.341287 ratio with Kubo–Anderson lineshape and equal fluctuators",
+          "Resultary triplet and coalescence threshold, stationary shoulders"
+        ]
+      },
+      "rationale": "The established pre-Gaussian formulation gives the underlying lineshape by specialization, and the standard Markov resolvent is not new. The available close sources examined do not supply the exact finite-two threshold, global stationary-point count, or shoulder classification. The pass is for that classification only, under the stated symmetric finite-two intrinsic model.",
+      "residual_risks": [
+        "The closest inaccessible primary paper, Wódkiewicz–Shore–Eberly (1984), may analyze the exact equal-two finite-N threshold; neither limited metadata nor a search miss resolves this. Blume's full text was also unavailable. No historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the relaxation function and implies the lineshape, not the checked morphology in these passages",
+          "evidence": "With tau_c=1/(2gamma) and Omega=2v, the symmetric one-fluctuator case followed by phi_N=phi_1^N gives the frozen C. Fig. 2 is for a single random telegraph; §2.3 treats N independent processes and the large-N limit.",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/e54b/c141afb4aa313e7ea3da479f560306b61603.pdf (DOI 10.1155/2010/494738)",
+          "material_read": "Eqs. (2.8)–(2.11), Fig. 2 and §2.3 product and Gaussian-limit discussion, PDF offsets 11000 and 14580",
+          "method": "Open-access author article PDF via identified lawful mirror after DOI route returned 403",
+          "title": "From Random Telegraph to Gaussian Stochastic Noises: Decoherence and Spectral Diffusion in a Semiconductor Quantum Dot",
+          "trigger": "Same independent-fluctuator phase function, finite-N specialization"
+        },
+        {
+          "assessment": "Unresolved full-text coverage; not negative evidence",
+          "evidence": "Berthelot §2.3 cites this paper for pre-Gaussian theory. The exact finite-two derivative/threshold analysis could not be compared in the primary body.",
+          "identifier_or_url": "https://doi.org/10.1364/JOSAB.1.000398",
+          "material_read": "Only landing-page/abstract material available through the DOI attempt; no decisive body passage inspected",
+          "method": "Lawful DOI/OA and Optica routes attempted; Optica blocked; targeted search did not identify an available alternate copy",
+          "title": "Pre-Gaussian noise in strong laser–atom interactions",
+          "trigger": "Potential primary coverage of finite equal dichotomous-fluctuator spectra"
+        },
+        {
+          "assessment": "Different reversible generator and bifurcation",
+          "evidence": "Uniform weights 1/3, symmetric jump rates; three, two and one peak regimes with two center degeneracies, versus binomial weights and a single loss of the off-center pair.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-exact-spectral-coalescence-thresholds-in-symmetric-three-sta--5659a83fdb9d",
+          "material_read": "Finding, assumptions, and resolvent, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two exact spectral coalescence thresholds in symmetric three-state exchange",
+          "trigger": "Strongest indexed spectral and Markov-lumping comparator"
+        },
+        {
+          "assessment": "Distinct observable",
+          "evidence": "The convolution of two compactly supported stationary filter response densities has possible boundary divergences; the audit concerns a smooth positive optical spectrum on all detunings.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-peak-to-single-peak-threshold-for-independent-telegr--6545f70803ac",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp three-peak to single-peak threshold for independent telegraph-driven harmonic filters",
+          "trigger": "Same number and type of independent telegraph inputs and superficially similar three-to-one morphology"
+        },
+        {
+          "assessment": "Distinct model and threshold",
+          "evidence": "One sign process with positive homogeneous linewidth, doublet conditions and two measured channels. No pair of identical independent fluctuators or nonzero shoulders.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-two-channel-peak-merger-tomography-theorem-for-telegraph--05e5507224ba",
+          "material_read": "Finding, assumptions and derivative setup, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp two-channel peak-merger tomography theorem for telegraph frequency noise",
+          "trigger": "Exact peak-merger analysis in closely related telegraph optics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and mathematical peak classification; model comparison with Berthelot and indexed three-state exchange"
+      ],
+      "rationale": "Triplet visibility is a natural question in spectral diffusion that a correlation function and qualitative motional narrowing do not answer. The symmetric equal-two case is the minimal independent-telegraph model with three distinct possible instantaneous shifts. The exact threshold, persistent central peak and off-center shoulders give a usable quantitative criterion for intrinsic spectral morphology and distinguish it from uniform three-state and single-fluctuator coalescence.",
+      "residual_risks": [
+        "Not a finite-resolution detectability criterion; unequal switches, unequal shifts, correlations, or extrinsic broadening can change the morphology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

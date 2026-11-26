@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph adjacency and locating-total definition are explicit. Each witness has open-neighborhood domination of all vertices, and the complete distinct signatures for the unselected vertices are displayed in RESULT.md. The incidence double count gives \((d+2)|D|\ge 2|V|\), proving the two sizes minimum. The packaged standalone verifier independently checks both graphs and a complete exhaustive exclusion of smaller sets for the eight-cycle prism.
+## correctness
 
-**Originality: PASS, subject to bibliographic priority risk.** The primary 2021 article is inspected in full for its prism subsection. Theorem 5 gives a known lower bound and conjectural upper-branch equality; Conjecture 2 predicts \(8\) and \(10\) at the two identified lengths. The proved present values \(7\) and \(9\) contradict these predictions, rather than merely repeating the known upper bound. Indexed comparisons with the same graph under alternate names, total identifying codes, rooted cycle products, complete prisms and an ordinary-domination 2024 article found no logically covering result. An unindexed correction remains possible.
+PASS
 
-**Value: PASS.** This resolves two specifically posed congruence-class equalities negatively in a published extremal conjecture, with sharp independently inspectable witnesses. Both examples attain the general cubic lower bound; they are not arbitrary slice computations.
+Independently rebuilt both modular cycle-and-rung graphs and checked the exact displayed sets against the open-neighborhood conditions: every vertex, selected or not, has a selected neighbor, and all 9 and 13 outside signatures respectively are distinct. For any cubic graph on N vertices and locating-total set of size k, at most k outsiders have singleton signatures, so at least 2(N−k)−k incidences cross the cut. At most 2k cross it from the selected side by total domination there. Thus 5k≥2N; N=16,22 give matching lower bounds 7,9, with no exhaustive subset search needed. The record's statement of Conjecture 2, independently corroborated by two later treatments of the same invariant, predicts 8 and 10. The numerical values and the bound are independently proved; the conjecture comparison has the primary-access qualification recorded below.
 
-**Closest literature:** Raza, Iqbal, Khan, Botmart, *Computing locating-total domination number in some rotationally symmetric graphs* (Science Progress, 2021), DOI 10.1177/00368504211053417, Theorem 5 and Conjecture 2.
+## originality
 
-**Limitations:** No eventual periodicity result or formula for all \(n\) is established. Independent review and exhaustive priority review are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two exact cases beat previously reported conjectured equalities, not a proved lower bound. Later indexed results genuinely cover one and both values respectively. Their November dating does not establish priority over the frozen October record. The closely related same-day items concern different invariants or graph families; no inspected antecedent covers the two exact cases.
+
+## value
+
+PASS
+
+These are not arbitrary recomputed small graphs: explicit optimal witnesses falsify both exceptional branches of a published conjecture, in a graph family and for an invariant already singled out by that conjecture. They independently settle its predictions at two orders without claiming an infinite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

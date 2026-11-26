@@ -10,7 +10,7 @@ The closest general paper is Kulkarni and Kiyavash (2012), which gives general c
 
 ## Mathematical value — PASS
 
-Motzkin excursions are a classical, naturally structured constrained alphabet. This complete finite classification measures the single-deletion correction cost and all optimal designs through the first nonintegral fractional-packing instance. The sharp \(7/15\) fractional gap, together with exact optimizer populations, is a natural benchmark for constrained-source coding and LP bounds. It is not a routine substitution of a parameter in a general exact formula.
+Motzkin excursions are a classical, naturally structured constrained alphabet. This complete finite classification measures the single-deletion correction cost and counts all optimal designs through the first strict objective gap for the deletion-shadow packing relaxation. The sharp \(7/15\) objective gap, together with exact optimizer populations, is a natural benchmark for constrained-source coding and LP bounds. It is not a routine substitution of a parameter in a general exact formula.
 
 ## Residual risk and scope
 

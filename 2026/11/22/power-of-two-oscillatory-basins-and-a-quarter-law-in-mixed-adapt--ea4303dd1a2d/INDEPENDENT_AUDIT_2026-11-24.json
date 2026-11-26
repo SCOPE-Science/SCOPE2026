@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:01:30.996145Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, rule and proof",
+        "Frozen VERIFICATION.md, verify_exhaustive.py and verify_formula.py, inspected rather than executed",
+        "/workspace/branches/independent-replay.py, record 1"
+      ],
+      "rationale": "Subtract the old opinion from its threshold: h=k-x is conserved, and the closed-neighborhood test then becomes an open-neighbor threshold test. Admissibility forces the opinion at h=0 or h=degree+1; intermediate h allows both. Leaves are therefore fixed at one, fixed at zero, or copy the old hub. With a fixed-one leaves and c copying leaves, from time 1 onward the hub follows a two-step recurrence with single-bit map g. The map is constant outside a<h<=a+c, and the state is then fixed by time 2; when c=0 even time 1 suffices. Inside the interval g is the identity and the state has period dividing two already at time 1. For each of the c central h values and each type assignment there is one primitive alternating orbit. Every word on the c copying leaves determines the new hub, hence selects exactly one of the two old hub opinions that enters this orbit. Thus the full basin has 2^c states, including both recurrent phases. There are binom(m,c)2^(m-c) assignments, giving every basin bin and the total oscillation mass by binomial differentiation. Fixed hub zero admits m+1-a thresholds and fixed hub one admits a+c+1, yielding the fixed-state census. Entry at time 2 requires c>=1 and a wrong initial hub in a constant regime, with a+b admissible interior choices; summation gives the stated N_2, with N_0 from the recurrent census and N_1 by subtraction. For m=1 N_2=0; for m>=2 a fixed-one leaf, copying leaf, h=1 and inactive initial hub give a sharp witness. The probability normalizations use all 2(m+1)4^m legal extended states, not just opinions. Independent direct closed-neighborhood replay classified all 72,816 states for m=1 through 6: every individual primitive basin bin, entry layers and the identity F^4=F^2 agreed (python3 /workspace/branches/independent-replay.py 1).",
+      "residual_risks": [
+        "The finite replay corroborates only the listed sizes; the invariant and counting argument apply to all m in scope. Results do not extend by this proof to arbitrary trees, biased initialization, or different update modes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 permits only periods 1 and 2 in the parallel model. Theorem 4.7 recursively counts fixed points via subgraphs meeting at one vertex.",
+          "The primary text relates the period proof to Goles–Olivos; the original Goles–Olivos article was not independently inspected."
+        ],
+        "reasoning": "A maximum recurrent period does not bound the transient to two steps or count basins. The tree fixed-point theorem addresses an already credited part of the census but neither identifies primitive orbit basins nor their least entry times.",
+        "searches": [
+          "arXiv:1305.4599, Sections 3 and 4, Theorems 3.1 and 4.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.4599",
+        "Resultary 260f52d7946d",
+        "Resultary 7d65ef6efacf",
+        "Resultary 6df2a813b7b5",
+        "Resultary ea4303dd1a2d (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Limit-cycle length and fixed-state recursion do not give preimage counts. Existing exact majority enumerations rely on binary opinions with no adaptive threshold state."
+        ],
+        "reasoning": "Neither a period bound nor a different graph's aggregate oscillation probability implies a full basin-size distribution. The new count depends on independently choosing each copying leaf's initial bit and the unique old hub bit giving alternation in each central invariant class.",
+        "searches": [
+          "arXiv:1305.4599, Theorems 3.1, 4.7",
+          "Resultary 260f52d7946d and 6df2a813b7b5, statement and model assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary definitions use the exact closed-neighborhood threshold rule and its mixed opinion-flip threshold adjustment.",
+          "The frozen h=k-x change of variables conjugates each invariant class to a static open-neighbor threshold update with its own admissible opinions."
+        ],
+        "reasoning": "The invariant description is a reformulation of the same model, not evidence of a different dynamical hypothesis. Strict majority dynamics is one fixed neighbor test, not an enumeration over all these threshold classes with their extended-state multiplicities.",
+        "searches": [
+          "Chang et al., arXiv:1305.4599, Definitions 2.1–2.2",
+          "Targeted literature lookup for synchronous open-neighbor invariant thresholds and mixed-adaptive star basin census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top exact hit is the frozen record itself. Distinct indexed analogues give exact censuses on triangular books and pineapple graphs, and individual basin bins on the Desargues graph.",
+          "Triangular books also have a two-step cutoff and a quarter-law; Desargues has nine basin-size classes at a fixed 20-vertex graph under strict majority."
+        ],
+        "reasoning": "These are genuine overlaps in invariant or numerical limit, but have different graph and update hypotheses. The distinct Desargues record is compared even though it shares a publication date; no within-day priority is inferred.",
+        "searches": [
+          "Resultary: mixed adaptive threshold star, primitive two-cycle basin and entry census",
+          "Resultary matched statements ea4303dd1a2d, 260f52d7946d, 7d65ef6efacf and 6df2a813b7b5"
+        ]
+      },
+      "rationale": "The update and the general period restriction are known; the tree fixed-state recursion can specialize to stars. The supported distinct claim is the per-orbit primitive basin spectrum and sharp full entry census for the mixed adaptive star, with the quarter-law as a consequence. Similar results for majority dynamics do not cover this state space or theorem.",
+      "residual_risks": [
+        "Bounded literature and catalogue lookup does not rule out an unindexed or differently formulated star census. No novelty is assigned to the model, general period bound or availability of a tree fixed-state count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and general period result; provides credited fixed-point machinery, not the star basin and entrance law.",
+          "evidence": "Mixed flips, maximum synchronous period two, and one-vertex decomposition for tree fixed points.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.4599",
+          "material_read": "Definitions 2.1–2.2, Theorem 3.1 and Theorem 4.7",
+          "method": "OA primary text passages at offsets 6500–17381, 14800–21300 and 54400–59837",
+          "title": "Adaptive Complex Contagions and Threshold Dynamical Systems",
+          "trigger": "Exact originating update rule and potentially covering orbit and tree-count theorems"
+        },
+        {
+          "assessment": "Different synchronous dynamics and graphs; aggregate limit is not the per-orbit star law.",
+          "evidence": "Strict binary majority on K_{1,1,n}, parity-dependent total two-cycle basin and cutoff two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-entrance-time-census-and-parity-law-for-majority-dynamics--260f52d7946d/RESULT.md",
+          "material_read": "Finding and setting at offset 0",
+          "method": "Resultary and local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact entrance-time census and parity law for majority dynamics on triangular books",
+          "trigger": "Same quarter limit and entry cutoff"
+        },
+        {
+          "assessment": "Analogous census under a distinct majority rule on pineapple graphs.",
+          "evidence": "Degree thresholds, cycle counts and period-resolved entry times for binary open-neighbor majority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-pendant-degree-thresholds-and-exact-majority-basins-on-pinea--7d65ef6efacf/RESULT.md",
+          "material_read": "Finding and setting at offset 0",
+          "method": "Resultary and local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two pendant-degree thresholds and exact majority basins on pineapple graphs",
+          "trigger": "Leaf-bearing graphs, exact period and entrance counts"
+        },
+        {
+          "assessment": "Same kind of invariant but on a single different graph with a different state space.",
+          "evidence": "Strict-neighbor binary majority on the 20-vertex Desargues graph, nine basin-size classes and entry times 0–4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-attraction-basin-spectrum-for-binary-majority-dynamics-on--6df2a813b7b5/RESULT.md",
+          "material_read": "Finding and setting at offset 0",
+          "method": "Resultary and local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact attraction-basin spectrum for binary majority dynamics on the Desargues graph",
+          "trigger": "Same-day exact individual basin census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:1305.4599, Theorems 3.1 and 4.7"
+      ],
+      "rationale": "A star is the canonical hub-and-leaf test of feedback. The exact per-orbit basin sizes, recurrence census and sharp transient law separate two quantitatively different effects: a uniformly sampled extended state has exponentially small probability of lying on an oscillatory orbit initially but approaches oscillation with probability tending to one quarter. Neither simple period classification nor fixed-state counts provide that distinction.",
+      "residual_risks": [
+        "The probability statement is for uniform legal extended states and the topology is limited to stars."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:06:58.534532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70",
+        "VERIFICATION.md; dihedral_independent_check.py, lines 12–56; captured output, lines 1–19"
+      ],
+      "rationale": "For nonboundary words with lengths a,b, the concatenation loses exactly one letter if the junction letters agree and otherwise none; an alternating word reaching length m represents the absorbing z. Equal starts and equal length parities give equal products without needing absorption. Different starts prohibit equality before absorption, and simultaneous absorption requires a+b>=m for different starts with both lengths odd, or a+b>=m+1 for every remaining case. For m=2k, the numbers of same-start and opposite-start partners are k+j-1 and 2j-1 at a=2j-1 or 2j (the latter restricted to j<k); for m=2k+1 they are k+j-1 and 2j-2 at a=2j-1, and k+j-1 and 2j-1 at a=2j. Including 1 and z gives the claimed spectra, including the extra even-m central elements of length m-1. Summing gives 10k^2+6k or 10k^2+12k+4 with denominator (2m)^2. A separate finite word-concatenation/run-contraction check agreed for every element at 3<=m<=24; generality is from the predicate and interval counts, not the test.",
+      "residual_risks": [
+        "The supplied checker was inspected, not rerun. It computes all pairwise commutation comparisons and checks centralizer sizes, the center size and pair total, but does not assert term-by-term agreement of products with the closed product formula despite the wording in VERIFICATION.md. The analytic product argument supplies that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Denton et al. give the general zero-Hecke presentation and Coxeter indexing; their dihedral specialization enumerates radical layers. He computes algebraic-center bases."
+        ],
+        "reasoning": "These broader theorems neither supply the pairwise commutation predicate nor impose an equality of the radical-layer statistic with element centralizer sizes. The known presentation allows the calculation but is not an existing stronger enumeration.",
+        "searches": [
+          "arXiv:1010.3455v3 Definition 2.6, Table 1 and Proposition 3.48",
+          "arXiv:1502.02183 Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records identified above, including the bound identity hit",
+        "Denton–Hivert–Schilling–Thiéry, arXiv:1010.3455v3",
+        "He, arXiv:1502.02183"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day dihedral power-map Finding states image and fiber formulas for x -> x^r and absorption times. The type-A Resultary summary restricts to simultaneous commutation with two adjacent generators in that family."
+        ],
+        "reasoning": "Power-map fiber data do not classify pairs of different elements, and the type-A common-centralizer problem does not specialize to all individual centralizers in the variable-braid dihedral family. No priority order is attributed to same-day records.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-power-map-fiber-rigidity-and-a-harmonic-absorption-law-in-dihedr--08ab6741c676",
+          "Resultary 2026/11/22/SCOPE-adjacent-generator-common-centralizers-in-type-a-0-hecke-monoids--c8fd72e25c4a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the audited record itself. He, Theorem 4.4 (PDF p. 7), gives a basis for an algebra center, not the commutation graph of individual monoid elements."
+        ],
+        "reasoning": "The claim is equivalently the degree distribution of the reflexive commutation graph on the monoid. A central linear combination is not this graph, and even knowledge of which elements commute with all others does not yield the noncentral degrees.",
+        "searches": [
+          "Resultary lookup for the dihedral zero-Hecke centralizer-size classification and commuting-pair density; bound hit e28983f8bc92",
+          "arXiv:1502.02183 §§0.3, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the bound record was identified as an exact hit. The relevant published dihedral table is a table of radical-filtration polynomials, not ordered commuting-pair totals or degree multiplicities."
+        ],
+        "reasoning": "The directly plausible published table was checked by what it counts rather than by numeric coincidences. Lack of another hit does not establish priority.",
+        "searches": [
+          "Resultary lookup for the parity-stratified dihedral 0-Hecke spectrum and 5/8 density",
+          "Denton et al. arXiv:1010.3455v3 Table 1, dihedral I_n row"
+        ]
+      },
+      "rationale": "Best of current knowledge, the exact all-element dihedral monoid centralizer spectrum and parity-dependent pair count survive the comparisons. Normal forms and the algebra-center results are prior, and the title of the latter does not settle this monoid question.",
+      "residual_risks": [
+        "Bounded comparison, not a proof of historical priority. A focused wider literature lookup returned unrelated results and thus provides no substantive negative evidence. An older specialized semigroup enumeration remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The indexing is prior; the table and proposition describe a different statistic.",
+          "evidence": [
+            "Definition 2.6 (offset 23124); radical-filtration generating series (offset 72452); dihedral radical-layer basis (offset 75985)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1010.3455",
+          "material_read": "v3 §2.4 pp. 7–8; Table 1 p. 24; §3.7.2 and Proposition 3.48 p. 25",
+          "method": "Bounded passages of OA primary PDF",
+          "title": "On the representation theory of finite J-trivial monoids",
+          "trigger": "General zero-Hecke framework and an explicit dihedral table"
+        },
+        {
+          "assessment": "Algebra center, not the per-element monoid centralizers.",
+          "evidence": [
+            "§0.3 describes bases of algebra center/cocenter; Theorem 4.4 (offset 16418) gives a basis for Z(H_0)_delta."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.02183",
+          "material_read": "§0.3 pp. 1–2 and Theorem 4.4 p. 7",
+          "method": "Bounded passages of OA primary PDF",
+          "title": "Centers and Cocenters of 0-Hecke Algebras",
+          "trigger": "Plausible broader center result"
+        },
+        {
+          "assessment": "Does not give the commutation spectrum.",
+          "evidence": [
+            "The map is the single-element power map; square roots of the absorbing element and absorption times are not pairwise commutation counts."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-power-map-fiber-rigidity-and-a-harmonic-absorption-law-in-dihedr--08ab6741c676",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Power-map fiber rigidity and a harmonic absorption law in dihedral zero-Hecke monoids",
+          "trigger": "Same family; absorption of alternating words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; distinctions to the primary center and radical-layer literature above"
+      ],
+      "rationale": "Centralizer sizes distinguish how each element of the natural rank-two test family participates in commutation, beyond whether the monoid is commutative or what its center is. The full spectrum shows two additional central elements at even braid length and identifies the persistent 5/8 proportion with exact finite corrections. The parity stratification and probability are reusable baselines for comparison with other zero-Hecke types, rather than a finite sample or an algebra-center rephrasing.",
+      "residual_risks": [
+        "No higher-rank extension or theorem about the dimension of the algebra center follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

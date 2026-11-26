@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:05.647002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and VERIFY.py (read only)",
+        "arXiv:1506.06649v1 pp. 5–8, Eqs. (11), (19), (24)",
+        "checks/replay_certificates.py, fixation"
+      ],
+      "rationale": "Each nonfixed update decreases the integer sum, so T_n is at most 2n and a fixed state is absorbing. The cited one-site densities give the exact drop (t+15)/(81·3^t); a cone with 2t+3 distinct sites transfers this drop to the ring, giving the claimed Markov bound for T_n>t. The two zero endpoints of 0·2^a·1^b·0 are permanent. For a−1 updates the two descending boundaries move together, and for b−1 more updates the ones erode, forcing a change into time a+b−2. There are t−1 splits. At n≥2(t+4), interior overlaps are incompatible, only the two shared-endpoint offsets can add covariance, and disjoint windows are independent. This gives Var Z≤EZ+2n(t−1)^2·3^(−2(t+4)+1) and the stated lower tail. The two tails at the logarithmic center are geometric; above the valid cone range use the deterministic horizon, and below half log_3 n use monotonicity. Summing gives bounded absolute mean deviation, not just tightness. Independent bounded replay: checks/replay_certificates.py (fixation); finite checks supplement the literature input and analytic proof.",
+      "residual_risks": [
+        "The all-depth one-site density identity is imported from the 2015 paper; its general FSM derivation is not reproduced, and finite enumeration is not its proof.",
+        "No limiting lattice law or other initial distribution is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fukś–Midgley-Volpato p. 3 defines densities on a bi-infinite Bernoulli string; Eqs. (11), (19), (24) compute one-site preimage weights.",
+          "The binary majority ring result uses a longest alternating edge-run statistic, not the ternary descending-pair map."
+        ],
+        "reasoning": "General initial-law coverage for one-site densities is broader on a different axis. It cannot be specialized to a joint ring stopping-time law, and the binary rule omits the two different descending fronts.",
+        "searches": [
+          "arXiv:1506.06649v1, lifted three-state Rule 140 and general Bernoulli start",
+          "Resultary finite-ring majority first periodic entry, record ending d0c0e063c265"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.06649v1",
+        "Resultary records ending 6ceb0a1a1961, 46f749a8a8bf and d0c0e063c265"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior marginal densities imply the union/Markov upper bound via the cone. The protected-word event has the same leading mean scale nt/3^t, but its absence probability requires a separate spatial overlap argument."
+        ],
+        "reasoning": "The upper bound is a short corollary and not the contribution. The matching lower bound, tight centering and two-sided mean estimate are not direct consequences of those marginals.",
+        "searches": [
+          "arXiv:1506.06649v1 Eqs. (19), (24) versus frozen proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same indexed ID ending 6ceb0a1a1961 is the frozen result itself.",
+          "The distinct circular-median record ending 46f749a8a8bf treats first periodic entry, allowing period two; the local update is a median, not descending-pair erosion."
+        ],
+        "reasoning": "Translation into a longest-pattern problem for this specific three-state rule is the appropriate potential alias; the located median and majority aliases concern other deterministic maps and are not equivalent clocks.",
+        "searches": [
+          "Resultary semantic comparison: lifted Rule 140, global ring fixation, double-logarithmic clock and protected two-run extreme",
+          "arXiv:1506.06649v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the same record; prior preimage counts enumerate local ancestors of an output symbol."
+        ],
+        "reasoning": "A table or enumeration of local preimages is not an enumeration of global stopping times. The recorded asymptotic with matching finite-size tails is not an extracted table entry.",
+        "searches": [
+          "Resultary global fixation clock comparison, exact matching ID ending 6ceb0a1a1961",
+          "arXiv:1506.06649v1 Eqs. (20), (23)"
+        ]
+      },
+      "rationale": "The inspected prior work provides the lifted rule and its one-site degeneration, not the finite-ring maximum or a lower tail sufficient to prove the clock. The closest exact indexed result is the identical record; the nearby distinct extreme-value records concern genuinely different dynamics and stopping times.",
+      "residual_risks": [
+        "An unlocated finite-ring treatment of this update rule or an equivalent protected-pattern characterization could affect priority. The cited preimage derivation omits general formal proof details."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the imported local result but not the global clock in the inspected results",
+          "evidence": "p. 3 is on the bi-infinite lattice; Eqs. (19) and (24) give symbol densities, and Eqs. (20) and (23) count preimages.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.06649",
+          "material_read": "pp. 1, 3, 5–6, 8; PDF text offsets 0, 8800, 14500, 22500, 30000; Eqs. (11), (19), (20), (23), (24)",
+          "method": "Original OA PDF, targeted passages and parameter specialization",
+          "title": "An example of degenerate hyperbolicity in a cellular automaton with 3 states",
+          "trigger": "Exact rule and most plausible prior one-site/preimage formulation"
+        },
+        {
+          "assessment": "Different rule and stopping time",
+          "evidence": "Median map and first periodic entry at log_(9/2) n+O_P(1), including period two.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-coupled-threshold-poisson-clock-for-ternary-circular-median-dy--46f749a8a8bf",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Resultary semantic retrieval and mirrored original",
+          "title": "A coupled threshold Poisson clock for ternary circular median dynamics",
+          "trigger": "Close distinct ternary-ring clock"
+        },
+        {
+          "assessment": "Related extreme-value technique but not theorem for lifted Rule 140",
+          "evidence": "Binary majority, longest alternating edge-run and first periodic-entry law.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265",
+          "material_read": "RESULT.md, Finding and Proof §1",
+          "method": "Resultary semantic retrieval and mirrored original",
+          "title": "Exact first periodic-entry law and Poisson extremes for majority dynamics",
+          "trigger": "Potential longest-run alias"
+        },
+        {
+          "assessment": "Identical assigned finding, not a distinct coverage hit",
+          "evidence": "Same rule, finite-ring clock, and second-order term.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-double-logarithmic-fixation-delay-for-a-ternary-cellular--6ceb0a1a1961",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary semantic retrieval and mirrored original",
+          "title": "A sharp double-logarithmic fixation delay for a ternary cellular automaton",
+          "trigger": "Exact semantic hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "arXiv:1506.06649v1, one-site densities"
+      ],
+      "rationale": "For a previously studied natural local rule, the global relaxation clock is a different and useful observable. The exact dependence mechanism in protected two-run words yields the matching lower tail and a genuine diverging second-order correction to log_3 n. The bounded mean error is not inferred solely from a density curve or a numerical fit.",
+      "residual_risks": [
+        "Uniform independent ternary starts and synchronous cyclic updating only; no universal claim for other automata."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

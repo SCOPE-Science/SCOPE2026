@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:58:40.232814Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact station-0 conditional choice probability at energy e is 1/2−(t+3e/20)/30 throughout the critical threshold interval. Integration gives the three affine moments in the finding. Since U₀+U₁=25, the conditions λUᵢ<300 localize any near-critical stable equilibrium to t near −5. The difference of the waiting costs minus t strictly decreases between opposing poles, establishing a unique threshold and an equilibrium allocation up to a null tie set. With q=δ₀/ε and η=24−λ, multiplying the gap equation by η gives at η=0 a residual proportional to V₀*/q−V₁*/(1−q). It has a simple interior root, and the exact regularized equation is analytic there. The root q=23/48 and its complement give the common scaled cost 1000; the affine identity (t+5)/η=(25q−25/2)/(5λ/6) gives the coefficient −5/192 with O(η²) remainder in t. The mass at t=−5 is 13/24. At or above 24 both queues cannot be stable by total capacity. These are facts about the specified deterministic game with an approximate waiting cost, not exact M/G/2 delays.",
+      "replay_paths": [
+        "/workspace/reproductions/4.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives the exact moments and M/G/2 penalty and invokes its general PNE result. The latter uses an M/D/C model with a deterministic charging-time assumption."
+        ],
+        "reasoning": "The general PNE claim is prior, but existence and uniqueness do not give the critical coefficients. A deterministic service model does not contain the two-moment equilibrium asymptotics in this record.",
+        "searches": [
+          "arXiv:2610.18035v1 §4.3 pp. 21–24; arXiv:2102.05851v1 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18035v1",
+        "arXiv:2102.05851v1",
+        "Resultary d07cd6070c36 (identical record)",
+        "Resultary 00dcb9499324 and 035ea13c160f (related findings, opening statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constraints imply the capacity threshold 600/25 and limiting equality in energy workload for stable allocations. The two-server penalty uses the station-specific second moment in its numerator."
+        ],
+        "reasoning": "The capacity bound and half energy split are direct implications and not credited independently. The customer-count and singular cost calibration require solving the affine threshold problem and the pole balance; the checked equilibrium statements do not already supply that calibration.",
+        "searches": [
+          "arXiv:2610.18035v1 §4.3 equations (4.4)–(4.7) and Theorem 2.1 application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact all-four match d07cd6070c36 is the identical assigned record. Finding 00dcb9499324 concerns a small-logit-noise expansion in a different two-resource model; 035ea13c160f varies unknown dependence without queue saturation."
+        ],
+        "reasoning": "An expansion in choice noise or a dependence-robust interval of equilibrium shares does not reduce to a singular capacity limit for the specified waiting costs.",
+        "searches": [
+          "Resultary: M/G/2 heterogeneous EV saturation, unused charging capacity and finite waiting-cost gap; records d07cd6070c36, 00dcb9499324 and 035ea13c160f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper's numerical comparisons use σ=0.005 and report qualitative workload balance and different customer counts. The exact rational constants, scaled cost and finite-gap coefficient appear in the matching same record, not in those comparisons."
+        ],
+        "reasoning": "Qualitative plots do not give this zero-noise limiting count, allocation of the residual slack, or regularized waiting-cost coefficients.",
+        "searches": [
+          "Dupont–Petit–Séguret §4.3 numerical comparisons; Resultary d07cd6070c36 Finding"
+        ]
+      },
+      "rationale": "The source supplies the game, a general existence theorem, and near-capacity numerical observations. The supported distinction is the joint zero-noise asymptotic calibration of count, slack, cost and gap, not those prior results or the total-capacity identity.",
+      "residual_risks": [
+        "Bounded literature comparison; not all references of the primary charging model were independently reviewed. No historical-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and qualitative antecedent, not the claimed coefficients in the material read",
+          "evidence": "The model has 150 kW per charger, waiting valuation 30 and separate first and second moments; the discussed numerical comparisons use nonzero choice noise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18035v1",
+          "material_read": "§4.3, pp. 21–24, especially equations (4.4)–(4.7), the Theorem 2.1 application and numerical discussion",
+          "method": "Primary PDF equation, model and results comparison",
+          "title": "Non-Potential Congestion Games with a Continuum of Players",
+          "trigger": "Same population and waiting-cost model"
+        },
+        {
+          "assessment": "Different queue model",
+          "evidence": "The queue approximation assumes deterministic charging times rather than this two-moment penalty.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.05851v1",
+          "material_read": "p. 3, model description",
+          "method": "Primary PDF passage comparison",
+          "title": "An electric vehicle charging station access equilibrium model with M/D/C queueing",
+          "trigger": "Closest analogous EV access equilibrium model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The expansion separates three different notions of balance at saturation: equal energy workload, unequal headcounts and a different division of spare capacity. It resolves an otherwise indeterminate finite difference between two divergent costs, and provides exact reference values for validating calculations of this particular continuum-game approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

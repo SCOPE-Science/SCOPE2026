@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:49:20.272768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–71, rederived for all n≥3",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent total-energy replay: python3 /workspace/branches/independent_dynamics.py, ising section"
+      ],
+      "rationale": "The flip energy divided by two is the local spin times its field. Flipping all spins in row two conjugates negative K to q=|K| and preserves both markings. For q=0 a nonconstant row has a wall-adjacent spin with nonpositive flip cost, so only the four pairs of constant rows remain. For q>0 each spin of any unsatisfied rung must agree with both its horizontal neighbors. The unsatisfied rung therefore forces adjacent rungs of the same orientation, and propagation gives only the two opposite constant rows, strict iff q<2J. All other strict configurations have aligned rungs. Their common binary word is unconstrained when q>2J and has no singleton run when 0<q≤2J: a singleton flip is neutral at equality and is not counted. Counting nonconstant cyclic words with k even marked runs of length at least two gives 2n/k times the number of compositions, binomial(n−k−1,k−1); unrestricted even wall sets give 2 binomial(n,k). The wall-marked matrix has trace S_n(z) and characteristic polynomial (t²−t)²−z². Its primitive Perron root is (1+√(1+4z))/2 for z>0, with subleading roots −φ⁻¹ and exp(±iπ/3) at z=1. Exponential moments at z=e^t give limiting per-rung log mgfs by subtracting their t=0 values; the positive spectral gap and differentiability yield concentration at their slopes (5−√5)/10 and 1/2. There are no walls at q=0. The strict threshold and the exact polynomials were separately checked in 36 small-size/coupling cases by comparing total Hamiltonians after every flip. The opening 'two discontinuities' describes the size-growing landscape: the exact all-n theorem has no count increase out of q=0 for the n=3 exception (4 versus 4). The 0<q<2J, q=2J and above-threshold polynomials distinguish the isolated count drop of two at equality.",
+      "residual_risks": [
+        "All-n claims are for the displayed exact polynomials, not the shorthand finite-count jump statement at n=3. Results are strict local minima and uniform counting measures, not laws of states reached under a quench or an equilibrium phase transition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Smedt–Godrèche–Luck treat blocked states on a constrained single chain with isolated-spin flips. Waclaw–Burda use strict one-spin stability and include a ladder in §VII, but for random Gaussian bonds with a numerical ensemble-averaged estimate."
+        ],
+        "reasoning": "The strict-minimum concept is common; a constrained-chain blocked set or a random-bond estimate does not classify all states for two fixed deterministic coupling values on the periodic ladder. The focused search surfaced no additional exact match, which is not a proof of absence.",
+        "searches": [
+          "Focused web lookup: anisotropic Ising ladder, one-spin strict local minima, rung coupling threshold, frozen states",
+          "De Smedt–Godrèche–Luck arXiv:cond-mat/0202465 §3.1",
+          "Waclaw–Burda arXiv:0801.1224 §VII"
+        ]
+      },
+      "checked_sources": [
+        "Shukla, De Smedt–Godrèche–Luck and Waclaw–Burda original passages above",
+        "Resultary records 0f8914252c1b, def1265feda1, 0e6cb4dab8a4",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known branch identifies the common no-singleton cyclic words. Their growth and the associated uniform wall asymptotics can be obtained from that word family alone. The remaining ladder cases depend on the interaction between strict stability and the rung-sign local field."
+        ],
+        "reasoning": "Neither the uniform-coupling observation nor the ANNNI branch count implies exhaustive propagation from an unsatisfied rung, the loss of those states at strict equality, or the entry of all aligned words above 2J. Establishing the complete joint wall/rung count needs this anisotropic classification, rather than just a normalization of the known count.",
+        "searches": [
+          "Shukla p. 3 Glauber fixed-point passage",
+          "Resultary 0f8914252c1b local criterion, count and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shukla describes parallel rungs and no length-one longitudinal domains on the uniform-coupling ladder. The indexed ANNNI chain's weak stability for 0<κ<1 gives exactly the same cyclic binary words, and its count φ^n+(−φ⁻¹)^n+2cos(nπ/3) agrees with S_n(1) on that record's sizes n≥5."
+        ],
+        "reasoning": "Every singleton in the ANNNI condition has negative flip cost since its nearest term is −2 and the second-neighbor term is at most 2κ<2. For words with no singletons the first-neighbor term is +2 inside a run or zero at a boundary; at a boundary at least one second neighbor is in the opposing run, so the second-neighbor term is nonnegative. This proves equivalence of the word family and hence of its wall marking, not of the two Hamiltonians or the other ladder sectors.",
+        "searches": [
+          "Shukla arXiv:cond-mat/0501754, zero-temperature Glauber introduction",
+          "Resultary record 0f8914252c1b, local criterion and 0<κ<1 branch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact formula is the intermediate no-singleton count in the ANNNI entry. The homogeneous antiferromagnetic-prism entry gives weak-stability entropy spikes at field ratios |h|/J=1,3. The two-row Q2R entry counts fixed states under a reversible two-color update and a doubled vertical neighbor. The random-bond Table I tabulates averaged numerical estimates."
+        ],
+        "reasoning": "The ANNNI formula transfers to the aligned branch without requiring a new count, but contains no unsatisfied-rung marking or q=2J threshold. The other indexed spectra have different parameters or different state-and-move definitions. No relevant exact four-sector table was identified in the queried material.",
+        "searches": [
+          "Resultary meaning search for exact frozen Ising-ladder counting and wall polynomial",
+          "Resultary IDs 0f8914252c1b, def1265feda1, 0e6cb4dab8a4",
+          "Waclaw–Burda Table I"
+        ]
+      },
+      "rationale": "Credit is limited to the complete anisotropic strictly blocked ladder classification across the two coupling thresholds, including the exact unsatisfied-rung sectors and strict equality case. The aligned no-singleton branch, its combinatorial word space and its unmarked count are covered by inspected prior or indexed comparators; neither their rederivation nor the use of transfer matrices is the originality claim. None of the inspected comparators gives the full rung-coupling classification.",
+      "residual_risks": [
+        "The homogeneous aligned branch is known. Equivalent complete deterministic anisotropic counts in unindexed literature remain possible. Same-day catalogue labels do not resolve historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No-singleton branch is prior; the passage is not the four-regime classification",
+          "evidence": [
+            "Parallel rungs, longitudinal domains of length at least two, and large degeneracy for the homogeneous coupling ladder."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0501754",
+          "material_read": "p. 3 zero-temperature Glauber discussion, near offset 9300",
+          "method": "Original OA PDF passage",
+          "title": "Voter Dynamics on an Ising Ladder: Coarsening and Persistence",
+          "trigger": "Same ladder, known parallel-rung frozen branch"
+        },
+        {
+          "assessment": "Exact combinatorial overlap with aligned-rung branch, no whole-ladder implication",
+          "evidence": [
+            "The 0<κ<1 weak stability criterion is equivalent to no singleton, and the exact φ/cosine count is S_n(1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b/RESULT.md",
+          "material_read": "RESULT.md local criterion and intermediate branch, around offsets 1393 and 2500",
+          "method": "Configured Resultary search and original Markdown in local mirror",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Exact same finite no-singleton count in a different spin model"
+        },
+        {
+          "assessment": "Ensemble-averaged strict metastability; not the fixed-coupling theorem",
+          "evidence": [
+            "Gaussian-distributed random bonds. The ladder row K=3, L=12 reports 0.22568(6) with simulation 0.226(2), rather than deterministic anisotropic thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0801.1224",
+          "material_read": "p. 1, offset 3700; p. 6 §VII and Table I, offsets 49630–52340",
+          "method": "Original OA PDF passages",
+          "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "Strict one-spin minima and ladder in a broad graph framework"
+        },
+        {
+          "assessment": "Different constrained single-chain moves",
+          "evidence": [
+            "The inspected dynamical classification uses isolated-spin flips on a one-dimensional chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0202465",
+          "material_read": "p. 3 offset 6952; §3.1 pp. 19–20 offsets 51299–54773",
+          "method": "Original OA PDF passages",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Blocked states of spin models with conditioned local moves"
+        },
+        {
+          "assessment": "Different Hamiltonian and weak stability convention",
+          "evidence": [
+            "Uniform antiferromagnetic prism in a magnetic field and ΔE≥0; thresholds in |h|/J, not in rung anisotropy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-field-entropy-spikes-for-one-spin-metastability-on-cycl--def1265feda1",
+          "material_read": "RESULT.md offsets 675 and 2998",
+          "method": "Resultary search and original Markdown in local mirror",
+          "title": "Critical field entropy spikes for one-spin metastability on cyclic prisms",
+          "trigger": "Same prism geometry and exact metastable entropy thresholds"
+        },
+        {
+          "assessment": "Different kinetic rule, bond multiplicity and entropy normalization result",
+          "evidence": [
+            "Reversible two-color Q2R update on even 2×n torus with doubled vertical neighbor, rather than testing all individual strict flip costs in the frozen Hamiltonian."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-energy-resolved-frozen-state-zeta-for-two-row-q2r--0e6cb4dab8a4/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Resultary search and original Markdown in local mirror",
+          "title": "An energy-resolved frozen-state zeta for two-row Q2R",
+          "trigger": "Same two-row geometry and energy-marked frozen count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen four-regime joint polynomial and asymptotic statements; independent local-field and total-energy checks",
+        "Known homogeneous branch and ANNNI equivalence assessed above"
+      ],
+      "rationale": "The simplest periodic ladder with separately variable rung and leg bonds gives a natural comparison of strict trapping landscapes. A local field zero at q=0 or 2J changes the allowed domain structure, and only the exact all-state classification explains both the exponential complexity jumps and the isolated loss of the antiparallel sectors at equality. This is useful as a deterministic benchmark for blocked-state counting and distinguishes entropic proliferation from equilibrium phase behavior; the already-known intermediate word family is not in itself a new contribution.",
+      "residual_risks": [
+        "The interpretation is restricted to strict stability and uniform counting. No claims are made about actual accessibility under dynamics, neutral blocked states, or wider ladders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

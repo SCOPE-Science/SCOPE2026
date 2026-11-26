@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:24.888738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent cycles reset both stages; the sample-path renewal-reward ratio gives the almost-sure suitable fraction. The periodic and exponential age weights are 1_{0≤t<m}/m and e^{-t/m}/m. With the two-exponential suitability probability these give the stated formulas and the exact unequal-rate difference a[g(am)-g(bm)]/(a-b). For B(x)=1-(1+x)e^{-x}, differentiating x²e^{-x}/B(x) gives the sign of -J(x), with J(0)=0 and J'=B>0. The elasticity r=xg'/g therefore strictly decreases from 1 to -2, giving the strictly monotone dilation ratio and the unique positive maximum z. The equality point is strictly between z/max(a,b) and z/min(a,b). The coinciding-rate limit is am g'(am), not a ratio test at a=b. Independently, p(t) is proportional to e^{-min(a,b)t}(1-e^{-|a-b|t}) for unequal rates and t e^{-at} for equal rates, hence has decreasing logarithmic elasticity. In the rescaled reward integral the weight e^{-x}-1_{x<1} has one sign change; increasing m reweights strictly towards the negative part via the decreasing ratio p(m₂x)/p(m₁x). This corroborates uniqueness. Independent bisection of 3 log(1+z)-z-log(1+2z) and of the direct reward difference with 2,048-panel Simpson quadrature give z≈0.868863198403742 and m*(1,2)≈0.607586231915717. RESULT.md §§Assumptions and Proof are the replay path for the exact result; VERIFICATION.md and check.py were inspected, not executed. Finite diagnostics do not certify the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "60a157a6fd78 compares Gamma and exponential exit clocks with a finite competence window, and can have two positive onset boundaries; f5406bec8733 optimizes a level-crossing flux over renewal clocks for random acceleration.",
+          "Fraterrigo, Langille and Rusak (2020), abstract and introduction, compare disturbance variability and recovery of seral cover in spatial simulations."
+        ],
+        "reasoning": "Those theorems and simulations do not specialize to a one-crossing comparison for the suitability reward and reset distributions here. Generic renewal reward yields the starting integrals but does not give the threshold, its sign classification and bounds without analyzing the kernel.",
+        "searches": [
+          "Resultary: general fixed-mean renewal/sign-variation comparisons for finite windows and suitability",
+          "PLOS ONE primary text DOI 10.1371/journal.pone.0229927"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary exact self hit 3c65cbe0a6b7; distinct entries acc3d9cfe952, a65e75f576e5, 60a157a6fd78, f5406bec8733",
+        "Fraterrigo–Langille–Rusak (2020), PLOS ONE e0229927"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible primary PLOS paper models disturbance attributes and seral-stage recovery, not the matched-mean two-exponential stage clock; the other two publisher full texts were not retrieved.",
+          "The generic sign-change argument can prove uniqueness once decreasing elasticity of the particular suitability function is verified, but does not identify z or give the two-sided z/rate bracket."
+        ],
+        "reasoning": "Existing renewal and single-crossing methods are credited as methods. No inspected prior statement directly entails the full threshold theorem; the unproductive search and inaccessible papers do not constitute negative coverage evidence.",
+        "searches": [
+          "Matched-mean renewal-age suitability, two-stage exponential succession and single reversal: primary-literature query",
+          "Ellner–Fussmann DOI 10.1890/0012-9658(2003)084[0882:EOSDOM]2.0.CO;2; Wilcox–Cairns–Possingham DOI 10.1890/05-0587"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day acc3d9cfe952 holds stationary suitability fixed and crosses deadline occupancy curves under different turnover speeds, not long-run suitability under two interval laws.",
+          "Same-day a65e75f576e5 uses equal-mean Poisson and periodic clocks, but compares wildlife flight response under decaying memory; there is no sequential maturation and senescence reward."
+        ],
+        "reasoning": "Matching the clock pair or the shape of the answer does not identify the reward functional. Neither result yields the renewal-age integral with the transient suitability kernel used here.",
+        "searches": [
+          "Resultary: matched-mean periodic/Poisson habitat disturbance and transient suitable-time one-crossing",
+          "Resultary: Poisson-periodic matched-mean event-memory crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue match 3c65cbe0a6b7 is the same frozen record. The nearby distinct habitat/clock results were read at their Finding and scope and solve other comparisons."
+        ],
+        "reasoning": "No inspected separate entry gives this exact threshold or law. The same-record hit is not an independent predecessor; same-day dates for separate entries do not establish ordering.",
+        "searches": [
+          "Resultary: exact transient successional habitat reversal and equal-rate crossover under deterministic versus exponential resets"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-rate matched-mean reversal and exact characterization of its threshold for a transient suitability window, not renewal reward, the Markov balance equations, or a claim about population persistence. The closest inspected results share a clock comparison, a one-crossing property, or a biological setting, but not the same observable and assumptions. The decision is bounded by the inspected material, not a priority certificate.",
+      "residual_risks": [
+        "Ellner–Fussmann (2003) and Wilcox–Cairns–Possingham (2006) remain unchecked in full text.",
+        "An older general variation-diminishing application or an equivalent fixed-mean comparison under different terminology may have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct comparison",
+          "evidence": "Crossing concerns deadline-time occupancy as turnover speed changes at fixed stationary suitability.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-one-crossing-law-for-occupancy-under-accelerated-hab--acc3d9cfe952",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A universal one-crossing law for occupancy under accelerated habitat turnover",
+          "trigger": "Highly similar habitat and one-crossing terminology"
+        },
+        {
+          "assessment": "Distinct reward",
+          "evidence": "Exponential event-memory controls expected flight-response rate, not suitability following a reset.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-poisson-periodic-crossover-for-memory-dependent-wildlif--a65e75f576e5",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A unique Poisson–periodic crossover for memory-dependent wildlife disturbance",
+          "trigger": "Same matched clock pair and reversal"
+        },
+        {
+          "assessment": "Related method, not coverage",
+          "evidence": "A finite window gates residence exit under Gamma versus exponential clocks, with potentially two boundaries.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-competence-window-phase-diagram-for-matched-mean-re--60a157a6fd78",
+          "material_read": "RESULT.md, Finding and Proof, offsets 0 and 2238",
+          "method": "Resultary and local mirror",
+          "title": "Two-boundary competence-window phase diagram for matched-mean residence clocks",
+          "trigger": "Window and sign-variation analogue"
+        },
+        {
+          "assessment": "Different observable and optimization",
+          "evidence": "A level-crossing flux of random acceleration is optimized over renewal clocks.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-fixed-mean-renewal-clock-transition-for-random-accelerat--f5406bec8733",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp fixed-mean renewal-clock transition for random acceleration",
+          "trigger": "Possibly broader fixed-mean renewal-clock result"
+        },
+        {
+          "assessment": "Ecological context, distinct mathematical claim",
+          "evidence": "A spatial model varies disturbance frequency, severity and extent and measures seral-stage coverage and recovery. The frozen citation omits coauthor J. A. Rusak; this is bibliographic, not a theorem error.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0229927",
+          "material_read": "Abstract and introduction, PDF pp. 1–2 (offsets about 1600 and 7800–10300)",
+          "method": "Lawful OA primary text",
+          "title": "Stochastic disturbance regimes alter patterns of ecosystem variability and recovery",
+          "trigger": "Primary deterministic/stochastic disturbance comparison"
+        },
+        {
+          "assessment": "Direct coverage not assessed from full text",
+          "evidence": "No negative coverage conclusion drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1890/0012-9658(2003)084%5B0882:EOSDOM%5D2.0.CO;2",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Bounded publisher retrieval attempt (HTTP 403)",
+          "title": "Effects of successional dynamics on metapopulation persistence",
+          "trigger": "Closely related stage-duration and persistence motivation"
+        },
+        {
+          "assessment": "Direct coverage not assessed from full text",
+          "evidence": "No negative coverage conclusion drawn from access failure.",
+          "identifier_or_url": "https://doi.org/10.1890/05-0587",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Bounded publisher retrieval attempt (HTTP 403)",
+          "title": "The role of habitat disturbance and recovery in metapopulation persistence",
+          "trigger": "Stochastic patch-turnover comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matching mean disturbance intervals removes a major confound but does not order habitat suitability: young patches have not matured and old patches have already senesced. The theorem completely resolves the sign and brackets its switch over all positive rates, including exactly coincident rates. This is a useful model benchmark for temporary suitability under reset variability, rather than a generic claim about persistence or management outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

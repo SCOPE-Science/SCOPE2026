@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct-sum grading of the free algebra makes all possible brackets explicit; mixed input degrees span the one-dimensional top degree for every nonzero induced generator action. The derived-space dimension is therefore one plus the rank of the symmetric-square map \(b_A\). The alternating-form annihilator argument proves that this map has ranks only \(0,2,3\) and characterizes each stratum over the ground field without assuming algebraic closure. The outer-product count yields the finite-field census, and a separate finite-field checker verifies derivation laws, full bracket ranks and obstruction witnesses. The proof assumes characteristic zero or characteristic above three; the checker is supplementary.
+## correctness
 
-## Originality
-PASS, with limited residual risk. The motivating paper's full available text was checked at Definition 1.1, Propositions 2.2–2.3, Theorem 2.6, Example 2.8, and the remaining section conclusions. It provides the construction and a single example, not a rank stratification or a labelled derivation count. Remm's accessible preprint was inspected in its antiassociativity and polarization sections; it has a different deformation-cohomology objective, not this rank spectrum. Multiple searches for the equivalent symmetric-square map, the rank-one scalar perturbation locus, and the exact seven-dimensional case in published mathematical records did not yield a covering claim. A prior indexed finding on maximal square-zero ideals of the same algebra concerns a distinct invariant, so the shared algebra alone is not overlap. These searches cannot prove novelty; implicit coverage in a broader unexamined classification remains possible.
+PASS
 
-## Value
-PASS. The motivating literature isolates dimension seven as the first genuinely generalized case but does not measure the derived mock-Lie space throughout the derivation family. The forbidden intermediate dimension and the rank-one perturbation transition are structural restrictions invariant under bracket isomorphism. The all-prime-power enumeration distinguishes generic from exceptional behavior and gives exact sizes to the first minimal-dimension test family. It is a natural complete classification of a motivated invariant, not a selected numerical example.
+Arbitrary generator images extend by the Leibniz rule in the exterior grading: the extension on decomposable two-vectors is well-defined by skew symmetry, on three-vectors it is the trace action, and the relations in degree four and higher are preserved. The generalized correction on three generators is x∧y∧Az, so vanishing identically is exactly A=0; this uses the characteristic assumptions and does not identify ordinary algebras by their bracket rank. For A≠0 the mixed brackets span Λ³V since (tr A)I−2A cannot vanish: its trace is tr A, then 2A=0 would follow. Projection onto Λ²V therefore leaves exactly rank b_A additional dimensions, independently of the higher generator images. Zero b_A stabilizes all lines and forces a scalar. If the nonzero image is proper, an annihilating alternating form has a radical line, and the induced operator on the two-dimensional symplectic quotient is self-adjoint and therefore scalar. Consequently A−λI has rank one. Conversely for A=λI+u⊗f, choosing a with f(a)=1 gives values on (a,a) and (a,w) for w∈ker f spanning u∧V, exactly dimension two. The rank-one translates are disjoint by the rank bound for a difference. Counting rank-one tensors modulo nonzero rescalings and multiplying by q¹² gives all three labelled counts. An independent F₅ exhaustive matrix check found 5, 0, 19220, 1933900 for ranks 0–3; it checks the matrix stratum counts, not generalized identities for all derivations.
 
-## Limitations and closest work
-The construction and minimal dimension belong to Normatov, arXiv:2610.23143v1. Antiassociative deformation/polarization background appears in Remm, arXiv:2201.06627v3. This classification is for derivation-induced brackets and counts labelled derivations rather than isomorphism orbits. Literature searches have a residual risk of implicit stronger coverage. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Normatov supplies the identical derivation construction, the minimal dimension, and an example in the first stratum. The supported distinction is the rank spectrum for every genuinely generalized derivation bracket on that particular algebra, the exact scalar plus rank-one boundary, and the attached census. The strongest inspected same-algebra catalogue record instead classifies square-zero subalgebras for the other product.
+
+## value
+
+PASS
+
+The bracket construction gives a natural question about exactly which derived dimensions occur on the minimal genuinely generalized algebra. Ruling out dimension two, locating the entire exceptional rank locus in generator-matrix space, and showing all higher-degree choices irrelevant materially sharpen a single known example. The field census quantifies those same structurally motivated strata rather than tabulating an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:21:55.785866Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pure one-particle two-site concurrence is 2|psi_i psi_j|; summing unordered pairs and using unit L² norm gives (sum |psi_i|)^2−1. In the two-sided continuum ansatz the squared norm before scaling is xi, so the peak amplitude scales as xi^(−1/2). The cutoff used in source Eq. (8) gives an L¹ integral 2 sqrt(xi)(1−e^(−1)), and the whole line gives 2 sqrt(xi). These are continuum model expressions, not exact discrete concurrences for small xi. For the discrete model the geometric sums give S_L²/Z_L−1, and their fixed-xi limits give (1+r)^3/[(1−r)(1+r²)]−1, equal to the reported rational form. With t=1/xi, K_infty+1=coth²(t/2)tanh(t); expansion gives 4/t−2t/3+59t³/180+O(t^5). At fixed finite L the growth saturates; the order of limits matters. Independent direct pair sums and the symbolic series corroborate the proof (record5_discrete_check.py, record5_full.txt and record5_series_check.py, record5_series.txt under /workspace/branches/8753c010-e247-4ba9-847a-6c399c9a4293). The source's artifacts/verification_output.txt is a recorded computation, not independent proof or attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general average-concurrence identity already occurs in quant-ph/0308118; its applicability is unrestricted by the shape of a normalized one-particle wave function.",
+          "Resultary b496ff03e699 concerns a four-site degenerate one-magnon Meyer–Wallach Q range, not exponential profiles or pair concurrence."
+        ],
+        "reasoning": "The previous identity is the input to, not a prior statement of, the correction. The general antecedents inspected neither analyze the actual normalization step in Eq. (8) nor supply the matched comparison and discrete boundary limit.",
+        "searches": [
+          "arXiv:quant-ph/0308118 p. 2 Eqs. (7)–(8) and participation-ratio discussion",
+          "arXiv:quant-ph/0308116 p. 2 Eqs. (18)–(19)",
+          "Resultary localization, one-particle entanglement and concurrence searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and supplied verification output",
+        "arXiv:quant-ph/0403178",
+        "arXiv:quant-ph/0308118",
+        "arXiv:quant-ph/0308116",
+        "Resultary b496ff03e699 and targeted catalogue search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier normalized-state identity supplies the starting algebra, but the motivating paper actually infers the opposite power. A variable normalization factor is necessary to make its stated continuum envelope compatible with its own Eq. (6).",
+          "The corrected discrete expression comes from evaluating normalized geometric sums; it does not follow from a squared-concurrence participation-ratio value alone."
+        ],
+        "reasoning": "Credit the general identity and do not count this as a new concurrence relation. The supported contribution is diagnosing the concrete incompatible published estimate and establishing how the corrected scaling persists in the corresponding normalized lattice model.",
+        "searches": [
+          "Comparison of quant-ph/0403178 Eqs. (6)–(8) with the known identity in quant-ph/0308118 Eq. (7) and the squared observable in quant-ph/0308116 Eqs. (18)–(19)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating paper uses the same average pair concurrence, then prints a term 4 xi²/M in Eq. (8). Its symmetric cutoff is one xi to either side in the continuum estimate.",
+          "The strongest participation-ratio comparison relates average squared concurrence to the inverse participation ratio rather than average concurrence to the envelope L¹ norm."
+        ],
+        "reasoning": "The square of the average and the average of squares are not interchangeable. The disputed quadratic scaling is not an equivalent expression for the normalized L¹-based calculation.",
+        "searches": [
+          "Resultary normalized exponential and geometric-envelope average concurrence",
+          "Li and Wang arXiv:quant-ph/0403178 Eqs. (6)–(8)",
+          "Li, Hu and Wang arXiv:quant-ph/0308116 Eqs. (18)–(19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct catalogue hit supplied the normalized truncated coefficient or geometric-envelope limit. The exact earlier estimate found is the conflicting quadratic one."
+        ],
+        "reasoning": "The catalogue search is limited; its absence of a match is not priority proof. No applicable table was identified, and the unrelated one-magnon invariant does not cover this series.",
+        "searches": [
+          "Resultary normalized-exponential and discrete-geometric concurrence formula searches",
+          "arXiv:quant-ph/0403178 Eq. (8)"
+        ]
+      },
+      "rationale": "Distinct claim: the quadratic inference in a specific prior calculation fails under normalization of that calculation's own envelope, with an exact discrete model confirming the corrected asymptotic. Neither the general pair-concurrence identity nor exponential localization itself is new.",
+      "residual_risks": [
+        "The literature search does not rule out an unindexed correction or a separately published identical exponential model evaluation. The general identity and geometric-sum technique are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Originalizes no concurrence identity; supplies the exact target of the correction",
+          "evidence": "Eq. (8) doubles the integral from x_i0 to x_i0+xi, squares it, and writes a 4 xi²/M term plus a constant. Eq. (6) uses the normalized one-particle identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0403178",
+          "material_read": "PDF p. 2, Eqs. (6)–(8), especially the Eq. (8) discussion at OA offset 9900",
+          "method": "Primary PDF equation and normalization comparison",
+          "title": "Localized Entanglement in one-dimensional Anderson model",
+          "trigger": "The disputed scaling and model assumptions"
+        },
+        {
+          "assessment": "General identity already known; no exponential scaling correction in inspected passage",
+          "evidence": "Eq. (7) expresses mean concurrence using the amplitude sum; Eq. (8) defines participation ratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0308118",
+          "material_read": "PDF p. 2 Eqs. (7)–(8), OA offset 13400 and participation discussion",
+          "method": "Primary PDF statement comparison",
+          "title": "Mode entanglement of electrons in the one-dimensional Frenkel–Kontorova model",
+          "trigger": "Potential prior coverage by general average concurrence"
+        },
+        {
+          "assessment": "Related but different observable",
+          "evidence": "The participation relation concerns average squared concurrence, not the L¹ sum squared minus one.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0308116",
+          "material_read": "PDF p. 2 Eqs. (18)–(19), OA offset 14000",
+          "method": "Primary PDF observable comparison",
+          "title": "Bipartite entanglement and localization of one-particle states",
+          "trigger": "A participation result might imply the same scaling"
+        },
+        {
+          "assessment": "No substantive overlap",
+          "evidence": "Four-site degenerate one-magnon Meyer–Wallach range; no average pair concurrence scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-degeneracy-breaks-the-claimed-one-magnon-meyer-wallach-value--b496ff03e699/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Degeneracy breaks the claimed one-magnon Meyer–Wallach value",
+          "trigger": "Closest one-particle entanglement catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalization check changes the exponent of the analytical law used in a paper's interpretation, not merely a prefactor or notation. The discrete limit shows the correction is not an artifact of replacing sums by integrals, and clarifies where finite-size saturation intervenes. It does not claim a universal scaling for actual Anderson eigenstates or that the qualitative localization trend is reversed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:54.109406Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, explicit Jacobian criterion, mask list, two base sextic certificates and maximality proof",
+        "Frozen VERIFICATION.md, inventory of rank and symbolic certificates and reference outputs",
+        "/workspace/branches/25125220-d120-49e9-b84a-54762dfb194f/independent_census.py and full_output.json, exact rank/orbit/finite field replay"
+      ],
+      "rationale": "Geometric smoothness on the blowup is equivalent to smoothness of the representing plane cubic: a singularity off the centers persists, and multiplicity at least two at a center gives an exceptional component of the anticanonical divisor meeting the strict transform (or a multiple exceptional component). A smooth plane cubic, in contrast, lifts isomorphically. Euler's identity in characteristic two identifies its singularities with the common projective zeros of the three quadratic partials. The partials have no common projective zero exactly when their degree-four multiples span all degree-four forms (regular sequence Hilbert series, and evaluation at a common zero for the converse). Exact rank enumeration returned 23 masks and 12 all-smooth binary pencils; coordinate permutations and Cremona reversal give the two six-element orbits under the split automorphism group, with the stated point multisets. The fresh exact replay checked all 12 pencils in F_64, in each case finding the three centers with distinct tangent directions for the two generators and six residual points in one length-six Frobenius orbit. Smooth cubics are geometrically integral, and distinct pencil members have no common component, so the six residual points exhaust the intersection number (-K_S)^2=6 after blowup and each is simple. Evaluating at a rational surface point would give a pencil in the kernel of any proposed all-smooth net, contrary to rational-base-point exclusion. Exhausting dimension-three subspaces by smooth triples independently gave zero. The statement is about H^0(S,-K_S), not the unrestricted space of plane cubics.",
+      "residual_risks": [
+        "The result concerns rational members over F_2 and geometric smoothness of each such member, not smoothness at every geometric parameter or other del Pezzo forms. Enumeration is exact but not proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The degree-seven Finding covers every all-smooth pencil after the first two blowups, with geometrically reduced length-seven bases and only partitions (7), (2,5), (1,6). It also excludes all-smooth anticanonical nets in its larger section space.",
+          "The quadric and degree-five results are neighboring calculations only. The general existence papers do not give the split degree-six arithmetic, and unrestricted all-smooth plane nets over F_2 do exist."
+        ],
+        "reasoning": "Apply the degree-seven theorem to the same plane equations vanishing at the first two centers, before blowing up the third. It supplies the decisive geometric scheme invariant, so the fact that its named surface has degree seven does not remove coverage.",
+        "searches": [
+          "Resultary 1d5de0b6fda3 split degree-seven del Pezzo anticanonical pencil theorem",
+          "Resultary d58237891b04 split quadric and 4d61f700fcdb split degree-five surface",
+          "Asgarli–Ghioca arXiv:2203.07169, Asgarli–Ghioca–Reichstein arXiv:2207.00918"
+        ]
+      },
+      "checked_sources": [
+        "Actual local-mirror ambient orbit table 2fceb3218a06 and stronger degree-seven theorem 1d5de0b6fda3",
+        "Neighboring Resultary records 47b8354c5dfc, d58237891b04 and 4d61f700fcdb",
+        "arXiv:1903.09397, 2203.07169, 2207.00918 and 2407.18104"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The third center is a common rational base point on the split degree-seven surface; among the three partitions only (1,6) has such a point. Reducedness means local length one at the rational point, so the local equations of two generators have independent differentials in the regular surface local ring. Their strict transforms meet the new exceptional curve in different tangent points; the unique residual degree-six point is unaffected by blowup.",
+          "A vector space of cubics through three fixed centers is contained in the space through the first two, with smoothness preserved. Alternatively, differential evaluation at even one common marked point is a linear map to a two-dimensional cotangent space, and any all-smooth subspace must inject under that map."
+        ],
+        "reasoning": "Thus the reduced Frobenius-six assertion is an immediate consequence for every such pencil, not an unrecorded refined invariant requiring a new elimination. Both the sharp dimension bound and the orbit classification also follow with only restriction and direct table evaluation.",
+        "searches": [
+          "Resultary 1d5de0b6fda3 actual Finding/assumptions and maximality proof; 2fceb3218a06 orbit table and monomial convention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A pencil on the split surface is a plane cubic pencil through a fixed ordered-coordinate frame, with a change of coordinates allowed to permute the three centers. Smoothness matches the plane presentation for anticanonical divisors, as checked above.",
+          "The ambient table has exactly 336 pencils with three rational base points, in two PGL_3(F_2)-orbits of size 168. If those three base points were collinear, restriction of the pencil to their line would have image of dimension at most one: the restrictions are binary cubics divisible by the product of the three point factors. Some nonzero member would contain that line and not be geometrically smooth. Thus every three-point base set in the table is a noncollinear triple."
+        ],
+        "reasoning": "PGL_3(F_2) is transitive on the 28 unordered noncollinear triples. Each ambient free orbit restricts over the chosen triple to one orbit of size 6 under its stabilizer S_3. There are exactly 12 pencils before considering Cremona. The computed point-count multisets of the two indexed representatives are different, so the full group D12 cannot merge these two six-orbits; both stabilizers have order 2. This is a restriction of an actual complete marked classification, not similarity of title or count.",
+        "searches": [
+          "Resultary: all-smooth anticanonical pencils over F_2, cubic-pencil rational base points and Frobenius base schemes",
+          "Resultary 2fceb3218a06 Finding and orbit_representatives.csv",
+          "Blache et al. arXiv:1903.09397 §4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two exact ambient rows are (154,339,457) and (154,564,686), both of orbit size 168 and stabilizer one. Evaluating those masks in the source's basis at the seven projective binary points gives the multisets (3,5,5) and (4,4,5) respectively.",
+          "The degree-seven (1,6) row also has only those two multisets and asserts reducedness for the whole base. The ambient smoothness method is the same rank criterion; selecting masks vanishing at the three centers is a small filter, not a separate structural claim."
+        ],
+        "reasoning": "The two table rows fully determine the orbit invariants after restricting to the marked triple, and point counts are unchanged by blowing up a smooth rational point on each curve. The ambient rational point table alone would not give scheme structure; the inspected degree-seven Frobenius theorem supplies it.",
+        "searches": [
+          "Resultary 2fceb3218a06 actual orbit_representatives.csv, rows with rational_base_points=3 and Finding monomial basis",
+          "Resultary 1d5de0b6fda3 Finding joint Frobenius table"
+        ]
+      },
+      "rationale": "The central theorem is mechanically implied by two distinct indexed findings. The ambient binary cubic-pencil orbit table determines the twelve pencils and the two full surface orbits. The split degree-seven reduced Frobenius theorem implies the entire residual degree-six base-scheme result by blowing up the third marked point, and the degree-seven no-net statement also restricts to this section space. These are statement-level implications, not an inference about precedence from the shared registry date.",
+      "residual_risks": [
+        "The relative chronological priority of the same-day registry records is unresolved; the implications do not assume an ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies pencil counts, two S_3 orbits and their arithmetic labels on the blowup; labels rule out merging under Cremona",
+          "evidence": [
+            "Both b=3 rows explicit, each an orbit of size 168; all 336 such pencils belong to these two rows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-extension-incidence-and-projective-classes-of-smooth-plane-cubic--2fceb3218a06/RESULT.md",
+          "material_read": "Finding, monomial encoding, orbit proof and verification; actual orbit_representatives.csv including both three-base-point rows",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, statements and exact table; evaluate the two masks triples at all seven points",
+          "title": "Extension incidence and projective classes of smooth plane-cubic pencils over F_2",
+          "trigger": "Strongest ambient exact classification for marked-point restriction"
+        },
+        {
+          "assessment": "Dominates the reduced Frobenius-six and no-net claims by blowup/restriction",
+          "evidence": [
+            "Same first two coordinate centers; all 104 degree-seven pencils have reduced length-7 bases. Rational-base pencils are precisely the (1,6) stratum. No all-smooth anticanonical net."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-frobenius-base-spectra-of-all-smooth-pencils-on-a-split-de--1d5de0b6fda3/RESULT.md",
+          "material_read": "Finding, Frobenius joint table, section-space assumptions, rank criterion and maximality/verification passage",
+          "method": "Actual local-mirror passages, same snapshot, offsets 0–5655 and 9400 onward",
+          "title": "Three Frobenius base spectra of all-smooth pencils on a split degree-seven del Pezzo surface",
+          "trigger": "Strongest actual scheme-theoretic statement before blowing up the third center"
+        },
+        {
+          "assessment": "Supports group D12 over F_2, not a pencil census",
+          "evidence": [
+            "Split group has hexagonal symmetry D12 and the split two-torus, whose F_2-points are trivial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.09397",
+          "material_read": "§4.3 p. 9, split case (offset 29938)",
+          "method": "OA full-text passage",
+          "title": "Anticanonical codes from del Pezzo surfaces with Picard rank one",
+          "trigger": "Full automorphism group used in orbit comparison"
+        },
+        {
+          "assessment": "More general existence problem, not this table",
+          "evidence": [
+            "Sufficient large-field smooth-pencil existence result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.07169",
+          "material_read": "pp. 1–2, scope and existence theorem",
+          "method": "OA full-text passages",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Ambient all-rational-members-smooth question"
+        },
+        {
+          "assessment": "Unrestricted families; not a conflict with a marked subsystem bound",
+          "evidence": [
+            "All-smooth projective-dimension-two families exist for plane cubics over F_2 without fixed coordinate centers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.00918",
+          "material_read": "Theorem 2, pp. 1–2; compared with arXiv:2407.18104 p. 1",
+          "method": "OA full-text passages",
+          "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+          "trigger": "Potential broader maximality implication or scope conflict"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Degree-seven joint Frobenius theorem and ambient pencil orbit CSV",
+        "Frozen sextic certificates and independent replay"
+      ],
+      "rationale": "An otherwise unknown complete Frobenius classification at the split del Pezzo boundary could be useful. Here blowing up the unique simple rational base point in the known (1,6) stratum directly gives the asserted residual scheme, and the marked orbit restriction gives the asserted catalogue. The separate count of 23 smooth sections and explicit sextic certificates give useful reproduction details, not a supported independent gap or structural theorem once those exact implications are credited.",
+      "residual_risks": [
+        "No standalone distinct mathematical remainder is claimed; no verdict on other ground fields or del Pezzo types."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

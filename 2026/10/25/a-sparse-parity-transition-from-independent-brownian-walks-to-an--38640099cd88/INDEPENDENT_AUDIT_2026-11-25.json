@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:28:17.897316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the first n input signs, exactly 2^((n−X_n)/2) independent Bernoulli coefficients contribute. Consequently the conditional parity mean is (1−2p_n)^(2^((n−X_n)/2)). In the filtration revealing the first n input signs but only levels below n, this is the predictable cross-covariance of increment n+1 (increment 1 has cross-covariance 1), with both marginal predictable variances equal to 1. The factor p_n 2^((n−X_n)/2) is 2^((1/2−θ)n−X_n/2−2−δ_n) with 0≤δ_n<1. The strong law off criticality, and the O(n^−1/4) probability of |X_n|≤n^1/4 at criticality, give the respective L¹ approximations by 0, 1 and 1_{X_n>0}. The error in any partial bracket sum on [0,T] is bounded by the whole sum of absolute errors divided by N, which tends to zero in L¹ by Cesàro convergence. The occupation mapping is continuous at Brownian paths with Lebesgue-null zero set; using a step input rather than its interpolation makes a uniform O(N^−1/2) difference to the input path. Bounded jumps and bounded predictable variances give martingale tightness and the martingale and compensated-product identities pass to subsequential limits (uniform integrability on bounded time intervals follows from the bounded-increment fourth-moment bounds after scaling). For the critical limit write M=Y−∫1_{B>0}dB, orthogonal to B with bracket ∫1_{B≤0}ds. On an independent Brownian extension with U put W=M+∫1_{B>0}dU. Then (B,W) has bracket tI, so is standard planar Brownian motion by Lévy's characterization; M=∫1_{B≤0}dW, which proves uniqueness in law and identifies the full limit. The two constant-bracket limits and Lévy's occupation-time law yield the other assertions. Replay is by the displayed parity and bracket calculations and RESULT.md Steps 1–4; the inspected script and its recorded 122-check output corroborate the finite parity identities only and were not executed. The proof gives annealed weak convergence, not quenched convergence or a rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relevant Hamza–Tournier annealed normality assumptions keep Bernoulli probabilities uniformly nondegenerate, unlike p_n→0 here. The varying-parameter unordered representation does not sum over all subsets.",
+          "The dyadic criterion uses a logarithmic number of active digit coefficients, with probabilities bounded away from degeneracy, and a quenched fixed-correlation criterion. The exact-model path-equivalence record assumes constant p."
+        ],
+        "reasoning": "None of these coverage statements includes the rare coefficients for which the cross-bracket is governed by the occupation functional.",
+        "searches": [
+          "arXiv:2610.01658v1 summary table and Corollary 9",
+          "arXiv:2010.16000v2 general bootstrap martingale framework",
+          "Resultary 3f4699511d3e and 7c73c3dd0a01"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py and verification_output.txt",
+        "arXiv:2610.01658v1",
+        "arXiv:2010.16000v2",
+        "Resultary 3f4699511d3e, 2f9b65de371f, 7c73c3dd0a01"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general martingale method supplies tools once bracket convergence and identification are proved, but it does not give the new scaling of the conditional parity mean or its random bracket at equality."
+        ],
+        "reasoning": "The result is not a renormalization of a known constant-correlation or sign-transform limit: the constant-vs-occupation bracket distinction follows from the separate parity asymptotics.",
+        "searches": [
+          "arXiv:2610.01658v1 Corollary 9 and coefficient construction",
+          "arXiv:2010.16000v2 bootstrap/SDE comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamza–Tournier write the same Boolean parity using subsets of the negative input indices. Collevecchio et al.'s Lévy transform has covariation density sgn(B), as opposed to 1_{B>0} with orthogonal noise on the complement.",
+          "The fixed-scenery record 2f9b65de371f concerns deterministic spatial averaging and quenched Gaussian limits, not the time-inhomogeneous resampled coefficient array."
+        ],
+        "reasoning": "Expressing the walk as a predictable sign transform or the limit as a pair with a stochastic cross-bracket does not change the claim. The conditional mean becomes a half-space indicator only at the stated exponential scaling.",
+        "searches": [
+          "Resultary semantic search for inclusion-induced sparsity, bootstrap Brownian transform and switching brackets",
+          "arXiv:2610.01658v1 inclusion-induced representation",
+          "arXiv:2010.16000v2 sign-transform examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogued sparse criterion has a different sparsity parameter and conclusion; the full-subset constant-p record has the same parity but no intensity transition. The primary-source table covers uniformly nondegenerate inclusion-induced parameters."
+        ],
+        "reasoning": "The table and nearby indexed examples do not encode the three-regime phase diagram. Lévy's arcsine law is known and is not an exact-law priority claim here.",
+        "searches": [
+          "Resultary similarity lookup and closest record findings 3f4699511d3e, 2f9b65de371f, 7c73c3dd0a01",
+          "arXiv:2610.01658v1 summary table"
+        ]
+      },
+      "rationale": "The supported distinction is the joint annealed phase diagram for exponentially rare, independently resampled full-subset coefficients. The input model architecture, Brownian stochastic-integral technology and occupation arcsine law are not credited as new.",
+      "residual_risks": [
+        "Focused, non-exhaustive comparison; nonindexed prior work under other parity or martingale terminology may exist. Shared date does not resolve priority of the related indexed results. No claim of priority for the limiting stochastic integral as a standalone object."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same architecture; relevant nondegeneracy assumptions exclude exponentially rare probabilities",
+          "evidence": [
+            "The sign is the parity of β_{n,K} for K over all subsets of the negative indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+          "material_read": "Inclusion-induced definition and summary/Corollary 9, text offsets 10000–16938",
+          "method": "OA author preprint HTML passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Same inclusion-induced independent parity model"
+        },
+        {
+          "assessment": "Related sign-based transform, not the critical mixed-noise limit of this parity ensemble",
+          "evidence": [
+            "Example recycles the fresh input via sgn(X_{n−1}) and gives the classical Lévy transform."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2010.16000v2",
+          "material_read": "Introduction sign transform and setup, around text offset 5995",
+          "method": "OA author preprint HTML passages",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General recycling theory and sign-dependent limiting example"
+        },
+        {
+          "assessment": "Different source of sparsity and quenched constant-bracket regime",
+          "evidence": [
+            "Only r_n≤γ log₂ n active digit coefficients with uniformly nondegenerate probabilities."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 3f4699511d3e",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp dyadic sparsity criterion for quenched Brownian independence",
+          "trigger": "Sparse inclusion-induced Brownian limit"
+        },
+        {
+          "assessment": "Related scenery formulation with different hypotheses",
+          "evidence": [
+            "Fixed deterministic spatial scenery f(S_{j−1}) and spatial Cesàro mean."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 2f9b65de371f",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Spatial Cesàro classification and quenched Gaussian limits",
+          "trigger": "Predictable sign and covariance classification"
+        },
+        {
+          "assessment": "Full subset construction at fixed p, not vanishing-p criticality",
+          "evidence": [
+            "The result is infinite-path equivalence and optimal coupling for p∈(0,1) constant."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 7c73c3dd0a01",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Annealed path equivalence and optimal finite-edit coupling",
+          "trigger": "Exact model architecture under annealing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exponentially many active subsets compete with exponentially rare perturbations, and at the threshold fluctuations of the input itself decide whether the motions synchronize. A random, explicitly arcsine-distributed cross-bracket separates this joint law from both independent and coincident Brownian pairs and from a fixed correlated Gaussian limit. The complete annealed classification is useful for this natural family even though its tools are classical.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

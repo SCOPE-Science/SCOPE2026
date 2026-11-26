@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:26:04.338149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on coverage by j sensors the number of timely reports is Binomial(j,p), giving the stated f_j. Write m_j for the length with multiplicity exactly j. Counting all sensor arclength yields m_1+2m_2+3m_3=3ell and the objective C P=3ell f_1+a m_2+b m_3, where a=f_2-2f_1 and b=f_3-3f_1. If the union fills the circle up to null sets, 3ell<=C forces m_2=m_3=0. Otherwise an uncovered point cuts the circle into a line at which none of the footprints wraps. Order the equal-length intervals by starts. Any double or triple coverage belongs to the middle interval, because its endpoints lie between the outside endpoints of the other two. Thus m_2+m_3<=ell, and disjoint, two coincident plus one disjoint, and all coincident attain all three vertices. The linear maximization over that triangle is therefore exact even though not all interior points need be attained. The coefficients satisfy a=p^2(2theta-1), b-a=p^2((4-3p)theta-(2-p)). For 0<p<1 the latter vanishes at theta_c strictly between 1/2 and 1; at 1/2 b=-p^3/2. The maximizing triangle faces are respectively the disjoint vertex, the m_3=0 edge, the double-only vertex, the m_2+m_3=ell edge, and the triple vertex as theta increases through the two ties. Since the equality conditions refer only to feasible footprints, this gives the stated iff assertions; m_3=ell implies all three arcs coincide up to endpoints. Half-length successive shifts also attain the double-only vertex with three distinct positions. With two receivers there is just one overlap coefficient and no intermediate phase. For the stated example p=4/5, theta=5/8, ell/C=1/4 the three exact vertex values are 0.225, 0.265 and 0.233. The uploaded endpoint-sorting checker was inspected but not run; the analytic comparison covers the sparse boundary 3ell=C and the full parameter domain. Correlated signals or real source and propagation models are outside scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Litvak Section 5.3.1 compares co-located and nonoverlapping blocks and studies false-alarm thresholds; it does not compare all triple configurations via the sharp multiplicity bound. The accessible Asano–Brass–Sasahara abstract optimizes exactly-once area for candidate grid-centered discs. The smoke-monitor result restricts placement to (-d,0,d), a Gaussian source and a one-alarm rule."
+        ],
+        "reasoning": "Allowing more instruments in two benchmark geometries is not a theorem over all geometries at n=3. Likewise, prescribed candidates or a family of symmetric line spacings does not cover arbitrary circular arcs under a uniform source with variable confirmation weight. Detailed disc-covering results were not readable; no whole-document noncoverage is inferred from its abstract.",
+        "searches": [
+          "Litvak et al., increasing detection performance, arbitrarily many co-located or non-overlapping sensors",
+          "Asano–Brass–Sasahara, exactly-one coverage and interval/subset optimization",
+          "Resultary: three imperfect monitors, symmetric spacing and smoke plume"
+        ]
+      },
+      "checked_sources": [
+        "Litvak et al., Sections 5.2.1 and 5.3.1",
+        "152086be2c2c",
+        "8d93515e9446",
+        "10.1007/s00224-008-9123-0 (abstract-level)",
+        "Resultary exact title and related coverage/confirmation searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two sensors Litvak's uniform-source nonoverlap result agrees with the separate regime for one-alarm detection. It supplies no independent triple-coverage coordinate. The same-date work fixes a single symmetric spacing parameter and a one-alarm rule; the discrete-cycle theorem instead changes seed transmission geometry and reports deterministically upon infection."
+        ],
+        "reasoning": "None of these statements yields the crucial m_2+m_3<=ell bound over unrestricted triple positions with attainable pair-plus-single and coincident vertices, or the coefficient comparison causing the intermediate double-only optimum and both tie faces. The geometric reduction and complete mixed-rule classification are the surviving contribution.",
+        "searches": [
+          "Litvak et al. Lemma 5.2.1 and Section 5.3.1",
+          "SCOPE-four-sharp-spacing-regimes-for-a-symmetric-three-monitor-smoke-p--152086be2c2c, Finding",
+          "SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Litvak et al. Section 5.2.1 uses the same overlap-versus-coverage accounting for two equal-range sensors; Section 5.3.1 uses thresholded alarm counts for co-located sets. The epidemic-sentinel cycle record compares one- and double-alarm objectives but uses random transmission and perfect monitors on a finite cycle."
+        ],
+        "reasoning": "The equivalent coverage problem is an affine objective in lengths with exactly two and three coverings, not merely maximizing length of union or choosing the more effective of two confirmation rules. Transforming to coverage multiplicities exposes prior methods but the cited objectives do not become this three-vertex optimization.",
+        "searches": [
+          "Resultary: three receivers, circular equal arcs, mixed one-/two-confirmation, footprint multiplicity optimization",
+          "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf, Sections 5.2.1 and 5.3.1",
+          "SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title search returned the assigned record. The strongest distinct same-date match is a different four-regime spacing result for the symmetric smoke-plume model. The discrete cycle result concerns balancing gaps under transmission and contrasting the single- and double-alarm criteria."
+        ],
+        "reasoning": "This is an exact optimization over continuous parameters, not a table lookup. Similar spacing regimes do not identify a covered formula: agreement would require the mixed binomial objective and the same geometry, not simply three stations or a common publication date.",
+        "searches": [
+          "Resultary: Three-receiver confirmation transitions on an idealized circular seismic fault",
+          "SCOPE-four-sharp-spacing-regimes-for-a-symmetric-three-monitor-smoke-p--152086be2c2c",
+          "SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact global three-arc phase diagram and complete tie conditions. Overlap algebra, co-location and confirmation thresholds are known; the inspected closest results do not provide the sharp three-footprint multiplicity restriction or the intermediate all-placement optimum for this objective.",
+      "residual_risks": [
+        "A more general exact interval-multiplicity optimization might contain an equivalent result under different language. The exact one-source/two-rule formulation was not found in the compared results, not exhaustively excluded.",
+        "The disc-covering paper's detailed interval results were not verified; the same-date catalogue analogy does not resolve historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior two-overlap objective and co-location/false-alarm threshold treatment, not the exact three-arc mixed optimum",
+          "evidence": [
+            "At uniform source, the two-sensor comparison favors nonoverlap for the at-least-one criterion. The multi-sensor comparison uses co-located and nonoverlapping arrangements and thresholded alarm counts."
+          ],
+          "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+          "material_read": "Section 5.2.1, Lemma 5.2.1, printed pp. 89–90 (offset 11120); Section 5.3.1, printed p. 96 onward (offset 27464)",
+          "method": "Targeted OA primary report passages",
+          "title": "Increasing Detection Performance of Surveillance Sensor Networks",
+          "trigger": "Closest primary comparison of imperfect equal-range sensors with overlap and confirmation"
+        },
+        {
+          "assessment": "Material placement analogy but different feasible set, source distribution and alarm rule",
+          "evidence": [
+            "Three imperfect monitors at (-d,0,d), Gaussian plume center, at-least-one alarm, and four spacing regimes including a plateau."
+          ],
+          "identifier_or_url": "SCOPE-four-sharp-spacing-regimes-for-a-symmetric-three-monitor-smoke-p--152086be2c2c",
+          "material_read": "Mirrored RESULT.md Finding (offset 0)",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "Four sharp spacing regimes for a symmetric three-monitor smoke plume",
+          "trigger": "Strongest distinct same-date placement-regime match"
+        },
+        {
+          "assessment": "Conceptual coverage/confirmation tradeoff only",
+          "evidence": [
+            "Uniform seed and random bond transmission on a finite cycle; perfect monitors; balanced spacing versus neighboring pairs, without the independent imperfect reports or mixed three-arc rule."
+          ],
+          "identifier_or_url": "SCOPE-exact-spacing-and-opposing-alarm-objectives-for-epidemic-sentine--8d93515e9446",
+          "material_read": "Mirrored RESULT.md Finding (offset 0)",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "Exact spacing and opposing alarm objectives for epidemic sentinels",
+          "trigger": "Cycle monitoring with one- and double-alarm criteria"
+        },
+        {
+          "assessment": "Accessible statement optimizes a different exactly-once criterion; detailed implications unverified",
+          "evidence": [
+            "Choose grid-centered candidate discs to maximize area covered by exactly one disc, rather than freely locating equal arcs on a circle."
+          ],
+          "identifier_or_url": "https://www.jaist.ac.jp/~t-asano/papers/Disc-covering.pdf",
+          "material_read": "Indexed abstract; the retrieved PDF's relevant text was not legibly extracted",
+          "method": "Lawful institutional PDF and publisher retrieval attempts, abstract-level comparison",
+          "title": "Disc Covering Problem with Application to Digital Halftoning",
+          "trigger": "Potential general multiplicity-weighted coverage antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strictly optimal double-only phase is qualitatively different from both no overlap and complete co-location, and disappears with only two receivers. The exact maximum and all placement tie criteria give a useful baseline beyond a comparison of a few hand-picked layouts; distinct instruments can achieve the intermediate optimum without co-location. It is a bounded idealized design classification, not an earthquake-station deployment recommendation or an actual false-alarm optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

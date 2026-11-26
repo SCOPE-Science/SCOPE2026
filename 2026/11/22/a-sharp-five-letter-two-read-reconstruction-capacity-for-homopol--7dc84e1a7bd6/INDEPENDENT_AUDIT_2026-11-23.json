@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:04:28.471707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Edges mean two distinct common deletion outputs, not two positions or at least one common output. For two distinct words let i,j be the first and last differing indices. If deleted indices k<ℓ yield a common output then k≤i≤j≤ℓ and u_(t+1)=v_t across k≤t<ℓ. Agreement before i and after j gives constant endpoint segments permitting the deletions to be moved to i,j without changing the output. Reversing the order gives the other possible alignment; if i=j there is only one output. When i<j, two distinct outputs require both alignments, hence u_(t+2)=u_t and opposite alternating phases; the endpoint deletions conversely give two distinct strings. Legal flanks avoid both block symbols. Per symbol pair a flank has generating function C(z)=(1−z)/(1−(q−1)z); the unique interval gives the edge series binom(q,2) C(z)^2 z²/(1−z), including one edge per pair at n=2. Exact support is preserved because the union of the supports of two distinct one-deletion outputs equals the source support. Independent direct deletion-set construction verified all ten required support bases, their two-colorings/perfect matchings except for (n,s)=(5,3), and at n=5 the rows (vertices,edges,alpha)=(2,1,1),(42,57,19),(144,252,72),(120,240,60). For (5,3) the 19-word witness is independent, while the 12 edges and six 7-cycles cover each vertex by at least two doubled units with doubled cost 39. This yields the exact integral upper bound 19. There is exact coverage, since the doubled vertex incidence totals 84=2·42. Summing over supports gives half the ambient count for lengths 2–4 and a deficit of two per ternary support at length five. The directly checked induced 7-cycle extends by a legal common alternating prefix, preserving both distinct outputs per cycle edge; the binary graph always has just one edge. This gives the exact bipartiteness threshold without claiming capacity beyond length five. Replay: /workspace/review-evidence/5/independent_check.py, independent_small.log and independent_full.log; supplied scripts were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4a3ef99abab1 states the run-cap edge-span theorem for r≥2; its boundary-run rule and counting proof also work at r=1, yielding H_(q,1)(z)=(1−z)/(1−(q−1)z) and the same edge series.",
+          "5edcab4b1c30 proves exact support separation for the unrestricted graph and uses exactly that reduction for lengths three and four. Its all-distinct subcases (3,3) and (4,4) carry over directly because those vertices are all homopolymer-free.",
+          "arXiv:2305.10741 uses the same adjacent-unequal language but minimum Hamming distance, not common deletion outputs."
+        ],
+        "reasoning": "The run-cap enumeration is formally out of scope at r=1 in its statement, but its actual combinatorial proof covers the edge count by direct specialization. The unrestricted capacity theorems give comparisons for an induced subgraph, not generally equal optima; only support types with the same vertex set transfer automatically.",
+        "searches": [
+          "Resultary 4a3ef99abab1, Finding and Proof steps 1–4",
+          "Resultary 5edcab4b1c30, Finding and exact support basis",
+          "arXiv:2305.10741, Definition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376, p. 7, Definition 8 and Proposition 9",
+        "arXiv:2305.10741, Definition 2.1",
+        "Resultary 737fed325e91, 5edcab4b1c30, 37ee2c69bb83, 4a3ef99abab1, and e7209f45b6f7, decisive mirror passages (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The count of opposite-mode overlap in e7209f45b6f7 implies the entire frozen edge formula by one summation. The bounded-run proof gives another mechanically implied derivation at r=1.",
+          "The unrestricted support method is reusable and the graph theorem defines all edges, but the checked restricted (5,3) witness and the cycle-cover bound require new extremal information; in particular the independent-set bound for an unrestricted superset supplies no attaining constrained witness.",
+          "The length-five induced 7-cycle and extension, together with the exhaustive shorter support colorings, establish the new bipartiteness classification."
+        ],
+        "reasoning": "Credit the existing classification, reduction, and lattice of exact edge counts; the originality pass pertains to the extremal capacity and graph threshold, not to recomputing a known or mechanically implied edge invariant.",
+        "searches": [
+          "e7209f45b6f7 Proof steps 2–5",
+          "4a3ef99abab1 Proof steps 1–4",
+          "5edcab4b1c30 Proof steps 1–4 and exact table",
+          "737fed325e91 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type-A confusability is exactly the opposite-phase alternating-interval characterization for two distinct common deletion outputs.",
+          "e7209f45b6f7 counts a larger, one-common-output Kautz graph, but its Proof step 4 explicitly enumerates double-mode pairs by location as binom(q,2) C_a C_b for every L≥2. Both modes yield different deletion descendants, so these are precisely the frozen two-read edges."
+        ],
+        "reasoning": "The one-read and two-read graphs generally differ; the one-read proof nevertheless contains the full necessary double-mode count. Summing its count gives exactly the frozen edge formula. Neither the count nor the structural description supplies a maximum independent set or proves absence of odd cycles up to length four.",
+        "searches": [
+          "Cai–Kiah–Nguyen–Yaakobi arXiv:2001.01376, p. 7, Definition 8 and Proposition 9",
+          "Resultary 737fed325e91 and e7209f45b6f7, canonical interval proofs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted short-length table reports M_q(3)=q²(q+1)/2 and M_q(4)=q²(q²+1)/2, and in particular uses 36 vertices at (4,3), not the 18 homopolymer-free ones.",
+          "The other length-five result gives unrestricted binary maximum 20, whereas the binary Kautz language has only two words and maximum one.",
+          "The edge-enumeration comparators cover exact counts or their direct specialization, not an independence-number table."
+        ],
+        "reasoning": "These are exact nearby results but do not tabulate the 42-vertex ternary-support independence number 19 or assemble the all-q constrained length-five result. The different length-five binary optimum shows why numeric results cannot be borrowed from the unrestricted language.",
+        "searches": [
+          "Resultary 5edcab4b1c30 table, offset 89 through 3836",
+          "Resultary 37ee2c69bb83 Finding offset 88",
+          "Resultary 4a3ef99abab1 and e7209f45b6f7 exact edge results"
+        ]
+      },
+      "rationale": "The unrestricted alternating-interval characterization and support separation are established, and the exact Kautz edge count follows directly from two closely related same-day proofs, not just from a differently named graph. The supported increment is the constrained length-five optimum with its exact defect per three-letter support, combined with the sharp first odd-cycle threshold. Neither the graph characterization/count nor the inspected unrestricted capacity certificates determine that optimum or threshold. The same-day records do not determine posting order.",
+      "residual_risks": [
+        "Same-day overlap establishes exact edge-count coverage but not chronology. No independent novelty credit for that count.",
+        "The primary and catalogue comparison is bounded, not exhaustive; an unindexed constrained-capacity computation or structural theorem could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact unrestricted edge characterization, not the constrained alpha or odd-cycle cutoff.",
+          "evidence": [
+            "Hamming distance one gives just one common deletion descendant; two distinct descendants at distance at least two occur exactly for opposite alternating phases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376",
+          "material_read": "PDF p. 7, Definition 8 and Proposition 9 with alignment proof, extracted offsets 34580–38328.",
+          "method": "OA PDF literal location followed by bounded offset read.",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact primary characterization of two common deletion outputs for any alphabet."
+        },
+        {
+          "assessment": "Although the headline graph needs only one common read, step 4 explicitly enumerates the two-read subset at each location. It does not infer independence numbers or bipartiteness for that subset.",
+          "evidence": [
+            "Its double-mode unordered pair count is q(q−1) C_a C_b/2 for each span L≥2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-one-deletion-confusability-and-changed-interval-spectrum-o--e7209f45b6f7",
+          "material_read": "Mirrored RESULT.md Finding and Proof steps 1–5, offsets 0–6666.",
+          "method": "Local Resultary discovery and bounded reads of mirrored original passages.",
+          "title": "Exact one-deletion confusability and changed-interval spectrum of Kautz words",
+          "trigger": "Same Kautz language and related edge spectrum; possible exact coverage of two-read edges through alignment overlap."
+        },
+        {
+          "assessment": "Stated for r≥2, but the exact counting proof specializes at r=1; no capacity or odd-cycle classification. No same-day priority inference.",
+          "evidence": [
+            "The proof requires a boundary run of length strictly less than r if touching either central letter, so at r=1 both letters are forbidden at the boundary. Substituting S_1=z gives precisely the frozen flank factor."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-two-read-deletion-ambiguity-across-all-bounded-homopolymer-sourc--4a3ef99abab1",
+          "material_read": "Mirrored RESULT.md Finding and Proof steps 1–4, offsets 0–6309.",
+          "method": "Local Resultary discovery, bounded reads, and specialization of the proof.",
+          "title": "Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Same edge rule for run limits, potentially covering the r=1 language."
+        },
+        {
+          "assessment": "Unrestricted full-alphabet vertices, not the constrained length-five problem. Its support-separation lemma already covers the induced restricted graph.",
+          "evidence": [
+            "Union of two read supports recovers the exact input support. The table has no length-five cases and the length-four ternary support contains forbidden vertices."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-two-read-single-deletion-reconstruction-capacities-at-leng--5edcab4b1c30",
+          "material_read": "Mirrored RESULT.md Finding and Proof steps 1–4, offsets 89–5803.",
+          "method": "Local Resultary discovery and original passage inspection.",
+          "title": "Exact two-read single-deletion reconstruction capacities at lengths three and four",
+          "trigger": "Exact all-q capacities in the same read model and the same support decomposition."
+        },
+        {
+          "assessment": "Unrestricted count with the shared alternating-interval input; explicitly does not determine independence numbers from edge enumeration.",
+          "evidence": [
+            "The source classifies edges by alternating intervals without imposing adjacent-unequal flanks."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Mirrored RESULT.md from offset 90, original finding on unrestricted edges.",
+          "method": "Local Resultary discovery and mirror passage inspection.",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Closest earlier all-length two-read edge classification and enumeration."
+        },
+        {
+          "assessment": "Unrestricted binary capacity, not the constrained graph or all-q theorem.",
+          "evidence": [
+            "Unrestricted binary optimum is 20. Only the two alternating words are vertices in the corresponding Kautz graph."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-the-unique-optimal-binary-length-five-two-read-single-deletion-r--37ee2c69bb83",
+          "material_read": "Mirrored RESULT.md Finding from offset 88.",
+          "method": "Local Resultary discovery and mirror passage inspection.",
+          "title": "The unique optimal binary length-five two-read single-deletion reconstruction code",
+          "trigger": "Exact same block length and read model, but possible overlap only at q=2."
+        },
+        {
+          "assessment": "Same adjacency restriction on source words but a different pairwise separation condition; the inspected result setup does not give two-read capacity.",
+          "evidence": [
+            "The optimized code parameter is the minimum Hamming distance d, not size of deletion-ball intersections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.10741",
+          "material_read": "Definition 2.1 and surrounding Hamming-distance notation, extracted offsets 6500–8399.",
+          "method": "OA PDF literal location followed by bounded offset read.",
+          "title": "Bounds on Size of Homopolymer Free Codes",
+          "trigger": "Primary bound paper on the same homopolymer-free language."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every nonempty adjacent-unequal block of length at least two has a maximal initial alternating run. Opposite-phase replacement of that run is a fixed-point-free matching involution: if there is a following symbol it avoids both run letters. Thus half the ambient space is a natural upper bound, not a selected comparison. The theorem identifies exactly where it first fails for nonbinary alphabets, with a deficit supported entirely on ternary supports and certified by a genuine odd-cycle obstruction. This is an all-alphabet exact design benchmark at the first failure, not a claim about longer-length capacity or the minimum odd girth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

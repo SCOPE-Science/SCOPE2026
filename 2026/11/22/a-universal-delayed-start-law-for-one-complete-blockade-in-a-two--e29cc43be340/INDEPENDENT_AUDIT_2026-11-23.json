@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:58:18.372859Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before the block the uncontrolled live state probabilities are e^(−αs) and p_I(s), with p_I'=αe^(−αs)−rp_I. Write A_L=1−e^(−γL), K_L=∫_0^L e^(−αu−γ(L−u))du and M_L=∫_0^L e^(−αu)(1−e^(−γ(L−u)))du. Compared with no intervention, the only change to the eventual conditional chance β/r occurs on live paths which recover during the block; its exact decrease is (β/r)(A_L p_I+αe^(−αs)M_L). Integration by parts gives αM_L+γK_L=A_L. The derivative has the sign of m_L−Φ_d(s): Φ_d strictly increases from zero to either infinity or r/d>1, and m_L∈(0,1), so exactly one positive crossing is the global optimum including s=0 and arbitrarily late starts. Inversion gives the displayed logarithm, or m_L/r when d=0. For a single uniform U∈(0,1), the quantile log(1+U(e^(γL)−1))/γ of the m_L weighting is strictly increasing in L with limits 0 and infinity; its negative exponential proves strict decrease of m_L and its limits 1 and 0. The inverse at 1 is the uncontrolled p_I peak. The integral convention also handles α=γ. In the exact example, A_L=1/2, m_L=1/2 and e^(−s*)=5/6 give risks 307/648 and 1/2; their difference is 17/648. The supplied arithmetic and RK4 program was inspected, not executed. This is an abstract prevention theorem for one target, not a population or field-policy claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng et al. optimize over finite unions of intervals of fixed total length and find a single interval for population R(∞) under nonlinear SIR, 0<β_q<β_n. Their theorem gives [0,T] when β_n≤γ and a possible interior integral condition otherwise.",
+          "Di Lauro et al. compare one-shot population interventions for case totals, peak prevalence and timing."
+        ],
+        "reasoning": "A wider set of admissible intervals in different state dynamics does not contain this elementary model as stated. In particular neither theorem supplies the effect of latent progression under protection or the exact strictly decreasing positive start.",
+        "searches": [
+          "Feng–Iyer–Li DOI 10.1007/s00285-021-01615-0, author PDF Theorem 1.1",
+          "Di Lauro–Kiss–Miller DOI 10.1371/journal.pcbi.1008763, one-shot interventions"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00285-021-01615-0 via author PDF",
+        "DOI 10.1371/journal.pcbi.1008763",
+        "DOI 10.1371/journal.pcbi.1001076",
+        "Resultary ...--36cb05c1a132",
+        "Resultary ...--3d9444e260e3",
+        "Resultary ...--e29cc43be340 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-stage arrival problem integrates a fixed travel-time distribution independent of destination start; its optimal start strictly increases with duration. Here the block changes the risk by allowing an infectious source to recover before the competing transmission resumes, and the optimum strictly decreases with duration.",
+          "The primary fixed-length quarantine theorem's start can be immediate and its objective is final population size, not the transmission probability of one initially latent source and target."
+        ],
+        "reasoning": "Neither position-optimization result can be turned into the frozen formula by relabeling stages, sending the contact rate to zero, or renaming the endpoint objective. The needed live-state weighting and its monotone dependence on the block length are additional facts.",
+        "searches": [
+          "Feng, Iyer and Li Theorem 1.1, Eq. (1.2)–(1.3)",
+          "Resultary ...--36cb05c1a132 Finding and assumptions",
+          "Hollingsworth et al. DOI 10.1371/journal.pcbi.1001076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In competing-risk notation the exact objective is baseline β/r minus β/r times recovery under the suppressed flow before the end of the block on paths still live at its start. This is not simply the probability that an uncontrolled event time lies in [s,s+L].",
+          "The generic multistate tutorial hit DOI 10.1002/sim.2712 was not available as original full text and establishes no equivalence from retrieved material."
+        ],
+        "reasoning": "The state-flow or competing-risk rephrasing preserves the intervention and risk. A generic multi-state formalism, or a sliding-window peak of an uncontrolled event time, does not give the finite-duration preventive theorem.",
+        "searches": [
+          "Primary search: latent competing risks, finite-state Markov switching of one transition, fixed suppression interval",
+          "Resultary fixed-duration suppression in a two-stage single-source–single-target Markov chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed claim ...--e29cc43be340 is this record itself. ...--36cb05c1a132 is distinct and gives an explicit optimal arrival-window alignment with uniform departure and two equal-rate transport stages. ...--3d9444e260e3 orders transmission probabilities in finite-generation branching processes."
+        ],
+        "reasoning": "The object is an exact optimizer as a function of rates and length, not a numerical table. Neither distinct indexed formula has the same objective or assumptions; absence of another hit is not a priority result.",
+        "searches": [
+          "Resultary single-block delayed start and exponential two-stage timing",
+          "Resultary ...--e29cc43be340, ...--36cb05c1a132 and ...--3d9444e260e3"
+        ]
+      },
+      "rationale": "The distinct claim is the fully quantified exact optimum, strict duration monotonicity, and both endpoint laws for this one-transition preventive control of a competing-risk chain. The closest fixed-length quarantine theorem concerns nonlinear population SIR with partial contact reduction and even permits immediate optimal deployment. The closest catalogue timing analogue uses an arrival-window success probability instead of a controlled irreversible hazard and has opposite duration monotonicity. The distinction is established from actual statements, not from search omissions; earlier equivalents under abstract scheduling or reliability terminology remain possible.",
+      "residual_risks": [
+        "The focused abstract scheduling search did not resolve all possible equivalences in reliability, control or competing-risk literature. The tutorial DOI 10.1002/sim.2712 was a description-level hit and its original passage was not retrieved.",
+        "Primary text of the cited Shim DOI 10.3934/mbe.2013.10.1615 and Britton–Leskelä DOI 10.1137/22M1504433 was not independently recovered through the attempted publisher routes; no whole-paper exclusion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader interval choice in different nonlinear SIR dynamics; does not imply the frozen individual theorem.",
+          "evidence": [
+            "Positive reduced transmission rate, no latent stage, initial I_0>0, minimization of R(∞); [0,T] is optimal if β_n≤γ."
+          ],
+          "identifier_or_url": "https://ins.sjtu.edu.cn/people/leili/publications/Papers/FengIyerLi21.pdf",
+          "material_read": "p. 3, Theorem 1.1 including Eq. (1.2)–(1.3), bounded passage at offsets 6036–7940",
+          "method": "Original author-hosted PDF, alternate lawful route after DOI failure",
+          "title": "Scheduling fixed length quarantines to minimize the total number of fatalities during an epidemic",
+          "trigger": "Closest primary theorem on fixed duration, interval timing and infinite-horizon prevention"
+        },
+        {
+          "assessment": "Models and objectives are population level, not an exact single-target probability.",
+          "evidence": [
+            "Optimal timing depends on total infections, peak prevalence, or delay, respectively."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1008763",
+          "material_read": "Original PDF p. 1, offset 1578, abstract and stated outcomes",
+          "method": "Original OA publisher PDF passage",
+          "title": "Optimal timing of one-shot interventions for epidemic control",
+          "trigger": "One-shot epidemiological prevention and objective comparison"
+        },
+        {
+          "assessment": "Timed reduction of the population transmission rate, not the specified full single-transition blockade.",
+          "evidence": [
+            "Compares intervention windows including fixed duration and discusses incomplete suppression."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1001076",
+          "material_read": "Original PDF p. 3, offset 14267, intervention scenarios",
+          "method": "Original OA publisher PDF passage",
+          "title": "Mitigation Strategies for Pandemic Influenza A: Balancing Conflicting Policy Objectives",
+          "trigger": "Earlier scheduled-contact suppression for fixed duration"
+        },
+        {
+          "assessment": "Timing analogy, not equivalent coverage.",
+          "evidence": [
+            "Uniform departure, two independent equal-rate exponential transit stages, and arrival-window success. Optimal dimensionless destination start increases strictly with scaled duration."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-gap-to-overlap-transition-for-two-stage-dispersal-betwee--36cb05c1a132/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3168",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "A sharp gap-to-overlap transition for two-stage dispersal between temporary habitats",
+          "trigger": "Distinct same-date exact two-stage exponential timing theorem"
+        },
+        {
+          "assessment": "Different time variables, risk and controls.",
+          "evidence": [
+            "Convex-order properties of infections at generation h under permutations of per-generation transmission probabilities in a Galton–Watson model."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-convex-order-rearrangement-of-finite-generation-epidemic-risk-un--3d9444e260e3",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "Convex-order rearrangement of finite-generation epidemic risk",
+          "trigger": "Related temporal prevention control in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a fully quantified preventive scheduling benchmark with an unexpected qualitative distinction: even without population feedback, one should strictly delay a finite perfect block, and a longer block should start earlier. The exact optimizer and both limits isolate the effect of the initially latent state and recovery continuing during protection. It is a useful mathematical check for richer models, not evidence of clinical or policy efficacy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

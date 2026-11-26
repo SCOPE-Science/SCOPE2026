@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:01:32.803380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4; VERIFICATION.md and verify.py inspected",
+        "Independent replay: python3 -B /workspace/checks/4.py; exact Fourier transforms and lower-derivative continuity/first jumps −1,+1,−1 for equal unit scales m=1,2,3, realized with nilpotent shifts"
+      ],
+      "rationale": "In a two-sided Poisson process the backward age and successive completed gaps from a fixed observation time are independent exponentials. Conditional Brownian independence gives the series, square-summable since ρ(A)<1, and synchronous coupling multiplies initial differences by A^{N_t}→0. The transform follows by conditioning; the displayed Frullani representation yields a symmetric Lévy measure with summed truncated second moments bounded by Σ_j tr(Σ_j)/λ. For v≠0, positive-definite noise makes the nonzero scale parameters exactly the nonvanishing iterates of A^T. Infinite survival gives arbitrarily many inverse-quadratic factors. With m finite, |t|^{2m−2} times the transform is integrable. Partial fractions give exponential-polynomial expressions on the two half-lines, including repeated poles, so one-sided limits exist. In the product Green equation only the top derivative can produce an atom, and its coefficient forces the claimed jump. Invertibility gives uniform radial bounds from the smallest eigenvalue of each finite covariance factor. In the singular case a joint density still exists, but if it were globally C², the distributional stationary equation would equate a locally absolutely continuous source to λ times a probability supported on ran A, impossible.",
+      "residual_risks": [
+        "The supplied moment checker corroborates structural and cumulant formulas, not derivative jumps or infinite transforms; repeated-pole examples are likewise only checks. The proof uses nondegenerate Brownian noise, spectral stability and a homogeneous independent clock."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assefa–Keller-Ressel–Palmowski use affine reset maps and general polynomial moment/cross-moment formulas. Grzywny et al. generalize the driver, but their reset map is a scalar multiple of the identity."
+        ],
+        "reasoning": "The affine framework covers the exact stochastic model without stating density regularity. The multivariate stable-process result does not remove the scalar-map hypothesis, so neither inspected generalization yields the target classification.",
+        "searches": [
+          "arXiv:2610.01363v1, §§2, 3.3 and Theorem 3.11",
+          "arXiv:2412.15626, Theorem A and Proposition 2.22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.03363",
+        "arXiv:2412.15626",
+        "arXiv:2610.01363v1",
+        "Resultary 53ab45fd43ae, 075256654d01, 316a5de1a0b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matrix product follows by adapting the scalar renewal derivation; the singular-source obstruction is a direct use of the affine generator. The long-chain sharp jump requires identifying the finite scale list and analyzing its convolution, including repeated scales."
+        ],
+        "reasoning": "Credit the product and elementary inherited pieces rather than claiming them as innovations. General moment theory and scalar formulas do not themselves give the distributional atom and exact directional cutoff; no inspected stronger regularity theorem provides them by specialization.",
+        "searches": [
+          "arXiv:2205.03363 pp. 2–3",
+          "arXiv:2610.01363v1 §2 and Theorem 3.11",
+          "Resultary Finding 53ab45fd43ae"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tal-Friedman–Roichman–Reuveni explicitly identify a scalar product and Laplace convolution; Grzywny et al. establish C₀^∞ for scalar c∈(0,1) in a multivariate stable setting.",
+          "The prior indexed record 53ab45fd43ae treats exact derivatives of a one-dimensional proportional reset equilibrium."
+        ],
+        "reasoning": "Scalar proportional resetting can only give all surviving directions for c∈(0,1), or depth one at complete reset. It cannot give a higher finite annihilation index, coexistence of smooth and nonsmooth directions, or rank-deficient anisotropy.",
+        "searches": [
+          "Resultary: matrix-reset Brownian equilibrium, direction killed by a power of the transpose, derivative jump, singular density",
+          "arXiv:2205.03363, Eqs. (5)–(8)",
+          "arXiv:2412.15626, Theorem A and Proposition 2.22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "53ab45fd43ae gives the scalar infinite product and exact derivatives; later scalar hits 075256654d01 and 316a5de1a0b2 concern nonanalyticity or Gevrey regularity for proportional resetting."
+        ],
+        "reasoning": "These explicit results cover scalar special cases and different invariants, not a formula assigning finite derivative jumps and joint regularity to arbitrary stable matrices.",
+        "searches": [
+          "Resultary: exact stationary derivatives and smoothness for Brownian partial and matrix reset equilibria"
+        ]
+      },
+      "rationale": "The scalar stationary product, scalar all-orders smoothness, full-reset Laplace cusp, and affine reset framework are prior. The supported distinct result is the sharp directional classification for arbitrary stable deterministic matrices, including the jump at each finite annihilation length and the non-C² joint consequence of rank loss. No inspected statement supplies that classification or a stronger one subsuming it.",
+      "residual_risks": [
+        "Bounded search does not exclude unindexed equivalent smoothing results or an implicit treatment of nilpotent projections in broader reset or finite convolution literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct scalar overlap; not arbitrary matrix resetting",
+          "evidence": [
+            "Independent Laplace sum and stationary Fourier product for one scalar factor; full reset produces Laplace density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+          "material_read": "pp. 2–3, Eqs. (5)–(8), full-reset endpoint",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Direct scalar stationary-product and cusp antecedent"
+        },
+        {
+          "assessment": "C₀^∞ with scalar contraction, but not direction-by-direction rank-deficient matrix classification",
+          "evidence": [
+            "Reset factor c∈(0,1); proposition asserts a C₀^∞ joint stationary density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.15626",
+          "material_read": "p. 2 Theorem A; p. 20 Proposition 2.22",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Multivariate stationary regularity theorem could dominate the smoothness assertion"
+        },
+        {
+          "assessment": "Broader model and moments, not the asserted sharp density classification",
+          "evidence": [
+            "Theorem 3.11 provides cross moments, not differentiability of the stationary density."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01363v1",
+          "material_read": "§2 affine setup; §3.3 Theorem 3.11",
+          "method": "Bounded OA full-text passage inspection",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "Model includes deterministic matrix resetting"
+        },
+        {
+          "assessment": "Exact proportional-reset special case; no finite chain cutoff or rank-loss criterion",
+          "evidence": [
+            "Reset x↦qx with 0<q<1; stationary product and C∞ density with exact derivatives."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-non-gevrey-derivatives-and-a-log-periodic-fourier-fingerpr--53ab45fd43ae",
+          "material_read": "Mirrored RESULT.md offsets 385 and 2683",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Exact non-Gevrey derivatives and a log-periodic Fourier fingerprint",
+          "trigger": "Prior indexed overlap on Brownian stationary products and smoothness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, directional and joint regularity",
+        "arXiv:2205.03363 scalar benchmark",
+        "arXiv:2610.01363v1 affine model"
+      ],
+      "rationale": "Loss of information under anisotropic resets motivates asking which projected observables retain a cusp despite nondegenerate diffusion. The zero-eigenvalue chain length gives an exact and useful distinction, and the coefficient quantifies it. The joint obstruction prevents inferring global elliptic smoothing merely from the noise covariance.",
+      "residual_risks": [
+        "No conclusion for random, nonlinear or non-Poisson resets or degenerate noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

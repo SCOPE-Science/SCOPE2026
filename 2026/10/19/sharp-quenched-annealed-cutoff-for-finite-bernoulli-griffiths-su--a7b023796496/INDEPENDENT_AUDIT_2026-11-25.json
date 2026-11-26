@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:41.211970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 7–128)",
+        "Frozen VERIFICATION.md and verify.py; 25,026 author-reported finite assertions, no uploaded code executed",
+        "Independent endpoint check via Lq^m and disjoint blocks with at least m free sites; corroborates M_L/log L→ξ, not by itself the full theorem"
+      ],
+      "rationale": "For a run of length m<L there are L−m−1 interior starts with two markers (probability p²q^m) and two endpoint starts with one marker (probability pq^m), where q=1−p. The all-free case adds its own q^L term. On windows m≈y log L the expected contribution has cost ay+u/y^β uniformly on compact y-windows; the upper tail is bounded by a constant times Σ_{m>K log L}m q^m=O(log L)L^(−aK), and the short-length tail by L^(−u/δ^β), so there is no loss in taking the unrestricted annealed minimum. For a typical landscape, the longest-run union bound cuts off beyond (ξ+η)log L. Markov's inequality and a union bound over O(log L) lengths give the count upper bound L^[max(1−ay,0)+ε]. This yields cost min(ay,1)+u/y^β over the enlarged interval, tending to the constrained cost as η decreases to zero. Conversely, for fixed y<ξ, disjoint blocks with two lossy markers generate independent distinct maximal runs with expected count of order L^(1−ay)/log L and concentrate above L^(1−ay−ε). These give the lower bound, including the edge by approaching ξ from below. The strict convex minimum has y*=(βu/a)^(1/(β+1)), reaches ξ at u_c=ξ^β/β, and gives the asserted strict post-threshold rate gap and second-derivative jump. Log zero on the all-lossy event is harmless since its probability is p^L.",
+      "residual_risks": [
+        "Fixed p, ρ, β and u; agreement below and at u_c is only on the logarithmic scale. Neither ratio concentration nor microscopic quantum survival is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected photonic paper uses a thermodynamic rare-region integral and discusses finite-system spectral behavior. The frozen authors attribute an annealed sum and saddle to the later Mpemba paper's Appendix C; those passages could not be inspected directly."
+        ],
+        "reasoning": "An unrestricted average/spectral approximation is not a concentration or lower-bound theorem for actual run counts. Access failure for the later source is not evidence of noncoverage.",
+        "searches": [
+          "arXiv:2607.03205 p. 2 equations (4)–(7)",
+          "DOI 10.1002/qute.70425 Appendix C, retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.03205",
+        "DOI 10.1002/qute.70425 (access attempts only)",
+        "Resultary c19ec9a1f26d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The β=3 unrestricted length saddle follows from the earlier integral. A logarithmic longest-run input also leads to the upper edge but does not give the counts at all lengths needed for the lower and upper typical-rate bounds."
+        ],
+        "reasoning": "Credit the prior annealed saddle and classical run statistics. The frozen proof's joint concentration plus independent block construction supplies the distinct statement, including the equality of rates through u_c and strict log-scale separation above it.",
+        "searches": [
+          "arXiv:2607.03205 rare-region continuum calculation",
+          "Resultary c19ec9a1f26d RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At log-length y, the log count per log L is 1−ay on the accessible interval; the typical variational problem maximizes weighted contributions only where this quantity is nonnegative. This is a constrained free-energy formulation of the same result.",
+          "Longhi's continuum rare-region integral contains the unrestricted β=3 saddle."
+        ],
+        "reasoning": "The resemblance to a freezing transition or a geometric extreme statistic does not identify it with a standard random-energy model; the weighted sum is over maximal (not iid) runs in a fixed Bernoulli word. A finite deterministic upper cutoff at L does not constrain an O(log L) annealed saddle.",
+        "searches": [
+          "Resultary lookup for finite Bernoulli rare-region survival, longest runs, and typical versus annealed saddle",
+          "arXiv:2607.03205 Eqs. (4)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue result has a logarithmic longest-run and lattice extreme-value law for a different symbolic measure, not a time-dependent Bernoulli region survival sum."
+        ],
+        "reasoning": "An exact longest-run law or table would give the admissible edge at most. The rate below the edge requires exponentially many contributing runs, not just the longest one, and the annealed saddle above the edge concerns rare landscapes. No matching exact joint-scale formula was identified in the retrieved material.",
+        "searches": [
+          "Resultary c19ec9a1f26d, geometric zero-run and logarithmic extremes"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint finite-size/time, typical logarithmic rate and its quantitative separation from the annealed rate for the defined Bernoulli surrogate. The continuum annealed saddle and rare-region physics are not new. The strongest inspected actual statements supply the annealed saddle or a longest-run input, not the paired run-count/weighted-survival limits.",
+      "residual_risks": [
+        "Appendix C of DOI 10.1002/qute.70425 was unavailable. The bounded comparison does not settle whether an equivalent weighted-run result occurs elsewhere under renewal or random free-energy terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Annealed continuum β=3 saddle already covered",
+          "evidence": "Integral with cost ℓ/ξ+AJz/ℓ³, saddle ℓ*=(3AξJz)^(1/4), and stretched-exponential result, not a Bernoulli in-probability run-count limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.03205",
+          "material_read": "PDF p. 2, equations (4)–(7), text offset near 13470",
+          "method": "Bounded OA PDF text",
+          "title": "Griffiths Anomalous Absorption in Sparse-Loss Photonic Lattices",
+          "trigger": "Same rare-loss region weights and saddle"
+        },
+        {
+          "assessment": "Additional coverage unresolved",
+          "evidence": "Frozen RESULT.md credits it for the annealed sum and saddle. Publisher routes returned 403; no statement about what the unread appendix excludes is inferred.",
+          "identifier_or_url": "https://doi.org/10.1002/qute.70425",
+          "material_read": "No full text read; frozen citation locates Appendix C equations (C6)–(C18)",
+          "method": "DOI and publisher OA routes attempted; identified alternate repository retrieval timed out",
+          "title": "Statistical Quantum Mpemba Effect From Griffiths Rare Regions",
+          "trigger": "Same physical surrogate motivation and possibly related joint-scale statements"
+        },
+        {
+          "assessment": "Extreme-run analogue, not weighted survival",
+          "evidence": "Logarithmic longest-run behavior for zero-run blocks of a different shift, without annealed-versus-typical survival rates.",
+          "identifier_or_url": "Resultary c19ec9a1f26d",
+          "material_read": "RESULT.md opening statement, text offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Lattice extreme-value law for maximal-entropy frequency shifts",
+          "trigger": "Related geometric-run extreme law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–57 and 120–142",
+        "arXiv:2607.03205 equations (4)–(7)"
+      ],
+      "rationale": "The surrogate is motivated by rare-region relaxation, and the order of the size and time limits matters. The explicit threshold tells when its disorder mean ceases to represent a typical finite sample even at leading log order, and the positive exponent quantifies that failure. This is more informative than an annealed saddle or an estimate on the single longest run alone.",
+      "residual_risks": [
+        "No prediction has been proved for the corresponding microscopic evolution, correlations in the losses, or for finite-size errors in its physical coarse graining."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

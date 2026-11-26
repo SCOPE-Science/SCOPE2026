@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:24:49.628051Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before recovery, the gained count is exactly the within-suffix record count; at and after recovery the indicators agree. The rank of the maximum gives P(J=j)=m/[j(j−1)] and the censoring mass m/n. Permuting the pre-recovery block preserves each conditioning event, so the conditional count is the uniform-permutation Stirling count, including the empty block. The expectation is the sum of 1/(i−m)−1/i. On the infinite horizon the log-survival transform turns suffix record values into independent exponential spacings and the independent threshold into the maximum of m exponentials. Mixing the Poisson count gives the stated PGF, and coupling at recovery gives the TV bound. Geometric third absolute centered moments sum to O(log m), sufficient for Lyapunov (the word ‘summable’ in Step 4 should not be read as summable over all j). For macroscopic prefixes the survival m/floor(nt) and censoring yield the stated mark; conditional Bernoulli record counts have a uniform Berry–Esseen bound O_delta((log n)^−1/2) for lengths at least delta n, and shorter blocks have limiting probability at most delta/(alpha+delta). This proves asymptotic independence, including the mass at 1; at finite n, J=n also gives C_n=1 but its probability vanishes. The supplied permutation checker was inspected, not executed; it does not certify the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Myers–Wilf gives the strong outstanding-element count in multiset permutations, giving the Stirling count for distinct observations. Ahsanullah et al. study record values with exponential shifts. Fill's geometric result conditions on a new bivariate record."
+        ],
+        "reasoning": "These provide ingredients or different settings. None of these statements determines the scalar batch recovery-time distribution and its joint count limits.",
+        "searches": [
+          "Myers–Wilf arXiv:math/0701078, §2.1 Theorem 1 and Corollary 1",
+          "Ahsanullah–Nevzorov–Nevzorova DOI:10.2991/jsta.2014.13.4.4, §2",
+          "Fill arXiv:1901.08232v1, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_prefix_records.py",
+        "Resultary scalar one-arrival and bivariate complete-kill records (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Naiman–Torcaso arXiv:2210.08426v1",
+        "Myers–Wilf arXiv:math/0701078",
+        "Ahsanullah et al. DOI:10.2991/jsta.2014.13.4.4, abstract and §2",
+        "Fill arXiv:1901.08232v1, Theorem 1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional count is the classical permutation count; replacing the one-arrival threshold by a block maximum is the reduction behind the new weights. The one-arrival asymptotic is geometric, not a growing-batch CLT."
+        ],
+        "reasoning": "The fixed-block Stirling factor and the stopped-run argument are known. The distinct content is the recovery-weighted law in the two-parameter model, its factorization under exponential maximum mixing, and uniform conditional Gaussian convergence as the mark retains a truncation atom. There is no macroscopic-prefix conclusion from the fixed one-arrival theorem alone.",
+        "searches": [
+          "Myers–Wilf arXiv:math/0701078, §2.1",
+          "Sharp total-variation convergence for the number of records broken by an observation, stopped-run representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversing observation order changes the first m deletions to m final arrivals applied to reverse records. The earlier one-arrival run length is the m=1 recovery mark up to a shift and the no-recovery cap."
+        ],
+        "reasoning": "The exact equivalence establishes prior m=1 marked coverage, not just marginal overlap. A threshold given by the maximum of a block instead of one arrival changes its law and allows the macroscopic regime.",
+        "searches": [
+          "Resultary: batch prefix deletion, reverse-record destruction and stopped runs",
+          "Naiman–Torcaso arXiv:2210.08426v1, pp. 2–3",
+          "Sharp total-variation convergence for the number of records broken by an observation, random-length record-count representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closely matching October catalogue entry has an unsigned Stirling count for bivariate Pareto minima conditional on complete killing by one arrival. The one-arrival scalar entry has the exact finite joint mechanism at m=1."
+        ],
+        "reasoning": "The bivariate count is not an entry for the scalar stopped block or its recovery time. The strongest exact scalar match is restricted to m=1.",
+        "searches": [
+          "Resultary: marked Stirling record-kill laws, finite batch deletion and macroscopic recovery",
+          "Resultary 2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4, Finding"
+        ]
+      },
+      "rationale": "The inspected single-arrival work covers more than the m=1 marginal: its stopped-run representation specifies the mark too. The frozen contribution starts at m≥2. The same conditional fixed-block count is prior, but the beta-maximum mixing, multi-arrival factorization and growing-prefix Gaussian limit with a dependent finite-horizon and asymptotically independent non-Gaussian mark are not statements of the inspected prior results. Credit is not for the Stirling or ordinary record CLT inputs.",
+      "residual_risks": [
+        "The cited Wilf 1995 PDF was inaccessible in the bounded lawful attempts.",
+        "An equivalent random-horizon or block-record result under other terminology has not been ruled out. The bounded query is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers m=1 including its mark by reversal; no growing batch in the stated setup.",
+          "evidence": [
+            "The run below the arriving value has a specified law; conditionally the destroyed records are those of a uniform block of that length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-total-variation-convergence-for-the-number-of-records-brok--3626aee77ba9/RESULT.md",
+          "material_read": "A random-length record-count representation, mirror offsets 2267–4368",
+          "method": "Focused Resultary retrieval and bounded local mirror reading",
+          "title": "Sharp total-variation convergence for the number of records broken by an observation",
+          "trigger": "Closest scalar exact finite marked overlap"
+        },
+        {
+          "assessment": "Known singleton marginal limit, not a marked macroscopic batch result.",
+          "evidence": [
+            "Current records are defined through the reversed sequence; the number broken by a single value tends to the geometric(1/2) law on the nonnegative integers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08426v1",
+          "material_read": "Versioned PDF pp. 1–3, statement and reverse-record definition",
+          "method": "Bounded OA primary PDF reading",
+          "title": "A Geometric(1/2) Distribution Associated with Record Breaking",
+          "trigger": "Primary one-arrival destruction result"
+        },
+        {
+          "assessment": "Establishes the classical conditional count input.",
+          "evidence": [
+            "For distinct symbols the strong-record PGF is z(z+1)…(z+ell−1)/ell!, giving the unsigned Stirling factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701078",
+          "material_read": "§2.1 Theorem 1 and Corollary 1, offsets 1801–4736",
+          "method": "Bounded OA text reading",
+          "title": "Left-to-right maxima in words and multiset permutations",
+          "trigger": "Potential general coverage of the conditional Stirling formula"
+        },
+        {
+          "assessment": "Different object and conditioning, not equivalent coverage.",
+          "evidence": [
+            "The event is complete killing of current bivariate Pareto minima by one arrival; the model has no scalar batch recovery mark."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-stirling-law-for-complete-bivariate-record-kills-and-the-sharp--bb66bcfebcc4/RESULT.md",
+          "material_read": "Finding and setup, mirror offsets 0–3837",
+          "method": "Bounded local mirror passage",
+          "title": "A Stirling law for complete bivariate record kills and the sharp asymptotic",
+          "trigger": "Closest indexed Stirling-law hit for record destruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting an initial block is a natural perturbation of a record process, and the time at which its effect ceases is a useful mark not provided by an unmarked law. The exact pair law distinguishes right censoring from observed recovery. In the macroscopic regime a nondegenerate censored tail survives despite Gaussian fluctuations of the count, and the leading fluctuations decouple. That structural distinction, together with the finite-to-infinite coupling in a separate regime, goes beyond recomputing the usual fixed-length Stirling count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

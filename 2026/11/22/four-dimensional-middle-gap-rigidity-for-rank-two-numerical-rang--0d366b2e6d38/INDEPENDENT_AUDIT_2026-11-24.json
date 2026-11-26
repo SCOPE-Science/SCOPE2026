@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:13:39.377447Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification, lines 5–98",
+        "Frozen VERIFICATION.md",
+        "Li–Sze, arXiv:0706.1536, §1"
+      ],
+      "rationale": "For z on the unit circle, λ3 is the common root of Q(t,z) and Q(t+d,z), since Q(λ3+d,z)=Q(λ2,z)=0. This is the intended substitution in line 53: λ3+d is a root of the unshifted polynomial, not the shifted one as the wording suggests. The resultant vanishes identically as a Laurent polynomial. On a pole-free arc every specialized gcd root r is a real eigenvalue and r+d is also an eigenvalue; the ordered list of four and empty middle interval imply r∈{λ3−d,λ3,λ3+d}, also with repetitions. Its root mean has a constant offset from λ3 on the arc, so subtracting that offset gives a rational branch a satisfying both unshifted evaluations Q(a,z)=Q(a+d,z)=0 identically. Monicity over the integrally closed Laurent ring removes nonzero finite poles; the characteristic coefficient bounds on Laurent exponents then force a to have exponents −1,0,1 only. Equality a=λ3 propagates globally by continuity: near an equality point any nonzero difference of magnitude less than d/2 puts either a or a+d in the empty middle interval. Antipodal symmetry fixes the constant term −d/2, reality pairs the Laurent coefficients, and the values along the two coordinate directions fix the center uniquely. Li–Sze then gives the disk by intersection of supporting half-planes. In a homogeneous direction (x,y) the candidate quadratic has two distinct roots for (x,y)≠(0,0), both pencil eigenvalues; the polynomial remainder after monic division vanishes at both, hence is identically zero. Nothing requires spectral simplicity.",
+      "residual_risks": [
+        "Analytic/algebraic proof check, not formal verification. The conclusion concerns a positive constant raw ordered gap in size four only, not a converse or a geometric-width hypothesis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang's constant-width theorem uses λ1−λn and explicitly does not establish the higher-rank extension.",
+          "Li–Sze characterizes Λk by half-planes but gives no ordered gap rigidity.",
+          "Theorem 3.1 gives constant λ2−λ5 for a specified 6×6 family whose actual rank-two range is not of constant width."
+        ],
+        "reasoning": "Neither the arbitrary-size extreme theorem nor the higher-rank half-plane theorem controls which middle spectral branch realizes the common-root relation. The six-dimensional construction illustrates a different raw gap, not coverage or a counterexample in size four.",
+        "searches": [
+          "Jiang arXiv:2611.13461v1 §1",
+          "Li–Sze arXiv:0706.1536 §1",
+          "Chien–Li–Nakazato, Theorem 3.1 and Remark 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d366b2e6d38 (same record) and 47fb79955d92",
+        "Jiang arXiv:2611.13461v1",
+        "Chien–Li–Nakazato 2021",
+        "Li–Sze arXiv:0706.1536",
+        "Targeted primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The middle gap assumption does not force a constant extreme gap. For example, put a size-two Jordan block of weight 2 beside the size-two block 3σ_x+2iσ_z, where σ_x=[[0,1],[1,0]] and σ_z=diag(1,−1). Their pencils have eigenvalues ±1 and ±√(9 cos²θ+4 sin²θ), respectively, giving constant middle gap 2 but varying extreme gap.",
+          "The two-block record is not a classification of all matrices satisfying the raw-gap assumption; the frozen proof uses a discrete gcd offset and no-switching argument to get the actual middle branches."
+        ],
+        "reasoning": "Known facts supply a method, half-plane conclusion once the branch is identified, and special cases. The missing implication is precisely extraction of the correct middle branches globally, including multiplicities, without a reduction assumption.",
+        "searches": [
+          "Jiang §1 and extreme-gap theorem",
+          "Li–Sze §1",
+          "Resultary 47fb79955d92 finding",
+          "Chien–Li–Nakazato Theorem 3.1/Remark 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 0d366b2e6d38 is the record itself. Distinct record 47fb79955d92 gives a two-Jordan-block compression range.",
+          "Chien–Li–Nakazato distinguishes raw λ2 and actual support."
+        ],
+        "reasoning": "Raw middle gap and actual width are not equivalent hypotheses in general. A lens formula for block sums, or a disk assertion without the ordered-branch hypothesis, does not supply the arbitrary-pencil theorem.",
+        "searches": [
+          "Resultary: rank-two middle spectral gap, first-harmonic center and circular determinant factor",
+          "Literature: constant positive middle eigenvalue gap of a 4x4 Hermitian pencil and rank-2 numerical range disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact lens/disk classification exists for J_a(α)⊕J_b(β); it contains the submitted disk witness when centers and weights coincide. The exact indexed match for the universal claim is the frozen result itself."
+        ],
+        "reasoning": "Finite-example and special-family classifications were checked where relevant, but cannot substitute for the implication across all pairs of size-four Hermitian coefficient matrices. No computational table is involved in the theorem.",
+        "searches": [
+          "Resultary 0d366b2e6d38 and 47fb79955d92",
+          "Chien–Li–Nakazato explicit example (3.1)"
+        ]
+      },
+      "rationale": "The distinct theorem is recovery of the two ordered middle branches of an arbitrary size-four pencil from a constant raw separation. The known half-plane representation and Jiang's resultant technique are inputs, and the two-block disk example is not credited as new.",
+      "residual_risks": [
+        "No closer primary result was surfaced by the targeted search; older implicit algebraic formulations remain possible.",
+        "Same-day two-block work cannot be ordered by date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Extreme gap only; methodological overlap, not the middle theorem",
+          "evidence": "Ordinary numerical range width is λ1−λn; higher-rank extension is not established there.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13461v1",
+          "material_read": "§1, offsets 0 and 1950",
+          "method": "Open-access HTML passages",
+          "title": "A proof of the constant-width numerical range conjecture",
+          "trigger": "Strongest arbitrary-size constant-gap/disk theorem"
+        },
+        {
+          "assessment": "Different matrix size and indices; shows raw-gap/actual-width difference",
+          "evidence": "For the three-block size-six A(r), λ2−λ5=2r for r≥√(3/2); support can be strictly below λ2.",
+          "identifier_or_url": "https://cklixx.people.wm.edu/diameter.pdf",
+          "material_read": "(3.1) and Theorem 3.1, p. 5; Remark 2, p. 6",
+          "method": "Open-access PDF passages",
+          "title": "The diameter and width of higher rank numerical ranges",
+          "trigger": "Exact constant raw higher-rank gap"
+        },
+        {
+          "assessment": "Covers the half-plane representation, not the constant middle-gap eigenvalue formulas",
+          "evidence": "The inequalities use the kth largest eigenvalue of e^{iξ}A+e^{-iξ}A*, rescaled here by two with ξ=−θ.",
+          "identifier_or_url": "https://arxiv.org/html/0706.1536",
+          "material_read": "§1, offset 0",
+          "method": "Open-access HTML passage",
+          "title": "Canonical forms, higher rank numerical ranges, totally isotropic subspaces, and matrix equations",
+          "trigger": "Rank-two spectral half-plane representation"
+        },
+        {
+          "assessment": "Exact result for a restricted block family, not the arbitrary size-four rigidity theorem",
+          "evidence": "Its equal-center, equal-weight case supplies the disk witness. Same-day dating does not resolve priority.",
+          "identifier_or_url": "Resultary 47fb79955d92",
+          "material_read": "RESULT.md finding, two-block family and disk case",
+          "method": "Local mirror passage inspection",
+          "title": "Rank-two compression lenses and the singleton phase of two weighted blocks",
+          "trigger": "Strongest distinct indexed hit and witness overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md spectral proof and scope",
+        "Jiang arXiv:2611.13461v1",
+        "Chien–Li–Nakazato Theorem 3.1 and Remark 2"
+      ],
+      "rationale": "Size four is the first nontrivial middle pair for rank two. The result locates a sharp regime where a raw spectral width, which need not be the width of the compression range, actually forces a disk and a determinant factor. The proof identifies why a dimension-four relation survives the extra spectral pairs that invalidate a direct transplant of the extreme-gap argument.",
+      "residual_risks": [
+        "No general higher-rank constant-width theorem or unitary classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

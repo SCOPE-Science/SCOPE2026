@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies a unique stationary Poisson-reset resolvent, establishes the even-cycle bipartite conjugation identity exactly, and isolates the opposite-winding simple paths for the odd-cycle leading coefficient. The length-parity argument excludes intervening terms, and the convergent superoperator resolvent controls the asymptotic remainder. The companion exact-moment and independent finite-matrix tests pass. Checks are finite corroboration, not a proof beyond the symbolic argument.
+PASS
 
-## Originality — PASS
+For even N, conjugation followed by the checkerboard sign removes the sign change in the time evolution up to endpoint phases. Reflection fixes vertex zero for all N and exchanges the two fluxes. For the odd case, lift two paths to endpoint displacements s,t congruent to j mod N. Their relative phase is exp(i(s−t)φ/N). Only s≠t can contribute to the flux-odd part, and their total length is at least |s−t|≥N. For degree N and 0<j<N the only unordered displacement pair is {j,j−N}, and both paths are monotone. The interference phase from the ordering (j,j−N) is i^(N−2j)exp(iφ), giving the stated sign; including the conjugate term and subtracting the reversed flux produces the factor 4. For winding difference one, total parity is N mod 2, so degree N+1 vanishes; higher winding differences cost at least 2N>N+1. Averaging multiplies degree d by d!/r^d. The uniformly convergent Neumann series for r>4J bounds the remainder starting at N+2 independently of φ. Absolute values preserve that uniform error by the triangle inequality, and the binomial sum gives the stated TV leading term. Independent lifted path counts at φ=π/2 corroborated 627 site-and-degree coefficients for N=3 through 11.
 
-The reset-density integral is in Wald and Böttcher [1]; flux sensitivity and cycle parity under unitary evolution are in Frigerio and collaborators [2]. Neither inspected full text states the stationary opposite-flux position-distribution theorem, its odd-cycle binomial profile, or its sharp total-variation coefficient. Additional searches for magnetic-reset rings, reversed flux, graph chirality, and equivalent high-rate formulas did not identify a covering published result. An accessible abstract for Luppi [3] gives related flux-dependent measured-return results, but the full text was unavailable; this is a real residual priority risk. Search absence is not a uniqueness proof.
+## originality
 
-## Scientific value — PASS
+PASS
 
-Reset-induced stationary distributions are experimentally accessible observables and directly instantiate flux-sign inference. The exact parity obstruction rules out this inference method on every even cycle at every reset rate; the odd-cycle coefficient quantifies the first detectable signal for the entire family and identifies exponential ring-size suppression. This is stronger than a qualitative assertion that odd cycles support chiral transport.
+Do not credit even-cycle or reset-site symmetry as independently novel: those pieces follow from known unreset symmetries and the reset average. The distinct finding is the sharp odd-cycle off-origin coefficient for every vertex and its stationary total-variation law. The strongest checked overlaps do not state or directly supply this calculation for general odd cycles.
 
-## Closest primary literature and limitations
+## value
 
-[1] Wald–Böttcher, arXiv:2008.00510, resetting resolvent. [2] Frigerio–Benedetti–Olivares–Paris, arXiv:2106.11685, chiral walks and cycle parity. [3] Luppi, arXiv:2608.12519, abstract-level comparison only. The conclusion is restricted to unitary evolution interrupted by Poisson resets and site measurements; it does not address many-body dynamics, optimal sensing, or uniform-in-size asymptotics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It quantifies the first available magnetic-sign signal from stationary position-only readout, identifying its exact attenuation with cycle length and reset rate and the full distributional coefficient. This is more informative than the known qualitative odd chirality and does not claim an even-cycle quantum-state impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -42,7 +42,7 @@ Write \(d\lambda_c(z)=(c/\pi)e^{-c|z|^2}\,dA(z)\) for normalized Gaussian area m
 (P_tf)(z)=\frac t\pi\int_{\mathbb C}e^{tz\overline w}f(w)e^{-t|w|^2}\,dA(w),\quad
 (P_t^+f)(z)=\frac t\pi\int_{\mathbb C}e^{t\operatorname{Re}(z\bar w)}f(w)e^{-t|w|^2}\,dA(w).
 \]
-In the strict region \(\delta>0\), they extend compactly as \(P_t:H_\alpha\to F_\beta^2\) and \(P_t^+:H_\alpha\to H_\beta\). Their singular values are computed using the normalized Hilbert norms of these spaces; \(F_\beta^2\) can be regarded as a subspace of \(H_\beta\). The notation \(s_n\) starts at \(n=0\); the extra zero singular values from the analytic operator's kernel do not enter its positive singular-value sequence. For \(0<p<1\) the Schatten expression is a quasi-norm. The critical assertions concern \(\delta=0\) only with \(2t-\alpha>0\).
+In the strict region \(\delta>0\), they extend compactly as \(P_t:H_\alpha\to F_\beta^2\) and \(P_t^+:H_\alpha\to H_\beta\). Their singular values are computed using the normalized Hilbert norms of these spaces; \(F_\beta^2\) can be regarded as a subspace of \(H_\beta\). The notation \(s_n\) starts at \(n=0\); the extra zero singular values from the analytic operator's kernel do not enter its positive singular-value sequence. For \(0<p<1\) the Schatten expression is a quasi-norm. The critical assertions concern \(\delta=0\) only with \(2t-\alpha>0\). The singular spectrum at the boundary means the spectrum of the positive modulus \(|P_t^+|\) on its source space.
 
 ## Proof
 **1. Analytic singular spectrum.** Expanding the holomorphic exponential in the output variable yields
@@ -60,7 +60,7 @@ The square of the singular value associated with the \(n\)-th monomial is conseq
 \frac{t^{2n+2}}{\alpha\,\beta^n(2t-\alpha)^{n+1}}
 =C^2r^{2n+2}.
 \]
-The coefficient vectors yield a mutually orthogonal complete description of the nonzero part; hence the displayed list is the full nonzero singular multiset, not merely a bound.
+After normalization the source vectors and output monomials are orthonormal sequences, with the output monomials complete in \(F_\beta^2\). For both \(r<1\) and \(r=1\) the coefficient multipliers are bounded, giving the bounded extension by density. The source orthogonal complement is the kernel, so the displayed list is the full nonzero singular multiset when \(r<1\).
 
 **2. Maximal singular spectrum.** The unitary Gaussian change \(U_c:H_c\to L^2(\mathbb C,dA)\),
 \(U_cf(z)=\sqrt{c/\pi}\,e^{-c|z|^2/2}f(z)\), transforms \(P_t^+\) into an integral operator with kernel
@@ -69,16 +69,16 @@ The coefficient vectors yield a mutually orthogonal complete description of the 
 \exp\!\left[-\frac\beta2|z|^2-\frac{2t-\alpha}{2}|w|^2
 +t\operatorname{Re}(z\bar w)\right].
 \]
-Two unitary real-plane dilations, \(x=\sqrt{\beta/2}\,z\) and \(y=\sqrt{(2t-\alpha)/2}\,w\), turn it into the self-adjoint positive integral operator on \(L^2(\mathbb R^2)\) with kernel
+Two unitary real-plane dilations, \(x=\sqrt{\beta/2}\,z\) and \(y=\sqrt{(2t-\alpha)/2}\,w\), turn it into an operator on \(L^2(\mathbb R^2)\) with kernel
 \[
 \frac{2Cr}{\pi}\exp[-|x|^2-|y|^2+2r\,x\cdot y].
 \]
-Put \(d=\sqrt{1-r^2}\) and \(q=r/(1+d)\), equivalent to the definition in the finding. In one real dimension the Gaussian ground function \(e^{-dx^2}\) is an eigenfunction of \(e^{-x^2-y^2+2rxy}\), with eigenvalue \(\sqrt{\pi/(1+d)}\). The classical Mehler identity, or conjugation to the Hermite oscillator semigroup, provides the complete orthogonal Hermite eigenfamily with successive eigenvalue ratio \(q\). Taking its two-dimensional tensor product and the prefactor gives
+Put \(d=\sqrt{1-r^2}\) and \(q=r/(1+d)\), equivalent to the definition in the finding. In one real dimension the Gaussian ground function \(e^{-dx^2}\) is an eigenfunction of the operator with kernel \(e^{-x^2-y^2+2rxy}\), with eigenvalue \(\sqrt{\pi/(1+d)}\). The classical Mehler identity provides the complete orthogonal Hermite eigenfamily with successive eigenvalue ratio \(q\). Taking its two-dimensional tensor product and the prefactor gives
 \[
 \frac{2Cr}{\pi}\frac\pi{1+d}\,q^{j+k}=2Cq^{j+k+1},
 \quad j,k\in\mathbb N_0.
 \]
-These are all eigenvalues, since the Hermite functions are complete. They are positive, and the two unitary changes preserve singular values.
+These are all eigenvalues, since the Hermite functions are complete. They are positive, so the transformed operator's singular values are these eigenvalues. The two unitary changes preserve singular values.
 
 **3. Exact Schatten comparison.** Geometric summation gives the two powered Schatten formulas and
 \[
@@ -94,7 +94,7 @@ Multiplying the numerator-minus-denominator of the preceding fraction by \(e^{ps
 F_p'(s)=p(e^s-e^{-s})(e^s+e^{-s})^{p-1}
 \left(1-\frac{a^p-b^p}{a-b}\right).
 \]
-The fraction inside is the mean of \(p x^{p-1}\) over \([b,a]\). That interval is a strict symmetric contraction of \([0,1]\). Comparing uniform distributions by convex order shows that this mean is **smaller than** its \([0,1]\) mean (which is \(1\)) when \(p x^{p-1}\) is strictly convex, i.e. \(0<p<1\) or \(p>2\); it is **larger than** \(1\) when the function is strictly concave, i.e. \(1<p<2\). Integrability at the origin for \(0<p<1\) permits the same convex-order argument by truncation. For \(p=1,2\) the integrand is affine or constant and both means coincide. Because \(F_p(0)\) is the comparison baseline, this proves the strict sign pattern and both exact equality exponents. The operator norm comparison follows from the leading entries \(2Cq\) and \(Cr\).
+The fraction is the mean of \(f_p(x)=p x^{p-1}\) over \([b,a]\). To compare with its mean over \([0,1]\), take \(U\) uniform on \((0,1)\): \(aU+b(1-U)\) is uniform on \((b,a)\). Pointwise there is a strict convexity inequality \(f_p(aU+b(1-U))<a f_p(U)+b f_p(1-U)\) except at \(U=1/2\), for \(0<p<1\) and \(p>2\). Both terms on the right are integrable even for \(0<p<1\). The reverse inequality holds for \(1<p<2\), by strict concavity. The right-hand mean is \(1\) in all cases, and for \(p=1,2\) the function is affine so equality holds. Thus the derivative has the claimed sign, and integrating from \(s=0\) gives the strict ordering and both equality exponents. The operator norm comparison follows from the leading entries \(2Cq\) and \(Cr\).
 
 **4. Sharp boundary profiles.** Put \(\delta\downarrow0\) with \(\alpha,t\) fixed and \(\beta=(t^2+\delta)/(2t-\alpha)\). Then
 \[
@@ -104,20 +104,18 @@ The fraction inside is the mean of \(p x^{p-1}\) over \([b,a]\). That interval i
 \]
 The normalized analytic singular sequence is \(r^n\), giving the first profile. The maximal level \(m=j+k\) has multiplicity \(m+1\), hence its zero-based decreasing index is between \(m(m+1)/2\) and \((m+1)(m+2)/2-1\). Thus the level at index \(N\) is \(m=\sqrt{2N}+O(1)\). Since its normalized singular value is \(q^m\), the second profile follows.
 
-At \(\delta=0\), the analytic formula has \(r=1\), so its nonzero singular values all equal \(C\), proving the partial-isometry statement. For the maximal operator the transformed kernel becomes \((2C/\pi)e^{-|x-y|^2}\), a Gaussian convolution on \(L^2(\mathbb R^2)\). Its Fourier multiplier is \(2C e^{-|\xi|^2/4}\); this gives purely continuous spectrum of the positive transformed operator, essential norm \(2C\) and nonattainment of its norm. Thus the compactness boundary is genuine.
+At \(\delta=0\), the decomposition in Step 1 has \(r=1\), so the operator is \(C\) times an isometry on the closed span of infinitely many source vectors, vanishing on its orthogonal complement. For the maximal operator the transformed kernel becomes \((2C/\pi)e^{-|x-y|^2}\), a Gaussian convolution on \(L^2(\mathbb R^2)\). Its Fourier multiplier is \(2C e^{- |\xi|^2/4}\), whose essential range is \([0,2C]\). Every level set has Lebesgue measure zero, so no value in the spectrum is an eigenvalue, and the operator norm \(2C\) is not attained. The modulus of the original operator is unitarily equivalent to this positive convolution. Thus the compactness boundary is genuine.
 
 ## Verification
-The standalone `verify.py` checks the exact rational example \(\alpha=t=1\), \(\beta=25/16\): here \(q=1/2\), \(r=4/5\), \(C=5/4\). The two trace norms both equal \(5\); both squared Hilbert–Schmidt norms equal \(25/9\); their operator norms are \(5/4\) and \(1\), respectively. The script additionally tests the strict sign changes, the hyperbolic parameter identity and the two near-critical scaling profiles on finite parameter grids. A passing finite grid is **not** a proof of universal inequalities or asymptotics; those follow from Steps 1–4.
+The standalone `verify.py` checks the exact rational example \(\alpha=t=1\), \(\beta=25/16\): here \(q=1/2\), \(r=4/5\), \(C=5/4\). The trace norms are both \(5\) and the squared Hilbert–Schmidt norms are both \(25/9\). The analytic operator has operator norm \(1\); the maximal operator has operator norm \(5/4\). The script also samples the sign comparison, hyperbolic parameter identity and near-critical scaling profiles. A passing finite grid is **not** a proof of universal inequalities or asymptotics; those follow from Steps 1–4.
 
 ## Relationship to prior work
-Fang and Tien, arXiv:2610.41461v1 (first public source dated 2026-10-30), introduce exactly the pair \(P_t,P_t^+\) and classify their boundedness and compactness over a much wider family of Gaussian mixed-norm source and target spaces. Their full available text gives neither exact Hilbert-space singular multisets nor the counterintuitive Schatten-order reversal for the two operators. The previously published published-finding corpus result *Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition* (2026-11-08) already computes product singular spectra of the **analytic** Gaussian projection in arbitrary covariance dimensions; its isotropic one-dimensional specialization covers the analytic multiset in Step 1. It does not address the maximal absolute-kernel operator or compare the two \(\mathcal S_p\) sequences. Dong and Zhu, arXiv:2509.16672v1, compute spectra for other Gaussian operators acting **between analytic Fock spaces**; the source and target of the present maximal operator are full Gaussian \(L^2\) spaces. The classical Hermite/Mehler identity supplies the complete maximal Gaussian spectrum as a proof ingredient, and convex order supplies the sign mechanism. The assessed contribution is the **all-exponent sharp relative Schatten law**, together with the contrasting near-critical ordered-rank profiles of these two naturally paired projections; neither is claimed to be a new general Mehler theorem.
+Fang and Tien introduce exactly the pair \(P_t,P_t^+\) and classify their boundedness and compactness over a wider family of Gaussian mixed-norm source and target spaces. Their Theorems 1.1–1.2 already give bounded noncompact operators at the Gaussian boundary for the Hilbert-to-Hilbert case. The result *Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition* already computes product singular spectra of the **analytic** Gaussian projection; its isotropic one-dimensional specialization gives the analytic multiset in Step 1. The positive-kernel spectrum in Step 2 is a direct application of the classical Mehler identity after Gaussian unitary changes. The Hilbert–Schmidt equality also follows directly from equality of the absolute values of the kernels. The contribution here is the relative ordering at all real Schatten exponents, including the strict reversal between \(1\) and \(2\), and the comparison of the two near-critical ordered-rank profiles and limiting spectral types. It is not a new compactness criterion or a new general Mehler theorem.
 
 ## Limitations
-The theorem is proved for complex dimension one, source and target Hilbert norms, positive scalar Gaussian weights and the displayed standard kernels. It does not assert comparisons of arbitrary absolute-value integral kernels, higher-dimensional anisotropy, mixed non-Hilbert Banach norms, or perturbation robustness. The classical Hermite calculus and prior analytic singular-value work cover substantial ingredients. A more general unlocated theorem on positive Gaussian-kernel majorization or rearrangements might subsume the Schatten comparison and remains a bibliographic risk. The threshold analysis keeps \(\alpha,t\) fixed with \(2t>\alpha\); no uniformity over all weight triples is asserted. No independent audit has been performed.
+The theorem is proved for complex dimension one, source and target Hilbert norms, positive scalar Gaussian weights and the displayed standard kernels. It does not assert comparisons of arbitrary absolute-value integral kernels, higher-dimensional anisotropy, mixed non-Hilbert Banach norms, or perturbation robustness. A more general unlocated theorem on Gaussian-kernel majorization or rearrangements might subsume the comparison. The threshold analysis keeps \(\alpha,t\) fixed with \(2t>\alpha\); no uniformity over all weight triples is asserted.
 
 ## References
-1. X. Fang and P. T. Tien, *Fock Projections between Gaussian Mixed-Norm Spaces: Full-Range Boundedness and Compactness*, arXiv:2610.41461v1, first public 2026-10-30, https://arxiv.org/abs/2610.41461.
-2. *Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition*, public result 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-anisotropic-gaussian-fock-projections-exact-singular-spectra-and--1cedacd12a18.
-3. X. Dong and K. Zhu, *Canonical integral operators on the Fock space II*, arXiv:2509.16672, https://arxiv.org/abs/2509.16672.
-4. F. A. Berezin, *The Method of Second Quantization*, for the classical Mehler-Hermite semigroup and Gaussian kernel diagonalization.
-5. K. Zhu, *Analysis on Fock Spaces*, Springer (2012), for standard Gaussian Fock conventions.
+1. X. Fang and P. T. Tien, *Fock Projections between Gaussian Mixed-Norm Spaces: Full-Range Boundedness and Compactness*, arXiv:2610.41461v1, https://arxiv.org/abs/2610.41461.
+2. *Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition*, `SCOPE-anisotropic-gaussian-fock-projections-exact-singular-spectra-and--1cedacd12a18`, November 8, 2026.
+3. F. A. Berezin, *The Method of Second Quantization*, for the classical Mehler-Hermite semigroup and Gaussian kernel diagonalization.

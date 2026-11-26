@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:51:33.593858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33, VERIFICATION.md, check_new.py inspected without execution, and recorded verification_output.txt",
+        "Independent prefix DP replay: /workspace/replay_frozen_math.py, python3 replay_frozen_math.py 4; separate direct position-subset comparison to all gap tuples for m≤11"
+      ],
+      "rationale": "The last deleted a can be no earlier than block k; the k deleted b's then require blocks k through 2k-1 at the earliest. In a feasible embedding each block contributes ab, b, a, or nothing. All b-singletons come before a-singletons, with at most one empty block, which selects j=k or j=k-1. Conversely a tuple constructs an embedding, inserting a fully deleted block in the central gap when j=k-1. The maximum of prefix (#b−#a) is j, distinguishing the families; before its first attainment greedy left parsing separates intact pairs from b-singletons, after its last attainment greedy right parsing separates pairs from a-singletons, and the interval between consists only of intact pairs. Thus there are exactly binom(r+j,2j) distinct words per family and the boundary m=2k-1 has one word. An independent prefix dynamic program checked exact distinct-output counts and their peak statistics for 77 parameter pairs (including infeasible cases and the k=1 control). A separate direct position-subset comparison checked literal equality with the normal-form sets for 77 pairs including infeasible cases in the intended k≥2 regime.",
+      "residual_risks": [
+        "The all-parameter conclusion rests on the exact normal-form proof, not on extrapolation of the finite replays."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact catalog theorem allows arbitrary two-run deletion 0^alpha 1^beta and obtains the full embedding-multiplicity histogram. Adamson et al. give a general dynamic program and a special singleton-self-complement shuffle criterion."
+        ],
+        "reasoning": "The two-run theorem dominates the frozen parameter and observable scope; a general enumeration algorithm or the inspected shuffle criterion alone is not that theorem.",
+        "searches": [
+          "Resultary 4b5c91af95ea, RESULT.md",
+          "Adamson et al., arXiv:2603.20790v1, Sections 3, 4.5 and 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4b5c91af95ea and d7ef6cdd9c92",
+        "Adamson, Fleischmann, Huch, Koß, Manea and Nowotka, arXiv:2603.20790v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting K=2k and n=m gives the threshold and both binomial terms, and specializing the proof gives the same unavoidable singleton order and unique gap normal form. The arXiv conclusion leaves closed formulas for specific families as an open direction."
+        ],
+        "reasoning": "No further theorem is needed to specialize the catalog result, including its structural characterization. The stronger catalog evidence, not the general algorithm, is decisive.",
+        "searches": [
+          "4b5c91af95ea/RESULT.md proof, offsets 4600–7526",
+          "Adamson et al. Conclusion, offsets 93000–96471"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Relabel a,b to 0,1 and set alpha=beta=k and n=m in 4b5c91af95ea. The surviving tokens are 01, solitary 1 before solitary 0, and the option of a fully deleted 01 at the change of run."
+        ],
+        "reasoning": "For equal run lengths the two token counts become exactly j=k and j=k-1 with r-j intact pairs; the gap families and formula agree.",
+        "searches": [
+          "Resultary search: two-run deletion alternating parent distinct complementary scattered factors",
+          "4b5c91af95ea/RESULT.md Finding and block-token proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog count is binom(n,K)+binom(n-1,K-2) for n≥K-1, with K=alpha+beta. The nearby alternating-pattern record deletes (ab)^q, not a^k b^k."
+        ],
+        "reasoning": "This is an all-parameter exact formula match, not just the same small integers. At m=3,k=2 the two different deletion patterns give respectively one and two distinct outputs, so the alternating-pattern result is not an equivalent match.",
+        "searches": [
+          "Resultary 4b5c91af95ea and d7ef6cdd9c92 exact alternating-parent counts"
+        ]
+      },
+      "rationale": "The published split-invariant two-run result already covers the entire frozen scope upon setting alpha=beta=k, including the exact formula and the same two-block-type gap characterization. It additionally handles unbalanced runs and embedding multiplicities. Its catalog date follows the frozen one: the decision is based on verified equivalent/stronger coverage, with no inference about which proof was discovered first or about provenance. Adamson et al.'s general algorithm alone would not imply this closed form as a stated theorem, and the repeated alternating-pattern deletion formula concerns a different pattern.",
+      "residual_risks": [
+        "No priority or provenance conclusion is drawn from the relative catalog dates; no earlier general two-run statement beyond the inspected sources was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact generalization; equal run lengths recover the full assigned case",
+          "evidence": "For deletion 0^alpha1^beta from (01)^n the threshold is K-1 and the two exact count terms are binom(n,K)+binom(n-1,K-2); the proof decomposes by presence of a single fully deleted block.",
+          "identifier_or_url": "2026/11/22/SCOPE-split-invariant-complement-fiber-spectrum-for-two-run-deletions--4b5c91af95ea",
+          "material_read": "RESULT.md offsets 0–4458 and 4600–7526, Finding and token proof",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Split-invariant complement fiber spectrum for two-run deletions",
+          "trigger": "Exact count and possible full structural overlap"
+        },
+        {
+          "assessment": "Computes general instances but does not state this two-family formula in the inspected passages",
+          "evidence": "Computational algorithm in Section 3; perfect-shuffle characterization for C(w,u)={u} in Section 4.5; the conclusion asks for upper bounds or special-family formulas.",
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Introduction; Theorems 3.1 and 4.5; conclusion (offsets 93000–96471)",
+          "method": "OA HTML passage inspection",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Primary definitions, general theorem and structural results"
+        },
+        {
+          "assessment": "Different deletion family, not equivalent for k≥2",
+          "evidence": "Deleted word is (ab)^q, not a^k b^k.",
+          "identifier_or_url": "2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+          "material_read": "RESULT.md Finding and deletion-pattern scope",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Binomial tail law for complements of alternating words",
+          "trigger": "Closely related binomial law for the same parent family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen normal form and counting proof",
+        "Resultary 4b5c91af95ea"
+      ],
+      "rationale": "The block-gap normal form solves the collision problem for distinct outputs, not just the number of deletion embeddings, and gives a natural exact structural benchmark for complementary-subsequence algorithms. This intrinsic usefulness does not provide a scientifically distinct remainder after specializing the stronger published result.",
+      "residual_risks": [
+        "The assigned record does not count multiplicities or extend to unbalanced run lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

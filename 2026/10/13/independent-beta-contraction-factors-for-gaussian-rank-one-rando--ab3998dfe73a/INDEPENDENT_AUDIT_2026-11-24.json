@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:13.744842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact line search makes rᵏ orthogonal to pᵏ⁻¹. If u is the projection of the fresh Gaussian sketch onto (pᵏ⁻¹)⊥, then the corrected direction is (u·rᵏ)u, and the residual update is the orthogonal removal of the u component. At step zero use the unprojected Gaussian. Conditional on all previous sketches, in an orthonormal basis with first vector rᵏ/‖rᵏ‖, the projected sketch has h independent standard normal coordinates, h=d first and h=d−1 thereafter. The ratio is Y/(X+Y), with independent X∼χ²₁ and Y∼χ²ₕ₋₁. For d≥3 this lies a.s. in (0,1), proving by induction that denominators remain nonzero and residuals positive at every finite step. The conditional law is deterministic, so iterated conditioning gives independence including the first factor, not merely equal marginal laws. Means follow by multiplication, and the strong law applies to the subsequent logarithms since the beta density is integrable against |log x|. The one-dimensional complement in d=2 removes the whole residual on the second step, and the first nonparallel sketch leaves a nonzero residual a.s.; d=1 takes one step. Without the correction h=d at every step. Inspected rational checks and Gaussian simulation provide supplementary evidence only; the probability proof does not use a finite simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The limited-memory paper supplies an expected-error bound and finite termination after r updates when the window includes r directions; this already covers the two-dimensional termination boundary.",
+          "The RCGLS theorem gives a more general expected bound; on the identity system the rank-one Gaussian baseline M=I/d and γ=1 gives a bound factor 1−1/d."
+        ],
+        "reasoning": "General bounds on the first moment do not determine the joint beta law or the almost-sure digamma exponent. The known finite-termination boundary is not credited as an independent contribution.",
+        "searches": [
+          "arXiv:2505.20602v1, Theorem 3.3 and Remark 3.6",
+          "arXiv:2605.25034v1, Algorithm 1 and Theorem 2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.05482, 2505.20602v1, 2605.25034v1, 1111.0194v2, 1506.03296",
+        "Resultary November 2 and November 8 exact-law Findings",
+        "Frozen RESULT.md, VERIFICATION.md and verifier code"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier inspected convergence theorems do not state that a future contraction has a law independent of the entire past.",
+          "The later limited-memory law does imply the assigned identity-system theorem by selecting memory length 2."
+        ],
+        "reasoning": "The key additional step relative to the earlier statements is the past-conditioned isotropic Gaussian law in the moving hyperplane, not a substitution in a known bound. Distinguish the actual later implication from priority and from the already-known finite-termination special case.",
+        "searches": [
+          "Compare earlier expected-error and random-pursuit statements with pathwise beta factorization and log rate",
+          "Compare the full claim to Resultary's November Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adaptive stochastic heavy-ball direction (21) is the same predecessor-orthogonalization after changing gradient sign notation.",
+          "Limited-memory IS-Krylov with window length 2 retains one predecessor and matches the recursion; ordinary spherical random pursuit omits this correction."
+        ],
+        "reasoning": "Orthogonalized sketch-space terminology identifies real algorithmic precursors. A fresh direction uncorrected in the full space has a different conditional dimension and does not give the later beta factor.",
+        "searches": [
+          "Predecessor-orthogonalized spherical random pursuit and one-step-memory Gaussian exact line search",
+          "arXiv:2305.05482, Algorithm 3 and (21)",
+          "arXiv:2505.20602v1, Algorithm 3 with window length 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 Finding explicitly states the same factor laws for an orthonormal-column system.",
+          "The November 8 Finding gives the independent beta law for a scaled-isometric limited-memory method and identifies memory length 2 with the present Gaussian RCGLS case."
+        ],
+        "reasoning": "Both are exact, substantive matches rather than merely related parameter tables. Their indexed publication dates are later than the October 13 assigned record, and do not show that this October result was anticipated by those entries.",
+        "searches": [
+          "Resultary: independent beta contraction for Gaussian RCGLS and Gaussian limited-memory IS-Krylov",
+          "Resultary 2026/11/2 and 2026/11/8 exact-law Findings"
+        ]
+      },
+      "rationale": "The direction recurrence, spherical projection law, and the finite-termination boundary are not new individually. The supported distinct claim relative to the inspected earlier primary texts is the independent first/later beta-factor process for rank-one Gaussian predecessor-corrected exact line search, including the exact later contraction and logarithmic rate. Two demonstrably equivalent or stronger indexed results postdate the assigned October record; those are material coverage, not evidence of earlier priority.",
+      "residual_risks": [
+        "An earlier equivalent exact process law may be stated under other momentum, random-pursuit or finite-memory terminology.",
+        "The focused search did not establish exhaustive priority, and subsequent indexed coverage is explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent one-step memory correction, not the exact error law in the inspected theorem",
+          "evidence": "The correction subtracts the component in the preceding direction after sign conversion.",
+          "identifier_or_url": "arXiv:2305.05482",
+          "material_read": "p. 21, Algorithm 3, (21), Theorem 5.1 (offset 62000)",
+          "method": "Bounded OA PDF passages",
+          "title": "On adaptive stochastic heavy ball momentum for solving linear systems",
+          "trigger": "Earlier equivalent recurrence"
+        },
+        {
+          "assessment": "Covers the algorithm and d=2 termination; not the full law in the inspected statements",
+          "evidence": "Sliding orthogonalization window reduces to the predecessor when its length is 2; earlier theorem is a first-moment estimate.",
+          "identifier_or_url": "arXiv:2505.20602v1",
+          "material_read": "Algorithm 3 p. 18 (52350), Theorem 3.3 p. 11 (30000), Remark 3.6 p. 14 (40150)",
+          "method": "Bounded OA PDF passages",
+          "title": "Connecting randomized iterative methods with Krylov subspaces",
+          "trigger": "Broader limited-memory dynamics and finite termination"
+        },
+        {
+          "assessment": "Exact iteration; expected upper bound rather than distribution",
+          "evidence": "The one-direction correction followed by the source stepsize becomes the residual line projection when A=I.",
+          "identifier_or_url": "arXiv:2605.25034v1",
+          "material_read": "Algorithm 1 pp. 9–10 (25500) and Theorem 2.4 p. 11 (31400)",
+          "method": "Bounded OA PDF passages",
+          "title": "Randomized conjugate gradient least squares",
+          "trigger": "Verify actual RCGLS and baseline"
+        },
+        {
+          "assessment": "Full-space directions, not predecessor-corrected directions",
+          "evidence": "Samples uniform spherical directions and does not project off the preceding one.",
+          "identifier_or_url": "arXiv:1111.0194v2",
+          "material_read": "Algorithm 1 pp. 4–5 (15800)",
+          "method": "Bounded OA PDF passage",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Spherical exact line-search formulation"
+        },
+        {
+          "assessment": "Uncorrected identity specialization",
+          "evidence": "Fresh independent sketches or row combinations act without the previous-direction exclusion.",
+          "identifier_or_url": "arXiv:1506.03296",
+          "material_read": "§§2.1, 3.2, pp. 4, 8 (offset 27039 for the random-vector discussion)",
+          "method": "Bounded OA PDF passages",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Independent sketch-and-project comparison"
+        },
+        {
+          "assessment": "Includes the frozen law; later dated",
+          "evidence": "The first/later independent beta factors are the same on an orthonormal-column system.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Independent beta contraction and finite termination dichotomy",
+          "trigger": "Exact later indexed law"
+        },
+        {
+          "assessment": "Implies the frozen law; later dated",
+          "evidence": "Covers scaled-isometric systems and calls out the rank-one Gaussian RCGLS specialization at memory length 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-independent-beta-error-law-for-gaussian-limited-memory-is--daeeff4ce6cd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact independent beta error law for Gaussian limited-memory IS-Krylov",
+          "trigger": "Broader later indexed theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The independent product law supplies sharp iteration-by-iteration and almost-sure rates, and distinguishes the correction's effect on the whole error process from the uncorrected method rather than merely repeating a convergence guarantee. The comparison is in exact arithmetic and counts iterations, not practical runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The supplied standalone script `checks.py` uses Python 3 and standard-library exact fractions. Run `python3 checks.py` after extracting the files.
+## correctness
 
-The script checks the two-triangle decomposition of a unit square for three rational Euclidean unit normals; exact piecewise-linear section density against the independently known convolution of two uniforms; the nonzero second-highest vertex coefficient; three distinct knots lying in one shared near-support interval; exact zeroth and first integrated moments; and, independently, total volume and first projection moment for the standard tetrahedron using a rational unit normal. The checked geometry also confirms a nonzero coefficient for each generic projected tetrahedron vertex.
+PASS
 
-These are exact rational tests, not numerical approximations or exhaustive certification of all polytopes. The universal theorem is proved in `RESULT.md`: the sign argument for a vertex exposed by a generic direction is the crucial general noncancellation certificate, and distributional differentiation turns separated moving knot locations into linearly independent functions.
+For generic normals a vertex-only triangulation gives the truncated-power sum, with coefficient d times simplex volume divided by the vertex height differences. This normalization is the derivative of the simplex sublevel-volume formula, with unit-normal coarea factor 1. No triangulation interface contributes extra section measure in a generic direction: a shared facet cannot lie in a section plane when all vertex heights differ. Taking d distributional derivatives gives atoms of weight (d-1)! C_u. To verify noncancellation even at nonsimple vertices, choose a generic direction uniquely maximizing at u. Every simplex incident to u then contributes with the same sign (-1)^d, so the homogeneous rational coefficient is not identically zero and its zero set has empty interior away from poles. At the prescribed relative-interior edge normal only the two edge endpoints maximize. A small tilt gives one top vertex and one unique runner-up, within epsilon/3 of support. Select a generic such direction with nonzero runner-up coefficient; strict gaps and continuity then allow a fixed open interval J holding all runner-up heights for a small direction patch, no other vertex heights, and lying inside every support strip in that patch. The runner-up vertex is nonzero since zero is interior, so its projection is nonconstant on every open sphere patch for d>=2. Select infinitely many distinct projected heights. The restricted derivatives are distinct nonzero Dirac masses; testing a finite relation near each mass proves independence of the profiles. Restriction of a separated representation to J would put all profiles in a finite-dimensional span even if its factors have no regularity.
 
-The conclusion is about exact finite separation rank, not approximate separation rank. Source overlap searches were conducted against the cited near-boundary theorem and existing spline formulas; historical priority remains subject to unindexed literature. No independent audit is claimed.
+## originality
+
+PASS
+
+Credit is for the edge-local infinite-rank statement on one common absolute near-support interval, not for generic vertex-knot noncancellation, the simplex spline formula, or the separability framework. Generic noncancellation is already in Gravin–Lasserre–Pasechnik–Robins. Their projection-moment formulas and the known spline representation give the global atoms; they do not localize a moving atom in an arbitrary support strip and edge neighborhood on a product domain with a common interval. The smooth or centered-interval rank theorems inspected do not cover that problem.
+
+## value
+
+PASS
+
+The result gives a concrete obstruction in the nonsmooth class omitted by the known smooth near-boundary theorem. It applies in each dimension, for any edge, even when the separated factors would be arbitrary functions. The local moving-knot proof exhibits a common interval and arbitrarily large independent families, substantially more than a statement about global spline complexity or a single pair of profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

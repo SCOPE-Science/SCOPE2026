@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:35:57.635056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For convolution r with r_1,r_3>0, the key polynomial identity reduces to r_1 r_2 r_3-r_4 r_1^2-r_0 r_3^2 = be[r_1 r_3+(af-cd)^2]. Indeed (f r_1-d r_3)(c r_1-a r_3)=-be(af-cd)^2 by substitution; expanding its left side proves the identity. At TV <= 1/10 every atom is at least 1/10, and simultaneous reversal allows t=r_1/r_3>=1. Dividing the identity yields D=r_0/t-r_2+t r_4<=0. The TV dual test for 1<=t<=2 has weights (1/t,(t-2)/(2t),-1,(2-t)/2,t), with middle off-center terms canceling in D, sum (t+1)/2, and range t+1. Thus D >= (t+1)(1/10-TV). For t>=2, zeroing those two weights gives at TV=1/10 the lower bound (t-1)(t-2)/(10t), strict for t>2; TV<1/10 makes both regimes strictly positive. At TV=1/10 and 1<t<=2, the unique dual maximum and minimum occur at 4 and 2; equality forces r_1=r_3=1/5, impossible for t>1. At t=1 equality places surplus only at 2 and deficits only at 0,4, giving r_1=r_3=1/5, r_2=3/10 and r_0,r_4 in [1/10,1/5] summing to 3/10. Equality in the factored identity forces be=0. After a factor swap if needed, b=0, and r_1=r_3 gives a=c=1/2 and e=2/5. This yields exactly the stated interval, including endpoints, which attains the bound by direct convolution. The independent replay `python3 /workspace/branches/frozen_math_checks.py` tested 4,356 ordered pairs on the 1/10 simplex mesh, finding exactly the six ordered grid members of the family. Only the proof covers the full simplex.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Metya–Mukherjee's all-n diagonal match is conjectured, not proved.",
+          "Asgarli et al. optimize the squared Euclidean distance over all equal dice sizes; at n=3 their q has middle weight 3/7, rather than 2/5.",
+          "Closest broad convolution-index hit 8ae4197477e1 is a cyclic Markov smoothing error relative to the variation of a signal."
+        ],
+        "reasoning": "The least-squares optimum and its optimizer solve a different problem; knowing the squared-Euclidean minimum at n=3 cannot give the sharp Manhattan minimum by the usual norm comparison. A cyclic operator bound is not a two-factor ordinary-convolution projection.",
+        "searches": [
+          "arXiv:2609.38243v1 §4.3 and introductory summary",
+          "arXiv:2304.08501 §3 Theorem 1",
+          "Resultary convolution/l1 approximation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.38243v1",
+        "arXiv:2304.08501",
+        "Resultary b452e766b81c",
+        "Resultary b04cede478ca",
+        "Resultary 8ae4197477e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting s=t/5 in Eq. (22) for n=3 recovers the entire frozen proposed family up to swapping. The text explicitly leaves the diagonal lower bound to be proved.",
+          "The squared-Euclidean optimizer differs, and the closest Resultary hit changes the support size, target family, and min/max objective."
+        ],
+        "reasoning": "Credit the prior construction and conjecture fully. No inspected premise forces the universal TV lower bound and exhaustive equality classification proved here.",
+        "searches": [
+          "Metya–Mukherjee §4.3 equations (21)–(22) and Conjecture 4.7",
+          "Asgarli et al. definition of D, Theorem 1",
+          "Resultary actual Findings of strongest topical hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Metya–Mukherjee §4.3 studies the same diagonal Manhattan model (twice TV), not a different metric; the lower bound is Conjecture 4.7.",
+          "The rank-domination polynomial hit b04cede478ca concerns free-algebra matrix ranks, not distance of ordinary nonnegative convolution coefficients from uniform."
+        ],
+        "reasoning": "Multiplication of two normalized nonnegative quadratics gives exactly the five convolution coefficients. The inspected indexed polynomial alias hit is not that problem, while the leading Manhattan source is an exact formulation with the lower direction left open.",
+        "searches": [
+          "Resultary exact title and two three-sided dice minimum TV 1/10 convolution equality family",
+          "Resultary Metya–Mukherjee Conjecture 4.7 three-sided Manhattan convolution",
+          "Resultary nonnegative quadratic coefficient-product inequality and exact Manhattan bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (22) provides the same family and evaluates its L1 value exactly as 1/5 at n=3; it does not assert a proved lower-bound optimum or uniqueness of the family.",
+          "The nearest Resultary constant record b452e766b81c gives radius 1/4 for a single two-Bernoulli sum projected to a binomial, not this uniform target."
+        ],
+        "reasoning": "An exact value at given candidate factors is an upper bound for this minimization, not a certificate of the optimum, and the problem has continuous factor parameters.",
+        "searches": [
+          "Resultary exact minimum TV 1/10 for five-point convolution and displayed equality vectors",
+          "Metya–Mukherjee Eq. (22)",
+          "Asgarli et al. Theorem 1 n=3 example"
+        ]
+      },
+      "rationale": "The attaining family and numerical upper bound are prior (Metya–Mukherjee, Eq. 22), as is the conjectured optimum. The established distinct contribution is the universal n=3 lower bound and the proof that there are no other minimizers. No inspected Resultary or primary-literature claim gives those conclusions. This is bounded evidence, not a priority guarantee.",
+      "residual_risks": [
+        "A targeted primary-literature search did not return relevant additional sources; its miss is not evidence against earlier or unindexed equivalent proofs.",
+        "Earlier equivalent formulations outside the inspected passages and Resultary hits remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior construction and conjectured optimum; no matching lower proof in the inspected results",
+          "evidence": [
+            "Eq. (22) has q=(t,2,...,2,3-t)/(2n-1) for 1<=t<=2 and L1 distance 1/(2n-1); Conjecture 4.7 leaves universal optimality open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.38243v1",
+          "material_read": "Introduction near offset 8350 and §4.3 Eqs. (21)–(22), Conjecture 4.7, offsets 56500–61000",
+          "method": "Primary OA HTML passages",
+          "title": "Approximate Uniformity in Finite Convolution Models",
+          "trigger": "Same Manhattan model and candidate family"
+        },
+        {
+          "assessment": "Different squared-Euclidean objective and optimizer",
+          "evidence": [
+            "The n=3 second factor is (2/7,3/7,2/7)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.08501",
+          "material_read": "PDF p. 2 definition of D, offset 4800; §3 Theorem 1 and n=3 example, p. 3 offset 10780",
+          "method": "Primary OA PDF passages",
+          "title": "A Fair Shake: How Close Can the Sum of n-Sided Dice Be to a Uniform Distribution?",
+          "trigger": "Exact solution for same convolution family under a different norm"
+        },
+        {
+          "assessment": "Different support and objective, no implication",
+          "evidence": [
+            "Worst-case optimal approximation of a two-Bernoulli sum by a binomial has radius 1/4."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-quarter-radius-binomial-approximation-of-two-heterogeneous--b452e766b81c",
+          "material_read": "RESULT.md Finding offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp quarter-radius binomial approximation of two heterogeneous Bernoulli trials",
+          "trigger": "Closest same-day TV/convolution catalogue hit"
+        },
+        {
+          "assessment": "Different polynomial/matrix problem",
+          "evidence": [
+            "Studies rank domination for p(xy) and q(yx) in a free algebra."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-rank-domination-boundary-for-polynomial-product-reversal-c--b04cede478ca",
+          "material_read": "RESULT.md Finding offset 0, local mirror",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact rank domination boundary for polynomial product reversal",
+          "trigger": "Polynomial reformulation catalogue hit"
+        },
+        {
+          "assessment": "Cyclic operator inequality, not the assigned minimization",
+          "evidence": [
+            "Normalizes cyclic smoothing error by signal variation; arc indicators are extremal."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cyclic-bv-approximation-by-markov-convolutions-and-a-berns--8ae4197477e1",
+          "material_read": "RESULT.md Finding offset 0, local mirror",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp cyclic BV approximation by Markov convolutions",
+          "trigger": "Broader convolution/L1 catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The record resolves the first open support size of a specific Manhattan projection conjecture. It supplies the exact TV obstruction and a continuum of all optimal factorizations rather than only the previously known examples, by a useful nonnegative-coefficient identity and a sharp dual test. This is a natural complete case; nothing for n>=4 is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

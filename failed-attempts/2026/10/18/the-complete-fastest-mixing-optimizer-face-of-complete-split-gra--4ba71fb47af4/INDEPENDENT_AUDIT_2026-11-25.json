@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:18:19.723834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write T for the sum of cross entries, counted once, and X for the clique-to-leaf block. Nonnegative clique rows imply T≤k. On leaf-zero-sum coordinates the trace of the compression is (1−1/m) times the sum m−T of the leaf diagonals, so the SLEM is at least 1−T/m. The contrast vector with levels 1/k and −1/m has Rayleigh quotient 1−(1/k+1/m)T, since only cross edges contribute to its Dirichlet energy. The maximum of the two bounds equals max(1−T/m,(1/k+1/m)T−1); its unique minimizer is the intersection at 2km/(m+2k) if m<2k, or T=k otherwise, including equality at m=2k. At saturation the positive-semidefinite μI−P on the full zero-sum space has zero quadratic form on all leaf-zero-sum vectors, so it kills them. Thus X kills leaf differences, making X constant along each row. In the first regime saturation at −μ on the contrast makes every clique cross-row sum equal, giving a=2/(m+2k). In the other regime T=k forces each such sum to be one and all core entries to vanish, hence a=1/m. For uniform cross entries the remaining unrestricted operator has core-zero-sum block cI−L_B, and the stationary, leaf and contrast modes have the stated eigenvalues. Nonnegativity gives d_i≤c, and the core SLEM band is just c−μ≤λ(L_B|1⊥)≤c+μ. Positive uniform b=c/k proves attainment and has slack in all inequalities when m<2k, proving nonuniqueness. At m=k the lower Laplacian bound is zero and B=0 becomes feasible; below it the positive lower bound forces connected positive support. At and above m=2k, −k/m has modulus ≤1−k/m, so the forced block kernel attains the bound. The one-core-edge example has restricted Laplacian eigenvalues 0 and 1/5 and is optimal but not invariant under all clique permutations. Reviewed RESULT.md lines 34–54 and verification.py; correctness rests on the unrestricted analytic proof, not finite samples or the symmetry-restricted LP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clique lifting preserves the attainable best SLEM and constructs a corresponding optimal lift; the star calculation with central mass k and unit leaves gives the value, with the two-leaf case covered by the path treatment.",
+          "Symmetry averaging produces an invariant optimum, but that statement does not give equality conditions for every unrestricted optimum."
+        ],
+        "reasoning": "These more general results supply the acknowledged value, invariant existence, and optimization framework. The decisive coverage of all optimizers comes from the exact catalogue matches, not from treating existence of one lift or one invariant optimum as necessity.",
+        "searches": [
+          "Jafarizadeh arXiv:2501.02421, §3.2 Theorem 1 and eqs. (8a)–(9); §6.5 eqs. (52)–(55)",
+          "Boyd–Diaconis–Xiao SIAM Review §7.1; Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §3.1.2 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py and requirements.txt",
+        "0fb2efaf041d",
+        "45dc9950cb66",
+        "arXiv:2501.02421",
+        "arXiv:0709.0955",
+        "Boyd–Diaconis–Xiao, SIAM Review 46 (2004), §7.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From A=cI−L_B, the 0fb2efaf041d core spectrum implies c−μ>0 for m<k and hence connected positive support. The complete core with off-diagonal c/k has strict feasibility when c>0, so that full face also implies the exact nonuniqueness below m=2k.",
+          "The frozen illustrative non-invariant example is an immediate specialization of the already stated face. Known clique-lift value and existence, on their own, do not imply these unrestricted conclusions."
+        ],
+        "reasoning": "Any connectedness or strict nonuniqueness detail not separately phrased in the compared Finding follows directly from its face description; it is not a surviving new result. No priority ordering follows from the same date.",
+        "searches": [
+          "0fb2efaf041d, block optimizer characterization and sharp phase statement",
+          "Jafarizadeh arXiv:2501.02421, lifted kernel construction and star specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0fb2efaf041d uses r,s instead of k,m and writes the unrestricted core as a symmetric nonnegative A with row sums c and restricted eigenvalues in [−μ,μ]; its cross block is exactly x times the all-ones matrix.",
+          "45dc9950cb66 states the same degree caps and Laplacian band explicitly."
+        ],
+        "reasoning": "A_{ij}=b_{ij} off the diagonal and A_{ii}=c−d_i are an invertible correspondence between the two descriptions, shifting restricted eigenvalues by λ↦c−λ. At c=0 nonnegativity forces A=0. Both formulas for x agree at m=2k.",
+        "searches": [
+          "Resultary comparison: Every fastest-mixing kernel on complete split graphs",
+          "Resultary comparison: Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result 0fb2efaf041d specifies both piecewise formulas, the fixed cross and leaf blocks, the entire allowed core spectra, all three thresholds and the exact interval of aggregate internal edge mass.",
+          "The later exact match 45dc9950cb66 gives the same face directly in the frozen core Laplacian variables."
+        ],
+        "reasoning": "This is a match over all k,m and all optimizers, not a comparison of a best value, finite parameter table or one constructed kernel.",
+        "searches": [
+          "0fb2efaf041d, primary RESULT.md Finding, offset 0",
+          "45dc9950cb66, primary RESULT.md Finding, offset 0"
+        ]
+      },
+      "rationale": "A distinct same-day record gives the exact unrestricted optimizer face, forced individual cross uniformity and the support/uniqueness phases on the same parameter domain, in block-matrix notation. Setting the core block A=cI−L_B proves mathematical equivalence and gives the connected-support consequence at once; that source even gives a sharp aggregate internal-weight interval. A second, later record explicitly gives the same Laplacian constraints. The optimal value and a canonical solution were already acknowledged, and no noncovered part of the stated finding remains. Same-day listing establishes neither direction of priority; the exact coverage, not a priority inference, is decisive.",
+      "residual_risks": [
+        "The relative order and historical relationship of the two October 18 records are not established.",
+        "The specific Boyd et al. multipartite subsection reference may be a citation/version error. The focused literature provider failure is uninformative and does not affect the verified exact matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_EQUIVALENT_AND_STRONGER_IN_AGGREGATE",
+          "evidence": "The block A criterion is precisely cI−L_B, with same regimes, and gives an additional interval for total internal weight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d/RESULT.md",
+          "material_read": "Finding, assumptions, and initial proof at offset 0",
+          "method": "Published corpus primary text, local lawful mirror",
+          "title": "Every fastest-mixing kernel on complete split graphs",
+          "trigger": "Identical unrestricted optimum-set problem"
+        },
+        {
+          "assessment": "EXACT_EQUIVALENT_COVERAGE",
+          "evidence": "Uniform cross weights, residual row capacity, restricted spectral interval and all three phases on the same domain.",
+          "identifier_or_url": "2026/11/2/SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66",
+          "material_read": "Finding offset 0",
+          "method": "Published corpus primary text, local lawful mirror",
+          "title": "Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs",
+          "trigger": "Exact Laplacian characterization in the same problem"
+        },
+        {
+          "assessment": "COVERS_VALUE_AND_CONSTRUCTION",
+          "evidence": "Same optimum before and after lift, and constructive lift of an optimal transition rule. The inspected statements do not give necessity of all the frozen optimizer conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+          "material_read": "§3.2 Theorem 1 and eqs. (8a)–(9), offsets 18400–30436; §6.5 eqs. (52)–(55), offsets 80000–86438",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Previously known rate and lifted optimizer"
+        },
+        {
+          "assessment": "GENERAL_OPTIMIZATION_METHOD",
+          "evidence": "Automorphism averaging retains feasibility and cannot increase the convex objective; it supplies an invariant optimum rather than describing all minimizers.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§7.1, printed pp. 684–685",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational symmetric mixing optimization and averaging"
+        },
+        {
+          "assessment": "SUPPORTS_SYMMETRY_FRAMEWORK_SPECIFIC_CITATION_UNCONFIRMED",
+          "evidence": "Inspected sections include complete bipartite and general symmetry material. The claimed complete multipartite §5.4.2 was not substantiated in the available text; a keyword miss does not exclude all equivalent formulations.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§3.1.2, offsets 30000–34423, and parts of §5 around offset 68000; exact-word lookup multipartite on available OA PDF text",
+          "method": "Lawful OA primary PDF passages and targeted text lookup",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Frozen citation to a complete multipartite SDP"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Beyond a known best rate, the full optimizer set answers which individual transitions may be reallocated or removed without sacrificing mixing. The connectedness, optional-edge and forced-deletion regimes describe genuine design freedom across an unbounded family, not a numerical repetition of the minimum. Equivalent coverage prevents a distinct contribution but does not erase the structural usefulness of that classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

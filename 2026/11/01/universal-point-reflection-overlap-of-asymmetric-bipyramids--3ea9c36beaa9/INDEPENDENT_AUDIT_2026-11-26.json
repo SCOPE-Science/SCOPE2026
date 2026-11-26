@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:47:15.806729Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 49–123. Scale h to one and write v=vol_m(B). Both cone halves have sections homothetic to B, so the volume is v(1+t)/(m+1). The reflected section at height y intersects two scaled copies of B; its volume cannot exceed the volume of the smaller one, and concentric copies attain that bound at every height. At an interior axial height c, a nonzero horizontal displacement strictly reduces the overlap at y=c because a bounded full-dimensional convex body cannot agree in volume with a nontrivial translate. Continuity of slice overlap (the scaled and translated convex boundaries are null) extends that loss to a positive-height set. For 0<t<1, integrate the minimum slice radius to the power m over y≤c and double. For −t≤c≤0 the lower radius is minimal, for 0≤c≤(1−t)/2 it switches to 1−2c+y at y=−2ct/(1−t), and above (1−t)/2 that latter radius is minimal throughout the active interval. This gives the three branches; the outer ones are respectively increasing and decreasing, and in the middle the derivative changes sign exactly once at 1−c=2^(1/m)(1−2c/(1−t)). This gives the stated c* and maximum. At t=0 integrate over [max(0,2c−1),c] with radius 1−2c+y; at t=1 central symmetry and strict loss under nontrivial translation give the unique origin. The ratio has strictly positive derivative on the compact interval, proving global inversion and its dimensionwise Lipschitz property. The first axial moment has upper and lower contributions v/((m+1)(m+2)) and −t² times that number; the centroid gap and equality follow from 2^(1/m)≤1+1/m. Expanding 2^(1/m) at large m gives the displayed limit. The finite checker and recorded verification were inspected, not executed; the argument covers arbitrary nonsmooth full-dimensional B without inference from the cubical examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stein proves uniqueness for every convex body and the centroid formula for the simplex maximizer with ratio 2/(n+1). Chakerian–Stein treat the general volume invariant and planar bounds. Huang et al. prove lower bounds for maximal intersections of K with a translate of −K."
+        ],
+        "reasoning": "As 2z ranges over all translations, the general problems really are the same functional; general uniqueness and estimates are already covered. For m=1,t=0 Stein's n=2 simplex has ratio 2/3 and center the centroid. Those theorems do not determine the unique location or the exact height-dependent value for the aligned, two-sided family.",
+        "searches": [
+          "Stein (1956) Theorems 5 and 6",
+          "Chakerian–Stein (1965), pp. 497–498",
+          "arXiv:1811.12548 (Huang–Slomka–Tkocz–Vritsiou), abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–143, VERIFICATION.md, verify_bicone.py",
+        "Resultary 5c632538f66a and bb24ea7f02f0",
+        "Stein (1956); Chakerian–Stein (1965); arXiv:1811.12548; arXiv:2309.12597v1 abstract; Chan–Hair, SoCG 2025 p. 31:1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frustum proof has a common horizontal-section reduction, but its shift-to-midpoint transition at (2·2^(1/m)−1)⁻¹ is for a single affine slice-radius branch on a truncated cone. The planar overlap algorithm concerns maximizing translated polygon intersections, not a symbolic formula uniform over parameter, dimension and arbitrary B."
+        ],
+        "reasoning": "The reduction to a one-dimensional slice integral is not new. For two apices on opposite sides of the equator, the integral changes branches with the moving equator crossings, and yields a nonconstant interior maximizing height and the stated single analytic profile. Neither the frustum theorem nor the planar algorithm determines this crossing profile by specialization. The inversion, limit and centroid gap follow from the newly assessed explicit family formula and are not independent novelty claims.",
+        "searches": [
+          "5c632538f66a Finding, assumptions and start of horizontal reduction",
+          "Chan–Hair SoCG 2025 DOI 10.4230/LIPIcs.SoCG.2025.31, p. 31:1",
+          "Stein (1956) pp. 145–146"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stein's symmetry function maximizes the volume of K∩(2z−K); the largest centrally symmetric subset invariant is equivalent. The distinct same-date 5c632538f66a Finding gives that same invariant and optimizing center for homothetic frusta F_s(B), with the same single-cone value and center at s=0."
+        ],
+        "reasoning": "A centrally symmetric subset about z is contained in K∩(2z−K), which itself is centrally symmetric. Thus a change of name does not distinguish the invariant. Frusta have a monotone affine radius over their height interval; the asymmetric bipyramid has two branches rising to and falling from a full equator, with singleton sections at both ends. At zero frustum scale the objects and formulas coincide; positive frustum scale does not produce the bipyramid family or its profile.",
+        "searches": [
+          "Resultary: shape-independent maximal reflection overlap asymmetric bipyramid centrally symmetric equator apex height ratio",
+          "Resultary: point-reflection overlap maximal centrally symmetric volume fraction asymmetric double cone bicone apex height ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frustum theorem 5c632538f66a gives the single-cone endpoint in all m; the inspected exact planar Resultary profile bb24ea7f02f0 is for trapezoids. Goenka et al. abstract distinguishes an axial invariant from the planar Kovner–Besicovitch invariant and recalls the triangular lower equality case."
+        ],
+        "reasoning": "The m=1 bodies at 0<t<1 have vertices (±b,0),(0,h),(0,−th); their opposite sides are not parallel, so a trapezoid table does not subsume their values. At t=1 the centrally symmetric value is immediate. No inspected entry resolved the interior asymmetric profile; the inconclusive external search is not evidence of absence.",
+        "searches": [
+          "Resultary: Kovner-Besicovitch measure exact planar quadrilateral central symmetry triangle simplex endpoint",
+          "Resultary: Kovner-Besicovitch central symmetry ratio asymmetric kite quadrilateral point reflection overlap",
+          "Literature search: ‘Kovner-Besicovitch’ cone asymmetric quadrilateral simplex Stein symmetry function maximum overlap"
+        ]
+      },
+      "rationale": "Pass is limited to the full asymmetric-bipyramid profile for a freely varying positive height ratio with arbitrary symmetric equator, its explicit maximizing location and the resulting comparison/limit. The underlying overlap invariant, general uniqueness, planar triangle case, and all-dimensional single-cone endpoint are covered and not credited as distinct. The strongest matching indexed statement treats frusta, whose nondegenerate positive-parameter shapes and profile differ. The assessment is to the best of checked knowledge, not a priority determination.",
+      "residual_risks": [
+        "The shared single-cone formula in the separate same-date frustum record is certain; the directory dates do not establish ordering or dependency.",
+        "A specialized or unindexed exact calculation for kites, double cones, or piecewise-homothetic slices could cover further cases. The bounded comparison is not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at the one-sided cone endpoint; different family for positive parameter",
+          "evidence": "F_s uses two homothetic faces; at s=0 its fraction and center are 2/(2·2^(1/m)−1)^m and (2^(1/m)−1)/(2·2^(1/m)−1), agreeing with the frozen cone. Its fixed-s<1 dimension limit is 1/2 and does not give the bicone's height-ratio-dependent limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-reflected-core-profile-and-dimensional-phase-transition-of--5c632538f66a/RESULT.md",
+          "material_read": "Finding, assumptions and opening of Proof §1, mirror offset 0",
+          "method": "Indexed search and direct local-mirror passage",
+          "title": "Exact reflected-core profile and dimensional phase transition of centrally symmetric frusta",
+          "trigger": "Closest indexed exact reflection-overlap formula with the same arbitrary base"
+        },
+        {
+          "assessment": "Covers universal uniqueness and the simplex endpoint, not the displayed full family",
+          "evidence": "The maximum is attained at precisely one point; for an n-simplex it is attained at the centroid with ratio 2/(n+1).",
+          "identifier_or_url": "https://msp.org/pjm/1956/6-1/pjm-v6-n1-p16-s.pdf",
+          "material_read": "pp. 145–146, Theorems 5 and 6, OA offset 1380",
+          "method": "Bounded publisher OA PDF passage",
+          "title": "The Symmetry Function in a Convex Body",
+          "trigger": "Classical same invariant and a possible general maximizer formula"
+        },
+        {
+          "assessment": "General and planar extremal background",
+          "evidence": "Defines the centrally symmetric subset volume ratio and states planar lower-bound and triangle-covering results, not the arbitrary-base bicone profile in the inspected passages.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1965-049-3",
+          "material_read": "pp. 497–498, introductory definitions and planar bounds",
+          "method": "Bounded OA passages at offsets 0 and 2500",
+          "title": "On Measures of Symmetry of Convex Bodies",
+          "trigger": "Possible earlier central overlap values in the same invariant"
+        },
+        {
+          "assessment": "Different quadrilateral family at 0<t<1",
+          "evidence": "The result is for trapezoids. The interior planar bicone is an asymmetric kite with no parallel opposite sides.",
+          "identifier_or_url": "bb24ea7f02f0",
+          "material_read": "Indexed RESULT.md Finding and shape assumptions, mirror offset 0",
+          "method": "Indexed search and bounded local-mirror passage",
+          "title": "The sharp central symmetry profile of every trapezoid",
+          "trigger": "Exact planar quadrilateral profile that might cover m=1"
+        },
+        {
+          "assessment": "General lower bounds rather than the exact family formula",
+          "evidence": "It optimizes intersection of K and a translate of −K to bound covering numbers, without specifying the bicone profile in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.12548",
+          "material_read": "Abstract and Introduction, p. 1, offset 1500",
+          "method": "Bounded OA PDF passage",
+          "title": "Improved bounds for Hadwiger’s covering problem via thin-shell estimates",
+          "trigger": "Same reflected-translate optimization"
+        },
+        {
+          "assessment": "Algorithmic problem covers instances, not a symbolic all-dimensional profile",
+          "evidence": "A maximum-area translated overlap for convex polygons can be computed; this is not the stated dimension- and height-ratio-dependent formula.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2025.31",
+          "material_read": "p. 31:1, abstract and algorithmic result description",
+          "method": "Bounded OA passage at offset 0",
+          "title": "A Linear Time Algorithm for the Maximum Overlap of Two Convex Polygons Under Translation",
+          "trigger": "General planar algorithm potentially yielding quadrilateral exact cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a natural body's exact maximal centrally symmetric volume and the location of its core in every dimension, without knowing the shape of the equator. The inverse recovers a geometric asymmetry parameter from an intrinsic volume ratio; the centroid comparison shows why an easily computed conventional center is generally not optimal. These are meaningful explicit outputs beyond a generic uniqueness theorem, lower bound, or one-sided endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

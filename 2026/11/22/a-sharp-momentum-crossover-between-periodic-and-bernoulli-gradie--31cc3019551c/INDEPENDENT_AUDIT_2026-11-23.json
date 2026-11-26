@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:25:24.002339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 33–96; VERIFICATION.md lines 19–21; supplied verify.py and verification_output.txt (inspected, not executed)",
+        "Independent symbolic replay of seven A₀^(m−1)A₁ products for m=2,…,8, det(I−T), E(AᵀHA)−H, the ceiling difference and the first two crossover roots"
+      ],
+      "rationale": "For the scalar recurrence with one active step in a fixed period m≥2, the product has determinant β^m and trace 1+β^m−τ(1−β^m)/(1−β). Cyclic phase shifts preserve both even when β=0. The strict second-order Jury conditions yield exactly the asserted periodic ceiling; the upper endpoint has eigenvalue −1 and the lower one has +1. Bounded intra-period products pass geometric convergence to every iteration. For iid probability p=1/m, let a=1+β−pτ and v=p(1−p)τ². The exact covariance action has rows (a²+v,−2βa,β²), (a,−β,0), (1,0,0) and det(I−T)=pτ[2(1−β²)−τ(1+β−2pβ)]. Below the ceiling, the proposed H has positive diagonal and det H>0 for β>0 since pτ<2(1+β), and the expected drift is a negative multiple of x_k². Summing proves mean-square convergence; β=0 instead has exact scalar second-moment multiplier 1−2pτ+pτ². At or above the upper ceiling T has a real eigenvalue ≥1; the covariance vectors from (1,0),(0,1),(1,1) span the real symmetric covariance space, so not every deterministic start converges. The positive prefactor multiplying G_m(β)−1 in the difference of the ceilings gives one strict interior root and the stated sign directions (with equality also at β=0). Bernoulli's inequality gives b_m<1−1/m; on this domain the factor mz²+2z−m in G_{m+1}−G_m is negative at b_m, proving strict increase. Taking logs in b_m^m=1/(m/b_m+m−1), with b_m≥√2−1, first gives 1−b_m=O(log m/m), and reinsertion gives the claimed error order around log(2m)/m. The two exact roots and the displayed sign examples agree with the formulas.",
+      "residual_risks": [
+        "The finite symbolic checks do not substitute for the general derivation. The comparison is deterministic all-start stability versus iid all-start mean-square stability, not a comparison to iid almost-sure stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stamatiou gives a general second-moment stability method for a linear stochastic two-step recurrence in its SDE setting. Bollapragada–Chen–Ward give minibatch convergence under a batch-size condition."
+        ],
+        "reasoning": "With a centered standardized mask the same moment-transfer criterion applies to Bernoulli noise (a=1+β−pτ, c=−β, noise coefficient −τ√(p(1−p)), lagged noise coefficient zero). It recovers the iid half, not fixed deterministic phase or the root family. A sufficient large-batch rate theorem does not give either sharp matched-frequency comparison.",
+        "searches": [
+          "Resultary: periodic heavy ball exact stability region two component gradient erasure momentum schedule comparison",
+          "arXiv:1704.08515, recurrence (2.4) and Theorem 3.1; arXiv:2206.07553, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 98–104",
+        "The three Resultary/SCOPE records and primary papers itemized above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic two-component result concerns m=2 and strictly positive curvatures. Taking one curvature to zero in its monodromy gives trace 1+β²−τ(1+β) and yields the same m=2 ceiling once the strict Schur inequalities are checked."
+        ],
+        "reasoning": "The boundary specialization for period two and the exact iid formula are material overlaps, not a general period-m switch. To get that switch requires the arbitrary-m inactive-matrix product, comparing the two ceilings at equal active frequency and proving strict ordering and the boundary-layer asymptotic for the resulting roots. No inspected prior theorem resolves those claims together.",
+        "searches": [
+          "Local mirror: SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2, Finding and prior-work section; SCOPE-a-three-objective-conflict-for-bernoulli-erased-heavy-ball-optim--11f2caf45cc5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-a-three-objective-conflict-for-bernoulli-erased-heavy-ball-optim--11f2caf45cc5, Finding, gives the unbiased-oracle threshold Γ_p(β)=2p(1−β²)/(1+β−2pβ)."
+        ],
+        "reasoning": "The oracle B_nX_n/p with nominal step γ yields active strength γ/p. Thus γ=pτ and p=1/m give exactly the assigned iid recurrence and τ ceiling, not just a possible resemblance in parameters. It gives no periodic comparator.",
+        "searches": [
+          "Resultary: exact mean-square stability ceiling scalar heavy ball independently Bernoulli erased gradient retention probability p raw momentum",
+          "Primary literature: scalar heavy-ball Bernoulli erased gradient mean-square stability exact stepsize threshold momentum arXiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-m result is the frozen record itself, 2026/11/22/SCOPE-a-sharp-momentum-crossover-between-periodic-and-bernoulli-gradie--31cc3019551c. Separate hits were the Bernoulli-erasure record above and 2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2."
+        ],
+        "reasoning": "The first separate hit exactly tabulates the iid ingredient in a different step normalization. The second is deterministic with two positive component curvatures, not an independent entry for the comparison or its large-m asymptotic.",
+        "searches": [
+          "Resultary: heavy-ball momentum scalar Bernoulli erasure mean-square exact stability threshold periodic fixed-frequency gradient delivery crossover",
+          "Resultary: one active gradient every m iterations periodic raw heavy-ball exact step-size stability boundary"
+        ]
+      },
+      "rationale": "The iid-erasure ceiling is already exactly covered, and a catalogue result supplies closely related period-two monodromy. The frozen contribution explicitly excludes priority on either ingredient and instead compares the two schedules at matched active frequency for every m, with an ordered system of sharp reversal boundaries and their asymptotic. The inspected sources do not provide or imply that full comparison by substitution.",
+      "residual_risks": [
+        "A more general switched-system or scheduling result may be unlocated; Tseng full text was not accessible via the attempted route. Catalogue dates are not used as proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Duplicate of target, not an antecedent.",
+          "evidence": "Matches both stability ceilings, the crossover and the boundary-layer law.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-momentum-crossover-between-periodic-and-bernoulli-gradie--31cc3019551c",
+          "material_read": "RESULT.md offsets 0 and 6813 and frozen statement.",
+          "method": "Resultary and local mirror.",
+          "title": "A sharp momentum crossover between periodic and Bernoulli gradient delivery",
+          "trigger": "Exact catalogue hit."
+        },
+        {
+          "assessment": "Exact coverage of iid half; no periodic comparison in relevant passage.",
+          "evidence": "Γ_p(β)=2p(1−β²)/(1+β−2pβ) with B_nX_n/p, so τ=γ/p.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-objective-conflict-for-bernoulli-erased-heavy-ball-optim--11f2caf45cc5",
+          "material_read": "RESULT.md Finding, offset 0.",
+          "method": "Resultary and local mirror.",
+          "title": "A three-objective conflict for Bernoulli-erased heavy-ball optimization",
+          "trigger": "Exact iid-erasure threshold for same optimizer and scalar oracle."
+        },
+        {
+          "assessment": "Substantial monodromy overlap for m=2, with positive curvatures there.",
+          "evidence": "Its alternating-curvature product extends algebraically to one zero curvature; it does not cover the m>2 family.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "material_read": "RESULT.md Finding at offset 0 and relationship to prior work near 6348.",
+          "method": "Resultary and local mirror.",
+          "title": "A sharp disconnected stability diagram for cyclic two-component heavy ball",
+          "trigger": "Exact periodic heavy-ball stability for a cycle."
+        },
+        {
+          "assessment": "General second-moment method, consistent with already covered iid ingredient.",
+          "evidence": "Stability via the second-moment transfer spectral radius and necessary/sufficient inequalities under its hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.08515",
+          "material_read": "PDF p. 3 recurrence (2.4), near offset 9000; Theorem 3.1 pp. 6–7, near offset 21150.",
+          "method": "OA primary passage inspection.",
+          "title": "A note on Asymptotic mean-square stability of stochastic linear two-step methods for SDEs",
+          "trigger": "Potential general exact mean-square criterion."
+        },
+        {
+          "assessment": "Different guarantee and question.",
+          "evidence": "Linear convergence under sufficient batch size, not exact equal-active-frequency schedule ceilings.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+          "material_read": "PDF p. 3, near offset 8900.",
+          "method": "OA primary passage inspection.",
+          "title": "On the fast convergence of minibatch heavy ball momentum",
+          "trigger": "Stochastic raw heavy-ball on quadratics."
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence.",
+          "evidence": "No primary-text conclusion inferred.",
+          "identifier_or_url": "Tseng (1998), as cited in SCOPE-a-sharp-disconnected-stability-diagram-for-cyclic-two-component--60f51dc1b1a2",
+          "material_read": "No primary passage retrieved.",
+          "method": "OA DOI attempt, HTTP 403.",
+          "title": "Tseng's 1998 incremental-momentum paper",
+          "trigger": "Potential older cyclic momentum precedent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 73–104",
+        "Exact-erasure and period-two Resultary records above"
+      ],
+      "rationale": "Matching the active frequency removes a simple confounder and leaves a qualitative reversal: neither periodic nor iid scheduling has the uniformly larger admissible active step in this benchmark. The exact threshold tells where the ordering changes, and how close to unit momentum the change is forced as delivery becomes sparse. That exact comparison and trend are useful to design or interpret scalar benchmarks and do not require asserting novelty for the iid ceiling or ordinary stability machinery.",
+      "residual_risks": [
+        "No claim of faster within-region convergence, superiority over all schedules, or transfer to general Hessians or another probabilistic stability notion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:57:38.455044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The specified operation retains the prefix through the copied triple, inserts its reversal, and retains the original suffix. The two start ranges are 0..n-3 and 0..n inclusive; the second range includes windows involving newly inserted symbols. With fixed output length n+6 the bit encoding is injective and the frozen C++ loop generates all histories, sorts, and counts distinct output words, without overflow on this domain. Complementation commutes with every operation and partitions sources into free pairs. Independently reproduced all twenty rows with big-endian vectorized integer encodings, keeping one history from each commuting pair and computing exact distinct-word counts, not hashes or ordered-history totals. Precisely the omitted histories duplicate the right original window at i first and then the unchanged left window j<=i-3; each is equivalent to the retained history starting at j and then using i+3. These pairs are disjoint in history space and there are binom(max(n-4,0),2) of them, proving the upper bound. This reduction's entire output set was also compared with literal unreduced string histories at all 2,040 sources of lengths 3..10. The independent census visited 4,194,300 complement representatives through n=22. It agrees on maxima 4,9,16 at n=3,4,5 with labeled populations 2,4,4; for n=6..22 it finds only the two specified complementary prefixes and exactly n(n+3)/2-3 outputs, including 272 at n=22. Subtracting this expression from the commutation bound gives 2n-9. Review did not execute the uploaded C++ program; the independent complete computation is the replay. No n>22 conclusion follows.",
+      "replay": [
+        "/workspace/reproductions/pal3.py",
+        "/workspace/reproductions/pal3_03_16.txt",
+        "/workspace/reproductions/pal3_17_19.txt",
+        "/workspace/reproductions/pal3_20_21.txt",
+        "/workspace/reproductions/pal3_22_22.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "076a87310131 covers k=3 and all n>=3 but only q>=3; c4b4c103f5f1 covers odd k with q>=n and uses distinct symbols",
+          "The primary even-k attainability theorem excludes k=3; its universal upper bound alone remains applicable but loose in the audited binary lengths n>=4"
+        ],
+        "reasoning": "No broader inspected sharp statement includes q=2,k=3. Restrictions of the input alphabet preserve upper bounds, not attainment or a maximizer list outside the domain of the construction.",
+        "searches": [
+          "Resultary: exact-two PAL odd lengths and fixed ternary alphabets",
+          "arXiv:2609.00779, Section 3, PDF p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.00779",
+        "arXiv:1712.09345",
+        "Resultary 076a87310131",
+        "Resultary c4b4c103f5f1",
+        "Resultary b6dda3c39b4f",
+        "Resultary bbc52bcb5ef0 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shared history commutation gives U(n), whereas the binary result for n>=6 determines a strict deficit 2n-9 plus both equality sources",
+          "Earlier coding bounds and one-step work do not identify the exact two-fold binary k=3 descendant-sphere cardinalities"
+        ],
+        "reasoning": "The independently useful content is the binary optimum and complete equality population; neither an upper bound nor attaining it on a larger alphabet implies that content.",
+        "searches": [
+          "arXiv:2609.00779 exact-two maximum and bound",
+          "Resultary 076a87310131, c4b4c103f5f1, b6dda3c39b4f, Findings and scope",
+          "arXiv:1712.09345 preliminaries and abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zabokritskiy and Lenz–Wachter-Zeh–Yaakobi use descendant spheres with successively applied palindromic duplications; changing the vocabulary between histories and distinct descendants does not create a new result",
+          "The closely matching Resultary exact-two classification at k=2 has the wrong copied block length, while the ternary periodic construction uses all three symbols and cannot be made binary by relabeling"
+        ],
+        "reasoning": "The same operation and exact radius are acknowledged; no operation-preserving equivalence was found that maps either optimizer classification to the binary copied-triple problem. Complement and reversal symmetries do not change the block length or effective alphabet size.",
+        "searches": [
+          "Resultary: binary exact-two length-three palindromic duplication sphere, 0110 maximizers",
+          "arXiv:2609.00779, exact-two PAL section",
+          "arXiv:1712.09345, exact-t duplication sphere definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary self-match bbc52bcb5ef0 is the assigned record, not independent earlier coverage. Its strongest distinct match is 076a87310131 and has different sharp values at q>=3",
+          "The exact-two statement inspected in arXiv:2609.00779 is not a binary k=3 census"
+        ],
+        "reasoning": "No independent matching census was identified in the checked material. The exhaustive replay authenticates the table mathematically, not historically.",
+        "searches": [
+          "Resultary: binary PAL3 exact-two finite maximum and 0110 optimizer census",
+          "Focused primary web lookup for binary length-three two-step palindromic-duplication sphere maxima"
+        ]
+      },
+      "rationale": "Evidence supports distinctness of the finite binary sharp values and full optimizer census, not the two-step operator, encoding idea, or disjoint-window bound. The closest same-day result attains that bound at q>=3 with a different periodic word; it neither claims nor implies sharpness or equality classification at q=2. Same-day indexing is not used to infer priority.",
+      "residual_risks": [
+        "Unindexed binary sphere tables or stronger odd-block collision analyses might contain a prior equivalent; inspected excerpts do not establish whole-literature absence.",
+        "Same publication date of the ternary and binary records does not establish their order or genealogy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared bound, even-block sharpness only in the inspected statement",
+          "evidence": "Exact-two sharp formula and alternating attainability are stated for even k.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "Exact-two section, Section 3 of the inspected PDF, p. 3, text offsets 9943–10472",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Same two-step PAL sphere maximum"
+        },
+        {
+          "assessment": "Material overlap on the channel and universal bound, not binary coverage",
+          "evidence": "For every n>=3 and q>=3 the universal bound is attained by a prefix of the period-three 012 word; q=2 is excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-two-step-length-three-palindromic-duplication-spheres-over--076a87310131",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Read local Resultary mirror",
+          "title": "Sharp two-step length-three palindromic duplication spheres over fixed ternary alphabets",
+          "trigger": "Strongest distinct same-day Resultary match, same k and radius"
+        },
+        {
+          "assessment": "Not binary coverage",
+          "evidence": "Requires q>=n and attains the bound with pairwise distinct symbols.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Read local Resultary mirror",
+          "title": "Sharp exact-two palindromic-duplication spheres for odd block lengths over large alphabets",
+          "trigger": "Broader odd-block sharpness theorem"
+        },
+        {
+          "assessment": "Distinct parameter, not an implication",
+          "evidence": "The equality classification is for copied blocks of length two.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f",
+          "material_read": "RESULT.md Finding",
+          "method": "Read local Resultary mirror",
+          "title": "All maximizers of two-step length-two palindromic-duplication spheres",
+          "trigger": "Closest two-step equality classification by operator type"
+        },
+        {
+          "assessment": "Foundational scope; no matching result in inspected passages",
+          "evidence": "Defines exact-t duplication spheres and introduces single-error correction at t=1; opening scope concerns coding/generic packing bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.09345",
+          "material_read": "Abstract p. 1 and exact-t preliminaries p. 4 around text offset 9600",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Earlier palindrome-channel sphere and code literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Binary is the alphabet-size boundary at which universal-bound attainment for length-three duplication fails, not a randomly chosen set of words. The full finite optimum and both maximizing words give exact calibration of worst-case distinct descendants and collision loss, useful for testing finite channel bounds and prospective analytic binary equality conditions. Length 22 is a computational endpoint, not a structural transition; what makes the result informative is coverage of every source at twenty consecutive lengths with a persistent sharp linear deficit and rigid equality pattern. Neither a coding-capacity result nor an infinite-length result is credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

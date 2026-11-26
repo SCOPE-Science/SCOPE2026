@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies canonical digits, Fibonacci indexing, the empty length-two case, and all quantifiers. The palindrome prefix count proves total cardinalities; Fibonacci parity proves the divisible-by-three resonance. Exact two-state signed transfers, with explicit three-step involutions, prove the 12-phase imbalance. Four valid sparse witnesses force the gcd to divide two for all lengths at least thirteen; parity witnesses and exhaustive small-length lists finish the classification. The attached standard-library verifier independently checks direct integers, palindrome words, transfer predictions, and witness identities. Finite tests support but do not substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with stated residual risk
+The allowed leading halves count as F_(h-1) for length 2h (last digit forced zero), and F_h+F_(h-1) for 2h+1 (the second count allows a central one). Fibonacci parity is symmetric under negation modulo 3, making all mirror pairs and the possible center even when 3 divides L. For the other two congruences the signed weights after the forced leading bit give the three-step matrix products diag(-1,1) and [[1,2],[0,-1]], respectively. Both square to identity, so six more half-positions give the same signed sum, with unchanged center sign; the L=1,2 seeds agree with L=13,14. For L>=13 the endpoint word and each individual extra mirror pair at index k=4,5,6,7 are admissible: the extra bits are at least two indices from each other and from the endpoints. Subtracting the endpoint value gives P_k=F_k+F_(L+3-k). The two consecutive reverse-Fibonacci cancellations give -10 and -16, so the common gcd divides 2. Off resonance an odd value is the endpoint value for L=2 mod 3, or the endpoint value plus P_4 for L=1 mod 3. The independent finite replay enumerated 28,655 words for L=1..40, including all exceptional gcds and the empty L=2 family, with the claimed counts and table. The recurrence and witnesses, not the enumeration, establish all lengths.
 
-The relevant catalogued object appears in OEIS A094202 (Ron Knott, May 25, 2004), and Zeckendorf reversal fixed points in OEIS A349238. Ron Knott's fuller exposition gives examples of such palindromes. These record membership and reversal, not a parity-count formula depending on length or a uniform common-divisor theorem. Related Fibonacci recurrence identities and the general uniqueness theorem are known, but do not by themselves state or imply the exact phase table. An equivalent unpublished or unindexed prior derivation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete structural classification for a naturally catalogued arithmetic family rather than a chosen finite slice. The sharp contrast is mathematically substantive: every term is even in exactly one of three length classes, but outside that class the parity discrepancy stays uniformly bounded while the total population grows exponentially in length. The simultaneous gcd classification gives the exact common divisibility obstruction, and the proof explains both effects via Fibonacci parity and two finite-order transfer products. Neither computational novelty nor correctness alone is the reason for the value assessment.
+The supported distinction is the joint fixed-length law for parity of the represented integer and the exact common divisor, not discovery of Zeckendorf palindromes. No inspected claim or stronger theorem covers those quantitative laws.
 
-## Closest sources and limits
+## value
 
-OEIS A094202 (palindromic Zeckendorf values), OEIS A349238 (reversal fixed points), and Ron Knott's complete relevant expository section were inspected. The older Lekkerkerker theorem is used only as a standard uniqueness background and its original full text was not examined. The conclusion does not certify absolute novelty or give distributions for odd prime moduli.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length is the natural shell for canonical Fibonacci representations. The result distinguishes complete parity resonance from bounded even/odd discrepancies, and settles whether all values in each shell have any common divisor at all. Uniform gcd witnesses and the full exceptional range give exact usable information not supplied by a list of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

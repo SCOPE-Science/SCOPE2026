@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:27:26.579281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the abstract dimensionless ODE, eliminate the first nullcline on 0<x<α to obtain β=B_α(x). Its endpoint limits are +∞ and 0. For pq≤1 the derivative is strictly negative. Otherwise its sign can change only above (pq−1)^(−1/q), where its numerator factors into a positive factor times α−F(x). F diverges at both ends of its domain, decreases then increases about its unique minimum α_c, and is greater than x there, so its two roots for α>α_c lie in the domain of B_α. This gives the stated counts. The Jacobian trace is −2 and its determinant has the opposite sign to B_α′, giving the two attracting outer equilibria and the intervening saddle. At either ordinary fold, B_α″≠0; changing coordinates locally to (x,ẋ) shows a nonzero quadratic center-manifold term (the acceleration on ẋ=0 is a smooth nonzero factor times β−B_α(x)). Hence the zero-eigenvalue fold equilibrium is not asymptotically stable, consistent with the open interval. At the cusp only the claimed linear type is needed. α_c is the infimum of the rates admitting two stable equilibria, not an attained minimum; the precise scope in RESULT.md lines 36–45 is clear on this point. For ε=α−α_c>0, differentiate F′ at its minimum to get D>0, expand the exact factored derivative uniformly on the O(√ε) layer as K(ε−Ds²/2)+O(ε^(3/2)), and integrate. The endpoints are ±√(2ε/D)+O(ε) relative to x_c; the derivative remainder integrates to O(ε²) and replacing the endpoints by the leading ones costs no more. The fixed-x change gives the displayed shared slope; the two integrals give opposite (2/3)K√(2/D) terms. Setting p=q=2 yields D=6 and K=1. This is a replay of RESULT.md lines 49–89, for fixed exponents only. The inspected verification record reports 337 finite rational/numerical assertions; the supplied script was not executed and these assertions do not prove the asymptotic law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives an image-set parameterization of the region with three equilibria and monostability outside its closure. Proposition 12 treats unshifted Hill orders a,b≥1; Fig. 3 flags unresolved boundary information."
+        ],
+        "reasoning": "This covers much of the equilibrium and stability classification using a more general setup, but the displayed Hill specialization does not cover a positive subunit exponent paired with a sufficiently large other exponent. Its set characterization does not give the local fold-width coefficient or its coordinate slope.",
+        "searches": [
+          "arXiv:2104.04227v1 §4.2.1 Theorem 3 and §4.2.2 Proposition 12, Fig. 3"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1038/35002131",
+        "DOI:10.3934/dcdsb.2020007",
+        "arXiv:2104.04227v1",
+        "arXiv:1307.3126",
+        "Resultary 18f0e1d5650a, ad6ece65c154, a92b1c4b0829"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Canonical cusp controls explain the exponent but recovering the coefficient requires derivatives of the control map. The frozen calculation computes both the curvature of the fold abscissa relation at its minimum and the positive prefactor in the derivative of the physical-coordinate ordinate, and uses them jointly."
+        ],
+        "reasoning": "A comparable coefficient could be derived for the restricted prior cusp by tracking its parameter map. Neither that restricted statement nor the broader parameter-set classification mechanically gives the two constants for all fixed positive real exponents in the original coordinates without the model-specific fold computation.",
+        "searches": [
+          "Li–Zhang DOI:10.3934/dcdsb.2020007 pp. 1886–1888",
+          "arXiv:2104.04227v1 §§4.2.1–4.2.2",
+          "DOI:10.1038/35002131 Box 1, Fig. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original Box 1 equations agree by variable and exponent relabeling. Li–Zhang impose one exponent equal to 1, and in canonical controls obtain fold values ±2(μ₁/3)^(3/2). Cahn–Mochrie analyze a symmetric specialization including exponent 2."
+        ],
+        "reasoning": "The canonical exponent is the same phenomenon but the coefficient is not invariant under control reparametrization. Equality of a canonical constant with one symmetric example does not identify the original-coordinate coefficient for unequal exponents.",
+        "searches": [
+          "Gardner–Cantor–Collins DOI:10.1038/35002131, Box 1 and Fig. 2",
+          "Li–Zhang DOI:10.3934/dcdsb.2020007, Eq. (3), Theorem 4.1 and normal-form remark",
+          "Cahn–Mochrie arXiv:1307.3126"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "18f0e1d5650a gives a sharp three-halves opening in a three-state SOS tree boundary-law equation. ad6ece65c154 gives a threshold for a different symmetric competitive-promoter model. a92b1c4b0829 gives a time-relaxation law at a single fold in a mass-action model."
+        ],
+        "reasoning": "The first is an exact exponent analogue but has a different state equation and physical control coordinates. The other two solve different threshold/relaxation problems. No exact entry for this fixed-coordinate prefactor was established in the bounded search.",
+        "searches": [
+          "Local Resultary search for unequal-exponent Hill cusp width, fixed-parameter fold separation, and cusp prefactor: 18f0e1d5650a, ad6ece65c154, a92b1c4b0829"
+        ]
+      },
+      "rationale": "Pass concerns the explicit coordinate-dependent leading width and balance-line coefficients for all fixed positive p,q with pq>1. It does not credit the model, the bistability/cusp classification where already established, or the generic three-halves exponent. The full accessible broad Hill-switch preprint was consulted, improving on the frozen access note; it gives substantial parameter-set coverage but not the same full exponent range or local quantitative result.",
+      "residual_risks": [
+        "A less directly indexed bifurcation calculation or a published parameter map for additional exponent ranges could contain an exact equivalent. The bounded comparisons do not certify priority. No statement about implementation or experimental rate tolerances was evaluated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and qualitative region, not local width formula",
+          "evidence": [
+            "Two mutually repressive Hill responses and a region between two bifurcation curves."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/35002131",
+          "material_read": "Box 1 p. 339 and Fig. 2 p. 340, offsets around 3400, 9800 and 25000",
+          "method": "OA author-hosted same-paper PDF",
+          "title": "Construction of a genetic toggle switch in Escherichia coli",
+          "trigger": "Original dimensionless model and plotted bistable region"
+        },
+        {
+          "assessment": "Restricted exponent family and generic normal-form coefficient",
+          "evidence": [
+            "One Hill exponent equals one, the other is an integer at least two; fold coefficients are given in canonical controls."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2020007",
+          "material_read": "Eq. (3), Theorem 4.1 pp. 1886–1887 and normal-form remark p. 1888, offsets around 55200 and 69500",
+          "method": "OA author-text PDF mirror of the same paper",
+          "title": "Transition between monostability and bistability of a genetic toggle switch in Escherichia coli",
+          "trigger": "Exact restricted cusp and possible implication of a quantitative width"
+        },
+        {
+          "assessment": "Substantial equilibrium classification overlap; no stated all-positive-exponent local coefficient in those sections",
+          "evidence": [
+            "Parameter-region image description; unshifted Hill proposition assumes both orders at least one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.04227",
+          "material_read": "§4.2.1 Theorem 3 p. 19, §4.2.2 Proposition 12 pp. 20–21, Fig. 3 pp. 21–22, offsets around 60000, 64000 and 67700",
+          "method": "Targeted reading of the OA full preprint",
+          "title": "Monostability and bistability of biological switches",
+          "trigger": "Broader Hill-system equilibrium theorem that might imply physical-coordinate fold width"
+        },
+        {
+          "assessment": "Symmetric specialization",
+          "evidence": [
+            "Symmetric analysis including exponent two does not give the general unequal-coordinate opening."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.3126",
+          "material_read": "Equations and discussion pp. 4–6, offsets around 25000 and 44500",
+          "method": "OA PDF relevant passages",
+          "title": "Biologic: Gene circuits and feedback in an introductory physics sequence for biology and premedical students",
+          "trigger": "Cited symmetric limiting example and possible coefficient match"
+        },
+        {
+          "assessment": "Distinct equation and parameter",
+          "evidence": [
+            "Tree boundary-law external-field folds, rather than the planar Hill model."
+          ],
+          "identifier_or_url": "18f0e1d5650a",
+          "material_read": "RESULT.md finding and setting from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cusp opening of the external-field fold window in the three-state SOS model",
+          "trigger": "Exact indexed three-halves width law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-coordinate width is a natural quantitative invariant of this established planar model: it answers how quickly the three-equilibrium region opens in the original coordinates, which a canonical cusp shape does not quantify. The explicit exponent-dependent prefactor and first-order center slope, across nonsymmetric as well as symmetric cases, are the useful content; the generic exponent and equilibrium counts alone would not support this assessment. The result is mathematical and not an experimental calibration or a practical engineering claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

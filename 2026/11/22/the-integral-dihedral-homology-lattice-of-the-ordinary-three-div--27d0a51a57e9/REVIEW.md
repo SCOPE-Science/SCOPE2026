@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cycle-independent-set recurrence in Adamaszek [1] supplies exactly two free integral homology classes in reduced degree \(k-1\). All three proposed cycles are closed because they are joins of reduced zero-cycles. Maximal independent faces \(F_0,F_1\) define genuine cocycles even when \(\operatorname{Ind}(C_{3k})\) has simplices of higher dimension; the determinant-one coefficient pairing proves an integral basis and avoids the common rational-basis pitfall. Exact orientation bookkeeping gives all rotation and reflection matrices, and elementary Smith calculations give the two coinvariant classifications. The attached Python 3 standard-library program independently checks signed chains, boundary cancellation, automorphism actions, matrix relations and minors for seven values of \(k\), plus three-prime Betti checks for five values. The infinite theorem is proved symbolically, not inferred from the finite run. No geometric quotient homology is inferred from module coinvariants.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Closest material: Adamaszek (arXiv:1106.6250, 2011) gives nonequivariant homotopy; the public article *Complete dihedral homology characters of cyclic noncover complexes* gives a rational character for the Alexander dual and expressly does not classify the integral lattice in the three-divisible case. The related *Dihedral quotients of cycle matching complexes through homological dimension three* determines only geometric quotients for sizes at most thirteen, and an integral theorem for powers of cycles concerns different complexes. The exact integral labeled matrices and reflection-sensitive coinvariant formula are not implied by any inspected claim. Bibliographic searches cannot prove uniqueness and unpublished or unindexed equivalent results remain a risk.
+PASS
 
-## Value — PASS
-The cyclic graph independence complex is a canonical foundational object whose ordinary homotopy and rational dihedral character were already known. The integral symmetry representation supplies explicit geometric generators and distinguishes two reflection actions invisible in rational traces; in particular an order-three coinvariant survives precisely in a nontrivial congruence class modulo four. This identifies a mathematically motivated integral-equivariant invariant for an infinite family rather than an isolated numerical calculation. No broader quotient theorem is needed or claimed.
+An independent all-k argument checks the nonequivariant input: for a path on m≥3 vertices, splitting at the next-to-last vertex gives a conical deletion and a link on m−3 vertices, shifting reduced homology by one. Splitting the 3k-cycle at 0 gives deletion P_(3k−1) and link P_(3k−3), with their unique reduced groups Z in degrees k−1 and k−2 for k≥2. The integral exact sequence gives a split extension of Z by Z in degree k−1 and no other groups. At k=1 the complex has three vertices. For all k each join chain z_j is closed by signed omission cancellation, and its support lies in independent sets. The two maximal independent residue-class faces give actual integral cocycles even in the presence of higher simplices. Their evaluation on z_0,z_1 has rows (1,0), ((−1)^k,1) and determinant 1, proving a full basis. On z_2 it is (−1,0), the −1 coming from k negative choices and a cyclic factor reorder of sign (−1)^(k−1). Hence [z_2]=−a+(−1)^k b. Rotation shifts the offsets, and reflection sends factor t of z_j to reversed pair k−1−t of z_(2−j); reversing the k factors and the k directed pairs gives (−1)^(k(k+1)/2). These give exactly the stated column action matrices. With r=1 the relations give a=b and (2−(−1)^k)a=0; for odd k, s acts on the remaining Z/3 by (−1)^(k(k+1)/2). This proves both module-coinvariant assertions, including the triangle boundary case. No finite testing is used to infer the infinite result.
 
-## Limits and review status
-Only a self-review and reproducibility checks have been performed; no independent audit or third-party mathematical validation has occurred. A genuinely stronger unindexed integral dihedral classification would override the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant wedge result, the sign-twisted rational character via Alexander duality and one exact order-three restriction at k=2 are established or overlap with inspected results. The compared statements do not give the full all-k integral dihedral lattice in the specified generators or its reflection-sensitive coinvariants. This passes the additional integral content, not those overlapping statements.
+
+## value
+
+PASS
+
+A canonical all-k family gets concrete geometric generators and the full lattice action, not merely an isomorphism after scalar extension. The precise mod-four criterion detects order-three module coinvariants that the rational character cannot distinguish, and supplies useful input for computations with the symmetries of the ordinary cycle matching complex. The sign and integral basis matter: a rational basis or a finite catalogue of examples would not give the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

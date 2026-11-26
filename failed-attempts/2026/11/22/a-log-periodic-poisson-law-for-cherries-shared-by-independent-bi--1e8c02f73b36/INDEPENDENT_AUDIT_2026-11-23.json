@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:21:15.244235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A specified split pair is a cherry exactly when the other keys avoid its maximal common-prefix cylinder. For multiple prescribed disjoint pairs, the cylinders must be disjoint (otherwise at least one pair's cylinder contains a third key), and the remaining keys must avoid their union. Conditional on the lengths, the cylinder words are independent uniform words, so either containment for a pair has probability equal to its larger mass. On epsilon<=nX_i<=M this gives O(r^2 M/n) relative error in the conditional disjointness factor; the binomial-to-product comparison has relative error O_r,M(1/n) by Taylor expansion. Outside the band the joint contribution is bounded by products of one-dimensional exponential sums, since 1-sum X_i<=product(1-X_i) for disjoint cylinders. Summing X/2 over the small dyadic X gives O(epsilon/n); on the upper side the weighted sum of X exp(-nX/2) is O((M+1)e^(-M/2)/n) by geometric doubling. For the mean, when X<=1/2, |(1-X)^(n-2)-exp(-nX)|<=C( X+nX^2 )exp(-c nX) for large n, and X=1 contributes exponentially little to the approximant. Summing dyadically gives the stated O(1/n) after multiplying by n. In Proof §3 the missing tail is j>k (far positive), not far negative; it is the exponentially small tail. The Fourier coefficient follows by integrating one period at frequency h and substituting u=2^(s+j); it is Gamma(1-2*pi*i*h/log(2))/(2 log(2)). Positivity, continuity, nonconstancy and phase density (e.g. n=floor(2^(k+s)) for s in [0,1)) then settle the absence of an unphased law. Disjointness gives exactly (n)_{2r}/2^r ordered r-edge choices. Factorial moments along phase subsequences identify the Poisson by moment determinacy; ordinary moments are sums of factorial moments, and pointwise convergence on the integers plus tightness gives total variation. For q>=3 it is the second factorial moment, not the ordinary second moment as the last proof paragraph calls it, that is O(n^(4-2q)); the formula immediately preceding it is already for factorial moments, and this is the quantity required by Bonferroni. These two slips do not change the argument or theorem. The n=2 pair probability uses the usual empty avoidance product 1.",
+      "status": "PASS",
+      "verification": "Inspected frozen check.py without executing it. Independent four-key computation: among the 14 nonconstant root bit assignments following any unary prefix, 2 split into the two specified pairs and 4 put the specified pair into a three-key child. The cherry probability within that three-key child is 1/3. Thus p_4=5/21 and B_{4,2}=1/7. Two independent trees then give E H=50/147 and P(H=2)=3/49, hence P(H=0,1,2)=(106/147,32/147,3/49). Replay: /workspace/branches/da2735ae-d9d5-4016-a657-dccc8fb50114/ordinal3-verification.md. This verifies only the finite example; the asymptotic arguments are analytic."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson Thm. 3.1 and Cor. 3.5 give linear variance and log-periodic concentration for a fixed fringe shape in Patricia tries; use the two-leaf shape.",
+          "Bryant–Steel Thm. 4 gives a TV Poisson approximation driven by cherry counts for a fixed tree versus a uniform unrooted binary phylogeny. This is analogous, but not the coverage used for this rejection."
+        ],
+        "reasoning": "Unlike a single-tree mean alone, the existing concentration theorem determines normalized size moments of every fixed order, because the size is bounded by n/2. Those moments are exactly the only model input needed after conditioning on exchangeable matching sizes.",
+        "searches": [
+          "arXiv:2405.01239 §3; Resultary 278e7537a80c Proof §§1,3",
+          "Web: Steel Penny distributions tree comparison metrics common cherries Poisson Robinson Foulds Bryant Steel common splits 1993 2009 rooted trees"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.01239",
+        "Resultary 278e7537a80c full result",
+        "arXiv:0810.0868",
+        "Steel–Penny DOI:10.1093/sysbio/42.2.126 catalog/abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a prescribed r-edge submatching, inclusion conditional on size C equals 2^r(C)_r/(n)_{2r}. Along phase s, Janson gives C/n -> F(s)/2 in probability for cherry counts; boundedness yields convergence of all fixed-order normalized falling factorials."
+        ],
+        "reasoning": "For q independent exchangeable matchings, multiplying the published single-matching inclusion factor and summing ordered edge choices gives exactly E(H)_r=[2^r E(C)_r/(n)_{2r}]^q (n)_{2r}/2^r. Substitution gives the phase Poisson factorial moments for q=2 and E(H)_2=O(n^(4-2q)) for fixed q>=3. Standard integer-valued convergence and Bonferroni yield all the claimed overlap conclusions. Nonconstant phase follows from the already available gamma coefficients, which have no zeros. The finite cylinder expectation is a different way to calculate edge probabilities but the prescribed-edge asymptotic itself follows from the same matching and concentration formulas.",
+        "searches": [
+          "Resultary 278e7537a80c Proof §1 exact conditional specified-edge inclusion; arXiv:2405.01239 Cor. 3.5 and Thm. 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full Resultary 278e7537a80c result gives the exact conditional overlap law for any two independent label-exchangeable matchings, not just its reciprocal-nearest-neighbor application."
+        ],
+        "reasoning": "The cherries of a labelled Patricia trie form a matching, and the i.i.d. labels make its law permutation invariant. Conditional on the number of edges, it is uniform over that orbit. H_{n,2} is precisely the overlap observable of the general formula applied to two such matchings.",
+        "searches": [
+          "Resultary: random independent Patricia tries common labelled cherries shared sister pairs Poisson intersection",
+          "Web: common cherries two independent trees Patricia tries Poisson random labelled matches exchangeable matchings Steel Penny Robinson Foulds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published matching pgf gives every overlap coefficient from the size laws. Janson's fringe Mellin formula for m=2 has Gamma(2+s) times pi_t/2!, with pi_t=1/2 for fair bits."
+        ],
+        "reasoning": "The matching formula is stronger than a tabulated four-key distribution. At Mellin arguments -1-2*pi*i*h/log(2), the normalized cherry-count mean has coefficients Gamma(1-2*pi*i*h/log(2))/(4 log(2)), exactly those of F/2 (up to the shared Fourier convention). A separately labelled Patricia overlap table or reprinting the parameter is not needed for mathematical coverage.",
+        "searches": [
+          "Resultary overlap query above; Resultary 278e7537a80c Exact conditional calibration and Proof §1; arXiv:2405.01239 Thm. 3.1 and Mellin Eq. (3.18)"
+        ]
+      },
+      "rationale": "The core asymptotic collision laws are direct consequences of the known same-model concentration of one-tree cherry counts and the distribution-free overlap formula for independent exchangeable matchings. The latter is explicit in a separate already-published record bearing the same publication date; this review does not infer time-of-day priority between the records. The combined premises cover the proposed limit, not merely its mean or a different tree model. The alternative direct cylinder proof is valid but does not establish a distinct original theorem of the stated scope.",
+      "residual_risks": [
+        "No historical ordering within the common Resultary publication date was determined. The coverage judgment is about mathematical implication from the available published results, not a claim about authorship or precedence within that day.",
+        "No claim is made that the exact prefix-cylinder representation itself appears verbatim in the compared sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-model cherry-count concentration and periodic mean; by itself does not state cross-tree matches",
+          "evidence": [
+            "Cor. 3.5 (3.31) gives N_t/n=E N_t/n+o_p(1) and the periodic centering; Thm. 3.1 gives Var N_t=Theta(n). The unique two-leaf full shape is a cherry."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.01239",
+          "material_read": "Primary PDF abstract, §§2.4 and 3, Thm. 3.1, Cor. 3.5 and Mellin Eq. (3.18)",
+          "method": "OA PDF text, compared shape, number of leaves, and Mellin arguments",
+          "title": "Fringe trees of Patricia tries, compressed binary search trees, and three other random full binary trees",
+          "trigger": "Same random Patricia model and fringe shape, potential concentration needed for generic overlap"
+        },
+        {
+          "assessment": "The general matching result applies directly; the paper's geometric special case is not needed for coverage",
+          "evidence": [
+            "Independence and exchangeability are the stated assumptions for the conditional pgf. The proof gives the specified r-edge inclusion factor for any conditional uniform matching, so the same count works for each of q independent copies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-distribution-free-overlap-calibration-and-multiscale-limits-for--278e7537a80c/RESULT.md",
+          "material_read": "Full result, especially exact conditional calibration and Proof §§1,3",
+          "method": "Resultary mirror, compared conditional law, hypotheses and factorial moments",
+          "title": "Distribution-free overlap calibration and multiscale limits for reciprocal nearest neighbors",
+          "trigger": "General exact distribution for independent labelled matching intersections"
+        },
+        {
+          "assessment": "Related older precedent, not a same-model theorem",
+          "evidence": [
+            "A fixed reference tree is compared to a uniformly sampled fully resolved unrooted phylogeny; mean parameter c_T/(2n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0810.0868",
+          "material_read": "Primary PDF definition of cherries and §3 Thm. 4 statement and opening of proof",
+          "method": "OA PDF model and theorem comparison",
+          "title": "Computing the Distribution of a Tree Metric",
+          "trigger": "Older Poisson approximation for common splits/cherries"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The probability of concordance between independently built indexes with persistent labels is a meaningful benchmark: two replicates retain a nondegenerate calibrated overlap, whereas three or more rarely agree, and an exact small phase modulation precludes a fixed reference Poisson. This is meaningful as a benchmark, independently of whether it merits a new result. The valid direct proof and finite example do not rescue the originality of the frozen finding; no separately motivated new remainder is established here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

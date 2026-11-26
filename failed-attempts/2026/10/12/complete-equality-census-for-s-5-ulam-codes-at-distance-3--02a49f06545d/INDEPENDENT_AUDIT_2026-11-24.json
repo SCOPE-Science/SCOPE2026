@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:50:20.120815Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof, VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/60fdc5a2-a7bb-44d5-90ac-f1410b8dc890/independent_check.py and independent_check.out (independent replay; INDEPENDENT_OK)"
+      ],
+      "rationale": "An independent enumeration using d_U=5−LCS checked all 7140 unordered pairs, yielded 4020 four-cliques, and found that none has a common neighbor outside the clique; this both attains four and excludes every larger code. It counted 134 through 12345 and reproduced the 24 orbits, of sizes 60 (5), 120 (7), and 240 (12), under the 240 distinct relabeling/reversal transformations. Both transformations preserve LCS, they commute, and reversal is not a single symbol relabeling on all words. For a separate check of equidistance, distance 4 means a reversed pair (all symbol pairs have opposed order). After relabeling the pair as increasing and decreasing, a third compatible word would have increasing and decreasing subsequences of lengths at most two. The two lengths ending at each position must form five distinct pairs in {1,2}², impossible. Thus any code of size at least three is already equidistant.",
+      "residual_risks": [
+        "Independent replay uses the stated LCS metric identity rather than a second shortest-path reconstruction. No claim about the full isometry group is audited or needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The compared Kong passages give sphere sizes, perfect-code nonexistence and multipermutation bounds; the Wang et al. introduction concerns constructions and bounds for multiple deletions.",
+          "The Resultary source explicitly uses relabeling and simultaneous reversal; it does not need a claim about the full metric-isometry group."
+        ],
+        "reasoning": "The inspected broader results concern different invariants. The direct predecessor already covers the claim with precisely the required equivalence relation, rather than merely offering a coarser orbit count under some larger group.",
+        "searches": [
+          "Resultary: Ulam S5 distance 3 maxima orbits reversal symbol relabeling 24 equidistant",
+          "arXiv:1712.03639 pp. 1–2",
+          "arXiv:2406.16656 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6",
+        "arXiv:1504.05100v1",
+        "arXiv:1712.03639",
+        "arXiv:2406.16656"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier finding supplies the same optimum, count, metric rigidity and subgroup orbit multiset.",
+          "Relabelings act transitively on 120 words, and a maximum contributes four incidences: 4020×4=120×134. Stabilizer orders follow from 240 divided by orbit size."
+        ],
+        "reasoning": "All substantive frozen claims are explicit in the earlier record or mechanically implied by them. Knowing just the literature optimum would not have yielded this implication.",
+        "searches": [
+          "Earlier Resultary b06744f952a6, mirrored RESULT.md Finding and scope",
+          "arXiv:1504.05100v1, Example III.1 and Table I"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Resultary finding states 4020 literal size-four maxima at the same (5,3) parameter and their equidistance.",
+          "Minimum Ulam distance 3 is exactly disjointness of the sets of length-three subsequences of distinct words (two-deletion correction)."
+        ],
+        "reasoning": "The parameter is a distance lower bound, not a different enumerator in which distances are prescribed exactly. The earlier record additionally certifies exact distance 3 on every pair of every maximizer. Describing the words by translocations or by permitted deletions does not change this equality problem.",
+        "searches": [
+          "Resultary: 4020 maximum codes permutations S5 Ulam distance at least 3",
+          "arXiv:2406.16656, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I has optimum 4 for n=5 and d=3, not a count of equality cases.",
+          "The earlier Resultary RESULT.md, OA offsets 373–457 and 724–790, supplies 4020 and the orbit distribution 60×5, 120×7, 240×12. Its retrieved Finding did not state 134 explicitly."
+        ],
+        "reasoning": "The literature table alone would not cover the census; the distinct indexed exact finding does.",
+        "searches": [
+          "Resultary: S_5 Ulam code distance 3 complete equality census 4020 labeled maximum codes",
+          "Resultary: 134 maximum codes containing identity Ulam S5 distance 3",
+          "arXiv:1504.05100v1, Example III.1 and Table I"
+        ]
+      },
+      "rationale": "A distinct previously catalogued finding already gives the same complete labeled equality count, universal equidistance, and full orbit distribution for the identical subgroup. The one count not explicit in its retrieved Finding, 134 through the identity, follows immediately from the published 4020 by transitivity and double counting; it does not leave a new substantive remainder. This is statement-level coverage, not a conclusion about authorship or who first discovered the result.",
+      "residual_risks": [
+        "The relationship between the earlier catalogued record and the frozen submission (earlier version, duplicate reporting, or independent derivation) was not established. This does not change the coverage of the mathematical claim. No exhaustive historical priority search was performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the substantive census and symmetry assertions",
+          "evidence": [
+            "4020 labeled maxima, equidistance and 24 orbits of the exact stated sizes under relabeling and position reversal; scope restricts to this subgroup."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6",
+          "material_read": "Mirrored RESULT.md Finding and scope, offsets 373–457, 724–790 and around 1189, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue semantic search and mirror original passages",
+          "title": "Complete census of maximum (5,3) Ulam permutation codes",
+          "trigger": "Strongest exact parameter, enumerator and orbit match"
+        },
+        {
+          "assessment": "Prior optimum, not an equality census in these passages",
+          "evidence": [
+            "The IP upper bound is 5 and the actual value is 4; Table I lists 4 under known maximum sizes."
+          ],
+          "identifier_or_url": "arXiv:1504.05100v1",
+          "material_read": "Example III.1 pp. 2–3, computational discussion pp. 4–5 and Table I",
+          "method": "OA original PDF bounded passages",
+          "title": "New Bounds for Permutation Codes in Ulam Metric",
+          "trigger": "Same n=5,d=3 literature benchmark and published table"
+        },
+        {
+          "assessment": "Inspected statements concern sphere sizes and code bounds",
+          "evidence": [
+            "Sphere-size formulas and nonexistence of nontrivial perfect Ulam permutation codes are not maximum-clique enumeration."
+          ],
+          "identifier_or_url": "arXiv:1712.03639",
+          "material_read": "Introduction p. 1 and Tables I–II p. 2",
+          "method": "OA original PDF bounded passages",
+          "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+          "trigger": "Potential broader translocation coverage"
+        },
+        {
+          "assessment": "Relevant broader formulation, not the census in the inspected statement",
+          "evidence": [
+            "The stated contributions are bounds and constructions for multiple-deletion codes."
+          ],
+          "identifier_or_url": "arXiv:2406.16656",
+          "material_read": "Opening scope p. 1",
+          "method": "OA original PDF bounded passage",
+          "title": "Permutation and Multi-permutation Codes Correcting Multiple Deletions",
+          "trigger": "Equivalent deletion-code viewpoint"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1504.05100v1, Example III.1",
+        "Resultary b06744f952a6, Finding"
+      ],
+      "rationale": "The benchmark is well motivated and the equality census would be useful if not already available. But the actual invariant and symmetry information are already supplied by the earlier complete census, and the extra incidence count is immediate. The repeated computation does not fill a new mathematical gap at this parameter.",
+      "residual_risks": [
+        "No assertion is made about the value of other parameters or enlarging the symmetry classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

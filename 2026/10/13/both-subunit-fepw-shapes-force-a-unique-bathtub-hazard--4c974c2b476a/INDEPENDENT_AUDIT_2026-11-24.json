@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:49.160565Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published Eq. (2.4) gives the hazard used in the finding. With z=(τx)^η and z₀=(1−η)/η, the exponential-power contribution to h′ has sign ηz+η−1 and the Weibull contribution is strictly negative for 0<φ<1. Thus h′<0 up to and including x₀=z₀^(1/η)/τ. For z>z₀, the sign is that of R−1, where R is the positive first contribution divided by the magnitude of the second. Multiplying d(log R)/dz by the positive ηz(ηz+η−1) gives η[ηs²+(1+η−φ)s+1−η] with s=z−z₀>0. The coefficients are positive everywhere in the stated open quadrant. The ratio increases continuously from zero to infinity, so the unique crossing is strict. The power factors diverge at zero, and the exponential in the first term dominates the power decay at infinity. The proof excludes zero scales and unit shape boundaries as stated. Figure 2(b) uses the quoted parameters and stops at x=100; independently evaluating x₀=100·19²⁰ and solving R=1 gives x₀≈3.7589973457545893×10²⁷ and x*≈1.7683454747093013×10³⁰, consistent with the reported rounding. The bundled verify_fepw_hazard.py was inspected, not executed. It checks five interior regimes and the figure, not the quantified theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Additive Weibull formula shown by Ghazal is a sum of two ordinary power terms, with no exponential hazard factor. The additive Chen–Weibull description has closer structure but only the general ability to exhibit bathtub shapes is established in the accessible material."
+        ],
+        "reasoning": "A flexible family admitting some bathtub hazards is weaker than a strict classification at every point with both shapes less than one. A theorem for a broader Chen–Weibull model covering that entire slice would preempt the shape classification, but no such result was verified in the available passages.",
+        "searches": [
+          "Ghazal's comparison with Additive Weibull, Weibull–modified Weibull and additive Chen–Weibull hazard models",
+          "Exact-title and DOI retrieval for Thach–Bris, DOI:10.1002/qre.2740"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_fepw_hazard.py",
+        "Ghazal, DOI:10.3934/math.2026481",
+        "Thach–Bris, DOI:10.1002/qre.2740 (limited access)",
+        "Resultary 549f250e327e and 79c0db9318a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first term alone has its critical point at x₀, the second term decreases throughout, and the source infers decrease in the stated quadrant, illustrated only on [0,100]."
+        ],
+        "reasoning": "The component shapes and eventual growth rule out global decrease, but do not alone imply uniqueness of the turning point of their sum. The strict derivative-ratio comparison proves precisely that assertion after the exponential-power term begins increasing. The finite plot is correct as a window on the decreasing branch, not as a global classification.",
+        "searches": [
+          "Ghazal DOI:10.3934/math.2026481, Shape section, derivative discussion and Figure 2(b)",
+          "Comparison of the exponential-power and Weibull component shapes with the asserted full-sum shape"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghazal explicitly describes the both-subunit hazard as decreasing. The same paper describes the earlier additive Chen–Weibull model as combining a Chen hazard and a Weibull hazard and admitting bathtub shapes."
+        ],
+        "reasoning": "Under t=τx the hazard divided by τ becomes ηt^{η−1}exp(t^η)+φ(κ/τ)^φ t^{φ−1}; that is the form of a conventional Chen hazard with multiplier one plus a Weibull hazard. Positive time rescaling preserves the location order and number of critical points. Model overlap is plausible, but the accessible description does not identify the exact Thach–Bris parameterization or state the global one-minimum theorem for this subset.",
+        "searches": [
+          "FEPW full-support hazard and competing-risk or additive Chen–Weibull reformulation",
+          "Ghazal DOI:10.3934/math.2026481, §2.2 Eq. (2.4) and bibliography [12]",
+          "Thach–Bris DOI:10.1002/qre.2740; lawful source and repository lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records respectively resolve identifiability on scale-boundary strata and a failure of absolute convergence for a moment series. Figure 2(b) lists the numerical setting but does not show the late critical point."
+        ],
+        "reasoning": "Those distinct same-day records match the distribution but not the hazard question. No table is necessary for the universal theorem; the only pointwise numerical claim is checked against the exact Figure 2(b) parameters rather than credited as a standalone invariant.",
+        "searches": [
+          "Resultary semantic lookup for FEPW hazard corrections, exact minima, and subunit shapes",
+          "Mirrored same-model RESULT.md 549f250e327e and 79c0db9318a8; Ghazal Figure 2(b)"
+        ]
+      },
+      "rationale": "The supported contribution is the correction of the published global decreasing classification and its replacement by the exact one-minimum theorem on the entire both-subunit interior, with a numerical explanation for the misleading finite window. It does not claim a new distribution, a new exponential-power hazard, or a novel method of analyzing sums of hazards. The strongest adjacent earlier model is additive Chen–Weibull; its primary full text was not accessible by lawful routes checked and exact earlier coverage remains a limitation, not evidence of absence.",
+      "residual_risks": [
+        "The primary Thach–Bris text was unavailable through the lawful routes checked. Earlier exact coverage in a closely overlapping Chen–Weibull parameterization cannot be excluded.",
+        "The review addresses the two-subunit positive-scale quadrant, not the article's claims for the other quadrants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly confirms the formula and the claim being corrected",
+          "evidence": [
+            "The paper calls the both-subunit hazard decreasing; its first plotted setting has τ=0.01, η=0.05, κ=0.03, φ=0.4, with a time axis through 100."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/4/PDF/math-11-04-481.pdf",
+          "material_read": "Introductory additive-model comparisons; §2.2, Eq. (2.4) and shape discussion, printed pp. 11662–11663; Fig. 2(b), p. 11664; reference to Thach–Bris",
+          "method": "Lawful primary publisher PDF, bounded passages",
+          "title": "Hamiltonian Monte Carlo–based inference for the flexible exponential power–Weibull distribution with applications in reliability analysis",
+          "trigger": "Published formula, disputed shape claim, competing-risk comparisons and figure parameters"
+        },
+        {
+          "assessment": "Unresolved exact coverage, not judged non-covering",
+          "evidence": [
+            "The earlier work combines Chen and Weibull hazards according to Ghazal; the precise hypotheses and shape classification could not be checked in the original."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/qre.2740",
+          "material_read": "Bibliographic information and description in Ghazal's introduction; no full text or precise theorem passage obtained",
+          "method": "Lawful DOI/publisher retrieval and repository-copy search",
+          "title": "An additive Chen–Weibull distribution and its applications in reliability modeling",
+          "trigger": "Potentially broader model with the same hazard after time rescaling"
+        },
+        {
+          "assessment": "Same model, different invariant",
+          "evidence": [
+            "The classification is of survival-law injectivity on positive interior and zero-scale strata, not of h′ or its zeros."
+          ],
+          "identifier_or_url": "Resultary 549f250e327e",
+          "material_read": "Mirrored RESULT.md Finding and scale-strata table",
+          "method": "Configured local mirror, bounded passage",
+          "title": "Exact boundary identifiability stratification of the FEPW model",
+          "trigger": "Distinct same-day record of a correction for the same model"
+        },
+        {
+          "assessment": "Same model, different mathematical claim",
+          "evidence": [
+            "The all-ones parameter example disproves absolute convergence of the published moment series; it makes no claim about the subunit turning point."
+          ],
+          "identifier_or_url": "Resultary 79c0db9318a8",
+          "material_read": "Mirrored RESULT.md Finding and the interior divergence counterexample",
+          "method": "Configured local mirror, bounded passage",
+          "title": "The FEPW moment series is not absolutely convergent on its stated parameter space",
+          "trigger": "Distinct same-day record of a correction for the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It corrects a consequential qualitative error about long-time failure rates in a named reliability model, covering a whole open quadrant rather than a counterexample at one point. The strict uniqueness proof resolves a question not answered by eventual divergence, and the paper's own figure setting quantifies why a visibly decreasing plot can fail to reveal the upturn.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

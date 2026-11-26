@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:20:50.717683Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–45 and 47–99; VERIFICATION.md and the exact-polynomial verify.py inspected, not executed",
+        "Independent rational check: integrate over [0,1/4] and [1/4,1/2] with S=1/4+3u, Δ=3u−6u² and the respective clipped controls"
+      ],
+      "rationale": "For r=(b₂−2)/(b₂−b₁), the affine derivative identity r f₁′+(1−r)f₂′=2 proves balance and admissibility, with 0<S<2. From the two branch CDFs the difference of the candidate primitives satisfies H(u)=H(f₂⁻¹f₁(u)). Because f₂>f₁ strictly inside the half interval, the iterate tends to zero, where H vanishes. Absolute continuity thus forces p(u)+p(u+1/2)=S(u) almost everywhere. Each map-specific pushforward of the uniform input has constant density r or 1−r. Conditional on any previous label history the next input remains uniform by induction with fresh choices, which is the required iid assertion. Conditioning on the original half gives covariance C₀−(1/2)∫hΔ; Δ>0 inside, so the pointwise extremizers are feasible and interpolation attains every intermediate value. Exact independent integration gives C₀=131/1920, ∫h₊Δ=55/512 and ∫h₋Δ=9/512, hence endpoints 223/15360 and 913/15360, width 23/512 and symmetric value 71/1920. No uniqueness of other invariant laws or coordinate independence is needed. In the proof, the displayed transfer density is understood almost everywhere or as a choice of version, consistently with measurable controls.",
+      "residual_risks": [
+        "The numerical values checked exactly are for the specified canonical pair only; the general classification, iid law and optimality come from the proof, not sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 8 discusses attainable densities and extremal controls for semi-Markov piecewise-linear maps; the 2006 source was accessible only at landing-page/abstract level."
+        ],
+        "reasoning": "Extremizing over attainable one-time densities is not extremizing over the controls that induce one prescribed density. The abstract and citation do not resolve whether the 2006 work contains a broader applicable result.",
+        "searches": [
+          "arXiv:1404.7455 §8 and reference [16]",
+          "DOI:10.1016/j.jmaa.2005.11.061, lawful full-text retrieval and alternate copy attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.7455",
+        "DOI:10.1016/j.jmaa.2005.11.061 (abstract and citation context only)",
+        "Resultary 09cc612e58db, 06e9a4996e78, 006ba8e20665; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric policy gives one covariance, 71/1920, strictly between the sharp endpoints. The sharp interval requires uniqueness of the summed weight, not uniqueness of the individual probabilities, and optimization along the resulting fiber."
+        ],
+        "reasoning": "Computing a single covariance of the known policy is routine; that is not the accepted contribution. The primitive-iteration necessity, conditional pushforward and pointwise optimization together pin down a family-wide exact range that does not follow from the prior example or density optimization as stated.",
+        "searches": [
+          "arXiv:1404.7455 §5 canonical example and §8 optimization",
+          "Resultary mirror records 09cc612e58db and 06e9a4996e78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (13) is the balance problem in inverse-branch form; equations (14)–(15) impose equality between the half-branch weights. Resultary 09cc612e58db uses Fourier coefficient equalities for coprime integer expanding maps."
+        ],
+        "reasoning": "The prior transfer equation is an equivalent stationarity condition, but the construction after the symmetry restriction does not classify all measurable controls; the Fourier result uses a different map pair.",
+        "searches": [
+          "arXiv:1404.7455 §5, equations (13)–(15)",
+          "Resultary: Lebesgue-preserving feedback and exact policy dimensions for expanding maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "06e9a4996e78 computes covariance behavior in different affine random maps; 006ba8e20665 gives covariance sequences for the deterministic golden-mean tent map; 09cc612e58db classifies policies but does not give this covariance range."
+        ],
+        "reasoning": "The nearest indexed statements do not tabulate or imply the attainable endpoints for the specified pair. These are not arbitrary exact samples: they are attained optima over the measured control class.",
+        "searches": [
+          "Resultary: lag-one covariance, stationary random maps and Lebesgue-preserving control; relevant RESULT.md mirror passages"
+        ]
+      },
+      "rationale": "The motivating paper sets up the same transfer equation and gives the half-symmetric solution. The distinct result is the unrestricted fixed-density fiber and the attained positive-width covariance range within it at fixed iid label statistics. Neither the closest inspected literature nor the distinct indexed analogues were shown to cover this combined or sharp range assertion.",
+      "residual_risks": [
+        "The full 2006 paper was not recovered from lawful OA; broad coverage outside the material inspected remains possible.",
+        "The bounded primary literature search did not yield another decisive source and does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same maps and symmetric invariant randomization; does not cover the unrestricted range in the passages inspected.",
+          "evidence": [
+            "§5 proceeds by imposing p(x+1/2)=p(x) after the balance equation; §8 optimizes attainable densities, not lag-one covariance at one fixed density."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.7455",
+          "material_read": "§5, printed pp. 11–12, equations (13)–(15); §8, printed pp. 15–16; reference [16]",
+          "method": "Primary PDF passage inspection",
+          "title": "Toward A Mathematical Holographic Principle",
+          "trigger": "Identical quadratic map pair and canonical parameters"
+        },
+        {
+          "assessment": "Priority risk; no conclusion about the whole paper from the available material.",
+          "evidence": [
+            "The motivating paper invokes it for a semi-Markov extreme point result; no inspected passage settles the quadratic-pair fixed-density covariance question."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2005.11.061",
+          "material_read": "Landing page and abstract; citation context in arXiv:1404.7455 §8 and reference [16]",
+          "method": "Lawful OA lookup including alternate-copy attempt",
+          "title": "Attainable densities for random maps",
+          "trigger": "Potential broader random-map control characterization"
+        },
+        {
+          "assessment": "Different class of maps and mathematical conclusion.",
+          "evidence": [
+            "The maps are x↦mx mod 1 and x↦nx mod 1; the condition is p̂(mk)=p̂(nk), not the half-branch constraint."
+          ],
+          "identifier_or_url": "Resultary 09cc612e58db",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local index and mirror",
+          "title": "Fourier classification and exact policy dimensions for Lebesgue-preserving feedback between coprime expanding maps",
+          "trigger": "Closest feedback classification"
+        },
+        {
+          "assessment": "Different random process and observable optimization scope.",
+          "evidence": [
+            "It concerns an expanding/contracting affine pair and a covariance duality, not the range over asymmetric invariant controls of the quadratic pair."
+          ],
+          "identifier_or_url": "Resultary 06e9a4996e78",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local index and mirror",
+          "title": "Time-reversal covariance duality and a critical Gaussian crossover in affine random maps",
+          "trigger": "Closest indexed random-map covariance result"
+        },
+        {
+          "assessment": "No coverage established; date is not used to resolve priority.",
+          "evidence": [
+            "The covariance sequence is for a single deterministic map, without a control optimization."
+          ],
+          "identifier_or_url": "Resultary 006ba8e20665",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local index and mirror",
+          "title": "Exact six-step density relaxation and alternating correlations of the golden-mean tent map",
+          "trigger": "Related indexed relaxation/covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 17–45 and 81–99",
+        "arXiv:1404.7455 §5 for the natural motivating symmetric construction"
+      ],
+      "rationale": "This is a sharp answer to an identifiable inverse question on the published map pair: even identical uniform marginals and identical entire iid switching laws leave a positive, exactly quantified freedom in a basic two-time statistic. The complete extremal and attainability statements are more informative than a single computed covariance or a demonstration of nonuniqueness.",
+      "residual_risks": [
+        "The scope is coordinate lag one for this pair; it is not a characterization of all time correlations or a general optimization theorem for unrelated maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

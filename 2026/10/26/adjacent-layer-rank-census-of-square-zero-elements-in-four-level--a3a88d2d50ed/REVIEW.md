@@ -1,15 +1,21 @@
-# Self-review: square-zero adjacent-layer rank census
+# Independent mathematical audit
 
-## Correctness — PASS
-The three block equations from the square-zero condition are exhaustive. Fixing the rank of the middle block reduces the adjacent blocks to maps through its quotient and into its kernel, with standard rank-count factors. The final coupling map \((E,D)\mapsto AE+DC\) has image dimension \(as+rd-rs\), independently verified by describing two matrix subspaces and their intersection. This gives the exact number of free middle blocks and the unconstrained upper-right block. The argument covers all prime powers, zero ranks, and all positive layer sizes. An independent direct matrix-enumeration checker matched every profile coefficient in eleven configurations, plus 196 rank-count identities.
+## correctness
 
-## Originality — PASS within inspected coverage
-Closest published antecedent: Bardestani--Mallahi-Karai--Ram--Salmasian, arXiv:2503.15440, Theorem 2.5, already counts square-zero matrices by ambient rank for general parabolic nilradicals; Karp--Thomas, arXiv:2207.12590, Theorem 5.13, already counts Jordan types and fixed-flag Jordan-form tableaux. Neither inspected result enumerates the **simultaneous ranks of the three immediately adjacent blocks**. A concrete two-element witness in level sizes \((1,2,1,1)\) proves that identical cumulative-prefix Jordan types can have different adjacent-rank profiles. published-finding corpus and accessible historical claim searches showed no matching exact joint-profile claim. This remains a best-knowledge originality assessment, not proof of priority; an unexamined specialist block-rank formula is the principal risk.
+PASS
 
-## Value — PASS
-The invariant stratifies the natural square-zero variety of a finite incidence algebra by three canonical boundary maps rather than collapsing it to the ambient Jordan type. The explicit three-variable distribution makes these strata quantitative, uniformly for all field sizes, and detects information that conventional Jordan-counting data lose. This is a motivated rank refinement of a natural four-level algebra family, not an arbitrary finite-field table.
+Block multiplication leaves exactly AB=0, BC=0 and AE+DC=0, so the outer block F is free. For each rank-t B, A factors through the (b-t)-dimensional quotient by im B, and C has range in the (c-t)-dimensional ker B. Choosing the image of each rank-j map and then a surjection onto it gives the stated Gaussian-binomial rank count. To check the less immediate completion factor, send a map H from the fourth to the first layer to its restriction to ker C followed by projection modulo im A. This restriction/projection map is onto by choosing complements. Its kernel is exactly the possible AE+DC: first extend the im A-valued restriction on ker C to a map with range in im A and lift that through A; the remainder vanishes on ker C and factors through C, then extends from im C. The coupling image thus has dimension ad-(a-r)(d-s)=rd+as-rs. Its kernel in the (D,E) variables, together with free F, has dimension ad+bd+ac-rd-as+rs and gives the exact power of q. This argument includes zero ranks and characteristic two. In the scalar case B nonzero forces A=C=0, while B=0 gives one independent completion constraint exactly when A or C is nonzero, confirming the displayed small polynomial. The submitted checker and its verification notes were inspected, not executed; the general count is established by the linear argument.
 
-## Limitations and checked literature
-The scope is four ordered antichain layers and the square-zero locus, not all higher nilpotency orders. The general rank/Jordan census for parabolic nilradicals is prior work, not a newly asserted consequence. Principal sources inspected by full-text sections include arXiv:1703.00057, arXiv:2204.00066, arXiv:2207.12590 (Theorem 5.13), arXiv:2503.15440 (Theorem 2.5), and arXiv:2009.04243. Residual priority risk remains from other published parabolic/orbit-counting theory. Finite testing supports but does not substitute for the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the explicit factored coefficient, in particular the uniform completion factor for any compatible triple with prescribed adjacent ranks. It is not the first way to obtain the census: Melnikov's weighted involution orbits already give an exact, generally much larger orbit sum for the same polynomial. The inspected sources do not give the evaluation of each such coefficient as three ordinary rank counts times one power of q. The new factorization uses the overlap in the two completion terms, not just a relabeling of orbit or Jordan data.
+
+## value
+
+PASS
+
+The adjacent ranks distinguish natural consecutive-layer quotient maps that ambient Jordan and prefix-tableau counts merge. Four levels introduce the first completion constraint coupling two nonadjacent blocks. The exact fiber dimension identifies its overlap term and gives each profile coefficient with a fixed number of rank factors rather than a sum over individual involutions. This structural simplification is useful across all sizes and finite fields, without needing to claim a first census or an orbit classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

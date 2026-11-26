@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:34:56.651556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–60",
+        "Frozen VERIFICATION.md, verify.py and check_mod2.py (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/audit_carriers.py 3"
+      ],
+      "rationale": "For a flag complex with nonzero reduced H_d on a minimal induced support, removing a vertex forces nonzero H_{d-1} in its link by the deletion–star exact sequence. A universal vertex would make it a cone. Induction from two nonadjacent vertices in degree zero gives at least 2d+2 vertices, and at equality each vertex has exactly one nonneighbor. Nonzero ambient image implies nonzero intrinsic homology, so this bound applies to the claim. The five opposite pairs at equality must come from five disjoint centered two-edge paths; every such packing gives a candidate and its inclusion class must still be checked. A vertex-deletion matching enumeration and path recursion on the least uncovered graph vertex (one omitted vertex allowed) recovered 912 distinct supports. I verified the Hasse DAG with 5,525 pairs and 53,256 covers, then subtracted signed coface boundaries in topological order. Surviving matched-upper coordinates cannot support a cycle by themselves, since their boundary has a unit triangular block. The six critical boundary columns were (u,0,0,v,u,0) with u,v as stated; their unit minor on rows 1,5 and agreement with the image of all 2,444 original degree-five boundaries give an injective quotient coordinate map to Z^8. The named eight cycles have determinant +1 in exactly the stated q chart, so the map is onto. All 912 signed chains are cycles and all have gcd-one integral coordinates. Metric-preserving automorphism enumeration gave 96 group elements, the stated ten orbits, and exact Smith forms with all nonzero invariants one and precisely the stated ranks. In particular orbits 0,6,7,9 each integrally generate H_4.",
+      "residual_risks": [
+        "Integral conclusions rely on the signed exact calculation and the specified graph and indexing; the mod-two checker alone would not imply primitive lattices. No formal proof-assistant verification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Donovan–Scoville give path and cycle homotopy computations (Propositions 25–26) and a theorem for cycles joined at a common vertex (Theorem 30). The local carrier results concern specific other graphs."
+        ],
+        "reasoning": "GP(8,3) is not a path, cycle or Dutch windmill. These methods and graph-specific examples do not yield its 912 minimum supports and orbit lattices as cases of a covering theorem.",
+        "searches": [
+          "Donovan–Scoville arXiv:2207.13780, Introduction and Definition 29/Theorem 30",
+          "Local Resultary matching-complex induced carriers and integral orbit lattices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "Sources in the inspections above",
+        "Frucht RESULT.md Finding: 2026/10/18/SCOPE-shortest-induced-three-spheres-generate-frucht-matching-homology--356d0b152410",
+        "Petersen RESULT.md Finding: 2026/10/25/SCOPE-shortest-octahedral-spheres-and-integral-symmetry-orbit-lattices--d78821241a7c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 4 theorem is a wedge of eight S^4 and four S^5 and supplies the same toggle order. The graph-specific carrier analogues classify 93 Dürer, 87 Frucht and 110 Petersen supports in other degrees."
+        ],
+        "reasoning": "An ambient homotopy equivalence need not preserve induced subcomplexes or their maps. The same-object Morse model is a computational input but does not supply the five-path enumeration or the orbit-specific unit-index calculations. No priority is inferred between same-day records.",
+        "searches": [
+          "Earlier exact Möbius–Kantor RESULT.md, Finding and full toggle/Smith argument",
+          "Same-day Dürer and Frucht, and later Petersen, RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph hit was the ambient wedge computation; comparable geometric hits addressed the Dürer, Frucht and Petersen graphs."
+        ],
+        "reasoning": "The equivalent description of minimum supports is by five disjoint two-edge paths in GP(8,3), but a packing count alone would not classify their inclusion images; analogous path packings for other graphs are not equivalent.",
+        "searches": [
+          "Local Resultary: Möbius–Kantor / Mobius–Kantor / G(8,3) matching-complex carriers and orbit lattices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 result gives face counts, critical-cell data and ambient Betti numbers. No same-graph support or orbit-lattice table was located in the searched results."
+        ],
+        "reasoning": "The earlier eight-dimensional H_4 and six critical five-cells do not enumerate the specified minimal supports, their primitive classes or their orbit-specific ranks.",
+        "searches": [
+          "Local Resultary same graph, homology, minimum induced carriers and lattice-rank terms"
+        ]
+      },
+      "rationale": "The properly credited ambient homotopy type and Morse matching were already in the October 4 same-object record. The distinct contribution is the cardinality and inclusion geometry of minimum supports and the integral structure of their symmetry-orbit spans. Neither that result nor the other inspected statements establish these claims.",
+      "residual_risks": [
+        "These are limited catalogue and primary-statement comparisons; an equivalent computation indexed only under path packings or unknown graph labeling remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing ambient theorem and same Morse certificate construction; different conclusion",
+          "evidence": "5,525 matched covers, critical profile (1,10,6), and rank-two primitive Morse image yield the ambient wedge without a carrier-orbit analysis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-m-bius-kantor-matching-complex-is-a-mixed-dimensional-sphere--4bfded76792e",
+          "material_read": "RESULT.md Finding and proof/verification offset 1450–3783",
+          "method": "Local mirror original text",
+          "title": "The Möbius–Kantor matching complex is a mixed-dimensional sphere wedge",
+          "trigger": "Exact graph and integral homology"
+        },
+        {
+          "assessment": "Other families and ambient invariants",
+          "evidence": "Dutch windmills are copies of a cycle joined at a common vertex; Theorem 30 describes their homotopy type, not this cubic graph's inclusion lattice.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.13780",
+          "material_read": "PDF p. 2 introduction and p. 12 Definition 29/Theorem 30, offset 36135–37061",
+          "method": "Open primary PDF passages",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex of discrete Morse functions",
+          "trigger": "Possible broader matching-complex computation"
+        },
+        {
+          "assessment": "Different graph and degree; not a parameterized theorem",
+          "evidence": "93 minimum eight-vertex S^3 carriers in the ordinary matching complex of GP(6,2), and separate results about integral orbit unions.",
+          "identifier_or_url": "2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror original text",
+          "title": "Shortest octahedral carriers and integral orbit obstructions (Dürer graph)",
+          "trigger": "Closest structural analogue, also a generalized Petersen graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Independent orbit and integral quotient calculations"
+      ],
+      "rationale": "The minimal-support invariant asks which induced subcomplexes of a standard symmetric cubic graph can actually realize a nonzero ambient integral class. It refines the known rank by giving explicit smallest generators, and by separating rank-four, rank-seven and rank-eight orbit spans while showing each is saturated. In particular, four individual orbits provide alternative integral generating sets, useful for symmetry-sensitive constructions.",
+      "residual_risks": [
+        "The conclusion is for fourth homology of GP(8,3), not a statement for fifth homology or across generalized Petersen graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

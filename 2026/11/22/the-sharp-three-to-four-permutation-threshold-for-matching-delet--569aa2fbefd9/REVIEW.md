@@ -1,19 +1,21 @@
-# Review: sharp permutation representation thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A pair contributes one adjacent-equal-letter defect exactly when its relative order changes between adjacent permutation blocks. Two changes among three blocks correspond to unanimous agreement in the three linear orders formed by reversing the outer blocks. Their intersection yields the stated poset characterization in both directions. For \(s\ge3\), the middle element of a triple in the complement shore clique makes transitive orientation impossible, proving the lower bound. Explicit two-order realizers for \(s=0,1,2\) and the published four-block crown construction (by induced restriction) give all upper bounds. Complete-graph edge cases are separated. The packaged exhaustive finite checker independently reproduces the representation rules on broad small parameters; the unrestricted proof is combinatorial, not inferred from enumeration.
+PASS
 
-## Originality — PASS, provisional historical priority
+Each boundary contributes one defect precisely when the pair order changes. With three blocks the two changes that characterize nonedges become agreement in all three orders after reversing the first and third. The intersection is a poset, and applying the same reversal to a three-order realizer is the converse. In the family complement, the middle of three matched A vertices in any transitive clique order can neither point to nor receive an arrow from its match: one choice forces an edge to the earlier vertex, the other to the later one. For s=0,1,2 the proposed two orders agree within each shore and exactly on the deleted cross pairs. In particular at s=2 the common shore orders are a1,A′,a2 and b2,B′,b1, and the only cross agreements are a1 before b1 and b2 before a2, including when either primed sequence is empty. In the published four-block word, within-shore pairs switch twice; for a cross pair the first two orders agree and the last two differ only at a deleted match, where there are exactly two switches. The indicated restriction keeps exactly the required matching of cross nonedges and preserves all pair defects. At most two blocks always give a complete graph, so only K2 needs one block.
 
-The closest primary source is Hefty–Horn–Muir (2025-12-15), DOI 10.1017/S0013091525101211, Theorem 3.4. It proves a four-block *upper bound* for complete matching-deletion crown graphs; it does not prove necessity of four or the general partial-matching threshold. Its comparability/poset result concerns an even–odd representation rule, not the three-block \(1\)-\(11\) rule. The full available 2024 Futorny–Kitaev–Pyatkin text has broad existence constructions, not sharp minimum counts; the 2026 Das–Hariharasubramanian text concerns pattern avoidance and languages. Matching-deletion graph papers with nearby terms study different invariants. Semantic records and title/statement/alias searches did not identify a covering result. Older literature may contain an equivalent unindexed order-theoretic formulation; historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper presented crowns as a striking family with a constant four-permutation upper bound, but without sharpness. The exact formula resolves this upper bound at every order and exhibits a natural, size-independent phase transition at the third deleted disjoint edge, across rectangular, balanced and disconnected cases. The three-permutation/complement-poset characterization is a structural criterion usable beyond this family. The result is not merely a small-case computation or a renaming of an existing coefficient.
+The three-block threshold-rule characterization and sharp non-comparability obstruction after three matching deletions are distinct on inspected evidence. The four-block crown construction, general permutational existence, and ordinary comparability/realizer correspondence are not claimed as new.
 
-## Limits
+## value
 
-Only full-permutation concatenations and defect allowance one are addressed; unrestricted words may behave differently. Independent review is not available; the result is scientifically self-checked, not externally certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complement/realizer correspondence gives a structural test at exactly the shortest potentially noncomplete block count. Applied to a natural deletion family, it identifies the obstruction already present on three matched pairs and makes the known crown construction sharp, rather than just transcribing it. The answer holds for arbitrary shore sizes and not just the balanced crown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

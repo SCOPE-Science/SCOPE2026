@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:18:21.901552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditioned event is endpoint exceedance for an absorbed excursion; the independent no-reset factor cancels. Multiplying the OU path by e^(κt) turns it into Brownian motion with a deterministic clock and the same absorption event, justifying the Gaussian image difference on the half-line. Integrating above a and above zero respectively gives the displayed CDF ratio. Independently, write b=√w, q=e^(−κt), and use the probabilists' Hermites He_j in the odd part of the Mehler kernel. The numerator and denominator after removing their leading terms have coefficients at q^(j−1) equal to A_j=He_j(b)He_{j−1}(b)/(b j!) and B_j=He_j(b)He_{j−1}(0)/(b j!) respectively for odd j, by integrating He_j times the standard Gaussian density. The ratio has limit e^(−w/2), c2=A_3−B_3=w(w−3)/6, and c4=A_5−B_5−B_3 c2=w(3w³−38w²+165w−180)/360. At w=3, c4=(−6)(−9)/120=9/20; analyticity in q² justifies eventual differentiation and all sign conclusions. At short times the unreflected Gaussian tail has argument √w√tanh(κt/2), and the image and survival corrections and their derivatives are exponentially small up to polynomial factors. This gives the stated square-root decrease. For 0<w<3 there are a left and a right interval on which the function falls and rises, respectively, so it attains a minimum in the interior of a suitable compact subinterval; analyticity and nonconstancy isolate such a minimum. No uniqueness or global monotonicity for w≥3 is inferred. Read RESULT.md, VERIFICATION.md and checker.py; the reported finite symbolic/numerical checks were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The half-line OU spectrum has odd Hermite levels; the gaps from the principal level are 2κ and 4κ for levels three and five. Vanishing of the third mode at the initial point removes the 2κ density correction for all endpoint observables.",
+          "Kolb–Steinsaltz supply principal-eigenfunction/quasi-stationary convergence under their diffusion hypotheses. This accounts for the type of limit, not the sign of convergence or a strict minimum.",
+          "The focused search returned no useful primary match; it is not evidence of historical absence."
+        ],
+        "reasoning": "The general results cover the background relaxation rates and allow direct mode calculations. They do not by themselves classify the tail direction or ensure an interior extremum for this start-dependent probability.",
+        "searches": [
+          "arXiv:2010.06262, half-line spectrum and Eq. (42)",
+          "arXiv:1004.5044, quasilimiting and quasi-stationary results",
+          "Focused strong-Mpemba/absorbing-OU literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.05226v1",
+        "arXiv:2010.06262",
+        "arXiv:1004.5044",
+        "Resultary Hermite half-line concentration and diffusion exit-odds summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd Mehler expansion gives w=3 directly as the vanishing-mode start. Its tail projection and survival normalization give different coefficients, w(w−3)/6 and the fourth-order polynomial after dividing the series; the positive 9/20 is obtained from the fifth mode's nonvanishing tail projection after normalization.",
+          "For 0<w<3 the below-limit sign forces eventual increase; showing a strict interior minimum additionally needs short-time decrease of the very same tail. The phase or sign cannot be inferred from survival or the spectral gap alone."
+        ],
+        "reasoning": "The series coefficients are accessible by standard spectral calculations, and the node and gaps in isolation are covered by that framework. The supported combined conclusion is the observable-specific direction reversal, next-mode sign and necessary turning; neither quasi-stationarity nor the existence of a node supplies it as a standalone classification.",
+        "searches": [
+          "Kishore–Kundu, Eqs. (39)–(42)",
+          "Dubey–Pal, §4 Eqs. (41)–(43)",
+          "Resultary: threshold occupancy under killed OU and exact node coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubey–Pal integrate the above-reset-point indicator along a path up to first passage. Conditioning on no reset and survival to a fixed t yields a different endpoint statistic.",
+          "Kishore–Kundu's half-line conditioned local time is also path-integrated. Their odd Hermite eigenfunctions supply an equivalent spectral representation of the kernel, not an identification of those observables.",
+          "The dimensionless start b=√3 corresponds to the third physicists' Hermite node √(3/2); generic mode cancellation does not determine overshoot signs for a given event."
+        ],
+        "reasoning": "The image-kernel and odd-Hermite formulations are equivalent for the killed transition law. The disputed turning and sign statements concern a specific tail of its normalized endpoint distribution, not an integrated residence/local-time functional or the unconditioned repeatedly reset process.",
+        "searches": [
+          "arXiv:2304.05226v1, first-passage functional definition and §4",
+          "arXiv:2010.06262, §§4.1–4.1.2",
+          "Literature search: strong Mpemba effect in survival-conditioned killed Ornstein–Uhlenbeck, third Hermite mode node sqrt(3), endpoint tail crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match with suffix 3744daa2be18 is this same record, not distinct evidence.",
+          "Nearby indexed summaries concern a three-Hermite half-line concentration matrix and a late-time switch for two-endpoint diffusion exit odds; their original files were not available on the mirror."
+        ],
+        "reasoning": "Sharing Hermite nodes or mode switching is not equality of the normalized OU endpoint tail. The summaries do not establish such equality, and formula-level overlap with the inaccessible originals was not ruled out.",
+        "searches": [
+          "Resultary: OU survival-conditioned Hermite node w=3, half-line threshold and late switching",
+          "Resultary Hermite half-line concentration and diffusion exit-odds records"
+        ]
+      },
+      "rationale": "The killed kernel, the Rayleigh limit and the vanished third mode as a property of the odd Hermite expansion are not independent originality claims. The supported distinction is the specified moving-with-start threshold event's late-time direction on both sides of the node, nonzero signed next term at the node, and the resulting forced interior turning below it. The checked primary texts give the spectral tools and related functionals, not that event-specific dynamical statement.",
+      "residual_risks": [
+        "An unlocated spectral relaxation or absorbing-state Mpemba result might cover the start-dependent direction or turning. The unsuccessful focused search is neutral.",
+        "The two related indexed records were inspectable only as summaries; narrower formula-level overlap remains possible.",
+        "The generic density cancellation is a direct consequence of prior odd-Hermite spectral theory; the pass is limited to the specific endpoint-tail dynamics, not the kernel, Rayleigh limit or mode node alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A closely related observable, but path-integrated rather than fixed-time conditioned exceedance.",
+          "evidence": [
+            "Residence time is the integral of the indicator X>x_R up to the first-passage time; §4 treats its mean under resetting and the no-reset case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.05226v1",
+          "material_read": "Abstract and introduction, offset 0; §4 Eqs. (41)–(43), offsets 31900–38843",
+          "method": "OA HTML passage inspection",
+          "title": "First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting",
+          "trigger": "Same absorbing OU and threshold at reset point"
+        },
+        {
+          "assessment": "Known spectral background; displayed survival-conditioned observable is local time, not this endpoint event.",
+          "evidence": [
+            "The oscillator spectrum uses odd modes for the absorbing half-line, and the inspected section gives a survival expansion and conditioned local-time asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2010.06262",
+          "material_read": "§4.1.2, Eqs. (39)–(42), offsets 49000–54948",
+          "method": "OA HTML passage inspection",
+          "title": "Local time of an Ornstein-Uhlenbeck particle",
+          "trigger": "Odd Hermite spectrum and survival-conditioned half-line OU"
+        },
+        {
+          "assessment": "General quasi-stationary context rather than an event's approach direction.",
+          "evidence": [
+            "Under appropriate hypotheses the quasi-stationary law is described by the principal mode; this does not furnish the w=3 tail classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1004.5044",
+          "material_read": "Abstract and introduction, offsets 0–6977",
+          "method": "OA HTML passage inspection",
+          "title": "Quasilimiting behavior for one-dimensional diffusions with killing",
+          "trigger": "Broader normalized killed diffusion limits"
+        },
+        {
+          "assessment": "Summary is a static concentration-matrix problem, not a killed OU trajectory statement; no full-text exclusion.",
+          "evidence": [
+            "The summary identifies a centered maximum and stationary thresholds for three Hermite functions."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-five-stationary-thresholds-and-a-unique-centered-maximum-for-three-Hermite-half-line-concentration",
+          "material_read": "Indexed summary; original RESULT.md unavailable on the local mirror",
+          "method": "Local catalogue with targeted mirror retrieval attempt",
+          "title": "Five stationary thresholds and a unique centered maximum for three-Hermite half-line concentration",
+          "trigger": "Possible overlap in half-line Hermite integrations"
+        },
+        {
+          "assessment": "Different exit-odds observable in the summary; full-text overlap not ruled out.",
+          "evidence": [
+            "The indexed finding concerns a switching point in two-endpoint exit odds, not the tail at the initial OU position."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-late-spatial-switching-for-inhomogeneous-diffusion-exit-odds-and-its-third-mode-correction",
+          "material_read": "Indexed summary; original RESULT.md unavailable on the local mirror",
+          "method": "Local catalogue with targeted mirror retrieval attempt",
+          "title": "Late spatial switching for inhomogeneous diffusion exit odds and its third-mode correction",
+          "trigger": "Analogous eigenfunction-node switching in killed diffusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural time-resolved counterpart of above-reset-point occupation, the result separates signed convergence regimes at an exact parameter boundary and establishes genuine nonmonotonicity throughout a full subcritical range. It shows why quasi-stationary convergence and even knowledge of the spectral gap do not describe the finite-age conditional statistic. The useful content is this dynamical classification and strict turning, not only a Taylor coefficient or a restatement of spectral theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

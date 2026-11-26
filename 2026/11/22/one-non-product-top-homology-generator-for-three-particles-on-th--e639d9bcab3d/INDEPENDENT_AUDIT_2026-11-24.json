@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:14.545503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repaired RESULT.md, scientific review, verification notes and verifier give unoriented counts 12,54,108,246 at lengths 6,8,10,12 and 130 geometric triples, profiles (6,6,6):16, (6,6,8):72, (6,8,8):36, (8,8,8):6. Canonicalization fixes the initial least vertex and chooses the smaller second vertex. The graph has no cycles of length below six; 24 vertices imply each member of any such triple has length at most 12. The witness is read with its original orientation-labelled indices; reversing factors changes at most an overall sign. An–Drummond-Cole–Knudsen Thm 4.5/Prop 4.9 identify the reduced complex with integral continuous unordered configuration homology on this graph without isolated vertices. The disjoint-inclusion product of the one-particle reduced cycle chains gives the geometric product. Independent reconstruction found 16,192 top columns, 39,600 nonzero rows, rank 16,132 over F3. All 60 witness chains are integral cycles; the 5034-term chain has nonzero distinct support, and the selected 60-coordinate minor has determinant -1. Rational nullity <=60 and the minor together make these chains a full integral basis (coordinates on the selected rows recover unique integral coefficients). Solving the transposed minor for the last basis coefficient then gave zero for all 130 geometric tori, proving the first 59 generate the product subgroup integrally and the quotient is Z. The corrected verifier was run successfully against the unchanged witness with `python3 /workspace/repairs/1/verify_nauru.py /workspace/source/2026/11/22/one-non-product-top-*/NAURU_WITNESS.json`; independent bounded replay: `python3 /tmp/opencode/check_nauru_independent.py` and the same with argument 16192. No lower-degree inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farley–Sabalka give general discrete graph braid methods under subdivision conditions. An–Drummond-Cole–Knudsen give the graph-morphism-natural chain model and the reduced subcomplex quasi-isomorphism for reduction at vertices that are not isolated."
+        ],
+        "reasoning": "The framework yields the applicable chain complex, not the Nauru rank or the precise integral span of disjoint-cycle products; the exact lattice computation is an additional step.",
+        "searches": [
+          "arXiv:math/0410539v3 §3 Thm 3.1",
+          "arXiv:1708.02351 Thm 4.5, Prop 4.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen scientific files and witness; corrected RESULT.md, REVIEW.md, VERIFICATION.md and verify_nauru.py",
+        "Resultary Nauru two-point and Pappus, Desargues and four-cube three-point records",
+        "arXiv:math/0410539v3; arXiv:1708.02351; MathWorld Generalized Petersen Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal quotient Z on the Pappus and Desargues spaces gives no transfer of their cycles or rank to GP(12,5). The four-cube rational rank difference alone does not imply saturation, even there.",
+          "A two-particle integral calculation provides neither the three-particle differential rank nor its triple-product saturation."
+        ],
+        "reasoning": "No checked general result supplies the exact Nauru triple rank, primitivity, or generator. Explicitly distinguish use of the general method from a corollary of a prior numerical or structural bound.",
+        "searches": [
+          "Resultary records ending 9577f13395e9, caa60fea4f41, b2340576b532, 4c714b4b03a6",
+          "arXiv:1708.02351 Prop 4.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nauru graph is GP(12,5) with the explicit frozen graph definition. B_3 in the claim means unordered continuous configuration space, not H_3 of an ordered space or H_2 of the two-point space."
+        ],
+        "reasoning": "The aliases reduce to a single specified graph and particle count. The same-graph two-point result cannot be made equivalent by notation.",
+        "searches": [
+          "Resultary: Nauru graph three particles third homology product tori GP(12,5) H3 Z^60",
+          "MathWorld Generalized Petersen Graph, offset ~2200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Own bound entry is not independent coverage. 2026/10/25 Nauru two-point record has H_2=Z^54. Distinct 2026/11/22 Pappus and Desargues records state ranks (7,6) and (21,20) for (top group, product lattice); the four-cube record gives (129,128) without torsion or saturation assertion."
+        ],
+        "reasoning": "The latter results make the rank gap strong contextual overlap but have nonisomorphic graphs and different integral bases. None gives the Nauru three-particle lattice or its witness.",
+        "searches": [
+          "Resultary: GP(12,5)/Nauru three-particle top homology, product tori, rank 60",
+          "Resultary: Pappus, Desargues and four-cube non-product three-particle classes"
+        ]
+      },
+      "rationale": "Reassessed the repaired result: an exact genus-independent top integral lattice calculation for the specified graph and particle number, not priority for the rank-one non-product phenomenon or the standard chain method. The direct Nauru comparison is in degree two with two particles; distinct same-day Pappus and Desargues statements establish the same quotient in different graphs, not this result. The corrected cycle counts are supporting data and not asserted as independently new.",
+      "residual_risks": [
+        "Same-day publication order is not inferred.",
+        "The Nauru two-point full proof was not relied on; its accessible statement bounds the verified overlap. Some historical sources including the cited original Świątkowski DOI and Frucht publisher page were not available in the attempted route; their retrieval status does not establish noncoverage.",
+        "A graph-specific equivalence or an unindexed same-particle computation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit two-particle, degree-two claim; no transfer to the new degree",
+          "evidence": [
+            "H_2=Z^54 and length-restricted disjoint-cycle-pair products."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-integral-short-cycle-torus-lattices-in-the-nauru-two-point-confi--4c714b4b03a6",
+          "material_read": "Indexed mathematical statement; not full proof",
+          "method": "Resultary comparison of defined space and invariants",
+          "title": "Integral short-cycle torus lattices in the Nauru two-point configuration space",
+          "trigger": "Closest same-graph lattice study"
+        },
+        {
+          "assessment": "Same obstruction on a different graph; not equivalent",
+          "evidence": [
+            "H_3=Z^7, T=Z^6, H_3/T=Z."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-primitive-non-product-top-homology-class-in-the-three-particle--9577f13395e9",
+          "material_read": "Exact finding as available in the indexed/record statement",
+          "method": "Compared graph, integral ranks and primitive quotient",
+          "title": "A primitive non-product top-homology class in the three-particle configuration space of the Pappus graph",
+          "trigger": "Same particle count and primitive quotient"
+        },
+        {
+          "assessment": "Distinct from Nauru, with material structural overlap",
+          "evidence": [
+            "H_3=Z^21, product subgroup Z^20 a direct summand."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-primitive-non-toric-third-homology-of-the-desargues-graph-config--caa60fea4f41",
+          "material_read": "Exact lattice and basis claim",
+          "method": "Compared graph and integral groups",
+          "title": "Primitive non-toric third homology of the Desargues graph configuration space",
+          "trigger": "Same primitive deficit"
+        },
+        {
+          "assessment": "Different graph and no saturation assertion",
+          "evidence": [
+            "Rank 129 versus product rank 128; 1475-term witness."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-non-product-third-homology-class-for-three-particles-on-the-fo--b2340576b532",
+          "material_read": "Rank and witness statements and scope",
+          "method": "Statement comparison",
+          "title": "A non-product third-homology class for three particles on the four-cube",
+          "trigger": "Nearby non-product witness"
+        },
+        {
+          "assessment": "Applicable theorem, without the claimed graph-specific lattice",
+          "evidence": [
+            "Reduction at any subset of vertices which are not isolated gives a quasi-isomorphism; all Nauru vertices are trivalent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.02351",
+          "material_read": "Thm 4.5 and reduced complex Def. 4.7/Prop 4.9, pp. 27–29",
+          "method": "Primary OA PDF, compared reduction hypothesis and functorial model",
+          "title": "Subdivisional spaces and graph braid groups",
+          "trigger": "Correctness and wider graph-chain coverage"
+        },
+        {
+          "assessment": "General discrete model, not GP(12,5) specific ranks",
+          "evidence": [
+            "Appropriate subdivision realizes the discrete configuration model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0410539v3",
+          "material_read": "§3 Thm 3.1, offset ~33090",
+          "method": "Primary OA text statement comparison",
+          "title": "Discrete Morse theory and graph braid groups",
+          "trigger": "Classical graph-braid computation framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving result is an exact integral geometric-generation test in a canonical 24-vertex cubic symmetric graph. Researchers comparing the obstruction across canonical graphs need to know that the quotient is primitive Z, not merely has rational rank one (which is compatible with torsion), and have an explicit lattice basis to test generators. The case does not assert first occurrence or a theorem for all such graphs. The orientation count correction changes finite supporting counts but preserves the independently verified structural invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-order proof reduces two-trail profiles to a finite canonical set by a saturated functional digraph and directed cut bounds. The source program exhaustively checks precisely the remaining bounded cases, and the independently implemented direct census through length 21 reproduces the formula. The local last-exit counting rule and boundaries were checked against all stated cases.
+## correctness
 
-**Originality — PASS, qualified.** The nearest Cassaigne–Karhumäki–Puzynina–Whiteland DLT 2016 results already evaluate the complete total class count and singleton count, neither claimed here. Karhumäki–Puzynina–Rao–Whiteland (arXiv:1605.03319) studies singleton structures and bounds. These do not determine the exact number of **two-member** fibers. Comparison used literal formulations (doubleton, size-two class), equivalent Euler-trail descriptions and indexed research-record matches; no identical claim was identified. The 2017 expanded journal text remains a priority risk because the full version could not be inspected.
+PASS
 
-**Value — PASS.** The two-member class statistic is the next natural layer after unique reconstruction from full substring counts, and the all-order formula reveals a linear, period-six law with an explicit structural explanation, rather than a narrow computed table.
+Summing the three-mer counts by prefix and suffix separately recovers all two-mer counts except the final or initial occurrence, so the two endpoints are determined by the observations; with the shorter counts recovered conversely, this gives precisely indistinguishable-edge Euler trails with fixed endpoints. Every actual trail determines the last-exit tree, and the flow equations ensure that ordered outgoing lists with that tree exhaust all edges before stopping at the root. If two outgoing types are repeated, any valid tree has a local factor at least three. In the resulting functional heavy graph, the predecessor cut for a noncycle heavy edge has only that heavy exit, no heavy entrances, at most two entering unit edge types (by the four-vertex graph), and endpoint imbalance at most one, so its count is at most three. Across a consecutive segment of a heavy cycle of length c the difference in its boundary weights is bounded by 3(4−c)+3. Uniform reduction to cycle minimum two preserves support and trees. Every local factor affected by pumping is either constant or strictly increasing at the first step; if the reduced class is a singleton, its unique tree has all local factors one and no affected heavy type can share a nontrivial ordering with another type. Thus only canonical doubletons with individually permitted independent pumps are counted. The independently reproduced table gives all stated coefficients; for n>=14 its paired loop pumps give 6(n−10)+4(n−11) and single loop pumps give 90, yielding the stated periodic corrections and linear term. The repair clarifies earlier coverage without altering this proof or coefficient law.
 
-**Limitations.** Only binary length-three contiguous spectra, exact observations and classes of size two are handled. The finite certificate is necessary but not a replacement for the all-order reduction. Historical priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct part is the explicit doubleton coefficient law and generating function, not its rationality, the existence of an automaton, the individual class-size formula, or the total/singleton counts. The corrected literature section credits fixed-cardinality regularity and rationality explicitly. None of the strongest inspected sources supplies the bounded coefficient census, the binary size-two automaton with evaluated coefficients, or an equivalent exact coefficient formula.
+
+## value
+
+PASS
+
+Size two is the first failure of unique reconstruction, a natural refinement of the known singleton and total counts. The formula determines how often that minimal ambiguity occurs, including its precise onset, linear rate and residue corrections. The finite census is useful here because the reduction proves it exhausts all lengths; it is not merely an implementation of prior rationality or a fixed-length table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

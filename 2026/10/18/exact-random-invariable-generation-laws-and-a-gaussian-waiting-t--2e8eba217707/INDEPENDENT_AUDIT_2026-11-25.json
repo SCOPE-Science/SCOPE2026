@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:47:40.815666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixed-point-freeness implies p does not divide m: an element of order p would have (h-I)^p=0, hence a nonzero fixed vector. Each nontrivial quotient coset can be conjugated elementwise into H, whereas conjugating kernel entries preserves their module span. Conversely a generated subgroup surjecting onto H has H-stable intersection with the abelian kernel, so it contains the whole kernel if those entries span it. Maschke and the distinct simple factors of the cyclic group algebra reduce the span test to independent full-row-rank matrices over fields of orders p^d_i. Counting their rows, choosing the kernel positions, and using divisor Möbius inversion on nonidentity quotient entries gives the displayed formula, including k=0. In the fixed p,m scalar family the rank increments have independent positive geometric durations, by fresh samples and success probabilities depending only on rank. With a_j=(1-p^(-j))/m, summing 1/a_j gives the exact kernel mean, and (1-a_j)/a_j² differs from m(m-1) by O(p^(-j)); uniformly bounded third moments give Lyapunov. The quotient delay is bounded pathwise by (η-n)_+, whose expectation is bounded by the sum of the geometric tails for the maximal quotient subgroups. No independence of quotient and kernel stopping times is needed. The comparison gives both the finite-n error and the Gaussian transition, with flooring harmless at the continuous limiting CDF. Independent bounded replay on the order-100 scalar group with rank two found 0 pairs and 72000 triples out of 1000000, agreeing with the formula; this is not a test of the asymptotics or general non-scalar modules. The uploaded scalar checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 8 gives a necessary and sufficient linear-independence condition and a multiplicity bound in terms of the fixed-space dimensions of prescribed complement generators; §2 of Kowalski–Zywina is valid beyond Frobenius groups."
+        ],
+        "reasoning": "The criteria cover aspects of the proof but a distribution requires evaluating the multiplicity and quotient counts, and the fixed-complement limit additionally needs a rank waiting-time analysis.",
+        "searches": [
+          "Detomi–Lucchini, arXiv:1409.0997 Proposition 8",
+          "Kowalski–Zywina, arXiv:1008.4909 §2 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_invariable.py",
+        "arXiv:1008.4909 §2 and §4",
+        "arXiv:1409.0997 Proposition 8",
+        "Resultary 2026/10/4 complete bipartite invariable-generation graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank criterion combined with standard full-rank counts is a close antecedent of part of the explicit census. The affine mean concerns a different varying complement; the graph gives no rank-increment law. Neither supplies the fixed-complement linear leading mean, its summable constant correction, or its √n window."
+        ],
+        "reasoning": "Novelty is not assigned to the kernel-span criterion or the k=2 case. Beyond the explicit evaluated census, the coupled quotient-tail estimate and independent rank increments give probabilistic conclusions not covered by those statements.",
+        "searches": [
+          "Kowalski–Zywina Proposition 4.1 and (2.14)",
+          "Detomi–Lucchini Proposition 8",
+          "Resultary 2026/10/4 complete bipartite invariable-generation graph, Finding and prior-work comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kowalski–Zywina use element-uniform draws pushed to conjugacy classes, and give general inclusion–exclusion for tuple failure and the corresponding mean sum. Their affine example has complement of order q−1 over F_q. Detomi–Lucchini give a rank criterion for lifts from a prescribed complement tuple."
+        ],
+        "reasoning": "These are the same underlying generation and mean observables, not distinct merely by terminology. The general formula does not evaluate the probabilities in terms of the module multiplicities; the affine example does not treat a fixed complement with increasing multiplicity of one fixed scalar character.",
+        "searches": [
+          "Kowalski–Zywina, arXiv:1008.4909, §2 including (2.14), and Proposition 4.1",
+          "Detomi–Lucchini, arXiv:1409.0997 Proposition 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed graph includes the full k=2 specialization: multiplicity-free modules have non-isolated graph K_(A,φ(m)), A=∏(p^d_i−1)/m. Weighting those class pairs by sizes gives 2Nφ(m)∏(p^d_i−1); repeated summands give no generating pairs."
+        ],
+        "reasoning": "A class-pair graph is exact evidence for a slice, not a table for arbitrary ordered tuple length, and an edgeless pair graph can coexist with a nonzero triple count.",
+        "searches": [
+          "Resultary: invariable-generation tuple laws for fixed-point-free cyclic Frobenius groups",
+          "2026/10/4/SCOPE-complete-bipartite-invariable-generation-graphs-of-elementary-ab--13dc315f5890/RESULT.md"
+        ]
+      },
+      "rationale": "The explicit all-length module-multiplicity law and fixed-complement, increasing-multiplicity Gaussian and mean results are distinct from the inspected sources. The rank criterion, general Möbius framework, pairwise specialization and an important affine mean family are credited as pre-existing. This is a bounded best-of-knowledge comparison, not priority certification.",
+      "residual_risks": [
+        "Unindexed or differently phrased fixed-complement rank waiting-time results may exist. Known general criteria and a special affine mean are not blanket evidence against the specific asymptotics, nor is the bounded search a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "General class-based inclusion–exclusion and first waiting-time moment; explicit affine family H_q with varying q−1 complement and c(H_q)=q+O(τ(q−1)).",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4909",
+          "material_read": "§2 incl. (2.14), PDF p. 8 (offset 25492); §4 Prop. 4.1, PDF p. 17 (offset 54258)",
+          "method": "OA primary PDF passages",
+          "title": "The Chebotarev invariant of a finite group",
+          "trigger": "Exact tuple probabilities and affine waiting-time prior"
+        },
+        {
+          "assessment": "COVERING rank criterion, not the scalar asymptotics",
+          "evidence": "Necessary and sufficient independence condition for lifting the complement list to an elementary-abelian extension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.0997",
+          "material_read": "Proposition 8, PDF p. 6 (offset 18592)",
+          "method": "OA primary PDF passage",
+          "title": "Invariable generation with elements of coprime prime-power orders",
+          "trigger": "Semidirect-product rank criterion"
+        },
+        {
+          "assessment": "COVERING k=2 only",
+          "evidence": "Complete bipartite non-isolated class graph exactly in the multiplicity-free case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/4/SCOPE-complete-bipartite-invariable-generation-graphs-of-elementary-ab--13dc315f5890/RESULT.md",
+          "material_read": "Finding and prior-work passage, offsets 494 and 7040",
+          "method": "Configured mirror, original result",
+          "title": "Complete bipartite invariable-generation graphs of elementary-abelian cyclic Frobenius groups",
+          "trigger": "Strongest indexed overlap, same families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact law converts an existence and pair-generation picture into arbitrary-length success probabilities even with large isotypic multiplicities. In the scalar regime it identifies both the transition width and a nonvanishing explicit constant beyond the linear waiting time, quantifying the near-full-rank delay separately from an exponentially small quotient effect. These answer natural questions about element-uniform invariable sampling rather than an unmotivated finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A concrete symmetry-fixed nonzero sextic is constructed from degree-six Legendre solid harmonics, and the twofold stabilizer of every edge midpoint forces its tangential gradient to vanish. The nonzero evaluation is proven by the modular value 85. Six exact modular full-column-rank minors (up to degree five) and an exact 12-column minor at degree six supply rank lower bounds. Since the invariant gives a genuine one-dimensional degree-six kernel in characteristic zero, the upper and lower bounds meet. The companion checker independently rebuilds the geometry, harmonic bases, all determinants, and 90 tangent-gradient vanishings. The certificate is not mistaken for an infinite proof.
+PASS
 
-## Originality — PASS, conditional on available literature
+The normalized midpoints are (u+v)/(2φ) for v·u=φ, with squared length one. On homogeneous degree-ℓ polynomials the tangential gradient in ambient coordinates is ∇H(w)−ℓH(w)w. A fresh reconstruction selects the edges exactly, checks the 30 distinct reduced unit nodes, forms denominator-cleared harmonic bases and reduces via φ→23 in F₁₀₁. Since φ²−φ−1 vanishes at 23 and 2φ is invertible there, the ranks (3,5,7,9,11,12) give characteristic-zero lower bounds by lifting nonzero minors. Degrees 1–5 reach their full dimensions. The sextic is a sum of solid zonal harmonics and is invariant by vertex permutation. Half-turns about the midpoint directions fix the nodes and act as −I on the respective tangent planes, forcing zero tangential gradients. Directly, with q=φ+2, the sums of t_v²,t_v⁴,t_v⁶ at e₁ are 4q, 12q²/5, 8q³/5; hence F₆(e₁)=−132q³/5≠0 (85 mod 101). Thus the degree-six rank is at most 12 independently of reduction; equality and the claimed kernel line follow.
 
-The classical sextic invariant is not presented as new. The specific derivative-only rank classification on icosidodecahedral sites was not identified in full-text checks of the 2017 Hermite–Birkhoff interpolation work and the 2023 geometric exposition, or in targeted searches and published research comparisons. Cohan (1958) was only available in extract and is a non-negligible residual priority risk; it concerns group-harmonic expansions, not explicitly derivative sampling. Existing exact-degree **value** sampling work on the same sites is not logically sufficient to determine the derivative-only kernel. Search failure does not prove worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Gradient-only harmonic reconstruction on highly symmetric point sets can fail even when the number of derivative measurements greatly exceeds dimension. The exactly located first failure and its unique invariant blind mode separate a structural symmetry obstruction from other possible nullspace elements. The full rank profile in six consecutive natural degrees and standalone exact certificate offer a useful benchmark for choosing derivative observations and for investigating mixed-jet repairs. The statement is limited to degrees 1–6 and makes no unproved claims of generic stability.
+The 30-node geometry and degree-six icosahedral invariant are established background. Its gradient vanishing on this orbit also follows directly from known symmetry and is not credited as an independent novelty. The distinct contribution is the derivative-only rank profile: all five preceding positive degrees are injective and exactly one line is lost at six. The strongest distinct same-node sampling record concerns scalar values, not these differential measurements.
 
-## References and limitations
+## value
 
-Allasia–Cavoretto–De Rossi (2017), Baez (2023), Cohan (1958), and related published scalar sampling records were compared. The complete Cohan article was inaccessible. Its potential unstated connection is residual priority risk. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The orbit is a standard symmetric sampling grid and the observable is natural for derivative-only reconstruction. Despite many more nominal tangent measurements than harmonic dimensions, the first invariant degree has a blind direction. Identifying the full kernel and confirming that earlier degrees really are injective gives a useful exact sampling boundary, stronger than observing symmetry-forced failure at six alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

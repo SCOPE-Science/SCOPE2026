@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:29:47.532918Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integration with dt/(2π) gives diagonal 2a/π and off-diagonal (2/π)sin((k-h)a)cos((k-h)θ/2)/(k-h); the endpoint case θ=2a has only a measure-zero intersection. With c=cos(θ/2) the polynomial (z²-2cz+1)(z+2c) has frequencies 0,1,3 and vanishes at both centers. For u=c² its coefficient norm is 16u²-4u+2 and each center derivative squared is 4+28u-32u². The odd term of degree three in the local energy integrates to zero, giving the Rayleigh upper bound a³F(u)/(3π)+O(a⁵) uniformly, including moving or coalescing centers. The normalized Gram matrix πG/a is analytic in a² with limiting rank two away from coalescence (the columns of frequencies 0 and 1 suffice). In the one-dimensional null direction the order-a² entry is F(u)/3, while coupling to the positive two-dimensional block is O(a²) and affects the eigenvalue only at order a⁴. The simple-root implicit function theorem gives this expansion in C² in θ on a neighborhood of the interior maximizer. The derivative F' has the sign of 9-32u-40u² and a simple zero at (√154-8)/20. The uniform upper bound and a matching lower value by evaluating at that fixed angle confine every global maximizer to its neighborhood. Strict concavity there and the critical equation give uniqueness and O(a²) displacement, without requiring a uniform spectral gap at coalescence. At θ=π the odd-odd 2×2 block has off-diagonal -sin(2a)/π and the isolated zero mode is diagonal; since 0<2a<π the reported least eigenvalue and gain follow. Independent evaluation gives θ*=2.164014966851562 and gain 2.2728105208558365. The frozen checker was inspected (symbolic identities, integration and numerical grids), not executed or relied on for global uniqueness. No finite-width threshold or formula for arbitrary a is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spectral staircases handles arbitrary fixed sparse frequencies but fixes centers at 2πh/q.",
+          "Faou–Le Hénaff's abstract generalizes mask well-posedness and treats numerical eigen-computation. Marceca–Romero–Speckbacher Theorem 1.1 bounds the number of intermediate eigenvalues for regular domains in dimension d>=2."
+        ],
+        "reasoning": "Neither varying the mask in a numerical eigen-algorithm nor counting intermediate eigenvalues asserts a sharp finite-band optimum over two centers. The periodic staircase is broader in the frequency support but restricts the very design parameter optimized here.",
+        "searches": [
+          "Resultary 2026/11/8 spectral staircases, e95b9bae48f1",
+          "arXiv:2410.01465; arXiv:2301.11685 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and repro/check.py",
+        "Four Resultary original statements identified in source inspections",
+        "arXiv:2301.11685 abstract and Theorem 1.1",
+        "arXiv:2410.01465 abstract and Theorem 1 opening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete consecutive-band theorem optimizes the least eigenvalue over a larger coefficient space, not its restriction to this sparse triple.",
+          "For q=2 the fixed periodic result gives F(0)=4, strictly below F(u*)=2+4√154/7."
+        ],
+        "reasoning": "Restricting a Rayleigh minimum to a subspace gives a pointwise inequality, not an implication between maximizers. The periodic result has no information comparing this benchmark to the interior design. Credit the specialization, not the optimization, to prior work.",
+        "searches": [
+          "Resultary 900ee56c5370, e95b9bae48f1 and 421f4178227e, original Findings and relevant proof/scope sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The consecutive three-mode record 2026/11/1, SCOPE-antipodal-maximin-sampling-and-a-quarter-circle-tightness-bifurc--1c5e863c7cba, states exact maximin optimality for {0,1,2}.",
+          "The 2026/11/8 sharp two-arc record uses complete symmetric bands."
+        ],
+        "reasoning": "Minimizing over unit Fourier coefficients is the least Gram eigenvalue, so maximin and E-optimal concentration are equivalent here. Translation, reflection, and dilation of frequency indices preserve being an arithmetic triple; they cannot identify {0,1,3} with those prior triples.",
+        "searches": [
+          "Resultary: two-arc Fourier observability, sparse three-frequency E-optimal/maximin design, antipodal",
+          "Primary search: finite sparse Fourier two-arc concentration design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sparse periodic constant at q=2 gives 4/(3π) in the stated half-width normalization. The same-day five-mode exact formula is for {-2,-1,0,1,2} and yields antipodality."
+        ],
+        "reasoning": "The closest exact tabulation specializes to the benchmark only; the exact same-day optimizer is for a different band. A grid in the frozen checker is not a prior exact table and cannot establish small-width uniqueness.",
+        "searches": [
+          "Resultary exact two-arc least-eigenvalue formulas and sparse periodic tables",
+          "Resultary 2026/11/22 five-mode equal-arc record, 421f4178227e"
+        ]
+      },
+      "rationale": "The distinctive claim is the off-antipodal optimized coefficient and limiting separation for the non-arithmetic support, with uniqueness for sufficiently small positive widths. Neither the earlier consecutive-band optimizers nor the arbitrary-support fixed periodic array determine it; the latter already gives the leading antipodal benchmark. This is a bounded statement-level priority comparison.",
+      "residual_risks": [
+        "Unindexed or differently formulated optimal-design literature could contain an equivalent result; the retrieved source passages do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers antipodal coefficient but no free separation",
+          "evidence": [
+            "Centers are exactly equally spaced; q=2 puts 1 and 3 in the same residue class and yields the antipodal a³ term."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, SCOPE-exact-spectral-staircases-for-periodic-narrow-arc-fourier-observ--e95b9bae48f1",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions (offset 0)",
+          "method": "Local Resultary search and bounded original mirror reading",
+          "title": "Exact spectral staircases for periodic narrow-arc Fourier observation",
+          "trigger": "Broader arbitrary sparse support and exact asymptotic constants"
+        },
+        {
+          "assessment": "Different coefficient space; includes the consecutive triple",
+          "evidence": [
+            "Complete symmetric consecutive supports have limiting antipodal optimum; m=1 has exact all-width antipodality."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, SCOPE-sharp-two-arc-fourier-observability-a-legendre-constant-and-asym--900ee56c5370",
+          "material_read": "Mirrored RESULT.md, Finding and proof §§3, 5",
+          "method": "Local Resultary search and bounded original mirror reading",
+          "title": "Sharp two-arc Fourier observability: a Legendre constant and asymptotic antipodal design",
+          "trigger": "Same optimization for complete Fourier bands"
+        },
+        {
+          "assessment": "Exact antipodal design for a consecutive triple only",
+          "evidence": [
+            "Support {0,1,2}, unique antipodality and the same least-eigenvalue expression at that design."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1, SCOPE-antipodal-maximin-sampling-and-a-quarter-circle-tightness-bifurc--1c5e863c7cba",
+          "material_read": "Mirrored RESULT.md, Finding and proof, from offset 0",
+          "method": "Local Resultary search and bounded original mirror reading",
+          "title": "Antipodal maximin sampling and a quarter-circle tightness bifurcation",
+          "trigger": "Exact three-mode maximin design"
+        },
+        {
+          "assessment": "Same criterion and geometry, different band; date gives no priority inference",
+          "evidence": [
+            "Exact all-width antipodal optimizer for {-2,-1,0,1,2}."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, SCOPE-exact-five-mode-fourier-observability-on-two-equal-circle-arcs--421f4178227e",
+          "material_read": "Mirrored RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary search and bounded original mirror reading",
+          "title": "Exact five-mode Fourier observability on two equal circle arcs",
+          "trigger": "Distinct same-day exact two-equal-arc design"
+        },
+        {
+          "assessment": "Different spectral quantity and domain; not a full-paper exclusion",
+          "evidence": [
+            "Theorem 1.1 bounds the count of eigenvalues in (ε,1-ε) for two regular domains in R^d, d>=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11685",
+          "material_read": "PDF abstract and Theorem 1.1, pp. 1, 3; theorem at text offset 9086",
+          "method": "Lawful OA, literal location and bounded passage reading",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Closest retrieved primary concentration theorem"
+        },
+        {
+          "assessment": "General framework and eigenvalue solver are not a separation optimization theorem",
+          "evidence": [
+            "The abstract describes well-posed masks, generalized quadratic-domain structure and robust computation of eigensystems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.01465",
+          "material_read": "PDF abstract p. 1, text offset 225; Theorem 1 opening located at 38969",
+          "method": "Lawful OA bounded passage and literal location",
+          "title": "A generalized spectral concentration problem and the varying masks algorithm",
+          "trigger": "Arbitrary-mask concentration and numerical design terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This minimal non-arithmetic triple supplies an explicit counterexample to transferring antipodal optimality from consecutive bands to sparse ones, at unchanged arc count and total observed measure. The sharp gain exceeds a factor of two, and locating the unique small-width optimizer rather than only exhibiting a better design makes the result useful as a benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

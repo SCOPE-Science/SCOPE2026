@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:32:43.374759Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The log moment makes the absolute past shot sum well defined: the time integral of min(1,e^(−κs)|Y|) at fixed |Y|=y is y/κ for y≤1 and (1+log y)/κ for y>1. The Brownian convolution exists separately and the linear homogeneous difference decays, giving the stationary law. Independent innovations split the pair as (U,aU+V) with a=e^(−κt) in (0,1). Jumps during (0,t] contribute positive Lévy mass on the vertical axis; the swapped pair has only horizontal and inverse-slope diagonal jump support, hence no such mass off the origin. Lévy uniqueness proves nonexchangeability for each positive t, including D=0 and jumps without ordinary moments. With fourth absolute moment, the common U gives mixed cumulant a^q c_(p+q); c_n=ρE[Y^n]/(nκ) for n=3,4 by time-integrating e^(−nκs). Marginals match; covariance is symmetric, degree-three centered mixed moments are cumulants, and the two degree-four moments have equal three-pairing term 3 Var(Z) Cov(Z_0,Z_t). This verifies signs, the degree threshold from c_3 and c_4>0, and the exact contrasts. Maximizing a(1−a) and a(1−a²) gives the two stated lags; division gives a+a³, strictly increasing on (0,1), so the inversion for κ is exact. Frozen verify.py was inspected, not executed; the recorded 2310 rational assertions are finite checks, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical Darmois–Skitovich theorem says that independent real variables entering both of two independent linear forms with nonzero coefficients must be Gaussian; it needs no ordinary moments.",
+          "The located linear-process reversibility excerpt does not establish a moment-free theorem; exact hypotheses were not retrievable. Applebaum supplies the OU and Lévy measure framework."
+        ],
+        "reasoning": "Exchangeability of (U,aU+V) and U independent of V imply aU+V independent of U−a(aU+V). In these two linear forms the coefficients of both U and V are nonzero for 0<a<1. Gaussianity would contradict nonzero Lévy measure (even V alone has nonzero compound-Poisson Lévy measure). This mechanical reduction proves the entire frozen moment-free conclusion without relying on the inaccessible reversibility paper.",
+        "searches": [
+          "JSTOR stable/2673529, On Time-Reversibility of Linear Processes",
+          "Darmois–Skitovich independent linear forms theorem",
+          "arXiv:1411.2752"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 36590c0fb266 and 4f8ef07add78",
+        "arXiv:2309.13424, 1411.2752, 1803.02655 and 2303.13116",
+        "JSTOR stable/2673529 excerpt; classical Darmois–Skitovich theorem (applied explicitly)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem gives all mixed-cumulant differences at their corresponding finite orders, and identifies κ from the ideal quartic-contrast curve.",
+          "The nonzero finite-time innovation jump measure, together with the two independent forms under exchangeability, triggers the Gaussian characterization."
+        ],
+        "reasoning": "At order three the indexed formula with p=1,q=2 is the centered cubic contrast, whose absolute peak follows by differentiating its prescribed lag dependence. No smaller-degree polynomial can distinguish stationary marginals and symmetric covariance; the indexed quartic witness gives degree four if the third cumulant is zero. Its two-lag ratio follows by cancelling the already-known factor 1−a² in 1−a⁴ and multiplying by a; monotonicity is immediate. Neither those deductions nor the moment-free special case constitute a new required exact fact.",
+        "searches": [
+          "36590c0fb266 Finding: general K_(p,q) difference and inverse formulas",
+          "Darmois–Skitovich theorem applied to stationary AR(1) independent innovations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "36590c0fb266 computes exactly the centered quartic contrast in the same additive Poisson-shot OU model, for finite fourth absolute kick moment; its λ, γ and J are the frozen ρ, κ and Y.",
+          "Di Bello et al. define the forward and reverse cross-correlators; their Gaussian-kick comparison is numerical.",
+          "The distinct same-day 4f8ef07add78 addresses multiplicative Poisson resetting, not additive kicks."
+        ],
+        "reasoning": "The catalog contrast is exactly Δ_4, not just a similar signed observable. Di Bello is a direct precedent but the numerical plot alone would not cover the exact signed theorem.",
+        "searches": [
+          "Resultary 36590c0fb266",
+          "Resultary 4f8ef07add78",
+          "arXiv:2309.13424 Eq. (68) and Fig. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36590c0fb266 lists the exact Δ_4 and log(3)/(2γ) and gives the arbitrary-order mixed-cumulant difference. The same-day hit uses a different reset model."
+        ],
+        "reasoning": "Catalog coverage is symbolic and exact for the finite-moment formula and peak; it is not based on a finite parameter table. No log-moment theorem was established from the catalog polynomial witness, whose assumptions differ.",
+        "searches": [
+          "Resultary mirrored Finding 36590c0fb266",
+          "Resultary mirrored Finding 4f8ef07add78"
+        ]
+      },
+      "rationale": "The frozen package combines an exactly covered polynomial mechanism with a moment-free nonexchangeability consequence of the classical independent-linear-forms characterization of Gaussian laws. The alternate Lévy-support proof is clean but the same conclusion is already implied; degree, peak, and exact two-lag estimation do not supply a distinct substantive remainder here. No catalog priority order is assigned.",
+      "residual_risks": [
+        "The exact moment assumptions and the AR(1) reduction in the unavailable linear-process paper were not verified; the moment-free coverage decision instead uses the classical independent-forms theorem.",
+        "No historical priority is inferred from catalog date labels; the source assessment is bounded to material read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-moment coverage and general cumulant formula",
+          "evidence": "Δ=−λ E[J^4]e^(−γt)(1−e^(−2γt))/(4γ), t*=log(3)/(2γ); general K_(p,q) difference gives order three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-fourth-order-time-arrow-in-poisson-kicked-harmonic-c--36590c0fb266/RESULT.md",
+          "material_read": "Finding and assumptions, mirrored offsets 0–3475",
+          "method": "Resultary local mirror",
+          "title": "A universal fourth-order time arrow in Poisson-kicked harmonic confinement",
+          "trigger": "Strongest distinct exact catalog match"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Random-amplitude resetting and a sign/cancellation condition on multiplier moments.",
+          "identifier_or_url": "Resultary 4f8ef07add78",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "A universal temporal fourth-order arrow and its cancellation",
+          "trigger": "Distinct same-day quartic witness"
+        },
+        {
+          "assessment": "Numerical precedent for the witness, not the general exact lag theorem in those passages",
+          "evidence": "The compared correlations X,X³ empirically differ under symmetric Gaussian kicks; a zero-current comment cannot establish exchangeability in the face of these unequal correlations.",
+          "identifier_or_url": "arXiv:2309.13424",
+          "material_read": "pp. 14–15, Eq. (68) and Fig. 5, text offsets 68000 and 72499",
+          "method": "Lawful OA paper text",
+          "title": "Brownian particle in a Poisson-shot-noise active bath: exact statistics, effective temperature, and inference",
+          "trigger": "Identical physical model and reversed quartic correlations"
+        },
+        {
+          "assessment": "Qualitative precedent; exact scope unresolved and not used to infer coverage",
+          "evidence": "Excerpt mentions a necessary and sufficient criterion without moments above order two; that does not establish absence of a second-moment hypothesis.",
+          "identifier_or_url": "https://www.jstor.org/stable/2673529",
+          "material_read": "Search-result excerpt only; OA full text unavailable",
+          "method": "Literature search and lawful OA attempt",
+          "title": "On Time-Reversibility of Linear Processes",
+          "trigger": "Stationary sampled OU is an AR(1) linear process"
+        },
+        {
+          "assessment": "Methodological background",
+          "evidence": "Stochastic convolution and infinitely divisible laws, not the polynomial contrasts in the sections inspected.",
+          "identifier_or_url": "arXiv:1411.2752",
+          "material_read": "Text offsets 9504 and 13681",
+          "method": "Lawful OA paper text",
+          "title": "Infinite Dimensional Ornstein–Uhlenbeck Processes Driven by Lévy Processes",
+          "trigger": "Possible general OU dependence law"
+        },
+        {
+          "assessment": "Different equivalence question in the inspected statement",
+          "evidence": "Equivalence of process laws rather than swapping two stationary coordinates.",
+          "identifier_or_url": "arXiv:1803.02655",
+          "material_read": "p. 1",
+          "method": "Lawful OA paper text",
+          "title": "Law equivalence of Ornstein–Uhlenbeck processes driven by a Lévy process",
+          "trigger": "Possible equivalence theorem for this process class"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Thermodynamic bounds for finite-state steady-state systems, not the exact shot-noise lag identities.",
+          "identifier_or_url": "arXiv:2303.13116",
+          "material_read": "Abstract and discussion, text offsets 793–1409 and 29530",
+          "method": "Lawful OA paper text",
+          "title": "Thermodynamic Bound on the Asymmetry of Cross-Correlations",
+          "trigger": "General cross-correlation asymmetry results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A signed thermal-noise-independent witness and its optimal lag are useful, but both are already furnished by the same-model theorem. Taking a ratio of an existing exact curve, enumerating polynomial degrees through four using the existing cumulants, and reproving a classical Gaussian characterization consequence by a support argument do not add a substantial surviving scientific claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

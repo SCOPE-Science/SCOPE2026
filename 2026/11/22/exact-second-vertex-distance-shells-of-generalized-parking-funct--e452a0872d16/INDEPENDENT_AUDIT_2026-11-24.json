@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:02:17.219814Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The translated vertex orbits follow from Bayer et al., Thm. 2.3(b); the strictly increasing positive labels ensure no coincident ranks. For fixed ranks, opposite rearrangement minimizes the dot product. If their sum exceeds n, each endpoint's smallest positive label is on a shared coordinate in an opposite arrangement. Delete the smaller of the two minima: its partner is at least the larger minimum, so the squared distance strictly increases by u(2v-u). This excludes sums above n+1 from the second shell. For sums below n, one can add a new minimum in a vacant coordinate; for a fixed disjoint rank sum, strict discrete concavity of F gives balanced ranks and, at sum n, the next-best imbalance. At the diametral ranks, any defective pair has overlap cost at least 2t_m^2 in even dimension or 2t_mt_{m+1} in odd dimension, more than the missing-slot deficit t_m^2. For sum n+1 the minimum positive product requires just one overlap and both minima at that coordinate. Counting placements of the distinct labels gives n! at each winning rank/overlap pattern, with factor 1/2 exactly when one can exchange equal-rank endpoints. These arguments prove the second distinct level and all ties. Independent exact orbit-compressed enumeration (/workspace/replay/parking.py) reproduced both levels and each second-shell geometry/count in 132 label lists at n=4,5,6, including (D,D2,count)=(112692,102692,240) on the three-mechanism tie. Computations corroborate the all-parameter argument; the result is not for b_1=1, graph distances, or the continuous polytope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized paper supplies vertices for a larger parameter range, not the second-distance assertion.",
+          "The distinct same-day near-diameter result has M>=2N and studies the random deficit and diametral-pair probability, not the next attained level for P(n,n) or arbitrary label tails."
+        ],
+        "reasoning": "Broader vertex coverage and a random deficit law are not a stronger theorem on the exact second attained value and all its ties.",
+        "searches": [
+          "arXiv:2403.07387 §2.1",
+          "Resultary e9bbf59cb7da",
+          "Resultary cb2829b66c5c"
+        ]
+      },
+      "checked_sources": [
+        "Bayer et al., arXiv:2403.07387",
+        "Resultary e452a0872d16 (identical), 13f7987f216b, cb2829b66c5c, e9bbf59cb7da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical proof also separates rank sums n-1,n,n+1, so that part of the method is not new.",
+          "The old diameter specifies disjoint-support extremizers, not the runner-up. Strictly positive labels with freely varying gaps permit an overlap-only winner, an imbalance-only winner, and a three-mechanism tie."
+        ],
+        "reasoning": "Neither the classical fixed-gap formula nor the first-shell formulas identify the competing losses and multiplicities for arbitrary b. Rearrangement performs the fixed-rank optimization but does not give the global second shell, including defective pairs at diametral ranks.",
+        "searches": [
+          "Resultary 13f7987f216b, offsets 0–3706 and 3600–6750",
+          "Resultary cb2829b66c5c, offset 0–3994",
+          "Bayer et al., arXiv:2403.07387 Thm. 2.3(b)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer's orbit definition becomes the frozen vertex set by translation; the operation is an isometry.",
+          "The consecutive-label choice b=(2,1,...,1) gives the partial permutohedron P(n,n); not every strictly increasing positive label sequence is consecutive or its isometric image."
+        ],
+        "reasoning": "Rephrasing in terms of permuted tails is exact for vertices, but the known Euclidean diameter gives a different shell; combinatorial and affine equivalence alone do not preserve the squared distances.",
+        "searches": [
+          "Bayer et al., arXiv:2403.07387, §2.1",
+          "Resultary 13f7987f216b (classical parking chord shell)",
+          "Resultary cb2829b66c5c (partial-permutohedron Euclidean diameter)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e452a0872d16 is the identical frozen record; 13f7987f216b gives a parity-dependent second-distance gap and count in the b_1=1 classical case; e9bbf59cb7da gives near-diameter distribution in another regime."
+        ],
+        "reasoning": "The identical listing is not independent coverage. No inspected distinct entry provides the all-parameter deficit candidates with their tie counts.",
+        "searches": [
+          "Resultary local mirror, e452a0872d16, 13f7987f216b, e9bbf59cb7da"
+        ]
+      },
+      "rationale": "The classical second-shell result is a real structural antecedent. Its degenerate orbit set and fixed label gaps do not supply the arbitrary positive-label competition, all realizers, or tie census here. Other inspected close results give vertex orbits, a first diameter, or a probabilistic regime, rather than this second Euclidean level.",
+      "residual_risks": [
+        "An unindexed equivalent arbitrary-label shell or an uninspected prior characterization implying it is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the vertex premise, not the shell formula",
+          "evidence": "v_k=(1^k,S_{k+1},...,S_n), distinct for b_1>=2; vertices are all coordinate permutations of these representatives.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.07387",
+          "material_read": "§2.1, definition of v_k on printed p. 2 and Thm. 2.3(b) on p. 3; text offsets near 8100 and 12800",
+          "method": "OA bounded full-text excerpts",
+          "title": "Combinatorics of generalized parking-function polytopes",
+          "trigger": "Exact external vertex premise and broader generalized setting"
+        },
+        {
+          "assessment": "Structural overlap, not arbitrary positive-label coverage",
+          "evidence": "Classifies the analogous shell and all pairs for classical parking, where b_1=1 makes orbits degenerate.",
+          "identifier_or_url": "Resultary 13f7987f216b (2026-11-17)",
+          "material_read": "Offsets 0–3706 and 3600–6750, finding and distinction of rank-sum cases",
+          "method": "Resultary local mirror",
+          "title": "Second Euclidean vertex-chord shell of classical parking-function polytopes",
+          "trigger": "Closest exact prior second-distance shell"
+        },
+        {
+          "assessment": "First shell for the specialization only",
+          "evidence": "The P(n,n) first diameter comes from disjoint-support equality patterns.",
+          "identifier_or_url": "Resultary cb2829b66c5c (2026-10-11)",
+          "material_read": "Offset 0–3994, diameter and equality formulation",
+          "method": "Resultary local mirror",
+          "title": "The Euclidean diameter of partial permutohedra saturates exactly",
+          "trigger": "Euclidean specialization with consecutive labels"
+        },
+        {
+          "assessment": "Different parameter regime and probabilistic question",
+          "evidence": "M>=2N, random squared deficits and diametral probabilities; no exact second shell in the frozen regime.",
+          "identifier_or_url": "Resultary e9bbf59cb7da (2026-11-22)",
+          "material_read": "Offset 0–3718, hypotheses and finding",
+          "method": "Resultary local mirror",
+          "title": "Marked compound-Poisson near-diameter chords of partial permutohedra",
+          "trigger": "Distinct same-day near-diameter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The next distinct Euclidean chord length and its all-pair census refine the diameter of a standard polytope. The formula replaces enormous vertex-pair enumeration by a linear-size list; variable gaps change which geometry wins and can force ties. This is not just the diameter calculation or a reinterpretation of a combinatorial graph invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

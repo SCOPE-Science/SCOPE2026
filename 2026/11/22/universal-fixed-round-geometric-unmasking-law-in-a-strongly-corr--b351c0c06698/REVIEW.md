@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from Baule's exact finite-round conditional-correlation gap expression, rather than its geodesic approximation, and derives the positive single-series formula by a direct geometric sum. Exact first-stage and interior-stage asymptotics, plus an all-rate stage lower bound, establish compactness of all global minimizers. The limiting finite-dimensional minimization is an equality-rigid AM–GM problem; no numerical convergence is substituted for the proof. The direct-source and independent numerical checker validates nontrivial finite examples and rare-switch scaling. At fixed \(m\), no unproved uniform-in-round limit is used.
+## correctness
 
-## Originality — PASS, qualified
-The prior three-round result is a strict special case and does not imply all fixed round counts or the global localization argument. Baule's exact all-round gap formulas are the input, not the new theorem; the original many-round geodesic approximation needs a screening-smallness condition that does not hold for the rare-switch fixed-round optimizer. Lavenant–Zanella, Wainwright, and Secchi–Zanella address general information profiles, finite-round schedule conditions, and large-budget limits, but accessible examined descriptions do not state these exact constants and asymptotic optimizers for a low-switch-density Ising chain for all fixed \(m\). The Wainwright and Secchi–Zanella primary PDFs were not fully inspected and could contain an implicit stronger result; this residual priority risk does not supply positive evidence of coverage.
+PASS
 
-## Value — PASS
-The theorem is an entire fixed-round hierarchy, not a numerical improvement for one added round. It sharply resolves which probabilities a finite decoder should allocate in an extreme-correlation regime and exhibits a different asymptotic structure from the well-known smooth many-round geodesic. The explicit universal exponent, coefficient, and globally enforced geometric distribution of rounds are motivated by the physics of long ferromagnetic domains. This value applies to the idealized Ising/Markov model, not automatically to learned samplers or actual text quality.
+With the same independent masks in both paths, the KL chain rule gives the sum of conditional total correlations under the joint sampler. Given the old sites, unrevealed gaps are independent Markov bridges, and the conditional total correlation within a gap sums the mutual information between consecutive new sites conditioned on the two old endpoints. For two such sites d apart with endpoint offsets l,r, the Markov entropy identity H(X_v|X_u,X_w)=h(v-u)+h(w-v)-h(w-u), h(d)=log 2-I_f(d), gives precisely the four-term difference in (1). Weighting the old endpoints and absence of intervening old or new sites gives the stated p²q² and two geometric factors. With no old sites the selected process is a thinned Markov chain, giving the p=0 limit in (2); with all sites already revealed the cost is zero. At fixed f>0 the denominators in (2) are bounded below by 1-lambda² and the numerator factor q²(1-p)² equals the squared cumulative increment, ensuring continuity at saturated and empty rounds and hence existence of minimizers. Expanding I_f(d) in positive even powers and summing the geometric factors gives (2) term by term. Dominated convergence yields first-wave cost q log 2 for f/q→0 and q→0. For later waves use K=p/(4f); on k/K in a compact positive interval the kth term is asymptotic to q/(4K²)(1+k/K)^(-2) when p→0, f/p→0 and p/q→0. The full term is bounded by C q f²/(p+fk)² using 1-(1-p)(1-q)lambda^(2k)≥q, so the tails can be removed uniformly in the rescaled sum. The integral equals 1 and the cost is fq/p including q=1. Restriction to k of order (p+f)/f, with p≤1/2, gives the uniform lower bound cfq²/((p+f)(p+q+f)). The proposed trial supplies O(f^((m-1)/m)); the lower bound bounds each (p_i+f)/(p_(i-1)+f) by C f^(-1/m) up to and including the first crossing of one-half. Their product cannot cross one-half in fewer than m rounds. The full product then also bounds every ratio from below at the same scale, uniformly over minimizers. This puts every minimizer in the same compact rescaled region, and the m limiting positive cost terms multiply to log 2. Equality at the sharp AM–GM value fixes every rescaled fraction uniquely. This is convergence of all minimizers, not finite-f uniqueness or a terminal-output guarantee. The supplied finite checks were inspected, not run.
 
-## Scientific limits
-Infinite-volume density is computed before the rare-flip limit. Only the path relative entropy is covered; the result is not a terminal distribution guarantee. Independent replication, unindexed preprints and full literature priority remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+There is exact statement-level overlap at m=2 and m=3. Baule's exact screened functional and the more general Secchi–Zanella path-KL functional, Markov profile and stationarity recursion are prior inputs/frameworks. The supported distinct result is the sharp singular limit and all-minimizer localization for arbitrary fixed m, in particular beyond the already recorded two- and three-round cases. General representations and stationarity do not perform the uniform-in-schedule singular-limit proof or distinguish the global minimizers in this regime.
+
+## value
+
+PASS
+
+A fixed number of Bernoulli reveals in an increasingly ordered chain is a practically and mathematically distinct limit from a smooth many-round decoder. The result identifies the sharp entropy penalty and forces the intermediate rates of every minimizing schedule, rather than supplying one plausible schedule or computing one more round count. The uniform localization/variational argument resolves the all-fixed-m hierarchy even after accounting for the prior small-round formulas and almost exact general optimization frameworks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

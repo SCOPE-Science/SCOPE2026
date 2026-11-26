@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:02.123798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the trace-one PSD model of K the reflected rank-one generator corresponds to (1+t)I/3-t uu^T, so its least eigenvalue gives the exact containment threshold t=1/2. Rayleigh support gives the two maxima in RESULT.md. The real Vandermonde on the ordered trace-zero, Frobenius-unit eigenvalue circle is proportional to sin(3θ), with normalized density (3/2)sin(3θ). By spectral reflection the baseline is sqrt(3) times the integral of cos(θ)sin(3θ) from 0 to π/3, namely 9sqrt(3)/16. For k=(2t-1)/sqrt(3)>0 each switch occupies a chamber end of angle arctan(k). Differentiating the total increment with respect to k has no moving-boundary term because the support excess is zero there; integration of (3/2)cos(θ)sin(3θ) to arctan(k) gives 3k²(3+k²)/(4(1+k²)²). Its zero-at-k=0 primitive is 3k³/(4(1+k²)). This gives the claimed monotonicity, endpoint, cubic coefficient 2/sqrt(3) and third-derivative jump 4sqrt(3). The switch intervals meet only at a tie when t=1. Reviewed RESULT.md, VERIFICATION.md and verify.py without executing the supplied file. Finite numerical checks are supplementary; the calculation above covers the full parameter interval.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 gives general conjugation-invariant integration with the eigenvalue Jacobian. The Veronese-orbitope discussion puts the body within an existing broad family."
+        ],
+        "reasoning": "General integration reduces the problem to an eigenvalue observable but does not give an evaluated one-parameter width law or an onset for this support maximum.",
+        "searches": [
+          "Sanyal–Saunderson, Spectral Polyhedra, Theorem 2.7 and proof",
+          "Orbitopes §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification package",
+        "Local Resultary index",
+        "arXiv:2611.08198v1",
+        "arXiv:0911.5436",
+        "doi:10.1017/fms.2024.62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Containment is an immediate PSD consequence and is not credited separately as a novel theorem. The width requires identifying the t-dependent switching intervals in the ordered circle and evaluating their truncated angular excess."
+        ],
+        "reasoning": "Neither the covering bounds nor a general Jacobian formula supplies the evaluated switching contribution as a ready corollary. The profile, rather than the standard ingredients, is the accepted claim.",
+        "searches": [
+          "arXiv:2611.08198v1 equation (4) compared with Spectral Polyhedra Theorem 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary match is the identical dff4ab9b5b57 record, not separate coverage.",
+          "Equation (4) is exactly the trace-one PSD hull after centering and scaling; its use there is for diameter and covering. Orbitopes §6 supplies the Veronese description, not a reflection-hull width."
+        ],
+        "reasoning": "The alternative spectrahedron, projector-orbit and real-projective Veronese descriptions refer to the same body. The prior descriptions identify the body but do not evaluate the stated nonlinear response.",
+        "searches": [
+          "Resultary: partial-reflection Veronese/projector-hull mean width and cubic onset",
+          "arXiv:2611.08198v1 §2.1, equation (4)",
+          "Orbitopes §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact profile matched the frozen record itself. The inspected integration formula is for invariant observables in general, not a table of partial-reflection widths."
+        ],
+        "reasoning": "No independent exact profile was identified; the scoped evidence does not establish exhaustive priority.",
+        "searches": [
+          "Resultary: partial reflection, projector spectrahedron, mean width",
+          "Spectral Polyhedra, Theorem 2.7 (spectral integration formula)"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct contribution is the evaluated mean-width profile and its cubic onset for this particular reflection hull, not the projector body, support-function calculus or Vandermonde law.",
+      "residual_risks": [
+        "A differently formulated or unindexed prior evaluation of this particular spectral maximum integral cannot be excluded. No claim of priority for the containment argument or the angular Jacobian."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Matching identifier, threshold, response formula and onset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-cubic-mean-width-onset-under-partial-central-symmetrizatio--dff4ab9b5b57",
+          "material_read": "Indexed statement compared with frozen Finding",
+          "method": "Local Resultary comparison",
+          "title": "Sharp cubic mean-width onset under partial central symmetrization",
+          "trigger": "Exact profile hit"
+        },
+        {
+          "assessment": "Same body; different invariant",
+          "evidence": "Equation (4) gives its trace-one PSD convex hull and the discussion treats diameter and covering.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08198v1",
+          "material_read": "§2.1, especially equation (4), around OA offset 6100",
+          "method": "Targeted OA text inspection",
+          "title": "A diameter-one set in R^5 that cannot be covered by six diameter-one balls",
+          "trigger": "Same normalized projector model"
+        },
+        {
+          "assessment": "General framework, no decisive overlap in inspected section",
+          "evidence": "Defines the Veronese orbitopes and discusses the real-projective even-degree orbit and ternary quartics.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.5436",
+          "material_read": "§6, pp. 26–27",
+          "method": "Targeted OA PDF inspection",
+          "title": "Orbitopes",
+          "trigger": "Equivalent Veronese-orbit formulation"
+        },
+        {
+          "assessment": "Supplies the Jacobian method, not the evaluated profile",
+          "evidence": "Eigenvalue integration with the Vandermonde factor precedes specializing the integrand and imposing the constrained angular switch calculation.",
+          "identifier_or_url": "https://doi.org/10.1017/fms.2024.62",
+          "material_read": "Theorem 2.7 and its proof, pp. 4–5, around OA offset 14705",
+          "method": "Targeted OA text inspection",
+          "title": "Spectral Polyhedra",
+          "trigger": "Broader spectral integration might evaluate the invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean width is a canonical Euclidean invariant of the diameter-normalized projector body. The profile quantifies how the extremal reflected orbit begins changing that invariant, distinguishing immediate set enlargement from third-order mean-width sensitivity. The explicit coefficient and endpoint are useful for quantitative comparison with other width or symmetrization bounds; this is not just the PSD containment test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

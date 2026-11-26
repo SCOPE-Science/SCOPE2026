@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:06.363226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two experiments are separate, so only the A/B and C/B payoff submatrices matter. Under random replacement the common reproduction/target factor cancels from T_i^-/T_i^+, leaving exp(-w times mutant payoff advantage). Taking first differences in the absorption recurrence and summing up to the fixed boundary at i=6 gives the reciprocal-fixation denominator. Independent exact reconstruction gives prefix sums (-4,-4,0,8,20) and (3,4,3,0,-5), hence D_A=2+2z^4+z^-8+z^-20 and D_C=2+2z^-3+z^-4+z^5. Termwise subtraction verifies z^20(D_A-D_C)=P(z). Exact replay by substitution gave P(1)=0, P'(1)=-15, P(6/5)=3174820597963420709/298023223876953125>0, P(2)=-323583. Three Descartes variations and disjoint brackets at 1, (1,6/5), (6/5,2) exhaust the positive roots counting multiplicity, so the crossings are simple. The fixation difference is -P/(z^20 D_A D_C), giving the stated ordering and neutrality tie. The frozen checker was read, not run. The reported decimal refinements are illustrative; the exact brackets, rather than an independent decimal refinement, were used to certify all positive-selection regimes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cooney et al. give the exponential-fitness recurrence, but their main comparison is two strategies under varying assortment, with self-interaction allowed.",
+          "McCandlish et al. treat a single mutant's monotonicity under frequency-independent selection."
+        ],
+        "reasoning": "Neither theorem supplies a frequency-dependent common-resident witness with two positive-intensity crossings. The generic zero bound for finite exponential sums is an upper bound, not existence or exact count in this model.",
+        "searches": [
+          "Cooney–Allen–Veller arXiv:1509.05757v2 PDF pp. 4–6",
+          "McCandlish–Epstein–Plotkin arXiv:1312.1673v4 PDF pp. 1,5–6",
+          "Bounded literature search for multiple fixation crossovers in Moran selection strength"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 82046f109799, e6964137f3ec, 6394365f2e27, 9bf2884d2455",
+        "Cooney–Allen–Veller arXiv:1509.05757v2",
+        "McCandlish–Epstein–Plotkin arXiv:1312.1673v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence reduces any such pair to exponential sums; the two special sparse sums here give an exact Descartes certificate. The nearest parity theorem gives fixation equality for all positive intensities in its own model."
+        ],
+        "reasoning": "The reduction calculates a crossing function once suitable payoffs have been designed. It does not establish that feasible no-self-interaction payoff rows can realize two strict crossings, or that these are the only two, without the witness and its sign certificate.",
+        "searches": [
+          "Cooney–Allen–Veller fixation formulas in arXiv:1509.05757v2, PDF pp. 4–6",
+          "Resultary e6964137f3ec fixation corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "82046f109799 compares two introduction sites on a fixed four-site directed graph and has one switch in relative fecundity.",
+          "e6964137f3ec counts selection sign changes across mutant counts, with an opposing-fixation equality corollary under Fermi selection."
+        ],
+        "reasoning": "A relabeling or monotone reparameterization of w cannot turn a one-switch site comparison into two switches between distinct payoff rows against a common resident. A count of sign changes across states is not a count of fixation ties as intensity changes.",
+        "searches": [
+          "Resultary semantic search for same-resident mutant fixation rank reversals, exponential Moran intensity and N=6",
+          "Resultary 82046f109799 and e6964137f3ec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact catalogue constructions concern graph introduction sites, habitat arrangements, or order of selection epochs in expected mutant count, rather than a payoff matrix for the two stated invasions."
+        ],
+        "reasoning": "Their exact parameters and thresholds therefore do not list the assigned comparison or either of its two roots.",
+        "searches": [
+          "Resultary semantic search for the six-individual common-resident fixation witness and Moran ranking crossovers",
+          "Closest entries 82046f109799, 6394365f2e27, 9bf2884d2455"
+        ]
+      },
+      "rationale": "The standard Moran recurrence is covered. The supported distinct claim is an exact two-switch ranking of distinct rare mutants versus the same resident as selection strength varies in one well-mixed model. The closest inspected results change the parameter, comparison or observable; they do not realize this reentry.",
+      "residual_risks": [
+        "Cited Antal PMC2684574 and a nearby item on pairwise-comparison selection temperature returned landing pages rather than readable full text through the checked routes.",
+        "Bounded searches do not establish priority over uncatalogued examples or a general constructive multiple-crossing result. No minimality claim is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general denominator formula, not the common-resident intensity reentry",
+          "evidence": "Cooperator/defector comparison varies assortment r at fixed w and permits self-interaction.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05757v2",
+          "material_read": "PDF pp. 4–6, text offsets 9899–18348",
+          "method": "OA PDF passage inspection",
+          "title": "Assortment and the evolution of cooperation in a Moran process with exponential fitness",
+          "trigger": "Same exponential-fitness fixation formula"
+        },
+        {
+          "assessment": "Different comparison and frequency-independent hypothesis",
+          "evidence": "Single-mutant fixation increases with its frequency-independent selection coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.1673v4",
+          "material_read": "PDF pp. 1,5–6, offsets 0 and 14866–17575",
+          "method": "OA PDF passage inspection",
+          "title": "The inevitability of unconditionally deleterious substitutions during adaptation",
+          "trigger": "Monotonicity of Moran fixation in selection"
+        },
+        {
+          "assessment": "One switch between sites, not two switches between invaders",
+          "evidence": "Relative fecundity varies on one four-vertex graph and introduction sites are the alternatives.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-unique-six-arc-four-site-fitness-ranking-reversal-in-the-dir--82046f109799",
+          "material_read": "Local mirrored RESULT.md Finding",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "The unique six-arc four-site fitness ranking reversal",
+          "trigger": "Closest exact fixation-ranking reversal hit"
+        },
+        {
+          "assessment": "Oscillations across states, not fixation-order reentry across intensities",
+          "evidence": "The fixation corollary in its two-strategy Fermi game gives equality of opposing fixation probabilities for every positive intensity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-parity-law-for-oscillatory-selection-under-increasing-pu--e6964137f3ec",
+          "material_read": "Local mirrored RESULT.md Finding and fixation corollary",
+          "method": "Resultary search and mirror passage inspection",
+          "title": "A sharp parity law for oscillatory selection under increasing public goods",
+          "trigger": "Closest indexed multiple-sign-change result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The witness tests a natural inference about using weak- and strong-selection rankings to screen rare invaders of the same resident. Both ends favor the same mutant, yet a whole intermediate interval favors its competitor. The exact two-crossing result establishes the failure in a fixed elementary model without conflating mutant identity with an update rule, invasion site, or coexisting mutant dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

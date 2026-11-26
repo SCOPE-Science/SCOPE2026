@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:22.756531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At angular stationarity, conditioning on the exponential age since the last refresh gives a_n=r*mu_n/(r+n^2*D_R). At lag s, if no reset occurs, the initial first mode survives with factor exp(-D_R*s), and on the complementary event the heading is independent of its initial value. This gives centered velocity covariance exp(-(r+D_R)*s)C and, by integrating the two time orders, displacement covariance 2D_T*t*I+2v^2*H_gamma(t)*C. H_gamma(t) is positive for every t>0. In complex notation the traceless part of C is represented by E[(exp(iTheta)-a_1)^2]=a_2-a_1^2, which gives the full isotropy criterion including the cross term. For the symmetric pair put c=cos^2(alpha); the signed gap has the sign of c(q^2+2)-(q+1)^2, which is strictly decreasing on q>=0. Solving the quadratic gives the stated threshold, including c=1, and requiring c<=1 gives q<=1/2. Substitution gives nonzero drift on the interior and the stated scalar variance. The actual mixture and the average of fixed-target experiments have the same stationary uncentered second moment; the difference of the mean outer products gives exactly the transverse sin^2(alpha) term, zero for alpha=0. This replays RESULT.md lines 49–149. The statements apply to angular-stationary increments and not to the full displacement law or a transient initial angle. The inspected finite checker is not the proof of the all-time statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed companion proves a sharp gap interval for all Borel reset laws with the same first moment, with equality on the lower bound uniquely attained by equally likely ±arccos(a) when a<1. Baouche et al. set up a general reset law but specialize their actual computations to a point mass along the x-axis."
+        ],
+        "reasoning": "The companion's lower bound is an exactly evaluated gap for the frozen family, not merely an inequality that might fail to be attained. The earlier general renewal framework alone is not the decisive overlap.",
+        "searches": [
+          "Companion sharp-anisotropy record, Finding and Proof §§2–3",
+          "arXiv:2405.06769v1, §II and Eqs. (3)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary ranked search and November 1 sharp-anisotropy RESULT.md",
+        "arXiv:2008.03294",
+        "arXiv:2405.06769v1",
+        "arXiv:2406.17550v1",
+        "arXiv:2501.05149v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the companion's exponential lag kernel over a square gives precisely 2H_gamma(t); the same drift follows from its first stationary harmonic. Multiplying out its lower extremum gives c(q^2+2)-(q+1)^2. Rotating its tensor for each fixed heading, then averaging, preserves the linear second-moment term; subtracting the frozen mixture tensor leaves only the difference from the mean-product term, of magnitude p_1^2 sin^2(alpha) in the transverse coordinate, with the mixture larger. All finite-time corrections then use the same positive integral factor."
+        ],
+        "reasoning": "The q threshold, nonzero drift, and mixing correction are straightforward consequences of the available matched identities, including the explicitly proved temporal structure. This goes beyond an analogy in long-time variance or a common setting.",
+        "searches": [
+          "Companion sharp-anisotropy record, Proof §§1–3",
+          "Kumar, Sadekar and Basu arXiv:2008.03294, §V fixed-target diffusion formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The competing record chooses axes to make the first reset moment a>=0 real. This loses no generality: under an angular rotation by phi the first and second modes acquire factors exp(i phi) and exp(2i phi); the complex condition a_2=a_1^2 is invariant. Its matrix entries are precisely the real and imaginary components of that condition. The earlier fixed-target article covers only the deterministic endpoint."
+        ],
+        "reasoning": "Isotropy of the long-time tensor and isotropy at every positive displacement lag are equivalent in this model because the same heading covariance is multiplied by a strictly positive scalar. The companion proves the needed exponential lag identity explicitly.",
+        "searches": [
+          "Resultary: stationary planar active Brownian angular resetting, first two harmonics, symmetric reset isotropy",
+          "2026/11/1/SCOPE-sharp-anisotropy-bounds-and-a-reentrant-transverse-regime-for-im--04ad9d150a30, Proof §§1–3",
+          "arXiv:2008.03294, §V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion's explicit expression v^2/k times [p_2(2a^2-1)-p_1^2 a^2] is exactly the signed diffusivity gap for its symmetric two-point extremizer. No tabulated numerical value is needed for a continuous curve."
+        ],
+        "reasoning": "The symbolic gap is the relevant exact indexed match. On identifying a=cos(alpha), its zeros and signs reproduce the phase boundary of the frozen record.",
+        "searches": [
+          "Resultary search for imperfect orientational resetting and harmonic isotropy",
+          "2026/11/1/SCOPE-sharp-anisotropy-bounds-and-a-reentrant-transverse-regime-for-im--04ad9d150a30, offsets 0–4731"
+        ]
+      },
+      "rationale": "The distinct indexed sharp-anisotropy record establishes the stationary lag covariance and a stronger all-law diffusivity tensor, and gives the exact symmetric two-point law as its lower extremizer. Its displayed identities imply the frozen general cancellation, finite-time curve, and mixing term by elementary integration and subtraction. This is verified equivalent or stronger coverage, not a claim that the other record was produced first or that the classical fixed-target papers establish the random-target curve.",
+      "residual_risks": [
+        "The catalogue overlap is in a distinct record dated later than the frozen source path. The coverage finding is not a priority judgment, and the inspected literature does not settle historical attribution.",
+        "Primary passages concern the closest mechanisms but are not an exhaustive search of stochastic-resetting literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger law-wise classification plus identities directly yielding the frozen result",
+          "evidence": "Same stationary orientation-only Poisson refresh model; exponential first-mode lag kernel, full tensor, sharp lower gap attained at symmetric two-point laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-anisotropy-bounds-and-a-reentrant-transverse-regime-for-im--04ad9d150a30/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–3 and start of §4, offsets 0–4731",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp anisotropy bounds and a reentrant transverse regime for imperfect orientation resetting",
+          "trigger": "Strongest indexed same-model comparison"
+        },
+        {
+          "assessment": "Includes deterministic orientation-only resetting, not the random two-point curve",
+          "evidence": "The orientation resets to zero with position unchanged; the diffusion formulas yield the q=1/2 deterministic endpoint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.03294",
+          "material_read": "§V, pp. 11–12, around OA offsets 85000 and 95000",
+          "method": "Bounded OA PDF passages",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Cited fixed-angle endpoint"
+        },
+        {
+          "assessment": "General renewal setup but the inspected evaluations use a deterministic reset target",
+          "evidence": "The analysis explicitly sets the reset distribution to a point mass at the x-axis angle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06769v1",
+          "material_read": "§II, pp. 1–3, offsets about 7400 and 12900, Eqs. (3)–(4)",
+          "method": "Bounded OA PDF passages",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Plausible general law coverage"
+        },
+        {
+          "assessment": "Distinct passive model with shape anisotropy and a fixed target",
+          "evidence": "The angle resets to theta_0 while the spatial coordinates do not reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.17550v1",
+          "material_read": "§V, p. 11, offset around 42000, Eqs. (47)–(52)",
+          "method": "Bounded OA PDF passage",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Nearby anisotropy cancellation and orientation-only model"
+        },
+        {
+          "assessment": "Inspected orientation-only moment formulas are for a fixed target in a shape-anisotropic model",
+          "evidence": "The orientation is set to zero at resets while position is not reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.05149v1",
+          "material_read": "§III.C, pp. 9–10, offsets about 58000 and 62950",
+          "method": "Bounded OA PDF passages",
+          "title": "Anisotropic active Brownian particle in two dimensions under stochastic resetting",
+          "trigger": "Plausible overlap in random angle or multi-state protocols"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Nonzero drift with isotropic fluctuations is a natural and physically interpretable regime. The frozen formulation, however, gives a direct evaluation of an already covered extremizer with the same exponential time kernel; the finite-time extension is one integration and the mixing correction is the already determined rank-one centering difference. These accurate consequences help explain the general result, but do not constitute an independently valuable additional finding under the audit standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:15:49.649827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–69",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence",
+        "Independent replay: python3 /workspace/branches/frozen-review-checks.py 3"
+      ],
+      "rationale": "The Fourier core eigenvalues are 0, +sqrt(3), -sqrt(3) in the stated gauge. Squaring each traceless shifted 2x2 sector gives (lambda^2+4)I/4. Exponentiation and summation with Fourier projector entries exp(2pi i s(k-j)/3)/3 give the stated cosine phase and kernel. The triangle bound yields amplitude (1+4/sqrt(7))/3. Independent sign flips in Q(sqrt(3),sqrt(7)) prove frequency independence, so the continuous torus orbit and every positive-time tail are dense; for each pair the two sines and shifted cosine can approach +1. Equality would require both sine magnitudes to be 1 and hence a rational ratio of their frequencies, impossible. The probability constant, its digits as written, and all nine singleton-pair quantifiers are correct. Independent direct matrix power series checked 36 amplitudes with maximum discrepancy 2.7e-14; this corroborates the kernel, not the infinite-time conclusion.",
+      "residual_risks": [
+        "Only the fixed Hamiltonian and single-site probabilities are verified; no waiting-time bound or optimization over parameters is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The previously published projectors describe the full rooted-product graph, including the off-diagonal root/leaf blocks. Theorem 5.4 itself concerns non-pendant pretty-good transfer; Eq. (11) and Case 1 of its proof supply the independent frequency basis at m=1."
+        ],
+        "reasoning": "The transfer classification itself is not a mixed-layer theorem, but the stronger spectral solution and the phase arithmetic used to prove that classification already settle the inputs to the mixed-layer optimization.",
+        "searches": [
+          "arXiv:2301.01473v1 §5.1, projectors preceding Eq. (10), and Theorem 5.4 proof"
+        ]
+      },
+      "checked_sources": [
+        "Acuaviva et al. arXiv:2301.01473v1",
+        "Bottarelli et al. arXiv:2302.08472v2",
+        "Resultary mirrored record 65d785c846b5",
+        "Cavazzoni et al. arXiv:2406.11834 abstract (different topology)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=1 the cross-block entries of the two projectors per core eigenvalue mu have opposite weights +1/sqrt(mu^2+4) and -1/sqrt(mu^2+4) times the core projector entry. Subtract their two time phases and insert the displayed core projectors to obtain the frozen kernel. The independent basis {1,sqrt(3),sqrt(7)} is already established by the earlier Case 1 at m=1."
+        ],
+        "reasoning": "The free phases then independently maximize the two sine factors and the shifted cosine at magnitude one, producing the claimed supremum. Simultaneous exact sine maxima are excluded immediately by the irrational ratio. Neither step requires a new spectral or number-theoretic result.",
+        "searches": [
+          "arXiv:2301.01473v1 §5.1, definitions of F_r^±, Eq. (10), core projectors and Theorem 5.4 proof, Eq. (11) and Case 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bottarelli et al. Eq. (4) at zero detuning and pi/2 flux is gauge equivalent. Acuaviva et al. explicitly give the same oriented core matrix and at m=1 the same pendant blocks."
+        ],
+        "reasoning": "This is the same Hamiltonian (up to site phase or relabeling in the router paper), not a different choice of hopping or layer observable.",
+        "searches": [
+          "arXiv:2302.08472v2 §III Eqs. (4),(6)–(8),(10)–(11),(13)",
+          "arXiv:2301.01473v1 §5.1, oriented K3 rooted with a 1-leaf star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed pendant-transfer record gives an envelope and resonance criterion for total pendant-layer probability on real undirected graphs, not the ordered-pair constant on a chiral graph."
+        ],
+        "reasoning": "This is not an exact match for the site observable. The direct implication from the primary literature is decisive regardless of the lack of an exact numerical index entry among these results.",
+        "searches": [
+          "Local Resultary search for six-site chiral router cross-layer transfer",
+          "2026/11/2 Resultary record 65d785c846b5, Finding"
+        ]
+      },
+      "rationale": "The winning source is the prior rooted-product decomposition and frequency analysis for the very same core and leaf graph, not merely literature about similar routers. Its explicit cross-block projectors give the claimed kernel by substitution at m=1, and its established independent frequency basis then gives the ceiling by maximization over three free phases. The explicit decimal and nonattainment need not appear in the earlier paper for this direct consequence to be covered.",
+      "residual_risks": [
+        "An external literature query was uninformative; the rejection rests on affirmative implication from inspected primary results, not on search completeness or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "decisive direct implication, even though the stated transfer theorem concerns another channel",
+          "evidence": "Full product projectors, exact matching core projectors, and independence of sqrt(3),sqrt(m),sqrt(3+4m) in the case containing m=1.",
+          "identifier_or_url": "https://arxiv.org/html/2301.01473v1",
+          "material_read": "§5.1 Lemma 5.2, projectors and Eq. (10), displayed oriented-core spectral decomposition, Theorem 5.4 proof at Eq. (11) and Case 1; general Theorem 2.4 checked for scope",
+          "method": "OA full-text bounded passages",
+          "title": "State Transfer in Complex Quantum Walks",
+          "trigger": "same oriented core and m=1 rooted product; potential stronger spectral coverage"
+        },
+        {
+          "assessment": "same model and full eigenvectors, not an explicit all-time cross-layer optimum in these equations",
+          "evidence": "Distributed flux gauge and routing probabilities mainly for external channels; Eq. (13) uses a time derivative of the external transfer amplitude in superposition routing.",
+          "identifier_or_url": "https://arxiv.org/html/2302.08472v2",
+          "material_read": "§III Eqs. (4),(6)–(8),(10)–(11),(13)",
+          "method": "OA full-text bounded passages",
+          "title": "Quantum routing of information using chiral quantum walks",
+          "trigger": "same six-site router"
+        },
+        {
+          "assessment": "related envelope, not equivalent",
+          "evidence": "Sums probabilities over the pendant layer for a real undirected base graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-total-pendant-layer-transfer-and-an-arithmetic-resonance-g--65d785c846b5",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "local Resultary search and mirror passage",
+          "title": "Sharp total pendant-layer transfer and an arithmetic resonance gap",
+          "trigger": "closest catalogue overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 35–69 and 74–82",
+        "Acuaviva et al. §5.1 Eq. (10) and Theorem 5.4 proof"
+      ],
+      "rationale": "The channel is motivated by the router's asymmetric performance, and the number is useful as a benchmark. However the contribution as a narrow exact invariant is a mechanical evaluation of the already solved six-site spectral model using its already established frequency basis; it offers no further structural or performance result beyond those inputs. The benchmark does not meet the bar for an independently valuable new exact invariant.",
+      "residual_risks": [
+        "A different problem such as quantifying waiting times would require a separate claim and audit; none is established in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

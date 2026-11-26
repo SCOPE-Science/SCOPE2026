@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:47:18.944775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant antidiagonal gives u_{n+1}=u_n(1+h_ε(u_n))², h_ε(u)=2ε+a(u−1)e^(−u), with u_0>2. The increments are at least 4εu_n, so all defined targets are eventually crossed. The zero-detuning contribution is strictly decreasing in h for u>2, giving a unique balance root U>2 and U−log(U−1)=log(a/(2ε)); this gives the stated two-term root asymptotic. Writing λ=4εU, the root relation makes q_ε(U+w)/λ→1+e^(−w) uniformly on compact w. For each fixed layer boundary, increments below it are eventually less than 1 past a sufficiently large fixed cutoff, and below the cutoff the images are bounded; thus the crossing originates within a bounded w-window and has overshoot O(λ). The reciprocal-increment Riemann sum therefore gives the compact layer integral. Before the layer, the fixed-cutoff crossing takes bounded time, and the decreasing lower bound q_0(v)=2av(v−1)e^(−v) supplies 1≤∫_v^{v+q_ε(v)}ds/q_0(s); multiplication of the resulting integral bound by λ gives limsup at most e^(1−L) at U−L. Sending L to infinity yields the clock. Bracket a fixed τ between the limiting clocks of two offsets on either side of log(e^τ−1) to justify the floor-time inverse. No off-antidiagonal or τ=0 assertion follows. Read VERIFICATION.md and verify.py without executing; the finite floating-point checks are supplementary, including the bisection root check, not exact computations or a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-critical result is broader in initial data (all unbounded orbits at b=1/2) but its theorem fixes b. Record b57744b79f57 treats sink thresholds below b=−1/2. The original map paper was identified, but only its landing material was accessible on the checked routes."
+        ],
+        "reasoning": "Broader phase-space scope or fixed-parameter asymptotics do not imply uniformity across detuning or a first-passage profile in the ε-dependent layer. The original paper's inaccessible full text is a residual risk, not a negative source finding.",
+        "searches": [
+          "Resultary same-map boundedness, basin separator, antiphase sinks and escape",
+          "DOI:10.3390/math11061517"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary exact 1691465f8282 and distinct f463338d3c52, 483979a45fcf, b57744b79f57",
+        "Soula et al., DOI:10.3390/math11061517, limited to landing material",
+        "Targeted literature hit https://www.sciencedirect.com/science/article/pii/S0960077926011537, snippet only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The critical proof sets the positive detuning increment to zero. The outer cycle calculation balances negative detuning against the Gaussian term to find a stationary amplitude."
+        ],
+        "reasoning": "Even substituting n≈τ/(4εU) into the fixed-critical law gives the centered profile log τ, not log(e^τ−1). The constant term in the positive-detuning layer drift (1+e^(−w)) changes the integral throughout the layer. Neither the static matching scale nor positivity of drift establishes the negligible remote entrance bound and the exact time profile.",
+        "searches": [
+          "Resultary f463338d3c52 Finding and proof; 483979a45fcf Finding and endpoint derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact SCOPE hit is the assigned record 1691465f8282 itself. The closest distinct record f463338d3c52 gives logarithmic escape at b=1/2. Same-day record 483979a45fcf gives a static outer-cycle radius as b approaches 1/2 from below."
+        ],
+        "reasoning": "A theorem expressed as the inverse-time amplitude profile is equivalent by monotone inversion and would count. The inspected fixed-critical amplitude formula and static negative-detuning radius have neither this parameter sign nor the coupled time scale.",
+        "searches": [
+          "Resultary: Gaussian coupled map near-critical positive detuning softplus escape clock and inverse amplitude",
+          "Targeted literature lookup: coupled-map near-critical escape, synchronization and Gaussian antidiagonal iteration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue entry reproduces the assigned theorem. Related exact entries give log n+2 log log n+log(2a)+o(1) at criticality or L+log L+O(log L/L) for the negative-detuning cycle, not the same clock or its inverse."
+        ],
+        "reasoning": "Compare the exact profile and the normalization 4εU, not only a logarithmic leading scale or the shared Lambert-type root. No distinct exact entry with that profile was established.",
+        "searches": [
+          "Resultary: softplus escape clock, positive detuning, log(1+e^t) and log(e^τ−1)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the positive-detuning joint limit with its entire finite-offset profile. The fixed-critical escape law, the balance-root scale on the opposite side and the underlying coupled map are already known; none of the compared statements determines this clock.",
+      "residual_risks": [
+        "The original 2023 map paper was not available in full through checked lawful routes. The additional ScienceDirect hit described unidirectional synchronization in the snippet, but full text was inaccessible; no theorem-level judgment is made about it. The bounded search does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not a separate antecedent",
+          "evidence": [
+            "States both the passage-time profile and inverse with fixed positive detuning limit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-softplus-escape-clock-near-the-critical-coupling-of--1691465f8282",
+          "material_read": "Frozen RESULT.md, Finding, scope and proof",
+          "method": "Resultary identification and matching local text",
+          "title": "A universal softplus escape clock near the critical coupling of a Gaussian map",
+          "trigger": "Exact Resultary profile hit"
+        },
+        {
+          "assessment": "Distinct fixed-critical limit; broader initial data only",
+          "evidence": [
+            "At b=1/2 the squared antidiagonal amplitude is log n+2 log log n+log(2a)+o(1) along all unbounded orbits."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52",
+          "material_read": "RESULT.md Finding and critical proof, offsets 0 and 4353",
+          "method": "OA reader local mirror",
+          "title": "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map",
+          "trigger": "Same map and critical escape"
+        },
+        {
+          "assessment": "Static cycle on the opposite side of the coupling threshold",
+          "evidence": [
+            "For 0<a<1 the outer antipodal cycle has squared radius L+log L+O(log L/L) as b increases to 1/2 from below."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-bistable-coexistence-and-an-exact-antidiagonal-basin-separator-i--483979a45fcf",
+          "material_read": "RESULT.md Finding and endpoint calculation, offsets 0 and 4329",
+          "method": "OA reader local mirror",
+          "title": "Bistable coexistence and an exact antidiagonal basin separator in a coupled Gaussian map",
+          "trigger": "Same-day same map, antidiagonal and large-root asymptotics"
+        },
+        {
+          "assessment": "Different coupling regime and observable",
+          "evidence": [
+            "The stated antiphase sink interval is on the b<−1/2 side."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-antiphase-sink-ceiling-and-coexistence-with-escape-in-a--b57744b79f57",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA reader local mirror",
+          "title": "A sharp antiphase sink ceiling and coexistence with escape",
+          "trigger": "Same-day same-map escape and antiphase hit"
+        },
+        {
+          "assessment": "Identified as background; no whole-paper noncoverage finding",
+          "evidence": [
+            "Publisher access did not expose full text on the checked routes; the attempted static PDF route also did not supply an open copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061517",
+          "material_read": "Landing material only; no theorem-level full text retrieved",
+          "method": "Bounded OA direct/alternate route attempts, including DOI and publisher",
+          "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+          "trigger": "Primary source introducing the same Gaussian-cubic map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the actual time dependence across the competition between exponentially small Gaussian drift and positive detuning, rather than merely locating their balance or proving escape. The scale and exact clock allow predictions at fixed offsets or times with no fitted dependence on the gain or fixed starting radius. The result fills a concrete neighboring regime of the known critical law, though only on the invariant antidiagonal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:38:44.458085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A path subset of rank r has c runs, with c-1 compulsory vacant gaps, so c<=min(r,n-r+1)<=h_n, also valid for the empty set. For a fixed ordered pair of subsets, an induced isomorphism permutes equal-length components and chooses their orientations, yielding at most 2^c c! maps. The total count is at most 4^n 2^h_n h_n!, and a fixed maximum independent set supplies h_n! permutations. The same argument at c<=k bounds the component event by 4^n 2^k k!, and hence bounds the rank event from above. Permutations of a fixed independent k-set give the numerator lower bound k! for both, also at k=0. The resulting 8^n bounds give both exponents by Stirling, and the size estimate by the same denominator bounds. Low rank forces low c; high rank does too via c<=n-r+1. Combining that inequality with E=r-c gives 2c+E<=n+1 and the epsilon/2 coefficient in the edge-count bound. Removing all nonsingleton runs deletes at most 2E vertices on either side and leaves matched singleton vertices. These arguments use uniform sampling over maps, not uniform sampling over supports, and prove the all-size probability bounds. The uploaded verifier was inspected without execution. The separate /workspace/branches/review-replay.py checks exact finite bounds using a gap-composition count, including initial counts 2,7,22,71,252,935; this is not used to prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path block decomposition furnishes run-type multiplicities and component automorphism groups. The crown record reports half-factorial growth for crowns and an extendibility-fraction exponent; the biclique record reports a nonextendibility cutoff for asymmetric bicliques, not path deficits."
+        ],
+        "reasoning": "The run-type decomposition gives the ingredients for the entropy comparison but not a bound for tail probabilities at every linear deficit. Neither nearby graph-family result states broader coverage of this path law on available evidence; synopsis-only comparisons limit that inference.",
+        "searches": [
+          "Resultary:e10bdab97d3d",
+          "Resultary:5cf963fdeacf",
+          "Resultary:c05f86c5223d",
+          "arXiv:2101.12468, Theorem 2.1 proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.02093",
+        "arXiv:2101.12468",
+        "Resultary:e10bdab97d3d",
+        "Resultary:5cf963fdeacf (indexed evidence)",
+        "Resultary:c05f86c5223d (indexed evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorem sums 2^{T_A} t_{A,1} over binary arrangements A. To extract the deficit exponents, the audited argument bounds the mass of all truncated profiles by an exponential factor times k!, then exhibits matching factorial witnesses in both constrained events and controls the full normalization by h_n! up to an exponential factor."
+        ],
+        "reasoning": "The exact enumerator permits computing every finite probability but evaluating a few or restricting the sum does not determine the joint asymptotic. The use of independent-set witnesses and a uniform factorial upper bound across all admissible profiles provides the required asymptotic comparison.",
+        "searches": [
+          "arXiv:2101.12468, Theorem 2.1 and proof",
+          "Resultary:e10bdab97d3d",
+          "frozen RESULT.md, Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2.2 uses vertex-induced graph isomorphisms; the 2021 paper counts the identical path monoid, not the different monoid of partial homomorphisms. The exact indexed match was this frozen record itself."
+        ],
+        "reasoning": "The older path count is for the same sample space and supplies prior finite weights. Its structure and counts are not equivalent to an asymptotic probability under the induced uniform law.",
+        "searches": [
+          "Resultary: random path partial automorphism, rank and component deficits",
+          "arXiv:1506.02093, Definition 2.2",
+          "arXiv:2101.12468, Corollary 1.6 and Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier binary-pattern sum gives exact all-n order; restricting the patterns by rank or number of runs yields the exact finite counts needed to compute either probability. The block decomposition gives related type multiplicities."
+        ],
+        "reasoning": "Credit these exact formulas in full, beyond any small-size tables. The reviewed result adds uniform numerator/denominator estimates of sufficient precision to derive the normalized asymptotic rate and identify typical supports; it does not claim that the underlying exact counting formula is new.",
+        "searches": [
+          "arXiv:2101.12468, p. 7, Theorem 2.1",
+          "Resultary:e10bdab97d3d, Finding and Proof §1"
+        ]
+      },
+      "rationale": "The exact finite monoid order, run-type factors and rank-refined counts are prior and not credited. The supported distinct result is the sharp simultaneous n log n probability law for component and rank deficits under uniform maps on paths, including typical near-independence of supports. It interprets the factorial component symmetry asymptotically; the cited finite enumeration does not provide the requisite uniform tail estimates as stated. Crown asymptotics and the distinct same-day biclique rank/extension result concern different induced-isomorphism families and events; only their indexed content was available for the finer comparison.",
+      "residual_risks": [
+        "Incomplete full-text retrieval of the adjacent crown and biclique records leaves a finer comparison unresolved.",
+        "The bounded primary search cannot exclude an earlier asymptotic analysis of the path enumerator; an unproductive search is not evidence against such analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "defines the object, not the path probability theorem",
+          "evidence": [
+            "The elements are all graph isomorphisms between vertex-induced subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.02093",
+          "material_read": "p. 2, Definition 2.2, OA offset 5300",
+          "method": "open primary text",
+          "title": "Graphs and Their Associated Inverse Semigroups",
+          "trigger": "definition of exact sample space"
+        },
+        {
+          "assessment": "prior exact enumeration; rank/component restrictions inherited at finite n",
+          "evidence": [
+            "Theorem 2.1 sums over binary domain patterns and uses runs; Corollary 1.6 characterizes the Green J relation by similar type."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.12468",
+          "material_read": "pp. 6–7, Corollary 1.6 and Theorem 2.1 with proof; OA offsets 23461, 24400, 24983",
+          "method": "open primary text",
+          "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+          "trigger": "same path monoid and exact enumeration"
+        },
+        {
+          "assessment": "prior structure and exact type multiplicity",
+          "evidence": [
+            "Run types specify blocks and component automorphism groups; the inspected statements do not give the logarithmic tail probabilities."
+          ],
+          "identifier_or_url": "Resultary:e10bdab97d3d",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof §1, mirror offset 0",
+          "method": "local mirror",
+          "title": "Matrix-block decomposition and an Euler spectrum for path partial-automorphism algebras",
+          "trigger": "same path objects and run multiplicity"
+        },
+        {
+          "assessment": "different graph/poset family in available statement; finer comparison unresolved",
+          "evidence": [
+            "Half-factorial growth for even crowns and an extendibility-fraction exponent."
+          ],
+          "identifier_or_url": "Resultary:5cf963fdeacf",
+          "material_read": "indexed scientific synopsis; full matching passage timed out",
+          "method": "local Resultary search and mirror attempt",
+          "title": "Rank polynomial and half-factorial growth of finite crown partial-automorphism monoids",
+          "trigger": "closely related asymptotics under partial-automorphism counts"
+        },
+        {
+          "assessment": "different family and event in available statement; no priority inference from date",
+          "evidence": [
+            "Asymmetric biclique rank polynomial and nonextendibility cutoff."
+          ],
+          "identifier_or_url": "Resultary:c05f86c5223d",
+          "material_read": "indexed scientific synopsis; full matching passage timed out",
+          "method": "local Resultary search and mirror attempt",
+          "title": "Rank spectra and sharp extension cutoff in asymmetric biclique partial automorphisms",
+          "trigger": "distinct same-day rank law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank is the natural size filtration and run count measures the supply of permutable induced components. The sharp linear-deficit exponents for both show quantitatively which maps dominate the classical exact enumeration. The match of two deficits on the factorial scale and the resulting near-independent supports give meaningful typical structure, not just log order or another finite count. This neither asserts exact independence of the original random supports nor gives sublinear fluctuations or the exact upper-tail rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

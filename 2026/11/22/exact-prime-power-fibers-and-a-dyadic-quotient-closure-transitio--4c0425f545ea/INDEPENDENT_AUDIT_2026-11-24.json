@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:30:06.205637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The state matrix M is a swap modulo p, fixing the all-ones seed and ensuring nonzero unit denominators even for negative a. With M^2=I+aM, the first binomial term for an index difference d has scalar valuation h+v_p(d), since its projected factor is another sequence term. In the regular range (j-1)h-v_p(j)>=1 for j>=2, so higher terms cannot cancel it. Each parity is then a bijection at depth k-h; an odd scalar period 2u+1 would require both u and u+1 divisible by p by the first two terms modulo p^(h+1). Constancy for k<=h follows from M^2=I mod p^h. The principal unit subgroup and the denominator x_0=1 give the regular quotient closure. For a=2u with u odd, M^4=I+4B, B mod 2 is I+M, B^2 is even, and B applied to the orbit is even. Modulo four the projected B-value is x_r+3u x_(r+1), which is 2 for both selected branches in each parameter class. Thus their leading valuations are 3+v_2(d), strictly below the higher terms; the branches fill the depth-three balls at 1 and 7. A fixed term c=3 mod 8 and division by each of those balls fill the remaining odd balls; the closed unit group excludes nonunits. Only the two specified value subballs and the full quotient closure are claimed at h=1, not the whole exceptional value classification. Independent bounded checks passed over 5,848 orbit positions for a=3,-3,25,4,-16,2,-2,6,-6 at the corresponding primes. Frozen replay path is check.py beside RESULT.md; the finite checks supplement the proof and do not establish the universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antony–Barman's 2022 preprint directly includes the general all-ones seeded non-density result",
+          "Their reducible-characteristic-polynomial results use different seeds and, in the distinct-root case, integer roots",
+          "Carlip–Jacobson's exact dyadic table assumes an odd leading coefficient and the first-kind seed"
+        ],
+        "reasoning": "The one applicable broad non-density theorem does not determine what limits actually occur inside the unit group. The remaining settings do not specialize to this seed and parameter regime.",
+        "searches": [
+          "arXiv:2207.07084v1, non-density theorem and interpolation passages",
+          "arXiv:2408.06949v1, Theorems 1.2–1.4",
+          "Carlip–Jacobson 1996, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2207.07084v1, arXiv:1607.07951, arXiv:2408.06949v1, Carlip–Jacobson Theorem 1.1",
+        "Resultary 85c2b90c0307, 23ba7f995042, f81c6ceb88c2, d8708ebbbad6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The applicable unit-seed theorem only gives non-density; the interpolation is in a separate setting",
+          "The closest formula and shell overlaps have different inputs and do not supply the exceptional signed-coefficient lifts"
+        ],
+        "reasoning": "The distinguishing content requires equality of valuations within nontrivial branches, not simply unit output or existence of a p-adic interpolant. The exceptional quotient proof also needs full residue balls and a fixed term rotating them to the missing odd classes.",
+        "searches": [
+          "arXiv:2207.07084v1, Theorems 1.3 and 1.7 and p-adic interpolation proof",
+          "Carlip–Jacobson 1996, exact dyadic frequencies",
+          "Resultary 23ba7f995042 and 85c2b90c0307"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "85c2b90c0307 uses the plus sign but V_0=2,V_1=P with odd P; it gives five valuation shells",
+          "23ba7f995042 has a formula-level parity isometry overlap for a negative-sign recurrence seeded (0,1)",
+          "Garcia et al. Theorem 5.2(b) treats (0,1) and gives dense quotients when the last coefficient is a unit"
+        ],
+        "reasoning": "Neither a different companion seed nor passing to a negative-sign recurrence supplies this all-ones scalar orbit. In particular, the two-step recurrence of the target has trace a^2+2 but starts from (1,a+1) on the even branch; a first-kind distribution for that companion does not determine the correlated linear combination giving the target values.",
+        "searches": [
+          "Resultary: unit-seeded recurrence residue frequencies, odd-parameter Lucas companions and dyadic image/quotient balls",
+          "arXiv:1607.07951, Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d8708ebbbad6 concerns first-zero ranks, f81c6ceb88c2 repeated-root periods, and 23ba7f995042 and 85c2b90c0307 distinct Lucas value/quotient problems"
+        ],
+        "reasoning": "A rank is not the scalar value fiber or period, and the repeated-root period record excludes p=2 and does not apply to the distinct roots at odd primes dividing a. Nor do the ball tables for the other seeds determine the target fiber frequencies.",
+        "searches": [
+          "Resultary: exact prime-power recurrence periods, binary Lucas rank spectrum, dyadic value and quotient closures"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-power parity isometry, exact least periods and fibers at regular primes, and the precise quotient closure including the v_2(a)=1 lift for the all-ones seed. Generic non-density in Q_p is already covered and is not counted as original.",
+      "residual_risks": [
+        "Older generalized recurrence-residue analyses might encode this seed-specific isometry or exceptional lift. The comparison identifies existing non-density and close analogues, not exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers non-density only; preprint numbering differs from the journal numbering given in the frozen record",
+          "evidence": [
+            "Last coefficient prime to p and all earlier coefficients divisible by p imply non-density in the all-ones example"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07084v1",
+          "material_read": "Theorem 1.7 and following example, p. 3, OA offset 8550; Theorem 1.3 at offset 5450 and interpolation at 13720",
+          "method": "Lawful OA original PDF",
+          "title": "p-Adic quotient sets: linear recurrence sequences",
+          "trigger": "Closest general theorem, expressly includes all-ones seed"
+        },
+        {
+          "assessment": "Different seed, gives contrasting dense quotients",
+          "evidence": [
+            "Seed (0,1); Theorem 5.2(b) includes unit last coefficient"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.07951",
+          "material_read": "Section 5 overview p. 2, offset 4514; Theorem 5.2 p. 12, offset 29064",
+          "method": "Lawful OA original PDF",
+          "title": "p-adic quotient sets",
+          "trigger": "General quadratic recurrence quotient sets"
+        },
+        {
+          "assessment": "Neither integer-root nor zero-seeded theorems furnish this unit-seed fiber table",
+          "evidence": [
+            "Distinct-root result requires integer roots and x_0=0"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.06949v1",
+          "material_read": "Theorems 1.2–1.4, pp. 2–3, offset 5553",
+          "method": "Lawful OA original PDF",
+          "title": "p-Adic quotient sets: linear recurrence sequences with reducible characteristic polynomials",
+          "trigger": "Potential broader quadratic recurrence result"
+        },
+        {
+          "assessment": "No specialization to even leading coefficient and all-ones seed",
+          "evidence": [
+            "(0,1) seed and leading coefficient odd"
+          ],
+          "identifier_or_url": "https://ijmp.org/wp-content/uploads/2018/05/Stability_Lucas_Modulo_2k.pdf",
+          "material_read": "Theorem 1.1, p. 298, offset 2326; recurrence definition p. 299, offset 5957",
+          "method": "Identified lawful PDF mirror after original scan timed out",
+          "title": "On the Stability of Certain Lucas Sequences Modulo 2^k",
+          "trigger": "Exact published dyadic residue frequency table"
+        },
+        {
+          "assessment": "Distinct observables or hypotheses; no equivalence to the all-ones recurrence classification established",
+          "evidence": [
+            "Odd-parameter companion plus sign; even-trace negative last term first-kind sequence; repeated characteristic root; first-zero rank, respectively"
+          ],
+          "identifier_or_url": "85c2b90c0307, 23ba7f995042, f81c6ceb88c2, d8708ebbbad6",
+          "material_read": "RESULT.md Findings at offset 0 for each and companion construction at offset 3107 for 85c2b90c0307",
+          "method": "Original Resultary files via local mirror",
+          "title": "Closest Resultary recurrence and period classifications",
+          "trigger": "Exact matching shell or valuation forms and related period or rank claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this natural unit-seeded test of the known non-density theorem, the useful refinement is the exact arithmetic structure: a scale and multiplicity for every regular power and a dyadic lift where individual values miss a residue class modulo 8 but quotients nevertheless fill the unit group. The uniform branch information is stronger than non-density and is not inferred from finite sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

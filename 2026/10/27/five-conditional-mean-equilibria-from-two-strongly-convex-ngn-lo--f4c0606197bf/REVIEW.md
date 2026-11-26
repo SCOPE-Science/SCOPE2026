@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampled NGN formula is read from the 2024 primary article and substituted directly into two positive unit-curvature quadratics. A common-denominator calculation yields a numerator equal to a linear factor times an explicit quadratic in the squared state. The quadratic-discriminant sign conditions give the exact five-distinct-root regime. The interval of eligible positive offsets exists precisely above the stated threshold, with a nondegenerate double-root boundary proving sufficiency by continuity. For the rational witness, symbolic differentiation gives the exact five multipliers, strictly inside or outside the unit circle as stated. Exact source-code identities were replayed successfully. The proof does not infer an infinite-parameter theorem from finite sampling.
+PASS
 
-## Originality — PASS (best-knowledge literature comparison)
+Substitution into the positive-floor sampled NGN stepsize gives the asserted odd drift. Its strictly positive denominator leaves x times a quadratic P in x². Two distinct positive roots are equivalent to B<0, C>0, and Δ>0; B<0 and Δ>0 force 16A/(A−1)²<d<2A/(A+1), which is possible exactly above A=5+4√2. Above threshold, at the lower endpoint Δ=0 one has B<0 and C=B²/(4A)>0, so a small positive shift in d gives sufficiency. At equality the strict interval is empty. Independently evaluated the witness exactly via python /workspace/review_evidence/reproduce_1234.py 4: squared nonzero roots 1/15 and 1/5 and multipliers 1145/1156, 73/72, 19/20 at the origin, inner pair and outer pair respectively. The strict multipliers give the asserted local classifications and the outer excess is x²/2=1/10. The threshold is existential over d in this symmetric family. The deterministic conditional-mean iteration is not the stochastic mean across successive steps or a stochastic trajectory.
 
-Orvieto–Xiao (2024), arXiv:2407.04358v1, gives the NGN algorithm and stochastic convergence bounds; inspecting the algorithm sections and stochastic convex-theory sections found no conditional-mean fixed-point enumeration or sharp five-root threshold. Orvieto–Lacoste-Julien–Loizou (2022), arXiv:2205.04583, analyzes stochastic Polyak stepsizes, a distinct parameter rule; its discussed noninterpolation bias does not give this rational NGN map classification. Loizou et al. (2020), arXiv:2002.10542, is the original SPS methodology, not the claimed NGN map. Search comparisons for aliases such as mean-field NGN equilibria, symmetric positive-offset quadratic losses, and Gauss–Newton bifurcation did not identify a covering statement. Residual risk: an older rational-iteration or stochastic-approximation formulation might yield the same theorem without using the NGN name. No independent originality certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The statement supplies an exact structural distinction between strict convexity of the population loss and uniqueness/attraction of equilibria of its NGN mean drift. The onset threshold and explicit three-attractor example are natural questions in understanding fixed-regularization stochastic optimization near noninterpolation. This goes beyond a routine sign or normalization check, and provides a concrete example with an exact objective gap. It does not purport to characterize the stationary measure or actual stochastic long-term dynamics.
+The optimizer and existence of noninterpolation bias are prior; the supported distinct result is the exact five-root existence frontier and the two-loss conditional-mean coexistence witness with classified multipliers.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural uniqueness question for conditional-mean dynamics has a negative answer even with equal curvature, positive losses and two equally weighted samples. The sharp onset and stable suboptimal pair show exactly how uniqueness and local attraction fail, beyond generic mean bias. This is a bounded dynamical statement, not a claim about long-run stochastic behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

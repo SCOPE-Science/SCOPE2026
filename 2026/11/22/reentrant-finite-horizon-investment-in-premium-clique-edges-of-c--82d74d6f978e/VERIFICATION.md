@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file, `RESULT.md`, and `verify.py`. Python 3 standard library only. The script performs rational matrix/eigenvector identities, independent heat-trace derivative comparisons, boundary-root and conductance-support checks, and finite-size consistency trials. The expected final output begins `PASS: 10812 finite checks`.
+## correctness
 
-## What is and is not checked
+PASS
 
-The algebraic proof in `RESULT.md` is the primary evidence for universal correctness. The checker samples sizes and parameters and tests exact spectral identities at those sampled parameters; it does not enumerate an infinite family, exhaust all asymmetric conductance assignments, or establish publication priority. Strict convexity and symmetry in the proof are needed for the unrestricted minimizer statement. The independent audit status remains not performed.
+The trace-exponential Hessian is an integral of positive squared norms in every nonzero symmetric direction. Injectivity of the Laplacian parametrization, compactness and orbit symmetry give the unique unrestricted optimizer with common cross and clique conductances. The quotient and two contrast spaces give the four stated eigenvalues. On the budget line the heat trace is strictly convex; its derivative is positive at the all-clique endpoint for r>1, and at the all-cross endpoint has the sign of r−R. This proves the strict support test, including equality. The denominator of R is strictly convex, with initial derivative a₀pq(q−p−2); it decreases throughout when q≤p and increases immediately for q≥p+2. For q=p+1 the unique minimum follows from exp((p+1)a₀t)=(2p+1)/p. Substitution gives the stated peak and expansion. The five-vertex witness's two times were independently bracketed from the orbit marginal costs (0.5622300102912 and 3.1987079650432).
+
+## originality
+
+PASS
+
+Qualified pass for the exact finite-time support criterion and the exceptional intermediate funding window with its peak-price law. Known convex spectral methods and the common symmetry reduction are not new; the strongest same-family gap result concerns a different objective, and the closest finite-time indexed results are for different graph families and have one-way activation.
+
+## value
+
+PASS
+
+The theorem decides support for all finite times, graph sizes, and premium prices in a natural two-orbit design problem without constraining conductances in advance. It identifies exactly when intermediate-time designs pay for edges omitted by optimal asymptotic-gap designs. The peak law quantifies how narrowly this distinction persists as the family grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

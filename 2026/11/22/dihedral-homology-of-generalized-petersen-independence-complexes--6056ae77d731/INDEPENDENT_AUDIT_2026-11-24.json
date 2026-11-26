@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:25:17.670361Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kim's arXiv:2611.22021 Theorem 4.6 (PDF p. 13) supplies precisely the one-degree concentration and rank, with degree 3t−1 when n=5t and 3t+e−2 otherwise. For an invariant oriented face consisting of h vertex orbits, orientation sign times alternating chain sign is (−1)^(h−1), including the augmented empty-face term. This yields the stated −I(Q_g;−1) and correct trace normalization. Rotation orbits are the residues modulo d=gcd(n,a) in two layers; folding and discarding looped orbits gives signed sums 1,−1,1,−1 for d=1,2,3,4 and Kim's Euler characteristic applies otherwise. In the reflection calculation, folding the two steps in the inner layer gives the specified loop deletions and adjacent-column extra edges at the endpoints; the outer step deletes the self-paired end wherever applicable. Process the first two columns with the left cap's constraints and weights to produce a row indexed by (u_prev,v_prevprev,v_prev); process the last two from each incoming state with the right cap's constraints to produce a column. Interactions from the caps to the unaffected columns are bulk edges of range at most two, accounted for by this state, so the intervening factor really is T^(L−4). Independently checking T^9=−T^4 proves the sign flip after five more columns for L≥8. The exact seeds at n=5..24 bridge all smaller steps; d_(n+10)−d_n=6 does not change parity. The independent replay /workspace/evidence/petersen.py (petersen.txt) verifies the transfer identity, cap graphs in their non-overlapping ranges, and all element traces via signed orbit sums and quotient character averages for n=5..45. This supports the finite computations, not a substitute for the cap and matrix proof. Over Q the barycentrically subdivided orbit cochains are the invariant cochains, so the character average applies to the ordinary quotient. In rank one the rotations are trivial for odd n and nontrivial for even n; in rank four the signed five-point rotation spectrum has no eigenvalue 1. This gives exactly the listed four residue classes. The cited cycle result states n≥12; for n=5..11 the comparison was verified separately over Q by exact simplicial boundary and character computation (small_cycle_replay.py and small_cycle_replay.log under /workspace/branches/3c13a1ca-e19e-46da-8565-31430b5e94fd). Thus the mathematical equality holds in the smaller cases too, but those cases should not be attributed to the cited n≥12 cycle theorem. Character equality gives rational module isomorphism, not an equivariant homotopy equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim's all-n result lacks equivariant information. The dodecahedral records give a stronger full Aut(GP(10,2)) character or integral lattice, and hence already cover restriction to the canonical D10."
+        ],
+        "reasoning": "The full automorphism statement subsumes an exact case, not the unbounded family. A nonequivariant sphere alone cannot distinguish the two rational signs of a reflection.",
+        "searches": [
+          "Kim arXiv:2611.22021, Theorem 4.6",
+          "Resultary: full automorphism homology of GP(10,2), 3830dae8300c, 6a7248eba86d, 6135c3416108"
+        ]
+      },
+      "checked_sources": [
+        "Kim arXiv:2611.22021 Theorem 4.6",
+        "Resultary b2589433d230, 9cd4a2926fbd, e4f2aa8011ee, ff22c9a5b5b6, 3830dae8300c, 6a7248eba86d, 6135c3416108"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed five-point record already uses the same rotation-orbit construction and uniform signed sum F(d), including nonmultiples of five for the divisor d. In rank four its rotation eigenvalues occur in distinct inverse pairs, forcing zero reflection trace. In rank one the eigenvalue is 1 or −1, so that argument does not force a reflection sign."
+        ],
+        "reasoning": "That record's rotation method and F(d), together with Kim, can supply more than the displayed multiple-of-five rotation formula; one cannot claim the individual rotation computation as conceptually distinct. The rank-one reflection signs are not a corollary, and the GP reflection calculation gives the additional content needed for the full quotient law.",
+        "searches": [
+          "Same-day b2589433d230, RESULT.md §§2–5 (local-mirror offset 2994)",
+          "Compare Kim Theorem 4.6 and the cycle 9cd4a2926fbd theorem with the rank-one reflection calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The other complex is Ind_3(C_n)=D(C_n;P_4), on n vertices, with the same homology degree, ranks, character values and additive quotient law for n≥12. Its theorem applies to the action on the four-run-free faces, not independent sets in the two-layer cubic GP graph."
+        ],
+        "reasoning": "Equality of abstract representation values is substantive, but would determine the GP action from the cycle theorem only with a verified equivariant or trace-level bridge. No such implication was found in the inspected theorems. Independent small cases (5≤n≤11) are outside that cycle theorem.",
+        "searches": [
+          "Resultary: all-n canonical dihedral character of GP(n,2), no-four-consecutive cyclic complex and mod-twenty quotient law",
+          "Resultary 9cd4a2926fbd Finding, local-mirror offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "GP(7,2) is an exact trivial-line match; GP(9,2) is the trivial-rotation, negative-reflection line; the full group GP(10,2) result also determines this special case. Same-day b2589433d230 gives the entire 5|n character and rationally acyclic quotient, not just those special cases."
+        ],
+        "reasoning": "For 5|n, 5|gcd(n,a) iff 5|a. Substituting this and the odd/even parities into the frozen formula gives exactly (−1)^((n+1)a) times 4 at multiples of five and −1 otherwise; both formulas give reflection trace zero. This is exact subfamily coverage under a different expression, with no within-day priority inference. None of these exact outputs gives the complete family table at 5∤n.",
+        "searches": [
+          "Resultary exact graph-action searches: b2589433d230, e4f2aa8011ee, ff22c9a5b5b6, 3830dae8300c"
+        ]
+      },
+      "rationale": "The distinct claim is the complete all-n classification for the canonical GP(n,2) action, including the reflection signs in rank one and hence the quotient law, and its comparison with the cyclic complex. Do not credit the character values or rational acyclicity for the entire 5|n subfamily as a separate contribution: a distinct same-day record explicitly covers them, and within-day priority is not established. Likewise do not credit the known special cases, the nonequivariant homotopy classification, the signed orbit-face method in isolation, or the prior character formula for the other cycle complex. The material overlap does not imply the rank-one signs for this action or the full all-n theorem.",
+      "residual_risks": [
+        "A canonical equivariant reduction between the two constructions, or a previously unindexed GP-wide reflection computation, could subsume the distinct claim.",
+        "Overlap is established, but priority between same-day records cannot be resolved from publication-date fields.",
+        "An unproductive targeted literature search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly establishes homology concentration, degree and rank; not action traces in the theorem",
+          "evidence": "Four spheres in dimension 3t−1 for multiples of five, single sphere in 3t+e−2 otherwise.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.22021",
+          "material_read": "Theorem 4.6, PDF p. 13, text offset 47663",
+          "method": "Lawful primary arXiv PDF passage",
+          "title": "Perfect matching complexes of antiprism graphs and independence complexes of generalized Petersen graphs GP(n,2)",
+          "trigger": "Exact nonequivariant input and potential all-n coverage"
+        },
+        {
+          "assessment": "Exact entire 5|n subfamily coverage, and overlapping rotation method beyond that; no rank-one reflection signs or within-day priority",
+          "evidence": "Signed inflated five-point augmentation character, zero reflection traces and no invariant subspace. Its inverse-eigenspace proof relies on the four non-self-inverse eigenvalues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-signed-five-point-dihedral-character-of-generalized-petersen--b2589433d230",
+          "material_read": "Local RESULT Finding and §§2–5 at offsets 0 and 2994",
+          "method": "Local mirror statement and proof comparison",
+          "title": "The signed five-point dihedral character of generalized Petersen independence complexes",
+          "trigger": "Substantial exact same-day overlap for the same graph action"
+        },
+        {
+          "assessment": "Same representation values, distinct complex and n≥12 scope",
+          "evidence": "The formulas are for faces containing no four consecutive vertices, not for vertex orbits of GP(n,2); the quotient is compared only in additive rational cohomology.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-dihedral-characters-and-mod-twenty-quotient-cohomology-of-three--9cd4a2926fbd",
+          "material_read": "Local RESULT Finding and assumptions at offset 0",
+          "method": "Local mirror, compare rotation and reflection conventions and tables",
+          "title": "Dihedral characters and mod-twenty quotient cohomology of three-independence cycle complexes",
+          "trigger": "Identical character and quotient formula on potentially equivalent cycle object"
+        },
+        {
+          "assessment": "Cover n=7,9 and 10, not all n",
+          "evidence": "Trivial line for n=7, reflection sign line for n=9, and full A5×C2 representation for n=10 that restricts to the canonical dihedral group.",
+          "identifier_or_url": "Resultary e4f2aa8011ee; ff22c9a5b5b6; 3830dae8300c",
+          "material_read": "Local RESULT findings on the ordinary independence stages or top homology",
+          "method": "Local mirror comparisons",
+          "title": "Equivariant higher-independence topology and persistence of GP(7,2); A vertex-essential 5-sphere in the generalized Petersen independence complex; The icosahedral symmetry representation on dodecahedral independence homology",
+          "trigger": "Exact smaller graph-action results and a stronger full-group result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The reflection signs on the rank-one cases distinguish natural actions that have the same ordinary homology. The full classification determines exactly which geometric dihedral quotients have positive-degree rational cohomology and gives a useful uniform comparison between two different natural complexes. The value is not just extending a finite table or restating the already overlapping rank-four result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:46.363792Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–76",
+        "Frozen VERIFICATION.md:18–22",
+        "Frozen verify.py:8–46",
+        "Frozen verification_output.txt:1–10"
+      ],
+      "rationale": "Zero mean makes the numerator P divisible by 1−z, leaving exactly q−1 free coefficients of R. Since (1−z^q)/(1−z)=D_q, the Mellin kernel for the ith adjacent difference is t^(s−1)exp(−(x+i)t)/D_q(t). Compact subsets with Re s>0 admit integrable logarithmic derivative bounds at zero and exponential bounds at infinity. On the ordered integration simplex, the evaluation or confluent determinant factors into a positive generalized exponential or log Vandermonde and an exponential determinant of sign (−1)^(m(m−1)/2), the latter from decreasing exponents −(x+i). Andréief gives that strict sign because the weights are positive and the product is integrable; multiplying the basis by Γ(s)>0 contributes only the positive factor Γ(s)^m to each Wronskian. Nonvanishing prefix Wronskians imply the multiplicity bound by generalized Rolle: divide by the first positive basis function and differentiate; the Wronskians of the derived system are the corresponding old Wronskians divided by positive powers of the first function. A nonzero real or imaginary coefficient component preserves at least the multiplicity of every real zero of the complex series. Thus q−1 samples are identifying, as is the jet of orders 0 through q−2 at any positive s (the meaning of derivatives used by the proof). The q^(−s) Leibniz rule gives the displayed matrix, whose row signs (−1)^k cancel the Wronskian orientation. Rank-nullity gives minimal complex scalar measurement count; evaluation minors give a one-dimensional real nullspace for any q−2 distinct positive nodes. Excluding zero, this line realizes those nodes simply and has no others. At q=2 the node set is empty and positivity of H₀ suffices. The mpmath script and its output were read, not executed; solving against Jv tests numerical inversion, not an independent evaluation of jet entries.",
+      "residual_risks": [
+        "The recovery statement is about a jet including the value, not exclusively positive-order derivatives.",
+        "No numerical conditioning bound, interval-certified determinant computation, or control of nonreal zeros is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhaskar–Song §2.4 Theorem 4 bounds the number of real zeros with multiplicity for a one-sided Laplace transform by the integrand's number of sign changes; its proof removes a sign change by differentiating an exponentially rescaled transform.",
+          "Nakamura's Theorem 2.1 concerns a specified combination of primitive-character L-functions and compares its real zeros with those of an L-function, not arbitrary periodic data with known period.",
+          "Classical exponential-kernel strict sign-regularity and determinant composition underlie the frozen proof."
+        ],
+        "reasoning": "Substitute t=e^u: the Mellin transform becomes bilateral and its real density, up to positive weights, is R(exp(−exp u)), with at most q−2 sign changes. The generalized Descartes induction adapts to this bilateral integral because the differentiated integrals converge for s>0, giving the zero bound and hence injectivity. That zero-count argument does not give the explicit positive orientation of the Hurwitz Stieltjes matrix. Ordered kernel composition gives the general method for the latter once the positive common weight and adjacent exponential family are identified.",
+        "searches": [
+          "Periodic Dirichlet series mean zero positive real zeros Chebyshev system Stieltjes constants Mellin transform Descartes rule sign changes Laplace transform",
+          "Bhaskar Song generalized Descartes rule of signs Laplace Theorem 4",
+          "arXiv:2008.02570v4 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13136v1",
+        "arXiv:0809.3277",
+        "arXiv:1309.5056v2, Theorem 4",
+        "arXiv:1405.6982v1",
+        "arXiv:2008.02570v4",
+        "Resultary 896dab192e60",
+        "Frozen RESULT.md:26–76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior arithmetic formulas give the data model, derivative formulas and scalar differences.",
+          "The known sign-count argument transfers to this real Mellin kernel and explains the positive-real zero bound. The signed confluent minors instead use the basis factorization and the determinant identity.",
+          "Chatterjee–Murty give results about vanishing at a single s=1 in arithmetic settings, not simultaneous system recovery."
+        ],
+        "reasoning": "The measurement count and interpolation uniqueness are standard consequences once the nonvanishing structure is known; they carry no independent originality credit. The distinct claim is the concrete adjacent-difference structure and the strict determinant sign after the log-q Leibniz normalization, which is not stated by or obtained merely by reading off the available coefficient formulas.",
+        "searches": [
+          "arXiv:2610.13136v1 §3; arXiv:1405.6982v1 §3 Theorem 1; arXiv:1309.5056v2 §2.4 and proof of Theorem 4",
+          "arXiv:0809.3277 PDF pp. 7, 11, 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayad–Rihane give the same periodic Hurwitz-zeta formula and coefficient/derivative identities, not the finite matrix's strict orientation or injectivity.",
+          "Coffey arXiv:0809.3277 gives paired-difference and derivative identities, including positive-real shift pairs and special arithmetic examples, not an all-period adjacent-column determinant."
+        ],
+        "reasoning": "Choosing adjacent differences in the prior linear formula gives G entry by entry. A formula for isolated entries or sums of entries does not show its simultaneous strict signs or invertibility; the cancellation and ordered-kernel argument are needed.",
+        "searches": [
+          "Configured Resultary comparison for shifted periodic Dirichlet series, finite Stieltjes jets, and positive-real zeros",
+          "Stieltjes constants determinant Hurwitz adjacent difference periodic recovery Chebyshev Wronskian total positivity",
+          "Bayad and Rihane arXiv:2610.13136v1, Eq. (2.1), Theorems 3.3–3.4, 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue entry 896dab192e60 concerns the cubic correction at a single Euler-product double zero, not the periodic-coefficient family.",
+          "Coffey gives analytic identities for scalar differences, also relevant to computing values; these do not table or certify the all-q, all-x determinant."
+        ],
+        "reasoning": "A finite table cannot certify strict determinants across a continuum of shifts and unbounded periods. The available arithmetic formulas were compared for actual analytic coverage, not treated as evidence of any finite determinant sign beyond their statements.",
+        "searches": [
+          "Resultary comparison for finite Stieltjes jet determinant and periodic Dirichlet zero count",
+          "Coffey arXiv:0809.3277, Propositions 1–3 and Eqs. (2.8)–(2.13)"
+        ]
+      },
+      "rationale": "The supported distinction is the strictly oriented adjacent-difference Stieltjes-jet determinant and the identifying family it yields for every known period and positive shift. The periodic Hurwitz expansion and interpretation of its coefficients as derivatives are established. The positive-axis zero-count mechanism is classical: after mean-zero cancellation, the Mellin numerator has only finitely many sign changes, and the generalized Descartes proof extends to this bilateral transform. That mechanism is not itself new. The strongest inspected arithmetic sources do not give the signed determinant or identify the entire adjacent-periodic basis as a family with strict evaluation and confluent minor signs. The bounded pass is for this explicit arithmetic specialization with its recovery certificate, not an invention of total positivity, finite-dimensional interpolation, or generalized Descartes theory.",
+      "residual_risks": [
+        "An implicit earlier specialization of strict total positivity to this exact shifted adjacent Hurwitz family remains possible; the bounded source comparison does not certify absolute priority.",
+        "The zero-count machinery is covered in substance by older transform theory; the pass is limited to the explicit arithmetic family and determinant/recovery certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coefficient-model antecedent, not the determinant or recovery theorem in inspected statements",
+          "evidence": [
+            "The finite Hurwitz-zeta combination and its mean-zero derivative identification are explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13136v1",
+          "material_read": "§2.1 Eq. (2.1), PDF p. 4, offset 18742; §3 Theorems 3.3–3.4, 3.6, Eqs. (3.5), (3.7), (3.10), p. 6, offsets 34000 and 38600",
+          "method": "Located OA PDF passages",
+          "title": "Stieltjes constants for Hurwitz-type L-series attached to periodic arithmetic functions",
+          "trigger": "Same shifted periodic L-series and Stieltjes data"
+        },
+        {
+          "assessment": "Scalar and character-specific antecedents, not simultaneous adjacent-difference determinants",
+          "evidence": [
+            "Summatory relation for γ_(n+1)(a)−γ_(n+1)(b); character integrals and derivative expressions use finite Hurwitz combinations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.3277",
+          "material_read": "Prop. 1 p. 7; pp. 11 and 13 at offsets 24850 and 32250, including Eqs. (2.8)–(2.13), Prop. 3",
+          "method": "Title lookup, literal OA PDF search and bounded passages",
+          "title": "On representations and differences of Stieltjes coefficients, and other relations",
+          "trigger": "Published paired-difference identities and integral representations"
+        },
+        {
+          "assessment": "Mathematical antecedent for zero counting with multiplicities; adaptation to bilateral transform is straightforward, not a Stieltjes determinant theorem",
+          "evidence": [
+            "Exponential rescaling preserves zeros and differentiation multiplies the density by a linear factor to remove one sign change. Applied on the common convergence interval, the proof extends to the real-line integration used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.5056v2",
+          "material_read": "§2.4 Theorem 4 (PDF pp. 9–10, passage at offset 23600); proof (PDF pp. 15–16, offset 39690)",
+          "method": "Focused lookup and bounded OA PDF passages",
+          "title": "Descartes' rule of signs and the identifiability of population demographic models from genomic variation data",
+          "trigger": "Generalized zero counting for the Laplace transform, independent of application"
+        },
+        {
+          "assessment": "Single-value arithmetic vanishing, not jet recovery",
+          "evidence": [
+            "Its stated conditions concern L(1,f), not arbitrary real-axis nodes or arbitrary complex coefficient space."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.6982v1",
+          "material_read": "Abstract and §3 Theorem 1, PDF pp. 1 and 3, offsets 0 and 7900",
+          "method": "Located OA PDF passages",
+          "title": "Non-vanishing of Dirichlet series with periodic coefficients",
+          "trigger": "Periodic coefficient nonvanishing precedent"
+        },
+        {
+          "assessment": "Specific character-based construction, not an arbitrary-period Chebyshev or determinant result",
+          "evidence": [
+            "The result concerns functional equations and real zeros for an explicit combination of two Dirichlet L-functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.02570v4",
+          "material_read": "Abstract, p. 1 at offset 0, and located statement of Theorem 2.1, p. 3 at offset 10897",
+          "method": "Targeted literature lookup and OA PDF passages",
+          "title": "Dirichlet series with periodic coefficients, Riemann's functional equation and real zeros of Dirichlet L-functions",
+          "trigger": "Direct title overlap on periodic series and real zeros"
+        },
+        {
+          "assessment": "Different coefficient family and observable",
+          "evidence": [
+            "The object is a single Euler-product series with coefficients (−1)^ω(n), and the result estimates its cubic Taylor term."
+          ],
+          "identifier_or_url": "Resultary 896dab192e60",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Negative cubic correction at the double zero of the distinct-prime series",
+          "trigger": "Closest topical catalogue hit on Dirichlet-series zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–21, 52–76",
+        "arXiv:2610.13136v1, §3"
+      ],
+      "rationale": "The strict, oriented matrix gives an exact invertibility test across every positive shift and every period, complementing the known forward coefficient formulas with a practical finite inverse. The same positive-kernel structure constrains permissible real zeros and supports exact interpolation at any maximal set of positive nodes. This is a useful structural result for a natural periodic coefficient space, not just a short numerical determinant table or a lower bound from dimension counting.",
+      "residual_risks": [
+        "The exact sign provides no uniform quantitative gap away from zero or numerical stability guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

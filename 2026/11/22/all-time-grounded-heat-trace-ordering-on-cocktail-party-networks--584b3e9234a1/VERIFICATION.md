@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete infinite-family proof is in `RESULT.md`. Its decisive identity is the matrix-heat trace derivative \(-2t(e^{-tA_\theta})_{uv}\), strictly negative for all positive times under the stated one-edge completion exchange. The exchange strictly increases the number of deleted matching pairs wholly among followers, and exhausts every nongrouped placement.
+## correctness
 
-Run `python3 verify.py` with Python 3, NumPy and SymPy. A replay of the embedded script returned `Verification passed {'matrix_spectrum': 240, 'all_orbits': 960, 'all_subsets': 5446, 'heat': 720, 'exact_charpoly': 35} total 7401`.
+PASS
 
-Checks include direct grounded-matrix diagonalization with \(2\le m\le9\), all budget sizes, and three screening strengths; comparisons for spectral inverse orders \(p\in\{1/2,1,2,3\}\); all placement orbits at three positive times; exhaustive subsets through \(m=6\) including tied-set counts; and exact characteristic-polynomial reconstruction for every size and budget through \(m=6\). Neither those finite checks nor the log certify the infinite-domain theorem by themselves; strict positivity of the heat kernel and the full exchange induction are necessary.
+There are h=2r+s followers with r complete pairs and s singletons, and pair permutations and swaps identify exactly the configurations at each r. Moving one singleton follower to the grounded mate of another replaces two singleton pairs with a double and an empty pair, changing only the edge between the two affected follower coordinates. The grounded diagonal remains D=2m−2+μ. Independently of the derivative proof, write the trace as exp(−tD) times the exponential trace of the nonnegative follower adjacency. Each power trace counts closed walks and weakly decreases upon the edge deletion, with a strict decrease of two at power two. This proves strictness for every t>0, including when only a single edge is removed from a two-follower graph. All feasible r below floor(h/2) have two singletons, so the exchanges order all the orbits and yield precisely the stated leader compositions and counts. Positive definiteness follows from grounding a nonempty set in a connected graph. Both weighted heat integrals therefore yield the claimed optimizers. On pair antisymmetric, pair difference, and singleton difference modes the eigenvalues are a−1, a+1 and a; on the remaining two constants the displayed quotient matrix gives, for s=1, trace 2a−2r and radicand r²+1. The s=0 and h=1 spectra follow from their single remaining constant mode; equal entries in the eigenvalue list contribute their multiplicities additively. The finite checker was inspected without execution.
 
-Scientific limitations include unit conductances, uniform screening, perfectly grounded leaders, and a finite nonempty follower set. Independent audit is not performed.
+## originality
+
+PASS
+
+The supported distinct result is the pointwise-in-time strict hierarchy of every placement orbit for the family beyond the four-cycle, with its simultaneous screened, inverse-power and finite-horizon consequences. The full unscreened first-inverse hierarchy, not only the minimizer, overlaps the older balanced multipartite result for m≥3; the full m=2 heat-order boundary case overlaps two other cycle records. Neither overlap covers the all-time family theorem for m≥3, and no novelty is assigned to those overlapping pieces separately.
+
+## value
+
+PASS
+
+The useful result is a single strict ranking for every transient horizon, not merely a recomputation of the optimal steady-state placement. The family has a natural one-edge exchange at fixed grounded degree and the theorem yields schedule-independent optimizer classes and exact values. The mechanism and the quantified all-time comparison are informative even when the p=1, μ=0 result and the C4 boundary case are set aside.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:24:36.873765Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–90",
+        "Frozen VERIFICATION.md and check.py (read only; the sampled and rational checks are recorded package evidence, not a fresh run)"
+      ],
+      "rationale": "Strict convexity gives uniqueness. Summing the stated signed subgradient equations on a constant block gives its affine mean shift; cumulative flux at an internal edge must stay in [-lambda a_j,lambda a_j]. For each fixed signed partition those flux inequalities and the primal signs are linear in lambda, giving a finite piecewise-affine continuous path. At a nonzero middle gap the absolute-gap derivative is bounded by a_l/P+a_r/Q-a_i(1/P+1/Q) for the two block masses P,Q. Mass-coordinate concavity makes this nonpositive by the chord inequality; continuity covers simultaneous hits, ties and lambda=0. For a failed inequality, singleton blocks on strictly increasing data give the claimed strictly positive initial slope. For the split witness put c=(qA+pC)/(p+q)>B and K=pq delta/(p+q). Holding the failed pair fused requires internal subgradient c/B-K/(B lambda), which traverses [-1,1] from K/(B+c) to K/(c-B); beyond the latter the positive singleton gap slope is (p+q)(c-B)/(pq). Outside gaps can be chosen larger than the sum of adjacent uniform shift bounds lambda(a_j+a_{j-1})/m_j over any fixed interval ending after the split. This verifies the construction even at an end edge. The displayed three-site witness checks exactly: for example in its fourth piece the fluxes are lambda and 50+lambda/2, the latter admissible at and after 100/7, with first gap 49-3lambda/2. On the final block the fluxes 98/3 and 199/3 are admissible from 98/3. The four joins and all remaining signs and fluxes match.",
+      "residual_risks": [
+        "The universal result is analytical, not inferred from the finite checks. It does not concern varying the datum or individual penalties, or a nonpath graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general D boundary estimate covers weighted path sufficiency. Bento–Furmaniak–Ray analyzes an actual free-to-nonfree event and gives a four-site example with later refusion. The star theorem gives an exact local hub budget on stars, intersecting the path family only up to three sites; the isotonic statement concerns a different projection and a different stability quantifier."
+        ],
+        "reasoning": "These cover the entire sufficient direction, examples, and some special domains. The inspected statements do not supply necessity on paths of arbitrary length and masses with the two specified types of witnesses.",
+        "searches": [
+          "Tibshirani–Taylor general D, eq. (23) and Appendix B.1",
+          "Bento–Furmaniak–Ray arXiv:1801.04987, eq. (9)",
+          "Resultary star fusion fcd11a969142 and isotonic c4a7412f8310"
+        ]
+      },
+      "checked_sources": [
+        "Tibshirani–Taylor arXiv:1005.1971 (including v1 Appendix B.1)",
+        "Bento–Furmaniak–Ray arXiv:1801.04987",
+        "Resultary 827a763dee16, 9fedb9294a7c, fcd11a969142, c4a7412f8310"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With r=Dy_transformed-Q u and u the dual solution in the lambda-box, the known estimate is ||u(lambda')-u(lambda)||_infinity <= |lambda'-lambda|. On an interval where r_i has nonzero fixed sign s, u_i=s lambda; row dominance implies s[r_i(lambda')-r_i(lambda)] <= -(Q_ii-sum_{j!=i}|Q_ij|)(lambda'-lambda) for increasing lambda. Continuity covers all other points. The weighted residual equals the scaled primal gap. Bento–Furmaniak–Ray eq. (9) goes from an actual departure to a signed slope inequality, not conversely for every violation."
+        ],
+        "reasoning": "Both sufficiency conclusions are direct consequences of earlier general machinery. The sharp converse with an actual positive-duration fused segment and subsequent split is not obtained by reversing a sufficient or an event-necessary implication; the explicit construction establishes that surviving content. The complete equivalence is distinct, not a priority claim for each direction.",
+        "searches": [
+          "Tibshirani–Taylor v1 Appendix B.1 pp. 36–37, generalized proof of dual bound; Bento–Furmaniak–Ray necessary event condition and closing discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Put D=A times the path incidence times M^(-1/2); Q=DD^T has diagonal a_i^2(1/m_i+1/m_(i+1)) and adjacent offdiagonals -a_i a_(i-1)/m_i and -a_i a_(i+1)/m_(i+1). Row dominance is identically the mass-concavity inequality. Resultary 827a763dee16 and 9fedb9294a7c use precisely the same inequality for two-input weighted-variation contractivity, not the fixed-input TV parameter path."
+        ],
+        "reasoning": "The normalization is an exact reduction, not a new sufficient criterion. Neither the dual sufficient condition nor aggregate contractivity between inputs establishes the required counterexample for every violation.",
+        "searches": [
+          "Weighted fused lasso no splitting/diagonal dominance necessary and sufficient",
+          "Resultary weighted TV path mass-concavity, gap shrinkage and fusion",
+          "Tibshirani–Taylor arXiv:1005.1971 eq. (23), arXiv:1005.1971v1 Appendix B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit c426456313be is the assigned record itself. Distinct hits 827a763dee16, 9fedb9294a7c, fcd11a969142 and c4a7412f8310 are comparisons for different maps or graph families."
+        ],
+        "reasoning": "This is an all-data structural theorem rather than a tabulated finite count. The exact-record comparison is nevertheless relevant; the identical copy is not independent coverage and same-day dates do not settle priority.",
+        "searches": [
+          "Resultary exact three-way theorem and mass-coordinate inequality lookup"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp three-way, all-data classification, in particular the necessity for irreversible fusion demonstrated by a positive-length split at every violated inequality. The sufficient direction is covered by prior generalized-lasso results, not just by the classical unweighted path theorem: after normalization the condition is diagonal dominance, and the known dual Lipschitz estimate gives absolute-gap shrinkage by complementarity. Prior unit-mass weighted-path work gives individual instances and a necessary condition on an actual event, not a construction at every failed mass-coordinate inequality. The condition itself also appears for other evolution/comparison problems; no novelty is assigned to the inequality in isolation.",
+      "residual_risks": [
+        "The supplement DOI did not yield readable full text; the relevant estimate was checked in the open v1 appendix instead. The searches cannot settle all historical equivalents, especially formulations of the converse as a general dual box-path property."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers sufficiency, including edgewise shrinkage by the explicit estimate and complementarity; no universal necessity in the inspected statements.",
+          "evidence": "DD generalizes the boundary lemma; Appendix B.1 gives ||u_hat(lambda')-u_hat(lambda)||_infinity <= |lambda'-lambda| and specifies the same proof by truncated coordinate updates for DD^T diagonally dominant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971 ; https://arxiv.org/pdf/1005.1971v1",
+          "material_read": "Journal rendering pp. 13–14 and 17, Lemma 1, eqs. (18) and (23); v1 Appendix B.1 pp. 36–37 (text offsets 147600–150100)",
+          "method": "OA full-text passages, including alternate open preprint with proof",
+          "title": "The Solution Path of the Generalized Lasso",
+          "trigger": "Strongest published general diagonal-dominance coverage and its proof"
+        },
+        {
+          "assessment": "Actual unit-mass examples and an event-necessary condition, not the sharp classification quantified over all data and masses.",
+          "evidence": "A free dual coordinate reaching its boundary requires its signed affine slope to exceed that boundary's slope; weight/data-dependent path restrictions are discussed as future work.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.04987",
+          "material_read": "Four-site example, event calculation eqs. (8)–(9) at text offsets 15950–19584, closing discussion at 38600–41753",
+          "method": "OA full-text passages",
+          "title": "On the Complexity of the Weighted Fused Lasso",
+          "trigger": "Closest direct weighted-path fusion/unfusion study"
+        },
+        {
+          "assessment": "The same coefficient condition for contractivity between two inputs or for linear heat, not elementwise fixed-data parameter shrinkage or its necessity.",
+          "evidence": "Weighted sum V_w of differences of outputs of a fixed map (or flow) replaces the individual-gap motion of one fit.",
+          "identifier_or_url": "Resultary 827a763dee16, 9fedb9294a7c",
+          "material_read": "Both Findings at local-mirror offset 0; resolvent counterexample around offset 6151",
+          "method": "Catalogue search and bounded local-mirror passages",
+          "title": "Weighted variation contractivity of convex path resolvents; conductance-independent weighted tree contraction",
+          "trigger": "Same mass-aware inequality under apparently broader models"
+        },
+        {
+          "assessment": "Star budget applies to different topology; isotonic projection applies to a different map.",
+          "evidence": "Star budget uses a sum of all other leaf weights and has a star-design condition; the isotonic result is about a two-input variation modulus.",
+          "identifier_or_url": "Resultary fcd11a969142, c4a7412f8310",
+          "material_read": "Both Findings at offset 0",
+          "method": "Bounded local mirror text",
+          "title": "A sharp hub-mass budget for irreversible fusion on weighted stars; mass-aware concavity for weighted isotonic regression",
+          "trigger": "Potentially dominating fusion or mass-concavity formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–19 and 35–90",
+        "Prior diagonal-dominance and unit-mass event comparisons"
+      ],
+      "rationale": "The converse gives a usable sharp criterion for deciding, from weights and fidelity masses alone, when all signals admit a merge-only path. Failure at any one edge is certified by actual positive-interval fusion and separation, not just by a dual boundary event. The gap-strengthening and cumulative-mass geometry connect the classical path algorithm to sharply separated stable and unstable parameter designs.",
+      "residual_risks": [
+        "Not a new general complexity bound or certificate for other graph topologies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

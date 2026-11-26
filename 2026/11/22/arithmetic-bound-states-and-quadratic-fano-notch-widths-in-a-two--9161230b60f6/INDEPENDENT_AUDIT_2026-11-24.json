@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:41.852629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–69",
+        "Frozen VERIFICATION.md and verify.py",
+        "Gorbatsevich–Shubin arXiv:1707.05531, §III and §IV.A for scattering framework"
+      ],
+      "rationale": "For E=2cos(k) in the open band the lead recurrence has only the two oscillating solutions, so an embedded square-summable vector vanishes on the lead and hence at the coupled root. Each Dirichlet arm eigenvalue is simple with nonzero endpoint amplitude. A dark state requires both arms, and cancellation at the root leaves one vector per common frequency. The sine grids meet at s/d for s=1,...,d-1, with d=gcd(m+1,n+1). The endpoint resolvent is the minor-to-determinant path ratio; eliminating the arms and root yields the point potential 1/H and T=(4-E^2)H^2/[1+(4-E^2)H^2]. At an arm eigenvalue the arm solvability condition instead forces the root amplitude to zero; a resonant arm amplitude can enforce the root equation while lead scattering is free. Thus the limiting value T=1 is physical including at the undetuned coincidence. In the split interval H has opposite infinite endpoint limits and H'>0. To check the center asymptotics, set u=(E-E_s)/delta and multiply H by delta: on compact subsets of 0<u<1 this is -A/u-B/(u-1)+O(delta), where A,B are the positive sine-squared residues. The limiting root at u=A/(A+B) is simple; the remaining resolvents are analytic near E_s, giving u=A/(A+B)+O(delta). This yields the length ratio and H'(E_*)=(A+B)^3/(AB delta^2)+O(delta^-1). Throughout the interval the uniform lower bound H'>=(A+B)/delta^2 suffices for uniqueness against the bounded derivatives of the two half-height curves; a two-sided order estimate up to the poles, as the wording may suggest, is not needed and is not uniform. On the delta^2 window the root stays a distance of order delta from both poles, with H''=O(delta^-3), so Taylor expansion gives H(E_*+Gamma delta^2 x) -> x/(2 sin(theta_s)) and reflection -> 1/(1+x^2). This yields the two local half-widths separately, with Gamma as stated and Gamma=1/16 for m=n=1. Replay: RESULT.md lines 25–69, especially the residue and centered-rescaling computation. The uploaded checker was inspected, not executed; its width tests are finite comparisons with the coded coefficient, not a symbolic or exhaustive certificate.",
+      "residual_risks": [
+        "All asymptotics are at fixed arm lengths and a fixed common-mode index, with positive detuning on one entire arm. No joint large-size or threshold scaling follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general two-terminal framework gives T=|P|^2/(|P|^2+|Q|^2) and the root/coincident-root criteria for Fano zeros and BICs. This is stronger in device generality.",
+          "The finite spider gives arithmetic dark-mode dimensions via common eigenfrequencies and endpoint cancellation. The two-arm dark count is an instance of that same cancellation (one can use a third arm whose length plus one is coprime to both to add no common modes).",
+          "Quantum-dot/nanowire/cavity Fano lineshapes are reviewed separately from this finite-path spectral calculation."
+        ],
+        "reasoning": "Neither the count alone nor the general scattering expression is claimed as novel. The general root equations still require identifying the pole split, proving the unique notch and evaluating its singular slope for this detuning. The inspected broad statements do not give a specialized linewidth or a general paired-pole asymptotic which supplies it directly.",
+        "searches": [
+          "Gorbatsevich–Shubin arXiv:1707.05531, §§III–IV, Eqs. (18)–(25) and (28)–(30)",
+          "Resultary 3fb35c3a1ace, finite spider dark-mode theorem",
+          "Kuo–Chen–Chen DOI:10.1038/srep37766"
+        ]
+      },
+      "checked_sources": [
+        "Chakrabarti cond-mat/0609082v1",
+        "Gorbatsevich–Shubin 1707.05531",
+        "Kuo–Chen–Chen DOI:10.1038/srep37766, PDF pp. 2 and 5",
+        "Petráček–Kuzmiak DOI:10.1364/OE.464599 (limited)",
+        "Resultary 3fb35c3a1ace, 8fc786abd3fd and 395a54dfa8de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangular bouquet retains both transparency energies -1 and +1 while flux changes the residues, and its scaled reflection s^2/[s^2+3(m-(m-1)s)^2] is asymmetric. Here two poles of order-one residue are at E_s and E_s+delta, the notch is a nonendpoint fraction between them, and its delta^2-sized half-height window is asymptotically symmetric.",
+          "The related leakage theorem measures a complex pole, not two half-height points on the real axis."
+        ],
+        "reasoning": "The triangular-bouquet coefficient cannot be specialized to the length/residue law: that width comes from a vanishing residue at a fixed pole, not from splitting an order-one pair. This resolves coverage by that same-day statement without making any date-based priority claim. The generic determinant and interference results do not evaluate the paired-pole coefficient.",
+        "searches": [
+          "Resultary 8fc786abd3fd, Finding and Proof, followed by comparison of pole locations and scales",
+          "Gorbatsevich–Shubin §III–IV",
+          "Resultary 395a54dfa8de, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At zero detuning the pendant can also be described as a finite chain attached to the lead at an internal marked vertex; the gcd then counts sine modes vanishing there. The chain in the inspected Chakrabarti side-chain reduction supplies the mechanism of a point impurity and zero transmission, not the two split internal Dirichlet poles under an arm shift.",
+          "The cited Petráček–Kuzmiak full text was not retrieved on attempted DOI/Optica routes; no whole-document exclusion is made."
+        ],
+        "reasoning": "Renaming a rooted pair of paths as one internally contacted chain does not give a new dark-state mechanism. The feature requiring comparison is the two positive residues at nearby poles and the particular detuning-dependent transmission window, not merely the path geometry or Fano terminology.",
+        "searches": [
+          "Resultary: side-attached branching pendants, compact dark states, transmission poles, and quadratic Fano notch widths",
+          "Chakrabarti arXiv:cond-mat/0609082v1, side-coupled chain and scattering passages",
+          "Petráček–Kuzmiak DOI:10.1364/OE.464599, lawful full-text attempts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close distinct same-day result is 8fc786abd3fd, with exact weak-flux quadratic full width on a triangular bouquet. The earlier 395a54dfa8de instead estimates complex-pole leakage. Finite spider record 3fb35c3a1ace overlaps the count, not a table of the two-arm real-axis half-widths."
+        ],
+        "reasoning": "The exact symbolic widths refer to different perturbations, observables or local profiles. There is no numerical-table identity to verify; no exact earlier table of the claimed two-arm coefficient was identified. Same-day ordering is not inferred.",
+        "searches": [
+          "Resultary indexed gcd dark-mode and exact linewidth records, including same-day weak-flux Fano results"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit joint split-window classification for uniformly detuned open path arms, particularly the sharp real-axis linewidth and symmetric scaling profile at each arithmetic common mode. The general exact scattering mechanism, dark-state arithmetic, and quadratic narrowing in other single-contact systems are substantial prior ingredients rather than independently new principles. The strongest same-day triangular-bouquet match has a different local singularity and does not specialize to this claim.",
+      "residual_risks": [
+        "The Petráček–Kuzmiak full text could not be inspected on the attempted lawful routes; detailed overlap beyond the accessible material is unresolved.",
+        "Targeted evidence supports the distinct explicit split-window classification, not an exhaustive historical priority conclusion or novelty of quadratic leakage in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general transmission and coincidence criteria but not the split-width calculation",
+          "evidence": [
+            "Transmission as a ratio of P,Q squares",
+            "BIC at coincident roots; zeros and ones away from cancellation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.05531",
+          "material_read": "Original PDF pp. 4–6, §§III–IV.A, Eqs. (18)–(30), extraction around offsets 27221–37671",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Unified theory of resonances and bound states in the continuum in Hermitian tight-binding models",
+          "trigger": "General exact single-channel scattering and BIC criteria"
+        },
+        {
+          "assessment": "Relevant side-chain decimation and Fano mechanism; inspected passages not the two-arm split-pole coefficient",
+          "evidence": [
+            "Side chain reduces to a site impurity; T has Fano zeros"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0609082v1",
+          "material_read": "PDF pp. 1–4, offsets near 0, 10150, 23800 and 26648",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Electronic transmission in a model quantum wire with side coupled quasiperiodic chains",
+          "trigger": "Precedent for a side-coupled finite chain and Fano suppression"
+        },
+        {
+          "assessment": "Same broad mechanism but fixed transparency poles, loop flux and an asymmetric scaled profile; no implication between the width formulas",
+          "evidence": [
+            "Both transparencies at fixed energies -1 and +1",
+            "Sigma(E)=2m(E+cos(phi))/(E^2-1)",
+            "Quadratic full width in phi with unequal local half-widths"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-flux-controlled-fano-notches-and-dark-state-multiplicities-on-tr--8fc786abd3fd/RESULT.md",
+          "material_read": "Finding, Assumptions, and opening Proof, mirror offsets 0–5303",
+          "method": "Original local mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Flux-controlled Fano notches and dark-state multiplicities on triangular bouquets",
+          "trigger": "Strong same-day overlap: one-contact wire, embedded modes and explicit quadratic Fano width"
+        },
+        {
+          "assessment": "Material coverage of arithmetic dark-mode mechanism, not of scattering after splitting the common frequency",
+          "evidence": [
+            "Pairwise/triple gcd count for a finite spider with a lossy hub"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-arithmetic-dark-state-selection-and-exact-leaf-survival-on-three--3fb35c3a1ace/RESULT.md",
+          "material_read": "Finding and proof passages, mirror offsets 0–6060",
+          "method": "Local mirror passage inspection",
+          "title": "Arithmetic dark-state selection and exact leaf survival on three-arm spiders",
+          "trigger": "Exact gcd dark-mode count in a related path-arm topology"
+        },
+        {
+          "assessment": "Complex-pole leakage under another perturbation, not the stated real-axis half-width",
+          "evidence": [
+            "Quadratic term concerns distance of a complex resonance pole from the real line"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-leakage-and-a-fifth-halves-threshold-law-for-compact-surfa--395a54dfa8de/RESULT.md",
+          "material_read": "Finding, mirror offset 0 onward",
+          "method": "Local mirror statement inspection",
+          "title": "Exact leakage and a fifth-halves threshold law for compact surface modes",
+          "trigger": "Exact quadratic resonance-scale precedent"
+        },
+        {
+          "assessment": "Full text comparison remains unresolved",
+          "evidence": [
+            "Relevant waveguide-array BIC topic; no claim of full-text noncoverage"
+          ],
+          "identifier_or_url": "https://doi.org/10.1364/OE.464599",
+          "material_read": "Landing page and accessible abstract only; no detailed theorem retrieved",
+          "method": "Lawful DOI and Optica full-text attempts",
+          "title": "Bound states in the continuum in waveguide arrays within a symmetry classification scheme",
+          "trigger": "Potential comparison for two attachments to a propagating wire"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and linewidth proof",
+        "Gorbatsevich–Shubin §§III–IV",
+        "Resultary 8fc786abd3fd and 395a54dfa8de"
+      ],
+      "rationale": "The precise real-axis width distinguishes the distances between transparency points (order delta) and the observable half-height notch (order delta^2). An explicit coefficient resolves how the two open path lengths and common-mode index set the much smaller scattering scale, which is not supplied by dark-state counting alone. The result is useful as a fully specified benchmark for one-channel scattering, without claiming generic new Fano physics.",
+      "residual_risks": [
+        "The coefficient is specialized to this one-contact graph, unit hopping and uniform shift; no robustness or experimental resolution claim is verified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

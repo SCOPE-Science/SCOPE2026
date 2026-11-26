@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:12.212645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6 and examples; VERIFICATION.md; check_fibonacci_curves.py, inspected as source"
+      ],
+      "rationale": "Reconstructed the proof for every k ≥ 2 in characteristic zero. Binet expansion followed by formal logarithms gives valuations m_j = (−1)^(j+1) binom(2k,j) at x = [ (−1)^j α^(2k−2j) ]^(−1), where α is the positive golden ratio. Distinct absolute values give distinct points; Galois conjugation pairs j with 2k−j and fixes only j=k. The valuations sum to zero, so infinity is unramified. At the simple pole j=0 the reciprocal equation is Eisenstein over the geometric discrete valuation ring, proving degree and geometric connectedness. The k=2 row is prime to five; for k≥3 the central coefficient starts at 20<25 and grows by a factor <4, hence all valuations have ν₅<k−1 and all 2k+1 points branch. Tame Kummer inertia has index N/gcd(N,m_j), with total different N−gcd(N,m_j) above each branch point. Riemann–Hurwitz gives the stated genus; the fixtures k=2,3,4,7 give respectively 6,54,432,101556. Lucas's congruence counts full inertia, and all j≤2k obey the digit inequalities exactly when all digits below the leading digit are four: if a lower digit is smaller, one can decrease the leading digit of j relative to 2k and exceed that lower digit. Parity forces the leading digit to be two or four. This yields the two claimed progressions and the maximal-genus formula. Kummer carries are at most the digit length minus one, so each term in the correction sum is at most 2k. Finally, the normal closure is Q(x,G_k,ζ_N): it contains all conjugates, and their ratios generate the roots of unity. Geometric irreducibility preserves degree N over Q(ζ_N)(x), and the cyclotomic action fixing x,G_k splits and conjugates the cyclic generator by the natural units.",
+      "residual_risks": [
+        "No claim about a singular plane model or reduction at five. The supplied checker was not executed; the algebraic reconstruction, not finite testing, establishes the all-k results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-day result treats arbitrary integer-polynomial Fibonacci weights; P(T)=5T^(2k) gives its degree parameter h(P)=k−1."
+        ],
+        "reasoning": "It therefore covers the exact degree in greater generality. Its original finding does not classify the geometric local valuations and inertia, their base-five pattern, or the arithmetic normal closure. No chronology was inferred from the common date.",
+        "searches": [
+          "Resultary record 2026/11/22/SCOPE-complete-algebraicity-trichotomy-for-fibonacci-polynomial-expone--ab1691f88d96, RESULT.md offset 0"
+        ]
+      },
+      "checked_sources": [
+        "Li–Zhong–Zhou, arXiv:2611.16283v1 §4",
+        "Resultary ab1691f88d96 original finding",
+        "OEIS A207969",
+        "OEIS A207970"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying tame Kummer theory to (4.1) gives the gcd prescription for each valuation; a simple pole gives absolute irreducibility and hence the familiar split cyclotomic normal closure. The additional uniform valuation bound rules out disappearance of any branch; Lucas and digit parity give the two progressions of maximal genus."
+        ],
+        "reasoning": "The equation and general cover results already entail raw local computations, and neither the generic formulas nor their routine small-index consequences are credited as original. The distinct contribution is the family-wide evaluation and classification of how the geometric invariants vary, most clearly the exact full-inertia count and when all branch points have full inertia.",
+        "searches": [
+          "arXiv:2611.16283v1 §4, (4.1)–(4.2), compared with tame Kummer ramification, Riemann–Hurwitz, Lucas's theorem and the carry formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.1 concerns exactly exp(Σ 5 F_n^(2k) x^n/n) and presents the same rational function as an equation of degree 5^(k−1)."
+        ],
+        "reasoning": "Changing between exponential-series, rational-power and Kummer-cover language leaves the prior equation and degree identical. The audited classification is instead about the normal curve and its geometric and arithmetic invariants.",
+        "searches": [
+          "Resultary: Fibonacci-weighted exponential algebraicity and exact degree",
+          "arXiv:2611.16283v1, §4, Theorem 4.1 and (4.1)–(4.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A207969 and A207970 list this family's fifth- and 25th-power formulas for k=2 and k=3; the paired repeated factors simplify by (1∓2x+x²)=(1∓x)²."
+        ],
+        "reasoning": "These entries already give the equations underlying the small examples, from which the corresponding individual geometric invariants can be computed. They do not supply the unbounded exponent classification.",
+        "searches": [
+          "OEIS A207969 at offset 426",
+          "OEIS A207970 at offset 435",
+          "arXiv:2611.16283v1 Theorem 4.1 examples k=2 and 3"
+        ]
+      },
+      "rationale": "Pass for the family-specific geometric profile and its all-index arithmetic classification, not for the equation, degree, or general Kummer theory. The equation makes the inertia and normal closure accessible by standard arguments, and the geometric invariants are not independent new cover-theoretic principles. The inspected same-family and broader statements establish algebraicity and degree, not the quantified five-adic ramification and maximal-genus classification.",
+      "residual_risks": [
+        "No absolute priority claim; implicit applications of Kummer theory to these published equations or other unindexed treatments may exist.",
+        "The cited general superelliptic exposition was unavailable in the attempted OA access; no novelty inference is drawn from its unavailability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established equation and degree; family-specific geometric classification not in inspected theorem",
+          "evidence": [
+            "G_k^(5^(k−1))=R_k, with integer binomial exponents and rational degree 5^(k−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16283",
+          "material_read": "§4 Theorem 4.1, (4.1)–(4.2), examples; PDF pp. 6–7 and HTML at offset 20089",
+          "method": "Lawful OA theorem and formula passages",
+          "title": "Integral Exponential Series: Fibonacci Weights and Implicit Equations",
+          "trigger": "Identical series and parameter"
+        },
+        {
+          "assessment": "Degree covered by a broader polynomial-weight result; other invariants not stated there",
+          "evidence": [
+            "Specialization P(T)=5T^(2k) gives h(P)=k−1."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-algebraicity-trichotomy-for-fibonacci-polynomial-expone--ab1691f88d96",
+          "material_read": "Original RESULT.md finding at offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Complete algebraicity trichotomy for Fibonacci polynomial exponentials",
+          "trigger": "Broader indexed same-day claim"
+        },
+        {
+          "assessment": "Same equations at k=2 and k=3, not all-index geometric results",
+          "evidence": [
+            "Fifth and 25th powers are explicit rational functions for the two series."
+          ],
+          "identifier_or_url": "https://oeis.org/A207969 ; https://oeis.org/A207970",
+          "material_read": "Formula passages at offsets 426 and 435 respectively",
+          "method": "Direct public entry text",
+          "title": "OEIS entries for small Fibonacci-weight exponential series",
+          "trigger": "Exact-series database and possible small-index overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding (1)–(4) and proof §§3–6; compared with arXiv:2611.16283v1 Thm. 4.1"
+      ],
+      "rationale": "For the natural infinite family coming from even Fibonacci moments, the result gives more than translating one known polynomial into a generic genus formula. It resolves uniformly whether branch candidates survive normalization, counts full inertia by digits, and identifies exactly when the maximal genus occurs along two exponential progressions. This is useful family-specific information even though the arithmetic closure and cover-theoretic ingredients are standard.",
+      "residual_risks": [
+        "No claimed progress on Jacobians, characteristic-five reduction, or arithmetic point counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

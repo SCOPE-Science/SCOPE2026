@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:52.379904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two adjacent columns form K4, so any adjacent occupancies summing to at least three are impossible. Conversely, with adjacent sums at most two, double columns induce isolated edges and runs of singleton columns induce paths, for any choices of rows. An empty column is blocked exactly by an adjacent double, and a singleton exactly by an adjacent singleton; unavailable end neighbors do not count. For p double, q singleton and r empty columns, r≤2p, q≠1, and n≤s+p for s=2p+q. If s≤2k then n≤3k; at s=2k+1 one has odd q≥3, so p≤k−1 and still n≤3k. This implies s≥2ceil(n/3). The three residue constructions separate all double columns by zeros and cover all zeros by adjacent doubles, with exactly ceil(n/3) doubles. They include n=1 and 2. Independent replay: python3 /workspace/branches/e7df607f-23db-41ef-8993-0e09fdb3b774/audit_lb.py --direct 8 --occupancy 12. The direct graph check compared actual maximal masks with the expanded occupancy rule for all 87,380 masks through n=8; the finite occupancy check went through n=12. Output AUDIT_OK direct_orders=8 subsets=87380 occupancy_orders=12 (audit_lb.log). The proof, not enumeration, controls all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Madsen–Nielsen–Skjernaa §§1–2 define the maximal objects and study their number and enumeration; Cao Abstract and §1 study algorithms for hereditary properties."
+        ],
+        "reasoning": "General enumeration applies as a computation at any finite size but neither inspected result gives the exact optimum over strip lengths or the local iff rule.",
+        "searches": [
+          "Resultary lower bipartite number chordal graph 2-domination characterization",
+          "Madsen–Nielsen–Skjernaa DOI 10.7146/brics.v9i17.21735",
+          "Cao arXiv:2004.09885"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d91eca7659c, 5aee7013f56e and e7ee45c39166",
+        "Madsen–Nielsen–Skjernaa BRICS RS-02-17",
+        "Cao arXiv:2004.09885",
+        "Bachstein–Goddard DOI 10.1556/314.2023.00003 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An optimal separated-double placement can serve both invariants, but the two-fair lower bound does not apply to all maximal bipartite sets; the two counterexamples give both noncontainments. The rook classification uses a different adjacency in an essential way."
+        ],
+        "reasoning": "The shared construction can inform the upper bound; it cannot establish the matching lower bound or classify maximal sets here. The full comparison against the Bachstein–Goddard paper remains access-limited.",
+        "searches": [
+          "\"The Lower Bipartite Number of a Graph\" Bachstein Goddard 10.1556/314.2023.00003 king graph PDF",
+          "Resultary 2026/11/8/SCOPE-all-two-fair-dominating-sets-of-two-row-king-graphs-an-even-poly--2d91eca7659c",
+          "Resultary 2026/11/8/SCOPE-maximal-induced-bipartite-subgraphs-of-rook-graphs-an-exact-face--5aee7013f56e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is P_n[K_2], a chordal path of cliques; hence induced bipartite sets and induced forests coincide here.",
+          "Two-fair dominance requires exactly two selected neighbors at each omitted vertex. Occupancies 2,0,2 are maximal induced bipartite but give four such neighbors in the middle; 1,1,0,1,1 are two-fair but can be extended bipartitely."
+        ],
+        "reasoning": "The lexicographic product and maximal induced forest aliases are genuine reformulations; two-fair domination is not, even on this exact family.",
+        "searches": [
+          "Resultary lower bipartite number lexicographic product K2 path",
+          "Resultary minimum cardinality inclusion maximal induced forest chordal graph lower bipartite number",
+          "Resultary 2-domination two-row king graph maximal induced bipartite sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2d91eca7659c matches graph and scalar but uses two-fair domination; 5aee7013f56e classifies maximal induced bipartite sets of a Cartesian rook board; e7ee45c39166 counts general-position sets of Cartesian clique strips."
+        ],
+        "reasoning": "No returned inspected statement matches both object and statistic. A shared scalar or similar product notation is not an exact entry for this invariant.",
+        "searches": [
+          "Resultary lower bipartite number K2 strong product path king strip",
+          "Resultary maximal induced bipartite king graph two row strip occupancy characterization",
+          "Resultary \"LB(K2\" \"P_n\" bipartite"
+        ]
+      },
+      "rationale": "The strongest same-graph hit gives the same scalar for two-fair domination, not for maximal induced bipartite sets; the set classes fail to contain each other. The nearest inspected same-invariant work concerns other graph families or general enumeration. This supports the strip formula and occupancy test as a distinct result to the best of the available evidence, not as a certification of publication priority.",
+      "residual_risks": [
+        "Bachstein–Goddard full text was not available for comparison; no lawful alternate copy was identified.",
+        "An unlocated chordal-forest or clique-blowup formula could cover the same optimum. The bounded searches do not establish absence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equal scalar, different invariant",
+          "evidence": "Defines exactly two selected neighbors at omitted cells and states 2ceil(n/3).",
+          "identifier_or_url": "2026/11/8/SCOPE-all-two-fair-dominating-sets-of-two-row-king-graphs-an-even-poly--2d91eca7659c",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local Resultary mirror",
+          "title": "All two-fair dominating sets of two-row king graphs",
+          "trigger": "Same strip and minimum"
+        },
+        {
+          "assessment": "Different Cartesian product",
+          "evidence": "Classifies Cartesian rook-board sets, with a different size polynomial.",
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-induced-bipartite-subgraphs-of-rook-graphs-an-exact-face--5aee7013f56e",
+          "material_read": "RESULT.md Finding and Proof §§1–2",
+          "method": "Local Resultary mirror",
+          "title": "Maximal induced bipartite subgraphs of rook graphs",
+          "trigger": "Same maximal sets on another board product"
+        },
+        {
+          "assessment": "Different product, width regime and invariant",
+          "evidence": "Studies general-position sets in K_n Cartesian P_L, n,L≥3, with sizes 2,n,n+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-general-position-and-maximal-set-polynomials-of-complete-clique--e7ee45c39166",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local Resultary mirror",
+          "title": "General position and maximal-set polynomials of complete clique strips",
+          "trigger": "Clique path strips and maximal sets"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "The frozen summary describes rook graphs and lists king graphs as a direction; the original passage was not independently verified.",
+          "identifier_or_url": "https://doi.org/10.1556/314.2023.00003",
+          "material_read": "Frozen record's comparison only; no independently readable paper passage",
+          "method": "Lawful OA DOI and publisher attempts (403); title/DOI search returned no alternate",
+          "title": "The Lower Bipartite Number of a Graph",
+          "trigger": "Introduces the invariant; frozen bibliography reports a king-graph direction"
+        },
+        {
+          "assessment": "General enumeration, not the claimed exact minimum",
+          "evidence": "Defines maximal bipartite subgraphs; bounds or enumerates their number.",
+          "identifier_or_url": "https://doi.org/10.7146/brics.v9i17.21735",
+          "material_read": "Abstract and printed pp. 1–2, §§1–2",
+          "method": "OA PDF",
+          "title": "On the Number of Maximal Bipartite Subgraphs of a Graph",
+          "trigger": "General results on the identical family of maximal induced sets"
+        },
+        {
+          "assessment": "Algorithmic framework, not a strip optimization theorem",
+          "evidence": "General maximal induced subgraph enumeration methods.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+          "material_read": "v1 p. 1, Abstract and §1",
+          "method": "OA PDF",
+          "title": "Enumerating Maximal Induced Subgraphs",
+          "trigger": "Hereditary-property enumeration possibly applicable to bipartiteness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the lower bipartite number for the smallest nontrivial king-strip width, including boundaries, and gives a local test for all inclusion-maximal sets. The lower bound accounts for singleton columns rather than assuming an optimal solution is an ordinary dominating construction. Both the precise minimum and the occupancy test are useful for comparing nearby strip invariants and for higher-width work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

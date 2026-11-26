@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:21:09.185907Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With circumradius one and positive cyclic gaps summing to N, the chord formula gives area 2 times the product of their half-angle sines. Its logarithm is strictly Schur-concave. In a sorted triple with sum 3m, minimum at least m forces balance; minimum m-1 leaves exactly two possibilities; minimum at most m-2 forces maximum at least m+1 and hence majorization of (m-2,m+1,m+1). Strictness rules out every other shape even as a tie once the incomparable pair is ordered. As a separate gap calculation, the oriented shoelace formula gives half the sum of the three gap central-angle sines. Put x=2π/N, φ=2π/3 and g(t)=sin(φ+t). The three gaps are respectively sin φ(1-cos x), sin φ sin²x+cos φ sin x(1-cos x), and -2 cos φ sin x(1-cos x). These reduce to the three stated formulas and are positive throughout m≥3. Their expansions give the asserted quadratic/quadratic/cubic separation. Counting N starts per distinct gap ordering and dividing by three yields N/3, 2N, N, N, valid also at N=9. The accompanying Cartesian floating-point checker is supplementary, was inspected rather than executed, and is not needed for all-m ordering. Summing binom(3m,3) for 3≤m≤28 confirms the stated size of its test range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Eom–Ahn solve a largest-inscribed-triangle algorithm problem. Ismailescu–Kim–Wang formulate worst-case containment area ratios over convex polygons; the introductory vertex restriction does not change the minimax statistic into a spectrum.",
+          "The exact equal-area manuscript linked from A400213 could not be read via the bounded OA routes."
+        ],
+        "reasoning": "Maximization and minimax guarantees can address the top level but do not order ranks 2–4 or determine their separation. The unread exact-area paper remains an access risk, not evidence of absence.",
+        "searches": [
+          "arXiv:2007.12330v1 abstract and §1",
+          "arXiv:2104.12172 abstract and §1",
+          "Zenodo DOI 10.5281/zenodo.23170951"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Verification; VERIFICATION.md; check_triangle_shells.py",
+        "OEIS A400213",
+        "Zenodo DOI 10.5281/zenodo.23170951 (link only)",
+        "arXiv:2007.12330v1",
+        "arXiv:2104.12172",
+        "Resultary b61be1edd78b and target self-match aa596589191d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balanced gaps attain rank 1 and agree with the equilateral count. The exact ordering uses strict majorization to eliminate all but the listed shapes and compares two incomparable shapes using a nonzero trigonometric difference."
+        ],
+        "reasoning": "An equality classification cannot determine even the sign of that difference. Concavity by itself likewise cannot compare the two incomparable shapes. Credit the shared area identity and first level; the ordering and cubic cancellation are additional content.",
+        "searches": [
+          "A400213 COMMENTS",
+          "Resultary b61be1edd78b",
+          "arXiv:2007.12330v1",
+          "arXiv:2104.12172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A400213 COMMENTS use the same symmetric sine product in cyclic gaps but catalogue equal-area shape pairs, not the decreasing top spectrum.",
+          "Resultary b61be1edd78b describes largest equilateral triangles, with n/3 vertex-supported maximizers when 3 divides n."
+        ],
+        "reasoning": "The chord-product and cyclic-gap sine-sum descriptions are equivalent here; an equality classification or a restriction to equilateral triangles is not a ranking of general nearby shapes.",
+        "searches": [
+          "Resultary: regular polygon vertex triangle area shells / largest equilateral triangles",
+          "OEIS A400213",
+          "Literature lookup for ranked triangle areas in a regular polygon (search unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A400213 tabulates the number of distinct areas, not ranked areas, shapes or multiplicities at each area.",
+          "Resultary aa596589191d is the target self-match; its strongest distinct summary b61be1edd78b supplies the known optimal equilateral count only as far as inspected."
+        ],
+        "reasoning": "Total distinct-level counts do not determine the leading area values or which shapes attain them. The known optimal multiplicity does not determine the other shells.",
+        "searches": [
+          "OEIS A400213 and its linked a(n) table",
+          "Resultary: four top triangle areas in regular 3m-gons"
+        ]
+      },
+      "rationale": "Rank 1 and its count and the sine-product parametrization are not new. The supported distinct claim is the complete ordering of the next three vertex-triangle levels with equality cases and the exact positive cubic splitting. Checked sources do not supply it or imply it without the dominance and incomparable-pair arguments; priority remains provisional, specifically against the unread linked Huber text.",
+      "residual_risks": [
+        "Huber's linked full text was unavailable and could contain additional results.",
+        "The closest distinct Resultary record comparison is limited to its summary; exact text retrieval timed out.",
+        "The broad literature lookup was unavailable; novelty is not a comprehensive historical determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in parametrization and equality of areas, not the top-shell ordering in the entry",
+          "evidence": "The sine-product formula and equal-area families for multiples of 4, with extra cases for 24 and 30, concern coincidences. The table gives a(n), not ranked levels.",
+          "identifier_or_url": "https://oeis.org/A400213",
+          "material_read": "Full public entry at offset 0, especially COMMENTS and sequence/table description",
+          "method": "Lawful OA website read",
+          "title": "Number of distinct areas of triangles formed by three vertices of a regular n-gon",
+          "trigger": "Identical areas and parameter family; strongest accessible exact-area reference"
+        },
+        {
+          "assessment": "Unresolved possible coverage, not a negative comparison",
+          "evidence": "Accessible evidence establishes the linked manuscript's topic but not whether it contains the rank or cubic-gap results.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.23170951",
+          "material_read": "Title and link from A400213 only; no article body read",
+          "method": "Bounded OA recovery attempts; direct result not recognized as article text and alternate route returned 403",
+          "title": "Equal Areas of Vertex Triangles in a Regular Polygon",
+          "trigger": "Highest-priority unexamined linked full text on exactly these areas"
+        },
+        {
+          "assessment": "Viewed passages concern optimization algorithms, not ranked regular-polygon vertex areas",
+          "evidence": "The read problem statements cover maximum-area inscribed triangles, including boundary-corner variants.",
+          "identifier_or_url": "https://arxiv.org/html/2007.12330v1",
+          "material_read": "Abstract and §1, offsets about 852 and 2930–3500",
+          "method": "Lawful OA HTML bounded read",
+          "title": "Largest triangles in a polygon",
+          "trigger": "Largest-triangle overlap"
+        },
+        {
+          "assessment": "Viewed exact ratios address a different minimax question",
+          "evidence": "The vertex restriction and values such as f_5(3)=1/5 concern a worst case over convex container polygons, not the next three levels for each fixed regular 3m-gon.",
+          "identifier_or_url": "https://arxiv.org/html/2104.12172",
+          "material_read": "Abstract and §1, offsets 0–4547",
+          "method": "Lawful OA HTML bounded read",
+          "title": "On the maximum area of inscribed polygons",
+          "trigger": "Possible exact vertex-triangle maxima"
+        },
+        {
+          "assessment": "Positive rank-1 overlap; no exclusion of further coverage from summary alone",
+          "evidence": "For 3 dividing n, the summary gives n/3 vertex-supported equilateral maximizers.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-largest-equilateral-triangles-in-every-regular-polygon--b61be1edd78b",
+          "material_read": "Resultary summary; local statement unavailable and linked retrieval timed out",
+          "method": "Resultary lookup and bounded statement-retrieval attempt",
+          "title": "Sharp largest equilateral triangles in every regular polygon",
+          "trigger": "Strongest distinct catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a regular polygon the leading discrete departures from the equilateral maximizer are natural measures of optimization stability. The fourth level is motivated by the two opposite nearly balanced gap shapes with the same quadratic deficit. The exact result distinguishes them at cubic scale, proves no other gap shape intrudes, and gives multiplicities rather than just four values. This is a useful exact boundary across an infinite natural family, beyond the routine maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

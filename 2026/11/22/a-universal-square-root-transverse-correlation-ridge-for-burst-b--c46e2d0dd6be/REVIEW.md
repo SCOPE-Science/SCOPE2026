@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Campbell's theorem for independently marked Poisson bursts gives the stationary generating functional and exact order-\(j\) factorial cumulants. The positive common-age integral has a unique nondegenerate saddle; uniform Laplace expansion supplies the far-field rate and prefactor, and exact Cauchy–Schwarz equality identifies the entire zero-rate locus. A second-order Taylor expansion produces the transverse Gaussian and its sharp exponent transition. `checker.py` independently tests common-age quadratures, the Bessel closed form, the far-field rate, Gaussian profile and three scaling regimes. The mathematical statement concerns finite positive factorial moments and does not rely on finite simulations as proof.
+PASS
 
-## Originality
+Pass for the complete repaired RESULT.md. The frozen appeal to a two-sided generating-functional neighborhood is not valid under only a finite order-j moment: probabilities proportional to k^(−j−2) give finite m_j but infinite E[(1+c)^K] for every c>0. The repair works on the nonpositive generating-function cube and bounds each order-k derivative by m_k exp(−kδt) times the product of the test-function suprema. The representation therefore holds as a mixed factorial cumulant under exactly the stated moment assumption. The integrated cumulant mass is bm_j/(jδ), so the possible joint-origin singularity is locally integrable. The Bessel formula yields uniform far-field asymptotics since S/R² ranges over compact positive intervals. The ratio exponent is minus α times the exact deficit j Σ(r_i−r̄)²/(√(j Σr_i²)+Σr_i), with denominator asymptotic to 2jR in the shell. This proves the zero set, the Gaussian ratio and the strict trichotomy without assuming separated coordinates or dropping a prefactor. The eigen-direction with constant radial offsets has no transverse deficit, and order-one density is everywhere positive. The private repair clarifies the valid range of fixed nonzero vectors, including individual zero coordinates away from the joint origin. The finite checker was inspected, not executed.
 
-**PASS, with documented priority risk.** Targeted mathematical-index and bibliographic searches compared source-localized bursty diffusion, higher-order Poisson-cluster cumulants, and three-particle spatial correlations by implication rather than wording. Boyer–Mercado-Vásquez derive density and first-passage data for the production–death framework; Cottrell–Swain–Tupper derive related two-point gene-expression spatial covariance; Kerscher gives general higher-order Poisson-cluster factorial cumulants. These already cover portions of the derivation, so they are credited. Their inspected relevant texts do not contain the combined order-three-and-higher equal-radius zero-set classification, sharp square-root transverse width and three regimes. The deduction may still be included in a more general unindexed cluster asymptotic theorem; novelty is provisional, not a claim of mathematical uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The far-field profile identifies a physically motivated, order-three-and-higher common-birth signature: sensors placed at equal source distances retain only polynomially small normalized joint association, whereas unequal distances generate exponential suppression. The precise square-root radial mismatch width determines a natural spatial-resolution scale for multi-location measurements. The result addresses a structural geometry unrecorded by the established pair-covariance and first-passage observations; it is not merely a new notation for a known tabulated constant.
+Pass for the geometry and sharp transverse classification of normalized distant factorial-cumulant densities at orders j≥3, not for Poisson-cluster calculus, the one-point density, or a Bessel asymptotic. The most direct same-model catalogue comparison covers a different, shrinking-ball count statistic and does not give the mixed distant-point result.
 
-## Remaining limits
+## value
 
-The model excludes finite-size sources, reactions, interacting particles and inference from noisy measurements. The theorem is not an independent scientific audit. Any equivalent general Poisson-cluster spatial-saddle asymptotic published elsewhere could dominate the originality comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This normalization asks whether particles far from the source co-occur more strongly when one burst age can explain all distances. The answer distinguishes exponential suppression from a power-law ridge and gives a precise scale and profile usable for comparing configurations at large common radius. Neither the standard radial kernel nor a fixed-ray rate alone answers that comparison, and the conclusion is explicitly about connected factorial cumulant densities, not detection in a realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

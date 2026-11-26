@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stability threshold follows by a rank-one energy inequality on the nonconstant subspace; each triangle's three resistances follow from direct circuit reduction, and all external cactus blocks carry zero current for an injection internal to a block. A strict arithmetic-geometric-mean comparison forces equal spoke weights without initially restricting the feasible design. Exact one-variable differentiation proves both thresholds, including the nonunique interval at the boundary price four. The blockwise budget lower bound matches a feasible construction, proving the global optimum and all optimizer statements. The standalone exact-rational program tests the formulas and a nontrivial cactus but does not replace the universal derivation.
+PASS
 
-## Originality
+Congruence on 1-perp reduces the attacked Laplacian to I minus a rank-one term, with altered eigenvalue 1-delta R_e. Thus the single-edge threshold is a supremum, not strict stability at equality. Candidate edges with zero nominal conductance still have well-defined nonzero incidence vectors and finite resistance. Resistance in a block is unchanged by the outside branches of the block-cut tree, since the endpoint drive has a constant harmonic extension into each such branch. Independently minimizing cost at unit worst resistance gives the full result: equalizing spokes at fixed sum and backup is strict for unequal spokes because the common denominator increases and the maximum numerator cannot increase. For equal spokes a, the least backup b is a(1-a)/(2a-1) on 1/2<a<=2/3, 1-a/2 on 2/3<=a<=2, and zero thereafter. With y=2a-1, the first cost is 1+(1-t/4)y+t/(4y); the minimizing stationary point fits exactly for t<2/5. The middle cost is linear with slope 2-t/2, explaining the whole interval at t=4, and the third cost increases. The verified costs and equality cases are those claimed. By homogeneity each block has its own necessary lower budget at the same resistance cap; equality in the sum requires every block to saturate. Analytic replay: reviews/evidence/cactus_cost.md. The supporting finite tests were inspected, not run, and are not required by the proof. In the frozen sentence about t>4, the combined piecewise objective has its sole minimum at zero; the second branch on its own minimizes at r=1, not at zero. This wording does not affect the global result.
 
-PASS with residual uncertainty. Zelazo--Bürger (2014) establish the underlying negative-link effective-resistance stability criterion and discuss cactus topology, but not its priced-conductance optimization. Ghosh--Boyd--Saberi (2006/2008) solve a different total-resistance objective and describe max-*pair* resistance convex optimization; Suliman--Weinstein (2023) connect unit-price max-*edge* resistance to Lewis weights, but do not classify heterogeneous triangle prices or all optimizers. Tovar et al. (2026) obtain a triangle deletion threshold of \(3\) for mean pairwise resistance, not the present edge-wise thresholds \(2/5\) and \(4\). Prior work on triangular bouquets optimizes the sum over all vertex pairs, also distinct from the adversarial one-link margin. Exhaustive novelty in unindexed literature cannot be established by search.
+## originality
 
-## Value
+PASS
 
-PASS. A physically interpretable robust-consensus design criterion reduces to an exact, reusable cost law on all triangular cactus assemblies, rather than isolated numerical cases. Two sharp price boundaries separate reinforced backup links, unexpectedly equalized conductances despite unequal prices, and complete backup exclusion. The theorem also identifies every optimum and precisely when nonuniqueness occurs; the threshold is local and independent of the number, arrangement, or bridge prices of the blocks. It supplies a fault-tolerant design formula, not merely a normalization or sign check.
+The resistance stability criterion and fixed-graph edge-max reweighting objective have prior coverage. No inspected source covers the specific continuous priced triangular-cactus block law, both thresholds and all optimizer faces with zero-conductance candidate edges retained. The strongest indexed robust-resistance analogue uses complete outage and an all-pairs sum on an alternating-price even cycle, so neither its plateau nor its optimal design implies this one. This judgment is limited to the exact priced classification, not the general method or objective.
 
-## Scope and limits
+## value
 
-One antagonistic edge at a time; attacks include candidate edges whose designed conductance is zero. No simultaneous attacks, asymmetric spoke prices, or nontriangular blocks. Related closed forms might exist under weighted Lewis design terminology; independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact resource design law for a natural stability diagnostic rather than an example at chosen prices. It resolves when optimal designs delete an edge that is still vulnerable to subtraction, explains a full equal-design interval even under unequal prices, and identifies exactly when the optimum stops being unique. Block locality turns those distinctions into an explicit allocation for arbitrary triangular cacti under the stated budget model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

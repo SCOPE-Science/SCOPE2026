@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:42:04.096423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Permuting the symbols is transitive on each of the two edge forms, and graph-triangle membership distinguishes them. The independent exact replay is /workspace/branches/7668909b-2f63-4187-abb8-d9a671040f7a/rips_replay.py with run output rips_replay.out in the same directory; the frozen verify.py was inspected, not executed. The replay builds each fault graph before BFS and tests all 4,095 nonempty vertex subsets. There are 12 isolated points below radius one. At one the connected graph remainders after collapses have cycle ranks 3 and 2. At two the face vectors (12,40,42,10) and (12,37,38,10) collapse to two-dimensional cores of (12,32,24) and (10,23,16). I checked that the replay uses current free faces and actual oriented boundary words after collapsing a spanning tree; singleton relators kill all 21 and 14 generators. A simply connected two-complex is a wedge of two-spheres by Hurewicz and homological Whitehead, with ranks 3 and 2 from these Euler characteristics. At radius three the triangular case collapses in 1,151 pairs; the reversal case collapses at three and four in 543 and 1,535 pairs. At diameters 4 and 5 the complexes are simplices; integral graph distances settle all real threshold intervals. The intact signed boundary ranks are 31 and 12 on a 48-generator C₂, and the 3-boundaries have unit invariant factors. For each inclusion the replay uses an integral kernel basis and appends its embedded cycles to the intact 3-boundaries. The resulting matrices diagonalize over the integers with nonzero diagonal entries all units and ranks 15 and 14. Thus B₂(intact)+Z₂(fault) is saturated in C₂(intact), hence in Z₂(intact); its image modulo B₂ has rank 3 or 2 and free quotient. Since the fault H₂ groups are free of the same ranks, the maps are injective with free cokernels of ranks 2 and 3 in Z⁵. This is a stagewise homotopy classification plus the two scale-two maps, not a classification of all interscale maps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Platonic-solids classification in arXiv:2302.14388v1 names Archimedean solids as a possible extension in the Introduction (OA offset 4495).",
+          "The cyclic-truncation theorem in a77b1c9cfc91 requires a triangle-free base of maximum degree at most five. The broad homotopical decompositions article was not read in full in the bounded OA attempt."
+        ],
+        "reasoning": "The truncated tetrahedron is Archimedean, not Platonic; the recovery theorem excludes the base K₄ because of its triangles and does not compute these two fault-to-intact maps. General decompositions are a possible method, not demonstrated coverage on currently available evidence.",
+        "searches": [
+          "Saleh–Titz Mite–Witzel arXiv:2302.14388v1 Introduction",
+          "Resultary: a77b1c9cfc91 sharp valence-five cyclic-truncation recovery",
+          "Chachólski–Jin–Scolamiero–Tombari doi:10.1007/s41468-021-00066-2 OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:51e8cc219376",
+        "Resultary:a77b1c9cfc91",
+        "Resultary:1eada18dc7cc",
+        "Resultary:f5ae4a359c83",
+        "Resultary:6dd21f475e8e",
+        "Resultary:180ea0e70ec4 (self)",
+        "arXiv:2302.14388v1",
+        "doi:10.1007/s41468-021-00066-2 (retrieval attempted, no primary text read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior intact result supplies H₂ of the target only. The recovery theorem excludes K₄, and the Tietze record changes the underlying graph.",
+          "The fault removes multiple admissible pairs at radius two after metric recomputation: the 42 intact 1-simplices at scale two drop to 40 and 37, and the signed subcomplex embeddings must be calculated, not just the intact homotopy type."
+        ],
+        "reasoning": "A homotopy type of the ambient complex neither fixes subcomplex homotopy types nor forces their maps to be injective or saturated. No inspected comparison gives a theorem directly computing these stages and maps after deleting either edge orbit.",
+        "searches": [
+          "Resultary:51e8cc219376 Finding offset 64; a77b1c9cfc91 Finding offsets 89–192; 6dd21f475e8e scale-two discussion offsets 4064–5363",
+          "arXiv:2302.14388v1 Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "51e8cc219376 treats the intact graph with scale-two wedge of five spheres. 1eada18dc7cc uses Euclidean vertex distances at thresholds sqrt(8), sqrt(24), sqrt(32), sqrt(40).",
+          "f5ae4a359c83 studies edge matchings under edge deletion. The same-day 6dd21f475e8e classifies Tietze graph faults, with four scale-two H₂ ranks 2,1,4,4."
+        ],
+        "reasoning": "The relevant equivalent model is the clique complex of the power of the already faulted graph, not deletion of the single edge from an intact power, not the matching complex, and not the clique complex of the Euclidean threshold graph. The intact stage and the scale-two target are shared, but the two fault stages and maps are not.",
+        "searches": [
+          "Local Resultary graph-metric Rips truncated tetrahedron single-edge faults and graph powers: 180ea0e70ec4, 51e8cc219376, 1eada18dc7cc, f5ae4a359c83, 6dd21f475e8e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed table of both fault types, including primitive maps, surfaced only as the assigned record itself. The inspected intact table and Tietze fault table specify genuinely different inputs."
+        ],
+        "reasoning": "These are finite exact invariants, so an exact graph, metric and map match in a table would count as coverage. The intact entries are exact prior parts; they do not identify faulted graph powers, and numerical ranks by themselves would not certify primitive integral inclusion.",
+        "searches": [
+          "Local Resultary: 180ea0e70ec4, 51e8cc219376, 6dd21f475e8e; exact graph-metric fault-stage and primitive inclusion comparison"
+        ]
+      },
+      "rationale": "The distinct result is the complete stagewise classification for all single graph-edge faults on the truncated tetrahedron with recomputed distances, and the two integral primitive maps into the intact stage. The intact graph and same-vertex Euclidean result are prior; the graph-specific fault data and actual maps are not implied by either. The closest same-day method match is on a different graph.",
+      "residual_risks": [
+        "An unindexed equivalent computation or a general result specialized to these fault graph powers could overlap. The general decompositions paper was not read in full.",
+        "Same-day indexing establishes no chronological order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact intact result, no fault maps",
+          "evidence": [
+            "At thresholds zero through three gives 12 points, a wedge of three circles, a wedge of five two-spheres, then a point."
+          ],
+          "identifier_or_url": "Resultary:51e8cc219376",
+          "material_read": "Finding, local-mirror offset 64",
+          "method": "Resultary discovery and local mirror",
+          "title": "The graph-metric Rips filtration of the truncated tetrahedron",
+          "trigger": "Exact underlying graph and metric"
+        },
+        {
+          "assessment": "Base graph hypothesis fails",
+          "evidence": [
+            "Assumes a triangle-free base graph of maximum degree at most five."
+          ],
+          "identifier_or_url": "Resultary:a77b1c9cfc91",
+          "material_read": "Finding, local-mirror offsets 89–192",
+          "method": "Resultary discovery and local mirror",
+          "title": "Sharp valence-five Rips recovery for cyclic vertex truncations",
+          "trigger": "Candidate general cyclic-truncation result"
+        },
+        {
+          "assessment": "Different metric and filtration maps",
+          "evidence": [
+            "Uses unrescaled Euclidean distances, with stages at sqrt(8), sqrt(24), sqrt(32), sqrt(40)."
+          ],
+          "identifier_or_url": "Resultary:1eada18dc7cc",
+          "material_read": "Finding, local-mirror offsets 250 and 589",
+          "method": "Resultary discovery and local mirror",
+          "title": "Euclidean Rips persistence and tetrahedral homology characters of the truncated tetrahedron",
+          "trigger": "Same geometric vertices and Rips terminology"
+        },
+        {
+          "assessment": "Different simplicial functor",
+          "evidence": [
+            "The simplices are matchings, not sets of graph vertices with all shortest distances below a threshold."
+          ],
+          "identifier_or_url": "Resultary:f5ae4a359c83",
+          "material_read": "Finding, local-mirror offsets 69 and 454",
+          "method": "Resultary discovery and local mirror",
+          "title": "Edge-orbit matching-complex homotopy of the truncated tetrahedron",
+          "trigger": "Same graph and type of edge deletion"
+        },
+        {
+          "assessment": "Strong analogy but no coverage of this graph; date establishes no priority",
+          "evidence": [
+            "The graph is the Tietze graph, and four fault types give scale-two H₂ ranks 2,1,4,4."
+          ],
+          "identifier_or_url": "Resultary:6dd21f475e8e",
+          "material_read": "Finding offset 73; scale-two discussion offsets 4064–5363 in local mirror",
+          "method": "Resultary discovery and local mirror",
+          "title": "Four sharply distinct edge-fault Rips filtrations of the Tietze graph",
+          "trigger": "Same-day method and exact fault question for a different graph"
+        },
+        {
+          "assessment": "Classifies Platonic graphs; Archimedean graphs are an extension",
+          "evidence": [
+            "Identifies Archimedean solids as a possible next family, not a case included in the Platonic theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.14388v1",
+          "material_read": "Introduction, OA offset 4495",
+          "method": "OA primary full-text passage",
+          "title": "Vietoris–Rips complexes of Platonic solids",
+          "trigger": "Graph-distance construction for regular polyhedral graphs"
+        },
+        {
+          "assessment": "No whole-text conclusion",
+          "evidence": [
+            "The paper was identified as a potential methodological comparison, not as evidence for or against exact coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41468-021-00066-2",
+          "material_read": "Title and citation only; primary text not obtained in the bounded OA attempt",
+          "method": "OA DOI retrieval attempt",
+          "title": "Homotopical decompositions of simplicial and Vietoris–Rips complexes",
+          "trigger": "Candidate general decomposition method cited in the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both edge orbits are natural symmetry classes of a standard Archimedean graph, and all 18 single faults are covered. The scale-two integrity result distinguishes the number of surviving two-dimensional classes and shows that no nontrivial torsion obstruction is hidden in the quotient of the intact lattice. Neither rank-only stability nor the intact classification could answer those questions. This is a useful exact finite benchmark for graph-metric persistence under edge damage; it does not depend on claiming a general robustness theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

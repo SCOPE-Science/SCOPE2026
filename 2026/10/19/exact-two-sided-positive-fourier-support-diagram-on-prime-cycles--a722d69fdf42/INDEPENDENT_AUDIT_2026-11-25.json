@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:41:09.938390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 24–65",
+        "Tao arXiv:math/0308286v6, Theorem 1.1",
+        "Frozen VERIFICATION.md lines 19–25 and check_support.py lines 21–80, inspected only"
+      ],
+      "rationale": "With the frozen unnormalized Fourier convention, each side is real and hence the real-valued other side is even; positivity yields both zero entries f(0) and f̂(0) strictly positive. Thus inversion pairs plus the origin give the two odd sizes; Tao's prime-order uncertainty gives k+ℓ≥p+1. For k≤ℓ, set p=2m+1, k=2r+1, ℓ=p−2s. The inequalities give s≤r≤m−s. Consequently the s smallest sampled cosines c_j=cos(2πj/p) have j≥m−s+1>p/4 and are negative. The product of (t−c_j) over these roots times (t+2)^(r−s) is exactly zero there and positive at every other cosine node. The substituted Laurent factors have positive coefficients at exponents −1,0,1; for any |h|≤r one can choose |h| signed linear terms and constants elsewhere, proving a_h>0 and no cancellation. The exponents are distinct mod p, and evaluating at e^(−2πij/p) yields the advertised Fourier support. Empty products give (1,p); Fourier involution swaps the pair, including (p,1). The phrase 'nonzero group elements' in the frozen scope is understood as elements where the function is nonzero; the proof explicitly includes the origin.",
+      "residual_risks": [
+        "The 502 reported finite numerical checks are not an independent exact replay; the ordered grid and coefficient arguments verify exact signs and zero counts without them. Only support cardinality, not arbitrary prescribed sets or composite-order necessity, is classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tao gives sharp complex-valued feasibility even when support sets are specified",
+          "Wang–Ye estimate the second-largest value with Fourier support size as a parameter",
+          "29fa16b8c55a solves a positive quadrature minimum with two specified zero moments, without a pointwise spatial nonnegativity constraint"
+        ],
+        "reasoning": "Tao is broader in values and support locations but does not imply positivity-preserving sufficiency. Neither value optimization nor the two moment equations characterize feasible cardinality pairs of both nonnegative transforms.",
+        "searches": [
+          "arXiv:math/0308286v6 §1 Theorem 1.1 and converse",
+          "arXiv:2503.06908 abstract and §1",
+          "29fa16b8c55a Finding and Eq. (1)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0308286v6",
+        "arXiv:math/0312218",
+        "arXiv:2503.06908",
+        "Resultary bd4012acfc55, 590958c70885, 29fa16b8c55a",
+        "DOI:10.1007/s11006-005-0089-9 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tao contributes the whole sum constraint but avoids sign constraints in its converse",
+          "The others optimize or bound values with support data, not construct every positive pair",
+          "The frozen product ensures all the Laurent coefficients and all the surviving cosine-grid samples are strictly positive simultaneously"
+        ],
+        "reasoning": "These prior conclusions do not imply a sign-compatible witness at the sharp frontier or above it. The simultaneous positive witness construction, rather than the uncertainty inequality or oddness argument, is the credited contribution.",
+        "searches": [
+          "arXiv:math/0308286v6 theorem and converse",
+          "arXiv:math/0312218 Definition 1",
+          "arXiv:2503.06908 abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On this finite group the doubly nonnegative Fourier pair is exactly a pointwise nonnegative positive-definite function",
+          "Kolountzakis–Révész use the positive-definite cone for mass optimization at specified support; no paired exact-support assertion in the inspected setup",
+          "The four-point indicator entry 590958c70885 applies positivity to the input, at order 2p, and does not constrain Fourier signs"
+        ],
+        "reasoning": "Taking the Fourier double transform only interchanges an already doubly nonnegative witness. It does not turn a one-sided result into the classification. The broader uncited positivity-only comparator mentioned in the frozen text was not independently identified.",
+        "searches": [
+          "Resultary: exact support cardinality pairs nonnegative functions on cyclic groups of prime order f≥0 Fourier support support-size diagram positivity-only",
+          "Resultary: prime positive Fourier support diagram f and Fourier transform both pointwise nonnegative odd cardinalities cosine polynomial double positivity",
+          "Primary search on Fejér/Carathéodory–Fejér positive trigonometric polynomials and finite Fourier support",
+          "arXiv:math/0312218, §0.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bd4012acfc55 gives exact positional support incidence for complex functions on Z/9",
+          "590958c70885 gives exact size strata for Fourier supports of four-point indicators on Z/(2p)"
+        ],
+        "reasoning": "The tables and strata that were actually inspected have different hypotheses and quantities. No equivalent all-prime two-sided cardinality diagram was identified in bounded index searches; a lack of hits alone would not support novelty.",
+        "searches": [
+          "Resultary: uncertainty sharp positive spatial functions Fourier support prime cycles cardinalities positivity constraint",
+          "Mirrored RESULT.md of bd4012acfc55 and 590958c70885"
+        ]
+      },
+      "rationale": "The positively constrained converse is the distinct result. Tao exactly covers the unconstrained problem, including prescribed sets, but its witnesses do not meet the two sign inequalities. The positive-definite sources inspected optimize mass or other function values; the closest verified indexed objects concern one-sided positivity, positive tight-frame sampling, or unconstrained composite-order support incidence, not this cone's full support-size diagram. The bounded comparison does not establish historical priority.",
+      "residual_risks": [
+        "The uncited positivity-only comparator was not identified. A classical polynomial result, including the inaccessible periodic Turán lead, could provide an equivalent argument; no coverage was inferred from the name or an unavailable paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unconstrained support sets and necessary inequality, not two-sided positivity",
+          "evidence": [
+            "Complex witnesses for nonempty A,B with |A|+|B|≥p+1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0308286v6",
+          "material_read": "§1, Theorem 1.1 and following converse, OA offsets 5000–8596",
+          "method": "Compared function field and witness conclusions",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Exact converse for Fourier support sets"
+        },
+        {
+          "assessment": "Inspected statements are fixed-support mass extremization, not simultaneous support sizes",
+          "evidence": [
+            "Positive-definite f, prescribed support, normalization f(0)=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312218",
+          "material_read": "Abstract and §0.1 through Definition 1, PDF opening pages, OA offsets 0–6000",
+          "method": "Compared optimization objective and support restrictions",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "Same Fourier-positive cone and finite-group scope"
+        },
+        {
+          "assessment": "Value estimate rather than a support-pair classification",
+          "evidence": [
+            "Second-largest value bound using spectral support size"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.06908",
+          "material_read": "Abstract and §1, PDF p. 1, OA offsets 0–5500",
+          "method": "Compared output of the main estimate with the existence direction required here",
+          "title": "An estimate for positive definite functions on finite abelian groups and its applications",
+          "trigger": "Finite-group PD bound with spectral support as a parameter"
+        },
+        {
+          "assessment": "Composite order and no signs; not the frozen classification",
+          "evidence": [
+            "Z/9 positional exact pairs for complex functions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-positional-fourier-support-incidence-on-the-cyclic-nine-po--bd4012acfc55",
+          "material_read": "Mirrored RESULT.md opening Finding and assumptions",
+          "method": "Matched group, function class and nature of table",
+          "title": "Exact positional Fourier-support incidence on the cyclic nine-point group",
+          "trigger": "Exact indexed support incidence table"
+        },
+        {
+          "assessment": "One fixed cardinality in composite order, no Fourier sign constraint",
+          "evidence": [
+            "Only |supp f̂|=p, 2p−1, 2p for four-point indicators on Z/(2p)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-point-indicator-fourier-support-trichotomy-on-cyclic-semipr--590958c70885",
+          "material_read": "Mirrored RESULT.md opening Finding and assumptions",
+          "method": "Compared fixed input support and Fourier sign requirement",
+          "title": "Four-point indicator Fourier-support trichotomy on cyclic semiprime groups",
+          "trigger": "Nearby indexed positive-input support strata"
+        },
+        {
+          "assessment": "Different positive moment problem",
+          "evidence": [
+            "Only two mandatory nontrivial zero moments for the weighted frequencies"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–2500; Finding, assumptions and Eq. (1)",
+          "method": "Compared Parseval moment zeros with positivity and exact support of the whole primal vector",
+          "title": "Sharp positive Fourier sampling on three consecutive cyclic sites",
+          "trigger": "Explicit positive spectral support optimum"
+        },
+        {
+          "assessment": "Unresolved, not counted as evidence against coverage",
+          "evidence": [
+            "Search description concerns periodic Turán-type extremization with nonnegative Fourier coefficients"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11006-005-0089-9",
+          "material_read": "Bibliographic/search description; full text not retrieved",
+          "method": "Tried lawful article and PDF retrieval; redirects did not yield the text",
+          "title": "On the Turán Problem for Periodic Functions with Nonnegative Fourier Coefficients and Small Support",
+          "trigger": "Plausible classical positive periodic polynomial formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–13 and 26–61",
+        "Tao arXiv:math/0308286v6, Theorem 1.1 and converse",
+        "Kolountzakis–Révész arXiv:math/0312218, Definition 1"
+      ],
+      "rationale": "This answers a natural constrained sharpness question for prime-order Fourier uncertainty: both a nonnegative signal and a positive spectrum can achieve the entire allowed size region, including the sharp boundary, with explicit witnesses. That complements both the abstract uncertainty converse, which does not keep signs, and fixed-support mass problems. The classification is uniform in prime order and gives a concrete feasibility baseline for sign-constrained spectral constructions.",
+      "residual_risks": [
+        "Use of the witnesses for support location, stability or amplitude optimization is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

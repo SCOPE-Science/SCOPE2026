@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:07:24.562170Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write U for the common product image and P,Q for the separate images of A,B. Since B(P)=U and its kernel on P contains U, dim P>=2r, and symmetrically dim Q>=2r. Square-zero gives the opposite bounds and P=ker A, Q=ker B. Now ker(B|P)=P intersect Q=U, and both products kill P+Q, a 3r-space, so their kernels are exactly that space. Choose W complementary to P+Q. Then A(W),B(W) complement U in P,Q, and AB:W→U is an isomorphism. Transferring a basis of W gives the displayed matrices with H=(AB)^{-1}BA on the quotient; change of basis acts by similarity. Commutation determines the other columns from the W column (R,S,T,P0): they are (P0,0,0,0), (T,P0,0,0) and (HS,0,P0,0). The only constraint is P0H=HP0, and invertibility is exactly that of P0. Summing the orbit counts over invertible similarity classes uses the GL_r class equation. Independently, with A fixed, choose U in P of dimension r, then Q/U complementary to P/U in A^{-1}(U)/U: the respective counts are Gaussian(2r,r) and q^{r²}. Choose the isomorphism V/Q→Q inducing B and sending (P+Q)/Q onto U, giving q^{r²}|GL_r|² choices. The product is q^{r²}|GL_{2r}|, as claimed. These arguments are characteristic-free and give the stated 2520 and 898560. The frozen small-field and centralizer checks were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "String/band classification applies to finite-dimensional modules for the two-loop algebra with x²=y²=0. The inspected general theorems classify modules, not this joint image constraint or its mass.",
+          "The indexed balanced-rank specialization counts all isomorphisms V/Q→Q for Q with prescribed dim(P intersect Q). It does not track their image of (P+Q)/Q.",
+          "Schröer imposes zero products, so the positive product-rank locus is disjoint."
+        ],
+        "reasoning": "The broader rank-only formula includes many pairs outside the equality locus, and the general module classification does not identify which bands lie on it or give their stabilizers for this count.",
+        "searches": [
+          "Crawley-Boevey, arXiv:1308.6410, §1 and Theorems 1.1–1.2",
+          "Resultary 442e4aaba275, proof of the balanced-rank specialization",
+          "Schröer, arXiv:math/0211293 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and the three verification scripts",
+        "DOI 10.1080/00927872.2011.613423 (abstract snippet only)",
+        "arXiv:1308.6410",
+        "arXiv:math/0211293",
+        "Resultary ce965cde261e, 7f172624c719, 442e4aaba275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-only proof independently chooses Q intersect P and the projection of Q to V/P, then counts every quotient isomorphism defining B. For common product images, A must identify the projection with Q intersect P and the quotient isomorphism for B must take (P+Q)/Q to that same intersection. Neither alignment condition is imposed by the rank-only proof.",
+          "The commuting count matches the orbit at H=I but gives no information on the stabilizer for nonscalar or nonidentity H."
+        ],
+        "reasoning": "The all-H mass is not obtained by substituting rank parameters in the earlier formulas. It requires an equal-image incidence refinement, or the sharp quotient calculation and centralizer in this proof. General string/band theory supplies background rather than that calculation.",
+        "searches": [
+          "Resultary 442e4aaba275 step 6, local mirror offsets 5790–6870",
+          "Resultary ce965cde261e sharp commuting specialization",
+          "Crawley-Boevey arXiv:1308.6410 Theorems 1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mohammadian's accessible abstract snippet gives rank(AB)<=dim(V)/4 for equal product images.",
+          "The sharp commuting locus in ce965cde261e is exactly H=I; its count is |GL_{4r}|/(q^{3r²}|GL_r|). The similarity parameter in 7f172624c719 is for transverse separate images, not a common product image of positive rank."
+        ],
+        "reasoning": "Equality of images is weaker than equality of products; commuting captures only the identity parameter in general. Transversality of the separate images is incompatible with a positive common product image.",
+        "searches": [
+          "Resultary square-zero product images, extremal rank and commuting square-zero pairs; ce965cde261e and 7f172624c719",
+          "Mohammadian, DOI 10.1080/00927872.2011.613423, equal right column spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For r=1,q=2, the count 2520 is already covered by ce965cde261e because GL_1(F_2) is trivial. This is an exact specialization overlap.",
+          "For the same parameters the broader (rank AB,rank BA)=(1,1) fiber in 442e4aaba275 counts 22680 pairs, not 2520. No scoped hit gives the unrestricted-in-H sharp mass."
+        ],
+        "reasoning": "Do not treat the binary base case as a novel exact entry or the rank-only tally as a conflicting value. Neither covers the ordered labeled common-image tally for all prime powers and ranks.",
+        "searches": [
+          "Resultary ce965cde261e and 442e4aaba275, stated exact rank strata",
+          "Literature lookup for the sharp equal-product-image count; DOI 10.1080/00927872.2011.613423"
+        ]
+      },
+      "rationale": "The supported claim is the finite-field mass of the equal-product-image sharp stratum without commutativity, with the accompanying explicit normal form and simultaneous centralizer. Neither the bound, the commuting orbit and its binary r=1 specialization, nor general string/band classification is credited as new.",
+      "residual_risks": [
+        "Mohammadian's equality-case details remain unread after lawful retrieval attempts; possible overlap there is not evidence of coverage or of its absence.",
+        "An unlocated specialized band-module tally or other image-incidence count might cover more of the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bound confirmed; equality clause and exact count cannot be assessed from the truncated snippet",
+          "evidence": "Accessible text states the n/4 rank bound for equal right column spaces of AB and BA. Publisher returned 403 on full text; no lawful alternate was identified.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2011.613423",
+          "material_read": "Accessible publisher abstract snippet ending at the start of a further clause; no primary body passage",
+          "method": "Publisher and lawful DOI recovery attempts; targeted title/DOI/accepted-manuscript lookup",
+          "title": "Sums and Products of Square-Zero Matrices",
+          "trigger": "Same condition and sharp bound; possible equality-case overlap"
+        },
+        {
+          "assessment": "General classification, not a calculation of the sharp stratum",
+          "evidence": "Isomorphism criteria and decomposition into string and band modules for the relevant framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.6410",
+          "material_read": "§1 p. 1 and pp. 3–4 Theorems 1.1–1.2, OA offsets around 1456 and 11300",
+          "method": "Open primary PDF passages",
+          "title": "Classification of modules for infinite-dimensional string algebras",
+          "trigger": "General module classification and band parameters"
+        },
+        {
+          "assessment": "Exact partial coverage at H=I, including all pairs when r=1,q=2",
+          "evidence": "At ambient dimension 4r and rank r its count is |GL_{4r}|/(q^{3r²}|GL_r|).",
+          "identifier_or_url": "2026/10/13/SCOPE-product-rank-strata-of-commuting-full-rank-square-zero-matrix-pa--ce965cde261e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Product-rank strata of commuting full-rank square-zero matrix pairs",
+          "trigger": "Exact sharp commuting sublocus and identical binary r=1 count"
+        },
+        {
+          "assessment": "Larger rank-only fiber, no equal-image condition",
+          "evidence": "Counts all Q with the required intersection dimension and all |GL_h| isomorphisms for each Q in the balanced case.",
+          "identifier_or_url": "2026/10/18/SCOPE-bidirectional-product-rank-fibers-of-square-zero-matrix-pairs--442e4aaba275",
+          "material_read": "RESULT.md Finding and proof step 6, offsets 0 and 5790–6870",
+          "method": "Local mirror passage and direct reinspection of balanced-rank proof",
+          "title": "Bidirectional product-rank fibers of square-zero matrix pairs",
+          "trigger": "Potential stronger exact finite-field count"
+        },
+        {
+          "assessment": "Close structural analogue in a different locus",
+          "evidence": "Transverse images give invertible parameters modulo similarity; separate images here intersect in dimension r>0.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-algebra-generation-spectra-of-transverse-square-zero-pairs--7f172624c719",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact algebra-generation spectra of transverse square-zero pairs",
+          "trigger": "Earlier similarity parameterization for square-zero pairs"
+        },
+        {
+          "assessment": "Disjoint product condition",
+          "evidence": "AB=BA=0 is imposed.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211293",
+          "material_read": "p. 1 abstract",
+          "method": "Open primary PDF passage",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Nearby exact matrix-pair geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural locus is the equality case of a known rank bound. Counting labeled realizations, including the noncommuting pairs, quantifies a refinement that rank strata do not capture. The exact class and stabilizer description explains the simple aggregate mass uniformly across characteristics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

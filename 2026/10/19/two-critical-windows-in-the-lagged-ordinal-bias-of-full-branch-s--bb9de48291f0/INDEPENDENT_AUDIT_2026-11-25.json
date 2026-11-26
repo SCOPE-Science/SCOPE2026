@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:10:34.550956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each affine inverse word maps [0,1] into itself, has a unique fixed point a/(1-s), and contributes |s|(1-a/(1-s)) to the strict comparison; the ties form a finite set. Expanding 1/(1-s) and factoring over letters gives A_k=p^(k+1)+(-1)^k q^(k+1) and B_k=(-1)^k q^(k+1). The k=0 term cancels the constant, k=1,2 give the two stated convolutions, and the absolute k>=3 tail is at most n sigma^(n-1) times sum |B_k|=q^4/p. This estimate is for every lag, not a uniform estimate over all p. I checked the partial fractions and beta-alpha=q(2-3p), beta+alpha=p(3p-1), and sigma<beta. At 1/3 the coefficients -1/6 and 2/21 are both needed; at 2/3 the equal-mode convolution gives (n/3)3^(-n) and the other retained terms give (3^(-n)+(5/27)^n)/4. Locally 3 sigma stays below 1, so the remainders vanish in both rescalings. Taylor expansion gives the stated parity-dependent exponentials at 1/3 and the divided difference at 2/3, with the exact resonant convolution at lambda=0. No even-lag sign at the leading zero is asserted. In the symmetric case, grouping k=2j,2j+1 sums the full series as a geometric series in 4^(-n) for n>=2. Direct forward integration checks W_1(p)=p/[2(2-p)] and W_2(1/2)=1/30. Read the frozen rational checker and its recorded output; neither was used as proof or executed during review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abrams et al. p. 1 formulate distributions of orders of the first n iterates; Unakafov–Keller p. 1 study conditional ordinal entropy.",
+          "The Chen–Shi–Xu abstract states exact iterates and periodic-point coordinates."
+        ],
+        "reasoning": "The general ordinal framework can encode this marginal and the periodic-point formula can locate individual thresholds, but the available statements do not sum their weighted contributions to yield the remainder or windows.",
+        "searches": [
+          "arXiv:1003.5561",
+          "arXiv:1407.5390",
+          "DOI:10.1007/s10883-022-09594-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.2331",
+        "arXiv:1003.5561",
+        "arXiv:1407.5390",
+        "DOI:10.1007/s10883-022-09594-1",
+        "Resultary skew tent Markov record identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A distribution at order length n+1 would give W_n by summation if fully evaluated; the inspected prior supplies a framework, not those evaluated distributions. Periodic coordinates overlap with the fixed-point step."
+        ],
+        "reasoning": "The substantive steps after locating fixed points are the itinerary-weighted geometric expansion, control of smaller bases, and resolution of two different mode collisions. These are not immediate outputs of the inspected results.",
+        "searches": [
+          "arXiv:1003.5561, initial order-distribution definitions",
+          "DOI:10.1007/s10883-022-09594-1, abstract",
+          "Resultary closest skew-tent ordinal Markov record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arroyo–Alvarez–Amigó p. 3 computes a consecutive increasing-pattern probability for the same map and Lebesgue measure.",
+          "The closest catalogue summary, 2026/11/1/SCOPE-exact-markov-law-spectral-decay-and-entropy-loss-for-skew-tent-o--266087e45ea, treats a five-state Markov law and entropy for consecutive three-point patterns."
+        ],
+        "reasoning": "An arbitrary-lag endpoint inequality is a marginal over many full order types; it is not a single consecutive increasing-pattern event. Knowing consecutive length-three orders also does not directly identify all comparisons of endpoints separated by larger lags.",
+        "searches": [
+          "Skew tent ordinal-pattern distributions and lagged endpoint comparisons",
+          "arXiv:0812.2331",
+          "Resultary: consecutive skew tent ordinal patterns and spectral decay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned catalogue summary reports local three-point pattern statistics, and the inspected primary example evaluates a specified consecutive order pattern."
+        ],
+        "reasoning": "Neither records an exact all-lag skew-parameter bias, a tabulation of its two window limits, or an equivalent arithmetic formula. The comparison is bounded to the available material.",
+        "searches": [
+          "Resultary: skew tent ordinal comparisons, spectral decay and entropy",
+          "arXiv:0812.2331, p. 3 and pattern distributions"
+        ]
+      },
+      "rationale": "The supported distinction is the evaluated same-orbit two-time probabilities with explicit error and critical windows. The same skew tent family and general ordinal and periodic-point frameworks are prior. No inspected statement establishes the lag spectrum or the two windows.",
+      "residual_risks": [
+        "The Chen–Shi–Xu full text and the closest catalogue full finding could not be inspected; exact methods or implications beyond their accessible summaries remain uncertain.",
+        "The comparison is not a proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior family and consecutive-pattern example",
+          "evidence": "Increasing consecutive pattern region is expressed via an iterate intersection and length-four frequencies are shown.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.2331",
+          "material_read": "p. 3, around extracted offset 18800",
+          "method": "OA PDF passage",
+          "title": "Estimation of the control parameter from symbolic sequences: Unimodal maps with variable critical point",
+          "trigger": "Same map and ordinal events"
+        },
+        {
+          "assessment": "General embedding, not an evaluated formula in the passage",
+          "evidence": "Orders of the first n iterates define the distribution whose endpoint comparison is a marginal.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5561",
+          "material_read": "p. 1, abstract and definition, offset 0",
+          "method": "OA PDF passage",
+          "title": "Distributions of order patterns of interval maps",
+          "trigger": "General order-distribution statement"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "The paper considers conditional ordinal-pattern entropy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5390",
+          "material_read": "p. 1, around offset 880",
+          "method": "OA PDF passage",
+          "title": "Conditional entropy of ordinal patterns",
+          "trigger": "Closely named ordinal statistic"
+        },
+        {
+          "assessment": "Relevant to the coordinate step; further overlap not resolved",
+          "evidence": "The abstract advertises exact iterates and periodic-point coordinates.",
+          "identifier_or_url": "https://doi.org/10.1007/s10883-022-09594-1",
+          "material_read": "Publisher abstract; no full text obtained",
+          "method": "Public landing page",
+          "title": "Periodic Points of Skew Tent Maps",
+          "trigger": "May overlap with inverse-word fixed points"
+        },
+        {
+          "assessment": "Different statistic in the accessible summary",
+          "evidence": "Five-state Markov law for consecutive three-point patterns and entropy.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-markov-law-spectral-decay-and-entropy-loss-for-skew-tent-o--266087e45ea",
+          "material_read": "Search summary; mirrored RESULT.md unavailable",
+          "method": "Resultary and exact local-mirror file lookup",
+          "title": "Exact Markov law, spectral decay, and entropy loss for skew tent ordinal patterns",
+          "trigger": "Closest catalogue match in map, ordinal statistic and spectral terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural two-time statistic for a deterministic stationary map. Separating a sign-changing competition from a positive resonance, with a uniform-in-lag bound and different critical-window profiles, explains why rates and parity can change even in this simple full-branch family. The exact symmetric case supplies a useful benchmark, not the sole contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:11:00.037689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 10–69, inspected without execution; its finite cases use two-vertex nontrivial paths"
+      ],
+      "rationale": "In any degree-at-most-two graph, an embedded cycle occupies a whole component. Thus a union of cycles permits free amalgamation over those components, while completing an old path to cycles of two different lengths gives an incompatible span even if identifications outside the base are allowed. An isolate has the same obstruction with a triangle versus a quadrilateral. The total old deficit is 2(k+i), all of it needing old–new edges because the extension is induced. At most two such incidences can be supplied per new vertex, and a lone old isolate requires two distinct new neighbors. The cyclic bridge construction attains the bound for at least two unfinished components (including the two-isolate four-cycle), with a one-vertex bridge for a lone nontrivial path and a triangle for the lone isolate. At equality outside the exception, every new vertex must use both degree slots on distinct old deficit vertices and there are no new–new edges. Choosing its old neighbor pair is exactly one factor of the displayed polynomial for each fixed new label. This also yields 6, 2, and 6 in the three examples by partitioning the old endpoints into two labelled pairs, attaching both bridges to the sole isolate and one endpoint each, and labelling the three pairs of isolates, respectively. The proposed countable limit has the correct age and is cofinally ultrahomogeneous on whole-cycle unions; these exhaust it and have the ordinary free amalgamation extension property in that cofinal class. In any computable copy search for both neighbors and traverse the cycle to a known starting vertex; one can compute the least vertex of the component and enumerate components by length without duplicates. Matching cycles of each length by enumeration order and extending each chosen cycle orientation gives a computable isomorphism.",
+      "residual_risks": [
+        "The count is for fixed labels, not isomorphism classes or prescribed cycle lengths. The proof uses induced, rather than arbitrary, embeddings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regularization theorem gives the exact minimum for general maximum degree Δ, using total deficiency s and maximum deficiency Δ−δ.",
+          "Ackerman–Freer–Mirabi's undirected Z-chain example gives cofinal ultrahomogeneity for a degree-two host, but its age is path-only, excluding cycles. Krawczyk et al.'s finite-forest CAP example is also a different age."
+        ],
+        "reasoning": "The cofinal-limit papers alone do not cover the exact target minimum; the stronger existing coverage is in induced regularization, not in the related weak/cofinal-amalgamation examples. Their different ages do not prove the target limit or computable categoricity.",
+        "searches": [
+          "Erdős–Kelly 1967, pp. 65–67, minimum-order theorem and conditions (1)–(4)",
+          "Górska–Skupień 2019, Definition 1.1 and Theorem 1.2",
+          "arXiv:2601.22435, §6, Example 6.9 and Proposition 6.12",
+          "arXiv:1907.09577v2, §2 Example 2.3 and §3"
+        ]
+      },
+      "checked_sources": [
+        "Erdős–Kelly 1967, pp. 65–67, minimum-order theorem; Górska–Skupień 2019, Definition 1.1 and Theorem 1.2",
+        "Resultary ea5bf4d33396 (self-match) and ff194a2cbcef",
+        "arXiv:2601.22435, §6; arXiv:1907.09577v2, §§2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The least positive t satisfies tΔ≥s, t²−(Δ+1)t+s≥0, t≥Δ−δ, and (n+t)Δ even. Substitute Δ=2 and s=2r with r=k+i.",
+          "The original proof computes the sum of degrees internal to the new set as tΔ−s. At t=r, this is zero and every column in the new-versus-old incidence matrix has sum two."
+        ],
+        "reasoning": "The parity condition is automatic. For r≥1 the first inequality requires t≥r and the second at t=r reads r(r−1)≥0. The maximum deficiency is two if there is an isolate and one otherwise, so t=r is feasible except for r=1 consisting of a lone isolate; there t=2 satisfies the inequalities. Adding a disjoint saturated triangle handles any hypothesis of actual maximum degree 2 or minimum input order without affecting the minimum (additional disjoint triangles may be added if needed). In the saturated cases the labelled completions are exactly binary incidence matrices with the fixed old row sums and column sums two. Multiplying one elementary symmetric polynomial e₂ for each labelled column and extracting its row-sum monomial gives the stated census directly. This is a strong prior implication for the main quantitative result, not a match based on titles.",
+        "searches": [
+          "Erdős–Kelly 1967, pp. 65–67, equations (1)–(4) and sufficiency construction",
+          "Górska–Skupień 2019, p. 356, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary work chooses a set of new vertices, allows new edges within that set and across the cut, forbids new edges among old vertices, and minimizes the number of new vertices in a prescribed regular completion.",
+          "After identifying the bases as unions of cycles, this is exactly the minimization in the frozen result with prescribed degree two."
+        ],
+        "reasoning": "If the old maximum is below two, append a disjoint triangle before applying the result with actual maximum degree two. Since that triangle is saturated it cannot receive any further edges; deleting it from any completion preserves the size increment and the induced extension of the original graph. Already 2-regular graphs require zero additions. Thus the embedding convention and lower-degree boundary do not separate the quantitative claims.",
+        "searches": [
+          "graph regularization minimum number added vertices induced supergraph 2-regular maximum degree two paths isolated vertices regular completion degree deficiency graph",
+          "Erdos Kelly minimal regular graph containing a given graph induced inequalities deficiency minimum regulation degree 1963 pdf Erdős Kelly induced regularization",
+          "Erdős–Kelly 1967, pp. 65–67"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit ea5bf4d33396 is the assigned record itself. The distinct older successor-completion record counts added directed immediate-successor edges, not added vertices or labelled optimum completions here.",
+          "The prior regularization theorem quotes inequalities, not a separate table of these cases; its constructive proof treats how degrees on the new labels are supplied across and within the new set."
+        ],
+        "reasoning": "An exact prior table was not needed: the published criterion already evaluates the minimum for all of these profiles. No distinct table or explicit independent statement of the labelled coefficient was verified; the exact catalogue self-hit is not prior coverage.",
+        "searches": [
+          "Resultary: degree-two cofinal amalgamation base, minimum induced cycle completion and labelled census",
+          "Resultary ff194a2cbcef, optimal exact-successor completion of finite-component path forests",
+          "Erdős–Kelly 1967, degree-deficiency construction pp. 66–67"
+        ]
+      },
+      "rationale": "The frozen finding presents the sharp all-input minimum-vertex law as part of its exact contribution. Once its base characterization identifies the target with induced 2-regular completion, this quantitative law is a direct specialization of Erdős and Kelly's existing induced regularization theorem, including the exception. Their deficit argument also already identifies the saturated case underlying the labelled census. The coefficient is the elementary encoding of those saturated labelled incidence choices. The degree-two amalgamation-base interpretation and the computable copy argument are not claimed to have been found verbatim in that literature; they do not make the stated minimum-vertex law a distinct result. The failure is verified prior coverage of a material claim, not a correctness failure or an access issue.",
+      "residual_risks": [
+        "The Z-chain antecedents cited as de Rancourt 2021 and Kruckman 2016, Example 3.1.9, were not inspected in their originals; the assessment does not infer priority for the graph-specific model theory. The originality rejection does not depend on these inaccessible or uninspected sources.",
+        "No earlier explicit listing of the exact labelled coefficient was verified; the assessment distinguishes its direct derivation from the prior deficit argument from a verbatim match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the degree-two minimum once amalgamation bases have been characterized.",
+          "evidence": [
+            "The old graph must remain induced and the number of additional vertices is minimized.",
+            "The four deficiency inequalities are necessary and sufficient; the residual degree in the new set is tΔ−s."
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~p_erdos/1967-26.pdf",
+          "material_read": "Original pp. 65–67, problem definition, four inequalities, theorem and constructive sufficiency; extracted offsets 1140–8053",
+          "method": "Lawfully accessible primary PDF at the Rényi Institute, bounded passage inspection; checked the formulas against the clear later restatement",
+          "title": "The Minimal Regular Graph Containing a Given Graph",
+          "trigger": "Same minimum problem in general prescribed maximum degree"
+        },
+        {
+          "assessment": "Verifies the precise four inequalities for induced minimum-order regularization.",
+          "evidence": [
+            "Simple nonregular input has maximum degree Δ; necessary and sufficient criterion takes least positive t meeting (1)–(4)."
+          ],
+          "identifier_or_url": "https://repo.agh.edu.pl/bitstreams/46df01b2-d7c1-4d5d-8b76-9e241d2c009e/download",
+          "material_read": "pp. 355–356, §1 Definition 1.1, Theorem 1.2 and notes, extracted offset 850 onward",
+          "method": "Lawfully accessible repository PDF, bounded passage inspection",
+          "title": "A partial refining of the Erdős–Kelly regulation",
+          "trigger": "Cross-check of the scanned prior theorem and hypotheses"
+        },
+        {
+          "assessment": "Path-only Z-chain overlap, not the target age, census or explicit categoricity.",
+          "evidence": [
+            "Finite closed intervals in the undirected Z-chain are cofinal bases; general CAP existence/computability bounds do not specify the graph-age minimizer or count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.22435",
+          "material_read": "Abstract and §6 Example 6.9 and Proposition 6.12, pp. 15–16, extracted offsets 54600–59189",
+          "method": "OA primary-text passage inspection",
+          "title": "On the Computability of Cofinal Fraïssé Limits",
+          "trigger": "General CAP theorem and close degree-two cofinal example"
+        },
+        {
+          "assessment": "Related forest classes, not the cycle-containing degree-two age.",
+          "evidence": [
+            "Finite forests have CAP but not AP, using finite trees as a cofinal subclass; other stated examples are acyclic with distinct embedding or degree conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.09577v2",
+          "material_read": "§2 Example 2.3 p. 4 and §3 pp. 5–8",
+          "method": "OA primary-text passage inspection",
+          "title": "Examples of weak amalgamation classes",
+          "trigger": "Prior nearby graph CAP/WAP examples"
+        },
+        {
+          "assessment": "Different completion problem and counting unit.",
+          "evidence": [
+            "Minimizes added directed successor edges in a linear order extending a functional digraph, not new vertices in an induced 2-regular graph."
+          ],
+          "identifier_or_url": "Resultary ff194a2cbcef",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Local mirror, original passages",
+          "title": "Optimal exact-successor completion of finite-component path forests",
+          "trigger": "Closest distinct indexed path-completion result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Erdős–Kelly 1967, pp. 65–67, deficit identity and minimum theorem",
+        "arXiv:2601.22435, §6"
+      ],
+      "rationale": "Induced amalgamation is a natural motivation and the characterization of the bases and their limit is a useful structural description. But as submitted the principal quantitative contribution is a minimum already determined by general induced regularization, accompanied by a coefficient expression that mechanically encodes the saturated incidence choices. It does not classify completion structures beyond this encoding (for example, by resulting cycle lengths), nor establish a new quantitative phenomenon that needs the exact repeated minimum. This does not meet the value bar for the frozen sharp completion-and-census claim. No narrower or strengthened theorem is delivered as a repair.",
+      "residual_risks": [
+        "This decision does not dismiss induced amalgamation or effective isomorphism for this age as topics; it concerns the material exact claim in the frozen package."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

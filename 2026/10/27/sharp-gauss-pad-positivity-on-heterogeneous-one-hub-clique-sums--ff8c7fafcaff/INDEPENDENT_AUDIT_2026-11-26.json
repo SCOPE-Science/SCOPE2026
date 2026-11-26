@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:05.244955Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit conductances, the constants, hub contrast, zero-total petal averages, and within-petal zero-sum spaces give eigenvalues 0,n,1,k+1. The dimension sum is n; repeated petal sizes simply give additional orthogonal summands at the same eigenvalue. The [2/2] multiplier r(z)=1−12z/d(z) is in (0,1] for z>=0 because its numerator is (z−3)^2+3 and its denominator is positive. It follows that all diagonals are positive and the constant mode gives norm exactly 1. The hub entry is 12h/d(nh), and the cross-petal entry is 12h²((n+1)h+6)/(d(h)d(nh)). For a within-petal pair the projector correction is (r(h)−r((k+1)h))/k; clearing denominators after factoring 12h gives h((n+1)h+6)d((k+1)h)+(12−(k+1)h²)d(nh), exactly the stated P_(n,k). Writing n=k+2+j, j>=0, makes its leading coefficient −(k+1)(1+j(k+3)+j²), with all other coefficients positive. Thus P/h⁴ strictly decreases on h>0 from +infinity to a negative limit; this gives one crossing, the closed threshold, and no reentry. Singleton petals have no such off-diagonal entries; h=0 gives the identity, not strict off-diagonal positivity. I independently checked both signs of all four example root brackets with exact scaled quartic arithmetic (replay: branches/review-exact-small-checks.js). The supplied verifier was inspected, not executed; the inequalities for all sizes and real h follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact convex-filter theorem assumes f:[0,infinity)→[0,infinity) convex with f(0)=1. The Gauss filter has second derivative 24(72+36z−z³)/d(z)^3 and is not globally convex.",
+          "MTNS Theorem 2 is sufficient, not necessary, and requires a Hurwitz Metzler system; the conservative generator −L has a zero eigenvalue.",
+          "The positivity-preserving integrators paper uses a diagonal Padé example within a different integrator and observes positivity failures for some higher Padé approximants; it does not classify these completed Gauss steps."
+        ],
+        "reasoning": "Neither the stronger filter theorem under its own assumptions nor a sufficient conservative-inapplicable timestep condition supplies the sharp claim.",
+        "searches": [
+          "Resultary: exact positivity for convex spectral filters on heterogeneous clique windmills",
+          "Zappavigna–Colaneri–Kirkland–Shorten, MTNS 2010, Theorem 2",
+          "Blanes–Iserles–Macnamara, DOI 10.1051/m2an/2022042"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary Gauss and [2/2] positivity, windmill/one-hub clique sums, heterogeneous filters, and nearby exact graph families",
+        "MTNS 2010 Zappavigna et al.",
+        "DOI 10.1051/m2an/2022042",
+        "DOI 10.1137/S003614450036757X",
+        "DOI 10.3934/math.2026685 (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The heterogeneous convex-filter proof gives W_i=D+(f(h)−f((k+1)h))/k, so the projector portion is not a distinct contribution. Its convexity conclusion, that within-petal entries cannot obstruct positivity when the apex entry is nonnegative, cannot be used for the Gauss multiplier.",
+          "The homogeneous proof isolates the crossing only with n−1=mk and never compares two sizes at the same n or their competition in a graph.",
+          "The frozen result handles the sharp one-crossing inequality for all n>=k+2 and gives a heterogeneous graph (4,5,6) in which the middle-size petal is the first to lose positivity."
+        ],
+        "reasoning": "The all-parameter quartic sign analysis for the nonconvex multiplier and the minimum across unequal petals are a distinct classification, not a parameter substitution into the convex-filter or homogeneous positivity theorem.",
+        "searches": [
+          "Resultary homogeneous windmill and heterogeneous convex-filter RESULT.md, findings and projector proofs",
+          "Zappavigna et al., Theorem 2 and graph-Laplacian positivity-preserving time-stepping literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact homogeneous record 2026/11/8/SCOPE-a-sharp-gauss-legendre-positivity-horizon-on-windmill-graphs--a8ca5b261d22 has the same heat step and same quartic upon n=1+mk and r=k+1, but its scope expressly excludes unequal cliques.",
+          "The heterogeneous spectral-filter record 2026/11/8/SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081 has exactly the same clique-sum family and gives general entry formulas before imposing convexity."
+        ],
+        "reasoning": "The symmetric-windmill case is genuinely the same result restricted to homogeneous petals; it neither varies the active petal within a graph nor covers n with an arbitrary local petal size k. Renaming the apex or blades does not remove this distinction.",
+        "searches": [
+          "Resultary: fourth-order Gauss–Legendre/diagonal [2/2] Padé positivity horizon on windmills, friendship graphs, and one-hub clique sums",
+          "Resultary: heterogeneous clique windmill spectral filter and exact entrywise positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The homogeneous windmill result has one quartic and no unequal-size entries.",
+          "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b and 2026/10/25/SCOPE-unconditional-fourth-order-gauss-pad-positivity-on-complete-mult--3b12f25d4b2d cover the complete multipartite filter criterion and Gauss case; within the target family complete multipartite graphs are only the stars.",
+          "2026/10/25/SCOPE-exact-gauss-legendre-diffusion-positivity-on-all-strongly-regula--2a383c6386f9 and 2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c concern different exact classification families."
+        ],
+        "reasoning": "The complete multipartite catalog covers the all-singleton case, not nonstar clique sums, whose missing cross-petal edges violate transitivity of nonadjacency. A shared scalar stability function does not identify the entry-sign problem on these different graphs.",
+        "searches": [
+          "Resultary: exact Gauss heat positivity on windmills, complete multipartite graphs, strongly regular graphs and cycles"
+        ]
+      },
+      "rationale": "Matched and credit the exact equal-petal classification, the generic projectors and spectral entry identities, and prior unconditional star positivity as coverage. The supported distinct claim is the sharp sign problem for the nonconvex Gauss multiplier with unequal petals, including the competition of different within-petal thresholds. The closest equal-size and convex-filter statements do not themselves establish this extension; catalogue dates are not used to adjudicate priority.",
+      "residual_risks": [
+        "The cited Dutch-windmill spectral paper was not available in full text in bounded retrieval. It could provide further prior spectral derivations; absolute priority is not asserted.",
+        "Generic projector identities make the extension algebraically accessible. The priority assessment is for the precise heterogeneous sign classification and not the spectral decomposition itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equal-petal overlap; unequal petals expressly excluded",
+          "evidence": "Uses W_(m,r)=K_1 join mK_(r−1), states exactly one quartic within-blade zero and positivity elsewhere; n=1+mk identifies the quartics on that subfamily.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-gauss-legendre-positivity-horizon-on-windmill-graphs--a8ca5b261d22/RESULT.md",
+          "material_read": "Finding, scope and projector-to-quartic proof, offsets 0–3433",
+          "method": "Read bounded full-text passages in the published record mirror",
+          "title": "A sharp Gauss–Legendre positivity horizon on windmill graphs",
+          "trigger": "Same operator, graph alias, and exact quartic threshold"
+        },
+        {
+          "assessment": "Covers the generic entry identities, but its convexity criterion excludes the Gauss multiplier",
+          "evidence": "Apex criterion f(nh)<=1 only under convexity; the even Taylor/RK case has a different polynomial filter and a different obstructing entry class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081/RESULT.md",
+          "material_read": "Finding, scope and generic formulas E,D,W_i, offsets 0–3317",
+          "method": "Read bounded full-text passages in the published record mirror",
+          "title": "Convex spectral filters on heterogeneous clique windmills have an exact apex-positivity criterion",
+          "trigger": "Same whole graph family and spectral-matrix positivity proof"
+        },
+        {
+          "assessment": "Sufficient condition for a class with a strict stability hypothesis, not the exact conservative claim",
+          "evidence": "Distinguishes preservation of a co-positive Lyapunov function from entrywise positivity; theorem is for Hurwitz Metzler systems.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "PDF p. 1 abstract and p. 3 Theorem 2, offsets 265 and 15864",
+          "method": "Read primary PDF abstract and theorem",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Closest prior general diagonal Padé sign condition"
+        },
+        {
+          "assessment": "Context and related constructions rather than the same classification",
+          "evidence": "Laplacian exponentials and a Padé approximation in an exponential-integrator example; distinguishes higher-order Padé positivity difficulties.",
+          "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+          "material_read": "PDF pp. 8,20–21, offsets 31250,88709,91513",
+          "method": "Read primary PDF passages",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph-Laplacian ODE positivity and Padé examples"
+        },
+        {
+          "assessment": "General strong-stability background, not used to rule out hidden graph-specific results",
+          "evidence": "Discusses preservation of a forward-Euler strong-stability property by high-order methods.",
+          "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+          "material_read": "Primary PDF p. 1 abstract",
+          "method": "Read primary abstract for contextual scope",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Background framework on discrete strong stability"
+        },
+        {
+          "assessment": "Not treated as evidence of noncoverage",
+          "evidence": "DOI recovery did not identify a usable repository copy; attempted publisher route returned 404.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026685",
+          "material_read": "Bibliographic identification only; primary text not reached in bounded retrieval",
+          "method": "DOI recovery and attempted lawful publisher copy",
+          "title": "On the characteristic polynomials of Dutch windmill graphs and their applications",
+          "trigger": "Closest cited Dutch-windmill spectral comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp, all-step entry-sign classification for an implicit high-order diffusion integrator on a natural heterogeneous graph family. The exact thresholds distinguish stochastic positivity from spectral contraction and show why, even among cliques glued at one hub, neither the largest nor the smallest petal need control the admissible step. These are useful distinctions absent from an equal-petal or uniform sufficient bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

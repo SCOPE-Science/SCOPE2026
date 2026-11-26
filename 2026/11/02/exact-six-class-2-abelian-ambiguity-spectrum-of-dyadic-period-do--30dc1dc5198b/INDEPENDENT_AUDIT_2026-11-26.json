@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:37:39.595726Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–67 and VERIFICATION.md",
+        "Frozen checker.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/word_audit_spots.py (period-doubling section)"
+      ],
+      "rationale": "The fixed-point identity p[2i]=0, p[2i+1]=1−p[i] gives exactly the two parity images of every distinct half-length factor, at all starting positions. Both maps are injective; their intersection would require an all-zero image from an all-one preimage, impossible at half-length at least two. Starting from 00,01,10 gives 3N/2 distinct factors. At length 2 the two zero-count strata have endpoint census pairs (a,b)=(0,1),(1,0), for matrices [[a,b],[b,0]]. Doubling sends z to 2m−z and (a,b) to (2b,a+b); it interchanges the high and low strata, which remain floor(2m/3) and its successor. Substituting m=6q+2 or 6q+4 in the endpoint table verifies each induction transition exactly. With no 11 in an image, its number of ones is z, and the mixed-pair counts are (z,z−1), (z−1,z), or (z,z); the count of 00 is then fixed by length. The disjoint-image census gives the respective fiber sizes a+b,a+b,2b, all positive after the length-four preimage stage. Swapping the parity of the preimage exponent yields precisely the claimed odd/even multisets and the two linear asymptotics. Independently enumerating a prefix from the valuation formula for the letters and counting overlapping factors reproduced the spectra for k=3 through 10, including (170,171,171,341,341,342) at 1024. The full-length proof is the recursion, not the prefix experiment.",
+      "residual_risks": [
+        "No extension to nondyadic lengths or to occurrence-weighted frequencies is justified by this claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parreau et al. count the exact signatures at general lengths, hence cover the dyadic six-class count",
+          "Karhumäki et al. describe ordinary Abelian complexities for period-doubling"
+        ],
+        "reasoning": "Broader ranges of lengths for the number of signatures do not provide class multiplicities; ordinary Abelian complexity coarsens the equivalence and still counts classes rather than fibers.",
+        "searches": [
+          "arXiv:1405.3532 Theorem 21, Propositions 34–35, Corollaries 37 and 41",
+          "arXiv:1302.3783 §4, Lemmas 6–7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.3532",
+        "arXiv:1302.3783",
+        "Resultary 7a92ede06e81, ed57fe5c15ef, ea4a069f1a17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence gives P_p^(2)(2^k)=6 for k≥3; the matching 2-block signature criterion does not give an endpoint-and-content census of distinct preimages"
+        ],
+        "reasoning": "Knowing the class count, the factor count, and the equivalence test does not recover the two endpoint matrices or their six multiplicities. The exact endpoint census is the additional calculation needed for the refinement.",
+        "searches": [
+          "Compare arXiv:1405.3532 Corollary 37 and Theorem 21 with frozen RESULT.md Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1405.3532 Proposition 35 gives the equivalent signature test using 2-block coding",
+          "Resultary ea4a069f1a17 treats dyadic 2-binomial equivalence instead"
+        ],
+        "reasoning": "The equivalent adjacent-block signature sets up the same equivalence but does not count its preimages; 2-binomial equivalence counts scattered subsequences, not adjacent pairs.",
+        "searches": [
+          "Period-doubling 2-Abelian complexity and class-size distribution literature; arXiv:1405.3532 §5",
+          "Resultary: dyadic 2-Abelian ambiguity spectra and period-doubling factor classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7a92ede06e81 gives an exact eight-class dyadic spectrum for Thue–Morse",
+          "ed57fe5c15ef treats a circular ordinary Abelian spectrum of finite period-doubling iterates"
+        ],
+        "reasoning": "The same spectrum question for another word and a different equivalence for the same word are both material comparators, but neither is the claimed six-fiber table for contiguous factors of the infinite period-doubling word.",
+        "searches": [
+          "Resultary: dyadic 2-Abelian fiber spectra for period-doubling and adjacent morphic-word spectra; matches 7a92ede06e81, ed57fe5c15ef, ea4a069f1a17"
+        ]
+      },
+      "rationale": "The number six of 2-Abelian classes at these lengths is already implied by the published complexity recurrences. The supported distinction is the full multiset of their distinct-factor cardinalities, which neither the strongest inspected literature nor the inspected catalogue overlaps supply for this word and equivalence relation.",
+      "residual_risks": [
+        "Focused comparison is not exhaustive; equivalent multiplicity data could be indexed as a block-coding distribution or in an uninspected factor-enumeration source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dyadic class count covered, exact class sizes not established by the inspected results",
+          "evidence": "The all-length recurrence and signature criterion count equivalence classes, with dyadic value six; no claimed six-fiber multiset appears in the compared statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Theorem 21, p. 13; Propositions 34–35 and Corollary 37, pp. 23–24; Corollary 41, p. 27",
+          "method": "Open primary PDF",
+          "title": "A new approach to the 2-regularity of the ℓ-Abelian complexity of 2-automatic sequences",
+          "trigger": "Same word and contiguous 2-Abelian classes"
+        },
+        {
+          "assessment": "Ordinary Abelian results are a coarser invariant",
+          "evidence": "Lemmas give ordinary Abelian complexity information, not the 2-Abelian endpoint census.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.3783",
+          "material_read": "§4, Lemmas 6–7, pp. 7–8",
+          "method": "Open primary PDF",
+          "title": "Variations of the Morse–Hedlund theorem for k-Abelian equivalence",
+          "trigger": "Period-doubling complexity and the relevant equivalence framework"
+        },
+        {
+          "assessment": "Analogue for a different fixed point",
+          "evidence": "Eight signature fibers for Thue–Morse, not six for period-doubling.",
+          "identifier_or_url": "Resultary 2026/11/2, 7a92ede06e81",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Dyadic two-Abelian ambiguity spectra of Thue–Morse factors",
+          "trigger": "Same dyadic spectrum invariant and equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:1405.3532 §5"
+      ],
+      "rationale": "The exact cardinalities answer a distinct question from 2-Abelian complexity: how unevenly distinct factors occupy the six classes. The census distinguishes two linear size scales and exact parity corrections at every tested theorem length, and it gives the input for collision counts among distinct factors. Dyadic length is the natural self-similar scale of the binary substitution. This is a complete nontrivial invariant on that scale, not a recomputation of the six-class count.",
+      "residual_risks": [
+        "The result is a narrow exact distribution; there is no asserted general spectrum for automatic words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

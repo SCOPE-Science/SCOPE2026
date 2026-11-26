@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:14:24.177831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replace both detections by complementary empty-box indicators, preserving covariance. Conditional on N=n, a specified box is empty with probability (1−t)^n and both are empty with probability (1−2t)^n. Hence C(t)=G(1−2t)−G(1−t)^2. Expanding G(1−t)=1−μt+vt²/2−wt³/6 gives the stated C(t)=t²F(t). For the entire allowed interval, F″≤−v(v−w)/2−2μw/3−w²t²/3, with v≥w≥0. If N can equal 2 or 3, this is strictly negative: for w=0 use v>0, and for w>0 use μ>0. Three distinct zeros would contradict strict concavity between the first and third. Two strictly interior zeros force negativity at both endpoints by the same strict chord inequality extended from either end and positivity between; those three signs conversely give two reversals. With N≤2 and b=P(N=1), c=P(N=2), F=2c−(b+2c−ct)² increases strictly when c>0; when c=0 it is constant −b², including the zero law. Independently expanding the two witness PGFs in integer coefficients gave 1024F=−57+680t−1558t²+504t³−81t⁴ and 100F=−44+120t−25t². Exact rational evaluation reproduced the five displayed three-copy signs (including zero at 1/9), and the two-copy root 2/5. No endpoint root is counted as a strict interior reversal. Read VERIFICATION.md and check.py as frozen evidence; the source program was not executed. The finite source tests do not substitute for the curvature bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At fixed n, the empty-box covariance is (1−2t)^n−(1−t)^{2n}≤0; this also exhibits directly why general negative-association language for fixed allocation is not an extension to arbitrary N mixtures.",
+          "Jacobs et al. discuss Poisson sampling among digital PCR partitions and additional variance sources. O’Neill frames the extended occupancy laws via a Markov chain in the number of balls.",
+          "Record 339216ab2e7c treats a single binary spin field in a Gibbs model, not a routing probability applied independently to every draw."
+        ],
+        "reasoning": "The covariance between conditional means adds a positive term under random N, so conditioned sign results do not decide the mixed sign. A single field varying the mixture weight of two fixed conditional distributions is not this routing with nonlinear dependence on t across all conditional occupancy tables.",
+        "searches": [
+          "Joag-Dev–Proschan DOI:10.1214/aos/1176346079; multinomial negative association",
+          "O’Neill DOI:10.1007/s11009-023-10053-y pp. 1–2",
+          "Jacobs et al. DOI:10.1186/1471-2105-15-283 pp. 1–2",
+          "Resultary Gibbs single-field sign reversals, 339216ab2e7c"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 953c7aaa1846 (self), 8807c993acca, 37418c61ba8c, 5c35dd9e8369, 339216ab2e7c",
+        "DOI:10.1007/s11009-023-10053-y",
+        "DOI:10.1186/1471-2105-15-283",
+        "DOI:10.1007/s10651-024-00632-8, DOI:10.1177/2472630317705680, DOI:10.1214/EJP.v14-608 (limited)",
+        "DOI:10.1214/aos/1176346079 (retrieval attempted); A note on a randomized occupancy problem (full text not recovered)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8807c993acca has two co-occurring taxa and depth as the variable, with one negative-to-positive crossing. 5c35dd9e8369 has exact-singleton indicators and at least four boxes, with varying total balls.",
+          "The strongest exact same-model comparison gives conditioning in n, but here the same arbitrary N law must be used for every t in (0,1/2); the retained claim bounds the roots of a quartic after mixing."
+        ],
+        "reasoning": "Neither the indexed windows nor the inspected occupancy formulas imply support three as the sharp minimum for two sign reversals, or the necessary/sufficient endpoint-plus-interior criterion. The conditional sampling equivalence deserves explicit credit and is not part of the novelty verdict.",
+        "searches": [
+          "Resultary 8807c993acca and 5c35dd9e8369, local mirror Findings at offset 0",
+          "O’Neill p. 2 exact model passage, ISBN-independent DOI 10.1007/s11009-023-10053-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Neill's extended-occupancy construction (p. 2, offset 2840) chooses an IID uniform bin and independently retains each ball with probability θ. Taking m=2 and θ=2t gives exactly the conditional routing here; K_n is the total number of occupied bins.",
+          "For two boxes, the occupied-bin count K=Y1+Y2 determines the symmetric detection covariance as P(K=2)−(E K/2)^2. Taking emptiness instead also preserves covariance."
+        ],
+        "reasoning": "The model and calculation of a fixed-t covariance are covered by ordinary occupancy methods (including mixing the K_n laws). That equivalence does not bound all zeros as t varies for every fixed mixing law; the strict concavity of the normalized covariance is the extra claim.",
+        "searches": [
+          "Random-number-of-balls multinomial allocation occupancy nonempty indicators covariance varying allocation probability random sample size negative association probability generating function sign reversal",
+          "DOI:10.1007/s11009-023-10053-y, extended occupancy",
+          "Resultary finite-copy aliquot co-detection and random occupancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed match 953c7aaa1846 is the assigned result. Distinct records give one reversal with depth under joint presence, one switch under incidence-based sampling, or a two-switch singleton occupancy window with varying total balls.",
+          "The inspected O’Neill source gives exact occupancy-count machinery (noncentral Stirling laws and mixture properties), not a two-reversal table at bounded random input N as routing changes."
+        ],
+        "reasoning": "Exact occupancy probabilities are not a classification by support size of sign changes in a mixed covariance. The same-day comparator does not establish publication order and is distinct by its conditioning and control variable.",
+        "searches": [
+          "Local Resultary co-detection and occupancy sign change (two searches)",
+          "Records 953c7aaa1846, 8807c993acca, 37418c61ba8c, 5c35dd9e8369, 339216ab2e7c",
+          "O’Neill extended occupancy distributions"
+        ]
+      },
+      "rationale": "The balls-in-bins routing model and the empty-box PGF identity are not new. What survives comparison is the sharp volume-driven sign-reversal bound for an arbitrary fixed law on {0,1,2,3}, its lower-support refinements and witnesses. The strongest same-model occupancy treatment supplies the fixed-n laws, not the sign classification after arbitrary count mixing; the closest indexed sign-window results change a different parameter or use different events. Priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Augustine, Basu, Barbour–Gnedin, Joag-Dev–Proschan, and the older randomized-occupancy note were not independently inspected in full. Older alternate formulations of the low-support random-total result may remain unindexed. This verdict follows positive statement-level comparisons where available, not inferences from access failure.",
+        "No ordering is inferred for the same-day co-detection comparators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly the conditional allocation model for m=2, θ=2t; inspected statements concern occupancy distributions, not the sharp mixed covariance sign bound",
+          "evidence": [
+            "Independent uniform bin choice and Bernoulli retention; K_n is sum of nonempty-bin indicators. The abstract describes distribution identities and mixtures."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-023-10053-y",
+          "material_read": "PDF abstract and pp. 1–2 introduction, text offset 2840 for model definition",
+          "method": "OA primary PDF after targeted literature search",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Exact equivalence of equal-bin occupancy with fallthrough"
+        },
+        {
+          "assessment": "Partition Poisson model and variance effects in estimation; not the same sign classification in the inspected statements",
+          "evidence": [
+            "Technical and biological variation affect precision; workflow models sampling into partitions and pipetting and heterogeneity effects."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-15-283",
+          "material_read": "PDF abstract at offset 258 and workflow discussion around 8217, pp. 1–2",
+          "method": "OA full-text passages",
+          "title": "Impact of variance components on reliability of absolute quantification using digital PCR",
+          "trigger": "A primary comparator for technical partitioning and between-sample variation"
+        },
+        {
+          "assessment": "Shares binary covariance and competition, not the varying t versus fixed bounded mixing law comparison",
+          "evidence": [
+            "One reversal with changing sequencing depth for jointly present or absent taxa."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-unique-sequencing-depth-sign-reversal-of-co-detection-under-co--8807c993acca",
+          "material_read": "Local mirror Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A unique sequencing-depth sign reversal of co-detection",
+          "trigger": "Closest co-detection sign transition in the catalogue"
+        },
+        {
+          "assessment": "Different events (exactly one, not at least one) and varying ball count, not t",
+          "evidence": [
+            "Two-switch behavior of exact singleton box indicators as the number of balls varies, with at least four boxes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-two-switch-dependence-window-for-isolated-occupancy-boxes--5c35dd9e8369",
+          "material_read": "Local mirror Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A two-switch dependence window for isolated occupancy boxes",
+          "trigger": "Closest indexed occupancy sign window with two reversals"
+        },
+        {
+          "assessment": "Fixed incidence sets and finite-unit sampling without replacement, not routing a random finite common stock",
+          "evidence": [
+            "Single positive-to-negative switch in the pool-size parameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c",
+          "material_read": "Local mirror Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An irreversible co-detection sign switch under incidence-based rarefaction",
+          "trigger": "Potentially equivalent readout with a different sample-size parameter"
+        },
+        {
+          "assessment": "Single local field in a finite binary Gibbs system, not a reduction of multinomial routing with a variable per-item probability",
+          "evidence": [
+            "Bounds covariance reversals as the local field of a third spin varies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-single-field-sign-reversal-bound-and-reentrant-pair-correl--339216ab2e7c",
+          "material_read": "Local mirror Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp single-field sign-reversal bound and reentrant pair correlation",
+          "trigger": "Same abstract upper count of two, potentially a stronger binary-variable theorem"
+        },
+        {
+          "assessment": "Detailed comparison unresolved; reported conditional framework differs from finite disjoint stock",
+          "evidence": [
+            "Journal and preprint copies did not expose readable primary text in the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10651-024-00632-8",
+          "material_read": "No independently retrieved substantive passage; frozen RESULT.md line 106 reports conditional Poisson modeling",
+          "method": "Bounded DOI, publisher, and bioRxiv OA attempts",
+          "title": "A hierarchical model for eDNA fate and transport dynamics accommodating low concentration samples",
+          "trigger": "Closest frozen application source for low-copy technical replicates"
+        },
+        {
+          "assessment": "No independent whole-paper scope conclusion",
+          "evidence": [
+            "Access did not yield the relevant full text; the bound record cites this for standard occupancy machinery."
+          ],
+          "identifier_or_url": "https://doi.org/10.1177/2472630317705680",
+          "material_read": "Bibliographic identification, no substantive passage retrieved",
+          "method": "Bounded DOI, HTML/PDF and alternate-copy attempts",
+          "title": "Digital Assays Part I: Partitioning Statistics and Digital PCR",
+          "trigger": "General partition statistics comparison"
+        },
+        {
+          "assessment": "Detailed overlap unresolved; no substantive conclusion based on access failure",
+          "evidence": [
+            "Primary page/PDF access failed to expose text for statement-level comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/EJP.v14-608",
+          "material_read": "No usable substantive passage independently retrieved",
+          "method": "Bounded Project Euclid page and primary PDF attempts",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Historical occupancy background and possible randomized-size claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under the simple finite-disjoint-stock detection model, the theorem identifies precisely how many items are needed for a reentrant covariance sign pattern. It proves a distribution-uniform cap and supplies realizable interior witnesses, showing that a positive window alone need not indicate a common measurement fault. This is more than computing a PGF or restating conditioned negative association. It is a population probability result, not a validation of an assay, an estimator, or a field detection claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

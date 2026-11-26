@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:18.465353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Weyl character orthogonality in the Hilbert–Schmidt basis, with norms squared D, gives the frame eigenvalues D times squared window ambiguity. The Gram has the same spectrum including zeros because the analysis operator is square. D=N² cancels the squared normalization 1/N²; the eigenvalue is the squared unnormalized intersection sum. The intersection equation is 2At=B+A². For A with p-adic valuation j<k there are p^(k-j) valid B, and the fiber t=t0+p^(k-j)s reduces the phase to the modulus p^j with coefficients C+2Et0 and p^(k-j)E. Translating s by p^(j-alpha) tests divisibility of the linear coefficient by p^alpha when alpha is the valuation of the nonzero quadratic coefficient. After division, the primitive squared magnitude is the reduced modulus, by the invertible sum-and-difference substitution and additive orthogonality. For a vanishing quadratic coefficient the nonzero counts are (p-1)p^(k-j-1) times p^(k-j) valid B times p^(k-max(2j-k,0)) E times p^(k-j) C, exactly L_j. At ell=nu_p(E)<k the genuinely quadratic contribution per eligible A, summing valid B, equals (p-1)p^(2k-2ell-1), the same as the zero-shift contribution. Including A=0, eligible A are exactly the multiples of p^(floor((k+ell)/2)+1), yielding Q_(k-ell). The A=0,B≠0 shifts contribute zeros only; only the trivial Weyl displacement attains p^(2k). Colliding exponents must add, and the low exponents come from L_j while Q_s fills k through 2k-1. Dividing by p^(4k), the low-j geometric sum tends to p²/(p²+p+1), with the remaining terms O(k p^(-3k/2)) for fixed p. Independently enumerated ordered point pairs and reduced squared phase sums exactly modulo the prime-power cyclotomic polynomial for (3,2), (5,2), (3,3); all multiplicities, including zeros and the collision, match (python3 /workspace/branches/independent_replay.py 2). This is finite corroboration, not the all-depth proof. The packaged verifier and frozen FFT output were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cyclic Gabor diagonalization gives d times squared ambiguity but no evaluated graph counts.",
+          "Resultary 1651ef6ab8d7 evaluates the Gram spectrum for split quadratic graphs over finite fields; b9e240edb677 gives exact rank for a hyperbolic level-one shell over fields; 7cbef39ff46a uses a cyclic cubic-chirp window in one dimension."
+        ],
+        "reasoning": "Neither the finite-field domains nor the other chirp window subsume group (Z/p^k)^2 and its graph indicator. The general formula does not evaluate the translated overlap magnitudes or their multiplicities.",
+        "searches": [
+          "Resultary: exact Gabor projector spectra of quadratic graphs or shells and p-adic chirps",
+          "arXiv:2106.01509 Theorem 2; arXiv:1901.05296 Lemma 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2cf08dd7e325, b9e240edb677, 1651ef6ab8d7, 7cbef39ff46a, 38bc5b4c4d52",
+        "arXiv:2106.01509",
+        "arXiv:1901.05296",
+        "arXiv:1503.05800"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-curve Gauss-sum criterion and the known ambiguity formula give the starting tools. The prior exponential result evaluates restricted additive-character orthogonality; the general Gabor result evaluates no specific window's shifts."
+        ],
+        "reasoning": "To derive the actual spectrum one must still stratify nonzero translations, count the solvable congruences and both reduced phase regimes, add the zero-shift quadratic stratum and combine collisions. No inspected stronger statement performs that census for the stated nonreduced ring.",
+        "searches": [
+          "Resultary 2cf08dd7e325 Finding and Proof §§1–2 plus arXiv:2106.01509 Theorem 2",
+          "Resultary 1651ef6ab8d7 Finding and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectrum is an ambiguity-magnitude multiset under the Weyl-basis correspondence.",
+          "Resultary 2cf08dd7e325 studies the same graph's restricted character inner products via the full quadratic sum."
+        ],
+        "reasoning": "The complete character sum is precisely the zero-translation slice; it is not the family of Fourier spectra of every translated intersection. Orthogonal additive-character bases on the graph are not the orbit-projector Gram problem.",
+        "searches": [
+          "Resultary: normalized parabola indicator over odd prime powers, complete exponential spectra, ambiguity zeros and projector lifting",
+          "arXiv:2106.01509 §2.1 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest evaluated results were the same-curve exponential spectra 2cf08dd7e325, the full Gabor spectrum of split quadratic graphs 1651ef6ab8d7, and the parabolic Fourier-density tomography map 38bc5b4c4d52."
+        ],
+        "reasoning": "The last map uses a different operator even in the finite-field parabola case. None of the inspected statements gives the L_j and Q_s spectrum or the rank fraction for the frozen object. Same-day alternate records were compared on assumptions, not discarded by date.",
+        "searches": [
+          "Resultary: exact prime-power parabola projector Gram spectrum, complete Gabor rank and spectral multiplicities"
+        ]
+      },
+      "rationale": "The ambiguity-to-Gram reduction and Gauss-sum evaluation are prior methods; a prior Resultary result already treats additive characters on this exact parabola. Neither that result nor the inspected full Gabor spectra for other objects supply the translated-fiber valuation census and the evaluated full Gram spectrum here. The added rank and conditioning are consequences of that census, not separate claims of new general phase-retrieval machinery.",
+      "residual_risks": [
+        "An older finite-Heisenberg or association-scheme treatment may encode the same multiset under different terminology.",
+        "The source comparisons establish distinctions within bounded coverage and do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Gauss-sum arithmetic, different operator",
+          "evidence": "Restricted additive characters are compared using S_q(A,B)=0 iff nu_p(A)<nu_p(B).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-exponential-spectra-of-the-parabola-over-odd-prime-powe--2cf08dd7e325/RESULT.md",
+          "material_read": "Finding and Proof §§1–2, from offset 0",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Complete exponential spectra of the parabola over odd prime-power rings",
+          "trigger": "Exact same curve and moduli"
+        },
+        {
+          "assessment": "Analogous rank theorem for a different support over fields",
+          "evidence": "Indicator of x·y=1, with exact ambiguity zero classification and rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-gabor-tomography-rank-for-hyperbolic-quadratic-shells-over--b9e240edb677/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Exact Gabor tomography rank for hyperbolic quadratic shells over odd finite fields",
+          "trigger": "Earlier Gabor rank for a quadratic support"
+        },
+        {
+          "assessment": "Same spectral principle; different support and no nonreduced ring",
+          "evidence": "Computes D times squared ambiguity for split quadratic graphs over fields.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-gabor-projector-spectra-of-split-quadratic-graphs-over--1651ef6ab8d7/RESULT.md",
+          "material_read": "Finding and Proof §1, offsets 0 and 2979",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Complete Gabor-projector spectra of split quadratic graphs over finite fields",
+          "trigger": "Same-day complete Gabor spectrum for quadratic graphs"
+        },
+        {
+          "assessment": "Different window on a different group",
+          "evidence": "Cubic chirp on a single Z/p^k coordinate, not an indicator on (Z/p^k)^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-prime-power-cubic-chirp-ambiguity-and-gabor-lifting-spectr--7cbef39ff46a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Exact prime-power cubic chirp ambiguity and Gabor lifting spectrum",
+          "trigger": "Valuation-stratified prime-power Gabor spectra"
+        },
+        {
+          "assessment": "Distinct parabolic Fourier-density map over fields",
+          "evidence": "Studies rho_A(x,t), not the full projector orbit Gram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-mixed-state-fourier-density-bounds-and-exact-tomography-on--38bc5b4c4d52/RESULT.md",
+          "material_read": "Offsets 0 and 4060",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Sharp mixed-state Fourier density bounds and exact tomography on the parabola",
+          "trigger": "Parabola tomography may name an equivalent lifting"
+        },
+        {
+          "assessment": "Establishes spectral reduction, not arithmetic evaluation",
+          "evidence": "For cyclic Gabor systems the eigenvalues are d times squared ambiguity samples.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "§2.1 Theorem 2, PDF p. 4, OA offset 13300",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Strong general Gram-spectrum theorem"
+        },
+        {
+          "assessment": "Method, not this spectrum",
+          "evidence": "Uses the general Fourier–ambiguity relation for Gabor measurements.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.05296",
+          "material_read": "§2 Lemma 2.2, p. 4, OA offset 13461",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Stability Estimates for Phase Retrieval from Discrete Gabor Measurements",
+          "trigger": "Fourier ambiguity and stability mechanism"
+        },
+        {
+          "assessment": "General injectivity comparison, not exact valuation histogram",
+          "evidence": "The inspected passage formulates injectivity criteria, not an evaluation for this graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Introduction, p. 2, OA offset 6817",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Discrete Gabor injectivity and ambiguity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parabola is a canonical sparse window; the prime-power setting adds nontrivial fibers as translation valuation increases. Determining every positive multiplicity and the entire kernel quantifies exactly how this changes recoverability and nonzero singular-value conditioning for linear operator tomography. The limiting identifiable fraction is strictly below one and is not supplied by diagonalization alone. A nonlinear pure-state phase-retrieval conclusion would not follow and is not needed for this value assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

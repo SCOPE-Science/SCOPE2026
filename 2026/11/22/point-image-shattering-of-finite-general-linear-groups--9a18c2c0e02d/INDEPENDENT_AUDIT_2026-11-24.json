@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:42:30.692079Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 4–43; VERIFICATION.md and all three attached verifier sources inspected, not executed",
+        "Independent replay: python3 /workspace/branches/18d95d00-d5cd-4699-8816-d38612a0b06f/independent_homology_check.py"
+      ],
+      "rationale": "In RESULT.md 18–31, an all-positive realization preserves every source circuit; keeping all but one assignment in that circuit positive forces the remaining one, precluding shattering. Invertibility then gives target independence. Conversely, given p prescribed positives, invertible extensions act transitively on vectors outside the target span, so each forbidden equality has probability 1/(q^d-q^p). For p<k≤d and d≥2 the union bound is strictly less than one; p=k only requires extension of an isomorphism of subspaces. Ordering both independent tuples and dividing by k! counts supports; simultaneous basis extension proves purity, and the displayed nontransitive parallel pairs rule out a matroid. A fresh bounded Python calculation obtained (9,18) and connectivity in binary rank two, and (49,882,4704), connectivity, and GF(2) boundary ranks 48 and 834 in binary rank three. The resulting Betti numbers agree exactly.",
+      "residual_risks": [
+        "The bounded check establishes only the stated small binary homology. The universal classification rests on the proof, and no claim is made about integral torsion or general homotopy type."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kobayashi–Kurita–Wasa treat algorithmic enumeration given two matroids; Fitzpatrick et al. use sphere-membership concepts.",
+          "Resultary 86b7b25a9457 concerns incidence with Lagrangian subspaces, not linear automorphism graphs."
+        ],
+        "reasoning": "General common-independent-set enumeration takes the two matroids as inputs and does not show that these GL traces define their intersection. Different incidence concept classes do not dominate this parameter range or action.",
+        "searches": [
+          "Resultary: shattering graphs of invertible linear maps over finite fields: point-image constraints, independent source and target tuples, common matroid independence complex",
+          "arXiv:2307.08948; arXiv:2108.13231"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9a18c2c0e02d (same record), 78c4a8a5e205, 86b7b25a9457",
+        "arXiv:1703.01586, 2005.06222, 2108.13231, 2307.08948"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary-code VC theory uses binary code supports; partial transformations supply a related positive-constraint framework; matroid intersection supplies a language once the face identification is proved."
+        ],
+        "reasoning": "The elementary tools are not new, but none of the inspected statements gives the necessary exclusion of forced traces and simultaneous avoidance of all forbidden image equalities. Neither the polynomial nor the boundary ranks follow from the neighboring catalog claims.",
+        "searches": [
+          "arXiv:1703.01586; arXiv:2005.06222; arXiv:2307.08948; Resultary 78c4a8a5e205"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's distinct PSL_2(q) point-image record 78c4a8a5e205 concerns projective actions and a determinant-square condition, not nonzero vector pairs for full GL.",
+          "Arora–Ram study partial linear transformations T:W→V in similarity classes."
+        ],
+        "reasoning": "Recast the positives as extendible partial linear assignments and the full problem as avoiding forbidden assignments. Pointwise projective images allow scalar multiples, so the projective criterion does not recover the vector equality traces. Classification of positive maps via similarity alone controls neither negatives nor the support complex.",
+        "searches": [
+          "Web: \"shattering\" \"general linear group\" point images finite vector space VC dimension independent vectors",
+          "Resultary: GL_d(F_q) point-image membership VC-shattered supports (v,w), invertible maps, independent input and output vector tuples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching entry 9a18c2c0e02d is this assigned record; distinct 78c4a8a5e205 and 86b7b25a9457 concern other complexes."
+        ],
+        "reasoning": "The identical record is not independent coverage. No independently tabulated face polynomial or matching small GF(2) homology was identified in this bounded comparison.",
+        "searches": [
+          "The two Resultary queries above, including the exact GL_d(F_q) vector formulation"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete signed point-image criterion for full GL on nonzero vectors, its enumerative and structural consequences, and the specified small homology. The inspected prior statements cover related settings or tools, not the signed-trace criterion on this ground set. This is a bounded best-of-knowledge determination, not historical priority.",
+      "residual_risks": [
+        "The web query produced no decisive matches; this is not evidence of absence. The named distinct catalog hits were compared only at the level of available indexed statements. Equivalent automorphism-incidence results could exist under unindexed terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different concept class",
+          "evidence": "Studies binary codes, their VC dimension and minimum distance, not ordered GL image queries.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01586",
+          "material_read": "Abstract and opening, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "On the VC-Dimension of Binary Codes",
+          "trigger": "Cited VC-dimension comparison"
+        },
+        {
+          "assessment": "Positive-assignment analogy only",
+          "evidence": "Counts maps T:W→V similar to a fixed map, rather than possible signed traces of invertible extensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.06222",
+          "material_read": "Definitions and stated count, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Enumerating Partial Linear Transformations in a Similarity Class",
+          "trigger": "Possible equivalence via partial assignments"
+        },
+        {
+          "assessment": "Different concept class",
+          "evidence": "Sphere membership indexed by centers, not vector-image equality for linear automorphisms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13231",
+          "material_read": "Abstract and opening hypothesis class, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "The VC-Dimension and Point Configurations in Finite Fields",
+          "trigger": "Finite-field incidence VC comparison"
+        },
+        {
+          "assessment": "Algorithmic framework, no GL identification in inspected statement",
+          "evidence": "Enumerates common independent sets in given matroids; the hypothesis already presupposes the independence systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08948",
+          "material_read": "Problem and result summary, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Polynomial-Delay Enumeration of Large Maximal Common Independent Sets in Two Matroids and Beyond",
+          "trigger": "Candidate broader matroid framework"
+        },
+        {
+          "assessment": "Materially different action in available statement",
+          "evidence": "PSL_2(q) acting on the projective line, with square-class criterion, rather than GL on nonzero vectors.",
+          "identifier_or_url": "Resultary 78c4a8a5e205",
+          "material_read": "Indexed statement; matched full text not available in the local mirror",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "Quadratic-character shattering and persistent first cohomology",
+          "trigger": "Closest distinct group point-image hit"
+        },
+        {
+          "assessment": "Different incidence objects in available statement",
+          "evidence": "Lagrangian subspaces and orthogonal partial frames, not graph supports of invertible maps.",
+          "identifier_or_url": "Resultary 86b7b25a9457",
+          "material_read": "Indexed statement only; full text not located in local mirror",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "Lagrangian incidence shattering",
+          "trigger": "Neighboring finite-field incidence record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md 8–13 and 18–31; bounded binary homology check"
+      ],
+      "rationale": "The support criterion resolves every trace support on a canonical finite group action, not only maximum dimension. It identifies a pure nonmatroid complex admitting an explicit face inventory and supplies homology in its first two binary ranks, useful as concrete benchmarks for the topology of intersections of independence complexes. The contribution is structural, not a stand-alone small-number recomputation.",
+      "residual_risks": [
+        "No general topology or learning-theoretic claim beyond VC dimension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

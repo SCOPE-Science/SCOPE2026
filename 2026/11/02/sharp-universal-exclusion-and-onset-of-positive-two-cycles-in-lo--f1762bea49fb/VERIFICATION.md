@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` addresses the complete infinite parameter range and all positive nondecreasing functions. Its two decisive inequalities are \(x+u<2\lambda-2\leq4\) and \(1/x+1/u\geq4/(x+u)>1\). The exact monotonicity contradiction rules out nonfixed positive period-two points. The constructive direction provides a nonempty interval of midpoint choices for each \(\lambda>3\) and strict limiting inequalities for the affine intercept and slope.
+## correctness
 
-Run `python3 verify.py` alongside `RESULT.md`; it uses only Python's standard `fractions` library. Execution in the supplied environment completed with output `PASS: exact two-cycle witness and three independent rational constructions`. The computation verifies the rational orbit at \(\lambda=4\), its reciprocal predator multipliers, and three further exact rational realizations, but no finite program execution proves the universal assertions.
+PASS
 
-The theorem does not assert global attraction, absence of periods greater than two, or stability of the constructed two-cycles. Independent mathematical audit has not been performed.
+On a strictly positive two-step orbit, the prey equations give y=λ−x−u/x, v=λ−u−x/u. Hence v−y=(x−u)(1−1/x−1/u), and x+u<2λ−2. For λ≤3 the reciprocal sum exceeds one by AM–GM, so unequal prey states force the opposite ordering of v−y to that required by h(x)h(u)=1 and nondecreasing h. Equal prey states force equal predator states, proving exclusion even at λ=3 without continuity. For each λ>3 one can choose z=2+(λ−3)/6, and x=z+ε,u=z−ε with both recovered predator states near Y=λ−z−1>0. Here v>y, so interpolating the reciprocal positive ratios v/y and y/v gives strictly positive slope. Its limiting intercept is 1−2(z−2)/Y in (0,1), as follows by writing the slope as (1−1/x−1/u)(v+y)/(vy). Sufficiently small positive ε preserves the strict inequalities and yields an exact period-two cycle. At r=1 the special h(x)=γx is still positive on x>0. The rational λ=4 witness was independently checked by exact substitution (both updates close); the supplied script was inspected, not run, and does not prove the universal threshold.
+
+## originality
+
+PASS
+
+Credit the established plankton recurrence, the logistic boundary dynamics and the zero-intercept model. A later indexed paper gives exactly the affine-family frontier and goes further with a parameterization; this is genuine mathematical overlap, not evidence of an earlier covering publication. It states an affine theorem, while the original's exclusion is formulated and proved for arbitrary positive nondecreasing h, including nonsmooth and non-strictly-increasing cases. The strongest inspected earlier primary period-two calculation is on the invariant axis of the λ=2 model. The decision is for the original uniform theorem as a whole, with priority risk in the older overlapping-field literature.
+
+## value
+
+PASS
+
+The growth threshold is for an entire monotone recruitment class, with no need for differentiability, a trapping region or restrictions on the particular positive two-step orbit. Demonstrating attainability on the positive affine subfamily makes the obstruction exact and nonvacuous. This is an existence frontier, not a stability or general global-dynamics claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model specifies original root outdegree and retained root-component size on a uniform recursive tree. The exact conditional inclusion coupling is supplied by log-concavity of elementary symmetric polynomials, with a complete induction for weighted subsets. Keeping nonroot parent alternatives and all bond states fixed makes root connectivity coordinatewise increasing. The finite covariance follows from the conditional cluster-size recursion and a telescoping sum. The global covariance maximum is justified by an explicit near-critical limit and a uniform bound excluding both escaping and vanishing near-critical scales. The variance and fixed-retention correlation follow from rising-factorial moments. Boundary cases and strictness conditions are explicit.
+PASS
 
-The standalone exact checker passes 16 exhaustive finite models and 294 further rational recurrence comparisons. These are corroborations, not substitutes for the proof. The full proof has been reconstructed through the formulas and boundary conditions above.
+For the repaired claim, conditioning on the tree and marks through vertex j gives E[C_n|F_j]=M_n(p)C_j/M_j(p). The root-attachment indicator I_j is independent of earlier history, and E[I_j X_j]=p/(j-1). The local covariance splits into M_n times a telescoping reciprocal-product difference minus p/((j-1)(j-1+p)); summing proves the finite input identity, including p=0 and p=1. For lambda=(1-p)log n bounded, expansion of the log product has a uniform error bounded by a constant times (1-p)^2 times the convergent inverse-square sum, and the controlled tails of T_n(p) yield uniform convergence to zeta(2)-1. The global bound e^(-lambda(H_n-1)/log n)(log n/n+lambda) excludes both 0 and infinity as limits of rescaled maximizers, which exist by continuity. Compact-window convergence and the unique maximum of lambda exp(-lambda) then identify every maximizing sequence and the peak. In the frozen original the weighted subset lemma correctly uses log-concavity of elementary symmetric functions and conditions separately on the last-item indicator, allowing a nested full-vector coupling with shared alternative parents and marks. Its strict tail is also exactly 1-(1-p)^d. The rising factorial identity for the root cluster gives 2M_n(2p)-M_n(p)-M_n(p)^2 for variance, with positive leading coefficient for fixed p<1 by strict digamma increase, verifying the original decorrelation calculation.
 
-## Originality — PASS, qualified
+## originality
 
-The most relevant early primary work, Zhang et al. (arXiv:0711.0080v1), studies precisely the equivalent deleted-edge recursive-growth model and its marginal component and retained-degree distributions, not the joint covariance between original root degree and root-cluster size. Baur (arXiv:1407.2508v1) studies near-supercritical cluster sizes and genealogy; it does not report this degree-conditioned stochastic comparison or maximize the covariance in the retention parameter. The later root-deletion coupling paper (DOI:10.1017/jpr.2024.40) provides a closely related parent-indicator representation but studies degree counts under cutting, not the joint percolation response. The elementary-symmetric inclusion coupling is standard, and no novelty is assigned to it in isolation. Published mathematical findings on root-degree/leaf and root-attachment/path-length covariance concern different observables and do not imply the optimized percolation covariance from their statements.
+PASS
 
-Searches compared both full joint claims and aliases including imperfect-growth forest models, root cluster, stochastic conditional ordering, root-degree susceptibility, and the critical retention window. The relevant parts of the two archival preprints and the later openly accessible root-deletion article were inspected. General conditional-sum monotonicity may have other applications not surveyed exhaustively. Residual priority risk remains because a sufficiently general joint generating-function treatment could implicitly cover the covariance; an independent priority review is recommended before publication.
+The final claim is restricted to near-critical covariance as a function of the retention parameter and its global maximum and optimizer. The exact covariance formula, original-degree coupling and fixed-retention laws are not claimed as new. The strongest indexed predecessor supplies the same finite input but expressly gives only fixed-p asymptotics. Published critical-window cluster laws are for a marginal, not this smaller covariance response. The sharp covariance peak, constant, and localization of all maximizers survive the comparison.
 
-## Value — PASS
+## value
 
-The original degree is a natural finite-sample predictor for survival of the root component after random edge failures. The theorem links a strong conditional vector stochastic order to an exact nonnegative covariance, and identifies a non-obvious near-critical retention scale and sharp constant for the **largest possible covariance**. The optimizer is not obtained by merely substituting values into a known marginal law. The contrast with vanishing correlation at fixed retention separates conditional order from global linear prediction strength. The finite covariance and its optimizer can be used as analytical benchmarks for percolation models and joint network-statistic calculations.
+PASS
 
-## Limits and closest prior literature
+The repaired theorem determines where the joint response is strongest in a natural stochastic model: it vanishes at both deterministic retention endpoints and has a peak on a shrinking scale invisible to fixed-p asymptotics. The exact (zeta(2)-1)/e factor and localization of every maximizer distinguish the size and location of that effect, rather than reprinting a finite formula or optimizing a numerical grid.
 
-The sharp optimization is asymptotic; no finite-size uniqueness of the maximizing probability is claimed. The ordering is coordinatewise stochastic rather than likelihood-ratio. Source priority remains qualified, and the findings have not undergone independent assessment. Closest sources: arXiv:0711.0080v1 (same probabilistic model, marginals); arXiv:1407.2508v1 (root-cluster percolation limits); DOI:10.1017/jpr.2024.40 (root-degree coupling but different statistic); DOI:10.1007/s11749-021-00789-5 (general conditional-sum monotonicity).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

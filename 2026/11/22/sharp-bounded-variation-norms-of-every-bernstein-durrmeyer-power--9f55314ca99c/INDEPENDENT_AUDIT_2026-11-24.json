@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:56.615264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–28 and 30–77",
+        "Frozen check_iterated_durrmeyer.py, lines 6–49, inspected only",
+        "Independent exact n=3, r=2 comparison in Bernstein and Legendre coordinates"
+      ],
+      "rationale": "For n≥1 the two end columns of the Bernstein basis have a strictly positive 2×2 minor at every ordered pair x₁<x₂, even at endpoints. All other such minors are nonnegative; the kernel minor expansion and the integral composition identity therefore give strict TP2 for every power. For t interior the rows are positive; K_n(0,1)=K_n(1,0)=0 at r=1, which does not affect the ratio or single-crossing arguments on the interior. Markov normalization gives ordered tails, and reflection puts the sole endpoint-row crossing at 1/2. This strictly maximizes jump variation there. Integration against |Df| bounds general BV data, and equality forces the derivative measure to be one midpoint atom. For oscillation, each ordered row pair has one crossing by TP2, so its probability TV distance is its maximum tail difference; stochastic ordering bounds that difference by the one for the endpoint pair. This is the step implicit in the proof's oscillation argument. Orthogonality, degree preservation and the beta-binomial leading coefficient give the stated Legendre eigenvalues. Subtracting endpoint rows and using the Legendre derivative identity leaves precisely the odd-mode differences at zero. The alternating magnitudes strictly decrease, giving the two-mode bounds, and the leading mode yields the fixed-n equivalent. Applying the r-power bound to the smooth strictly increasing s-power midpoint response makes submultiplicativity strict. Independent rational check: for n=3 the first-step Bernstein coefficients are (1,5,11,15)/16, and the second-step endpoint row difference is (−19,−6,6,19)/35 in that basis; their product gives 151/280, also found from the two spectral terms.",
+      "residual_risks": [
+        "The rational spot check is not an exhaustive check of powers. The proof uses fixed degree and positive integer powers, excludes null-set point penalties from extremizing representatives, and does not assume endpoint kernel entries are all nonzero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abel–Acu–Heilmann–Raşa give composition kernels and the identical Legendre spectrum",
+          "Öksüzer–Karsli–Taşdelen Yeşildal treat variation diminution and convergence; those statements do not prescribe this sharp norm"
+        ],
+        "reasoning": "Both the spectral computation and abstract Markov norm techniques are existing inputs rather than new results. Neither the known nonsharp variation bound nor the available spectral formula alone selects a unique optimal step in the whole BV class.",
+        "searches": [
+          "arXiv:2506.23579, pp. 2–3",
+          "arXiv:1605.03976, p. 1",
+          "Adell–de la Cal, DOI 10.1016/0898-1221(95)00081-X"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ff055fe1e2d7, 238426d643b3, 1d37d027bdbd, afdd60173aa6",
+        "arXiv:2506.23579",
+        "arXiv:1605.03976",
+        "DOIs 10.1016/0898-1221(95)00081-X and 10.1007/s11117-016-0441-1 (identification/access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous one-step oscillation coefficient gives at most its r-th power as an upper bound, not the present r-th sharp value; the independent n=3, r=2 example separates them",
+          "Legendre evaluation gives the finite series at the test step, but every-power sharpness needs the unique crossing and jump maximization argument; strictness then needs its rigidity and smoothing"
+        ],
+        "reasoning": "No inspected stronger theorem establishes the exact all-power BV coefficient plus equality structure. The novelty is restricted to the exact application and optimizer, not the Dobrushin formula, TP2 calculus or the Legendre expansion.",
+        "searches": [
+          "Resultary ff055fe1e2d7, Finding and Limitations",
+          "arXiv:2506.23579, composition and spectral passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The oscillation norm is the Dobrushin row-distance coefficient, not a uniform approximation residual norm",
+          "Same-day Resultary 238426d643b3 studies I−D_n^r into L^p in the large-n, fixed-r regime; afdd60173aa6 uses point-sampling rather than Durrmeyer averaging"
+        ],
+        "reasoning": "Neither residual norm or sampling operator identifies the present coefficient. The row-distance equivalence is a classical reduction, and the strict TP2 plus reflection proof still determines which rows and set attain it for every r.",
+        "searches": [
+          "Resultary Bernstein–Durrmeyer iterate BV and oscillation norms",
+          "Primary lookup for sharp Durrmeyer power norm, endpoint row distance, and Legendre spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ff055fe1e2d7 states the exact r=1 value 1−2^(−n) for uniform weight and explicitly leaves sharp arbitrary iterates unresolved",
+          "1d37d027bdbd is an exact iteration law for a circular von Mises operator, not the same kernel, state space or norm extremizer"
+        ],
+        "reasoning": "The first power is already covered and excluded from novelty credit. The neighboring exact laws are not entries in a table for D_n^r.",
+        "searches": [
+          "Resultary ff055fe1e2d7 and related sharp power records 238426d643b3, afdd60173aa6, 1d37d027bdbd"
+        ]
+      },
+      "rationale": "The one-step number and the spectral kernel are prior. The supported distinct result is the sharp TV and oscillation coefficient for every power together with midpoint rigidity and the strict variation decay law. The closest prior oscillation result explicitly stops at one step. The all-power Legendre expansion is strong input, but evaluating it at a midpoint step gives only a candidate without a sharp all-power optimizer argument.",
+      "residual_risks": [
+        "Historical full texts by Adell–de la Cal and Heilmann–Raşa were not independently confirmed. An exact ordered-kernel all-power theorem including the BV equality case could change the assessment if found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-power coverage; no claim for all powers",
+          "evidence": "Uniform parameters a=b=1 give 1−2^(−n); the Limitations explicitly exclude sharp distances after arbitrary iterations.",
+          "identifier_or_url": "ff055fe1e2d7",
+          "material_read": "Mirrored RESULT.md Finding and Limitations, latter from offset 4350",
+          "method": "Local primary text",
+          "title": "Sharp oscillation contraction of Jacobi-weighted Bernstein–Durrmeyer kernels",
+          "trigger": "Direct sharp coefficient and endpoint identity for the same classical operator"
+        },
+        {
+          "assessment": "Spectral representation covered, sharp optimization still needed",
+          "evidence": "Describes composition and iterate kernels; gives shifted Legendre eigenfunctions and the same product eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.23579",
+          "material_read": "PDF p. 2 offsets 2800–5723 and p. 3 around 6400",
+          "method": "OA PDF text",
+          "title": "Kernels for composition of positive linear operators",
+          "trigger": "Direct all-power kernel and eigenvalue overlap"
+        },
+        {
+          "assessment": "Variation diminution and convergence background",
+          "evidence": "Addresses variation-detracting and convergence results, not the exact all-power amplification in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03976",
+          "material_read": "PDF p. 1 offsets 800–1581 and stated variation setting",
+          "method": "OA PDF text",
+          "title": "Convergence of the Bernstein-Durrmeyer operators in variation seminorm",
+          "trigger": "Same operator class and variation seminorm"
+        },
+        {
+          "assessment": "Different output and limit regime",
+          "evidence": "Measures I−D_n^r in L^p and takes large degree at fixed iteration count.",
+          "identifier_or_url": "238426d643b3",
+          "material_read": "Mirrored RESULT.md finding and scope passages",
+          "method": "Local primary text",
+          "title": "Sharp fixed-iterate Bernstein smoothing of bounded-variation data",
+          "trigger": "Same-day Durrmeyer iterates with BV input"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "Publisher request returned 403. Nearby total-variation comparisons are reported, but no statement-level verdict is supported for that paper.",
+          "identifier_or_url": "https://doi.org/10.1016/0898-1221(95)00081-X",
+          "material_read": "Bibliographic identity and prior record's discussion; full text not read",
+          "method": "ScienceDirect access attempt and local citation",
+          "title": "Bernstein–Durrmeyer operators",
+          "trigger": "Historical total-variation comparisons cited by the closest prior record"
+        },
+        {
+          "assessment": "Access risk, not negative evidence",
+          "evidence": "No accessible full-text passage used for a priority conclusion.",
+          "identifier_or_url": "https://doi.org/10.1007/s11117-016-0441-1",
+          "material_read": "Bibliographic scope; full text not verified",
+          "method": "Bounded Springer retrieval attempt",
+          "title": "Eigenstructure and iterates for uniquely ergodic Kantorovich modifications of operators",
+          "trigger": "Related operator eigenstructure and iterates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–28 and 61–82",
+        "Resultary ff055fe1e2d7"
+      ],
+      "rationale": "The all-power norm is a natural stability invariant of this classical smoothing operator. The coefficient and explicit leading correction quantify how much multiplying optimal one-step bounds misses, while midpoint rigidity explains why iteration never attains the product bound. The result gives exact finite-power information not furnished by generic convergence to constants or by the leading eigenvalue alone.",
+      "residual_risks": [
+        "The asymptotic is fixed-degree and does not by itself give a joint large-degree, large-power limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

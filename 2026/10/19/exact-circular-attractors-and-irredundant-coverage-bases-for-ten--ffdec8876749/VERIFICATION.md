@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite paperfolding circular-attractor certificate
+# Independent mathematical audit
 
-Running `python3 verify_paperfolding.py` beside `paperfolding_certificates.json` reconstructs all factor occurrences and cyclic coverage masks literally from the original sequence rule. It verifies each of the ten upper witnesses, the full rational-weight inequality at every position, and the exact irredundant coverage-basis size. `verification_output.txt` records a completed run of this same code.
+## correctness
 
-The largest stage contains \(868{,}847\) distinct circular factors and uses \(21\) nonzero dual-factor weights summing to \(51/8\) with positional load at most \(1\). Every listed finite result is certified by an exhaustive deterministic check, not by probabilistic hashing, sampled substrings, or extrapolation.
+PASS
 
-No formula for larger dyadic stages or exhaustive classification of all optimal position sets is established. Independent scientific audit has not been performed.
+Reconstructed exact factor equality at each length by extending the previous length's equivalence class by one bit, grouped all cyclic starts, and expanded occurrence masks with rotations. Independently reproduced both ten-entry profiles and all ten factor counts and checked the displayed witnesses and every position's dual load from the raw JSON (python3 /workspace/reproduce_reviews.py 4). Each dual mass is strictly above gamma-1 and each position has load at most 1; summing over an attractor therefore supplies the integer lower bound. At 1024 the independent result is 868847 factors, 55 minimal coverages and minimum 7, with 21 distinct weighted factors of total 51/8 and maximum positional load 1. For any minimal coverage M, its complement hits every other distinct coverage (none is contained in M), so every equivalent subfamily must retain M. All nonminimal coverages follow from a minimal one. This verifies uniqueness for subfamilies of distinct coverages, not uniqueness of optimum position sets. The result stops at 1024.
+
+## originality
+
+PASS
+
+The checked evidence supports the specific ten-stage circular census and certified coverage bases, not novelty for the attractor definition, the inclusion-minimal test or general certification. The closest ordinary table demonstrably differs at n=8, and the related cyclic-complexity result counts a different object.
+
+## value
+
+PASS
+
+This is a contiguous census of natural dyadic stages of a canonical automatic word. It records the exact optimization invariant and the size of the equivalent canonical constraint system, with portable upper witnesses and very small, integral-dual lower certificates. The circular and ordinary minima already differ at n=8, and at n=1024 reducing 868847 factors to 55 constraints gives substantive exact benchmark data for circular-attractor algorithms without extrapolating.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

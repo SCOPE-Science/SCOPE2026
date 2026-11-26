@@ -1,15 +1,21 @@
-# Scientific review: two-prime-power Cohen–Ramanujan prefix spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Cohen divisor identity and multiplicativity imply that only indices divisible by \(H\) contribute. At each such index the sum is a product of two prime-power divisor factors, giving the stated closed prefix expression. Blocks of \(Q\) consecutive integers contain every residue modulo \(P\), which proves the spectrum and multiplicities. Because \(Q>P\), these bands are disjoint and the sign changes at the claimed sharp index. The proof treats the full-period endpoint, arbitrary prime exponents, and the least-period assertion separately. The independent divisor-formula checker passed 103 parameter tuples and 1,138,338 exact prefix comparisons. Remaining risk: independent human checking of the argument has not occurred.
+PASS
 
-## Originality — PASS with residual priority risk
+Only four divisors contribute, with coefficients H, −HP, −HQ, HPQ and respective divisibility conditions H, HP, HQ, HPQ. For t=floor(n/H) in 0,…,PQ−1, summing yields F(n)=H((t mod P)−Q floor(t/Q)). Each block [jQ,(j+1)Q) contains every residue modulo P since Q>P; its band is disjoint from the next because P−1<Q. The number of t of residue r is the difference of the floors at ((j+1)Q−1−r)/P and (jQ−1−r)/P, and each t accounts for H indices. This proves the exact multiplicities and both extrema. The first band is nonnegative and the remaining ones are strictly negative; this cutoff is within one period. The full-period term at n=HPQ makes F(HPQ)=0, and periodicity of the summands then gives period HPQ. A proposed period d with HQ≤d<HPQ contradicts F(d)<0=F(0); one with d<HQ would force all values to be nonnegative. The inspected verifier's recorded 103 tuples and 1,138,338 indices are finite corroboration, not an independent runtime reproduction or the basis of the proof.
 
-The closest paper is Thomas–Namboothiri (arXiv:2312.07098, especially Theorem 3.4), which gives a *lower bound* for a maximal generalized Ramanujan partial sum. The present exact all-prefix spectrum, each fiber size, and sharp one-sign transition are not stated there. Kühn–Robles (arXiv:1311.2816) treat sums with the varying **modulus** as index; this does not imply the fixed-modulus prefix-spectrum classification. Namboothiri (arXiv:1708.04505) concerns restricted linear congruences and uses generalized Ramanujan sums without classifying these cumulative values. Accessible prior-record claims and semantic-database results do not present this exact finding. The classical divisor formula does encode every partial sum and makes this a short elementary derivation, so an earlier explicit statement outside the inspected works remains possible. No universal novelty claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2023 work directly raises the problem of maximum cumulative generalized Ramanujan sums, while the exact extremum for prime-power products of two distinct primes is not given by its generic lower bound. The full theorem yields considerably more than the extremum: exactly \(p^{2s}\) attainable values independently of the larger prime and both prime exponents, exact integer multiplicities, a uniquely located sign transition, and the exact least period. This is a natural exhaustive two-prime classification, useful as a concrete boundary case when more prime factors create substantially more intricate inclusion–exclusion effects. It is elementary and limited to two-prime support; no general theorem for arbitrary support is claimed.
+The divisor identity and study of extrema of these prefixes are prior art. The supported distinct result is the full fixed-modulus two-prime-power classification, including per-value counts, exact extrema and a sharp one-period sign cutoff. It is not a specialization of the prefix norm lower bound or the modulus-summed explicit formula in the primary sources checked.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Prefix extrema are an existing question for Cohen sums. The full distribution over the first modulus family with two distinct primes gives exact signed benchmarks and determines where a prefix can be nonnegative without enumerating its period. This is an infinite parameter result about a natural cumulative invariant; the separated bands and single cutoff, not the divisor formula itself or the k=6 example, provide the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

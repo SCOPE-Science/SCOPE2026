@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Computational and analytical verification
 
-Install SymPy (specified in `requirements.txt`) and run `python verify.py` in the directory containing the files. The independent finite-state check differentiates the full tilted generator perturbatively, solving exact-rational Poisson equations; it does not substitute a specially arranged determinant for the computation being checked. The script checks 42 heterogeneous profiles for \(3\le n\le8\), five homogeneous profiles, 90 cyclic primitive-energy identities for \(3\le n\le12\), and 240 two-defect comparisons for \(3\le n\le18\). These checks were executed with all assertions passing.
-
-Infinite-period universality follows instead from the determinant-winding identity, the cycle rooted-forest expansion, and the exact discrete summation-by-parts identity detailed in `RESULT.md`. The sharp upper constant is reached only as a singular limit of positive-rate models; all finite positive-rate instances obey the strict inequality. The software does not prove that no historical paper contains an equivalent theorem, and the relevant 1990 disordered-walk paper's full body was not available for comparison.
+Run `python verify.py` with SymPy installed as specified in `requirements.txt`. This exact arithmetic check solves the tilted eigenvalue perturbation equations through order four using the full generator, and compares the result with the variance of the harmonic-coordinate corrector. A separate calculation of the parallel-arc resistances checks the variance deficit of the Kirchhoff index. The analytic argument in `RESULT.md` is the proof for all finite periods and strictly positive symmetric rates; the checks are finite corroboration and do not establish historical priority.

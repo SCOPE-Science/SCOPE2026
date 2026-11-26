@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The asserted cover \(\mathcal Z_{C_5}\) is the smooth seven-dimensional, two-connected moment-angle manifold with integral Betti ranks one in degrees zero and seven and five in degrees three and four, explicitly cross-checked using all 32 induced vertex subgraphs. For the free diagonal circle action, the orbit six-manifold \(B\) is simply connected and its Euler class is primitive. The Gysin map \(H^2(B)\to H^4(B)\) must vanish because otherwise the middle third Betti rank of the closed orientable six-manifold would be the impossible odd number five. The remaining Euler map \(H^4(B)\to H^6(B)\) is an isomorphism. Multiplication of the Euler class by \(m\) for the finite-scalar quotient gives the two order-\(m\) groups and the free groups via integral exactness. The unimodular symplectic degree-three pairing of \(B\) pulls back to the explicit order-\(m\) cup products.
+## correctness
 
-## Originality
-**PASS relative to inspected primary literature and indexed mathematical findings.** The five-gon covering manifold and general quotient-algebra and homotopy-colimit frameworks are prior work. The closest inspected general treatments of freely acting closed subgroups (Franz 2019) and any closed subgroup (Limonchenko–Solomadin 2022) are genuinely broader, and could be used to derive the answer, but do not state or immediately identify this five-gon finite diagonal family's cohomology groups or its unusual nonzero free-degree-three-to-torsion-degree-six product. Searches for finite diagonal scalar quotients, symplectic product formulations and Gysin parity mechanisms found no explicit indexed equivalent. The residual priority risk is an unindexed prior specialization or a published worked calculation omitted from the inspected texts.
+PASS
 
-## Value
-**PASS.** The first nontrivial polygonal complex moment-angle connected sum gives a canonical, natural all-integer family of closed smooth seven-manifold quotients. The nonzero product of two primitive free classes landing in order-\(m\) torsion and the parity-forced vanishing of the base Euler square are structural features not detected by the covering manifold's free cohomology or by rational quotient invariants. This is a motivated integral ring determination rather than an arbitrary parameter computation.
+The diagonal circle acts freely since some coordinate lies on S¹ at every point; its finite subgroup preserves orientation. The standard 2-connectivity of X and the homotopy exact sequence imply π₁(B)=0, π₂(B)=Z and a primitive Euler class e for B=X/S¹. I independently checked the 32 induced subgraphs, giving Hochster groups of ranks 1,5,5,1 in degrees 0,3,4,7 with no torsion. By duality H²(B) and H⁴(B) are both Z. If e² were nonzero, the map H²(B)→H⁴(B) would be injective and Gysin would force H³(B) to be Z⁵, impossible for a unimodular alternating pairing in middle degree six. Hence e²=0, H³(B)=Z⁴, and Gysin in degrees five and six gives e:H⁴(B)→H⁶(B) an isomorphism. The finite quotient is the circle bundle with Euler class me: the transition functions are raised to the mth power. Its Gysin sequence now has the two nonzero integral maps given by multiplication by m. It gives degree 2 and 6 torsion Z/m, primitive pullback sublattices in degrees 3 and 4 with free rank-one cokernels, and the other stated groups. The universal cover gives the claimed π₁. Pulling back the base symplectic basis, the primitive degree-four generator and e gives all the claimed products by naturality, with the top class pulling back to a generator of H⁶. No division mod m is used, so composite m works as stated.
 
-## Limits and related literature
-The classical geometry is due to Gitler–López de Medrano and subsequent work. Panov (2015), Franz (2019) and Limonchenko–Solomadin (2022) supply general quotient frameworks; notably Franz treats disconnected closed subgroup quotients. These results were compared by *implication*, not just by title. The finite checker is not an independent proof of the Gysin or Poincaré-duality arguments. No full homotopy-type classification or independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected prior coverage is Franz's general integral cohomology-ring construction, which applies to the finite subgroup. That supplies a method for the computation, not the evaluated groups or primitive hyperbolic product block. Getting these statements requires actual specialization and product analysis; the parity obstruction and integral Gysin argument provide that analysis. The inspected exact polygon comparisons have materially different actions or compute different invariants.
+
+## value
+
+PASS
+
+The diagonal action is a canonical free scalar action on this seven-manifold. This case gives a rank-four primitive block, exhibiting a product of free classes that generates the full order-m torsion for arbitrary m, a feature invisible to the rational ring or additive integral groups. The useful structural calculation is that middle-degree parity forces the square of the Euler class to vanish, enabling the explicit pairing and mixed product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:31:50.586949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This pass is for /workspace/repairs/4/RESULT.md. The exact cluster formula was correct, but the frozen Finding's unqualified lift of the lower envelope is false as a strict claim: b1=2, b2=3 have irrational log ratio, yet m_3<m_2. The corrected claim gives the exact criterion. In fact L'_b=alpha(1-1/b-log b)/(b-1)^2<0 and x^alpha exp(-x) is increasing for x<alpha, hence m_b decreases strictly with b. For the core proof, orthogonality gives the supremum over source data as the maximum of the positive weights f_k=b^(-alpha k)exp(-n b^(-k)), which tend to zero. The ratio f_(k+1)/f_k is at least one exactly when n b^(-k)>=b L_b, so the floor index stated in the theorem maximizes, including the boundary tie when n b^(-k)=L_b and k>0. The phase endpoints agree by (b-1)L_b=alpha log b; L_b<alpha<bL_b makes the interior maximum unique and both endpoints minima. Nearest integers to L_b b^(j+t) realize every limiting phase modulo one. For the direct sum the norm is the larger component norm. To replay density on the two-torus, fix the first logarithmic phase by choosing real times log n=log L_b1+(j+u1)log b1 before rounding; the second phase changes by the irrational rotation log b1/log b2 and visits each neighborhood at arbitrarily large positive j. Rounding n to an integer perturbs log n by o(1). The torus is compact and connected, so the continuous maximum has a full interval as range, with minimum max(m_b1,m_b2) achieved by setting both phases at their minima and maximum M_alpha achieved by maximizing either one. Dominated convergence of the diagonal terms proves strong stability, but the operator norm stays one because the eigenvalues approach one. All small enough vectors have bounded forward orbits by contractivity, so this gives asymptotic expansivity without its uniform version under the cited definitions. The packaged numerical checks were read, not executed, and do not establish infinite-dimensional optimization or density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semigroup estimates apply to T(t)A^(-1) with the imaginary axis excluded from the generator spectrum; here zero is an accumulation point in the spectrum of -Q.",
+          "The expansivity literature and indexed normal criteria give qualitative stability, not source-weighted scale profiles."
+        ],
+        "reasoning": "The outcome depends on the precise spectrum under the fractional source weight, not merely a norm decay rate or a criterion for uniform convergence. The cited resolvent theorem's hypotheses and observable do not supply it.",
+        "searches": [
+          "arXiv:1709.08895v3 Theorems 1.1 and 4.4",
+          "arXiv:2610.01196v1 Definitions 3.1–3.2",
+          "Resultary: normal boundary spectral projection and scalar asymptotic-expansivity phase diagrams"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01196v1",
+        "arXiv:1709.08895v3",
+        "SCOPE-e574be857180",
+        "SCOPE-0138cc6da4e0",
+        "SCOPE-7f4d4e5a239b",
+        "SCOPE-696f083028ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral diagonalization immediately gives a supremum and the unrestricted scalar upper envelope M_alpha, not the exact discrete maximizing index or integer-time lower cluster endpoint.",
+          "The direct sum gives a maximum, but to attain the larger lower constant as a cluster endpoint one must also control joint logarithmic phases. The inspected single-spacing result uses one limiting gap ratio, not the incommensurate joint phases."
+        ],
+        "reasoning": "These precedents leave a nontrivial arithmetic and discrete optimization component rather than implying the complete repaired claim.",
+        "searches": [
+          "Rozendaal–Seifert–Stahn Theorem 4.4 versus compact Q",
+          "Normal Ritt power differences versus ||e^(-n Q) Q^alpha||",
+          "Indexed normal-operator boundary and scalar phase-diagram criteria, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later Ritt result gives a power-difference cluster interval when the spectral gaps have a limiting ratio. For T=e^(-Q), 1-exp(-x)=x+O(x^2) and n sup_{x>=0} x^2 exp(-nx)=O(1/n), so n||T^n-T^(n+1)|| and n||T^n Q|| differ by o(1)."
+        ],
+        "reasoning": "This is substantive equivalent asymptotic coverage for the single-ladder alpha=1 slice, where the gaps of T have ratio tending to 1/b. It does not give an exact finite-time argmax, arbitrary source exponent, or a torus formula for interleaved incommensurate ladders. It is a later dated catalogue entry, not evidence of earlier priority.",
+        "searches": [
+          "Resultary: geometric spectral source ellipsoid, log-periodic semigroup norm, and normal Ritt power differences",
+          "SCOPE-inverse-spectral-spacing-law-for-normalized-ritt-power-differenc--e574be857180, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The geometric spectral spacing record computes finite-dimensional endpoint L^1-in-time maximal regularity, a different norm; the Ritt hit tabulates asymptotic power-difference quantities."
+        ],
+        "reasoning": "A finite-dimensional time-convolution constant is not a table of source-ball orbit errors. The Ritt result is genuinely relevant in the asymptotic slice identified above, but neither source tabulates the exact profile and two-frequency envelope.",
+        "searches": [
+          "Resultary: exact k_b(n), oscillating minima L_b^alpha exp(-L_b), and upper constant alpha^alpha exp(-alpha)",
+          "SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce, Finding"
+        ]
+      },
+      "rationale": "For the repaired claim, credit the exact geometric-grid profile, its dependence on arbitrary alpha and the incommensurate two-ladder cluster interval; do not credit generic spectral functional calculus, qualitative expansivity, or the alpha=1 one-ladder asymptotic as an unrelated phenomenon to the nearby Ritt result. The correction to strict lift follows by elementary monotonicity and is not a novelty claim.",
+      "residual_risks": [
+        "Earlier spectral-source or lacunary semigroup work could express the same scalar grid optimization or its joint-scale version; the exact extent of historical coverage is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative terminology and its separation, not this exact source-ball computation",
+          "evidence": [
+            "Pointwise convergence for forward orbits remaining within a fixed radius; strong version requires uniform convergence over those orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01196v1",
+          "material_read": "Definitions 3.1–3.2 and pertinent discussion, offsets 8660–12587 and 23160",
+          "method": "Open primary HTML passages",
+          "title": "Asymptotic Expansive and Hyperbolic Linear Operators",
+          "trigger": "Defines and contrasts pointwise and uniform asymptotic expansivity"
+        },
+        {
+          "assessment": "Different observable and spectral assumptions",
+          "evidence": [
+            "Both results concern T(t)A^(-1) under no imaginary-axis spectrum; Theorem 4.4 gives asymptotic equivalence for quasi-multiplication semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1709.08895v3",
+          "material_read": "Theorem 1.1 at offset 8058 and Theorem 4.4 at offset 77846",
+          "method": "Open primary HTML passages",
+          "title": "Optimal rates of decay for operator semigroups on Hilbert spaces",
+          "trigger": "Potential stronger spectral or resolvent-based decay theorem"
+        },
+        {
+          "assessment": "Later, partial asymptotic coverage by the reduction above, not the full theorem",
+          "evidence": [
+            "Uses n||T^n-T^(n+1)|| for a normal Ritt contraction and a limiting ratio of spectral gaps."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-inverse-spectral-spacing-law-for-normalized-ritt-power-differenc--e574be857180",
+          "material_read": "Local-mirror RESULT.md, Finding, offset 0",
+          "method": "Indexed statement comparison plus direct reduction at alpha=1",
+          "title": "Inverse spectral spacing law for normalized Ritt power differences",
+          "trigger": "Same spectral smoothing mechanism may imply an equivalent normalized cluster interval"
+        },
+        {
+          "assessment": "Covers qualitative spectral criterion, not orbit-error amplitudes",
+          "evidence": [
+            "Normal-operator projection/gap criterion for asymptotic expansivity and its strong form."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-boundary-spectral-projection-criterion-for-asymptotic-expansivit--0138cc6da4e0",
+          "material_read": "Local-mirror RESULT.md offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Boundary spectral projection criterion for asymptotic expansivity of normal operators",
+          "trigger": "Potentially broader normal-operator theorem"
+        },
+        {
+          "assessment": "Qualitative failure sets under spectral scaling, different phase variable",
+          "evidence": [
+            "Phase diagram classifies asymptotic expansivity, strong expansivity and hyperbolicity rather than normalized source-ball errors."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-universality-of-scalar-asymptotic-expansivity-phase-diagrams-for--7f4d4e5a239b",
+          "material_read": "Local-mirror RESULT.md offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Universality of scalar asymptotic-expansivity phase diagrams for normal dynamics",
+          "trigger": "Related arithmetic/spectral phase classification"
+        },
+        {
+          "assessment": "Different norm, limit parameter and geometry of optimization",
+          "evidence": [
+            "L^1-in-time convolution in finite dimensions, not the Hilbert operator norm of a single time applied to a fractional source weight."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce",
+          "material_read": "Local-mirror RESULT.md offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Sharp spectral-spacing constants for finite-dimensional endpoint maximal regularity",
+          "trigger": "Geometric spectral spacings and exact constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural fractional source ball quantifies precisely where smoothness restores uniform convergence lost on the full unit ball. The full cluster set is stronger than a decay rate or a uniform bound: it distinguishes improved lower-envelope behavior from unchanged upper behavior and resolves whether optimizing on two ladders can align their minima at arbitrarily large integer times. The repaired strict-lift criterion keeps this interpretation valid for either order of the two ratios.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

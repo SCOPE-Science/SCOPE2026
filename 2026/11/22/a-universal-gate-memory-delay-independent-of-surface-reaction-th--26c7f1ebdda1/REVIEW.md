@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fresh local-time threshold on every reset, the no-reset absorption Laplace transform from each gate state factorizes into one gate-specific open-boundary hitting transform and the *same* reaction-threshold transform. The conditional gate-at-reset kernel follows from killing in the open gate and a two-state resolvent. Exact matrix reduction gives the claimed distribution-invariant delay with strict positivity. A standalone checker verifies the symbolic reduction and reproduces independent Robin backward-equation discretizations. Numerical checks do not prove the all-threshold-law result; the strong Markov factorization and matrix identity do.
+PASS
 
-## Originality — PASS, qualified
+In each reset-free excursion there is no reactive local time before the first open boundary encounter. Strong Markov restarting there and independence of the sampled threshold give h_j=c_j Φ for both initial gate states, including the convention for a zero atom. At a positive threshold consumption occurs in the open state almost surely: the independent gate has countably many jumps and the reflected diffusion is almost surely off the boundary at each such jump. For finite-a.s. thresholds there is positive probability of accumulating a finite level in an open sojourn, so h_0,h_1>0, and the killed reset kernel contracts by its row sums. If R is the discounted surviving occupancy, decomposing the free gate occupancy at reaction gives R=(I−h e_1^T)(rI−Q)^(−1). To check the difference independently, set the retained starting-state MFPT vector equal to (rI−Q)v. The renewal equation becomes (−Q+r h e_1^T)v=(1−h)/r. Left multiplication by π gives v_1=(1−πh)/(r²πh); the closed row gives α(v_0−v_1)=(πh−h_0)/(rπh). Since ET_F=rv_1 and ET_K=rπv, this proves β(h_1−h_0)/(Γ(βh_0+αh_1)). The common scalar cancels. The reflecting/open-contact backward ODE gives βc_0+αc_1=Γανe^(−μL)/(αν+βμ) and c_1−c_0=Γμe^(−νL)/(αν+βμ), yielding the stated strictly positive formula. For the individual means, a randomized exponential threshold of rate η imposes h'_1(0)=η(h_1(0)−1), hence the restart factor η/(η+Γμν/(αν+βμ)); the inverse open local time is multiplicative in deterministic threshold level by the same stopping argument, giving the claimed Laplace transform for general laws and the displayed Robin specialization. Fresh thresholds and loss of prior contact progress under both protocols are essential. The symbolic and finite-difference script was inspected, not executed.
 
-The **perfect open-gate absorption** comparison is fully covered by Mercado-Vásquez and Boyer (2021), Appendix B Eq. (49), and is not presented as new. Bressloff (2022) covers arbitrary open-gate surface-contact threshold laws when the *gate also refreshes* at resets; the different literature on local-time resetting versus retention does not compare the two gate-memory protocols under renewed threshold progress. The added claim is the **same exact delay across every independently refreshed threshold law**. The strongest identified coverage and the possibility of a dominating abstract renewal identity are expressly acknowledged; publication priority has not been independently audited.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural biochemical model separates conformational memory of a stochastic target from finite or nonexponential chemical-contact requirements. The established universality shows that the latter can change both mean reaction times arbitrarily while leaving the specific gate-memory penalty unchanged. It is a full, physically motivated independence principle over an infinite-dimensional family of reaction laws, not an arbitrary parameter evaluation.
+The numerical gap at zero threshold is preexisting; so are full-refresh partially reactive renewal and the perfect-absorber surviving reset kernel. The distinct assertion is that keeping the gate but refreshing threshold and progress gives the same additive stationary-start gap for every fresh threshold law. Neither the perfect-absorber comparison nor the published partially reactive full-refresh formula gives that arbitrary-law comparison. The kernel proof can be reused, but the new factorization at the first open contact and its cancellation across protocols are essential to the extension.
 
-## Boundaries and prior work
+## value
 
-The theorem requires stationary two-state gate initialization, a half-line reflected diffusion, positive rates, Poisson resets, and *refreshing all contact progress at every reset* in both protocols. It does not compare systems that retain their local-time progress, general reset clocks, or full reaction-time laws. Closest inspected primary works are arXiv:2107.02148 (the already known instant-reaction delay), arXiv:2205.13985 (general reaction thresholds under complete renewal), arXiv:2203.04868 (threshold memory and resetting), and arXiv:2009.02739 (original renewed-gate protocol). Independent review remains needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Although varying the threshold changes both MFPTs and can greatly change their magnitude, gate persistence contributes an exact positive additive offset unchanged by any fresh contact law. This cleanly separates gate memory from local-time reaction progress in a naturally motivated protocol comparison, not just a single reactivity example or a claim about optimizing reset rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

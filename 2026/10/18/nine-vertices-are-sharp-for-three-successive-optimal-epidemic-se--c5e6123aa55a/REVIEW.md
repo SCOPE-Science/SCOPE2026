@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Probability of eventual detection is exactly the decay-centrality polynomial plus the self-seed term, divided by network order. The exhaustive leaf-extension census covers all unlabeled trees through eight vertices by a canonical-isomorphism invariant; the only three-profile exception has a strictly dominated polynomial competitor with exact difference \(p^2(1-p)^2\). Exact coefficient identities and strictly monotone crossing factors prove two successive unique-optimum switches on the nine-vertex witness for every real \(0<p<1\). The bundled pure-Python checker executed successfully. Risks: a code-generation or tree-canonicalization error would compromise the finite census; independent manual verification has not been performed.
+## correctness
 
-**Originality — PASS (best-knowledge, residual bibliography risk).** Tsakas (2016) studies maximum decay centrality and parameter regimes, but does not state the sharp three-distinct-global-maximizer minimum. Hurajová et al. (2018) prove cumulative-distance dominance and count ranking-stable trees, but ranking instability and changes in the identity of the unique global maximizer are different propositions; their inspected mathematical statements and tables do not imply the sharp nine-vertex boundary. Targeted mathematical literature and published-claim comparisons showed no equivalent coverage. Risks: equivalent sharpness may have been given under another term in graph-center, epidemic surveillance, or generalized closeness literature.
+PASS
 
-**Mathematical value — PASS.** Three successive objectively optimal epidemic surveillance locations, as opposed to a simple pairwise rank reversal, exhibit an exact and surprising minimal network-size threshold. The result resolves a natural finite structural question with a universal lower bound, a concrete witness, exact algebraic crossings, and a reproducible finite certificate. The significance is mathematical, not a claim of immediate public-health effectiveness.
+Independent edge opening on a tree gives probability p^distance from each seed, and the sentinel's own seed adds one before division by n. Summation by parts proves strict ordering for strictly dominated cumulative profiles; identical profiles cannot yield strict winners. Independently decoded every Prufer word through order eight, deduplicated by canonical rooted codes at maximum-degree vertices, and computed distance profiles by recursion. The counts and maxima match the corrected table. The single eight-vertex exception is a five-edge path with two extra leaves at one endpoint; its second path score strictly exceeds the third by p^2(1-p)^2 even though both profiles are cumulatively nondominated. For the nine-vertex broom the nondominated vertex set is exactly {0,5,6}; both differences match coefficientwise. The decreasing root factors and r<s establish the strict winning order and the two isolated maximum ties. Replay: python3 /workspace/branches/audit_sentinels.py.
 
-The source material is an independent-edge percolation model only; no claim is made for general continuous-time epidemics or for multiple sentinels. No independent audit of the result has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the repaired all-tree obstruction and resulting globally sharp minimum with credited attainment. The nine-vertex witness itself, its three leaders and both crossover values are explicitly covered by the catalogue's broom theorem. That family theorem cannot exclude another smaller tree having three leaders.
+
+## value
+
+PASS
+
+The first size allowing a third strict leader distinguishes full-parameter behavior from the two known endpoint criteria. The all-tree obstruction is useful beyond the broom example, applies to continuous transmissibility without grid sensitivity, and has a concrete exceptional profile comparison where a naive frontier count is insufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

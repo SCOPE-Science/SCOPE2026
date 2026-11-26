@@ -1,15 +1,21 @@
-# Scientific review: exact modular scattered-pair state complexity with a forbidden factor
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies complete DFAs, admissible parameters and the distinction between contiguous avoidance and scattered counts. The word \(0\,1^{t+1}(01)^{k-1}0^j\) proves reachability of each active triple; the zero fibres of the affine suffix function \(c+ab+(a+1)d\) distinguish modular counters even for composite moduli; a run-boundary suffix distinguishes different active trailing-zero lengths. Both terminal right languages are identified explicitly. The 117 independent DFA minimizations and 51,175 direct-membership comparisons corroborate the general proof but are not substituted for it.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-Inspected the published constrained-avoidance prefix-sorting result and the exact unrestricted modular scattered-pattern state theorem in full, comparing the statements and parameter implications. The first lacks modular scattered-pair constraints and uses a different partial-automaton measure; the second counts the modular occurrences of a longer scattered pattern without forbidding it contiguously. The 2020 binomial-equivalence paper concerns equivalence classes and the nil-2 group rather than minimal complete automata for this intersection. Relevant indexed research and targeted literature searches revealed no dominating formula for this joint language. Absence from searches is not a uniqueness proof; undiscovered equivalent literature remains a risk.
+PASS
 
-## Value — PASS
-Modular scattered-pair counts are natural streaming statistics; forbidding a long zero-run immediately before a one models a local coding or source constraint. Their intersection has a state cost not supplied by separate language-recognition counts. Its sharp \(rm^2+2\) complexity and the exact collapse of terminal-run signatures resolve a two-parameter natural family, rather than an arbitrary finite slice.
+Track zero residue a, scattered-pair residue c and trailing-zero length truncated at r. At length r no continuation containing 1 is legal, and all-zero continuations preserve c, so the terminal right languages are exactly 0* and the empty language, the latter shared with the sink. The witness 01^(t+1)(01)^(k-1)0^j realizes any active (a,c,j): choose positive k congruent to a-j and nonnegative t congruent to c-k(k+1)/2; each zero-run followed by 1 has length one. For any active j, the legal suffix 1^b 0 1^d leaves residue c+a(b+d)+d. For each chosen total f modulo m, choose d=-c-af and b=f-d modulo m, represented by positive integers. This accepts from (a,c) and leaves residual (c'-c)+(a'-a)f from (a',c'). A nonidentical pair is distinguished by one of f=0,1, without assuming a field or dividing by two modulo m. For identical counters and j<j'<r, first add r-j' zeros and use the same family of suffixes: the larger run is forced to reject and the smaller admits a zero residue. The active states admit a continuation containing 1, so they differ from both terminal classes. For r=1 the avoidance language is 1*0*, the count is identically zero and the three distinct right languages are 1*0*, 0* and empty. Independent zero-budget quotient enumeration and positional word checks agreed for 42 parameter pairs including r=1, m composite, and short and long trailing runs. Replay: `python3 /workspace/branches/review_checks.py 2`.
 
-## Limits
-The result is binary, concerns one modular count and one forbidden factor, and addresses complete DFAs only. The bounded checks do not establish the infinite theorem without the mathematical proof; historical publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact results cover the two components separately, and a general product gives only an upper bound. The exact active classes and the collapse from all long-run counter states to two terminal right languages are distinct. Other close indexed constrained counters change the scattered pattern, the forbidden factor or the invariant. The comparison supports the specified interaction, not priority for modular pair counters or forbidden-factor automata in isolation.
+
+## value
+
+PASS
+
+The result is an exact quotient for a motivated combination of a local run constraint and a global modular count. It resolves where the standard product wastes states: residues cease to matter except for acceptance when the run reaches r, but none of the active residues or run lengths collapse. This quantifies a real interaction uniformly over composite moduli, and the r=1 change illustrates precisely when the count becomes vacuous.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

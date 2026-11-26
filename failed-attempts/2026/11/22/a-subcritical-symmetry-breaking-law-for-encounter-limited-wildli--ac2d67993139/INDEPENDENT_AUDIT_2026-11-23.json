@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:20.289449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The compact simplex gives existence. A zero coordinate cannot occur at a maximum because its marginal gain is 1, strictly larger than the derivative at any positive donor. The common interior marginal derivative (1-cx)e^(-cx) strictly decreases then increases, and two coordinates on the strictly convex branch give a positive second variation along their difference. This yields the equal or one-large-coordinate classification. For n=2 the nonzero imbalance t solves c-2=2z coth(z) with z=ct/2. The right side strictly increases from 2 and exceeds c at t=1, giving the unique global equality optimum up to c=4 and two asymmetric permutations above, converging to balance as c decreases to 4. For n>=3 the tangent Hessian is strictly negative below 2n. At 2n a direction (n-1,-1,...,-1) has positive cubic variation since its cubes sum to n(n-1)(n-2); fixing a small displacement and varying c preserves the strict gain just below 2n. For the stated c=59/10 example, an independent outward-rounded integer calculation with scale 10^10 gave lower bounds 2651392808/10^10 and 389683511/10^10 on the two exponentials in the witness (degree 17) and upper bound 1399224893/10^10 on the balanced value (degree 16), giving a strictly positive objective gap of at least 164556033/(20*10^10). In load variables y_i=cx_i, at least one y_i>=c/n has vanishing reward as c grows, the others contribute at most 1/e each, and the feasible profile (1,...,1,c-n+1) meets the limiting bound. On any sequence of optimizers, each of the other n-1 rewards must reach its unique peak at y=1 in the limit. This is a theorem about imposed routing in the stated idealized model, not an ecological calibration or proof of a sharp transition for all n. The bundled verification files were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pollination theorem gives B_c(n) in (n+1,2n) and where balance is unique, ties or loses, as well as high-load limits. The Ricker theorem additionally identifies the asymmetric optimizers via a scalar construction.",
+          "Primary text of the two cited allocation papers could not be obtained on the inspected routes; no conclusion about their particular propositions is inferred."
+        ],
+        "reasoning": "These indexed theorems cover every frozen n and c and classify the global switch more precisely than the near-2n existence claim, while retaining the same admissible heterogeneous profiles.",
+        "searches": [
+          "Resultary d6c7f813eac2, Finding points 1–4",
+          "Resultary 7678a45b7053, Finding and threshold construction",
+          "Andersson–Ygge doi:10.1023/A:1011263102622 and Wagner–Stone doi:10.1137/0312029"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_crossings.py",
+        "Published Resultary records d6c7f813eac2 and 7678a45b7053",
+        "Kleinrock–Lam PDF equation (2)",
+        "Andersson–Ygge and Wagner–Stone source availability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=3 and B_c(n)<c<2n the stronger global switch says equal allocation is beaten; g''(y)=(y-2)e^-y directly gives local maximization there. The two-site and high-load conclusions match exactly under scaling.",
+          "The wildlife-specific success interpretation contributes no additional mathematical constraint, observation, fitted parameter or independent prediction."
+        ],
+        "reasoning": "The listed global clauses transport directly and the remaining local clause is a one-derivative test on the same objective. The rational example corroborates one strict inequality within the covered phenomenon, not a scientifically distinct result.",
+        "searches": [
+          "d6c7f813eac2, statement of the global switch and large-load limit",
+          "7678a45b7053, statement of global versus local thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed expected pollinator visit budget B and fixed normalized Ricker stock S both equal c under y_i=c x_i. All variables are nonnegative reals and no excess stock or demand can be discarded.",
+          "The n=2 imbalance in the pollination record is z=c t_c/2 and its threshold equation B=2+2z coth z is exactly the frozen one. The single-channel slotted ALOHA throughput likewise equals G e^-G but alone supplies no fixed-total multichannel theorem."
+        ],
+        "reasoning": "The pollination and recruitment problems are bijections of the optimization problem, not analogies; multiplying an objective by c>0 leaves its maximizing allocations unchanged. The ALOHA comparison is only a kernel equivalence on inspected evidence.",
+        "searches": [
+          "Resultary: crowding-limited passage allocation Poisson encounter load symmetry breaking",
+          "Resultary d6c7f813eac2 and 7678a45b7053, Finding and assumptions",
+          "Kleinrock–Lam PDF, literal S=Ge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both exact-objective entries give the same three-channel threshold numerically near 5.77431347; this is not cited as a certified interval. The Ricker record gives a global scalar characterization instead of a table, including threshold and maximizing split.",
+          "No separate table is required for the continuous all-n claim; the frozen rational allocation at c=5.9 is a finite witness, not a competing optimizer or threshold calculation."
+        ],
+        "reasoning": "What matters is coverage of the exact objective and qualitative regimes, not whether the same rational witness is listed.",
+        "searches": [
+          "Resultary: crowding-limited passage allocation Poisson encounter load symmetry breaking",
+          "Resultary d6c7f813eac2 and 7678a45b7053, n=3 examples"
+        ]
+      },
+      "rationale": "The bijection y_i=c x_i takes the entire feasible simplex to nonnegative loads summing to c and takes c times the crossing objective to the identical fixed-total sum of y_i e^(-y_i) in two distinct published records. The pollination record states a stronger global transition and the same high-load limit and optimizer profile. The Ricker record independently supplies a stronger classification of global ties and minimization of the critical dimension for the same fixed-total optimization. This is established equivalent coverage; the shared catalogue date does not show who had priority. Neither one particular strictly improving rational point nor naming the channels as wildlife passages supplies an original mathematical result of comparable scope.",
+      "residual_risks": [
+        "Same-day chronology and historical priority are not asserted; equivalent coverage is independent of that chronology.",
+        "The two inaccessible allocation papers could contain older exact or broader coverage; the failure decision rests on the inspected exact matches, not on lack of access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent problem, stronger global result and the same high-load theorem",
+          "evidence": [
+            "Maximizes sum y_i exp(-y_i) with total B. Two-channel threshold is 4, global threshold for n>=3 lies below 2n, and the remaining n-1 loads approach 1 while the largest is B-(n-1)+o(1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-crowding-transition-in-poisson-single-visit-pollination--d6c7f813eac2",
+          "material_read": "Finding, points 1–4 and Assumptions and scope, offsets 0–3243",
+          "method": "Local Resultary mirror",
+          "title": "A unique crowding transition in Poisson single-visit pollination",
+          "trigger": "Closest exact objective and all-regime classification"
+        },
+        {
+          "assessment": "Equivalent fixed-total optimization; stronger sharp-threshold characterization",
+          "evidence": [
+            "The stock is non-discardable, loads are real, and for n>=3 the uniform optimum loses globally before its local threshold 2n. The scalar parameter specifies the asymmetric optima and tie."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-first-order-ricker-recruitment-allocation-transition-on-three--7678a45b7053",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3217",
+          "method": "Local Resultary mirror",
+          "title": "A first-order Ricker recruitment allocation transition on three or more identical spawning habitats",
+          "trigger": "Second exact-objective match, particularly the local/global gap"
+        },
+        {
+          "assessment": "Same single-channel kernel, not evidence alone of the allocation result",
+          "evidence": [
+            "Poisson load G gives p_0=exp(-G) and S=G exp(-G)."
+          ],
+          "identifier_or_url": "https://www.lk.cs.ucla.edu/data/files/Kleinrock/Packet%20Switching%20in%20a%20Slotted%20Satellite%20Channel.pdf",
+          "material_read": "PDF p. 2, eq. (2), offsets 9630–10300",
+          "method": "Lawful OA PDF; literal locator S=Ge",
+          "title": "Packet-Switching in a Slotted Satellite Channel",
+          "trigger": "Equivalent Poisson throughput kernel under alternate terminology"
+        },
+        {
+          "assessment": "Access limitation, not used to infer coverage or noncoverage",
+          "evidence": [
+            "The source is cited for a general resource allocation framework; no specific proposition was verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1011263102622",
+          "material_read": "Bibliographic identification; full text not read",
+          "method": "Lawful DOI and Springer retrieval attempts encountered redirect errors",
+          "title": "Efficient Resource Allocation with Non-Concave Objective Functions",
+          "trigger": "Potential broader nonconcave allocation coverage"
+        },
+        {
+          "assessment": "Access limitation, not used to infer coverage or noncoverage",
+          "evidence": [
+            "The relationship of its exact constraint to the frozen load simplex was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0312029",
+          "material_read": "Bibliographic identification; full text not read",
+          "method": "Lawful DOI and SIAM retrieval attempts returned HTTP 403",
+          "title": "Optimization of Allocations Under a Coverability Condition",
+          "trigger": "Potential historical equivalence under a coverability formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The routing interpretation is a readable application of the common kernel, but adds no passage-specific mathematics or empirical test. Its near-threshold result and large-load profile restate the same optimization with fewer conclusions than the available classification. No independent reason was given to need the precise rational example at c=5.9; its certificate does not supply a sharp threshold or a new mechanism. No genuine valuable remainder justifies a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

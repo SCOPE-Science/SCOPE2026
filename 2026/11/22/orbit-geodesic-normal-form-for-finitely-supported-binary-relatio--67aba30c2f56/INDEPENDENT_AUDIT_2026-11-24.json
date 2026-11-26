@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:46:50.314832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof of RESULT.md lines 19–55. Pointwise stabilizers act transitively on generic atoms and ordered distinct generic pairs, giving uniform arcs for each named interface and a separate off-diagonal bit. A named-to-named walk that visits generic atoms can replace everything between its first entry and last exit by two arcs through one generic vertex, even if the removed segment contains adjacent generic vertices. The typed shortest lengths are then the internal named length δ or β+2+α for named endpoints, and the first/last generic-visit shortcut gives 1+α or 1+β when exactly one endpoint is generic. Without an off-diagonal generic arc, a walk between two distinct generic endpoints has a named-only block joining F to B between its initial generic departure and first generic return; this costs at least 2+γ and any internal minimizer realizes it. Loops do not affect reflexive distances. In the disconnected generic case no named vertex can share the SCC of even one generic atom: mutual reachability through a named vertex would concatenate to a path between distinct generic atoms, by the uniform mixed formulas. Deleting repeats gives length at most m+1; the directed named chain between two distinct generic endpoints attains it for m≥1, and one arc attains it at m=0. Computing δ then vector and scalar minima is cubic in the size of the finite orbit description (constant at m=0). This is an all-m proof; the reported finite Floyd–Warshall checks were inspected but not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciobanu treats equality, dense order and random-graph symmetries; Bojańczyk et al. and Klin–Szynwelski compute symbolic transitive closure on more general structures."
+        ],
+        "reasoning": "Their computational models are broader, but the checked conclusions compute or represent closure, not a rank-one update in terms of the internal named distance matrix and the exact endpoint-type lengths.",
+        "searches": [
+          "arXiv:2609.31917v1, §10",
+          "doi:10.1145/2103656.2103704, §§4.1, 9",
+          "arXiv:1604.01185, §§1, 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary with published mirror of record 67aba30c2f56",
+        "arXiv:2609.31917v1",
+        "doi:10.1145/2103656.2103704",
+        "arXiv:1604.01185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-context orbit bound together with one tracked starting atom gives the m+1 reachability cutoff: there are m+2 atom orbits when the start is generic, and the initial set occupies the singleton start orbit. A named start needs no extra support.",
+          "The example closure computation and the symbolic composition-until-stability algorithm give existence of paths, not the exact shortest walk lengths by endpoint type."
+        ],
+        "reasoning": "Do not claim the cutoff or symbolic closure as new. Tracking reachability after each one-edge expansion could compute lengths but supplies no inspected closed formula in terms of δ, F, B and the off-diagonal bit, nor the associated sharp chain witness and generic component criterion in that form.",
+        "searches": [
+          "arXiv:2609.31917v1, Proposition 3.13, Corollary 3.14, Example 8.2",
+          "Towards Nominal Computation, §4.1",
+          "SMT Solving for Functional Programming over Infinite Structures, §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top semantic hit (67aba30c2f56) is the identical record, confirmed in the published mirror.",
+          "Ciobanu gives finite orbit presentations and Boolean reachability under fixed contexts."
+        ],
+        "reasoning": "One may express the named case as eliminating a single external hub, but collapsing G to one vertex erases the distinction between equal and distinct generic endpoints. The inspected fixed-point formulas are Boolean, not an equivalent description of these exact lengths.",
+        "searches": [
+          "Resultary: exact geodesic distances for finitely supported relations on equality atoms, min-plus rank-one correction",
+          "arXiv:2609.31917v1, §§3, 8, 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching profile is the identical published copy; no distinct match appeared among the strongest returned records."
+        ],
+        "reasoning": "This is a parametric formula for arbitrary orbit input, not one graph's distance table. Finite tables or a closure example cannot constitute that classification.",
+        "searches": [
+          "Resultary: exact five-case geodesic profile and unnamed SCC dichotomy; local record 67aba30c2f56"
+        ]
+      },
+      "rationale": "The distinguishing claim is an explicit exact distance profile with one min-plus correction to the internal named distances and the generic off-diagonal distance and SCC classification. Fixed-context reachability and a finite-step cutoff are credited as prior consequences. The strongest comparisons inspected do not supply the exact profile.",
+      "residual_risks": [
+        "An earlier exact specialization may be expressed in graph-module, equitable-quotient or vertex-elimination language rather than nominal semantics. The three close primary comparisons and targeted catalogue checks are bounded, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers orbit cutoff and reachability; no exact shortest-distance formula in the inspected statements",
+          "evidence": "Proposition 3.13 and Corollary 3.14 bound Boolean iteration; Example 8.2 makes reachability a least fixed point; §10 gives finite cell presentations.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31917v1",
+          "material_read": "OA pp. 11–12 offsets 39380–43299, pp. 18–19 offset 64400, pp. 23–24 offset 78000",
+          "method": "OA primary PDF",
+          "title": "Finite-Context Semantics in Finitely Supported Structures",
+          "trigger": "Direct general fixed-context reachability and orbit bounds"
+        },
+        {
+          "assessment": "Symbolic closure example and computation, not the stated shortest-distance profile",
+          "evidence": "Computes one equality-atom closure explicitly and explains why finitary closure stays finitary.",
+          "identifier_or_url": "https://www.cs.ox.ac.uk/people/bartek.klin/papers/popl12.pdf",
+          "material_read": "§4.1 p. 3 offsets 18650–22615; generic closure p. 7 offset 46800",
+          "method": "OA author PDF",
+          "title": "Towards Nominal Computation",
+          "trigger": "Explicit equality-atom transitive closure and generic closure method"
+        },
+        {
+          "assessment": "Broader closure machinery, not distance classification",
+          "evidence": "Formula-defined sets and closure by iterating union with relational self-composition to equality.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01185",
+          "material_read": "§1 pp. 58–59 offset 4900 and §7 pp. 71–72 offset 51400",
+          "method": "OA primary PDF",
+          "title": "SMT Solving for Functional Programming over Infinite Structures",
+          "trigger": "General symbolic closures for infinite relational structures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a useful structural lemma for exact symbolic geodesics, not a new generic shortest-path algorithm. It reuses the internal named distance matrix and isolates precisely what anonymous transit changes: one separable correction, two endpoint profiles, and one effective off-diagonal distance. It also distinguishes a single generic SCC from genuinely singleton SCCs; an ordinary quotient by generic identity alone obscures the latter. The unbounded supported-graph family and exact boundary cases are the motivation, not recomputation of the known orbit cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

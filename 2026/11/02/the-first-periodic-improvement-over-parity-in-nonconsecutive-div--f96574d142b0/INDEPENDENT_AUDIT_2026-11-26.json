@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:55:51.923373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–69; VERIFICATION.md; artifacts/verify.py; artifacts/values_through_90.tsv; artifacts/verification_output.txt",
+        "Independent replay: python3 /workspace/branches/a3c04e94-f4f5-429c-a7af-f5d203332dd1/exact_repro.py; checks all m<=90 and brute-force comparisons for m<=15."
+      ],
+      "rationale": "For fixed m, count pairs ab <= X with ab congruent to r modulo m by the divisor hyperbola split. For a <= sqrt(X), the count in b is X gcd(a,m)/(am) + O(1) if gcd(a,m) divides r, and zero otherwise. Doubling this count and subtracting the common square costs O(X) outside the main term. The harmonic sum of the periodic function gcd(a,m) times the divisibility indicator has leading coefficient its mean. The resulting X log X weight is m^(-2) times the sum of gcd(a,m) over a modulo m for which gcd(a,m) divides r. CRT factors this mean. For p^a the terms with valuation k<a each contribute a total p^(a-1)(p-1) when k <= v_p(r), and the zero class contributes p^a if p^a divides r. This proves precisely the two frozen weights and handles the infinite-limit step without a tail interchange. In the finite optimization, conditioning on the first vertex ensures the end constraint is checked, and the last-selected/not-selected recurrence exhausts the remaining path choices; for m=1 the cyclic rule forbids the sole vertex. Independent exact calculation through 90 confirms no strict gain for m<90 and optimum 2040/2700 at 90, with the stated swap (63-24-24) improving 2025 to 2040. The finite reproduction and analytic asymptotic are separate checks.",
+      "residual_risks": [
+        "The asymptotic is for fixed modulus; no growing-modulus uniformity or unrestricted optimum bound is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee optimizes over unrestricted separated subsets; the near-saturation result gives supremum 1 over periodic sets with no individual attainment."
+        ],
+        "reasoning": "Neither sets a period cutoff or evaluates every smaller period; the supremum over all periods cannot identify the least period reaching a given strict threshold.",
+        "searches": [
+          "Resultary: smallest modulus optimal periodic nonconsecutive divisor weight exceeds 3/4",
+          "Chatterjee, arXiv:2610.31832v1, Theorem 1.1",
+          "Resultary fixed-gap near-saturation, record db31f8efe5ad"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.31832v1",
+        "Resultary db31f8efe5ad and a39573063477, decisive findings",
+        "Bounded exact-value web query and four catalog comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted asymptotic does not impose periodicity. Periodic near-saturation implies existence of some finite period beating parity but does not identify 90, resolve smaller periods, or prove optimality at 90."
+        ],
+        "reasoning": "The exact finite comparison remains a distinct statement even though a broader existence conclusion is available.",
+        "searches": [
+          "arXiv:2610.31832v1, p. 1 and Theorem 1.1",
+          "Resultary db31f8efe5ad, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic near-saturation record studies the same type of density as periods vary, while the nearby cyclic-residue deficit record studies centered subgroup sums instead of an independent-set optimum with divisor weights."
+        ],
+        "reasoning": "Changing to a weighted cycle independent-set problem gives an exact reformulation, but neither the standard recurrence nor the distinct centered-residue problem specifies the first crossing for these weights.",
+        "searches": [
+          "Resultary: first periodic improvement over parity nonconsecutive divisor sums",
+          "Resultary: cyclic independent residue classes divisor function weighted residue mass fixed modulus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded exact-value searches surfaced no independent table or statement giving 90 and 34/45 for this optimization. The delivered exact table is evidence of the calculation, not of prior coverage."
+        ],
+        "reasoning": "An exact table of these optima through 90 would cover the main claim. The search did not locate one separate from the finding.",
+        "searches": [
+          "Resultary: divisor sums 34/45 modulus 90 residues 44 45 46",
+          "Web: \"34/45\" divisor sums modulus 90 periodic residue classes cyclic nonconsecutive optimum"
+        ]
+      },
+      "rationale": "The analytic divisor weights and cycle optimization are standard, but the inspected closest work does not determine the first exact period crossing or its optimum. Pass is limited to that fixed-period extremum, not a historical priority claim.",
+      "residual_risks": [
+        "Unindexed calculations or other wording may evade the searches; publication dates alone do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering the exact fixed-period claim",
+          "evidence": [
+            "S(x,y) maximizes over pairwise-separated subsets; the theorem gives asymptotics in spacing regimes, not a bounded-period census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31832v1",
+          "material_read": "PDF abstract p. 1 and Theorem 1.1 p. 2 (extracted offset 8624)",
+          "method": "Original OA PDF passage inspection",
+          "title": "Divisor Sums with Spacing Constraints",
+          "trigger": "Closest external divisor-spacing theorem"
+        },
+        {
+          "assessment": "Covers periodic near-saturation, not the first threshold",
+          "evidence": [
+            "Explicit fixed-gap periodic sets approach mass 1, without attainment at any finite period; the finding does not determine the least period beating 3/4."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-periodic-near-saturation-without-attainment-for-fixed-gap-diviso--db31f8efe5ad",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record mirror",
+          "title": "Periodic near-saturation without attainment for fixed-gap divisor sums",
+          "trigger": "Strongest same-object Resultary overlap"
+        },
+        {
+          "assessment": "Different invariant and selection rule",
+          "evidence": [
+            "Centered residue deficits of cyclic subgroups of units modulo 3 times a power of 2, not divisor-weighted independent subsets."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-four-exact-deficit-levels-for-cyclic-residue-sums-modulo-three-t--a39573063477",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record mirror",
+          "title": "Four exact deficit levels for cyclic residue sums modulo three times a power of two",
+          "trigger": "Nearby cyclic residue exact computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen statement, weight and extremum proof; Chatterjee Theorem 1.1 for motivation; independent exact comparison"
+      ],
+      "rationale": "Parity supplies a canonical selector and a natural mass benchmark. The theorem identifies the minimum cyclic period needed to improve it, and an explicit local exchange explaining how the first improvement occurs. This sharp barrier is necessary information for optimizing simple periodic constructions and is more than a small numerical gain or an arbitrary finite slice.",
+      "residual_risks": [
+        "The result is a first cutoff and one optimum, not a description of all periods, all optimizers, or unrestricted selectors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

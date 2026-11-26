@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:56:30.994629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The extrema of the four normalized facet functions along a line give the full-logarithm distance. The two opposite-facet bounds in each coordinate give J(w) with width 2t(1-w²)/(1-t²w²). For each cross-facet inequality its affine violation is largest at the corresponding rectangle corner. There, one within-coordinate inequality per coordinate is saturated, not both directions as the source's wording may suggest. Only the higher of the two corner high ratios can violate the opposite coordinate's low-ratio bound. Both center-coordinate lines satisfy every cross-bound strictly, so the two intercepts are on the adjacent half-edges and the cuts have disjoint interiors. Their intercept product divided by two gives T. The positive factor (1+min(a,b))(1−max(a,b)) makes the vanishing criteria exact, hence 4, 6 or 8 vertices. The width bound gives strict optimality away from zero; expanding the rectangle gives quadratic coefficient −4t²(1−t²) and the four cuts give −2t²(1−t²). The only nonsmooth numerator terms are proportional to |a−b|³, which are C², so the Hessian assertion follows. Area scales by the absolute determinant under affine transport, and normalized mass is unchanged. The frozen verifier was inspected but not run. Independent clipping and shoelace in /workspace/branches/460cc471-3f80-4ea2-a8c1-0dcfb8e28df9/area_reproduction.py compared 725 cases (maximum absolute difference 4e−15); this is diagnostic, not the proof. Scope is ordinary Euclidean area, finite r>0 and interior centers under the unhalved convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general polygon theorem provides the shape/ray construction and s-to-2s edge bound, and gives radius-invariance of edge count at fixed center. The indexed simplex theorem supplies exact mass and centroid optimality for simplices."
+        ],
+        "reasoning": "The former covers construction and qualitative combinatorics, not an area variation theorem. The latter has a different domain: a square is not a simplex or a projective image thereof, and cutting it into simplices does not preserve the domain's distance.",
+        "searches": [
+          "DOI 10.4230/LIPIcs.SoCG.2017.67, Lemmas 6 and 8",
+          "Resultary Hilbert ball area and center optimum lookup; SCOPE-sharp-centroid-optimality-and-a-gumbel-volume-threshold-for-hilb--3e2432049d4d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_area.py",
+        "Targeted Resultary lookup and two mirrored records",
+        "SoCG 2017 DOI 10.4230/LIPIcs.SoCG.2017.67",
+        "arXiv:1406.6983v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known constructions can compute a particular polygon, to which shoelace applies, and the coordinate bounds give an elementary route to the global maximum. They do not provide the full signed-corner intercept law or the cancellation of cross terms that yields the area Hessian through changes of polygonal type."
+        ],
+        "reasoning": "A computational representation of each ball is not by itself an all-center derivative or sharp Euclidean area result. Credit the specific compact area/stability calculation rather than its known geometric starting point.",
+        "searches": [
+          "Nielsen–Shao, Lemma 6 and proof; Papadopoulos–Troyanov, Section 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two relevant normalizations differ by a factor of two in distance. After conversion, the general polytope ratio inequalities agree with those used in the source, and the square and parallelogram formulations are exactly equivalent by affine invariance and constant Euclidean Jacobian."
+        ],
+        "reasoning": "Changing normalization or using normalized Euclidean mass does not establish a separate result. Intrinsic Hilbert area is a different functional.",
+        "searches": [
+          "DOI 10.4230/LIPIcs.SoCG.2017.67",
+          "arXiv:1406.6983v1, Section 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first mirror text is the assigned exact square result. The distinct second mirror text treats normalized Euclidean ball mass with simplex-domain hypotheses."
+        ],
+        "reasoning": "The first is not an independent match; the second is distinguished by its hypotheses and mathematical statement, not its recorded date. No distinct exact square area table or statement was identified in this bounded lookup.",
+        "searches": [
+          "Resultary Hilbert ball area search; 2026/11/8/SCOPE-exact-euclidean-area-of-every-hilbert-ball-in-a-square-corner-cu--a5913e9018ea",
+          "2026/11/8/SCOPE-sharp-centroid-optimality-and-a-gumbel-volume-threshold-for-hilb--3e2432049d4d"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-center ordinary area law with sharp positional optimum and second variation for the square and its affine images. The ratio representation and generic polygonal-ball construction are known. Neither the construction nor the simplex mass result inspected gives the asserted area comparisons and Hessian for a parallelogram.",
+      "residual_risks": [
+        "An equivalent square or quadrilateral area law may exist outside the inspected statements; the bounded comparison does not certify historical priority.",
+        "Some individual geometric ingredients and weaker qualitative conclusions are direct specializations of prior theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known full-log metric and ball construction, not exact square Euclidean area or positional stability",
+          "evidence": [
+            "Lemma 6 gives vertices on rays through domain vertices and bounds their number by s and 2s; Lemma 8 concerns constancy in radius."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2017.67",
+          "material_read": "Four-page paper, Definition 3 (p. 1), Lemmas 6 and 8 (pp. 2–3)",
+          "method": "Lawful OA PDF original passages",
+          "title": "On Balls in a Hilbert Polygonal Geometry",
+          "trigger": "Strongest general polygonal-ball description including squares"
+        },
+        {
+          "assessment": "Known groundwork; half-log distance requires rescaling radius",
+          "evidence": [
+            "The Hilbert polytope expression uses the extrema of normalized supporting affine functions with a factor of one half."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6983v1",
+          "material_read": "Section 12, p. 30, facet-ratio formula",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "From Funk to Hilbert Geometry",
+          "trigger": "General polytope metric and projective invariance"
+        },
+        {
+          "assessment": "Simplex domains, not the square or parallelograms",
+          "evidence": [
+            "Its normalized area/volume mass and centroid maximum are stated for simplices under the unhalved convention."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-centroid-optimality-and-a-gumbel-volume-threshold-for-hilb--3e2432049d4d",
+          "material_read": "Original RESULT.md statement and domain hypotheses",
+          "method": "Local evidence mirror",
+          "title": "Sharp centroid optimality and a Gumbel volume threshold for Hilbert balls",
+          "trigger": "Distinct indexed exact Euclidean mass and positional optimum"
+        },
+        {
+          "assessment": "Same record, not independent corroboration or prior coverage",
+          "evidence": [
+            "Same corner cuts, optimum and Hessian."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-euclidean-area-of-every-hilbert-ball-in-a-square-corner-cu--a5913e9018ea",
+          "material_read": "Mirrored RESULT.md formula and Hessian, matching frozen finding",
+          "method": "Local evidence mirror",
+          "title": "Exact Euclidean area of every Hilbert ball in a square: corner-cut law and sharp center stability",
+          "trigger": "Exact formula index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Euclidean mass of metric balls is a natural invariant for uniform sampling on a square or parallelogram. An all-center area expression is usable even across degenerating corner cuts, and the exact nonzero Hessian answers how much mass is lost under a small displacement at any fixed positive radius. This is more than the existence of a polygon construction or a check of a symmetric center.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

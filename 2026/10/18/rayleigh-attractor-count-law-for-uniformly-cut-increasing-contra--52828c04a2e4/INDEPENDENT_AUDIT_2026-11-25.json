@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:47.734294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated common slope 0<lambda<1 and equally spaced branch anchors, the jumps are all positive, so f is strictly increasing on its entire domain. Iteration is monotone after deciding the sign of f(x)−x and bounded away from 0 and 1 after the first step. A limit at a cut would require the neighboring branch fixed point to coincide with the cut, a null event. Thus every orbit converges to an interior branch fixed point, which is attracting by lambda<1, and periodic points are fixed. The i-th anchor is fixed exactly when there are i−1 cuts to its left. With N=n+1, k specified anchors split the N subintervals into k+1 blocks of positive lengths a_j/N; the requisite multinomial counts are a_0−1, a_1,…,a_(k−1), a_k−1. Using a^(a−1)/(a−1)!=a^a/a! at both ends yields the displayed coefficient formula for k≥1. An independent check of the limit and full law follows by setting A=(N−2)!/N^(N−2), letting T(z)=z exp(T(z)) be the rooted tree series, and using G=zT'=T/(1−T). The probability generating function in w is 1+A[z^N](T/(1−wT)−G), by summing the factorial moments for k≥1 and treating k=0 as 1 separately. Lagrange inversion gives Pr(K_n=j)=(j+1)(N−2)!/[(N−j−1)! N^j] for 1≤j≤N−1, with the constant coefficient zero. Its telescoping tail at j is the product of (1−l/N) for l=2 through j. At j of order x sqrt(N), the log tail tends to −x²/2; using log(1−u)≤−u gives a Gaussian tail bound uniform in N on this scale, sufficient for all fixed moment convergence. The Rayleigh mean, variance and scaling by sqrt(n) follow. At j=n the PMF reduces to (n−1)!/(n+1)^(n−1), with Stirling asymptotic sqrt(2 pi n) exp(−n−1). The common slope drops out of the counting law, even along a sequence of slopes in (0,1). The packaged finite occupancy verifier was inspected as source only; it does not assert a finite computation proves the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nogueira–Pires gives the deterministic n-orbit bound for n-branch contractions; no uniform-cut law follows from that bound.",
+          "The random-mapping cyclic-point PMF is a stronger probability specification than its Rayleigh scaling and moments. The Resultary joint laws refer to cyclic and leaf counts of mappings, not to random partitions or attractors."
+        ],
+        "reasoning": "A theorem on deterministic maximal counts says nothing about typical uniform-cut counts, and a law on functions of finite sets does not identify which random contraction count has that law. The cross-model link is the nontrivial step.",
+        "searches": [
+          "arXiv:1206.5676v1, Theorem 1.1 and discussion of increasing branches",
+          "Flajolet–Odlyzko, Random Mapping Statistics, §§3.1–3.3",
+          "Resultary 007c2a04bfe9 and 0c1fa0e07cad Findings"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Odlyzko, Random Mapping Statistics",
+        "arXiv:1206.5676v1",
+        "Resultary 0c1fa0e07cad",
+        "Resultary 007c2a04bfe9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen bridge event at k ordered anchors has block deficits of one at each of the two endpoints, and none internally; its positive-composition weights generate G^(k+1).",
+          "The mapping PMF mechanically gives all the probability conclusions once converted by the cut-count identification, but starts from uniform functions rather than random order statistics."
+        ],
+        "reasoning": "The deterministic bound and classical probability law together are not a prior proof: neither yields the block-deficit identity for this interval ensemble. The combinatorial identification is the credited distinct contribution. A previous theorem directly identifying this multinomial bridge count could change that assessment.",
+        "searches": [
+          "Compare arXiv:1206.5676v1 Theorem 1.1, Random Mapping Statistics §3.2, and Resultary 0c1fa0e07cad with frozen RESULT.md proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen factorial moments imply pgf 1+A[z^N](T/(1−wT)−G) with G=T/(1−T).",
+          "The classical mapping construction gives the EGF 1/(1−uT) with u marking cyclic vertices; by coefficient extraction Pr(C_N=r)=r(N)_(r)/N^(r+1), where (N)_(r) is a falling factorial."
+        ],
+        "reasoning": "Since Pr(C_N=1)=1/N, conditioning C_N≥2 and shifting by one gives exactly the frozen cut-count law. This is a distributional identification, not a coupling of cut positions to an entire random mapping or a new Rayleigh variable.",
+        "searches": [
+          "Resultary: cyclic-core conditioning and exact cyclic-point law of uniform mappings",
+          "Flajolet–Odlyzko, Random Mapping Statistics, cyclic-point marking in §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0c1fa0e07cad displays the full cyclic-point PMF 1≤k≤n and a conditional empty-box law for terminal vertices.",
+          "007c2a04bfe9 gives the conditional law of the leaf count and uses the cyclic-count asymptotic variance, for uniform random mappings."
+        ],
+        "reasoning": "The cyclic-point PMF gives exact numerical coverage after establishing the conditioning-and-shift identity, including the maximal event. The leaf-count laws and variance entries do not themselves give that identity in the cut ensemble. The same-day record was compared by object and statement, not ordered by its date.",
+        "searches": [
+          "Resultary 0c1fa0e07cad classical cyclic-point distribution in Finding",
+          "Resultary 007c2a04bfe9 same-day cyclic-core conditioning and leaf covariance"
+        ]
+      },
+      "rationale": "Pass for deriving the exact finite and asymptotic attractor count in the specified uniform-cut contraction ensemble. The probability law itself is a classical random-mapping law in disguise: K_n has the law of C_(n+1)−1 conditional on C_(n+1)≥2, where C counts cyclic vertices of a uniform random self-map. The law, Rayleigh constant, and rare upper tail are therefore not new as random-mapping facts. The distinct result is the exact identification for the random interval dynamics, through the joint occupancy of branch anchors. The checked matching mapping sources and deterministic contraction theorem do not establish that link.",
+      "residual_risks": [
+        "An existing theorem on local time or occupancy in this particular multinomial bridge, or a direct cut-to-mapping identification, may have been missed. The bounded literature comparison establishes classical coverage of the equivalent mapping law, not priority for the interval-model result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "classical cyclic-point law covers the probabilities after the ensemble is identified, but does not identify cut maps in the passages read",
+          "evidence": "The variable u marks cyclic elements in components, which are assembled into mappings; the next section treats limiting forms and moments. Some displayed equations are lost in extraction, so the PMF is derived from the marked cycle-of-trees construction rather than quoted verbatim.",
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/3-540-46885-4_34",
+          "material_read": "§3.1 Theorem 2, printed p. 337 at OA offset 26590, and §§3.2–3.3 printed p. 339, marking at offset 31769",
+          "method": "OA PDF passages and coefficient extraction from the described construction",
+          "title": "Random Mapping Statistics",
+          "trigger": "classical exact cyclic-point law and Rayleigh scaling"
+        },
+        {
+          "assessment": "covers qualitative deterministic bound, not an exact law in the inspected statement",
+          "evidence": "At most n periodic orbits; asymptotically periodic if there are n; increasing half-open branches are discussed immediately afterward.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.5676v1",
+          "material_read": "PDF p. 2 Theorem 1.1 and nearby discussion, offset 6619",
+          "method": "OA PDF locate and passage",
+          "title": "Dynamics of piecewise contractions of the interval",
+          "trigger": "same deterministic periodic-orbit bound and attraction for increasing pieces"
+        },
+        {
+          "assessment": "exact cyclic-point PMF; no cut-map identification in the theorem",
+          "evidence": "The classical probability of k cyclic points is k(n)_(k)/n^(k+1); the joint theorem adds terminal occupancy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-joint-law-of-cyclic-and-terminal-vertices-in-uniform-rando--0c1fa0e07cad/RESULT.md",
+          "material_read": "Finding and model assumptions, offsets 0–2248",
+          "method": "local Resultary mirror",
+          "title": "Exact joint law of cyclic and terminal vertices in uniform random mappings",
+          "trigger": "complete finite law of the probabilistically equivalent mapping observable"
+        },
+        {
+          "assessment": "different observable and ensemble statement, though it uses classical cyclic-count variance",
+          "evidence": "The conditional occupancy law counts empty boxes for leaves of a uniform finite map, not fixed branches of a random interval contraction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9/RESULT.md",
+          "material_read": "Finding and model assumptions, offsets 0–2107",
+          "method": "local Resultary mirror",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "same-day occupancy formulation conditioned on cyclic count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform simplex of cuts and equally spaced anchors give a natural solvable contrast between the deterministic sharp n and a typical random count of order sqrt(n), with fluctuations of that same order. The exact count law and its maximum-event probability answer a distinct question about the interval dynamics. They transfer a precise classical discrete probability structure to this ensemble, rather than purporting to improve the classical mapping law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

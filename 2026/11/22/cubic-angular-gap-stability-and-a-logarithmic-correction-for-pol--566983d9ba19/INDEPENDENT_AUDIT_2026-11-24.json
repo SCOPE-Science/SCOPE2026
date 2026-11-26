@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:40:41.515610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, angular-gap assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md and verify_chord.py (recorded numerical checks and arclength normalization inspected; script not executed)"
+      ],
+      "rationale": "A side with half-gap a and angular displacement t from its midpoint has radius cos(a)sec(t) and arclength Jacobian cos(a)sec²(t). With u the radial defect and v the defect of the normalized angular density, both sup norms are O(δ²), the mean of v is zero, and the radial function is globally O(δ)-Lipschitz across the vertices. At separation β let s=|sin(β/2)| and A=1+(u+u′)/2. The exact squared distance is 4s²A²+(1−s²)(u−u′)². The relative second term is uniformly O(δ²) by Lipschitz continuity, so its square-root correction is led by h(β)(u−u′)² with h=(1−s²)/(4s), up to a relative O(δ²) error in that term. For |β|≤δ its integral is O(δ⁴) by Lipschitz continuity, and for δ<|β|≤1 it is bounded by Cδ⁴/|β|, yielding the uniform logarithmic error. The linear density correction vanishes because the circle kernel has constant angular marginal; the linear radial correction to the mean is (4/π) times the mean of u. The side integral is −2a³/3+O(a⁵), the perimeter is 2π−(Σa³)/3+O(δ⁴), and Σa⁵≤(δ/2)^4π, independently of the gap list. Dividing by the actual perimeter gives +ΣΔ³/(24π³) in the defect. For a regular n-gon a=π/n, the quadratic profile a²(z²−1)/2 on uniform z in [−1,1] has variance a⁴/45, up to O(a⁶). The averaged squared radial difference H(β) is periodic with period 2a and mean 2 Var(u). A primitive after mean subtraction is O(a⁵); integrating against 1/β between a and 1 therefore changes the integral by only O(a⁴). Using the even kernel h(β)=1/(2|β|)+O(|β|) gives the mean-distance contribution Var(u) log(1/a)/π. Density multipliers of this term cost O(a⁶ log(1/a)); remaining radial or density corrections are O(a⁴) after the linear terms. Division by 2π+O(a²) and subtraction from the circle ratio gives −π² log(n)/(90n⁴). The cubic term gives 1/(3n²); strict Jensen equality concerns only the leading energy. Neither limit depends on quadrature.",
+      "residual_risks": [
+        "Frozen numerical checks are approximate and only illustrative; two of the unequal-gap runs (12 and 20 sides) have max gap above the stated quantitative range δ≤1/4. The analytic argument covers the asserted range.",
+        "The logarithmic coefficient is for regular polygons only; no exact finite-m optimizer claim follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen gives 1/6 < E chord / L ≤ 2/π², with only the disk attaining the upper bound.",
+          "Tokmachev's official abstract states the unique fixed-perimeter circle maximum; full text was not obtained to check the stronger conditional upper bound reported in the frozen source.",
+          "The distinct same-date stadium record analyzes a logarithmic correction at the lower-bound, segment-degeneration endpoint."
+        ],
+        "reasoning": "A global extremum establishes the sign and reference value, not the first variation under inscribed angular meshing. A correction near the opposite endpoint along stadiums has different small parameter, shape and normalization comparison, so it does not specialize to inscribed polygons approaching the circle.",
+        "searches": [
+          "Shen arXiv:2611.21661 §1",
+          "Tokmachev MathNet znsl7205 abstract and attempted full text",
+          "Resultary e9fe3b5c1d68 normalized mean on thin stadiums"
+        ]
+      },
+      "checked_sources": [
+        "Tokmachev MathNet znsl7205",
+        "Shen arXiv:2611.21661",
+        "MathBench MB14-T4S-P064",
+        "Resultary e9fe3b5c1d68, f64acf954997, b7f8e5bf9498, a82d823c1b3b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-gap claim has no restriction on relative gap sizes or on m, with one absolute remainder constant.",
+          "MathBench fixes all gaps equal. Near-diameter limiting probabilities only address a shrinking part of the distance distribution; the stadium correction is a different degeneration."
+        ],
+        "reasoning": "Credit the existing circle bound and the stated exact regular-family expression; the latter, if valid, supplies a possible route to the log correction but cannot determine the local cubic contribution of unequal gaps. The originality assessment is for the all-mesh quantitative law, together with a justified regular asymptotic not advertised as independent priority over a valid exact formula.",
+        "searches": [
+          "Compare the complete arbitrary-gap estimate and regular refinement in frozen RESULT.md with MathBench MB14-T4S-P064, Tokmachev/Shen and the near-diameter Resultary statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tokmachev's abstract and Shen §1 concern the same independent arclength-uniform boundary law; on the unit circle E chord=4/π and L=2π, hence the benchmark 2/π².",
+          "MathBench uses the same endpoint law and radius for the regular family, so its mean would apply after division by 2n sin(π/n).",
+          "Resultary b7f8e5bf9498 concerns the Euclidean versus arc-distance CDF locally, not this mean perturbation."
+        ],
+        "reasoning": "Changing radius or expressing the normalized expectation as an integral of its entire CDF would preserve the observable. The available local CDF results do not control the whole integral, and only the regular case identifies all gaps with 2π/n.",
+        "searches": [
+          "Resultary: inscribed polygon boundary mean, chord-distance tails, polygonal angular stability and logarithmic normalized mean",
+          "Primary query: \"mean distance\" \"regular polygon\" arclength boundary logarithmic correction n^-4 (unavailable)",
+          "Tokmachev and Shen arclength normalization; MathBench MB14-T4S-P064 unit regular polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/claim match 566983d9ba19 is this frozen record itself.",
+          "MathBench states a finite-sum regular-polygon expectation containing log cot(jθ/2), without a published proof or precedence date in the passages inspected.",
+          "Resultary f64acf954997 gives regular-polygon tail data/limits in a fixed window near the diameter, and a82d823c1b3b treats cut-off area rather than distance."
+        ],
+        "reasoning": "A verified exact regular-n mean would cover that scalar sequence, and the associated asymptotic could be extracted by analyzing the sum. The formula is not indexed for nonuniform gap vectors. Tail data are not an exact table of expectations and cut-off areas are different observables.",
+        "searches": [
+          "Resultary angular gap and regular-polygon chord statistics matches",
+          "MathBench MB14-T4S-P064 exact-mean statement by offset"
+        ]
+      },
+      "rationale": "The global circle bound is prior. The supported distinct claim is the sharp leading energy and error uniform over arbitrary vanishing angular meshes. The same-law finite regular formula stated on MathBench is a material overlap; the record expressly does not claim independent originality for the regular coefficient relative to that formula. Its proof or provenance is not established by the problem statement. A fixed-window tail theorem on regular polygons, a local small-distance law, and a stadium log correction do not determine this polygon-wide upper-bound expansion.",
+      "residual_risks": [
+        "Focused literature search was unavailable; no inference of absence. The official Tokmachev abstract was read but not the inaccessible full text.",
+        "The exact finite regular formula's published source, validity and priority were not established. Unindexed equivalents for the uniform angular-mesh expansion could remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior global result; stronger conditional claim not passage-verified",
+          "evidence": "The arclength-uniform boundary mean attains its fixed-perimeter maximum uniquely at the circle.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/znsl7205",
+          "material_read": "Official abstract at text offset 1030; bounded full-text attempt unsuccessful",
+          "method": "OA public-page passage comparison",
+          "title": "Mean distance between random points on the boundary of a convex body",
+          "trigger": "Same boundary sampling and sharp fixed-perimeter comparison"
+        },
+        {
+          "assessment": "Prior global bounds, not a mesh expansion",
+          "evidence": "1/6 < θ(K)/per(K) ≤ 2/π², upper equality only for the disk; the HTML makes the square in the denominator explicit.",
+          "identifier_or_url": "https://arxiv.org/html/2611.21661",
+          "material_read": "§1, p. 1, HTML offset about 953; compared to PDF offsets 2102–2614",
+          "method": "OA PDF and HTML statement with formula checked in original layout",
+          "title": "A Sharp Perimeter Inequality for Mean Distances on Convex Curves",
+          "trigger": "Same normalized mean and sharp range"
+        },
+        {
+          "assessment": "Material regular-family overlap; stated formula, not verified publication/proof or dated precedence; no unequal meshes",
+          "evidence": "The unit regular polygon uses length-uniform independent points. The proposed exact mean is a sum with log cot(jθ/2); the page presents a Lean proof problem and says answers are not published.",
+          "identifier_or_url": "https://mathbench.ai/en/items/MB14-T4S-P064",
+          "material_read": "Sampling setup at offset 505; stated exact expression at 3758–3911; problem/proof availability at 4427–4462",
+          "method": "OA public-page passage comparison",
+          "title": "Distance Formula for Two Boundary Points of a Regular Polygon",
+          "trigger": "Exact same regular-family quantity, potential stronger coverage"
+        },
+        {
+          "assessment": "Different shape, regime and bound; date does not establish precedence",
+          "evidence": "For a stadium with η=r/L tending to zero the normalized mean is 1/6+η² log(1/η)+O(η²); the limit is the lower-bound endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-logarithmic-mean-distance-deficit-for-degenerating-euclidean-sta--e9fe3b5c1d68/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "Logarithmic mean-distance deficit for degenerating Euclidean stadia",
+          "trigger": "Distinct same-date result with same observable and a log correction"
+        },
+        {
+          "assessment": "Fixed-window upper-tail result, not first mean defect",
+          "evidence": "The near-diameter crossover is parity dependent and describes tail probabilities in the almost-diametral regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-split-polygon-to-circle-crossover-for-almost-diametral-bo--f64acf954997/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "Parity-split polygon-to-circle crossover for almost diametral boundary chords",
+          "trigger": "Same regular polygons and sampling law"
+        },
+        {
+          "assessment": "Different small-distance statistic and regime",
+          "evidence": "The formula compares CDFs of Euclidean chord distance and shorter boundary-arc distance for small distance thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exact-polygonal-shortcut-law-and-sharp-angular-stability--b7f8e5bf9498/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "An exact polygonal shortcut law and sharp angular stability",
+          "trigger": "Polygon chord lengths, angular quantities and stability terminology"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": "The statistic concerns small cut-off area, not normalized chord length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-logarithmic-dust-and-angular-rigidity-for-random-polygon-boundar--a82d823c1b3b/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary statement comparison",
+          "title": "Logarithmic dust and angular rigidity for random polygon boundary chords",
+          "trigger": "Related polygon chord and logarithmic terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen explicit uniform bound and regular log derivation; prior circle extremum and precise regular-family overlap"
+      ],
+      "rationale": "This quantifies the sharp disk inequality for general inscribed meshes and identifies the exact leading dependence on how the vertices are spaced, even with arbitrarily disparate gaps. The leading Jensen conclusion is useful without asserting finite-order optimality. The regular refinement explains why the next term is not just an ordinary power correction: the near-diagonal angular kernel integrates the radial variance over a logarithmic range.",
+      "residual_risks": [
+        "No optimality assertion for the order of the uniform remainder on every nonuniform mesh or for exact fixed-m maximizers of the normalized mean."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

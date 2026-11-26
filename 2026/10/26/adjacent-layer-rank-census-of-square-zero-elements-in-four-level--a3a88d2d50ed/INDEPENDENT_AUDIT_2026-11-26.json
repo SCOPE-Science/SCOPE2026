@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:10:43.473264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Block multiplication leaves exactly AB=0, BC=0 and AE+DC=0, so the outer block F is free. For each rank-t B, A factors through the (b-t)-dimensional quotient by im B, and C has range in the (c-t)-dimensional ker B. Choosing the image of each rank-j map and then a surjection onto it gives the stated Gaussian-binomial rank count. To check the less immediate completion factor, send a map H from the fourth to the first layer to its restriction to ker C followed by projection modulo im A. This restriction/projection map is onto by choosing complements. Its kernel is exactly the possible AE+DC: first extend the im A-valued restriction on ker C to a map with range in im A and lift that through A; the remainder vanishes on ker C and factors through C, then extends from im C. The coupling image thus has dimension ad-(a-r)(d-s)=rd+as-rs. Its kernel in the (D,E) variables, together with free F, has dimension ad+bd+ac-rd-as+rs and gives the exact power of q. This argument includes zero ranks and characteristic two. In the scalar case B nonzero forces A=C=0, while B=0 gives one independent completion constraint exactly when A or C is nonzero, confirming the displayed small polynomial. The submitted checker and its verification notes were inspected, not executed; the general count is established by the linear argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bardestani et al. count by ambient rank. Karp–Thomas count by fixed-flag tableaux of prefix restriction Jordan types. A sole nonzero entry in C versus one in E has identical prefix ranks (0,0,0,1) but adjacent profiles (0,0,1) and (0,0,0), so neither coarser statistic determines the profile.",
+          "Melnikov's Borel orbit classification and finite-field orbit-size count are genuinely broader and do determine the profile by weighted summation over involutions."
+        ],
+        "reasoning": "The two Jordan-based results do not directly encode the marginal. The orbit classification does, so no originality is credited for the existence of an exact census, only for the compact per-coefficient evaluation and its uniform fiber.",
+        "searches": [
+          "Bardestani–Mallahi-Karai–Ram–Salmasian, arXiv:2503.15440, Theorem 2.5",
+          "Karp–Thomas, arXiv:2207.12590, Definition 5.1 and Theorem 5.13",
+          "Melnikov, B-Orbits in Solutions to the Equation X²=0 in Triangular Matrices, 2000; related full-text normal forms and dimensions in arXiv:math/0312290"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_square_zero.py",
+        "The indexed abstract of Melnikov's 2000 paper and the primary normal-form/dimension sections in her later paper",
+        "Boos–Reineke arXiv:1004.1996, Section 2.1",
+        "Rudnicki–Weber, Characteristic classes of Borel orbits of square-zero upper-triangular matrices, abstract and Section 3 (complex geometric orbit invariants)",
+        "Bardestani et al. arXiv:2503.15440, Theorem 2.5",
+        "Karp–Thomas arXiv:2207.12590, Definition 5.1 and Theorem 5.13",
+        "Indexed October 13 three-block formula and indexed October 26 mutually annihilating operator pairs summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact orbit-sum route is explicit: for an involution with k disjoint arcs and orbit dimension d_sigma, the orbit weight is (q-1)^k q^(d_sigma-k). Indeed the triangular centralizer imposes k independent diagonal equalities and only zero/equality constraints among strict upper entries, so orbit-stabilizer gives that weight. Summing with the adjacent-arc monomial gives the same census.",
+          "The earlier three-block result already has a rank-conditioned quotient count. The four-layer problem adds a coupled linear condition: the intersection of the two image spaces contributes rs, leaving exactly q^(ad+ac+bd-as-rd+rs) completions for every compatible triple."
+        ],
+        "reasoning": "The same marginal is a direct consequence of the prior orbit theory, but that consequence still sums dimension-dependent weights over many involutions. The frozen coefficient identity evaluates the sum in one product and explains why completion counts depend only on the three ranks, not on the actual triple. No inspected result performs that evaluation by specialization.",
+        "searches": [
+          "Melnikov, Description of B-orbit closures of order 2, Sections 2.5–2.7",
+          "Boos–Reineke, Section 2.1, interval rank invariance",
+          "October 13 indexed three-block theorem",
+          "Frozen RESULT.md, coupling rank calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacent ranks are ranks of induced maps on the two-consecutive-layer quotients of the flag. On an involution representative they count arcs connecting the respective pair of layers. To restrict to the parabolic radical, exclude involutions with any arc lying in a single layer; the radical and these quotient ranks are Borel-invariant.",
+          "Thus a sum of finite-field orbit sizes indexed by those involutions equals the polynomial, not just its unrefined specialization."
+        ],
+        "reasoning": "This identifies a prior equivalent orbit-sum formulation and limits credit accordingly. To obtain the frozen formula from that sum would require evaluating its grouped coefficients, not just filtering and renaming the summation indices.",
+        "searches": [
+          "Resultary searches for square-zero parabolic counts, adjacent rank profiles and differential ranks",
+          "Boos–Reineke, arXiv:1004.1996, Section 2.1, Theorems 2.1–2.2",
+          "Melnikov, Description of B-orbit closures of order 2, Sections 2.5–2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved three-block record actually tracks the two adjacent ranks as its inner indices i,j; summing over the residual rank h gives the two-rank marginal there. It has no fourth layer and no AE+DC completion equation.",
+          "The same-day joint Jordan-rank/radical-image-intersection hit concerns pairs of mutually annihilating square-zero operators, not adjacent block ranks. The inspected earlier orbit formulas give a table in principle of weighted representatives, not the stated product coefficients."
+        ],
+        "reasoning": "The closest catalogued formulas were compared by object, rank statistic and number of layers. No inspected table gives the four-block product. The limited search is not proof that no equivalent evaluation exists.",
+        "searches": [
+          "Resultary block-rank census and exact joint profile lookups",
+          "October 13 indexed three-block RESULT.md, Finding and scope",
+          "Public primary-literature search for four-block adjacent rank product enumeration and the coupled square-zero constraint"
+        ]
+      },
+      "rationale": "The distinct claim is the explicit factored coefficient, in particular the uniform completion factor for any compatible triple with prescribed adjacent ranks. It is not the first way to obtain the census: Melnikov's weighted involution orbits already give an exact, generally much larger orbit sum for the same polynomial. The inspected sources do not give the evaluation of each such coefficient as three ordinary rank counts times one power of q. The new factorization uses the overlap in the two completion terms, not just a relabeling of orbit or Jordan data.",
+      "residual_risks": [
+        "The full text of Melnikov's 2000 orbit-count paper was unavailable through the identified accessible routes. Its broader orbit-counting coverage is credited affirmatively, not dismissed for lack of access; an additional specialized product there or in uninspected literature cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative evidence for stronger orbit-counting framework; not a full-paper exclusion",
+          "evidence": "The abstract states that adjoint triangular-group orbits over K correspond to involutions and that finite-field orbit point counts are computed.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0021869399980560",
+          "material_read": "Indexed abstract; core theorem ingredients were checked in Melnikov's related primary full text below",
+          "method": "Primary-literature index and lawful publisher/CORE/alternate retrieval attempts; the 2000 full text was not accessible",
+          "title": "B-Orbits in Solutions to the Equation X²=0 in Triangular Matrices",
+          "trigger": "Exact finer finite-field square-zero orbit counts"
+        },
+        {
+          "assessment": "An exact compatible orbit model and dimension formula, referring to the 2000 work",
+          "evidence": "The representative for an involution has one unit per disjoint arc and zeros elsewhere. The proposition gives the orbit decomposition and the dimension theorem gives a combinatorial expression for d_sigma.",
+          "identifier_or_url": "https://www.math.utah.edu/~ptrapa/math-library/melnikov/melnikov_B_orbits.pdf",
+          "material_read": "Sections 2.5–2.7, PDF pp. 8–9, text from about offset 22117",
+          "method": "Bounded OA extraction from a university-hosted copy",
+          "title": "Description of B-orbit closures of order 2 in upper-triangular matrices",
+          "trigger": "Check actual orbit representatives and weight inputs"
+        },
+        {
+          "assessment": "Interval-rank invariants do determine the adjacent profile in the parabolic slice",
+          "evidence": "Rank of the interval projection is Borel-invariant and equals the number of arcs contained in that interval on a representative; the absence of same-layer arcs reduces this to adjacent arc counts on the relevant intervals.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1996",
+          "material_read": "Section 2.1, Theorems 2.1–2.2, text from about offset 6020",
+          "method": "Bounded OA PDF extraction",
+          "title": "B-orbits of 2-nilpotent matrices and generalizations",
+          "trigger": "Check which finer orbit data determine adjacent ranks"
+        },
+        {
+          "assessment": "Counts the coarser ambient rank",
+          "evidence": "The rank in the square-zero enumeration is that of the whole operator, not the three adjacent maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.15440",
+          "material_read": "Theorem 2.5 (PDF p. 9, about offset 41714) and rank-count specialization (p. 10, about 43976)",
+          "method": "Bounded OA PDF passages",
+          "title": "Counting the number of elements in the ad-nilpotent ideals of type A",
+          "trigger": "Known square-zero counts for arbitrary parabolic radicals"
+        },
+        {
+          "assessment": "Fixed-flag prefix information does not determine adjacent quotient ranks",
+          "evidence": "The tableau counts depend on the restriction Jordan types along the cumulative fixed flag, which agree for the C-only and E-only witnesses.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.12590",
+          "material_read": "Definition 5.1 (PDF p. 27, about offset 90000) and Theorem 5.13 (p. 32, about 108752)",
+          "method": "Bounded OA PDF passages",
+          "title": "q-Whittaker functions, finite fields, and Jordan forms",
+          "trigger": "Flag-refined counts might retain the three adjacent ranks"
+        },
+        {
+          "assessment": "Tracks two adjacent ranks with a residual rank in three blocks; does not cover four-block coupling",
+          "evidence": "The summand counts adjacent ranks i,j and residual rank h, with q^(ac-(a-i)(c-j)) as its power. The scope explicitly does not assert a four-level result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-rank-spectra-of-square-zero-elements-in-three-block-parabolic-ra--d1f94ed041a2/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2185",
+          "method": "Bounded local mirror extraction",
+          "title": "Rank spectra of square-zero elements in three-block parabolic radicals",
+          "trigger": "Closest catalogued block-count formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacent ranks distinguish natural consecutive-layer quotient maps that ambient Jordan and prefix-tableau counts merge. Four levels introduce the first completion constraint coupling two nonadjacent blocks. The exact fiber dimension identifies its overlap term and gives each profile coefficient with a fixed number of rank factors rather than a sum over individual involutions. This structural simplification is useful across all sizes and finite fields, without needing to claim a first census or an orbit classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

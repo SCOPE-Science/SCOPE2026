@@ -1,28 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact five-variable determinant polynomial is used with all coefficients integral, so neither characteristic two nor mixed-characteristic rings require division by \(2\). The quadratic cone \(UW-V^2=0\) has \(q^2\) field points and one singular point. The cubic cone has exactly \(q^4\) field points, of which \(q^2\) have rank at most one, with smooth rank-two remainder. Unit-pivot Schur complements identify rank-one lifts with the quadratic cone and the zero residue with a cubic scaling. All disjoint residue cases are counted and lead to the two displayed recurrences; multiplying the rational expressions verifies the claimed series. Exact complete small-ring enumerations agree in ten cases, including equal and mixed characteristic and an extension residue field.
+PASS
 
-The proof explicitly distinguishes finite-length truncations from an actual infinite base ring. The pole at \(t=q\) supplies the main valuation tail, and the other poles yield a strictly smaller correction. Remaining correctness risk is a subtle unrecognized conditional-measure or finite-lifting issue; the triangular-coordinate argument and independent enumerator address this directly.
+The reduction of UW−V² has q² zeros, with unique singular zero the origin even in characteristic 2 (if U=W=0, the equation forces V=0). For the cubic, the field cases a≠0, a=0 with b≠0, and a=b=0 give respectively (q−1)q³,(q−1)q²,q² zeros. There are q² rank-at-most-one points: with a≠0 choose a,b and use the rank-one relations; with a=0 the minors force b=c=d=0. Each rank-two point has a unit directional derivative by the Schur chart, or by −b² or −d² in the complementary cases. A unit derivative gives a bijection in the chosen coordinate on a fixed residue class: each next-digit change modifies the output by the derivative times that digit, and hence uniquely lifts each preceding solution. This does not assume a coefficient field. At a rank-one residue, a or e is a unit; the invertible Schur coordinate transformation makes the three residual entries uniformly independent in (π) conditional on the residue class and free values of a,b. Multiplication by π bijects R/(π^(m−1)) with (π), so the rank-one quadratic and origin homogeneous recurrences use honest uniform shorter-ring coefficients, with no ignored terminal condition. For shifts of size at least m the whole contribution is already in the terminal bin; otherwise coefficients below m follow by induction using the respective shifts 1,2,3. The rational solutions follow by solving the two recurrences, first for Q and then the cubic. Their finite tails are recovered by subtracting lower coefficients, and the only nearest pole t=u⁻¹ has coefficient 1−u³ when expressed as a multiple of (1−ut)⁻¹. The remaining possible pole moduli are distinct between the two other denominator factors and at least u⁻³ᐟ², giving the asserted summed remainder. Separately, an independent Leibniz enumeration over the ramified characteristic-four ring Z[X]/(X²−2,X³) gives (1/2,3/16,9/64,11/64) at length three. The frozen checker and saved output were inspected, not run.
 
-## Originality — PASS, qualified
+## originality
 
-Comer–Kaltofen (preprint dated 14 June 2011) establish the finite-field Hankel singular count, a consequence only at length one. Ballico–Elia (first published 28 April 2014) concern a structured finite-field Hankel determinantal family, not the unrestricted five-parameter congruence tower. Doan (arXiv:2610.23689, 16 October 2026) proves a significantly related topological zeta formula and a general local-rank reduction, but does not give the displayed finite-field-size-dependent arithmetic valuation generating series, nor its arbitrary finite-chain-ring universality. The exact special-case topological specialization of the present formula matches Doan's result, so the geometric relation is explicitly acknowledged rather than claimed new.
+PASS
 
-Searches for Hankel determinant valuations, local zeta functions, catalecticants, and chain-ring counts, alongside claim-level comparisons to accessible published mathematical records, did not identify an equal or dominating arithmetic formula. Negative searches alone cannot establish historical uniqueness. Residual risk includes an older p-adic integration computation or general motivic formula whose finite-q specialization is equivalent.
+Credit the established catalecticant local geometry, the identical topological specialization, and the classical field-level rank and singularity counts. The supported distinct result is the exact finite-q valuation series and characteristic- and ramification-uniform finite-chain-ring distribution, not the topological zeta function or first congruence count.
 
-## Value — PASS
+## value
 
-The generic \(3\times3\) Hankel determinant is the first singular cubic in the square Hankel family. Its singular locus is a rank-one rational-normal-curve cone, so rank-two Hensel lifting alone cannot determine prime-power singularity counts. The result provides *all* thickened determinant-divisibility strata, a characteristic-uniform rational zeta function, and the precise rare-event tail. It refines the classical field count in a structured and reusable way; the characteristic-independent universality and the topological-zeta specialization motivate the precise object and invariant without claiming a broader unproved theorem.
+PASS
 
-## Closest sources and limits
+The valuation law gives the entire tower of thickened determinant congruence counts for a canonical structured matrix. It quantifies the rank-one contribution and its lifting uniformly even in residue characteristic two and across different ramification types. These finite-q corrections are needed for arithmetic singularity and probability calculations and are not encoded in the already known topological specialization.
 
-1. Comer–Kaltofen, *On the Berlekamp/Massey Algorithm and Counting Singular Hankel Matrices over a Finite Field* (2011 preprint), https://users.cs.duke.edu/~elk27/bibliography/10/CoKa10.pdf: field-level counts only.
-2. Ballico–Elia, *On Determinantal Varieties of Hankel Matrices*, **Algebra** (2014), https://doi.org/10.1155/2014/970157: structured Hankel varieties, no general chain-ring valuation law.
-3. Doan, *Local topological zeta functions of generic symmetric and catalecticant determinantal varieties* (2026), https://arxiv.org/abs/2610.23689: directly related topological formula and local reductions, no stated complete arithmetic zeta law.
-4. *Arithmetic determinant fibers of four-by-four Hankel matrices over finite fields* (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-arithmetic-determinant-fibers-of-four-by-four-hankel-matrices-ov--ef46cabffa4c: different size, base-field determinant fibers.
-
-Independent mathematical validation and exhaustive bibliographic priority checking have not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

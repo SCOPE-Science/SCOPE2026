@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:50.755465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and verify_degree_center_boundary.py (inspected, not executed)",
+        "/workspace/replay_4.log"
+      ],
+      "rationale": "Independent edge-mask orbit census and exact distance layers reproduce connected labeled counts (1,1,4,38,728,26704), set differences (0,0,0,0,400,18480), and distinct unique choices (0,0,0,0,0,720). The two displayed witnesses have the stated degree, eccentricity and farness vectors, and their disjoint relabeling orbits each have size 360 and exhaust the conflicts. Structurally, in a conflict the hub cannot be universal or have degree n−2 (in the latter case its sole nonneighbor is at distance 2, making the hub a center). Maximum degree at most 2 gives a path or cycle, with no conflicting unique choices. Thus through five vertices conflict is impossible; at six the hub must have degree 3. A vertex at distance at least 3 from it can only attach through its other nonneighbor, which has at most one further neighbor because all nonhub degrees are at most 2. This forces the length-three pendant path off the hub; the only optional edge joins its other two neighbors. This gives precisely the two shapes. In both the distinct hub and center minimize farness jointly. Replay: python /workspace/replay_frozen_graphs.py 4, output /workspace/replay_4.log.",
+      "residual_risks": [
+        "This tests finite connected simple undirected graphs, not weighted or disconnected variants or the incidence of conflicts at larger orders. The 400 at order five concern unequal sets, not distinct unique choices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ram Kumar et al. study S-eccentricity and center sets of specified graph classes. Batool–Niazi study how centralities compare on selected empirical networks."
+        ],
+        "reasoning": "Class-specific center sets and empirical centrality comparisons do not classify all small connected graphs jointly by unique maximum degree and minimum eccentricity. The inspected passages provide background, not a covering theorem.",
+        "searches": [
+          "Ram Kumar et al., arXiv:1312.3182, p. 1",
+          "Batool and Niazi, DOI:10.1371/journal.pone.0090283, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:2026/10/13/b452e5477117",
+        "Resultary:2026/10/12/0a32f57959a5",
+        "Resultary:2026/10/12/328723bc58da",
+        "arXiv:1312.3182",
+        "DOI:10.1371/journal.pone.0090283"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first compares degree with betweenness and has a unique best closeness vertex; the second compares degree with eigenvector centrality; the third compares classic closeness with harmonic centrality."
+        ],
+        "reasoning": "None identifies the minimax center in the needed conflict domain. In particular, the checked degree–betweenness theorem cannot be substituted for degree–center just because the counts match, and its unique closeness leader differs from the target's farness tie. Same-day dating makes no statement about priority.",
+        "searches": [
+          "Resultary:2026/10/13/b452e5477117",
+          "Resultary:2026/10/12/0a32f57959a5",
+          "Resultary:2026/10/12/328723bc58da"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph center is an argmin of maximum distance, whereas classic closeness is an argmin of the sum of distances. In both target conflict types farness has two best vertices, not a distinct unique winner."
+        ],
+        "reasoning": "Maximizing inverse eccentricity or locating a vertex 1-center are equivalent to the center side of the target; changing the criterion to closeness, harmonic centrality, or betweenness is not. The Resultary searches surfaced related but non-equivalent comparisons.",
+        "searches": [
+          "Resultary: unique maximum degree versus eccentricity/minimax graph center; degree versus classical closeness",
+          "Ram Kumar et al., arXiv:1312.3182, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked Resultary claim with the same 720/26704 count has one asymmetric 8-edge conflict class (degree versus betweenness). The target instead has two conflict classes, with 5 and 6 edges and automorphism order 2 each."
+        ],
+        "reasoning": "The exact count in the checked entry comes from different graphs and cannot tabulate this invariant. A graph atlas of undecorated graphs is not a table of maximum-degree and center choice sets.",
+        "searches": [
+          "Resultary: degree vs center and degree vs closeness, narrow small-graph boundary",
+          "Resultary:2026/10/13/b452e5477117, RESULT.md Finding"
+        ]
+      },
+      "rationale": "The verified distinct contribution is the unique degree versus minimax center boundary, two first-layer isomorphism classes, and the farness-tie refinement. The same-day 720/26704 centrality comparison in the catalogue is a close numerical match but has a different objective and a disjoint conflict class. The classical definitions and broad qualitative diversity of centralities are not novel.",
+      "residual_risks": [
+        "Ranked catalogue results and bounded literature checks do not exclude an unlocated textbook example or exact atlas annotation. A general literature query surfaced generic graph-theory material and does not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerically close but distinct, also at the level of conflicting graph classes.",
+          "evidence": "One 8-edge degree–betweenness conflict class of size 720 and a unique closeness maximizer agreeing with degree.",
+          "identifier_or_url": "Resultary:2026/10/13/b452e5477117",
+          "material_read": "RESULT.md Finding, local mirror offset 600; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary search and local mirror passage.",
+          "title": "Six vertices are the sharp unique-maximizer split for degree and betweenness",
+          "trigger": "Same order and same labeled rate, plus a closeness refinement."
+        },
+        {
+          "assessment": "Different second criterion.",
+          "evidence": "Degree versus eigenvector centrality, first distinct unique leaders at seven.",
+          "identifier_or_url": "Resultary:2026/10/12/0a32f57959a5",
+          "material_read": "RESULT.md, local mirror offset 1250.",
+          "method": "Resultary search and local mirror passage.",
+          "title": "Seven vertices are the sharp unique-leader split for degree and eigenvector centrality",
+          "trigger": "Adjacent exact finite comparison with degree."
+        },
+        {
+          "assessment": "Not a minimax eccentricity result.",
+          "evidence": "Closeness and harmonic centrality first split at seven.",
+          "identifier_or_url": "Resultary:2026/10/12/328723bc58da",
+          "material_read": "RESULT.md, local mirror offset 650.",
+          "method": "Resultary search and local mirror passage.",
+          "title": "Seven vertices are the sharp unique-leader split for closeness and harmonic centrality",
+          "trigger": "Two related distance-based centralities."
+        },
+        {
+          "assessment": "Center-set background for specified graph classes; not inspected as an exhaustive noncoverage check.",
+          "evidence": "Defines S-eccentricity and studies center sets of specified graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3182",
+          "material_read": "PDF abstract, p. 1, text offset 2250.",
+          "method": "Open PDF passage.",
+          "title": "On The Center Sets and Center Numbers of Some Graph Classes",
+          "trigger": "Primary graph-center source cited in the record."
+        },
+        {
+          "assessment": "Empirical comparisons, not the exact boundary in the inspected material.",
+          "evidence": "Validates and compares centralities on chosen networks.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0090283",
+          "material_read": "PDF abstract, p. 1, text offset 1700.",
+          "method": "Open PDF passage.",
+          "title": "Towards a Methodology for Validation of Centrality Measures in Complex Networks",
+          "trigger": "Primary centrality-comparison source cited in the record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions, witnesses and refinement",
+        "/workspace/replay_4.log"
+      ],
+      "rationale": "A high-degree hub is a natural local placement heuristic; the graph center is the exact minimax placement rule. The first order at which these unambiguous choices split is a useful benchmark distinct from the first set-level difference. The two complete onset shapes isolate a short pendant path as the obstruction, and mean-distance closeness failing to break the tie distinguishes all three notions in a concrete way.",
+      "residual_risks": [
+        "A minimal counterexample benchmark, not a guarantee about hub placement or frequency in large networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

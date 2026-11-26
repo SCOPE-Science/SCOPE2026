@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:59:48.612228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–92",
+        "Frozen VERIFICATION.md lines 19–27 and verify.py lines 19–137 (inspected, not executed): exact algebra/sums, quadrature, branching example and seeded simulation"
+      ],
+      "rationale": "The exact local identity can be checked without using the frozen integration. For a standardized Gaussian triple (U,V,Z), write r=Corr(U,V), a=Corr(U,Z), b=Corr(V,Z). Tilt the law by exp(t Z^2/2) and normalize for t close to zero. The derivative at zero of the tilted crossing probability is one half the sign–square covariance. Regressing (U,V) onto Z shows that the tilt changes just Var(Z) to 1/(1-t), adding t/(1-t) times (a,b)(a,b)^T to the bivariate covariance. Hence the derivative of the new U,V correlation is ab-r(a^2+b^2)/2; differentiating arccos(r)/pi gives precisely [r(a^2+b^2)-2ab]/[pi sqrt(1-r^2)] for the covariance. This argument allows zero residual covariance and thus covers z at an edge endpoint. Independent tree innovations and variance one give the product along each path (condition at the last common ancestor). On the u-side of edge uv this means a=eta, b=r eta; substitution gives -r sqrt(1-r^2) eta^2/pi. Covariance bilinearity gives the weighted result; if all r have a common nonzero sign all path squares are positive, so there is no cancellation and nontrivial weights give strict sign. In the chain there are 2(n-1-h) site-edge pairs at distance h, including h=0, and the divided geometric sum tends to 1/(1-rho^2) for fixed |rho|<1. The non-Markov example has leading principal minors 1, 3/4, 9/50 and numerator 33/200 with sqrt(1-r^2)=sqrt(3)/2, proving positive definiteness and the stated opposite sign.",
+      "residual_risks": [
+        "The supplied finite checks were not replayed. The audit uses a direct analytic derivation including endpoints, rho=0 and both signs.",
+        "The limiting argument assumes fixed |rho|<1; the covariance sign does not establish stochastic dependence orderings or extend to arbitrary Gaussian graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier crossing-quadratic lemma assumes only joint Gaussianity, unit endpoint variances and |r|<1; it is not restricted to AR(1) even though its motivating theorem concerns centered chain energy.",
+          "Generalized Price's theorem covers derivatives of Gaussian expectations of tempered distributions; the cited passages provide a method but do not themselves state the specialized tree result."
+        ],
+        "reasoning": "The earlier explicit three-variable identity, not merely the existence of general Gaussian tools, covers all local test triples of the tree. One correlation substitution yields the exact formula with no new covariance calculation.",
+        "searches": [
+          "Resultary e0f4a1d0a49b, Proof §1, offsets 2450–3997",
+          "Voigtlaender arXiv:1710.03576, Theorem 1",
+          "Vladimirov arXiv:1409.4377, §II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 47–92 and 100–113",
+        "Resultary e0f4a1d0a49b, 96b52b268e48 and de93365fc409",
+        "Sinn–Keller §§2, 7.1 and Theorem 3.1; arXiv:1710.03576 Theorem 1; arXiv:1409.4377 §II; arXiv:math/0609682 pp. 1–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree path property gives a=eta and b=r eta (or swapped). Thus the prior numerator r(a^2+b^2)-2ab becomes -r(1-r^2)eta^2 and the denominator cancels one square root. Linearity then sums these already signed covariances with deterministic weights.",
+          "Using the prior numerator for r=1/2, a=4/5, b=1/10 gives 33/200; the determinant 9/50 confirms this is a feasible covariance triple. The example illustrates an immediate region where the prior formula is positive despite positive correlations.",
+          "The prior AR(1) record explicitly includes the sign, zero case and normalized asymptotic."
+        ],
+        "reasoning": "Absence of the tree wording in the prior proof does not leave a distinct exact theorem: path factorization, substitution and summation give the local law, weights and sign, and the illustrative example is direct numerical evaluation of the general formula.",
+        "searches": [
+          "Resultary e0f4a1d0a49b, Gaussian crossing-quadratic identity",
+          "Resultary 96b52b268e48, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e0f4a1d0a49b writes f(U,V)=1{UV<0} and gives Cov(f(U,V),W^2)=[r(a^2+b^2)-2ab]/[pi sqrt(1-r^2)], using a and b as covariances with W. Unit variance of the target tree gives precisely the same a,b as correlations.",
+          "The earlier raw-energy AR(1) record 96b52b268e48 uses the distance from site j to the nearer edge endpoint, the same path-length convention as on the tree.",
+          "Sinn–Keller's indicator–indicator covariances describe a different statistic even when both sources use the term zero crossings."
+        ],
+        "reasoning": "The same-statistic match is the mixed crossing-quadratic identity, not a title-level crossing-rate match. Uncentered raw energy is the linear sum of the site squares here, not variance with an estimated sample mean.",
+        "searches": [
+          "Resultary e0f4a1d0a49b, Proof §1, exact locate string r(a^2+b^2)",
+          "Resultary 96b52b268e48, Finding",
+          "Sinn–Keller, doi:10.1137/S0040585X97984991, §2, Theorem 3.1 and §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 AR(1) record gives Cov(I_i,X_j^2)=-sigma^2 rho sqrt(1-rho^2)(rho^2)^d/pi, the raw-energy aggregate, and the per-site limit. At sigma^2=1 all chain values match.",
+          "The October 12 record supplies the exact formula for any allowed triple, not a finite sample or table. The same-day tensor-train record de93365fc409 instead concerns mixed squared Gaussian fourth moments and is not a direct hit."
+        ],
+        "reasoning": "Closed forms cover the exact invariants without a case table. For the aggregate, sum_(r=1)^(n-1)(1-rho^(2r))=(1-rho^2)sum_(h=0)^(n-2)(n-1-h)rho^(2h), showing term-for-term equivalence after exchanging sums.",
+        "searches": [
+          "Resultary 96b52b268e48, Finding at offset 0",
+          "Resultary e0f4a1d0a49b, Proof §1",
+          "Resultary de93365fc409, Finding at offset 0"
+        ]
+      },
+      "rationale": "The exact general Gaussian sign-event/square covariance is already explicit in earlier Resultary e0f4a1d0a49b, Proof §1. The proposed tree law follows by substituting the defining Gaussian Markov path correlations into that stronger identity; the weighted sign follows by linearity and same-sign summands. The AR(1) local/aggregate covariances and limit are explicitly given in the earlier 96b52b268e48. The non-Markov example is a positive-definite numerical instance of the same general signed formula. Thus the central claim is mechanically implied even though a standalone tree statement did not surface. This verdict rests on readable formulas, not on inaccessible texts or priority assumptions about same-day records.",
+      "residual_risks": [
+        "Price’s 1958 original and the identified Lindgren 1974 source were not readable through the checked routes. The precise earlier literature provenance of the mixed identity is not resolved; these access limits do not affect the explicit stronger formula already read.",
+        "The inspected Sinn–Keller passages compare the closest stated results; they are not an exhaustive search for implicit corollaries throughout that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger lemma mechanically implies the frozen tree identity",
+          "evidence": [
+            "Cov(f(U,V),W^2)=[r(a^2+b^2)-2ab]/[pi sqrt(1-r^2)] for centered jointly Gaussian U,V,W; W need not even have unit variance. The record does not claim the lemma itself as new."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-two-boundary-layers-for-zero-crossing-and-centered-energy-covari--e0f4a1d0a49b/RESULT.md",
+          "material_read": "Proof §1, Gaussian crossing-quadratic identity, offsets 2450–3997; relationship passage around 8200",
+          "method": "Published record via local mirror; literal locate followed by the proof passage",
+          "title": "Two boundary layers for zero crossing and centered energy covariance",
+          "trigger": "Stronger exact Gaussian mixed identity"
+        },
+        {
+          "assessment": "Explicit earlier coverage of chain corollary",
+          "evidence": [
+            "Edge-to-site distance formula, uncentered raw-energy finite sum and per-site limit; specializing sigma^2=1 and rearranging the sum gives the submitted values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-zero-crossing-count-has-exact-opposite-sign-covariance-with-gaus--96b52b268e48/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1961",
+          "method": "Published record via local mirror",
+          "title": "Zero-crossing count has exact opposite-sign covariance with Gaussian AR(1) energy",
+          "trigger": "Possible exact chain mixed-covariance formula"
+        },
+        {
+          "assessment": "Inspected formulas concern crossing indicator–indicator covariance and crossing-rate variance",
+          "evidence": [
+            "Theorem 3.1 reduces indicator–indicator covariance to four-dimensional orthant probabilities; the AR(1) section studies the crossing-rate variance, not the target raw-energy covariance."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/links/e5d71bcc8bdb27cb5abb9b57445ce4de/tvp4241.pdf (doi:10.1137/S0040585X97984991)",
+          "material_read": "§2, printed p. 550 around offset 4300; Theorem 3.1, PDF p. 8 around 22466; §7.1, printed p. 567 around 56600",
+          "method": "Lawful open journal copy; read the located original passages",
+          "title": "Covariances of Zero Crossings in Gaussian Processes",
+          "trigger": "Closest cited discrete Gaussian crossing and AR(1) comparison; frozen source reported unavailable full text"
+        },
+        {
+          "assessment": "General mechanism, not an explicit tree specialization in the passage",
+          "evidence": [
+            "Derivatives of Gaussian expectations expressed via distributional derivatives for tempered distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.03576",
+          "material_read": "Theorem 1, PDF p. 3, around offset 11296",
+          "method": "Open primary PDF passage",
+          "title": "A General Version of Price’s Theorem",
+          "trigger": "General Gaussian covariance differentiation and nonsmooth sign functions"
+        },
+        {
+          "assessment": "Methodological comparison",
+          "evidence": [
+            "Section II treats classical Gaussian expectations and derivatives with respect to covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.4377",
+          "material_read": "§II, PDF pp. 2–3, offsets 7600–14888",
+          "method": "Open primary PDF passages",
+          "title": "A quantum mechanical version of Price’s theorem for Gaussian states",
+          "trigger": "Related covariance differentiation and Gaussian expectation identities"
+        },
+        {
+          "assessment": "Different continuous-time statistic",
+          "evidence": [
+            "Second-moment finiteness for level or curve crossing counts under Geman-type conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609682",
+          "material_read": "Abstract and theorem, PDF pp. 1–3, offsets around 402 and 6700",
+          "method": "Open primary PDF passages",
+          "title": "On the second moment of the number of crossings by a stationary Gaussian process",
+          "trigger": "Cited related crossing moment theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–41 and 77–92",
+        "Resultary e0f4a1d0a49b Proof §1 and 96b52b268e48 Finding"
+      ],
+      "rationale": "The statistic and Markov tree are natural, and the specialization is potentially useful as exposition. But the entire path-square invariant is a routine substitution into the known stronger covariance formula, the common-sign result is a same-sign sum, the chain calculation is already explicit, and the counterexample fixes one admissible triple in an open region easily read from the numerator. There is no distinct nonmechanical scientific result in the frozen package; rejection does not call its formulas incorrect or deny their descriptive utility.",
+      "residual_risks": [
+        "No independent claim about mixed-sign cancellation beyond the weighted sum, a more general Gaussian graph boundary, or non-Gaussian models was made or evaluated as a repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of a sharp eight-point \(C^2\) threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope fixes two named equivalence relations on a nonempty finite universe. The orbit encoding by intersection matrices is bijective on isomorphism types; the four one-point extensions are exhaustive by deletion, and the canonical representative fixes invariant column-sum order and minimizes over the remaining row/column freedoms. The logical characterization is global, synchronized one-dimensional colour refinement including every joint \(E,F\) relation value, with equality accounted for on the diagonal. The extracted standalone exact verifier computes 3,017 types, 3,016 stable-colour signatures and one two-member class at eight, with no earlier collisions. The witnesses are analytically nonisomorphic (different incidence-component counts) and indistinguishable (each point has the same four relation-category counts). The table also agrees with OEIS A007716's independently known isomorphism totals. Risk: as with any finite exhaustive classification, the proof depends on the supplied generator/canonicalization argument and code implementing it correctly; the labelled-partition cross-check independently tests the small orders.
+PASS
 
-## Originality — PASS, qualified
+Verified for finite nonempty structures with two named equivalences and no other symbols, with comparisons restricted to that class. The intersection matrix is a complete isomorphism invariant modulo independent row and column permutations. Removing one element reverses one of the four extensions; the orbit selector fixes invariant column sums, examines every within-group order, and sorts rows. Counting refinement uses the four ordered relation channels and previous colors; equality is recovered by splitting out exactly one point of the current color from the (1,1) channel. Unary color formulas follow by counting quantifiers, and induction on formulas using the atomic pair type and endpoint colors gives completeness of the stabilized color histograms. Different cardinalities are distinguishable by a counting sentence. A separate reproduction fixing one partition by block sizes and generating every second partition by restricted-growth strings, followed by synchronized refinement, gave iso counts 1,4,10,33,91,298,910,3017 and logical counts 1,4,10,33,91,298,910,3016. It found just the displayed two matrices in the non-singleton class at eight. The pair is nonisomorphic by incidence connectivity and has identical uniform profiles (1,1,1,5), so its equivalence also follows without the census. Replay: python3 /workspace/branches/bac2aa1c-df52-40c9-904d-e8700b725c4d/census_independent.py 8; see census-output.txt in the same directory. The frozen program was inspected but not executed.
 
-Kiefer–Schweitzer–Selman, arXiv:1503.08792v1 (2015), give the general characterization of structures identified by \(C^2\), not the explicitly evaluated two-equivalence cutoff and first ambiguity layer. Pratt-Hartmann, DOI:10.1002/malq.201400102 (2015), addresses (un)decidability of satisfiability in the presence of equivalences, not the 3,016-class census. OEIS A007716 already contains the *3,017 isomorphism count*; novelty does not include that total. Focused mathematical searches yielded no source stating the unique eight-element pair or threshold. The general characterization is the most important stronger antecedent, so the contribution should be described specifically as a restricted exact specialization. Risk: small-order colour-refinement computations not indexed under these keywords may have appeared earlier; priority has not been independently audited.
+## originality
 
-## Value — PASS
+PASS
 
-Two interacting partitions are a basic minimal setting for finite relational structures, epistemic equivalence frames, and \(C^2\) identification. The exact first loss of reconstructibility and unique obstruction identify the smallest way locally identical intersection behaviour can conceal globally different incidence connectivity. Enumerating the complete first layer is a natural benchmark rather than an arbitrary graph slice, and the 3,017-to-3,016 distinction is a logical statistic not provided by the pre-existing matrix count. The result is finite and deliberately limited; no downstream general theorem is asserted.
+The replacement RESULT.md credits material overlap: the exact eight-point witness, including its whole two-matching fibre in the unrestricted class, is covered by a distinct Resultary record. The total isomorphism-count column is known. Originality credit is confined to the unrestricted logical census, its no-collision assertion through seven, and exclusion of every other collision at eight. The shared date does not establish relative priority.
 
-## Sources and limitations
+## value
 
-The primary historical texts were inspected in their relevant sections: Kiefer–Schweitzer–Selman, introductory logic correspondence and relational-structure classification (Theorem 27 and Corollary 29); Pratt-Hartmann, Sections 1–2 and 7; OEIS A007716, enumerator definition, formula and values. This is a self-review, not a substitute for outside priority or code inspection. Only new work was assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural relational class already has a known orbit count and a natural logical invariant. Determining precisely when that invariant ceases to distinguish types, and showing the known matching fibre is the sole discrepancy among all 3,017 types at the first order, gives an independently useful obstruction and exact test benchmark. It is not merely recomputing the known orbit column or confirming the matching example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

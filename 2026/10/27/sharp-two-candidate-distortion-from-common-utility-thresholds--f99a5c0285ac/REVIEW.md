@@ -1,19 +1,21 @@
-# Scientific review — two-candidate common-threshold distortion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each pair of threshold reports determines the intersection of two scalar utility bins. Under the two-alternative unit-sum equation this is precisely one cell of the reflected mesh. The midpoint comparison guarantees the claimed distortion because every reported interval is at most the mesh width. The two-voter reflected-cell construction forces the opposite endpoints on any fixed deterministic decision, obtaining the same bound as a supremum. Pigeonholing the at most \(2t+1\) cells and enforcing equal lengths establishes both the optimum and the exact \(2^t\) equality family. The no-endpoint-inclusion assumption is unnecessary because utilities approach every cell endpoint from within. An executed standard-library exact-rational program confirms 57,568 assertions over 639 threshold vectors, including exhaustive cell-report profiles with one to three voters for each tested vector; the infinite quantifiers are justified by the analytical proof, not enumeration.
+PASS
 
-## Originality — PASS (priority risk remains)
+The two reported bins intersect after reflecting B's bin through x↦1−x. The closure of a feasible interval has length at most w, including an isolated cut report (length zero) if the tie convention creates one. Therefore the mean utility X lies in [L,U] with U−L≤w. The extreme competing welfare ratios for the two possible choices are bounded by max(1,(1−L)/L) and max(1,U/(1−U)); zero denominators are handled by taking the other choice. Comparing them reduces to L+U≥1 for choosing A, and the selected candidate's mean is then at least (1−w)/2. Pairing a widest open cell with its reflected open cell gives one report profile whose compatible means approach (1−w)/2 and (1+w)/2; thus whichever deterministic winner is fixed, one endpoint sequence enforces the claimed supremum. This is a worst case over all finite n, not an equality claimed separately at every fixed n. At most 2t+1 cells are possible, so equality in w≥1/(2t+1) requires the full equally spaced partition. Each reflection pair must supply exactly one original threshold and this condition is sufficient, giving precisely 2^t choices and loss 1+1/t. The frozen exact-rational checker was inspected, not run; it checks only bounded cell profiles and the indicated finite optimizer selections.
 
-The closest primary manuscript, Latifian–Nilipour–Voudouris (2026), gives general geometrically spaced threshold upper bounds and asymptotic lower bounds, not the exact fixed-threshold formula at two candidates or full optimizing threshold-set classification. The earlier threshold-matching study concerns matching rather than a common winner, and the general elicitation-versus-communication literature does not imply this exact formula in its inspected results. Approval with runoff supplies extra voter comparisons and differs from deterministic one-stage winner selection. Semantic mathematical record searches found no exact matching implication, though absence in a search is not proof of historical novelty. The two-candidate reflected-mesh reduction distinguishes the result from general dimension-dependent bounds. Historical-priority uncertainty is retained explicitly.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper's universal deterministic bound \(2(2m)^{1/t}\) does not reveal the sharp behavior in the smallest nontrivial election as thresholds grow. This theorem gives an exact complete threshold-design problem with a nontrivial reflection constraint, certifies a precise \(1+1/t\) distortion frontier and classifies every optimum. It identifies how much welfare information an extra public threshold is worth, and supplies an attainable benchmark for studying richer elections. Its exact all-electorate guarantee is not a mere fixed-size enumeration or a restatement of the literature's asymptotic guarantee.
+The same shared-threshold elicitation model is present in prior work, but the inspected same-model general theorems and other located formulations do not determine the fixed-threshold binary minimax loss, its two-voter lower bound, or the exact finite threshold-design optimum with all optimizer sets. This is a bounded comparison, not a priority guarantee.
 
-## Closest literature and remaining limitations
+## value
 
-Relevant comparisons: Latifian, Nilipour, Voudouris (2026), arXiv:2610.13725, model and Sections 3–4; Latifian and Voudouris (2024), arXiv:2401.09858, matching scope; Mandal et al. (2019), general communication–distortion framework; Ebadian, Latifian, Shah, *The Distortion of Approval Voting with Runoff*, different two-stage protocol. The result assumes two candidates, truthful nonadaptive shared threshold reports, unit-sum utilities and deterministic rules. An earlier equivalent derivation not located in the inspected sources remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Binary choice is the basic common-winner case, and choosing a finite number of shared thresholds has a direct information-design purpose. The result supplies both a worst-case price for any prescribed thresholds and a sharp design prescription, including the exact penalty 1/t and all optimal choices. The two-voter witness explains why increasing the allowed population size is unnecessary for the minimax obstruction. These are precise quantities the general order bounds do not supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

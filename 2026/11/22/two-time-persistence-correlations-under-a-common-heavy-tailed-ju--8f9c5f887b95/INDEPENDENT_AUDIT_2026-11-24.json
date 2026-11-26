@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:22:59.946895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–78, VERIFICATION.md, CHECK.py (inspected, not executed)"
+      ],
+      "rationale": "Conditioning on the common integrated rate gives the product of the two killed-walk survival curves. Reflection makes q_x(a) a sum of 2x unrestricted heat masses, giving q_x(a)∼x√(2/πa) at unit total rate. With b_t=τ^{1−1/α}t^{1/α}, the disjoint complete periods before and after t give the joint clock transform exp(−(u+v)^α−(c−1)v^α); at most two partial periods vanish in probability under this normalization. The negative p moment of the normalized complete sum, N=floor(t/τ)>p/α, is (t/τ)^{p/α} B(p/α,N−p/α)/(αΓ(p)), bounded and convergent by the gamma ratio. The uniform bound for p>1 controls the scaled product in L^p since A_ct≥A_t. This justifies the positive limiting mixed moment and separately the marginals. In the double Mellin integral use u+v=w and v/w=cos²θ; the radial integral is Γ(1/α)/α times the stated angular weight, and the angular Jacobian contributes the factor 2. The independent product is M_α(1/2)^2 c^{−1/(2α)}. Strict covariance follows from the independent-copy identity for two strictly decreasing functions of the nondegenerate S₁. For c≥2 couple S_c/c^{1/α}=c^{−1/α}S₁+((c−1)/c)^{1/α}S′ with S′ independent; the normalized mixed integrand is dominated by 2^{1/(2α)}(S₁ S′)^{−1/2}, integrable, and tends to the independent integrand. For α=1 the stable clock is deterministic. At α=1/2,c=2 the half-angle substitution reduces the angular integral to ∫₀¹(1+z²)dz=4/3 with prefactor one; equal time gives π/2. No claim of monotonicity in c is used.",
+      "residual_risks": [
+        "The large-t limit is for fixed c and fixed xᵢ and τ; the c→∞ limit applies to the limiting ratio only. The numerical checker is corroboration, not proof of either limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levit–Reuveni obtain the one-walker first-passage asymptotic for the same rate law.",
+          "Resultary 50200fbcdf63 allows a broader rate attraction domain but concerns a single walker with initial distance diverging."
+        ],
+        "reasoning": "A stronger marginal rate hypothesis or a general time-change representation does not specify the persistence product at two clocks which share a random increment. Unequal-time fixed-start moment passage is needed.",
+        "searches": [
+          "arXiv:2609.26925 pp. 2–3 one-walker survival and tail",
+          "arXiv:2302.07041 p. 2 integrated-rate formula",
+          "Resultary: universal distance-scaled first passage under fluctuating rates"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26925, arXiv:2302.07041, arXiv:2108.09170",
+        "Resultary 50200fbcdf63, 19a39864f876 and 04868fbce99a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected stable-product discussion concerns products and quotients of independent variables, not the overlapping pair (S₁,S₁+Z).",
+          "One-walker survival and its tail leave the joint clock dependence undetermined."
+        ],
+        "reasoning": "Neither standard negative powers nor an independent-stable product theorem can give the mixed negative moment of the dependent pair without a new calculation. Replacing it with the product of its marginals would erase precisely the strict enhancement.",
+        "searches": [
+          "arXiv:2108.09170 Mellin products/quotients of stable subordinators, p. 1",
+          "Compare Levit–Reuveni one-walker Eqs. (2)–(3) with common-clock joint transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit 8f9c5f887b95 is the same record, not prior confirmation.",
+          "Opposite-sign survival correlations 04868fbce99a uses a single Poisson reset clock with Brownian searchers at a fixed horizon; survivor-cloud 19a39864f876 is fixed-time and single-walker."
+        ],
+        "reasoning": "Resetting changes paths rather than multiplying all jump intensities. The survivor-cloud asymptotic is a spatial tail, not an equivalent temporal dependence statistic.",
+        "searches": [
+          "Resultary: common refreshed Mittag-Leffler rate, equal-time joint survival, stable negative moments and π/2",
+          "Resultary: shared-clock survival correlations and unequal times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current Finding already excludes equal time and π/2 from its novelty claim; no independent exact citation for that acknowledged overlap was verified.",
+          "No different exact 4/3 or full-c profile was identified in the inspected statements. The external search was low-yield."
+        ],
+        "reasoning": "An equal-time moment does not recover the c-dependent mixed moment. This is a bounded priority assessment and not a proof from an unsuccessful lookup.",
+        "searches": [
+          "Resultary: 4/3 double-time clock ratio, π/2 simultaneous survival and stable mixed negative moments",
+          "Targeted primary lookup for dependent two-time stable-subordinator Mellin moments"
+        ]
+      },
+      "rationale": "Credit the single-walker clock and survival results, standard stable Mellin tools and the acknowledged equal-time overlap. The supported distinct result is the unequal-observation-time two-walker joint asymptotic and dependent-clock enhancement curve, including the exact double-time ratio. The strongest inspected single-walker and stable-product statements do not imply this curve.",
+      "residual_risks": [
+        "Exact acknowledged equal-time citation was not located. Unindexed dependent stable moments or earlier asynchronous persistence results are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-walker asymptotic, not the two-walker dependent statistic",
+          "evidence": [
+            "Survival and tail of one walk under the refreshed rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+          "material_read": "p. 3, Eqs. (2)–(3), OA offsets 17000 and 19399",
+          "method": "Primary OA PDF bounded passages",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Same rate law and closest survival model"
+        },
+        {
+          "assessment": "Prior time-change method",
+          "evidence": [
+            "Operational time is the integral of the physical jump rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.07041",
+          "material_read": "p. 2, Eqs. (1)–(2), offset 14700",
+          "method": "Primary OA PDF bounded passage",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "General integrated-rate representation"
+        },
+        {
+          "assessment": "Independent products/quotients, not the required dependent moment",
+          "evidence": [
+            "Discusses densities and near-zero asymptotics for stable and inverse-stable products and quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.09170",
+          "material_read": "p. 1 abstract and introduction, offsets 500 and 3000",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Mellin-transform results on stable and tempered stable subordinators",
+          "trigger": "Could supply a dominating Mellin product identity"
+        },
+        {
+          "assessment": "Different quantifiers and statistic",
+          "evidence": [
+            "One walk, distance n→∞, single first-passage scaling law."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-distance-scaled-first-passage-law-for-fluctuating-jump--50200fbcdf63",
+          "material_read": "Finding offset 0–1388",
+          "method": "Local mirror",
+          "title": "Universal distance-scaled first-passage law for fluctuating jump rates",
+          "trigger": "Same model in a broader attraction domain"
+        },
+        {
+          "assessment": "Distinct even without assuming any same-day precedence",
+          "evidence": [
+            "One-walker surviving position tail as position tends to infinity at fixed t."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-survivor-cloud-tails-under-fluctuating-jump-rates--19a39864f876",
+          "material_read": "Finding offset 0–1234",
+          "method": "Local mirror",
+          "title": "Sharp survivor-cloud tails under fluctuating jump rates",
+          "trigger": "Closest same-day rate-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Compared one-walker, reset-clock and equal-time previous scopes"
+      ],
+      "rationale": "Identical one-walker marginals cannot tell whether rate histories are shared. The full unequal-time comparison provides an exact dependence signature with strict enhancement at every finite ratio for α<1, a clean double-time benchmark, and a proved decorrelation limit. This is more than a new evaluation at a selected point, and avoids promising finite-time or monotonic behavior.",
+      "residual_risks": [
+        "No experimental accuracy, finite-time bounds, or universality beyond the specified rate model is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

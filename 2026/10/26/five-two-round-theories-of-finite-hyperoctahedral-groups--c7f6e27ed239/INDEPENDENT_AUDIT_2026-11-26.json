@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:51.824596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–75",
+        "VERIFICATION.md",
+        "verify_hyperoctahedral.cpp and verify_hyperoctahedral.out (inspected)",
+        "replay/4.py (executed through n=5)"
+      ],
+      "rationale": "In {e,R}, cancellation reduces nontrivial atoms on e,x,y to equality, x²=e, y²=e, x²=y, y²=x, or xy=e (equivalently yx=e). A two-round back-and-forth therefore compares sets of achievable second-move signatures at each first move, and then the sets of those profiles. The special second values e,x,x^{-1},x² depend on the stated order categories. For n>=5 the coordinate flips and positive three-cycles provide the two generic nonsquare-root signatures outside all special values; an order-three x has a nonspecial root -I x^{-1}, and all roots of other nonidentity orders lie outside the special values. Square status is visible by the existence of y²=x. Squaring negative cycles of odd length removes their sign; doubling a cycle of even length splits it into two equal signed types, and interlacing pairs reverses that operation (cycle signs can first be normalized by diagonal conjugation). Thus an order-four square needs two negative 2-cycles or two positive 4-cycles; in degree at most four the only exceptional paired types fitting are length-one negative pairs and length-two pairs, with remaining positive odd cycles of length at most three, so no square has order at least five there. The witnesses in the table attain all eight signatures by degree five and persist upon adding positive fixed coordinates. The four separating sentences have rank at most two even when there are two independently bound inner variables, so all five classes are distinct. An independent NumPy replay on the full action on signed letters, with every ordered pair of elements at n<=5 and no conjugacy reduction, found distinct profile-set sizes 2,4,6,7,8 and the stated categories at five. The all-degree argument is structural.",
+      "residual_risks": [
+        "The sharp order 3840 refers only to representatives within this family, not to all finite groups. The finite replay is corroboration and the proof uses the relational, not functional, signature."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kundu–Mondal's criterion requires even multiplicity for even lengths or sign not a square in C_2, exactly the auxiliary signed-square lemma",
+          "Gomaa's finite-abelian depth bounds and dihedral examples",
+          "Resultary 4b9fa605c169 classifies finite prime-exponent groups"
+        ],
+        "reasoning": "The general wreath-product theorem covers square membership but not EF-profile realization or equivalence thresholds. The prime-exponent classification does not govern B_n beyond B_1; finite-abelian depth bounds do not give the asserted nonabelian family result.",
+        "searches": [
+          "arXiv:2010.04954, Proposition 4.3",
+          "Gomaa, Model Theory and Complexity Theory, finite groups and EF games",
+          "Resultary: general finite-group rank-two profiles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.04954",
+        "Chen FPSAC'92",
+        "Gomaa 2007",
+        "Ram 2012",
+        "Resultary IDs 3ee08650803f, 15b6b39ad5ab, 3060334634a9, 4b9fa605c169, 8d9ebcd5302a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The S_n square order-four profile requires two four-cycles; a signed permutation can attain it with two negative two-cycles",
+          "Alternating and dicyclic records have different square and order obstructions"
+        ],
+        "reasoning": "A stabilizing profile table in a subgroup series does not determine the profile spectrum in its signed extensions: the latter require different realizability and lower-degree separation checks. Knowing exactly which elements are squares is useful input but does not supply the rank-two argument.",
+        "searches": [
+          "Resultary S_n 3ee08650803f and A_n 15b6b39ad5ab",
+          "Resultary dicyclic 3060334634a9 and dihedral 8d9ebcd5302a",
+          "Kundu–Mondal Proposition 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ram identifies B_n in the equivalent signed-permutation/wreath-product models",
+          "The indexed searches returned different group families; the general web query was noisy and supplies no negative evidence"
+        ],
+        "reasoning": "The external signed-cycle analysis concerns the abstract group in either model, with no coordinate predicates in the EF game. The inspected alternative-model sources do not classify rank-two equivalence of this family.",
+        "searches": [
+          "Resultary: rank-two hyperoctahedral groups, type B signed permutations, C2 wreath S_n, atomic extension profiles",
+          "Ram, The Hyperoctahedral Group",
+          "Websearch: hyperoctahedral quantifier rank group first-order two-round indistinguishability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The S_n catalogue table has the same eight candidate rows, only seven realized at degrees 5–7 and eight from 8 on",
+          "Chen's cycle indices stratify actions by signed-cycle type, not two-round theories"
+        ],
+        "reasoning": "The S_n table is real profile-level overlap, not a table of which rows or profile sets are realized at each B_n. Neither it nor the cycle-index tables tabulate the five B_n theories.",
+        "searches": [
+          "Resultary: exact hyperoctahedral eight profiles and two-round cutoff",
+          "Resultary/2026 3ee08650803f, Proof §§1–3",
+          "Chen, FPSAC'92, signed-cycle tables"
+        ]
+      },
+      "rationale": "Credit the signed-cycle square criterion as known: Kundu–Mondal Proposition 4.3 for prime powers in G wreath S_n yields it verbatim at G=C_2 and exponent 2. Related work also gives the same eight candidate profile types for symmetric groups. The distinct supported result is their exact realization and resulting five-class threshold in B_n with the stated signature; no inspected result covers that family theorem.",
+      "residual_risks": [
+        "Bounded coverage, including an uninformative primary web query, does not exclude a pre-existing finite-group logic classification in different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the auxiliary square-root lemma as a specialization",
+          "evidence": "The multiplicity is divisible by the prime exponent when the length is divisible by that prime or the base conjugacy class is not a power; in C_2 only the negative class is not a square.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.04954",
+          "material_read": "Abstract; Proposition 4.3, PDF pp. 11–12, text offsets 33120–36231",
+          "method": "Primary PDF text",
+          "title": "Powers in the wreath product of G with S_n",
+          "trigger": "Potential exact prior signed square-root criterion"
+        },
+        {
+          "assessment": "Same logical method and candidate rows; exact cutoff theorem for a different group family",
+          "evidence": "S_5 through S_7 lack the square order-four row; S_n stabilizes at n=8, not 5.",
+          "identifier_or_url": "Resultary/2026/2026/11/2/3ee08650803f",
+          "material_read": "RESULT.md Finding and Proof §§1–4, offset 0",
+          "method": "Indexed local record text",
+          "title": "Six rank-two theories of finite symmetric groups",
+          "trigger": "Closest exact profile table in the same language"
+        },
+        {
+          "assessment": "Adjacent general methods but no matching B_n theorem in inspected passages",
+          "evidence": "Quantifier-depth bounds distinguish finite abelian groups; the examples in the latter passage concern dihedral groups.",
+          "identifier_or_url": "https://drum.lib.umd.edu/items/b8c06e8c-d2da-4d80-923e-0bd02e2a8440",
+          "material_read": "Abstract p. 2; printed pp. 47–48, PDF text offsets about 1440 and 81200–85400",
+          "method": "Primary thesis text",
+          "title": "Model Theory and Complexity Theory",
+          "trigger": "Bounded-depth finite group theory"
+        },
+        {
+          "assessment": "Covers background cycle structures, not the rank-two cutoff",
+          "evidence": "Uses double partitions and derives induced cube-vertex and cube-edge cycle data.",
+          "identifier_or_url": "https://fpsac-archive.github.io/FPSAC92/POSTERS/Chen_proc.pdf",
+          "material_read": "Abstract and printed p. 47, offsets about 1000 and 6700",
+          "method": "Primary proceedings text",
+          "title": "Induced Cycle Structures of the Hyperoctahedral Group",
+          "trigger": "Exact signed-cycle classification and tables"
+        },
+        {
+          "assessment": "Identifies the group, not its two-round theory",
+          "evidence": "Identifies the signed permutation group with the type-B/C Weyl group and C_2 wreath S_n.",
+          "identifier_or_url": "https://math.soimeme.org/~arunram/Notes/hyperoctahedral.html",
+          "material_read": "Opening structure passage, offset about 960",
+          "method": "Primary exposition webpage text",
+          "title": "The Hyperoctahedral Group",
+          "trigger": "Check equivalence of group aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 19–75",
+        "Kundu–Mondal Proposition 4.3",
+        "Resultary 3ee08650803f Proof §§2–3"
+      ],
+      "rationale": "The family is a classical Weyl-group series. The result gives the exact low-rank logical stabilization and tells which sharply different relabeling-invariant element types a two-move game detects. The signed order-four square is a concrete reason the threshold differs from symmetric groups, rather than a restatement of the known signed-cycle square lemma.",
+      "residual_risks": [
+        "No broader bound for arbitrary finite groups, functional multiplication, or larger quantifier rank is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

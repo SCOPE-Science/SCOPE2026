@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-For every characteristic-seven parameter \(t\notin\{0,1\}\), symbolic coefficient extraction gives \(A=-5t^4(t+1)\), \(B=5(t+2)(2t+1)\) and \(V=-2(t+1)\). The unique potentially nonzero image under \(\mathcal C^2\) is \((A+B V^7)^{1/49}\omega_2\). The polynomial \(A+B V^7\) has the nine simple roots listed in `RESULT.md`, all in \(\mathbb F_{49}\), by direct factorization in characteristic seven.
+## correctness
 
-The standalone `verify_cartier_char7.py` uses only Python's standard library and independently rebuilds numerator coefficients from powers of \(x(x-1)(x-t)\), then checks Cartier ranks by exact finite-field row reduction. It checks all 47 smooth parameters over \(\mathbb F_{49}\), verifying the nine roots and the two branch-invariant values. The test was executed successfully on the embedded script's exact bytes.
+PASS
 
-The finite test is not an infinite-field proof. The symbolic Cartier formulas, polynomial identities, root factorization, and valuations supply that proof. A separate mathematical review or historical-priority certification has not been performed.
+Tame full ramification at four points gives genus 4. At infinity the orders of x,y,dx are -5,-3,-6; at a finite branch point the orders of y,dx are 1,4. The four independent forms in RESULT.md are thus regular and span. Inverse Frobenius sends the denominator characters 3→4→2→1; the last image is zero because f has degree 3 and contributes no degree 6 term. In the 4→2 step, the leading coefficient of f² is 1. In the 3→4 step the two coefficients A and B have no common zero on the smooth base. Hence the constant rank is 2. On composing, (B^(1/7))^(1/7) multiplies V^(1/7), producing B V^7 inside the 49th root, not B V. The scalar of C² factors as three distinct linear and three distinct irreducible quadratic factors (each discriminant 5), with neither 0 nor 1 a root. The displayed j-fiber identities are exact. Nonidentity anharmonic stabilizers fix either a harmonic parameter (2,-1,1/2, j=6 here) or a root of t²-t+1 (j=0), so the fibers at 6 and 4 are respectively single orbits of sizes 3 and 6. The stable rank is zero and the kernel dimension is two. The distinguished exponent at infinity is 2; the ramification index is 5 there as at the other branch points.
+
+## originality
+
+PASS
+
+Credit the known family, Cartier machinery, and generic invariants. The supported distinction is the complete characteristic-seven Cartier-power jump locus in branch coordinates: an explicitly factored nine-root divisor with exactly the two j-fibers 4 and 6. No inspected source establishes this classification or a stronger statement fixing these parameters.
+
+## value
+
+PASS
+
+The rank of the second Cartier power separates fibers even though both p-rank and a-number stay fixed. In a natural special genus-four family, the exact reduced jump divisor and its two marked branch configurations make the rank condition directly usable without recomputing a semilinear operator at each parameter. This is not a claim to classify Newton polygons or arbitrary isomorphisms of the curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

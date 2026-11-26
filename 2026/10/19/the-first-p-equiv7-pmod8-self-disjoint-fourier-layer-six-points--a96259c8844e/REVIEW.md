@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a finite exact theorem with a complete certificate over every normalized subset through size six, not a numerical sample. The exact verifier enumerates \(1+48+1128+17296+194580+1712304\) cases; modular nonvanishing rigorously excludes characteristic-zero vanishing, and every four-prime survivor is checked through a full signed six-permutation determinant in \(\mathbb Z[T]/(T^7-1)\). All \(672\) remaining normalized six-sets have cyclotomic determinant zero. Invertible five-by-five principal submatrices force one-dimensional six-set kernels with no zero coordinates. Translation counting and exhaustive similitude-group orbit enumeration yield the exact \(5488\) and the three orbit sizes. Script output was independently replayed from the source path; no limit claim beyond \(\mathbb F_7^2\) is made.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Zhou, arXiv:2608.06335 (2026), raises the self-disjoint Fourier-support problem and does not give the \(p=7\) exact minimum. The closest published-finding corpus finding addresses \(p\equiv3\pmod8\), specifically excluding the current \(p=7\equiv7\pmod8\) case. Semantic searches for principal six-minor classifications, aliases, Fourier self-avoidance and support orbits disclosed no identical result. Caragea–Lee's principal-minor paper treats cyclic transforms rather than \(\mathbb F_7^2\). Delvaux–Van Barel's 2007 Kronecker-Fourier study could overlap structurally, but the available abstract and inspected introductory material do not establish this precise minimum and all-orbit census; its full implications remain a residual originality risk. Failed searches are not novelty proofs.
+PASS
 
-## Value — PASS
-The minimum for \(p\equiv7\pmod8\) is an explicitly identified mathematical gap adjacent to an infinite-class theorem. Determining \(\sigma_7\), all its minimizers, their unique coefficient fibers and their three intrinsic geometric types is a natural complete classification with reusable exact cyclotomic certificates, not a routine isolated determinant calculation.
+For the stated unitary transform, vanishing on the time support S is the kernel condition for its principal minor. Translation acts on this matrix by invertible diagonal factors and a scalar, so sets through the origin suffice. Independently exhausted those sets in bounded batches using the Schur complement of the origin entry and vectorized modular elimination at primitive seventh roots, in reversed field order. By the cyclotomic specialization homomorphism a nonzero residue rules out characteristic-zero singularity. The exact subset determinant recurrence in Z[T]/(T^7−1) returns zero for all 672 remaining six-sets; no smaller candidate remains. At size six the successive modular survivor counts in this run were 14208, 768, 672, 672. The 672 normalized zeros give 5488 sets by marked-point double counting. Every five-point principal block is invertible, forcing rank five and all coordinates nonzero on the nonzero kernel line. Linear similitudes preserve singularity by Galois conjugation; independent enumeration of all 2-by-2 matrices by A^T A=λI found 96 maps. Direct affine images of the three stated representatives produced disjoint classes of sizes 2352, 784, 2352 and exhausted all 5488 sets. Replay: python3 /workspace/branches/reproduce_fourier7.py <fresh-output-directory>; output in /workspace/branches/fourier7_reproduction.txt. This proves a finite standard-dot-product theorem, not an all-prime result.
 
-## Limitations
-The value of \(\sigma_p\) for further primes \(p\equiv7\pmod8\) remains unknown. The proof is a comprehensive, executable exact-arithmetic finite certificate, not a hand enumeration; the third-party historical-priority comparison remains qualified. No independent external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the complete six-point support layer, including its exact count, coefficient lines and affine-similitude classification. Earlier verified results do not yield this classification. The separately indexed Nov. 8 result repeats the minimum at p=7 and extends six-point existence to a prime subclass, so the minimum in isolation should not be presented as exclusively established here. Its catalogue date is later than the frozen Oct. 19 record and does not itself settle priority; mathematical overlap is real but does not extend to the census and orbit theorem.
+
+## value
+
+PASS
+
+The standard pairing on the first prime in the complementary residue class is a natural boundary instance of the support-disjointness problem. A complete minimal layer is more informative than another example: it determines precisely what minimum-size cancellation geometries and coefficient freedoms are available, and offers concrete orbit types to test structural conjectures beyond this finite plane.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

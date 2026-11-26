@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit Gram inverse is checked symbolically. The one-variable kernel has at most one zero, and the proof partitions all w in (0,1] into early, nonnegative, and late regimes; inequalities for the single-root bound, the strict late-time ratio bound, and monotonicity of the exact norm close all boundaries. The endpoint sign function gives equality. The standalone checker independently verified all three row formulas against high-precision split quadrature at 72 points; finite tests are supplementary.
+PASS
 
-The central nonstandard step is a complete and strict classification of the three kernel-sign regimes. It is proved in `RESULT.md` rather than inferred from plots. Assumptions and the rank-drop boundary are stated explicitly. The norming sign input belongs to \(L^\infty\), not necessarily \(L^2\).
+Scale time by a, set R=b/a>1 and w=e^(−(R−1)t), u=e^(−t). The Gram entries 1/2, 1/(R+1), 1/(2R) give determinant (R−1)²/[4R(R+1)²]. Inverting and changing input variable to z=e^(−s) gives the row integral Du∫_0^1|A+Bz^(R−1)|dz, with D=2(R+1)/(R−1)², A=R+1−2Rw, B=R((R+1)w−2). The signed integral inside equals (R−1)(1−w). The endpoint row is 2(R+1)(Re^(−Rs)−e^(−s))/(R−1), with unique zero at log(R)/(R−1) and total signed mass zero. Twice the positive mass yields L(R)=4(R+1)R^(−1−1/(R−1)), and the sign step attains it by continuity up to the boundary even in the open-half-line essential supremum. To exclude later rows, put z_*=R^(−1/(R−1)). In the early mixed-sign region w>(R+1)/(2R), solving for the zero gives z_0≤z_*; integrating below it and bounding by z_* gives J(w)≤uL(R)+2(R+1)u(1−4z_*)(1−w)/(R−1)≤uL(R), with z_*≥1/e. In the nonnegative region 1/R≤w≤(R+1)/(2R), differentiation of w^(1/(R−1))(1−w) gives its maximum at w=1/R and the row bound L(R)/2. In the late region 0<w<1/R, integrating at the zero then bounding z_0≤1 gives J(w)≤[2(R+1)/(R−1)]w^(1/(R−1))((R+2)/R−3w). This bound peaks at (R+2)/(3R²). Its ratio Q to L(R) has log Q≤log((R+2)/(2R))−2/(3R), negative at R=1 and decreasing for R>1. This verifies the strict boundary maximum. The derivative of log L has numerator log R−2(R−1)/(R+1) over (R−1)²; the numerator starts at zero and its derivative is (R−1)²/[R(R+1)²]. The stated limits, R=2 check, and equal-rate rank-one norm 2 then follow directly. The unique zero and the norming step concern the boundary kernel row, not every kernel row.
 
-## Originality — PASS (qualified)
+## originality
 
-Compared actual two-exponential derivative results (Protasov 2022), finite-interval polynomial-frame least squares (Adcock-Shadrin 2021), exponential L-spline projections (Kayumov 2004), and prior exact projection calculations. None inspected establishes the entire real two-decay half-line norm formula or endpoint rigidity. The coalescent constant \(8/e\) overlaps prior related work; no independent novelty is claimed for that isolated limit. Residual specialized historical priority risk remains.
+PASS
 
-Full-text HTML material was inspected in Protasov and Adcock–Shadrin. Accessible summary material, rather than the entire thesis proof, was inspected in Kayumov. The closest earlier projection formulas concern different domains or oscillatory spans, and a common coalescing limit is acknowledged rather than counted as novel. The detailed implication comparisons and remaining risks appear in `AUDIT.json`.
+The Gram inversion and sign-of-row arguments are standard. The distinct result supported by the checks is the fixed ordinary-measure, two-real-decay half-line norm, including strict endpoint dominance for every rate ratio and the sharp rate envelope. The inspected primary and local comparators do not entail it.
 
-## Mathematical value — PASS
+## value
 
-The formula completely resolves a natural two-rate least-squares stability benchmark, with no arbitrarily fixed rate ratio: it proves a unique norming time, strict ratio monotonicity and the exact universal sharp envelope 4. It separates high Gram coefficient conditioning from bounded projected-output amplification at both colliding and disparate rate limits; a sign-extremizer and rank-drop discontinuity make the threshold structurally interpretable.
+PASS
 
-The claim is an exact continuum theorem for all positive unequal rate pairs and includes extremizers, not just a numerical example. Its limit at equal rates must not be misread as the actual rank-one value.
+The worst amplification of a bounded perturbation by a fixed least-squares projector is a natural stability invariant for decays. Its exact dependence on the ratio, locating the unique worst output and simplest saturating input, resolves questions that a Gram-matrix bound or pointwise endpoint computation alone does not answer. The discontinuity at rank loss is mathematically distinct from coefficient ill-conditioning.
 
-## Verification and limitations
-
-The exact kernel row, three-regime inequalities, monotonicity and boundary limits were checked against the written proof. The standalone `check.py` script passed 72 high-precision comparisons and symbolic normalization identities. Unresolved questions include extensions to more than two decays, weighted measures and historical priority in specialist approximation theory. No external validation is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each maximal prime-power modulus \(q\), the entry \(U_q(P(x)-P(y))\) equals \(1+(q-1){\bf1}_{P(x)\equiv P(y)\pmod q}\). Row/column subtraction within equal-value fibers is integral unimodular and leaves \((q-1)I_s+J_s\) and zeros. The \(j\)-minor divisibility argument and explicit sharp minors prove local determinantal divisors; Chinese remainder factorization and tensor products produce the full Smith form at all moduli. The square-image calculation uses disjoint even valuation strata and exact counts of unit squares. The standalone integer checker passed all 126 grouped tests, but finite tests are not the infinite proof. No hidden regularity hypothesis on \(P\) is needed.
+PASS
 
-## Originality — PASS (qualified)
+The maximal prime-power unitary selectors multiply in CRT coordinates, since an integer polynomial respects each residue projection. Subtracting representative rows and then representative columns for each local value fiber is unimodular and leaves (q-1)I_s+J_s and q-s zero positions. For t=q-1 and j<s, the difference of any two rows inside a j-minor has entries in tZ, giving divisibility by t^(j-1); rows 1..j and columns 2..j+1 attain that divisor (subtract the first row, then use its remaining ones). The full determinant is t^(s-1)(t+s), with the singleton block equal to q. Tensoring the integral transformations yields a diagonal over Z with the stated products. The minimum valuation of any product of j diagonal entries is the sum of the j smallest valuations, establishing primewise sorting and the torsion-order formula. At N=q rank recovers s, proving the converse; the empty CRT case is (1). Distinct nonzero square values separate by even valuation, and the unit group has half its elements squares for odd primes and the stated counts for powers of 2. Independent exact Smith reductions of directly constructed full matrices verified all displayed examples, plus mixed-prime nonsquarefree and constant cases: python3 /workspace/reproductions/four_direct_smith.py. Evidence discrepancy: CHECKER.py:144–147 explicitly checks N=15 and N=9, not the claimed N=4 example (VERIFICATION.md:21); the new replay verifies both N=4 matrices. The frozen checker was inspected, not executed, and the finite checks are not the all-modulus proof.
 
-The closest primary literature on unitary GCD/LCM and gcd matrices proves determinant, divisibility, or Fourier identities for different matrix kernels. A preexisting squarefree gcd-difference Smith formula is a genuine special-case implication, but cannot by itself supply arbitrary polynomial-value congruence fiber compression at all prime powers, the global rank-equivalence criterion, or the exact torsion dependence on local image counts. The elementary local \(aI+J\) Smith lemma is standard and is treated as a proof component, not independently new. A published Ramanujan-circulant Smith theorem treats a different convolution kernel. The relevant full-text and abstract-level comparisons, and historical-priority risk, are detailed in `AUDIT.json`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem provides a uniform complete arithmetic classification of a natural class of residue-ring matrices: polynomial congruence equality at distinct prime powers produces a unitary-divisor kernel. An entire integral cokernel family is determined by prime-power image cardinalities alone, despite arbitrary and potentially unequal output-fiber multiplicities. This separates congruence-set geometry from integer torsion and exposes torsion primes absent from the modulus, as seen at \(N=15\) for square values. The result is not an isolated small congruence, digit substitution, or previously listed table. It is deliberately limited to unitary-divisor differences, not ordinary gcd at higher powers.
+The supported distinction is the full unitary polynomial-value classification, including arbitrary fibers at prime powers, recombination of integral invariants, and the converse in terms of value-image cardinalities. The rank-one local matrix formula, standard Smith and CRT facts, and the squarefree ordinary gcd-difference boundary are not credited as new. No inspected evidence establishes broader coverage of the full classification.
 
-## Closest sources and residual limitations
+## value
 
-The 1996, 2005, and 2009/2010 unitary-GCD articles are determinant/divisibility precursors; the squarefree gcd-circulant Smith result covers one stated boundary case. Full text was accessible for the closest 1996 and 2009/2010 articles and for the 2013 gcd Fourier article; not every potential general rank-one or arithmetic-matrix treatment was accessible. Priority is qualified, and the theorem remains independently unaudited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete arithmetic classification, not a small matrix exercise: it replaces an integral lattice calculation of size N by prime-power image cardinalities, characterizes when all Smith forms agree, and determines torsion even away from primes dividing N. The noted standard local matrix calculation is not on its own the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

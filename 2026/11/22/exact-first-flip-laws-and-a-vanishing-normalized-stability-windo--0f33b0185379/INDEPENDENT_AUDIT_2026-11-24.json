@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:34:05.995500Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The interior fixed-point parameter is strictly increasing in p and its multiplier 1/(1+p)-beta*p/(1-p) strictly decreases, crossing -1 at (beta+1)p(p+1)=2. The log-critical parameter increases to 2 since its derivative along the critical locus as a function of p is negative by log(1-p)<-p-p^2/2. The stated cubic bound gives rho_max>8>rho_beta, so the flip is admissible for every real beta>=2. Independent symbolic differentiation reproduced the stated Taylor A, C=A^2+B, positive transversality L, the admissibility minimum and the large-beta expansions (python /workspace/review-work/check-flip.py). About the moving fixed point the second-iterate displacement is u(2L delta-2C u^2+O(delta^2+|delta*u|+|u|^3)). Nonzero small roots on the positive side have |u| of order sqrt(delta), and rescaling plus the implicit-function theorem gives exactly two local roots, interchanged by the map, with multiplier 1-4L delta+O(delta^(3/2)). Negative delta yields no small nonzero root. At criticality u -> u-2C u^3+O(u^4) for the second iterate, giving an inverse-square increment 4C per double step and N*u_N^2 -> 1/(2C) for either parity. The maximum is at the positive root of beta*x^2+(beta+1)*x-1=0, giving rho_max~e beta. Scaling x by beta gives C^3 convergence on fixed compacts to the Ricker map and beta^2 K -> 6. The precise normalized quantity in RESULT.md (lines 64–67) is rho_beta/rho_max~e/beta. If 'window' means the length of the positive-fixed-point stable interval divided by the full admissible range, the leading coefficient is instead (e^2-1)/e; the displayed threshold ratio does not assert that length formula. Likewise 'inverse-square' describes the clock for the inverse squared deviation, not a decay law N^(-2). No uniform two-parameter error bound or global cycle claim was inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic scalar flip theory supplies the cubic normal form and qualitative period-two onset. Example 4.1 already gives Ricker's flip at (e^2,2) and cubic coefficient 1/6.",
+          "The exact interpolation theorem 26580abb638e varies the denominator with exponent fixed at one; the relaxation theorem 741941f8eb7b treats a different rational map; the Ricker record 2a5a09a48e5b concerns two-species competition."
+        ],
+        "reasoning": "The generic mechanism does not determine the family-specific algebraic nondegeneracy, admissibility, or large-exponent interval scaling. None of the named family extensions specializes to the frozen beta>=2 rational map.",
+        "searches": [
+          "Kuznetsov, Elements of Applied Bifurcation Theory, 2nd ed., §4.5, Theorems 4.3–4.4 and Example 4.1",
+          "Resultary 26580abb638e, 741941f8eb7b, 2a5a09a48e5b"
+        ]
+      },
+      "checked_sources": [
+        "Renu–Ashish–Chugh (2024), doi:10.1007/s40065-024-00464-1",
+        "Kumar et al. (2022), doi:10.3934/mbe.2022115",
+        "Kuznetsov §4.5",
+        "Resultary 26580abb638e, c832b5af1161, 48f5bb870abc, 741941f8eb7b, 2a5a09a48e5b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normal-form theorem presupposes computation and sign of the model-specific cubic and derivative; it supplies neither the sign throughout the parameter family nor the maximum of h_beta.",
+          "The Ricker calculation specifies the limiting model, not C^3 convergence, beta^2 K_beta->6 or the e/beta threshold fraction of the rational family. The polynomial neighbor and the beta=1 interpolation lack the target's numerator/denominator combination."
+        ],
+        "reasoning": "These are overlaps in examples and methods; they do not yield the combined algebraic and asymptotic theorem by parameter substitution.",
+        "searches": [
+          "Renu–Ashish–Chugh model/stability passages",
+          "Kuznetsov §4.5 (generic reduction and same limiting Ricker map)",
+          "Resultary 26580abb638e and 48f5bb870abc Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 article uses the identical G_{rho,beta} and reports approximate first-flip values at beta=2 and 3. Its beta=1 predecessor gives the exact threshold 2+sqrt(5) in that regime.",
+          "The target concerns ordinary iteration; equivalent multiplier and log-parameter forms were compared, not a superior-iteration parameter substitution."
+        ],
+        "reasoning": "The originating formula and observations are prior; neither two numerical examples nor an exact beta=1 result gives the asserted all-beta formulas.",
+        "searches": [
+          "Resultary searches for rational logistic first flip, critical relaxation and stability-window normalization",
+          "Renu–Ashish–Chugh (2024) Eq. (4), §§3.1 and 3.3",
+          "Kumar et al. (2022) §§3.1 and 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby beta=2/3 numerical breakpoints are about 4.95 and 5.35 in the original article, not exact all-beta expressions. The distinct same-day 48f5bb870abc record studies the cubic polynomial without 1+x, including external real cycles.",
+          "The indexed c832b5af1161 result gives a second flip and four-cycle at beta=1, not the requested first-flip constants."
+        ],
+        "reasoning": "The comparisons test exact threshold and local cycle coverage rather than discarding nearby or same-day results on date or title grounds.",
+        "searches": [
+          "Resultary rational-logistic stability and exact flip searches",
+          "Renu–Ashish–Chugh §§3.1 and 3.3 with graphical numerical thresholds"
+        ]
+      },
+      "rationale": "The original family, exemplary first bifurcations, generic flip normal form, and Ricker end point are established prior material. The exact all-real-beta admissible threshold, explicit signed coefficients and critical constant for this map, and the normalized threshold law with its Ricker scaling were not supplied by the strongest inspected results.",
+      "residual_risks": [
+        "Full text of the 2025 Conejero–Lizama–Quijada paper cited by the interpolation record was not available in the attempted OA retrieval; its relation was assessed from the accessible indexed finding, not the full paper.",
+        "Unindexed equivalent computations remain possible; the comparisons establish only best-of-current-knowledge distinctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage",
+          "evidence": "Identical family, beta=2 stability and graphical beta=2/3 bifurcations, not the stated all-beta coefficients and scaling.",
+          "identifier_or_url": "https://doi.org/10.1007/s40065-024-00464-1",
+          "material_read": "Eq. (4), §3 p. 371; §§3.1 and 3.3 pp. 375 and 378–379",
+          "method": "OA PDF, offsets 11459, 29687 and 51757",
+          "title": "Discrete superior dynamics of a generalized chaotic system",
+          "trigger": "Identical ordinary map family"
+        },
+        {
+          "assessment": "Different exponent regime",
+          "evidence": "beta=1 rational model and its threshold 2+sqrt(5).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mbe/2022/3/PDF/mbe-19-03-115.pdf",
+          "material_read": "p. 2489 model, §§3.1 and 3.3 pp. 2492–2494",
+          "method": "Publisher PDF",
+          "title": "Dynamical properties of a novel one dimensional chaotic map",
+          "trigger": "Predecessor and nearby exact first threshold"
+        },
+        {
+          "assessment": "Generic and limiting-model coverage",
+          "evidence": "Scalar flip normal form and Ricker cubic coefficient 1/6; no beta-specific admissibility or scaling here.",
+          "identifier_or_url": "Y. A. Kuznetsov, §4.5, Theorems 4.3–4.4 and Example 4.1",
+          "material_read": "pp. 121–123, offsets 299269 and 303747",
+          "method": "Available PDF excerpts at relevant offsets",
+          "title": "Elements of Applied Bifurcation Theory, 2nd edition",
+          "trigger": "General flip and exact Ricker example"
+        },
+        {
+          "assessment": "Exponent one only",
+          "evidence": "F_{mu,lambda}=mu*x*(1-x)/(1+lambda*x), varying lambda not beta.",
+          "identifier_or_url": "Resultary 26580abb638e",
+          "material_read": "RESULT.md Finding and coefficient comparisons, offsets 0 and 6701",
+          "method": "Local mirror",
+          "title": "Exact two-cycle stability strip across the rational logistic interpolation",
+          "trigger": "Potential exact family extension"
+        },
+        {
+          "assessment": "Different map and domain",
+          "evidence": "eta*x*(1-x)^2 has no denominator and treats the real line.",
+          "identifier_or_url": "Resultary 48f5bb870abc",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "An external attracting two-cycle window in a cubic generalized logistic map",
+          "trigger": "Closely related distinct same-day entry"
+        },
+        {
+          "assessment": "Different rational family",
+          "evidence": "Stronger expansion in its own map, not the constant for this family.",
+          "identifier_or_url": "Resultary 741941f8eb7b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Global signed and logarithmic critical relaxation in a positive rational flip map",
+          "trigger": "Earlier sharp critical relaxation"
+        },
+        {
+          "assessment": "Different bifurcation and exponent",
+          "evidence": "Second flip and period four of the beta=1 map.",
+          "identifier_or_url": "Resultary c832b5af1161",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact second-flip boundary and local attracting four-cycle in a rational unimodal map",
+          "trigger": "Exact nearby rational-map flip calculation"
+        },
+        {
+          "assessment": "Different Ricker system",
+          "evidence": "Two-species map on leaves, not the rational-family limit.",
+          "identifier_or_url": "Resultary 2a5a09a48e5b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Composition-controlled flip criticality on a neutral Ricker competition foliation",
+          "trigger": "Ricker flip overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result calibrates the numerically observed stability loss uniformly in the exponent at the level of exact formulas, including the nonlinear clock and cycle return multiplier. In addition, the critical parameter stays bounded while the admissible range grows linearly, so the normalized threshold collapses; the scaled coefficient agrees with the limiting Ricker map. The family-wide admissibility and asymptotic comparison add substance beyond a routine invocation of the generic flip theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's normal-diameter condition is reproduced independently. Strict convexity and antipodal symmetry ensure that all two-impact geometric orbits are normal diameters. The exact derivative computation yields \(K(u)=2(1+u)(1-3u+6u^2)/[(1+3u)(1+3u-2u^2)]\); standard reflection/free-flight matrices give \(\operatorname{tr}DT^2=4(1-K)^2-2\). The identity \((1+3u)(1+3u-2u^2)-(1+u)(1-3u+6u^2)=4u(1-u)(3u+2)\) proves strict \(0<K<2\) on the entire open range. Polynomial derivative/sign arguments prove exactly two exceptional resonances; Cayley–Hamilton proves the two-step matrix equals \(-I\) there. A standalone SymPy checker independently runs the geometry, algebraic and numerical tests; the infinite assertions rest on the written proof, not on the sample.
+PASS
 
-## Originality — PASS under inspected evidence
+A period-two chord must be normal at both ends. The curve is simple and centrally symmetric, and its curvature numerator ε(1−3u+6u²) is positive for u=sin²θ, so opposite normals force antipodal impacts. The radial critical-point equation gives exactly two nonaxial lines on the indicated open interval and axial merger at either end. Independently, the arclength chord-length generating function has pure second partials (1−K)/L and mixed partial +1/L at these impacts (oriented tangents are opposite). It gives an equal one-step matrix at both ends in those charts, with rows (K−1,−L) and ((1−(1−K)²)/L,K−1). Its determinant is one, the squared trace formula is tr(M²)=4(1−K)²−2, and when K=1 Cayley–Hamilton gives M²=−I. The rational curvature expression has positive numerator and denominator, with D−(1+u)Q=4u(1−u)(3u+2), giving 0<K<2. K−1 has the stated cubic numerator, whose derivative has exactly one root in (0,1); sign tests establish the two stated brackets. Independent arithmetic reproduced ε≈0.42893701026975975 and 0.83512933523582675. For the axes K=16ε² and 2/ε², both >2 in the open interval. The uploaded checker was inspected, not executed; the bounded independent calculation is in review_checks.py, billiard().
 
-Fonseca–Leonel–Oliveira, arXiv:2610.29128v1, Section III.1, derives exactly the same boundary, existence condition and axial traces, but explicitly marks diagonal monodromy as still requiring examination; its final summary likewise does not give a diagonal formula or resonance classification. This result does not claim their diameter existence count or axial stability thresholds as new. Indexed mathematical results about external ellipsoidal billiards, the cos-five-theta destruction of a rotation-one-third caustic, and general centrally symmetric integrability do not imply the explicit spectrum of this boundary without additional geometry. The general two-bounce curvature matrix is an acknowledged standard prerequisite, not a novelty claim. Priority remains provisional against any unindexed exact study of the same boundary and against the general theoretical possibility of deriving the answer from standard formulas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary paper identifies the exact missing diagonal stability calculation while both axial trajectories are hyperbolic. Closing it yields a natural complete four-orbit period-two classification and establishes the unusual coexistence of two hyperbolic axial and two elliptic diagonal normal diameters throughout the entire interval. The two exactly located minus-one resonances quantify the exceptional linear regimes and cannot be inferred merely from the source's existence count. This is a meaningful sharp classification of a physically motivated billiard family, not an arbitrary isolated parameter computation.
+Credit the exact-family normal-diameter interval and axial traces as background. The supported distinct result is the exact diagonal spectral classification and two exceptional −I matrices. The observed related classifications and standard linearization do not mechanically supply the family-specific positivity and root count. The assessment is provisional on the inaccessible full texts, not a global priority claim.
 
-## Residual limitations
+## value
 
-The analysis is linear. It neither proves nonlinear KAM stability nor excludes other rational rotation resonances with elliptic trace. It does not address periods three or higher. An independent historical and mathematical audit remains to be performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The diagonal behavior closes a natural gap in the two-bounce description of the already studied exact billiard family. The specific exceptional parameters mark where a nonresonant elliptic description fails, and identifying the full matrix as −I rather than a parabolic Jordan block is useful for subsequent local analysis. This is value of the exact spectral census, not a claim of nonlinear dynamics or KAM islands.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

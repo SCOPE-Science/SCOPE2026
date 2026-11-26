@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification information
+# Independent mathematical audit
 
-The included `check_h5.py` script runs with Python 3, SymPy, and mpmath. It establishes symbolic identities for the three-factor spherical multiplier, real-part sign polynomial, the quadratic discriminant, both key coefficient comparisons, and the high-frequency negative witness. It also compares the closed-form radial multiplier with twelve independent high-precision quadratures covering interior positive cases, the exact \(a=6\) boundary, and both types of negative-frequency witness.
+## correctness
 
-The numerical quadrature omits the interval \([0,10^{-6}]\) to avoid removable-singularity evaluation. Since normalized spherical functions obey \(|\varphi_\lambda(r)|\le1\), the omitted magnitude for the stated test cases is bounded by \(\int_0^{10^{-6}}\sinh^4r\,dr<2.1\times10^{-31}\). The largest absolute difference observed was \(1.99999167\times10^{-31}\), consistent with this tiny omission. This finite testing is supplementary; the proof's universal claim is the analytic all-frequency sign certificate in `RESULT.md`.
+PASS
 
-Reproduce with `python check_h5.py`. This package contains no external computed data or additional file dependencies beyond the declared libraries.
+For curvature −1 the radial measure is |S⁴|sinh⁴(r)dr. With a>4 the convolution kernel is integrable, and spherical Plancherel diagonalizes it with continuous radial multiplier supported on the full principal spectrum. Positivity of the operator and finite-point PSD agree by integration and approximate point masses; a negative value at λ=0 also produces negative values at positive λ by continuity. Dimension raising of sin(λr)/(λ sinh r), integration by parts (with vanishing endpoints), and the Laplace-sine identity give 24z divided by the three quadratic factors before multiplying by |S⁴|. As an algebra cross-check, the conjugate denominator is (v²+X)³+8(X−v²)(v²+X)+16(v²+X), v=conj(z), and Re(zv^(2j))=(a²+W)Re(v^(2j−1)) for j≥1. This reproduces the sign polynomial with a positive squared denominator. Its constant-factor quadratic C changes sign before both a²/3 and a²−4 and is negative from the lower root to a²−4. Up to that lower root the coefficient of X is 3(a²+W)(a²−3W)+16>0, as are the higher coefficients, so equality has only the zero at X=0. Beyond the root, X=0 is a witness below a²−4, and X=W−a²+4 gives −8a(a²−4)(W+2)(W+4)<0 otherwise. At a=6 the lower root is 16/5. The proof establishes the global statement; the symbolic and quadrature checks in check_h5.py and VERIFICATION.md are recorded supporting diagnostics, not a fresh numerical run or a formal certificate.
 
-The new result has been reviewed for mathematical correctness, nonimplication by inspected nearby literature, and mathematical value. That review is not independent certification. Independent audit remains not performed.
+## originality
+
+PASS
+
+The strongest catalogue entry gives a complete threshold for the identical family on H³, not H⁵. Neither restriction nor the prior analytic machinery supplies the five-dimensional sign result. The distinct content supported here is the fast-decay five-dimensional if-and-only-if condition, boundary spectrum and explicit obstructions, not the transform criterion or dimension shift themselves. This is a bounded, best-of-knowledge assessment.
+
+## value
+
+PASS
+
+A practitioner choosing a geodesic oscillatory covariance gets an exact allowed region and, when inadmissible, an explicit spectral obstruction. H⁵ is the next odd dimension after the close H³ precedent but the cubic and the returning sign at λ=0 require a distinct necessity argument. The endpoint is a multiplier zero, not a claim about singularity of finite Gram matrices. The decay restriction is essential to the reviewed scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

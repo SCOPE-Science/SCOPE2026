@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standalone exact verifier independently constructs the entire face poset, all barycentric flags, eight dihedral permutations, orbit boundary matrices and fixed-flag Burnside counts. Two consecutive signed boundaries compose to zero. Exact integer unit eliminations leave one nonunit degree-three Smith factor, equal to two, with all other nonzero factors units. Boundary ranks and quotient cell counts give precisely one order-two integral second-homology group. Separate mod-two and mod-three rank checks agree. Homotopy type and fundamental group are not concluded.
+PASS
 
-## Originality — PASS relative to checked sources
+For strict face chains the size sequence distinguishes all vertices and subfaces within each closed simplex, so the quotient has regular flag-orbit cells with alternating deletion boundaries. An independent representative enumeration using prefix stabilizers rebuilt the eight symmetries and counts (16,78,140,79) and (50,283,471,237); it checked both zero boundary compositions and obtained integer ranks (49,234,237), with sole nonunit Smith factor 2 for the third boundary. In the short exact sequence from homology to the cokernel of the incoming boundary and then to the image of the outgoing boundary, the last term is free; hence all cokernel torsion lies in homology. The Betti vector (1,0,0,0) then gives precisely the asserted reduced H2=Z/2. The proof does not infer simple connectivity or a homotopy type.
 
-The closest available same-graph record studies unquotiented king homology, not the geometric quotient. The closest D4-equivariant king calculation uses a five-by-five board and rational coefficients. The historical king-counting work treats enumerative questions, not Smith factors of quotient chains. The mathematically distinct rook and knight attack graphs do not dominate this claim. Targeted direct and semantic searches found no stronger covering statement. Full text of the closest enumerative source was not completely accessible, and equivalent unindexed work is a remaining risk.
+## originality
 
-## Value — PASS
+PASS
 
-This computes a natural, exact torsion class created by a nonfree rigid-symmetry action on a canonical chessboard configuration complex, invisible to rational homology. The result completes a precise integral question, not just a finite face census; no wider-family theorem is claimed.
+No inspected statement covers the integral homology of this king quotient. Equal board size and symmetry group in the closest quotient records do not identify their attack complexes with the king complex; the work on the identical king complex computes an invariant before taking orbits. This is a best-of-knowledge decision, not priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The board and full rigid symmetry group are canonical, not arbitrary parameters. The exact invariant distinguishes a rationally acyclic orbit space from an integrally acyclic one and shows that the symmetry quotient contributes torsion absent in the known underlying king complex. This gives a useful integral benchmark for other chessboard quotients, independently of any general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

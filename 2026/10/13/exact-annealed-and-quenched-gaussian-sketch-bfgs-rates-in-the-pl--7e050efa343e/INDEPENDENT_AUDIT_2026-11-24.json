@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:03.205165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed SPD H in dimension two, whitening gives the exact update E_j=(v_j v_j^T) E_{j-1} (v_j v_j^T), where v_j is orthogonal to the whitened sketch. The squared Frobenius error is the initial squared quadratic form times the product of successive cos^4 angle differences. Every nonzero symmetric E_0 has a nonzero initial projection almost surely. The doubled Gaussian direction is Poisson-kernel distributed with Fourier moments r^|m|, so the difference has moments r^(2|m|). The log of the product obeys the ergodic theorem (or apply the strong law separately to its odd and even pairs), and the Poisson mean of log|cos| is log((1+r²)/2). For the expectation, the cos^4 kernel is finite rank, positive semidefinite by its Fourier expansion and positive almost everywhere. Its top eigenvalue is simple, and the positive eigenfunction has nonzero pairing with both the initial squared quadratic form and 1. Reflection puts the eigenfunction in the even sector, with matrix D times the angular Gram matrix on (1,cos 2θ,cos 4θ), D=diag(3/8,1/2,1/8). The trace, principal-minor sum and determinant are (11+4r²+r⁴)/16, (17−12r²−5r⁴)/128 and 3(1−r²)²/512, confirming the cubic. The uniform row-integral bound is strictly below one for r<1; entrywise Perron comparison is strict, including from r=0 where the first diagonal entry 3/8 is exceeded by the Perron root of any positive T(r). At r=0 and the stated initial matrix the first factor is one and successive conditional expected factors equal 3/8. The general claims are asymptotic nth-root factors, not per-step deterministic contractions or optimization-iterate rates. Replay: RESULT.md lines 35–90; verify.py was inspected, not executed. The frozen finite rational, quadrature and simulated checks are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-matrix general bound is one-sided. The local optimizer theorem controls a different Lyapunov function under a varying Hessian; the accelerated inversion theory changes the update."
+        ],
+        "reasoning": "Greater dimensional or sketch generality does not imply equality with the bound, and the other convergence theorems refer to different random processes.",
+        "searches": [
+          "arXiv:1602.01768, Theorem 6.2",
+          "arXiv:2002.11337, Theorem 2.1",
+          "arXiv:1802.04079, §§3.3 and 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary and the three identified published records",
+        "arXiv:1602.01768",
+        "arXiv:2002.11337",
+        "arXiv:1802.04079"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known bound uses only the expected projector. The record instead uses products over consecutive sketch directions, with a logarithmic average for the pathwise rate and a different fourth-order angular transfer operator for the expectation."
+        ],
+        "reasoning": "Neither specializing the guarantee nor changing variables yields the cubic, the almost-sure rate, or the all-start attainment argument. The isotropic special case is elementary once the projection product is known; it is not the sole basis for this decision.",
+        "searches": [
+          "arXiv:1602.01768, Theorem 6.2 and its specialized sketch-projector factor",
+          "arXiv:1802.04079, §4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse-BFGS and symmetric sketch-and-project formulations use the same fixed-matrix weighted error; Gower–Richtárik's factor specializes to (1+r)/2, not the exact rate (at r=0: 1/2 versus 3/8)."
+        ],
+        "reasoning": "Changing to the native sketch-and-project variables identifies the older recurrence but not the two exact angle-product rates.",
+        "searches": [
+          "Resultary: exact mean-square and almost-sure contraction for planar Gaussian inverse-BFGS / rank-one random projection products",
+          "arXiv:1602.01768, Theorem 6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day moment-clock result uses reusable Gaussian Hessian sketches in a scalar iteration (fresh six-row factor 1/2); planar line search gives a two-state expected-objective rate for a vector iteration; the IS-Krylov finding treats independent beta contractions."
+        ],
+        "reasoning": "These are actual adjacent exact results but do not catalogue the anisotropic inverse-matrix projection transfer or the matching almost-sure factor. No priority inference is made from dates.",
+        "searches": [
+          "Resultary: Gaussian sketch BFGS annealed quenched exact rates and planar Gaussian direction second-moment rates",
+          "2026/10/13/SCOPE-a-sharp-refresh-run-moment-clock-for-gaussian-iterative-hessian--53f4487a6dcc",
+          "2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50",
+          "2026/11/8/SCOPE-exact-independent-beta-error-law-for-gaussian-limited-memory-is--daeeff4ce6cd"
+        ]
+      },
+      "rationale": "The supported distinct content is the explicit pair of planar Gaussian inverse-error factors and the proof that the mean-square Perron factor is attained for all nonzero symmetric initial errors. The BFGS update, projection formulation, and general convergence guarantee are prior work. Neither the closest catalogue claims nor the primary statements inspected provide the exact factors for this recurrence.",
+      "residual_risks": [
+        "An equivalent specialization could exist in unindexed projection-product or angular random-matrix literature. The general Lyapunov-exponent search did not establish absence or priority; the decision is based on the actual comparisons above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the recurrence and mean-square bound, not these exact rates",
+          "evidence": "The theorem gives an inequality with 1−λ_min(E[Z-hat]) as factor.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.01768",
+          "material_read": "PDF p. 20, Theorem 6.2",
+          "method": "Open-access primary-text passage",
+          "title": "Randomized Quasi-Newton Updates Are Linearly Convergent Matrix Inversion Algorithms",
+          "trigger": "Same matrix inversion recurrence and Gaussian sketch model"
+        },
+        {
+          "assessment": "Distinct optimization setting",
+          "evidence": "The local theorem uses a coupled Lyapunov function under changing Hessians and self-concordance.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.11337",
+          "material_read": "Introduction and PDF p. 3, Theorem 2.1",
+          "method": "Open-access primary-text passages",
+          "title": "Fast Linear Convergence of Randomized BFGS",
+          "trigger": "Randomized BFGS with Gaussian sketches"
+        },
+        {
+          "assessment": "Distinct accelerated scheme",
+          "evidence": "The analyzed iteration includes acceleration, unlike the fixed nonaccelerated recurrence here.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04079",
+          "material_read": "PDF pp. 6–8, §§3.3 and 4.1",
+          "method": "Open-access primary-text passages",
+          "title": "Accelerated Stochastic Matrix Inversion: General Theory and Speeding up BFGS Rules for Faster Second-Order Optimization",
+          "trigger": "Potential broader inversion-rate theorem"
+        },
+        {
+          "assessment": "Related distinction, different object",
+          "evidence": "A scalar Hessian-sketch iteration with possible sketch reuse, not the inverse-BFGS matrix update.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-refresh-run-moment-clock-for-gaussian-iterative-hessian--53f4487a6dcc",
+          "material_read": "Finding and setup",
+          "method": "Local catalogue and published-record mirror",
+          "title": "A sharp refresh-run moment clock for Gaussian iterative Hessian sketching",
+          "trigger": "Closest same-day comparison of typical and expected Gaussian-sketch contraction"
+        },
+        {
+          "assessment": "Different stochastic recurrence and observable",
+          "evidence": "Exact line search evolves an optimization vector and computes its expected objective rate; no matching inverse-error pair.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50",
+          "material_read": "Finding and setup",
+          "method": "Local catalogue and published-record mirror",
+          "title": "Exact mean-square rate of planar Gaussian random-direction line search",
+          "trigger": "Planar Gaussian angular transfer and exact expectation"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": "Independent beta contractions for IS-Krylov, not the consecutive-angle products of inverse-BFGS.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-independent-beta-error-law-for-gaussian-limited-memory-is--daeeff4ce6cd",
+          "material_read": "Finding and setup",
+          "method": "Local catalogue and published-record mirror",
+          "title": "Exact independent-beta error law for Gaussian limited-memory IS-Krylov",
+          "trigger": "Exact Gaussian-sketch comparison of typical and expected rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The planar case is the first in which Gaussian BFGS has genuinely random relative directions. The exact expected rate replaces a loose projector bound, and the simultaneous pathwise factor quantifies why that expectation can describe a very different timescale from a typical run. The all-start attainment result and anisotropy dependence make this a useful benchmark for stochastic inversion rather than just a recomputation of the isotropic example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

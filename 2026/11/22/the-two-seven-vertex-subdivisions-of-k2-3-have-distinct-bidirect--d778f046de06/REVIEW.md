@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph and multipath face criterion are explicit, and complete face sets agree across two logically distinct enumeration procedures. For the two graphs all 680 and 686 nonempty faces are included in an exhaustive directed-Hasse acyclicity check of the listed pairings, leaving CW cell vectors \(1,0,1,6,4\) and \(1,0,1,6,6\). Exact integral Smith reductions on signed simplicial boundary matrices find only unit invariant factors, with reduced homology ranks \( (5,4) \) or \( (5,6) \) in degrees three and four. With one two-cell and no one-cells, vanishing second homology forces a primitive third-cell attaching vector; changing the three-cell basis yields a three-skeleton consisting of five wedged three-spheres. The vanishing fourth-cell cellular boundary makes all maps from their attaching three-spheres nullhomotopic via the Hurewicz isomorphism. Risks: no independent mathematical audit; computer implementation and the standard Morse theorem are the key dependencies.
+## correctness
 
-## Originality
-PASS on the inspected literature and accessible scientific records, not as a universal priority certificate. The main recent source classifies single bidirected paths and cycles and develops T-operations requiring an orientation condition not satisfied here. The foundational multipath classification does not specialize to these strongly connected bidirected theta graphs, and the directly comparable published six-vertex theta result concerns only arm lengths \( (2,2,3) \). Relevant theta two-independence results concern a different simplicial construction. Searches for the two seven-vertex arm triples and equivalent names found no covering theorem. Risk: unindexed sources or an undiscovered stronger theorem may exist.
+PASS
 
-## Mathematical value
-PASS. Seven vertices are the first size at which a subdivision of \(K_{2,3}\) has two nonisomorphic arm-length patterns, so the paired result is a complete, naturally bounded classification, not a chosen isolated graph. The two underlying graphs share numbers of vertices and edges, degree sequence and first Betti number, yet their multipath complexes have distinct integral fourth-homology ranks. It demonstrates genuine sensitivity to branch-length distribution and supplies a reproducible benchmark for proposed subdivision or homology-stability assertions. No infinite-family or downstream theorem is claimed or necessary.
+The two degree-three terminals are intrinsic and the isomorphism type is their unordered triple of arm lengths. Three lengths ≥2 summing to 8 yield exactly the stated two subdivisions. Independent replay (python3 /workspace/reviews/evidence/theta_replay.py) exhausts all three choices per undirected edge: omit, orient forward, orient backward. It uses union-find to recognize forests and verifies the directed degree bounds. Once opposite arcs are prohibited, any undirected cycle in such a degree-constrained selection necessarily has coherent orientation, so this independently enumerates exactly the multipath faces. In order Θ224, Θ233 the f-vectors are (16,90,220,238,104,12) and (16,90,220,240,108,12). The listed pivots give 334 and 336 matches; a topological sort checks every nonempty Hasse vertex and cover, leaving critical counts (1,0,1,6,4) and (1,0,1,6,6). Integer column elimination with unit pivots on full oriented simplex boundaries gave ranks (15,75,145,88,12) and (15,75,145,90,12); each pivot can be split off as an integral unit block, and the residual zero block contributes no torsion. The boundary signs are the standard alternating signs, with the two orders of deleting each pair cancelling. The resulting H₂=0 forces the degree vector of the six 3-cell attachments to the Morse 2-sphere to be primitive. A GL₆(Z) basis change is realized by a homotopy equivalence of the attaching wedge of 2-spheres, so its homotopy cofiber gives a wedge of five 3-spheres as 3-skeleton. Rank H₃=5 forces d₄=0, and H₃ of this skeleton equals its π₃ by Hurewicz. Thus all 4-cell maps are null and the computed types are integral homotopy types, not just homology ranks. Frozen code was inspected, not executed.
 
-## Closest literature and limitations
-The principal sources are Caputi–Collari–Smith (arXiv:2601.05670v1), Caputi–Collari–Di Trani–Smith (arXiv:2208.04656v1) and the published six-vertex theta classification cited in `RESULT.md`. This finite computation is not a general theta-family classification. No independent audit has occurred; publication priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest overlap is earlier computation of the same arc-set complex for a smaller theta and results on single bidirected polygons. Neither computes either target case or supplies a theorem implying the two values. Some same-day records cover the same underlying graphs, but they take vertex subsets instead of arc subsets and have different face rules. Priority is limited to the inspected sources and catalogue.
+
+## value
+
+PASS
+
+Seven vertices are the first order with more than one subdivided K2,3 arm pattern. This is the complete comparison at that natural cutoff, and the rank-four homology distinction isolates an effect of arm distribution after fixing order, size, degree multiset and cycle rank. The explicit homotopy types are useful concrete benchmarks for prospective subdivision rules; a Betti-number distinction was not assumed to imply the wedge structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

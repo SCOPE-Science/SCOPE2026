@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:10.379847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–76; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent integer checks: /workspace/branches/review-1-replay.py, direct quotient periods k=1..11 and cyclic autocorrelation/valuation identity through e=8"
+      ],
+      "rationale": "At each p-power level the valuation of the LCM subtracts one precisely if there is a divisible term. For p^j<=k at least one exists, and for p^j>k there is at most one, so the higher levels cancel. This yields the claimed local periods and CRT product over L_k, without needing minimality. For odd p the local numerator is an odd sum of signs, never zero. At p=2 write k+1=2^e+r with 1<=r<=2^e; a full dyadic block contributes 2^e-1 in truncated valuation, leaving a fixed sign times S_e(r). Since odd positions have sign +1 and the sign at 2u is minus the lower-level sign at u, an even-length block averages to twice the signed lower-level block sum, and an odd-length block is the signed difference of successive lower-level block sums. The e=1,2 arrays and induction establish a single midpoint zero: in the odd-index recurrence the odd lower-level index has valuation one, while the even one has valuation at least two or vanishes; in the even-index recurrence the factor two raises the valuation by one. The endpoints contribute ±2^e and the k=1 quotient is identically one. This proves the stated all-window equivalence for total prime multiplicity; no sign assertion for the other windows or least-period claim is needed.",
+      "residual_risks": [
+        "Bounded checks corroborate but do not replace the dyadic induction. The window is of length k+1; the numbers 2,5,11,... listed for the test describe k, not the window length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-stride Finding covers all positive c, with odd-stride, exact valuation-one and -two branches, and exclusion at higher valuations. The Oct. 26 Finding gives the full valuation PGF for a prescribed progression. The cited primary period results give periods or least periods."
+        ],
+        "reasoning": "A period theorem does not give the sign average. The PGF encodes that average at each k but does not state its all-k zero set. The arbitrary-stride theorem does state the zero set for the wider stride domain, whose odd-stride branch subsumes the audited result.",
+        "searches": [
+          "Resultary 590ca5f9f677 and 8e35eb7b4fbc, original Findings",
+          "Farhi–Kane arXiv:0808.1507; Hong–Qian arXiv:0903.0530, Theorem 1.2; Huang–Yang arXiv:2611.15379, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 590ca5f9f677 and 8e35eb7b4fbc",
+        "Farhi–Kane arXiv:0808.1507; Hong–Qian arXiv:0903.0530; Huang–Yang arXiv:2611.15379; Baake–Coons arXiv:2209.07102; Shallit arXiv:2302.09436, p. 1 (one-point rarefied sums)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking c=1 in the published arbitrary-stride criterion sets e=0 and yields precisely the full if-and-only-if. The prior-work paragraph says a previously reported consecutive-stride classification gives its e=0 branch, without naming the version or source there. Setting a=1,b=0 and every z_p=-1 in the older PGF gives B_k."
+        ],
+        "reasoning": "Unlike deriving the uniform noncancellation theorem from the carry matrices, the c=1 specialization is immediate. The direct implication establishes substantial coverage even though the available versions do not settle direction of priority.",
+        "searches": [
+          "590ca5f9f677/RESULT.md, Finding and Relationship to prior work",
+          "8e35eb7b4fbc/RESULT.md, joint valuation PGF; specialization a=1,b=0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "590ca5f9f677 states sign-density equality for odd strides exactly at k+1=3·2^r. For the finite cyclic Thue–Morse correlation A_e(h), Legendre's factorial formula makes the valuation-sign prefix the doubled digit-parity word; thus S_e(2h)=A_e(h) and 2S_e(2h+1)=A_e(h)+A_e(h+1). Baake–Coons study an infinite-limit correlation instead."
+        ],
+        "reasoning": "The equality of sign densities is exactly B_k=0, with c=1 giving the same quotient and with Ω, not ω. The finite cyclic identity is a plausible alternate description of the key dyadic lemma, but the inspected infinite-limit recurrence does not provide exact finite zeros at lags scaling with the period.",
+        "searches": [
+          "Resultary: Liouville parity, even versus odd total prime multiplicity for Farhi and arbitrary-stride LCM quotients",
+          "Baake–Coons arXiv:2209.07102, Eq. (3.1); cyclic versus infinite-limit Thue–Morse autocorrelation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odd-stride row is the same exact infinite index set, not merely a finite table. The older polynomial gives every exact fixed-k mean after evaluation at minus one."
+        ],
+        "reasoning": "It is the exact indexed zero family, not a finite prefix or a least-period table, that matches the stated result.",
+        "searches": [
+          "Resultary: exact balance index family 2,5,11,23,47,95 and k+1=3·2^r",
+          "590ca5f9f677/RESULT.md, exact phase diagram; 8e35eb7b4fbc/RESULT.md, explicit polynomial"
+        ]
+      },
+      "rationale": "The distinct indexed arbitrary-stride theorem explicitly gives the entire audited balance criterion by setting c=1, including the same statistic and all positive k and starting integers. It describes its odd-stride branch as previously reported but does not identify the antecedent record in that passage. The visible shared date does not prove which appeared first or that the proofs are independent. Equivalent coverage is demonstrated; independent priority or a distinct surviving contribution in the frozen claim is not established. The older fixed-progression PGF additionally gives every fixed-window mean, but that alone would not be the basis for rejecting the uniform classification.",
+      "residual_risks": [
+        "Priority between the same-day records is unresolved and the relationship passage does not definitively identify its antecedent. Earlier finite-cyclic autocorrelation work or an explicit analysis of the carry matrices could affect historical attribution; this is not needed for the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the audited theorem; priority not settled",
+          "evidence": [
+            "The e=0 row is k+1=3·2^r; the relationship paragraph calls this branch previously reported but gives no exact identity for that report"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-liouville-sign-balance-phase-diagram-for-arbitrary-stride-lcm-wi--590ca5f9f677/RESULT.md",
+          "material_read": "Original Finding and assumptions (offset 0), prime-local proof comparison, Relationship to prior work (offset 7099)",
+          "method": "Read matching Resultary file through local mirror and specialize c=1",
+          "title": "Liouville sign-balance phase diagram for arbitrary-stride LCM windows",
+          "trigger": "Same quotient and explicit balance criterion for a wider stride class"
+        },
+        {
+          "assessment": "Covers exact fixed-k means, not an explicit uniform zero classification",
+          "evidence": [
+            "Allows b=0; factorization into explicit local valuation polynomials"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc/RESULT.md",
+          "material_read": "Original Finding and assumptions (offset 0), valuation and generating-function proof sections",
+          "method": "Read the local-mirror theorem and evaluate its multivariate PGF at z_p=-1 with a=1,b=0",
+          "title": "Exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "trigger": "Earlier complete distribution for the same fixed-window quotient"
+        },
+        {
+          "assessment": "Period information, no sign-density theorem in the inspected statements",
+          "evidence": [
+            "A least-period assertion is about the sequence, not sign counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.1507",
+          "material_read": "pp. 1–2, quotient and periodicity results",
+          "method": "Read primary OA passages",
+          "title": "New results on the least common multiple of consecutive integers",
+          "trigger": "Classical consecutive-integer LCM quotient"
+        },
+        {
+          "assessment": "Least periods, not the odd-stride sign balance",
+          "evidence": [
+            "The theorem gives a period formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.0530",
+          "material_read": "Theorem 1.2, p. 2",
+          "method": "Read primary OA statement",
+          "title": "The least common multiple of consecutive arithmetic progression terms",
+          "trigger": "Arithmetic progression and p-adic periods"
+        },
+        {
+          "assessment": "Period theorem, not an average or a zero locus in the inspected statement",
+          "evidence": [
+            "Least periods of multiplicative-function quotients of arithmetic progressions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15379",
+          "material_read": "Theorem 1.1, pp. 4–5",
+          "method": "Read primary OA theorem and compare output quantities",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "Closest primary multiplicative-function quotient theorem"
+        },
+        {
+          "assessment": "Different normalization and limiting regime",
+          "evidence": [
+            "N^{-1} times the unwrapped sum has an infinite-length limit at a fixed lag"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.07102",
+          "material_read": "p. 4, definition and Eq. (3.1)",
+          "method": "Compare original limit correlation with finite cyclic correlation",
+          "title": "Correlations of the Thue–Morse sequence",
+          "trigger": "Candidate equivalent automatic-sequence formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and dyadic proof; Resultary 590ca5f9f677, Finding and relationship discussion"
+      ],
+      "rationale": "The classification is intrinsically meaningful because it isolates a sparse infinite family and proves exclusion outside it rather than just listing fixed-window averages. However, in the reviewed scope it adds no quantitative sign result beyond the exact indexed arbitrary-stride theorem: its entire structural conclusion, plus existence of densities, is available there by one parameter substitution. The dyadic lemma is part of the same balance argument, not a separately stated independently valuable remainder in the frozen claim.",
+      "residual_risks": [
+        "This judgment is about distinct mathematical content, not credit for discovering it first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

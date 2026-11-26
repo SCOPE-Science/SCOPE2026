@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:13.055759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20 and 25–40; corrected /workspace/repairs/5/RESULT.md",
+        "VERIFICATION.md and checker.py inspected without executing uploaded code",
+        "Allouche, The number of factors in a paperfolding sequence, §5 theorem (journal p. 27)",
+        "Independent finite spot-check: g(i) from testing bit 2*(i & -i) of i; distinct length-N factors taken from the first 9N-1 letters; endpoints, number of ones and transitions give the bins"
+      ],
+      "rationale": "Final assessment is of the corrected RESULT.md. The frozen line 6 lists q five times, giving thirteen entries of total size 4N+q; as written that multiset is false. The endpoint formula and proof already require q exactly four times, so the replacement removes the one extra entry and leaves the substantive theorem and proof unchanged. Independently, in a length-N interval only residues 0 and N/2 have fewer than two odd-part bits fixed by the residue. The former gives g(m) at index Nm; the other is g(2m+1) or g(2m-1), fixed by parity of m for a fixed start phase. In each parity class g(m) takes both values at arbitrarily large m, so each labelled cut and bit choice occurs. Allouche's 4N complexity theorem then forces all labels to represent distinct strings. Around an even site the two odd neighbors differ, hence the two incident directed edges consist of one transition and one equal pair; the direction of the transition is determined by the left odd neighbor, regardless of the even bit. There are q transitions each way. At a zero even site the equal pair is 00, and at a one even site it is 11. The count of ones on the even sites of the unmodified prefix is q-1 by g(2r)=g(r) and the dyadic prefix weight recurrence, so toggling h exceptional bits gives B_h. Cutting an edge of type ba subtracts exactly that closing edge and gives endpoints a,b. Bigrams and endpoints determine letter counts and conversely the letter and bigram counts recover the endpoints. Thus different triples give distinct nonempty classes and each has binom(2,h)B_h(ba) strings. For h=1 there are four size-2q classes; the other levels together give two q-1, four q, and two q+1. These are twelve classes of total size 16q=4N. Independently enumerated starts for N=16,32,64,128 from the two lowest relevant index bits, deduplicated strings and binned by endpoints, weight and transition count; the sample counts match the proven spectrum. The repair was diffed against the original and the corrected literal multiset checked against the formula.",
+      "residual_risks": [
+        "The all-dyadic proof uses Allouche's published complexity theorem, not the finite spot-check. Other lengths, folding instructions and occurrence-weighted distributions are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-paperfolding ordinary complexity theorem gives the total 4N, not how it distributes among local signatures.",
+          "2-Abelian regularity results examined treat period-doubling and Thue–Morse and address the sequence of class counts. The 1994 paper's landing material is about canonical factor positions; full article access was unavailable."
+        ],
+        "reasoning": "Neither broader domain for a coarser count nor finer statistics on a different word yields this spectrum. A sufficiently explicit earlier positional count could be relevant; only landing material was accessible for the plausible 1994 match.",
+        "searches": [
+          "Allouche, DOI 10.1017/S0004972700011655, §5",
+          "Allouche–Bousquet-Mélou, DOI 10.1016/0304-3975(94)90028-0; publisher and exact-title lawful-copy search",
+          "arXiv:1405.3532, introduction"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0004972700011655",
+        "DOI:10.1016/0304-3975(94)90028-0 (landing material only)",
+        "arXiv:1208.2856",
+        "arXiv:1405.3532",
+        "Resultary:95c30971db21",
+        "Resultary:7a92ede06e81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factor-complexity theorem and same-word template catalogue together already give a description of the input factors and their distinctness. No priority is claimed for that part.",
+          "The examined template proof gives four residue-defined circles and weights. To get the corrected fibre result one additionally uses odd-neighbor alternation to count directed equal and unlike edges in those circles and matches each endpoint pair to the closing edge deleted by its cut. Neither aggregate factor counts nor the scattered-pair profiles supply that edge inventory."
+        ],
+        "reasoning": "The shared catalogue is real prior-coverage evidence for the proof infrastructure, not an asserted independent contribution. The supportable distinct claim uses a separate structural adjacency count to resolve every fibre uniformly, rather than computing a missing entry in a published table.",
+        "searches": [
+          "Resultary:95c30971db21, proof sections 1–2, four templates and weight totals",
+          "Allouche §5 theorem",
+          "Allouche–Bousquet-Mélou, publisher abstract/landing material"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary:95c30971db21 concerns scattered 01 counts with weight, whereas 2-Abelian fibres require contiguous pairs and endpoints. The prior catalogue uses the same four templates and three weight levels, but the equivalence relations are not the same.",
+          "Madill–Rampersad counts ordinary Abelian (weight) signatures, not refinements by endpoints and adjacent pairs."
+        ],
+        "reasoning": "The residue-zero versus length-N slot convention merely changes the origin of the circles. Contiguous and scattered 01 statistics are not interchangeable, and a weight class alone cannot fix the endpoint data.",
+        "searches": [
+          "Resultary regular paperfolding dyadic two-Abelian, two-binomial, factor spectra and class sizes",
+          "arXiv:1208.2856, Theorems 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-word catalogue gives 2n+k+1 scattered-subsequence profiles, not the twelve adjacent-bigram classes or their sizes.",
+          "The Thue–Morse table gives eight exact dyadic classes with a size spectrum depending on parity. The cited ordinary complexity results supply total counts or 1-Abelian class counts, not the corrected multiplicity table."
+        ],
+        "reasoning": "Check exact tables with both object and equivalence relation held fixed. The strongest retrieved tables each differ in one of those two respects.",
+        "searches": [
+          "Resultary exact dyadic spectra comparison: 95c30971db21 and 7a92ede06e81",
+          "Allouche §5 factor-count theorem and arXiv:1208.2856 complexity recurrences"
+        ]
+      },
+      "rationale": "The corrected claim is the adjacent-pair, endpoint-resolved dyadic fibre-size spectrum, not the ordinary complexity, the four-template catalogue by itself, or regularity of class counts. The strongest same-day records give the same templates for a different statistic or exactly this type of statistic on a different word. Neither examined claim states the ordered adjacent-pair counts of the circles or the resulting twelve dyadic paperfolding fibres. The unavailable 1994 full text remains a specific priority risk, not a verdict.",
+      "residual_risks": [
+        "Priority regarding the 1994 canonical-positions paper remains uncertain. No precedence is inferred from same-day publication records; their demonstrated overlap is credited separately. Bounded comparisons do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching dependency; not a 2-Abelian fibre statement",
+          "evidence": "Every paperfolding sequence has 4N distinct factors of length N for N>=7.",
+          "identifier_or_url": "DOI:10.1017/S0004972700011655",
+          "material_read": "§5 theorem, journal p. 27 (PDF p. 5, OA text offset about 11980)",
+          "method": "Lawfully available Cambridge primary PDF passage",
+          "title": "The number of factors in a paperfolding sequence",
+          "trigger": "Exact all-paperfolding factor count and proof dependency"
+        },
+        {
+          "assessment": "Plausibly relevant; exact implications unverified",
+          "evidence": "Accessible subject is canonical positions of paperfolding factors; insufficient evidence to determine what the full positional classification implies.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(94)90028-0",
+          "material_read": "Publisher landing page/abstract only; article request blocked, no lawful full-text copy found in the targeted search",
+          "method": "DOI publisher retrieval and exact-title search for an alternate copy",
+          "title": "Canonical positions for the factors in paperfolding sequences",
+          "trigger": "Potential earlier factor-position classification that could imply the fibres"
+        },
+        {
+          "assessment": "Coarser count only",
+          "evidence": "2-regularity and recurrences for ordinary Abelian complexity, not endpoint and bigram fibres.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.2856",
+          "material_read": "Theorems 1–2, PDF p. 4, text offset about 7960",
+          "method": "Lawfully available primary PDF passage",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Exact complexity of the same regular word under another equivalence"
+        },
+        {
+          "assessment": "Other words and aggregate class counts",
+          "evidence": "States 2-regularity of 2-Abelian complexities for period-doubling and Thue–Morse.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3532",
+          "material_read": "Introduction, PDF p. 3, text offset about 8870",
+          "method": "Lawfully available primary PDF passage",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Broader 2-Abelian complexity method"
+        },
+        {
+          "assessment": "Exact template and weight overlap; different fibre statistic",
+          "evidence": "Residues 0 and N/2 vary freely in four circles; profile uses weight and scattered 01, not linear bigram totals.",
+          "identifier_or_url": "Resultary:95c30971db21",
+          "material_read": "RESULT.md Finding and proof §§1–2, including offsets 1900–3960",
+          "method": "Local publication mirror",
+          "title": "Dyadic two-binomial spectra of the regular paperfolding word",
+          "trigger": "Same word, dyadic lengths and four-template method"
+        },
+        {
+          "assessment": "Same type of invariant but different word",
+          "evidence": "Eight classes with separate even/odd formula tables for Thue–Morse.",
+          "identifier_or_url": "Resultary:7a92ede06e81",
+          "material_read": "RESULT.md Finding, offsets 0–2261, including both parity tables",
+          "method": "Local publication mirror",
+          "title": "Dyadic two-Abelian ambiguity spectra of Thue–Morse factors",
+          "trigger": "Exact signature-size tables for a related automatic word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and cyclic-cut proof",
+        "Allouche §5; Resultary:95c30971db21 and 7a92ede06e81 for distinct comparators"
+      ],
+      "rationale": "For a natural automatic word the fibre sizes answer how many distinct strings are compatible with one local observation (endpoints and pair counts). Total factor complexity or the number of 2-Abelian signatures cannot answer that question. The dyadic restriction is tied to the two exceptional residues, and the ordered-cut calculation gives an all-level ambiguity distribution, with an explicit factor-two multiplicity effect from the middle weight level. This is a motivated quantitative invariant rather than a sampled list or another statement of ordinary complexity.",
+      "residual_risks": [
+        "Useful as a distinct-factor reconstruction count; no statement about probabilities under uniform random starting positions or general non-dyadic behaviour."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

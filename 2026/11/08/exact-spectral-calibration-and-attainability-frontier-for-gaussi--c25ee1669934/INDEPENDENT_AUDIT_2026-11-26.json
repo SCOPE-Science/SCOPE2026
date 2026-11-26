@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:32.202118Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C=(I+BGB)^(-1) and centered observations the shift penalty is xi^T GBCBG xi/2, so zero is sufficient and unique for G positive definite (not necessarily unique on the boundary). Writing Z=BGB, the quadratic coefficient of y in the integrated likelihood is B^(-1)Z(I+Z)^(-1)B^(-1), bounded between 0 and B^(-2); the residual covariance is at least sigma^2 I. The linear trace term therefore dominates the log determinant bounded above by d log(1+||B||^2 tr G), proving coercivity. The log-partition Hessian is a conditional variance strictly positive in every nonzero symmetric direction because the tilted Gaussian has full support and B is invertible. This also holds along boundary segments. Joint sign symmetry in a common eigenbasis then gives strictly improving diagonal pinching whenever G is nondiagonal. In a scalar mode differentiate the reduced objective: 2(1+z)^2 j'(z)=L z^2+(2L-1)z-2 rho. For rho<=0, L>1, and its derivative sign enforces the unique endpoint minimizer; for rho>0 the unique positive root is the given formula. At 1/L the numerator is 2(1-rho), giving the EEA ordering, including equality and opposite-mode signs. Continuity of the closed problem and the sequence G_*+epsilon I give exactly the stated attainability criterion; an ignored mode contributes its true mutual information, log(1+a_i^2/sigma^2)/2. Independent replay python3 /workspace/review_replay.py (section 4) evaluates the direct posterior KL for 108 two-mode PSD grid cases, including boundary and nondiagonal competitors. This is bounded corroboration, not global evidence; the reported separate random experiment was not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 treats biconvexity, and Theorem 3.1 supplies the Gaussian objective and the optimal shift in a broader framework. Neither gives the full-cone optimal precision stated here.",
+          "Low-rank posterior mean or covariance approximation changes the admissible class; here a common surrogate likelihood couples posterior gains to precisions."
+        ],
+        "reasoning": "The general results on the objective do apply but do not furnish either its solution, sharp unattainability condition, or EEA precision sign.",
+        "searches": [
+          "Schneider–Helin Theorems 2.7 and 3.1",
+          "Frozen RESULT.md lines 69–71: comparison with low-rank Gaussian posterior approximation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Schneider–Helin arXiv:2610.38434v1",
+        "Resultary c25ee1669934 and near-neighbor summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sign-flipped scalar example minimizes at G=0 on the closure, so one example of strict-cone nonattainment is already covered. The prior Gaussian objective is the starting point for the exact precision analysis.",
+          "The full statement requires ruling out nondiagonal improvements, solving the boundary quadratic for all real sensitivities, and comparing its sign at the EEA precision."
+        ],
+        "reasoning": "One sign-flip example cannot decide precisely which mixed-mode matrices attain the infimum. Neither the shift solution nor biconvexity alone implies these global precision conclusions.",
+        "searches": [
+          "Schneider–Helin §4.1 and (3.5)–(3.6)",
+          "Frozen RESULT.md lines 26–61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OAE in Schneider–Helin is the same expected forward posterior KL criterion for calibrating the surrogate likelihood. EEA there targets likelihood rather than posterior divergence.",
+          "Indexed trace-matched Gaussian inverse-covariance KL inequalities have different admissible variables and do not optimize a shared surrogate likelihood."
+        ],
+        "reasoning": "Changing terminology from OAE to spectral calibration does not make the objective new. The reviewed claim solves that objective over precisions in a specified commuting regime and gives its precision-level comparison with EEA.",
+        "searches": [
+          "Resultary semantic queries on expected posterior KL Gaussian spectral calibration and EEA",
+          "Schneider–Helin arXiv:2610.38434v1, abstract and (3.5)–(3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit lists the same spectral minimizer, criterion A positive definite, and EEA sign law under the same assumptions. Nearby trace-matched covariance KL hits only address a different optimization, as described in their index summaries."
+        ],
+        "reasoning": "The exact hit indexes the frozen result itself and cannot act as independent prior evidence. No distinct equivalent exact solution was established by the index comparisons.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-spectral-calibration-and-attainability-frontier-for-gaussi--c25ee1669934; nearby posterior-KL and inverse-covariance hits"
+        ]
+      },
+      "rationale": "The explicit spectral optimizer with the all-mode attainment frontier and precision comparison is distinct on current evidence. The OAE objective, convexity in precision at fixed shift, Gaussian objective, optimal shift and existence of a scalar nonattainment example receive prior credit.",
+      "residual_risks": [
+        "An unlocated equivalent scalar or commuting calibration analysis could have prior coverage. The inspected sources establish distinctions, not chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior framework and example, but not closed-cone spectral classification in these passages",
+          "evidence": [
+            "Theorem 2.7 biconvexity; Theorem 3.1 optimal shift; §4.1 a scalar boundary example, not an iff criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.38434",
+          "material_read": "Abstract, Theorems 2.7 and 3.1, (3.5)–(3.6), §4.1, PDF pp. 1, 8–11 (OA offsets 1800, 37400, 45950, 54600, 55950)",
+          "method": "Primary full-text passage comparison",
+          "title": "Optimal approximation error approach in Bayesian inverse problems",
+          "trigger": "Same posterior-KL criterion, prior scalar nonattainment"
+        },
+        {
+          "assessment": "Same frozen record, not an independent finding",
+          "evidence": [
+            "Exact summary includes all three main precision conclusions; near neighbors use other admissible classes."
+          ],
+          "identifier_or_url": "Resultary c25ee1669934",
+          "material_read": "The matching index summary and summaries of nearby trace-matched Gaussian KL entries",
+          "method": "Local semantic index lookup and scope comparison",
+          "title": "Spectral calibration and attainability frontier index entry",
+          "trigger": "Exact apparent match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Commuting symmetric forward models are a natural benchmark for a generally coupled surrogate calibration problem. Optimizing over the entire precision cone, not only diagonal competitors, makes the boundary phenomenon interpretable: the unregularized algorithm can fail to attain its optimum because it should discard precisely the data in nonpositive modes. The sign law predicts where residual-based EEA over- or underweights information, and mixed eigenmode differences show why a uniform precision inflation or deflation cannot always implement the correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

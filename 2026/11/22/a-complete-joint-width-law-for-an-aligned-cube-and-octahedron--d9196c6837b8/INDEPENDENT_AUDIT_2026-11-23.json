@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:21.198082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main law survives; the frozen slogan and the final high-m step of the proof included the degenerate point m=1 where the standardization divides by zero. The revised files make 1/sqrt(2)<=m<1 explicit, note S=1 in the geometric fiber at m=1, and distinguish numerical diagnostics from proof. In an ordered positive sector use (m,r cos θ,r sin θ), r=√(1-m²). The surface metric determinant is one, so the folded probability measure is (48/(4π))dm dθ. Ordering imposes θ between max(0,arccos(m/r)) (interpreted as zero for m>=r) and π/4. S=m+√2 r sin(θ+π/4) is monotone inside with derivative b-c. This gives the density, support and exact angular uniformity, as well as f_M=3 above the threshold. Coordinate/tie sets have area zero; the inverse square-root upper-edge singularity integrates and there is no boundary atom. Independent sector integrals give E[S]=3/2, E[M]=3√2 arccos(1/3)/(2π), E[SM]=1/3+2√2/π. For replay, reverse integration order: m>=g(θ)=cosθ/√(1+cos²θ), θ∈[0,π/4]; the cross moment is (4/π) times the integral of 1-g³+(cosθ+sinθ)(1-g²)^(3/2). The two terms integrate to π/12+1/(2√3) and 1/√2-1/(2√3). CHECK.py was inspected, not executed; its 599 comparisons are floating point.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch gives the cube first and second moments (unit edges) and separately the cross-polytope moments via a half-normal maximum.",
+          "The Resultary covariance summary explicitly concerns aligned and rotated covariances; it does not state a distribution. The raw-file fetch did not complete; comparison to that record is limited to its summary and the frozen citation."
+        ],
+        "reasoning": "Single-body moments and even the aligned mixed first moment leave the joint dependence undetermined; no compared result supplies all mixed moments or the joint support and density.",
+        "searches": [
+          "arXiv:1110.0671",
+          "arXiv:1112.0499",
+          "Resultary: aligned polar cube octahedron joint directional widths spherical L1 Linfinity dependence"
+        ]
+      },
+      "checked_sources": [
+        "Finch, arXiv:1110.0671 and 1112.0499 (relevant statements)",
+        "Resultary published summaries: exact regular octahedron width law and orientation-controlled covariance sign reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a fixed maximum, the free angle's lower endpoint comes from a tie b=m only when m<1/√2, and its image in s has derivative b-c.",
+          "The older marginal and mixed moments recover neither this conditional truncation nor the changing shape of the support."
+        ],
+        "reasoning": "The complete family of conditional laws does not follow by reparametrizing any of the compared moment or single-width statements.",
+        "searches": [
+          "arXiv:1112.0499 §§1–2",
+          "arXiv:1110.0671 abstract and introduction",
+          "Resultary exact octahedron marginal and orientation-controlled covariance summaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent observables are the ℓ∞ and ℓ1 norms of the same spherical sample, or the maximum square-root coordinate and sum of square-root coordinates of a Dirichlet(1/2,1/2,1/2) vector. Finch uses the normalized spherical or Gaussian representation for individual widths."
+        ],
+        "reasoning": "An ambient coordinate density is only the starting measure. Sorting, the b<=m constraint with its sharp switch, and the nonlinear Jacobian give an explicit joint pushforward, not a coordinate marginal under another name.",
+        "searches": [
+          "joint distribution sum maximum absolute coordinates uniform spherical random vector L1 Linfinity sphere dimension three cube octahedron sample mean maximum Dirichlet half",
+          "distribution moments spherical L1 norm and maximum absolute coordinate joint law spherical sum and max Finch range directions ordered positive octant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact octahedron width theorem has a CDF threshold and linear tail, which at w=√2m yields f_M=3. The aligned covariance record and the target itself were also returned."
+        ],
+        "reasoning": "These earlier summaries cover a projection of the law and a dependence scalar, not the formula for the joint density or its conditional quantiles.",
+        "searches": [
+          "Resultary: aligned polar cube octahedron joint directional widths spherical L1 Linfinity dependence"
+        ]
+      },
+      "rationale": "Provisional originality is restricted to the joint law, including its ordered support and conditional representation. The repair only removes a degenerate endpoint from standardization and clarifies the type of verification; no additional novelty is asserted.",
+      "residual_risks": [
+        "An older ordered-spherical or transformed-Dirichlet joint density could already evaluate the identical pushforward; the targeted search was nonexhaustive.",
+        "Full text of the covariance corpus record was not independently retrieved; the inspected summary concerns scalar covariance only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives individual width moments; no compared result gives the two-body density.",
+          "evidence": [
+            "For unit-cube edges, mean 3/2 and second moment 1+4/π"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671",
+          "material_read": "Abstract and introduction specifying sphere measure and cube moment targets",
+          "method": "Primary PDF text and normalization comparison",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Earlier unit-cube random width calculation"
+        },
+        {
+          "assessment": "Same octahedral marginal up to scale; no joint sum-and-max law in the compared statements.",
+          "evidence": [
+            "Mean unit-edge width (3/π) arccos(1/3), so M has mean this divided by √2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.0499",
+          "material_read": "Introduction and §§1–2, folded-normal maxima and unit-edge 3-cross-polytope moment statements",
+          "method": "Primary PDF text and width-scaling comparison",
+          "title": "Mean Width of a Regular Cross-Polytope",
+          "trigger": "Earlier spherical maximum statistic and half-normal representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both widths are observed from the same orientation, so their joint law is a natural invariant beyond a covariance or two marginals. The order-induced boundary switch gives an exact nontrivial conditional sampling and quantile rule; the repair neither narrows to an arbitrary slice nor changes that dependence result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

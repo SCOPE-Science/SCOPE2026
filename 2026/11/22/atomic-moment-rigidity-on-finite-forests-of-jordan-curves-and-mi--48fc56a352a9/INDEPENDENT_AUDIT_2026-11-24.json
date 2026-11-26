@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:28:36.394442Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Assumptions and scope, Proof steps 1–4 and Verification",
+        "Frozen VERIFICATION.md",
+        "Wang–Yao, arXiv:2611.22802v1, Theorem 3.2 and §3.2 (classical theorem and diagonal pairing)"
+      ],
+      "rationale": "For distinct sites, the absolutely summable family gives a finite complex atomic measure. Disjoint Jordan boundaries make their filled disks either disjoint or strictly nested; the finite union of maximal filled disks has connected complement. Mergelyan therefore isolates a component by piecewise constants, and multiplying by z^k preserves the restriction's zero moments. For one disk, interior harmonic measures are pushforwards of Poisson measures under a Carathéodory homeomorphism, hence absolutely continuous to one fixed nonatomic harmonic measure. Their weighted sum converges in total variation by the ℓ¹ hypothesis, with exactly the interior polynomial moments. The modified boundary measure annihilates all polynomials; Mergelyan applied to powers of the inverse conformal map transfers its annihilation to the circle, where F. and M. Riesz gives absolute continuity. The original atomic boundary part is thus zero; the inner measure still annihilates polynomials. Finite descent removes every layer. A separate direct check of the crucial elimination uses a peak function g=(1+conjugate(alpha) phi^{-1})/2, where alpha maps to the chosen atom: g=1 at that atom and |g|<1 everywhere else in the disk. Each g^n integrates to zero by Mergelyan, and dominated convergence gives zero mass at the atom, even for dense sites. Finally distinct diagonal entries force every commuting off-diagonal matrix entry to vanish. Every ℓ¹ test sequence factors as x_n conjugate(y_n) for ℓ² vectors, so WOT on diagonals is precisely the pairing with ℓ¹; its zero preannihilator yields the claimed WOT closure. No computation is required.",
+      "residual_risks": [
+        "The proof is not norm or sequential norm approximation; it does not handle repeated eigenvalues, infinitely many Jordan curves or overlapping curves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4.1 treats a summable sequence of pure point measures on strictly decreasing concentric radii, using Poisson convolution and F. and M. Riesz.",
+          "Corollary 3.6 uses harmonic measure for an interior sequence converging at an interior point and a Jordan boundary. Theorem 2.3 asks for uniform constant separation of the blocks by polynomials."
+        ],
+        "reasoning": "More radial layers do not cover even two arbitrary nonconcentric Jordan curves. Full inner and outer curves cannot be separated by uniform polynomials by the maximum principle, so that direct-sum criterion does not apply to dense nested sites. A single convergent interior sequence does not model a dense inner loop.",
+        "searches": [
+          "arXiv:2611.22802v1 Theorem 2.3, §3.2, Corollary 3.6, §4.1 Lemma 4.1",
+          "Resultary: harmonic balayage or analytic-moment rigidity on nonconcentric Jordan boundaries"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.22802v1 §§2,3.2,4.1",
+        "Resultary search and frozen record comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circle theorem yields boundary absolute continuity, not conclusions about measures carried by arbitrary disjoint inner boundaries.",
+          "Conformal transfer solves only the chosen outer layer. Filled-disk isolation preserves zero moments for each disjoint descendant, after which the argument must be applied again."
+        ],
+        "reasoning": "The general finite nonconcentric result does not follow by substituting values into the known radial, single-loop, convergent-sequence or uniformly separated-block results. The shared balayage mechanism is credited; the extra work is the recursive use of polynomial isolation and outer-layer elimination without imposing radial or norm separation.",
+        "searches": [
+          "arXiv:2611.22802v1, Corollary 3.6, Lemma 4.1, Theorem 2.3",
+          "F. and M. Riesz formulation in §3.2, Rudin Theorem 17.13 as cited there"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.2 gives the exact abstract ℓ¹ uniqueness equivalence; Theorem 3.9(2) proves the single-Jordan case for pairwise distinct spectral sites."
+        ],
+        "reasoning": "These are exact existing ingredients and one genuine special case. The abstract criterion neither verifies the moments for a new spectral geometry nor permits taking arbitrary unions.",
+        "searches": [
+          "arXiv:2611.22802v1 Theorem 3.2 and Theorem 3.9(2)",
+          "Resultary: ℓ¹ analytic moments and diagonal minimal commutant on finite nested Jordan sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed title/result is the record under review. The nearest distinct exact characterization verified was the Wang–Yao concentric-family lemma."
+        ],
+        "reasoning": "This is an infinite-dimensional sufficiency theorem rather than a numerical invariant; the relevant exact database check is for a geometrically equivalent theorem. Self-matching is not prior coverage, and bounded lookup is not exhaustive.",
+        "searches": [
+          "Resultary: finite forests of Jordan curves, atomic analytic moments, minimal diagonal commutants",
+          "SCOPE-atomic-moment-rigidity-on-finite-forests-of-jordan-curves-and-mi--48fc56a352a9"
+        ]
+      },
+      "rationale": "The abstract moment equivalence, single-boundary result, convergent interior-sequence case, and even countably many concentric circles are already covered. The supported distinction is an arbitrary finite forest of pairwise disjoint Jordan boundaries, in particular deeply nested nonconcentric loops with unrestricted dense sites. There is no common conformal flattening or norm separation in the identified criteria; the geometric step that makes the known elimination principle recur on arbitrary branches supplies this distinct case.",
+      "residual_risks": [
+        "An older analytic-measure, uniform-algebra or Cauchy-transform formulation could contain a stronger geometric result. That possibility was not exhaustively checked.",
+        "The F. and M. Riesz mechanism and diagonal equivalence are credited, not offered as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the operator equivalence, single curve, special interior sequence and concentric cases, not the arbitrary finite forest",
+          "evidence": "Lemma 4.1's zero moments are Σ_j r_j^k ∫z^k dμ_j=0 for a strictly decreasing radial sequence; Theorem 2.3 requires a common polynomial sequence separating full blocks in norm. Corollary 3.6's interior sequence has a single limit strictly inside the outer Jordan domain.",
+          "identifier_or_url": "https://arxiv.org/html/2611.22802v1",
+          "material_read": "Theorem 2.3 (OA offset 8400), Theorem 3.2 (15350), §3.2 and Corollary 3.6 (around 36300), Theorem 3.9(2) (45600), §4.1 Lemma 4.1 (53200)",
+          "method": "Lawful arXiv HTML, targeted theorem and proof passages",
+          "title": "Commutants of diagonal operators",
+          "trigger": "Same minimal commutant property, exact moment formulation and closest nesting results"
+        },
+        {
+          "assessment": "Identical item under review, not independent prior",
+          "evidence": "Same finite arbitrary Jordan families and ℓ¹ rigidity/diagonal equivalence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-atomic-moment-rigidity-on-finite-forests-of-jordan-curves-and-mi--48fc56a352a9",
+          "material_read": "Indexed summary and frozen Finding and Proof",
+          "method": "Configured Resultary search and frozen package comparison",
+          "title": "Atomic-moment rigidity on finite forests of Jordan curves and minimal diagonal commutants",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–4",
+        "arXiv:2611.22802v1 Theorem 2.3 and Lemma 4.1"
+      ],
+      "rationale": "The theorem gives a concrete, unrestricted spectral-geometry condition for infinitely many distinct eigenvalues. Finite nesting is the important regime: usual uniform polynomial isolation fails across full nested curves, yet atomic ℓ¹ rigidity still holds after removing their outer layers. This supplies a reusable criterion for nonconcentric, nonsmooth and densely occupied families, rather than just another example on a circle.",
+      "residual_risks": [
+        "No conclusion for infinite nesting, intersections or norm approximation; scientific value is bounded to finite forests."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical finding
+# Independent mathematical audit
 
-The mathematical theorem follows from the four proof steps in `RESULT.md` and classical Perron–Frobenius comparison for positive matrices. The executable diagnostics supplement, rather than certify, that proof.
+## correctness
 
-Run `python verify.py` after installing the three packages in `requirements.txt`. The script symbolically recomputes both marginal allele-survival ratios and the exact full-dominance quadratic susceptible-mass loss. It then simulates a three-stage positive Metzler semigroup and verifies that (i) the resistant-dominant asymptotic values are close to their weighted inverse-selection coefficient, and (ii) with partial dominance the logarithmic rate is close to the Perron root ratio. It also computes four distinct biologically admissible full-dominance selection examples from the source's four-stage life-history data and reported susceptible-genotype pulse survivals.
+PASS
 
-Observed diagnostic output (rounded): dominant weighted prediction 2.509656225; observed stagewise values after 20000 pulses 2.51103304, 2.51124986, 2.51099521. Partial-dominance log prediction -0.172992259; observed values at 1000 pulses -0.17311655, -0.17279733, -0.17318671. Four-stage inverse-pulse coefficients for selection in egg, larva, pupa and adult are approximately (8.06272989, 2.93680651, 122.22632820, 3.99529147). In each scenario the selected stage has strength 0.5 and resistant-homozygote pulse survival twice the source's susceptible-genotype pulse survival, making all probabilities admissible.
+Under the stated positivity and mixed-allele hypotheses, the transport matrix makes both allele masses strictly positive after one pulse. The Hardy–Weinberg marginal survivals give a row-stochastic mixing of susceptible/resistant ratios followed by a nonnegative selection defect. Normalized resistant masses have a uniform positive bound after one step; hence every mixing weight is bounded below, and the strict loss at a selected stage forces the maximum ratio to zero in a two-step argument. The two mass recursions are then bracketed componentwise by (1 ± epsilon) times their respective positive limiting matrices; comparison with Perron powers and strict Perron monotonicity give the log root-ratio exponent. When s_i h_i vanishes identically, resistant mass is exactly linear and the susceptible defect is exactly quadratic to leading order. The minimum ratio has an inverse-pulse lower bound; the weighted quadratic drift and uniform mixing give an inverse-pulse upper bound and O(k^-2) stage spread. Thus the reciprocal of the Perron-weighted ratio has increment tending to sum_i s_i w_i v_i with w^T v=1. This also justifies converting ratios back to frequencies and does not require growth of the total population. A separate two-stage diagnostic with rho(P)<1 agrees with the two scalings; it is not used as proof. Replay the analytic checks in RESULT.md lines 42–112; the archived verify.py is supplemental, not formal verification.
 
-The program tests representative configurations only. It does not produce machine-formal verification of the infinite-time assertions, and it does not substitute for mathematical checking of the uniform mixing, contraction and weighted drift arguments. The publication priority assessment is not independently audited.
+## originality
+
+PASS
+
+The inspected academic model proves qualitative fixation, not either sharp asymptotic formula. A distinct catalogue result states both exact formulas on a materially overlapping common-dominance, s_i<1 domain, including the same dominant coefficient and an additional between-pulse extension. Credit that overlap in full: the common model and the coefficient there are not distinct findings relative to that record. The frozen theorem covers pulse laws for a wider nonlinear system, including stage-specific dominance at fixed independent homozygote and heterozygote survivals and allowed s_i=1. The closest statement does not give that scope; no earlier equivalent coverage of the full claim was established. Catalogue path dates are not a determination of priority or dependence.
+
+## value
+
+PASS
+
+Qualitative fixation alone cannot distinguish an exponential tail from an inverse-pulse tail. The theorem distinguishes them using measurable model parameters and shows how stage transport and survival jointly determine the actual coefficient, not merely its order. It applies when selection acts on heterozygotes in some stages but not others and also when the population itself shrinks, separating allele-frequency predictions from demographic persistence. Its value is a deterministic asymptotic prediction for the stated model, not an empirical control recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

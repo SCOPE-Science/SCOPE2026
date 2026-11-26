@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:18:23.096328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55 and VERIFICATION.md; no supplied verifier.",
+        "Independent finite-difference spot check with E1 evaluated by its convergent series, c=3, x=10^−5 and 0.2. At x=10^−5 the log-slope was 0.008347175181 by finite difference versus 0.008347175174 analytically; at x=0.2 the respective values were 0.243709756753 and 0.243709756754.",
+        "NIST DLMF (6.6.2), (6.12.1)."
+      ],
+      "rationale": "For fixed c>1 and x>0, h'(x)=h(x)(h(x)/x−1)>0 by the strict integral bound E1(x)<exp(−x)/x. Thus the log-ratio slope h(x)−h(x/c) is positive, and the small- and large-argument expansions give the endpoints 1 and infinity. Inverse differentiation gives the stated scalar relative condition number. With L=−γ−log x and a=log c, the E1 series gives h(x)=1/L+o(L^−2) and h(x/c)=1/(L+a)+o(L^−2); the difference is asymptotic to a/L². Also R−1 is asymptotic to a/L, giving both claimed forms. These statements concern the recovered ratio parameter x, not the full inverse for (T,S) or a stochastic noise model.",
+      "residual_risks": [
+        "The asymptotic fixes c>1; no uniform simultaneous limit in c, field-identifiability, error covariance, or full parameter condition number was checked or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theis gives the drawdown equation at arbitrary r,t under the same model. The standard E1 expansions cover both endpoints, and the Cooper–Jacob approximation is the known logarithmic term."
+        ],
+        "reasoning": "The ratio cancels the common amplitude, the strict slope follows immediately by bounding the defining integral, and the two known E1 expansions recover the endpoints without a new model or inversion principle.",
+        "searches": [
+          "Theis (1935), eq. (5)",
+          "AQTESOLV Cooper–Jacob, Equations (6)",
+          "NIST DLMF (6.6.2), (6.12.1)"
+        ]
+      },
+      "checked_sources": [
+        "Theis 1935 USGS reprint",
+        "AQTESOLV Cooper–Jacob Equations",
+        "NIST DLMF §6.6 and §6.12",
+        "Bounded Resultary lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the logarithmic approximation R=1+a/L, check directly that d log x/d log R=a R/(R−1)². The exact E1 series gives O(x) remainder in E1 and the exact slope comes from E1'(x)=−exp(−x)/x. Thus the exact leading singular coefficient agrees with the approximation."
+        ],
+        "reasoning": "Neither the finite-x derivative formula nor its leading singularity needs an additional scientific hypothesis or nonroutine inversion theorem beyond the established ingredients. This gives specific positive implication evidence despite the absence of an identically worded prior law.",
+        "searches": [
+          "Theis (1935), eq. (5) and p. 6",
+          "Cooper–Jacob logarithmic approximation, AQTESOLV eq. (6)",
+          "NIST DLMF (6.6.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theis explicitly permits two observations at one place at different times. For the log-Jacobian with rows (h_i−1, −h_i) in (log T, log S), subtracting row 1 from row 2 gives the ratio sensitivity to log(S/T)."
+        ],
+        "reasoning": "Its slope is h(x)−h(x/c), exactly the denominator in the frozen result; it is also the magnitude of the determinant, but not the matrix condition number.",
+        "searches": [
+          "Web: Theis pumping test two observation times drawdown ratio parameter inversion Jacobian sensitivity Cooper-Jacob late-time approximation exact exponential integral derivative",
+          "Theis (1935), eq. (5) and two-observation discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially overlapping exact Theis entry surfaced in the bounded catalogue search. DLMF supplies the exact series and large-x expansion, not an inversion table."
+        ],
+        "reasoning": "This is a functional identity at continuous parameters, not a finite exact census to be matched in a table. A catalogue miss does not counter the direct implication from the prior forward expression and expansions.",
+        "searches": [
+          "Resultary: Theis two-time drawdown ratio inversion exact relative condition number E1 sensitivity Jacobian (50 ranked results)",
+          "NIST DLMF §§6.6 and 6.12"
+        ]
+      },
+      "rationale": "Theis already gives the full forward formula and two-observation recovery in the precise same-place setting. The record's sole quantitative refinement is its direct scalar inverse log derivative: subtract the log-sensitivity rows of the two prior drawdown expressions and reciprocate. The common standard exponential-integral expansions then give the endpoint and late-time statements directly. Failure is for mechanical coverage, not a claim that a prior source prints the same condition-number notation or that the mathematics is false.",
+      "residual_risks": [
+        "The primary Cooper–Jacob AGU PDF was not accessible; the logarithmic formula was checked in a public explanatory source and against the standard exact series. That access limit is not the reason for failure.",
+        "An explicit prior occurrence of the exact condition number was not located; the assessment is based on the direct implication instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same forward model and theoretical two-observation recovery; no printed condition identity in the passages",
+          "evidence": "Theis allows same-site observations at different times and cautions about heterogeneity and short pumping periods.",
+          "identifier_or_url": "https://water.usgs.gov/ogw/pubs/Theis-1935.pdf",
+          "material_read": "Reprint eq. (5), printed p. 4, offsets 11266–15728, and two-observation discussion p. 6, offsets 19911–23903",
+          "method": "Lawful USGS OA PDF, bounded OCR passages",
+          "title": "The relation between the lowering of the piezometric surface and the rate and duration of discharge of a well using ground-water storage",
+          "trigger": "Original same-place two-time inversion and shared forward formula"
+        },
+        {
+          "assessment": "Explicit logarithmic approximation with the ingredients for the singular scaling",
+          "evidence": "The small-u well function is approximately −γ−ln u; the fixed-time-ratio difference of these terms is ln c.",
+          "identifier_or_url": "https://www.aqtesolv.com/cooper-jacob.htm",
+          "material_read": "Equations section including eq. (6), text offsets 800–4800",
+          "method": "Lawful OA explanatory webpage; not the primary 1946 article",
+          "title": "Cooper and Jacob Solution for Confined Aquifers",
+          "trigger": "Potentially covering logarithmic late-time approximation"
+        },
+        {
+          "assessment": "Prior expansions used directly, not a prior hydrology-specific condition number",
+          "evidence": "The convergent logarithmic series gives O(x) correction at zero; the large-real-x expansion begins with exp(−x)/x.",
+          "identifier_or_url": "https://dlmf.nist.gov/6.6.E2 ; https://dlmf.nist.gov/6.12.E1",
+          "material_read": "Equations (6.6.2) and (6.12.1)",
+          "method": "Lawful OA reference equations, rendered mathematics",
+          "title": "NIST Digital Library of Mathematical Functions: Exponential Integrals",
+          "trigger": "Exact expansion and standard remainder scale for the endpoint and conditioning claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–63; Theis reprint pp. 4 and 6; Cooper–Jacob logarithmic equation; NIST DLMF (6.6.2)"
+      ],
+      "rationale": "Weak identifiability at late times is a natural applied concern, but the exact number claimed here is a routine scalar derivative of the known drawdown response, and its singular scaling follows directly from the classical logarithmic form. The record supplies no additional recovery limitation or observational conclusion beyond that in this particular choice of relative coordinates; in particular it does not analyze measurement errors in drawdown or sensitivity of both recovered parameters. The explanatory calculation is correct, but not a distinct scientifically valuable exact invariant under this standard.",
+      "residual_risks": [
+        "This is a judgment on the stated scalar refinement, not a judgment that pumping-test conditioning or more complete observation-design problems lack value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

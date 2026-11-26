@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:29:05.198530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70 and 74–98",
+        "VERIFICATION.md and verify.py, inspected not executed"
+      ],
+      "rationale": "Parseval reduces the squared excess budget to ||T||²≤β for the missing block T. The fixed m−1 observed edges give trace 2(m−1); the missing arc gives 2+Tr(T*AT)−2 Re Tr(B*T), A positive definite. The feasible ball is compact convex and the objective strictly convex; deleting interior observed columns weakly decreases norm and strictly decreases energy unless they are already zero. Reflection and conjugation preserve the problem, so the unique solution is real and maps endpoint parity into orthogonal missing parity. Hence the operator-norm constraint separates into two Euclidean ball constraints. Their resolvent solutions have strictly decreasing squared norms in the multiplier and harmonic norms q/2 and q(q−1)/(6(q+1)), obtained from affine interpolation and the centered square sum. This proves the thresholds including equality cases. The sine endpoint coefficients select odd/even modes, and substitution A v=b−λv gives each energy 1−G−λF. A surviving interior zero column gives the lower sharp frame bound 1. The small-budget unit-direction expansion gives −2√β+β⟨b,Ab⟩ per channel before adding constants, and the two quadratic coefficients sum to 4; q=2 uses eigenvalues 1 and 3. As an independent corroboration, 20 tests use the full matrix multiplier S≥0 for T*T≤βI, checking AT+TS=B, complementarity, the frame eigenvalues, harmonic energy and q=2 formula, in /workspace/branches/independent_replay.py (cycle). These finite certificates verify their instances only.",
+      "residual_risks": [
+        "The uniqueness and sharp frontier concern trace Dirichlet energy with a full Parseval analysis. Not a minimax Dirichlet or partial-coefficient statement. Endpoint locality applies to the missing block; observed coordinates are reproduced."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Souop–Bitjoka give the unique harmonic completion −L_II^−1 L_IB s for each fixed boundary. Ou–Yao–Zhang give zero-extension compatibility and a Schur-complement error identity. Beck et al. develop representation-theoretic graph Fourier bases and Cayley frames."
+        ],
+        "reasoning": "The full-domain harmonic minimizer is a broader result for the plateau only. Zero-extension compatibility and frame construction do not address a norm-constrained choice of linear completion; generic Tikhonov machinery does not give the cycle's parity decomposition and the exact budget frontier without the additional problem-specific argument.",
+        "searches": [
+          "graph signal extension interpolation Dirichlet energy operator norm constraint Tikhonov harmonic extension cycle path spectral norm",
+          "arXiv:2607.14168v1 §7 Thm. 5",
+          "arXiv:2611.10692v1 §2 Thms. 2 and 6",
+          "arXiv:2303.02812v1 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–98",
+        "Resultary 8426f47cda6b, ec61572eaf7f and 76081aaa094a",
+        "arXiv:2607.14168v1, 2611.10692v1 and 2303.02812v1 at stated passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior minimal-cycle extension diagonalizes only the unconstrained map. The submitted map has distinct active multipliers determined by two full resolvent norm functions F_±(λ), and λ_−=0<λ_+ on a nonempty budget interval."
+        ],
+        "reasoning": "The two harmonic singular values do not determine either squared resolvent norm function from λ>0 and cannot imply the active-budget optimal energies. Proving the norm-ball separation over all feasible maps and calculating the singular profiles and response of each channel supplies the distinct result.",
+        "searches": [
+          "Resultary 8426f47cda6b and ec61572eaf7f, RESULT.md Finding and Proof",
+          "arXiv:2607.14168v1 §7 Thm. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Parseval frame budget is precisely an operator-norm constraint on the missing block. The earlier P_n into C_(2n−2) harmonic spectrum is {1 with multiplicity n−2, n(n+1)/(6(n−1)), n/2}. Subtracting 1 in the last two values gives s_− and s_+ for q=n−2."
+        ],
+        "reasoning": "Thus even a differently phrased harmonic operator spectrum overlaps the plateau and its feasibility thresholds. It does not establish the minimizers after imposing a stricter operator cap, or that the two active modes release independently in the actual constrained optimizer.",
+        "searches": [
+          "Resultary: norm-constrained interpolation endpoint modes resolvent threshold graph Laplacian",
+          "Resultary: cycle harmonic completion Parseval frame stability frontier",
+          "Resultary 8426f47cda6b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct exact formula hit is the earlier harmonic spectrum above. The Gini seminorm record has the numerical expression n(n+1)/(6(n−1)) in a different norm; the distinct same-day three-anchor record minimizes a Parseval upper bound by anchor placement."
+        ],
+        "reasoning": "The numerical expression alone is not a match for a budgeted minimizer. Varying anchors is not varying all completion maps for one fixed contiguous path; no priority is inferred from date.",
+        "searches": [
+          "Resultary: two-threshold smoothness frame-stability frontier cycle Dirichlet completion",
+          "Resultary: two-terminal graph harmonic extension path interpolation norm formula",
+          "Resultary 8426f47cda6b, 76081aaa094a, ec61572eaf7f"
+        ]
+      },
+      "rationale": "The all-completions constrained frontier and its independent release of the antisymmetric mode before the symmetric mode are supported as distinct. The harmonic endpoint is established prior, and both numeric harmonic feasibility values are already encoded in the prior isometric minimal-cycle harmonic spectrum on q=m−2. Those old values are not credited as separate discoveries; they do not solve the positive-multiplier modes or the exact active-budget trace curve.",
+      "residual_risks": [
+        "An otherwise phrased exact constrained-interpolation theorem may not have surfaced; the bibliographic search is bounded.",
+        "Only the given passages were compared for Cayley-frame construction and the full setting of graph harmonic optimization is broader than this cycle model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap at harmonic endpoint q=m−2, not the constrained curve",
+          "evidence": "The last two squared frame eigenvalues n(n+1)/(6(n−1)) and n/2 are 1+s_− and 1+s_+ on that slice.",
+          "identifier_or_url": "Resultary 8426f47cda6b",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local mirror",
+          "title": "Harmonic completion of cyclic graph wavelets: exact frame distortion",
+          "trigger": "Strongest exact earlier spectral overlap"
+        },
+        {
+          "assessment": "Supplies harmonic endpoint only in inspected theorem",
+          "evidence": "Minimizes Dirichlet energy under fixed data via interior harmonic solution −L_II^−1 L_IB s, with no induced operator-norm cap.",
+          "identifier_or_url": "https://arxiv.org/html/2607.14168v1",
+          "material_read": "§7 Theorem 5 and accompanying text",
+          "method": "Official primary HTML",
+          "title": "Tight Wavelet Frames on Graphs via Isometric Group Embedding",
+          "trigger": "Motivating graph frame completion theorem"
+        },
+        {
+          "assessment": "Boundary compatibility and error, not the budgeted trace objective",
+          "evidence": "Characterizes zero-extension compatibility and gives a Schur-complement energy identity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10692v1",
+          "material_read": "§2 Theorems 2 and 6",
+          "method": "Official primary HTML",
+          "title": "Zero Extension for the Dirichlet Problem on Graphs",
+          "trigger": "Different boundary-completion optimization candidate"
+        },
+        {
+          "assessment": "Available passage concerns frame construction, not a whole-paper implication decision",
+          "evidence": "Graph Fourier bases and Frobenius–Schur/Cayley frame characterization, not a fixed-data objective in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/html/2303.02812v1",
+          "material_read": "Abstract and §1",
+          "method": "Official primary opening",
+          "title": "Frames for Signal Processing on Cayley Graphs",
+          "trigger": "Closest host-frame general formulation"
+        },
+        {
+          "assessment": "Different optimized variable",
+          "evidence": "Optimizes placement of three anchors with harmonic extension fixed by those anchors; no arbitrary completion-map budget.",
+          "identifier_or_url": "Resultary ec61572eaf7f",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local mirror",
+          "title": "Optimal three-anchor harmonic Fourier analysis on a finite cycle",
+          "trigger": "Distinct same-day constrained-looking cycle theorem"
+        },
+        {
+          "assessment": "Numerical overlap, different functional",
+          "evidence": "Uses complete-pair Gini seminorm and a path value n(n+1)/(6(n−1)).",
+          "identifier_or_url": "Resultary 76081aaa094a",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local mirror",
+          "title": "Sharp Gini norm and equality geometry of two-terminal graph harmonics",
+          "trigger": "Matching harmonic scalar in other norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–66 and 74–98",
+        "Resultary 8426f47cda6b, harmonic plateau comparison"
+      ],
+      "rationale": "The exact optimum over all linear completions is a natural graph interpolation benchmark: the full Parseval coefficient energy is a worst-input amplification budget, while trace graph roughness is isotropic mean squared roughness. Endpoint locality, sequential parity release, exact frontiers across the budget continuum and limiting threshold ratio show what is gained by departing from either zero padding or unrestricted harmonic continuation. The benchmark does not rely on the already known harmonic endpoint as its new invariant.",
+      "residual_risks": [
+        "Specific cycle geometry and full Parseval map; not a bound for erased coefficients or a universal graph-filter optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

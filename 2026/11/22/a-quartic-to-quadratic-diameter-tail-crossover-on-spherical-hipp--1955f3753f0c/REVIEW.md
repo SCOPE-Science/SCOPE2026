@@ -1,11 +1,21 @@
-# Scientific review: A quartic-to-quadratic diameter-tail crossover on spherical hippopedes
+# Independent mathematical audit
 
-**Correctness — PASS.** Sphere and cylinder equations imply the exact parameterization and length. For every fixed \(0<b<1\), the antipodal set is exactly four points, and a positive-definite quadratic sum expansion yields the coefficient after correctly accounting for four ordered pairs and the arclength Jacobians. At \(b=1-\kappa\sqrt\delta\), an exact trigonometric sum and bounded local rescaling give the quartic sublevel region, its factor \(2^{-15/4}/E(1/2)^2\), and \(L^1\) convergence of conditional densities. Numerical checks probe independent formulas but do not serve as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, not absolute priority).** The nearest internal antecedent is record `6d5d48f1-93dd-4acb-a69c-8314b0c30bf7`, which covers the fixed Viviani member and a general single-antipodal-pair lemma, but specifically not the two-antipodal-pair shapes or their critical coalescence. The primary 2013 treatment describes the curves, not random-pair tail measures. Available published-finding corpus comparisons concern probability on different bodies or under different sampling measures. The original contribution is the fixed-\(b<1\) law plus the precise multi-pair-to-quartic joint scaling, conditional law, and topological bifurcation; the known fixed Viviani coefficient is expressly credited. Historical priority remains subject to literature coverage.
+PASS
 
-**Mathematical value — PASS.** This classical sphere–cylinder family provides a natural one-parameter geometric singularity: the number of antipodal pairs drops at the Viviani threshold, changing a linear distance-tail law into a three-quarter-power law. Its exact resolved two-variable region and component transition give structural information not contained in separate fixed-parameter exponents.
+The sphere and cylinder give z²=2b(2−x), y²=4(1−b)+2bx−x² and force x=0 for an antipodal pair. For fixed 0<b<1 there are four ordered pairs. In signed x-coordinates the quadratic form is (x+y)²+K(x−y)² with K=b/[4(1−b)]>0. The ellipse area is 4πδ/√K per pair, and the product of arclength densities tends to 1+K, giving the stated C(b) after division by L_b². The period-4π parametrization covers both arcs once except for the zero-mass node, and its speed integrates to the asserted length with elliptic parameter b/2. In the moving window, compactness at b=1 restricts all events to the two ordered pole patches. In the exact sum of the two parametrized points, the y component first bounds u by O(√δ), since cos v stays away from zero; the x component then gives 1−cos v=O_κ(√δ). With the stated scaling, the squared sum divided by 8δ converges on the resulting common compact rectangle to U²+(V²−√2κ)². Its unit-level boundary has area zero. The combined Jacobian factor is 2·2·√2·8^{1/4}=2^{13/4}; product speed tends to 1 and L_1²=128E(1/2)². Dominated L¹ convergence and normalization prove the conditional total-variation statement, with the fair order mark by exchange of the sampled points. The V-slices show the stated connectivity threshold, including the strict inequality at equality. Substitution q=v²−√2κ yields the area asymptotic and the stated sequential matching; no uniformity for unbounded κ is inferred. Replay: differentiate the two local square roots in RESULT.md lines 46–58 and expand the exact vector at lines 64–80 before applying the two Jacobians.
 
-**Residual risks.** Prior work might contain an equivalent crossover under another name. The theorem does not give a joint uniform bound as \(\kappa\to\infty\). The curve may have a node, and all formulas count arclength with multiplicity as specified. No independent verification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical family and the existing fixed Viviani coefficient. The independently compared addition is the fixed two-antipodal-pair coefficient and the resolved, marked merging-pair crossover. The inspected work does not give these; this is bounded comparison, not a historical-priority certificate.
+
+## value
+
+PASS
+
+The example gives a concrete geometric degeneration in which two ordinary antipodal pairs merge. It quantifies the transition by an explicit family of normalized endpoint laws and a connectivity threshold, not just the already known isolated exponent. The exact coefficients also give a checkable benchmark for comparing arclength distance tails under coalescing maximizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review — asymmetric Bell reset
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct exponential-age mixture derives the stationary density matrix, including the single-sided damping endpoints. The Horodecki singular-value and X-state concurrence formulas give exact rational/algebraic observables. An explicit difference factor determines when the longitudinal CHSH mode is active; a positive balanced-loss envelope bounds the entire low-reset interval, and the complementary region has the universal transverse CHSH witness. Strict differentiation establishes opposite concurrence and Bell-sensitivity orders for all admissible loss splits. The independent full Lindblad generator, spin-flip eigenvalue and symbolic identity checker passed 6,895 assertions. Numerical tests corroborate but do not replace the analytic all-parameter arguments.
+PASS
 
-## Originality — PASS (qualified)
+The reset generator is L0 + r(rho0 Tr − I); evolution forgets the initial state because the no-reset fraction decays as exp(−r t). In the stationary trace-one system, if n is the double-excitation population, u,w are the single-excitation populations and h is the Bell coherence, then 0=r/2−(r+S)n, 0=gamma1 n−(r+gamma2)u, 0=gamma2 n−(r+gamma1)w, and 0=r/2−(r+S/2)h. These equations recover the announced density; all other coherences vanish and the normalized reset mixture is positive. The correlation diagonal (t,−t,v) gives B by the Horodecki criterion for binary qubit measurements with both outcomes, and the X-state spin-flip expression yields C>0 and strict decrease with Q, including the Q=0 endpoint. The numerator of v−t is an affine increasing function of Q with sole root Qc; Qc/S² grows from 0 to 1/4 as r/S reaches 1, and v increases in Q. On 0<r≤S the equal-loss envelope satisfies 1−t²−v_bal²>0, since S³+S²r−r³≥S³>0; also 2t²<1 there. Above S the transverse branch decides the equality and violation threshold. Thus the full invariance for r≥S, the low-rate flat/strictly increasing branches, and the exact examples all hold. Independent symbolic replay: `python /workspace/review-evidence/reproduce.py 2` derives the stationary system and checks the witness numerator, envelope and four examples. The continuum conclusions are analytic; the bundled numerical checker was inspected, not run.
 
-The most relevant prior online theorem, *A sharp Bell-nonlocality phase boundary under Poisson Bell-pair reinitialization and local decoherence*, treats equal amplitude-damping rates and (optionally) equal dephasing, not unequal local loss. Its no-dephasing threshold is recovered as a covered special case, and is not claimed as new. The new universal quantifier over all loss allocations at fixed total loss, the complete CHSH-blindness region, strict opposing concurrence order and witness-switch formula are not implied by that symmetric statement. Primary full-text comparisons were also performed with Kulkarni–Majumdar (closed interacting two-spin resetting), Carollo–Lesanovsky–Garrahan (open quantum reset trajectory ordering), and Wald et al. (discrete unitary resetting). Potential implicit prior coverage through broader two-qubit channel results remains a real publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated by experimentally common asymmetric local decay under a fixed total loss budget. The classification proves a structural information-loss phenomenon for optimized Bell correlation that does not occur for concurrence, and locates exactly when and why the diagnostics respond oppositely. It classifies a continuum of physical parameters, not an arbitrary special numerical slice.
+The equal-loss boundary and two-branch CHSH expression are prior coverage. The supported distinct contribution is the complete fixed-total-loss comparison across unequal and one-sided damping: the invariant violation boundary, full high-reset invariance, loss-product witness switch and opposing concurrence/Bell ordering on the longitudinal branch. Actual inspected reset methods and the equal-loss theorem do not give that cross-allocation classification.
 
-## Limits
+## value
 
-The result does not assert general Bell inequalities, steering, postselected hidden nonlocality, finite-temperature baths, imperfect reinitialization, non-Poisson clocks, or a result for a Hamiltonian-coupled pair. Entanglement remains strictly positive at every positive reset rate, so a sharp Bell threshold must not be conflated with entanglement onset. Independent validation and publication-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed total decay, each diagnostic answers a different question about a physically meaningful loss imbalance. The exact switch explains when an optimized Bell test is blind even as entanglement changes, and when the two diagnostics rank loss allocations oppositely. This is a structural, all-parameter distinction, not simply a stationary matrix computation or a repetition of the equal-loss threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

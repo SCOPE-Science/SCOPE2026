@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:51.890310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transient killed chain has finite moments for each allowed n, λ and κ, since from any state there is positive probability of a bounded-time path of unreversed hops to 0 followed by killing; the minimum of these probabilities over the finite states is positive. The first-hit Poisson equations require the two incoming endpoint boundary values, not both headings at both endpoints. Reflection exchanges the headings at site zero, so the residual lifetime has one law regardless of the arrival heading, and the strong Markov property yields independence of the first-arrival history. At zero the flip terms cancel by reflection, giving κE[A]=1+f_+(1)=n and κE[A²]=2E[A]+2E[A]f_+(1)+g_+(1). Independently checked the proposed moments by substitution into the full killed-ring generator equations, including the boundary and the zero-site equations, and checked the fair-heading average of second moments minus the square of the fair-heading mean and both derivatives: /workspace/branches/replay4.py, 10 exact symbolic identities passed. Reflection gives the other heading. Uniqueness then yields the closed forms. For R′, n−1≤b≤n²/4 gives the lower bounds n³−5n²/2+n and n³−3n²+11n−18 for the two numerator brackets; both are positive for n≥3. The zero-site derivative is positive for the same n and κ>0. Thus strict monotonicity holds on λ≥0, with positive right derivative at zero. The frozen numerical verifier was read without execution; the rational-identity check and analytic inequalities establish the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marris–Giuggioli provide broad discrete-time first-passage machinery, including imperfect detection. Chupeau et al. use coupled directional means on a discrete periodic ring. Mercado-Vásquez–Boyer report gated-target fluctuation behavior for a continuum interval and explicitly distinguish gating from partial absorption."
+        ],
+        "reasoning": "The more general discrete transform would require a derived representation covering the actual site-and-heading generator, and a mean formula cannot determine the fair-heading variance. A gated reflecting interval does not mechanically specialize to a cycle with a residence-time killing clock.",
+        "searches": [
+          "Marris–Giuggioli arXiv:2404.13360v2 §§II, V, VI",
+          "Chupeau–Bénichou–Voituriez arXiv:1406.1687 §II",
+          "Mercado-Vásquez–Boyer arXiv:2102.11787 finite-domain discussion and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected only)",
+        "arXiv:2404.13360v2, arXiv:1406.1687, arXiv:2102.11787, relevant primary passages listed above",
+        "Local Resultary matches for the same-day Laplace-order record, sticky-wall variance and relative-fluctuation results, and first-contact ring transform"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compact transform in the closest discrete walk is developed for a perfect trap. The more general defective hitting machinery treats per-step absorption, while the continuum paper's partial-absorption connection explicitly addresses the mean, not an identity of processes."
+        ],
+        "reasoning": "General Poisson or resolvent equations are methods to compute moments, not stated evaluations or positivity results. Even after a variance evaluation, strict all-site increase requires the sign analysis with λ=0 and the initial target included. None of the inspected references supplies those steps as direct implications for the specified process.",
+        "searches": [
+          "arXiv:2404.13360v2 first-passage generating functions, periodic example and moment discussion",
+          "arXiv:1406.1687 coupled ring mean equations; arXiv:2102.11787 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marris–Giuggioli arXiv:2404.13360v2, §II Eq. (1) and §V Eqs. (21)–(23): discrete-time direction-of-arrival model with per-target-state trapping probability and first-passage transforms."
+        ],
+        "reasoning": "An exact transform for the same process would determine the first two moments. Here the unit-rate hop and independent site-preserving flips generate a different joint hop-time and heading process; adding a Poisson clock to the cited spatial backtracking chain is not the stated CTMC. The sink also runs while residing at zero, not only on a discrete step.",
+        "searches": [
+          "Primary literature: persistent or correlated walk, periodic ring, imperfect trapping, absorption-time variance and monotonicity",
+          "Resultary: persistent ring, run-and-tumble reversal rate, finite reactivity, absorption-time transforms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969 is same-day but uses a sticky continuum wall with resetting and compares transforms under two protocols. SCOPE-a-sharp-two-turning-point-transition-in-run-and-tumble-escape-ti--1e2912e30fb8 concerns a launch toward an immediately absorbing continuum endpoint and a sticky opposing wall. SCOPE-sharp-fluctuation-optimal-tumbling-threshold-for-sticky-reactive--c5e90a3196ae studies squared coefficient of variation with two walls; SCOPE-first-collision-transform-and-rare-reversal-moment-singularity-f--f5ea568543a0 is a two-particle first-contact problem on a ring."
+        ],
+        "reasoning": "The same-day record differs in observables, geometry and initial state. Exact variances, relative fluctuations and collision transforms of the other models are not the claimed ring moments in a different notation.",
+        "searches": [
+          "Local Resultary: persistent cycle/reversal-rate variance; finite-rate sink; sticky reactive-wall fluctuations; Laplace order and ring collision transforms"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit absolute variance and strict reversal-rate monotonicity for every fair-heading starting site in the fixed continuous-time ring with finite local killing. The closest inspected published generating-function treatment models discrete steps, direction of arrival and imperfect per-step detection. Other close results are first moments only or continuous-space boundary and gating models. None of the strongest checked statements establishes the submitted joint result. This is a bounded judgment, not a priority guarantee.",
+      "residual_risks": [
+        "A yet-unexamined discrete or continuous persistent-walk transform could admit a nontrivial embedding of this generator and yield equivalent moments. The inspected material does not establish such an embedding or the monotonicity.",
+        "The bounded catalogue and literature comparison is not proof of absence of equivalent unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial but different discrete-time model; no direct implication shown.",
+          "evidence": "Direction records the last move; reversal is backtracking. Imperfect trapping is assigned a probability ρ at a target state; discussion of extracting moments does not state the frozen continuous-time variance or monotonicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.13360v2",
+          "material_read": "§II p. 3 Eq. (1); §V p. 11 Eqs. (21)–(23), pp. 12–13 first-passage formulas and Fig. 5; §VI p. 15 moment discussion.",
+          "method": "Lawful OA primary-text inspection.",
+          "title": "Persistent and anti-persistent motion in bounded and unbounded space: Resolution of the first-passage problem",
+          "trigger": "Closest published match on persistence, periodic geometry, imperfect trapping and first-passage transforms."
+        },
+        {
+          "assessment": "Discrete first-hitting and cover-time means, not frozen absolute variance with finite killing.",
+          "evidence": "Coupled mean equations on a periodic ring supply a prior context but do not solve the second-moment or variance problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.1687",
+          "material_read": "§II p. 2, directional hitting-time mean recurrences.",
+          "method": "Lawful OA primary-text inspection.",
+          "title": "Mean cover time of one-dimensional persistent random walks",
+          "trigger": "Persistent ring and explicit moments in cited prior work."
+        },
+        {
+          "assessment": "Continuum gated-target model, not the frozen CTMC or the same fluctuation observable.",
+          "evidence": "A mean expression has the same form as in partial absorption, while the paper explicitly distinguishes the problems. Relative fluctuations need not be monotone there.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.11787",
+          "material_read": "Finite-domain model and fluctuation discussion; Appendix A p. 10, partial-absorption comparison.",
+          "method": "Lawful OA primary-text inspection.",
+          "title": "First hitting times between a run-and-tumble particle and a stochastically-gated target",
+          "trigger": "Fluctuations and apparent connection between gating and imperfect absorption."
+        },
+        {
+          "assessment": "Materially different claim; no date-based inference.",
+          "evidence": "Compares two desorption protocols' discounted transforms at fixed heading for a continuum sticky wall and resetting, not the fair-heading variance on a ring.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969",
+          "material_read": "Frozen catalogue Finding and assumptions.",
+          "method": "Local Resultary match and bounded primary-text inspection in the mirror.",
+          "title": "A unique Laplace-order reversal between sticky-wall desorption protocols",
+          "trigger": "Same-day indexed imperfect-absorption and reversal result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural finite-reactivity ring model, the result provides an exactly usable fluctuation invariant, not only an algorithm to invert a generator. The target-start case is particularly informative: its mean is n/κ independently of λ, yet its variance strictly increases with λ. The decomposition separates the effect of excursions after arrival from first arrival, and a strict sign for every site, including the initially ballistic endpoint λ=0, goes beyond a small-parameter example or a restatement of the means. It makes no claim about other geometries or stochastic ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

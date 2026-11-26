@@ -1,15 +1,21 @@
-# Scientific review: Zimin circular squares and rotation spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The recursive linear-squarefree lemma uses the unique maximal letter; this basic lemma is prior mathematics (Cummings–Mays 2001), not the new contribution. In the double word, a square containing that letter must have half-length exactly the period and consume the entire double; every other square lies in the central doubled smaller word. This proves a complete induction with no hidden placements. The unique maximal circular symbol reduces every circular square to that central doubled word. The rotation cut survives the square of half-length \(2^k-1\) exactly for inclusive cuts \([2^k-1,\,2^n-2^k]\); nested intervals give the histogram. No infinite inference rests on finite experiments. The explicit verifier independently checks circles through order 11 and every rotation through order 8.
+## correctness
 
-## Originality — PASS against inspected sources; residual risk
-Cummings–Mays (2001, DOI:10.37236/1571) explicitly establish linear squarefreeness and maximal Abelian squarefreeness for Zimin words. Their full nine-page source was inspected (especially the recursion and construction proofs); neither the exact circular-square occurrence set nor the all-rotation histogram is present. The next directly related primary paper, Głowinski–Rytter (arXiv:1307.1560), concerns compressed matching with ranked variables in Zimin words, but its full text was unavailable for comparison. Its title and abstract alone do not exclude an equivalent result: this is a real access risk. Rytter–Shur (arXiv:1409.8235) was inspected at the level of introduction, definitions and proof sections; no complete cyclic-square positions or rotation histogram was identified. Amit–Gawrychowski (arXiv:1708.00639) was materially examined across its general circular-square bounds and examples; a general upper bound is not an equivalent exact characterization for Zimin words. Clokie–Gabrić–Shallit (arXiv:1904.08187) studies different circular-squarefree and unbordered-conjugate questions. Published mathematical-record queries for cyclic Zimin squares, ruler-sequence square factors and circular conjugates yielded no exact match; search absence is not novelty proof. Residual risk: an unindexed formulation or unavailable body text could cover the claim.
+PASS
 
-## Mathematical value — PASS
-Circular squares are central to cyclic pattern matching and repetition avoidance. The theorem determines every circular square, proves the exact power-free boundary, identifies a unique squarefree rotation, and determines the entire all-order number-of-squares distribution over rotations. The rotation histogram is an object-driven invariant: it measures which cuts of an otherwise squarefree recursively nested word expose hidden repeated factors, and is not implied by the earlier linear-squarefree fact alone. It gives an infinite exact classification and exposes exponentially stratified cut sensitivity, not a tiny isolated calculation.
+A square cannot use a letter appearing once in its ambient arc. This gives ordinary squarefreeness by deleting the middle letter and inducting. In the doubled word, a square using the largest letter must use the two listed copies at separation exactly |Z_m|, so it is the whole doubled word; one avoiding that letter must occur in the central doubled Z_{m-1}, since the outer blocks are squarefree. In a circle restricted to one traversal, the largest letter cannot appear twice; the remaining arc is exactly doubled Z_{n-1}. Translating starts gives N_n-(2^k-1). The next symbol is k+1 rather than the first symbol 1; any longer periodic factor would extend its square prefix, so none has exponent >2. For a seam-crossing square of half-length L, exactly the cuts in [L,N_n-L] retain it, including both endpoints. Those intervals are nested, and differ in size by 2^{k+1}; the last interval contains two cuts. The rank-one word and the empty starting-cut class are handled separately. A separate bit-parallel test checked all starts and allowed periods, their extensions, and all cuts through n=13, reproducing the entire histogram.
 
-## Limits
-All orders are proved only for the precise Zimin recursion and within one circular period. The full first source could not be read; originality is conditional on the inspected literature. The verifier is a corroborating finite test, not an external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact cyclic occurrence inventory and associated finite-conjugate histogram, including absence of extensions within one traversal. Linear Zimin squarefreeness is known. No inspected result states or yields the joint inventory and histogram by direct specialization; the conclusion is limited to the materials compared.
+
+## value
+
+PASS
+
+Finite Zimin words are a canonical recursively defined squarefree family. Closing the seam changes what repetitions occur, and the complete inventory quantifies that change precisely; the cut distribution further tells which linear conjugates are squarefree or have any given square count. This is exact data for arbitrary rank rather than a single rank check, a restatement of squarefreeness, or an extremal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

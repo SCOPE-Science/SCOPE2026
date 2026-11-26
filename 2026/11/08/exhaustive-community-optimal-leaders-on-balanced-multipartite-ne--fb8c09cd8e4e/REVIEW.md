@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The all-size proof uses a valid part-constant quotient even for empty follower parts because it subtracts precisely one artificial eigenvalue contribution per empty part. The rank-one Sherman–Morrison identity gives a positive-denominator rational expression for the grounded inverse trace. The critical two-coordinate calculation is checked by algebra: the function at fixed follower-count sum is strictly increasing in the product of the two counts, since its derivative numerator is bounded below using \(S_0\le(r-2)/r\). The resulting strict concentration operation proves the complete classification, including boundary budgets and all tie-orbits. The included exact-rational checker confirms 828 independent grounded inversions, 66 global small-budget comparisons and 5,082 derivative signs. Finite verification supplements the proof and is not its logical basis.
+PASS
 
-## Originality: PASS, with priority qualification
+Writing the grounded matrix as a block diagonal matrix with blocks d I+J_{f_i} minus the global all-ones matrix gives within-part zero-sum modes at d and the part-constant block diag(d+f_i)-uu^T, u_i=sqrt(f_i). Padding the empty parts by the eigenvalue d is exactly canceled by (F-r)/d. Each f_i/(d+f_i)<=1/r, with a strict inequality in at least one part, so the rank-one inversion denominator is positive. For a fixed pair sum s, set B=(d+x)(d+y), T=2d+s, U=4d+s, c=1+S_0. Then the pair reciprocals sum to T/B, its contribution to G is (UB-dT^2)/B^2, and 1-S=(dT-cB)/B. Combining gives the stated linear fraction and its derivative numerator G_0 dT+c(U-cT). Since U-cT=2d-S_0T>=2n, this is strictly positive also at admissible boundary counts. Every unequalizing transfer from y<=x changes xy by epsilon(y-x)-epsilon^2<0. Such transfers reach a bound and reduce the number of interior counts until the canonical profile is reached. This gives both directions of the optimizer classification; part permutation symmetry is the only freedom in counts. Standard pair transfers also give strict Schur-concavity on the fixed-sum slice. The t=0 padding and one-follower cases agree with substitution in the closed formula. An independent exact check of 289 allocations, including every budget for four parameter pairs, compared the trace with ratios of grounded determinants and principal cofactors and recovered exactly the specified minimizers. Replay: python3 /tmp/opencode/balanced_leader_audit.py. The analytical comparison, not these cases, proves the unrestricted theorem. The O(r) claim counts rational operations, not bit complexity.
 
-The nearest primary formulations are Lin–Fardad–Jovanović (2013), Fitch–Leonard (2014), Patterson–McGlohon–Dyagilev (2014), and Patterson–Yi–Zhang (2017). Their inspected noise-free coherence results establish the objective, general joint centrality and exact path/ring and special tree classes, but no r>=3 balanced multipartite all-budget allocation theorem or sufficient strict pair-transfer inequality. Search queries explicitly covered grounded inverses, Schur concavity, Turán graph names and arbitrary numbers of parts. Prior accessible two-community results do not subsume the multi-community conclusion. Residual risks are unindexed graph-Green-function majorization results and inaccessible equivalents; searching cannot prove global priority.
+## originality
 
-## Value: PASS
+PASS
 
-The result gives a globally optimal, symmetry-complete selection rule for any leader budget on a standard infinite family of equally sized community networks. It explains mathematically why a budget should be concentrated in whole communities rather than dispersed; the strict ranking is not just a computational convenience. The exact all-parameter theorem and its discrete allocation uniqueness meet the value criterion independently of any downstream generalization.
+Best of knowledge: no inspected equivalent or stronger result gives the all-budget optimizer classification and strict transfer for arbitrary r>=3 equal-sized parts. General exact formulas specify the criterion, not this optimizer; the nearest graph-family results either use other graphs or give only two parts or two leaders. World priority is not established.
 
-## Boundaries and reproducibility
+## value
 
-Only unit-edge balanced multipartite networks and noise-free leaders under grounded-inverse-trace performance are covered. The checker works with standard Python exact fractions and separately constructs and inverts the full follower matrix. It is not an independent audit, and no experimental certificate purports to establish the infinite statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result classifies every optimal placement for all budgets on a standard infinite class of community graphs, rather than producing a bound or one candidate. It gives a counterpoint to spacing-based rules on paths and cycles: concentration in whole parts is strictly better than any noncanonical count vector. The all-size pair comparison, equality classification, and exact cost give a reusable benchmark for selection algorithms on this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: maximal commutative subsemigroups of free nilpotent word semigroups
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite Rees quotient multiplication is explicitly defined. The proof divides commutation into the zero-product and free-word cases, applies the established primitive-root lemma only in the latter case, and shows (i) closure and commutativity of every proposed family, (ii) maximality against *each* omitted word, including all shorter lengths, (iii) exhaustion via a shortest nonzero word, and (iv) distinctness. Möbius inversion counts primitive roots; a length-gcd bijection counts all commuting pairs; the parity maximum is verified by strict cardinality inequalities including \(N=1\). The standalone script checks actual products, centralizers, all maximal commuting cliques and pair counts in eight small configurations; finite experiments are not substituted for the all-parameter argument.
+PASS
 
-## Originality
+Below the cutoff, cancelling the shorter prefix in uv=vu reduces the free-word commutation problem by the Euclidean algorithm on the lengths, giving a common primitive root; above it both products are zero. Zero can always be added. A shortest nonzero word w of length k<=floor(N/2) forces all companions through length N-k to be powers of p(w); all longer words can be included and multiply to zero with every word of length at least k. The resulting set is closed because a nonzero product of two powers is a power or has reached the included long tier. An omitted shorter word of length h<k fails to commute with at least one length-(N-k+1) word, since h+N-k+1<=N and at most one word of that length shares its primitive root; a>=2 guarantees another word. This also proves the maximality of the odd all-long family. For even N=2m, the all-long set can be enlarged by one length-m word, whose square is in the included (or newly generated) tail. Each C_w has a unique shortest word, giving distinctness and the count. Möbius inversion groups the sizes and centralizers by root length. For i+j<=N a commuting pair is uniquely determined by the common length-gcd(i,j) power block, hence there are a^gcd(i,j) such pairs. For odd N or even k<m, omitting the complete tier at m+1 loses at least a^(m+1)>2m words, more than the maximum possible number of included power words at short lengths; for even k=m exactly one short word is added. N=1 is the entire zero-product semigroup. The separately written /workspace/branches/independent-finite-checks.py verified the exact families, their closure, exact centralizers, extrema and commuting pair totals in (2,1),(2,4),(2,5),(3,4); the supplied eight-case transcript is additional bounded evidence only.
 
-**PASS on the evidence inspected, with priority risk.** Jackson–Kilibarda 2009 prove untruncated free-word commutation but do not analyze the uniform truncated Rees quotient; Steindl 2024 explicitly works with the identical free nilpotent object but proves finite-relatedness statements rather than these maximal-commutativity formulas. Bauer–Greenfeld 2017 analyze commuting graphs of different monomial quotients, while the symmetric-inverse-semigroup and transformation-semigroup studies concern different ambients. The complete primitive-root/tail classification and parity enumerators are not implied by these inspected primary results without new case analysis. Keyword and equivalent-formulation searches found no matching published quantitative statement, which is not a proof of uniqueness. An equivalent result in less-visible monomial-semigroup literature remains a residual risk; some supplementary historical sources were only inspectable at abstract level.
+## originality
 
-## Value
+PASS
 
-**PASS.** The uniform finite free nilpotent semigroup is a natural test object for word combinatorics, semigroup commutation, and Rees quotient effects. Long products becoming zero changes commuting structure fundamentally: it creates complete commuting tails absent in free semigroups and a sharp parity-dependent number of maximum families. An entire classification including the size polynomial, element-centralizer spectrum and ordered commuting-pair count is a reusable structural invariant, not an ad hoc isolated count or routine substitution into an existing table.
+The classical primitive-root lemma and the definition of the free nilpotent quotient are not new. The supported distinct contribution is the exhaustive shortest-word/long-tier classification in this quotient and its parity behavior and derived spectra. The strongest distinct catalogue and literature comparisons have different ambient multiplication or a different mathematical question; no verified implication of the full classification was found.
 
-## Boundaries
+## value
 
-The classification is for finite alphabets of size at least two and uniform word-length Rees ideals. It does not extend automatically to nonuniform monomial ideals. The results have not undergone an independent audit; source coverage and historical priority cannot be proven exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The length-cutoff quotient is a natural free nilpotent object, and commuting subsemigroups change substantially when products cease to distinguish primitive roots above the cutoff. The theorem identifies every maximal family from one shortest word except for the odd all-long family, yielding a genuine parity change in maximum multiplicity and an exact spectrum for subsequent comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

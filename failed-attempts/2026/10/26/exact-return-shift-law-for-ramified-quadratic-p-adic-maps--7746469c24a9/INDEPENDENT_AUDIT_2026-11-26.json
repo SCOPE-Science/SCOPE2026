@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:53.219284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With x=1/2+pt and a=−(1−4c)/(4p), the induced map is g(t)=t+a+pt²; a is a unit. This proves invariance, and f_c(x)−x=p(a+pt²) rules out fixed points. Modulo p the first p iterates visit all residues, so telescoping g^p(t)−t gives pa modulo p² because the sum of all squares vanishes for p≥5. For G=g^{p^n}, the reduction of G as a polynomial is a translation, so its Taylor coefficients of degree ≥2 are divisible by p and G'≡1 mod p. For n≥1 and increments in p^n Z_p, the nonlinear remainder lies in p^{2n+1} Z_p⊆p^{n+2} Z_p. The p return iterates therefore accumulate the normalized shift multiplied by 1+G'+⋯+(G')^{p−1}≡p mod p². This proves the induction on n (with n=0 from g mod p); restoring x gives the stated modulus and coefficient. Since each shift has valuation n+1 in x, every cycle attains all p lifts at the next level, giving the adding machine by inverse limit. Independent finite replay: for p∈{5,7,11}, n∈{0,1,2}, a∈{1,2,p−1,p+1}, reduce c=1/4+pa modulo p^{n+2}, iterate x↦x²+c exactly p^n times for every x≡1/2 mod p in that quotient, and compare with x+p^{n+1}a. All 8068 comparisons matched; the frozen p=5,c=−1 example also gives 28 modulo 125. At p=3,c=1,x=2, the third iterate is 2 modulo 27 instead of the proposed 11, confirming that the excluded case cannot just be included. The finite replay does not prove the unrestricted n claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DesJardins–Zieve's p>3 cycle-growth law applies to neutral growing polynomial cycles beginning at level one. Fan–Liao give persistent growth and odometers on minimal clopen components.",
+          "Jeong's criterion applies to g=t+a+pΔH with H=t³/3−t²/2+t/6, since ΔH=t² and H is 1-Lipschitz here."
+        ],
+        "reasoning": "Persistent growth gives the full-cycle structure, and the inverse limit gives the adding machine. Jeong gives ergodicity/finite-level transitivity independently but does not by itself compute the leading return coefficient.",
+        "searches": [
+          "arXiv:math/0103046 Appendix B",
+          "arXiv:1010.5583 Theorems 2.1 and 5.2, Proposition 2.5",
+          "arXiv:1210.5001 Proposition 2.1 and Lemma 2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0103046",
+        "arXiv:1010.5583",
+        "arXiv:1210.5001",
+        "arXiv:1511.04856 §3 and Theorem 1.3",
+        "Local Resultary 170fdf08b793 and 8c7934098229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DesJardins–Zieve Appendix B for p>3 gives F^p(x)≡x+p b_1∑_{j=0}^{p−1}a_1^j mod p³ for the level-one return F. Since a_1≡1 mod p, the sum is p mod p² and b_2(x)≡b_1(x) mod p.",
+          "In §4 the higher-level relation is p b_{m+1}(x+p^m t)≡t(a_m^p−1)+b_m∑a_m^j mod p^m. For m≥2, t=0 and a_m≡1 mod p give b_{m+1}(x)≡b_m(x) mod p.",
+          "For the given quadratic, f_c(x)−x=(x−1/2)²−(1−4c)/4, which computes b_1 modulo p directly. Every subsequent return derivative remains 1 modulo p by the chain rule."
+        ],
+        "reasoning": "The prior equations preserve the actual digit, not just its nonvanishing. Substituting the level-one digit and the growing cycle length p^{m−1} gives exactly the original displayed congruence with n=m−1. The independent proof's convenient sum-of-squares argument is not necessary to this direct prior implication.",
+        "searches": [
+          "arXiv:math/0103046 §4 pp. 5–6 and Appendix B pp. 20–21",
+          "arXiv:1010.5583 §2, especially (2.1)–(2.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In x, the frozen congruence is b_m(x)≡−(1−4c)/(4p) mod p for the normalized first-return displacement at each quotient precision p^m, where m=n+1 and the cycle length is p^{m−1}.",
+          "In the affine t-coordinate it is g^{p^n}(t)−t≡p^n a mod p^{n+1}; the prior b_m is not just a cycle-length invariant but a signed displacement digit."
+        ],
+        "reasoning": "The original coordinate makes the frozen law precisely the preservation of the first-lift translation digit of a growing level-one cycle. No independently new dynamical invariant must be computed.",
+        "searches": [
+          "arXiv:math/0103046 §§3–4 and Appendix B",
+          "arXiv:1010.5583 §2, Eqs. (2.1)–(2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact indexed example uses x²+1 over Z_7, for which 1−4c=−3 is a unit rather than valuation one. The second treats x³+1 over Z_5 and lists distinct minimal shells and finite-level cycles."
+        ],
+        "reasoning": "Neither retrieved catalogue case matches the objects and parameter regime. No same-day priority is inferred. Finite cycle tables would not establish an all-prime, all-precision return-digit formula.",
+        "searches": [
+          "Local Resultary: 170fdf08b793 exact 7-adic quadratic shell and basin dynamics",
+          "Local Resultary: 8c7934098229 minimal decomposition of x³+1 on Z_5"
+        ]
+      },
+      "rationale": "The exact family-specific formula was not located verbatim. It is nonetheless mechanically implied by the signed displacement computations in DesJardins–Zieve, not merely by a general theorem on transitivity. Work in the original x coordinate: the level-one residue 1/2 is a fixed residue, its return multiplier is f_c'(x)≡1 mod p, and its translated lift coefficient b_1(x)=(f_c(x)−x)/p≡−(1−4c)/(4p) mod p for every x in the ball. Appendix B's first-lift congruence and §4's later-lift congruence preserve this very coefficient mod p, pointwise. This yields the entire displayed return-shift law directly. Fan–Liao and Jeong also cover the structural consequences. No claim is made that DesJardins–Zieve explicitly name this parameter family.",
+      "residual_risks": [
+        "No verbatim statement of the quadratic-family formula was located. Rejection rests on the prior explicit displacement equations, not on a claim of exhaustive search or prior verbatim publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact digit law is mechanically covered on specialization",
+          "evidence": "Appendix B cancels the order-p² correction mod p³ for p>3; §4 tracks the normalized displacement on later lifts.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0103046",
+          "material_read": "§3 pp. 2–3; §4 pp. 5–6; Appendix B pp. 20–21",
+          "method": "Bounded primary OA equations and first-lift computation",
+          "title": "Polynomial Mappings mod p^n",
+          "trigger": "Exact first-return digit dynamics across cycle lifts"
+        },
+        {
+          "assessment": "Covers finite-level transitivity criteria and odometers, and corroborates displacement propagation",
+          "evidence": "Growing cycles continue growing for p>3; the normalized multiplier–displacement formulas describe the return across levels.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.5583",
+          "material_read": "Theorem 2.1 p. 3; §2 (2.1)–(2.5) and Proposition 2.5 pp. 4–7; Theorem 5.2 pp. 14–15",
+          "method": "Bounded primary OA statements and formulas",
+          "title": "On the minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "Cycle-lifting formula and adding-machine consequences"
+        },
+        {
+          "assessment": "Mechanically covers transitivity, not the exact digit by itself",
+          "evidence": "The criterion d+t+pΔH(t) for unit d applies with H=t³/3−t²/2+t/6.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.5001",
+          "material_read": "§2 Proposition 2.1 p. 2 and Lemma 2.4 p. 4",
+          "method": "Bounded primary OA statements",
+          "title": "Toward the ergodicity of p-adic 1-Lipschitz functions represented by the van der Put series",
+          "trigger": "Direct sufficient ergodicity condition for the affine-coordinate map"
+        },
+        {
+          "assessment": "Different discriminant valuation and scope",
+          "evidence": "It treats x²+1 on Z_7; discriminant −3 is a 7-adic unit.",
+          "identifier_or_url": "2026/11/1/SCOPE-two-multiplier-orders-and-exact-haar-basin-weights-for-the-7-adi--170fdf08b793",
+          "material_read": "Mirrored finding",
+          "method": "Local Resultary search and mirror comparison",
+          "title": "Two multiplier orders and exact Haar basin weights for the 7-adic quadratic map",
+          "trigger": "Closest retrieved quadratic-map cycle and odometer result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact leading return digit on a natural ramified family is potentially more useful than merely knowing its cycles grow. Here that digit is already carried unchanged by prior cycle-lifting equations, and its initial value is read from one expansion of the quadratic. Minimality and conjugacy bring no separate uncovered result. No higher-order digit, new parameter case, or distinct use of the coefficient is established in the submitted claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

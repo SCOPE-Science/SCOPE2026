@@ -1,23 +1,21 @@
-# Scientific review: exact mean–extreme first-passage Pareto frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The continuous claim is established analytically. The backward absorbing–reflecting boundary equation gives \(M[D]=\int_0^1(1-x)/D(x)\,dx\); the intrinsic metric \(F[D]=\int_0^1D(x)^{-1/2}\,dx\) supplies the established many-searcher first-arrival coefficient \(F[D]^2/4\) at fixed regular \(D\). Strict convexity of the weighted integral yields a unique scalarized minimizer for each positive tradeoff weight. The explicit quartic inverse \(u^4-u=(r^4-r)(1-x)\), exact budget normalization and primitive integrals prove both frontier formulas. Strict multiplier ordering and a same-mean dominance argument prove completeness rather than only necessary optimality.
+PASS
 
-The singular boundary design \(D_\infty(x)=\tfrac32\sqrt{1-x}\) is analyzed separately: under the transformation \(u=(1-x)^{3/2}\), it becomes an absorbed squared-Bessel-type process. Its exact Laplace transform gives the leading small-time decay exponent \(8/27\), validating the endpoint collective coefficient. A standalone standard-library checker replayed 177 finite deterministic checks from the packaged code. Such checks corroborate, but do not establish, the continuum theorem.
+Reconstructed the proof over positive measurable unit-budget profiles with finite M and F (a.e. equivalence). For every positive multiplier the pointwise strict supporting-line inequality at the smooth stationary candidate integrates to a strict global minimum unless the competitor is equal a.e.; the budget cancels the common linear term. With D=d u² and h=r⁴−r the stationarity equation gives u⁴−u=h(1−x), and the Jacobian (4u³−1)/h gives both d=3r/(2r³+1) and the displayed logarithmic costs. Since d h²=3r³(r³−1)²/(2r³+1) is strictly increasing from zero to infinity, the multipliers range bijectively in reverse. Strict optimality at two weights orders the costs oppositely. Jensen and Cauchy–Schwarz give unique endpoints; matching a competitor’s intermediate M to the continuous curve and using the strict weighted inequality proves exhaustion, not just efficiency of candidates. Ratios are relative (mean 4/9 versus 1/2, an absolute decrease of 1/18). The stochastic interpretation is restricted as stated. At D∞, the U=(1−X)^(3/2) generator has coefficients (27/8)u and 9/8, with absorption at zero and reflection at one. For k=8s/27 the ODE solutions are A=0F1(;2/3;ku) and B=u^(2/3)0F1(;5/3;ku); W(A,B)=(2/3)u^(−1/3), B′(1)=(2/3)A(1), so the solution with g(0)=1 and g′(1)=0 has g(1)=1/A(1), exactly the stated Bessel transform. The transform gives finite mean 4/9 and via its large-s exponential √(32s/27) gives the short-time coefficient 8/27 (exponential tilt concentrates at order s^(−1/2)). The independent-copy extreme mean follows using this logarithmic tail and the finite mean; the upper contribution beyond (1+ε) times the log scale is at most the survival probability there to power N−1 times the single mean. This yields 32/27 relative to the regular homogeneous profile.
 
-## Originality — PASS, with publication-priority qualification
+## originality
 
-The closest primary source is Luiz Menon's November 12, 2026 paper, arXiv:2611.17470v1, which derives the fixed-budget *mean-only* optimizer. Sean D. Lawley's arXiv:1909.09883 gives the *fixed-profile* extreme-first-passage asymptotic. The new theorem explicitly credits both and does not repackage their endpoints as novelty; the assessed contribution is every intermediate Pareto-efficient diffusivity and its exact quartic/logarithmic cost pair, including uniqueness and a complete dominance theorem.
+PASS
 
-Additional comparisons included dos Santos–Menon Jr.–Anteneodo (arXiv:2206.14229), published-finding corpus records for static diffusivity mixtures, clustered searchers, and unrelated mean–variance frontiers, and the accessible same-topic historical claims. No directly covering theorem was identified, but a previously implicit equivalent in broad variational optimization literature remains a real risk; an abstract-access-only related paper cannot be conclusively excluded from its entire contents.
+Pass the supported distinct claim: complete fixed-Itô joint frontier with unique scalarized profiles, exact parametric costs and exhaustion. The mean-optimal endpoint and fixed-profile fastest-arrival theorem are known inputs. The separate same-day Resultary record has direct coverage of the singular endpoint transform and short-time penalty, which also imply the endpoint collective coefficient; that component gets no independent novelty credit and intra-day priority is unresolved.
 
-## Value — PASS
+## value
 
-The exact inverse tradeoff matters because redistributing a fixed diffusivity budget to reduce mean lone-particle escape time can worsen the leading time for a large search team. The sharp cost factor \(32/27\) and complete profile classification answer a physical design question with all equality cases, rather than reporting just a known endpoint or a finite experimental trend.
+PASS
 
-## Scope and limitations
+The entire resource-constrained two-cost design set is identified, not just the opposing directions of two extremizers. The unique profile at any prescribed efficient mean and its exact fastest-copy coefficient give a usable design benchmark; the singular endpoint makes the tradeoff quantitatively meaningful rather than a qualitative scalarization observation.
 
-The mathematical classification holds for positive almost-everywhere measurable unit-budget diffusivities with finite objectives. The stochastic interpretation is for fixed sufficiently regular strictly positive profiles and the separately verified singular endpoint, never a uniform-in-profile claim. It does not assert optimality at finite population size, stability under experimental noise, multidimensional applicability, alternative stochastic conventions, or independent publication-priority certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

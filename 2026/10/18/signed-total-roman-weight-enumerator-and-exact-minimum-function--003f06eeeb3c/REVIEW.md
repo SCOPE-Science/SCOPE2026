@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the crown graph, each neighbourhood sum is a side total minus the label at its deleted matched partner. Thus the necessary-and-sufficient signed total Roman predicate reduces exactly to two side-weight inequalities and the two exceptional cases of zero or one defender on the opposite side. Every labelled function has a unique nine-type frequency table, and its multinomial coefficient is exact. The minimum-weight proof separates two-supported-side functions from cases with a side lacking a defender; it explicitly treats all small boundaries. The minimum multiplicity formulas follow from side weight three, parity and inclusion-exclusion over the only two possible defender failures. An independent graph-neighbourhood enumeration agrees with the count-table formula and the separate minimum formula for six consecutive sizes. No unproved infinite extrapolation is used.
+PASS
 
-## Originality — PASS with residual risk
+On the labelled crown graph the open-neighborhood sum at b_i is A-f(a_i), and similarly on the other side. The threshold is therefore exactly the two side-sum inequalities. A negative vertex sees all opposing 2's except a possibly matched one; cases of zero, one, and at least two opposing 2's give exactly the stated cell restrictions. The nine cells partition the n named pairs; their multinomial correctly counts labelings, without dividing by graph automorphisms. With a 2 on both sides each side has weight at least 3; if one side has no 2, it has weight at least 2 and the other side has only positive labels. For n>=5 this gives weight at least 7; for n=3 the no-2 side has odd weight and the only weight-six arrangement of this kind is all ones; for n=4, weight at most six would force the other side to be all ones, leaving no defending 2 on either side and hence all ones. Odd n>=3 attain six with two 2's per side and the indicated 1/-1 counts; even n>=4 attain it with one 2 per side in the same deleted matching pair. G_2 is a matching and its unique minimum is all ones. For n>=4, weight-three side profiles satisfy 3t+2u=n+3. Odd n forces a positive even t, so all pairs of side profiles are compatible. Even n permits a unique 2; each direction of a bad match has U_n D_n possibilities by symmetry and their intersection forces two distinct 2 positions and the binomial product J_n. Inclusion-exclusion proves the claimed minimum count. G_3 separately has nine pairings of two-2 side profiles plus all ones. A separate row-mask enumeration checked every full coefficient for n=2 through 7 against a sorted-multiset enumerator and recovered minima counts 1,10,84,900,3280,44100 (checks/frozen_checks.py argument 1; output checks/1.txt). Those finite checks corroborate rather than establish the universal formula.
 
-The 2026 Koster–Volkmann–Wehrmann study treats cubic and complete multipartite graphs, while the 2017 Zhao–Miao result covers complete bipartite graphs and wheels. The signed total Roman count distribution of the matching-deleted biclique is not supplied by the accessible 2026 full text. The six-cycle case and the three-cube minimum are acknowledged as already known or implied; the main claim is the complete family-wide weight enumerator and closed optimum multiplicities. Nearby studies of perfect Roman domination on crown graphs and signed Roman domination on complete multipartite graphs involve different predicates and do not imply the result. Literature searches under crown, matching-deleted complete bipartite graph, and bipartite double-cover nomenclature found no covering statement. An older full text was not fully accessible; priority beyond these comparisons remains uncertain.
+## originality
 
-## Value — PASS
+PASS
 
-The family is the canonical matching-deletion perturbation of a complete bipartite graph, and signed total Roman domination measures simultaneous neighbourhood support and defence of negative labels. Deleting a single perfect matching increases the optimum by exactly four for all \(n\ge4\), despite deleting only an asymptotically vanishing fraction of the edges. The theorem also counts **every** labelling at **every** weight and supplies closed, parity-sensitive formulas for the numbers of optimal solutions, which are not determined by the earlier optimization-only results. This is a natural complete enumeration, not a numerical recapitulation of small graphs.
+The full labelled signed-total-Roman polynomial and uniform minimum multiplicities are the supported distinct claim. The closest inspected results either count different Roman labelings on the same graph or count the same signed-total-Roman invariant on other graphs. Known special-case minimum values are not credited as new.
 
-## Sources and limitations
+## value
 
-Primary source: Koster, Volkmann and Wehrmann, arXiv:2606.27175 (2026), particularly the definitions, cited complete-bipartite result, cubic identity, and complete-multipartite theorem. The Zhao–Miao article (2017), DOI 10.13447/j.1674-5647.2017.04.04, provides the undeleted comparison. The Chellali et al. survey (2020), DOI 10.1016/j.akcej.2019.12.001, records previously known path/cycle and biclique results. The latter older sources were only partially accessible, and equivalent results not indexed in the searched sources may exist. The formal statement and proof are restricted to the explicitly defined graph family and label predicate. The computations are exhaustive only for the stated finite graph sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The crown is a natural perturbation of the complete bipartite graph in this signed total-domination problem. The matching-pair compression replaces exponential enumeration in n with at most binom(n+8,8) cell profiles, and the parity law gives explicit degeneracies of the optimal labelings. These are useful extension data beyond the numerical invariant and comparison examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

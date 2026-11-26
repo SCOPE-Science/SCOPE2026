@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The closure condition in omission coordinates forces a downward missing path from each missing vertex. These paths are exactly the inclusion-minimal omission sets containing their start vertex; the finite-lattice maximal-omitter characterization then gives all and only meet-irreducibles. Each leaf supplies one path of every possible length from one to its depth plus one, giving the exact spectrum, inversion and total count. The sharp lower and upper bounds follow from descendant-leaf incidence counting and are attained by the specified rooted paths and brooms. A separately programmed brute-force checker verified all 18,249 rooted labelled trees on at most seven vertices, covering 2,238,526 candidate subsets. Universal claims rest on the proof, not this finite enumeration.
+PASS
 
-## Originality
+Reassessed /workspace/repairs/4/RESULT.md. The frozen coefficient statement needed to exclude the constant term: a_0=0 and a_1=L>0 even on the one-vertex tree. The repaired text states the tail formula and monotonicity for j>=1, with the separate constant term. Complements of closed sets are exactly omissions in which each omitted nonleaf has an omitted child. Starting at any omitted u produces a downward path to a leaf; conversely every such path is a minimal omission containing u, since its consecutive children are forced. Proper meet-irreducibles in a finite closure system are precisely maximal closed sets omitting a point: maximal omission implies irreducibility by intersection, and a proper irreducible has a unique cover whose added points occur in every strict superset. Thus distinct ancestor-leaf paths give all proper meet-irreducibles without duplicates. Each leaf supplies exactly one path of each positive size through depth+1; coefficient differences recover the depth histogram. Counting by starting vertex gives at least one path from every vertex, strictly more from any branching vertex. At fixed n and L every leaf depth is at most n-L, and simultaneous equality forces every internal vertex onto every root-to-leaf path, exactly a broom. Each feasible fixed-(n,L) broom exists; the integer quadratic L*(n-L+1) then gives the stated global maximum, including the constrained n=2 case. For n=1 the empty set is the only proper meet-irreducible. The frozen checker and record were read, not executed; they are finite corroboration and unnecessary for this proof.
 
-PASS within inspected evidence. Babin (2026), arXiv:2607.18534, gives general closure-representation hardness and the standard maximal-omitter lemma; it does not give the tree-path spectrum or exact extremal count. Defrain–Ohana–Vilmin (2025), DOI 10.4230/LIPIcs.ISAAC.2025.24, prove general incremental-polynomial enumeration under bounded conclusion-degree, a superclass of these tree systems, but their relevant full HTML sections do not specialize to this exact polynomial or the extremal brooms. Nourine–Vilmin (2023), arXiv:2202.05536v2, has a recursive acyclic-split decomposition framework; the full accessible HTML was inspected, especially Sections 3 and 4.2. Its tree represents partitions of an implicational base, not the input dependency graph, and the exact leaf-depth polynomial and sharp extremum are not stated. Its broad recurrence may nonetheless be specialized to recover the claim, an acknowledged historical-scope risk. No matching title or equivalent statement appeared in six meaning-based published-finding corpus searches or searched literature phrases. An absence of matches is not proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Characteristic models are the unique irredundant intersection representation of finite Horn closure systems. For a natural degree-at-most-two tree-dependency class, the result specifies every model without generic enumeration, gives an exact size distribution that recovers the tree's leaf-depth histogram, and identifies sharp best- and worst-case canonical output sizes. This is a complete structural classification with a natural inverse invariant, rather than a numeric computation or a restatement of a general decidability result.
+The repaired Finding is the sharp fixed-total-size (and fixed-leaf-count) model-count bound and its equality cases. The original structural emphasis did not give sufficient credit to concrete implications of earlier, broader Horn results. Acyclic splitting by deepest leaves yields the path complements by induction, and the deficit polynomial is then their length count. The repair explicitly treats both as structural input and corollaries, not the unsupported novelty claim. The checked Horn results do not optimize over rooted trees of a specified total size; Fischer's Sackin extremum fixes leaf count and excludes nonroot unary internal vertices. In the checked sources the extremal model-count remainder is not covered.
 
-## Scope and limits
+## value
 
-The premises are whole child sets; the theorem is not about arbitrary acyclic Horn bases, separate unary child rules, or shared-subgraph DAGs. The earlier enumeration theorem covers algorithmic feasibility, not the claimed exact classification. A broadly implicit earlier derivation remains possible. Independent mathematical and priority audits have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired extremum gives the exact worst-case cardinality of the characteristic representation for a canonical acyclic Horn family, including the shapes that blow up the number of models from linear to quadratic. Knowing that an enumeration algorithm is efficient does not give this output bound or identify the maximizing inputs. The fixed-leaf count bound identifies the structural cause of the output growth. The earlier structural specialization and spectrum are useful context but are not counted as additional novel contributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

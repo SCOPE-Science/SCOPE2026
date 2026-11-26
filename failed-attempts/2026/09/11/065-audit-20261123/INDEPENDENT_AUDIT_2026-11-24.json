@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:12.974908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/11/065/RESULT.md, Definitions and Proof / evidence, lines 18–61",
+        "artifacts/verify_tube_bound.py (inspected, not run); numerical checks do not prove the limiting theorem",
+        "Independent spectral spacing and coordinate slice calculation"
+      ],
+      "rationale": "With the period-one Fourier basis, the eigenvalue of −Δ is 4π²N for integer N=k₁²+k₂². Parseval gives η=r_h²/(4π²h²)² as the sum of shell masses times squared distance to R²=1/(4π²h²). Choose a nearest integer N*, including the possibility of a tie. All other integer shells are at distance at least 1/2, so the complementary squared norm is at most 4η=o(1); for small h the selected shell must be populated, since otherwise this bound would contradict normalization. For v on that shell, Parseval in x₁ at each x₂ leaves one sum for each k₁, with at most two terms (k₂ solving k₂²=N*−k₁²). Cauchy–Schwarz bounds the x₁-integrated density by 2||v||² everywhere, and the x₂ measure of the tube is 2√h. Thus M(v)≤4√h||v||² and M(u_h)≤8√h||v||²+2||u_h−v||²→0. The bounds do not presume any Diophantine support or any particular rate within o(h²), and imply the 7/8 limsup corollary.",
+      "residual_risks": [
+        "The referenced DRAFT.md was not present in the frozen package; the effective proof is contained in RESULT.md.",
+        "No implication is certified for general perturbations or arbitrary O(h) residuals; the stated conditional theorem does not guarantee existence at every h."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zygmund's uniform L⁴ implies ∫_E |v|²≤C²|E|^(1/2)||v||² for any measurable E and any square-torus eigenfunction, and thus stronger geometric coverage for the vanishing limit.",
+          "Blair–Sogge relate subcritical L⁴ growth and power savings in λ^(−1/2) tubes on surfaces for exact eigenfunctions; λ is comparable to h^(−1) here.",
+          "Bourgain–Rudnick discuss the distinct arbitrary segment restriction problem and give an almost-all-energy result; neither is needed for the complete horizontal slice. Perturbed quasimodes in Macià–Rivière use different scales and operators."
+        ],
+        "reasoning": "Transfer the applicable eigenfunction estimate by the elementary gap argument; do not equate general restriction at all energies or wider perturbed quasimodes with the frozen hypotheses.",
+        "searches": [
+          "Macià–Rivière pp. 1–2 (Zygmund's bound), pp. 3–4 (perturbed quasimodes)",
+          "Blair–Sogge pp. 747, 749",
+          "Bourgain–Rudnick arXiv:1105.0018, straight segment discussion and Theorem 1.10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/9/11/SCOPE065",
+        "Macià–Rivière author PDF; Zygmund as restated there",
+        "Blair–Sogge Anal. PDE 8 (2015)",
+        "Bourgain–Rudnick arXiv:1105.0018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The precise deduction is ||1_{E_h}u_h||₂≤C|E_h|^(1/4)||v_h||₂+2√η, with η defined by the exact residual and spacing. It tends to zero for every |E_h|→0.",
+          "This does not give the numerical constant 4 for the shell estimate; that constant comes directly from the full horizontal Fourier slice: each horizontal frequency has at most two perpendicular frequencies, and the slice family has width 2√h."
+        ],
+        "reasoning": "The stronger geometric vanishing conclusion follows from already known uniform integrability plus an exact spectral projection, not from a conjectural lattice estimate. The sharper shell constant is a one-step consequence of coordinate Parseval and a quadratic equation, not new control of quasimode scarring.",
+        "searches": [
+          "Macià–Rivière pp. 1–2 and bibliography, Zygmund DOI:10.4064/sm-50-2-189-201",
+          "Blair–Sogge Theorem 1.1 and Corollary 1.2",
+          "Bourgain–Rudnick arXiv:1105.0018, pp. 6–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The square-torus uniform L⁴ estimate for exact eigenfunctions is stated in Macià–Rivière with a citation to Zygmund.",
+          "Under the exact residual and normalization in the frozen claim, projection on a single shell changes the function by o(1) in L². On any measurable E_h, truncated L² norms differ by at most this distance."
+        ],
+        "reasoning": "Below the h² spacing the frozen qualitative assertion is equivalent to its exact-eigenfunction version, along the allowed sequences of h and with tube widths comparable to those at the exact shell energy. The use of quasimodes does not create a genuinely distinct concentration regime for this conclusion.",
+        "searches": [
+          "Resultary: shrinking-tube non-scarring, narrow torus quasimodes, o(h²), horizontal closed geodesic",
+          "Macià–Rivière, Two-microlocal regularity of quasimodes on the torus, pp. 1–4",
+          "Blair–Sogge, Anal. PDE 8 (2015), Theorem 1.1 and Corollary 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed claim has the same ≤4√h shell bound, all-quasimode vanishing and 7/8 consequence; it is this record itself.",
+          "No distinct clearly on-point exact indexed hit was identified within the bounded returned results."
+        ],
+        "reasoning": "An exact table is not required for this universal analytic inequality, and the null exact-priority comparison is not the originality basis; the actual implication from published analysis is.",
+        "searches": [
+          "Resultary: narrow square-torus quasimodes, horizontal tube, 7/8, 4 sqrt(h), two vertical frequencies",
+          "Mirrored 2026/9/11/SCOPE065 RESULT.md offset 1246ff."
+        ]
+      },
+      "rationale": "The qualitative no-concentration result for the exact residual regime is an immediate corollary of the classical uniform square-torus eigenfunction L⁴ bound and projection across the constant integer-shell spacing, and holds in any measurable sets of shrinking area. The additional O(√h) estimate on the projected eigenfunction is simply the elementary multiplicity-two coordinate restriction estimate integrated over the width. The exact named match is the same record, not independent prior evidence.",
+      "residual_risks": [
+        "The original Zygmund full text was not inspected. The affirmative implication uses an inspected published statement of the uniform bound.",
+        "No claim is made about first publication of the exact constant or about arbitrary wider window estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "The same o(h²) statement, 4√h shell bound, and numerical threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/11/SCOPE065/RESULT.md",
+          "material_read": "Headline and start of proof, offsets 1246–1934",
+          "method": "Local mirror",
+          "title": "Shrinking-tube non-scarring for narrow torus quasimodes",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Restates decisive uniform eigenfunction bound; perturbed result is not a direct overlap",
+          "evidence": "Uniform eigenfunction L⁴ for the unperturbed square torus; perturbed theorem assumes −h²Δ/2+ε_h²V and error o(hε_h).",
+          "identifier_or_url": "https://www.math.sciences.univ-nantes.fr/~riviere-g/MacRiv-torus-2017.pdf",
+          "material_read": "Introduction pp. 1–2, setup and Theorem 1.1 pp. 3–4, and Zygmund bibliography entry p. 26",
+          "method": "Lawful author-hosted PDF",
+          "title": "Two-microlocal regularity of quasimodes on the torus",
+          "trigger": "Published eigenfunction estimate and nearby perturbation regime"
+        },
+        {
+          "assessment": "Relies on the inspected statement of the classical bound, not on an uninspected primary argument",
+          "evidence": "The restatement expressly gives uniform L⁴ in dimension two for free eigenfunctions.",
+          "identifier_or_url": "https://doi.org/10.4064/sm-50-2-189-201",
+          "material_read": "Bibliographic identification and exact uniform-bound restatement in Macià–Rivière; original full text not read",
+          "method": "Lawful full text attempts and accessible restatement",
+          "title": "On Fourier coefficients and transforms of functions of two variables",
+          "trigger": "Original classical eigenfunction estimate"
+        },
+        {
+          "assessment": "Independent exact-eigenfunction context, broader geometry but not directly a quasimode theorem",
+          "evidence": "Links subcritical L⁴ to tube norm power savings on wavelength-square-root scales.",
+          "identifier_or_url": "https://msp.org/apde/2015/8-3/apde-v8-n3-p06-s.pdf",
+          "material_read": "Theorem 1.1 p. 747 and Corollary 1.2 p. 749; offsets 1550–4050 and 5800–7953",
+          "method": "OA journal PDF",
+          "title": "Refined and microlocal Kakeya–Nikodym bounds for eigenfunctions in two dimensions",
+          "trigger": "Published shrinking geodesic tube result"
+        },
+        {
+          "assessment": "Different restriction problem; its difficulties do not apply to the full horizontal slice",
+          "evidence": "Discusses uniform arbitrary straight segment restriction and proves a smooth-curve estimate for almost all energies.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.0018",
+          "material_read": "Straight segment discussion and Theorem 1.10 pp. 6–7, offsets 16565–18268",
+          "method": "OA primary PDF",
+          "title": "Restriction of toral eigenfunctions to hypersurfaces and nodal sets",
+          "trigger": "Record's prior restriction comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Context, headline, and Limitations",
+        "Uniform L⁴ comparison and independent horizontal slice estimate"
+      ],
+      "rationale": "The residual is smaller than one spectral-shell gap, so the motivating scarring threshold is already excluded by elementary projection and classical uniform integrability. For the exact horizontal tube the added shell bound is a direct coordinate orthogonality exercise, and the tail term gives no independent rate of decay for arbitrary o(h²) residuals. The record does not resolve a wider spectral window or geometrically nontrivial concentration mechanism. The stated case is a useful illustration, not new substantive evidence about scarring.",
+      "residual_risks": [
+        "A quantitatively motivated estimate for truly wider windows or perturbed operators would be a separate question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

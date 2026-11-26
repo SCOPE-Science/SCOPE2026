@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Exact reproducibility checks are contained in `verify.py`, executable by `python3 verify.py` with the Python standard library. The program constructs the ring \(\mathbb Z[\omega]\), where \(\omega^2+\omega+1=0\), and checks the eight-step matrix, its determinant and trace, and its quadratic matrix identity over integers. It also computes residue-class signed counts through an independent last-digit dynamic program and compares them with direct greedy Zeckendorf enumeration for all cutoffs through digit length 19.
+## correctness
 
-Observed outcome: `PASS: 29575 integer assertions / comparisons; exact Z[omega] matrix [[(8, 1), (-1, -3)], [(3, 1), (0, -1)]] det (1, 0) trace (8, 0)`. The output includes the test vectors at digit lengths seven, fifteen, and twenty-three, respectively \((2,-1,-1)\), \((15,-8,-8)\), and \((121,-60,-60)\).
+PASS
 
-The checker also checks phase-seven formulas at all applicable lengths up to 91. Those finite checks cannot establish the infinite statements; the proof is the explicit recurrence and Cayley–Hamilton computation written in RESULT.md. The proof treats every nonnegative index and all nonnegative depth parameters without heuristic sampling or unverified finite exhaustion. No independent scientific audit has been performed.
+The zero word is included, and legal length-L words cover the half-open cutoff: those with a leading zero represent [0,F_(L+1)), and those with a leading one force the next digit to be zero and shift [0,F_L) by F_(L+1); the length zero and one cases start the induction. Weighting by digit parity therefore yields Q_L=Q_(L-1)-z^{F_(L+1)}Q_(L-2) with Q_0=Q_(-1)=1. At a primitive cubic root omega, modulo-three Fibonacci weights are 1,2,0,2,2,1,0,1, repeating since the Fibonacci pair returns. Exact arithmetic with omega^2=-1-omega gives M=[[8+omega,-1-3omega],[3+omega,-omega]], trace 8 and determinant 1. Each phase is a fixed prefix of the periodic transfer times M^t, so Cayley–Hamilton gives the same second-order recurrence; the phase-seven first values 3 and 23 make that subsequence real and strictly positive (the recurrence preserves strict increase). At z=1 the values repeat 1,0,-1,-1,0,1, giving b_t along L=8t+7. Fourier inversion of (b_t,q_t,q_t) gives the exact signed histograms and strict signs. The two distinct eigenvalues 4±sqrt(15) bound all eight phases by a constant times (4+sqrt(15))^t, and F_(L+2) is comparable to phi^L. The positive coefficient (23-3(4-sqrt(15)))/(2sqrt(15)) at phase seven gives a matching positive-order term in D_L(0), excluding every smaller exponent on Fibonacci cutoffs. Independent signed-word concatenation gave (2,-1,-1), (15,-8,-8), (121,-60,-60) at L=7,15,23; independent ring arithmetic and a residue DP also reproduced the matrix and base/phase checks. The unbounded result uses the proof, not the table.
+
+## originality
+
+PASS
+
+The same parity word and sublinear arbitrary-prefix cancellation in each residue class are already covered. The distinct result supported here is the exact phase-seven histogram and sign law and the sharp explicit Fibonacci-cutoff exponent. Neither the inspected multiplicative-orthogonality theorem nor a fixed-weight conditional count determines them. The exact Resultary search self-match is excluded as independent evidence.
+
+## value
+
+PASS
+
+The classical parity word and the first Newman-style modulus motivate the statistic independently of its numerical value. The exact conditional sign pattern contrasts with the bounded total cancellation, and the established exponent is an optimal order along a natural numeration cutoff family rather than a fitted or finite asymptotic constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

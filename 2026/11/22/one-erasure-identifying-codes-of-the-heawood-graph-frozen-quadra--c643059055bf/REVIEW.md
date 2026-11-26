@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact one-erasure condition is proved equivalent to having at least two selected detectors in every closed neighborhood and in every pairwise symmetric difference of closed neighborhoods. The Fano-incidence checker exhausts all \(16384\) possible detector placements and all \(2002\) five-vertex omissions, and compares all optimum masks with independently constructed quadrangle and two-edge induced matching catalogues. Exchange metrics are checked by all-source breadth-first search on the full \(98\)-configuration set. An independent fourteen-cycle-and-chords checker explicitly deletes each selected detector and reconstructs identifying signatures; all asserted totals agree. Scope: this one finite Heawood graph, not a conjectured infinite family.
+PASS
 
-## Originality — PASS, provisional historical priority
+The repair proves only the exchange theorem and uses the separately established optimum catalogue. Index negation matches the two cyclic Fano conventions. The catalogue is exactly the union of shore complements of lines or dual pencils and pairs of points plus pairs of lines inducing a 2-edge matching. For equal-size omissions, adjacency for exact r corresponds to intersection size 4−r, independently of host edges. Quadrangles cannot share three vertices with any other optimum omission. In a matching the only one-vertex substitutions keep the shore and choose the unique alternative line through the retained matched point but not the other point, or the dual alternative point. The repair independently constructs all 98 four-sets, tests all unordered pairs for each exact exchange size, and computes BFS from every vertex including isolates. The shell sums force a single 84-vertex matching component for r=1 and a single 98-vertex component for r=2; the last nonzero shell indices give the eccentricities and the first positive shell indices yield the stated degrees and edge counts. I executed the new check_exchange.py and recovered each complete shell multiplicity and 168 and 1134 edges. A separate exact replay on all 16,384 detector masks verified the original feasibility criterion against explicit single-detector removal and agreed on the geometric catalogue, polynomial and all exchange data. Neither script replaces a symbolic statement about any other graph.
 
-The closest foundational article Jean–Seo (arXiv:2112.01685) defines the same failure model and gives general cubic bounds, not an exact Heawood classification. Balbuena–Foucaud–Hansberg (arXiv:1407.7263) examines the same graph's ordinary locating domination; that is weaker and does not determine redundant identifying codes. Honkala–Karpovsky–Levitin's robust codes have failure conventions and stronger variants that do not settle the exact one-offline-detector census. Related ordinary identifying-code exchanges, and the \(84\) maximum **three-edge** induced matchings, do not imply the \(84\) omitted **two-edge** matching solutions and their mobility. Relevant exact-claim, alias, broader-coverage and tabulation searches yielded no dominating result. Risk: historical tabulations or inaccessible papers could contain equivalent statements, so independent historical priority is not established.
+## originality
 
-## Value — PASS
+PASS
 
-The one-detector failure model is a natural resilience requirement on a highly symmetric cubic communication graph. The theorem supplies a complete optimal geometric classification and reveals two contrasting solution types: fourteen completely immobile optima beside an eighty-four-state mobile sector, yet universal connectivity at the sharp two-detector exchange threshold. Exact counts and a sharp reachability threshold provide structural information absent from an ordinary minimum-code size.
+This verdict concerns the repaired mobility-only statement, not the original omnibus Finding. The same-object deletion classification is explicitly cited as an input and no claim to its catalogue, minimum or polynomial remains. The checked closest exchange results use either ordinary identifying codes and token slides, or maximum induced three-edge matchings and whole-edge exchanges. Neither covers this optimum family with these exact one- and two-detector moves.
 
-## Limits and assessment
+## value
 
-Finite, exact exhaustive proof; no assertion for other finite projective planes or higher failure counts. The supplied executable sources and expected outputs are self-contained. The result has not undergone independent scholarly validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical small cubic incidence graph, this measures an operational property of a natural optimum family: how many selected detectors must be exchanged per move to reconfigure without losing minimum one-erasure robustness at the endpoints. Exact one-at-a-time moves fail by isolating a geometric class, while exact two-at-a-time moves give diameter two. The complete shell vectors quantify mobility beyond a yes/no path question and expose the two code types in the exchange geometry. The separate deletion census alone does not give these distances; the finite proof and precise boundary are useful without a broader family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

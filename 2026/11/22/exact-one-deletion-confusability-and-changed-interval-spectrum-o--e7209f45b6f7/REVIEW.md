@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central statement includes exact quantifiers \(q\ge2\), \(n\ge1\), an unrestricted one-deletion output space, and unordered input pairs. In the proof a pair has intrinsic first and last unequal positions. It is either a single-position replacement, or a canonical one-position left/right shift. Reversing the shift produces a second representation exactly for two-phase alternating intervals, giving the explicit \(q(q-1)/2\) subtraction. Both boundary counts and the rational generating function have been algebraically reconstructed. Separate direct-deletion and interval-construction programs passed for the advertised small cases; the infinite claim rests on the proof, not an extrapolation from tests. The \(q=2\) and \(n=1\) boundaries were explicitly checked.
+## correctness
 
-## Originality — PASS, qualified
-Comparison with Kulkarni–Kiyavash (arXiv:1211.3128, Sections V and V-A) shows constrained-source code bounds and a binary run-length example, not an exact \(q\)-ary adjacent-unequal deletion-confusability edge count. Cullina–Kulkarni–Kiyavash (arXiv:1211.4056, Sections II-B and III-A) defines general deletion graphs and bounds their degrees, but does not give the induced Kautz-language edge and span spectra. Kautz word-label conventions do not make directed shift arcs equivalent to deletion-confusability edges. Related indexed two-read reconstruction results require multiple shared reads; the one-read relation is strictly broader, and its induced constrained edge law cannot be inferred from those overall counts. Targeted publication-record searches did not identify a matching statement. Relevant published summaries were compared; some full texts could not be fetched. Unindexed prior derivations and any overlooked implication of generic edit-graph theory remain residual risks, not grounds for claiming absolute priority.
+PASS
 
-## Value — PASS
-The adjacent-unequal \(q\)-ary language is the natural vertex alphabet of Kautz graphs and a standard constrained sequence family. For a one-symbol synchronization failure, the number of forbidden codeword pairs is a direct graph parameter; an exact *location-resolved* spectrum is stronger than either a sample table or an asymptotic bound. The formula yields an exact mean-degree law and an explicit, though nonsharp, all-length independent-set lower bound. The two-orientation correction is structural and prevents double-counting; the result treats all alphabet sizes and block lengths, not an arbitrary finite slice.
+For words x,y with matched deletions at p<r respectively, equality of the reads gives agreement outside [p,r] and y_k=x_(k+1) for p<=k<r. Restriction to the first/last disagreement interval [i,j] gives the same relation there and deleting i,j reproduces the common read; exchanging word order gives the other mode. Equal deletion positions give just i=j. For a one-position difference there are binom(q,2) unordered choices. For L>=2, choosing the x block and the final y symbol gives q(q-1)^L ordered left-shift choices; the first mismatch follows from the adjacent-unequal rule, and the last symbol is any of q-1 choices different from x_j. Both shifts are possible exactly for the two opposite phases of an alternating two-symbol block, so subtract q(q-1)/2 for each boundary extension. A nonempty common prefix or suffix must avoid two distinct endpoint letters at its inner end, giving C_t=(q-2)(q-1)^(t-1), independently. Multiplying by C_a C_b and summing via C(z)=(1-z)/(1-(q-1)z) gives the stated generating function and its polynomial-times-geometric coefficients. At n=1 the graph is complete, and q=2 has just the two alternating words joined by one edge for every n. Dividing twice the edge count by q(q-1)^(n-1) gives the stated degree; the independent-set lower bound follows by averaging 1/(degree+1) from a random vertex ordering and rounding up. Fresh direct deletion enumeration matched every cell and total/GF coefficient in 24 (q,n) cases, including the degenerate boundaries. Replay: python3 /workspace/branches/88fa4e85-19d0-4519-85dd-efb346f3094c/record3_check.py.
 
-## Sources and residual limitations
-Primary text inspected: https://arxiv.org/abs/1211.3128 (especially Section V-A); https://arxiv.org/abs/1211.4056 (especially Sections II-B, III-A). Kautz word convention: https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph_generators.html. This review is not an independent audit. Unindexed earlier work may contain an equivalent enumeration; no exact code capacity is determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact location-resolved edge law, and hence exact total, for the adjacent-unequal linear language with nonempty one-deletion overlap. Prior work covers the graph framework and alternating double-overlap structure; the audit does not credit those as new. No inspected statement supplies the single-overlap portion and the whole span law in this language.
+
+## value
+
+PASS
+
+The cap-one source is a natural constrained language, and single-deletion collisions are its actual pairwise decoding obstructions, unlike ordinary shift edges or two-read ambiguity. The location-resolved invariant reveals how boundary positions suppress collisions, quantifies graph density exactly, and yields an explicit code-size guarantee without claiming sharpness. Counting all locations and lengths with a structural overlap correction is more informative than a finite case count or the known alternating subclass alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

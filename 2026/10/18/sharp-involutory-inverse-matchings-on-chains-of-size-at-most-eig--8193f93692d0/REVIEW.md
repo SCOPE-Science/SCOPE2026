@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite scope is precisely \(1\le n\le8\), with all maps represented uniquely by ordered breakpoints and images. A stored involution on each rank-class is verified directly by reconstructing each map, both inverse identities, and the rank condition. A separate combinatorial count proves the parity lower bound on displaced idempotents; the certificate attains it. This is an exhaustive finite proof, not numerical evidence for an infinite proposition.
+## correctness
 
-**Originality — PASS (self-review; residual risk).** The full 2026 source establishes arbitrary permutation inverse matching, not the stronger involutory condition. The 2024 Proposition 2.3 gives certain divisibility-ratio cases, which are counted as prior work and do not imply the all-ranks finite cutoff; the 2018 orientation-preserving work covers a different monoid. Searches in mathematical research records and published literature found no equivalent eight-chain exhaustive involution certificate or parity-optimal idempotent counts. The search is not a proof of universal absence and unpublished computations may exist.
+PASS
 
-**Value — PASS.** The stronger involutory inverse-matching problem is motivated by open structural comparisons in the relevant semigroup literature. The finite theorem settles all ranks for the first eight chains, including the non-divisibility cases, and determines a sharp obstruction to fixing idempotents. The result establishes a meaningful computational boundary but is not a general proof.
+A rank-r map is exactly determined by its rank−1 consecutive fiber cuts and increasing image, giving the stated class size. Idempotents select one fixed image point per fiber, giving the coefficient of (x/(1−x)^2)^r. Each fixed point of the involution must satisfy f³=f and hence f²=f, since an isotone chain map has no nontrivial cycles. Thus the nonidempotents and displaced idempotents together have even cardinality in each rank; their parities agree. Direct independent exhaustive replay of INVOLUTION_CERT.json reconstructed all maps and checked partner ranges, ranks, involution, and both inverse identities by actual composition across all 36 blocks. Counts were 1, 3, 10, 35, 126, 462, 1716, 6435. The only odd nonidempotent counts were 39 at (5,3) and 399 at (7,3), and in those two blocks the certificate moves exactly one idempotent; all other blocks move none. This attains the necessary minima, not just existence.
 
-**Closest literature and risks.** Higgins, arXiv:2610.01912 (2026); Higgins, *Semigroup Forum* 2024 Proposition 2.3; Higgins, arXiv:1811.04472 (2018). Residual risk: an equivalent small-chain census may appear in another paper or discussion; a finite cutoff does not settle the general conjectural question. Independent human or external mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the sharp displacement classification, particularly n=6,7,8, not for the unqualified existence assertion. Distinct catalogue results cover extreme ranks, the sharp claims through five, and even mere existence through ten. The through-ten certificate is not displacement-optimal: its actual two-cycle counts force many more than the minima, including in each of n=6,7,8. The conditional rectangular-band criterion and whole-monoid permutation result do not fill that gap. Catalogue dates are not used to decide priority.
+
+## value
+
+PASS
+
+Fixing idempotents where possible is a natural constraint for inverse involutions, because each can be left as its own inverse. Same-rank parity identifies a genuine obstacle, but attaining it everywhere is nontrivial; an arbitrary or larger existence certificate can move many unnecessary idempotents. The n=6–8 results give exact answers on both sides of feasibility of fixing all idempotents in a natural finite-chain family, beyond the smaller sharp cutoff and without claiming universal attainability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

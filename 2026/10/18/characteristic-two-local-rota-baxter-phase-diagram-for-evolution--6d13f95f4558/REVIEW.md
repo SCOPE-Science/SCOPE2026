@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic-two specialization of the Rota–Baxter identity at equal arguments forces the square of every output to vanish. With independent nonzero natural-basis squares, the square-zero set is exactly the annihilator; both directions of the operator classification follow. In dimension two over a finite characteristic-two field, the remaining dependent, nonzero-squares case is a rank-one symmetric bilinear multiplication. Its unique square-zero line carries every ordinary operator. Substituting this normal form gives the union of the two stated lines of coefficient functionals, and pointwise evaluation proves precisely when every map into the square-zero line is local. These implications, the finite-field square roots, and all structural boundary cases have been reconstructed. The labeled census follows by a direct projective-line count. Exhaustive independent enumeration over the binary and four-element fields, representative eight-element-field checks and two higher-dimensional chain checks confirm the formulas but are not used as infinite-field proofs.
+PASS
 
-## Originality — PASS, with documented residual risk
+In characteristic two the diagonal Rota–Baxter identity forces every operator output to square to zero, including each value of a local map. With independent nonzero natural-basis squares, the square-zero set is exactly the annihilator; maps into it satisfy the full identity. In the remaining two-dimensional rank-one case over an even finite field, multiplication is xy=B(x,y)v with B nondegenerate and the square-zero space is a line Ku. Every candidate is R(x)=ℓ(x)u. The full identity becomes ℓ(v)(ℓ(x)B(u,y)+ℓ(y)B(u,x))=0, giving the union of two functional lines. They coincide exactly when v²=0, then forcing every local map to vanish at v. Otherwise the two evaluation kernels intersect only at zero, giving every possible square-zero value at each nonzero input and hence all q² local maps. The first three cases are annihilator cases. Counting labeled rank-one nonzero square pairs on each projective line gives q−1 isotropic pairs on each of q−1 nonaxis lines, none on the axes; the other three census entries follow from zero, one-zero and invertible square matrices. Independent exhaustive binary testing of all 16 algebras and 16 maps per algebra (all input pairs for ordinary operators and all inputs for local witnesses) gave census (1,6,6,1,2) and per-table count pairs (16,16), (4,4), (1,1), (2,2), (3,4). The included verify.py, inspected but not executed, gives wider finite replay cases; no finite test substitutes for the symbolic argument. Rigidity is valid over arbitrary characteristic-two fields; the complete counts, which use square roots, are stated for finite fields only.
 
-The closest motivating full text is Qaralleh--Mukhamedov--Khakimov, arXiv:2606.22623v1, which studies local operators under the explicit **characteristic-zero** hypothesis; its diagonal-string theorem is not a result over characteristic-two fields. The earlier arXiv:2601.08669 likewise explicitly assumes characteristic zero. Ladra--Murodov, arXiv:1906.09098, classifies ordinary operators on two-dimensional complex evolution algebras but not finite characteristic-two pointwise-local operators. Comparisons concerned statement inclusion, not title or parameter matches. Searches for characteristic-two local operators, annihilator-valued maps, equivalent rank-one tensor characterizations, and finite-field tables did not identify an implication covering the combined rigidity, five-case classification, and labeled census. An older unindexed characteristic-two computation or a reduction implicit in broader operator literature remains a residual originality risk; this review cannot certify uniqueness against unpublished findings.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies a sharp characteristic boundary in a currently studied local-operator problem: the characteristic-zero nilpotent-chain local/ordinary separation disappears across an arbitrary-dimensional, structurally defined characteristic-two family. It also identifies and completely classifies the first dimension where separation can persist, computes both operator varieties by explicit lines, and determines the exact finite-field density of exceptional multiplication tables. This is a motivated operator-structure problem rather than an arbitrary small numerical slice. It does not classify all evolution algebras of dimension above two with dependent squares or supply independent priority review.
+The supported distinction is the characteristic-two dichotomy for linear pointwise locality, including the complete two-dimensional joint classification and labeled census. The chain corollary is not a separate novelty claim: it overlaps an ordinary-chain result in another indexed record. The strongest inspected characteristic-zero ordinary and local results do not give the characteristic-two dichotomy or census. This is a bounded best-of-knowledge assessment, not priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The smallest dimension admitting separation has a complete intrinsic test: zero annihilator, one-dimensional E² and a nonsquare-zero generator of E². The two distinct lines of ordinary operators realize every allowed value pointwise despite not filling the linear map space. This supplies both a mechanism and exact gap, not an arbitrary sample or a table of isomorphism classes. The labeled census measures how often the mechanism occurs among all natural-basis tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

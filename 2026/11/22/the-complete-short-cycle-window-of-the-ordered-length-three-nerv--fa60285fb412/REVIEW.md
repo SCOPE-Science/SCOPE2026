@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the *ordered* length-filtered simplicial set of the graph shortest-path metric, with nondegenerate tuples including nonconsecutive repetitions. All four full normalized cellular boundaries through degree three were generated, checked to square to zero, and placed into exact integer Smith form. All nonzero Smith factors are 1; the recorded integer ranks yield the claimed free homology. The fundamental group is trivial for each short cycle because every 1-cell reduces to original graph-edge walks and a pair of complementary ≤3 walks identifies the generator with the trivial loop. The standard three-dimensional Whitehead/Hurewicz argument then proves the wedge *homotopy types*, not just ranks. The zero inclusion on second homology was checked by exact span comparison; target H2 is torsionfree, so rational zero implies integral zero. H1 of every target is zero. Computations are fully replayable with the embedded script, not extrapolated from random samples.
+PASS
 
-## Originality — PASS, with priority limits
+The ordered total-length definition gives normalized free chain groups, with adjacent repetitions dropped after signed face deletion. An independent BFS/tuple construction and integer Smith changes of basis reproduce boundary rank triples (2,4,8), (3,9,23), (4,16,35), (5,25,42), with unit nonzero invariants and H1=0. This gives free (H2,H3) ranks (0,16), (0,9), (9,5), (5,6). The full integral cutoff-two H2 kernel bases have sizes 8,7,5,6; after embedding into the target and applying the target D3 row transform, all coordinates beyond the nonzero Smith pivots vanish. Unit pivots prove actual integral boundary membership. H1 maps to zero and the source has no higher cells. For homotopy, triangle relations replace each directed 1-cell by its shortest unit walk, with inverse edge orientations identified by backtrack triangles. Two complementary arcs of lengths at most three compress to the same cell for n=3 through 6; the sole graph loop is killed. The triangle compression uses the triangle inequality on the rest of each walk. Degree-two Hurewicz and the Whitehead exact sequence supply sphere maps for free H2 and H3 bases; the simply connected homology Whitehead theorem yields the stated wedges. This proves homology vanishing of the inclusion, not an assertion about arbitrary cycles or all cutoffs.
 
-Full available Springer HTML for Ivanov–Xu (2026), especially §2.3 and §8, establishes an equivalent simplicial-set definition and general theory but not a four-entry classification for finite short cycles. Livernet–Roff–Whitehouse (2026) supplies an underlying magnitude-path spectral-sequence framework. Otter introduced the enriched nerve. Earlier cutoff-two structural results and strict high-girth results for cutoff three do not imply these exceptional short-cycle ranks or the integral vanishing transition. Statement-level searches of relevant mathematical records found no stronger covering classification. Full text of Melodia's potentially relevant 2026 manuscript and the original Otter manuscript was not available for whole-document comparison; unknown overlap is an explicit residual risk, not a claimed proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At cutoff three, the strict high-girth assumption covers only cycles with at least seven vertices. The four missing cycle lengths are thus the *entire first exceptional window*, not a miscellaneous four-entry parameter slice. The classification detects a transition between pure third homotopy (triangular and quadrilateral cycles) and genuinely mixed second/third homotopy (pentagon and hexagon), and a complete reset of integral positive-degree classes under the preceding cutoff inclusion. Neither correctness nor reproducibility alone motivates the claim; its relevance is the exact homotopy and persistence boundary at the first graph cycle lengths where geodesic ambiguity appears.
+The supported distinct claim is the exact four-entry integral homotopy classification at cutoff three and its complete transition comparison. The cutoff-two ranks, framework, and stable range are not fresh claims. Closely related results do account for much of the transition reasoning but not for the four target ranks and homotopy types.
 
-## Remaining limitations
+## value
 
-No later cutoffs or general short-cycle graph theorem are claimed. All conclusions are integral but nonequivariant. Source priority remains subject to independent, broader full-text review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The high-girth condition singles out exactly this finite window before any calculation. The mixed wedges for C5 and C6, contrasted with the pure C3 and C4 wedges and the stable circle summand, detect the first exceptional higher-dimensional homotopy behavior. The zero transfer tells a researcher interpreting the persistence barcode that the target two-dimensional classes are new, not just numerically similar to classes at cutoff two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

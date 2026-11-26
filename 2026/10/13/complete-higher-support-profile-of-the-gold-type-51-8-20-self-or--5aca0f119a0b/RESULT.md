@@ -1,7 +1,7 @@
 # Complete higher-support profile of the Gold-type \([51,8,20]\) self-orthogonal code
 ## Finding
 
-Xiang and Song's Example 1 contains the binary self-orthogonal code
+Consider the binary self-orthogonal code in the two-coefficient Gold-type construction of Xiang and Song, with the finite-field presentation and coefficients fixed below. Denote it by
 \[
 C_D
 \]
@@ -72,13 +72,13 @@ Thus the numbers of subcodes attaining the generalized Hamming weights are
 
 ## Assumptions and scope
 
-Use the finite-field realization printed in Example 1,
+Fix the finite-field realization
 \[
 \mathbb F_{256}
 =
 \mathbb F_2[\alpha]/(\alpha^8+\alpha^4+\alpha^3+\alpha^2+1).
 \]
-The source takes
+Take
 \[
 m=8,\qquad e=4,\qquad a_1=\alpha,\qquad a_2=\alpha^2
 \]
@@ -103,7 +103,7 @@ C_D=
 \right\}.
 \]
 
-The claim concerns this exact published Example 1 code. It does not assert that every code in Theorem 3.6 has the same higher-support profile.
+The claim concerns the code defined by these explicit inputs, not the numbering of an example or every choice in the rank-two Gold family.
 
 ## Proof
 
@@ -124,7 +124,7 @@ A_{24}=102,\quad
 A_{28}=102,\quad
 A_{32}=17,
 \]
-exactly reproducing the source's published weight enumerator. This anchors the finite-field convention, trace implementation, defining set, and coordinate order to the published code before any higher-dimensional quantity is used.
+by direct trace evaluation on the explicit defining set. The histogram is invariant under the order chosen for the elements of \(D\). Self-orthogonality follows from the enumerator: all word weights are divisible by four, and \(2|\operatorname{Supp}(c)\cap\operatorname{Supp}(c')|=\operatorname{wt}(c)+\operatorname{wt}(c')-\operatorname{wt}(c+c')\) is then divisible by four for every pair of codewords.
 
 Because the message-to-code map has rank \(8\), its restriction gives a bijection between \(r\)-dimensional message subspaces and \(r\)-dimensional code subcodes. Every message subspace has a unique reduced-row-echelon basis. The exact numbers of such subspaces for \(r=1,\ldots,8\) are
 \[
@@ -162,7 +162,7 @@ It reconstructs \(\mathbb F_{256}\) from
 \[
 X^8+X^4+X^3+X^2+1,
 \]
-checks that the residue class of \(X\) has multiplicative order \(255\), implements the absolute trace by repeated squaring, and reconstructs the published defining set with \(a_1=\alpha\), \(a_2=\alpha^2\).
+checks that the residue class of \(X\) has multiplicative order \(255\), implements the absolute trace by repeated squaring, and reconstructs the defining set with \(a_1=\alpha\), \(a_2=\alpha^2\).
 
 The verifier checks
 \[
@@ -183,7 +183,7 @@ The primary article constructs self-orthogonal codes from the Gold-type function
 \[
 x\longmapsto x^{2^{m/2}+1}
 \]
-and determines their ordinary weight distributions. Example 1 explicitly gives the \([51,8,20]_2\) code and the four nonzero ordinary weights. The full text contains no generalized-Hamming-weight, weight-hierarchy, or subcode-support result.
+and studies their ordinary weight distributions. Here the exact code is identified by its modulus and the two trace constraints, and the ordinary distribution is given as a consistency check; neither the construction nor its ordinary distribution is claimed as new. The contribution is the higher-dimensional census for the specified code.
 
 Several nearby papers do determine weight hierarchies for other defining-set constructions. Qiao and Du study a cyclotomic family whose defining set lives in a product of finite fields and whose hierarchy is controlled by different exponential-sum parameters. Meng, Liu, Liu, Wang, and Zheng study two other self-orthogonal defining-set families and explicitly restrict their hierarchy theorems to those constructions. Li, Chen, and Qu provide a general defining-set formula and then solve selected Bent and Semi-Bent families; that framework does not by itself evaluate the maximization needed for the present intersection of two Gold trace-zero conditions, and it does not provide a complete subcode-support distribution.
 
@@ -195,7 +195,7 @@ the hierarchy
 \[
 (20,30,38,42,46,48,50,51),
 \]
-the published ordinary enumerator, and Gold-type higher-support terminology located no prior statement of this hierarchy or of the complete support spectra above.
+the ordinary enumerator, and Gold-type higher-support terminology did not identify an exact prior hierarchy or complete support table in the inspected material. This does not exclude a different presentation of the rank-two code.
 
 ## Limitations
 

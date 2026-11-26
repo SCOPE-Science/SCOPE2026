@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on the hub and rim gives the exact marked two-site covariance. The small-activity expansion is positive of order \(t^3\), the large-activity leading term is positive, and the unit-activity negative sign follows from explicit \(n=6,8\) rational evaluations and a transfer-eigenvalue inequality for every even \(n\ge10\). The exponentially scaled return follows from pointwise transfer asymptotics and the intermediate-value theorem. Independent rational configuration calculations and eigenvalue-ratio checks are reproducible with `verify.py` (76 checks). The proof does not rely on finite testing to justify infinite-size quantifiers.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** The 2003 Scott–Sokal preprint provides general hard-core partition theory; its inspected introduction, partition-function material and correlation references do not give the asserted helm leaf covariance. MathWorld states the known unmarked helm independence polynomial, which the finding explicitly credits. Semantic research comparisons to related indexed wheel-forest leaf covariances, hard-core crown-graph precision signs, and other dependence classifications are distinct in their probability spaces and observables. A non-indexed multivariate marked helm calculation remains a residual priority risk; no global uniqueness claim is made.
+PASS
 
-**Mathematical value — PASS.** Separation three is the first rim distance at which a negative alternating-cycle correlation and a positive common-hub fluctuation can compete. Their exact finite-size competition yields a genuinely reentrant equilibrium covariance and an exponentially large return-activity scale, a useful nontrivial example for dependence diagnostics in exclusion models. It is neither a generic independence-polynomial identity nor an unsupported phase-transition assertion.
+Conditioning on hub and rim leaves independent Bernoulli occupations at vacant rim sites. Thus leaf covariance is t² times the effective rim covariance, with rim activity t=z/(1+z) and hub activity z. The single and double marked weights leave paths on n−3 and n−6 vertices, including P₀=1. Expansion of the marked numerator gives t³+O(t⁴) and zP_{n−6}(1)+O(1) at the two ends for fixed n. Independent full-graph enumeration gives covariance −1/14400 and −1/176400 at z=1 for n=6 and n=8. From P_k=(α^{k+2}−β^{k+2})/(α−β) and A_n=α^n+β^n, the even-n ratio in (2) follows, with C_n<1−u². The bound on the occupied-hub probability q<1/16<u² at unit activity gives strict negativity for every even n≥10. At z=cφ^n, n(1−t) tends to zero, giving (α(t)/φ)^n→1 and limiting sign comparison c/(1+c)−u_*². Brackets about its unique limiting zero yield a sequence of crossings at the stated scale (choose increasingly small brackets as n grows). The finite-n covariance is a nonzero rational function without poles on positive activities, so opposite signs do entail sign-changing zeros. No uniqueness or exact crossing count follows or is claimed.
 
-The analytic asymptotic provides existence, not uniqueness, of an upper-scale crossing. Independently verified historical priority remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The comparison credits the unmarked helm polynomial and standard marked hard-core covariance and transfer identities. Neither the closely related homogeneous odd-wheel crossover, the fan endpoint parity law, nor the general polynomial framework covers the even-helm pendant covariance with a hub-dominated high-activity return. No distinct equivalent or dominating claim was established in the checked material; historical priority is not certified.
+
+## value
+
+PASS
+
+Distance three is the first nonadjacent odd rim separation, where the cycle's negative occupation dependence competes with common hub fluctuations. The all-even-size sign witness and the explicit exponentially receding return scale distinguish finite-volume reentrance from both a partition-polynomial recomputation and a thermodynamic phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

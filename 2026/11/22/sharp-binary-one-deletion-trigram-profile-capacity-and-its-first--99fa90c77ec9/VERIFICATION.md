@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-`verify_trigram_dp.py` computes every five-neighborhood deletion-change vector and exhausts the finite suffix/profile-class recurrence for all input lengths four through twenty. It returns the complete length-by-length maximum table and verifies the witness construction for twenty-five explicit lengths. `independent_brute.cpp` computes each deletion profile from scratch for all binary words of lengths one through nineteen and checks eleven explicit witnesses at lengths twenty through thirty. All checks were actually executed, and their text outputs are bundled as `dp_output.txt` and `brute_output.txt`. Recompile and rerun using the commands in `RESULT.md` to reproduce the finite certificates. The formula for infinitely many lengths is proved mathematically by the preserved local-context witnesses, not by any finite test.
+## correctness
 
-The two programs have different logical foundations: the first explores equivalence classes of local edit contexts, whereas the second directly enumerates source words and recomputes output profiles. The latter is a limited-length independent computational cross-check, not an independent audit of the mathematical claim. Priority searches do not certify mathematical uniqueness; one plausible recent manuscript was available only through its abstracts.
+PASS
+
+This counts distinct overlapping multiplicity-preserving trigram profiles of linear binary words after exactly one deletion, including both ends. Subtraction of the original profile is injective. Recounting the 32 five-bit contexts gives ten distinct interior deltas with multiplicities 8,8,4,4,2,2,1,1,1,1; the first and last two deletions contribute at most four additional deltas, giving 14. The fixed first four and last four bits of the witness give four distinct non-interior deltas. In the witness, 01000 uses the first three zeros of the extended run, 00100 its final two zeros plus 100, and 01001 its final zero plus 1001. The other seven required factors occur entirely in the fixed suffix. This corrects the misplaced location of 01001 in the proof text, not the claim or witness. For n<=3 all profiles are zero. For 4<=n<=20 the DP legitimately remembers the prefix, suffix, and exact set of interior deltas and covers every word. Independently ran python3 /workspace/review_evidence/recompute5.py in bounded slices 1–14, 15–17, and 18–20: each descendant was reconstructed and all its triple counts tallied from scratch in eight separate five-bit lanes (no carries because n-3<=17). Complementation permutes coordinates, so one leading-bit class is exhaustive modulo that invariant. The exact maxima were 1,1,1,4,4,6,6,7,8,8,9,10,10,10,11,12,12,12,13,14, with 48 extremizers at length 19 and 32 at length 20. The infinite claim rests on the verified contexts in the witness, not the finite run.
+
+## originality
+
+PASS
+
+Best of current knowledge: the short-length binary spectrum, the first attainment at 20, and the explicit sharp family starting there are distinct from the inspected literature. The separate q-ary record genuinely recovers the binary maximum 14 and its interior counting argument, credits earlier binary work, and does not establish early binary saturation. The maximum is not credited as distinct from that recovery, and same-day index dates do not establish priority.
+
+## value
+
+PASS
+
+For a natural equivalence on deletion descendants, the exact maximum and shortest witness resolve when the ten interior and four boundary signatures can actually coexist. The threshold and the complete short-length profile-ball maxima provide a meaningful binary baseline not supplied by larger-alphabet covering bounds or counts of raw descendants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

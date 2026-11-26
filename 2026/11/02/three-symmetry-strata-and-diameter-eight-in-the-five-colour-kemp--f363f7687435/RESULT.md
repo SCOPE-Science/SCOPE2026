@@ -1,49 +1,44 @@
-# Three symmetry strata and diameter eight in the five-colour Kempe graph of \(K_{3,5}\)
+# Exact distance profiles in the five-colour edge-Kempe graph of \(K_{3,5}\)
 
 ## Finding
-Let \(G=K_{3,5}\), with three individually labelled left vertices, five individually labelled right vertices, and five individually labelled colours \(\{0,1,2,3,4\}\). Let \(\mathcal K\) have as vertices all proper five-edge-colourings of \(G\). Two **distinct** vertices are adjacent precisely when interchanging a pair of colours on **one entire nonempty connected component** of their two-colour subgraph transforms one colouring into the other. Then
-\[
-|V(\mathcal K)|=66{,}240,\qquad |E(\mathcal K)|=547{,}200,
-\quad \operatorname{rad}(\mathcal K)=7,\qquad
-\operatorname{diam}(\mathcal K)=8.
-\]
-The graph is connected. The natural symmetry group \(S_3\times S_5\times S_5\), acting by left-vertex, right-vertex and colour permutations, has precisely three orbits on these colourings. Their (orbit size, graph degree, eccentricity) are
-\[
-(8{,}640,15,8),\quad(14{,}400,16,7),\quad(43{,}200,17,7).
-\]
-The corresponding distance profiles (number of configurations at distances \(0,1,\dots\) from any representative of the orbit) are, respectively,
-\[
-(1,15,180,1480,8302,27868,26713,1675,6),
-\]
-\[
-(1,16,182,1472,8243,27793,26899,1634),
-\]
-\[
-(1,17,191,1540,8609,28689,25974,1219).
-\]
+
+Let \(\mathcal K\) be the simple graph on the proper five-edge-colourings of \(K_{3,5}\), with all vertices of \(K_{3,5}\) and all five colours individually labelled. A move interchanges two colours on one entire nonempty connected component of the subgraph formed by the edges of those colours. Then \(\mathcal K\) is connected, with **radius 7 and diameter 8**. Its BFS profiles are constant within each row/column/symbol isotopy class of the associated \(3\times5\) Latin rectangles. The three such classes are already tabulated by McKay [1]; the result here is the graph metric on them, not the existence or number of the isotopy classes.
+
+The complete distance profiles in the **labelled** graph are as follows. Each profile gives the number of vertices at distances \(0,1,\ldots\) from a state in the indicated class. The class sizes are included to identify the rows and give their multiplicities, not as a new isotopy enumeration.
+
+| Labelled size of isotopy class | Kempe degree | Eccentricity | Distance profile |
+|---:|---:|---:|:---|
+| 8,640 | 15 | 8 | \((1,15,180,1480,8302,27868,26713,1675,6)\) |
+| 14,400 | 16 | 7 | \((1,16,182,1472,8243,27793,26899,1634)\) |
+| 43,200 | 17 | 7 | \((1,17,191,1540,8609,28689,25974,1219)\) |
+
+Thus the 8,640 states in the first class each have exactly six partners at distance eight, and no other state has a distance-eight partner. There are 25,920 unordered diametral pairs and 57,600 central states. For reference, the underlying state count is 66,240 and the degree census gives 547,200 undirected edges.
 
 ## Assumptions and scope
-All graphs are finite and simple. Every edge is assigned one of five named colours, and incident edges must have distinct colours. Every colour is used on the three left-vertex edges, so each colour occurs exactly three times. A move switches only one **connected component** of the graph induced by edges of two chosen colours, not an arbitrary proper subpath, and self-loops are discarded. Colour permutations are treated as symmetries only for analyzing orbits; **they are not identified when counting states or constructing moves**. Thus the 66,240 states are fully labelled. The graph has degree five on the left and degree three on the right.
+
+The bipartition has three vertices on the left and five on the right. The five named colours are \(\{0,1,2,3,4\}\). A proper colouring uses each colour once at each left vertex; incident edges at each right vertex also have distinct colours. Each switch uses exactly one whole bichromatic connected component, not a proper subpath, a union of several components, or a sequence through improper colourings. Graph adjacency is between distinct colourings. Row, column and colour permutations act as symmetries; none is used to identify states for adjacency or distance.
 
 ## Proof
-Encode a proper colouring as three ordered rows of length five; every row is a permutation of the five colours and the three entries in every column are pairwise distinct. This correspondence between colourings and \(3\times5\) Latin rectangles is bijective. With the first row fixed to \((0,1,2,3,4)\), the second row is a derangement: exactly twenty permutations of cycle type \((2,3)\), each permitting twelve third rows, and twenty-four five-cycles, each permitting thirteen third rows. Hence the normalized count is \(20\cdot12+24\cdot13=552\), and undoing the first-row colour normalization gives \(5!\cdot552=66{,}240\) labelled colourings. The two third-row extension counts are also verified by the full enumeration, and may be checked by directly testing the remaining \(5!\) permutations per second row.
 
-For every encoded colouring and unordered pair of colours, list all six edges bearing these colours. Regard two listed edges as connected when they share a graph endpoint; take the transitive closure of this relation. For each resulting component, swap the two colours at all its edges. The result is again a proper colouring because each vertex incident with the component has its incident edges of the chosen colours switched together. The procedure finds **all** and only legal edge-Kempe neighbours by definition. Deduplicating transformed states and pairing reciprocal adjacencies gives \(1{,}094{,}400\) directed adjacency incidences, hence \(547{,}200\) undirected edges; the degree multiset is \(15^{8{,}640},16^{14{,}400},17^{43{,}200}\).
+1. **States and isotopy representatives.** Store the colours as three ordered rows, one for each left vertex, and five ordered columns, one for each right vertex. Every row is a permutation of the palette and the three values in each column are distinct, so the state encoding is exactly a Latin rectangle. Fix the first row to \((0,1,2,3,4)\) by a unique symbol relabelling. Enumerate the possible remaining rows from all \(5!\) permutations, rejecting repeated values in any column. This gives 552 normalized states: 20 second rows of cycle type \((2,3)\) with 12 extensions each, and 24 five-cycles with 13 extensions each. All 120 palette permutations of each normalized state recover distinct labelled states, giving 66,240. For a normalized state, permute the three rows and five columns in all possible ways and renormalize the first row after each permutation. The smallest resulting rectangle is a canonical representative: for any fixed row/column permutation, renormalization removes the effect of any prior symbol permutation. Thus two normalized states have equal representatives exactly when they are isotopic. The normalized class sizes obtained are 72, 120 and 360, used here to identify the three representatives for the distance calculation. Each size increases by a factor of 120 in the fully labelled space. As a graph action, isotopy preserves the definition of a switch, so graph distances and profiles are invariant under it.
 
-To check the full orbit decomposition, apply every permutation of the three rows and five columns to each normalized state and then uniquely relabel colours to restore its first row to identity. Lexicographically minimizing these images partitions the 552 normalized states into classes of sizes \(72\), \(120\), \(360\); unnormalizing colours gives the three orbit sizes in the claim. The operations used in canonicalization are invertible, and every allowed independent row, column, and colour symmetry is represented. Because the symmetry group acts by graph automorphisms, degrees and distance profiles are constant on each orbit.
+2. **Adjacency.** For each state and each unordered colour pair, list the six edges of the two colours. Group them by connectivity, either by taking the transitive closure of incidence among these edges or by finding the components of their bipartite endpoint graph. Produce one neighbour per nonempty component by interchanging the pair on all of its edges at once. This preserves properness: all edges in the pair incident with a vertex of the component are switched together. Each allowed move is listed; the reverse switch uses the same component in the resulting state. Deduplicating neighbours yields degree counts \(15^{8640},16^{14400},17^{43200}\); the degree sum is 1,094,400.
 
-Run breadth-first search in the fully labelled \(66{,}240\)-vertex adjacency graph from one orbit representative in each class. In all three searches every vertex is reached, establishing connectedness. The exact distance profiles are listed in the finding; the largest distances for the three orbits are \(8,7,7\). Since every vertex belongs to one of the three orbits, these three searches determine the eccentricity of **every** vertex. The minimum eccentricity is seven and the maximum is eight, proving the asserted radius and diameter. This is an exhaustive finite proof, not an extrapolation from sample graphs.
+3. **Labelled BFS.** For each of the three representatives, mark its distance zero and visit the full labelled adjacency graph in FIFO order, recording the first visit to each state. In every case this reaches 66,240 vertices and gives the complete histogram in the table. Thus the graph is connected. Since isotopy acts by graph automorphisms and every vertex is in one of the three classes, these searches determine every vertex's eccentricity. Their minimum is 7 and maximum is 8. Only vertices of eccentricity 8 can be endpoints of a diametral pair, and the distance-eight entry is 6 in their orbit, giving \(8640\cdot6/2=25{,}920\) pairs. The two remaining classes comprise the center.
 
 ## Verification
-Run `python3 verify_primary.py` (Python 3.10+) and compile the independently constructed verifier using `g++ -std=c++17 -O2 verify_alt.cpp -o verify_alt`, followed by `./verify_alt`. Both standalone programs enumerate all proper Latin rectangles, build whole-bichromatic-component Kempe edges, compute complete adjacency and symmetry orbit classes, and run shortest-path calculations from each orbit representative. The Python implementation uses an edge-connectivity closure; the C++ implementation uses connectedness of the eight-vertex bichromatic incidence graph. In particular, the latter computes components without reusing the former's construction. The asserted numerical invariants are embedded as explicit checks rather than trusted output constants alone. No third-party datasets, downloaded files, or external solvers are required. The proof's exhaustive bound derives from the exact finite state encoding.
 
-## Relationship to prior work
-Kempe equivalence of edge-colourings is classical. McDonald, Mohar and Scheide [1] prove broad edge-Kempe equivalence theorems, but their low-degree and surplus-colour cases do not yield this sharp five-colour graph metric for \(K_{3,5}\), whose maximum degree and chromatic index are both five. Belcastro and Haas [2] classify edge-Kempe behaviour in 3-edge-coloured cubic graphs, a different degree/colour regime. Hong and Miklós [3] establish ergodic recolouring Markov chains on bipartite graphs, including transitions with altered intermediate properness or additional colours; their more permissive perturbation rules and general bound do not imply connectivity under a **single whole bichromatic-component** swap, much less this diameter or orbit stratification. Classical Latin-rectangle counts concern the state set, not this reconfiguration metric. Our claim is the exact strict-Kempe reconfiguration classification at the natural three-row, five-symbol finite case, not a claim to the general definition or Latin-rectangle enumeration.
+The accompanying `verify_primary.py` (Python 3.10+) exhaustively generates the labelled graph and tests every table row, including the full profiles. The check of all neighbours includes reciprocity. `verify_alt.cpp`, compiled with `g++ -std=c++17 -O2 verify_alt.cpp -o verify_alt` and run as `./verify_alt`, computes components on the eight endpoint vertices, checks the degree census, class sizes and eccentricities, and prints the full profiles for comparison with the table. These finite procedures require no external table or data to run. The isotopy reduction reduces the number of BFS sources, not the number of vertices searched by each BFS.
 
-## Limitations
-This is a complete finite classification for the specified labelled \(K_{3,5}\) model, not an assertion about all \(K_{m,n}\), arbitrary recolouring operations, unlabelled counting, or Markov mixing time. The exact counts depend on requiring **whole** bichromatic components and retaining labels. Equivalent results could exist in incompletely indexed or inaccessible older Kempe/Latin-rectangle literature. The two code implementations corroborate the same finite assertion but do not constitute external independent scholarly validation.
+## Relationship to prior work and limitations
+
+McKay's table explicitly supplies three isotopy classes at order \(5\times3\) [1], the dimensions here in the opposite notation. Classical Latin-rectangle counts concern states; the use of these prior strata in the table is to attach the graph-distance information to each class. The degree in the move graph differs among the classes, and their distance profiles distinguish a peripheral class from the two central classes. Thus the calculation gives more than Kempe equivalence or an unannotated state count.
+
+McDonald, Mohar and Scheide [2] treat general edge-Kempe equivalence, including low-degree and surplus-colour cases, which do not give the metric at the chromatic index five for this graph. Belcastro and Haas [3] treat cubic graphs and three colours. Hong and Miklós [4] study recolouring of bipartite graphs and Latin rectangles. Their Theorem 3.1 gives a diameter bound in the chain \(M(G,k)\); a step of that chain may combine recolouring operations that create and correct temporary deficiencies and hence is not necessarily one strict edge-Kempe switch. Their Theorem 4.4 is for a regular bipartite graph, whereas \(K_{3,5}\) is not regular. These results do not supply the exact strict-switch profiles. The claim is specific to this labelled instance and does not give general connectivity of strict switches, unlabelled distances, or a mixing time. This comparison does not exclude equivalents in other literature.
 
 ## References
-[1] J. McDonald, B. Mohar and D. Scheide, *Kempe equivalence of edge-colourings in subcubic and subquartic graphs* (2010), arXiv:1005.2248v1, https://arxiv.org/abs/1005.2248 .
-[2] S. Belcastro and R. Haas, *Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs* (2012), arXiv:1209.1730v1, https://arxiv.org/abs/1209.1730 .
-[3] J. Hong and D. Miklós, *A Markov chain on the solution space of edge-colorings of bipartite graphs* (2021), arXiv:2103.11990v1, https://arxiv.org/abs/2103.11990 .
+
+1. B. D. McKay, *Combinatorial Data: Latin Squares*, section “Isotopy classes of Latin rectangles,” row “order 5x3 (3),” https://users.cecs.anu.edu.au/~bdm/data/latin.html.
+2. J. McDonald, B. Mohar and D. Scheide, *Kempe equivalence of edge-colourings in subcubic and subquartic graphs*, arXiv:1005.2248v1.
+3. S. Belcastro and R. Haas, *Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs*, arXiv:1209.1730v1.
+4. J. Hong and I. Miklós, *A Markov chain on the solution space of edge-colorings of bipartite graphs*, arXiv:2103.11990v1.

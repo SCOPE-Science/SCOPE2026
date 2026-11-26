@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated 16-vertex graph, the exhaustive increasing-edge recursion covers every matching exactly once. A complete acyclic face-poset pairing leaves one zero-cell, five four-cells and seven five-cells. The signed degree matrix is recomputed from gradient cancellations; a rank-three unit determinant and vanishing all four-by-four minors give the integral sphere wedge through cellular cancellation. The full graph automorphism group is dihedral by the four-cycle edge multiplicities. Exact eigenspace and signed Lefschetz checks establish the characteristic-zero representation. The finite calculation proves only this one graph and does not infer a general theorem from samples.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-Direct comparison with the accessible mathematical content of Agarwal–Basak's Möbius-ladder paper shows that its two objects are an independence complex and a perfect-matching complex, not the ordinary matching complex used here. Matsushita's family concerns open ladder/grid graphs, while the classical Björner–Lovász–Vrećica–Živaljević article addresses foundational matching and chessboard complexes. Previously available calculations on smaller Möbius ladders or on Möbius–Kantor matching complexes do not imply this exact integral and equivariant statement. Searches are not proof of global novelty; an unindexed or inaccessible equivalent result remains possible.
+PASS
 
-## Value — PASS
-The sixteen-vertex Möbius ladder is a canonical highly symmetric cubic graph. The complete torsion-free *integral homotopy type* of its ordinary matching complex differs sharply from the previously computed perfect-matching complex of the same graph. Its full rational dihedral representation separates the topological information into two homology dimensions with different fixed-class behavior, invisible in a Betti-rank-only computation. The result has natural object and invariant motivation and does not claim an arbitrary unmotivated parameter slice as a general theorem.
+The stated 24 graph edges generate exactly 11,393 nonempty ordinary matchings. Independent Python replay (replays/4_ladder.py; output replays/4_ladder.txt) checks all directed face covers and 5,690 pairs, leaving critical cells (one 0-cell, five 4-cells, seven 5-cells). The signed 5-by-7 degree matrix agrees entrywise; the specified 3-minor is -1 and all 4-minors vanish. The CW model is the mapping cone of a map from a wedge of seven S^4 to a wedge of five S^4. Hurewicz determines those attaching maps by degrees, and integral basis changes are realized by homotopy self-equivalences of the source and target wedges. The three unit pairs cancel, leaving two S^4 and four S^5. Rim and rung edges have respectively one and two incident 4-cycles, so preserving the rim forces the full graph automorphism group to be the indicated order-32 dihedral group. The independent equivariant replay over F97 gives degree-four rotation weights 0 and 8, degree-five weights 0, 4, 8 and 12 (each once), and s and rs traces respectively (0,0) and (2,-2) across degrees (4,5). Torsion-free integral homology identifies the reduced lattice with finite-field homology by base change. Rotation eigenspace ranks lift via the order-16 idempotents at a prime above 97 of the cyclotomic integer ring (16 is invertible there), and reflection eigenspace ranks lift via the ± projectors. The two nonreal rotation weights combine into E; subtracting its zero reflection traces, the two axis traces give exactly the stated signs on the one-dimensional lines. This also verifies the half-turn and full-group invariant assertions. No claim about integral dihedral-lattice splitting or equivariant homotopy is needed.
 
-## Limits
-A computational discrete-Morse certificate establishes the finite result, not a formula for all ladder sizes. Full access to every remotely related publication is not available, and absolute priority is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction of the full finding is the degree-by-degree rational dihedral action. Two distinct indexed records demonstrably cover its entire nonequivariant assertion, not its character calculation. Their displayed dates are later than the frozen record's displayed date; neither equivalent coverage nor those dates establish priority. The wedge and Betti numbers alone are not credited as a distinct contribution in this review.
+
+## value
+
+PASS
+
+The natural high-symmetry cubic ladder is a meaningful test object for ordinary versus extendable matchings. In the two nonzero ordinary homology degrees, the action distinguishes an invariant degree-four line from no degree-five full-group invariants even though the central half-turn is trivial in both. The full modules provide these subgroup-sensitive invariants, which cannot be recovered from the already covered sphere counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

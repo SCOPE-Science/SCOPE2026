@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:53.507775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sign-specific proximal optimality condition with input rx and threshold c gives the asserted clipped affine maps, preserving [−a,a]; synchronous coupling contracts W₁ with factor r<1 and yields a unique invariant law. At a≤s, including equality, T_+(−a)=a and T_−(a)=−a force the two maps to be constant, so one step produces fair endpoint atoms. For s<a<b, monotonicity makes the worst initial point for a plus block −a, with image min(a,b−r^n(b+a)); this gives the stated least uniform constant-sign length, inclusive of the threshold equality. In fact no shorter mixed word can reset either: a first collapsing step must clip its entire nondegenerate interval to an endpoint, and monotone all-plus/all-minus bounds prevent reaching that endpoint from the appropriate extreme before N. A qualifying word occurs almost surely at a finite past time (use disjoint iid length-N blocks). Backward iteration is then a finite image of an endpoint, giving full mass to a countable set, not a claim about countability of its closure. The endpoints have mass at least 2^(−N); successive images of a under T_+∘T_− are s+r^(2j)(a−s), pairwise distinct atoms since their specified words have positive probability. At a≥b both clips are inactive on the invariant interval (with possible affine equality at a=b), giving the classical absolutely convergent signed series. If a maximal atom existed, both inverse affine branches would have to attain its mass; iterating the plus inverse exits [−b,b] from every x<b, while the minus inverse exits at x=b. This proves nonatomicity even with overlaps. The two image intervals cover [−b,b] exactly when r≥1/2; otherwise their separation gives the Cantor dimension by the open-set condition. Independence gives the variance and the fixed-objective stepsize threshold follows by rearranging a≤2τλ/(2−τμ). Independent replay `python3 /workspace/independent_reproduction.py 5` enumerated all sign words through length five for r=2/3,c=1 at a=s, a=3/2, and a=b, found the predicted respective first lengths 1,3,and none through five, and reproduced the middle orbit 3/2,1,7/9,55/81,… by exact proximal arithmetic. Neither word enumeration nor coupling asserts almost-sure convergence of forward paths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hermer–Luke–Sturm address distributional convergence for stochastic forward–backward maps given an invariant law; Bianchi–Hachem–Salim address invariant-measure existence/tightness and small-step limits.",
+          "Classical affine contraction/IFS theory covers the unclipped support conclusions. The later indexed reset example collapses to zero with a Doeblin argument, rather than specifying the present least uniform endpoint reset."
+        ],
+        "reasoning": "Existence, convergence, and generic regeneration do not determine the thresholds or distinguish two atoms from infinitely many. Infinite atom count still requires a nonresetting word sequence with distinct images; for this map the alternating orbit does that.",
+        "searches": [
+          "arXiv:2205.15897 §4.1 Proposition 4.1",
+          "arXiv:1702.04144 p. 3",
+          "Hutchinson DOI 10.1512/iumj.1981.30.30055",
+          "Resultary 8c367a43cb1a, finite-word reset"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.05489v1 Theorem 4.1",
+        "arXiv:2205.15897 Proposition 4.1",
+        "arXiv:1702.04144 p. 3",
+        "arXiv:1507.01030 §§1.4,4",
+        "Hutchinson DOI 10.1512/iumj.1981.30.30055 citation only",
+        "Resultary ec57811b8333 and 8c367a43cb1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked objective-rate theorem uses a horizon-dependent step τ=1/(5L√T), not a classification of the invariant law for fixed steps. The convergence theorem describes approach to an invariant measure, not its atom count.",
+          "The later noise-proximal record includes a zero-reset mechanism and some identical affine maps; neither its reset target nor its phase boundaries yield the stated least monochromatic endpoint reset or the infinite middle-branch alternating orbit."
+        ],
+        "reasoning": "The affine law and known convergence tools can directly give ingredients. Exact clipping, least-word proof and the distinct-atom argument are not merely corollaries of the inspected results.",
+        "searches": [
+          "arXiv:2602.05489v1 Theorem 4.1",
+          "arXiv:2205.15897 Proposition 4.1",
+          "Resultary 8c367a43cb1a FINDING and reset discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proximal map is an actual specialization of the earlier randomized incremental proximal algorithm, not just analogous; its sharp invariant-law statement is different from the stated objective-gap result.",
+          "The affine maps coincide with those in the earlier random-reshuffling Bernoulli-convolution record after parameter identification. The later Bernoulli-noise proximal record has the same affine map on its q≤1/2 branch but differs where clipping/reset occurs."
+        ],
+        "reasoning": "The proximal, affine IFS, and finite-word renewal descriptions are checked at the map and conclusions level. The shared affine branch is credited; identification there cannot generate the clipped intermediate regime and transition parameters.",
+        "searches": [
+          "Resultary comparisons for min(a,rx+c), max(−a,rx−c), clipped/saturated affine IFS, countably atomic invariant law, and least reset length",
+          "arXiv:2602.05489v1 §4, Theorem 4.1",
+          "arXiv:1507.01030 §§1.4 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 12 record gives the exact affine Bernoulli invariant law for random reshuffling. The Nov. 2 record gives a sharp measure-type transition and finite-word reset for a different proximal kernel. Both are substantive comparisons rather than title matches.",
+          "The bounded searches did not identify an exact table giving the two clipping thresholds and the least reset for this kernel."
+        ],
+        "reasoning": "The affine Bernoulli law is exact existing coverage; different phase labels in another model do not give the endpoint-clipping classification. Ranked searches cannot certify that no specialist table exists.",
+        "searches": [
+          "Resultary comparison for the two clipping maps and r^n≤(b−a)/(b+a)",
+          "Resultary ec57811b8333 and 8c367a43cb1a"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full stationary-measure classification for the two clipped maps, particularly the intermediate infinitely atomic law and explicit least uniform reset length. The randomized incremental method, existence tools, and the whole affine Bernoulli-convolution branch are prior ingredients. Earlier and later catalogue hits directly overlap the affine branch and related reset reasoning, but the inspected statements do not supply the same middle clipping law or the two sharp surfaces.",
+      "residual_risks": [
+        "The cited Hutchinson full text was not obtained; affine IFS results are not claimed as original.",
+        "An earlier specialist classification of clipped random affine maps or exact regeneration may remain outside the indexed or inspected material. A broad primary lookup did not yield a verified exact match and cannot certify absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm at the level of definitions, not fixed-step invariant-law type",
+          "evidence": [
+            "Uniform component selection, prox after gradient, horizon-dependent stepsize and a last-iterate objective estimate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05489",
+          "material_read": "§4 Theorem 4.1, PDF p. 8, offset 30633",
+          "method": "OA primary PDF passage",
+          "title": "Convergence Rate of the Last Iterate of Stochastic Proximal Algorithms",
+          "trigger": "Direct randomized incremental proximal algorithm precedent"
+        },
+        {
+          "assessment": "General distributional-convergence framework, not exact clipped stationary classification",
+          "evidence": [
+            "Convergence for the stochastic forward–backward setting given invariant-measure existence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.15897",
+          "material_read": "§4.1 Proposition 4.1, PDF p. 28, offset 97485",
+          "method": "OA primary PDF theorem passage",
+          "title": "Nonexpansive Markov Operators and Random Function Iterations for Stochastic Fixed Point Problems",
+          "trigger": "General invariant-distribution and random forward–backward theory"
+        },
+        {
+          "assessment": "Invariant-measure framework and small-step behavior, not fixed-step type boundaries",
+          "evidence": [
+            "Existence and tightness of invariant laws and small-step limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.04144",
+          "material_read": "PDF p. 3, offset 10119",
+          "method": "OA primary PDF bounded passage",
+          "title": "A constant step forward–backward algorithm involving random maximal monotone operators",
+          "trigger": "Constant-step stochastic forward–backward invariant measures"
+        },
+        {
+          "assessment": "Algorithm precedent, not this stationary law",
+          "evidence": [
+            "Incremental proximal methods, including randomized component choices with constant steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.01030",
+          "material_read": "§1.4 p. 11, offset 36972; §4 pp. 25–26, offset 83239",
+          "method": "OA primary PDF method passages",
+          "title": "Incremental Gradient, Subgradient, and Proximal Methods for Convex Optimization: A Survey",
+          "trigger": "Earlier randomized constant-step incremental proximal algorithms"
+        },
+        {
+          "assessment": "Classical affine support and dimension are conceded; no full-text absence claim",
+          "evidence": [
+            "The cited Hutchinson attractor/open-set-condition framework is the classical reference, not a full-text comparison of clipped proximal cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1512/iumj.1981.30.30055",
+          "material_read": "Citation only; lawful full text not obtained",
+          "method": "DOI and OA retrieval attempt",
+          "title": "Fractals and Self Similarity",
+          "trigger": "Classical affine IFS support and dimension comparison"
+        },
+        {
+          "assessment": "Actual earlier coverage of shared affine branch; no endpoint-clipped regime",
+          "evidence": [
+            "Epoch map X_(k+1)=rX_k+δξ_k with Bernoulli-convolution interval/uniform/Cantor support cases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-random-reshuffling-has-a-cantor-to-interval-stationary-support-t--ec57811b8333/RESULT.md",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Random reshuffling has a Cantor-to-interval stationary support transition",
+          "trigger": "Earlier exact stationary law in a two-component stochastic algorithm"
+        },
+        {
+          "assessment": "Later public record; affine overlap and related reset mechanism, but different map in the atomic regime and no matching least reset formula",
+          "evidence": [
+            "Dense pure-point, uniform and Cantor branches; finite-word Doeblin reset to zero. On q≤1/2 the map is affine x↦qx±c on the invariant interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-measure-type-and-mixing-transition-for-bernoulli-noise-pro--8c367a43cb1a/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 4093, finding and reset passages",
+          "method": "Local published-record mirror",
+          "title": "Sharp measure-type and mixing transition for Bernoulli-noise proximal gradient",
+          "trigger": "Closest exact atom classification and reset comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A scalar quadratic with two shifted absolute penalties is a natural nonsmooth splitting with a fixed optimizer, not an arbitrary selected dynamical map. Its constant-step stationary law can change from endpoint-only to infinitely atomic to diffuse, behavior that expected objective rates do not describe. The sharp thresholds and least reset length characterize a distinct finite-word memory-loss mechanism and let practitioners distinguish genuine phase changes from finite simulation or rounding artifacts. This value is for the clipped proximal specialization, not for rediscovering the affine Cantor/interval dichotomy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

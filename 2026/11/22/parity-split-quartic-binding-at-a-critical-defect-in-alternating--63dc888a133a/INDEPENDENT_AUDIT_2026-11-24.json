@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:14:04.490822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–94",
+        "VERIFICATION.md and check_parity_quartic.py, inspected without executing"
+      ],
+      "rationale": "Independently cut the replaced bond in J=2 Re(T), with p its bulk weight, v the other weight and S=a+b. Exterior eigenvalues satisfy c^2=Q_m P, the product of the left and right inverse endpoint resolvents. Both are positive and increasing for lambda>S, and their product tends to infinity. For lambda^2=S^2+4ab sinh^2(kappa), the right decaying continuation gives P=p lambda/(p+v exp(-2 kappa))=p+2D kappa+O(kappa^2). At lambda=S the left Dirichlet solution is L_i=sum_{q=-1}^{i-1} 1/w_q with fictitious w_{-1}=b and alternating w_q, so Q_m(S)=p+1/L_m. L_m is (m(a+b)+2a)/(2ab) when m is even and (m+1)(a+b)/(2ab) when odd. This gives both exact thresholds and their stated second coefficients. Differentiating the finite inverse-resolvent recurrence Q_i=lambda-w_{i-1}^2/Q_{i-1} gives Q_m'(lambda)=sum_{i=0}^m (L_i(lambda)/L_m(lambda))^2 <=m+1: the positive Dirichlet solution is increasing because w_i(L_{i+1}-L_i)=(lambda-S)L_i+w_{i-1}(L_i-L_{i-1}). Thus Q_m(lambda)-Q_m(S)=O(m kappa^2). Taking the square root of Q_m P gives the needed uniform linear term (D+O(m^-1)) kappa and O(m kappa^2) error. Monotone bracketing gives m^2 kappa -> (xi-B_j)/D above threshold and o(1) at equality if an outlier exists; below threshold there is none. Since w-E=D kappa^2+O(kappa^4), the constants and factor of two are correct. On the right the two-cell multiplier is exp(-2 kappa) and the within-cell ratio tends to one. The largest left amplitude is bounded by lambda/c times the first right amplitude by the recurrence at m+1. Therefore left mass is O(m) times the squared boundary amplitude whereas right mass is asymptotic to that squared amplitude divided by 2 kappa. This proves the stated normalization, and a fixed exponential upper bound in the rescaled variable gives strong L2 convergence. A bounded independent high-precision inverse-impedance check with a=1,b=2 and xi=-13/18 found no even outlier at 80,160,320 and odd rescaled gaps 0.00292,0.00371,0.00415 at 81,161,321, consistent with 1/216, not a proof of the limit.",
+      "residual_risks": [
+        "No finite-depth binding classification at xi=B_j is needed or asserted. The diagnostic does not test the eigenvector, whose normalization is checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marionnet's general finite-prefix criterion tests w<=S/2 and the one-defect proposition gives the threshold. The inspected Undrakh recurrence is for constant tails. The uniform moving-defect record has tuning 1+beta/L in the squared bond, an L^-2 gap and strong L-scale profile with a nonzero interior segment."
+        ],
+        "reasoning": "Neither the general edge test nor the uniform first critical window supplies the unequal-weight depth-dependent exterior slope or the m^2 normalized limit. A recurrence for finite perturbations is not itself this scaling theorem.",
+        "searches": [
+          "Marionnet arXiv:2611.21280v1 Theorem 2.5 and Proposition 3.3",
+          "Undrakh et al., The Numerical Radius of a Weighted Shift Operator, Thm. 3.2",
+          "Resultary 2026/11/2/SCOPE-critical-boundary-layer-localization-for-a-moving-weighted-shift--94abec24c055"
+        ]
+      },
+      "checked_sources": [
+        "Marionnet arXiv:2611.21280v1",
+        "Undrakh et al., ELA 30 (2015), Theorem 3.2",
+        "Local mirrored Resultary statements cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The remote-defect Finding assumes fixed c and excludes uniformity as c approaches the replaced weight. Proposition 3.3 gives both C_m exactly."
+        ],
+        "reasoning": "Expanding C_m gives B_j and eventual existence on the strict sides, so those facts are covered. Plugging the tuned c_m into the pointwise fixed-c limit is not valid and could not locate the outlier at distance O(m^-4) from the edge. The new slope estimate and normalization are necessary.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-parity-split-remote-defect-numerical-radii-of-two-periodic-shift--1798bbf11d6b",
+          "arXiv:2611.21280v1 Proposition 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For weighted shifts the same gap is the exterior band-edge difference in the half-line Jacobi model. Marionnet supplies the exact secular crossing at the edge, not the detuned gap or normalized mode. The November 2 neutral-defect record ending 6834f712f6af gives a quartic order for weak, neutral onsite potentials on a uniform bilateral chain."
+        ],
+        "reasoning": "Equal exponents for these two families do not match the detuning, the moving boundary distance, the period-two tail or the two profile limits.",
+        "searches": [
+          "Resultary queries for alternating critical defects, moving Jacobi impurities and quartic binding",
+          "arXiv:2611.21280v1 §3, Proposition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The plausible quartic-onset hit concerns a block of m enhanced bonds on a uniform shift, not a single defect on unequal alternating bonds. The prior exact finite-depth formulas in Proposition 3.3 tabulate the two thresholds, not the gap coefficient or mode."
+        ],
+        "reasoning": "An exact numerical table for the thresholds or a quartic exponent in another regime does not match the exact function of a,b,xi and defect phase here.",
+        "searches": [
+          "Resultary searches for the parity-resolved moving-defect quartic gap and eigenmode",
+          "Resultary 2026/11/22/SCOPE-quartic-band-edge-onset-and-a-two-term-continuum-law-for-weakly--5b3a8bc71f3f"
+        ]
+      },
+      "rationale": "The novelty that survives is the quartic gap coefficient and strong normalized eigenmode in the joint depth/coupling window for unequal period-two weights. The finite thresholds, their Taylor coefficients and the strict above/below-threshold parity selection follow from prior work and are not original contributions.",
+      "residual_risks": [
+        "A more general prior Jacobi band-edge theorem could give this matched scaling with additional analysis. The external search yielded irrelevant results and provides no negative evidence; the conclusion is based on the bounded actual statement comparisons, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of thresholds and edge crossing; not the gap law or mode.",
+          "evidence": [
+            "Theorem 2.5 is an edge-radius criterion; Proposition 3.3 gives exactly a sqrt(1+2b/(m(a+b)+2a)) and b sqrt(1+2a/((m+1)(a+b)))."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21280v1",
+          "material_read": "Theorem 2.5 statement near HTML offset 26704; Proposition 3.3 and threshold near offset 45923",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Numerical range of finite perturbations of a 2-periodic weighted shift",
+          "trigger": "Same finite one-bond operator"
+        },
+        {
+          "assessment": "Uniform bulk and first critical window, not the stated alternating fine window.",
+          "evidence": [
+            "t_L^2=1+beta/L, L^-2 gap, L-scale sinh and exponential profile."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-critical-boundary-layer-localization-for-a-moving-weighted-shift--94abec24c055",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Critical boundary-layer localization for a moving weighted shift",
+          "trigger": "Same moving bond with critical scaling"
+        },
+        {
+          "assessment": "Pointwise fixed-c result does not cover the tuned asymptotics.",
+          "evidence": [
+            "Fixed positive a,b,c with a rate explicitly not uniform at c=u."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-split-remote-defect-numerical-radii-of-two-periodic-shift--1798bbf11d6b",
+          "material_read": "Finding and scope/proof at offsets 0 and 4320",
+          "method": "Local mirrored primary record",
+          "title": "Parity-split remote-defect numerical radii of two-periodic shifts",
+          "trigger": "Same geometry and parameters with fixed coupling"
+        },
+        {
+          "assessment": "Different operator family, without the alternating one-bond parity law.",
+          "evidence": [
+            "Uniform background and a block of m enhanced links."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-quartic-band-edge-onset-and-a-two-term-continuum-law-for-weakly--5b3a8bc71f3f",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Quartic band-edge onset and a two-term continuum law for weakly enhanced segments",
+          "trigger": "Quartic gap in a defect scaling problem"
+        },
+        {
+          "assessment": "Finite-perturbation recurrence for a constant tail, not the claimed fine-window theorem.",
+          "evidence": [
+            "Tail hypothesis and exterior-eigenvalue recurrence in Theorem 3.2."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1617/1617/",
+          "material_read": "Theorem 3.2, PDF p. 8 near offset 25400",
+          "method": "OA primary PDF passage",
+          "title": "The Numerical Radius of a Weighted Shift Operator",
+          "trigger": "Potential general finite-perturbation spectral formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding lines 4–25 and proof steps 3–5",
+        "Comparisons with fixed-c and uniform critical-window results above"
+      ],
+      "rationale": "A sharp threshold does not give the energy or the distance over which the bound state is spread. This fine window yields a quantitative parity-selective onset and a normalized mode at an emergent m^2 scale, resolving the spectral response exactly where fixed-c asymptotics and the coarse m-scale window need not resolve it. The scaling is dictated by the leading threshold correction and quadratic band-edge dispersion.",
+      "residual_risks": [
+        "Scope is one positive bond and fixed unequal weights; no claim of universality for general tails or other defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

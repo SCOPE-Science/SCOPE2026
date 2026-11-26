@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-For each of \(\mathtt{aabab}\), \(\mathtt{abaaba}\), and \(\mathtt{aabbaab}\), the verifier enumerates every nonempty ordered pair \((\varphi(a),\varphi(b))\) whose induced image length is at most the claimed minimum. This is enough to prove both the lower bound and the complete set of ties.
+## correctness
 
-Candidate images are tested against the exact finite Thue–Morse factor language using Proposition 2.1 of Almeida and Klíma. As an implementation cross-check, the verifier independently generates \(2048\) Thue–Morse symbols as parity of binary digit sums and confirms that its factor sets agree with the proposition-based factor sets for every length through \(13\).
+PASS
 
-The search checks \(228+12+36=276\) morphisms. After excluding \(\mu^n\) and \(\xi\circ\mu^n\), each of the three minimum lengths has exactly two witnesses, and the two are exchanged by \(\xi\).
+The frozen proof's third spelled-out image is wrong: with a mapped to a and b mapped to bab, aabbaab maps to aababbabaabab, agreeing with the frozen binary certificate 0010110100101. The complete corrected RESULT.md fixes the false equality, supplies occurrence offsets and explains a second exact factor bound; the primary minimum values and certificate are unchanged. Independent replay (/workspace/branches/check_thue_morse_factors.py, Python 3) took a different direction from the frozen verifier. In the fixed point, every factor of length at most 13 lies in one or two consecutive length-16 substitution blocks; all four adjacent pairs of block types occur in mu^3(a), so mu^7(a) suffices to cover the full language needed. For each feasible positive image-length pair (r,s) with Ar+Bs within the claimed cap, I cut actual factors in that prefix according to the pattern and recovered only consistent pairs of letter images. The procedure is exhaustive because any feasible witness has such a cut, and conversely any consistent cut determines its two images. I excluded precisely the powers of mu and their output complements. The domains contain 228, 12 and 36 possible assignments; the minima are 13, 8 and 13, and exactly the stated pair and its complement attain each optimum. The direct occurrence offsets for the three chosen images are 29, 20 and 9. All shorter candidates are accounted for; no assertion is made for other atypical words. The frozen verifier and certificate were inspected, not executed.
 
-The verification does not classify witness lengths for all proper atypical factors. Independent audit has not been performed.
+## originality
+
+PASS
+
+The supported claim after correction is the set of exact shortest lengths and the complete minimizing sets for the three canonical generating patterns, including the genuinely shorter witness for aabab. The source already gives attaining witnesses for abaaba and aabbaab, and their existence at those lengths is not credited as new.
+
+## value
+
+PASS
+
+The three inputs are canonical because they generate the atypical class under variants and factors, not because they happen to make for a small search. Minimum local witness length measures how early the obstruction to global preservation can be demonstrated. Exact lower bounds and complete optimizer pairs answer that question for the full generator set, including a shorter certifiable witness for the first generator. The result does not claim a new theory of all atypical factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

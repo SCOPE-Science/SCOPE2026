@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Staircase rook placements biject to partitions by consecutive elements within each increasing block. Every Fourier multiplier is their signed arc count. Bell parity follows directly from the Stirling-polynomial derivative recurrence over the two-element field. Each fixed cell occurs in at most \(B_{n-1}\) partitions; Bell log-convexity and \(877>4\cdot203\) prove that the entire quadratic Fourier band is nonzero for all \(n\ge7\). Exact integer computations close \(3\le n\le6\), and two independent enumeration algorithms agree on all 1024 coefficients at \(n=5\). The 162-zero histogram totals correctly and the rank follows by diagonalization.
+## correctness
 
-## Originality
-PASS under bounded comparison. Varvak's staircase rook interpretation and Mitchell's Ferrers factorization describe ordinary rook enumeration, not individual cell-sign Walsh characters. The closest indexed complete-board partial-matching Fourier spectrum concerns a different graph and does not imply this first staircase-specific nullity. Relevant archived full texts were examined. There remains a residual possibility of an overlooked multivariate rook-sign specialization.
+PASS
 
-## Value
-PASS. The distinction between recoverability of all quadratic statistics and loss of full convolution invertibility is an intrinsic threshold in the canonical set-partition arc representation, rather than an arbitrarily chosen subset of placements. The first nontrivial obstruction is precisely quantified, while the general fixed-band inequality demonstrates asymptotic immunity of every bounded Fourier degree. This gives a reproducible small benchmark and an all-size stability statement without purporting to solve the full singularity problem.
+Successor arcs form increasing directed paths, bijectively giving placements with no repeated source or destination. Unnormalized counting convolution is diagonal in the Walsh basis. All signs are 1 modulo 2. The Touchard identity T_(n+1)=x(T_n+T_n') and T_n''=0 modulo 2 give B_(n+2)=B_(n+1)+B_n modulo 2, with period 1,1,0. Deleting the target of a marked arc is injective into partitions on n−1 letters, giving the claimed union bound. Dobiński log-convexity makes B_n/B_(n−1) nondecreasing; a fixed positive Poisson atom at any integer larger than a putative ratio bound proves divergence. Together with B_7>4 B_6 this proves positivity from n=7. For n=3,4 the odd totals exclude zeros, and exact finite checks give the negative examples and positivity for n=5,6. Fresh columnwise rook enumeration with direct signed counting (not the supplied transform) reproduced the minima (5,1,−1),(15,5,−1),(52,22,2),(203,99,25), and at n=5 precisely 162 zero coefficients, degree histogram {3:10,4:12,5:42,6:48,7:33,8:14,9:3}, and witness counts (23,26,3,0). The exact finite run covers orders 3–6, not singularity at later even-Bell orders.
 
-## Closest sources and limitations
-Varvak (arXiv:math/0402376, 2004), Mitchell (arXiv:math/0407007, 2004), and Miceli--Remmel (EJC 2008, R85) give the relevant ordinary rook-theoretic setting. The complete 162-zero census is only at five labels. The proof does not classify singularity at every \(n\equiv2\pmod3\), or any full higher-size rank.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Bell parity recurrence and rook/set-partition interpretation are not novel. The supported distinct claims are about the specific signed spectrum: finite-band protection and its first singular-order census. No materially equivalent or stronger result establishing those claims was found in the bounded comparisons.
+
+## value
+
+PASS
+
+The natural staircase support is fixed by the one-in/one-out incidence constraints. Its exact first nontrivial loss of information, with every quadratic statistic still recoverable but ten cubic modes missing, is a useful benchmark in that fixed encoding. The uniform fixed-band estimate also measures asymptotic stability; it is not a claim of full invertibility in all orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

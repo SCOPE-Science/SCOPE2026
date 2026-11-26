@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The excluded word occurs exactly when two positive gaps enclose \(k-1\) zero gaps. The resulting uniquely decipherable positive-gap renewal blocks have lengths \(s+1+j\) and yield the stated generating series, whose root governs entropy; exceptional sequences without recurrent positive gaps contribute only polynomial language complexity. Monotonicity supplies unique roots and strict entropy loss. The analytic perturbation equation and a uniform Taylor expansion for fixed \(S\) give the sharp coefficient and quantified remainder. The stationary gap-renewal measure has entropy \(-\log q\) and gives the cylinder probability exactly. The proof is infinite and does not infer generality from the 35 finite spectral and asymptotic tests.
+PASS
 
-## Originality — PASS under examined sources
+Reconstructed the claim under the stated closure definition and reassessed the corrected RESULT.md. The original finite-word admissibility sentence cannot stand as a sufficiency criterion: S={0,1} allows no 00, even though 00 contains no pair of consecutive ones. The repaired scope states the boundary extension requirement. Independently identify the full survivor as the closure of alternating positive zero runs in S and one runs of any positive length except k: for each finite survivor word its complete runs obey the constraints, its partial zero runs can be extended using its occurrence in X_S, and its partial one runs extend to allowed lengths; this works also for one-symbol words or words within one run. The two run generating functions then multiply to C_k(t)=P(t)((1−t)⁻¹−t^(k−1)); the background graph entropy theorem gives its unique root. Both C_k and G=P/(1−t) have nonnegative coefficients and increase strictly from 0 to infinity; C_k(q)=1−(1−q)q^(k−1) proves q_k>q, including k=2. Choose q<r<1 to bound q_k≤r eventually. The mean value theorem on [q,r] gives δ=q_k−q=O_S(r^(k−1)), hence kδ→0. Expanding q_k^(k−1) around q gives a second bound δ=O_S(q^(k−1)); applying G′(q)=(1+P′(q))/(1−q) and the root equation gives δ=(1−q)²q^(k−1)/(1+P′(q))+O_S(kq^(2k−2)). Expanding log(q_k/q) yields the claimed coefficient and remainder. Under the stationary renewal measure with p_s=q^(s+1), the mean spacing M=q(1+P′(q)) is finite and the entropy per symbol is H(p)/M=−log q. Each occurrence of the hole starts at the last zero of a positive gap and requires exactly k−1 zero gaps followed by a positive gap. Renewal intensity times independence gives P(q)²q^(k−1)/M and establishes the exact normalization. All expansion constants are for fixed S. The source numerical checker for finite gap sets was inspected but not executed; the analytic and graph arguments establish the unrestricted range.
 
-Cheriyath (arXiv:2506.20750v1, Introduction lines 70–75 and Section 4 lines 321–436) states the zero-ended, internal-one case is unresolved for general allowed-gap sets; modular sets are separately handled. Dillon (arXiv:2010.06031, Theorem 1.2 and Section 4) provides a broad graph-generating-matrix root method, and the fixed-hole root should not be represented as novel in isolation. The scoped contribution is the all-gap-set sharp \(k\to\infty\) asymptotic and exact normalization by maximal-entropy cylinder mass. Markov-hole and SFT literature supplies related but finite-state formulas. Mathematical-record searches and nearby previous work did not identify the same general all-gap-set coefficient. A prior fixed-hole treatment concerns \(0^r10^s\), not growing runs of \(k\ge2\) ones. Residual risk: a sufficiently general escape-rate/renewal theorem might imply the limit without using this notation; independent priority review is absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating paper explicitly singles out this hole endpoint configuration as an unanswered class, and the result resolves a natural infinite subfamily with an exact rate rather than only an upper bound. The normalized escape-rate limit survives arbitrary sparse, nonsofic allowed-gap sets; no mixing rate or eventual periodicity is imposed. The coefficient is intrinsic (the canonical maximal-entropy cylinder measure) and is exact before taking limits. The general renewal technique is classical, but the explicit uniform-domain boundary and sharp quantitative conclusion are the substantive contributions. The excluded one-interior-one case and generic holes are not claimed as new.
+For the corrected sharp entropy-loss and cylinder-normalization claim. Dillon's theorem already implies the exact fixed-hole root by a two-vertex alternating-run specialization; the corrected presentation explicitly credits it and uses it only as a starting point. Cheriyath's general theorem expressly excludes the zero-ended interior-one family, apart from the modular context discussed separately. The arbitrary-S cylinder-avoidance overlap in Haydarov et al. guarantees a positive quantitative gap but does not give the sharp linear mass coefficient and quantified remainder. No reviewed statement mechanically supplies those results across finite and infinite S under the stated assumptions.
 
-## Boundaries
+## value
 
-No full priority census or independent audit; a broad abstract rare-event theorem might subsume this statement. The computations cover only finite gap sets and cannot prove the all-infinite-set case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The corrected claim resolves a motivated subfamily of a previously excluded hole shape. It gives a sharp topological loss with the intrinsic cylinder probability as leading term and quantified error in a regime genuinely including nonsofic systems. This is informative beyond merely computing the already-covered pressure root for a fixed hole or giving an unspecified positive entropy gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

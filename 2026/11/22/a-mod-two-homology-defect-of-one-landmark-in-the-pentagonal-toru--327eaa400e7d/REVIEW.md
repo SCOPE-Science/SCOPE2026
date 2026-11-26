@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is an exact finite statement on the graph \(C_5\square C_5\) with \(\mathbb F_2\) coefficients. The attached standalone `verify_result.py` exhausts both full and one-vertex-punctured simplices using independent generation methods, reconstructs boundaries, checks all compositions, independently reduces their rows and columns, and calculates the homology-inclusion ranks by explicit kernel-to-ambient-chain mapping. All checks passed. The proof uses complete finite enumeration rather than inferring arbitrary-order facts from sampled instances.
+## correctness
 
-## Originality — PASS against inspected work
-The closest primary text, Klavžar–Patkós–Rus–Yero, *On general position sets in Cartesian products* (arXiv:1907.04535, section 4), discusses toroidal general-position cardinalities but not homology of the full set complex or punctured inclusion maps. A published ladder-graph general-position-complex result concerns a different graph family; its visible statement does not dominate this claim. Targeted indexed-result and literature searches found no equivalent full result. Undiscovered or nonindexed source material remains a risk and independent literature review is not represented as completed.
+PASS
 
-## Value — PASS
-This is a complete three-degree mod-two computation at the smallest odd-odd toroidal grid where the fully periodic geodesic geometry is present, together with a natural vertex-puncture map. The discrepancy between the nearly identical degree-three Betti numbers and the nontrivial eleven-dimensional kernel plus twelve-dimensional cokernel gives a specific structural reason to compute the map, not just a numerical table.
+The graph is the intact 25-vertex Cartesian product, with sum of cyclic coordinate distances. A three-point set is forbidden exactly when its largest pair distance is the sum of the other two; the no-forbidden-triple property is hereditary. Increasing extensions exhaust every admissible set, and the absence of seven-vertex faces rules out all greater sizes. In X and Y the ordinary boundary columns delete one vertex over F_2; the relative basis consists of faces containing the discarded vertex, and deletion of that vertex gives zero in the quotient. The fresh exhaustive calculation gives f_X=(25,300,1400,2450,1360,50), f_Y=(24,276,1232,2058,1088,38), f_rel=(1,24,168,392,272,12), and positive-degree boundary ranks X=(24,276,1074,1290,50), Y=(23,253,935,1038,38), and relative=(1,23,139,241,12). Subtract adjacent ranks (and the degree-zero augmentation when reduced) to get all displayed Betti numbers and the other vanishing. To cross-check the natural-map ranks without choosing coordinate cycles, exactness gives b_rel(j)=b_X(j)-rank(i_j)+b_Y(j-1)-rank(i_(j-1)). Starting from degree zero gives 44,74,12 in degrees 2–4 and forces zero outside. This matches the independent direct quotient-of-cycle-span computation. The degree-three kernel and cokernel have dimensions 85-74=11 and 86-74=12. Translations of the intact graph give the identical result for any deleted landmark.
 
-## Scientific limits
-No claim is made concerning integral homology, homotopy type, larger grids, metric recomputation after graph deletion, or independently certified originality. The finite calculation is reproducible entirely with standard Python.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the exact mod-two homology and actual induced map for the vertex-deletion pair in one fixed geodesic general-position complex. The maximum face size and general-position framework are not treated as new. The stronger-looking enumerative and ladder-homology sources examined do not supply the puncture ranks, and no exact matching homology table was located apart from the assigned record.
+
+## value
+
+PASS
+
+The graph is a small nontrivial symmetric toroidal grid; retaining the ambient metric while removing one site is the natural induced vertex-deletion operation on the geodesic complex. The result quantifies an actual failure of homological persistence: a change from 85 to 86 in the middle Betti number hides eleven lost independent classes and twelve new ones. Knowing the complete inclusion and relative data is materially more informative for this example than an isolated Betti census or the already studied maximum face size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

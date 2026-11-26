@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The finite checker exhausts all gap orderings of lengths five through eight, checks true circular nearest-neighbor edges independently using rational distances (through length seven), verifies each large-component indicator against actual connected components, and checks the rational probability identities for the valley-gap law. The recorded run passed 368786 exact or controlled assertions.
+## correctness
 
-The analytic checks are separate: the factorial tail is derived by a telescoping identity; the Poisson approximation uses local dependence and the peak-free-block probability; the two-point concentration uses a second-moment inequality and the successive tail ratio. Exhaustive finite samples do not certify infinite limits. Full-text historical-priority checks remain incomplete for two potentially related papers, as recorded in REVIEW.md.
+PASS
+
+For any non-neighbor, the first vertex along its shorter arc is strictly closer, so a vertex chooses across the smaller incident gap. This also handles a gap exceeding a semicircle: its complementary arc contains the competing incident gap and is strictly longer than that competitor. Thus cuts are strict gap peaks. Dirichlet spacings normalized from independent exponentials preserve all comparisons. Kuketayev's gap law conditional on a peak, multiplied by the peak probability 1/3 and summed by telescoping, yields q_k; the k+2 distinct coordinates used by a start indicator give the same exact probability on the circle. For n >= 2k+4 the only compatible overlapping offsets are ±k and ±(k+1). Two disjoint interior blocks of k-1 entries must both be peak-free; placing each nonminimum entry on one side or the other of the block minimum gives exactly 2^(k-2) valley orders, also valid for k=2. Hence b1 <= n(2k+3)q_k^2 and b2 <= 4nv_k^2, with joint independence beyond the neighborhood. The Chen–Stein bound and v_k/q_k=(k+1)(k+2)/4 give the stated limit. The maximum proof separately uses the resulting variance upper bound at b_n (relative variance tends to zero), then the factorial tail ratio at b_n+2 and Markov's inequality. Stirling yields the displayed b_n scale. Verification code and reported counts were inspected, not rerun; the proof does not depend on enumeration.
+
+## originality
+
+PASS
+
+The peak-gap distribution and its exact tail are known and credited. The supported distinct claim is the explicit growing-threshold Poisson error and the resulting adjacent-integer confinement, not a finite spacing table or a new Poisson approximation method. No distinct inspected result establishes those conclusions for the same model; the closest inaccessible papers remain a qualification, not evidence of absence.
+
+## value
+
+PASS
+
+The result calibrates the probability of an unusually large connected block in a canonical one-nearest-neighbor graph. The explicit Poisson error deals with dependent neighboring gaps, and adjacent-integer concentration determines the scale much more precisely than first-order logarithmic growth. Neither feature is obtained by simply recomputing the known gap table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

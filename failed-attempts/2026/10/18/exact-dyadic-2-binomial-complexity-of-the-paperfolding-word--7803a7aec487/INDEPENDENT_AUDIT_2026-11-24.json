@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:14:25.213643Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal lengths, c and omega determine every scattered pair count by [01]=omega-binomial(c,2). Separating absolute even and odd positions gives exactly the two onto interleavings in Proof §1; the inserted 1's have spacing four and the two parity classes differ by m in each positional constant. The length-four table is correct. For m divisible by four, the predecessor outer counts are odd, so the new even-start and odd-start moments have opposite parity, while within each transform the predecessor start parities are separated modulo four. For the central layer the two predecessor moment sets agree, and the images are identical progressions for the two new parities after adjoining the translate by m. This proves the full claim by induction, including k=2. Allouche's theorem confirms the separate 4n ordinary complexity benchmark. Independent exact check: `python /workspace/checks.py 5` counts scattered 01 directly for n=4,...,512 dyadic and compares all claimed conditional layer properties (totals 11,20,37,70,135,264,521,1034). Starts through 8n exhaust these lengths: for a fixed start residue modulo 2n only its single index divisible by n can vary, and four successive representatives realize both values (for odd multiples the bits alternate; for even multiples it reduces to four consecutive paperfolding bits). The theorem for all k rests on induction, not these finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched record classifies factors by four templates and explicitly realizes each template at every phase, stronger than a phase-unlabelled profile count.",
+          "Allouche counts ordinary factors; Madill–Rampersad counts the level-one abelian classes; the two binomial-complexity articles concern other families in the inspected statements."
+        ],
+        "reasoning": "The older ordinary and abelian counts alone cannot determine scattered pair profiles. The phase-labelled template classification, together with its moment and symmetry results, does.",
+        "searches": [
+          "SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21, Proof §§1–3",
+          "arXiv:2201.04603",
+          "arXiv:2112.05347",
+          "arXiv:1208.2856",
+          "doi:10.1017/S0004972700011655"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 95c30971db21",
+        "Allouche 1992 doi:10.1017/S0004972700011655",
+        "arXiv:1208.2856",
+        "arXiv:2201.04603",
+        "arXiv:2112.05347"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every template rotation s occurs at start an+s. In either outer template T_s is injective in s modulo n because its weight is odd. The central templates satisfy W10_h=1-W01_{-h mod n}."
+        ],
+        "reasoning": "Since n is even, s determines the absolute start parity. Each outer layer has one template and n distinct rotations, so its two parity sets have n/2 values each and are disjoint. Reverse-complement takes a central W01 rotation s to a W10 rotation 1-s, swaps parity, and preserves central weight and [01]. Hence each central signature occurs in both parities. The apparently unstated parity refinement is mechanical from the matched record.",
+        "searches": [
+          "SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21/RESULT.md, §§1–3, mirror offsets 2240–6124"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same bit orientation and n=2^k with k>=2; the matched central q=[01] progression is n(n-2k)/8+(n/2)j, j=0,...,k."
+        ],
+        "reasoning": "Adding binomial(n/2,2) to q gives exactly the frozen zero-based omega formula; the two profile descriptions are equivalent.",
+        "searches": [
+          "Local Resultary lookup: ordinary/regular paperfolding, dyadic 2-binomial complexity and scattered pair profiles",
+          "SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct entry's Finding matches b_2(2^k)=2^(k+1)+k+1 and explicitly gives outer layer counts n,n and central count k+1, not merely a finite table."
+        ],
+        "reasoning": "This is all-parameter statement-level overlap with a different indexed record, not the frozen record itself.",
+        "searches": [
+          "Local Resultary semantic search for paperfolding dyadic 2-binomial complexity and profiles",
+          "Resultary/2026/2026/11/2/SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same total, tier sizes and central progression and directly implies the parity refinement. This is equivalent mathematical coverage, not a priority finding against the Oct. 18 frozen record: the matching entry has a Nov. 2 date-key, and derivation/priority is not inferred from the catalog dates.",
+      "residual_risks": [
+        "The two dated entries' publication/derivation relationship is unresolved; no priority or attribution conclusion follows. Older unindexed equivalents are possible and are not needed for this coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mathematical claim, including parity by implication; no priority attribution",
+          "evidence": "Same formula and layer counts; T_{s+1}=T_s+nV_s-r; W10_h=1-W01_{-h mod n}; q_s=n(n-2k)/8+(n/2)j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-dyadic-two-binomial-spectra-of-the-regular-paperfolding-word--95c30971db21/RESULT.md",
+          "material_read": "Finding; Proof §§1–3, rotation phase witnesses, moment update, central reflection and arithmetic progression (offsets 2240–6124)",
+          "method": "Local mirror literal locate and bounded offset read",
+          "title": "Dyadic two-binomial spectra of the regular paperfolding word",
+          "trigger": "Strong distinct exact-profile index match"
+        },
+        {
+          "assessment": "Confirms comparison, not the refined statistic",
+          "evidence": "The theorem gives P(k)=4k for k>=7 for paperfolding sequences.",
+          "identifier_or_url": "doi:10.1017/S0004972700011655",
+          "material_read": "Printed pp. 24, 27–28, introduction and §5 theorem",
+          "method": "OA primary PDF passage inspection",
+          "title": "The Number of Factors in a Paperfolding Sequence",
+          "trigger": "Ordinary complexity comparison and possible stronger classification"
+        },
+        {
+          "assessment": "Level-one coverage only in inspected material",
+          "evidence": "Abelian complexity depends on weight, not the scattered pair statistic within a weight layer.",
+          "identifier_or_url": "arXiv:1208.2856",
+          "material_read": "p. 1 and Theorem 2",
+          "method": "OA primary passage inspection",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Same word and coarser spectrum"
+        },
+        {
+          "assessment": "No covering implication in inspected results",
+          "evidence": "Treats morphism families and words including Sturmian and Thue–Morse-related cases.",
+          "identifier_or_url": "arXiv:2201.04603",
+          "material_read": "Opening scope and relevant family statements",
+          "method": "OA primary passage inspection",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "General binomial-complexity theorems"
+        },
+        {
+          "assessment": "Different word family",
+          "evidence": "The explicit 2-binomial formula is for generalized Thue–Morse words.",
+          "identifier_or_url": "arXiv:2112.05347",
+          "material_read": "p. 1 and Theorem 3",
+          "method": "OA primary passage inspection",
+          "title": "On the 2-binomial complexity of the generalized Thue–Morse words",
+          "trigger": "Same order of binomial statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is well-motivated, but the audited claim supplies no independently needed remaining invariant after the distinct exact classification. The same numerical data follow, and the phase refinement follows immediately from injectivity and reverse-complementation of the indexed templates. The dyadic induction is an alternate proof, not a separately established substantive scientific gain over that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

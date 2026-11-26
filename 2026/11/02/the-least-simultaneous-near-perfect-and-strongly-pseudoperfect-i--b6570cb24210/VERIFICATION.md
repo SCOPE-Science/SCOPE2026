@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The attached `verify_near_strong_overlap.py` is the exact standalone verifier. Run `python3 verify_near_strong_overlap.py` with standard Python 3.
+## correctness
 
-It checks every positive integer from 2 to 174592 for the near-perfect divisor-sum equation using a complete sieve; for all 37 passing candidates, it enumerates the complete positive-divisor list, independently recomputes each divisor sum, and runs exact complementary-divisor-orbit subset-sum dynamic programming. Only 174592 passes both tests.
+PASS
 
-It also checks the factorization \(174592=2^{9}\cdot11\cdot31\), the exact divisor sum \(392832\), the proper omitted divisor \(43648\), all nine displayed complementary divisor pairs, and their sum \(349184\). The test has a fixed finite endpoint because it proves a least-element statement, not a claim over unbounded values.
+At N=174592 the displayed factorization gives sigma(N)=1023*12*32=392832; the excess over 2N is 43648=N/4. The nine pairs consist of 18 distinct divisors, their products are N and their sum is 349184=2N, so their union is complement-closed. For leastness, 1 cannot satisfy the proper-divisor condition. For every 2<=n<=N the divisor-sum sieve counts each divisor once and near-perfectness is exactly 0<e=sigma(n)-2n<n and n mod e=0. Complement is an involution; any closed subset is precisely a union of whole orbits, counting a square-root singleton once. The reachable-sum update from B=1 is B=(B|(B<<w)) & ((1<<(2*n+1))-1) for each orbit weight w; the 2n bit tests the condition. Positive weights make the truncation exact. A separately written Python reproduction (independent_sieve.py, default limit 174592) returned all 37 listed candidates and sole intersection [174592], independently checking the factorization, excess and witness. The frozen code was inspected, not executed.
 
-Expected output:
+## originality
 
-```text
-VERIFY_OK limit=174592 near_candidates=37 intersection=[174592] factorization=2^9*11*31 sigma=392832 redundant_divisor=43648 included_orbits=9 included_divisors=18
-```
+PASS
 
-The scientific assessment is a self-review. Independent audit and independent validation are not performed, and no stronger certification is claimed.
+The contribution is the conjunction and its least element, not the appearance of N in the near-perfect sequence, or the separate definition or theory of strong pseudoperfectness. The explicit witness answers Question 42. No covering prior intersection statement or sufficient theorem furnishing this example was identified in the compared passages.
+
+## value
+
+PASS
+
+An explicit nonsquare example answers a precise published existence question without assuming the conjectural square-root omission route. Leastness is a natural, fully checked numerical invariant of that intersection rather than an arbitrary bounded slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

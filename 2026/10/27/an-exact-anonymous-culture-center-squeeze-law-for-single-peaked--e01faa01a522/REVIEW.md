@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full four-ranking definition fixes every allowed preference. The Condorcet criterion reduces to the two extreme-peak majority inequalities; the IRV failure event then requires the center to be the unique lowest first-preference candidate. Exact endpoint-counting gives the two ranges in the finite sum. The normalized counting polytope has volume \(7/864\), while all nonnegative four-histograms have leading count \(n^3/6\); hence the precise ratio is \(7/144\). Independent full-ballot enumeration and exact integer calculations are described in VERIFICATION.md and implemented in verify.py. No finite test is offered as a proof of the asymptotic theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+On the four fixed-axis orders, C beats L iff a≤r and beats R iff d≤r; if either extreme instead has a>r or d>r it is both the Condorcet and first-round majority winner. Thus a unique Condorcet winner always exists. In the center-winner region, failure under every tie-break is exactly m=b+c<min(a,d): when C ties for last an extreme can be eliminated, and when an extreme is eliminated C wins the final pairwise comparison. Both a,d≤r force m≥1. For fixed m the integer interval for a is [max(m+1,r+1−m),min(r,2r−2m)]; its cardinality is m up to floor(r/2), then 2r−3m up to floor((2r−1)/3), then zero. Each choice has m+1 splits of m and the uniform denominator is binom(n+3,3). The range convention gives zero for n=1,3. Dividing the numerator by n³ and scaling m by n gives the two integrals of t² on [0,1/4] and t(1−3t) on [1/4,1/3], totaling 7/864. Piecewise polynomial Riemann sums with order-one rounded endpoints and O(n²) errors in the original count justify the stated O(1/n) convergence after normalizing by the denominator, which has leading coefficient 1/6. Hence the limit is 7/144. Independent check: python3 /workspace/branches/independent_checks.py 1; output /workspace/branches/independent-1.txt. It enumerates 12,740 histograms through n=25 using all pairwise margins and all legal first eliminations, e.g. 2 failures at n=5 and 46 at n=17. The frozen script was inspected, not executed. The computation does not prove the limit or extrapolate the result to different cultures.
 
-Walsh (arXiv:1503.02766, 2015) gives the four single-peaked orders, not the stated IAC Condorcet-failure probability. Miller (2012) analyzes the known center-elimination mechanism, not the exact uniform-histogram law. Lackner and Lackner (2017) analyze probabilities of single-peaked domains within broader preference models; their examined sections do not supply this conditional fixed-axis IRV error. Kamwa, Merlin and Top (2023) analyze abstention/participation paradoxes under single-peaked IAC rather than the Condorcet-failure event; only their abstract was accessible. The same deterministic event has an independently weighted ballot law, whose exponential asymptotic behavior does not entail the uniform anonymous-histogram coefficient. The contrast is substantive, not relabeling of identical measures. Residual risk: restricted-domain Condorcet-efficiency studies and inaccessible specialized full texts could already give or imply the result. Exact historical priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An IAC model explicitly treats anonymous electorate compositions as equally likely; unlike a uniform independent-ballot model, that places non-vanishing mass on imbalanced political blocs. The result quantifies an important gap between two standard social-choice benchmarks: the three-candidate single-peaked domain eliminates majority cycles, yet a meaningful constant fraction of IAC histograms yield an IRV Condorcet failure. The exact finite census, rational limiting constant and order \(O(1/n)\) give reproducible benchmarks for restricted-domain voting calculations; they do not merely recount a known tabulation. Its interpretation is limited to the stated culture rather than observed voting behavior.
+The supported distinct result is the exact finite odd-n count and rational limiting probability of the robust Hare/Condorcet failure event under fixed-axis uniform anonymous histograms. The four ballots, center-elimination possibility and general IAC counting approach are not original. Same-rule and same-culture primary work was examined, but measures different events. No stronger or equivalent count was identified in the bounded comparisons below; historical priority is not certified.
 
-## Closest sources and limitations
+## value
 
-Relevant sources: Walsh (2015), Miller (2012), Lackner and Lackner (2017), Kamwa, Merlin and Top (2023), and works studying IAC Condorcet efficiency for other rules. Deterministic center-squeeze criteria and generic Ehrhart/Riemann counting methods are not new. Earlier inaccessible restricted-domain work is a remaining novelty risk. No independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated rule-efficiency benchmark on the smallest single-peaked domain with an IRV center squeeze. The absence of majority cycles does not ensure Condorcet consistency: under uniform anonymous histograms the robust failure rate has a nonzero limit, in contrast to independent uniform ballots under which the center first-choice share approaches 1/2 and the extremes approach 1/4 each. The exact finite calibration, including elimination ties and the first nonzero cases, and the limiting constant answer a specified probability question rather than recasting the deterministic center-squeeze observation. No empirical prevalence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

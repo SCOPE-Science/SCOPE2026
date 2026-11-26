@@ -1,19 +1,21 @@
-# Review of the three-habitat recovery-site reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive movement rate and every triple of real local growth rates with \(r_1>r_2\), the tridiagonal symmetric Metzler generator has simple real spectrum. The sum of three real exponentials for the release-site difference starts at zero with positive derivative, and the Chebyshev zero bound permits at most one further positive crossing. A positive Perron vector at the exact third-site threshold, together with strict Perron monotonicity, determines the sign at long time. The equality case is reconstructed exactly. Eigenvalue perturbation yields the logarithmic delay with an additive \(o(1)\) remainder. A separately executed exact-rational certificate tests the illustrative witness and critical-vector identities. Neither finite checks nor a root approximation is used in lieu of the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For the symmetric three-site generator, the simple real spectrum makes the abundance difference G a sum of at most three distinct real exponentials. G(0)=0 and G'(0)=Delta>0. Rolle induction bounds its real zeros counted with multiplicity by two, leaving at most one positive zero, necessarily simple. With s=1+Delta/m the critical matrix has positive eigenvector (1,1,s) with eigenvalue r1, hence this is the Perron root. The first row gives v11-v12=(r1-lambda1)v11/m, and lambda1 increases strictly in r3 by the positive square of the third coordinate of the normalized Perron vector. This gives the asserted eventual signs off threshold and uniquely decides the crossing because of the zero bound. At equality the leading coefficient vanishes and G=H(exp(lambda2* t)-exp(lambda3* t))>0. The two-site version with positive initial derivative is a positive multiple of a difference of two exponentials and never crosses. With a unit Perron vector, the derivative of the leading coefficient at threshold is -[s^2/(2+s^2)](2+s)/[m(2+s^2)]=-K. At any fixed positive horizon G stays positive as epsilon tends to zero, so the crossing tends to infinity; division by its second exponential gives |a1| exp((lambda1-lambda2)t*)=H+o(1). In particular t*=O(log(1/epsilon)), making the error from replacing its gap by the critical gap o(1), including in the additive remainder. Inspected RESULT.md lines 23–69 and CHECK.py: the latter's exact Taylor sign bracket is subsidiary, not the general proof. No uploaded script was executed.
 
-The general matrix-exponential row-sum centrality and eventual Perron ranking are established mathematics, as is the exponential-polynomial zero bound. The potentially new result is the complete sharp threshold and near-critical delay for this specific three-site ecological release comparison, not those ingredients in isolation. The inspected ecological studies discuss recovery and long-term reintroduction under differing models; the inspected general centrality treatment lacks this explicit phase classification. Searches for finite-horizon release placement, three-patch Metzler row-sum crossings and source–sink rescue disclosed no directly covering statement. The residual priority risk is an older equivalent theorem in matrix-exponential ranking or birth–death dynamics not yet found. Search non-detection alone is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Release-site choice based on immediate local growth may conflict with later network-wide expected abundance. The theorem tells when that conflict can or cannot happen, proves one reversal is the maximum in the minimal three-site corridor, and quantifies why a real near-threshold reversal can take logarithmically long to become visible. This is a motivated structural distinction and not an arbitrary choice of numerical parameter values. It is not a field management prescription without validation of the linear assumptions.
+The matrix-exponential observable and its short-/long-parameter limiting rankings are established. The checked record instead gives a parameter-explicit iff for a unique finite-time crossing (including the zero leading-coefficient boundary), the two-site exclusion, and a critical-time expansion with the log constant. The closest catalogue reversal concerns survival as migration varies, not total abundance as the observation time varies. No inspected result gives or dominates the conjunction being credited.
 
-## Closest literature and limitations
+## value
 
-Wilson et al. (2023), DOI 10.1002/eap.2898, study spatial recovery after disturbances; Moseby et al. (2023), DOI 10.1111/cobi.14209, study long-term reintroductions. Benzi and Klymko (2013), arXiv:1302.6770, give the general matrix exponential centrality background. The current result is restricted to symmetric, conservative common-rate movement on the three-node path and compares expected linear total abundance, not stochastic establishment or extinction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The comparison isolates how choice of measurement horizon changes a natural release-site decision in the smallest corridor admitting a reversal. The sharp threshold, single-crossing guarantee, and quantitative divergence distinguish a genuine but practically late reversal from no reversal. This is more informative than endpoint signs and useful as an exact test case for linear growth–dispersal models. It is not a claim about survival probability, nonlinear recovery, or an uncertain-parameter field policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

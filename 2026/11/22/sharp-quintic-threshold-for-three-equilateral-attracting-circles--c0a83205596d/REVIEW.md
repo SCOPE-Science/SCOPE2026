@@ -1,15 +1,21 @@
-# Scientific review: sharp quintic threshold for three equilateral attracting circles
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-circle invariance is exact and follows directly from the product construction. The fifth-degree coefficient is nonzero while the sixth-degree part cancels. Each circular angular speed is positive for sufficiently small radius. The center-based formula for the first nonzero transverse Floquet exponent is reconstructed from the exact cofactor integral, with three explicit strictly positive coefficients. The quartic lower bound uses the published complete normal form and a new elementary integral-sign reduction on congruent equilateral circles; the three cyclic signs cannot all indicate attraction. The standalone algebraic checker reproduced the invariant-curve identities, fifth-degree obstruction to degree reduction, three leading Floquet coefficients, and degree-four normal-form cancellations. The proof, not finite experimentation, supports the quantified small-radius conclusion.
+## correctness
 
-## Originality — PASS within inspected evidence
-Cao--Llibre, arXiv:2611.05696 (2026-11-03), provides all quartic invariant-circle normal forms, their periodicity conditions and general Floquet tests. It does **not** provide the present sharp minimum degree for three prescribed equilateral **attracting** circles or the explicit degree-five simultaneous-attractor realization. Margalef-Bentabol--Peralta-Salas, arXiv:1507.00698, constructs prescribed stability configurations with larger, nonoptimal degree bounds (Theorem 4.2); this does not imply the degree-five sharpness result. Christopher (2001), as cited in Cao--Llibre, gives degree six for the product of three circle equations, again not the sharp quintic conclusion. Published mathematical research index searches for equivalent formulations, nonconcentric triples, sharp polynomial degree and cyclic Floquet signs returned closest records on two concentric circular cycles and a concentric orthogonality wall, neither covering the present claim. Priority uncertainty persists for specialized older constructions whose complete texts could not be checked.
+PASS
 
-## Mathematical value — PASS
-The two independent mechanisms are a nontrivial dynamical obstruction below degree five and a constructive same-stability realization at degree five. Their combination resolves a natural symmetric prescribed-circle degree-minimization question, distinguishing hyperbolicity of three disjoint circles from ability to choose all three transverse stabilities. This matters to low-degree polynomial realization problems, and refines the general degree-six construction. The result is deliberately restricted to sufficiently small equal radii and does not classify all five-degree flows.
+On f_k=0 only the kth summand survives and the angle speed is A_k times positive factors for r<1/2. The center A_k are positive; the gradients sum to zero, canceling degree six. At y=0 only the third summand contributes to the first component, whose fifth-degree coefficient is −√3/20. The transverse variable f_k gives the physical-time cofactor integral: 2det(z−C_i,z−C_k)=−∂θf_i. The constant ratio term integrates to zero; the linear ratio term paired with 2r d·Je/|d|² produces the stated negative r² coefficients (each S_k>0), with a uniform O(r³) remainder. For the quartic normal form, one can independently restrict to each complexified circle using ζ=(x+iy)−c_k and (x−iy)−conj(c_k)=r²/ζ. The two tangent component expressions force the scalar angular coefficient to have Laurent exponents −3,…,3. Pairwise intersections are transverse, with no triple point for r<1/2, so that coefficient vanishes at the two intersections with each other circle. Dividing by f_j f_l leaves exponents −1,…,1, hence an affine real B_k. The polynomial residual is f_1f_2f_3 times a constant vector, forced to vanish by the degree-six terms, which also give Σ∇B_i=0. At degree five, writing G=Σ C_i(∇B_i)^⊤, the vector identity forces det(z,Gz)=0, so G=cI, and ΣB_i(0)=−c. With c=κ√3/2 these are exactly the listed coefficients. On circle 1, reflection swaps f_2 and f_3 and their coefficients for b_2=b_3. Varying b_3−b_2 at fixed b_1 and κ gives the derivative of log(f_2/f_3) divided by 2B_1. In the bisector angle this derivative is 2r(w−2rv)/Q; subtracting the constant reciprocal at w=2rv yields one strict signed integral, proportional to sign κ. Physical-time orientation multiplies by sign b_1. Rotating gives the two cyclic counterparts. If two b coincide or κ=0 there is a zero exponent; otherwise common sign of the three exponents would force the two extreme b values to have one sign and the median the opposite, impossible. This rules out three hyperbolic attractors at degree ≤4; negation reverses hyperbolic stability. The supplied symbolic checker was inspected, not run; the proofs establish the degree bound and the uniform small-radius statement without it.
 
-## Limitations and closest literature
-Cao--Llibre, *Quartic polynomial differential systems with three disjoint invariant circles*, arXiv:2611.05696v1; Margalef-Bentabol--Peralta-Salas, *Realization problems for limit cycles of planar polynomial vector fields*, arXiv:1507.00698v2; Christopher, *Polynomial vector fields with prescribed algebraic limit cycles*, Geometriae Dedicata 88 (2001).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the simultaneous explicit quintic realization for the three small equal-radius equilateral circles, combined with the obstruction to prove sharpness. No novelty credit is assigned to the quartic normal form or to the same-attractor obstruction by itself, which is covered at statement level by an earlier equilateral record.
+
+## value
+
+PASS
+
+The minimum realization degree for a prescribed common stability pattern is a natural question not answered by existence of three hyperbolic circles. The explicit quintic fills the one-degree gap between known quartic impossibility and the general sextic construction; the affine cancellation and signed Floquet estimates give a reusable construction mechanism in this geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The selector-table model bijects cyclic de Bruijn cycles with single-orbit local successor bijections. At orders two through four, exact exhaustive enumeration establishes the entire nonpositive covariance table. At every order at least five, the two specified turns are edge-disjoint; path contraction and the Euler-tour/arborescence ratio reduce the two-event probability to a \(2\times2\) kernel determinant. Finite suffix-prefix overlap lists provide an all-parameter symbolic evaluation, giving covariance \(2^{-n}\). This is not extrapolation from an experiment. The code independently checks full tables through order five and the explicit kernel through sixteen.
+## correctness
 
-**Originality — PASS (qualified).** Rødland's exact shuffled-word factor-count theory already covers general contracted path counts, so that determinant method is not claimed original. The 2013 de Bruijn cycle paper contributes background, not the new dependence statement. A published order-two, nonbinary covariance sign classification varies alphabet size, and does not imply this order-five binary threshold without a different calculation. Indexed searches for de Bruijn successor correlations, local transition dependence and binary feedback-table moment laws, together with the accessible ledger's earlier exact single-factor probability, revealed no statement of the new first-positive-order boundary. The broad general theory could conceal an equivalent corollary; a specialized older treatment may remain undiscovered.
+PASS
 
-**Value — PASS.** The sharp first-positive order identifies a structural dependence transition in a standard random combinatorial design family, and the exact persistent \(2^{-n}\) witness describes its magnitude. This is a qualitative sign law, not a trivial single-value calculation or a routine re-expression of a general determinant.
+A binary rotation class is represented once by starting at its unique 0^n arc; local bijections determine and are determined by the cyclic successor permutation. Independently enumerated successive n-bit windows by depth-first traversal with no repeated windows, closing at 0^n, without using selector-table enumeration. The counts at n=2,3,4,5 were 1,2,16,2048; the only negative pairs through n=4 and all exact covariances agree with the record. At n=5 the chosen pair has marginals 1/2,5/8, joint 11/32 and covariance 1/32. For the infinite family, each prescribed crossed selector enforces the occurrence of a unique 0v1 path; the two paths are disjoint for m=n−1≥4. Shortcutting preserves Euler circuits with the prescribed bonds, taking the new arcs as labeled. The affected intermediate outdegrees become one, so all BEST factorials remain one, with the unaffected 0^n start arc fixing rotation. The balanced Laplacian update for a→b→c is (e_a−e_b)(e_b−e_c)^T. The product P^m is uniform averaging, so the finite inverse on the zero-sum subspace and the determinant lemma give the stated probability matrix. Checked the all-order suffix/prefix table algebraically: for overlap length k=m−t, suffix integers of b1=2 are 0 at k=1 and 2 otherwise; of c1=5 are 1 for k≤2 and 5 otherwise; of b2=2^(m−1)+1 are 1 for k<m and b2 otherwise; of c2=3 are 1 at k=1 and 3 otherwise. The prefixes of a1=1 are 0 except at k=m, of b1 are 0 through m−2, then 1,2, of a2=2^(m−2) are 0 at k=1 and 2^(k−2) otherwise, and of b2 are 2^(k−1) except at k=m. Comparing these lists gives exactly the four signed overlap rows in the frozen proof, including m=4. Thus the determinant has off-diagonal entries 2^(1−m) and −1/4, giving covariance 2^(−m−1) with the displayed marginals and joint probability. This uniform calculation does not rely on extrapolation from the finite census.
 
-**Risks and limits.** Classification is only complete at orders at most four; at larger orders the result is an existence theorem rather than a full covariance spectrum. The proof relies on the uniform cyclic rotation-class measure and the exact de Bruijn successor encoding. Prior general factor moment formulae should not be mistaken for a novelty claim. No external or independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the evaluated sign transition in binary order, with its small-order exclusion and uniform explicit witness. General Eulerian contraction/joint-factor machinery and the one-factor marginal framework are not novel. No inspected available statement supplies the same transition or a theorem from which the evaluated sign and first order are immediate.
+
+## value
+
+PASS
+
+A uniform de Bruijn cycle couples binary local choices through the single-orbit condition. The exact first positive covariance disproves a natural nonpositive-pair pattern suggested by all smaller orders. The fixed kind of witness persists at every larger order, and the opposite signs in the cross terms explain the mechanism. That is more informative than the general determinant, a single computed order, or a numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

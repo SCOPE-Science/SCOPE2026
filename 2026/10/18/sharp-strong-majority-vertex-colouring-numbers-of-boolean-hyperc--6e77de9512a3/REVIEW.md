@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact classification on dimensions \(d\ge2\). The even-dimensional construction splits each open neighbourhood evenly. For odd dimensions, two colours fail by cardinality. The four-colour constructions in dimensions three and five use rank-two binary syndromes with per-column multiplicities at most half the degree. The three-cube lower bound follows from common neighbours of parity-side vertex pairs. The five-cube lower bound uses a double count that restricts every colour class on one parity side to four or six vertices, then excludes six by the triangle-free/codegree-two six-vertex lemma for the distance-four graph; three four-vertex classes cannot partition sixteen vertices. In dimension seven, all seven nonzero syndrome columns force each neighbour to have a distinct syndrome. The two-coordinate lift increases the per-colour capacity and actual count by at most one. An independent script checks dimensions two through fourteen and all 8,008 six-subsets in the key finite obstruction.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating 2026 primary article introduces the invariant and proves cycle, complete-graph and generic degree-bound results but not the hypercube classification. Krotov and Valyuzhenich (2023, Section 4.3.1) already treat \((3,3,2)\) partitions into multifold perfect codes of the seven-cube; these supply the three-colour upper bound at dimension seven, which is explicitly credited rather than claimed as new. Their perfect-colouring classification in dimension five does not imply the stronger unrestricted nonexistence of any strong-majority three-colouring shown here. Coupon colourings require every colour to be present but do not enforce half-neighbourhood caps. Related findings about strong-majority **edge** colouring of hypercubes and vertex colouring of cycle powers and multipartite graphs involve different mathematical predicates or graph families and do not imply this classification. Dedicated searches for the precise dimensions, neighborhood-balancing condition, binary-code realization and aliases found no covering theorem. The cited perfect-colouring paper was inspected only at the abstract level, and unindexed equivalent results remain a risk; this is not an independent priority certificate.
+PASS
 
-## Value — PASS
-The theorem completely evaluates a recently defined invariant on a central infinite graph family, including the genuinely unrestricted five-cube non-three-colourability obstruction and all-dimension sharp threshold. Its five-cube obstruction links local colour multiplicities to the distance-four Clebsch graph, while known seven-cube perfect-code partitions are integrated through a simple dimension-lifting mechanism. These structural ideas explain the classification, rather than simply tabulating small instances.
+For d=2k, parity of k coordinates yields k neighbors of each color, while one color is excluded by positive degree. Two colors cannot meet the floor-half cap in odd degree. In Q3 every pair on the same parity side shares a neighbor, so that side needs four colors. In Q5 a hypothetical three-coloring forces multiplicities (2,2,1) at each vertex. On one parity side a color class of size s then has 5s=16+t where t even-side neighborhoods have two members; every distance-two pair contributes two such incidences and distance-four pairs contribute none, hence t=2e_2 and s is 4 or 6. For six members, exactly eight pairs would be at distance four. This induced graph is triangle-free with codegrees at most two, since the distance-four generators are the all-ones vector with one coordinate removed, and sums of two different generators are distance-two vectors with two ordered representations. On six vertices a triangle-free nonbipartite graph has a chordless five-cycle and at most two further edges; the bipartite splits with capacity for eight edges are 2:4 and 3:3, both requiring codegree at least three. Thus all three classes would have size four, not totaling sixteen. A separate exhaustive local-incidence check (`python3 /workspace/branches/independent_checks.py 2`) found 40 admissible individual classes, all of size four, among the 65,536 subsets of the odd half of Q5. Two-bit syndrome maps realize four colors for d=3,5; seven distinct nonzero three-bit changes realize the claimed 3,3,2 construction on Q7 (also checked with a different partition). In the two-coordinate lift, flipping the first new coordinate preserves the color and flipping the second changes it; at most one neighbor of any color is added, which exactly matches the increased cap. This proves the classification for all integers d>=2, not just the finite checks. The frozen checker uses int.bit_count(), requiring Python 3.10+, despite the 3.8+ reproducibility note; this does not affect the theorem.
 
-## Scientific limits and literature
-The proof does not enumerate all optimal colourings, cover general Hamming alphabets, or certify bibliographic priority. The result is mathematically unrestricted for \(d\ge2\), but the code checks only dimensions through fourteen and 8,008 six-subsets. The motivating full text was inspected in its vertex-colouring section; the perfect-colouring comparator was inspected in its introduction, relevant five-cube and seven-cube sections, and relevant nine-cube classification statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Q7 existence claim is covered and correctly credited. The case distinctions in the full vertex-invariant classification, notably no unconstrained three-coloring of Q5, survive the checked perfect-coloring, coupon-coloring and same-invariant corpus comparisons.
+
+## value
+
+PASS
+
+This gives the exact invariant for a canonical infinite graph family. In dimension five the need for a fourth color persists even without any symmetry or equitability assumption; the link to the extremal six-vertex distance-four subgraph explains why, rather than just providing a solver count. The parity and lifting constructions identify the stable regime, incorporating rather than reinventing the known Q7 existence result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

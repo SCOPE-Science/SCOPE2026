@@ -1,73 +1,51 @@
-# Exact two-term dyadic power-sum distributions and their Haar image measure
+# Exact ordered two-summand counts over dyadic residue rings
 
 ## Finding
 
-Fix any integer \(t\ge2\), and put \(d=2^t\) and \(h=t+2\). Let \(R_{t,n}(r)\) denote the number of **ordered** pairs of residues \(x,y\pmod{2^n}\) for which
-\[
-x^d+y^d\equiv r\pmod{2^n}.
-\]
-The exact target-by-target distribution is as follows. In every clause write \(q=2^n\), interpret \(r\) as a residue modulo \(q\), and use the clauses in their stated ranges.
+Fix an integer \(t\ge2\) and put \(d=2^t\), \(h=t+2\). For \(n\ge0\), let \(R_{t,n}(r)\) count **ordered** pairs \((x,y)\) modulo \(q=2^n\) with \(x^d+y^d\equiv r\pmod q\). Then:
 
-* At \(n=0\), \(R_{t,0}(0)=1\).
-* At \(n=1\), both target residues have count \(2\).
-* If \(2\le n<h\), the counts for \(r=0,1,2\) are respectively \(q^2/4,q^2/2,q^2/4\); all other target residues have count zero.
-* If \(n\ge h\) and \(r\equiv1\pmod{2^h}\), then \(R_{t,n}(r)=2^{t+1}q\).
-* If \(n\ge h\) and \(r\equiv2\pmod{2^h}\), then \(R_{t,n}(r)=2^tq\).
-* If \(h\le n<d\), the remaining nonzero count is \(R_{t,n}(0)=q^2/4\).
-* If \(n\ge d\), every target not covered by the preceding two congruence classes satisfies
-\[
-R_{t,n}(r)=
-\begin{cases}
-2^{2(d-1)}R_{t,n-d}(r/2^d),& r\equiv0\pmod{2^d},\\
-0,&\text{otherwise}.
-\end{cases}
-\]
-The reduced target \(r/2^d\) is well-defined as a residue modulo \(2^{n-d}\), including when \(n=d\).
-
-Consequently, the set of sums of two \(d\)-th powers in \(\mathbb Z_2\) is exactly
-\[
-\mathcal I_t=\{0\}\cup\bigcup_{j\ge0}2^{dj}\left((1+2^h\mathbb Z_2)\cup(2+2^h\mathbb Z_2)\right).
-\]
-Its additive Haar measure, normalized by \(\mu(\mathbb Z_2)=1\), is
-\[
-\boxed{\mu(\mathcal I_t)=\frac{2^{d-t-1}}{2^d-1}.}
-\]
-In particular the measure is \(2/15\) for fourth powers, \(16/255\) for eighth powers, and \(2048/65535\) for sixteenth powers. All these formulas are valid for every indicated exponent and modulus; the inclusion of \(0\) concerns the dyadic image and has measure zero.
+* For \(n=0\), \(R_{t,0}(0)=1\). For \(n=1\), each of the two targets has count \(2\).
+* For \(2\le n<h\), the targets \(0,1,2\) have counts \(q^2/4,q^2/2,q^2/4\), respectively; the other counts are zero.
+* For \(n\ge h\), the counts for targets congruent to \(1\) or \(2\) modulo \(2^h\) are \(2^{t+1}q\) and \(2^tq\), respectively.
+* For \(h\le n<d\), the only remaining nonzero count is \(R_{t,n}(0)=q^2/4\).
+* For \(n\ge d\), every target outside the two stated classes modulo \(2^h\) has count
+  \[
+  R_{t,n}(r)=
+  \begin{cases}
+   2^{2(d-1)} R_{t,n-d}(r/2^d),& r\equiv0\pmod{2^d},\\
+   0,&r\not\equiv0\pmod{2^d}.
+  \end{cases}
+  \]
+  Here \(r/2^d\) denotes the residue modulo \(2^{n-d}\), including the single residue when \(n=d\).
 
 ## Assumptions and scope
 
-The variables range over complete residue rings, with repetitions and zero permitted. Multiplicity counts **ordered** pairs. A target modulo \(2^n\) is not an integer equality; the Haar image statement concerns actual elements of \(\mathbb Z_2\). There are no primitivity assumptions or restrictions on the valuations of the inputs. The power exponent is \(2^t\) with \(t\ge2\); neither arbitrary exponents nor odd prime-power moduli are asserted.
+The variables range over complete residue rings, with repetition and zero permitted. There is no restriction on the valuations of the inputs. This result gives representation counts, not just the set of targets with a representation. The exponent is \(2^t\), \(t\ge2\); no claim is made for other exponents, other primes, or integer equality.
 
 ## Proof
 
-**Unit-power lemma.** For every \(n\ge h\), the map \(u\mapsto u^d\) on the odd residue classes modulo \(2^n\) has image precisely the coset group \(1+2^h\mathbb Z/2^n\mathbb Z\). Every element of that image has exactly \(2^{t+1}\) odd preimages. Indeed, for \(n\ge3\) the unit group is isomorphic to \(C_2\times C_{2^{n-2}}\). Raising to \(2^t\) kills the sign and multiplies the cyclic exponent by \(2^t\). Since \(n\ge t+2\), the kernel has order \(2^{t+1}\), and the image is exactly the subgroup of odd residues congruent to one modulo \(2^{t+2}\). The subgroup characterization follows either from this group decomposition or from the standard \(2\)-adic power-unit filtration.
+For \(n\ge h\), the group of units modulo \(2^n\) is \(\langle-1\rangle\times\langle5\rangle\), with \(5\) of order \(2^{n-2}\). Raising to \(d=2^t\) kills the sign, and the cyclic factor contributes \(2^t\) elements to the kernel. The powers of \(5\) raised to \(d\) are congruent to \(1\) modulo \(2^h\): the valuation of \(5^{2^t}-1\) is \(t+2\), by repeated squaring, starting with \(v_2(5-1)=2\) and using \(5^{2^j}+1\equiv2\pmod 4\). The image size is \(2^{n-h}\), so the image is the entire subgroup congruent to \(1\) modulo \(2^h\), and each element has \(2^{t+1}\) preimages. Reduction from modulus \(2^h\) implies that odd powers are all \(1\) at every smaller modulus.
 
-**Small moduli.** Since \(h\le d\) when \(t\ge2\), for \(n<h\) the \(d\)-th power of every even residue is zero modulo \(2^n\), whereas the \(d\)-th power of every odd residue is one. Count the ordered parity patterns: even/even, mixed parity, and odd/odd contribute \(q^2/4,q^2/2,q^2/4\) for \(n\ge2\). At \(n=1\), the first and last patterns coincide modulo \(2\); direct enumeration gives \(2\) solutions to each target.
+Since \(h\le d\), every even \(d\)-th power is \(0\) modulo \(2^h\). For \(2\le n<h\), the parity patterns even/even, mixed, and odd/odd therefore contribute \(q^2/4,q^2/2,q^2/4\) pairs to distinct targets. For \(n=1\), the even/even and odd/odd targets coincide, giving two pairs for each target. The modulus \(1\) has just one pair.
 
-**Mixed-parity and odd/odd branches.** Fix \(n\ge h\). Every even \(y\) has \(y^d\equiv0\pmod{2^h}\). For any target \(r\equiv1\pmod{2^h}\), the unit-power lemma gives \(2^{t+1}\) choices of odd \(x\) for each of \(q/2\) even \(y\); two possible orders produce \(2^{t+1}q\) representations. An odd/odd pair must sum to \(2\pmod{2^h}\). Conversely, for \(r\equiv2\pmod{2^h}\), each of \(q/2\) odd \(x\) admits \(2^{t+1}\) odd \(y\); the count is \(2^tq\). These branches are exhaustive unless both inputs are even, because \(h\ge4\) makes the three parity residues \(0,1,2\pmod{2^h}\) distinct.
+For \(n\ge h\), the three parity patterns land in the disjoint classes \(0,1,2\) modulo \(2^h\). For a mixed target \(r\equiv1\), fix any even input; subtracting its power leaves a unit target with \(2^{t+1}\) odd roots. There are \(q/2\) choices of even input and two possible orders. For \(r\equiv2\), fix any of the \(q/2\) choices of odd first input; subtracting its power again leaves exactly \(2^{t+1}\) odd roots. This yields the two asserted counts.
 
-**Even/even branch.** For \(h\le n<d\), even \(d\)-th powers vanish modulo \(2^n\), so all \(q^2/4\) even/even pairs yield target zero. If \(n\ge d\), write \(x=2u\) and \(y=2v\), where \(u,v\) independently range modulo \(2^{n-1}\). The congruence becomes \(u^d+v^d\equiv r/2^d\pmod{2^{n-d}}\) whenever \(2^d\mid r\); otherwise it is impossible. Every prescribed residue \(u\pmod{2^{n-d}}\) has exactly \(2^{d-1}\) lifts to a residue modulo \(2^{n-1}\), and likewise for \(v\). Hence the exact factor \(2^{2(d-1)}\) and the recursion above. Induction in \(n\) now proves every representation-count formula.
-
-**Full dyadic image.** If a nonzero dyadic target is representable and both inputs are even, divide both by two. Its valuation decreases by exactly \(d\). This process terminates unless the represented target is zero. At its first step with an odd input, the target belongs to \(1+2^h\mathbb Z_2\) or \(2+2^h\mathbb Z_2\). Conversely the unit-power lemma remains valid over \(\mathbb Z_2\) (the inverse limit of the finite unit groups), so every target in either coset is a sum of two powers, using respectively one odd and one even input, or two odd inputs. Scaling both inputs by \(2^j\) gives all displayed valuation layers. Their valuations are exactly \(dj\) or \(dj+1\), so the layers are disjoint. Each of the two cosets at depth \(dj\) has Haar measure \(2^{-dj-h}\); summing the geometric series gives
-\[
-\mu(\mathcal I_t)=2\sum_{j\ge0}2^{-dj-h}=\frac{2^{1-h}}{1-2^{-d}}=\frac{2^{d-t-1}}{2^d-1}.
-\]
-This completes the proof.
+If both inputs are even and \(h\le n<d\), all \(q^2/4\) pairs give zero. If \(n\ge d\), write \(x=2u\), \(y=2v\), with \(u,v\) modulo \(2^{n-1}\). This branch requires \(2^d\mid r\), and in that case the reduced congruence is \(u^d+v^d\equiv r/2^d\pmod{2^{n-d}}\). Each member of a reduced pair has \(2^{d-1}\) lifts. This gives the factor \(2^{2(d-1)}\), including at \(n=d\), and strictly reduces \(n\).
 
 ## Verification
 
-The included standalone Python program `verify.py` computes all \(d\)-th-power residues modulo \(2^n\), forms an independent ordered-pair histogram by cyclic convolution of their multiplicities, and compares **every** target to the closed recursion. It checks \(44\) complete distributions: \(t=2,3\) with \(0\le n\le11\), and \(t=4,5\) with \(0\le n\le9\). Running `python3 verify.py` yields `VERIFIED 44 complete residue distributions`. This is finite corroboration only; the argument for all exponents and moduli is the preceding group-theoretic proof.
+The supplied `verify.py` forms an ordered-pair histogram by cyclic convolution of single-power multiplicities, and compares every target against the recursion. Its 44 cases are \(t=2,3\), \(0\le n\le11\), and \(t=4,5\), \(0\le n\le9\). The finite check is not a substitute for the proof.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Brüdern and Wooley (first public July 8, 2022) prove a non-singular Hasse principle for **pairs of quartic equations in at least twenty-two variables**. Their discussion of local solutions uses the elementary fact that \(2\)-adic units congruent to one modulo sixteen are fourth powers; it does not formulate a complete two-summand count for each target or the displayed Haar image measure. The old unit-power lemma is used here without claiming novelty. Ramanujam (1963) studies uniform Waring bounds for the number of summands in \(p\)-adic rings; the accessible extract describes a bound of \(8m^5\) powers and does not imply the exact ordered two-summand distribution as stated. Wang’s 1992 diagonal-form Poincaré-series theorem supplies general information about homogeneous zero-target congruence counts, so the zero-target specialization is not claimed separately as novel. The full historical literature may contain equivalent formulas or immediate deductions; these remain a substantive originality risk.
+*Exact subthreshold dyadic images of even-power sums* [1] proves the finite support and the dyadic image and its Haar measure for \(k\ge6\) even and subthreshold summand counts. At \(k=2^t\), with two summands and \(t\ge3\), it gives the image \(\{0\}\cup\bigcup_{j\ge0}2^{dj}((1+2^h\mathbb Z_2)\cup(2+2^h\mathbb Z_2))\) and the measure \(2^{d-t-1}/(2^d-1)\). Its proof also uses the disjoint parity branches and all-even scaling for support. No image or Haar-measure novelty is asserted here. The fiber law requires the multiplicities within each of those classes and the lift factor for pairs, neither of which is given by the support cardinalities. A later dated record [2] gives an equivalent fiber law on the present range as part of a theorem for all even \(k\ge4\).
 
-## Limitations
-
-The theorem concerns only powers \(2^t\) with \(t\ge2\) and only dyadic moduli. It does not establish arithmetic representation over the integers, other primes, or a generalized Waring theorem. Counting with the number of terms two and the density of the image of those terms are different invariants. The proof is elementary once the classical structure of dyadic unit groups is known, so possible implicit coverage by older local-congruence work requires continued bibliographic attention. 
+The odd-unit power map is classical; for fourth powers its surjectivity onto \(1+16\mathbb Z_2\) also appears in the local argument of Brüdern and Wooley [3, Lemmas 7.3–7.4]. The distinct claim here is the complete all-target ordered distribution and its exact recursion, not the unit-power lemma or the zero-target count alone. Ramanujam's p-adic Waring work [4] and Wang's work on Poincaré series of diagonal forms [5] are relevant; earlier equivalent or implicit all-target formulas in that literature have not been ruled out.
 
 ## References
 
-1. J. Brüdern and T. D. Wooley, *Pairs Of Diagonal Quartic Forms: The Non-Singular Hasse Principle*, Quarterly Journal of Mathematics 74 (2023), 101–128; first published July 8, 2022, DOI 10.1093/qmath/haac019, https://doi.org/10.1093/qmath/haac019 .
-2. C. P. Ramanujam, *Sums of m-th powers in p-adic rings*, Mathematika 10 (1963), 137–146, DOI 10.1112/S002557930000406X, https://doi.org/10.1112/S002557930000406X .
-3. J. Wang, *On the Poincaré Series for Diagonal Forms*, Proceedings of the American Mathematical Society 116 (1992), 607–611, DOI 10.2307/2159425, https://doi.org/10.2307/2159425 .
+1. *Exact subthreshold dyadic images of even-power sums*, 2026-10-13, [record 43f52adb715f](https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-subthreshold-dyadic-images-of-even-power-sums--43f52adb715f).
+2. *Full 2-adic representation laws for sums of two even powers*, 2026-11-02, [record 4a65caa0042e](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-full-2-adic-representation-laws-for-sums-of-two-even-powers--4a65caa0042e).
+3. J. Brüdern and T. D. Wooley, *Pairs of diagonal quartic forms: the non-singular Hasse principle*, Q. J. Math. 74 (2023), 101–128, [arXiv:2110.04349](https://arxiv.org/abs/2110.04349), [DOI 10.1093/qmath/haac019](https://doi.org/10.1093/qmath/haac019).
+4. C. P. Ramanujam, *Sums of m-th powers in p-adic rings*, Mathematika 10 (1963), 137–146, [DOI 10.1112/S002557930000406X](https://doi.org/10.1112/S002557930000406X).
+5. J. Wang, *On the Poincaré series for diagonal forms*, Proc. Amer. Math. Soc. 116 (1992), 607–611, [DOI 10.2307/2159425](https://doi.org/10.2307/2159425).

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-Reproduction uses Python 3 standard library and a C++17 compiler (only for the independent full-family comparison).
+# Independent mathematical audit
 
-```
-python3 verify_doob.py
-c++ -O3 -std=c++17 doob_census.cpp -o doob_census
-./doob_census 0 1 4
-./doob_census 1 1 4
-```
+## correctness
 
-The first program confirms `DOOB_NEIGHBORHOOD_SHATTER_PASS templates=7 family_samples=13`. The independent C++ full 64-vertex census returns the coefficients `1,64,1152,6912,0` and `1,64,1152,6400,0` for the quaternary Hamming three-cube and the one-Shrikhande-one-complete-factor Doob graph, respectively. The Python code separately enumerates all centered quadruples in the three two-factor templates and all relevant centered triple configurations in four three-factor templates. The universal theorem depends on the reduction in the written proof, not a finite-prefix extrapolation. No independent mathematical audit has been performed.
+PASS
+
+For pairs at distance two, centers at the query points give the singleton traces, and a midpoint gives the full trace. For an adjacent pair, a step away from either query point in a different Cartesian factor separates it from the other; d≥3 guarantees at least two factors. The union bound on two balls gives the empty trace. Thus the quadratic coefficient counts exactly pairs at distance at most two. For triples, the full trace places the support in a centered ball. Two query points in different arms have only the original center and their two-coordinate combination as common centers; a third arm, a second point in one arm, or the original center eliminates the latter. In the two-points-in-one-arm case the pair within that arm can be realized without the original center (for a nonadjacent Shrikhande pair use its other common neighbor). Mixed pair traces and singleton traces follow by choosing one or two coordinates accordingly; for a centered triple with two complete arms, the original-point singleton uses a third factor, available for d≥3. The single-arm cases reduce exactly to factor traces: for a center at outside distance r, the distance to any query equals r plus the selected-factor distance. Hence outside coordinates only add singleton and empty traces, all of which can be achieved when there is another factor. This justifies transferring the checked Shrikhande table (14 unique-center noncentral triples, plus nine centered triples with center multiplicities 1,1,1,3,3,3,3,3,3); no single complete arm has a doubleton trace. For four points in at least three arms, a triple in separate arms has only the original center. In at most two active factors the same distance decomposition embeds every trace into the template with spare factors, which suffices in the direction needed for nonshattering. The independent checker reproduced the local tables and found no shattered centered four-set among all 715, 1820 and 3876 candidates in the three templates. For the algebra, write g_i=3a_i with a_i=1 or 2. Splitting each weight-two index into two distinct unit copies, the mixed-arm terms account for 27[binom(d,3)+binom(d,2)−m], and the single-arm contribution adds 19m. The resulting T=27 binom(d+1,3)−8m is positive for d≥3. Vertex transitivity and reciprocal common-center weighting give 4^dT distinct triples. The cubic arithmetic then proves the fixed-diameter distinction.
+
+## originality
+
+PASS
+
+The quaternary Hamming specialization and the separate diameter-two Shrikhande/rook comparison are prior catalogue results. Neither implies the uniform per-factor defect in all products of diameter at least three. The supported distinct claim is the mixed-Doob polynomial and its fixed-diameter separation, obtained by controlling trace interactions in the Cartesian factors.
+
+## value
+
+PASS
+
+This gives an exact graph-isomorphism invariant that distinguishes every member of a standard fixed-diameter family sharing both an intersection array and VC dimension. The per-factor arithmetic is a concise structural explanation and a way to recover the number of Shrikhande factors from trace counts, rather than just another enumeration of one tabled graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

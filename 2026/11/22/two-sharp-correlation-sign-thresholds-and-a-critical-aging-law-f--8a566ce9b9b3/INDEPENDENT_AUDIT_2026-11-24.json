@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:50:14.829958Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:18–108, VERIFICATION.md, checker.py",
+        "Replay: python /workspace/evidence/reproduce.py 1; output /workspace/evidence/1.txt"
+      ],
+      "rationale": "Color-exchange symmetry makes each signed draw centered with variance one. Conditional on the state before draw i, its mean is D_(i-1)/T_(i-1). Independence of the selected rule gives E[S_i D_i]=W_(i-1)+h, since D_i=D_(i-1)+J_i S_i. Iterating the conditional imbalance drift up to j-1 recovers the exact all-lag formula in RESULT.md:39–44, including its denominator T_(j-1); all lag factors are positive. Squaring the update gives W_n-W_(n-1)=[q-(B-2h)W_(n-1)]/T_n. For h>=0 the first sign is determined directly, and W_n>0 for n>=1 because q>0. For h<0, d=B-2h and W_n=(q/d)(1-G_n). The factor (T_(n-1)+2h)/T_n lies in (0,1) under the initial-mass bound; the sum of d/T_n diverges, so G_n strictly decreases to zero. The limiting sign numerator has the sign of q+hd=8b^2 p(p_*-p); at equality the finite-age numerator is still strictly negative. For p approaching p_* from below the first crossing is exactly G_n<=epsilon_p=(q+hd)/q. The uniform Stirling ratio on a compact p-neighborhood gives G_n/(K(p)n^(-d/B))=1+O(1/n). Monotonicity brackets the first integer crossing between (1±eta)(K(p)/epsilon_p)^(B/d) for each fixed eta>0, up to integer rounding, and (p_*-p)log(p_*-p)→0 controls the varying power. Substitution gives the stated prefactor and exponent. At p_* the adjacent numerator is h_*G_(i-1); dividing by T_i gives h_*K_*/B and exponent 1+2b/B. At other negative drifts the limiting numerator is nonzero, yielding the stated i^(-1) term. An independently written rational outcome-tree calculation enumerated whole six-draw histories and matched 105 joint draw pairs (seven settings). This corroborates the recurrence and indices; it does not establish the infinite-age claims. The supplied checker was inspected, not executed, and its count is recorded rather than independently attested.",
+      "residual_risks": [
+        "The argument is for the fixed mixing law, balanced color-symmetric initial state and stated T_0 bound. No conclusion for random environments or unequal replacement totals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alves–Rosales give almost-sure convergence of the composition in the matched urn; Shi–Yin–Miao give proportion limits and a CLT with martingale and quadratic-variation estimates.",
+          "The Resultary critical mixed-urn record 54feb5ffa3ee was only accessible as a summary of a population-imbalance weak limit."
+        ],
+        "reasoning": "A marginal population limit does not supply the exact mixed moment between one draw and the updated imbalance at arbitrary finite age or its sign. Standard martingale identities may furnish ingredients but no inspected stronger result gives the sign and aging conclusion.",
+        "searches": [
+          "Resultary: Population asymptotics versus draw correlations",
+          "arXiv:2502.16768, Theorem 1",
+          "arXiv:2605.26669v1, Section 3, Theorems 3.1–3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.16768",
+        "arXiv:2605.26669v1",
+        "arXiv:2105.10653v2",
+        "Resultary: 8a566ce9b9b3, 059b9a34ac8e, 23acb0186170, 0111d981dd23, 54feb5ffa3ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-budget record 23acb0186170, Finding, optimizes replacement schedules for squared imbalance, not correlations with iid rule selection.",
+          "Neither prior proportion theorem evaluates W_n+h as a sign numerator or identifies its cancellation at p_*.",
+          "The proof requires the positive lag product and a first passage to a small level of the analytic gamma-ratio product."
+        ],
+        "reasoning": "Recovering the new conclusion from the prior model involves a separate draw-pair moment computation and uniform asymptotic inversion, not a substitution into a reported sign or convergence result.",
+        "searches": [
+          "arXiv:2502.16768",
+          "arXiv:2605.26669v1",
+          "Resultary: Population asymptotics versus draw correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered unit-variance draw signs make Pearson correlation and draw covariance identical in the frozen model.",
+          "Mori et al. study autocorrelation decay in a memory-kernel urn, not the two-time sign dependence on earlier age in the independent-rule mixing process.",
+          "Resultary 2026/11/22 record 059b9a34ac8e has sign changes for run-versus-occupancy covariance in a classical Pólya urn."
+        ],
+        "reasoning": "Matching the language of autocorrelation or sign reversal does not match the joint variables, the fixed mixing law or its all-lag and critical-age assertions.",
+        "searches": [
+          "Resultary: Mixed-urn two-time covariance",
+          "Resultary: Lag-independent sign phases",
+          "arXiv:2105.10653v2, PDF pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned finding 8a566ce9b9b3 appeared in the local result list. The distinct 0111d981dd23 and 059b9a34ac8e records tabulate/classify signs for different occupancy or run-count statistics."
+        ],
+        "reasoning": "No distinct compared entry supplies the exact thresholds plus prefactor/exponent, which depend on general increments, initial mass and unbounded sampling ages.",
+        "searches": [
+          "Resultary: Critical crossover aging",
+          "Resultary: Lag-independent sign phases",
+          "Resultary: Mixed-urn two-time covariance"
+        ]
+      },
+      "rationale": "Against the examined evidence the distinct contribution is the exact sampled-draw time-pair sign classification and sharp second-threshold aging law, not the mixed replacement model, the drift identities, or limit theorems for composition. No examined prior result states or directly specializes to the complete claim.",
+      "residual_risks": [
+        "Exact text of the critical mixed-urn Brownian-limit record 54feb5ffa3ee was unavailable from the local mirror; the conclusion is bounded to observed statements.",
+        "An older generalized-urn finite-time moment theorem or an unindexed derivation could imply more than the sources examined. Global priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Composition convergence, not draw-pair phases",
+          "evidence": [
+            "Theorem 1 proves the population color fraction tends to 1/2 almost surely."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.16768",
+          "material_read": "PDF pp. 1–2, abstract, Theorem 1, setup (offsets 620 and 4860)",
+          "method": "Primary open PDF passage inspection",
+          "title": "Friedman vs. Pólya",
+          "trigger": "Same mixed replacement process"
+        },
+        {
+          "assessment": "Proportion CLT is not a draw-sign theorem",
+          "evidence": [
+            "The limiting random variable in Theorem 3.3 is the normalized population proportion Z_n; preceding estimates address its martingale increments and quadratic variation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+          "material_read": "Introduction, Section 3 Theorems 3.1–3.3 (offsets 3212 and 15195)",
+          "method": "Open primary text passage inspection",
+          "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+          "trigger": "Same balanced two-color mixing, plausible moment coverage"
+        },
+        {
+          "assessment": "Different reinforcement mechanism and correlation setting",
+          "evidence": [
+            "The autocorrelation regimes are for a kernel-weighted urn memory model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.10653",
+          "material_read": "v2 PDF pp. 3–4, introduction and model (offset 4300)",
+          "method": "Open primary PDF passage inspection",
+          "title": "Pólya urn with memory kernel and asymptotic behaviours of autocorrelation function",
+          "trigger": "Autocorrelation and reinforcement crossovers"
+        },
+        {
+          "assessment": "Different observables or fixed-budget rule; critical-population record not fully resolved",
+          "evidence": [
+            "Run/occupancy covariance, fixed-budget squared-imbalance reversal, and singleton covariance are the three inspected objects; the unavailable exact critical-population result was not used to certify noncoverage."
+          ],
+          "identifier_or_url": "Resultary: 059b9a34ac8e; 23acb0186170; 0111d981dd23; 54feb5ffa3ee",
+          "material_read": "Mirrored RESULT Finding passages for first three; catalogue summary only for 54feb5ffa3ee",
+          "method": "Local semantic search and exact local-mirror passage reading where available",
+          "title": "Local catalogue comparisons for urn statistics",
+          "trigger": "Plausible equivalent or same-model earlier and same-day results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–44, 74–108",
+        "arXiv:2502.16768",
+        "arXiv:2605.26669v1"
+      ],
+      "rationale": "Sampled colors are a directly observable process, distinct from the evolving composition. The exact separation of first-draw and late-age persistence thresholds resolves when early observations give the opposite sign to later observations, uniformly over the lag. Computing the divergence constant as well as the power, and identifying a different power of covariance precisely at the second threshold, makes this a substantive finite-to-asymptotic classification rather than an isolated moment identity.",
+      "residual_risks": [
+        "No extension to arbitrary balanced urn models and no claim that these second moments determine a full stochastic-process law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

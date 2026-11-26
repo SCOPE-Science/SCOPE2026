@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The prescribed-path probability follows by contracting the path and evaluating the reduced bipartite Laplacian determinant. Distinct endpoint paths are disjoint alternatives in a tree, so the exact mass is a falling-factorial path count times the containment probability. The survival product telescopes the mass. The adjacent likelihood-ratio inequality is strict because both its incremental factors increase whenever the larger class is strictly larger. Full support, the final atom, and the equal-class boundary are proved explicitly. The independent exact script passed 24,635 checks including complete tree enumeration for sizes up to four per class; no infinite assertion depends on this experiment.
+## correctness
 
-## Originality — PASS, qualified
-The general tree-containment formula in Ge–Dong (2019, Theorem 1.4) already covers the fixed-path probability and Dong–Ge (2021, Theorem 4) covers it more broadly. Neither inspected theorem states the stochastic relationship between same-class geodesic distributions from the two different vertex classes. The 2010–2011 random-spanning-tree diameter analysis of Chung–Horn–Lu is a different, asymptotic graph-wide assertion. The new comparison is a strict all-size likelihood-ratio theorem with a full class-specific distribution, not merely a restatement of fixed-path containment. Residual risk: an older probabilistic/graph-theoretic work may derive the same order implicitly.
+PASS
 
-## Mathematical value — PASS
-For a natural nonexchangeable uniform-spanning-tree model, the two vertex classes support different same-class geodesic laws. This theorem completely orders those laws in the strong likelihood-ratio sense for every feasible class-size pair, yielding all increasing-observable comparisons and strictness without asymptotic limits. This complements, but is not subsumed by, the opposite-class endpoint-distance/degree conditioning problem. No application to nonuniform graph models is asserted.
+For a path using j+1 A and j B vertices, contraction gives reduced Laplacian with bI and aI on the diagonal and all minus ones off diagonal; dividing its determinant by a^(b-1)b^(a-1) gives inclusion probability [ab-(a-j-1)(b-j)]/(a^j b^(j+1)), including empty blocks. The alternating label count times this probability equals the difference of successive survival products, because paths with fixed endpoints are disjoint events. The support of J_A ends at b and that of J_B at b-1 when a>b. On common support the mass ratio is a product of accumulated tail-factor ratios and (C_j+b)/(C_j+a), C_j=j(a+b-j-1). Each new tail factor in an adjacent comparison exceeds one by an explicitly positive numerator difference a-b, and C_{j+1}-C_j=a+b-2j-2>0 there. At b=2 strictness comes from the extra A mass; a=b is symmetry. The corrected strict tail inequalities at integers 2 through b follow independently by termwise comparison of the positive products, with zero B tail at b. A fresh exhaustive finite check retained the connected 6-edge subsets of the 12 edges of K_4,3 and measured the two fixed-pair distances by graph traversal: among 432 trees, A counts at 2,4,6 were 288,132,12; B counts were 324,108,0. This exact replay prescription checks the example only. The frozen verify.py and VERIFICATION.md were inspected, not executed; the algebra above covers all sizes.
 
-## Closest literature and limits
-Ge–Dong 2019 and Dong–Ge 2021 prove more general path/forest containment enumerations, which are acknowledged as established inputs; Chung–Horn–Lu 2011 concerns diameter asymptotics. Historical implicit equivalence remains a priority risk. All scientific claims concern the uniform spanning tree of a complete bipartite graph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim only: the one-part laws are credited as exact existing results. The comparison across different hosts in the strongest indexed neighbor does not give the within-host strict likelihood-ratio order, and the broader containment results give probabilities, not the sign of their cross-class likelihood-ratio minors. The new comparison rests on a separate sign argument. This assessment is limited to inspected evidence.
+
+## value
+
+PASS
+
+Distinguishing the two natural anchor classes in a single unbalanced UST host by monotone likelihood ratios is a sharper, size-uniform structural result than comparing means or tails. In particular the higher-to-lower distance odds remain ordered after conditioning on the same distance window. The result is elementary but answers a natural comparison question not decided by the existing different-host theorem. The standalone law is not counted toward value as a new result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

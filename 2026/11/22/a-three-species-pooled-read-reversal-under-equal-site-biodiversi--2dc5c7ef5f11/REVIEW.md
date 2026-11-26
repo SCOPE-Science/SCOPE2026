@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The event of complete three-taxon recovery in two first-site reads is exactly the disjoint union of the outcomes \(BC\) and \(CB\), giving \(2bc\). In the pooled design, four labeled reads containing three taxa have multinomial patterns \((2,1,1)\) in each of three orders of the repeated taxon, giving \(12uvw\). Subtraction gives \(bc(3a-1)/2\) with strictly positive multiplier. The single-taxon inequalities, sharp two-taxon obstruction, eventual large-depth reversal and optimized-split qualification have independent elementary proofs. Rational enumeration in `checker.py` passed 1,771 compositions and additional assertions; it supports, but does not prove, the real-parameter theorem. Boundaries \(bc=0\) and the tie at \(a=1/3\) are stated explicitly.
+PASS
 
-## Originality
+In the stated independent, error-free four-read model, the separate design observes A for sure and its joint success is 2bc. The pooled absence probability for B or C of first-site frequency u is (1-u/2)^4 > (1-u)^2; pooled absence of A is also positive. Independent inclusion–exclusion gives pooled joint success 12 times the product of its three label probabilities, or 3(1+a)bc/2. Thus the difference is bc(3a-1)/2, with the stated tie and strict signs on the open simplex. With at most two exhaustive labels and at least one read, joint detection is determined by the marginals, so the three-label example is minimal. The rarer of B and C gives the stated exponential lower bound on pooled failure, eventually exceeding the separate union bound. Conditional on the binomial site count, the pooled label multiset has the deterministic-allocation law, so pooling cannot beat the maximum over deterministic allocations; for three first-site reads plus one second-site read, joint completion is exactly 3bc(1+a). The supplied checker was inspected, not executed. The multinomial and inclusion–exclusion formulas can be replayed from RESULT.md, lines 28–72; the finite grid is not the basis of the continuum result.
 
-**PASS within inspected evidence, priority provisional.** Exact source/claim, equivalence, broader-coverage and table comparisons found no prior statement implying simultaneous strict marginal-detection domination by equal-site sampling but a reversed three-species complete-inventory probability, with the sharp \(a=1/3\) boundary. Sato et al. (2017) and Courtaillac et al. (2024) concern empirical pooled-read detection; Altermatt et al. (2023) studies sampling-effort dependencies; an inspected two-habitat biodiversity finding treats **without-replacement expected richness**, and an inspected three-species coupon-collector finding treats **variance of completion time**. The relevant underlying probability calculations are classical. Direct navigation of one older full source was restricted, and unrestricted mathematical priority has not been independently established.
+## originality
 
-## Value
+PASS
 
-**PASS.** The example addresses a meaningful distinction between an eDNA survey's per-taxon sensitivity and a complete multi-taxon inventory objective. It proves that marginal-detection comparisons cannot decide the joint objective once three taxa are involved, isolates the smallest possible taxon count, and gives an exact parameter threshold independent of the two less widespread taxa's imbalance. The contrasting high-depth and optimized-allocation results prevent a misleading unconditional recommendation for pooling. These make it a motivated design-boundary counterexample rather than merely a computational curiosity.
+The supported distinct claim is the sharp equal-depth reversal between per-label marginal dominance and complete inventory, including its threshold and minimal label count. Neither the inspected published sampling comparison nor the closest distinct catalogue comparison supplies this implication or a stronger comparison including it. This is a bounded assessment, not a priority certification.
 
-The biological read-label model deliberately excludes real capture, extraction, amplification and contamination effects; no practical superiority is inferred.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This gives a minimal, parameter-sharp counterexample to inferring the probability of a complete inventory from uniformly better single-taxon detection. That distinction matters when choosing between expected richness and complete coverage, and the four-read boundary makes a concrete test case for sampling-design reasoning. The result is not a laboratory recommendation: it needs equal effective mixture weights and idealized independent reads, and optimal deterministic allocation is not beaten.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:18.671932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The structure determinant is ±2, so all odd reductions are perfect. Idempotence yields the zero vector or the successive squares of a scalar a with a^ell=1/2. Independence of the squares makes automorphisms monomial, and the directed cycle permits rotations only. The diagonal kernel is the group of ell-th roots of unity; the first coefficient for a shift s must be an ell-th root of 2^{-(2^s-1)}. The other coefficients then lie in the field by the square recurrences. For 0<s<n the exponent is coprime to ell, so the shift criterion is exactly triviality of the power class of 2. When a root exists, normalization to the unweighted cycle splits the action; taking the inverse of the forward rotation as generator gives exponent 2. Over Q the 2-adic valuation precludes a root and there is no nontrivial rational ell-th root of unity. At p=ell the ell-power map on the finite-field points is a bijection; no smooth group-scheme assertion is needed. Over Q(zeta_ell) the norm of a putative ell-th root would have valuation (ell-1)/ell, impossible. Thus the splitting field has degree ell(ell-1); its faithful affine action on the roots is the full affine group. Away from ramification the first two relevant Frobenius tests are the cyclotomic component and identity in the translation kernel. The three class-union sizes are ell(ell-2), 1 and ell-1, proving the densities. An independent bounded enumeration of the two counts matched 108 finite fields for n=3,5,7; neither that enumeration nor the frozen verify.py proves the group isomorphism or density assertions. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 27 record covers every cycle length, every finite field, and arbitrary nonzero weights. Its Step 2 identifies class 1 with equivalence to the all-ones weights; Step 4 gives the diagonal kernel and the lift iff c^(2^j)=c.",
+          "The survey's Example 2 gives the unweighted cycle; its Question 45 asks the broader arithmetic reduction question and is not itself a solution."
+        ],
+        "reasoning": "The earlier finite-field theorem is strictly broader for these inputs. Neither the earlier finite-field law nor the survey literally claims the prime-density extension.",
+        "searches": [
+          "Resultary e8db04aa8932, Finding and proof Steps 1–5",
+          "Kaygorodov–Martín González–Viruel arXiv:2610.22248v1, Example 2 and Question 45"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary e8db04aa8932 and ce64cf4dbd81",
+        "arXiv:1902.02191",
+        "arXiv:2610.22248v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When c=1, the earlier diagonal equivalence gives the unweighted cycle, whose diagonal kernel and coordinate rotations split. Conjugating by an inverse rotation raises the root-of-unity parameter to 2. When c is nontrivial it has prime order ell and squaring has full order n, so the prior lift criterion leaves only the cyclic diagonal kernel.",
+          "The earlier Step 2 recurrence and class-stabilizer computation work over Q before the use of cyclic finite multiplicative groups. v_2(2)=1 precludes a nontrivial shift; the power equation for idempotents and mu_ell(Q)=1 settle the rational data.",
+          "The remaining densities are exactly the counts of nonidentity multiplier, identity, and nonzero translation in the standard affine Galois group of X^ell-2. The Mersenne hypothesis affects the value of ell, not that density calculation."
+        ],
+        "reasoning": "The addition of abstract group structures and rational and density data is correct, but these additions are mechanical here rather than a new joint arithmetic mechanism.",
+        "searches": [
+          "Resultary e8db04aa8932, proof of the cycle-class criterion, lift and idempotent equations; arXiv:1902.02191, Theorem 3.2; frozen density proof compared with the standard Kummer/Chebotarev criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Resultary invariant c=[a_0^(2^(n-1)) ... a_(n-1)] for arbitrary nonzero weights is [2] here; c=1 is exactly the residue condition used in the Finding.",
+          "Elduque–Labra give the diagonal/graph exact sequence and the analogous weighted 2-cycle splitting iff its weight parameter is a cube."
+        ],
+        "reasoning": "The weight class and the scalar residue describe the same cycle normalization condition. The 2-cycle example alone is not the asserted n>=3 result.",
+        "searches": [
+          "Resultary search for weighted directed-cycle automorphisms and idempotents",
+          "Elduque–Labra arXiv:1902.02191, Theorem 3.2 and Example 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e8db04aa8932 gives exact formulas for all orders and idempotent counts and a finite-field example; substituting g=gcd(ell,p-1) and d=ord([2]) yields the exact counts in the submitted table.",
+          "Resultary ce64cf4dbd81 concerns a different six-cycle and a non-split extension of order 63, not the Mersenne prime strata."
+        ],
+        "reasoning": "The earlier exact symbolic data dominate any finite table of these specializations. The six-cycle example is related, not conflicting; its same-day date does not determine priority.",
+        "searches": [
+          "Resultary finite-field cycle profile and nonsplit weighted cycle examples"
+        ]
+      },
+      "rationale": "An earlier published Resultary finding covers arbitrary weighted directed cycles over every finite field and gives the cycle-power-class classification, rotation-lift criterion, automorphism orders, and idempotent counts. The finite-field part is its direct specialization including the abstract group labels by changing to the unweighted basis in the trivial-class case. The rational case and natural densities are not claims of that earlier record, but follow immediately from the same recurrences, valuation, and the standard Chebotarev calculation for the splitting field of X^ell-2. The comparison is to mathematical implication, not a claim that the earlier record literally writes down these densities.",
+      "residual_risks": [
+        "No priority claim for the earliest explicit prime-density wording; the structural coverage and standard density implication, rather than a missing primary source, determine the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct covering result for finite-field spectra by specialization and split unweighted normalization",
+          "evidence": [
+            "General isomorphism criterion, orders gn/r_d, exact idempotent counts, c=1 equivalence to unweighted cycle, and lift iff c^(2^j)=c"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cycli--e8db04aa8932/RESULT.md",
+          "material_read": "Finding and proof Steps 1–5, offsets 0–5442; Limitations",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Arithmetic isomorphism and idempotent–symmetry profiles of cyclic evolution algebras",
+          "trigger": "Exact general weighted-cycle arithmetic profiles"
+        },
+        {
+          "assessment": "Framework and prior two-cycle analogue",
+          "evidence": [
+            "Diagonal kernel with graph map; weighted two-cycle split precisely for a cube"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.02191",
+          "material_read": "Theorem 3.2 and Example 3.5, PDF pp. 9–10, offsets 23585 and 25969",
+          "method": "Lawful OA PDF, decisive passages",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "General monomial automorphism and weighted-cycle splitting framework"
+        },
+        {
+          "assessment": "Unweighted cycle example and broad motivating question, not exact prior density data",
+          "evidence": [
+            "Example 2 is unweighted; Question 45 asks what happens under prime reduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248v1",
+          "material_read": "Example 2 and Question 45, PDF pp. 3, 26, offsets 12302 and 90711",
+          "method": "Lawful OA PDF, decisive passages",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Motivating arithmetic specialization question"
+        },
+        {
+          "assessment": "Different length and weight and a different extension",
+          "evidence": [
+            "Six-cycle example with C_7 semidirect C_9"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-non-split-order-63-automorphism-group-from-a-weighted-evolutio--ce64cf4dbd81/RESULT.md",
+          "material_read": "Mirrored Finding, offsets 0–2490",
+          "method": "Configured Resultary search and local mirror",
+          "title": "A non-split order-63 automorphism group from a weighted evolution cycle",
+          "trigger": "Potential overlapping exact automorphism type"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a sound illustrative example of the reduction question, but the prior general weighted-cycle result already determines the exceptional finite-field behavior. The additional density computation is a textbook splitting-field count and uses no further distinguishing arithmetic of the family. No independently useful exact remainder not mechanically implied was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

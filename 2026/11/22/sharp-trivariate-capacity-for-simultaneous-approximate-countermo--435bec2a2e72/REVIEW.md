@@ -1,15 +1,21 @@
-# Review of the trivariate approximate-countermonotonicity capacity
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is all Borel couplings of three standard-uniform marginals and all tolerances \(\varepsilon\ge0\). The projection identity \(2X_i=(X_i+X_j)+(X_i+X_k)-(X_j+X_k)\) forces the sharp upper bound. The construction explicitly produces six disjoint half-unit component intervals with equal weights, so each raw marginal is uniform on \([-3/2,3/2]\); all raw pair sums have modulus at most one. Scale by \(\varepsilon\) and mix with a uniform distribution on the complement of the central interval to restore standard-uniform marginals. The event is impossible on that complement, proving equality. The two endpoints \(\varepsilon=0\) and \(\varepsilon\ge1/3\) follow separately. Exact rational checker assertions corroborate the critical affine and density algebra but are not the continuum proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-The motivating 2026 uniform-sum characterization of Chaudhary–Khandelwal is a **two-marginal** statement and does not control joint occurrence of three overlapping pair-sum events. The finite-point copula interpolation work of Omladič–Vuk–Zalar gives a discrete point-constraint feasibility theory, not an exact mass capacity for a three-dimensional continuum slab intersection. Lauzier–Lin–Wang and Lee–Cheung–Ahn discuss qualitatively different multivariate negative-dependence conditions, not this sharp approximate event. Targeted searches for trivariate approximate pairwise complementarity, equivalent slab-event capacity, and possible stronger transport theorems identified no implication establishing the linear coefficient or the threshold. A specialized, unlocated result remains a priority risk; absence from searches is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Three pairwise perfectly antithetic relations cannot hold simultaneously for three atomless standard-uniform coordinates. Quantifying their approximate compatibility is therefore a natural extremal-dependence problem. The exact transition at \(\varepsilon=1/3\), the sharp mass law \(\min\{3\varepsilon,1\}\), and its explicit symmetric extremizer give a complete answer to that natural problem, not a sample computation or an arbitrary restricted parameter value. The result also provides a concrete mass capacity for a convex intersection of three slabs in the unit cube.
+For each i the centred coordinate satisfies 2Xi=(Xi+Xj)+(Xi+Xk)−(Xj+Xk). Thus success projects into a central interval of length at most 3ε; the one-dimensional marginal gives the upper bound for every Borel coupling, including at ε=0. Independently normalize to ε=1/3: for T uniform on [0,1], randomly permute ((5+T)/6,(3−T)/6,(1+T)/6), with independent equally likely simultaneous reflection. The three raw pair sums are 4/3, 1+T/3 and 2/3; reflection preserves the tolerance. The six affine marginals range over the six successive sixths, each selected with probability 1/6, so each mixed coordinate is uniform. For 0<ε<1/3 scale this successful coupling toward 1/2 by 3ε and assign it precisely the marginal mass 3ε of the resulting interval. On the complementary branch take uniform marginals on the two outer parts; this branch cannot succeed by the projection bound. The threshold coupling works unchanged above 1/3. The inspected rational diagnostic is finite and not needed for this continuum proof.
 
-## Closest sources and limitations
-See Chaudhary–Khandelwal, arXiv:2610.24197; Omladič–Vuk–Zalar, arXiv:2611.14008; Lauzier–Lin–Wang, arXiv:2302.11701; and Lee–Cheung–Ahn (2017), DOI:10.1016/j.cam.2016.12.032. The theorem is restricted to three uniform marginals, a common target and a common tolerance. It does not determine every optimizer, address absolute-continuity restrictions or certify exhaustive bibliographic novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No distinct source located gives the exact three-slab probability or implies its attaining coupling. The identical catalogue entry is the assigned result, not independent corroboration or independent prior coverage. The closest distinct catalogue statements optimize geometrically different events; literature-access limits make the conclusion provisional rather than a priority certification.
+
+## value
+
+PASS
+
+This is a natural quantitative relaxation of mutually incompatible pairwise antithetic requirements. The projection bound alone does not show that three marginal requirements can be saturated by the same law. The piecewise-affine attaining coupling gives the exact attainable guarantee and feasibility threshold, useful for bounded-error dependence design and as a benchmark for multistochastic event optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

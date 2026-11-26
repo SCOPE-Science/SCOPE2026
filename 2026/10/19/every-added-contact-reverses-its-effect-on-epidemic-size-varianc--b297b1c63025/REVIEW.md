@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim applies to a finite connected simple graph with a uniform random seed and independent homogeneous retained edges. Conditional on whether the proposed link joins two open components, the uniform-root first and second moment increments are \(2ab/n\) and \(3ab(a+b)/n\). Expanding the variance gives the exact all-graphs identity. The all-edges-closed event proves a strictly positive mean increment and the low-transmissibility first-order variance increment \(2p/n\). The high-mean bound \(3(a+b)\le3n\le4\mu\), together with strict \(-p^2A^2\), proves negative variance increment. Connectedness implies \(\mu\to n\) as \(p\to1\). Exact rational finite checks agree but are not substituted for this proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+For a uniform vertex in a fixed retained subgraph, the j-th raw component-size moment is n^{-1} times the sum of component sizes to power j+1. When the independently retained new edge joins components of sizes a,b, the conditional increments for j=1,2 are 2ab/n and 3ab(a+b)/n; otherwise both vanish. Calling their expectations A and B gives a mean increase pA and a variance change p(B-2 mu_G A)-p^2 A^2. The all-closed state proves A>0 for every interior p and supplies the leading values mu_G=1, A=2/n and B=6/n with O(p) errors, giving the coefficient 2/n in the variance change. In every merging state a+b<=n, so B<=3nA/2 and mu_G>=3n/4 yields strict negativity even at equality via -p^2 A^2. Connectedness gives mu_G tending to n, and polynomial continuity gives a crossover, not uniqueness. The threshold uses the original graph's mean; the variance averages over both seed and bonds.
 
-The closest examined primary articles are Moore–Newman (2000), which gives size-biased outbreak distributions and moment formulas for small-world ensembles; Kenah–Robins (2006/2007), which distinguishes general SIR from independent bond percolation; and Becchetti et al. (2022), which studies component-size regimes and Reed–Frost equivalence for power-law small-world graphs. None of their inspected theorems states the arbitrary-fixed-graph edge-addition variance reversal or the sufficient high-mean condition. Related database records concern other percolation statistics or different epidemic processes. An equivalent result in reliability-polynomial or influence-spread terminology remains possible; searches do not prove global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For every network and every potential added contact, the theorem forces opposite effects on outbreak uncertainty at low and high transmission, even though the mean increases strictly at all transmission levels. The high-mean sufficient condition supplies a directly interpretable network-independent bound, and the exact identity makes the mechanism transparent. This is a structural, motivated all-network finding, not merely a numerical counterexample. The sufficient constant is not asserted optimal.
+Best-of-knowledge pass for the universal one-edge variance reversal and explicit high-mean certificate. Size bias, the independent-bond interpretation, and mean monotonicity are standard ingredients, not standalone novelty claims. The closest inspected comparisons do not have the one-edge edit and resulting uniform bound.
 
-## Limits
+## value
 
-No variance-crossing uniqueness, sharp global mean threshold, extension to dependent edge transmissions, or result for nonuniform seeds is proved. Model scope is intentionally restricted to independent-bond final-size distributions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statement resolves a natural question that mean monotonicity does not answer: the same single graph edit has opposite signs on unconditional variance at the two ends of a common bond parameter. The original-graph mean alone gives a usable simultaneous sufficient test for all nonedges, without comparing their entire distributions. The variance theorem, not the elementary mean observation or tiny example alone, is the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

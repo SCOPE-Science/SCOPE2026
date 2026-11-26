@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:51.825778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–71; VERIFICATION.md; check_projection.py (inspected, not executed).",
+        "Independent replay: /workspace/branches/72dc9029-6e8d-4235-b082-68b70a8f430b/record3_replay.py and record3_replay.out."
+      ],
+      "rationale": "Rotation and reflection averaging preserve reproduction and contract the norm, leaving the two free real multipliers. The resulting normalized L¹ objective is convex, coercive by the Fourier coefficient bound, and differentiable since each nonzero kernel has only finitely many zeros. The mass and first cosine moment are both one, so the kernel cannot have constant sign. One sign change cannot make both sine moments zero. For two crossings, the second-harmonic equation forces the sum of angles to be π/2 or 3π/2 and their difference below π/2; then the third-harmonic equation cannot hold. The polynomial in cos(t) has degree at most three, so the three remaining crossings are simple. The stationary equations suffice by convexity. Equality in the midpoint L¹ inequality forces identical crossing locations and hence identical cubic up to scale, fixed by mass one. Integration on the four intervals gives the norm formula. For each real unital A, continuity and the substitution g=2f−1 identify its worst excess with (||A||−1)/2. For degree two, the a=1/2 kernel has one crossing at π/2 and vanishing derivative in the single free direction, establishing the stated 4/π benchmark. It is not stationary in both directions at degree three. Independent 80-digit replay gives 1.161395443269471428720196… and 0.080697721634735714360098…; maximum equation residual 3.17e−81 and separate interval quadrature agrees. The canonical delayed kernel has larger norm, about 1.18809092367265300728.",
+      "residual_risks": [
+        "Uniqueness is for the even convolution kernel, not all real-linear operators. The proof's reference to three alternating sign intervals should read four intervals separated by three crossings; the formula uses all four. Numerical checks do not certify global optimality, which follows analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At L=1,s=4 the general circle theorem bounds the excess up to constants and the cited comparison already gives strict nonminimality of the delayed mean.",
+          "The projection accessibility theorem concerns exact reproduction of the range, not a transition band."
+        ],
+        "reasoning": "Sharp order and nonminimality cannot select the minimizer or yield the exact optimum. An exact formula for ordinary range projections does not optimize the two free higher multipliers.",
+        "searches": [
+          "Wu, arXiv:2609.02695v1, Corollary 5.1 and discussion at p. 13",
+          "Deregowska–Foucart–Lewandowska–Skrzypek, DOI 10.1007/s00605-018-1159-x",
+          "Defant et al., arXiv:2609.22050v1, Theorem 1.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 55d439fa056e; arXiv:2609.02695v1 and 2609.22050v1; DOI 10.1007/s00605-018-1159-x as described in Wu."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior degree-two proof optimizes one parameter. The frozen problem has two moment equations; the sign-change exclusion and uniqueness of its three-crossing optimizer are not consequences of the one-dimensional optimization.",
+          "Wu's nonminimality gives only that another choice is better, not which choice is optimal."
+        ],
+        "reasoning": "No inspected earlier theorem gives the full result by substitution or specialization; it requires the additional crossing and uniqueness analysis.",
+        "searches": [
+          "Resultary 55d439fa056e, Finding and kernel reduction",
+          "Wu, arXiv:2609.02695v1, §5.1",
+          "Defant et al., arXiv:2609.22050v1, Theorem 1.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu's λ₁(L,N) coincides with the all-reproducer norm at L=1,N=3. Norm and positivity loss are equivalent by unitality.",
+          "Defant et al. concern minimal projections onto the invariant range; reproduction of P₁ with range allowed in P₃ need not make a projection onto P₃."
+        ],
+        "reasoning": "Neither the change to positivity loss nor the symmetry reduction counts as new. The exact minimum in the two-free-multiplier slice is the question the compared results leave open.",
+        "searches": [
+          "Wu, arXiv:2609.02695v1, §5.1/Corollary 5.1",
+          "Defant et al., arXiv:2609.22050v1, abstract and Theorem 1.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact catalogue record gives the circle's optimal P₁→P₂ norm 4/π, not P₁→P₃. A norm of the named delayed mean is a different quantity from the unrestricted optimum."
+        ],
+        "reasoning": "An exact lower-band special case or specified kernel norm is not an exact table of degree-three minima. The bounded catalogue review did not establish historical priority.",
+        "searches": [
+          "Resultary fixed first-harmonic reproduction and positivity-loss comparisons; strongest hit 55d439fa056e",
+          "Wu §5.1 circle comparison and exact delayed-kernel reference"
+        ]
+      },
+      "rationale": "The general circle reduction and sharp-order bounds, the strict nonminimality of the delayed kernel (including these parameters), and the closest exact degree-two result are credited. No inspected result gives or implies the degree-three optimum or its unique even optimizer. The exact fixed-band calculation, not the already-known reduction or nonminimality alone, is the distinct contribution.",
+      "residual_risks": [
+        "The direct full text of the de la Vallée–Poussin article was not obtained; a narrower result there or in unindexed work cannot be ruled out. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General sharp-order and nonminimality background; does not determine this exact pair",
+          "evidence": "P_L reproduction into P_(sL−1), λ₁−1 of order s⁻²; delayed mean nonminimal for s>2, covering L=1,s=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02695v1",
+          "material_read": "Abstract p. 1; §5.1/Corollary 5.1 and p. 13 discussion, offsets 56500–61658",
+          "method": "OA PDF passages",
+          "title": "Positivity loss in bandlimited spectral reproduction on spheres",
+          "trigger": "Same class of generalized circle reproduction constants"
+        },
+        {
+          "assessment": "Credit strict nonminimality as cited; no claim about uninspected full contents",
+          "evidence": "Wu attributes bounds for the specified averaging means and nonminimality for s>2 to this paper.",
+          "identifier_or_url": "https://doi.org/10.1007/s00605-018-1159-x",
+          "material_read": "Wu's attribution and description on p. 13; original passages not accessible",
+          "method": "Publisher article/PDF and DOI attempts; accessible OA citation in Wu",
+          "title": "On the Norms and Minimal Properties of de la Vallée Poussin’s type Operators",
+          "trigger": "Plausible exact fixed-parameter or nonminimality predecessor"
+        },
+        {
+          "assessment": "Invariant range projections, not the present transition-band optimizer",
+          "evidence": "Accessibility is characterized via full isotypic components and used for range projections.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22050v1",
+          "material_read": "Abstract p. 1 and Theorem 1.9 p. 15",
+          "method": "OA PDF passages",
+          "title": "Projection Constants of Polynomial Spaces via Representation Theory",
+          "trigger": "Possible exact invariant-operator norm theorem"
+        },
+        {
+          "assessment": "Exact adjacent band, not the assigned band",
+          "evidence": "Gives the P₁→P₂ spherical norm and a unique orthogonally equivariant minimizer, including 4/π on the circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-transition-band-spherical-fourier-norm-and-a-dimensi--55d439fa056e/RESULT.md",
+          "material_read": "Finding and kernel optimization, offsets 0–7264",
+          "method": "Local mirror",
+          "title": "Exact first transition-band spherical Fourier norm and a dimension-dependent result",
+          "trigger": "Strongest distinct local exact result in the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, lines 4–68; Wu §5.1; Resultary 55d439fa056e."
+      ],
+      "rationale": "This is a natural next transition band: once two freely adjustable multipliers are present, the optimum necessarily develops three crossings and cannot be inferred from the one-free-multiplier case. The exact kernel and its norm quantify the best achievable positivity tradeoff among all such reproducers and give a concrete replacement for the canonical nonminimal mean.",
+      "residual_risks": [
+        "This is a fixed-band theorem, not a solution for all larger bands or a claim of positivity at the optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

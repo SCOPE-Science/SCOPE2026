@@ -1,15 +1,21 @@
-# Scientific assessment: exact terminal-wave rarity on complete branching trees
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof isolates an excitation's complete \(b\)-ary causal witness using the exclusion of two-step re-excitation on trees. On the perfect height-\(h\) tree, a time-\(h\) witness must span the entire tree and be rooted at the global root, because every nonroot vertex is more than \(h\) edges from some leaf. Height-one and height-two initial states are therefore forced as stated. A separate inductive argument proves that, despite arbitrary parent feedback, every permitted higher initial color preserves the upward excitation wave. This proves the exact count, the probability, and all boundary heights. Direct full-state checks, conditioned checks, adversarial local-input enumeration and randomized independent states all passed. The all-parameter assertion rests on the proof rather than finite tests.
+## correctness
 
-## Originality — PASS, qualified
-The exact maximum extinction time is **already covered** by the earlier branching-rank clock theorem. More importantly, **Bello–Sivakoff (2021), Lemma 4.7, already gives the necessary initial-color restrictions** on a threshold-branching causal witness; the inequality preceding their equation (4.7) multiplies those restrictions into the same candidate probability **upper bound**. Their statement does not provide the converse or its exact attainment on finite perfect trees. The present proof supplies a local sufficiency induction valid despite arbitrary parent feedback, making the restriction **necessary and sufficient** and the upper bound **exact**. Thus neither the restrictions as necessary nor the upper bound is claimed as new; only the sharp equality, independent upper-layer freedom, and the resulting exact law. Gravner–Lyu–Sivakoff (2016) studies threshold-one excitation rather than the threshold-\(b\) rule. The accessible maximal-time count for paths is a different shape/contact regime. Actual archival, indexed-publication and research-record searches did not find the present complete-tree cardinality formula. The original 1993 full text and a related public-record page were not fully accessible, and unindexed equivalent formulations remain a priority risk.
+PASS
 
-## Value — PASS
-A sharp worst-case extinction bound does not reveal the likelihood that a random initial field attains it. For every branching parameter this theorem gives the exact event, its number of labelled states, and the power recurrence of its vanishing probability as height grows. This is a mathematically natural extremal first-hitting-time classification on an unbounded family, with a local structural reason for the three distinct initial layers.
+With b>=2 and the exact synchronous 0->1->2->0 threshold rule, traceback from an excitation at time t branches at least b ways. Excitations at the same site cannot be two ticks apart, so backwards paths never immediately retrace an edge; on a tree they are simple and siblings' branches cannot meet. A height-t witness therefore takes at least (b^(t+1)-1)/(b-1) vertices. This forces t<=h, and a height-h witness spans and is rooted at the true root (any other vertex is farther than h from a leaf in a different first-generation branch). Its time labels force bottom states 1,0,{0,2}. Conversely the first two updates produce the waves as stated (the parent alone cannot stimulate a nonleaf with b>=2). If all children fire at j-1, none fires at j-2 or j-3. For j>=3 their parent cannot fire at either j-2 or j-1; it must be at rest at j-1 regardless of the initial state and external parent trajectory. It fires at j. The last excitation at h is nonzero through h+1 and is gone by h+2; if no excitation occurs at h, extinction is by h+1. The product count, probability and h=0,1 cases follow directly. My independent simulator checked both extinction time and the predicted extremizer predicate coordinatewise for every enumerated initial state, including all 3^15 binary height-three states (12 maximizers), all 3^13 ternary height-two states (2), and the ternary height-three slice with leaves fixed (24). Replay: python3 /workspace/reviews/reproduce.py 4 full (NumPy); /workspace/reviews/reproduce-output.txt. The height-three ternary slice is not full enumeration; the proof covers all parameters. Frozen C++/Python and saved outputs were inspected, not executed.
 
-## Scientific limits
-The proof is restricted to three states, synchronous updates, complete rooted trees and a threshold equal to the number of children. It does not supply the distribution of all shorter extinction times. The code is corroborative only; a separate independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only for the sufficient as well as necessary characterization and exact attainment of the shell probability on perfect trees. The old tree traceback, worst-case bound, existence of a standard attaining configuration, bottom-layer necessity, and product upper bound are not distinct contributions. The inspected overlapping statements do not force all admissible higher-layer initial colors to work; the local refractory-time argument establishes that missing assertion.
+
+## value
+
+PASS
+
+The census resolves whether the known worst-case clock is reached on a whole product class or only on special witnesses. The iff condition pins exactly the three bottom layers and explains why the probability of the maximal event is doubly exponentially small in height. Exact attainment despite arbitrary parent feedback is the useful additional structural fact, not the specialization of the old clock.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

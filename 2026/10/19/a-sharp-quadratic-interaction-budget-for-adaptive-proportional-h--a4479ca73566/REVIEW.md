@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The conditional increment under proportional unanimous voting has mean zero and second moment exactly \((1-p)ab\). The quadratic potential \(X(N-X)\) therefore loses expected mass \((1-p)ab\) per active event. Since \(ab\ge\ell-1\), truncation proves a finite mean stopping time before any optional-limit passage; monotone and bounded convergence then give the exact terminal identity. The conditional uniform bound gives the geometric tail. Connected-graph equality and the one-edge sharpness construction verify both sharpness assertions. The included `verify.py` passed 4888 exact rational assertions on representative finite systems. This is a complete analytic proof, not an empirical extrapolation.
+## correctness
 
-## Originality (O): PASS with residual priority risk
-The direct motivating article [1] establishes expectation-level conservation of magnetization and studies metastability numerically and with mean-field motif equations, but does not state the stopped *quadratic* discordance budget or a universal hypergraph active-event upper bound. The group-influence rule in [2] and the peer-pressure rule in [3] are majority-biased, so their convergence-time discussion does not imply the stated theorem. The pairwise adaptive analysis [4] uses a diffusion/slow-manifold approximation and not this finite-system exact hypergraph identity. The group-driven model [5] updates a *single focal opinion* per event rather than imposing unanimous opinion across an entire sampled hyperedge. Available mathematical research-record searches and accessible historical claim comparisons did not identify a covering result. A general stochastic-process theorem can supply the technique, and an unlocated specialized statement remains possible; first-priority status has not been independently established.
+PASS
 
-## Value (V): PASS
-For proportional voting, long-lived metastable activity is a central question in [1]. The proof gives a universal, topology-free finite-population work budget and exponential-tail guarantee despite arbitrary adaptive network change. It additionally identifies precisely how terminal fragmentation subtracts from the cumulative mixed-hyperedge activity budget. This is a structural statement for every finite network and rewiring strategy under stated update rules; the exact constant is attained even in a connected pairwise system, and the active-hyperedge lower-size factor is sharp. It is not a new generic martingale method; the meaningful object-specific implication is the contribution.
+Conditioning on the history including the nonanticipating choice, the two possible nonzero jumps +b and -a occur with probabilities (1-p)a/(a+b) and (1-p)b/(a+b). They balance in mean and their squared contributions sum to (1-p)ab. The stopped A-count is a martingale; its expected squared increment is the expected loss of X(N-X), by expanding that quadratic. Consequently the exact identity holds at each finite truncation with terminal potential at that truncation. Since ab=(a-1)(b-1)+a+b-1>=ell-1 and potential is nonnegative, the truncated expected number of events is bounded uniformly; monotone convergence gives finite mean and almost sure termination before passing to the terminal identity by bounded and monotone convergence. Conditional summation of the propagation indicators gives E P=(1-p)E tau, and the same drift argument after an arbitrary history gives conditional remaining mean at most B. Hence survival of each length-L block conditional on the past has probability at most B/L<=1/2, giving the stated tail without a Markov selector assumption. A connected fixed graph at p=0 has ab=1 throughout and terminal consensus, so equality is exact; the one-edge one-dissenter example at p=0 has ab=ell-1 and stops at its first event. At p>0 the same one-edge example with identity rewiring has geometric wait and also attains its state-dependent bound, although that extension is not needed. Under the stated unit Poisson clock convention the pre-absorption holding mean is at most one; conditional summation yields the separate physical-time expectation bound. Inspected the frozen verifier, including its finite transient equations, without executing it. Nothing here bounds inactive update attempts or guarantees consensus on a fragmenting network.
 
-## Limitations and closest literature
-The bound concerns active interactions and is not a mean-field prediction, unconditional consensus guarantee, or a threshold calculation. Strict propagation probability and unbiased proportional copying are necessary. References [1]–[5] in `RESULT.md` are the closest inspected papers; more general published optional-stopping formulations might indirectly subsume the bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same microscopic proportional adoption rule is already in Golovin–Mölter–Kuehn, and for their process the budget can be derived directly from it. The special case is not a new update model and its derivation uses standard stopped-quadratic-variation machinery. The supported distinct result is the explicit finite-population identity with terminal fragmentation correction and sharp event budget over the larger class of all admissible nonanticipating selection and opinion-preserving rewiring, with its uniform tail. No inspected earlier theorem states or covers that budget on this class.
+
+## value
+
+PASS
+
+The study of persistence of activity in adaptive proportional voting motivates a sharp finite event budget not visible from conserved expected opinion count. The exact terminal correction quantifies how fragmentation reduces cumulative mixed-group exposure. The guarantee works without connectivity, specified topology laws or even a Markov selector, and the quadratic order and group-size denominator are backed by equality cases. Its value is this explicit process-specific control, not the textbook martingale technique or a claim about actual time under arbitrary rate conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

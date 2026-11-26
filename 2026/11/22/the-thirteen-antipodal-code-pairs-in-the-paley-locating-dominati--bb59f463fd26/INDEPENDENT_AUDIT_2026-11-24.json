@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:52:55.851886Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; verify_bitmask.py and verify_sets.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/22b505f0-731a-4fbe-b54b-1bdbcd50498e/independent_paley13_check.py"
+      ],
+      "rationale": "Enumerated every subset of sizes 0–4 using open traces only at nonmembers, giving accepted counts (0,0,0,0,247). Closed traces at all thirteen vertices pick out 26 of the 247. Constructing both replacement graphs by pairwise symmetric difference and doing breadth-first search from every state gives connected jump and slide graphs, unordered distance histograms (1599,7995,15483,5304) and (858,3432,9087,13403,3588,13). The jump eccentricities are all four, and the slide eccentricities are five for 221 states and six for 26 states. The six affine orbit profiles agree with the frozen table. The endpoints of distance-six pairs are exactly the 26 identifying optima, each occurs once, and the unordered pairs are exactly the thirteen simultaneous translations of the displayed A,B, each intersecting in one point. This is exhaustive only for the labelled Paley graph of order thirteen, restricted to minimum locating-dominating sets.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al. introduce locating domination and move to bounds over orientations. Křišťan and Svoboda study shortest sliding sequences for ordinary dominating sets in trees and interval graphs."
+        ],
+        "reasoning": "Orientation bounds address a different invariant. The ordinary-dominating-set algorithm scopes checked do not assert the required distances for minimum locating-dominating sets on this host.",
+        "searches": [
+          "arXiv:2112.01910 p. 1; arXiv:2307.10847 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.01910",
+        "arXiv:2307.10847",
+        "Resultary, exact record bb59f463fd26 and distinct comparison 1d28b2130fd3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The connected-domination record reports one-vertex exchange, rather than the adjacency-constrained slides of identifying optima described here. The primary introductions give general definitions and different result scopes."
+        ],
+        "reasoning": "Neither knowing the minimum cardinality nor the standard definition of sliding decides the six-distance pairs in a restricted configuration graph. Changing the state predicate is not a legitimate way to transport the older census.",
+        "searches": [
+          "arXiv:2112.01910; arXiv:2307.10847; Resultary same-graph claim ending 1d28b2130fd3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Locating domination means pairwise distinct nonempty open traces among outsiders; ordinary domination does not enforce separation. Identifying codes test closed traces on every vertex.",
+          "The distinct Resultary connected-domination record counts 260 inclusion-minimal connected dominating sets of size four; this record has 247 minimum locating-dominating sets."
+        ],
+        "reasoning": "Switching from optimal locating codes to inclusion-minimal connected domination changes the actual configuration space. Ordinary domination reconfiguration and closed-neighborhood identification are not aliases for the open-outsider trace predicate. The identifying states here are a proper subset of the state space.",
+        "searches": [
+          "Resultary: Paley(13) minimum locating-dominating sets, token jumping and sliding, identifying codes and antipodes",
+          "Paley locating-dominating reconfiguration P13 token sliding (primary-literature lookup unavailable)",
+          "arXiv:2112.01910; arXiv:2307.10847"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit ending bb59f463fd26 is the same record, not independent evidence. The related same-day result ending 1d28b2130fd3 reports 260 states, 1911 undirected replacement edges and five affine orbits."
+        ],
+        "reasoning": "The related table is for connected-dominating states. Its numerical and predicate differences rule it out as the exact table searched for at the level of the available summary; date alone is not used to order the results.",
+        "searches": [
+          "Resultary: exact Paley-thirteen reconfiguration census and minimum-code orbits"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact minimum-code exchange geometry, especially the identifying-code/antipode equivalence. The closest distinct indexed computation concerns a different predicate and move regime. The inspected general sources do not establish this profile or equivalence. No priority claim is based on the failed primary-literature lookup.",
+      "residual_risks": [
+        "The targeted primary-literature lookup was unavailable; no inference of absence is drawn from it.",
+        "The distinct same-day Resultary hit was comparable only through its indexed summary. A separate exact enumeration or table may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background and related bounds, not exact reconfiguration coverage in the material inspected",
+          "evidence": "The introduction defines locating-dominating sets and frames the paper around orientation parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01910",
+          "material_read": "PDF p. 1, abstract and introduction at text offset 1002",
+          "method": "OA paper passage",
+          "title": "Locating-dominating sets: from graphs to oriented graphs",
+          "trigger": "Foundational comparator for the same set predicate"
+        },
+        {
+          "assessment": "Different feasibility predicate and graph scope",
+          "evidence": "The problem uses ordinary domination; the algorithms highlighted treat trees and interval graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.10847",
+          "material_read": "PDF pp. 1–2, abstract and introduction at text offset 604",
+          "method": "OA paper passage",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Same move and optimization context"
+        },
+        {
+          "assessment": "Summary-only comparison supports a different state space and result, not whole-document exclusion",
+          "evidence": "260 size-four inclusion-minimal connected-dominating states, 1911 exchange edges, five affine orbits.",
+          "identifier_or_url": "2026/11/22/SCOPE-five-affine-types-and-self-centered-exchange-geometry-of-minimal-connected-domination-in-the-paley-thirteen-graph--1d28b2130fd3",
+          "material_read": "Indexed mathematical summary; underlying file not available in the local reader",
+          "method": "Resultary catalogue and attempted local source inspection",
+          "title": "Five affine types and self-centered exchange geometry of minimal connected domination in the Paley thirteen graph",
+          "trigger": "Strongest distinct same-host indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact distance and orbit profiles",
+        "Independent exhaustive replay"
+      ],
+      "rationale": "This canonical small strongly regular host is a natural test for the impact of locality of moves on optimal sensor placements. The useful structure is not just the size of a finite list: requiring adjacent moves raises the diameter and singles out precisely the optima that solve the stronger vertex-identification problem. The translated antipodal matching gives an exact bottleneck and a reusable benchmark for locating-code reconfiguration.",
+      "residual_risks": [
+        "No wider Paley-family phenomenon is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

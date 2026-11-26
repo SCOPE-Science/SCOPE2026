@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:20:49.410865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md line 28 labels a matrix U^TPU but incorrectly gives diagonal 1+m/2; that is the diagonal of I+U^TPU. The complete corrected RESULT.md in repairs/1 corrects the identity and supplies its derivation and the Gram-matrix calculation; the original is unchanged. From g=Pb_0 and g_{j+m}=-g_j one obtains b_0^TPb_0=m/2 and b_t^TPb_0=(m-2t)/2. The cross-correlation S_t satisfies 2S_t-S_{t-1}-S_{t+1}=(m-2t)/2 and S_0=-S_m=m(m^2+2)/24, which uniquely gives the displayed cubic. Consequently the determinant factor is m+1+x and the Woodbury trace gives the stated rational gain. The derivative of the gain is strictly positive, so the discrete maximum of t(m-t) gives both optimizer sets including m=2 and both parities. Substitution of x=m-1 and x=m^2/4+O(1) gives the three stated asymptotics. An independently written grounded-Laplacian calculation matched both formulas and both optimizer sets for every admissible t at 2<=m<=9; see branches/625f4f20-8b81-4afa-8ed1-6b8315f4001e/independent_check.py. The finite check does not replace the proof. Frozen check.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al., pp. 4–5 and 7: general tree/determinant identities and the discrete edge-selection problem, not the two-diameter optimum.",
+          "Published record 68912fe90b7c studies two unit added nonedges on a path, including conflict at n=15."
+        ],
+        "reasoning": "Neither general objective machinery nor the path calculation gives a covering theorem for this restricted cycle problem. The cycle dipole correlations are necessary graph-specific input. No claim about arbitrary chords is accepted.",
+        "searches": [
+          "Ghosh–Boyd–Saberi DOI 10.1137/050645452",
+          "Khosoussi et al. arXiv:1604.01116, Theorems 2.1–2.2 and §4.1",
+          "Published-result search for unrestricted cycle chord augmentation and two-edge A/D designs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and corrected repairs/1/RESULT.md; VERIFICATION.md and check.py",
+        "DOI 10.1137/050645452; arXiv:1604.01116",
+        "Published-record IDs 580810ed58cd, 5eb0f876c681, 68912fe90b7c and 01ff0b7f256c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path study reports alignment through n=14 and disjoint sets at n=15; circular-ladder study treats a different graph and one objective.",
+          "The general identities reduce the problem to a pair of low-rank matrices, but do not evaluate them or force common maximizers."
+        ],
+        "reasoning": "A tree optimum by balanced spacing on a different graph, or finite A/D behavior on a path, is not a specialization that determines either the rational Kirchhoff reduction or the common cycle optimizer.",
+        "searches": [
+          "Inspect path A/D conflict record 68912fe90b7c and circular-ladder spacing record 5eb0f876c681",
+          "Compare Ghosh–Boyd–Saberi trace identity with Khosoussi et al. determinant design framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi, PDF p. 7, equations (13)–(16): total resistance is n times the pseudoinverse trace.",
+          "Circular-ladder three-rung record 5eb0f876c681, Finding: balanced gaps optimize the tree objective on a prism."
+        ],
+        "reasoning": "Kirchhoff index and total effective resistance are exactly the same invariant here, and weighted tree maximization is the determinant objective. Identifying aliases does not identify the doubled cycle plus two crossing diameters with a prism plus three weighted rungs, or imply a resistance law from a tree law.",
+        "searches": [
+          "Primary query: \"cycle\" \"two chords\" Kirchhoff index spanning trees optimal placement electrical resistance",
+          "Published-result search for diameter spacing and A/D graph augmentation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 580810ed58cd is the same bound record; distinct record 01ff0b7f256c reports a bounded greedy three-chord tree-design failure (235 versus 240 at n=9)."
+        ],
+        "reasoning": "An indexed copy is not distinct prior coverage. The bounded greedy three-edge data does not tabulate or imply the all-size exact two-diameter laws and the complete optimizer sets.",
+        "searches": [
+          "Published-result search for exact cycle tree counts, Kirchhoff gains and diameter optima"
+        ]
+      },
+      "rationale": "The repair does not change the claim. Credit the general design objectives and matrix formulas to prior work. The supported distinct contribution is the two explicit laws and complete common equality classification for the restricted even-cycle diameter family. The pertinent circular and two-edge comparison results do not cover that family and both objectives.",
+      "residual_risks": [
+        "A specialized two-chord resistance or graph-polynomial result under another description may have been missed; bounded searches do not establish priority.",
+        "Same-day comparisons distinguish content, not chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established framework, not the specific cycle theorem",
+          "evidence": "Total effective resistance is the pseudoinverse-trace objective; the model optimizes conductance allocations.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "PDF p. 1 and p. 7, equations (13)–(16)",
+          "method": "Lawful OA paper",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General resistance-design theorem or formula"
+        },
+        {
+          "assessment": "Established determinant framework",
+          "evidence": "Matrix-tree statements and weighted k-edge selection establish the D criterion, but not the exact cycle-specific pair of laws.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "pp. 4–5, Theorems 2.1–2.2; §4.1, p. 7",
+          "method": "Lawful OA paper",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Potential broader discrete edge augmentation result"
+        },
+        {
+          "assessment": "Related exact balance but different graph and objective scope",
+          "evidence": "Three weighted rungs of a prism; only the tree sum is at issue.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-spacing-extrema-for-three-weighted-rungs-of-a-circular--5eb0f876c681",
+          "material_read": "RESULT.md offsets 255 and 972",
+          "method": "Published-record mirror",
+          "title": "Universal spacing extrema for three weighted rungs of a circular ladder",
+          "trigger": "Closest circular spacing analogue"
+        },
+        {
+          "assessment": "Different graph and quantifier",
+          "evidence": "Path plus two unit nonedges; finite alignment then conflict, not alignment of diameters on even cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-fifteen-vertices-are-the-first-a-d-design-conflict-for-two-unit--68912fe90b7c",
+          "material_read": "RESULT.md offset 200",
+          "method": "Published-record mirror",
+          "title": "Fifteen vertices are the first A–D design conflict for two unit chord additions",
+          "trigger": "Material overlap on A/D and two edge additions"
+        },
+        {
+          "assessment": "Does not provide the target table or theorem",
+          "evidence": "Three-chord greedy tree comparisons at 5<=n<=9, not two diameters and two objectives.",
+          "identifier_or_url": "2026/11/22/SCOPE-nine-vertices-are-the-first-tie-robust-failure-of-greedy-three-c--01ff0b7f256c",
+          "material_read": "RESULT.md offset 200",
+          "method": "Published-record mirror",
+          "title": "Nine vertices are the first tie-robust failure of greedy three-chord augmentation",
+          "trigger": "Related exact chord-design data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two diameters are natural longest shortcuts on a unit cycle. Their relative separation changes the exact objectives; the result identifies the full set of common optimizers, and the resistance gain has a factor-of-two separation from adjacent diameters in the leading term while the tree-count ratio grows with size. This is a concrete two-objective benchmark, not simply evaluation of the general matrix identities or a claim about unrestricted augmentation. The proof repair leaves that value intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

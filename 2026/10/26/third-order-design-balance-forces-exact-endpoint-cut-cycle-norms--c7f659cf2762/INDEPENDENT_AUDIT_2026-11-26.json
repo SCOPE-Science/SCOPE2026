@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:28:05.883209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–43, 45–123 and 140–145",
+        "VERIFICATION.md, lines 19–29 and verification_checker.py inspected without executing it"
+      ],
+      "rationale": "For a source incidence (i,S), eliminating block potentials leaves the scalar lambda*v/k on mean-zero point potentials. This gives x_i=(k-1)/(lambda*v), x_j=-1/(lambda*v) on S minus i, and zero elsewhere; each block potential is its average x minus 1/k on S alone. Thus the block S contributes 1, since lambda*v>k. On every other block T through i only the edge from i is positive, with absolute block sum 2[(k-1)^2+b_T]/(k*lambda*v); on a block missing i the negative and positive parts are separated by membership in S, giving 2b_T(k-b_T)/(k*lambda*v), including the zero cases. Here b_T=|T intersect (S minus i)|. The sums of b_T on the first class and b_T(k-b_T) on the second are (k-1)(lambda-1) and (k-1)(v-k)(lambda-tau) respectively. The latter count excludes exactly tau blocks through i for each cross pair. Substitution of (k-1)r=lambda(v-1) gives the claimed Q formula for every column. Q_ee=1/k+(k-1)/(lambda*v) is strictly between 0 and 1, so replacing Q by I-Q adds 1-2Q_ee to each absolute column sum. Symmetry gives the same infinity norms. The inverse-incidence and Steiner quadruple simplifications agree (e.g. Q=11/4 and P=3 at v=8,k=4,tau=1); no transitivity is used.",
+      "residual_risks": [
+        "The reported 1,096 finite columns and 116 grounded-Laplacian columns are corroboration; the listed instances do not by themselves test asymmetric designs or general k.",
+        "No inference about arbitrary weights, strength two, or nonorthogonal norm minimizers is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The transfer-current theorems provide general upper bounds rather than equality.",
+          "Resultary 19ef2c792acc gives equalities under the symmetric 2-design assumption."
+        ],
+        "reasoning": "The symmetric-design hypothesis does not cover the target: if the underlying 2-design were symmetric, then r=k, but the design derived at any point is a nontrivial 2-design on v-1 points with r blocks and requires r>=v-1 by its full-rank point Gram matrix (lambda>tau). This contradicts k<=v-2.",
+        "searches": [
+          "arXiv:1708.01632 Theorems 1.4–1.5",
+          "arXiv:2605.24130 Theorems 1.1–1.2",
+          "Resultary 19ef2c792acc Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.01632",
+        "arXiv:2605.24130",
+        "arXiv:2305.12582",
+        "Resultary 431fab1ed962, 2c1550cf6033, 19ef2c792acc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior current framework gives a linear solution but not sums of absolute values.",
+          "The decisive b_T(k-b_T) sum measures pair incidence while excluding one point; its lambda-tau factor needs triple balance or an equivalent additional hypothesis."
+        ],
+        "reasoning": "Neither exact pair-unique or symmetric-family solutions, nor asymptotic localization bounds for all graphs, supply this count or equality on the target regime.",
+        "searches": [
+          "General transfer-current theorems at arXiv:1708.01632 and arXiv:2605.24130",
+          "Resultary 2c1550cf6033 and 19ef2c792acc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The canonical cut projection is the electrical transfer-current operator; its column norm is the absolute current emanating from a unit transfer along one incidence.",
+          "Resultary 431fab1ed962 and 2c1550cf6033 prove exact electrical/projector results for Steiner 2-designs with pair multiplicity one."
+        ],
+        "reasoning": "The electrical restatement does not make the evaluation automatic, and lambda>1 in the stated 3-design range. In particular a Steiner quadruple system here has triple index one, not pair index one.",
+        "searches": [
+          "Resultary: endpoint Hodge norms, design incidence graphs, electrical bypasses and transfer currents",
+          "arXiv:1708.01632, Section 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact current-class tables exist for pair-unique or symmetric incidence designs.",
+          "Dilworth–Kutzarova–Ostrovskii gives (n+1)/2 for a cut projection on the n-cube."
+        ],
+        "reasoning": "These are genuine exact-computation precedents, but not a table of the claimed 3-design norms; the proof for the indexed graph families cannot be substituted for all simple 3-designs.",
+        "searches": [
+          "Resultary 431fab1ed962 and 19ef2c792acc current-class tables",
+          "arXiv:2305.12582, Section 2.7 Theorem 45"
+        ]
+      },
+      "rationale": "The exact norms for general strength-three incidence graphs, determined by third-order overlap rather than a symmetry hypothesis, pass the scoped comparison. Electrical-current representations, weaker universal bounds, and exact norms for other graph families or design regimes are prior work, not contributions of this record.",
+      "residual_risks": [
+        "Indexed and accessible passages do not establish priority. Older exact incidence-network calculations may use other terminology; some broader search results were uninformative or unavailable in the completed lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and bounds, not the claimed equality",
+          "evidence": "Theorems 1.4–1.5 give general logarithmic-order bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "Section 1.2, PDF page 4, OA offset 10295",
+          "method": "OA PDF passage",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Equivalent electrical transfer-current quantity"
+        },
+        {
+          "assessment": "General bound, not an exact design answer",
+          "evidence": "Average absolute current at most 2 log n and a bound for the absolute transfer-current matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "Theorems 1.1–1.2, PDF pages 1–2, offset 2902",
+          "method": "OA PDF passage",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Stronger general localization results might subsume all graph-family constants"
+        },
+        {
+          "assessment": "Exact result on another graph family",
+          "evidence": "Cut projection norm (n+1)/2 on the n-cube.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Section 2.7, Theorem 45, PDF page 23, offset 74468",
+          "method": "OA PDF passage",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Exact endpoint norms in graph families"
+        },
+        {
+          "assessment": "Pair-unique Steiner designs only in inspected statement",
+          "evidence": "Exact electrical decomposition and endpoint norms for 2-(v,k,1).",
+          "identifier_or_url": "Resultary 431fab1ed962",
+          "material_read": "Finding and current-class table in RESULT.md, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Equal-length electrical bypasses and exact endpoint Hodge norms",
+          "trigger": "Prior exact incidence-graph currents"
+        },
+        {
+          "assessment": "Pair-unique hypothesis excludes present regime",
+          "evidence": "All existing Steiner 2-designs; lambda=1.",
+          "identifier_or_url": "Resultary 2c1550cf6033",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal endpoint norms for Steiner design incidence graphs",
+          "trigger": "Universal exact incidence-design norms"
+        },
+        {
+          "assessment": "Symmetric 2-design hypothesis does not encompass the target",
+          "evidence": "Symmetric designs with 2<=lambda<=k-2; exact current classes and norms.",
+          "identifier_or_url": "Resultary 19ef2c792acc",
+          "material_read": "RESULT.md Finding and seven-current-class table, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal endpoint Hodge norms for symmetric design incidence graphs",
+          "trigger": "Prior exact incidence-graph solution for lambda>=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, proof steps 2–4, and examples at lines 129–145",
+        "arXiv:1708.01632 and arXiv:2305.12582 for mathematical context"
+      ],
+      "rationale": "Exact endpoint norms are natural measures of worst-case absolute electrical transfer and of the canonical cycle projection. A formula for every edge across a family defined by incidence balance rather than group symmetry is informative beyond general bounds. In particular designs with the same (v,k) can have different constants, quantified by the inverse pair-incidence dependence; the strength-three calculation explains the difference and provides exact benchmarks.",
+      "residual_risks": [
+        "An exact canonical norm does not assert that the canonical complement is optimal among nonorthogonal projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

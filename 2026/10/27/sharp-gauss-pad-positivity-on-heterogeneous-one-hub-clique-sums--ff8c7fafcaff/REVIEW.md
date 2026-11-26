@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four families of orthogonal Laplacian spectral subspaces, including their dimensions, were reconstructed directly from the adjacency rule. This yields the hub-to-leaf entry \(12h/d(nh)\), positive cross-petal entries, and a rational formula for within-petal entries with numerator \(12hP_{n,k}(h)\). The coefficient identity \(kn+k-n^2+n+1=-[1+j(k+3)+j^2]\) at \(n=k+2+j\) proves exactly one positive quartic zero by Descartes' rule and endpoint signs. Since each denominator is positive, the smallest such root gives the full nonreentrant interval. Positive definiteness of the rational spectral filter settles all diagonals. An independently assembled exact Laplacian-matrix verifier tests the critical symbolic identities and 2,322 rational off-diagonal entries on 23 graphs. No infinite assertion rests on enumeration.
+PASS
 
-## Originality — PASS with documented residual risk
+For unit conductances, the constants, hub contrast, zero-total petal averages, and within-petal zero-sum spaces give eigenvalues 0,n,1,k+1. The dimension sum is n; repeated petal sizes simply give additional orthogonal summands at the same eigenvalue. The [2/2] multiplier r(z)=1−12z/d(z) is in (0,1] for z>=0 because its numerator is (z−3)^2+3 and its denominator is positive. It follows that all diagonals are positive and the constant mode gives norm exactly 1. The hub entry is 12h/d(nh), and the cross-petal entry is 12h²((n+1)h+6)/(d(h)d(nh)). For a within-petal pair the projector correction is (r(h)−r((k+1)h))/k; clearing denominators after factoring 12h gives h((n+1)h+6)d((k+1)h)+(12−(k+1)h²)d(nh), exactly the stated P_(n,k). Writing n=k+2+j, j>=0, makes its leading coefficient −(k+1)(1+j(k+3)+j²), with all other coefficients positive. Thus P/h⁴ strictly decreases on h>0 from +infinity to a negative limit; this gives one crossing, the closed threshold, and no reentry. Singleton petals have no such off-diagonal entries; h=0 gives the identity, not strict off-diagonal positivity. I independently checked both signs of all four example root brackets with exact scaled quartic arithmetic (replay: branches/review-exact-small-checks.js). The supplied verifier was inspected, not executed; the inequalities for all sizes and real h follow analytically.
 
-The closest method-specific primary paper is Zappavigna et al. (2010), which treats sufficient diagonal-Padé preservation conditions for Hurwitz Metzler systems and examples of failures, not an exact endpoint threshold for conservative heterogeneous clique sums. Gottlieb–Shu–Tadmor (2001) gives general SSP limitations; Blanes–Iserles–Macnamara (2022) develops different positivity-preserving integrators and explicitly discusses Padé positivity as an ongoing challenge. Spectral windmill literature is not a timestep-sign theorem. Exact published mathematical-record searches and nearby available results on explicit RK4, Gauss integration on multipartite graphs, and special finite networks were compared by implication. None of the inspected claims determines the within-petal quartic positivity horizon on nonstar clique sums. Full specialized coverage remains a residual literature risk; search absence alone was not treated as proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives an exact decision procedure and sharp positivity horizon for *all* heterogeneous clique bouquets, a natural hub-and-community diffusion family; its threshold is explicitly computable from a small number of fixed-degree polynomials regardless of graph size. It reveals an unexpected qualitative distinction: stars alone enjoy unconditional positivity, one added edge can remove it, and the first failing petal can be intermediate in size. The graph-specific resolution of the spectral-stability/positivity gap is a motivated result rather than a routine substitution, and no more general downstream theorem is claimed.
+Matched and credit the exact equal-petal classification, the generic projectors and spectral entry identities, and prior unconditional star positivity as coverage. The supported distinct claim is the sharp sign problem for the nonconvex Gauss multiplier with unequal petals, including the competition of different within-petal thresholds. The closest equal-size and convex-filter statements do not themselves establish this extension; catalogue dates are not used to adjudicate priority.
 
-## Limitations
+## value
 
-The theorem applies to finite simple unweighted one-hub clique sums and completed two-stage Gauss–Legendre endpoints, not weighted block graphs or internal stages. Formula identities were verified symbolically and on selected exact matrices; the unrestricted claim has a separate analytical proof. Literature coverage is finite and cannot certify global novelty. Independent mathematical review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp, all-step entry-sign classification for an implicit high-order diffusion integrator on a natural heterogeneous graph family. The exact thresholds distinguish stochastic positivity from spectral contraction and show why, even among cliques glued at one hub, neither the largest nor the smallest petal need control the admissible step. These are useful distinctions absent from an equal-petal or uniform sufficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

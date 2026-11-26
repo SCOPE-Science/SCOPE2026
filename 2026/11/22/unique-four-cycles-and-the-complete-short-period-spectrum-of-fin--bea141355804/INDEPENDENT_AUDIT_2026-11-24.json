@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:37:12.980529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–25 and 27–54",
+        "Frozen VERIFICATION.md, line 19",
+        "Frozen CHECK.py, lines 6–71 (inspected, not run)",
+        "Independent Sylvester construction and Bareiss determinants, reviews/evidence/recompute.py"
+      ],
+      "rationale": "Fixed points are exactly y=0. For a second return with y≠0, the first coordinate forces x=−1 and the second then forces y=0. Independently formed both integer Sylvester matrices by using b_j=a_{j+1}−a_j and b_j/y=∏_{ℓ<j}a_ℓ for the iterated coordinates. Their determinants reproduce x(x²+x+1)² for the two third-return quotients, and x³(x²+1)^4 for H=1+x(x+y)(1+y) and the second fourth-return quotient; the first fourth-return quotient is (x+1)H. A common finite root forces the specialized determinant to vanish even if degrees drop: the vector of descending powers of the root ending in 1 is in the Sylvester kernel. For period three, x=0 gives first quotient 1, while x²+x+1=0 gives xy≠0. For period four, if x≠−1 then H=0, so x²=−1 (x=0 is excluded by H=1). At x=−1 the second quotient is −y(y²−2y+2); characteristic two gives no nonzero y, and any root x²=−1 in characteristic two is itself −1. Otherwise this branch yields y=1±i, and on x²=−1 with x≠−1, H=0 reduces to y((x−1)y−2)=0, yielding y=−1−x. Direct iteration of the four candidates gives one directed cycle with four distinct points. The product decomposition counts the fixed points of Φ^4 as ∏(q_j+4ε_j), using cyclicity of the odd field multiplicative groups; removing the ∏q_j fixed points and dividing by four counts exactly the four-cycles, with no periods 2 or 3 appearing via products. For F_5×F_5 the number is (9²−25)/4=14. The replay path for the independent integer determinants is python3 /workspace/reviews/evidence/recompute.py (requires SymPy).",
+      "residual_risks": [
+        "The exact elimination is for returns up through the fourth iterate; no claim is made about higher cycles or about extending the product formula to nonreduced rings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chernev–Chernev Statement 4.1 rules out two-cycles in reduced rings, more broadly than over fields",
+          "Resultary e988f4ba1aa2 classifies whether characteristic-two extensions have any nontrivial cycle",
+          "Resultary a8799d46a536 covers a nonreduced binary chain ring; 96c2faad5d8b concerns six-cycles"
+        ],
+        "reasoning": "A theorem on existence of nontrivial cycles can coexist with no cycles of any particular short length, as with the explicit eight-cycle in the characteristic-two comparison. Counts in a specified nonreduced ring and families of six-cycles do not solve the defined field-factor four-cycle problem.",
+        "searches": [
+          "Chernev–Chernev arXiv:2611.07521v1, §§4–5",
+          "Resultary searches for characteristic-two cycles and short-period classifications",
+          "Focused search for an alternate lawful full text of Lipkovski's ring-digraph paper"
+        ]
+      },
+      "checked_sources": [
+        "Chernev–Chernev, arXiv:2611.07521v1, §§4–5",
+        "Local Resultary e988f4ba1aa2, a8799d46a536 and 96c2faad5d8b",
+        "Lipkovski 2012 and 2017: access checks only, as detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nilpotent criterion implies no period two over any field",
+          "Existence for primes p≡1 mod 4 and the exact F_5 witness overlap",
+          "The record's integral elimination excludes any other points of least period four over a field"
+        ],
+        "reasoning": "A construction over prime fields does not preclude a second four-cycle in those fields or a cycle in a field lacking a square root of −1. Even when its substitution extends to all fields containing i, it still only supplies existence. The multiplicative group criterion and product counting alone then cannot give the required counts without field uniqueness.",
+        "searches": [
+          "Chernev–Chernev §4 Statement 4.1 and §5 Theorem 5.3, read at HTML offsets 7300 and 9700",
+          "Lipkovski 2017 DOI 10.1007/s10958-017-3484-3 and Lipkovski 2012 DOI 10.2298/PIM1206035L"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chernev–Chernev arXiv:2611.07521v1, §5, Lemma 5.1, Example 5.2 and Theorem 5.3",
+          "The same φ(a,b)=(a+b,ab) is called a structure graph or a digraph associated with a ring."
+        ],
+        "reasoning": "Comparing the output of Φ^4 to the fixed-point locus targets the same invariant as counting primitive four-cycles because there is no least period two in a field. The earlier F_5 example is exactly the specialized displayed cycle, not a different witness; it does not exhaust Φ^4 over arbitrary fields.",
+        "searches": [
+          "Resultary: Vieta map four-cycles, q≡1 mod 4, reduced-ring product counts, complex-field short periods",
+          "Primary literature: structure graphs and Digraphs Associated with Finite Rings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 5.2 explicitly lists the F_5 four-cycle, which coincides with i=2",
+          "Indexed exact period counts for the binary chain ring concern a nonreduced example outside the claim",
+          "No Lipkovski table was readable in the lawful copies attempted"
+        ],
+        "reasoning": "The prior exact F_5 witness is one positive instance, and a small-field table, if found, would not imply necessity and uniqueness over every field unless backed by a systematic argument. Unavailability of the old table locations prevents drawing any conclusion about their contents.",
+        "searches": [
+          "Resultary: exact short-period and four-cycle counts for fields and finite reduced rings",
+          "Chernev–Chernev §5 Example 5.2",
+          "Lipkovski 2012 alternate copies sought via EUDML/EMIS and the identified repository candidates"
+        ]
+      },
+      "rationale": "The supported contribution is necessity and uniqueness of the four-cycle for arbitrary fields, including odd extensions and the exclusion in characteristic two, with the resulting exact short-period census. Period-two exclusion and prime-field four-cycle existence are established prior overlap, not credited as new. A direct product count is elementary once the exact field-factor census is available; no separate originality claim is made for that counting principle. No inspected statement proves the complete field-factor classification. Earlier inaccessible papers remain a specific risk, not negative evidence and not a reason alone for a verdict.",
+      "residual_risks": [
+        "Earlier finite-ring classifications or tables, especially the two Lipkovski papers, may contain more overlap than the inspected sources establish. The decision is based on actual read evidence and makes no claim of historical priority or ordering among same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers no period two in fields and four-cycle existence over primes p≡1 mod 4; inspected results do not give an exhaustive four-cycle classification",
+          "evidence": [
+            "A 2-cycle exists iff there is a nontrivial nilpotent",
+            "For F_5 the example is (4,3)→(2,2)→(4,4)→(3,1)→(4,3); the prime-field theorem states existence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07521v1",
+          "material_read": "§4 Statement 4.1 at HTML offset 7300; §5 Lemma 5.1, Example 5.2 and Theorem 5.3 at offset 9700",
+          "method": "Open-access article passages",
+          "title": "On the Connected Components of Structure Graphs of Associative Rings",
+          "trigger": "Same map and explicit four-cycle result"
+        },
+        {
+          "assessment": "Unresolved overlap; no not-covering conclusion from inaccessible text",
+          "evidence": [
+            "Bibliographic identification and same map on finite commutative rings; no scientific four-cycle statement verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/PIM1206035L",
+          "material_read": "Bibliographic/search descriptions only; no theorem or table accessible",
+          "method": "DOI/Doiserbia attempts and alternate-copy search: EUDML doc/255632 timed out, identified EMIS listing 404, repository PDF candidates 403",
+          "title": "Digraphs Associated with Finite Rings",
+          "trigger": "Exact older finite-ring subject and potentially relevant short-cycle criteria or tables"
+        },
+        {
+          "assessment": "Unresolved short-cycle overlap",
+          "evidence": [
+            "The cited work is relevant by subject and its bibliographic identity; its exact four-cycle assertions were not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10958-017-3484-3",
+          "material_read": "Bibliographic identification only; no paper passage accessible",
+          "method": "DOI and identified Springer PDF (repeated redirects); no lawful repository copy identified",
+          "title": "Structure Graphs of Rings: Definitions and First Results",
+          "trigger": "Cited older work on the same graphs and short cycles"
+        },
+        {
+          "assessment": "Same-day different invariant; not exact short-period census",
+          "evidence": [
+            "Exactly 2^m components iff m=1,2; an eight-cycle is exhibited when 4 divides m."
+          ],
+          "identifier_or_url": "Resultary e988f4ba1aa2",
+          "material_read": "Local mirror RESULT.md, finding on number of components and existence of nontrivial cycles",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The complete characteristic-two cycle criterion for finite fields",
+          "trigger": "Same functional graph over characteristic-two extensions"
+        },
+        {
+          "assessment": "Same-day exact counts on a nonreduced ring outside the claim",
+          "evidence": [
+            "Counts several dyadic periods in F_2[t]/(t^10), not field or reduced product factors."
+          ],
+          "identifier_or_url": "Resultary a8799d46a536",
+          "material_read": "Local mirror RESULT.md, period-count finding",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dyadic cycle periods and the first sixteen-cycles in a binary chain ring",
+          "trigger": "Exact four-cycle count for the same functional graph"
+        },
+        {
+          "assessment": "Same-day adjacent result for period six, not the checked short-period range",
+          "evidence": [
+            "Treats primitive six-cycles for a family of primes p≡19 mod 24."
+          ],
+          "identifier_or_url": "Resultary 96c2faad5d8b",
+          "material_read": "Local mirror RESULT.md, prime-family finding",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A positive-density six-cycle family in an unresolved residue class",
+          "trigger": "Same graph and finite prime-field cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–25 and 38–54",
+        "Chernev–Chernev, arXiv:2611.07521v1, §§4–5"
+      ],
+      "rationale": "Short nontrivial cycles are the basic obstruction to graphs made only of fixed-point components. In the first nontrivial period, the field result replaces isolated existence examples with an exhaustive arithmetic condition and exact multiplicity, and determines the finite reduced product census without scanning the entire functional graph. It also cleanly distinguishes the absence of four-cycles from the potentially much harder absence of all cycles.",
+      "residual_risks": [
+        "The scope is explicitly short periods; the global graph component or no-nontrivial-cycle problem is not settled."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

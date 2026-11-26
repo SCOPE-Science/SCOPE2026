@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:42.073065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated u,v are orthonormal, the off-diagonal site block is J|u><v| and σ_z interchanges the two basis vectors with a minus sign. Ordering the basis along the resulting path gives N−1 links of weight J with two uncoupled boundary vertices until the onsite perturbations join them via links of weights ±iγ/2. End sites give disjoint three-vertex components, interior noncentral sites give disjoint four-vertex components, and central sites share one dimer, producing a six-vertex component. With z=λ² and g=γ²/4, expanding path determinants over disjoint edges gives λ(z−J²+g), (z−J²)²+gz, and (z−J²)³+2gz(z−J²)+g²z respectively. For the six-vertex path, using neither imaginary link yields the first term, exactly one yields gz(z−J²) per link, and using both yields g²z. Counting untouched dimers and isolated vertices gives exactly the three stated characteristic polynomials, including N=4 where no noncentral interior placement exists. Both boundary roots stay real through γ=2J, and both boundary blocks there have rank two and characteristic polynomial λ³, hence each has one Jordan block of size three. The noncentral quadratic discriminant is g(g−4J²), negative for small positive γ. In the central factor put z=J²+√g b and divide by g^(3/2): as g tends to zero through positive values the polynomial tends to b(b²+2J²), with two simple non-real roots; their continuations prove the zero infimum. Independent exact symbolic site-basis determinants for (N,m)=(4,1),(4,2),(6,1),(6,2),(6,3) match the formulas. The frozen checker was read, not run; its finite transform/recurrence checks use floating-point tolerance, even at rational test inputs. The invariant block proof, not those checks, gives the exact all-size conclusion for the specified single-particle matrix.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The movable model is studied beyond the flat-band point; the even N=20 numerical scan covers all mirror positions. The small odd N=5 analytic cases exhibit the end EP and a zero threshold for the inner allowed pair at the flat-band point.",
+          "Kawabata et al. give the edge transition and edge-coupling treatment, not a movable-defect spectral theorem."
+        ],
+        "reasoning": "A broader parameter scan and an analytically solved odd size do not give exact characteristic polynomials and multiplicities for all even sizes. The movable-model text also contains a blanket zero-threshold sentence covering even endpoints, inconsistent with its own end enhancement and the exact edge mechanism; that sentence does not establish the precise even-size classification.",
+        "searches": [
+          "arXiv:2103.07058v1 §III, Fig. 2(e) and §IV Eqs. (12),(15)",
+          "arXiv:1801.00499v1 Fig. 1 and Eqs. (5),(6)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_spectrum.py",
+        "arXiv:2103.07058v1",
+        "arXiv:1801.00499v1",
+        "Resultary 0db334768cf5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the sweet spot the edge Majorana links produce the modified end energies and two edge zero modes. The movable-defect article supplies the Hamiltonian and threshold observations."
+        ],
+        "reasoning": "The endpoint factor is obtainable from known edge physics by counting inert dimers, and the familiar threshold/EP is not a new result. The interior factors require identifying when the two defect links share a dimer and evaluating the two resulting spectral components; neither an edge reduction nor a set of instability thresholds specifies those polynomials.",
+        "searches": [
+          "arXiv:1801.00499v1 edge couplings, Fig. 1 and Eq. (6)",
+          "arXiv:2103.07058v1 Eq. (6), Fig. 2(e), §IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal–Joglekar Eq. (6) uses the same ±iγ/2 mirrored-site BdG convention. Kawabata et al. use an edge Majorana representation; the sweet-spot Fig. 1 gives γ=2J, and their edge link modification in Eq. (6) yields the compatible endpoint energies in the corresponding BdG convention."
+        ],
+        "reasoning": "Reordering/rephasing the Nambu or Majorana basis does not change spectral content. Credit the edge block mechanism and threshold; an endpoint model does not have the two interior links that require a separated pair of four-vertex paths or one overlapping six-vertex path.",
+        "searches": [
+          "Targeted primary search for balanced movable gain/loss in a flat-band PT Kitaev chain; arXiv:2103.07058v1 and 1801.00499v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exceptional-point corridor record treats a far-detuned dissipative two-dot effective matrix. Fig. 2(e) is an even-size threshold scan, not a characteristic-factor table. The available finite-size analytic formulas concern odd N=5."
+        ],
+        "reasoning": "Neither the near-match catalogue entry nor the examined threshold data encode the position-dependent powers of λ²−J² and the two distinct interior factors for arbitrary even N.",
+        "searches": [
+          "Configured Resultary search for exact BdG flat-band spectrum, PT exceptional points and mirror placement; matched 0db334768cf5",
+          "Agarwal–Joglekar Fig. 2 and analytic finite-size formulas"
+        ]
+      },
+      "rationale": "The model, sweet-spot edge threshold and exceptional-point phenomenon are prior. The endpoint spectral mechanism is also directly accessible from known Majorana couplings. Prior work observes zero-threshold interior behavior. The independently supported distinct content is the exact even-size spectrum resolved over all mirror positions, especially the two inequivalent interior characteristic factors and untouched multiplicities. The threshold split alone is not credited as original.",
+      "residual_risks": [
+        "Threshold behavior and endpoint spectral structure are substantially prior. The evidence supports distinction for the exact all-position interior factorization, not an absolute priority claim. A specialized equivalent Majorana-chain calculation outside the inspected passages remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical model with partial analytic and numerical threshold coverage, no comparable all-even interior factorization in inspected passages",
+          "evidence": "N=20 movable-threshold figure; explicit N=5 endpoint EP3 and interior sweet-spot zero threshold; adjacent even-chain prose reports endpoint enhancement and also says zero irrespective of m_0.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.07058v1",
+          "material_read": "BdG Eq. (6) around PDF offset 12728; §III and Fig. 2(e), offsets 22160–25609; §IV Eqs. (12),(15) around 27000 and following analytic cases",
+          "method": "OA primary PDF; equivalent HTML passage also read",
+          "title": "PT-symmetry breaking in a Kitaev chain with one pair of gain-loss potentials",
+          "trigger": "Identical movable pair and normalization, even-chain thresholds, and analytic flat-band cases"
+        },
+        {
+          "assessment": "Covers sweet-spot endpoint result and spectral mechanism, not movable interior factors",
+          "evidence": "Fig. 1 states γ=2J. Odd-length similarity discussion gives the edge Majorana link amplitude sqrt((J+Δ)²−γ²), which at equal pairing yields the corresponding edge energies after BdG normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.00499v1",
+          "material_read": "p. 2 Fig. 1, offset 10350 onward; Eqs. (5),(6), offsets 20300–24814, and single-particle normalization near supplement Eq. (S21)",
+          "method": "OA primary PDF",
+          "title": "Parity-time-symmetric topological superconductor",
+          "trigger": "Flat-band endpoint threshold and exact edge-coupling structure"
+        },
+        {
+          "assessment": "Different matrix and parameter regime",
+          "evidence": "The finding concerns a far-detuned dissipative two-dot model, not an open BdG chain with a movable balanced pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-inverse-square-exceptional-point-corridor-in-a-far-detuned-mi--0db334768cf5",
+          "material_read": "RESULT.md, Finding and model assumptions",
+          "method": "OA local mirror",
+          "title": "An inverse-square exceptional-point corridor in a far-detuned model",
+          "trigger": "Indexed spectral exceptional-point near-match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The factorization gives exact multiplicities and the complete moving part of the finite-size spectrum at the standard dimerized point. It explains structurally why the centrally adjacent defect pair and the separated interior pair are spectrally different even though both have zero onset threshold, and supplies checks for exact diagonalization results beyond the already-known end transition. It makes no statement about the many-body spectrum or parameters away from flat-band dimerization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

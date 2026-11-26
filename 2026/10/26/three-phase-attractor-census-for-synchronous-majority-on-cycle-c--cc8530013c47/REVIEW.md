@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-graph period-two property follows from a symmetric matrix sign-Lyapunov argument with a small diagonal tie-retaining weight, so it applies without imposing regularity. Periodic-state representation by two core/leaf phase words is bijective. The one-leaf case is a cyclic double-cover count; the two-leaf case has explicit local reversible transition conditions and a verified sixteen-state transfer polynomial; the three-or-more case is controlled by a strict private-vote majority after one step. The exact algebraic and all-labelled-state checks in `VERIFY.py` match the theorem for the stated finite ranges. No finite simulation is used as an infinite proof.
+PASS
 
-## Originality — PASS, bounded historical comparison
+Adding a diagonal weight in (0,1) implements the stated ties without changing nonzero neighbor sums. Symmetry gives E_(t+1)−E_t=−(s_(t+2)−s_t)^T B s_(t+1), strictly negative whenever two-step equality fails; finite energy values give eventual period at most two. Within a periodic state all leaves at a site agree, and an ordered pair of core and leaf words is periodic exactly when both updates swap the words. With one leaf the two conditions mean no isolated bit in the bipartite double cover, which is one cycle of length 2n for odd n and two of length n for even n. The cyclic length-j count is the trace of the four-state consecutive-bit matrix with polynomial (z²−z−1)(z²−z+1). With two leaves a bit matching its leaves always retains that value, even at a tie; a differing bit must have at least one core neighbor matching its leaves, in both phases. The closed-walk trace counts indexed words, not rotation classes. Independently formed the 16-state matrix by literal four-vote majorities in both phases and recomputed its characteristic polynomial symbolically; all factors match, and the first trace counts agree with frozen VERIFY.out. The quartic has two positive roots in (1/2,1) and (3,4), exactly two by Descartes. For z=−u<0 it is positive (if u≥1/3 then 3u³≥u²; otherwise 2−u²>0). The remaining conjugate pair has squared modulus 2/(product of the positive roots)<4/3, and the other factors have moduli ≤sqrt(2); hence the large root governs growth. With r≥3 a monochromatic bundle dominates after one step, and a nonmonochromatic starting bundle is not recurrent, proving sharpness. Fixed points are counted separately and dividing P−H by two counts unoriented primitive cycles. Read VERIFY.py and VERIFY.out without executing the supplied script. Replay the independent matrix construction via `python3 /workspace/branches/independent_checks.py` (section 3; SymPy and mpmath); the finite determinant is exact, while the all-size counting and growth arguments are analytic.
 
-The exact ring word count \(Q_n\) and the general convergence-to-period-two theorem are known and are attributed, respectively, to Agur–Fraenkel–Klein (1988) and Goles–Olivos (1980). Primary manuscript inspection of Benjamini et al. (2014) and Turau (2022) finds general or tree-specific dynamical classifications, not the complete three-regime cycle-corona census. A cyclic majority rule with its *own* past bit is not equivalent to the private-leaf majority system by changing notation. Separate exact results on XOR dynamics of sunlet graphs, and majority dynamics on a circular prism, also have different local maps or graph degree structures. No inspected source yields the new \(r=2\) quartic trace formula and the \(r\ge3\) \(4^n\) recurrent-state/one-step law simultaneously. Unindexed prior work might contain an equivalent calculation; the scope of search is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural operation of attaching more private leaves to every cycle site induces three distinct exponential recurrent-state growth rates while the local rule remains fixed. A complete infinite graph-family attractor census, explicit phase-bijection, sharp one-step bound in the third regime, and exact rational transfer presentation for the middle regime give usable structural information beyond textbook counting.
+Credit the established period-two theorem and cyclic no-isolated-bit count. Exact coverage of the one-leaf parity regime and the many-leaf regime exists in two distinct later-dated listings; neither covers the central two-leaf spectrum or the complete frozen census, and their dates do not prove historical priority. No inspected pre-existing statement gives that middle regime and census. This is limited to the specific labelled cycle-corona result.
 
-## Closest work and limitations
+## value
 
-The 1988 majority-ring fixed-word sequence is prior art. The deterministic corona state-space census is not inferred from the general finite-graph period-two theorem. The related noisy majority transfer study by Lemoy, Mozeika and Seki (2014) was compared using accessible abstract/metadata, without a full-text conclusion. Basin cardinalities and sharp entry times in the first two regimes are not determined. A qualified historical-overlap risk remains; none of this constitutes independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full recurrent-state census for a natural graph family in one leaf-multiplicity parameter distinguishes three exponential growth rates and identifies the degree-four ties as a genuinely different constrained phase-pair system. The exact transfer quartic determines every labelled two-leaf count and the growth constant, which neither generic convergence nor the known ring word count provides. The result is not a basin or entry-time census for r=1,2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

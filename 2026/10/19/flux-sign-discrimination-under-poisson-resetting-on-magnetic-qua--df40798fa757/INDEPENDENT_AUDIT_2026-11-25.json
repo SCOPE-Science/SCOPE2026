@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:36:04.459482Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66",
+        "Frozen VERIFICATION.md and verify_flux_reset.py (inspected, not executed)",
+        "Independent bounded replay /workspace/branches/audit-checks.js, lifted-displacement block"
+      ],
+      "rationale": "For even N, conjugation followed by the checkerboard sign removes the sign change in the time evolution up to endpoint phases. Reflection fixes vertex zero for all N and exchanges the two fluxes. For the odd case, lift two paths to endpoint displacements s,t congruent to j mod N. Their relative phase is exp(i(s−t)φ/N). Only s≠t can contribute to the flux-odd part, and their total length is at least |s−t|≥N. For degree N and 0<j<N the only unordered displacement pair is {j,j−N}, and both paths are monotone. The interference phase from the ordering (j,j−N) is i^(N−2j)exp(iφ), giving the stated sign; including the conjugate term and subtracting the reversed flux produces the factor 4. For winding difference one, total parity is N mod 2, so degree N+1 vanishes; higher winding differences cost at least 2N>N+1. Averaging multiplies degree d by d!/r^d. The uniformly convergent Neumann series for r>4J bounds the remainder starting at N+2 independently of φ. Absolute values preserve that uniform error by the triangle inequality, and the binomial sum gives the stated TV leading term. Independent lifted path counts at φ=π/2 corroborated 627 site-and-degree coefficients for N=3 through 11.",
+      "residual_risks": [
+        "Asymptotic at fixed N and high reset rates; no assertion of nonvanishing for every positive rate or uniformity in N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald–Böttcher give the general reset stationary formula, not the magnetic-cycle strong-reset expansion.",
+          "Luppi's onset orders t^N and t^(2N) refer to flux contrast in sequential single-site measurement return statistics, not to this off-origin flux-sign comparison."
+        ],
+        "reasoning": "The general spectral resolvent does not evaluate the first nonzero flux-odd site coefficient. The local measurement return observable cannot be substituted for the multi-site distribution.",
+        "searches": [
+          "Wald–Böttcher arXiv:2008.00510v2 Eqs. (28), (30)–(32)",
+          "Luppi arXiv:2608.12519v1 pp. 1, 4",
+          "Primary literature search for chiral quantum walks with resetting"
+        ]
+      },
+      "checked_sources": [
+        "Three named primary texts and the two decisive indexed records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-site equality and p0 symmetry survive any independent reset-age integration and are mechanically implied.",
+          "The odd-cycle onset and all-site normalization need the first pair of different lifts, their phase interference, and the factorial reset moment. Frigerio p. 8 treats a different distance (quantum–classical)."
+        ],
+        "reasoning": "Neither the known qualitative odd chirality nor the general Laplace transform prescribes the sitewise shortest-winding binomial weights or their sum. Luppi gives no alternative general off-origin formula in the relevant passages.",
+        "searches": [
+          "Wald–Böttcher P0 reset average compared with Frigerio mirror symmetry and Luppi one-node return symmetry",
+          "Resultary 6b103059d648 and 848fc77e7b52 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflection makes site j versus N−j at one flux equivalent to site j under flux reversal, so the directional imbalance was explicitly compared.",
+          "Frigerio et al. give the even-cycle unreset symmetry; Luppi explicitly gives return symmetry under flux sign reversal.",
+          "Resultary 848fc77e7b52 computes the exact directional imbalance for the same Poisson reset model at N=3, after the reviewed record."
+        ],
+        "reasoning": "Averaging the two known time-domain symmetries covers the even and basepoint parts. The triangle is an exact special case but does not provide the all-site coefficients for arbitrary odd N.",
+        "searches": [
+          "Resultary focused flux reversal, Poisson reset, magnetic-cycle directional imbalance and parity searches",
+          "Frigerio et al. arXiv:2106.11685v1 p. 6",
+          "Luppi arXiv:2608.12519v1 p. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6b103059d648 gives a later exact even/odd contrast and factorial coefficient for repeated complete site measurements; its contrast is nearest-neighbor.",
+          "848fc77e7b52 gives p1−p2=−12u(u²+3)sinΦ/[u²(u²+9)²+108sin²Φ], u=r/J, for the magnetic triangle. This exactly yields the reviewed −12 sinΦ/u³ at j=1, N=3 under the stated orientation."
+        ],
+        "reasoning": "Both are material overlaps and are narrower or use a different protocol; neither is an exact duplicate or prior general table. No distinct same-day match surfaced in the ranked searches.",
+        "searches": [
+          "Local Resultary comparison for exact cycle-size contrast coefficients, Zeno suppression and reset optimization"
+        ]
+      },
+      "rationale": "Do not credit even-cycle or reset-site symmetry as independently novel: those pieces follow from known unreset symmetries and the reset average. The distinct finding is the sharp odd-cycle off-origin coefficient for every vertex and its stationary total-variation law. The strongest checked overlaps do not state or directly supply this calculation for general odd cycles.",
+      "residual_risks": [
+        "Luppi was directly compared here, resolving the original's specific full-text access gap for the decisive passages. The bounded search does not certify exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General representation already known",
+          "evidence": "Spectral formula for whole-state resets in the pure quantum-walk case.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.00510v2",
+          "material_read": "p. 6, Eqs. (28), (30)–(32), text offsets 34400–40871",
+          "method": "OA primary PDF",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "Same reset generator and stationary distribution"
+        },
+        {
+          "assessment": "Even obstruction implied; odd asymptotic differs",
+          "evidence": "Mirror-probability symmetry for even cycles and unreset quantum–classical short-time distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.11685v1",
+          "material_read": "pp. 6 and 8, text offsets 42000–47136 and 57000–59488",
+          "method": "OA primary PDF",
+          "title": "Quantum-classical distance as a tool to design optimal chiral quantum walks",
+          "trigger": "Same unreset cycle and parity effects"
+        },
+        {
+          "assessment": "Direct overlap in reset-site symmetry, not a general position-distribution theorem; first posted 12 August 2026, before the frozen record",
+          "evidence": "The one-node protocol does not distinguish opposite flux. Parity-dependent powers concern single-node sequential measurement contrast.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.12519v1",
+          "material_read": "p. 1 abstract and p. 4, text offsets 0–3278 and 24500–27477",
+          "method": "OA full PDF available; targeted passages inspected",
+          "title": "Flux control of measurement back-action and Leggett–Garg correlations in chiral quantum walks",
+          "trigger": "Prior magnetic cycle return and parity threshold cited as abstract-only in the original"
+        },
+        {
+          "assessment": "Later structural overlap with a different protocol",
+          "evidence": "Repeated complete projective site measurements yield even suppression and an odd nearest-neighbor coefficient.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp parity-dependent Zeno suppression of magnetic-ring directionality",
+          "trigger": "Indexed exact winding-factor parity contrast"
+        },
+        {
+          "assessment": "Later exact N=3 specialization",
+          "evidence": "Exact p1−p2 for arbitrary rate and flux on the magnetic triangle.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-flux-reset-optimization-and-a-singular-weak-flux-populatio--848fc77e7b52",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp flux reset optimization and a singular weak-flux population law",
+          "trigger": "Same Poisson reset model for N=3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–25 and 52–66"
+      ],
+      "rationale": "It quantifies the first available magnetic-sign signal from stationary position-only readout, identifying its exact attenuation with cycle length and reset rate and the full distributional coefficient. This is more informative than the known qualitative odd chirality and does not claim an even-cycle quantum-state impossibility.",
+      "residual_risks": [
+        "No optimal finite reset rate, transient contrast or full-state discrimination is determined."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

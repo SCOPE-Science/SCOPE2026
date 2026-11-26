@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:54:48.981440Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pavlík's interval description gives one vertex per cube face and one edge per cover; the cube realization supplies the required existence. A nonempty face is a ternary word, so without the empty-face pole the graph is a product of three-vertex paths with distance 2a+b. The pole is adjacent precisely to the zero-free words, at distance f(u)+1 from u. Any geodesic either avoids it or uses it once, giving the minimum of the two stated costs. Equivalently the nonempty-pair metric is n+1−e−|a−c−1|, so equality with n+1 requires e=0 and a=c+1. Every nonpole with a fixed coordinate has a partner made by reversing one sign, freeing every other fixed coordinate, and fixing all free coordinates; the two poles partner each other. This proves all eccentricities, including n=1. The four ordered coordinate multiplicities are 2,4,1,2; deleting the 3^n diagonal pairs, halving the ordered count and adding the empty-face shells gives the enumerator, and degree-one coefficients agree with the edge count. The mean correction is 2E[(C−A+1)_+]. Only A−C≤0 contributes, and the single-coordinate exponential moment at (log 2)/2 is (6+2√2)/9, establishing the stated bound for sampling with replacement. An independently written vertex-set-inclusion graph and exhaustive BFS reproduced the metrics and all six listed diametral counts in dimensions 1–6 (/workspace/branches/independent_replay.py, cube()). The packaged checker was read but not run. The finite reproduction is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík's general interval construction plus the cube case gives graph and realization, not a located intrinsic metric theorem.",
+          "Savvidou Proposition 3.1 gives subdivision face counts.",
+          "The consecutive-layer hypersimplex result gives a three-route minimum using Johnson layers in a different graph."
+        ],
+        "reasoning": "None of the inspected statements is a more general graph metric and pair-count theorem specializing to the augmented cubical Hasse graph. Face counts do not by themselves provide distances.",
+        "searches": [
+          "Pavlík arXiv:2611.13896v1 §§4–5",
+          "Savvidou arXiv:1005.4156v2 Proposition 3.1",
+          "Resultary aed724149739"
+        ]
+      },
+      "checked_sources": [
+        "Pavlík arXiv:2611.13896v1",
+        "Savvidou arXiv:1005.4156v2",
+        "Resultary aed724149739 and assigned self-hit 92436fe286c0",
+        "Bounded Hasse-graph metric literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Faces of the constructed lattice are intervals and the constructed graph's vertices are all original cube faces, so covers already determine the entire adjacency."
+        ],
+        "reasoning": "The prior construction determines distances implicitly by graph search; the two-route formula is a short deduction after recognizing the pole and product. The full classification and distribution are not stated consequences of that construction: one must analyze both route lengths and their equality cases and derive the independent-coordinate estimate. No novelty is assigned to adjacency, the induced subgraph, or realization.",
+        "searches": [
+          "Pavlík Definition 4.1, Theorem 4.5, Remark 4.6 and Theorems 5.2 and 5.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Savvidou §2.3 identifies the subdivision vertices as nonempty-face barycenters and its faces as intervals of nonempty faces.",
+          "The included cube here is the whole face lattice, with the empty face represented by a vertex."
+        ],
+        "reasoning": "The signed-word or cubical subdivision graph before adding the empty-face vertex is the same product P3^n. Its distance 2a+b is not the asserted augmented distance, which can be strictly shorter. An augmented cover graph under an alternate name would be equivalent; none was identified by the bounded lookup.",
+        "searches": [
+          "Resultary: bipolar cubical polytope / pole-shortcut metrics",
+          "Literature lookup: cube-face-poset/Hasse-graph distance and diameter",
+          "arXiv:1005.4156v2 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match was the bound record itself, 92436fe286c0. The distinct formula-level result aed724149739 has a hypersimplex metric and diameter min{b,d−a}."
+        ],
+        "reasoning": "The self-hit is not prior evidence; the hypersimplex formula is not an alternate table or polynomial for these cubical distances. No independent matching table emerged from this lookup.",
+        "searches": [
+          "Resultary lookup of the bipolar cubical metric, diametral-pair count and distance distribution"
+        ]
+      },
+      "rationale": "The underlying cover graph and realization, the induced path product, and the regular-grid distance before adding the pole are antecedent or elementary. The distinct finding is the analysis of distances in the augmented graph, including all diametral pairs, full enumerator, and exponential accuracy of the pole-route mean. No separate matching statement was found in the bounded comparison.",
+      "residual_risks": [
+        "An older treatment of the augmented face-cover graph of a cube or of an isomorphic signed-set graph may give the same distances under different terminology.",
+        "The bounded source and catalogue checks are not a historical-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the construction and cube realization; no matching distance theorem was located",
+          "evidence": "Intervals give the new faces and all old faces become vertices; condition (I) implies realizability and holds for cubes.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13896v1",
+          "material_read": "PDF §§4–5, pp. 11–12, 14 and 16, including Def. 4.1 and Thms. 4.5, 5.2, 5.8",
+          "method": "OA PDF, targeted passages and distance terminology",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Identical bipolar polytope family and graph antecedent"
+        },
+        {
+          "assessment": "Covers the nonempty-face subdivision construction and f-vector, not the extra pole metric",
+          "evidence": "Vertices are barycenters of nonempty faces; the adjoined minimum is the empty face of the subdivision, not a vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.4156v2",
+          "material_read": "PDF pp. 3–4, §2.3 and Prop. 3.1, offsets 10060–12538",
+          "method": "OA PDF locate and bounded read",
+          "title": "Face numbers of cubical barycentric subdivisions",
+          "trigger": "Possible alias via the same interval-poset construction"
+        },
+        {
+          "assessment": "Related method in a different graph",
+          "evidence": "Three routes include bottom and top Johnson-layer shortcuts, yielding diameter min{b,d−a}.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-graph-metric-of-consecutive-layer-s-hypersimplices--aed724149739",
+          "material_read": "RESULT.md Finding from offset 391",
+          "method": "Resultary and matching primary record via local mirror",
+          "title": "Exact graph metric of consecutive-layer S-hypersimplices",
+          "trigger": "Closest distinct closed shortcut-metric hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single additional face vertex changes typical distances by a term linear in dimension relative to the coordinatewise product, yet every vertex has the same maximal eccentricity. Exact all-distance and diametral-pair data for this natural combinatorial polytope family, together with a quantitative mean estimate, make the metric useful beyond face counting or a small-dimensional observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

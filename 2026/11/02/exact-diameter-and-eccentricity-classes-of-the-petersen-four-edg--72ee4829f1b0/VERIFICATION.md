@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify_petersen_kneser.py --certificate regenerated.json`; it must finish with `KG_VERIFIER_PASS` and the figures \(49{,}920\) states, \(377{,}280\) moves, \(21\) orbits, radius \(7\), diameter \(8\), and \(2{,}880\) unordered diametral pairs. The generated JSON should agree in data with `certificate.json`.
+## correctness
 
-Compile `g++ -std=c++17 -O2 verify_petersen_gp.cpp -o independent_gp` and run `./independent_gp`; it must print `INDEPENDENT_GP_MATCHING_VERIFICATION_PASS`, and its summary confirms the same state, edge, degree, eccentricity, and distance-eight-pair counts. The two source codes use distinct Petersen realizations, enumerators and component-finding routines.
+PASS
 
-## Scope and checks
+An independent exhaustive reconstruction used fixed-order edge assignments with endpoint masks, built each two-colour component by traversal on the ten Petersen vertices, and checked that every resulting neighbour was a proper enumerated state and every adjacency was reciprocal and loop-free. The graph automorphism group is exactly S5: the five size-four independent sets of KG(5,2) are the five stars of two-subsets through a fixed symbol. A pairwise intersecting family of two-subsets without a common symbol has size at most three; each vertex is recovered as the intersection of its two stars. Applying adjacent transpositions on symbols and on labels therefore gives the full required orbit decomposition. One complete BFS per orbit independently gave 49,920 states, 377,280 edges, degrees 15 and 16 with multiplicities 44,160 and 5,760, 21 orbits, radius 7, diameter 8 and eccentricity multiplicities 45,600 and 4,320. BFS reached all states. The two eccentricity-eight orbit sizes and far-sphere sizes gave (1440*2+2880*1)/2=2880 unordered pairs. The replay matched every frozen representative to a different reconstructed orbit, verified every sphere vector and recovered the exact recorded far targets at both eccentricity-eight roots, including the stated witness.
 
-The Python enumerator branches on *all* legal colours at the currently most constrained edge. The C++ enumerator independently checks every ordered decomposition into four matchings. Each constructs all legal bichromatic-component moves and searches all state orbits under graph and palette automorphisms. BFS covers the entire 49,920-state graph from an orbit representative, and automorphism invariance lifts each BFS result to the whole orbit. Orbit sizes sum to 49,920, and the orbitwise distance-eight counts sum to 5,760 ordered pairs, hence 2,880 unordered pairs. Neither implementation depends on randomization or third-party graph data.
+## originality
 
-The certificate records the complete 21 orbit representatives, sphere sizes, orbit sizes, degrees and exact distance-eight targets; it does not constitute a separate formal proof without the included source. The 2010 universal connectedness theorem and the previously published count of four-edge-colourings are not attributed to this computation. Independent audit: not performed.
+PASS
+
+The count and connectivity are already known and are correctly credited. The strongest inspected tables and reconfiguration results do not supply the claimed local degree, combined symmetry-orbit, eccentricity or distance-eight classification. This assessment applies to those additional data, not to the state count or connectivity.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical class-two cubic graph and four is its smallest feasible palette. For the natural component-switch move, exact distances quantify the worst-case number of exchanges and distinguish typical states from the peripheral ones, information not given by connectedness. Counting the extremal pairs and classifying their two orbit types provides a concrete benchmark for reconfiguration and symmetry-reduction methods rather than another computation of the previously known state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

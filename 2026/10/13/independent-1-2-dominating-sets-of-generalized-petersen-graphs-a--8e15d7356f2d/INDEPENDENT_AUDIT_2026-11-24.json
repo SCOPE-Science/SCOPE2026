@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:37.037159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three spoke states encode independence and both degree constraints with the centered five-column window. For n≥5, the trace has exactly one fixed-index walk per labeled configuration, including periodic words, and the appended symbols give the selected count. An independent exact construction of the 81-state graph gave 89 arcs and cyclic SCC sizes 17,3,3. In the main SCC the simple-cycle types (length, selected count) are (5,4), (6,4) three times, (7,5), and (12,8). The two disjoint length-six cycles cancel the length-twelve term in the determinant, and the other SCCs each contain a single (3,2) cycle. With A=z^4t^5+3z^4t^6+z^5t^7 and q=z²t³ this gives det(I−tM)=(1−A)(1−q)². The formal derivative yields tA′/(1−A)+6q/(1−q), and removing 6q gives the asserted series. For the first term the supported (n,w) are nonempty sums of the types (5,4),(6,4),(7,5), with nonnegative excess 3w−2n; for the second term they are multiples of (3,2) with n≥6. There is no t⁸ term. At n≡4 mod 6 an excess of 1 would require exactly one (7,5) plus (6,4) terms, which makes n odd; the next permitted excess is 4. Sharp orders in the four nonmultiples-of-three residue classes are 5+6r,7+6r,14+6r,10+6r with weights 4+4r,5+4r,10+4r,8+4r. This and multiples of three give the exact minimum and existence statement. The independent script returned AUDIT_OK, including the exact cycle determinant, shared-state witnesses and coefficient-level direct labeled-subset checks for orders 5–10. Replay: python3 /workspace/review-evidence/independent_transfer_audit.py. The frozen verifier was inspected but not run; finite checks of orders alone do not prove the infinite assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beggas et al. give the same numerical minimum for the ordinary [1,2] problem, including an ordinary feasible set at n=8.",
+          "The same-day maximal-independent-set record gives a broader cardinality count and uses the same kind of five-column transfer test, with a 27-state cyclic SCC."
+        ],
+        "reasoning": "The ordinary minimum is a lower bound for the independent minimum, not proof that independence is attainable. The broader maximal-independent-set problem allows all three neighbors of an unselected vertex to be selected and therefore does not provide the restricted counts.",
+        "searches": [
+          "arXiv:1906.11966, Theorem 1 and definitions",
+          "Resultary: P(n,2) cardinality enumerators and extremal multiplicities of maximal independent sets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.11966, 1511.09262 and 1602.08250",
+        "DOI 10.3390/sym13101948",
+        "Resultary October 13 maximal-independent-set and November 22 optimizer records",
+        "Frozen RESULT.md, VERIFICATION.md and verifier code; independent exact transfer replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the same-day proof a nonempty column only needs independence at the selected vertex; its unselected spoke neighbor is automatically dominated, even if both its other neighbors are selected.",
+          "Adding the upper cap removes precisely these nonempty-column transitions. The original single 27-state cyclic core is then replaced by cyclic components of sizes 17,3,3 and the determinant changes."
+        ],
+        "reasoning": "Reusing the encoding is possible, but the known univariate cardinality polynomial at each order does not retain enough neighbor information to filter its coefficients. Exact evaluation of the new transfer graph and independent attainability are additional results.",
+        "searches": [
+          "Same-day maximal-independent-set RESULT.md, proof §§1–2 (mirror offset 1950)",
+          "Compare the ordinary minimum theorem with the independent coefficient support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent [1,2]-domination is defined with 1–2 selected neighbors at each outside vertex; in a cubic graph this is equivalently independent domination plus an outside neighbor for each outside vertex (restraint).",
+          "A (2-d)-kernel instead requires each vertex outside the kernel to have at least two neighbors in it. The ordinary independent domination polynomial has no upper cap on the number of selected neighbors."
+        ],
+        "reasoning": "The restraint alias is genuinely equivalent for this cubic graph. The (2-d)-kernel and all-maximal-independent-set formulations are different: they retain other local configurations and do not identify exactly this subfamily.",
+        "searches": [
+          "P(n,2) independent restrained domination; independent [1,2] domination and exact minimum or polynomial",
+          "arXiv:1511.09262 p. 1; DOI 10.3390/sym13101948 p. 1; arXiv:1602.08250 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 22 indexed optimizer study concerns ordinary minima at 8 and 9, with 248 and 9 optima respectively; the independent polynomials at those orders are 0 and 6z^6.",
+          "The inspected same-day indexed enumerator is for all maximal independent sets, not the restricted counts."
+        ],
+        "reasoning": "The scalar ordinary table, ordinary optimizer counts and broader cardinality enumerator do not give this bivariate series or its exceptional order. No priority ordering is inferred from same-day indexing.",
+        "searches": [
+          "Resultary: P(n,2) independent [1,2]-domination and exceptional order 8",
+          "Resultary: maximal independent enumerator and ordinary optimizer counts at 8 and 9",
+          "arXiv:1906.11966, six-residue minimum table"
+        ]
+      },
+      "rationale": "The ordinary minimum and the same-cardinality transfer strategy for maximal independent sets are already covered separately. The distinct supported result is the exact restricted enumerator for labeled independent [1,2]-sets, with the sole feasibility gap and independent attainment of the ordinary minimum otherwise. The frozen related-work sentence about (2-d)-kernels reverses the neighbor direction: they require each outside vertex to have at least two neighbors in the selected set. This does not affect the definition or proof of the finding.",
+      "residual_risks": [
+        "The 2018 DOI's full text remained unavailable; its independent refinements, if any, were not inspected.",
+        "A result under restrained-domination or other terminology may have escaped the focused search. No global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary minimum known, independent attainment and counts not supplied by theorem",
+          "evidence": "Requires one to two neighbors in S for vertices outside S, with no internal independence requirement; the numerical formula agrees on common admissible orders.",
+          "identifier_or_url": "arXiv:1906.11966",
+          "material_read": "PDF pp. 1–2, definition and Theorem 1 (offsets 0 and 4300)",
+          "method": "Bounded OA PDF passages",
+          "title": "[1,2]-Domination in Generalized Petersen Graphs",
+          "trigger": "Identical graph family and numerical minimum"
+        },
+        {
+          "assessment": "Matches definition; inspected claims concern trees and cactus graphs",
+          "evidence": "Independent [1,k]-sets are independent dominating sets with at most k selected neighbors at each outside vertex.",
+          "identifier_or_url": "arXiv:1511.09262",
+          "material_read": "p. 1, definition and abstract",
+          "method": "Bounded OA PDF passage",
+          "title": "On independent [1,2]-sets in trees",
+          "trigger": "Same independent set notion"
+        },
+        {
+          "assessment": "Counts all maximal independent sets",
+          "evidence": "The definition does not impose an upper bound of two.",
+          "identifier_or_url": "arXiv:1602.08250",
+          "material_read": "p. 2, definition (offset 3250)",
+          "method": "Bounded OA PDF passage",
+          "title": "The Independent Domination Polynomial",
+          "trigger": "Broader cardinality polynomial"
+        },
+        {
+          "assessment": "Different outside-neighbor rule",
+          "evidence": "An independent 2-dominating set requires every vertex outside the set to have at least two neighbors in it.",
+          "identifier_or_url": "DOI 10.3390/sym13101948",
+          "material_read": "Publisher PDF p. 1, definition (offset 4830)",
+          "method": "Bounded lawful publisher OA PDF passage",
+          "title": "On (2-d)-Kernels in Two Generalizations of the Petersen Graph",
+          "trigger": "Potential multiple-domination alias in Petersen families"
+        },
+        {
+          "assessment": "Broader family, not the restricted enumerator",
+          "evidence": "Its centered test for a selected column lacks the cap on the unselected spoke neighbor; the determinant is certified from a different cyclic core.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-cardinality-enumerator-and-extremal-multiplicities-of-maximal-in--88f5c9237bfa/RESULT.md",
+          "material_read": "Finding and proof §§1–2, offsets 0 and 1950",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cardinality enumerator and extremal multiplicities of maximal independent sets",
+          "trigger": "Same graph, enumeration method and label convention"
+        },
+        {
+          "assessment": "Counts and shattering for ordinary optima",
+          "evidence": "No independence hypothesis appears; counts are 248 at n=8 and 9 at n=9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-optimizer-collapse-transition-in-generalized-petersen-dominat--d1ef168d9922",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "An optimizer collapse transition in generalized Petersen domination",
+          "trigger": "Exact small-order optimizer counts for the same graph family"
+        },
+        {
+          "assessment": "Unresolved whether full text contains an independent refinement",
+          "evidence": "No primary passage was obtained that could establish or exclude such coverage.",
+          "identifier_or_url": "DOI 10.1016/j.amc.2018.01.013",
+          "material_read": "Landing-page/abstract material only; full text not recovered",
+          "method": "Bounded lawful OA and repository checks",
+          "title": "On the [1,2]-domination number of generalized Petersen graphs",
+          "trigger": "Earlier paper with plausible same-family refinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cardinality enumerator resolves the loss of feasibility at n=8 under an additional natural constraint and proves that the constraint does not otherwise increase the minimum. It distinguishes admissible maximal independent sets from the unfiltered ones at every size and graph order; a recomputation of the ordinary minimum alone would not have this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

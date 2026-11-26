@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:44:22.752537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–50; VERIFICATION.md; check_cpp.cpp; check_python.py",
+        "/workspace/reproductions/graph2.py"
+      ],
+      "rationale": "The mixed selected/unselected condition supplies a witness other than the selected endpoint. All pairs with a selected endpoint already have a separator at an endpoint; the remaining condition is injectivity of the distance code on the unselected vertices. The property is upward closed: a newly selected landmark separated from any remaining unselected vertex has a witness in the old set by resolution. Thus checking immediate deletions suffices for inclusion-minimality. I rebuilt the graph, used Floyd–Warshall for distances and evaluated the literal witness and outside-code conditions on all 65,536 subsets. I reproduced every coefficient in RESULT.md, inclusion-minimal counts 192, 1080, 192, 2, fault-tolerant minimum six (336 sets), and the eight pure two-sets (exactly the distance-four pairs). Exhaustive distance-preserving bijection search gave all 96 automorphisms; the 192 five-sets split into orbits 48, 48, 96 with induced edges as in the finding. Adjacency on intersecting in four vertices and a breadth-first search from each of the 192 states gave the common profile (1,5,14,40,74,42,14,2), hence 480 edges and radius and diameter seven. Replay: python3 /workspace/reproductions/graph2.py. The uploaded checkers were inspected, not executed.",
+      "residual_risks": [
+        "The certificate is exhaustive for GP(8,3) only; the profile does not imply that the exchange graph is distance-regular or vertex-transitive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The targeted web query produced no usable relevant result. Javaid et al. study trees and extremal/characterization results, e.g. Theorem 13 characterizes dim_wt(G)=|V(G)| by twins; the checked result neither supplies a five-element basis census nor its token-jump distances."
+        ],
+        "reasoning": "No inspected theorem gives the classified state space and sharp uniform exchange profile as a special case; general size bounds and the pure predicate are not such a theorem.",
+        "searches": [
+          "\"Möbius-Kantor\" \"weak total resolving\" OR \"weak-total resolvability\" GP(8,3)",
+          "Javaid et al., arXiv:1408.0649v1, abstract and general dimension theorem excerpts; Casel et al., DOI 10.7151/dmgt.1853"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cfe9401b705a, 2451bb5af26f, 39dab98cf56d",
+        "Javaid et al., arXiv:1408.0649v1 (2014)",
+        "Casel et al., DOI 10.7151/dmgt.1853 (2016)",
+        "NetworkX Graph Atlas documentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary metric bases record has 320 four-sets in six orbits and jump diameter five. The vertex–edge record has 512 minima in eight orbits and jump diameter six. A weak-total resolving definition determines a test but does not provide the classification, as illustrated by different induced subgraphs and heterogeneous sets under the predicates."
+        ],
+        "reasoning": "Neither the standard test nor an exchange graph on another vertex family gives this invariant; the complete symmetry and all-states distance calculations add distinct content. Same-day publication dates do not settle priority.",
+        "searches": [
+          "Resultary IDs 2451bb5af26f and 39dab98cf56d, matching RESULT.md findings",
+          "arXiv:1408.0649v1, weak-total definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Javaid et al. require a resolving set plus a backup witness for mixed pairs. The Casel et al. abstract imposes only the mixed-pair condition. Computed pure antipodal pairs on this graph are not resolving.",
+          "The two close same-day records below use ordinary metric bases or joint vertex–edge domination and edge resolution, not the five-element sets at issue."
+        ],
+        "reasoning": "One cannot transfer counts or exchange paths across these predicates; the directly computed pure minimum and ordinary metric size already differ from the resolving weak-total minimum.",
+        "searches": [
+          "Resultary semantic search for resolving weak-total metric bases and token reconfiguration in the Möbius–Kantor graph / GP(8,3)",
+          "arXiv:1408.0649v1; DOI 10.7151/dmgt.1853"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact hit cfe9401b705a is this finding. Graph Atlas enumerates graphs up to seven vertices, not this 16-vertex case. The two close Resultary records 2451bb5af26f and 39dab98cf56d enumerate different admissible sets."
+        ],
+        "reasoning": "No matching independent exact tabulation was found in these checks; the size bound rules out this atlas only.",
+        "searches": [
+          "Resultary semantic graph-and-invariant query",
+          "NetworkX Graph Atlas official documentation"
+        ]
+      },
+      "rationale": "The closest corpus match is the identical frozen record, not independent corroboration of priority. Distinct close corpus records concern ordinary metric or vertex–edge domination/resolution bases, and the examined weak-total literature supplies the definition and bounds, not the orbit/relocation classification. The pass concerns the complete resolving weak-total classification and exchange geometry, not the definitions, host graph, or its automorphism order.",
+      "residual_risks": [
+        "Original 2012 DOI 10.5829/IDOSI.MEJSR.2012.11.12.1750 did not yield usable text; the matching resolving definition was verified in the 2014 primary source.",
+        "2016 Discussion wording not independently inspected; only its mathematical predicate was checked in the abstract.",
+        "The searches do not rule out an unindexed table or historical computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "192 resolving weak-total minima, three shapes, sharp seven jumps and common profile.",
+          "identifier_or_url": "Resultary 2026/11/22/cfe9401b705a",
+          "material_read": "Matching RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three geometric types and a uniform seven-move exchange radius for weak-total metric bases of GP(8,3)",
+          "trigger": "Exact semantic match"
+        },
+        {
+          "assessment": "Different feasible states",
+          "evidence": "320 ordinary four-vertex metric bases, in six orbits; jump diameter five.",
+          "identifier_or_url": "Resultary 2026/11/22/2451bb5af26f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact landmark relocation geometry of the Möbius–Kantor graph",
+          "trigger": "Same graph and exchange invariant"
+        },
+        {
+          "assessment": "Different feasible states",
+          "evidence": "Joint vertex–edge domination and edge resolution; 512 minima, jump diameter six and slide diameter eight.",
+          "identifier_or_url": "Resultary 2026/11/22/39dab98cf56d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A five-landmark obstruction and an eight-step relocation geometry",
+          "trigger": "Same graph, five landmarks and exchange geometry"
+        },
+        {
+          "assessment": "Definition and dimension characterizations do not entail the claimed enumeration",
+          "evidence": "The abstract requires a resolving set; Theorem 13 concerns order-sized weak-total dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.0649v1",
+          "material_read": "Page 1 abstract; page 6 Theorem 13 statement",
+          "method": "Primary PDF text by page/offset",
+          "title": "Weak total resolving sets in graphs",
+          "trigger": "Actual resolving convention and possible general results"
+        },
+        {
+          "assessment": "Positive primary evidence of a mixed-pair-only definition, not a whole-paper exclusion",
+          "evidence": "Abstract gives the outside versus selected witness condition, without requiring a resolving set.",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1853",
+          "material_read": "Abstract, recovered front matter and references; not the Discussion",
+          "method": "OA text excerpt",
+          "title": "Weak total resolvability in graphs",
+          "trigger": "Potential competing convention and graph-family results"
+        },
+        {
+          "assessment": "Size exclusion only",
+          "evidence": "Covers at most seven vertices.",
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Description of the atlas size range",
+          "method": "Public documentation text",
+          "title": "NetworkX Graph Atlas",
+          "trigger": "Possible exact tabulation for small graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exchange characterization",
+        "Independent integer enumeration; the ordinary metric and vertex–edge Resultary comparisons"
+      ],
+      "rationale": "The Möbius–Kantor graph is a natural small symmetric cubic benchmark, and the resolving notion's backup constraint changes the optimum state space. The complete orbit types and sharp relocation guarantee identify what all optimal landmark layouts can do rather than merely giving a minimum. In particular, a single all-states distance profile across the three distinct host orbits is usable structural information not implied by host symmetry or the minimum alone.",
+      "residual_risks": [
+        "Single-graph classification; no general theorem for generalized Petersen graphs or stronger symmetry of the exchange graph is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

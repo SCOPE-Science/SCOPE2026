@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:50:09.833635Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117",
+        "Frozen VERIFICATION.md, verification_report.json and verify_path_lifetime.py (inspected, not executed)",
+        "Independent bounded Kronecker-system calculation"
+      ],
+      "rationale": "For A=−iH−γP, an eigenvalue on the imaginary axis would require an eigenvector with zero first coordinate; the path equations propagate zero to every coordinate. Thus A is strictly stable, and integrating the matrix product gives the unique solution of A†Q+QA=−I. To verify the proposed entries let Lₛ=n−s+1 (Lₙ₊₁=0) and Dᵣ=(r−1)γ+r/γ. On interior off-diagonals the commutator vanishes by the zero second differences of these affine factors. In the first row its off-diagonal entries are −iγQ₁ₛ: for odd s−1 the neighboring entries have even distance, giving (D₂−2D₁)Lₛ/2=γLₛ/2, and for even s−1 the neighboring entries have odd distance, giving −iLₛ/2. Although the prose in line 101 labels the neighboring parities in reverse, the commutator identities and the entry formula are correct. The diagonal commutator gives i away from site 1 and −i(n−1) at site 1, where the loss term adds n. This verifies all boundary cases, including n=2. Cyclicity of trace applies to all density matrices. AM–GM gives the unique positive minimizer √(a/(a−1)) for a≥2 and the stated minimum; at a=1 the reciprocal law has no finite minimizer. An independently written column-vectorized dense Kronecker solve for n=2,…,8 at γ=0.35,0.7,1,1.6,3 matched all entries, with maximum difference 2.40×10⁻¹⁴ and residual 7.11×10⁻¹⁵. It can be replayed by solving [I⊗A†+Aᵀ⊗I] vec Q=−vec I and comparing entrywise.",
+      "residual_risks": [
+        "The numerical solve tests 35 cases and is corroboration only. The exact residual and stability proof cover the entire stated parameter range.",
+        "The loss parameter γ is the amplitude decay coefficient, not the occupation jump rate 2γ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al. give τ=N/Γ_trap+(N−1)Γ_trap/(4Ω²) for a clean end-to-end chain.",
+          "Riberi treats a semi-infinite endpoint sink, while Burke et al. analyze scattering and spectrum for a local imaginary potential.",
+          "The Wiersig full text could not be accessed lawfully in the comparison."
+        ],
+        "reasoning": "After reversal and Γ_trap=2γ, Ω=1, the Zhang formula equals the frozen a=n diagonal and entails its optimum; by itself it gives neither all localized source positions nor interference terms. The other accessible related models do not give the required finite-chain operator in the passages inspected. Exact catalog coverage independently settles the disposition.",
+        "searches": [
+          "arXiv:1706.09524, terminal sink and Eq. (17)",
+          "arXiv:2605.08056, abstract and §3",
+          "arXiv:1910.07439, model and scattering passages",
+          "DOI:10.1103/PhysRevA.98.052105"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed Findings named above",
+        "Zhang et al., arXiv:1706.09524, Eq. (17)",
+        "Primary passages and scoped access attempts in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two indexed records include the full coherent-state kernel; the third also gives the same localized optimum up to rate normalization.",
+          "Poisson-spaced and stroboscopic detection employ different measurement dynamics."
+        ],
+        "reasoning": "An operator formula implies the lifetime for every density matrix by tr(Qρ), the site formula by taking its diagonal, and the optimizer by minimizing the two-term expression. A single scalar end-to-end result cannot reconstruct this operator, and neither can a result for a different measurement process.",
+        "searches": [
+          "Indexed Findings ending ed87558c8217, 5f817ec7069b and 38f306607e7a",
+          "arXiv:1706.09524 Eq. (17)",
+          "arXiv:0803.3446 and arXiv:1603.02046, abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result states an exact coherent/mixed-state operator and localized optimum with the opposite sign of hopping and sink rate κ.",
+          "The site unitary diag((-1)^r) sends H to −H and leaves P invariant; set κ=2γ."
+        ],
+        "reasoning": "Unitary conjugation carries the entire integrated operator and maps arbitrary initial states bijectively, leaving all site populations and the diagonal lifetime law unchanged. It multiplies odd-parity entries by −1 and leaves even-parity entries unchanged, exactly accounting for the sign convention.",
+        "searches": [
+          "Resultary lookup on exact finite-path integrated survival operator and optimal endpoint sink",
+          "Indexed SCOPE-exact-survival-time-operator-and-sink-rate-optimization-on-finit--38f306607e7a, Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed records ending ed87558c8217 and 5f817ec7069b give the entire matrix/parity kernel; record ending 38f306607e7a states the operator and optimum in an equivalent convention."
+        ],
+        "reasoning": "These are complete formulas in chain length, loss coefficient and site indices, not finitely many overlapping numerical values.",
+        "searches": [
+          "Resultary exact absorption operator and finite-path sink-optimum comparisons"
+        ]
+      },
+      "rationale": "Multiple distinct indexed Findings state the full finite-path parity kernel and the localized optimum. They cover arbitrary coherent and mixed initial states, not merely the mean lifetime from a single endpoint. Hopping sign and loss-rate notation do not furnish a scientific distinction. Independently, a journal-paper precursor gives the opposite-end localized special case. This is scientific overlap, not a finding about authorship, intent or priority.",
+      "residual_risks": [
+        "The full Wiersig paper could not be inspected, so it is not excluded as another precedent. This does not drive the verdict.",
+        "Indexed dates and overlapping statements do not determine historical priority or the relationship between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full operator coverage, not diagonal-only",
+          "evidence": [
+            "Localized mean and optimum at offset 0; matrix solution at offset 2350."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-path-quantum-absorption-time-and-size-independent-o--ed87558c8217",
+          "material_read": "RESULT.md offsets 0 and 2350, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and formula comparison",
+          "title": "Exact finite-path quantum absorption time and size-independent optimum",
+          "trigger": "Same finite open path, absorber and localized optimization"
+        },
+        {
+          "assessment": "Full parity kernel for arbitrary initial density matrices",
+          "evidence": [
+            "The parity-dependent entries and arbitrary-state consequence are both given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-absorption-time-operator-and-size-independent-sink-optimum--5f817ec7069b",
+          "material_read": "RESULT.md offset 750, same local mirror snapshot",
+          "method": "Local mirror formula inspection",
+          "title": "Exact absorption-time operator and size-independent sink optimum",
+          "trigger": "Exact operator and optimum in apparently the same model"
+        },
+        {
+          "assessment": "Equivalent operator and all localized optima",
+          "evidence": [
+            "The hopping sign is related by alternating-site phase; κ is the jump rate 2γ. The relationship section identifies the end-to-end Zhang precedent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-survival-time-operator-and-sink-rate-optimization-on-finit--38f306607e7a",
+          "material_read": "RESULT.md Finding at offset 0 and relationship section at offset 5400, same local mirror snapshot",
+          "method": "Local mirror statement comparison and convention mapping",
+          "title": "Exact survival-time operator and sink-rate optimization on finite paths",
+          "trigger": "Closest indexed claim for all states and all localized sources"
+        },
+        {
+          "assessment": "Exact opposite-end localized special case",
+          "evidence": [
+            "Sink potential −iΓ_trap/2 at N and τ=N/Γ_trap+(N−1)Γ_trap/(4Ω²) in the clean end-to-end case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.09524",
+          "material_read": "PDF p. 3, terminal sink, offset 11526; p. 5, Eq. (17), offset 22231",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Zhang et al., transport efficiency in molecular chains",
+          "trigger": "Earlier clean finite chain with a terminal loss and optimized transfer"
+        },
+        {
+          "assessment": "Coverage unresolved, not negative evidence",
+          "evidence": [
+            "A lawful alternate full text was not located and the APS abstract and PDF routes were not accessible during the independent check."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.98.052105",
+          "material_read": "DOI and APS record identified; frozen comparison describes abstract access. Full text not read.",
+          "method": "DOI/repository lookup and lawful APS access attempt",
+          "title": "Role of nonorthogonality of energy eigenstates in quantum systems with localized losses",
+          "trigger": "Plausibly covers finite-system localized loss"
+        },
+        {
+          "assessment": "Related loss physics, differing observables in the passages checked",
+          "evidence": [
+            "Treats reflection, transmission, absorption and spectrum for a local imaginary potential."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.07439",
+          "material_read": "Abstract p. 1 and model/scattering passages, offsets 8852 and 15476",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Non-Hermitian scattering on a tight-binding lattice",
+          "trigger": "Local imaginary potential in tight-binding systems"
+        },
+        {
+          "assessment": "Semi-infinite boundary-sink system, not a finite path with two boundaries",
+          "evidence": [
+            "Derives propagator and first-passage statistics on the semi-infinite line."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.08056",
+          "material_read": "Abstract p. 1 and §3 p. 4, offset 8208",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Continuous boundary-sink model"
+        },
+        {
+          "assessment": "Different detection process",
+          "evidence": [
+            "Defines hitting by measurements at Poisson-distributed times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.3446",
+          "material_read": "Abstract p. 1, offset 1671",
+          "method": "Bounded OA statement comparison",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "General continuous-time hitting formalism"
+        },
+        {
+          "assessment": "Different detection process",
+          "evidence": [
+            "Uses stroboscopic measurements with state collapse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.02046",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "Bounded OA statement comparison",
+          "title": "Quantum Renewal Equation for the First Detection Time of a Quantum Walk",
+          "trigger": "Quantum first detection on a lattice"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "Full-operator Resultary statements named above",
+        "Zhang et al., Eq. (17), partial localized precedent"
+      ],
+      "rationale": "A full integrated-survival operator is intrinsically useful because it carries phase-sensitive contributions that no single localized lifetime supplies. Here, however, the indexed comparisons already supply that full operator and its optimization consequences, so the frozen finding adds no distinct exact invariant or extension. A rate reparameterization, alternating-site phase and bounded numerical corroboration do not create a separate scientific contribution.",
+      "residual_risks": [
+        "This judgment concerns incremental content under the frozen scope; it does not dispute the usefulness of the existing formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

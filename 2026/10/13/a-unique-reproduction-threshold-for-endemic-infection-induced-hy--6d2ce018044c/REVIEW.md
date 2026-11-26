@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact infected-equilibrium identity gives \(S(I)=\delta I/[p(1-e^{-\beta I})]\); it parametrizes all positive fixed points without an unproved branch assumption. Strict monotonicity of \(r(I)\) proves the equilibrium existence and uniqueness range. The identity \(b(S+I-\bar S)=b(1-w)I-L(I)\) and the strictly decreasing derivative of \(L\) prove the unique-crossing classification, including boundary equality cases. The worked example has an exact factored crossing equation and three strictly positive Schur margins; the bundled standard-library checker returned `VERIFY_OK` on fixed-point residuals, identities and example local stability. Numerical checks supplement, not replace, the proof. No claim is made for global dynamics or cycles.
+PASS
 
-## Originality — PASS
+The final RESULT.md corrects the false displayed equality in the frozen exact witness (line 75): the sign of h is the sign of 1−t(4−3t), not (1−t)−t(4−3t). This restores the factorization (1−t)(1−3t) without changing the claim. Independently eliminating the susceptible variable using pS(1−e^(−βI))=δI gives the stated continuous, strictly increasing r(I), with range (r_c,∞); no positive equilibrium occurs at equality. The log-ratio L has strictly decreasing derivative when c>w and stays bounded. Hence h(I)/I strictly increases for w<1, from b(1−w)−κ to b(1−w); for w=1 the ratio in L directly gives the negative or identically zero case. Substitution at t=1/3 gives the witness, and independent differentiation gives the repaired text's Jacobian and positive Schur margins for 1<log 3<2. A separate numerical calculation from the original map gave an equilibrium residual at roundoff and margins 0.40957, 0.11508, 3.06578; the exact proof, not this check, establishes the result. The frozen verification notes and checker use the correct polynomial and need no change.
 
-The source [1] was inspected in full at its equations, Theorem 5 and Appendix B.4–B.6. Its published sufficient inequalities do not imply a complete, sharp reproduction-rate threshold, nor the locally stable crossing that violates both sufficient inequalities. Related Jaramillo et al. [2] concern the same underlying modelling tradition; its abstract describes discrete-time existence and simulation, not a once-only \(r\) crossing classification. The closely related article [2] was not available for whole-document comparison, leaving a genuine residual risk rather than proof of absence. Additional epidemic and hydra literature and public semantic-result searches did not identify an equivalent or stronger theorem for these exact equations and varying \(r\).
+## originality
 
-## Value — PASS
+PASS
 
-The source defines the infection-induced hydra problem and gives only a sufficient parameter region. Here the sharp complete classification determines when endemic size exceeds disease-free size for every reproductive capacity and identifies a one-way switch, a structural property not readable from simulation or the earlier bound. The explicitly stable crossing shows the threshold matters on a dynamically realizable local equilibrium branch. This is an extension of the motivated biological comparison, not an arbitrary slice or an uninformative sign check.
+Best-of-knowledge pass for the sharp global-in-r equilibrium comparison, including its equality cases and a stable crossing outside the old sufficient condition. Neither the model nor existence/uniqueness in the previously covered regime is new. Correcting the exact example does not change what is compared. The main unresolved prior comparison is the same-form 2022 study, not available in full.
 
-## Closest literature and limitations
+## value
 
-The closest source is [1], especially Theorem 5 and Appendix B.6. A related older study [2] could be inspected only at abstract level, so unrecognized equivalent results remain a risk. A distinct 2025 overcompensation/hormesis treatment studies continuous-time equations. The present result concerns fixed-point sizes, not cycles, global attractors or field prediction. The checker is deterministic and reproducible but not an external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete partition in reproductive capacity answers when the direction of an equilibrium population difference changes, not merely when the effect can occur. The example establishes that the direction changes even on a locally attracting branch outside both earlier sufficient restrictions. The result is valuable as a sharp comparison for this model, not as a claim about observed trajectories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

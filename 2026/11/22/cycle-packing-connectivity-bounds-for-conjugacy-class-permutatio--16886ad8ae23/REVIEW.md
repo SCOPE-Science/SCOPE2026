@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The critical extension lemma starts with pairwise disjoint prescribed source and target labels, assigns the resulting directed edges to cycle slots of capacity \(\lfloor\ell_j/2\rfloor\), then fills and closes each cycle with unused labels. Every required edge remains present, and the chosen source positions are increasing, so the exact target word appears as a subsequence. The cell structure agrees with the complete injective-word complex through dimension \(c(\lambda)-1\), yielding connectivity through dimension \(c(\lambda)-2\) by relative CW approximation and the classical sphere theorem. In the involution case a transposition is a forced inversion, proving exact sharpness of this *skeletal* threshold. Exhaustive finite coverage through eight labels and constructive twelve-label checks corroborate the proof. Risk: the theorem does not determine higher homology or sharpen connectivity beyond the stated range.
+PASS
 
-## Originality: PASS, subject to independent priority check
+For k <= c(lambda), choose k increasing positions outside the prescribed values since 2k <= n. The required arrows are vertex-disjoint two-label blocks. A cycle of size ell accepts any t <= floor(ell/2) such blocks and ell−2t spare labels: allocate within these capacities and close each list cyclically. This works for all cycle sizes and yields the exact word and falling-factorial cell counts. There are no relative cells below dimension c. A nullhomotopy of an i-sphere in the ambient space can be deformed into the common (c−1)-skeleton when i+1 <= c−1 by relative cellular approximation; paths give path connectivity for c >= 2. The ambient wedge theorem was checked in arXiv:1908.03394, Theorem 1.2; reduced homology vanishes in the range with any coefficient group. Each transposition contributes at most one letter to an increasing subsequence. This proves the sharp skeleton cutoff, not sharp connectivity. Reviewer-authored `python3 /workspace/independent_reproduction.py perm` (Python 3.12.3) compared exact word sets through n=8 and longest increasing subsequences over all perfect matchings at n=2,4,6,8,10,12 (10,395 matchings at n=12). The frozen verifier searches for absence only through n=8; its last two printed sharpness lines cover witness construction, not exhaustive absence. The proof does not rely on finite checks.
 
-The nearest recent work (Govc, November 8, 2026) establishes freedom of fundamental groups for arbitrary permutation complexes, not the universal short-word skeleton for all conjugacy classes. The foundational work of Chachólski–Levi–Meshulam studies arbitrary generating families and two-permutation cases; the complete injective-word sphere theorem applies to the **ambient** complex but has no consequence for conjugacy-class subcomplexes without the newly proved extension lemma. Elizalde–Hanlon–Hersh treats relative-order pattern avoidance, a different family of subcomplexes. Search comparisons and inspection of these relevant primary texts found no direct or dominating published theorem. Residual risk: equivalent statements could appear in unindexed combinatorial subsequence literature.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The cycle-type formula provides a uniform, computable **topological connectivity bound** for every symmetric-group conjugacy class, including families with growing vanishing ranges. It upgrades qualitative freedom of fundamental groups to simple connectivity and higher connectivity when the cycle packing capacity grows. The fixed-point-free involution class offers a natural infinite family with a provably sharp exact-word skeleton cutoff. The result is not a numerical recomputation or an arbitrary finite slice; it is a structural theorem spanning every partition of every degree.
+Earlier positive-probability extension of acyclic constraints covers the short-word existence conclusion for types with every part at least k+1, in particular the corresponding range for one long cycle. It does not cover arbitrary short cycles, fixed points, or the uniform capacity and its exact involution boundary. No equivalent or dominating result for the combined general statement was identified in the inspected sources. The ambient theorem and the elementary direction of the involution obstruction are not claimed as separate innovations.
 
-## Scope and references
+## value
 
-The claim is for exact-letter subsequences in the full conjugacy class, regular injective-word CW models, and the stated connectivity degrees only. It does not assert a complete homotopy classification, sharp connectivity for every cycle type, or novelty certification. Scholarly sources: Govc, arXiv:2611.11362v1; Chachólski–Levi–Meshulam, arXiv:1908.03394; Elizalde–Hanlon–Hersh, arXiv:2610.07303v1; Björner–Wachs (1983); Farmer (1978/79).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A computable cycle-type condition controls every exact-letter cell in a growing range and gives nontrivial integral and homotopical connectivity in a naturally defined family. The bound works with a mix of long and short parts and provides a sharp skeletal cutoff for an infinite class, rather than extrapolating a finite homology census. It does not determine higher groups or claim that the connectivity bound is sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

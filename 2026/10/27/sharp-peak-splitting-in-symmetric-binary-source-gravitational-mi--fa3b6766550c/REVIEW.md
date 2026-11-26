@@ -1,19 +1,21 @@
-# Scientific review: sharp binary-source peak-splitting boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every common impact parameter \(b>0\), the point-lens Paczyński amplification and equal-flux sum are explicitly defined. The derivatives \(g'(t)=-8t/Q(t)^{3/2}\) and \(g''(t)=8(5t^4+2Dt^2-BC)/Q(t)^{5/2}\) determine a unique central-curvature transition. For every noncentral stationary point, a reversible ratio substitution reduces the equality of derivatives to a strictly decreasing scalar equation. Its endpoint signs show zero or exactly one positive stationary point per side, with no omitted cases. The quartic derivative at equality is strictly negative. A Taylor argument establishes the square-root opening law, and the quadratic critical equation gives sharp asymptotic bounds. The standalone standard-library program reproduces symbolic rational identities and direct original-light-curve checks; universal claims rest on the proof, not finite tests.
+PASS
 
-## Originality — PASS, provisional historical priority
+Differentiation of the individual translated profile gives g'(z)=-8z/Q(z)^(3/2), where Q=(z²+b²)(z²+b²+4); the central curvature changes sign exactly at the positive root of 5s⁴+2Ds²-b²(b²+4). For 0<t<s, putting x=s-t and w³=(s+t)/x makes the stationary equation Q(w³x)=w²Q(x). Dividing the expanded equation by w²-1 and writing y=w+1/w gives the frozen rational equation, bijectively for y>2. Both rational coefficients strictly decrease there, as follows from the stated derivative factorizations and the positive expansion in y-2. The endpoint values are the curvature numerator and -b²(b²+4). There are no off-center stationary points at or below threshold and exactly one on each side above it; the derivative beyond s and evenness finish the classification, including s=0. At the root r, Q'/Q=2/(3r), yielding a negative fourth derivative and positive s-derivative of the central curvature. The implicit function theorem in t² gives the stated coefficient and error term. The normalized threshold polynomial has opposite signs at 1/5 and 1/2 and gives both limiting ratios. The two equal-height maxima above threshold are isolated strict local maxima and both globally maximizing (not individually strictly higher than the other). A separate high-precision check on the original flux reproduced the b=1 benchmark and tested the opening at b=0.01, 1, and 100; it is not the universal argument.
 
-Han and Jeong (1998) present binary-source Paczyński superposition and numerical separation/detection studies, but the inspected full original preprint does not assert a closed sharp equal-impact peak-count boundary and onset rate. Skowron et al. (2009) describe and fit repeating two-source curves; Rattenbury (2008) analyzes different close-binary-source morphology. A semantic mathematical-record search for shifted Paczyński curves and mode thresholds returned no statement covering the proposed formula or full implication. Griest and Hu (1992) is a particularly plausible earlier related paper about two-source microlensing; only abstract-level evidence was available, so earlier implicit or explicit coverage remains possible. Other broader translated-kernel mode-count theorems could imply part of the classification. Search absence is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The threshold distinguishes one apparent event peak from two ideal peaks for all positive equal-impact geometries without choosing observing cadence or an arbitrary detection score. Its exact scale, two-sided sharp bounds and onset rate explain structural resolvability and parameter sensitivity near a natural bifurcation. The result is a meaningful complete mathematical classification of a classical astrophysical model; it is neither a mere parameter substitution nor an assertion of physical survey sensitivity.
+The binary-source sum and observed double peaks are prior; the supported distinct contribution is the explicit symmetric threshold together with a global stationary-point count and quantitative onset. The closest inspected sources do not give that result. This is a bounded judgment, with a material unresolved comparison to Griest–Hu (1992).
 
-## Scope and risks
+## value
 
-Only static, equal-brightness, identical positive-impact, point-source trajectories past a point-mass lens are covered. Numerical checks are consistency evidence. Historical coverage remains provisional pending direct examination of the Griest–Hu original and any more general two-translate modality theorem. An independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal impact parameters and equal flux isolate the baseline resolution question for a standard astronomical signal. The exact time-separation benchmark, exclusion of an intermediate mode regime and quantified peak opening are useful in distinguishing inherent profile geometry from cadence or noise limitations. The ideal result is not a detection guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

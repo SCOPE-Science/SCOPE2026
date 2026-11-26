@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has exact domain \(n\ge3\), specifies the usual Jacobsthal recurrence and the precise semigroup invariants, and proves formulas for the Frobenius number, genus, and symmetry defect with no inferred extrapolation from finite data. The critical identity \(3c=8a+5b\), gcd computation, gluing decomposition when \(3\mid n\), complete Apéry candidate reduction when \(3\nmid n\), branch comparisons, and Apéry sums are all proved explicitly. The \(n=4\) boundary case is addressed separately. The standalone exact-integer checker reconstructs Apéry sets by shortest paths for \(3\le n\le16\), reproduces all invariants, and checks the minimizing branches. Its finite checks are corroboration, not the proof of the infinite claim.
+## correctness
 
-## Originality — PASS with specified residual risk
-Komatsu–Laishram–Punyani (arXiv:2304.00443, first public 2023-04-02) derive \(p\)-Frobenius and genus formulas for generalized Fibonacci/Jacobsthal triples with an offset-two generator, rather than \(\langle J_n,J_{n+3},J_{n+4}\rangle\). Komatsu–Pita-Ruiz (Axioms 2023) and Mu–Komatsu (Axioms 2024) likewise impose an offset-two generator. Their theorems, as inspected, do not imply the present piecewise formulas, Apéry strips or exact symmetry defects. A prior recorded Pell triple \(\langle P_n,P_{n+3},P_{n+4}\rangle\) has the same index pattern but a different recurrence and gluing coefficient: its symmetry classification alone does not imply the new exact Jacobsthal Frobenius and genus values, or the present three-strip Apéry theorem. Additional algebraic semigroup results supply generic criteria rather than evaluating this concrete family. Targeted searches of published mathematical records, filenames/claims in accessible ledgers, and published-finding corpus returned no covering statement. A relevant later recurrence-triple paper's abstract and parameters but not full text were accessible; unindexed or uninspected equivalent material is possible. Lack of a search hit is not asserted as a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The 2023 motivating literature seeks exact Frobenius and genus invariants for recurrent-sequence triples; excluding one of its prescribed index offsets produces a genuinely different three-generated Diophantine family. The result is a *complete all-index determination* of both invariants, an explicit Apéry decomposition, and a sharp symmetry-defect classification. The exceptional index \(n=4\) and congruence-controlled symmetric indices are consequences of exact structural formulas, not an arbitrary small-case census. It goes beyond just substituting one recurrence into the earlier Pell symmetry classification because it determines unrestricted exact Frobenius and genus values for every nonsymmetric index and exposes a distinct three-branch minimization mechanism.
+Writing s=(-1)^n, the recurrence gives b=8a+3s and c=16a+5s, so gcd(b,c)=1, gcd(a,b)=gcd(a,3), and 3c=8a+5b. Also 3 divides a exactly when 2^n=(-1)^n mod 9, or 3 divides n. In that branch c belongs to the two-generator semigroup T on a/3,b/3, and its residue shifts by 0,c,2c yield F=3F(T)+2c and g=3g(T)+c-1, also when T=N_0 at n=3. Otherwise an Apéry element can have neither an a summand, nor three c summands, nor a copies of b. In the class kb mod a there are therefore exactly the three candidate forms obtained from y=0,1,2 and the corresponding reduced b coefficient. For t=5/3 mod a and D=c-tb, the candidates differ from kb by yD plus the wrap terms 0,ab, or 2ab. When a=1 mod 3, D<0 and 2D+ab>0, giving the 0,1,2 strips; when a=2 mod 3 and a>=11, D+ab>0 and 2D+ab<0, giving the 0,2,1 strips at u=2t-a and t. Endpoint comparison gives the claimed maxima. In both coprime branches the strip sum differs from a(a-1)b/2 by a(a-5)(8-b)/3, giving the genus. The n=4 redundant c case has F=167 and g=84. Substitution gives both defects and establishes the exact symmetry condition. A separate forward membership computation through a full run of a consecutive representable integers verified F, genus, and the claimed residue minima for n=3,...,11 wherever applicable; it is finite corroboration only.
 
-## Limits and closely related sources
-The theorem concerns the standard Jacobsthal recurrence and offsets three and four only. No \(p>0\) Frobenius statement is claimed. Closest full-source context: Komatsu, Laishram, Punyani, *Symmetry* 15 (2023), 852, arXiv:2304.00443; Komatsu, Pita-Ruiz, *Axioms* 12 (2023), 98; and Mu, Komatsu, *Axioms* 13 (2024), 608. Independent review is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest indexed analogue treats the same offsets for Pell numbers and shares the gluing/symmetry theme, but it uses a different recurrence and does not determine the Jacobsthal residue strips, Frobenius numbers or genera. The inspected Jacobsthal and generalized recurrence theorems use offset two, and the broader generator parameterization in the 2023 paper does not contain this family even when treated as an unindexed generator parameterization. The supported distinct contribution is the exact all-index invariant and Apéry determination, not a new general gluing or symmetry criterion.
+
+## value
+
+PASS
+
+The offsets retain a short recurrence relation but lie outside the common offset-two triple, a natural nearby family in work on recurrent numerical semigroups. The exact thresholds describe every residue, not just exceptional indices or a finite sample. They determine both principal gap invariants in all indices, identify exactly where the defect vanishes, and provide Apéry data that can be used without running a residue graph search for each index. This is more than applying the known gluing or symmetry criterion to the symmetric branch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

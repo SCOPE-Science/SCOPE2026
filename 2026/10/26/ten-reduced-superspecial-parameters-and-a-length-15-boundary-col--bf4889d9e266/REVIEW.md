@@ -1,15 +1,21 @@
-# Review of the exact characteristic-eleven Cartier intersection
+# Independent mathematical audit
 
-## Correctness — PASS
-The genus-two smoothness condition is exactly \(v(u^2-4v)(1-u+v)\ne0\). The parity of the sextic kills both off-diagonal Cartier coefficients, and coefficient extraction yields the explicit pair \(A,B\). The resultant factorization has eight simple projected roots outside \(u=2\); on \(u=2\) the fiber has three distinct support points, two with Jacobian determinant \(8\). The local resultant order \(17\) leaves length \(15\) at the degenerate \((2,1)\). The absence of points at infinity and the boundary gcds establish geometric completeness. `verify.py` recomputes the exact characteristic-eleven identities, with no sampling substituted for proof.
+## correctness
 
-## Originality — PASS with residual risk
-The same even sextic is a published normal form, including in Ohashi's arXiv:2308.11963, Lemma 3.3. Harashita–Yamamoto arXiv:2409.13212 prove a more general smooth Rosenhain multiplicity-one theorem, so reducedness alone is not claimed to be new. Katsura–Takashima arXiv:2003.00633, Section 7.2, explicitly identify **two** isomorphism classes in characteristic eleven, a different invariant from the **ten** marked parameters. The inspected results do not present the exact \(10+15\) affine Cartier intersection in these coordinates. Uninspected alternate coordinates or earlier tables remain an originality risk.
+PASS
 
-## Mathematical value — PASS
-This resolves a natural, fully defined intersection problem on a two-parameter moduli cover, distinguishing its ten legitimate smooth points from a concentrated length-fifteen degeneration of the coefficient equations. The boundary excess is mathematically meaningful: without it an affine Bézout count of twenty-five would misleadingly suggest twenty-five valid superspecial curves. The finite computation is motivated by the geometry of superspecial curves and marked involutions, not an arbitrary slice.
+The frozen proof falsely calls the v² coefficient of B a nonzero constant and conflates the length of the scheme-theoretic u=2 fiber with the sum of the full local lengths over it. The complete repaired RESULT.md corrects both: the coefficient is 3(u−2), B(2,v)=0, and the fiber cut by u−2 has length 5, whereas the three affine intersection local algebras over u=2 have total length 17. The revised proof uses the determinant of multiplication by B in the rank-five free k[u]-module k[u,v]/(A). Its order at each base point equals the length of its cokernel over the local DVR, hence the sum of the local geometric lengths. Independent coefficient convolution and multiplication-matrix computation gave the stated determinant, eight simple other roots, the two nonzero Jacobians (8), and the three boundary gcds. Independently imposing (u−2)^17 and inverting (v−3)(v−4) gives a quotient with 15 standard monomials, confirming the local length. The relative Cartier entries are the specified even coefficients; this zero scheme on the smooth family, not an absolute semilinear matrix on the boundary, is what is counted. Finite support gives the complete intersection, and the homogeneous forms also rule out infinity.
 
-## Limits
-No new classification of abstract isomorphism classes is claimed, nor is the boundary scheme identified with a singular Jacobian. Literature search cannot certify absence of equivalent old formulas. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repair preserves the original outcome but distinguishes the fiber length from the affine local length precisely. The supported distinct contribution is the exact decomposition for this marked plane, in particular the affine length-15 triple collision. Prior work treats the very same normal form, establishes general reducedness in smooth Rosenhain coordinates, and catalogues the two abstract curves; none of the inspected statements accounts for the extended coefficient ideal at the degenerate parameter.
+
+## value
+
+PASS
+
+On a natural normal-form family with a distinguished branch pair, a smooth moduli census does not account for intersections absorbed by degeneration. The exact marked decomposition distinguishes ten simple smooth points from local mass 15 at the unique excluded triple collision and locates all ten smooth parameters. The 5-versus-17 length distinction makes this useful for checking elimination multiplicities and compactification comparisons rather than just reproducing a list of abstract genus-two curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

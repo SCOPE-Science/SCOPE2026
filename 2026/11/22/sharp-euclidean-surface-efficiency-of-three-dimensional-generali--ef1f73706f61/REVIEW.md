@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit facet inequalities identify four Euclidean facet classes with multiplicities \(3,3,3,1\), and their elementary planar areas sum to the asserted surface polynomial. The divergence formula supplies an independent volume calculation. The derivative of the scale-free isoperimetric quotient factors through a cubic with exactly one positive zero by Descartes' rule and endpoint signs; the asymptotic expansion proves a unique comparison crossing with an equal-volume cube. The accompanying exact-symbolic and convex-hull verification completed successfully. Critical boundary \(t=0\) is treated by vanishing pair-facet area and continuity; the statement covers all real \(t\ge0\).
+## correctness
 
-## Originality — PASS (provisional priority)
-Hanada–Lentfer–Vindas-Meléndez (arXiv:2212.06885, sections on facets and volume) proves pre-existing volume/face results, not ordinary Euclidean facet areas or surface-efficiency minimization. Bayer et al. (arXiv:2403.07387, Theorem 2.3) fully covers the inequality/vertex description underlying this proof, but does not state the surface-area formula or the sharp isoperimetric optimization. Searches for the corresponding metric invariant, continuous family, and cube comparison located no equivalent or dominating theorem. An unindexed treatment, or a later extension of the known facet data to area, remains possible; a failed search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The isoperimetric problem asks for the surface-minimizing shape at fixed volume within a natural polytope family, whose defining parameter genuinely changes Euclidean geometry. The sharp cubic optimizer and the strict cube comparison express substantive quantitative geometry not determined by known face counts, the known volume polynomial alone, or existing sphere extremizers. The dimension-three restriction is natural as the first nonplanar case and supports a full global classification rather than an arbitrary finite parameter slice.
+The final claim in repairs/5/RESULT.md follows from the exact metric inputs. On a lower plane the square of side t+2 is cut by the pair bound, removing a corner of area 1/2. On an upper coordinate plane the other coordinates are bounded by t+1 and their sum by 2t+1, again removing area 1/2. On a pair plane the parameterized edges have lengths √2 and t: the sum bound gives the free third coordinate in [0,t], and the other pair bounds do not further truncate it. The top plane translates to the slice of the side-two cube at coordinate sum three, a regular hexagon of area 3√3. Thus S is the stated quadratic, including at t=0. Using support heights 0, t+2, (2t+3)/√2 and (3t+3)/√3 gives the stated V by the divergence identity. I independently expanded 3VS'−2SV': the degree-four terms cancel and every listed coefficient of D agrees. Radical bounds give signs +,+,−,−; Descartes plus the endpoint signs proves exactly one positive root and strict decrease then increase. Q(0)>216; expansion of S³/V² gives the correction 3√2/2−3<0 at order 1/t. This proves a unique crossing on the decreasing part and no crossing on the increasing part. An independent bisection of 3VS'−2SV' on [0,4] and Q−216 on [0,1] gives t_*≈2.52596465810684, t_c≈0.629939681219772 and Q(t_*)≈193.056812414404. The integer correspondence preserves Q, and density gives the same infimum.
 
-## Restrictions and literature
-No global isoperimetric bound among all convex bodies is claimed. The volume calculation is expressly credited as previously established, and the full minimal inequalities are likewise attributed. Historical priority beyond inspected primary articles cannot be certified; there is no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Only the repaired comparison passes. The frozen novelty scope included the Euclidean area formula, which is exactly covered as the n=3 specialization of the distinct indexed general area decomposition 11ff2c69295a. The repair removes that claim of novelty and cites the decomposition as an input. The retained claim is a global sign and extremum theorem: the unique normalized shape and sharp value, and the unique boundary between shapes that do and do not beat an equal-volume cube. No compared theorem gives that global classification. The same-day date does not determine ordering.
+
+## value
+
+PASS
+
+The exact normalized optimum and cube crossing give fixed-volume shape-selection criteria for the natural one-parameter parking family in its first spatial dimension. In particular, approaching the cube limit alone does not say whether finite-parameter shapes beat the cube, whether the crossing is unique, or how close the best shape gets. The retained result resolves all of these over the entire continuous family and its dense integer realization. Its value is not the tabulation of an area polynomial that already follows from the general decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All families and boundaries are specified for integers \(F\ge3\). Closure is automatic below the conductor since every positive element exceeds \(F/2\); the forbidden isolated-gap condition is exactly the restriction of zero-runs to length at least two, with a forced terminal run. The exceptional ordinary semigroup is included. The rational bivariate series follows from a unique regular-language factorization, and its simple dominant pole produces both the exact exponential count and the Gaussian law. Implicit differentiation gives strictly positive variance, and geometric tail bounds justify the joint independence statement. The standalone exact checker passed sixteen direct finite censuses, seventeen polynomial recurrences, and five large-weight moment comparisons. The theorem's infinite statements follow from the proof, not from enumeration.
+PASS
 
-## Originality — PASS within inspected evidence
+This verdict is for the complete replacement RESULT.md in /workspace/repairs/1, not the frozen wording. The frozen leading statement is false if read literally: for F=5, m=3, the word is 00 and u^2 counts the gaps 4 and 5, but 4 is the only gap strictly between 3 and 5. The repair marks (m,F], gives the u^{-1} alternative for the strict convention, and leaves the correct total genus formula unchanged. Below the conductor any pair of positive elements sums to more than F, and the initial gap block before m has length at least two. Thus perfectness is exactly the word restriction with a terminal zero-run of length >=2, including the ordinary term separately. The run decomposition gives A(z,u), with g=F-t-1+#zeros. At u=1 the cubic has negative real derivative everywhere and a simple root r in (0,1); conjugate reciprocal roots have modulus sqrt(r)<1. The continued dominant pole is simple and isolated near u=1, yielding exponentially controlled coefficients and the stated log-pole derivatives rho and v>0. Conditional on a fixed offset j the word length is h-j and its centered CLT has limiting variance v/2 in sqrt(F) units; the parity and fixed-j centering changes are bounded. The geometric bound also covers the ordinary case J=h+1, making the fixed-j mixture converge to the product. The repaired proof explicitly sums the complex coefficient error and uses analytic derivative bounds to obtain O(1) cumulant errors. Independent exact subset/addition/isolated-gap checks reproduced the full (m,g) table for F=3..18 (298 qualifying semigroups); three finite coefficient calculations agreed through word length 18. Independent differentiation and numeric checking give alpha=0.7942522056686771 and beta=0.1405488061714853; exact moments were checked through F=1001. Replay: /workspace/branches/65ad5f66-87b2-4149-8958-5b7abbb8635e/independent_semigroup_check.py and its .out companion. The supplied script was inspected, not executed; the infinite theorem rests on the proof, not the finite checks.
 
-The 2023 fixed-Frobenius perfect-semigroup paper gives tree constructions and algorithms, while the 2019 paper gives the general theory and fixed-multiplicity methods. The 2022 unrestricted Frobenius/genus distribution gives a different population and different typical-genus parameter; it does not count perfect semigroups. The 2026 large-multiplicity multiparameter theorem addresses unrestricted semigroups, not their no-isolated-gap subset. Published statements on minimum genus or specialized multiplicity-five perfect semigroups also do not imply the complete high-multiplicity joint histogram. Actual indexed mathematical-record searches found related but not equivalent claims. The newest relevant multiparameter paper was available at abstract level only; possible unindexed equivalent coverage remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Perfect numerical semigroups are a natural class defined by a structural gap constraint, and exact fixed-Frobenius enumeration by genus is an explicit published problem. The proof supplies a genuinely complete natural subclass census, a sharp exponential rate, an independent geometric boundary-layer law, and a nontrivial normal law for genus whose coefficient differs from the unrestricted population. These are structural and asymptotic results for an infinite family, not merely finite data or relabeling.
+This verdict is only for the repaired main claim: the conditioned genus CLT with explicit constants and its asymptotic independence of the multiplicity offset. There is affirmative prior coverage of the original total count, sharp amplitude and error in equivalent word coordinates; the geometric marginal follows immediately, and the marked finite enumeration follows from known fixed-Hamming-weight run counts. These are now attributed supporting identities, not independent novelty claims. The precise joint normal/geometric limit was not supplied by the inspected antecedents. Best-of-knowledge qualification applies only to that surviving claim.
 
-## Limits
+## value
 
-This does not count all perfect numerical semigroups. Finite verification checks are corroborative only; unindexed prior work cannot be ruled out, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The surviving contribution concerns the typical joint behavior of two intrinsic semigroup invariants under a natural exact gap restriction. It separates the tight multiplicity scale from the sqrt(F) genus scale, obtains their asymptotic independence across both parities, and gives explicit leading genus moments that differ from the unrestricted law. The conditioned joint statement, not the classical word count or its relabeling, is the mathematical value and supplies a benchmark for other strata of perfect semigroups. It neither describes smaller multiplicities nor claims to settle the unrestricted perfect population.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

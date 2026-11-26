@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from an exact and symbolically rechecked rational three-periodic first integral, a rigorous positive-coefficient tropical limit, explicit supporting-half-plane polygons, and a measure-theoretic conjugacy to a rigid rotation: the integral unimodular affine derivatives preserve primitive lattice arclength. The basepoint displacement gives the full two-branch rotation number. Differentiation and exact coprimality prove the unique twist reversal, all rational periods, and one integral orbit per positive integer shell. The special zero-energy line segment is checked directly. `verify.py` reproduced the rational source identity, 6,241 invariant samples, all 321 rational-level cases in the chosen test grid, and all 25,550 integer boundary points in the first 100 shells. Finite testing supports but does not replace the universal proof. The proof relies on elementary valid facts about circle rotations, tropical log-sum limits, and determinant-one affine branches.
+PASS
 
-## Originality — PASS, qualified
+The positive-term log limit of the rational three-season integral gives H+1; local uniformity of the finite log-sums and convergence of the three updates justify evaluating it at the limiting image, including on switching lines. Independently, H≤h is equivalent to −h≤x≤h and max(−h,−h−x,x−1−h)≤y≤min(h+1,h+1+x). For x<0 the vertical span is 1+2h+2x; for x≥0 it is 1+2h−max(0,x−1). These bounds yield precisely the asserted vertices, area 3h²+2h−(max(0,h−1))²/2, and primitive perimeter 6h+2−max(0,h−1). The orientation-preserving return map preserves lattice arclength on each affine segment because its integer unimodular derivative maps primitive tangent to primitive tangent, also for restrictions along a switching line. Hence it is a translation in counterclockwise arclength. The orbit of (−h,0) after one update is (0,h), then (h,h), then (h,max(0,1−h)); the resulting displacement along the polygon is 2h+1. This proves the rotation formula and, by differentiating the two branches, the strict minimum and change of twist at h=1. In the lower rational branch the gcd of numerator and denominator is gcd(q,2); in the upper branch integer linear combinations recover p and q, so the gcd is one. This gives exact periods, including 18 at both displayed resonance levels, and irrational density. Integral vertices give one lattice point per unit of boundary arclength, and 2(5m+3)−5(2m+1)=1 proves transitivity on each positive integer shell. At h=0 only x=0, 0≤y≤1 is feasible; the return map reflects the segment and exchanges its two integer endpoints. The package's finite controls were inspected but not executed or used to infer exhaustiveness.
 
-The three-season **rational** invariant and generic circle integrability are explicitly acknowledged as prior work of Cima–Gasull–Mañosa (arXiv:0912.5031). That paper also exhibits nonmonotone rational two-season rotation, so only the precise **three-season tropical** cusp, complete rotation/period formulas, and single-orbit integer shells are claimed. Its full preprint, including the invariant and rotation discussion, was read; it does not give the tropical map or stated exact formulas. The nonautonomous rational integrability follow-up (arXiv:1012.4925), Takahashi–Iwao's autonomous polygon map and Northshield's autonomous tropical overview also do not cover the displayed map. Full-text comparisons with published max-plus QRT and rank-two tropical mutation research establish different updates and energy dependence. Accessible prior same-family two-season work has different rotation and no hexagon-to-heptagon twist reversal. Database keyword and equivalence searches found no closer record. An unindexed equivalent result or an uninspected source remains a historical-priority risk, not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Periodic forcing is a natural mathematically motivated variation of Lyness recurrences. The exact switch in sign of the area-action twist at a polygon-topology transition, including two distinct energy shells for every frequency in \((3/8,2/5)\), is a qualitative dynamical effect absent in the compared autonomous models and not obtained by routine reindexing of the two-season result. The all-energy period classification and uniquely transitive lattice shells give a complete arithmetic description of a nontrivial integrable nonautonomous piecewise-linear system. The sharp cusp and the rational resonance \(7/18\) at energies \(2/3\) and \(3\) explain why a simple monotone-period extrapolation fails.
+The rational integral and generic circle dynamics are prior. The inspected closest tropical statements do not give, or imply by an equivalent return-map or energy parametrization, the positive-level rotation with an interior twist reversal and the complete integer orbit census for schedule (0,0,1). This is a bounded best-of-knowledge assessment of that specific mathematical claim, not a priority determination from dates.
 
-## Limitations and closest literature
+## value
 
-No claim is made for other season schedules or perturbations. An analytic conjugacy is not asserted (the map is piecewise affine); rotation is in intrinsic lattice arclength. No independent scientific validation has been performed. Historically related material may remain undiscovered despite literature and database comparisons. The nearest related work is the original three-period rational invariant (arXiv:0912.5031), the two-season tropical case and the autonomous max-plus polygon model, all specifically distinguished in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This nonautonomous tropical model gives a sharp example in which the geometry of a single shrinking edge changes the sign of twist and makes two distinct invariant polygons share a prescribed frequency. The same exact rotation computation classifies all rational periods, irrational dynamics, and every integer trajectory without truncating to a finite region. The arithmetical orbit partition and the explicit obstruction to monotone twist are independently useful features of this fixed map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

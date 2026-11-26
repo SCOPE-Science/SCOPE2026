@@ -1,15 +1,21 @@
-# Research review: terminal leaf of the conditioned discovery order
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof uses the primary published conditional full-order law, then a reverse-insertion fiber count for a permutation-to-linear-extension expansion map. The last output is the leaf latest among input entries. The resulting last-leaf uniformity is exact for every rooted labeled tree with at least two vertices; the attached program only verifies finite cases. The process is a uniform complete-graph walk.
+## correctness
 
-## Originality (PASS, with residual risks)
-The nearest source, Zheng (arXiv:2610.13063), gives the full conditional law and the unrefined total weight but not the terminal-leaf refinement; it identifies later-position marginals as a topic for further study. Fredes–Marckert (arXiv:2102.08639) treats the general first-entrance-tree mechanism. Actual published-finding corpus and primary-literature searches found no exact equal-leaf-mass formula. An unindexed abstract equivalent and unexamined passages of broad predecessors remain risks.
+PASS
 
-## Mathematical value (PASS)
-This is a closed-form answer to a natural marginal of a complex conditional random discovery order, directly motivated by a specified gap. It identifies an unexpected uniform law conditional on a highly nonuniform tree structure and supplies an explicit bijective combinatorial certificate rather than a special-case numeric computation.
+Independently recovered the joint order and tree law: with seen set S, current x and u=n−|S|, a specified next new label y with predecessor z∈S has probability (1+u·1[z=x])/(nu). The immediate jump contributes 1/n only for z=x; summing strings of one or more old draws ending at z contributes 1/(nu). Multiplication yields the stated order weights times a common factor, with the first root discovery contributing a common numerator n. For the permutation expansion, remove the ancestor-closed prefix, write a=τ_i and b=τ_{i+1}. In a valid suffix input the first scanned symbol has b as its first available ancestor in the forest without a. Reinserting a later than first prepends a to that first chain exactly when p(b)=a; otherwise b would precede a. Reinserting a first always works since a has no un-emitted ancestor. Erasing a preserves the shorter expansion, so this induction exhausts the distinct input permutations, giving exactly the displayed product. The latest scanned leaf is the latest output: leaves cannot be emitted earlier, and every internal vertex precedes an output descendant leaf. Uniform permutations assign each leaf probability 1/|Λ(T)|. This also covers k=1, a unique leaf, and suppression of holding steps.
 
-## Limits
-No claim extends to arbitrary nonuniform transition kernels, internal discovery ranks, or the joint distribution of discovery times. All scientific comparison is self-review; no external independent audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the fixed-tree terminal marginal and its leaf-refined fiber identity. Zheng already gives the full weighted order law and total normalization and explicitly leaves later-position marginals for analysis; the inspected sources do not derive the uniform terminal-leaf marginal.
+
+## value
+
+PASS
+
+It evaluates a concrete outstanding marginal of the complete-graph order law, nontrivially independent of asymmetries of the fixed tree. The permutation lift both explains the marginal and realizes all weights, rather than recomputing isolated trees or invoking nonexistent leaf symmetry of the conditioned tree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:12:13.572830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a deterministic SPD problem and a nonterminal Lanczos step, the Gaussian images of the basis and residual direction are independent. The sketched matrix is T plus a last-column rank-one update. Its terminal coefficient solves (1+D)Q=c with c the nonzero signed product of the Lanczos subdiagonals divided by det T. After a column rotation toward T^{-1}e_k, projecting out k-1 columns leaves s-k+1 Gaussian directions; the scalar regression is eta times an independent standard normal divided by a chi variable of those degrees of freedom. The resulting scaled Student density is continuous and positive at -1. The symmetric small interval defining |Q|>R has length 2|c|/R; integrating its density gives the stated constant and the moment cutoff. The vector error is at least the absolute error in that coordinate, and subtracting its deterministic exact-solution value does not cure divergence. At beta=0 full sketch rank gives the original invariant-subspace inverse. This checks the proof also at s=k (one residual degree of freedom); it does not extend to conditioned sketches, finite arithmetic, or harmonic projection. Read VERIFICATION.md and verify.py; their reported rational tests and scalar quadrature are corroboration, not a fresh replay or a proof of the Gaussian law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 record gives an all-width/all-nonterminal-step regression representation and exact energy-error tail and moment cutoff. The October 26 record gives the complete vector law, energy-error tail, both sides of the moment cutoff, and comparison with minimal residual.",
+          "Güttel–Liu–Nyman (11) describes the method; successful-embedding guarantees are not unconditional moment bounds. Timsit–Grigori–Balabanov Proposition 3.1 and Fig. 1 give conditional quasi-optimality and observed spikes, not this exact law."
+        ],
+        "reasoning": "Stronger indexed vector and error claims subsume the noninvariant case; invariance is the ordinary deterministic exactness of Galerkin on an invariant subspace. Published projection analyses were not the decisive coverage.",
+        "searches": [
+          "Resultary 38a83f9c9464 and 8e6624cf650a",
+          "arXiv:2607.10354v1, (9)–(14)",
+          "arXiv:2302.07466v3, §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bf113754aed, 38a83f9c9464, 16336c9a1e80, 8e6624cf650a",
+        "arXiv:2607.10354v1",
+        "arXiv:2302.07466v3",
+        "arXiv:2306.06481"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the vector formula, a^Tg has scale eta/sqrt(s-k+1); integrating its Student density over |1+a^Tg|<|c|/R gives exactly 2|c|rho_nu. Energy-error moments diverge for p>=1 and the energy and Euclidean norms are equivalent for fixed SPD A.",
+          "The k=1 formula and the published rank-one sketched-Arnoldi framework alone do not assert the full higher-step Gaussian tail."
+        ],
+        "reasoning": "All nontrivial parts are direct consequences of the distinct all-step record, with no independent classification left after taking its terminal projection. The dates do not establish authorship or scientific priority.",
+        "searches": [
+          "8e6624cf650a, proof §§1–3; 6bf113754aed, Finding and proof",
+          "arXiv:2306.06481, §§4,6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 proof gives y_F=y_0-c_* H^{-1}g/(1+a^Tg), with c_*=beta e_k^T y_0 and a=beta H^{-1}e_k, on the identical deterministic SPD Gaussian sketch. Taking the last coordinate gives (e_k^T y_0)/(1+a^Tg), with H=T for the frozen notation.",
+          "The October 25 harmonic-Ritz record 16336c9a1e80 is not equivalent: it is a different projection, even though it also has a reciprocal-Student law."
+        ],
+        "reasoning": "The decisive correspondence is between random vectors for the identical algorithm, not distribution names or titles.",
+        "searches": [
+          "Resultary: Gaussian-sketched FOM inverse Lanczos reciprocal Student law and infinite moments",
+          "8e6624cf650a, proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 6bf113754aed gives the exact scalar reciprocal-Student tail for k=1; the October 26 record gives a distribution for all k, not merely matching numeric coefficients."
+        ],
+        "reasoning": "There is no finite table to compare for the continuum-dependent assertion; the indexed analytic formulas give stronger exact coverage.",
+        "searches": [
+          "Resultary: exact all-oversampling inverse-risk and Student denominator for Gaussian sketched FOM",
+          "6bf113754aed, Finding",
+          "8e6624cf650a, Finding and proof §§1–2"
+        ]
+      },
+      "rationale": "A distinct indexed October 26 finding gives the complete same-method random vector, including the Gaussian-regression law and the same rank-one pole. Projecting its formula on e_k gives exactly the frozen law for all admissible k,s; a one-dimensional density limit yields the stated coefficient. Its stronger energy-error moment cutoff implies the Euclidean divergence by SPD norm equivalence. This is demonstrated current coverage, not evidence that the October 26 record preceded the October 13 record. The October 13 one-step record alone does not cover k>=2.",
+      "residual_risks": [
+        "Catalog dates and available passages do not establish historical priority; the decision reflects demonstrable existing coverage, not chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by explicit terminal projection and scalar density limit",
+          "evidence": [
+            "Proof yields (H+beta g e_k^T)y_F=||b||e_1 and the Sherman–Morrison vector above; it proves norm moment cutoff and gives the regression law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-moment-separation-between-gaussian-sketched-galerkin-and-m--8e6624cf650a/RESULT.md",
+          "material_read": "Finding and proof §§1–3; offset 3700 onward for the exact vector identity",
+          "method": "Local mirror full-text passages",
+          "title": "Sharp moment separation between Gaussian-sketched Galerkin and minimal residual",
+          "trigger": "All-step Gaussian SPD inverse with the same pole"
+        },
+        {
+          "assessment": "Material all-k coverage, with broader energy-error law",
+          "evidence": [
+            "Multivariate regression representation with exact inverse-linear energy tail and full moment cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-oversampling-proof-infinite-mean-barrier-for-gaussian-sketche--38a83f9c9464/RESULT.md",
+          "material_read": "Finding and regression/tail proof",
+          "method": "Local mirror full-text passages",
+          "title": "An oversampling-proof infinite-mean barrier for Gaussian-sketched FOM",
+          "trigger": "Every finite width and nonterminal step"
+        },
+        {
+          "assessment": "Covers one-step mechanism only, not k>=2",
+          "evidence": [
+            "One-dimensional c_F=1/(a+(d/sqrt(ell))t_ell) in distribution; sharp tail and infinite squared energy error."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-all-oversampling-infinite-risk-law-for-gaussian-sketched-fom--6bf113754aed/RESULT.md",
+          "material_read": "Finding and proof of one-direction law",
+          "method": "Local mirror full-text passages",
+          "title": "An all-oversampling infinite-risk law for Gaussian-sketched FOM",
+          "trigger": "Distinct same-day reciprocal-Student finding"
+        },
+        {
+          "assessment": "Algorithm and embedding context, not an unconditional law in those statements",
+          "evidence": [
+            "Formula (11) is equivalent under basis change; (9) is the embedding condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.10354v1",
+          "material_read": "Equations (9)–(14)",
+          "method": "OA primary full-text passages",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Same underlying projection"
+        },
+        {
+          "assessment": "Conditional estimate and empirical spikes do not specify exact Gaussian pole law",
+          "evidence": [
+            "Energy quasi-optimality assumes an embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+          "material_read": "§3.1 Proposition 3.1, Eq. (12), spike discussion and Fig. 1",
+          "method": "OA primary full-text passages",
+          "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+          "trigger": "Earlier FOM stability analysis"
+        },
+        {
+          "assessment": "Relevant algebra and Ritz effects, not the Gaussian pole statistic in these passages",
+          "evidence": [
+            "Rank-one representation and outlying eigenvalue analysis do not specify the finite-width Student law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.06481",
+          "material_read": "§4 Eqs. (17)–(18); §6 Proposition 6.1, pp. 12–13",
+          "method": "OA arXiv alternate; DOI endpoint inaccessible",
+          "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+          "trigger": "Rank-one modifications and possible outlying Ritz values"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement the error barrier is informative: it isolates why even a well-conditioned SPD problem can have infinite unconditional mean inverse error at every finite oversampling despite high-probability guarantees. The decision against the frozen finding is due to existing coverage, not lack of a meaningful stability question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

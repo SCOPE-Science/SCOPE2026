@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is a complete induction on the cotree. At a disjoint-union node, independently uniform induced relative orders make child greedy outputs independent and give the product law. At a join node, the globally earliest vertex selects its child with probability \(n_i/n\), blocks all other children, and leaves a uniform relative order inside the selected child. This gives the exact size-weighted child law. Comparing individual maximal-independent-set probabilities yields the stated necessary-and-sufficient uniformity conditions. The finite checker exhausts all labeled cographs through order \(6\) and all vertex permutations on them as a stress test, but the universal theorem does not depend on enumeration.
+## correctness
 
-## Originality
-PASS. The initiating 2026 tree paper was inspected in full and explicitly points to classification beyond trees; it contains no cograph theorem. published-finding corpus searches under direct and alias formulations returned exact-law results for threshold graphs and chain graphs and a complete-multipartite variance result as the closest records. Threshold graphs and complete multipartite graphs are only special cograph families, while chain graphs do not cover cographs; none implies the cotree recursion or the all-cograph uniformity criterion. The broad local-limit literature studies asymptotic density rather than this exact finite terminal law. Residual risk remains that the natural union/join recursion is implicit in older modular-decomposition literature under different terminology.
+PASS
 
-## Value
-PASS. This gives a complete structural law and exact-uniformity classification on a canonical hereditary graph class singled out by a linear-size cotree. It directly answers a recent beyond-tree direction on a substantial class, subsumes several special recursive families, and yields a bottom-up exact-uniformity test without enumerating maximal independent sets. The result is therefore more than a routine computation on a small family.
+A uniform permutation factors bijectively as a uniform word of child labels of the prescribed multiplicities and independent uniform permutations within the children. Union greedy decisions are independent in those child permutations, and every maximal independent set is a product of child maximal independent sets. At a join the first letter is i with probability n_i/n; the first accepted vertex blocks all other children, leaving the independent uniform order in child i. Every maximal independent set at a nonempty join belongs to a unique child and is maximal within it. The flat law selects these children with weights m_i/m; within each, the law is flat. Comparing conditional laws and those two child-weight vectors gives exactly the positive n_i/m_i balance condition. At unions flatness is equivalent to flat marginals, which are the independent child laws. The base case is a leaf (the stated construction starts from single vertices). Multiplication/summation of counts and cross-multiplication for balance take a constant number of arithmetic operations per child edge, not necessarily constant bit complexity. This also makes clear which output is given exactly without listing every set.
 
-## Closest literature and limitations
-The closest primary source is arXiv:2610.02276v1, which treats exact greedy uniformity on trees and asks for understanding beyond trees. The established random-greedy paper doi:10.1002/rsa.21200 addresses asymptotic density through local limits. Classical cograph work doi:10.1137/0214065 supplies the cotree representation. Published published-finding corpus records cover threshold graphs, chain graphs, and complete multipartite special cases. The theorem here remains restricted to cographs and uniformly random vertex orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The law coincides with independently stated exact laws on several subclasses and with a known sufficient criterion where that criterion applies, but the exact all-cograph cotree law and iff test are not covered by the compared statements. The probability recurrences are natural decomposition facts; their novel use here is a complete decision and probability rule on the whole hereditary class, including uniform graphs outside the older sufficient criterion.
+
+## value
+
+PASS
+
+This gives a complete iff decision and exact individual-output laws across a canonical hereditary class without enumerating maximal sets to test uniformity. Comparing counts and vertex masses gives structural insight not captured by the old sufficient condition or by output-size statistics: K2 joined to two disjoint K2s is irregular and uniform despite outputs of different cardinalities. The short decomposition proof yields an exact algorithm on an unrestricted class rather than a tabulated case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

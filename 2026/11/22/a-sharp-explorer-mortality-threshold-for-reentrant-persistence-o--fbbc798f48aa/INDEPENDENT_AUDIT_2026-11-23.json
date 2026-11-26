@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:59:18.114414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–85 and VERIFICATION.md; check.py inspected without execution; independent radial differentiation, exact cubic bracket and Lyapunov check; Bernardi et al. arXiv:2602.06640v2 Eqs. (2)–(9), (13)."
+      ],
+      "rationale": "The positive inverse of sI+fL times A is strictly positive. The positive radial eigenvector therefore certifies the full Perron root. In the coordinates (hub, representative leaf), the radial kernel has common diagonal mf and off-diagonals m(s+f), s+mf, times ξf/((1+f)s(s+(m+1)f)), giving the stated formula. The decreasing variable r=sqrt(m(s+f)/(s+mf)) maps positive f onto (1,sqrt(m)); the derivative with respect to r has the sign of s−S_m(r). All three terms of (log S_m)' are positive, so S_m runs from s_c to infinity and equality s=s_c gives strict increase at every finite f. The endpoint limits and m=1 specialization follow directly. Positivity of K makes the derivative of the left-Perron linear functional strictly negative off zero even at equality on the forward-invariant cube. Above threshold, the positive right Perron vector times a small scalar is a strict subsolution; monotone iteration under the all-ones supersolution gives a positive equilibrium. For the witness, r=2 gives f=5 and Λ=1/9. A separate exact bracket check uses the sign of 1/10−Λ(f), equal to the sign of f³−42f²+57f+20: the positive quantity 18f²+74f+40 is compared to 4f sqrt((20+f)(20+16f)), and the difference of squares factors as 4(17f+20) times that cubic. The signs at 1, 7/4, 40, 42 are respectively the signs of 36, −225/64, −900, 2414; bisection matches both stated roots.",
+      "residual_risks": [
+        "The frozen RESULT describes its bundled crossing comparisons as exact fraction/radical checks; check.py uses floating-point sqrt and comparisons there. The exact cubic check above independently supplies the needed certificate.",
+        "Persistence here means deterministic invasion/positive equilibrium, not stochastic nonextinction or a fixed-budget mobility comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former supplies general invasion and numerical/qualitative mobility effects on ring, small-world and Barabási–Albert networks.",
+          "The latter allows weighted connected graphs and heterogeneous rates but takes source-local births C=I and analyzes the fast-mobility expansion."
+        ],
+        "reasoning": "Neither general coverage reduces to a proof of a unique maximum with the mortality boundary for the neighbor-born star kernel: the expansion applies to a different kernel, while the model paper leaves this parameter curve to be analyzed.",
+        "searches": [
+          "Bernardi et al. §II.C, §III.A and Figure 1",
+          "Resultary graph resistance critical window, ID 365eb550e61d"
+        ]
+      },
+      "checked_sources": [
+        "Bernardi et al. arXiv:2602.06640v2; Resultary 365eb550e61d and f2d1da0235f6; frozen prior-work discussion used as leads."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general persistence criterion translates the Perron curve into an invasion condition but does not classify the curve.",
+          "The decisive star calculation is strict monotonicity of S_m(r) with endpoints s_c and infinity; even a high-f sign alone would not give uniqueness at finite f."
+        ],
+        "reasoning": "The reentrance is a consequence of a distinct global parameter classification, not a mere substitution of the old invasion criterion or the old star damping ratio.",
+        "searches": [
+          "Bernardi et al. Eqs. (5)–(9), (13) and §II.C",
+          "Resultary f2d1da0235f6 and 365eb550e61d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernardi's equal-capacity undirected specialization with neighbor-born feasibility is exactly the frozen killed-explorer kernel.",
+          "The indexed star damping result changes connectivity by adding a leaf-to-leaf edge and studies s(cI+A_m), not a derivative in f."
+        ],
+        "reasoning": "The same model yields the Perron problem but not its star-specific dependence on f. The alternative star result cannot be converted merely by changing notation because its parameter, operator and spectral question differ.",
+        "searches": [
+          "Resultary: star-explorer mobility, mortality, capacity and corridor damping",
+          "Bernardi et al. arXiv:2602.06640v2 §II and §III.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest results f2d1da0235f6 and 365eb550e61d give exact but different spectral thresholds. Figure 1 presents network comparisons, not a table of the claimed star boundary."
+        ],
+        "reasoning": "Neither an exact matching star threshold nor an equivalent table/extraction was found among the inspected results. The same-day distinct graph-resistance record is ruled out by the birth kernel, not by its date.",
+        "searches": [
+          "Resultary: star threshold in corridor gains; graph resistance critical window for fast exploration; explorer-mortality reentrant persistence",
+          "Bernardi et al. Figure 1 and discussion"
+        ]
+      },
+      "rationale": "The exact kernel and its general Perron criterion are prior. Within the sources checked, the all-star mortality boundary, global uniqueness of the interior optimum above it, and verified two-sided invasion window go beyond those model statements and the related spectral catalogue entries.",
+      "residual_risks": [
+        "Best-of-knowledge conclusion; the inspection is bounded and does not rule out overlooked exact optimization of this kernel in a different field or under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies underlying model and criterion but not the all-star mortality classification",
+          "evidence": "Movement, independent death and settling give f=D/λ and g=γ/λ; Eq. (13) supplies ξ f A/(1+f). The inspected mobility comparisons use other graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.06640v2",
+          "material_read": "§II, pp. 3–5 Eqs. (2)–(9) and (13), Fig. 1 and surrounding pp. 5–6, §II.C and §III.A pp. 7–8",
+          "method": "Bounded OA original-text inspection",
+          "title": "Habitat heterogeneity and dispersal network structure as drivers of metacommunity dynamics",
+          "trigger": "Exact source kernel and potentially covering exploration/threshold results"
+        },
+        {
+          "assessment": "Different matrix, intervention and observable",
+          "evidence": "The Perron/damping comparison is for affine adjacency recruitment before and after adding a leaf corridor.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-star-network-transition-in-corridor-gains-and-damping-lo--f2d1da0235f6",
+          "material_read": "Mirrored RESULT.md offsets 0–7072 and 6700–9584",
+          "method": "Local catalogue and mirror",
+          "title": "A sharp star-network transition in corridor gains and damping loss",
+          "trigger": "Exact spectral transition on the same star family"
+        },
+        {
+          "assessment": "Does not cover neighbor-born mobility dependence",
+          "evidence": "C=I, heterogeneous site parameters, high-f expansion and edge sensitivity; distinct from ξ f A/(1+f) and a global maximizer theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-graph-resistance-critical-window-for-fast-exploration-in-heter--365eb550e61d",
+          "material_read": "Mirrored RESULT.md opening statement at offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "A graph-resistance critical window for fast exploration",
+          "trigger": "Broader graph class and same fast-exploration model family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact witness; verified Bernardi model specialization."
+      ],
+      "rationale": "The mortality threshold distinguishes two globally different responses to exploration under a published birth law, not just a sign in one perturbative regime. An exact witness puts the deterministic invasion criterion strictly between the limiting and maximum capacities, showing that low and high mobility can both be subcritical with all other parameters fixed.",
+      "residual_risks": [
+        "No management or empirical claim extends beyond the homogeneous deterministic star model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

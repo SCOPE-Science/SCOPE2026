@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite chain is ergodic for all finite sensitivities under the stipulated nonempty introspector set, including zero mutation. At neutral sensitivity, the stationary two-point moments close exactly: introspector pairs have zero covariance, imitative–introspective pairs have correlation \(c\), and distinct imitators have correlation \(b\). Differentiating the transition probabilities and summing the stationary first-moment equations establishes the displayed exact derivative and the strictly positive threshold shift. The zero-mutation, single-introspector \(N^3/(2N-1)\) simplification follows by rational algebra. An independent eight-state rational perturbation calculation and 90 finite numerical derivative checks agree with the theorem; these computations are not the infinite-size proof.
+PASS
 
-## Originality — PASS, literature-bounded
+Even at zero mutation an introspector can seed either action and be copied by each imitator in turn; one can then finish the introspector actions without disturbing the imitators. Logistic rejection gives a self-loop, and finite stationary linear equations augmented by normalization give analyticity near neutrality. Neutral action-complement symmetry gives zero means and the one-coordinate update makes the drift of a spin product the sum of the two one-spin drifts times the other spin. For a mixed pair the direct copying term contributes kappa whereas neutral H H correlations vanish; same-type E drift terms cancel by exchangeability, yielding c. For an E E pair each direct copy contributes kappa and the H neighbors give h kappa c; after dividing by 2 the decay coefficient is (h+1)kappa+d, giving b. Selection changes the probability of opposite-action copy by the signed contribution of the cooperating player divided by 4; summing the spin drift yields -kappa Q/4. H flips instead see the payoff gain alpha_i(r/N-1), giving M_H=(1-2mu)A_H(r/N-1)/2. Summing the E drifts gives (h kappa+d)M_E=e kappa M_H-kappa Q/4. Dividing the total spin derivative by 2N verifies the expansion. c<1 and b<1 when an E pair exists, so Q>0 and the crossing is above N. At mu=0 the equal-contribution substitutions give c=1/(2N+h-2) and Q=2ehN(1-c)/(h+1) times the common contribution, giving the stated h-law and N^3/(2N-1). A separate exact full-state linear-response calculation verified eight cases in N=2–5 with heterogeneous contributions, including zero mutation, e=1, and mu=13/29 (`python3 -B /workspace/review_replay.py`, check 2). No uploaded checker was executed.
 
-The June 2026 cooperation-ceiling paper proves a theorem for purely extrinsic rules and includes exploratory **Moran–introspection** mixtures, but not the stated finite Fermi–introspection response. The May 2026 result for exclusively introspective players is a product-measure theorem that does not cover the nonzero neutral correlations in the mixed model. Crucially, Amaral–Javarone (2018) already introduced **Fermi imitation mixed with counterfactual Logit innovation**; the update-rule combination is not new. Its inspected analytical model is a mean-field two-person matrix game, not the heterogeneous finite-population stationary threshold with mutation and exact pair-correlation correction. Takesue (2019) mixes imitation with aspiration in spatial pair games. Published mathematical result-record comparisons did not find a stronger theorem implying the present formula. Unindexed work and unpublished calculations remain priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a motivated question raised by combining outward-looking and counterfactual learning: what finite-population return is needed for an intrinsic minority to lift stationary cooperation above neutrality? It supplies a closed-form sharp weak-selection threshold for arbitrary positive individual contributions, despite cross-agent neutral dependencies, and shows that only the two aggregate contribution budgets matter to first order. The quadratic \(N^3/(2N-1)\) requirement for one introspector distinguishes a vanishing intrinsic minority from a fully introspective population with linear threshold \(N\). This is a structural finite-population mechanism, not an arbitrary numerical slice.
+Pass for the explicit finite mixed-rule stationary linear response, not for introducing the hybrid mechanism or for the pure-rule results. Prior Fermi/Logit mixtures and exploratory public-goods rule mixing are credited. Their accessible statements do not supply the neutral pair correction of this fixed-type finite-population system.
 
-## Scope and limitations
+## value
 
-The theorem controls the sign only for fixed \(r\ne r_*\) and sufficiently small positive choice sensitivity. It does not determine the sign exactly at the threshold, give a uniform large-population approximation, or classify every fixed strong-selection equilibrium. It assumes a common linear public good, common logistic sensitivity, fixed update-rule assignments, and symmetric mutation. The historical comparison is bounded by accessible publications and semantic search; independent validation has not been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural question is how much return is needed for an intrinsic minority to reverse the imitative loss of cooperation in a finite population. The exact neutral covariance correction rules out a naive independent or weighted pure-rule interpolation, proves that only the group totals of contributions are needed, and quantifies the one-introspector barrier as quadratic, rather than linear as in the all-introspector case. The invariant resolves that question without a mean-field limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

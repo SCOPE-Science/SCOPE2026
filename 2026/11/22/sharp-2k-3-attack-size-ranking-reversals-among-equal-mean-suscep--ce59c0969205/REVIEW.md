@@ -1,13 +1,21 @@
-## Correctness — PASS
-The terminal-size pressure is unique and strictly ordered with transmission; equality of terminal attack rates corresponds exactly to positive zeros of the difference of susceptibility Laplace transforms. Equal total mass and equal means force a double zero at the origin, giving the sharp \(2k-3\) bound from exponential-polynomial zero counting. A constructive polynomial with positive roots realizes all crossings with positive atom rates and weights for every class count. The two-class ratio is exact. The embedded checker passed 68 rational/numerical tests; these are auxiliary, not an infinite proof.
+# Independent mathematical audit
 
-## Originality — PASS, literature-bounded
-The initiating 2026 Sellke paper and Novozhilov's 2012 theory establish the forward final-size transform and finite susceptibility classes, but not this sharp count of ranking reversals under equal means. Classical Chebyshev zero counting is deliberately credited, not claimed as new. Published work on network contact heterogeneity and reported epidemic risk reversals concerns different quantities or assumptions. Relevant searchable research records and previous related claims were compared. Historical-priority risk remains for unindexed variation-diminishing SIR applications and source material not fully read.
+## correctness
 
-## Value — PASS
-A first-moment or reproduction-number match is commonly used to normalize epidemic populations. The result shows precisely how many reversals of the final-attack ordering can remain hidden under that match, and that the limit is attained for every finite class count. The two-class sharp threshold provides an exact, interpretable witness. This is a motivated natural comparative invariant and not a generic polynomial census.
+PASS
 
-## Limitations
-No claims about noisy inference, finite-population outbreak risks or network mixing; varying the contact rate must not modify the susceptibility law or starting population. The historical literature comparison is finite, and independent evaluation remains outstanding.
+The frozen Finding was false as quantified: distinct populations can have exactly the same susceptibility law, making the final-size curves agree at every positive parameter. The proof already excludes this case. The corrected Finding and assumptions explicitly require distinct laws and state the coincident-law boundary case; the slogan is aligned. For the corrected claim H(0)>0, H is bounded and concave, and H−aH′≥i_0>0, so a/H increases from zero to infinity. If at the B terminal pressure G_A>G_B, the A pressure map takes a larger parameter there, hence the A terminal pressure and final fraction are strictly smaller at the fixed parameter; the reverse inequality is symmetric. Thus the tie count and strict crossing signs follow from the abstract transform difference. For distinct laws the combined-support exponential sum is nonzero; dividing by its lowest exponential and applying Rolle with multiplicity inductively bounds the real zero count by one less than the number of terms. Normalization and the equal-mean constraint consume two zeros at the origin. In the sharpness polynomial, positivity of every root gives nonzero alternating coefficients and exactly k coefficients of each sign; a double root at 1 forces equal total weights and first moments after sign splitting, and the other roots are simple and give positive zeros. The stated two-type witness has equal transforms at the claimed positive pressure, with value 3/16; substitution in the normalized pressure equation gives the stated parameter, with the sign changing in the stated direction. These are proof checks, not extrapolations from the numerical script.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Laplace-transform final-size relation and the Chebyshev bound are prior. The revised distinct-law result retains the sharp all-support-size count of isolated crossings at equal mean, with attainment and a strict two-type example. Related prior comparisons do not supply that count or its attainment, and equal-law ties are now explicitly out of scope of the upper bound.
+
+## value
+
+PASS
+
+Equal mean holds the initial growth proxy fixed, so the number of subsequent changes in the final-size ordering measures exactly what that proxy and a finite susceptibility class budget cannot predict. The quantitative extremal result excludes more than 2k−3 isolated crossings, but shows that every permitted crossing can occur as a strict reversal. That all-k sharpness is a more informative mathematical limit than noting that aggregate moments fail to determine a final size or giving one counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

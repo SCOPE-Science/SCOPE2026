@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify_orbit_exact.py q4_certificate.json` and `python3 verify_full_states.py q4_certificate.json` with Python 3, SymPy, NumPy and SciPy. The former independently reconstructs all 222 exact orbit probabilities and compares every reduced fraction; the latter re-enumerates all 65,536 labelled spin configurations, 720,896 admissible directed transitions and ten singleton recurrent classes. It checks every full-state weighted harmonic equation using exact rational arithmetic, all six Hamming-distance seed classes and the exact ensemble means. Both tests passed on the included source files and certificate.
+## correctness
 
-The output is an exhaustive finite proof-checking computation, not an external audit or a universal statement in the cube dimension. The third-party literature comparison is documented in `REVIEW.md` and `AUDIT.json`, with an unresolved possibility of unindexed prior equivalent calculations.
+PASS
+
+Flipping a vertex with d disagreeing neighbors changes the disagreement count by 4−2d; the doubled accepted-flip rates are 2 for d>2, 1 for d=2 and 0 otherwise. The generator is invariant under vertex symmetries and spin reversal. A separate full-state implementation used bit-mask neighbor intersections and different coordinate-permutation generators to validate the 222 orbit values on all 65,536 labeled states. It found 720,896 directed positive-rate moves and exactly the two monochromatic and eight coordinate half-cube absorbing masks. Reverse reachability from those masks covers every state, ruling out any other closed class; this also proves uniqueness of the finite harmonic solution. The replay checked each harmonic identity with integers scaled by a common denominator, and checked the boundary values against independently constructed absorbing masks. Independent enumeration reproduced all six distance classes, the exact weighted mean and the four reachability witnesses; all states with at most two minority spins have hitting probability zero. This is exhaustive on Q₄, not a claim for other dimensions or other tie rules.
+
+## originality
+
+PASS
+
+The same-dynamics hypercube publication supplies the general no-blinker result and balanced-initial-state statistics, and known periodic-square stripe dynamics supplies close context. The distinct supported claim is the geometry-conditioned six-class exact three-spin law and sharp minority-seed boundary, not the general absence of blinkers, the stripe mechanism, or absorbing-chain algebra.
+
+## value
+
+PASS
+
+Q₄ is a natural degree-four cube where a minority configuration must grow to an eight-site half-cube to freeze. The smallest successful seeds include dispersed triples but not a length-two path; four geometric classes have distinct exact positive basin probabilities. This supplies a finite benchmark for geometry-sensitive nucleation that neither static frozen-state counts nor balanced-initial simulations provide. The standard Markov-chain method is not itself the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

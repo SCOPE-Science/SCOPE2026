@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:40:35.065169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53",
+        "Frozen VERIFICATION.md and hexagonal_prism_perfect_matching_character.py, inspected without executing",
+        "Independent exhaustive computation /workspace/branches/audit-2.py",
+        "Agarwal–Basak arXiv:2608.30601v2, Theorem 25"
+      ],
+      "rationale": "I enumerated every six-edge subset of the eighteen graph edges and accepted exactly those covering all twelve vertices, giving 20 perfect matchings and 822 augmented faces. An independent unit-pivot order split off 408 contractible integral pairs, leaving six free degree-two generators and zero differential. For each group element I generated the complex of its edge-orbits whose unions lie inside perfect matchings. A setwise-fixed simplex of k edges formed from j orbits has permutation sign (−1)^(k−j), so its signed Lefschetz contribution is (−1)^(j−1); the empty face contributes −1. The four orbit-complex reduced Euler rows were (6,0,0,0,0,0), (2,2,2,−4,2,2), and two copies of (0,−2,0,−2,0,−2), reproducing all 24 traces without using the supplied fixed-face parity calculation. The rational planes can each be realized on Q(ζ₆), with multiplication by ζ₆^j and conjugation as the generators; their characters and those of the lines give exactly the proposed decomposition. Semisimplicity and equality of characters in characteristic zero identify the rational module. Replay: python3 /workspace/branches/audit-2.py.",
+      "residual_risks": [
+        "No assertion about the integral group-ring module follows from this computation. The frozen ancillary self-review's mention of a four-sphere is not adopted: for n=6 all six spheres of Theorem 25 are two-dimensional, consistent with RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 25 supplies two spheres in degree (n−2)/2 and four in degree 2k for n=6k; at k=1 those are all in degree two. Its folding argument is not an equivariant identification of their modules. The indexed equivariant theorem works at k≥2, where degrees 3k−1 and 2k are separated."
+        ],
+        "reasoning": "The n=6 boundary merges both degrees and requires an action on the two-dimensional base contribution as well. The broader equivariant result does not state or logically determine this merged module.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601v2, §5.2 Theorem 25, Lemma 20 and Problem 26",
+          "SCOPE-20261117-1a6ec2654f11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.30601v2",
+        "Resultary 1a6ec2654f11, 708ae133712a, 2c4b992e860b, 8274869c04a9, 71e9ef356cdb and ee54b24c1698"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof expresses the full complex as an independence-complex base and two cones. Its base reduction uses selected vertices and graph folds without giving the action on the base homology. Interchanging the layer signs of V₁ and V₂ in the claimed answer would leave the C₆ restriction and the trace of pure layer swap unchanged but would change trace(r³t) from −4 to +4."
+        ],
+        "reasoning": "Independent nonequivariant or single-symmetry invariants do not logically imply the exact mixed trace. A general method for computing it is not an already-evaluated character.",
+        "searches": [
+          "arXiv:2608.30601v2, proof of Theorem 25 at OA offsets 60477 onward and Lemma 20 around 50810",
+          "SCOPE-20261117-1a6ec2654f11, degree assumptions and invariant-base proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed 71e9ef356cdb full character concerns the ordinary matching complex; ee54b24c1698 concerns the unordered two-particle graph configuration space. Its shared catalogue date was not a reason for exclusion."
+        ],
+        "reasoning": "Ordinary matchings need not extend to perfect matchings; two-particle configuration space has another cell structure. Same underlying graph and action do not make their homology characters equivalent. The fixed-point Lefschetz and rational character formulations for the actual frozen complex are equivalent by degree concentration.",
+        "searches": [
+          "Resultary lookup for hexagonal-prism C6 square K2 perfect-matching/extendable-matching complex dihedral and layer-swap H₂ character",
+          "SCOPE-20261101-71e9ef356cdb",
+          "SCOPE-20261018-ee54b24c1698"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "708ae133712a gives the regular rational C₆ rotation action in the same degree and object; 2c4b992e860b supplies the layer-swap reduced Lefschetz trace, +2 at C₆. The indexed geometric fixed topology 8274869c04a9 concerns the fixed space of that involution."
+        ],
+        "reasoning": "The relevant exact catalogue data fix the pure rotation row and pure layer trace; these portions are credited. They are not a full table on D₆×C₂ nor a joint decomposition.",
+        "searches": [
+          "Resultary lookup for six-rung prism perfect-matching character, reflection, rotation and layer exchange",
+          "SCOPE-20261122-708ae133712a",
+          "SCOPE-20261025-2c4b992e860b",
+          "SCOPE-20261101-8274869c04a9"
+        ]
+      },
+      "rationale": "Accept the complete joint character, not the nonequivariant rank and not the isolated cyclic or layer-swap restrictions already covered by exact indexed claims. The closest broader equivariant record omits n=6 for a material degree-separation reason. Neither the already known rotation character nor the separately known layer-swap trace determines which frequency plane is layer-odd, still less the reflection characters of the residual lines. The combined action including the half-turn times layer swap is genuine exact information absent from these inspected results.",
+      "residual_risks": [
+        "A bounded index and literature comparison does not rule out an unindexed computation of the same merged-degree action."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary wedge baseline, not the mixed character",
+          "evidence": [
+            "At n=6 the two degree formulas both give 2. The folds and cone attachments do not identify the full induced group action."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601v2",
+          "material_read": "§5.2 Theorem 25 and proof (p. 16), Lemma 20 proof (p. 14), Problem 26",
+          "method": "Public PDF, bounded excerpts around OA offsets 50810, 59085–61910 and 63364",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Identical graph and complex; a potentially equivariant construction"
+        },
+        {
+          "assessment": "Same types of planes for k≥2, but only in an isolated lower degree; excludes this width",
+          "evidence": [
+            "The scope explicitly requires n=6k, k≥2 and does not assert the higher-degree module."
+          ],
+          "identifier_or_url": "SCOPE-20261117-1a6ec2654f11",
+          "material_read": "Finding, assumptions and invariant-base proof",
+          "method": "Indexed mirror, offset 0–2445 and proof passage",
+          "title": "Dihedral and layer-exchange modules in lower homology of circular-ladder perfect-matching complexes",
+          "trigger": "Same graph family and complete lower-degree action"
+        },
+        {
+          "assessment": "Exact overlap for restriction to rotation only",
+          "evidence": [
+            "Regular rational C₆ representation. No reflection or layer-row identification in the inspected statement."
+          ],
+          "identifier_or_url": "SCOPE-20261122-708ae133712a",
+          "material_read": "Indexed Finding, rational rotation statement",
+          "method": "Local mirror",
+          "title": "Three-torsion in the integral rotation lattice of the six-rung prism",
+          "trigger": "Same width, complex, and H₂ action"
+        },
+        {
+          "assessment": "One exact value +2, not the mixed character",
+          "evidence": [
+            "Applied to C₆, the formula fixes the dimensions 4 and 2 of the layer eigenspaces."
+          ],
+          "identifier_or_url": "SCOPE-20261025-2c4b992e860b",
+          "material_read": "Finding, layer-swap reduced Lefschetz formula",
+          "method": "Indexed mirror",
+          "title": "Layer-fixed perfect-matching complexes of graph prisms detect ordinary matching data",
+          "trigger": "General prism formula for pure layer swap"
+        },
+        {
+          "assessment": "Ordinary matching complex, not the downward closure of perfect matchings",
+          "evidence": [
+            "The differential is built from a different simplicial complex."
+          ],
+          "identifier_or_url": "SCOPE-20261101-71e9ef356cdb",
+          "material_read": "Finding and face-system definition",
+          "method": "Indexed mirror",
+          "title": "The hexagonal prism matching complex and its full dihedral–layer character",
+          "trigger": "Near-identical graph and full-action title"
+        },
+        {
+          "assessment": "Different homology object",
+          "evidence": [
+            "Uses an unordered configuration space, not extendability of graph-edge matchings."
+          ],
+          "identifier_or_url": "SCOPE-20261018-ee54b24c1698",
+          "material_read": "Finding and underlying space",
+          "method": "Indexed mirror",
+          "title": "Dihedral and layer-swap homology of two-particle prism configuration spaces",
+          "trigger": "Same day, graph family and symmetry group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, group action and character",
+        "Agarwal–Basak Theorem 25 and SCOPE-20261117-1a6ec2654f11 for the boundary comparison"
+      ],
+      "rationale": "The perfect-matching complex and its full geometric symmetry action are natural before choosing a computation. Six rungs are the meaningful boundary where the two homological contributions of the circular-ladder theorem merge in one degree. The result identifies both layer orientations of the frequency planes and the reflection-sensitive lines, information needed to analyze invariant subspaces or compare symmetry-respecting reductions. It is not just the known rank or a single numerical trace.",
+      "residual_risks": [
+        "No equivariant homotopy type or result for arbitrary other widths is certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

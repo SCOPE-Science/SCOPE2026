@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:07:46.656895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–93; VERIFICATION.md; verify_gap.py (read only)",
+        "/workspace/branches/1a8ff482-291b-4b67-a911-ddb7f40e5b24/independent_gap_check.py and independent_gap_check.txt (independent replay)"
+      ],
+      "rationale": "The displayed spectral theorem and Cesàro inequality are correct. The gap of a pair k<l is 4|sin((l-k)a) sin((l+k)a+θ)|. If n is odd, the lower bound uses sin a and the smaller of sin θ and sin(a-θ); pairs ((n-1)/2,(n+1)/2) and (0,n-1) attain the respective branches. If n is even, sum and difference have the same parity modulo n. Even sums give sin θ and nonzero even differences give sin(2a), attained at (1,n-1); odd sums give sin(a-θ) and odd differences give sin a, attained at (0,n-1). These witnesses include n=3,4 and give zero at the appropriate endpoints. One branch increases and the other decreases, so their unique crossing gives π/2 or n arctan(tan(a)/3); the optimal values and limits follow by substitution and small-angle expansions. The n(n-1) off-diagonal position terms each carry magnitude 1/n² and integrate to at most 2/(Tg_n) after time averaging, yielding the displayed inequality. Line 55 reverses the direction in prose: the optimizer maximizes the denominator g_n and minimizes the right-hand side, not the denominator itself. It need not optimize actual mixing. Independent direct all-pair comparisons at 48 size–flux points agreed within 1.33e-15 and all eight explicit optimum values agreed.",
+      "residual_risks": [
+        "The replay is bounded. The inequality's optimization is not an optimization of actual finite-time mixing. The wording slip noted above is not used in the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem includes arbitrary J and proves a sharp induced Hilbert–Schmidt dephasing norm coefficient. Frigerio et al. use the same Fourier energies but optimize transport-related observables. Zanoli et al., Eq. (53), use the ground-to-first-excited gap for thermometry."
+        ],
+        "reasoning": "The indexed statement covers the frozen problem and a stronger dephasing interpretation. Minimizing a ground-state gap or obtaining the same odd phase for a different objective does not establish the all-pair maximin.",
+        "searches": [
+          "Resultary: magnetic ring spectral separation minimum indexed energy difference optimized flux chiral quantum walk",
+          "Frigerio et al. arXiv:2106.11685v1, Eqs. (24),(26), §IV",
+          "Zanoli et al. DOI 10.3389/frqst.2026.1894991"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and exact indexed theorem and proof",
+        "Frigerio et al.",
+        "Zanoli et al.",
+        "Godsil arXiv:1103.2578v1 §6; Levine et al. arXiv:2605.04414v1 p. 1 (mixing context)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof gives ||C_T-D||_(2→2) ≤ 2/(TΔ). A position projector has squared Hilbert–Schmidt norm 1-1/n after removing its Fourier-diagonal part. Both the initial and measured position projectors have that property."
+        ],
+        "reasoning": "Pairing those two off-diagonal projections with the channel inequality gives 2(n-1)/(nTg_n), precisely the frozen auxiliary bound. The broad external search did not supply decisive evidence; the indexed full result does.",
+        "searches": [
+          "Compare indexed RESULT.md §4 finite-time Hilbert–Schmidt inequality with frozen RESULT.md lines 50–55",
+          "External keyword search on smallest Bohr frequency and magnetic-ring flux"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-parity-dependent-magnetic-flux-design-for-quantum-ring-dep--59066a4904d4, Finding, defines the smallest indexed Bohr frequency, counts degeneracies as zero, and gives the odd and even optimizing fluxes on the full circle."
+        ],
+        "reasoning": "Taking hopping J=1 and restricting reflection to [0,π] gives exactly the frozen optimization, including uniqueness in that interval. Its even optimum gap is the same expression since 9+tan² a=(1+8 cos² a)/cos² a.",
+        "searches": [
+          "Resultary: smallest pairwise Fourier eigenvalue splitting magnetic cycle flux maximin optimizer n arctan(tan(pi/n)/3)",
+          "Resultary: all Fourier eigenvalue pairs minimum gap flux-threaded ring unique flux maximizer even odd parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct proof gives the same odd and even exact functions, including the even crossing tan θ*=tan(π/N)/3, and both large-size constants. The phase-shifted EPR-like Hamiltonian record --1a830d153d21 gives different small-cycle observables."
+        ],
+        "reasoning": "Exact indexed formulas and their domains match, not merely a table of approximate optimizing fluxes; small-cycle data for another Hamiltonian do not establish such a match.",
+        "searches": [
+          "Resultary: cycle Hamiltonian eigenvalue gap optimize magnetic flux even cycle tan(pi/n)/3",
+          "Local indexed RESULT.md, proof offsets 3490–6644"
+        ]
+      },
+      "rationale": "The indexed dephasing result states the same minimum over distinct indexed Fourier labels, the same gap branches, the same unique optimum in the half-circle and both parity limits, for arbitrary positive hopping. Its finite-time channel bound also implies the pointwise estimate. This is exact distinct-record coverage, not a priority claim based on its later November 2 catalogue date.",
+      "residual_risks": [
+        "Catalogue chronology does not settle derivation or priority, and the inspected literature is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same maximin and gaps, broader hopping and dephasing results; no priority inferred from dates.",
+          "evidence": "Odd and even all-size optima, exact two-branch formulas, and channel multiplier bound 2/(TΔ).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-parity-dependent-magnetic-flux-design-for-quantum-ring-dep--59066a4904d4/RESULT.md",
+          "material_read": "Finding and proof offsets 0–3478 and 3490–6644",
+          "method": "Local Resultary mirror",
+          "title": "Sharp parity-dependent magnetic-flux design for quantum-ring dephasing",
+          "trigger": "Exact match from four substantive queries"
+        },
+        {
+          "assessment": "Same object and odd phase for transport; not the same optimization in inspected passages.",
+          "evidence": "Per-link phase π/(2N) for the odd ring, but highlighted even phase π/N concerns suppression of opposite-site transport.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.11685v1",
+          "material_read": "PDF p. 5, Eqs. (24),(26); §IV, pp. 6 and 9",
+          "method": "OA PDF",
+          "title": "Quantum-classical distance as a tool to design optimal chiral quantum walks",
+          "trigger": "Same cycle energies and coincident odd phase"
+        },
+        {
+          "assessment": "Different gap observable in the relevant passage.",
+          "evidence": "Thermometry uses Δ(φ)=ε_1(φ)-ε_0(φ), not the full indexed-pair minimum.",
+          "identifier_or_url": "https://doi.org/10.3389/frqst.2026.1894991",
+          "material_read": "PDF p. 2, Eqs. (1)–(2); p. 9, Eq. (53)",
+          "method": "OA PDF",
+          "title": "Zanoli et al., Frontiers in Quantum Science and Technology 5:1894991",
+          "trigger": "Same magnetic-like ring and a gap objective"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and dephasing scope",
+        "Indexed dephasing theorem and proof §4"
+      ],
+      "rationale": "Optimizing a worst-pair dephasing scale on a magnetic ring is a meaningful objective. For this package, however, the exact optimizer and benchmark are already covered along with a stronger dephasing statement; the site-wise bound is a projection of that channel inequality and the wording correction would add no scientific result.",
+      "residual_risks": [
+        "Judgment is of incremental contribution, not of the usefulness of the spectral theorem itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

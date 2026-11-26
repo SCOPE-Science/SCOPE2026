@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:08:47.717008Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof 1–6",
+        "VERIFICATION.md and numerical CHECK.py, inspected without execution"
+      ],
+      "rationale": "Reconstructed the supporting-line argument. The outward normal angle is t+atan(t)-pi/2 and the stationary maximum height t²/sqrt(1+t²) is strictly increasing, so a later stationary maximum at a repeated normal wins. In the candidate interval the cross product F at a zero has derivative -lambda(t²+2)>0, where z(T)-z(t)=lambda z'(t) and lambda=T sin(T-t)/t<0. The lower-end sign is negative, including immediately to the right of zero at T=2pi (F'_T(0)=-2T), while the upper-end sign is positive. A full 2pi normal turn after contact would force a repeated terminal normal with greater height at T, contradicting F>=0 there. Thus the interior of the last arc strictly supports; excluded earlier turns either lose at their unique outward normal or are radially inside, since the retained directions span more than a semicircle and their hull contains the origin in its interior. The contact chord supports, leaves the tangent direction unchanged at u, and the corner at T turns by less than pi; these pieces close the convex boundary. For T<=pi, the radial chord supports since sin(t-T)<=0 on the full interval. The origin at T=pi is on the boundary but is not strictly exposed: its sole supporting line contains the chord. This is consistent with the wording of the Finding; the proof's informal 'exposes the whole arc' is read as boundary membership at this endpoint. The contact u when T>pi likewise shares its supporting line with T.",
+      "residual_risks": [
+        "Numerical polygon tests are supplementary only; the universal conclusion is analytic. The scaling statement uses positive pitch b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first states finite memory for a growing logarithmic spiral; the second gives convexified geometry for s_a(t)=exp((-a+i)t), t>=0."
+        ],
+        "reasoning": "Both establish a structural analogue, but their stated hypotheses do not include a linear radius starting at zero, and their thresholds and normalizations differ.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-exact-finite-memory-convex-hulls-of-logarithmic-spiral-arcs--6ca60ed9c821",
+          "Resultary: 2026/11/2/SCOPE-exact-convexified-gaussian-fock-coherent-state-overlap-geometry--efc09784f30f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches b2893f1e6bc7, 6ca60ed9c821, efc09784f30f",
+        "Homan et al., arXiv:1504.04996",
+        "MathWorld Archimedes' Spiral (retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial model does not derive a hull. The growing logarithmic result gives quadratic/cubic changes for a different threshold and normalized volumes, and refers to Archimedean hull formulas without identifying a source."
+        ],
+        "reasoning": "Classical polar area and arclength determine the primitives once endpoints are supplied but do not determine exposed endpoints. Neither inspected analogue implies the threshold pi, last-arc contact, or the large-T terms. The unnamed reference is a priority risk, not a verified equivalent result.",
+        "searches": [
+          "Homan et al., PDF p. 2; both logarithmic-spiral Findings; growing logarithmic record's Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homan et al. give r=b phi and spacing 2pi b. Both indexed tangent-chord analogues use exponential radius."
+        ],
+        "reasoning": "A change of polar/radian notation and positive spatial scaling preserve the Archimedean claim. Reparameterizing the exponential radial law does not preserve the angle-radius relation or the radius zero at the starting pole.",
+        "searches": [
+          "Resultary search for finite Archimedean spiral convex hull and last arc",
+          "arXiv:1504.04996, section 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the bound record, while the distinct record's formulas and expansions concern exponential arcs."
+        ],
+        "reasoning": "The decisive data here are symbolic contact and volume formulas and asymptotic coefficients, not an enumerated table. The index comparison yielded no distinct exact hit; the unavailable classical reference is not negative evidence.",
+        "searches": [
+          "Resultary lookup for the sharp Archimedean hull transition and volumes; exact match b2893f1e6bc7 and distinct logarithmic hits",
+          "MathWorld, Archimedes' Spiral, access attempted"
+        ]
+      },
+      "rationale": "The strongest compared same-day record has the analogous boundary mechanism but exponential radius and a different threshold; neither it nor the older decaying spiral recovers the linear-radius contact equation and intrinsic-volume coefficients. The identical catalogue entry is the reviewed result itself, not independent coverage. No verified equivalent coverage in the inspected statements.",
+      "residual_risks": [
+        "Historical spiral support-line literature and the unnamed Archimedean reference in the same-day logarithmic record could leave priority gaps.",
+        "A public query yielded irrelevant results and supplies no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms geometry, not convexification",
+          "evidence": "r=b phi; turn spacing 2pi b.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.04996",
+          "material_read": "PDF p. 2, section 2.1 (text near offset 11944)",
+          "method": "Bounded open PDF passage",
+          "title": "Simplified models of stellar wind anatomy for interpreting high-resolution data: Analytical approach to embedded spiral geometries",
+          "trigger": "Same linear radial family"
+        },
+        {
+          "assessment": "Substantial analogy, not the stated linear family; same-day order not inferred",
+          "evidence": "Boundary theorem for r=exp(at); reference to Archimedean hull formulas is unnamed.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-memory-convex-hulls-of-logarithmic-spiral-arcs--6ca60ed9c821",
+          "material_read": "Finding near offset 0 and Relationship to prior work near offset 5947",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-memory convex hulls of logarithmic spiral arcs",
+          "trigger": "Closest distinct indexed transition and exact-volume theorem"
+        },
+        {
+          "assessment": "Different radial law and regime",
+          "evidence": "s_a(t)=exp((-a+i)t), t>=0, with unique tangent closure.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-convexified-gaussian-fock-coherent-state-overlap-geometry--efc09784f30f",
+          "material_read": "Finding near offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact convexified Gaussian Fock coherent-state overlap geometry",
+          "trigger": "Cited chord-plus-arc antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact formulas and two asymptotic regimes",
+        "Compared logarithmic and decaying-spiral findings"
+      ],
+      "rationale": "The exact support transition solves a natural nonlocal convexification problem, not just an integration exercise. Green's theorem gives the stated chord term and length adds the return segment. As additional correctness checks, at T=pi+delta the tangent root has u=delta/2+O(delta²), so the leading area change is (pi/2)u(delta-u) and the perimeter change is -u³/6-u(delta-u)²/2, giving the displayed coefficients. At large T take h=T^(-1/2), d=2pi-epsilon, and set epsilon=h y in (T-d)(1-cos epsilon)-d+d²/T-sin epsilon=0. The regular positive root has y=2sqrt(pi)+O(h²), since the order-h term cancels. In the area, the T²epsilon terms cancel, leaving the sqrt(T) contribution from pi T epsilon - T²epsilon³/12. In the perimeter, the arc and chord terms in T epsilon cancel; the remaining terms of order T^(-1/2) are pi epsilon - T epsilon³/24 + (2pi)²/(2T epsilon). These give precisely the asserted coefficients and distinguish input arclength/sector area from hull measurements, both at first contact and over many turns.",
+      "residual_risks": [
+        "The claim concerns this radial law only; no arbitrary-spiral convexification principle is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

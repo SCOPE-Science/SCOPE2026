@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:27:11.867370Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 9–37 and 41–134",
+        "VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent Taylor and remainder replay in /workspace/review_checks.py, ordinal 3"
+      ],
+      "rationale": "The cut removes area √3 st/4 exactly. For each fixed positive ratio, oriented projected edge contributions give W_new−W=−sX_c−tX_b+X_e, with e=sc+tb. Integrating the positive-sine overlap gives the stated V and uncut first two moments. Differentiating their normalized quotient cancels the pure perimeter term, leaving −κ₀ℓQ/(3δ₀A) in δ; the sine rule converts it to the claimed coefficient per √(st). On [0,π/3], Q is even about π/6, zero at both ends and positive between by monotonicity of x cot x. The strict reflection comparison excludes the right half, and the negative derivative at π/6 excludes the midpoint (the reflection alone does not exclude it). The quotient F/θ² has positive left limit and negative right endpoint; its derivative has numerator H=θF′−2F. Independent symbolic series and rational interval bounds (`python3 /workspace/review_checks.py 3`) confirm the trigonometric identity and uniform H/θ³ upper bound below −0.16 via the tenth-order remainder. Thus the maximizing root is unique in the fundamental sector, and arm reflection gives exactly two reciprocal ratios. The same replay gives θ≈0.452676127273466, r≈2.28062656213330 and C≈0.033215170664714. At equal arms θ=π/3 and C=0; the word ‘positive’ does not apply to that explicitly stated exception.",
+      "residual_risks": [
+        "Fixed r only; neither a uniform remainder for extreme ratios nor a finite-cut optimum is proved. A zero linear coefficient is not a zero change for nonzero cut size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearby square result concerns a Hessian on quadrilateral deformations about a square.",
+          "The tetrahedron result concerns three-dimensional equal-edge truncation.",
+          "Theorem 8 of Akiyama–Kamae concerns the sign of small truncations."
+        ],
+        "reasoning": "None of these is a more general sharp fixed-area comparison covering the unequal-arm planar one-corner family.",
+        "searches": [
+          "Resultary: width deviation of convex polygons Akiyama Kamae corner cut first variation",
+          "Resultary: regular triangle infinitesimal vertex truncation random width deviation coefficient of variation",
+          "arXiv:2201.06736v1, Lemma 6 and Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Akiyama–Kamae arXiv:2201.06736v1, Section 6",
+        "Resultary record and ae14a66c3e0b, 8668b85712f7 and 19e2f7aa1081 comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 6 is a strict edge-correlation inequality. Theorem 8 states that parallel truncation increases deviation and nonparallel decreases it. The parallel proof cancels the linear term and uses the quadratic effect."
+        ],
+        "reasoning": "This supplies the essential sign mechanism, not an ordering among distinct nonparallel cuts at equal area. Deriving and proving the unique maximizer of the normalized first variation is separate. The parallel result is compatible with C(1)=0.",
+        "searches": [
+          "arXiv:2201.06736v1, OA Section 6, offsets around 63676, 65500 and 69600"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source uses fractions t and λt. Area normalization divides the linear change per t by √λ, equivalently comparing per √(st).",
+          "The indexed equilateral one-line robustness record optimizes equilibrium counts, not projection-width moments."
+        ],
+        "reasoning": "The prior parametrization describes the same cuts, not a different model. After transforming units, the prior sign inequality still does not locate or compare extrema of the area-normalized coefficient.",
+        "searches": [
+          "Resultary: equilateral triangle width deviation corner truncation asymmetric fixed area",
+          "Resultary: one-corner truncation equilateral triangle nonparallel cut decrease width deviation",
+          "arXiv:2201.06736v1, Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-fixed-area-first-order-width-regularization-by-an-asymmetr--4fb1ebe184d6 is the identical assigned record; the distinct square, tetrahedron and robustness results have different claims."
+        ],
+        "reasoning": "The catalog self-match does not establish independent coverage; the nearby records do not give the exact ratio, coefficient or characterization.",
+        "searches": [
+          "Resultary: equilateral triangle width deviation corner truncation asymmetric fixed area",
+          "Resultary: regular triangle infinitesimal vertex truncation random width deviation coefficient of variation"
+        ]
+      },
+      "rationale": "The edge-correlation mechanism and qualitative distinction between parallel and nonparallel cuts are prior work of Akiyama and Kamae on exactly this statistic and triangle. The distinct claim is the optimum of the area-normalized first variation and its uniqueness up to reflection. The inspected sign theorem and nearby width-extremal records do not settle that optimization.",
+      "residual_risks": [
+        "An unindexed fixed-area calculation remains possible. The targeted external lookup yielded no pertinent comparison and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial qualitative coverage; not the area-normalized optimum",
+          "evidence": "For small t the nonparallel family cuts at t and λt and improves deviation; parallel cuts increase deviation with cancellation of the linear contribution.",
+          "identifier_or_url": "https://arxiv.org/html/2201.06736v1",
+          "material_read": "Section 6: Lemma 6, Theorem 8 and parallel/nonparallel calculations near offsets 63676, 65500 and 69600",
+          "method": "Lawful open HTML excerpts by locator",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Same triangle, statistic and truncation"
+        },
+        {
+          "assessment": "Identical assigned source",
+          "evidence": "Same fixed-r and equal-area limits and same two maximizing ratios.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-area-first-order-width-regularization-by-an-asymmetr--4fb1ebe184d6",
+          "material_read": "Finding and scope",
+          "method": "Resultary with local mirror",
+          "title": "Sharp fixed-area first-order width regularization by an asymmetric triangular corner cut",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Other perturbation space",
+          "evidence": "Squared width-deviation Hessian at a square; same date does not establish ordering.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-square-is-a-two-negative-mode-saddle-for-polygonal-width-dev--ae14a66c3e0b",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "The square is a two-negative-mode saddle for polygonal width deviation",
+          "trigger": "Related polygon width functional"
+        },
+        {
+          "assessment": "Distinct dimension and family",
+          "evidence": "Equal-edge tetrahedron–octahedron family in three dimensions.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-interior-optimum-for-random-width-isotropy-in-the-tetrahedron--8668b85712f7",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "An interior optimum for random-width isotropy in the tetrahedron truncation family",
+          "trigger": "Width-isotropy extremum under truncation"
+        },
+        {
+          "assessment": "Distinct functional",
+          "evidence": "A threshold for equilibrium-count robustness, not width deviation.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-one-line-downward-robustness-of-the-equilateral-triangle--19e2f7aa1081",
+          "material_read": "Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact one-line downward robustness of the equilateral triangle",
+          "trigger": "Same base triangle and line cuts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–37 and 65–134",
+        "Akiyama–Kamae, Theorem 8"
+      ],
+      "rationale": "Once an oblique cut improves projection-width uniformity, the fixed removed-area budget naturally asks which asymmetry delivers the most improvement. The exact coefficient and unique optimum answer that comparison, not just the known sign; the asymmetric ratio gives a precise small-area benchmark and the proof distinguishes local sensitivity from finite-cut optimization.",
+      "residual_risks": [
+        "The benchmark is for one corner and an equilateral base only; it makes no general statement about optimal quadrilaterals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

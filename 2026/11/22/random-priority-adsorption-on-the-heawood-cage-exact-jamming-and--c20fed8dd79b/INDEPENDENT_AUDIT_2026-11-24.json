@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:09:22.335618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–82; VERIFICATION.md lines 19–21; heawood_rsa_check.py lines 13–137, inspected without execution.",
+        "Independent replay: python3 -I /workspace/reviews/heawood_prefix_check.py, completed with exact arithmetic and all assertions satisfied."
+      ],
+      "rationale": "The greedy output is always independent and maximal. For any point set A, maximality forces exactly the lines disjoint from A, and they must cover the omitted points. The Fano incidence rules give the listed five types: triples on a line leave no disjoint line, and noncollinear triples leave one disjoint line and one uncovered omitted point. A specified independent output occurs iff every outside vertex has an earlier neighbor in the output: the first accepted outside vertex would otherwise require an earlier rejected selected neighbor, impossible without a still earlier accepted outside vertex. For a selected-site ordering with exclusion counts f_i, the exponential-time gaps integrate to the reciprocal of the product of the suffix sums of 1+f_i; this agrees with all nine ordered simplex certificate rows. Independently, an integer dynamic program over (seen, accepted) masks extended each permutation prefix by each unseen vertex, with the graph built as the nonzero binary triples and their two-dimensional subspaces. At layer k the total count is (14)_k; at k=14, division by 14! gives the exact probabilities of all 37 outputs. It reproduced all type multiplicities, per-output probabilities, terminal law and fifteen prefix means, and checked total variation, amplification and the density difference exactly. Given k independent exponential arrivals by t the order is a uniform prefix, which proves the Bernstein mixture including t=0 and saturation. On the infinite cubic tree a branch-root vacancy q(t) obeys q'=-e^(-t) q², so the full-root terminal occupation is the integral of (1+p)^(-3) from p=0 to 1, namely 3/8.",
+      "residual_risks": [
+        "Exact enumeration concerns this fourteen-vertex graph only. The finite-time law claimed is the mean, not the entire finite-time state distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brightwell–Janson–Luczak analyze asymptotic jamming for random graphs with specified degrees, not exact terms for this fixed cage. The available attribution for Pippenger is the cubic-tree/high-girth limiting benchmark; the original article could not be read."
+        ],
+        "reasoning": "A limiting degree-three density neither fixes the finite Heawood mean nor its probabilities. No claim is made about uninspected finite examples in Pippenger.",
+        "searches": [
+          "Brightwell–Janson–Luczak arXiv:1510.05560 p. 1",
+          "Pippenger DOI 10.1137/0402034, DOI and SIAM ePubs routes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c20fed8dd79b and 538d2c590718; Perarnau–Perkins arXiv:1611.01474; Brightwell–Janson–Luczak arXiv:1510.05560; attempted Pippenger DOI 10.1137/0402034."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hard-core law weights every independent set by lambda^|I|, while random priorities reach only maximal sets and can give them unequal weights. The frozen graph-specific enumeration evaluates the blocking dependencies, not coefficients of the hard-core polynomial."
+        ],
+        "reasoning": "A general recursion can calculate arbitrary finite graph instances, but does not state these exact values or force them by direct parameter substitution. The graph-specific ordered-prefix counts resolve an unevaluated case in the inspected literature.",
+        "searches": [
+          "Perarnau–Perkins arXiv:1611.01474 p. 2 hard-core definition and §1.2 Theorem 5; Brightwell–Janson–Luczak arXiv:1510.05560 p. 1; Pippenger DOI 10.1137/0402034"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent uniform priorities and first independent exponential arrivals give the same terminal order law. The same-day exact Heawood dimer record 538d2c590718 applies greedy selection to edges, not to vertices, and has matching sizes 5,6,7 and different rational weights."
+        ],
+        "reasoning": "Dimer RSA is an independent-set process on the line graph, which has 21 labels and is not the 14-vertex Heawood graph. Point–line duality within the monomer process is already included, not a separate source of novelty.",
+        "searches": [
+          "Resultary: Heawood/Fano incidence random-priority monomer adsorption, random greedy maximal independent set, terminal probabilities and finite-time mean",
+          "Primary search: Heawood Fano incidence monomer random sequential adsorption greedy independent set exact jamming distribution 577/105 12/35 Pippenger Penrose Sudbury"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary entry c20fed8dd79b is the target itself. Perarnau–Perkins give the exact independence polynomial, with nonzero size-six count, rather than RSA output probabilities. The distinct dimer entry reports a different exact table."
+        ],
+        "reasoning": "Neither the number of independent sets by size nor equilibrium size weights determine ordered saturation probabilities. In particular the size-six independent sets need not be maximal.",
+        "searches": [
+          "Resultary: Heawood weights 4/21, 7/15, 12/35 and prefix means; Perarnau–Perkins arXiv:1611.01474 §1.2 p. 5"
+        ]
+      },
+      "rationale": "The general random sequential adsorption process, cubic-tree benchmark and residual recursion are prior ingredients. The inspected same-graph sources address a different equilibrium measure or edge adsorption, not the monomer output weights or exact mean kinetics. The supported distinct scope is the evaluated Heawood terminal and finite-time mean laws; no claim of inventing the process, the recursion, or a general extremal result is credited.",
+      "residual_risks": [
+        "No primary full text was available for Pippenger; a Heawood exact example there or in unindexed RSA tables remains possible. The bounded exact-value search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact results for a different probability law",
+          "evidence": "Defines lambda-weighted equilibrium probabilities and gives the Heawood independence polynomial and hard-core occupancy extremality.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.01474",
+          "material_read": "p. 2 (offset 4250), §1.2 p. 5 (offset 12000), Theorem 5",
+          "method": "Open primary PDF passage inspection",
+          "title": "Counting Independent Sets in Cubic Graphs of Given Girth",
+          "trigger": "Same graph, exact occupancy and polynomial"
+        },
+        {
+          "assessment": "Random-graph asymptotic comparison only",
+          "evidence": "Jamming fraction concerns random graphs with specified degrees, not these fixed-graph exact probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.05560",
+          "material_read": "p. 1 (offset 0) stated process and main asymptotic scope",
+          "method": "Open primary PDF passage inspection",
+          "title": "The Greedy Independent Set in a Random Graph with Given Degrees",
+          "trigger": "Same greedy algorithm, potential general coverage"
+        },
+        {
+          "assessment": "Finite Heawood coverage not determined",
+          "evidence": "The 3/8 benchmark is credited as prior and independently follows by the cubic-tree vacancy recursion. No conclusion about the unavailable article's finite examples is drawn.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic record and attributed high-girth benchmark only; no primary full text",
+          "method": "Lawful DOI and publisher retrieval attempts, both HTTP 403",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Foundational same-process source and possible finite exact examples"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Edge adsorption gives maximal matchings, not the frozen vertex process's maximal independent sets.",
+          "identifier_or_url": "Resultary 538d2c590718",
+          "material_read": "Mirrored Finding and process comparison, offsets 73 and 2572",
+          "method": "Local catalogue and mirror passage inspection",
+          "title": "Exact random-priority dimer jamming and matching output weights",
+          "trigger": "Same graph, exact random-priority jamming"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, classification and kinetic formula; independent exact prefix certificate; Perarnau–Perkins equilibrium comparison"
+      ],
+      "rationale": "The Heawood graph is a natural cubic girth-six benchmark for comparing graph cycles with the infinite-tree RSA baseline. The exact weights expose the kinetic bias that an independence polynomial or an average alone misses: the maximum sets are selected about 6.34 times as often as under uniform maximal-set sampling, with total variation 293/777. The full finite-time mean gives a reproducible benchmark for simulations or analytic approximations on the cage, not an arbitrary cutoff or an extrapolated extremal claim.",
+      "residual_risks": [
+        "The comparison to the cubic tree is a finite-graph benchmark; it does not establish behavior of other cages or extremality among cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

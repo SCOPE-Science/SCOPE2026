@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:25:54.004863Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–28",
+        "VERIFICATION.md lines 19–25",
+        "verify_cyclic_quotient.py and certificate.json structure (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/review-evidence/5-quotient.py 6"
+      ],
+      "rationale": "Flags in the barycentric subdivision have distinct vertex ranks. Rotation preserves ranks, so each simplex embeds in the quotient on its closure; two different face deletions cannot be identified because they omit different ranks. This yields a regular CW model with oriented boundaries by alternating deletion, retaining distinct flag orbits even when their vertex orbits agree. I independently reconstructed it without using the supplied verifier or its certificate. Fixed-flag counts for the six rotations are (166087,1,7,115,7,1), and both enumeration and Burnside counting give 27,703 cells with the frozen dimension counts. An independently chosen sequence of free pairs left (115,992,2029,1155) cells through dimension three. A spanning-tree presentation with 878 generators was reduced to the empty presentation by one-occurrence substitutions on the ordered triangle words. Separately, exact integral unit pivots left C0=Z, C2=Z, C3=Z⁵ and a one-row top differential with nonzero entries −3 and 3, hence Smith factor 3 and kernel Z⁴. The result has a 3-dimensional CW model, not a claim that the original orbit-space cellulation is 3-dimensional. By Hurewicz a π2 generator extends over the degree-three Moore space; the Whitehead exact sequence makes π3→H3 surjective, so four sphere maps realize an integral basis. The resulting wedge map is an integral homology equivalence of simply connected CW complexes and hence a homotopy equivalence.",
+      "residual_risks": [
+        "The independent replay uses different cell labels, collapse pairs and presentation eliminations; it confirms the topological claim without certifying every supplied pair by its original ID.",
+        "No PL classification, result for another group action, or assertion that chain pivots are geometric collapses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shareshian–Wachs study matching and chessboard complexes for complete and complete bipartite graphs.",
+          "Ehrenborg–Hetyei develop independence-complex methods for forests.",
+          "Bayer–Jelić Milutinović–Vega's sphere-wedge theorem is for matching complexes of outerplanar graphs. The cubic Dürer graph cannot be outerplanar, since outerplanar graphs are 2-degenerate."
+        ],
+        "reasoning": "These are relevant sources of torsion or topology methods but do not classify this orbit space or give a theorem specializing to it.",
+        "searches": [
+          "arXiv:math/0409054 p. 2",
+          "Ehrenborg–Hetyei, The topology of the independence complex, p. 2",
+          "arXiv:2411.04601v2 Theorem 2, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md and VERIFICATION.md",
+        "Resultary Findings 2058dcbfce11, 29af2a0878b2, c744595e7b1f and 13f009168e17",
+        "Named primary OA passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unquotiented object is a wedge of 22 S³, and rotational traces (22,0,−2,6,−2,0) give rational invariant rank 4 by averaging.",
+          "The further quotient by the reflection action on the rotation quotient has homotopy type S³∨S³; this does not recover the integral topology of the intermediate quotient."
+        ],
+        "reasoning": "Rational averaging loses 3-primary torsion, and passing to the further quotient is not reversible. Neither implication proves the Moore-space summand. The same-day date of the full-dihedral record was not used to assign priority.",
+        "searches": [
+          "Resultary 2026/10/18 carrier census, 2058dcbfce11, Finding",
+          "Resultary 2026/11/8 Dürer character, 29af2a0878b2, Finding",
+          "Resultary 2026/11/22 full-dihedral quotient, c744595e7b1f, Finding/cell table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant complex is the independence complex of the line graph with induced simultaneous rotation; it is neither vertex independence on GP(6,2) nor its two-matching complex.",
+          "Kim studies vertex-independence complexes for GP(n,2) and perfect-matching complexes of antiprism graphs, not this ordinary orbit space."
+        ],
+        "reasoning": "Graph alias, graph-to-complex translation, and the action must all agree. A Borel quotient or taking vertex orbits before realization would not supply the desired geometric quotient.",
+        "searches": [
+          "Resultary Dürer / GP(6,2) matching complex and rotation quotient searches",
+          "arXiv:2611.22021v1 pp. 1–2",
+          "Resultary GP(6,2) two-matching complex, 13f009168e17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The carrier census gives 93 induced octahedral spheres in the original matching complex; character work gives (18,117,334,402,156,10) matching-face counts, not quotient homology.",
+          "The exact ordinary full-dihedral quotient table gives 14,313 cells and two S³ summands, in contrast with the 27,703 cyclic cell orbits. No earlier exact cyclic-quotient table with the asserted integral groups was located in the results inspected."
+        ],
+        "reasoning": "All named tables use exact data, but neither their invariant nor their action matches the integral cyclic quotient classification.",
+        "searches": [
+          "Resultary Dürer orbit and complex census searches; compare 2058dcbfce11, 29af2a0878b2 and c744595e7b1f"
+        ]
+      },
+      "rationale": "The closest claims cover the unquotiented Dürer matching complex and the ordinary full-dihedral quotient. The rational rank four follows from the known rotation character; the integral 3-torsion and cyclic orbit-space homotopy type do not. No exact published result for this cyclic quotient was identified in the inspected sources.",
+      "residual_risks": [
+        "Ranked searches and specified primary text passages are not exhaustive historical coverage; an unindexed equivalent calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unquotiented complex and orbit lattices, not geometric quotient",
+          "evidence": "M(G) is a wedge of 22 three-spheres and there are 93 octahedral carriers.",
+          "identifier_or_url": "2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11",
+          "material_read": "RESULT.md Finding",
+          "method": "Local repository mirror",
+          "title": "Shortest octahedral carriers and integral orbit obstructions in the Dürer matching complex",
+          "trigger": "Same graph and integral orbit information"
+        },
+        {
+          "assessment": "Covers the rational rank consequence only",
+          "evidence": "Rotation traces are 22, 0, −2, 6, −2, 0. The heading differs from the frozen citation label; this source credits the unquotiented wedge to the October study.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-d-rer-matching-complex-an-integral-sphere-wedge-and-its-full--29af2a0878b2",
+          "material_read": "RESULT.md heading, Finding and character/face data",
+          "method": "Local repository mirror",
+          "title": "The rational dihedral homology character of the Dürer matching complex",
+          "trigger": "Known rotation action on homology of the same complex"
+        },
+        {
+          "assessment": "Closest overlap; action is full dihedral, not cyclic",
+          "evidence": "D6 quotient is S³∨S³ and has orbit counts (117,1219,3949,5338,3090,600).",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-homotopy-of-the-full-dihedral-quotient-of-the-d-rer-mat--c744595e7b1f",
+          "material_read": "RESULT.md Finding and orbit cell counts",
+          "method": "Local repository mirror",
+          "title": "Integral homotopy of the full dihedral quotient of the Dürer matching complex",
+          "trigger": "Same graph and complex, another ordinary geometric quotient"
+        },
+        {
+          "assessment": "Different underlying graphs and complexes",
+          "evidence": "Defines M_n for complete graphs and M_m,n for complete bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409054",
+          "material_read": "Abstract and p. 2, offset 2050",
+          "method": "OA PDF passage",
+          "title": "Torsion in the Matching Complex and Chessboard Complex",
+          "trigger": "Classical 3-torsion in matching complexes"
+        },
+        {
+          "assessment": "Forest independence-complex methods, not the Dürer rotation quotient",
+          "evidence": "Treats homotopy methods for independence complexes of forests.",
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/papers/independence.pdf",
+          "material_read": "p. 2, offset 4365",
+          "method": "OA PDF passage",
+          "title": "The topology of the independence complex",
+          "trigger": "Line-graph independence and collapse methods"
+        },
+        {
+          "assessment": "Neither the graph nor the quotient is in this theorem's scope",
+          "evidence": "Matching complexes of nonempty outerplanar graphs are contractible or wedges of spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.04601v2",
+          "material_read": "Theorem 2, p. 2, offset 4802",
+          "method": "OA PDF passage",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Possible general graph-topology coverage"
+        },
+        {
+          "assessment": "Different construction",
+          "evidence": "Vertex-independence complexes of GP(n,2) and perfect-matching complexes of antiprisms, not the ordinary edge-matching orbit space.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.22021v1",
+          "material_read": "pp. 1–2, objects and aims",
+          "method": "OA PDF passage",
+          "title": "Kim's generalized Petersen graph and antiprism complexes study",
+          "trigger": "Broader family includes GP(n,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §Relationship to prior work",
+        "Same-graph unquotiented, character and full-dihedral records",
+        "Independent exact quotient reconstruction"
+      ],
+      "rationale": "The Dürer graph has a natural nonfree cyclic action and an already-studied matching complex. Determining the integral homotopy of the ordinary quotient gives a concrete benchmark: the covering complex is a sphere wedge, the rational character predicts the cyclic rank, yet the cyclic quotient carries integral 3-torsion absent from the further dihedral quotient. This is a meaningful exact invariant not obtained by character averaging, and gives a case where the orbit-space topology matters independently of the covering homology.",
+      "residual_risks": [
+        "This is one action on one graph; no general Petersen-graph family or torsion mechanism is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

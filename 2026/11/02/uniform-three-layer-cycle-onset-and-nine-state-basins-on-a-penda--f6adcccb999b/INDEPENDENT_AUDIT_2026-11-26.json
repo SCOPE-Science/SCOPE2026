@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:36.001914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the initial hub color to zero. A clique containing all three colors rotates rigidly and never loses a color. In its co-rotating hub frame, the leaf phase 2 stays at 2, 0 goes to 2, and 1 goes via 0 to 2. The full orbit therefore has least period three, with one entrance time 0,1,2 for each labelled initial clique phase. Inclusion–exclusion on the nonhub word requires both colors 1 and 2 and gives Q_r possible words. Three hub phases give 3Q_r states per oscillatory layer and Q_r orbits, with layers (3,3,3) in each. For a non-rainbow clique, after one update: with only zero initially on the clique, leaf phases 0,1,2 give T=0,2,1; with color 1 present and 2 absent, the clique becomes all 1, and only leaf phase 1 is already synchronized; with color 2 present and 1 absent, all nonhub vertices become 0, and only leaf phase 1 leaves a mismatch, resolved on the next update. This gives 1, 3·2^r−2, 3·2^r−2 states per initial hub color for the fixed sector. Color equivariance makes the three fixed basins have identical layers. A zero clique with a phase-1 leaf attains T=2, and period three occurs for r≥2. At r=1 the census, time bound and fixed basin formula hold with Q_1=0; conditioning on p=3 is not defined there. Fresh graph-edge enumeration and generic functional-graph decomposition checked all 29,511 labelled colorings at r=1,…,7, including each individual basin (branches/replay_pendant.py). The frozen support/direct output logs separately report the 21 support cases and 2,391,471 labelled states through r=11; the universal count comes from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 covers arbitrary finite connected graphs: synchronization iff the initial 1-form is irrotational, synchronization by diameter in that sector, and oscillatory mean activity as a maximum cycle average. 4f2e81b79545 gives F^5=F^2 on complete multipartite graphs with at least three shores. The Matamala–Goles abstract reports structural bounds on transient lengths and periods."
+        ],
+        "reasoning": "On a clique with an attached leaf, a rainbow triangle gives nonzero circulation, while a two-color clique and a bridge contribute zero circulation. Fixed versus oscillatory is therefore prior. The leaf is nonadjacent to at least two mutually adjacent nonhub vertices, so the nonadjacency relation cannot define multipartite shore classes for r≥2. Neither mean activity nor the bounds in the available text supply labelled temporal predecessor counts.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320, Theorem 3",
+          "Matamala–Goles DOI:10.1007/3-540-59175-3_105",
+          "Resultary 4f2e81b79545, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–51, VERIFICATION.md, both supporting source checkers and both recorded outputs",
+        "arXiv:1610.07320",
+        "DOI:10.1007/3-540-59175-3_105 (abstract only)",
+        "Resultary 4f2e81b79545, 6e917c1511f0, abfea8cb94b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A rainbow triangle on the clique achieves maximum activity one at each vertex. Since any trajectory on this finite graph eventually cycles, an average advance of one implies all vertices advance every step on that cycle. This already restricts recurrent oscillations to rigid three-color rotation, not its entrance-time distribution."
+        ],
+        "reasoning": "Theorem 3 has no clock-resolved predecessor description before full rotation, and the GHM profile additionally depends on the absolute phases of excited versus resting leaves. The exact 1→0→2 leaf phase map in the rotating CCA frame and the all-labelled fixed-sector entrance count are the extra local input, not a parameter specialization of the prior exact enumerations.",
+        "searches": [
+          "arXiv:1610.07320, Theorem 3 parts (i)–(ii), source PDF p. 4, offsets 14637–17087",
+          "abfea8cb94b5, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "abfea8cb94b5 uses this exact graph at s=1, has Q_r primitive three-cycles and size-nine basins there, but uses Greenberg–Hastings and has individual profile (3,1,2,2,1). 6e917c1511f0 compares threshold-one CCA and GHM on triangular books, where the transient CCA oscillatory states enter at time one."
+        ],
+        "reasoning": "A pineapple with one leaf is exactly the graph alias, but GHM has automatic excited-state advancements; it is not the successor-contact rule and even has a different number of fixed states. The book graph has adjacent hubs and no degree-one vertex; its CCA temporal law is not the pendant-clique law.",
+        "searches": [
+          "Resultary: Three-color synchronous cyclic cellular automaton successor contact pendant clique hub with one leaf, labelled basins and transient layers, eventual three-cycle, F^5=F^2",
+          "Resultary: threshold-one synchronous 3-state CCA pineapple graph with attached pendant leaves, oscillatory basin profiles and first-periodic-entry times",
+          "Primary literature search for cyclic automata networks on finite graphs, including Matamala–Goles LATIN 1995"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed results contain exact orbits/entrance counts on complete tripartite and book graphs, or on the pineapple under GHM. For s=1 the GHM census has five oscillatory entrance times instead of three."
+        ],
+        "reasoning": "The shared nine-state basin total across the two rules is not an equivalent temporal count. Exact counts for different graphs or different update rules cannot establish the width-uniform labelled target census. The November 8 date is not being used to dismiss the closely matching pineapple result.",
+        "searches": [
+          "Resultary 4f2e81b79545, 6e917c1511f0, abfea8cb94b5, exact mirror Findings and scopes"
+        ]
+      },
+      "rationale": "The ordinary finite-graph circulation theorem already separates the two sectors and bounds the consensus entrance time by the diameter. Related indexed statements include the very same iterate identity on complete multipartite graphs, temporal basin counts on book graphs, and the same number of cyclic basins of total size nine at one leaf under a different update rule. None of the inspected statements gives the pendant-clique threshold-one CCA transition classes or the per-orbit labelled (3,3,3) entrance profile. Credit is for the complete first-entry census and its individual basin refinement, not for the general fixation criterion or the short iterate identity in isolation.",
+      "residual_risks": [
+        "A more specific prior result in the inaccessible Matamala–Goles chapter, or an older graph-specific exact analysis, cannot be excluded.",
+        "The graph-level fixation dichotomy, synchronizing bound and the main ingredients of the rotating skeleton are prior; the pass is for the finer labelled timing and basin census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Settles sector distinction and consensus diameter bound, not the temporal census",
+          "evidence": [
+            "Synchronization iff irrotational; otherwise the long-run activity equals a maximum cycle average."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Theorem 3 including (i)–(ii) and Corollary 4, PDF p. 4, offsets 14637–17087",
+          "method": "OA arXiv PDF, direct passage read",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Strongest confirmed general theorem for the same dynamics on all finite graphs"
+        },
+        {
+          "assessment": "Abstract is relevant, not decisive for exact coverage; full-text risk remains",
+          "evidence": [
+            "The abstract reports bounds based on graph structure and possible nonpolynomial periods, but does not specify an exact entrance census or enough update/graph detail for theorem-level equivalence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-59175-3_105; https://pure.uai.cl/en/publications/cyclic-automata-networks-on-finite-graphs/",
+          "material_read": "Institutional publication abstract around offset 229; full LATIN ’95 pp. 398–410 unavailable",
+          "method": "Institutional publication record and lawful Springer chapter/PDF and ACM retrieval attempts",
+          "title": "Cyclic automata networks on finite graphs",
+          "trigger": "Potential earlier theorem on structural transient and periodicity bounds"
+        },
+        {
+          "assessment": "Graph hypotheses exclude the target",
+          "evidence": [
+            "Complete multipartite graph with at least three nonempty shores; exact consensus counts and orbit polynomial for exactly three shores."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-tripartite-period-collapse-and-exact-basins-in-three-color-cyc--4f2e81b79545/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2400",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A tripartite period collapse and exact basins in three-color cyclic automata",
+          "trigger": "Earlier indexed exact same iterate identity and rule"
+        },
+        {
+          "assessment": "Different graph family, and its three-way conditional uniformity is for GHM after removing recurrent states",
+          "evidence": [
+            "CCA nonperiodic oscillatory states on B_m enter at T=1; the GHM uniform law uses T=1,2,3 given T>0 and period three."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-transient-shell-equidistribution-for-three-state-excitatio--6e917c1511f0/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2900",
+          "method": "Resultary and local mirror",
+          "title": "Exact transient-shell equidistribution for three-state excitation on book graphs",
+          "trigger": "Earlier indexed full labelled first-entry census and analogous conditional uniformity"
+        },
+        {
+          "assessment": "Same oscillatory count and size-nine basins for one leaf, different entrance law and fixation rule",
+          "evidence": [
+            "In GHM the s=1 basin profile at times 0 through 4 is (3,1,2,2,1); the only fixed state is all-rest."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-leaf-entry-profiles-and-ten-temporal-basin-classes-for--abfea8cb94b5/RESULT.md",
+          "material_read": "Finding and Relationship to prior work, offsets 0–2216 and 9995–11931",
+          "method": "Resultary and local mirror",
+          "title": "Universal leaf-entry profiles and ten temporal basin classes for three-state excitation on pineapple graphs",
+          "trigger": "Closest exact different-rule statement on the same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adding the smallest pendant perturbation to a rotating-clique system preserves the number of oscillatory orbits but creates a width-independent nine-state basin with two nonempty transient layers, exactly as large as the recurrent layer. The orbit-level first-entry profile is a useful exact timing invariant that period and activity bounds do not resolve; the fixed-sector count completes the labelled census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

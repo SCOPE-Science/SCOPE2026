@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:34.259965Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A common root of f=x^5+ax+1 and f' is equivalent to a^5=1; the monic trinomial discriminant is 5^5+4^4a^5=4(a^5-1) in characteristic seven. On the smooth locus the tame degree-three cover has six totally ramified points, including one above infinity, giving genus four. At infinity ord(x), ord(y), ord(dx) are -3,-5,-4; the proposed basis orders are 1,6,3,0. At finite branch points dx has order two in parameter y. Rewriting x^i dx/y^j as a seventh-power factor times x^i f^{2j}dx makes the entrywise seventh-power coefficients [x^{7k+6-i}]f^{2j}; an independent polynomial product reproduced both blocks. Expanding the lower block determinant gives a^6+6a, hence the full determinant is 2a^2(a^5-1)=4a^2 times the discriminant. The relative coefficient determinant vanishes exactly to order two at zero on the smooth marked base. At zero the coefficient matrix is F_7-rational and has successive ranks 2,1,0, giving a-number two and stable rank zero; it is invertible at the other smooth parameters. For m=1,2,3 the map x->x^5 permutes F_{7^m}, so there are 7^m+1 exceptional-fiber points. A different field tower (i^2=-1 and j^2=2+i, whose norm down to F_7 is nonsquare 5) gives exactly 2094 points for m=4, and reproduces 2379 for the a=2 cross-check. Replay `python3 /workspace/reproductions/5.py`. Then Newton identities give c_4=-308/4=-77 with c_1=c_2=c_3=0, and the functional equation yields the rest of 1-77T^4+7^4T^8. Valuations give slopes 1/4 and 3/4 each four times. The marked smooth count follows by removing gcd(5,7^m-1) roots of unity. The supplied finite enumerator was inspected, not run; the classification for arbitrary geometric parameters rests on the Cartier identity, not sampling. The zeta polynomial concerns this particular F_7 model only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier two-parameter Finding specifies ordinary fibers when a is nonzero, rank-zero/a-number-two fibers at a=0, and the same exceptional Newton polygon",
+          "0f4b95dc67cd gives a Hasse determinant of the form h(F)^2 times the discriminant but does not state the exceptional zeta numerator"
+        ],
+        "reasoning": "The two-parameter result covers the entire frozen smooth locus as a slice. General Kummer and generic p-rank theorems supply calculation methods, not by themselves the exact exceptional zeta function.",
+        "searches": [
+          "Resultary 4ed1263e9f28 and universal-quintic hit 0f4b95dc67cd",
+          "Johnston Lemma 3; Bouw generic p-rank results; Baldwin–Eilbeck–Gibbons–Ônishi §§2.1–2.2 equations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "Resultary 4ed1263e9f28 and 0f4b95dc67cd",
+        "Primary publications listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-parameter result includes squarefreeness a^5!=b^4 and exceptional slopes (1/4)^4,(3/4)^4 together with zeta numerator of the b=1 model",
+          "The determinant identity, twice-zero divisor and ranks restrict immediately; the count of marked rational parameters is the elementary root count"
+        ],
+        "reasoning": "The frozen slice requires no new stratification argument beyond that theorem. Any displayed matrix, normalization and point-count replay corroborate a covered invariant rather than exposing a new geometric stratum.",
+        "searches": [
+          "Resultary 4ed1263e9f28 RESULT.md Finding and 0f4b95dc67cd RESULT.md Finding",
+          "Johnston arXiv:0710.2120 Lemma 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4ed1263e9f28 gives det=2a^2(a^5-b^4) and the exceptional stratum a=0, b nonzero",
+          "The special model is X^5+Y^3=1 under X=-x, Y=y"
+        ],
+        "reasoning": "The b=1 specialization gives the identical determinant and exceptional curve, so the same zeta numerator is already an exact statement, beyond a general Jacobi-sum method.",
+        "searches": [
+          "Resultary semantic search for characteristic-seven cyclic trigonal Hasse degeneration and intermediate slopes",
+          "Primary full text for Kummer formulas and cyclic (3,5) families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Camacho-Navarro Table 3 reports 44 sampled p=7 genus-four curves with p-rank 0 and a-number 2, not a table of this marked family",
+          "Kudo–Harashita excludes superspecial genus-four curves in characteristic seven, not the intermediate Newton polygon",
+          "Resultary 4ed1263e9f28 gives exactly 1-77T^4+2401T^8 for C_{0,1}"
+        ],
+        "reasoning": "The genus-four sample and superspecial nonexistence do not identify the frozen fiber or fix its slopes. The exact numerator in the earlier two-parameter theorem does identify the same model.",
+        "searches": [
+          "Camacho-Navarro Table 3 and §5.2.3; Kudo–Harashita Theorem B; exact exceptional numerator in Resultary 4ed1263e9f28"
+        ]
+      },
+      "rationale": "The distinct Resultary two-parameter finding already proves the characteristic-seven Newton and rank stratification, doubled Hasse divisor, and the very same exceptional zeta numerator. Putting b=1 in its y^3=x^5+ax+b theorem gives the frozen marked pencil, not merely a numerical precedent.",
+      "residual_risks": [
+        "The review does not establish historical priority for the generalized Fermat numerator or earliest publication order. This does not affect exact content coverage by the two-parameter record; none is inferred from the same-day record's date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage",
+          "evidence": "For x^5+ax+b the determinant is 2a^2(a^5-b^4); the ordinary/excluded/rank-zero strata and C_{0,1} numerator and slopes specialize exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-doubled-hasse-divisor-and-an-intermediate-slope-genus-four-str--4ed1263e9f28",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror full-text passages",
+          "title": "A doubled Hasse divisor and an intermediate-slope genus-four stratum",
+          "trigger": "Same characteristic, larger cyclic trigonal family and exact exceptional slopes"
+        },
+        {
+          "assessment": "Broader overlap on determinant, not exact arithmetic of special model",
+          "evidence": "The determinant is h(F)^2 times the discriminant; rank bounds do not fix the exact exceptional slopes or zeta numerator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-doubled-hasse-divisor-for-all-quintic-cyclic-trigonal-genus-fo--0f4b95dc67cd",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror full-text passage",
+          "title": "A doubled Hasse divisor for all quintic cyclic trigonal genus-four covers",
+          "trigger": "Same determinant phenomenon in general quintics"
+        },
+        {
+          "assessment": "General method",
+          "evidence": "Frobenius action on H^1(C,O_C) for Kummer covers, not a statement of this pencil's arithmetic.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.2120",
+          "material_read": "Lemma 3, PDF p. 3, text near offset 3800",
+          "method": "Primary PDF passage",
+          "title": "A Note on the a-numbers and p-ranks of Kummer Covers",
+          "trigger": "General Cartier/Frobenius computation"
+        },
+        {
+          "assessment": "Generic context",
+          "evidence": "Generic pointed curves and generic-cover p-rank, not the marked pencil stratification.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1017513122376",
+          "material_read": "PDF p. 1, text near offset 3500",
+          "method": "Primary PDF passage",
+          "title": "The p-Rank of Ramified Covers of Curves",
+          "trigger": "Cyclic-cover p-rank precedent"
+        },
+        {
+          "assessment": "Matching invariant pair in aggregate only",
+          "evidence": "The characteristic-seven table is a random sample and reports 44 curves with (0,2); it neither indexes the pencil nor gives its Newton stratification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.08705",
+          "material_read": "Table 3 p. 9, offset 23500, and §5.2.3",
+          "method": "Primary PDF passages",
+          "title": "The a-number, p-rank and Cartier points of genus 4 curves",
+          "trigger": "Exact small-genus invariant table"
+        },
+        {
+          "assessment": "Consistent but not an exact overlap",
+          "evidence": "There are no superspecial genus-four curves in characteristic seven.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.01114",
+          "material_read": "Theorem B p. 2, offset 4300",
+          "method": "Primary PDF passage",
+          "title": "Superspecial curves of genus 4 in small characteristic",
+          "trigger": "Genus-four characteristic-seven exceptional curves"
+        },
+        {
+          "assessment": "Family precedent only",
+          "evidence": "Treats the cyclic trigonal equation in the complex setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0612654",
+          "material_read": "Equations (2.1)–(2.2), p. 3, offset 10600",
+          "method": "Primary PDF passages",
+          "title": "Abelian Functions for Cyclic Trigonal Curves of Genus Four",
+          "trigger": "Same ambient (3,5) family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit intermediate Newton polygon and a nonreduced Hasse divisor are meaningful invariants. Here both are already known for the larger family and its identical exceptional model, and normalizing b to one and counting fifth roots of unity leaves no independently worthwhile new exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

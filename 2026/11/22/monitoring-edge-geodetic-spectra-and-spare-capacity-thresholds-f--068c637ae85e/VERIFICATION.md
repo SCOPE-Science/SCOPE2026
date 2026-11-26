@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Both scripts run from this directory without remote access. Compile the C++17 checker using `g++ -O2 -std=c++17 verify_meg.cpp -o verify_meg` and run `./verify_meg`. Run the alternate checker with `python3 verify_meg_independent.py`. They must print `MEG_ALL_CHECKS_OK` and `MEG_INDEPENDENT_ALL_CHECKS_OK`. The attached `verification_output.txt` records actual executions after source file creation.
+## correctness
 
-The first enumerator uses an edge-removal distance test; the second independently uses shortest-path multiplicities. Each enumerates all \(2^{10}\) or \(2^{20}\) labelled subsets, tests exact minimality, determines the component sizes under allowed single-vertex addition/removal, and asserts the reported values. The second also enumerates all independent subsets and verifies the covering comparisons. No noninteger rounding or statistical evidence is involved. All results are finite, not statements about arbitrary generalized Petersen graphs. Neither script constitutes outside expert verification.
+PASS
+
+I independently reconstructed the three generalized Petersen graphs and enumerated all labelled subsets. For each root s, I intersected the masks of all incoming shortest-path extensions at each BFS vertex v: forced(s,v) = intersection over predecessors u of (forced(s,u) union {uv}). Every shortest path to v has exactly one such final edge, so this gives the precise pair mask without edge deletion or path multiplicity. The union over selected pairs and the single-deletion test are exact by monotonicity. All six coefficient vectors, the three independence numbers (4,8,10), and the optimum structures agree. The Desargues shores are distinguished by outer index parity reversed on the inner ring. Both covers project via index reduction mod 5, since inner steps 2 and 3 project to 2 and -2. Incremental union-find on all monitoring states counted the complete component multisets at every cap from the minimum to the first connected cap (8,11,15), not merely the immediately preceding caps. In particular, caps 7,10,14 give 15,2007,101 components, respectively. Replay: /workspace/reviews/replay_meg.py and replay_meg.txt. I inspected the frozen checkers and recorded outputs; the new enumeration is independent of executing them.
+
+## originality
+
+PASS
+
+Pass for the complete all-set and inclusion-minimal spectra and the all-state add/delete capacity comparison, not as a priority claim for each constituent. A distinct same-day record already contains the exact dodecahedral minimum census and its two induced shapes. Neither the date nor the absence of matching literature numbers establishes priority for those facts. The previously known independent octets are also excluded from the originality credit.
+
+## value
+
+PASS
+
+The dodecahedral and Desargues graphs are natural covers of the same small benchmark, but their monitoring statistics and their valid-intermediate spare costs differ markedly. The census distinguishes minimum from inclusion-minimal placements and quantifies a genuine obstacle to relocation: at the cap immediately below connectivity, configurations can be isolated exclusively because deletions fail and additions exceed capacity. These exact all-state data and the strict dodecahedral separation from the vertex-cover construction are useful finite benchmarks, not an assertion of cover monotonicity or of a result for arbitrary GP parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:59:15.856667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The arclength monomial norms give the stated Laurent series, and pairing the half-integers gives the Jacobi cn Fourier series with nome e^(−h) and parameter m, not modulus m. The radial operator is (1/4)∂²/∂u²; the affine prefactor of the kernel has no effect. For α=2K(m)/π the cn differential equation and initial conditions give C″=α²[(1−2m)C+2mC³] and (C′)²=α²(C²−1)(mC²+1−m), proving the log-derivative identity. The reciprocal complementary cn increases from 1 to infinity as u traverses [0,h/2); thus y=C² covers [1,∞), and the constrained minimum of my+(1−m)/y decides all radii without a cutoff. Monotonicity of K(1−m)/K(m) gives the threshold at m=1/2, h=π. Inverting complementary cn gives the advertised radius, and y−1=α²u²+O(u⁴) gives the critical coefficient α⁶/8=8K(1/2)⁶/π⁶. The central maximum beyond threshold is radial, not pointwise strict along the central circle. Independent direct Laurent variance checks at 16 interior points and a critical divided difference corroborated the proof (python3 /workspace/evidence/review_checks.py 1); the exact argument establishes the universal claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The base arclength series and weighted one-point density are established, and Katori–Shirai's different phase transition concerns two-point correlations. Resultary c551782d30c5 studies derivative-zero orbits of weighted kernel fibers, not the log-diagonal Hessian."
+        ],
+        "reasoning": "The broader kernel families provide the underlying functions but not a general optimizer theorem from which these radial minimizers specialize. Fiber stationarity does not imply optimizer stationarity for the log-diagonal Hessian.",
+        "searches": [
+          "Resultary: weighted annular Szegő radial orbits, Gaussian annular thresholds",
+          "arXiv:2202.09114 §2 Eqs. (2)–(4); arXiv:2008.04177 Eq. (1.19) and Theorem 1.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.09114; arXiv:2008.04177; DLMF §22.11",
+        "Resultary b105da930e84, c551782d30c5, 39e0f31cc67a and bounded targeted comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel and classical elliptic identities directly imply the curvature formula. For the claimed optimizer theorem one must identify the full range y∈[1,∞), carry out the constrained minimization, and track its transition under the nome and central expansion."
+        ],
+        "reasoning": "An identity for the density, an off-diagonal zero or an angular two-point ratio is not a prior classification of sharp minima and the quartic critical behavior. The analytic optimization, not renaming the density, is the contribution.",
+        "searches": [
+          "NIST DLMF Eq. 22.11.2; arXiv:2008.04177 Eq. (1.19) and Appendix",
+          "Bounded primary lookup for annular Szegő, Jacobi metrics and radial minimum phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For annular weight r=q the known one-point density relative to planar m/π is ∂z∂z̄ log S; the cylindrical coefficient multiplies it by |z|². The classical cn Fourier series sums the matching half-integer kernel."
+        ],
+        "reasoning": "The published one-point identity is the same curvature information after a coordinate factor, so the basic metric expression does not establish originality. Euclidean-area density extrema and logarithmic-coordinate extrema need not agree.",
+        "searches": [
+          "Resultary: annular logarithmic Szegő and cylindrical Gaussian-zero density minima",
+          "arXiv:2008.04177 Eq. (1.19) and Appendix; DLMF Eq. 22.11.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day annular-kernel record concerns polynomial multipliers for odd powers (including r=q), not metric minima. The trinomials record has one or two maxima for planar zero density of a different random ensemble."
+        ],
+        "reasoning": "Neither record supplies a threshold, minimizing circles, or quartic coefficient for this Hardy metric; the same-day record was separated on the statement, not assumed priority.",
+        "searches": [
+          "Resultary: exact threshold h=π, quartic flatness and one-to-two radius orbits",
+          "Resultary b105da930e84, c551782d30c5, 39e0f31cc67a, actual Findings"
+        ]
+      },
+      "rationale": "The stand-alone curvature formula is a classical re-expression of a known annular kernel/one-point intensity. The supported distinct result is the full global classification of the logarithmic metric minimizers, their reciprocal positions and the critical quartic law.",
+      "residual_risks": [
+        "A classical treatment of an equivalent annular elliptic metric or a differently normalized Gaussian zero intensity might already include the optimizer theorem; bounded checks do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel coverage; not an optimizer result.",
+          "evidence": [
+            "Squared Laurent monomial norm 2π(1+q^(2n+1)) yields the identical diagonal series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.09114",
+          "material_read": "PDF p. 2, §2 Eqs. (2)–(4), text offset 6400",
+          "method": "Open primary PDF, compare weights and bilateral series",
+          "title": "Infinite Product Representation for the Szegö Kernel for an Annulus",
+          "trigger": "Identical annular arclength Hardy model"
+        },
+        {
+          "assessment": "Equivalent basic curvature data at r=q, without the logarithmic minimizer theorem in the inspected claims.",
+          "evidence": [
+            "At r=q the ordinary kernel is recovered; for m/π measure the intensity is (1/4)Δ log S."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.04177",
+          "material_read": "PDF p. 10 Eq. (1.19), offset 34900; Appendix p. 45 offset 156700",
+          "method": "Open primary PDF, compare measures, weights and Hessian",
+          "title": "Zeros of the i.i.d. Gaussian Laurent Series on an Annulus",
+          "trigger": "Same weighted kernel family and explicit one-point density"
+        },
+        {
+          "assessment": "Classical input gives cn summation; does not state this radial optimization.",
+          "evidence": [
+            "The odd-frequency cosine coefficients have the exact half-integer nome power and 1+q^(2j+1) denominator."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/22.11.E2",
+          "material_read": "§22.11 Eq. 22.11.2, text offset 1150",
+          "method": "Public NIST statement, compare nome and modulus",
+          "title": "Jacobian Elliptic Functions: Fourier and Hyperbolic Series",
+          "trigger": "Classical exact expression behind the closed metric identity"
+        },
+        {
+          "assessment": "Different invariant on overlapping kernel parameters.",
+          "evidence": [
+            "The claim expands odd kernel powers, with an r=q specialization, rather than minimizing a curvature function."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-odd-powers-of-weighted-annular-szeg-kernels-have-polynomial-laur--b105da930e84",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, compare actual claim",
+          "title": "Odd powers of weighted annular Szegő kernels have polynomial Laurent multipliers",
+          "trigger": "Distinct indexed same-day annular-kernel finding"
+        },
+        {
+          "assessment": "Different stationary-point problem.",
+          "evidence": [
+            "The claim concerns derivative zeros of weighted kernel fibers, not radial extrema of the diagonal log Hessian."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-real-critical-point-orbits-of-weighted-annular-szeg-kernels--c551782d30c5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, compare differentiated object",
+          "title": "Two real critical-point orbits of weighted annular Szegő kernels and a disappearing-hole phase law",
+          "trigger": "Closest annular-kernel critical-orbit match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a natural global question about a canonical kernel metric across all annular moduli. The exact change from one central circle to two reciprocal circles and the quartic degeneracy are structural features not supplied by simply rewriting the known one-point density. It makes no claim about Euclidean-area or geodesic extremizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:29:14.544581Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions and proof, VERIFICATION.md, verify_affine.py and verify_lcf.py inspected but not executed, both outputs, and both data files",
+        "Independent all-layer and data replay: python3 /workspace/branches/pappus-check.py"
+      ],
+      "rationale": "An inclusion-maximal matching leaves independent uncovered shores. Four points have 12 incidences, with at most six repeated incidences because a point pair shares at most one chosen line; at most three lines avoid those four points, ruling out size <=5. For three points, at least six lines are met, and equality (required for size six) needs one distinct available line for each pair. They form a noncollinear triangle with precisely the three allowed directions. Its horizontal/vertical corner and nonzero horizontal displacement give a unique displayed T_{x,y,a}; the three avoided lines are forced. For the reference triangle, three point-to-line edges are forced, and the remaining six vertices form a 6-cycle with two perfect matchings. Translation and simultaneous negation cover the other triangles. An independent increasing-edge-index enumeration visits each matching once and tests maximality by inspecting every edge for an uncovered pair, yielding {6:36,7:567,8:648,9:42}. It reproduces the published 36 masks and 126 exchange edges exactly. Among the 630 unordered pairs the needed exchanges are 3,4,5,6 with counts 126,54,270,180; thus one- and two-edge moves are impossible. Independent graph traversal gives degree seven, 108 triangles, and the common shell profile (1,7,12,12,4), establishing connectedness and radius and diameter four. The 108 direction-preserving affine collineations give one orbit on the 36 states. An extra independent check groups the two completions for each uncovered triangle as adjacent true twins; their 18-vertex quotient is isomorphic to Pappus, so the computed exchange graph is also Pappus[K_2].",
+      "residual_risks": [
+        "The independent enumeration uses the affine incidence model. The frozen LCF source includes a separate explicit model isomorphism and minimum-layer proof, but its program was not executed.",
+        "This verifies endpoint batch exchanges, not a model that demands maximal intermediate matchings or reconfigures nonminimal matchings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adriaensen et al. study balanced incidence-free pairs; the symmetric-design equality of Theorem 1.2 and the symmetric-incidence-structure version in Theorem 5.8 require k>=100. Here k=3, and pair incidence varies with direction.",
+          "Bonamy et al. use perfect matchings with alternating 4-cycle flips. Dejter studies short-cycle structure and reattachments in Levi graphs."
+        ],
+        "reasoning": "None of the sourced stronger statements applies to classify the six-edge nonperfect minima or their batch-exchange graph. The general incidence-free reduction itself is not new.",
+        "searches": [
+          "Adriaensen–Mattheus–Spiro, arXiv:2211.14339, Definition 1.1 and Theorems 1.2, 5.8",
+          "Bonamy et al. arXiv:1904.06184 p. 1",
+          "Dejter arXiv:0904.1096 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Bounded Resultary same-graph and same-invariant lookups, including the distinct same-day records above",
+        "Primary OA passages and graph catalog entries in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026/11/22/SCOPE-seven-edge-exchange-bridges-between-minimum-maximal-matchings-of--ecacc8554454 concerns PG(2,4), with 48384 minima and exchange threshold seven; 2026/11/22/SCOPE-seventy-two-minimum-edge-guards-and-a-four-swap-mobility-thresho--1a2a97eb3abe concerns the full AG(2,3) nine-point twelve-line graph, with 72 minima and threshold four.",
+          "The audited Pappus graph retains only three directions. Even exact knowledge of its edge domination number would not enumerate partners of each uncovered triple or tell which optimum pairs agree on three edges."
+        ],
+        "reasoning": "Dropping one parallel class changes which configurations are optimal and their moves; the full AG result cannot simply be restricted. A cubic bound can give the lower bound six, but not attainment, classification, or the sharp exchange cutoff and graph.",
+        "searches": [
+          "Resultary same-day minimum-maximal-matching exchange thresholds for PG(2,4) and AG(2,3)",
+          "Adriaensen–Mattheus–Spiro Theorems 1.2 and 5.8 and Bonamy et al. exchange definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A smallest maximal matching is a minimum edge-dominating matching (also called a minimum independent edge dominating set); equivalently a minimum independent dominating set of the line graph. At fixed size in this bipartite graph it is an equinumerous incidence-free pair of uncovered shores with a perfect matching on the remainder.",
+          "Same-day 2026/11/22/SCOPE-pappus-global-forcing-nine-edges-and-109-optimal-exchange-compon--8fdd3ef262b5 instead chooses nine-edge subsets to distinguish the 42 perfect matchings and reconfigures those subsets."
+        ],
+        "reasoning": "The line-graph and incidence-free formulations retain the state space; global forcing sets do not. Sharing Pappus and the word exchange is not exact coverage.",
+        "searches": [
+          "Resultary: Pappus minimum maximal matching, edge domination and exchange; Pappus graph forcing",
+          "Adriaensen–Mattheus–Spiro arXiv:2211.14339 introduction and Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld and Sage identify the 18-vertex cubic graph and its models, not the audited polynomial or matching mobility in the passages read. House of Graphs retrieval returned no usable record.",
+          "The same-day Pappus forcing record supplies the 42 perfect matchings. Another same-day entry, 2026/11/22/SCOPE-three-wise-independent-odd-domination-and-frozen-five-sets-of-th--b2c8ce57e775, gives a different distance-three exchange graph on five-vertex odd-dominating sets."
+        ],
+        "reasoning": "The top term 42z^9 is specifically credited; neither the graph identifiers nor the distinct configuration counts establish the exact 36-state census and exchange table. The frozen record's own exact mirror is not evidence of another result.",
+        "searches": [
+          "MathWorld Pappus Graph; Sage PappusGraph; House of Graphs lookup",
+          "Resultary: Pappus maximal-matching polynomial, affine triangles, minimum solutions and reconfiguration"
+        ]
+      },
+      "rationale": "The standard Pappus graph, edge-domination correspondence and use of incidence-free sets are prior. The same-day Pappus forcing record explicitly uses the 42 perfect matchings, so that top coefficient is not a distinct new fact here. The supported contribution is the affine classification and full census of the minimum maximal matchings, the lower-size maximal matching coefficients, and the exact three-edge exchange threshold and graph on the minima. The strongest other Pappus exchange statements act on different configurations; similar incidence-free exchange results on other graphs do not imply this exact census or mobility graph.",
+      "residual_risks": [
+        "The SIAM full text and House of Graphs record were not available for statement-level comparison. An unindexed Pappus saturation-number or maximal-matching table could overlap a piece of the census. No claim of global priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general framework, not the stated Pappus enumeration; both compared completion statements require k>=100",
+          "evidence": [
+            "Theorem 1.2 identifies the edge domination number with v minus the largest balanced incidence-free size for symmetric designs in its range. Theorem 5.8 also requires k>=100 in its symmetric-incidence-structure setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.14339 (DOI 10.1002/jcd.21925)",
+          "material_read": "p. 2 definition of incidence-structure types and Definition 1.1, Theorem 1.2 (offsets 4440–10050); Theorem 5.8 p. 11 (offset 47140)",
+          "method": "Lawful OA preprint of the cited work; Wiley retrieval unavailable",
+          "title": "Incidence-free sets and edge domination in incidence graphs",
+          "trigger": "Broader incidence-free completion and domination theorem"
+        },
+        {
+          "assessment": "Known context credited; access does not establish or exclude any Pappus-specific coverage",
+          "evidence": [
+            "The frozen record cites the equivalence. The mathematical reduction used here is checked directly via independence of uncovered vertices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0138030",
+          "material_read": "No full-text passage retrieved at the attempted DOI and publisher PDF",
+          "method": "Public publisher and DOI retrieval",
+          "title": "Edge Dominating Sets in Graphs",
+          "trigger": "Classical smallest-maximal-matching and edge-domination connection"
+        },
+        {
+          "assessment": "Different state space and local move",
+          "evidence": [
+            "States are perfect matchings and transitions flip alternating 4-cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+          "material_read": "p. 1 state and move definition, offset 2120",
+          "method": "Bounded OA full-text passage",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Possible existing matching exchange framework"
+        },
+        {
+          "assessment": "Graph context and oriented cycle geometry, not the audited matching census in the inspected passage",
+          "evidence": [
+            "Pappus and Desargues are Levi graphs of 9_3 and 10_3 configurations; oriented short-cycle reattachments are studied."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0904.1096",
+          "material_read": "Overview, p. 1, offset 597",
+          "method": "Bounded OA full-text passage",
+          "title": "Pappus-Desargues digraph confrontation",
+          "trigger": "Same graph; possible short-cycle or affine classification antecedent"
+        },
+        {
+          "assessment": "Confirms standard graph/model identity; inspected entries do not supply matching-reconfiguration results",
+          "evidence": [
+            "MathWorld identifies the 18-vertex cubic distance-regular graph. Sage identifies the LCF model with offsets [5,7,-7,7,-7,-5]^3."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html; Sage graph generators PappusGraph entry",
+          "material_read": "MathWorld identifying passage at offset 40; Sage graph-generator entry at offset 340005",
+          "method": "Bounded public documentation passages",
+          "title": "Pappus Graph; Sage PappusGraph",
+          "trigger": "Exact graph catalogs and possible tabular invariants"
+        },
+        {
+          "assessment": "Credits 42 perfect matchings; different exchange state space",
+          "evidence": [
+            "Its states are global forcing subsets distinguishing perfect matchings, not the six-edge minimum maximal matchings."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pappus-global-forcing-nine-edges-and-109-optimal-exchange-compon--8fdd3ef262b5",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Bounded local mirror text",
+          "title": "Pappus global forcing: nine edges and 109 optimal exchange components",
+          "trigger": "Strongest same-day same-graph matching/exchange hit"
+        },
+        {
+          "assessment": "Different configurations and exchange graph",
+          "evidence": [
+            "Five-vertex odd-dominating sets, with a 54-edge distance-three graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-wise-independent-odd-domination-and-frozen-five-sets-of-th--b2c8ce57e775",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Bounded local mirror text",
+          "title": "Three-wise independent odd domination and frozen five-sets of the Pappus graph",
+          "trigger": "Same graph, same-day three-distance mobility claim"
+        },
+        {
+          "assessment": "Same methodology but different graphs and optimum sets",
+          "evidence": [
+            "PG(2,4) gives 48384 minima and threshold seven; full AG(2,3) has 12 lines and the reported 72 edge guards and threshold four."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-seven-edge-exchange-bridges-between-minimum-maximal-matchings-of--ecacc8554454; 2026/11/22/SCOPE-seventy-two-minimum-edge-guards-and-a-four-swap-mobility-thresho--1a2a97eb3abe",
+          "material_read": "Both RESULT.md findings, offset 0",
+          "method": "Bounded local mirror text",
+          "title": "Minimum maximal matching exchange results for PG(2,4) and edge guards for AG(2,3)",
+          "trigger": "Same-day similar incidence problems, including the full ambient affine plane"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen geometry, optimum classification and three-edge reconfiguration assertion",
+        "Independent matching and exchange replay",
+        "Pappus catalog and same-day Pappus forcing distinction"
+      ],
+      "rationale": "The Pappus incidence graph is canonical, and minimum maximal matchings model minimum edge domination on it. Describing all optima by complementary affine triangles explains their geometry rather than just outputting 36. The exact jump from every optimum isolated at budget two to a single connected transitive graph at budget three is a meaningful finite reconfiguration cutoff with a useful complete distance profile. It cannot be read off from the optimum cardinality or from the previously known perfect matchings.",
+      "residual_risks": [
+        "The scientific value is the exact natural-graph classification and sharp threshold, not a theorem for all Levi graphs or all reconfiguration models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

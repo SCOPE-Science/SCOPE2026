@@ -1,0 +1,42 @@
+---
+{
+  "expert_attestation": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "independent_audit": {
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
+  },
+  "lean_verification": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "schema_version": 1
+}
+---
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The displayed cubic is smooth for p>5: singularity on the sum-zero hyperplane would force all five coordinates to have the same square, and a nonzero vector with five entries ±a cannot sum to zero in those characteristics. The 15 diagonal and 12 fifth-root lines are contained in the cubic by the sum of nontrivial fifth-root powers. Their sections in the smooth cubic line scheme are distinct in characteristic 31 and hence everywhere on the connected cyclotomic base after inverting 30 (the relative line scheme is finite étale of degree 27); incidence intersection numbers are constant there. For completeness of the Eckardt list, at a candidate point a the quadratic polar sum a_i*x_i² must vanish on the three-dimensional vector space of the projective tangent plane. If the support size is s, the maximal totally isotropic dimension is 5-s+floor(s/2); s=5 is impossible, and at s=3 or 4 a totally isotropic 3-space would contain the radical, which has coordinate axes excluded by sum x_i=0. Thus s=2 with opposite entries. For these ten points the tangent section is the product of the three remaining coordinate linear forms on the plane, giving three distinct concurrent lines. For constant S5 over a finite field, the cocycle value has seven conjugacy classes. On the fifth-root labels it acts by coordinate reindexing and the multiplier q; factoring out signs and translations leaves the squareclass flag, since q≡±1 mod 5 iff 5 is a square in the field. Independently constructed the 27 lines as projective point sets over F31 and computed their incidence by set intersections, not by the frozen rank test. The intersection matrix and trace projector then reproduce all fourteen line and Eckardt profiles and seven Picard power traces for each row; Newton identities give the displayed polynomials. The traces also match 1+sgn(σ^n)*(# fixed pairs minus # fixed labels for σ^n)+(δ*sgn(σ))^n, with the middle representation the sign twist of the (3,2) constituent of the permutation module on pairs. This is V_(2,2,1); the joint character with the multiplier involution verifies the stated decomposition. Replay: python3 /workspace/clebsch_recheck.py. The frozen script was read, not executed. The characteristic-31 computation verifies the finite action, not good reduction on its own. In the zeta proof, the cohomology operator in the point-count trace formula is geometric Frobenius, with the Tate factor q and the inverse of the arithmetic Picard action under the l-adic Galois convention. The finite-order rational Picard operator and its inverse have identical traces of all powers and characteristic polynomials, so this convention slip in Proof leaves all the claimed formulas and examples unchanged.
+
+## originality
+
+FAIL
+
+The joint fourteen-row table was not located verbatim, but its data, including the sign toggle, are a direct consequence of prior coordinate-action, double-six, and Weyl-class descriptions. The strongest evidence is stronger than the general Weyl spectrum table alone: Dolgachev–Duncan explicitly give the seven coordinate-permutation-to-Weyl assignments, and Dolgachev–Iskovskikh explicitly give the same fifth-root Clebsch double-six with the alternating-group sixers and its action on the spanning divisor classes. Their combination with the already known untwisted squareclass action leaves a finite relabeling and one reflection, not an uncovered arithmetic spectrum. This is a mathematical coverage determination, not an assertion of a prior identical printed table or a chronology inferred from same-day catalogue entries.
+
+## value
+
+FAIL
+
+The Clebsch twists and their Frobenius invariants are mathematically natural and the table is a useful cross-reference, but this finding is a recombination of known actions and eigenvalues. The most plausible structural remainder, that the fifth-root squareclass flips exactly the coordinate sign direction, follows directly from the old double-six description: the nontrivial multiplier swaps its two sixers and fixes the entire six-dimensional span of the remaining lines, while coordinate parity controls the same swap. Counting cycles of the explicit actions does not uncover a further invariant beyond the stated spectral data. A new certificate or a narrower version of these same computations would not supply a surviving distinct result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

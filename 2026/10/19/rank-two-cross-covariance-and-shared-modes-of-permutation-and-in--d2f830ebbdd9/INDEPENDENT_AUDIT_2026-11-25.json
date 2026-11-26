@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:09.888883Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 39–76",
+        "Frozen VERIFICATION.md lines 19–23; verify.py lines 12–105 (inspected, not executed)",
+        "Independent signed enumeration: /workspace/review-evidence/finite-checks.js, signedComparisons, replay with node; all 811 cross entries for n=3–7 matched and every weighted-displacement identity passed in those ranges."
+      ],
+      "rationale": "For S=2X−1 and T=2Y−1, condition on how many of a,b occupy i,j. With none the sign S is balanced by swapping the values at i,j without altering T; with both, ST=1 for two ordered placements. In the exactly-one case, e.g. π(i)=a, the free value at j and the free position of b range independently over n−2 options apiece: each pair of choices has (n−3)! completions. Their signed biases are (2a−n)/(n−2) and (2i−n)/(n−2). In the four cases the signed products sum to (h_a−h_b)(t_i−t_j), where h_b=(2b−n−2)/(n−2) and t_j=(2j−n−2)/(n−2); each case has mass (n−2)/[n(n−1)]. Dividing the resulting E[ST] by 4 gives the frozen formula with positive coefficients on the independent constant and shifted-gap vectors. The displacement identity follows by summing j−i over inverted pairs: the contribution at r is r times (# earlier larger minus # later smaller) = r(r−π(r)). Invariance of I and D under inversion gives two shared modes. Within each family the incidence Gram formula is positive definite: disjoint pairs have zero covariance and shared endpoints give the signed 1/12 from the six three-point orders, with diagonal 1/4. Orthogonal projection between the spans therefore has rank two, fixes both independent common modes, and maps their orthogonal complement to zero. This verifies the intersection, residual orthogonality and the two unit canonical correlations. For n=2 the lone comparisons agree pointwise and have variance 1/4.",
+      "residual_risks": [
+        "Enumeration corroborates only those sizes; the conditioning and projection arguments cover all sizes in scope.",
+        "No probabilistic independence assertion for the residual comparison vectors, and no nonuniform-permutation claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petersen, Two-sided Eulerian numbers section, pp. 10–11, and Visontai p. 1 specify bivariate aggregate counts of descents and inverse descents.",
+          "Durbin–Stuart bibliographic identification only; the mathematical article could not be lawfully retrieved in the attempted routes."
+        ],
+        "reasoning": "A joint distribution of aggregate adjacent comparisons is broader in moments but narrower in index information: its cross covariance sums adjacent entries and is insensitive to the product of shifted nonadjacent gaps. Rank-correlation literature is potentially relevant to stronger indexed statements, not dismissed from its title or access status.",
+        "searches": [
+          "Petersen arXiv:1209.6273",
+          "Visontai arXiv:1210.3799",
+          "Durbin–Stuart DOI 10.1111/j.2517-6161.1951.tb00095.x"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 531359245a8d and f6af0a8c3805",
+        "arXiv:1209.6273 pp. 10–11; arXiv:1210.3799 p. 1",
+        "Durbin–Stuart, 1951, bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known inversion and rank-displacement invariance can give a lower bound of two on the projection rank. The inspected exact two-sided descent and displacement results do not give an upper bound of two.",
+          "The new mixed formula annihilates the orthogonal complement of two independent modes after projection, using the within-family positive definite Gram structure."
+        ],
+        "reasoning": "Neither existence of two common statistics nor a small set of mixed scalar contractions excludes extra shared or partially correlated modes. The decisive additional calculation retains arbitrary long-gap indices and proves the rank upper bound.",
+        "searches": [
+          "Incidence precision record f6af0a8c3805, displayed within-family identity",
+          "Long displacement penalty record 531359245a8d, Finding",
+          "Petersen pp. 10–11 and Visontai p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-kendall-inversion-covariance-with-every-long-displacement--531359245a8d covers Cov(I,F_f) for long displacement penalties, including f(d)=d²/2 and hence Cov(I,D).",
+          "Earlier incidence-precision record f6af0a8c3805 treats comparisons indexed by position pairs, within one permutation."
+        ],
+        "reasoning": "Specializing f recovers one scalar contraction of the mixed matrix, not its entries or the intersection. A within-family Gram matrix, even if known on both sides by inversion symmetry, does not determine the two families' joint Gram matrix.",
+        "searches": [
+          "Resultary searches on inversion/incidence and inverse-permutation comparisons",
+          "Focused literature query for pairwise inversion indicators of a permutation and its inverse, cross covariance, and rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-sided enumeration is tabulated/refined by descent counts, not by positions, values and two arbitrary gaps. The Resultary formulas give exact within-family entries or aggregate contractions, respectively."
+        ],
+        "reasoning": "No compared table supplies the mixed entries. An adjacent descent-count distribution cannot specify nonadjacent comparison coefficients, and even all univariate marginal moments of either family would not constitute a mixed table.",
+        "searches": [
+          "Resultary incidence precision and exact Kendall–inversion covariance records",
+          "Two-sided Eulerian enumeration in arXiv:1209.6273, pp. 10–11"
+        ]
+      },
+      "rationale": "The supported distinction is the full index-resolved mixed kernel and the exact common linear subspace/projection. Earlier within-family covariance, aggregate adjacent-descent distributions, and scalar Kendall–displacement correlations are materially related but do not supply them. Classical inversion invariance, within-family incidence covariance and weighted-inversion identities are not credited as new.",
+      "residual_risks": [
+        "The full text of Durbin–Stuart (1951) was inaccessible and could contain a relevant implicit formula. A limited literature search does not rule out an earlier group-theoretic or rank-statistical derivation. No priority beyond checked statements is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the within-family Gram input only.",
+          "evidence": "C=(I+BᵀB)/12 for comparisons of π.",
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "Finding, within-family covariance/precision and spectrum",
+          "method": "Local Resultary mirror, revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Same indexed comparison objects and incidence covariance"
+        },
+        {
+          "assessment": "Covers Cov(I,D), not the full mixed covariance or the common subspace.",
+          "evidence": "Use F_f=Σ_i f(|π(i)−i|) with f(d)=d²/2.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-kendall-inversion-covariance-with-every-long-displacement--531359245a8d",
+          "material_read": "Finding, covariance of inversions with nondecreasing displacement penalties",
+          "method": "Local Resultary result inspection",
+          "title": "Exact Kendall inversion covariance with every long displacement",
+          "trigger": "Strongest indexed overlap on the two identified common statistics"
+        },
+        {
+          "assessment": "Joint aggregate left/right descents, not the index-resolved arbitrary-gap kernel.",
+          "evidence": "The bivariate generating function grades by the two descent counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.6273",
+          "material_read": "Two-sided Eulerian numbers section pp. 10–11, including definition near PDF text offset 24943 and Carlitz–Roselle–Scoville context",
+          "method": "Open preprint text",
+          "title": "Two-sided Eulerian numbers via balls in boxes",
+          "trigger": "Two-sided position and inverse comparisons"
+        },
+        {
+          "assessment": "Addresses the adjacent-descent aggregates, not all comparisons.",
+          "evidence": "The bivariate law concerns numbers of descents and inverse descents.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.3799",
+          "material_read": "Page 1, around text offset 2000",
+          "method": "Open preprint text",
+          "title": "Some remarks on the joint distribution of descents and inverse descents",
+          "trigger": "Joint statistics of permutation and inverse comparisons"
+        },
+        {
+          "assessment": "Unresolved historical coverage; neither credited nor excluded beyond the acknowledged classical statistics.",
+          "evidence": "The title identifies inversion and rank correlations, but access status and title establish no specific indexed formula.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1951.tb00095.x",
+          "material_read": "Bibliographic identification only; no full text available in attempted lawful retrieval",
+          "method": "DOI and identified open-copy lookup",
+          "title": "Inversions and Rank Correlation Coefficients",
+          "trigger": "Classical Spearman–Kendall relations might include fine-index identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–34 and 60–73"
+      ],
+      "rationale": "The exact projection solves a natural joint-dependence question about the complete forward and inverse comparison families, not only an aggregate covariance. It identifies which two interpretable rank statistics account for all shared second-order information and shows that every other pair of residual linear modes is uncorrelated, while the indexed kernel also gives exact covariance for arbitrary weights.",
+      "residual_risks": [
+        "The payoff is restricted to exact second-order linear structure in the uniform model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

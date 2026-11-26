@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix effect factorization \(X=S^{1/2}YS^{1/2}\), with \(-I\preceq Y\preceq I\) and \(0\preceq S\preceq I\), rigorously implies \(X^2\preceq S\) without assuming commutativity. The exact identity \(AB+BA+C^2+I/24=(S-X^2)/2+3(C-I/6)^2/2\) proves the bound. A rational-radical \(2\times2\) witness attains the lower eigenvalue, and the two positive summands force an invariant qubit corner at each equality vector. Scalar and two-cycle cases are addressed directly. The included checker tests exact identities and independent finite numerical instances; the analytic inequalities, not finite experiments, establish the infinite-parameter claim.
+PASS
 
-## Originality — PASS against accessible evidence, with a material residual risk
+For each k on the three-cycle there is one square atom C and a reversed mixed pair A,B, so the coefficient is Hermitian and equals C^2+AB+BA. Independently, the isometry Vv=(A^(1/2)v,B^(1/2)v,C^(1/2)v) and D=diag(I,-I,0) give X=V*DV=A−B and S=V*D^2V=I−C. Hence S−X^2=W*W with W=(I−VV*)DV. This proves the contraction inequality even for singular effects. Completing the square gives C^2+AB+BA+I/24=W*W/2+3(C−I/6)^2/2. At a contact unit vector v, Cv=v/6, X^2v=5v/6 and Wv=0. The third component of DVv=VXv gives C^(1/2)Xv=0, so w=Xv/sqrt(5/6) is a unit vector in ker C orthogonal to v. On (w,v), X exchanges the basis vectors with coefficient sqrt(5/6) and C is diag(0,1/6); self-adjointness makes this a common reducing block for A,B,C. Substitution gives the exact matrices in the finding and spectrum {1/12,−1/24} for the coefficient. The two rank-one matrices there have determinant zero and positive trace; the block extends by any normalized positive triple and can be placed at any specified k by relabeling the atoms. In dimension one all products are scalar nonnegative; with two group elements B=I−A, so A^2+B^2 and 2A(I−A) are positive. This proves both minimalities. The proof neither assumes invertibility nor depends on sampling.
 
-The closest new source is Jabbari, arXiv:2611.09755 (submitted November 6, 2026), which treats positive convolution-idempotent measures and proves their commutativity. That assumption excludes the non-idempotent sharp negative extremizer; its qualitative observation that convolution can lose positivity does not determine an optimal spectral bound or equality classification. Chunyuan Deng (2013) treats Jordan/sequential operator products and special projection relations, not a three-atom convolution-square bound. Girard–Plávala–Sikora (2020/2021) concern compatibility of quantum channels. Published-result searches for matrix-valued convolution, three POVM effects, anticommutator extrema, the exact constant and equivalent formulations did not identify stronger covering results. **Residual risk:** the full 2024 Guo–Luo article on POVM Jordan negativity remained inaccessible after attempts to obtain an open version and through authorized library access; only the publisher abstract could be inspected. No global priority or independent novelty certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete sharp all-dimensional quantitative solution of the first cyclic setting where positive matrix convolution can acquire a negative eigenvalue. The exact best constant, complete two-dimensional contact rigidity and proof of simultaneous group-size and coefficient-dimension minimality are mathematically motivated by the failure of positivity identified in the matrix-convolution literature. This is more informative than a single counterexample or a routine restatement of the idempotent classification.
+The matrix compression estimate and qualitative failure of Jordan or convolution positivity are not new. The supported distinct content is the sharp spectral floor for the normalized three-effect sum and its entire contact-block classification. The closest three-cycle result located optimizes under a Haar-square equality constraint; the closest Jordan-effect paper is materially related but accessible only at abstract level. Neither inspected statement gives a sharp pointwise result for this sum on arbitrary normalized positive triples. Priority remains provisional.
 
-## Scope and limits
+## value
 
-No claim is made about longer finite groups, general nonabelian groups, higher convolution powers, or other mass normalizations. Numerical experiments are supplementary to the proof. The 2024 inaccessible primary article is a specific outstanding bibliographic comparison; no independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This quantifies rather than merely demonstrates failure of convolution positivity in the smallest possible normalized matrix setting. The dimension-free bound is exactly attained, and identifying the forced common reducing block describes all equality cases, not just a numerical minimum or isolated example. That structure is the reason the result goes beyond a routine compression inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument provides a positive normalized step density and checks its invariance using all three Perron--Frobenius inverse branches. The resulting invariant law is the known unique ergodic absolutely continuous probability of the source paper. Intersecting the zero-digit cylinder with its once- and twice-shifted preimages yields respectively \(1/(2\alpha)\) and \(1-3/(4\alpha)\). Both formulas and the crossing at \(27/20\) follow for every real parameter in the stated closed interval, including endpoints by almost-everywhere identities. The adjacent signed-digit law uses branch geometry and stationarity, with exact rational checks independently replayable. The script is evidence of arithmetic consistency, not an infinite proof.
+PASS
 
-## Originality — PASS, within compared records
+The frozen table's upper-left entry is undefined as printed (u); it must equal ν by reflection of the (+1,+1) event. The complete repaired RESULT.md makes just that correction. Write a=α−1, c=2a, d=2−α. The step density H/(3α) integrates to one since 2+2a+c+d=3α. For y>0 the central branch contributes H(y/2)=2+1_(y<c) to 2PH. For y<a both outer inverses contribute a combined 3: the indicator thresholds at ±(4−3α) occur in complementary pairs, since |4−3α|≤a. For a<y<d only the right inverse survives and has H=1, and for y>d neither survives. These are exactly the values of 2H, up to null breakpoints, also when knots coincide at endpoints. The cited unique ergodic ACIM therefore identifies the density. Its central mass is 2/3 and the lag-one zero event is |x|≤1/4, of mass 1/(2α). For lag two the central-central path gives |x|≤1/8; the two reflected paths through an outer branch give 1/4<|x|≤b=(α+1/2)/4. Splitting the wing integrals at a, with 1/4≤a≤b≤1/2, yields 1−3/(4α) after adding the core. Subtracting 4/9 gives the negative lag-one covariance and the unique lag-two zero at 27/20. Same-sign adjacency has mass ν=(3−2α)/(12α) on either sign, by integrating above (α+1/2)/2 and reflecting. Opposite adjacent signs are impossible, and stationarity plus sign symmetry with ± marginals 1/6 forces the corrected table. After two positive symbols the state cannot exceed 2−α≤(α+1/2)/2, ruling out another positive symbol; reflection and the opposite-sign exclusion complete the triple bound. Ergodicity converts these stationary cylinder masses to typical-orbit frequencies. The frozen exact-rational checker was inspected but not executed; the piecewise argument supplies the continuum and endpoint cases.
 
-The source paper of Dajani--Kalle explicitly proves the one-digit plateau and gives a general formula for invariant densities; the latter is acknowledged as sufficient input *in principle* for integration of further cylinders. Its Section 5 and Appendix do not state this lag-two covariance formula, its unique interior sign reversal at \(27/20\), or the full adjacent-digit table. The classical Dajani--Kraaikamp--Liardet work addresses the endpoint nonadjacent signed-digit process, not this open parameter range. Published research searches found similar symbolic-correlation studies on different shifts, but no theorem implying the present parameter-dependent two-lag identities. The residual risk of an earlier equivalent observable calculation remains real, including because the density formula in [1] facilitates such calculations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original motivation is minimizing the Hamming weight of signed-digit expansions, for which the zero frequency is a primary observable. Here *every* parameter in the interval has the same zero frequency but different consecutive signed-digit statistics. More sharply, the lag-one zero autocovariance stays negative while lag two crosses from negative to positive at an exact interior parameter. This gives a natural and complete short-range-dependence diagnostic that the known one-digit statistic cannot detect, not an arbitrary coordinate slice.
+Credit the entire one-symbol plateau and the invariant-density/matching framework to Dajani–Kalle. The density can be evaluated by specializing their general formula, and the adjacency run restriction is elementary branch geometry, not a separate foundational result. The supported distinct finding is the evaluated short-lag law across the plateau subinterval, in particular the sharp interior reversal despite an unchanged one-digit frequency. Neither the closest random-map record nor the inspected deterministic matching results already evaluate that lag-two law or provide an equivalent parameter classification.
 
-## Limits and closest literature
+## value
 
-Principal comparison: Dajani--Kalle, arXiv:1703.06335 (2017), stationary densities and the zero-frequency plateau. Endpoint comparison: Dajani--Kraaikamp--Liardet, DOI:10.3934/dcds.2006.15.87 (2006), nonadjacent expansions. Related published records on coded-shift marker correlations concern different dynamical systems and do not imply the statement. No claims are made beyond \([5/4,3/2]\), or about independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unchanged one-symbol zero frequency is a motivated signed-digit statistic, but it obscures changes in stationary clustering and separation. The exact interior parameter where a lag-two dependence changes sign while lag one stays negative is a usable diagnostic, not an arbitrary finite sample or another evaluation of the plateau. The corrected adjacent law additionally quantifies which symbolic combinations contribute. This is not a longer-lag mixing theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

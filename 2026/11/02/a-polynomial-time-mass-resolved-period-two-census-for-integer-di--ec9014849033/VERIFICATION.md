@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and exact checks
 
-Run `python3 tree_diffusion_verify.py` in this directory with Python 3 and no third-party dependencies. The output must agree byte-for-byte with `tree_diffusion_verify.log`, including its two final success markers `TREE_DIFFUSION_DP_VERIFIED` and `TREE_MASS_DP_VERIFIED`.
+# Independent mathematical audit
 
-Independent enumeration of all Prüfer-coded labelled trees of orders one through six generated 1,442 cases (1,441 nontrivial). The verifier compares the complete mass-residue vector from rooted coefficient extraction with a separately implemented sign/gap enumeration for every case. It separately checks the unweighted total on all 1,441 nontrivial trees, computes chip-diffusion updates directly on selected bounded integer state grids, and tests larger paths and stars. It reconstructs the two six-vertex degree-multiset twins and their per-residue primitive-orbit populations.
+## correctness
 
-The exhaustive statement is finite (vertex order at most six). The infinite-family conclusion is justified by the published proof's incidence-matrix kernel, exact gap sign reversal, tree integrability and root-mass calculation. No computation is represented as a proof over all trees. Reproducibility verifies the contained code and sample calculations, not uniqueness against every historical publication.
+PASS
+
+The tree incidence matrix is injective on edge fluxes (successively remove leaves). Hence F²(x)=x is equivalent to exact reversal of every edge sign. For a parent-child sign t and fluxes q,q′ the gap is zero only if q=q′, or tk with 1≤k≤t(q−q′)−1. On a tree these gap choices integrate uniquely up to translation, and the coefficient extraction enforces q=s+sum(t). The weight z^(−m_w tk) records the child's subtree contribution to total modulo n. Each residue-matching gap configuration has one lift to a specified integer total S; F preserves S, and the only fixed configurations are constant. This gives the subtraction and division by two, including n=1. The scalar transfer costs at most O(nΔ³) exact operations (n=1 separately); width-n cyclic arrays and at most O(Δ) monomial shifts per edge-weight entry fit the stated O(n³Δ³) bound. Coefficient lengths are polynomial because each edge has O(Δ) gaps. The independent direct two-update replay matches both six-vertex vectors and totals. Up to five vertices, each feasible tree degree multiset specifies a unique shape (paths, stars and the unique five-vertex tree with degrees 1,1,1,2,3).
+
+## originality
+
+PASS
+
+Credit prior edge-reversal dynamics, orientation/gap counting on paths, and exact mass-resolved restricted tree families. The supported distinct result is the polynomial-time fixed-total residue census for arbitrary labelled trees in sign-gradient diffusion, with an exact degree-twin obstruction. No equivalent arbitrary-tree result was evidenced in the examined comparisons.
+
+## value
+
+PASS
+
+The finite residue vector replaces infinite enumeration with exact computation at every conserved total for every tree. The smallest structural degree-twin witness demonstrates that degree statistics cannot substitute for connectivity information in this census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

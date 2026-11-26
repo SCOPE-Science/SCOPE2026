@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For arbitrary \(m\ge2\), the proof fully specifies the prefix code, state space, total transition, and reset-word quantifier. The upper bound is a direct state-image calculation. For the lower bound the completed-codeword length equation \(L+h=mK_h+E_h+f\) gives all \(m\) distinct residues of the long-word count. Its largest residue either forces a normal initial word plus \(m-1\) long ones, or forces an explicit hypothetical word of length \(m^2-1\), which is then contradicted using states \(\varepsilon\), \(0\), and \(1\). The endpoint \(m=2\) is included. Standalone subset-BFS tests for \(2\le m\le9\) corroborate but do not replace the infinite proof.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** Actual equivalence and implication searches compared a single refined leaf against general literal prefix-decoder algorithms, the different first-letter-subtree refinement of Ryzhikov–Szykuła (2018), general upper bounds in Berlinkov–Ferens–Ryzhikov–Szykuła (first public 2021, revised 2026), and contemporary synchronization surveys. None of the inspected full texts establishes this exact family-specific result. The Biskup–Plandowski (2009) abstract discusses long-synchronizing families but its complete constructions could not be inspected: it is a material residual risk, not proof of noncoverage. Search misses alone do not establish novelty, and independent historical-priority verification remains necessary.
+PASS
 
-## Value
-**PASS.** Fixed-length binary codes have a modular decoding obstruction to synchronization. Refining only a single leaf is the smallest possible departure from that structure, and its exact all-depth reset threshold is an intrinsic error-recovery invariant, not an arbitrary finite sample. The proof identifies an explicit resynchronization word and an arithmetic obstruction excluding every shorter word, furnishing a motivated structural model for almost-uniform source codes. This family result does not purport to settle general shortest-reset algorithms.
+The literal states are all prefixes of lengths 0 through m−1 and the extra prefix 1^m, totaling 2^m. With F=01^m, processing a prefix of length h≤m−2 completes a short word containing the zero and leaves h+1 ones. At h=m−1 or state 1^m the zero finishes a word immediately, leaving m ones; thus F raises/saturates the all-one heights and F^(m−1)0 resets at length m². For the lower bound let f be the length of the common output (not assumed zero), and let E_h count long words parsed from 0^h followed by input w. Then the residues E_h≡L+h−f mod m cover all m residues. The thread of residue m−1 must complete at least m−1 long words. If h>0, the initial codeword necessarily is short and consumes m−h≥1 input letters; this already forces m². If h=0 and L<m², the only candidate has L=m²−1, f=0, and is a concatenation of m−1 blocks 1^m c_j. Starting at state 0 uses m−1 input letters in the first short word, after which the congruence forces zero long completions (m such words would exceed the remainder). The successive length-m blocks occupy jm,…,(j+1)m−1 and contain the unique optional letter c_j at j(m+1), so all c_j must be zero. From state 1, the first block 1^m0 ends at 0; subsequent blocks send 1^r0 to 1^(r+1)0 in the needed range 0≤r≤m−3. This leaves the distinct nonroot output 1^(m−2)0 versus the root, including m=2. In the unrefined decoder the state length changes by +1 modulo m on every letter, preserving distinct phases. Independent exact replay: python3 /workspace/branches/independent_checks.py 3 builds codewords and their strict prefixes explicitly and runs frozenset subset BFS; thresholds at m=2,…,6 are 4,9,16,25,36 and the displayed word resets to the root in each. This replay is finite, not the general proof. The frozen checker and recorded output were inspected, not executed.
 
-## Scope and risks
-Complete binary prefix codes and literal decoders only; no comparison with the state-minimized recognizer and no generalization to arbitrary modified leaves. The 2009 source was not available in full, and the 2026 survey was accessible only by abstract/preview. Finite checker runs cannot certify the all-parameter theorem independently of the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact threshold and shortest word for this one-refined-leaf literal decoder stand apart from inspected general bounds and from exact extremizers with one short leaf. Chadha's two-consecutive-depth theorem includes exactly X_m as an instance, so synchronizability and a quadratic bound are covered; its strict bound for this instance is 2m²−2, not a proof of equality at m². The general exact family claim is supported by the explicit witness and lower bound. The closest older Huffman synchronizing-family constructions remain a real priority risk because their formulas could not be lawfully inspected.
+
+## value
+
+PASS
+
+An equally spaced decoder cannot lose its length phase. The smallest tree refinement of the constant branch changes that obstruction while preserving all but one short codeword. An exact uniform minimum for this canonical perturbation determines synchronization cost in both code depth and literal state count, and why the last one-letter saving from the modular bound is impossible. The answer is useful independently of a general algorithm for exact reset thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

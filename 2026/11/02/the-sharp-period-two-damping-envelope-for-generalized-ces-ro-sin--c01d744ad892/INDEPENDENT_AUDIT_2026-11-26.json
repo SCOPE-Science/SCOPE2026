@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:46:51.971343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–96; VERIFICATION.md lines 19–23; check.py lines 9–79 (inspected, not executed)",
+        "Repaired RESULT.md, Proof §§1–3; Ponge, published Theorem 6.1, p. 748",
+        "Independent numerical diagnostics: compare the trace norm of the explicit 2×2 symbol with its scalar expression (max discrepancy 4.44e−16); quadrature of the coefficient over a budget grid at t=.42 and s=2.6 reproduces the predicted extrema; subtract the balanced coefficient and divide by t² for (2,.75) at t=.08,.04,.02 to approach .0710227273; for (2,1), subtract the logarithm and finite part by quadrature, giving an endpoint residual of .0002306 at t=.9999."
+      ],
+      "rationale": "The frozen mathematics is correct, but its originality boundary required narrowing. Independently checked the frozen block counting argument: the denominator discrepancy is trace class for each fixed even block size B; the adjacent-block maps have separate input and output subspaces with rank ≤m and norm ≤M/(kB), giving a weak counting error at most mM/B. Cyclic replacement loses rank at most m; Fourier sampling must divide by B, leaving the 1/(4π) constant. Counting comparisons at relative threshold η remove the errors in order B→∞ then η→0; the geometric tail has s_n≤δ_m/n. In the repaired proof, grouping even and odd rows gives the smooth matrix symbol B_t=W_2(I−tU)⁻¹. Replacing the block row denominators by (2k+2)⁻¹ I_2 leaves a trace-class error; the extension by zero off nonnegative frequencies is a classical order-minus-one operator on the trivial rank-two bundle, with principal symbol B_t/(2|ξ|) on ξ>0 and zero on ξ<0. Birman–Solomyak gives the same coefficient, including zero-weight profiles. At the endpoint δ=1−t² the singular elliptic integral is 2 log(8/δ)+o(1); the remaining integrand has the factor δ/R≤1 after rationalization. Its a.e. limit is integrable and gives F(a,b), with normalization verified by du=dθ/2, 4ab/P=Pκ, and the pure and balanced limits. The normalized integrand is strictly increasing in κ; the balanced elliptic formula leaves log 2/(2π) after division by P and subtraction. No endpoint exchange with n→∞ is asserted.",
+      "residual_risks": [
+        "Numerical diagnostics cannot certify either infinite limit. Fixed t precedes the endpoint limit; there is no assertion at t=1, for longer periods, or about joint scaling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ponge's published Theorem 6.1 applies to classical pseudodifferential operators on a Hermitian vector bundle; specializing to the positive cotangent ray of the circle gives exactly the frozen 1/(4π) integral for every nonnegative pair, not only equal weights. Pushnitski Theorem 1.2 instead requires one leading coefficient per scalar band, giving an independent route to the balanced coefficient by geometric truncation but not directly to nonconstant parity."
+        ],
+        "reasoning": "This establishes prior implication for the original first-order law, including the setting that required the parity block. The broader theorem says nothing about a finite endpoint term in a family whose symbol becomes singular.",
+        "searches": [
+          "Web: Raphael Ponge Birman Solomyak Weyl laws negative order pseudodifferential singular values Hermitian vector bundle Connes Integration theorem",
+          "Web: compact banded matrices singular value asymptotics diagonal k inverse Toeplitz matrix valued block symbol Pushnitski Birman Solomyak Weyl singular values"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–42 and 95–108; repaired RESULT.md Finding and Relationship to prior work",
+        "Ponge Theorem 6.1; Pushnitski Theorem 1.2; Resultary aa2e3f6295b0 and 9192576eedcf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-t coefficient is a Weyl-law substitution, and its budget extremum and t² onset follow directly from the resulting integrand. The late block Toeplitz lemma likewise implies the coefficient after replacing the two block denominators up to trace class. The repaired finite part requires first removing the exact singular elliptic mean and then evaluating the surviving contrast term over all angles."
+        ],
+        "reasoning": "Neither the theorem for fixed smooth symbols nor the related exact records supply the corrected finite constant on the whole contrast interval. The proof identifies a specific nontrivial residual integral; this is narrower than the frozen novelty boundary, not a new claim of Weyl asymptotics.",
+        "searches": [
+          "Ponge Theorem 6.1 versus frozen equations (1)–(4); compare aa2e3f6295b0, Proof §3 and Limitations, and 9192576eedcf, Finding item 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "aa2e3f6295b0, Finding and Proof §1, is a weighted-domain-and-range formulation with conjugated entries q^{(j−i)/2} sqrt(d_j/d_i)/j; diagonal entries there do not vary with parity. Its contrast symbol is different from the output-row weights here, and its Limitations exclude the q=1 endpoint."
+        ],
+        "reasoning": "The two formulations agree in a scalar special case but not as particular operators with the same damping budget or a matched expression at general contrast. That distinct record is dated later and is used for comparison of implication, not as an earlier priority finding.",
+        "searches": [
+          "Resultary: finite part as t tends to 1, logarithmic endpoint constant, two-periodic row damping, generalized Cesàro singular values, a b sqrt(1+k sin u) anisotropy",
+          "Resultary aa2e3f6295b0, nearby weighted-space contrast formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact scalar d56b622eed1d record cited by the frozen source could not be retrieved at its supplied path. 9192576eedcf, Finding item 2, independently confirms the exact balanced elliptic coefficient; aa2e3f6295b0 gives an exact general block lemma and a different contrast coefficient. No retrieved record gives the two-weight endpoint finite part."
+        ],
+        "reasoning": "The exact scalar formula can yield its own balanced endpoint by standard elliptic asymptotics; it supplies neither the intermediate-contrast finite part nor its dependence on κ. Numerical tables would not supply the exact family formula.",
+        "searches": [
+          "Resultary exact endpoint and two-periodic coefficient as above; d56b622eed1d exact identified title and supplied mirror URL; 9192576eedcf and aa2e3f6295b0 exact statements"
+        ]
+      },
+      "rationale": "PASS applies only to the repaired endpoint claim. The frozen novelty boundary fails: it treated generic Weyl coverage as a possibility while foregrounding the first-order law, but the matrix/vector-bundle Birman–Solomyak theorem already yields it for all a,b. That portion cannot be credited as new, nor can the immediate optimizations and Taylor expansion of its exact symbol. The repair explicitly derives and credits the covered coefficient, relegates its direct consequences to context, and claims only the full two-weight endpoint finite part. No inspected source supplies that distinct result, or evaluates the degenerating symbol for it. The subtraction and evaluation of its finite remainder are not a direct statement of the classical fixed-operator theorem.",
+      "residual_risks": [
+        "The exact scalar cited record d56b622eed1d was unavailable in the mirror. Full texts for some adjacent finite-section work were not available via lawful retrieval. Targeted searches do not rule out unindexed explicit finite-part analyses; the PASS is for the narrowed claim against actual evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitively covers the original fixed-t law; not the repaired endpoint theorem",
+          "evidence": "For classical order −m on a closed n-manifold the asymptotic constant is the cosphere integral of tr|σ|^(n/m) at the stated scale. Set n=m=1 and use the rank-two symbol supported on ξ>0.",
+          "identifier_or_url": "https://ems.press/content/serial-article-files/31026",
+          "material_read": "Published §6.1, Theorem 6.1 and Remarks 6.2–6.3, p. 748; arXiv §6.1 at offset about 81700",
+          "method": "OA full-text statement and positive-frequency pseudodifferential specialization",
+          "title": "Connes’ integration and Weyl’s laws",
+          "trigger": "Strongest plausible earlier vector-bundle Weyl theorem"
+        },
+        {
+          "assessment": "Scalar leading law, not endpoint finite part",
+          "evidence": "One limiting scalar coefficient b_m on each of finitely many bands gives an integral of an absolute scalar Fourier polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.02652",
+          "material_read": "§1.3, Theorem 1.2, p. 3, offsets 7200–10050",
+          "method": "OA paper, inspect exact diagonal and order hypotheses",
+          "title": "Spectral asymptotics for Toeplitz operators and an application to banded matrices",
+          "trigger": "Earlier banded-entry singular coefficient and scalar antecedent"
+        },
+        {
+          "assessment": "Its general lemma implies fixed-t law; distinct weighted-space application and no endpoint evaluation; later catalogue date",
+          "evidence": "Block Toeplitz counting coefficient for k⁻¹I_d times the symbol; its application uses q^{(j−i)/2} sqrt(d_j/d_i)/j and fixes q<1.",
+          "identifier_or_url": "Resultary aa2e3f6295b0",
+          "material_read": "Finding, scope, Proof §§1 and 3 at offsets 350–9325 in relevant portions, Limitations after 9325",
+          "method": "Local mirror; compare operator entries, formula and limits",
+          "title": "Period-two geometric weights: singular Weyl law and contrast rigidity for Cesàro averaging",
+          "trigger": "Very close period-two Cesàro Weyl/contrast result"
+        },
+        {
+          "assessment": "Only the scalar specialization of relevance here; later catalogue date",
+          "evidence": "The scalar elliptic coefficient gives the balanced formula and its one-parameter endpoint under the standard asymptotic of K.",
+          "identifier_or_url": "Resultary 9192576eedcf",
+          "material_read": "Finding item 2, offset 200–4580 in relevant portion",
+          "method": "Local mirror and balanced-case comparison",
+          "title": "Exterior-power ordering and an elliptic singular-value law for compact generalized Cesàro operators",
+          "trigger": "Exact elliptic scalar coefficient, nearby search match"
+        },
+        {
+          "assessment": "Accept no stand-alone novelty for balanced coefficient; direct access unresolved",
+          "evidence": "The independent published Weyl comparison already proves prior implication for this special case and the full fixed-t coefficient.",
+          "identifier_or_url": "Resultary d56b622eed1d",
+          "material_read": "No passage retrieved from the supplied mirror path; frozen RESULT.md and AUDIT.json describe the balanced case",
+          "method": "Resultary search and identified mirror lookup",
+          "title": "Exact singular-value coefficient of generalized Cesàro operators on Hilbert space",
+          "trigger": "Frozen audit cites exact scalar record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof §2; original equation (4); prior fixed-operator Weyl comparison"
+      ],
+      "rationale": "The surviving result gives the exact renormalized offset after the leading growth is removed. At fixed normalized scale it gives a genuine contrast-dependent invariant, not just the already implied logarithmic growth or the balanced elliptic special case. The sharp range of the normalized constant distinguishes one-parity, intermediate and balanced profiles and describes the full crossover between them for the first nonconstant periodic family.",
+      "residual_risks": [
+        "The useful quantity is a finite part of an indexed-law coefficient, not a finer expansion of individual singular values or a general-period contrast theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

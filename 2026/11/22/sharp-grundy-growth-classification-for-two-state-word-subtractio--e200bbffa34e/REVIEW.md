@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-Every two-state total transition is one of four maps. The proof establishes the exact mex formula in the nonaccepting-reset/swap case, treats the parity boundary correctly, and supplies sharp witnesses for all lengths. The two separately implemented finite enumerators reproduced all tested cases, but cannot themselves establish the unrestricted theorem.
+## correctness
 
-## Originality (O): PASS against inspected evidence
-Inoue and Inazu (arXiv:2611.09157v1, Sections 3 and 7) give regularity of fixed-Grundy fibers and explicitly raise the boundedness question without the two-state all-alphabet sharp profile. Takata, Inoue and Seki (arXiv:2609.00871) concern related right-linear-grammar derivation games; Hetyei (arXiv:0912.0573) treats a truncation-game kernel model. published-finding corpus searches for transition-type, nilpotent/swap and Grundy synonyms revealed no equivalent claim. The latter two primary works were inspected at abstract level, not exhaustively; their full-text overlap remains a risk. No absence-of-search-result assertion is treated as proof of uniqueness.
+PASS
 
-## Value (V): PASS
-This is a natural complete small-state classification of a recently stated boundedness problem. It identifies a strict maximum-nimber hierarchy (bounded, half-linear, full-linear) and a pointwise run-block statistic that explains the intermediate regime. This is a parameter-uniform mathematical result, not a finite-list exercise or a claim about arbitrary regular languages.
+The four maps exhaust all complete two-state tables with the stated acceptance convention. An O-letter repeated n times allows all shorter prefixes, giving mex n, the upper bound from at most n options. With no O or T the accepting state is never reached. With swaps but no resets an accepted suffix toggles parity; odd positions have the empty option and even positions have no zero-valued option, proving the pointwise parity rule. In the remaining case, if the last block has even parity, accepted suffixes lie within that block and leave positive-valued prefixes by induction. If it has odd parity, cuts before the last reset are all allowed; the first T in each earlier T-bearing block realizes the next positive integer, and cuts within the final block leave zero. This yields precisely the mex equal to the number of T-bearing blocks. A value k needs k swaps and k−1 separators, and T(ZT)^(k−1) and ZT(ZT)^(k−1) give equality for both length parities. Renaming letters by transition type preserves all legal cuts and the mex induction, but arbitrary codeword recodings need not.
 
-## Limits and status
-The classification is restricted to normal-play suffix deletion and rule languages recognized by at most two deterministic states. A type-accepting-reset game is classified by its sharp maximum but not its complete pointwise Grundy function. Unindexed prior equivalents and inaccessible related full manuscripts remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the complete all-length maximum law and, especially, the pointwise mixed reset/swap formula. Fixed-value regularity, elementary parity and the mex recurrence are antecedents or standard ingredients. The closest sources give general language regularity, or exact laws for different deletion rules; no checked stronger result covers the reset/swap classification.
+
+## value
+
+PASS
+
+This completely resolves the first nontrivial DFA-state class for a natural boundedness question. The growing case without an accepting reset is not explained by the obvious unary accepting-reset strategy: intervening rejecting resets create many distinct mex levels. Both the sharp growth constant and the individual formula are useful beyond deciding which tables are bounded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

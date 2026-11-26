@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone script `verify_q4.py` was executed successfully with Python 3. It constructs all 32 binary-cube edges directly from the four coordinate bit flips. The proof-carrying checks are exhaustive exact-rational forward and backward terminal-state recurrences; separate forward/backward formal-power-series recurrences verify the weak- and strong-rate coefficients. The Q3 residual-pair distribution is also exhaustively enumerated. The script requires no external libraries or downloaded input files.
+# Independent mathematical audit
 
-Verified claims: equal-rate final cardinality probabilities for six, seven, or eight dimers; the exact full-coverage probabilities at rates \(1/2\), \(1\), and \(2\); the positive weak-rate coefficients; the inverse-strong-rate coefficients \((1,0,-36)\); and the elementary Q3 antipodal-pair rescue law. The finite-state calculations are exact exhaustive enumerations, not Monte Carlo estimates. No assertion about the uniqueness of a minimizing rate or the robustness of experimental physical implementations is verified.
+## correctness
+
+PASS
+
+A still-available edge has never rung: both its endpoints were vacant at all earlier times, so an earlier first ring would have been accepted. Memorylessness therefore gives precisely the stated weighted race. The recursion is finite and analytic from the positive side at both rescaled endpoints: each factor has nonzero constant denominator or a common factor of the slow rate cancels. An independent exact reconstruction (python3 /workspace/reviews/evidence-4.py) used vacant-set distributions modulo translations, with rational Taylor jets for edge-race factors. It reproduced the whole equal-rate distribution, the exact comparison probabilities, the four Q3 antipodal pairs of mass 1/21 each with perfect mass 17/21, all three weak jets including the negative first derivative, and strong jets (1,0,-36). At positive weak rate couple all clocks; the probability the 24 ordinary first arrivals precede the eight distinguished arrivals tends to one. Within each fast-jammed half, only twin vacancies across the halves remain joinable; two identical antipodal pairs give the repair, mass 4/441, while one defective or two different defective halves cannot heal. In dimensions 2 and 3 the halves are K2 or the 4-cycle and all maximal matchings are perfect. The strict inequalities and larger endpoint limits force finite interior minima; no uniqueness follows. The nonconstant rational law also rules out flat intervals of local minima.
+
+## originality
+
+PASS
+
+Credit the Q4-specific weight dependence, exact terminal law and quantitative rescue, not the random-greedy recurrence or the general possibility of weak-link singularity/nonmonotonicity. Strong neighboring results differ in process, graph or statistic. The available evidence does not cover this joint claim.
+
+## value
+
+PASS
+
+The anisotropy parameter separates a natural pair of cube layers and competes with an exact perfect-matching channel. The result supplies the first dimension at which late repair occurs, its quantitative probability and initial negative rate response, and a quadratic law at the other endpoint. The example establishes a concrete failure of monotone rate benefit for eventual perfect matching; this combination is more than a routine finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

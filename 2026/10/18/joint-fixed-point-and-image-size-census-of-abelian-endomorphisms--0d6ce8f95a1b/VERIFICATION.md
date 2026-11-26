@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The source `check_heisenberg_abelian_endos.py` can be run with Python 3.9 or newer and no external dependencies. It uses independent row-reduction enumeration of matrices, not a circular restatement of the generating function.
+## correctness
 
-Observed complete matrix strata for \(n=1\): over \(\mathbb F_3\), ranks \((r,s)=(0,0),(1,0),(1,1)\) have counts \(1,20,12\); over \(\mathbb F_5\), \(1,114,30\); over \(\mathbb F_7\), \(1,328,56\). Corresponding abelian-image fixed-point-free group-map counts are \(189\), \(2875\), \(16121\).
+PASS
 
-For a fixed isotropic image in four-dimensional symplectic space, direct enumeration gives \(X_{2,1,s}(3)=(53,27)\), \(X_{2,2,s}(3)=(3675,2484,81)\), \(X_{2,1,s}(5)=(499,125)\), and \(X_{2,2,s}(5)=(297005,89250,625)\). An independent enumeration confirms the 40 totally isotropic planes over \(\mathbb F_3\). A direct exhaustive multiplication-table test confirms one nontrivial fixed-point-free abelian-image homomorphism on the order-27 Heisenberg group.
+For odd p, an abelian-image endomorphism kills the derived center, so it factors through V. The commutator forces its projected image L to be totally isotropic; the group law then adds the two coordinates without a cross term on that image, proving the converse and linearity of the central functional. Counting successive isotropic basis vectors and dividing by the number of bases gives alpha. For a prescribed t-space T in L, a map fixing T is onto L exactly when its induced V/T to L/T map is onto; its lifts with that restriction have p^{t(2n-t)} choices. For an exact fixed space of dimension s, invert the containment counts in the subspace lattice: each t-space has [t choose s]_p candidate s-spaces, and the interval coefficient is (-1)^{t-s}p^{(t-s)(t-s-1)/2}. This gives precisely X. The fixed subgroup is a graph over ker(I-A), whereas the image rank increases by one exactly when the central functional does not vanish on ker A. This verifies both split factors independently of s, including r=0. The independent arithmetic check gives F(1,p)=p^5-2p^3 and F(2,3)=81(1+40*53+40*3675)=12,078,801. The bounded checks documented in VERIFICATION.md are corroboration; the all-rank conclusion uses the proof, not execution of the supplied script. No inference to isomorphism classes of Yang–Baxter solutions follows.
 
-The final checker output is `ALL_FPF_AB_IMAGE_COUNTS_PASSED`. The general theorem, including all odd primes and all ranks, rests on the proof in `RESULT.md`, not finite samples. No independent audit or validation is claimed.
+## originality
+
+PASS
+
+Credit the existing parametrization and marginal projected-rank census. The supported distinct result is the joint fixed-space and group-image-order refinement of that marginal, including its fixed-point-free slice. The examined statements do not determine the refined strata by a parameter substitution or marginalization.
+
+## value
+
+PASS
+
+Fixed-point-free abelian group endomorphisms are explicit inputs to the established Yang–Baxter construction. The formula counts those inputs throughout a natural nonabelian family and distinguishes both fixed-subgroup size and whether the image gains a central dimension. Two maps of the same projected rank need not agree on either statistic. These are useful exact labelled counts, not a claim about the number of inequivalent solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

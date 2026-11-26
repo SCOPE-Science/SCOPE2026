@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:50:47.533409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)"
+      ],
+      "rationale": "Distinct rotations conflict and a nonprimitive word self-overlaps. At unequal zero gaps the longer-gap orientation is unique, giving floor((n-1)/2)(q-1)^2 primitive orbits. At n=2m+2 the equal-gap distinct-color necklaces are indexed by unordered color pairs. For representatives 0^i a 0^m b 0^(m-i) and 0^j c 0^m d 0^(m-j), a=d makes the prefix and suffix of length m+i-j+1 equal to 0^i a 0^(m-j); the length lies in [1,n-1]. The first- and last-marker color sets are disjoint, with at most one word per ordered pair, giving at most floor((q-1)^2/4). The proposed construction attains both bounds: every word ends at its second marker, hence any matching proper prefix and nonempty suffix would have just one marker at the end, with its leading zero count at least the initial gap of the prefix word and no greater than the final internal gap of the suffix word. In the construction those gap ranges are separated except at equal gaps, where the colors are disjoint. At n=2 the same extremum is directly the product of two disjoint color-set sizes, including zero at q=2. Saturation forces the unequal-gap coverage and the stated equal-gap restriction. The deficit is positive exactly for q≥4.",
+      "residual_risks": [
+        "The optional finite optimization is not used to justify the theorem; no claim is made for other weights or partial overlap constraints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general q-ary code sources concern unrestricted codes, explicit families or non-expandability. Yang–Ding restrict forbidden overlap lengths. None of these retrieved passages states the exact-two-nonzero maximum."
+        ],
+        "reasoning": "Unrestricted capacity is an upper bound on this layer, not an equality; without a weight-refined optimum, a general construction or all-code table cannot establish this capacity. The decisive coverage comes from the distinct Resultary theorem on the same layer.",
+        "searches": [
+          "arXiv:2108.06934v1",
+          "arXiv:2309.08915v1",
+          "arXiv:1209.0236v2",
+          "DOI 10.1007/s10623-023-01344-z",
+          "DOI 10.1587/transfun.2025EAL2050"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 121924a58cfc mirror; eca0e74ffee6 index summary only",
+        "arXiv:2108.06934, 2309.08915, 1209.0236; DOI 10.1007/s10623-023-01344-z and 10.1587/transfun.2025EAL2050 (specified passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof splits into unequal cyclic gaps and antipodal words with disjoint first/second marker color sets; both upper bounds must saturate at its attained optimum. For n=2, the first- and last-letter sets of the entire code must be disjoint by the sole length-one constraint, and a balanced product attains the bound."
+        ],
+        "reasoning": "The saturation and separation consequences follow from the other proof on its full domain. The elementary n=2 calculation and a changed proof presentation do not constitute a distinct substantive remainder.",
+        "searches": [
+          "Resultary 121924a58cfc, mirrored proof, antipodal obstruction and sharp construction",
+          "Frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "121924a58cfc explicitly allows the marker values to agree, forbids all proper overlaps including self-overlaps, and uses the same labeled alphabet. Its cyclic gap distance is the zero-gap length plus one. Its even deficit floor((s-1)^2/4) equals binom(s,2)-floor(s²/4) by the two parities of s.",
+          "The binary restricted-overlap record eca0e74ffee6 surfaced in the index, but its displayed scope forbids only the two longest overlaps; it is not the exact match."
+        ],
+        "reasoning": "On n≥3 the two all-alphabet statements are equivalent. Reversing the construction in 121924a58cfc changes a short gap between markers into the reviewed long initial gap, and exchanges the roles of the two colors; reversal preserves full non-overlap.",
+        "searches": [
+          "Local Resultary: weight two q-ary non-overlapping and cross-bifix-free codes with exactly two nonzero positions, primitive necklaces, and full versus restricted overlaps",
+          "Resultary 121924a58cfc and eca0e74ffee6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched mirrored RESULT.md has the identical closed formula at its opening, not just matching small samples. The primary paper's numerical table is unrestricted; e.g. its S(2,6)=3, while the weight-two optimum is 2."
+        ],
+        "reasoning": "The matching theorem supersedes any comparison of small exact values; the unrestricted numerical table does not provide a distinct weight-two coverage argument.",
+        "searches": [
+          "Local Resultary exact weight-two optimum (121924a58cfc)",
+          "Stanovnik–Moškon–Mraz, Table 1, DOI 10.1007/s10623-023-01344-z"
+        ]
+      },
+      "rationale": "A separate same-day Resultary record, 121924a58cfc, states the identical optimum for every q≥2 and n≥3 under exactly the same word and overlap constraints, the same necklace deficit and a reversal-equivalent construction. Its proof gives the same equal-gap color separation and forces the same unequal-gap saturation. The date does not establish which record came first; the failure is demonstrable duplicate scientific coverage, not an asserted priority order. The sole domain extension n=2 is the immediate disjoint-endpoint-color product.",
+      "residual_risks": [
+        "Same-day timestamp does not establish relative priority or independence of discovery. The frozen reference to published binary weight-three work is not tied to a specific primary citation; that comparison is not needed for the decisive equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage on q≥2 and n≥3, including the deficit and structural obstruction; no priority ordering established",
+          "evidence": "Identical odd/even maxima, full proper-overlap and self-overlap condition, same deficit in a parity-equivalent form, and a balanced bipartition construction equivalent under reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-non-overlapping-codes-with-exactly-two-nonzero-symbols--121924a58cfc/RESULT.md",
+          "material_read": "Mirrored RESULT.md, including offsets 0–2362 and 2362–4862 (Finding, scope, rotation orbits, antipodal obstruction, construction)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp non-overlapping codes with exactly two nonzero symbols",
+          "trigger": "Decisive same-day exact matched theorem"
+        },
+        {
+          "assessment": "Broader problem, not a layer-specific optimum in material read",
+          "evidence": "Defines and constructs unrestricted q-ary non-overlapping codes.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06934",
+          "material_read": "pp. 1–2, OA offset 0",
+          "method": "Lawful OA primary paper",
+          "title": "Q-ary non-overlapping codes: a generating function approach",
+          "trigger": "General alphabet coverage"
+        },
+        {
+          "assessment": "Different restrictions/objective in material read",
+          "evidence": "Non-expandability and size of specified families and extensions do not give the exact weight-two maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.08915",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Lawful OA primary paper",
+          "title": "On non-expandable cross-bifix-free codes",
+          "trigger": "Equivalent terminology and optimum versus non-expandability"
+        },
+        {
+          "assessment": "Unrestricted approximation/construction, not this exact optimum",
+          "evidence": "General alphabet construction rather than a fixed-weight extremal theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Lawful OA primary paper",
+          "title": "Cross-bifix-free codes within a constant factor of optimality",
+          "trigger": "General cross-bifix-free construction"
+        },
+        {
+          "assessment": "Exact table for unrestricted codes, numerically different",
+          "evidence": "Unrestricted S(2,6)=3; the target's weight-two layer has maximum 2.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "pp. 1299–1300 and p. 1320 Table 1, OA offsets 0 and 85500",
+          "method": "Lawful OA primary paper",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Possible exact small-parameter table coverage"
+        },
+        {
+          "assessment": "Different overlap constraint in material read",
+          "evidence": "Construction sizes are for restricted forbidden overlap lengths, not the full proper-overlap constraint.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2025EAL2050",
+          "material_read": "p. 757, OA offset 0",
+          "method": "Lawful OA primary paper",
+          "title": "Yang–Ding non-overlapping codes with restricted overlap lengths",
+          "trigger": "Check partial-overlap alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–4",
+        "Resultary 121924a58cfc Finding and proof"
+      ],
+      "rationale": "An exact colored-marker capacity and its gap obstruction have mathematical interest, but no distinct worthwhile increment is established in this frozen record over the substantively identical mirror theorem. Reversing the construction, restating its saturation, and adding the elementary n=2 disjoint-color product do not supply a new motivated boundary result.",
+      "residual_risks": [
+        "This is a judgment of incremental scientific value of this record, not a claim that the exact capacity result is intrinsically uninteresting."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

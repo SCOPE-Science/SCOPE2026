@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:33:11.547256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–57",
+        "Frozen VERIFICATION.md, verify_pappus_carriers.py, verify_pappus_mod2.py and requirements.txt (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/audit_carriers.py 5"
+      ],
+      "rationale": "For a vertex-minimal induced flag support with nonzero reduced H_d, deletion and the star-link exact sequence force nonzero H_{d-1} in every link, and no vertex is universal. Induction from d=0 gives 2d+2 vertices; equality forces the complement graph to be a perfect matching. This applies to any nonzero ambient image, and the octahedral opposite pairs are exactly incident input edges from disjoint three-vertex paths. Here six paths partition the graph. An independent exact reproduction using vertex deletion for faces, branching on the least uncovered graph vertex for partitions, and distance-preserving bijections for automorphisms recovered 297 supports, 216 automorphisms and the stated orbit representatives and sizes. Global Hasse acyclicity and a 43-by-3 critical boundary with a +1 minor on rows (2,3,15) were checked. Subtracting signed paired coface boundaries in topological order kills the matched lower coordinates over Z. The surviving matched-upper coordinates are determined for cycles because their down-boundary block is unit triangular. Every one of the 5,319 original degree-six boundaries has critical image in the span of the three critical boundary columns, so the resulting map on H_5 into Z^40 is injective. The stated 40 orbit-0 cycles have determinant -1, making it onto. All 297 signed cycles had zero boundary and gcd-one quotient coordinates. Exact Smith forms gave ranks (40,25,35,31,5) and index one for all five orbits.",
+      "residual_risks": [
+        "The reproduction relies on finite enumerations and exact signed integer algebra, with the stated graph labeling and cycle orientation; it is not proof-assistant verification.",
+        "The isolated phrase 'a different 43-by-three Morse certificate' in the prior-work paragraph is inaccurate: the earlier record uses the same toggle order and the same signed degree-five matrix. The current augmented poset adds the pairing of the empty simplex with the previous critical vertex. This attribution detail does not affect the Finding or the integral certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.11 treats matching complexes of forests, excluding the cyclic Pappus graph. The Dürer, Frucht and Petersen catalogue records analyze specific other graphs and homological degrees."
+        ],
+        "reasoning": "These sources give relevant structure or examples, but not a general computation specializing to the Pappus count, ranks, or integral saturation.",
+        "searches": [
+          "Marietti–Testa, arXiv:0705.1461, §4.4, Theorem 4.11",
+          "Resultary Dürer, Frucht and Petersen minimum-carrier statements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Relationship to prior work",
+        "The local Resultary sources above",
+        "Frucht RESULT.md Finding: 2026/10/18/SCOPE-shortest-induced-three-spheres-generate-frucht-matching-homology--356d0b152410",
+        "Petersen RESULT.md Finding: 2026/10/25/SCOPE-shortest-octahedral-spheres-and-integral-symmetry-orbit-lattices--d78821241a7c",
+        "arXiv:0705.1461, Theorem 4.11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier integral result states a wedge of forty S^5 and supplies the identical toggle order and signed critical matrix. The mod-two result gives Betti number 40 and the later character result is rational."
+        ],
+        "reasoning": "Those results fix ambient data, not the lattice images of specific cycles. The prior matrix can be used here as input but still needs exact path-partition enumeration and projections, and a rational character cannot determine orbit saturation or exhibit a unimodular selection of spheres.",
+        "searches": [
+          "October 11 Pappus integral RESULT.md, Finding and complete acyclic matching/integral attaching-degrees paragraphs",
+          "October 4 Pappus mod-two RESULT.md, Finding",
+          "November 1 Pappus rational character RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local catalogue yielded the earlier Pappus homotopy and mod-two results plus structurally related carrier records for other graphs. The web query did not yield a directly matching source."
+        ],
+        "reasoning": "The relevant equivalent support formulation is a partition into six two-edge paths together with a claim about their signed inclusion classes; neither an ambient homotopy theorem nor enumeration of ordinary two-edge matchings is equivalent.",
+        "searches": [
+          "Local Resultary: Pappus ordinary matching complex, octahedral carriers and two-edge-path factors",
+          "Web literature query: Pappus graph matching complex induced octahedral spheres 297 homology carriers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 and October 11 Pappus entries give ambient rank 40; the earlier face count 297 counts matchings with two edges. The November 1 Pappus entry tabulates a rational automorphism character."
+        ],
+        "reasoning": "None of those tables tabulates the 297 six-block path partitions with the claimed integral homology images. Equal cardinalities for different sets do not constitute prior coverage.",
+        "searches": [
+          "Local Resultary: Pappus matching-complex homology and minimum carrier/orbit-lattice classification"
+        ]
+      },
+      "rationale": "The new scope is the Pappus-specific induced supports and integral inclusion/orbit lattices, not the ambient homotopy type, free rank, graph symmetry order, or signed Morse matrix. The October 11 same-object calculation is the strongest prior overlap and gives the same matrix, but no minimum-support classification or orbit-basis theorem was found in the inspected claim and argument. Searches and comparisons support the distinct claim, not global priority.",
+      "residual_risks": [
+        "Limited catalogue and web checks do not exclude unindexed equivalent Pappus-specific results, e.g. under path-factor terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers ambient type and critical boundary, not the carrier classification",
+          "evidence": "Wedge of forty S^5; 43 five-cells and three six-cells; the signed column dictionaries agree with the reproduced boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-integral-homotopy-type-of-the-pappus-graph-matching-complex--db6c6c11f317",
+          "material_read": "RESULT.md Finding and proof offset 1530–4342",
+          "method": "Local mirror original text",
+          "title": "Integral homotopy type of the Pappus graph matching complex",
+          "trigger": "Same graph and integral homology"
+        },
+        {
+          "assessment": "Ambient field-valued result",
+          "evidence": "Reduced mod-two homology concentrated in degree five with rank 40.",
+          "identifier_or_url": "2026/10/4/SCOPE-mod-2-homology-of-the-pappus-matching-complex--a28326a5f491",
+          "material_read": "RESULT.md Finding, offset 0–752",
+          "method": "Local mirror original text",
+          "title": "Mod-2 homology of the Pappus matching complex",
+          "trigger": "Same graph and degree"
+        },
+        {
+          "assessment": "Later result about a different invariant",
+          "evidence": "Rational fifth-homology character for the 216-element group, not indices in the integral carrier lattices.",
+          "identifier_or_url": "2026/11/1/SCOPE-complete-rational-automorphism-character-of-the-pappus-matching--b876dbf089e0",
+          "material_read": "RESULT.md Finding, offset 0–1494",
+          "method": "Local mirror original text",
+          "title": "Complete rational automorphism character of the Pappus matching complex",
+          "trigger": "Same symmetry and homology"
+        },
+        {
+          "assessment": "Distinct graph-specific result; same date does not establish priority",
+          "evidence": "93 minimum eight-vertex S^3 carriers for GP(6,2), with different orbit-lattice results.",
+          "identifier_or_url": "2026/10/18/SCOPE-shortest-octahedral-carriers-and-integral-orbit-obstructions-in--2058dcbfce11",
+          "material_read": "RESULT.md Finding, offset 0–1623",
+          "method": "Local mirror original text",
+          "title": "Shortest octahedral carriers and integral orbit obstructions (Dürer graph)",
+          "trigger": "Closest same-day structural analogue"
+        },
+        {
+          "assessment": "Scope excludes Pappus",
+          "evidence": "The theorem assumes F is a forest and shows its matching complex is a grape.",
+          "identifier_or_url": "https://arxiv.org/pdf/0705.1461",
+          "material_read": "§4.4, PDF p. 9, Theorem 4.11 and preceding definitions",
+          "method": "Open primary PDF passage",
+          "title": "The topology of the combinatorial complexes of forests",
+          "trigger": "Possible broad matching-complex decomposition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and comparison with prior ambient result",
+        "Independent integral orbit calculations"
+      ],
+      "rationale": "The question is how homology of a standard symmetric graph can be generated from smallest induced subcomplexes, not what its known Betti number is. The result classifies every minimal inclusion class and distinguishes equal-size symmetry orbits with different ranks (40 versus 35). The explicit basis in one orbit provides usable integral generators with minimal supports. These are measurable distinctions not recoverable from the homotopy type alone.",
+      "residual_risks": [
+        "A classification for this graph and degree, not evidence of a cubic-graph family theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

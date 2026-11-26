@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:42.467248Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the censored clock history at s=(log K)/4, the residuals of surviving clocks are independent rate-one exponentials. A late root must lie in an all-surviving triple. Its conditional probability there is p=e^{-x}K^{-1/4}; the number S of surviving triples has mean K^{1/4} and variance K times (q^3-q^6)+2(q^4-q^6)+2(q^5-q^6), with q=K^{-1/4}. Thus E|pS-e^{-x}|=O_x(K^{-1/8}). The conditional dependency graph has radius two, and conditional b1 is at most 5p^2 S. Neighboring valleys exclude one another; for distance two both centers being late forces all five clocks to exceed t. Independently, transforming the residual ranks to uniforms gives the two-valley probability 2∫_0^1 (v-v^2/2)(1-v)^2 dv=2/15, yielding E b2=O_x(K^{-2/3}). Chen–Stein and the Lipschitz bound for the exponential give the stated continuous-clock conditional error for fixed x and eventually t>s. Roots seen by s can be identified exactly from the history. The expected number of missed roots is K^{1/4}/3, and each insertion changes a fixed gap count by at most two. The event of no early root has probability e^{-Ks}. Hence the early and final fixed-coordinate profiles differ by o_P(1) after normalization. Testing a bounded function of the early profile against a last-arrival threshold factors its expectation with the stated error. Matijasevick's Theorem B supplies the marginal Gaussian process, with the submitted coordinate cutoff eventually identical in each coordinate; marginal tightness gives joint tightness and finite-coordinate laws determine the product-space limit. The same early approximation works for root count using its known CLT (its radius-two indicators also give variance per site 1/3(2/3)+2(0-1/9)+2(2/15-1/9)=2/45). Finally P(tau>log K)≤1/(3K^2), and the rate-K Poisson martingale satisfies Doob's bound 4K log K on the squared supremum up to log K. This suffices for Slutsky on the K scale without assuming independence of the martingale and tau. Neither a discrete-step conditional error nor a growing-gap result follows from this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matijasevick A–B give exact gap moments and the marginal centered Gaussian profile. D concerns a single growing spatial gap length.",
+          "Mansour–Rastegar–Roitershtein, Thm. 2.1, give the scalar root-count CLT.",
+          "Resultary 78e599bc494f concerns the same cyclic model but the joint pair is total root-count fluctuation and a rare single growing-gap count, with a Gaussian/Poisson limit. Dörr–Heiny study extremes of two permutation statistics across arrays."
+        ],
+        "reasoning": "The closest stronger-looking results concern different rare events or provide only one marginal. A theorem giving independence of a particular growing spatial-gap count and the total root count does not give conditional last-arrival laws or independence of temporal completion and all fixed-gap coordinates.",
+        "searches": [
+          "arXiv:2610.21094v1 Theorems A, B, D and Proposition 7.3",
+          "arXiv:1903.12548v2 Theorem 2.1",
+          "arXiv:2309.17314v2 abstract/introduction (joint extremes)",
+          "Resultary 78e599bc494f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21094v1",
+        "arXiv:1903.12548v2",
+        "arXiv:2309.17314v2",
+        "Resultary 78e599bc494f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof bounds an unconditional Poisson approximation for late roots.",
+          "Conditioning creates a random intensity pS, whose fluctuation must be controlled; the final Gaussian vector must also be replaced by an early measurable proxy before using the conditional bound."
+        ],
+        "reasoning": "The unconditional rate and Gaussian marginal, even taken together, do not imply independence. A general dependency-graph bound can be reused but does not automatically control the random conditional intensity or provide the early proxy. These are the substantive additional steps.",
+        "searches": [
+          "arXiv:2610.21094v1 §7.1 proof of Proposition 7.3",
+          "arXiv:2610.21094v1 Theorems A–B",
+          "Resultary 78e599bc494f, mixed-test and rare-count statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 7.3 states the unconditional discrete-step marginal for (3n*_K/K)-log(K/3).",
+          "The submitted conditional assertion is stable factorization against bounded early-history tests at a fixed continuous-time threshold, with a quantitative L1 error."
+        ],
+        "reasoning": "The Poissonized and step-time variables agree asymptotically on the fluctuation scale for the joint limit. This time change does not turn the prior unconditional marginal into the claimed conditional estimate, nor is a conditional bound claimed on the discrete scale.",
+        "searches": [
+          "arXiv:2610.21094v1, §7.1, Proposition 7.3",
+          "Resultary: last-root completion, conditional early history, Gumbel and Gaussian gap fluctuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record 2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f, RESULT.md offsets 0–6108, has a finite-size mixed-test bound for a different joint pair.",
+          "The 2026 primary source already provides the exact Gaussian covariance constants and the unconditional Gumbel normalization."
+        ],
+        "reasoning": "This is a quantitative asymptotic statement, not a table of constants. The relevant indexed comparison is the highly overlapping same-model theorem with a different extremal statistic; no exact counterpart of the conditional law surfaced in that bounded comparison.",
+        "searches": [
+          "Resultary: bulk roots, rare long gaps and cyclic ballistic deposition",
+          "arXiv:2610.21094v1 §1.1–1.2 and §7.1"
+        ]
+      },
+      "rationale": "The two marginal laws and the unconditional dependency-neighborhood method have clear prior coverage. The supported distinct contribution is the quantitative conditioning on an expanding first-arrival history and its use to prove the last-root-time/entire-final-gap-profile product limit, not either marginal or a general new Poisson approximation theorem.",
+      "residual_risks": [
+        "A general theorem on stable limits under local dependence, or a different published early-history formulation, may subsume parts of the result. Bounded retrieval does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of both marginals, but the inspected statements and Proposition 7.3 proof are unconditional and do not assert the submitted conditional-history rate or joint product limit.",
+          "evidence": [
+            "Initial extracted offsets 0–10988 specify gap length i+1, exact moment thresholds and Gaussian covariance c_ij/sqrt(b_i b_j)",
+            "§7.1, offsets 48396–54829, unconditional completion Gumbel via late-root Chen–Stein"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21094v1",
+          "material_read": "§§1.1–1.2, Theorems A, B, D; §7.1, Proposition 7.3 and proof",
+          "method": "Read targeted primary HTML passages",
+          "title": "Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime",
+          "trigger": "Same cyclic model, gap process, rare gaps and last-root time"
+        },
+        {
+          "assessment": "Material related result, not a matching conditional law or joint pair; chronology was not used to dismiss coverage.",
+          "evidence": [
+            "The rare variable is D_{i(K),K} with K a_{i(K)} tending to a positive finite lambda; the central variable is the scalar total root count."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f",
+          "material_read": "RESULT.md offsets 0–6108: precise joint law and mixed-test assertion",
+          "method": "Resultary retrieval and targeted reading of the available mirrored record",
+          "title": "Joint Gaussian–Poisson independence for bulk roots and rare long gaps in cyclic deposition",
+          "trigger": "Strongest matching indexed claim on central/extreme independence in the same model"
+        },
+        {
+          "assessment": "Covers the scalar normal marginal, not the temporal joint limit.",
+          "evidence": [
+            "Mean K/3, variance 2K/45 and standard-normal limit"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1903.12548v2",
+          "material_read": "Theorem 2.1, around extracted offset 13616",
+          "method": "Targeted reading of primary HTML",
+          "title": "On ballistic deposition process on a strip",
+          "trigger": "Prior root-count fluctuation law"
+        },
+        {
+          "assessment": "The stated objects are permutation-count extremes, not temporal completion in a single deposition cycle. No whole-document exclusion is based on the abstract.",
+          "evidence": [
+            "The main comparison is a two-dimensional Gumbel limit for extremes of inversion and descent counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.17314v2",
+          "material_read": "Abstract and beginning of introduction",
+          "method": "Targeted primary HTML reading",
+          "title": "Joint extremes of inversions and descents of random permutations",
+          "trigger": "Possible broad analogue of joint independence for permutation statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The time at which the last spatial root forms and the fluctuations of the final spatial gaps are natural observables of the same experiment. Their asymptotic independence cannot be inferred from the two marginal laws. The quantitative early-history bound captures what can still be predicted after most roots have formed and yields decoupling of the complete Gaussian profile without asserting independence among its coordinates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

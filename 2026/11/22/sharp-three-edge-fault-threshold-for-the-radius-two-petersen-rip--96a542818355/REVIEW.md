@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete finite theorem over all connected Petersen graph edge-deletion patterns of cardinality at most three, not a statement extrapolated from a sample. The verifier constructs the Kneser representation from first principles, tests all 121 smaller-fault cases and all 455 triple faults through a disjoint partition under 120 explicit graph automorphisms, and checks every critical matched cover relation and directed Hasse cycle. Each connected representative has exactly one critical vertex and no one-cells or cells above dimension two; the only remaining cells number zero, one, or four in dimension two. Discrete Morse theory yields the integral homotopy equivalence. Independent mod-two boundary reduction is a cross-check, not the sole proof.
+PASS
 
-## Originality — PASS against inspected evidence
+For H=P−F connected, the required complex is the clique complex of the square of H, not a deletion from P². I inspected the frozen orbit, cover-reversal and acyclicity code and the recorded output; the frozen script was not executed. An independently written exact replay, `python /workspace/reproduce_petersen.py`, uses outer-cycle/inner-star labels (with an explicit disjointness-label isomorphism) and Floyd–Warshall, and enumerates all 576 sets of sizes 0–3 without orbit reduction. For sizes 0,1,2 respectively, all 1,15,105 graphs are connected with a radius-two cone vertex. For size 3 it finds 10 disconnected, 200 cones, 180 other contractible, 60 with rank-one H₂ and 5 with rank-four H₂. For every connected noncone case it constructs the flag complex and uses elementary free-face collapses to a complex of dimension at most two, not the frozen matching/pivot list. It then contracts a spanning tree in the edge/triangle presentation and kills every remaining generator by a sequence of triangle relators with exactly one still-unknown generator; this certifies simple connectedness. H₂ of a finite 2-complex is free, with rank χ−1 here; representatives of a basis by Hurewicz give a homology equivalence from the corresponding wedge of 2-spheres, hence a homotopy equivalence by simply connected Whitehead. The case rank zero is contractible. The replay also checks that the five rank-four cases are precisely the distinguished three-edge sets described in the originality comparison. The frozen output header 'facets-by-cardinality' counts all faces rather than only maximal faces; that naming does not affect the proof.
 
-The closest primary full text is Feng–Nukala, arXiv:2302.14664, especially Theorem 10, because it uses two-element subsets of a five-element set. Its symmetric-difference metric differs fundamentally from the Petersen graph shortest-path metric; a three-edge fault is not subsumed by its fixed metric. Adamaszek–Adams, arXiv:2103.01040, classifies intact binary hypercubes, a different graph class. Indexed work on the Petersen line graph, generalized Petersen Rips complexes, and the intact Petersen graph Čech nerve has different objects or filtrations and does not directly imply the new orbit classification. Published-record indexing and document accessibility remain residual bibliographic limitations; no global novelty guarantee is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The classification identifies the **sharp** edge-fault budget for the first noncontractible radius-two graph-metric Rips complex of the Petersen graph and completely separates all connected minimal fault types. A canonical distance-two graph with a trivial intact radius-two complex acquires either one or four integral two-spheres under certain minimal faults, and a different 380 patterns produce nothing. The exact failure threshold and the pair of topological severity classes are natural graph-topology robustness data that cannot be inferred from intact-complex calculations.
+The supported distinct contribution is the complete radius-two edge-fault threshold and 380/60/5 classification with the exact disconnecting count, not a previously unknown four-sphere wedge of 2-spheres. There is demonstrable isomorphism-level prior coverage of that homotopy type once the five faulted graphs are recognized as subdivided tetrahedra. The inspected broader results do not imply which deletion patterns realize it or the full fault classification.
 
-## Scientific limitations
+## value
 
-This is a finite, exact same-object computation and homotopy proof, not an infinite-family theorem. The disconnected triple faults are excluded, metric distances are always recomputed, and the result asserts no Čech equivalence, continuous graph-metric realization, higher deletion budget, other scale, or persistence map. Published-index records on related structures could not all be inspected in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Petersen graph is a canonical diameter-two graph, so its intact metric gives a simplex and the first change under recomputed distances is a natural robustness invariant. The classification resolves the whole minimal fault budget: most connected triple deletions leave contractibility, but there are two sharply different integral homotopy outcomes. The exact correspondence to the five subdivided tetrahedra and known Petersen independence topology aids interpretation; merely recalculating that known wedge would not by itself be the contribution. No general fault theorem, other-scale claim, or persistence-map statement is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

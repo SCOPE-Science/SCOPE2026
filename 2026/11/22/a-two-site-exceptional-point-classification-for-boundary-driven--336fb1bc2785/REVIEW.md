@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The four-state generator is written explicitly in the physical occupation basis, and its exact characteristic polynomial factorizes into the constant, mean, and pair blocks. The only eigenvalue collision is the equation \(h(a+b)=ab\). A fast mean eigenvector \((a,-b)\) couples to the pair block with matrix element \(ab(q-p)\); this proves the iff Jordan criterion and defect size. Integrating the exact moment equation yields the general polynomial-exponential amplitude and the concrete empty-initial-state pair probability. The standalone `verify.py` passed symbolic, rational-rank, and independent matrix-exponential checks. Finite tests are corroboration, not the general proof.
+## correctness
 
-## Originality (O): PASS, qualified
-Schulman–Sinclair (2026, arXiv:2607.22991, Section 5 and Remark 10) prove spectrum independence and describe a three-site Jordan example, but not the complete two-site resonance, density criterion, minimality, and observable-blindness classification. Frassek (2019, arXiv:1910.13163, Sections 2.1–2.2 and 4) obtains generic open-SSEP eigenvectors while explicitly assuming nondegeneracy in the relevant construction, and stationary correlation formulas rather than the resonant transient. Floreani–González Casanova (2023) treat the nonequilibrium stationary law. Comparisons also covered accessible earlier same-topic findings and targeted indexed searches; no covering statement was found. The strongest residual risk is an elementary two-site exceptional parameter calculation or an integrability extension unavailable in the inspected literature.
+PASS
 
-## Value (V): PASS
-The theorem provides the smallest explicitly classified nonequilibrium singularity in boundary-driven exclusion: it pinpoints the exact matching of exchange and reservoir contact rates, distinguishes genuine physical nonequilibrium from spectral degeneracy, and gives a joint observable with a provably nonzero polynomial-exponential relaxation despite complete blindness of one-point means. It supplies a concrete benchmark for interpreting the general recent spectral-invariance result, not merely a recomputation of the stationary law. The scope is two sites; no larger-system phase claim is implied.
+On expectations of (1, eta_1, eta_2, eta_1 eta_2) the generator is block triangular with diagonal blocks 0, M=[[-a-h,h],[h,-b-h]], and -S with S=a+b. The characteristic polynomial follows by taking block determinants. The two eigenvalues of M are distinct by h>0 and strictly negative by positive definiteness of -M; det(M+SI)=ab-hS, so the only collision is at h=ab/S. On that locus v=(a,-b) is the colliding mode, while the other nonconstant linear mode has eigenvalue -2h distinct from -S. The coupling into the pair equation is (bq,ap)v=ab(q-p). At eigenvalue -S an eigenvector in the expectation representation must have zero constant coordinate; the middle coordinate must be a multiple of v, and is allowed if and only if this coupling vanishes. Therefore the eigenspace dimensions are exactly one or two as claimed. The first moments never inherit the Jordan prefactor, and integrating the pair equation against the projected fast deviation gives the stated coefficient. At a=b=2,h=1, the empty-start mean sum and difference equal s(1-e^(-2t)) and d/2(1-e^(-4t)). Inserting them gives forcing s^2(1-e^(-2t))-d^2/2(1-e^(-4t)) in C'+4C, yielding exactly the frozen formula. With only bath a active, the quadratic cannot vanish at -a (its value is -ah) or at zero (its value is ah); hence no one-bath defect. A single-site chain with positive refresh has two distinct eigenvalues.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The assessed contribution is the full two-site Jordan classification, the minimum-sized realization and the specified transient signature, not spectral invariance or the first observation of a Jordan block in exclusion dynamics. No covered equivalent or dominating implication was found in the bounded comparison.
+
+## value
+
+PASS
+
+This is the sharp minimum-size boundary for a phenomenon already seen on a larger endpoint-driven exclusion system. It gives a tunable necessary-and-sufficient defective locus and distinguishes a natural family of observables that misses the defect from one that detects it in relaxation from an elementary initial state. The small matrix is a means to that motivated boundary and observable distinction, not the contribution by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

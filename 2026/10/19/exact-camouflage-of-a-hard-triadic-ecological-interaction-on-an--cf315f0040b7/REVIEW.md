@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The defining vector fields are explicit, all parameters are positive and the domain is the positive octant. The common planar Lotka--Volterra subsystem has a strictly convex proper first integral with one minimum; every regular positive energy level is a periodic orbit. The product identity \(\dot{(VW)}=(VW)G(V,W)\) proves surface invariance and equality of the complete vector fields there. The exact scalar transverse equation \(\dot S=-bVW S\), the explicit time integral and the period mean \(\overline{VW}=\alpha\delta/(\kappa\gamma)\) establish the exponent and Floquet multiplier. Symbolic identities and numerical trajectory checks were executed from the included `verify.py`; the analytic proof establishes all-time results. The neutral tangential dynamics is distinguished from strictly attracting normal dynamics.
+## correctness
 
-## Originality: PASS, subject to stated residual risks
-The motivating source (Calleja-Solanas et al., arXiv:2605.06301v1; full main text inspected) displays approximate pairwise fits to higher-order ecological trajectories, not an exact, all-time, explicit continuum of positive nonconstant matched orbits with a universal normal Floquet exponent. Published works on reducibility of social hypergraph dynamics (Llabrés et al., arXiv:2601.05169v1), graph expressivity (Peixoto et al., arXiv:2602.16937v1), higher-order state-space lifting (Lacasa, arXiv:2602.21727v1), and hard ecological interaction definitions (Kleinhesselink et al., DOI:10.1111/ele.14022) were checked for implication coverage. Related mathematical records on classical Lotka--Volterra mean laws, invariant foliations, dynamical equivalence of staged predators and Klausmeier identifiability were compared by claim and do not assert this exact cross-model identity. The underlying planar first integral, invariant manifold reasoning, and scalar linear ODE techniques are classical; no separate originality is attributed to them. The full supporting supplement of the primary source and all possible broad observability results have not been exhaustively inspected; mathematical originality remains subject to external review.
+PASS
 
-## Mathematical value: PASS
-This is a motivated analytic answer to a specific mechanistic-identifiability problem highlighted in 2026 literature. It distinguishes finite-accuracy fitting from literal equality of infinite observation streams for a *genuine hard triadic* population term, computes an exact global transverse relaxation law and cycle-independent exponent, and identifies the minimal off-manifold intervention that breaks the ambiguity. The result is confined to a specially matched codimension-one invariant graph and neutral planar cycles. It is not a general ecological identifiability impossibility theorem.
+The base first integral has positive diagonal Hessian, a unique positive minimum and compact sublevel sets in the positive quadrant. Every regular level is the boundary of a strictly convex planar sublevel, hence a smooth oval; the nonvanishing tangent field makes it a periodic orbit. With P=VW, (log P)'=G, so the pairwise model preserves U/P and the higher-order addition cancels at U=(b/d)P. Uniqueness gives equality from the same on-graph start. Off the graph S=bP/(dU)−1 solves S'=−bPS in the higher-order model and S'=0 in the pairwise model. The explicit solution retains S>−1 forward, so U=bP/[d(1+S)] stays positive and exists globally. Period averages of (log W)' and V' give mean VW=αδ/(κγ). This verifies the exact higher-order Floquet exponent and the multiplier over each period; the instantaneous rate is −bVW and need not be constant. The pairwise multiplier is 1; no orbital attraction of individual cycles is claimed. The shift in the common state's per-capita U derivative under a positive-octant U perturbation ε is −dε, giving immediate separation. The bound supporting program was inspected, not executed; the checks reported by the record do not certify the all-time statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Exact trajectory-level camouflage in population ODEs has indexed analogues, and the cited motivating paper has a high-accuracy near-match including a cycle. The supported distinct claim is the specific combination of same-coordinate exact periodic equivalence on a nonconstant product graph, its explicit amplitude-independent transverse exponent, and a U-only intervention that leaves the base state fixed. It is not a claim to have introduced exact ecological indistinguishability, invariant graphs, or Lotka–Volterra integrability.
+
+## value
+
+PASS
+
+The construction separates complete observational equivalence from dynamical response without changing measured coordinates, invoking noise or shortening the observation window. The exact normal multiplier explains why the higher-order system returns to the indistinguishable surface while the pairwise system does not, and the one-coordinate perturbation gives a concrete way to discriminate the two models. The conclusion is a useful structural counterexample, not evidence of generic ecological prevalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

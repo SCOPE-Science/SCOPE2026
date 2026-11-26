@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:13.085273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derive the fourth moment from the stationary exponential reset age s: conditional on s, U,V are centered Gaussian with variances S(1−exp(−2(1±u)s))/(1±u) and cross covariance H(1−exp(−2s)). Wick's identity and E exp(−λs)=r/(r+λ) give E(UV)=2H/(r+2) and E(U²V²)=8S²(r+2)/[(r+4)((r+2)²−4w)]+16H²/[(r+2)(r+4)]. Subtracting the square of the mean and normalizing verifies the CV formula. With z=r+2 and D=z²−4w, the sign of the derivative is that of 2+k(z²/D²)(z²−4wz−12w). The final polynomial factor is strictly increasing for z≥2; z²/D² is positive strictly decreasing. Their product increases strictly wherever the polynomial is negative, and once it is nonnegative the derivative sign is strictly positive. The sign at zero is the sign of k(1−5w)+2(1−w)², strictly decreasing in w with a unique zero in (1/5,1), equal to the stated w_c. This independently verifies all cases, including no positive critical point at equality and a unique global minimum above threshold. Applying the generator to the centered UV gives eigenvalue −(r+2), verifying the stationary autocovariance, and C(0⁺)=1+k/(1−w) diverges at fixed k while C(1) stays bounded. Independent bisection at k=4,u=0.8 gave r*=1.570592394486 and C(r*)=7.980004791317. Inspected the supplied symbolic/quadrature checker without executing it. These claims apply to the state observable only, for complete origin resets, unequal positive temperatures, and 0<|u|<1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-process primary paper gives a general age-mixture formula for fixed-point resets and analyzes currents and full angular momentum; that representation gives inputs to fourth-moment calculations.",
+          "Neighboring Resultary thresholds concern one-coordinate contraction and mean torque reversal, total stochastic area with reset chords, or CV=1 crossings in absorbing first passage."
+        ],
+        "reasoning": "A broader reset-location range or a path-functional result alone does not give the derivative sign and global optimum for this snapshot moment quotient. The general renewal relation does imply the moments after integration but does not classify the optimal rate.",
+        "searches": [
+          "arXiv:2611.06322 Eqs. (8)–(9), (41)–(44)",
+          "Resultary 1f4878a82d95, 4adcd0d96ebe and 599c525eb34e",
+          "Restarted additive functionals and reset-induced precision for Brownian gyrators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and distinct nearby mirror records",
+        "arXiv:2611.06322",
+        "arXiv:2307.05248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary renewal density is enough to recompute the fourth moment, and the origin specialization of Eq. (44) gives the exact mean. Neither is the derivative classification k(1−5w)+2(1−w)² or the proof that its local sign decides global positive-rate optimality.",
+          "The reset-distance Resultary condition concerns first-passage-time CV, not the snapshot moment ratio."
+        ],
+        "reasoning": "The global threshold and root uniqueness are the substantive additions; the underlying renewal machinery, second moments, and single-eigenfunction reasoning are not independent grounds for originality.",
+        "searches": [
+          "arXiv:2611.06322, Eq. (9) and §3.7",
+          "arXiv:2307.05248, p. 3",
+          "Resultary ffa5a1f89e59 Finding and 599c525eb34e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the origin the mean angular momentum in arXiv:2611.06322 Eqs. (41)–(44) agrees with Eτ; their phase-space observable includes density-gradient terms pointwise. Viot et al. treat white-noise-inclusive angular momentum at finite step, with divergent variance at zero step.",
+          "Resultary ffa5a1f89e59 explicitly uses the mean of the continuous-flight drift torque but varies the reset-mark law and studies circulation-sign ambiguity."
+        ],
+        "reasoning": "The generator reduction τ=−2uUV removes the scale in CV but not the fourth positional moment or the optimization. Equality of means does not identify variances; snapshot UV is not a noise-inclusive or path-area observable.",
+        "searches": [
+          "Resultary: Brownian gyrator stationary drift torque, continuous-flight angular momentum, precision and origin resets",
+          "arXiv:2611.06322 §§3.1, 3.7",
+          "arXiv:2307.05248 p. 3",
+          "Brownian gyrator Poisson origin reset conditional drift torque coefficient of variation force torque optimal resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 8121ef0c665f is the frozen record itself. The distinct same-day match ffa5a1f89e59 concerns a radial-law envelope over mark laws, not an origin-reset CV threshold."
+        ],
+        "reasoning": "The main claim is an all-parameter analytic threshold, not a tabulated discrete invariant. No inspected distinct Resultary statement supplies this threshold; same-day publication dates were not used to infer priority.",
+        "searches": [
+          "Resultary: drift-torque CV threshold, resetting-induced torque reversal, optimal gyrator signal-to-noise",
+          "Exact IDs 8121ef0c665f, ffa5a1f89e59, 1f4878a82d95, 4adcd0d96ebe, 599c525eb34e"
+        ]
+      },
+      "rationale": "The reset generator, renewal age mixture and the mean of the drift term are established ingredients; the strongest inspected overlaps do not optimize the snapshot squared CV of that term. The sharp global regime switch and uniqueness claim go beyond those ingredients. This is a best-of-knowledge assessment, not a claim of priority over every resetting result.",
+      "residual_risks": [
+        "Further literature may specialize the same age mixture or express the snapshot statistic under other torque nomenclature. Search did not establish priority; the global optimization, not the age mixture, carries the originality assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides same dynamics, stationary age mixture and origin mean; inspected results do not state the CV threshold",
+          "evidence": "The fixed-point mean is u[r(Y₀²−X₀²)+2(T_y−T_x)]/(2+r). The stationary position density is the Exp(r) mixture of unreset propagators from the reset point.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06322",
+          "material_read": "Renewal Eqs. (8)–(9), PDF p. 6 around offsets 19424–20690; §3.7 Eqs. (41)–(44), pp. 21–22, offsets 73250–75935, and angular-momentum PDF discussion around 80500",
+          "method": "OA PDF bounded text",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "Same process and explicit drift torque; potential precision result"
+        },
+        {
+          "assessment": "Unreset, different observable and variance limit",
+          "evidence": "Variance of the time-discretized angular momentum diverges in the zero-step limit; this does not describe the finite drift term.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+          "material_read": "Noise-inclusive finite-step angular momentum, around PDF p. 3, OA offset 24600",
+          "method": "OA PDF text",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Gyrator torque fluctuations and precision"
+        },
+        {
+          "assessment": "Shares an observable mean but classifies another quantity under another family of interventions",
+          "evidence": "Determines circulation-sign ambiguity over reset-mark laws, not the squared CV under changing origin-reset rate.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-radial-law-envelope-for-hidden-circulation-in-a-reset-br--ffa5a1f89e59",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp radial-law envelope for hidden circulation in a reset Brownian gyrator",
+          "trigger": "Closest distinct same-day Resultary hit, same continuous-flight torque mean"
+        },
+        {
+          "assessment": "Different stochastic statistic and geometry",
+          "evidence": "Classifies crossings of CV=1 for a first-passage time with distinct initial and reset positions.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-reset-distance-threshold-for-reentrant-first-passage-flu--599c525eb34e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp reset-distance threshold for reentrant first-passage fluctuations",
+          "trigger": "Closest precision-threshold analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physically specified finite conditional torque admits a well-posed precision comparison even when instantaneous white-noise-inclusive angular momentum does not. The result decides for all allowed temperatures and couplings when full resetting improves that precision, whether the optimum is interior, and why potential gain can be large near loss of confinement. It does not claim performance gains for integrated currents or thermodynamic efficiency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

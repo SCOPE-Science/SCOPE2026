@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:43:22.259090Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed both the geometric classification and the arithmetic count from RESULT.md 24–45. The affine gradient and the unique smooth point at infinity exclude exactly r²=4. The line at infinity is a hyperflex; all other Y=cZ lines meet there simply. For X=bZ the monic restriction is a square exactly if b³=(r²−4)/4. For X=a(Y+sZ), a≠0, matching cubic, linear and constant terms of the square of a monic quadratic forces its lower coefficients a³/2 and 3s², then a³=9s−s⁻³, with s≠0. The remaining quadratic coefficient gives Q_r(s²)=0. Q_r(0)=−1; at a common root with its derivative, substituting r=−(z²+1)/z gives Q_r(z)=−(z²−1)², forcing r²=4. At z=±1/3, the respective values are 4(r−2)/27 and −4(r+2)/27, so the cube target is never zero on the smooth locus. Thus there are 1+3+24 distinct lines, and their normalized coordinates recover the parameters, so the tower is Frobenius-equivariant. For q≡2 mod 3 each v gives one point (u,v) on v²=u³+1. Duplication with slope 3u²/(2v) gives v(2P)=(v⁴+18v²−27)/(8v³), and R(z)=−2v(2P) with v=3z. The two rational preimages, when present, differ by T=(−1,0); the addition slope v/(u+1) gives v(P+T)/v(P)=−3/(u+1)². Since the discriminant −3 of the primitive-cube-root polynomial is nonsquare, exactly one of the two z's is square. The finite fibre argument in fact holds at r=±2 as well: O and T map to O, not to any finite v, and the special fibres factor as (z−1)³(3z+1) and (z+1)³(3z−1), respectively. Hence the (q−1)/2 nonzero squares z map injectively to parameters; deleting the two singular parameters leaves (q−5)/2 with four rational lines and (q+1)/2 with two. The rationality is that of lines, not contacts. Read VERIFICATION.md, verify.py and examples.csv without executing the uploaded program. Its prime-field data are illustrative; the proof uses no prime-field restriction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bethea–Brazelton compute an equivariant set of geometric lines for C6, not a rational Frobenius census.",
+          "Liang's full 28-line solutions in the inspected section concern the cyclic-nine case; the cyclic-six equations give three horizontal lines.",
+          "The Laga–Shnidman publisher full-text routes were unavailable; the relation to Prym/torsion arithmetic is a material access risk, not negative evidence."
+        ],
+        "reasoning": "No inspected stronger theorem specifies how arithmetic Frobenius acts on each relevant line orbit or how many parameters give each count.",
+        "searches": [
+          "Bethea–Brazelton Theorem 1.1 and §4.8",
+          "Liang §4.2 cyclic-six and cyclic-nine bitangents",
+          "Laga–Shnidman doi:10.1112/jlms.70347 §7.5; focused literature lookup for Picard rational bitangent counts"
+        ]
+      },
+      "checked_sources": [
+        "Liang arXiv:1902.02914v2 §4.2",
+        "Bethea–Brazelton arXiv:2410.09242v1 §4.8",
+        "Resultary 84a271f0542e and 94af6b732234",
+        "Laga–Shnidman doi:10.1112/jlms.70347 access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four distinguished geometric lines account for the always-present two rational lines in the cube-bijection regime once written in the marked model.",
+          "The residual contribution requires identifying the quartic roots with rational doubling fibres and proving opposite square characters via P↦P+T. The orbit structure alone does not imply either of these arithmetic steps."
+        ],
+        "reasoning": "This is not a re-statement of a geometric 24+3+1 split. The precise marking and next step from geometric to rational fibres supply the frequency theorem.",
+        "searches": [
+          "Liang's C6 bitangent equations and Bethea–Brazelton Type VIII computation compared with RESULT.md 24–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bethea–Brazelton Type VIII is exactly the target after permuting coordinates (Y,Z,X)=(x,y,z). Computation 4.14 gives four free C6 orbits, one orbit of size three and one fixed line.",
+          "Over an algebraic closure Liang's C6 branch roots {0,1,t,1−t} correspond to {±u,±u⁻¹} by x=(Y+u)/(2u), where u²+u⁻²=−r. The change need not descend to the ground field. Liang gives the three distinguished horizontal lines and identifies the infinity bitangent.",
+          "Resultary 84a271f0542e is the exact same submitted record, not a distinct antecedent."
+        ],
+        "reasoning": "The matching geometric models make the four distinguished lines and orbit structure prior, but no change of coordinates turns the orbit statement alone into an arithmetic count of fixed lines or marked coefficients.",
+        "searches": [
+          "Resultary: Picard quartic 2/4 bitangents, exact finite-field coefficient counts, radical tower",
+          "Liang arXiv:1902.02914v2 §4.2",
+          "Bethea–Brazelton arXiv:2410.09242v1 §4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary entry is self-match 84a271f0542e. Distinct entry 94af6b732234 counts 4/16/28 rational bitangents for a symmetric Ciani pencil; its RESULT.md states a different family and counts.",
+          "The primary orbit table records C6-sets, not two/four rational lines and the parameter frequencies."
+        ],
+        "reasoning": "Neither the distinct exact census nor the orbit table covers the specified Picard family over the given finite fields.",
+        "searches": [
+          "Resultary: exact rational bitangent census over finite fields, Picard versus Ciani families",
+          "Bethea–Brazelton bitangent orbit table and Computation 4.14"
+        ]
+      },
+      "rationale": "The supported distinct finding is the coefficient-marked finite-field frequency theorem, together with the explicit radical description of the non-distinguished bitangents used to prove it. The geometric 28-line count, the 24+3+1 orbit structure, and the four distinguished geometric lines have substantial prior coverage. The inspected primary passages do not give the rational square-fibre calculation or exact population of parameters producing four rational lines.",
+      "residual_risks": [
+        "Laga–Shnidman §7.5 or other arithmetic bitangent work could contain an equivalent torsion or character calculation. Failed access and a missing search hit do not exclude it.",
+        "No chronology or priority is inferred from the date of the exact self-match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the four distinguished geometric lines; cyclic-nine all-line formulas are a different case.",
+          "evidence": [
+            "Cyclic-six has three horizontal bitangents forming an asyzygetic triple, in addition to the infinity bitangent."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1902.02914v2",
+          "material_read": "§4.2, offsets about 30800 and 40700, C6 and C9 cases",
+          "method": "Read open primary article and compare branch-root models over the algebraic closure",
+          "title": "Invariants, Bitangents and Matrix Representations of Plane Quartics with 3-Cyclic Automorphisms",
+          "trigger": "Earlier explicit equations for the cyclic-six family"
+        },
+        {
+          "assessment": "Covers equivariant geometric decomposition, not the arithmetic frequencies.",
+          "evidence": [
+            "The model x⁴+y⁴+a x²y²+yz³=0 is the same by variable permutation; the orbit formula is 4[C6/e]+[C6/C2]+[C6/C6]."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.09242v1",
+          "material_read": "Type VIII §4.8, Computation 4.14, offset about 42500",
+          "method": "Read open primary passage and compare the defining equations",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Exact same quartic and potential all-bitangent classification"
+        },
+        {
+          "assessment": "Unresolved plausible overlap; no exclusion inferred.",
+          "evidence": [
+            "The frozen comparison attributes a geometric four-line subsystem and a bitangent/Prym-torsion connection to §7.5; this was not independently confirmed here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70347",
+          "material_read": "Frozen citation and literature discussion only; §7.5 not accessible in inspected routes",
+          "method": "Attempted lawful DOI and publisher access; targeted lookup did not locate an accessible passage",
+          "title": "The geometry and arithmetic of bielliptic Picard curves",
+          "trigger": "Possible arithmetic overlap for the same family and its four-line subsystem"
+        },
+        {
+          "assessment": "Exact self-match and distinct Ciani census, respectively.",
+          "evidence": [
+            "The second record's 4/16/28 spectrum is for Ciani quartics; it does not contain the Picard 2/4 result."
+          ],
+          "identifier_or_url": "Resultary: 84a271f0542e; 94af6b732234",
+          "material_read": "Mirrored RESULT.md findings at offset 0 and the exact match's prior-work limitations",
+          "method": "Configured Resultary search and local mirror passage comparison",
+          "title": "Exact two-or-four rational-bitangent distribution in a bielliptic Picard quartic family; Quadratic Frobenius splitting and an exact rational-bitangent census",
+          "trigger": "Exact and plausible arithmetic census matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rational bitangents, including hyperflexes, are a natural invariant of a canonical genus-three quartic. A uniform classification over all permitted finite fields and its exact coefficient frequencies address a concrete arithmetic question not settled by the geometric count. The elliptic translation argument explains the rigidity, and the tower gives a reproducible Frobenius computation beyond the base-field count. This is not a count of moduli classes or of rational contact points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

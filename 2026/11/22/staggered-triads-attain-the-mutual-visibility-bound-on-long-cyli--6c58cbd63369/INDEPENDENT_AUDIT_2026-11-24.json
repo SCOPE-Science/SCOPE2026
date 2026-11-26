@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:41:09.803505Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55; VERIFICATION.md lines 19–35; VERIFY_CYLINDER.py lines 1–78",
+        "Fresh bounded distance and forbidden-interior BFS checks on eight s=3,4 domain instances (408 selected pairs); supplied script only inspected"
+      ],
+      "rationale": "A shortest path between two vertices on a single cycle fiber cannot spend any steps changing rows. Four chosen points on one cycle fiber block both arcs for an alternating pair, proving the known upper bound 3s. With n=3q+u the gaps of the given starts are (q,q,q), (q,q,q+1), or (q,q+1,q+1). The short-arc condition is q>=2s-2 for u=0,2 and q>=2s-1 for u=1; these hold throughout the stated domain including n=6s-6, and imply q>=s+1. Each band has s columns and is separated from its cyclic successor by at least one empty column. For a same-band pair the horizontal-then-vertical route uses a shortest arc and hits the terminal band column only in its selected row. Any two different bands can be oriented as cyclic successors. The forward distance h_j+t-r is positive and at most n/2, and the entire vertical leg can be put in the first unused column past the initial band; the row legs meet only the chosen endpoints. This works also with equal rows and tied shortest cyclic arcs. Thus all 3s vertices are mutually visible without a finite-to-infinite inference.",
+      "residual_risks": [
+        "The result explicitly excludes n=6s-5 and other shorter uncovered circumferences. The bounded BFS is illustrative; correctness for the entire domain rests on the explicit geodesic construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen comparison credits the min(3s,2n) upper bound, the two-row result and the theorem for 6<=n<=s+1; it identifies equality for all n>=12 as Conj. 2.6, not a proved general theorem."
+        ],
+        "reasoning": "Two rows are excluded and the range n>=6s-6 for s>=3 lies strictly beyond n<=s+1. Upper bounds do not imply attainability. A conjecture is not coverage of its proved subregion.",
+        "searches": [
+          "Bounded primary lookup for ordinary mutual visibility on P_s x C_n",
+          "Korže–Vesel Prop. 2.1, Prop. 2.2, Thm. 2.4, Conj. 2.6 (locators in frozen RESULT.md lines 60–67)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 60–69; bounded primary-literature and Resultary lookups",
+        "Resultary entries 6c58cbd63369, 8a5e173d7e2e, 77602986d79f, fb793a108374"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed three-band torus construction is for optimal monitoring edge-geodetic sets in C_n x C_m; its assertion that graph edges are monitored is not the existence of a clean geodesic between every pair of selected vertices."
+        ],
+        "reasoning": "A monitored-edge requirement quantifies over graph edges and all shortest paths of some witnessing pair, rather than clean interiors for all pairs. Neither the shared size 3m nor a similar band description proves the cylinder result; removing cycle edges in a factor also changes geodesics.",
+        "searches": [
+          "Resultary rectangular-cycle monitoring and three-band construction matches (77602986d79f)",
+          "Frozen context arXiv:2112.13024; DOI 10.1007/s00010-025-01197-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed triangular-cylinder lower visibility finding (8a5e173d7e2e) concerns the minimum cardinality of a maximal visibility set on C3 x P_n.",
+          "The exact indexed staggered-triad hit 6c58cbd63369 is the frozen result itself."
+        ],
+        "reasoning": "The order of Cartesian factors does not matter, but minimizing maximal sets for a fixed 3-cycle gives neither a maximum-size set nor the variable long-cycle range.",
+        "searches": [
+          "Local Resultary cylinder mutual visibility, including ordinary/lower terminology and cycle/path product",
+          "Korže–Vesel arXiv:2309.15201 and DOI 10.1007/s00025-024-02139-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record returned is a self-match. Nearby cylinder threshold fb793a108374 is indexed as multiset metric dimension (three landmarks, n>=6s+3), not a maximum set with internally clean geodesics."
+        ],
+        "reasoning": "The main claim is a uniform formula over infinitely many sizes, not an isolated tabulated value; neither that landmark result nor coinciding small-cylinder values would cover the formula.",
+        "searches": [
+          "Resultary search for exact cylinder values and six-times-height thresholds"
+        ]
+      },
+      "rationale": "The new contribution supported by the comparison is attaining the known upper bound in an unbounded long-circumference region by staggered triads. Neither the upper bound itself nor the short-side results or any excluded value are claimed as new.",
+      "residual_risks": [
+        "The closest paper's exact passages were not independently obtained; the monitoring record's detailed construction could not be compared. Searches and distinct invariants at summary level do not exclude a different known proof in unavailable or unindexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known upper bound credited; reported proved ranges do not give this lower construction; primary inspection limited",
+          "evidence": "Prop. 2.1 is cited for the upper bound, Prop. 2.2 for two rows and Thm. 2.4 for 6<=n<=s+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.15201 ; https://doi.org/10.1007/s00025-024-02139-x",
+          "material_read": "Proposition/theorem and conjecture comparison as cited in frozen RESULT.md lines 60–67; decisive external passages not retrieved",
+          "method": "Bounded literature query and OA attempts at arXiv and journal copies, plus reading frozen attribution",
+          "title": "Mutual-visibility sets in Cartesian products of paths and cycles",
+          "trigger": "Direct cylinder theorem and conjecture with identical invariant"
+        },
+        {
+          "assessment": "Different invariants or graph families at statement level; no detailed construction-level equivalence established",
+          "evidence": "Monitoring edge-geodetics on tori, minimum maximal visibility on a C3 cylinder, and three-landmark metric dimension do not state the claimed ordinary visibility extremum.",
+          "identifier_or_url": "Resultary 77602986d79f, 8a5e173d7e2e, fb793a108374",
+          "material_read": "Indexed summaries only; attempted full mirror retrieval of the monitoring record not successful",
+          "method": "Local Resultary search and bounded mirror attempt",
+          "title": "Rectangular cycle products attain the monitoring lower bound; triangular-cylinder lower visibility; multiset dimension of cylinders",
+          "trigger": "Shared construction, object, or six-times-height scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–21, 30–55, 60–64"
+      ],
+      "rationale": "This proves the expected tight upper bound for every height at least three and all sufficiently long cycles, with an explicit threshold linear in height and the extra boundary n=6s-6. It addresses a natural two-parameter conjecture in an entire regime rather than a small census. Its explicit geodesics explain why row saturation is possible and isolate where the balanced-gap proof stops.",
+      "residual_risks": [
+        "No full conjecture resolution or classification of extremizers follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

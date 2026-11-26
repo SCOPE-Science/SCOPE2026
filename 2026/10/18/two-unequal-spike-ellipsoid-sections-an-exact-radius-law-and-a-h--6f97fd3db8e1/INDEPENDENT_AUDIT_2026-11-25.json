@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:21:08.887005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both the retained finite formulas and the narrowed sharp supercritical finding are correct. The inverse squared radius is the least eigenvalue of the restricted quadratic form; it is one minus the top eigenvalue of a projected two-column Gram matrix. The fixed-normal identity thus also works at rank deficiency. Schur complementation when d₂−s>0 proves the Dirichlet CDF event; rank-one interlacing gives R≥b with equality for e₁-perpendicular. Coupling with one Gaussian sequence gives √N(U₁,U₂)→G and positivity of the scaling limit even when c₁=∞, since the determinant is c₂⁻²G₁². At t>c₂, taking the Schur complement at t⁻² and conditioning on G₂ gives the exact erf expression; t times the integrand is dominated for t≥√2 c₂ by √(2/π)√(1+2c₂²G₂²). Its limiting constant is positive and finite, so layer-cake proves the full positive-moment threshold. Bounded truncations under weak convergence prove divergence of the normalized expectations without an illicit exchange of limits. The frozen check_two_spike.py and VERIFICATION.md were inspected, not executed; the reported finite eigenvalue checks are not proofs of the limiting assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Dixon–Anderson kernel is an exact theorem for general real Haar corners including coincident eigenvalues.",
+          "The cited general section theorems and the two-valued semiaxis example are high-probability estimates; the latter has two semiaxis values, not three."
+        ],
+        "reasoning": "Credit exact compression coverage even though the earlier paper does not name the geometric observable. The section estimates do not supply the two-Gaussian endpoint calculation or a sharp 1/t coefficient for the specified regime.",
+        "searches": [
+          "arXiv:1905.08684 Definition 1.1, Proposition 1.7",
+          "arXiv:2609.24131 §6.3; arXiv:1901.06639 Theorems 3–5; arXiv:2109.14504 Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_two_spike.py and corrected repairs/3/RESULT.md",
+        "arXiv:1905.08684, 2609.24131, 1901.06639, 2109.14504",
+        "Resultary e99f37d3b7ae, 87debf1b2092, 038ccdc297f9 and index of e3183756e2e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With Dirichlet weights A,B at d₁,d₂ and the remaining mass at 1, the prior secular polynomial is (s−1)^(N−3) times [(s−d₁)(s−d₂)−(1−d₁)A(s−d₂)−(1−d₂)B(s−d₁)]. This bracket is exactly det(sI−D); the smallest root gives the stated CDF and agrees in law with the ordered compression eigenvalue.",
+          "To get the repaired sharp result it is necessary to scale the weights, show the Gaussian limit is a.s. positive definite, condition at the small-eigenvalue endpoint and justify dominated convergence; the general finite kernel statement does not give these asymptotics. The shadow-law comparison instead uses a fixed-gap endpoint for a different observable."
+        ],
+        "reasoning": "The original finite finding is mechanically implied and is explicitly not passed as a novel claim. The corrected main finding computes the sharp endpoint and performance effect of the singular scaling, not the already-covered finite CDF.",
+        "searches": [
+          "arXiv:1905.08684 PDF p. 3 offset 8150 and p. 5 offset 15760",
+          "Resultary 038ccdc297f9 finding/proof and 87debf1b2092 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reciprocal squared radius is the smallest eigenvalue of the principal block of an independent Haar orthogonal conjugate of diag(d₁,d₂,1,…,1).",
+          "Local record 038ccdc297f9 treats projection half-diameter, not a central section; local 87debf1b2092 is a later exact result whose triaxial N=3 section includes (a,b,1)."
+        ],
+        "reasoning": "Principal compression is the decisive exact equivalence; a shadow applies a different quadratic form and is not the same statistic. The triaxial catalog match is only a finite N=3 overlap and postdates the frozen record.",
+        "searches": [
+          "Random compression/corners and secular-polynomial comparison; arXiv:1905.08684 Definition 1.1, Proposition 1.7",
+          "Resultary searches for one- and two-spike ellipsoid radius, central sections, and shadows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e99f37d3b7ae is the exact beta transform for a single exceptional axis at arbitrary codimension; 87debf1b2092 is the later triaxial three-dimensional record.",
+          "The exact general finite closed law is indexed as a corners kernel rather than a numerical table; no numerical-sequence lookup applies to this parameterized continuous distribution."
+        ],
+        "reasoning": "The beta rank-one exception alone does not determine the unequal two-spike endpoint; the exact continuous-law comparator is the prior general corners kernel. No inspected exact-law entry evaluates the claimed supercritical tail constant.",
+        "searches": [
+          "Local Resultary: exact ellipsoid radius laws, rank-one beta laws, two-spike geometry",
+          "Dixon–Anderson kernel for repeated eigenvalues, arXiv:1905.08684 pp. 3–5"
+        ]
+      },
+      "rationale": "The original attribution of a distinct exact finite-dimensional distribution FAILS: an inspected prior theorem gives the very same law, not just estimates or a methodological analogue. Assiotis–Najnudel Definition 1.1 explicitly allows repeated eigenvalues, and Proposition 1.7 identifies the real Haar compression with θ=1/2. The factorization below gives exact coverage at every assigned N. The corrected RESULT.md reclassifies the finite law as a specialization, retains the scaling calculation for context, and makes the sharp supercritical tail and its moment/optimal-radius consequences the surviving finding. That claim passes the bounded prior comparison; the cited general law does not itself carry out this large-N, then large-t, endpoint analysis.",
+      "residual_risks": [
+        "The targeted external search was unproductive, not evidence of absence. Other exact asymptotic results for finite-rank interlacing with a diverging level may encode the repaired limit or even its endpoint coefficient.",
+        "Exact text of the same-day paired area ratio result was unavailable; the indexed observable is distinct but is not a substitute for a full comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of original finite law, not an evaluation of the repaired endpoint",
+          "evidence": [
+            "The secular polynomial with Dirichlet weights explicitly allows coincident eigenvalues; the real theta=1/2 interlacing specialization applies to Haar conjugation of a deterministic diagonal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.08684",
+          "material_read": "Definition 1.1 p. 3, Proposition 1.2 p. 4 (offset 8150 onwards), Proposition 1.7 p. 5 (offset 15760)",
+          "method": "open-access PDF text",
+          "title": "The boundary of the orbital beta process",
+          "trigger": "General exact Haar compression possibly subsuming the entire finite law"
+        },
+        {
+          "assessment": "Bounds under a different semiaxis pattern",
+          "evidence": [
+            "Two-valued ellipsoid examples and high-probability estimates, not the supercritical law of two unequal exceptional axes plus unit axes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24131",
+          "material_read": "§6.3, pp. 31–32, Propositions 6.12–6.14 (offset 113900)",
+          "method": "open-access PDF text",
+          "title": "On random diameters of convex bodies",
+          "trigger": "Closest cited two-valued semiaxis model"
+        },
+        {
+          "assessment": "General bounds",
+          "evidence": [
+            "High-probability estimates do not evaluate the sharp limiting tail in question."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.06639",
+          "material_read": "Theorems 3–5, pp. 6–7 (offset 19880)",
+          "method": "open-access PDF text",
+          "title": "Random sections of ellipsoids and the power of random information",
+          "trigger": "General ellipsoid radius theory"
+        },
+        {
+          "assessment": "General upper bounds",
+          "evidence": [
+            "Its bound does not give this distribution or exact endpoint coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.14504",
+          "material_read": "Theorem A, p. 5 (offset 13450)",
+          "method": "open-access PDF text",
+          "title": "Random sections of ℓₚ-ellipsoids, optimal recovery and Gelfand numbers of diagonal operators",
+          "trigger": "Potential broader upper-bound theorem"
+        },
+        {
+          "assessment": "Exact but different rank",
+          "evidence": [
+            "A single beta transform follows when just one axis is exceptional; it does not address the anisotropic pair."
+          ],
+          "identifier_or_url": "Resultary e99f37d3b7ae",
+          "material_read": "RESULT.md Finding, offset 76",
+          "method": "local Resultary mirror",
+          "title": "Exact random radius law for one-spike ellipsoids in every codimension",
+          "trigger": "Exact rank-one predecessor"
+        },
+        {
+          "assessment": "Later, covers finite N=3 but not scaling",
+          "evidence": [
+            "The three-dimensional case is the same finite radius statistic, with (a,b,1) allowed."
+          ],
+          "identifier_or_url": "Resultary 87debf1b2092",
+          "material_read": "RESULT.md Finding offset 92 and prior work offset 7459",
+          "method": "local Resultary mirror",
+          "title": "Three-statistic recovery of triaxial ellipsoids from random central sections",
+          "trigger": "Exact triaxial central-section radius"
+        },
+        {
+          "assessment": "Different statistic and scaling",
+          "evidence": [
+            "Orthogonal projection half-diameter and a fixed-gap limit, not central-section radius at the supercritical scaling."
+          ],
+          "identifier_or_url": "Resultary 038ccdc297f9",
+          "material_read": "RESULT.md Finding and Proof offsets 0–7448",
+          "method": "local Resultary mirror",
+          "title": "The skew-arcsine shadow law of two-spike ellipsoids",
+          "trigger": "Closest rank-two model and exact endpoint analogue"
+        },
+        {
+          "assessment": "Exact text unresolved; not used to rule out overlap",
+          "evidence": [
+            "Index describes a paired section/shadow area ratio in three dimensions, not the two-spike scaling radius."
+          ],
+          "identifier_or_url": "Resultary e3183756e2e2",
+          "material_read": "Indexed summary only; exact RESULT.md not retrievable in the local mirror",
+          "method": "local Resultary search and mirror attempt",
+          "title": "Endpoint tomography from paired sections and shadows of triaxial ellipsoids",
+          "trigger": "Same-date geometric endpoint comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The routine specialization of the exact finite kernel is not the reason for acceptance. The repaired result computes the sharp large-radius coefficient and its moment threshold in a natural critical/supercritical measurement model. An optimal one-hyperplane normalized radius stays bounded, while uniform random choice has diverging normalized mean even though each member of the sequence is bounded. The constant and this distinction complement general high-probability radius estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

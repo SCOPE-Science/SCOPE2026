@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:53:23.771566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–94 and 96–110",
+        "VERIFICATION.md and verify.py, read without executing supplied code",
+        "Independent standard-library composite Simpson rule with 256 subdivisions on [0,x_i], substituting the six exact witness parameters in the density integral"
+      ],
+      "rationale": "The zero-current density has positive even prefactor 2v0/(v0^2-v1^2 tanh^2(ux)); its logarithmic derivative is odd and tends to -2(B+C)/(v0^2-v1^2) on the right, giving normalizability. On the slice g=3u the positive-half-line derivative has the sign of A-F(s), s=tanh^2(ux), where F(s)=[B+3C+(3B+C)s]/[(1-s)(1+3s)]. Independently differentiating, the numerator of F'(s) is B-5C+6(B+3C)s+3(3B+C)s^2, strictly increasing on [0,1] and positive at 1. Thus F rises from A_c if B>=5C; otherwise it decreases to a unique nondegenerate minimum and then increases to infinity. Clearing denominators gives the frozen quadratic and its discriminant. At the minimum this quadratic has a double root with positive vertex. Of the two A-roots of the discriminant the smaller one has 2A-3B-C<0, so the minimum equals the displayed larger root A_f. This proves the shoulder case and both sides of the fold, including 0<A_f<A_c, with derivative signs immediately giving the maxima and minima. At A=A_c the polynomial is s[(5C-B)-3A_cs], giving a fourth-order minimum or maximum for B<5C or B>5C, respectively. At B=5C, A=A_c=8C the derivative of log p begins with -48Cu^5 x^5/v0^2, giving the stated sextic maximum. In the exact witness Phi=-(4/5)(3s-1)(10s-1), the origin is nondegenerate and both off-axis pairs are simple. The implicit-function theorem preserves at least three strict maxima in an admissible full six-parameter neighborhood. Independent Simpson quadrature of the two stationary transport coefficients gave ratios 0.999525403218619 and 1.00008878159230, consistent with the recorded checks. Two nonmaterial proof slips: at line 76 the constant term is positive, not negative (the root product is negative; the endpoint signs and concavity also suffice), and the vertex bound at line 82 follows directly from (2A_f-3B-C)/(6A_f)<1/3, not from the sign at s=1 alone. Neither affects the stated theorem.",
+      "residual_risks": [
+        "Classification is global only for g=3u; persistence of at least three modes is the full-neighborhood assertion.",
+        "No claim about observational resolution, dynamical transitions, or separate stochastic uniqueness proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monthus derives normalized steady states for variable velocities and rates; the inspected general formulas contain no global sign analysis for the simultaneous saturating tanh functions.",
+          "The two gradient-barrier catalogue summaries report at most two maxima below a sharp ratio and open trimodal examples for g/u>2. Exact files were unavailable in the local mirror."
+        ],
+        "reasoning": "The barrier summaries materially overlap the existence question on a larger domain, but a ratio threshold for attainable trimodality is not the complete fixed-ratio parameter diagram or the sextic merger condition. No inference about uninspected proofs or priority from dating.",
+        "searches": [
+          "arXiv:2103.08885 §II, Eqs. (9)–(14)",
+          "Resultary: cda03be79e12 and 990e6a2964de, sharp gradient barrier statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.13521v1/v2",
+        "arXiv:2103.08885",
+        "Resultary:56f6c06bf21b",
+        "Resultary:cda03be79e12",
+        "Resultary:990e6a2964de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known stationary derivative yields the central bifurcation condition. The prior two-maximum assumption bypasses precisely the fold where two additional extrema occur on each half-line over the transition, i.e. one maximum and one minimum per half-line.",
+          "Deriving the new boundary requires reducing the full critical equation and proving the admissible-root and merger structure; it does not follow from the sign of p''(0)."
+        ],
+        "reasoning": "The density and local condition are routine inherited ingredients. Neither a general stationary law nor the narrower catalogue family implies the complete mode classification across B/C and A.",
+        "searches": [
+          "arXiv:2405.13521v2 §III.1, Eqs. (7), (14)–(17)",
+          "arXiv:2103.08885 §II",
+          "Resultary:56f6c06bf21b, proof of the fixed-family phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jain–Chatterjee Eqs. (3)–(4), (7) and (15) are the same dynamics, density and implicit critical equation. The passage before the unimodal/bimodal criterion explicitly assumes at most two maxima rather than proving it.",
+          "Resultary:56f6c06bf21b contains a different witness and exact thresholds in a fixed g=3u family."
+        ],
+        "reasoning": "Parameter translation and normalization identify the same prior model; local central curvature is not equivalent to global absence of off-axis maxima. For the fixed family B=1,C=2,A=u the general formula specializes to 25/4 and 7, so there is actual slice overlap, not full equivalence.",
+        "searches": [
+          "arXiv:2405.13521v1 and v2, extremum equations and classification",
+          "Resultary searches for exact fold expression, six-parameter witness and B=5C sextic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact comparison 56f6c06bf21b gives 25/4 and 7 for the fixed v0=2,v1=1,gamma0=gamma1=1 family, and a witness at u=13/2; no general fold or sextic meeting point there.",
+          "The primary article's g=u case is not g=3u."
+        ],
+        "reasoning": "Exact fold and witness data, rather than a count database, are the meaningful benchmark for this continuous parameter theorem. Matching a fixed slice of the threshold does not supply the parameter-dependent fold.",
+        "searches": [
+          "Resultary exact-threshold, exact-witness and sixth-order-merger searches",
+          "arXiv:2405.13521v2, §III.1 special cases and Eqs. (14)–(17)"
+        ]
+      },
+      "rationale": "The exact model, stationary law, central criterion and implicit extremum equation are prior. The supportable distinct claim is the trimodal counterexample to the extra two-maxima assumption in that same model, the full exact g=3u boundary including its sextic merger, and persistence around the admissible witness. The nearest inspected catalogue overlap is a fixed subfamily of the slice, not general fold or merger coverage.",
+      "residual_risks": [
+        "Priority remains qualified by the bounded literature comparison, and the two exact gradient-barrier files were not readable. Later catalogue dates do not settle the relationship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and implicit extremum problem, not a global two-maximum theorem or exact general g=3u fold",
+          "evidence": "Explicitly conditions the two-phase conclusion on assuming at most two maxima; its inspected special cases include g=u.",
+          "identifier_or_url": "https://arxiv.org/html/2405.13521v2; arXiv:2405.13521v1; DOI 10.1103/PhysRevE.110.064110",
+          "material_read": "§II Eqs. (3)–(4), §III.1 Eqs. (7)–(10) and (14)–(17), v2 HTML offsets near 10000, 14181 and 19600–24399; parallel conditional passage in v1 at 18400–21186",
+          "method": "Lawfully available primary HTML passages",
+          "title": "Run-and-tumble particle with saturating rates",
+          "trigger": "Identical saturating law and apparent unimodal/bimodal precursor"
+        },
+        {
+          "assessment": "General steady-state formula and integrability, not the saturated-model fold",
+          "evidence": "Current solves a first-order differential equation; normalized total density has the inverse-velocity-sum prefactor and integrated rate imbalance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.08885",
+          "material_read": "§II, Eqs. (9)–(14), PDF text offset about 13400–17650",
+          "method": "Lawfully available primary PDF passage",
+          "title": "Large deviations at various levels for run-and-tumble processes with space-dependent velocities and space-dependent switching rates",
+          "trigger": "Earlier broader stationary theory"
+        },
+        {
+          "assessment": "Exact special-case overlap and an additional gradient restriction; not the full frozen parameter claim",
+          "evidence": "Fixed family v0=2,v1=1,gamma0=gamma1=1 has u thresholds 25/4 and 7; also proves at most two maxima for g<=u.",
+          "identifier_or_url": "Resultary:56f6c06bf21b",
+          "material_read": "RESULT.md offsets 0–6429 and 6600–8843",
+          "method": "Local publication mirror",
+          "title": "A sharp unimodal–trimodal–bimodal transition in a two-state run-and-tumble process",
+          "trigger": "Closest explicit phase diagram"
+        },
+        {
+          "assessment": "Substantive topic overlap; no full-statement conclusion from summaries",
+          "evidence": "Reported sharp g/u=2 threshold and open trimodal families above it, without summary evidence of the specific fold or sextic merger.",
+          "identifier_or_url": "Resultary:cda03be79e12; Resultary:990e6a2964de",
+          "material_read": "Indexed scientific summaries only; exact local-mirror files unavailable",
+          "method": "Configured publication index and local-mirror retrieval attempt",
+          "title": "Sharp factor-two gradient barrier for peak proliferation; A sharp two-to-one gradient threshold for stationary modes",
+          "trigger": "Broader trimodality with a sharp gradient ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "arXiv:2405.13521v2, §III.1 Eqs. (15)–(17) and discussion"
+      ],
+      "rationale": "This changes the stationary shape classification of an existing six-parameter model, rather than just supplying a new expression for its equilibrium law. It produces an admissible counterexample to the concrete two-maximum assumption, analytically separates the two bifurcations on a naturally exactly reducible slice, and identifies an order-six meeting point and open persistence beyond that slice. These conclusions carry information well beyond a numerical example or arbitrary sample.",
+      "residual_risks": [
+        "The exact witness has small peak-height contrast; structural existence does not itself imply experimental detectability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

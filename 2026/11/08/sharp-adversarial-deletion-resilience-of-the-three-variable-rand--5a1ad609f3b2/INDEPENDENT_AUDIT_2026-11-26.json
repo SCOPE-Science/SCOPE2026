@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:18:06.236155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md line 19; check.py and check_output.txt (inspected only)"
+      ],
+      "rationale": "For anchor overlap s, the size n-2r+s of the ground-set complement of their union gives N11. For a mixed pattern one subtracts common neighbors and also the other anchor when s=0. For pattern 00 one uses inclusion-exclusion and removes both anchors if s>0. N11 increases with s. Among s>0 the mixed minimum at s=r-1 is M by Pascal's identity; at s=0 its excess over M is at least binom(n-2r,r-1)-1>0. For pattern 00 the jump from s=0 to 1 is binom(n-2r,r-1)-2>=0 and later values increase. Thus the least witness-set size is m, and deleting precisely such a set leaves its two anchors and destroys the pattern; no smaller deletion can do so. The graph after a deletion below threshold has at least three vertices (a minimizing witness set already excludes its two anchors). A three-pebble move then needs at most two anchors; the extension property supplies a fresh match for arbitrary rounds, with equality moves matched directly. Each missing pattern is detected by its universal-pair/existential-third sentence, so the threshold holds at unrestricted quantifier depth for counting-free FO3. The r=2 table follows by substitution. For fixed r the common-nonneighbor count has leading term r^2 binom(n-2r,r-2), by choosing exactly one point from each disjoint anchor. All three bottlenecks occur, e.g. (n,r)=(6,2),(14,3),(8,2) for J,M,Z respectively.",
+      "residual_risks": [
+        "The stored nine exhaustive cases are finite corroboration; the proof establishes the all-parameter statement. FO3 here limits variable symbols, not quantifier rank, and the claim does not concern counting quantifiers or deleting ground-set elements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burgess–Luther–Pike give hypergraph line-graph constructions; the two design papers address existential closure in selected block families. The q-Kneser result gives undeleted extension and a quantifier-rank comparison on subspaces. Grohe–Schweikardt address finite-variable succinctness on linear orders."
+        ],
+        "reasoning": "None of the inspected statements gives minimal third-vertex witness counts after arbitrary deletion in the family of all ordinary r-sets. The logic bridge is not being credited as a new theorem.",
+        "searches": [
+          "arXiv:2211.01168 'Hypergraphs' section; DOI 10.37236/1939; EJC 14(1) R70",
+          "Resultary 9d563960deab q-Kneser extension universality",
+          "Grohe–Schweikardt arXiv:cs/0502047"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 974bb4ebf8b5, 9d563960deab, 2bb85f473866",
+        "arXiv:2211.01168 and cs/0502047; EJC R42 (2005) and R70 (2007)",
+        "Existential closure in uniform hypergraphs (title only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grassmann rank-two adjacency means intersection in dimension one, and its published threshold is for subspaces. The q-Kneser extension theorem concerns subspace disjointness without a resilience bound. Stable-Kneser witnesses are constrained r-sets."
+        ],
+        "reasoning": "Existence of one witness for each anchor pattern does not control how many arbitrary vertices may be deleted. Complementation preserves the resilience question only on the same vertex set. The reported exact minimum needs counts over all ordinary r-sets, distinct-anchor corrections, and comparison over every overlap size; the inspected neighboring theorems do not provide it.",
+        "searches": [
+          "Compare 974bb4ebf8b5, 9d563960deab and 2bb85f473866 RESULT.md Findings with frozen distinct-anchor witness counts",
+          "arXiv:2211.01168 'Hypergraphs' passage and complement reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation of the complete r-uniform hypergraph line graph exchanges witness patterns 11 and 00 and exchanges the two mixed orientations. The inspected hypergraph-line-graph construction is not a deletion count for that complete family."
+        ],
+        "reasoning": "An exact complement threshold would be equivalent. Design block-intersection graphs use only selected blocks, and Schrijver graphs use only stable r-sets; those restrictions change the counts.",
+        "searches": [
+          "Ordinary Kneser graph 2-extension vertex-deletion threshold; complement of the line graph of a complete uniform hypergraph",
+          "arXiv:2211.01168 pp. 11–12; Resultary 974bb4ebf8b5 and 2bb85f473866"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 974bb4ebf8b5 gives (q+1)^2 with the exception 6 for J_2(4,2), in the rank-two Grassmann family, and classifies minimum destructive sets. Earlier 2bb85f473866 gives n>=4r-1 for undeleted Schrijver graphs. No exact ordinary-Kneser witness-minimum table was identified in the inspected material."
+        ],
+        "reasoning": "The same-day Grassmann threshold is real overlapping claim structure but not an exact catalogue hit for min(J,M,Z); neither same-day record supplies an ordering or priority argument.",
+        "searches": [
+          "Local Resultary: sharp three-variable deletion resilience and exact two-extension thresholds in Kneser, Grassmann and stable Kneser graphs",
+          "Primary-literature query for exact two-extension vertex-deletion count in ordinary Kneser graphs"
+        ]
+      },
+      "rationale": "The extension-property/pebble-game bridge and witness-set deletion principle are general; they are not novel. The distinct result is the exact ordinary Kneser minimum across the four third-vertex pattern counts, including the competing mixed and common-nonneighbor bottlenecks. The closest resilience results use different vertex families or different adjacency.",
+      "residual_risks": [
+        "The uniform-hypergraph title remains an unresolved lead; the access failure is not a scientific finding. A more general exact resilience classification for complete uniform hypergraph line graphs or their complements could narrow the contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological overlap but different graph and threshold",
+          "evidence": "Adjacency is intersection in dimension one; threshold (q+1)^2 except 6 for J_2(4,2).",
+          "identifier_or_url": "Resultary 974bb4ebf8b5",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact three-variable deletion resilience of rank-two Grassmann graphs",
+          "trigger": "Same-day sharp arbitrary-deletion threshold and FO3 random-graph equivalence"
+        },
+        {
+          "assessment": "Different vertex family; undeleted property without an exact resilience result",
+          "evidence": "Disjoint-subspace graph with two-point extension and a quantifier-rank-three comparison, not the stated unrestricted-depth deletion radius.",
+          "identifier_or_url": "Resultary 9d563960deab",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two-point extension universality and a rank-four obstruction for q-Kneser graphs",
+          "trigger": "Analogous q-Kneser graph and same-day extension claim"
+        },
+        {
+          "assessment": "Prior proof pattern in a related graph family",
+          "evidence": "Sharp undeleted n>=4r-1 threshold for stable r-sets, not the minimum number of deleted vertices in ordinary KG(n,r).",
+          "identifier_or_url": "Resultary 2bb85f473866",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-extension threshold for Schrijver graphs",
+          "trigger": "Stable-subset Kneser graph and FO3 random-graph theory"
+        },
+        {
+          "assessment": "Relevant complement direction, not the inspected deletion count",
+          "evidence": "The hypergraph section relates design block-intersection graphs to hypergraph line graphs and gives a 2-line-e.c. crossing-hyperedge construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.01168",
+          "material_read": "Abstract p. 1 and 'Hypergraphs' section pp. 11–12, offset 23832",
+          "method": "OA primary PDF passages",
+          "title": "Existential Closure in Line Graphs",
+          "trigger": "Ordinary Kneser is the complement of a complete uniform hypergraph line graph"
+        },
+        {
+          "assessment": "Design vertex family, not the complete uniform family",
+          "evidence": "Existential closure studied on line graphs of selected Steiner triples, with nonempty-intersection adjacency.",
+          "identifier_or_url": "https://doi.org/10.37236/1939",
+          "material_read": "EJC PDF pp. 1–2, offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Steiner Triple Systems and Existentially Closed Graphs",
+          "trigger": "Two- and three-extension of block graphs"
+        },
+        {
+          "assessment": "Design-specific extension question, not Kneser deletion resilience",
+          "evidence": "BIBD blocks are the vertices and intersecting blocks are adjacent; asks when those graphs are n-e.c.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v14i1r70/pdf/",
+          "material_read": "EJC PDF p. 1, offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Existentially Closed BIBD Block-Intersection Graphs",
+          "trigger": "Generalized design interpretation"
+        },
+        {
+          "assessment": "General logical context, not Kneser-specific",
+          "evidence": "Studies succinctness of variable fragments on linear orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0502047",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA primary PDF passage",
+          "title": "The Succinctness of First-Order Logic on Linear Orders",
+          "trigger": "Finite-variable background"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "No accessible primary passage to tell whether it addresses line-graph complements, vertex deletions, or exact pattern minima.",
+          "identifier_or_url": "https://www.researchgate.net/publication/390375437_Existential_closure_in_uniform_hypergraphs",
+          "material_read": "Search listing and title only; ResearchGate access denied; exact-title public search did not locate an identified alternate primary copy",
+          "method": "Primary search and lawful OA attempt",
+          "title": "Existential closure in uniform hypergraphs",
+          "trigger": "Plausible coverage of the uniform-hypergraph formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–14 and 22–50",
+        "Resultary 974bb4ebf8b5 (neighboring resilience question)"
+      ],
+      "rationale": "Two-point extension is the exact local requirement for these finite counting-free three-variable substitutes for the random graph. The natural robustness question has an exact answer, not just a sufficient bound: sparse common neighbors, asymmetric witnesses, and common nonneighbors can each determine failure. The minimum certifies a usable deletion budget, with a concrete matching way to lose the property and a different eventual obstruction for fixed r.",
+      "residual_risks": [
+        "No full first-order or counting-logic equivalence and no claim about resilience under ground-element deletion or in stable or q-Kneser graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:36:51.383082Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–77",
+        "VERIFICATION.md lines 19–21",
+        "Barkat thesis, Chapter 5 §5.2.1, equation (5.35) and Theorem 5.1 proof (OA)"
+      ],
+      "rationale": "In normalized time, integrating the linear equations for X as a function of Y gives X_L=e^{-Y}(F(Y)-kappa) and X_R=(1/2)e^{-2Y}(F(Y)^2-lambda), with F(y)=(y-1)e^y. Because F'=y e^y and F(0)=-1, there are exactly two crossing roots p<0<q<1 for -1<kappa<0. Between them F<kappa<0, so the kappa and lambda=kappa^2 arcs are in their correct half-planes. At p both horizontal components are positive and at q both are negative; other roots above 1 are not transverse crossings of the periodic component. A transverse cycle must have crossings of each of these two types, since Y is strictly monotone in each zone; each flight takes q-p, and neither can close earlier. Thus the least normalized period is 2(q-p). Branch inversion yields the stated W difference and p'<0<q' gives strict growth. At the inner end the signed square root of 2(F(y)+1) is analytic with derivative 1 at zero, so its inverse at oppositely signed arguments gives q-p=2 sqrt(2(kappa+1))+O((kappa+1)^{3/2}). At the outer end set u=-W_{-1}(kappa/e); then u-log u=L, u tends to infinity, and u/L tends to 1, so u=L+log L+o(1), while W_0 tends to zero. This gives the sharp stated divergence at an unbounded boundary, not a finite saddle. The original tau-time scaling is division by delta. The assessment is analytic; no independent numerical spot checks were necessary or run.",
+      "residual_risks": [
+        "The normalized law is only for the delta>0 canonical family and transverse cycles; the origin and outer limiting boundary are not nontrivial finite cycles.",
+        "The two vector fields on X=0 are interpreted by transverse crossing on the annulus. No assertion is made about sliding, stability, or the delta=0 family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 classifies the global portraits, includes the delta>0 unbounded annulus, specifies its boundary and supplies the exact orbits in both zones.",
+          "Wang–Yang analyzes piecewise-linear center–center systems with curved algebraic separation and angular flight times; the surfaced affine and continuous-quadratic records have different dynamics. No comparison of the later 2026 article's full equations was possible."
+        ],
+        "reasoning": "The relevant dominating description is the underlying thesis with exact orbit geometry and explicit unit vertical speeds, not another period theorem with a superficially similar logarithmic bound. The later source access limit is not a verdict on that paper.",
+        "searches": [
+          "Barkat thesis, Chapter 5 §5.2.1 Theorem 5.1, including both delta regimes and its orbit derivation",
+          "Wang–Yang, EJDE 2020 no. 79, PDF pp. 1–4",
+          "Local Resultary period-law searches for two-zone affine and quadratic flows",
+          "Rezende–Santos–Torregrosa, DOI:10.1016/j.bulsci.2026.103809 OA retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and the two nearby returned claims",
+        "Barkat thesis OA, §5.2.1 and Theorem 5.1 proof",
+        "Wang–Yang pp. 1–4",
+        "DOI:10.1016/j.bulsci.2026.103809 (retrieval attempt and title only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Plugging X=0 into the published left orbit immediately yields (Y-1)e^Y=kappa. The two published vertical velocities give the two flight times by integration of dtheta=±dY.",
+          "Under z=kappa/e the two inverse branches are W_0(z) and W_{-1}(z); F'=Ye^Y fixes the opposite monotonicities. Writing u=-W_{-1} gives u-log u=L, whence log u=log L+o(1). The principal branch tends to zero."
+        ],
+        "reasoning": "The stronger exact flow/annulus description already contains the full period calculation, with no additional dynamical theorem, new matching condition or nonroutine asymptotic input. Expressing the root separation by a standard inverse function and its immediate asymptotics does not make it a distinct research result.",
+        "searches": [
+          "Barkat thesis OA offsets 174200–175364 (same time and field), 175300–177861 (Theorem 5.1), 178000–181239 (explicit orbit equations), compared with frozen RESULT.md lines 32–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same normalized time theta and differential equations occur in (5.35), with dY/dtheta=-1,+1 in the two zones.",
+          "The proof derives delta^2 x + kappa exp(-delta y) - delta y + 1=0 for x<=0 and 2 delta^2 x + (right constant) exp(-2 delta y) - (delta y-1)^2=0 for x>=0."
+        ],
+        "reasoning": "With Y=delta y and X=delta^2 x, the two crossing ordinates are exactly the negative and positive roots of F(Y)=kappa. At both roots the right constant is kappa^2. The period is their separation times two in (5.35), and W is simply the inverse of (Y-1)e^Y on the two published crossing branches.",
+        "searches": [
+          "Local Resultary exact-title/formula searches for the normalized linear–quadratic pseudo-center and Lambert-W period",
+          "Barkat thesis §5.2.1, (5.35) and Theorem 5.1 proof, OA offsets 174200 and 178000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical explicit formula surfaced in those results. The closest earlier summary treats a balanced piecewise-affine flow with five spectral regimes; the continuous-quadratic comparison reports square-root, inverse-square-root and finite-saddle logarithmic regimes."
+        ],
+        "reasoning": "Neither surfaced indexed item is an exact table or theorem for the stated model. This is an analytic all-parameter law rather than a finite census, and failure rests on the original thesis's exact equations, not on the index results.",
+        "searches": [
+          "Local Resultary semantic searches for exact normalized Lambert-W law and unbounded pseudo-center (up to 300 ranked results)",
+          "Resultary SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6 and SCOPE-three-sharp-period-edge-regimes-in-a-continuous-two-zone-quadrat--5f3bf14316f1"
+        ]
+      },
+      "rationale": "The Lambert-W representation was not explicitly found in the inspected thesis and is not alleged to have been stated there. But the prior source proves the unbounded annulus for the identical normalized system and explicitly integrates both half-plane orbit equations in the relevant regime. Together with the displayed constant vertical velocities, those already determine the least time by direct subtraction of the two crossing heights. The proposed period law, monotonicity, and outer term are the immediate branch inversion and elementary endpoint estimates of that published orbit/velocity description. The reason for failure is this concrete implication, not missing full text for the later piecewise-linear paper or a negative index search.",
+      "residual_risks": [
+        "No assertion of earlier explicit printing of the Lambert-W form; the assessment establishes direct mathematical implication from the published orbit description.",
+        "The later article was not available for statement-level comparison; the implication here does not rely on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same annulus and exact orbits; the period is mechanically implied, whether or not spelled out",
+          "evidence": [
+            "(X,Y,theta)=(delta^2 x,delta y,delta tau), Y'=-1 left and +1 right.",
+            "Theorem 5.1 states unboundedness for delta>0; its proof gives exact half-plane first integrals and the outer boundary."
+          ],
+          "identifier_or_url": "https://dspace.univ-bba.dz/server/api/core/bitstreams/cbd03bb4-eb3c-4e18-a57f-4dd1b25b019c/content",
+          "material_read": "OA Chapter 5 §5.2.1, printed pp. 73–75; equation (5.35), Theorem 5.1, and the derivation of left and right trajectories at offsets 174200, 175300, 178000",
+          "method": "Read equations and time scaling, then explicitly computed the two flights from the published crossings",
+          "title": "Phase planes and bifurcations in planar linear-quadratic differential systems with a pseudo-focus",
+          "trigger": "Primary same-system exact orbit law; thesis counterpart of the cited 2024 paper"
+        },
+        {
+          "assessment": "Different phase geometry and flight law in the inspected passage",
+          "evidence": [
+            "Center–center piecewise-linear systems separated by algebraic curves; angular flight times for circular arcs, not vertical travel between Lambert roots."
+          ],
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2020/79/wang.pdf",
+          "material_read": "OA PDF pp. 1–4 with model and example angular flight times; later offset extraction unavailable",
+          "method": "Compared model and exact time integrals",
+          "title": "Period functions and critical periods of piecewise linear system",
+          "trigger": "Primary period-function theorem for switched systems"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of overlap or absence",
+          "evidence": [
+            "The title is for piecewise-linear systems at infinity; the actual equations could not be checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.bulsci.2026.103809",
+          "material_read": "Bibliographic title; OA attempt yielded no usable article text",
+          "method": "Attempted lawful OA retrieval; no theorem-level conclusion drawn",
+          "title": "The period function of centers at infinity in planar piecewise linear systems",
+          "trigger": "Possibly relevant broader modern period theory"
+        },
+        {
+          "assessment": "Different affine flow in the returned statement",
+          "evidence": [
+            "Balanced two-zone piecewise-affine center, five spectral edge regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6",
+          "material_read": "Local Resultary summary",
+          "method": "Compared model and regimes",
+          "title": "Five spectral edge laws for a two-zone crossing period annulus",
+          "trigger": "Closest earlier indexed period-edge formulation"
+        },
+        {
+          "assessment": "Different system and endpoint laws",
+          "evidence": [
+            "Continuous quadratic center with square-root, inverse-square-root and finite-saddle logarithmic regimes, not the discontinuous normalized flow with constant vertical speeds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-three-sharp-period-edge-regimes-in-a-continuous-two-zone-quadrat--5f3bf14316f1",
+          "material_read": "Local Resultary summary",
+          "method": "Compared continuity, model and endpoint regimes",
+          "title": "Three sharp period edge regimes in a continuous two-zone quadratic system",
+          "trigger": "Nearby exact period law for a quadratic flow"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–30 and 32–73",
+        "Barkat thesis equation (5.35) and Theorem 5.1 proof"
+      ],
+      "rationale": "The period is a natural invariant and the closed form is useful exposition, but for this very family the known orbit equations and already specified constant vertical speeds reduce the entire timing question to subtracting the two known crossing ordinates. Monotonicity and both boundary laws add only the standard branch inversion and elementary estimates of the same scalar level equation. No further dynamical invariant or independently nonroutine remainder is established; a reformulation or certificate would not repair this.",
+      "residual_risks": [
+        "No conclusion about the value of new timing results for other families; no repair is submitted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

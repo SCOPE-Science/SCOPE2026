@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:29:39.908060Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The event is occupation of any missing matching edge, not return to the initial edge. Sign flips within parts fix the initial state and give one normalized even cross-state per pair of parts. Counting hops gives blocks 0, 2R, 2R^T, 2(R^TR−2I), with R the unsigned K_m incidence. The squared singular values of R are 2m−2 and m−2. Subtracting (q−2)I in each two-state channel gives a traceless square (q²+4)I and transition probability F_q; the initial squared weights are 1/m and (m−1)/m. The sine bound and saturation of the second channel at the stated time squeeze the scaled supremum to 4, without assuming simultaneous phase alignment. The classical rates across the partition are 4(m−1) out and 2 in; hence the decay rate is 4m−2 and its product with the observation time tends to 2π. This also checks the smallest admitted m=3, t=0 and unit-per-hop normalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 1 result gives the joint decomposition of the full two-token graph Laplacian. The balanced-biclique and flat-band results concern two shores and different initial states or observables; in the balanced-biclique comparison the classical limit is (1−e^(−2π))/2."
+        ],
+        "reasoning": "The same-day results are analogs, not equivalent coverage or evidence of priority. The earlier same-graph operator result, not those analogs, determines the disposition.",
+        "searches": [
+          "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a",
+          "2026/11/22/SCOPE-unattained-sharp-two-particle-transport-ceiling-on-balanced-bicl--d4d1380ee916",
+          "2026/11/22/SCOPE-flat-band-confinement-and-collective-pair-transfer-for-hard-core--9ab619828b2b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 33–55; VERIFICATION.md and verify.py inspected, not executed",
+        "Resultary records 037630a5dd6a, d4d1380ee916, 9ab619828b2b",
+        "arXiv:math/0507251; arXiv:1002.3003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the prior's E_0 basis a_i,c_ij, X has matrix √2[I R] in normalized pair-constant vertex coordinates, and L=(4m−2)I−X^TX there. D is 4m−4 on a_i and 4m−6 on c_ij. Thus A=D−L=2[I R]^T[I R]+diag(−2I,−4I), exactly the claimed block matrix. On the permutation-invariant two-state subspace the classical rates are 4(m−1),2, also fixed by the cross block and degrees."
+        ],
+        "reasoning": "R^TR and the degree diagonal share the singular-channel decomposition, RR^T=(m−2)I+11^T, and the resulting 2×2 blocks exponentiate directly. The constant 4 comes from the dominant channel's coefficient and e^(−2π) from the same observation time in the two-state classical exponential. No further independent structural lemma is needed.",
+        "searches": [
+          "Resultary 037630a5dd6a, RESULT.md, characters 2230–6332"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Audenaert et al. define the symmetric square by single-token moves and identify its hard-core Hamiltonian; Gamble et al. use the hard-core two-particle walk for isomorphism comparisons."
+        ],
+        "reasoning": "Translating quantum occupation to adjacency of the two-token graph identifies the exact graph prior; the general quantum-walk formalism alone would not establish the confinement law.",
+        "searches": [
+          "Resultary focused search for hard-core two-particle pairing on cocktail-party and matching-deleted complete graphs",
+          "arXiv:math/0507251",
+          "arXiv:1002.3003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogued Laplacian spectrum is an exact match of underlying graph but is not a table of hopping probabilities."
+        ],
+        "reasoning": "No separate tabulation of the continuous-time observable was identified; eigenvalues without a basis or degree action would not imply the claimed unitary law on this biregular graph.",
+        "searches": [
+          "Resultary exact two-token cocktail-party graph spectrum record 037630a5dd6a"
+        ]
+      },
+      "rationale": "The exact-graph prior supplies much more than Laplacian eigenvalues. Its published matrix identity, normalized even-sector basis, incidence columns and both configuration degrees give the very same hopping matrix by subtracting the published Laplacian from the degree matrix. The two channel formula and both limiting comparisons then follow by routine two-state exponentiation and elementary limits. The time-dependent wording is not a quotation from the prior, but the claimed specialization is mechanically implied by the published operator calculation.",
+      "residual_risks": [
+        "The literature search was bounded and does not establish who first wrote the dynamic observable explicitly. The failure is based on a constructive implication from the inspected earlier graph result, not on a search miss or assumed same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the claimed observable; not just an eigenvalue list",
+          "evidence": "L=L(J)−L(H); on E_0, L(H)=0, Xa_i=u_i, Xc_ij=u_i+u_j, and the two exact degrees are supplied.",
+          "identifier_or_url": "2026/11/1/SCOPE-the-integral-laplacian-spectrum-of-two-token-cocktail-party-grap--037630a5dd6a",
+          "material_read": "RESULT.md, characters 2230–6332, joint decomposition and degree count",
+          "method": "Resultary local mirror, located block discussion and read by offset",
+          "title": "The integral Laplacian spectrum of two-token cocktail-party graphs",
+          "trigger": "Identical graph and possible operator-level coverage"
+        },
+        {
+          "assessment": "Standard formalism, not the specific law",
+          "evidence": "One-token moves on subsets and the hard-core Hamiltonian interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "p. 1 and appendix p. 18",
+          "method": "OA original paper passages",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Equivalent graph and Hamiltonian formulation"
+        },
+        {
+          "assessment": "Model overlap, not specific coverage in the inspected passage",
+          "evidence": "Hubbard hard-core limit used for graph isomorphism.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.3003",
+          "material_read": "p. 4, hard-core limit discussion",
+          "method": "OA original paper passage",
+          "title": "Two-particle quantum walks applied to the graph isomorphism problem",
+          "trigger": "Strongly regular graphs and hard-core dynamics"
+        },
+        {
+          "assessment": "Different graph, event and classical limit",
+          "evidence": "K_{r,r}, initially cross-shore, sharp same-shore probability and a classical limit (1−e^(−2π))/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-unattained-sharp-two-particle-transport-ceiling-on-balanced-bicl--d4d1380ee916",
+          "material_read": "RESULT.md opening finding",
+          "method": "Resultary local mirror",
+          "title": "Unattained sharp two-particle transport ceiling on balanced bicliques",
+          "trigger": "Close same-day sharp transport claim"
+        },
+        {
+          "assessment": "Different graph and event",
+          "evidence": "K_{p,q} localized return and collective pair transfer.",
+          "identifier_or_url": "2026/11/22/SCOPE-flat-band-confinement-and-collective-pair-transfer-for-hard-core--9ab619828b2b",
+          "material_read": "RESULT.md opening finding",
+          "method": "Resultary local mirror",
+          "title": "Flat-band confinement and collective pair transfer for hard-core bosons",
+          "trigger": "Same-day hard-core confinement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The matching-edge versus exclusion comparison is physically intelligible, but the specific all-time and scaled-time constants read off routinely from the already published even-sector operator on the identical configuration graph. The result does not add a new mechanism, invariant not mechanically implied, or new range of hypotheses.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

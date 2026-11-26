@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:02:48.017061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting within a cyclic run gives one necklace. If two deletions produce the same necklace, their survivor alignment has an aligned ℓ-block crossing neither deletion seam since n−1>2ℓ. Under factor uniqueness this block starts at the same source position in both words. Read both lists from that position: between the two omitted sites they are offset by one, so equality forces every symbol from one omitted site to the other along that arc to agree. This proves run-exactness under uniqueness and the unconditional upper bound D≤2R. For factor equality at shift s, directed constraint edges are a subset of translation orbits; a cycle (including a duplicated edge for an orbit of size two) would require the whole orbit inside the interval of edge starts. The minimum arc span of such an orbit is n−gcd(n,s)≥n/2, impossible here. A v-vertex tree component contributes p^v+(1−p)^v≤(1−p)^(v−1), giving (1−p)^ℓ for the forest; conditioning independent Bernoulli(p) bits on exactly k ones gives the displayed denominator and the coupling bound. Rooting one of the r one-runs gives the two positive compositions and the n/r factor in the exact reference law. For each fixed j, the ordered disjoint edge collections give limiting factorial moment λ^j, and c<j path components give O(n^c(k/n)^(j+c))=o(1); the fixed-j cycle exception is absent for sufficiently large n. The chosen ℓ is o(n), and the error O(n^(−15/4)) multiplied by (2k)^2 still vanishes, so the first two moments of the bounded-at-each-n deficits transfer as well as the event of zero deficit. The result is for indexed sources, not uniform sampling of rotation classes. An independent bounded collision check over 110 admissible (n,k,ℓ) cases for 4≤n≤12 found agreement; the frozen verify.py was inspected but not executed. Neither finite check establishes the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest Resultary antecedent gives the same deterministic criterion for circular output uniqueness and a binomial n-choose-2 times q^(−ℓ) collision estimate under a uniform q-letter iid source. Its dense Gaussian example is unconditioned. Balado–Silvestre §7.2 reviews classical fixed-content linear run counts; Liron–Langberg address ordinary linear descendants."
+        ],
+        "reasoning": "Knowing runs and conventional deletion counts does not remove cross-run collisions under rotations. The prior uniform-alphabet bound is not uniform over tiny Bernoulli density p. The q used there is alphabet size, not a parameter that can be substituted for the dominant one-letter mass of a sparse source.",
+        "searches": [
+          "Resultary eef1c8604afc, deterministic theorem and proof §§1–2",
+          "arXiv:2602.10005v2 §7.2",
+          "arXiv:1202.1644v1 §§I–II",
+          "DOI:10.5539/ijsp.v2n3p50 (circular runs)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:eef1c8604afc",
+        "Resultary:2341722fce11",
+        "Resultary:29e5e80ff472",
+        "arXiv:math/0207197v1",
+        "arXiv:2602.10005v2",
+        "arXiv:1202.1644v1",
+        "arXiv:2009.01346v2",
+        "DOI:10.5539/ijsp.v2n3p50 (no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The run-exactness proof and the use of translation constraints are inherited. The old uniform exponent q^(−ℓ) cannot simply be conditioned from p=1/2 down to k≈√n: the binomial mass of such a weight at p=1/2 is exponentially small. Centering the Bernoulli model at p=k/n instead gives only a Θ(√k) conditioning penalty, but needs the new biased component probability estimate."
+        ],
+        "reasoning": "It is the n-dependent control of the actual collision probability, not a new derivation of the Poisson count of adjacent pairs, that makes the limiting deletion law and its moments follow. The prior deterministic and uniform-source statements do not provide it.",
+        "searches": [
+          "Resultary eef1c8604afc, uniform iid collision bound and dense limit versus biased fixed-content theorem",
+          "arXiv:2602.10005v2 §7.2, run-count formula and predecessor attribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloane's |D₁(u)|=number of runs pertains to ordinary linear descendants. Narayanan–Ren's circular-trace comparison concerns stochastic reconstruction, not cardinality of the one-deletion support. The web lookup surfaced a family-level ordinary-word shadow bound, not a stochastic circular single-source result."
+        ],
+        "reasoning": "The observable is the number of distinct rotational equivalence classes of outputs from one fixed source, not the number of deletion positions or a union of descendants over a family. A prior uniform-necklace result at the same k²/n scale would matter for the limit: periodic sources require a factor collision, and the periodic orbit probability under uniform necklaces is at most n times its indexed-word probability; on aperiodic orbits the two induced laws agree. That distinction therefore would not, by itself, rule out asymptotic equivalence.",
+        "searches": [
+          "Local Resultary: fixed-weight random binary circular/necklace one-deletion shadow, short-factor uniqueness and Poisson deficit k²/n",
+          "Primary literature: circular/necklace single-deletion sphere size and deletion shadow aliases",
+          "arXiv:math/0207197v1 §5 and arXiv:2009.01346v2 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published maximum-outdegree finding gives extremal degrees by length, not their conditioned distribution. The exact three-one shadow spectrum does use circular outputs but fixes weight at three, where k²/n→0, and is not a growing-weight law. Run count tables account for the reference law, not actual deletion output strata when cross-run collisions occur."
+        ],
+        "reasoning": "An extremal count or a low fixed-weight table is not the labelled-source probability law and cannot yield its quantitative TV comparison or critical-window moments.",
+        "searches": [
+          "Local Resultary: exact circular one-deletion shadow size at fixed content, run strata and Poisson deficit",
+          "Resultary 2341722fce11 and 29e5e80ff472"
+        ]
+      },
+      "rationale": "The deterministic short-factor lemma, run enumeration and standard adjacent-pair Poisson mechanism are antecedents. The defensible addition is the biased-source collision estimate conditioned on exact weight and its quantitative transfer to the necklace-valued deletion observable at the sparse birthday scale, including the first two moments.",
+      "residual_risks": [
+        "A prior sparse circular deletion theorem stated for uniform necklaces rather than indexed words could overlap the limit; none was identified in the bounded comparisons.",
+        "The circular runs paper was not read in full. Neither access failure nor a keyword miss is negative evidence. The classical run count and deterministic short-factor criterion are not considered original here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic step and uniform-source setting only",
+          "evidence": [
+            "Any word with unique cyclic length-ℓ factors is run-exact; the collision bound in its probabilistic theorem is n-choose-2 times q^(−ℓ) for iid uniform q-ary words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-short-factor-uniqueness-makes-circular-one-deletion-shadows-asym--eef1c8604afc/RESULT.md",
+          "material_read": "Local mirror, deterministic theorem and proof §§1–2, source assumptions and dense limit",
+          "method": "Bounded full-text comparison",
+          "title": "Short-factor uniqueness makes circular one-deletion shadows asymptotically run-exact",
+          "trigger": "Same observable and deterministic antecedent"
+        },
+        {
+          "assessment": "Antecedent for linear outputs, not the rotation-quotient fixed-weight law",
+          "evidence": [
+            "Ordinary one-deletion descendants are counted by linear runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "§5, ordinary one-deletion descendant count",
+          "method": "Bounded OA comparison",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Linear deletion descendant count by runs"
+        },
+        {
+          "assessment": "Classical fixed-content run counts, a different observable",
+          "evidence": [
+            "The count conditions on Hamming weight and specifies the number of positive-length runs in ordinary strings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.10005v2",
+          "material_read": "§7.2 beginning, offsets 485440–487370, including the Stevens and Wald–Wolfowitz attribution",
+          "method": "Bounded OA comparison",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "Potential fixed-weight run enumerator coverage"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Its three-gap construction concerns reconstruction from stochastic traces, not exact one-deletion-support sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.01346v2",
+          "material_read": "Theorem 1.6 and §5 construction",
+          "method": "Bounded OA comparison",
+          "title": "Circular Trace Reconstruction",
+          "trigger": "Same rotation quotient in a deletion model"
+        },
+        {
+          "assessment": "Fixed-three unindexed source classes, not k→∞ critical window",
+          "evidence": [
+            "Finite gap formulas give genuine cross-run collisions; the three-one theorem does not extend by parameter substitution to growing weight."
+          ],
+          "identifier_or_url": "Resultary:29e5e80ff472",
+          "material_read": "Mirrored finding and gap-collision formulas",
+          "method": "Local Resultary comparison",
+          "title": "Exact one-deletion shadow spectrum of binary necklaces with three ones",
+          "trigger": "Same deletion channel and exact distribution by length"
+        },
+        {
+          "assessment": "Unresolved for circular run statistics; not used as negative evidence",
+          "evidence": [
+            "The accessible identification concerns counts of overlapping runs, an antecedent statistic distinct from the circular deletion degree."
+          ],
+          "identifier_or_url": "https://ccsenet.org/journal/index.php/ijsp/article/view/28864",
+          "material_read": "Bibliographic identification and the frozen description; primary full text not retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "Counting Runs of Ones with Overlapping Parts in Binary Strings Ordered Linearly and Circularly",
+          "trigger": "Possible broad circular run law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite TV estimate converts a synchronization ambiguity observable into a computable full reference distribution under a natural fixed-content source model. At the birthday scale it establishes an even-valued Poisson deficit, including the limiting probability of maximum degree and its nontrivial variance, rather than only a generic upper run bound. The reduction is useful precisely because rotation can merge outputs of distinct runs and a run law alone would not answer the deletion question. The result does not claim run-exactness for arbitrary words or multiple deletions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

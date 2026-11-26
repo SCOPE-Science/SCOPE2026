@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed rank-\(r\) idempotent \(E\), the exact OR-neighbor count follows by counting complements to possible rank-\(s\) images and subtracting the mutually annihilating overlap. Nested standard projections prove strict degree monotonicity with an explicit rank-one witness. The minimum degree and its multiplicity determine \(q\) and \(n\) through strictly invertible algebraic formulas. Exhaustive matrix enumeration checks seven small prime-power cases, including extension-field arithmetic; the proof supplies the uniform quantifiers.
+PASS
 
-## Originality — PASS (bounded priority comparison)
+A rank-s idempotent is a projection onto an s-plane W along a complement L, of which there are q^{s(n−s)} for each W. Fix E with image U and kernel T. EF=0 requires W within T. FE=0 requires U within L; counting (n−r−s)-planes L/U in V/U gives the same Gaussian coefficient, and again q^{s(n−s)} complements. Their intersection consists exactly of projections that are zero on U and restrict to rank-s idempotents on T, yielding the subtraction term. Neither direction is possible if s>n−r. Self-adjacency does not occur because E²=E≠0. For nested coordinate projections, every neighbor of E_r is also a neighbor of E_(r−1); the projection onto ker(E_(r−1)) along im(E_(r−1)) has rank n−r+1 and witnesses strict inclusion (it is a vertex for 2≤r≤n−1 and cannot neighbor E_r by the rank constraint). The only minimum-degree rank is n−1, also when n=2 where there is only one rank. Substituting r=n−1 gives δ=2q^{n−1}−1 and M=q^{n−1}(1+q+⋯+q^{n−1}). Therefore Q=(δ+1)/2 and A=M/Q satisfy q(A−Q)=A−1 with A−Q>0. This uniquely determines q and then n, and isomorphic fields give the converse graph isomorphism. The example parameters and the frozen log's case count agree with the displayed formulas. The uploaded checker was inspected, not rerun; no computation is needed for the universal proof.
 
-Patil–Momale–Jadhav, arXiv:2402.11256v1, prove the same OR-graph is regular in dimension two: that case is explicitly prior. Ferraz–Polcino Milies–Taufer, arXiv:1711.09289v1, give rank/ideal/idempotent counts. Earlier rank-refined directed annihilation-triangle results furnish one-sided zero-product marginals, also credited. Akbari et al. consider a different AND graph, while related trace and full zero-divisor graphs have different predicates or vertex sets. The assessed new implication is strictly rank-dependent OR-graph degrees and reconstruction of the matrix ring from the unlabeled graph; no matching theorem was located in the inspected material. The 2013 AND-graph full text and all possible older specialist sources remain priority risks, not claims of exhaustive clearance.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This classifies a natural matrix-ring graph invariant for all finite-field sizes and detects a strict high-dimensional departure from previously known regularity. Recovering field order and matrix dimension from only a graph's minimum degree and its multiplicity is a substantive and reusable ring-recognition statement, beyond a numerical census.
+At the level of the claim, the distinct contribution supported by the evidence is all-rank OR-degree stratification, strict rank separation in higher dimensions, and reconstruction of the full finite matrix ring from two unlabeled degree statistics for n≥2. The rank multiplicities, the one-direction zero-product counts, and the dimension-two OR graph degree are credited as existing pieces, not novel results. No inspected statement recovers the higher-dimensional OR degree multiset or its reconstruction conclusion.
 
-## Scope and outstanding risks
+## value
 
-The theorem addresses full matrix rings over finite fields in size at least two; no general ring statement follows. Small exhaustive tests do not replace the proof. Mathematical priority remains subject to independent specialist verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph is a natural invariant built from one-sided vanishing of products, and the theorem recovers the algebraic rank of every vertex and the entire ring isomorphism type from graph degrees. Recovering the two ring parameters from just the smallest degree and its multiplicity, without labels or the full adjacency matrix, makes the invariant useful beyond a finite count or a restatement of the two-dimensional result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

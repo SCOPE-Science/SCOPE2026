@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:43:10.928801Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70: equations, known and unknown parameters, conditioning, radial moments, stopped likelihood and scaling",
+        "VERIFICATION.md; checker.py inspected statically for exact-rational Poisson, variance and Fisher product identities"
+      ],
+      "rationale": "The predictable orthonormal radial/tangential Brownian projections have identity bracket and are independent Brownian coordinates. The squared-radius SDE has a pathwise unique nonnegative solution driven by the radial coordinate alone, including at s=0, so the exit and Q are radial. Integrating the tangential projection gives A|Q normal with mean omega Q/2 and variance DQ/2. Its conditional transform gives q=t+Dk^2/4-i omega k/2. The regular solution to D(F''+F'/r)=q r^2 F, F(R)=1, gives the ratio of I_0 values; uniqueness and nonvanishing normalization for Re(q)>=0 follow from the weighted energy identity for a homogeneous zero-boundary solution, and q=0 gives 1. Poisson equations using the radial Laplacian of r^m equal to m^2 r^(m-2) give E Q=(R^4-s^4)/(16D) and Var Q=(R^8-s^8)/(512D^2). The area-only variance is 2D/E Q + omega^2 Var Q/(E Q)^2. Stopped Girsanov gives log likelihood omega A/D-omega^2 Q/(4D): use finite-time localization and pass on the events of disk exit before the cutoff, whose probabilities tend to one under both drifts. The two sufficient statistics retain the full-path score and information E Q/(2D), yielding the claimed multiplier. As R tends to infinity with fixed s,D, the Laplace transform of DQ/R^4 converges to the unit-disk transform at s=0, D=1. That exposure is strictly positive and nondegenerate. Thus the area estimate has limiting variance omega^2/2, and the exposure-normalized estimate's conditional variance 2D/Q tends to zero in probability, giving consistency without a finite-sample efficiency claim.",
+      "residual_risks": [
+        "The reported 327 rational assertions were not rerun and do not check the stochastic arguments. The floor concerns only the specified unbiased area-only estimator. Continuous observation and a known diffusion coefficient are assumed throughout."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boedihardjo–He–Wang give an expected-signature tensor series for drift-free Brownian motion stopped at planar disk exit; Boedihardjo et al. prove finiteness of its radius of convergence.",
+          "Wen–Thiffeault study long-time winding with point-vortex drift, including reflecting geometries. Du Buisson et al. study fixed-time stochastic-area generating functions for linear diffusions and their large deviations."
+        ],
+        "reasoning": "The stopped signature covers moments of drift-free area through signature coordinates and shuffle products; it is not a transform in the physical radial occupation or an unknown-rotation inference theorem. Fixed-time area laws do not specialize to first disk exit by setting the time to its mean, and windings with a singular vortex do not yield signed area in the rigid-rotation model.",
+        "searches": [
+          "arXiv:2311.03279, Theorem 3.14",
+          "arXiv:1905.13034, Theorem 10",
+          "Wen–Thiffeault point-vortex winding, arXiv:1810.13364, introductory model and limits",
+          "arXiv:2307.06245, abstract and equation (1)"
+        ]
+      },
+      "checked_sources": [
+        "Hamana–Matsumoto arXiv:1106.6132, (2.1)–(2.2)",
+        "arXiv:2311.03279, 1905.13034, 1810.13364 and 2307.06245, passages above",
+        "Resultary 3d522ee85f92 (self-match), 0ac3d73ad09e, ffa5a1f89e59 and b7fecaf47750"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bessel passage-time analysis supplies Q's distribution and hence its moments once the physical clock is identified. The stopped Brownian expected signature furnishes drift-free area moments; fixed-time area results use a different sampling rule.",
+          "The frozen proof identifies the rotation shift conditional on Q, then uses the stopped likelihood to compare the full score with the variance penalty from leaving Q unobserved."
+        ],
+        "reasoning": "The transform evaluation is a short synthesis of the radial hitting identity and a conditional area decomposition, not credit for rediscovering I_0. The exact penalty and the contrast between normalized-by-mean and normalized-by-observed-exposure estimators require this model's likelihood and exposure fluctuations; they are not stated or otherwise supplied as an exact inference result by the primary comparators.",
+        "searches": [
+          "arXiv:1106.6132, Section 2",
+          "arXiv:2311.03279, Theorem 3.14",
+          "arXiv:2307.06245, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit 3d522ee85f92 is the assigned record. Hamana–Matsumoto give the known first-hit Laplace transform for a Bessel process of index zero from a<b, including a=0, as I_0(a sqrt(2 lambda))/I_0(b sqrt(2 lambda)).",
+          "At the clock v=2D integral |Z|^2 dt, Y=|Z|^2/2 has generator (1/2) d^2/dY^2 + (1/(2Y)) d/dY, so 2D Q is this first hitting time from s^2/2 to R^2/2. The radial Laplace transform is exactly covered after this identification."
+        ],
+        "reasoning": "Credit exact equivalence for the radial clock marginal. The hitting-time formula by itself has neither the tangential Gaussian area projection conditional on that clock nor drift-parameter inference from a stopped observation. The formula in the record combines the clock specialization with that stochastic identification.",
+        "searches": [
+          "Resultary: stopped signed area, radial occupation, Bessel disk-exit transform and rotation-rate inference",
+          "Planar Brownian Lévy area stopped at first exit disk, modified Bessel I0 and radial clock; arXiv:1106.6132, equations (2.1)–(2.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-index match is the frozen record. Distinct same-day records 0ac3d73ad09e and ffa5a1f89e59 concern stationary reset models; b7fecaf47750 concerns an active-particle mean exit-time correction. Section 2 of Hamana–Matsumoto supplies the exact radial marginal, not a table of area/occupation or angular-speed risk."
+        ],
+        "reasoning": "This is a continuous family of transforms and statistical identities, not a finite table entry. The tabulated-style exact standard transform is relevant and credited for the radial marginal; the reset and mean-exit invariants are not equivalent.",
+        "searches": [
+          "Resultary stopped-area/rotation exact-law search (3d522ee85f92, 0ac3d73ad09e, ffa5a1f89e59, b7fecaf47750)",
+          "Hamana–Matsumoto arXiv:1106.6132, Section 2 first-hit transforms"
+        ]
+      },
+      "rationale": "The distinct result is the evaluated joint stopped area–occupation law for rigid rotation together with the exact information and estimator contrast. The radial I_0 ratio itself is a classical Bessel first-hit transform in a different clock, not a new passage-time identity. Prior expected-signature calculations include drift-free area moments on the disk. The inspected statements do not already give the rotating-disk joint law with the observed physical radial exposure or the exact specified estimator loss and recovery under that stopping rule.",
+      "residual_risks": [
+        "Bounded comparison, not certified priority; a direct earlier stopped-area formula or equivalent inference contrast could exist outside the inspected material. A low-yield broad search and the inaccessible Williams discussion of H. M. Taylor's stopped-Brownian formula are not negative evidence; no overlap can be established from its search snippet alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior radial-marginal coverage via BES(2)",
+          "evidence": "The authors credit the first-passage Laplace formulas as known. At index zero their a-to-b transform is the stated I_0 ratio. It gives Q after the clock change but does not include A or the rotation likelihood.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.6132",
+          "material_read": "Introduction and Section 2, pp. 2–3, equations (2.1) and (2.2), offset 7720 onward",
+          "method": "Open-access PDF, literal equation locate and bounded offset read",
+          "title": "The probability distributions of the first hitting times of Bessel processes",
+          "trigger": "I_0 quotient may be an exact prior formula in a time-changed model"
+        },
+        {
+          "assessment": "Covers drift-free area moments via signature, not the stated joint stopped inference problem",
+          "evidence": "Theorem 3.14 gives the tensor series Phi_D(z) for drift-free disk-exit Brownian motion in terms of coefficients from equations (3.34) and (3.36).",
+          "identifier_or_url": "https://arxiv.org/abs/2311.03279",
+          "material_read": "p. 3 overview and Theorem 3.14 p. 19, offset 48450 onward",
+          "method": "Open-access PDF, locate and bounded offset read",
+          "title": "Boedihardjo–He–Wang expected-signature formula for Brownian motion stopped on a disk",
+          "trigger": "Broader stopped-Brownian path statistics may include stochastic area"
+        },
+        {
+          "assessment": "Expected-signature convergence, not a joint occupation transform",
+          "evidence": "Theorem 10 proves finite radius for the series expansion of Phi(0); Remark 11 discusses uniqueness from the signature moments.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.13034",
+          "material_read": "Theorem 10 and Remark 11, p. 15, offset 43360 onward",
+          "method": "Lawful arXiv copy located as alternate to publisher; bounded offset read",
+          "title": "The expected signature of Brownian motion stopped on the boundary of a circle has finite radius of convergence",
+          "trigger": "Same drift-free stopping domain; possible direct area overlap"
+        },
+        {
+          "assessment": "Different radial dependence, observable and limiting scheme",
+          "evidence": "The point-vortex polar drift has radially varying strength; the main results concern asymptotic winding about the origin, outside a disk or in an annulus, not rigid-rotation area stopped at first disk exit.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.13364",
+          "material_read": "Introduction pp. 1–2, especially offsets 6137–8987 and equations (1.4)–(1.6)",
+          "method": "Lawful arXiv copy after publisher access failed; bounded offset read",
+          "title": "Winding of a Brownian particle around a point vortex",
+          "trigger": "Closest tangential-drift and disk/annular comparison cited in original"
+        },
+        {
+          "assessment": "Deterministic-time observation, not disk-exit observation",
+          "evidence": "Its area integral is over a deterministic time horizon and the law studied is its long-time large deviation behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.06245",
+          "material_read": "v3, p. 1 abstract and equation (1)",
+          "method": "Open-access PDF, bounded passage",
+          "title": "Large deviations of the stochastic area for linear diffusions",
+          "trigger": "Linear-diffusion stochastic-area transform might cover rotation"
+        },
+        {
+          "assessment": "Different observation and stopping models",
+          "evidence": "Uses stationary covariances under resetting to recover drift and bath diffusivities.",
+          "identifier_or_url": "0ac3d73ad09e",
+          "material_read": "Finding, local mirror offset 396",
+          "method": "Published record via local mirror",
+          "title": "Two-rate covariance tomography and exact rotational blindness in reset diffusions",
+          "trigger": "Same-day inference and rotational identifiability result"
+        },
+        {
+          "assessment": "Different stationary invariant",
+          "evidence": "Bounds a stationary mean angular velocity at fixed reset-radius law, not the stopped path's signed area or likelihood.",
+          "identifier_or_url": "ffa5a1f89e59",
+          "material_read": "Finding, local mirror offset 382",
+          "method": "Published record via local mirror",
+          "title": "A sharp radial-law envelope for hidden circulation in a reset Brownian system",
+          "trigger": "Same-day radial statistic and circulation inference"
+        },
+        {
+          "assessment": "Different dynamics and output",
+          "evidence": "Evaluates a weak-propulsion correction to mean exit time, not signed stochastic area or parameter inference.",
+          "identifier_or_url": "b7fecaf47750",
+          "material_read": "Finding, local mirror offset 157",
+          "method": "Published record via local mirror",
+          "title": "Completely monotone weak-activity escape susceptibility for an active Brownian particle",
+          "trigger": "Related first disk-exit problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17 and 45–79",
+        "Exact prior Bessel hitting law and fixed-time area comparison above"
+      ],
+      "rationale": "For the natural sampling rule of following one rotating diffusive trajectory until it leaves the field of view, increasing the radius supplies more expected information but leaves this simple area-only estimate with order-one fluctuations. The exact risk identifies their cause as random exposure, and recording just one additional integral retains the full likelihood and permits a consistent estimate. This distinction is not contained in a Bessel passage law or a fixed-time stochastic-area law alone.",
+      "residual_risks": [
+        "No optimality statement for all area-only estimators, finite-sample efficiency for the ratio, or discrete-observation performance is supported or needed for this result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

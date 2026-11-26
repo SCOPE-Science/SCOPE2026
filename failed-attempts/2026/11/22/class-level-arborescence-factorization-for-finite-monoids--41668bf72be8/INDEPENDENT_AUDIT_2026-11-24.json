@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:04:40.190778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63; VERIFICATION.md; check.py (inspected, not executed)",
+        "Independent direct block-cofactor derivation in this assessment"
+      ],
+      "rationale": "The finite-monoid top Green class is exactly the units; an arc stays in its class or increases it, so no nonunit is a possible root. Independently, the outgoing weighted Laplacian with the unit root deleted is block upper triangular in a linear extension of the classes. Each non-top diagonal block of size w is (wt+Q)I−t11^T and has determinant Q(wt+Q)^(w−1); the top principal minor gives u^(u−2)t_U^(u−1) for u≥2 and is the empty determinant 1 for u=1. These are polynomial identities, hence cover zero specializations as well. The graph-tree cofactor gives the toward-root enumerator. Evaluating at ones yields the count, and setting t=1 and dividing by that evaluation gives independent class-level exit vectors with precisely the optional and compulsory categorical factors asserted. The formula does not require independence of individual parents.",
+      "residual_risks": [
+        "The uploaded weighted numeric and small-monoid tests are illustrations rather than the universal proof; none is used as a premise here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general SCC theorem works with separate variables for all original arcs and contracts the external predecessors to one auxiliary root per noninitial component; the forest roots are selected inside the component.",
+          "Degree-weighted Cayley counts all labelled trees with monomial product of the vertex variables to their degrees; Avron–Dershowitz give the corresponding complete-graph forest count."
+        ],
+        "reasoning": "Combine all aux-root arc weights at a vertex: their sum is Q, the same at every vertex of the class. Reversing back, for a complete graph directed toward root r with weight x_parent on each arc, the monomial is x_r times the product of each x_i to degree_i−1. Thus the prior Cayley identity gives x_r(sum x_i)^(N−2). Put N=w+1, x_r=Q and x_i=t inside the class to give precisely Q(wt+Q)^(w−1), with the known Cayley unit-class factor as well.",
+        "searches": [
+          "Primary search: arborescence spanning trees of directed poset blowups transitive digraph complete multipartite strongly connected components rooted labelled forests formula",
+          "Primary search: multivariate Cayley formula Prüfer degree weighted complete graph tree enumerator",
+          "arXiv:1507.07727 Theorem 4.1; Haiman, matrixtree.pdf, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13455v1 and arXiv:1507.07727",
+        "Haiman's degree-weighted Cayley statement and Avron–Dershowitz's rooted-forest identity",
+        "Resultary 41668bf72be8 (identical), d9a4486575de and 638903b661f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-weighted Cayley specialization in the preceding check gives each full multivariate factor before any numerical evaluation.",
+          "The law follows by substituting t=1, dividing each factor by its evaluation at z=1, and reading the product of linear probability generating functions."
+        ],
+        "reasoning": "The existing statements imply the weighted polynomial and therefore its count, exit-vector independence and shifted-binomial law. A new monoid-specific theorem or nonroutine probability argument is not required.",
+        "searches": [
+          "Read Theorems 3.5 and 4.1 and the complete-graph weighted Cayley statement together",
+          "Compare the resulting product to frozen RESULT.md, lines 17–33 and 57–63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mihalák–Uznański–Yordanov, Theorem 4.1 and accompanying SCC forest description, arXiv:1507.07727, PDF p. 6; transposition discussion p. 17.",
+          "Yang–Shao–Zeng, Theorem 3.5 and Proposition 3.6(i), arXiv:2611.13455v1, §3."
+        ],
+        "reasoning": "After transposition the known blow-up has the Green classes as SCCs and the unit class as the unique initial SCC. The edge-variable forest product therefore applies exactly. Fixing the chosen root in the initial component restricts the bijection without changing any other factors; alternatively the all-roots polynomial is u times the specified-root polynomial by class symmetry.",
+        "searches": [
+          "Resultary: Green-class weighted arborescence, Kirchhoff and rooted forest",
+          "Primary search: finite monoid semigroup divisibility digraph arborescence Green J classes rooted spanning tree weighted poset blow-up Kirchhoff polynomial enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 41668bf72be8 is the identical assigned record and not prior corroboration. Distinct d9a4486575de gives complete-graph forest root profiles and Fourier spectra; 638903b661f4 treats Walsh spectra of complete rooted arborescences."
+        ],
+        "reasoning": "No distinct exact finite-monoid table or closed formula was identified in these comparisons. The rejection rests on stronger published identities and their exact specialization, not on same-day ordering or the identical record.",
+        "searches": [
+          "Resultary exact claim/title; complete graph root-set activity and complete rooted arborescence spectra",
+          "Primary semigroup and weighted poset blow-up search"
+        ]
+      },
+      "rationale": "The exact wording is not independently indexed in the distinct inspected papers, but the record's whole scientific claim is a direct corollary of stronger prior results: the known Green-poset blow-up, the edge-variable SCC factorization of the Kirchhoff polynomial, and the classical degree-weighted Cayley identity. The reduction produces the complete class-variable polynomial, not just a graph-structure analogy or the unweighted count. Its normalization supplies the entire stochastic claim without a further lemma.",
+      "residual_risks": [
+        "This is a judgment of mathematical coverage by a direct corollary, not an assertion that the exact semigroup wording appeared earlier or a historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact graph input, not explicitly the counting claim alone",
+          "evidence": "Distinct fibre vertices have an arc iff their quotient classes satisfy x≤y; SCCs are precisely the Green J-classes.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13455v1",
+          "material_read": "§3, Theorem 3.5, Proposition 3.6(i), HTML offset 13100; also PDF §3",
+          "method": "OA original text, targeted passage",
+          "title": "Divisibility graphs of semigroups as weighted poset blow-ups",
+          "trigger": "Identical divisibility orientation and Green classes"
+        },
+        {
+          "assessment": "Directly applicable general factorization after arc reversal",
+          "evidence": "Choose an arborescence in the initial SCC and a nonempty set of external-entry forest roots plus an internal forest in each noninitial SCC; the polynomial is the product of the SCC factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07727",
+          "material_read": "Definition p. 1, §4 Theorem 4.1 and forest explanation p. 6, transposition discussion p. 17",
+          "method": "OA primary PDF passages, including offset 23000",
+          "title": "Prime Factorization of the Kirchhoff Polynomial: Compact Enumeration of Arborescences",
+          "trigger": "Stronger edge-variable arborescence factorization"
+        },
+        {
+          "assessment": "Classical weighted evaluation applies exactly",
+          "evidence": "The degree-monomial enumerator for N labels is product(x_i) times (sum x_i)^(N−2). Assign all internal class vertices weight t and the auxiliary root weight Q, then convert degree weights to parent weights.",
+          "identifier_or_url": "https://math.berkeley.edu/~mhaiman/math172-spring10/matrixtree.pdf",
+          "material_read": "§1, p. 1, Theorem 1",
+          "method": "OA text of theorem statement",
+          "title": "The matrix-tree theorem and Cayley's tree enumerator",
+          "trigger": "Exact factor evaluation after collapsing external choices"
+        },
+        {
+          "assessment": "Equivalent classical local count, not a competing semigroup record",
+          "evidence": "The number for any specified k roots of a complete w-vertex graph is k w^(w−k−1); inserting the class-pair exit weights gives the same factor.",
+          "identifier_or_url": "https://www.cs.tau.ac.il/~nachumd/papers/Cayley.pdf",
+          "material_read": "p. 1, rooted forest recurrence and count",
+          "method": "OA PDF passage at offset 0",
+          "title": "Cayley's Formula: A Page from the Book",
+          "trigger": "Alternative direct evaluation of the SCC forest factor"
+        },
+        {
+          "assessment": "Distinct record; overlaps only in the local forest input",
+          "evidence": "Studies root-set activities and Fourier spectra on a single complete graph, not Green-class exits.",
+          "identifier_or_url": "2026/11/22/SCOPE-rooted-forest-root-profiles-on-complete-graphs-exact-fourier-res--d9a4486575de",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Rooted-forest root profiles on complete graphs",
+          "trigger": "Near match on complete-graph forest enumeration and root profiles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, factorization, application examples and limitations",
+        "Published SCC factorization and classical weighted complete-graph formula, compared above"
+      ],
+      "rationale": "The compact expression is convenient as an illustration of the known divisibility-graph structure, but figuring out its factors is a routine rank-one determinant or weighted Cayley specialization. The independent exit laws are formal consequences of the linear factors; the examples introduce no substantive downstream implication or new obstruction beyond the direct specialization.",
+      "residual_risks": [
+        "A demonstration may have expository use without constituting a separate scientific finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

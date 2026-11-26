@@ -1,69 +1,45 @@
-# Complete mappings of Brandt semigroups over the two-element group
+# Exactly 32 complete mappings of the nine-element Brandt semigroup over \(C_2\)
 
 ## Finding
-For each integer \(n\ge1\), let \(I\) have \(n\) elements and let \(B_n(C_2)\) be the Brandt semigroup over \(C_2=\mathbb Z/2\mathbb Z\), with zero. A *complete mapping* is a bijection \(\alpha:B_n(C_2)\to B_n(C_2)\) for which \(x\mapsto x\alpha(x)\) is also a bijection.
 
-If \(n=2t\) is even, identify \(I=C_2\times\mathbb Z/t\mathbb Z\). For \(a,b,g\in C_2\) and \(u,v\in\mathbb Z/t\mathbb Z\), the formula
-\[
-\alpha(0)=0,\qquad
-\alpha\bigl(((a,u),g,(b,v))\bigr)
-=\bigl((b,v),a+b+g,(g,u+v)\bigr)
-\]
-is a complete mapping. If \(n\) is odd there is no complete mapping.
-
-Moreover, **the nine-element semigroup \(B_2(C_2)\) has exactly 32 complete mappings**. The parity-based existence criterion is also a consequence of the published inverse-semigroup theorem; the explicit uniform formula and the exact nine-element count are the asserted contributions.
+The nine-element Brandt semigroup \(B_2(C_2)\) has exactly **32 complete mappings** as permutations of its labeled elements. A complete mapping is a bijection \(\alpha\) for which \(\theta(x)=x\alpha(x)\) is also a bijection. The count includes the zero element, which every complete mapping fixes; it is not a count up to automorphisms.
 
 ## Assumptions and scope
-Write \(S=B_n(C_2)=(I\times C_2\times I)\cup\{0\}\). The zero element annihilates every element. The remaining products are
-\[
-(i,g,j)(k,h,\ell)=
-\begin{cases}
-(i,g+h,\ell)&\text{if }j=k,\\
-0&\text{if }j\ne k.
-\end{cases}
-\]
-All additions in the middle coordinate are modulo two. The index-set identification for even \(n\) uses addition modulo \(t\) in its second component; it also works when \(t=1\). All mappings counted are permutations of the full labeled set \(S\), with the zero element included. The claim makes no enumeration assertion for larger even \(n\).
 
-## Proof
-**Normal form.** Let \(\alpha\) be a complete mapping, and put \(\theta(x)=x\alpha(x)\). Since \(\theta(0)=0\) and \(\theta\) is injective, every nonzero input has a nonzero product. Therefore there are unique \(h,k\) with
+For an index set \(I\) of size \(n\), the elements of \(B_n(C_2)\) are a zero and the triples \((i,g,j)\) with \(i,j\in I\), \(g\in C_2\). A product involving zero is zero; otherwise
 \[
-\alpha(i,g,j)=(j,h,k).
+(i,g,j)(k,h,\ell)=\begin{cases}(i,g+h,\ell)&j=k,\\0&j\ne k.\end{cases}
 \]
-Because \(\alpha\) is bijective, it fixes zero. For each fixed \(j\), its restriction is a permutation
+Group-coordinate sums are in \(C_2\). The enumeration concerns only \(n=2\).
+
+## Proof of the count
+
+Since \(\theta(0)=0\), its injectivity forces every nonzero input to have a nonzero product. Thus \(\alpha(i,g,j)=(j,h,k)\) for some \(h,k\), and \(\alpha(0)=0\) by bijectivity. For each fixed \(j\), the map \((i,g)\mapsto(h,k)\) is a permutation of the four local pairs. For each fixed \(i\), the map \((g,j)\mapsto(g+h,k)\) has the same permutation property. These two conditions are also sufficient.
+
+Identify \(I=C_2\). Fix \(i,j\). The two choices of \(g\) must lead to different right indices \(k\): otherwise injectivity of \(\alpha\) makes their \(h\) bits distinct, which makes their \(g+h\) bits equal and violates injectivity of \(\theta\). There is consequently a bit \(s_{ij}\) with \(k=g+s_{ij}\). Fix \(j,k\). Each \(i\) has a unique input bit reaching \(k\), and the two corresponding \(h\)'s must differ. Thus \(h=i+f_{jk}\) for some bit \(f_{jk}\). Conversely these formulas always give a bijection \(\alpha\) fixing zero.
+
+At fixed \(i,k\), the two product bits, one from each \(j\), must differ. They are \(k+s_{ij}+i+f_{jk}\), so the remaining conditions are
 \[
-F_j:I\times C_2\longrightarrow C_2\times I,
-\quad (i,g)\longmapsto(h,k).
+s_{i0}+s_{i1}+f_{0k}+f_{1k}=1\qquad(i,k\in C_2).
 \]
-Because \(\theta(i,g,j)=(i,g+h,k)\) is bijective, for each fixed \(i\) the map \((g,j)\mapsto(g+h,k)\) is a permutation of \(C_2\times I\).
+They hold exactly when there is a common bit \(d\) with \(s_{i1}=s_{i0}+d\) for both \(i\), and \(f_{1k}=f_{0k}+1+d\) for both \(k\). The five bits \(s_{00},s_{10},f_{00},f_{01},d\) are free, and each resulting permutation determines them uniquely. This gives \(2^5=32\).
 
-**Parity necessity.** Sum the group coordinates modulo two. Across all \(j\), each \(F_j\) has exactly \(n\) outputs with \(h=1\), so \(\sum h\equiv n^2\pmod2\). Across all \(i\), the same argument for \(\theta\) gives \(\sum(g+h)\equiv n^2\pmod2\). There are exactly \(n^2\) original inputs with \(g=1\), giving \(\sum g\equiv n^2\pmod2\). Consequently \(n^2\equiv n^2+n^2\equiv0\pmod2\), and \(n\) is even.
+## Known existence criterion and an explicit specialization
 
-**Explicit sufficiency.** Suppose \(n=2t\), with \(I=C_2\times\mathbb Z/t\mathbb Z\). For fixed \(j=(b,v)\), the nonzero part of \(\alpha\) sends the source pair \(((a,u),g)\) to \((a+b+g,(g,u+v))\). This is a bijection: from the output one recovers \(g\), then \(u\), then \(a\). Hence \(\alpha\) is bijective. Its associated product is
+The all-index existence criterion, \(B_n(C_2)\) has a complete mapping if and only if \(n\) is even, follows from Theorem 10.1 of Araújo et al. [1]. Indeed, the nonzero \(\mathcal J\)-class has \(n\) \(\mathcal L\)-classes and maximal subgroup \(C_2\), which has no complete mapping. The case of even \(n\) is constructive already in Theorem 7.5 and Corollary 7.6 of [1].
+
+For clarity, one direct specialization is as follows. Write \(n=2t\), \(I=C_2\times\mathbb Z/t\mathbb Z\), \(i=(a,u)\), \(j=(b,v)\). The routing in Theorem 7.5 sends \((i,j)\) to \((j,(a+b+1,u+v))\). This is a bijection, and keeping \(i\) instead of \(j\) in the first coordinate also gives a bijection, so the routing is admissible for the identity sandwich. Choose the involution that flips the bit in the right index and omitted row \(a+b\) in the local group table. The routing pairs \((i,(b,v))\) with \((i,(b+1,v))\), whose omitted-row bits differ as required. As the local group is \(C_2\), the nonomitted input uses output bit 1 and right index \((a+b+1,u+v)\), while the omitted input uses output bit 0 and right index \((a+b,u+v)\). The resulting specialization is
 \[
-\theta\bigl(((a,u),g,(b,v))\bigr)=
-\bigl((a,u),a+b,(g,u+v)\bigr).
+\alpha(0)=0,\qquad \alpha((a,u),g,(b,v))=((b,v),a+b+g,(g,u+v)).
 \]
-For each fixed \(i=(a,u)\), one recovers \(b\) from the output middle coordinate, \(g\) from the first component of the right index, and \(v\) from its second component. Therefore \(\theta\) is bijective as well. Both maps fix zero.
-
-**Exact count at \(n=2\).** Take \(I=\{0,1\}\). For either fixed \(j\), a permissible \(F_j:(i,g)\mapsto(h,k)\) must have distinct output indices \(k\) on the two inputs \((i,0)\) and \((i,1)\). Indeed, if those indices coincided, injectivity of \(F_j\) would force the two output \(h\)-bits to differ, making the two \(\theta\)-images equal. There are precisely \(2^2\) choices of the bijections \(g\mapsto k\), one for each \(i\). Once these are chosen, for each \(k\) the two values of \(h\) across \(i=0,1\) must be distinct; this gives \(2^2\) further choices. Thus there are exactly \(16\) possible first blocks \(F_0\).
-
-Fix one such \(F_0\). At fixed \((i,k)\), denote by \(g_0(i,k)\) the unique input bit reaching \(k\), and by \(h_0(i,k)\) the corresponding output bit. The second block must use a bijection \(k\mapsto g_1(i,k)\) for each \(i\), giving a bit \(e_i\in C_2\) with \(g_1(i,k)=g_0(i,k)+e_i\). The two \(\theta\)-output bits at this \((i,k)\) must be complementary, forcing
-\[
-h_1(i,k)=1+h_0(i,k)+e_i.
-\]
-For each fixed \(k\), the two \(h_0(i,k)\) values are distinct. The two \(h_1(i,k)\) values are distinct exactly when \(e_0=e_1\). There are therefore two possible second blocks for each first block, all satisfying both bijections. The total is \(16\cdot2=32\).
+The sums \(u+v\) are modulo \(t\). From the nonzero output of \(\alpha\) one recovers \(j,g,u,a\) in that order. Its associated product is \(((a,u),a+b,(g,u+v))\), from which one recovers \(i,b,g,v\) in that order. This verifies the specialization, including \(t=1\); it is not asserted as a new construction.
 
 ## Verification
-The accompanying standalone Python 3 file `verify.py` uses two independent finite enumerations. One enumerates the \(24^2\) pairs of local permutations, pruning impossible first blocks, and obtains \(16\) possible first blocks, each with \(2\) followers. The second exhaustively checks all \(8!\) permutations of the eight nonzero elements, obtaining exactly \(32\). It also constructs and verifies the displayed mapping for \(n=2,4,6,8,10\). The mathematical proof above is valid for all even indices and does not depend on these finite tests.
 
-To reproduce, run `python3 verify.py` from the directory containing this report and `verify.py`.
+Running `python3 verify.py` from the source package enumerates admissible local blocks and, separately, the \(8!\) permutations of the nonzero elements. The count is 32, with 16 first blocks and two followers for each. The same script checks the explicit specialization at \(n=2,4,6,8,10\). The finite checks corroborate the five-bit classification and do not establish a general counting formula.
 
-## Relationship to prior work
-Araújo, Bentz, Cameron, Hendrey and Kinyon, *Complete Mappings of Semigroups*, arXiv:2608.25092 (2026), establish the general existence criterion for finite inverse semigroups (Theorem 10.1); specialized to \(B_n(C_2)\), that criterion already gives existence exactly for even \(n\). Their Proposition 6.5 counts complete mappings of the *combinatorial* Brandt semigroup \(B_n\), whose maximal subgroup is trivial, via Latin squares. In particular they report \(2\) for the five-element \(B_2\); this does not count the nine-element \(B_2(C_2)\). The present explicit coordinate formula for every even \(n\) and the count \(32\) for the first admissible Brandt example over \(C_2\) are separate from those conclusions. Kinyon's June 2025 lecture slides provide earlier public background for the existence problem and the five-element example.
+## Relationship to prior work and limitations
 
-## Limitations
-The total count is determined only for the first admissible index over the two-element group, not all even indices. Other explicit constructions might be equivalent under relabeling; classification modulo automorphisms is not claimed. The earlier existence criterion must not be considered novel. The numerical count is independently reproduced by finite exhaustive enumeration; the general parity and construction assertions have proofs above. Possible earlier equivalent constructions or counts in unindexed semigroup-transversal literature remain a residual originality risk.
+Proposition 6.5 of [1] counts complete mappings of the **combinatorial** Brandt semigroup by Latin squares. Its value 2 at \(n=2\) concerns the five-element semigroup with trivial maximal subgroup, not the nine-element semigroup over \(C_2\). The even-index construction in Theorem 7.5 provides witnesses, not an enumeration of the nine-element semigroup. For example, the five-bit classification above includes maps with \(h=i+j\) independently of \(g\); by contrast, the direct construction on the even column side in Theorem 7.5 uses both values of \(h\) at every \((i,j)\). The count 32 is the sole contribution claimed here. It addresses the first admissible Brandt index over the smallest nontrivial maximal subgroup, at the boundary where the group itself has no complete mapping. No count for larger indices or claim of absolute bibliographic priority is made.
 
-## References
-1. J. Araújo, W. Bentz, P. J. Cameron, K. Hendrey, M. Kinyon, *Complete Mappings of Semigroups*, arXiv:2608.25092v1, 25 August 2026. https://arxiv.org/abs/2608.25092 (especially Proposition 6.5, Corollary 7.6, Theorem 10.1).
-2. M. Kinyon, *Complete Mappings for Semigroups*, public lecture slides, AGTA, University of Naples Federico II, 24 June 2025. https://www.advgrouptheory.com/agta2025/Talks/Kinyon.pdf.
+[1] J. Araújo, W. Bentz, P. J. Cameron, K. Hendrey, M. Kinyon, *Complete Mappings of Semigroups*, arXiv:2608.25092v1. https://arxiv.org/abs/2608.25092

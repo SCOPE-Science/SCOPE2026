@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:22.191812Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d≥2 equality of partial maps forces every point in the domain to remain there after the first application; finiteness makes image and domain equal. For d=1 this follows directly from the equation. On a selected domain, nonadjacency including equality recovers its selected parts. Thus its automorphism group permutes blocks within each selected size and independently permutes their points. For an outer cycle of length ℓ, the necessary ℓ|d condition and the internal product equation h^(d/ℓ)=1 follow by iterating along the cycle; the products at other starts are conjugate. Choose all but one internal bijection and then solve for the last, giving exactly the frozen W recurrence. Likewise the T recurrence counts the cycle containing a designated point. The extension criterion is preservation of original part size on occupied parts. To verify sufficiency and the power equation simultaneously, label the unselected complement within each occupied original part by a common label set for its (selected size, original size) stratum. Extend by the unique matching of equal labels between complements, and fix unoccupied parts pointwise. This gives a group section for a fixed domain and preserves the order. Each domain profile now contributes its stated product, with one binomial choice factor per original part. Empty domain contributes 1; d=1 gives all partial identities. At rank two for d=2 only the transposition of vertices from unequal original part sizes fails to extend, giving the displayed sum and equivalence. The supplied checker was read; it constructs a set of restricted maps and compares its rank counts, rather than comparing that set elementwise with the formula. It was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jajcay et al. §3 p. 8 identifies the maximal group on a domain with its induced automorphism group.",
+          "Gardiner pp. 1, 2, 5 gives homogeneity, complement invariance, and the equal-sized clique union case; the equal-part boundary is therefore old as an extension boundary.",
+          "Chih–Plessas pp. 1–2 and Theorem 3.3 concern structural graph-semigroup and reconstruction questions. The RIMS survey could be confirmed bibliographically only."
+        ],
+        "reasoning": "These precedents supply or contextualize the structural ingredients, not a direct all-rank d-torsion table. In particular, being in the image of a wreath power map is not the same question as its identity-fiber cardinality.",
+        "searches": [
+          "Jajcay et al. arXiv:1809.04422",
+          "Chih–Plessas arXiv:1506.02093",
+          "Gardiner DOI 10.1017/S144678870001867X",
+          "RIMS 2229 contents p. 88",
+          "Powers in wreath products of finite groups DOI 10.1515/jgth-2021-0057"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–81; VERIFICATION.md; checker.py",
+        "Local Resultary searches and bounded indexed passages above, plus Findings of cd9dfc7a9f4c and c05f86c5223d",
+        "arXiv:1809.04422 and 1506.02093, Gardiner, RIMS 2229, generic wreath-product literature leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equivalence-relation proof explicitly says block pairs match selected sizes, and every matched block may be completed exactly when capacities agree, independently across original sizes. It counts per-block internal bijections and between-block permutations separately.",
+          "For a stabilized domain and each fixed (selected size, capacity), choosing complement labels once makes each extension use the identity label map and unused blocks may be fixed. Hence the capacity-preserving domain group embeds by a section, which preserves all powers.",
+          "A marked outer cycle of length ℓ in H wr S_m has |H|^(ℓ−1) internal assignments per prescribed cycle product. Restricting to ℓ|d and to products of order dividing d/ℓ in H is the ordinary cycle-product enumeration; take H=S_s."
+        ],
+        "reasoning": "There is no additional interaction between the power and extension obstructions in this family: after the same-domain restriction, the known pairs of block strata give both groups, and the section means no extra power filter in the extendible strata. Applying the generic cycle-product count and summing over domain choices gives both displayed polynomials. At rank two the only nonidentity is one transposition, inadmissible precisely across capacities. The implication uses actual structural passages and a direct deduction, not an inaccessible torsion-paper theorem.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-extension-defect-threshold-and-rank-profiles-for-finite-eq--9ed7bdcfaad0, Proof §§1–2",
+          "arXiv:1809.04422 §3 domain H-classes",
+          "Enumerating Representations in Finite Wreath Products, cyclic-group specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multipartite graph is the complement of a union of cliques; vertex equality or nonadjacency defines its equivalence relation. The indexed finite-equivalence-relation result (suffix 9ed7bdcfaad0), Proof §§1–2, gives the selected-block and original-capacity conditions for arbitrary source and target subsets.",
+          "For the power equation a partial map lies in the group of its domain, as in the group H-class description. The wreath-power equation is also a homomorphism from the cyclic group C_d to the wreath product."
+        ],
+        "reasoning": "The graph-to-equivalence-structure transformation preserves the maps, domains, ranks, composition and global extension test. Setting the target subset to the domain in the prior structural description gives exactly the action on equal selected sizes, with equal original size as the additional extension condition.",
+        "searches": [
+          "Resultary: partial automorphisms of finite equivalence relations, rank profiles, and extension defects",
+          "arXiv:1809.04422 §3",
+          "Enumerating Representations in Finite Wreath Products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day indexed 2b5b0d3783a1 counts fixed points/two-cycles on alternating fences, not multipartite graphs.",
+          "Indexed cd9dfc7a9f4c counts unrestricted partial maps in the equal-part case. Indexed 9ed7bdcfaad0 and c05f86c5223d count unrestricted extension and rank defects for equivalence relations and asymmetric bicliques, respectively."
+        ],
+        "reasoning": "There is no claim that an unrestricted count numerically equals a prescribed-power count or that data for fences imply those for multipartite graphs. The exact indexed support here is structural, including the per-profile decomposition, rather than the power-marked table itself. Same-day timing settles no question of priority.",
+        "searches": [
+          "Resultary: cycle-type enumeration of self-inverse partial automorphisms",
+          "Resultary: prescribed power and rank of complete multipartite or equivalence structures",
+          "Resultary: asymmetric biclique extension rank spectra"
+        ]
+      },
+      "rationale": "No exact duplicate power-marked polynomial was established. Nevertheless the fixed-domain specialization of the indexed equivalence-relation enumeration gives exactly the two relevant block-permutation groups. Restriction to d-torsion in each is a standard wreath-cycle count; the apparent extra extension constraint reduces mechanically to the same capacity condition by matching labels in equal-size complements. The rank-two formula is then just the count of unequal-capacity cross pairs, since the power equation removes rank-one domain-changing maps. This is a finding of direct implication/routine refinement, not a claim that the flagged exact formula appears verbatim or that the later indexed record has priority. The unavailable sources are not grounds for failure.",
+      "residual_risks": [
+        "The wreath representation paper and RIMS survey were not substantively inspected in full; no negative inference follows. The direct implication assessment does not depend on these access limits.",
+        "No historical priority or claim about catalogue completeness is made. The distinction is between exact table duplication (not established here) and direct structural implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted direct coverage, fixed-domain structural implication to power refinement; later displayed date, no priority inferred",
+          "evidence": [
+            "Structural description says selected-block intersections have to match in size, and original capacity must also match for extension. Enumeration pairs blocks and then chooses within-block bijections independently."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-extension-defect-threshold-and-rank-profiles-for-finite-eq--9ed7bdcfaad0/RESULT.md",
+          "material_read": "Finding, and Proof §§1–2 at offsets 2910–5098",
+          "method": "Bounded local mirror reading",
+          "title": "Sharp extension-defect threshold and rank profiles for finite equivalence relations",
+          "trigger": "Equivalent graph structure and original-capacity stratification"
+        },
+        {
+          "assessment": "Group of a domain, not the full enumerator",
+          "evidence": [
+            "H-class of a partial identity consists of automorphisms of its induced graph."
+          ],
+          "identifier_or_url": "arXiv:1809.04422",
+          "material_read": "§3 p. 8, offset 31962",
+          "method": "Bounded OA PDF reading",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "Group reduction for partial identities"
+        },
+        {
+          "assessment": "Structural context",
+          "evidence": [
+            "Idempotent and ideal structure and graph reconstruction."
+          ],
+          "identifier_or_url": "arXiv:1506.02093",
+          "material_read": "pp. 1–2 and Theorem 3.3 p. 6",
+          "method": "Bounded OA PDF reading",
+          "title": "Graphs and Their Associated Inverse Semigroups",
+          "trigger": "Graph inverse-semigroup classification"
+        },
+        {
+          "assessment": "Covers unrestricted homogeneous case via complement",
+          "evidence": [
+            "Complement invariance and unions of equal-sized cliques."
+          ],
+          "identifier_or_url": "DOI:10.1017/S144678870001867X",
+          "material_read": "pp. 1–2 and finite classification p. 5",
+          "method": "Bounded OA PDF reading",
+          "title": "Homogeneous graphs and stability",
+          "trigger": "Known equal-part extension boundary"
+        },
+        {
+          "assessment": "Bibliographic verification only",
+          "evidence": [
+            "Start p. 88 in RIMS volume 2229."
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/2229.html",
+          "material_read": "Volume contents entry 11; linked scan not available as readable text",
+          "method": "Official contents and attempted OA text extraction",
+          "title": "On Computational Aspects of Finding Inverse Monoids of Partial Automorphisms",
+          "trigger": "Plausibly relevant computational enumeration survey"
+        },
+        {
+          "assessment": "Highly plausible local overlap; exact theorem not established from accessible evidence",
+          "evidence": [
+            "The accessible description mentions x^m=1 in finite wreath products; unavailable text is not used in the verdict."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0001870898918850",
+          "material_read": "Accessible abstract description, not proof",
+          "method": "Literature discovery and lawful full-text retrieval attempts",
+          "title": "Enumerating Representations in Finite Wreath Products",
+          "trigger": "Hom(C_d,H wr S_m) is the exact generic local count"
+        },
+        {
+          "assessment": "Different graph family and no comparable global d-extension count",
+          "evidence": [
+            "Fixed-point and transposition polynomial for fences, with rank-two count (n−1)²."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-cycle-type-enumeration-of-self-inverse-partial-automorphisms-of--2b5b0d3783a1/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Cycle-type enumeration of self-inverse partial automorphisms of alternating fences",
+          "trigger": "Same-day power-constrained rank enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Prescribed powers and extension are well-motivated invariants, but here the prescribed-power constraint is just the usual wreath cycle filter on the already determined block groups and adds no obstruction to extension. The numerical defect is a direct cross-pair count once the capacities are known. The record does not establish a distinct nonroutine invariant or extension phenomenon beyond those consequences.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:04:58.386503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4; VERIFICATION.md, VERIFIER_OUTPUT.txt, verify.py and requirements.txt inspected, not executed"
+      ],
+      "rationale": "The conditional-mean decoder is the L² projection onto the span of 1 and the fair sign, so the risk is the half-normal variance minus the squared mixed moment. To check that moment, write a=√s, b=√(1−s), and U=1−Φ. The reflection principle gives the surviving density at x≤m up to time s as p_s(x)−p_s(2m−x); survival after s contributes 1−2U((m−x)/b). Integrating the signed exceedance probability over m≥0 and changing variables d=m−x in the x≤m part gives a/√(2π)+4∫₀^∞[U(d/a)−U(2d/a)]U(d/b) dd. In this calculation the x>m contribution is a/√(2π), and the integrated signed reflection term with future survival replaced by 1 is zero. The integral of U(d/A)U(d/B) equals (A+B−√(A²+B²))/(2√(2π)); it is the expectation of the minimum of the positive parts of two independent scaled standard normals, computed in polar coordinates. This recovers the stated mixed moment, with b=0 covered directly or by continuity. The radical numerator is positive for s>0 and its derivative has the sign of 16−21s; the limit at zero is zero, so the minimizer is uniquely interior. Substitution, an independent high-precision arithmetic check, and Brownian scaling agree with the reported risks and percentages.",
+      "residual_risks": [
+        "The theorem does not optimize an adjustable threshold, a different encoder, adaptive observation, or noisy measurements. The supplied finite checks are supplementary; the analytic replay is given above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riedel gives maximum/terminal-value/argmax laws and studies conditional path moments given extrema. The cyclic-bridge law uses a pinned endpoint and an untransformed position. Aksenov et al. optimize full-valued noisy observations of the state."
+        ],
+        "reasoning": "Changing the process, conditioning information or loss target is not a specialization. Reflection/joint-density formulas provide ingredients, not the integrated interior-sign regression.",
+        "searches": [
+          "arXiv:1911.05272, §2",
+          "arXiv:1902.06126, §III",
+          "Resultary: cyclic-bridge maximum–position duality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package and local exact-match comparison",
+        "Resultary terminal and cyclic-bridge maximum identities",
+        "arXiv:1705.06567",
+        "arXiv:1901.04884",
+        "arXiv:1911.05272",
+        "arXiv:1902.06126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The endpoint odd-transform identity gives E[M sign(W_1)]=1/√(2π). Neither it nor the cited terminal joint distributions evaluates E[M sign(W_s)] for the same maximum at s<1."
+        ],
+        "reasoning": "Applying the endpoint identity to the prefix estimates its maximum M_s, not M_1. The future excess over the prefix maximum must also be integrated. The derivative test is elementary only after this additional calculation.",
+        "searches": [
+          "Resultary: Reversal and sign symmetry force a half-variance maximum–endpoint law, RESULT.md opening theorem",
+          "arXiv:1911.05272, eqs. (2.1)–(2.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Local semantic search identified the frozen finding itself and the distinct maximum–endpoint and cyclic-bridge laws. The external lookup furnished no relevant evidence."
+        ],
+        "reasoning": "For a fair binary observation the full Bayes-risk curve is equivalent here to the positive mixed moment, not to a linear covariance with W_s. The exact self-match is not an independent antecedent.",
+        "searches": [
+          "Resultary: Brownian maximum from one sign bit, intermediate-time mixed moment and 16/21 timing",
+          "Primary-literature search: Brownian maximum conditional expectation, intermediate sign and optimal one bit 16/21"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit was the frozen finding, not a separate table. The two numerical Brownian-maximum papers treat barrier-event bias or adaptive value-query complexity rather than an exact sign-only risk table."
+        ],
+        "reasoning": "The claim is a continuum optimization; a single coincident time or a table for another observation model would not resolve it. No covering exact table was identified in the bounded checks.",
+        "searches": [
+          "Resultary: 16/21 horizon and exact Brownian sign-sensor Bayes risk",
+          "arXiv:1705.06567, Theorem 1; arXiv:1901.04884, Theorem 1"
+        ]
+      },
+      "rationale": "The substantive step is the exact interior-time mixed moment for the free Brownian maximum and the sign at the observation time. The endpoint case is covered. No distinct source inspected supplies the interior curve or a theorem from which it and the optimum follow by substitution; known joint-law ingredients still require a signed integration over both parts of the path.",
+      "residual_risks": [
+        "The searches were bounded, and the external exact-topic lookup did not yield useful evidence. Historical priority is not certified; another treatment of quantized Brownian extrema could contain the mixed moment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "The odd function is evaluated at the terminal sum; gives exactly the terminal sign baseline."
+          ],
+          "identifier_or_url": "Resultary, finding 5e8da51794ea",
+          "material_read": "Opening theorem and hypotheses of RESULT.md",
+          "method": "Local mirror passage read",
+          "title": "Reversal and sign symmetry force a half-variance maximum–endpoint law",
+          "trigger": "Direct stronger odd-transform covariance identity"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS_AND_OBSERVABLE",
+          "evidence": [
+            "Zero-sum bridge premise and covariance with position, not sign."
+          ],
+          "identifier_or_url": "Resultary, finding 43b9344c4101",
+          "material_read": "Opening theorem and hypotheses of RESULT.md",
+          "method": "Local mirror passage read",
+          "title": "Cyclic-bridge maximum–position duality without sign symmetry",
+          "trigger": "Interior observation of a Brownian extremum"
+        },
+        {
+          "assessment": "INGREDIENTS_ONLY_IN_PASSAGES",
+          "evidence": [
+            "Joint terminal-value/extremum/argmax distributions, not the nonterminal-sign projection."
+          ],
+          "identifier_or_url": "arXiv:1911.05272",
+          "material_read": "p. 2, eqs. (2.1)–(2.6)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Mean and variance of Brownian motion with given final value, maximum and argmax",
+          "trigger": "Potentially dominating joint law for interior sign and extremum"
+        },
+        {
+          "assessment": "DIFFERENT_ESTIMAND_AND_SENSOR",
+          "evidence": [
+            "The optimization in Proposition 1 is state-estimation variance with full-valued noisy observations."
+          ],
+          "identifier_or_url": "arXiv:1902.06126",
+          "material_read": "§III, pp. 3–4, including Proposition 1",
+          "method": "Bounded OA primary-text reading",
+          "title": "Optimal measurement times for a small number of measures of a Brownian motion over a finite period",
+          "trigger": "Directly overlapping measurement-time terminology"
+        },
+        {
+          "assessment": "DIFFERENT_LOSS",
+          "evidence": [
+            "The target is level-crossing probability and the error is grid-discretization bias."
+          ],
+          "identifier_or_url": "arXiv:1705.06567",
+          "material_read": "p. 6, Theorem 1",
+          "method": "Bounded OA primary-text reading",
+          "title": "Controlling the time discretization bias for the supremum of Brownian motion",
+          "trigger": "Sparse sampling for the Brownian supremum"
+        },
+        {
+          "assessment": "DIFFERENT_INFORMATION_AND_OBJECTIVE",
+          "evidence": [
+            "Adaptive real-valued function queries and a PAC sample-complexity conclusion."
+          ],
+          "identifier_or_url": "arXiv:1901.04884",
+          "material_read": "p. 3, Theorem 1",
+          "method": "Bounded OA primary-text reading",
+          "title": "Optimistic optimization of a Brownian",
+          "trigger": "Observation design for estimation of a Brownian maximum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, and proof §§1–4",
+        "Aksenov et al., arXiv:1902.06126 §III, for comparison with a different sensor design"
+      ],
+      "rationale": "With a fixed information budget of one zero-threshold bit, choosing a time before observing a path is a natural design problem. The exact decoder, strict interior optimum and about 8.82% advantage over terminal sensing solve that design problem and give a benchmark for richer sensors. This conclusion depends on the nonterminal mixed moment, not just the known terminal normalization.",
+      "residual_risks": [
+        "The benchmark does not measure performance against arbitrary one-bit encoders or threshold choices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

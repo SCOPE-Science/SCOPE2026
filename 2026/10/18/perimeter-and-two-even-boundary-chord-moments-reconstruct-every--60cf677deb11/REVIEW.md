@@ -1,19 +1,21 @@
-# Scientific review: triangle reconstruction from boundary distance moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim assumes a genuine triangle, known perimeter and two independent arclength-uniform boundary points. The exact conditional same-side and adjacent-side integrals give both moment identities, including the fourth moment. The nondegenerate Heron invariant \(h>0\) permits inversion; Vieta's formulas reconstruct the normalized three side lengths uniquely. The sharp global ratio bounds are supported by a positive polynomial/monotonicity certificate, including the limiting unattained upper constant. Lagrange multipliers and connectedness of a fixed-product level set give the complete fixed-perimeter-and-area fourth-moment envelope. The attached reproducibility code checks the conditional integrals, symbolic identities, inverse, and direct Monte Carlo examples; the continuum claims rely on written arguments, not empirical extrapolation.
+PASS
 
-## Originality — PASS, subject to stated bibliographic risk
+For independent arclength endpoints, the side pair has ordered weight ab/L^2 and the two uniform edge parameters give squared distance a^2u^2+b^2v^2-(a^2+b^2-c^2)uv on different sides. An independent integer coefficient expansion integrated these polynomials termwise, then specialized L=1 with normalized sides (1-x)/2,(1-y)/2,(x+y)/2. Both claimed moment identities had identically zero residual after clearing denominators (replay: node /workspace/checks/geometry-and-word-reproduction.js). Heron gives h=xyz>0 for x+y+z=1, and (4p-1-h)/8 is the normalized product of the three sides, so the reconstruction by Vieta is unique up to relabeling and congruence, including repeated roots. For the ratio minimum, AM–GM gives p>=(1+3h^(2/3))/4. The resulting lower bound for the numerator of Q-8/5 reduces to f(u)=1-28u^3/27+5u^5/81-2u^6/81 for u=3h^(1/3), strictly decreasing to zero at u=1, the equilateral point. For the upper bound, 27+27h-20p>0 since p<=1/3; the limiting value 12/5 follows as h tends to zero. At fixed h, M4 grows with p. The product level is the connected boundary of the compact convex superlevel set of log(xyz) in the simplex. At every extremum of the pairwise sum, the Lagrange equation makes each coordinate a root of one quadratic, hence two agree. The third, negative root of t^2(1-2t)=h lies between -1/6 and 0, so the positive roots sum to less than 2/3, giving 2t_+-3t_+^2>2t_--3t_-^2. This proves both endpoint orders and attainability of intermediate values, with the h=1/27 case forced by AM–GM. The theorem is exact with separately supplied L and positive area; no stability near degeneracy or conclusion for random-line chords is verified.
 
-The closest published 2026 triangle-boundary-distance result gives only the second moment. Published work on fourth chord moments of parallelograms has a different body family and observable. Bonnet et al. (2020) concern the mean distance between interior random points in convex bodies; Bäsel (2021) studies distance moments for area-uniform points in regular polygons. Their statements do not imply the combination of arbitrary-triangle boundary fourth moment, explicit finite-moment shape inversion, sharp ratio range and fixed-area extremizers. An earlier Gates (1982) abstract treats triangle recognition from odd moments of a random-chord distribution, but it does not establish the present sampling convention or this particular finite set of even boundary-endpoint moments; its full text was unavailable for comparison. Unindexed or inaccessible earlier results remain a genuine residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The observable addresses an identifiable inverse question: how little information about boundary-to-boundary random distances suffices to determine a triangle's shape? The second moment alone measures only normalized area, whereas adding the fourth moment yields the missing independent symmetric parameter and an exact cubic reconstruction. The sharp fourth-to-second moment range and complete isosceles envelopes at prescribed perimeter and area provide independently meaningful geometric statistics, equality classifications, and diagnostics of near-degeneracy. The result is not a re-labeling of a known moment bound or an arbitrary finite table.
+The earlier public second moment is credited as exact prior coverage. The audit also documents exact same-model later-dated overlaps for the inverse and fixed-area envelope, not merely similarity of titles; these are not evidence that the claim was already covered before the frozen record. The checked evidence supports the frozen combination and, in particular, the distinct sharp global normalization Q=M4/M2^2. No exclusive priority for the overlapping formulas, or general priority in triangle recognition from chord laws, is inferred from dates or searches.
 
-## Scope and limits
+## value
 
-The inverse requires known perimeter and positive area. At small area the reconstruction is ill-conditioned in general because an invariant is divided by \(h\). It neither identifies oriented triangles nor extends immediately to other sampling conventions. The literature review is not exhaustive; no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The moments supply complementary geometric data: at fixed perimeter M2 identifies area, while M4 resolves the remaining shape freedom. The exact envelope and sharp scale-free ratio quantify what the moments can detect and identify genuine extremal shapes and a degenerating limit. This is an inverse result for all nondegenerate triangles, not a tabulation or an isolated named example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

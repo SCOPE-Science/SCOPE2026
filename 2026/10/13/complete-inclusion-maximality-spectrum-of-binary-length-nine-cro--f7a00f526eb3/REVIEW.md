@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every binary nine-word code the no-overlap condition is equivalent to being a clique in the compatibility graph on unbordered words; inclusion maximality is maximal-clique status. This establishes the exact finite search domain (148 vertices, 3080 edges). The recursive pivot enumeration is complete and nonduplicating, and each emitted set is directly retested for maximality. The separate bitset and string/set implementations generate identical sorted catalogues of 62,280 codes, with matching size histogram; the digest of the full seven-megabyte plain-text catalogue is `ebacd3ecd51b08c10b05e462a3496200ca3261b0840a0a3351910af91436ecd3`. Complementation/reversal close every orbit and all orbits have size four. No assertion for other block lengths is inferred.
+PASS
 
-## Originality — PASS
+A vertex is a word with none of the eight proper borders. Edges encode both directions of each permitted overlap test, so exactly the maximal cliques are the inclusion-maximal codes. Length-one overlaps separate the two orientations 0…1 and 1…0, exchanged by complementation or reversal. Independently, repro/review5.py builds the incompatibility graph by prefix and suffix classes. It enumerates independent dominating sets in the first orientation: an undominated vertex must be covered by at least one neighbor or itself, and branching on the first chosen such vertex partitions all extensions. It gives 148 vertices, 3080 compatible edges, and labeled frequencies 1:4, 4:12, 5:20, 6:48, 7:200, 8:588, 9:1712, 10:5056, 11:13520, 12:23136, 13:16832, 14:1152. Reverse complement is the only nonidentity group element that can fix a nonempty code; its action had no fixed set in the first orientation, hence none in either. The 62280 codes yield 15570 orbits. The independent canonical catalog and the frozen gzip payload both give 7338080 bytes and SHA-256 ebacd3ecd51b08c10b05e462a3496200ca3261b0840a0a3351910af91436ecd3. The frozen Python and C++ sources were inspected, not run; some checks described as assertions in the prose are printed diagnostics in those sources, but were actually checked in the independent reproduction.
 
-Bilotta–Pergola–Pinzani (arXiv:1112.3168) and Barcucci et al. (arXiv:1410.4710) construct particular non-expandable sets. Chee et al. (arXiv:1209.0236) and Blackburn (arXiv:1303.1026) study extremal sizes and bounds, including the exceptional length-nine case. Qin–Chen–Luo (arXiv:2309.08915) classify non-expandability for particular explicit code families. Inspected sections do not supply the full global inclusion-maximality polynomial or its free symmetry-action classification. The top-size coefficient is included as a component of the enumerator, not separately claimed as a discovery. An unindexed prior exhaustive catalogue remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact size distribution of inclusion-maximal codes measures which greedily saturated synchronization designs can occur and how sharply their sizes can differ from the known optimum. At the historically exceptional binary block length nine, the answer distinguishes one-word terminal designs from the 14-word optimum, rules out terminal sizes two and three, and gives the complete cardinality and symmetry distributions. This is a natural complete finite classification rather than an arbitrary threshold experiment.
+Credit the known optimum and the already indexed 1152-code maximum layer. The distinct supported result is the all-cardinality maximal-code distribution and free action on the entire census, beyond that layer and the published construction families.
 
-## Limits
+## value
 
-The result is restricted to binary length-nine non-overlapping codes. Finite exhaustive proofs depend on precisely reproduced code paths, checked here; no all-length theorem, bit-error guarantee, priority certificate, or independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length nine is a natural exceptional binary benchmark from the maximum-code literature. The census answers a different saturation question: a greedy insertion process may already be stuck at size one, never stops at sizes two or three, and can stop at every size from four to the optimum. The exact multiplicities and symmetry action provide a deduplicated reference for this full finite class, not an arbitrary sample or rerun of the maximum layer alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

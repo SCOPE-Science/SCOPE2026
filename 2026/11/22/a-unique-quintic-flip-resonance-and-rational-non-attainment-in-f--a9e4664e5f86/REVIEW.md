@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact period-\(M\) itinerary is proved by the explicit intermediate points \(x_j=\mu z_*\nu^{j-M}\). Direct differentiation verifies the critical fixed return and multiplier \(-1\). Composition through fifth order proves the coefficient identity \(C=-\kappa<0\) at the unique zero of the cubic. A standard reciprocal-fourth telescoping argument gives the asymptotic \(|h_n|\sim(4\kappa n)^{-1/4}\), and integer coprimality excludes rational equality. The standalone symbolic and numerical checker passed, but the analytical proof—not finite computation—supports arbitrary \(M\) and real \(a\).
+## correctness
 
-## Originality — PASS, qualified
-The 2024 originating article supplies the map and induced return and describes its limiting period-doubling regimes. The closest 2026 public research note gives the exact finite-return Schwarzian and a subcritical result for sufficiently large \(M\). **Its Schwarzian formula already implies the cubic sign inequality**, and no novelty is claimed for that algebraic consequence alone. Neither inspected work states or proves the unique fifth-order **attracting** degeneration, its explicit nonzero coefficient and critical inverse-fourth relaxation, together with the rational non-attainment. Standard generalized-flip theory covers the local mechanism in abstract form; the exact sign and location in this family remain the model-specific contribution. Some unindexed literature could contain equivalent calculations, and independent priority certification was not performed.
+PASS
 
-## Value — PASS
-The codimension-two boundary is natural: the known finite-return flip coefficient changes sign there, and its vanishing forces a change of the actual dynamical relaxation exponent from one-half to one-quarter. The arithmetic obstruction explains why the fifth-order regime cannot occur at exactly rational grazing degrees while still governing near-degenerate rational approximations. This is a structural classification relevant to distinguishing period-doubling mechanisms, not an arbitrary test value.
+The normalized return follows by one power-law step and M−1 linear steps. The fixed point and derivative −1 equations give the stated z_* and K_*, and z_*>ν puts even the last intermediate linear-branch point strictly above the switch. A single nonlinear visit forces primitive period M. Along the nearby fixed-point branch, dρ/dz=−a(1−u)/(1−z)^2<0, dz/dK>0, and dK/dμ<0, so the flip is transverse. Independent composition yields A=−2(b₂²+b₃), B=−b₂A/2. At A=0, set v=2−a and d=1−z_*; in units of d the doubled coefficient is v²(2v−3)(v−3)/405. Dividing by d^4 with d=a(1−2a)/(2(1−a²)) gives the claimed negative quintic. The unique zero lies between 0 and 1/2 by monotonicity and the sign at the endpoints. Reciprocal fourth powers have increments tending to 4κ after local contraction, giving the exact nonfixed-orbit asymptotic. The rational obstruction follows from coprimality of s+r and s after clearing denominators. For the branch proof, one need not assume the displacement quotient is literally a smooth function of h²: center at the parameter-dependent fixed point, choose s=ρ²−1, and solve (P_s²(h)−h)/h=0 for s as a function of h. Its expansion is s=−A h²+O(h³), or s=−C h⁴+O(h⁵) at degeneracy, and it is strictly monotone on each side sufficiently close to 0. This gives two points paired by P_s and the asserted side and stability by differentiating the quotient. The generic repelling escape law follows from reciprocal-square decrements tending to 2A, with only a bounded number of iterates beyond any fixed smaller cutoff. This is local to the specified itinerary and exact recurrence, not a result for a physical flow or all orbits. The frozen replay is verify.py, inspected but not executed; its symbolic and numeric checks are not the universal proof.
 
-## Limits
-The result is local to an explicit one-nonlinear-visit primitive orbit of the exact mathematical map. It neither classifies all other itineraries nor claims that the short-return critical parameter must be asymptotically small. The degenerate exponent is real and irrational; the initial paper restricts to rational powers. The general bifurcation method is established, not new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The return construction, cubic sign information, and general mechanism of a quintic flip are prior. The supported distinct contribution is the exact negative fifth-order coefficient on the unique real cancellation locus for each finite M, its sharp model-specific critical law, and exclusion of every rational exponent on that locus. No inspected source covers that combination or directly implies the fifth-order computation from its stated result.
+
+## value
+
+PASS
+
+The exact sign and first surviving coefficient resolve a natural boundary left open by the cubic diagnostic for every finite itinerary length, determine the attraction and sharp relaxation rate there, and establish that the boundary is never attained within the original rational family. The value is in this classification, not in claiming a generic fourth-root law or a physical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

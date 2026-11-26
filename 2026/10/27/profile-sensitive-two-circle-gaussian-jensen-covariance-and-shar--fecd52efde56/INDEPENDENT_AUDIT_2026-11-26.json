@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:20:42.817090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and proof §§1–5",
+        "Frozen VERIFICATION.md and circular_covariance_check.py (inspected, not executed)"
+      ],
+      "rationale": "Reconstructed the finite integral: for standardized circular complex Gaussians the squared moduli have unit exponential margins, and their joint Laguerre generating function is 1/(1−|ρ|²uv). The log-squared-modulus coefficients are −1/k, so dividing by four gives the log-modulus covariance, including perfect correlation. The two angular averages then leave the factor 1/(8π). Cauchy–Schwarz bounds the normalized argument by one. Discrete summation by parts after x=nθ gives the uniform integrable bound C(1+|x|)^−2, while Riemann sums converge on bounded x uniformly in compact parameter sets. The integral is positive near x=0. At fixed midpoint m the numerator is independent of separation and the log of the denominator is strictly increasing for d>0 by positive variance under exponential tilting; symmetry gives evenness. Endpoint Laplace asymptotics give the denominator w(0)w(1)e^(2m+2d)/(4d²) to leading order. The integrated linear dilogarithm term is (1/4) times the weighted squared-profile integral divided by that denominator; the quadratic remainder is integrable and lower order by boundedness and Plancherel. Profile reversal cancels the real exponential factors and conjugates the numerator. At n=1 the exact formula gives π²/24 as a normalization check.",
+      "residual_risks": [
+        "The checker reports bounded numerical tests, some with an explicitly truncated integral; it is not used to establish the limit. The theorem does not give a joint n,d asymptotic or a law for vanishing endpoint weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiro–Nishry use normalized Gaussian kernels inside dilogarithms in their variance machinery.",
+          "Buckley–Nishry study hyperbolic Gaussian analytic function zero counts at the disc boundary."
+        ],
+        "reasoning": "The general Gaussian identity already supplies the finite covariance once integrated, but does not supply the uniform Fourier limit, strict fixed-midpoint monotonicity, or explicit endpoint/bulk asymptotic. The inspected zero-count results do not cover those conclusions.",
+        "searches": [
+          "arXiv:1911.13051, Appendix A",
+          "arXiv:2104.12598, Introduction §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d5fa733eb8c and 6f509efa3f6f",
+        "arXiv:1911.13051",
+        "arXiv:2104.12598",
+        "Bounded external search under the Jensen-mean and Mahler-measure terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact single-circle result restricts both radii to the unit circle, and the other two-radius formula uses an entire-function Gaussian kernel.",
+          "The new asymptotic uses opposite endpoint tilts and a bulk squared-profile integral."
+        ],
+        "reasoning": "None of those inspected statements implies the new coefficient by specializing a stronger supported theorem. The analytic tools are classical; the claim is the resulting profile-sensitive limit and sharp law, not the tools.",
+        "searches": [
+          "0d5fa733eb8c, Finding and Proof",
+          "6f509efa3f6f, Proof §2",
+          "arXiv:1911.13051, Appendix A, (A.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0d5fa733eb8c gives exactly the w=1, t=u=0 specialization, including the same sinc-squared dilogarithm integral.",
+          "6f509efa3f6f has an exact circular Jensen-mean covariance involving a Bessel function, for the planar Gaussian entire function rather than the finite polynomial."
+        ],
+        "reasoning": "The Jensen-mean and Mahler-measure formulations were checked as aliases. The former precedent uses a different normalized correlation and scaling; neither equivalent observable covers the weighted two-radius theorem in this ensemble.",
+        "searches": [
+          "Resultary 0d5fa733eb8c and 6f509efa3f6f",
+          "External query: Gaussian random polynomials circular logarithmic means Mahler measure covariance at two radii dilogarithm uniform coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue supplies the exact unweighted single-circle leading constant (and a higher-order correction), not an entry for arbitrary profiles and two independent radial parameters.",
+          "The other exact two-circle formula in the inspected catalogue concerns the planar entire field."
+        ],
+        "reasoning": "The exact overlapping constant is credited. A finite table of parameter values would not in any event give the function of a general positive profile or its sharp separation coefficient.",
+        "searches": [
+          "Resultary 0d5fa733eb8c and 6f509efa3f6f"
+        ]
+      },
+      "rationale": "The Gaussian log-covariance identity and the uniform unit-circle variance are prior inputs. The evidence supports as distinct the weighted two-radius microscopic limit together with its sharp fixed-midpoint decorrelation law; the closest inspected results do not already determine that law.",
+      "residual_risks": [
+        "Equivalent weighted two-radius formulas could appear under Gaussian log-field or Jensen-potential terminology outside the inspected sources. The bounded search is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact specialization covered",
+          "evidence": "Finite dilogarithm formula and variance C/n+A/n³+o(n^−3); H₁(0,0)=C.",
+          "identifier_or_url": "Resultary 2026/10/25, 0d5fa733eb8c",
+          "material_read": "RESULT.md Finding and Proof, offset 0 onward",
+          "method": "Resultary discovery and local-mirror result text",
+          "title": "Two-term variance law for the logarithmic Mahler measure of Gaussian polynomials",
+          "trigger": "Same observable and exact unweighted limit"
+        },
+        {
+          "assessment": "Structural precedent in a different ensemble",
+          "evidence": "Covariance has terms e^(-k(r²+s²)) I₀(2krs)/(4k²); no weighted-polynomial endpoint law in the inspected passage.",
+          "identifier_or_url": "Resultary 2026/10/26, 6f509efa3f6f",
+          "material_read": "RESULT.md Proof §2",
+          "method": "Resultary discovery and local-mirror result text",
+          "title": "A signed microscopic two-disk zero-count covariance law",
+          "trigger": "Two-radius Jensen observable and related microscopic scaling"
+        },
+        {
+          "assessment": "General machinery is prior; the inspected conclusion differs",
+          "evidence": "Normalized GAF correlation enters a dilogarithm boundary formula for zero-count variance.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.13051",
+          "material_read": "Appendix A, pp. 34–36, PDF text offset 107710 onward; (A.3)",
+          "method": "Open-access PDF passages",
+          "title": "Fluctuations for Zeros of Gaussian Taylor Series",
+          "trigger": "General Gaussian dilogarithm identity and boundary integrals"
+        },
+        {
+          "assessment": "Different ensemble and observable in the inspected statements",
+          "evidence": "Hyperbolic GAF zero-count fluctuations near the disc boundary, not polynomial logarithmic circular means.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.12598",
+          "material_read": "Introduction §1.1, pp. 1–2",
+          "method": "Open-access PDF passages",
+          "title": "Gaussian Complex Zeroes are not Always Normal: Limit Theorems on the Disc",
+          "trigger": "Related radial Gaussian analytic-function fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–5",
+        "Resultary 0d5fa733eb8c for the one-circle baseline"
+      ],
+      "rationale": "The two-circle covariance measures dependence between microscopic radial levels of the same random polynomial. The sharp coefficient resolves how endpoint weights and the bulk profile separately control radial decorrelation, information lost in the uniform single-circle variance or a generic decay bound.",
+      "residual_risks": [
+        "Scientific value is the exact covariance and decorrelation in the stated regime, not a CLT, independence result, or zero-count limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

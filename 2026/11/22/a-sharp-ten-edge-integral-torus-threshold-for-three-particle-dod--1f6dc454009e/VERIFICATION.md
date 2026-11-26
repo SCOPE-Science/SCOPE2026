@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses no nonstandard Python libraries. Execute `python3 verify.py` and check for the exact terminal string `DODECA_THREE_TORI_LENGTH_TEN_OK`.
+# Independent mathematical audit
 
-The program constructs all 20 vertices and 30 edges, 1,168 canonical undirected simple cycles, and exhaustively checks all 56 pairwise vertex-disjoint cycle triples. It uses the reduced weight-three graph-configuration chain groups with ranks \(C_3=9,120\) and \(C_2=22,800\). It checks the exact integral boundaries of every signed torus product, computes the boundary rank 9,094 over \(\mathbb F_2\), and finds determinant-one minors of sizes 20 and 26 for the short-cycle and full-cycle integral lattices respectively.
+## correctness
 
-Every one of the 30 octagon-containing torus chains is proved to be the sum/difference of two pentagon torus chains by checking the resulting integer vector in **all 9,120** coordinates. This certifies \(L_5=L_8\) while the 26x26 unit minor and rank bound certify \(L_{10}=H_3\cong\mathbb Z^{26}\). The 20x20 unit minor certifies that \(H_3/L_8\cong\mathbb Z^6\), not a finite-index quotient with undetected torsion.
+PASS
 
-The calculation is exhaustive for this graph only. Mod-two rank alone does not establish the integral conclusion; the integer unit minors are essential. The comparison of reduced chains with continuous graph-configuration homology is an established external published theorem, not implemented as a geometric homeomorphism in the program. The included execution output supports reproducibility but is not an independent review.
+Independent replay: python /workspace/review-evidence/3.py. It reconstructs GP(10,2), enumerates every simple cycle via its least edge, verifies girth 5 and 1,168 cycles, and enumerates all relevant vertex-disjoint triples: no cycle over length 10 fits alongside two cycles of length at least 5. The 56 triples split 20/30/6 at maxima 5/8/10. Using a different vertex numbering, consecutive reduced half-edge differences, and signed exterior products, the replay gives 9,120 top chains, 22,800 degree-two chains, 56 zero integer boundaries, binary differential rank 9,094, and unit minors (-1,+1) for the 20 and 26 chosen chains. This gives a rational kernel of dimension 26, and the full unit minor gives an integral coordinate retraction: no finite index remains. Every octagon chain matches a signed pair of distinct pentagon chains in all coordinates; independently, each octagon is the outer boundary of two pentagons sharing an edge, with no new vertices, so this relation is compatible with the other two disjoint cycles. The first 20 elements of the basis span a primitive lattice, leaving a free rank-six quotient. The exhaustive maximum-length list rules out generation at nine as well as eight. The weight-three reduced comparison theorem, its natural embedding maps, and its tensor product on disjoint subgraphs identify the signed cycle products with actual geometric tori of the unordered space, not merely cycles in an arbitrary chain complex. The frozen verifier and output were inspected, not executed.
+
+## originality
+
+PASS
+
+The ambient top rank and general chain/geometric-class machinery are known. The distinct contribution is an identified integral basis of product tori and the primitive strict cycle-length filtration up to the sharp threshold, including every octagon relation in this graph. Neither an arbitrary integral nullspace basis nor a two-particle torus lattice computes that filtration.
+
+## value
+
+PASS
+
+The dodecahedral graph and its face loops give a natural geometric filtration of a known configuration-space group. Knowing that face tori already span a primitive rank-20 subgroup, that all allowable octagons add nothing, and that six specific ten-cycle tori supply exactly the missing primitive generators distinguishes geometry and integral structure invisible to the known Betti number. This is an exact usable basis and cutoff, not a repeat of the rank calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

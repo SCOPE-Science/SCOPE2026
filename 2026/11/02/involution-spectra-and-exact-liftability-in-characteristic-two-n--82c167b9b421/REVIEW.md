@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The leading commutator calculation forces the first nonzero term of the square of an odd-depth substitution to have even exponent. The independently reconstructed expansion of the composition square gives a linear equation of nonzero coefficient \(a\) for each forced odd-index substitution coefficient. Counting the triangular constraints proves the finite-depth formulas. The strengthened congruence through degree \(N+d-1\) is both necessary for an infinite lift and sufficient by recursive coefficient extension. Both total formulas follow from finite geometric sums. A direct field-arithmetic checker exhausts 21 finite configurations, including extension fields, and verifies every depth count.
+PASS
 
-## Originality
+Work under substitution over characteristic two. At depth d the first possible square-difference term is (d+1)a² t^(2d+1), giving exactly the even-depth obstruction and the high-depth automatic finite involutions. If the square is nontrivial with depth r, comparing f∘f² and f²∘f in degree d+r+1 shows (r-d)ab=0 for their nonzero leading coefficients a,b. Thus at odd d any first square defect has even degree. For each even n≥2d+2 the outer term indexed n-d contributes a a_(n-d); the contribution linear in that coefficient from the inner argument and leading outer term has factor d+1=0, and two insertions involving it would have degree >n. This gives one triangular condition per even degree and no other independent conditions. Changing coefficients at degrees ≥N cannot affect the square below N+d, and thereafter this same recursion imposes all even conditions and, by parity, the entire infinite involution equation. The identity jet has an infinite lift, including at arbitrarily large odd depths by the recursion. For the total finite count let h=floor(N/2), m=floor((N-1)/2). Depths d≥h plus the identity contribute q^(N-h-1); the floor(h/2) odd depths below h contribute (q-1)q^(N-2-m) each. These give all four totals, and the odd lifting exponents descend through consecutive values ending at zero. An independent truncated-Horner exact enumeration matched both depth histograms for F2 at N=3–11, F4 at N=3–7 and F8 at N=3–6. It checks the finite lifting criterion, not infinite existence; the latter is supplied by the recursion.
 
-PASS provisionally on the accessible comparison evidence, not an assertion of exhaustive priority. Pálfy's 1998 paper establishes finite Nottingham quotient *conjugacy-class* counts only up to specified levels and provides a commutator tool, not the claimed all-level involution/lift spectra. Lubin's 2011 work develops the classification of *infinite* order-two Nottingham elements, rather than counting all square-one finite jets and the images of liftable jets at every degree. The closest indexed finding addresses Nottingham braces in odd characteristic, not finite-jet composition involutions in characteristic two. The full Hegedűs 2001 text could not be inspected; it remains a residual risk, along with possible older finite quotient torsion calculations.
+## originality
 
-## Value
+PASS
 
-PASS. The order-two population of a finite quotient is a natural group invariant, and the exact size of the image of genuine torsion is a separate natural invariant of the inverse system. The theorem determines both for every finite characteristic-two field and every truncation length, by ramification depth; it shows that a proportion asymptotic to \(1/N\) of finite involutions can lift. This resolves a genuine structural ambiguity in finite approximation of pro-two torsion and is not just a low-order table or isolated normalization check.
+Verified coverage is recorded for the finite-only spectrum and total in the later indexed all-depth census and for depth-one lifting in the later specialized record. The supported distinct claim is the full depth-by-depth finite/formal comparison, with the all-odd-depth finite-precision test, lifting fibers and resulting total and ratio. Known genuine-torsion conjugacy and bounded prime-field class counts are prior ingredients but do not give this comparison in the inspected passages. The overlap with later dated records is not evidence of priority in either direction beyond the stated scope comparisons.
 
-## Limitations and prior literature
+## value
 
-The theorem does not classify finite-quotient conjugacy orbits and does not treat odd characteristic. The Pálfy finite-level class theorem and Lubin/Klopsch infinite torsion classification are credited; no priority claim is made for these underlying results. P. Hegedűs (2001) is a relevant incompletely inspected source. Exact counts are established algebraically; computational checks only corroborate small instances.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-depth comparison answers a natural finite-quotient question that conjugacy of genuine torsion does not settle: which finite solutions are actual truncations, how many exist, and how far above the given precision one must test the square to tell. The exact criterion and quantified O(1/N) scarcity (indeed Theta(1/N)) are useful across all truncation levels and even field sizes. The rationale does not treat the later matched finite census on its own as a new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

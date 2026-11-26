@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:25:13.057899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated normalized windows give squared radial ambiguity multipliers e^(−s) and e^(−s)L(s)^2. The factorization L²−1=s(s−4)(s−2)²/4 forces the Gaussian optimum before 4 except at T=2, where the pointwise inequalities give the exact interval [0,η]. With u=2−s the threshold function is 4∫_0^1 e^(−tu)dt/[u(2−u)(2+u)]; its log is strictly convex in 0<u<2, so the interior minimizer can be found by a single stationarity equation. At s=4 all weights agree. The derivative there is e^(−4)(4w−1), and the w=1/4 derivative factorization proves the plateau and specifies its exit on the descending branch. This gives the whole optimizer interval at T=4 and strict uniqueness on 4<T≤T_*. Thereafter reflection about s=2 and the monotonicity of D on (2+√2,4) locate the inner minimum. The outer interval has endpoint minimum, so the strictly decreasing inner envelope and increasing outer endpoint as functions of w cross exactly once. For every s≥T_*>8, D(s)≤D(8)=−84, so F_w(T) strictly decreases in T for all w and the crossing moves strictly to the right. Near w=1 the inner active radius differs from 2+√2 by O(1−w); hence the inner envelope has leading term e^(−2−√2)(1−w), which proves both large-T limits. Independent bounded reproduction yields η=0.745182361841, T_*=8.83273551863978 and, at T=10, w=0.388201417353 and Γ=0.016964744328. Replay: branches/9b32dbc9-4bef-407a-b999-18e9a72e28fa/reproduce.py and reproduce-output.txt. Numerical samples are corroboration only. Frozen CHECK.py and VERIFICATION.md were inspected, not executed. The result is pointwise linear conditioning, not global nonlinear stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The disjoint-root two-window theorem applies to (0,2) at sufficiently large T, with c_0,2=e^(−2−√2); its expansion gives the audited high-radius weight and margin equivalents.",
+          "The three-channel theorem allows h_1 as well and gives leading margin R^4 e^(−R)/4 for its larger feasible simplex."
+        ],
+        "reasoning": "The large-radius consequences are covered, even without the exact (0,2) wording. Neither theorem gives the constrained (0,2) small and intermediate regimes or the protected plateau and exit.",
+        "searches": [
+          "Resultary two-Hermite optimal weights b45d7d3152c4; three-Hermite conditioning 30557469b49c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 47–82; VERIFICATION.md; CHECK.py",
+        "arXiv:2410.05486v2 and 2605.20527v1",
+        "Resultary 1bd35b3639f1, b45d7d3152c4, 30557469b49c and d61eef03e4db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At (0,2), the weight-independent boundary at s=4 has vanishing slope only at w=1/4; a later return to e^(−4) defines a transcendental exit radius.",
+          "The h_0,h_1 formula lacks this s=4 crossing, and the general large-T comparison does not control the entire earlier rising and descending branches."
+        ],
+        "reasoning": "The analytic identity is established, but a proof of the full continuous maximin and its flat regime needs the special finite-radius comparisons. Only those not already covered are credited.",
+        "searches": [
+          "Alaifari–Yang §2.2 and Algorithm 2.2; first-Hermite record 1bd35b3639f1; general two-Hermite record b45d7d3152c4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alaifari–Yang §2.2, (2.4) supplies the ambiguity/Laguerre identity and (2.5) uses per-window essential support sets; Algorithm 2.2 combines coverage.",
+          "Bertolini et al., abstract and local-stability discussion, prove local nonlinear L² stability at specific signals, including a finite-span Hermite extension."
+        ],
+        "reasoning": "The audited least-squares multiplier is the sum of squared ambiguity amplitudes under a fixed precision allocation. Threshold coverage by individual windows and local stability of nonlinear recovery are not equivalent to maximizing this weighted lower envelope over a finite disk.",
+        "searches": [
+          "arXiv:2410.05486v2, weighted ambiguity-domain conditioning and Hermite windows",
+          "arXiv:2605.20527v1, local STFT stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Gaussian/first-Hermite entry optimizes exp(−s)[1+w s(s−2)] on a disk, with a mixed optimizer just beyond 2, not a second-Hermite protected plateau.",
+          "The h_1,h_2 entry gives an exact Gaussian-relative infinite-radius optimum with split 1−1/√5 and 1/√5, a different normalization and pair.",
+          "The two-Hermite general entry matches the high-radius components; no inspected distinct entry gives the full (0,2) finite-radius table."
+        ],
+        "reasoning": "A maximizer on an enlarged window simplex, at a different pair, or in the large-radius limit does not directly recover the finite-radius two-window table.",
+        "searches": [
+          "Resultary finite-disk Gaussian/Hermite precision allocation: 1bd35b3639f1, b45d7d3152c4, 30557469b49c, d61eef03e4db"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact finite-radius optimizer diagram for the Gaussian/second-Hermite restriction, particularly the protected plateau and exit. The high-radius law is already covered by the inspected general two-Hermite catalogue result; no distinct originality credit is given to that law. The conclusion is a bounded judgment, not a date-based priority inference.",
+      "residual_risks": [
+        "Historical priority is unresolved, especially the order of the same-day high-radius overlap; no priority credit for that component.",
+        "An unindexed equivalent finite-radius optimizer theorem may exist outside this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identity and compensation of zeros, not fixed-budget maximin over a disk",
+          "evidence": [
+            "Per-window ambiguity threshold sets are combined to cover the desired region."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.05486v2",
+          "material_read": "Abstract, §2.2 eqs. (2.4)–(2.5), Algorithm 2.2; PDF offsets 850 and 28400–31120",
+          "method": "OA primary PDF passages",
+          "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+          "trigger": "Same ambiguity inversion and combinations of Hermite windows"
+        },
+        {
+          "assessment": "Different stability objective",
+          "evidence": [
+            "Gaussian local stability at the constant function and Hermite extension on finite spans."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.20527v1",
+          "material_read": "Abstract and local-stability discussion, PDF offsets 0 and 8000",
+          "method": "OA primary PDF passages",
+          "title": "L²-Stability for STFT Phase Retrieval",
+          "trigger": "Same windows and word stability"
+        },
+        {
+          "assessment": "Covers (0,1) only",
+          "evidence": [
+            "Polynomial bracket 1+w s(s−2), mixed optimizer for T>2."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-diskwise-ambiguity-conditioning-for-the-first-two-hermite--1bd35b3639f1",
+          "material_read": "RESULT.md Finding, offset 0, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Sharp diskwise ambiguity conditioning for the first two Hermite windows",
+          "trigger": "Same minimax with one window changed"
+        },
+        {
+          "assessment": "Covers the high-radius asymptotic but not the finite-radius diagram",
+          "evidence": [
+            "For a disjoint-root pair the low-order share is b_n(T)/c_m,n+O(b_n(T)^2) at sufficiently large T, with corresponding floor."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exponentially-vanishing-optimal-low-order-weights-in-two-hermite--b45d7d3152c4",
+          "material_read": "RESULT.md Finding, offset 0, same mirror snapshot",
+          "method": "Resultary and local mirror",
+          "title": "Exponentially vanishing optimal low-order weights in two Hermite channels",
+          "trigger": "Broader exact objective and potentially covering general theorem"
+        },
+        {
+          "assessment": "Three-window optimization, not finite-radius two-window result",
+          "evidence": [
+            "Optimizes over h_0,h_1,h_2 and gives leading R^4 e^(−R)/4."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp second-order three-Hermite ambiguity conditioning law",
+          "trigger": "Weighted criterion including both audited channels"
+        },
+        {
+          "assessment": "Different windows and criterion",
+          "evidence": [
+            "Pair (1,2) and Gaussian-relative global floor, with weights 1−1/√5 and 1/√5."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp Gaussian-envelope stability for the first two non-Gaussian Hermite windows",
+          "trigger": "Related exact weighted minimax involving h_2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For these two natural normalized windows, the exact design identifies a range of disk sizes where enlarging the disk costs no worst-case gain and fixes the unique precision split that achieves that property. The exit and the exact equalization beyond it directly answer a continuous conditioning-design question not settled by coverage maps or asymptotics. No global nonlinear recovery claim is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:30:15.032776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized affine interpolation traces the shorter great-circle arc; its planar projection has the argument of a positive combination of two nonopposite endpoint rays and sweeps the entire shorter azimuthal arc. Uniform conditioned azimuths put mass ell/theta on each component. Different components cannot connect inside E. In a lift of one component to (0,ell), the excluded pairs are the two triangular corners with |U−V|>pi, of total area (ell−pi)_+². This applies when ell=2pi with a single omitted angle as well. Axis and antipodal cases do not contribute; equal or opposite angular pairs have zero probability under independent uniform azimuths. With f(s)=s²−(s−pi)_+², the supporting line at theta/k touches only there (also when theta/k=pi), giving the stated unique lower equality case; strict increase of f(s)/s proves strict superadditivity on positive arguments. One arc tending to theta with the others shrinking proves sharpness, even for theta=2pi with singleton cuts.",
+      "replay": "python3 -B /workspace/review_replay.py 3: directly intersected projected geodesic segments with boundary rays (48,000 sampled pairs, including singleton cuts). Observed 0.7494375, 0.50175 and 0.6544375 against 0.75, 0.5 and 0.6505254731051595. This is bounded corroboration only. The frozen NumPy checker was inspected, not executed; finite interpolation grids can miss zero-width cuts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected geometry passages concern positive-cone convexity and bounding lunes. They cover containment in convex sectors up to opening pi, not the reflex component losses or disconnected sets."
+        ],
+        "reasoning": "General geometric tools are prior ingredients but do not give a probabilistic classification and optimization for this class.",
+        "searches": [
+          "Lassak, Width of spherical convex bodies, §§1–2",
+          "Lassak–Musielak, Reduced Spherical Convex Bodies, arXiv:1607.00132, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and prior-work comparison",
+        "Resultary deb69d95c110 and a8b036728cb1",
+        "Lassak 2015",
+        "Lassak–Musielak arXiv:1607.00132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge-free probability with two sampled vertices is exactly the single-sector containment probability for opening less than 2pi, whereas the indexed law does not state the disconnected-domain problem or its optimizers."
+        ],
+        "reasoning": "The single-sector overlap is not claimed as a distinct contribution. Passing to disconnected domains requires the connected-component reduction and weighted summation; sharp equality and nonattainment then require a separate optimization over all component lengths.",
+        "searches": [
+          "Resultary deb69d95c110, Finding, two-sample specialization",
+          "Resultary a8b036728cb1, Finding",
+          "Lassak, DOI 10.1007/s00010-013-0237-3, §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Escape-chain record deb69d95c110, Finding: dimension-free angular escape criterion and edge-free law; specializing to two samples recovers the single-sector probability below opening 2pi.",
+          "Zone record a8b036728cb1 uses a latitudinal band on S², not a meridian cut."
+        ],
+        "reasoning": "Containment is the complement of escape; the two-sample specialization is genuine overlap. Latitude-band escape and convexity of a lune are not equivalent to containment across several circular azimuthal components.",
+        "searches": [
+          "Local Resultary: azimuthal geodesic escape/containment on a single sector; geodesic escape on spherical zones",
+          "Lassak, Width of spherical convex bodies, DOI 10.1007/s00010-013-0237-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact indexed comparison was deb69d95c110; no older exact multi-component formula or sharp component-length law was identified in the searched sources."
+        ],
+        "reasoning": "This is a continuous formula and extremal theorem rather than a tabulated invariant. The closest exact indexed law concerns one sector only; absence of a wider hit does not establish priority.",
+        "searches": [
+          "Local Resultary lookup of spherical containment/escape and meridian-sector probabilities",
+          "Focused literature search on spherical shortest-arc containment, wedges/lunes and deleted meridians"
+        ]
+      },
+      "rationale": "Pass for the exact multi-component and sharp fixed-(k,theta) laws. The strongest distinct indexed result gives the same angular reduction and equivalent single-sector probability for openings below 2pi, and receives credit for that overlap irrespective of which record came first. It does not give the disconnected open-set law or its sharp equality and nonattainment cases. No stronger covering result was identified in the bounded comparison.",
+      "residual_risks": [
+        "The exact multi-component law may appear as an exercise or in differently indexed integral-geometric literature; this comparison is bounded.",
+        "Same-day indexed overlap does not resolve priority for the single-sector result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial equivalent coverage; no priority inference",
+          "evidence": "The two-sample edge-free event specializes to single-sector containment for openings below 2pi.",
+          "identifier_or_url": "Resultary deb69d95c110",
+          "material_read": "Finding: angular criterion and edge-free law",
+          "method": "Local Resultary search and mirrored record passage",
+          "title": "Escape chain graphs and a Poisson onset for random geodesics in spherical sectors",
+          "trigger": "Strongest indexed containment/escape overlap"
+        },
+        {
+          "assessment": "Different class of spherical domains",
+          "evidence": "Latitudinal zones on S² rather than azimuthal components or singleton meridian cuts.",
+          "identifier_or_url": "Resultary a8b036728cb1",
+          "material_read": "Finding: geometry and probability regime",
+          "method": "Local Resultary comparison",
+          "title": "Exact geodesic escape probability for equatorial spherical zones",
+          "trigger": "Exact spherical escape law"
+        },
+        {
+          "assessment": "Geometric background, not a probability formula in the inspected material",
+          "evidence": "Spherical-cone convexity and lune width.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-013-0237-3",
+          "material_read": "§1 pp. 556–557 and §2 p. 557",
+          "method": "Published primary-text passages",
+          "title": "Width of spherical convex bodies",
+          "trigger": "Classical possible lune/convex sector coverage"
+        },
+        {
+          "assessment": "Geometric background",
+          "evidence": "Lune thickness and reduced convex bodies rather than random containment.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.00132",
+          "material_read": "pp. 1–2",
+          "method": "Open primary-text passages",
+          "title": "Reduced Spherical Convex Bodies",
+          "trigger": "Containing lunes in spherical convexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural class of spherical domains the exact geometry reduces to a length distribution and yields a sharp design law: equal components minimize containment, and concentration of length approaches an unattained supremum. The law captures the failure of area alone to control geodesic containment, including null-area cuts, and works without polar-coordinate information beyond the uniform azimuthal marginal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

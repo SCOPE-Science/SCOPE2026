@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:41:29.623445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 19–76",
+        "VERIFICATION.md and verify.py inspected as frozen evidence",
+        "Independent replay: python3 /workspace/reviews/replay_math.py folded"
+      ],
+      "rationale": "At the equilibrium approaching (1,1/c), the Jacobian has trace tending to -b²/c and determinant -b² r+O_a(r²), so the positive-rate branch is a saddle in the stipulated time. At r=0 the fast eigenvalue is separated from the center eigenvalues. Translating by the continued equilibrium and including r'=0 gives a smooth local strong-stable family with a nonvertical tangent; its r=0 graph is horizontal. Differentiating g=h'f twice shows that its curvature at the saddle is O_a(r²), since f_uu at the undeformed saddle is zero, g_uu is identically zero, and the denominator tends to 2b²/c. The third graph derivative at the saddle is O_a(r) and fourth derivatives are bounded. Thus on the section, which is O_a(r) away, all nonlinear graph terms are O_a(r⁴). Independent symbolic jet calculation and inversion give the stated cubic and a0=0.44330690496759439175… . The section map has derivative 2/(bc)>0, giving a unique local positive rate. The polynomial 4b³+b²−1 increases strictly from −1 to 4 on [0,1], and the sign as a increases is reversed because b=1−a. The error convention is exact threshold minus the quadratic approximation.",
+      "residual_risks": [
+        "Pointwise at fixed a in (0,1); no positive-fast-parameter, endpoint-uniform, or global rate result",
+        "No error sign at the zero of the cubic coefficient is established"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vanselow–Wieczorek–Feudel align the initial point with a stable eigenvector in a different response model and limit that approximation to points near the fold",
+          "Full text of Szmolyan–Wechselberger was not available in the located OA route; the citation concerns general folded-canard geometry"
+        ],
+        "reasoning": "A stable-eigendirection approximation is shared methodology, not a theorem controlling the cubic term of the true stable graph for this model. The unavailable full text is not negative evidence.",
+        "searches": [
+          "arXiv:1908.05507v1, Appendix F p. 47",
+          "DOI 10.1006/jdeq.2001.4001, landing/abstract and OA availability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f7e958313282 and 1e50ea949486",
+        "arXiv:2610.12319v1",
+        "arXiv:1908.05507v1",
+        "DOI 10.1006/jdeq.2001.4001 (abstract/landing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A linearized separatrix calculation can produce a formal higher jet, but the cited approximation does not identify which stable-graph curvature terms enter the true-section coefficient",
+          "The prior O(δ³) includes cubic terms of either sign"
+        ],
+        "reasoning": "The result requires a new model-specific derivative calculation and order estimate for the stable graph. It is not a coefficient read from the known quadratic or a routine substitution into a stronger formula verified here.",
+        "searches": [
+          "arXiv:2610.12319v1, §5, Eq. (19)",
+          "arXiv:1908.05507v1, Appendix F"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hennessy–Popović–Sattar use the same critical ramp; substitute b=1−a, c=2−a and their first two coefficients agree exactly",
+          "The opposing-basin-certificates catalogue finding is for frozen carrying capacity, not a nonautonomous critical ramp"
+        ],
+        "reasoning": "The known quadratic is the same statement through degree two. Neither a frozen-system basin test nor the common name 'extinction threshold' represents the asserted third Taylor coefficient.",
+        "searches": [
+          "Resultary: folded-saddle critical ramp, cubic threshold and Allee sign crossover; exact local mirror files of the strongest model and extinction-boundary matches",
+          "arXiv:2610.12319v1, §5 and Corollary 10, Eq. (19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest ranked model match explicitly disclaims a nonautonomous critical-rate formula. The same-day match concerns an Allee common-pool game with a greed parameter",
+          "Eq. (19) specifies a quadratic plus O(δ³), without a crossover value"
+        ],
+        "reasoning": "Neither separate indexed statement nor the primary asymptotic formula fixes the cubic or its zero. Date alone was not treated as evidence of distinctness or priority.",
+        "searches": [
+          "Resultary, cubic threshold and Allee crossover; inspected f7e958313282 and 1e50ea949486",
+          "arXiv:2610.12319v1, Corollary 10"
+        ]
+      },
+      "rationale": "The model and quadratic threshold are prior. The model-specific curvature cancellation justifying the cubic for the true separatrix, and the explicit crossover obtained from it, were not covered by the strongest available comparisons. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "Potential implicit or unindexed higher-order calculations",
+        "Full text of DOI 10.1006/jdeq.2001.4001 not inspected"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the first two coefficients and geometry, not the audited cubic",
+          "evidence": "Corollary 10 explicitly gives the remainder as O(δ³).",
+          "identifier_or_url": "https://arxiv.org/html/2610.12319v1",
+          "material_read": "§5 and Corollary 10, Eq. (19), extracted text offsets 24600 and 31150",
+          "method": "OA primary text, targeted section reads",
+          "title": "A minimal model for rate-induced tipping to extinction",
+          "trigger": "Same system and critical rate"
+        },
+        {
+          "assessment": "Eigendirection method in another model",
+          "evidence": "Approximation by the stable eigenvector close to the fold; Holling type-II response.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.05507",
+          "material_read": "Appendix F p. 47, extracted text near offset 102000",
+          "method": "OA primary PDF text",
+          "title": "When very slow is too fast — collapse of a predator–prey system",
+          "trigger": "Prior folded-saddle threshold approximation"
+        },
+        {
+          "assessment": "Full-text comparison unavailable",
+          "evidence": "The frozen paper cites this for geometry rather than a model-specific coefficient.",
+          "identifier_or_url": "https://doi.org/10.1006/jdeq.2001.4001",
+          "material_read": "Landing/abstract only; no identified accessible full copy in the OA check",
+          "method": "DOI and OA lookup",
+          "title": "Canards in R³",
+          "trigger": "Possible stronger canard theorem"
+        },
+        {
+          "assessment": "Same source model, distinct frozen-regime result",
+          "evidence": "The finding gives sufficient basin tests and explicitly says it is not a formula for the nonautonomous critical ramp speed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-explicit-opposing-basin-certificates-in-a-strong-allee-tippi--f7e958313282",
+          "material_read": "Finding and relationship passage, RESULT.md offsets 80 and 7290",
+          "method": "Resultary search and local mirror text",
+          "title": "Two explicit opposing basin certificates in a strong Allee tipping model",
+          "trigger": "Strongest distinct Resultary model match"
+        },
+        {
+          "assessment": "Distinct dynamical system and parameter",
+          "evidence": "Boundary concerns a resource/cooperation game and greed, not the ramped predator–prey critical rate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-greed-dependent-extinction-boundary-in-an-allee-common-poo--1e50ea949486",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Sharp greed-dependent extinction boundary in an Allee common-pool model",
+          "trigger": "Same-day Resultary threshold hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Hennessy–Popović–Sattar, Corollary 10"
+      ],
+      "rationale": "The third-order term answers a concrete question left by the published threshold: on which side of the true threshold the quadratic falls. The unique reversal shows that one cannot assign a uniform direction of bias as Allee strength varies. It is not merely an extra coefficient of an uncontrolled tangent approximation: the cancellation shows why the true graph agrees through the necessary order.",
+      "residual_risks": [
+        "Incremental local result, not a practical finite-rate error bound or a finite-timescale prediction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

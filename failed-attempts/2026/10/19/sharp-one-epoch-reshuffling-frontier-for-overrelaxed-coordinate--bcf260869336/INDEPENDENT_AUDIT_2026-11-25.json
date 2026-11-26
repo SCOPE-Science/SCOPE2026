@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:17.479958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal scaling gives r=C y and the relaxed update on i gives r_i'=(1−ω)r_i, r_j'=r_j−ω c r_i. The objective decrease of a step is ω(2−ω)r_i²/2. The first-step expectations agree, so the gap is ω(2−ω)/8 times the sum over first indices i of (r_j−ω c r_i)²−(1−ω)²r_i². Expanding recovers the stated formula. The smaller eigenvalue of its bracket is (1−|c|)[2−ω(1+|c|)]; the larger is positive, and all r are attainable. This verifies equality at the threshold and both signs above it, including the no-reversal case c=0 in 0<ω<2. For c=1/2 and ω=3/2, substitution gives −9/256 and 135/256 in the two modes. κ refers only to the normalized Hessian. The supplied script was inspected, not executed; the proof and exact spot checks are independent of its finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1370f23f939c admits a linear term and also compares worst-case contraction factors.",
+          "Oswald–Zhou, pp. 1 and 3, treats expected-energy convergence for SOR. Recht–Ré, p. 2, considers PSD factors, while the overrelaxed update has eigenvalue 1−ω<0."
+        ],
+        "reasoning": "Setting the linear term to zero in the Resultary theorem specializes directly to the frozen hypotheses. The retrieved primary-literature passages concern different criteria or premises.",
+        "searches": [
+          "Resultary: 1370f23f939c",
+          "arXiv:1510.04727 (shuffled SOR)",
+          "arXiv:1503.06387 (RP-BCD and ADMM)",
+          "arXiv:1202.4184 (noncommutative AM–GM)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42 and VERIFICATION.md lines 19–21; verify.py lines 17–33 and 50–75 (inspection)",
+        "Resultary 1370f23f939c",
+        "arXiv:1803.08200",
+        "arXiv:1510.04727",
+        "arXiv:1202.4184",
+        "arXiv:1503.06387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1370f23f939c includes the same uniform sampling distributions and the same exact sign classification for deterministic starts. The normalized eigenvalues are 1±|c|."
+        ],
+        "reasoning": "The stated 1+1/κ is just 2/(1+|c|) rewritten. The alternate derivation and rational examples redo instances of a full existing theorem; no substantive remainder is established.",
+        "searches": [
+          "1370f23f939c exact modal identity",
+          "arXiv:1803.08200, p. 3",
+          "arXiv:1503.06387, pp. 1 and 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1370f23f939c, Assumptions and scope: exact modal identity for IID minus permuted expected energy; Proof: generalized Rayleigh quotients in the (1,±1) modes."
+        ],
+        "reasoning": "Reflect one normalized axis to replace the signed coupling by c=|c|. In the two orthonormal modes write r_±²=2(1±c)F_±; substituting into the frozen formula yields exactly the prior modal identity with prefactor ω²(1−c²)(2−ω)/4 and coefficients 2−ω(1±c).",
+        "searches": [
+          "Resultary: 1370f23f939c, two-coordinate overrelaxed sampling-order reversal",
+          "arXiv:1803.08200",
+          "arXiv:1510.04727"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror offset 0, Finding and exact one-epoch identity, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: strict below 2/(1+c), non-strict with a null mode at equality, opposite signs above."
+        ],
+        "reasoning": "The corpus match gives the full parametric identity, not merely a matching numerical witness. A table of individual Hessians or iterates is unnecessary.",
+        "searches": [
+          "Local Resultary lookup and mirror read: 2026/10/12/SCOPE-sharp-sampling-order-reversal-for-two-coordinate-overrelaxed-des--1370f23f939c/RESULT.md"
+        ]
+      },
+      "rationale": "The distinct Resultary record 1370f23f939c proves the identical all-starts objective-gap identity and frontier under the same budgets and relaxation range, in normalized energy coordinates and with an optional linear term. This is demonstrated mathematical coverage, not a claim about authorship or priority inferred from a date.",
+      "residual_risks": [
+        "The primary-source comparison is bounded, not an exhaustive priority investigation. The exact distinct corpus match is sufficient regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen theorem",
+          "evidence": "Exact modal formula, equality and opposite-sign regimes; linear-term case includes the frozen zero-linear-term case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-sampling-order-reversal-for-two-coordinate-overrelaxed-des--1370f23f939c/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof, chars 0–5223",
+          "method": "Local corpus mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp sampling-order reversal for two-coordinate overrelaxed descent",
+          "trigger": "Strongest semantic match, same regimes and comparison"
+        },
+        {
+          "assessment": "Related; located comparison concerns convergence rates",
+          "evidence": "Relates coordinate minimization to SOR at ω=1 and discusses bounds for diagonally dominant quadratics.",
+          "identifier_or_url": "arXiv:1803.08200",
+          "material_read": "p. 3, offset 8953",
+          "method": "OA full-text passage",
+          "title": "Randomness and Permutations in Coordinate Descent Methods",
+          "trigger": "Direct sampling comparison"
+        },
+        {
+          "assessment": "Related; located passages do not give exact gap",
+          "evidence": "Defines shuffled sweeps and discusses expected energy convergence bounds.",
+          "identifier_or_url": "arXiv:1510.04727",
+          "material_read": "pp. 1 and 3, offsets 0 and 12237",
+          "method": "OA full-text passages",
+          "title": "Random Reordering in SOR-Type Methods",
+          "trigger": "General SOR relaxations and permutation sampling"
+        },
+        {
+          "assessment": "PSD-factor assumptions do not cover overrelaxed coordinate maps",
+          "evidence": "Formulates comparison for symmetrized products of PSD matrices.",
+          "identifier_or_url": "arXiv:1202.4184",
+          "material_read": "p. 2, offset 5827",
+          "method": "OA full-text passage",
+          "title": "Toward a noncommutative arithmetic-geometric mean inequality",
+          "trigger": "Potential operator reduction of replacement comparisons"
+        },
+        {
+          "assessment": "Different convergence criterion",
+          "evidence": "Located result analyzes an expected-iterate rate rather than statewise two-step expected objective error.",
+          "identifier_or_url": "arXiv:1503.06387",
+          "material_read": "pp. 1 and 17, offsets 0 and 57483",
+          "method": "OA full-text passages",
+          "title": "On the Efficiency of Random Permutation for ADMM and Coordinate Descent",
+          "trigger": "Random permutation in related coordinate algorithms"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-coordinate reversal is a meaningful phenomenon, but the submission's exact gap and sharp boundary are already available in the covered theorem. The conditional-expectation presentation, normalized condition-number notation and different rational witnesses yield no distinct cutoff or consequence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

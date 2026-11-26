@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:01:50.649523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62; VERIFICATION.md and check.py inspected, not run",
+        "Straub–Amdeberhan–Moll arXiv:0811.2028v1 §3 Theorem 3.2, located passage",
+        "/workspace/independent_finite_checks.py, fiveadic(): exact integer recurrence from n=0 to 5624; nine pairs and only the zero triple for each multiplier below 625"
+      ],
+      "rationale": "The starting alternating digit criterion follows from Straub–Amdeberhan–Moll Theorem 3.2 with p=5 and k=3; independently, the 5-adic binomial upper parameter −1/3 has all base-25 digits 8, since 8/(1−25)=−1/3. By continuity from nonnegative integer upper parameters and the Frobenius/Lucas coefficient identity over F_5, (1−9z)^(−1/3) reduces to the product over j≥0 of (1+z^(25^j))³(1+z^(5·25^j)). The binomial coefficients in those factors are units, so E uses precisely the base-25 alphabet D={0,1,2,3,5,6,7,8}. As max(D)·3=24, there are no carries at all between base-25 blocks for the first multiplication by 2 or 3. The sets D ∩ {a:ma∈D} are {0,1,3} and {0,1,2}. For a nonzero five-adic or ordinary integer in either pair set, the least nonzero block yields m²a=4 or 12 for m=2, and 9 or 18 for m=3, all outside D even after reduction modulo 25. This excludes every nonzero triple. The pair-prefix counts are 3^r including r=0. The 3^r balls of radius 25^(−r) give the Hausdorff upper bound; the uniform digit measure gives each such cylinder mass 3^(−r), and for intervening ball radii gives the same power-law bound up to a constant. This proves the matching lower bound and uncountability. The triple is a singleton, and 2,8,32 have only blocks in D (32=1·25+7), so ratio four admits a positive triple.",
+      "residual_risks": [
+        "The dimension concerns the five-adic digit closures, not the countable finite-expansion sets or a five-adic coefficient interpolation. The finite checks do not prove the infinite statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited literature is described as giving automata and dimensions for multiplicative translates of the ternary digit-{0,1} set. The same-day Resultary 649be5327256 summary gives a spaced ternary digit classification for two parameterized multipliers, not a classification for the base-25 input alphabet.",
+          "General path-set methods are applicable in principle, but no available prior statement specializes to these exact pair alphabets and triple exclusions without further carry evaluation."
+        ],
+        "reasoning": "Availability of an algorithm for digit intersections is not an evaluated theorem on this natural arithmetic index set. No covering parameter specialization appeared in the retrieved descriptions; unretrieved primary text remains a risk.",
+        "searches": [
+          "Abram–Lagarias arXiv:1308.3133 and Abram–Bolshakov–Lagarias arXiv:1508.05967, bounded OA attempts",
+          "Resultary 649be5327256 two-parameter Cantor multiplier intersection"
+        ]
+      },
+      "checked_sources": [
+        "Straub–Amdeberhan–Moll Theorem 3.2",
+        "Frozen bibliography and prior-work discussion",
+        "Resultary 649be5327256 and self-match 563001b55315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior criterion fixes the eight-symbol alphabet D. To derive the new claims one must analyze D under each multiplication; 2D and 3D give different pair alphabets, all admissible nonzero blocks then fail the squared multiplier, and the ratio-four witness instead survives."
+        ],
+        "reasoning": "The recurrence and known digit criterion are essential inputs, but the exact positive-dimensional pair languages together with finite-time triple extinction are the outcomes of a separate multiplier classification, not a rephrasing of the unit criterion.",
+        "searches": [
+          "arXiv:0811.2028v1 §3 Theorem 3.2, locator excerpt; Resultary 649be5327256 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.2 gives ν_p(c(n,k))=0 iff the digits of n and 1/k sum without carry when p∤k. It gives precisely the previously known undilated alphabet at p=5,k=3.",
+          "For the new claim the equivalent five-adic expression is Σ∩m⁻¹Σ and then Σ∩m⁻¹Σ∩m⁻²Σ; the finite-index version is obtained by restricting to finite expansions."
+        ],
+        "reasoning": "Theorem 3.2 specifies membership for one index. It does not give either dilated intersection language or its collapse. Neither the undilated set nor the exactly matching target catalogue entry supplies distinct evidence of duplication.",
+        "searches": [
+          "Resultary: intersections of five-adic coefficient-unit digit sets under multipliers 2 and 3; translated Cantor digit sets",
+          "Straub–Amdeberhan–Moll arXiv:0811.2028v1 §3 Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the target 563001b55315 itself and a distinct ternary classification 649be5327256. The available statement of Theorem 3.2 tabulates neither the multiplier intersections nor their dimensions."
+        ],
+        "reasoning": "No distinct matching table or exact formula was identified. In particular, an undilated coefficient-valuation count cannot substitute for counts of simultaneous unit conditions at correlated indices.",
+        "searches": [
+          "Local Resultary for exact three-central prime-five unit-index counts and Cantor multiplier intersections; arXiv:0811.2028v1 §3"
+        ]
+      },
+      "rationale": "Best of current knowledge: the unit-index language itself is prior work. The distinct supported claim is the evaluated two- and three-position orbit classification for this prime-five alphabet, including the pair dimensions and the change at ratio four. Related indexed and cited work develops multiplicative digit intersections but the available statements do not already evaluate this case.",
+      "residual_risks": [
+        "Some relevant full passages and the related full Resultary record were unavailable; the priority judgement is bounded.",
+        "A prior evaluated five-adic case might be indexed purely as a digit-set intersection rather than under binomial coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers undilated nondivisibility, not the computed multiplier intersections",
+          "evidence": [
+            "Theorem 3.2 no-carry condition for n and 1/k at p∤k"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0811.2028v1",
+          "material_read": "OA §3 Theorem 3.2 locator passage, character offset 13901 (context offset 13681); further page and Theorem 3.5 retrieval timed out",
+          "method": "OA literal locator and digit specialization",
+          "title": "The p-adic valuation of k-central binomial coefficients",
+          "trigger": "Exact coefficient family and prime-five unit criterion"
+        },
+        {
+          "assessment": "Related methodology in a ternary alphabet; not a whole-paper exclusion",
+          "evidence": [
+            "Cited setting is multiplicative translates of the 3-adic digits-zero-and-one Cantor set"
+          ],
+          "identifier_or_url": "arXiv:1308.3133 and arXiv:1508.05967",
+          "material_read": "Frozen RESULT.md lines 73–85 and cited scope; primary OA retrieval did not yield full passages",
+          "method": "Bounded OA attempts and comparison with the described digit sets",
+          "title": "Intersections of multiplicative translates of 3-adic Cantor sets; II: two infinite families",
+          "trigger": "Broader multiplicative digit intersection methods and possibly exact coverage"
+        },
+        {
+          "assessment": "Distinct ternary digit system and a spaced-digit conclusion, not the exact prime-five pair/triple laws",
+          "evidence": [
+            "Summary describes a spaced ternary digit set under two parameterized multipliers"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-two-parameter-collapse-of-3-adic-cantor-multiplier-intersectio--649be5327256",
+          "material_read": "Local Resultary statement summary; full matched source unavailable during retrieval",
+          "method": "Local catalogue comparison of prime, alphabet and claim",
+          "title": "A two-parameter collapse of 3-adic Cantor multiplier intersections",
+          "trigger": "Closest indexed overlap on digit avoidance and collapse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–4; arXiv:0811.2028v1 Theorem 3.2 as the prior unit criterion"
+      ],
+      "rationale": "This natural set of binomial coefficient unit indices has a sharp small-multiplier boundary: two independent restrictions preserve a positive-dimensional set with an exact growth rate, but the third position collapses both to zero, and ratio four disproves a generic collapse. The exact pair languages and the sharp witness make the small classification usable even without an all-multiplier result.",
+      "residual_risks": [
+        "This is a narrowly motivated classification at one prime and two multipliers, not a general carry algorithm or a theorem for all orbit ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

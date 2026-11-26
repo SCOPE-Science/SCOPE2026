@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:06:27.253214Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and verify_subdivision_clique.py, inspected without execution",
+        "Independent replay: python3 /workspace/review_checks/finite_checks.py; clique check matched exact closed-walk moments through order 8 and exact returns for n=3–8"
+      ],
+      "rationale": "Independently, the original-vertex block of exp(-it A_S) is cos(t sqrt(B B^T)) by the power series, with B the unsigned incidence matrix. The constant zero-mode contribution has time-averaged square F_0(u,u)^2; distinct positive frequencies have vanishing cross terms and each cosine has mean square 1/2. The equation B^T f=0 forces opposite values on endpoints, so in a connected bipartite graph F_0(u,u)=1/n and otherwise it is zero. This also covers n=2 and nonregular graphs. On S(K_n), the positive squared frequencies 2(n-1) and n-2 have multiplicities 1 and n-1. Each signed eigenspace projects half its trace onto each bipartition, by the singular-vector pairing, and symmetry is transitive on each part. With part size k the weights per sign are 1/(2k) and (n-1)/(2k), and the remaining weight is 1-n/k. Taking k=n or k=n(n-1)/2 and summing squared weights recovers both fractions and their difference. The zero weight vanishes at n=3. The cubic factor is negative at 4 and 5, positive at 6, and increasing thereafter, giving the full cutoff and limits.",
+      "residual_risks": [
+        "The bounded exact replay corroborates the clique calculation only; the analytic argument is required for all orders and all connected graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teixeira da Silva–Posner–Portugal §2 gives incidence blocks and Corollary 2.1 gives total-graph eigenvectors, with nonzero within-part blocks absent from the frozen adjacency.",
+          "Ide's size-limit localization uses a Laplacian walk and is not the invariant here."
+        ],
+        "reasoning": "Neither changing the generator nor deleting two blocks of a different graph preserves the stated projector calculation. No stronger evaluated subdivision result was established in these checks.",
+        "searches": [
+          "Primary search: subdivision graph perfect state transfer adjacency eigenprojectors spectral decomposition unsigned incidence signless Laplacian quantum walk subdivision graph eigenprojector Lemma",
+          "Primary search: subdivision graphs continuous-time quantum adjacency state transfer eigenvectors signless Laplacian",
+          "arXiv:2206.03375v3; arXiv:1406.0347"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1103.2578",
+        "arXiv:1910.02039",
+        "arXiv:1406.0347",
+        "arXiv:2206.03375v3",
+        "Published Resultary record 833ba73abbb3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general mixing theorem gives an unevaluated projector sum. The vertex/edge walk paper evaluates properties of T(K_n), a Johnson graph, not S(K_n)."
+        ],
+        "reasoning": "The general projector theorem is input, not the specific evaluation; the incidence kernel on the two different parts and its weight are essential. The clique reversal further depends on the two-part evaluation and is not a consequence of a return formula for the intact clique or total graph.",
+        "searches": [
+          "arXiv:1103.2578, §1",
+          "arXiv:2206.03375v3, §2 and Proposition 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Average return is the diagonal of the average mixing matrix, sum of squares of full spectral-projector diagonal entries.",
+          "Godsil–Guo–Sobchuk's complete-graph evaluation is for K_n, not for S(K_n)."
+        ],
+        "reasoning": "An average-mixing matrix or local spectral measure evaluated for the same incidence graph would cover the return formulas; the inspected evaluated example has a different graph.",
+        "searches": [
+          "Published Resultary searches for the subdivision return and the clique-orbit formulas",
+          "Primary search: average mixing subdivision graph quantum walks incidence bipartite Godsil return",
+          "arXiv:1103.2578; arXiv:1910.02039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue formula concerns inertia of L(S(G)); the inspected complete-graph average-mixing example is for unsubdivided K_n."
+        ],
+        "reasoning": "Neither supplies both vertex types' local spectral weights, tabulated returns, or the n=6 onset of reversal.",
+        "searches": [
+          "Published Resultary searches for the two subdivision claims",
+          "2026/10/18/SCOPE-exact-adjacency-inertia-of-all-clique-inserted-graphs-via-full-e--833ba73abbb3",
+          "arXiv:1910.02039 complete-graph example"
+        ]
+      },
+      "rationale": "Credit the known average-mixing projector formula and standard incidence blocks. The inspected same-invariant and vertex/edge-walk literature does not establish the evaluated pointwise subdivision identity and the all-order two-orbit return comparison. The closest inspected indexed record concerns spectral inertia of a line graph of a subdivision, not the return invariant. This is a bounded scientific comparison, not a historical priority certification.",
+      "residual_risks": [
+        "A prior local spectral-measure or average-mixing calculation for this specific incidence graph would mechanically imply the reversal and could change the originality decision. Search and primary-text coverage are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers method, not the evaluated subdivision claim",
+          "evidence": "Average mixing is the sum of the entrywise squares of the distinct eigenprojectors.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "§1, p. 2, near text offset 4500",
+          "method": "Bounded OA primary text",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Equivalent formulation"
+        },
+        {
+          "assessment": "Exact invariant on a different graph",
+          "evidence": "The example is (1-2/n)I+(2/n²)J for K_n itself.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.02039",
+          "material_read": "Abstract and p. 3 complete-graph formula, near offset 6160",
+          "method": "Bounded OA primary text",
+          "title": "Diagonal entries of the average mixing matrix",
+          "trigger": "Exact diagonal and complete-graph comparison"
+        },
+        {
+          "assessment": "Different generator and limit",
+          "evidence": "Laplacian walks and strong localization defined via a size limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0347",
+          "material_read": "Abstract and p. 2 near offset 6350",
+          "method": "Bounded OA primary text",
+          "title": "Local subgraph structure can cause localization in continuous-time quantum walk",
+          "trigger": "Localization comparison"
+        },
+        {
+          "assessment": "Same incidence matrix, different Hamiltonian in the spectral evaluation",
+          "evidence": "Eq. (1) retains A_G and A_L(G) on the diagonal; Proposition 3.2 is about T(K_n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03375v3",
+          "material_read": "§2, pp. 3–4, offset 9510 onwards, and Proposition 3.2 on p. 8",
+          "method": "OA PDF passage by offset",
+          "title": "Walking on Vertices and Edges by Continuous-Time Quantum Walk",
+          "trigger": "Closest vertex/edge graph construction"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": "Inertia of L(S(G)), not mixing or return on S(G).",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-adjacency-inertia-of-all-clique-inserted-graphs-via-full-e--833ba73abbb3",
+          "material_read": "RESULT.md opening statement",
+          "method": "Local published-record mirror",
+          "title": "Exact adjacency inertia of all clique-inserted graphs via full edge subdivision",
+          "trigger": "Closest catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–29 and 39–84",
+        "arXiv:1910.02039, diagonal-average-mixing motivation"
+      ],
+      "rationale": "The adjacency return invariant tests whether a once-subdivision transfers long-time return from hubs to newly inserted low-degree vertices. The exact clique cutoff answers this for all orders, and the edge-kernel term identifies the mechanism behind a limiting gap of 1/2 rather than just exhibiting a few examples. The pointwise identity also isolates exactly when bipartiteness prevents exact halving.",
+      "residual_risks": [
+        "No localization claim beyond vertex return in the specified adjacency model; only the original-vertex identity is general in G."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:21.440125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each clique only the uniform vector and its normalized endpoint contrast enter; other contrasts have zero endpoint amplitude and are invariant. In the contrast/uniform basis this gives exactly K, B, D as displayed. With m=min(p,q), the two low energies of K have a gap bounded below in terms of fixed w>0, lie order m below D, and ||B||=O_w(m^-1/2). Weyl first isolates each low eigenvalue; eliminating the high component bounds its norm by O_w(m^-3/2) and gives a Schur correction O_w(m^-2), so the low eigenvalues and their low-sector normalized components differ from those of K by O_w(m^-2). Orthogonality gives low-sector weight O_w(m^-3/2) in each high eigenvector at the level of norm. This proves the low-low and mixed propagator bounds with no need for any separation between the two high eigenvalues. In the high-high block the first-order Duhamel correction vanishes and the double integral is bounded by t^2||B||^2/2; the cross-entry of exp(-itD) itself is at most |t|w/sqrt(pq). Endpoint overlap factors give O_{w,T}(m^-2) for both mixed and high-high amplitude contributions. Evaluating exp(-itK) gives the stated sign and phase; at pi/(2w) the sine differs from one by O_w(m^-2), giving the claimed probability. For fixed unequal p,q the conserved H^2 expectations p-1+w^2 and q-1+w^2 differ, precluding endpoint PGST. This proof is uniform for arbitrary ratios, not for variable w or growing time. Independent replay: python3 /workspace/review_replay.py 2 (NumPy/SciPy, 300 independently constructed reduced-matrix expm diagnostics, including q=p^2 and negative times). These diagnostics are finite, not a substitute for the bounds. Uploaded verifier inspected only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 rules out single-bridge PST for nontrivial unweighted attachments; Theorem 13 deals with P_3. The corona theorem treats transfer between two fibre vertices of a looped complete base. The same-day sinc-window record has an all-to-all cross join and a time-averaged return observable. Other analogues use a missing edge in a complete graph or a discrete Grover walk in three communities."
+        ],
+        "reasoning": "An absence-of-PST statement cannot imply absence of PGST, much less bounded-time amplitudes approaching one along changing dimensions. These finite-time or arithmetic transfer variants also have different graphs, propagators or quantifiers.",
+        "searches": [
+          "arXiv:2112.03374 §§4–5, Theorems 11 and 13",
+          "arXiv:1605.05260 Theorem 5.3",
+          "Resultary 21494e515130, ff7170cd1514, 7397f51790e2, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.03374",
+        "arXiv:1605.05260",
+        "arXiv:2011.13794",
+        "arXiv:2408.08244",
+        "Resultary 97d03b674e6b, 21494e515130, ff7170cd1514, 7397f51790e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier reductions use symmetric vertex orbits, but their dynamics include absorption or an oracle and generally fix equal sizes. The known one-bridge PST result is a fixed-graph obstruction. The unequal-clique exact absorber statement is infinite-time and Laplacian based."
+        ],
+        "reasoning": "The new estimate is not a numerical readout from a covering size-asymptotic theorem in those sources. Even after recognizing the four orbit vectors, deriving it requires separating the low and high sectors with a size-uniform gap from min(p,q), controlling their cross-coupling, and suppressing the high-high transition after multiplication by the endpoint overlaps. The fixed unequal no-PGST corollary itself follows directly from a standard conserved moment and is not credited as an original theorem.",
+        "searches": [
+          "arXiv:2011.13794 §4.3 and arXiv:2408.08244 §§II–V",
+          "arXiv:2112.03374 Theorem 11 and Resultary 97d03b674e6b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A weighted barbell or rooted K_2 construction is the same graph only when precisely one root-to-root edge joins two cliques. The closest indexed weighted bridge on the same unequal clique family, 97d03b674e6b, uses a Laplacian and a sink. The cited corona theorem instead has looped K_n as base with K_2 fibres."
+        ],
+        "reasoning": "The graph construction alone is not sufficient to identify the result: generators, target vertex states, observable and bounded time must be preserved. Standard PGST, perfect transfer, and fixed-time asymptotically high transfer as size grows are different quantifiers. The outbound lookup yielded no decisive source and is not negative evidence.",
+        "searches": [
+          "Resultary: unequal cliques, single weighted bridge, adjacency endpoint transfer, constant-time asymptotic",
+          "weighted barbell graph adjacency quantum walk literature query",
+          "Coutinho et al. one-bridge transfer; Ackelsberg et al. corona attachment transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact bridge-endpoint capture is one for unequal cliques in the Resultary absorber model. The equal-clique sink model supplies a four-dimensional reduction and exact capture efficiency. The weighted barbell search uses a five-dimensional marked-vertex reduction."
+        ],
+        "reasoning": "There is no finite-state census as the target of this check. These were the plausible exact formula sources: an eventual capture scalar or an oracle search matrix does not tabulate the unitary cross-endpoint amplitude for all p,q,w and bounded t.",
+        "searches": [
+          "Resultary 97d03b674e6b exact coherent-absorption law",
+          "Razzoli–Paris–Bordone §4.3 Eqs. (29)–(30)",
+          "Duda–Wong weighted barbell reduced matrices"
+        ]
+      },
+      "rationale": "Best of inspected evidence supports the uniform compact-time endpoint amplitude with second-order remainder for the fixed-weight unequal-clique adjacency family, and its explicit leading fixed-time infidelity. The four-dimensional symmetry reduction and the unequal-endpoint moment obstruction are standard ingredients, not new general mechanisms. The frozen prior-work paragraph miscites the one-bridge theorem number and misidentifies the graph in the cited corona theorem; neither assertion is needed for the Finding. Cite Coutinho et al. Theorem 11 for a single unweighted bridge; do not use Ackelsberg et al. Theorem 5.3 as evidence of equal-clique-barbell PGST.",
+      "residual_risks": [
+        "A covering equal- or unequal-barbell expansion could exist under alternative rooted-product terminology; this is a bounded literature comparison, not historical priority.",
+        "Equal-clique PGST is outside the Finding and not corroborated by the supplied Theorem 5.3 reference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PST theorem, not the claimed fixed-time asymptotic; correction of the frozen theorem citation",
+          "evidence": "X=P_2 requires singleton attachments for PST; Theorem 13 has X=P_3.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.03374",
+          "material_read": "§4 Theorem 11 (PDF p. 11, OA offset 22545), §5 Theorem 13 (p. 14, offset 30293)",
+          "method": "Open primary PDF passages",
+          "title": "Quantum walks do not like bridges",
+          "trigger": "Single-bridge state transfer obstruction"
+        },
+        {
+          "assessment": "Different corona and transfer states in the cited theorem",
+          "evidence": "(K_n+I) corona K_2, between two fibre vertices, not K_2 corona K_r joined clique endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.05260",
+          "material_read": "Theorem 5.3, p. 18 (OA offset 56606), and introduction discussion of complete bases",
+          "method": "Open primary PDF passages",
+          "title": "Quantum State Transfer in Coronas",
+          "trigger": "Cited as PGST for the equal-clique graph"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": "Irreversible sink at an ordinary vertex; capture efficiency for initial endpoint state.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.13794",
+          "material_read": "§4.3, eqs. (29)–(30), OA offsets 40375–46849",
+          "method": "Open primary paper passage",
+          "title": "Transport efficiency of continuous-time quantum walks on graphs",
+          "trigger": "Same equal-size barbell structure and 4D reduction"
+        },
+        {
+          "assessment": "Weighted bridge but equal sizes and marked search, not oracle-free endpoint amplitude",
+          "evidence": "Uniform initial state, marked potential and a five-dimensional reduced space.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.08244",
+          "material_read": "Reduced space and search-Hamiltonian passages, PDF pp. 3–5, OA offsets 15188, 21619, 27616",
+          "method": "Open primary PDF passages",
+          "title": "Searching Weighted Barbell Graphs with Laplacian and Adjacency Quantum Walks",
+          "trigger": "Weighted barbell adjacency analysis"
+        },
+        {
+          "assessment": "No exact overlap in generator, observable or time regime",
+          "evidence": "Laplacian plus absorber; exact eventual capture when sizes differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-balance-resonance-in-coherent-absorption-on-two-joined--97d03b674e6b/RESULT.md",
+          "material_read": "Finding and model, local mirror at offset 0",
+          "method": "Bounded local Resultary text read",
+          "title": "An exact balance resonance in coherent absorption on two joined cliques",
+          "trigger": "Closest same graph and initial bridge endpoints"
+        },
+        {
+          "assessment": "Different joining matrix and observable",
+          "evidence": "All-to-all rank-one weighted cross edges; time-averaged return, not opposite endpoint arrival.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spectral-collision-spikes-and-finite-time-sinc-windows-in-weight--21494e515130/RESULT.md",
+          "material_read": "Finding and model, local mirror at offset 0",
+          "method": "Bounded local Resultary text read",
+          "title": "Spectral collision spikes and finite-time sinc windows in weighted joins",
+          "trigger": "Same-day adjacency walk and finite-time asymptotic with complete graph specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The phase-resolved estimate quantitatively distinguishes coherent single-edge transfer from time-optimized transfer on a fixed graph. It explains both the constant-time approach to unit probability and its leading size deficit, uniformly even for arbitrarily unbalanced cliques. A mere effective two-state heuristic would not give the second-order error or justify this leading loss; the conserved-moment contrast clarifies the noncommuting size and time questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

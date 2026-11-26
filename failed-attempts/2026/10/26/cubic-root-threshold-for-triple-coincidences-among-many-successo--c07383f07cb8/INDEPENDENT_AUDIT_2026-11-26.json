@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:27:14.981403Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 35–45, 50–87; VERIFICATION.md and check.py inspected without executing the uploaded script",
+        "The frozen program uses range(4) for the compatible-arcs-only term and tests r=3,4 only (check.py lines 51–64); thus a₀ always vanishes in its moment test.",
+        "Independent replay enumerating the 64 order-tuples and missing event pairs: /workspace/branches/ce812b09-e188-46df-ae17-7c215e7d0e3d/audit_n2_r6.py"
+      ],
+      "rationale": "The claimed exact second factorial moment is false. For n=2,r=6, let K∼Bin(6,1/2) count orders in one direction. Y=binom(K,3)+binom(6−K,3), giving E[(Y)₂]=35 by exact enumeration of 64 equiprobable choices; the stated formula is 275/8. Distinct arcs with disjoint triples (s=0) need not coexist in a single order and all ordered distinct-arc pairs contribute. Writing M=n(n−1), the different-arc term should be M(M−1)a₀/n⁶ + M(n−1)(n−2)Σ_{s=1}³ a_s/[n^(6−s)(n−1)^s]; the same-arc term is unchanged. In the counterexample this restores 40/64. The mean is correct by one-arc contraction. The finite defect does not affect the critical factorial-moment proof: with fixed moment order, different arcs have bounded probability O(n⁻³ᵏ), while each repeated directed arc uses at least four distinct indices and loses a factor O(n⁻²ᐟ³); the disjoint arc/index configurations have the advertised limit. The isolation estimates and logical equivalence follow by contraction and counting. Supercritical existence also follows directly by keeping the first ⌊Cn^(1/3)⌋ orders and then sending C to infinity, regardless of the erroneous exact identity. This does not validate the full frozen Finding.",
+      "residual_risks": [
+        "The finite counterexample is exact. It refutes the stated moment, not the asymptotic transition. The corrected expression is included to pinpoint the error, not as a claimed new accepted result."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4c6f84cc27e6 establishes joint total variation convergence for every fixed j≥3 and all minority orientation classes at k≈n^(1−2/j), together with below/above-threshold existence statements. a1d5fcd736fe treats fixed r and pairwise overlaps. Bender–Canfield treats intersections within a fixed tuple of independently embedded graphs; the multiple-birthday model considered by Arratia et al. has iid allocations rather than path arcs."
+        ],
+        "reasoning": "The cutoff and convergence on the target scaling follow by j=3 specialization of the first record; the fixed-family and occupancy comparisons do not in themselves yield it.",
+        "searches": [
+          "Resultary 4c6f84cc27e6 and a1d5fcd736fe",
+          "Bender–Canfield, EJC 6 R36, Theorem 1",
+          "Arratia–Garibaldi–Kilian arXiv:1310.7055 §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 4c6f84cc27e6 and a1d5fcd736fe",
+        "Bender–Canfield Theorem 1 and Arratia–Garibaldi–Kilian §1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its proof shows repeated underlying edges and intersecting index triples contribute o(1) to the fixed second factorial moment, gives exact probability for distinct index triples, and bounds the expected number of underlying pairs with more than j observations by O(n⁻²ᐟʲ)."
+        ],
+        "reasoning": "For j=3, no pair with over three observations implies Y=Z. Among remaining pairs of witnesses using distinct underlying edges and disjoint triples, imposing a shared endpoint reduces the vertex choices to O(n³); by the displayed disjoint-index probability the contribution is O(n³r⁶/n⁶)=O(n⁻¹). Markov then recovers the stated endpoint and index isolation. Correcting the finite error only separates s=0 independent arc requests from s≥1 compatible requests under the same exact arc contraction; it is not the source of the critical or supercritical phenomenon.",
+        "searches": [
+          "Resultary 4c6f84cc27e6, Joint mixed factorial moments and Thresholds and distinct-edge interpretation, mirror offsets 2900–7717"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4c6f84cc27e6 defines W_{j,h} by unordered pair, a j-set of successor indices and minority orientation count h. In the h=0 case a realized witness on an unordered pair fixes a unique directed arc. Its Finding explicitly gives the all-aligned Poisson limit of mean c³/6 for j=3."
+        ],
+        "reasoning": "At j=3,h=0 the witness bijection gives W_{3,0}=Y and the same parameter scaling, not merely a similar orientation-agnostic statistic. The existential sentence specializes to ψ_r; the distinctness condition on vertices is automatic for a successor arrow.",
+        "searches": [
+          "Local Resultary for triple/common directed successors of a growing number of permutations, exact overlap moments, and orientation-resolved collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record explicitly gives binom(n,2)binom(r,3)·2/n³ as the j=3,h=0 exact mean. Its inspected verification concerns witness counts/means and adjacency probabilities, not a table for the frozen second moment. The purported finite identity here is disproved at n=2,r=6."
+        ],
+        "reasoning": "There is no natural finite table for the growing-family limit; the useful comparison is the exact mean formula and scope of the model counts, not a matching numerical row. No valid distinct result can be inferred from the absent false second-moment expression.",
+        "searches": [
+          "Local Resultary for exact finite directed successor moments/zero overlap and all-aligned witness counts; 4c6f84cc27e6 exact means and Verification"
+        ]
+      },
+      "rationale": "The valid asymptotic and logical findings are covered by the indexed orientation-profile theorem and its counting estimates for the identical successor model. The false finite identity cannot supply a distinct valid claim, and fixing its zero-overlap term is an elementary two-event case split, not a valuable surviving finding. This is statement coverage, not a claim about which record was first or their relationship.",
+      "residual_risks": [
+        "The broader matching catalogue entry has a later path date. The review makes no historical-priority or provenance inference.",
+        "The bounded primary-literature comparison does not exclude older dependent multiple-coincidence results; the originality failure rests on verified statement coverage, not search limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct all-aligned coverage and estimates imply the remaining isolation detail",
+          "evidence": [
+            "The j=3 all-aligned count has mean c³/6 in the Poisson limit; exact mean and varying-signature existential characterization given.",
+            "Its moment bound applies to distinct underlying edges even when endpoints intersect; its repeated-edge and intersecting-index contributions vanish."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poisson-orientation-profiles-at-the-growing-successor-collision--4c6f84cc27e6/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–2723, and factorial-moment/threshold/verification passages at offsets 2900–7717",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Poisson orientation profiles at the growing-successor collision threshold",
+          "trigger": "Same growing collection and all-aligned triple witnesses in a broader orientation count"
+        },
+        {
+          "assessment": "Related but not the decisive growing-family comparison",
+          "evidence": [
+            "The pairwise same/opposite-direction counts have unit-Poisson limits in the fixed-r model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-rank-two-logical-limit-types-for-independent-random-succes--a1d5fcd736fe",
+          "material_read": "Catalogue statement on fixed r and pairwise overlap types",
+          "method": "Local Resultary comparison",
+          "title": "Exact rank-two logical limit types for independent random successor orders",
+          "trigger": "Same successor permutation model and logical interpretation"
+        },
+        {
+          "assessment": "Fixed tuple of graph sequences, not the aggregate over all triples from growing r in the inspected theorem",
+          "evidence": [
+            "Theorem 1 concerns a fixed t-fold graph intersection under sparsity conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1468",
+          "material_read": "Theorem 1, p. 2",
+          "method": "Bounded open primary text",
+          "title": "Intersections of Randomly Embedded Sparse Graphs are Poisson",
+          "trigger": "Poisson laws for common edges of independently embedded sparse graphs"
+        },
+        {
+          "assessment": "Related occupancy model, not permutation path adjacency",
+          "evidence": [
+            "The arrival process sends iid balls to uniformly selected bins until a collision count is reached."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.7055",
+          "material_read": "Abstract and §1.1, pp. 1–2",
+          "method": "Bounded open primary text",
+          "title": "Asymptotic distribution for the birthday problem with multiple coincidences",
+          "trigger": "Cubic-root coincidence scale and multiple birthdays"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and factorial-moment proof; orientation-profile record's Finding and overlapping-witness bounds; independent finite counterexample"
+      ],
+      "rationale": "The asymptotic transition and isolation would be worthwhile structural information in this model: they quantify when a growing family of relations first produces triple successor coincidences and show that critical witnesses do not interact. Those findings do not survive as a distinct contribution here. The proposed finite correction is routine accounting and is not needed for the transition or a new application; it does not merit a stand-alone repair.",
+      "residual_risks": [
+        "The logical probability refers to varying sentences and signatures, not a fixed-language convergence law. Usefulness of the underlying phenomenon does not overcome the C and O failures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

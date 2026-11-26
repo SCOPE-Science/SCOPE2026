@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:12:33.698837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52; VERIFICATION.md and check_tetrahedra.py inspected as author evidence",
+        "Independent exact replay: python3 /workspace/branches/exact_reproduction.py 4"
+      ],
+      "rationale": "The truncated body is the standard simplex in barycentric coordinates with each lambda_i<=2/3. Its vertices are exactly the permutations of (2,1,0,0)/3: two caps cannot be tight, and without a tight cap an original simplex vertex would be required. The signed determinant is affine in each point separately; at least one vertex in a convex decomposition has at least the current absolute determinant. Iterating proves a vertex-supported global maximum, not vertex-only optimality. Independent determinants in tripled barycentric coordinates with one coordinate dropped give levels 0–6 with multiplicities 78,48,192,27,120,6,24. Each determinant unit is 1/27 of the full regular tetrahedron volume, which is 72 in the given normalization. Hence the maximum is 16, and removing four disjoint 1/27-volume corners gives 16/(184/3)=6/23. Permuting the four original vertices acts transitively on the 24 maximizing four-sets. Checking fixed bases on each opposite hexagonal face gives the eight listed base–face pairs; the signed determinant is constant on the three apex vertices in each pair, hence by affinity on the full triangular face. Every maximizing vertex four-set occurs exactly once in these families.",
+      "residual_risks": [
+        "No exhaustive classification of nonvertex maximizers or of other truncation depths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Lángi optimize over polytopes with a prescribed number of vertices on a unit sphere, not over simplices in the fixed truncated body.",
+          "The octahedron and rhombicuboctahedron results use other extreme-point configurations and are not all-polytope results."
+        ],
+        "reasoning": "Neither a sphere extremum nor the classical extreme-point reduction computes the determinant spectrum or equality cases for a fixed, non-affinely-equivalent 12-vertex body.",
+        "searches": [
+          "arXiv:1402.6496, Introduction",
+          "Resultary fixed-solid inscribed tetrahedra and related spectra, including dccd7f07f88d and eee1b2848255"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 3ef132fbad02, dccd7f07f88d, eee1b2848255, b52eefbe9af5",
+        "arXiv:1107.2300v4, 1406.1535v1, 1402.6496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The snub-cube result exhibits eight two-dimensional moving-apex families and 24 vertex maxima, with a different volume formula on a different polytope.",
+          "The rhombicuboctahedron result exhibits 16 moving-apex families and 48 vertex maxima."
+        ],
+        "reasoning": "The actual novelty is the geometric invariant and certificate for the specified body, not the general moving-apex technique or occurrence of these two counts. These different bodies cannot be put into affine correspondence with the 12-vertex truncation, and the examined statements give no cross-solid specialization.",
+        "searches": [
+          "Resultary snub-cube 3ef132fbad02, Finding and Proof",
+          "Resultary small rhombicuboctahedron eee1b2848255, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiao–Torquato, Introduction, uses the same solid with four triangular and four hexagonal faces; Chen–Jiao–Torquato p. 3 explicitly uses one-third edge truncation.",
+          "Resultary surfaced the target as the direct same-body volume result; the distinct eight-cut complex record b52eefbe9af5 addresses topology of a graph complex, not Euclidean point volumes."
+        ],
+        "reasoning": "Maximizing signed determinant up to orientation is equivalent to contained-simplex volume optimization for the specified body. Space-packing density and homotopy of a vertex-subset complex are not this invariant even when the shape name or four-element subsets coincide.",
+        "searches": [
+          "Resultary: contained tetrahedron / inscribed simplex and determinant spectrum for the Archimedean truncated tetrahedron",
+          "arXiv:1107.2300v4, geometry and packing context",
+          "arXiv:1406.1535v1, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The truncated-octahedron entry gives 17 levels over 10,626 vertex quadruples and maximum fraction 1/6.",
+          "The distinct same-day truncated-tetrahedron graph complex b52eefbe9af5 gives a homotopy type, not a volume table."
+        ],
+        "reasoning": "The target record itself is not independent coverage. The candidate tables read do not evaluate the 495 tetrahedral subsets of the target body. Search scope is bounded; this is not a proof of no existing table.",
+        "searches": [
+          "Resultary truncated tetrahedron maximum tetrahedral volume, vertex determinant spectrum, 6/23 and related capacity records",
+          "RESULT.md for regular truncated octahedron dccd7f07f88d"
+        ]
+      },
+      "rationale": "The strongest examined prior record for the optimizer structure has the very same counts (eight families and 24 vertex maxima) on the snub cube, but not on this solid. Nearby published volume spectra concern other Archimedean bodies, and the same-solid primary literature inspected concerns particle packings, not maximum inscribed simplices. No examined statement or applicable stronger theorem supplies the exact target capacity, spectrum and optimizer construction. Historical priority is not certified.",
+      "residual_risks": [
+        "The primary comparisons are targeted passages, not exhaustive exclusions of their full texts or a comprehensive external geometry search.",
+        "An older or unindexed inscribed-simplex table for the same truncation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural precedent on a different solid, not target coverage",
+          "evidence": [
+            "Eight two-dimensional moving-apex families and 24 vertex-supported maxima; different maximum formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-largest-inscribed-tetrahedra-of-the-snub-cube--3ef132fbad02",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Published catalogue and corresponding source passage comparison",
+          "title": "Largest inscribed tetrahedra of the snub cube",
+          "trigger": "Exact overlap in optimizer-family dimensions and counts"
+        },
+        {
+          "assessment": "Different point configuration and exact spectrum",
+          "evidence": [
+            "17 levels for 10,626 quadruples, maximum fraction 1/6."
+          ],
+          "identifier_or_url": "SCOPE record dccd7f07f88d (2026-11-17)",
+          "material_read": "RESULT.md Finding",
+          "method": "Published catalogue source comparison",
+          "title": "Exact seventeen-level vertex-tetrahedron spectrum of the regular truncated octahedron",
+          "trigger": "Same determinant invariant for an Archimedean truncation"
+        },
+        {
+          "assessment": "Different body, optimizer counts, and formula",
+          "evidence": [
+            "16 apex families and 48 vertex maxima."
+          ],
+          "identifier_or_url": "SCOPE record eee1b2848255 (2026-11-17)",
+          "material_read": "RESULT.md Finding",
+          "method": "Published catalogue source comparison",
+          "title": "Largest tetrahedra and sixteen movable-apex families in the rhombicuboctahedron",
+          "trigger": "Same volume objective and continuous apex construction"
+        },
+        {
+          "assessment": "Topological claim, not tetrahedral-volume coverage",
+          "evidence": [
+            "Four-vertex facets of an abstract simplicial complex and their homotopy conclusions are not Euclidean determinant extrema."
+          ],
+          "identifier_or_url": "SCOPE record b52eefbe9af5 (2026-11-22)",
+          "material_read": "Finding on the abstract graph cut complex",
+          "method": "Published catalogue statement comparison",
+          "title": "Two- and three-sphere wedges in the eight-cut complex of the truncated tetrahedron",
+          "trigger": "Same body name and four-element subsets in a distinct record"
+        },
+        {
+          "assessment": "Passage gives geometry for a packing problem, not the tetrahedron capacity",
+          "evidence": [
+            "Four triangular and four hexagonal faces in the description of particles to be packed."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1107.2300v4",
+          "material_read": "Introduction, geometry passage near HTML offset 3820",
+          "method": "Primary OA HTML",
+          "title": "A Packing of Truncated Tetrahedra that Nearly Fills All of Space",
+          "trigger": "Earlier study genuinely on the same solid"
+        },
+        {
+          "assessment": "Same normalization of truncation, different question in the inspected passage",
+          "evidence": [
+            "Truncation at one-third of the original edge length; phase behavior of particles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.1535v1",
+          "material_read": "PDF p. 3, near offset 11057, shape definition and phase context",
+          "method": "Primary OA PDF passage",
+          "title": "Equilibrium Phase Behavior and Maximally Random Jammed State of Truncated Tetrahedra",
+          "trigger": "Same exact truncation and extremality language"
+        },
+        {
+          "assessment": "Different feasible sets and extremal objective",
+          "evidence": [
+            "Vertex count is prescribed and vertices are on the sphere, rather than each independently in the truncated tetrahedron."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496",
+          "material_read": "Introduction, PDF p. 1, near offset 3094",
+          "method": "Primary OA PDF passage",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Plausibly broad maximum-volume inscribed polytope result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, normalization, spectrum and moving-apex construction; comparison with the published different-solid analogues"
+      ],
+      "rationale": "Largest simplex volume relative to the body's volume is a natural affine-geometric benchmark on this canonical solid. The complete vertex spectrum provides the strict next-volume gap, and the eight positive-area constructions show why the existence of a vertex-supported optimum is not a rigidity statement about all optima. These precise invariants are useful for comparing candidate contained simplices and are not supplied by the general reduction alone.",
+      "residual_risks": [
+        "No general capacity theorem or complete classification of continuous maximizers follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:23:38.304589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof steps 1–4",
+        "Frozen verify.py and VERIFICATION.md, inspected but not executed",
+        "Independent replay: python3 /workspace/audit_recompute_2.py"
+      ],
+      "rationale": "Conditional on median occupancy, distinct outward components are independent, with a median observable itself deterministic if measured. The one-step conditional slope along an edge is a strictly negative conditional occupancy probability and these slopes multiply along a path by the tree Markov property. Centering each affine conditional expectation gives the product of the slopes times the third centered Bernoulli moment p(1-p)(1-2p). Thus only the sign of the root-occupied minus root-empty partition polynomial, up to fixed parity, can vary at positive fugacity. I independently enumerated unrooted trees by adjoining a leaf at one representative of each vertex orbit and canonicalizing by the least rooted parenthesis code. Removing a leaf proves exhaustion; sorted recursive codes characterize rooted isomorphism, so they also distinguish marked vertex orbits. A separate independent-set inclusion/exclusion traversal computed the occupied and empty counts by size; it gave 4765 median-eligible marked types (root degree at least two), the stated rooted counts, and exactly the two listed Descartes exceptions. Both exceptions are strictly negative for positive lambda: their last three terms are respectively -lambda^4[(lambda-1)^2+16] and -lambda^4[(lambda-2)^2+10], with earlier terms negative. All other polynomials have at most one positive root by Descartes. The witness gives the two stated coefficient vectors, and P(3),P(4),P(14),P(15) = -1474,13747,1244837,-8562766. Two Descartes variations and two disjoint sign-crossing intervals imply exactly two simple positive roots. The two off-median measured sites each have distance two, so the cumulant sign is minus the polynomial sign. The two stated approximations agree with interval bisection.",
+      "residual_risks": [
+        "The lower bound exhausts orders 1–12, not all witnesses of order 13 or any scope beyond finite trees with a common activity. The root approximations are not used in the sign proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brightwell–Winkler use the same activity law but address hard constraints and Gibbs measures on regular trees.",
+          "The closest distinct Resultary summary treats three-point cumulants on paths with at most one reversal and a first reversal at five sites. Other summaries are for cycles, two-point covariance on helm graphs, or shore-selected cumulants on complete bipartite graphs."
+        ],
+        "reasoning": "The path result is narrower and cannot rule out lower-order branching-tree witnesses. Cyclic examples and observables of another order do not dominate the cutoff under audit.",
+        "searches": [
+          "arXiv:math/0304468, §2",
+          "Resultary 138d25c33369, 81a9cffd6370, 7b62f4d85d8f, f72dc63cf87e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0304468",
+        "arXiv:1004.4360",
+        "arXiv:2101.06744",
+        "arXiv:cond-mat/0309352",
+        "Resultary a2db7c68ea54 (target itself), and summaries 138d25c33369, 81a9cffd6370, 7b62f4d85d8f, f72dc63cf87e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior identities reduce the problem to a signed difference, not a positive-coefficient partition polynomial.",
+          "The distinct calculation exhausts all 4765 eligible marked trees and isolates a concrete 13-site polynomial with two crossings."
+        ],
+        "reasoning": "The general identities explain how to pose and compute the cutoff. They do not enforce the finite exclusion or the first reentrant example; that needs the further enumeration and a positive-root argument.",
+        "searches": [
+          "arXiv:1004.4360, §3.2, equations (17)–(19)",
+          "arXiv:cond-mat/0309352, Example 3.6, equations (3.36)–(3.41)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At an eligible marked root the condition is p_o=1/2, equivalently B_o-A_o=0; the three-point signs differ from this polynomial only by a fixed parity and a minus sign.",
+          "Binary tree cumulant formulas supply the factorization but do not count marked-root crossings. Negative zeros of full independence polynomials are a different statistic."
+        ],
+        "reasoning": "The equivalent prior claim would be the minimum order with two positive sign-crossing roots of B_o-A_o at a degree-at-least-two marked vertex. Neither a general tree-cumulant formula nor zeros of A_o+B_o state this claim.",
+        "searches": [
+          "Resultary: finite hard-core tree three-point correlation sign changes / root-conditioned occupancy",
+          "arXiv:1004.4360, §§2.4 and 3.2",
+          "arXiv:cond-mat/0309352, Example 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independence-polynomial census through order 20 concerns ordinary whole-tree coefficients and unimodality/log-concavity.",
+          "The 13-site exact Resultary hit is the assigned record, and the separate path record's indexed summary has a different graph family and one-reversal threshold."
+        ],
+        "reasoning": "No separate exact marked-polynomial/crossing table was verified. Whole-tree independence-polynomial counts do not supply the distinguished-root constrained count for each tree and root.",
+        "searches": [
+          "arXiv:2101.06744, abstract and introduction",
+          "Resultary a2db7c68ea54 and 138d25c33369"
+        ]
+      },
+      "rationale": "On the inspected evidence, the sharp homogeneous-tree minimum and explicit reentrant witness are distinct from the existing cumulant identity and independence-polynomial results. The nearest separate Resultary comparison isolates paths and a different threshold; the exact target index entry is the assigned record itself, not independent material.",
+      "residual_risks": [
+        "Full mirror passages for the neighboring path/cycle/helm/biclique records were unavailable; the comparison uses their visible summaries without a whole-text noncoverage claim.",
+        "A differently formulated marked-root census not found in the bounded search remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background, not finite marked-tree threshold",
+          "evidence": "Weights independent sets by lambda to the power of their size; focuses on regular trees and Gibbs measures.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304468",
+          "material_read": "Abstract, PDF p. 1; §2 Random independent sets, PDF p. 3 / printed p. 607, around offset 6800",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Hard Constraints and the Bethe Lattice",
+          "trigger": "Same hard-core activity model on trees"
+        },
+        {
+          "assessment": "Structural identity is prior, not the cutoff",
+          "evidence": "Conditional-independence moment relations and tree partition formulas for central moments and tree cumulants.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.4360",
+          "material_read": "§2.4 Prop. 2.5, PDF p. 7; §3.2 (17)–(19), pp. 10–11",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Tree cumulants and the geometry of binary tree models",
+          "trigger": "Broader binary-tree cumulant and tripod factorization"
+        },
+        {
+          "assessment": "Unmarked census, not root-conditioned crossings",
+          "evidence": "Tree independence polynomials through 20 vertices used to study unimodality and log-concavity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06744",
+          "material_read": "Abstract and intro, PDF pp. 1–2, around offset 2300",
+          "method": "Bounded primary OA PDF reading",
+          "title": "On Unimodality of Independence Polynomials of Trees",
+          "trigger": "Tree enumeration through a larger order than twelve"
+        },
+        {
+          "assessment": "Zeros of a different polynomial",
+          "evidence": "The hard-core partition function is the independence polynomial; Example 3.6 concerns negative roots for complete r-ary rooted tree partition functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0309352",
+          "material_read": "Introduction, PDF p. 3, around offset 7900; Example 3.6, pp. 41–42, around offset 119800",
+          "method": "Bounded primary OA PDF reading",
+          "title": "The Repulsive Lattice Gas, the Independent-Set Polynomial, and the Lovász Local Lemma",
+          "trigger": "Independence-polynomial root bounds and rooted recursions"
+        },
+        {
+          "assessment": "Visible claim is about paths; full-text coverage not determined",
+          "evidence": "The summary describes at most one reversal on finite paths and a five-site first reversal.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-third-cumulant-sign-transitions-in-finite-hard-core-paths--138d25c33369",
+          "material_read": "Resultary summary only; full local mirror passage unavailable",
+          "method": "Local Resultary search and attempted mirror retrieval",
+          "title": "Exact third-cumulant sign transitions in finite hard-core paths",
+          "trigger": "Closest distinct indexed overlap in statistic and law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Independent replay audit_recompute_2.py"
+      ],
+      "rationale": "This is a sharp obstruction and construction for a natural equilibrium observable: tree two-point covariance has a fixed distance-parity sign, but the third centered joint moment can reverse twice even with one homogeneous activity. Knowing the least possible order distinguishes a genuine branching-tree nonlinear response from merely observing one example; the explicit sign intervals make the witness reusable without a numerical scan.",
+      "residual_risks": [
+        "A finite-size analytic effect only; no inference about phase transitions or arbitrary larger-tree cumulant patterns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

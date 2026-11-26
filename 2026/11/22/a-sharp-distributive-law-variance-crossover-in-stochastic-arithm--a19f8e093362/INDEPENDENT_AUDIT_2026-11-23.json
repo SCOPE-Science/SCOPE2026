@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:06:52.157075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md and verify.py (read only)",
+        "checks/replay_certificates.py, arithmetic (generator-based replay)",
+        "arXiv:2611.11069v1, §4 Corollary 4.4"
+      ],
+      "rationale": "The historical marked-Poisson construction gives a finite-mean stationary queue for each layer. Its covariance separates shared surviving births (μe^(−t)) from the covariance of the conditional intensity filtered at both times; at zero lag the double filter yields a single e^(−t) integral. X is independent of C as a process, but has K_X(t)=s(3+t)e^(−t)/2, not the covariance of a Poisson source. The correctly centered product law gives the three factor-first variance contributions inside m: 5/9, s/2 and 7c/8 besides the shot-noise term 1. For the distributed branches, conditional Poisson superposition with a common unit lifetime identifies the entire U+V process with a queue driven by (A+B)C, not two independent queues. Its driver covariance has e^(−t) coefficient m(s+c) and e^(−2t) coefficient m. The two-stage covariance weights 3/8 and 2/9 then give Var Z/m=31/18+3(s+c)/8. An independent stationary-generator calculation gives the same coefficients using centered source eigenfunctions S−s,C−c,(S−s)(C−c) and a triangular closure for X−s. Subtraction gives exactly m(4−3s−12c)/24 with common strictly positive mean, the stated equality locus, both signs, and the independent-sample and Fano implications.",
+      "residual_risks": [
+        "Independent source paths, common C in both arms, independent reaction randomness conditional on source paths, and identical unit lifetimes are substantive. No comparison of correlated time averages follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4.4 gives exact output moments in terms of a specified driver covariance. Lemma 5.3 leaves C_(A+B) as an input; Lemma 5.4 leaves the product-driver covariance. Theorem 6.12 treats repeated multiplication with independent starting inputs, and §7 identifies mixed compositions as a next step.",
+          "The cited tandem-queue article could not be independently read in full from the attempted OA routes."
+        ],
+        "reasoning": "The universal queue rule gives a method for a supplied intensity covariance, not a theorem evaluating or comparing these architectures. Fig. 5 requires the cross-covariance of the two intermediate queues. A result for repeated multiplication or for independent arms is not a dominating set of hypotheses for that dependence.",
+        "searches": [
+          "arXiv:2611.11069v1 Corollary 4.4, Lemmas 5.3–5.4, Theorem 6.12 and §7",
+          "Dean–Ganesh DOI 10.1007/s00285-022-01781-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11069v1, relevant passages above",
+        "DOI 10.1007/s00285-022-01781-9 (bibliography only; access limited)",
+        "Resultary records ending a19f8e093362 and 8f49c92bec20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard formulas reproduce the boundary after separate computation of architecture-specific covariances. The Fig. 5 captions only identify stationary means; they do not state a process-level U+V aggregation. The additive-module formula takes the autocovariance of the entire sum, not just the two autocovariances.",
+          "The common source contributes 2abc·e^(−|t|) to the covariance of the total first-layer intensity compared with dropping cross terms. Its subsequent contribution to Var Z is 3abc/4, enough to give the wrong classification at the exact equal-rate tie if omitted."
+        ],
+        "reasoning": "Plugging a,b,c into the one-module equations alone leaves a missing joint process covariance, and plugging into the repeated-operation comparison violates its hypothesis/architecture. Conditional superposition supplies the missing identity; product covariance and the unequal filtering of the two decay modes give a new evaluated comparison. This is a short application of standard tools, not a new queue theorem or a previously solved specialization whose inputs are already evaluated in the source.",
+        "searches": [
+          "arXiv:2611.11069v1 §§3–5, exact diagram and driver-covariance comparison",
+          "arXiv:2611.11069v1 §7 discussion of mixed operations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Figs. 4–5 are exactly the two mean-encoding constructions, including the same input C in both Fig. 5 products.",
+          "The exact Resultary hit ending a19f8e093362 is the frozen result itself. The closest distinct covariance phase-diagram hit ending 8f49c92bec20 treats three-site mass exchange, not a feed-forward catalytic queue."
+        ],
+        "reasoning": "Variance, Fano factor and variance of a fixed number of independent samples give the same ordering at equal mean; none is a different claim. The Fig. 5 pair collapses to a single first layer in a tandem only when joint conditional streams and their common catalyst are retained. Equality of stationary means does not give equality or an ordering of variances.",
+        "searches": [
+          "Resultary distributive/factor-first stochastic arithmetic variance and common-catalyst queue covariance",
+          "arXiv:2611.11069v1 Figs. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise boundary is an exact match only in the assigned catalogue record among the inspected hits.",
+          "The passage adjoining §7 has Table 3, estimated stationary variances for repeated computation a^8 by tree and chain, rather than a table for the distributive circuits or their parameters."
+        ],
+        "reasoning": "The result is an exact all-positive-rate hyperplane and ordering, not a lookup in the repeated-operation simulations or a restatement of diagram validity.",
+        "searches": [
+          "Resultary distributive/factor-first stochastic arithmetic variance and common-catalyst queue covariance",
+          "arXiv:2611.11069v1 Figs. 4–5 and Table 3"
+        ]
+      },
+      "rationale": "The two network architectures and the general stationary queue-moment formulas are already in Anderson–Moon. The comparison audited here is narrowly the variance-ordering theorem, not the diagrams, mean identity, queue filter, or variance propagation formalism. Explicitly resolving the common-drive covariance and comparing the two filtered responses supplies the boundary; the inspected primary result does not provide a mixed-architecture ordering theorem or a ready formula in the three source intensities for Fig. 5.",
+      "residual_risks": [
+        "The variance ordering is close to existing queue theory and straightforward once the correct joint-intensity reduction is made; an unlocated earlier evaluated mixed-queue comparison could cover it.",
+        "The full Dean–Ganesh article was unavailable; no negative claim about its exact results is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact diagrams and generic ingredients covered; no stated mixed-operation variance boundary in the relevant passages",
+          "evidence": "Figs. 4–5 specify means; Cor. 4.4 requires the input intensity covariance; §7 explicitly says mixed compositions/propagation are a next step after repeated single operations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11069v1",
+          "material_read": "Figs. 4–5 pp. 6–7, offsets 27600–30592; §4 Cor. 4.4 p. 12, offset 49700 and continuation; Lemmas 5.3–5.4 pp. 15–16, offsets 64500–66848; Thm. 6.12/Remark 6.1 pp. 31–32; Table 3 and §7 p. 34, offsets 141900–145855",
+          "method": "Version-specific OA PDF, bounded original passages with covariance check",
+          "title": "Mean-level arithmetic computation via stochastic reaction networks",
+          "trigger": "Exact two diagrams, general complete-moment formulas and architecture comparison"
+        },
+        {
+          "assessment": "Unresolved older general-queue comparison; no negative coverage inference",
+          "evidence": "2022 J. Math. Biol. 85, art. 14; available evidence identifies a tandem-queue setting, not the two mixed circuits.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01781-9",
+          "material_read": "Bibliographic reference [25] in Anderson–Moon p. 35; no full text retrieved",
+          "method": "Attempted lawful OA via Springer and PubMed; did not obtain the article",
+          "title": "Noise dissipation in gene regulatory networks via second order statistics of networks of infinite server queues",
+          "trigger": "Earlier tandem-queue second-order results"
+        },
+        {
+          "assessment": "Same frozen record, not an independent earlier result",
+          "evidence": "Same architecture pair and variance hyperplane.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-distributive-law-variance-crossover-in-stochastic-arithm--a19f8e093362",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary retrieval and original comparison",
+          "title": "A sharp distributive-law variance crossover in stochastic arithmetic networks",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Different object; not an exact candidate for the mixed arithmetic diagrams",
+          "evidence": "Three-site mass exchange and nearest-neighbor covariance signs, not output variances of these two reaction networks.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-complete-nearest-neighbor-covariance-sign-phase-diagram-for-th--8f49c92bec20",
+          "material_read": "Indexed statement/summary",
+          "method": "Resultary semantic retrieval",
+          "title": "A complete nearest-neighbor covariance sign phase diagram (three-site mass-exchange model)",
+          "trigger": "Closest distinct covariance-ordering catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Anderson–Moon Figs. 4–5 and §7"
+      ],
+      "rationale": "The two circuits are a pre-existing natural choice for the same nonlinear mean computation, and their fluctuation comparison is a gap expressly motivated in the primary work. Exact covariance cancellation/retention produces an anisotropic, sign-changing decision surface for all three positive source rates, not just an equality at one convenient rate. The exact boundary matters for equal-mean independent readout: equal total input rate is insufficient, and dropping the cross-arm contribution changes the decision. This is a useful mixed-operation benchmark despite the elementary filters.",
+      "residual_risks": [
+        "Only a stationary, single-time or independent-sample variance decision for unit-rate networks, not a general statement about continuous time sampling, cost, or kinetics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

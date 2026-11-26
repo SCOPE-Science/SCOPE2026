@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:33:00.790334Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A missing child of any internal vertex would allow appending a new word, so maximality makes the ordered binary prefix tree full; conversely full finite trees give maximal codes. At root depth zero, counting the formal leaf as a tree gives T_0=1 and T_h=1+T_(h-1)^2, with T_4-T_3=677-26=651. Proper prefixes are exactly internal vertices, at most 15; a letter takes the internal child or completes a leaf and returns to the root. A word acts by a path through nonempty image subsets, so the first singleton at breadth-first distance is shortest and exhaustion without a singleton proves nonsynchronization. The supplied scripts were inspected but not executed. They may stop at the first singleton, which is enough in synchronizing cases. An independent implementation, inspected at lines 8–79 and 100–148, was executed and can be replayed as `python3 evidence/5/independent_enum.py --height 4` from the review workspace; `evidence/5/full_height4.log` records 25,689 reachable subsets over the 651 codes, with 19 nonsynchronizing and the exact length counts 1:2, 2:20, 3:44, 4:92, 5:96, 6:56, 7:50, 8:144, 9:118, 10:4, 11:2, 12:2, 17:2. The two length-17 codes have precisely the stated leaves and 14 states each. Direct replay verified the stated reset word and its complement; minimality comes from breadth-first distances, not replay alone. This is computational verification of a bounded census, not a larger-height or formal certification claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bound (k-1)(4k-5) gives 33 at k=4. The sharp two-consecutive-length bound gives 17 for lengths 3 and 4, not for arbitrary shallower leaves.",
+          "Ryzhikov–Szykuła study algorithms for finding short words of literal decoders, not a height-four classification in the inspected contribution passage."
+        ],
+        "reasoning": "A broader applicable bound is not strong enough, while the numerically matching bound has narrower hypotheses; an algorithm is not its previously tabulated output.",
+        "searches": [
+          "arXiv:2611.05675, Theorem 1.1 and Theorems 1.2–1.3",
+          "arXiv:1806.06299, problem and contribution overview"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.05675",
+        "arXiv:1806.06299",
+        "Resultary: a66838b3abe4 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known inclusion gives 17<=s_2(4)<=33 and already certifies the two exhibited individual thresholds. Literal-decoder algorithms do not specify which labeled codes have each distance."
+        ],
+        "reasoning": "Neither a 17 example nor a sharp upper bound for codes confined to depths 3 and 4 rules out a depth-1 or depth-2 branch in a larger-threshold example. The sharp unrestricted upper bound, exclusivity and full histogram are not covered.",
+        "searches": [
+          "arXiv:2611.05675, PDF pp. 1–2 (Theorem 1.1 and Corollary 1.4)",
+          "arXiv:1806.06299, PDF p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Labeled full ordered binary prefix trees give exactly the literal decoders under consideration. Maximum codeword depth is Chadha's k, not the diameter of the tree or the number of DFA states.",
+          "Chadha's binary construction at k=4 is exactly the displayed C_0 with letters renamed, and renaming gives its complement."
+        ],
+        "reasoning": "Equivalent wording or a relabeling neither adds a new example nor settles the unrestricted extremum, which includes shallow codewords and exact height four.",
+        "searches": [
+          "Resultary exact height-four maximal binary prefix code reset spectrum and literal decoder",
+          "arXiv:2611.05675, Theorems 1.1–1.3 and Corollary 1.4",
+          "arXiv:1806.06299, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact RESULT.md match at a66838b3abe4 is the assigned record itself; searches returned no separate exact spectrum in the inspected results."
+        ],
+        "reasoning": "Deduplicate the self-match. The required prior analogue would tabulate labeled, exact-height-four literal decoders (including the nonsynchronizing cases); the limited ranked search cannot exclude an unindexed census.",
+        "searches": [
+          "Resultary focused searches for height-four binary literal reset threshold and full reset spectrum"
+        ]
+      },
+      "rationale": "The length-17 examples and their individual shortest lengths are already known. The distinct contribution is the unrestricted exact-height-four maximum, uniqueness within the full family, and complete distribution including nonsynchronization.",
+      "residual_risks": [
+        "An unindexed enumeration or a census filed under a different prefix-decoder terminology may exist; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two examples and a restricted sharp bound, but not the full family",
+          "evidence": "The unrestricted maximum-word-length bound gives 33; the binary C_k example has 2(k-1)^2-1=17 when k=4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.05675",
+          "material_read": "PDF pp. 1–2, Theorem 1.1, Theorems 1.2–1.3, Corollary 1.4, text offsets about 4070 and 5240–6405",
+          "method": "OA PDF passages",
+          "title": "Quadratic reset bounds for finite maximal prefix codes",
+          "trigger": "Known exact reset-length construction and plausible dominating upper bound"
+        },
+        {
+          "assessment": "Algorithmic antecedent, not evidence of this census",
+          "evidence": "Studies algorithms and a complexity conjecture for finite maximal prefix codes; the inspected contribution passage does not state the exact spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.06299",
+          "material_read": "PDF p. 1, scope and contribution passage, text offsets about 1600–2020",
+          "method": "OA PDF passage",
+          "title": "Finding Short Synchronizing Words for Prefix Codes",
+          "trigger": "Literal decoder algorithms and possible small-height results"
+        },
+        {
+          "assessment": "Assigned record itself, not distinct coverage",
+          "evidence": "Same labeled census and extremal claims as the frozen result.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-height-four-reset-threshold-and-exact-spectrum-of-binary-m--a66838b3abe4",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Sharp height-four reset threshold and exact spectrum of binary maximal prefix codes",
+          "trigger": "Exact match in published-record search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact height four is a natural small cutoff at which the known general upper bound and consecutive-depth witness do not fix the unrestricted extremum. Settling the gap from [17,33] to 17 for the literal decoders, including all shallow branches, answers a precise extremal question; the whole spectrum and unsynchronizing count provide independently useful small-case data for subsequent structural bounds and conjectures. The value is not the already-known 17-letter examples or the routine tree-count recurrence in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

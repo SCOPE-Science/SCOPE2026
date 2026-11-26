@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:24:05.611503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t=y+3z the least coefficient of a is C(t)=2(t−floor(t/3)), attained at z=floor(t/3). Odd a makes 2t invertible modulo a; C is nondecreasing, so the least nonnegative t for each residue gives its Apéry minimum. For a=2m+1 the even thresholds are C(j) and the odd thresholds C(m+j+1)+1. Consequently the even members form a prefix of each row and any represented odd residue has both adjacent evens represented. The only nonsingleton run in a row is its terminal interval, bounded on the right by the next multiple of a. A terminal length 2(m−j) occurs C(j+1)−C(j) times, giving the asserted 0-or-2 law. Subtracting the terminal lengths from the summed thresholds gives B1=2m²+m−2(F(2m)−2F(m)), with F(N)=sum_{t=1}^N floor(t/3); its three evaluations agree. The redundant-generator boundary a=3 has B1=3 and B2=2. An independent reachability census matched all 50 odd a=3..101, stopping at a consecutive members to certify the entire tail. Replay: /workspace/branches/7467a3e0-effd-4bb7-9a5e-c37cb588a06d/local_reproduction.py. The frozen checker was inspected, not run; finite agreement supports but does not prove the general identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Xin–Ye–Yin cover the exact specialization b=2, d=2, k=2 (here gcd(a,2)=1), giving Apéry and genus/Frobenius formulas. Branco–Colaço–Ojeda, Theorem 15, describes an Apéry set for a different generalized repunit family."
+        ],
+        "reasoning": "The stronger exact-family input is credited: its greedy Apéry evaluation encodes membership. It does not classify maximal runs via the ordinary order of residues, or evaluate the terminal and singleton contributions.",
+        "searches": [
+          "arXiv:2306.10738",
+          "arXiv:2306.03459",
+          "arXiv:2112.01106"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; verify.py",
+        "arXiv:2306.10738",
+        "arXiv:2306.03459",
+        "arXiv:2112.01106",
+        "Resultary findings identified in the four checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives exact-family Frobenius and genus evaluations. The latter classifies isolated gaps in a unit-shift repunit family."
+        ],
+        "reasoning": "A genus is not a histogram; the explicit prior thresholds could be enumerated, but the length frequencies require showing that odd holes within the even prefix are isolated and that after the prefix there is one terminal block. The unit-shift isolation criterion does not directly give this increment-two statement.",
+        "searches": [
+          "arXiv:2306.10738 Theorem 3.5, pp. 6–7",
+          "Resultary 2026/11/2 SCOPE-exact-isolated-gap-box-and-digit-distribution-for-unit-shift-gen--292fed6d38fa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paired gap-run law has increment one and all binary repunit levels; its frequency is 1+c(a−ell)−c(a−ell−1) in {0,2} even for singletons. The shift-triple spectrum is for <a,a+3,a+5>, with period-five behavior."
+        ],
+        "reasoning": "These are comparisons of the same adjacency invariant. The first has monotone thresholds in ordinary residue order rather than the increment-two even/odd interleaving and has no general growing singleton count. Neither equality of a few adjacent parameters nor doubling the residue labels preserves the run statistic.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-a-paired-gap-run-law-for-affine-binary-numerical-semigroups--db9b5788eb4b",
+          "Resultary 2026/11/22 SCOPE-complete-gap-run-spectrum-for-three-generator-semigroups-with-sh--005a58f3e51a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed title is the audited item itself. The exact-family minimal presentations record classifies binomial relations and Betti degrees. The binary histogram record concerns <dt+1,d(t+1)+1>. The external query was unavailable and supplies no negative evidence."
+        ],
+        "reasoning": "The inspected exact-family catalogue entry does not tabulate the invariant, and the separate histogram is not a dominating parameter family.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-exact-gap-run-spectrum-of-an-odd-parameter-affine-repunit-triple--edac8df7ef94",
+          "Resultary 2026/10/18 SCOPE-complete-minimal-presentations-for-three-term-affine-repunit-num--499a659b511b",
+          "Resultary 2026/11/2 SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "External query: \"gap run\" histogram numerical semigroup generalized repunit affine repunit run-length spectrum"
+        ]
+      },
+      "rationale": "The supported distinction is the complete ordinary gap-run histogram of the increment-two triple, not the semigroup family, Apéry method, or its genus. Known exact membership data do not by themselves give the adjacency reduction or its period-three counts. No inspected result states or directly subsumes the histogram; this is a best-of-knowledge judgment.",
+      "residual_risks": [
+        "External query unavailable; no inference from the outage.",
+        "An unindexed exact census or a general adjacency theorem for affine repunit Apéry rows could change the assessment; no date-based priority inferred for same-day analogues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known structural and genus/Frobenius inputs, not an explicit run census",
+          "evidence": "b=2,d=2,k=2 gives the audited triple; the theorem concerns Frobenius number and genus.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10738",
+          "material_read": "p. 2 family definition; Theorem 3.5, pp. 6–7, text offsets 24850–28330",
+          "method": "OA primary text",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Broader family contains the target verbatim"
+        },
+        {
+          "assessment": "Contains the generator family, not the stated histogram in the compared passages",
+          "evidence": "Eq. (1) specializes to the triple; the theorem outputs are Frobenius number and genus.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+          "material_read": "p. 2 eq. (1); Theorems 2.12–2.13, pp. 8–9",
+          "method": "OA primary text",
+          "title": "A Combinatorial Model of Numerical Semigroup",
+          "trigger": "Potential same-family Apéry or census theorem"
+        },
+        {
+          "assessment": "Related invariant and method, different family and theorem",
+          "evidence": "Generators are (a+1)2^i−1 and a; multiplicity 0 or 2 holds even for length one.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-paired-gap-run-law-for-affine-binary-numerical-semigroups--db9b5788eb4b",
+          "material_read": "Finding and Apéry thresholds, offsets 0–2577",
+          "method": "Resultary local mirror",
+          "title": "A paired gap-run law for affine binary numerical semigroups",
+          "trigger": "Same-day distinct paired frequency law"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies minimal presentations and Betti degrees, including a two-generated range, not gap-run frequencies.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-minimal-presentations-for-three-term-affine-repunit-num--499a659b511b",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete minimal presentations for three-term affine repunit numerical semigroups",
+          "trigger": "Exact generator family"
+        },
+        {
+          "assessment": "Different generator family",
+          "evidence": "The generators are a,a+3,a+5; long runs have multiplicity one at a prescribed congruence modulo five.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-gap-run-spectrum-for-three-generator-semigroups-with-sh--005a58f3e51a",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete gap-run spectrum for three-generator semigroups with shifts",
+          "trigger": "Same-day distinct three-generator spectrum"
+        },
+        {
+          "assessment": "Related Apéry result for a different generator form",
+          "evidence": "Theorem 15 describes its Apéry set, not the increment-two triple's histogram.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01106",
+          "material_read": "p. 2 and Theorem 15, p. 7 (text offset 22319)",
+          "method": "OA primary text",
+          "title": "The Frobenius problem for generalized repunit numerical semigroups",
+          "trigger": "Broader-sounding generalized repunit family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triple is a natural short affine-repunit family. A full census distinguishes isolated gaps from the paired terminal runs, identifies missing lengths by a congruence condition, and supplies exact frequencies without enumerating all gaps. Neither the genus nor the presentation describes that local geometry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:05:44.328751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–55; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exact replay: python3 /workspace/branches/audit_checks/protected_tree.py. It reports class counts 1,1,1,2,3,6,11 at orders 1–7, no non-dominating class before 7, exactly two at 7, and checks complete optimizer envelopes in coefficient space."
+      ],
+      "rationale": "Independence gives one term p^(|S|−1)(1−p)^(n−|S|) for each connected S containing the immune vertex. For a separate exhaustive certificate set x=p/(1−p)>0 and divide R_v by (1−p)^(n−1). The resulting F_v is the connected-subset generating polynomial counting vertices other than the root. Across each incident branch a connected set either takes nothing or takes the adjacent vertex with a rooted connected set from its side. Hence F_v=product over neighbors u of (1+x F_(u→v)), recursively. Starting with one vertex, enumerate by every possible leaf attachment, and merge only when a bijection preserves all adjacencies (degree data are just a prefilter). Removing a leaf from any nontrivial tree proves exhaustiveness. For orders 2–7 this gave 1,1,2,3,6,11 classes; all but A and B have a site with coefficientwise nonnegative differences against all competitors. For A, sites 0 and 4 strictly dominate all others by this same positive-activity certificate; F_0−F_4=x(x²−1), whose sign changes at x=1, i.e. p=1/2. For B, sites 0,1,4 dominate all other sites strictly, F_1=F_4, and F_0−F_1=x(x²+x−1), with the single positive zero corresponding to p=(3−sqrt(5))/2. This proves both exclusions and all tie/strict regimes, without inferring nonoptimality solely from the absence of a strictly positive difference certificate.",
+      "residual_risks": [
+        "The frozen checker uses Python's floating 0.5 for the default midpoint despite describing it as rational evaluation; the independent check uses integer coefficients throughout and does not rely on that midpoint or on Sturm counting.",
+        "Only the open probability interval and the stated same-probability independent survival with one immune vertex are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known branch-product identity computes every Φ_{T,v}; the read root bound instead concerns the modulus of zeros of each individual polynomial",
+          "The Colbourn et al. abstract states algorithms for computing the common residual-connectivity objective under known individual survival probabilities, including tree inputs",
+          "Goldschmidt et al. compare graphs within classes of fixed n and m"
+        ],
+        "reasoning": "Computing any single reliability polynomial, or bounding its zeros, does not provide the sign classification of differences or the exception census. Uniform optimization over graph topologies does not solve the root choice within one fixed tree.",
+        "searches": [
+          "arXiv:1810.08655 pp. 3–4 and Lemma 2.1; Brown–Mol arXiv:1607.08496 and arXiv:1703.10573",
+          "Colbourn et al., DOI 10.1016/0166-218X(93)90233-E; Goldschmidt et al. 1994, §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 914906a1f09d",
+        "arXiv:1810.08655, arXiv:1701.05215, arXiv:1607.08496v1 and arXiv:1703.10573v1",
+        "Colbourn et al. 1993 abstract and Goldschmidt–Jaillet–LaSota 1994 §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known local-subtree recursion enables a proof but needs the exact all-tree comparison of rooted activities",
+          "The unweighted subtree core only selects a maximum at one activity",
+          "The nearest Resultary claim changes the Boolean success function itself and not just its parametrization"
+        ],
+        "reasoning": "The birth of two distinct optimizer envelopes does not follow by substitution in a single-activity optimum or by translating a surviving-link event. The census and exact comparison of differences are the distinct steps; the probability formula and recurrence are not claimed as new.",
+        "searches": [
+          "arXiv:1810.08655 Eq. (2) and Lemma 2.1",
+          "arXiv:1701.05215 Definition 1.3 and subtree-core discussion",
+          "Resultary 914906a1f09d, conditions and seven-vertex optimizer claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing Φ_{T,v}(x) for the known local subtree polynomial that counts the root in the exponent, R_v(p)=(1−p)^(n−1)Φ_{T,v}(x)/x for x=p/(1−p). Thus maximizing the protected reliability is maximizing Φ_{T,v}(x) at each positive x.",
+          "The ordinary subtree core is exactly the optimizer at x=1, or p=1/2, not an optimization over x."
+        ],
+        "reasoning": "The rooted polynomial is an exact equivalent representation, not a new invariant defined by changing names. Results for its value at 1 or logarithmic derivative at 1 do not classify switching of the maximizing vertex as x ranges over all positive reals.",
+        "searches": [
+          "Literature: local subtree polynomial, weighted subtree core, and positive-activity root maximization",
+          "Resultary: local subtree polynomial rooted subtree activity x maximizer fixed tree all positive x universal maximum vertex switch seven vertices exactly two trees protected vertex residual connectedness reliability",
+          "arXiv:1810.08655 p. 3, Eq. (2); arXiv:1701.05215 p. 2, Definition 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "914906a1f09d finds a seven-vertex first failure for retaining at least one surviving edge and one exceptional three-arm length-two spider; its crossover is (sqrt(5)−1)/2",
+          "Brown–Mol's counted connected subsets and subtree-core counts at activity 1 are not classifications of universal vertices through order seven"
+        ],
+        "reasoning": "Agreement on seven does not establish exact coverage. One surviving vertex succeeds for the frozen connectivity event and fails for the link event; an edge plus an isolated survivor reverses those outcomes. The indexed exceptional tree and threshold also differ.",
+        "searches": [
+          "Resultary 914906a1f09d, full Finding and success event",
+          "Resultary: fixed-tree positive-activity rooted polynomial maximum and exact seven-vertex exceptions"
+        ]
+      },
+      "rationale": "The underlying connected-set probability and the equivalent rooted subtree polynomial (including its recursion) are known. The distinguished result is the first size where the maximizing vertex of a fixed tree need not be independent of positive activity, including the complete exceptional shapes and crossover envelopes. The closest indexed seven-patch result changes the success event and finds a different single exceptional tree with a different crossover. The primary passages checked give evaluation algorithms, rooted polynomial identities, an unweighted subtree-core optimum, or optimization over topologies, not this all-activity fixed-tree classification. This is a bounded best-of-knowledge comparison.",
+      "residual_risks": [
+        "The full Colbourn et al. paper and the cited Mol dissertation were not accessible from the copies sought. An equivalent older rooted-activity treatment remains possible; no assertion of whole-document noncoverage or historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material thematic overlap, distinct event and theorem",
+          "evidence": "It asks for at least one surviving edge; the sole exceptional shape and its crossover differ from A and B.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-seven-patch-threshold-for-protecting-one-surviving-habit--914906a1f09d",
+          "material_read": "RESULT.md, Finding and scope from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp seven-patch threshold for protecting one surviving habitat link",
+          "trigger": "Same intervention and sharp order seven"
+        },
+        {
+          "assessment": "Exact representation and recursion known; different property studied",
+          "evidence": "Defines Φ_{T,v} and proves its branch product; bounds the roots of an individual local polynomial, not the crossings among sites.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.08655",
+          "material_read": "pp. 3–4, local definition, Eq. (2), Lemma 2.1 and Corollary 2.2, text offsets 8030–12835",
+          "method": "Open-access PDF, targeted passage reads",
+          "title": "On the roots of the subtree polynomial",
+          "trigger": "Exact equivalent polynomial object and potentially broader theorem"
+        },
+        {
+          "assessment": "Exact optimizer at just unit activity",
+          "evidence": "The subtree core maximizes the number of subtrees containing the vertex, without weighting by size.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.05215",
+          "material_read": "p. 2, Definition 1.3 and discussion, offsets 5950–7601",
+          "method": "Open-access PDF, targeted passage read",
+          "title": "On different ‘middle parts’ of a tree",
+          "trigger": "Closest vertex-location criterion in the subtree literature"
+        },
+        {
+          "assessment": "Same general evaluation objective; full paper not assessed",
+          "evidence": "Abstract states efficient residual connectedness reliability algorithms on trees and related classes with perfectly reliable edges and nodes failing with known probabilities; protected-site optimization is not stated in the abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(93)90233-E",
+          "material_read": "Authors' institutional bibliographic abstract, offset 419; publisher full text not retrieved",
+          "method": "Open-access institutional page and attempted full-text retrieval",
+          "title": "Computing residual connectedness reliability for restricted networks",
+          "trigger": "Older algorithms for the same residual success event on trees"
+        },
+        {
+          "assessment": "Different optimization domain",
+          "evidence": "Uniformly best means maximizing over all graphs in a fixed n,m class; the star is cited as uniformly best among trees.",
+          "identifier_or_url": "https://web.mit.edu/~jaillet/www/general/networks-pj-94.pdf",
+          "material_read": "§1, PDF p. 2, text offsets 5680–6801",
+          "method": "Open-access author PDF, targeted passage read",
+          "title": "On reliability of graphs with node failures",
+          "trigger": "Uses the same term uniformly best in node reliability"
+        },
+        {
+          "assessment": "Background, not fixed-tree root classification",
+          "evidence": "Ordinary node reliability sums over connected vertex sets with weight p^|S|(1−p)^(n−|S|). Conditioning a fixed vertex to survive gives the frozen summand and restricts S.",
+          "identifier_or_url": "arXiv:1607.08496v1",
+          "material_read": "§2, p. 3, PDF text near offset 4700",
+          "method": "Open-access PDF, targeted passage read",
+          "title": "On the roots of the node reliability polynomial",
+          "trigger": "Standard connected-set reliability polynomial"
+        },
+        {
+          "assessment": "Different shape statement",
+          "evidence": "Theorem 3.2 concerns an inflection point of ordinary tree node reliability, not a protected-root optimizer.",
+          "identifier_or_url": "arXiv:1703.10573v1",
+          "material_read": "Definition 1.1 and Eq. (3), p. 3, offset 8750; Theorem 3.2, p. 12 near offset 39724",
+          "method": "Open-access PDF, targeted passage reads",
+          "title": "The Shape of Node Reliability",
+          "trigger": "Tree-specific shape results for node reliability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exact switch factors",
+        "On the roots of the subtree polynomial, local polynomial definition and Eq. (2)",
+        "Independent positive-activity certificate"
+      ],
+      "rationale": "The underlying decision problem is natural: is the same protected site optimal without knowing the common survival probability? The answer identifies the exact first obstruction, completely classifies it up to isomorphism, and provides the action to take on each side of both crossover points. Equivalently it gives the first failure of a universal maximizer for a standard local subtree generating function over its whole positive parameter range. This is a motivated use of a small finite census, not a new label for ordinary node reliability.",
+      "residual_risks": [
+        "It is a clean mathematical habitat model, not an empirical recommendation or a result about dependent survival, larger protection budgets, or imperfect edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

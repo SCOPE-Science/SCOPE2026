@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim:** For indexed binary words avoiding any one forbidden factor from `001`, `100`, `110`, or `011`, the two-read one-deletion confusability graph has exact edge and triangle generating functions
-\[
-E(z)=\frac{z^2(1+z)}{(1-z)(1-z-z^2)^2},\qquad T(z)=\frac{z^4(1+z)}{(1-z)^2(1-z-z^2)^2}.
-\]
-For every length, \(T_n=\sum_{j=2}^{n-2}E_j\); its asymptotic mean triangle incidence per edge is three.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The unique alternating difference-interval lemma converts each edge to a block and two contexts. Each phase avoids `001` if and only if the common prefix avoids `001` and is empty or ends in `1` and the suffix avoids `001` and does not start `01`. The resulting context series are \(P=1/(1-z-z^2)\) and \(S=(1+z)/(1-z-z^2)\). In the established unique long-edge triangle decomposition, one splice contains `001` and the other contains `11`, leaving exactly one legal splice per cut. All cases, including lengths below four, follow by coefficient extraction, and reversal/complement covers all four listed patterns. The independent direct deletion-set and structural enumerators passed their full declared checks. Nonstandard structural premises were inspected in the named sources; no finite computation is substituted for the all-length proof.
+Cai et al.'s Type-A characterization applies to sets of distinct one-deletion outputs. It can also be reconstructed directly: if the first and last mismatches are p and q, any common deletion with the first deletion index earlier than the second yields the same descendant as deleting p from the first word and q from the second (shift alignment on [p,q] and a constant run up to p). The reverse order yields the other candidate. Two distinct outputs require p<q and both shift alignments, forcing opposite alternating phases between p and q. In a triangle the difference sets are intervals and one is the symmetric difference of the other two. Two intervals with nonempty interval symmetric difference must be adjacent and disjoint, or nested with one shared end. Thus there is one long edge split into two adjacent shorter edge intervals of lengths at least two. In the 001-avoiding graph the cut producing 00 is immediately followed by 1; the cut producing 11 preserves admissibility, including the phase-dependent external boundaries. The prefix must be empty or legal ending in 1, the suffix must be legal and not start in 01; this gives the stated Fibonacci factors. The unique interval and cut validate both counts, including the empty small-length sums. The dominant double pole is at phi^(-1), where z^2/(1-z)=1 and the edge leading constant is phi^3/5; hence the triangle-to-edge ratio tends to 1. Complement and reversal give the other individual forbidden factors. An independent inverted deletion-index census (python3 /workspace/branches/audit_exact_124.py 2) matched every coefficient through length 12, including the empty word, for all four motifs. This is corroboration, not the all-length proof.
 
-## Originality — PASS, qualified
+## originality
 
-The closest unrestricted edge and triangle theorems already give the alternating-interval and unique-splice geometry, so those general principles are expressly **not** claimed as new. The full published triangle-result exposition and the materially relevant primary Type-A sections were compared. The old unrestricted counts do not impose the `001` boundary-context restriction or distinguish the surviving splice. The indexed `010`-avoiding and bounded-run constrained results are different source languages and do not dominate this exact four-pattern-orbit claim. published-finding corpus and available previous-result searches did not retrieve this exact restricted enumeration, but indexing gaps cannot establish novelty.
+PASS
 
-## Value — PASS
+The edge normal form and unrestricted splice geometry/counts are prior. The distinct supported claim is the exact induced edge and triangle census for one fixed motif in the reversal/complement orbit of 001, including the one-splice coefficient law. Neither unrestricted count can give this restriction by specialization of alphabet size, and the closest restricted censuses examined use other languages.
 
-The result provides a complete all-length census of two-way and three-way deletion ambiguity under a natural smallest asymmetric binary forbidden word, with two independent Fibonacci context factors. The exact cumulative edge–triangle identity and limiting mean three edge-triangle incidences make the relation between pairwise and triple ambiguity explicit. No optimal code cardinality, clique count, or alternate channel model is implied.
+## value
 
-## Sources and residual limitations
+PASS
 
-Primary literature: Levenshtein (2001), DOI `10.1006/jcta.2000.3081`; Cai, Kiah, Nguyen, and Yaakobi (2020), arXiv:2001.01376, Definition 8/Proposition 9; Chrisnata, Kiah, and Yaakobi (2022), DOI `10.1109/TIT.2022.3184868`, relevant lemma. Most proximate published full text: *Exact triangle spectrum of the two-read deletion-confusability graph*, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6. Also compared the published unrestricted edge-count summary and previous constrained claims.
+This gives a benchmark for ambiguity on a natural memory-constrained binary source. Triangles detect three pairwise ambiguities that edge totals alone do not capture, and the forbidden-splice mechanism gives a sharp identity and limiting edge multiplicity, not just a small table. It does not solve the independence-number or optimal reconstruction-code problem.
 
-The 2001 source was verified from published abstract/bibliography rather than full text; the 2022 journal source was inspected at its pertinent lemma but not end-to-end. Unindexed older motif-specific analysis is a genuine remaining priority risk. The result concerns a fixed forbidden length-three factor and counts graph edges and triangles, not maximum code sizes.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

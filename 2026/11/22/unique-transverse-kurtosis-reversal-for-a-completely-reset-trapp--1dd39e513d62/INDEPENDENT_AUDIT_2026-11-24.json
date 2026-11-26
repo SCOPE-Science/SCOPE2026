@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:10.699472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A common reset couples any two initial states, giving uniqueness of the exponential-age stationary law. Bounded stationary displacement and angular reflection justify the stationary moment identities and centering. An independent symbolic real sine/cosine hierarchy reproduced the two moments, entire denominator H and all six coefficients of Q. For each positive delta, H is positive and Q increases strictly from a negative constant to infinity. Variance is strictly positive. The scaled limits Q_delta(c delta)/delta -> 24c-192 and Q_delta(c/delta)/delta^3 -> 576c-4032 trap the unique root between any fixed constants on either side of 8 and 7 in the respective scaled variables. For fixed delta the dimensionless moments are asymptotic to 4 delta rho^(-3) and 960 delta^2 rho^(-6), so the ratio tends to 60 and the excess to 57 even as both moments vanish. This agrees with the independent short-age picture: the angular linearization gives a time-integrated Brownian motion of variance (2 delta/3)t^3 and conditional Gaussian fourth moment, then exponential-age mixing gives the factors 3! and 6!. Physical cumulants scale by (v/kappa)^4. Replay: python /workspace/independent_checks.py 1 (SymPy); original checker.py and VERIFICATION.md inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shee's renewal Eq. (6) applies to a generic observable; the trapped radial case displays a transition on a fixed parameter slice, and the untrapped Eq. (22) gives positive radial excess.",
+          "The same-day Resultary mixed-fourth-cumulant result uses freely translating dynamics and orientation-only resets."
+        ],
+        "reasoning": "The generic renewal identity gives a computational reduction, not the moment-specific signs. Untrapped radial or orientation-only-reset cumulant theorems do not imply the fully reset trapped stationary marginal result.",
+        "searches": [
+          "arXiv:2409.06920, §2, §6 and Appendix G",
+          "Resultary: fourth cumulants and tails of reset active Brownian particles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.06920 primary PDF",
+        "Local Resultary mirror, three exact records above",
+        "Targeted primary search on transverse reset-particle kurtosis; returned unrelated hits and adds no negative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously available renewal machinery yields the exponential-age mixture. The related transverse-third threshold scales with square roots; the far-tail result relies on translational diffusion and is not a transverse cumulant classification."
+        ],
+        "reasoning": "Adopting the moment hierarchy still leaves the Cartesian fourth-order numerator and a global root/sign argument to obtain. The 57 limit alone follows by short-age Gaussian mixing; it is not the basis for originality of the transition theorem.",
+        "searches": [
+          "Shee arXiv:2409.06920, Eq. (6), Eqs. (18)–(19)",
+          "Resultary transverse third-cumulant and angular far-tail records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shee defines radial excess using the radial fourth moment and a factor of two in the denominator (§5, Eqs. 18–19).",
+          "The Resultary transverse reversal record SCOPE-a-unique-transverse-third-cumulant-reversal-under-complete-reset--554b8e1b368c uses Cov(X,Y²)."
+        ],
+        "reasoning": "The prescribed reset heading breaks rotational symmetry. The radial fourth moment sums longitudinal, mixed and transverse components and does not determine the transverse cumulant; the third mixed cumulant is not that fourth cumulant either.",
+        "searches": [
+          "Resultary: transverse cumulant reversal of trapped active Brownian motion under complete resetting",
+          "arXiv:2409.06920, radial and Cartesian moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior critical value 3.93 is for radial excess and a fixed parameter slice; the nearby Resultary entries classify a third cumulant or a mixed fourth-cumulant growth rate, not the transverse-root function."
+        ],
+        "reasoning": "The plausible tabulated comparators are reset-rate transition diagrams or indexed exact cumulant zeros. No checked diagram or record tabulates the same observable under the same assumptions.",
+        "searches": [
+          "Resultary: transverse kurtosis, mixed fourth cumulant, resetting and harmonic confinement",
+          "Shee arXiv:2409.06920, §6 Fig. 3(a)"
+        ]
+      },
+      "rationale": "The strongest same-system primary paper establishes radial moments and radial kurtosis transitions, while the strongest indexed transverse result concerns a different cumulant. The distinct supported claim is the exact all-diffusivity athermal transverse fourth-cumulant transition and critical-rate laws, not renewal, the harmonic-reset model, or non-Gaussianity under resetting in general.",
+      "residual_risks": [
+        "An unindexed Cartesian moment derivation or equivalent threshold classification could exist. The shared moment model and renewal method are not claimed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial model, method and radial-transition overlap, not a transverse Cartesian classification",
+          "evidence": "Uses simultaneous position and heading resets, includes translational diffusion, and defines K_r=E[r^4]/(2 E[r²]^2)-1. The fixed-slice radial threshold is 3.93; the untrapped radial excess is positive.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06920",
+          "material_read": "PDF pp. 3, 5, 9–12 and 24–25; Eqs. (1)–(3), (6), (18)–(19), (22), Fig. 3(a), Appendix G",
+          "method": "OA PDF passages",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Same complete-reset harmonic-trap model and a kurtosis transition"
+        },
+        {
+          "assessment": "Different mixed cumulant",
+          "evidence": "Cov(X,Y²) has a unique reversal and athermal threshold scales sqrt(5d) and sqrt(3d).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-unique-transverse-third-cumulant-reversal-under-complete-reset--554b8e1b368c",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Local Resultary mirror",
+          "title": "A unique transverse third-cumulant reversal under complete resetting of a trapped active Brownian swimmer",
+          "trigger": "Closest indexed same-system one-root theorem"
+        },
+        {
+          "assessment": "Distinct cumulant, evolution and reset protocol; no priority inference from date",
+          "evidence": "Treats the long-time growth rate of cum(X,X,Y,Y) without a trap and under orientation-only resetting.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-mixed-fourth-cumulant-sign-reversal-in-orientationally--c2ab2617bd83",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "A unique mixed fourth-cumulant sign reversal in orientationally reset active motion",
+          "trigger": "Potential fourth-order reset crossover match"
+        },
+        {
+          "assessment": "Thermal far tails, not the athermal transverse-root theorem",
+          "evidence": "Zero radial excess need not imply a Gaussian transverse marginal; that warning is not a zero classification for the fourth cumulant of Y.",
+          "identifier_or_url": "2026/11/8/SCOPE-angular-erasure-in-far-tails-of-a-harmonically-trapped-reset-act--b8f01f9a721f",
+          "material_read": "RESULT.md, finding and radial-versus-transverse comparison",
+          "method": "Local Resultary mirror",
+          "title": "Angular erasure in far tails of a harmonically trapped reset active Brownian particle",
+          "trigger": "Potential overlapping transverse stationary shape regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed reset heading makes the transverse marginal a natural anisotropic diagnostic that radial data can hide. The all-diffusivity root theorem rules out multiple transverse reversals rather than merely reproducing sampled signs. The two scaling laws locate the reset threshold in opposite physical regimes and the rapid-reset limit distinguishes shrinking fluctuations from standardized shape. A sign of excess alone is not a claim about distribution tails.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

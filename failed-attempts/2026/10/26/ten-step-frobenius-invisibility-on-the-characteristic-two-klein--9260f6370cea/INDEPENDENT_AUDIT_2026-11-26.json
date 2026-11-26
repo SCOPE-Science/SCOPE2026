@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:53.173630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–72, VERIFICATION.md and the two accompanying verifier sources, inspected without execution.",
+        "Independent exact replay: python3 /workspace/branches/check_klein.py; the calculation orthogonally splits the binary polar form and sums over the cube classes of t."
+      ],
+      "rationale": "The partials are the squares of the preceding coordinates and have no projective common zero. Weak Lefschetz and duality give the four Tate groups, and the coefficient of H³ in (1+H)^5/(1+3H) is −2. Since the degree is three, Euler characteristic is −6 and b3=10. The order-eleven diagonal map preserves the cubic, has distinct weights, and each nonidentity power fixes exactly five coordinate points. The tangent spaces have no fixed direction (all ambient tangent weights are nontrivial), so every local fixed-point contribution is one. Lefschetz and the trivial action on the Tate groups give trace −1, hence ten nontrivial one-dimensional character spaces and no trivial one. Galois sends the map to its square, so Frobenius permutes those spaces by 2 or its inverse; 2 has order ten modulo 11. A weighted ten-cycle has characteristic polynomial U^10−c and determinant −c. Taking the fifth exterior power of the alternating pairing shows that the determinant is (2³)^5, so c=−2^15 without any sign ambiguity. The trace formula then gives all counts, including the positive correction 327680 at n=10. As independent finite corroboration, exact additive-character sums of the binary quadratic forms Tr(tF) confirm n=1–20, including 1075119105 at n=10. The cohomological proof—not that computation—establishes the universal assertion.",
+      "residual_risks": [
+        "The numerical replay is bounded, and the argument concerns the displayed F2 descent rather than other twists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Debarre et al. give a general Galois-module correspondence for a smooth cubic threefold and its Fano surface, including P1(F(X),T)=P3(X,T/q), and instantiate it at this model over F2. The inspected Kloosterman theorem assumes Calabi–Yau degree n+1, which a cubic in P4 does not satisfy."
+        ],
+        "reasoning": "A theorem about twists after scalar extension alone would not select the prime-field polynomial. The cited Galois-module relation and its explicit F2 instance do; the inspected Delsarte deformation theorem is not needed or applicable as stated.",
+        "searches": [
+          "Debarre–Laface–Roulleau Theorem 4.1; Hermitian cubic forms and twists; Kloosterman, SIGMA 13 (2017), 087, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Debarre–Laface–Roulleau, Theorem 4.1 and §4.5.2; Ciurca §4.4.3; Kloosterman Theorem 1.1; local Resultary trace-zero Gauss fixed-scheme Finding."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact polynomial gives the ten roots with tenth power −2^15; Ciurca separately obtains the geometric trace −1 for the order-eleven symmetry."
+        ],
+        "reasoning": "After the substitution, the Tate even factors yield exactly the stated threefold zeta. Newton power sums are zero at extension degrees not divisible by ten and equal 10(−2^15)^(n/10) at multiples of ten, so the new-looking uniform count and first discrepancy follow mechanically. Ciurca's trace alone is not the prime-field polynomial.",
+        "searches": [
+          "Debarre–Laface–Roulleau Theorem 4.1 and §4.5.2; Ciurca §4.4.3, order-eleven trace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (17) is the same cyclic cubic with shifted indices; the p. 16 specialization uses this very F2 fibre. The local same-model Gauss fixed-scheme record treats the finite marked Gauss-map scheme, not H³."
+        ],
+        "reasoning": "The prior polynomial equality is over the fixed prime-field model. The variable rescaling T=2S undoes a Tate twist, not a change of descent. The Gauss-map record and a merely geometric Hermitian isomorphism do not settle this invariant.",
+        "searches": [
+          "Local Resultary: F2 Klein cubic threefold Frobenius H3, ten-step cyclic cubic and exact zeta; Debarre–Laface–Roulleau §4.5.2, equation (17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At printed p. 16, the exact named-model identity P1(F(X) over F2,T)=P3(X over F2,T/2)=1+2^5T^10 appears, along with the Fano zeta containing 1+2^15T^10."
+        ],
+        "reasoning": "This exact evaluated polynomial suffices for the invariant even without a catalogue of all cubic threefolds or a table listing every extension count.",
+        "searches": [
+          "Local Resultary exact-polynomial search; Debarre–Laface–Roulleau §4.5.2, explicit characteristic-two computation and ensuing zeta display"
+        ]
+      },
+      "rationale": "Debarre–Laface–Roulleau give the same cyclic cubic in their equation (17) and explicitly compute P3(X over F2,T/2)=1+2^5T^10 in §4.5.2. Substitution T=2S yields exactly 1+2^15S^10, not just geometric similarity over an algebraic closure. The frozen polynomial, zeta function and point counts are therefore already covered.",
+      "residual_risks": [
+        "Historical priority for this particular proof route, as opposed to the numerical theorem, was not established. Further general Delsarte coverage is unnecessary for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage after the stated change of polynomial variable",
+          "evidence": "P1(F(X) over F2,T)=P3(X over F2,T/2)=1+2^5T^10, for the very same cyclic equation.",
+          "identifier_or_url": "https://cims.nyu.edu/~tschinke/books/simons15/submitted/CubicsFiniteFields2woNS.pdf",
+          "material_read": "Theorem 4.1, printed p. 5 (offset 15923); §4.5.2 and eq. (17), printed pp. 15–16, decisive displayed identity around OA offset 60250",
+          "method": "Bounded primary manuscript inspection, including the explicit characteristic-two formula",
+          "title": "Lines on Cubic Hypersurfaces over Finite Fields",
+          "trigger": "Exact Klein cubic arithmetic and transfer from the Fano surface"
+        },
+        {
+          "assessment": "Prior geometric trace ingredient, not the descent polynomial in the inspected passage",
+          "evidence": "States the trace of the order-eleven automorphism on H³ is −1 in the geometric argument.",
+          "identifier_or_url": "https://purehost.bath.ac.uk/ws/portalfiles/portal/373426370/Prym_varieties_and_cubic_threefolds_over_Z.pdf",
+          "material_read": "§4.4.3, printed p. 105 / PDF p. 110, near offset 292476",
+          "method": "Bounded primary OA thesis passage",
+          "title": "Prym Varieties and Cubic Threefolds over Z",
+          "trigger": "Same geometric order-eleven action in characteristic two"
+        },
+        {
+          "assessment": "This theorem's degree hypothesis excludes the fixed cubic threefold",
+          "evidence": "It treats Calabi–Yau polynomials of degree n+1 in projective dimension n.",
+          "identifier_or_url": "SIGMA 13 (2017), 087",
+          "material_read": "Theorem 1.1, p. 2, offset 6400",
+          "method": "Bounded primary OA inspection",
+          "title": "Zeta Functions of Monomial Deformations of Delsarte Hypersurfaces",
+          "trigger": "Cyclic monomial defining equation may be covered by a general Delsarte theorem"
+        },
+        {
+          "assessment": "Different scheme and invariant",
+          "evidence": "Its three degree-five Frobenius orbits concern the marked Gauss-map fixed scheme, not the threefold's H³.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-trace-zero-gauss-fixed-schemes-on-characteristic-two-cyclic-klei--449508403448/RESULT.md",
+          "material_read": "Finding on the fixed scheme at n=5",
+          "method": "Local Resultary query and bounded mirror reading",
+          "title": "Trace-zero Gauss fixed schemes on characteristic-two cyclic Klein hypersurfaces",
+          "trigger": "Same equation at five coordinates and arithmetic Frobenius"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Debarre–Laface–Roulleau §4.5.2; Ciurca §4.4.3."
+      ],
+      "rationale": "The fixed arithmetic form is a natural example and the proof by cycling character spaces is concise, but the finding claims an exact invariant already explicitly computed. The point counts and delayed first discrepancy are routine consequences of that known polynomial, while the character decomposition and cycle deduced from the geometric trace and cyclotomic action do not supply a separately established new valuable outcome here.",
+      "residual_risks": [
+        "The decision does not assert that the alternative proof has no expository value, only that no separate scientific claim has been established for acceptance."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

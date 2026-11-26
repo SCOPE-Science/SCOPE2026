@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:57.151141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing p=Σ_{i<j}x_i x_j, q=x_1x_2x_3 and b=(1−2p)/3 gives output coordinates b+2r_i with r_i the three pair products. They sum to one, and Σr_i²=p²−2q, so D(Vx)=8p²/3−8q. The next product is b³+2p b²+4qb+8q², and p'=1/3−D(Vx)/2; these reproduce the two-step polynomial. At fixed p its q derivative is −(32/9)(8p²−6p+12q+1); q≥0 suffices for p≤1/4 and Schur 9q≥4p−1 gives the strictly positive bracket for 1/4<p<1/3. The edge minimum q=0 is feasible through p=1/4, and the edge ratio increases to 1/9 (its derivative sign reduces to 18p²−11p+2>0). Above p=1/4 every state is interior; multiplier equations force repeated coordinates at an extremum of q, since pairwise differences of the equations for three distinct coordinates would identify all three with the same multiplier. The branch with repeated a=(1+sqrt(1−3p))/3 gives the smaller product. On it one step multiplies variance by 4a² and maps the repeated coordinate to a'=(1+2a−6a²)/3, so the two-step factor is 16a²(a')². Its derivative has the unique interior maximizing root of 18a²−4a−1=0 on (1/3,1/2); the other quadratic factor 6a²−2a−1 is negative there. At that root a(a+1)=(31+11sqrt(22))/162 and a'=2(a+1)/9, giving exactly the stated radical. Since the other branch and the edge cannot attain it, only its coordinate permutations give noncenter equality. The one-step ratio is increasing to one on the edge, and is 4a²<1 on the interior minimizing branch. Iteration gives the global bound; on the tangent plane the derivative is (2/3)(I+cyclic shift), with squared two-step factor 16/81. The frozen symbolic identities and 285 grid states are corroboration; the continuous maximum and closed-boundary cases were checked analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jamilov (3)–(5) give a distinguished last coordinate and map every vertex to e_m, which is itself fixed. Record 255f2b71469e, Assumptions and Proof (offset 0), explicitly uses the same distinguished-coordinate update with time-varying mixing and Fourier-mode decay of the normalized remainder.",
+          "The assigned map sends every vertex to the barycenter and has no fixed vertex. Jamilov et al. (2024), DOI 10.1002/mma.10191, was not available via the attempted lawful OA routes."
+        ],
+        "reasoning": "Vertex behavior excludes equivalence under coordinate relabeling. The nonstationary permutation result estimates another normalized composition and is not a dominating theorem for the specified map. No conclusion is drawn from the unavailable paper.",
+        "searches": [
+          "Jamilov arXiv:2210.05107, §3 permutation QSO equations (3)–(5); Resultary permutation QSO annealing; 10.1002/mma.10191"
+        ]
+      },
+      "checked_sources": [
+        "Mamurov, Ilm Sarchashmalari 11 (2022), pp. 29–31; Jamilov arXiv:2210.05107",
+        "Resultary b664a6b9a819 (self), 255f2b71469e",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, frozen program not executed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the identical map, Mamurov's Lemma 2 gives Φ(Vx)=8q Φ(x), Φ=|(x_1−x_2)(x_2−x_3)(x_3−x_1)|. But Φ vanishes at every two-equal-coordinate state, including all nontrivial extremizers of the variance quotient. The theorem states convergence without a two-step Euclidean estimate.",
+          "The conference counterpart could not be retrieved for decisive passage comparison."
+        ],
+        "reasoning": "Product-gap decay yields no numerical control of this variance quotient on the equality stratum. Local spectral contraction likewise does not imply the globally sharp factor, which is larger and attained away from equilibrium. The optimization adds genuine quantitative content to the identified prior results.",
+        "searches": [
+          "Mamurov 2022 journal §3, Lemmas 1–3 and Theorem; Bukhara 2022 proceedings counterpart p. 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mamurov's map (3) is exactly the assigned map, not merely similar. Lemmas 2–3 and the final theorem concern the product of coordinate gaps and global regularity.",
+          "D=Σx_i²−1/3=(1/3)Σ_{i<j}(x_i−x_j)², so normalizing the variance or expressing it via squared pair gaps leaves this coefficient unchanged; the older product of gaps is not an equivalent normalization."
+        ],
+        "reasoning": "The map and qualitative limit are prior; the operator's sharp finite-horizon ratio for this particular metric requires the fixed-p, varying-q comparison and cannot be credited as novel merely by renaming the metric.",
+        "searches": [
+          "Resultary and literature: fixed cyclic non-Volterra quadratic stochastic operator on the 2D simplex, sharp two-step variance or barycentric squared-distance contraction",
+          "Mamurov 2022 journal version, §3 map (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b664a6b9a819 is the assigned exact catalogue match, not independent prior coverage. The nearby 255f2b71469e concerns a different permutation family. The numerical factor in Mamurov's Lemma 2 is (2/3)^3 for a gap product, not a squared-distance two-step coefficient."
+        ],
+        "reasoning": "This is a fixed small polynomial operator, not a catalogue of stability constants. No distinct coefficient or extremizer entry was identified in the inspected sources.",
+        "searches": [
+          "Resultary: sharp two-generation variance factor and interior optimizing composition of the cyclic three-type QSO",
+          "Mamurov 2022, journal §3 quantitative bounds"
+        ]
+      },
+      "rationale": "The supported distinct claim is the optimal global two-step Euclidean variance factor and its interior equality orbit, contrasted with the sharp one-step factor. Mamurov's exact same map and qualitative regularity assertions are prior; the inspected proof bounds a different Lyapunov function that loses all variance information on the maximizing two-equal-coordinate branch. The plausible permutation-family comparison is a different map even under relabeling. This is a bounded best-of-knowledge decision, not a historical priority claim.",
+      "residual_risks": [
+        "The conference version and the 2024 paper were not inspected in full. Unindexed work or a general sharp variance theorem not identified in the bounded search could change the originality assessment. No first-publication claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical map and qualitative convergence claim; gap-product estimate does not cover this Euclidean factor",
+          "evidence": "Equation (3) is the given cyclic map. Lemma 2 has multiplicative gap-product identity with factor 8q. The final theorem states attraction and regularity, not the claimed variance ratio or equality orbit.",
+          "identifier_or_url": "https://uniwork.buxdu.uz/resurs/12848_1_9048BBB21456EB56BEF38A64C05BED225AE03842.pdf",
+          "material_read": "Abstract, §3 equation (3), Lemmas 1–3 and concluding theorem, printed pp. 29–31 (OA offsets 114425, 115080 and 122981)",
+          "method": "Targeted original OA PDF via lawful VPN route",
+          "title": "Regularity of a Non-Volterra Quadratic Stochastic Operator on the 2D Simplex",
+          "trigger": "Identical fixed polynomial operator and possible exact contraction"
+        },
+        {
+          "assessment": "Unresolved; not used for negative coverage evidence",
+          "evidence": "The frozen record identifies the proceedings and page; retrieval did not establish its statement.",
+          "identifier_or_url": "https://uniwork.buxdu.uz/resurs/13348_1_95F69686F3563813FDBCE24AE88879AE0FD79285.pdf",
+          "material_read": "No decisive text retrieved at cited p. 13",
+          "method": "Lawful OA attempt",
+          "title": "Regularity of a Non-Volterra Quadratic Stochastic Operator on the 2D Simplex (Bukhara proceedings)",
+          "trigger": "Earlier proceedings version of work on the identical map"
+        },
+        {
+          "assessment": "Different polynomial family and different asymptotic results",
+          "evidence": "The first m−1 coordinates have the common factor 2x_m; x'_m=x_m²+(1−x_m)². In particular e_m is fixed, unlike any vertex in the assigned map.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.05107",
+          "material_read": "Introduction and §3 equations (3)–(5), Theorem 3.1 and opening of Proposition 3.3, especially printed pp. 35–36 (OA offset 11258)",
+          "method": "Targeted original OA PDF text",
+          "title": "A family of non-Volterra quadratic operators corresponding to permutations",
+          "trigger": "Possible broader permutation-indexed family"
+        },
+        {
+          "assessment": "Different family, even for a constant schedule",
+          "evidence": "x_m follows the independent scalar quadratic update and the other coordinates mix through a time-dependent linear permutation average after normalization.",
+          "identifier_or_url": "Resultary 255f2b71469e",
+          "material_read": "Finding, Assumptions and opening of Proof, offset 0",
+          "method": "Published record, local mirror",
+          "title": "Sharp annealing and cyclic-memory dichotomy for permutation quadratic stochastic maps",
+          "trigger": "Closest distinct named result for three-cycle mixing and decay"
+        },
+        {
+          "assessment": "Unresolved; no negative inference",
+          "evidence": "Access attempts returned HTTP 403 and found no available repository text.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.10191",
+          "material_read": "No decisive full text retrieved",
+          "method": "Lawful direct and VPN retrieval attempts, repository check",
+          "title": "Dynamics of nonlinear stochastic operators and associated Markov measures",
+          "trigger": "Potential general nonlinear stochastic operator context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance around equilibrium is a natural imbalance statistic for this previously studied map. Two generations are the first horizon at which there is strict uniform contraction in this metric, since the one-step maximum is one at edge midpoints. The exact constant is a usable global transient bound, and its interior equality composition identifies an obstruction that neither boundary testing nor the equilibrium linearization captures. Thus this is a motivated sharp finite-horizon result, not a new claim of qualitative regularity or an arbitrary iterate count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:23.147178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed depth counts the first equality of consecutive synchronous partitions, starting at round zero with one uniquely marked corner. The degree deficit first becomes available at round one; applying the Laplacian k times uses k additional rounds. Its separated path resolvent satisfies both endpoints (after removing the common prefactor, the left endpoint equation reduces to (1-r^q)/(1-r)) and the interior recurrence for z=-r/(1-r)^2. The change of parameter preserves order of vanishing. The cross-multiplied numerator is anti-reciprocal in degree m+n-1; the R initial zero coefficients force all coefficients to vanish except in the four expressly handled small cases. At a primitive q-th root, the reflected-position amplitudes have distinct cosine factors on the near half of the path, so a nonzero difference of reflection types has least period q. Thus the shorter and longer path differences cannot cancel unless both vanish; for squares, coefficient multiplicities distinguish unordered pairs of reflection types. A root-distance d at most R gives a shortest-walk count binom(d,i) with just the swap ambiguity. An unequal swap cannot preserve both rectangle reflection types because it would require i+j=m-1=n-1. Outside radius R, only the far-far position in a reflection orbit remains, modulo swap on a square. The reflected witness in the final column has distances R and greater than R, is indistinguishable before R, and splits at R. Direct small-case refinement gives round depths 1, 2, 2, 3 for (2,2), (2,3), (3,3), (3,4); in the last case round two leaves only the doubletons {(0,3),(2,3)} and {(2,1),(2,2)}, both split by their neighbors in round three. An independent in-memory implementation using retained vertex color and sorted neighbor colors checked depth and orbit partition on 63 pairs, 2<=m<=10 and m<=n<=12. The supplied direct/algebra scripts and recorded outputs were inspected, not executed. The bounded replay corroborates the finite cases; the proof establishes the universal depth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The higher-dimensional marked-product result extends its orbit proof to two factors but explicitly makes no optimal-round claim. The primary refinement papers frame color refinement and study general iteration bounds, respectively."
+        ],
+        "reasoning": "A product orbit theorem covers the partition but not the time; worst-case bounds for graphs cannot give this exact two-parameter family-specific time without further structure.",
+        "searches": [
+          "SCOPE-20261018-737f571f9272/RESULT.md",
+          "arXiv:1502.01255",
+          "arXiv:2005.10182"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py, verify_algebra.py, direct_output.txt and algebra_output.txt",
+        "SCOPE-20261018-ed1949e56cb4",
+        "SCOPE-20261018-737f571f9272",
+        "SCOPE-20261012-19dfa9d1dbd4",
+        "arXiv:2005.10182",
+        "arXiv:1502.01255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marked counting-logic proof recovers another corner as a singleton stable class and propagates distance information from it, without an exact time. The earlier uniform refinement bound can supply unmarked orbit information by R, since its formula is at most R. It does not supply a marked upper bound or its sharpness by substitution."
+        ],
+        "reasoning": "Even if one imports the unmarked theorem to replace the boundary analysis, one must still separate the rooted types at exactly R, handle those not reached by the marker at R, and prove a split at R but not before. The exact marked depth is not mechanically implied by the inspected findings. Same-day catalogue paths do not fix chronology.",
+        "searches": [
+          "SCOPE-20261018-ed1949e56cb4/RESULT.md, Lemma 2 and following stable-class argument",
+          "SCOPE-20261012-19dfa9d1dbd4/RESULT.md, Finding and Assumptions",
+          "arXiv:2005.10182, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marked counting-logic record gives exactly the same stable classes, using the same initial unary corner color, but excludes a uniform depth claim. The frozen claim distinguishes the first equal-partition round from the identification problem."
+        ],
+        "reasoning": "Eventual partition equivalence does not determine stabilization time. The matching partition is credited, rather than treated as evidence of novel class identification.",
+        "searches": [
+          "Resultary semantic search for corner-marked rectangular-grid 1-WL depth and counting-logic identification",
+          "SCOPE-20261018-ed1949e56cb4/RESULT.md",
+          "arXiv:2005.10182, literal grids lookup plus abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed unmarked theorem gives floor((m-1)/2) for squares and max(m-1,floor((n-1)/2)) otherwise, starting with a uniform color. The same marked catalogue results give class partitions, not exact iteration values."
+        ],
+        "reasoning": "The exact family formula, rather than a finite sequence, is the natural comparison. The unmarked result is not a matching table for marked depth: e.g. the uniform 2-by-2 depth is zero and the marked one is one. No directly applicable table was identified.",
+        "searches": [
+          "Resultary exact refinement depth of rectangular grids",
+          "SCOPE-20261012-19dfa9d1dbd4/RESULT.md Finding"
+        ]
+      },
+      "rationale": "Pass concerns the exact first stabilization round for the single-corner initialization. The stable singleton/swap partition is supported here but is not a distinct contribution: same-object catalogue records already give that partition, and the frozen result acknowledges overlap on eventual orbits. The closest quantitative catalogue result is for uniform initialization and differs in actual value. No inspected same-object statement gives the marked stopping time or makes it an immediate corollary. This is a bounded source comparison, not a priority determination.",
+      "residual_risks": [
+        "Literature coverage is bounded to the inspected primary passages and relevant catalogue records; a specialized result under another name may exist.",
+        "Same-day catalogue order is not evidence of priority. The stable partition is not claimed as distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stable partition, not first stabilization round",
+          "evidence": [
+            "In the nonsquare case a second corner is recognized in the stable partition by its unique distance from the root."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-marked-corner-gives-a-sharp-counting-logic-boundary-for-rect--ed1949e56cb4/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; Lemma 2 around offset 2342",
+          "method": "Local repository mirror",
+          "title": "One marked corner gives a sharp counting-logic boundary for rectangular grids",
+          "trigger": "Strongest same-object marked-grid match"
+        },
+        {
+          "assessment": "Orbit proof extends to two dimensions; no optimal-round claim",
+          "evidence": [
+            "The two-factor specialization concerns orbit recovery, not quantitative sharpness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-marked-corner-recovers-all-orbits-in-higher-dimensional-rect--737f571f9272/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local repository mirror",
+          "title": "One marked corner recovers all orbits in higher-dimensional rectangular grids",
+          "trigger": "Potential stronger product theorem"
+        },
+        {
+          "assessment": "Exact unmarked, not marked depth",
+          "evidence": [
+            "The initial color is uniform and the resulting stable classes include independently reflected positions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-colour-refinement-depth-of-rectangular-grid-graphs--19dfa9d1dbd4/RESULT.md",
+          "material_read": "Finding, Assumptions and start of walk-moment proof, offset 0",
+          "method": "Local repository mirror",
+          "title": "Exact colour-refinement depth of rectangular grid graphs",
+          "trigger": "Closest same underlying graph and invariant"
+        },
+        {
+          "assessment": "Studies general extremal iteration numbers; no matching specialization in inspected passages",
+          "evidence": [
+            "The general extremal problem maximizes rounds over graphs of a given order."
+          ],
+          "identifier_or_url": "arXiv:2005.10182",
+          "material_read": "Abstract and Introduction, PDF pp. 1–2",
+          "method": "OA PDF text; literal grids query also made but is not substantive negative evidence",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Primary source on exact iteration numbers"
+        },
+        {
+          "assessment": "Refinement and amenability setting, not an exact marked-grid stopping result in passages examined",
+          "evidence": [
+            "The scope includes relationships among refinement, amenability and compactness."
+          ],
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "Abstract and Introduction, PDF p. 1",
+          "method": "OA PDF text",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Framework and possible graph-family specializations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single initial marker is a natural individualization of rectangular grids. The exact synchronous depth explains when boundary information and the marker together finish refinement, rather than simply giving eventual identifiability or an order-of-growth bound. The reflected far-column pair certifies a sharp obstruction, and the even/odd short-side dependence is useful when comparing refinement depths across initializations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

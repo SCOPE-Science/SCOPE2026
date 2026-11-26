@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:24:12.445602Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–33 and 35–82",
+        "VERIFICATION.md lines 3–14 and 21–27",
+        "checks/width_tail_checker.py lines 15–90 (inspected, not executed)"
+      ],
+      "rationale": "Adding the antipodal maxima of the two disk support functions gives W=A+B+max(|A-B|,delta|Y|). The inequality W>=2max(A,B)>=sqrt(2(1+Y^2)) gives the four equality directions, and W<=2+delta with equality at the axial poles and no others for delta>0. On folding, y=|Y| is uniform on [0,1] and q=(1-y^2)|cos(2phi)|; its conditional arcsine density integrates to 1 and the joint density tends to 2/pi at (0,0). On the tail event, 2max(A,B) bounds y^2+q by sqrt(2) epsilon+epsilon^2/2. At y=sqrt(epsilon)v, q=epsilon s, the scaled width deficit is uniformly v^2/sqrt(2)+max(s/sqrt(2),lambda v)+O(epsilon) on the localized boxes. For lambda in [0,M], a narrow band about level 1 has vanishing area uniformly: the inequality involving s has slope 1/sqrt(2); in the other inequality, v^2/sqrt(2)+lambda v is increasing with derivative bounded below near 1 uniformly on this compact lambda range. The limiting event is 0<=v<u_lambda and 0<=s<sqrt(2)-v^2. Its area gives the stated profile after multiplication by 2/pi and normalization gives the conditional area law. At lambda=0, u=2^(1/4); at infinity u is asymptotic to 1/lambda. For fixed delta>0, W>=A+B+delta y and A+B>=sqrt(2)-O(epsilon^2) on the localized region give y=O_delta(epsilon). Scaling y and q both by epsilon gives a rectangle of area sqrt(2)/delta and the claimed coefficient and conditional law.",
+      "residual_risks": [
+        "Recorded WIDTH_TAIL_CHECKS_OK 1248 is finite diagnostic evidence, not independent replay. The script compares support formulas and extrema and tests quadratures at selected small epsilon values; the analytic argument, not the script, proves normalization, limiting behavior and local uniformity. The recorded replay path is python checks/width_tail_checker.py with NumPy and SciPy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md line 85 credits the pointwise support identity to the earlier separation-family mean-width treatment; the indexed statement supports its mean-width derivative/convexity scope, not the exact identity passage itself.",
+          "A common-axis disk hull synopsis reports the centered 3/2-power lower edge; the distinct oloid endpoint synopsis gives coefficient 2 sqrt(2)/pi, precisely the frozen fixed-delta coefficient at delta=1.",
+          "Finch and Bäsel were located but no primary full-text tail passages were obtained."
+        ],
+        "reasoning": "A mean alone cannot imply this rare-event profile. The two distinct endpoint/geometry statements supply coverage within their regimes at synopsis level but do not combine into a two-parameter crossover. It is the separate a276467e90bf statement on the whole crossover family that constitutes material affirmative overlap.",
+        "searches": [
+          "2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf",
+          "2026/11/22/SCOPE-common-axis-disk-hulls-exact-three-dimensional-widths-and-sharp--4ed242b87fd1",
+          "2026/11/22/SCOPE-two-endpoint-width-laws-and-marked-caliper-limits-for-the-oloid--0b5c3dd31a2f",
+          "arXiv:1211.4514 and arXiv:1604.07245"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33, 35–79 and 84–94",
+        "Local Resultary identity and distinct crossover, oloid endpoint, common-axis width and mean-width synopses",
+        "Finch and Bäsel search citations only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct statement claims an exact crossover coefficient in t proportional to sqrt(epsilon). At fixed physical lambda, an exact coefficient for this same normalized event must equal F(lambda).",
+          "For each epsilon the normalized probability decreases in lambda by the exact support identity. Pointwise convergence of monotone functions on a compact interval to a continuous function is uniform, as follows by sandwiching each subinterval with adjacent grid values.",
+          "The distinct statement also affirmatively claims an explicit conditional distribution of near-minimizing normals, without giving the exact formula in the accessible statement."
+        ],
+        "reasoning": "A separate compact-uniformity qualifier does not secure distinctness if the pointwise profile for the same range is already given. The strongest indexed theorem addresses the same crossover and conditional law, not just the same endpoints. Without a substantiated difference in assumptions, observable or conditional content, no genuinely distinct valuable remainder is established; the available evidence does not justify asserting every displayed clause is literally present in the other full text.",
+        "searches": [
+          "Distinct crossover a276467e90bf, catalog statement and mirror/alternate existing RESULT.md attempts",
+          "Frozen RESULT.md lines 16–30 and 65–79",
+          "Oloid endpoint catalog 0b5c3dd31a2f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct catalog statement specifies perpendicular unit disks separated along their common line, universal minimum sqrt(2), quadratic positive-separation lower tail, 3/2-power centered tail, exact crossover coefficient for t on the sqrt(epsilon) scale, and explicit distribution of near-minimizing normals.",
+          "The frozen Finding has those same geometric and probabilistic hypotheses and conclusions, expressed using delta and folded normal coordinates (|Y|, |X^2-Z^2|)."
+        ],
+        "reasoning": "Oloid-family, common-line-hull, and caliper-width names refer to the same geometry and direction statistic under these assumptions. A fixed conversion between t and actual center separation rescales lambda, not the underlying limiting law. Folded coordinates are functions of the sampled normals, so a joint local conditional law of those normals can supply their pushforward; the precise parameterization and scope of the distinct conditional law are not visible in its synopsis.",
+        "searches": [
+          "Resultary: a singular crossover in near-minimal random widths of two orthogonal disks a276467e90bf exact formula for crossover coefficient conditional law of near-minimizing normals same unit disks delta sqrt epsilon",
+          "Finch Bäsel oloid convex hull two orthogonal disks distribution random directional width minimum width lower tail asymptotic crossover separation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is both an identity hit for the frozen finding and a different catalog record a276467e90bf with an explicit coefficient and conditional normal law in the same experiment. The separate oloid record reports the matching exact delta=1 coefficient.",
+          "The decisive original Finding passage in a276467e90bf was sought through the mirror and an alternate raw-form URL with the same identity; the passage was not retrieved."
+        ],
+        "reasoning": "The exact assigned record is not independent coverage. The comparison with the distinct crossover record is based on its affirmative scientific synopsis, not on a claimed full-text extraction. A shared date determines no priority or publication ordering.",
+        "searches": [
+          "2026/11/22/SCOPE-singular-near-minimum-width-crossover-for-two-separated-orthogon--478c8834f500",
+          "2026/11/22/SCOPE-a-singular-crossover-in-near-minimal-random-widths-of-two-orthog--a276467e90bf",
+          "2026/11/22/SCOPE-two-endpoint-width-laws-and-marked-caliper-limits-for-the-oloid--0b5c3dd31a2f"
+        ]
+      },
+      "rationale": "Material distinctness of the claimed crossover package is not established. A separate Resultary record, a276467e90bf, affirmatively states results for the same unit filled-disk hull, random directional width and minimum, both tail regimes, the exact crossover coefficient on the same sqrt(epsilon) separation scale, and an explicit conditional law of near-minimum directions. This is substantive statement-level overlap, not a judgment based on titles or on a missing document. The exact coefficient for the same probability and crossover scaling is necessarily unique (up to reparametrizing the separation), and locally uniform convergence to the continuous profile follows mechanically from pointwise coefficient convergence and monotonicity in separation. The submitted conditional formulas supply no established distinct result in light of the other statement's explicit conditional law. The full statement would be needed to decide whether the precise conditional coordinates, both conditionings, and scope match exactly. This FAIL is for unestablished distinctness against affirmative indexed coverage, not a finding of historical priority, plagiarism, or complete formula-for-formula identity.",
+      "residual_risks": [
+        "Full source of the distinct crossover record was unavailable after targeted retrievals; exact matching formulas, scope of the conditional limit and historical priority remain unresolved. The failure is based on affirmative scientific statement-level overlap, not the access failure alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative overlap under the same scientific hypotheses; exact formula and conditional coordinates not exposed in the synopsis; no priority conclusion",
+          "evidence": "The indexed statement says: for perpendicular unit disks separated along their common line the random directional width has minimum sqrt(2), sharp quadratic tail at positive separation, 3/2-power tail at coincident centers, and an exact t on the sqrt(epsilon) scale crossover coefficient and explicit conditional distribution of near-minimizing normals.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-singular-crossover-in-near-minimal-random-widths-of-two-orthog--a276467e90bf",
+          "material_read": "Resultary statement: geometric hypotheses, minimum, both lower-tail powers, exact crossover coefficient and explicit conditional distribution; not primary Finding or proof",
+          "method": "Local Resultary comparison; bounded exact Finding mirror query and identified alternate raw-form retrieval attempts",
+          "title": "A singular crossover in near-minimal random widths of two orthogonal disks",
+          "trigger": "Distinct direct match to all central crossover claims"
+        },
+        {
+          "assessment": "Affirmative exact match of one special-case coefficient; exact conditioned coordinates not verified",
+          "evidence": "The identified oloid minimum-width coefficient is 2 sqrt(2)/pi, the frozen fixed-separation formula at delta=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-endpoint-width-laws-and-marked-caliper-limits-for-the-oloid--0b5c3dd31a2f",
+          "material_read": "Local Resultary synopsis",
+          "method": "Exact coefficient and regime comparison",
+          "title": "Two endpoint width laws and marked caliper limits for the oloid",
+          "trigger": "Oloid is delta=1 of the frozen family"
+        },
+        {
+          "assessment": "Overlaps centered lower edge; no positive-separation crossover established from the synopsis",
+          "evidence": "The indexed summary reports a 3/2-power lower edge for the common-diameter case.",
+          "identifier_or_url": "2026/11/22/SCOPE-common-axis-disk-hulls-exact-three-dimensional-widths-and-sharp--4ed242b87fd1",
+          "material_read": "Local Resultary synopsis",
+          "method": "Statement-level geometry and exponent comparison",
+          "title": "Common-axis disk hulls: exact three-dimensional widths and sharp width laws",
+          "trigger": "Possible dominating distribution law in the centered case"
+        },
+        {
+          "assessment": "Credits the deterministic width input without establishing probabilistic crossover coverage",
+          "evidence": "The synopsis describes mean-width differentiation and strict convexity; frozen RESULT.md line 85 attributes the pointwise formula to this record.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-one-dimensional-derivative-law-for-orthogonal-disk-mean-width--6e52fbc79bdf",
+          "material_read": "Local Resultary synopsis and frozen prior-work description; exact identity passage not obtained",
+          "method": "Catalog comparison and lawful exact mirror attempt",
+          "title": "A one-dimensional derivative law for orthogonal-disk mean width",
+          "trigger": "Known directional support formula for the separation family"
+        },
+        {
+          "assessment": "Reported integral geometry scope, with exact tail overlap not assessed",
+          "evidence": "RESULT.md line 85 reports volume, surface area and mean width for examples including centered and separated disks.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4514",
+          "material_read": "Primary-search bibliographic hit and frozen prior-work description, not primary full text",
+          "method": "Primary-literature search and bounded OA retrieval attempt",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Original centered and separated orthogonal disks"
+        },
+        {
+          "assessment": "Reported mean-width context, not full-text confirmation of what directional tail material may appear",
+          "evidence": "RESULT.md line 85 identifies mean width and related integral geometry of the oloid; no decisive tail passage was returned.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.07245",
+          "material_read": "Primary-search bibliographic hit and frozen prior-work description, not primary full text",
+          "method": "Primary-literature search and bounded OA retrieval attempt",
+          "title": "The mean width of the oloid and integral geometric applications of it",
+          "trigger": "Integral geometry of the exact delta=1 hull"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–30, 55–79 and 84–88",
+        "Resultary oloid endpoint and distinct crossover synopses for context"
+      ],
+      "rationale": "The mathematical phenomenon has intrinsic value: a universal deterministic minimum hides a singular change in the prevalence and angular shape of near-minimizers as separation vanishes. Scaling and conditioning resolve information not given by mean width or by either endpoint exponent alone. This is an assessment of the scientific question and result, not of distinctness from the separate crossover record.",
+      "residual_risks": [
+        "No global-in-lambda error estimate, general-angle law or unequal-radius result is established, and no separately valuable novel remainder was identified for repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

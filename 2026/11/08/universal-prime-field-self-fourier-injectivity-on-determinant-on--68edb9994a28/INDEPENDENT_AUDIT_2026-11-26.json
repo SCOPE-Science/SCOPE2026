@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:00:49.827103Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53",
+        "Frozen VERIFICATION.md and check_sl2.py, inspected only",
+        "Prasad arXiv:0712.4051v1 §§2.5 and 3.6, degree sanity check",
+        "python3 /workspace/independent_checks.py 2: ranks 6,24,120,336 over auxiliary fields F_11,F_19,F_31,F_43, respectively"
+      ],
+      "rationale": "The entrywise pairing is tr(X^T Y); relabelling X as g=X^{-T} gives central group convolution. By the regular representation and Schur's lemma, each irreducible scalar is its trace sum divided by degree (a dual convention merely permutes irreducibles). For odd p, distinct-root trace fibres consist of elements of order dividing p-1 or p+1, so their character sums lie in K=Q(zeta_(p²-1)). For trace 2, every nonidentity unipotent has a unique fixed line and all p+1 unipotent subgroups are conjugate. Summing over them and correcting the identity count gives A_rho(2)=p[(p+1)r-d], with r the dimension of U-fixed vectors and d the degree. For trace -2 the central sign gives the same field membership. Independently of classification, if r=0 then the trace-2 sum is nonzero; if r>0 the torus acts on V^U, and a torus character yields, by Frobenius reciprocity, a copy of V in the induced Borel character representation of dimension p+1. If d=p+1 this induction is V itself and has exactly two U-fixed vectors, by the two U-orbits on the projective line (the stabilizer character on either orbit is trivial). Thus (p+1)r-d cannot vanish. The prime cyclotomic polynomial is still irreducible over K by coprime conductors; a nonzero additive-frequency sum vanishes only if the p coefficients are constant. For nontrivial irreducibles their total is zero and the trace-2 coefficient is nonzero. For the trivial one, direct counting gives p(p+Legendre(t²-4)), which differs at t=0 and t=2. For p=2 the S3 class values of f are 1,1,-1 (identity, involutions, three-cycles), giving multipliers 2,-4,2 as stated. No extension-field step is valid by that argument alone.",
+      "residual_risks": [
+        "The modular ranks are exact certificates for the four instances because reduction of a zero cyclotomic determinant could not be nonzero. They do not prove the all-prime statement; it follows from the analytic argument.",
+        "No bounds on determinant, conditioning or extension fields are established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Hu treat a broader choice of matrix size and frequencies but provide scalar sums, not square-restriction injectivity.",
+          "Thill–Hassibi use representation-based frames; the split-torus normalizer record treats the ambient kernel but on a different subset of size 2(p-1), and is singular at p=2."
+        ],
+        "reasoning": "More general objects or other subsets do not imply the rank of the full SL2 square matrix. There is no inference from the normalizer minor to the matrix on the whole group; even the p=2 ranks differ in behaviour.",
+        "searches": [
+          "arXiv:1105.4513 Theorem 2.4 on SL_n over finite fields",
+          "arXiv:1509.05739 §VII",
+          "Resultary e455b487068b Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.4513, arXiv:0712.4051v1, arXiv:1509.05739",
+        "Lafferty–Rockmore (1992)",
+        "Resultary a9ad8796111d, e455b487068b and self-match 68edb9994a28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Principal series and degree classification are classical and confirm the relevant dimension bounds.",
+          "The indicator sum controls only the trivial representation; a standard Fourier diagonalization alone need not give any nonvanishing on the nontrivial irreducibles."
+        ],
+        "reasoning": "The cyclotomic coefficient-field separation and nonzero trace-2 sum give the missing nonvanishing simultaneously. They are not conclusions of the compared row-sum, degree-table or FFT statements.",
+        "searches": [
+          "Prasad arXiv:0712.4051v1 §§2.5 and 3.6",
+          "Li–Hu arXiv:1105.4513 Theorem 2.4",
+          "Lafferty–Rockmore introductory group transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ambient dot product appears in Li–Hu, summed over all determinant-one X at one frequency U; this is the scalar on constants when U ranges over determinant-one samples.",
+          "Lafferty–Rockmore define the nonabelian representation Fourier transform on the finite special linear group."
+        ],
+        "reasoning": "Replacing the row labels X by X^{-T} does give an equivalent central convolution. Its invertibility requires nonvanishing on every irreducible, not just the ambient indicator transform. A nonabelian Fourier transform diagonalizes the equivalent operator but being an invertible transform on the group does not make this particular convolution invertible.",
+        "searches": [
+          "Resultary semantic comparison: prime-field self-Fourier injectivity on determinant-one matrices, square ambient Fourier minor and central convolution by psi(trace)",
+          "Li–Hu arXiv:1105.4513 Theorem 2.4",
+          "Lafferty–Rockmore pp. 115–116"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "68edb9994a28 is the frozen theorem itself.",
+          "a9ad8796111d tabulates a Gram spectrum for 4q-3 single-coordinate and constant frequencies, not for the determinant-one frequency set.",
+          "e455b487068b is distinct and shares the date, but is for the split-torus normalizer."
+        ],
+        "reasoning": "Neither distinct exact indexed matrix calculation has the same row and column sets. The same-day date is not used as a priority ordering; no competing exact table for the full square matrix was established.",
+        "searches": [
+          "Resultary results 68edb9994a28, a9ad8796111d, and e455b487068b",
+          "Literature lookup for all-prime square ambient determinant-one Fourier sampling"
+        ]
+      },
+      "rationale": "No equivalent earlier statement was established for the exact square ambient Fourier minor and the all-prime quantifier. The inspected literature supplies closely related row sums and group Fourier methods, but neither statement gives invertibility of this restricted ambient transform. The exact indexed self-match is not independent evidence.",
+      "residual_risks": [
+        "The ICASSP full paper was unavailable; an earlier specialized character-table or association-scheme theorem not found in the bounded search remains possible. This is not an exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Evaluates the trivial component but does not establish all component nonvanishing.",
+          "evidence": [
+            "G_SL_n(U,lambda)=sum_{X in SL_n} lambda(U dot X); the theorem evaluates that sum as a function of the frequency."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.4513",
+          "material_read": "Definition of the matrix Gauss sum and Theorem 2.4, PDF p. 6",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Gauss sums over some matrix groups",
+          "trigger": "Same pairing and determinant-one sum"
+        },
+        {
+          "assessment": "Nonabelian Fourier transform rather than the restricted ambient dot-product matrix.",
+          "evidence": [
+            "Uses the representation-valued sum sum_s f(s) rho(s)."
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/afs/cs/usr/lafferty/www/pub/sl2.pdf",
+          "material_read": "pp. 115–116, introduction and group transform definition",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Fast Fourier Analysis for SL₂ over a Finite Field and Related Numerical Experiments",
+          "trigger": "Canonical finite SL2 Fourier algorithms"
+        },
+        {
+          "assessment": "Verifies degree facts; they do not state the Fourier sampling result.",
+          "evidence": [
+            "Generic principal series have dimension q+1; exceptional constituent and cuspidal degrees are smaller."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.4051v1",
+          "material_read": "§2.5 printed pp. 13–15 and §3.6 pp. 30–32",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Representations of GL₂(Fq) and SL₂(Fq), and some remarks about GLn(Fq)",
+          "trigger": "Classical classification cited in proof and possible implicit coverage"
+        },
+        {
+          "assessment": "Compared representation-based frames are not the ambient four-coordinate minor.",
+          "evidence": [
+            "Frames use finite special linear group representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.05739",
+          "material_read": "§VII, PDF pp. 30–33",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Group Fourier frames from SL₂(Fq)",
+          "trigger": "Potentially similar finite-group Fourier frame result"
+        },
+        {
+          "assessment": "Rectangular single-coordinate frequency family, not self-Fourier sampling.",
+          "evidence": [
+            "Only the 4q-3 constant and single-coordinate Fourier modes are used."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-four-level-fourier-frame-spectrum-on-determinant-one-matrices-ov--a9ad8796111d",
+          "material_read": "Resultary finding on frequency set and Gram spectrum",
+          "method": "Published record comparison via local catalogue",
+          "title": "Four-level Fourier frame spectrum on determinant-one matrices over finite fields",
+          "trigger": "Same rows and ambient additive frame"
+        },
+        {
+          "assessment": "Same kernel but different support and frequency sets.",
+          "evidence": [
+            "Treats the 2(p-1)-element normalizer; p=2 there is singular."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-prime-field-fourier-sampling-on-the-split-torus-normalizer-a-twi--e455b487068b",
+          "material_read": "Resultary finding on sample set and characteristic-two exception",
+          "method": "Published record comparison via local catalogue",
+          "title": "Prime-field Fourier sampling on the split-torus normalizer",
+          "trigger": "Same-day ambient pairing on a group-related set"
+        },
+        {
+          "assessment": "No full-text claim about coverage made.",
+          "evidence": [
+            "The title identifies generalized group Fourier frames; title alone does not identify the actual sampling operator."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ICASSP.2014.6854538",
+          "material_read": "Bibliographic evidence only",
+          "method": "Lawful DOI/OA retrieval attempt, no repository copy located",
+          "title": "Frames from generalized group Fourier transforms and SL₂(Fq)",
+          "trigger": "Related finite-group frames cited in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Li–Hu Theorem 2.4 and Resultary a9ad8796111d for the distinction from existing partial information"
+      ],
+      "rationale": "Critical-size sampling of the ambient Fourier transform on a natural non-linear determinant-one set is a distinct reconstruction question. The result gives exact uniqueness with as many frequencies as unknowns on the same algebraic set, in contrast with a row-sum or a rectangular frame fact, and uses prime arithmetic to resolve every representation component uniformly.",
+      "residual_risks": [
+        "Exact linear uniqueness is not numerical stability, an inverse algorithm, phase retrieval or a minimality claim among other possible frequency sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

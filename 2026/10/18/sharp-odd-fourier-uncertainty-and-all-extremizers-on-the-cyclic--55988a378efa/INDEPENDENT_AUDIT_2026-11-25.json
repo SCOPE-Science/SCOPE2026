@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:20:15.135040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the unnormalized plus-sign Fourier transform, Fourier squaring acts on odd functions by −25, so work with sign-pair support counts r≤s. A single input pair has at most two zero rows. For r+s≤7, the only other possibilities reduce by enlarging the allowed Fourier support to (2,4), (2,5), (3,3), and (3,4). I independently reproduced the decisive finite certificate (`python3 /workspace/review-evidence/odd_projective.py`) over F_101 and F_151 with primitive 25th roots 16 and 148. The reproduction tests normals to rows for two columns, and cross products of independent row pairs for three columns, rather than using the supplied row reduction. A violating rank-one subset in three columns can be extended by an outside nonparallel row to a plane, and a rank-zero subset is contained in any such plane. The program verifies that the full row list admits such a plane for each triple. There are at most seven vanishing rows for three columns and only the two stated exceptions with seven or more vanishing rows for two columns. Each full-column-rank specialization proves a nonzero cyclotomic minor; a modular failure alone proves nothing in characteristic zero. For the two exceptions the displayed subgroup sine modes have time support {±5,±10} and transform 5 times the signed difference of the two coset indicators y≡±t mod 5. The zero-constraint matrices have rank at least one (there is a nonmultiple-of-5 row) and at most one by these explicit nonzero kernels, so give exactly one projective class each. Fourier duality gives the other two classes, distinct by support size and within each size by invertibility or distinct residue support. This proves the finite result at cyclic order 25, not an infinite prime-square theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam gives Fourier support at least 10 for input support 4 on C25; for size 6 the lower bound is only 5, or 6 after even rounding. The unrestricted support sum can be 10 via the order-five subgroup indicator.",
+          "Prime-field odd uncertainty and non-prime-field symmetry results are for distinct additive groups. The F25 Resultary finding uses the order-six norm-one subgroup of the field."
+        ],
+        "reasoning": "Neither the unrestricted lower bound nor a field theorem excludes the support-sum 12 odd candidate on the cyclic ring.",
+        "searches": [
+          "arXiv:math/0312407, Theorem 1.2",
+          "arXiv:1807.07648, Theorems 1.5, 1.9, 5.5, 6.1",
+          "Resultary 5ead23d15fa1"
+        ]
+      },
+      "checked_sources": [
+        "Meshulam, arXiv:math/0312407",
+        "Garcia–Karaali–Katz, arXiv:1807.07648",
+        "Resultary feb52ea6712b",
+        "Resultary 0290eba11adf",
+        "Resultary 0fc41b9fd0d2",
+        "Resultary 5ead23d15fa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A determinant of a sine submatrix is a signed sum of ordinary Fourier minors rather than one ordinary minor; a zero/nonzero pattern for the latter does not decide cancellation. Meshulam leaves both 6+6 and a putative 6+8 equality case unexcluded by support sizes."
+        ],
+        "reasoning": "The critical sine-only exclusions and the classification of all sharp odd vectors do not follow from those prior support bounds or ordinary-minor rank statements.",
+        "searches": [
+          "arXiv:math/0312407 Theorem 1.2",
+          "arXiv:1807.07648 Theorems 1.3 and 6.1",
+          "Resultary feb52ea6712b and 0fc41b9fd0d2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oddness for the subgroup {±1} gives the discrete sine transform in a compressed Fourier basis. The known full-spark theorem fails already at the (5,5) entry for order 25.",
+          "Fourier duality reduces the required equality census to the two kernel lines with smaller input than output support."
+        ],
+        "reasoning": "A single vanishing entry or support-pair realizability is not a census of these kernels or of all projective coefficient vectors.",
+        "searches": [
+          "Resultary: sharp odd C25 support sum, antisymmetric compressed Fourier and sine support-rank census",
+          "arXiv:1807.07648, Example 3.15 and Theorems 1.3, 1.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prime-square Fourier-minor classification does cover ordinary 3×3 minors for p=5. The same-date 0290eba11adf covers ordinary 3×3 matrices on Z/(3p); a later prime-power census also treats ordinary 3×3 minors."
+        ],
+        "reasoning": "These are tables for single character entries, not all rectangular constraints after paired-column subtraction. There is no matching four-line odd C25 census in the examined statements.",
+        "searches": [
+          "Resultary feb52ea6712b, 0290eba11adf and 0fc41b9fd0d2, exact Fourier minor ranks",
+          "arXiv:1807.07648, Theorem 1.3 and Example 3.15"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp odd support-sum bound across all support sizes on cyclic order 25 and the complete projective equality census. An unrestricted bound already handles the (4,10) lower-bound branch, and compressed sine transforms and their failure of full spark at composite order are known. The available earlier statements do not cover the sharp odd minimum and all equality vectors together.",
+      "residual_risks": [
+        "An equivalent exact odd prime-square classification may be unindexed or outside the bounded searches; this is a best-of-knowledge decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the size-four branch but not the global odd bound or equality classification",
+          "evidence": [
+            "Consecutive-divisor lower bound determines the stated comparison at input sizes 4 and 6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312407",
+          "material_read": "Theorem 1.2 and near preceding discussion, pp. 1–2, offset approximately 2600",
+          "method": "OA PDF passages",
+          "title": "An Uncertainty Inequality for Finite Abelian Groups",
+          "trigger": "Potential stronger unrestricted support profile"
+        },
+        {
+          "assessment": "Prime-order sharp uncertainty and qualitative composite-order non-full-spark results; no applicable C25 equality census in the cited statements",
+          "evidence": [
+            "The sine matrix is compressed Fourier. The strong nonvanishing-minors theorem concerns prime fields; non-prime fields are distinct from the cyclic prime-square ring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07648",
+          "material_read": "Theorems 1.3, 1.5, 1.9, 5.5, 6.1 and Example 3.15; PDF pp. 4–6, 12, 19, 21",
+          "method": "OA PDF passages",
+          "title": "An Improved Uncertainty Principle for Functions with Symmetry",
+          "trigger": "Odd sine-minor and uncertainty theorems"
+        },
+        {
+          "assessment": "Exact ordinary minor classification, not the odd-compressed classification",
+          "evidence": [
+            "Ordinary 3×3 minors of F_(p²) classified by residue occupancies and ranks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Same prime-square cyclic group and a full minor classification"
+        },
+        {
+          "assessment": "Different cyclic orders and ordinary minors; same date is not a priority inference",
+          "evidence": [
+            "The claim is for ordinary 3×3 minors at order 3p."
+          ],
+          "identifier_or_url": "Resultary 0290eba11adf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Exact rank spectrum of three-by-three Fourier minors on Z/(3p)",
+          "trigger": "Same-date rank-spectrum record"
+        },
+        {
+          "assessment": "Does not classify compressed sine restrictions",
+          "evidence": [
+            "The rank formula is for ordinary 3×3 minors and scope excludes higher-order minors."
+          ],
+          "identifier_or_url": "Resultary 0fc41b9fd0d2",
+          "material_read": "RESULT.md Finding and scope, offsets 432 and 2230",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "Valuation-stratified rank census for three-point Fourier sampling",
+          "trigger": "Uniform prime-power ordinary-minor rank formula"
+        },
+        {
+          "assessment": "Different additive group and symmetry",
+          "evidence": [
+            "Uses the order-six norm-one subgroup of F25 rather than sign reversal on C25."
+          ],
+          "identifier_or_url": "Resultary 5ead23d15fa1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Strong uncertainty for the index-four norm-one symmetry over F25",
+          "trigger": "Symmetry and uncertainty at order 25"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cyclic prime-square order is a natural place to test how subgroup structure changes prime-order sine uncertainty. The unrestricted bound plus parity leaves a genuine competing balanced support configuration at order 25. Excluding it and identifying every sharp line gives an exact benchmark for symmetry-restricted prime-power uncertainty and compressed minor ranks, rather than just evaluating a known formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

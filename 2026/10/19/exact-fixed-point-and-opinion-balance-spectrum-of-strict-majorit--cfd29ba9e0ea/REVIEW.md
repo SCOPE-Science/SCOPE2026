@@ -1,19 +1,21 @@
-# Scientific review: prism majority fixed-point spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-state condition is exactly two agreeing neighbors among three. A single mismatched rung forces both horizontal neighbors on each layer to agree with its endpoint, which inductively forces every rung to share the same ordered mismatch. A matched rung already supplies one agreeing neighbor, leaving the necessary-and-sufficient condition of no solitary cyclic column. These mutually exclusive alternatives exhaust every binary configuration. The blue-count formula uses a marked blue-run start and two compositions with parts at least two; the factor of \(1/r\) corrects exactly \(r\) marked starts per labeled word. The transfer-matrix trace counts independent transition edges at \(z=\pm1\), giving the exact Lucas and cosine total. Independent exhaustive finite-state tests and checks of every composition total through \(n=200\) passed. Finite enumeration is corroboration, not the argument for infinitely many prism sizes.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+On a mismatched rung the rung neighbor has the wrong color, so both horizontal neighbors of each endpoint must have that endpoint's color. This propagates the same ordered mismatch through the connected cycle, giving exactly two separated states. Otherwise the rungs agree and each vertex needs only one horizontal neighbor of its own color, exactly excluding singleton cyclic runs. With k blue columns and r runs of each color, counting ordered compositions of k and n−k into parts at least two and then marking a labeled blue-run start gives the stated binomial product times n/r. This argument counts labeled words correctly even when they have rotational symmetry, since each specific word has exactly r marked starts. The separated colorings add twice at m=n regardless of parity. In synchronized words the color-change edges are an even matching of C_n and the initial color is free. The two-state cycle matching trace and parity filter at z=±1 give L_n+2cos(nπ/3), plus two separated states. This gives the stated entropy and the minimum nonzero blue counts, with six four-blue states at n=4 where both classes contribute. An independent bounded check inspected all 87,360 labeled colorings for n=3 through 8, checking neighbor agreement and comparing every mass bin; totals were 4, 8, 14, 22, 32, 48. Replay the direct check by iterating masks 0 through 2^(2n)−1, rejecting any mask with more than one differing neighbor at any vertex, and accumulating by popcount. The supplied verifier was inspected, not executed.
 
-The earliest identified motivating source is Zehmakan's arXiv:2302.06760v1 (14 February 2023), with expanded journal publication in 2024. It characterizes fixed states of degree-two cycles and supplies their asymptotic number, not an exhaustive cubic-prism classification or the blue-opinion spectrum. Its appendix has a *synchronized-trajectory embedding* into odd-degree doubled networks, which implies the existence of an included subset of states but does not exclude partially mismatched rungs or supply the complete size-refined count. The new mismatch-rigidity lemma is the step that makes the prism enumeration exhaustive. Arkhipov's arXiv:2406.07026v1 explains the internal-partition equivalence on regular graphs but provides simulations of random regular graphs, not a prism formula. Index and literature searches for prism fixed states, internal cuts, stable binary opinion configurations, and Ising metastability did not locate the asserted exact size distribution. Equivalence to a known broader transfer-matrix/Ising enumeration cannot be excluded, and searches do not establish absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete classification of a specified infinite family of connected, cubic, vertex-transitive social networks, a case distinguished from cycles because degree three removes tie-breaking altogether. It resolves all labeled absorbing singleton states, including the exact number at each opinion balance. The spectrum exposes a fixed-state parity restriction and proves a sharp four-person minimum size for a nonempty persistently present color group on all prisms beyond the triangle. It also gives exponential coexistence-pattern abundance on the simplest degree-three vertex-transitive cycle extension, despite the two-only stable states of random majority on the underlying degree-two cycle. The enumeration is not a parameter renaming or a single finite table. It does not establish basins of attraction, typical dynamics, other regular graph families, or metastable two-cycles.
+The general internal-partition equivalence and the no-isolated-letter condition on cyclic words are prior. The strongest inspected earlier sources do not give the all-state prism classification and its labeled mass spectrum. A later indexed record explicitly overlaps on the prism classification and exact total but not the blue-count spectrum. The pass credits the supported prism-specific result, not priority for internal cuts, the synchronized-word motif, or the Lucas calculation in isolation.
 
-## Closest coverage and remaining limits
+## value
 
-The cycle stable-coloring theorem and no-singleton characterization are previously known and acknowledged. The new claim is limited to the cubic prism's exhaustive classification, size-refined enumeration and consequences. A similar count could exist under the terminology internal partitions, Ising blocked configurations, or zero-temperature spin-flip stability. No independent audit or independent priority confirmation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prism is a natural cubic benchmark where tie behavior disappears but the layers can still separate. The exact blue-mass spectrum answers more than a total or a positive exponential rate: it distinguishes the exceptional two separated states from all synchronized states, including their contribution at odd n, and gives the smallest self-sustaining groups. The full labeled census is useful even without basin or convergence information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

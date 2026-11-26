@@ -1,15 +1,21 @@
-# Scientific review: a sharp disagreement window in two-leader placement
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete six-node weighted Laplacian is specified, and the three possible unordered pair separations exhaust all cases by circulant symmetry. The Fourier eigenvalues \(13+2c\), \(33\), \(40+2c\), with multiplicities \(2,2,1\), follow by directly evaluating cyclic modes. The pseudoinverse and its square yield the six rational spectral distances. A grounded-matrix Schur complement proves the exact trace identity, and direct rational factorization gives the resistance and coherence sign changes. The resistance threshold has one positive root and the quartic is strictly increasing on \(c>0\), so all boundary cases, ties, and strict intervals are accounted for. The independent matrix-inverse replay agrees with all three pair classes for six rational test parameters. Computational samples corroborate, but do not establish, the continuum claim; the analytic sign proof does.
+## correctness
 
-## Originality — PASS, subject to specialized-literature uncertainty
-Fitch and Leonard, arXiv:1407.1569, Corollary 1 and Section V-C, give a general joint-centrality expression and assert in discussion that maximum electrical resistance selects optimal two-leader pairs when all nodes have equivalent information centrality. Their exact cycle and path examples and corresponding appendices do not yield the six-node positive-weight phase diagram. The present example is a motivated strict counterexample to the shortcut, **not** a contradiction of their joint-centrality identity. Lin, Fardad, and Jovanović, arXiv:1302.0450, give leader-selection algorithms, relaxations and examples, not this exact classification. Clark, Bushnell, and Poovendran, arXiv:1208.0946, treat supermodular methods under link noise. Accessible mathematical-record searches and earlier research claims did not identify this precise resistance/coherence reversal or an implication covering its quartic transition. Search absence is not proof of uniqueness; other specialized weighted-circulant results may remain unindexed.
+PASS
 
-## Value — PASS
-Electrical resistance is a common proxy for distributing leaders. The example demonstrates a consequential failure of maximizing that proxy even under equal node centralities and complete graph symmetry, with all conductances strictly positive. More than a single pathological numeric witness, it supplies a sharp open transition interval, exact equality boundaries, and a three-class phase diagram. The result clarifies the structural role of the squared Laplacian pseudoinverse in coherence design and identifies exactly where the proxy ceases to be valid.
+Fourier diagonalization gives nonzero eigenvalues 13+2c, 33, 40+2c with multiplicities 2,2,1. The resistance half-distances follow by applying the inverse to the nonconstant modes. For the coherence identity, ground i using B_xy=G_xy−G_xi−G_iy+G_ii with G=L⁺. Grounding j subtracts ||B_:j||²/B_jj from the trace. Row sums of G vanish, so ||B_:j||²=2e_r+6d_r² and B_jj=2d_r; hence C_r is a constant minus e_r/d_r+3d_r. Direct subtraction gives d₂>d₁ and C₁>C₂ since u−w>0 and every other factor in the factored difference is positive. Independent replay of the crossing used grounded blocks: with D=22+c, C₂=1/(D+1)+(3D²−2D−c²−202)/[(D²−c²)(D−1)−202D−40c], whereas C₃=4/33+1/(13+2c)+1/(31+2c). Exact integer-polynomial cross multiplication reproduces −P(c)/[33(c+20)(c+23)(2c+13)(2c+31)] for C₂−C₃. The resistance comparison has numerator 2c²+20c−103 and positive denominator. P increases on the positive axis, P(4)=−19521 and P(5)=58693, and 3<c_R<4. Thus both crossings and their ties are as claimed. Independent substitution verified the c=4 fractions; subtracting gives the stated exact gaps.
 
-## Closest work and limits
-The closest primary source is Fitch–Leonard (2014, arXiv:1407.1569); Lin–Fardad–Jovanović (2013, arXiv:1302.0450) and Clark–Bushnell–Poovendran (2012, arXiv:1208.0946) establish broader problem settings and algorithms. The claim is limited to the specified six-node one-parameter family and the two-noise-free-leader grounded trace. An independent review and comprehensive survey of all historical specialized sources remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier matching-weighted biclique result already establishes the general resistance/coherence disagreement and an open interval on a vertex-transitive six-vertex example. The frozen result's supported distinct content is its exact phase diagram for a specified fully positive weighted circulant, not priority for the general counterexample or its proof method. The broad shortcut in Fitch–Leonard conflicts with the example, but their joint-centrality identity does not.
+
+## value
+
+PASS
+
+In this two-leader model the exact positive-weight thresholds distinguish when a readily computed resistance proxy is valid from when it selects a strictly worse pinned pair. The complete ordering, ties, and small exact integer witness make the graph useful as a test case even with every edge present, a regime not classified by the related missing-edge family. Value rests on the exact separation and calibration, not on claiming the general phenomenon for the first time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

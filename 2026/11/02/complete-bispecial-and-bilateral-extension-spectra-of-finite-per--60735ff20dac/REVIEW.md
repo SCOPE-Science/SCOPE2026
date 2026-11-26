@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Odd one-based positions are zero, forcing every sufficiently long bispecial occurrence into a unique odd-aligned phase. The proof establishes a one-to-one correspondence of unilateral and bilateral context sets under desubstitution, treats small factors separately, solves the recurrence, and verifies the count and extension profiles. Exhaustive independent factor enumeration for ranks 2–8 supports, but does not replace, the all-rank proof.
+## correctness
 
-**Originality — PASS with priority risk.** Frid and Avgustinovich (1999) provide potentially broader infinite-word DOL bispecial theory, and later works address infinite period-doubling palindromes and avoidance. The assessed result is the complete *finite last-letter-deleted* bispecial/extension table, particularly its rank-dependent boundary losses. The 1999 full chapter was inaccessible and could still overlap; this remains a material historical limitation. published-finding corpus and available earlier-claim queries yielded no explicit equivalent table.
+PASS
 
-**Value — PASS.** The complete strong/weak/ordinary bispecial profile controls a natural contribution to factor-complexity second differences and to forbidden two-sided extensions. The formulas hold at every rank and distinguish interior and boundary behavior.
+Reconstructed the induction with finite boundaries. Q_2=010 and Q_3=0100010 give the base tables; Q_4 contains all four bilateral extensions of 0. In Q_r every 1 is in an even position, and 11, 0000 and 1001 are absent. Thus 000 is not bispecial and every bispecial of length at least three contains a 1, has fixed start parity, and must both begin and end at odd positions to allow context 1 on either side. Such an occurrence has a unique preimage v under v -> mu(v)0. Its left and right contexts, including their absence at the two endpoints, map exactly to the complemented preimage contexts. Treating the short factors separately proves completeness and propagates the missing diagonal from 11 in Q_3 to b b at j=k-2. The two length families are disjoint; the orders and missing-pair totals follow. Separate direct factor enumeration matched every row for ranks 2–9, including the first missing-diagonal switch.
 
-**Scope and limitations.** This is not a full minimal-absent-word list, does not address arbitrary prefix lengths, and has not received independent mathematical validation. The checked primary-source material and access limitations are described in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete finite list and exact bilateral table as a joint classification, not for originating synchronization or any of the specific diagonal absences already obtainable from the earlier antidictionary. In particular the terminal missing diagonal is not a stand-alone novelty here. The strongest inspected finite comparators give lower bounds or extremal absent words, not exhaustion of the bispecials or exact availability of the remaining bilateral extensions in the truncated words.
+
+## value
+
+PASS
+
+The bispecial and bilateral languages are natural finite factor invariants. The complete classification identifies every positive as well as missing context, separates the terminal truncation row from the stable strong family, and yields the exact bilateral-order counts. This is useful beyond the earlier extremal or lower-bound absent-word information, without claiming a complete antidictionary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

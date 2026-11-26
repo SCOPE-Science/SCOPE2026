@@ -1,15 +1,21 @@
-# Review: exact prime-power two-cycle census
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact identity \(F^2(X)-X=X(X^2-3)(X^2-1)^3\) separates genuinely two-periodic points from fixed points. For odd primes, the unit criterion leaves precisely the \(\pm1\) residue balls modulo \(p^{\lceil k/3\rceil}\). At two, parity and the valuation \(1+3\nu_2(x^2-1)\) yield all odds at levels two through ten and the strict threshold at level eleven. The proof covers all primes and exponents; the bundled verifier independently checks the identity and a finite selection of exact modular orbits.
+## correctness
 
-## Originality — PASS with residual risk
-The full 2013 Diene–Salim paper on **fixed points** over finite fields, and the full 2014 Qu–Ding paper on **permutation** properties over prime-power rings, were compared to the present claim. A further 2015 valuation paper, 2017 periodic-point paper over prime fields and 2025 Dickson moment paper were checked. These inspected results do not establish the exact two-cycle census or the exponent-eleven transition. This is best-knowledge assessment, not independent certification; an unlocated equivalent historical result remains possible.
+PASS
 
-## Mathematical value — PASS
-The result completely classifies a natural arithmetic dynamical invariant for infinitely many prime powers. Both the explicit orbit set and its cardinality exhibit a sharp exceptional behavior at two, with scaling controlled by the triple factor at the parabolic two-cycle. The elementary factorization itself is not asserted to be new.
+With t=x², the quotient (F(F(x))−x)/x is t(t−2)³−2(t−2)−1=(t−3)(t−1)³. Therefore whenever x²−1 is a unit, second-iterate fixedness already implies fixedness. At an odd prime the first-displacement factor is a unit on either sign class, and the second-displacement valuation there is 3v_p(x∓1), including p=3. At 2, F is the identity modulo 2; for odd x the first-displacement valuation is 1 and the second is 1+3v_2(x²−1). The minimum latter valuation is 10, attained at x=3. For k≥11 exactly one of x±1 has valuation 1, so the stated condition is precisely x≡±1 modulo 2^(ceil((k−1)/3)−1). Counting the two disjoint balls and dividing by two gives the stated cycle counts. The proof is universal; the package's reported exact finite run is corroboration, not a run observed for this review.
 
-## Limitations
-Only least period two of \(E_3(X,1)\) on \(\mathbb Z/p^k\mathbb Z\) is determined. Other periods, degrees, parameters, and finite-field extensions remain untreated. Computer checks are finite; the written valuation argument supplies the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked literature and catalog entries do not establish the corresponding all-level least-period-two census for iteration of the fixed second-kind cubic. The finding is accepted on the exact residue sets and the sharp dyadic cutoff, not on novelty of polynomial factorization or valuation methods.
+
+## value
+
+PASS
+
+The least nontrivial orbit statistic for a standard second-kind Dickson polynomial is a natural finite-quotient invariant. This calculation locates every such orbit point in two explicit lifting balls and explains the unusually late dyadic branching at exponent eleven through a triple displacement zero. That sharp cutoff and the exact residue sets are useful for a functional-graph census even though the proof is elementary and does not cover higher periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

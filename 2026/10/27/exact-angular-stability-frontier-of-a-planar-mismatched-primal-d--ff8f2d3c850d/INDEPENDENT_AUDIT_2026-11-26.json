@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:48.378536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact frontier is correct, but the frozen opening is misleading if read as saying the angle provides information beyond the norm at fixed step size. In this family (I−R)^T(I−R)=2(1−cos θ)I, so the norm and the cosine identify one another. The complete repaired RESULT gives the equivalent norm thresholds and clarifies their dependence on the step size. Independently reconstructing the complex two-by-two update gives P=2u−2u²t²z and Q=u²(1−t²z). The determinant modulus is strictly below one. For roots a,b, the Schur difference equals (1−|a|²)(1−|b|²)|1−a conjugate(b)|²; hence its positive, zero or negative sign decides both strict stability and the exact radius-one boundary. Expanding yields the prefactor (1+c) times the sign factor c−H(t), with c=cos θ. At c=−1 the two roots are 1 and (1+t²)/(1+t)², including for t above the matched cutoff. Factoring H±1 and differentiating proves the two transitions and strict monotonicity; substitution gives H(2)=−11/25. Replay: repairs/1/RESULT.md Proof and the frozen verify.py lines 8–59, inspected but not executed. Its finite angle grid cannot establish the equality cases, which are covered by the algebra. Applies only to the exact, constant, equal-step primal-first quadratic iteration with extrapolation one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lorenz–Schneppe covers this algorithm class, but states sufficient convergence conditions and uses a small random mismatch for its quadratic example. Theorem 3.2 assumes strong convexity product strictly greater than twice the squared mismatch norm.",
+          "Chouzenoux et al. give sufficient fixed-point and convergence conditions for modified Condat–Vũ, Loris–Verhoeven and Combettes–Pesquet schemes. Their mismatch-inclusion paper points to algebraic quadratic precedents; the accessible Dong et al. reference concerns a BA iteration."
+        ],
+        "reasoning": "Substituting into a sufficient norm estimate cannot give the spectral equality and strict instability regions. At t=2, θ=π/2 the exact iteration is stable despite 1>2||I−R||² being false. The different BA iteration's spectrum is not the same complex quadratic characteristic polynomial.",
+        "searches": [
+          "Lorenz–Schneppe arXiv:2201.04928 Theorems 3.1–3.2, Corollary 3.3 and §4.1",
+          "Chouzenoux et al. 2022 adjoint-mismatch preprint; arXiv:2310.06402v2 introduction and its algebraic references [16] and [19]"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Repaired RESULT.md",
+        "Resultary ...1d2b92edc54c",
+        "arXiv:2201.04928",
+        "Chouzenoux et al. 2022 mismatch preprint",
+        "arXiv:2310.06402 and its references [16] and [19] (the latter access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact angular polynomial has separate factors (1+c) and c−H(t), while cited same-algorithm convergence conditions are one sided and the indexed comparison analyzes a time-periodic scalar update."
+        ],
+        "reasoning": "The matched case c=1 recovers only one slice. A disk-root theorem describes how to test an input polynomial, not the specific rearrangement that separates the antipodal fixed-point obstruction from the monotone angular transition and gives exact necessity for all t. No inspected stronger evaluated result was found to force this full classification.",
+        "searches": [
+          "arXiv:2201.04928 pp. 12, 15–16 and 18–20",
+          "Resultary ...1d2b92edc54c Finding and Assumptions",
+          "Repaired RESULT.md sign factorization and radius-one argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest inspected indexed Finding is a Floquet threshold for alternating reciprocal steps and a dual-extrapolated scalar bilinear PDHG model, plus a strongly convex witness. The ranked lookup did not establish a distinct same-day match."
+        ],
+        "reasoning": "The two-step Floquet matrix uses time-periodic steps rather than a fixed rotational surrogate; its scalar matched threshold is not a reduction of the same two-parameter spectral problem. For the current rotational model, cosine, reversed angle sign, and operator-norm mismatch at a fixed t are equivalent; novelty is not inferred from a change between those formulations.",
+        "searches": [
+          "Resultary: exact planar mismatched-adjoint Chambolle–Pock rotation frontier, equal steps, Schur, golden ratio and 1+sqrt(3)",
+          "Exact formula/title and the strongest indexed adjacent frontier, 2026/10/25 ...1d2b92edc54c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact joint frontier was established by the bounded index and primary lookup; the exact indexed frontier inspected uses alternating steps instead. Classical disk-root stability algebra is already established and was not counted as a new table or criterion."
+        ],
+        "reasoning": "This is a continuous model and its ordinary Schur test is not an exact database of angle-by-step thresholds. The relevant exact match would need the system-specific factorization, or a stronger evaluated family whose specialization gives its endpoints and neutral exceptions.",
+        "searches": [
+          "Resultary exact H(t) / golden-ratio and 1+sqrt(3) endpoint lookup",
+          "Focused literature lookup for the planar rotational mismatch Schur threshold"
+        ]
+      },
+      "rationale": "The distinct supported claim is the full necessary-and-sufficient rotational frontier with its exact neutral cases and two transition steps, equivalently the joint norm/step threshold for this particular family. The overlap with existing mismatched-adjoint Chambolle–Pock convergence theorems concerns the algorithm and sufficient conditions, not this frontier. The assessment is bounded to examined evidence and is not a determination of historical priority.",
+      "residual_risks": [
+        "Equivalent older quadratic stability computations could use different update or mismatch notation.",
+        "Elfving–Hansen full text was not available; the originality judgment does not presume its contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different operator and parameter regime",
+          "evidence": [
+            "Dual-extrapolated scalar bilinear model with alternating reciprocal steps and a strong-convexity witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-floquet-frontier-for-periodically-balanced-primal-dual-s--1d2b92edc54c/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Indexed lookup and mirrored result-text inspection",
+          "title": "A sharp Floquet frontier for periodically balanced primal–dual steps",
+          "trigger": "Closest indexed sharp primal–dual stability frontier"
+        },
+        {
+          "assessment": "Algorithm and sufficient convergence theory, no exact angular classification in inspected results",
+          "evidence": [
+            "Sufficient curvature/mismatch condition and prescribed steps/extrapolation; random A and V=A+E in the quadratic example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.04928",
+          "material_read": "Abstract; Theorem 3.1 p. 12 near offset 34280; Theorem 3.2 and Corollary 3.3 pp. 15–16 near offset 43800; §4.1 pp. 18–20 near offset 54000",
+          "method": "OA PDF targeted passage inspection",
+          "title": "Chambolle–Pock's Primal-Dual Method with Mismatched Adjoint",
+          "trigger": "Same mismatched algorithm and a quadratic section"
+        },
+        {
+          "assessment": "Different splitting schemes and sufficient convergence hypotheses",
+          "evidence": [
+            "Names the modified Condat–Vũ, Loris–Verhoeven and Combettes–Pesquet methods and studies sufficient conditions."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/04/8877.pdf",
+          "material_read": "Abstract and introduction pp. 1–3, around offsets 0 and 8500–9000",
+          "method": "OA PDF passage inspection",
+          "title": "Convergence Results for Primal-Dual Algorithms in the Presence of Adjoint Mismatch",
+          "trigger": "Adjacent strongly convex primal–dual mismatch analysis"
+        },
+        {
+          "assessment": "General framework; points to related algebraic mismatch work, not a covering frontier in inspected passages",
+          "evidence": [
+            "The introduction distinguishes algebraic treatment of quadratic mismatches in the cited earlier works; §2 of accessible Ref. [16] (Dong et al., pp. 2–3 around offset 5500) gives the eigenvalue test for a BA reconstruction iteration, not this splitting update."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.06402",
+          "material_read": "Introduction p. 3 around offset 8000; references [16] and [19] targeted",
+          "method": "OA PDF passage inspection and cited-reference follow-up",
+          "title": "Solution of Mismatched Monotone+Lipschitz Inclusion Problems",
+          "trigger": "General mismatch framework and references to quadratic spectral precedents"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of noncoverage",
+          "evidence": [
+            "Identified by the inspected inclusion paper as an algebraic quadratic precedent; no theorem passage was obtained."
+          ],
+          "identifier_or_url": "Elfving and Hansen (2018), arXiv:2310.06402v2 reference [19]",
+          "material_read": "Cited bibliographic identification only; full text not available in the lawful retrieval tried",
+          "method": "OA DOI access and recovery attempts",
+          "title": "Unmatched projector/backprojector pairs: Perturbation and convergence analysis",
+          "trigger": "Plausible older algebraic analysis of a quadratic mismatch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard splitting algorithm, the exact model tests what generic sufficient mismatch estimates miss. The frontier identifies a sharp safe region, distinguishes a fixed-point obstruction from an expanding mode, and yields explicit changes in angular tolerance, including convergence at a substantial mismatch beyond familiar matched sufficient step restrictions. The purpose survives the clarification that in this rotation family the norm is already a complete angular parameter at each fixed t.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

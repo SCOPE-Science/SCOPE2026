@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:56:16.832037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–83",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The global period is the order of the matrix, not a single point's orbit length. For x=pq, Cayley–Hamilton gives A^2=(2+x)A−I; reduction mod 3 is respectively identity, nonidentity unipotent, a matrix squaring to −I, or the negative of a nonidentity unipotent, yielding exact base orders 1,3,4,6. Direct substitution gives A^3−I=(x+3)((x+1)A−I), A^4−I=(x+2)A(A^2−I), and A^3+I=(x+1)((x+3)A−I). Unit off-diagonal entries and, when used, invertible factors modulo 3 ensure exact rather than lower-bound depth. For r=1 the off-diagonals already exhibit the minimum. If A^r=I+3^s C with a unit entry in C and s<e, cubing increases the minimum valuation exactly by one and powers prime to three preserve it; depth e needs no lifting. For r=1 subtract consecutive squares of residue-subgroup cardinalities. In the other cases each product has 2φ(3^e) ordered factorizations with exactly one unit or φ(3^e) with both units. The valuation shells around −3, −2, −1 have 2·3^(e−s−1) residues for s<e and one at s=e. This gives the joint counts, including merged periods from r=1 and 3. The maximum 6·3^(e−1) is unique to (r,s)=(6,1); there are two maximizing pairs at e=1 and 4·3^(2e−3) otherwise. Independent direct multiplication, not the uploaded verifier, matched all pairs at e=1 and 2; for e=2 the observed histogram was 1:1, 3:20, 4:6, 6:6, 9:24, 12:12, 18:12.",
+      "residual_risks": [
+        "Bounded direct order checks at e=1,2 supplement but do not prove the arbitrary-exponent result. No formal attestation was inferred from the verification package."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vajc gives PRE→9 PRE+18 ACT and ACT→27 ACT for a nonscalar parent, fixed determinant ±1 in characteristic three, with counting consequences in §6.1. The prime-power Chen et al. abstract explicitly assumes p>3. The 2014 abstract claims complete analysis for prime modulus."
+        ],
+        "reasoning": "The lifting mechanism has genuine prior coverage. Vajc's uniform distribution is over all 27 determinant-fixed children; only 9 have top-left entry fixed at 1. An ambient branching proportion does not fix the restricted one, and scalar reduction is not in the stated theorem. The other explicit ranges omit e>1 at the prime three.",
+        "searches": [
+          "arXiv:2610.18900v1 §5 Theorem 5.14 and §6.1",
+          "Chen et al. DOI 10.1109/TIT.2011.2171534; DOI 10.1016/j.tcs.2014.08.002"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18900v1",
+        "DOI:10.1016/j.tcs.2014.08.002",
+        "DOI:10.1109/TIT.2011.2171534",
+        "DOI:10.1007/s11071-012-0539-3",
+        "arXiv:1111.2984v1",
+        "Resultary suffixes 6ce73c0ff68d and 50ee7071a11c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonscalar slice has a 3/6 order-preserving/increasing split at the first lift, while the prior ambient theorem states a 9/18 split. Here the restriction and the depth are proved by the individual pq+c identities and exact factorization counts. The scalar r=1 stratum has its own minimum-valuation count.",
+          "Bao–Yang's abstract mentions minimal-period formulae for the classical map at prime and composite moduli and studies the general cat map, but does not expose details about family-wide multiplicities."
+        ],
+        "reasoning": "The same proportion in the ambient and slice lift experiments cannot be substituted without a restricted calculation. Older level-one orders and a standard lifting lemma alone likewise do not tabulate the s-shell multiplicities or exceptional base case. The possible precise scope of Bao–Yang remains unverified, not classified as noncovering.",
+        "searches": [
+          "Bao Yang 2012 Period of the discrete Arnold cat map and general cat map full text periods modulus prime powers",
+          "arXiv:2610.18900v1, text starting at offset 55175 around Theorem 5.14 and scope in §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family is exactly the slice of SL_2 with top-left entry 1: determinant 1 forces the bottom-right entry to be 1+pq. The trace is 2+pq. The period is an individual matrix's order, tabulated over the entire slice, not a state-orbit statistic.",
+          "Nance arXiv:1111.2984v1 begins with the fixed p=q=1 classical matrix and discusses extensions."
+        ],
+        "reasoning": "The fixed-matrix problem and ambient SL_2 count do not give a two-parameter period census merely by renaming. A matching exact per-trace/per-slice count, rather than an ambient histogram, would be needed for that implication.",
+        "searches": [
+          "generalized Arnold cat map two-parameter matrix [[1,p],[q,1+pq]] period distribution modulo powers of 3 exact census",
+          "orders of SL2 matrices modulo prime powers p-adic order lifting exact order multiplicities family trace determinant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d gives orders for graph-coupled block maps modulo powers of two. Hit 2026/11/8/SCOPE-first-ramification-sensitive-dihedral-order-spectrum-in-degree-t--50ee7071a11c concerns products of two involutions over Z/25 and F_5[ε]/(ε²)."
+        ],
+        "reasoning": "These exact tables are for different rings and varying objects, so neither includes the target 3^e parameter census. Search results do not exclude an unindexed table.",
+        "searches": [
+          "generalized Arnold cat map two-parameter matrix [[1,p],[q,1+pq]] period distribution modulo powers of 3 exact census",
+          "Chen Wong Liao Xiang 2014 Period distribution generalized discrete Arnold cat map Section 5 N=3^e outstanding case"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact joint census in the specified two-parameter slice over 3^e, including scalar reductions and the maximal-period fraction, not the order-lifting mechanism. The closest older preprint yields closely related ambient transitions; its count alone does not specialize to counts in this slice. Access limits for two precise family references remain explicit.",
+      "residual_risks": [
+        "Bao–Yang full text remains unavailable; the exact scope of its general cat-map results is not known from the abstract.",
+        "The 2014 paper's §5 statement about the nonprime ternary case could not be independently inspected. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior mechanism, different parameter distribution and exclusion of scalar reductions",
+          "evidence": "Counts all 27 determinant-compatible lifts with nonscalar reduction; 9 preserve order before activation, then all lifts activate after first increase.",
+          "identifier_or_url": "https://arxiv.org/html/2610.18900v1",
+          "material_read": "Title and abstract, §5 Theorem 5.14 (offset 55426) and §6.1–6.2, in bounded excerpt beginning offset 55175",
+          "method": "Literal query and bounded direct full-text inspection",
+          "title": "Adjoint Transfer and Order-Lifting Dichotomies for 2×2 Matrices over Prime-Power Rings",
+          "trigger": "Strong earlier characteristic-three matrix lifting and distribution theorem"
+        },
+        {
+          "assessment": "Verified prime-modulus abstract scope; exact future-work wording unresolved",
+          "evidence": "The abstract says parameters range over Z_N and reports a complete prime-N analysis. Frozen §5 comparison is not independently asserted here.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.08.002",
+          "material_read": "Publisher and university abstract material; §5 not independently available",
+          "method": "Lawful publisher/DOI and university landing-page retrieval, not full text",
+          "title": "Period distribution of generalized discrete Arnold cat map",
+          "trigger": "Same varying cat-map family and claimed ternary scope gap"
+        },
+        {
+          "assessment": "Stated hypothesis excludes the target prime",
+          "evidence": "Prime modulus base p is assumed greater than 3.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2011.2171534",
+          "material_read": "Accessible abstract",
+          "method": "Published metadata and abstract inspection",
+          "title": "Period Distribution of Generalized Discrete Arnold Cat Map for N=p^e",
+          "trigger": "Same problem over prime powers"
+        },
+        {
+          "assessment": "Coverage unresolved, not ruled out",
+          "evidence": "General cat-map analysis is mentioned, but the abstract does not expose an all-pairs ternary census or enough detail to determine its implication.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-012-0539-3",
+          "material_read": "Publisher abstract; no lawful available full text located",
+          "method": "DOI/Springer and lawful alternate ResearchGate and MaRDI attempts",
+          "title": "Period of the discrete Arnold cat map and general cat map",
+          "trigger": "Possibly covering family-specific prime-power formulae"
+        },
+        {
+          "assessment": "Fixed classical matrix and extensions, not the two-parameter count",
+          "evidence": "The classical cat map fixes the pair (1,1), unlike the varying slice.",
+          "identifier_or_url": "https://arxiv.org/html/1111.2984v1",
+          "material_read": "Opening at offset 0",
+          "method": "Bounded HTML inspection",
+          "title": "Periods of the discretized Arnold's Cat Mapping and its extension to n dimensions",
+          "trigger": "Earlier exact cat-map order formulae"
+        },
+        {
+          "assessment": "Different family and modulus",
+          "evidence": "Complete-graph block coupling and modulus 2^s.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d",
+          "material_read": "RESULT.md offset 0",
+          "method": "Resultary and local-mirror passage inspection",
+          "title": "Exact powers-of-two torus orders for all-to-all coupled cat maps",
+          "trigger": "Closest cat-map catalogue spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–37 and 74–83",
+        "Chen et al. 2012 and 2014 abstracts",
+        "arXiv:2610.18900v1, §6.1"
+      ],
+      "rationale": "The full parameter sample is the same natural two-parameter cat-map family studied for period distributions, and the base prime 3 is outside the stated p>3 prime-power result. The distinction between ambient lifts and restricted parameters matters in counting how often the longest global return actually occurs. The exact valuation rule and census account for period collisions and give a uniform quantitative selection statistic beyond individual period or lifting recipes.",
+      "residual_risks": [
+        "This does not count pointwise cycles, apply to arbitrary matrices, or address applications beyond the finite dynamical period question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

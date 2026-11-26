@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:47:45.305832Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–87; common-neighbor geometry, overlaps, boundary values and asymptotics reconstructed independently",
+        "Frozen VERIFICATION.md and verify.py inspected; submitted code not executed",
+        "Boudourides arXiv:2611.18719v1, Table 1, p. 13, corroborates 693 and 1125"
+      ],
+      "rationale": "The frozen condition is precisely cross-shore equality or disagreement in both coordinates. In the 3×3 culture grid a singleton has five compatible cultures; a distinct pair sharing a coordinate has the complementary two-point common-neighbor palette (whose common-neighbor palette in reverse is the original pair), and a pair sharing neither coordinate has the unique three-point permutation palette. This yields exactly 42 maximal oriented pairs, not 42 individual supports. Inclusion-exclusion for the two monochromatic-shore families and the permutation-triple family gives 9(5^a+5^b)+6·3^(a+b)−18(3^a+3^b)+9; the remaining disjoint family gives 18(2^a−2)(2^b−2). This verifies the formula for all positive shores, including a=1 or b=1 and the small 2×2 case. With a≤b and both tending to infinity, 5^a≤5^((a+b)/2)=o(3^(a+b)), and all other corrections and dominant-family intersections are lower order than 9·5^b+6·3^(a+b). Surjection error bounds show that the two dominant families actually use five and three cultures, respectively. Their weight ratio is (2/3)·3^(a−θb), giving both phases and the stated offset-dependent mixture.",
+      "residual_risks": [
+        "Sampling is uniform over labelled frozen configurations, not the absorption law of the stochastic dynamics. A limiting ratio a/b=θ without further information about the offset does not specify mixture weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "There is a general connected-partition/chromatic-polynomial formula, a regular-bipartite extremal bound and maximal palette-product asymptotics, and a generic exact support-sum using counts of complete bipartite subgraphs of the target."
+        ],
+        "reasoning": "The first and third give enumeration frameworks, not a computed classification of the target palettes; the second treats regular-source bounds and does not distinguish all competing shores under imbalance, resolve their multiplicities, or determine their culture proportions in a critical window.",
+        "searches": [
+          "arXiv:2611.18719v1 Corollary 5.4 and Proposition 5.7",
+          "arXiv:1206.3160 Propositions 1.2 and 1.3",
+          "arXiv:2508.06977v4 Proposition 3.1, equation (14)"
+        ]
+      },
+      "checked_sources": [
+        "Targeted local Resultary results: the identical record and separate same-day NOR record",
+        "Primary OA passages in arXiv:2611.18719v1, arXiv:1206.3160 and arXiv:2508.06977v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support-sum requires target-specific biclique counts; the general extremal method uses the maximal product and does not resolve exact relative weights for unequal shores."
+        ],
+        "reasoning": "Recovering the result requires resolving which target pairs can realize each support, their overlap, and the number of cultures occurring in the large-shore limit. Optimizing unequal-shore weights gives a different comparison, 5^b versus 3^(a+b), and one needs both leading multiplicities to get the crossover law. This is not a direct parameter substitution into the compared theorems.",
+        "searches": [
+          "Sason Proposition 3.1, equation (14), and Galvin–Tetali Proposition 1.3",
+          "Boudourides Corollary 5.4 and Proposition 5.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boudourides already formulates frozen counts as looped-target homomorphisms. In the bipartite double cover of that target, each map from a positive-shore biclique has exactly two lifts (one choice per source-side orientation)."
+        ],
+        "reasoning": "The loopy-target count can equivalently be recovered by halving a bipartite-target homomorphism count, so the bipartite restriction is not a barrier to applying Sason indirectly. Neither equivalent representation states the evaluated count or limiting observable.",
+        "searches": [
+          "Focused Axelrod absorbing configurations / complete bipartite homomorphism lookup",
+          "arXiv:2611.18719v1 Proposition 5.7",
+          "arXiv:2508.06977v4 Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 already includes 693 for C4=K2,2 and 1125 for K1,3; Proposition 5.7 covers the tree boundary. The ranked exact Resultary hit is this record; a separate same-day hit is about NOR dynamics on directed Kautz graphs."
+        ],
+        "reasoning": "Credit the known tree and small-graph counts. The distinct NOR record is a different state map and host, not table coverage of this biclique formula or its uniform frozen ensemble.",
+        "searches": [
+          "Local Resultary search for frozen Axelrod biclique / 5-to-3 culture transition",
+          "arXiv:2611.18719v1 Table 1",
+          "2026/11/22/SCOPE-frozen-alphabet-phases-and-exact-first-entry-laws-for-nor-dynami--48d4337f2670"
+        ]
+      },
+      "rationale": "Credits the general homomorphism and support-sum formulations and previously tabulated examples. The distinct content is the resolved support geometry for the nine-culture target, the evaluated two-parameter count, and the imbalance-driven culture law. None of the compared general results supplies that geometry or the critical-window distribution.",
+      "residual_risks": [
+        "The frozen discussion of Sason is phrased in terms of direct coverage; the double-cover indirect applicability is explicitly credited here.",
+        "Bounded comparison cannot exclude another explicit evaluation of this same small target or an unindexed equivalent transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing general framework and exact examples, not the all-biclique evaluated formula or asymptotic law",
+          "evidence": "Closed tree and cycle cases and explicit 693 and 1125 examples; uses graph homomorphisms into a looped compatibility target.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18719v1",
+          "material_read": "Corollary 5.4 and Proposition 5.7, pp. 9–10, offsets 30765 and 32811; Table 1, p. 13, offset 44855",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Triadic and assortative structure of absorbing states in the Axelrod model",
+          "trigger": "Same model, absorbing states, and exact counting framework"
+        },
+        {
+          "assessment": "General regular-source extremal bound and palette product principle; different hypotheses and invariant",
+          "evidence": "The complete bipartite comparison uses equal shores K_{n,n}; palette asymptotics use the maximal compatible-palette product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3160",
+          "material_read": "Propositions 1.2–1.3, pp. 1–2, offsets 0 and 4679",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On weighted graph homomorphisms",
+          "trigger": "General bipartite-source homomorphism asymptotics with possible palette dominance"
+        },
+        {
+          "assessment": "Gives an indirect general support-sum for the Axelrod count, but not its resolved nine-culture geometry or imbalance law",
+          "evidence": "Uses Stirling numbers to count assignments onto each selected pair of target supports, weighted by the target bipartite subgraph counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.06977v4",
+          "material_read": "Abstract p. 1 offset 0; Proposition 3.1 and (14) p. 6 offset 25800; Proposition 4.1 p. 11 offset 47960",
+          "method": "Primary OA PDF passage inspection and double-cover reduction",
+          "title": "Counting Graph Homomorphisms in Bipartite Settings",
+          "trigger": "Exact counts for complete bipartite source graphs"
+        },
+        {
+          "assessment": "Different dynamics, host graph and quantity",
+          "evidence": "Incoming-neighbor NOR dynamics on directed Kautz graphs, not frozen two-feature Axelrod states on bicliques.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-frozen-alphabet-phases-and-exact-first-entry-laws-for-nor-dynami--48d4337f2670",
+          "material_read": "Local-mirror result statement",
+          "method": "Targeted Resultary search and local mirror",
+          "title": "Frozen alphabet phases and exact first-entry laws for NOR dynamics",
+          "trigger": "Distinct same-day ranked frozen-state/phase comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, model scope and Proof §§1–4",
+        "Boudourides' general count and tree/cycle cases; Galvin–Tetali's regular-source comparison"
+      ],
+      "rationale": "The first three-value, two-feature target goes beyond monochromatic or single compatible-pair supports. The natural unbalanced complete bipartite test case lets one identify two geometrically distinct types of typical frozen state and their exact transition, including nontrivial critical weights. It is an exact comparison for a defined frozen ensemble, not a claim about cultural evolution trajectories.",
+      "residual_risks": [
+        "No extension to other feature/trait counts, sparse hosts, or the dynamically selected absorption ensemble is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

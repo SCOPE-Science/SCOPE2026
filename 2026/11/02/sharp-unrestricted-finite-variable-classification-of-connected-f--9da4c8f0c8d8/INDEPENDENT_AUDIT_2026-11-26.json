@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:44:25.992796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructing the staircase from a named choice of side, successive nonempty neighborhood differences give the opposite blocks and the incidence j≤i. Connectedness and the existence of an edge give exactly two side choices and no empty neighborhoods. Proper neighborhood inclusion is definable with three names and occurs only within a side. Its recursively defined finite chain ranks give m and define exactly A_(r+1) and B_(m−r) at rank r. To test at least s≤k twins, bind s distinct vertices and compare every pair's neighborhoods; the bound third name inside each comparison can shadow another witness without affecting its other occurrences. The existential and universal rank tests recover the lesser and greater clipped block sizes at each rank. If some rank has two different clipped sizes, the appropriate threshold defines one block there; sharing a neighbor with a member of that block defines its whole side because the nonempty neighborhoods on each side are nested. Using this same side formula at all ranks gives a globally consistent orientation; if every rank pair is equal, orientation is immaterial. Conversely after aligning the clipped staircases, keep the equality and block assignment of current pebbles. At most k−1 distinct vertices are retained before placement, so even a saturated block has room for a new distinct witness; unsaturated blocks agree in size. This is an indefinite partial-isomorphism strategy. Each fixed string under the side-swap/reversal is determined by its first side, so the orbit count is (k^(2m)+k^m)/2. Truncation uniquely minimizes all block sizes in the orbit, and the stated star pair separates at k+1. Inspected VERIFICATION.md and both source/output pairs without executing bundled code. The 819 staircase cases and 524 plain-logic instances are finite corroboration; the proof supplies the unbounded result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general plain-pebble correspondence characterizes FO^k in terms of a game but does not solve it for Ferrers graphs.",
+          "Fortin's variable collapse assumes an order in the signature and interval-preserving relations. Resultary cb248ce164ed treats pure FO^2, with three classes, and C^2, which distinguishes isomorphism types."
+        ],
+        "reasoning": "Neither definability in an enriched ordered signature nor exact counting-logical identification implies which multiplicities remain distinguishable with k ordinary names in the graph reduct. The plain width-two result lies below the stated regime.",
+        "searches": [
+          "Grohe–Otto arXiv:1204.1990 §2, Theorem 2.1",
+          "Fortin arXiv:1904.00189, Theorem 9",
+          "Resultary cb248ce164ed"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 543d4dcf6be4",
+        "Resultary bdf0df9751f3",
+        "Resultary cb248ce164ed",
+        "arXiv:1204.1990",
+        "arXiv:1904.00189",
+        "arXiv:1504.03666v1",
+        "DOI 10.1016/0166-218X(90)90092-Q (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The named-side census does not recover unrestricted quantifier-depth ranks or show how to choose a side with no predicate naming it.",
+          "The caterpillar result orders one spine with pendant counts, not two rank chains whose sizes must be assembled under one side exchange. The general pebble-game theorem supplies the proof framework, not that assembly."
+        ],
+        "reasoning": "The exact uncolored classification requires aligning the two sides across all ranks, or proving that every rank pair is symmetric. No inspected theorem supplies the resulting staircase invariant or directly implies its census.",
+        "searches": [
+          "Resultary 543d4dcf6be4, bdf0df9751f3 and cb248ce164ed, Findings",
+          "Fortin Theorem 9 and Grohe–Otto Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyacı–Ekim–Shalom p. 3 use the nested-neighborhood definition of chain graphs; the paper concerns MaxCut on related graphs, not FO^k.",
+          "Resultary 543d4dcf6be4 treats chain graphs with predicates for both sides, including the empty graph, and restricts depth rather than width."
+        ],
+        "reasoning": "Using the chain-graph alias reaches the same underlying object, but named sides and bounded depth are not equivalent to the claimed pure adjacency signature and unrestricted depth.",
+        "searches": [
+          "Resultary: pure and side-labeled chain/Ferrers graphs, difference graphs, exact finite-variable theories",
+          "Boyacı–Ekim–Shalom arXiv:1504.03666v1, chain-graph definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "543d4dcf6be4 gives 2,833 theories at depth at most three with named sides and a sharp 21-vertex cutoff.",
+          "bdf0df9751f3 gives a clipped-leaf sequence and reversal census for caterpillar trees.",
+          "cb248ce164ed gives an exact three-class census at width two in the same graph family."
+        ],
+        "reasoning": "These exact counts are for different signatures, widths, fragments or graph families. None enumerates the 2m-entry size strings modulo simultaneous side swap and reversal at width k≥3. The same-date caterpillar analogy was compared by content rather than dismissed by date.",
+        "searches": [
+          "Resultary: staircase clipping, finite-variable theory tables for chain/Ferrers graphs and reversal analogues"
+        ]
+      },
+      "rationale": "The closest inspected work covers the same family at bounded depth in a named-side signature, the same family at width two or in counting logic, or analogous clipped counts on a different family. None supplies the unrestricted pure-graph result for k≥3. The globally consistent interpretation of the two sides up to exchange is the key difference, not just a change of terminology from chain or difference graphs.",
+      "residual_risks": [
+        "A general quotient or interpretation theorem for uncolored twin blow-ups was not located and may affect historical priority.",
+        "The foundational Difference graphs paper was not inspected in full. The bounded literature search does not establish absence of prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different signature and depth restriction",
+          "evidence": "2,833 rank-at-most-three theories in the named-side signature, sharp 21-vertex bound.",
+          "identifier_or_url": "Resultary 543d4dcf6be4",
+          "material_read": "RESULT.md Finding, Assumptions and related work, offsets 0–2500 and 7484–9606",
+          "method": "Local Resultary mirror",
+          "title": "Exactly 2,833 rank-three theories of side-labelled chain graphs",
+          "trigger": "Same family and exact theory census"
+        },
+        {
+          "assessment": "Analogous theorem on a different family",
+          "evidence": "Classifies by clipped pendant-leaf counts along one spine, modulo reversal.",
+          "identifier_or_url": "Resultary bdf0df9751f3",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2859",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-variable theories of finite caterpillar trees",
+          "trigger": "Clipping and reversal at unrestricted depth"
+        },
+        {
+          "assessment": "Width two or counting, not this fragment",
+          "evidence": "Plain FO^2 has three classes; C^2 distinguishes isomorphism types.",
+          "identifier_or_url": "Resultary cb248ce164ed",
+          "material_read": "RESULT.md Finding/Assumptions and proof, offsets 0–2000 and 5000–6600",
+          "method": "Local Resultary mirror",
+          "title": "Counting restores exact identification of finite connected Ferrers graphs",
+          "trigger": "Same pure signature and connected family"
+        },
+        {
+          "assessment": "Framework only for the claim at issue",
+          "evidence": "States the ordinary k-variable logic/pebble-game correspondence.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "§2, printed p. 4, Theorem 2.1",
+          "method": "Open primary text",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "Potential general equivalence theorem"
+        },
+        {
+          "assessment": "Enriched ordered signature",
+          "evidence": "Three-variable property over linear orders with interval-preserving relations.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.00189",
+          "material_read": "Abstract and Theorem 9, printed p. 9",
+          "method": "Open primary text",
+          "title": "FO = FO³ for Linear Orders with Monotone Binary Relations",
+          "trigger": "Monotone neighborhoods and a variable-collapse theorem"
+        },
+        {
+          "assessment": "Same structural definition, different problem",
+          "evidence": "Uses nested neighborhoods; solves a graph cut problem, not logical equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03666v1",
+          "material_read": "Abstract and chain-graph definition, pp. 1 and 3",
+          "method": "Open primary text",
+          "title": "The maximum cardinality cut problem in co-bipartite chain graphs",
+          "trigger": "Chain-graph alias and structure"
+        },
+        {
+          "assessment": "Full implication not checked",
+          "evidence": "Foundational difference-graph reference; no conclusion about whole-paper logical coverage drawn from metadata.",
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(90)90092-Q",
+          "material_read": "Bibliographic identification; full text not retrieved",
+          "method": "Bounded lawful lookup",
+          "title": "Difference graphs",
+          "trigger": "Foundational alias and structural results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result classifies an unbounded-level natural graph family and makes explicit which aspects of the staircase survive a finite-variable observation budget. Aligning the unnamed sides is necessary: unordered size pairs at individual ranks do not in general specify a single global orientation. The classification gives a usable canonical compression, exact per-level counts, and sharp width witnesses. The elementary Burnside computation is a consequence, not the sole contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

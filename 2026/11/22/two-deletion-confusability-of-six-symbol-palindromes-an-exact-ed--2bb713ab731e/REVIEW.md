@@ -1,15 +1,21 @@
-# Scientific review: two-deletion confusability of six-symbol palindromes
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete 203-member equality-partition enumeration is an exhaustive finite proof certificate for every alphabet size, not a heuristic extrapolation. Its injective relabeling counts give precisely 20, 37 and 9 qualifying ordered templates on supports of sizes two, three and four. Independent actual deletion-shadow enumeration checks the edge and five-degree formulas over alphabet sizes one through seven. The affine degree law is justified by the impossibility of a neighbor containing two entirely new alphabet symbols. The random-permutation independent-set bound, the partition into output-sharing cliques, and the constructive three-subset packing argument prove the quadratic capacity order. No exact capacity is inferred from these bounds.
+## correctness
 
-## Originality
-**PASS (qualified).** The primary 2012 deletion-coding literature addresses general multiple-deletion hypergraph bounds, but does not supply this palindrome-source conflict graph. Full-text comparison with the published palindrome one-deletion graph (even-length graph edgeless) shows a different operation, while the binary length-six palindromic block-deletion study modifies neighboring substrings instead of deleting arbitrary symbols. The short nonbinary two-deletion reconstruction equality census concerns maximum overlap among already single-deletion-separated pairs, not this entire restricted conflict relation. A balanced-ternary six-symbol source has a limited overlap with the present family but not an all-alphabet formula. The exact polynomial and degree table were also queried as aliases. Priority risk remains from unindexed computations.
+PASS
 
-## Value
-**PASS.** The induced deletion graph is a natural object for synchronization coding under a structural palindrome source constraint. An exact all-alphabet edge law and full degree distribution permit direct graph and bound calculations, while a quadratic-in-alphabet capacity law distinguishes this structured family from a mere list of small numerical optima. The result cleanly separates structural enumeration from the open exact-code-capacity question.
+The palindrome parametrization is injective, and length-four common subsequences are exactly common outputs after two deletions. Independently inverted the explicit four-position subsequence shadows over six symbols and counted unique pairs (replay: python /workspace/audit-evidence/frozen5.py); dividing the ordered-pair counts by the falling factorial for each support size gives 20, 37, 9 for supports 2, 3, 4 and zero otherwise. Six symbols suffice to realize every equality partition of the six input slots, so relabelling yields the all-q law, not a finite-alphabet extrapolation. For fixed source support r, at most one new symbol can appear in a neighbor: two distinct fresh symbols occupy at least two slots of the other triple and leave at most two positions with source letters in its palindrome. Each one-new-symbol template has q−r realizations. Independent degree counts at r and r+1 agree with the constants and slopes, including the missing all-distinct type at q=2. The abba output partitions the vertices into q² cliques. Randomly ordering vertices gives an independent set with expected size Σ1/(d+1)≥|V|²/(|V|+2|E|), giving the asserted ceiling after substitution. The maximal packing of alphabet triples works because sharing at most one letter leaves at most two symbols of a common subsequence counted with multiplicity, and a chosen triple rules out at most 3(q−2) triples including itself. This proves the constructive bound for q≥3. The two frozen checkers were inspected, not executed. The result gives only bounds and asymptotic order for A_q, not its exact value.
 
-## Closest literature and limits
-The primary full text by Kulkarni–Kiyavash (2012) and published palindrome one-deletion and two-deletion equality-pattern results were compared at statement level. An exact minimum codebook at six symbols has **not** been determined; these are certified bounds. The census uses a fully supplied finite proof certificate, whose external audit remains outstanding. Historical priority beyond inspected texts is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the entire all-alphabet unordered edge polynomial and the five degree laws for the palindrome-induced graph, with quadratic bounds as consequences. The deletion hypergraph, independence bound and greedy packing method are not themselves new. Relevant finite unrestricted censuses overlap the alphabet-size 2 and balanced alphabet-size 3 subdomains, and one-deletion and reconstruction results use closely related machinery. None of the inspected statements or their justified implications determines this all-alphabet graph law.
+
+## value
+
+PASS
+
+Even-length palindromes avoid ordinary one-deletion conflicts, making the transition to two deletions a natural structural boundary. The exact all-q density and equality-type degree heterogeneity identify which constrained source words produce many conflicts and provide exact inputs for finite-alphabet packing bounds. The uniform result is useful beyond a single small instance; the generic independent-set bound or the mere Θ(q²) construction alone would give less information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

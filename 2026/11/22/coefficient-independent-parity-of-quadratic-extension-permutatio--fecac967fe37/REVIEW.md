@@ -1,9 +1,0 @@
-# Self-review
-
-**Correctness: PASS.** The key nonstandard step is fully proved: permutation on the \(m\)-th root group forces \(B^{2(q-1)}=1\), and the same equation for \(a^m\) then forces \(B\in\mathbb F_q\) in odd characteristic. The exact product over coset representatives gives a square of \(B\), which has even discrete logarithm in \(\mathbb F_q^*\), proving the parity formula. Hypotheses include any odd prime power, positive \(d,r\), zero or nonzero coefficient, and exact \(\gcd(d,q+1)=2\). The attached checker gives 1251 consistent finite instances, not an infinite certificate.
-
-**Originality: PASS (qualified).** The full-text classification statements and pertinent lemmas of Tang–Fan (arXiv:2611.14162v1) describe *which* binomials permute, not their alternating character. Bors–Wang (arXiv:2103.00664v1) supplies general wreath-product and cycle-index machinery, but the special even-index, coefficient-independent sign is not stated in the inspected material. Search comparisons also found an index-one permutation-binomial sign formula with a coefficient-dependent quadratic character, which does not imply the present index-two result. Residual risk: a straightforward reformulation may occur implicitly in uninspected portions or unindexed specialized literature.
-
-**Mathematical value: PASS.** Determining whether a classified permutation lies in an alternating group is a natural arithmetic and cycle-structure invariant. The theorem gives a complete universal answer for a recently classified family and proves an unexpected coefficient-independent rigidity through an explicit root-product argument. It distinguishes two nonempty sign classes already over \(\mathbb F_9\), and requires more than checking individual examples or changing notation. It does not classify full cycles or prove a new permutation criterion.
-
-Self-review: passed. Independent audit: not yet performed.

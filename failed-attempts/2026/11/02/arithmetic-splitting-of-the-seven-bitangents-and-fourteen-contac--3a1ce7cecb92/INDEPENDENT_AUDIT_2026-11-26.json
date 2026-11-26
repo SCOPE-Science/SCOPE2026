@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:53.065999Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–34 and 36–54, particularly the scheme assertion at line 50",
+        "VERIFICATION.md lines 19–24",
+        "klein_char2_verify.py lines 39–91",
+        "Independent restriction of the equation and all Gauss coordinates at L_1"
+      ],
+      "rationale": "The geometric classification, explicit coordinates, Frobenius actions, counts and zeta factors check out, but the claim that the incidence scheme itself is finite étale with no scheme multiplicity does not hold for the natural incidence of a bitangent line with a tangent point. At the rational bitangent z=x+y in the chart y=1 the incidence fiber in the curve has equation (x^2+x+1)^2=0. On this line all three homogeneous partial derivatives restrict to the same polynomial x^3+x+1; that polynomial is a unit at either contact (it evaluates to x). The equations for the Gauss tangent to equal this line thus impose no additional local equations. Over the algebraic closure the fiber has two length-two local rings, not two reduced points. Separability of the parameter w^2+w+1 only proves that the reduced flag scheme is finite étale; a bijection on geometric points does not prove the asserted scheme isomorphism. With the reduced structure, the t-chart equations u=t^3, t^7=1 are separable, the two contacts on L_1 are [w:1:w^2], and diagonal rescaling sends these to the stated P_(t,w). Frobenius acts by (t,w)↦(t^2,w^2). The pair-intersection formulas solve two line equations; at x=1 the incidences in t are governed by the monic cubic t^3+yt+z, which precludes more than three lines through a vertex. A triple vertex cannot lie on the smooth quartic, since any such line through it would have to be its unique tangent. The frozen field verifier was inspected rather than run; it checks finite-field points, not incidence local rings.",
+      "residual_risks": [
+        "If Flag is defined as the reduced scheme of geometric flags or via the reduced half-divisor, its étaleness and the displayed arithmetic are correct; this is not the scheme-theoretic assertion for ordinary incidence."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The characteristic-two classification includes seven bitangents for ordinary smooth plane quartics. The binary-quartic census includes partition (1,3,3), but the inspected aggregate does not identify this equation in that class and does not count contacts. Elkies §3.3 uses a rational model with no F2-points, and its seven-line incidence among F8-curve points is not the off-curve vertex set here."
+        ],
+        "reasoning": "Geometric classification or another twist's arithmetic cannot by itself determine this model's flag scheme; the exact same-model dual lines and elementary transport, not the broader classification, give the determining implication.",
+        "searches": [
+          "Dolgachev–Kondō Proposition 5.8 (Wall's classification)",
+          "Elkies, The Klein Quartic in Number Theory, §3.3",
+          "Resultary 2026/10/18/SCOPE-frobenius-splitting-spectrum-of-bitangent-lines-on-smooth-binary--bb2e8dcb8d19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 69e07e18ed1f and bb2e8dcb8d19",
+        "Dolgachev–Kondō Proposition 5.8",
+        "Elkies §3.3",
+        "van Lint Example 3.12 retrieval attempt",
+        "Public search: exact equation with bitangents Frobenius characteristic two"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known line parametrization, the coordinate rescaling phi_t=[t^5 x:y:t z] transports L_1 to L_t; the three quartic monomials all scale by t since t^7=1. On L_1 the restriction is (x^2+xy+y^2)^2, so its two base contacts are [w:1:w^2] and phi_t immediately gives every flag. The product of the t-squaring permutation with the transposition on w gives (2,6,6); finite-set zeta factors and rational counts are direct orbit arithmetic. Vertex coordinates are the two-by-two intersection of the known lines; off-curve follows from uniqueness of the smooth tangent."
+        ],
+        "reasoning": "No field-descent ambiguity remains after that known same-equation line description: the only remaining restriction is the rational line and transport is explicit over F8. The unprinted exact flags and zeta factors do not constitute a distinct calculation beyond routine implications of the verified prior result.",
+        "searches": [
+          "Resultary 69e07e18ed1f, exact same-model bitangents and dual incidence",
+          "Frozen RESULT.md, restriction and Frobenius at lines 39–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier mirrored Finding gives x+u y+u^5 z=0 for u^7=1. Substitution u=t^5 and multiplication by t^3 gives the frozen L_t identically, over the same base equation. Its dual nodes also have the Fano collinearity configuration (local offsets 3900–5768)."
+        ],
+        "reasoning": "Dual nodes are line coordinates in the original plane. The reparametrization is defined over F2 and commutes with squaring. Thus the exact seven lines and geometric Fano incidence are already matched, not just a shared geometric count.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-the-classical-klein-sextic-becomes-the-seven-nodal-dual-in-chara--69e07e18ed1f, exact same equation and dual nodes",
+          "Exact-equation literature search with bitangents, Frobenius, characteristic two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier line list is a table-free description of all seven parameters; squaring seventh roots gives the line partition immediately. The aggregate catalogue counts 1400 equations in nine classes with that partition. The cited van Lint passage on L_1 and its F4 contacts could not be verified firsthand."
+        ],
+        "reasoning": "Credit the actual exact line list and its immediate line arithmetic. Neither the aggregate census nor an unavailable example is evidence of a printed full flag table. The derivation of the flag census from the same-model line list is independent of access to van Lint.",
+        "searches": [
+          "Resultary 69e07e18ed1f, local Finding offsets 0–1524 and incidence proof offsets 3900–5768",
+          "Resultary bb2e8dcb8d19, local statement offsets 0–2800",
+          "van Lint, Example 3.12, attempted primary retrieval"
+        ]
+      },
+      "rationale": "An earlier checked record already gives precisely these seven bitangent lines on the same F2 model, with Fano incidence. The line cycles, vertex coordinates, contact fields and flag cycles are mechanical consequences of these data and the given equation. In particular the known exact lines form the diagonal rescaling orbit of the rational line, so all contact calculations are the single restriction at L_1 transported by a diagonal map. No located prior passage is claimed to print the full contact formula or flag zeta function. The verdict is based on the explicit implication below, not on inaccessible text or on an inference from a different twist.",
+      "residual_risks": [
+        "Priority for printing the explicit flag coordinates, as opposed to their mechanical determination from an existing list, is not established.",
+        "The cited van Lint passage was not firsthand accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-model seven-line and geometric Fano incidence coverage; no contact census asserted in these passages.",
+          "evidence": [
+            "x+u y+u^5 z=0 for u^7=1; every line through two dual nodes contains a third."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-the-classical-klein-sextic-becomes-the-seven-nodal-dual-in-chara--69e07e18ed1f",
+          "material_read": "Mirrored RESULT.md offsets 0–1524 and 3900–5768.",
+          "method": "Local Resultary search and exact mirrored passage inspection.",
+          "title": "The classical Klein sextic becomes the seven-nodal dual in characteristic two",
+          "trigger": "Exact Klein quartic dual nodes are bitangent lines for the same equation."
+        },
+        {
+          "assessment": "Aggregate line partition coverage, not a flag census or exact identification of this equation in the inspected passage.",
+          "evidence": [
+            "Partition (1,3,3) occurs for 1400 equations in nine classes; the displayed explicit example is for a seven-cycle instead."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-frobenius-splitting-spectrum-of-bitangent-lines-on-smooth-binary--bb2e8dcb8d19",
+          "material_read": "Mirrored RESULT.md offsets 0–2800.",
+          "method": "Local Resultary search and bounded mirror read.",
+          "title": "Frobenius splitting spectrum of bitangent lines on smooth binary quartics",
+          "trigger": "Exact base-field ambient quartic census might already tabulate this class and splitting data."
+        },
+        {
+          "assessment": "Prior geometric classification, not this model's arithmetic flags.",
+          "evidence": [
+            "Characteristic-two normal form (1) has seven lines in the proposition."
+          ],
+          "identifier_or_url": "https://sites.lsa.umich.edu/idolga/wp-content/uploads/sites/1467/2026/02/EPiGA-1.pdf",
+          "material_read": "Proposition 5.8, PDF pp. 13–14, referring to Wall Proposition 1.",
+          "method": "Primary PDF passage inspection.",
+          "title": "Bitangent surfaces and involutions of quartic surfaces",
+          "trigger": "Characteristic-two bitangent classification cited as background."
+        },
+        {
+          "assessment": "The S4 or rational S3 model in the relevant arithmetic discussion has no F2-points; its Fano incidence on curve points is not the required off-curve line arrangement.",
+          "evidence": [
+            "Displayed tables (3.13)–(3.14) and discussion begin with zero F2-points on that model; the frozen model, by contrast, contains [1:0:0]."
+          ],
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "§3.3 pp. 77–79, including text offsets 81900–85285 in the primary PDF.",
+          "method": "Located primary passage and read by offset.",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Exact characteristic-two Klein geometry, rational points, and Fano incidence could be confused with the frozen arithmetic model."
+        },
+        {
+          "assessment": "Exact historical statement not firsthand confirmed and not used to decide coverage.",
+          "evidence": [
+            "Only the attribution in RESULT.md line 60 is available for this comparison; the incidence calculation at L_1 is independently verified."
+          ],
+          "identifier_or_url": "J. H. van Lint, cited PDF and Example 3.12 in RESULT.md reference 1",
+          "material_read": "No extractable decisive passage returned on the identified copy.",
+          "method": "Attempted extraction via lawful direct and alternate routing.",
+          "title": "Introduction to Coding Theory and Algebraic Geometry",
+          "trigger": "The original attributes the exact rational line and its two contacts to this example."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof lines 39–54",
+        "Resultary 69e07e18ed1f exact line and incidence passages",
+        "Independent diagonal-transport calculation"
+      ],
+      "rationale": "The curve and its descended flag configuration are natural, but the validated reduced exact formulas and counts amount to routine extraction from the earlier exact same-model line list by a single rational-line restriction, diagonal transport, and orbit bookkeeping. Replacing ordinary incidence by reduced flags would repair the scheme wording but leave no genuine distinct mathematical result supported by this package.",
+      "residual_risks": [
+        "This is not a negative assessment of a different problem such as classification of contact-field splitting across twists or general binary quartics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

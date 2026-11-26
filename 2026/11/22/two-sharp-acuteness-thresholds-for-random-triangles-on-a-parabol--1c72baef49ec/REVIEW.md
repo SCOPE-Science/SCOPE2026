@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each ordered triple \(u<v<w\), the chord factorization gives three exact signed dot-product conditions. The independently derivable positive-product rectangle integral \(H(z)=z-1-\log z\) for \(z>1\) gives the middle-angle measure after *both* ordering-strip subtractions; two further disjoint endpoint-obtuseness volumes are removed. The resulting coefficient is \(I_m-4I_e\), not \(I_m-2I_e\). Both integrals have explicit antiderivatives and produce the global formula. The two \(5/2\) coefficients and the large-arc asymptotic follow from local expansion, and the onset limit uses bounded dominated convergence. A standalone independent numerical integration and sampled Euclidean dot-product checker passed. Tests are supporting evidence, not a substitute for these exact arguments.
+PASS
 
-## Originality — PASS (qualified)
+The original Finding's literal assertion that the strict events are first possible at the threshold values is false at equality, and a is not arclength. The complete replacement RESULT.md states the strict half-width ranges, adds an acute witness for each a>1, and supplies the quantitative first-onset remainder separately from the limit argument. Rechecked the corrected theorem: ordered density is 3/(4a³); chord products give the formal middle area H(a²−v²), H(t)=t−1−log t above one and zero below. The two ordering strips remove 2I_e, and the disjoint endpoint-obtuse events, each of volume I_e, remove another 2I_e. The endpoint product is bounded above by a²/2, so there is no strict endpoint event at equality; above it a positive rectangle area is available. The two antiderivatives give the stated closed forms, including continuity at both cutoffs. Taylor expansion gives I_m=8S⁵/15+O(S⁷), I_e=R⁵/15+O(R⁷), and expansion of the radicals and logarithms yields the stated coefficients through a⁻⁴. The middle product bounds force |v|=O(√δ) and both endpoint distances O(δ); the fixed-support dominated convergence argument therefore gives L¹ convergence to the uniform law on the stated domain, whose volume is 8/15. No finite experiment is needed for these conclusions.
 
-The dated primary articles treat, respectively, parabola-characterizing triangle-area relations and Gaussian random-triangle shape theory. Neither implies an acuteness probability for three independently uniform horizontal parameters. Public result comparisons with affine-uniform ellipse acuteness, spherical latitude acuteness, and random parabolic hulls have different curve/sampling/angle statistics. Own available historical claims involving the same parabola concern chord diameter, circumradius tails and hull deficits rather than three-angle acuteness; none implies this probability law. Exact comparisons cover aliases (acute/obtuse/right), equivalent dot-product inequalities, and possible formula-to-distribution implications. Residual risk: an unindexed classical or specialized publication may already have computed the same parabola-specific probability; this has not been eliminated by search.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural global three-point sampling statistic on the simplest strictly convex unbounded algebraic curve, cut to a finite arc. It has a complete exact aspect/arc-size law, two distinct sharp geometric feasibility thresholds with nonanalytic corrections, a rare-event conditional shape law, and a logarithmic long-arc tail. These are not a restatement of an existing distribution or a one-parameter substitution: the second transition comes from two independently counted endpoint-obtuseness mechanisms that require ordering corrections.
+For the corrected claim, neither the closest inspected same-model work nor the closest exact acuteness work gives or mechanically implies the piecewise probability, the critical coefficients, or the acute-conditioned total-variation limit. This is a statement-level comparison, not an exhaustive historical priority determination.
 
-## Scientific limitations and residual risks
+## value
 
-Uniformity is in the horizontal parameter, not boundary arclength. No uniqueness theorem for the maximizing arc size is claimed. The sharp conditional law is limited to the first threshold. The available historical comparisons cannot establish absolute priority, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural explicitly specified sampling model, the exact law identifies two different geometric mechanisms, with a correction invisible to an endpoint-only or un-ordered calculation. The onset joint limit gives a quantitative shape description of rare acute triangles and the exact law is a benchmark distinct from Gaussian and ellipse results. Correcting the cutoff language and restoring the claimed remainder does not weaken these contributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

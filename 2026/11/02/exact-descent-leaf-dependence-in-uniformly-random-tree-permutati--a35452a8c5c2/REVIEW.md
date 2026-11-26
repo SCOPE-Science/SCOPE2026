@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The two insertion operations have an explicit last-comparison update; they give \(D=1+N_{01}\). Acan–Hitczenko's published leaf/run lemma gives \(L=n-1-(N_{01}+N_{10})\). The telescoping identity, independent transition-bit recoding, exact binomial conditional law, moment computation and CLT are proved in RESULT.md. The embedded standard-library checker passed 16,499 exact assertions, independently brute-classifying 126 tree permutations. No finite computation is treated as a proof for all sizes.
+## correctness
 
-**Originality (PASS, with historical-priority risk).** The nearest paper Acan–Hitczenko (2014) already gives the binary code and leaf statistic, but not the joint relation to adjacent descents. Janson (2022) studies ordinary permutation-pattern occurrences, not the adjacent-descent/leaf joint law. Selig–Zhu (first public March 28, 2023) covers one-CNAT permutation classes and a different descent-preserving tableau bijection, not the stated law. The conditional mixture and asymptotically perfect negative correlation are therefore not identified as covered in the inspected sources or semantic research-record results. A major residual risk is that they may be derivable or previously recorded as consequences of the older code; independent historical verification is needed.
+PASS
 
-**Value (PASS).** The theorem identifies an exact near-conservation law coupling a permutation-local statistic with a nonlocal graph statistic, gives its entire finite-sample conditional distribution and resolves its asymptotic dependence with correlation tending to minus one. In random permutation graph models this is a structural cross-statistic statement, not merely a new formula for a previously tabulated marginal.
+Under the published bijective insertion code, I1 replaces the old last comparison by an ascent and then a descent; I2 leaves earlier comparisons unchanged and appends an ascent. Starting with the descent in (2,1), the extra descents are exactly the 01 transitions for the specified bit convention. Independently, each graph insertion keeps one of the current maximum/last vertices, replaces the other member of that active pair by a new leaf attached to the kept vertex, and leaves the old displaced vertex in the graph. After the first insertion the kept vertex has degree at least two and the new active vertex has degree one. Repeating an operation increases the leaf count by one; switching keeps it unchanged. This gives L=n−1−N01−N10 and agrees with the cited run formula. Hence 2D+L−n−1=b_last−b_first. The first bit and the change indicators form a bijective recoding into uniform independent bits; the first bit remains fair given the count T, giving exactly the displayed even/odd conditional law. The conditional mean is 1+T/2, the conditional variance is 1/4 on odd T and zero otherwise; fair parity for n≥4 gives the stated variance, covariance and correlation. For n=3 both variables are constant. The bounded endpoint error and the binomial CLT give the stated singular limit. The stated descent marginal follows also by adjoining an initial 1 and terminal 0: D=d then corresponds to choosing 2d−1 switch locations among n−1.
 
-**Limits.** Uniform tree permutations only; no transfer to forests or weighted codes. The 2014 encoding is not new, and neither novelty nor proof has independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The insertion code, run formula for leaves and leaf marginal are established prior results. The inspected matching work does not state or give a formula for the joint law of adjacent descents and graph leaves. The supported distinct claim is the exact coupling, not the binomial leaf law or the code itself.
+
+## value
+
+PASS
+
+Adjacent descents are a natural permutation statistic and leaves are a natural graph statistic for the same combinatorial object. The exact coupling relates permutation order to graph structure: for each leaf count, the descent count is fixed or supported on exactly two consecutive integers with equal mass. The bounded deterministic defect and the rank-one joint limit capture dependence that neither a marginal CLT nor the published leaf law provides.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

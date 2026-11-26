@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` with Python 3 and no third-party packages. The script implements a direct three-state continuous-time Markov chain using `fractions.Fraction`. It enumerates every Prüfer-labelled tree of orders two through five and samples 22 deterministically chosen Prüfer codes at each of orders six and seven. For each of three rate-ratio profiles it recomputes the exact chance of informing every vertex for every possible starting vertex and compares with the asserted product. It separately evaluates the sharp path bound for the checked trees. The actual execution reports:
+# Independent mathematical audit
 
-```
-PASS: 567 distinct tree/profile tests and 2958 independent root exact CTMC comparisons
-```
+## correctness
 
-The file is self-contained. All derived quantities are exact rational numbers; no Monte Carlo sampling is used. These tests are finite and do not certify an unbounded theorem. The written proof in RESULT.md establishes the general statement using competing hazards, local independence on trees, and paired-factor inequalities. In this code the tests for sizes six and seven are samples, **not** an exhaustive census; the all-tree assertion rests solely on the analytic proof.
+PASS
 
-The source inspection examined the open-access text of arXiv:1112.2239v1, arXiv:1202.4019v1 and arXiv:2005.11440. Source comparisons do not establish independent historical priority; possible equivalents in other publications remain a residual uncertainty. Independent audit has not been performed.
+Root the tree at the seed and pre-sample independent local event sequences at activation. The informed parent stays informed, and an initially ignorant child can first become informed only through its parent. Hence only the parent's own next event changes its count j of informed neighbors while it is active. At count j the next local event is transmission with probability (d−j)/(d−j+α_v j). The root starts at j=0, whose factor is 1, and a nonroot starts at j=1; both stop the success test at j=d. Local success events are functions of disjoint randomness, and induction on the rooted tree identifies their conjunction with full dissemination. For a common α the reciprocal factors with j and d−j pair to (1+αu)(1+α/u)≥(1+α)², strictly for unequal indices. Thus the exponent is sum_v(d_v−1)=n−2 and equality holds exactly for maximum degree at most two. This includes the two-vertex tree, whose product is empty. A separate exact three-state recursion agrees for all seeds on representative shapes and both homogeneous and heterogeneous rates.
+
+## originality
+
+PASS
+
+The local all-children probability at α=1 and the branching-process idea have clear prior coverage. The supported distinct contribution is the arbitrary finite-tree product with source independence for vertex-dependent ratios, together with the sharp homogeneous path extremum, not the local competing-clock calculation.
+
+## value
+
+PASS
+
+The full-coverage observable yields an exact finite-tree invariant despite vertex-dependent contact and cessation rates and root-dependent child counts. At common ratio it both collapses the topology to the degree multiset and completely identifies the optimal shape, with strict loss at any branch vertex. This answers a natural seed-choice and topology question that mean-reach and infinite-survival results do not settle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

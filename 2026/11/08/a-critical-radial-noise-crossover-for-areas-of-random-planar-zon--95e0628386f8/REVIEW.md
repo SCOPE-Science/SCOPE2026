@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The planar area is a sum of pairwise absolute determinants. The conditional angular integral gives the exact projection and the displayed finite-\(n\) variance. For the fixed-length case, a uniform \(L^2\) bound on the discarded Fourier harmonics supplements finite-dimensional Fourier CLTs to prove the entire infinite exponential series, without assuming an infinite-dimensional CLT. The row-dependent degenerate part differs from the fixed-length part in \(L^2\) by \(O(n^{1-\beta})\), and the first-order radial part is an independent ordinary sample sum. These facts rigorously imply the three regimes and the independence at the boundary.
+## correctness
 
-Standalone tests check 126 direct convex-hull areas, Fourier identities, exact finite-\(n\) variances, and sample dispersion in all four chosen regimes. Numerical evidence is supplementary and does not certify infinite limits.
+PASS
 
-## Originality — PASS, with historical risks
-The accepted claim is the \(n^{-1/2}\) radial-concentration crossover and the **independent** Gaussian-plus-exp-series distribution at its boundary. The fixed-length angular law is equivalent to a half-sum of Euclidean chord distances on a doubled-angle circle, and Silverman's 1978 circle-distance process may subsume that sublaw. De Wet (1987) proves general fixed-kernel degenerate U-statistic limits, while Schneider (2022, Section 4) treats fixed iid segment laws and positive first-order variance. Neither inspected statement supplies the shrinking-radius triangular-array crossover or the exact geometric scaling constants. Vitale's expectation theorem is insufficient to imply a distribution; Donoho–Tanner's face count is a different invariant. Similarity searches of published-finding corpus published records and published geometry literature identified no matching crossover. This is best-knowledge originality, not proof of uniqueness; Silverman and Vitale full-text limits and more generic triangular-array results are residual risks.
+Adding a segment increases the area by its length times the width in the perpendicular direction, and widths add; this gives the absolute-determinant pair sum. Put t_n=τn^(−β), q_n=v t_n², and K=|sin(Θ_i−Θ_j)|−α. The canonical remainder kernel is exactly r²[(1+t_n ξ_i)(1+t_n ξ_j)K+αt_n²ξ_iξ_j]. The two terms are orthogonal by angular centering, and distinct pair kernels are uncorrelated by conditional degeneracy. Thus its one-pair variance is r⁴[(1+q_n)²(1/2−α²)+α²q_n²]; adding the first projection variance n(n−1)²α²r⁴q_n to the binomial(n,2) pair variances recovers the displayed variance, including β=0. Replacing the kernel by r²K has one-pair squared error r⁴[(2q_n+q_n²)(1/2−α²)+α²q_n²], giving the asserted L² bound. Direct integration gives cosine coefficient −4/[π(4m²−1)]; the sine/cosine coordinates each have variance 1/2 and are orthogonal, so the squared moduli in the finite-dimensional CLT are independent Exp(1) limits. Pair degeneracy and Fourier orthogonality give the stated uniform tail bound, and Parseval gives sum (4m²−1)^−2=(π²−8)/16. The unsquared sum telescopes to 1/2. Absolute summability gives L³ convergence by Minkowski, hence the strictly negative third cumulant; the upper support point is attained in the essential sense by requiring a finite exponential head to be small and controlling the independent nonnegative weighted exponential tail by its vanishing mean. The radial projection is an ordinary sample sum of scale n^(3/2−β); the angle-only remainder has scale n. At β=1/2 these independent finite-row terms converge jointly to independent nonzero limits by factorization of characteristic functions and Slutsky. These analytic checks establish the result; the uploaded geometry/Monte Carlo program was inspected but not run, and no finite simulation is offered as proof.
 
-## Mathematical value — PASS
-Area is a central convex-geometric valuation of a random zonotope. The crossover is forced by competition between order-\(n^{3/2-\beta}\) radial and order-\(n\) angular fluctuations. It identifies a sharp physical noise scale, a hybrid non-Gaussian law at the scale, and an exact finite-size variance calibration. This resolves a natural singular transition omitted by a fixed-law Gaussian CLT rather than extracting an arbitrary finite numerical statistic.
+## originality
 
-## Limits and status
-The result assumes bounded centered independent radial noise and independent uniform angles in the plane; uniform rates and higher-dimensional volumes are not provided. Bibliographic priority remains provisional, and an independent audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified to triangular radial concentration for this area, with the exact competition of scales, explicit independent critical convolution, and finite-n variance. The determinant sum, fixed-law normal and degenerate U-statistic methods, and fixed-circle component are not counted as novel. The accessible fixed-law zonotope theorem does not give this moving-law result by specializing parameters.
+
+## value
+
+PASS
+
+The degeneracy at constant generator length is natural in the isotropic planar model. The exact radial/angle variance split identifies the sensitivity of area to small independent radial noise, and determines both order and distribution on either side of a sharp threshold. The non-Gaussian critical convolution and calibratable finite-size variance add value beyond either classical fixed-law endpoint. The result is for the stated bounded-noise model and fixed exponents, not a uniform convergence rate or higher-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

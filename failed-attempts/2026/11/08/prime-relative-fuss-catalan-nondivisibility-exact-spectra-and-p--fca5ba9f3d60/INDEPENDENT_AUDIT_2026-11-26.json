@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:18.245354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fuss–Catalan expression is integral (subtract p times the adjacent lower binomial coefficient from the numerator binomial); its denominator is a p-unit. Kummer gives no carries in n+pn exactly when neighboring digits sum to at most p−1, including n=0 and the padded top digit. There are exactly the indicated adjacency paths for each r≥1. Summing cosines through p−1−i gives sin((p−i)θ_j)/(2 sin(θ_j/2)), and (p+1/2)θ_j=(j+1/2)π gives the signed eigenvalue and eigenvector equation. The distinct absolute eigenvalues and squared projections of the all-ones vector yield the cotangent-squared coefficients; the prime 2 and r=1 require no exception. The positive top eigenvalue lies strictly between 1 and p by primitivity and the nonconstant row sums. The leading term bounds all real density cutoffs between consecutive powers of p. Truncation followed by zero digits proves the characterized closure. Its cylinder covers give the upper dimension and the Perron transition a_ij v_j/(ρ_p v_i) telescopes to measure proportional to ρ_p^(−r+1) times the last-state weight, giving the lower bound. Expanding sine gives the claimed large-p error term. The frozen code and its recorded small-case data were read, not executed; the proof, not those finite checks, establishes C.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fried's enumeration is valid for all alphabet sizes, not just p+1 with p prime.",
+          "Abram–Lagarias Theorem 1.1 gives dim_H Y=log_p σ(A(G)) for a standard right-resolving p-adic path-set presentation.",
+          "Stănică Thm. 3 states Kummer; his own Fuss–Catalan Thm. 4 is for arity p. Krattenthaler–Müller's Section 7 uses prime-power arity for its modulus prime."
+        ],
+        "reasoning": "A start node with p edges labeled by the chosen first digit, then digit states with edges labeled by the next allowed digit, is a standard presentation and its spectral radius is that of A_p. Alternatively the largest modulus in Fried's formula is exactly ρ_p. The restricted Fuss–Catalan literature is not what covers the result; the combination of the general carry, enumeration, and dimension results does.",
+        "searches": [
+          "arXiv:2503.02005v3 Theorem 1; Abram–Lagarias arXiv:1210.2478 Theorem 1.1; arXiv:math/0010148",
+          "Krattenthaler–Müller DOI:10.1007/s00010-025-01195-0, Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2503.02005v3, 1210.2478, math/0010148",
+        "Krattenthaler–Müller DOI 10.1007/s00010-025-01195-0; Sury landing page only",
+        "OEIS A006356; Resultary fca5ba9f3d60 and c5388371a82c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For this arity the addends in Kummer are n and the single-place shift pn, so the transition rule follows without a new number-theoretic step.",
+          "The word equivalence and elementary trigonometric reindexing recover the asserted exact count including r=1. Its largest exponential term and the standard path-set dimension theorem give the remaining dimensional invariant."
+        ],
+        "reasoning": "The frozen argument is a concise alternative spectral derivation. No separate matching external eigenbasis statement was established in the bounded search, but the credited combined consequence does not depend on novelty of an eigenbasis statement. The stated density and prime limit are elementary consequences of the already covered growth rate.",
+        "searches": [
+          "Kummer in Stănică Thm. 3; Fried Theorem 1; Abram–Lagarias Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flip odd-position digits to p−1−d_i to obtain weak alternation with even positions valleys. Then add 1 to the odd-position values only. For r≥2 this is a bijection to strict up-down words over {0,…,p}: every valley is ≤p−1 and every peak ≥1. At r=1 the alphabet count is higher by one.",
+          "Fried, Theorem 1, (1), counts strict up-down words over k letters of length n by 1_{n=1}+4/(2k−1) times the absolute sum of sin²(2iπ/(2k−1))/(2cos(2iπ/(2k−1)))^(n+1)."
+        ],
+        "reasoning": "Set k=p+1, n=r and D=2p+1. For i=1,…,p, m_i=D−4i has |m_i|=2j+1 covering each j exactly once and sign (−1)^(p+j). Then cos(2iπ/D)=sin(m_iπ/(2D)) and sin²(2iπ/D)=cos²(m_iπ/(2D)). The factor 4 changes the power r+1 into the audited r−1 with a cot² coefficient; the only common sign is (−1)^(p(r+1)), removed by the absolute value since the audited sum is positive. This is exact term-level coverage, not just an analogous formula.",
+        "searches": [
+          "weak alternating words; strict up-down words over finite alphabets; arXiv:2503.02005v3",
+          "Stănică arXiv:math/0010148, Thms. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A006356 gives 1,3,6,14,31,70,157,…, matching N_3, with the sequence framed via light-reflection paths. The p=2 avoidance count is the classical Fibonacci case.",
+          "Resultary fca5ba9f3d60 is the bound original itself. The distinct proportional-binomial digit branching record c5388371a82c excludes m≡1 mod p, hence m=p+1."
+        ],
+        "reasoning": "The indexed single sequence does not decide all p, and the other catalogue theorem excludes this slope. The all-alphabet match rests instead on the primary exact count theorem.",
+        "searches": [
+          "OEIS A006356; Resultary fca5ba9f3d60 and c5388371a82c"
+        ]
+      },
+      "rationale": "The central exact count and its entire trigonometric expansion are already covered in an equivalent alphabet formulation by Fried's 2025 Theorem 1. The arithmetic interpretation is an immediate application of the classical carry theorem, and the explicit dimension is mechanically obtained from that growth rate or adjacency spectrum and the general path-set dimension theorem. This does not assert that Fried stated the Fuss–Catalan or p-adic formulation in words.",
+      "residual_risks": [
+        "Sury's full text was not obtained; no matrix-specific independent eigenbasis statement was established. These limitations do not weaken the exact Fried comparison.",
+        "The earliest appearance of the Fuss–Catalan interpretation was not established, and need not be decided to identify the mechanical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of all block counts and their trigonometric form",
+          "evidence": [
+            "Formula includes 1_{n=1}, and its sum under k=p+1 expands to the same signed powers and cotangent weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.02005v3",
+          "material_read": "Definition p. 1; Theorem 1, §2, (1), p. 2; confirmed in source HTML text offset 3950–6218 and corresponding PDF passage",
+          "method": "OA primary HTML and PDF bounded passages",
+          "title": "A formula for the number of up-down words",
+          "trigger": "Exact enumeration after weak-to-strict alternating word bijection"
+        },
+        {
+          "assessment": "Contains the applicable dimension theorem",
+          "evidence": [
+            "Hausdorff dimension of a standard path set equals log_p of adjacency spectral radius."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.2478",
+          "material_read": "Theorem 1.1, PDF p. 3, offset 9146",
+          "method": "OA primary PDF passage",
+          "title": "p-adic path set fractals and arithmetic",
+          "trigger": "General p-adic dimension formula for this digit language"
+        },
+        {
+          "assessment": "Kummer supplies the arithmetic implication; specific arity-p result is different",
+          "evidence": [
+            "Valuation equals the number of carries adding n and m−n; the specialized arity-p criterion instead has a repunit exception."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0010148",
+          "material_read": "PDF p. 5, Theorems 3 and 4, offsets 7598 and 8009–8229",
+          "method": "OA primary PDF passages",
+          "title": "p^q-Catalan Numbers and Squarefree Binomial Coefficients",
+          "trigger": "Prior divisibility criteria near the same parameters"
+        },
+        {
+          "assessment": "Prime-power-arity assumption excludes p+1",
+          "evidence": [
+            "The arity parameter is taken to be a power of the modulus prime."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01195-0",
+          "material_read": "§7 scope as described in PDF introduction p. 3, offset 5299",
+          "method": "OA primary PDF passage",
+          "title": "A method for determining the mod-p^k behaviour of recursive sequences",
+          "trigger": "Possibly broader Fuss–Catalan congruences"
+        },
+        {
+          "assessment": "No negative inference about coverage from this access limit",
+          "evidence": [
+            "Frozen citation identifies it as a prime-arity comparison; full text was not verified."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Sury/sury31.html",
+          "material_read": "Landing page only, not full text",
+          "method": "Lawful OA attempt",
+          "title": "Generalized Catalan Numbers: Linear Recursion and Divisibility",
+          "trigger": "Frozen citation for related prime-arity divisibility"
+        },
+        {
+          "assessment": "Matches p=3, not an all-prime statement",
+          "evidence": [
+            "1,3,6,14,31,70,157,… and recurrence a(n)=2a(n−1)+a(n−2)−a(n−3)."
+          ],
+          "identifier_or_url": "https://oeis.org/A006356",
+          "material_read": "Data and comments, text offset 861",
+          "method": "Public database entry",
+          "title": "OEIS A006356",
+          "trigger": "Nonbinary exact sequence match"
+        },
+        {
+          "assessment": "Explicitly excludes m=p+1; target's own separate catalogue hit is not independent",
+          "evidence": [
+            "Odd p and m not congruent to 0 or 1 modulo p; exceptional slope p+1 not covered."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-digit-branching-law-for-proportional-binomial-nondiv--c5388371a82c",
+          "material_read": "Mirror RESULT.md lines 5–25",
+          "method": "Resultary and local mirror",
+          "title": "A universal digit branching law for proportional binomial nondivisibility",
+          "trigger": "Potential broader count and dimension for the same binomial slope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The digit language is naturally motivated, and the proof is concise. But the featured exact count and growth invariant are already covered, the p-adic dimension is a direct standard transfer, and the arithmetic identification is the single shifted-addend Kummer application. The record does not isolate a surviving new structural fact or nonroutine use of its alternative derivation that would support substantive standalone research value under this standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

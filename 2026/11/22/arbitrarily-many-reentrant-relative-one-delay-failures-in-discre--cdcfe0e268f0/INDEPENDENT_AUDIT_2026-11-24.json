@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:51:05.167450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–72",
+        "Frozen verify.py and VERIFICATION.md, inspected without execution"
+      ],
+      "rationale": "By symmetry of the heat semigroup, the absolute defect optimized over c is the operator norm of the difference of the two observable functionals, i.e. the Euclidean least-squares residual. Its next-functional normalization is the sine of the angle between successive snapshots. At s_j−1,s_j the consecutive affine-exponent differences select mode j+1; at s_j+1,s_j+2 they select mode j. The winners are unique: the crossing times are decreasing, separated by four and are half-integers. Writing η=min_j(ν_{j+1}−ν_j)/2>0, every competing exponent at those snapshots is at least η below the winner, by telescoping. The normalized distance from a snapshot to its winner is at most √(m−1)exp(−Lη), so a common sufficiently large finite lag gives all strict inequalities, with the proposed limits by orthogonality. Reusing the old minimizer at the next burn-in gives E_L(s+1)≤e^(−Lν_1)E_L(s); distinct semigroup eigenvalues and all nonzero modal coefficients imply a strictly positive residual at every finite step. Independently compared normalized snapshots with the wedge-product formula in dimensions 2, 4 and 8 at lag 30, as a numerical supplement only.",
+      "residual_risks": [
+        "Lag threshold depends on dimension. The asymptotics are for b_L designed as a function of L, not for one fixed sensor across lags. No claim about normalizing by individual scalar observations or about higher memory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (34) bounds distance to the span of consecutive smoothed snapshots; Eq. (39) bounds an absolute scalar recurrence defect",
+          "The mirrored Fourier-ratio proof constructs separated spectral crossings for a different statistic"
+        ],
+        "reasoning": "An absolute bound may coexist with an error ratio near one since the denominator shrinks. A single-angle spectral bound such as Kantorovich's cannot produce the specified multi-time arrangement.",
+        "searches": [
+          "Han–Xiu–Zikatanov arXiv:2611.19040v1 §§4.1–4.3, Thm. 7 and Cor. 9",
+          "Resultary 0d41ccdbf41d proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Han–Xiu–Zikatanov v1",
+        "Resultary 0d41ccdbf41d, 67dcd0fce75c, 33ae93d3d3f1 at levels noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7 specializes to E_L(s), not R_L(s); Corollary 9 uses modal-interpolation coefficients",
+          "Earlier ratio peaks are centered on spectral crossovers, not comparisons of pairs of neighboring snapshots"
+        ],
+        "reasoning": "The new step is placing each crossing half a step from an integer so the normalizations on either side of the middle one-step window select orthogonal limiting modes, while both snapshots of each neighboring window select the same mode. The shared setup is not coverage of these normalized discrete extrema.",
+        "searches": [
+          "arXiv:2611.19040v1 Thm. 7 r=k=1, Cor. 9; Resultary 0d41ccdbf41d §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized residual equals the sine of the successive-snapshot angle",
+          "Han–Xiu–Zikatanov Thm. 7 with r=k=1 bounds its unnormalized numerator",
+          "Resultary 0d41ccdbf41d §§1–4 uses one snapshot's Fourier l1/l2 ratio"
+        ],
+        "reasoning": "A one-snapshot ratio on continuous periodic heat flow and an angle on two successive nonlocal Dirichlet snapshots are different observables; common spectral crossings do not identify their extrema.",
+        "searches": [
+          "heat semigroup one-delay closure projective relative error angle successive powers vector multiple local maxima normalized heat observable Han Xiu Zikatanov Fourier ratio",
+          "Resultary: one-delay normalized heat defect, spectral crossings, Fourier ratio peaks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared 0d41ccdbf41d and same-date 67dcd0fce75c and 33ae93d3d3f1 at the available levels; the frozen record is a self-hit"
+        ],
+        "reasoning": "The exact claim is a parameter-family construction, not an invariant table; the indexed comparisons did not provide a distinct exact match, and the drift-diffusion result was only available at summary level.",
+        "searches": [
+          "Resultary local index: relative one-delay heat error, Fourier-ratio peaks and heat-error recurrence"
+        ]
+      },
+      "rationale": "The absolute one-delay approximation is covered in prior heat-closure work, and spectral crossover engineering is shared with an earlier Resultary record. The supported distinct claim is the multiple prescribed integer peaks of the relative optimal one-delay operator-norm defect, including the near-one peaks and near-zero neighbors despite absolute contraction. Neither overlap supplies that conclusion as stated or by the checked reductions.",
+      "residual_risks": [
+        "Unindexed results on angles of successive normalized positive-semigroup iterates may exist. No historical priority certified, and only the summary was available for the circular BV comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of an absolute-error bound under visibility; not coverage of normalized peaks",
+          "evidence": "r=k=1 identifies the absolute best-fit distance; Cor. 9 uses prescribed modal-interpolation recurrence coefficients, not the normalized per-s fit.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19040v1",
+          "material_read": "§4.1 Eq. (24), §4.2 Thm. 7 Eq. (34), §4.3 Cor. 9 Eq. (39)",
+          "method": "Bounded OA primary HTML passages",
+          "title": "Delay Closure of Observable Dynamics for the Heat Equation",
+          "trigger": "Same heat-semigroup snapshot approximation, including one delay"
+        },
+        {
+          "assessment": "Material method overlap, different observable and time domain",
+          "evidence": "Strict continuous-time peaks of a Fourier l1/l2 norm ratio on a periodic trajectory.",
+          "identifier_or_url": "2026/10/18/SCOPE-arbitrarily-many-fourier-ratio-peaks-under-periodic-heat-flow--0d41ccdbf41d",
+          "material_read": "RESULT.md §§1–4",
+          "method": "Resultary index and local mirror",
+          "title": "Arbitrarily many Fourier-ratio peaks under periodic heat flow",
+          "trigger": "Earlier arbitrary peak count by spectral crossover engineering"
+        },
+        {
+          "assessment": "Summary identifies a different observable; proof-level comparison unavailable",
+          "evidence": "Summary concerns drifted circular heat BV-to-L1 identity error around π/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-circular-bv-drift-diffusion-error-and-infinitely-recurrent-peaks--67dcd0fce75c",
+          "material_read": "Catalogue summary only; exact full record unavailable in the local mirror",
+          "method": "Resultary index and attempted local mirror",
+          "title": "Sharp circular BV drift-diffusion error and infinitely recurrent peaks",
+          "trigger": "Same-date heat-error peak comparison"
+        },
+        {
+          "assessment": "Static optimization, not evolving one-delay error",
+          "evidence": "Fourier-ratio frontier subject to an energy constraint.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-energy-fourier-ratio-frontier-and-a-four-mode-conden--33ae93d3d3f1",
+          "material_read": "Catalogue description",
+          "method": "Resultary index",
+          "title": "Sharp fixed-energy Fourier-ratio frontier and a four-mode condensate",
+          "trigger": "Same-date Fourier-ratio overlap candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and peak/contraction arguments",
+        "Han–Xiu–Zikatanov Thm. 7 and Cor. 9"
+      ],
+      "rationale": "This separates two explicit operator measures of one-delay reliability on a standard heat semigroup. It shows that absolute contraction at every update cannot certify even eventual improvement through a prescribed long sequence of relative-quality checks in growing dimension, and quantifies the distinction by neighboring windows with opposite limiting quality. This is useful as a boundary on what a closure error bound means, not as a claim about typical sensors.",
+      "residual_risks": [
+        "Relies on a deliberately nonlocal observation with large spectral dynamic range, not an empirical prediction or a numerical robustness claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

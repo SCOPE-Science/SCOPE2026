@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Heun recurrence is reconstructed from both stages, the cubic discriminant locates the exact first nonnegative-output failure, and a separate global factor inequality proves the upper biological boundary. The double-root perturbation yields the explicit square-root width and linear negative-depth coefficients. The standalone checker reports `VERIFY_OK 2071`, including exact rational identities, but universal claims rely on the proof rather than tests.
+## correctness
 
-**Originality — PASS, with priority risk.** Grammaticos, Tamizhmani, and Willox, *On unconventional discretisations* (arXiv:2607.19413), already present the Heun polynomial and numerical positivity-loss value around 4.4037. The new statement claims only an exact radical threshold, quantified global invariant-interval equivalence, and precise onset geometry. Other inspected descriptions address nonstandard positivity-preserving integrators or different Runge–Kutta methods. Relevant searchable research records and accessible prior mathematical claims did not give the identical implication. An older publication may still have the exact calculation.
+PASS
 
-**Mathematical value — PASS.** The carrying-capacity interval is the natural physical domain, and its invariant-step cutoff determines guaranteed nonnegative bounded dynamics for all allowed inputs. The new square-root failure-window law describes how violating that cutoff creates a set of dangerous initial conditions. This is more informative than observing a negative iterate at one parameter.
+Starting with the two Euler stages gives the claimed P_r and the physical interval [0,1-1/r]. For x>0 its sign is the sign of g_r(1-x). The discriminant is r^6(r^4-18r^2-27); on [0,1] the only stationary point that can become a zero is the local minimum, since the maximum exceeds g_r(0)=1. Its sign is initially positive and eventually negative, and g_r>=1 on [0,1/r]. This gives the tangency and both negative-interval endpoints in the physical domain. Independently the factor of P_r-c_r stays positive throughout that domain for r<=r_*: the bounded quadratic on 0<=rx<=1 is strictly below 2 and the expression on 1<=rx<=r-1 is at most 1. Fixed-step induction gives the all-iterate statement. The rescaling y-y_*=s z, r-r_*=s^2 gives simple limiting roots because g_r's parameter derivative is negative and its state curvature positive. The negative minimum is inside that shrinking interval; the local minimum branch of P_r is smooth at the tangency and has the claimed derivative. The ever-present zero at x=0 cannot compete just above onset.
 
-**Limitations.** Classical fixed-step Heun and scalar autonomous logistic dynamics only; no claims for higher-dimensional reaction networks, arbitrary two-stage RK2 schemes, inexact arithmetic, stochastic perturbations or full attractor classification. No complete historical-priority proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published Heun polynomial and the numerical positivity-loss observation near 4.4037. The distinct supported claim is the exact global physical-interval iff, including the separate upper boundary, together with the two sharp local onset laws for the forbidden inputs and their minimum output. Neither the closest primary passages nor the related corpus findings checked give those statements or their quantified conclusion.
+
+## value
+
+PASS
+
+The full carrying-capacity range is canonical, and practical fixed-step control requires a uniform interval guarantee rather than a test of a stable or typical orbit. The exact threshold excludes steps that fail immediately, and the width and depth quantify how much initial data is affected and how far it leaves the physical range near failure. The contribution is not the already reported approximate location or the general existence of a fold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

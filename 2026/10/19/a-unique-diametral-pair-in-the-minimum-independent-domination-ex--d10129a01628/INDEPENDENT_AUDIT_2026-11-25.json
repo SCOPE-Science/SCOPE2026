@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:44.151912Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Verification; VERIFICATION.md",
+        "enumerate_mcgee.py; verify_mcgee.cpp; check_mcgee_certificate.py; mcgee_certificate.json; primary_output.txt; cxx_output.txt; checker_output.txt"
+      ],
+      "rationale": "I reconstructed the LCF edges (36 edges, all degrees three) and computed girth by finding the shortest alternate path for each edge (girth seven). Inclusion-maximal independence is equivalent to independence plus domination: an undominated vertex is exactly a vertex that can be added. An independent exact calculation (/tmp/opencode/scope-review-mcgee.py) enumerated maximal cliques of the complement with pivoted Bron–Kerbosch (all maximal cliques, no duplicates), then used intersection size seven to form all exchanges at the minimum and Floyd–Warshall for the distance matrix. It yielded maximal-set counts 146, 352 and 8 at sizes 8, 9 and 10 only; 216 edges, no triangles, degrees 2:64, 3:48, 4:16, 5:16, 8:2; radius 11, diameter 12, eccentricities 11:144 and 12:2. The only distance-12 pair had sorted zero-based indices (77,104) and masks (4793490,9586980), the two stated residue classes. Any admissible jump removes the old neighbor of the added vertex, since the old set dominates it and the new set is independent; thus all jumps are slides. Exhaustive adjacency/nonadjacency-preserving partial bijections generated the full 32-element automorphism group, with exactly seven orbits of the stated sizes and the pair the sole two-element orbit. All labelled minima, edges, eccentricities, permutations and orbit representatives matched mcgee_certificate.json; deletion–contraction independently gave the claimed face vector. The frozen Python checker validates listed permutations, not their completeness by itself; the primary enumeration and my independent bijection search establish completeness. Frozen scripts were inspected, not executed. No C++ rerun or external attestation is asserted.",
+      "residual_risks": [
+        "Exact finite result for this labelled graph and the minimum-size state space, not for other cages or arbitrary intermediate independent sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The i-graph paper §5, Cor. 5.3 and Lemmas 5.4–5.5 concerns realizability and families of seed graphs; these statements do not compute a given cage's i-graph or its distances.",
+          "Cubic independent-domination general bounds or random-model results do not supply all labelled minima or their exchange metric; the cited DOI full texts were not recovered independently."
+        ],
+        "reasoning": "General tools or cardinality constraints do not fix the minimum states and all distances for the specified seed.",
+        "searches": [
+          "arXiv:2303.06299 §§1,5",
+          "10.1002/jgt.21855",
+          "10.1002/rsa.10047"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.06299; arXiv:1403.0359; arXiv:1401.5714",
+        "Resultary 5daca7995d97, 9c86d0c9b13e, 3e5911c9aaad",
+        "10.1002/rsa.10047 and 10.1002/jgt.21855 (access attempts); 10.1016/j.ejc.2007.02.016 (landing/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homotopy S^5 and the face-size histogram discard which labelled size-eight faces are maximal; the previously known adjacency of the seed is an input for enumeration, not the result of it.",
+          "The later same-cage packing paper asserts two C4 components at size 10 and expressly limits its theorem to 9 and 10."
+        ],
+        "reasoning": "Neither a general graph definition nor counts or metrics in a different independence layer logically give the stated 146-state eccentricity and orbit theorem.",
+        "searches": [
+          "Resultary IDs 5daca7995d97 and 3e5911c9aaad, Findings and prior-work sections",
+          "arXiv:2303.06299 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brewster–Mynhardt–Teshima §1 defines precisely the same slide graph as the i-graph of a seed graph; here every admissible jump is a slide.",
+          "Bonsma et al. Prop. 1 concerns maximum independent sets; Suzuki et al. §2 allows additions and deletions under a size cap."
+        ],
+        "reasoning": "The general object is prior, not claimed new. Neither the maximum independent-set graph nor the addition/deletion graph is this size-eight optimum space.",
+        "searches": [
+          "arXiv:2303.06299",
+          "arXiv:1403.0359v1",
+          "arXiv:1401.5714",
+          "Resultary: McGee minimum maximal independent sets and exchange diametral pair"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independence-complex record gives the exact face-size vector, not the list of minimum maximal faces or its distance matrix.",
+          "The identifying-code record counts 384 size-11 codes in 13 orbits, with a different defining separation predicate.",
+          "The packing reconfiguration record has layers 9 and 10, not 8."
+        ],
+        "reasoning": "The overlapping exact tabulations concern different invariants or different state spaces. No inspected exact table supplies the unique diametral pair of the i-graph.",
+        "searches": [
+          "Resultary: McGee cage minimum independent dominating sets token-slide exchange radius diameter orbits",
+          "Resultary IDs 5daca7995d97, 9c86d0c9b13e, 3e5911c9aaad"
+        ]
+      },
+      "rationale": "Credit the already-defined i-graph, known cage and known independent-face vector. The retained contribution is the exact labelled minimum-independent-domination exchange classification of this cage, in particular the unique diameter pair and its exceptional symmetry orbit. The closest inspected same-object and same-graph statements do not establish this classification.",
+      "residual_risks": [
+        "Cubic-domination and identifying-code primary full texts were not recovered in this review; unindexed cage tables, thesis examples or supplementary data may overlap.",
+        "No source for the frozen record's 2-factor comparison is named; no whole-literature noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definition and realizability theory, not this cage's exact graph",
+          "evidence": [
+            "§1 defines vertices as i(G)-sets differing by a slide",
+            "Cor.5.3 and Lemmas 5.4–5.5 give realizability/inflation rather than a cage census"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06299",
+          "material_read": "Abstract and §1 PDF p.1; §5 PDF p.15–16",
+          "method": "OA PDF passages located and read",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Exact same reconfiguration model under the name i-graph"
+        },
+        {
+          "assessment": "Face size and homotopy overlap only",
+          "evidence": [
+            "Ind(G) is homotopy equivalent to S^5; same eleven face coefficients"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-mcgee-graph-independence-complex-is-a-five-sphere--5daca7995d97/RESULT.md",
+          "material_read": "Finding and Proof",
+          "method": "Published local-mirror text",
+          "title": "The McGee graph independence complex is a five-sphere",
+          "trigger": "Identical cage and full independent-face vector"
+        },
+        {
+          "assessment": "Different admissibility predicate",
+          "evidence": [
+            "Size 11, 384 optima and 13 orbits of separating closed-neighborhood codes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-384-minimum-identifying-codes-of-the-mcgee-cage--9c86d0c9b13e/RESULT.md",
+          "material_read": "Finding",
+          "method": "Published local-mirror text",
+          "title": "All 384 minimum identifying codes of the McGee cage",
+          "trigger": "Same-graph catalogue census with symmetry"
+        },
+        {
+          "assessment": "Different state space even apart from chronology",
+          "evidence": [
+            "Only independent sets of sizes 9 and 10; size-10 layer two C4s"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-maximum-packing-reconfiguration-transition-in-the-mcgee-grap--3e5911c9aaad/RESULT.md",
+          "material_read": "Finding; Relationship to prior work; Limitations (text offset 5226)",
+          "method": "Published local-mirror text",
+          "title": "The maximum-packing reconfiguration transition in the McGee graph",
+          "trigger": "Closest same-cage token exchange result"
+        },
+        {
+          "assessment": "Proposition concerns maximum sets; claw-free hypotheses do not hold here",
+          "evidence": [
+            "The exchange equivalence for minimum maximal sets is justified separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+          "material_read": "Proposition 1, PDF p.4",
+          "method": "OA PDF passage",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Jump/slide equivalence and reachability"
+        },
+        {
+          "assessment": "Different moves and no independent optimum restriction",
+          "evidence": [
+            "Single additions and deletions subject to a size cap"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+          "material_read": "§2, PDF p.3",
+          "method": "OA PDF passage",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Alternative dominating-set reconfiguration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations; Brewster–Mynhardt–Teshima §1"
+      ],
+      "rationale": "The smallest cubic girth-seven graph is a canonical sparse benchmark, and the natural i-graph asks whether exact independent domination optima can move locally while keeping feasibility and optimality. Its sole farthest pair, exactly coincident with an exceptional original-graph orbit, and 11/12 eccentricity separation are structural information beyond a routine face count and useful for checking exact reconfiguration computations.",
+      "residual_risks": [
+        "No general cage or algorithmic complexity conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

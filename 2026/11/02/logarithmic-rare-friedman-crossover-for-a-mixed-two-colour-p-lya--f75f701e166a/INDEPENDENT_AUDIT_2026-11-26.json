@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:30:07.873761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reaudited the unequal-total theorem in repairs/3/RESULT.md; the original proof is also mathematically sound. The recursion comes from additions c I_j and b+(a-b) I_j and total size T_0+cj+(a+b-c)R_j. Conditioning on all rules is legitimate because the drawing uniforms are independent; it makes the future damping weights deterministic and gives a squared L² tail O(1/K) once all factors are positive. For finite λ the centered weighted Bernoulli sum has variance O(ε_N), and E[ξ_j R_j]=ε_N+(j−1)ε_N² gives the indispensable inverse-total error O(ε_N+ε_N² log N)=o(1). The sum of squares is o_P(1). For λ=∞ the deterministic upper linear bound on T_j gives divergence without this finite-window error estimate. Coupling the first K draws and then sending K to infinity proves the endpoint result with the stated initial Beta parameters. Boundedness gives the moment formulas. The recorded finite checker output was inspected, not executed; its large-row diagnostics are balanced, not evidence of convergence for unequal totals. Replay for those original diagnostics is python checker.py in the source package; the repaired proof itself needs no computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi–Yin–Miao fix p in (0,1); Alves–Rosales prove fixed-positive-mixture equalization. The critical mixed-urn Brownian archive result also fixes p subject to a critical relation."
+        ],
+        "reasoning": "The fixed-parameter conclusions, without control as the parameter vanishes, do not determine the joint endpoint law along ε_N log N→λ. A logarithmic time change at fixed p is not the same regime.",
+        "searches": [
+          "arXiv:2605.26669v1, §3, Theorems 3.1–3.3",
+          "arXiv:2502.16768v2, Abstract and Theorem 1",
+          "Resultary 54feb5ffa3ee, Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "Resultary f9652b484b0a and 54feb5ffa3ee",
+        "arXiv:2605.26669v1 and arXiv:2502.16768v2",
+        "Repaired RESULT.md, SLOGAN.txt and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier paper has T_j=T_0+cj pathwise. The repaired proof bounds the weighted error for T_j=T_0+cj+(a+b−c)R_j by retaining the ξ_j R_j same-step dependence and separately handles unlimited logarithmic damping."
+        ],
+        "reasoning": "Neither a deterministic time rescaling nor substitution of a mean total preserves that random correlation. The balanced result suggests the conjecture and most of the damping mechanism; it does not mechanically supply the random-denominator estimate.",
+        "searches": [
+          "Resultary f9652b484b0a, Finding, Assumptions and damping argument §4",
+          "Repaired RESULT.md, random-total comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-colour marginal of the archive's Dirichlet law is Beta(y_1/c,y_2/c); taking s=1 gives the same exponent 2bλ/c, including the zero and infinite windows, when a,b>0 and c=a+b."
+        ],
+        "reasoning": "Vector versus scalar notation and process versus endpoint do not distinguish the balanced portion. Equality versus inequality of the two possible total increments does distinguish the repaired regime.",
+        "searches": [
+          "Resultary: vanishing mixed urn, logarithmic time, triangular Pólya–Friedman, rare-rule contraction",
+          "arXiv:2605.26669v1, mixed replacement model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The archive's exact contraction formula at f9652b484b0a is for equal per-draw rule totals. The critical Brownian record is a different limit law. No exact unequal-total entry was identified. A numerical sequence table is inapplicable to a distributional theorem with a free limiting window parameter."
+        ],
+        "reasoning": "The literal occurrence of the Beta formula is material evidence about the original balanced case but cannot remove the earlier theorem's equality constraint.",
+        "searches": [
+          "Resultary exact crossover hits f9652b484b0a and 54feb5ffa3ee"
+        ]
+      },
+      "rationale": "For the repaired unequal-total claim only. The original unqualified crossover contribution materially overlapped the Oct. 18 archive theorem: on its positive-addition balanced regime the two-colour endpoint and moments are already a consequence of that stronger path result. The repair explicitly credits that overlap and isolates c≠a+b. The prior path theorem assumes deterministic row totals and neither its statement nor its proof can be specialized by setting parameters to produce the unequal-total urn. No exact coverage of the repaired claim was established in the comparisons below.",
+      "residual_risks": [
+        "The literature comparison is bounded; a general uniform triangular-urn or stochastic-approximation theorem with hypotheses covering this random-normalization regime could change the originality judgment.",
+        "The repair claims neither novelty for the balanced endpoint nor an unequal-total path theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact balanced overlap and stronger path law; not unequal totals",
+          "evidence": [
+            "Uniform L² convergence for s∈[ε,1] to u+exp(−kbλs/c)(B−u), and to u in the infinite window; c=a+(k−1)b."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-logarithmic-time-dirichlet-crossover-in-vanishing-p-lya-friedman--f9652b484b0a/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–2708; damping §4, around 5837",
+          "method": "Local mirror full-text passages",
+          "title": "Logarithmic-time Dirichlet crossover in vanishing Pólya–Friedman urns",
+          "trigger": "Identical logarithmic contraction in strongest archive hit"
+        },
+        {
+          "assessment": "Fixed mixture, no triangular endpoint law in the matched results",
+          "evidence": [
+            "The theorems take scalar p∈(0,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+          "material_read": "§3, Theorems 3.1–3.3, OA offset 15293",
+          "method": "OA full-text passages",
+          "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+          "trigger": "Same replacement-rule mixture"
+        },
+        {
+          "assessment": "Different limiting regime",
+          "evidence": [
+            "Almost-sure balancing at fixed p>0 does not resolve vanishing p_N."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2502.16768v2",
+          "material_read": "Abstract and Theorem 1, OA offset 0",
+          "method": "OA full-text passages",
+          "title": "Friedman vs Pólya",
+          "trigger": "Fixed-positive mixture equalization"
+        },
+        {
+          "assessment": "Fixed critically tuned probability and fluctuation process, not the crossover",
+          "evidence": [
+            "The mixture probability is fixed and satisfies a critical relation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror full-text passages",
+          "title": "Brownian motion on the logarithmic clock of a critical mixed urn",
+          "trigger": "Logarithmic mixed-urn archive hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unequal replacement totals are natural in mixed urns. They remove deterministic normalization and could alter the integrated drift; the repair proves exactly why and when that does not happen, while recovering the limiting random distribution rather than only its mean. This supplies a substantial robustness result and not a restatement of the balanced path law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

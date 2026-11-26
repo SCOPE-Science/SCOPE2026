@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:45.990592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A primitive three-letter orbit deletes three edges forming a directed cycle on three distinct two-letter vertices, so the residual graph is balanced with degrees q−1 at exactly those vertices. On the full de Bruijn graph A²=J; on the complement of constants the inverse of qI−A is given by truncating the nilpotent inverse series after A/q². Consequently det(L+J/q²)=q^(q²−1), the full cofactor is q^(q²−3), and the rank-three determinant lemma gives the stated tree factors. The 001 vertex adjacency restriction has rows (1,1,0),(0,0,1),(1,1,0); for 012 it has only the three cyclic-shift entries. Taking successive-row differences in these restrictions verifies the two compressed matrices and their determinants. The determinants are positive for q≥3, so a rooted tree exists and balance implies strong connectivity. BEST with a fixed first edge counts each cyclic edge list once; distinct triple labels give precisely the labeled-position-rotation convention. The factorial change is (q−1)^−3; (q−3)/q⁴ is the difference of tree ratios, not the difference of U_q/D_q without that factorial factor. Independent exact cofactor and tour enumeration (`python3 reproductions/1.py`) found ternary cofactors 189 and 12,096 circuits in each case; the binary 001 deletion leaves its 000 loop isolated and has zero circuits. The supplied script was inspected, not executed. The finite count is corroboration of the all-q determinant argument, not its substitute.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized FKM theorem provides a constructed cycle under closure conditions rather than the total number of Euler tours.",
+          "Au constructs cycles for all primitive words; the aggregate forbidden-set existence probabilities address a different invariant."
+        ],
+        "reasoning": "A broader construction or an existence probability over omitted sets does not specialize to the number of cycles for a specified primitive orbit. The arbitrary-length binary result is broader in length but not alphabet size.",
+        "searches": [
+          "Literature: universal cycles de Bruijn sequences counting forbidden factors deleting primitive necklace orbit Euler tours length three exact counts",
+          "Sawada–Williams–Wong Theorem 1; Chen–Kitaev–Sun abstract and probability definition; Au Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Indexed binary three-window-deficit RESULT.md",
+        "Au arXiv:0904.3997v1",
+        "Kociumaka–Radoszewski–Rytter arXiv:1510.02637v1",
+        "Sawada–Williams–Wong EJC 23(1) #P1.24",
+        "Chen–Kitaev–Sun arXiv:1908.01116v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical formulas give an unevaluated Laplacian cofactor times degree factorials, and the full-dictionary count D_q is classical.",
+          "Ranking Lyndon words or decoding a lexicographically minimal sequence does not enumerate tours of the residual graph."
+        ],
+        "reasoning": "The proof must evaluate the two restricted tree cofactors; they are not fixed by the degree sequence, which is identical in the two cases. The pass credits these evaluated ratios, not Euler-tour encoding, BEST or the full count.",
+        "searches": [
+          "Classical directed matrix-tree and BEST formulas (frozen RESULT.md proof and references)",
+          "Kociumaka–Radoszewski–Rytter abstract/introduction",
+          "Sawada–Williams–Wong full-dictionary count and Sections 3.3.8, 3.3.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed three-window-deficit record works with missing directed cycles of windows; its length-three primitive period-three class has C_3=0 in the binary alphabet.",
+          "Sawada–Williams–Wong Section 3.3.8 omits a fixed periodic necklace; Section 3.3.10 omits all periodic necklaces to retain all aperiodic strings."
+        ],
+        "reasoning": "The window-graph and necklace formulations were compared, not just names. The exact binary boundary is the same enumeration, but it contains no distinct-letter deletion and does not imply either alphabet-size-dependent formula. Periodic necklaces or deleting all periodic necklaces do not give the two primitive deletion classes here.",
+        "searches": [
+          "Resultary: exact universal cycle counts after deleting one primitive length-three necklace or rotation orbit",
+          "Resultary: universal cycle counts after deleting one primitive length-three rotation orbit de Bruijn Euler tour spanning trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen–Kitaev–Sun give P_c(3,2,3)=1/28 under random three-word deletion, not a tour count for either fixed orbit type.",
+          "The indexed exact deficit count supplies C_3=0 for the primitive binary case."
+        ],
+        "reasoning": "Credit the exact binary coverage; neither the binary count nor the averaged probability supplies the ternary 12,096/two-class equality or the higher-alphabet arithmetic factors.",
+        "searches": [
+          "Resultary: exact universal cycle counts after deleting one primitive length-three necklace or rotation orbit",
+          "Chen–Kitaev–Sun, Table 1.2"
+        ]
+      },
+      "rationale": "Pass is for the two explicit deletion counts and their comparison for labeled alphabets q≥3. The binary nonexistence is supplementary and is covered by the inspected binary-deficit record. None of the closest inspected statements provides the two evaluated factors in the general alphabet regime.",
+      "residual_risks": [
+        "Bounded reading and indexing do not exclude earlier or differently named exact forbidden-orbit enumerations. The dates of compared records are not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent binary supplement; different main alphabet regime",
+          "evidence": "Binary primitive period-three missing triples have C_3=0, with C_n>0 for n≥4; the n=3 aggregate count comes from another missing-set type.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-three-window-deficit-count-for-binary-de-bruijn-cycles--0692287bae41",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local published-record mirror",
+          "title": "The exact three-window deficit count for binary de Bruijn cycles",
+          "trigger": "Exact indexed missing-three-windows comparison"
+        },
+        {
+          "assessment": "Related construction; no evaluated general-alphabet primitive single-orbit counts in the compared passages",
+          "evidence": "Generalized FKM construction for closed languages, fixed periodic necklace avoidance, and enumeration of a language via a universal cycle, not enumeration of all tours.",
+          "identifier_or_url": "https://doi.org/10.37236/5517",
+          "material_read": "PDF pp. 4, 11–12, Theorem 1 and Sections 3.3.8, 3.3.10",
+          "method": "Lawful journal OA full text, bounded passages",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "Nearest necklace-complement paper"
+        },
+        {
+          "assessment": "Different output and alphabet scope",
+          "evidence": "The binary table includes s=3 but gives an aggregate probability; the general-alphabet regime studied for few deleted words is not the two fixed triple-orbit counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01116v1",
+          "material_read": "PDF pp. 1–3, abstract, probability definition and Table 1.2",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "Forbidden-word deletions and exact binary table"
+        },
+        {
+          "assessment": "Different dictionary and output",
+          "evidence": "Constructs a cycle for all primitive words of a fixed length.",
+          "identifier_or_url": "https://arxiv.org/pdf/0904.3997v1",
+          "material_read": "PDF p. 2, Proposition 1",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Generalized de Bruijn words for Primitive words and Powers",
+          "trigger": "Primitive-word universal cycles"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Lyndon ranking and decoding of lexicographically minimal de Bruijn sequences, not all cycles of a fixed deleted dictionary.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02637v1",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Computing k-th Lyndon Word and Decoding Lexicographically Minimal de Bruijn Sequence",
+          "trigger": "Necklace and decoding methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single rotation orbit is a natural balanced restriction of the full factor dictionary, and length three permits the first comparison of two primitive orbit types with identical removed-edge degree effects. The exact count resolves whether the overlap pattern affects cycle multiplicity: equality at three symbols and a strict ordering thereafter. These formulas give usable counts for the whole alphabet family, rather than merely a small-instance table or an instruction to evaluate a generic determinant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

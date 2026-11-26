@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:33:54.744205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In one independently stopped cycle S=min(R,τ₀), let Λ be the cycle local time and J the terminal mark. The stopped point local-time potential is EₐΛ=G: the local-time occupation potential is the killed r-resolvent density with respect to dy (equivalently the continuous one-dimensional Green kernel with its speed-density factor). The stated normalization is physical occupation time per unit length, not semimartingale local time. A direct check of the marked step uses the strict inverse local time T_u. On T_u<S, X(T_u)=a and the remaining exponential clock is fresh. Thus the remaining marked transform conditional on the past is F_j=Eₐ[e^(−sΛ);J=j]. Integrating this identity over u≥0, using 1−e^(−sΛ)=∫₀^Λ s exp(−s(Λ−u))du, gives p_j−F_j=s EₐΛ F_j=sG F_j. This justifies the same marked formula as the ordered-time Kac argument without needing a pointwise-limit interchange at every moment order. Segment independence and 0<h<1 give a geometric number of failures, no infinite concatenation, and a Gamma shape n+1 sum given N=n. Summing yields the joint transform and normalized density, and division by the exponential marginal gives the Poisson law for almost every ℓ>0 (with the displayed continuous conditional version). Cov(N,L)=(1−h)G/h² and the two variances give √(1−h). The killed Brownian image Green agrees with the stated convention. For the OU example, independent replay via python /workspace/reproductions/frozen_checks.py (fourth check, mpmath) obtains G=0.504146804919318329 from reduction of order and a derivative jump of −1/D, rather than time-image quadrature, and verifies the four rounded values. The frozen finite-state diagnostic was inspected, not run; some counted assertions are identities, and finite-grid agreement alone does not prove the continuum statement. Scope remains same starting/reset/local-time point, independent exponential resets and the indicated regular killed diffusion with finite diagonal potential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9d06348897e5 gives the all-rate Brownian joint transform of absorption time, point local time and residence time. f6b026f1c59d gives a two-site occupation-density law in the Brownian model. Pal et al. Eq. (11) is a renewal expansion indexed by resets for a fixed observation time, with survival conditioning in the absorbing case."
+        ],
+        "reasoning": "The first catalogue theorem is materially stronger for Brownian paths and implies their count/local-time law under a likelihood tilt. Two occupation sites and finite-time survival do not give the general-drift first-absorption coupling. The reviewed result only claims its stated Markovian and point-local-time regime.",
+        "searches": [
+          "Resultary 9d06348897e5 and f6b026f1c59d",
+          "arXiv:1902.00907 Section III and Eq. (11)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, REVIEW.md and AUDIT.json",
+        "Resultary 05188208a06b, 9d06348897e5, f6b026f1c59d, c254f452edd9",
+        "arXiv:2202.02715, 2304.05226, 1902.00907"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On completed Brownian paths, z^N changes reset rate r to rz with compensating factor exp(−r(1−z)T), for 0<z≤1. The earlier all-rate T,L transform at rate rz with T-argument r(1−z) has denominator z+(1−z)exp(a√(r/D))+s sinh(a√(r/D))/√(Dr), precisely (1+sG−(1−h)z)/h. The z=0 case follows by continuity."
+        ],
+        "reasoning": "The Brownian specialization, including both conditionals and correlation, is already implicit in the earlier transform, even though N is not named there. Neither the Brownian formula nor prior scalar transforms give the same law for general drifts by substitution. Classical local-time Markov arguments enable a short general proof, but the inspected resetting sources do not give the required marked-cycle evaluation in that scope.",
+        "searches": [
+          "Resultary 9d06348897e5, RESULT.md Finding",
+          "arXiv:2202.02715 Eq. (20)",
+          "arXiv:2304.05226 Eq. (25)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singh–Pal Eq. (20) and Eqs. (21)–(22) give the same reset-point first-passage local-time marginal for Brownian motion. Dubey–Pal Eq. (25) gives its OU analogue. The exact top-level target indexed as 05188208a06b is the frozen item itself."
+        ],
+        "reasoning": "Transform, joint density, and Gamma/Poisson conditioning are equivalent descriptions of the present two-variable law. A one-variable marginal determines only z=1, and knowledge of the geometric reset count does not determine the coupling.",
+        "searches": [
+          "Resultary: arbitrary regular diffusion Poisson resetting first passage joint absorption time and local time at reset site reset count probability generating transform terminal excursion independent gamma conditional",
+          "arXiv:2202.02715 Section 3",
+          "arXiv:2304.05226 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue 9d06348897e5 is an exact Brownian transform. c254f452edd9 gives a conditional count given a large pre-absorption maximum in a low-rate Brownian limit, which is not the local-time law. No inspected catalogue result gives the full general-drift count/local-time transform or the exact densities indexed by n and ℓ."
+        ],
+        "reasoning": "This is a parameterized distribution, not an isolated OU table entry. The exact Brownian transform is credited, while conditioning on a maximum or on survival to a specified time is not an exact matching table of probabilities.",
+        "searches": [
+          "Resultary: arbitrary regular diffusion Poisson resetting first passage joint absorption time and local time at reset site reset count probability generating transform terminal excursion independent gamma conditional",
+          "Resultary c254f452edd9, 9d06348897e5, f6b026f1c59d"
+        ]
+      },
+      "rationale": "The Brownian joint law is already a mathematical consequence of an earlier joint exposure transform, and the Brownian and OU local-time marginals are prior work. The supported distinct contribution is the general regular-diffusion count/local-time law, with parameters h and G and the terminal-mark independence mechanism. No novelty of Poisson marking, the geometric count or the Kac identity itself is credited.",
+      "residual_risks": [
+        "General marked-excursion or rank-one Green-kernel results may imply a still wider version of the evaluated law under different terminology. The bounded literature query did not resolve this, and no absolute publication priority is claimed. Brownian coverage via the earlier joint transform is a proved implication, not a residual uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies Brownian specialization but assumes zero drift",
+          "evidence": "Displays E exp(−sT−uL−vR) for all D,r,a>0 and nonnegative arguments, with L at the reset point. Set v=0 and use the likelihood calculation above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-first-passage-exposure-law-for-brownian-diffusion-with-poi--9d06348897e5/RESULT.md",
+          "material_read": "Finding, normalization and scope, offsets 0–3269",
+          "method": "Resultary search and original local-mirror text",
+          "title": "Joint first-passage exposure law for Brownian diffusion with Poisson resetting",
+          "trigger": "Closest exact joint first-passage transform; test reset-rate tilting"
+        },
+        {
+          "assessment": "Related exact Brownian occupation law, different second variable",
+          "evidence": "The rational transform is for L_a,L_b at distinct sites 0<a<b≤R.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-bivariate-local-time-synchronization-before-absorption--f6b026f1c59d/RESULT.md",
+          "material_read": "Finding and start of assumptions, offsets 0–1866",
+          "method": "Local mirror",
+          "title": "Exact bivariate local-time synchronization before absorption",
+          "trigger": "Same model class and bivariate local-time language"
+        },
+        {
+          "assessment": "Different conditioning statistic and asymptotic regime; no priority inferred from same day",
+          "evidence": "N given M>m_r has a Bernoulli limit as r decreases to zero; M is a spatial maximum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dual-conditional-extreme-laws-for-a-brownian-search-with-poisson--c254f452edd9/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1871",
+          "method": "Local mirror",
+          "title": "A singular low-reset-rate Bernoulli law for extreme pre-absorption Brownian excursions",
+          "trigger": "Prior or concurrent conditional reset-count result"
+        },
+        {
+          "assessment": "Direct one-variable prior coverage",
+          "evidence": "Sets the local-time site equal to the reset point and derives its exponential first-passage distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02715",
+          "material_read": "Definition, PDF p. 4; Section 3 Eqs. (20)–(22), PDF p. 8 (OA offsets 13600, 24150, 28500)",
+          "method": "OA primary PDF excerpts",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Exact same-point Brownian local-time marginal"
+        },
+        {
+          "assessment": "OU first-passage local-time marginal is known",
+          "evidence": "Places occupation local time at x_R and computes a scalar transform, not a transform weighted by N in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.05226",
+          "material_read": "Section 3 definition and Eq. (25), PDF pp. 5 and 8 (OA offsets 17650, 26080)",
+          "method": "OA primary PDF excerpts",
+          "title": "First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting",
+          "trigger": "Same drifted example and stopping event"
+        },
+        {
+          "assessment": "Fixed observation time, not the general drift completed-trajectory law",
+          "evidence": "In the absorbing case the sampled paths survive to t; the decomposition sums over resets up to that fixed time.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.00907",
+          "material_read": "Section III, PDF p. 4, OA offset 15400; renewal Eq. (11), offset 19800",
+          "method": "OA primary PDF excerpts",
+          "title": "Local time of diffusion with stochastic resetting",
+          "trigger": "Absorbing boundary, local time and renewal with reset indexing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The contribution in the stated regular-diffusion class gives an exact conditional calibration of reset effort from a natural physical exposure, not just one more marginal or re-evaluation of Brownian constants. One-cycle killing probability and one diagonal Green density suffice for the entire coupling, including for a nonzero drift for which the first-passage path functionals need not be available jointly. The correlation and count-conditioned Gamma law give independently useful quantitative consequences within the specified scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

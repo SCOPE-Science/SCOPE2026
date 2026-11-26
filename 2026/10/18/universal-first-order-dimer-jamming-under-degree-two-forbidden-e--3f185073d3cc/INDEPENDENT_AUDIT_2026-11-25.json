@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:43:00.232442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform priorities give uniform choice of an allowed residual edge: after each acceptance the relative order of the remaining feasible edges is still uniform. For even k≥4 the deletion graph cannot contain a clique on the residual k-set, so the only possible nonzero terminal vacancy is a forbidden pair. For a tagged forbidden pair the avoidance ratio at size k is [binom(k-2,2)-r]/[binom(k,2)-1-a-r], with r≤k and a≤2. Relative to (k-3)/(k+1) the difference is O(k^-2): the change from r is multiplied by the O(k) difference of the two baseline counts, and the change from a is O(k²), against a denominator of order k⁴. The product to an even K gives (K²-1)/(N²-1) with relative O(1/K). The analogous comparison with binom(k-t,2)/binom(k,2) for any t≤4 marked vertices gives O((K/N)^t). Given tagged survival, the union bound over at most two adjacent and at most N disjoint other forbidden edges is O(K/N+K²/N). From any such exceptional residual state the tagged pair's final-survival probability is O(K^-2), by its survival to a fixed even stage. If no other forbidden edge remains it is exactly 3/(K²-1). Combining gives relative O(1/K+K²/N) for the event that the last pair is the tag. Choosing even K of order N^(1/3) and summing disjoint last-pair events proves the uniform error, also for m=1. The zero-deletion case, vacancy expectation, matching existence by Dirac and the stated limits follow. The frozen verification notes and script were inspected, not run. The finite examples are diagnostic, not required for this proof; the script's header gives a stale filename, whereas VERIFICATION.md correctly identifies verify.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-11-08 indexed degree-two result gives absolute error O(m log N/N³), which implies the frozen bound. A separate result with that date and bounded triangle-free deletions covers paths and cycles of length ≥4 but not triangles.",
+          "The cited bounded-host-degree theory has a different hypothesis and the full papers for Dyer–Frieze and Pippenger were not retrieved."
+        ],
+        "reasoning": "Later stronger coverage is explicitly recognized; the triangle-free theorem is not broader with respect to deleted triangles. The inaccessible older papers leave a qualified priority risk, not evidence of coverage or noncoverage.",
+        "searches": [
+          "Resultary 197e06613bc4 and add1d1408fda, Findings",
+          "Gamarnik–Goldberg arXiv:0807.1277v1",
+          "Dyer–Frieze DOI 10.1002/rsa.3240020104",
+          "Pippenger DOI 10.1137/0402034"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Frozen bipartite record 4",
+        "Resultary 197e06613bc4, add1d1408fda and 8250e0710001",
+        "Gamarnik–Goldberg; Dietzfelbinger–Peilke–Rink; Tang–Wu–Zhang",
+        "Dyer–Frieze and Pippenger access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sparse alternative heuristics, oblivious guarantees and bounded-host-degree approximations supply no tag-specific survival law for dense fixed complements.",
+          "The perfect-matching recurrence takes advantage of that arrangement; it does not give the survival estimates for adjacent forbidden edges. The later degree-two result does imply the entirety of the frozen asymptotic mathematically."
+        ],
+        "reasoning": "The new scope is not inferred from a leading constant in one symmetric case, and the dated later overlap is kept separate from earlier implication.",
+        "searches": [
+          "Gamarnik–Goldberg arXiv:0807.1277v1",
+          "Dietzfelbinger–Peilke–Rink arXiv:1203.4117v1",
+          "Tang–Wu–Zhang arXiv:1907.05135v2",
+          "Resultary 8250e0710001 and 197e06613bc4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform random priorities and uniform allowed-residual-edge choice define the same law; matching-size estimates on bounded-degree hosts do not apply to this host, whose minimum degree is N−3.",
+          "The bipartite vacancy pool is two sets of n vertices, not one pool of N=2n vertices; its baseline is 8m/[N(N+2)] in that notation, not 3m/(N²−1)."
+        ],
+        "reasoning": "The relabeling as random greedy maximal matching is exact, but neither the sparse-host theorem nor the bipartite host theorem is an equivalent law.",
+        "searches": [
+          "Local Resultary: rare failure of random-edge greedy matching on complete graphs minus degree-two forbidden graphs",
+          "Gamarnik–Goldberg arXiv:0807.1277v1",
+          "Assigned bipartite record 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed degree-two Finding states the same 3m/(N²−1) over the full class with a sharper remainder, under a later catalogue date.",
+          "The indexed K_{2n} minus a perfect matching Finding gives an exact recurrence and 3/(4n)+O(log n/n²), matching the frozen coefficient for m=n."
+        ],
+        "reasoning": "The matching-deletion calculation cannot adjudicate arrangement uniformity; the exact all-class formula in the later indexed source can, but not historical priority by itself.",
+        "searches": [
+          "Local Resultary exact coefficient/host comparison: 197e06613bc4; add1d1408fda; cocktail-party case 8250e0710001"
+        ]
+      },
+      "rationale": "Supported distinct content at the frozen record's date is the arrangement-uniform law over all degree-at-most-two deletions, including triangles, on the complete nonbipartite host. The perfect-matching special case is not credited as new. An inspected later-dated indexed result gives precisely this class and a stronger error; it is mathematical coverage but is not verified antecedent evidence. No inspected older source implies the claimed uniform coefficient.",
+      "residual_risks": [
+        "Dyer–Frieze and Pippenger full text was not accessible; no exhaustive historical priority claim is made.",
+        "A dated later record gives stronger coverage; its provenance relation to the frozen claim is not established by the catalogue dates.",
+        "The narrower earlier matching-deletion item mentioned in the frozen text was not uniquely identified and is not treated as new here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full stronger coverage in a later-dated record",
+          "evidence": [
+            "Uniform P=3m/(N²−1)+O(m log N/N³), with a per-forbidden-edge estimate."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-rare-failure-law-for-greedy-matchings-with-degree-two--197e06613bc4",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "A universal rare-failure law for greedy matchings with degree-two deletions",
+          "trigger": "Strongest matching host, model and degree bound"
+        },
+        {
+          "assessment": "Later partial overlap; requires triangle-free forbidden graph",
+          "evidence": [
+            "Same coefficient with O_Δ(log N/N) relative error, but no coverage of forbidden triangles."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-rare-jamming-coefficient-for-dense-dimer-adsorption--add1d1408fda",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A universal rare-jamming coefficient for dense dimer adsorption",
+          "trigger": "Potential general bounded-degree coverage"
+        },
+        {
+          "assessment": "Matching-only special case; identified indexed version later-dated",
+          "evidence": [
+            "Exact recurrence and p_n=3/(4n)+O(log n/n²) for K_{2n} minus a perfect matching."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-three-quarter-rare-failure-law-for-greedy-matching-on-co--8250e0710001",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp three-quarter rare-failure law for greedy matching on cocktail-party graphs",
+          "trigger": "Matching-deletion special case acknowledged by the frozen result"
+        },
+        {
+          "assessment": "Different host regime and observables",
+          "evidence": [
+            "Results concern regular graphs of fixed degree and concentration for bounded host degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0807.1277v1",
+          "material_read": "Abstract/Introduction and bounded-degree variance discussion around offset 9477",
+          "method": "OA primary HTML passages",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs",
+          "trigger": "Same greedy process with matching estimates"
+        },
+        {
+          "assessment": "Different algorithm and sparse random host",
+          "evidence": [
+            "Experimental scope is sparse random graphs with constant expected degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.4117",
+          "material_read": "v1 Abstract and Introduction, PDF offset 0",
+          "method": "OA primary PDF passages",
+          "title": "A More Reliable Greedy Heuristic for Maximum Matchings in Sparse Random Graphs",
+          "trigger": "Related matching heuristic in cited literature"
+        },
+        {
+          "assessment": "Inspected guarantee is for oblivious matching rather than this failure rate",
+          "evidence": [
+            "General and bipartite numerical approximation guarantees in the oblivious model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.05135",
+          "material_read": "v2 PDF opening and model discussion near offset 9500",
+          "method": "OA primary PDF passages",
+          "title": "Towards a Better Understanding of Randomized Greedy Matching",
+          "trigger": "Potential general greedy guarantee"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Publisher access failed and no readable alternate copy was located."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "DOI/publisher and lawful repository availability checks",
+          "title": "Randomized greedy matching",
+          "trigger": "Potential older same-process dense graph estimates"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Publisher access failed and the alternate copy found was not readable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "DOI/publisher and lawful alternate-copy checks",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Potential older dense edge-adsorption result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The failure probability of a greedy matching on a graph that admits a perfect matching is a natural performance observable. Uniformity from one removed edge up to a linear number, including both regular and nonregular deletions, resolves whether geometry can change the leading constant. This is more than an evaluation of the symmetric matching or cycle. The frozen error rate is not credited as optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

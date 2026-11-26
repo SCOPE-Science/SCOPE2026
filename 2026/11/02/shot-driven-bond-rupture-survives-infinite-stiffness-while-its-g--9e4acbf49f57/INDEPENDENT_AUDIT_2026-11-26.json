@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:05:54.577797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–113; VERIFICATION.md; verify.py and verify_output.txt (inspected, not executed)",
+        "Frozen output lines 1–6: finite OU asymptotic and D=0 event-driven checks"
+      ],
+      "rationale": "The relative coordinate has drift −(λ+2k)R, diffusion amplitude √(4D), and a superposed rate-2ω compound Poisson driver with centered Gaussian marks of fixed scale σ. Thinning gives the stated rate q_L. The pathwise integration-by-parts formula gives a simultaneous continuous-in-parameter version of the Brownian convolution. Its supremum on an integer horizon tends to zero by the Brownian modulus of continuity, on one event for all integer horizons. Up to and including the finite first mark above L there are finitely many separated jump times, no mark has magnitude exactly L, and all their distances in magnitude from L have positive minimum. Interjump remnants decay; pre-jump remnants converge to zero at all those times. This yields literal equality of exit times for all sufficiently large real k on the same noise path. At any first jump of magnitude >2L, either exit already occurred or the pre-jump modulus is ≤L, which suffices to force exit: this gives an exponential dominator for every positive real power. For the variance-rate-matched Brownian model, the generator is Θ∂²−ax∂, with Θ=2D+ωσ². Integrating the symmetric backward solution and applying Gaussian saturation and endpoint Laplace asymptotics gives the stated prefactor and rate.",
+      "residual_risks": [
+        "Fixed jump size refers to fixed nonzero scale of the Gaussian mark law, not deterministic mark magnitude. Finite D=0 simulation cannot verify the D>0 or all-real-k pathwise result; those follow from the proof.",
+        "The supported 'noncommutation' is the fixed-mark stiffness asymptotic versus Gaussian replacement before that asymptotic. The record does not define a Gaussianization parameter or establish unequal raw iterated limits in a joint two-parameter family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borovkov–Novikov give a normalized exponential limit at a large one-sided boundary with exponential positive jumps. Imkeller–Pavlyukevich–Wetzel's super-exponential-tail case includes Gaussian-type jump tails, but scales the noise amplitude to zero and supplies survival and mean asymptotics.",
+          "Masoliver's precise linearly bound cases could not be checked independently in full text."
+        ],
+        "reasoning": "Convergence of normalized exit times or mean-time asymptotics does not give eventual identification with a particular shot under a fixed-clock coupling. The inaccessible text leaves priority risk, not a negative finding.",
+        "searches": [
+          "Borovkov–Novikov Theorem 3, p. 9; Imkeller–Pavlyukevich–Wetzel §2, pp. 6–9; Masoliver DOI 10.1103/PhysRevA.35.3918"
+        ]
+      },
+      "checked_sources": [
+        "Goel–Marathe, Borovkov–Novikov, and Imkeller–Pavlyukevich–Wetzel primary texts; Masoliver OA attempts",
+        "Resultary 1130665bd484 and 83a62492b5d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goel–Marathe use time-scale separation of relative and center-of-mass coordinates and a small-variance effective diffusion for the slow-mode MFPT. That eliminates rather than tracks the individual excursions of the relative mode.",
+          "The inspected exponential exit limits are distributional statements in different regimes; no pathwise equality to a first superthreshold mark follows from their conclusions."
+        ],
+        "reasoning": "The fixed-mark result requires pathwise control of interjump remnants and of Brownian excursions before the first large mark, then a parameter-uniform integrable bound for the moments. The standard Gaussian formula makes the quantitative comparison once the shot result is established.",
+        "searches": [
+          "Goel–Marathe §III.2, Eqs. (30)–(33) and (39)–(43); Borovkov–Novikov Theorem 3; Imkeller–Pavlyukevich–Wetzel Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dimer relative mode is exactly an OU model with compound Poisson and Brownian noise, so OU first-passage sources are genuine candidates.",
+          "Rescaling time by a fixes the restoring rate but divides the shot rate by a and the Brownian amplitude by √a, leaving each mark distribution unchanged. Goel–Marathe adiabatically eliminate the relative mode before computing the center-of-mass first passage."
+        ],
+        "reasoning": "Neither changing units to fixed drift nor writing relative distance with a factor of two makes a fixed-threshold, fixed-mark common-noise exit the same as well-to-well passage or classical small-amplitude or large-boundary limits.",
+        "searches": [
+          "Goel–Marathe arXiv:2610.26316v2 §III.2; Borovkov–Novikov arXiv:0709.1746 Theorem 3; Imkeller–Pavlyukevich–Wetzel arXiv:0711.0982 Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1130665bd484 uses periodic arrivals, exponential marks and modes of auxiliary MFPT-series weights, expressly distinct from the physical first-crossing index. 83a62492b5d4 concerns stationary displacement tails at fixed stiffness."
+        ],
+        "reasoning": "The compared catalogue entries do not tabulate these first-rupture times or give the stiffness limit for this observable. The indexed comparison is bounded.",
+        "searches": [
+          "Local Resultary comparison of shot noise and harmonic-dimer exit, notably 1130665bd484 and 83a62492b5d4"
+        ]
+      },
+      "rationale": "The OU exit integral, thinning, and the general single-jump exit idea are not new. The supported distinct claim is eventual equality with a specified common-noise jump at fixed physical mark law and increasing stiffness, with convergence of all positive moments and the explicit variance-matched contrast for relative bond rupture. The strongest inspected results change the observable, the scaling, or the strength of the exit conclusion.",
+      "residual_risks": [
+        "The full text of Masoliver (1987) could not be independently retrieved, and antecedents formulated as dilute-intensity OU exits remain possible. This is a bounded, best-of-knowledge comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct physical motivation, different model and exit observable",
+          "evidence": "The section explicitly eliminates the fast relative distance for the slow center-of-mass dynamics and uses an effective diffusion for small shot variance.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26316v2",
+          "material_read": "§III.2 Eqs. (30)–(33), (39)–(43), OA text offsets 47010 and 55000",
+          "method": "OA arXiv HTML passage inspection",
+          "title": "Poisson-shot-noise induced escape dynamics of a passive particle and a dimer",
+          "trigger": "Same class of shot-driven coupled monomers and a large-stiffness analysis"
+        },
+        {
+          "assessment": "Related limiting law, not covering fixed-boundary common-noise equality",
+          "evidence": "A one-sided, normalized exponential limit as boundary tends to infinity, under assumptions including exponential positive jumps.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.1746",
+          "material_read": "Theorem 3, PDF p. 9, text near offset 22650",
+          "method": "OA PDF passage inspection",
+          "title": "On exit times of Lévy-driven Ornstein–Uhlenbeck processes",
+          "trigger": "Close earlier OU first-passage exponential-limit theorem"
+        },
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "The theorem scales Lévy amplitudes to zero and gives exit-time asymptotics in a fixed interval, not high damping at fixed marks and a pathwise coincidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.0982",
+          "material_read": "§2, PDF pp. 6–9, text offsets 17500 and 20450, including Theorem 2.2",
+          "method": "OA PDF passage inspection",
+          "title": "First exit times for Lévy-driven diffusions with exponentially light jumps",
+          "trigger": "Exit asymptotics for Lévy drivers including Gaussian-type tails"
+        },
+        {
+          "assessment": "Unresolved close historical comparison; not excluded by lack of access",
+          "evidence": "The repository request timed out and the publisher PDF returned 403; no independent assertion about the paper's exact scope was made.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.35.3918",
+          "material_read": "Citation and characterization in frozen RESULT.md only; original full text not retrieved",
+          "method": "Attempted institutional repository https://hdl.handle.net/2445/9436 and APS PDF",
+          "title": "First-passage times for non-Markovian processes: Shot noise",
+          "trigger": "Earlier first-passage analysis including linearly bound trajectories"
+        },
+        {
+          "assessment": "Different process and statistic",
+          "evidence": "Periodic arrivals and exponential marks; auxiliary MFPT weights are distinguished from physical first crossing.",
+          "identifier_or_url": "Resultary 2026/11/22:1130665bd484",
+          "material_read": "RESULT.md, law and scope of the series weights",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A sharp half-retention bimodality threshold for periodic shot noise",
+          "trigger": "Closest indexed shot-noise first-crossing-related hit"
+        },
+        {
+          "assessment": "Stationary tails at fixed stiffness, not first passage",
+          "evidence": "The quantity estimated is a tail of stationary displacement, not a rupture time.",
+          "identifier_or_url": "Resultary 2026/10/26:83a62492b5d4",
+          "material_read": "RESULT.md, finding on stationary displacement tails",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact universal far-tail speed for a harmonically confined Gaussian shot-noise model",
+          "trigger": "Harmonic Gaussian-mark shot-noise catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md pathwise, moment, and Gaussian-asymptotic theorems",
+        "Goel–Marathe §III.2, motivating stiffness and Gaussian approximation comparison"
+      ],
+      "rationale": "For a natural relative-extension threshold, the theorem identifies precisely a failure of second-moment matching for an exit observable: the shot-driven mean has a finite limit while the matched diffusion mean grows exponentially with known prefactor. The stronger common-noise equality and all-moments conclusion distinguish this from a simulation observation or informal single-jump heuristic.",
+      "residual_risks": [
+        "The model requires an instantaneous kick with nonzero superthreshold probability and assumes a harmonic relative mode. It does not quantify finite-duration kicks, the motivating nonlinear dimer's well-to-well passage, or a general error bound for a diffusion approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

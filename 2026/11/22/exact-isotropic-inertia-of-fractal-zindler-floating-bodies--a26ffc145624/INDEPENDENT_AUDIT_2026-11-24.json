@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:54:19.798204Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a truncation q=h_N, p=q', differentiation gives z'=-r u+(q+q'')u', and det(z,z')=q(q+q'')+r(r+p). To check Jordan geometry directly, put M=β/(α−β). For either a truncation or the limit, |q'|<=M. If two parameters at shorter circular separation d in (0,π] mapped to the same point, projection onto the midpoint radial unit vector would give (q(t)−q(s))cot(d/2)=2r+q'(t)+q'(s). The left side has absolute value at most 2M, the right side exceeds 2M because r>2M. Thus the curves are simple; the homotopy scaling q to zero has positive tangential component r+λp, so winding about the origin is +1. The smooth Green formula for J uses one quarter of the integral of |z|² det(z,z'); half-period oddness kills odd degrees, and integrating q³q'' and qp²q'' by parts gives the claimed reduced quartic q⁴−2q²p²−p⁴/3. After cancellation of opposite equal frequencies, a largest unmatched frequency cannot be balanced by at most three lower ones. Same-index fourth averages are 3/8 or, for sin²cos², 1/8; distinct pairs contribute the products of second averages. This yields 3A_N²/4−3C_N/8, 3B_N²/4−3D_N/8, and A_N B_N/4−E_N/8. All five geometric sums have the stated limits since α>β. The construction source establishes boundary area zero for the limit. Uniform convergence of the boundaries then stabilizes the winding index, hence region membership, off that null boundary; common bounded support permits dominated convergence for J. No differentiating the fractal boundary is needed. The rotation by 2π/β fixes the region and its centroid; it forces a symmetric second-moment matrix to be scalar, as the angle is neither zero nor π. Subtraction of S²/(2π) gives the stated constant remainder and positive exact πB coefficient. This is for the stated large-r lacunary construction, with unnormalized area moments about the rotational center. The NumPy truncation script was read, not executed; these independent checks are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source constructs the same simple fractal limits with dimension below two, and gives area and region convergence. The same-day record gives sharp finite truncation convexity thresholds R_n=sum(β^(3k)−β^k)/α^k and curvature zeros."
+        ],
+        "reasoning": "A convexity classification of the same approximants does not calculate their interior second moments; the original construction's broad geometric description is essential but not a computed weighted integral.",
+        "searches": [
+          "arXiv:2611.11309v1 §§2–3, including Theorem 3",
+          "Resultary d68a737c8058"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11309v1",
+        "Resultary d68a737c8058 and 43279757dfc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform C^1 convergence of h_N, simplicity and convergence of the boundaries and regions; an explicit curvature condition on the finite truncations."
+        ],
+        "reasoning": "These justify the use of smooth approximation and motivate the shape family. They do not evaluate the mixed fourth-order averages or identify J; the coefficient πB is then a direct consequence of the evaluated moment and prior area, not an independent theorem.",
+        "searches": [
+          "arXiv:2611.11309v1 §§2–3 proofs",
+          "Resultary d68a737c8058 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local search hit a26ffc145624 is the assigned record. The primary construction uses exactly the same h_N and h, but the inspected formulas compute area."
+        ],
+        "reasoning": "Centroidal covariance is J/(2S) times identity in these coordinates, so an exact covariance scalar would also cover the polar moment. The known area S and symmetry give no scalar without second-order integration.",
+        "searches": [
+          "Resultary: lacunary fractal Zindler polar moment, inertia, second area moment and equal-area disk excess",
+          "Primary query on lacunary Zindler inertia and the construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found exact inertia for regular Reuleaux odd-gons in 43279757dfc9 and exact area for the present body in arXiv:2611.11309v1."
+        ],
+        "reasoning": "A distinct convex constant-width Reuleaux family, not the nonrectifiable lacunary Jordan regions, has the tabulated exact inertia. The present area is known, but is a different invariant.",
+        "searches": [
+          "Resultary: polar second moment and isotropic constant of Zindler/fractal/constant-width families",
+          "Resultary 43279757dfc9; primary area formula in Theorem 3"
+        ]
+      },
+      "rationale": "Pass the exact polar moment and equal-area disk excess of this lacunary Jordan region. The construction, its area and convergence are prior inputs; scalarity alone follows at once from its already known symmetry. Neither these inputs nor the inspected same-day approximant theorem supplies the scalar value, which requires the quartic Fourier moments and limiting passage.",
+      "residual_risks": [
+        "The classical Bodies of Constant Width book (doi:10.1007/978-3-030-03868-7), including its Zindler background, was not independently inspected in full; older general moment identities and unindexed exact formulas remain possible.",
+        "Primary search and passage coverage are bounded; no assertion of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers construction, area and convergence; those inspected results do not compute polar inertia",
+          "evidence": "Smooth truncations, simple Jordan limit of dimension below two, large-r condition and S=π[r²+(A−B)/2].",
+          "identifier_or_url": "https://arxiv.org/html/2611.11309v1",
+          "material_read": "§2 offsets 7900–15884, §3 Theorem 3 about offset 29400, and proof offsets 40400–45200",
+          "method": "Primary search and OA HTML",
+          "title": "Fractal solutions to the two-dimensional floating body problem",
+          "trigger": "Exact same construction and hypotheses"
+        },
+        {
+          "assessment": "Same approximants, different invariant; no date-based priority inference",
+          "evidence": "Sharp threshold via curvature and zero classification, not a second area moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-convexity-transition-for-lacunary-zindler-approximants--d68a737c8058",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp convexity transition for lacunary Zindler approximants",
+          "trigger": "Material same-day overlap on the finite shapes"
+        },
+        {
+          "assessment": "Different body family",
+          "evidence": "Polar-moment formula and scalar covariance for regular Reuleaux odd-gons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-polar-moment-and-isotropic-constant-of-regular-reuleaux-odd-gons--43279757dfc9",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Polar moment and isotropic constant of regular Reuleaux odd-gons",
+          "trigger": "Very similar moment and symmetry claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same natural floating-body family has an r-independent area correction but a strictly positive and exact r² inertia correction relative to its equal-area disk. The full centroidal second moments are useful for comparing shapes when the boundary is nonrectifiable and direct smooth moment formulas are not justified. The finding computes a natural invariant throughout the construction's parameter range, not an isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

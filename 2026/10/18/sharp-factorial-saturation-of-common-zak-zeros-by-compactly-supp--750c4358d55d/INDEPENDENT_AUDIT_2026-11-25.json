@@ -1,0 +1,83 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:04:01.458260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Zak sum factors on tensor products, giving exactly the stated windows and support. On a fundamental strip B=psi(u)>0; A is positive real for 0<u<1/2, vanishes at 1/2, and on 1/2<u<1 the ratio is R(u)exp(2 pi i v). Both differences in L'=d log R/du are positive there, and R has endpoints 0 and infinity, yielding precisely one positive-Jacobian preimage for each slit-plane root. At an integer u, B=0 but A is nonzero, so no factor of the coefficient polynomial can be identically zero and the simultaneous coefficient equations exclude such a pole. Off the poles, equality of monic polynomials forces exactly the d! permutations. The absolute complex determinant of the coefficient map is the absolute Vandermonde (evaluate coefficient variations at the simple roots); its real determinant is the square of that modulus. The product prefactor contributes |prod B_j|^(2d), and each ratio contributes 2 pi |rho_j|^2 L'(u_j). This is the displayed permutation-invariant positive determinant in paired orientation. The sign convention for c1 can also be checked directly by the single positive transverse zero in d=1; the general Zak line is the tensor product of the pullbacks of those coordinate lines. Therefore the Euler number of its d-fold direct sum is d!, giving the stated lower bound exactly in the transverse case. The frozen Python checker is finite floating-point corroboration for d=1 through 5, not a global zero search; it was inspected, not executed. The decision rests on the exact analytic reconstruction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preceding work calculates the factorial Chern number and proves a common-zero obstruction for at most d sections. The general index theorem fixes the signed sum but permits additional opposite-sign zeros and does not identify compactly supported saturating windows."
+        ],
+        "reasoning": "The lower bound is covered; the general topological argument is not a stronger realization theorem with the stated support, parameters and determinant.",
+        "searches": [
+          "arXiv:2606.26052v1, Theorem 1.3 and §3.1",
+          "Top Chern/Euler transverse-zero count"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/published SCOPE semantic search (three bounded queries)",
+        "arXiv:2606.26052v1 §§3.1–3.2",
+        "Frozen RESULT.md, VERIFICATION.md, check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior coefficient proof uses the absence of simultaneous zeros of the two one-dimensional factors and nonvanishing of their polynomial product. The frozen analysis adds global slit-plane injectivity/surjectivity and a polar Jacobian, then uses simple-root coefficient matching to fix all lifts and their indices."
+        ],
+        "reasoning": "The existing windows make the adaptation natural, but neither the factorial degree nor no common coefficient-zero mechanically gives the global positive regular fiber, much less the explicit equal determinant.",
+        "searches": [
+          "arXiv:2606.26052v1, §§3.1–3.2",
+          "Frozen RESULT.md, proof steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After projectivizing the d+1 coefficients, the frozen zeros are the fiber over a polynomial with distinct finite roots off the nonnegative real ray. The closely related product polynomial in §3.2 is used to guarantee that the coefficient vector never vanishes, not to determine that fiber."
+        ],
+        "reasoning": "Changing from common zeros to a projective fiber exposes an existing construction, but does not remove the need to establish the one-coordinate inverse, absence of extra lifts, and positive derivatives.",
+        "searches": [
+          "Resultary/published SCOPE semantic searches for Zak-zero count and prescribed-root Zak coefficient construction",
+          "arXiv:2606.26052v1, §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three bounded semantic searches identified other Zak-zero items but no materially matching catalogue finding; the inspected prior formula lists the coefficient windows, not the prescribed-root zero set or Jacobian."
+        ],
+        "reasoning": "A table of factorials would not cover this problem: d! is the known lower bound, and the exact mathematical object to match is its realized family of transverse fibers. The search result does not establish absence from other literature.",
+        "searches": [
+          "Resultary semantic search, including published SCOPE findings on Zak zero counts and explicit windows",
+          "arXiv:2606.26052v1, §3.2"
+        ]
+      },
+      "rationale": "The classical signed bound, the exact bump pair and the tensor coefficient basis are already covered. The distinct supported claim is the explicit prescribed-root fiber with no boundary or additional solutions, all-positive transversality, and the exact common Jacobian. The closest inspected construction supplies the basis and no common base point, not that full fiber and derivative statement. No matching result was identified in the bounded comparisons.",
+      "residual_risks": [
+        "Other accounts of explicit regular fibers of Zak or related bundle coefficient maps could overlap; the search was not exhaustive.",
+        "Only the new saturation and exact fiber/Jacobian are credited; priority for the signed count and coefficient basis is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the signed-count ingredients and building blocks, not the full prescribed-root realization.",
+          "evidence": [
+            "Section 3.1 computes the integral N! for the relevant restriction; at N=d this is the signed sum of transverse local indices.",
+            "Section 3.2 forms the product of a_j+T b_j and uses its d+1 coefficients to construct a collection with no common zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.26052",
+          "material_read": "v1, §§3.1–3.2, pp. 9–13, specifically the bundle/top Chern calculation and the construction using the bump pair and d+1 coefficients.",
+          "method": "Lawful open arXiv PDF, bounded direct text passages, including offsets about 25000–30000 and 30000–40125.",
+          "title": "On the existence problem of regular Gabor frames",
+          "trigger": "Same Zak line bundle, Chern bound and compactly supported product-coefficient construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Chern obstruction alone does not tell whether actual Zak windows with controlled support attain the minimum or contain extra cancelling zeros. The construction resolves this extremal realization question in every dimension and makes the complete fiber and its transversality quantitatively accessible, rather than recomputing a topological bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

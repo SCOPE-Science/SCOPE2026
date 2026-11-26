@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:29.735189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–34",
+        "Frozen VERIFICATION.md lines 19–23 and verify.cpp lines 1–110; recorded run read, uploaded code not executed",
+        "Independent replay: python3 /tmp/opencode/grid_review.py 9 (NumPy for mask enumeration and live-set pairing, exact Python integers for the boundary), after a width-7 slice; reproduced all ten minor rows"
+      ],
+      "rationale": "I generated the ordinary matchings of the 27-vertex grid independently by mask/endpoint occupancy, then reproduced the prescribed matching by simultaneous upper-face deletion at each pivot. The augmented face count is 7,594,361, Euler characteristic 164, with 3,797,088 pairs and critical dimensions/counts 0:1, 8:173, 9:10. Acyclicity also follows without assuming the recorded Hasse-sort output: on a directed cycle the up and down steps must alternate, since up steps are matching incidences and cannot be consecutive, and cardinality changes by one. Let i be the smallest pivot label among its up steps. Some down step deletes i; its endpoints both participate in cycle matches with pivots at least i, so they were available before pivot i and had to be paired at that stage, contradicting the down edge. I independently eliminated each critical 9-cell boundary by forward substitution of the signed unit relations in dependency order over Python integers. On columns (2,53,49,72,20,87,148,166,17,16) the resulting matrix is I with the stated changes (7,7) and (8,7) to −1, so det=−1. All intermediate coefficients in these ten reductions had absolute value at most 2. The Morse CW complex has one vertex and no cells in dimensions 1 through 7. The transpose as a boundary map Z^10→Z^173 is a split injection (the displayed row-oriented array defines the transpose surjection), so H8 is free of rank 163 and no other reduced homology remains. By Hurewicz choose sphere maps representing a basis in degree 8; their wedge induces integral homology isomorphisms, and both spaces are simply connected CW complexes, so Whitehead gives the stated homotopy equivalence.",
+      "residual_risks": [
+        "The exact computation certifies this width and this matching only. Acyclicity was checked by the priority argument, not a rerun of the uploaded C++ program."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paragraph after Table 1 concludes the wedge for 3≤n≤9; the unlimited width result is left as Conjecture 4.1.",
+          "The older all-width theorem is retracted; its corrigendum notes the non-induced independence-complex errors and discrepant prediction for n=9. Matsushita's wedge theorems concern the 2-row family."
+        ],
+        "reasoning": "A proven finite range already covers the target; neither a retracted stronger theorem nor an all-width conjecture is needed or credited.",
+        "searches": [
+          "arXiv:2609.27366v1 §4, finite conclusion and Conjecture 4.1",
+          "Goyal–Shukla–Singh EJC 28(4), P4.16 and appended corrigendum",
+          "Matsushita EJC 26(3), P3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–47",
+        "arXiv:2609.27366v1, §4 p. 22",
+        "EJC P4.16 retraction and corrigendum; EJC P3.1",
+        "Resultary 620f36bbabcc, 2352ab105c17, 180881aedb42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen literature discussion concedes the rank but says the integral equivalence is new. The preprint says: ‘Combining this with the fact that, for n ≥ 3, M(G3×n) is simply connected, we conclude that M(G3×n) is homotopy equivalent to a wedge of (n − 1)-dimensional spheres for 3 ≤ n ≤ 9.’"
+        ],
+        "reasoning": "By Hurewicz and Whitehead the first nonzero free integral homology and simple connectivity give the wedge with exactly 163 summands; this is also the preprint's explicit conclusion. Replacing SageMath and a connectivity theorem by a transparent attaching-degree proof does not restore novelty of the frozen statement.",
+        "searches": [
+          "Frozen RESULT.md lines 36–42 against arXiv:2609.27366v1 p. 22, Table 1 and the immediately following paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chauhan–Sharma–Shukla identify M(G_3×n) with Ind(L(G_3×n)); this is the same Cartesian grid and ordinary matching complex, not Ind(G_3×n).",
+          "Resultary 620f36bbabcc gives the same exact complex and wedge with a different critical-cell certificate. October 18 result 2352ab105c17 ends at n=8; 180881aedb42 is specifically width 8."
+        ],
+        "reasoning": "Width 9 in the comparison remains the same object under the line-graph alias. The Nov. 8 duplicate is equivalent coverage but not evidence of earlier priority; the September preprint is independently decisive.",
+        "searches": [
+          "3×9 rectangular grid ordinary matching complex and independence complex of its line graph",
+          "arXiv:2609.27366v1 pp. 2, 22",
+          "Resultary widths 2–8, 3×8, and 3×9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 explicitly uses integer coefficients, with width 9 entry 8:Z^163. The same paragraph states there is no other reduced homology and gives the homotopy conclusion using simple connectivity.",
+          "The Nov. 8 comparison explicitly states the wedge of 163 S^8 and reports 212 critical 8-cells and 49 critical 9-cells before its different elimination."
+        ],
+        "reasoning": "This is not merely agreement in Euler characteristic or a Betti rank over a field. The integral table together with the proved simple connectivity and the explicit finite wedge statement gives exactly the invariant claimed.",
+        "searches": [
+          "arXiv:2609.27366v1 Table 1, p. 22, OA offset 124280",
+          "Resultary 620f36bbabcc, Finding and Proof"
+        ]
+      },
+      "rationale": "The September 23 preprint arXiv:2609.27366v1 proves the same finite-range homotopy statement, not merely a Betti table or all-width conjecture. Its p. 22 Table 1 gives integral Z^163 in degree 8 at n=9, and the paragraph after the table explicitly concludes the sphere-wedge homotopy equivalence for 3≤n≤9 using simple connectivity. This covers the exact frozen Finding. The explicit discrete-Morse and unit-minor verification is a different proof of that finding, not a new homotopy classification. No repair is offered as a new claim.",
+      "residual_risks": [
+        "Priority or novelty of the particular computation method was not established as a separate mathematical contribution. The exact homotopy assertion is already covered regardless of that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier exact coverage",
+          "evidence": "Integral Table 1 at n=9 is 8:Z^163, and the next paragraph concludes the wedge of (n−1)-spheres for the finite range 3≤n≤9.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27366v1",
+          "material_read": "p. 2 graph identification; p. 22 §4 Table 1 and conclusion, offsets 124280–129237",
+          "method": "OA v1 PDF primary passages",
+          "title": "Homology of matching complexes of 3×n grid graphs",
+          "trigger": "Same ordinary matching complexes and exactly the requested finite width"
+        },
+        {
+          "assessment": "Withdrawn theorem, not relied upon",
+          "evidence": "Non-induced subgraph inclusions were invalid and the erroneous recurrence predicts an extra nonzero homology degree at width 9.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i4p16/pdf",
+          "material_read": "pp. 1–2 statement and retraction; corrigendum p. 27, offset 84921",
+          "method": "OA journal PDF passages",
+          "title": "Matching Complexes of 3×n Grid Graphs and appended corrigendum",
+          "trigger": "Plausibly stronger all-width theorem"
+        },
+        {
+          "assessment": "Different width family",
+          "evidence": "Treats n×2 grid matching complexes, not n×3.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i3p1/pdf",
+          "material_read": "p. 1, abstract and setup",
+          "method": "OA journal PDF",
+          "title": "Matching Complexes of Small Grids",
+          "trigger": "Potential broader grid-family wedge theorem"
+        },
+        {
+          "assessment": "Later dated equivalent claim with a different finite certificate; not used for earlier priority",
+          "evidence": "Same wedge of 163 S^8; certificate uses 212 critical 8-cells, 49 critical 9-cells.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-an-integral-sphere-wedge-classification-at-the-first-corrected-3--620f36bbabcc",
+          "material_read": "Finding and relevant proof passages from offset 0",
+          "method": "Resultary search and local mirror RESULT.md",
+          "title": "An integral sphere-wedge classification at the first corrected 3-row width",
+          "trigger": "Exact 3×9 Resultary comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "arXiv:2609.27366v1 p. 22 Table 1 and finite wedge conclusion",
+        "EJC P4.16 corrigendum"
+      ],
+      "rationale": "The 3×9 boundary case is well motivated by the failed all-width recurrence; a transparent integral certificate is useful corroboration. But as submitted the sole mathematical contribution is the exact wedge for the same case already settled in the earlier preprint. It neither extends the proven finite range nor proves a new structural reduction or exact invariant. Reproducing the known classification by another finite computation is insufficient as a new scientific finding.",
+      "residual_risks": [
+        "No judgment that a generalized or substantially more efficient certificate method would be valueless; no such claim was proved in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:04:27.960219Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 33–92",
+        "Frozen VERIFICATION.md and checker.py"
+      ],
+      "rationale": "Differentiating the symmetric Gaussian interval probabilities gives a positive prefactor times a sum of 2m distinct exponentials at t=1/(2σ²). Rolle induction bounds distinct critical points by 2m−1, including at least one intervening stationary point for each consecutive pair of strict maxima. A remote [R,2R] band preserves the old derivative signs on compact windows and creates a new change from + to − in the rescaled window; analyticity makes the resulting maxima strict. For the tie, the two isolated band optima have strictly negative second derivatives; the near perturbation and its q derivative are exponentially small, and the far perturbation is √(2/π)/(Ru)+O(R⁻³) in C² on the necessary compact window. The two resulting peaks exhaust global possibilities by the mode cap, analyticity and vanishing tails. The envelope derivative of the far-minus-near gap is M′(q)+O(1/R)>0 uniformly in the closed q interval, and the endpoint gaps have opposite signs. The first-order root shift is −φ(0)/[Rφ(2/s(2))]=−2^(4/3)/R. Separately replayed the concrete witness with integer numerator signs +,−,+,− at the four stated rationals (python3 /workspace/branches/review_replay.py 1); the count follows exactly from the analytic bound, not a numerical root scan. Inspected but did not execute the supplied checker.",
+      "residual_risks": [
+        "The tie is local in parameter range [3/2,2] and asymptotic in R; no explicit cutoff in R or global uniqueness over all q>1 was certified.",
+        "This is an idealized point-release landing probability, not a persistence or invasion model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical exponential-sum Rolle/Chebyshev argument already gives the critical-point bound after differentiating; the radial-mask prior also uses a zero-count mechanism.",
+          "In the accessed Skelsey et al. passages the objective is source-to-target success in a landscape-heterogeneity study. Two other plausible ecological references were not retrievable in full text."
+        ],
+        "reasoning": "Generic variation-diminution or zero counts supply upper bounds, not construction of the tying peaks and their height equality. No stronger inspected source supplies that equal-height equation and its quantified uniqueness.",
+        "searches": [
+          "Primary literature on optimal dispersal versus landscape and kernel scales; DOI 10.1007/s12080-012-0171-3",
+          "Resultary 00185e1fcc1d, proof of spectral mode cap",
+          "DOIs 10.1890/08-0115.1 and 10.1098/rspb.2010.1902"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81d6f89effb6 (identical target)",
+        "Resultary 00185e1fcc1d",
+        "Resultary a8e43f83234b",
+        "Skelsey, With and Garrett, DOI 10.1007/s12080-012-0171-3, pp. 1, 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero counts preclude extra Gaussian modes, but the tie proof requires two persistent competing peaks and a positive difference derivative in q.",
+          "The far peak gets a geometric 1/R contribution from the near band, whereas the converse effect is Gaussian-exponential; this asymmetry enters the coefficient, not just the mode count."
+        ],
+        "reasoning": "The documented overlap accounts for generic method and optimal-scale motivation, not the exact Gaussian competition law. Related Gaussian radial-mask sharpness remains a meaningful analogue, not an implication.",
+        "searches": [
+          "Resultary 00185e1fcc1d proof and a8e43f83234b Finding",
+          "10.1007/s12080-012-0171-3, abstract and model passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under z=1/(2σ²), the target is a fixed-shape (1/2) gamma interval probability as its rate varies: squaring the positive distance yields bands [a²,b²].",
+          "Resultary 00185e1fcc1d instead varies the integer shape n+1 at fixed rate, through λ_n(E)=(1/n!)∫_E exp(−t)t^n dt. Skelsey et al. vary the scale of spatial heterogeneity."
+        ],
+        "reasoning": "The band integrals are close analogues, but varying a discrete shape index at fixed rate or varying landscape heterogeneity is not the continuous fixed-shape scale optimization or equality of its two global peaks.",
+        "searches": [
+          "Resultary continuous Gaussian dispersal-scale modes and two-scale equal-height optima, hits 81d6f89effb6 and 00185e1fcc1d",
+          "Skelsey, With and Garrett, DOI 10.1007/s12080-012-0171-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "81d6f89effb6 is this same record, not prior evidence. The earlier Gaussian radial-mask record is for a discrete spectral sequence.",
+          "The distinct same-day a8e43f83234b has two local peaks for one-sided exponential transport with L≥9, with the longer-range peak uniquely global, not tied."
+        ],
+        "reasoning": "Neither the earlier Gaussian analogue nor the same-day exponential result covers the target global-tie parameter or its expansion; no priority ordering is inferred from same-day indexing.",
+        "searches": [
+          "Resultary 81d6f89effb6, 00185e1fcc1d, a8e43f83234b"
+        ]
+      },
+      "rationale": "The distinct content supported here is the sharpness construction in the centered Gaussian band family and, most substantively, the two-scale exact global-tie theorem with uniqueness in the specified interval and a first-order width shift. The exponential-sum zero bound and general observation of an intermediate optimum are not new.",
+      "residual_risks": [
+        "An equivalent result in Gaussian scale-space or exponential-family interval probability, especially for the sharp cap without the tie, may be unindexed or incompletely compared.",
+        "Primary text not read for the two blocked ecological references; the priority decision is bounded and does not use retrieval failure as evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related mechanism and shape-index result, not continuous rate or global tie",
+          "evidence": "Counts modes of λ_n(E)=(1/n!)∫_E exp(−t)t^n dt for radial bands.",
+          "identifier_or_url": "Resultary 00185e1fcc1d",
+          "material_read": "RESULT.md Finding at offset 55 and proof at offset 2200",
+          "method": "Local Resultary mirror",
+          "title": "Sharp spectral mode cap for finite radial Gaussian masks",
+          "trigger": "Earlier exact Gaussian band-mode theorem"
+        },
+        {
+          "assessment": "Different kernel and unique global optimizer, not an equal-height crossing",
+          "evidence": "One-sided exponential scale law, two peaks for L≥9 and uniquely global longer-scale peak.",
+          "identifier_or_url": "Resultary a8e43f83234b",
+          "material_read": "RESULT.md statement at offset 57",
+          "method": "Local Resultary mirror",
+          "title": "Width uniformity versus a two-scale dispersal trap for exponential transport",
+          "trigger": "Same-day exact two-scale dispersal theorem"
+        },
+        {
+          "assessment": "Different varied parameter and landscape objective",
+          "evidence": "Dispersal among patches is maximized at intermediate spatial-heterogeneity scales, with successful movement defined from source to target.",
+          "identifier_or_url": "https://doi.org/10.1007/s12080-012-0171-3",
+          "material_read": "PDF p. 1 abstract and p. 3 model passage, OA offsets 488 and 15922",
+          "method": "OA Springer PDF, bounded passages",
+          "title": "Why dispersal should be maximized at intermediate scales of heterogeneity",
+          "trigger": "Optimal scale and source-to-target dispersal"
+        },
+        {
+          "assessment": "Access risk, not exclusion evidence",
+          "evidence": "The frozen notes describe an integrodifference/invasion objective; not independently established from the blocked copy.",
+          "identifier_or_url": "https://doi.org/10.1890/08-0115.1",
+          "material_read": "Frozen prior-work characterization; no primary full-text passage retrieved",
+          "method": "DOI then Wiley lawful retrieval, HTTP 403",
+          "title": "Dispersal in heterogeneous habitats: thresholds, spatial scales, and approximate rates of spread",
+          "trigger": "Fragmented-habitat dispersal and scale dependence"
+        },
+        {
+          "assessment": "Access risk, not exclusion evidence",
+          "evidence": "The frozen notes describe kernel shape and width in invasion simulations; not independently established from the blocked copy.",
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2010.1902",
+          "material_read": "Frozen prior-work characterization; no primary full-text passage retrieved",
+          "method": "DOI then Royal Society lawful retrieval, HTTP 403",
+          "title": "The shape of the spatial kernel and its implications for biological invasions in patchy environments",
+          "trigger": "Kernel-width variation in patchy environments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof §§3–4 and Limitations"
+      ],
+      "rationale": "The sharp count relates a geometric input (number of separated bands) to the number of competing scale optima; the exact degeneracy boundary answers when two very different dispersal scales can be equally optimal. Its nonzero first-order shift is analytically useful because it quantifies the failure of treating widely separated bands as independent optima. These are structural features of a natural Gaussian benchmark, not evidence for a particular management recommendation.",
+      "residual_risks": [
+        "No field calibration or predictive value beyond the stated one-event model was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:29.619101Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the result on the precise affine family. The one-sided images yield all-ones rows except for deletion of the first column after a -,+ turn or of the last column after a +,- turn. Nonempty open-cell paths are realizable by backward affine pullback; the cylinder entropy is the logarithm of the Perron root. With A,B the two turn counts and with z_0 normalized to one, the first row gives sum(z)=lambda and the last row gives r=z_last=1, 1-1/lambda or lambda/(lambda+1). The remaining rows reconstruct a positive eigenvector for the unique root of lambda(n-lambda)=A+B r on [n-1,n] for n>=3: the left-minus-right side has opposite weak endpoint signs and is strictly decreasing. Specializing the turn counts yields the three equations, and choosing the preterminal flip positions gives the binomial counts. For n=2 the constant words give radius 2; the two nonconstant radii are 1 and the golden ratio in the stated order. For n>=3 the alternating scores are at least n-1-floor(n/2)/(n-1)>n-2, whereas every nonalternator scores at most n-2. The negative-start advantage at fixed lambda is (lambda-m+1)/(lambda(lambda+1)) for n=2m and m/(lambda(lambda+1)) for n=2m+1; a larger score gives a strictly smaller root. Only zero flips achieve radius n. Writing its worst root as n-1+a gives (n-2)a+a^2=1/2+O(1/n), so a=1/(2n)+O(n^-2) and the n^-2 term in log(n/lambda) cancels. For all words, Delta=n-lambda satisfies n Delta-kappa=Delta^2-B(1-r), a difference of quantities in [0,1]; the log remainder gives the claimed uniform bound. The word-to-first-sign-and-flips bijection gives independent fair bits and fixes both the variance 1/4 and negligible centering correction in the CLT. Read the frozen checker but did not execute it: its one-winner update does not itself rule out ties, and its determinant checks are finite evaluations only. The analytic strict comparison and root proof supply what that diagnostic cannot. Replay: RESULT.md, Steps 1–5, with Oliveira Theorems 7.1–7.2 for the canonical premises.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oliveira Corollary 7.3 bounds entropy loss by log(n/(n-1)), without the exact extremizer or cancellation term.",
+          "Resultary f035502a5c10 bounds non-Perron eigenvalues for all orientations; it does not compare Perron roots.",
+          "Rugh–Tan abstract treats general kneading determinants and pressure, not this word optimization; the web query did not yield an additional relevant comparator."
+        ],
+        "reasoning": "A uniform coarse bound or determinant framework does not resolve strict order, the sharp deficit, or the centered random-word fluctuation.",
+        "searches": [
+          "Resultary: minimum entropy orientation word alternating affine Markov interval map Perron root canonical branches",
+          "Web literature: \"minimal-jump-rank\" affine interval map orientation word entropy Oliveira alternating",
+          "DOI 10.4171/JFG/24, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Oliveira arXiv:2611.03287v1",
+        "Rugh–Tan DOI 10.4171/JFG/24 (abstract)",
+        "Resultary d13a003ecd84; f035502a5c10; 1dd240625b4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the two final-flip flags into Oliveira's determinant and using the opposite-direction count floor(kappa/2) gives the two cubics immediately; the alternating cubics are the kappa=n-1 specializations.",
+          "To obtain the corpus-wide minimum requires strict score comparison, including a parity-dependent tie break. For the limit theorem, the new uniform error small on the n^-3/2 scale is what transfers the standard Bernoulli CLT."
+        ],
+        "reasoning": "The comparison and uniform fluctuation-scale control are additional results, not the statement of the determinant nor an immediate dominant parameter substitution. The coarse entropy bound alone is on a larger scale than the fluctuations.",
+        "searches": [
+          "arXiv:2611.03287v1, p. 13 determinant and pp. 13–14 entropy corollary",
+          "Resultary records d13a003ecd84, f035502a5c10 and 1dd240625b4a, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oliveira's determinant identifies the unsigned Perron-root formulation and explicitly resolves the equal-ending sector.",
+          "Resultary d13a003ecd84, Finding: last two orientations equal; Gaussian switching along orbits, not word-to-word entropy.",
+          "Resultary 1dd240625b4a, Finding: random words but observable rho(diag(epsilon)M)/sqrt(n), distinct from the unsigned log-radius deficit."
+        ],
+        "reasoning": "The entropy problem is genuinely a Perron-root comparison over all words. Neither fixing the terminal type nor substituting signed matrices preserves the optimization and sampling observable.",
+        "searches": [
+          "Resultary: orientation entropy loss affine interval maps alternating orientation word entropy minimizer",
+          "Resultary: orientation-word entropy distribution multiset transition count binomial entropy deficit central limit theorem",
+          "Oliveira arXiv:2611.03287v1, Theorems 7.1–7.2 and Corollary 7.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equal-ending root is already printed in Corollary 7.3. The all-word three-family table can be generated exactly from Theorem 7.2 and flip-position counting, even though it is not printed as such.",
+          "The closest indexed exact tables/statistics are for the equal-ending subfamily or the signed spectral radius."
+        ],
+        "reasoning": "Credit effective formula-level coverage of the table; no inspected exact lookup yields the strict extremizer or random unsigned entropy-deficit CLT.",
+        "searches": [
+          "Resultary: orientation-word entropy distribution multiset transition count binomial entropy deficit central limit theorem",
+          "Resultary: uniform random orientation words entropy deficit central limit theorem topological entropy Markov matrix",
+          "Oliveira Theorem 7.2 and Corollary 7.3"
+        ]
+      },
+      "rationale": "Pass for the strict global optimizer and sharp worst-versus-typical entropy comparison, including the random-word deficit law, not for the known representation, the direct cubic specializations or elementary multiplicities as standalone discoveries. The relevant primary and strongest distinct indexed statements use either the same reduction without the extremal comparison, or different statistics/probability spaces.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unlocated exact Perron comparison or a stronger random orientation law.",
+        "No full-paper exclusion is claimed for weighted kneading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers canonical premises, per-word polynomial, and the mechanically generated table; not the inspected extremal or random-word conclusions",
+          "evidence": [
+            "Theorem 7.1 constructs an affine Markov rank minimizer; Theorem 7.2 determinant is 1-(n-b*)t+(kappa-n b*)t^2+(A b*-B a*)t^3; Corollary 7.3 gives the equal-ending quadratic root."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03287v1",
+          "material_read": "PDF pp. 12–14: Theorems 7.1–7.2, Corollary 7.3",
+          "method": "Bounded OA text inspection and algebraic specialization",
+          "title": "Homological reduction and entropy of discontinuous interval maps",
+          "trigger": "Exact family and plausible direct coverage"
+        },
+        {
+          "assessment": "Partial same-family overlap, but distinct law",
+          "evidence": [
+            "Equal terminal orientations; topological entropy determined by n and kappa, with temporal switching statistics."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-universal-switching-statistics-and-a-sharp-physical-entropy-gap--d13a003ecd84",
+          "material_read": "Mirrored RESULT.md Finding, offset 97",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Universal switching statistics and a sharp physical entropy gap",
+          "trigger": "Same maps and Gaussian statement"
+        },
+        {
+          "assessment": "Non-Perron, not across-word Perron optimization",
+          "evidence": [
+            "Uniform bound on the nonleading spectrum uses the same construction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-sharp-uniform-parry-mixing-in-all-orientation-high-entropy-inter--f035502a5c10",
+          "material_read": "Mirrored Finding",
+          "method": "Local statement-level comparison",
+          "title": "Sharp uniform Parry mixing in all-orientation high-entropy interval maps",
+          "trigger": "Same family and cubic"
+        },
+        {
+          "assessment": "Different matrix invariant; no priority inference from shared date",
+          "evidence": [
+            "Signed radius divided by sqrt(n) has a non-Gaussian mixture; its comparison with unsigned rho(M)/n tending to one does not give the unsigned entropy CLT."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-gaussian-mixture-spectral-law-with-an-atom-for-orientation-wei--1dd240625b4a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local statement-level comparison",
+          "title": "A Gaussian-mixture spectral law with an atom for orientation-weighted matrices",
+          "trigger": "Same random words and analogous spectral limit"
+        },
+        {
+          "assessment": "General background at the inspected level; not a whole-paper exclusion",
+          "evidence": [
+            "Weighted kneading determinants and pressure rather than a canonical wordwise optimizer."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/JFG/24",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Bounded publisher abstract inspection",
+          "title": "Kneading with weights",
+          "trigger": "Potentially broader entropy/determinant theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least-entropy orientation among a canonical rank-minimal family is specified and unique, despite superficially similar opposite-start alternators. The uniform error and fluctuation law also quantify the factor-two separation between typical and extremal leading loss. These address a concrete all-word structural question, rather than just evaluating the already known cubic at a few words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

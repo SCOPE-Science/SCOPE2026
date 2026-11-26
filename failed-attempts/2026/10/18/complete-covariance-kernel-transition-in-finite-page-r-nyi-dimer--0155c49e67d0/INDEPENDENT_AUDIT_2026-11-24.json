@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:11:09.033688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A covariance null vector is exactly a linear form constant on the positive-probability support. At positive finite time the all-late and unique-early events have positive probability, yielding zero and all single-dimer vectors. These are enough to force a_i+a_{i+1}=0, and every realized matching is balanced across the bipartition. At jamming all and only maximal matchings appear: any given maximal matching can have its disjoint edges tried first with positive probability. Every maximal matching covers both sites 2 and n−1, and the alternating relation persists. The listed n=4..7 supports give affine ranks 1,2,3,4; the determinant witnesses are valid. For n≥8, conditioning on inclusion of the first, respectively last, edge leaves a full maximal-matching support on the remaining length n−2 path. The two induction restrictions agree on the alternating multiplier at site 3 and jointly cover all sites except 2 and n−1 (the only possible internal exception clash would be 4=n−3). This proves there are no other null directions. A restricted principal submatrix is positive definite exactly when no nonzero full null vector is supported on its retained indices, giving the deletion consequences. At t=0 all indicators are deterministic. Exact independent replay: python3 /workspace/reproductions/frozen_checks.py 3 enumerates all edge orders for each n=4..8, forms rational full covariance matrices at the binomially mixed half-arrival prefix and at jamming, and checks ranks, null relations and all stated principal-minor selections. Finite and jammed rank sequences were (3,4,5,6,7) and (1,2,3,4,5); this is finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For any tree, the convex hull of maximal-matchings is the linear programming relaxation of the displayed formulation: vertex incidence sums ≤1, edge inequalities y_i+y_j−z_{ij}≥1 and 0≤z_e≤1.",
+          "Klaassen–Runnenburg study aggregate vacancy spacings, not a full site kernel."
+        ],
+        "reasoning": "The static tree hull is genuinely stronger than the nontrivial jammed affine statement, not just a problem for maximum matchings or a proposal for unknown inequalities. It does not cover finite time by itself; the known random-priority construction supplies the remaining trivial support test.",
+        "searches": [
+          "Tural 2016 METU repository 11511/34550",
+          "Tural 2019 METU repository 11511/57995, §2 pp. 377–378",
+          "arXiv:math/0112056"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Gerin arXiv:1411.8002",
+        "Tural 2019 DOI 10.37094/adyujsci.540858 plus the 2016 repository abstract",
+        "arXiv:math/0112056; Page abstract; stated Resultary summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let m=n−1 and z_0=z_{m+1}=0. Substituting the site incidence sums into the prior constraints yields z_i+z_{i+1}≤1 and z_{i−1}+z_i+z_{i+1}≥1, in addition to the box and degree bounds. At the end edges this forces z_1+z_2=z_{m−1}+z_m=1. These independent equalities are the whole affine hull: for m=3 choose all z_i=1/2, and for m≥4 choose z_1=z_m=3/5 and all other z_i=2/5; every inequality not accounting for those two equalities is strict. Injectivity gives dimension m−2=n−3 also for site words, with exactly the stated two deterministic coordinates plus the alternating relation.",
+          "In the prior exponential construction, at any finite t>0 there is positive probability all arrivals are late or exactly one specific arrival is early. The n−1 single-edge site vectors span s⊥, so their occurrence together with zero forces covariance rank n−1. The all-time transition and the principal-minor statements are then immediate affine-support and PSD facts."
+        ],
+        "reasoning": "The most substantial step is a direct specialization of the earlier exact convex hull, including at n=4 where the end equalities share one variable. Appending the elementary finite-time observation to that specialization does not leave a distinct nonmechanical quantitative claim.",
+        "searches": [
+          "Tural 2019 §2 pp. 377–378, Eqs. (1)–(3), their relaxation and tree equality",
+          "Gerin arXiv:1411.8002 continuous construction p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gerin's continuous construction uses one exponential first-arrival priority per edge with distribution F(t)=1−e^(−t), giving the same support in both regimes.",
+          "Tural defines matching variables z_e and covered-vertex variables y_v=Σ_{e∋v} z_e. At jamming all maximal matchings have positive probability; the prior edge-incidence polytope thus maps to exactly the convex hull of terminal random site words. The incidence map on a path is injective by recursively recovering z_i from y_i and z_{i−1}."
+        ],
+        "reasoning": "Full-support covariance nullity equals annihilation of affine differences, so the relevant specification is the affine hull of the prior incidence polytope, not a comparison with aggregate vacancy moments. The law's actual positive weights need not be computed.",
+        "searches": [
+          "arXiv:1411.8002, pp. 1–3",
+          "Tural DOI 10.37094/adyujsci.540858, Eqs. (1)–(3) and tree equality",
+          "Tural DOI 10.1080/10556788.2015.1104679, repository abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned indexed summaries concern opposite-endpoint covariance, boundary vacancy versus jammed size, or correlations on the infinite line; they are later and no same finite-path full-kernel table was identified. Exact local mirror passages for those records were unavailable, so only their summaries were assessed.",
+          "Tural's exact tree-polytope statement in the inspected primary text, not a covariance table or summary, is the evidence of prior implication."
+        ],
+        "reasoning": "A scalar covariance or an infinite-volume result does not determine this kernel; failed catalog retrieval is not negative evidence. The exact polyhedral specification is sufficient without an explicit table of ranks.",
+        "searches": [
+          "Resultary Page–Rényi dimer parking finite site covariance: 7c8260765cf2, 50646d1cbef4 and 42c7745cb385",
+          "Gerin arXiv:1411.8002; Tural 2019 §2"
+        ]
+      },
+      "rationale": "The decisive terminal support question is covered by Tural's exact tree maximal-matching polytope: after restriction to a path the affine hull follows immediately from the two leaf equalities and a point strict in every other inequality. The early rank in Gerin's known exponential random-priority model follows from the positive-probability empty and single-edge events and the fixed bipartition equation. Combining these two mechanical implications gives the entire transition, even though neither source prints it as a covariance theorem. Unavailable historical texts are not the reason for failure.",
+      "residual_risks": [
+        "The exact covariance wording may or may not occur in an earlier paper; the demonstrated stronger implication makes that immaterial to the disposition.",
+        "Page and Tural 2016 publisher full texts were not read; the decisive tree formulation and equality are both present in the inspected open 2019 paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same random-priority process, finite-phase implication from its support",
+          "evidence": [
+            "Stops when there are no adjacent vacancies; continuous priorities can use F(t)=1−e^(−t). The inspected passages give the process and a local-minimum observation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.8002",
+          "material_read": "pp. 1–3; OA offsets 0, 2962, 5948 and 6706",
+          "method": "OA PDF passage reading",
+          "title": "The Page–Rényi parking process",
+          "trigger": "Exact parking model and continuous construction"
+        },
+        {
+          "assessment": "Exact polyhedral coverage of terminal support",
+          "evidence": [
+            "(1) y_i=Σ_{e∋i} z_e≤1, (2) y_i+y_j−z_e≥1. Relax binary constraints to [0,1]; for a tree MM(G)=LP(G)."
+          ],
+          "identifier_or_url": "https://open.metu.edu.tr/bitstream/handle/11511/57995/10.37094-adyujsci.540858-909067.pdf",
+          "material_read": "§2 pp. 377–378, offsets 6320–10515; ref. [14] p. 385",
+          "method": "Lawful OA repository PDF, direct reading of decisive displayed formulation and tree equality",
+          "title": "Valid Inequalities for the Maximal Matching Polytope",
+          "trigger": "Restatement of the exact prior tree hull and all constraints"
+        },
+        {
+          "assessment": "Abstract corroborates tree convex hull; full constraints verified through the open 2019 restatement",
+          "evidence": [
+            "LP relaxation equals the convex hull for trees; publisher full text unavailable in this review."
+          ],
+          "identifier_or_url": "https://open.metu.edu.tr/handle/11511/34550; DOI 10.1080/10556788.2015.1104679",
+          "material_read": "Repository abstract; cited and restated in 2019 primary paper",
+          "method": "Lawful OA abstract and attempted publisher retrieval",
+          "title": "Maximal matching polytope in trees",
+          "trigger": "Primary 2016 tree theorem"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Counts vacant spacings by length and studies their asymptotic normality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0112056",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF passage reading",
+          "title": "Discrete Spacings",
+          "trigger": "Prior Page–Rényi aggregate occupancy theory"
+        },
+        {
+          "assessment": "Reports aggregate vacancy moments; full scope unresolved",
+          "evidence": [
+            "Abstract describes remaining point counts after greedy adjacent-pair occupation to isolated vacancies."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1959.tb00343.x",
+          "material_read": "Search-result abstract only; not the paper",
+          "method": "Search and attempted lawful OA retrieval",
+          "title": "The Distribution of Vacancies on a Line",
+          "trigger": "Historical vacancy and boundary claims"
+        },
+        {
+          "assessment": "Later, related by topic; no full-text scope inference",
+          "evidence": [
+            "Summaries respectively report endpoint-vacancy covariance, boundary versus aggregate count, and infinite-line correlations."
+          ],
+          "identifier_or_url": "Resultary 7c8260765cf2, 50646d1cbef4 and 42c7745cb385",
+          "material_read": "Ranked result summaries only",
+          "method": "Local Resultary search; exact mirror paths unavailable",
+          "title": "Parity-alternating endpoint vacancies; Boundary vacancy and jammed dimer count; All-time alternating coverage correlations",
+          "trigger": "Closest indexed dimer covariance results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full positional-rank question is natural and the path induction is correct, but the endpoint affine constraints are directly extractable from the prior exact tree polytope. The finite-time half of the transition is an empty/single-edge support check, and the principal minors are standard PSD restrictions. Neither narrowing to that finite-time rank nor repackaging the terminal calculation yields a distinct worthwhile claimed invariant. No repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

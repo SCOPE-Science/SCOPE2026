@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:50.620346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof steps 1–5",
+        "Cloitre–Joshi, arXiv:2604.02404v2, §3.2 Proposition 3.1",
+        "Frozen VERIFICATION.md and verify_almost_golomb.py, inspected, not run",
+        "Independent in-memory reimplementation of Proposition 3.1 matched 4,997 cutoff counts (4≤N≤5000); no persistent replay artifact is claimed."
+      ],
+      "rationale": "Cloitre–Joshi Proposition 3.1 matches the exact greedy dyadic formula. On B=2^k, writing n=B+j, division yields h(1+j/B) plus exactly 1/[2(B+j)] for odd j on the first branch, and zero otherwise. The sublevel of h is the interval between inverse endpoints u(y) and v(y) on its range; its intersection with [1,θ] gives the stated additional mass and continuous CDF. The unnormalized numerator has mass θ. Each monotone branch contributes grid-count error at most one, and its inverse is 9-Lipschitz, so the strip of width 1/(2B) contains at most six grid points per branch. Thus each complete or truncated block contributes at most 14 count error. Complete block lengths total 2^K−4; the last block includes N and differs from the phase integral by one endpoint cell. Accounting for the initial three indices bounds the discrepancy by [14(K−1)+8]/N, certainly at most 30(K+1)/N. For j≤B/2, 4a(B+j)−3(B+j) is −j for even j and 2−j for odd j; for j>B/2 it is j−B. Only j=0 and 1 qualify in each block, plus n=1,2. The floor-log count is therefore exact, including cutoffs that are powers of two. The phase law has no atom at 3/4, so the left-hand CDF limit there supplies the lower bound without dropping the equality cases. Continuity in θ, compactness of [1,2], and integer cutoffs approaching each phase give all weak limits; for y=7/10 the first partial interval contributes zero on θ∈[1,5/4], so F_θ(y)=(5/12)/θ varies strictly there.",
+      "residual_risks": [
+        "The finite threshold check is corroborative, not the proof. The upper constant is not optimized; sharpness is of order, not an exact leading Kolmogorov constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.1 treats a(n)/n and its Cesàro means, giving two explicit mean subsequences. Cloitre Theorem 3 treats a non-greedy Beatty-form solution."
+        ],
+        "reasoning": "A mean is one test function and does not determine a law or Kolmogorov control. The alternate solution changes the sample sequence and does not include the stated greedy phase laws as a specialization.",
+        "searches": [
+          "Cloitre–Joshi arXiv:2604.02404v2, §§3.2 and 7.1",
+          "Cloitre arXiv:2604.10822v4, abstract and Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, relationship and references",
+        "Resultary 71108c18dc85 (self-hit) and distinct 6cc0a5234f88",
+        "Cloitre–Joshi arXiv:2604.02404v2",
+        "Cloitre arXiv:2604.10822v4",
+        "OEIS A394217"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dyadic formula directly singles out j=0 and j=1 as the endpoint exceptions and yields the limiting block profile h. Known mean subsequences match the mean of the phase pushforwards at θ=1 and 3/2."
+        ],
+        "reasoning": "The profile is available by rescaling, but the quantitative finding needs bounded block error simultaneously for every CDF threshold, accumulation across complete and truncated blocks, and endpoint control for a matching lower bound. It is not covered by the mean Riemann sums or by the exact arithmetic formula alone. If the words 'two limit points' in Theorem 7.1 are read as exhaustive for the mean, that reading is incompatible with its own dyadic formula: θ=11/10 gives (∫h+1/20+log(11/10)/4)/(11/10)≈0.71032, distinct from the two displayed values. The proof supplies the two subsequences, not their exhaustiveness.",
+        "searches": [
+          "Cloitre–Joshi Proposition 3.1 and Theorem 7.1 statement and proof",
+          "A394217 Formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 71108c18dc85 identifies the frozen submission itself. Distinct 6cc0a5234f88 defines conditional Haar laws of self-displacement phases of x↦b x mod 1 and measures TV and circular-arc discrepancy."
+        ],
+        "reasoning": "The circle record concerns random initial positions conditioned on an arc, not empirical normalized recursive-sequence values at all cutoffs. The word 'phase' does not identify equivalent observables; the date establishes no priority.",
+        "searches": [
+          "Resultary meaning search for almost Golomb dyadic R_n phase laws and discrepancy",
+          "\"Almost Golomb Sequences\" \"empirical\" ratios phase law OR distribution discrepancy Cloitre Joshi",
+          "Resultary 6cc0a5234f88"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A394217 and Proposition 3.1 supply exact terms and the dyadic formula for the same greedy sequence; the inspected material does not tabulate phase laws or cutoff discrepancies."
+        ],
+        "reasoning": "No sequence enumeration originality is credited. The entries determine ν_N in principle, but a finite run of the sequence or a list of its terms is not an analytic CDF estimate uniform in N and thresholds.",
+        "searches": [
+          "OEIS A394217, sequence table and FORMULA",
+          "Cloitre–Joshi Proposition 3.1"
+        ]
+      },
+      "rationale": "The arithmetic formula and pointwise oscillation are already known; the same paper also proves nonconvergence of the Cesàro mean and gives two explicit subsequential mean values, a stronger overlap than the frozen relationship section mentions. Neither those scalar means nor the inspected sequence entry and alternative Beatty solutions give the full weak-limit family or the uniform sharp-order phase-matched CDF estimate. The exact endpoint count is an elementary consequence of the existing formula and is credited principally as the mechanism forcing the new discrepancy lower bound, not as a new sequence formula.",
+      "residual_risks": [
+        "The specific primary-literature query returned no additional relevant result; this is not negative proof of priority. Earlier equivalent distribution calculations outside the inspected sources are not ruled out. The frozen prior-work discussion should acknowledge the two previously computed Cesàro mean limits explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior arithmetic and mean-level coverage, not the full law/discrepancy",
+          "evidence": "Gives the ceiling formula and identifies greedy minimality; Theorem 7.1 gives the same two phase means at dyadic and 3/2 cutoffs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.02404v2",
+          "material_read": "§3.2 Proposition 3.1, p. 11; §7.1 Theorem 7.1 and subsequence calculation, around p. 28",
+          "method": "Open PDF, decisive passages around offsets 29870–31405 and 80150–81824 and mean-proof passages around 83590",
+          "title": "Almost Golomb Sequences",
+          "trigger": "Exact object and prior dyadic and limit results"
+        },
+        {
+          "assessment": "Different solution within the equation family",
+          "evidence": "Constructs a Beatty-type solution beyond the greedy sequence, not the greedy CDF or its endpoint discrepancy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.10822v4",
+          "material_read": "Abstract and Theorem 3, pp. 1 and 5",
+          "method": "Open PDF, including offset around 12500",
+          "title": "Beatty solutions of almost Golomb functional equations",
+          "trigger": "Related order-two equations"
+        },
+        {
+          "assessment": "Exact prior arithmetic input",
+          "evidence": "Lists the same dyadic formulas and terms, not the complete phase CDF family or uniform rate.",
+          "identifier_or_url": "https://oeis.org/A394217",
+          "material_read": "Sequence table and FORMULA",
+          "method": "Open entry at offset 0",
+          "title": "OEIS A394217",
+          "trigger": "Exact sequence lookup"
+        },
+        {
+          "assessment": "Different dynamical experiment",
+          "evidence": "Uses Haar conditioning on a circular arc for two circle self-displacements, with explicit TV and single-arc metrics.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-conditional-phase-law-and-two-scale-discrepancy-for-expand--6cc0a5234f88",
+          "material_read": "Finding",
+          "method": "Exact local-mirror RESULT.md, offsets 0–1953",
+          "title": "Exact conditional phase law and two-scale discrepancy for expanding circle maps",
+          "trigger": "Distinct indexed phase-discrepancy hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase laws and endpoint obstruction",
+        "Cloitre–Joshi, Theorem 7.1 for the prior oscillation motivation"
+      ],
+      "rationale": "The result describes the fluctuation when pointwise and mean convergence fail: cutoff phase selects the whole probability law, and the exceptional ratios precisely force a logarithmic penalty missed by a single-block approximation. The matching uniform rate and complete limit family are useful beyond rechecking the published dyadic formula.",
+      "residual_risks": [
+        "The contribution is specific to the earliest nondecreasing order-two solution; it does not generalize as stated to other memory lengths or other solutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

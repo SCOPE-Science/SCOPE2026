@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:33.039039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proposed radial moment polynomials vanish on the boundary, are regular at the center, and substitution using Delta r^2=2d and Delta r^4=4(d+2)r^2 gives the Dirichlet equations for the first and second unreset exit moments. Their averages are R^2 a/(2dD) and R^4(4a+db)/[4d^2(d+2)D^2]. With common iid launch and relaunch laws, the attempt survival transform Phi gives renewal mean (1-Phi)/(lambda Phi); the finite second moment suffices to differentiate at zero, obtaining mean squared minus half the second moment. A fixed U yields bracket U[4-(d+4)U], so the first-order non-improving core is exactly U>=t=4/(d+4). The pointwise chord bound U^2<=(1+t)U-t on [t,1] gives the sharp bracket upper bound (a-t)[d-2(d+2)a]. The maximum possible second factor on this interval is (d^2-4d-16)/(d+4), negative through d=6 and positive from d=7. Endpoint mixtures attain the chord and give the printed strict q interval; direct rational substitution at d=7 gives 217/75625. Upward perturbation of the lower endpoint preserves strict improvement of the mixture while both components have strictly positive mean derivative. At equality the first derivative alone makes no finite-rate claim. This checks RESULT.md lines 28–65 for arbitrary laws, including atoms and angularly anisotropic laws. The recorded exact-fraction and optional Bessel-transform checks in verify.py were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic restart and random-location renewal laws cover cycle means; the interior ball work supplies fixed-start moments and radius. The inspected random-location examples use a one-dimensional point target."
+        ],
+        "reasoning": "A broader renewal model covers the machinery and, together with the known moments, implies the derivative formula by averaging. It does not provide the sharp optimization over laws wholly supported in the deterministic non-improving ball core.",
+        "searches": [
+          "arXiv:2109.11101v2 Eqs. (17)–(19)",
+          "arXiv:1107.4225v2 §4.2",
+          "arXiv:2206.14387v1 §II",
+          "arXiv:1607.06048 Eqs. (1)–(3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.11101v2",
+        "arXiv:1107.4225v2",
+        "arXiv:2206.14387v1",
+        "arXiv:1607.06048",
+        "Resultary 02cf88abbb30",
+        "Resultary e99404b7ec61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Averaging the spherical moments and applying classic renewal recovers the exact derivative; the additional step is the sharp chord bound on U in [t,1] and its saturation by an endpoint mixture."
+        ],
+        "reasoning": "The prior formulas are sufficient premises for a new proof, not a theorem identifying either universal non-improvement through d=6 or a witness with both deterministic components strictly first-order unfavorable from d=7.",
+        "searches": [
+          "arXiv:2109.11101v2 Eqs. (17)–(19)",
+          "arXiv:1607.06048 Eqs. (1)–(3)",
+          "Resultary 02cf88abbb30 and e99404b7ec61, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal–Reuveni's exponential restart identity gives the equivalent CV(T)>1 criterion for the common iid unreset completion time.",
+          "Chen–Huang Eq. (19) fixes the deterministic core but does not optimize CV over iid position mixtures."
+        ],
+        "reasoning": "The unconditional use of CV is known; the equivalent new question is whether CV can exceed one under the specified restriction on every radial component. None of the compared formulations answered that extremal question.",
+        "searches": [
+          "dimension-seven heterogeneity assisted weak resetting absorbing ball arbitrary reset distribution",
+          "random reset positions Brownian absorbing sphere higher dimensions stochastic resetting moments heterogeneous relocation",
+          "arXiv:1607.06048, Mean FPT under restart"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 02cf88abbb30 gives stochastic-order effects of dispersing radii for 1D and a 3D exterior target; e99404b7ec61 is a fixed-point interior-ball mean/variance sensitivity result. Both indexed findings are later dated."
+        ],
+        "reasoning": "Neither result supplies an interior-ball cutoff for mixture reversal. A matching dimension would not suffice if the target is exterior, the start fixed independently of reset law, or the reset radius held fixed. The ranked search is not proof of absence.",
+        "searches": [
+          "dimension-seven heterogeneity assisted weak resetting absorbing ball arbitrary reset distribution",
+          "random reset location probability law Brownian particle absorbed at spherical boundary mean first passage weak resetting dimension threshold"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp d=7 cutoff for a reversal by some heterogeneous law supported wholly on the deterministic first-order non-improving core. Neither the renewal criterion, the radial moments, nor their direct averaging is credited as an independent novelty.",
+      "residual_risks": [
+        "A differently worded multidimensional randomized-restart study may already perform the core-restricted extremal comparison. The primary and index searches do not certify global priority.",
+        "The Toledo-Marín–Boyer OA rendering displays a different manuscript date from arXiv v1 metadata; no priority inference depends on that discrepancy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-start moment and threshold ingredients",
+          "evidence": [
+            "Reset to the fixed start; critical radius R sqrt(d/(d+4))."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.11101v2",
+          "material_read": "Eqs. (17)–(19), OA text offset 15000",
+          "method": "Matched model and radial formulas in primary text",
+          "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+          "trigger": "Same interior absorbing ball and deterministic threshold"
+        },
+        {
+          "assessment": "Same-law mechanism in a different geometry; no core threshold",
+          "evidence": [
+            "Initial and reset positions taken from a common distribution in a one-dimensional point-target problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1107.4225v2",
+          "material_read": "§4.2, Eqs. (41)–(49), offset 27500",
+          "method": "Compared reset law, target geometry, and MFPT statement",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Same-law spatial random resetting"
+        },
+        {
+          "assessment": "No common-law interior-ball dimension classification in the inspected section",
+          "evidence": [
+            "One-dimensional point target; potentially different initial and subsequent reset distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2206.14387v1",
+          "material_read": "§II, OA text offset 9000",
+          "method": "Compared actual random-position renewal model; date not inferred from rendering",
+          "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+          "trigger": "Renewal for possibly randomized reset positions"
+        },
+        {
+          "assessment": "Covers generic derivative criterion via Taylor expansion, not the geometry-dependent optimization",
+          "evidence": [
+            "Exponential restart mean (1-transform)/(rate times transform)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1607.06048",
+          "material_read": "Mean FPT under restart, Eqs. (1)–(3), offset 5300",
+          "method": "Compared renewal identity and its derivative with the frozen protocol",
+          "title": "First Passage under Restart",
+          "trigger": "General weak-rate restart criterion"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "1D point target and 3D exterior spherical target with separate fixed initial point and renewal clock."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-distributional-optimization-of-renewal-reset-brownian-sear--02cf88abbb30",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Compared target, launch model, and objective",
+          "title": "Sharp distributional optimization of renewal-reset Brownian search",
+          "trigger": "Indexed distributional optimization of reset radii"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": [
+            "Fixed-point resetting with separate mean and variance sensitivities, not iid mixtures."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-mean-variance-conflict-shell-for-weakly-reset-brownian-e--e99404b7ec61",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Compared fixed-point and heterogeneous resetting claims",
+          "title": "A sharp mean-variance conflict shell for weakly reset Brownian exit",
+          "trigger": "Indexed weak-rate sensitivity inside an absorbing ball"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines when spatial randomization can reverse the local effect of restarting despite every allowed fixed placement being first-order ineffective. The exact threshold and the exhibited two-radius mixture distinguish an impossibility over all laws from a genuine design option. This is meaningful beyond evaluating the known restart criterion at a chosen radius, without promising a globally optimal rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:32:02.615145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From degree 2n−2 and open-neighbor one-count r_i+c_j−2x_ij, tie retention gives one-cell r_i+c_j≥n+1 and zero-cell r_i+c_j≤n−1. A zero in a higher-degree row cannot share a column with a one in a lower-degree row, so rows nest, equal-degree rows agree, and the sorted row lengths determine the unique Ferrers representative. The rightmost one and first zero of a proper row give the two corner inequalities; a full row forces every column height at least one, and a zero row forces every column height at most n−1, so neither boundary row adds a condition. Increasing all positive widths by one and appending a zero preserves the corner inequalities. Conversely, a zero-bottom fixed shape cannot have a width-one row because that row would need a column of height n, so deletion and decrement are exact inverses. Complement followed by transpose is an involution on the orbit representatives and exchanges the zero-bottom and positive-bottom cases (the new last width counts old zero rows), proving the doubling with base two. A stabilizing row-and-column pair preserves row and column degrees individually; equal-degree supports coincide in Ferrers form. Thus the stabilizer is the product of multiplicity factorials, yielding the labelled count. Inspected the source verification materials, without executing uploads. An independent direct open-neighbor implementation exhausted all 66,064 boards for n=2,3,4 and found 6,32,302 labelled equilibria and 4,8,16 classes. Exhaustion of Ferrers partitions only (not all boards) through n=10 reproduced the recursive sets and every listed labelled total; replay: python3 /workspace/branches/d94764f3-f04d-4aa9-8bd2-75fd830f3797/ordinal5_independent.py. The universal result is proved by induction, not inferred from enumeration. No transpose quotient, two-cycle or basin result is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Benjamini et al. text focuses on eventual period two, unanimity and disagreement. The three-row result computes sharp first-entry behavior with one dimension fixed. The rectangular record proves an all-rectangle Ferrers classification and a parity formula including 2^n on the diagonal."
+        ],
+        "reasoning": "The period and three-row results do not cover arbitrary squares. The rectangle statement strictly subsumes the unlabelled square result, but calls it prior, and its accompanying assessment specifically identifies the assigned square result. It does not evaluate the labelled formula.",
+        "searches": [
+          "Web: rook graph majority equilibrium balanced binary matrix friendly bisection square rook graph power of two parity switch local majority fixed points",
+          "Benjamini et al., arXiv:1405.2486; Resultary rectangular majority record 7506ebbd6258 and three-row record 3349c8eefe09"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and local records 7506ebbd6258, de29d0d819a4, 3349c8eefe09",
+        "Bujtás et al. arXiv:2608.27669",
+        "Benjamini et al. arXiv:1405.2486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting m=n in the closely related rectangular theorem immediately gives the same unlabelled formula and Ferrers classification. Its text calls the square result prior and the assessment cites the exact assigned square record. The finite comparison gives n=4 and the C-coloring theorem gives a maximum, rather than a distribution of shapes."
+        ],
+        "reasoning": "The rectangular overlap is real, but the evidence is of a credited extension rather than a distinct earlier implication. No compared independent earlier result was found that entails the all-order square theorem or labelled count.",
+        "searches": [
+          "Resultary 7506ebbd6258 RESULT.md and AUDIT.json",
+          "Majority C-coloring in Cartesian products, arXiv:2608.27669v2, Section 2",
+          "Resultary rook/Shrikhande record de29d0d819a4, table in Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás et al. define a majority C-coloring by each vertex having at least half its neighbors of its own color. Their two-dimensional Hamming-graph theorem optimizes the maximum number of colors."
+        ],
+        "reasoning": "This is exactly the stability predicate for two colors (with unanimous states adjoined when requiring surjectivity), but maximizing the number of colors does not enumerate or classify binary solutions.",
+        "searches": [
+          "Resultary: square rook graph balanced binary matrix majority ties fixed points power of two",
+          "Web: majority equilibria Cartesian product complete graphs two-color majority C coloring rook 302 fixed points Ferrers stable partition OEIS 6 32 302 4512"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 8, 2026 rook/Shrikhande result gives exactly 302 labelled fixed states at n=4. The search did not locate an independent table of the labelled all-n values."
+        ],
+        "reasoning": "The n=4 value is clearly prior, as acknowledged, and does not yield the all-n count or structure. The generic sequence 2^n alone says nothing about these objects.",
+        "searches": [
+          "Resultary: Binary majority clocks distinguish the Shrikhande and rook graphs exact 302 fixed configurations",
+          "Web: majority equilibria Cartesian product complete graphs two-color majority C coloring rook 302 fixed points Ferrers stable partition OEIS 6 32 302 4512"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-order square result, including the labelled orbit formula. A close all-rectangle statement does imply the square Ferrers theorem and 2^n count; its explicit attribution of that special case to the assigned result distinguishes it from independent earlier coverage.",
+      "residual_risks": [
+        "The rectangular and square postings have the same catalogue day; the explicit attribution supports dependency, and exact clock-time priority is not established here.",
+        "Equivalent earlier internal partitions, stable cuts, or Ferrers enumerations may be unindexed. The short comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same predicate, different invariant",
+          "evidence": "Definition is at-least-half same color; Theorem 3 optimizes the count of colors on two-dimensional Hamming graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27669",
+          "material_read": "Definition and Observation 1, and Section 2 through the statement and opening proof of Theorem 3",
+          "method": "Open PDF text",
+          "title": "Majority C-coloring in Cartesian products",
+          "trigger": "Same Cartesian products and local majority"
+        },
+        {
+          "assessment": "Credited extension, not independent evidence of older coverage",
+          "evidence": "Its formula gives 2^n at m=n under the identical quotient; the relationship section calls the square result prior and the assessment identifies the assigned square result.",
+          "identifier_or_url": "2026/11/22/SCOPE-aspect-ratio-rigidity-and-a-parity-entropy-gap-for-majority-equi--7506ebbd6258",
+          "material_read": "Finding, Ferrers and boundary proofs, square coefficient, discussion, limitations, and exact attribution in accompanying assessment",
+          "method": "Published-result local mirror",
+          "title": "Aspect-ratio rigidity and a parity entropy gap for majority equilibria on rectangular rook graphs",
+          "trigger": "Directly subsumes the unlabelled square theorem"
+        },
+        {
+          "assessment": "Covers just the motivating finite case for square boards",
+          "evidence": "The rook column-pair has 302 fixed configurations among 65,536 boards at n=4.",
+          "identifier_or_url": "2026/11/8/SCOPE-binary-majority-clocks-distinguish-the-shrikhande-and-rook-graph--de29d0d819a4",
+          "material_read": "Finding and fixed-state census table",
+          "method": "Published-result local mirror",
+          "title": "Binary majority clocks distinguish the Shrikhande and rook graphs",
+          "trigger": "Exact order-four count overlap"
+        },
+        {
+          "assessment": "Not an all-square enumeration",
+          "evidence": "The theorem concerns K_3 square K_n and first entrance to period at most two.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-parity-dependent-majority-relaxation-on-three-row-rook-gra--3349c8eefe09",
+          "material_read": "Finding and scope for first-entry time",
+          "method": "Published-result local mirror",
+          "title": "Sharp parity-dependent majority relaxation on three-row rook graphs",
+          "trigger": "Same graph family with one side fixed"
+        },
+        {
+          "assessment": "General dynamics, not a square fixed-point census",
+          "evidence": "The convergence theorem bounds temporal periods, not the number of fixed states or their symmetries.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "Abstract and opening discussion of finite and unimodular period-two convergence",
+          "method": "Open arXiv PDF text",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Potentially broader majority theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetry class and labelled counts are natural invariants of a standard product graph under a specified local rule. The nested-support deduction and reversible doubling explain all equilibria, not just the known order-four census; the multiplicity formula then turns geometric shapes into exact labelled populations. The binary restriction, fixed states, and exclusion of transpose in the quotient are substantive and explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

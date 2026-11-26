@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-The result concerns exactly 18 labelled vertices and all 262144 selected subsets. `verify.py` enumerates all subsets and validates security, inclusion-minimality, every optimum replacement edge, all-source graph distances and the 216 explicitly supplied incidence automorphisms. `independent_check.cpp` independently reconstructs the graph and the security test from direct domination checks, including all-source graph distances. Both were executed successfully from the supplied paths, returning `PAPPUS_SECURE_VERIFY_OK` and `INDEPENDENT_DIRECT_SWAP_OK` respectively.
+The finite certificates test the two size polynomials on the labelled 18-vertex Pappus incidence graph. `python3 verify.py` uses cached closed-neighborhood unions for every one of the 262144 masks, tests each required feasible swap, and checks inclusion-minimality by single deletions. `c++ -std=c++17 -O2 independent_check.cpp -o check && ./check` computes domination directly for each proposed swap and verifies the same polynomials. The success markers are `PAPPUS_SECURE_VERIFY_OK` and `INDEPENDENT_DIRECT_SWAP_OK`, respectively.
 
-The exhaustive finite tests are a rigorous certificate for this one graph, not a proof for any infinite graph family. A graph-theoretic private-neighborhood equivalence and explicit adjacency encoding establish that the tests implement the stated mathematical predicate. Originality is assessed against identified literature and indexed mathematical findings, with residual uncertainty for sources not fully available or not indexed. Independent external audit is not performed.
+The move graph and automorphism outputs are ancillary checks on the minimum class, which also occurs as the all-singleton sector of weak Roman optima. They do not establish originality, and the weight-eight overlap provides no certificate for the higher-cardinality coefficients. The exhaustive all-mask tests, not the overlap or the symmetry data, certify the complete spectra.

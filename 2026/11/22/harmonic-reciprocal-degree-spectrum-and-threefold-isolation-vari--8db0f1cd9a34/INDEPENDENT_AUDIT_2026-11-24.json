@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:14:08.063761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the tag coordinates, neighbors are independent and the hit area is xy. The product-uniform beta mixture gives (H_n-H_k)/n; equivalently, the number m of labels satisfying one cross inequality is uniform on 0,…,n−1, and mixing over the other uniform tagged coordinate gives degree uniform on 0,…,m conditional on m. For the variance, the two tagged rectangles have intersection min(X1,X2)min(Y1,Y2); excluding the direct edge and taking the (n−2)nd power of the complement of their union is exact. When both tag products are ≤ε=10 log(n)/n, a direct edge forces one pair of coordinates near 0 and the other near 1 in one of two opposite boxes of volume O(ε⁴); elsewhere the union area gives a negligible exponential upper bound. The independent-baseline exponent adjustment is O(log²(n)/n) after n² rescaling. With t_i=nX_iY_i and u_i=−log X_i the Jacobian is 1/n per tag; after integrating out the common translation, its allowed length divided by log n tends to one. The rescaled overlap term is dominated by a constant times (1+|log t1|) max(t1,t2) exp(−|u1−u2|) exp(−max(t1,t2)/2), which is integrable. Averaging the limiting kernel over the independent exponential t_i gives exp(−|u1−u2|), of integral two. Hence the pair term contributes 2 log n+o(log n), and the one-tag term contributes log n+O(1); Chebyshev proves the stated concentration. Read RESULT.md, VERIFICATION.md and checker.py. The recorded finite and simulated checks were not rerun and do not certify the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durak et al. model the subgraph of mutual edges but match prescribed graph degree distributions rather than derive a variance for this two-coordinate threshold law.",
+          "Ross's undirected random threshold graph uses one weight per vertex and a weight-sum criterion.",
+          "The cited general inhomogeneous-connectivity article was not accessible at the DOI or publisher route; no full-text exclusion is claimed."
+        ],
+        "reasoning": "Prescribing degrees or using a common genre of thresholds does not supply reciprocal-isolation dependencies for this graph. A general graphon treatment might offer related tools; the inspected comparisons do not provide the exact pair covariance.",
+        "searches": [
+          "arXiv:1210.5288v4, pp. 1–2 and §III-B",
+          "arXiv:1111.7157, p. 1",
+          "DOI 10.1002/rsa.70098 and publisher copy"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.37236/4050",
+        "arXiv:1111.7157",
+        "arXiv:1210.5288v4",
+        "DOI 10.1002/rsa.70098 (access attempts only)",
+        "Resultary records 7794921470b6 and 9e288e46509a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform directed out-degree and expected directed isolated count 1/n are not the reciprocal harmonic law or expected reciprocal isolated count H_n.",
+          "Twice the total number of reciprocal pairs is the sum of reciprocal degrees. Its moments are not the moments of the number of zero reciprocal degrees; the latter depends on products of no-edge indicators over all potential neighbors.",
+          "The limit uses the union of two neighbor rectangles and nonvanishing log-scale overlap, not marginal first or second moments of the total edge count."
+        ],
+        "reasoning": "The exact parent model immediately enables a one-tag calculation, but neither its directed-degree propositions nor the same-model reciprocal-pair moments supply the needed two-tag void probability or its coefficient.",
+        "searches": [
+          "Reilly–Scheinerman–Zhang, Propositions 20–21",
+          "Resultary 7794921470b6, Finding and reciprocal-pair/covariance sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Swapping the two random coordinates transposes the digraph. With W_i=1−Y_i the reciprocal condition is X_i>W_j and X_j>W_i.",
+          "Sorting the reflected endpoints would connect overlapping intervals even for two labels whose X_i<W_i, which cannot be mutually adjacent in the actual model.",
+          "The exact directed parent paper uses the union of arcs for its underlying simple graph and analyzes the directed in/out degree and directed isolation."
+        ],
+        "reasoning": "The reflection is a faithful representation with oriented endpoints, not equivalence to ordinary random interval intersection or to the one-coordinate threshold model. Directed isolation and reciprocal isolation differ even within the identical parent law.",
+        "searches": [
+          "random threshold digraph reciprocal graph mutual arcs degree distribution harmonic H_n-H_k isolated vertices variance random threshold digraph",
+          "Reilly–Scheinerman–Zhang, PDF pp. 2, 9–10, 17",
+          "Resultary: random threshold digraph reciprocal pairs and random interval graph low degrees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 7794921470b6 studies the identical model, counts total reciprocal pairs and zero-outdegree and zero-indegree vertices, and gives their covariance and joint-limit results.",
+          "Record 9e288e46509a concerns low-degree extremes in ordinary sorted-endpoint interval intersection, not the mutual-arc rule.",
+          "The index also returns this assigned finding; it is not a distinct comparison."
+        ],
+        "reasoning": "The closest separate result concerns different statistics, not an exact table for reciprocal degree or isolation variance. The shared date does not settle priority or negate the material same-model overlap.",
+        "searches": [
+          "Resultary: reciprocal degrees, mutually isolated vertices, and covariance in random threshold digraphs",
+          "Resultary same-model record 7794921470b6, mirrored RESULT.md",
+          "Resultary random interval record 9e288e46509a, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The underlying random digraph and the mutual-edge convention both have prior coverage. The finite harmonic law is an elementary distributional calculation in that model. The substantive supported distinction is the logarithmic reciprocal-isolation variance, including the overlap contribution of two, not an originality claim for the parent model or the beta integral.",
+      "residual_risks": [
+        "A prior treatment of random dominance rectangles or another equivalent oriented-endpoint model could have isolated the same kernel; the searches are bounded.",
+        "The cited graphon article was not inspectable via the available routes.",
+        "Dating the distinct same-model record does not establish priority; the comparison here is of statements and implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parent law and different statistics; union rather than intersection for the underlying simple graph.",
+          "evidence": [
+            "The paper uses the same independent sender/receiver coordinates and a reflected order representation.",
+            "The stated uniform out-degree and 1/n² one-tag directed isolation concern directed arcs."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/4050",
+          "material_read": "OA PDF pp. 2, 9–10 and 17; offsets 3186, 18800–25957 and 42450; Propositions 20–21",
+          "method": "Full-text PDF passage inspection",
+          "title": "Random Threshold Digraphs",
+          "trigger": "Identical random digraph and possible reciprocal statistics in its degree section"
+        },
+        {
+          "assessment": "Material overlap on the digraph and reciprocal-pair indicators, but not a vertex reciprocal isolation result.",
+          "evidence": [
+            "The stated variables track reciprocal edge total and directed sinks and sources; pair-count moments do not determine the number of zero mutual degrees."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-opposite-finite-covariances-and-joint-limit-decoupling-in-random--7794921470b6",
+          "material_read": "Mirrored RESULT.md offsets 0–2963 and 6500–9493",
+          "method": "Local catalogue and original record passage inspection",
+          "title": "Opposite finite covariances and joint limit decoupling in random threshold digraphs",
+          "trigger": "Same model, reciprocal edges, zero-degree events and covariance"
+        },
+        {
+          "assessment": "Different adjacency despite two uniform coordinates.",
+          "evidence": [
+            "The source sorts the endpoints and tests interval intersection, unlike the two cross inequalities on oriented endpoints."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-coupled-poisson-extremes-of-degrees-and-universal-vertices-in-ra--9e288e46509a",
+          "material_read": "Mirrored RESULT.md, opening statement, offset 0",
+          "method": "Local catalogue and original record passage inspection",
+          "title": "Coupled Poisson extremes of degrees and universal vertices in random interval graphs",
+          "trigger": "Potential interval representation of the same two-uniform graph"
+        },
+        {
+          "assessment": "Different undirected threshold model.",
+          "evidence": [
+            "One scalar weight per vertex; adjacency uses their sum, not mutual arcs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.7157",
+          "material_read": "p. 1 model definition",
+          "method": "OA passage inspection",
+          "title": "Further Properties of Random Threshold Graphs",
+          "trigger": "Related threshold and degree terminology in literature lookup"
+        },
+        {
+          "assessment": "Same meaning of reciprocal degree, different generative mechanism and question.",
+          "evidence": [
+            "The construction fits prescribed degree distributions instead of deriving the present spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.5288v4",
+          "material_read": "pp. 1–2 and §III-B, offsets 0–10000 and 23500–25500",
+          "method": "OA paper passage inspection",
+          "title": "A Scalable Null Model for Directed Graphs Matching All Degree Distributions: In, Out, and Reciprocal",
+          "trigger": "Explicit reciprocal-subgraph degree distribution"
+        },
+        {
+          "assessment": "Full-text comparison not possible on the available routes; not negative evidence.",
+          "evidence": [
+            "The frozen record cites it for general connectivity, not a precise covariance result; that attribution was not independently verified in full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70098",
+          "material_read": "Citation only; DOI and publisher returned HTTP 403",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Connectivity of Inhomogeneous Random Graphs II",
+          "trigger": "Potential general graphon coverage of isolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variance quantifies the failure of the independent rare-isolation approximation in the reciprocal graph of an established random digraph. The one-vertex law alone predicts only the marginal unit of logarithmic variance, while the actual shared-neighbor geometry adds two more. The exact coefficient distinguishes dependence mechanisms at the natural isolation scale; the elementary degree calculation is not the sole value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,79 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:37:02.036374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With y=1+x and D=1+y² the first three z-derivatives at z=-x have numerators 4y, 4(3y²-1), and 48y(y²-1) over D²,D³,D⁴. They give nonnegative divided differences through order three by simplex integration, including coincident nodes. Triangular resolvent expansion therefore gives positivity for every DAG of the stated depth. For a four-state shortest route of length three, any four-transition walk would contain a removable repetition; thus Q⁴ contributes only three transitions and a negative hold (at least the source), giving strict positivity from the coefficient -1/4 when the cubic coefficient vanishes. Shorter routes use coefficients 1 and 1/2, unreachable entries are zero by reachability block structure, and conservation follows from Q1=0. For the five-state witness invert the transient denominator D I/2 - h(1+h)N + h²N²/2 modulo N⁴. Transient coefficients agree with the derivative expressions. Subtracting their partial sums from 1 gives the four absorbing numerators over D to powers 1 through 4: h(h+2), h²(h²+4h+2), h⁴(h²+6h+6), h⁴(h⁴+8h³+12h²-4). The last quartic is strictly increasing on h>0 and crosses zero exactly once. The transient block has three internal superdiagonal ones, not four as one incidental sentence says; the displayed generator and N⁴=0 calculation are correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Large-step criterion uses positivity of the stationary projector on its eventually exponentially positive class."
+        ],
+        "reasoning": "This hypothesis is not the acyclic-depth restriction, and eventual positivity does not imply positivity at arbitrarily small steps or pin down a sharp crossover.",
+        "searches": [
+          "arXiv:2608.22703v1, introduction and §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.22703v1",
+        "Frozen AUDIT.json (secondary comparison to 2012 and [2/2] work)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general barrier gives loss of unconditional positivity somewhere, not a minimal number of conservative states with loss as h tends to zero."
+        ],
+        "reasoning": "Neither the stationary-projector mechanism nor the classical barrier gives the particular quartic or the sharp four/five-state dichotomy.",
+        "searches": [
+          "arXiv:2608.22703v1",
+          "Bolley–Crouzeix barrier as cited in §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper uses the identical rational stability function and column conservation, equivalent by transposition to row conservation."
+        ],
+        "reasoning": "Exact sign on a finite conservative positive system is the relevant comparison; general eventual positivity is distinct from all-step graph immunity.",
+        "searches": [
+          "Padé [0/2] second order positivity Markov generator three transitions divided differences pure birth five states 0.496605762665489 absolute monotonicity",
+          "arXiv:2608.22703v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen comparison concerns [2/2], a different function and a different threshold; web search unavailable."
+        ],
+        "reasoning": "No negative database inference is made; the [2/2] threshold cannot be transferred by equality of schemes.",
+        "searches": [
+          "Exact quartic and root query above; frozen audit's comparison to the eight-state [2/2] note"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge assessment of the joint topology/minimality/exact-threshold theorem; the map and eventual-positivity framework are not new.",
+      "residual_risks": [
+        "Live literature search unavailable and Resultary not exposed; no inference from absence.",
+        "Classical positive matrix-function literature may contain equivalent special cases; independent comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers method and eventual-positivity context; not a logical implication of the frozen theorem from the inspected statements",
+          "evidence": [
+            "§1.1 uses r(infinity)=0 and the stationary-projector limit; §1.2 describes the universal positivity barrier."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22703v1",
+          "material_read": "Abstract, §§1.1–1.2 and statement of contributions",
+          "method": "OA primary PDF text",
+          "title": "Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker–Planck equation",
+          "trigger": "Identical rational function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph-depth condition gives an all-step guarantee at arbitrary dimension and rates, and the exact minimal witness quantifies a reliability failure for a natural L-stable alternative to the exponential. Neither is a full-solver guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

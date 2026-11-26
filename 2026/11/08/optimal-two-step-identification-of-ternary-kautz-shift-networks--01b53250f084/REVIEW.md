@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the ternary directed Kautz graph of admissible length-\(n\) words, the two children of any admissible length-\(n-1\) prefix have identical positive-radius predecessors, yielding a lower bound of one sensor per sibling pair, \(3\cdot2^{n-2}\). The orientation test selects exactly one extension per prefix. The decoding proof separates incoming predecessor layers and treats odd and even \(n\) separately: at odd lengths the two radius-two sensors have a unique repeated suffix of length \(n-2\); at even lengths the selected radius-two sensors form a suffix pair and the radius-one pair is either present, with a unique ordered overlap, or absent, uniquely fixing the next orientation. A selected sibling is not a predecessor of its other sibling, since the only possible length-two overlap would be an alternating word excluded by the code. Thus every vertex has a nonempty unique signature and decodes in linear time. The proof handles all \(n\ge3\), and identical full radius-two balls preclude identification at \(n=1,2\). `VERIFY.py` separately reconstructs graph balls, signatures and decoder and checks every vertex through \(n=11\). Finite testing is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+The disjoint prefix-sibling pairs give the lower bound because their strict predecessor layers agree. Exactly one completion of each prefix satisfies the orientation rule, and no alternating word does. The one- and two-step layers are disjoint; the only possible center overlap is the period-two case, which is unselected. At odd length the two selected second predecessors give the unique repeated length-(n-2) suffix; the unique sensor with that suffix in its interior positions gives the prefix. At even length suffix-pairs recognize the selected layers. For two pairs a reverse overlap would force the even-length middle word to alternate, with the entering step opposite its final step, contradicting selection; with one pair the missing one-step layer determines the next orientation. Once the prefix is known, the selected completion cannot be a predecessor of the other sibling: one step violates proper adjacency and two steps require a period-two word. Presence of that completion decodes the center. This uses at most five length-n labels and constant scans. For n=2 any source goes directly to the target if its last letter equals the target's first, otherwise in two shifts, and n=1 is complete in one step. Thus both boundary cases have coincident balls.
 
-Boutin, Goliber and Pelto, *Identifying Codes on Directed De Bruijn Graphs*, arXiv:1412.5842 (first publicly posted 2014-12-18), examine the larger *unrestricted* de Bruijn graph; their sharp code sizes there do not entail this result for the proper-adjacency Kautz subgraph. The 2007 and 2009 Kautz work of Araki concerns tuple domination and twin domination, without the required pairwise separation of all reporting signatures. A known radius-one Kautz identification formula concerns a different radius and is not itself an optimal radius-two construction. Searches against the mathematical finding index, known prior claims, the source article and Kautz aliases found no result that subsumes the present exact half-size optimum plus constructive decoder. An unindexed theorem, or unexamined details in the 2007 paper (abstract accessible), could affect priority.
+## originality
 
-## Value — PASS
+PASS
 
-A two-step sensor that identifies an unknown node from directed reachability observations is a natural network localization invariant. The theorem gives a sharp all-length minimum cost, an explicit optimal distributed sensor selection condition depending on only two local word transitions, and an exact \(O(n)\) reconstruction from at most five reporting sensors. Radius-two localization does not follow merely from the analogous radius-one bound. This is a structural solution for an infinite family, not a small numerical improvement or arbitrary finite slice.
+The exact incoming binary radius-two optimum for all ternary Kautz lengths and its orientation decoder are distinct from the inspected radius-one, full de Bruijn, domination and exact-distance results. There is a genuine boundary construction match at n=3 under restriction from full de Bruijn; this does not supply the Kautz all-length theorem. The unresolved line-digraph citation is not counted as either evidence against overlap or a positive prior match.
 
-## Literature and limitations
+## value
 
-[1] D. Boutin, V. H. Goliber and M. Pelto, *Identifying Codes on Directed De Bruijn Graphs*, arXiv:1412.5842, https://arxiv.org/abs/1412.5842; inspected full text, especially lower bound and Theorem 3.6. The distinction is the forbidden-adjacent-equality constraint in the Kautz network.
+PASS
 
-[2] T. Araki, *On the k-tuple domination of de Bruijn and Kautz digraphs*, Information Processing Letters 104 (2007), 86–90, DOI:10.1016/j.ipl.2007.05.010; abstract examined but complete text unavailable.
+The result settles an exact optimum and supplies an efficient decoder in a natural shift network and observation model. The decoder proves a real obstruction can be resolved at the lower bound; unlike simply selecting one sibling per pair, it deals with coinciding predecessor signatures, distinguishes parity, and covers all feasible lengths.
 
-[3] T. Araki, *Connected k-tuple twin domination in de Bruijn and Kautz digraphs*, Discrete Mathematics 309 (2009), 6229–6234, DOI:10.1016/j.disc.2009.05.031; relevant openly accessible article material examined.
-
-The result applies only to incoming-radius-two signatures in the directed ternary no-repeat shift, with \(n\ge3\). It neither classifies all optimal codes nor resolves historical priority against inaccessible literature. All-length validity rests on the proof, not finite tests.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The disjoint stratification by coordinates outside the cube is exhaustive up to measure-zero boundaries. Independent monomial-integration formulas reproduce the exact three-dimensional volume and radial moment. Cubic symmetry makes the covariance scalar. Exact differentiation yields five strict positive coefficients, proving monotonicity for every real positive radius, not just a finite test set. The all-dimensional quadratic term follows from the first three exact volume and second-moment coefficients, and the inner phase from the exact erosion identity.
+## correctness
 
-**Originality — PASS (qualified historical priority).** Related work on parallel-body isoperimetric quotients controls a surface-area/volume expression but not the interior covariance determinant. Work on local isotropic extremizers concerns different variational hypotheses and does not imply a complete monotone ball-rounding profile. The published Hanner-polytope isotropic range cannot apply to nonpolytopal spherical Minkowski sums. Searches for aliases (parallel body, rounded cube, Euclidean ball dilation, polar moment and isotropic constant) found no covering formula. A previously unknown equivalent mechanical-inertia treatment is a residual risk.
+PASS
 
-**Value — PASS.** The signed Euclidean parallel-body flow of the cube is a canonical geometric deformation. The exact one-sided second derivative in every dimension separates the flat inner flow from the outward flow, while the three-dimensional formula solves the entire noninfinitesimal optimization and identifies its unattained ball endpoint. The first-order variation alone would miss the sharp transition, so the quadratic and global results resolve motivated geometric questions rather than provide a numerical benchmark.
+The outside coordinates of a point are determined by the coordinatewise Euclidean projection to the cube. For exactly k excess coordinates their vector ranges over a positive-orthant k-ball. Thus V has normalized coefficients 1,d,πd(d−1)/8 through order two. The contribution to S from a stratum uses the inside-square mean (d−k)/3 and k outside squares (1+u_i)^2. The face linear-in-excess term contributes 3 to the normalized quadratic coefficient, and k=2 contributes π(d+4)(d−1)/8. Symmetry gives L²=S/(dV^(1+2/d)); the binomial expansion cancels the linear term and gives −(d−1)(4−π)/48. Erosion is exactly a homothetic cube, so the signed profile is C¹ but lacks a second derivative at zero. In d=3 the edge region integrates ∫u_1=t³/3 on a quarter-disk and the corner region integrates ∫u_1=πt⁴/16 on an octant, consistent with independent sums of the volume and moment polynomials. An exact scaled-integer coefficient convolution, adding (5i−3j)v_i s_j to the coefficient of t^(i+j−1) and using a formal variable for π, reproduced the five-term derivative certificate in RESULT.md lines 82–97. Rational bounds 3.1<π<22/7 give all signs; the derivative is strictly negative for positive t. Leading terms give the ball limit, which is not attained at finite radius.
 
-The main related works are Richter–Saorín Gómez (2020/2022), Kipp (2024), and Kipp (2026). None yields the stated isotropic covariance result on the same family. The global assertion is deliberately not extended to dimensions at least four.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the explicit signed onset for every d and the exact strict outer-radius profile in d=3, not the use of parallel-body stratification, volume polynomials or covariance invariance themselves.
+
+## value
+
+PASS
+
+Euclidean rounding is a canonical deformation of the cube. The vanishing linear term and explicit negative quadratic term distinguish covariance response from volume growth and exhibit a loss of twice differentiability in the signed family. The exact dimension-three profile establishes strict behavior across all outer radii rather than just an endpoint ordering or a near-cube approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

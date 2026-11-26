@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:01.447593Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for repairs/3/RESULT.md. The frozen odd-cycle sentence could be read as saying that the common determinant is independent of tau; that assertion is false. On C3 the determinant is 2(1-x)^2(1+x^2)/9 with x=exp(-3 tau). The replacement states the fixed-tau equality for all positive tau and retains the exact formula. It also specifies the Gram weighting versus Fisher information and clarifies which two-dimensional directions are being compared. Independently, the invertible temporal Vandermonde reduces rank to the Fourier sensor blocks: paired sines vanish exactly at the stated gcd obstructions, and the one-dimensional endpoints never lose rank. The real Fourier columns are orthonormal. Writing the sensor block matrix as an orthonormal range basis times an invertible square factor and using the Schur complement gives its Gram volume times det(H)^2 times the restriction of H^-1 tensor I_2 to the missing directions. Root-of-unity products give the volumes 2/n^(n-1) and 1/n^(n-2). For n even the two missing sensor directions have same-plane dot product zero for d odd and one for d even; the restricted matrix has off-diagonal entry zero or h_0m accordingly. Products of coefficients of the two endpoint Lagrange polynomials have one common nonzero sign since the nodes are positive. The principal minor is positive, so even observable placements strictly lose, and d=1 is always admissible. Independent exact rational kernel constructions at tau=log(2) and twice that on C3 and C6 corroborated both formulas, the C3 parameter dependence, and 0=det(W_3)<det(W_2)<det(W_1) on C6. The frozen integer and mpmath scripts and outputs were inspected, not executed; their reported finite tests do not prove the formulas or tau independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general raw low-pass formula needs cutoff strictly below Nyquist. Its odd full-band case is exact overlap, but the restriction rules out the even full-band complement with two missing directions.",
+          "The exact even result with m samples is square and the exact rank result with m+1 samples does not control volume. General Gramian submodularity and frame recovery do not state this cyclic fixed-horizon placement law."
+        ],
+        "reasoning": "Neither a low-pass extension nor a short-horizon determinant dominates the full even evolution at the target horizon. The independently reconstructed two-dimensional complement is necessary to retain the Nyquist contribution and compare parities.",
+        "searches": [
+          "Resultary:d1a88d067af2, 3aa273a4571a, b4ea4f0f2c79 and b03d8e4c7818",
+          "arXiv:1404.7665 Theorem 6, arXiv:1609.02654 pp. 1–2, arXiv:2609.25472 finite-graph passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:d1a88d067af2",
+        "Resultary:3aa273a4571a",
+        "Resultary:b4ea4f0f2c79",
+        "Resultary:b03d8e4c7818",
+        "arXiv:1109.3556",
+        "arXiv:1404.7665",
+        "arXiv:1609.02654",
+        "arXiv:2609.25472"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m samples the known even result has no nonzero determinant for observable even separations that require the extra sample. At m+1 the value depends on the Nyquist/constant coupling entry h_0m and the parity of their raw sensor directions; it cannot be read off from rank.",
+          "The older qualitative gcd condition reported for two sensors is not used to infer this even rank statement: read literally its gcd(d,n)=1 differs on C6,d=2. The exact original Fourier blocks directly check the target rank under the specified evolution."
+        ],
+        "reasoning": "The odd formula is obtainable by specialization and is not treated as a contribution. The surviving even step adds two non-square constraints and a strictly nonzero temporal cofactor term. The compared precedents supply ingredients or adjacent regimes, not that conclusion by parameter substitution.",
+        "searches": [
+          "Comparison of Resultary:d1a88d067af2, 3aa273a4571a and b4ea4f0f2c79 with the rectangular full-band factorization",
+          "arXiv:1109.3556 pp. 3 and 22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectrally demixed output norm in b03d8e4c7818 is not related by a determinant-preserving orthogonal row change. At the stated horizon the untreated Gram is S^T(H tensor I_2)S with a nontrivial missing-direction term.",
+          "On even cycles, rank alone, including C6,d=2, does not reveal whether the observable even pair is optimal."
+        ],
+        "reasoning": "Observability and the determinant were compared across heat evolutions, Fourier diagonalizations and change of output metric. Invertibility alone preserves rank, not Gram volume on the retained rectangular column space.",
+        "searches": [
+          "Resultary semantic search for raw/untreated two-sensor finite-time information volume, spectral demixing and even-cycle arithmetic rank",
+          "arXiv:1109.3556, Introduction and Theorem 4.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d1a88d067af2 gives the determinant and ties at the identical odd full-band scope by setting ell=(n-1)/2. 3aa273a4571a and b4ea4f0f2c79 give exact even results at differing horizon or for rank alone."
+        ],
+        "reasoning": "Those are substantive matches, not title similarities; recognize the odd result as covered and distinguish the exact observable-even comparison not given by either even match. Dates alone do not decide priority.",
+        "searches": [
+          "Published Resultary exact two-sensor cycle determinant and gap classification lookup"
+        ]
+      },
+      "rationale": "Pass only for the repaired scope of contribution: the full even-cycle untreated trajectory determinant at m+1 samples and the strict parity gap. The odd branch is explicitly a benchmark in the replacement because there is an exact indexed specialization, regardless of how relative priority is interpreted. The known qualitative rank comparison is also not claimed as the new determinant result.",
+      "residual_risks": [
+        "A separate exact untreated even-cycle m+1 formula may exist outside the bounded inspected passages; no negative evidence was inferred from the unavailable focused web-search output.",
+        "Relative priority of the overlapping indexed records is not certified. The odd branch and even rank alone are not novelty grounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact odd branch under full odd cutoff; no even Nyquist case",
+          "evidence": "Uses ell+1 time samples and a (2ell+1)-dimensional band with ell<n/2.",
+          "identifier_or_url": "Resultary:d1a88d067af2",
+          "material_read": "Finding, offset 79 and formula near 800",
+          "method": "Published record mirror",
+          "title": "Raw-trajectory volume factorization and optimal two-sensor gaps on finite cycles",
+          "trigger": "Same untreated two-sensor determinant in Fourier bands"
+        },
+        {
+          "assessment": "Different horizon",
+          "evidence": "Uses m samples on C_(2m), ties successful gcd(d,n)=1 pairs, and gives no m+1 parity ratio.",
+          "identifier_or_url": "Resultary:3aa273a4571a",
+          "material_read": "Finding near offset 750",
+          "method": "Published record mirror",
+          "title": "Universal finite-time information volume for two sensors on even cycles",
+          "trigger": "Exact untreated even-cycle determinant"
+        },
+        {
+          "assessment": "Exact rank overlap at the target horizon, not determinant",
+          "evidence": "The extra snapshot makes d=2 on C6 full rank; its scope omits determinant comparison.",
+          "identifier_or_url": "Resultary:b4ea4f0f2c79",
+          "material_read": "Finding near offset 79, C6 witness near 7501",
+          "method": "Published record mirror",
+          "title": "Exact arithmetic rank loss and one-snapshot recovery on even cycle graphs",
+          "trigger": "Same even cycle and recovery horizon"
+        },
+        {
+          "assessment": "Different metric and band",
+          "evidence": "Explicitly distinguishes the spectrally demixed norm from raw time trajectories.",
+          "identifier_or_url": "Resultary:b03d8e4c7818",
+          "material_read": "Finding and scope near offsets 0 and 7153",
+          "method": "Published record mirror",
+          "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+          "trigger": "Earlier two-sensor Fourier-cycle optimization"
+        },
+        {
+          "assessment": "Relevant rank literature, not an equivalent determinant result",
+          "evidence": "Consecutive-gap gcd criterion for qualitative observability; no comparison of the two positive determinants among observable odd/even gaps at m+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+          "material_read": "pp. 3 and 22, offsets 9460 and 66295, Theorem 4.10",
+          "method": "OA primary PDF passages",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Qualitative rank arithmetic on cycle pairs"
+        },
+        {
+          "assessment": "General controllability Gramian criterion, not a solved two-sensor cyclic determinant",
+          "evidence": "Log-det submodularity does not specify exact optimal gap or parity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.7665",
+          "material_read": "p. 5, Theorem 6 near offset 36845",
+          "method": "OA primary PDF passage",
+          "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+          "trigger": "Generic log-determinant placement tools"
+        },
+        {
+          "assessment": "Different evolution and application",
+          "evidence": "An empirical observability-Gramian criterion is used rather than an even-cycle spectral determinant calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.02654",
+          "material_read": "pp. 1–2, offsets 1123 and 9500",
+          "method": "OA primary PDF passages",
+          "title": "Optimal Disease Outbreak Detection in a Community Using Network Observability",
+          "trigger": "Observability-Gramian determinant sensor placement"
+        },
+        {
+          "assessment": "Inspected passages address general frame recovery and a path example",
+          "evidence": "No applicable formula for the strict Nyquist-driven even-cycle gap in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25472",
+          "material_read": "Abstract and finite-graph passages at pp. 21–23, offsets 65519 and 70974",
+          "method": "OA primary PDF passage comparison",
+          "title": "Dynamical-sampling frame result",
+          "trigger": "Earlier finite-graph sampling/frame candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extra sample can restore observability without restoring D-optimality. An exact finite-horizon determinant and strict ratio distinguish designs that the rank criterion cannot distinguish and isolate the constant/Nyquist coupling as the cause. This remains useful without claiming novelty for the odd benchmark or guaranteeing performance for other horizons or other conditioning criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

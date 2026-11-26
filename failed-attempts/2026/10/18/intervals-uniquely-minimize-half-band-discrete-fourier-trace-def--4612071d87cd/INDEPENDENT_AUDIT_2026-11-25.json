@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:55.360660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53; VERIFICATION.md and verify.py, inspected not executed"
+      ],
+      "rationale": "Integrating over [−1/4,1/4] gives K(0)=1/2 and sin(πk/2)/(πk) for k≠0. Squaring and counting both orders of each unordered pair gives D=N/4−(2/π²)E, where E sums inverse squared odd distances. For a cutoff at 2r+1 the leftmost point has degree at most r+1, and any point of the larger parity class has degree at most floor(N/2). Removing a point of degree at most the minimum of those bounds proves the count comparison by induction, since the new interval endpoint realizes that minimum. The positive telescoping weights (2r+1)^−2−(2r+3)^−2 transfer all counts to E; the first count has gap c(Ω)−1 with weight 8/9. This proves strictness off intervals and the exact penalty, with uniform equality at N=2 and {0,3}. Singletons have the stated constant defect.",
+      "residual_risks": [
+        "Finite grid checks in the supplied program are diagnostic; the all-N proof is analytical. Its rational comparisons are exact but its additional two-by-two numerical normalization check uses floating point.",
+        "The constant is asserted sharp uniformly in N, not necessarily for any fixed N other than the exhibited case. No claim about individual eigenvalues or other bands is tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pollard's theorem is for all two-set sum representation counts over a prime cyclic group. Taking the prime larger than both the relevant integer diameter and the total size gives the same truncated-sum bound on Z for y−x.",
+          "Briggs–Wells gives intervals as eventual edge-isoperimetric optimizers for each finite generating set, not all sizes simultaneously. Barber–Erde is asymptotic and Strachan–Swanepoel treats other lattice boundaries."
+        ],
+        "reasoning": "The exact prior implication uses Pollard's two-set theorem, rather than the asymptotic isoperimetric context. Negating the even rescaled set turns differences into sums; both classes being nonempty is the only needed case since otherwise the count is zero.",
+        "searches": [
+          "Pollard, DOI 10.1112/jlms/s2-8.3.460; theorem reproduced in Nazarewicz–O'Brien–O'Neill–Staples (2007) p. 1, Theorem 2",
+          "Briggs–Wells arXiv:2402.14087, Theorem 1.3; Barber–Erde arXiv:1707.04411, Theorem 1; Strachan–Swanepoel arXiv:2503.09591, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and verification files",
+        "Pollard DOI 10.1112/jlms/s2-8.3.460, as stated in Nazarewicz et al. p. 1 Theorem 2",
+        "Mayeli arXiv:2609.12226, arXiv:2209.01003, 1707.04411, 2503.09591 and 2402.14087",
+        "Resultary bbf7e58277be, 53822f99a1ce, 417f34275d33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let a and b be the two parity class sizes and f the rescaled difference counts. The theorem gives ∑min(t,f)≥t(a+b−t) for 1≤t≤min(a,b); interval difference counts h of the same sizes attain this, with level-set sizes a+b−2j+1 at level j≤min(a,b). Since both totals are ab, ∑(f−t)_+≤∑(h−t)_+ (also at t=0 and t≥min(a,b)).",
+          "For any k differences their f-mass is bounded by k t+∑(h−t)_+. Minimizing over integer t gives the sum of the k largest h counts, namely ∑_{j=1}^{min(a,b)} min(k,a+b−2j+1). This is maximal when the parity classes are balanced. For I_N the rescaled classes are balanced intervals and J=[−r−1,r] consists of k largest levels' positions by count: its center is −1/2, which matches the profile center for odd N and chooses a tied endpoint for even N (profile center 0). Thus I_N attains that upper bound at every cutoff.",
+          "The preceding exact count bound makes every weighted deficit nonnegative. Keeping only the first deficit gives the penalty and strictness immediately; {0,3} against I_2 has only that deficit and supplies equality."
+        ],
+        "reasoning": "This is an explicit specialization of the older stronger theorem to the exact frozen counts and both trace-defect conclusions, including the constant. No inverse theorem, new extremizer classification of the general rearrangement problem, or limiting estimate is needed.",
+        "searches": [
+          "Nazarewicz et al. (2007), Theorem 2, compared with frozen RESULT.md lines 28–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mayeli's general symmetric-difference formula yields the trace/energy conversion, but not a shape theorem as stated there.",
+          "Writing even sites as 2x and odd sites as 2y+1 identifies the odd-distance cutoff count with the number of cross pairs y−x in J=[−r−1,r]∩Z, an interval of k=2r+2 consecutive differences.",
+          "Hajaiej–Han–Hua's ordinary radial discrete Riesz inequality uses a decreasing function of graph distance: it does not directly accept the frozen alternating zero kernel. The rescaled difference-count majorization instead addresses the parity restriction exactly."
+        ],
+        "reasoning": "The parity reduction is the correct equivalence for the old finite-set representation theorem; applying radial rearrangement without it would not prove the claim.",
+        "searches": [
+          "Resultary half-band trace defect, half-cycle concentration and equal-width interval Fourier records",
+          "Discrete Riesz–Sobolev inequalities, integer sumset representation majorization and Pollard",
+          "Mayeli arXiv:2609.12226, Proposition 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bbf7e58277be gives sharp product-set asymptotics; 53822f99a1ce gives spectral pairing and gap products on finite even cycles; 417f34275d33 concerns real interval diffraction and homometry.",
+          "Mayeli's logarithmic example is a box-model scaling claim, not exact minimization at given cardinality."
+        ],
+        "reasoning": "These statements are not exact tabulations or classifications of the frozen integer optimization. The stronger representation theorem, not a catalogue name match or finite table, decides prior implication.",
+        "searches": [
+          "Resultary bbf7e58277be, 53822f99a1ce and same-day 417f34275d33",
+          "Mayeli Proposition 9.3 and Briggs–Wells Theorem 1.3"
+        ]
+      },
+      "rationale": "Mayeli supplies the trace identity. More decisively, Pollard's classical truncated representation-sum theorem already gives the simultaneous all-cardinality edge inequalities by splitting the integer sites into even and odd classes and applying its majorization bound to the rescaled difference counts. The same positive layer-cake and the elementary first-cutoff count give both strictness and the uniformly sharp penalty. The reviewed proof is valid and elementary, but the stated results are a corollary of the stronger known rearrangement bound, not a gap left by the more closely named asymptotic isoperimetry papers.",
+      "residual_risks": [
+        "An exact earlier Fourier statement of the same shape theorem was not identified in the bounded search; the verdict rests on the proved implication, not on that absence or on access to the 1974 full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the decisive older Pollard inequality; its 1974 source landing page did not supply readable full text, but this OA theorem statement suffices for the comparison",
+          "evidence": "For prime P and t≤min(|A|,|B|), ∑_{j=1}^t N_j≥t min(P,|A|+|B|−t) for the representation superlevel counts N_j.",
+          "identifier_or_url": "https://doi.org/10.4064/aa127-1-1",
+          "material_read": "Acta Arithmetica 127.1 (2007), p. 1 Theorem 2 and surrounding definitions, text offsets 0–2075",
+          "method": "Lawful publisher OA PDF, https://www.impan.pl/shop/publication/transaction/download/product/82135?download.pdf",
+          "title": "Equality in Pollard's theorem on set addition of congruence classes",
+          "trigger": "Exact stronger pair-count majorization theorem"
+        },
+        {
+          "assessment": "Supplies trace identity and box-model asymptotics, not the exact shape statement by itself",
+          "evidence": "Proposition 4.1 represents the defect by a weighted symmetric difference; Proposition 9.3 gives endpoint N^{d−1} log N scaling for boxes.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12226",
+          "material_read": "Proposition 4.1, PDF p. 6 offset 22092; Proposition 9.3, p. 11 offset 40404",
+          "method": "Lawful OA PDF",
+          "title": "Trace-defect bounds for discrete Fourier concentration operators",
+          "trigger": "Identical concentration functional and normalization"
+        },
+        {
+          "assessment": "The nonmonotone kernel is not directly covered in original coordinates",
+          "evidence": "The generalized discrete Riesz inequality requires a decreasing function of graph distance.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01003",
+          "material_read": "v2 Theorem 1.2, PDF p. 6 offset 17216",
+          "method": "Lawful arXiv OA alternate",
+          "title": "Discrete Schwarz rearrangement on lattice graphs",
+          "trigger": "Possible discrete rearrangement overlap"
+        },
+        {
+          "assessment": "Eventual optimizer inclusion only, not the decisive all-size implication",
+          "evidence": "Intervals eventually belong to the optimizer sets for each fixed finite generating set.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.14087",
+          "material_read": "Theorem 1.3, PDF p. 2 offset 7849; Section 3 proof p. 11 offset 36799",
+          "method": "Lawful OA PDF",
+          "title": "Phase transitions in isoperimetric problems on the integers",
+          "trigger": "Same edge-isoperimetry question for cutoff Cayley graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–50",
+        "Nazarewicz et al. (2007), p. 1, Theorem 2"
+      ],
+      "rationale": "The optimizer and component count are naturally motivated, and the short induction is a useful exposition. As a research claim, however, the exact result follows from the older representation majorization under the parity reduction, with the first layer and a two-site check accounting for the sharp coefficient. No additional nonmechanical extremal invariant or new band is established by the frozen finding.",
+      "residual_risks": [
+        "This does not discount the pedagogical merit of the elementary proof, and does not decide more general spectral-band or eigenvalue questions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

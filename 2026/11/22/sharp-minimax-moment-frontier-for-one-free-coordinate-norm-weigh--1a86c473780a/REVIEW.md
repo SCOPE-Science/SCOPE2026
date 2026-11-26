@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar projected row step has the exact reset identity \(u_{k+1}=d_{I_k}/s_{I_k}\). This makes the distribution independent of the initial feasible coordinate after one update. The exact absolute-moment sum is maximized in all observation errors by saturation. The subcritical divergence and critical upper bound follow directly. In the supercritical case strict Jensen concavity reduces an arbitrary set of row magnitudes to a one-parameter problem, and a strictly decreasing derivative sign expression certifies one global maximizer and every equality case. The complete matrix witness has a rank-one Gram update, explicit singular values and an exact two-atom iterate distribution. The checker replays exact-rational identities and a large finite sample of candidate geometry comparisons; the proof, not finite sampling, establishes all real exponents.
+PASS
 
-## Originality — PASS, with stated residual risk
+A selected projected equation resets the one free coordinate exactly to d_i/s_i, so the law after every positive number of updates is Q_i=s_i^beta/sum_j s_j^beta on those atoms. Thus the moment is sum(s_i^(beta−q)|d_i|^q)/sum(s_i^beta), maximized only by saturation of all |d_i| for fixed s. For beta<q one positive row vanishing with another row fixed at 1 makes the risk unbounded over systems, not on a fixed system. For beta=q the denominator is strictly above 1 and the m-bound is approached by vanishing all except a unit row. For beta>q fix one unit row and the sum of the remaining s_i^beta. Strict concavity of z^(1−q/beta) bounds the numerator by its value with all remaining rows equal. For their common size t the derivative of the risk has the sign of beta−q−beta*t^q−q*(m−1)*t^beta, strictly decreasing from positive to negative. This proves interior attainment and all equality claims, including the unique unit row. The witness Gram matrix is I+(1,epsilon)^T(1,epsilon), so its condition number is at most sqrt(3). Its centered iterate error is zero or epsilon^(-1)−1, giving the claimed tail, inclusive at epsilon=1/(1+R), and moments. The uploaded checker was inspected, not run: its R=1/epsilon check is for the uncentered iterate and does not directly verify the stated clean-target tail. The independent exact centered-threshold checks are reproducible with python3 /workspace/reviews/evidence/reproduce.py, output 3. The result is for fixed m, exact projections and deterministic errors; no uniform bound over m or claim for more free coordinates follows.
 
-Sun et al. (2026) establish projected randomized iterative methods on trusted subspaces. Lok and Rebrova (2023) already establish the projected squared-norm Kaczmarz rule and a mean-square error horizon for noisy data; those results are credited. The new scientific object is the **all-real-order sharp uniform moment profile across normalized deterministic projected rows**, including its unique maximizing geometry, critical exponent and exact single-corruption tail. The closest publicly indexed Gaussian-noisy-coefficient moment result uses a different probability model and threshold, while the cited noise-horizon theory does not provide this quantified minimax classification. The original 2023 source was inspected at its update, noisy theorem, and proof, not only by title. Unindexed equivalent stronger results or uninspected sections of other specialist papers remain possible; absence from a search is not taken as a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-Classical squared-norm sampling is useful precisely because it damps weak projected rows. The theorem identifies its exact high-moment limit and gives a complete calibration criterion for any requested moment order, plus the worst coefficient geometry when the criterion holds. The embedded three-equation example has one bounded corrupted measurement and a uniformly well-conditioned original matrix, so the amplified tail cannot be dismissed as ordinary global matrix ill-conditioning. The structural minimax equality and the sharp tail are useful independently of a generalization to higher-dimensional free spaces.
+Credit projected squared-norm sampling and the rank-one exact second-moment formula to the specialization of existing noisy SCRK analysis. Neither that result, the Gaussian-ensemble theorem nor the same-day residual-weighting result covers the sharp fixed-m frontier over all positive (beta,q), its supercritical equality geometry, or the stated deterministic single-corruption family tail. The pass is for the distinct sharp profile and witness, not the scalar reset or the existence of a second-moment bound.
 
-## Scope and limitations
+## value
 
-The scientific claim covers independent norm-power row draws and one remaining free coordinate, with exact arithmetic, finite fixed row count, and deterministic bounded response errors. It does not cover adaptive residual filtering, null-step rejection, or arbitrary-dimensional constrained Kaczmarz dynamics. Independent verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The frontier answers a calibration question for the projected sampling exponent, distinguishing a known second-moment safeguard from genuine high-moment robustness and giving a sharp extremizing geometry when the moment is uniformly finite. Its value is not the reset identity alone. The clean-target tail on a uniformly well-conditioned full system shows explicitly why conditioning the original matrix is insufficient to explain robustness after enforcing the trusted subsystem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

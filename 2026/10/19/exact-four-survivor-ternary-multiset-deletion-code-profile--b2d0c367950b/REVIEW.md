@@ -1,15 +1,21 @@
-# Scientific review: exact four-survivor ternary multiset codes
+# Independent mathematical audit
 
-## Correctness
-PASS. The four-survivor criterion is exactly the bound \(I(x,y)\le3\). The heavy-coordinate injection gives at most three heavy codewords. All light vectors are excluded at \(n\ge10\), two light vectors are incompatible at \(7\le n\le9\), and certificate counting gives at most three light vectors for \(n=6\). The nine explicit incompatible triples at \(n=5\) each cover mutually incompatible words, and every light word belongs to at least two triples, bounding light codewords by four. Explicit constructions attain every resulting upper bound. The standalone checker confirms all finite certificates and independently computes optima through \(n=10\). The infinite statement rests on the written proof, not on enumerations.
+## correctness
 
-## Originality
-PASS within the examined literature and indexed mathematical records. The 2026 primary study of multiset deletion codes (arXiv:2601.05636) covers the related three-survivor regime and ternary one-deletion code size, including the already-known \(n=5\) endpoint, but not the complete four-survivor ternary classification at \(n\ge6\). A published three-survivor ternary exact profile likewise has a different minimum-distance condition. The general discrete-simplex framework (arXiv:1612.08837) and March 2026 deletion-ball work (arXiv:2603.18322) do not imply these exact values in their inspected results. The main residual risk is an equivalent finite-alphabet packing result indexed under other terminology.
+PASS
 
-## Value
-PASS. Fixing the survivor count is a natural high-deletion regime with sharply distinct finite-length behavior. The theorem completely determines the first four-survivor ternary profile, including two nontrivial intermediate plateaux and the exact pure-code stabilization threshold. This is a natural complete classification of an infinite parameter slice; it is not presented as a general-alphabet or general-survivor theorem.
+Two words can share a four-symbol receiver exactly when their componentwise minimum has sum at least four; any shared longer receiver also contains a four-symbol one. A heavy word contains a pure four-symbol receiver, and distinct selected heavy words cannot share a heavy coordinate, giving at most three heavy words. At n≥10 no light word exists, and the three pure words attain the bound. For 7≤n≤9 two light words intersect in at least 2n−9≥5; the three pure words and (n−6,3,3) are compatible. At n=6 each light word has two coordinates at least two, hence contains one of three distinct pair-type receivers; at most three light words coexist. The three pure and three (3,3,0)-type words attain six. At n=5 the nine displayed incompatible triples cover each of the twelve light vectors at least twice; counting incidences bounds selected light words by floor(9/2)=4, and the seven-word witness attains the total. In a separate exact finite check, I enumerated triples summing to n and represented each by the 15-bit mask of its four-symbol receivers. With words indexed in order, memoizing F(i,used) as the larger of skipping word i and taking it if its receiver mask is disjoint from used (terminate with F=0 after the last word) gave 7,6,4,4,4,3 for n=5,…,10. This corroborates all short cases independently of the recorded clique search; the unlimited tail is proved by the heavy-coordinate argument. RESULT.md, VERIFICATION.md, check.py and check_output.txt were inspected, not executed. The recorded script uses int.bit_count(), so Python 3.10 or later is the safe replay version despite its docstring's Python ≥3.9.
 
-## Limits
-There is no census of all optimizing code families. One endpoint, \(n=5\), follows from known single-deletion theory. The result has not received independent external mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known n=5 endpoint is explicitly credited and is not accepted as new. The validated distinct contribution is the full four-survivor ternary profile for n≥6, especially the exact six-word case, the four-word plateau and the exact threshold for the pure code. No exact or mechanically dominating result for the full contribution was identified after comparison of the closest indexed and primary-source formulas.
+
+## value
+
+PASS
+
+This is the next natural fixed-survivor profile beyond three symbols, with an operational ability to distinguish unordered ternary messages from just four remaining symbols. The six-word instance reaches a qualitatively different packing of light words, and the exact four-word interval and sharp onset of pure-code optimality determine the usable message alphabet at all lengths. The local receiver certificates explain both exceptions and are more useful than a table of small enumerations alone. The already known single-deletion endpoint is not counted as added value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

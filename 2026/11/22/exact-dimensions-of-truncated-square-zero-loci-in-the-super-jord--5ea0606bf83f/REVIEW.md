@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof identifies all truncated nilpotents with the four matrix-entry spaces supplied by the published faithful PBW embedding, builds a polynomial Ore deformation, and applies proper-fiber upper semicontinuity in the correct direction. The special fiber has a complete two-case reduction and a UFD parametrization with dimension at most \(D_m\). The known \(D_m\)-dimensional square-zero subspace supplies the matching lower bound. Boundary \(m=0\), polynomial degree constraints, nonzero scalar rescalings and base field hypotheses have been checked. The executable supports, but does not replace, this proof.
+## correctness
 
-**Originality: PASS, with historical-priority risk.** The full relevant section of [1] explicitly labels the asserted all-cutoff equality as Conjecture 5.14, while proving only the first nontrivial cutoff as Proposition 5.23. The earlier [2] treats the odd part only and cannot dominate the mixed-parity claim. Related indexed matrix-nilpotent and Jordan-plane representation results do not contain this exact geometric statement. Equivalent uses of general deformation techniques in otherwise unindexed work cannot be excluded by the searches made.
+PASS
 
-**Value: PASS.** This is a complete proof of an explicitly motivated, all-integer conjecture about the dimension of natural nilpotent loci, and the uniform argument avoids an unwieldy component-by-component census. It explains why the largest known linear family fixes the dimension even though further mixed-parity components exist.
+For algebraically closed k of characteristic zero and the filtration cutoff 2m+1, the quotient by (x) is k[y], so every square-zero element lies in (x). The faithful Jordan-plane matrix coordinates give all and only matrices (Wa,W²b;c,Wd), with c of degree at most m and a,b,d of degree at most m−1. In the two entries involving right multiplication by W, PBW commutation replaces U by U+W, an invertible filtered change, so the stated entry spaces are attained. The c-only family supplies the affine lower bound D_m. The Ore normal form over k[T] makes the finite homogeneous coefficient equations polynomial in T, hence the projective family is proper. Scaling U identifies all nonzero fibers, so Stacks Tag 0D4I bounds their dimension by the fiber at zero without a flatness assumption. In the commutative domain, c=0 forces a=d=0, and c≠0 forces d=−a and a²=−bc. For a≠0, after removing gcd(b,c), the residual factors are coprime squares up to units, giving a=HFG, b=−HF², c=HG². With degrees r,s,t the bound r+s+t≤m−1 and the free one-dimensional simultaneous rescaling give image dimension at most D_r+D_s+D_t−1≤D_{m−1}+1≤D_m. The b-only and c-only pieces and finite union preserve that bound. Removing zero and projectivizing drops one dimension; at m=0 the projective locus is one point. This verifies the full locus including mixed parity, not a truncated quotient or a finite-field extrapolation. The finite uploaded checker was inspected, not executed, and is not needed for the proof.
 
-The classification of components and scheme structures remains open. The characteristic-zero and algebraic-closedness requirements are retained from the motivating geometric formulation. The self-review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked primary paper explicitly leaves the identical all-m projective dimension equality as Conjecture 5.14. It supplies the embedding, lower-bound families and the m=1 case, not this uniform upper bound. The closest indexed exact hit is the identical record, not distinct coverage. The supported distinct contribution is the full all-cutoff dimension result via proper specialization and the commutative factorization bound.
+
+## value
+
+PASS
+
+The dimension is the exact unknown in a stated conjecture and controls the full filtered square-zero variety, which neither the odd component nor the degree-three example can measure. The uniform argument supplies an upper bound matching the previously known linear family at every cutoff; it does not merely enlarge a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:51:20.789050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Smoothness holds even in characteristic two: writing A=X^(q+1)Y, B=Y^(q+1)Z, D=Z^(q+1)X, the three partial derivatives multiplied by their variables are A+D, A+B, B+D. At a singular point their simultaneous vanishing and the curve equation force A=B=D=0, so the point is a coordinate point, where a partial derivative is nonzero. The degree-(q−1) adjoint basis has q(q+1)/2 terms. For a one-shot check let m=p^r, r≤e. Applying Cartier r times to the basis numerator is equivalent to expanding F^(m−1)x^iy^j, selecting exponent residues (m−1,m−1) modulo m, and taking the m-th roots after dividing exponents accordingly. This follows by composing coefficient extractors with F^(p^r−1)=F^(p−1)(F^(p^(r−1)−1))^p. Since q is a multiple of m, the only possible term has trinomial second and third multiplicities B=i mod m, D=j mod m, and A=m−1−B−D. The coefficient is nonzero exactly when all r low digit pairs are carry-free, by the base-p factorization of the trinomial power. Its target is (floor(i/m)+(q/m)A, floor(j/m)+(q/m)B), which stays in the basis and recovers all source digits, so distinct nonzero images are linearly independent even with semilinearity. The r low digit pairs give T^r choices and the remaining triangular index condition gives (q/m)(q/m+1)/2 choices. The rank at e−1 equals the rank at e; the nested images then coincide and stay equal under further applications. The stable rank is the p-rank. The one-step partial bijection decomposes into cycles and finite strings; a length-j string contributes max(j−r,0) to the r-th rank, giving the second differences. For e≥2 the last positive drop, from e−2 to e−1, is T^(e−2)p^2(p−1)^2/4; e=1 is ordinary with no strings. No full Ekedahl–Oort classification is inferred.",
+      "replay": "/workspace/review-evidence/cartier1.py and cartier1.txt: one-shot exact multinomial coefficient and distinct-image checks at (p,e)=(2,1),(2,4),(3,3),(5,2),(7,2), for 1≤r≤e. These do not substitute for the proof of all parameters and stabilization. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pries–Ulmer Theorem 6.2 partitions Fermat characters by the residue sum and permutes them by multiplication by p; Remark 6.3 gives compatible inclusion for quotient characters. Their §7 closed-form Ekedahl–Oort discussion is for y^d=x(1−x). Pries–Weir Proposition 3.5 explicitly evaluates iterates on the Hermitian family by digit sums. Borges–Gonçalves Theorem 1.1 counts p-rank on curves y^m=x^n+1."
+        ],
+        "reasoning": "The broad orbit description supplies an algorithm for this Hurwitz quotient's iterates, not the evaluated Hurwitz-family formula. The Hermitian digit test uses sums ≥p−1 and yields the factor p^(e−r)−1, not the Hurwitz sums ≤p−1 and the factor p^(e−r)+1. A terminal p-rank result can never determine all higher-rank drops on its own.",
+        "searches": [
+          "Pries–Ulmer arXiv:2010.15160 §§6–7; Pries–Weir arXiv:1302.6261 Proposition 3.5; Borges–Gonçalves arXiv:2212.03987v3 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Montanucci–Speziali 1603.03604",
+        "Pries–Weir 1302.6261",
+        "Pries–Ulmer 2010.15160",
+        "Dawson et al. 1810.01582",
+        "Borges–Gonçalves 2212.03987",
+        "Resultary 0ca4cdd72c94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-step formula s(s+1)p(p+1)/4 at n=sp+1 yields ρ₁ by taking s=p^(e−1). The supersingularity criterion is only terminal. The character-permutation rule determines each rank by counting consecutive holomorphic positions on the invariant character subset (a,qa) mod d."
+        ],
+        "reasoning": "In the general rule the r-th rank is a simultaneous modular-inequality count over that subset, not a polynomial in p,e,r supplied by substitution. The Hurwitz-specific computation makes the r constraints independent carry-free digit choices and leaves a triangle in the unused digits; it also gives ρ_(e−1)=ρ_e rather than merely a generic orbit-length bound. Second differences and the stable p-rank identification are standard consequences once the sequence has been evaluated.",
+        "searches": [
+          "Montanucci–Speziali arXiv:1603.03604 §4 Theorem 4.1 and Proposition 4.6; Dawson et al. arXiv:1810.01582 Theorem 4.3; Pries–Ulmer Theorem 6.2 and Remark 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dawson et al. §3.2 give the Fermat cover of degree n^2−n+1 for H_{n,1}. Pries–Ulmer Remark 6.3 explicitly covers monomial cyclic Fermat quotients v^d=u^a(1−u)^b (taking d to be the full covering degree here)."
+        ],
+        "reasoning": "With n=q+1, divide the affine Hurwitz equation by x and put U=x^(n−1)y, V=y^n/x: U+V+1=0 and y^(n^2−n+1)=U V^(n−1). The inverse x=y^n/V and scaling constants give the quotient y^d=t(1−t)^q with d=q^2+q+1, prime to p. This brings the exact curve into the character-permutation framework; it does not identify it with the special hyperelliptic quotient y^d=t(1−t) or with the Hermitian curve.",
+        "searches": [
+          "Resultary: Hurwitz Cartier ranks, Cartier iterate filtration, digit shifts",
+          "Hurwitz curves 'Cartier' 'iterates' p-rank prime power q+1 digit rank Jacobian Ekedahl Oort Fermat cyclic quotient Pries Weir Ekedahl Oort type Hermitian curves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved indexed filtration 0ca4cdd72c94 is for characteristic-three y²=t^(2·3^s+2)−t. Montanucci–Speziali give the matching first rank and Pries–Weir give exact all-iterate ranks for a different curve."
+        ],
+        "reasoning": "No matching exact profile was found in the bounded indexed/explicit-formula comparisons. The ternary family is not the same family by variable renaming; the Hermitian entry is supersingular and the present stable rank is positive. Matching the exact first entry is real coverage but does not match the sequence.",
+        "searches": [
+          "Resultary full rank-filtration query and 0ca4cdd72c94; Montanucci–Speziali Prop. 4.6; Pries–Weir Prop. 3.5"
+        ]
+      },
+      "rationale": "The Hurwitz first rank, standard Cartier machinery, digit-filtration methods for Hermitian curves, and a general character-permutation description that applies to this tame Fermat quotient are all prior. The distinct contribution supported by the comparison is the evaluated, uniform Hurwitz rank profile and its stabilization/string consequences—not the one-step formula, the general method, or the existence of a way to enumerate quotient characters. The general character rule gives a count for any input but does not itself evaluate the product or explain the exact cutoff; those use the Hurwitz-specific digit survival and triangular boundary.",
+      "residual_risks": [
+        "Specialized quotient-character or Hasse–Witt classifications could contain a further evaluated special case. This bounded comparison does not establish historical priority, and does not credit the quotient algorithm or first-rank formula as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-rank overlap; related prior iterates in Hermitian family",
+          "evidence": [
+            "For n=sp+1, rank is s(s+1)p(p+1)/4; equal genus and a-number need not give equal p-rank for Hurwitz and Fermat curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.03604",
+          "material_read": "§4 Theorem 4.1 p. 8 and Proposition 4.6/Remark 4.5 p. 10, offsets 23245 and 28800; §3 Remark 3.5 p. 6",
+          "method": "OA arXiv PDF",
+          "title": "The a-numbers of Fermat and Hurwitz curves",
+          "trigger": "Exact Hurwitz family; possible prior ranks"
+        },
+        {
+          "assessment": "Method precedent and different formula, no direct coverage of this Hurwitz curve",
+          "evidence": [
+            "The formula is p^e(p+1)^r(p^(e−r)−1)/2^(r+1); the survival inequalities on initial digits go in the opposite direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.6261",
+          "material_read": "§2.2 p. 5 and Proposition 3.5 and proof, p. 10, offsets 42232–45298",
+          "method": "OA arXiv PDF",
+          "title": "The Ekedahl–Oort type of Jacobians of Hermitian curves",
+          "trigger": "Strongest neighboring closed Cartier ranks with digits"
+        },
+        {
+          "assessment": "Applies to the quotient character model but does not evaluate its Hurwitz-specific word/rank counts",
+          "evidence": [
+            "Theorem 6.2 gives the (a,b) residues and p-permutation; Remark 6.3 asserts compatibility for the general quotient. Section 7 treats the special model y^d=x(1−x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.15160",
+          "material_read": "§6 Theorems 6.1–6.2 and Remark 6.3, and start of §7 pp. 16–18, offsets 55300–61394",
+          "method": "OA arXiv PDF",
+          "title": "On BT1 group schemes and Fermat Jacobians",
+          "trigger": "Stronger general structure for tame Fermat quotients"
+        },
+        {
+          "assessment": "Same cover and supersingularity criterion, not an iterate census",
+          "evidence": [
+            "The cover degree for H_{n,1} is n^2−n+1; supersingularity is characterized by a congruence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.01582",
+          "material_read": "§3.2 p. 6 offset 13912; §4 Theorem 4.3 p. 7 offset 16730",
+          "method": "OA arXiv PDF",
+          "title": "The Supersingularity of Hurwitz Curves",
+          "trigger": "Same Hurwitz family and Newton-polygon comparison"
+        },
+        {
+          "assessment": "Terminal invariant for y^m=x^n+1; not an iterate formula for this quotient",
+          "evidence": [
+            "The p-rank is given by a finite-set count in that family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.03987",
+          "material_read": "Theorem 1.1 v3 p. 2, offset 8035",
+          "method": "OA arXiv PDF",
+          "title": "The p-rank of curves of Fermat type",
+          "trigger": "Possible broader terminal rank formula"
+        },
+        {
+          "assessment": "Different family and formula",
+          "evidence": [
+            "All-iterate rank computation is for the characteristic-three hyperelliptic family y²=t^(2·3^s+2)−t."
+          ],
+          "identifier_or_url": "Resultary 0ca4cdd72c94",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local RESULT mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A ternary Cartier-rank filtration and zero Mordell–Weil groups in a quasi-elliptic family",
+          "trigger": "Closest retrieved indexed complete Cartier filtration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite family now has a simple explicit full Cartier filtration: it determines the exact nonzero stable rank, the first stabilization point and all nilpotent lengths across all prime characteristics. For e≥3 it resolves intermediate ranks not fixed by the one-step or terminal information, without orbit enumeration on a larger covering curve. This is a precise invariant for studying the Jacobians' p-torsion, not an inference of their full polarized type.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the random-comb weak-return tail theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite periodic comb, independent exact finite-state stationary equations yield \(v_N(r)=(p-q)/(1+aN^{-1}\sum_i\tau_r(L_i))\), and the reflected-tooth resolvent proves the formula for \(\tau_r(L)\). Its exact increments satisfy \(1-\delta_n(r)\le\min(1,rn^2)\) and converge on the scale \(n\sqrt r\) to hyperbolic profiles; tail summation proves all five regimes. The stationary-volume law follows from the strong law and its infinite-mean truncation form. The included standard-library checker independently verified 90 finite cases, with full rational generator solves. The finite checks supplement, but do not replace, the infinite-volume arguments.
+PASS
 
-## Originality — PASS (priority-qualified)
+Independently reconstructed the killed excursion by reflecting with the ghost value u_{L+1}=u_L in the Laplace recurrence, and obtaining τ_r(L)=(sinh θ/r)tanh((L+1/2)θ)−1/2, with 2(cosh θ−1)=r. Subtraction gives exactly the quoted δ_n. Each tooth mass equals its entrance flux times τ_r, and flux cancellation leaves the unique constant stationary weight on the finite periodic backbone. The strong law applies at fixed r>0; at zero, truncation proves divergence of the sample mean when the first moment is infinite. In the open tail ranges, δ_n on n√r=x tends to sech²x, and 1−δ_n to tanh²x; the bounds by Ce^(−2nθ) and min(1,rn²) control the discarded tails of the scaled integrals. At α=1 the error in replacing δ_n by the hard cutoff at r^(−1/2) in the weighted sum is O(1). At α=3, for nθ≤ε the relative error in 1−δ_n≈rn² is O(ε²+r) uniformly, while the omitted tail is O_ε(r); the truncated sum of n²s_n contributes (c/2)log(1/r). Above three, dominated convergence gives the cubic moment exactly. Substitution proves the five drift equivalents and extended right-slope classification; monotonicity follows directly from exponential truncation. Independently solved a heterogeneous four-junction rational generator and the first two tooth-moment systems (L=1,2,4,7); an α=3 numerical sum with a bounded omitted tail gave ratio ≈1.077 at r=10⁻⁸, consistent with slow logarithmic convergence, not used as proof. The supplied checker was read, not run: its 'exact' tests include floating-point comparisons to the hyperbolic formula, and the tail limits are not checked by it. Scope is sequential stationary-ring, volume and weak-return limits, with unit vertical rate and a survival tail, not a mass tail or a pathwise infinite-comb speed.
 
-A detailed comparison was made with the full primary article and supplementary derivations of Sarkar and Gupta (arXiv:2205.15232), full relevant sections of Elliott and Wheater (arXiv:0704.0188), Kotak and Barma (arXiv:2204.05357), and the full accessible 2023 continuum-comb resetting article. The first paper uses coupled backbone/tooth bias and gives general stationary-current formulas; it does not state the independent symmetric-tooth five-regime power-tail law or its sharp tail-index-three susceptibility threshold. The 2007 and 2022 biased-comb papers have no local returns. Closest published geometric-tooth asymptotics use outward tooth bias and exhibit log-periodic coefficients. The new claim does not treat the known exact current method as original. A broader mathematical Tauberian theorem or an unindexed study could still imply this classification; priority is not certified independently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two different, physically meaningful moments of the quenched tooth-length distribution determine whether turning local returns off destroys transport (first moment) and whether infinitesimal returns have finite linear response (third moment). The exact constants and two logarithmic endpoint laws are not fixed by the zero-reset transport threshold alone. The theorem solves this natural continuum of polynomial-tail cases rather than a hand-picked finite sample or a routine numerical increment; it directly describes how local return mechanisms regularize traps in random branched media.
+The reset excursion and stationary normalization are established methods. The audited contribution is the five-regime weak-return law with constants for independently biased backbone and symmetric reflecting teeth of regularly varying lengths. Prior local-returns work uses outward-biased trapping, with different moment requirements and, in the closest indexed result, geometric lengths and log-periodic behavior. Even an extension of its current identity to independent vertical parameters does not transfer its weak-rate expansion to these unbounded tails. General Laplace-transform asymptotics need the appropriate mixed excursion-time tail and amplitude as inputs.
 
-## Scope and residual risks
+## value
 
-The result is for stationary finite rings followed by a thermodynamic limit, not an asserted almost-sure trajectory speed on an infinite comb. Vertical jumps have rate one, are symmetric, and tooth lengths are iid with exact asymptotic survival tail. The originality assessment remains a self-review; independent literature-priority verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stationary transport restoration and linear susceptibility test two different divergence mechanisms, not merely two names for a trapping transition. The exact α=1 and α=3 log laws distinguish arbitrarily slow restoration from divergent first-order response, and the coefficients specify what a finite-rate measurement should approach. These results are useful for the natural whole power-tail family without extrapolating to different tooth bias, trajectory limits, or concurrent volume/rate scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

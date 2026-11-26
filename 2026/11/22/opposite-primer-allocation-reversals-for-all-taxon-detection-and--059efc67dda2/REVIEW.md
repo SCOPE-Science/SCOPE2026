@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independence of Poisson counts yields the stated product of taxon detection probabilities and sum of expected detections. The first and second derivatives are written explicitly in RESULT.md; strict concavity gives unique optima and complete boundary handling. Exact rational polynomial factorization and the quadratic root analysis give every listed interval, including the two reversed objective disagreements. A monotone exponential ratio excludes reentry with fewer than three targets. The standalone `verify.py` independently checks exact identities and 64,800 supplementary objective comparisons. Numerical checks do not replace the analytic global proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+For known-present targets with independent Poisson counts, the all-detected utility is a product and expected richness is a sum. Taking a log for the former preserves its maximizer. Both transformed objectives have strictly negative allocation second derivative. At the all-A endpoint, the negative d3 term strictly dominates the positive d2 term because a3<a2 and |d3|>d2, and d1 is negative. Thus activity is exactly the positive sign of the all-B derivative, with a unique all-B optimum even at equality. Independently factored the all-target numerator and recovered the zeros t=6/5,10 for t=exp(T)>1. The expected-count quadratic has signs -,+,- at z=0,1/10,5/6, with exact values -580,5709/100,-5775/4 and discriminant 31044841, certifying strict interlacing after z=exp(-T). For two targets with opposite signed deviations, the zero condition is a constant level of (exp(b2 T)-1)/(exp(b1 T)-1); its log derivative has the sign of b2-b1 because u/(1-exp(-uT)) strictly increases. Equal B rates, zero deviations, and same-sign deviations cannot produce two changes of preference. This proves the all-target minimum, not a stronger general minimum for both objectives. Independent algebra and sample optima: python /workspace/replays/poisson_objectives.py. The proof is confined to continuous effort, positive constant rates and the stipulated count model.
 
-How et al. (2024) directly motivates heterogeneous primer sensitivity and sampling-effort questions, while Baetscher et al. (2023) choose empirically complementary markers. Fukaya et al. (2022) provide a stronger Bayesian framework for expected-richness design but under different decisions and objective. None of the inspected primary texts gives the exact opposite all-target-versus-richness allocation intervals or sharp three-target reentry theorem. Related mathematical occupancy and budget-allocation work covers other experimental designs and utilities; the general methods of concavity and exponential detection are not asserted as original. Historical priority beyond the material examined remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-Two legitimate objectives, expected biodiversity richness and detecting *every* priority species, lead to incompatible survey choices in both directions at two disjoint budgets. The smallest possible number of taxa for the all-target enter/exit phase is proved. The all-positive assay sensitivities rule out the trivial explanation that one assay cannot detect some targets. The result is a reproducible benchmark for model selection, not a field-calibrated recommendation.
+The supported distinction is simultaneous optimization of two different utilities over the same split budget, yielding exact interlaced active-set boundaries and a sharp all-target reentry obstruction. Distinct indexed statements share either Poisson richness reversals, the pair of detection objectives, or Poisson allocation regimes, but do not establish this joint result. This is not a claim of priority for Poisson models, strict concavity or general richness reversals.
 
-## Limits
+## value
 
-The model assumes known-present targets, independent Poisson counts, fixed constant per-effort detection rates, and continuously divisible effort. It excludes false-positive reads, sequencing competition, biological uncertainty, and assay overhead. Some broader historical optimization literature may cover equivalent formulations. Independent external validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Both utilities are meaningful for prioritizing complete detection versus total richness. A single positive-rate witness giving disagreement in both directions, coupled with a proof that at most two targets cannot give the all-target reentry pattern, is a sharp benchmark rather than an arbitrary set of numbers. It is not a field-calibrated design or a conclusion about actual primer performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

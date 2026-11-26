@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:24:03.286530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed positive rates and v,x₀>0, the decaying solution of the two-velocity backward equations with the incoming boundary condition gives φ₀(z)=exp[−(x₀/v)√(z(z+2α))]. Conditioning on the first Poisson reset gives (1−φᵣ(z))/z=(1−p)/(z+rp), p=φ₀(r+z); evaluation and differentiation at zero reproduce the stated mean m and variance s². Both bulk resets and independent exponential wall desorption return to (x₀,−1); bulk clocks are stopped while bound. With centered excursion and residence times U,V, the centered cycle rewards are (−(U+V),mV−bU)/(m+b), giving the stated covariance per unit time by independence. The actual covariance limit, not just a distributional CLT, is justified: a reset followed by direct leftward traversal gives a uniform positive chance of hitting in a fixed time block, so the first delay and ordinary cycles have exponential tails. Ordinary cycles also have duration at least x₀/v. Stopping the centered-reward martingale at the first cycle end after t gives its covariance as the expected number of sampled cycles times the one-cycle covariance. The overshoot reward and centering error are bounded in L² by the initial delay and the maximum of O(t) exponentially-tailed cycles, hence are o(√t) in L². Dividing by t yields the displayed covariance and the mean-rate/Fano normalization. The cross term has its unique zero at m/s²; the Fano sign is that of s²−m²−2mb. The ratio rβ′/(1−e⁻ᵝ) is a product of two strictly increasing positive factors and goes from 1/2 to infinity, giving precisely one resetting crossover. The weak-reset asymptotics m∼K r⁻¹ᐟ² and s²∼K r⁻³ᐟ², K=(x₀/v)√(2α), give the two claimed constants after t→∞ at fixed r. The frozen simulation script was inspected, not executed; finite simulations are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff–Linn include the same reset-on-desorption protocol and study the stationary process and mean first-passage observables. Evans–Majumdar give the bulk resetting input; encounter-based absorption uses a local-time/collision threshold, not this wall-residence process."
+        ],
+        "reasoning": "The known protocol and renewal structure are critical inputs, but the cited outputs do not themselves classify the simultaneous signs of count noise and count–wall occupation covariance.",
+        "searches": [
+          "Bressloff–Linn arXiv:2602.02446v1",
+          "Evans–Majumdar arXiv:1808.06450v2",
+          "Bressloff arXiv:2503.01304"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md and verify.py",
+        "Akimoto arXiv:2306.00359",
+        "Bressloff–Linn arXiv:2602.02446v1",
+        "Evans–Majumdar arXiv:1808.06450v2",
+        "Bressloff arXiv:2503.01304",
+        "Three published catalogue records in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their joint transform and reset protocol can be combined to recover mixed asymptotic moments. The result under review additionally proves a one-crossing theorem for the dimensionless ratio [(r+α)/(r+2α)]β/(1−e⁻ᵝ), identifies the only region where a Fano crossing exists, and obtains the weak-reset scaling of both boundaries."
+        ],
+        "reasoning": "The moment setup is a specialization and does not receive independent novelty credit. Global existence and ordering of the sign regions and the singular two-boundary asymptotics are the supported distinct content.",
+        "searches": [
+          "Akimoto arXiv:2306.00359, Eqs. (82)–(95), compared with Bressloff–Linn arXiv:2602.02446v1 desorption-induced resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parity-resolved alternating renewal counts and occupation time are treated jointly in Akimoto. The adsorption count is the count of transitions of one parity, not a count of all renewals; at most a unit parity/boundary discrepancy occurs upon replacing it by half the full transition count."
+        ],
+        "reasoning": "A parity or renewal-epoch change does not make the matrix a genuinely new general theorem. The precise model-specific signs and reset-rate crossover are the comparison target.",
+        "searches": [
+          "Resultary: reset run-and-tumble adsorption count and bound occupation fluctuations",
+          "Akimoto arXiv:2306.00359, Sections IV–V, Eqs. (82)–(95)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969 gives a same-day t/sinh(t) threshold for an absorption-time Laplace order, not the fluctuation diagram. Related findings 2026/11/2/...--c006de0c6b77 and 2026/10/26/...--80d9ac09ebe7 describe occupation large deviations and finite-interval two-wall occupation covariance, respectively."
+        ],
+        "reasoning": "Neither a threshold with a different observable nor a marginal occupation statistic supplies the joint diagram. Indexed nonappearance of an exact match is not proof of absence.",
+        "searches": [
+          "Resultary: sticky-wall desorption-induced resetting thresholds",
+          "Resultary: sticky run-and-tumble occupation covariance and count noise"
+        ]
+      },
+      "rationale": "The supported distinct result is the combined model-specific sign diagram, with a unique r crossover and two ordered desorption thresholds with different weak-reset constants. Count/occupation fluctuation methods and first-passage inputs are prior; in particular Akimoto's accessible full text already encodes mixed count/occupation moments. No priority is assigned to that general fluctuation framework.",
+      "residual_risks": [
+        "The primary comparisons use relevant passages, not an exhaustive search of every renewal/statistical-physics paper.",
+        "The frozen prior-work text understates Akimoto's overlap by discussing the abstract and claiming lack of full-text access; the OA full text gives the joint transform. The narrower sign-diagram originality decision accounts for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general overlap with the fluctuation calculation; model-specific diagram not found in the inspected sections",
+          "evidence": [
+            "Joint transform of Nₜ and Tₜ⁺, with explicit odd/even renewal contributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.00359",
+          "material_read": "Sections IV–V, especially Eqs. (82)–(95), OA offsets 27000 and 45000–49999",
+          "method": "OA HTML primary passages",
+          "title": "Statistics of the number of renewals, occupation times, and correlation in ordinary, equilibrium, and aging alternating renewal processes",
+          "trigger": "General joint count and occupation fluctuations"
+        },
+        {
+          "assessment": "Substantive protocol/first-passage antecedent",
+          "evidence": [
+            "Compares wall release with desorption resetting to (x₀,k₀), and treats stationary and mean-first-passage observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.02446v1",
+          "material_read": "Abstract and Introduction, OA offsets 350–6775",
+          "method": "OA HTML primary passages",
+          "title": "Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+          "trigger": "Same physical protocol"
+        },
+        {
+          "assessment": "Bulk-input antecedent, not the joint sticky-wall phase diagram",
+          "evidence": [
+            "Survival and mean first passage at an absorbing boundary, with an orientation-reset parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1808.06450v2",
+          "material_read": "Abstract and Introduction, OA offsets 350–4648",
+          "method": "OA HTML primary passages",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Bulk first passage under position and orientation resets"
+        },
+        {
+          "assessment": "Distinct model and observables",
+          "evidence": [
+            "Encounter-based absorption through a collision/local-time threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.01304",
+          "material_read": "Abstract and Introduction, OA offsets 300–4589",
+          "method": "OA HTML primary passages",
+          "title": "Encounter-based model of a run-and-tumble particle with stochastic resetting",
+          "trigger": "Collision-count observables under resetting"
+        },
+        {
+          "assessment": "Related but inequivalent threshold",
+          "evidence": [
+            "Compares discounted absorption times between desorption protocols, not the signs of two stationary fluctuation rates."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-laplace-order-reversal-between-sticky-wall-desorption-p--216270416969/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "A unique Laplace-order reversal between sticky-wall desorption protocols",
+          "trigger": "Same-day protocol and exact threshold hit"
+        },
+        {
+          "assessment": "Later marginal occupation result",
+          "evidence": [
+            "Endpoint asymptotics of the occupation-fraction large-deviation rate function, without a joint count threshold."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-orientation-dependent-logarithmic-edge-laws-for-sticky-run-and-t--c006de0c6b77/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Orientation-dependent logarithmic edge laws for sticky run-and-tumble particles",
+          "trigger": "Same cycle class and occupation fluctuation observable"
+        },
+        {
+          "assessment": "Later inequivalent two-wall covariance",
+          "evidence": [
+            "Covariance between two wall occupations on a finite interval, rather than adsorption-count/occupation covariance with half-line resets."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-asymmetric-sticky-wall-occupation-covariance-and-hidden-tumbling--80d9ac09ebe7/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Asymmetric sticky-wall occupation covariance and hidden tumbling",
+          "trigger": "Sticky-wall covariance hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign diagram answers when increased wall occupation is positively correlated with counts even though the count process is quieter than Poisson. The unique reset crossover specifies exactly when the Fano transition disappears, and the different weak-reset constants quantify a robust separation of the two boundaries. Those distinctions add information beyond a stationary mean or a generic fluctuation identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

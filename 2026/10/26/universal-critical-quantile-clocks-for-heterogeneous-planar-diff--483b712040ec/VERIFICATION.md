@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is derived analytically in `RESULT.md`. `verify.py` uses Python 3, SciPy and NumPy; run it as `python3 verify.py` from the directory containing the files. The run in this package completed with `PASS: 75 independent finite numerical assertions`.
+## correctness
 
-The numerical checks independently integrate the continuous radial density over the observation disk, compare the stationary modified-Bessel formula with direct exponential-age quadrature, and compare the renewal formula with an independent integrated relaxation-excess formula. They verify numerical critical-root ordering, the closed-form intercept ratio, and the decreasing finite-error trend toward the critical time expansion across several small critical distances. All tests concern finite parameter sets and numerical tolerances; they are not an infinite-dimensional proof, exact-arithmetic certificate, or independent audit.
+PASS
 
-A derivation requiring no numerical assumptions establishes the free mass \(F_\beta(t)\), its strictly negative derivative, the monotone stationary fraction, the unique critical root, and the uniform endpoint expansion of the exact relaxation excess. Strict temporal monotonicity and a two-sided finite-window sign bracket prove the crossing-time expansion. For the Bessel normalization and derivative, standard identities for \(K_\beta\) are used.
+The substitution w=rho^4/(16 D0 t) gives the normalized Gamma(beta,1) law against rho d rho. Substitution in the radial equation gives the time derivative and flux O(rho^(4-2 alpha)) at the origin. Differentiating the renewal equation cancels the reset terms, giving H'=exp(-rt) F'<0. The stationary complement is E[exp(-ra/G)] for G Gamma(beta,1), so it is continuous and strictly decreases from 1 to 0 and agrees with the stated Bessel transform. At equality the stationary limit is approached from above, never reached in finite time. The positive independent gamma increment as beta increases strictly decreases the stationary inside mass at fixed r, so r_c increases. In scaled time x=r_c t the exact excess is B times the integral over s>=x of exp(-(1-epsilon)s-ar_c/s) s^(-beta-1). Putting s=x+v bounds the relative correction in the non-exponential factor by (ar_c+(beta+1)v)/x, giving a uniform endpoint estimate for r near r_c. The Bessel derivative gives C=r_c h'(r_c)>0. At x=L-(beta+1)log L+xi the excess is epsilon B exp(-xi)(1+o(1)), while h-q=-C epsilon+O(epsilon^2). Opposite signs at offsets bracketing log(B/C) prove the crossing law. Independent log-gamma-variable quadrature returned illustrative median rates 6.32171847633020, 4.01024550580277, and 1.92181205567281.
 
-Scientific limits: instantaneous Poisson resetting to the origin; disk occupation, not first-passage survival; fixed positive observation radius, fixed shape and quantile; no uniformity when physical parameters scale jointly; no operational-time memory. Results about uniqueness and the near-critical limit depend on the displayed analytic proof, not on the finite tests. Independent audit status: not performed.
+## originality
+
+PASS
+
+Credit the known Poisson renewal law, the three conventional free laws and median threshold, and the already reported leading logarithmic divergence to prior work. Those prior equations also supply the inputs from which the sharper median special cases can be derived. The supported distinct contribution is the explicit fixed-offset second-order window (including its intercept) for arbitrary fixed quantile and continuous gamma shape, together with the shape-order comparison. The strongest checked literature and catalogue comparisons do not establish that full statement.
+
+## value
+
+PASS
+
+The leading log is insensitive to the stochastic prescription. The cancellation in the exact relaxation excess changes the algebraic exponent by one relative to the isolated no-reset term; the clock resolves that exponent experimentally in principle and gives a quantitative offset rather than a leading-order divergence only. The three log-log coefficients and shape dependence distinguish models that the leading law alone cannot distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

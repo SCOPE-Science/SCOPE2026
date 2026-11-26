@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:03:56.249516Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence of the current Bernoulli delay from the current two-coordinate state gives the stated linear lift on symmetric second moments. Expansion of its 3-by-3 determinant gives p(1)=mu*(2-mu-q*mu^2), and a nonpositive sign gives a real eigenvalue >=1 (strictly greater if p(1)<0). This excludes exponential decay for all initial pairs: the rank-one outer products of e1, e2 and e1+e2 span symmetric matrices, and the moment trace bounds all entries of each positive-semidefinite image. For sufficiency set s=2-mu-q*mu^2>0. Solving the Lyapunov equation for P=(alpha,beta;beta,gamma) gives beta=-q*mu*alpha/(1+q*mu), gamma=1+q*mu^2*alpha, and mu*s*alpha/(1+q*mu)=2, exactly the frozen certificate. Here alpha>0, and gamma-beta^2/alpha=1+q*mu^2*alpha*(1-q/(1+q*mu)^2)>0 for q in [0,1]. The exact Lyapunov decrement is the squared norm, which gives a uniform geometric bound by positive definiteness. The strict inequality gives endpoints 2 at q=0 and 1 at q=1, and the boundary is decreasing in q. Diagonalizing the positive-definite Hessian gives scalar mode bounds; summing squared modes needs no independence among them, and an initial pair along a largest-eigenvalue mode gives necessity. I inspected the finite rational spot-check script without executing it; the symbolic check supplies the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier indexed theorem proves the exact criterion theta*(s+p*s^2)<2 where theta=E[A^2]/(E[A])^2, not just a bound; its parameter set includes theta=1. Its transfer matrix satisfies det(I-T)=s[2-theta*(s+p*s^2)] and the proof gives an energy argument for the strict region.",
+          "Arjevani–Shamir–Srebro study fixed tau and finite-time convergence; Deng et al. study generalization of asynchronous delayed SGD. The inspected passages are not exact iid fresh/stale criteria."
+        ],
+        "reasoning": "A generic covariance lift alone would not constitute an explicit prior frontier. The earlier random-curvature theorem supplies that frontier and directly contains the deterministic case, so the fixed-delay and generalization papers are not needed to decide coverage.",
+        "searches": [
+          "A sharp joint staleness–heterogeneity threshold for scalar stochastic gradient descent, mirrored Finding and second-moment proof",
+          "Arjevani–Shamir–Srebro arXiv:1806.10188 p. 1",
+          "Deng et al. arXiv:2308.09430 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_threshold.py",
+        "Local Resultary and the distinct 2026/10/12 and 2026/11/2 records",
+        "Arjevani–Shamir–Srebro arXiv:1806.10188",
+        "Deng et al. arXiv:2308.09430"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set A=lambda almost surely, theta=1, s=eta*lambda=mu, and p=q. Then theta*(s+p*s^2)<2 becomes mu+q*mu^2<2 without any change to the delay independence assumptions. Solving the quadratic yields the same threshold and strict exclusion at equality.",
+          "The frozen positive-definite Lyapunov matrix supports correctness, but the headline is the already implied threshold, and the finite-dimensional modal extension simply applies it coordinatewise."
+        ],
+        "reasoning": "No evaluation, new approximation regime, or strengthened stability threshold remains after substitution and the finite-dimensional convergence equivalence. A different certificate for the same criterion does not make the claimed criterion a distinct result.",
+        "searches": [
+          "Earlier staleness–heterogeneity theorem, local-mirror offsets 0–6540 and relationship-to-prior-work offsets 6400–8600",
+          "Frozen RESULT.md pp. 1–2 by line, lines 5–23 and 31–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier theorem studies x_(k+1)=x_k-eta*A_k*x_(k-D_k), with iid positive scalar curvature and independent iid Bernoulli stale reads. Taking A_k=lambda almost surely gives exactly the frozen update.",
+          "The later indexed Bernoulli stale-gradient energy theorem states the same strict boundary z+q*z^2<2 and explicitly identifies geometric decay with the all-initial-state mean-square condition."
+        ],
+        "reasoning": "On the symmetric moment space, decay for every deterministic initial pair implies decay of all powers on a finite spanning set of rank-one covariances, hence spectral radius strictly below one and uniform geometric decay. Using x_k alone or the sum of the two consecutive squared norms does not change this criterion.",
+        "searches": [
+          "Local Resultary: iid Bernoulli zero/one-step stale-gradient stability, scalar random-curvature threshold, stochastic second-order difference equations",
+          "2026/10/12 staleness–heterogeneity record, Finding, assumptions and proof",
+          "2026/11/2 Bernoulli stale-gradient quadratic energy record, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier dated distinct record contains the direct covering theorem; the later distinct record directly prints the matching scalar frontier and model. Both matches have actual statements, not just titles."
+        ],
+        "reasoning": "These are indexed exact theorem matches, not finite tables of parameter points. The path dates are catalogue evidence only; the mathematical coverage follows from the statements regardless of any unverified publication timestamp.",
+        "searches": [
+          "Local Resultary exact searches for q*mu^2+mu<2, Bernoulli stale-gradient energy and staleness–heterogeneity thresholds",
+          "2026/10/12/SCOPE-a-sharp-joint-staleness-heterogeneity-threshold-for-scalar-stoch--060dbc8e10d0",
+          "2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a"
+        ]
+      },
+      "rationale": "The exact boundary for the deterministic curvature update is a direct parameter substitution in the earlier indexed exact staleness–heterogeneity theorem, which permits degenerate positive curvature. Mean-square convergence for every initial pair and uniform exponential mean-square stability give the same criterion in this finite-dimensional lift. The Hessian corollary is routine modal decomposition and does not supply a distinct remainder.",
+      "residual_risks": [
+        "No historical priority conclusion beyond the available catalogue dating is asserted.",
+        "Gómez et al. (2013, 2014) and Beidas–Papavassilopoulos (1993) may supply further coverage, but their exact theorems remain unread. The originality decision relies on the available covering theorem, not those access limitations or a negative primary search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers deterministic curvature",
+          "evidence": "The update uses independent iid positive curvatures and Bernoulli delay; the exact boundary is theta*(s+p*s^2)<2. Constant curvature is admissible and gives theta=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-joint-staleness-heterogeneity-threshold-for-scalar-stoch--060dbc8e10d0/RESULT.md",
+          "material_read": "Finding and hypotheses offsets 0–3751; moment transfer and necessity approximately 3700–6540; prior-work comparison 6400–8600",
+          "method": "Local mirror passages",
+          "title": "A sharp joint staleness–heterogeneity threshold for scalar stochastic gradient descent",
+          "trigger": "Strong direct broader exact theorem"
+        },
+        {
+          "assessment": "Same scalar boundary, later path date",
+          "evidence": "The theorem gives q*z^2+z<2 for the same iid fresh/one-step-stale update and equates all-state decay with geometric decay.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a/RESULT.md",
+          "material_read": "Finding and hypotheses, offsets 0–2800",
+          "method": "Local mirror passage",
+          "title": "Exact quadratic energy and the sharp mean-square frontier for Bernoulli stale-gradient descent",
+          "trigger": "Direct scalar frontier match in the catalogue"
+        },
+        {
+          "assessment": "Adjacent fixed-delay model in inspected passage",
+          "evidence": "The work describes updates from a fixed tau iterations earlier and finite-time bounds, not the stated Bernoulli mixture in this passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.10188",
+          "material_read": "p. 1, offsets 900–3287",
+          "method": "OA primary PDF passage",
+          "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+          "trigger": "Frozen citation on delayed quadratic descent"
+        },
+        {
+          "assessment": "Different criterion in inspected abstract",
+          "evidence": "Discusses generalization bounds for delayed asynchronous SGD, not the second-moment frontier in this passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.09430",
+          "material_read": "p. 1, offsets 542–2127",
+          "method": "OA primary PDF passage",
+          "title": "Towards Understanding the Generalizability of Delayed Stochastic Gradient Descent",
+          "trigger": "Frozen related-work citation"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "No full-text theorem was available to assess the joint hypotheses and boundary.",
+          "identifier_or_url": "https://doi.org/10.23919/ECC.2013.6669802",
+          "material_read": "Bibliographic identification only; PDF attempts returned HTTP 405/403",
+          "method": "Lawful identified OA retrieval attempts",
+          "title": "Stability of Discrete-Time Systems with Stochastically Delayed Feedback",
+          "trigger": "Potential equivalent stochastic-delay recursion"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "No substantive theorem passage was read.",
+          "identifier_or_url": "https://doi.org/10.1109/ACC.2014.6859470",
+          "material_read": "Bibliographic identification only; author PDF timed out and DOI recovery did not yield a repository copy",
+          "method": "Lawful author PDF and DOI recovery attempts",
+          "title": "Exact Stability Analysis of Discrete-Time Linear Systems with Stochastic Delays",
+          "trigger": "Potential exact application of general stochastic delays"
+        },
+        {
+          "assessment": "Exact overlap unresolved",
+          "evidence": "No mathematical coverage conclusion is drawn from the landing page.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-8191(93)90038-M",
+          "material_read": "DOI landing page; no OA full text recovered",
+          "method": "Lawful DOI and repository lookup",
+          "title": "Convergence Analysis of Asynchronous Linear Iterations with Stochastic Delays",
+          "trigger": "Possible earlier linear-iteration analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp stability boundary is a meaningful goal, but this boundary is already available by setting curvature variance to zero in the indexed theorem. The elementary semidefinite-moment argument and diagonalization do not yield a new motivating regime or an independent exact invariant; the frozen headline is a parameter specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

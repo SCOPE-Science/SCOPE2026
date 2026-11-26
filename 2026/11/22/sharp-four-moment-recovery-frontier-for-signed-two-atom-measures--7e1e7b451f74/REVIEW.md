@@ -1,15 +1,21 @@
-# Research review — sharp four-moment signed-pair recovery frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies real signed measures on the closed interval, both interior distinct support locations, opposite strictly positive amplitude magnitudes, and all four ordinary monomial moments. The moment-map unit ball is weak-star compact; separating its finite-dimensional image supplies the exact primal/dual norm equality and a dual maximizer. Complementary slackness forces a bounded real cubic with prescribed signs, and the interior extrema force both derivative roots. Its unique normalized integral has explicit endpoint deficiencies with factorizations proportional to the claimed location inequalities. Every optimizer is supported on at most four contact nodes, where the four-moment Vandermonde matrix is injective, including on the boundary. Failure of either inequality excludes every dual certificate, so strong duality proves a strictly better feasible measure exists. Exact symbolic and rational-grid checks reproduced the identities, and finite-grid LP supplied independent diagnostics, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-De Castro–Gamboa (arXiv:1103.4951, 2011), Sections 1 and 3, provides the broad dual-polynomial framework and special Chebyshev-support examples; this is acknowledged and is not the new claim. Its general existence criterion does not supply an explicit necessary-and-sufficient location frontier for all opposite-sign interior pairs with precisely four ordinary moments. Bendory–Dekel–Feuer (arXiv:1412.6254, 2014), Sections 1–3, gives a high-degree sufficient separated-support theorem for polynomial moments, with the stated threshold applying from degree 128; it does not classify the degree-three feasible and infeasible regions. Searches for cubic dual interpolation, signed two-atom Beurling minimal extrapolation, and the equivalent midpoint/separation condition revealed no published explicit equality-and-failure phase diagram. The derivation is short once the general duality principle is accepted; a historically unindexed low-degree special case or textbook exercise remains a genuine novelty risk.
+PASS
 
-## Value — PASS
-Degree three is the first polynomial degree capable of a real dual certificate taking opposite extremal values at two distinct interior points. The complete location frontier shows that large separation alone is not decisive: for a midpoint farther than \(1/3\) from zero, no two interior sites can be recovered at this measurement budget, whereas centrally placed sites recover exactly from separation one onward. The boundary admits uniqueness even when the certificate contacts an endpoint, and the admissible region has exact normalized area \(1/6\). This is a natural complete classification of a smallest nontrivial signed off-grid recovery problem, including both successful and provably unsuccessful total-variation recovery, rather than a routine bound or a numerical census.
+The four-dimensional moment image of the TV unit ball is compact and spans the moment space (use four distinct nodes). Separation gives attained duality over bounded real cubics, and weak-star compactness gives primal attainment. Both nonzero amplitudes force the sign interpolation p(a)=1, p(b)=−1 for optimality; interior contact also forces p′(a)=p′(b)=0. These determine a unique cubic, namely T₃((t−c)/Δ) with c=(a+b)/2 and Δ=b−a. Since |T₃|≤1 exactly on [−1,1] over the reals, the test is Δ≥max(1+c,1−c). Failure implies a strictly lower attained TV, not just a second minimizer. At a feasible pair the saturation set has at most four nodes, the two interior sites and possibly one or both endpoints. Any minimizer is supported on these nodes; four monomial moments are injective there by Vandermonde rank. For uniformly sorted sites, at center c the half-gap ranges up to 1−|c| and must be at least (1+|c|)/2. Using Jacobian 2 gives recovery area 1/3 out of ordered area 2. At |c|=1/3 there are in fact no feasible interior pairs, consistent with the stated exclusion for |c|>1/3. These checks are exact; the source checker was inspected, not run, and grid diagnostics are not needed for the result.
 
-## Closest literature and limitations
-The principal prior contribution is the established equivalence between total-variation recovery and bounded polynomial dual certificates. The new part is an exhaustive cubic location classification and its boundary uniqueness. No uniform noisy recovery, higher-degree phase diagram, complex-amplitude counterpart, or unrestricted identifiability claim is made. Published sources are not an exhaustive index, and independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established TV duality and Chebyshev certificates. The supported distinct claim is a complete feasible-location criterion at degree three for independently moving, oppositely signed interior sites, including strict failure and uniqueness even when the certificate also touches at an endpoint. Neither the exact symmetric instance nor the general sufficient separation/certificate results inspected settle this location classification.
+
+## value
+
+PASS
+
+At the four-moment budget, exact invertibility of a sparse model and success of unrestricted TV minimization are genuinely different questions. The threshold classifies when TV succeeds, certifies strict failure everywhere else irrespective of amplitudes, and settles the equality case that strict-certificate theorems cannot cover. This is useful as a sharp benchmark for low-degree recovery; the probability is a consequence, not the reason for acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

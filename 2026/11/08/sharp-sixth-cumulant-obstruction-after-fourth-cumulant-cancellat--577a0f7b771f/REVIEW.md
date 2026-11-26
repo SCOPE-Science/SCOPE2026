@@ -1,19 +1,21 @@
-# Review of the fourth/sixth cumulant cancellation threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The six-moment finite Fourier closure follows from a path-length bound: mode four cannot contribute to a sixth-order displacement derivative at the origin. The isolated eigenvalue of the seven-mode truncation has an exact four-mode determinant whose coefficients give the displayed second, fourth and sixth cumulant growth rates. The two quadratic nonnegative-polynomial tests on \([-1,1]\) yield necessary sharp third-moment bounds; explicit endpoint two-atomic distributions and their mixtures prove sufficiency. The threshold \(-5/7\) and unique three-angle equality law follow by a factored comparison. The included standard-library program passed 271 exact arithmetic and independent Fourier-ODE checks. Scope restrictions, including the difference between linear cumulant growth and finite-time Gaussianity, are explicit.
+PASS
 
-## Originality
+Uniform start makes a contribution to the zero Fourier mode pass from zero back to zero, so excursions past mode three require at least eight propulsion multipliers; the degree-six moment and log-moment jets are exactly those of the seven-mode truncation, for every time. Its positive a,b,c ensure an isolated eigenvalue at zero. On a sufficiently small complex k disk the analytic projection has nonzero initial/terminal overlap, and the other spectral part decays relative to it uniformly. Taking the local logarithm and differentiating gives t times the eigenvalue derivatives plus O(1), without assuming a gap for high modes. An independently expanded Schur complement gives λ=p/[2(a+λ−p/(4(b+λ−p/(4(c+λ)))))] with p=v²k² and D=0, reproducing all three rates. The independent Brownian term is exactly Dk². For b=a/2 the first two raw moments of Y=cos Δ are m and q=(3+m)/4. Nonnegative (1±Y)(Y−z)² give the sharp third-moment bounds by completing the square; their two-point equality laws have the same m,q, so mixing fills the interval. At m=−3/4 these reduce to the point mass at Y=−3/4 (zero weights are allowed). The upper bound for w=m₃ is strictly below 1 for m<1, so c>0 throughout. The lower endpoint minus the target is (m−1)(7m+5)/[4(1+m)] and the upper endpoint is strictly above the target. At m=−5/7 equality forces support {−1,−1/2} with masses 3/7 and 4/7, whose symmetric angular lift is unique.
 
-**PASS, qualified.** Close primary literature is treated by implication rather than title. The 2020 partial-reorientation paper already covers fourth-order kurtosis, the 2023 work supplies a finite-Fourier-moment method, and the August 2026 source supplies a full higher-even-moment computation framework; none of the inspected relevant passages states the displayed general sixth linear-cumulant coefficient together with the sharp feasibility interval, threshold and unique equality law. Prior fourth-cumulant formulas and general higher-moment machinery are not claimed as new. Search results did not reveal an explicit published classification, but absence from indexed sources cannot establish universal novelty. The remaining risk is an unindexed specialization or supplemental computation of the general existing hierarchy.
+## originality
 
-## Value
+PASS
 
-**PASS.** Long-time Gaussian diffusion masks information in higher turning harmonics. Nullifying the leading excess kurtosis without automatically nullifying higher non-Gaussianity is a natural discrimination problem for particles with indistinguishable diffusion rates. The sharp \(-5/7\) boundary separates an impossible regime from a fully realizable double-cancellation regime and identifies the only critical turning protocol. The result supplies exact experimental moment targets without asserting that microscopic measurements can resolve them at arbitrary noise levels.
+Accept the distinct general sixth-order result and sharp joint-cancellation classification for this turning model. The same-day fourth-envelope record materially covers the fourth-order feasible boundary −3/4; no priority inference follows from the date and that part is not credited as new. Arbitrary-distribution Fourier hierarchies and explicit uniform-redraw sixth moments are antecedents, not the −5/7 threshold or equality law.
 
-## Closest literature and limitations
+## value
 
-Britton–Zhang–Han–Bertrand, arXiv:2608.23519, Section 3.5; Villa-Torrealba–Chávez-Raby–de Castro–Soto, arXiv:2002.02872, fourth-moment and partial-turning calculations; Jung, arXiv:2308.00554, finite angular harmonics for even moments; and Santra–Basu–Sabhapandit, arXiv:2211.07337, including an explicit sixth moment for uniform turning, whose first and second relaxation rates coincide and thus cannot satisfy fourth-rate cancellation. Their general frameworks overlap in methodology but were not found to assert the exact classification stated here. The claim only concerns independent symmetric Poissonian angular turns, uniform initial orientation, and asymptotic projected-displacement cumulants through order six. No independent validation or generalization to interacting systems is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Matching the diffusion rate or cancelling long-time kurtosis leaves genuine higher-order differences. The theorem says exactly when a physically realizable angle law can remove the next even cumulant growth, gives both feasible signs away from the obstruction, and identifies the unique extremal design. The sharp bound over all turning probability laws is the distinctive value beyond expanding a Fourier hierarchy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

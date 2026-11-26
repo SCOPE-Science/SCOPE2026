@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:44:52.262944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reflection is a rooted automorphism, and the weighted quotient neighbor multisets are {1,1,m}, {m−1,m−1,0}, and {j−1,j+1,m−j} for internal j; repeated entries count. The first update detects exactly 1,m; at the second, 1,m still coincide, and 2 and m−1 are distinguished from the remaining block by seeing one and two entries of the 1,m class. At the third, 1 sees both newly distinguished classes and m sees m−1 twice. For m≥6, the old middle's left end 3 sees 2, its right end m−2 sees 2 and m−1, and the strict interior sees neither. For m=4,5 the 1,m split finishes the partition at round three. Inductively if the middle interval [r+1,m−r] has at least two indices, its left end sees the old singleton r, its right end sees r and m−r+1, and the interior sees only the middle; thus no further split can occur in that round. At most one middle index means a discrete quotient and stability. All steps up to that round are strict, giving max(3,floor(m/2)). Since stable colors are preserved by rooted automorphisms and reflection is transitive on each P_j, the final cells are exactly the rooted orbits. The auxiliary automorphism argument also checks: a four-cycle with one chord would require a three-step circumference path between vertices at circumference distance m>3, and three chords are impossible since they are a matching. For m=3 the graph is K3,3 and its one-marked three classes are equitable after one round. Independent direct vertex replay checks all rounds through stability for 3≤m≤40 (python3 /workspace/replay/finite_checks.py); the universal claim rests on the quotient induction. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guy–Harary define the family and prove minimal nonplanarity. Arvind et al. §A.2 give individualized stable partitions and Theorem 30 for Johnson graphs J(n,2). The published exact wavefront analogues are for rooted cycle powers and G(n,2)."
+        ],
+        "reasoning": "Refinability and orbit properties do not prescribe strict round counts, and the inspected explicit wavefront theorems do not quantify over this family. The cycle powers have degree ≥4 in their stated range, unlike these cubic ladders.",
+        "searches": [
+          "DOI:10.4153/CMB-1967-046-4",
+          "arXiv:1502.01255",
+          "Resultary a22a98f1e75f, d9bd8b8e27ff"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py and verify_quotient.py",
+        "DOI:10.4153/CMB-1967-046-4",
+        "arXiv:1502.01255",
+        "Resultary d9bd8b8e27ff and a22a98f1e75f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generalized Petersen analogue concludes depth equals the root's eccentricity. In the target, the distance to P_j is min(j,1+m−j); already for odd m≥7 the eccentricity is (m+1)/2 but the strict-round count is (m−1)/2. The pointed Johnson theorem in the inspected appendix concerns stable refinability for a different graph family."
+        ],
+        "reasoning": "Even the structural depth rule in the closest cubic-family analogue does not transfer: an unvisited last middle reflection orbit can already form its own color without further splitting. The multiplicity calculation is essential.",
+        "searches": [
+          "Resultary a22a98f1e75f Finding and proof",
+          "arXiv:1502.01255 §A.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting color refinement and 1-WL here both update old colors by multiplicity-counted neighbor colors. The relevant object is the even cycle plus opposite-vertex perfect matching, also the circulant with generators ±1 and m. The primary keyword lookup was unavailable and is not negative evidence."
+        ],
+        "reasoning": "Matching just the stable orbit partition, an unmarked cubic graph's trivial refinement, or a shortest-path distance partition would not give the successive counting partitions or the strict-round convention.",
+        "searches": [
+          "Resultary one-marked Möbius ladder counting 1-WL",
+          "arXiv:1502.01255 §A.2",
+          "Möbius ladders colour/color refinement, individualized/rooted equitable partitions, Weisfeiler–Leman stabilization depth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked searches found no exact match in the inspected results. The two same-day catalogue passages give explicit shells and depth for cycle powers, and reflection orbits and eccentricity depth for generalized Petersen G(n,2)."
+        ],
+        "reasoning": "These are substantial method and theorem-shape overlaps, not matching ladder round tables. Same-day dates do not settle priority or equivalence.",
+        "searches": [
+          "Resultary exact singly marked Möbius ladder 1-WL wavefront and stopping round",
+          "Resultary d9bd8b8e27ff and a22a98f1e75f"
+        ]
+      },
+      "rationale": "The exact one-marked Möbius-ladder wavefront and strict depth survive comparison with the indexed rooted-wavefront analogues and the inspected framework and graph-family papers. Neither the graph definition nor general stable/equitable partition results are distinct contributions here.",
+      "residual_risks": [
+        "The targeted primary search service was unavailable, so uninspected specialized work on individualized circulants or ladder refinement remains a risk. The sources actually inspected do not establish the same partitions and round count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching family, different result",
+          "evidence": "Defines polygon plus opposite chords; theorem is minimal nonplanarity, not a result on refinement.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1967-046-4",
+          "material_read": "PDF pp. 1 and 4, offsets 0 and about 6780",
+          "method": "OA full-text passages",
+          "title": "On the Möbius Ladders",
+          "trigger": "Primary source on the exact graph family"
+        },
+        {
+          "assessment": "Matching notion, explicit Johnson graph result not applicable",
+          "evidence": "Definition of multiplicity-counting refinement; Theorem 30 for J(n,2), not a Möbius-ladder depth formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "§1 and Appendix A.2 pp. 28–29, offsets about 2800 and 89700–94180",
+          "method": "OA full-text passages",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Individualized color-refinement and orbit framework"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Exact shell waves for C_n^[k], k≥2 and n≥4k, including a sharp small-round boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-colour-refinement-wavefronts-in-rooted-powers-of-cycles--d9bd8b8e27ff",
+          "material_read": "RESULT.md Finding and proof, lines 1–30",
+          "method": "Local published-record mirror",
+          "title": "Sharp colour-refinement wavefronts in rooted powers of cycles",
+          "trigger": "Exact same-day rooted-wavefront analogue"
+        },
+        {
+          "assessment": "Close methodological analogue but a different family and depth law",
+          "evidence": "The result is for one-root G(n,2), with depth equal to root eccentricity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-rooted-generalized-petersen-graphs-colour-refinement-depth-equal--a22a98f1e75f",
+          "material_read": "RESULT.md Finding and proof, lines 1–37",
+          "method": "Local published-record mirror",
+          "title": "Rooted generalized Petersen graphs: colour-refinement depth equal to eccentricity",
+          "trigger": "Same-day cubic-family theorem with rooted orbit quotient and depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact dynamical invariant of a natural cubic family: one distinguished vertex breaks all symmetries except reflection, but the least stable refinement round still grows linearly with ladder size. The complete sequence explains why the middle can be finished before reaching the last distance shell, and the small exceptional case tests the role of the family assumptions. This is stronger and more informative than just labeling orbits or reporting a finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

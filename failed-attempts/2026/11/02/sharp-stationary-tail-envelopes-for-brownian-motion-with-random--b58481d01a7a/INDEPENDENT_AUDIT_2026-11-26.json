@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:06:08.259910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Backward Poisson gaps yield iid symmetric Laplace increments of rate a=√(λ/D). Since products of R are at most ρ^j, the backward series converges absolutely, and a common-noise coupling contracts initial separation by at most ρ raised to the number of resets, proving uniqueness. For a<s<a/ρ, the Laplace transform of the absolute majorant for the residual W is bounded by ∏_{j≥1}(1−sρ^j/a)⁻¹, which also justifies passing from finite conditional products to the limit. Conditioning on W, the independent first Laplace increment gives e^{ax}P(X>x)→(1/2)E e^{aW}, since P(W>x)=O(e^{−sx}); symmetry gives the absolute coefficient. The nonnegative series is coordinatewise increasing in every even multiplier moment and includes a standalone E R² term. Jensen and the chord bound therefore give the stated extremizers, strictly unless supported as claimed. The Bernoulli geometric-run identity and deterministic product both agree with the alternative product T=∏_{k≥1}(1−E R^{2k})⁻¹ proved in the comparison below. Read the frozen verifier and its output without execution; `python3 /workspace/branches/review_reproduction.py 4` separately bounded both endpoint products by rational intervals and checked an interior exact finite tree with a certified remainder. Finite checks do not prove the tail limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertoin–Yor give E I_T^k=k!/∏_{j≤k}(q₀+Φ(j)) for independent exponential killing, including rate zero by their convention.",
+          "Buraczewski et al. give the general exponential-tail transfer for an independent perpetuity innovation and multiplier; their inspected positive-contraction result excludes zero multipliers, which the elementary conditional Laplace identity here handles without such a restriction.",
+          "Assefa et al. treat affine-reset Markov moment formulas; the inspected general setup does not by itself state the fixed-mean tail optimization."
+        ],
+        "reasoning": "The explicit moment theorem applies to all multiplier laws in the frozen support class via the independent killed-subordinator representation. It does not require the reset laws to share second moments.",
+        "searches": [
+          "Bertoin–Yor, Theorem 2(i), arXiv:math/0511265, Eq. (4)",
+          "Buraczewski et al., arXiv:1703.02330v1 Proposition 1.1",
+          "Assefa–Keller-Ressel–Palmowski arXiv:2610.01363v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_tail.py, verification_output.txt",
+        "arXiv:math/0511265, 2305.13722v2, 1703.02330v1–v2, 2610.01363v1",
+        "Resultary 7b0f19736f42 and b70921ae9d3c",
+        "arXiv:2501.01139v1 Eqs. (22)–(23) on fixed factors; 2412.15626v1 pp. 1,3 on transition asymptotics; 2104.14866v1 p. 2 on random-amplitude resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set m_k=E R^{2k} and b_k=a^{2k}E X^{2k}/(2k)!. The theorem and the Gaussian even moment give b₀=1 and b_k=b_{k−1}/(1−m_k), exactly as the indexed recurrence does.",
+          "At an observation time X=Z₀+R X′ with independent terms and Z₀ Laplace. The independent Laplace-tail calculation gives T=E exp(aR X′), with a stronger exponential moment for R X′ from the strict cap. Symmetry and the nonnegative cosh expansion give T=1+Σ_{k≥1}m_k b_k=lim_k b_k, since m_k b_k=b_k−b_{k−1}.",
+          "The known moment product thus yields T=∏(1−m_k)⁻¹. The inequalities c^{2k}≤m_k≤cρ^{2k−1} follow immediately by Jensen and the chord for r^{2k}. Already the k=1 factor is strictly ordered unless the stated equality laws hold, and convex order orders every factor."
+        ],
+        "reasoning": "This derives the actual full prefactor, both endpoint products and the uniqueness test, not just the rate or finite moments. The light residual and the leading Laplace summand supply the pointwise-tail step; the pole or formal series alone would not suffice. No stronger fixed-mean extremal theorem needs to be assumed.",
+        "searches": [
+          "Bertoin–Yor Theorem 2(i) and Eq. (4); Resultary 7b0f19736f42 Proof §§1,4; Buraczewski et al. v1 Proposition 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed proof §1 identifies the stationary position as a Gaussian with random variance V=2D Σ E_j∏_{i≤j}R_i² in the same marked-Poisson model.",
+          "Writing −2log R for the strictly positive marks' decrements on the log scale expresses V/(2D) as I_T=∫₀ᵀ exp(−ξ_s)ds for a compound-Poisson subordinator ξ, with an independent first zero reset T. The rate of T is q₀=λP(R=0) (T=∞ if q₀=0)."
+        ],
+        "reasoning": "The variance representation and the subordinator functional are the same integrated conditional variance. The exponent obeys q₀+Φ(k)=λ(1−E R^{2k}) for k≥1, including atoms at zero; zero marks are not modeled as finite log jumps.",
+        "searches": [
+          "Resultary Brownian randomized partial resetting and convex-order amplitudes; 7b0f19736f42",
+          "Bertoin–Yor exponential functionals arXiv:math/0511265 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b0f19736f42 fixes E A² in its squared-position convex-order result, not E R. However its proof §4 gives the exact even-moment recurrence for arbitrary reset factors, from which the complete normalized moment products follow. The construction in §1 also applies here.",
+          "The nearby b70921ae9d3c concerns normalized squared-position risk for deterministic factors, not this prefactor.",
+          "Eq. (37) of Di Bello et al. already supplies the deterministic endpoint as the integrated leading exponential term."
+        ],
+        "reasoning": "Neither replacing E A² by E R nor quoting the same-day record's endpoint theorem proves the frozen assertion. The exact general recurrence in the same model is the material bridge, also independently covered by the older exponential-functional theorem. No priority inference is drawn from the same-day listing.",
+        "searches": [
+          "Local Resultary random partial resetting searches; 7b0f19736f42 and b70921ae9d3c",
+          "Di Bello et al. arXiv:2305.13722v2 Eq. (37)"
+        ]
+      },
+      "rationale": "The exact envelope is a mechanical implication of the preexisting subordinator exponential-functional moment theorem and the leading-Laplace innovation, not just a qualitative analogue of an earlier bound. Poisson thinning treats R=0 as independent killing within the earlier theorem's hypotheses. The stationary moment recurrence in the distinct same-day Resultary record supplies a second route; this is scientific overlap, not evidence for priority between same-day records.",
+      "residual_risks": [
+        "The reviewed sources need not state the exact optimization verbatim. The negative originality decision rests on the exhibited mathematical implication, not a title match or dating the same-day record first.",
+        "The inference uses the strict support cap for a light residual; it gives no claim about unbounded support near one without such a cap, or finite-threshold stochastic ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full product moment input, including independent exponential killing",
+          "evidence": [
+            "Independent exponential T of parameter q≥0; q=0 means T=∞. The exact factorial formula has factors q+Φ(j)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0511265",
+          "material_read": "§3.1, Theorem 2(i), Eq. (4), author pp. 194–195, OA offsets 11360–14355",
+          "method": "OA PDF, located subordinator passage and read theorem by offset",
+          "title": "Exponential functionals of Lévy processes",
+          "trigger": "Exponential functional of the marked-Poisson conditional Gaussian variance"
+        },
+        {
+          "assessment": "Same model; different fixed-moment objective, but exact even-moment recursion enabling the prefactor comparison",
+          "evidence": [
+            "§1 constructs the conditional Gaussian variance; §4 states the generator recurrence for j≥1 with denominator 1−E A^{2j}."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42",
+          "material_read": "RESULT.md Finding, Assumptions and Proof §§1–5, offsets 0–7273",
+          "method": "Local Resultary search and bounded mirror reads",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resetting",
+          "trigger": "Strongest distinct indexed model comparison"
+        },
+        {
+          "assessment": "Generically covers the tail-transfer mechanism, not the positive/zero support cap class verbatim",
+          "evidence": [
+            "P(X>x)∼E[ψ(bA)]P(B>x) under its assumptions; the stated positive-contraction case excludes A=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.02330",
+          "material_read": "v1 Proposition 1.1 p. 2 offset 5379; v2 Proposition 2.1 p. 3 offset 5520",
+          "method": "OA PDF",
+          "title": "On perpetuities with gamma-like tails",
+          "trigger": "Existing exponential-tail transfer"
+        },
+        {
+          "assessment": "Covers the deterministic endpoint by integrating the leading density term",
+          "evidence": [
+            "Fixed multiplier c stationary density has the leading coefficient proportional to ∏_{j≥1}(1−c^{2j})⁻¹."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.13722v2",
+          "material_read": "p. 11 Eq. (37), offset 38648",
+          "method": "OA PDF",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Check known deterministic exact stationary tail"
+        },
+        {
+          "assessment": "General moment context; do not infer tail optimization from scope alone",
+          "evidence": [
+            "The model allows affine mark resetting with iid interarrival times; the stated focus is moment and cross-moment formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01363v1",
+          "material_read": "PDF pp. 1–2, offsets 792 and 6300; HTML Thm. 2.6 located for the underlying polynomial process",
+          "method": "OA PDF and HTML",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "General affine-reset moments with random marks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimization question is natural, but in this strict-cap Poisson model the existing exact moment theorem reduces the entire sharp envelope and both strictness claims to a telescoping sum and pointwise Jensen/chord comparisons. No new asymptotic mechanism, harder regime, or distinct invariant survives the coverage check.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

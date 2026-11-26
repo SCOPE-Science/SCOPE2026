@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:36.884532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59, VERIFICATION.md, verify.py and diametral_pairs.csv",
+        "Independent program /workspace/review-replays/replay_cross_join.py; run with Python 3.10+ and NumPy/SciPy, supplying the path to the frozen diametral_pairs.csv"
+      ],
+      "rationale": "Independently generated all cyclic tours of the 32 five-bit states by distinct-state DFS from state 00000, with closure checked after the 32nd state. Every rotation class includes 00000 once; each resulting feedback mask records the two possible successor matchings at each common four-bit suffix, so it is a unique label. To form adjacency, a successor swap at the first chord cuts the tour into its two arcs. The second swap rejoins exactly when its two visits lie on opposite arcs, which is precisely chord alternation. The independent replay built adjacency from that criterion, not the frozen BFS, subset DP or expected histogram. Successive exact int64 adjacency powers A^k give walks of length k; the first positive power for each distinct pair gives its distance and that entry counts geodesics. No overflow is possible since the maximum row degree to the seventh power is below 2^63. Replay found 2,048 vertices, 38,704 edges, all-pair distance histogram (38704,305376,758800,710976,254800,27104,368), maximum seven, and verified the half-Hamming formula. At distance seven, A^7 agreed row-for-row with all 368 frozen CSV counts; it reproduced all 14 values and frequencies and the stated extremes. The frozen BFS and complementary-coordinate DP were inspected, not executed. Their recurrence is also sound: the terminal XOR requires 14 sign changes in 7 two-flip steps, so every changing coordinate is flipped once and every path is counted by legal subset chains. Minor documentation caveat: the frozen checker uses int.bit_count(), so the stated Python 3.9 minimum should be read as 3.10; this does not affect the exhaustive independent result.",
+      "residual_risks": [
+        "Exhaustive only for binary order five, with rotations identified but not reflection/complementation; counts are shortest vertex paths, not counts of arbitrary operation histories or other distance notions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Even-delta-matroid basis graph results concern Hamiltonicity and cycle structure with symmetric-difference-two moves.",
+          "Earlier cross-join reachability is documented in Alhakim, p. 4, and connectedness is proved in §4."
+        ],
+        "reasoning": "Connectivity, Hamiltonicity and exchange structure may give routes or control distances, but do not state how many shortest paths are available under all intermediate feasibility constraints. No specific broader path-count evaluation was found in those passages.",
+        "searches": [
+          "Kim–Oum arXiv:2308.05772, Theorem 1.3",
+          "Alhakim arXiv:1805.12059, §4 and cited ePrint 2013/760"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f799825b999 and 71f06b9fb706",
+        "arXiv:1805.12059",
+        "DOI 10.3390/math14091424",
+        "arXiv:2308.05772",
+        "IACR ePrint 2013/760 and DOI 10.1007/s10623-020-00759-2 (direct full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact metric determines which pairs are diametral, not the number of admissible chains connecting each one.",
+          "A shift-register edge matrix is not the configuration-space adjacency matrix used to compute path multiplicities.",
+          "The frozen input's 368 pairs were independently verified and display 14 different path counts despite all being at distance seven."
+        ],
+        "reasoning": "A shortest-path distance or distance-shell population erases path counts; supplying the graph and using a new enumeration of intermediate legal configurations is a further computation, not a restatement of the tables checked.",
+        "searches": [
+          "Resultary 6f799825b999, exact half-Hamming metric and diametral partner criterion",
+          "Resultary 71f06b9fb706, exact distances and example",
+          "DOI 10.3390/math14091424, §4.1 shift-register state adjacency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6f799825b999 and 71f06b9fb706 use the applicable adjacency distance and count endpoint pairs by distance.",
+          "Alhakim distinguishes common-initial-path D(u,v) from graph shortest distance."
+        ],
+        "reasoning": "Geodesic multiplicity, the count of legal seven-stage complementary-mask chains, and first-hit adjacency-power entries for diametral pairs are equivalent; a count of endpoints or a prefix length is not any of these.",
+        "searches": [
+          "Resultary: order-five binary de Bruijn cross-join graph shortest paths, diametral complementary feedback masks",
+          "Alhakim arXiv:1805.12059, §4, Lemma 4.2 and Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two Resultary records give distance/eccentricity distributions, and one gives a shortest-path example, not per-pair path counts.",
+          "Alhakim's Table 1 counts vertices by number of neighbors.",
+          "The inspected Fryers-polynomial coefficients count feedback functions by truth-table disagreements from a reference linear function, with order-five coefficients summing to 2,048."
+        ],
+        "reasoning": "The already covered domain and one-source/aggregate counts are credited. None of these tables is a count of paths for individually specified diametral endpoints.",
+        "searches": [
+          "Resultary 6f799825b999 and 71f06b9fb706, Findings and computational sections",
+          "Alhakim arXiv:1805.12059 Table 1",
+          "Dąbrowski–Rachwalik–Szmidt DOI 10.3390/math14091424 §§4–4.1"
+        ]
+      },
+      "rationale": "Existing same-order work covers the graph, valencies and metric/end-point information. None of the inspected strongest same-domain claims gives or mechanically implies the complete per-diametral-pair multiplicity spectrum without a different graph-path computation. The confirmed distinctive result is the fourteen frequencies of shortest paths to fixed farthest endpoints, not the degree distribution, distance-seven shell count or distance formula.",
+      "residual_risks": [
+        "Unlocated exact path enumerations and uninspected ancillary material remain possible; direct comparison with the 2013 and 2020 sources was limited by access. No claim of absolute priority or of exhaustive literature absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers distance and diametral partners, not all shortest-path counts.",
+          "evidence": [
+            "Seven-class pair-distance histogram, centers and unique diametral partners; half-Hamming distance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shortest-path-spectrum-and-center-of-the-fifth-order-binary-de-b--6f799825b999/RESULT.md",
+          "material_read": "Finding and all-root graph distance computation, offsets 0–5150 and 5000–8656",
+          "method": "Resultary local mirror",
+          "title": "Shortest-path spectrum and center of the fifth-order binary de Bruijn cross-join graph",
+          "trigger": "Same domain, diametral pairs, title could denote geodesic counts"
+        },
+        {
+          "assessment": "Metric and eccentricity census and path example, not path multiplicity classification.",
+          "evidence": [
+            "The enumerated summary is given by distances; an exhibited shortest path is not a count of all of them."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cross-join-graph-distances-among-binary-order-five-de-brui--71f06b9fb706/RESULT.md",
+          "material_read": "Finding, metric and BFS sections at offsets 0–4233, 1900–5600, 5100–9919",
+          "method": "Resultary local mirror",
+          "title": "Exact cross-join graph distances among binary order-five de Bruijn sequences",
+          "trigger": "Same-order exhaustive BFS"
+        },
+        {
+          "assessment": "Table concerns valencies, while D(u,v) is a common-initial-path quantity, not the cross-join metric.",
+          "evidence": [
+            "Table 1 frequencies by number of cross-join neighbors; prefix-distance descent establishes reachability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12059",
+          "material_read": "Table 1, printed p. 4; §4 Lemma 4.2 and Theorem 4.3, printed pp. 9–10",
+          "method": "Bounded primary PDF passages at offsets 8500–12936 and 25100–28555",
+          "title": "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+          "trigger": "Same graph and known order-five table"
+        },
+        {
+          "assessment": "These coefficients and the matrix concern different objects from fixed-pair shortest paths.",
+          "evidence": [
+            "N(f;k) counts feedback functions by truth-table differences from l; order-five coefficients sum to 2048."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14091424",
+          "material_read": "§4 pp. 8–9 including N(f;k), §4.1 and the shift-register matrix on p. 9",
+          "method": "Bounded primary PDF passages at offsets 29000–35476 and 33500–39457",
+          "title": "The Cross-Joint Method and Generation of De Bruijn Sequences",
+          "trigger": "Exact small-order cross-join/Fryers tables"
+        },
+        {
+          "assessment": "Hamiltonicity and cycles, not all shortest-path multiplicities on the assigned domain.",
+          "evidence": [
+            "Adjacency by symmetric difference two; theorem addresses cycle structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05772",
+          "material_read": "Abstract and Theorem 1.3, PDF pp. 1–2, offsets 0–7702",
+          "method": "Bounded primary PDF passages",
+          "title": "Note on Hamiltonicity of Basis Graphs of Even Delta-Matroids",
+          "trigger": "Potential general exchange-graph theorem"
+        },
+        {
+          "assessment": "Access leaves open further comparison; secondary evidence is only for global cross-join reachability.",
+          "evidence": [
+            "Alhakim attributes reaching any cycle by repeated cross-joins; this does not assert geodesic counts."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2013/760",
+          "material_read": "No direct primary passage retrieved; Alhakim's attribution at printed p. 4 was read as secondary evidence.",
+          "method": "Attempted lawful IACR PDF and landing retrieval and checked attribution in accessible primary comparison paper",
+          "title": "On cross joining de Bruijn sequences",
+          "trigger": "Foundational cross-join work"
+        },
+        {
+          "assessment": "Secondary comparison suggests a positional/common-subsequence quantity; not treated as direct evidence of noncoverage.",
+          "evidence": [
+            "The indexed distance record distinguishes that diameter from configuration graph diameter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-020-00759-2",
+          "material_read": "No full text retrieved; secondary characterization in Resultary distance comparison",
+          "method": "Lawful publisher and open-copy retrieval attempted",
+          "title": "Longest subsequences shared by two de Bruijn sequences",
+          "trigger": "Term diameter in the same-order literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Independent all-pair walk-power replay",
+        "Alhakim Table 1 and Dąbrowski–Rachwalik–Szmidt §4"
+      ],
+      "rationale": "The diametral pairs are the full intrinsic extremal domain of the standard reconfiguration graph, not an arbitrary subset. Their geodesic counts measure how many equally economical changes exist, and the fourteen values distinguish even pairs with the same maximum metric distance. The natural complete exact dataset provides a usable finite benchmark and answers a structural question not supplied by the known shell or valency data.",
+      "residual_risks": [
+        "No general-order formula, algorithmic performance improvement or downstream cryptographic consequence is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

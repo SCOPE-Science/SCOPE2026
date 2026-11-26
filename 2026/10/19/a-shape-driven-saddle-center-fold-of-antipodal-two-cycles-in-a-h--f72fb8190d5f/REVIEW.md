@@ -1,15 +1,21 @@
-# Review of the antipodal two-cycle fold theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orbit equation is established directly from the stated area-preserving map rather than a numerical plot. A positive-radius antipodal primitive cycle exists if and only if \(R_p(s)=4(1+p)/t\) with \(0<s<\operatorname{arsinh}\sqrt p\). The nonstandard global step is a strictly increasing ratio of two positive hyperbolic power series, with coefficient ratios \((4^n-1)/2\). That produces one nondegenerate maximum only for \(p>3/2\) and proves each threshold/equality case. Direct differentiation of the map identifies the hyperbolic inner orbit and the linearly elliptic companion near the fold. Taylor analysis produces the fourth-root onset and quadratic fold width. The included standalone finite checker passed 687 assertions; numerical evidence is not used as an infinite proof. The result deliberately excludes nonsymmetric cycles and nonlinear stability of the elliptic cycle.
+PASS
 
-## Originality — PASS, with a priority caveat
+Substitution of (y,−y) in the stated map gives K⁻¹V′(y)=−4y, with y>0 forcing 0<s=βy<β, and the exact reduced equation R_p(s)=4(1+p)/t. Direct differentiation gives the sign of R′ as the sign of p−N/D, where D=sA′−A>0 and N=sB′−B for A=sinh(2s)/2 and B=sinh(4s)/8−sinh(2s)/4. The coefficient ratios r_n=(4^n−1)/2 in the two positive series strictly increase. In the variable s² the ratio derivative, multiplied by s², is the positive weighted covariance of n and r_n; its limit at zero is r_1=3/2. Hence R_p falls for p≤3/2 and has exactly one nondegenerate maximum for p>3/2, since R_p′(β)<0. The excluded zero endpoint, R_p(0)=1, and R_p(β)=0 give all equality and open-interval counts. At the maximum the scalar root is quadratic and the parameter derivative of R_p−A_c/t is positive. At each antipodal point the one-step derivative has trace τ=−2−4sR′/R and unit determinant; the return derivative is its square. The inner branch has τ<−2 and is saddle-type. On the outer branch sufficiently close to the fold, −2<τ<−1 by continuity, so the squared multipliers are on the unit circle and nonreal; the wider interval (−2,2) alone would not exclude τ=0. At the fold the double unit multiplier is nonsemisimple. Also, the sum of the two fixed-point equations of F² requires V′(u)+V′(v)=0; at the fold V″(y)=−4K, so locally this equation uniquely gives u+v=0 by the implicit function theorem. This confirms the local fold without extrapolating the count to non-antipodal orbits elsewhere. At p=3/2 the quadratic term vanishes and the quartic is −8/15, giving s⁴∼3(t−10)/16. For ε=p−3/2>0 the quadratic coefficient is 4ε/9+O(ε²), giving s_*²=5ε/12+O(ε²) and peak excess 5ε²/54+O(ε³). Multiplication by A_c∼10 gives the width 25ε²/27. The supplied code was inspected as finite diagnostics only.
 
-Dikandé's 2021 originating preprint (arXiv:2103.07727v1) and its full 2022 journal version (DOI:10.5506/APhysPolB.53.3-A1) give the planar hyperbolic potential map, analyze the first flip at \(t=4(1+p)\), and numerically trace antipodal period-two points. Their inspected text does not classify the exact number of these cycles at arbitrary positive shape, the new fold threshold, or the singular fourth-root scaling. The earlier related map analysis (arXiv:nlin/0008011v1) provides fixed-point and numerical bifurcation information but no such global census. Search comparisons with a published polynomial Duffing-map two-cycle classification concern different equations and do not subsume the theorem. Unindexed or incompletely accessible older literature could still contain an equivalent antecedent; the priority assessment is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is inherent to the published family: deforming a bistable potential changes the onset and multiplicity of its symmetry-defined two-site spatial patterns. A sharp deformation threshold separates an everywhere single-branch regime from a wedge of two branches born in a saddle-center fold. The exact width and fourth-root critical scaling provide structural information unavailable from single-branch continuation. These claims do not require a broader chaotic-attractor theorem.
+Credit the fixed-minima map, origin flip and earlier numerical period-two studies to Dikandé. The distinct result supported by the checked evidence is the global-in-parameter antipodal count, including the fold before the origin flip for p>3/2 and the exact degeneracy and width laws. A proof of that count must control the whole positive radius interval, not just the Taylor coefficients or numerical branches near the origin. The inaccessible journal full text leaves a specific priority risk, not an adverse finding.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This resolves a natural orbit-count question in an already studied map family. It identifies when the origin flip is not the first appearance of antipodal cycles and quantifies the interval with two different orbit types. The proof of global unimodality is the substantive step beyond generic local normal forms or plots, and the fourth-root transition and fold width have meaningful exact normalizations. No nonlinear elliptic stability or full period-two census is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

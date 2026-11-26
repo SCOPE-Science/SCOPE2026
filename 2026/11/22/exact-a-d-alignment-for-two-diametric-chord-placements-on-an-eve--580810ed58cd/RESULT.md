@@ -23,10 +23,11 @@ Let \(L\) denote the Laplacian of the unit cycle, \(b_0=\mathbf e_0-\mathbf e_m\
 \[
 (Pb_0)_j=\frac m4-\frac12\min\{j,2m-j\},\quad 0\le j<2m,
 \]
-which is verified by applying the cycle Laplacian and checking its zero mean. Its shifted copy is \(Pb_t\). Direct cyclic summation, or the piecewise-affine slope calculation over four arcs, gives
+which is verified by applying the cycle Laplacian and checking its zero mean. Write \(g=Pb_0\); its shift by \(t\) is \(Pb_t\) and \(g_{j+m}=-g_j\). Taking endpoint differences gives
 \[
-U^TPU=\begin{pmatrix}1+m/2&(m-2t)/2\\(m-2t)/2&1+m/2\end{pmatrix},
+U^TPU=\begin{pmatrix}m/2&(m-2t)/2\\(m-2t)/2&m/2\end{pmatrix}.
 \]
+To compute the other matrix, put \(S_t=\sum_{j=0}^{2m-1}g_jg_{j-t}\), with indices taken modulo \(2m\). Summing squares gives \(S_0=m(m^2+2)/24\), and \(S_m=-S_0\). Since \(Lg=b_0\), for \(1\le t<m\) we have \(2S_t-S_{t-1}-S_{t+1}=g_t-g_{t+m}=(m-2t)/2\). The cubic \((m-2t)(m^2+2+2t(m-t))/24\) obeys this difference equation and these two endpoint values; uniqueness follows because the difference of two solutions has constant first difference and vanishes at both endpoints. Thus the Gram matrix of \(Pb_0,Pb_t\) is
 \[
 U^TP^2U=\begin{pmatrix}
  m(m^2+2)/24&(m-2t)(m^2+2+2x)/24\\

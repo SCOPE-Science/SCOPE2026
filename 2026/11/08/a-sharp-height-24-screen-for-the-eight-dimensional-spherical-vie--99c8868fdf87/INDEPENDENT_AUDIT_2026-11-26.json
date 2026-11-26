@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:30.025148Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify_view8.cpp, verify_view8_independent.py and EXACT_OUTPUT.txt inspected; frozen executables/scripts not run.",
+        "Repaired /workspace/repairs/5/RESULT.md, VERIFICATION.md, SLOGAN.txt and verify_equality.py; replay command python3 verify_equality.py LO HI over inclusive chunks 1–14, 15–19, 20–22, 23–24; /workspace/branches/height24_repaired_replay.log."
+      ],
+      "rationale": "Both the frozen mathematics and the repaired equality classification are correct. Period one and reflection reduce t to [0,1/2]; sorting loses only permutations. On each crossing cell the frozen projection argument is valid: every fixed-center quadratic is a global upper bound on the pointwise nearest-center distance, and an incident cell at a minimizing time uses a nearest center even at a tied endpoint. Recomputing the exemplar gives Q=306, minimum numerator 576, and the two half-period times 8/51 and 25/51. Rescaling t leaves the score unchanged under doubling. Independently of the frozen enumeration, the repair partitions the sorted vectors by their last coordinate h and uses a fixed 90-cell common refinement, minimizing each quadratic on its own closed interval by exact clipping. The interval rejection test is strict: it drops only vectors already below 8/17, and evaluates all intervals of each survivor. Integer sizes are bounded since Q,B,C≤4608 and all endpoint denominators are at most 24; simultaneous crossings and repeats do not cause special cases. The four replay chunks visited 203490, 1358785, 2729870 and 3596580 tuples, totaling 7888725, the required binomial count. Only (1,2,3,4,5,7,9,11) and its double survived, both at exactly 8/17. Only the first is primitive. No uniqueness statement beyond the box is made.",
+      "residual_risks": [
+        "The certificate covers precisely positive integer vectors of height at most 24 and does not independently prove an unbounded-height theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan–Zhang covers unrestricted directions for the value, and its finite squared-norm range A≤13699 contains the height-24 box since A≤8·24²=4608. The stated certificates eliminate d(v)>8/17, not d(v)≥8/17 apart from a known direction.",
+          "Kahlon's cap-24 screen is in dimension six, with dimension eight suggested as a separate problem. Henze–Malikiosis's related cube/billiard and zonotope theorems do not state a spherical Euclidean equality census."
+        ],
+        "reasoning": "The dominant parameter range decisively covers the original maximum claim. It does not give the repaired equality classification without strict-gap evidence for non-attainers or a complete survivor list.",
+        "searches": [
+          "Tan–Zhang arXiv:2611.10782v1 Theorem 1.1, §4 Eq. (14) and App. C",
+          "Kahlon arXiv:2610.37711v2 §6.4, Remark 7.3",
+          "Henze–Malikiosis arXiv:1609.01939 Theorems 1.1 and 1.5"
+        ]
+      },
+      "checked_sources": [
+        "Tan–Zhang 2611.10782v1; Kahlon 2610.37711v2; Theta blocks Table 2; Henze–Malikiosis 1609.01939; Resultary target mirror and three local queries; supplementary archive and R⁵ paper attempted as noted."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 plus attainment by w implies the frozen boxed value directly and also makes the unrestricted lower bound redundant. Eq. (14) uses witnesses satisfying 17[A||z||²−(v·z)²]≤32A; when equality holds for such a witness, it is not evidence that the minimum cannot be smaller at another time. Nor does a list of counted non-strict witnesses discriminate all true equalities."
+        ],
+        "reasoning": "A strict lower-than-threshold witness separates a non-attainer, while an attaining vector needs exact minimization or equally strong evidence. Those distinctions, made by the repaired independent clipped threshold test across the entire box, are not conclusions of the checked prior theorem and its aggregate certificate.",
+        "searches": [
+          "Tan–Zhang §§1.3, 2.2 and 4, Table 1 and Appendix C; exact earlier and repaired claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both use squared Euclidean distance to the lattice shifted by the half vector and the positive-integer direction supremum. The old diameter-one normalization has square four times the reported constant; the ordinary radius is its square root.",
+          "Tan–Zhang Theorem 1.1 names the same primitive attaining direction; Section 1 treats scaling invariance. The Resultary match in all three searches was the identical frozen record, not an independent earlier result."
+        ],
+        "reasoning": "The original optimum and witness are already covered after aligning normalization. Specifying a complete equality set, with actual allowable integer multiples and all other vectors excluded including repeats, is a separate extremizer classification not recovered by changing units or taking a primitive representative alone.",
+        "searches": [
+          "Resultary: eight-dimensional view-obstruction height 24 8/17; spherical view obstruction dimension eight exact lower bound candidate; height-bounded census squared Euclidean view obstruction",
+          "Web: view-obstruction spheres dimension eight spherical obstruction speeds 1 2 3 4 5 7 9 11 8/17 maximum search height 24 Wilker Kahlon",
+          "Kahlon v2 definition and Tan–Zhang v1 §1 and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen match's identical equality list is the same record itself. The listed Theta blocks eight-factor data are experimental (the normalized eight-dimensional lower bound reported by Tan–Zhang is 37/80).",
+          "Tan–Zhang's Table 1 reports one eight-dimensional attaining direction and its exact constant. Section 4 records aggregate upper-bound witness counts over 18,766,118,836 tuples, and Appendix C names absence of strict counterexamples as the acceptance test; neither excerpt lists all height-24 attainers. The linked external archive was not inspected."
+        ],
+        "reasoning": "An experimental lower candidate, one global attaining direction, and non-strict upper-bound counts are not an exact catalogue of bounded equality cases. The supplement might contain more data and remains a residual priority risk; the pass is based on the actual inspected comparison rather than on failed access.",
+        "searches": [
+          "Resultary local semantic queries and exact target mirror offsets 0–6108",
+          "Tan–Zhang Table 1, §4, data-availability section and Appendix C; accompanying Zenodo record 24037416 and DOI 10.5281/zenodo.24037416",
+          "Gritsenko–Skoruppa–Zagier, Theta blocks, Table 2"
+        ]
+      },
+      "rationale": "PASS for the repaired equality classification only. The original headline asserting the bounded optimum as a contribution and the unrestricted lower bound fail originality: the Nov 7 Tan–Zhang preprint gives the stronger unrestricted Δ₈=8/17 in the same normalization and exhibits exactly the same attaining primitive direction. The bounded optimum follows immediately and the doubled example is a scaling. The preprint's stronger upper-bound census is not a classification of equality: it proves a non-strict comparison, even for the much larger norm domain. The corrected files credit all covered claims and retain only the complete equality set at height 24, which the inspected prior statements do not give or imply. No PASS is assigned to the original novelty framing.",
+      "residual_risks": [
+        "A separate prior threshold-equality census, including in the uninspected linked archive, could cover the repaired result. No priority claim broader than the checked statements.",
+        "The verified global earlier theorem is already decisive on the original maximum and witness, irrespective of supplementary access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published preprint version dated 2026-11-07 covers the original value and witness; inspected dimension-eight census proves non-strict upper bounds without giving the repaired equality list.",
+          "evidence": "Theorem 1.1 proves global Δ₈=8/17 and gives w; §4 certifies Eq. (14) for the 18,766,118,836 sorted tuples of squared norm at most 13699 and excludes strict counterexamples.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10782v1",
+          "material_read": "PDF first page and date; HTML §1.3 Theorem 1.1 and Table 1 offsets 6530–10029; §2.2 projection formula (Eq. 5); §4 Eq. (14) and counts offsets 26400–28850; data availability offsets 64200–64900; Appendix C offsets 76400–78125",
+          "method": "Primary web search then OA literal locators and bounded primary PDF/HTML passages",
+          "title": "Euclidean View-Obstruction in Dimensions Eight to Ten and the Asymptotic Deficit",
+          "trigger": "Decisive stronger prior theorem with the same value and attaining direction; possible dominant census"
+        },
+        {
+          "assessment": "Potential evidence beyond the paper remains uninspected. The map characterizes the dimension-eight certificate as exclusion of counterexamples, not an equality enumeration.",
+          "evidence": "Appendix C says that the direction census has no counterexample remaining and reports its total and extendable prefix count. The archive routes did not provide readable data.",
+          "identifier_or_url": "https://zenodo.org/records/24037416 ; https://doi.org/10.5281/zenodo.24037416",
+          "material_read": "Primary paper's data-availability statement and Appendix C verification map; no contents of the separate archive",
+          "method": "Opened linking paper passages; lawful OA attempts on record URL and DOI failed, no alternate found",
+          "title": "Supplementary code and exact data for Euclidean View-Obstruction in Dimensions Eight to Ten",
+          "trigger": "Possible stronger exact equality coverage in the underlying dimension-eight data"
+        },
+        {
+          "assessment": "Antecedent normalization and meaningful choice of cap; does not perform the eight-dimensional equality classification.",
+          "evidence": "Direct cap-24 check pertains to dimension six. Remark 7.3 suggests dimension eight, not a theorem for this equality set.",
+          "identifier_or_url": "https://arxiv.org/html/2610.37711v2",
+          "material_read": "Abstract and definitions offset 0; §6.4 around offset 45406; Remark 7.3 near offset 47640",
+          "method": "Bounded OA HTML inspection",
+          "title": "The View-Obstruction Problem for Spheres in Dimensions Six and Seven",
+          "trigger": "Motivation, normalization and same speed cap in a prior computation"
+        },
+        {
+          "assessment": "Experimental candidate row, not exhaustive classification or the exact 8/17 value.",
+          "evidence": "Authors describe trial and error and say the results are not known to be true minima; N=8 row gives k_a=49/40, equivalent to the weaker lower bound 37/80 after the normalization reported by Tan–Zhang.",
+          "identifier_or_url": "https://doi.org/10.4171/JEMS/1471",
+          "material_read": "pp. 130–131, Table 2 and its preceding paragraph, OA text offsets 57680–60988",
+          "method": "OA PDF literal locator and bounded passage by offset",
+          "title": "Theta blocks",
+          "trigger": "Older numerical table in equivalent normalization cited by the stronger paper"
+        },
+        {
+          "assessment": "Different obstruction or covering problem.",
+          "evidence": "The stated sets use the cube interval [ε,1−ε] and lattice-zonotope covering bounds, not the exact spherical score or equality cases at height 24.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01939",
+          "material_read": "pp. 1–3, Theorems 1.1 and 1.5",
+          "method": "OA PDF windows at offsets 0, 4500 and 8600",
+          "title": "On the covering radius of lattice zonotopes and its relation to view-obstructions and the lonely runner conjecture",
+          "trigger": "Related broader view-obstruction and covering geometry"
+        },
+        {
+          "assessment": "Identical target, not an independent antecedent.",
+          "evidence": "Same threshold, original height cap and two equality orbits; same record identity.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-height-24-screen-for-the-eight-dimensional-spherical-vie--99c8868fdf87",
+          "material_read": "Mirrored RESULT.md offsets 0–6108",
+          "method": "Resultary and configured local mirror",
+          "title": "A sharp height-24 screen for the eight-dimensional spherical view-obstruction constant",
+          "trigger": "Exact indexed title and equality statement"
+        },
+        {
+          "assessment": "No independent text assessment of possible broader remarks.",
+          "evidence": "Bibliographic title specifies dimension five; this alone does not establish scope of the unread paper.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01298453",
+          "material_read": "Title and bibliographic scope only",
+          "method": "OA recovery found no copy; lawful publisher attempt redirected excessively",
+          "title": "View-obstruction problem for spheres in R⁵",
+          "trigger": "Older related sphere-obstruction paper cited in source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kahlon v2 §6.4 and Remark 7.3; Tan–Zhang Theorem 1.1 and upper-bound certificate; repaired equality proof and replay."
+      ],
+      "rationale": "For the narrowed claim, the height cap is the established six-dimensional validation budget applied to the now-solved eight-dimensional value. Given the global optimum, a distinct practical and mathematical question is which positive integer multisets under that budget can attain it, including whether exactly one primitive orbit suffices or other repeated-coordinate types occur. The exact classification and strict exclusion of all alternatives answer that question, and are not a recomputation credited merely because it reproduces the known numerical maximum. The result is a finite uniqueness benchmark, not an unrestricted classification.",
+      "residual_risks": [
+        "The original optimum/lower-bound headline has no separate contribution after the stronger result. The remaining benchmark is tied to the motivated cap and its equality problem, not arbitrary larger heights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

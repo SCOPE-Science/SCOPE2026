@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:12.912292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nontrivial rooted tree, let b=sqrt(S), c=||v||/b. Positive definiteness follows from the shift plus the sum of edge squares. The absence of triangles gives (A-alpha1)q1-b*q0=v/b, with a unique two-edge contribution at every distance-two vertex. When v is nonzero the Galerkin solution has basis coefficients (alpha1*alpha2-c^2, -b*alpha2, b*c)/Delta by cofactors of the positive-definite compression. In original coordinates the two nonroot terms are w_i*alpha2/Delta plus v_i/Delta for neighbors and v_j/Delta for distance two. This proves all the asserted signs, including equality at a zero, and the root cofactor is positive. For two steps the coefficients are (alpha1,-b)/det(T2); for one step only a_r^{-1} at the root is nonzero. A one-vertex tree, if included, terminates at step one. With v=0 the two-dimensional Krylov space is invariant and the result is exact. For inverse positivity independently, a minimum of the solution cannot be negative because at a negative minimum both the Laplacian term and the shift give a strictly negative right-hand side there; a zero minimum propagates to the root by connectedness and contradicts the unit source. On the broom the distance-two residual is nonzero for each t>0. Independent exact Galerkin elimination yields the three stated neighbor polynomials over Q, v^T v=2D/(t^2+26) and Q=Delta D. Exact Sturm variations are 3 to 2 for P and 2 to 2 for each other numerator. The latter start strictly positive; P(28)=-609696 and P(29)=3005694 certify the unique transition and the t=30 vertex-2 value is -77253/484548896. This is an exact-arithmetic, unpreconditioned result only. The indexing of v in the piecewise display is clarified immediately below it; there is no substantive ambiguity in the formula.",
+      "status": "PASS",
+      "verification": "Frozen supporting code was inspected, not run. The independent finite certificate is a solve of K^T A K with K=[e0,Ae0,A^2e0], followed by rational polynomial Sturm remainders; replay: /workspace/branches/1dc65ae1-2325-45d4-8e69-18b8ca0eb834/recompute.py and recompute.txt. The general proof uses the cofactor identities above, not finite tests."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmelzer–Stoll embed CG in an active-set algorithm for the constrained problem; the related radially weighted grounded-tree result 68a29983ed85 concerns Euclidean residual minimization by GMRES, not the CG energy projection."
+        ],
+        "reasoning": "The constrained solver changes the iterates. Residual minimization and Galerkin orthogonality in CG also impose different equations; a GMRES ball-residual description does not determine these CG coordinates.",
+        "searches": [
+          "arXiv:2607.22121, Abstract and §§1–2",
+          "Resultary: conjugate gradient point source weighted rooted tree Laplacian third iterate negative coordinate positivity Stieltjes Krylov local criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3e3bd9186a5",
+        "Resultary 43379a17501b",
+        "Resultary 68a29983ed85 index summary only",
+        "arXiv:2607.22121v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path paper's Krylov identity is a standard two-dimensional Galerkin solve; Schmelzer–Stoll state the standard CG Krylov framework and its lack of a general constraint guarantee."
+        ],
+        "reasoning": "The abstract CG polynomial follows from classical theory. Translating its trace/cofactors into individual weighted tree signs uses absence of triangles and unique paths, and the family-specific phase requires separate exact algebra and zero counts. Neither the older formula nor its theorem statements settle that boundary.",
+        "searches": [
+          "Full Resultary RESULT.md files a3e3bd9186a5 and 43379a17501b; latter §1 of Proof",
+          "arXiv:2607.22121 §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Stieltjes result a3e3bd9186a5 uses b=(1,0,B) and second-iterate negativity; the matched Poisson path result 43379a17501b uses a separated hat and isolated load at step two."
+        ],
+        "reasoning": "An inverse-positive Stieltjes system need not preserve signs, but neither forcing family gives the one-coordinate source and three-step sign law. Iterates are not linear in the source, so splitting their mixed loads does not transfer their sign conclusions.",
+        "searches": [
+          "Resultary: conjugate gradient point source weighted rooted tree Laplacian third iterate negative coordinate positivity Stieltjes Krylov local criterion",
+          "Web: conjugate gradient positivity nonnegative iterates point source graph Laplacian tree M-matrix third iterate Stieltjes sign orthogonal polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed sharp examples inspected give the Stieltjes a=4 threshold for mixed loads and the plateau-hat threshold r_k; neither contains the 5,1,t,2t conductance family or its quintic."
+        ],
+        "reasoning": "No matching exact threshold or previously tabulated sign formula was located in the returned comparisons. The assigned record itself was excluded as independent prior evidence; search coverage is not exhaustive.",
+        "searches": [
+          "Resultary query above for a weighted-tree point-source CG sign criterion",
+          "Web query above for point-source third-iterate Stieltjes signs"
+        ]
+      },
+      "rationale": "Broad transient CG negativity and Lanczos/Galerkin theory are prior. The narrower point-source neighbor criterion and complete weighted-broom sign transition are supported as distinct to the best of the checked evidence, not as a claim of methodological novelty or certified priority.",
+      "residual_risks": [
+        "An older treatment of localized inverse-polynomial iterates on graphs might give the same sign rule; this was a targeted, not exhaustive, search.",
+        "The approach is a short specialization of classical CG identities, so priority for the abstract polynomial or generic negativity is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior broad phenomenon; not the restricted criterion",
+          "evidence": [
+            "The three-by-three witness has b=(1,0,7) and fails at iteration two; third step in dimension three reaches the positive solution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "material_read": "Full result, especially assumptions and explicit witness",
+          "method": "Resultary mirror, equations and proof read",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+          "trigger": "Same positivity question for inverse-positive CG systems"
+        },
+        {
+          "assessment": "Different iterate and forcing; prior Galerkin approach",
+          "evidence": [
+            "The tested coordinate belongs to an isolated load separated from a second distant positive load; a two-dimensional moment system controls it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-parity-law-for-the-second-conjugate-gradient-iterate-on-discre--43379a17501b/RESULT.md",
+          "material_read": "Full result, including the moment system and load definitions",
+          "method": "Resultary mirror, equations and proof read",
+          "title": "A parity law for the second conjugate-gradient iterate on discrete Poisson paths",
+          "trigger": "Neighbor interactions and exact sign threshold for graph CG"
+        },
+        {
+          "assessment": "Broad failure and algorithmic remedies prior; no point-source result in passages read",
+          "evidence": [
+            "The problem is a constrained quadratic; CG is used inside a free-variable principal-pivot loop."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.22121",
+          "material_read": "Abstract, §1 and opening of §2 in the primary PDF",
+          "method": "Lawful OA PDF text read for problem and scope",
+          "title": "Non-Negative Conjugate Gradients",
+          "trigger": "Direct work on positivity and ordinary CG"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Point forcing is the natural test of whether an iterative approximation to a positive graph Green function preserves the maximum principle. The general certificate isolates the only shell where signs can fail and the reproducible continuous conductance transition shows exactly when the discrepancy appears in a concrete tree. This is stronger than a single arbitrary numerical example. No minimum tree size, preconditioning, or rounding robustness is claimed; 'local' permits the diagonal entries in the Rayleigh quotient of a vector supported within distance two.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

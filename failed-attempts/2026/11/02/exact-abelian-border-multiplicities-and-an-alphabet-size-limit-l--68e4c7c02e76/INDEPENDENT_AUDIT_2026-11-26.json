@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:00:53.588698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5, VERIFICATION.md and verify.py",
+        "/workspace/reproduction/frozen_checks.py (run `python3 /workspace/reproduction/frozen_checks.py 1`): 35 complete histograms over q=2,3,4,5, checked by literally sorting overlapping and disjoint prefix/suffix slices, independent walk-state propagation, and coefficient extraction. Ternary m·Pr(S_m=0) independently checked by a binomial-square convolution through m=1000 (0.4133933233 at the final index)."
+      ],
+      "rationale": "Complementing overlapping prefix/suffix Parikh sums pairs each border j with n−j. Pairing the two outer halves yields an independent walk with q labeled holding increments, not just one. The multinomial-square return count, first-return factor U=1+FU and return-free tail T then give the stated two series: an odd word has q free middle letters; an even final return contributes one border instead of two; the empty word gives 1. Ordered sets of marked positive return times give factorial moments by multiplying the return probabilities at their successive gaps. In q−1 coordinates the increments span the integer lattice and include a hold; the Fourier integral has a unique modulus-one point on the torus, with covariance 2(q⁻¹I−q⁻²11ᵀ) and determinant 2^(q−1)q^(−q). Gaussian scaling gives the asserted local-return constant. In the ternary moment sum, the cubes of side ⌊m/k⌋ and m bracket the simplex, giving exponential moments after log scaling. In the binary simplex integral the discarded small coordinates cost O(√δ) after scaling, so the integrable singularities cause no extra constant. In the transient regime the renewal mass gives escape parameter 1/U_q(q^−2), and the even central correction vanishes in probability by the local-return estimate (a mere bounded difference would not suffice there).",
+      "residual_risks": [
+        "The wording about a uniform relative Stirling approximation in any window of width j^(1/2+ε) is too broad if read as unrestricted ε; small ε would suffice, and the direct lattice Fourier argument establishes the actual estimate without that wording. Finite checks do not prove limiting laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-alphabet walk including equal-symbol loops is in Goč et al.; checked enumerative results concern no return. Erdős–Taylor treats a hypercubic nearest-neighbor walk, proving a planar exponential law and a transient geometric law. The present lazy difference walk is not literally that walk."
+        ],
+        "reasoning": "The earlier papers supply the key reduction and classical mechanism, but no direct scope substitution of the planar nearest-neighbor theorem gives the ternary step-law normalization. The exact overlapping indexed formulas, rather than a claim that these papers state the ternary result, are decisive.",
+        "searches": [
+          "Goč–Rampersad–Rigo–Salimov, general-alphabet Abelian lattice walks and unbordered words, §4 Propositions 15–16 and Lemma 18",
+          "Erdős–Taylor DOI 10.1007/BF02020631 §3, Theorem 1 and equation (3.1)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary --4b52d54dc239 actual findings and reduction",
+        "arXiv:1708.06461 Theorem 3",
+        "Goč et al. §4 Propositions 15–16 and Lemma 18",
+        "Erdős–Taylor §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched record gives D_(2m+1)=1+2Z_m and D_(2m)=1+2Z_(m−1)+I_m using the very same paired return process. The normalized return variable z converts to counting variable t by z=q²t, with an extra q for the odd free center. Removing the deficit's +1 and including the empty word yields the frozen enumerators. The same integer return variables also recover the short-count limits (K−2R is at most one in magnitude)."
+        ],
+        "reasoning": "The overlap leaves no nonbinary remainder: exact multiplicities and all scales transfer. The normalized indexed U_q(1) is the frozen counting-series U_q(q^−2); no change of escape parameter occurs. The later indexed date does not establish a priority order of proof.",
+        "searches": [
+          "Resultary --4b52d54dc239 parity and nested-return identities, complete PGFs and scaling laws",
+          "Goč et al. Propositions 15–16; Erdős–Taylor §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The number B_n of distinct composition multiset deletions equals the number of distinct observation types. Compositions of different lengths have different coordinate sums. Each j contributes one type instead of two exactly when the two Parikh vectors coincide. Thus 2n−B_n counts every proper border length plus the mandatory equality at j=n."
+        ],
+        "reasoning": "D_n=K(w)+1 is pointwise for every word, not merely a shared asymptotic. The binary multiplicity is separately a known exact result.",
+        "searches": [
+          "Local Resultary search for all-alphabet Abelian border multiplicities and prefix/suffix composition returns; Resultary --4b52d54dc239, actual Finding and proof §§1–2",
+          "Blanchet-Sadri–Chen–Hawes arXiv:1708.06461, definition and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed entry explicitly gives both complete finite-length deficit PGFs, not just a count at a cutoff, plus all three limit laws. The binary paper has exact finite multiplicity counts in its own regime."
+        ],
+        "reasoning": "For n≥1, the coefficient of t^(b+1) in the deficit PGF is the probability of exactly b proper Abelian borders. Multiplication by q^n converts this to the integer multiplicity.",
+        "searches": [
+          "Local Resultary --4b52d54dc239 exact composition-deletion laws and three alphabet regimes, Finding and proof §§1–2",
+          "arXiv:1708.06461 Theorem 3, binary enumeration"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the exact same full distribution after the deterministic shift D_n=K(w)+1, for all q and all nonempty lengths, with the same limiting regimes and constants. The zero-length convention supplies no additional result. This establishes present claim-level coverage, not historical precedence: the matching entry is dated later and no inference is made from dates about who proved the result first. The published binary predecessor, general alphabet walk reduction and classical fixed-walk return tools separately limit the novelty of the method.",
+      "residual_risks": [
+        "No conclusion about publication or discovery priority between the exact indexed records, and no exhaustive assertion about equivalent earlier external results. The known classical mechanisms should not be confused with an exact published proof of the specific nonbinary border law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact claim-level overlap after constant shift; priority not inferred",
+          "evidence": "Both parity PGFs and all regimes are stated; reduction B_n=2n−Σ1{P_j=Q_j} makes D_n=K+1 for n≥1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-composition-deletion-sphere-laws-and-three-alphabet-regime--4b52d54dc239/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2 and start of §3, offset 0 onward, local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored exact passage",
+          "title": "Exact composition-deletion sphere laws and three alphabet regimes",
+          "trigger": "Prefix/suffix composition exact laws under a different statistic name"
+        },
+        {
+          "assessment": "Binary case covered",
+          "evidence": "Exact number of binary total words with prescribed count of distinct proper Abelian borders.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+          "material_read": "Definitions PDF p. 3 and Theorem 3 p. 8, OA offsets around 9350 and 25000",
+          "method": "OA PDF passages",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Exact binary multiplicity predecessor"
+        },
+        {
+          "assessment": "Known general q reduction and unbordered enumerations",
+          "evidence": "Equal symbol pairs give loops; nonempty proper matches are returns. Checked exact counts are for the no-border event, not the whole multiplicity distribution.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+          "material_read": "§4, pp. 6–8, Propositions 15–16 and Lemma 18, OA offset around 21200",
+          "method": "OA PDF passages",
+          "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+          "trigger": "General q border-to-walk correspondence and exact counts"
+        },
+        {
+          "assessment": "Known limit mechanisms; different explicit walk",
+          "evidence": "Transient geometric return count and planar logarithmic exponential return count for simple symmetric nearest-neighbor random walk, not the exact ternary lazy difference walk.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02020631",
+          "material_read": "Intro scan p. 137, §3 equation (3.1) p. 141 and Theorem 1 p. 143, OA offsets around 11700 and 17300",
+          "method": "OA scan https://users.renyi.hu/~p_erdos/1960-17.pdf",
+          "title": "Some problems concerning the structure of random walk paths",
+          "trigger": "Broader return-count limit mechanism"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary --4b52d54dc239 exact all-parity PGFs and limit laws",
+        "Goč et al. general alphabet reduction and Erdős–Taylor §3 for method context"
+      ],
+      "rationale": "The full proper-border count is a natural statistic and the change of regimes is useful. The frozen theorem contributes no uncovered precise invariant beyond an exact all-parameter coinciding law and a routine renewal/local-limit derivation from the established walk reduction. The change of terminology from composition deficit to proper borders and a compulsory shift does not yield a further theorem.",
+      "residual_risks": [
+        "The distinct interpretations could still be useful for exposition; no historical ranking is implied by this verdict."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

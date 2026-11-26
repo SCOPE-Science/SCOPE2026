@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The base two-cycle's monodromy has determinant one, trace strictly between -2 and two, and a spectral-unit-circle crossing derivative of eight. Two implicit-function applications construct the continued cycle and unique spectral boundary. The exact four-equation reduction gives the mismatch coefficient and the two sign reversals; the standalone checker verifies identities and six high-precision example solutions. The theorem is local, and numerical tests are not used as infinite proof.
+## correctness
 
-## Originality
-PASS under best-knowledge literature and published-result comparison. Rech, Beims and Gallas (2004) establish the equal-drive boundary and explicitly point to mismatch as future work. Their 2007 study retains equal drives for the same linear coupling, and its asymmetric-coupling model differs from unequal additive drives. Lloyd (1995) uses a different coupling law. Relevant published-result searches found studies of symmetry breaking in unrelated maps, but no logical coverage of this three-parameter curvature. Historical priority remains uncertain where literature is unindexed; the earlier Lloyd full PDF was not retrievable.
+PASS
 
-## Value
-PASS. The main natural unresolved effect is the displacement of a period-two stability spectral boundary under heterogeneity. The exact curvature partitions the coupling axis into three response regimes and has two sharp zeros, information absent from the equal-drive bifurcation curve. It is not merely a recomputation of the existing symmetric threshold.
+Independent reduction of the prime swapping orbit: in midpoint/difference coordinates use the cycle labels (m±p,q±r) and parameter e=p/r. The difference equations give m=1/2+b/(1−e²), q=−be/(1−e²). Put s=r² and s0=(b+1)/2. The mean one-step determinant divided by 4 is m²−bm−q²+(e²−1)s; the half-difference divided by 4 is r[(2m−b)e−2q]. At e=0 these are −1/4 and 0. Imposing their squared difference equal to 1/16 gives s=s0+[b+s0+2s0(3b+1)²]e²+O(e⁴). Inserting this in a=m+m²+e²s+q²+s and δ=(1−2(b−m))q+2es gives coefficient (b+1)(3b+1)(3b+2) in e² and δ=(1−b)e+O(e³). This verifies the curvature, signs, and both zero couplings. The base trace is 4b²−2 and determinant 1, so the second iterate lacks multiplier +1 for fixed −1<b<0; the analytic cycle continuation remains prime. Along δ=0 the determinant slope is 8, giving the analytic threshold and the claimed attracting-to-repelling spectral crossing. The exchange symmetry gives the even remainder. The check does not assume a nonresonant normal form or assert uniformity near the endpoints. VERIFICATION.md and verify_curvature.py were inspected, not executed; the recorded finite checks are supplementary to the analytical reconstruction.
 
-## Limitations and literature
-No global attractor, closed invariant curve, or uniform endpoint-asymptotic assertion is made. At strong resonances only the spectral unit-circle statement is claimed. Historical-priority checks are not a proof of unique discovery. See the three source references in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equal-drive orbit and intercept are known. The supported distinction is the exact unequal-drive curvature and its two zeros for this coupling convention, not use of the determinant criterion or a general bifurcation theorem. The strongest inspected same-model references stop at equal drive, and the closest distinct indexed two-cycle claim concerns a different map and different spectral property.
+
+## value
+
+PASS
+
+In a studied two-cycle problem where the effect of mismatched drive was explicitly posed, the exact signed curvature determines whether heterogeneity advances or delays the spectral loss of stability. The two reversals are not consequences of symmetry alone; the result is useful without asserting invariant circles or a global diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

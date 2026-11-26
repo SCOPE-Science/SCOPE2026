@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary ratio is obtained from the specified finite irreducible birth–death generator. Its consecutive ratio factors into two explicit \(F_j\) terms, and \(F_j<1\) for all \(j\ge2\); hence only the boundary constraints can fail. The exact \(1/3\) population-uniform condition follows by letting the opposite index grow, including the equality cases. Reflection symmetry, the exact first two ratios and the strictly decreasing middle ratios prove the separate endpoint and log-concavity transitions, with the critical asymptotic derived from Taylor expansion. The full proof is in RESULT.md. The finite exact-rational test suite returned 114964 checks and selected asymptotic spot checks, not an infinite proof.
+## correctness
 
-## Originality — PASS, with bounded uncertainty
-The October 2026 Xiang–KhudaBukhsh manuscript establishes stationary weights and mixing cutoff behavior, but not these exact stationary count-index shape inequalities. A full-text SIAM Togashi–Kaneko comparison treats a differently normalized Moran/weighted-beta-binomial stationary law. The 2014 Saito–Kaneko paper's explicitly different count rates prevent direct implication of this coefficient criterion. Focused searches for log-concavity, beta-binomial coefficient products, and birth–death mode transitions found no covering statement. A broad hypergeometric-coefficient theorem may still imply it; that risk is explicitly not certified away.
+PASS
 
-## Mathematical value — PASS
-Sharp stationary count log-concavity is a natural structural property of this stochastic reaction chain. The mutation ratios needed for uniform concentration are completely classified, and the symmetric model has a nontrivial interval of stationary unimodality without log-concavity; below it boundary and central local peaks coexist. These are useful exact boundaries, not simulation-derived parameter choices.
+The positive nearest-neighbor rates give irreducibility. Multiplying the forward/backward rate ratios yields the stated stationary weights including the squared binomial, with one overall normalization. The ratio of adjacent ratios at index k is F_k(a)F_(n-k)(b); the geometric tilt r cancels. For j>=2 the positive difference between denominator and numerator of F_j is j^2-j-1+(2j+1)u, so only the two boundary inequalities can fail, and they coincide at n=2. F_1(u)=(1+u)/(4u) has cutoff 1/3; since F_(n-1)(u) tends to 1, both shape cutoffs are necessary as well as sufficient for every size. For the symmetric modes, R_0 crosses 1 exactly at u=1/(n+1), R_1>1 for n>=4, and the interior ratios strictly decrease and are paired by reflection as reciprocals. This gives the exact central peak or central plateau and the strict endpoint peaks, with the claimed equality interpretation. The symmetric log-concavity product decreases continuously from infinity to a value below 1 at u=1/3, and it exceeds 1 at the endpoint-mode threshold (R_0=1<R_1). At its unique root, write A=F_(n-1)(u_n) and u_n=A/(4-A); the uniform expansion A=1-1/n+O(n^-2) on 0<u_n<1/3 yields the claimed -4/(9n) correction. An independently coded exact replay from the generator checked 2052 rate-built laws and symmetric shape around the mode threshold through n=32.
 
-## Limitations and closest literature
-No assertion is made about transient mixing laws, global highest peaks, other reaction generators, multitype systems, or historical priority beyond the inspected material. Closest sources: Xiang–KhudaBukhsh (2026), arXiv:2610.17775; *Fragility in a Togashi–Kaneko Stochastic Model with Mutations* (2026), SIAM; Saito–Kaneko (2014), arXiv:1403.6222. Independent replication has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The squared-binomial law, its detailed-balance ratio, and its binomial times beta-binomial factorization were already in arXiv:2610.17775 Appendix C and are not new. The distinct checked contribution is the exact weighted-law boundary-only classification and its sharp all-size 1/3 threshold, together with the separation of the finite-size mode and log-concavity thresholds in the symmetric system. The inspected source for the same chain studies mixing, includes ordinary stationary weights, and uses unimodality for a different ratio (transient probability divided by stationary probability); it does not supply the claimed sharp inequalities. Related indexed and primary single-binomial laws change the second ratio and do not supply the same classification. The stated pass is bounded by the specific compared evidence, not proof of publication priority.
+
+## value
+
+PASS
+
+The proof is elementary once the weights are known, but the result is a complete finite-size and sharp population-uniform shape classification of an independently motivated stationary law. It identifies exactly where curvature can fail (only the endpoints), gives a uniform threshold with necessity, and quantifies a centrally unimodal region that would be misclassified by equating loss of boundary peaks with onset of log-concavity. These statements give usable information for future analyses of this specific chain and do not rely on asserting value for the already known invariant weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:34:51.490127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The S6 action is transitive on unordered disjoint pairs, so deletion of the edge 12–34 suffices. I rebuilt both open-neighborhood complexes by testing all nonempty subsets of the fifteen vertices for a common neighbor and independently replayed CERTIFICATE.json, rather than executing the supplied verifier. The face counts are 710 and 660 with the claimed f-vectors. I checked the 268 absolute collapses, the 53 incident disjoint pairs on the residual 124 faces, and topologically sorted the full reversed Hasse graph. The unmatched cells are exactly one vertex and 17 triangles; Forman's CW model therefore has 17 two-cells attached to the point. I also replayed the 22 relative cancellations and obtained the signed boundary with rows (-1,-1,0,0) and (0,0,-1,-1). Independently, writing X=N(K) and Y=N(K-e), the relative chains split into the parts lost from each of the two endpoint-neighborhood simplices (these simplices intersect in the vertex 56, retained in Y). For the first simplex on the pairs from {3,4,5,6}, a face is lost exactly if it contains 34 and its union uses all four labels: otherwise a second common neighbor can be chosen using a missing label and 1, or 12 itself is still a neighbor. Its intersection with Y is the simplex omitting 34 plus the cones from 34 on the two disjoint edges {35,45} and {36,46}; collapsing one side of each triangle gives a contractible base with a single loop attached via the cone vertex, hence homotopy type S^1. The other simplex is symmetric. Thus H3(X,Y)=0 and H2(X,Y)=Z^2 over the integers, in agreement with the cancellation check. The pair sequence and H1(Y)=0 give the claimed injection and free cokernel. No general Kneser edge-deletion claim is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem gives the intact wedge rank k^2+5k+5; the auxiliary graph in Section 5 removes edges with two unstable endpoints together."
+        ],
+        "reasoning": "The family theorem specializes to the intact 19-sphere baseline, not the intermediate graph with exactly one edge removed or its retained-face inclusion.",
+        "searches": [
+          "arXiv:1802.05848v1 Theorem 1.3, Definition 2.2, Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATE.json, verify.py and audit comparison notes",
+        "arXiv:1802.05848v1",
+        "Resultary a3be8773ac77",
+        "Resultary ad6e9314ee49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact and aggregate-deletion results do not identify the one-edge Morse cells or relative H2. The distinct vertex-fault result concerns a different simplicial subcomplex."
+        ],
+        "reasoning": "Ranks for different endpoint graphs do not imply the intermediate homotopy type or an integral primitive map; the relative computation is substantive.",
+        "searches": [
+          "Nilakantan–Singh Section 5 relative to the one-edge inclusion",
+          "Resultary ad6e9314ee49 assumptions and finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG_{2,2} in Nilakantan–Singh is exactly the disjoint-pairs graph KG(6,2). The closest distinct Resultary hit ad6e9314ee49 deletes a graph vertex and obtains 13 spheres and cokernel Z^6, not 17 spheres and Z^2."
+        ],
+        "reasoning": "The notation aliases the intact graph, but graph-edge deletion and graph-vertex deletion do not encode the same pair of complexes; likewise the asserted complex is the ordinary open-neighborhood complex.",
+        "searches": [
+          "Resultary semantic search: KG(6,2) single-edge fault / edge-deleted open-neighborhood complex / 17 two-spheres and primitive H2",
+          "arXiv:1802.05848v1 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact top hit a3be8773ac77 is the frozen claim itself; the closest distinct hit ad6e9314ee49 was inspected and concerns vertex deletion."
+        ],
+        "reasoning": "No distinct exact catalogue result was identified. Identical catalogue reflection is not independent discovery or known prior coverage.",
+        "searches": [
+          "Resultary search for KG(6,2), one graph edge deletion, wedge of 17 and primitive inclusion"
+        ]
+      },
+      "rationale": "The examined prior theorem gives the intact type and studies a graph with an aggregate unstable-edge deletion. Neither it nor the closest indexed vertex-deletion record establishes this single-edge open-neighborhood type and primitive inclusion. The exact catalogue result is the assigned record itself, not independent coverage.",
+      "residual_risks": [
+        "Bounded catalogue and primary-text comparison cannot rule out an unindexed one-edge refinement or a separately computed equivalent certificate.",
+        "Same-day catalogue dates do not establish the ordering of distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers intact baseline, not the exact graph fault or integral map",
+          "evidence": "Theorem 1.3 gives a wedge of k^2+5k+5 k-spheres; Definition 2.2 retains edges with at least one stable endpoint.",
+          "identifier_or_url": "https://arxiv.org/html/1802.05848v1",
+          "material_read": "Theorem 1.3, Definitions 2.1–2.2 and Section 5 decomposition (HTML offsets about 3030, 6500 and 31800–34500)",
+          "method": "Targeted primary OA HTML retrieval",
+          "title": "Homotopy Type of Neighborhood Complexes of Kneser Graphs, KG_{2,k}",
+          "trigger": "Same intact graph and auxiliary removal of unstable edges"
+        },
+        {
+          "assessment": "Different deletion operation",
+          "evidence": "A vertex fault yields 13 two-spheres and cokernel Z^6, not the assigned edge fault.",
+          "identifier_or_url": "Resultary ad6e9314ee49",
+          "material_read": "RESULT.md finding and deletion assumptions",
+          "method": "Local Resultary search and mirrored result inspection",
+          "title": "Primitive six-sphere loss under one Kneser graph vertex deletion",
+          "trigger": "Closest distinct Resultary match on the same graph and homology inclusion"
+        },
+        {
+          "assessment": "Same record, not separate coverage",
+          "evidence": "Same 17-sphere result and primitive inclusion with free rank-two cokernel.",
+          "identifier_or_url": "Resultary a3be8773ac77",
+          "material_read": "Mirrored RESULT.md finding and graph conventions",
+          "method": "Local Resultary and mirror",
+          "title": "Two primitive neighborhood spheres lost under a Kneser edge fault",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-edge fault in the first triangle-bearing two-subset Kneser graph is a natural minimal graph perturbation. A complete integral homotopy computation and a primitive inclusion distinguish the effect of that fault from mere loss of Euler characteristic or Betti rank. The precise retained subgroup property is useful in comparing graph-fault stages, without claiming a general stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The rational-power relation and exact algebraic degree are taken from Li–Zhong–Zhou, Theorem 4.1, and are independently connected to Binet's identity. The distinct geometric factors and their nonzero five-adic exponents justify applying the tame Kummer index formula. Riemann–Hurwitz yields the genus with the unramified infinity contribution handled explicitly. Lucas's congruence theorem gives the total-ramification count; the parity of the leading base-five digit gives the sharp exceptional-index criterion. Geometric irreducibility and a rational smooth point justify the arithmetic Galois closure calculation. The included program uses only exact arithmetic and supplies finite consistency checks, not infinite verification. The main dependence is on the fully cited rational-power identity.
+## correctness
 
-## Originality
-**PASS, with priority risk.** The motivating paper states the rational-power formula and degree but does not derive genus or inertia statistics. Previous work on even Fibonacci-polynomial exponential series provides degrees, a strictly weaker invariant, and is not claimed here. The generic Riemann–Hurwitz and Kummer formulas cover arbitrary presentations, but do not tabulate the degree-dependent five-adic ramification for these Fibonacci curves or identify the exact exceptional family through Lucas digits. The monodromy group is a natural related invariant, although its abstract computation is standard once the cover is recognized. Search results did not show an equivalent earlier family-specific classification. Possible unpublished or implicitly derived versions remain a priority risk, and novelty is not mathematically certified by database nonmatches.
+PASS
 
-## Value
-**PASS.** A new integral algebraic sequence family carries increasingly high-genus curves, not just an algebraic-degree statistic. The theorem computes the entire geometric branch structure for every exponent, provides a closed irregular genus correction encoding all base-five carries, and separates exactly those exponents where all branches reach maximal inertia. This furnishes concrete geometric data for further work on arithmetic and Jacobians of these curves. The result is not a claim about novel Kummer theory, and no general theorem beyond the stated family is asserted.
+Reconstructed the proof for every k ≥ 2 in characteristic zero. Binet expansion followed by formal logarithms gives valuations m_j = (−1)^(j+1) binom(2k,j) at x = [ (−1)^j α^(2k−2j) ]^(−1), where α is the positive golden ratio. Distinct absolute values give distinct points; Galois conjugation pairs j with 2k−j and fixes only j=k. The valuations sum to zero, so infinity is unramified. At the simple pole j=0 the reciprocal equation is Eisenstein over the geometric discrete valuation ring, proving degree and geometric connectedness. The k=2 row is prime to five; for k≥3 the central coefficient starts at 20<25 and grows by a factor <4, hence all valuations have ν₅<k−1 and all 2k+1 points branch. Tame Kummer inertia has index N/gcd(N,m_j), with total different N−gcd(N,m_j) above each branch point. Riemann–Hurwitz gives the stated genus; the fixtures k=2,3,4,7 give respectively 6,54,432,101556. Lucas's congruence counts full inertia, and all j≤2k obey the digit inequalities exactly when all digits below the leading digit are four: if a lower digit is smaller, one can decrease the leading digit of j relative to 2k and exceed that lower digit. Parity forces the leading digit to be two or four. This yields the two claimed progressions and the maximal-genus formula. Kummer carries are at most the digit length minus one, so each term in the correction sum is at most 2k. Finally, the normal closure is Q(x,G_k,ζ_N): it contains all conjugates, and their ratios generate the roots of unity. Geometric irreducibility preserves degree N over Q(ζ_N)(x), and the cyclotomic action fixing x,G_k splits and conjugates the cyclic generator by the natural units.
 
-## Closest sources and limitations
-Li–Zhong–Zhou, arXiv:2611.16283v1, Theorem 4.1, establishes the rational power and degree. Classical Kummer theory, Riemann–Hurwitz, Lucas, and Kummer's carry theorem provide standard proof tools. The earlier exact-degree computation for Fibonacci exponentials does not itself give a genus or full branch classification. Absolute priority remains uncertain; an independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the family-specific geometric profile and its all-index arithmetic classification, not for the equation, degree, or general Kummer theory. The equation makes the inertia and normal closure accessible by standard arguments, and the geometric invariants are not independent new cover-theoretic principles. The inspected same-family and broader statements establish algebraicity and degree, not the quantified five-adic ramification and maximal-genus classification.
+
+## value
+
+PASS
+
+For the natural infinite family coming from even Fibonacci moments, the result gives more than translating one known polynomial into a generic genus formula. It resolves uniformly whether branch candidates survive normalization, counts full inertia by digits, and identifies exactly when the maximal genus occurs along two exponential progressions. This is useful family-specific information even though the arithmetic closure and cover-theoretic ingredients are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

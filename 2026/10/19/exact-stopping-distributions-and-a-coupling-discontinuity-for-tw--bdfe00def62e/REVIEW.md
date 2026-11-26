@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under full column rank, generic nonzero initial error coordinates and sampled gradient coordinates, independent two-label sketches, exact line searches, and the paper's zero-over-zero convention, single-coordinate minimization and \(H\)-conjugacy rigorously induce the four-state active/inactive absorption chain. The rational generating functions follow from two pairs of first-step equations. Their derivatives give the means and the exact two-update coupling jump. Exhaustive short-path rational tests and symbolic function identities passed; they are corroboration rather than a substitute for the proof.
+## correctness
 
-**Originality — PASS (best-known scope).** Primary full-text inspection of the 2026 RCGLS source found expected linear convergence and the algorithm but no exact absorption law. A closely related 2023/2024 stochastic-CG construction explicitly resamples zero gradients and concerns a different stochastic update; its full text does not imply the iid RCGLS law. Relevant randomized coordinate-descent and prior numerical results concern expected contraction or other methods, not this exact stopping distribution. Targeted scholarly and mathematical-record searches did not reveal an equivalent or dominating result, but unindexed older analyses are a residual risk; absence of a search hit is not a novelty proof.
+PASS
 
-**Value — PASS.** The exact all-horizon absorption law, sampling optimum, sharp two-update jump at arbitrarily weak coupling, and categorical contrast with ordinary coordinate descent settle a natural finite-termination diagnostic for a recently introduced numerical method. This is not a routine restatement of expected contraction; conjugacy resets create distinct waiting-time states. The result is deliberately exact-arithmetic and dimension two, and finite-tolerance behavior is not claimed.
+For the repaired variant in repairs/4, not for Algorithm 1 as literally printed. The frozen attribution of the zero-quotient rule to the algorithm's iteration was unsupported: Algorithm 1 steps 3 and 6 have unqualified denominators, while the explicit 0/0 convention is attached to the expected matrix in Eq. (15). This is material on events of positive probability: with H=[[2,1/3],[1/3,3]], initial error (1,2), and labels 1,1, the first projection gives (−1/3,2), and the second direction is zero while the error is not. The repair states both zero-quotient rules and explicitly stores the zero direction and counts that draw. Verified the sign change from r=b−Ax and d=−p^k, the line-search numerator identity using orthogonality to the preceding direction, and all four coupled-state transitions. The different label from an active state supplies the second H-orthogonal independent direction and reaches zero; the repeat clears the direction. The label block 1,2,1 forces termination from any nonterminal state, giving a geometric tail. Eliminating the inactive generating functions yields the displayed denominator (1−pz)(1−qz)−(pq)^2 z^4 and numerator. For the means, f_i=1/p_j+p_i f_j gives 1+1/(pq) from the initial state, while the diagonal coupon-collector mixture gives 1/(pq)−1. A coupled coordinate projection preserves both nonzero coordinate errors, so the coordinate-descent contrast holds along every label sequence. The norm-proportional mean and uniform optimum follow by algebra, using b₀ for the second diagonal entry. Repaired RESULT.md, VERIFICATION.md and verify.py agree on the new scope and idle rule. Inspected the checker without executing it; the proof applies beyond its finite cases.
 
-**Closest literature and limitations.** Zeng et al., arXiv:2605.25034v1, provide Algorithm 1 and conditional mean-square rate bounds; Zeng et al., arXiv:2305.05482v3, treat a related resampling stochastic CG. The two-variable/no-tolerance setting, generic start, and no-sketch-rejection conventions are essential. Literature overlap uncertainty remains; no external independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed claim is the exact iid-coordinate stopping law for the explicit idle-and-clear extension of RCGLS. Existing exact completion with consecutively nonzero independent directions, general mean-square bounds, and the diagonal coupon-collector identity are not claimed new. The coupled law and its comparison with zero coupling are not supplied by the strongest inspected alternatives.
+
+## value
+
+PASS
+
+The explicit continuation is natural when a zero direction should leave the iterate unchanged while the algorithm stores its new direction. Its exact two-update mean discontinuity reveals a distinction invisible to convergence-rate analysis, and its uniform sampling optimum contrasts with the usual norm-proportional choice for this exact hitting criterion. These are useful qualifications about idle handling in a minimal nontrivial model; no practical timing or tolerance advantage is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

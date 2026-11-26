@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in an ordinary Python 3 environment. The checker uses standard-library `fractions.Fraction` for exact numerical tests. It enumerates all binary words of lengths one through eight in four independently chosen contraction-parameter regimes (strictly disjoint fiber images, overlapping fiber images, touching images and asymmetric overlap), tests exact nondyadic coding, tests all first-symbol-difference pairs and checks the maximum-norm branch-Lipschitz constant. Observed result: `VERIFY_OK`.
+## correctness
 
-The mathematical proof is independent of finite enumeration: the angular doubling identity supplies all words, the first differing fiber-map gap is a minimum of endpoint values of an affine function, and branch contractions yield the symbolic-cell upper bound for all integers \(n\ge2\). The program is finite corroboration, not proof of the all-parameter or asymptotic result. In particular, topological entropy here uses the forward-admissible domain and does not assert dynamical entropy on the attractor.
+PASS
+
+In coordinates (u,q)=(x+y,y/(x+y)) the radial coordinate multiplies by alpha and the interior angular coordinate follows doubling, giving every finite binary prefix on admissible nondyadic angles. The displayed q_k lies strictly inside its binary cylinder and retains a factor of seven in its denominator. At the first disagreement of two prefixes of length n−1, identical initial fibers and identical prior symbols give identical current fibers. The two next values differ by at least the smaller endpoint value of phi2−phi1, delta, so the difference is observed by time n−1 even if the images overlap. The branch linear parts have infinity-norm row-sum bound max(2alpha,lambda1,lambda2). Thus points in the same length-n cylinder and initial cube of diameter 1/(floor(1/epsilon)+1) cannot be separated by time n−1. The bounds squeeze the fixed-scale growth rate. At q=1 the update is q'=1, not 0 under the usual mod-1 convention; the interior coding construction excludes this endpoint and the upper bound uses Lipschitz estimates directly. The entropy is on the admissible domain, not the limiting fiber on the singular line.
+
+## originality
+
+PASS
+
+Credit the exact separated-set entropy for the specific Catsigeras et al. family in the touching and overlap regimes, not exact log 2 for contracting maps in general, the synchronous-fiber method, or the earlier disjoint-regime lower bound. Kruglikov–Rypdal's Example 2 already uses uniform separation of images of equal initial fiber values to turn maximal itinerary growth into metric entropy in a related model. The inspected statement and examples do not give the equality across this continuous affine fiber family's overlap transition.
+
+## value
+
+PASS
+
+For the published example the best stated lower bound can be much smaller than the exact entropy when fiber images overlap. Resolving that gap for the whole open parameter region, even at a fixed separation scale, shows that the connected attractor and branchwise contraction do not diminish information production of admissible trajectories. The interest is the qualitative transition test in a natural literature example and its quantitative answer, not the mere existence of another positive-entropy contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

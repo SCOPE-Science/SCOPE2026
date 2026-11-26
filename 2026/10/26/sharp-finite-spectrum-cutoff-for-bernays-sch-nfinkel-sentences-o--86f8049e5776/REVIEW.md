@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The equivalence structure is partitioned into witness-marked and free classes. If a class has at least \(\ell\) nonwitness points, adding a twin preserves each atomic diagram on the witness tuple and \(\ell\) universal variables. If at least \(\ell\) free classes are present, a new free singleton can be mapped into an old unused free class for every tuple of length \(\ell\). If both mechanisms fail, marked-class nonwitness sizes, free-class sizes, and free-class counts yield the exact bound \(k\ell+(\ell-1)^2\). The three explicit \(\ell\)-variable prohibitions realize equality. The independent bounded enumerator covers 1,655 pointed finite configurations, but the symbolic argument establishes the unrestricted parameters.
+## correctness
 
-## Originality
-**PASS under the stated searched-literature evidence, with residual priority risk.** The Sankaran–Chakraborty result concerns finite/cofinite relational spectra and semantic preservation generally; the Pikhurko–Verbitsky Ramsey argument and the published sharp all-graph cutoff do not imply the smaller sharp endpoint for semantic equivalence structures. A published logical-width formula for arbitrary complete multipartite graphs addresses a different invariant. Actual published-finding corpus and primary-paper searches did not find an equivalent endpoint after considering the isomorphic language of disjoint unions of cliques. These negative searches are not a proof of uniqueness or priority; possible folklore and unindexed equivalents remain.
+PASS
 
-## Value
-**PASS.** This is an exact two-parameter bound on a natural decidable logical fragment, with a matching extremal family and a structural explanation in terms of two independently saturable obstructions (size of a class and number of free classes). It replaces a broad Ramsey bound by a sharp polynomial cutoff in a standard restricted semantic class and supplies an explicit finite-model search ceiling. The result does not require a larger downstream theorem to be useful.
+Keep a witnessing tuple fixed, distinguishing the set W of its distinct values from the number k of slots. Enlarging a class with at least ell nonwitnesses cannot create a new pointed ell-diagram: all nonwitness values from that class in an assignment, including the new one, can be injected into the old nonwitness pool. Similarly, adding a new singleton when there are at least ell free classes creates no new diagram: an assignment meeting the new class uses at most ell-1 old free classes, leaving an unused one for the new value. Both moves preserve equality and equivalence with every variable, including repeated witnesses, and can be iterated without exhausting their premise. If neither applies there are at most |W| marked classes, at most ell-1 nonwitnesses per class, and at most ell-1 free classes, proving the stated bound. Induced restrictions retaining all witnesses give every smaller nonempty order at least |W|; one-point pumping covers every larger order, so the asserted tail from k+ell holds (it is not claimed as optimal). Sharpness uses k witnesses in different classes and forbids ell distinct nonwitnesses in one marked class, ell distinct elements of one free class, and ell different free classes. All three bans are expressible with just the ell universal slots. The displayed partition attains all caps simultaneously, and remains nonempty at k=0 since ell>=2. This is a universal symbolic proof; the frozen bounded checker and recorded outputs were inspected as supplementary evidence, not used as proof or executed.
 
-## Closest literature and limits
-Sankaran–Chakraborty, arXiv:1002.4334; Pikhurko–Verbitsky, arXiv:1003.4865, Section 7.3; Kieroński–Kuusisto, CSL 2015. An equivalent elementary sharp endpoint might exist in an inaccessible or unindexed source. This proof does not characterize all finite spectra, permit extra non-equivalence predicates, or extend to unrestricted first-order prefixes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence, the uniform sharp endpoint k*ell+(ell-1)^2 for arbitrary ell is a substantive extension. The entire ell=2 statement, including its sharpness and tail, is already covered as a statement by a distinct Resultary record; no independent originality is credited for that case, and same-day dating provides no evidence of priority. Nor is general finite/cofinite behavior credited as new.
+
+## value
+
+PASS
+
+The quantitative endpoint for a natural fixed-prefix fragment with built-in equivalence is not supplied by general BSR dichotomy. A sharp threshold for all k and ell, with extremizers jointly saturating class-size and class-count constraints, is useful for bounding finite relative spectra. This judgment is about the uniform classification, not about recomputing the cataloged two-universal case or claiming an optimal starting point for the infinite tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

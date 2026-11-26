@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The all-size formula follows by using each of the three available row-pair types at most once across the columns. Maximality is equivalent to all columns being occupied and one of three explicitly proved saturation patterns; the coefficients and orbit count then follow by disjoint enumeration. The executable brute-force checks examine every vertex subset for \(3\le n\le7\), compare every visibility-polynomial coefficient, and verify maximal counts; direct graph-geodesic and orbit tests provide method diversity on smaller graphs. These finite tests do not prove the infinite theorem; the written structural argument does.
+## correctness
 
-**Originality: PASS within the inspected literature, with residual risk.** The complete full-text comparisons establish that the 2021 rectangle criterion, 2023 lower-maximality bound, 2024 diameter-two treatment, and 2025 general visibility-polynomial results do not explicitly give this infinite-family all-size polynomial, maximal trichotomy, or exact orbit enumeration. In particular, the known result \(\mu^{-}(K_3\square K_n)=n+2\) and the known Zarankiewicz reduction are not represented as new. An equivalent enumerator may occur in unindexed \(C_4\)-saturation or small-height binary-matrix literature, and mathematical-record searches cannot establish unique priority.
+PASS
 
-**Value: PASS.** Three rows are the first width where the three possible pair-incidence resources interact, yielding different maximality strata. Rather than another scalar extremum, the result classifies every inclusion-maximal configuration, counts their sizes and symmetry classes, and counts *all* valid configurations by cardinality. The explicit reduction provides a reusable boundary case for saturation and visibility-polynomial questions.
+An occupied diagonal of a rectangle is obstructed exactly when the other two corners are both occupied, so each of the three row pairs is used in at most one column. The disjoint choices for the columns using pairs are one triple or zero to three doubles of distinct types. Each remaining column gives 1+3z, yielding the full polynomial. For maximality a blank can always be filled, a lone double can be tripled, and with exactly two doubles the only allowed pair extension uses the unused type; hence a singleton is blocked exactly when its row is outside that type. A triple or all three pair types blocks every singleton extension. Counting these cases gives the two nonzero maximal coefficients and their ratio. Within the triple and three-double cases, any row permutation can be compensated on the nonsingleton columns, so the singleton counts are classified by their unordered multiplicities. The two-double case is transitive. This also handles n=3, including the empty singleton multiset when all columns are doubles. Independent enumeration by common neighbors and explicit row/column permutations gave maximal counts (45,6) and (144,72), orbit counts 4 and 5, and matched every visibility coefficient at n=3,4. Replay: python3 review_evidence/frozen_math_spot_checks.py. The frozen script and its recorded output were inspected, not executed; their larger ranges are not claimed as a new replay.
 
-**Scope and evidence.** Only ordinary mutual visibility and the \(S_3\times S_n\) subgroup action are treated. The verifier proves only its stated finite tests. Independent scientific audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact three-row census and its orbit refinement, not the rectangle criterion, the extremal sizes, or the isolated falling-factorial count. A distinct later-dated Resultary record demonstrably covers both labeled polynomials and the same three-family description, and extends their parameter range; it does not cover the coordinate-permutation orbits. This is real overlapping coverage, not a claim that the frozen formula is unique, nor evidence of earlier priority. No inspected earlier result supplied the joint enumeration and orbit refinement.
+
+## value
+
+PASS
+
+Three rows are a natural first case with genuinely different maximal sizes. The result resolves inclusion-maximal shapes, their frequencies and their coordinate-equivalence classes, which neither extremal bound gives. The labeled and orbit polynomials are usable exact benchmarks for visibility and host saturation rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

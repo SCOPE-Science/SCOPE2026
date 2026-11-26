@@ -1,19 +1,21 @@
-# Review of the Möbius–Kantor paired-domination classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite domain and all exchange relations are explicit. Matching-endpoint enumeration covers every possible paired-dominating set at the examined cardinalities because any such set admits a perfect matching. An independently coded vertex-mask and induced-perfect-matching recurrence verifies the lower sizes, every optimum, all three exchange edge counts, and exhaustive shortest-path metrics. The \(54\)-isolate characterization is an equality of complete computed sets, not a sampled correlation. The token-sliding obstruction has an explicit bipartition-balance proof. The full finite certificate and independent verifier source files are included.
+PASS
 
-## Originality
+Reconstructed GP(8,3) from the 24 stated edges. Each paired-dominating set must be balanced in the parity bipartition, so exhaustive enumeration need only examine t vertices from each side at size 2t. The independent enumeration tests closed-neighborhood coverage and all Hall inequalities; for t=1,2,3,4 it finds 0,0,0,684 sets. A slide crosses the bipartition and destroys balance. For the other moves I classified every unordered pair of optimum sets by its differences, applying Hall again on the common six vertices for partner preservation. Independent BFS reproduces all reported metrics: J has 3504 edges and eccentricities 6:216,7:432,8:36 on its sole component; E has 2016 edges, a 630-state component of eccentricity 6 and 54 isolates; Q has 1392 edges, the same 54 isolates, and components of orders 432,168,30 with eccentricity profiles (9:192,10:240), (9:96,10:72), (4:30). In each pair graph the isolate index set equals the set of optima inducing exactly four edges, hence 4K2 because a perfect matching exists. The certificate's graph, state list, three edge lists, eccentricity arrays and induced-edge counts agree exactly with the fresh computation. Partner preservation is an edge-wise existential condition on vertex sets, not a claim about lifting paths to a space with fixed matching labels.
 
-**PASS within the inspected literature, with residual uncertainty.** The closest foundational papers establish paired domination and general bounds. The related generalized Petersen article concerns inner steps \(1\) and \(2\), not this step-\(3\) graph. Dominating-set reconfiguration without backup matchings does not imply these metrics. Published exact statements about paired domination on different graph families and about ordinary matching topology on this graph have different hypotheses and conclusions. Accessible prior scientific claims were compared by their implications. Full access to some publisher articles was not obtained, and publication priority has not been independently established.
+## originality
 
-## Value
+PASS
 
-**PASS.** Paired domination is motivated by ensuring that each guard has a nearby partner. A fixed-graph inventory of optimal deployments alone does not answer whether backups can be reassigned without increasing the deployment. Here, the difference between token jumps, local slides, paired moves that allow re-pairing, and moves that keep three partnerships locked produces genuinely different connectivity decompositions. The exact induced-\(4K_2\) criterion identifies the deployment structure responsible for frozen paired moves. This supplies a natural, reproducible boundary example rather than an arbitrary numerical slice.
+The supported distinct contribution is the exact comparison of move spaces on the same minimum paired-dominating family, especially the induced-4K2 isolation criterion and the splitting under the existential shared-matching condition. The abstract balance obstruction to slides is elementary and not credited as an original claim. The strongest accessible matches concern different state sets or graph families; none supplies or makes routine the stated transition classification. This is a best-of-knowledge judgment, not a priority certificate.
 
-## Limitations
+## value
 
-The result applies only to the specified sixteen-vertex graph and specified moves. Finite exhaustive verification does not imply analogous behavior in infinite families. Unindexed and inaccessible literature could contain equivalent classifications; no independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest paired-dominating states of this named symmetric cubic graph provide an exact comparison where changing the rule has distinct effects: all states communicate by individual jumps; adjacency-only slides disappear; adjacent pair replacement leaves exactly the induced-matching states frozen; preserving partnerships does not freeze new individual states but splits the mobile part into three. The same explicit benchmark and the isolate test are useful for distinguishing instantaneous matchability from retention of a partnership. The complete finite geometry is more informative than an isolated optimum number or an arbitrary metric from a census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

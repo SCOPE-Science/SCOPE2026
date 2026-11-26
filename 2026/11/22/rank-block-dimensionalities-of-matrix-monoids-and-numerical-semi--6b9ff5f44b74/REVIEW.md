@@ -1,15 +1,21 @@
-# Scientific assessment: rank-block matrix-monoid dimensionalities
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for every field and every integer \(n\ge2\). The proof reconstructs the full setwise rank-product interval, handles both classes of invertible matrices, proves that every admissible block is contiguous by a two-class saturation contradiction, and derives the exact criterion on interval starting points. Reflecting these starting points about \(n\) gives precisely the numerical-semigroup closure law. The non-orbit consequence follows from preservation of idempotency under automorphisms. A self-contained checker independently confirms the rank-product intervals over \(\mathbb F_2\) for sizes two and three and exhaustively compares all rank partitions with the criterion for \(2\le n\le9\). No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Jenča's November 13, 2026 *Dimensionalities on monoids*, arXiv:2611.18000v1, defines and characterizes these lax equivalences but does not specialize to full matrix monoids, classify rank-block equivalences, or derive a numerical-semigroup correspondence. The paper was inspected at the sections on definitions, examples, relational quotients, and its later polygroupoid results. The 2017 relational-monoid predecessor treats categorical adjunction and polynomial-degree factorization, not matrix-rank partitions. Existing work on full transformation semigroups, partial inner automorphisms, and rank arithmetic has distinct objects or conclusions. Equivalent-claim, stronger-coverage, and exact-table searches did not reveal the same classification; negative searches alone do not guarantee historical priority. Unindexed rank-partition studies remain a specific residual risk.
+PASS
 
-## Mathematical value — PASS
-The result supplies an all-field, all-dimension classification of a natural symmetry-invariant family of equivalences in a recently developed quotient theory. It connects their existence and count with the established structure of numerical semigroups and proves they systematically lie outside automorphism-orbit constructions. This is a natural invariant and genuine structural boundary, rather than an isolated low-rank count.
+Independent proof check: for ranks r,s a product has rank s−dim(im(right)∩ker(left)); subspaces of the prescribed dimensions realize every intersection size between max(0,s−r) and min(s,n−r), and left/right changes of basis realize the entire resulting rank classes. The units do not add conditions: |GL_n(K)|>2 even for n=2 over F₂, so each unit factors into two nonidentity units, and multiplying rank strata by any one unit preserves them bijectively. If a rank block B skips a rank k of C, take a=min B<k<b=max B. The product contains ranks a and k by using factor ranks (a,k) and (b,k). Saturation forces both b and max C into the product; the ranks are bounded above by min(b,max C), giving the impossible b=max C. For interval blocks [a,b],[u,v], any k between max(0,a+u−n) and min(b,v) occurs using max(a,k),max(u,k); both rank constraints follow directly. The right bound is already a block endpoint, so precisely the left bounds must be starts, yielding truncated-addition closure. Reflection around n converts that closure to addition below n, with all sums ≥n included and 0 adjoined. E₁₁ and E₁₂ lie in the same rank-one class but only E₁₁ is idempotent, precluding automorphism orbits. New bounded enumeration of endpoint sets and independent truncated semigroup sets reproduced 2,3,5,7,12,16,27,37 for n=2,…,9: python3 /workspace/branches/8735b8bd-3782-4f71-ad4b-8586d3962602/independent_counts.py. Frozen VERIFICATION.md and checker inspected, not executed. The proof, not the enumeration, covers all fields and n.
 
-## Limitations and closest literature
-Only equivalences constant on matrix-rank strata, with the identity split off, are classified. The theorem does not enumerate all dimensionalities on the matrix monoid or all isomorphism classes of relational quotient monoids. The exhaustive checker covers only the stated small finite cases. Earlier treatments of rank block partitions in semigroup theory might contain an implicit equivalent. The proof relies on the standard Sylvester rank inequality and the primary dimensionality definition from arXiv:2611.18000v1.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the standard rank-product operation, Jenča's saturation criterion, the numerical-semigroup notion and the already indexed count sequence. The distinct supported claim is the exact field-uniform classification for this matrix rank-block family and the canonical identification with semigroups. No inspected prior statement covers it.
+
+## value
+
+PASS
+
+The rank-block family is a natural structured quotient test for a standard monoid. The result gives a necessary-and-sufficient answer for all fields, reduces its classification to the classical numerical-semigroup object, and distinguishes it from automorphism orbit partitions. Value lies in the structural bijection, not the already known finite sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

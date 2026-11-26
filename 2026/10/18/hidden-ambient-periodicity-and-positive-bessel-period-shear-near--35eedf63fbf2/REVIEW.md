@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact differentiation proves both globally defined first integrals. The regular-level argument makes the nearby invariant ovals smooth, and the axial first integral closes all three coordinates. A direct oscillator reduction plus the first-harmonic solvability condition gives the period derivative, including its sign and the isochronous boundary. The same calculation establishes all quantifiers for fixed coefficients. Numerical period, trajectory and integral checks corroborate but do not replace this proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The September 2026 Messias–Reinol–Rodrigues de Lima paper includes the seven-parameter ambient system, and its full-text normal form, proof of cylinder period annuli and conclusion were compared with this theorem. Its nonzero-cofactor assertion concerns the distinguished cylinder and explicitly leaves the off-cylinder dynamics untreated. The earlier Llibre–Serantola full-text classification concerns a different, circular-radius-integrable simplest class. Searches for equivalent exponential Darboux integrals, Bessel period derivatives, cylinder twist, and wider period-annulus implications found no encompassing exact result. Classical period-function and integrability methods could yield the result after specialization, so independent priority remains a risk.
+PASS
 
-**Mathematical value — PASS.** The natural and nontrivial distinction is between an invariant algebraic cylinder with a nonvanishing cofactor and a genuine ambient periodic foliation created by a nonpolynomial conserved quantity. The exact positive Bessel derivative quantifies a physical-time shear invisible to cylinder-only phase portraits and to unit Floquet multipliers. The boundary \(c=0\) is exactly isochronous, making the sign and transition structurally motivated rather than an arbitrary coefficient computation. The theorem is local and does not claim generic integrability.
+Differentiating F=x²+z²-1 gives 2czF, so H=e^(-cx/a)F is conserved by xdot=2az. The same xdot yields the integrating-factor identity for J everywhere without dividing by z; J_y=e^(-Bx)>0 and the planar gradient of H does not vanish on the circle. For the local geometry and period derivative, independently use x=r cos u, z=-r sin u. At H=0 the radial implicit function has nonzero derivative, so for every fixed c there is a smooth periodic r=r(u,h) near 1 for sufficiently small |h|. This produces an annular family of full levels uniform in the angular variable; J determines y uniquely for every real J. The angular speed is 2a-c h exp((c/a)r cos u)cos u/r, uniformly positive on a sufficiently small annulus. The projection must make a full turn for a return, and the axial variable returns at that same time. Differentiating the integral of inverse angular speed gives T(0)=pi/a and T'(0)=c/(4a²) times the circular integral of exp((c/a)cos u)cos u, exactly the stated Bessel expression. Pairing cos u with -cos u proves the sign, and c=0 makes the speed exactly constant. Phase and the two integrals give the local flow as a phase translation with frequency depending only on h: its fixed-period derivative is triangular with all diagonal entries one but with a nonzero shear entry when T' is nonzero. Independent replay `python /workspace/branches/independent_audit_replay.py` compares the polar-period finite difference and the Bessel integral at c<0, c>0, and c=0. This only corroborates the analytic local result; neither global periodicity nor a statement uniform in parameters follows.
 
-Closest primary sources: https://doi.org/10.1007/s40435-026-02300-0 (2026), https://doi.org/10.17398/2605-5686.40.1.121 (2025). Outstanding risk: broader classical Darboux-integrability or period-function literature may imply this special case, though the explicit ambient and Bessel statement was not located.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The polynomial normal form, its cofactor, on-cylinder periodicity, and the isochronous circular case are credited to the literature. In the checked sources, ambient periodicity with nonzero cofactor, the explicit real first-integral pair on this slice, and the physical-time period shear are distinct. Standard integrating factors and period-perturbation methods are not claimed as new.
+
+## value
+
+PASS
+
+For an invariant cylinder with a nonzero algebraic cofactor one should not infer an ambient period annulus or original-time isochrony from the flow restricted to the cylinder. The exact integrals resolve off-cylinder closure and the derivative quantifies the shear that persists despite all multipliers being one. This addresses a specific question left open by the restricted result, on a motivated constant angular coefficient slice, without suggesting that nearby normal-form parameters retain integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

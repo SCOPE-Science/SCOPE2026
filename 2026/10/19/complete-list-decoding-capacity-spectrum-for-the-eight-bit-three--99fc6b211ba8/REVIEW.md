@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete finite theorem is established by an exact rational dual upper envelope and explicit binary codebooks attaining the integer part at every allowance from \(1\) through \(93\). The \(L=0\) and \(L\ge93\) endpoints follow from existence of deletion outputs and a complete incidence count. The standalone verifier reconstructs the incidence relation directly and checks all lower and upper certificates using exact fractions. No finite-to-infinite extrapolation is used: the only unbounded parameter is list size, with a proved saturation cutoff.
+## correctness
 
-## Originality — PASS
-Lin (arXiv:2609.26650v1) studies exactly the same list-deletion model, but the inspected eight-page paper proves asymptotic bounds and common-subsequence estimates rather than the explicit eight-bit complete list-size profile. Kiah--Wei--Zeng (arXiv:2609.21395v1) concerns fixed-list insertion/deletion rate bounds, while Yasunaga (2024) develops general error-correction bounds. The closest previously recorded finite instances address other block/deletion parameters. Searches across the named formulation and its equivalent hypergraph/incidence-packing and list-decoding formulations found no directly covering theorem. The Kiah--Wei--Zeng primary text was inspected, including its finite-length bound in Theorem 23; that general inequality does not give the complete exact eight-bit list-size profile. Unindexed tables remain a residual risk, not a certified absence.
+PASS
 
-## Value — PASS
-The list allowance is an intrinsic coding parameter, so classifying all \(L\ge0\) at one nontrivial finite block length is a natural complete benchmark, rather than an arbitrary isolated slice. The six changing optimal affine dual bounds expose a concrete discrete packing phase diagram, including nonintegral rational upper bounds and saturation at \(L=93\). All \(93\) intermediate optima have inspectable witnesses, making the classification reusable for testing future finite-block bounds and code-search methods.
+The list constraint is on distinct transmitted words per length-five output, not on deletion patterns. For each nonnegative certified vector y, set z_w=(1−Σ_u a_{u,w}y_u)_+. On any admissible code, summing Σ_u a_{u,w}y_u+z_w≥1 gives |C|≤LΣy+Σz. Integrality and |C|≤256 permit the floor of the minimum. An independent exact replay in /workspace/branches/53425eac-f557-4e76-9c2f-f492bac5ccb0/replay_capacity.py read the frozen certificate as data and reconstructed all incidence entries, checked the six nonnegative duals and rational intercepts, and checked each separately listed feasible witness for L=1,…,93 for cardinality equal to that floor. Its log is replay.log in the same directory. It reproduced transitions at 4,12,30,35,53 and the cap at 93. At L=0 every prospective word has at least one output, excluding a nonempty code. For a fixed output, greedy matching of its next bit (with an arbitrary continuation after the fifth match) is a success or failure on each of eight steps. These eight success/failure bits biject with the eight input bits, giving Σ_{j=5}^8 binom(8,j)=93 matching input words. Thus the whole set is infeasible below 93 and feasible at and above 93. The exact certificate and these endpoints prove the all-integer profile; neither continuous LP optimality nor enumeration of all optimal codes is asserted.
 
-## Limitations and comparisons
-The certificate applies only to eight-bit binary words and exactly three deletions. It does not imply a longer-block or asymptotic theorem, nor does it claim a complete classification of all optimal codebooks. Earlier unindexed exhaustive enumerations or finite tables could still overlap. The public certificate relies on no unprovided optimizer, external log, or hidden data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete fixed-block all-list profile, including the six-line bound with integer attainment and the full finite witness range. The closest matching indexed result covers exactly the L=2 slice at n=8. The inspected primary results cover the model and general bounds, not the exact all-L theorem. This is bounded comparison, not a statement of absolute priority or novelty of each individual list value.
+
+## value
+
+PASS
+
+The list limit interpolates between unique three-deletion correction and inclusion of every binary 8-bit word. Determining the entire interpolation for the natural 32-output incidence problem, not just one chosen allowance, provides a concrete tight benchmark for finite list-code bounds and optimization. The successive rational bounds, saturation cutoff, and exact constructions for every allowance make the benchmark reusable without an optimizer. No asymptotic benefit or larger-block theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

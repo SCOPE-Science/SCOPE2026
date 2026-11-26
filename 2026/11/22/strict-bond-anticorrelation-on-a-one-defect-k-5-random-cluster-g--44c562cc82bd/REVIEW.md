@@ -1,15 +1,21 @@
-# Scientific review: one-defect \(K_5\) random-cluster anticorrelation
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(0<q<1\) and \(v,w>0\), the 1024-configuration partition sum defines a strictly positive normalizer. For any distinct bonds, four marked-occupation cells lead to the exact Rayleigh covariance formula. The action of \(S_2\times S_3\) reduces the 45 pairs to eight symmetry classes, whose 1024-subset integer coefficient expansions factor as \(q^2(1-q)P\). Seven \(P\)'s have nonnegative coefficients. The eighth is positive by the explicitly reconstructed two-term quadratic/square decomposition plus a nonnegative 14-term remainder and nonnegative positive-\(q\) coefficient slices. Thus the strict inequality is proved over the entire parameter domain. Recomputing the saved exact certificates and 540 rational instances provides an independent representation check within the supplied code, not a replacement for the polynomial argument.
+## correctness
 
-## Originality — PASS on bounded evidence
-The closest general complete-graph paper (Çiçeksiz and Ravichandran 2026) assumes all activities at least \(2\) or a common activity at least \(1\), so its conclusion does not imply the small-activity arbitrary-defect theorem. Zhao and Zhou (2026) prove the all-weight \(0<q\le1\) assertion for matroids of rank or corank at most three; the graphic matroid of \(K_5\) has rank four and corank six. Semple and Welsh (2005) examine independence/spanning correlation and explicitly flag difficult \(K_5\) polynomial computations, but do not establish the claimed complete q-interval. Grimmett and Winkler (2003) treated the uniform forest/connected extremes. Exact-record searches located a five-vertex-wheel arboreal-gas result and a one-defect \(K_{3,3}\) result, neither of which implies the present complete-graph claim. Search failures alone do not prove originality; priority risks remain.
+PASS
 
-## Mathematical value — PASS
-The claim resolves a natural, motivated non-FKG negative-dependence test on the first complete-graph graphic matroid beyond the rank-three all-weight theorem, while allowing a genuinely independent bond perturbation and all weak fugacities. The exceptional orbit's nontrivial positive-square decomposition is mathematical information not captured by checking a finite grid. The result is deliberately narrower than the general negative-correlation conjecture but has a complete parameter domain for its graph family.
+The four cell sums omit only the two marked activities; their determinant gives Cov=-x_e x_f(Z10 Z01-Z00 Z11)/Z² with the original normalization. The independent replay in branches/15333b53-a4cb-4a50-91da-58ef995f75f5/independent_check.py exhausted 1024 subsets and recomputed all 45 unordered pairs, not just sample activities. It verified all quotients by multiplication by q²(1-q), independently generated the eight S2×S3 pair orbits of sizes 6,3,6,3,6,12,6,3, and matched every table. Their term counts are 32,28,82,82,76,82,68,78. Seven quotients are nonzero and coefficientwise nonnegative. Pair (1,5), i.e. {0,2} and {1,3}, has exactly the coefficients -50 of q^0 v^5 w and -20 of q^0 v^6 w as its negative terms. All positive-q-degree coefficients are nonnegative. In degree zero subtracting 25v^4(v-w)^2+v^5(84v²-20vw+96w²) leaves 14 strictly positive terms; the quadratic has positive leading coefficient and discriminant -31856. Hence that quotient is strictly positive too. The sign follows for all 0<q<1, v,w>0 and gives zero at q=1 by the factor, as expected. This does not cover fully heterogeneous ordinary activities or negative association. See replay-notes.md in the replay directory for the exact remainder and replay output. The frozen verifier was inspected, not executed.
 
-## Sources, comparisons and limits
-Primary literature inspected in full or in targeted theorem/proof passages: Grimmett and Winkler (2003, https://arxiv.org/pdf/math/0302185), Semple and Welsh (2005, https://ir.canterbury.ac.nz/bitstreams/7d5d8de7-9541-4d93-b990-be18fbed62e0/download), Çiçeksiz and Ravichandran (2026, https://arxiv.org/pdf/2610.00549), and Zhao and Zhou (2026, https://arxiv.org/pdf/2611.15512). Tang and Zhang (2026, https://arxiv.org/pdf/2611.11993) provide bounded pairwise bounds rather than strict negativity. The coefficient tables are large but self-contained and reproducible. Unindexed earlier results or a hidden implication from broader literature remain residual risks; no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for K5 with one arbitrary defect and every pair at all positive activities and 0<q<1. Credit the prior conclusions on homogeneous activities at least 1, all activities at least 2, and certain enlarged pair-specific regions. Those do not cover the arbitrarily small ordinary activity regime or establish this full strict classification and its exact polynomials. The general finite-graph upper bounds do not imply it either. No priority guarantee.
+
+## value
+
+PASS
+
+K5 is a natural finite complete graph outside the small-rank and small-corank theorem. It probes whether known lower activity bounds reflect essential behavior on this host. The one independent defect tests robustness under unrestricted single-bond inhomogeneity, and all-pair certification reaches the low-activity region where the general sufficient conditions do not apply. The single mixed-sign quotient explains why naive coefficientwise positivity is insufficient, while its exact decomposition proves the sign uniformly; this gives a usable benchmark beyond positive-activity sampling or the already-covered high-activity regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

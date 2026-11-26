@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:13.852519Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30; VERIFICATION.md and kmp_silent_checks.py inspected, not executed",
+        "Independent analytic check by coupling and second-moment generator; DFG arXiv:2310.01672v2, boundary equations (2.1)–(2.3)"
+      ],
+      "rationale": "Common marks give a monotone coupling with the two effective baths at T_max. The product of independent Exp(T_max) variables is invariant for the latter: on a pair the sum has gamma shape two and its independent uniform split restores the product, including when just the interior output is retained at a reservoir. Starting the lower process at zero gives tightness and bounded second moments by domination; finite-rate continuous jump kernels give a Feller process and a stationary subsequential time-average limit. Under the same marks two initial states have expected ℓ¹ distance at most e^(−t) times the original distance: internal splits are nonexpansive and the two bath clocks shrink the associated coordinate difference by mean factor 1/2. Thus the stationary law is unique (also for arbitrary initial distributions by truncation against bounded Lipschitz tests), and is exchangeable. Writing c=(T_++T_−)/2, Δ=T_+−T_−, the first-moment bath drift is c−m, so m=c. For diagonal q and off-diagonal z the generator gives 0=−4q+4c²+2(T_+²+T_−²)+(n−1)v(−q+2z) and 0=6c²−6z+v(q−2z), each multiplied by three. The other internal edges cancel in the mixed equation by exchangeability. Substitution gives z−c²=vΔ²/(2[(3n+1)v+12]); the determinant is nonzero at all allowed rates. Internal currents vanish by equal means, and each plus bath contributes Δ/4 per unit time. The derivative is 6Δ²/[(3n+1)v+12]² and n(z−c²) has denominator 2[(3+1/n)nv+12] with numerator nvΔ², verifying both limits and the equilibrium and uncoupled cases.",
+      "residual_risks": [
+        "Does not determine fluctuations of time-integrated currents or results for different bath refresh rules or heterogeneous rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stationary-law and opinion-process theorem covers general finite reservoir-connected graphs in the printed unit-rate model (an edgewise weighting extends the intertwining). The paper's explicitly analyzed two-point system (4.18) is for the one-dimensional lattice; the subsequent simple expression is introduced after modifying its corner data."
+        ],
+        "reasoning": "The unit-rate model is a genuine overlap, not a different boundary convention, and rate weighting alone is not a novelty argument. The general theorem does not evaluate the covariance as a function of geometry and rates; the explicit path calculation does not specialize to this topology.",
+        "searches": [
+          "Focused primary search for complete-graph KMP covariance and two reservoirs; DFG arXiv:2310.01672v2, eqs. (2.1)–(2.4), Thm. 2.3, §4.1–4.2 and eqs. (4.15)–(4.20)",
+          "arXiv:0810.1202 §6.3 and Thm. 6.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.01672v2 and arXiv:0810.1202",
+        "Local Resultary mirror: 065f172b2ea0, 5335f0c33eec, 39db3e082c10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior framework makes the mean-current statement a simple symmetry consequence, and it reduces stationary second moments to a finite harmonic system. The related local-thermalization result uses full site refresh at a tunable rate, not uniform fractional mixing with both reservoir temperatures."
+        ],
+        "reasoning": "The current calculation is not a new general current law. The new content is its coexistence, at every internal rate, with the particular positive covariance and crossover. This is not a parameter substitution into the prior evaluated formula: a different second-moment drift and solution are required.",
+        "searches": [
+          "DFG boundary-edge definitions, stationary exponential mixture and two-point correlations in the one dimensional lattice; mirrored complete-graph local thermalization finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In DFG the distinct-site covariance is equivalently the stationary hidden-temperature covariance, by conditionally independent exponentials. The dual two-particle absorption model expresses the same mixed moment via a boundary value problem. The reservoir marks in DFG match this boundary-edge rule rather than boundary-site refresh."
+        ],
+        "reasoning": "An evaluated covariance in either dual formulation for this weighted network would count as coverage. The representation does not give the needed two-particle boundary absorption probabilities for this network; choosing the completely mixed topology and solving its two-state moment closure is needed.",
+        "searches": [
+          "Local Resultary: current-neutral KMP complete-graph covariance and KMP covariance rate response",
+          "De Masi–Ferrari–Gabrielli arXiv:2310.01672v2, Def. 2.2 and Thm. 2.3",
+          "Giardinà–Kurchan–Redig–Vafayi arXiv:0810.1202 §6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 065f172b2ea0 is the frozen record itself. Complete-graph record 5335f0c33eec instead has one hot site with full exponential refreshes and an internal-rate-independent normalization; its covariance sign threshold is g_c(N)/N→1/√2 as the site refresh rate varies. Record 39db3e082c10 uses a complete bipartite graph and site refreshes."
+        ],
+        "reasoning": "The same-day hits were compared by generator and formula, not dismissed by date. Neither gives the exact correlation or crossover for uniform two-reservoir inputs on every site.",
+        "searches": [
+          "Local Resultary: two-bath complete-graph KMP covariance, internal exchange, crossover and current neutrality; inspected mirrored findings"
+        ]
+      },
+      "rationale": "The distinct claim is an evaluated finite-size covariance and its internal-rate response at fixed mean current in the symmetric two-bath complete interior graph. The KMP dynamics, its dual description and the general stationary representation are established. Their application here still requires a network-specific two-particle or moment calculation; the explicit one-dimensional covariance problem in the published work is not this calculation.",
+      "residual_risks": [
+        "A prior unindexed exact evaluation of the weighted symmetric network remains possible; this is a bounded comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and general representation precede the finding; evaluated nearest-neighbor path system does not cover the target graph",
+          "evidence": "Fresh exponential marks are associated to boundary edges; conditionally independent exponential stationarity follows from hidden opinion averaging. The printed two-point harmonic and modified-boundary problems are on a triangular region for the path.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.01672",
+          "material_read": "v2 p. 5 eqs. (2.1)–(2.4) at offset 14800; pp. 7–8 Def. 2.2 and Thm. 2.3 at offsets 20500 and 25100–26000; pp. 19–20 §4.1–4.2 at offset 59500",
+          "method": "OA PDF located by targeted primary websearch and bounded later section inspection",
+          "title": "Hidden temperature in the KMP model",
+          "trigger": "Same fresh-sample boundary rule, general stationary law and two-point formula"
+        },
+        {
+          "assessment": "Foundational duality and thermalization, not a network evaluation",
+          "evidence": "Uniform pair redistribution and duality reduce moments but do not state this two-reservoir complete-graph formula.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.1202",
+          "material_read": "§6.3, p. 32 at offset 82800, and Thm. 6.6, p. 34",
+          "method": "OA PDF",
+          "title": "Duality and hidden symmetries in interacting particle systems",
+          "trigger": "Potential general KMP covariance via duality"
+        },
+        {
+          "assessment": "Same frozen record",
+          "evidence": "Same two-reservoir rule, rational covariance, rate limits and current.",
+          "identifier_or_url": "2026/11/22/SCOPE-current-neutral-internal-exchange-creates-exact-long-range-kmp-e--065f172b2ea0",
+          "material_read": "Mirrored Finding and Proof",
+          "method": "Local mirror",
+          "title": "Current-neutral internal exchange creates exact long-range KMP energy covariance",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Different baths and rate variable",
+          "evidence": "Unit internal rate, one hot site, full exponential site refreshes with tunable g and a covariance sign threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-covariance-sign-reversal-under-local-thermalization-on--5335f0c33eec",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror",
+          "title": "A unique covariance sign reversal under local thermalization on a complete graph",
+          "trigger": "Same graph class and closely related stationary covariance/rate question"
+        },
+        {
+          "assessment": "Different network and reservoirs",
+          "evidence": "Complete bipartite interior graph and single hot site with sitewise refreshes.",
+          "identifier_or_url": "2026/11/22/SCOPE-cold-cold-anticorrelation-from-a-single-thermal-impurity-on-a-bi--39db3e082c10",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror",
+          "title": "Cold-cold anticorrelation from a single thermal impurity on a bipartite graph",
+          "trigger": "Related KMP finite-network moment law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md covariance, derivative, current and scaling formulas; DFG general stationary representation and path calculation"
+      ],
+      "rationale": "The complete-graph symmetric bath geometry is a natural test of what exchange can change when mean currents cannot detect it. The exact covariance separates that effect from reservoir flux, and locates the internal-rate crossover at order 1/n with an explicit scaling function. This gives a useful finite-size benchmark for second-moment or mean-field methods; neither the symmetry argument for currents nor the general stationary law supplies the benchmark.",
+      "residual_risks": [
+        "No robustness to symmetry-breaking bath coupling or spatial geometry is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

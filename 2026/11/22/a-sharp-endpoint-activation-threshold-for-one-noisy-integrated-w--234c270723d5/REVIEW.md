@@ -1,11 +1,21 @@
-# Review of the endpoint transition in one-sensor integrated-Wiener design
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditioning formula is exact for the jointly Gaussian path/observation pair. The polynomial covariance integration, differentiation, and endpoint constants are reproduced by `check.py` in symbolic rational arithmetic. The global proof uses three independently signed cubics and an exact derivative factorization to establish a unique maximizing point for every \(\eta>0\); finite numerical roots are only illustrations. The boundary slope follows from a nonvanishing exact derivative.
+## correctness
 
-**Originality — PASS on inspected sources, with residual risk.** Ji and Müller (2016, full author manuscript inspected) state the general posterior integrated-variance design objective but do not solve this special integrated-Wiener one-point global optimization or identify its endpoint threshold. Abundo (2013, full available arXiv HTML inspected) concerns process representations and first passages rather than sensor placement. The earlier Mukherjee dissertation catalog discusses exact design for product-form covariance processes and asymptotic results for general processes; only the catalog could be read, and a hidden specialization remains possible. Multiple literal and conceptual searches for equivalent formulations and stronger coverage did not uncover an exact equivalent theorem. A negative search is not evidence of absolute novelty.
+PASS
 
-**Value — PASS.** The exact rational noise threshold establishes when a globally optimal sensor changes from an interior location to the terminal time. This is a complete natural classification for a smooth Gaussian-process observation-design benchmark, with an exact first-order boundary law. These results offer a reproducible reference for checking numerical design solvers, and the fact that the optimum stays at the boundary for an entire nontrivial noise interval is not an arbitrary parameter substitution.
+The Itô-kernel representation gives K(s,t)=s²(3t−s)/6 for s≤t and by symmetry on the other side. Splitting the square-kernel integral at s=t gives C=t⁴(105−105t+35t²−2t³)/1260. Gaussian conditioning gives risk 1/12−C/(η+D), D=t³/3; t=0 has zero reduction, so cannot optimize. For t>0 the sign of the derivative of the reduction is the sign of η−E with E=CD′/C′−D. The proposed factorizations check: C′=−t³H/180, H<0 by H′>0 and H(1)=−13; E has the sign of the strictly increasing U with unique zero t₀ in (2/3,1). Independently, E′=(C/C′)(D″−D′C″/C′)=−(C/C′)t(H+tH′)/H, and H+tH′=2G with G=4t³+15(1−t)(3t−2)>0 on [t₀,1]. Thus E is strictly increasing there; E(1)=8/273 and E′(1)=264/1183. For η below the threshold the derivative changes sign exactly once; for η at or above it the reduction strictly increases on (0,1), including at equality where only the endpoint has a zero derivative. Inverting E proves the stated slope and the strict increase of interior locations. The supplied check.py was inspected, not executed; the global result follows from signs, not numerical roots.
 
-**Closest literature and limits.** The general noisy-design objective is from Ji–Müller, and the integrated-Brownian process covariance is standard and discussed by Abundo. The result does not cover multiple sensors, a different loss, or parameter uncertainty; the unavailable Mukherjee dissertation and possibly unindexed sources leave publication-priority uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general noisy integrated-MISE design and the integrated-Wiener kernel are prior. The surviving result is the globally unique location for every η>0, the exact positive noise threshold and the boundary slope under point measurements of the integrated path itself. Primary framework and directly related same-day results were checked; unresolved older literature leaves a specific priority risk, not evidence of coverage.
+
+## value
+
+PASS
+
+A natural single-site Gaussian path-recovery benchmark has a nonzero finite noise threshold, a unique optimizer on both sides and an exact boundary slope. This is useful for validating numerical placement algorithms and for distinguishing path-reconstruction results from integral-only or derivative-sensing results. It is not a claim about multiple sensors, adaptive designs, unknown covariance, or the noiseless case as an included parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

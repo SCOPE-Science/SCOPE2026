@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete proof starts from the actual coordinate update, establishes pathwise geometric residual decay and absolute convergence of every coordinate trajectory, derives the random affine-series fixed point, and obtains its exact first and second moments. The quadratic derivative numerator and endpoint signs prove the unique sampling optimum over the full permitted interval, not just a local optimizer. The equal-column example is fully analytic: a uniform binary expansion makes the limiting solution non-atomic while all iterates have Euclidean norm at most one. A standalone exact-symbolic and deterministic direct-update checker reproduces critical identities. Its finite experiments are not used as infinite-horizon proofs.
+## correctness
 
-**Originality — PASS, with limitations.** The directly motivating 2024 Jin–Liu RBCD preprint's Algorithm 1, Theorem 2.4, Remark 2.5 and relevant later sections were examined. Its random-solution convergence is acknowledged, while its general boundedness-to-minimum-norm claim is specifically contradicted by the exhibited admissible exact example. Earlier arbitrary-sampling and randomized linear-solver results primarily describe objective, residual or expected-iterate behavior, which does not imply the exact risk of the terminal solution's nullspace coordinate. A 2026 coordinate-descent article assumes full column rank and thus does not cover the present underdetermined object. Literature searches did not locate the sharp unequal-column risk/optimizer law. Residual priority risk remains from older affine-series/implicit-bias analyses and articles available only in abstract form; lack of a search hit is not a proof of novelty.
+PASS
 
-**Value — PASS.** The theorem resolves the selection behavior of a natural first nontrivial nonunique inverse problem, gives a sharp sampling probability with a genuine interior-to-boundary transition, and records an exact roughly 26% terminal selection-error improvement for one unequal-column instance. It also supplies a rigorous boundary to a stated boundedness argument in the motivating work. The result is expressly limited to exact-arithmetic, iid, fixed-step, two-coordinate rank-one systems; it is not a claim about all earlier theorems, higher dimensions, noisy data or convergence-time optimization.
+The range 0<γ≤2/(α+β) implies |1−γα|,|1−γβ|<1, even at the upper endpoint. Every path converges absolutely in state to a feasible point. The independent first draw gives T=γσ_I+(1−γa_I²)T′ in law, with T′ independent. Solving the first two uncentered moment equations recovers both moments and the risk; the squared distance factor is αβy²/(α+β) by projection onto (b,−a). Independent symbolic replay: python3 /workspace/branches/check_selection_derivative.py (SymPy); it checks the moments, derivative coefficients, upper-step simplification and exact benchmark. Below 2/s, C₂>0 and C₀<0 for α>β, hence precisely one positive derivative root and negative derivative at 0. The derivative at 1 has the sign of 4−γ(3α+β), which proves the transition and uniqueness, including the equality case. At 2/s the displayed fractional linear risk strictly decreases; as γ tends to zero the risk converges uniformly to (2p−1)²/d², unique minimum at 1/2. The benchmark gives the stated algebraic root and relative loss reduction. In the fair case residuals are 2⁻ᵏ, the binary cylinders give Uniform[0,1], and nonnegative iterates with sum ≤1 satisfy the required uniform bound; the risk is 1/6. Jin–Liu Algorithm 1 is uniform and its theorem range is strict, but this fair example lies strictly inside it. It refutes only the minimum-norm implication of Remark 2.5, not Theorem 2.4's random-solution assertion; the terminal solution is not past-measurable in the conditional-expectation argument. The uploaded verifier was inspected, not run; the all-path and limiting arguments are analytical.
 
-The closest literature is Jin and Liu (2024), *Randomized block coordinate descent method for linear ill-posed problems*, arXiv:2405.13340v1; Qu and Richtárik (2015/2016), *Coordinate Descent with Arbitrary Sampling I*, arXiv:1412.8060; and Gower and Richtárik (2015), *Randomized Iterative Methods for Linear Systems*, arXiv:1506.03296. Some older full texts remain a documented residual novelty risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact terminal minimum-norm selection risk optimized over fixed coordinate probabilities for unequal columns, with a sharp interior-to-boundary step threshold, and the bounded fair-digit witness for the specific prior remark. Bernoulli binary expansion is classical, and the equal-column limiting expected risk is directly shared with an indexed special case. Checked weighted-sampling results optimize objective/rate bounds or schedules, not this terminal selector. No exhaustive priority claim is made.
+
+## value
+
+PASS
+
+The objective is which exact solution the algorithm selects, not whether it fits the data. The sharp threshold shows that even optimal iid selection can switch to never updating one coordinate despite a consistent problem with two usable coordinates. The fair-digit construction answers a concrete incorrect implication in the motivating literature and locates the obstruction despite pathwise boundedness and geometric residual convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: Integral hyperbolic splitting of random-poset incomparability feasibility
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for every finite individually named poset and for existential incomparability of **two distinct** realizations of nonalgebraic unary types. The proof begins from the exact finite-extension condition, then explicitly changes the integer basis in two unitriangular stages. Every genuinely two-sided type contributes a primitive radical vector; the rest consists of a neutral unit and an ideal–filter intersection block. Complementing filters and subtracting a single row reduces this block to the zeta matrix on nonempty proper down-sets, which is unimodular. Thus no numerical conjecture or rational-only diagonalization is being used. The self-contained verifier checked 90 finite parameter patterns and 45,913 feasibility entries against independent transitivity calculations. Additional exact Smith reductions on five distinct shapes—including a fork and a diamond—found only unit nonzero factors. The finite checks support, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality — PASS (qualified)
-The one-point extension parameterization is known from Dolinka–Mašulović (2010), and the generic-poset extension property is treated by Pach and coauthors (2011). Published counting results for arbitrary unary types, antichain pair types, and complete two-level base pair types were compared at statement level. They do not give the all-base integral Gram congruence, the canonical primitive radical basis, or the universal inertia and field-rank formulas. An earlier chain-only hyperbolic formula is strictly subsumed: the present proof works for any finite poset and exhibits additional nonchain cases such as forks and diamonds. The classical zeta-matrix unimodularity needed in one step is standard background, not claimed new. A specialized earlier publication that packages these pieces into the same ideal–filter compatibility form is an unresolved historical-priority risk; the search cannot rule this out.
+PASS
 
-## Mathematical value — PASS
-The output is a complete structural classification of a natural logical feasibility matrix for **arbitrary finite parameters**, not a finite-table recomputation. It characterizes the primitive null lattice by the two-sided types, proves all cokernels torsion-free and all modular ranks identical, and recovers the down-set count directly from matrix rank. This gives a general link between model-theoretic orbit compatibility and the incidence algebra of the order-ideal lattice. The general conclusion is not implied by a chain-only calculation or by known scalar type counts.
+Each unary type is an admissible ideal–filter pair. Keeping the two distinct new points incomparable, the only potential new failures of strict transitivity are the paths through an old point in one of the two opposing cross intersections. Their simultaneous nonemptiness, for individually admissible types, would force both u<l and l<u. Thus the product of cross-disjointness indicators is also their sum minus one. This makes every proposed four-term mixed vector radical, and their coefficient-one mixed pivots make the replacement unimodular. Subtracting the neutral vector from each pure vector leaves the cross block -Q and neutral norm 1. On complementing filters, subtracting the full-ideal row and expanding along the empty-ideal column identifies det Q up to sign with the zeta determinant on nonempty proper ideals, which is 1 in an inclusion-compatible order. Multiplying the second pure basis by the inverse cross block then gives the asserted integral hyperbolic planes. This proves the full radical basis, Smith form, rank over all fields and real inertia, including the empty-base matrix [1]. The included script and its output were inspected, not executed; its helper checks the zeta triangular pattern rather than computing det Q numerically, and the finite tests do not prove the all-base claim.
 
-## Sources and limitations
-Relevant primary studies: Dolinka–Mašulović, *A universality result for endomorphism monoids of some ultrahomogeneous structures* (2010), arXiv:1009.2892, §3.1; and Pach–Pinsker–Pluhár–Pongrácz–Szabó, *Reducts of the random partial order* (2011), arXiv:1111.7109, §3. Closest previously published mathematical records concerning unary type hardness and two-point spectra were examined as logical comparisons. The current theorem does not count all two-point types, algebraic types, or ordinary eigenvalue magnitudes, and does not imply easy computation of the down-set count. The priority assessment is best knowledge rather than independent historical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact chain-specialized congruence and primitive radical to the distinct matching named-chains record; the shared date is not used to infer precedence. The supported distinct claim is the integral congruence and explicit radical for every finite named base. The chain statement, the adjacent exact scalar type-counts, the generic-poset realization theorem and classical zeta machinery do not establish this general form.
+
+## value
+
+PASS
+
+For an intrinsic finite-base feasibility invariant, the theorem identifies all integral dependencies and gives a canonical indexed basis for the mixed part of the radical. The integral form determines all modular ranks and real inertia from ideal and type counts, beyond chain or scalar pair counts. The contribution is the general structure, not zeta inversion by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

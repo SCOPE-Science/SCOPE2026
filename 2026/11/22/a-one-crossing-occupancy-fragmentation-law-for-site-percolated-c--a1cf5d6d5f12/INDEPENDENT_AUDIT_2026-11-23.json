@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:59:13.284592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the two independent binomial shore counts. Both positive gives C=1; otherwise C=N, including zero for the empty graph. This gives F=(1-q^a)(1-q^b)+apq^b+bpq^a. The Bernoulli score (N-np)/(pq) gives Cov(N,C)=pqF'(p), and differentiation factors F'=nq^(a-1)H. Endpoint covariance is zero by determinism. For r=b-a>0, replacing bq^(b-1) by its upper bound bq^r shows H_q≥u-(a-1)q^(r-1)[br(1-q)+aq]/n≥2b/n; the last inequality follows because q^(r-1)[r(1-q)+q] is increasing to one. At balance H_q=m+1-mq^(m-1)>0. In the p coordinate H(0)=1 and H(1)<0 except K_1,1, for which H=1-p. This proves the strict signs and the unique maximum above F(1)=1 in the nonexceptional cases. At p=t/n the limiting H is analytic, nonincreasing, equals one at zero and tends to minus infinity; two roots would force it to vanish on an interval. Positive-root bracketing proves the stated proportional limit, including c+exp(-c)=2 at balance. For fixed a the pointwise interior limit H→1-(a+1)p gives the fixed-side limit by the same bracketing. The supplied finite rational checker was inspected, not executed; the bounded independent transition and derivative verification is documented in branches/47ffd03c-78d1-4092-9b43-487eabe2e90b/ordinal-2-root-check.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tittmann et al. §2.1 p. 3 defines Q(G;x,y) by counting all induced subsets by size and component count; Corollary 19 gives Q(K_a,b;x,y) explicitly.",
+          "Allard et al. §II Eq. (3d) mixes a finite multitype reachability distribution over independent existence counts; §II B explains the fixed-host embedding.",
+          "Allard et al., arXiv:1201.4369 p. 1, concerns removal of edges, a different ensemble."
+        ],
+        "reasoning": "The earlier polynomial is genuine stronger distributional coverage on all graphs and even gives the explicit biclique generating function. It does not in the inspected passages give an all-biclique derivative sign or root scaling. The more general reachability model is an exact computational framework, not such a sign theorem.",
+        "searches": [
+          "arXiv:0812.4147v2 §§2.1, 5.2, 8",
+          "arXiv:1509.01207v1 §§II and II B",
+          "Primary search: site percolation complete bipartite graph expected number connected components covariance size unique maximum occupancy fragmentation arxiv 1509.01207"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.4147v2",
+        "arXiv:1509.01207v1",
+        "arXiv:1201.4369 (opening page)",
+        "Local Resultary 2f001dd5cbba and assigned-record self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact pgf is q^n Q(G;ps/q,z) for (N,C). Applying the y derivative at one to Corollary 19 gives F, and pqF' gives the identical finite covariance formula.",
+          "Neither the generating function nor the reachability equations in the inspected passages state the uniform lower bound for H_q or the limiting root analysis."
+        ],
+        "reasoning": "The finite formula is a mechanical corollary and receives no novelty credit. The inequality controlling the sign globally, the K_1,1 exception, and the limiting uniqueness and root bracketing are additional analysis, not outputs of the cited general theorems.",
+        "searches": [
+          "Tittmann et al. arXiv:0812.4147v2 §2.1, Corollary 19, §8 Eq. (11)",
+          "Allard et al. arXiv:1509.01207v1, pp. 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tittmann–Averbouch–Makowsky, arXiv:0812.4147v2, §5.2 Corollary 19 and §8 Eq. (11), gives exact binomial-retention enumeration on the same graph.",
+          "Resultary 2f001dd5cbba, Finding and assumptions: an analogous one-crossing for fixed-sample multinomial occupancy on trees, with a different scaling parameter and load limit."
+        ],
+        "reasoning": "The expected-fragment maximum and the covariance crossing really are equivalent here because of the Bernoulli score. Conditioning on a fixed number of placements does not produce that score identity or independent retention; a theorem for fixed-sample occupancy on trees cannot be transplanted to bicliques in general.",
+        "searches": [
+          "Resultary: Site percolation covariance of retained-vertex count and induced connected-component count on complete bipartite graphs; one sign change.",
+          "Resultary: Equivalent formulation: covariance between occupancy and component count as the Bernoulli score or derivative of the expected number of fragments; unique fragmentation maximum.",
+          "Primary search: expected number of components induced random vertex subgraph vertex reliability unimodal mean components biclique polynomial site percolation vertex subset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Corollary 19 gives the complete bivariate enumeration symbolically and so already covers every finite joint table for (N,C).",
+          "The closest nonself Resultary record studied fixes the number of sampled balls on a tree, not a table of Bernoulli retention thresholds on bicliques."
+        ],
+        "reasoning": "The joint enumeration is not new even though the comparator does not explicitly tabulate covariance values. No inspected analytic formula or table supplies the new root laws; finite per-graph tabulation alone would not establish them.",
+        "searches": [
+          "Resultary: Fixed-small-side and proportional-size asymptotics for the occupancy-component covariance transition on site-percolated complete bipartite graphs.",
+          "Resultary 2f001dd5cbba, exact mirrored RESULT.md",
+          "Tittmann et al. arXiv:0812.4147v2, Corollary 19 and §8"
+        ]
+      },
+      "rationale": "The exact finite joint distribution and hence the displayed covariance formula are already covered by a closed complete-bipartite specialization of the subgraph component polynomial. The surviving contribution is the strict one-crossing/unique-maximum theorem over the full parameter family and the two critical-root regimes. Best-of-knowledge comparison found no source that establishes those claims or implies them by simple specialization.",
+      "residual_risks": [
+        "Bounded Resultary rankings and focused primary sections are not exhaustive; an older shape theorem for the expected-component polynomial could cover the sign classification.",
+        "No novelty claim for finite expectations, covariances or the joint enumeration itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the joint law and exact finite covariance; no one-crossing or root limits in inspected passages",
+          "evidence": "Q(K_a,b;x,y)=(1+xy)^a+(1+xy)^b+y[(1+x)^a-1][(1+x)^b-1]-1. Section 8 reads component probabilities from (1-p)^n Q(G;p/(1-p),y).",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4147v2",
+          "material_read": "§2.1 p. 3; §5.2 Corollary 19 pp. 10–11; §8 Eq. (11) p. 18",
+          "method": "Lawful OA PDF, bounded reading",
+          "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+          "trigger": "Exact bivariate induced-subgraph polynomial including the same graph family and retention ensemble"
+        },
+        {
+          "assessment": "Broader finite percolation computation, not the sign or scale law",
+          "evidence": "Independent type-dependent retention counts are mixed with component reachability probabilities; §II B embeds arbitrary small fixed hosts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.01207v1",
+          "material_read": "Abstract p. 1 and §§II–II B pp. 2–4, Eqs. (3a)–(3d)",
+          "method": "Lawful OA PDF",
+          "title": "General and exact approach to percolation on random graphs",
+          "trigger": "Cited general site-percolation framework"
+        },
+        {
+          "assessment": "Different ensemble",
+          "evidence": "The distribution is after removal of edges, not independent selection of vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.4369",
+          "material_read": "Opening page/abstract only",
+          "method": "Lawful OA PDF",
+          "title": "Exact solution of bond percolation on small arbitrary graphs",
+          "trigger": "Citation on related exact component methods"
+        },
+        {
+          "assessment": "Different graph family, probability space and threshold scale",
+          "evidence": "Fixed-sample multinomial occupancy on trees; crossing expressed in ball count with load limit log 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-one-crossing-law-for-fragmentation-under-fixed-sampl--2f001dd5cbba/RESULT.md",
+          "material_read": "Finding and assumptions of mirrored RESULT.md",
+          "method": "Local Resultary search and exact mirror",
+          "title": "A universal one-crossing law for fragmentation under fixed sampling",
+          "trigger": "Closest analogous occupied-count versus fragment-count crossing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The globally unique expected-fragmentation maximum is a meaningful structural boundary for independently thinned bicliques. Its location is of order one over graph size for proportional shores and of order one for a fixed small shore. These uniform and asymptotic results go beyond prior finite enumeration; they do not extrapolate to arbitrary hosts, unequal retention or bond percolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

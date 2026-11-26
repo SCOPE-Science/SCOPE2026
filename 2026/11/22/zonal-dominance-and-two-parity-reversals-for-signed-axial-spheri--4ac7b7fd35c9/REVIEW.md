@@ -1,15 +1,21 @@
-# Scientific review: zonal dominance and heat-covariance parity reversals
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel is explicitly normalized by the spherical Laplace eigenvalues \(\ell(\ell+1)\) and normalized surface measure. The harmonic representation of the latitude multiplier has checked coefficients, and the signed covariance factorizes through \(I-\lambda CC^*\). Gaussian tail decay makes \(C\) compact exactly in the positive-subtraction regime \(s>t\); the high-frequency diagonal obstruction handles \(s\le t\). Entrywise nonnegative matrix domination reduces the global norm strictly to azimuthal order zero. The parity certificate uses rational entries for the squared Jacobi blocks, exact Sylvester/LDL tests, three finite lower certificates, and an infinite-tail bound, not finite spectral sampling alone. At the threshold, a zero-energy point measure would have impossibly Gaussian-decaying harmonic coefficients; a separate smooth eigenmeasure proves loss of universality. The implementation `EXACT_CHECK.py` independently executed successfully with the three stated inequalities.
+## correctness
 
-## Originality — PASS (best knowledge)
-Buhmann and Jäger's *Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres* (arXiv:2105.02586, first public 6 May 2021; published 2022) supplies the coefficient-matrix positivity framework but not this sharp two-temperature latitude-product covariance classification or its three exact parity witnesses. Its accessible full article was inspected at Sections 2–3, notably Theorem 2, Proposition 1 and Theorem 3. Jäger's earlier 2020 spherical block-structure work and the 2024 Emery–Jäger–Porcu axially symmetric space–time representation provide broader context without a demonstrated implication to the explicit two-temperature zonal dominance and even–odd–even switches; the latter's subscription article was available only in preview and supporting abstract/appendix, not its complete main text. Related published one-temperature spherical Poisson axial tilts, circle Poisson subtraction and circle heat modulation have distinct multipliers and spectral weights; the circle cases do not cover the two-sphere three-point spectral certificate. Exact source-claim and alias searches did not identify a stronger published theorem covering this claim. This comparison establishes only best-knowledge priority, not an exhaustive publication census.
+PASS
 
-## Value — PASS
-The question is mathematically motivated by subtracting a short-range latitude-dependent covariance while retaining all-configuration positivity on a sphere, a basic validity constraint for nonstationary spatial kernels. The theorem determines the entire admissible parameter region via a single computable compact zonal operator, proves finite-site nondegeneracy at the spectral endpoint, and identifies a genuine two-fold switch in the controlling parity with exact rational witnesses. This structural behavior is not a routine numerical computation of one parameter; it identifies how a natural spectral bottleneck changes under heat-scale variation.
+Reconstructed the bounded heat-conjugated multiplier for s>t and the dense-range factorization. Continuity identifies surface-operator positivity with all finite Gram inequalities by atomic approximation in one direction and local smooth approximation to atoms in the other. For s≤t the upward link into a high zonal test degree gives an unbounded ratio of the subtracted to the positive diagonal. In each |m|>0 block the compact maximizer, replaced by its modulus and extended by zero, has strictly smaller image norm than under the zonal links, where at least one coordinate increases strictly. The two zonal column-parity products are irreducible compact nonnegative Jacobi matrices; the nonnegative top vector is strictly positive and equality in the modulus comparison forces any maximizing vector to have its sign, yielding simplicity. Local norm analyticity and the certified opposite signs give isolated ties and at least two reversals. Independently rebuilt the rational 16-column tests: all three upper tests have eight positive pivots, the first lower minor is −48529856/120670225, the two other lower witnesses are 29/15 and 4/3, and the squared tail error is <10^−18. The critical null equation makes an atomic annihilator Gaussian-decaying and thus smooth, impossible for a nonzero atomic measure. Conversely a normalized top left singular vector, iterated through the Gaussian-decaying finite-band CC*, decays faster than any fixed Gaussian and yields a nonzero smooth annihilating density on undoing the half-heat, with nullity one or two as stated. Subcritical coercivity on heat-smoothed measures gives uniform density by duality.
 
-## Scientific limitations and remaining risk
-The sharp general-time constant is spectral, not elementary. The exact rational calculation certifies at least two crossings but does not classify all of them. Higher-dimensional spheres and other axial multipliers are outside the claim. A 2024 subscription article on general axially symmetric spatiotemporal kernels was not read in full; this leaves a bounded historical-priority risk, though its abstract does not assert the precise static heat-difference result. An independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tested distinct claim is the spherical latitude-product family, particularly strict dominance over all nonzonal sectors together with an even–odd–even top zonal norm and the critical endpoint on S². General coefficient criteria and a particularly close circle analogue are credited; neither establishes this spherical comparison.
+
+## value
+
+PASS
+
+Identifying the exact constraint among infinitely many spherical orders and exhibiting two reversals rules out treating even/odd dominance as one monotone transition. The critical covariance distinguishes finite-site nonsingularity from uniform approximation; the natural kernel family and spectral obstruction are substantive beyond mere threshold notation or a circle parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

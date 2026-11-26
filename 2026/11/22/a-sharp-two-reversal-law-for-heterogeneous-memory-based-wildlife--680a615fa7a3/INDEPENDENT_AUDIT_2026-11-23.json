@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:00:08.685365Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–47; VERIFICATION.md and checker.py"
+      ],
+      "rationale": "The Gaussian footprint average follows by completing the square (with the v=0 limit immediate). In the log hazard ratio, the common prefactor cancels and the squared-distance difference is 4a m(t). Thus the sign is that of η[w²+σ²(1−ρ²)]+2a[s+(x₀−s)ρ] with ρ=e^(−κt). Its degree is two for unequal gains and at most one for equal gains, including the identically equal case. Exactly two strict switches require two simple roots strictly between 0 and 1: if these exist the vertex is between them, its sign is opposite the leading coefficient and both endpoints have the leading sign. Conversely three strict signs with the vertex interior force roots on each side, with no extra roots by degree. A double root does not reverse the sign; the two endpoints are not finite positive switching times. In the given example η=−1 and exact substitution gives coefficients (1,−1,3/16), hence roots 3/4 then 1/4 in time order and ties at log(4/3)/κ and log(4)/κ. The endpoint and vertex signs are strict, so the double reversal holds in an open parameter neighborhood. The proof is analytic; the frozen checker was inspected, not run.",
+      "residual_risks": [
+        "The result is for directly stipulated instantaneous cause-specific hazards with positive common width. It does not establish a latent-process hazard after filtering on the absence of detections or compare integrated first-capture probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panchaud's OU mean is affine in ρ and its covariance is σ²(1−ρ²)I₂. Eq. (2) has one h₀ and no added footprint variance or footprint-average prefactor.",
+          "Dey et al. add trap-level baseline heterogeneity via logit(p₀ⱼ)=μ+Wⱼ in a spatial capture-recapture detection-probability model."
+        ],
+        "reasoning": "The first is strong movement-memory motivation but not a general theorem allowing heterogeneous gains in the specified hazards; the second establishes heterogeneity as a modeling device but not in the same time-varying hazard family. Combining and adapting those ingredients is not an existing statement of the switch law.",
+        "searches": [
+          "Panchaud et al., arXiv:2408.17278, Eq. (2), §2.3",
+          "Dey et al., arXiv:2205.06320, §§2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Panchaud et al., arXiv:2408.17278 §2.3",
+        "Dey et al., arXiv:2205.06320 §§2.1–2.2",
+        "Resultary --680a615fa7a3, --3ba36945f044, --0233d5618abe and --2070bbace3a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For symmetric sites in the printed Panchaud model with common h₀, the log-ratio numerator is proportional to s+(x₀−s)ρ, so at most one strict switch is possible. Giving traps distinct h₀ would create a quadratic term after clearing the OU variance; that is an extension of the printed model and lacks the positive common footprint width.",
+          "The retail criterion compares expected market shares as attractiveness varies, not OU competing detection rates."
+        ],
+        "reasoning": "The strongest actual prior formula does not imply two strict switches in the assigned model by parameter specialization; it explicitly cancels the gains responsible for the quadratic term. The analogous extension is straightforward, so originality is bounded to the stated hazard family and its sharp realizable consequence, not Gaussian convolution or the algebraic criterion in the abstract.",
+        "searches": [
+          "Panchaud et al., Eq. (2), §2.3",
+          "Dey et al., §§2.1–2.2",
+          "Retail reentrance --3ba36945f044, original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hazard ranking equals the sign of the log-ratio. After multiplying by the positive variance term this is exactly a quadratic with polynomial variable ρ=e^(−κt), not a statement about a new class of quadratic polynomials. The exact Resultary match is the frozen record --680a615fa7a3; the broadened external query did not supply an exact crossing law."
+        ],
+        "reasoning": "This reformulation checks matches without wildlife language. A standard criterion for two real roots in an interval is prior machinery; the gain/variance mechanism and robust witness must be established for the particular hazards. The external search miss is not negative evidence.",
+        "searches": [
+          "Resultary: Two strict crossings of Gaussian detector log ratio with different amplitudes and same evolving variance D0-D1 rho squared, affine moving mean, quadratic vertex endpoint sign condition, two competing risks or sensor ranking",
+          "Literature: Ornstein Uhlenbeck continuous time spatial capture recapture heterogeneous detector baseline hazards ranking reversal two switches Gaussian common width Panchaud"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact law retrieves the assigned entry. A distinct retail-site result has a quadratic two-zone double reversal, while distinct same-date entries model Poisson-capture richness and Gamma-conditioned habitat current."
+        ],
+        "reasoning": "For this continuous law the exact check is for catalogue coverage of the switching criterion, not a finite table. These other ranking variables and objectives do not share the OU log-ratio or gain parameters; date alone neither excludes nor ranks them.",
+        "searches": [
+          "Resultary: wider Gaussian competing-hazard quadratic ranking formulation above",
+          "Local-mirror exact self-hit --680a615fa7a3 and quadratic/reentrant-ranking analogues --3ba36945f044, --0233d5618abe and --2070bbace3a8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact sharp switching law and robust interior-position witness for unequal gains in the specified common-footprint, OU-transition-averaged hazard. Gaussian convolution and quadratic root logic are standard. The strongest prior OU-memory paper prescribes common gain and a different covariance in the hazard, and detector-specific baseline work uses detection probabilities rather than a continuously evolving competing hazard. A natural heterogeneous extension is close; it was not the printed model or a proved two-switch result in the inspected sources.",
+      "residual_risks": [
+        "A previous detector-specific analogue or result under an alternative sensor model name is plausible; bounded search and statement-level comparison do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but common-gain, no footprint average; its printed hazard does not yield the double switch.",
+          "evidence": [
+            "The parameter set is θ={h₀,σ²,β} at each trap evaluation; mean blends last observed location and centre; covariance is σ²(1−e^(−2β(t−t*)))I₂."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.17278",
+          "material_read": "§2.3 pp. 4–5, Eq. (2), parameter definitions and following half-normal limit discussion",
+          "method": "OA primary PDF, offsets 15300 and 15473",
+          "title": "Incorporating Memory into Continuous-Time Spatial Capture-Recapture Models",
+          "trigger": "Closest primary OU memory competing-hazard model."
+        },
+        {
+          "assessment": "Baseline heterogeneity is prior, but not in an OU competing-risk ranking theorem.",
+          "evidence": [
+            "Trap-level spatial random effects enter the logit of baseline detection probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.06320",
+          "material_read": "Abstract p. 2 and §§2.1–2.2 pp. 6–7",
+          "method": "OA primary PDF, offset 11925 for model passages",
+          "title": "Modelling spatially autocorrelated detection probabilities in spatial capture-recapture using random effects",
+          "trigger": "Detector-specific baseline mechanism."
+        },
+        {
+          "assessment": "A valid structural analogy but a different score family and scientific claim.",
+          "evidence": [
+            "Two retail sites' expected market shares can reverse twice as common attractiveness varies."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-two-zone-double-reversal-in-probabilistic-retail-site-se--3ba36945f044",
+          "material_read": "Original Finding and scope at offset 0",
+          "method": "Primary RESULT.md in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp two-zone double reversal in probabilistic retail site selection",
+          "trigger": "Earlier catalogue example of an exact quadratic double ranking reversal."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sharp example, competing-risk scope and equal-gain contrast",
+        "Panchaud et al., §2.3 for motivation"
+      ],
+      "rationale": "The ecological modeling question is whether endpoint rankings or monotone drift determine preference at intermediate lags. They do not: the given witness has monotone drift, both locations strictly inside the detector span, and an intermediate interval favoring the opposite detector. Varying uncertainty can offset the spatial advantage temporarily when gains differ. This open-set counterexample and the criterion for its occurrence give modelers a precise diagnostic; the quadratic root lemma by itself would not be a valuable new result.",
+      "residual_risks": [
+        "This is not camera-placement optimization, inference about abundance or field validation; conditioning on undetected movement, unequal widths and uncertainty about the centre are outside its scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

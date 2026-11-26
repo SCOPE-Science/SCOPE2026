@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:49.412992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, sections Finding and Proof",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "/workspace/replay/petersen_replay.py (executed with Python 3)"
+      ],
+      "rationale": "The graphical arrangement has full rank nine because the graph is connected. Its chambers correspond to acyclic orientations; a directed edge inequality is redundant exactly when there is an alternate directed path, and exactly the nonredundant inequalities label incident edges of the zonotope. The cover edges span a connected graph since each original arc refines to a path of covers. Nine covers therefore form a spanning tree. Its roots are a basis of the specified saturated lattice by deleting one incidence row and expanding at leaves; the dual chamber is smooth. More than nine facets means the full-dimensional cone is nonsimplicial, so the corresponding chart is not Q-factorial, in any characteristic. Independent replay uses a pentagon, spokes and pentagram, identifies the five stars and hence the Kneser labels, and excludes all 114 directed simple-circuit patterns from the 32768 orientation words. The surviving flip counts give (1080,2280,3600,3120,3120,2160,1320); their sum is 16680 and half their degree-weighted sum is 100080. Stabilizer counts give every cell of the stated orbit table (168 orbits). Of 2000 spanning trees, the 540 distinct nine-cover masks occur in one orbit of size 60 and four of size 120; every mask occurs for exactly two complementary words. This independently checks the two-orientation assertion without assuming it in the count.",
+      "residual_risks": [
+        "The enumeration is exhaustive for the specified Petersen graph, not an assertion about other graphs or positive-dimensional singular strata."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grujić's chromatic-polynomial sum gives the entire global f-polynomial and covers both total vertices and total edges.",
+          "The global simplicity criterion and flippability/tree criteria do not give how the walls distribute among chambers by degree or stabilizer."
+        ],
+        "reasoning": "A global first moment of degree does not yield the degree histogram or its S5 decomposition; neither a global simplicity criterion nor a flippable-tree bound yields the particular chamber and tree enumerations.",
+        "searches": [
+          "arXiv:1604.06931 Theorem 1.1 and §2",
+          "arXiv:math/0609184 Proposition 5.2",
+          "Cordovil–Forge racy4_peter.pdf Theorems 3 and 5"
+        ]
+      },
+      "checked_sources": [
+        "Cordovil–Forge, racy4_peter.pdf",
+        "arXiv:math/0609184",
+        "arXiv:1604.06931",
+        "Resultary 77f2982ecbff, aec4771e7a3c, 5191306166b5, 5bd5eae1b8df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior results account for the geometric conversion, global numbers, and pairing of coherent orientations. Component-orbit sizes and Walsh correlations are not a labeled Hasse-degree orbit census; a tree support shattered by a family of spanning trees is not the criterion of coherently directed chord paths."
+        ],
+        "reasoning": "The old ingredients do not remove the need to measure the per-orientation degree distribution, stabilizers, or coherent trees themselves. Credit the identified prior coverage rather than treating all verified outputs as new.",
+        "searches": [
+          "racy4_peter.pdf Theorem 3",
+          "arXiv:1604.06931 Theorem 1.1",
+          "Resultary orientation, click-equivalence and tree-shattering findings at aec4771e7a3c, 5191306166b5 and 5bd5eae1b8df"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Local invariant-curve degree equals the number of flippable arcs, equivalently the number of transitive-reduction covers of an acyclic orientation.",
+          "Theorem 3 gives the criterion for a spanning tree to be the full flippable-edge set and the opposite pair in a 2-connected graph."
+        ],
+        "reasoning": "These equivalences set the correct comparison class: a Petersen flip-degree or coherent-tree census would cover the claimed invariant even if no toric language were used. The actual inspected theorems give criteria, not that census.",
+        "searches": [
+          "Cordovil–Forge, racy4_peter.pdf, Lemma 1 and Theorem 3",
+          "Postnikov–Reiner–Williams, arXiv:math/0609184 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day edge-polytope record studies conv(e_u+e_v) and 15 fixed points, not the rank-nine graphical zonotope.",
+          "The close orientation record counts 16680 labeled acyclic orientations as a normalization for its Walsh spectrum. The click record enumerates click-equivalence components rather than individual orientation orbits. The tree-shattering record uses all 2000 trees for a different complex."
+        ],
+        "reasoning": "These are distinct matching objects or invariants; none of their inspected findings contains the claimed table. The same-day record was compared mathematically, not excluded by date.",
+        "searches": [
+          "Resultary: Petersen graphical zonotope local degree and orientation orbits",
+          "Resultary: Petersen acyclic orientations, flippable/coherent spanning trees, 168 and 540",
+          "77f2982ecbff",
+          "aec4771e7a3c",
+          "5191306166b5",
+          "5bd5eae1b8df"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full Petersen local-degree spectrum, its orientation-orbit stratification, and the coherent-tree orbit census. The orientation/chamber dictionary, characterization of flippable trees, two opposite orientations per tree, and global face enumeration are prior results. No matched source supplies or implies the refined census without a new graph-specific computation.",
+      "residual_risks": [
+        "An unindexed Petersen flip-graph or coherent-tree census could cover the refinements; the inspected statements do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers criteria and opposite pair, not the local census",
+          "evidence": "Theorem 3 identifies flippable trees and gives exactly two opposite orientations per tree for 2-connected graphs; Theorem 5 is a bound.",
+          "identifier_or_url": "https://www.math.tecnico.ulisboa.pt/~rcordov/racy4_peter.pdf",
+          "material_read": "Title/abstract, Lemma 1, Theorem 3 (PDF pp. 3–4), Theorem 5 (p. 5)",
+          "method": "Primary PDF, matched passages",
+          "title": "Flipping in Acyclic and Strongly Connected Graphs",
+          "trigger": "Exact aliases of full Hasse-cover trees and two orientations"
+        },
+        {
+          "assessment": "Structural coverage only",
+          "evidence": "Associate the transitive-closure poset to the acyclic orientation and use its Hasse tree in the global simplicity criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609184",
+          "material_read": "§5 Proposition 5.2 and proof, pp. 16–17",
+          "method": "Primary PDF, relevant section",
+          "title": "Faces of Generalized Permutohedra",
+          "trigger": "Potential broader graphical-zonotope theorem"
+        },
+        {
+          "assessment": "Covers global numbers, not a local or symmetry refinement",
+          "evidence": "The f-polynomial uses chromatic-polynomial evaluations; it computes total edges rather than their per-vertex incidence spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Theorem 1.1, p. 2; §2 arrangement description",
+          "method": "Primary PDF, matched passages",
+          "title": "Counting Faces of Graphical Zonotopes",
+          "trigger": "General face and edge enumeration"
+        },
+        {
+          "assessment": "Different polytope",
+          "evidence": "Uses edge sums e_u+e_v and obtains 15 singular fixed points.",
+          "identifier_or_url": "Resultary 77f2982ecbff",
+          "material_read": "RESULT.md finding and choice of polytope",
+          "method": "Local mirror passage",
+          "title": "Three Segre singularity types in the Petersen edge polytope toric variety",
+          "trigger": "Near same-day Petersen toric finding"
+        },
+        {
+          "assessment": "Shares orientation count only",
+          "evidence": "Walsh and correlation invariants of the 16680 orientations, not the number of covers per orientation.",
+          "identifier_or_url": "Resultary aec4771e7a3c",
+          "material_read": "RESULT.md finding and normalization",
+          "method": "Local mirror passage",
+          "title": "Petersen acyclic orientations: exact Walsh nullity and correlation",
+          "trigger": "Same labeled orientation family"
+        },
+        {
+          "assessment": "Different symmetry object",
+          "evidence": "Counts symmetry orbits of click-equivalence components.",
+          "identifier_or_url": "Resultary 5191306166b5",
+          "material_read": "Finding and definition of the quotient",
+          "method": "Local mirror passage",
+          "title": "Nine symmetry types and exact click distances for Petersen acyclic orientations",
+          "trigger": "Same graph and explicit orientation symmetry"
+        },
+        {
+          "assessment": "Different tree invariant",
+          "evidence": "Uses all 2000 trees and obtains 19 facet orbits of the shattering complex.",
+          "identifier_or_url": "Resultary 5bd5eae1b8df",
+          "material_read": "Finding on shattered supports and facet orbits",
+          "method": "Local mirror passage",
+          "title": "Exact spanning-tree shattering complex of the Petersen graph",
+          "trigger": "Same tree universe and explicit symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, local invariant-curve and symmetry tables",
+        "/workspace/replay/petersen_replay.py",
+        "arXiv:1604.06931 Theorem 1.1"
+      ],
+      "rationale": "Petersen is a canonical highly symmetric cubic graph and the valence spectrum measures all its toric fixed charts, not an arbitrary slice: degree nine detects precisely the smooth charts, and the orbit table distinguishes labeled counts from chart types under the natural graph action. The coherent spanning tree census gives a useful complementary classification. These exact refinements are not recoverable from the prior global face numbers alone and are a concrete benchmark for graphic arrangement and toric singularity studies.",
+      "residual_risks": [
+        "Value rests on the local and symmetry refinements, not the recovery of totals or a claim to classify all singularities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

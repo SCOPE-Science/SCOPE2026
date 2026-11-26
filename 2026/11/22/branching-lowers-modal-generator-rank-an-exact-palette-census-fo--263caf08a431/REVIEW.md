@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The necessity argument uses explicit colour-preserving automorphisms and pointed bisimulations; the sufficiency argument constructs a depth-two root separator from two distinct terminal support formulas, then defines every singleton. The labelled support-choosing count is a product of falling factorials; the minimum-rank rule follows from positivity of every factor. The one-terminal criterion is proved for completeness but clearly identified as already known. The rank-drop example explicitly evaluates all depth-one colour signatures and shows depth two is sharp. The standalone finite checker compares the theorem with modal refinement and, in small cases, closure of the actual Boolean modal algebra. Its finite test scope is not used as an infinite proof.
+## correctness
 
-## Originality (O) — PASS within inspected evidence
-Comparisons were by logical implication: the exact linear S4.3 generator census covers only the single-terminal instance; the disjoint S5 generator theorem omits universal lower root accessibility; the published rooted-bouquet root-theory quotient for a singleton root and equally sized terminals does not give the heterogeneous-cluster generating tuple count or rank-decreasing enlargement; the height-two partial-order free algebra counts a different across-frames quotient. The 2026 K4 local-finiteness paper treats a coarser invariant, not the generator count. Actual records and the material inspected are detailed in AUDIT.json. Historical priority remains provisional, including uncatalogued fixed-frame modal-algebra generation theorems.
+PASS
 
-## Value (V) — PASS
-The exact criterion describes when a finite propositional observation family recovers *every* state by Boolean modal operations, for all branching widths and all component sizes. Its counting formula and rank threshold are precise structural invariants rather than an arbitrary finite slice. In particular, adjoining an extra terminal cluster can lower generator rank and increase modal-depth need; this contradicts a plausible monotonic resource heuristic and identifies the role of branch separation. For fixed terminal size, the rank has a logarithmic width law with leading coefficient depending on component size.
+Intracluster colour repetition is an automorphism obstruction, and equal terminal supports furnish a colour-matching bisimulation. When the single terminal support contains the root support, the two components also bisimulate at matching colours. With two distinct terminal supports, the conjunction of their modal palette-reachability tests holds exactly at the root cluster. Colour minterms then isolate all vertices, so Boolean closure gives the powerset. Counting injections and distinct labelled support assignments size by size proves the product; in the single-terminal case the excluded injections are precisely those into the terminal support. Positivity and monotonicity in alphabet size give the first feasible power of two, including the zero-generator boundary. The rank-drop witness has eight two-colour generating assignments after branching and none before it; root colour 0 and the same-coloured world in the two-point terminal have identical depth-one signatures, proving sharpness. Inverting the fixed-s binomial estimate gives the stated asymptotic. VERIFICATION.md and VERIFY.py were inspected; the bounded refinement/algebra tests are corroboration, not the proof, and the uploaded program was not executed.
 
-## Limitations
-Finite reflexive transitive bouquets only; ordinary Boolean forward modality only; the one-terminal specialization is known; published-source priority comparisons cannot exhaust older modal-algebra literature. There is no independent expert or historical-priority audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the heterogeneous branching generation criterion and census and the strict decrease under adjoining a terminal branch, not for the single-terminal theorem, the terminal-only obstruction or the depth-two palette test itself. The closest root-theory result already supplies much of the method on its subfamily. It does not establish branch enlargement lowering rank for the different terminal sizes in the witness, or give the full-powerset generation census on these fixed frames.
+
+## value
+
+PASS
+
+The generated subalgebra is a natural finite invariant. A uniform, exact census on labelled mixed-size branches gives sharp rank thresholds, and the explicit generator-rank decrease explains how adding a successor branch creates a separator even when it supplies no new colour. The smaller frame is not successor-closed in the larger one, so this is not a claim about surjective images of modal algebras. The witness and branching criterion justify the result beyond a routine recount of the one-terminal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

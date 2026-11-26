@@ -1,19 +1,21 @@
-# Scientific review: edge-triangulated total-domination enumerators
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact all-set enumerator follows from the condition that the selected original vertices form a vertex cover. Original selected vertices isolated inside that cover each require at least one incident selected new vertex. Their edge groups are disjoint, yielding the exact product. For the complete bipartite specialization, every vertex cover contains an entire shore; minimality forces either the entire shore plus one vertex of the other shore (and no new vertices), or the entire shore plus exactly one incident new vertex per shore vertex. These four disjoint types establish the full polynomial, sharp cardinality spectrum, and concentration. An independent graph-adjacency enumeration implemented in `verify_total_domination.py` checked 46 isolate-free small graphs, nine complete bipartite cases, 1,259,880 candidate vertex subsets, and 121 arithmetic parameter pairs. Critical all-order statements are proved mathematically; finite checks are corroborative only.
+PASS
 
-## Originality — PASS (provisional literature comparison)
+The original edges are retained. To dominate the new vertex on each edge, the original selected set S must be a vertex cover. Every original vertex outside S then has a selected original neighbor because the base has no isolates. Within S only vertices isolated in G[S] still need selected new neighbors, and their incident edge sets are disjoint, giving precisely the independent nonempty-subset factors and the free factors of the product. In a biclique a cover contains a whole shore. If it also contains vertices of the other shore, all new vertices are redundant; minimality requires exactly one opposite vertex. If the cover is just one shore, exactly one chosen incident new vertex per shore vertex is necessary and sufficient for new-vertex minimality. In each of the four cases every original vertex is also essential, either for the cover condition or to dominate the selected shore. Single-vertex deletion suffices to test minimality by monotonicity. Both-shore covers occur twice only in the full polynomial, where the stated subtraction removes the duplicate. The minimum, maximum and counts follow from the four terms, including tied exponents. For a=2,b≥5 the four exponents are distinct; deleting new vertices first and then the vertices of the size-b shore proves 2-degeneracy. The largest-set fraction has the claimed limit since the competing terms are only quadratic or smaller in b.
 
-Sigarreta, *Total Domination on Some Graph Operators* (2021; doi:10.3390/math9030241), Theorem 2, relates the scalar total-domination number of the same edge-triangulation operator to a domination parameter of its base. The inspected paper does not give the two-variable total-dominating-set enumerator or the complete inclusion-minimal census of edge-triangulated bicliques. Bermudo, *Total Domination on Tree Operators* (2022; doi:10.1007/s00009-022-02236-7), studies scalar bounds for operators applied to trees, not this complete-bipartite census. Bahadır, Ekim, and Gözüpek, *Well-Totally-Dominated Graphs* (2020; arXiv:2010.02341), gives the general setting for minimal cardinality spectra without providing the present identity. Searches also considered the synonyms triangle expansion, edge corona, and complete-bipartite edge triangulation. No covering result was identified, but unindexed equivalent treatments and earlier terminology remain residual priority risks. The minimum-cardinality scalar formula is not asserted as new by itself.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is not an arbitrary numerical slice: an established graph operator and total-domination invariant combine to give a uniform exact two-variable product formula for arbitrary isolate-free base graphs. Specialization reveals a complete four-class classification, unbounded gaps in the possible sizes of inclusion-minimal total dominating sets of connected 2-degenerate graphs, and exponential concentration at the maximum minimal-set size. The full enumerator distinguishes structures that the known scalar minimum cannot capture. Its vertex-cover sum need not be computationally efficient on arbitrary graphs.
+The same operator and scalar minimum are known, and the open-neighborhood transversal representation is standard. The supported contribution is the weighted all-set product and the full inclusion-minimal biclique census and spectrum. The closest inspected operator, transversal and catalogue results do not give that coverage. No separate originality is attributed to the minimum or to the algebraic consequences once the four-term census is given.
 
-## Limitations
+## value
 
-Absolute publication priority is not established; the relevant older operator paper was inspected, but a differently named or poorly indexed full-text result remains possible. The universal proof assumes no isolated base vertex and the four-class classification assumes both bipartite shores have at least two vertices. The finite verification is not an independent review or a substitute for the mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural edge-triangulation operator admits a weighted count at every cardinality, not only a minimum-size reduction. In a natural connected 2-degenerate family the separate minimal census shows arbitrarily long gaps and concentration on the largest size while the minimum remains 3. This is explicit structural information about the distribution of minimal open-neighborhood covers, not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

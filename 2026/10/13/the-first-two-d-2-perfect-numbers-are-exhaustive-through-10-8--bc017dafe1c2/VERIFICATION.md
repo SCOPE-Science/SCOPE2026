@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite theorem is checked by the standalone `verify.cpp`.
+# Independent mathematical audit
 
-The published formula for the second Schemmel totient gives
-\[
-L_2(n)=0
-\]
-for even \(n\), while for odd \(n=pu\) with least prime divisor \(p\),
-\[
-L_2(n)=
-\begin{cases}
-pL_2(u),&p\mid u,\\
-(p-2)L_2(u),&p\nmid u.
-\end{cases}
-\]
+## correctness
 
-A deterministic linear sieve computes every least prime divisor through
-\[
-10^8.
-\]
-The code checks the independent sieve sanity value
-\[
-\pi(10^8)=5761455.
-\]
+PASS
 
-Because
-\[
-0\le L_2(n)<n\qquad(n>1),
-\]
-the exact recurrence
-\[
-D_2(n)=L_2(n)+D_2(L_2(n))
-\]
-can be evaluated in increasing order with integer arithmetic.
+Defant's Schemmel formula gives L₂(1)=1, L₂(n)=0 for even n and L₂(n)=∏p^(a−1)(p−2) for odd n. An even n>1 stops at zero and cannot be fixed; an odd n>1 maps to an odd strictly smaller integer, so with D₂(1)=0 the sum of iterates really is L₂(n)+D₂(L₂(n)). The frozen linear sieve assigns least primes by their unique generating pair (n/p,p), and the two odd recurrence branches correctly account for whether p already divides n/p. The intermediate products and accumulated sums fit the stated integer types (even the bound N(N−1)/2 fits int64). Independently implemented segmented odd factor stripping with trial primes up to √N: for each odd input k the array starts at k, applies the exact integer operation /p·(p−2) once per distinct processed prime, and uses the stripped residual (1 or one prime) for the last factor. In increasing order an independent array then accumulates D₂. The replay visited all 49,999,999 odd inputs 3≤k≤10⁸; the even inputs are excluded by the formula. It gave [37147, 53290831], π=5761455 and diagnostic maximum 284911615 at 97556803. Replay: python3 -B /workspace/audit-evidence/1_segmented_odd_sieve.py 100000000 (NumPy integer vectors); prefix and terminal outputs in /workspace/audit-evidence/1_replay.txt. This is finite, not a global uniqueness assertion.
 
-The verifier examines every integer
-\[
-2\le n\le10^8
-\]
-and rejects unless the complete fixed-point set is
-\[
-\{37147,53290831\}.
-\]
+## originality
 
-Fresh replay from the finalized package:
-`VERIFY_OK cutoff=100000000 fixed_points=37147,53290831 pi_count=5761455 max_D2=284911615 argmax_D2=97556803`.
+PASS
 
-The `max_D2` and `argmax_D2` fields are diagnostics only. No claim is made about values above the stated cutoff.
+Both numbers are known. The independently substantiated claim is the inclusive exhaustion through 10⁸. The checked primary source reaches only n<100000; the database supplies point equalities, not the enlarged interval. Related Resultary stopping-time and prime-power records were compared and do not cover all odd composites on this interval.
+
+## value
+
+PASS
+
+Defant explicitly asks about additional fixed points and comments on their scant data. The decimal cutoff 10⁸ is the first power of ten beyond the previously recorded second example, three decimal orders beyond the primary paper's 10⁵-scale search. An exact interval containing both and excluding any others is a useful reproducible baseline for further distribution or search work, not discovery of the two examples or evidence of global uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

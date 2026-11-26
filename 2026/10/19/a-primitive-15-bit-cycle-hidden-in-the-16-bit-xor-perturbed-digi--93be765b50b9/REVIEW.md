@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The bit recurrence is read directly from the 16-bit diagram, with its conditionally complemented bits and final XOR feedback. Rank-nullity proves the output-parity hyperplane and absence of transients longer than one for every word length at least three. An explicit characteristic-polynomial elimination, two irreducibility gcds, and three primitive-order residues establish the exact orbit partition at sixteen bits. The standalone verifier independently executes all \(65536\) states and binary-polynomial arithmetic; it is not substituted for the algebraic proof.
+PASS
 
-## Originality
+The primary paper’s Figure 2 description and Eqs. (6)–(8) confirm that the feedback is the XOR of the two conditionally complemented tail bits; the two occurrences of the selector cancel. This gives the stated autonomous update, not a rule about the initial-seed selector. The image lies in the three-bit parity hyperplane, and the kernel is exactly {0,1^k} from the first k−1 equations. Rank and the odd tail parity of 1^k show that the image is the hyperplane and the restriction to it is bijective; all outside states have exactly one step of transient, and each image point has one outside predecessor. For the characteristic polynomial, elimination with unit pivot coefficients gives b_j=(t^{j−1}+⋯+1)b_1; the final row is (t+1)b_k+b_{k−1}, giving t^k+∑_{j=1}^{k−2}t^j. Removing the zero quotient gives the stated Q at k=16. The private replay /workspace/branches/review5_exact.py verified all 65,536 states by exact indegree peeling and orbit traversal, giving cycles [1,32767] and 32,768 one-step tails. It separately obtained t^32768=t and t^32767=1 modulo Q, both Rabin gcds equal to 1, and residues 021F, 5193, 355C for the three order tests. Irreducibility and these nonidentity residues prove primitivity; multiplication by the primitive element acts transitively on the nonzero field elements. The basin sizes are 2 and 65,534. The frozen word ‘nonunit’ in the polynomial certificate is an editorial misuse: all three residues are units but not the identity, and the proof explicitly uses only the latter. Uploaded code was inspected, not executed.
 
-**PASS, with residual risk.** The originating open-access paper was materially inspected in Sections 2.2, 3.1 and 3.2, Figure 2, its discussion of statistical tests and its conclusions. It provides the circuit but not the rank-15 primitive cycle statement or forbidden output parity. General LFSR theory does imply maximum cycle length from a primitive polynomial but does not identify this concrete tent-circuit realization, its one-step kernel, or the particular polynomial. The later Nardo thesis has overlapping circuit material, but its complete relevant chapter was not obtained; this is an explicit priority uncertainty. Targeted equivalent-formulation and mathematical-record searches did not identify a stronger source covering the complete circuit-specific result; absence of search hits is not proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The article explicitly evaluates this circuit as a pseudo-random generator using sample-based tests and contrasts it with linear-feedback registers. The finding identifies an exact circuit-level linear restriction, a maximum-length orbit in a 15-dimensional subspace, and an exactly unreachable half of the 16-bit alphabet. These are natural dynamical invariants of the implementation, make a scientifically consequential distinction between full-resolution and coarse-resolution statistics, and supply a complete benchmark for any hardware reconstruction. No claim is made that the original statistical tests necessarily fail.
+The pass is for the exact identification and state-transition classification of this particular published architecture, including the nonperiodic part. The circuit itself, maximal-length shift-register theory, and the primitive polynomial considered by itself are not new. The same-circuit article and thesis passages inspected describe the update and empirical behavior, not this exact classification. Continuous full-tent cycle theory does not apply to the gated bit update as a substitute for the claimed result.
 
-## Principal literature and limits
+## value
 
-Nardo et al., *Electronics* 12 (2023), 1953, DOI: 10.3390/electronics12081953; standard primitive-LFSR theory as presented in N. P. Smart's *Cryptography: An Introduction*; and Nardo's 2024 PhD thesis (partial relevant chapter access). The complete exact result is restricted to the stated gate transition, not arbitrary circuit variants or continuous tent dynamics. Specialist comparison and independent audit have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete and independently checkable classification of a motivated published digital architecture, distinguishing empirical coarse histograms from a precise output support restriction and distinguishing period from the basin and transient structure. The reduction reveals a lost dimension at any stated word length and quantifies the entire published 16-bit state graph. It is useful without novel LFSR theory or claims about an application attack.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 checker.py` alongside the provided report. The program has no third-party dependencies; it forms an actual exterior basis, handles antisymmetric wedge signs, discards products of degree greater than four, and checks exactly the coefficient-wise cardinalities for the listed finite fields.
+## correctness
 
-Reported computational results: `AB_OK` for \((n,q)=(4,2),(4,3),(3,3),(3,5)\); `FULL_OK` for \((2,3),(3,2),(3,3),(4,2)\); terminal line `VERIFY_OK`. The `FULL_OK` cases enumerate **every** radical element at the listed parameters. The `AB_OK` cases enumerate **every** degree-one/degree-two coefficient pair and use the independently proved free choices of degrees three and four. Lower-dimensional tests check boundary implementation, not an enlargement of the theorem's stated domain.
+PASS
 
-Exact symbolic checks: the normal form for alternating bivectors (valid in odd characteristic), the decomposition of exterior squares into degree three and four, Gaussian point counts, and the \(q-1\) generators of each nonzero line. These facts form an infinite proof for all prime powers; the executable checks are finite consistency checks only. The theorem does not cover subalgebra dimensions greater than one or exterior quotients with top degree greater than four. Independent audit has not been performed.
+The positive-degree ideal is nilpotent with field quotient, and J^j is precisely the sum of degrees j through 4 (each exterior basis monomial of degree ≥j splits into j positive-degree factors). A closed line satisfies x²=λx; an invertible x then lies on the unit line, and a nonzero nilpotent x forces λ=0. In odd characteristic homogeneous squaring gives 2a∧b and b∧b in distinct degrees, with a∧c+c∧a=0. Alternating normal form shows b∧b=0 iff the rank of b is ≤2: the nonzero degree-four terms for different pairs of symplectic blocks are independent. For fixed a≠0, ker(a∧−) on bivectors is a∧V, of dimension n−1, and every b there has b∧b=0. Thus s1=q^(h+n−1)(q^n−1)/(q−1), algebraically identical to the stated formula. For a=0 and b≠0 there are (q−1)G bivectors (q−1 per two-plane), giving s2=q^hG. The top two depths are ordinary filtered vector-space line counts. In characteristic two, squaring is additive on the commutative algebra and vanishes on each positive-degree basis monomial, giving all filtered lines. Summing the coefficients gives the two stated totals. Independent signed-tuple multiplication with free higher-degree lifts reproduced both n=4 coefficient lists and totals (32768 and 294152).
+
+## originality
+
+PASS
+
+The supported distinct result is the complete filtered census for every n≥4 in the precise degree-four quotient. The Plücker criterion, projective point counts, characteristic-two Frobenius calculation and line-closure observation are not credited separately. Closest published or indexed matches concern maximum-dimensional subspaces, bivector loci, or unfiltered counts in small dimension. None of the inspected prior statements supplies the joined depth-one incidence and depth-two Grassmannian census in general n.
+
+## value
+
+PASS
+
+The degree-four quotient is the first truncation retaining the bivector-square obstruction, so the slice is motivated. The statistic is the full line census by an intrinsic filtration, useful as the one-dimensional baseline for subalgebras of these finite local algebras. The simultaneous odd-characteristic incidence/Grassmann counts distinguish two nontrivial strata which an unrefined square-zero count cannot distinguish. The even case and upper depths serve as contrasting boundary coefficients, not standalone novelty claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

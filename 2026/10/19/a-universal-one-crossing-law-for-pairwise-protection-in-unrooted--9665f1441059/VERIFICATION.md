@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_unrooted_pd.py` with Python 3 standard library. The script enumerates every independent-survival pattern of two small weighted unrooted phylogenetic trees. It separately computes expected diversity from direct survivor sets and from edge-event probabilities, tests two-taxon mixed finite differences against the closed-form cut identity, and checks that guaranteeing an anchor makes subsequent pair interactions nonpositive.
+## correctness
 
-On the included script the exact run completed with:
+PASS
 
-`VERIFY_OK edge_probabilities=120 pair_hessians=39 anchored_margins=369 homogeneous_three_leaf_threshold=1/3 heterogeneous_normalized_increase=PASS`
+An edge contributes iff both leaf sides have a survivor. With independent risks and no protection its expected fraction is (1−Q_A)(1−Q_B), with side products set to zero if a taxon on that side is protected. The mixed protection difference is Q_AQ_B if x and y are separated and −Q_A(1−Q_B) if both are on side A. Dividing by the positive product Q over all taxa therefore yields total tree length minus the sum of positive lengths divided by their away-side risk products on off-path edges. Each away side is nonempty, strictly increasing in product risk, and tends from 0 to 1. A third leaf forces an off-path edge; the normalized interaction consequently increases continuously and strictly from −∞ to the positive x–y distance. These limits concern H/Q, not H itself. With only two leaves H=d_T(x,y)Q>0; with a protected anchor each edge is a constant plus a nonnegative weighted coverage indicator. The three-leaf star reduces to q²(3q−1). Independently enumerated natural survivors using unions of pair paths on a different weighted four-leaf tree: heterogeneous risks (t,t²,t,t³) give H_02=t⁷(21−3/t²−5/t³), with exact sign and anchored checks. Replay: python /workspace/calculations/reproduce_frozen.py (check phylo). The finite instance does not prove the general crossover.
 
-The proof in `RESULT.md` establishes the exact edge contribution at each split and strict monotonicity of the normalized interaction over the entire parameter interval. Finite rational tests are consistency checks, **not** exhaustive tests of every phylogenetic tree or extinction-risk function. The code does not attempt any external certification or empirical validation. The comparison literature leaves a residual risk of an overlooked equivalent pairwise formulation.
+## originality
+
+PASS
+
+Best of current knowledge: credit the known heterogeneous independent-extinction edge expectation and related single-taxon protection formula, not as new results. The supported contribution is the strict and unique negative-to-positive crossover for the initial unanchored interaction of any pair along every full-range increasing heterogeneous risk path, with its two-leaf exception. The anchored coverage observation is not separately novel.
+
+## value
+
+PASS
+
+A single-protection ranking can miss complementarity in the unanchored objective. The theorem specifies exactly when the interaction changes direction without a shared risk law, and shows why a fixed anchor eliminates the positive regime. It is a structural characterization of the risk model, not evidence of particular intervention efficacy or a multi-taxon optimization guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

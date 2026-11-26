@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact object is the functional digraph of \(T(a,b)=(a+b,ab)\) over every \(\mathbb F_{2^m}\), \(m\ge1\). Fixed points are precisely \((a,0)\). The characteristic-free identity \(T^2(-1,x)=(-1,x-x^2)\) gives a genuine length-doubled cycle whenever \(g(x)=x+x^2\) has a nonzero periodic point. For odd \(s>1\), the trace-zero subspace of \(\mathbb F_{2^s}\) has dimension \(s-1\); the additive map \(g\) is a bijection on it because its only nonzero kernel element is \(1\), which has trace one. All degrees with an odd divisor are covered. All degrees divisible by four contain \(\mathbb F_{16}\); the displayed eight distinct states are verified by explicit field arithmetic. The two excluded fields are settled by a complete small-field case analysis. The union of cases covers every positive degree, with no unproved enumeration step.
+PASS
 
-## Originality — PASS (historical-priority qualification)
+The first coordinate of a fixed pair forces b=0, which suffices. In a finite functional graph, the eventual cycle is constant along edges hence throughout a weak component; conversely every vertex connects to its eventual cycle. Thus the component criterion is exactly absence of additional cycles. T²(1,x)=(1,x+x²); a nonzero least-period orbit of g(x)=x+x² gives a T-cycle of twice that period because all its intermediate first coordinates 1+x differ from 1 and are distinct. For an odd divisor s>1, trace(1)=1, trace(x²)=trace(x), and ker(g)={0,1}, so g permutes the trace-zero subspace of dimension s-1. Its nonzero elements are periodic but not fixed. For multiples of four use the F16 subfield. The modulus u^4+u+1 has no binary root and is nonzero modulo u²+u+1 (remainder 1), hence is irreducible. Independent product convolution and reduction gave the eight products 8,14,10,13,15,9,12,11 in the listed order; XOR gave the corresponding first coordinates 5,13,3,9,4,11,2,14, with distinct pairs. For replay multiply the four-bit polynomials by convolution mod 2, then for each nonzero degree k>=4 subtract u^(k-4)(u^4+u+1) in descending degree. Every m>=3 is divisible by four or has an odd divisor s>1. For F4, a zero product reaches a fixed point in one step, a=b in two, and distinct nonzero pairs reach (1,1) in one step for {omega,omega²} and two for {1,omega} or {1,omega²}; (1,1) then reaches (1,0) in two steps. Independently iterated all starts until b=0 using moduli u+1 and u²+u+1: numbers at successive hitting times from zero were (2,1,1) over F2 and (4,3,3,2,4) over F4. I inspected, but did not run, the frozen script.
 
-Chernev–Chernev (2026) explicitly formulate Hypothesis 6.1, leave the large characteristic-two field cases unresolved, and describe computations for only finitely many extension degrees. Their Lemma 5.1 is the prior two-step reduction, and their computed \(\mathbb F_{16}\) example supplies finite evidence; neither by itself establishes the universal degree criterion. The paper's sections 3, 5, 6 and 8 were read and compared at claim level. Lipkovski (2012, 2017) covers the original graph and finite-ring cycle basics, not this extension-degree classification. Research-record searches on the Vieta map, structure graphs, Frobenius degrees and trace-zero linearized dynamics found related but noncovering results. The correct and complete original contribution is the combination of the trace-subspace argument with the finite subfield witness. Other possible unindexed proofs remain a historical-priority risk; this review does not claim absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2026 paper explicitly identifies the characteristic-two extension field cases as a missing piece of its finite-field classification. Closing an infinite family that includes all previously untreated large prime extension degrees is substantive, even though the proof is elementary after the correct trace-zero invariant is selected. It settles that portion of the stated hypothesis without attempting the unrelated odd-prime cases. The explicit construction is reusable when testing functional graph behavior under finite-field embeddings.
+The distinct supported contribution is the all-degree characteristic-two conclusion, via the permutation on the odd-degree trace-zero subspace. The graph, cycle lift, extension reduction and some finite witnesses or existence results were already available. Neither that bounded coverage nor the companion short-period classification settles the unrestricted criterion.
 
-## Closest literature and limitations
+## value
 
-A. M. Chernev and N. A. Chernev, arXiv:2611.07521v1, especially Hypothesis 6.1 and Lemma 5.1, is the closest and motivating work. A. T. Lipkovski (2012 and 2017) introduces the same functional digraph and studies finite examples. This review does not establish the complete orbit-length distribution, a classification for all finite rings, or uniqueness against all unindexed older sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers the characteristic-two part of an explicit published hypothesis by replacing an unbounded family of prime-degree computations with a uniform invariant-subspace argument and one small field witness. It gives a clean boundary between the two fixed-point-only fields and all larger extensions. This value does not rest on refinding an eight-cycle already known to exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

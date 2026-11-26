@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:54:37.544326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; VERIFICATION.md; check_certificate.py inspected without execution.",
+        "Independent exact replay algorithm: loop over masks 0..255 with at least two bits; fix first=min(S); for each permutation of S minus first, append the closing edge to first, compute every d by bit count of XOR, and minimize sum(d(d+1)/2) over those orders with sum(d)≤8. Assert the minima are ≤12 and collect equality labels. This does not use the uploaded code or its orbit list."
+      ],
+      "rationale": "Verified independently of the symmetry witness table by enumerating every tour with the least vertex fixed first, retaining both orientations and counting the closing edge. Using d=popcount(i xor j), there were 16,064 orders over 247 subsets. For every subset, the minimum of B=sum d(d+1)/2 among tours with A=sum d≤8 was at most 12. It equaled 12 exactly for labels 07, 16, 25, 34, 0356, 1247. Analytically, set T=2^(p*/2)>3, with 3^(p*/2)=2T. For step counts (a,b,c), put w=b+2c. The certificate gives a+3w≤12 and w≤4, yielding cost a+Tw≤12+(T−3)w≤4T at p*. A witness with B<12 gives a strict bound there. The same tour has cost at most 8 at p=2; Hölder interpolation gives the bound 4·2^(p/2) between 2 and p*, and each d≤3 gives the upper bound 2·3^(p/2) for p≥p*. Strictness for every other subset propagates to p>2. Parity tetrahedra and antipodal pairs have constant distances per tour and attain their stated cost at every p; their exact comparison gives the tie and equality regimes. No equality classification at p=2 is inferred as part of this decision.",
+      "residual_risks": [
+        "The enumeration concerns only cube vertices and the test uses the same tour for both integer bounds; the continuum of real exponents follows from the inequalities, not enumeration of powers. Two-point costs use both traversals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balogh–Clemen–Dumitrescu §2.1 supplies the parity-tetrahedron lower bound at p=3. Theorem 1.4's vertex-subset bound is for sufficiently large ambient dimension, with k₀=29 in its proof. The continuous three-dimensional cubic-power problem is posed as a question in the problems collection."
+        ],
+        "reasoning": "A witness cannot supply an upper bound; a sufficiently-large-dimension bound does not specialize at dimension three; a conjecture or question is not a stronger theorem. The all-power classification is a finite vertex-domain result, not an answer to the continuous open problem.",
+        "searches": [
+          "Algorithmica DOI 10.1007/s00453-024-01257-w §§2–3, Theorem 1.4 and Conjecture 5.5",
+          "arXiv:2611.03403v1 §4, Question 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Algorithmica DOI 10.1007/s00453-024-01257-w",
+        "arXiv:2611.03403v1 §4",
+        "Resultary 7c6eb5e947f0 and identical record 609c2696e14e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prism result implies the exact vertex cost 4·2^(3/2) and parity equality at p=3. It mentions a known power-exponent cube-corner classification without identifying a separate source; its two listed references do not establish that classification in their relevant passages.",
+          "The assigned witness bounds suffice at both 2 and p*, and strictness of the second integer bound rules out other maximizers for the whole p>2 range."
+        ],
+        "reasoning": "The fixed p=3 upper bound alone gives neither the sharp p* upper bound nor the rigidity for other exponents. The exact match here is an identity hit, and the unattributed remark is not independently verified distinct coverage.",
+        "searches": [
+          "Prism RESULT.md 7c6eb5e947f0 Finding and Related Work; Algorithmica §2.1/Thm. 1.4; arXiv:2611.03403v1 Question 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed cube-corner result 609c2696e14e is identical to the frozen finding. The distinct prism record 7c6eb5e947f0 sets p=3 for all 1×1×t corner subsets. Q4.1 of the problems collection also sets p=3 but has arbitrary points in [0,1]^3."
+        ],
+        "reasoning": "Taking the p-th root for scaling does not change optimizing configurations; rewriting costs as Hamming-step weights gives (1,2^(p/2),3^(p/2)). Varying prism aspect ratio at p=3 changes different axis steps unequally and is not an equivalent reformulation of changing these single costs per Hamming length. Its unit-aspect-ratio specialization covers one p only.",
+        "searches": [
+          "Resultary: power-exponent cube-corner classification vertex subsets three-cube unscaled powered Hamiltonian cycle sharp max antipodal parity tetrahedron p >= 2 phase transition logarithm of 3/2",
+          "Resultary 7c6eb5e947f0; arXiv:2611.03403v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is the only exact all-p catalogue hit located and is the assigned record. The prism record reports a 32-orbit certificate for an aspect-ratio-dependent cubic cost. No checked independent table lists the simultaneous sum d and sum d(d+1)/2 bounds at the cube or an equivalent all-p certificate."
+        ],
+        "reasoning": "A fixed-power certificate comparing sufficient tours with cubic extremal costs does not verify which tours have both integer endpoint bounds or the antipodal takeover. Reusing the same vertex set is not a proof of the same mathematical invariant.",
+        "searches": [
+          "Resultary exact target 609c2696e14e and prism 7c6eb5e947f0",
+          "Prism RESULT.md certificate and Relation to prior work, offset 4985"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact vertex-subset envelope for all real p≥2 and its extremizer switch, not the parity-tetrahedron witness or a standalone p=3 cube result. A same-date indexed prism result gives exact overlap at t=1, p=3, but varies aspect ratio at a fixed power rather than varying power. Its unattributed statement that the power-exponent cube classification is already known raises a priority risk; the only exact indexed match located for that description was this assigned record. Neither that sentence nor the primary sources it cites establishes distinct coverage of the full envelope.",
+      "residual_risks": [
+        "The prism's unattributed earlier-classification statement may refer to this frozen finding or an unlocated source. The bounded search does not resolve historical priority or certify absence of all equivalent sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lower bound and a vertex theorem above the ambient dimension here",
+          "evidence": "The four even-parity vertices give 2^(7/2) at p=3; the threshold k₀=29 in the vertex theorem does not cover dimension three.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-024-01257-w",
+          "material_read": "Theorem 1.4 pp. 3058–59; §2.1 pp. 3059–60; large-dimension proof p. 3067; Conjecture 5.5 p. 3073",
+          "method": "Primary publication passage inspection",
+          "title": "On a Traveling Salesman Problem for Points in the Unit Cube",
+          "trigger": "Published theorem on cube vertex subsets and exact parity construction"
+        },
+        {
+          "assessment": "Motivation only, no known theorem from the question",
+          "evidence": "Asks for a cubic-power bound over arbitrary points in the continuous cube with the tetrahedral lower bound as proposed constant.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03403v1",
+          "material_read": "v1 §4 pp. 5–6, Question 4.1",
+          "method": "Primary open-access passage inspection",
+          "title": "Open problems from the Length Optimization event at MDS 2026",
+          "trigger": "Natural continuous three-dimensional version of the powered tour bound"
+        },
+        {
+          "assessment": "Exact partial coverage at p=3, t=1; no demonstrated broader equivalent coverage",
+          "evidence": "Analyzes 1×1×t at p=3 and states a cube-corner exponent classification is known but gives no source for that exact claim. The listed papers have the limited scope recorded above.",
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-antipodal-and-tetrahedral-worst-tours-in-a-rectangular--7c6eb5e947f0",
+          "material_read": "Original RESULT.md Finding, certificate description, Relation to prior work, Limitations and References; relevant latter passage at offset 4985",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Reentrant antipodal and tetrahedral worst tours in a rectangular prism",
+          "trigger": "Exact overlap on cube vertices at one power and a possible broader originality lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite upper bound and exact equality cases",
+        "Balogh–Clemen–Dumitrescu §2.1; problems collection §4"
+      ],
+      "rationale": "The first nontrivial three-dimensional vertex domain is a natural exact test of the geometric tour problem. It distinguishes a four-point geometry from the two-point diameter geometry, including their crossover and tie, instead of just confirming a few exponents. The simultaneous two-weight certificate is what makes the classification apply over the entire continuum of powers; the finite result can serve as an exact benchmark without being a solution in the continuous cube.",
+      "residual_risks": [
+        "Possible broader utility in continuous or higher-dimensional tour problems is not demonstrated and is not relied on for acceptance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,127 +1,121 @@
 {
   "correctness": {
-    "rationale": "Every connected subcubic graph of order at least two has a non-cut vertex, giving the exhaustive inductive generation used by the exact graph isomorphism classifier. Random greedy size probabilities obey a first-choice recurrence, and uniform maximal-independent-set probabilities are exactly counted by independent-dominating bitmasks. Standalone standard-library code executed and checked all 2,571 graph classes through ten vertices with exact rational point-mass ratios, and an independent priority-permutation algorithm agreed for all 49 classes through six vertices. The conclusion is finite only.",
+    "checked_sources": [
+      "RESULT.md, Proof and Verification",
+      "verify_census.py and census_output.txt",
+      "verify_orders.py and orders_output.txt"
+    ],
+    "rationale": "Non-cut-vertex deletion and exact graph isomorphism give a complete class census; independent dominating sets and rational first-choice recursion give the two laws exactly. The check compares adjacent ratios on common size support for all 2,571 graph classes; adjacency of support points suffices by transitivity. The quantitative theorem and finite verification are unchanged.",
+    "residual_risks": [
+      "The priority-permutation checks share the census generator and extend only through order six. The exact likelihood-ratio conclusion extends only through order ten and only for the connected class."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arxiv:2611.14718v1, Sections 3 to 6: paths/cycles, connected up to 7 comparison, and all-order degree-three first-order stochastic dominance conjecture",
-        "GitHub project README 2026, description of random degree-three checks and exact general searches",
-        "published-finding corpus 2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395, summary: clique-bouquet uniformity balance"
+        "The paper reports first-order stochastic dominance on all connected subcubic graphs through order twelve (27,525 classes)."
       ],
-      "reasoning": "Known path and cycle domination is on narrower graph families; the subcubic all-order statement is presented as a conjecture and is weaker in order type. The clique-bouquet uniformity balance does not dominate the full connected bounded-degree census. The examined material contains no theorem covering both the ten-vertex finite class and the stronger likelihood-ratio conclusion.",
+      "reasoning": "The paper covers a larger vertex-order range, but a weaker order relation. The printed claim does not imply the finite likelihood-ratio theorem.",
       "searches": [
-        "published-finding corpus: 2611.14718 subcubic maximum-degree-three finite census 194 531 1733 graphs 8 9 10",
-        "published-finding corpus: probability distributions uniform random maximal independent sets greedy parking number of vertices bounded degree three graph census",
-        "Web: Stochastic Dominance in Discrete Parking Processes on Graphs maximum degree 3 order 10 exhaustive"
+        "arXiv:2611.14718v2 §5.4, Conjecture 5.2 and preceding paragraph"
       ]
     },
     "checked_sources": [
-      "arxiv:2611.14718v1 (full HTML)",
-      "public repository accompanying arxiv:2611.14718v1 (README)",
-      "published-finding corpus 2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5 (summary)",
-      "published-finding corpus 2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395 (summary)"
+      "arXiv:2611.14718v1 and v2",
+      "OEIS A243393 and A001349",
+      "Published finding 2fafc168a061",
+      "v2 accompanying repository, unavailable for code inspection"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "First-order dominance does not in general imply likelihood-ratio order; the paper only proves first-order dominance on paths/cycles",
-        "Conjecture 5.2 proposes first-order dominance for maximum degree three without a proof for the unrestricted class"
+        "First-order dominance compares cumulative probabilities, whereas likelihood-ratio order compares every ordered pair of point probabilities. The probability vectors (1/3,1/3,1/3) and (1/6,1/2,1/3) demonstrate that first-order dominance does not imply likelihood-ratio order. The related six-vertex counterexample is excluded by the subcubic hypothesis."
       ],
-      "reasoning": "The new inequality controls every pair of relative point masses and therefore implies first-order dominance; the reverse implication fails for generic finite laws. Thus the proposed all-order first-order conjecture, even if proven, would not automatically imply the finite monotone-likelihood-ratio theorem. The paper does not resolve the conjecture itself.",
+      "reasoning": "The exact ratios require a stronger check on the stated domain, not a restatement of first-order coverage. The content of code not reported in the paper remains a separate priority question.",
       "searches": [
-        "arxiv:2611.14718v1 theorem 3.1, theorem 4.2, conjecture 5.2",
-        "published-finding corpus: exact verified first-order stochastic domination greedy independent set vs uniform maximal independent set on all connected subcubic graphs up to 10 vertices"
+        "arXiv:2611.14718v2 §5.4",
+        "Published unrestricted-degree likelihood-ratio failure 2fafc168a061"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arxiv:2611.14718v1, Section 2: sequential random-order greedy is the parking model and the static law is uniform over maximal independent sets",
-        "published-finding corpus 2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5, summary: per-configuration uniformity on cycles"
+        "Random priorities give the same greedy size distribution, and a uniformly chosen independent dominating set gives the static size law. The related exact six-vertex failure is outside the degree cap."
       ],
-      "reasoning": "The equivalent random-priority greedy formulation and the independent-dominating-set formulation were explicitly checked. A claim that some individual maximal-independent-set outcomes have unequal probability is not an implication of, or a counterexample to, monotone likelihood ratios for the total selected cardinality.",
+      "reasoning": "The equivalent statement must concern the ratios of size probabilities. Inequalities or uniformity for individual configurations are not equivalent to comparing aggregated sizes.",
       "searches": [
-        "published-finding corpus: sequential versus uniform maximal independent set random greedy parking subcubic graph exact enumeration eight vertices",
-        "published-finding corpus: exact verified first-order stochastic domination greedy independent set vs uniform maximal independent set on all connected subcubic graphs up to 10 vertices",
-        "Web: random greedy maximal independent uniform maximal independent degree 3 finite graphs 2026"
+        "arXiv:2611.14718v1 and v2, sequential and static ensembles",
+        "Published likelihood-ratio comparison 2fafc168a061"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "arxiv:2611.14718v1: 31 connected graphs below size 6 explicitly checked for stochastic dominance and 6-,7-vertex global comparability reported",
-        "The repository README describes a random degree-three verification notebook, and nauty general exhaustive search, without an exact ten-vertex MLR census statement"
+        "A243393 explicitly matches the subcubic graph counts including 194, 531, and 1,733 at orders eight to ten; A001349 counts all connected graphs. The v2 paper specifies the total first-order census through twelve and points to code."
       ],
-      "reasoning": "The original count tables and reported small-graph results do not give the specific 194, 531 and 1733 subcubic class checks at sizes 8, 9 and 10 with exact monotone likelihood ratios. Published computational material could contain unmentioned raw outputs; that possibility remains a residual risk.",
+      "reasoning": "The graph counts were known and are used to describe the exact comparison's domain, not presented as new. No likelihood-ratio table follows from graph-class counts or a first-order pass report.",
       "searches": [
-        "arxiv:2611.14718v1 Section 4 Table 1 and Section 5 Observation 5.1",
-        "GitHub lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs README",
-        "published-finding corpus: 2611.14718 subcubic maximum-degree-three finite census 194 531 1733 graphs 8 9 10"
+        "OEIS A243393",
+        "OEIS A001349",
+        "arXiv:2611.14718v2 §5.4 and cited repository"
       ]
     },
-    "rationale": "The inspected November 10, 2026 arXiv source proves ordinary stochastic dominance on paths and cycles and conjectures degree-three dominance, whereas the new result proves the stronger likelihood-ratio property over all connected subcubic types through ten vertices. Published related records address individual greedy output uniformity or special graph classes, not this class-wide cardinality claim. The examination is bounded and independent historical priority remains unresolved.",
+    "rationale": "The distinct claim is the likelihood-ratio comparison, not the tabulated graph counts or the order range already covered by published first-order dominance.",
     "residual_risks": [
-      "Unindexed prior exhaustive computational tables could state the same n<=10 result",
-      "A stronger theorem on greedy-versus-uniform maximal independent sets could imply the finite statement without mentioning the same graph-count parameters",
-      "Related published published-finding corpus full texts were unavailable at the inspected URLs; comparisons to those records are limited to their detailed summaries"
+      "The inaccessible code might contain earlier exact likelihood-ratio results. Nothing is inferred from the access failure or the shared date of related records."
     ],
     "source_inspections": [
       {
-        "assessment": "Defines identical models; states first-order path/cycle dominance and conjectures degree-three dominance but does not state the tested MLR census",
-        "evidence": [
-          "Section 2, equations (1)-(4)",
-          "Theorem 3.1",
-          "Section 5, Observation 5.1 and Conjecture 5.2"
-        ],
-        "identifier_or_url": "https://arxiv.org/html/2611.14718v1",
-        "material_read": "Full rendered source article: definitions, Sections 3-6 including theorem and conjecture, comparison tables and references",
-        "method": "open-access full-text HTML examination",
-        "title": "Stochastic Dominance in Discrete Parking Processes on Graphs",
-        "trigger": "exact source process and open degree-three conjecture"
+        "assessment": "Prior exhaustive first-order result through order twelve; not an asserted likelihood-ratio theorem in the cited passage.",
+        "evidence": "The paragraph before Conjecture 5.2 reports sequential dominance in 27,525 connected subcubic graph classes through order twelve.",
+        "identifier_or_url": "https://arxiv.org/html/2611.14718v2",
+        "material_read": "v2 PDF front page and HTML §5.4",
+        "method": "Primary open-access PDF and HTML",
+        "title": "Random Sequential Adsorption versus the Uniform Ensemble of Jammed Configurations: Stochastic Dominance on Graphs",
+        "trigger": "Same two laws and degree-three census"
       },
       {
-        "assessment": "Describes random cubic-degree conjecture experiments and nauty-based general searches; no explicit exact ten-vertex monotone-likelihood-ratio result visible",
-        "evidence": [
-          "README repository structure describing Conjeture/verification.ipynb and GeneralArrangement/GeneralSearch.py"
-        ],
+        "assessment": "Prior exact graph counts; no comparison of the parking laws.",
+        "evidence": "The comment identifies connected simple subcubic graphs, and the sequence lists 194, 531, 1733 at offsets 8, 9, 10.",
+        "identifier_or_url": "https://oeis.org/A243393",
+        "material_read": "Sequence, offset, and comments",
+        "method": "Public OEIS entry",
+        "title": "OEIS A243393",
+        "trigger": "Exact graph-class counts"
+      },
+      {
+        "assessment": "Overlap at small orders, with a counterexample outside the degree cap; no priority inferred from the shared date.",
+        "evidence": "The first failure has order six and is in the family K_1 joined with K_2 disjoint union K_{1,m}, m≥2. The join vertex has degree at least five.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-six-vertex-failure-of-likelihood-ratio-domination-in-graph--2fafc168a061",
+        "material_read": "Finding",
+        "method": "Published statement comparison",
+        "title": "Sharp six-vertex failure of likelihood-ratio domination in graph parking",
+        "trigger": "Same order relation and finite census on a related domain"
+      },
+      {
+        "assessment": "Whether the code also contains likelihood-ratio checks or complete archived distributions is unresolved.",
+        "evidence": "The paper points to reference [22] for the first-order check; this does not specify stronger checks.",
         "identifier_or_url": "https://github.com/lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs",
-        "material_read": "Repository top-level README and listed source/notebook descriptions; individual notebook computations not fully examined",
-        "method": "public repository README inspection",
-        "title": "Stochastic Dominance DPP Graphs — accompanying repository README",
-        "trigger": "risk that original article computational code already covers stronger theorem"
-      },
-      {
-        "assessment": "Summary concerns configuration-level uniformity and local obstruction on cycles, rather than cardinality MLR for all connected subcubic graphs to size ten",
-        "evidence": [
-          "published-finding corpus summary: cycle sizes of uniform output distributions and local gap replacements"
-        ],
-        "identifier_or_url": "2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5",
-        "material_read": "published-finding corpus published record summary; full text not fetched",
-        "method": "semantic published-record search",
-        "title": "Exact uniformity and a local likelihood-ratio obstruction for greedy independent sets on cycles",
-        "trigger": "close random greedy vs uniform maximal-independent-set result"
-      },
-      {
-        "assessment": "Addresses uniformity condition on clique bouquets, not the bounded-degree all-graph MLR census",
-        "evidence": [
-          "published-finding corpus summary: product-versus-sum condition for uniformity on clique bouquets"
-        ],
-        "identifier_or_url": "2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395",
-        "material_read": "published-finding corpus published record summary; full text not fetched",
-        "method": "semantic published-record search",
-        "title": "Exact greedy-law balance and infinite non-equicardinal uniform clique bouquets",
-        "trigger": "potential stronger uniformity coverage of greedy size distributions"
+        "material_read": "Citation and description in arXiv:2611.14718v2 §5.4; current underlying code not retrieved",
+        "method": "Primary paper and attempted public repository and raw-file routes",
+        "title": "Stochastic Dominance DPP Graphs repository",
+        "trigger": "Code cited for the prior order-twelve computation"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "735eb3ff-5569-4201-88c2-5c884ee36dc8",
   "value": {
-    "rationale": "The motivating article identifies a specific open question on all degree-three graphs and the smallest general stochastic-incomparability examples occur at eight vertices. The new exact census covers all 2,458 connected degree-three graph types at sizes eight through ten, the first three orders beyond its reported seven-vertex comparisons, and verifies the strictly stronger likelihood-ratio order, making this a meaningful motivated finite cutoff rather than an arbitrary recalculation or finite sample.",
+    "checked_sources": [
+      "RESULT.md Finding and Limitations",
+      "arXiv:2611.14718v2 §5.4",
+      "Published finding 2fafc168a061"
+    ],
+    "rationale": "The strengthened comparison on a naturally motivated sparse graph class tests the full occupancy-size laws, not just FOSD or graph-class counts. The unrestricted-degree six-vertex obstruction gives a concrete reason to check this stronger property separately. The finite equality count characterizes when the laws are genuinely separated at order ten.",
+    "residual_risks": [
+      "Neither a general structural proof nor a sharp upper cutoff for likelihood-ratio domination is established."
+    ],
     "status": "PASS"
   }
 }

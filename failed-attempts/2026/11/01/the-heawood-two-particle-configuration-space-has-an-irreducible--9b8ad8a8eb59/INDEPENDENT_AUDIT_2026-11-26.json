@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:27:57.318773Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–57",
+        "verify.py lines 10–172 and verification_output.txt lines 1–13 (inspected, not executed)",
+        "/workspace/review_checks/heawood_character.js (Node.js replay of the independently computed table)"
+      ],
+      "rationale": "The Heawood graph is sufficiently subdivided for two particles: essential vertices have separation at least one and cycles have at least three edges. The equivariant cubical inclusion computes ordinary unordered homology. An independent Fano-incidence computation gives (91,252,168) cells, 28 hexagons, 42 vertex-disjoint pairs, and 42 integral product cycles of zero boundary. Modulo three the two boundaries have ranks 90,154 and the torus span has rank 14. Augmentation bounds the first rational rank by 90; the 14 independent rational torus cycles bound the second by 168−14=154. This proves (1,8,14) and rational spanning. The graph hexagons span H1: replace each edge of the complete graph on Fano points by its two-edge incidence path. This surjects on graph cycles, and the complete-graph triangles map either to hexagons or to zero. Moving a particle on each such cycle with the second fixed elsewhere therefore gives the surjective, equivariant particle-sum map, which is an isomorphism by dimension. Separately, enumerating all permutations of the seven points preserving the cyclic Fano line system, together with an explicit reversing polarity, verified all eight rows by signed graph and cubical trace. A reversed edge contributes a minus and a swap of the two square factors contributes another minus. The weighted pairings of χ1 and χ2 have norms 1 and 2 and cross-pairing 1. Hence χ1 is absolutely irreducible and the rational complement of its unique copy in H2 is absolutely irreducible of dimension six. Both weighted sums vanish. The argument uses only ranks and characters over Q and does not establish integral saturation.",
+      "residual_risks": [
+        "The independent torus-rank calculation used the incidence and signed boundary definitions; the archived torus replay is verify.py lines 61–103. No integral basis or torsion conclusion is credited to this record."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ko–Park give rank 8 with Z/2 in integral H1 and rank 14 in H2 for this graph; their formulas do not specify the group action. An–Knudsen's toric/theta theorem assumes planarity and Example 6.8 shows this restriction matters. Lawrence–Wilson count the 42 disjoint pairs and show transitivity but do not compute a homology rank for their classes."
+        ],
+        "reasoning": "Earlier primary literature covers the ranks and the combinatorial input, but covering the simultaneous character and span requires the exact integral basis and symmetry record.",
+        "searches": [
+          "Ko–Park arXiv:1101.2648 Thm. 3.16, Cor. 3.17",
+          "An–Knudsen arXiv:2008.10371 Thm. 1.1, Ex. 6.8",
+          "Lawrence–Wilson arXiv:1907.11978 Prop. 2",
+          "Public literature lookup for Heawood two-point and mod-two configuration homology"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8054ce7e1f6e, c1280206bdd1, 9f8826c0fda1, cbff447235b2 and dc214a5bab84",
+        "arXiv:1101.2648, 2008.10371, 1907.11978, 1005.2300 and 2608.18143v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An integral basis of fourteen of the disjoint-hexagon tori implies the entire set of 42 spans over Q. The earlier complete character determines the no-invariants conclusion by averaging. Rank 14 alone, or transitivity on pairs, would not imply the span or character."
+        ],
+        "reasoning": "The stronger catalogue theorem covers every decisive clause of the frozen result; no new scientific remainder is asserted.",
+        "searches": [
+          "8054ce7e1f6e finding and complete table, offset 0–2423",
+          "c1280206bdd1 finding",
+          "Ko–Park Cor. 3.17 versus equivariant claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8054ce7e1f6e uses cyclic Fano incidence and U8 where the frozen binary-vector incidence description uses V8; both mean the graph cycle module and admit the same polarity, and the tables agree row for row. Farber–Hanbury are ordered; Khan is unordered but Borel–Moore rather than ordinary homology."
+        ],
+        "reasoning": "The decisive catalogue record is genuinely equivalent under relabeling of the Fano plane. Neither ordering the particles nor changing the homology theory gives the frozen statement automatically.",
+        "searches": [
+          "Resultary: Heawood unordered two-point/two-particle configuration, full 336 automorphisms, disjoint hexagon product tori",
+          "Farber–Hanbury arXiv:1005.2300 introduction",
+          "Khan arXiv:2608.18143v1 introduction and Thm. 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8054ce7e1f6e has exact values and counts in all eight rows and an integral basis of fourteen tori. c1280206bdd1 gives a basis chosen from the 42 tori, H2 character and no invariants. 9f8826c0fda1 addresses integral relations on all 42. Same-date cbff447235b2 and dc214a5bab84 give matching character tables."
+        ],
+        "reasoning": "There is exact earlier table coverage on the actual object; a separate earlier integral relation computation and same-date matches corroborate overlap without establishing same-date priority.",
+        "searches": [
+          "Resultary precise eight-row character and shortest-torus basis queries; 8054ce7e1f6e, c1280206bdd1, 9f8826c0fda1, cbff447235b2, dc214a5bab84"
+        ]
+      },
+      "rationale": "The distinct earlier catalogue entry 8054ce7e1f6e states the same eight-row full-group character and irreducible modules for the same unordered space, and gives an integral basis drawn from the very hexagon-product tori whose rational span is asserted here. This is stronger coverage, not an accidental match to an ordered Betti table. Other earlier entries further cover the torus generation and relations. Provenance among same-date entries is not inferred.",
+      "residual_risks": [
+        "Finite external coverage does not determine ultimate priority; the directly inspected earlier catalogue theorem suffices to establish mathematical overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING, stronger integral basis",
+          "evidence": "The same eight rows, identical modules, and an integral basis of fourteen embedded tori from vertex-disjoint hexagons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-fourteen-hexagon-product-tori-and-the-full-symmetry-modules-of-t--8054ce7e1f6e/RESULT.md",
+          "material_read": "Finding, full table and incidence assumptions, offset 0–2423",
+          "method": "Local mirrored full text",
+          "title": "Fourteen hexagon-product tori and the full symmetry modules of the Heawood two-particle configuration space",
+          "trigger": "Exact unordered space, group and torus family"
+        },
+        {
+          "assessment": "Covers torus spanning and H2 character",
+          "evidence": "Fourteen of the 42 pairs give an integral basis; character table and no invariants are stated.",
+          "identifier_or_url": "Resultary c1280206bdd1 (2026-10-25)",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirrored full text",
+          "title": "Shortest hexagon-pair torus basis and full symmetry character",
+          "trigger": "Possible stronger span and character"
+        },
+        {
+          "assessment": "Related stronger integral torus relation claim",
+          "evidence": "Addresses relations among all 42 torus classes, including an additional half-sum relation.",
+          "identifier_or_url": "Resultary 9f8826c0fda1 (2026-10-18)",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirrored full text",
+          "title": "Complete integral relations among paired hexagon tori",
+          "trigger": "Potential stronger torus-module coverage"
+        },
+        {
+          "assessment": "Representation overlap; date alone gives no priority",
+          "evidence": "The eight-row character and the 8+6 decomposition agree.",
+          "identifier_or_url": "Resultary cbff447235b2 (2026-11-01)",
+          "material_read": "RESULT.md finding and table",
+          "method": "Local mirrored full text",
+          "title": "Irreducible symmetry modules of the two-particle Heawood configuration space",
+          "trigger": "Distinct same-date index match"
+        },
+        {
+          "assessment": "Character overlap; date alone gives no priority",
+          "evidence": "Same full table and no-invariants result.",
+          "identifier_or_url": "Resultary dc214a5bab84 (2026-11-01)",
+          "material_read": "RESULT.md finding and table",
+          "method": "Local mirrored full text",
+          "title": "The 336-automorphism homology character of the Heawood two-point space",
+          "trigger": "Distinct same-date index match"
+        },
+        {
+          "assessment": "Covers ranks, not torus span or action",
+          "evidence": "The degree and Betti terms for 3-connected nonplanar Heawood give Z^8 ⊕ Z/2 in H1 and β2=28−14=14.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.2648",
+          "material_read": "Theorem 3.16 and Corollary 3.17, pp. 31–32, offsets 110430 and 112500",
+          "method": "OA PDF passages",
+          "title": "Characteristics of graph braid groups",
+          "trigger": "General ordinary unordered homology formulas apply"
+        },
+        {
+          "assessment": "Inspected generation theorem is planar and does not apply",
+          "evidence": "Toric/theta generation assumes planarity; the nonplanar example is a different graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.10371",
+          "material_read": "Theorem 1.1 p. 1 and Example 6.8 p. 16, offsets 2250 and 43800",
+          "method": "OA PDF passages",
+          "title": "On the Second Homology of Planar Graph Braid Groups",
+          "trigger": "Potential torus generation theorem"
+        },
+        {
+          "assessment": "Covers the pair count, not topological generation",
+          "evidence": "42 disjoint hexagon pairs form an automorphism orbit.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.11978",
+          "material_read": "Abstract and Proposition 2, p. 2, offset 4300",
+          "method": "OA PDF passage",
+          "title": "The Structure of the Heawood Graph",
+          "trigger": "Exact combinatorial hexagon-pair data"
+        },
+        {
+          "assessment": "Ordered object in inspected definition",
+          "evidence": "The deleted square uses ordered particles.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2300",
+          "material_read": "Introduction, p. 1, offset 1800",
+          "method": "OA PDF passage",
+          "title": "Topology of Configuration Space of Two Particles on a Graph, II",
+          "trigger": "Potential exact ordered-to-unordered overlap"
+        },
+        {
+          "assessment": "Different homology theory",
+          "evidence": "The theorem gives Borel–Moore ranks 28 and 16 in degrees two and one here, not ordinary singular ranks or their equivariant characters.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.18143v1",
+          "material_read": "Introduction p. 1 and Theorem 3.4 p. 15, offsets 2500 and 38500",
+          "method": "OA PDF passages",
+          "title": "Borel–Moore Homology of 2-Particle Unordered Configuration Spaces of Graphs via Discrete Morse Theory",
+          "trigger": "General theorem covers the graph and particle number"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–24 and 38–65",
+        "Resultary 8054ce7e1f6e finding and complete character table"
+      ],
+      "rationale": "A full symmetry table and geometric spanning for a highly symmetric nonplanar test graph are worthwhile invariants in principle. This record repeats them without a new module, case, torus relation or geometric construction, and weakens the earlier integral basis to a rational span. Alternative checking provides corroboration, not a distinct finding of scientific value.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

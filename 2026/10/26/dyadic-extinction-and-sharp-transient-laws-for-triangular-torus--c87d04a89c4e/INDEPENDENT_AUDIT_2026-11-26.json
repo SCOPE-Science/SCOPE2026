@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:54.793207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79",
+        "VERIFICATION.md, triangular_verify.py and verification_output.txt, inspected only",
+        "Independent GF(2) power profiles, replay: node /workspace/branches/frozen_review_checks.js (triangular output)"
+      ],
+      "rationale": "The six stated shifts are the expansion of (xy)⁻¹(1+x)(1+y)(1+xy) in characteristic two. In the Chinese-remainder local factors K[u,v]/(u^k,v^ell), the unit factors are all but the union of the two axes and the inverse-root diagonal, with r+s+g−2 excluded. The stable image has the claimed dimension; all its phase preimages under F^T have the same size by rank-nullity. On the two noncentral axes the nilpotency indices are k and ell; on the noncentral inverse-root diagonal the change v→v(1+u) gives u+v of index max(k,ell), by Frobenius and a nonzero extreme monomial one step earlier. Centrally uv(u+v+uv) is killed at the smaller truncation when k≠ell, and just before that the extreme monomial with exponent 2min(k,ell)−2 in the larger variable survives. When k=ell=2h, its h-th power is zero and the extreme term u^(2h−2)v^(h−1) survives at h−1. The frozen proof skips the local k=ell=2 case, which can occur with odd parts >1: the multiplier is then already zero by u²=v²=0, so its index is one and it does not change the global maximum. This completes the transient law and, since (r−1)(s−1)>g−1 when r,s>1, the extinction criterion. On the dyadic square, factoring u^(h−1)v^(h−1) reduces the rank calculation to multiplication by z^(h−1) in the quotient with u^(h+1)=(u+z)^(h+1)=0. After imposing z^(h−1)=0 only the additional monomial constraint u^h z=0 survives, giving quotient dimension h²−h+1 and image rank 3h. In the rectangle the penultimate multiplier differs from u^(m−1)v^(2m−2) by a unit, giving rank n−2m+2. Independent power-rank stabilization confirms all regimes, e.g. 8×8 ranks 64,42,24,12,0; 4×8 ranks 32,18,8,2,0; 6×6 ranks 36,20,8,8; 9×12 ranks 108,86,76,66,56,56.",
+      "residual_risks": [
+        "The recorded count of 102,912 full trajectories is for four of the seven test_direct sizes (the other three get basis-action comparisons only). These finite tests neither prove the theorem nor certify every trajectory at those larger sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zaidenberg's odd-order character formulas and example of failure of character-span description for an even-index lattice give applicable background, but do not solve the repeated local-ring factors of this particular symbol.",
+          "The identified lawful Bhavadharani–Christy PDF explicitly studies 13-neighbor triangular Moore automata under null boundaries, not this six-neighbor periodic operator. The 2011 and 2013 articles were not recovered as readable full text."
+        ],
+        "reasoning": "A general convolution formalism does not evaluate multiplication by the truncated central multiplier, and results at null boundaries or a different neighborhood do not identify these matrix powers.",
+        "searches": [
+          "Zaidenberg arXiv:math-ph/0606070, §§5.2 and 5.4 and Example 5.12",
+          "Exact title/copy lookups for Siap–Akin–Uguz 2011, Uguz–Siap–Akin 2013 and Bhavadharani–Christy 2025"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ce3294c9f9d and 86220c55033f",
+        "Zaidenberg arXiv:math-ph/0606070, specified sections",
+        "Bhavadharani–Christy publisher PDF p. 1",
+        "2011 DOI 10.1016/j.camwa.2011.09.066 and 2013 DOI 10.12693/APhysPolA.123.480, identifications and access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a power of two a≥max(k,ell), F^a is the sum of the original shifts multiplied by a. It is the direct sum of k ell copies of the operator on odd r×s periods, where reduction to a circumference of one yields zero, and otherwise the existing rank formula gives rs−r−s−g+2. Ranks of F^a and F^(2a) are equal by the same shift-group argument, so the image is stable. This already implies d and the extinction criterion; equal-sized phase fibres then follow by rank-nullity.",
+          "That argument only fixes ranks at certain powers of two; it does not recover rank F^(h−1) on a 2h×2h square or F^(m−1) on a dyadic rectangle. Sharp local vanishing/nonvanishing and the non-power penultimate ranks need the additional ideal computation."
+        ],
+        "reasoning": "The same-operator theorem genuinely covers more than an odd-period numerical coincidence, but leaves the nilpotent depth and penultimate ranks as independently supported exact dynamical information.",
+        "searches": [
+          "Compare 0ce3294c9f9d rank statement and factorization to RESULT.md lines 5–21 and 40–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 0ce3294c9f9d the binary commutator Q=A+Aᵀ is exactly the adjacency operator here because every edge is oriented once; the two matching-sign diagonal displacements and factorization agree. Its stated formula is rank F=mn−m−n−gcd(m,n)+2."
+        ],
+        "reasoning": "The graph-state motivation does not change the operator. The equality is at the one-step rank, not generally the stable rank: 4×4 has one-step rank 6 and stable rank 0.",
+        "searches": [
+          "Resultary semantic search for triangular/hexagonal lattice XOR parity, same diagonal orientation and transient/penultimate ranks",
+          "Resultary 0ce3294c9f9d, exact Finding and Proof Eq. (1)",
+          "Primary lookup: triangular lattice torus six neighbor XOR parity linear cellular automaton nilpotency binary periodic boundary transient rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ce3294c9f9d states an exact, all-period one-step rank. The separate same-day 86220c55033f is a three-neighbor two-sublattice honeycomb update with its own Jordan and 15/16 last-step law."
+        ],
+        "reasoning": "Credit the exact rank formula for the identical matrix, but do not equate rank F with a general later power. The honeycomb and triangular torus are not the same graph or update. No exact table covering the claimed later ranks was located in the bounded searches.",
+        "searches": [
+          "Resultary 0ce3294c9f9d for the same toroidal binary matrix; 86220c55033f for strong toroidal last-step coverage"
+        ]
+      },
+      "rationale": "Pass concerns the sharp transient classification and the exact dyadic penultimate ranks/last-step laws on this operator. A distinct earlier indexed finding already factors exactly the same operator and gives its one-step rank, covering the odd-by-odd recurrent dimension directly and the general recurrent dimension by Frobenius reduction. I do not credit that dimension or the extinction criterion as independently new relative to the inspected coverage. The existing one-step formula and the inspected general convolution results do not furnish the missing penultimate ranks or sharp uniform transient.",
+      "residual_risks": [
+        "Unavailable 2011 and 2013 primary full text limits the historical comparison. Synonym and access searches were bounded; this is a best-of-knowledge assessment of the surviving claims, not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-operator one-step theorem, yielding the recurrent dimension by the Frobenius argument above, but not the sharp later ranks",
+          "evidence": [
+            "The binary commutator equals undirected adjacency; its nullity is m+n+gcd(m,n)−2. The Laurent factorization is identical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-binary-rank-and-ancillary-qubit-cost-on-triangular-toroidal-mixe--0ce3294c9f9d/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Eq. (1), local mirror offset 0–2883, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic lookup and exact mirrored statement",
+          "title": "Binary rank and ancillary-qubit cost on triangular toroidal mixed graphs",
+          "trigger": "Same six-neighbor binary matrix on arbitrary rectangular periods"
+        },
+        {
+          "assessment": "Different operator (three-neighbor bipartite honeycomb with two sublattices)",
+          "evidence": [
+            "Its last-step law concerns a cubic, two-sublattice update rather than the six shifts in one rectangular group algebra here."
+          ],
+          "identifier_or_url": "Resultary 86220c55033f",
+          "material_read": "Mirrored Finding and Proof, offset 0",
+          "method": "Semantic lookup and local mirror passage",
+          "title": "Odd Jordan ladders and a sharp 15/16 last-step law for honeycomb parity dynamics",
+          "trigger": "Same-day toroidal binary Jordan/last-step result"
+        },
+        {
+          "assessment": "General background; no same-operator central nilpotence in inspected sections",
+          "evidence": [
+            "Example 5.12 exhibits a characteristic-two solution on an even-index lattice not expressible as a sum of characters; §5.4 describes the different a_+ example on odd-order finite abelian groups."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0606070",
+          "material_read": "§5.2 p. 22 offset 72000, Example 5.12 p. 24 offset 78000, §5.4 p. 26 offset 84400",
+          "method": "Primary OA PDF passages",
+          "title": "Convolution equations on lattices: periodic solutions with values in a prime characteristic field",
+          "trigger": "General lattice-convolution method with finite lattices and possible characteristic-two degeneracy"
+        },
+        {
+          "assessment": "Different neighborhood and boundary in its stated problem",
+          "evidence": [
+            "The abstract says null boundaries, 13 neighbors at radius one, and rule matrices for that Moore neighborhood."
+          ],
+          "identifier_or_url": "https://iieta.org/download/file/fid/179274",
+          "material_read": "Abstract and introduction opening, PDF p. 1, offsets 1120–3615",
+          "method": "Lawful publisher PDF from targeted literature lookup",
+          "title": "Algebraic Structure of Moore Cellular Automata – Finite Triangular Lattice",
+          "trigger": "Triangular-lattice rule matrices and reversibility"
+        },
+        {
+          "assessment": "Historical-overlap risk; no noncoverage inference from the access result",
+          "evidence": [
+            "DOI yielded a redirect without paper text; ScienceDirect returned 403 and no alternate readable copy was found."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2011.09.066",
+          "material_read": "Identified work only; publisher body unavailable",
+          "method": "DOI resolution and lawful alternate lookup, Elsevier direct and VPN access attempts",
+          "title": "Structure and reversibility of 2D hexagonal cellular automata",
+          "trigger": "Could concern a six-neighbor hexagon-cell lattice under an equivalent name"
+        },
+        {
+          "assessment": "Frozen description suggests different characteristic, not independently established by inaccessible text",
+          "evidence": [
+            "Frozen REVIEW.md lines 11–13 and AUDIT.json describe a characteristic-three setting. This is labeled recorded evidence, not an independent whole-text exclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.12693/APhysPolA.123.480",
+          "material_read": "Bibliographic identification only independently; frozen AUDIT.json attributes pp. 480–483 to GF(3)",
+          "method": "DOI and identified institutional listing OA attempts; no primary passage recovered",
+          "title": "2-Dimensional Reversible Hexagonal Cellular Automata with Periodic Boundary",
+          "trigger": "Periodic hexagonal-neighborhood reversibility may concern similar geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–21 and 51–79",
+        "Same-operator rank comparison with Resultary 0ce3294c9f9d",
+        "Independent stabilization and penultimate rank profiles"
+      ],
+      "rationale": "For this natural six-neighbor toroidal rule, the sharp nilpotent depth says exactly when transient information has been lost, not just whether the matrix is singular or how many states remain. The precise fraction of states still surviving at the penultimate update distinguishes dyadic squares from rectangles of equal short side and is a useful exact observable not obtained from the one-step rank. The depth and last-step laws give value even after crediting the already implied stable dimension.",
+      "residual_risks": [
+        "The result does not give a full intermediate transient distribution or primitive-cycle census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

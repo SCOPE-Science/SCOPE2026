@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quantifiers range over all positive ranks and all ground orders at least two. In the upper-bound game, each of at most \(q\) selected graph vertices introduces at most two previously unseen ground points, guaranteeing capacity for a matched response whenever both ground sets have size at least \(2q\). In the lower bound, two elementary low-order witnesses, the intersecting-edge clique lemma, and the disjoint-path root-size lemma supply actual existential formulas at the required quantifier ranks. Their cases cover every \(3\le n+1\le2q\), including the boundaries. Finite pattern enumeration confirms the predicted transitions through rank four without being used as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** The inspected relevant literature covers the graph-family definition and automorphism groups (Jones, 2005), EF classifications for paths and cycles (Brown–Hoshino, 2007), and general logical-depth methodology (Pikhurko–Verbitsky, 2010). Searches for triangular/Johnson graphs, line graphs of complete graphs, exact EF rank and first-order depth did not identify the present all-rank formula or existential collapse. Other published precise rank profiles for different graph families are not implications about the graphs here. The residual possibility of a differently named prior result or folklore remains; independent originality validation is not claimed.
+PASS
 
-**Value — PASS.** This is an exact logical-profile classification for the standard distance-transitive triangular-graph family, not a selected finite numerical curiosity. It computes the first distinguishing quantifier rank between every pair of different ground orders, the number of logical classes for every rank, and a non-obvious collapse of full rank-\(q\) first-order expressiveness to purely existential tests *within the family*. The result links the two-point ground-set representation to logical visibility through a sharp factor-two threshold and supplies explicit finite patterns that realize each visibility step.
+The q-round EF invariant is a partial bijection of the underlying points, preserving every chosen two-set. Before round j, at most 2(j-1) points on either side are assigned; if both root orders are at least 2q, the bijection can extend to the at most two new points, irrespective of Spoiler's side. Equality and intersection, hence the partial graph isomorphism, are preserved. For the path-forest lemma, in a path on s selected vertices each representing edge after the first meets its predecessor in one endpoint and is disjoint from all earlier edges other than that predecessor; it adds exactly one point. Distinct components use disjoint points, yielding the stated minimum, realized by disjoint root paths. An independent short check of the full lower bound is to take n=2k and use exactly one adjacency plus k-1 isolated selected vertices; the adjacent pair uses exactly three points and the isolates 2(k-1) fresh points, for minimum root order 2k+1. For n=2k+1, use k+1 pairwise disjoint two-sets, needing 2k+2 points. Both witnesses are existential of rank k+1, including n=2,3. They hold in every larger order and fail at n. Thus the formula separates exactly the claimed pairs and establishes the existential collapse, the least distinguishing rank, and the 2q-1 class count (empty singleton list at q=1). Bounded checks of these two pattern types for q=2,3,4,5 give respective first root orders 3,5,7,9 and 4,6,8,10. The frozen checker and its recorded q<=4 output were inspected, not executed or treated as an EF proof.
 
-**Relationship and limits.** No counting quantifiers, expanded structure, larger Johnson parameter or all-graph definability is covered. The 2005 graph-family source was not available as a complete publisher document, although its indexed introduction, sections, and theorem descriptions concern distinct invariants. Finite computations are only sanity checks; absolute novelty remains subject to independent literature verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-rank partition and matching existential cutoffs are supported as distinct from the compared earlier literature. A same-date balanced Johnson result gives the q=3 partition on restriction, with the singleton T_2 added as explicitly noted there; that is material overlap, with no order inferred. A later-dated Resultary record gives the same rank theorem on n,m>=3 and a stronger unrestricted-depth variable-width theorem; its existential forest witnesses cover the same separations. Its exact implication is recorded, not dismissed as mere analogy. It is not evidence establishing earlier publication of the theorem. The judgment concerns the all-rank finding, not ownership of the generic EF technique, fixed-rank subcases, or newness of the claim relative to literature published after the frozen work.
+
+## value
+
+PASS
+
+Triangular graphs are a canonical line-graph/Johnson family with unnamed underlying points. The result gives the full budget needed to detect root order in pure graph logic, not just eventual indistinguishability or isolated finite values. The fact that pure existential patterns attain the same sharp cutoffs despite the availability of alternation is useful to anyone analyzing the logical profile of this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

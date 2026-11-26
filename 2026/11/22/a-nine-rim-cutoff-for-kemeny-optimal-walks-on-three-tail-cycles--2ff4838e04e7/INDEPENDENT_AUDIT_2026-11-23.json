@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:03.251866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py (inspected, not executed), VERIFICATION.md, SLOGAN.txt, METADATA.json, REVIEW.md and AUDIT.json",
+        "Independent resistance count and allocation proof summarized above"
+      ],
+      "rationale": "With the zero-diagonal hitting convention, the uniform-stationary objective is tr((L+J/N)^{-1})−1. For the connected feasible set, its second directional derivative is positive for every nonzero Laplacian direction (the positive-definite inverse weights the square of a nonzero symmetric conjugate). A connected example exists in the compact edge-weight polytope and the objective diverges on approach to disconnection. Thus the unique minimizer is rotation invariant, including against non-rotation-invariant symmetric transition weights. The independent resistance count gives pendant coefficients s(4m−s)/4 for s=3,2,1 and rim coefficient (m²−1)/3: the rim contributes 16 times the weighted cycle Kirchhoff index, divided by 4m. This remains valid for m=3, whose three rim edges are distinct. Strict decrease in b and a3 saturates the root and depth-two capacities, leaving the sole coupling x+y≤1. For the separate square-root minima, the sign of x0+y0−1 equals the sign of AC−2BD; its twelvefold multiple is −8m³+74m²−82m+25, positive at m=3,…,8 (229, 369, 465, 469, 333, 9), negative at 9 (−551), and strictly decreasing thereafter. In the first range the optimum must be on x+y=1, since the only interior stationary point is infeasible. Substitution gives (A+D)/x+(C+2B)/(1−x), with the asserted minimum and unique optimizer. In the second range the separate minima are strictly feasible. All edge weights are positive at either optimizer, and the first pendant hold is exactly 1−x−y. The large-m rates follow by the leading terms of A,B,C,D.",
+      "residual_risks": [
+        "No floating-point eigensum was rerun. The all-size claim relies on the proof, not the finite checks.",
+        "The minimizer is global only in the specified symmetric stochastic class; no claim is made about nonsymmetric transitions or nonuniform stationarity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Agharkar–Bullo's Problem 1 and Theorem 4 cover convex minimization on reversible transitions with fixed stationary law; uniform law gives the feasible symmetry in this record. Their Problem 2 is an SDP formulation.",
+          "Durastante–Gnazzo–Meini treat sparsity-constrained reversible Kemeny reduction and trace-inverse convexity in a perturbation framework.",
+          "Boyd–Diaconis–Parrilo–Xiao use automorphism orbits for SLEM, a distinct objective."
+        ],
+        "reasoning": "General Kemeny methods already formulate and solve fixed numerical instances of the present problem. They do not give a scalar reduction with the two competing allocations, or an analytic sign law and equality regime for every rim length.",
+        "searches": [
+          "Web: Kemeny constant minimization reversible Durastante Gnazzo Meini convex optimization sparsity Kemeny Boyd fastest hitting time Kirchhoff index graph symmetric stochastic vertex constraints",
+          "Web: Patel Agharkar Bullo minimal weighted Kemeny constant arxiv reversible fastest mean hitting time cycle analytical examples"
+        ]
+      },
+      "checked_sources": [
+        "Patel–Agharkar–Bullo (DOI 10.1109/TAC.2015.2426317)",
+        "Durastante–Gnazzo–Meini (DOI 10.1007/s10543-026-01152-6)",
+        "arXiv:0709.0955v1 and arXiv:2108.01061v1",
+        "Resultary be6e5140bd15 and b4c3fba85e31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-leaf crown has only a rim and leaf allocation; the equal-arm spider has one hub constraint and no cycle resistance. The present coupling compares AC to 2BD after saturating two other capacities."
+        ],
+        "reasoning": "Neither existing specialized solution is a parameter specialization yielding the active and slack branches here. The closed-form resolution is a separate deduction from the shared resistance and convexity tools.",
+        "searches": [
+          "Resultary be6e5140bd15 and b4c3fba85e31, RESULT.md Findings and proof reductions",
+          "Patel–Agharkar–Bullo, Problems 1–2 and Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform stationarity, trace of the Laplacian pseudoinverse, Kirchhoff index divided by N, and zero-diagonal stationary-target mean hitting time are equivalent.",
+          "Faught–Kempton–Knudson's cut-vertex result uses the simple walk and its degree-weighted resistance quadratic form."
+        ],
+        "reasoning": "Different terminology does not distinguish an equivalent optimized uniform-stationary objective. The cut-vertex formula for the fixed simple walk does not optimize the edge weights or force the claimed holding pattern.",
+        "searches": [
+          "Web: minimum Kemeny constant symmetric stochastic graph cycle attached paths rooted product effective resistance optimal edge weights sun hairy cycle Markov chain",
+          "Web: minimum Kemeny constant symmetric Markov chains three-edge pendant path each cycle vertex stochastic conductances cutoff nine",
+          "Resultary: minimum Kemeny constant symmetric Markov chains three-edge pendant path each cycle vertex stochastic conductances cutoff nine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Within the retrieved exact graph-family results, be6e5140bd15 tabulates optimal weights and a sharp regret formula for one leaf per core vertex; b4c3fba85e31 gives a holding junction and optimal depth weights for a tree with one common hub. Neither table concerns a cycle with three-edge tails.",
+          "The same-record search hit was excluded as independent priority evidence; no other exact table for the claimed family was identified."
+        ],
+        "reasoning": "The named exact alternatives change the capacity system and/or effective-resistance terms, so even their nearest parameter matches cannot be read as these optimizer values.",
+        "searches": [
+          "Resultary: minimum Kemeny constant symmetric Markov chains three-edge pendant path each cycle vertex stochastic conductances cutoff nine",
+          "Web: minimum Kemeny constant symmetric Markov chains three-edge pendant path each cycle vertex stochastic conductances cutoff nine"
+        ]
+      },
+      "rationale": "Fixed-stationary reversible trace-inverse optimization, symmetry reduction, and resistance decomposition are prior tools. The new result on the inspected evidence is the explicit three-tail-cycle minimizer and its strictly located active-capacity transition.",
+      "residual_risks": [
+        "Specialized network-design calculations, unpublished theses or equivalent graph-family formulas not indexed by the searched terminology could affect priority.",
+        "Priority and value do not depend on novelty of trace-inverse convexity or the resistance identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers objective and formulation, not the explicit three-tail cutoff in inspected material",
+          "evidence": [
+            "Problem 1 fixes graph and stationary distribution; Problem 2 reformulates the optimization as an SDP."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Abstract, setup, unweighted optimization and convexity/SDP passages in §II, and comparison passages for the weighted case",
+          "method": "Open author PDF, extracted equations and statements",
+          "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+          "trigger": "General optimization covering this uniform-stationary setting"
+        },
+        {
+          "assessment": "General structure-preserving optimization and methods rather than a closed solution for this family",
+          "evidence": [
+            "The formulation fixes stationarity and permitted perturbation entries; the trace term uses a positive-definite reversible similarity transform and a rank-one correction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "Introduction, reversible sparsity framework, Proposition 4 and surrounding convexity text",
+          "method": "Lawful OA publisher PDF via DOI, text extraction",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Same objective with graph sparsity and reversibility"
+        },
+        {
+          "assessment": "Computes a fixed walk, not optimal symmetric transitions",
+          "evidence": [
+            "The resistance expression for a graph's simple walk is degree weighted."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.01061v1",
+          "material_read": "Introduction, resistance formula and 1-separation setup",
+          "method": "Open arXiv PDF text extraction",
+          "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+          "trigger": "Potential cut-vertex coverage of pendant-cycle formulas"
+        },
+        {
+          "assessment": "Methodological overlap, with a different optimized functional",
+          "evidence": [
+            "The minimized quantity is the second-largest eigenvalue modulus, not a sum of reciprocal Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955v1",
+          "material_read": "Abstract, introduction and graph-symmetry setup",
+          "method": "Open arXiv PDF text extraction",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General graph-orbit optimization and related cyclic constructions"
+        },
+        {
+          "assessment": "Same broad method; neither the three-tail cycle graph nor the capacity threshold is covered",
+          "evidence": [
+            "One result attaches one leaf at each root; the other treats k arms meeting at a single hub without a cycle."
+          ],
+          "identifier_or_url": "Resultary be6e5140bd15; b4c3fba85e31",
+          "material_read": "Findings, assumptions and first resistance-reduction steps of both RESULT.md records",
+          "method": "Local mirrored record text",
+          "title": "Sharp Kemeny regret and optimal stochastic walks on transitive leaf coronas; Exact Kemeny-optimal walks on equal-arm spiders: one interior holding junction and a degree-dependent uniformity penalty",
+          "trigger": "Exact square-root optima in closely related attached-tree graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Analytic proof and independent resistance/capacity derivation; related one-leaf and single-hub graph-family results"
+      ],
+      "rationale": "The first pendant junction is coupled to both the rim allocation and the distal allocation. Resolving that competition globally reveals an exact integer transition from a saturated vertex to strictly positive holding. Explicit weights and optimum provide an all-size benchmark for Kemeny design with several competing vertex capacities, beyond numerically solving an instance or applying a single square-root allocation.",
+      "residual_risks": [
+        "No corresponding phase diagram for other tail lengths, objectives or nonsymmetric chains has been demonstrated by this result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

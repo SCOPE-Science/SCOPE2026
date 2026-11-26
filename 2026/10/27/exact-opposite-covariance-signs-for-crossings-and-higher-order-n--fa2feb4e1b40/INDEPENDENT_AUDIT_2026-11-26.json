@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:06.436660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–54; accompanying verify.py and frozen verification notes inspected",
+        "repairs/1/RESULT.md, Finding, Assumptions and scope, and ranked-endpoint proof",
+        "Independent replay: python3 /workspace/branches/36459677-9002-4b29-8397-4598e69ce2b0/independent_check.py, with finite-exact-results.json in the same directory. Exact means and both covariances agree for all ten cases 3≤r≤n≤6; at (3,3) the covariances are 2/15 and −1/15, and at (6,6) they are 2/2079 and −1/2079. No frozen script executed."
+      ],
+      "rationale": "In the uniform ranked-endpoint model each matching has 2^n n! labeled realizations. A specified r-set has either exact pattern with probability p_r=1/(2r−1)!!. Conditional on the internal ranks, one outside arc crosses a rank-gap-d inside arc with probability d(2r+1−d)/binom(2r+2,2), by counting placements of its two endpoints among the 2r+1 gaps. Complete crossings have d=r. Nestings average this expression over d=1,3,…,2r−1 because label ranks are exchangeable; the sum of d(2r+1−d) is r(r+1)(2r+1)/3, giving exactly 1/3. Disjoint candidate pairs are independent. The r(n−r) pairs sharing one arc hence give covariance p_r(r−1)/(3(2r+1)) each for crossings and zero for nestings. The binom(r,2) contained pairs are forced to cross or not, giving 2p_r/3 and −p_r/3, respectively. Multiplying by binom(n,r) and simplifying yields both stated formulas, including n=r and the signs. This checks the repaired proof as well as its unchanged formulas.",
+      "residual_risks": [
+        "The finite replay does not certify untested sizes; those follow from the inspected arbitrary-r overlap argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. define cr(M), ne(M) as maximum orders. Kasraoui–Zeng track two-edge crossing, nesting and alignment counts. Acan's compared argument deals with maximum orders and an independent-set mean."
+        ],
+        "reasoning": "A symmetry of maxima does not fix any cross-moment of subset counts. A joint generating function of pair counts supplies r=2 but does not keep the r≥3 indicators. An independent-set first moment does not specify the mixed moment with C₂ or isolate complete nestings.",
+        "searches": [
+          "Chen et al. arXiv:math/0501230, joint symmetry theorem",
+          "Kasraoui–Zeng arXiv:math/0601081, two-edge count generating functions",
+          "Acan arXiv:1501.01489, clique and independence passage"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 60–72",
+        "repairs/1/RESULT.md, Finding and Relationship to prior work",
+        "Resultary records 7b9f44348870 and fb61f5632fb7",
+        "Primary OA passages for arXiv:math/0501230, math/0601081 and 1501.01489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The edge–triangle overlap constants are calculated for r=3. The motif covariance matrix tracks intersection graphs, and completely nested orders are not observable from those motifs alone."
+        ],
+        "reasoning": "Substituting r=3 yields exactly the earlier positive covariance. Neither earlier triangle arithmetic nor the two-edge/max-order laws force the identity that nesting gives the unconditional 1/3 outside crossing probability for every r. That cancellation and the resulting comparison remain in the revision.",
+        "searches": [
+          "7b9f44348870 RESULT.md, offsets 1500–3915 and 4400–4920",
+          "fb61f5632fb7 RESULT.md, offsets 0–1491",
+          "Acan arXiv:1501.01489, OA offset 87750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "X_n is the chord intersection graph edge count C₂; T_n is its triangle count C₃. The earlier covariance is n(n−1)(n−2)(n+4)/315.",
+          "Acan identifies r-crossings with r-cliques but r-nestings only with a subset of the r-vertex independent sets."
+        ],
+        "reasoning": "The clique formulation exactly matches the crossing side at r=3. Nesting is not a relabeling of an induced independent-set count: disjoint and otherwise nonintersecting chords may not be completely nested.",
+        "searches": [
+          "Resultary edge–triangle/crossing covariance lookup, hit 7b9f44348870",
+          "Acan arXiv:1501.01489, r-clique and r-nesting passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 7b9f44348870 gives the exact edge–triangle covariance and was inspected. Record fb61f5632fb7 gives a covariance matrix for counts of induced three-chord graph motifs; it is distinct and later-dated."
+        ],
+        "reasoning": "The exact earlier match covers one displayed subcase and has been credited. The examined later table uses different statistics and does not tabulate the r≥3 complete-nesting covariance.",
+        "searches": [
+          "Resultary published finding lookup, 7b9f44348870 and fb61f5632fb7"
+        ]
+      },
+      "rationale": "The distinct earlier edge–triangle record exactly covers the r=3 crossing covariance and is credited in the repaired statement. The tested precedents do not provide the all-r nesting covariance, its one-shared-arc cancellation, or the paired signs for counts of r-arc subsets. These are the supported distinctions, not a priority claim for the r=3 crossing identity or the pattern definitions.",
+      "residual_risks": [
+        "The broad web query did not return results after provider failures. Bounded mirror and primary-source comparisons do not exclude an unindexed mixed subconfiguration-count formula. Absolute historical priority is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=3 crossing covariance exactly, not the surviving nesting claim",
+          "evidence": [
+            "Cov(X_n,T_n)=n(n−1)(n−2)(n+4)/315 with (X_n,T_n)=(C₂,C₃)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-an-exact-edge-triangle-correlation-gap-in-random-chord-intersect--7b9f44348870",
+          "material_read": "RESULT.md definitions at offsets 1500–3915 and covariance at 4400–4920, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "An exact edge–triangle correlation gap in random chord intersection graphs",
+          "trigger": "Exact Resultary hit on crossing count versus chord graph triangles"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "cr and ne are maximal orders, not counts of subsets of a prescribed order."
+          ],
+          "identifier_or_url": "arXiv:math/0501230",
+          "material_read": "PDF p. 2, OA offset 5350 onwards, definitions and joint law",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Crossings and Nestings of Matchings and Partitions",
+          "trigger": "Same patterns and joint symmetry"
+        },
+        {
+          "assessment": "Pair-count overlap only",
+          "evidence": [
+            "Tracked counts are for two edges; the compared generating-function symmetry does not track complete higher-order subpatterns."
+          ],
+          "identifier_or_url": "arXiv:math/0601081",
+          "material_read": "PDF pp. 2–3, OA offsets 4200 and 6280",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "Joint count generating function"
+        },
+        {
+          "assessment": "Different moment and nesting restriction",
+          "evidence": [
+            "r-crossings correspond to cliques; r-nestings are only particular independent sets. The compared moment is a first moment."
+          ],
+          "identifier_or_url": "arXiv:1501.01489",
+          "material_read": "PDF p. 25, OA offset 87750, pattern relationships and moment calculation",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same chord model and clique/independent-set formulation"
+        },
+        {
+          "assessment": "Different covariance matrix; later record",
+          "evidence": [
+            "The variables count induced three-chord intersection motifs, not the mixed all-r count of complete nestings and crossing pairs."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-induced-three-chord-motif-covariance-and-a-119-chord-sign--fb61f5632fb7",
+          "material_read": "RESULT.md Finding and motif parameter scope, offsets 0–1491",
+          "method": "Local mirror passage inspection",
+          "title": "Exact induced three-chord motif covariance and a 119-chord sign",
+          "trigger": "Potential exact covariance-table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/1/RESULT.md, Finding and overlap proof",
+        "Earliest identified exact overlap 7b9f44348870, edge–triangle formula"
+      ],
+      "rationale": "Crossings and completely nested patterns have equal expectations of each order in a natural matching model, but behave differently as joint statistics with the basic pair crossing count. The exact signed contrast and cancellation identify which overlaps affect joint fluctuations, with a formula usable for all sizes and nesting orders. The value is not the recomputation of the earlier triangle covariance.",
+      "residual_risks": [
+        "No stronger joint distribution, concentration result, or extension to nonuniform models is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

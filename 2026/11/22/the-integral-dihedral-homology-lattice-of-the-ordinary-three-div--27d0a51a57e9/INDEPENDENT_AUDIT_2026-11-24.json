@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:22:30.876868Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4 and assumptions; verify.py and VERIFICATION.md inspected, not executed",
+        "Independent symbolic check: /workspace/check-4.md",
+        "Adamaszek arXiv:1106.6250 §1 pp. 1–2 (including Kozlov's nonequivariant formula)"
+      ],
+      "rationale": "An independent all-k argument checks the nonequivariant input: for a path on m≥3 vertices, splitting at the next-to-last vertex gives a conical deletion and a link on m−3 vertices, shifting reduced homology by one. Splitting the 3k-cycle at 0 gives deletion P_(3k−1) and link P_(3k−3), with their unique reduced groups Z in degrees k−1 and k−2 for k≥2. The integral exact sequence gives a split extension of Z by Z in degree k−1 and no other groups. At k=1 the complex has three vertices. For all k each join chain z_j is closed by signed omission cancellation, and its support lies in independent sets. The two maximal independent residue-class faces give actual integral cocycles even in the presence of higher simplices. Their evaluation on z_0,z_1 has rows (1,0), ((−1)^k,1) and determinant 1, proving a full basis. On z_2 it is (−1,0), the −1 coming from k negative choices and a cyclic factor reorder of sign (−1)^(k−1). Hence [z_2]=−a+(−1)^k b. Rotation shifts the offsets, and reflection sends factor t of z_j to reversed pair k−1−t of z_(2−j); reversing the k factors and the k directed pairs gives (−1)^(k(k+1)/2). These give exactly the stated column action matrices. With r=1 the relations give a=b and (2−(−1)^k)a=0; for odd k, s acts on the remaining Z/3 by (−1)^(k(k+1)/2). This proves both module-coinvariant assertions, including the triangle boundary case. No finite testing is used to infer the infinite result.",
+      "residual_risks": [
+        "This is an action on reduced homology, not the topology or homology of the geometric orbit complex. Signs depend on the specified orientations and the distinguished reflection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek/Kozlov gives nonequivariant homotopy information. The triple-saturation result treats Ind(C_(3m)^(m−1)) as an integral order-three rotation module, not an ordinary cycle dihedral module.",
+          "At m=2 there is an actual match of the restriction to g=r² in Ind(C_6): R²=[[-1,−1],[1,0]] is conjugate over Z to [[0,−1],[1,−1]] by P=[[1,−1],[0,1]] in the relation P^(-1)R²P. That case does not determine the reflection, the full D_6 module, or the family."
+        ],
+        "reasoning": "Credit the nonequivariant rank and this genuine special-case restriction. Neither broader statement computes the integral actions of both generators on ordinary cycles for all k.",
+        "searches": [
+          "Adamaszek arXiv:1106.6250 §1 ordinary cycles and powers",
+          "Resultary e6730c94a31f triple-saturation rotation lattices; e761de5afaa9 general rational characters"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.6250 §1; arXiv:0808.0739 §1",
+        "Resultary e761de5afaa9, cc3173e88c15, e6730c94a31f and 708ae133712a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd k the rational rotation realizes multiplication by ζ3. Multiplication by ζ3−ζ3² commutes with rotation and conjugates S to −S, so the two reflections yield the same rational dihedral character. Their integral full-dihedral coinvariants nevertheless differ: the cyclic quotient is Z/3 and exactly one of the opposite reflection signs preserves it.",
+          "The prior rank-two ordinary homology result has no reflection choice, and the power-of-cycle comparison supplies only the indicated rotation restriction."
+        ],
+        "reasoning": "The exact orientation action on an integral basis is additional information: even a complete rational character cannot distinguish the exhibited integral possibilities, and none of the other compared results supplies that missing distinction.",
+        "searches": [
+          "Compare e761de5afaa9 Finding and Limitations with the twisted-dual integral action",
+          "Compare e6730c94a31f Finding and proof at m=2",
+          "Adamaszek arXiv:1106.6250 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching complex of a cycle identifies with the independence complex of its line graph, again a cycle; cc3173e88c15 computes geometric quotients for 3≤n≤13. For n=9 that quotient is contractible, while the claimed module coinvariants are Z/3.",
+          "The theta/noncover complex is Alexander dual to the given independence complex. In this free case its homology lattice is the dual of the original homology in complementary degree n−(k−1)−3=2k−2, twisted by the sign of the ambient vertex permutation. e761de5afaa9 computes the rational character only and excludes an integral determination when 3 divides n."
+        ],
+        "reasoning": "An integral classification of the dual lattice with the proper sign twist would be equivalent coverage. A rational character or the geometric orbit-space homology is not that classification.",
+        "searches": [
+          "Resultary: ordinary cycle independence complex, cycle matching complex, theta/noncover complex, integral dihedral actions and coinvariants",
+          "Conant–Thistlethwaite arXiv:0808.0739 §1; Resultary e761de5afaa9 and cc3173e88c15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact neighboring statements address rational characters, finite lists of geometric quotient types or the integral rotation restriction for a different cycle-power family.",
+          "Same-day 708ae133712a treats the six-rung prism perfect-matching complex; the order-three coinvariant theme concerns a different simplicial complex and group action."
+        ],
+        "reasoning": "None of these inspected entries tabulates the two integral generator matrices or both all-k coinvariant cases; matching some parameters or torsion orders does not identify the modules.",
+        "searches": [
+          "Resultary: exact rank-two integral dihedral cycle lattice and cyclic/dihedral module coinvariants; same-day prism and cycle entries",
+          "Compare exact Findings in e761de5afaa9, cc3173e88c15, e6730c94a31f and 708ae133712a"
+        ]
+      },
+      "rationale": "The nonequivariant wedge result, the sign-twisted rational character via Alexander duality and one exact order-three restriction at k=2 are established or overlap with inspected results. The compared statements do not give the full all-k integral dihedral lattice in the specified generators or its reflection-sensitive coinvariants. This passes the additional integral content, not those overlapping statements.",
+      "residual_risks": [
+        "Bounded inspections leave possible unindexed equivalent integral-equivariant results; the rank-two rational character and exact k=2 rotation restriction themselves are not new. No same-day chronology is assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nonequivariant input, no dihedral lattice in the compared statements",
+          "evidence": "Recalls the Kozlov recurrence and gives cycle-power homotopy information including the r=1 specialization.",
+          "identifier_or_url": "arXiv:1106.6250",
+          "material_read": "§1 pp. 1–2, offsets 3369–9404",
+          "method": "OA original PDF passage",
+          "title": "Splittings of independence complexes and the powers of cycles",
+          "trigger": "General cycle homotopy classification and ordinary case"
+        },
+        {
+          "assessment": "Definition and dual context",
+          "evidence": "Defines the theta complex via complements; the compared statement does not classify the integral dihedral lattice.",
+          "identifier_or_url": "arXiv:0808.0739",
+          "material_read": "Abstract and §1 p. 1, offsets 0–3655",
+          "method": "OA original PDF passage",
+          "title": "Boolean formulae, hypergraphs and combinatorial topology",
+          "trigger": "Equivalent Alexander-dual formulation"
+        },
+        {
+          "assessment": "Rational character only; explicit integral limitation",
+          "evidence": "For n=3k, rank two in degree 2k−2; assumes n≥4 and explicitly leaves the integral lattice when 3 divides n undetermined.",
+          "identifier_or_url": "Resultary 2026/11/17 e761de5afaa9",
+          "material_read": "RESULT.md offsets 0–3469 and 6469–8591",
+          "method": "Resultary exact local mirror passages",
+          "title": "Complete dihedral homology characters of cyclic noncover complexes",
+          "trigger": "Closest known character of the Alexander-dual complex"
+        },
+        {
+          "assessment": "Bounded geometric quotients, not module coinvariants",
+          "evidence": "Computes geometric quotient spaces for 3≤n≤13, including the contractible n=9 quotient.",
+          "identifier_or_url": "Resultary 2026/11/17 cc3173e88c15",
+          "material_read": "RESULT.md offsets 0–3459 and 3459–6059",
+          "method": "Resultary exact local mirror passages",
+          "title": "Dihedral quotients of cycle matching complexes through homological dimension three",
+          "trigger": "Same ordinary complex, different potential invariant"
+        },
+        {
+          "assessment": "One exact ordinary-cycle restriction, no full dihedral or family coverage",
+          "evidence": "At m=2 the Eisenstein lattice agrees with r² on Ind(C_6); its power parameter m−1 and its order-three group are materially different in general.",
+          "identifier_or_url": "Resultary 2026/11/8 e6730c94a31f",
+          "material_read": "RESULT.md offsets 0–3237 and 3237–5739",
+          "method": "Resultary exact local mirror passages",
+          "title": "Integral order-three homology lattices at the triple-saturation threshold of cycle powers",
+          "trigger": "General integral rotation theorem for related cycle powers"
+        },
+        {
+          "assessment": "Different complex",
+          "evidence": "Concerns the perfect-matching complex of the six-rung prism, not the ordinary cycle independence complex.",
+          "identifier_or_url": "Resultary 2026/11/22 708ae133712a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Three-torsion in the integral rotation lattice of the six-rung prism",
+          "trigger": "Distinct same-day result with integral rotation and three-torsion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; independent /workspace/check-4.md",
+        "Rational-character comparator e761de5afaa9; geometric quotient comparator cc3173e88c15"
+      ],
+      "rationale": "A canonical all-k family gets concrete geometric generators and the full lattice action, not merely an isomorphism after scalar extension. The precise mod-four criterion detects order-three module coinvariants that the rational character cannot distinguish, and supplies useful input for computations with the symmetries of the ordinary cycle matching complex. The sign and integral basis matter: a rational basis or a finite catalogue of examples would not give the result.",
+      "residual_risks": [
+        "No claim about geometric quotients, all cycle powers, or a determination of other equivariant topological invariants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: sharp zero-regression boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At \(\eta=0\), the conditional mean of the uniform response rank is \(1/2\). Conditional Jensen applied to two conditionally independent response copies forces their expected absolute difference above \(1/4\); the exact conditional-i.i.d. identity for Chatterjee dependence therefore implies the sharp ceiling \(\xi\le1/4\). The equality case is precisely the equality case of Jensen: conditionally supported on at most two values. The explicit checkerboard partition has uniform margins, zero conditional-mean variation and exact \(\xi=1/4-1/(4m)\). The included exact-rational checker passed 128 cases. Finite calculations supplement, not replace, the proof.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+For the conditional CDF F_u(t), E[|V−V′| | U=u]=2∫F_u(t)(1−F_u(t))dt. Since E F_U(t)=t, this yields E|V−V′|=1/3−2∫Var(F_U(t))dt, confirming both normalizations of xi and xi≥0. The hypothesis makes E[V′|U,V]=1/2 by conditional independence. Conditional Jensen gives E|V−V′|≥E|V−1/2|=1/4, hence xi≤1/4. With at most two support points and V fixed at one, V−V′ has a fixed weak sign. With three or more support points one can choose three separated ordered positive-mass intervals; for V in the middle, V−V′ has both signs with positive probability, giving strict Jensen inequality. The integrated nonnegative gap is zero exactly when almost every conditional law has at most two support points. The known reflected singular example attains it. Absolute continuity gives conditional densities a.e. and hence nonattainment. In the proposed step family each row and paired column set has length 1/m, so both margins are uniform; reflection makes each row mean 1/2. For two independent row draws the same and opposite component events have probability 1/2 each, with respective distances in expectation 1/(6m) and 1−(2j+1)/(2m). Averaging gives E|V−V′|=1/4+1/(12m), verifying the exact approach xi=(1−1/m)/4, including m=1. The frozen arithmetic checker was inspected, not executed.
 
-Ansari and Rockel, arXiv:2608.20176v1, Example 2.8 and Proposition 2.10, already give the singular point \((1/4,0)\) and the entire attainable segment ending there. Those are not claimed as new. The same paper's Theorem 2.6 does not exclude \(\xi>1/4\) at \(\eta=0\), and Remark 2.11 leaves the exact region open. The new result is the universal opposite inclusion, complete equality criterion, and strict-but-sharp absolutely continuous variant. The separate Chatterjee–Spearman region arXiv:2506.15897 does not cover zero rank-regression variance. Relevant text of these papers was read. A related work on extreme directed dependence (arXiv:2506.04825) was not available in full text and remains a priority risk; no inference of noncoverage is made from its abstract alone. Literature and mathematical record searches cannot exclude unindexed equivalents.
+## originality
 
-## Value — PASS
+PASS
 
-This establishes a precise natural boundary in an explicitly unfinished two-invariant attainable-region problem: even when the rank regression function is constant, directional distributional dependence survives but is capped at a sharp value. The support-equality characterization and absolutely continuous nonattainment expose distinct singular and density regimes. It does not resolve the region for positive copula correlation ratio.
+The supported distinct claim is the universal optimality of the zero-ratio bound and its full conditional-support equality characterization, with strict nonattainment and explicit sharp approach in the absolutely continuous class. The value 1/4 as an attained point was already known, and capacity 1/4 is covered in the reflected subclass. Those statements do not imply the universal conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This identifies an exact boundary of the joint population-dependence region, rather than adding an isolated example. In particular, it quantifies how much rank dependence is compatible with no rank mean regression, characterizes all ways to attain the bound, and distinguishes singular attainment from a sharp supremum under a density. The Jensen proof's brevity does not eliminate the prior gap in this comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

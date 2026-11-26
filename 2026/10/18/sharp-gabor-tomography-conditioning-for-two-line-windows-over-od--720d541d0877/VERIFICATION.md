@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with Python 3.10 or newer and no third-party packages. It constructs the defining window over \(\mathbb F_q\) for \(q=3,5,7,9,11\), including an explicitly programmed extension-field trace at \(q=9\). It compares the four-term character-sum expression with direct finite sums for 3,856 cases; evaluates all 121,545 possible ambiguity coefficients over the five displayed test weights; tests the optimal minimum normalized ambiguity, its exact multiplicity, and elementary root-of-unity geometry. Expected final output:
+## correctness
 
-`VERIFY_OK exhaustive_formulas=121545 direct_reconstructions=3856 optimal_examples=5 extension_field=F9`
+PASS
 
-The program uses floating-point tolerances for exact finite computations; those computations are only an independent numerical consistency check. The proof's universal inequalities, complex equality condition, dimension-free Weyl diagonalization, and uniform finite-field character-fiber counts do not rely on the numerical test.
+The two self-intersections give q times the respective translation/frequency delta terms (the horizontal one weighted by |c|²), and the two mixed intersections give the displayed character phases. Weyl conjugation diagonalizes the Hilbert–Schmidt frame operator by character orthogonality, giving eigenvalues N|A_c/Q_c|² and largest N from the identity. For both translation coordinates nonzero, relative frequencies range uniformly over p roots, so some resultant is at most 2|c| sin(π/(2p)). The norm bound Q_c≥2(q−1)|c| is strict except at c=−1. There the minimum is 2 sin(π/(2p)) before normalization; the remaining cases give either a sum of two roots, q−2, −2 or 2(q−1). The support at c=−1 cannot have a nonzero translation period (its size is not divisible by p). A modulation constant on a punctured axis has phase equal to its inverse by the two arguments t and −t, hence phase one in odd characteristic; requiring this on both axes forces trivial modulation. This proves uniqueness of the largest eigenvalue. Two closest relative phases contribute 2(q−1)²q²/p off-axis and 4(q−1)q²/p on one axis. At q=3 the additional q−2 cases contribute 12+4, giving 64. Independent direct sums at q=3,5,9 give bottom multiplicities 64,240,4320, with top multiplicity one in each case (python -B /workspace/branches/audit-replay.py 1). The character argument, not the finite replay, proves the claim for all odd prime powers.
 
-No independent audit or external validation was performed.
+## originality
+
+PASS
+
+The supported advance is the sharp weighted two-line minimax, its unique optimizer and extremal multiplicities. Neither operator-frame conditioning via ambiguity coefficients nor the Weyl/Gram spectrum machinery is new.
+
+## value
+
+PASS
+
+In the natural support family of two lines, canceling the intersection yields an operator basis from only 2(q−1) support sites. Characteristic rather than field size controls the closest opposing phase; the exact minimax quantifies amplification and the multiplicities count least stable Weyl directions. This is a sharp sparse tomography design result on a stated family, not an optimum over arbitrary windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:21:32.703100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A zero start fails exactly upon including the next 1, if any. At a 1 start, two completed blocks first disagree at the next 1 of the shorter gap; a terminal 1-block is smaller than a block with a following 1 whether it ends before that following 1 or still has a zero. Hence reversed integer gap order with a bottom terminal represents full suffix order, independently of the trailing gap. For a greater later suffix j and code LCP h, both unequal symbols are interior gaps, so the expanded common prefix is the sum of the h equal block lengths plus 1+g_{j+h}. The next-greater correction can also be seen directly: in the suffix at p, let d be the least displacement of a lexicographically greater suffix, and H its LCE. A shorter failure cutoff c=e+LCE(p,p+e)<d+H with e>=d would give a greater suffix at displacement e-d: equality under a shift of d holds at every tested character through position c, since c<d+H. Repeat to reach a positive displacement <d (impossible) or 0 (impossible mismatch). Less than or equal to the first failure cutoff, no truncated suffix wins, and any first winning mismatch persists at larger prefix lengths. This proves the correction and the no-greater case. Comparison sorting the gap-index pairs, radix prefix doubling, linear Kasai and stack, and O(log(r+1)) per LCP range query give the claimed preprocessing/space bounds in word operations. There are at most r+1 nonempty zero runs and r singleton ones; query is by binary search, with the all-zero query constant time (uniformly O(1+log(r+1))). Independent all-length direct prefix testing over all 8,190 nonempty binary words through length 12 agrees (python3 /workspace/reproductions/3.py; 3.txt). These checks do not replace the proof or time analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghuman–Giaquinta–Tarhio prove O(rho)-time computation of the ordinary Lyndon factorization on run-length input. The 2025 abstract describes ordinary Lyndon-array construction during grammar decompression. The later inverse-array paper concerns expanded linear time."
+        ],
+        "reasoning": "Neither an ordinary factorization nor an ordinary Lyndon array provides the border-corrected all-position inverse values by reversing the alphabet: a proper-prefix comparison and an inverse border behave differently. The expanded result can be much more expensive for the same text.",
+        "searches": [
+          "Run-length encoded Lyndon factorization, Algorithms 12(6):124 §5",
+          "10.1016/j.procs.2025.10.326, Space-Efficient Lyndon Array Construction from Compressed Texts",
+          "arXiv:2609.23401v1 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.17537v1",
+        "arXiv:2609.23401v1",
+        "10.3390/a12060124",
+        "10.1016/j.procs.2025.10.326 (abstract)",
+        "Resultary:675a8e7acf95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The NGS/LCE identity uses a next-greater expanded suffix and character LCE; the inspected RLE result transforms runs to compute a single ordinary factorization. The bound construction needs a bottom symbol for the final block even when g_r is large, then recovers character LCE from completed gaps and the first unequal gap."
+        ],
+        "reasoning": "The existing identity and standard suffix tools are ingredients, not the compressed reduction itself, and the inspected RLE guarantee has a different output.",
+        "searches": [
+          "arXiv:2603.17537v1 §3.2 Definition 6, Lemmas 7–8, Corollary 1 versus RESULT.md Steps 2–3",
+          "Algorithms 12(6):124 §5 versus RESULT.md Step 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original inverse-array paper gives the next-greater-plus-LCE rule; its expanded-text algorithm works on all n positions. The later paper relates that array to canonical inverse Lyndon factorization."
+        ],
+        "reasoning": "Changing indexing or using the published formula is not new. The claimed output and input-size bound also require preserving the order of the selected expanded suffixes and computing their expanded LCE without expanding zero runs.",
+        "searches": [
+          "Resultary: compressed inverse Lyndon array, sparse binary gap suffix and LCE",
+          "arXiv:2603.17537v1 §3.2",
+          "arXiv:2609.23401v1 §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the bound record itself. The distinct same-day record 675a8e7acf95 gives a reciprocal tail and moments for the initial entry under an iid source, not an exact compressed array."
+        ],
+        "reasoning": "A distribution for one entry cannot tabulate exact entries by input, and a finite example table would not establish the all-input representation and preprocessing theorem. Same-day dating is not used to infer priority.",
+        "searches": [
+          "Resultary compressed inverse Lyndon array, gap suffix",
+          "675a8e7acf95 §Finding and §Assumptions, local mirror"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the compressed full-array algorithm on binary zero gaps with complexity in the marked-one count, not the published NGS/LCE identity, ordinary Lyndon factorization, or the expanded inverse array. The closest inspected claims do not supply this reduction with the terminal block and border correction.",
+      "residual_risks": [
+        "Full text of the 2025 compressed ordinary Lyndon-array paper was not retrieved; an adaptable or equivalent construction may be hidden there.",
+        "An unindexed sparse suffix construction combined with inverse border corrections could overlap; bounded comparisons do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the credited identity and expanded array construction",
+          "evidence": [
+            "Corollary gives next_{-1}[i]−i+lce(i,next_{-1}[i]); Lemma 8 identifies the border correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.17537v1",
+          "material_read": "Introduction and §3.2, Definition 6, Lemmas 7–8 and Corollary 1 (OA text offsets 15550–21050 for the latter)",
+          "method": "Read relevant open-primary HTML passages",
+          "title": "The Inverse Lyndon Array: Definition, Properties, and Linear-Time Construction",
+          "trigger": "Identical array and border identity"
+        },
+        {
+          "assessment": "Expanded inverse-array operations and canonical inverse factorization, not the claimed input-size construction",
+          "evidence": [
+            "§4 recovers the canonical inverse factorization from the array in linear time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.23401v1",
+          "material_read": "Algorithm discussion and §4 around OA HTML offset 31600",
+          "method": "Targeted open-primary HTML inspection",
+          "title": "The Inverse Lyndon Array",
+          "trigger": "Later algorithms on the same array"
+        },
+        {
+          "assessment": "Different observable despite shared compressed input model",
+          "evidence": [
+            "Ordinary Lyndon factorization is computable in O(rho) time and O(1) auxiliary space."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/a12060124",
+          "material_read": "§5, printed p. 6 near OA PDF offset 21750",
+          "method": "Read the open PDF at the target result",
+          "title": "Lyndon Factorization Algorithms for Small Alphabets and Run-Length Encoded Strings",
+          "trigger": "Strong analogous algorithm on run-length encoded text"
+        },
+        {
+          "assessment": "Abstract describes standard array during decompression; technique-level overlap not excluded",
+          "evidence": [
+            "Full text was not obtained; this is not a full-paper exclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.procs.2025.10.326",
+          "material_read": "Publisher landing page and abstract only",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Space-Efficient Lyndon Array Construction from Compressed Texts",
+          "trigger": "Possibly broader array algorithm on compressed input"
+        },
+        {
+          "assessment": "Shares the first-entry observable only",
+          "evidence": [
+            "P(T>=n)=1/((1-p_top)n)+O(n^(-1-delta)) on the iid model; not deterministic compressed construction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-bias-sensitive-reciprocal-tail-for-the-initial-inverse-lyndon--675a8e7acf95/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2306",
+          "method": "Read local-mirror original",
+          "title": "A bias-sensitive reciprocal tail for the initial inverse Lyndon array entry",
+          "trigger": "Strongest distinct catalogue hit on same inverse array"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact random access to an entire inverse array without enumerating arbitrarily long zero runs is a useful output guarantee. The nonzero border correction at the marked positions is computed without character-level expansion, not just a bound on the number of segments. The gain needs actual sparsity for the preprocessing to beat expanded linear time; no claim extends to arbitrary alphabets or explicit expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

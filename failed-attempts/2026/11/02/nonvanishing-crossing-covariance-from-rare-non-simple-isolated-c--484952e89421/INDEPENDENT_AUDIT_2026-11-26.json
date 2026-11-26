@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:46:23.889758Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed candidate, isolation is equivalent to internal pairing on both arcs; given it, the arc matchings are independently uniform. The mean crossings on j chords is j(j−1)/6 by counting alternating pairs on four endpoints. With m=n−1 and an arc split (s,m−s), the resulting conditional deficit is −[m+s(m−s)]/3. There are 2n candidates, except n at the antipodal tie, proving the exact mean and covariance (including s=0). For s=1 and n≥4 the factor m+s(m−s)=2n−3 cancels in the covariance. For s≥2, the double-factorial ratio r at s=2 is O(n⁻²); the successive ratio (2s+1)/(2(m−s)−1) is at most 1/2 up to the quarter cutoff and at most one to the midpoint. The first range sums geometrically even with the crossing weight bounded by m(1+s), and the remote range is exponentially small times a polynomial. The tails are O(n⁻²) in mean and O(n⁻¹) in covariance; Markov gives convergence in probability. No s=1 non-tie formula is used at n=3. Frozen verify.py was inspected, not executed. Its exact finite enumeration is corroboration, not proof of the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-date Resultary entry gives a connected-motif covariance formula for all isolates; K₂ specializes to crossings, but the entry does not itself state the positive-gap residual.",
+          "Paguyo's inspected results are marginal for crossings and simple chords, Acan counts isolates, and Flajolet–Noy's inspected component and crossing calculations are separate."
+        ],
+        "reasoning": "The motif result corroborates overlap with the exact all-isolates identity without supplying the primary priority evidence or fixing any ordering within the same date.",
+        "searches": [
+          "Resultary e0f610615813, Finding",
+          "Paguyo arXiv:2104.01134, Theorems 1.1–1.2",
+          "Acan arXiv:1501.01489, isolated vertices",
+          "Flajolet–Noy open report, monolith OGF and crossing moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify.py",
+        "Resultary 0f60fb4dde2a, 65daaf749589, e0f610615813, c2a530e05e03",
+        "Paguyo 2104.01134; Acan 1501.01489; Flajolet–Noy OA report"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The contribution for directed arc index k is n times the isolation probability a(n,k), multiplied in covariance by −[(n−1)+k(n−1−k)]/3. Group k=s and k=n−1−s, counting a singleton when equal."
+        ],
+        "reasoning": "The indexed contributions concern precisely disjoint marked-chord geometries. Grouping the two terms gives the 2n factor (or n in the tie). It gives both stratum identities literally, without trying to identify them from an undifferentiated total or using a new argument.",
+        "searches": [
+          "Resultary 0f60fb4dde2a, proof Steps 2–4, local mirror offset 3350"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 0f60fb4dde2a the count I_n−S_n is precisely R_n; both the 1/(2n)+O(n⁻²) mean and −1/3+O(n⁻¹) covariance are stated. Step 4 separately gives the exact s=1 contribution in both quantities.",
+          "65daaf749589 gives the arc-split sum and the same rare covariance limit."
+        ],
+        "reasoning": "Replacing isolated minus simple by a sum over positive shorter gaps does not change the observable or the limit.",
+        "searches": [
+          "Resultary semantic lookup: isolated non-simple chords / crossing covariance / arc split",
+          "Resultary 0f60fb4dde2a, proof Steps 3–4",
+          "Resultary 65daaf749589, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two catalogue matches are closed-form computations, not just finite examples. The later c2a530e05e03 gives the limit and a sharper expansion but is not used as earlier evidence."
+        ],
+        "reasoning": "The natural exact-data reference for this infinite family is the published formula indexed by all arc sizes; a table of particular n cannot add coverage of the family.",
+        "searches": [
+          "Resultary 0f60fb4dde2a and 65daaf749589 exact finite-n covariance sums and leading constants",
+          "Resultary c2a530e05e03 later matching entry"
+        ]
+      },
+      "rationale": "Already covered, not merely unestablished. Distinct Resultary record 0f60fb4dde2a states the same aggregate non-simple mean and covariance asymptotics and the identical shortest non-simple layer, and its exact termwise arc-split calculation yields every shorter-arc stratum by pairing symmetric terms, including the singleton tied term. No new claim survives the change of indexing.",
+      "residual_risks": [
+        "No claim of earliest historical provenance. Coverage is established without relying on either same-date ordering or the later record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers claim",
+          "evidence": "Same deficits term by term, exact first positive-gap layer, same tail and asymptotics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "material_read": "Finding, proof Steps 2–4 (including offset 3350)",
+          "method": "Configurable local mirror, statement and summand comparison",
+          "title": "Isolated chords impose an exact crossing-count penalty",
+          "trigger": "Exact rare-event match"
+        },
+        {
+          "assessment": "Covers aggregate claim",
+          "evidence": "Exact arc-split sum and rare non-simple correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-rare-chord-covariance-correction-for-crossings-in-uniform-circ--65daaf749589/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A rare chord covariance correction for crossings in uniform circular chord diagrams",
+          "trigger": "Near-exact published match"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": "K₂ gives the all-isolates crossing covariance, without explicitly stating the positive-gap residual.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-negative-isolation-connected-motif-covariance-law-fo--e0f610615813/RESULT.md",
+          "material_read": "Finding and isolation-conditioning passage",
+          "method": "Local mirror",
+          "title": "A universal negative isolation–connected-motif covariance law",
+          "trigger": "Same-date generalization"
+        },
+        {
+          "assessment": "Inspected statements are marginal",
+          "evidence": "Normal approximation for crossings, Poisson approximation for simple chords.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+          "material_read": "Abstract; Theorems 1.1 and 1.2, p. 3",
+          "method": "OA primary PDF",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Same crossing and simple-chord variables"
+        },
+        {
+          "assessment": "Background, not a mixed moment in passages read",
+          "evidence": "Isolated count has Poisson limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "p. 7 and p. 13, monolithic, simple-chord and isolated-vertex results",
+          "method": "OA primary PDF",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same isolated vertices"
+        },
+        {
+          "assessment": "Separate results in passages inspected",
+          "evidence": "Monolith OGF M(z)=C(z/(1−z)²); crossing moments handled separately.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "pp. 7 and 10, monolith OGF and crossing-moment theorem",
+          "method": "OA primary report",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Possible joint generating function"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rare-event correction is mathematically meaningful, but already available in exactly this ensemble. The tabulation by short gap is just a regrouping of its existing summands and adds no useful independent invariant, mechanism or bound.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

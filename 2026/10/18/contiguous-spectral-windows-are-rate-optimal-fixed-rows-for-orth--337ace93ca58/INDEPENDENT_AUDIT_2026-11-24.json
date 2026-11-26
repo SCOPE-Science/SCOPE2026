@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:00:02.405253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed active J, the enforced coordinates are exactly correct. Each unrelaxed active projection deletes only its own error coordinate. Independence at fixed probabilities w_i/sum_J w gives the exact coordinate survival factor (1-w_i/sum_J w)^k. The expected squared-error ratio is a weighted average of these factors; choosing the initial error entirely on a least-weight coordinate attains the maximum. For a fixed largest selected index j, w_j is the numerator of the score to maximize and the unique sum-minimizing choice takes the r-1 immediately preceding indices, since the weights strictly decrease. This exhausts all possible largest indices and gives every optimal active set, not necessarily a unique optimal window. Under equal weights the exchange can be nonstrict, leaving the asserted existence. Exact Frobenius residual equals the sum of the active weights, so its optimal constraint set removes the largest weights. For A_M the two candidate windows compare by M^4>(M+1)^2 (M>=2), and the shown logarithmic rate ratio follows from log(1+M^-2)~M^-2 and the optimum tending to 1/2. Independent replay: python3 /workspace/review_replay.py 3 checks all equality cases in 14212 finite integer-spectrum tests using exact rational scores. These corroborate but do not establish the universal theorem. The uploaded checker was read, not run; its path enumeration is exhaustive for its example but the arithmetic uses floats, not exact rationals. The theorem does not include computational cost of enforcing constraints, general correlated rows, or other sampling probabilities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper establishes a general spectral objective and explicitly adopts Frobenius row ID as a surrogate. The second sets out the fixed constraint block, projected row sampling and scaled-condition estimate. The third concerns subspace-constrained coordinate descent using residual-diagonal sampling."
+        ],
+        "reasoning": "Broader framework and a one-step or linear-rate bound do not provide the exact worst-case factor at every horizon or the optimizer among all hard blocks. Those conclusions here use independent deletion of orthogonal coordinates and a strict exchange at fixed smallest weight. Related coordinate-descent sampling is not a covering classification.",
+        "searches": [
+          "arXiv:2605.29304v1 §3.2 Lemma 3.5",
+          "arXiv:2309.04889v2 Algorithm 1, Theorem 1.1, §3.3.2",
+          "arXiv:2506.09394v1 §3.1 Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.29304v1",
+        "arXiv:2309.04889v2",
+        "arXiv:2506.09394v1",
+        "Resultary 6cdb9b864fa7, f012d48bcef2, 5c14167b84fb, 5f95cb30e1af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun et al. identify the squared residual with ||A-AA_I^dagger A_I||_F^2 and recommend minimizing it in lieu of the spectral objective. The six-row result uses the exact one-step min-positive-eigenvalue/trace progress formula and exhibits a different unbounded gap."
+        ],
+        "reasoning": "One-step diagonal progress is a specialization of the spectral formula and not a separate novelty. Its tightness at all k uses a common worst-case coordinate that survives an independent sequence of draws, not iteration of a bound alone. The window classification additionally optimizes over the smallest-weight index and proves necessity by strict substitution. Unit-normalized correlated and duplicated rows in the competing witness cannot be reparameterized as the ordered independent diagonal rows here under the same projected sampling.",
+        "searches": [
+          "Sun–Qi–Han–Xie §3.2, pp. 13–14 (PDF-text offsets 34900–38104)",
+          "Resultary 6cdb9b864fa7, Finding and first proof step (local mirror offsets 0–2497)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-step reversal result changes optimal hard rows with horizon in a nonsingular 3x3 system, not a diagonal classification. The shuffling record compares sampling algorithms on paired rows, not selection of the hard block. The scaled projected spectral objective specializes here to maximizing min(active squared norm)/sum(active squared norms)."
+        ],
+        "reasoning": "Using the enforced complement rather than the active set, or minimizing the scaled condition number rather than maximizing the displayed score, is the same optimization on these diagonal instances. The inspected results do not specify its consecutive-window optimizers.",
+        "searches": [
+          "Resultary: consecutive windows of ordered spectral weights and fixed-row Kaczmarz selection",
+          "Resultary f012d48bcef2 and 5f95cb30e1af, Findings",
+          "Sun–Qi–Han–Xie §3.2; scaled projected condition-number selection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One record gives an exact raw rejected-draw overhead with both choices solving on their first accepted update. Another gives exact constants s^2 and 1/2 for a six-row unit-normalized family. Neither contains the three-coordinate squared weights ((M+1)^2,M^2,1) or a parameterized window classification."
+        ],
+        "reasoning": "This is a continuous-weight optimization theorem, not a database census. The plausible existing exact witnesses and their rate metrics were compared; differing draw counts, admissible row sets, and hypotheses prevent either witness from tabulating or implying this diagonal-family comparison.",
+        "searches": [
+          "Resultary: Frobenius-selected constrained Kaczmarz unbounded overhead and exact orthogonal rate constants",
+          "Resultary 5c14167b84fb and 6cdb9b864fa7, Findings",
+          "Sun–Qi–Han–Xie §3.2 row-ID objective"
+        ]
+      },
+      "rationale": "Best of the checked evidence: the distinct contribution is the full optimizer classification for the diagonal all-horizon problem and its exact three-coordinate accepted-iteration comparison. Norm-proportional sampling, constraint projection, the one-step spectral objective, and residual-Frobenius ID are not credited as original. An unbounded deterioration of a Frobenius selection has also been exhibited on a different six-row model; this record is not a general priority claim for that phenomenon.",
+      "residual_risks": [
+        "An equivalent optimization over sorted weights in older numerical-analysis or subset-selection literature was not ruled out by the bounded searches and primary passages.",
+        "No claim of priority for the general Frobenius-versus-rate gap, or of catalogue exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same framework and surrogate; no diagonal optimizer in decisive selection passage",
+          "evidence": "Lemma 3.5 motivates condition-number selection, then replaces it by residual-Frobenius row ID.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.29304",
+          "material_read": "§3.2, pp. 13–14, OA offsets 34900–38104",
+          "method": "Open full-text PDF passage",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "Exact row-ID surrogate and rate objective"
+        },
+        {
+          "assessment": "General algorithm and rate bounds, not optimizer classification in these passages",
+          "evidence": "Samples projected rows; row-norm and leverage-score selection discussed to approximate leading singular directions.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04889",
+          "material_read": "Algorithm 1 and Theorem 1.1 pp. 3–4; scaled condition discussion; §3.3.2 pp. 15–16, text offsets 8065–11307, 13762–17020 and 60061–66376",
+          "method": "Bounded open paper text",
+          "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+          "trigger": "General constrained Kaczmarz might imply row selection"
+        },
+        {
+          "assessment": "Different algorithm and objective",
+          "evidence": "Residual-diagonal sampling of coordinate descent, not selecting fixed equations for a Kaczmarz update.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.09394",
+          "material_read": "§3.1 Theorem 3.2, p. 18, OA offsets 66339–69634",
+          "method": "Bounded open paper text",
+          "title": "Subspace-constrained randomized coordinate descent for linear systems with good low-rank matrix approximations",
+          "trigger": "Related diagonal-sampling convergence"
+        },
+        {
+          "assessment": "Unbounded-gap theme covered, different family and no general diagonal classification",
+          "evidence": "Six normalized rows, including repeated rows; progress s^2 versus 1/2 for two fixed rows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-frobenius-optimal-two-row-constraints-can-arbitrarily-slow-norma--6cdb9b864fa7/RESULT.md",
+          "material_read": "Finding, Assumptions, first proof step, offsets 0–2497",
+          "method": "Bounded local Resultary mirror read",
+          "title": "Frobenius-optimal two-row constraints can arbitrarily slow normalized-row Kaczmarz",
+          "trigger": "Closest unbounded surrogate-versus-rate witness"
+        },
+        {
+          "assessment": "Different non-diagonal phenomenon",
+          "evidence": "One hard row in a nonsingular 3x3 instance, with a one-step versus two-step reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-two-step-reversal-of-optimal-hard-row-choice-in-subspace-constra--f012d48bcef2",
+          "material_read": "Finding, local-mirror passage around offset 462",
+          "method": "Local Resultary comparison",
+          "title": "Two-step reversal of optimal hard-row choice in subspace-constrained Kaczmarz",
+          "trigger": "Optimal fixed row by horizon"
+        },
+        {
+          "assessment": "Different overhead metric",
+          "evidence": "Both constraints solve after one accepted update; rejected raw proposals drive the overhead.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-unbounded-rejected-draw-cost-of-frobenius-selected-subspace-cons--5c14167b84fb",
+          "material_read": "Finding and relevant proof passages, local-mirror offsets 0 and 1827",
+          "method": "Local Resultary comparison",
+          "title": "Unbounded rejected-draw cost of Frobenius-selected subspace-constrained Kaczmarz",
+          "trigger": "Frobenius selection with unbounded overhead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete all-horizon classification turns combinatorial constrained-row selection into a sorted sliding-window scan on a natural exactly tractable benchmark. The three-mode witness measures a failure of the motivated residual surrogate in the actual expected-error convergence exponents, which diverge in ratio even without overhead from constraint enforcement or rejected proposals. The result is elementary but resolves a useful boundary case and supplies a quantitative benchmark, not a claim about general matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

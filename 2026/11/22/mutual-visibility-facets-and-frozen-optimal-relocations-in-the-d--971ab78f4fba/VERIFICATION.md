@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Two standalone Python 3 programs use only the standard library. From a directory containing the extracted files, run:
+## correctness
 
-```sh
-python verify_visibility.py
-python verify_bfs.py
-```
+PASS
 
-`verify_visibility.py` constructs the twenty vertices and thirty edges of \(H(5,2)\) from subset inclusion; validates the geodesic-mask multiplicities; generates every feasible face by ordered insertion; validates both size polynomials and the two symmetry orbits; and compares all optimum jump/slide pairs with the stated Petersen line-graph model. Its expected final line is `VERIFY_OK`.
+In the specified two-/three-subset inclusion graph, a selected pair passes exactly when deleting the other selected vertices does not increase its distance. An independent blocked-BFS census generated all feasible sets up to the first empty layer (size nine); pruning by infeasible subsets is exact by heredity. It reproduced (1,20,190,1080,3925,8944,11300,5840,150), the total 31,450, and facet counts (60,4700,150) at sizes (6,7,8) by testing all one-vertex extensions. It verified the two optimum orbits of sizes 30 and 120 under the 240 label permutations and complement operations, including their stated induced types. Independently, on one shore a disjoint selected pair has distance four and its geodesics use a middle shore vertex consisting of one label from each endpoint. If omissions intersect, by relabelling they are 01 and 02, and the pair 12,34 has all four such intermediates selected. If the omissions are disjoint, they cannot both avoid crossing between the two chosen disjoint endpoints: neither equals an endpoint and both would need the fifth label. Thus a pure optimum corresponds exactly to an omitted Petersen edge. The checked optimum exchanges identify precisely two copies of the line graph, with no edges to the mixed optima. The line graphs have diameter three (the Petersen graph has diameter two, and the edges (01,23) and (02,13) have all cross-endpoint distances two). Within a shore no exchange is a slide because the original graph is bipartite. All 150 optima are therefore slide-frozen.
 
-`verify_bfs.py` constructs \(GP(10,3)\) independently, exhausts the full \(2^{20}\)-mask universe using the hereditary pruning condition, and tests visibility by shortest-path BFS avoiding other chosen vertices. Its expected final line is `VERIFY_BFS_OK`. The two checks arrive at the same cardinality polynomial with different graph presentations and shortest-path predicates. The first proves the remaining structural statements by exhaustive finite comparisons.
+## originality
 
-The first implementation explores feasible masks only because infeasibility is hereditary; this pruning is logically exact. The second examines each ambient mask (and skips a subset only when a known infeasible predecessor exists), which again is exhaustive by heredity. Correctness of an infinite family is neither asserted nor inferred. Neither code execution nor this review is an independent scientific audit; publication priority is not certified.
+PASS
+
+The distinct finding is the evaluated ordinary-visibility complex and structural optimum reconfiguration of the Desargues graph. The inspected class-level visibility methods, the evaluated Petersen polynomial, the mobile-visibility definition, and other small cubic graphs do not give the Desargues counts, orbits, or relocation graphs.
+
+## value
+
+PASS
+
+The Desargues graph is a natural symmetric incidence graph. Its precise optimum structure sharply separates the two movement rules: every optimum is slide-frozen, while jumps have two nontrivial components naturally indexed by Petersen edges and 120 isolated optima. This gives an exact structural benchmark that a maximum, or even the complete face polynomial alone, does not provide. The separate facet census records maximal configurations smaller than the optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

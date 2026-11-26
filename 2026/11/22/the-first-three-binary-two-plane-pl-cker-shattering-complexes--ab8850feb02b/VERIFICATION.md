@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The package includes `verify_plucker_python.py`, `verify_plucker_cpp.cpp`, and `checks.txt`. Execute the Python program with Python 3, and the C++ program with a C++17 compiler, for example:
+## correctness
 
-```sh
-python3 verify_plucker_python.py
-g++ -O2 -std=c++17 verify_plucker_cpp.cpp -o verify_plucker
-./verify_plucker
-```
+PASS
 
-Both independently produce exactly the lines in `checks.txt` for ambient \(n=4,5,6\). The Python implementation assigns each input coordinate one of four binary column types and computes all minor masks by pairwise distinct-nonzero tests. The C++ implementation independently forms all ordered pairs of unequal nonzero binary row vectors and calculates each minor from its determinant. The programs exhaust all \(2^6\), \(2^{10}\), and \(2^{15}\) Boolean query supports and explicitly enumerate their realized traces. They test maximality, canonicalize each facet graph under all label permutations, and form/binary-eliminate the simplicial boundary matrices over \(\mathbb F_2\). All generated support-polynomial coefficients and finite homology ranks match. The constructive \(K_{2,n-2}\) trace witness holds for all \(n\ge3\).
+The binary determinant is one exactly on two distinct nonzero column symbols. Rank two requires at least two occupied nonzero symbol classes, so the zero concept is excluded, but the empty query support is shattered. The non-isolated complete bipartite or tripartite graph determines its partition up to color permutations, consistently giving 35, 155 and 651 concepts. Fixing the two terminals to different nonzero symbols realizes all four traces at each remaining vertex of K_{2,n−2} independently. The fresh enumeration tests each support's trace count, maximality by its one-edge extensions, and canonical orbit under all vertex permutations. It reproduces all polynomial coefficients, facet-size distributions (8,3), (15,12,10), (96,70,180,15) and the labeled orbits. The explicit edge lists confirm the graph descriptions: for example the seven-edge representative has paths 0–4–1, 0–5–1, 0–3–2–1. The exact augmented boundary ranks reproduce the nonzero reduced Betti numbers β₂=7 at n=4, β₃=5 and β₄=1 at n=5, and β₄=111 and β₅=24 at n=6. The table has 3, 4 and 6 distinct facet orbits on masks of lengths 6, 10 and 15, respectively. Maximum support size and nonpurity follow from these data; only the constructive lower bound extends to general n.
 
-The assertion of completeness is limited to orders four, five and six. Neither executable claims to verify arbitrary \(n\) nor integral homology; no external independent audit has been performed. Only research source text and scientific output are included.
+## originality
+
+PASS
+
+The classical Plücker representation and plane count are not novelty claims. The exact finite shattering complexes under pair-coordinate queries, including the orbit and reduced homology data, were not found as an independently stated or implied result in the inspected sources. The nearest Grassmann, finite-linear-action and coloring competitors change the Boolean query class in decisive ways.
+
+## value
+
+PASS
+
+Binary two-plane coordinates provide a canonical finite Boolean class, and n=4 is the first ambient size with four-index Plücker constraints. The next two orders give a meaningful comparison of this same complex: the maximum faces have a uniform bipartite shape, but inclusion-maximal faces can have smaller sizes and different types. The exact reduced homology detects structure not recoverable from VC dimension or the number of concepts alone. These are reusable low-order benchmarks for structural questions, not an all-order pattern inferred from three cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

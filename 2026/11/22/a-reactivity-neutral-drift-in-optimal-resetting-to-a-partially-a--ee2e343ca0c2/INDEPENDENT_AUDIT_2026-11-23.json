@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:56:43.622766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite sink has killed-process absorption transform k exp[-(mu L+Gamma L)/(2D)]/(Gamma+k), Gamma=sqrt(mu^2+4Dr), at Laplace parameter r: the free resolvent from L to the sink is exp[-(mu L+Gamma L)/(2D)]/Gamma, and the rank-one sink divides it by 1+k/Gamma. Reset renewal gives (1-transform)/(r transform), exactly (1). For B=Phi-1-s Phi', B'=-s Phi'', and after removal of the positive factor of Phi'', the remaining polynomial is strictly increasing in u. B is positive at the small-rate end (at m=0 its first term is (1+eta)sqrt(s)/2) and negative for large s, so its sole crossing is transverse and is the global minimum. Independently, the coefficient G of eta after removal of exp(u+a) vanishes exactly at the unique u0>=1 with h(u0)=m, h(u)=u sqrt((u-1)/(u+1)), and G is positive before u0 and negative after. At that test point B=e^(u0+a)/(1+u0)-1 independently of eta. The sign of B there determines on which side of u0 the optimizer lies and hence the sign of its derivative with respect to k. For outward or zero drift B there is positive. For inward drift its sign is that of F(u0), which decreases strictly from 1-log(2) to minus infinity: h'(u)>u/(u+1) for u>1. This proves the stated threshold and both strict directions for every finite positive k. The intermediate condition u>1 in (5) can be u=1 for m=0 before imposing stationarity; this endpoint is impossible at stationarity since e/2-1>0. RESULT.md, VERIFICATION.md and verify.py were inspected; the supplied finite checks were not executed or used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 11/2 finding proves all-drift uniqueness and away/toward ordering at fixed reactivity; 11/8 also proves the strong-drift opposite-orientation rate gap at fixed reactivity; 10/26 covers all-drift uniqueness and asymptotics at the perfect-trap transition m=1."
+        ],
+        "reasoning": "Existence and uniqueness imply no parameter comparative statics by themselves; inequalities comparing two opposing drifts at one k, or a singular endpoint in k, do not give the sign for all k at a fixed drift.",
+        "searches": [
+          "Resultary: partially reactive point trap resetting drift global optimal rate monotonicity",
+          "Resultary 743330cb730f, 8b1a5ddec0f2 and 6cb66fe9d205, original Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.22527v1",
+        "Resultary 743330cb730f",
+        "Resultary 8b1a5ddec0f2",
+        "Resultary 6cb66fe9d205",
+        "Resultary b85c2498a4eb",
+        "Resultary ee2e343ca0c2 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mazzolo's formula is the input; its zero-drift derivative result and fixed-k inward-drift analysis do not identify cancellation of both stationary coefficients at u_c. The strong-reactivity transition in 6cb66fe9d205 is at m=1, distinct from m_c≈0.46424."
+        ],
+        "reasoning": "The cancellation locus, its unique intersection with the reactivity-independent stationary condition and the resulting all-parameter signs are a new analysis of a known formula, not a specialization of the cited sensitivity or asymptotic results.",
+        "searches": [
+          "arXiv:2609.22527v1 Eq. (116), Appendix A.1–A.5",
+          "Resultary 6cb66fe9d205 and 743330cb730f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound result is equivalently a unique common positive stationary rate of the two affine-in-inverse-reactivity objective terms, or a unique drift at which the optimal rate does not depend on inverse reactivity. Mazzolo A.4 proves a strict derivative at zero drift; A.5 varies drift at fixed reactivity."
+        ],
+        "reasoning": "Changing reactivity to its reciprocal just reverses the signs. Changing the variable differentiated from reactivity to drift is not an equivalent comparison.",
+        "searches": [
+          "Resultary: reactivity-neutral drift optimal reset rate independent of trap reactivity",
+          "Resultary: strict reversal optimal resetting rate as trap reactivity increases with drift",
+          "arXiv:2609.22527v1 Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary ID ends ee2e343ca0c2 and is the same frozen finding, not separate precedent. Same-day b85c2498a4eb concerns drift/diffusivity inversion from two fixed-rate first-passage profiles on a finite absorbing-reflecting interval."
+        ],
+        "reasoning": "The same-day record was separated by its model and statistic, not by date. No distinct matching all-reactivity threshold or table surfaced in the inspected ranked hits.",
+        "searches": [
+          "Resultary: same-day 2026 partially absorbing point trap reactivity optimal resetting drift",
+          "Resultary: reactivity-neutral drift optimal reset rate independent of trap reactivity"
+        ]
+      },
+      "rationale": "The same finite point-sink model, renewal formula, all-drift uniqueness, zero-drift reactivity direction and several drift comparisons are prior. The sharp fixed-drift, all-k sensitivity reversal and the optimizer common to every finite reactivity were not covered by the decisive passages inspected; this is a best-of-knowledge finding, not certification of priority.",
+      "residual_risks": [
+        "Unindexed or differently formulated comparative-statics results may exist; ranked catalogue results are not exhaustive.",
+        "No priority conclusion beyond the actual paper sections and catalogue statements inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same formula; covers the zero-drift derivative, not the fixed-drift all-k classification in the passages inspected",
+          "evidence": [
+            "Eq. (116) gives T_mu(r); A.4 Eqs. (A20)–(A23) give dz*/deta<0 at zero drift; A.5 varies drift at D=1, k=2, L=1. The frozen citation to (185) should instead use (116) for v1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22527",
+          "material_read": "v1 p. 15 Eq. (116) and Appendix A.1–A.5 pp. 22–26 (OA text offsets 74800, 104000, 110486, 117452, 124398)",
+          "method": "Original open-access PDF passages",
+          "title": "Diffusion with stochastic resetting in the presence of a delta killing trap: Drift-controlled survival regimes",
+          "trigger": "Identical model and optimization"
+        },
+        {
+          "assessment": "Overlap in uniqueness and orientation, not the sensitivity threshold",
+          "evidence": [
+            "Compares equal-magnitude toward and away drifts at fixed k; limiting rate separation k/(eL)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-resetting-and-a-finite-reactivity-drift-orientati--743330cb730f",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "Unique optimal resetting and a finite-reactivity drift-orientation gap",
+          "trigger": "Same point-sink problem and unrestricted drift"
+        },
+        {
+          "assessment": "Different variable and limit",
+          "evidence": [
+            "Compares r_away and r_toward for fixed k, with strong-drift gap k/(eL)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-persistent-reactivity-gap-between-optimal-opposite-drift-reset--8b1a5ddec0f2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "A persistent reactivity gap between optimal opposite-drift resetting rates",
+          "trigger": "Reactivity enters the opposite-drift optimizer comparison"
+        },
+        {
+          "assessment": "Singular perfect-trap limit, not finite-k neutrality",
+          "evidence": [
+            "Threshold m=1 is the zero-rate perfect-trap transition; the theorem gives its rounding as reactivity diverges."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-cubic-root-rounding-of-the-drift-controlled-optimal-resetting-tr--6cb66fe9d205",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "Cubic-root rounding of the drift-controlled optimal-resetting transition at a partially reactive point trap",
+          "trigger": "Same model and apparent inward-drift threshold"
+        },
+        {
+          "assessment": "Distinct inverse problem",
+          "evidence": [
+            "Finite absorbing-reflecting interval, with fixed rates and unknown drift/diffusivity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Original Resultary local mirror",
+          "title": "Two-reset-rate first-passage profiles uniquely reconstruct drift and diffusivity",
+          "trigger": "Same-day resetting/drift overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies a sharp control threshold in the finite-reactivity resetting problem: tuning trap strength strictly moves the optimal reset rate in opposite directions across one drift, and exactly preserves the same optimum at that drift for arbitrarily weak or strong finite sinks. This is an actionable and structural distinction from perfect-trap zero-reset transitions and from optimizing the mean time itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

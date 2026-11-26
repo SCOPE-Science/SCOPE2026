@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:15.248614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen finding is false as a topological statement: the critical value 0 is deleted, making the set non-star-shaped about any point and adding an isolated boundary point. The frozen proof also wrongly says the near-zero split has opposite signs; the two inner preimages both have negative Jacobian. The full corrected result in repairs/4/RESULT.md proves the punctured radial domain and preserves the exact area. Independently checked: the lifted caustic angle decreases by 4π, so a ray gives two radii; signed crossings give wind -2 precisely below both, and degree three plus negative disk degree gives seven preimages. Choosing h in (0,π/2] for a double point reduces its equation to |4 cos²h-1|=3 cos h; the only allowable solution cos h=1/4 gives five images and two explicitly nonparallel derivatives at each. Checking C(0) and C(π) selects the inner arc, with rotation giving all five. Green's theorem on the filled domain then gives the stated formula, and F_b(bu)=b³F(u) proves the scaling. Independent polar inversion by bisection and a periodic 4,000-ray midpoint grid yielded 0.0803254871 versus the closed form 0.0803255144; this numerical check is not the proof. Replay: repaired RESULT.md Proof and Reproducibility; frozen verify_area.py and VERIFICATION.md were inspected, not executed, and their finite checks do not establish the topology. Applies only to regular targets of this map and its positive rescalings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2023 paper explicitly investigates numbers of zeros of convex combinations using a harmonic Rouché theorem and specifies the input families; those passages do not compute target-plane areas.",
+          "The cited 2020/2022 trinomials are plausible winding/count comparators, but full-text retrieval did not succeed in this check."
+        ],
+        "reasoning": "The winding method determines the count once the caustic and target are specified, but it does not by itself evaluate the area of a winding-number level set. No stronger area theorem giving the exact specialization was established from inspected material.",
+        "searches": [
+          "Brooks et al., Mathematics 11 (2023) 4057, pp. 1–2",
+          "Brilleslyper et al. doi:10.1090/bproc/51; Brooks et al. doi:10.1007/s40840-021-01230-8 (full-text retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_area.py",
+        "Repaired RESULT.md",
+        "Resultary ...8062c5fde0ac",
+        "Mathematics 11 (2023) 4057",
+        "doi:10.1090/bproc/51 and doi:10.1007/s40840-021-01230-8 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available comparisons support general zero-count techniques; the repaired proof locates the transverse double points, determines which branch attains the smaller radius, then integrates only those five arcs."
+        ],
+        "reasoning": "Green's formula is immediate only after obtaining the correct inner arcs. Neither available comparator establishes this selection or computes its integral. The repaired isolated puncture changes the topology but not this area comparison.",
+        "searches": [
+          "Resultary 2026/10/11 ...8062c5fde0ac RESULT.md Finding, offsets 0–3365",
+          "Brooks et al. 2023 OA PDF pp. 1–2",
+          "Frozen and repaired RESULT.md critical-curve, crossing and area arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest indexed overlap, 2026/10/11 ...8062c5fde0ac, gives the 3/5/7 count classification for z³+az+b conjugate(z)−1 and a regular seven-zero example; no distinct close same-day result surfaced."
+        ],
+        "reasoning": "A coefficient-region phase diagram of a cubic with a conjugate-linear term is not the image-plane cell of a fixed cubic with a conjugate-quadratic term; positive scaling does not change that anti-holomorphic degree. The compared statement gives no area-preserving reduction.",
+        "searches": [
+          "Resultary: harmonic cubic z³−conjugate(z)², valence seven, caustic inner-envelope area",
+          "Focused literature query for the exact area expression and seven-preimage caustic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused exact-formula lookup returned no usable match; the inspected nearby indexed record computes counts rather than areas. No checked table entry for this two-turn smaller-envelope area was found."
+        ],
+        "reasoning": "A formula for the whole signed area enclosed by a parameterized trochoid would weight regions by winding and would not isolate the area with winding -2. The exact table check is relevant to a cell-area formula, not an ordinary area for the entire traced curve.",
+        "searches": [
+          "Resultary indexed exact seven-valence area / inner caustic",
+          "Exact formula search in harmonic-caustic, hypocycloid and trochoid area terminology"
+        ]
+      },
+      "rationale": "For the repaired claim, the distinct result supported by the inspected evidence is the exact unweighted target-plane area and its specific smaller radial envelope, not the use of harmonic degree or the existence of seven roots. The strongest available close comparisons concern zeros in other parameter spaces or harmonic interpolants and do not fix the selected arcs of this caustic. This is a bounded judgment, not a historical-priority assertion.",
+      "residual_risks": [
+        "An equivalent older area calculation for the same inner cell under different caustic or trochoid terminology may exist.",
+        "The specific 2020/2022 full texts were unavailable; no conclusion about their complete contents is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Neighboring count problem, different family and invariant",
+          "evidence": [
+            "The statement concerns z³+az+b conjugate(z)−1 and includes a regular seven-zero example rather than a target-area law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-zero-count-phase-diagram-for-positive-harmonic-cubics--8062c5fde0ac/RESULT.md",
+          "material_read": "Finding, offset 0–3365",
+          "method": "Indexed lookup and mirrored passage inspection",
+          "title": "Complete zero-count phase diagram for positive harmonic cubics",
+          "trigger": "Exact 3/5/7 zero counts for harmonic cubics"
+        },
+        {
+          "assessment": "Counts of zeros for interpolated families, not area of the fixed map's inverse-valence region in the inspected statements",
+          "evidence": [
+            "States the objective as studying the number of zeros of convex combinations and lists the interpolated polynomial families."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-11-04057/article_deploy/mathematics-11-04057.pdf",
+          "material_read": "pp. 1–2 around offsets 850 and 7300",
+          "method": "OA PDF passage reading",
+          "title": "Zeros of Convex Combinations of Elementary Families of Harmonic Functions",
+          "trigger": "Harmonic-family valence methods close to the cited motivation"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of absence",
+          "evidence": [
+            "The frozen literature discussion identifies this as a zero-count classification using critical curves; this was not independently confirmed from full text."
+          ],
+          "identifier_or_url": "doi:10.1090/bproc/51",
+          "material_read": "Bibliographic identification and the frozen citation's description only; full text not obtained",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Zeros of a one-parameter family of harmonic trinomials",
+          "trigger": "Potential direct use of winding of critical curves for related harmonic trinomials"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of absence",
+          "evidence": [
+            "The frozen literature discussion describes a complex-parameter zero-count extension, not an area computation; full-text confirmation was unavailable."
+          ],
+          "identifier_or_url": "doi:10.1007/s40840-021-01230-8",
+          "material_read": "Bibliographic identification and the frozen citation's description only; full text not obtained",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Zeros of a Family of Complex-Valued Harmonic Trinomials",
+          "trigger": "Potential broader complex-parameter valence coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum-regular-valence cell of a natural harmonic binomial is singled out by the map, not by arbitrary parameter sampling. Its unweighted area quantifies how large the seven-preimage ambiguity region is, which counts or signed total caustic area cannot supply. The exact double-point and envelope calculation explains the area and supplies a reproducible benchmark; the puncture correction makes the geometric claim precise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

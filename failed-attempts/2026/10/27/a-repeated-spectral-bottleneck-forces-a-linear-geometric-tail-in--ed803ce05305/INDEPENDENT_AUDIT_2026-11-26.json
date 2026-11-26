@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:08.632507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-n theorem is correct. For any j specified ascending adjacencies, contraction into blocks leaves (n-j)! permutations; summing over j selections gives the one-round factorial-moment coefficient (n-j)/(n j!). Subtracting the resulting one-round polynomials at zero gives p_(n+1,n+1)-p_(n,n)=-D_(n-1)/[n(n+1)(n-1)!]. Hence p_22=p_33=1/2, with all larger diagonal entries strictly smaller. The exact first-step time generating function gives F_2=z/(2-z), F_3=z(z+2)/(3(2-z)^2), and leading Laurent coefficient 2/3 in the normalization (1-z/2)^2. For n>=4 the multiplier at z=2 is 2/(1-2p_nn), so the stated recurrence follows; p_n3>0 ensures noncancellation. The survival transform (1-F_n)/(1-z) preserves the double-pole coefficient, with all other poles farther out, giving the claimed fixed-n remainder and the two base laws. Direct substitution gives c_4=6 and c_5=276/7. Frozen finite checks are corroboration only; the proof does not depend on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching Resultary finding is 2^(-t)(alpha_n t+beta_n)+O_n((11/24)^t) for every fixed n>=3, with a beta_n recurrence. The Chern et al. main asymptotic takes n large instead; that is not the basis for the coverage decision."
+        ],
+        "reasoning": "Dropping beta_n and absorbing the faster remainder gives the frozen bound for all its parameters.",
+        "searches": [
+          "Resultary record 3d44d96f8247",
+          "Chern–Jiu–Simonelli, arXiv:2309.08841v1, §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and References",
+        "Frozen VERIFICATION.md and verify.py (inspection only)",
+        "Resultary 3d44d96f8247",
+        "arXiv:2309.08841v1",
+        "DOI:10.1080/03610926.2013.834451 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result identifies the 3-to-2 transition and double pole explicitly. Isolating the self-loop in the earlier time-law recursion gives the rational absorption PGF; Chern et al. eq. (11) instead gives a one-round block-count polynomial."
+        ],
+        "reasoning": "The indexed result explicitly dominates the freeze. Published recurrence overlap is additional input, not overstated as proof that the papers themselves analyze this pole.",
+        "searches": [
+          "3d44d96f8247, RESULT.md coefficient/pole analysis",
+          "Chern et al. §2.1 quoting Rao et al. p. 616 eq. (4), and §2.2 eq. (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching RESULT.md uses T_n, survival P(T_n>t), and alpha_n; its starting state, merger rule, round count and integer horizon are the same. Its alpha_3=2/3 and alpha_n recurrence agree with c_n after setting alpha_2=0."
+        ],
+        "reasoning": "The different symbols describe identical random variables and the identical leading coefficient.",
+        "searches": [
+          "Resultary: consecutive-block card merger, fixed-start far tail and double pole; record 3d44d96f8247"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem supplies the exact alpha_n recurrence and an exact n=4 law; its recurrence returns both numerical examples in the freeze. The literature transition array tabulates one-shuffle transitions, not by itself the long-time coefficients."
+        ],
+        "reasoning": "The indexed theorem covers these exact coefficients even without a separate number table.",
+        "searches": [
+          "Local Resultary search and linked record 3d44d96f8247; Chern et al. §2.1 kernel and time-law recurrence"
+        ]
+      },
+      "rationale": "A distinct Resultary record on exactly this chain already proves a stronger version: the same positive coefficient recurrence and repeated pole, an explicit constant term, and a sharper error bound. This is demonstrated coverage, not an inference from a title or date and not a verdict based on inaccessible literature.",
+      "residual_risks": [
+        "The unavailable Rao et al. full text could contain an earlier statement of the tail or its equivalent. This does not affect the demonstrated stronger catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage",
+          "evidence": [
+            "Identical process, leading coefficient recurrence and repeated pole; stronger two-term error estimate and exact n=4 law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-universal-double-pole-far-tail-law-for-consecutive-block-card--3d44d96f8247",
+          "material_read": "Mirrored RESULT.md, offsets 0–2954 (finding/kernel) and 2954–5930 (coefficients, pole and remainder), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage comparison",
+          "title": "A universal double-pole far-tail law for consecutive-block card shuffling",
+          "trigger": "Same fixed-start consecutive-block tail and spectral mechanism"
+        },
+        {
+          "assessment": "Same problem and exact first-step input; different stated asymptotic regime",
+          "evidence": [
+            "§2.1 attributes the exact time-law recursion to Rao et al. p. 616 eq. (4); §2.2 eq. (11) counts one-round blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.08841v1",
+          "material_read": "§1 at HTML offsets 1300–5300; §2.1 at 7200–12200; §2.2 eq. (11) at 14200–17700",
+          "method": "OA primary text",
+          "title": "A central limit theorem for a card shuffling problem",
+          "trigger": "Primary source on exact model and kernel"
+        },
+        {
+          "assessment": "Distributional input confirmed; full-paper far-tail coverage unresolved",
+          "evidence": [
+            "Abstract refers to probabilistic recurrences for mean, variance and distribution; publisher full-text access returned 403 and a lawful repository copy was not found."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2013.834451",
+          "material_read": "Accessible abstract and exact recurrence as reproduced with locator in Chern et al. §2.1; original full text not read",
+          "method": "Publisher access attempt and bounded lawful alternate search; checked attributed recurrence in OA citing paper",
+          "title": "A discrete probability problem in card shuffling",
+          "trigger": "Original problem and possible exact-distribution prior coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematical content the fixed-state far-tail law exposes a genuine repeated transient eigenvalue in a natural merger process. The factor t corrects a purely geometric survival prediction and the coefficient makes the correction quantitative; the growing-initial-state CLT addresses a different question. This scientific usefulness does not represent an incremental contribution beyond the stronger indexed result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

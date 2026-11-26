@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The representation-coordinate transformation \(n=aL+dT\) is bijective and reduces each residue class to a nondecreasing sum of restricted partitions into \(1,2,3\). The proof verifies the precise two- and three-partition thresholds, excludes every higher carry level before the claimed first triple representation, and derives both the maximum and the genus from the full residue threshold table. Boundary \(a=4\), all three congruence classes, and arbitrary positive \(d\) coprime to \(a\) are covered. Direct independent coefficient enumeration in `verify.py` tests the exact threshold for every nonnegative integer through two additional periods across a broad parameter grid. Finite checks support, but are not substituted for, the proof.
+## correctness
 
-## Originality — PASS within available evidence
-The 2022 Komatsu–Ying paper treats three terms and explicitly motivates longer arithmetic progressions. Mohammed's 2017 dissertation is the closest and is correctly credited with the four-term **second** Frobenius number: that published result is not a third-threshold or low-multiplicity-genus classification. The 2017 general algorithm of Manjunath–Smith and the 2010 extreme-family result of Beck–Kifer also do not state or imply this explicit three-branch, all-parameter third-threshold law. Searches for the third/3-Frobenius and at-most-two-representations aliases, related published mathematical-result records, and accessible preceding same-topic claims identified no covering result. Remaining risk: unindexed equivalent work or inaccessible later versions.
+PASS
 
-## Value — PASS
-This is the next naturally occurring multiplicity threshold after the established second Frobenius classification in a family explicitly discussed in generalized-Frobenius literature. The full residue law resolves all at-most-two representation gaps, the genus, and the sharp largest exception for every coprime four-term progression. The branch \(a\equiv1\pmod3\) has a genuine maximizer switch at \(d=a\), not visible in the second-threshold result. No claim is made about higher multiplicities or arbitrary generator families.
+Writing n=aU+dt, all solutions give T=t+ja and L=U−jd, j≥0, where T is the weight of a partition into 1,2,3 and L its available length. At minimum length ceil(T/3), the deficit from all 3's is 0,1, or 2, giving at most two partitions. The listed witnesses show that one extra part gives three for T≥4, with second thresholds b(T). For t≥4 and for t=3 no higher j contributes early. At t=2 exactly two j=0 partitions are already present when the first j=1 partition arrives. At t=0,1 the second j=1 partition arrives no later than the first j=2 partition, so the displayed N_t are exact even for a=4 or d=1. On each residue monotonicity gives M_t as the cutoff; taking max(M_t)−a gives the stated branches, including competition between t=1 and t=2 for a≡1. Summing the residue lengths gives ΣN_t plus the coprime floor sum (a−1)(d−1)/2, and yields H_3 including n=0. Independently ran `python3 /workspace/reviews/evidence/reproduce.py 3`: direct enumeration of quadruples on 198 coprime parameter pairs, testing 44,287 integer positions. This corroborates rather than proves the infinite law. The frozen verifier was inspected, not executed.
 
-## Closest literature and limitations
-Komatsu–Ying, arXiv:2206.13052, Sections 1–3 and 7; Mohammed, *Generalised Frobenius numbers*, Cardiff 2017, abstract, contents, Chapter 6, particularly Theorem 6.2.1; Manjunath–Smith, arXiv:1703.10884, introduction and general method; Beck–Kifer, arXiv:1005.2692, introduction and Theorem 1. Novelty is not a certificate of absolute publication priority. Independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported for the full four-term, variable-step residue law and its uniform threshold and genus consequences, not for the Apéry definitions or the previously settled odd a≥9, d=2 subfamily. Neither the earlier fixed-step theorem nor the three-generator and lower-multiplicity theorems cover the varying progression step and competing maxima.
+
+## value
+
+PASS
+
+For a standard family of denumerants, the uniform result gives all low-representation exceptional integers, not just an extremal number, and explains the change of maximizing residue as the progression step increases. The variable-step extension is more than substituting a parameter in the known odd-denomination theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

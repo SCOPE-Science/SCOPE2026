@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-geodesic definition was checked independently against the strict cyclic-gap criterion on all triples, including antipodal ties. All four-subsets in each covered cycle were verified to contain a forbidden triple, proving that there are no unaccounted higher faces. Complete signed boundary matrices were reduced exactly by unimodular unit pivots to unit Smith blocks with zero residuals. Consequently the integral homology table and absence of torsion follow without reliance on mod-two evidence. The cycle-nine dihedral operators were independently reconstructed on an integral kernel basis, and their trace and Lefschetz calculations checked. All algorithms are complete for the finite ranges actually claimed.
+## correctness
 
-## Originality — PASS against inspected evidence
-The cycle portions of the primary texts by Klavžar–Rall–Yero (arXiv:2005.08095) and Cody–Moore (arXiv:2409.05644) give extremal general-position numbers, not topology or integral chain maps of the full all-set complex. The closest indexed ladder general-position homology result treats a different graph family. Comparisons of cyclic noncover and cycle matching complexes likewise concern different membership rules and do not imply the present integer homology and reflection action. Results beyond indexed and inspected literature remain a residual novelty risk.
+PASS
 
-## Value — PASS
-The finite scope is dictated by a mathematical boundary: the first nonzero two-dimensional homology of the entire cycle family occurs at nine vertices and the first such even-cycle example occurs at twelve. Integral Smith forms distinguish genuine free two-classes from Euler-characteristic guesses or possible torsion; the first nontrivial example also exhibits an order-three rotation action and a symmetry quotient with one surviving rational two-class. These are meaningful invariants of the natural general-position configuration complex, not an arbitrary parameter slice.
+The original arithmetic was correct; the repair removes the already covered onset as a contribution and gives an explicit integral symmetry basis. I independently generated forbidden triples from the interiors of both arcs between every pair, using every tied shortest arc; no four-sets survive. With the star at zero as spanning tree, projecting a 1-cycle onto the coefficients of the non-tree edges is an integral isomorphism, so the signed triangle matrix in those coordinates presents H1. Smith normal form over Z has only unit nonzero entries, with ranks 1,0,5,2,14,8,27,20,44,36 for n=3 through 12. Together with the 2-face counts this gives the complete table with no torsion. At n=9 the exact kernel recovers the original two action matrices. For the repaired geometric basis, the three eight-term octahedral sums have zero boundary; in each a mixed-residue triangle is unique to that sum and has coefficient ±1. The tested coordinate minor is diag(-1,-1,-1), giving an integral basis using the rank-three computation. Rotation permutes the three oriented cycles and reflection transposes two without signs, as checked on the signed chains. The H1 reflection sign follows from chain traces (1,-4,-2) and trace 1 on H2; odd-order rotation cannot negate integral rank one. Independently computed the quotient by explicit dihedral orbits of flag cells in the barycentric subdivision: (8,16,10) cells with boundary ranks 7 and 9, giving unreduced rational Betti numbers (1,0,1). Face dimensions make stabilizers pointwise on flags, so these are ordinary quotient cellular chains. Replay: python3 /workspace/review-evidence/topology.py cycles, output cycles.log. Corrected RESULT.md and SLOGAN.txt are in repairs/5; supporting frozen checkers are unchanged.
 
-## Closest literature and limitations
-Klavžar–Rall–Yero, *General d-position sets*, arXiv:2005.08095, cycle section, and Cody–Moore, *The k-general d-position problem for graphs*, arXiv:2409.05644, cycle section, were materially inspected. The result does not establish a homotopy type, a universal all-order formula, or torsion in any topological quotient. No independent audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This PASS applies only to the repaired finding. The original onset assertion is covered by a distinct exact same-model all-orders nonvanishing classification. It is now credited as already covered and not asserted as a contribution. That comparison explicitly supplies one primitive octahedral cycle per positive order rather than a basis, and does not give full Betti numbers, H1, torsion, or symmetry representations. The corrected exact integral table and equivariant basis/quotient are not supplied by or mechanical substitutions into the inspected results. No chronological ordering is inferred from the shared catalogue date.
+
+## value
+
+PASS
+
+The repaired computation measures more than where a class first exists. It gives exact integral ranks including the large first homology in even cases and rules out torsion across the cutoff. The nine-cycle has a geometric, integral basis of cycles permuted by symmetry; it explains why the sum of the two-dimensional generators survives passage to the ordinary quotient but the one-dimensional class does not. The geometric permutation description and the quotient provide precise, reusable invariants of the natural small cycle with several independent two-classes. Neither value nor novelty is based on reasserting the already covered threshold or on a homotopy-type inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

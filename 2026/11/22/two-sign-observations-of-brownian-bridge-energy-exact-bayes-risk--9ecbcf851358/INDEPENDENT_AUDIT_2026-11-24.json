@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:27:55.260038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent check via conditional piecewise bridges rather than the frozen Green-kernel calculation. With gaps a=s, b=t-s, c=1-t and U=B(s), W=B(t), conditional path means are linear interpolants and the integrated conditional variance is a constant. Thus E[Q|U,W] is that constant plus [(a+b)U²+bUW+(b+c)W²]/3. For standardized X,Y, write X=D cos θ, Y=D cos(θ−δ), δ=arccos ρ, with uniform θ and E[D²]=2. Sign disagreement occupies two intervals of length δ; integration there gives Cov(X²,V)=Cov(Y²,V)=sin(2δ)/π and Cov(XY,V)=2 sin δ/π, and m=1−2δ/π. Substitution gives Cov(Q,V)=2ρ sqrt(1−ρ²)t(1−s)/(3π)=2 sqrt(abc)/(3π). Global sign reversal reduces the squared-loss conditional mean to the projection onto 1,V. The prior moments are 1/6 and 1/45 (the latter by Wick and integrating K²), giving exactly the reported decoder and risk. Endpoint, one-sign and coincident designs have no improvement by reflection; the interior improvement tends to zero along the whole boundary since 1−m²≥(2/π)sqrt(1−ρ²). At fixed ρ, b=kac with k=(1−ρ²)/ρ², so maximizing abc means maximizing ac subject to ac≤(1−kac)²/4; the unique largest feasible product has a=c. This verifies the scalar objective on all remaining candidates. Its numerator has logarithmic derivative 2(1−2ρ)/(ρ(1−ρ²)), its denominator decreases strictly, and the objective vanishes at both endpoints. Hence no optimizer has ρ≤1/2, and the fraction at ρ=1/2 is 5/(6π²). No uniqueness or certified numerical maximizing correlation follows or is asserted. The frozen numerical and symbolic verifier was inspected, not executed; the proof above is independent of it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pronzato–Zhigljavsky §2.2 specifies a Gaussian-field linear integration target and point evaluations.",
+          "Dirksen–Maly–Rauhut §1.2 Eq. (6) gives the Gaussian arcsine identity for covariance recovery.",
+          "Fesl–Koller–Utschick abstract and Introduction concern reconstruction of Gaussian channel inputs."
+        ],
+        "reasoning": "Arcsine moments and conditional mean are ingredients. None of the inspected broader objectives computes covariance of integrated bridge energy with sign parity or optimizes the resulting ratio over sites.",
+        "searches": [
+          "arXiv:1808.10722v1",
+          "arXiv:2104.01280v2",
+          "arXiv:2212.04470v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:5b6200720fdd",
+        "Resultary:b01921587ec0",
+        "Resultary:1068bd71181d",
+        "Resultary:61a1a6b86a00",
+        "Resultary:1c7b05ec88c4",
+        "Resultary:2ef033b22d4d",
+        "arXiv:1808.10722v1",
+        "arXiv:2104.01280v2",
+        "arXiv:2212.04470v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5b6200720fdd proves an exact full-value energy risk and a unique pair for that information. Arcsine supplies E[V], not Cov(Q,V)."
+        ],
+        "reasoning": "Full data dominate in risk pointwise, but conditioning that decoder further on two signs requires a different truncated Gaussian calculation, and the optimal placements for full data do not imply the optimum after quantization. The distinct same-day entry was compared without inferring chronological priority.",
+        "searches": [
+          "Resultary local mirror 5b6200720fdd Finding and center/separation proof",
+          "arXiv:2104.01280v2 §1.2 Eq. (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b01921587ec0 optimizes the same two signs for signed linear area; 1068bd71181d treats positive occupation and states uniqueness only within the symmetric class.",
+          "61a1a6b86a00 uses a single magnitude-threshold bit from Brownian motion for quadratic energy."
+        ],
+        "reasoning": "Neither signed nor positive occupation determines the L² energy. A magnitude bit is not the product of the two zero-threshold signs of a bridge; these observation and target changes are not reformulations.",
+        "searches": [
+          "Resultary local comparisons 5b6200720fdd, b01921587ec0, 1068bd71181d, 61a1a6b86a00",
+          "\"Brownian bridge\" \"sign observations\" integrated squared energy Bayes risk optimal design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local catalogue yielded the listed same-target and same-observation records, not the identical energy/sign risk and placement. The indexed i.i.d. node design has a linear target; the local-time hierarchy gives energy covariance with local time, not with the two signs."
+        ],
+        "reasoning": "This is an analytic design theorem, not a tabulated numeric constant; the relevant exact lookup is for the risk and placement statements in the catalogue and literature. No direct match surfaced in the bounded check.",
+        "searches": [
+          "Resultary local records 5b6200720fdd, 1c7b05ec88c4, 2ef033b22d4d, 1068bd71181d, b01921587ec0, 61a1a6b86a00",
+          "\"Brownian bridge\" \"sign observations\" integrated squared energy Bayes risk optimal design"
+        ]
+      },
+      "rationale": "The qualified distinct claim is the bridge-energy decoder and strict global placement theorem for exactly two deterministic zero-threshold signs. The closest inspected same-target record uses full point values; the closest same-information records have different targets. No inspected statement or stronger applicable design theorem gives the sign-only quadratic-energy result.",
+      "residual_risks": [
+        "The search is bounded; an unidentified treatment of optimal one-bit Gaussian quadratic-functional design could overlap.",
+        "Same-day catalogue dates establish neither direction of priority nor a relationship between the records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct target overlap, not equivalent",
+          "evidence": [
+            "The theorem conditions on two noiseless full point values and optimizes that risk over the full design domain."
+          ],
+          "identifier_or_url": "Resultary:5b6200720fdd",
+          "material_read": "Finding and center/separation optimization proof, local mirror offsets 0–6613",
+          "method": "Resultary discovery and local-mirror text",
+          "title": "Globally optimal two-point observation of Brownian-bridge quadratic energy",
+          "trigger": "Same prior, target and site-count"
+        },
+        {
+          "assessment": "Different targets",
+          "evidence": [
+            "The signed-area target is linear; the positive-occupation target is not squared energy and its placement uniqueness is within symmetric pairs."
+          ],
+          "identifier_or_url": "Resultary:b01921587ec0; Resultary:1068bd71181d",
+          "material_read": "Findings and stated placement scope",
+          "method": "Local mirror",
+          "title": "Unique globally optimal two sign-only sites for Brownian-bridge area; Exact two-sign Brownian-bridge occupation quadrature",
+          "trigger": "Identical bridge and observation model"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": [
+            "Brownian motion and one magnitude comparator rather than a bridge and two sign observations."
+          ],
+          "identifier_or_url": "Resultary:61a1a6b86a00",
+          "material_read": "Finding and observation assumptions",
+          "method": "Local mirror",
+          "title": "Optimal one-bit magnitude sensing of Brownian quadratic path energy",
+          "trigger": "Quadratic energy and binary sensing"
+        },
+        {
+          "assessment": "Linear quadrature framework",
+          "evidence": [
+            "The estimated integral is linear in the field."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1808.10722v1",
+          "material_read": "§2.2 and posterior design discussion, OA offsets 15762 and 25175",
+          "method": "OA full-text passages",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "Gaussian optimal point design"
+        },
+        {
+          "assessment": "Provides a prior moment identity",
+          "evidence": [
+            "Gaussian sign-correlation arcsine law; not an integrated path-energy result."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.01280v2",
+          "material_read": "§1.2, Eq. (6), OA offsets about 12719–14161",
+          "method": "OA full-text passages",
+          "title": "Covariance estimation under one-bit quantization",
+          "trigger": "Potential general Gaussian sign identity"
+        },
+        {
+          "assessment": "Different target",
+          "evidence": [
+            "Conditional mean reconstructs jointly Gaussian channel inputs rather than quadratic energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.04470v2",
+          "material_read": "Abstract and Introduction, OA offsets 660 and 6380",
+          "method": "OA full-text passages",
+          "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+          "trigger": "Potential general one-bit conditional-mean result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical prior and even path functional create a sharp, useful sensing contrast: a single zero-threshold sign is uninformative, while two signs reveal a nonzero, exactly quantifiable fraction of energy variance. The fixed-correlation domination proves strict reflection symmetry for every global placement and rules out trisection, independently of numerics or uniqueness. These conclusions provide a reusable exact benchmark for quantized Gaussian sensing, not just an isolated risk evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit five-direction binary construction gives a transitive classification of all independent triples and all independent quadruples, with only two four-set orbits. The table of sixteen Boolean traces on each orbit representative consists of independently checkable maximal-independent-set witnesses. The impossibility of five-point shattering follows from the unique independent-five-set completion. The four-cube contrast is established by two complete 65,536-support finite exhaustive certificates using distinct adjacency constructions. Both source files and their exact reproducible commands are bundled.
+## correctness
 
-**Originality — PASS within inspected literature.** The closest sources distinguish MIS counting in Hamming cubes (Kahn–Park, arXiv:1909.04283), random greedy MIS densities (Krivelevich et al., DOI:10.1002/rsa.21200), and VC dimension of neighborhood concepts (Benediktsson–Macpherson–Adler, arXiv:2007.16042). Published research records on the folded-cube independence complex address topology of ordinary independent subsets. None of these inspected statements implies the exact maximal-independent-set shattering complex and its purification under antipodal edge insertion. A prior exact computation outside the indexed literature remains a genuine risk; absence from searches is not proof of historical priority.
+PASS
 
-**Value — PASS.** This is a complete structural answer for a canonical distance-transitive graph and a natural graph perturbation. It exhibits two distinct notions of purity: the folded cube's independence complex is nonpure (maximal independent set sizes four and five), whereas its shattering complex is pure. Adding just eight edges to \(Q_4\) simultaneously removes eight pair faces from the shattering family, adds sixteen four-faces, and eliminates lower-dimensional facets, making edge addition nonmonotone for the number of shattered supports. This supplies a geometric mechanism and orbit-level explanation beyond a scalar VC-dimension or recomputed graph table.
+Use the explicit folded 5-cube F=Q4 plus antipodal edges, not the 10-regular complement. A shattered support must be independent to admit the full trace. An independent triple can be translated to 0 and two sums of direction pairs with a shared member; translations and direction permutations give one orbit. At {0,3,5} the three independent extensions are 6,9,14: the latter two lie with the triple in N(1), and the first is the affine-sum extension, adjacent to both others. This gives 160 triples, 80 neighborhood quadruples and 40 affine planes. The planes are maximal independent and the sole extensions beyond four are the 16 neighborhoods. Each neighborhood quadruple extends to exactly one maximal independent set, ruling out shattering a five-set. The two orbit representatives are shattered by the listed witnesses. Independent reproduction enumerated all 65,536 supports per graph and all maximal-independent-set traces; replay python3 /workspace/branches/13e11a5a-0a54-4226-a73e-81ef5bbc595f/recheck.py. It confirmed both polynomials, the orbit types for F and the eight antipodal pair facets of Q4. The difference is setwise, not just a net count: a Q4 shattered four-set contains no antipodal pair by the pair-facet result, so is independent in F and remains shattered; exactly 16 new four-sets result. A separate local obstruction identifies these new four-sets as the 16 ordinary Q4 neighborhoods: each neighbor of a queried vertex in N_Q4(v) is v or is at distance two from v, and so fails to be private to that vertex. No trace with exactly that one vertex absent can be achieved in Q4. All 16 neighborhoods become shattered independent quadruples in F, accounting for the whole difference. The supplied scripts were inspected, not executed.
 
-**Closest literature and limitations.** The Kahn–Park theorem is asymptotic rather than a fixed finite trace theorem. The neighborhood VC theorem studies different concepts. Greedy MIS limit theorems do not classify the full finite family. The conclusion is restricted to sixteen vertices, and the \(Q_4\) portion relies on exhaustive finite source code. It is not asserted that published independent-set counts, symmetry descriptions or previously computed independence-complex topology are new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standalone Q4 polynomial and facet structure are directly covered by a distinct same-day Resultary record and are credited rather than accepted as a distinct result. In the frozen comparison Q4 is the baseline. The supported distinct contribution is the structural folded-cube shattering classification and exact change of the complex under inserting the antipodal edges. The earlier or same-day general/comparison statements examined do not cover that contribution.
+
+## value
+
+PASS
+
+A natural symmetric edge insertion raises the number of shattered four-sets while removing pair facets and making the shattering complex pure, without changing its dimension. The folded four-facet geometry and obstruction at five give a concrete structural distinction from independence. The exact perturbation is useful as a benchmark for how shattering by maximal independent sets responds to changes in adjacency; the already covered cube numbers serve as its comparison, not its value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

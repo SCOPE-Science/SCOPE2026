@@ -1,11 +1,21 @@
-# Scientific review: a sharp Pasch-overlap penalty
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has a complete finite-amalgamation reduction to link variables, an explicit characterization of Fano deletions as Pasches, and a point-pair uniqueness proof showing that distinct Pasches in a partial Steiner base share at most one opposite pair. Two-clause inclusion–exclusion gives the exact fractions; a third distinct clause strictly reduces the count, establishing the equality characterization. The ten-point witness is explicit and verified independently by both Fano enumeration and Pasch incidence enumeration; the six-point case is exhaustively checked. The script is corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS (same-model, provisional).** Conant's free-amalgamation treatment and the point-deleted Fano/Pasch equivalence in Král' et al. provide background. Published *Real-rooted one-point extension spectra of partial Steiner triple systems* concerns new extensions constrained to remain partial Steiner and uses leave matchings, whereas the present theorem permits every new link except Fano completions. Published *Sharp overlap-matching bounds for one-point types of the generic tetrahedron-free 3-hypergraph* concerns a different forbidden 3-hypergraph, with clauses attached to old triples rather than Pasch configurations. Their full proofs do not imply the present opposite-pair overlap-rigidity/equality theorem. Targeted result-record and literature searches located no equivalent; the possibility of an unindexed equivalent in Pasch-counting/design literature remains.
+PASS
 
-**Mathematical value — PASS.** The theorem links a canonical six-point design configuration to a sharp logical-extension deficit in a Fraïssé limit, identifies the next sharp penalty for two obstructions, and proves that its equality geometry first becomes possible with ten named points. The characterization is uniform for every finite partial-Steiner parameter base, not an arbitrary small census or restatement of a general inequality. It also explains precisely why the unbounded overlap structure matters beyond a raw Pasch count.
+A free amalgam of Fano-free hypergraphs stays Fano-free because a forbidden copy covers every pair, including any pair on opposite sides. The extension property and homogeneity identify types outside the named base with legal links; repeated free amalgamation gives infinitely many realizations. Deleting the new point from a forbidden copy leaves four old Pasch triples, and the deleted lines require exactly the three opposite pairs in the link. In a PSTS, write the four triples as ace, adf, bcf, bde. A common opposite pair ab and an extra common point c determine e and f via the unique completions of ac and bc; the unique completion of af now forces d. Hence distinct Pasches with a shared opposite pair have exactly two old vertices in common, requiring ten old vertices, and their matchings intersect in only one bit. The one-event fraction is 7/8. Two events have intersection 2^-5 or 2^-6, leaving 25/32 or 49/64. The link consisting just of the three coordinates of a third distinct clause witnesses strict further loss. In the ten-point witness both sides have pair-unique triples; no pair between exclusive vertices is covered, so no Fano copy crosses sides. Any mixed Pasch would have to have all four triples through the same attachment point, inconsistent with Pasch degrees. The five constrained bits give 25 times 2^40 legal links. Disjoint or isolated padding gives the remaining stated witnesses, including 7 times 2^12 on six points. Independent finite enumeration corroborated the ten-point witness; the arguments, not the enumeration, prove the universal bounds.
 
-**Limitations.** Old bases must be partial Steiner and Fano-free, while extensions need not remain partial Steiner. The result is about complete nonalgebraic one-point types, not higher tuples or automorphism orbits of unordered bases. Historical priority remains provisional. Independent mathematical audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The compared literature covers the Fano deletion geometry and PSTS pair-uniqueness, while the closest indexed counts impose a different extension condition, a different forbidden configuration, or a different number of new points. No compared statement gives the named-base PSTS overlap rigidity together with the sharp first and second type-count losses. This is a best-of-knowledge assessment, not a historical priority determination.
+
+## value
+
+PASS
+
+The count measures restrictions on free one-point extension in a natural forbidden-design age. The second obstruction is not just a repeated first penalty: the exact maximal surviving fraction changes with a specific overlap that is geometrically impossible below ten vertices, and the theorem characterizes equality and supplies a minimal witness. That distinction is useful in comparing extension spectra; the contribution is not just a small-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python ladder_transversal_verify.py` in Python 3. The code has no nonstandard dependencies. It reconstructs each ladder, enumerates all shortest paths independently by breadth-first-search distance, and checks their maximality by contiguous-subpath containment for \(2\le h\le8\). It verifies all \(2h\) claimed maximal paths in those seven orders, totaling \(70\) path witnesses. It then checks all \(349520\) vertex subsets for \(2\le h\le9\), identifies exactly \(242\) inclusion-minimal transversals, and compares every labeled set with the three-family construction and polynomial. The arithmetic sum is checked separately for \(4\le h\le99\).
+## correctness
 
-Observed execution output:
+PASS
 
-```
-VERIFY_OK independent_shortest_path_orders=2..8 maximal_geodesics_checked=70 all_subset_orders=2..9 subsets=349520 inclusion_minimal_sets=242 geodesic_paths=PASS facet_classification=PASS cardinality_polynomial=PASS finite_algebra=PASS
-```
+Distances are rung difference plus the column-change indicator. Thus shortest paths are monotone in the rung and use at most one switch. Extension gives exactly the two diameter-endpoint pairings with h switch positions each. If both columns are chosen, a path in one orientation misses the set exactly when its switch index t lies strictly between the maximum selected rung of its ending column and the minimum of its starting column; both orientations give the two gap inequalities. With one chosen column, the two extreme switches force its boundary pair. Only column extrema can be essential. In a 2+2 selection, both minima being essential would require each column maximum to exceed the other by at least two, an impossibility. In a 2+1 selection the singleton must be at least two rungs inside both extrema; removing it fails unless the two extrema are the full boundary pair. This proves both directions for all three labeled families. Pairs total 2+h+2(h−1)=3h. Per doubled column the count is binom(h−2,3)−(h−4) for h≥4, and is zero at h=2,3. Complementation makes minimal transversals correspond to facets, so positivity of the triple term from h=6 gives the stated purity cutoff.
 
-There is no claim that finite enumeration establishes the theorem for arbitrary \(h\). The proof in RESULT.md is the unrestricted mathematical argument. Independent audit: not performed.
+## originality
+
+PASS
+
+The minimum value 2 is prior, even on all rectangular grids. What survives is the labeled inclusion-minimal classification, size spectrum, and resulting purity cutoff. A distinct same-day ladder homology record has exactly the same cubic coefficient as a Betti number, but not the transversal spectrum or the complement complex.
+
+## value
+
+PASS
+
+The smallest nontrivial Cartesian strip is a natural test family for the maximal-geodesic covering hypergraph. The formula distinguishes optimum from inclusion-minimality and locates the first non-pure order h=6; the labeled families identify exactly which irredundant covers cause that distinction rather than merely giving a scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

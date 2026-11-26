@@ -1,19 +1,21 @@
-# Review of the depth-one AUGUST sign-reversal finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statistic agrees with the original three-reference-observation, depth-one hypergeometric construction. Its kernel is a signed median comparison. The population contrasts follow by conditioning and the probability integral transform; the quartic map has exact unit endpoints, an everywhere-positive derivative certified by a three-interval rational Bernstein decomposition, and two strictly positive rational population integrals. Bounded two-sample U-statistic laws give the strictly negative limit. Under the null, the first Hoeffding projections are opposites, with variance \(17/35\), giving a positive scaled chi-square limit and consequently zero right-tail asymptotic power. The optional exact finite-null mean is proved by classifying shared indices; its nine small-size instances were independently enumerated as a check, not as the proof. Exact checker: 40 assertions/identities passed.
+PASS
 
-## Originality — PASS, with qualification
+At depth one the first cell is the event of rank at most one among three references, or being below their median. The contrast 2 times this indicator minus one therefore gives h(u)=1−6u²+4u³. Under X∼G and Y∼F, U=F(X) has CDF Q and F(Y) is uniform, so the expectations are ∫h dQ and ∫h(Q) du. Integration by parts plus the exact cubic expansion gives the two perturbation identities. Q(0)=0, Q(1)=1; the degree-three Bernstein coefficients on the three stated subintervals are positive (replay by expressing Q'(a+(b−a)t)=∑c_i t^i; coefficient j is ∑_{i≤j} c_i binom(j,i)/binom(3,i)). Thus Q' is strictly positive and the Gaussian-composed densities are positive real analytic and distinct. Independent exact coefficient integration reproduces a=1/250, b=45549381047/5150145000000 and −ab=−45549381047/1287536250000000. Replay: set T=700Q; expand 700³−6·700·T²+4T³, integrate coefficient of u^j by dividing by j+1 (common multiplier 360360), and divide by 700³. For a use h T'/700 and the same monomial integration. Strong laws give the negative alternative limit; equivalently use uniform empirical CDF convergence and the O(1/n) replacement error for three references. In the null, E h=0, E h²=17/35, and fixing a reference uniform u gives 2E median(u,V,W)−1=−h(u)/3. The first projections are therefore exactly opposite, with higher-order degenerate terms of variance O((m+n)^−2) in the stated balanced regime. The CLT gives the scaled chi-square law, so the exact continuous-rank null's fixed-level upper-tail quantile tends to zero, giving zero limiting power against the fixed negative alternative. For the finite mean, neither overlap has mean product zero; exactly one gives −17/105, and if both distinguished draws are shared, conditioning on x<y gives the two factors 1−2x² and 1−4y+2y². Integrating their product over that triangle and doubling gives −17/45. Weighting the cases by the independent inclusion probabilities 3/m and 3/n and negating gives 17(m+n+1)/(35mn). The frozen checker and notes were inspected, not executed. No general statement at higher depth or at fixed finite sample size follows.
 
-The closest source is Brown and Zhang's AUGUST preprint (arXiv:2109.14013) and expanded open-access journal publication (DOI:10.51387/23-NEJSDS54). Their general population-cell formulas and U-statistic limit encompass evaluation of any specified alternative but do not state or certify an admissible smooth alternative with both symmetry contrasts strictly positive and a strictly negative signed product, nor give the source-specific exact null mean. The 2023 supplementary proofs were examined for the U-statistic generality and moment conditions. The older binary expansion independence construction concerns a different statistic. Scientific record searches of the same-sign, negative-product and exact-null-mean formulations did not identify an equivalent statement. A prior unpublished or differently indexed construction remains possible; searches do not prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The counterexample identifies a substantive aggregation failure that differs from ordinary moment-matching blind spots: both measured asymmetry coordinates are nonzero, yet multiplying them with the prescribed negative sign sends the test away from its rejection tail. This matters for interpreting power and consistency claims for the published depth-one procedure. The exact-null mean and limiting null scale make the right-tail failure precise rather than merely qualitative. The statement does not imply that the full AUGUST family, higher depths, or alternative two-sided procedures are inconsistent.
+The original statistic, its population formula and its U-statistic asymptotics are clearly prior. The two strictly nonzero same-sign population signals, their explicit positive-analytic witness, the resulting wrong-tail failure, and the separate finite-null mean were not covered by the compared primary statements.
 
-## Scope and closest literature
+## value
 
-Primary sources: Brown and Zhang, arXiv:2109.14013 (first public 2021-09-28); Brown and Zhang, *The New England Journal of Statistics in Data Science* (online 2023-12-15), DOI:10.51387/23-NEJSDS54; its supplementary mathematical proofs (2023-12-06). Background: Zhang, *BET on Independence*, JASA (2019), DOI:10.1080/01621459.2018.1537921. Main residual risk: unindexed specialty results about this exact signed statistic, not a flaw concealed by the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A continuous positive-analytic counterexample to the intuitive sign of an established two-sample test identifies zero asymptotic power, not merely reduced sensitivity or two vanishing coordinates. The wrong-side signal gives a concrete reason the one-sided combination can fail. The exact rank-null mean is a useful calibration check alongside, not the main reason to accept the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

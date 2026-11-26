@@ -1,23 +1,21 @@
-# Scientific review: surjective-assignment direct bases
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central feasibility equivalence \(q-|p(D)|\le n-|D|\) is necessary and sufficient. An extendible partial assignment cannot force an unassigned value unless exactly one input and one colour remain. A minimally impossible partial map without positional conflict has deficiency one and no singly used colour, because removing a singleton-used colour preserves deficiency and removing a repeat-used colour reduces deficiency by one. These facts classify every inclusion-minimal premise with a new entailed atom. For the full-domain shortage premises the proof explicitly exhibits an atom that is not implied by any proper subset, which establishes the nontrivial direct-basis lower bound. Counting is by labeled positions, used colours, and partitions into blocks of size at least two. The three-colour lattice count uses a disjoint infeasibility decomposition. A separate bitmask-based checker reconstructed the exact closure of all subsets for four small cases and completed larger deterministic samples. Finite tests only corroborate the unlimited-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+For an existing partial function, s≤r is exactly the condition for a surjective completion. If s<r, any color can be placed at a chosen blank and there are still enough positions for the remaining missing colors; if s=r≥2, the missing colors can be permuted. Only r=s=1 forces a new atom in a feasible premise. For an infeasible partial function, deletion of a singleton color preserves s−r, whereas deletion from a repeated color reduces it by one. This gives the stated minimal shortages; conflict pairs give the other inconsistent stems. Here stem means inclusion-minimal for a fixed conclusion atom, as specified in proof §3. In a full minimal shortage, one can take an unasserted value of a different already-used color at some input: there are at least two used colors, and no proper subset forces any color but the initially missing one. This justifies the lower bound even when a proper subset has a different nontrivial conclusion. Any direct basis must fire a rule with the exact stem to produce its witness atom; the displayed rules suffice on the original input in all cases. The three counts follow by choosing blanks, colors and ordinary or restricted partitions. The restricted recurrence distinguishes the block of the last element having size two from having larger size. For q=3 the only infeasible partial assignments are full functions missing a color and one-blank monochromatic assignments; removing those and the feasible one-blank forces and adding top yields the lattice formula.
 
-Wild's 2016 survey already proves that the stem family yields a minimum-cardinality direct basis; this general principle is prior art, not a new theorem. The 2024 D-base paper of Adaricheva, Nourine and Vilmin develops algorithms and complexity results for arbitrary closure systems, and the 2024 preprint of Baixeries and Napoli compares minimal and direct bases. Their inspected relevant sections do not display the onto-function stem classification, the exact associated-Stirling count, or the three-colour lattice cardinality. The bijective boundary \(n=q\) is a narrower, previously investigated assignment context and is explicitly excluded: it cannot settle the nonbijective shortage structures. A title/abstract/term search is insufficient to prove historical uniqueness, so equivalent results under alternative constraint-satisfaction, database or Horn-minimization terminology remain a priority risk. No independent novelty certification has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the elementary but genuinely global constraint of using every value at least once, the result supplies the complete minimal positive antecedents for one-round logical consequence and a sharp minimum number of multi-head Horn rules for infinitely many genuinely nonbijective contexts. The associated-Stirling sum distinguishes multiplicity-based inconsistency circuits from the ordinary same-position conflicts. The three-colour formulas give two different exact invariants—optimal direct-basis size and the full number of concept intents—with nontrivial exponential growth. The exact restriction to direct rather than arbitrary iterative bases is mathematically material. This is a structural enumeration, not a presentation-only reformulation of generic direct-basis existence.
+The distinct result is the explicit classification and enumeration for all onto assignments with n>q≥3. The general optimality theorem for stems is prior work; the strongest retrieved indexed analogues treat one prescribed histogram or permutations. Neither yields the displayed shortage family or the onto-assignment counts.
 
-## Closest literature and limitations
+## value
 
-- M. Wild, *The joy of implications*, arXiv:1411.6432, Section 3.3 and Theorem 2: general stem-minimality principle, credited and used only as context.
-- K. Adaricheva, L. Nourine, S. Vilmin, *Computing the D-base and D-relation in finite closure systems*, arXiv:2404.07037 (2024-04-10): general algorithms and hardness of the D-relation, not an identified specialized onto-map census.
-- J. Baixeries, A. Napoli, *A minimal base or a direct base?*, arXiv:2404.12229 (2024-04-18): direct-versus-minimal basis algorithms and experiments, not an identified onto-map family formula.
+PASS
 
-The mathematical claim is limited to \(n>q\ge3\), positive assignment literals, original-set simultaneous rule evaluation, and freely multi-atom conclusions. It does not prove minimality for iterative or unit-conclusion Horn bases, nor establish priority against all possible aliases.
+A surjective assignment is a natural global constraint. The classification gives an exact one-round representation and its unavoidable rule cost, separating local clashes from genuinely global shortages. The scope distinction makes the count useful for direct evaluation rather than claiming a generic Horn minimization result. The three-color counts provide an explicit boundary and first examples of the general theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

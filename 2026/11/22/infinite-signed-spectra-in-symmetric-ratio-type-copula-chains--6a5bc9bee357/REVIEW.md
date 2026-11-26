@@ -1,26 +1,21 @@
-# Scientific review: signed spectra of symmetric ratio-type copula chains
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated class the centered Markov operator is compact and self-adjoint because the symmetric density is continuous on the compact square. The covariance formula (2) follows by integrating the joint density twice by parts; all boundary terms vanish. For positive parameters, the uniformly differentiable geometric expansion (3) produces a trace-class sum of nonnegative rank-one operators, and the Vandermonde independence of sampled features gives infinite positive rank. The spectral theorem then yields complete monotonicity at all nonnegative lags. For negative parameters, the exact Cauchy double-alternant (6) gives every principal-minor sign and hence the \(LDL^\mathsf{T}\) pivot sequence \(-,+,-,+,\ldots\). Smooth derivative-bump approximation transfers arbitrary finite positive and negative subspace dimensions to the Markov operator; compactness gives infinitely many eigenvalues of both signs. These arguments establish all index and parameter quantifiers, not just finite experiments. The included exact-rational checker reproduced determinant and pivot identities through dimension six.
+PASS
 
-The only assumption about the distribution is that the ratio formula is a genuine copula with positive denominator; no arbitrary parameter is presumed valid. The published exponential example meets this condition in the stated interval, excluding the positive singular endpoint. No infinite-dimensional theorem is inferred solely from the finite computations.
+The mixed derivative uses only f and f′ at separate coordinates and is continuous under the denominator condition. Copula admissibility makes it nonnegative with uniform marginals, and symmetry gives a compact self-adjoint Markov contraction preserving the centered space. For positive θ, θ|f(0)|²<1 and the geometric expansion has centered derivative features (u f(u)^j)′. The norm bound on these features gives a finite sum of the traces of their weighted positive rank-one operators. Infinite rank follows from the Vandermonde independence of the first m integrated features at arbitrary distinct interior nodes. Independently of the proof's valid bump approximation, H_m is exactly the form matrix of P_θ at the centered indicators 1_[0,u_i]−u_i, by stationarity and the copula formula. This also checks the transfer for negative θ: Cauchy's determinant and diagonal scaling give determinant sign (−1)^(m(m+1)/2) for every leading block, so the LDLᵗ pivots alternate starting negative and the matrix has the stated strictly signed indices. The corresponding indicator spans yield unbounded dimensions of both signs for P_θ. The covariance identity γ_n=⟨h,P_θ^n h⟩ then gives all finite-difference inequalities in the positive case from the spectral measure on [0,1], and strictly alternating covariances for a negative eigenfunction. At θ=0 the centered operator vanishes. The 2024 Table 1 row (7) confirms the cited generator and range; θ=1 fails denominator positivity at the origin and is correctly excluded. CHECKER.py was inspected, not executed; its finite diagnostics do not prove the unbounded inertia result.
 
-## Originality — PASS, with residual historical-priority risk
+## originality
 
-The 2024 source defining the symmetric separable ratio construction and its exponential example addresses admissible parameters, quadrant ordering and rank dependence rather than the covariance-kernel inertia or Markov spectral signature. Longla's 2024 spectral representation covers the existence of eigenfunction decompositions for generic symmetric square-integrable copula densities, but does not determine the positive/negative inertia of this particular ratio construction. The 2022 Ali–Mikhail–Haq Markov analysis concerns mixing bounds; the 2023 ratio-type copulas paper concerns constructions and dependence measures. These results do not, as written, imply the exact all-dimensional alternation of (6) or the positive-parameter all-observable complete monotonicity. The old Cauchy determinant and spectral theorems are explicitly acknowledged as ingredients rather than claimed new results. Indexed searches found no prior identical formulation; absence of search results is not a proof of historical uniqueness, and older kernel literature could contain equivalent results.
+PASS
 
-## Value — PASS
+The supported distinct claim is the full centered transition-operator signature for the admissible ratio family, including infinitely many modes of both signs throughout its negative regime. The family, quadrant dependence, and parameter ranges are prior. The finite signature is a specialization of classical Cauchy/sign-regular matrix theory, not a new matrix-inertia principle, and complete monotonicity follows from the established positive spectrum by the spectral theorem.
 
-Quadrant dependence governs monotone statistics, but gives no immediate sign classification for arbitrary centered time-series observables. The result makes a sharp, reusable distinction for an established family: positive parameters forbid negative spectral modes and force complete monotonicity of *every* lag covariance; every negative parameter, including the extended admissible range of the exponential example, has infinitely many modes of each sign and admits indefinitely alternating covariances. The exact finite-matrix inertia is a structural signature applicable to arbitrary sample grids and is not a small numerical enhancement or arbitrary parameter slice. The result helps assess spectral assumptions in stationary copula-chain modeling without claiming to compute mixing rates.
+## value
 
-## Closest literature and limits
+PASS
 
-- El Ktaibi, Bentoumi and Mesfioui (2024), https://doi.org/10.3390/math12111743 — prior ratio family and exponential model, not spectral classification.
-- Longla (2024), https://doi.org/10.1007/s00362-024-01559-9 — generic spectral framework and other copula constructions, not the Cauchy-inertia calculation.
-- Longla, Mous-Abou and Ngongo (2022), https://doi.org/10.1007/s44199-022-00045-1 — mixing of Ali–Mikhail–Haq, not the present sign laws.
-- Chesneau (2023), https://doi.org/10.3390/sym15050977 — earlier ratio constructions, not the stationary spectral result.
+The classification shows exactly why the sign of a quadrant-dependence parameter does not determine the signs of all time-series covariances. Positive parameters yield covariance moment sequences for every centered observable, while even strictly negative quadrant dependence in this family coexists with infinitely many positive as well as alternating modes throughout the admissible nonsingular negative range. The result is a structural property of an established family, not merely a new use of terminology for Cauchy matrices or a two-point numerical witness.
 
-The strictly positive denominator assumption excludes certain singular endpoints; no exact eigenvalue locations or mixing rates are claimed. General historical priority requires further independent literature scrutiny.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

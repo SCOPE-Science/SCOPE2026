@@ -1,15 +1,21 @@
-# Scientific review: mixed-norm harmonic reproducing-kernel zero arc
+# Independent mathematical audit
 
-## Correctness — PASS
-The harmonic Fourier modes are orthogonal with the exact stated squared norms. Termwise reciprocal-norm decomposition produces the Poisson-mixture identity without an approximation. Division by the strictly positive Poisson kernel yields a normalized ratio for which the angular derivative has a fixed strict sign; at opposite points the radial derivative has the opposite fixed sign. These inequalities jointly prove the unique first radius, exactly two zeros on every greater radius, the regular single arc and the absence of other zeros. Compact-uniform series convergence and bounded dominated-convergence integrals prove the two endpoint constants. Numerical scripts verify representative cases but are not relied on as infinite proofs.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest full texts inspected included Nishio–Tanaka (2017), which treats harmonic Bergman kernels for radial interior measures without a mixed boundary-atom nodal classification; also Engliš, *Boundary singularity of Poisson and harmonic Bergman kernels* (arXiv:1503.06440), particularly its introductory harmonic-kernel construction and concluding boundary-operator discussions, and Auchmuty, *Reproducing Kernels for Hilbert Spaces of Real Harmonic Functions*, particularly its harmonic orthogonalization and kernel-construction sections. They concern the general reproducing-kernel framework, Steklov/boundary spectral formulations and boundary singularities; their inspected portions do not state or imply the all-parameter global nodal arc, exact sharp product radius, and two asymptotic constants. The holomorphic radial Bergman regularization problem has a different kernel: only one analytic frequency half appears there, so its nonvanishing conclusions do not imply the present result. An older abstract on the Lions reproducing-kernel formula was available without full text and remains a publication-priority risk; absence of a database hit is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The mixed area/boundary norm is a natural interpolation between harmonic Bergman and harmonic Hardy spaces. The complete zero-set classification is a structural invariant, not an isolated numerical root: it establishes the optimum zero-free product disk, uniqueness/topology of the nodal arc, and the exact rate at which a seemingly zero-free Hardy limit is approached. This sharp contrast with holomorphic regularization makes the distinction between real-harmonic and analytic reproducing kernels mathematically consequential.
+The normalized disk and boundary norms give reciprocal squared norms a_n=(n+1)/(1+κ(n+1)) with one constant and two harmonic modes per positive n. Writing a_n as a constant minus a moment yields exactly the Poisson-mixture identity. Dividing by the positive P_r, differentiation under the s-integral gives strict angular increase in c=cos θ: the numerator of the c-derivative of P_sr/P_r is proportional to −r(1−s)(1−sr²)(1−s²r²). At c=1 the normalized kernel is positive. At c=−1 the ratio (1+r)(1−sr)/((1−r)(1+sr)) increases strictly with r for s<1, and the integral diverges as r→1. This gives the unique first crossing and exactly two zeros at every larger radius. Nonzero angular derivative away from the antipodal point and nonzero radial derivative at it give the embedded analytic arc. For each c<1 the Poisson term tends to zero and the integral to a positive number (dominated, as the denominator is bounded away from zero for fixed c), so the zero cosine tends to 1. The compact κ→0 limit on the negative axis crosses at √2−1. The κ-scaled kernel tends to P_r for fixed r as κ→∞, forcing ρ_κ→1; taking the limit in the exact root equation gives κ(1−ρ_κ)→2∫₀¹(1−s)/(1+s) ds. The attached checker and logged values are consistent finite numerical checks, not proof of any continuum assertion.
 
-## Scope and limitations
-The statements apply to the planar disk and the specified unweighted area-plus-boundary norm; no weighted-domain or higher-dimensional generalization is claimed. No independent expert or machine-certified audit has been completed. Exact earlier equivalent formulas may exist in harmonic reproducing-kernel literature not available for full-text inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected sources give related kernels, representations or local nodal birth in a distinct norm. The supported remainder is the complete zero arc for the exact mixed harmonic norm for every finite positive weight, and its two endpoint laws; no priority for the general harmonic kernel framework or unregularized disk formula is claimed.
+
+## value
+
+PASS
+
+The claim identifies how a natural interpolation between harmonic Bergman and Poisson kernels preserves one connected nodal arc for every finite parameter despite the strictly positive boundary-only limit. The sharp radius and the asymptotic escape toward the boundary specify where the positivity limit loses uniformity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

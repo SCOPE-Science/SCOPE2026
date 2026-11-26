@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:56:54.666551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen claim FAILS: its Finding incorrectly says that beyond H only the hub diagonal is negative. For m=2,k=1,h=6>H=2, the diagonals are −1/5,−1/20,−1/20. Direct exact multiplication (I+3L)C=I−3L verifies this witness; the frozen checker only compares the diagonal ordering and misses the inference from ordering to sign. The corrected files in /workspace/repairs/4/ retract that assertion and give both thresholds. In the repaired proof, the mutually orthogonal projections for star eigenvalues 0,1,m+1 give the four entry formulas. The scalar divided difference strictly decreases on 0<z<1 by strict convexity; for z>1 the even numerator decreases, and for odd k the derivative test holds because z(t^k)'=(k/2)(1−t²)t^(k−1)≤k(1−t)t^(k−1)≤1−t^k<1+t^k, t=(z−1)/(z+1). Continuity at 1 joins the intervals, proving strict leaf off-diagonals; hub off-diagonals are positive from |b|<1. Even diagonal positivity follows directly. For odd k, the leaf diagonal exceeds the hub by (m−1)(a^k−b^k)/m>0, so the hub crossing gives the exact nonnegativity horizon and is the sole zero there. The leaf diagonal is continuous and strictly decreasing (positive weights on a^k and b^k, with odd k) from 1 to (1−m)/(m+1), so there is a unique later leaf crossing and all diagonals are negative afterward. The coth formula gives strict growth and the O_m(k^(−1)) expansion for the first threshold. `python3 /workspace/repairs/4/verify.py` passed 693 exact-rational star-power cases, two exact hub crossings (including k=3), a rational bracket at steps 4 and 5 for the leaf crossing at m=2,k=1, the failure witness at step 6, and the four-path even-power counterexample. Those checks are finite; the analytic proof establishes the unrestricted repaired result. The original failed evidence is preserved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 theorem requires 0≤f≤1 and monotonicity of (1−f(s))/s for universal positivity on the connected unweighted multipartite class. Its entry formulas (1)–(4) already give the four star formulas. Even powers satisfy the filter criterion. The November 2 weighted-star theorem includes k=1 with equal weights."
+        ],
+        "reasoning": "The general formulas and the even consequence must be credited. For odd powers the multiplier is signed, and the universal filter criterion does not decide positivity on this fixed star: at the first boundary b^k=−1/m<0 despite all other entries being strictly positive. The repaired proof works in this region by verifying the needed divided difference independently, not by invoking a universal nonnegative-filter assumption.",
+        "searches": [
+          "Resultary: exact positivity criterion on complete multipartite diffusion graphs",
+          "Resultary: weighted-star and related Crank–Nicolson power classifications"
+        ]
+      },
+      "checked_sources": [
+        "Complete multipartite filter, weighted-star one-step, bidirected-star balancing and cyclic power records identified above",
+        "Bounded primary-literature web search for repeated star Crank–Nicolson/Cayley positivity; no decisive primary full text obtained"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual statements and assumptions checked: universally nonnegative scalar filters, one weighted-star step, and directed-cycle powers, respectively."
+        ],
+        "reasoning": "The known continuous-filter entry expressions leave the leaf–leaf sign as a nontrivial comparison of f evaluated on two modes when f is signed. The odd signed divided-difference estimate plus the diagonal ordering supplies the missing comparison, reducing positivity to the hub root. Taking powers of the known one-step nonnegative map proves sufficiency only up to H_(m,1), not sharpness for odd k≥3 or recovery following a negative intermediate step.",
+        "searches": [
+          "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "2026/11/2/SCOPE-sharp-positivity-horizon-and-homogenization-extremum-for-weighte--2ba13f6aa0a6",
+          "2026/10/26/SCOPE-two-step-positivity-and-a-three-state-parity-exception-for-cycli--5dc6def72908"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-multipartite filter formulas apply algebraically to f(s)=((2−s)/(2+s))^k; the directed-cycle record treats powers of the same method on a nonreversible cycle generator. The web lookup surfaced general Cayley/Crank–Nicolson and diffusion-PDE material, not the star power threshold in the inspected returns."
+        ],
+        "reasoning": "The generator is a symmetric unweighted star Laplacian and the observable is entry positivity of one completed matrix power. Thus methods imposing positivity at each stage are stronger conditions at a given h, not equivalent classifications, and directed cyclic powers are not a star specialization.",
+        "searches": [
+          "Resultary: repeated Crank–Nicolson powers on stars",
+          "Web: \"Crank–Nicolson\" powers star graph positivity odd threshold Cayley transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact special case H_(m,1)=2/(m−1) from uniform weights in the November 2 theorem and consistent with the symmetric-rate instance of the same-day rate-balancing result. The closest returned all-power thresholds pertain to directed cycles."
+        ],
+        "reasoning": "A k=1 formula does not tabulate or determine the higher-power horizon: e.g. on the eight-leaf star H_(8,1)=2/7 whereas H_(8,3)=2/3. An unsuccessful exact-threshold query is not itself priority evidence.",
+        "searches": [
+          "Resultary: odd-star threshold for k≥3",
+          "Resultary: weighted-star one-step horizon and homogenization extremum",
+          "Resultary: sharp rate balancing for a bidirected star"
+        ]
+      },
+      "rationale": "The surviving distinct result is the sharp completed-map positivity and entry-sign classification for repeated odd powers k≥3 on unweighted stars, in particular the exact first horizon. The raw spectral entry formulas, unconditional even-power consequence, and one-step horizon are covered ingredients. The repaired leaf crossing does not on its own constitute an independent novelty claim. The nontrivial step beyond the known filter criterion is control of the strict divided-difference sign for the signed odd filter, which allows the exact first diagonal crossing to determine the positivity of the entire completed map.",
+      "residual_risks": [
+        "Unindexed matrix-function or graph-filter treatments may give equivalent sharp odd-power star bounds.",
+        "Primary literature OA retrieval attempts timed out; do not treat an uninspected paper as excluded or claim global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the formulas and even-power consequence, not the signed odd-power divided-difference estimate or resulting finite horizon.",
+          "evidence": [
+            "Universal criterion: 0≤f≤1 and (1−f(s))/s nonincreasing; compare odd a^k,b^k at h where b<0."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "material_read": "Finding, Assumptions and scope, Proof including all-entry formulas (1)–(4).",
+          "method": "Local Resultary mirror.",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Broader spectral-function result on a class containing stars."
+        },
+        {
+          "assessment": "Covers the one-step threshold including k=1 with equal weights; does not classify higher powers.",
+          "evidence": [
+            "One-step hub extremum with the unit-weight specialization 2/(m−1)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-positivity-horizon-and-homogenization-extremum-for-weighte--2ba13f6aa0a6",
+          "material_read": "Finding and Proof.",
+          "method": "Local Resultary mirror.",
+          "title": "Sharp positivity horizon and homogenization extremum for weighted-star Crank–Nicolson steps",
+          "trigger": "Same method and graph class; unweighted stars are included."
+        },
+        {
+          "assessment": "One-step rate optimization, including matching symmetric-rate one-step case; not a power result. The calendar date does not establish priority.",
+          "evidence": [
+            "Separate outward and return rates in a single Crank–Nicolson update."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-rate-balancing-for-crank-nicolson-positivity-on-a-bidirect--36e1cb7bf9ed",
+          "material_read": "Finding and Proof.",
+          "method": "Local Resultary mirror.",
+          "title": "Sharp rate balancing for Crank–Nicolson positivity on a bidirected star",
+          "trigger": "Same-day result with star positivity horizon in the title."
+        },
+        {
+          "assessment": "Directed-cycle generator and its power classification do not subsume stars.",
+          "evidence": [
+            "Three-state cycle parity exception and sharp two-step bound on longer directed cycles."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-step-positivity-and-a-three-state-parity-exception-for-cycli--5dc6def72908",
+          "material_read": "Finding and Proof.",
+          "method": "Local Resultary mirror.",
+          "title": "Two-step positivity and a three-state parity exception for cyclic Crank–Nicolson",
+          "trigger": "Same question about powers and parity on another finite graph."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving classification gives the precise allowable step for a repeated odd-step diffusion output map, distinguishes the first loss of positivity from negativity of all diagonals, and quantifies the increasing tolerance with completed odd power. It explains how a completed even map can be positive despite negative intermediate iterates, while the four-path witness bounds transfer to other trees. This is a sharp, natural completed-output invariant and not a stagewise SSP, damping or accuracy guarantee. The known even and one-step facts alone are not a new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

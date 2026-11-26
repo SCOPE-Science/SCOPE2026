@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:31:22.697261Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced the named graph and all claimed degree/eccentricity counts with /workspace/petersen_replay.py (run `OPENBLAS_NUM_THREADS=1 python -B /workspace/petersen_replay.py`, with NumPy/SciPy). The pentagon/pentagram/spoke presentation was checked against all pairs of the assigned KG(5,2) vertices. Enumerate proper restricted-growth codes with at most six blocks; for a middle edge uv in a proper colouring, a forbidden alternating P₄ exists with that middle edge iff u has another neighbour of v's colour and v has another neighbour of u's colour. Their distinct colours ensure four distinct vertices. This yields no partitions below five and exactly 64 and 410 for five and six blocks. Expanding by all named colour permutations gives 341,280 distinct codes (the five-block case has just one unassigned name). For each omitted coordinate, sort all valid codes by the other nine coordinates: each bucket is exactly a clique of size at most six, and each edge lies in exactly one such clique. This independent adjacency construction gives 1,094,400 edges and degree multiplicities 3:14,400; 4:64,800; 6:108,000; 7:86,400; 8:21,600; 10:46,080. The 7,680 codes avoiding name 5 induce no edges. Independently enumerating graph automorphisms by consistent adjacency assignments gives 120 and eleven partition orbits. Full named-state shortest paths from each orbit representative reach every state; one six-block orbit of 30 partitions has eccentricity 14 and the other ten have 15. Multiplying orbit sizes by 720 gives 21,600 and 319,680 respectively, proving radius 14, diameter 15, and minimum nonempty connected palette six. Source C++ and Python and their logs were inspected, not executed; in particular the Python partition quotient by itself cannot establish named distances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Chen abstract gives six-star-colourability of every subcubic graph and sharpness as a uniform bound. Johnson et al. study recolouring in the space of ordinary proper colourings, including a complexity theorem for 3-colourings. Hojny–Pfetsch describe star-colourable induced-subgraph optimization and polyhedral structure."
+        ],
+        "reasoning": "An existence bound does not supply sequences of valid moves. Ordinary proper recolouring moves may leave the star-colouring subspace, so ordinary connectivity and distances do not control its induced subgraph as claimed. A polyhedral encoding of existence is not a reconfiguration or distance theorem.",
+        "searches": [
+          "Chen–Raspaud–Wang DOI:10.1002/jgt.21636",
+          "Johnson et al. arXiv:1403.6347 p. 1 and Theorem 1",
+          "Hojny–Pfetsch open preprint 4759.pdf",
+          "Star Coloring of Certain Graph Classes DOI:10.1007/s00373-017-1864-6 (access attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, labeled_check.cpp, partition_check.py and their recorded logs",
+        "DOI:10.37236/1779",
+        "Vince, Star Chromatic Number",
+        "DOI:10.1002/jgt.21636 (abstract and full-text attempt)",
+        "arXiv:1403.6347",
+        "Hojny–Pfetsch 4759.pdf",
+        "arXiv:2410.15024",
+        "DOI:10.1007/s00373-017-1864-6 (access attempt)",
+        "Resultary 83b049512d48"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subcubic theorem yields only χ★≤6 here; it does not exclude four, show isolation at five, or establish six-palette mobility. The exact indexed ordinary-recolouring result has no star constraint. Independent full named-state traversal, not a quotient-distance inference or ordinary path substitution, gives the eccentricities."
+        ],
+        "reasoning": "The exact threshold compares frozen optimal star-colourings and a connected graph with one spare name. Achieving this star-preserving connectivity and obtaining its exact distances require additional work even if an isolated optimum-colourability result were known.",
+        "searches": [
+          "Chen–Raspaud–Wang indexed abstract; Johnson et al. arXiv:1403.6347; compare indexed 83b049512d48 to the frozen named-state definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Albertson et al. use the proper vertex-colouring condition forbidding a bicoloured four-vertex path. Vince's χ* instead uses circular modular separation of adjacent colours; its Petersen passage refers to ordinary 3-colouring. arXiv:2410.15024 refers to star edge colourings."
+        ],
+        "reasoning": "The no-bicoloured-P₄ definition is the equivalent star-vertex invariant. Neither circular colourings, edge colours nor their colourings of Petersen-family graphs give the states or adjacency used in this record.",
+        "searches": [
+          "Petersen star colouring / no 2-coloured P₄ vertex colouring and one-vertex recolouring",
+          "Albertson et al. DOI:10.37236/1779",
+          "Vince, Star Chromatic Number, pp. 1 and 7",
+          "Omoomi–Vahid Dastjerdi arXiv:2410.15024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 83b049512d48 gives 60K₂ at k=3 and a connected 12,960-state graph of radius 13 and diameter 14 at k=4 for the same graph and move but ordinary proper colourings. The retrieved ranked sets did not identify an exact catalogue for the star-preserving five- and six-palette graphs."
+        ],
+        "reasoning": "The strongest actual indexed comparison has a different validity condition and different palettes and does not determine these constrained metrics. Top-ranked coverage is bounded, not an exhaustive absence proof.",
+        "searches": [
+          "Local Resultary ranked search for Petersen star-colouring reconfiguration palette threshold and six-colour metrics",
+          "Inspect Resultary 83b049512d48 Finding",
+          "Hojny–Pfetsch 4759.pdf star-colourable induced-subgraph optimization comparison"
+        ]
+      },
+      "rationale": "The distinct supported claim is the sharp mobility threshold and exact geometry of named, star-preserving one-vertex reconfiguration on the Petersen graph. The established star-colouring condition and general existence results are not new; the comparison does not rely on a priority claim for the isolated χ★(P)=5 value. No inspected covering reconfiguration theorem or matching indexed census was found.",
+      "residual_risks": [
+        "The Chen and Star Coloring of Certain Graph Classes papers could not be inspected in full. An inaccessible or unindexed table, especially for the static χ★ value, remains possible. No publication priority is inferred from ranked lookup results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the constraint and general existence bound",
+          "evidence": [
+            "Cubic graphs are 7-star-colourable; the inspected passage supplies no Petersen-specific optimum or move graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1779",
+          "material_read": "p. 1 abstract and formulation",
+          "method": "OA targeted primary-text passage",
+          "title": "Coloring with no 2-Colored P4's",
+          "trigger": "Foundational equivalent definition and cubic bound"
+        },
+        {
+          "assessment": "Terminological false positive",
+          "evidence": [
+            "Uses modular separation for adjacent colours; the Petersen mention refers to ordinary three-colourability."
+          ],
+          "identifier_or_url": "A. Vince, Journal of Graph Theory 12 (1988), 551–559",
+          "material_read": "pp. 1 and 7 of the accessible text",
+          "method": "Targeted primary-text inspection",
+          "title": "Star Chromatic Number",
+          "trigger": "Petersen-specific title/terminology match"
+        },
+        {
+          "assessment": "General existence bound verified from the abstract; other paper contents unresolved",
+          "evidence": [
+            "Every subcubic graph is six-star-colourable, with a sharp uniform bound. Full text was unavailable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.21636",
+          "material_read": "Indexed abstract excerpt only",
+          "method": "Index comparison plus attempted lawful publisher/repository retrieval",
+          "title": "6-Star-Coloring of Subcubic Graphs",
+          "trigger": "Strongest plausible general star-colouring bound for Petersen"
+        },
+        {
+          "assessment": "Different validity condition",
+          "evidence": [
+            "One-vertex moves preserve ordinary proper colouring, not the star constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.6347",
+          "material_read": "p. 1 abstract, p. 3 Theorem 1",
+          "method": "OA primary full-text targeted passages",
+          "title": "Finding Shortest Paths between Graph Colourings",
+          "trigger": "Same move rule and shortest-path invariant"
+        },
+        {
+          "assessment": "Study concerns a different object and objective in the inspected material",
+          "evidence": [
+            "Optimizes star-colourable induced subgraphs and investigates polytopes, not named one-vertex move distances."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2015/01/4759.pdf",
+          "material_read": "p. 1 abstract/introduction",
+          "method": "OA preprint targeted passages",
+          "title": "A Polyhedral Investigation of Star Colorings",
+          "trigger": "Potential exact star-colourability or enumeration predecessor"
+        },
+        {
+          "assessment": "Edge variant, not vertex reconfiguration",
+          "evidence": [
+            "Studies the star chromatic index of edge colourings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15024",
+          "material_read": "p. 1 abstract/definition",
+          "method": "OA primary targeted passage",
+          "title": "Star edge-colouring work on Petersen-family graphs",
+          "trigger": "Close series and parameter name"
+        },
+        {
+          "assessment": "Access risk; no content-level verdict",
+          "evidence": [
+            "No readable same-paper full text obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-017-1864-6",
+          "material_read": "Bibliographic identification only",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Star Coloring of Certain Graph Classes",
+          "trigger": "Plausible exact small-graph precedent"
+        },
+        {
+          "assessment": "Same graph and move but ordinary, not star, validity",
+          "evidence": [
+            "At k=3 the proper move graph is 60K₂; at k=4 it has 12,960 vertices, is connected, and has radius 13 and diameter 14."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-petersen-vertex-recolouring-geometry-at-three-and-four-col--83b049512d48",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact Petersen vertex-recolouring geometry at three and four colours",
+          "trigger": "Closest indexed match on graph, moves and metric suite"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Petersen is a canonical cubic graph, and the move constraint is the standard one-vertex reconfiguration move restricted to star colourings, not a chosen ad hoc slice. The first extra palette colour changes complete freezing to global connectivity, and the exact distances and degree data give concrete benchmarks for constrained recolouring and for distinguishing named-state geometry from quotient geometry. The value rests on this mobility and metric classification, not on recomputing an ordinary colouring invariant or merely finding a single valid star colouring.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

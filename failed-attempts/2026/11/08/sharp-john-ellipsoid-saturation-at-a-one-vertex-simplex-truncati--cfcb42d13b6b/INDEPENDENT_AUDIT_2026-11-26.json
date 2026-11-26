@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:57:09.994013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–80",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run); reported finite exact/grid checks and numerical optimization do not constitute universal proof, prior independent audit, expert attestation or Lean verification."
+      ],
+      "rationale": "The unique John ellipsoid is invariant under permutation of the n residual coordinates, so in the affine (x_1,u) coordinates it has separate axial radius s and circular radius rho. The end constraints are s<=c and c+s<=h. Each residual coordinate has center (n−c)/n and squared support radius s²/n²+((n−1)/n)rho², giving the sharp feasibility constraint s²+n(n−1)rho²<=(n−c)². For fixed feasible s, lowering c to s preserves feasibility of the end constraints, and maximizes the allowable rho strictly unless c=s. At c=s the volume objective is proportional to s[n(n−2s)]^((n−1)/2), which has its unique unconstrained maximum at s=n/(n+1). The cap imposes s<=h/2, giving both branches and contacts by active supports. The Gram matrix of the restriction of an orthonormal zero-sum embedding to the last n−1 coordinates has determinant 1/n, giving the 1/sqrt(n) volume factor. The logarithmic derivative 1/h−(n−1)/(2(n−h)) vanishes at h_* and its derivative there on the lower branch is negative, proving C¹ and failure of C². The strict inequality in proof line 62 at c=h/2=alpha is a nonessential endpoint slip: the derivative is zero exactly there and positive before it, and the constrained optimum and Finding are unchanged.",
+      "residual_risks": [
+        "No extension to oblique or multiple cuts is assessed. The cited strict derivative slip affects no part of the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 07410bf05003 treats arbitrary convex-base homothetic frusta in d>=3 and gives the cap-contact threshold. The simplex is one such base. Resultary bfb9af719d89 treats the same positive-orthant frustum for d>=3, adding the Löwner ellipsoid and volume ratio.",
+          "Mordhorst Theorem 6.6 gives a John ellipsoid for a particular simplex-frustum construction, not an all-depth formula. The Godbersen-profile record dda979276949 treats the same geometry but computes opposite-body mixed volumes; the three-phase capped-hypercube record 9b8726b32127 has extra coordinate bounds and is not this family."
+        ],
+        "reasoning": "The arbitrary-base frustum and same-family John–Löwner results reinforce overlap where they apply; d34d69923786 separately covers n=2 as well. The other related results need not be claimed to imply the formula.",
+        "searches": [
+          "Resultary: universal John ellipsoids of homothetic frusta; John–Löwner ellipsoids of simplex frusta",
+          "Mordhorst arXiv:1509.06023, Theorem 6.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior comparisons",
+        "Resultary d34d69923786, 07410bf05003, bfb9af719d89, dda979276949, 9b8726b32127",
+        "arXiv:1509.06023, Theorem 6.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The volume pulls back as κ_n n^n sqrt(p^(n−1)q)=κ_n s rho^(n−1)/sqrt(n). It is constant on the saturation branch, and differentiating the other known branch yields exactly the stated strict increase, matching first derivatives and unequal second derivatives. Setting h=1 gives rho²=1 and volume κ_n/(2sqrt(n)).",
+          "The original x_1=0 maps to the upper-sum facet; x_1=h maps to the lower-sum facet; the remaining original facets map to coordinate facets. The contact assertion is thus already in the prior Finding."
+        ],
+        "reasoning": "No distinct surviving exact invariant results from changing coordinates, differentiating the volume formula, relabeling the same facets, or specializing the depth.",
+        "searches": [
+          "Full Finding of d34d69923786 and its John contact certificate; stated scope of 07410bf05003 and bfb9af719d89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In d34d69923786, the Finding covers F_{n,t}={z_i>=0, t<=sum z_i<=1}, 0<=t<1. The exact map from the frozen K is z=(n−sum x_i,x_2,...,x_n)/n, t=1−h/n. The map is invertible and |det Dz|=n^(−n).",
+          "Write H=sum of the prior center coordinates and p,q for its two squared shape eigenvalues. Then x-center coordinate c=n(1−H), s²=n³q and rho²=n²p. Substitution gives both frozen formulas and maps the prior lower-sum contact threshold t_*=(n−1)/(n+1) to h_*=2n/(n+1)."
+        ],
+        "reasoning": "The prior formulas and active hyperplanes agree under the affine map, including the endpoint h=n, and John ellipsoids are affine equivariant. This is exact same-family coverage, not similarity of title or parameter count.",
+        "searches": [
+          "Resultary: exact John ellipsoid simplex frustum and one-vertex simplex truncations",
+          "Primary search for inscribed ellipsoid in simplex/pyramid frustum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-branch symbolic formula for the shape matrix Q=pP_perp+qP_parallel and center is itself the relevant catalogue entry. Its determinant p^(n−1)q and the affine map determinant give the volume for every h; no missing finite table could distinguish the target."
+        ],
+        "reasoning": "The formula serves as a complete parameterized lookup, including h=1, with no optimization left to solve.",
+        "searches": [
+          "Resultary exact John-ellipsoid and volume-ratio formulae for simplex frusta: d34d69923786, bfb9af719d89"
+        ]
+      },
+      "rationale": "Demonstrably covered, not a priority or access judgment. Resultary d34d69923786 gives the same John ellipsoid and all contact regimes in every dimension n>=2 after an invertible affine change of coordinates. The volume, its regularity, and the one-capped arbor example mechanically follow from those exact branches. A second, broader frustum result specializes to the same family in dimension at least three.",
+      "residual_risks": [
+        "Not a judgment about ultimate external historical priority. The demonstrated exact catalogue coverage suffices regardless of uninspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger coverage including dimension two; no date-based historical-priority inference",
+          "evidence": "Both exact shape branches (H,p,q) and all facet contacts for n>=2, plus separate symmetry and containment results.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-exact-john-ellipsoids-and-symmetry-centers-of-one-vertex-simplex--d34d69923786",
+          "material_read": "Finding offsets 0–2056; John contact proof within offsets 0–5010",
+          "method": "Local mirror RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact John ellipsoids and symmetry centers of one-vertex simplex frusta",
+          "trigger": "Same frustum under affine reparameterization, same threshold"
+        },
+        {
+          "assessment": "Broader frustum coverage for d>=3",
+          "evidence": "John shape and cap-contact transition apply to homothetic frusta over arbitrary convex bases.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-universal-john-ellipsoids-of-homothetic-frusta-and-a-sharp-conta--07410bf05003",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Universal John ellipsoids of homothetic frusta and a sharp contact transition",
+          "trigger": "Plausible arbitrary-base theorem"
+        },
+        {
+          "assessment": "Additional coverage for d>=3",
+          "evidence": "Same positive-orthant frustum John formula with extra outer ellipsoid and volume ratio.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-john-l-wner-ellipsoids-and-a-sharp-volume-ratio-spectrum-f--bfb9af719d89",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact John–Löwner ellipsoids and a sharp volume ratio spectrum for simplex frusta",
+          "trigger": "Same shape and exact invariants"
+        },
+        {
+          "assessment": "A checked special case, not evidence for all-depth external coverage",
+          "evidence": "Particular simplex-frustum construction for an asymptotic affine-invariant-point result.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06023",
+          "material_read": "Theorem 6.6 and surrounding construction, PDF pp. 15–16, approximate offsets 40500–48779",
+          "method": "OA PDF bounded passages",
+          "title": "New results on affine invariant points",
+          "trigger": "John ellipsoid in a simplex-frustum construction"
+        },
+        {
+          "assessment": "Same family, different invariant",
+          "evidence": "Computes mixed volumes of the body and its reflection, not an ellipsoid optimizer.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Frozen citation naming the same geometry"
+        },
+        {
+          "assessment": "Different body",
+          "evidence": "Coordinate ceilings on all variables together with a rank inequality produce a three-phase result.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Three-phase John ellipsoid of a capped hypercube",
+          "trigger": "Frozen citation on a rank cap and ellipsoid contact"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29 and 74–86",
+        "Prior Resultary Finding d34d69923786 for the exact shape, transition and contacts"
+      ],
+      "rationale": "The frustum and its inscribed ellipsoid are natural, but this record delivers no independently useful unknown exact fact beyond the covered geometry. The one-capped arbor instance is a single substitution, the Euclidean volume is an immediate determinant conversion, and the smoothness description is routine differentiation of the known exact branches. The concise optimization is useful as exposition but does not provide a new structural conclusion.",
+      "residual_risks": [
+        "This does not deny the value of the original frustum theorem or of explanatory reformulation; it identifies no separate research finding here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

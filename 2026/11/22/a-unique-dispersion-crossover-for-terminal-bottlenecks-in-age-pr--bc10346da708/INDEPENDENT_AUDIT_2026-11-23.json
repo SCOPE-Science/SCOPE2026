@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:40:21.951709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent product, covariance, coupling, and uniform root-expansion reconstruction"
+      ],
+      "rationale": "At birth j+1 the prescribed edge gives the factor (1-q)/(1-q^(j+1)); the later lag caps telescope, giving b_j=rho P_j^(-m). Conditioning on a terminal cut independently truncates each later lag to the age relative to the new root. This gives the pair laws b_j b_(d-1) for finite start and rho b_(d-1) in the two-sided extension. For mixing, replace the whole past indicator vector by one computed from births through L; the two vectors can differ only if a later birth sends an edge through the boundary at 0, an event of probability at most m q^L/(1-q). The truncated past is independent of the far future. Bounded indicators and exponential mixing suffice for the stationary CLT. In the finite-start coupling each mismatching birth at t can change at most t indicators, and the L2 norm of the resulting total bound is at most sqrt(m) sum(t q^(t/2)); this transfers both the CLT and the linear variance coefficient. Summation of b_j-rho gives the stated mean and covariance sum; the stationary variance coefficient is strictly positive. S_m is continuous by locally uniform geometric tail control, strictly increasing in q and m, zero in the limit q down to 0 and already greater than 1/2 at q=1/2. For q=O(1/m), the first log-product starts q+3q^2/2, the second starts q^2, and the remaining terms total O(m q^3). Substitution at c/m+d/m^2 leaves residual O(m^-2) for c=log(3/2), d=-13c^2/6; the j=0 term alone gives S_m'(q)>=m, so the root error is O(m^-3). Independent bisection with backwards accumulation of -log(1-q^h) for h through 101 reproduces the three printed roots. Uploaded code was inspected, not executed; its finite exact checks are not the basis of the limit proofs.",
+      "residual_risks": [
+        "The CLT is for fixed m and q, and K_N uses the infinite future; there is no drifting-bias or online-count assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives iid gaps; Proposition 4.3 gives all gap moments, hence the standard renewal-count CLT applies.",
+          "The Poisson point-process result concerns q tending to 1 with fixed m, whereas the crossover is a fixed-bias variance statement and q_m tends to 0."
+        ],
+        "reasoning": "The broader renewal machinery covers fixed-bias Gaussianity and implicit mean and variance, but does not classify the sign of the explicit normalized variance for this gap family. The rare-bias theorem is not a dominating parameter result for this question.",
+        "searches": [
+          "Resultary semantic checks on fixed-bias and rare-bias terminal bottleneck limits",
+          "Tang–Wang–Wu, Theorem 4.1 and Proposition 4.3",
+          "Published Poisson activation record eec88f3506ed, §§1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Tang–Wang–Wu, arXiv:2611.02329",
+        "Published Resultary record eec88f3506ed",
+        "Local Resultary searches covering equivalent formulations, broader coverage, exact frontier, and prior implication"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renewal CLT gives Var(X)/(E X)^3 for the Gaussian coefficient without the new analysis.",
+          "The two-cut law allows recovery of the coefficient by summing stationary covariances. To locate its switch requires analyzing the resulting series, including the j=1 contribution to the m^-2 term in q_m."
+        ],
+        "reasoning": "Credit the renewal CLT consequence and the known identities. No inspected statement supplies the unique dispersion boundary or implies its two-term expansion without additional model-specific analysis.",
+        "searches": [
+          "Tang–Wang–Wu, Theorem 4.1 and Proposition 4.3",
+          "Published Poisson activation record eec88f3506ed, exact cut laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Wang–Wu weight parent index k by exp(beta k); q=exp(-beta) gives the frozen law and the same cut event.",
+          "For renewal gaps X, the matching asymptotic Fano ratio is Var(X)/(E X)^2."
+        ],
+        "reasoning": "A renewal-gap coefficient-of-variation crossing at 1 would cover the dispersion frontier in another formulation; the renewal structure alone gives the expression but not its sign as a function of q and m.",
+        "searches": [
+          "Resultary semantic checks on exponentially age-preferential terminal-cut dispersion and renewal gaps",
+          "arXiv:2611.02329, model and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest matching indexed record supplies exact one-cut probabilities and a finite-window joint identity, not a table of dispersion roots.",
+          "The inspected primary renewal analysis gives moment bounds, not the tabulated or symbolic frontier S_m(q_m)=1/2."
+        ],
+        "reasoning": "The observed matches are exact inputs to the calculation, not an identified database or table of the output. A keyword miss was not treated as evidence of absence.",
+        "searches": [
+          "Resultary semantic checks for the terminal-bottleneck threshold, asymptotic Fano factor, and high-multiplicity frontier",
+          "Published record eec88f3506ed, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Tang–Wang–Wu §4; literal Fano locate in its PDF"
+        ]
+      },
+      "rationale": "Pass is for the explicit dispersion classification and its two-term frontier, not for Gaussianity in isolation. The same model, renewal structure, gap moments, and cut probabilities are already covered. Those facts give a standard implicit renewal variance and are enough to start a covariance calculation; their inspected statements do not give the model's Fano sign classification or the large-m location of its sign switch.",
+      "residual_risks": [
+        "An unindexed computation of the renewal-gap Fano factor, or of the same product-series root, could change priority; the available comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of iid renewal gaps and finite moments, hence of Gaussian count behavior with an implicit coefficient; no explicit dispersion frontier in the compared statements.",
+          "evidence": [
+            "Theorem 4.1: cut right endpoints form a renewal process.",
+            "Proposition 4.3: the first interarrival has finite moments of every order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02329",
+          "material_read": "Model and cut definitions; §§4.1–4.2, PDF pp. 13–14 (offsets 39200, 41896)",
+          "method": "Original OA PDF passage location and bounded reading",
+          "title": "Random Walk on age-preferential random growth processes",
+          "trigger": "Exactly the same independent m-parent model and terminal cut"
+        },
+        {
+          "assessment": "Exact probability inputs are covered; rare-bias Poisson limit is distinct from fixed-bias dispersion classification.",
+          "evidence": [
+            "One-cut expression and finite-window pair factorization.",
+            "The point-process limit takes beta down to zero at fixed m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-poisson-activation-of-terminal-bottlenecks-in-weakly-age-biased--eec88f3506ed",
+          "material_read": "Mirrored RESULT.md §1 at offset 0, §3 at offset 3900, prior-work discussion at offset 7000",
+          "method": "Indexed record and local mirror full-text passages",
+          "title": "Poisson activation of terminal bottlenecks in weakly age-biased recursive trees",
+          "trigger": "Matched model and exact joint probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and variance-to-mean sign identity",
+        "Tang–Wang–Wu renewal results and the separate rare-bias Poisson limit"
+      ],
+      "rationale": "The nontrivial output is a complete, strictly ordered dispersion frontier for the natural terminal renewal count. It tells when Poisson variance is too large or too small and quantifies the sensitivity of that boundary to multiplicity. The correction term is not a generic renewal CLT prediction: it depends on the first two different tail products. This is useful without treating the count as an online observable.",
+      "residual_risks": [
+        "No finite-N inference rule or calibration for other attachment models is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

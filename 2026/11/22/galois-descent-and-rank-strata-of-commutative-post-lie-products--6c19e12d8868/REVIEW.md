@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The derived ideal equals the extension-field ideal because the multiplication parameter is invertible. The derivation relation \([B,A]=aA\) and separability imply \(a=0\); the cyclic centralizer then yields all three biderivation coordinates. The CPA identity reduces exactly to \(c=0\) and \(b(b-\alpha)=0\), and the finite-étale idempotent decomposition establishes smoothness, component permutation, all extension counts, and rank polynomials. The standalone checker solves the full biderivation linear system before enumerating CPA solutions over the listed small fields; it does not substitute for the general proof.
+## correctness
 
-## Originality
-PASS relative to inspected literature and indexed comparisons. The closest motivating source, Di Bartolo–La Rosa (arXiv:2307.15750v1), treats complete Lie algebras, whereas the present Lie algebras are noncomplete for all degrees considered. Burde–Moens (arXiv:1512.05096) gives general CPA theory and the two-dimensional affine example; Avetisyan (arXiv:1610.05365) gives almost-abelian derivation and automorphism descriptions. Those results provide background and mathematical tools but not the higher-degree finite-étale CPA scheme, its arithmetic zeta function or its complete scalar-extension rank census. No exact indexed claim covering these results was identified. This is not a guarantee of worldwide novelty; a yet-uninspected general CPA classification or equivalent descent argument remains a residual priority risk.
+PASS
 
-## Mathematical value
-PASS. CPA structures are a natural nonlinear integrability sublocus of symmetric Lie biderivations. Their geometry here is unexpectedly disconnected over an algebraic closure although only two branches have base-field points: finite-étale Galois descent explains this discrepancy quantitatively. The complete extension-field zeta function and rank stratification distinguish base-field behavior from new mixed idempotent components, and the three-versus-four orbit transition identifies a characteristic-two symmetry effect. This is a complete invariant calculation for a natural unbounded-dimensional Lie family, not an arbitrary numerical slice.
+The normal form works over every commutative k-algebra B, which is needed for the scheme claim, not just for field-valued points. Write R=B⊗K and A=M_α. The derived ideal equals R, and a derivation with t-component a has [D|_R,A]=aA; commuting with A on the right gives 0=[D|_R,f(A)]=aAf′(A). Both A and f′(A) have inverses over k and hence over B, giving a=0. Since R=B[A] is cyclic and free as the regular rank-one R-module, an endomorphism commuting with A is a multiplication. Symmetry and this calculation give precisely (w,b,c), with the converse verified from the derivation formula. The post-Lie identity at (t,1,1) gives cα=0, and at (t,1,t) with c=0 gives bα=b². Conversely the R left multiplications then kill R, commute with each other, and their commutator with L_t is L_[t,x] by b²=αb. Functorially the scheme is the free w affine space times the idempotent scheme of R; over the algebraic closure e_i²−e_i=0 splits into distinct roots including in characteristic two. Frobenius gives a length-d cycle on embeddings, so its s-th power fixes 2^g binary words; inversion by divisors shows the stated necklace multiplicity and the weight q^(de) per Euler factor. Over F_(q^s), choosing j factors gives image eR plus the span of w, with dimensions and counts as in the polynomial (the j=g outside term is zero). The automorphism action preserves b=0,α; for t↦at+u and G on K with GA=aAG, transport sends w to a^(−2)Gw−2a^(−1)bu. Thus no omitted automorphism mixes zero and nonzero w when the translation term vanishes, and multiplication on K is already transitive on nonzero w. Independent basis-triple testing for F2[x]/(x⁴+x+1), α=x, enumerated all 4096 biderivation parameter triples and gave 32 CPA products with ranks 0,1,4 occurring 1,15,16 times. That check assumes the proved normal form, and tests neither geometric smoothness nor the general zeta identity.
 
-## Scope and limitations
-The statement concerns irreducible almost-abelian Lie algebras over finite fields and their fixed scalar extensions, not all solvable Lie algebras. Finite verification does not prove all-dimensional assertions. Prior coverage remains provisional because exhaustive worldwide priority checking is impossible. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the fixed-bracket CPA scheme and its arithmetic and image-rank classification for every irreducible invertible action of the stated form over finite fields. The degree-one affine example and some dimension-three split product forms are prior; general structural Lie-algebra results and similarly shaped Nijenhuis results do not give the target census.
+
+## value
+
+PASS
+
+For a natural irreducible-action family, the result explains why the rational product census sees only two choices of action while the geometric fiber has exponentially many components, and precisely how scalar extension makes new ranks appear. The all-degree zeta and rank formulas are usable on the fixed Lie algebra without reclassifying products after each extension. The result adds arithmetic and image information beyond known ambient-algebra structure or low-dimensional models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

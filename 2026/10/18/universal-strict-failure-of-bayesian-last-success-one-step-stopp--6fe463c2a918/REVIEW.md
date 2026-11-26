@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-At a constructed first-success state, conjugacy gives \(\operatorname{Beta}(\alpha+1,\beta+f_m)\) and the strict one-step ratio \(m(\alpha+1)/(m(\alpha+1)+\delta_m)<1\). The alternative policy uses the next-success posterior ratio, not future information, and its exact reward is computed by conditioning on the first later success; the terminal-event weight is constant in that success time. The positive-part sum and the asymptotic Riemann integral yield a strictly positive limiting conditional advantage. A Gamma-ratio calculation converts this to an unconditional polynomial lower bound. Exact rational checks replicate the finite identity for seven distinct parameter settings. The checker is not used to justify the uniform or asymptotic conclusions.
+PASS
 
-## Originality — PASS, with residual priority risk
+At the first success after f_m failures the Beta posterior has shapes A=alpha+1 and b_m=beta+f_m, with m trials left. Relative to the all-failure word, any single specified success word has probability ratio A/B_m, where B_m=b_m+m-1=mA+delta_m and 1<=delta_m<2. This gives the strictly smaller one-step value. Given that the first later success occurs at k, selecting it wins on the one-success word; skipping it and choosing the next wins on one of m-k two-success words, each with relative weight (A+1)/(B_m-1) versus the one-success word. This independently recovers the positive-part expression and is also valid for k=m (zero waiting reward). Its positive-part sum divided by m^2 tends to the integral of (1-(A+1)x)_+ over [0,1], namely 1/[2(A+1)]. Hence the conditional relative improvement tends to 1/[2A(A+1)] despite strict myopic stopping. The first-success history is reachable under myopic play. Multiplying the current winning probability g_m by its history probability q_m gives exactly Beta(alpha+1,b_m+m)/Beta(alpha,beta). Since b_m+m~mA, the Gamma ratio gives m^(alpha+1)q_m g_m -> alpha Gamma(alpha+beta)/(Gamma(beta) A^(alpha+1)). Multiplication by the relative gain proves the claimed regret lower bound. The modified strategy agrees with myopic off the specified history; N_m is strictly increasing and f_m is nonnegative for sufficiently large m.
 
-The closest 2026 source (Ano, arXiv:2610.10237, Section 3.4) supplies the posterior formulas, myopic criterion, dynamic program, and two illustrative finite counterexamples; it does not state that strict suboptimality occurs for **every** Beta prior at unbounded horizons or quantify its unavoidable Bayesian-regret lower bound. The 2009 full Bayesian recursion of Bruss–Louchard can numerically solve each finite problem but does not itself state the present uniform parameter theorem. Paindaveine's unknown-fixed-parameter frequentist plug-in problem and Gnedin–Derbazi's random-observation-time prior are not equivalent to this conditional-Beta setting. Searches of relevant published research records and primary literature did not identify the exact theorem. The possibility of an earlier general optimal-stopping comparison theorem implying it remains a priority risk; no independent audit has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact failure of a locally favorable Bayesian last-success stopping decision for **every** proper Beta prior is a structurally meaningful obstruction to extending one-step monotone stopping theory. The construction is explicit at infinitely many horizons, yields a nonvanishing conditional advantage, and quantifies a positive polynomial-scale unconditional regret without solving the whole dynamic program. This generalizes isolated counterexamples and reveals a mechanism—posterior updating after further successes—that cannot be detected from the first one-step comparison.
+The supported contribution is the explicit first-success family for every fixed proper Beta prior, with strict one-step acceptance, a feasible at-most-two-later-success policy with its limiting gain, and the quantitative global regret lower bound. The existence of a strict finite counterexample, the posterior recursion, and adaptive improvement at the odds equality line are already covered and are not credited by this pass.
 
-## Closest literature and limitations
+## value
 
-Ano 2026, Section 3.4, and Bruss–Louchard 2009, Section 6, are closest by model and mathematical implication. The theorem concerns a specially constructed infinite subsequence of horizons and a lower bound, not a characterization of all horizons, all priors, the globally optimal policy, or the exact regret. Independent priority evaluation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact one-step rule is a natural computational shortcut, so it matters whether its failure is isolated, a tie artifact, or persists for every prior. The reachable strict counterexamples resolve this distinction. The two-future-success policy and explicit lower bound also separate conditional policy improvement from unconditional regret on a rare history; this is more than another finite counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

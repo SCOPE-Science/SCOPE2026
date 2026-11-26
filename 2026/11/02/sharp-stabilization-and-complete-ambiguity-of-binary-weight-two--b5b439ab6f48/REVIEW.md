@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claim is reconstructed for \(k\ge2\) and \(n\ge3k-2\), without cyclic wraparound. A length-\(k\) read containing two markers detects the interior zero gap up to threshold \(k-1\); the Euler/de Bruijn flow imbalance recovers both end vertices when they differ. The only equal-boundary, nonzero-vertex case requires an interior gap at least \(k-1\) and boundary-gap sum exactly \(k-2\); each of the \(k\) single-one reads then appears exactly once. All other clipped triples are separated. The count of capped triples, minus exactly \(k-2\) repeated labels, proves stabilization; the all-capped triple is exactly the missing boundary profile. The verifier independently checked all complete read vectors across 110 cases and 31,240 words, including both directions of the equivalence criterion. Unchecked large parameters are settled by the combinatorial proof, not extrapolated from experiments.
+PASS
 
-## Originality — PASS (best-knowledge), residual risk stated
+For fixed n,k, every marker-containing window is determined by its padding limits up to t=k−1, and the all-zero count is the remainder. The prefix-minus-suffix imbalance of the (k−1)-factor path recovers both boundary strings whenever unequal and thus recovers the outer clipped gaps. A window can contain both markers iff b≤k−2 (a substring of length at most k can be extended to a k-window since n≥k), and it gives the internal gap. When the imbalance is zero, equal boundary strings can contain at most one marker because the two boundary windows are disjoint. All-zero boundaries identify A=C=t. Equal single-marker boundaries require a+c=t−1 and force b≥t in the claimed length range. For these exceptions the first marker realizes offsets 0 through a and the second a+1 through t, each once, giving exactly the same profile. The all-zero boundary case cannot share that profile: it has either a two-marker window or, with B=t, two single-marker windows at each offset. At n−2≥3t all triples with a capped gap are feasible by adding the surplus to a capped coordinate, and no uncapped triple is feasible. At n−2=3t−1 only (t,t,t) is lost. Subtracting t−1 for the exceptional merge gives the two counts and proves a sharp stabilization threshold of 3k−1; the fiber theorem already applies at 3k−2. The exception label has just one element for k=2. One representative from each fiber gives the exact code size under this deterministic channel. The supplied partition script was inspected, not executed; the proof is independent of its finite range.
 
-The exact linear weight-two fiber classification is not supplied by the examined general profile enumeration or the constrained de Bruijn maximal-cycle theory. Kiah–Puleo–Milenkovic analyze DNA profile vectors, restricted de Bruijn graph flows, and quasipolynomial/asymptotic profile counts but not an explicit sparse two-marker length-independent saturation law. Chee et al. analyze RLL sequence length, cycle merging, and enumeration of allowed windows, not read-multiset collisions of length-\(n\) words with exactly two ones. Jacquet et al. study asymptotic Markov-type matrix counting. A related exact length-limited **composition** observation for weight-two sources differs by recording unordered symbol counts across all read lengths and does not imply this fixed-length **ordered** profile equality criterion. An equivalent specialization elsewhere in the large general Markov-type literature is possible, so this is a self-review best-knowledge conclusion rather than an independent uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The property is a natural constrained deterministic sequencing channel: the output contains exact multiplicities of every contiguous, ordered read of fixed length, while the source is restricted to two rare markers. The complete ambiguity relation yields an operationally exact zero-error capacity. A finite sharp stabilization threshold is unexpected when the input word length keeps increasing; the unique high-multiplicity exception is explained by the equality of de Bruijn path endpoints. The conclusion holds for every read length, not only a finite census; the exact boundary \(3k-2\) is independently distinguished.
+The de Bruijn flow representation and profile definition are known. An indexed theorem for k=3 overlaps exactly in the binary case, even on the exceptional merge and deficient length. The supported distinct result is the linear fixed-weight-two fiber classification and sharp count for arbitrary k, not separate novelty for k=3. The relevant k-abelian equivalence keeps additional boundary information and splits exactly the exceptional labels when k>2. No broader statement giving the entire frozen claim was established in the compared sources.
 
-## Closest literature and limits
+## value
 
-Sources: Chee et al. (arXiv:2403.01454v1, Sections 2 and 4); Kiah et al. (arXiv:1502.00517v1, Sections 2 and 3); Jacquet et al. (DOI 10.46298/dmtcs.2768, abstract and scope). The statement is confined to all-n exact profile counts and fibers under linear, two-one, non-noisy reads. Possible unlocated specializations are a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result answers two exact questions for a natural sparse observation problem: which sources cannot be distinguished and the maximal possible distinguishable family. The boundary imbalance and the exceptional balanced merge explain why including shorter factors changes the answer. The one-profile deficit at the boundary proves a genuine cutoff rather than just a sufficient stabilization bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:17.433179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the explicitly stipulated two-witness criterion (equivalently requiring a resolving set that still resolves after each deletion), I reconstructed GP(8,3) from its modular adjacency rule, found distances by Floyd–Warshall, and exhaustively tested the complementary indistinguishability sets; replay with python3 /workspace/evidence/1-exhaustive.py. Every resolving 3-set is excluded; 368 resolving 4-sets exist. There are no robust 4-sets, hence no smaller robust sets by monotonicity, and the 16 robust 5-sets are exactly the 16 distinct radius-three shells, all with cardinality five. In each of the two eight-set shore classes every set meets exactly one other in two vertices and all six others in three; the 64 cross-shore pairs are disjoint. Adjacency is 5 minus the overlap being at most k, giving precisely the five claimed graphs and threshold. The empty set is excluded by ordinary resolution and by the operative two-witness definition; a deletion-only formula should not be read as admitting the empty set vacuously. The finite exhaustive proof is for this one labelled graph. Inspected RESULT.md, VERIFICATION.md, check_py.py and check_cpp.cpp without running the uploaded programs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. Theorem 1.1 is ordinary edge dimension for n≥11 in P(n,3); it does not establish the n=8 case by substitution.",
+          "Filipović et al. give ordinary exact formulas for steps 1 and 2 and lower bounds for others. The deletion bound dim_fault ≥ dim_ordinary+1 follows directly but does not prove existence or classify optimizers."
+        ],
+        "reasoning": "No inspected broader result entails the robust optima. The Liu family-by-family primary text was not available in retrieval attempts, so its full coverage is not excluded.",
+        "searches": [
+          "arXiv:2005.08038 Theorem 1.1",
+          "arXiv:1807.00580 abstract",
+          "10.3934/math.2021069"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and certificate files",
+        "arXiv:1807.00580",
+        "arXiv:2005.08038",
+        "Resultary b7d281814c53, cfe9401b705a, 39dab98cf56d",
+        "DOI 10.3934/math.2021069 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound gives at most the exclusion below size five from the ordinary count; it says nothing about five-set feasibility, the 16 distinct third shells, or the missing perfect matching inside each shore's exchange graph."
+        ],
+        "reasoning": "The complete family and its geometry are the distinct claim, not the ordinary census or the general lower bound.",
+        "searches": [
+          "Resultary b7d281814c53 and 39dab98cf56d Findings",
+          "arXiv:2005.08038, pp. 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GP(8,3) and P(8,3) denote the same graph; edge resolution, unlike vertex resolution, uses the minimum of two endpoint distances.",
+          "The closest same-graph vertex-resolution record cfe9401b705a specifies weak-total five-sets and stronger fault-tolerant vertex six-sets, not these two-witness edge five-sets."
+        ],
+        "reasoning": "A match on graph, size or terminology is insufficient: both the objects being distinguished and the deletion test must agree.",
+        "searches": [
+          "Resultary: Möbius–Kantor GP(8,3) 16 fault-tolerant edge bases distance-three spheres replacement",
+          "arXiv:1807.00580",
+          "arXiv:2005.08038"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact robust census hit is the assigned record itself. b7d281814c53 independently states the ordinary 4/368 census, and 39dab98cf56d has a 512-set distance/domination conjunction instead."
+        ],
+        "reasoning": "Deduplicate the self-hit and credit the contextual ordinary overlap without inferring order from a shared date.",
+        "searches": [
+          "Resultary direct and alias comparison (GP(8,3), Möbius–Kantor, 16 optimum sets, 64/8/48)",
+          "Resultary b7d281814c53, cfe9401b705a, 39dab98cf56d"
+        ]
+      },
+      "rationale": "No inspected prior statement covers the minimum one-failure EDGE resolving-set family on GP(8,3) or its intrinsic shell/exchange geometry. The ordinary dimension and its 368 bases are contextual, and there is a separate indexed record giving exactly those ordinary results. Neither the lower-bound principle nor the ordinary invariant is credited as new.",
+      "residual_risks": [
+        "The primary Liu paper could not be inspected after DOI/publisher/PDF attempts; no noncoverage conclusion rests on that failure.",
+        "Unindexed graph tables or a prior robust enumeration may exist. The scoped comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary formulas/bounds, not the robust classification in the inspected statement",
+          "evidence": "Exact formulas for GP(n,1) and GP(n,2); lower bounds for other steps.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.00580",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF text",
+          "title": "Edge metric dimension of some generalized Petersen graphs",
+          "trigger": "same graph family and edge distances"
+        },
+        {
+          "assessment": "Range and invariant do not imply the target",
+          "evidence": "Theorem 1.1 assumes n≥11 and concerns ordinary dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.08038",
+          "material_read": "pp. 1–4, Theorem 1.1 and supporting scope",
+          "method": "OA primary PDF text",
+          "title": "The edge metric dimension of the generalized Petersen graph P(n,3) is 4",
+          "trigger": "same step parameter"
+        },
+        {
+          "assessment": "Full coverage unresolved; general deletion bound also independently transparent",
+          "evidence": "The deletion of one landmark of a robust set leaves an ordinary resolving set.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2021069",
+          "material_read": "No primary text retrieved; frozen record cites Lemma 1.4",
+          "method": "OA DOI and publisher/PDF attempts",
+          "title": "Fault-tolerant edge metric dimension of certain families of graphs",
+          "trigger": "same robustness invariant"
+        },
+        {
+          "assessment": "Exact overlap of ordinary context only",
+          "evidence": "Ordinary edge metric dimension 4, 368 bases at n=8.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-four-small-order-edge-metric-boundaries-of-the-generalized-p--b7d281814c53",
+          "material_read": "mirrored Finding, n=8 case",
+          "method": "Resultary and local mirror",
+          "title": "The four small-order edge metric boundaries of the generalized Petersen family",
+          "trigger": "same n, exact optimizer count"
+        },
+        {
+          "assessment": "Different feasible sets",
+          "evidence": "192 weak-total vertex five-sets (and 336 robust vertex six-sets); separately 512 joint edge-resolution and vertex–edge domination five-sets.",
+          "identifier_or_url": "Resultary cfe9401b705a; 39dab98cf56d",
+          "material_read": "mirrored Findings",
+          "method": "Resultary and local mirror",
+          "title": "Same-graph vertex-resolution and edge-resolution-with-domination records",
+          "trigger": "same graph and exchange questions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical cubic symmetric graph, the exact optimum family is a graph-intrinsic orbit of distance shells rather than a bare feasible count. It answers whether optimal resilient placements can be moved between the shores without replacing every landmark, and exactly classifies the intermediate budgets. This is meaningful at the finite graph scale without a wider family claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

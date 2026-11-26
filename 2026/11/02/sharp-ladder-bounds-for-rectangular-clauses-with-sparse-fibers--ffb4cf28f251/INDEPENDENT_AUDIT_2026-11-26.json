@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:27.626959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–56; reconstructed the cut/gap proof and sharp construction",
+        "Frozen VERIFICATION.md and checker.py, inspected without execution"
+      ],
+      "rationale": "In a selected triangular incidence matrix, a nonempty rectangle has last row a at most its first column b, and enlarging it to the canonical cut at any c in [a,b] adds no false cells. The uncovered right-neighbors of the first row of each cut-free gap include all columns in that gap, forcing length at most s. With k distinct cuts this gives t<=k+(k+1)s<=r+(r+1)s. Conversely periodic cuts starting at index s leave at most s successive columns uncovered in each row, giving the asserted minimum at every t. On the real line the rectangle clauses and the s translates y=x+h realize the full extremal triangle on consecutive integer points and never introduce a selected lower-triangle cell. Equality forces k=r and all gaps length s for every allowed cut choice; changing one rectangle's cut alone would either change that unique cut set or cause a duplicate, so both endpoint indices of the rectangle equal its forced cut. The empty construction at r=s=0, and the separate r=0 and s=0 limits, agree with the formulas.",
+      "residual_risks": [
+        "Rigidity is about the selected rows and columns of a witness and representations satisfying the same left-fiber cap; it does not fix rectangles outside that witness or give canonical decompositions of arbitrary relations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Girón's Theorem 4.8 characterizes stable semilinear sets as finite unions of special stable sets, without a quantitative mixed budget.",
+          "Record b2c5343f72c7 instead characterizes partitioning all edges of finite bipartite graphs into Ferrers subgraphs."
+        ],
+        "reasoning": "Qualitative semilinear stability permits the type of construction, but does not bound the ladder height in terms of r and s, and does not apply as a quantitative covering theorem on arbitrary sets. Partition into nested-neighborhood subgraphs is not cover by rectangles plus bounded residual.",
+        "searches": [
+          "Girón arXiv:2610.26335, Theorem 4.8",
+          "Resultary Ferrers edge partitions, record b2c5343f72c7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work and limitations sections",
+        "Pinto arXiv:1307.6363, Parnas arXiv:2601.13900, Bénye DOI 10.1007/s00373-021-02442-2, Girón arXiv:2610.26335",
+        "Resultary/local-mirror records e77e43428634 and b2c5343f72c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under exact coverage each rectangle meets at most one diagonal cell, giving t at s=0. With s>0 diagonal cells can remain uncovered, so that argument no longer gives the mixed optimum.",
+          "Neither the qualitative decomposition nor the two inspected catalogued invariants constrain the maximum length of cut-free gaps in a half-graph witness."
+        ],
+        "reasoning": "The substantive implication uses the interval of allowed cuts for each arbitrary rectangle and controls the residual row degree by all the gaps; equality then pins down each interval, not just a particular chosen cover. The checked exact-cover and stability results do not supply these steps.",
+        "searches": [
+          "Pinto p. 1, Parnas §2: exact cover definitions and triangular-matrix specialization",
+          "Girón Theorem 4.8; Resultary e77e43428634 and b2c5343f72c7 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinto p. 1 and Parnas §2 cover all edges or all one-entries respectively. Pinto's local parameter counts covering bicliques incident to each vertex, not uncovered neighbors of each left vertex."
+        ],
+        "reasoning": "The upper triangular matrix is a Ferrers graph, and exact Boolean rank is the s=0 case. The locality notion in biclique covering and the left-fiber truncation here constrain different quantities. Transposing gives a column-budget counterpart, not an equivalence to an ordinary exact cover of the same triangle.",
+        "searches": [
+          "Ferrers/chain graph triangular biclique covering; Boolean rank with a row-sparse residual",
+          "Pinto arXiv:1307.6363 and Parnas arXiv:2601.13900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record e77e43428634 classifies first-order rank-four theories of half-graphs; its invariant is logical equivalence, not residual cover size.",
+          "Bénye's Boolean numbers concern Boolean complexes and graph derangement sets, not factor rank or row-sparse covers."
+        ],
+        "reasoning": "These exact enumerative results do not tabulate the minimum number of rectangles at fixed residual degree or the rigid cut positions. No matching entry surfaced in the bounded search.",
+        "searches": [
+          "Resultary half-graph and Ferrers combinatorial invariants, hits e77e43428634 and b2c5343f72c7",
+          "Bénye DOI 10.1007/s00373-021-02442-2, Ferrers Boolean-number terminology"
+        ]
+      },
+      "rationale": "The checked antecedents include the zero-residual biclique-cover endpoint and qualitative semilinear stability. They do not cover the positive left-residual budget and equality rigidity. No novelty is credited to Boolean rank of the triangular matrix or to qualitative closure of stable relations.",
+      "residual_risks": [
+        "Terminology for approximate Boolean rank and constrained omissions varies; an equivalent earlier formulation may not have surfaced. This is a statement-level comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Zero-residual comparison; different local constraint",
+          "evidence": [
+            "Cover all graph edges; local bound counts bicliques containing each vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.6363",
+          "material_read": "Page 1, definitions",
+          "method": "Primary OA PDF passage",
+          "title": "Biclique Covers and Partitions",
+          "trigger": "Closest standard biclique cover and local cover notions"
+        },
+        {
+          "assessment": "Exact coverage, not the residual parameter",
+          "evidence": [
+            "Boolean-semiring factorization is equivalent to an all-one-entry rectangle cover."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.13900",
+          "material_read": "Section 2, pages 3–4, extract around offset 8000",
+          "method": "Primary OA PDF passage",
+          "title": "Parnas's Boolean-rank survey",
+          "trigger": "Triangular Boolean-rank equivalent formulation"
+        },
+        {
+          "assessment": "False terminology match",
+          "evidence": [
+            "The Boolean numbers are defined via Boolean complexes and related to graph derangements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-021-02442-2",
+          "material_read": "Page 1, abstract and introductory definition",
+          "method": "Publisher OA PDF",
+          "title": "A Bijection for the Boolean Numbers of Ferrers Graphs",
+          "trigger": "Potential match under Ferrers Boolean numbers"
+        },
+        {
+          "assessment": "Qualitative structural antecedent, not the mixed quantitative bound",
+          "evidence": [
+            "A semilinear subset of V^m by V^n is stable if and only if it is a finite union of special stable sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.26335",
+          "material_read": "Theorem 4.8, page 15, offset 47770 and start of proof",
+          "method": "Primary OA PDF locate and bounded read",
+          "title": "On stable semilinear sets in ordered vector spaces",
+          "trigger": "Broader published semilinear stability result"
+        },
+        {
+          "assessment": "Different invariant; no relative priority inferred",
+          "evidence": [
+            "All n>=7 share a rank-four theory, which is not a cover statement."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-seven-rank-four-theories-of-finite-half-graphs--e77e43428634",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Seven rank-four theories of finite half-graphs",
+          "trigger": "Same-day exact half-graph invariant"
+        },
+        {
+          "assessment": "Different invariant and later record date",
+          "evidence": [
+            "Partitions all edges into two Ferrers subgraphs and studies an interval-ordering criterion."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-ferrers-edge-partitions-complement-convexity-and-cyclic-dele--b2c5343f72c7",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Two Ferrers edge partitions, complement convexity and cyclic deletion",
+          "trigger": "Exact edge-decomposition result for Ferrers notions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, the upper bound, exact covering budget and rigid extremizers",
+        "Girón Theorem 4.8 and standard biclique-cover comparisons"
+      ],
+      "rationale": "The theorem quantifies how many rectangular clauses are needed to create an order pattern when each left point can have a bounded number of exceptional incidences. Exact periodic placement and rigidity turn a qualitative stability observation into a sharp constraint on all extremal witnesses; the bound is realized within a simple semilinear class as well as on finite matrices.",
+      "residual_risks": [
+        "The result is conditional on given rectangle and exception budgets; it is not a representation or budget-extraction theorem for general semilinear formulas."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact universal-cover interpretation of color refinement. For a connected unicyclic graph, the universal cover is a bi-infinite path decorated periodically by finite rooted trees. The bi-infinite path is intrinsically characterized as the set of vertices whose deletion leaves two infinite components, so every universal-cover automorphism preserves it and acts there by a translation or reflection. This action descends modulo the cycle length to a dihedral symmetry of the unique cycle, and the induced rooted-tree isomorphisms on the finite decorations glue to an automorphism of the original graph. Thus equal stable colors imply equal automorphism orbits; the reverse inclusion is automatic. The tree case is the same argument with the universal cover equal to the tree itself. The cyclomatic-number-two counterexample is checked directly by its equitable degree partition.
+## correctness
 
-The standalone checker independently verifies the conclusion on all 79 connected Graph Atlas representatives with at most seven vertices and cycle rank at most one, and verifies the explicit bicyclic obstruction.
+PASS
 
-## Originality
-PASS with residual priority risk. Targeted published-finding corpus searches for “color refinement automorphism orbits unicyclic graphs”, “coarsest equitable partition orbit partition unicyclic graph”, “unicyclic graphs stable coloring automorphism orbits”, “1-WL unicyclic graph orbit partition”, and “unicyclic graph color refinement Tinhofer Godsil” returned no matching result. Web searches using “refinable”, “fractional automorphism”, “coarsest equitable partition”, “unicyclic”, and “pseudoforest” likewise did not locate the theorem.
+The stable partition is equitable. Two same-color lifts in a universal cover admit a rooted isomorphism: match neighbors by color, and after the first level omit one parent of the same paired color on each side. Iterate on the tree of lifts. For a tree the cover is the finite tree itself. In the unicyclic case, the vertices whose removal leaves two infinite components are exactly the spine, so the rooted isomorphism translates or reflects the spine, inducing a well-defined cycle symmetry modulo its length. The induced decoration maps need not themselves be periodic: choose one rooted isomorphism per cycle residue, taking the specific lifted map at the residue of the first vertex. This yields a finite-graph automorphism carrying it to the second. Every automorphism preserves refinement colors. In the eight-vertex witness the degree-three vertices have three degree-two neighbors and every degree-two vertex sees one neighbor of each degree. The degree partition is equitable, but the four degree-two triangle vertices cannot be permuted to the two connector vertices; triangle interchanges and end-for-end reversal give the claimed orbits. C3 disjoint union C4 checks the disconnected limitation. The embedded atlas test is optional corroboration, not the basis of the all-order conclusion; its code was inspected, not run.
 
-Arvind--Köbler--Rattan--Verbitsky define refinability and explicitly cite the tree case, but their full text has no occurrence of “unicyclic” or “pseudoforest”. Kiefer--Schweitzer--Selman show orbit recovery for graphs identified by \(C^2\), which does not cover all unicyclic graphs because cycles of length at least six are not \(C^2\)-identified. Krebs--Verbitsky supplies the universal-cover lemma but does not state the unicyclic descent theorem.
+## originality
 
-The residual risk is that an older result in equitable-partition, fractional-automorphism, or chemical-graph literature states the same fact under different terminology.
+PASS
 
-## Value
-PASS. Refinability is a named structural level in the standard color-refinement hierarchy. The theorem gives a natural complete class guarantee at the first cyclic level beyond trees and identifies a sharp cyclomatic boundary: every connected graph with at most one independent cycle has exact orbit recovery, while a connected graph with two independent cycles can already fail. It also separates refinability from amenability in a concrete way, since long cycles are refinable but not identified by \(C^2\). This is a structural class theorem rather than a family-specific iteration count.
+Pass for the class-wide connected unicyclic orbit-recovery theorem and the resulting sharp universal threshold. Neither tree refinability, bare-cycle refinability nor the eight-vertex sharpness witness is an original component. The exact witness has antecedents; these are credited below. No claim of a bicyclic classification is made.
 
-## Closest literature and limitations
-The closest source is Arvind--Köbler--Rattan--Verbitsky, arXiv:1502.01255, which introduces the refinable class, records the tree case, and studies the hierarchy containing refinable graphs. Krebs--Verbitsky, arXiv:1407.3175, supplies the exact round/universal-cover equivalence used in the proof. Kiefer--Schweitzer--Selman, arXiv:1503.08792, provides the strongest nearby orbit-recovery implication for \(C^2\)-identified graphs but does not cover all unicyclic graphs. No independent literature audit has been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Recovering the actual automorphism orbits, rather than just an equitable partition, is a structural guarantee on an entire first cyclic class. The exact cycle-rank boundary differentiates global orbit recovery from the weaker local count test; the credited witness makes clear why the broad guarantee cannot continue to rank two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

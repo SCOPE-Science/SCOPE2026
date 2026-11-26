@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:30:28.740984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I rebuilt the squared area map using the 2-by-2 triangle Gram determinants in the frozen lexicographic orders, and recomputed the base areas, exact rank eight and minor -1/4194304, both nullspaces, and the two projected kernel quadratics t(2s+t)/8 and s(s+2t)/8. Their squared sum is (s²+t²)²/192+(s²+3st+t²)²/96. Replay: python3 /workspace/branches/check_simplex.py; this independently checks the polynomial certificates, not the uniform estimate. For that estimate, a hypothetical sequence with data defect o(||h||²) has complement component w=O(||h||²), by injectivity of the differential on the complement and the exact homogeneous quadratic remainder. The two left-null projections then agree with the coercive kernel quadratics up to O(||h||³), a contradiction. Positive definiteness at I/2 gives an open realizable edge domain. On the nonzero kernel direction U the defect is exactly s²H(U), with a nonzero left projection, proving sharpness. This is stability relative to the given fiber, not injectivity or a two-point inverse estimate on a neighborhood.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaifullin proves generic reconstruction results; in dimension four the generic bound is at most 32 congruence classes.",
+          "Zhang poses the Euclidean continuous rigidity question and gives a continuous fixed-area family in Minkowski signature."
+        ],
+        "reasoning": "Generic hypotheses leave this singular right simplex undecided. The pseudo-Euclidean example is not a counterexample in the open positive-definite edge domain.",
+        "searches": [
+          "Gaifullin, arXiv:1310.3417, Theorems 1.3–1.4",
+          "Zhang, arXiv:2307.15817, pp. 1–2 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bounded search (nearest thematic record 00508057bf42)",
+        "arXiv:0901.3284",
+        "arXiv:1310.3417",
+        "arXiv:2307.15817",
+        "arXiv:gr-qc/9710056"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known regular-point invertibility, generic finite fibers, and examples of multiple distinct simplices with equal corresponding areas address different regimes."
+        ],
+        "reasoning": "None of those conclusions forces a particular exceptional fiber to be isolated, much less gives a lower bound of quadratic order at that point. The projected quadratics and kernel path supply both facts. Discrete global nonuniqueness is compatible with this local result.",
+        "searches": [
+          "Mohar–Rivin pp. 2–5; Gaifullin Theorem 1.4; Zhang Euclidean question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The investigated coordinate variants are lengths versus squared lengths and areas versus squared areas; at the nondegenerate simplex all the coordinates being squared are positive.",
+          "Barrett–Roček–Williams discuss area-length ambiguity but explicitly use examples with nonsingular four-simplex Jacobians; Mohar–Rivin's nonsingularity calculation uses the regular simplex."
+        ],
+        "reasoning": "These coordinate changes preserve local rank and the growth exponent. They do not identify the right orthocentric simplex with the regular point or the other ambiguity examples.",
+        "searches": [
+          "Resultary: rank-eight right or orthocentric four-simplex, fixed triangle areas, quadratic stability",
+          "Barrett–Roček–Williams, Area Regge calculus, arXiv:gr-qc/9710056, p. 3",
+          "Mohar–Rivin, arXiv:0901.3284, pp. 2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest surfaced Resultary result 00508057bf42 concerns a volume deficit for inscribed regular simplices. The inspected explicit Jacobians and counterexamples in the area-length literature concern other simplices."
+        ],
+        "reasoning": "This is a local analytic invariant, not a census with an identified external table. The nearest explicit computations do not tabulate the rank or projected Hessian at the frozen edge vector.",
+        "searches": [
+          "Bounded Resultary searches for the right four-simplex area-fiber certificate",
+          "Mohar–Rivin, arXiv:0901.3284, Jacobian calculation and Singular examples",
+          "Barrett–Roček–Williams, arXiv:gr-qc/9710056, p. 3"
+        ]
+      },
+      "rationale": "There is substantial prior work on the same area/length map, including global ambiguity and generic recovery, but no inspected result covers the rank-eight singularity of this labeled right simplex together with its isolated local fiber and sharp pointwise stability. The novelty is the specific second-order obstruction, not the use of Heron's formula or generic finite recovery.",
+      "residual_risks": [
+        "A treatment in orthocentric-simplex or area-Regge terminology could contain an equivalent singular normal form not found in the bounded comparison.",
+        "Pass is for this instance of local pointwise rigidity, not a general answer to the Euclidean continuous-rigidity question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier nonsingularity and ambiguity, not this singular fiber",
+          "evidence": "The nonsingularity point is regular; distinct equal-area examples do not give a continuous family through S_0.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.3284",
+          "material_read": "pp. 2–3, Jacobian argument; pp. 4–5, Singular examples",
+          "method": "Bounded OA primary text read",
+          "title": "Simplices and spectra of graphs, continued",
+          "trigger": "Same codimension-two area map and explicit singular examples"
+        },
+        {
+          "assessment": "Generic statements, not sharp singular-point control",
+          "evidence": "Generic uniqueness for dimension at least five; at most 32 congruence classes for generic dimension-four data.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.3417",
+          "material_read": "p. 2, Theorems 1.3 and 1.4",
+          "method": "Bounded OA primary text read",
+          "title": "Volume of a simplex as a multivalued algebraic function of the areas of its two-faces",
+          "trigger": "Same triangular-face data and inverse map"
+        },
+        {
+          "assessment": "Different metric signature for flexibility theorem",
+          "evidence": "Theorem 1.2 constructs a Minkowski 4-simplex deformation, not a Euclidean one.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.15817",
+          "material_read": "p. 1, Euclidean question; p. 2, Theorem 1.2",
+          "method": "Bounded OA primary text read",
+          "title": "Simplices with fixed volumes of codimension 2 faces in a continuous deformation",
+          "trigger": "The motivating continuous rigidity question and potential counterexample"
+        },
+        {
+          "assessment": "Related area ambiguity with distinct hypotheses",
+          "evidence": "Shared tetrahedron areas do not recover its lengths; relevant example Jacobians are nonzero.",
+          "identifier_or_url": "https://arxiv.org/abs/gr-qc/9710056",
+          "material_read": "p. 3, shared tetrahedron and four-simplex Jacobians",
+          "method": "Bounded OA primary text read",
+          "title": "Area variables in Regge calculus",
+          "trigger": "Plausible explicit four-simplex area ambiguities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a natural nondegenerate but singular four-simplex the two-dimensional infinitesimal kernel does not integrate to a fixed-area deformation. The exact obstruction furnishes a useful second-order test case for continuous area rigidity and shows what quantitative stability survives the failed inverse function theorem. The explicit sharp exponent is informative even without a global uniqueness result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

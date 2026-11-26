@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:07.002900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings, Assumptions and Proof",
+        "Frozen VERIFICATION.md",
+        "Adkisson, arXiv:2610.00934v1, Definitions 2.1, 2.2, 2.4, 3.6 and Theorem 3.13"
+      ],
+      "rationale": "The successive prunes are downward closed: if a surviving node has extensions on all higher levels of the old prune, its predecessors also do, using intermediate predecessors when needed. Intersections preserve downward closure. A missing higher level in a cone therefore bounds that cone in the old prune. Strict successor steps remove distinct nodes, so there is a fixed point before |T|^+; if no well-pruned subtree exists, that point is empty. Each removal rank r(x) is a successor, and all descendants beyond the first missing cone level in the preceding prune have smaller removal ranks. To check the counting argument, choose lambda=max(omega,theta^+) many increasing subsystem levels, making each successor exceed all rank-drop bounds from the preceding level's chosen set of at most theta nodes. Cofinality keeps every such set of bounds, every limit of earlier levels, and the final common top level below kappa. For the frozen cone-covering claim under its negation, choose that common top also beyond all lambda eventual-coverage thresholds. A top node with selected predecessors on infinitely many stages would linearly order them by stage and give an infinite descending sequence of ranks, so each top node covers only finitely many stages. At most theta such finite sets cannot cover lambda, for finite theta or infinite theta alike. Taking the chosen set to be a subsystem level then contradicts coherence, with the later level strictly higher. This verifies the theorem without assuming kappa regular, and the cited source definitions verify the stated recovery of the regular case.",
+      "residual_risks": [
+        "No statement about threshold sharpness, cofinal branches or two-cardinal subsystems is verified or needed. Correctness is established analytically, not by a formal certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adkisson uses regular height mu, narrowness width^+<mu, and pruning in the original tree order. The standard one-relation system axioms in the cited definitions reduce here to comparability of predecessors, increasing levels, and the given coherence."
+        ],
+        "reasoning": "Set mu=cf(kappa). The frozen bound gives uncountable regular mu and theta^+<mu, including finite theta. The subsystem on the chosen levels is still narrow at mu, so the purported singular extension is fully dominated by the regular theorem after compression. No two-cardinal theorem is needed.",
+        "searches": [
+          "Resultary: singular height tree narrow subsystem pruning cofinality well-pruned Adkisson",
+          "arXiv:2610.00934v1, Definitions 2.1, 2.2, 2.4, 3.6 and Theorem 3.13"
+        ]
+      },
+      "checked_sources": [
+        "Adkisson arXiv:2610.00934v1",
+        "Bounded Resultary searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take an increasing sequence of subsystem levels of order type mu=cf(kappa), cofinal in kappa, and keep all tree nodes on these levels. The selected subsystem satisfies the same pairwise coherence and width bound, so Theorem 3.13 yields a well-pruned subtree on the compressed levels."
+        ],
+        "reasoning": "For the lift, let x be in the downward closure of that subtree, with witness u in the compressed subtree above x. For an original target level above x and at or below u, take the corresponding predecessor of u (or u). For a target above u, use well-prunedness in the compressed tree to extend u to a selected level beyond the target, then take that extension's original predecessor at the target. Thus the downward closure is well-pruned of height kappa. If a root is required it may be adjoined at the compression stage and discarded at the lift. This proves the exact threshold claim from the known theorem, not just a resemblance between proofs.",
+        "searches": [
+          "Adkisson arXiv:2610.00934v1, Theorem 3.13 and well-pruned Definition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.13 gives a well-pruned subtree of a regular-height tree from a narrow subsystem in precisely the inherited tree order. Well-pruned subtree existence transfers between a tree and its induced tree on any cofinal set of levels, by restriction in one direction and downward closure in the other."
+        ],
+        "reasoning": "Reindexing by an increasing cofinal subsystem sequence preserves its width bound and coherence. Each selected-level node has exactly one predecessor at each earlier chosen level, so its new height is the index of its old level. The compressed object is a regular-height instance in the original source's sense, not a new type of system.",
+        "searches": [
+          "Resultary: singular tree height narrow subsystem pruning well-pruned subtree cofinality width",
+          "Resultary: Adkisson narrow systems tree subsystem singular height cofinality width well-pruned subtree",
+          "Resultary: Narrow-system pruning depends on cofinality, not regularity",
+          "Web: \"A Note on Narrow Systems\" Adkisson \"Theorem 3.13\" well-pruned subsystem cofinal sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially overlapping indexed finding was identified in the returned ranked results. The decisive exact statement is the primary regular-height theorem, not a table entry."
+        ],
+        "reasoning": "There is no enumerative invariant, numerical datum or discrete cutoff table to consult; the claim quantifies over arbitrary tree objects and cardinals. The scoped theorem catalogue check was applicable and performed, but failure to find a table or duplicate does not remove implication-based coverage.",
+        "searches": [
+          "Resultary: Narrow-system pruning depends on cofinality, not regularity",
+          "Resultary: singular height tree narrow subsystem pruning cofinality well-pruned Adkisson"
+        ]
+      },
+      "rationale": "Adkisson's regular-height Theorem 3.13 implies the entire frozen claim by restricting to cofinally many subsystem levels and then taking downward closure. The theorem is not printed there with a singular parameter, but every conclusion on the frozen domain transfers back at exactly the claimed width threshold. This is demonstrated coverage, not a verdict based on a failed search.",
+      "residual_risks": [
+        "The public literature query was unavailable and is not negative evidence. The verified positive implication from the retrieved primary theorem settles coverage independently of that access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state a singular-height theorem verbatim; its regular-height result implies the full frozen theorem by the verified restriction and lift",
+          "evidence": [
+            "Narrowness means width^+ below the regular height; Theorem 3.13 gives a well-pruned subtree from such a subsystem. The inherited tree order supplies the auxiliary system-order axioms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00934",
+          "material_read": "v1, PDF pp. 3–4, Definitions 2.1, 2.2, 2.4; p. 6, Definition 3.6; pp. 7–8, Theorem 3.13 and proof",
+          "method": "Bounded OA primary PDF inspection; definitions at offset 7000, well-pruned definition near 18860, theorem passage opened at 22500",
+          "title": "A Note on Narrow Systems",
+          "trigger": "Exact primary regular-height result and potentially complete cofinal restriction reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Adkisson arXiv:2610.00934v1, Theorem 3.13"
+      ],
+      "rationale": "The frozen extension is exactly the cofinal reindexing of a regular-height result for a conclusion already invariant under that reindexing. A direct rank argument supplies a second presentation, but the stated result extracts no stronger threshold, boundary example, or pruning property beyond restriction and downward closure. The frozen claim is therefore a routine transfer, not a distinct mathematical advance to repair.",
+      "residual_risks": [
+        "No failure or necessity of the hypothesis at a smaller cofinality is asserted. A substantive theorem at a different threshold would require its own proof and comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

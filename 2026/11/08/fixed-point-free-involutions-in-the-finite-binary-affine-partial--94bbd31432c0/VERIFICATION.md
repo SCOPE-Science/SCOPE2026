@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` (Python 3, standard library only). The script builds every matrix in \(\mathrm{GL}_k(2)\), for \(0\le k\le4\), constructs every affine translation \(x\mapsto Mx+b\), evaluates compositions as actual functions on all \(2^k\) points, and counts fixed points. It separately generates all affine subspaces in dimensions up to four by closure, compares the numbers to Gaussian coefficients, and combines exact domain counts with local involution counts. It checks every joint domain-size/fixed-point stratum against the closed formula, not only totals. The outcome is `VERIFY_OK`.
+## correctness
 
-Observed total self-inverse counts for ambient dimensions \(d=0,1,2,3,4\) are \(2,5,27,297,6113\), with corresponding fixed-point-free counts \(1,2,10,120,2656\). The complete affine involution spectra for internal dimensions zero through four are printed by the script. It also evaluates the finite-product constant \(\delta=0.06056210400129026\ldots\) and verifies the predicted asymptotic trend (global fixed-point-free proportion \(0.499775651268\ldots\) at ambient dimension twenty).
+PASS
 
-Finite enumeration and numerical convergence cannot prove the statements for unbounded dimensions; the structural counting and dominated-convergence proof in `RESULT.md` provide that argument. No external independent audit, Lean project, or third-party computational certification is asserted.
+Nonempty self-inverse partial maps have equal affine domain and image. On each domain the map is I+N with translation b, with N²=0 and Nb=0. The image–kernel flag and induced isomorphism give T(k,r) without multiplicity; solvability of Nx=b gives exactly 2^r admissible translations with fixed points. Including the empty map and taking the rank variable as domain cardinality gives the polynomial. An independent pointwise enumeration through internal dimension 4 matched every stratum; at k=4 the strata by fixed-point count 0, 4, 8, 16 were 645, 840, 210, 1. The normalized affine-involution weights are a_s P_k/P_r at s=k−2r. The Euler product F(u) has F(−1)=0, F(1/2)=F/2 and F(−1/2)=P∞, giving the parity split. Summable domination of a_c P_d/P_{d−c} h_{d−c} gives the codimension law and total constant. Taking even and odd d subsequences separately, the two limits of the fixed-point-free fraction both equal one-half, since the limiting even/odd codimension masses are equal. The independent branch did not execute the frozen verify.py; enumeration is corroboration, not a proof of the limits.
+
+## originality
+
+PASS
+
+The finite joint enumeration is covered as a coefficient extraction from Fripertinger’s broader affine cycle index followed by the standard affine-domain count. Do not claim new priority for those finite numerical data. The supported distinct result is the asymptotic codimension distribution and two-level parity cancellation, including the total constant and global limit. The inspected prior-cycle-index and linear-involution statements do not supply these limits by specialization.
+
+## value
+
+PASS
+
+The new limiting information concerns the natural uniform ensemble of self-inverse partial affine symmetries. It explains why the partial-map sampling law has half density even though the full-domain probabilities have two different limits, and specifies the nondegenerate limiting distribution of the missing dimension. This goes beyond re-extracting finite cycle-index coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

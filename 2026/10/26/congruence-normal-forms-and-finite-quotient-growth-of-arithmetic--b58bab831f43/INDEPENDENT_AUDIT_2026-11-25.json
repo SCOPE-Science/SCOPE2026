@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:47.450940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44 and proof steps 1–7, lines 48–69",
+        "Frozen VERIFICATION.md, lines 19–25; verify.py, lines 16–131 (inspected, not executed)"
+      ],
+      "rationale": "In a proper congruence 0 is isolated: any identification with a nonzero element gives 0 equivalent to an overflow level, and then to 1. On the natural-number part the least merged t and least positive period p give all and only residue classes above t, by translating and reducing to representatives in [t,t+p); compatibility with natural multiplication follows as well. Maximum forces consecutive overflow classes. A natural number merged with an overflow level merges its entire tail by translation; multiplication by the least level forces this tail into the first overflow block. Any smaller merger between two naturals would translate one of them into the tail. Conversely, the absorbed relation is preserved by positive natural operations, and multiplying a merged pair by an overflow level gives that level modulo the interval relation; multiplication by 0 gives 0 on both sides. The separated restrictions likewise combine because 0 is isolated. For b overflow blocks the sizes are t+b and t+p+b in the absorbed and finite separated cases respectively. Summing gives the stated generating function, coefficients and exact linear regime; at h=1 only the universal kernel contributes, and the 2^(k−1) equality restrictions are the only infinite-index cases. The pairs listed generate each relation by translation or maximum; large-cutoff separated quotients with all overflow levels distinct separate any given unequal pair.",
+      "residual_risks": [
+        "The frozen checker exhausts only the listed small finite quotients. Its index checks compare finite kernel parameter counts; neither check proves the infinite classification. The audit relies on the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.18 and Corollary 3.19 establish ideal-Noetherian facts, not congruence-Noetherianity or a congruence classification.",
+          "The catalog analogues concern finite chain times group with interval blocks and subgroup data, or one-operation quandle tail relations on an extension of Z."
+        ],
+        "reasoning": "The chain-group object lacks the arithmetic additive and multiplicative compatibility; the quandle has different operations. Neither asserted classification specializes to this two-operation family.",
+        "searches": [
+          "arXiv:2606.00916, Theorem 3.18 and Corollary 3.19",
+          "Local Resultary: b965c42c49d8 (chain-group Clifford semigroups) and fd984ec425d6 (one-column quandles)"
+        ]
+      },
+      "checked_sources": [
+        "Nasehpour arXiv:2606.00916",
+        "Sen arXiv:2511.12815v1",
+        "Resultary b965c42c49d8 and fd984ec425d6",
+        "Frozen RESULT.md, lines 79–95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base and max-chain restrictions explain possible kernels on the two parts separately. A proper mixed merger requires using multiplication by the least overflow level and translation of the natural tail; this does not follow from independent restrictions or from the ideal classification."
+        ],
+        "reasoning": "The census follows from the frozen normal forms, not directly from the prior ideal results or the componentwise congruence descriptions. Finite generation and residual finiteness are consequences of these normal forms rather than independent novelty claims.",
+        "searches": [
+          "arXiv:2606.00916, Definition 1.1 and Section 3",
+          "arXiv:2511.12815v1, Example 3.1",
+          "Resultary b965c42c49d8, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nasehpour's overflow construction specializes exactly to the frozen operations; the one-infinity specialization has k=1.",
+          "Sen's monogenic congruence description supplies the periodic part of the natural-number restriction, not interactions with the added chain."
+        ],
+        "reasoning": "Identifying the object and its base restriction is not equivalent to determining its congruence kernels. A computation for a single infinity would not give the arbitrary-k overflow block resolutions.",
+        "searches": [
+          "Primary literature: arithmetic overflow, ordinal-sum and subdirect extensions, single infinity and semiring congruences",
+          "Nasehpour, arXiv:2606.00916, Definition 1.1",
+          "Sen, arXiv:2511.12815v1, Example 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalog statements compared: b965c42c49d8 and fd984ec425d6. They do not count S_k kernels by quotient cardinality."
+        ],
+        "reasoning": "An interval partition count alone does not count the two distinct finite-index arithmetic branches. The comparison looked for a family-wide coefficient formula, not isolated terms (notably, c_1(h)=h−1 for h≥2).",
+        "searches": [
+          "Local Resultary: multilevel overflow congruences and finite quotient kernels by index; top 50 ranked hits inspected for relevant matches"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the multilevel congruence classification and complete kernel-index enumeration. The construction itself, the monogenic base restriction, and the interval rule are not novel. Neither the inspected primary sources nor the closest distinct catalog records supply the mixed tail-to-least-block rule together with the quotient-kernel census.",
+      "residual_risks": [
+        "The comparison is bounded; older or unindexed treatments of arithmetic with infinity or sum-like constructions may overlap. Priority of individual one-level facts is not established or needed for this pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same general construction and ideal results, not the audited invariant",
+          "evidence": [
+            "Definition 1.1 gives the operations used here after specializing to the natural-number base and a finite chain.",
+            "Theorem 3.18 and Corollary 3.19 address ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.00916",
+          "material_read": "Definition 1.1 (offset 7960), Theorem 3.18 (64343), Corollary 3.19 (65857)",
+          "method": "OA HTML passage and offset reads",
+          "title": "Algebraic properties of overflow semirings",
+          "trigger": "Same overflow construction, more general base and join-semilattice"
+        },
+        {
+          "assessment": "Prior base restriction only",
+          "evidence": [
+            "States congruences generated by the pair n,n+k on the additive monoid and notes the natural arithmetic semiring case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.12815v1",
+          "material_read": "Example 3.1 (offset 10192)",
+          "method": "OA HTML localized read",
+          "title": "Finitely Generated Congruences in Semirings and Canonical Positive Models",
+          "trigger": "Semiring congruences of the natural-number base"
+        },
+        {
+          "assessment": "Analogue only",
+          "evidence": [
+            "Finite chain times group; consecutive blocks decorated with normal subgroups."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-congruence-orbit-and-enriched-density-laws-for-chain-group-cliff--b965c42c49d8",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "Congruence, orbit, and enriched density laws for chain-group Clifford semigroups",
+          "trigger": "Closest catalog chain-congruence structure"
+        },
+        {
+          "assessment": "Different operations and domain",
+          "evidence": [
+            "The object is a quandle extension of Z, not the arithmetic overflow semiring."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-one-sided-congruence-lattice-of-the-bi-infinite-one-column-quand--fd984ec425d6",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local Resultary search and mirror read",
+          "title": "One-sided congruence lattice of the bi-infinite one-column quandle",
+          "trigger": "Eventual-periodic tail kernels on a distinguished-point extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, classification and quotient-size counts, lines 13–33 and 54–69",
+        "Nasehpour arXiv:2606.00916, Definition 1.1 and Corollary 3.19"
+      ],
+      "rationale": "For the natural finite-chain overflow extension this gives all homomorphic quotient kernels, distinguishing periodic finite arithmetic from actual tail absorption. The all-index generating function and infinite-index count answer a uniform, useful question about attainable finite quotients and their multiplicities; the result is not a selected small instance or a restatement of ideal-Noetherianity. The constructive kernel descriptions also give explicit generators and separating quotients.",
+      "residual_risks": [
+        "No classification of quotient isomorphism types or congruences on arbitrary overflow semirings is given."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

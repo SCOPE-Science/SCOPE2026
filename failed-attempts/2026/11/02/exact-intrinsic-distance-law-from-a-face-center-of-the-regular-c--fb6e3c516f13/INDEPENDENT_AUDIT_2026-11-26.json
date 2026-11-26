@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:50.392879Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 59–99",
+        "Frozen VERIFICATION.md and verify_cube_geodesic_law.py (read, not executed)",
+        "Independent unfolding: begin with the target's doubled square, attach each unused adjacent face by reflecting across the common edge, and evaluate squared distance differences at doubled target vertices",
+        "Independent moments: integrate 8 times (4−x)^2+y² raised to the moment index over 0≤y≤x≤1 in doubled opposite-face coordinates with area factor 1/4 and squared-distance factor 1/4; add top and lateral terms before division by six"
+      ],
+      "rationale": "A shortest path cannot revisit the interior of a face: the chord in that face attains the ambient lower bound between the visits, with equality only for the straight segment. Positive-defect vertices cannot be interior points of a minimizing path, since one of the two angles at such a vertex must be less than π. An independent backward unfolding in target coordinates on a doubled integer lattice enumerated 28 opposite-face and 26 side-face paths, with the claimed candidates present and each unfolded source dominated at all four corners by one of the claimed candidates. The squared-distance difference is affine, so this is an exact whole-square bound; the candidate segments cross actual edges and realize the bound. Boundary targets follow by continuity. Integrating the disk on the source square, clipping the lateral strips at transverse half-width 1/2, and clipping each opposite-face sector at t=1/2−s gives exactly T,S,B. The latter edge bound switches when (3/2+s)^2+(1/2−s)^2=r^2; the extrema and branch endpoints have the stated values. In centered opposite-face coordinates 0≤n≤m≤1/2, the squared distance (2−m)^2+n^2 strictly decreases with m on every ray n=tm, giving the unique maximum 2 and the cutoff m=ε+t²ε²/4+O(ε³) uniformly in t. The tail area is eight sectors with Jacobian m, divided by six, giving both stated coefficients. Exact rational monomial integration using the m,n chart independently gave 1,23/18,451/180,331/56,389423/25200 at exponents 0,2,4,6,8, respectively.",
+      "residual_risks": [
+        "The frozen random sample checks only corroborate the CDF; the continuous distribution and tail are established by integration and expansion, not by sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every h>0 the prism record evaluates A_h(r)/(4h+2) explicitly; at h=1 its thresholds are 1/√2, √(5/2), 2, with the extra per-face subdivisions cancelling in the total CDF.",
+          "Goldstone et al. already give the three-face candidates when one opposite-face endpoint is the face centroid."
+        ],
+        "reasoning": "The prism law is a strictly broader theorem; the older cube geodesic paper alone supplies the reduction, not the distribution.",
+        "searches": [
+          "Resultary 0ad36010fee1, Finding and Eqs. (1), (7)–(9)",
+          "Goldstone–Roca–Suzzi Valli, arXiv:2003.06096v1, §4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ad36010fee1",
+        "Resultary 9a805587c04a",
+        "Goldstone–Roca–Suzzi Valli, §4.3 and Tables 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At h=1, the average of (x²+y²)^k on S_1 is a polynomial integral over a rational polygon, with the same square, four rectangles and four triangles as in the frozen result.",
+          "The terminal density before normalization is 8r[π/4−arccos(√2/r)]. With r=2−t the angle is t/2+3t²/8+O(t³), so this density is 8t+2t²+O(t³). Integration and division by six give 2ε²/3+ε³/9+O(ε⁴)."
+        ],
+        "reasoning": "Rationality, the tabulated higher moments and the cubic coefficient are immediate evaluations of explicitly available formulas, not a distinct improvement to the law.",
+        "searches": [
+          "Resultary 0ad36010fee1, source-domain geometry Eq. (7), density derivative following Eq. (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prism Eqs. (5)–(7) give the same lateral strip, opposite-face images, and sector development at h=1; the source being on the bottom instead of the top is immaterial by isometry.",
+          "The distinct same-day cube result 9a805587c04a fixes a vertex, not a face center."
+        ],
+        "reasoning": "The prism result matches distance variable and sampling measure; the vertex result is not equivalent.",
+        "searches": [
+          "Resultary intrinsic cube distance from face center; vertex-distance comparator 9a805587c04a",
+          "Resultary 0ad36010fee1 sharp stochastic height order exact intrinsic distance law right square prisms square-face center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The path tables list unfolded positions and squared path lengths, not probabilities. The prism record gives the exact CDF, an exact leading tail coefficient and a second-moment formula that gives 23/18 at h=1."
+        ],
+        "reasoning": "No table of the higher even moments was needed for coverage: the closed law and the explicit rational polygon give them directly.",
+        "searches": [
+          "Goldstone et al., Tables 1–2",
+          "Resultary 0ad36010fee1, Eqs. (1), (2), (4)"
+        ]
+      },
+      "rationale": "The earlier indexed square-prism result directly evaluates the same intrinsic law for all h>0; h=1 and reflection across the midplane recover the exact target metric, center, and uniform surface-area law. Its planar development and closed CDF give the higher even moments and the subleading tail by direct integration and Taylor expansion. The frozen breakdown into individual face areas is the same disk clipping in the very face pieces exposed by the prism proof; it does not escape that coverage.",
+      "residual_risks": [
+        "Mathai–Moschopoulos–Pederzoli DOI 10.6092/issn.1973-2201/1104 was not available in the open copy search; no claim about its full text is used in the decision.",
+        "This is a statement-coverage finding, not a verdict about independent derivation or absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger coverage",
+          "evidence": "Eqs. (1), (2), (4)–(9) and the explicit derivative, specialized to h=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-stochastic-height-order-and-exact-intrinsic-distance-law-f--0ad36010fee1/RESULT.md",
+          "material_read": "Finding, exact potential and planar domain, offsets 0–4883; proof of CDF, density and second moment, offsets 4883–7922",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp stochastic height order and exact intrinsic-distance law for square prisms",
+          "trigger": "Earlier indexed same-source surface-distance law for a strictly broader class"
+        },
+        {
+          "assessment": "Prior for opposite-face path reduction only",
+          "evidence": "For a centroid endpoint the shortest path is one of the four 3-face LS-paths; the tables give their developments.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.06096",
+          "material_read": "§4.3, p.9, offset 23879, and Tables 1–2, p.10, offset 28836",
+          "method": "Open primary PDF passages",
+          "title": "Shortest Paths on Cubes",
+          "trigger": "Pointwise shortest-path prerequisite"
+        },
+        {
+          "assessment": "Different marked source and law",
+          "evidence": "The marked source is a vertex and the second moment is 3/2.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-intrinsic-vertex-distance-law-on-the-surface-of-a-unit-cub--9a805587c04a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact intrinsic vertex-distance law on the surface of a unit cube",
+          "trigger": "Same-day close catalogue result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 0ad36010fee1, Eqs. (1), (4), (7) and derivative following Eq. (9)"
+      ],
+      "rationale": "The marked-center distribution is a natural object, but this record reevaluates a known specialization of the exact square-prism law. Its extra tabulated numbers and Taylor term are routine evaluations of the already explicit planar domain and density, and the record gives no distinct application requiring those particular values. The facewise organization adds subdivisions without a new geometric or probabilistic conclusion. No independently motivated surviving claim warrants repair.",
+      "residual_risks": [
+        "The conclusion concerns the incremental contribution of this record, not the scientific interest of intrinsic distance laws generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

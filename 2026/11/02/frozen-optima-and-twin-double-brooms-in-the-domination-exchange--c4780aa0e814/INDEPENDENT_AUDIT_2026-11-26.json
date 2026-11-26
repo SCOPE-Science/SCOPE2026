@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:52:29.284357Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Neighborhood capacities give the odd lower bound and exclude k tokens on L_{2k}: equality would forbid overlap and endpoint tokens, forcing both second-column vertices to be selected and hence overlap. The alternating odd word and the displayed even words attain the respective bounds. For a minimum word the total excess coverage is 4|S|−e(S)−2n; 00 forces X00X, which consumes four excess incidences and is impossible in the odd case. In the even case those two X columns dominate the whole interval from one column before to one after the block. A token just outside that interval would create overlap, and dominating its column without such a token requires a third X; no such extension is possible. Endpoint selections are also forbidden in this case, leaving precisely 0X00X0 on L₆. Otherwise the empty/occupied count permits at most one X. On even ladders with no X both endpoints are occupied and the single missing internal zero specifies the gap, with independent alternating row phases on its two sides. With one X exactly one endpoint is empty, forcing the adjacent X and the other alternating singletons; these are the four endpoint-double words. For odd n≥5 a sole X would have to dominate both empty endpoints from two distinct columns, so there are just the two alternating words and no slide between them. For even n, moving the gap more than one position changes at least two occupied columns; when it moves one position, the moving token must keep its row, forcing s=r⊕(j mod 2). Rung moves can change a whole alternating block only when its length is one. The only slides to endpoint-double words are the indicated slides out of that endpoint, and two different endpoint-double words are not one move apart for k≥3. These checks give exactly the two B_{k−1} components and the asserted counts, diameter, and isolates. They also apply to the nonexceptional words at k=3. The exceptional word is frozen: every rung target is occupied, a move outward from an X loses one row of the inner empty column, and a move inward loses one row in the outer empty column. Independent finite replay for L₆: enumerate all subsets of the 12 vertices by size through 4, retain those whose closed-neighborhood union is the whole ladder, and test each replacement along a rung or rail. It gives minimum size 4, 17 vertices, 12 edges, component orders 7,7,1,1,1, and each 7-vertex tree has degrees 1⁴,2,3². The uploaded scripts were inspected, not run; the infinite result follows from the word and edge argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anusuya–Kala Theorem 2.11 describes the connected modified γ_m graph for all n=2k, k≥4. Its labeled proof gives minimum-set families and lists four triangles and four paths. The bound's graph instead has isolates and two trees.",
+          "The inspected later Resultary entry concerns independent dominating sets. Its minimum even case is 2P_{n/2}; it excludes nonindependent minima and does not describe the full minimum-domination graph.",
+          "The abstract of Some Results on Gamma Graphs identifies path products but specifies an unrestricted exchange convention. Its actual ladder theorem is unverified."
+        ],
+        "reasoning": "A general adjacent-swap definition does not give an all-k classification. The unrestricted graph is a supergraph on the same minimum sets; its connectedness or degree distribution does not determine the structure of the edge-restricted graph. Restricting the vertex set to independent minima is not extension to all minima.",
+        "searches": [
+          "Fricke et al. DOI 10.7151/dmgt.1562 and identified OA publisher routes",
+          "Bhatt DOI 10.58213/8jee9p96 and identified publisher PDF",
+          "Anusuya–Kala (2020) Theorem 2.11 and proof",
+          "Resultary: ladder dominating-set token-slide geometry"
+        ]
+      },
+      "checked_sources": [
+        "Anusuya–Kala, Palestine Journal of Mathematics 9(2), 691–697",
+        "Bhatt–Bhatt DOI 10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03",
+        "Abstract or bibliographic evidence for DOIs 10.7151/dmgt.1562 and 10.58213/8jee9p96",
+        "Resultary and two matching-scope local primary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior labeled candidate exchanges substantially reduce the vertex and candidate-edge work. They do not classify which path families implement same-row slides and which change row while shifting columns. At a gap shift, the matching phase r⊕j is needed; at endpoint triangles the admissible pairs depend on a rung or a same-row rail rather than a diagonal exchange.",
+          "The two independent even-ladder paths account for the spine types, but by definition cannot account for nonindependent leaves or isolated minima."
+        ],
+        "reasoning": "The new structural step is the uniform edge filter and proof of how the surviving path and triangle edges meet. The unrestricted graph considered as an abstract graph has no edge-type information; even using its labeled families one must establish the gap-phase condition along entire paths and check the endpoint cases. The broom/isolates theorem is not a specialization of the stated unrestricted degree or connectedness theorem.",
+        "searches": [
+          "Anusuya–Kala proof of Theorem 2.11 and Fig. 2.8, PDF pp. 5–7, text offsets 15300–24513",
+          "Later independent ladder token-slide record, Finding and model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anusuya–Kala distinguish ordinary γ-graph adjacency, requiring v∼w, from modified γ_m adjacency, requiring only a one-vertex exchange. The bound uses the ordinary convention, not the modified one.",
+          "Bhatt–Bhatt use intersection size γ(G)−1 and treat the middle graph of a ladder; both the underlying graph and the exchange criterion differ."
+        ],
+        "reasoning": "Terminology is not enough to distinguish results: the standard ordinary γ-graph is exactly the bound model and must count as a possible duplicate, whereas unrestricted exchange and a middle-graph construction are not equivalent. The specific convention in the unavailable Lakshmanan–Vijayakumar text was not verified.",
+        "searches": [
+          "Resultary: ordinary ladder minimum domination adjacent token slide and double-broom components",
+          "Anusuya–Kala (2020), definitions pp. 1–2",
+          "Bhatt–Bhatt DOI 10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03, first two PDF pages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 2.10 explicitly lists the 17 L₆ minima and unrestricted edges with one isolate; the known list can be filtered for the small adjacent-slide check. Theorem 2.11 already counts 4k+4 minima and supplies labeled families. Neither states the full adjacent edge census for all even n.",
+          "The later independent-domination record overlaps on the odd conclusion but is not an exact match for the main even claim. The earlier maximum-minimal record optimizes in the opposite cardinality direction among inclusion-minimal sets."
+        ],
+        "reasoning": "Credit no novelty for those vertex counts or for filtering a single already-tabulated finite graph. The main exact classification is of the structure of the adjacent exchange graph uniformly in k, not a database of minimum sets.",
+        "searches": [
+          "Anusuya–Kala (2020) Theorems 2.10 and 2.11, labeled graphs and counts",
+          "Resultary: ladder adjacent-only minimum domination and independent minimum domination"
+        ]
+      },
+      "rationale": "Best-of-knowledge credit is for the uniform, adjacency-constrained double-broom and isolate classification on ordinary even ladders, not for the general γ-graph model, domination number, enumeration of optima, or an unrelated graph on the same optima. The strongest accessible prior ladder graph is a labeled unrestricted-exchange graph with substantial overlap in the word families and candidate exchanges. Its stated parameters and topology are different; the surviving adjacent edges and resulting disconnected components need their own row-compatibility argument. The alternate graph conventions and source access limits below constrain this judgment.",
+      "residual_risks": [
+        "The Fricke et al. primary full text and the Bhatt Cartesian-product article's full text were not available through the tried routes. Exact ladder coverage under the adjacent convention could exist in the former or another uninspected source.",
+        "The bibliographic description of Lakshmanan–Vijayakumar's edge convention was not independently verified. Conclusions about the modified graph follow the explicit definition in the accessible 2020 primary article, not a blanket assertion about γ-graph terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts and candidate word families substantially overlap; a different exchange graph is classified",
+          "evidence": [
+            "Ordinary γ uses adjacent exchanged vertices, while γ_m does not.",
+            "Thm. 2.10 gives 17 optima and a single isolate of the modified graph; Thm. 2.11 describes a connected graph, with four triangles and four paths given in its proof."
+          ],
+          "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_May2020_691_to_697.pdf",
+          "material_read": "PDF pp. 1–2 definitions, Theorem 2.10 and labeled L₆ graph, Theorem 2.11 and its proof/figure on pp. 5–7 (follow-up text offsets 15300–24513)",
+          "method": "Primary OA PDF text with targeted reading of labels, graph structure and exchange definitions",
+          "title": "Modified γ Graph-G(γm) of Some Grid Graphs",
+          "trigger": "Strongest accessible prior result on precisely the same ladders and minima"
+        },
+        {
+          "assessment": "Material residual priority risk, not evidence of lack of coverage",
+          "evidence": [
+            "The adjacent-swap definition is supported secondarily; the actual 2011 ladder coverage could not be checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1562",
+          "material_read": "Metadata and the same-model definition attributed to Fricke et al. on Anusuya–Kala PDF p. 1; no direct passage",
+          "method": "DOI and identified publisher landing/PDF route attempts; no primary OA text recovered",
+          "title": "γ-Graphs of Graphs",
+          "trigger": "Foundational same-model source and potential ladder coverage"
+        },
+        {
+          "assessment": "Not the original-ladder adjacent-slide theorem",
+          "evidence": [
+            "The swap definition is intersection size γ(G)−1, and the ladder construction uses its middle graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03",
+          "material_read": "Publisher PDF pp. 1–2, definitions and middle-graph ladder discussion",
+          "method": "Primary OA publisher PDF, article download 1733/1169",
+          "title": "Certain findings on the gamma graph of some graphs",
+          "trigger": "Ladder-related title and possible γ-graph match"
+        },
+        {
+          "assessment": "The abstract's unrestricted convention differs; exact ladder coverage remains unverified",
+          "evidence": [
+            "The abstract states one-vertex difference for adjacency and cites Cartesian products of paths and cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.58213/8jee9p96",
+          "material_read": "Publisher-record abstract only; no full-text ladder theorem",
+          "method": "DOI and identified publisher PDF route attempted, no repository copy retrieved",
+          "title": "Some Results on Gamma Graphs",
+          "trigger": "Cartesian products of paths include ordinary ladders"
+        },
+        {
+          "assessment": "Later-dated and restricted to independent sets; overlap on odd minima and even spines, not the complete even graph",
+          "evidence": [
+            "At minimum independent domination size the components are 2K₁ for odd n and 2P_{n/2} for even n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-cardinality-token-slide-geometry-of-independent-dominating-s--b3cdccfc018b",
+          "material_read": "Finding, parameter definition and minimum odd/even cases",
+          "method": "Resultary and local primary record",
+          "title": "All-cardinality token-slide geometry of independent dominating sets",
+          "trigger": "Closest same-ladder adjacent-slide catalogue hit"
+        },
+        {
+          "assessment": "A different family of dominating sets",
+          "evidence": [
+            "Classifies maximum-cardinality inclusion-minimal sets rather than all minimum-cardinality dominating sets."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77",
+          "material_read": "Finding and optimization criterion",
+          "method": "Resultary and local primary record",
+          "title": "All maximum minimal dominating sets of ladder graphs",
+          "trigger": "Earlier ladder catalogue entry with overlapping domination terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary adjacent-swap γ-graph is a pre-existing natural object. For the simplest nontrivial ladder family, the theorem explains exactly which optimal selections are frozen and why the movable ones split into two trees of specified shape. This is a structural answer that the convenient count 4k+4 or the connected unrestricted graph does not provide. The main value is the uniform even-ladder classification and explicit obstruction mechanism; the finite L₆ check alone would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:34:27.796270Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Cúth–Raunig finite-tree formula applies to the real equilateral metric and evaluates each edge coefficient by a mass cut, with no distance factors other than 1. An independent exact Prüfer-code replay (python3 /workspace/checks/01_tree_certificate.py) checked all 16 trees. All cut magnitudes belong to 0,t,1−t,1,1+t,2; sorted comparison is affine on each side of t=1/2, so comparisons at 0,1/2,1 certify domination throughout and two trees realize the minimum throughout. This gives the p-th power, and the coefficient ℓ2 norm is sqrt(4+2t²). On (0,1/2) the positive numerator of the first fraction in the logarithmic derivative decreases strictly while its denominator increases strictly; the odd-in-t Euclidean derivative term t/(2+t²) increases there. The sign changes once from positive to negative and remains negative for 1/2≤t<1. The expansion is 2+t^p+o(t^p) before taking the p-th root, with the denominator changing only at order t². At p=1 the free norm is half total variation in the coefficient ℓ1 convention (half the sum of absolute masses); equality in ℓ1≤2ℓ2 forces four equal magnitudes and the zero-sum condition forces two of each sign. Permutation and scaling carry the cusp perturbation to every such extremizer. Only the specified family is optimized for p<1. The recorded floating-point diagnostics are not needed and were not used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cúth–Raunig Theorem 2.2 computes the norm as a minimum over rooted spanning trees for arbitrary finite p-metric spaces."
+        ],
+        "reasoning": "This fully covers the general algorithmic norm reduction; it neither optimizes an ℓ2-normalized coefficient orbit nor implies monotonicity or uniqueness just by specializing the input.",
+        "searches": [
+          "Focused literature search: exact Lipschitz-free p-norm formulas for small finite spaces",
+          "arXiv:2311.02920, Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and self-review",
+        "Cúth–Raunig arXiv:2311.02920",
+        "Bíma arXiv:2303.03265",
+        "Resultary November 2 positive-cone comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem here yields a minimum of 16 cost expressions; the fixed minimizing profile requires dominance across t. After comparison, the cusp requires an all-p expansion and the optimum a sign/monotonicity argument.",
+          "Equal coefficients in a different positive cone do not settle local stability of the balanced signed vector."
+        ],
+        "reasoning": "The key new implication is that all the global classical balanced vectors lose local optimality as soon as p<1, with exact uniqueness on the natural imbalance path. It was neither given nor mechanically read off from the broader prior theorem.",
+        "searches": [
+          "Cúth–Raunig, Theorem 2.2 and Corollary 2.7",
+          "Bíma, arXiv:2303.03265, Theorem 2",
+          "November 2 positive-cone Resultary comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The central-extension record concerns a nonnegative-charge cone, even in its equilateral case; the other four-point record uses a positive cone on an equal-arm tree with variable stem.",
+          "Bíma's Theorem 2 bounds a coordinatewise affine retraction from a union of ℓ1-metric cubes."
+        ],
+        "reasoning": "No stated change of coordinates identifies these with a signed two-positive/two-negative equilateral mass family and the ordinary four-coefficient ℓ2 quotient. The optimization domains and denominators differ.",
+        "searches": [
+          "Resultary: equilateral four-point Lipschitz-free p-space, signed balanced masses, Euclidean coefficient extremizers",
+          "arXiv:2303.03265, cube retraction Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two neighboring November 2 records give different cone/metric formulas; the exact closed small-space formula inspected in Corollary 2.7 uses three vertices."
+        ],
+        "reasoning": "Neither exact source tabulates the signed four-point profile or its maximum. Profile evaluation alone is a small exact instance of the general algorithm; the audit credits no originality merely for running that algorithm.",
+        "searches": [
+          "Resultary: four-point p-space exact profiles and positive-cone extremizers",
+          "arXiv:2311.02920, Corollary 2.7"
+        ]
+      },
+      "rationale": "Credit the general tree formula and the classical p=1 benchmark to existing theory. The distinct supported claim is the analytic symmetry-breaking/unique-optimum result for this signed coefficient profile, with an exact closed cost and a cusp at the classical optimum.",
+      "residual_risks": [
+        "The priority check is bounded; an equivalent coefficient optimization could occur elsewhere under finite transport or quasi-norm terminology.",
+        "The same-day catalogue dates do not establish ordering; the comparisons rely on the statements differing, not on timestamps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers tree reduction; distinct three-point explicit formula",
+          "evidence": "Theorem takes a spanning-tree minimum; Corollary has three-point inputs and no quotient extremum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.02920",
+          "material_read": "PDF pp. 4, 7, Theorem 2.2 and Corollary 2.7",
+          "method": "Lawful OA PDF passages",
+          "title": "Canonical embedding of Lipschitz-free p-spaces",
+          "trigger": "General exact finite-mass formula and possibly explicit four-point case"
+        },
+        {
+          "assessment": "Different maps and invariant",
+          "evidence": "Bíma estimates Lip(r) with ℓ1 metric on a union of cubes for a retraction into the free p-space on its vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.03265",
+          "material_read": "PDF p. 3, Theorem 2 and surrounding text, offset 10440",
+          "method": "OA PDF literal locate and bounded read",
+          "title": "Lipschitz Free Spaces and Subsets of Finite-Dimensional Spaces",
+          "trigger": "Closest cited cube/finite-dimensional interpolation context"
+        },
+        {
+          "assessment": "Distinct despite same day and some common metrics",
+          "evidence": "Nonnegative-charge cone with a hub; does not optimize the signed orbit above.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-positive-cone-distortion-for-a-central-extension-of-equila--c7338ad89c5f",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary and mirrored-file inspection",
+          "title": "Exact positive-cone distortion for a central extension of equilateral spaces",
+          "trigger": "Same-day, equilateral and exact p-distortion terminology"
+        },
+        {
+          "assessment": "Different metric, domain and invariant",
+          "evidence": "Variable stem and positive leaf charges on an equal-arm tree, not the equilateral signed coefficient quotient.",
+          "identifier_or_url": "2026/11/2/SCOPE-positive-cone-extremizers-for-a-four-point-lipschitz-free-p-spac--597454dea535",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary and mirrored-file inspection",
+          "title": "Positive-cone extremizers for a four-point Lipschitz-free p-space",
+          "trigger": "Same-day four-point extremizer result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four points are the natural first balanced two-source/two-sink equilateral configuration. The chosen path keeps both source masses and total sink mass fixed and varies the single sink imbalance, up to swapping the sinks. The exact shift and its positive Hölder cusp refute persistence of local optimality at every classical global extremizer for all p<1. This is useful even though it does not compute the unrestricted p<1 maximum. The finite tree calculation alone would be a routine instance, not the main value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy in a directory containing this file. `VERIFY_OK` means that the code successfully checked a symbolic factor identity and independent exact rational orbit computations; it does not constitute a separate external audit.
+## correctness
 
-The exact verifier derives every 3-cycle with two independent methods, checks the six permutations on 55 positive-product, strictly increasing rational triples, confirms the strict sign and factorization, and reproduces a concrete rational example. Symbolic simplification verifies the numerator identity with no floating-point approximation. Large-parameter rational examples also check the predicted ratio scaling, while the proof in `RESULT.md` establishes its asymptotic limit for all real parameters along the specified family.
+PASS
 
-## Limitations
+For order (u,v,w), the map on the reciprocal y over three seasons is y↦(y+1+u+uv)/P. It has a unique positive attracting fixed point exactly for P>1; rotating the formula gives the other phases. For P≤1 the map instead drives y to infinity, and each within-period phase does so as well. For P>1, after canceling the mean's common factor (P−1)/3, the oriented mean difference is (b−a)/A−(c−a)/B+(c−b)/C, where A,B,C are the two-factor products for pairs ab,ac,bc respectively. I checked the expanded identity (b−a)BC−(c−a)AC+(c−b)AB=(b−a)(c−a)(c−b)(P−1)Q as an exact polynomial over the integers. Putting back the common factor gives the claimed formula and strictly positive sign. The example for (1/2,2,8) gives difference 36603/271700 by rational arithmetic. All permutations for periods one or two are phase shifts, and the two classes for three distinct rates have the stated strict inequality. In the unbounded-ratio family (1/t,t,t³), the leading reciprocal denominator for (a,b,c) is 1/(2+1/t) and for (a,c,b) is 1/(2+t), with the remaining terms O(t^−3) and O(t^−2), respectively. Their quotient is asymptotic to t/2.
 
-Finite samples by themselves would not prove a universal sign; the mathematical proof is the explicit factorization in `RESULT.md`. Only the exact claims listed there are assessed. The source comparison does not rule out an inaccessible or unindexed equivalent theorem. Independent audit remains unperformed.
+## originality
+
+PASS
+
+Existing work already shows that three-season order can matter, and gives general periodic mean formulas. The supported distinct result is the strict ordering of the two growth-rate permutation classes with a fixed denominator, its exact positive gap and its unbounded relative advantage; neither a bare order effect nor the mean formula alone is new.
+
+## value
+
+PASS
+
+At the shortest period permitting a noncyclic reordering, the persistence threshold is order-invariant but the positive arithmetic mean has a universal strict ranking and can change by an unbounded factor. This separates viability from abundance in a naturally parameterized model, rather than merely illustrating order dependence with a chosen numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

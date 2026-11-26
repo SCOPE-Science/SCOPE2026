@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:25.225824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the D/ε occupation normalization the boundary regulator is L, giving the Robin condition f'(0)=θ(f(0)-1) for the transform at an exponential local-time budget. The bounded solution of Df''-(r+s)f+rf(a)=0, evaluated at a and at the Robin boundary, is Ĥ(s)θ/(θ+ψ(s)) with Ĥ=(r+s)e^(-a q)/(s+r e^(-a q)) and ψ=sq/(s+r e^(-a q)), q=sqrt((r+s)/D). Inverting the θ mixture gives the fixed-budget transform; extension from almost-everywhere in budget follows by right continuity of the inverse. The first-hit factor is also obtained by renewal at the earlier of a free boundary hit and a reset. After the first hit, each inverse-local-time stopping time starts the spatial motion at zero with a fresh Poisson clock, giving stationary independent increments without resetting the budget. Analyticity of the transforms near zero gives finite moments; an ordinary CLT for unit-budget increments plus the bounded-length remainder and independent first hit gives the fixed-z Gaussian limit. I differentiated the dimensionless log transform exactly and independently reproduced both cumulants, B'=e^z F/z⁴, F'=(2z-1)(2e^z-1), and z*=1.3309178942733854 (square 1.7713424412971023). Since F(0)=-3, F(1)<0, F(3/2)>0 and F is increasing beyond 1/2, the sign change is unique. Coercivity and uniqueness of the leading coefficient minima and nonnegative first-hit costs confine all exact global minimizers to the appropriate limits, without assuming uniqueness at finite budget. Finally C'(z) has sign e^(-z)(z²+z+1)-2<0. This last limit is pointwise in z, not a simultaneous infinite-rate/large-budget limit. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A point-mass reset-site distribution in the indexed arbitrary-site transform gives the frozen threshold transform and hence its moments.",
+          "Benkhadaj–Grebenkov treat fixed-threshold first crossing with retained local time and bounded domains but do not evaluate this half-line optimizer in the compared passages.",
+          "Pal et al. study forward local time near the reset point, not the inverse at a deterministic boundary budget."
+        ],
+        "reasoning": "A broader law may cover the moments, and does here. Comparing throughput for mixed reset sites or forward fluctuations does not settle which rate optimizes the inverse threshold-time variance.",
+        "searches": [
+          "f0edb8ae038d RESULT.md arbitrary reset-site law and fresh reset start",
+          "Benkhadaj–Grebenkov arXiv:2209.00947 §II.B Eqs. (17)–(28)",
+          "Pal et al. arXiv:1902.00907 Eqs. (41)–(47)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and verify.py",
+        "arXiv:2203.04868, 2209.00947, 1902.00907",
+        "Resultary f0edb8ae038d and b8afa7134304"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The double transform and mean are already present in the same position-only model.",
+          "Variance at the mean optimum is one evaluation of the known law; it does not certify the unique positive zero of 2e^z(2z-3)-z²+z+3 or the convergence of every variance minimizer.",
+          "The frozen relative-variance claim concerns monotonicity over all fixed z in the leading large-budget coefficient, not sub-Poisson behavior at the mean optimum."
+        ],
+        "reasoning": "The new assertions are global optimization and comparative reliability results extracted from known exact laws. The indexed objectives differ, and restricting them to a single site or rescaling their published formulas alone does not produce the global conclusions.",
+        "searches": [
+          "Bressloff arXiv:2203.04868 §2.3 Eqs. (2.32)–(2.41) and §3 Eq. (3.17)",
+          "b8afa7134304 RESULT.md mean optimizer, exact variance and variance deficit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff's x0 is a, the budget ℓ_h is ℓ, and Eq. (3.17) rescales to equation (2) of the frozen record.",
+          "b8afa7134304 uses threshold h, λ=h/x0 and z=x0 sqrt(r/D). Its dimensionful variance becomes equation (3) upon multiplication by D²/x0⁴."
+        ],
+        "reasoning": "The same model and cumulants under changed units are exact coverage. Distinguishing the objectives requires comparing the rate minimizing the mean with the rate minimizing absolute variance, not variance evaluated at the former rate.",
+        "searches": [
+          "Local Resultary: position-only resetting, retained contact and inverse local time; b8afa7134304 and f0edb8ae038d",
+          "Bressloff arXiv:2203.04868 §3 Eq. (3.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b8afa7134304 gives both exact variance terms for all positive rates and thresholds.",
+          "f0edb8ae038d is an exact transform match at a single site, but its optimization concerns throughput and a two-site cusp."
+        ],
+        "reasoning": "The meaningful exact-index check is the continuous law and optimizer, not a numerical table or whether the reported decimal occurs in a search. The variance law matches, while the independent global variance optimum and relative monotonicity have no verified match in these sources.",
+        "searches": [
+          "Local Resultary b8afa7134304 fixed-contact first-passage variance and mean optimizer",
+          "f0edb8ae038d retained-local-time transform and optimization"
+        ]
+      },
+      "rationale": "The supported distinct result is the global large-budget rate separation for absolute variance versus mean, convergence of all finite-budget global optimizers to the distinct limits, and the contrasting strict decrease of the large-budget relative-variance coefficient. The retained-local-time model, exact mean and transform are not distinct. The entire finite-threshold variance, including the coefficient B(z), is explicitly covered by indexed result b8afa7134304 and follows from a more general indexed transform as well. Those exact overlaps are credited. The compared statements give a throughput optimization or evaluate variance at the mean-optimal rate; neither determines the independent global minimizer of absolute variance. The distinct optimization requires a global critical-point and coercivity argument, not merely inserting the single-site law or changing units.",
+      "residual_risks": [
+        "A different paper may independently optimize the same law; the targeted literature check is not exhaustive.",
+        "The exact indexed overlaps establish formula coverage, not chronological priority among the records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean and underlying double-transform machinery precede the scoped optimization finding",
+          "evidence": [
+            "The Poisson operation resets position, not local-time progress",
+            "Eq. (3.17) gives the two mean terms exactly"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04868",
+          "material_read": "§2.3 Eqs. (2.32)–(2.41); §3 Eq. (3.17), PDF p. 15",
+          "method": "Open primary PDF passage comparison",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Primary same-model threshold transform and mean"
+        },
+        {
+          "assessment": "General bounded-domain retained-local-time propagator and threshold-time formula, not an evaluated half-line optimum in the compared material",
+          "evidence": [
+            "Reset retains local time",
+            "Inverse-Laplace first-crossing representation at fixed threshold"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.00947",
+          "material_read": "PDF pp. 5–7, §II.B Eqs. (17)–(28)",
+          "method": "Open primary PDF passage comparison",
+          "title": "Encounter-based approach to diffusion with resetting",
+          "trigger": "Plausible broader position-reset inverse-law coverage"
+        },
+        {
+          "assessment": "Different forward functional",
+          "evidence": [
+            "Forward local-time moments and Gaussian approximation as elapsed time grows"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.00907",
+          "material_read": "PDF pp. 8–10, absorbing half-line Eqs. (41)–(47)",
+          "method": "Open primary PDF passage comparison",
+          "title": "Local time of diffusion with stochastic resetting",
+          "trigger": "Potential fluctuation or CLT analogue"
+        },
+        {
+          "assessment": "Transform and cumulants covered by a point-mass specialization, not the stated optimization",
+          "evidence": [
+            "Arbitrary reset-site distribution; optimization concerns throughput and two-site cusp"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-two-site-cusp-for-boundary-reaction-throughput-under-pos--f0edb8ae038d/RESULT.md",
+          "material_read": "Retained-local-time transform, fresh reset-site start and throughput finding",
+          "method": "Local mirror passage comparison",
+          "title": "A sharp two-site cusp for boundary-reaction throughput under position resetting",
+          "trigger": "Broader exact transform potentially covering the single reset site"
+        },
+        {
+          "assessment": "Exact variance coverage; distinct optimization objective",
+          "evidence": [
+            "The full rate-dependent variance, including B(z), agrees",
+            "The uncertainty criterion is evaluated at the mean optimizer, rather than minimizing absolute variance independently"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sub-poisson-first-passage-uncertainty-at-the-mean-optimal-rate-f--b8afa7134304/RESULT.md",
+          "material_read": "Exact finite-threshold variance, finite-threshold mean optimum, and variance deficit at that optimum",
+          "method": "Local mirror passage comparison",
+          "title": "Sub-Poisson first-passage uncertainty at the mean-optimal rate for retained boundary contact",
+          "trigger": "Strongest same-model uncertainty and optimal-rate overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural deterministic accumulated-contact reaction budget, a practitioner optimizing rate for speed need not obtain the best absolute timing reliability. The strict global large-budget separation by the universal physical rate factor 1.771342441… and the opposite preference of the relative-variance coefficient make that distinction actionable in the model. The result is not an arbitrary parameter slice, and it does not promise a finite global optimum for the relative criterion or claim uniformity in a simultaneous large-rate limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

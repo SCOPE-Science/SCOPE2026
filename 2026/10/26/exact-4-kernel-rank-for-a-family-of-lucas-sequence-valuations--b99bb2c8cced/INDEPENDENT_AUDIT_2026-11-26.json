@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:14.670833Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71",
+        "Murru–Sanna, arXiv:1603.09310, Theorem 1.5",
+        "Frozen VERIFICATION.md and verify_examples.py (inspected, not executed)"
+      ],
+      "rationale": "Here U₀=0, U₁=1, and reduction mod 2 gives Uₘ even exactly at even m. The cited Murru–Sanna valuation theorem applies with apparition index 2 and 2 dividing a²+4b. Independently, set Vₘ=αᵐ+βᵐ for the characteristic roots. All Vₘ are even; the recurrence gives V₂ⱼ₊₁/a odd by induction, and V₂ⱼ=Vⱼ²−2(−b)ʲ≡2 mod 4 for j≥1. Repeated use of U₂ₘ=UₘVₘ thus gives ν₂(Uₘ)=ν₂(m)+t−1 on even m, with zero valuation on odd m. Taking the floor after division by 2 gives ν₄. At depth e≥1 of the 4-kernel all offsets except the final one give constant sequences; the final offset gives h+e with h(n)=floor((ν₂(n+1)+t−1)/2). Consecutive final offsets yield the unit constant, and then h itself is in the module. For t=1,2, h=s and s is unbounded; if t≥3, evaluating a relation first at n=4ʲ−1 and then at even n shows s,h,1 independent because h−s=floor((t−1)/2)>0 on the even indices. This establishes exact rank over ℤ, not just regularity.",
+      "residual_risks": [
+        "The supplied example script tests valuations over 15 parameter pairs and indices through 500, not the kernel rank; the rank conclusion rests on the explicit module proof.",
+        "Nondegeneracy and the specified initial values are essential to the stated scope; no arbitrary-initial-data claim was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 proves regularity for gcd(k,b)=1. The exact-rank theorem in the same paper is for prime base; §6 explicitly distinguishes composite k including prime powers.",
+          "The exact-rank statements in Medina–Rowland treat prime-base Fibonacci valuations."
+        ],
+        "reasoning": "The broader result entails finite generation but not ranks 2 and 3. The prime-base module for ν₂ and the base-4 module for floor(ν₂/2) are not the same object.",
+        "searches": [
+          "Murru–Sanna, arXiv:1603.09310, Theorems 1.3–1.5 and §6",
+          "Medina–Rowland, arXiv:0910.2907, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary searches and both indexed Findings above",
+        "arXiv:1603.09310, Theorems 1.3–1.5 and §6",
+        "arXiv:0910.2907, p. 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established term formula yields the input to the rank problem. The frozen analysis identifies the final-offset family h+e, recovers the unit constant and distinguishes h=s from h−s a nonzero even-index indicator."
+        ],
+        "reasoning": "This is a short additional structural argument rather than a new valuation theorem. The exact lower bounds in the two regimes need the stated independence calculation; no inspected prior result directly gives them for the composite-base module.",
+        "searches": [
+          "Murru–Sanna, Theorem 1.5 and concluding remarks",
+          "Frozen RESULT.md lines 45–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ν₄(Uₘ)=floor(ν₂(Uₘ)/2); Theorem 1.5 gives the explicit ν₂ value.",
+          "The strongest indexed hit treats ν₄(Fₙ₊₁) and gives rank 5, with Fibonacci coefficient a=1."
+        ],
+        "reasoning": "The floor-transformed valuation is the right alternate formulation, but the exact module rank does not follow merely by replacing a prime base with its square. The Fibonacci case has different parity hypotheses.",
+        "searches": [
+          "Resultary searches for exact 4-kernel rank, ν₄(Uₙ₊₁), composite-base Lucas valuation rank and the even-a/odd-b family",
+          "Murru–Sanna, arXiv:1603.09310, Theorems 1.3–1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fibonacci result says rank 5 for a=1 and does not assert a Lucas family formula.",
+          "The indexed nonsplit Lucas trace result has V₀=2, V₁=P and treats local Dold transforms and repair factors."
+        ],
+        "reasoning": "Neither supplies a rank table for a even and b odd; the trace record is for a distinct sequence and invariant even in shared parameter regimes.",
+        "searches": [
+          "Resultary exact 4-kernel/composite-base Lucas rank searches",
+          "Closest indexed rank-5 Fibonacci Finding; related Lucas trace Finding"
+        ]
+      },
+      "rationale": "The termwise valuation formula and regularity are established prior work. The supported additional claim is the exact rank split for the floor-transformed valuation and its 4-kernel across the specified parity family. The closest catalogued base-4 rank concerns Fibonacci, and the inspected general valuation paper's exact-rank theorem is for prime base.",
+      "residual_risks": [
+        "The literature search is not exhaustive; a subsequent general composite-base rank analysis or another exact valuation-kernel classification could cover this case. No priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior valuation input and broader regularity, but prime-base exact rank only",
+          "evidence": [
+            "The p=2 case for even discriminant yields ν₂(Uₘ)=ν₂(m)+t−1 on even m under the frozen hypotheses.",
+            "Concluding remarks explicitly call out rank for composite bases, particularly prime powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.09310",
+          "material_read": "Theorems 1.3–1.5, PDF pp. 2–3, text offsets 6777–9175; §6, p. 7, offsets 25200–26215",
+          "method": "Bounded OA primary-text inspection",
+          "title": "On the k-regularity of the k-adic valuation of Lucas sequences",
+          "trigger": "Same Lucas sequences and valuation; potentially dominating exact-rank theorem"
+        },
+        {
+          "assessment": "Prime-base Fibonacci rankings, different base and family",
+          "evidence": [
+            "States rank 5 in the p=2 case for Fibonacci."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0910.2907",
+          "material_read": "PDF p. 3, text offset about 8000",
+          "method": "Bounded OA primary-text inspection",
+          "title": "p-regularity of the p-adic valuation of the Fibonacci sequence",
+          "trigger": "Exact ranks in a standard Lucas sequence"
+        },
+        {
+          "assessment": "Exact rank for a=1, with no asserted general Lucas classification",
+          "evidence": [
+            "The rank is 5 for ν₄(Fₙ₊₁)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-rank-of-the-4-adic-fibonacci-valuation-kernel--19b900b0ac8d",
+          "material_read": "RESULT.md, Finding and assumptions, local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Exact rank of the 4-adic Fibonacci valuation kernel",
+          "trigger": "Same composite base and exact kernel invariant"
+        },
+        {
+          "assessment": "Different sequence normalization and invariant",
+          "evidence": [
+            "Uses Lucas trace initial values V₀=2, V₁=P for Dold transforms and repair factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-local-dold-congruences-for-the-full-nonsplit-lucas-trace-family--6306d1e30fe1",
+          "material_read": "RESULT.md, Finding, local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Local Dold congruences for the full nonsplit Lucas trace family",
+          "trigger": "Potential overlap via Lucas parameters and local valuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen kernel calculations and rank split",
+        "Murru–Sanna, §6"
+      ],
+      "rationale": "Exact rank distinguishes actual module complexity from finite generation in the first composite prime-power base. Even a and odd b are a natural parity regime with 2-apparition index 2, not a sample of isolated parameters. The threshold at t=3 identifies precisely when taking the floor requires an extra independent generator. This is a concrete family-level answer to part of a published composite-base rank question, rather than recomputation of the valuation formula.",
+      "residual_risks": [
+        "No general solution for the remaining Lucas parity classes or composite bases is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

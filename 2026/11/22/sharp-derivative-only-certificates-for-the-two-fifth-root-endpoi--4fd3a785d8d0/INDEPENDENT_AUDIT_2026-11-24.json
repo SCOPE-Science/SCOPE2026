@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:08:39.950557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96 and 102, 112",
+        "VERIFICATION.md lines 19–23",
+        "check_kernel.py lines 10–67 (inspected)"
+      ],
+      "rationale": "Normalize by x=a+ht; normalized sixth derivatives contribute h^6 and the integral contributes h, giving h^7. Both reflected rules are exact on degrees 0–5, checked by substitution and independently in exact symbolic arithmetic. Using Taylor's integral remainder starting at 0, the order-six kernels are the corresponding error functionals on (x-s)_+^5/120. Substitution of the right endpoint jets yields K±=z²(±3√5/2−3−z)/720 with z=s(1−s). Their difference is √5 z²/240 and is strictly positive inside. The normalized error is a weighted average of 1/2−1/√5−z/(3√5). For any continuous nonzero nonnegative sixth derivative the ratio is strictly between the two endpoints; the closed interval stated in the proof is the closure of attainable ratios (as the proof and limitations specify elsewhere), not nonzero equality cases. Smooth derivative bumps recover the endpoints as limits, including one approaching an edge from inside, so the unique fixed-affine minimax choice is the midpoint with half-width 1/(24√5). The sign reversal and summation over a partition preserve the inequalities. Independent high-precision checks reproduce all stated exp(x) values and probe concentration at midpoint and edge using polynomial sixth derivatives: python3 /workspace/reproductions/check_frozen_math.py 2. These diagnostic runs do not replace the all-function kernel proof. Uploaded checker inspected but not executed.",
+      "residual_risks": [
+        "Applies only for a known global derivative sign and exact endpoint data; no numerical cancellation guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Peano representation follows immediately from Taylor's integral remainder and cancellation of the first six moments.",
+          "Frozen RESULT.md lines 106–120 distinguishes function-value Gauss–Lobatto and the degree-seven interpolatory two-endpoint Hermite rule from the present noninterpolatory degree-five pair; primary passage checks were not available for these citations."
+        ],
+        "reasoning": "The broad representation does not determine the signs, factorization, or sharp ratio for any given pair. The compared competing quadratures use different functionals.",
+        "searches": [
+          "Standard Peano representation (Davis–Rabinowitz)",
+          "arXiv:2601.16796, 2609.34918, 2602.18634"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 8324baec7629 and self-hit 4fd3a785d8d0",
+        "Frozen RESULT.md lines 104–120",
+        "Wang arXiv:2602.01467 (primary passage attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sixth-order consistency only gives an integral formula; coefficient substitution, factorization, ratio ranges and endpoint localization are distinct mathematical steps.",
+          "The minimax midpoint is a standard consequence once the exact range for this pair has been proved."
+        ],
+        "reasoning": "A known explicit enclosure for the Gauss–Lobatto gap or a general Peano identity does not mechanically imply the present exact coefficients. Novelty is not assigned separately to midpoint minimax or the bump argument.",
+        "searches": [
+          "Wang Eq. (3.22) and Table 3.1",
+          "Resultary 8324baec7629",
+          "General Peano theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen record explicitly credits Wang for both real endpoint-jet formulas (lines 22, 106). This comparison relies on the frozen attribution because the OA passage was not retrieved.",
+          "The certificate is equivalently the minimum and maximum of K+/(K+−K−), or the pair of nonnegative kernel margins proportional to z²(1/4−z) and z³."
+        ],
+        "reasoning": "Formula overlap is not a novelty claim. A prior bound on the same ratio or equivalent kernel margins would cover the certificate; none was located in available evidence.",
+        "searches": [
+          "Fifth-root divergence expansion endpoint quadrature: Wang arXiv:2602.01467 Eq. (3.22), Table 3.1",
+          "Resultary: fifth-root endpoint certificates and sharp Peano kernel ratio minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4fd3a785d8d0 is the assigned result itself.",
+          "Resultary 8324baec7629 describes a three-point Gauss/four-point Lobatto pair with threshold (25−6√15)/(25−6√15+√5), not this pair.",
+          "Wang's coefficient table is credited; no verified table of the claimed optimized blend constants was located."
+        ],
+        "reasoning": "The Gauss–Lobatto entry has a close method and function class, but its constants and input functionals are not those of the fifth-root rules.",
+        "searches": [
+          "Wang Table 3.1",
+          "Local Resultary: sharp Peano kernel ratio and minimax Gauss–Lobatto blending"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact relative-gap enclosure and fixed affine minimax estimator for these two specific endpoint rules, not the fifth-root rules or the Peano kernel representation. The closest located methods and competing certificates use different rules; no identified prior theorem supplied this signed kernel ratio or its range. The Wang primary passage could not be verified, so the comparison with its exact remainder discussion remains limited.",
+      "residual_risks": [
+        "An equivalent remainder comparison could appear in the inaccessible Wang full text or in a general enclosure formulated for endpoint derivative rules; no claim of exhaustive priority verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "coefficients credited; independently checking the remainder discussion was not possible",
+          "evidence": [
+            "Frozen RESULT.md lines 22, 106, 116; OA retrieval did not supply a primary passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.01467",
+          "material_read": "frozen Eq. (3.22)/Table 3.1 locator and comparison, not Wang full text",
+          "method": "focused literature lookup and bounded OA passage attempts",
+          "title": "Beyond Taylor: Divergence-Based Functional Expansions and Their Application to Numerical Integration",
+          "trigger": "exact two coefficient triples are attributed to this paper"
+        },
+        {
+          "assessment": "same method on different rules; no priority inferred from date",
+          "evidence": [
+            "Catalogue describes three-node Gauss and four-node Lobatto and a different sharp ratio threshold; exact proof text not retrieved."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-peano-kernel-ratio-and-minimax-gauss-lobatto-blending-for--8324baec7629",
+          "material_read": "local catalogue statement",
+          "method": "Resultary and bounded mirror passage attempt",
+          "title": "Sharp Peano kernel ratio and minimax Gauss–Lobatto blending",
+          "trigger": "same derivative sign and minimax method"
+        },
+        {
+          "assessment": "context rather than independent full-text noncoverage evidence",
+          "evidence": [
+            "Frozen RESULT.md lines 108, 117–119 identify the different Gauss–Lobatto and Hermite cases."
+          ],
+          "identifier_or_url": "arXiv:2601.16796; arXiv:2609.34918; arXiv:2602.18634",
+          "material_read": "frozen discussion and references only",
+          "method": "source-package inspection",
+          "title": "Adaptive integration of 5-convex and 5-concave functions; Refined Gauss–Lobatto bounds for odd-order convexity; and From an Elementary Proof of Error Representation for Hermite Quadrature to a Rediscovery of Legendre Polynomials and Rodrigues Formula",
+          "trigger": "shape enclosures and endpoint-jet rules with error representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–51, 84–96, 110–112"
+      ],
+      "rationale": "For two existing rules sharing endpoint jets, the computable gap now gives a rigorous sign-constrained error certificate without estimating a global sixth-derivative norm or evaluating interior values. The sharp interval is about 3.73% of the raw gap; the exact constants allow optimal fixed blending rather than merely proving opposite signs. This is a useful property of the fixed pair, not a claim to outperform all endpoint rules.",
+      "residual_risks": [
+        "Requires derivatives through order three and the global sign; no floating-point or all-rules optimality result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:36:18.278336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, equations (1)–(4) and assumptions",
+        "CHECK.py and VERIFICATION.md (read, not executed)"
+      ],
+      "rationale": "Set P=∏u_i, Q=∏(1−u_i), and write G=P exp(aQ log P). For a nonempty face set S, let h_i=u_i−1 for i in S, keeping all remaining coordinates positive. The coefficient of ∏_{i∈S}h_i in the analytic expansion is the claimed mixed derivative on the face: the constant exponential term contributes P_{S^c}; the linear term contributes a(−1)^|S| P_{S^c}Q_{S^c}log P_{S^c}; every higher term contains h_i² for each i∈S and cannot contribute. When a(−1)^{n−1}>0, keep one free coordinate z: the derivative correction contains (1−2z)log z+1−z, diverging negatively. In the other sign case keep two free coordinates, one fixed at 1/4: the logarithmic term has coefficient (1−2x)/2, tending to 1/2, with all other terms bounded as x→0. Both face sets exist when n≥3. Choose the free coordinates strictly positive first and transfer the strict sign into the interior by smooth continuation across the upper face. Integration over a small interior box gives negative volume, regardless of what boundary values are assigned. For a=0 the product extends to independence. No assumption on |a| or on lower-face smoothness is required.",
+      "residual_risks": [
+        "Proves only the exact fixed scalar ansatz for n≥3. The supplied symbolic checks are finite diagnostics, not the unrestricted-dimensional proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical FGM expansion includes P(1+θQ), nontrivial and admissible for |θ|≤1",
+          "The same-day trivariate power-ratio record uses uvw/[1−θ(1−u^p)(1−v^p)(1−w^p)]; the polynomial-power record instead uses xyz[1+λ(x−y)^m z^θ(1−z)]"
+        ],
+        "reasoning": "These genuinely nontrivial families have different exponent/denominator structure. They do not give an admissibility theorem for P exp(aQ log P); in particular a proper-margin independence argument alone would be false.",
+        "searches": [
+          "Exchangeable FGM copulas, arXiv:2205.11302, equation (1)",
+          "Resultary near hits for trivariate product-deficit and polynomial-power copulas"
+        ]
+      },
+      "checked_sources": [
+        "Chesneau (2024), DOI 10.22067/smps.2024.45178",
+        "arXiv:2205.11302",
+        "Local Resultary exact and near matches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior construction solves neither sign in this n-fold density problem; the bivariate sufficiency proof does not control codimension n−1 and n−2 face derivatives"
+        ],
+        "reasoning": "The standard nonnegative-density condition provides a test, not its answer. The opposite parities of two different faces and the unbounded negative logarithmic terms establish an obstruction specific to this ansatz.",
+        "searches": [
+          "Chesneau 2024 pp. 20, 23, 33",
+          "arXiv:2205.11302 multivariate FGM expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chesneau 2024, printed p. 33, displays precisely P^(1+aQ) and postpones the admissible range",
+          "The identical Resultary hit is 2026/11/22/SCOPE-no-nontrivial-multivariate-extension-of-the-variable-power-fgm-p--674dbc9d2bbe"
+        ],
+        "reasoning": "The displayed proposal is the same family but not a solution. The identical record is a self-hit, not an antecedent. Independence on proper margins is an equivalent way to describe a feature, not to specify this copula family uniquely.",
+        "searches": [
+          "Chesneau variable-power FGM multivariate product-power n-copula parameter range nonzero a (Resultary)",
+          "Exact multivariate variable power FGM formula product of uniforms product of deficits Chesneau proposed higher-dimensional case (Resultary)",
+          "Focused literature query on Chesneau's multivariate product formula and n-dimensional parameter range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the reviewed indexed finding gave an exact range for this family in n≥3. The primary source's positive interval is bivariate and is not advertised as sharp even there."
+        ],
+        "reasoning": "An exact parameter-range classification would cover the claim; neither the bivariate interval nor neighbouring trivariate tables for different formulas do so.",
+        "searches": [
+          "Resultary exact-formula and admissible-range queries",
+          "Chesneau 2024, Proposition 1 and concluding proposal"
+        ]
+      },
+      "rationale": "The checked source explicitly proposes the exact displayed formula and leaves its admissible range open. No distinct independent result resolving this formula for n≥3 surfaced. The pass is limited to the all-parameter exclusion in those dimensions, not to the bivariate range or other multivariate power constructions.",
+      "residual_risks": [
+        "An unindexed equivalent face-derivative proof could exist.",
+        "Full text of the ratio-type article was not obtained; its broader relation is not resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposes the exact formula, does not settle the n≥3 range",
+          "evidence": "The author calls the admissible range a challenge left to future work; Proposition 1 is bivariate.",
+          "identifier_or_url": "https://smps.um.ac.ir/article_45178_7176d9c6280c4db8da5254ca07c26bca.pdf",
+          "material_read": "Printed pp. 20, 23 and 33; concluding passage at offset 45514",
+          "method": "Lawful publisher PDF",
+          "title": "Investigation of a variable-power FGM-type copula",
+          "trigger": "Exact candidate and open parameter range"
+        },
+        {
+          "assessment": "Different formula with the same proper margins",
+          "evidence": "The pure n-way interaction term is additive in the product deficits, not a variable exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.11302",
+          "material_read": "p. 3, equation (1) and parameter constraint",
+          "method": "Lawful OA primary text",
+          "title": "Exchangeable FGM copulas",
+          "trigger": "General multivariate FGM constructions"
+        },
+        {
+          "assessment": "Its sharp range is not for the reviewed formula",
+          "evidence": "Positive and negative parameters are valid in the distinct rational denominator family.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-trivariate-power-ratio-copula-frontier-with-pairwise-indep--dbfa1fa81031",
+          "material_read": "Statement and admissible range",
+          "method": "Local Resultary mirror",
+          "title": "Sharp trivariate power-ratio copula frontier with pairwise independence",
+          "trigger": "Closest distinct indexed same-day family"
+        },
+        {
+          "assessment": "Different polynomial perturbation",
+          "evidence": "Uses a factor (x−y)^m rather than the pure product-deficit exponent.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-parity-dependent-admissibility-for-polynomial-power-trivar--b104948b0933",
+          "material_read": "Statement and ansatz",
+          "method": "Local Resultary mirror",
+          "title": "Sharp parity-dependent admissibility for polynomial-power trivariate copulas",
+          "trigger": "Same-day, Chesneau-origin trivariate admissibility"
+        },
+        {
+          "assessment": "Full-text breadth not established",
+          "evidence": "The accessible identification is a ratio-type family; no full-text noncoverage inference is made.",
+          "identifier_or_url": "https://doi.org/10.3390/math12111743",
+          "material_read": "Landing-page/abstract material only",
+          "method": "Lawful publisher/DOI and PDF endpoints attempted",
+          "title": "On the ratio-type family of copulas",
+          "trigger": "Related ratio-type structural comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chesneau 2024, printed p. 33",
+        "RESULT.md, Finding and Proof"
+      ],
+      "rationale": "This resolves a specific published proposed extension and rules out both signs for every higher dimension, despite all proper margins looking valid. The interior sign witnesses make the result stronger than a boundary failure, and the two-face method identifies why the natural bivariate extrapolation fails without excluding other models.",
+      "residual_risks": [
+        "Restricted to the specified product-exponent structure; not a general obstruction to multivariate variable-power or pure higher-order dependence models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

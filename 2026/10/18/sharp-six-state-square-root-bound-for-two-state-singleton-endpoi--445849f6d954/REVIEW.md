@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Boolean reachability identity for the square-root language is exact. For distinct source endpoints it splits into two products, each recognized by a three-state symmetric square of the original transition relation, giving a six-state NFA. With coincident endpoints, a two-state component and one three-state component give five states. The binary example's six explicit fooling pairs are directly checked by an accepting matrix with diagonal ones and no mutually accepted cross-pair. By the state-splicing fooling-set argument, no target NFA with fewer than six states recognizes the example. The universal bound is proved algebraically; finite checks are ancillary.
+## correctness
 
-## Originality — PASS within examined evidence
-The full accessible 2026 square-root paper proves a general cubic upper bound and its worst-case attainment using at least six source states and multiple endpoints. It does not state this sharp two-state singleton-endpoint theorem, and neither direction implies it. Focused research-record and literature searches did not uncover the same construction or six-state constant. Exact historical priority cannot be certified by absence of hits; an equivalent earlier specialized result remains possible.
+PASS
 
-## Value — PASS
-This resolves the first nontrivial source-state boundary of a recently settled general state-complexity problem under a natural restriction on initial/final sets. The sharp constant six differs from the generic eight, and the proof explains the reduction via symmetry of two simultaneous runs. The bound is witnessed already on a binary alphabet, not merely through an unbounded-alphabet construction.
+Membership of the doubled word is the Boolean (s,t) entry of M(w)^2. A path of unordered pairs lifts to two labeled runs: at each letter choose the matching that realizes the pair transition and swap labels as necessary to agree with the preceding step. Thus the two possible midpoint states for s≠t are implemented by independent three-state components, [s,s] to [s,t] and [s,t] to [t,t], with language terms m_ss·m_st and m_st·m_tt. For s=t the required terms are m_ss or m_su·m_us; the three-state pair component from [0,1] to itself admits also m_00·m_11, which is already covered by the ordinary two-state m_ss component. Disjoint union is epsilon-free and accepts the empty word exactly when s=t. I independently simulated the doubled concatenations in the two-state source by propagating reachable sets, without Boolean matrix multiplication or the uploaded checker. The six rows are 110000, 010000, 111000, 111100, 111110, 111111. All diagonals are one and no opposite off-diagonal pair is simultaneously one. Mark a state after each prefix in its chosen accepting run: equality of two marks would splice both cross-concatenations, a contradiction even with multiple initial states. This proves six states are required for the binary witness.
 
-## Scope and residual risks
-The target NFA uses a set of initial states. The result does not classify sources with multiple initial/final states, and it does not prove priority over all historical literature. The algebraic proof, literal transition matrices, six fooling pairs, and standard-library checker are embedded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ordinary-NFA small-source bound with a binary witness is not supplied by the general cubic theorem or the closest same-size parity or deterministic results. Credit is for existential-path state complexity under the stated endpoints, not for the general square-root construction or the standard fooling-set technique.
+
+## value
+
+PASS
+
+Square root is a standard language operation, and two source states are the first nontrivial case. The sharp binary witness and endpoint-dependent pair compression give a justified exact gap from the general cubic upper bound; the witness is not a table lookup or a substitution in the known large-state theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

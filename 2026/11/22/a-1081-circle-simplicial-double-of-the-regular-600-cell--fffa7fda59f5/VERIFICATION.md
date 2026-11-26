@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification steps
+# Independent mathematical audit
 
-Run `python verify_600.py` in the directory that also contains `spanning_tree.json`. The script uses only the Python standard library; it reads the explicit 720-entry parent list and recreates the 600-cell from exact coordinates. The included `verify_output.txt` is the captured output of an actual local replay. The following were checked exactly: 120 unique radius-two vertices, 720 original nearest-neighbor edges, 600 exposed tetrahedral facets, two facets per each of 1200 triangular faces, 720 opposite-edge double vertices, 1800 distinct double edges, degree five at all double vertices, a root-reaching 719-edge spanning tree, and girth six. The count 1081 follows by the connected graph Euler characteristic.
+## correctness
 
-Algebraic signs are evaluated using integer arithmetic in `Z[phi]`, where phi satisfies phi^2=phi+1. No floating-point geometry is used for the certificate. The program does not by itself establish publication priority or independently certify the mathematics; those are distinct from exact finite computation. The mathematical reduction from a connected graph to a wedge of circles is written in `RESULT.md`.
+PASS
+
+The double has one vertex per original edge and one adjacency per pair of opposite edges in a boundary tetrahedron; no simplex of dimension at least two fits in a 3-dimensional boundary. An independent exact reconstruction at unit circumradius in Q(sqrt(5)) recovered all 600 tetrahedra by affine-rank and strict support tests, using the classical identification/count to ensure completeness. It gave 720 vertices, 1800 edges, degree 5 throughout, and one component. Removing each double edge in turn and taking the shortest alternate path gives girth 6, with a six-cycle witness. The supplied parent array was separately relabelled into this reconstruction and all 719 parent edges and root paths verified. The quotient map contracting a spanning tree is a homotopy equivalence to a wedge of 1800−720+1=1081 circles; no assertion that this quotient is literally an embedded retract is needed. The integral homology and fundamental group follow.
+
+## originality
+
+PASS
+
+Best of knowledge: the new part is the connectedness and exact classification of the opposite-edge graph, including girth, not the classical face counts or the graph-to-wedge reduction. No inspected result covers that classification.
+
+## value
+
+PASS
+
+For a canonical regular 3-sphere triangulation the general doubling theorem leaves even connectedness open. Resolving it and giving the exact wedge rank and a shortest-cycle invariant supplies concrete data for comparison with doubles of other 3-spheres.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

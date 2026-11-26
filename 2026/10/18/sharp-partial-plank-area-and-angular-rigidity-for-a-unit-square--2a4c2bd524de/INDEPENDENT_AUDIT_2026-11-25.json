@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:53:48.968802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof's equation (3) gives uncovered diagonal-strip area (1-W/sqrt(2))^2, not the expression in frozen line 108 (which even gives zero at the transition). The stated M(W) was correct; the exact corner triangle calculation confirms 1/4 uncovered at the transition (/workspace/branches/audit_witnesses.py). The replacement /workspace/repairs/2/RESULT.md fixes the substitution and the offset argument. For the global bound, flipping one maximizing sign in the Bang map gives a margin w_i/2 to its offset hyperplane; distinct signs separate images and each measurable cell translates. On the eroded rectangle this yields C <= a+b-ab, irrespective of offset. Writing s=a+b and a^2+b^2=W^2-Delta separates the deficit into the claimed angular and dispersion terms. The formulas agree at W=1/sqrt(2) and increase strictly, so lesser budgets cannot attain equality. The diagonal and wide contact normals both satisfy the two-tail regime (strictly inside it); the wide normal has a+b=1 and realizes the upper bound. For one strip the deficit identities determine the normal even at noncentral offsets, and the projection density proves unique centering: sliding is nonincreasing away from zero and strictly decreasing immediately next to zero. This classifies single-strip maximizers only. The inverse width formula follows by inversion. The family inequality is for exact total width.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lem. 5, PDF p. 4, gives the general uncovered-volume bound using the full family erosion; Cor. 7, p. 5, drops family directions; Thm. 12, p. 8, gives planar single-plank sufficiency.",
+          "Bakaev–Yehudayoff, §1 p. 1, concerns stability in an annulus-covering setting."
+        ],
+        "reasoning": "The direction-sensitive rectangular erosion is a specialization of Lemma 5, not an independent covering principle. The quantitative comparison with the optimum that splits into dispersion and a scalar mismatch is not given by the existential one-plank theorem or annular coverage stability.",
+        "searches": [
+          "arXiv:2607.27483, Lemma 5, Corollary 7, Lemma 11 and Theorem 12",
+          "arXiv:2609.30409, §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27483",
+        "arXiv:2609.30409",
+        "Resultary 9b6351cd0a30",
+        "Resultary 5fadf7c81348",
+        "arXiv:1312.7816, 1003.4486 and 1010.2446 (abstract/introduction comparisons only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 12 reduces the optimal area to the segment-erosion minimization; in the square the only varying term at full width is (1-W(|u1|+|u2|))^2/2.",
+          "The rescaled Resultary theorem gives an exact matching optimizer but not a stability theorem for arbitrary families."
+        ],
+        "reasoning": "The area/inverse profile is covered by direct evaluation of the prior general result. To get the surviving statement one must retain the original, uncollapsed family core, compute its coordinate widths, and resolve its resultant-length loss as pairwise angular variance. The quantified dependence is additional to the prior optimized profile, not a new geometric input to the proof.",
+        "searches": [
+          "arXiv:2607.27483, Theorem 12 proof, offset 28600",
+          "Resultary 9b6351cd0a30, exact square theorem and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 12 proof (PDF p. 8) gives the optimum uncovered area as the minimum area of segment erosion, equivalently minimum translate overlap for a square.",
+          "Resultary 9b6351cd0a30 gives the equivalent side-two square profile; Resultary 5fadf7c81348 treats maximum, not minimum, overlap."
+        ],
+        "reasoning": "For the unit square the segment-erosion function is (1-W|u1|)(1-W|u2|). This one-direction reduction discards the average length loss W^2-a^2-b^2 of an arbitrary family's aggregated absolute normals. The previously studied maximum covariogram is the wrong extremum.",
+        "searches": [
+          "Resultary: square partial plank, square translation overlap and angular dispersion",
+          "arXiv:2607.27483, Corollary 7 and Theorem 12 proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9b6351cd0a30, RESULT.md offsets 0–5985 and 5985–10056, gives the side-two square envelope, angle and centering; it does not state the arbitrary-family Delta deficit.",
+          "Resultary 5fadf7c81348, RESULT.md offsets 0–5915 and metadata: hypercube maximum overlap, not the minimum."
+        ],
+        "reasoning": "W2=2W and area2=4M(W) identify the area, inverse width, transition and single-plank classification exactly despite the different normalization. The distinct indexed overlap is recognized regardless of date; it does not settle priority or cover the dispersion inequality.",
+        "searches": [
+          "Resultary: two-regime sharp partial plank square, exact angle, angular-dispersion deficit"
+        ]
+      },
+      "rationale": "Pass for the repaired framing, which identifies the direction-sensitive arbitrary-family deficit as the distinct quantitative finding. The exact square envelope is an explicit prior planar-theorem specialization, and the angle and offset are covered by a distinct indexed calculation after scaling. Neither is credited as a separate original contribution here. The quantitative bound is a square-specific extraction from the stronger erosion machinery; this is not a new Bang lemma or a priority certificate.",
+      "residual_risks": [
+        "The dispersion estimate uses elementary square algebra after a known general inequality; equivalent earlier stability estimates under other geometric terminology have not been ruled out.",
+        "Partial inspection of adjacent covariogram papers and the annular stability paper is not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bound and exact variational reduction are prior",
+          "evidence": "Uncovered volume bounded by full erosion; minimizing segment erosion gives exact planar optimum.",
+          "identifier_or_url": "arXiv:2607.27483",
+          "material_read": "PDF pp. 4–5, 7–8, Lemma 5, Corollary 7, Lemma 11 and Theorem 12 proof",
+          "method": "OA PDF bounded passages",
+          "title": "Optimal partial plank coverings",
+          "trigger": "Same partial-cover extremum and plausible general dominance"
+        },
+        {
+          "assessment": "Exact overlap on area, optimal direction and centering, not the family deficit",
+          "evidence": "Side-two square rescaled by 1/2 in length and 1/4 in area; record dated 2026-10-25.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-partial-plank-and-translation-overlap-phase-transition-for--9b6351cd0a30",
+          "material_read": "RESULT.md offsets 0–5985, 5985–10056; publication metadata",
+          "method": "Published Resultary record, local mirror",
+          "title": "Sharp partial plank and translation overlap phase transition",
+          "trigger": "Exact square, different normalization"
+        },
+        {
+          "assessment": "Different extremum",
+          "evidence": "Maximizes overlap at fixed displacement length; minimum explicitly outside scope.",
+          "identifier_or_url": "Resultary 5fadf7c81348",
+          "material_read": "RESULT.md offsets 0–5915 and metadata",
+          "method": "Published Resultary record, local mirror",
+          "title": "A complete translation-distance phase diagram for hypercube covariograms",
+          "trigger": "Potential equivalent square translate problem"
+        },
+        {
+          "assessment": "Adjacent stability setting, no implication established",
+          "evidence": "Annular and overlap covering stability, not fixed-budget uncovered-area loss in terms of absolute normals.",
+          "identifier_or_url": "arXiv:2609.30409",
+          "material_read": "§1, PDF p. 1",
+          "method": "OA paper",
+          "title": "Volume stability of plank covers",
+          "trigger": "Potentially covers quantitative family rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arbitrary-family quantitative comparison controls near-extremizers: for a budget and area gap it bounds width-weighted spread of their absolute normal vectors, and separately penalizes mismatch to the optimal contact condition. This information is not furnished by knowing the optimum or that a single strip realizes it. The exact square profile gives a natural sharp reference for the estimate, not a separate novelty claim. Reflected directions can share the same absolute normal, so it does not certify actual parallelism or classify general equality families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

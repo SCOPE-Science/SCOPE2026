@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:58:53.941227Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS refers to the corrected finding, not the original decimal 0.77455285319149403… . Enumerating the nine ordered two-draw outcomes by applying half-averages to coordinate variables and taking the Hessian of the expected squared norm independently gives the stated restricted blocks and the reflection remainder d^2 C. For 0<b<1, the top eigenvector in the odd block has entries alpha>beta>0 and quadratic form (alpha-beta)^2/2 against C; hence every asymmetric law is strictly worse. Boundary laws without a connected support preserve a mean-zero vector. At an interior stationary point the top vector supports a quadratic with strictly positive second derivative and zero first derivative, so that point strictly beats every other b. The repaired proof makes the isolation exact: on [0.39,0.4], Q'>0 and 7-10b>0, and F' has the sign of Q'^2-4(7-10b)^2 Q=16P, whose signs at the endpoints are negative and positive. The independent algebra and numerical replay gives b*=0.3943218483533837932040… and F(b*)=0.7745528531914939319452… . The one-round odd block dominates the even eigenvalue for 0<b<1, G' vanishes only at 2/5, and the antisymmetric probability perturbation maps its unequal-coefficient top vector nontrivially into the even sector, excluding equality. For P3 the reflected remainder has eigenvalues 3/8 and 9/8 on disagreement, and the one-round factor is uniquely minimized by the maximal p1*p2; P2 has a single edge. Repaired RESULT.md and verify.py give corrected digits, an exact signed sextic check and the correct number of two-draw outcomes. Frozen support was read, not run; the independent Hessian, exact sign and numerical replay is /tmp/opencode/frozen-review-replay.py (gossip). The result does not concern adaptive choice, different laws in the two rounds, or another horizon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 equations (14)–(15) optimize lambda2 of the expected one-round projection. The expanded 2006 second-moment discussion uses expected Kronecker products to find convergence rates.",
+          "The named 2013 contact-combination paper was located, but lawful ResearchGate and IEEE retrieval did not yield full text."
+        ],
+        "reasoning": "The average one-round operator and the spectral radius of the covariance lift do not settle a two-step worst-vector objective. The expected Gram matrix after two contacts is not obtained by simply squaring the one-round worst error. The uninspected 2013 full text is retained as a risk, not ruled out.",
+        "searches": [
+          "Boyd–Ghosh–Prabhakar–Shah 2004 §IV and 2006 §II-B",
+          "Mangoubi–Mou–Liu–Morse DOI 10.1109/ACC.2013.6580009"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify.py; corrected RESULT.md and verify.py",
+        "Resultary d96e8c040b54 (self-match), 91d0f3171cfc and df3bd66e1e95",
+        "Boyd et al. 2004 and 2006",
+        "Mangoubi et al. 2013 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For iid projections E[W^T W]=E[W] controls the first draw; after two draws the finite covariance recursion yields M2=sum p_i p_j W_i W_j W_i.",
+          "The trace identity implicit in isotropic calculations discards the eigenvectors and splitting between the odd and even sectors."
+        ],
+        "reasoning": "A general representation does not imply the sign of the reflected anisotropic optimum's remainder, strictness in d, or the stationary Rayleigh certificate. Those are the additional computations needed to establish the exact claim.",
+        "searches": [
+          "Compare Boyd 2004 sec. IV equations (14)–(15) and Boyd 2006 sec. II-B with the restricted Gram objective",
+          "Compare 91d0f3171cfc and df3bd66e1e95 Findings with the deterministic extremum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary match d96e8c040b54 is the assigned record; distinct records 91d0f3171cfc and df3bd66e1e95 optimize the isotropic covariance criterion.",
+          "The lifted covariance recursion is a means of computing expected energy but its asymptotic convergence criterion is a different invariant."
+        ],
+        "reasoning": "The assigned criterion is the maximum eigenvalue of the pulled-back identity M2 on disagreement; an isotropic initial covariance replaces that eigenvalue by a normalized trace. A covariance lift can represent either observable but does not equate their optima.",
+        "searches": [
+          "Resultary: exact two-contact gossip on P4 / spectral versus finite horizon / fixed iid probability law",
+          "Boyd et al. 2006, §II-B lifted second-moment representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct exact indexed P4 law in 91d0f3171cfc is (3/8,1/4,3/8) for isotropic input; df3bd66e1e95 also studies two-contact isotropic design on trees, including P4.",
+          "The exact listed center probability 0.39432184835338379… occurs in the assigned record itself."
+        ],
+        "reasoning": "The isotropic table values are legitimate comparators but do not instantiate the same functional. In particular their center probability 1/4 is distinct from the worst-input optimum, not merely written in a different convention.",
+        "searches": [
+          "Resultary: two contacts P4 and optimizing edge probabilities / path boundaries",
+          "Resultary: exact finite-horizon spectral separation"
+        ]
+      },
+      "rationale": "The corrected claim is the exact, unique minimax horizon-two optimizer, its strict separation from the one-round law, and path minimality under the stated iid protocol. The self-match is not evidence of a separate result; the strongest distinctly indexed exact horizon-two results concern isotropic input, and the inspected classical sources optimize a one-round eigenvalue or study long-run convergence. None of that coverage supplies the claimed deterministic worst-input optimizer. The repairs leave the objective, exact optimizer and minimality unchanged.",
+      "residual_risks": [
+        "The named 2013 paper could contain a closer design or formulation than could be established from accessible evidence.",
+        "No exhaustive priority assertion is made for finite-horizon random products. Exact self-identification and shared catalogue dates do not establish independent overlap or precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and spectral optimization at one round; not exact two-round optimization in inspected passages",
+          "evidence": [
+            "The design minimizes lambda2 of sum Pij Wij over edge probabilities, with E[W^T W]=E[W] for this model."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~balaji/papers/04analysisand.pdf",
+          "material_read": "Abstract and PDF p. 4, §IV equations (14)–(15); earlier convergence-of-second-moment passage",
+          "method": "Lawful Stanford PDF, bounded passages",
+          "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+          "trigger": "Classical iid pairwise averaging and optimal probability design"
+        },
+        {
+          "assessment": "Covers the lifted recursion and convergence criteria, not the exact optimizer under this finite-horizon loss",
+          "evidence": [
+            "Vectorizes second-moment evolution, with the expected Kronecker product controlling asymptotics."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "material_read": "§II-B, Convergence of Second Moment, PDF pp. 4–5 (journal pp. 2511–2512)",
+          "method": "Lawful Stanford PDF, bounded passages",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Lifted mean-square theory could cover the exact objective"
+        },
+        {
+          "assessment": "Different initial-condition loss",
+          "evidence": [
+            "Isotropic random initial field gives (3/8,1/4,3/8), not a deterministic worst-input law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-contact-isotropic-gossip-favors-path-boundaries-unlike-spect--91d0f3171cfc",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Two-contact isotropic gossip favors path boundaries unlike spectral design",
+          "trigger": "Same P4 and iid contact horizon with an exact optimizer"
+        },
+        {
+          "assessment": "Same update protocol but isotropic initial covariance, not spectral maximization on mean-zero inputs",
+          "evidence": [
+            "An isotropic initial error leads to a scalar expected-energy objective, including for paths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-degree-three-full-support-law-for-optimal-two-contact-ra--df3bd66e1e95",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "A sharp degree-three full-support law for optimal two-contact randomized gossip",
+          "trigger": "More general graph topology at the same iid horizon"
+        },
+        {
+          "assessment": "Unresolved comparison; not used as negative evidence",
+          "evidence": [
+            "The named source is characterized in the frozen reference discussion as contact-weight and periodic-rule work; that characterization was not verified against its full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ACC.2013.6580009",
+          "material_read": "Bibliographic identification; no verified full text",
+          "method": "Bounded lawful attempts at cited author-uploaded copy and IEEE endpoint did not yield the paper",
+          "title": "Towards Optimal Convex Combination Rules for Gossiping",
+          "trigger": "Potential overlap between contact-weight and probability-law optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The absolute gain is only about 3.7751e-5, but the exact gain matters as a strict counterexample to a natural and widely usable one-round spectral design surrogate. The result identifies the first path where two iid minimax rounds require another law, supplies both unique designs and excludes every possible asymmetric improvement; neither a numerical optimization nor an isotropic average would settle that question. No practical speedup claim is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Fourier integral is computed directly over the standard simplex. A unit-circle rigidity identity treats every nonexceptional frequency, and three independently evaluated removable-line formulas exclude false zeros. Affine covariance transfers the result to arbitrary nondegenerate triangles. Lattice covolume and one-dimensional sublattice counts prove the zero density. Exact Taylor coefficients plus the real implicit-function theorem establish the quadratic-fold local structure. Direct numerical integration and a finite lattice census independently check representative formulas. The latter calculations are not substitutes for the all-frequency proof.
+PASS
 
-## Originality
+Direct integration on the standard triangle gives the stated numerator and denominator off the three exceptional lines. If it vanishes, w=(1−λ)+λz for λ=η/ξ and the two unit phases z,w. Expanding |w|² gives 2λ(1−λ)(1−Re z)=0; λ can have either sign but is neither 0 nor 1, forcing both phases to one. On an axis or the diagonal the integrated limiting expression would force the modulus of 1±iξ (or 1−iη) to be one at nonzero real frequency, which is impossible; the origin gives 1/2. A change of variables multiplies by a nonvanishing area/phase factor and replaces frequency by Aᵀω, so the lattice is not shifted by translation and the excluded directions are exactly the edge normals. Its covolume is 4π²/|det A|. Boundary cells are in an annulus of fixed width, containing O_A(R) cells, and the three removed lines each lose O_A(R) points. This gives the disk coefficient area(P)/(2π); it is not the density per unit frequency area. The shortest-vector formula follows from local finiteness and for T the permitted pair (1,−1) realizes the minimum squared norm 2. For the fold, at (X,Y) the linear numerator is −i(Xk−Yh) and the quadratic part is (Yh²−Xk²)/2. Along (h,k)=t(X,Y) the quadratic quotient is t²/2, transverse to the purely imaginary derivative image. This establishes the fold condition, not just a nonzero Hessian. For the affine transform the extra derivatives of the phase on this kernel multiply F or DF applied to the kernel direction, both zero; hence the transverse second derivative survives.
 
-**PASS, with publication-priority risk.** The 2016 polytope Stokes/face formula is explicitly prior and yields the generic Fourier expression. It does not itself enumerate the continuum real-null locus, rule out zeros on its removable denominator lines, or identify the isolated fold Hessians and lattice-density law. The 2021 general-polytope null-set work rules out complex circles for the Pompeiu problem but does not state the exact triangle census. Relevant published mathematical-record comparisons involve finite-field simplices and three-dimensional bipyramids, neither of which implies the Euclidean planar-triangle result. An older equivalent computation in geometric optics, tomography, or polytope harmonic analysis could still exist. Absence from searches is not proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A complete real-frequency null-set classification for every planar triangle is a natural harmonic-geometric invariant. Its contrast with arbitrary polygons, the exclusion of all edge-normal frequencies, the exact first-zero shortest-vector characterization, and the quadratic local folds sharpen the general no-circle information. The area coefficient counts the null lattice without presuming generic transversality. These conclusions are distinct from merely restating the known vertex-exponential transform.
+The vertex-exponential integral and the standard-triangle integer-frequency slice are covered. The distinct result is the complete census of real frequencies, including exclusion of all nonlattice and exceptional-line zeros, together with the real fold classification. The affine transport, first-radius expression and disk count follow from that census and are not independent novelty claims.
 
-## Closest literature and limits
+## value
 
-Diaz–Le–Robins (arXiv:1602.08593, Sections 1–3) supply the general Fourier-transform mechanism. Machado–Robins (arXiv:2104.01957, Theorems 1.1–1.2 and Section 2.1) address Pompeiu null varieties and exclude circles, not the exact planar-triangle real-zero lattice. An unindexed earlier triangle-specific calculation remains possible. The proof is restricted to nondegenerate planar triangles and real Fourier vectors, and does not give an optimal lattice counting discrepancy.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact census of real Fourier zeros for a natural nonsymmetric polygon is useful in its own right: for instance it determines which plane waves have zero average and the first possible cancellation radius for the given triangle. It excludes any additional real curves or points and gives a uniform local description of the singular cancellations, distinguishing them from transverse zeros. Neither a general transform formula nor the earlier integer slice suffices for these uses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

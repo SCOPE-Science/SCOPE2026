@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The intensity coefficient expansion is exact, with the only nonlinear contributions depending on earlier complex coefficients. At each order a two-equation real linear system has determinant \(-4\sin(k\theta)\); recursively solving it proves the global polynomial automorphism when nonresonant. Explicit polynomials \(1\pm iz^k\) defeat all-orders uniqueness at resonance. The full Jacobian is triangular and its base-point spectrum is determined by direct two-dimensional calculations. A circular spacing argument yields the optimal angle and characterizes equality; the root-of-unity product proves the determinant value. The included deterministic checker passed 48,078 comparisons. These tests do not replace the analytic all-degree proof.
+## correctness
 
-## Originality
-**PASS, with priority risk.** Perez (arXiv:2009.02061) and Chalendar–Partington (arXiv:2403.16255) prove irrational-angle uniqueness and give rational obstructions using full line segments. Wellershoff (arXiv:2202.03733) provides the strongest inspected full-line ambiguity classification, including rational-angle coefficient restrictions; Liehr (arXiv:2308.05722) covers arithmetic parallel-line sampling. Those results do not state the first-\(N\)-intensity-jet polynomial inverse, the everywhere constant Jacobian, or its exact sharp local conditioning-optimal angles. Indexed mathematical-result searches and comparable scientific statements did not identify such a statement. Classical circle packing and rational-angle uniqueness are not claimed individually as original. Unindexed mathematical notes remain a priority risk.
+PASS
 
-## Value
-**PASS.** The proof replaces infinite line observations with a dimension-matched finite jet vector, gives an exact global inversion algorithm with every degeneracy angle classified, and identifies the best two-line geometry for the explicitly normalized differential noise metric. This is a natural complete measurement-design classification rather than an arbitrary finite calculation.
+The intensity coefficient of order k is 2 Re(a_k exp(ikφ)) plus a real quadratic term using indices 1 through k−1 only. Back substitution in (Re a_k, Im a_k) therefore gives a real polynomial inverse for every real data vector exactly when the diagonal blocks of determinant −4 sin(kθ) are invertible. The converse addresses genuine injectivity, not just derivative degeneracy: at a resonance the two polynomials 1±iz^k have identical full intensities. Removing any one of the reported data coordinates from a bijection onto all of R^(2N) loses injectivity. The block lower triangular determinant holds for every input, and at p=1 all off-diagonal blocks vanish. The two squared singular values per order are 4(1±|cos(kθ)|). Letting α=θ/π reduces the smallest singular value optimization to maximizing the closest circular distance to zero among kα, 1≤k≤N. A collision gives distance zero. Otherwise the minimum pair distance among the N+1 points equals the smallest circular gap, since all positive arc sums are at least that gap; differences exhaust the kα distances. The gaps sum to one, with equality in the bound only for a uniform grid. With 0 included, α must be a primitive generator of that grid, and every such generator works. The sine product follows from differentiating z^(N+1)−1 at z=1 and taking absolute values of the factors, giving |det|=2^N(N+1). For N=1 the same argument gives the single right-angle optimum. Read the stated sum of squared moduli as the squared Euclidean input norm, as fixed by the real-coordinate Jacobian and Euclidean singular-value calculation.
 
-## Scientific limits
-The signal has a known constant coefficient normalized to one. Data are Taylor jets, not independent noisy samples. The conditioning optimum is local at the constant polynomial, not a global uniform bound across coefficient space. Independent verification and exhaustive literature priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work substantially covers the angle-versus-degree resonance criterion for full modulus and the Taylor obstruction behind it. The supported distinct finding is finite truncation to N positive-order jets per line with an onto polynomial inverse and constant determinant, combined with an exact local design theorem and characterization of all optimal primitive angles for this map. Neither full-modulus fiber classification nor the prior two-circle optimizer gives that conclusion.
+
+## value
+
+PASS
+
+The exact jet map is a natural finite-dimensional measurement model motivated by phase retrieval, and the design target is the worst-direction differential of that specific model. Rational lines, usually discussed as ambiguous in the unrestricted setting, can be not only valid but exactly optimal for any given degree. Identifying all primitive designs and the sharp singular value gives a usable benchmark for local noise amplification at the constant polynomial rather than a qualitative uniqueness restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

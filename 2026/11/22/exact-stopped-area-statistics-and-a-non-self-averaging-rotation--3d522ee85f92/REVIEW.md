@@ -1,15 +1,21 @@
-# Review of exact stopped-area inference at circular escape
+# Independent mathematical audit
 
-## Correctness
-PASS. The orthogonal radial/angular Brownian decomposition proves conditional normality of signed area at fixed occupation exposure. The regular Dirichlet solution gives the Bessel transform, and the two radial Poisson equations give exact first and second exposure moments, including center and boundary limits. Stopped-path likelihood uses the bounded drift within the disk; its information calculation follows from the same conditional normal law. These steps yield an exact variance identity and prove the specified estimator's non-self-averaging and the paired-statistic estimator's consistency. A standalone checker supplies 327 exact rational checks; it does not replace the analytic stochastic proof.
+## correctness
 
-## Originality
-PASS, with residual priority risk. The full-text comparisons distinguish point-vortex winding (Wen and Thiffeault), expected signatures at disk exit (Boedihardjo and collaborators) and fixed-time linear-diffusion stochastic area (du Buisson and collaborators) from the present stopped rigid-rotation area/exposure joint transform and evaluated inference risk. Classical Feynman–Kac, Bessel and Girsanov tools are prior art. The specific formulas might be implicit in broader stopped-process transform work not identified; an independent exhaustive priority audit has not been performed.
+PASS
 
-## Mathematical value
-PASS. The result answers a concrete observation-design question for a rotational diffusion stopped by an absorbing detector: whether a single integrated orbital-area measurement accumulates enough precision as the observation domain grows. The exact non-self-averaging variance floor and sufficient additional radial-occupation statistic make a sharp, testable contrast, across every admissible starting radius and rotation strength. The theorem does not imply an area-only minimax lower bound.
+The predictable orthonormal radial/tangential Brownian projections have identity bracket and are independent Brownian coordinates. The squared-radius SDE has a pathwise unique nonnegative solution driven by the radial coordinate alone, including at s=0, so the exit and Q are radial. Integrating the tangential projection gives A|Q normal with mean omega Q/2 and variance DQ/2. Its conditional transform gives q=t+Dk^2/4-i omega k/2. The regular solution to D(F''+F'/r)=q r^2 F, F(R)=1, gives the ratio of I_0 values; uniqueness and nonvanishing normalization for Re(q)>=0 follow from the weighted energy identity for a homogeneous zero-boundary solution, and q=0 gives 1. Poisson equations using the radial Laplacian of r^m equal to m^2 r^(m-2) give E Q=(R^4-s^4)/(16D) and Var Q=(R^8-s^8)/(512D^2). The area-only variance is 2D/E Q + omega^2 Var Q/(E Q)^2. Stopped Girsanov gives log likelihood omega A/D-omega^2 Q/(4D): use finite-time localization and pass on the events of disk exit before the cutoff, whose probabilities tend to one under both drifts. The two sufficient statistics retain the full-path score and information E Q/(2D), yielding the claimed multiplier. As R tends to infinity with fixed s,D, the Laplace transform of DQ/R^4 converges to the unit-disk transform at s=0, D=1. That exposure is strictly positive and nondegenerate. Thus the area estimate has limiting variance omega^2/2, and the exposure-normalized estimate's conditional variance 2D/Q tends to zero in probability, giving consistency without a finite-sample efficiency claim.
 
-## Important limitations
-The full information bound assumes continuous stopped paths, known diffusivity and geometry, and an absorbing disk. No finite-resolution or arbitrary-geometry claims are made. Evidence for originality is substantial but not an independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the evaluated joint stopped area–occupation law for rigid rotation together with the exact information and estimator contrast. The radial I_0 ratio itself is a classical Bessel first-hit transform in a different clock, not a new passage-time identity. Prior expected-signature calculations include drift-free area moments on the disk. The inspected statements do not already give the rotating-disk joint law with the observed physical radial exposure or the exact specified estimator loss and recovery under that stopping rule.
+
+## value
+
+PASS
+
+For the natural sampling rule of following one rotating diffusive trajectory until it leaves the field of view, increasing the radius supplies more expected information but leaves this simple area-only estimate with order-one fluctuations. The exact risk identifies their cause as random exposure, and recording just one additional integral retains the full likelihood and permits a consistent estimate. This distinction is not contained in a Bessel passage law or a fixed-time stochastic-area law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

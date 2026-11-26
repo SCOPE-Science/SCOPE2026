@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-four free object is exactly the 80-dimensional vector space of two-labelled planar binary bracketings modulo the degree-four part of the ideal of the two defining cubic identities. All degree-four consequences arise from the five allowed insertions, and the 160-row checker sums repeated terms rather than collapsing them. An explicit polynomial nullvector bounds generic rank above by 79 and a \(-2^{41}\delta^9(\delta+1)^3\) maximal minor bounds it below for every nonzero \(\delta\ne-1\) in characteristic zero. At \(\delta=-1\), four independent exact nullvectors and a nonzero \(-2^{38}\) minor force rank 76. The column indexing certifies the stated monomial bases. The degree-three count follows from the two arity-three identities. Limit: no higher-degree or positive-characteristic claim.
+## correctness
 
-## Originality — PASS, with residual risk
-Ruan--Normatov's 2026 article contains the definition, a generic arity-four multilinear dimension 14 and a special arity-four multilinear dimension 20. It also explicitly analyzes a different degree-four multidegree \((2,1,1)\). These precedents are credited. The specific non-multilinear free rank-two quartic Hilbert bidegrees, exceptional monomial basis, and simultaneous all-characteristic-zero parameter result are not asserted there. A search of mathematical-record summaries and related published material found no statement subsuming the full claim. However the earlier operadic row-reduction data, if refined by representations, might imply these counts; this is a real residual risk rather than a uniqueness certificate.
+PASS
 
-## Value — PASS
-The number of free generators and the first degree of resonance are natural universal-algebra invariants. In the smallest possible generator rank where quartic words survive, a parameter threshold quadruples the entire fourth-degree component and creates new multidegrees. The complete bidegree profile, normal forms and exact certificates provide a benchmark for low-degree operadic structure, minimal generator detection and graded quotient constructions. It is not merely a change of notation, a random slice or a table lookup: it isolates the first two-generator structural effect of the distinguished parameter.
+In a nonunital free algebra the degree-four ideal can only contain one extra leaf beyond a defining cubic relation. The five compatible contexts are multiplication on either side by a leaf and inserting one binary product in any of the three arguments. Bilinearity spans all instances using x,y, including repeated letters, so the 160 relations in the given 80 words are exhaustive. An independently written postfix construction recreated both exact pivot minors, −2^41 δ^9(δ+1)^3 and −2^38, and independently obtained the listed normalized annihilator vectors from reduced rows. They annihilate the symbolic or exceptional matrix with identity restriction to the proposed free columns. Thus the named words are independent for every specialization in their stated regime, and the minor bounds make them bases. The words are homogeneous in leaf counts, giving precisely the stated profiles. Degree three first quotients by antisymmetry in the last two slots for left-associated products; the other identity then solves for the symmetric part in the first two slots of the right-associated words. Each residual space has dimension two. On one generator, (xx)x and x(xx) vanish by the two identities, and the remaining balanced quartic (xx)(xx)=−(x(xx))x by the second identity also vanishes. This proves the claimed rank minimality, with no assumption about higher degrees.
 
-## Limitations and nearest literature
-The original paper's arity-four multilinear computation is closely related and may make this result implicit; the statement is restricted to total degrees at most four and characteristic zero. There has been no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arity-four parameter jump was already known, and the generic rank-two bidegree dimensions are an implication of the earlier indexed Acaa character plus Ruan–Normatov's constant generic rank. The actual added result is the exceptional two-generator refinement, which locates the increase in specific repeated-variable bidegrees and provides exceptional normal-form words, together with uniform explicit basis certificates. Neither the scalar arity-four dimension 20 nor the inspected generic character and different three-symbol calculation determine this exceptional quotient.
+
+## value
+
+PASS
+
+Two generators are a natural minimal test, because all one-generator quartics vanish. The new part measures how a known multilinear parameter exception is expressed in the first free algebra capable of observing it: the exceptional quotient changes the supported weights, not just the total count, and has explicit minimal-generator representatives. The precision is useful for calculations with two generators, and it cannot be read off from the known scalar arity table. The generic part alone would not justify separate value against the indexed character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

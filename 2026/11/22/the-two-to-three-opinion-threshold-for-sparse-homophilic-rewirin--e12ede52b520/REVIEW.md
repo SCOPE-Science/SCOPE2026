@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-opinion threshold model samples uniformly among discordant edges, then chooses either retained endpoint equally and samples a nonneighbor by positive similarity weights. With \(K_N/N\to\kappa<1\), a per-target bound \(O(1/N)\) gives \(o_{\mathbb P}(N)\) maximum degree over bounded time intervals; the target class law is uniformly \(U_{ac}+o_{\mathbb P}(1)\). The edge-count process has bounded jumps and martingale quadratic variation \(O(1/N)\), establishing the stated deterministic typed-edge ODE until discordance disappears. In the two-class case the uniform positive concordance success rate proves a stopped linear growth law. The three-class matching probabilities and their unequal limits are exact rational identities, independently enumerated by `check.py` for sizes \(3\le n\le34\). A numerical test alone is not the proof of convergence; the analytic coupling and martingale argument supplies it.
+PASS
 
-## Originality — PASS, literature-bounded
+Reconstructed the microscopic generator under uniform sampling of a discordant edge, fair retention, and weighted sampling from prior nonneighbors excluding self. The total target weight is at least w_min (N−1−K_N), so each specified vertex's arrivals are dominated by a fixed-rate Poisson process and the maximum degree stays o_P(N) over bounded times. Removing the unavailable neighbors and self perturbs the normalized class weights by O((1+max degree)/N) plus the class-proportion error. Thus the unordered-type drift is the displayed average of target-class moves with old type probability x_ab/d and endpoint probability 1/2; the bounded jumps give coordinate martingale variance O(1/N). On any compact interval before d=0 the vector field is Lipschitz on a neighborhood of the deterministic path bounded away from d=0, and a stopped Doob–Gronwall comparison also excludes premature exit from this neighborhood with high probability. For two classes, the concordant count has the same constant limiting normalized compensator rate v on the entire pre-absorption interval, independently of d>0. In particular C_N(t)=C_N(0)+v(t∧τ_N)+o_P(1) uniformly on bounded intervals. Before τ_N cap the approximation at one; after τ_N use the approximation at τ_N to obtain the same uniform error for min(1,C(0)+vt), including C(0)=1. For the matching comparison, endpoint normalizers in units of 1/5 are 9n−8 and 11n−8 for 01, and 9n−6 at either endpoint for 02; each concordant target numerator in those units is 5(n−1). The strict ordering follows since the numerator over the common denominator of 2/(9n−6)−1/(9n−8)−1/(11n−8) is 18n²−56n+32=(n−3)(18n−2)+26. Multiplying the limiting event probabilities 50/99 and 5/9 by N/K_N=3 gives 50/33 and 5/3. Their positive continuous local derivatives even exclude a common law applied only at positive times: both traverse the same short C-interval, where a single drift would have to tend to both limits as C descends to zero. One class is trivial. This is a proof check and exact algebra, not execution of the supplied script or a simulation-based fluid limit.
 
-Nagel et al. (arXiv:2606.25872v1), especially their threshold-update steps and equations (21)–(26), and Appendix D, develop an approximate *scalar* graphon balance under a uniform-within-domain step ansatz. They explicitly do not supply a rigorous microscopic-to-graphon convergence proof (Appendix D). Their scalar closure does not imply a rigorous sparse-class fluid limit or the sharp two-versus-three-class universality boundary. Kan, Feng and Porter (2023) instead allow opinion coevolution; Chodrow and Mucha (2020) consider binary adaptive voter models with opinion updates and approximate moment closures. Cárdenas-Sabando et al. (arXiv:2511.15043) address fixed states and a related active-link mean-field, but only its abstract could be inspected; it remains a specific historical-priority risk. Searches for variants of 'lumpability', 'two versus three opinion classes', 'edge-type fluid' and 'homophily sparse closure' did not reveal an equivalent published claim. Absence from search results is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating 2026 model identifies global concordance as a useful collective variable. It matters mathematically whether this variable is a universal exact evolution coordinate or a successful approximate statistic for certain ensembles. This theorem identifies a natural sharp class-count boundary, supplies a rigorous sparse state-space reduction at the level of class-pair edges, and exhibits identical initial global concordance but genuinely different order-one macroscopic speeds. The distinction guides which additional coarse observables are needed when the opinion distribution is multimodal. The counterexample is not an assertion that the published approximation is inaccurate on the random-graph ensembles it studied.
+Credit the fixed-opinion stochastic rule, the scalar graphon approximation, and its formal asymptotically linear very-sparse behavior to Nagel et al. The distinct claim supported here is exact sparse convergence on typed edges for the stated class populations and initial sequences, including the universal two-class stopped law and the minimal three-class obstruction. Neither the graphon approximation nor the different stationary active-link model studied in the closest fixed-state lead entails that combined claim.
 
-## Closest literature and limitations
+## value
 
-- Nagel et al. (2026), arXiv:2606.25872v1, Sections II.B, V.B and Appendix D: original stochastic model; step-graphon scalar approximation, not this exact sparse class-pair limit.
-- Kan, Feng and Porter (2023), DOI 10.1093/comnet/cnac055: homophilic adaptive bounded-confidence opinion dynamics, but opinions coevolve.
-- Chodrow and Mucha (2020), DOI 10.1137/18M1232346: binary adaptive voter moment closure with opinion updates; not this absorbing fixed-opinion threshold dynamics.
-- Cárdenas-Sabando et al. (2025), arXiv:2511.15043: abstract-only source inspection, residual historical-priority risk.
+PASS
 
-The theorem is conditional on strictly positive affinities, all distinct classes separated by tolerance, finite class count, sparse bounded-average-degree graphs and initially sublinear maximum degree. The three-class obstruction is existential; no claim is made about all opinion distributions. Further independent literature review and proof checking remain desirable.
+The initiating work motivates concordance as a practical coarse coordinate. The theorem identifies precisely the first allowable class count at which that variable ceases to suffice uniformly, while supplying a concrete sufficient typed state and an order-one, fixed-density drift separation on two graph sequences with identical C(0). This is a test of the limits of the approximation's interpretation, not just a numerical comparison or a proposed replacement for its empirical fits.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

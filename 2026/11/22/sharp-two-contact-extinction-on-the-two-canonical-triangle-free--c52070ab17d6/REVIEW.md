@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-On the specified graphs, every vertex state has exactly one successor under the explicitly defined two-contact update. Full reverse indegree elimination on all 177,147 and 531,441 states leaves only the zero fixed state and yields the first-rest histograms. A separately coded C++17 transition and forward trajectory census confirms the histogram and the sharp cutoffs of five and six. The maximal-delay witnesses and one-contact three-cycles are individually replayable. A separate four-cycle on the 4-regular, triangle-free biclique demonstrates the scope boundary. The computational proof is exhaustive only for these two labelled finite graphs; it is not an infinite-family proof.
+PASS
 
-## Originality: PASS, with historical-priority risk
+Independently exhaustively reproduced the three-state synchronous two-contact dynamics from the exact edge lists, without executing the supplied programs. In the audit, disjoint bit sets E and R encode excited and refractory vertices; the next state is (A(E) minus (E union R), E) where A(E) consists of vertices with at least two neighbors in E. Enumerating all E and every submask of its complement for R visits each labeled state exactly once. Iteration to the absorbing empty pair gives first-rest histograms (1,2047,51361,87116,36202,420) of 177147 states and (1,4095,117272,237555,151450,20160,908) of 531441 states. The largest nonempty bins 5 and 6 give the sharp times, and a nonzero periodic orbit is impossible. The independently recovered least base-three sharp witnesses 1089 and 120 give trajectories (1089,67792,153098,43767,54,0) and (120,9232,254180,492804,40825,2,0). At threshold one, the respective cycles are (448,88769,176502,448) and (448,265916,530796,448); the K4,4 cycle has the four displayed distinct states and the verified closing transition at threshold two. Checked the Grötzsch construction directly from C5 and its twins; checked the exact labeled Chvátal edges against the independently published graph generator. Both are triangle-free and four-chromatic by checking edge-neighborhood intersections and possible three/four covers by maximal independent sets. The finding concerns precisely these two labeled graphs; the Chvátal graph's extremal description should be read with four-regularity, not as another unqualified minimum-order example.
 
-The 1993 Durrett–Griffeath source describes threshold-dependent excitable cellular automata and lattice phase behavior but not the enumerated Grötzsch/Chvátal two-contact extinction histograms. Gravner–Lyu–Sivakoff (2016), consulted in full HTML, use one-contact finite-graph Greenberg–Hastings dynamics, not this threshold. The full published half-degree-rigidity proof identifies initial three-periodicity at half degree, but does not eliminate other temporal periods or obtain this census. The full four-state Chvátal enumeration uses four refractory phases with one-contact excitation rather than the present three-state two-contact update. Exact source and alias searches found no stronger implication or exact table for this claim. An unindexed historical table remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-The Grötzsch and Chvátal graphs are canonical triangle-free four-chromatic test cases. The complete first-rest distributions reveal distinct sharp delay layers and a threshold-driven collapse from persistent one-contact three-waves to universal extinction. The explicit oscillatory \(K_{4,4}\) boundary establishes why their extinction is not just a generic degree or triangle-free consequence. The fully reproducible finite classifications are useful benchmarks for threshold sensitivity on small networks, without claiming a wider theorem.
+The strongest same-graph records concern threshold one (including a three-state Grötzsch record indexed on the same day) or a four-state rule. The strongest threshold-two overlap is a theorem only on initially primitive-three states at half degree, which excludes that period on Chvátal but not other periods or long transients. None of these actual statements gives the paired threshold-two zero-map identities, sharp transients, or first-rest distributions.
 
-## Limits and closest sources
+## value
 
-The finding depends on correct implementation of the stated finite graph definitions and update rule. The two independently implemented algorithms agree, but no independent external audit has been performed. Relevant prior work: Durrett and Griffeath, *Asymptotic Behavior of Excitable Cellular Automata* (1993); Gravner, Lyu and Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs* (2016); *Half-degree rigidity and a sharp contact-threshold collapse on squared cycles* (public mathematical record); and *Four-state Chvátal excitation: period collapse and six extremal symmetry classes* (public mathematical record).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two graphs are standard extremal chromatic benchmarks, including the regular case. Exact finite extinction on both is not forced by triangle-freeness, four-regularity, or initial-three-cycle exclusion. The sharp unequal cutoffs and full first-rest distributions provide useful finite-network benchmarks for the effect of contact threshold, and the oscillating biclique shows a concrete boundary of the phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

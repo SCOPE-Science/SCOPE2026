@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:53:20.151438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–57; VERIFICATION.md lines 19–31; verify_tori.py and verify_boundary.cpp inspected, not executed",
+        "Replay: python3 /workspace/branches/independent-reproductions/truncated_cube.py tori ; logs cube-tori.log in the same directory",
+        "Replay: python3 /workspace/branches/independent-reproductions/truncated_cube.py 24 ; exact finite-field rank log cube-boundary-24.log. The 12- and 18-vertex slices are only scaling diagnostics."
+      ],
+      "rationale": "Both frozen edge lists were read without executing either program; they are identical, with eight disjoint triangles covering the vertices. Their contracted quotient admits an explicit bit-cube labeling, and each of the three vertices in a triangle has one external edge. Independently constructed the graph from cube vertices and direction ports. A nontriangle simple loop uses exactly two external edges at each triangle it meets, since the number of external crossings there is positive, even, and at most three. It projects to a simple cube loop and at each visited triangle independently uses the direct or the detour path. Vertex-disjoint nontriangular loops cannot share a cube vertex, because each uses at least two of the triangle's three vertices. Two such loops use all eight cube vertices, leaving no third loop. The cube has 6 simple four-cycles, 16 six-cycles and 6 eight-cycles by edge-subset enumeration. Thus the disjoint triple counts by maximum length d are 56 at 3, and otherwise 36 binom(4,d−8)+16 binom(6,d−12) with out-of-range entries zero, for 1656 total. In the reduced Świątkowski model the degree-one, weight-one local differences have boundary the difference of edge variables. One factor at each of three distinct vertices gives 16192 degree-three generators; two such factors and one edge give 39744 degree-two generators. Weight three has no degree four. On a cycle the sum of oriented local differences is the integral once-around generator. The model for the disjoint union of the three cycle subgraphs is the tensor product; the inclusion sends the weight-(1,1,1) fundamental class to the signed product of the three loop chains. The independent boundary reconstruction has rank 16096 over F2, hence rank at least 16096 over Q. Independently enumerated oriented torus columns have exact unit pivots, yielding 96 independent cycles and thus the matching upper bound on boundary rank. The pivot rows of the accepted torus columns give a triangular determinant ±1 after integral column operations, so their span is primitive in the ambient chain group. It is in the rank-96 kernel and therefore equals it integrally. Each filtration stage spans exactly the corresponding accepted columns, since all dependent reductions use integer coefficients. The ranks are 56 at 3, 92 from 8 through 11, and 96 from 12 through 18. The selected columns are of the stated 56+36+4 types, and the quotient by L11 is free of rank four. The cutoffs are on the maximum individual cycle length, not total length or exactly d.",
+      "residual_risks": [
+        "Uses the standard integral reduced Świątkowski chain model; not a formal proof-assistant verification.",
+        "Nonmaterial attribution detail: the C++ boundary verifier includes the same explicit edge list but no separate cube-quotient check. The graph identity was checked independently in this review. The independent boundary rank over F2 is used only as a lower bound over Q; primitivity is established by the separate exact integer torus computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen sources use the integral reduced complex with one weight-one local difference for each non-base half-edge and describe Maciążek–Sawicki as distinguishing product classes and non-product classes. Primary text retrieval failed; the independent finite certificate supplies the chain ranks and filtration, not a literature comparison beyond the described model."
+        ],
+        "reasoning": "A general chain model gives the finite differential but not the ranks of the cycle-length sublattices without solving the specific problem. Even general generation by unrestricted products, if applicable, would not exclude generation by length at most 11 or give the four-generator deficit.",
+        "searches": [
+          "Ghrist arXiv:math/9905023; Świątkowski integral configuration model; An–Drummond-Cole–Knudsen arXiv:1708.02351; Maciążek–Sawicki DOI 10.1007/s00220-019-03583-5; graph braid third homology and product-torus generation"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact result plus 13180a65bc87, 1f6dc454009e, 058cd66178aa and c4a56081fd7e",
+        "Frozen comparisons for Ghrist, Świątkowski, An–Drummond-Cole–Knudsen and Maciążek–Sawicki; targeted primary retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cuboctahedral 13180a65bc87 describes primitive rank 20 followed by rank 24 at the hexagon cutoff; truncated tetrahedral c4a56081fd7e describes four geometric product-torus generators on that graph."
+        ],
+        "reasoning": "Neither same-day cutoffs on other graphs nor a smaller truncated graph furnish a theorem transporting these sublattices to the truncated cube. Standard model equivalence supplies the chain computation method and product representatives, while the nonincrease from 8 through 11 and the integral completion at 12 require the actual exhaustive certificate.",
+        "searches": [
+          "Cuboctahedral sharp hexagon threshold; truncated tetrahedron integral three-particle torus symmetry; standard graph configuration chain complex and product/nonproduct distinction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen edge lists contract along their eight triangles to a cube and can be reconstructed from the cube's directed-edge ports. The closest ranked comparator 13180a65bc87 concerns the cuboctahedral graph, not the graph obtained by vertex-truncating the cube."
+        ],
+        "reasoning": "The cuboctahedron is the cube's rectification, not its truncation into 24 trivalent vertices. A rank-four free residual quotient also occurs in that comparator, but is not equivalence of the filtered lattices or the graph objects.",
+        "searches": [
+          "Truncated cube, vertex truncation of Q3, unordered 3-particle graph braid H3, integral geometric product tori, cycle length and face generation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match ending 026e59b869b0 is the assigned record itself. Distinct same-day entries for the cuboctahedron 13180a65bc87 (rank 24 and threshold 6), dodecahedron 1f6dc454009e (rank 26 and threshold 10), and icosahedron 058cd66178aa (rank 110 and threshold 6) are analogous but not the same graph or invariant values."
+        ],
+        "reasoning": "There is no distinct located exact row for this graph and particle number. The analogue statements are credited rather than dismissed by date; equal particle count and a shared filtration concept do not match these underlying graph cycle systems.",
+        "searches": [
+          "Local Resultary for truncated cube 3-particle H3 rank 96, short cycle product torus filtration, sharp length 12 and 1656 tori"
+        ]
+      },
+      "rationale": "The supported distinct claim is the truncated cube's integral top-homology filtration by constituent-cycle length, including the sharp cutoff and free rank-four deficit below it. The model, product-torus construction and finite elimination method are not original here. The closest available graph-specific statements use the same kind of filtration on different graphs, and no located general theorem supplies this graph's exact filtered lattice. Several underlying primary passages and the closest analogue's full record were inaccessible, so this is a bounded comparison, not a priority certificate.",
+      "residual_risks": [
+        "The strongest analogous record was only available at the indexed-statement level. OA issues limited inspection of general literature passages.",
+        "An unlocated general theorem or exact graph table could overlap; the current evidence supports the distinct graph-specific filtration, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Assigned self-match, not independent prior evidence",
+          "evidence": [
+            "Rank 96, plateau of rank 92 through 11, length 12 completes integral generation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-twelve-edge-product-torus-threshold-for-three-particles-on--026e59b869b0",
+          "material_read": "Indexed statement and frozen proof",
+          "method": "Local Resultary and frozen source",
+          "title": "Sharp twelve-edge product torus threshold for three particles on the truncated cube",
+          "trigger": "Exact homology and filtration match"
+        },
+        {
+          "assessment": "Different graph and threshold in the indexed statement; proof-level scope unresolved",
+          "evidence": [
+            "Rank 24 with short-cycle rank 20, hexagons completing generation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cuboctahedral-three-particle-top-homology-and-the-sharp-hexagon--13180a65bc87",
+          "material_read": "Indexed result; exact-ID mirror passage unavailable",
+          "method": "Local Resultary and attempted OA mirror passage",
+          "title": "Cuboctahedral three-particle top homology and the sharp hexagon threshold",
+          "trigger": "Strongest close analogue: same filtration and free rank-four quotient"
+        },
+        {
+          "assessment": "Different polyhedral graph and ranks",
+          "evidence": [
+            "Rank 26; pentagon torus span has rank 20, six 10-cycle tori complete the basis."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-ten-edge-integral-torus-threshold-for-three-particle-dod--1f6dc454009e",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary",
+          "title": "A sharp ten-edge integral torus threshold for three-particle dodecahedral configurations",
+          "trigger": "Possible same exact filtration under a polyhedral graph alias"
+        },
+        {
+          "assessment": "Different base graph and exact invariant",
+          "evidence": [
+            "Four product-torus generators, not the cube's length filtration."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-integral-tetrahedral-symmetry-of-the-three-particle-truncated-te--c4a56081fd7e",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary",
+          "title": "Integral tetrahedral symmetry of the three-particle truncated tetrahedron",
+          "trigger": "Prior topology for three particles on another vertex truncation"
+        },
+        {
+          "assessment": "Foundational computation as described; no whole-document conclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 24–32 gives the degree, weight, and local differential used; comparison lines 59–60 treats the model as prior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.02351",
+          "material_read": "Frozen model attribution and proof application; primary passage not retrieved",
+          "method": "Primary lookup, OA including an HTML alternate; publisher PDF lead from literature search did not yield readable text",
+          "title": "Subdivisional spaces and graph braid groups",
+          "trigger": "Standard reduced model or possible broader consequence"
+        },
+        {
+          "assessment": "Adjacent theory; stronger prior results not excluded solely from retrieval failure",
+          "evidence": [
+            "Frozen comparison lines 59–60 describes a product/nonproduct distinction, without a statement of this length cutoff."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00220-019-03583-5",
+          "material_read": "Frozen account of its scope and bibliographic information; exact primary passage unavailable",
+          "method": "OA passage attempt and frozen literature discussion",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Geometric product versus nonproduct classes and possible coverage for planar graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definition of the filtration and Finding; independently verified cycle structure and integral basis; distinct polyhedral comparators"
+      ],
+      "rationale": "For this natural trivalent polyhedral graph, the result tests whether the most localized product cycles, in particular those supported on faces, account for all top homology. They do not: the short-cycle lattice has an exact free deficit of four, persisting even at length 11. Length 12 suffices integrally, not just over a field. The primitive filtration and the shortest integral basis types add information to a rank computation, giving a precise benchmark for geometric generation in graph configuration spaces.",
+      "residual_risks": [
+        "No conclusion for more particles, other polyhedra, lower homology, or a different length cost is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:48:19.693212Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–44, VERIFICATION.md and verify.py",
+        "/workspace/branches/bdc2bde6-a3ee-4d99-b197-e102ec654eb3/independent_witness.py and independent-check.txt: independent exact-rational witness check for m=0,…,12, including distinct open traces on all 3m vertices for m≥4"
+      ],
+      "rationale": "In a unit representation the full pattern at x contains exactly the marked coordinates within distance one. Count the 2m entries/exits individually, entries before exits at a simultaneous event. Every actual closed-window pattern is visited, and both end states of the walk are empty, giving at most 2m patterns even with repeated coordinates. An unmarked open trace is a full pattern, and each mark adds at most its own diagonal-deleted pattern; together with the Boolean ceiling this proves the open bound. Spacing marks by 3/4 gives 2m distinct full patterns: all events differ, the windows have connected union, and the nonempty index blocks cannot repeat because their boundaries sweep monotonically. The marks form an induced path. Interior marks yield distinct noncontiguous pairs; endpoint marks yield singleton traces on interior indices, unavailable from full patterns because the query windows of the two neighbors cover that index's window. Thus for m≥4 all m deleted patterns are new, and the m marks plus 2m probes all have distinct open traces. At m=3 the endpoint traces coincide, so the six full and two extra traces shatter all three marks; at m=1,2 the full patterns exhaust the subsets; at m=0 a nonempty host has one trace. This also proves the two distinct VC dimension thresholds and both linear densities. One trace per vertex gives the claimed minimum order where asserted.",
+      "residual_risks": [
+        "Bounded checks corroborate the witnesses; the exact sweep and diagonal argument prove the unrestricted upper bound. Uploaded scripts were inspected, not executed; no higher-order formula or radius beyond one is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The profile complexity and monadic-dependence results were identified, but decisive primary full-text passages did not load. The Resultary defect-law summary concerns an unrestricted auxiliary interval over fixed proper marks and gives 1+binom(m+1,2) minus cycle rank for the nonalgebraic types."
+        ],
+        "reasoning": "Counting unrestricted interval probes over proper marks is not counting all open traces in a proper host. Even a general linear or almost-linear complexity estimate does not settle the constants, small-size Boolean ceilings, sharpness or the open/closed distinction. No claimed full-text exclusion of a stronger exact result.",
+        "searches": [
+          "arXiv:2501.08895v3, query unit interval, and author-hosted neighbourhood complexity manuscript",
+          "arXiv:2607.10941, Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+          "Resultary SCOPE-a-cycle-rank-defect-law-for-quantifier-free-interval-one-point-t--d7e206ae00f4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03837b8f9fa5, 99413cf9082e, 9d6b84f296e4 and d7e206ae00f4; bounded primary search; arXiv:2501.08895v3 and author-hosted alternate attempted; arXiv:2607.10941 search result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The larger-class ordered-path witness uses probes between private points of any two marks; their lengths vary with the span. The unit claim instead uses one-coordinate windows and adds m diagonal deletions, all new for m≥4."
+        ],
+        "reasoning": "An arbitrary-interval maximum is an upper bound for the subclass but is strictly larger for m≥4. The path witness there does not force the new sharp unit bound: even an internal singleton that is an ordinary probe pattern in the former can be available only through deletion in the latter's sharp example.",
+        "searches": [
+          "Record 5 RESULT.md:26–51 vs record 3 RESULT.md:22–41; Beaudou et al. arXiv:2501.08895 and Dreier et al. arXiv:2607.10941 citations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Records 99413cf9082e RESULT.md:4–16 and 9d6b84f296e4 RESULT.md:5–22 count the same open adjacency traces in the larger class; their maxima for m=4,5 are 13,19, versus 12,15 here."
+        ],
+        "reasoning": "Atomic adjacency types and open traces are the same object; proper and unit interval graphs are equivalent classes. Dropping both or either the unit probe constraint and the diagonal handling changes the trace system, so the nearby larger-class formulas do not give this one.",
+        "searches": [
+          "Resultary: proper/unit interval one-variable open adjacency traces, VC dimension and exact 3m versus 2m",
+          "Web: unit interval graphs proper interval graphs neighbourhood complexity exact open neighborhoods adjacency shatter function radius 1 3m VC dimension locally identifying codes Beaudou"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "03837b8f9fa5 identifies the original record. Distinct 99413cf9082e and 9d6b84f296e4 state exact but different maxima on all interval graphs. No distinct matching table or formula was demonstrated on unit/proper hosts."
+        ],
+        "reasoning": "Agreement at m=1,2,3 does not identify the sharp invariant; the formulas already differ at m=4. The same-day date neither proves priority nor removes these indexed results from comparison.",
+        "searches": [
+          "Resultary unit/proper interval sharp open adjacency and minimum host queries",
+          "Web fixed-formula 3m / radius-one open-neighborhood query"
+        ]
+      },
+      "rationale": "The supported distinct claim is the simultaneous sharp open-versus-closed comparison for unit/proper hosts, in particular the open formula and its minimum witnesses. The 2m closed bound is elementary from the standard representation; it serves as the comparison, not a separate priority claim. Both distinct general interval Resultary results were checked on their actual statements; they neither give the unit formula nor realize their full query witnesses with unit-length probes in general. No equivalent unit-host theorem was demonstrated by the bounded primary checks.",
+      "residual_risks": [
+        "Open/closed radius-one type terminology varies. Earlier exact work using locating/identifying codes or metric profiles remains possible, especially in full texts unavailable in the bounded attempts. No absolute historical priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact maximum in a larger host class, not an exact unit-host theorem",
+          "evidence": [
+            "m=4 gives 13; block probes have variable span, and the open minimum host is 13 there versus 12 here."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-type-growth-and-path-rigidity-in-interva--9d6b84f296e4",
+          "material_read": "Local RESULT.md:5–22, 26–53",
+          "method": "Resultary index and local original",
+          "title": "Sharp open-neighborhood type growth and path rigidity in interval graphs",
+          "trigger": "Same open invariant; extremizing marks already have an interval-path representation"
+        },
+        {
+          "assessment": "Distinct quadratic function on all interval hosts",
+          "evidence": [
+            "Exact formula m(m+3)/2−1 for m≥2; no restriction on length of auxiliary intervals."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-trace-growth-in-finite-interval-graphs--99413cf9082e",
+          "material_read": "Local RESULT.md:4–38",
+          "method": "Resultary index and local original",
+          "title": "Sharp open-neighborhood trace growth in finite interval graphs",
+          "trigger": "Same radius-one open shatter function on the ambient graph class"
+        },
+        {
+          "assessment": "Available statement differs in probe class and in exclusion of marked traces",
+          "evidence": [
+            "Counts nonalgebraic queries by unrestricted intervals with a cycle-rank correction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-cycle-rank-defect-law-for-quantifier-free-interval-one-point-t--d7e206ae00f4",
+          "material_read": "Indexed model and formula; local original not retrieved",
+          "method": "Resultary lookup and attempted local retrieval",
+          "title": "A cycle-rank defect law for quantifier-free interval one-point types",
+          "trigger": "Exact one-point counts over proper marks"
+        },
+        {
+          "assessment": "Relevant possible implication; no full-text exclusion",
+          "evidence": [
+            "Frozen comparison describes radius-profile estimates, rather than an open adjacency formula; this did not independently verify the full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.08895v3",
+          "material_read": "Citation and relation described in frozen RESULT.md:46–54; attempts to locate unit interval passages timed out",
+          "method": "Primary search/OA attempts including author PDF alternative",
+          "title": "Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs",
+          "trigger": "Nearby metric profile bounds for unit intervals might specialize"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–41 and exact graph comparison with assigned records 4 and 5"
+      ],
+      "rationale": "The exact unit-host maximum reveals a sharp fifty-percent increase in the eventual number of patterns when self-adjacency is omitted, and a shift of one in VC dimension without a density change. The diagonal deletion mechanism and hosts meeting the one-trace-per-vertex lower bound explain when that increase is fully realizable. This is a natural comparison, not just a restatement of linear growth or the usual closed sweep bound.",
+      "residual_risks": [
+        "No claim of a full characterization of extremal hosts, or that the closed sweep estimate alone is a substantive contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

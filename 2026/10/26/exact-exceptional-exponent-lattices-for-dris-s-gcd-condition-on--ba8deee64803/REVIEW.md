@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplicative divisor sums and exact valuations reduce the GCD equality to one \(p\)-adic inequality. Multiplicative order and the odd-prime LTE identity establish the full exclusion criterion. A uniform truncation of the geometric exponent-lattice sum gives the explicit linear asymptotic and logarithmic error. Direct arithmetic tests are supplemental and do not replace the proof.
+## correctness
 
-**Originality — PASS within the inspected evidence.** Dris’s full 2022 preprint defines the set, lists finite exceptional examples, and discusses the global conjecture; it does not give the mixed prime-power classification. Closest mathematical record treats squarefree \(2\pmod3\) prime supports; its accessible abstract does not imply the mixed-exponent complement or counting asymptotic. Unindexed or more general implications remain possible.
+PASS
 
-**Value — PASS.** For a natural divisor-sum set associated with an unresolved density problem, the theorem completely classifies a first nontrivial prime-support family, distinguishing zero exceptional lattice from a family with precise congruences and an explicit linear count. The count explains why each fixed \(b\) sees positive exponent-density exceptions, while the square-exponent census sees zero relative density.
+For m=2^ap^b, factor σ(m²)=(2^{2a+1}−1)(1+p+⋯+p^{2b}). Both factors are odd and the latter is 1 mod p, so equality of the GCDs is exactly ν_p(2^{2a+1}−1)≤b. If d is even it does not divide L=2a+1; in the odd-order case the valuation is zero unless d|L, and then odd-prime LTE gives c+ν_p(L/d). This yields the exact failure criterion also at c=b+1 and c>b+1. Each odd modulus M_b cuts out one residue class, of density 1/M_b. In fact, the count in a∈[1,N] is floor((floor((2N+1)/M_b)+1)/2), since L ranges over odd values 3 through 2N+1 and M_b≥3. Columns 1≤b<c supply (c−1)N/d+O_p(1) for large N. For b≥c the modulus is dp^k, k=b+1−c; at most O_p(log(2N)) moduli are at most 2N+1, and the constraint b≤N eventually includes all of them. Rounding costs O(1) per column and extending the truncated geometric main-term sum costs O_p(1). Its sum is N/[d(p−1)], giving the stated square count and vanishing relative frequency among exponent pairs. An independent divisor sum and floor-count check (review_evidence/reproduce.py 2) checks bounded prime/exponent grids and the odd-order Wieferich case p=3511, d=1755, c=2: at a=877 the tested b=1 fails and b=2,3 belong. The infinite proof is not inferred from those tests. The passage saying the global conjecture is not resolved should be read as a limitation of this theorem, not as a claim about the later or independently indexed literature.
 
-**Limitations.** Does not resolve the full conjecture or vary the prime \(p\) uniformly. One close prior result could only be compared through its mathematical summary. Independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the mixed-support exponent classification and the exact linear exponent-box main term with logarithmic remainder, not for the ambient Dris condition or ambient-density results. Order and LTE are standard and do the local valuation work. The combined classification and the count were not supplied by the most relevant statements inspected. This is an evidence-limited priority assessment.
+
+## value
+
+PASS
+
+Mixed support on 2 and one odd prime is a complete naturally defined family in a preexisting problem, not a selected numerical instance. Its exact exceptional lattice distinguishes the order-parity and Wieferich regimes and yields the contrast between positive column densities and a linear, hence sparse, square count. These explicit facts can be used for arithmetic membership tests and for comparisons with other support families. The argument is elementary, but the exact combined classification and two-dimensional count are not a restatement of LTE or of ambient zero density. No global advance is attributed to this local theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator is monotone and Lipschitz in either orientation and has unique common zero. Complexification of the real recurrence yields an explicit two-by-two transfer for each orientation, and the product over one complete cycle has real trace and determinant. The exact trace recurrence reconstructs the four short-dwell characteristic polynomials, each negative at unit multiplier for all positive stepsizes. For all fixed longer dwells, perturbation of the simple roots at zero stepsize gives the signed \(4-m\) quadratic coefficient and a vanishing second multiplier. The boundary \(m=4\) is separately resolved by a positive quartic correction. Exact polynomial checks and direct numerical state-transfer checks support, but are not substitutes for, these universal arguments.
+PASS
 
-## Originality — PASS, conditional on residual bibliographic uncertainty
+Identifying the plane with C gives T_+=[[1-2ia,ia],[1,0]] and T_-=conj(T_+). The period matrix is T_-^m T_+^m. For the stated companion sequence u the off-diagonal cross terms in its trace cancel, leaving |u_(m+1)|²+a²|u_(m-1)|²; its determinant is a^(2m). Independent direct multiplication in the integer polynomial variable t=ia yielded p_m(1)=-3a², -2a²-15a⁴, -a²-4a⁴-63a⁶, and -2a⁴-255a⁸ for m=1,2,3,4 respectively. Strict negativity forces a real root greater than one for every a>0. The recurrence gives u_n=1-ina-(n(n+1)/2-2)a²+O(a³) for n≥3 (base u_3, then the quadratic coefficient changes by -(n+1)); parity of the norm square makes the trace error O(a⁴). For m≥2 the trace coefficient is 4-m and the determinant is O(a⁴). The simple-root branches at 1 and 0 give the stated expansions and strict small-a stability for each fixed m≥5. The exact short-dwell polynomials check both special expansions, including absence of an a⁶ term at m=4. Realification preserves moduli, and the finitely many within-period transfers preserve exponential decay when the period map is stable.
 
-The source on optimal bounded stepsizes applies to a fixed operator and does not cover switching products. Earlier periodic-game results concern an optimistic-gradient update with previous-operator dependence, and a 2026 reflected-gradient work gives qualitative divergence examples. None of the fully inspected material or accessible statement identifies the simultaneous four short-dwell instabilities, the first stable dwell \(m=5\), or the all-\(m\ge5\) perturbative law in the present current-operator model. The complete 2026 Chen–Yu manuscript was not accessible for full comparison; an equivalent pre-existing switched-period theorem cannot be excluded solely from abstract-level evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact structural switching boundary, not a generic numerical counterexample or simple relabeling: every frozen operator is individually a benign monotone Lipschitz rotation with convergent small-step reflected iteration, yet four complete dwell lengths permit no positive safe stepsize at all. The fifth dwell restores small-step convergence, and the proof covers all integers beyond five. This identifies a concrete stability-design constraint on update frequencies for a one-evaluation reflected algorithm in time-varying bilinear systems. It does not purport to quantify arbitrary switching.
+The closest inspected sources use a frozen operator, alternate positive steps on fixed operators, use a previous-operator history term, or concern continuous-time switched systems. None supplies the exact equal-block opposite-rotation threshold under the current reflected-point evaluation. Chen–Yu is a materially plausible overlap for time-varying reflected methods, but no decisive theorem was visible in the accessible material; the pass is bounded to the distinct exact statement supported by the comparisons, not a priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This gives a sharp switching timescale even where the individual fixed-operator reflected iterations are stable at small step. It shows how persistent instability for every positive step through dwell four gives way to stability for sufficiently small steps at dwell five, with a nontrivial quartic boundary case. It is a useful exact benchmark for time-varying reflected methods, not merely a fixed-mode stability example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

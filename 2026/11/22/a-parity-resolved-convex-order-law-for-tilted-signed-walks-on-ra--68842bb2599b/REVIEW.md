@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed walk time, rooted signed neighborhoods concentrate around an independently marked infinite regular tree. Exponential tilting changes precisely its root-adjacent signs. Radial parity and one-step flux provide the mixture coefficients, and a finite-difference identity proves strict convex order. The equal means, exact variance gap and return-asymptotic constant follow from these constructions. The standalone exact-rational checker passed 5,400 assertions. Risks: the asymptotic is sequential (first graph order, then time); no uniform two-parameter statement follows.
+## correctness
 
-## Originality — PASS against examined literature
-Louvaris and Trevezas, arXiv:2611.17118, Theorem 1 and Example 1, concern start-versus-later stochastic order and a one-step conditional-mean bias. They do not state the paired actual-score distribution, convex-order reversal, variance gap or decay. Hazra, den Hollander and Parvaneh, arXiv:2502.17724, concern multi-level degree biases, without signed-score time-marginal pairs. Related work on regular-tree returns supplies ingredients, not the combined conclusion. Semantic similarity searches and source comparisons found no equivalent or stronger covering result. Residual risk: unindexed random-scenery or signed-network work could contain an implicit generalization; this is not an independently established priority claim.
+PASS
 
-## Value — PASS
-The motivating general dominance principle controls only comparisons with time zero and explicitly leaves between-time comparisons open. This theorem establishes a sharp obstruction: consecutive times can have equal expected signed score yet fail to be ordered stochastically, while admitting strict convex ordering and an exact asymptotic variance gap. The full laws identify the entire mechanism, with a controlled decay scale, rather than a numerical isolated counterexample. This is a structural and testable boundary for interpreting multistep sampling bias.
+Fix the walk horizon k and a test on the finite score lattice. Write the signed-graph conditional expectation as the ratio of root averages of the tilted test expectation and the tilt weight. Conditional on the unsigned graph, only O(n) ordered pairs of radius-(k+1) root neighborhoods share signs, so the conditional variance of each bounded root average is O(1/n). The conditional numerator mean agrees with the tree mean up to a constant times the fraction of roots without a tree neighborhood, which tends to zero in probability by fixed-radius local convergence; the denominator mean is exactly [p exp(−β)+(1−p)exp(β)]^d and positive. Thus the ratio converges in probability, not only after averaging over graphs. On the tree the tilt changes precisely the d root-incident signs independently to parameter q. At distances zero, one and at least two the score laws are A0, A1 and A∞. The odd-time mass at distance one is d times the following even-time return mass u_m; no other tilted component is possible at either parity. The mean identity follows by counting tilted signs in expectation. For a convex test let h(j) be its expected value with j of d signs tilted. Two replacements give Δ²h(j)=(p−q)² times the expectation of the second difference of the test at W−2,W,W+2, where W uses the remaining j tilted signs. The even-minus-odd expectation is u_m[h(d)+(d−1)h(0)−dh(1)], nonnegative and strictly positive for a strictly convex test; neither direction of first-order dominance is possible at equal means with distinct laws. For the quadratic test the second difference is 8, giving gap 4d(d−1)u_m(p−q)². The Catalan first-return counts, divided by d^(2j), give the asserted renewal generating function. At ρ=d²/[4(d−1)] its square-root coefficient is −2d(d−1)/(d−2)²; on the principal branch the denominator does not vanish and transfer yields the stated positive m^(-3/2) prefactor. The example at d=3 and m=1 matches exactly; when β=0 or p is deterministic the mixtures coincide. The large-time asymptotic is subsequent to the fixed-time graph limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same marked tree and exponential sampling tilt, and the exact return-count component, are prior mathematics. The new claim is the realized-score marginal law and strict spread comparison between paired adjacent times, not the stochastic comparison to time zero, the law of a root-wise mean bias, or the walk return law alone. The closest inspected results do not cover that combined claim; priority remains bounded.
+
+## value
+
+PASS
+
+A start-versus-future sampling theorem leaves open what happens between successive positive times. This result shows a systematic, not exceptional, distinction: the odd and following even limiting scores share a mean but are stochastically incomparable, with the even score strictly more dispersed in convex order. The exact mixture laws and return-controlled spread quantify that phenomenon for all nondegenerate parameters in the model. It is not a finite-graph coupling or a joint time-and-size limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

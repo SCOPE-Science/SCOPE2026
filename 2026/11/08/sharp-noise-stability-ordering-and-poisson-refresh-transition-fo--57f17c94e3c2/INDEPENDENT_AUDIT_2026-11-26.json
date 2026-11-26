@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:37.752149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–44,48–117",
+        "VERIFICATION.md:1–23",
+        "verify.py:10–64 (inspection only)"
+      ],
+      "rationale": "Deleting one maximum edge on each cactus cycle yields the MST, with all bridges retained. Given r refreshed indices, the overall maximum among the n+r independent samples falls on a retained edge with probability (n−r)/(n+r), guaranteeing concurrence. Otherwise, conditional on its label, the other sample's n candidate ranks are exchangeable, so its maximum has the same edge label with probability 1/n. This independently yields the stated conditional probability, including r=0 and r=n. Independence across edge-disjoint cycles gives the Bernoulli product. For shape, the copula value Z has a decreasing density: the common-value component changes variables by t=(1−ε)y+εy², while in either off-diagonal triangle, with x<y, t=x[(1−ε)+εy] and the x-Jacobian is 1/[(1−ε)+εy]. Both density terms decrease, with strict decrease from the off-diagonal part. At ε=1 the density is −log t. Integration by parts in n E[Z^(n−1)] has zero lower boundary for n≥1; the resulting positive moment measure is nondegenerate, proving strict decrease and strict log-convexity (with s₁=1). Strict convex discrete differences give the two unique length multisets, and each is realizable by cycles joined at one vertex. Binomial size-bias of the conditional failure formula gives 2(n−1)ε E[1/(n+1+Bin(n−1,ε))]; subtract from λₙε and use the mean of the binomial for the uniform quadratic error. Its full support range gives the lower bound, so union and exponential product bounds give the extreme regimes. The uniform error and Le Cam bound give total variation in the stated Poisson regime, trivially including α=0.",
+      "residual_risks": [
+        "The frozen script enumerates relative ranks only for cycle sizes 2–4 and checks a finite grid of rational probabilities and profiles. The monotonicity and limits rely on the analytical argument, not the finite checks. Strict inequalities exclude zero noise; the Poisson mean requires convergence of the average λₙᵢ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Israeli–Peled use independent refresh, but study a rescaled complete-graph MST metric threshold. Mathwieser–Çela study uncertainty-set queries to find a cactus MST. The general concurrence identity applies to the two-coordinate edge pair but supplies neither its evaluated refresh law nor strict shape."
+        ],
+        "reasoning": "Neither a metric threshold on complete graphs nor an algorithm for querying fixed weights controls exact equality on cacti. A generic concurrence integral does not establish the specialization's nondegenerate moment representation.",
+        "searches": [
+          "Israeli–Peled arXiv:2306.07357, abstract and §1.1",
+          "Mathwieser–Çela arXiv:2211.15611, §§1.2, 2.1",
+          "Dombry–Ribatet–Stoev arXiv:1503.05748, PDF p. 2"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:123–135",
+        "Resultary 57f17c94e3c2 (self) and 7445e6cc6545 (distinct comparator)",
+        "arXiv:1503.05748, 2306.07357 and 2211.15611 at the passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known concurrence identity gives sₙ=n E[Z^(n−1)]; for a comonotone pair it gives sₙ≡1. Le Cam's inequality is standard once the per-cycle probabilities are known."
+        ],
+        "reasoning": "Generic concurrence does not force strict log-convexity (the factor n is not a moment sequence argument by itself). The decreasing copula-value density and the uniform quadratic refresh estimate are the additional, model-specific steps that justify the two extrema and sharp Poisson mean.",
+        "searches": [
+          "arXiv:1503.05748, PDF p. 2 concurrence identity",
+          "arXiv:2306.07357, abstract and §1.1",
+          "Resultary 7445e6cc6545, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the refreshed pair, same removed edge is precisely sample concurrence of maxima. The one-out catalog record instead optimizes over couplings of a rotation-invariant subset to a uniform tree."
+        ],
+        "reasoning": "The concurrence representation is genuinely equivalent to the event and is credited; optimizing a coupling for fixed marginals does not determine concurrence under a prescribed refresh coupling. For two uniform trees on a single cycle the unrestricted optimal coupling is identical, whereas refresh gives agreement strictly below one.",
+        "searches": [
+          "Resultary focused cycle/MST refresh search (self: 57f17c94e3c2; distinct cycle comparator: 7445e6cc6545)",
+          "Dombry–Ribatet–Stoev arXiv:1503.05748, finite-sample concurrence identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match is the finding under review, not independent evidence. The closest distinct record has an exact missing-edge law and a Poisson limit in one-out directional bias, not the binomial mixture for refreshed ranks. The cited concurrence passage gives n times the (n−1)st moment of the joint CDF value."
+        ],
+        "reasoning": "Neither the one-out law nor the inspected generic formula is an independent tabulation of the partial-refresh probabilities, their strict length inequalities, or their optimizing profiles.",
+        "searches": [
+          "Resultary specialized cycle-maximum partial-refresh/Poisson search (record IDs 57f17c94e3c2 and 7445e6cc6545)",
+          "arXiv:1503.05748 PDF p. 2, finite-sample probability formula"
+        ]
+      },
+      "rationale": "The generic finite-sample concurrence identity and independent-refresh model are known. The distinct supported result is the explicit partial-refresh cycle law together with strict shape in cycle length, the sharp fixed-budget cactus profiles, and a uniform estimate giving the many-cycle transition. The closest inspected comparables do not imply this combination. No claim of worldwide priority is made.",
+      "residual_risks": [
+        "The searches and inspection are bounded. An earlier exact concurrence calculation or shape theorem under other terminology remains possible; no negative whole-document claim follows from the bounded reads."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known general identity; does not establish the claimed strict shape or closed refresh law",
+          "evidence": "For continuous margins pₙ=n E[F(X(s₁),…,X(sₖ))^(n−1)].",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05748",
+          "material_read": "PDF p. 2 (printed p. 1), around text offset 5800",
+          "method": "OA PDF bounded text inspection",
+          "title": "Probabilities of Concurrent Extremes",
+          "trigger": "Equivalent maximum-index concurrence for general joint laws"
+        },
+        {
+          "assessment": "Same general noise mechanism, different graph family and observable",
+          "evidence": "The complete-graph metric-scaling problem has a threshold at n^(−1/3), not an exact cactus-tree equality law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07357",
+          "material_read": "Abstract, PDF p. 1 around offset 300; §1.1, PDF p. 2 around offset 3400",
+          "method": "OA PDF bounded text inspection",
+          "title": "Noise Sensitivity of the Minimum Spanning Tree of the Complete Graph",
+          "trigger": "Exact independent edge-refresh model for MSTs"
+        },
+        {
+          "assessment": "Different uncertainty model and objective",
+          "evidence": "Weights are fixed and queried, with competitive query cost as the objective; there are not two weight configurations coupled by refresh.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.15611",
+          "material_read": "§1.2 PDF p. 3 around offset 6600; §2.1 PDF p. 4 around offset 9000",
+          "method": "OA PDF bounded text inspection",
+          "title": "Special Cases of the Minimum Spanning Tree Problem under Explorable Edge and Vertex Uncertainty",
+          "trigger": "MST structure on cactus graphs"
+        },
+        {
+          "assessment": "Not an equivalent coupling or asymptotic parameter",
+          "evidence": "Optimizes the symmetric-difference law among all couplings and attains |M−1| for M missing edges of the rotation-invariant subset. The one-out Poisson regime scales directional bias with cycle size, not refresh probability with cycle count.",
+          "identifier_or_url": "2026/10/18/SCOPE-optimal-spanning-tree-one-out-coupling-on-a-cycle-exact-law-and--7445e6cc6545",
+          "material_read": "RESULT.md raw offsets 0–3171: Finding, Assumptions and scope, start of Proof",
+          "method": "Resultary search and local mirror bounded read",
+          "title": "Optimal spanning-tree/one-out coupling on a cycle: exact law and Poisson–Gaussian regimes",
+          "trigger": "Exact cycle spanning-tree comparison and Poisson asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:17–40,63–117",
+        "Israeli–Peled abstract and §1.1 for motivation and scope"
+      ],
+      "rationale": "Exact identity retention is a natural MST-noise observable. Strict shape is stronger than independent cycle decomposition: with the same graph cycle budget and number of cycles it decides which length profiles are most and least stable. The uniform single-cycle estimate determines the Poisson mean even for heterogeneous cycles whose lengths vary with cycle count; these are concrete uses of the sharp law.",
+      "residual_risks": [
+        "The independent cycle structure is essential to this argument. No extension to overlapping cycles, general graph exact equality, or rescaled metric stability is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

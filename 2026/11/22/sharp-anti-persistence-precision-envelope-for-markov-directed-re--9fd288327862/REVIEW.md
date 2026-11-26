@@ -1,19 +1,21 @@
-# Review of the Markov-directed renewal transport result
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies bounded positive renewal durations, bounded nonnegative rewards, full independence between marks and the stationary two-state sign chain, and nonzero mean sign. Conditional variance gives a convergent covariance series. Bounded renewal overshoots and a stopped-martingale second-moment identity establish the unsigned reward variance rate; the Markov stationarity constraints give the exact minimizing eigenvalue and an attainable aperiodic optimizer. The exact-rational checker independently verifies finite-horizon sign moments, a random-duration tilted-kernel calculation, and the explicit precision comparison. No finite run is claimed to prove the infinite-time theorem.
+PASS
 
-## Originality — PASS (priority qualified)
+Conditioning on the entire iid sequence of bounded cycle marks freezes the completed-cycle count and leaves the stationary signs unchanged. The centered binary sign is a transition eigenfunction of eigenvalue ρ, so the conditional variance uses lag covariances (1−m²)ρ^k. The strong law for the k-dependent products R_i R_{i+k}, the renewal count limit ν(t)/t→1/b, and the deterministic bound ν(t)≤t/n₋ allow the diagonal and each off-diagonal limit, then summation by geometric domination. For the conditional mean term, Y_i=R_i−aN_i/b has zero mean and variance d, and ν(t)+1 is a bounded stopping time at each fixed t. The stopped sum has zero mean and second moment d E(ν(t)+1). Undoing the one extra increment and the renewal undershoot adds a bounded variable, hence changes the variance by at most O(√t)+O(1). This gives the asserted variance; the mean follows from the bounded marked renewal law of large numbers. Stationarity balances the two switching flows. The smaller stationary mass caps that flow, attained when the minority always leaves, yielding ρ_min=−(1−|m|)/(1+|m|) and (1+ρ_min)/(1−ρ_min)=|m|. The matrix remains irreducible and aperiodic for 0<|m|<1; monotonicity is strict for a>0, and a=0 forces zero reward. The unit-cycle example has j=1/2 and σ²=3/8, so 2/3>(√3−1)/2; this refutes only the memory-blind extrapolation. For the separate N=1 or 2 equiprobable, R=1 example the unsigned term has d=1/9 and substitution gives 29/108. RESULT.md lines 33–83 are independently supported by these checks. The supplementary verify.py was inspected, not executed.
 
-Karimi–Jafarpour's 2026 formula explicitly takes i.i.d. signs; correlation within one run's rewards is a separate issue. The present theorem addresses *inter-cycle* directional correlation and adds an optimal fixed-marginal transition matrix. Shreshtha–Harris's 2019 renewal-reward framework, general Markov-renewal CLTs, and antithetic Markov-chain variance theory cover parts of the background, not a directly located statement of the complete sharp marked-cycle envelope and the marginal-boundary example. Published indexed results on independent-sign bias optimization and binary Markov occupation spectra are particularly close but concern different optimization variables and/or unit rewards. Full text for some general and early sources was not accessible; this remains a priority risk, not positive evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Temporal directional memory can change current precision without changing the one-time directional law or the distribution of cycle lengths and rewards. The exact sharp envelope quantifies the maximal improvement achievable with one-step binary memory; the explicit bound failure identifies which independence condition is essential when interpreting marginal-sign precision constraints for run–rest or active-particle transport. This is a motivated and falsifiable model-boundary result rather than an arbitrary parameter exercise.
+Credit the iid marked-renewal variance and information bound, standard Markov-renewal covariance theory, and the elementary two-state occupation covariance calculation. The supported contribution is the sharp fixed-marginal precision/variance envelope with the renewal clock and arbitrary within-cycle dependence, accompanied by an explicit counterexample to using the iid marginal-reversal expression unchanged. The inspected statements do not already give this combined conclusion. This is a bounded comparison, not a priority guarantee.
 
-## Limits and verification status
+## value
 
-The statement is limited to first-order two-state Markov signs, bounded cycle marks, and completion-time current. The stationary sign chain is reversible; marginal reversal-information is not equated with full dynamical entropy production. General Markov-additive variance methods are known, and related full texts require further priority checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The iid uncertainty bound motivates a concrete question: how much variance can sign memory remove without changing the stationary sign proportions or the cycle marks? The exact attained envelope answers it despite reward-duration dependence. The deterministic witness shows a real failure of a tempting extrapolation and identifies temporal correlation, not any claimed physical entropy accounting, as the missing ingredient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

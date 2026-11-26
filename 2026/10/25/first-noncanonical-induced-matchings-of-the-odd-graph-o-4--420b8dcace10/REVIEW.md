@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the seventy edges of \(KG(7,3)\); admissible selections are characterized by the four cross-intersection tests for each pair of chosen edges. A lexicographic backtracking traversal exhausts them without duplicates or unsound pruning, and a separate direct-set traversal agrees for anchored seven- and eight-edge cases. The complete seven-edge profiles sum to \(6{,}420\), the \(315\) eight-edge matchings are monochromatic, and all \(5{,}040\) ground-set permutations establish the stated orbit classification. The bundled executable was run successfully. These steps verify precisely the finite mathematical assertion, including the global all-size threshold.
+## correctness
 
-## Originality — PASS, with explicitly retained risks
-The 2014 odd-graph article establishes the canonical seven-color strong edge coloring. The 2021 optimal strong-edge-coloring uniqueness theorem dominates the *maximum* monochromatic assertion but does not imply the count, profiles, noncanonical size-seven gap, or orbit classification. The full texts of the canonical source and the 2021 rigidity source, plus relevant Kneser and almost-intersecting work, were compared at the level of claimed implications. The 2012 *Almost Intersecting Families of Sets* primary full text remained inaccessible: its precise contents and possible unindexed overlap remain a real residual risk, not a novelty certification.
+PASS
 
-## Value — PASS
-The first stability threshold beyond a rigid extremizer is natural in strong edge coloring: it answers how far one must descend below a maximum color class before edges with different canonical labels can coexist. The full symmetry-orbit census distinguishes genuinely different near-extremal configurations and provides reproducible structural data for the smallest odd graph with ground set size seven. This is more than a numerical spot check or relabeling of the known optimum, while not asserting an infinite theorem.
+On four distinct endpoints, the original Kneser graph must induce exactly two edges; this agrees with the stated four cross-intersections test. A shared endpoint fails that test as its partner is disjoint from it. I independently built compatibility by counting edges on the endpoint union, enumerated maximal compatibility cliques by pivoted Bron–Kerbosch, then took all size-seven and size-eight subcliques with deduplication. Any finite clique extends to a maximal one, and pruning only when the current clique plus eligible vertices has size less than seven is safe. The counts are 6420 and 315, the mixed size-seven count is 5580, and the anchored counts are 642 and 36. Closing all size-seven orbits by the adjacent transpositions, which generate S7, gives two size-420 monochromatic orbits, plus sizes 420, 2520, 1680, 840 and 120 for profiles (6,1), (4,2,1), (4,1,1,1), (2,2,2,1) and (1,1,1,1,1,1,1), respectively. Every eight-edge set is monochromatic; any larger mixed set would have a mixed eight-edge subset. Replay: python3 /workspace/reproduce_1.py, output /workspace/reproduce_1.txt.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact size-seven mixed threshold and labeled/profile/orbit refinement for KG(7,3), not the known canonical strong coloring or the maximal size. The focused Resultary comparisons and examined primary passages do not establish equivalent coverage. The primary 2012 almost-intersecting paper remains a material access limitation, not an evidence-based prior-coverage finding.
+
+## value
+
+PASS
+
+This is a sharp finite stability statement for the canonical coloring of a standard odd graph. The exact departure from the monochromatic optimum is visible at seven edges, with distinct multiplicity patterns and orbit sizes, not merely one exceptional construction or a recomputation of the maximum. The classification gives a precise benchmark for structural conjectures about large induced matchings without asserting any generalization to larger parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

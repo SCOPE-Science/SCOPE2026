@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is for each finite nondegenerate one-dimensional mesh and every real \(BV\) input. Exact local normal equations give the two traces \(A(t)=(1-t)(1-3t)\) and \(B(t)=(1-t)(1+3t)\). The full distributional variation of a projected jump includes each local affine slope and each interior interface mismatch. The edge and interior profiles have explicit piecewise quadratic maxima \(16/9\) and \(2\); the single-cell maximum is \(3/2\). Integration against the signed distributional derivative of an arbitrary \(BV\) function gives the universal bound. Single-jump witnesses attain all constants. The packaged exact-rational checker independently recomputes normal equations, witnesses, one-jump profiles and nonuniform multijump inequalities; finite tests are not used to prove the all-input statement.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Independently solved the two local moment equations in RESULT.md lines 26–34: the traces are A=1−4t+3t² and B=1+2t−3t². The one-cell slope contribution has maximum 3/2 at t=1/2. The first-cell profile is 8t−9t² through t=2/3 (max 16/9 at 4/9) and 4t−3t² thereafter; reflection gives the last cell. An interior cell gives the middle profile 12t(1−t)−1 (max 2 at 1/2), while the outer branches peak at 5/3. Interior knot steps are reproduced with variation 1. On a finite interval a BV function is a constant plus the integral of step kernels against its finite signed derivative measure; the step map is L²-continuous in its location and the bounded projection commutes with that integral. Applying the triangle inequality to its finite vector of slopes and trace differences gives the full upper bound, and the indicated steps attain it on any mesh. The two-input result follows by linearity. This is the real, unweighted, distributional seminorm on the open interval, not the L¹-plus-variation norm or variation of a zero extension. The supplied checker was inspected but not executed; its expected finite tests are not required by the proof.
 
-Wang (arXiv:1107.3903v1, §4, 2011) defines the same discontinuous degree-one finite-element trial space, jump traces, and a coupled DG formulation for TV-regularized inpainting, but the inspected paper does not give the sharp norm of the separate \(L^2\) projector. Nochetto–Salgado (arXiv:1211.1069v1, §3, 2012) proves TV diminution for a **continuous interpolant**, not broken \(L^2\) least squares. Herrmann et al. (arXiv:1804.07477, §§2–4, 2018) define total and discrete variation for DG functions but not this projection norm. Bartels (2012) treats continuous-affine and piecewise-constant TV minimization rather than the present operator. Published-result and semantic searches for exact sharp projection gains, equivalent formulations and degree-one DG norms found no implication of the claimed three-value law. Historical priority remains qualified because an equivalent identity could occur in unindexed numerical-analysis literature.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a natural quantitative question for the local \(L^2\) projector onto discontinuous linear finite elements: how much can projection amplify the **full** total variation of a discontinuous signal? Mesh-independent exactness, the nontrivial \(3/2\to16/9\to2\) cell-count transition, and explicit step extremizers give a usable stability calibration for discontinuous Galerkin and TV-sensitive reconstruction. The interface contributions are essential rather than a cosmetic normalization change; this projector is not TV-diminishing, unlike deliberately constructed TVD interpolation maps. No multidimensional or high-degree bound is asserted.
+The exact cell-count transition for the full jump-inclusive variation of the broken affine orthoprojector survives the inspected comparisons. Neither a generic FE stability statement nor agreement on the operator alone gives these sharp output-variation constants.
 
-## Remaining limits
+## value
 
-No claim of uniqueness in the full historical literature, no independent external audit, and no transfer to continuous spline projection or DG elliptic solvers. The finite checker supplements the analytic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The underlying projection is standard and the input class is natural for discontinuous signals. A sharp bound for the actual TV amplification, including interfaces, calibrates reconstruction: it distinguishes one/two-cell edge effects from the interior obstruction, is uniform in grading, and is witnessed by simple inputs. It is not just a recomputation of an L¹ error, a conforming norm, or generic boundedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

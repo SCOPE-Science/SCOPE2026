@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact generator matrix element is \(\sqrt{(\alpha_i+1)\alpha_j}\), obtained from monomial normalization. Bounded weighted edge differences control commutators with every infinitesimal skew-Hermitian coordinate rotation, hence all homogeneous-degree Duhamel estimates uniformly in degree. Conversely, compact-group smoothing of any norm-continuous full-unitary orbit and a norm-one diagonal-torus conditional expectation produce diagonal smooth-orbit approximants; a single skew-Hermitian generator's matrix entries force their weighted edge slopes to be bounded. Real and imaginary infimal convolutions prove that the norm closure of graph-Lipschitz arrays is precisely the graph-uniformly-continuous arrays. Two-coordinate angular comparisons follow from a verified integral inequality with exact constants \(1\) and \(\pi\). The separating arrays have explicit limiting phases and are tested against Fulsche's published square-root metric Toeplitz characterization. Infinite-dimensional steps are proven, not inferred from finite testing.
+PASS
 
-## Originality — PASS, subject to literature risk
+The normalized monomial ratio cancels t and gives the transfer multiplier sqrt((alpha_i+1)alpha_j); its commutator with a diagonal is an injective weighted shift. On finite homogeneous blocks, every skew-Hermitian direction is a finite combination of these shifts and commuting number operators. Duhamel bounds each block by C_d L(b)||X||, so the logarithm near identity gives the required operator-norm bound uniformly in degree. Conversely norm continuity at the identity propagates to the whole orbit. Convolution with a smooth approximate identity gives smooth norm orbits, and torus averaging preserves smoothness (the group argument is conjugated by the torus element, with derivatives uniform over the compact torus). The torus has distinct monomial characters, so this expectation restores diagonality. A single matrix entry of a skew coordinate generator extracts the forward transfer without interference from the reverse transfer, uniformly in alpha. This establishes approximation by arrays of bounded weighted slope. Path summation and the bounded inf-convolution, with the same delta and Lipschitz constant on all degrees, give the two-way metric criterion. In d=2 the inequalities follow by integrating the angular derivative between adjacent sites, using k+s≥(k+1)s and m-k-s≥(m-k)(1-s). The first separation example comes from a globally Lipschitz phase in the square-root coordinates; in the middle of a degree-m block a displacement of floor(pi sqrt(m)) gives angular distance O(m^-1/2) and a coefficient ratio tending to -1. Degree parity is exactly invariant but fails square-root continuity across adjacent degrees. The inspected prior Toeplitz criterion establishes both membership inferences. There is no control across different homogeneous degrees, and the theorem does not cover off-diagonal operators.
 
-Fulsche's article, first posted as arXiv:2511.08353 on 11 November 2025, contains the earlier *abelian* coordinate-torus matrix characterization (Theorem 3.1), the Toeplitz/square-root-metric intersection (Theorem 3.2), and expressly poses the distinct full \(U(d)\) matrix problem in Section 3.1, Problem 1. Neither theorem implies the angular transfer graph condition: every diagonal is torus-fixed, while the new condition excludes highly oscillating degree-preserving diagonals; the Toeplitz square-root metric compares different directions and degrees, whereas the new angular metric compares only equal-degree transfers. Dewage and Ólafsson's 2022 quasi-radial eigenvalue algebra involves square-root metrics and does not state this full-unitary diagonal criterion. Full-text comparison with the central Fulsche source and additional title/abstract checks found no equivalence or stronger result. The result is explicitly restricted to the diagonal subclass; no full resolution of Fulsche's general open problem is claimed. Standard compact-group smoothing is known, and independent checking remains needed to rule out an older implicit equivalent.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a necessary-and-sufficient, computable matrix condition for the entire natural monomial-diagonal subclass of a published nonabelian rotation-continuity question. The infinitesimal transfer weights determine a nontrivial angular geometry, and in two variables the graph is explicitly equivalent to an arcsine angle. The two directions of strict incomparability with the established Toeplitz metric demonstrate a substantive structural distinction. This goes beyond restating a general norm-continuity definition or routine scalar special cases.
+The prior square-root compatibility criterion is for Toeplitz membership within the coordinate-torus class. The same source explicitly poses the full unitary problem and does not give this nontrivial metric for the full-group diagonal subclass. No earlier equivalent statement emerged in the checked literature and catalogue comparisons.
 
-## Scope and residual risks
+## value
 
-The theorem requires bounded arrays and \(d\ge2\), and does not address general off-diagonal matrices or norm continuity under translations. One originality risk is an earlier abstract compact-Lie smooth-vector result yielding an equivalent diagonal metric without Fock terminology. The Toeplitz separation uses Fulsche's published Theorem 3.2; it is not an independent derivation of that earlier theorem. The provided script checks finite algebraic and angular identities but cannot certify infinite-dimensional compact-group arguments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This provides a usable, dimension-uniform-in-degree test for a natural full-group matrix subproblem and identifies the geometric scale of coordinate transfers. The two explicit opposing Toeplitz witnesses show why the angular condition is not just the known square-root condition rewritten.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

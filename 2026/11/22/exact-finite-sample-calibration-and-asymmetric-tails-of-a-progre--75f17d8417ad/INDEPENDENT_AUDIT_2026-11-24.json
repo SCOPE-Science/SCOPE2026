@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:54:04.982033Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the repaired claim under independent exponential lifetimes, no removals at the initial r unobserved failures, and deterministic, noninformative random removals thereafter. Independent ordinary spacings before the first observed failure give H=∑c_ℓE_ℓ; exponential memorylessness gives the independent unit gaps G_j after risk normalization, with common scale canceled. For the left endpoint only the weight-zero gap has negative contrast when t<1/(d−1); its survival transform yields the exact product and r+1+d−2=m−1 vanishing factors. Near the right endpoint, rescaling the d−1 independent gaps conditional on H=s gives a simplex integral with limiting volume 1/(d−1)! and the Jacobian 1/∏(j/(d−1)−t); the scaled probability is dominated by a constant times s^(d−1), which is integrable. Expansion of the moment generating function of H gives E H^(d−1)=(d−1)!h_(d−1)(c), checking the right coefficient and power. This covers d=2 and r=0, including the empty product. Dominance is claimed only for r>0: couple H=E_r+Z with Z>0 independent, and on the positive-probability open G-set where the weighted ratio without the first gap is below u, the crossing E_r<s_*(G)<E_r+Z has strictly positive conditional probability for each u∈(0,1). Normalized unit gaps for r=0 give cumulative uniform order statistics, hence the average-of-uniforms benchmark. As a secondary formula, the halfspace expression recovers the signs and gives continuity at repeated nonnegative coefficients and knots because the contrast has no atom at zero. Independent `python /workspace/independent_replay.py 5` verified 20 exact rational minimal-example CDF values and endpoint constants for three triples via simplex caps and a separate multinomial moment evaluation, including 405/64 and 660241/20250 for (10,6,2). Finite diagnostics do not verify universal quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lasserre Thm. 2.2 Eq. (2.2) gives the explicit exact lower halfspace volume for arbitrary distinct affine vertex coefficients. Huffer–Lin pp. 1141–1142 give an exact general linear-exponential probability algorithm, more general computational coverage than this single contrast.",
+          "The Lasserre formula is pointwise and does not state a paired expansion when both the cut and the coefficients move to an endpoint. The higher-order right expansion includes a conditional simplex volume and the complete homogeneous moment of the summed first gap; checking dominance also requires a probability coupling and a strict crossing argument."
+        ],
+        "reasoning": "Existing halfspace theory fully covers the frozen CDF as a direct specialization; the repair does not claim it. The sharp comparison of the two endpoint powers and constants, and strict stochastic shift across two sampling designs at every interior threshold, are additional statements not supplied by the inspected general results.",
+        "searches": [
+          "Jean Bernard Lasserre Volume of slices and sections of the simplex in closed form arxiv truncated powers theorem formula",
+          "Huffer–Lin 2001 Statistica Sinica 11, 1141–1157",
+          "linear fractional uniform simplex endpoint tail asymptotic positive codimension weighted ratio exponential random variables complete homogeneous symmetric polynomial tails exact"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.4617",
+        "Huffer–Lin 2001 Statist. Sinica 11:1141–1157",
+        "doi:10.1080/02664763.2020.1821613 (abstract available)",
+        "doi:10.1007/978-1-4612-0103-8_8 (abstract available)",
+        "Gofpt2 gof_test_censored documentation",
+        "SCOPE-20261122-75f17d8417ad (target itself)",
+        "SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use affine vertex values a=( (1−t)c_ℓ, w_j−t ). Lasserre's normalized volume at zero is ∑_{a_i<0}(−a_i)^(m−1)/∏_{j≠i}(a_j−a_i). Shifting one vertex value to zero and normalizing the affine normal is just the theorem's convention. For a_i=w_i−t<0, distribute t−w_i across the denominator factors to get exactly the frozen CDF. Continuity handles equal nonnegative vertex values.",
+          "The left edge then has one nonzero cap term; extracting the full right coefficient requires identifying vanishing orders across multiple cap terms or analyzing the shrinking simplex directly. The exact law does not directly yield the strict comparison with matched-d no-missing data without a further ordering argument."
+        ],
+        "reasoning": "Distinguish the proved direct prior implication for the CDF from the replaced claim: the latter compares asymmetric rates including the full right moment coefficient and proves strict stochastic ordering using a crossing event. It is not just evaluating the exact formula at selected parameters. Inaccessible earlier spacing texts are retained as a bounded risk, not a scientific noncompletion.",
+        "searches": [
+          "arXiv:1412.4617 Theorem 2.2, Eq. (2.2)",
+          "Huffer–Lin 2001 A11n411.pdf",
+          "doi:10.1007/978-1-4612-0103-8_8",
+          "doi:10.1080/02664763.2020.1821613"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published test is the Qin–Yu–Gui spacing statistic; the discoverable abstract addresses null normal approximation. Its primary sections could not be retrieved for direct full-text comparison.",
+          "As a linear-fractional statistic of m independent exponentials, it is equivalently a moving halfspace probability under the uniform (m−1)-simplex. At the two ends the small region pinches toward faces of different codimension because the upper weight is shared by r+1 exponential terms whereas the lower weight is associated with one term."
+        ],
+        "reasoning": "This equivalence is powerful for finite CDF coverage, but the repaired statements describe a singular moving-halfspace regime and compare two experiments at matched observed count, not just a single halfspace probability. The unequal powers and coefficients quantify that asymmetry.",
+        "searches": [
+          "Qin Yu Gui exponentiality statistic initial unobserved failures exact unequal endpoint constants stochastic dominance same number of observed spacings",
+          "Qin Yu Gui progressive censoring exponentiality spacing test exact endpoint asymptotic stochastic dominance initial missing failure null distribution endpoint tails",
+          "doi:10.1080/02664763.2020.1821613"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75f17d8417ad is the exact indexed target itself. Distinct Resultary 2eae002a7fda gives an exponential large-score upper-tail equivalent for a logarithmic recursive product of endpoint-inclusive uniform spacings, not this bounded weighted ratio; 27ce3bbdde5b is also about a recursive product.",
+          "The Gofpt2 help for the Qin et al. test specifies normal and simulation calibration options. It is evidence about that implementation, not a literature-wide conclusion."
+        ],
+        "reasoning": "Neither a separate exact table nor a same-statistic paired-tail result surfaced in the compared entries. The closest distinct tail-law result uses a different statistic and null geometry. Exact halfspace computation is credited independent of the lack of a matched table.",
+        "searches": [
+          "Resultary: Qin Yu Gui exponentiality statistic initial unobserved failures exact unequal endpoint constants stochastic dominance same number of observed spacings",
+          "SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda",
+          "rdrr Gofpt2 gof_test_censored"
+        ]
+      },
+      "rationale": "Apply this verdict to the repaired sharp paired endpoint asymptotics and the strict stochastic comparison only. The exact CDF and the statistic itself are credited prior or direct prior implications, and the method is classical. No inspected result gives the unequal exponents with their constants or the strict comparison under the specified censoring scheme; see the access limits for the original test and earlier progressive-spacings work.",
+      "residual_risks": [
+        "The original test and the earlier exact progressively censored spacing chapter did not yield retrievable full text in the lawful routes used; comparison does not exclude uninspected equivalent results there or elsewhere.",
+        "Classical moving-polytope or signed-spacing results may supply other derivations. The specific paired endpoint statement and strict matched-d comparison are the only originality claims; general exact calibration and the rational one-sum formula are expressly excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general prior formula for the frozen CDF; paired moving-endpoint asymptotics and strict matched-count order are not stated in the compared theorem",
+          "evidence": [
+            "Distinct affine vertices give truncated powers divided by products of vertex differences"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.4617",
+          "material_read": "Theorem 2.2, Eq. (2.2), PDF p. 3, offsets 6324–8079",
+          "method": "Open original PDF; read formula passage and independently specialize it",
+          "title": "Volume of slices and sections of the simplex in closed form",
+          "trigger": "Potentially the same closed rational CDF via a general affine-simplex theorem"
+        },
+        {
+          "assessment": "General exact probability algorithm covers the contrast at rational thresholds, already prior; not a result on the retained shift and paired tail constants",
+          "evidence": [
+            "Explicit extension to linear combinations of iid exponential variables"
+          ],
+          "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/oldpdf/A11n411.pdf",
+          "material_read": "p. 1141 abstract and introduction into p. 1142, PDF text offsets 322 and 1312–1933",
+          "method": "Primary open PDF text passages",
+          "title": "Computing the joint distribution of general linear combinations of spacings or exponential variates",
+          "trigger": "Earlier exact calibration for general signed exponential contrasts"
+        },
+        {
+          "assessment": "Original statistic and normal approximation in abstract; do not infer complete absence of endpoint results from it",
+          "evidence": [
+            "Abstract says the null distribution can be approximated by the standard normal"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/02664763.2020.1821613; PMC9041613",
+          "material_read": "Discoverable abstract and bibliographic identity; no independent full-text section read",
+          "method": "Primary literature search plus lawful attempts at PMC, publisher and alternate Europe PMC full text",
+          "title": "Goodness-of-fit test for exponentiality based on spacings for general progressive Type-II censored data",
+          "trigger": "Original statistic and most relevant precedent for both endpoint laws"
+        },
+        {
+          "assessment": "Relevant earlier calibration; no verified equivalence to the present statistic with initially missing failures",
+          "evidence": [
+            "Abstract identifies a spacing test generalizing Tiku's and an exact and asymptotic null distribution"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4612-0103-8_8",
+          "material_read": "Discoverable abstract only; full text unavailable in bounded access attempts",
+          "method": "Literature search and lawful original chapter/PDF attempts",
+          "title": "A Test of Exponentiality Based on Spacings for Progressively Type-II Censored Data",
+          "trigger": "Earlier related spacing test with asserted exact null law"
+        },
+        {
+          "assessment": "Implementation offers normal or simulation; not a historical priority determination",
+          "evidence": [
+            "method=c('normal','simulation')"
+          ],
+          "identifier_or_url": "https://rdrr.io/cran/Gofpt2/man/gof_test_censored.html",
+          "material_read": "Usage and method passages near character offsets 1373–2460",
+          "method": "Open package documentation, bounded text read",
+          "title": "Generalized Goodness-of-Fit Test for Progressive Type-II Censored Data",
+          "trigger": "Exact calibration or an existing table in implementation"
+        },
+        {
+          "assessment": "Different statistic and endpoint laws",
+          "evidence": [
+            "Recursive logarithmic product of Dirichlet spacings, upper tail A_m exp(−2t/m)"
+          ],
+          "identifier_or_url": "SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-corner extreme-tail law for the recursive product of spacings",
+          "trigger": "Most relevant distinct indexed endpoint-spacing law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Initial missing failures distort the two tails of a published test in different orders even with the same observed sample count. Knowing both exact powers and constants gives the leading extreme critical values on each side, while the strict ordering at all interior thresholds identifies a systematic shift caused by initial censoring rather than by a different count of observed gaps. These are concrete fixed-sample implications, not new general simplex machinery or a claim of numerical stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

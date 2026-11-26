@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:19:13.167566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With L=l+1 and K=(p^r-1)L, the denominator outside the multinomial is a power of p, and Legendre gives v_p=r-s_p(K)/(p-1). Folding K's digits preserves its residue mod p^r-1; a cyclic carry decreases their folded total by p-1, including when r=1. A positive vector cannot become zero in one carry. The terminal vector, now consisting of digits, encodes a positive multiple in [1,p^r-1], hence is all p-1. Equality occurs exactly with no carry. At H=qr+t, the t longer columns have q+1 positions and the others q; weak compositions of p-1 in each column already satisfy the digit caps. These strings are positive multiples and only L=1 is removed. For arbitrary X, bracket m(floor(X)+1) between consecutive powers of p, using a strict upper digit cutoff even at equality; H differs from log_p X by O_{p,r}(1). Both endpoint counts have the same leading term with error O_{p,r}(H^{r(p-1)-1}). Independently: python3 /workspace/independent_checks.py 3 compares exact factorial numerator/denominator divisibility and the p-unit conclusion throughout ten bounded ranges, including p=2, r=1, a cutoff with no eligible L, and nonzero t; counts were 7,19,26,23,15,35,26,24,27,0. These runs are corroboration; the general result follows from the digit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 is sufficient; Theorem 10 restricts possible nonintegral indices for fixed l and Remark 11 notes candidates need not fail. Corollary 12 proves integrality for n>=l.",
+          "The all-m carry inequality for each prime dividing m+1 gives a decision procedure but not the fixed-index spectrum or asymptotic."
+        ],
+        "reasoning": "The quantifier change to fixed m and arbitrary l leaves the published results insufficient to derive the independently folded column test or its population.",
+        "searches": [
+          "Cera Da Conceição, Section 3, Theorems 8 and 10, Remark 11 and Corollary 12"
+        ]
+      },
+      "checked_sources": [
+        "JIS 26 Article 23.9.7",
+        "Resultary 7453f3677e26 (self)",
+        "Resultary fca5ba9f3d60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing Legendre derives r-s_p(K)/(p-1), but equality and independent columns require the extra cyclic reduction.",
+          "When r=1 the single column yields binom(H+p-2,p-1)-1; no checked prior states that fixed-index count or a stronger result implying all r."
+        ],
+        "reasoning": "The substantive step permits product enumeration; neither the known carry-count rule nor the fixed-l exceptional-index set implies the new formula mechanically.",
+        "searches": [
+          "JIS Article 23.9.7, Theorem 2 and Section 3; Results 7453f3677e26 and fca5ba9f3d60"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper defines exactly the same quotient and its generalized Kummer theorem counts carries in summing the multinomial arguments.",
+          "Valuation and carry formulations are equivalent here; the generic formula does not turn the inequality into an equality of independent bounded column sums."
+        ],
+        "reasoning": "The digit sum is of K=m(l+1), not of l; matching quotient or carry terminology is not matching the specialization or enumeration.",
+        "searches": [
+          "Resultary fixed-index multinomial Catalan, prime-power-minus-one and color integrality digit columns",
+          "Cera Da Conceição, JIS Article 23.9.7, definition and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7453f3677e26 is the assigned record itself and the exact match is not independent prior coverage.",
+          "fca5ba9f3d60 gives an adjacent-digit nondivisibility criterion and prime-power counts for a different Fuss–Catalan sequence."
+        ],
+        "reasoning": "A digit-indexed tabulation for the latter sequence neither matches this quotient nor identifies the spectrum by a variable change.",
+        "searches": [
+          "Resultary exact color-parameter integrality counts and prime-relative Catalan digit nondivisibility"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete per-column condition for the prime-power-minus-one fixed index, together with the exact varying-color counts and growth. Neither the published fixed-color results nor general multinomial carry valuations provide this column condition and count by substitution alone. The count itself is elementary once the column condition is proved. This is a best-of-knowledge decision, not a priority certification.",
+      "residual_risks": [
+        "Bounded catalogue and primary-source searches are not exhaustive. An earlier cyclic digit-weight equality theorem or unindexed equivalent fixed-index parameter enumeration could narrow or cover the contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying quotient, general carry tool and different fixed-color conclusions; no matching spectrum in the inspected statements",
+          "evidence": "Theorem 10's exceptional-index restrictions are necessary for failure, not a classification of every color for fixed m.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Cera/cera4.pdf",
+          "material_read": "Definition on p. 2 (text offset about 3450), generalized Kummer Theorem 2, Section 3 Theorem 8 (p. 9, offset about 27900) and Theorem 10 (p. 11, about 34193), Remark 11 and Corollary 12",
+          "method": "Targeted OA PDF passages",
+          "title": "Multinomial Catalan Numbers and Lucas Analogues",
+          "trigger": "Published source for the same quotient and prime-power-minus-one exceptions"
+        },
+        {
+          "assessment": "Different sequence and parameter; not a plausible equivalent on the stated definitions",
+          "evidence": "The stated criterion is adjacent-digit nondivisibility for a Fuss–Catalan sequence, rather than integrality of a repeated-part multinomial quotient.",
+          "identifier_or_url": "2026/11/8/SCOPE-prime-relative-fuss-catalan-nondivisibility-exact-spectra-and-p--fca5ba9f3d60",
+          "material_read": "Indexed statement",
+          "method": "Local Resultary search",
+          "title": "Prime-relative Fuss–Catalan nondivisibility: exact spectra and prime-power counts",
+          "trigger": "Nearest alternate indexed digit-test/count formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing a natural exceptional index from the published integrality theory asks the complementary question of which colors are integral. Exact column counts and their asymptotic distinguish an infinite but density-zero set, including its precise growth order and constant; neither a finite table nor a list of candidate exceptions supplies that information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

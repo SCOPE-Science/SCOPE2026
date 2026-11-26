@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-For the complete binary prefix codes with two through nine words, execute `python3 enumerate_trees.py` and `python3 enumerate_expansions.py`. Each enumerator must reproduce the `counts` and `nine_word_exceptions` fields of the two embedded JSON result files. The first program enumerates ordered full trees by splitting the root and tests subsets of literal decoder states. The second enumerates trees by expanding leaves and tests mergeable pairs by backwards closure, so the two constructions do not share the decisive algorithms.
+# Independent mathematical audit
 
-All four exceptional code sets have word-length gcd one; `expansion_results.json` contains a closed, non-diagonal pair-transition certificate for each. For every listed pair, apply transitions from the actual code set on both input bits and check that the next unordered pair still appears and has distinct states. These direct checks passed for every certificate. The total number of full ordered trees in each row equals the corresponding Catalan number.
+## correctness
 
-The finite enumeration establishes exact counts only for the stated range. The public literature survey cannot exclude unpublished or unindexed equivalent findings; full text of the particularly relevant 2019 source was not accessible. No independent audit has been performed.
+PASS
+
+All root-return words are concatenations of codewords. A common length divisor d>1 would require a root-reset word w to have d dividing |w| and, by starting one level down, d dividing |w|+1. Completeness makes each literal transition defined. Synchronizing to one state is equivalent to synchronizing to the root, since following zeros from any fixed state reaches its first leaf and resets. A DFA synchronizes iff every distinct pair can merge: repeatedly merge a pair in the current image until it is a singleton. For independent enumeration I used preorder branch/leaf words, with k−1 internal symbols and k leaves, starting with one pending slot, adding one for each branch and subtracting one for each leaf. The slot count must stay positive before the end and finish at zero; these words decode bijectively into ordered full trees. For each pair I searched its forward orbit for a diagonal. The exact totals for k=2,…,9 were (1,2,5,14,42,132,429,1430), nonsynchronizing totals (0,0,1,0,0,4,1,4), and coprime nonsynchronizing totals (0,0,0,0,0,0,0,4). The resulting four sorted word lists match C1–C4 exactly. Their closed distinct-pair orbits have sizes 6,12,12,6, respectively, and each has length multiplicities 1,4,4 at lengths 2,3,4. Direct complementation gives C1↔C4 and C2↔C3. The frozen scripts and JSON were inspected, not executed.
+
+## originality
+
+PASS
+
+The distinct claim is the least leaf count across all finite full binary trees satisfying the gcd-one obstruction, together with exactly four labeled examples at that least size. Prior small-cardinality results and general reset-word theory give partial coverage, and a distinct later indexed record covers a substantially overlapping height-restricted universe. None of the inspected earlier statements supplies the exact first-size list and cutoff.
+
+## value
+
+PASS
+
+The natural gcd condition separates synchronization from the simpler periodic obstruction; the first counterexamples show how early that condition fails to suffice and the exact count determines every labeled first witness. This is a useful benchmark for structural length criteria or decoder synchronization tests, with finite pair-orbit certificates that exhibit the obstruction directly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

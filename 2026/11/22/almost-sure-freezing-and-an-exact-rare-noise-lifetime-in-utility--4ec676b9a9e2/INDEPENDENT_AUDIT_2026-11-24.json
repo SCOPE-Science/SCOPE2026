@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:32:15.681681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–89",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Off the absorbing set, the receptive pair selected for the proof can be chosen measurably, e.g. lexicographically. Strictly positive finite utilities make the two pre-noise displacements from x_i less than 2ε and 3ε, respectively. Of N centers spaced 5ε apart, each nonselected opinion blocks at most one within distance 2ε, leaving at least two. Each target window has length ε and lies within the claimed absolute noise bound (5N+4)ε after recentering, so the stated normal-density lower bound q applies separately to both noises. Such an update preserves old isolated vertices and creates two new ones. Counting every attempt and treating early absorption as a successful continuation, the conditional probability of absorption in m=floor(N/2) attempts is at least (q²/M)^m. This includes odd N because one remaining nonisolated vertex alone is impossible. The Markov property gives the claimed geometric tail and summing survival gives the mean bound. The threshold boundary is inactive, so X_t outside the absorbing set iff T>t; applying this under stationarity proves necessity of support, and sufficiency is immediate. Subtracting the two selected updates cancels the utility ratios, leaving (1−2μ) times the previous gap plus a fresh normal of variance 2σ². For a receptive start at μ=1/2, its two-sided exit probability is erfc(ε/(2σ)); the standard erfc equivalent gives the stated sharp reciprocal lifetime. An incompatible initial state instead has T=0. The finite checker is not required for any of these deductions.",
+      "residual_risks": [
+        "The many-agent bound is a uniform upper bound, not a weak-noise equivalent. Background noise, clipping and changing confidence rules are outside the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8f1089ea0c11 gives a finite-time weak-noise limit and a stationary density for that limiting diffusion, and expressly does not assert a microscopic stationary limit.",
+          "The origin paper's Gibbs law is for the approximate diffusion under a cluster hypothesis.",
+          "Lawful full-text attempts for the two additional papers did not yield usable primary passages."
+        ],
+        "reasoning": "Neither diffusion's stationary law can give the exact infinite-time stationary support of this chain. No conclusion about broader coverage is drawn from the unavailable texts.",
+        "searches": [
+          "Resultary 8f1089ea0c11 and 89f7f0a6c87c",
+          "Siebenmorgen–Restrepo arXiv:2605.21844, Eq. (15)",
+          "Shree–Chatterjee–Jagannathan DOI 10.1109/TNSE.2023.3340255; Steiglechner et al. DOI 10.1098/rsos.231071"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.21844, pp. 1–3",
+        "Resultary 8f1089ea0c11, 89f7f0a6c87c, eeb84a870e48, 888ac78a984f",
+        "DOIs 10.1098/rsos.231071 and 10.1109/TNSE.2023.3340255 (full-text retrieval attempted, no usable passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The origin supplies the dynamics. The diffusion and adaptive-confidence antecedents have different quantifiers/regimes from the claimed uniform reachability."
+        ],
+        "reasoning": "The two-agent reset is a short consequence of the rule with the stipulated Gaussian law. The nonstandard step for general N is the construction of two vacant target intervals uniformly over the other opinions and the utility functions; this step does not follow by specialization of the inspected results.",
+        "searches": [
+          "arXiv:2605.21844 Eq. (1), single-cluster regime and Eq. (15)",
+          "Resultary 8f1089ea0c11 RESULT.md, Finding and scope; 89f7f0a6c87c RESULT.md, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Eq. (1) uses the same strict acceptance rule and no updates on rejection.",
+          "The source's regime for the mean diffusion explicitly keeps the diameter below ε.",
+          "Resultary 89f7f0a6c87c proves effective-graph stabilization for adaptive confidence and bounded opinions."
+        ],
+        "reasoning": "An empty receptive graph is equivalent to full incompatibility, not to a constant possibly nonempty graph. The single-cluster regime excludes absorption, rather than restating it in a mean coordinate.",
+        "searches": [
+          "Resultary: exact conditional-Gaussian bounded-confidence freezing and two-agent exit clock",
+          "Siebenmorgen–Restrepo, arXiv:2605.21844, Eq. (1) and single-cluster regime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "eeb84a870e48 treats two-agent exponential utility without noise and studies deterministic overshoot.",
+          "888ac78a984f gives waiting-time results for a fuzzy directional-influence model rather than fresh normal disagreement resets."
+        ],
+        "reasoning": "The same-day deterministic two-person result shares the update algebra but not the escape law; no priority assumption is based on its date. The known Gaussian two-tail integral evaluates the hazard once the reset has been proved, but supplies neither a population absorption result nor a chain-equivalent exact entry.",
+        "searches": [
+          "Resultary: Gaussian erfc clock, two-agent utility-weighted noise and confidence freezing",
+          "Resultary eeb84a870e48 and 888ac78a984f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-state, finite-population freezing theorem for the unprojected microscopic conditional-noise chain, with a constructive state-uniform probability and exact invariant-law classification; the two-agent lifetime calibrates the theorem. The standard finite-block Markov argument and Gaussian complement calculation are not novel in isolation. The strongest inspected alternatives study a persistent-cluster diffusion, nonempty stabilized graphs under a different dynamics, or deterministic two-person overshoot. None yields a uniform route to an empty confidence graph under the frozen hypotheses.",
+      "residual_risks": [
+        "Bounded priority assessment; an unindexed general theorem for conditional-noise absorption might subsume the argument.",
+        "The Steiglechner et al. and Shree et al. full texts were not available in the OA attempts; this is a remaining comparison limit, not negative coverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same microscopic rule with a specified Gaussian instance, but the inspected stationary calculation concerns a persistent-cluster diffusion",
+          "evidence": "Strict gap test; no update on rejection; the cluster approximation assumes every attempted pair interacts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.21844",
+          "material_read": "Eq. (1), single-cluster regime, Eq. (15), pp. 1–3, OA offsets 5300, 9400, 19100",
+          "method": "OA PDF passages",
+          "title": "A Utility-Driven Bounded-Confidence Model for Opinion Dynamics",
+          "trigger": "Origin of the exact update and stationary-looking diffusion"
+        },
+        {
+          "assessment": "Does not cover microscopic freezing",
+          "evidence": "Finite-time mean diffusion limit; invariant density of the limit only.",
+          "identifier_or_url": "8f1089ea0c11",
+          "material_read": "Mirrored RESULT.md, opening theorem and scope",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "The finite-population Gibbs exponent for noisy utility-weighted opinion averaging",
+          "trigger": "Same utility model and stationary-law terminology"
+        },
+        {
+          "assessment": "Different dynamics and conclusion",
+          "evidence": "Bounded opinions, adaptive thresholds and stabilized graphs that can retain edges.",
+          "identifier_or_url": "89f7f0a6c87c",
+          "material_read": "Mirrored RESULT.md, opening theorem and scope",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "Almost-sure finite-time stabilization of the effective graph in adaptive-confidence Deffuant–Weisbuch dynamics",
+          "trigger": "Plausible effective-graph equivalent"
+        },
+        {
+          "assessment": "Same deterministic algebra, distinct claim",
+          "evidence": "No Gaussian innovations; overshoot rather than the waiting time to incompatibility.",
+          "identifier_or_url": "eeb84a870e48",
+          "material_read": "Mirrored RESULT.md, opening theorem and scope",
+          "method": "Resultary and mirrored full-text passage",
+          "title": "A sharp out-of-range consensus threshold in exponential-utility opinion dynamics",
+          "trigger": "Same-day indexed two-agent update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope and limitations",
+        "arXiv:2605.21844, single-cluster regime"
+      ],
+      "rationale": "The precise noise placement matters in a widely used type of confidence-gated model: an exact finite population can look like a persistent cluster for a long time yet its invariant probability laws give no mass to any receptive state. The constructive uniform bound resolves the infinite-time question despite unbounded opinion space and no global regularity of the utilities. The minimal sharp clock shows quantitatively why a weak-noise observation need not reveal this effect.",
+      "residual_risks": [
+        "No sharp many-agent lifetime or empirical conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

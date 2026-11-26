@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:47.947275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each target vertex there are two possible predecessors or no selected incoming arc. Exhausting these 3^7 choices and removing vertices of indegree zero until no more can be removed independently recovers the complete augmented face counts (1,14,84,280,553,616,301). The specified seven +1 then seven +2 pivots give disjoint face pairs at each pivot and 910 pairs in total. Reversing the matched covering incidences produces a Hasse digraph whose topological traversal visits all 1849 vertices, with 29 unmatched faces, all of cardinality six. On removing the empty face from the matching, its formerly paired vertex is the only critical 0-cell; the 29 critical 5-cells attach to that point in the Morse CW model, proving the wedge. Any nonidentity translation has order seven and its two arc orbits are Hamiltonian directed cycles; no nonempty admissible face is stabilized and a fixed point would stabilize its supporting face. Hence the quotient is a free seven-sheeted covering with simply connected total space and deck group C₇. Cartan–Leray in total degree ≤4 has only the bottom row, with no differential to the cover's first nonzero positive row at degree 5 in that range; the period-two cyclic resolution gives Z/7 in degrees 1 and 3 and zero in 2 and 4. Top homology is free since the quotient is five-dimensional CW; χ=(1−29)/7=−4 gives rank five. Independent signed orbit-cell boundaries give cell counts (2,12,40,79,88,43), d²=0, and exact Smith torsion [none,7,none,7,none,none] for homology: the image of the next boundary is in the kernel of the current one, and the image of the current boundary is free, so the torsion of its degree's incoming cokernel is exactly homology torsion. For the rational cover module, trivial Lefschetz number at nonidentity elements forces trace one in odd degree five, compared to 29 at the identity; this is exactly the rational character Q⊕4Q[C₇]. No integral representation splitting or quotient homotopy model is asserted.",
+      "replay": "python /workspace/checks/finite.py 5 (independent predecessor enumeration, Hasse topological traversal and signed integral Smith cross-check; frozen verifier inspected, not executed)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jojić and Singh give graph/tree or underlying-forest criteria. Deshpande–Sawant p.7 defines 2-acyclicity by excluding directed cycles of length at least three; other relevant passages consider an underlying single cycle.",
+          "Courtney's public abstract studies the same class of Cayley-graph forest complexes but names neither this example nor its quotient."
+        ],
+        "reasoning": "C₇² as an undirected graph is 4-regular and not a forest or a single cycle; the arcs include directed 7-cycles. The cited criteria do not cover this example. The abstract's broad scope does not establish theorem hypotheses or rule out exact overlap inside the thesis.",
+        "searches": [
+          "arXiv:1109.4475 Theorem 15",
+          "arXiv:2101.05534 Theorem 5.1",
+          "arXiv:2602.14936 2-acyclic directed forest and unicyclic criteria",
+          "Kennedy Courtney Cayley-graph thesis"
+        ]
+      },
+      "checked_sources": [
+        "Courtney thesis landing page (10.18122/td/1684/boisestate)",
+        "arXiv:1109.4475, 2101.05534, 2602.14936",
+        "Resultary e63367854768, 00780bf1e6fb, 4d9708a13438, 6b8bf75ceac4, bafb14ca69f1, 8f4b951d82c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shortcut sources use multipaths on cycles with one or two additional arcs. Here the entire +2 orbit of seven arcs is present, with forests allowing outward branching.",
+          "The general Cartan–Leray conclusion applies once one knows both freeness and cover connectivity through degree four; it does not calculate that connectivity or the rank 29."
+        ],
+        "reasoning": "The two-shortcut results cannot be applied by repeating the individual shortcuts: simultaneous arcs change the complex and are required for the full rotation action. The exact wedge and face enumeration supply the substantive input. Low-degree torsion and the rational character are standard deductions from that input, not generally novel phenomena.",
+        "searches": [
+          "Resultary: 6b8bf75ceac4 two forward shortcuts and bafb14ca69f1 single shortcut",
+          "Resultary multipath quotient comparison with the present wedge and torsion ranks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "00780bf1e6fb uses the 21-arc {1,2,4} quadratic-residue tournament and obtains 512 spheres and an affine module.",
+          "e63367854768 and 4d9708a13438 use the 21-arc {1,2,3} regular tournament with both indegree and outdegree restrictions."
+        ],
+        "reasoning": "Reversing arrows or relabeling generators does not change arc count, and neither can remove the extra degree condition of multipaths. In the assigned complex the two arrows from a common source are a valid face. The geometric quotient also cannot be replaced by the simplicial complex of arc orbits. The matching numerical parameters C₇ and S⁵ do not identify the spaces.",
+        "searches": [
+          "Resultary: directed forest complex C7 Cayley {1,2}, quotient torsion, tournament, multipath, shortcuts",
+          "Resultary: seven-vertex quadratic-residue tournament and cyclic-tournament multipath rotation quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e63367854768 has H₁=Z/7 and H₃=Z⊕(Z/7)² for the free quotient of a tournament multipath complex.",
+          "Same-date 8f4b951d82c7 uses the complete-graph matching complex and identifies its quotient as a Moore space for Z/21 in degree one wedged with two 2-spheres.",
+          "Search located the official Courtney PDF link and a Semantic Scholar listing, but access did not yield readable full text."
+        ],
+        "reasoning": "These are exact nearby results, not matching invariant tables; distinct same-date items were compared rather than discarded by date. The thesis could still contain an equivalent base-complex computation.",
+        "searches": [
+          "Resultary: sparse C7 two-step directed forest wedge 29 spheres and C7 quotient",
+          "Resultary: C7 cyclic-tournament quotient torsion and same-day seven-cycle quotient",
+          "Web: \"The Directed Forest Complex of Cayley Graphs\" \"Kennedy Courtney\" pdf 10.18122/td/1684/boisestate full text"
+        ]
+      },
+      "rationale": "Supports the exact cover and quotient invariants for this sparse 14-arc directed-forest complex. No inspected theorem or distinct indexed record supplies them. Odd-primary torsion in a free C₇ quotient of a torsion-free complex is already exhibited by the cyclic-tournament multipath precedent; that qualitative phenomenon and the general covering and character arguments are not credited as new. The closest thesis could not be read beyond its abstract; the conclusion is bounded by that material risk.",
+      "residual_risks": [
+        "The full Courtney thesis was not accessible; it may contain this exact base-complex calculation or related symmetry results.",
+        "Unindexed computations or more general shellability theorems were not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved material risk, not evidence of noncoverage.",
+          "evidence": [
+            "Abstract states homology and homotopy goals for directed-forest complexes of finite Cayley digraphs; gives no specific 14-arc C₇ instance or quotient result."
+          ],
+          "identifier_or_url": "https://scholarworks.boisestate.edu/td/1684/ (doi:10.18122/td/1684/boisestate)",
+          "material_read": "Official landing page and abstract only; no thesis full text",
+          "method": "OA website mode; bounded web lookup located official PDF at https://scholarworks.boisestate.edu/cgi/viewcontent.cgi?article=2815&context=td (direct and VPN returned 403); OA attempt at the identified Semantic Scholar listing returned 202 and did not supply the text",
+          "title": "The Directed Forest Complex of Cayley Graphs",
+          "trigger": "Highly relevant thesis on the same complexes"
+        },
+        {
+          "assessment": "Relevant criterion for digraphs essentially trees does not apply.",
+          "evidence": [
+            "The theorem establishes vertex decomposability with the essentially-tree hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.4475",
+          "material_read": "p.9 Theorem 15 (OA offset 30500)",
+          "method": "OA PDF passage",
+          "title": "Shellability of complexes of directed trees",
+          "trigger": "Potential general shellability theorem for the cover"
+        },
+        {
+          "assessment": "Underlying graph must be a forest in that theorem.",
+          "evidence": [
+            "The criterion is stated for multidigraphs with forest underlying graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.05534",
+          "material_read": "p.10 Theorem 5.1 (OA offset 30750)",
+          "method": "OA PDF passage",
+          "title": "Vertex decomposability of complexes associated to forests",
+          "trigger": "Potential general directed-forest decomposition"
+        },
+        {
+          "assessment": "2-acyclic and underlying single-cycle cases do not include the target.",
+          "evidence": [
+            "There are directed cycles of length ≥3 here and more than one undirected cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.14936",
+          "material_read": "Definition p.7 and criterion passages pp.10–11 (OA offsets 25250,39500,42480)",
+          "method": "OA PDF passages",
+          "title": "Vertex decomposable complexes of directed forests, conflict graphs and chordality",
+          "trigger": "Stronger modern directed-forest criteria"
+        },
+        {
+          "assessment": "Covers the qualitative torsion phenomenon, not this exact invariant.",
+          "evidence": [
+            "21 arcs, multipaths, torsion-free cover and H₃=Z⊕(Z/7)² in the quotient."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-seven-primary-torsion-in-the-cyclic-tournament-multipath-rotatio--e63367854768",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Seven-primary torsion in the cyclic-tournament multipath rotation quotient",
+          "trigger": "Closest same qualitative quotient-torsion result"
+        },
+        {
+          "assessment": "Different graph and exact homotopy type.",
+          "evidence": [
+            "Increments {1,2,4}, 512 five-spheres and affine symmetry."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-directed-forest-topology-and-affine-homology-of-the-seven-vertex--00780bf1e6fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Directed-forest topology and affine homology of the seven-vertex quadratic-residue tournament",
+          "trigger": "Closest seven-vertex Cayley directed-forest cover and module"
+        },
+        {
+          "assessment": "No all-seven-shortcut directed-forest case or cyclic quotient conclusion.",
+          "evidence": [
+            "Exactly two marked shortcuts and multipaths, with adjacency-dependent result."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-adjacency-sensitive-sphere-wedges-from-two-forward-shortcuts-in--6b8bf75ceac4",
+          "material_read": "RESULT.md Finding and limitations, offsets 0 and 7600",
+          "method": "Resultary local mirror",
+          "title": "Adjacency-sensitive sphere wedges from two forward shortcuts in an oriented cycle",
+          "trigger": "Sparse cycle with extra +2 arcs"
+        },
+        {
+          "assessment": "Different complex and different quotient invariants.",
+          "evidence": [
+            "Matching complex of the complete graph, with Z/21 Moore-space factor and two 2-spheres."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-seven-cycle-quotient-of-the-seven-point-matching-complex--8f4b951d82c7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The seven-cycle quotient of the seven-point matching complex",
+          "trigger": "Same-date quotient lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full next-neighbor orbit on the seven-cycle gives a natural sparse 2-out Cayley digraph beyond tournament examples, not an arbitrary selection of shortcuts. Its exact 29-sphere cover and signed cyclic quotient data provide a positive benchmark in which a nontrivial free action on a highly connected directed-forest complex produces torsion in two quotient degrees. The exact benchmark, rather than novelty of the standard spectral-sequence inference or any generalization in the prime, is the useful mathematical contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Review of universal nonlinear period softening at FitzHugh–Nagumo Hopf points
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses \(0<\varepsilon\beta<1\), \(\varepsilon>(\varepsilon\beta)^2\), and nonzero cubic amplitude coefficient ensure simple imaginary eigenvalues, transverse current unfolding and a nondegenerate planar Hopf bifurcation. Eliminating the recovery variable is exactly reversible. The phase-normalized second harmonic and third-order resonant cosine/sine coefficients are derived in `RESULT.md` and verified symbolically by `verify.py`; they give a strictly negative quadratic angular-frequency coefficient for every admissible parameter. The Hopf theorem supplies existence, branch side, stability and small-amplitude remainder. Numerical periodic shooting is corroborating evidence and is not relied on as an infinite proof. Excluded cases are explicitly stated.
+## correctness
 
-## Originality — PASS, with priority risk
-The nearest full-text comparison is Kostova–Ravindran–Schonbek (doi:10.1142/S0218127404009685), whose Appendix B classifies supercritical versus subcritical Hopf branches using a real focal coefficient. Its results do not entail the signed imaginary resonant coefficient or physical-time period expansion here. Guckenheimer–Kuehn (doi:10.3934/dcdss.2009.2.851) study the singular-limit homoclinic geometry, and Brizard (arXiv:2107.11642, §§ III.C–IV) derives a large-amplitude slow-fast relaxation period, not a local Hopf amplitude-period derivative. Bisquert et al. (doi:10.1021/acs.jpclett.5c00288, §§ 2.1–2.4) give the FHN frequency at the linear Hopf threshold and study S-type oscillators, not this nonlinear coefficient. General Hopf theory permits both signs of nonlinear frequency shift, so does not yield the universal sign without this model-specific computation. An earlier invariant-moment theorem for this same model concerns voltage-weighted recurrence constraints, not orbit periods. The full 2000 Bautin study and its companion monograph could not be inspected, leaving genuine historical-priority risk but no identified dominating statement.
+PASS
 
-## Mathematical value — PASS
-The exact coefficient is a natural period sensitivity of the canonical planar neuronal oscillator, valid on *both* sides of the supercritical/subcritical divide. In particular, on the subcritical branch the true cycle period increases although the local equilibrium's instantaneous linear eigenfrequency increases, so linear period estimates predict the opposite direction. This separation of intrinsic phase response from stability criticality is not a normalization identity or arbitrary numerical slice. It does not establish global period monotonicity or resolve the Bautin boundary.
+The exact translated trace is μ and determinant is ω²−cμ; dI/dμ=−ω²/(2cs) at the crossing. The scalar elimination reconstructs the recovery variable without time change. For rigorous amplitude expansions write x=r(cos τ+y) with y orthogonal to both first harmonics, divide the periodic equation by signed r, and use the implicit-function theorem near (y,μ,Ω)=(0,0,ω). The y derivative ω²(∂τ²+1) is invertible on the complementary modes; the μ and Ω derivatives span the two first harmonics because their sine and cosine pivots are ω and −2ω. The quadratic forcing has no first harmonic, so μ and Ω have no linear terms. Inverting on the other modes gives the stated X₂. Direct projection at the next order gives sine coefficient ω/4−cs²/(2ω)−mω and cosine coefficient s²/3+5c²s²/(6ω²)−c/4+cm. Vanishing sine fixes m; the remaining cosine is s²(1+c²/ω²)/3 and balances −2ων. This gives K=−ν/ω>0. The nonzero m and unit trace crossing give the unique local Hopf family on μ/m>0. Independently, the mean cycle divergence μ−2U⟨x⟩−⟨x²⟩ equals −mr²+O(r³), so the transverse multiplier gives the stated stability. For μ<0 small the linear squared frequency exceeds ω² by |μ|(c−|μ|/4)>0, yielding the opposite linear-period change.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Hopf bifurcation and criticality classification are not new. The supported distinct result is the same-normalization original-time period coefficient and its uniform strictly positive sign across both criticalities, including the subcritical contrast. Real focal coefficients and time-reparametrized Bautin forms do not give that sign or the requisite physical-time coefficient. The closest catalog records involve different polynomial oscillators or flows, not the same voltage equation and frequency normalization.
+
+## value
+
+PASS
+
+Physical-time period drift is an observable quantity independent of how the Hopf criticality is classified. A uniform sign across both stability types is a model-specific result, and the subcritical branch makes a linear frequency estimate predict the opposite direction from the actual periodic orbit. The coefficient applies to a concrete measured harmonic rather than an arbitrary state-space radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

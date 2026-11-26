@@ -1,79 +1,66 @@
-# Unique worst-direction one-point sensing of the first two heat modes
+# Exact short- and long-horizon locations for worst-direction sensing of two heat modes
 
 ## Finding
-Let \(K=\begin{pmatrix}a&b\\b&c\end{pmatrix}\) be any real symmetric positive-definite \(2\times2\) matrix. For a point \(x\in[0,1]\), define the two-mode information matrix
-\[
-G_K(x)=\operatorname{diag}(\sin\pi x,\sin 2\pi x)\,K\,\operatorname{diag}(\sin\pi x,\sin 2\pi x).
-\]
-There are **exactly two** global maximizers of \(\lambda_{\min}(G_K(x))\): \(x_K\in(0,1/2)\) and \(1-x_K\). A globally convergent one-dimensional characterization uses \(u_K=\cos^2(\pi x_K)\): it is the **unique** minimizer on \(0<u<1\) of
-\[
-\Phi_K(u)=\frac{1}{(ac-b^2)(1-u)}\lambda_{\max}\begin{pmatrix}c&|b|/(2\sqrt u)\\|b|/(2\sqrt u)&a/(4u)\end{pmatrix}.
-\]
-Furthermore \(\log\Phi_K(e^z/(1+e^z))\) is **strictly convex** on the whole real line. Thus this two-mode spatial E-optimal design has no spurious interior local optima after logit reparameterization, for every positive-definite temporal information matrix.
 
-For the heat dynamics on \((0,1)\) with Dirichlet endpoints, normalized diffusivity \(1/\pi^2\), and initial state \(v(x,0)=\alpha_1\sin(\pi x)+\alpha_2\sin(2\pi x)\), continuously observe \(v(x,t)\) at one spatial location over \([0,T]\), \(T>0\). The information entries are
-\[
-a_T=\frac{1-e^{-2T}}2,\qquad b_T=\frac{1-e^{-5T}}5,\qquad c_T=\frac{1-e^{-8T}}8.
-\]
-For its optimal \(u_T\),
+For the first two Dirichlet heat modes on \((0,1)\), the best fixed point sensor for the least observable unit direction has different short- and long-horizon limits. Write \(x_T\in(0,1/2)\) for its left-half location and put \(u_T=\cos^2(\pi x_T)\). With continuous noiseless observations over \([0,T]\) and diffusivity \(1/\pi^2\),
 \[
 \lim_{T\downarrow0}u_T=\frac{\sqrt5-1}{4},\qquad
 \lim_{T\to\infty}u_T=u_\infty,
+\quad 50u_\infty^3+19u_\infty^2+4u_\infty-9=0,
 \]
-where \(u_\infty\) is the unique root in \((0,1)\) of
-\[
-50u^3+19u^2+4u-9=0\qquad(u_\infty=0.42563099964867\ldots).
-\]
-Consequently the left-optimal spatial point changes between the sharp limits \(0.312376431107\ldots\) and \(0.273760552610\ldots\) as the horizon changes. This is a statement about limits, **not** an assertion of monotonic motion for all horizons.
+where the cubic has exactly one root in \((0,1)\). The corresponding left sites are \(0.312376431107\ldots\) and \(0.273760552610\ldots\). By reflection there is a right site for each left site. The result concerns the exact horizon limits, not monotonicity at intermediate horizons. The uniqueness used to define \(x_T\) is an application of classical spectral-radius log-convexity.
 
-## Assumptions and scope
-The two modal amplitudes have the standard Euclidean norm, and the observation-energy norm is \(L^2(0,T)\) for the heat specialization. There is a single fixed spatial point observed over a continuous time interval, not an optimized finite collection of temporal samples. \(K\) may arise from any two real linearly independent temporal profiles \(f_1,f_2\), via \(K_{ij}=\int f_i(t)f_j(t)\,dt\); positivity is the only hypothesis needed for the general uniqueness claim. No measurement-noise prior or temporal normalization is assumed. The common \(\sqrt2\) normalization of the sine eigenfunctions multiplies the entire information matrix by \(2\) without changing the design.
+## Model and design criterion
+
+Take \(v(x,0)=\alpha_1\sin(\pi x)+\alpha_2\sin(2\pi x)\), with Euclidean norm on \((\alpha_1,\alpha_2)\). The signal at the chosen point \(x\in[0,1]\) is \(\alpha_1 e^{-t}\sin(\pi x)+\alpha_2 e^{-4t}\sin(2\pi x)\). The criterion is the minimum squared \(L^2(0,T)\) signal norm over unit amplitudes. Thus it is the smaller eigenvalue of the observation Gramian. There is no optimization over the temporal samples or over multiple points.
+
+Put \(u=\cos^2(\pi x)\). The smallest eigenvalue is unchanged by reflection, and on the left half the Gramian is
+\[
+(1-u)\begin{pmatrix}a_T&2b_T\sqrt u\\2b_T\sqrt u&4c_Tu\end{pmatrix},
+\quad (a_T,b_T,c_T)=\left(\frac{1-e^{-2T}}2,\frac{1-e^{-5T}}5,\frac{1-e^{-8T}}8\right).
+\tag{1}
+\]
+The entries are the inner products of the temporal profiles. Strict Cauchy–Schwarz gives \(\Delta_T=a_Tc_T-b_T^2>0\). The eigenvalue vanishes at \(u=0,1\), and is positive between them.
 
 ## Proof
-**1. Exact information matrix.** Reflecting \(x\mapsto1-x\) preserves both eigenvalues because \(\sin(\pi x)\) is unchanged and \(\sin(2\pi x)\) changes sign. For \(0<x<1/2\), set \(u=\cos^2(\pi x)\). The elementary sine identities give
-\[
-G_K(x)=(1-u)\begin{pmatrix}a&2b\sqrt u\\2b\sqrt u&4cu\end{pmatrix}.
-\]
-Its determinant is \(4(ac-b^2)u(1-u)^2\), positive exactly for \(0<u<1\). At \(u=0\) (the midpoint) and \(u=1\) (the endpoints), the smallest eigenvalue is zero. Hence every optimizer is interior.
 
-**2. Inversion and the strict convexity certificate.** Put \(\Delta=ac-b^2>0\). Matrix inversion followed, if necessary, by an orthogonal diagonal sign change gives
+**Uniqueness from known log-convexity.** For constants \(a,c>0\), \(ac-b^2=\Delta>0\), invert the matrix in (1) with these constants and remove the off-diagonal sign by diagonal orthogonal conjugation. The reciprocal of its smaller eigenvalue is the spectral radius of
 \[
-\lambda_{\min}(G_K(x))^{-1}=\Phi_K(u)
-=\lambda_{\max}\!\left[\frac1{\Delta(1-u)}
-\begin{pmatrix}c&|b|/(2\sqrt u)\\|b|/(2\sqrt u)&a/(4u)\end{pmatrix}\right].
+\frac{1}{\Delta(1-u)}\begin{pmatrix}c&|b|/(2\sqrt u)\\ |b|/(2\sqrt u)&a/(4u)\end{pmatrix}.
 \]
-Let \(z=\log(u/(1-u))\). Except for positive constant factors, the entries of the symmetric, entrywise nonnegative matrix are
-\[
-f_{11}(z)=1+e^z,\quad
-f_{12}(z)=(1+e^z)^{3/2}e^{-z/2},\quad
-f_{22}(z)=(1+e^z)^2e^{-z}.
-\]
-Their logarithmic second derivatives are, respectively, \(s(z)\), \(3s(z)/2\), and \(2s(z)\), where \(s(z)=e^z/(1+e^z)^2>0\). On each compact \(z\)-interval, all nonzero entries therefore enjoy a **common positive strict log-convexity margin**. For each nonnegative unit vector \(w\), its Rayleigh quadratic form is a positive sum of these entries with nonnegative coefficients. Hölder's inequality preserves this common strict margin under summation. Since an entrywise nonnegative symmetric matrix has a nonnegative maximizing eigenvector, taking the supremum of these Rayleigh forms preserves the same strict margin. Hence \(z\mapsto\log\Phi_K(e^z/(1+e^z))\) is strictly convex, including the diagonal case \(b=0\). As \(z\to+\infty\), the top-left diagonal entry diverges, and as \(z\to-\infty\), the bottom-right diverges. A unique finite minimizing logit, and therefore a unique \(u_K\in(0,1)\), follows. Reflection gives exactly two physical locations.
+For \(z=\log(u/(1-u))\), factor out \(1+e^z\). The remaining matrix has constant upper-left entry, off-diagonal entry proportional to \((1+e^{-z})^{1/2}\) and lower-right entry proportional to \(1+e^{-z}\). Its nonzero entries are log-convex. By Kingman's spectral-radius theorem (see also Nussbaum, Corollary 1.2), the residual log spectral radius is convex for \(b\ne0\); for \(b=0\) this follows by taking the maximum of the two diagonal logarithms. The scalar factor adds the strictly convex \(\log(1+e^z)\). The reciprocal eigenvalue diverges as \(z\to+\infty\) by the upper-left diagonal and as \(z\to-\infty\) by the lower-right diagonal. There is therefore one minimizing logit, which for the physical sensor gives exactly two reflected optimal points. This argument also applies to the limiting temporal Gram below.
 
-**3. Heat specialization and the short-horizon limit.** The heat modes decay as \(e^{-t}\) and \(e^{-4t}\). Their Gram matrix has the stated entries and \(\Delta_T>0\) by strict Cauchy–Schwarz. Writing \(\Lambda_T(u)\) for the smaller information eigenvalue yields the stable identity
+**Short horizons.** Denote the smaller eigenvalue by \(\Lambda_T(u)\). From trace and determinant,
 \[
 \Lambda_T(u)=\frac{8u(1-u)\Delta_T}{a_T+4c_Tu+\sqrt{(a_T-4c_Tu)^2+16b_T^2u}}.
+\tag{2}
 \]
-Taylor expansion gives \(\Delta_T=3T^4/4+O(T^5)\). It follows uniformly on \(u\in[0,1]\) that
+The short-time Gram determinant has the integral representation
 \[
-T^{-3}\Lambda_T(u)\longrightarrow \frac{3u(1-u)}{1+4u}.
+\Delta_T=\frac12\int_0^T\int_0^T(e^{-s-4t}-e^{-t-4s})^2\,ds\,dt.
 \]
-The limiting function has its unique maximum at \(u_0=(\sqrt5-1)/4\), obtained from \(1-2u-4u^2=0\). Uniform convergence on the compact design interval and uniqueness of the finite-horizon optimizers imply \(u_T\to u_0\).
+On setting \(s=Tr,t=Tq\), the difference of exponentials is \(3T(r-q)+O(T^2)\), uniformly for \(r,q\in[0,1]\). Since \(\int_0^1\int_0^1(r-q)^2\,dr\,dq=1/6\), \(\Delta_T/T^4\to3/4\). The three Gram entries divided by \(T\) tend to 1, so the denominator in (2) divided by \(T\) converges uniformly on \([0,1]\) to \(2(1+4u)\), bounded away from zero. Hence
+\[
+T^{-3}\Lambda_T(u)\longrightarrow \frac{3u(1-u)}{1+4u}
+\quad\text{uniformly on }[0,1].
+\]
+The derivative has the sign of \(1-2u-4u^2\); its sole zero in the unit interval is \((\sqrt5-1)/4\). Every accumulation point of maximizers of uniformly converging functions on a compact set maximizes the limit, so uniqueness yields the stated short-horizon location. The cubic-in-time information scale is needed because the two profiles become indistinguishable to leading order.
 
-**4. Infinite-horizon limit.** As \(T\to\infty\), \((a_T,b_T,c_T)\to(1/2,1/5,1/8)\), and the information matrices converge uniformly on \([0,1]\), so the unique maximizers converge to the unique optimizer of the limiting problem. There \(\Delta=9/400\). Write its characteristic polynomial for an eigenvalue \(\ell\) as \(F(\ell,u)=\ell^2-S(u)\ell+P(u)\), with \(S=(1-u)(1/2+u/2)\), \(P=9u(1-u)^2/100\). At an interior optimum of the simple smaller eigenvalue, \(F=\partial_uF=0\). Eliminating \(\ell\) gives the necessary equation \(50u^3+19u^2+4u-9=0\). Its derivative is \(150u^2+38u+4>0\) for \(u\ge0\), and it changes sign between zero and one. The unique interior optimizer must therefore equal the stated root.
+**Long horizons.** The Gram entries tend to \((1/2,1/5,1/8)\). The information matrices converge uniformly on the compact design interval, so the smallest eigenvalues converge uniformly as well. The limiting matrix has \(\Delta=9/400\); the argument above gives a unique maximizing \(u\) in \((0,1)\). Its smaller eigenvalue is simple there because the off-diagonal entry is nonzero. The limiting trace and determinant are \(S=(1-u^2)/2\) and \(P=9u(1-u)^2/100\). At the maximizing \(u\), the characteristic polynomial \(F(\ell,u)=\ell^2-S\ell+P\) and its partial \(u\)-derivative vanish. The resultant in \(\ell\) is
+\[
+-\frac{9}{10000}(1-u)^2(50u^3+19u^2+4u-9).
+\]
+The cubic increases strictly on \([0,1]\) and changes sign there. The interior optimizer is therefore its unique root in \((0,1)\); uniform convergence and uniqueness give the long-horizon limit. For comparison, the determinant criterion in (1) maximizes \(u(1-u)^2\), always at \(u=1/3\). Thus the horizon dependence here is a property of the worst-direction objective, not merely a scaling of overall signal energy.
 
-## Verification
-Run `python verify.py` with `sympy` installed. It checks the exact resultant identity and short-horizon coefficient, plus 20,610 finite numerical inequalities and inverse identities over ten horizons. These computations are supplementary: the all-matrix strict convexity and global uniqueness are proved analytically above. The actual standalone source, not an external log, is included with this result.
+## Reproducibility and scope
 
-## Relationship to prior work
-Geshkovski and Zuazua (2021) analyze finite-dimensional scalar actuator design through a Brunovský-form change of coordinates; their optimization is over unconstrained actuator directions with a different cost reduction, not the spatial sine profile or the stated time-dependent point-sensor E-design. Privat, Trélat and Zuazua (2014) optimize positive-measure observation domains with random-initial-data averaging, which eliminates modal cross terms; the present one-point worst-direction information retains those terms. Wolf, Moura and Krstić (2012) optimize a modal amplitude observability criterion via numerical sensor placement, not the integrated two-mode Gramian's minimum eigenvalue. Kang and Xu (2013) use minimum Gramian eigenvalues to discuss partial observability but do not optimize this precise location. These distinctions identify different mathematical objectives; they are not proofs of absolute publication priority.
+The accompanying `verify.py` checks the Gram determinant coefficient, short-time stationary equation and long-time resultant with SymPy, and supplies finite numerical checks. These calculations are supplementary; coercivity, uniqueness and both limits use the analytic proof. The comparison is restricted to two modes, Euclidean amplitude normalization and a single spatial point with continuous-time signal energy. It does not cover noisy discrete samples, higher modes, or monotonicity with horizon.
 
-## Limitations
-Only the first two sine modes are covered by the spatial claim. The finite-horizon result does not assert monotonic motion in time, and does not extend the unique-minimum theorem to higher Fourier modes, multiple sensors, temporally discrete samples, spatially varying diffusivity, or nonlinear/uncertain dynamics. The general positive-definite matrix theorem requires the specified two sine sensing gains. Relevant broader literature or a previously implicit application of log-convex Perron-root theory may contain equivalent uniqueness conclusions; the priority comparison is not an independent audit.
+The known matrix log-convexity, including its application to the inverse information transform, is not claimed as a new result. The specific addition is the distinct exact endpoints for the two-mode heat experiment. The random-initial-data observation-domain problem of Privat, Trélat and Zuazua and the free scalar actuator design of Geshkovski and Zuazua use different admissible designs and criteria. These comparisons do not establish absolute publication priority.
 
 ## References
-1. B. Geshkovski and E. Zuazua, *Optimal actuator design via Brunovsky's normal form*, arXiv:2108.05629, first posted 12 August 2021. https://arxiv.org/abs/2108.05629
-2. Y. Privat, E. Trélat and E. Zuazua, *Optimal shape and location of sensors for parabolic equations with random initial data*, arXiv:1403.6445, first posted 25 March 2014. https://arxiv.org/abs/1403.6445
-3. P. Wolf, S. Moura and M. Krstić, *On Optimizing Sensor Placement for Spatio-Temporal Temperature Estimation in Large Battery Packs*, CDC 2012. https://ecal.studentorg.berkeley.edu/pubs/CDC12-PDESensorPlacementBatts.pdf
-4. W. Kang and L. Xu, *Partial Observability and Its Consistency for Linear PDEs*, IFAC NOLCOS 2013. https://skoge.folk.ntnu.no/prost/proceedings/nolcos-2013/papers/0011.pdf
-5. J. A. Burns and T. L. Herdman, *Optimal Sensor Placement for Observer Design*, IFAC-PapersOnLine 54(9), 446–451 (2021), DOI:10.1016/j.ifacol.2021.06.102. https://doi.org/10.1016/j.ifacol.2021.06.102
+
+1. J. F. C. Kingman, *A Convexity Property of Positive Matrices*, Q. J. Math. 12 (1961), 283–284, https://doi.org/10.1093/qmath/12.1.283.
+2. R. D. Nussbaum, *Convexity and Log Convexity for the Spectral Radius*, Linear Algebra Appl. 73 (1986), 59–122, Corollary 1.2, https://sites.math.rutgers.edu/~nussbaum/Pubs/logconvexity1986.pdf.
+3. Y. Privat, E. Trélat and E. Zuazua, *Optimal shape and location of sensors for parabolic equations with random initial data*, https://arxiv.org/abs/1403.6445.
+4. B. Geshkovski and E. Zuazua, *Optimal actuator design via Brunovsky’s normal form*, https://arxiv.org/abs/2108.05629.

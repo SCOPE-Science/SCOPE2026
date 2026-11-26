@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact support-function identity for an orthogonal convex-hull join, then minimizes a one-dimensional two-max envelope. On the middle scalar interval the only possible stationary point is a maximum; outside that interval the objective is monotone. For odd polygon order, the opposite support pair has an angular parametrization with product at least \(\cos(\pi/q)\ge1/2\), forcing both candidate envelopes to decrease to their shared unique equality angle. The equality classification counts explicitly all oriented normals and divides by antipodal identification. The inradius follows from symmetrization of any admissible ball centre and a separate scalar minimax. Taylor coefficients and the square–pentagon radical are direct algebra. A standard-library checker spot-tested the actual support functions and predicted equality normals for \(3\le q\le30\); sampling is not treated as exhaustive.
+PASS
 
-## Originality — PASS, provisional
+The maximum of the two factor supports gives the join support. At fixed planar directions let a be the square support and m≤M the polygon's opposite support values. With t=a‖u_E‖/‖u_F‖, the width is a[max(t,m)+max(t,M)]/√(a²+t²). It decreases up to m, increases past M, and the derivative sign in between is that of a²−tM, so its minimum is at m or M. Both endpoint values strictly increase with a, which excludes off-edge square directions; pure-component normals cannot be minimizing. For even q, m=M is minimized exactly at outward edge normals. For odd q use δ=π/q and 0≤θ≤δ/2 from a vertex radius after reflection/reversal: m=cos(δ−θ), M=cos θ. With a²=1/2, mM≥cos δ≥a², so the endpoint at m has derivative strictly negative for θ>0 (the sign is that of m′(a²−mM)+M′(a²+m²)); the endpoint at M also strictly decreases. Even in the triangle boundary case both minimize only at θ=δ/2. Then a‖u_E‖=γ_q‖u_F‖ uniquely; both components are nonzero and the oriented counts 4q and 8q halve to the stated line counts. The minimum of the single support instead balances at cos(π/q); symmetry averaging of admissible centers makes the origin optimal for the unrestricted inradius. Expanding 2z/√(1+2z²) at z=1 verifies the asymptotic coefficients and the odd gap. Independent evaluation on actual vertices gives widths 1.095445115010, 1, 1.134904029214, and 1.095445115010 at the predicted directions for q=3,4,5,6. The q=5 radical agrees. The recorded checker was inspected, not executed; its sampling cannot prove the continuum or equality assertions.
 
-The directly relevant full-text paper is Medgyes, arXiv:2611.10078v1, especially Sections 2.4, 5, and 7: it proves volume maximality and identifies the square–pentagon join but does not state a minimum-width or full minimizer-count theorem. The closest published mathematical records found discuss the same orthogonal joins but their spherical nearest-vertex depth probabilities or normal-cone selection masses; neither stated result yields a minimum of the *paired* supports \(h(u)+h(-u)\) or the parity census. Several exact-phrase, alias and implication searches were conducted; missing a prior paper remains possible. Search results are not a proof of novelty and published-record full text was not accessible from the retrieved links.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object family contains the newly established unique nine-vertex sphere-inscribed volume maximizer. The exact minimum width is a natural directional thickness invariant of that benchmark and all its regular-polygon extensions, rather than an arbitrarily selected numerical statistic. The theorem gives a universal all-order formula, rigid complete minimizing normals, an even/odd doubling phenomenon, and a sharp gap between thickness and twice the inradius. The different asymptotic coefficients identify the persistent geometric effect of the missing antipodal polygon vertices.
+The even-width identity and single-support inradius are standard consequences of symmetry and free-sum support; credit those as background. The supported distinct contribution is the sharp odd minimum-width classification, including every equality line and the separation from twice the inradius, in the parity comparison. Neither the motivating volume theorem nor the closest directional comparators supplies the necessary two-sided optimization on the accessible evidence.
 
-## Limitations and risks
+## value
 
-The argument does not handle unequal radii or nonregular factors; those are different optimization problems. Full-text accessibility of some related published records was limited to their semantic summaries. A sufficiently general unlocated theorem on thickness of orthogonal free sums might subsume the result. The proof and included finite experiments were reviewed by the same model, not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact Euclidean invariant of a natural one-parameter family including the distinguished inscribed nine-vertex maximizer. Odd parity changes the extremizing construction, doubles the line count relative to the even pattern, and separates width from diameter of the insphere. The full equality set and sharp asymptotic gap are more informative than a numeric width for one example or the symmetric inradius identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

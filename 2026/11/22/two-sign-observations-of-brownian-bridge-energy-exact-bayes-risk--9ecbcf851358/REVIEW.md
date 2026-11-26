@@ -1,19 +1,21 @@
-# Scientific review: two-sign Brownian-bridge quadratic energy
+# Independent mathematical audit
 
-## Correctness — PASS
-PASS: Gaussian conditional projection, the two Gaussian sign second moments, exact bridge Green-kernel convolution, Wick variance 1/45, correlation normalization, continuity at degenerate designs and the fixed-correlation AM–GM strict reflection argument have all been reconstructed. Exact formulas and algebra are reproduced by verify.py; Gaussian moment integrals were cross-checked by deterministic independent 1D integration. No global uniqueness of scalar maximizer is asserted.
+## correctness
 
-The accepted claim is the exact two-sign Bayes estimator and risk, strict optimal reflection symmetry, and all optimal sites lying strictly between the midpoint and their corresponding trisection sites. The scalar optimum is explicitly a maximization over one variable; its numerical stationary root is **not** claimed globally unique. Analytic proof is in RESULT.md, with an independently replayable ordinary symbolic and numerical verification script.
+PASS
 
-## Originality — PASS (provisional historical priority)
-PASS under best-knowledge bounded priority review: multiple actual published-finding corpus semantic searches, the accessible own ledger claims, directly read published related results, and three primary open-access papers were compared at statement/implication level. Arcsine/Gaussian conditional-mean building blocks, full-valued quadratic-energy designs, linear-integral sign designs, local-time covariances, and random-node kernel designs do not imply the exact sign-pair quadratic energy covariance or strict reflection dominance. Unindexed older variants remain a declared priority risk.
+Independent check via conditional piecewise bridges rather than the frozen Green-kernel calculation. With gaps a=s, b=t-s, c=1-t and U=B(s), W=B(t), conditional path means are linear interpolants and the integrated conditional variance is a constant. Thus E[Q|U,W] is that constant plus [(a+b)U²+bUW+(b+c)W²]/3. For standardized X,Y, write X=D cos θ, Y=D cos(θ−δ), δ=arccos ρ, with uniform θ and E[D²]=2. Sign disagreement occupies two intervals of length δ; integration there gives Cov(X²,V)=Cov(Y²,V)=sin(2δ)/π and Cov(XY,V)=2 sin δ/π, and m=1−2δ/π. Substitution gives Cov(Q,V)=2ρ sqrt(1−ρ²)t(1−s)/(3π)=2 sqrt(abc)/(3π). Global sign reversal reduces the squared-loss conditional mean to the projection onto 1,V. The prior moments are 1/6 and 1/45 (the latter by Wick and integrating K²), giving exactly the reported decoder and risk. Endpoint, one-sign and coincident designs have no improvement by reflection; the interior improvement tends to zero along the whole boundary since 1−m²≥(2/π)sqrt(1−ρ²). At fixed ρ, b=kac with k=(1−ρ²)/ρ², so maximizing abc means maximizing ac subject to ac≤(1−kac)²/4; the unique largest feasible product has a=c. This verifies the scalar objective on all remaining candidates. Its numerator has logarithmic derivative 2(1−2ρ)/(ρ(1−ρ²)), its denominator decreases strictly, and the objective vanishes at both endpoints. Hence no optimizer has ρ≤1/2, and the fraction at ρ=1/2 is 5/(6π²). No uniqueness or certified numerical maximizing correlation follows or is asserted. The frozen numerical and symbolic verifier was inspected, not executed; the proof above is independent of it.
 
-Closest inspected literature includes Pronzato–Zhigljavsky (2018) on full-value Gaussian linear quadrature, Dirksen–Maly–Rauhut (2021) on the Gaussian sign arcsine identity, Fesl–Koller–Utschick (2022) on Gaussian one-bit channel estimation, and accessible published Brownian-bridge full-value two-node and local-time covariance theorems. None of those materially inspected statements supplies the fixed two-sign quadratic-energy placement theorem. A related two-sign **linear-area** bridge theorem and full-valued quadratic-energy designs do not imply the new even-energy result. Residual risks are listed in AUDIT.json; a semantic search is not a proof of uniqueness or publication priority.
+## originality
 
-## Value — PASS
-PASS: Two one-bit signs are the smallest pointwise sign budget with any Bayes information about a globally even quadratic path energy. The exact gap-product covariance and universally strict reflection symmetry identify a nontrivial global design structure across all asymmetric/repeated/end-point pairs. The theorem also proves all optimal pairs strictly improve on trisection spacing and supplies a reproducible exact risk for a natural Brownian-bridge integration benchmark; no unrelated downstream theorem is needed.
+PASS
 
-## Scientific limitations and references
-The scope excludes noisy or adjustable thresholds, adaptive observations, random sites and larger bit budgets. Gaussian orthant and folded moments are classical ingredients, not claimed as new. See RESULT.md for complete mathematical references and AUDIT.json for statement-level originality comparisons and inspected material.
+The qualified distinct claim is the bridge-energy decoder and strict global placement theorem for exactly two deterministic zero-threshold signs. The closest inspected same-target record uses full point values; the closest same-information records have different targets. No inspected statement or stronger applicable design theorem gives the sign-only quadratic-energy result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A canonical prior and even path functional create a sharp, useful sensing contrast: a single zero-threshold sign is uninformative, while two signs reveal a nonzero, exactly quantifiable fraction of energy variance. The fixed-correlation domination proves strict reflection symmetry for every global placement and rules out trisection, independently of numerics or uniqueness. These conclusions provide a reusable exact benchmark for quantized Gaussian sensing, not just an isolated risk evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

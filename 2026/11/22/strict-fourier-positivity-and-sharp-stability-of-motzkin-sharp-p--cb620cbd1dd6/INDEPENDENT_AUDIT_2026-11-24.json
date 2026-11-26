@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:56:46.673990Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–50; deletion, recurrence, spectrum and singularities checked analytically",
+        "Frozen VERIFICATION.md and verify_peak_spectrum.py inspected; uploaded script not executed",
+        "branches/8f7658b3-d399-44ee-a1a5-59e3ea044e9a/independent_motzkin_spectrum.py and independent-check-results.txt (exact direct enumeration, n=2–10)"
+      ],
+      "rationale": "Expanding the positionwise signs forces disjoint UD blocks; deletion preserves the excursion and is inverted by reinsertion at the specified positions. With one forced block at i, positions i−1 and i+1 cannot themselves start peaks; the surviving marked positions are unchanged to its left or shifted by two to its right. A new peak at the splice is not marked. Thus one mark deletion changes the multiplier by twice a lower-order multiplier. First return gives P=1+zP+z²P(P−2); the cancellation of the two p_0 terms gives the nonnegative recurrence for n≥3 with p_2=p_3=0 and p_4=1. Together these prove the sharp bounds and, using positivity at n−2≥4, strict mark deletion and uniqueness of the minimum from n=6. Ranks at n=2,3 follow from multipliers (2,0) and (4,2,2,0). Walsh diagonalization gives the exact inverse norm at n≥4. The singular coefficients are −2 at z=1/2 for P and −3√3 at z=1/3 for the ordinary Motzkin generating function, giving the claimed ratio and exponential rate. An independent direct enumeration of all frequencies at sizes 2–10 agrees, including three minimizers at n=4 and 5 and just one thereafter in that range.",
+      "residual_risks": [
+        "The finite enumeration is supplementary; the result covers ordinary uncolored Motzkin paths, not other path families or other profile encodings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalog summaries identify a length-ten up/down-step projection result (5e973760c6a6), Motzkin horizontal-profile invertibility with a Riordan-number minimum (cce88779ea66), and dyadic rigidity for positional peaks of Dyck paths (6b8684277f16)."
+        ],
+        "reasoning": "Horizontal masks do not determine sharp-peak masks: UDUD and UUDD have the same horizontal mask. Removing horizontals to obtain a Dyck path can create newly adjacent UDs, and a positional theorem for Dyck paths alone does not assert the weighted sum over horizontal insertions or the present extremizer. General weighted path methods are relevant but no stronger theorem giving the inequality was identified.",
+        "searches": [
+          "Resultary up/down and horizontal-step Motzkin Walsh spectra; positional Dyck peaks",
+          "Oste–Van der Jeugt DOI 10.37236/4781"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalog hits 5e973760c6a6, cce88779ea66 and 6b8684277f16",
+        "Ding–Du arXiv:1109.2661, p. 1",
+        "Sapounakis–Tsikouras DOI landing and frozen Prop. 3.6 locator",
+        "Tirrell §§1.4.4–1.4.6 (retrieval attempted)",
+        "Frozen RESULT.md lines 55–70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform peak marking corresponds to two character evaluations (empty and full); the cited positional results have different hypotheses. In the frozen claim the decisive new step is the sign-preserving lower-order derivative under a single mark deletion."
+        ],
+        "reasoning": "The known signed endpoint does not imply it is the smallest eigenvalue. The condition-number rate uses both known aggregate enumerators and that unproved-by-aggregates extremality. Same-day timestamps were not used to dismiss possible claim coverage or establish priority.",
+        "searches": [
+          "Sapounakis–Tsikouras total-peak counts",
+          "Resultary Dyadic Walsh rigidity of positional peaks in Dyck paths and Riordan spectral gaps for Motzkin horizontal-step profiles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen comparison identifies forbidden-peak inclusion–exclusion in Tirrell: selected forced blocks carry coefficient −1, whereas selecting a block in a sign character carries −2.",
+          "Ding–Du abstract states aggregate hump enumeration for Motzkin paths; the Narayana statement is for Dyck paths."
+        ],
+        "reasoning": "Giving a forbidden peak weight zero is not giving it sign −1. A hump that crosses horizontal steps is not an adjacent peak. Up/down-step profiles may encode peaks through nonlinear adjacency but their position characters are not the sharp-peak-start characters.",
+        "searches": [
+          "Resultary positional Motzkin sharp-peak starts, Walsh spectra and weighted peak polynomials",
+          "Tirrell thesis §§1.4.4–1.4.6",
+          "Ding–Du arXiv:1109.2661"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record explicitly identifies the known total-peak enumerator, whose evaluation at −1 gives p_n.",
+          "Distinct exact catalog spectra located index other encodings or Dyck paths."
+        ],
+        "reasoning": "A table or generating function for p_n supplies the all-marked character, not the exact comparison over all mark sets. Aggregate data are already credited, and no distinct exact table or theorem supplying the extremal comparison was established.",
+        "searches": [
+          "Resultary exact Motzkin positional Walsh spectra, signed totals and sharp-peak starts",
+          "Sapounakis–Tsikouras DOI 10.37236/1913, Prop. 3.6 p. 8"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the simultaneous positional spectrum and its sharp extremizer, strictness threshold, ranks and conditioning, not for the all-marked generating function in isolation. Closest indexed results concern a different profile or path family, while classical total-peak counting determines only one of the multipliers.",
+      "residual_risks": [
+        "Uninspected parts of the weighted-path literature could contain a stronger positional specialization.",
+        "Catalog comparisons are bounded to retrieved indexed statements, not document-wide exclusions or proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit known aggregate signed coefficient; no full-text exclusion asserted",
+          "evidence": "The frozen comparison describes enumeration by total peaks, specialized at −1 for p_n.",
+          "identifier_or_url": "https://doi.org/10.37236/1913",
+          "material_read": "Bibliographic landing page; Proposition 3.6, p. 8 located through the frozen comparison, not independently extracted",
+          "method": "OA attempt and direct public DOI landing",
+          "title": "Counting peaks and valleys in k-colored Motzkin paths",
+          "trigger": "Exact Motzkin peak enumeration; potential specialization to negative marking"
+        },
+        {
+          "assessment": "Inspected results concern aggregate counts, not positional characters",
+          "evidence": "Abstract describes total Motzkin hump bijections and the Dyck Narayana result; introduction identifies the adjacent UD peak in the Dyck setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.2661",
+          "material_read": "p. 1 abstract and opening of §1",
+          "method": "Direct public arXiv PDF after OA passage attempt",
+          "title": "Counting Humps in Motzkin paths",
+          "trigger": "Peak/hump terminology could hide the same statistic"
+        },
+        {
+          "assessment": "Forbidden-mark specialization distinguished; broader multivariate coverage unresolved",
+          "evidence": "Frozen RESULT lines 55–59 report coefficient −1 for forbidden peaks rather than −2 for sign marks.",
+          "identifier_or_url": "https://people.brandeis.edu/~gessel/homepage/students/JordanTirrellThesis.pdf",
+          "material_read": "Frozen comparison of §§1.4.4–1.4.6; bounded primary retrieval unsuccessful",
+          "method": "OA and identified university PDF attempt",
+          "title": "Orthogonal polynomials, lattice paths, and skew Young tableaux",
+          "trigger": "Plausible position-dependent weighted peak deletion"
+        },
+        {
+          "assessment": "Matching statistic, different excursions",
+          "evidence": "Catalog statement describes a parity-dependent Dyck path result, not the ordinary Motzkin all-positive spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-walsh-rigidity-of-positional-peaks-in-dyck-paths--6b8684277f16",
+          "material_read": "Indexed statement only; decisive mirror text not retrieved",
+          "method": "Resultary search with local mirror attempt",
+          "title": "Dyadic Walsh rigidity of positional peaks in Dyck paths",
+          "trigger": "Same positionwise adjacency statistic and transform"
+        },
+        {
+          "assessment": "Different binary profile and minimum",
+          "evidence": "The summary concerns horizontal steps and a Riordan-number minimum, not positional UD starts.",
+          "identifier_or_url": "2026/11/22/SCOPE-riordan-spectral-gaps-and-full-walsh-recovery-from-motzkin-horiz--cce88779ea66",
+          "material_read": "Indexed statement only; decisive mirror text not retrieved",
+          "method": "Resultary search with local mirror attempt",
+          "title": "Riordan spectral gaps and full Walsh recovery from Motzkin horizontal-step profiles",
+          "trigger": "Same all-order spectral theme including invertibility threshold"
+        },
+        {
+          "assessment": "Different binary embedding and fixed-length assertion",
+          "evidence": "The summary concerns up/down-step position indicators at length ten and 67,312 zero multipliers; the sharp-peak embedding here has no zeros at length ten.",
+          "identifier_or_url": "2026/11/16/SCOPE-the-first-post-cubic-walsh-resonance-and-exact-fourier-range-pro--5e973760c6a6",
+          "material_read": "Indexed statement and frozen comparison",
+          "method": "Resultary search",
+          "title": "The first post-cubic Walsh resonance and exact Fourier range projection for length-ten Motzkin paths",
+          "trigger": "Earlier Motzkin Walsh exact spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–18 and 40–50; independent small spectra and singular coefficient check"
+      ],
+      "rationale": "The natural peak-profile counting kernel could have Fourier cancellation despite its nonnegative entries. The result identifies exactly when inversion begins, a unique worst mode from a sharp size threshold, and the rate at which conditioning deteriorates. This gives an all-order structural answer beyond counting total peaks or enumerating a finite spectrum.",
+      "residual_risks": [
+        "No claimed stability outside the stated ℓ² operator or ordinary Motzkin peak model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

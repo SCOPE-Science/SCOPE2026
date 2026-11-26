@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:11:39.175489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–5",
+        "Frozen VERIFICATION.md and verification.py, read only; the independent check is analytic"
+      ],
+      "rationale": "For conditioned endpoint values u,v>0 on length L, the squared positive standardized mean equals [u²/r+v²/(1-r)−(u−v)²]/L. Minimizing gives r=u/(u+v) and the unique segment optimum Φ(−2√(uv/L)). Hence on a positive first reading, choose the longer conditioned segment; on a nonpositive reading the alarm has already occurred. This gives the stated Gaussian integral and a measurable attaining rule. In the integral, the first marginal depends on s through v_s=1/4−(s−1/2)² while the second term also depends on L_s=1/2+|s−1/2|. Differentiation locally has an integrable Gaussian envelope; only the length term contributes the first-order change. At the midpoint its derivative integrand is (2√(2c)/π)y^(1/2)exp(−2y²−2c²); substituting x=2y² gives Γ(3/4)√c exp(−2c²)/(2^(1/4)π). Reflection gives the opposite left derivative. As s tends to an endpoint, the first reading converges in probability to c>0 and the bounded success integrand tends to Φ(−2c), strictly below the midpoint value. Compactness, the cusp, and reflection then yield mirrored interior maximizers, without uniqueness.",
+      "residual_risks": [
+        "Offline retrospective access, noiseless values, equal strictly positive pinned endpoints, two interior samples, and sampled-value alarm only. No causal monitoring, continuous-minimum accuracy, or uniqueness of the optimal off-center first time follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former uses sequential midpoint refinement to approximate the Brownian minimum in L^p; the latter controls numerical exit-time approximation error and expected cost for diffusions."
+        ],
+        "reasoning": "Broader adaptivity or diffusion models do not imply an optimum for this payoff, two exact point observations, positive pinned endpoints, and an arbitrary first-time constraint. The midpoint refinement rule is not the maximization of the conditional alarm probability.",
+        "searches": [
+          "Calvin–Hefter–Herzwurm arXiv:1601.01276, pp. 1–4",
+          "Hoel–Ragunathan arXiv:2208.11288, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records c5b78f1b7af4 and f6cfb05ef6f",
+        "arXiv:1511.05735",
+        "arXiv:1601.01276",
+        "arXiv:2208.11288"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical bridge marginal and conditional segments provide the ingredients; the inspected prior objectives are expected minimum discrepancy, L^p approximation, and exit-time error respectively."
+        ],
+        "reasoning": "Even exact laws for the conditional minimum do not give the optimum among policies allowed one further point observation. The longer-segment choice and first-order |s−1/2| change of its length are essential to the new conclusion.",
+        "searches": [
+          "Alabert–Caballero arXiv:1511.05735",
+          "Calvin–Hefter–Herzwurm arXiv:1601.01276",
+          "Hoel–Ragunathan arXiv:2208.11288"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The index identifies the same assigned record and a separate rare-barrier information record about one observation, whose summary gives a mean-square objective. Alabert–Caballero compare minimum-value approximation based on sampled values with the true minimum."
+        ],
+        "reasoning": "Changing the sign maps lower to upper barriers, and normalizing time and diffusion changes only units. Neither operation turns information about the true crossing indicator, or minimum-value error, into the probability of at least one nonpositive sampled value.",
+        "searches": [
+          "Resultary: two-checkpoint Brownian bridge threshold/barrier detection and midpoint symmetry",
+          "Alabert–Caballero arXiv:1511.05735, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cusp match is the assigned record itself (c5b78f1b7af4). The separate one-observation hit (f6cfb05ef6f) is indexed by a different invariant."
+        ],
+        "reasoning": "No finite numerical table could establish the all-c>0 one-sided derivative; the relevant exact check is for an indexed formula or equivalent theorem, not agreement with illustrative probabilities.",
+        "searches": [
+          "Resultary: adaptive two-checkpoint Brownian bridge and rare-barrier information"
+        ]
+      },
+      "rationale": "The supported distinct result is the universal midpoint cusp and its explicit coefficient for the optimized offline two-sample binary alarm, not the Gaussian bridge conditioning law, a law of the continuous minimum, nor a general new adaptive-sampling method. The closest inspected sampling and exit-time results do not establish this claim.",
+      "residual_risks": [
+        "The separate rare-barrier record could only be compared at summary level. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not separate coverage",
+          "evidence": "Same positive clearance, retrospective second checkpoint, and gamma cusp",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-adaptive-two-checkpoint-brownian-bridge-barrier-detection-breaks--c5b78f1b7af4",
+          "material_read": "RESULT.md, finding and proof; mirror offsets 800, 2500, 4700",
+          "method": "Frozen original and local mirror",
+          "title": "Adaptive two-checkpoint Brownian-bridge barrier detection breaks midpoint symmetry",
+          "trigger": "Exact indexed claim"
+        },
+        {
+          "assessment": "Different objective and budget on available material; no full-text exclusion",
+          "evidence": "One fixed interior observation and mean-square information for a high upper-barrier event",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-rare-barrier-information-from-one-brownian-bridge-observat--f6cfb05ef6f",
+          "material_read": "Catalogue summary; exact text not available in local mirror",
+          "method": "Resultary catalogue and local mirror lookup",
+          "title": "Sharp rare-barrier information from one Brownian bridge observation",
+          "trigger": "Closest independent indexed barrier and bridge hit"
+        },
+        {
+          "assessment": "Does not establish this alarm optimum",
+          "evidence": "Compares three nonadaptive schemes by expected discrepancy between sampled and true minima",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.05735",
+          "material_read": "pp. 1–2, including minimum approximation comparison (offsets 4500, 7011)",
+          "method": "Open-access original text",
+          "title": "On the minimum of a conditioned Brownian bridge",
+          "trigger": "Closest bridge-minimum sampling comparison"
+        },
+        {
+          "assessment": "Different payoff, model, and optimization",
+          "evidence": "Sequential interval-priority midpoint refinement with L^p error guarantees for the minimum",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.01276",
+          "material_read": "pp. 1–4, goal, rates, and refinement rule (offsets 100, 2950, 9435, 11781)",
+          "method": "Open-access original text",
+          "title": "Adaptive approximation of the minimum of Brownian motion",
+          "trigger": "Value-adaptive minimum sampling"
+        },
+        {
+          "assessment": "Exit-time time-stepping results differ from the frozen optimization",
+          "evidence": "Strong exit-time error and expected cost for diffusion simulation rather than binary alarm probability for two bridge samples",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11288",
+          "material_read": "p. 1, problem and main guarantees, offset 180",
+          "method": "Open-access original text",
+          "title": "Higher-order adaptive methods for exit times of Itô diffusions",
+          "trigger": "Adaptive barrier and exit detection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 2–5; comparison with the distinct design objectives in arXiv:1511.05735 and arXiv:1601.01276"
+      ],
+      "rationale": "A fixed budget of two samples is the first setting where the use of a revealed value can change the next location. The result quantitatively rules out a symmetry-based first-stage design for every positive clearance despite symmetric endpoint data. It supplies the exact conditional policy and local improvement coefficient, not merely a numerical example of an off-center optimum.",
+      "residual_risks": [
+        "The design value is for retrospective sampling; no performance gain for causal monitoring is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

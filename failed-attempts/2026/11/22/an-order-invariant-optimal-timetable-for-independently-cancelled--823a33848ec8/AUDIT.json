@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For uniform period arrival, integrate every active gap to obtain W=(T/2)E sum_J(sum_{i in J}g_i)^2. A Hessian H is strictly positive definite as all buses run with probability product_i p_i>0. Forward/backward first-active recurrences have finite unique cyclic solutions because a guaranteed departure has zero failure probability. Substitution of g_i*=(v_i+v_{i+1})/(2S) and q_i=(1-v_i)/(1+v_i) yields A_i=B_i=(1+v_i)/(2S), hence Hg*=1/S; strict convexity establishes unique global optimality, W*=T/(2S), order invariance, and the exact squared-block regret identity. Independent standard-library exact-rational checker passed 21 complete enumeration configurations with 12 distinct reliability permutations; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://eprints.whiterose.ac.uk/id/eprint/85338/1/Fonzone%20et%20al%20-%20ISTTT61-WRR.pdf: sections 2, 4, and 7 treat nonlinear timetable-aware arrivals and bus bunching",
+        "https://doi.org/10.1287/trsc.6.2.137: dispatch-frequency optimization, abstract available",
+        "https://doi.org/10.3141/1760-01: load equalization versus equal-headway design, abstract available"
+      ],
+      "reasoning": "Stochastic delay, capacity, and holding-control studies involve more general physical systems but do not establish the stated exact independent-cancellation optimum on the restricted submodel from inspected material; the abstract-only publications retain nonzero unassessed-coverage risk.",
+      "searches": [
+        "bus timetable optimization skipped trips random cancellations chance failure optimal departure schedule mean waiting time mathematical",
+        "randomly unavailable scheduled service optimal placement uniformly arriving passengers expected forward waiting time reliability-weighted gaps",
+        "bus timetable optimal passenger waiting random headway capacity Ceder 2001"
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.whiterose.ac.uk/id/eprint/85338/1/Fonzone%20et%20al%20-%20ISTTT61-WRR.pdf",
+      "https://doi.org/10.1016/j.trc.2015.05.020",
+      "https://doi.org/10.3141/1760-01",
+      "https://doi.org/10.1287/trsc.6.2.137",
+      "https://doi.org/10.1287/trsc.8.2.102",
+      "https://doi.org/10.1287/opre.44.2.360",
+      "https://eprints.whiterose.ac.uk/id/eprint/85338/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://eprints.whiterose.ac.uk/id/eprint/85338/1/Fonzone%20et%20al%20-%20ISTTT61-WRR.pdf: Proposition 4 expresses expected waiting as sum of bus-specific integrals",
+        "https://doi.org/10.1287/opre.44.2.360: optimal timing of fallible inspections has a different inspection cost-and-delay objective",
+        "https://doi.org/10.1287/trsc.8.2.102: controls disturbances rather than stochastic absent departures; abstract only"
+      ],
+      "reasoning": "A general prior wait-time expectation could be specialized to a cancellation model, but as inspected it gives no convex global optimization classification, adjacency formula, order invariance or quadratic-regret certificate. No stronger prior theorem giving these assertions was identified; incomplete access is material.",
+      "searches": [
+        "independent bus cancellations optimal departure times minimizing mean passenger wait heterogenous reliability exact formula",
+        "bus timetable optimization skipped trips random cancellations chance failure optimal departure schedule mean waiting time mathematical",
+        "theorem unique optimal cyclic timetable independent cancellation heterogenous availability p_i guaranteed bus minimizing uniformly arriving commuter wait 1/(2 sum p_i/(2-p_i))",
+        "Newell Potts 1964 bus bunching deterministic waiting arrivals analytical model",
+        "three unreliable sentinels transformed reliability q/(2-q) gap optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1016/j.trc.2015.05.020: section 4.3 gives expectation integrals for random departures, not a closed timetable design"
+      ],
+      "reasoning": "Directed circular residual waiting admits an expected quadratic gap functional. In the inspected source, the general expected waiting time integral does not derive a global arbitrary-service-count timetable optimum, the exact order-independent optimum, or its sharp regret. Searches for corresponding reduced formulations were performed.",
+      "searches": [
+        "independent bus cancellations optimal departure times minimizing mean passenger wait heterogenous reliability exact formula",
+        "periodic schedule unreliable buses optimize average waiting times individual cancellation probabilities service",
+        "optimal spacing of unreliable inspection visits independently failed periodic events expected residual waiting time",
+        "\"p/(2-p)\" \"bus\" \"waiting\" scheduling",
+        "\"unreliable\" \"periodic\" \"departure\" \"spacing\" passenger waiting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact coefficient or order-invariant any-n formula identified in searched indexing",
+        "Exact source-specific formulas in inspected Fonzone manuscript are expectation integrals indexed by passenger arrival time, not a table of optimized independent-cancellation headways"
+      ],
+      "reasoning": "No matching exact table was found; absence of a search hit is not a novelty certificate, and novelty rests on comparing the mathematical implications of the closest inspected sources.",
+      "searches": [
+        "\"p/(2-p)\" \"bus\" \"waiting\" scheduling",
+        "\"optimal\" \"cancellation\" \"headway\" \"uniform\" exact formula",
+        "periodic bus cancellation probability optimal departure spacing reliability"
+      ]
+    },
+    "rationale": "Primary full-text comparison with Fonzone--Schmöcker--Liu (2015) shows their continuous-logit arrival, stochastic delay and bunching model includes a general waiting-time integral but neither the independent Bernoulli cancellation optimization for arbitrary service count nor the exact reliability-transformed adjacent-gap optimum, order-independent value and regret identity. Ceder (2001), Salzborn (1972), Barnett (1974), and Parmigiani (1996) were compared at available abstract/record level and remain explicit priority risks. Relevant indexed findings, including three imperfect sentinels and Markov-modulated queues, do not logically imply a four-or-more directed service-timetable theorem. No claim of exhaustive historical uniqueness.",
+    "residual_risks": [
+      "Ceder (2001) full primary text remained inaccessible via available lawful sources; its exact implications cannot be excluded.",
+      "Salzborn 1972, Barnett 1974 and Parmigiani 1996 were inspected only through available abstracts and indexes",
+      "Other mathematical transport and renewal-scheduling literature could conceivably imply the result; no exhaustive historical uniqueness or independent priority determination is claimed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Waiting-time integrals and logit arrival/bunching, not globally optimal independent missed-departure headways",
+        "evidence": [
+          "Section 4.3 eqs. (12)-(13) integrate passenger waiting over actual departure time",
+          "Section 2 reviews uniform random-incidence arrivals and holding strategies, not Bernoulli cancellation timing design"
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/85338/1/Fonzone%20et%20al%20-%20ISTTT61-WRR.pdf",
+        "material_read": "Accepted manuscript abstract, introduction and literature review, methodology in sections 3-5 including section 4.3 Propositions 3 and 4 and equations (12)-(13), and discussion/conclusions",
+        "method": "Lawful open-access PDF full text with selected page images inspected",
+        "title": "A model of bus bunching under reliability-based passenger arrival patterns",
+        "trigger": "Closest accessible primary full text addressing unreliable departures and expected passenger wait"
+      },
+      {
+        "assessment": "Full-theorem noncoverage cannot be inferred from abstract; historical overlap risk explicitly retained",
+        "evidence": [
+          "Published abstract contrasts passenger-load balancing with equal-headway schedules; no checked exact cancellation theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.3141/1760-01",
+        "material_read": "Title, abstract and bibliographic indexing only; full primary text not accessible through inspected lawful public routes",
+        "method": "Available public abstract and lawful open-access source review",
+        "title": "Bus Timetables with Even Passenger Loads as Opposed to Even Headways",
+        "trigger": "Plausible earlier work on nonuniform ideal headways"
+      },
+      {
+        "assessment": "Dispatch frequency and fleet constraints; exact independent-cancellation n>=4 theorem not confirmed or disproved from full text",
+        "evidence": [
+          "Title and accessible abstract concern conventional bus scheduling"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/trsc.6.2.137",
+        "material_read": "Bibliographic catalog and abstract only",
+        "method": "Public citation/abstract inspection",
+        "title": "Optimum Bus Scheduling",
+        "trigger": "Early foundational timetable-optimization title"
+      },
+      {
+        "assessment": "Uncertain overlap due lack of full text; available description concerns headway control",
+        "evidence": [
+          "Foundational transit-randomness context"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/trsc.8.2.102",
+        "material_read": "Catalog and abstract only",
+        "method": "Public abstract inspection",
+        "title": "On Controlling Randomness in Transit Operations",
+        "trigger": "Classic stochastic transit operations treatment"
+      },
+      {
+        "assessment": "Potential methodological relation; distinct objective but full implications not checked",
+        "evidence": [
+          "Inspection timing and fallibility, not established periodic passenger-waiting optimum"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.44.2.360",
+        "material_read": "Bibliographic catalog and abstract only",
+        "method": "Public abstract inspection",
+        "title": "Optimal Scheduling of Fallible Inspections",
+        "trigger": "Analogous failed-appointment inspection timing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "823a3384-8ec8-4e13-a9b3-6a5ef8ed7179",
+  "value": {
+    "rationale": "Scheduling under heterogeneous independent missed runs, a standard reliability issue, lacks a simple all-count exact policy in the inspected motivating literature. The theorem provides a complete and operationally interpretable solution for every n>=4 and every admissible reliability vector, proves that the minimal expected wait is independent of cyclic reliability order despite different optimal gaps, and gives an exact strict regret measure; the four-service example shows a nontrivial 47/407 wait reduction relative to equal headways. It is not just a renamed three-detector fact, a fixed-parameter numerical exercise, or a universal statement about realistic transit systems.",
+    "status": "PASS"
+  }
+}

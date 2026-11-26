@@ -1,15 +1,21 @@
-# Scientific review: three-degree five-cut homology of the \(3\times4\) rook graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The face definition is the *ordinary* cut complex: complements of disconnected induced five-sets. The independent finite graph model has twelve labeled vertices and exactly 264 of the 792 possible five-sets disconnected. The complete face vector, with the empty face included, is \((1,12,66,220,492,768,666,264)\). The specified matching covers exactly 2,436 nonempty faces, leaving a single zero-cell and respectively nine, six and 36 cells in dimensions four, five and six. A topological ordering of the entire reversed-matching Hasse graph certifies acyclicity. Signed gradient-path computations over the integers give one rank-one boundary with primitive invariant factor one, with every other Morse boundary zero. Thus the precise ranks in degrees four, five and six are \(8,5,36\), with no torsion or other reduced homology. Separate unreduced mod-two boundary reductions agree. The code recomputes all data from definitions; a stored execution log is not used as evidence by itself.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The foundational 2023 cut-complex paper computes cut complexes of complete multipartite graphs and clique prisms, but the graph \(K_3\square K_4\) is not a two-row clique prism. The 2024 sequel computes Cartesian *path-grid* cut complexes, not complete-graph Cartesian products. The closely related four-by-four rook four-cut calculation has different graph order and cut parameter, while indexed general rook results establish *three-cut* groups. A preceding three-row four-cut result still has the wrong cut threshold. The exact ranks, their three consecutive homological degrees, and the defining five-set predicate are not implied by any inspected statement. Searches tested rook, lattice, Hamming, line-graph and Alexander-dual aliases and both broad and exact-rank formulations. Full relevant sections of the primary papers and the full scientific text of the closest published four-cut result were inspected. Search-index incompleteness and unindexed equivalents remain residual risks, not proofs of novelty.
+PASS
 
-## Value — PASS
-The \(3\times4\) rook graph is the first genuinely rectangular three-row complete-graph product beyond the square three-by-three board. Its ordinary fifth cut threshold is the next natural cut parameter after the studied three- and four-cut complexes. Three separate nonzero integral homology groups, including one two degrees below the dimension of the pure complex, provide a substantive structural obstruction to shellability and Cohen–Macaulayness. The complete integral answer is a useful finite boundary value for developing the wider three-row rook cut filtration. The result is not promoted to an unsupported all-size formula or sphere-wedge theorem.
+A separate exact computation reconstructed the ordinary cut complex using K3□K4=L(K3,4): on each five-set, union the incident endpoints of the five selected bipartite edges, ignoring isolated bipartite vertices; the selected edges have connected line graph exactly when they lie in a single non-isolated component. Taking complements of the 264 disconnected sets and closing under subsets gave the frozen augmented face counts (1,12,66,220,492,768,666,264). The fresh calculation used the original signed simplicial boundaries, not the reported Morse matching or mod-two ranks. Integral column additions clear each ±1 pivot row, after which integral row additions clear its column without affecting the remaining block. In every degree the original boundary reduced to a unit diagonal and zero residual, with augmented ranks by degree 0–6 equal to (1,11,55,165,327,433,228). For each degree d, H_d embeds in coker ∂_(d+1), which is free by the unit invariant factors. Thus there is no torsion at any prime; rank subtraction in the augmented complex gives (0,0,0,0,8,5,36). The ranks agree with the frozen Morse counts and primitive rank-one B5 certificate. All the listed facets have cardinality seven, so the dimension is six and the complex is pure. The degree-four reduced group stays nonzero over any field, contradicting the empty-face Reisner condition; pure shellability would imply Cohen–Macaulayness. No homotopy wedge decomposition follows from these calculations.
 
-## Literature and residual limitations
-Relevant primary texts: Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675, especially Theorem 7.18; Bayer et al., *Topology of Cut Complexes II*, arXiv:2407.08158, Section 5; *Integral four-cut homology separates the Shrikhande and rook graphs*, published 2026, full scientific result. The discrete-Morse reduction is completely finite, but the homotopy type beyond the homology groups and any extension to other board sizes remain unproved. Literature searching cannot rule out mathematically equivalent unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest prior rook results are at different cuts or on different boards, and the grid tables with matching cut or dimensions are for Cartesian products of paths, in some cases for total rather than ordinary cuts. The line-graph interpretation is an exact alias, but does not turn this complex into the matching complex of K3,4. No equivalent or dominating exact result for ordinary Δ5(K3□K4) was verified. The bounded search and accessible comparisons, not absence of hits alone, support this assessment.
+
+## value
+
+PASS
+
+This is a small, standard rook board beyond clique prisms, at the next cut size after the studied four-cut cases. The diagnostic question is whether its ordinary cut homology is top-concentrated or simple over the integers. Two successive nonzero degrees below the top show failure of even top-two concentration, and the exact primitive boundaries separate that effect from field-dependent torsion. The complete invariant provides a comparison case for ordinary cut complexes on clique products and line graphs and disproves shellability and Cohen–Macaulayness on this concrete board; the value is not just the number of disconnected sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

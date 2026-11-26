@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:00:55.083591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5-67",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 4; exact factorial evaluations and gcds passed for n=2..400"
+      ],
+      "rationale": "For odd p, the p^j summand in the valuation of a(n,k) counts multiples in [n-k+1,n+k] minus floor(k/p^j). It is nonnegative. For k>=2, every p^j hitting the four central integers contributes at least one: for p^j>k this is direct, and for p^j<=k use floor(2k/p^j)-floor(k/p^j)>=1. Only 3 can hit two of the four integers at the same power, precisely at power 3 and n=1 mod 3. Degree two attains every predicted odd-prime minimum except this case. Then degree four exists, its four added factors are all units mod 3, and its factorial denominator removes one factor of 3. For k equal to the largest power of two <=n, k is even, and 2k+(n-k) has no binary carries, so binom(n+k,2k)(2k-1)!! is odd. This settles the gcd for all n>=2, including n=2,3 with only one retained coefficient.",
+      "residual_risks": [
+        "The finite replay checks coefficients and contents in its stated range only; the all-index result follows from the valuation proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Seo page 1 gives the Bessel numbers and studies inverse relations/log-concavity, not an all-degree valuation classification in the inspected material.",
+          "Frozen RESULT.md lines 79-80 report the older MathOverflow whole-row factor n+1 for even n and n for odd n. The post could not be independently opened; this comparison is expressly limited to the reported factor.",
+          "Yang–Zheng full text was not obtained."
+        ],
+        "reasoning": "Broader index scope for a single common divisor is weaker than exact valuations on the even subrow; a genuinely stronger all-degree valuation minimum would be relevant but was not found in the material read.",
+        "searches": [
+          "Resultary: Bessel polynomial coefficient divisibility valuation gcd content parity",
+          "Han and Seo, arXiv:math/0406378, divisisibility passage lookup (literal: divisibility)",
+          "MathOverflow 503276; Yang–Zheng DOI 10.1155/2013/242815"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (two content/valuation searches)",
+        "DLMF §18.34",
+        "Han–Seo arXiv:math/0406378",
+        "OEIS A001498",
+        "MathOverflow 503276 (reported result only)",
+        "Yang–Zheng 10.1155/2013/242815 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=7 the reported whole-row factor is 7, whereas the even-degree gcd is 63. Pointwise factorial valuations alone leave an index minimization; the four-factor lower bound, exceptional degree-four witness and binary parity witness resolve different parts of it."
+        ],
+        "reasoning": "The accessible formula supplies the inputs, not the complete parity-restricted gcd. The reported older divisibility neither implies the higher odd-prime exponents nor the absence of a factor of two.",
+        "searches": [
+          "MathOverflow 503276, reported common-divisor claim; attempted question, answer and alternate display",
+          "DLMF §18.34 and arXiv:math/0406378 for normalization and coefficient formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ID 2026/11/22/SCOPE-exact-even-degree-coefficient-content-of-the-classical-bessel-po--6b80ac473e4d is the assigned record itself; no distinct equivalent appeared in the returned top results.",
+          "The odd part of the lcm of n-1,n,n+1,n+2 is the same claimed gcd, since the only repetition of an odd prime power within the block is 3. Reversal sends degree k to n-k; it flips parity at odd n and shifts the excluded endpoint even at even n."
+        ],
+        "reasoning": "Compare parity and the nonconstant restriction before treating claims about reverse Bessel coefficients or the whole row as equivalent. Neither the standard reversal nor the search results furnish an equivalent content theorem.",
+        "searches": [
+          "Resultary: classical Bessel polynomial even-degree coefficient gcd odd((n-1)n(n+1)(n+2))",
+          "Websearch: classical Bessel polynomial coefficients divisibility valuation gcd even-degree coefficients (not Bessel numbers only), reversed Bessel polynomial, published theorem all n",
+          "DLMF 18.34.2 and reversal note"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001498 at offsets near 194 and 800 gives the coefficients in increasing order of exponent, not a separate all-index positive even-row content formula in the passages read."
+        ],
+        "reasoning": "Tabulated coefficients and a general coefficient formula permit checking particular gcds, but do not evaluate the infinite family of minima. A keyword miss is not evidence that all sources or related sequences omit the result.",
+        "searches": [
+          "OEIS A001498, coefficient definition, comments and literal gcd lookup",
+          "Resultary returned coefficient-content records"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact gcd of the positive even-degree coefficients, not the coefficient formula or general positive-row divisibility. No distinct source was found that states this gcd or establishes a stronger result settling it without the additional minimization over even degrees. This is a bounded comparison, not a priority certificate.",
+      "residual_risks": [
+        "The MathOverflow answer and Yang–Zheng full text were not independently obtained; older Bessel-polynomial literature and other coefficient database entries were not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not independent evidence of prior coverage",
+          "evidence": "Same n>=2 positive even-degree gcd and mod-3 exception",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-even-degree-coefficient-content-of-the-classical-bessel-po--6b80ac473e4d",
+          "material_read": "Indexed summary; frozen statement and proof",
+          "method": "Resultary local semantic search and frozen file",
+          "title": "Exact even-degree coefficient content of the classical Bessel polynomials",
+          "trigger": "Top matching indexed content formula"
+        },
+        {
+          "assessment": "Background, no content claim in the inspected statements",
+          "evidence": "Reversal maps k to n-k",
+          "identifier_or_url": "https://dlmf.nist.gov/18.34",
+          "material_read": "Equation 18.34.2 and reversal near offsets 3425 and 4700",
+          "method": "Bounded OA page read",
+          "title": "DLMF §18.34 Bessel Polynomials",
+          "trigger": "Classical and reversed normalization"
+        },
+        {
+          "assessment": "Inspected statements concern coefficients, inverse relations and log-concavity",
+          "evidence": "No parity-filtered row content in those results",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0406378",
+          "material_read": "Page 1 near offsets 1527 and 3500; targeted divisibility locator",
+          "method": "Bounded OA PDF read",
+          "title": "Combinatorial proofs of inverse relations and log-concavity for Bessel numbers",
+          "trigger": "Same coefficient array"
+        },
+        {
+          "assessment": "Data and formulas for the coefficient triangle",
+          "evidence": "Increasing degree order; not the evaluated all-index gcd in the inspected passage",
+          "identifier_or_url": "https://oeis.org/A001498",
+          "material_read": "Definition and comments near offsets 194 and 800",
+          "method": "Bounded OA page read",
+          "title": "OEIS A001498: Coefficients of Bessel polynomials",
+          "trigger": "Exact database for indexed coefficients"
+        },
+        {
+          "assessment": "Reported divisor compared; additional content of post unresolved",
+          "evidence": "Reported factor n or n+1 does not determine H(n)",
+          "identifier_or_url": "https://mathoverflow.net/questions/503276/divisibility-properties-of-bessel-numbers-oeis-a001498",
+          "material_read": "Frozen record's description only; original question/answer and alternate display not obtained",
+          "method": "Lawful OA retrieval attempts and frozen citation check",
+          "title": "Divisibility properties of Bessel numbers",
+          "trigger": "Prior same-row divisibility"
+        },
+        {
+          "assessment": "No full-text noncoverage inference",
+          "evidence": "No substantive passage obtained",
+          "identifier_or_url": "https://doi.org/10.1155/2013/242815",
+          "material_read": "Bibliographic identification only; DOI, publisher and identified PDF retrieval did not yield full text",
+          "method": "Lawful OA retrieval attempts",
+          "title": "A Determinant Expression for the Generalized Bessel Polynomials",
+          "trigger": "Plausibly stronger generalized coefficient identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5-23 and 27-67; comparison to A001498 and the reported whole-row divisibility"
+      ],
+      "rationale": "The even projection is the natural parity component (after removing the unit constant); its primitive integer normalization and prime reductions require its exact content, not just an obvious divisor of the Bessel row. The all-index classification identifies a single exceptional odd-prime loss and supplies an even-degree odd witness in every order. This is a modest but complete arithmetic invariant of a standard family, not a proposed new general theory.",
+      "residual_risks": [
+        "No broader generalized Bessel classification or downstream application is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

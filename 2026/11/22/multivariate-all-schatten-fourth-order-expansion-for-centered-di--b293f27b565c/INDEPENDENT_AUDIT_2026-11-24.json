@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:08:22.191610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49 and Proof Steps 1–5, independently reconstructed",
+        "Frozen VERIFICATION.md lines 19–23 and VERIFY.py lines 19–114 (inspected, not executed)",
+        "Independent decimal evaluation of the d=2, A=3, t=1 coefficient with k=1..24: 0.2368398806525576529774; the omitted Gaussian tail is below the displayed precision"
+      ],
+      "rationale": "Dirichlet posterior moments have leading term beta^alpha/(n+A)^(rising k), and the multinomial factorial moments give n^(falling k) times x^alpha. Selfadjointness then diagonalizes the operator on the exact-degree spaces, with zero above degree n. For c=A/2 the centered factors are (N-j-c)/(N+j+c); twice the linear sum in the arctanh expansion is q_k and twice the cubic sum divided by three is D_k. The residual of -N log(lambda) is nonnegative, and for k<=n/2 it is bounded by C(k+1)^6/N^4. The centered Loewner bound follows before taking any limit. Taylor's inequality for e^(-v), v>=0, and the Gaussian decay of e^(-t q_k) give a summable O(N^-4) bound after the correction, including the complementary frequency tail. Direct summation of the p-th powers with the degree multiplicities works for p<1, and a supremum works for p=infinity. The limiting defect is nonzero since D_1=A^3/12. For the shifted clock one can apply the uniform centered estimate at tau=t(1+(s-c)/N) and differentiate H_tau in each ideal on a compact positive time interval; q_k^2 exp(-delta q_k/2) bounds the Taylor residual. This proves the asserted first-order limit also for shifts below c and shows uniqueness. The d=2 numerical example agrees with direct evaluation of the cubic-sum formula.",
+      "residual_risks": [
+        "Fixed dimension and positive weights; bounds in time use compact subintervals of (0,infinity). The shifted clock needs n sufficiently large that its exponent is positive.",
+        "The order relation is Loewner, not pointwise positivity for fractional powers, and uniqueness is only among fixed additive shifts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altomare's theorems give Jacobi-weighted hypercube iteration convergence when k(n)/n tends to t, including convergence on L^p. The Abel–Berdysheva accessible summary concerns high-order asymptotics for individual operators and quasi-interpolants. The genuine/ultraspherical paper concerns semigroup iteration and C^2 estimates according to accessible bibliographic material; theorem pages were unavailable."
+        ],
+        "reasoning": "Function-space convergence is not a summable singular-value estimate; one-step operator expansions may supply spectral ingredients, but do not by themselves give an expansion at a growing exponent with uniform control over the full spectrum. The two access-limited comparisons do not warrant whole-paper exclusions.",
+        "searches": [
+          "Altomare DOI 10.33205/cma.491601, §6 Theorems 6.9–6.10",
+          "Abel–Berdysheva DOI 10.1016/j.jat.2009.04.004",
+          "Gonska–Heilmann–Raşa DOI 10.1016/j.jat.2008.11.002"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 103–116",
+        "Resultary exact frozen record, interval clock record, and spectral-power trace result",
+        "DOIs 10.33205/cma.491601, 10.1016/j.jat.2009.04.004, 10.1016/j.jat.2008.11.002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint eigenvalue formula and qualitative diffusion approximation are antecedents. The interval trace result fixes only one shape, time, and ideal. An operator-norm or fixed-mode estimate does not control the multiplicity-weighted sum, which involves arbitrarily high modes."
+        ],
+        "reasoning": "The all-ideal conclusion requires the centered cancellation and a quantitative bound on the entire Gaussian-weighted spectrum. Neither specializing qualitative iterate convergence nor transferring the single interval trace limit supplies it. The known eigendata are not claimed anew.",
+        "searches": [
+          "Frozen RESULT.md Steps 1–5 versus Altomare §6 and the optimal-integer-clock Resultary statement",
+          "Abel–Berdysheva DOI 10.1016/j.jat.2009.04.004 accessible abstract metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The latter record proves trace-class convergence to L^2 exp(-L)/6 for (n+1)^2(exp(-L)-M_n^(n+1)), and uniqueness among fixed integer shifts at time one on the unweighted interval."
+        ],
+        "reasoning": "Substituting d=1, A=2, t=1, p=1 gives exact overlap on the leading term and the integer-clock assertion. It gives no multivariate, all-exponent corrected estimate. The shared index date does not order the findings.",
+        "searches": [
+          "Resultary centered Bernstein–Durrmeyer optimal clock, sharp Schatten limit",
+          "Resultary optimal-integer-clock record, Finding and Steps 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-multivariate-all-schatten-fourth-order-expansion-for-centered-di--b293f27b565c is the identical frozen record. The distinct October spectral-power trace record describes high-degree two-term trace asymptotics with fixed powers in the available summary and the frozen comparison at line 105."
+        ],
+        "reasoning": "The self match says nothing about independent coverage. Fixed exponent versus exponent tN changes the spectral range and limit; no exact matching result was established by the distinct summary, whose detailed statement remained unavailable.",
+        "searches": [
+          "Local Resultary results for Dirichlet Bernstein–Durrmeyer trace powers and all-Schatten centered diffusion"
+        ]
+      },
+      "rationale": "The unweighted time-one interval trace-class leading term and fixed integer clock choice are already covered and are credited. The distinct supported claim is the centered, uniformly corrected O(N^-4) estimate for increasing powers at positive diffusion times on arbitrary fixed Dirichlet simplices in every stated operator ideal, with the resulting sharp limit and real-shift comparison. The inspected literature and indexed comparators do not establish that full extension.",
+      "residual_risks": [
+        "Two close published papers could not be evaluated at theorem level and the fixed-power trace record could not be inspected in full. This limits comparison, rather than establishing absence of further overlap or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT SPECIAL CASE for leading trace defect and integer uniqueness",
+          "evidence": "Unweighted interval, t=1, S_1 and n+1 give coefficient L^2/6, agreeing with A=2 in the frozen formula. The alternate offsets compared there are integers.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-optimal-integer-clock-for-bernstein-durrmeyer-diffusion-and--3ac17f17da22",
+          "material_read": "RESULT.md Finding and proof Steps 4–5; offsets 0–6494",
+          "method": "Local Resultary mirror",
+          "title": "The optimal integer clock for Bernstein–Durrmeyer diffusion",
+          "trigger": "Closest exact trace-class and clock result"
+        },
+        {
+          "assessment": "PARTIAL convergence background",
+          "evidence": "Jacobi-weighted operators on the unit hypercube, with iterates tending to the diffusion when k(n)/n tends to t; the read theorems do not state a centered sharp Schatten error.",
+          "identifier_or_url": "https://doi.org/10.33205/cma.491601",
+          "material_read": "§6, Theorems 6.9–6.10 and equation (6.30), pp. 35–37",
+          "method": "OA primary full-text passages",
+          "title": "Iterates of Markov Operators and Constructive Approximation of Semigroups",
+          "trigger": "Published weighted Durrmeyer semigroup approximation"
+        },
+        {
+          "assessment": "Eigendata and one-step expansion antecedent; finer overlap unresolved",
+          "evidence": "Accessible descriptions concern single-operator asymptotics; they do not exhibit an increasing-power all-ideal estimate. The repository connection failed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.04.004",
+          "material_read": "Landing-page and abstract material; theorem pages not reached",
+          "method": "Publisher route plus identified lawful repository attempt",
+          "title": "Complete asymptotic expansion for multivariate Bernstein–Durrmeyer operators and quasi-interpolants",
+          "trigger": "Same operators and high-order asymptotics"
+        },
+        {
+          "assessment": "Access-limited quantitative antecedent",
+          "evidence": "Accessible descriptions address related genuine and ultraspherical variants and C^2 estimates; the theorem pages could not be assessed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2008.11.002",
+          "material_read": "Title and abstract material; publisher theorem pages unavailable",
+          "method": "Indexed comparison and attempted lawful publisher retrieval",
+          "title": "Convergence of iterates of genuine and ultraspherical Durrmeyer operators to the limiting semigroup: C^2-estimates",
+          "trigger": "Possible quantitative semigroup overlap"
+        },
+        {
+          "assessment": "Access-limited; different exponent regime in the available comparison",
+          "evidence": "Two-term high-degree trace asymptotics and shape cancellation are associated with fixed powers, not a fixed-time semigroup limit with growing powers.",
+          "identifier_or_url": "2026/10/18/SCOPE-spectral-power-trace-cancellation-for-dirichlet-bernstein-durrmeyer-operators-on-simplices--7bbc01919259",
+          "material_read": "Resultary indexed summary compared with frozen RESULT.md line 105; local full record unavailable",
+          "method": "Local Resultary index and attempted mirror lookup",
+          "title": "Spectral-power trace cancellation for Dirichlet Bernstein–Durrmeyer operators on simplices",
+          "trigger": "Same simplex operators and spectral trace powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof Steps 2–5",
+        "Resultary optimal-integer-clock special case"
+      ],
+      "rationale": "For the natural approximation of the Dirichlet diffusion by accelerated averaging, centering removes the first-order defect and leaves an explicit operator correction with a uniform fourth-order remainder in positive time windows. Trace class and smaller p quantify error across all modes, not just on individual functions, and the one-sided bound and positive leading constant explain when an additive clock can or cannot accelerate the approximation. This is a quantitative approximation statement beyond the already known interval special case.",
+      "residual_risks": [
+        "The result does not optimize nonlinear clocks, address time approaching zero, or provide an independent result about dimension growing with degree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

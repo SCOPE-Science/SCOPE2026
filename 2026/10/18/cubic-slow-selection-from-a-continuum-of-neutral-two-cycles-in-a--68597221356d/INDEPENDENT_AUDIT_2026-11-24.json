@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:22:04.404319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In normalized variables with s=u+v−1, the two-step linearization at ε=0 on the neutral segment is [[1,−u],[0,uv]], v=1−u. To check forcing, write D_1=v²+3u² and D_2=u²+3v². The first updated coordinate is u−εD_1 at s=0 to first order. The second is v+ε(vD_1−D_2), because the intermediate coordinate changes the second denominator. Thus the ε forcing in (u,s) is (−D_1,−uD_1−D_2). The left eigenvector normalized on the tangent is (1,−u/(1−uv)); its projected forcing is (uD_2−vD_1)/(1−uv)=(u−v)^3/(1−uv). At u=3/4 this is 2/13, whereas the uncorrected first component is −7/4. On a slightly larger compact interior segment, the transverse recurrence keeps s=O(ε); subtracting εH_s/(1−uv) leaves a residual bounded by C(εq^j+ε²), q<1, using O(ε) changes of u. Its absolute sum up to T/ε is O(ε), so perturbed Euler and an interior stopping argument give uniform convergence, also for the v coordinate. This includes u_0=1/2 as the constant limiting solution. On either strict outward branch, dD/dt=8D³/(3+D²), and direct integration gives the stated clock. Strict outward motion and uniform convergence on both sides of the threshold exclude earlier crossings and ensure crossing soon after the limiting time. Since u_j=y_{2j−1}, the original iteration count is 2J_ε up to O(1). The frozen script and notes were inspected, not executed; the analytic estimates, not finite residuals, establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The competitive-map paper gives invariant-manifold results for classes of competitive maps and includes nonhyperbolic examples. The recurrence paper identifies the qualitative basin separator and stable boundary two-cycle points for the critical surface."
+        ],
+        "reasoning": "Even a general normally contracting slow reduction needs the model's first-order projected forcing to give the exact cubic numerator and rational denominator. Neither the existence of a manifold nor a qualitative attraction result determines the rate for this singular parameter limit.",
+        "searches": [
+          "Kulenović–Merino arXiv:0905.1772, pp.7–8",
+          "2013 recurrence Theorem 14 and its proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "doi:10.1155/2013/210846",
+        "arXiv:0905.1772",
+        "Resultary c20db74919f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed equilibrium the two-step eigenvalues are 1 and 1/4. On the limit segment the transverse eigenvalue is instead u(1−u) and its forced displacement enters the drift as −uH_s/(1−u(1−u)). The frozen clock follows only after adding this displacement and integrating the resulting g."
+        ],
+        "reasoning": "The new quantitative claim is not a corollary of knowing the critical eigenvalue, stable boundary states, or a basin separator. The cancellation to a cubic and its coefficient throughout the neutral segment require the first-order map calculation.",
+        "searches": [
+          "Same-recurrence Theorem 14 proof around offsets 58750–59425",
+          "Resultary neutral-curve clock comparison",
+          "Kulenović–Merino general invariant-manifold discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (1) of DOI 10.1155/2013/210846 is the exact unnormalized recurrence, with Theorem 14 on 3a+b−c=0 and one-step eigenvalues −1,1/2. Taking b as the normalization unit and considering even two-steps is the correct equivalence of the dynamical setup."
+        ],
+        "reasoning": "This is an actual same-map comparison. The theorem concerns positive coefficients and the local equilibrium and basin separator; its relevant passage does not state ε→0 on a whole fixed-interior neutral segment or a passage clock. An equilibrium flip analysis would concern a smaller phase regime than the stated fixed-interior limit.",
+        "searches": [
+          "Exact recurrence title with flip bifurcation / center manifold (primary search)",
+          "Global Dynamics of Certain Homogeneous 210846 rational recurrence slow limit critical c b 3a perturbation continuum two-cycles passage time exact slow flow",
+          "Resultary normalized/projection slow drift and critical-line threshold clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest returned indexed analogue is an explicit inverse-|ε| passage clock on a neutral fixed curve of a two-sex Volterra map, obtained by perturbing a heredity coefficient; mirrored RESULT.md offsets 0 and 6450."
+        ],
+        "reasoning": "The common O(1/|ε|) scale does not match the rational recurrence, the c=b+3a perturbation, or the inverse-square-plus-logarithm constant. No exact same-family drift or clock occurred in the relevant returned coverage.",
+        "searches": [
+          "Configured Resultary lookup of slow-selection and neutral-continuum clocks; compared c20db74919f6"
+        ]
+      },
+      "rationale": "The same recurrence and critical surface, its nonhyperbolic multipliers, boundary-cycle attractors and basin separation are established in earlier work. Supported distinct content is the projected slow vector field along the entire fixed-interior limiting neutral line and the exact first-crossing constant on the a/b scale. No claim of novelty is made for the competitive-map setting, invariant-curve techniques or critical multiplier. The closest distinct indexed slow-selection problem has a different map and perturbation.",
+      "residual_risks": [
+        "An equivalent calculation in additional bifurcation or rational-recurrence literature may exist; no exhaustive priority conclusion is made.",
+        "Fixed-interior limits only; no simultaneous near-midpoint regime, uniform endpoint estimates or post-exit asymptotics are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive overlap for the critical surface and qualitative dynamics, not the limiting clock",
+          "evidence": "Theorem 14 treats 3a+b−c=0, the nonhyperbolic equilibrium, boundary states (0,1/c) and (1/c,0), and a basin separator; its proof gives multipliers −1 and 1/2.",
+          "identifier_or_url": "doi:10.1155/2013/210846; https://pdfs.semanticscholar.org/a642/33cec4db5578b1fcf0bd2ce576ab687fe4e1.pdf",
+          "material_read": "Eq. (1), p.1; Theorem 14 and proof, p.9, offsets about 58750 and 59425",
+          "method": "Lawful accessible article PDF",
+          "title": "Global Dynamics of Certain Homogeneous Second-Order Quadratic Fractional Difference Equation",
+          "trigger": "Exact same recurrence and critical parameters"
+        },
+        {
+          "assessment": "General geometry not a computation of this family's drift",
+          "evidence": "Invariant-manifold results for competitive maps and nonhyperbolic examples, with no clock in the passages used for comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.1772",
+          "material_read": "pp.7–8, text around offset 23800",
+          "method": "Lawful arXiv PDF",
+          "title": "Invariant Manifolds for Competitive Systems in the Plane",
+          "trigger": "Broader theorem potentially implying the slow reduction"
+        },
+        {
+          "assessment": "Different system and perturbation; thematic overlap",
+          "evidence": "The clock is for a neutral fixed curve of a two-sex Volterra map perturbed in a heredity coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-weak-selection-clock-for-a-two-sex-volterra-map-near-its-n--c20db74919f6",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 6450",
+          "method": "Configured Resultary lookup and local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact weak-selection clock for a two-sex Volterra map near its neutral curve",
+          "trigger": "Strongest indexed slow-passage analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical surface of this known rational recurrence ends at a full neutral family of two-cycles. Knowing the ultimate attractors does not explain how long small a/b orbits retain a phase. The quantitative selection law gives a nontrivial signed cubic after eliminating a transverse displacement of the same order; the explicit two-sided threshold clock measures that effect for an entire range of initial states rather than just the equilibrium.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

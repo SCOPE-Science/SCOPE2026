@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polyspectrum identity is obtained directly by exchanging finite sums with the stated unnormalized transform. For two real signals with equal power spectrum, the nonzero odd-frequency coefficient ratios have unit modulus and conjugate symmetry. The sampled trispectrum relations force their successive phases to be powers of the first ratio. The final relation and conjugation, treated separately for the two congruence classes of the even length, force an \(N\)-th root of unity and therefore an exact translation. The converse is translation invariance. The phase-torus argument proves the lower bound without relying on finite enumeration. The independent standalone script checks exact exponent determinants for 99 even orders, finitely enumerates phase fibers at five small orders, and computes the actual fourth-order autocorrelation Fourier transform at five orders.
+PASS
 
-## Originality — PASS relative to inspected sources
+With the stated unnormalized lag DFT, replacing x+t_i by independent summation variables gives the product of the r Fourier factors including the negative sum frequency, with no normalization factor. Shifting the x-sum by N/2 proves every odd autocorrelation zero; the Fourier support and conjugate symmetry are as asserted. For equal power and equal selected samples the unit ratios satisfy h(2j+1)=h(2j−1)h(1)^2. Thus with z=h(1) they satisfy h(2j+1)=z^(2j+1). At N=4m the terminal indices 2m+1 and 2m−1 are paired by negation; at N=4m+2 the terminal index M=2m+1 is self-conjugate and its ratio is ±1. Both give z^N=1, including N=4 and 6; all ratios are precisely those of a cyclic translation. For reconstruction, the initial phase is an unknown parameter, not a freely chosen final phase: the normalized measured phases fix each higher phase as a monomial in it, and the terminal relation fixes its N-th power. For the lower bound, at fixed positive magnitudes and optionally fixed Nyquist sign the signal family is a full m-torus. Each individual coefficient is zero or a constant times a character there. Fewer than m such rows in the integer exponent matrix have a positive-dimensional kernel. A finite translation orbit cannot exhaust a fiber; this proves the claimed fixed, nonadaptive individual-entry lower bound.
 
-Agulnick–Busick-Warner give general higher-autocorrelation sufficiency statements, not an explicit least number of individual fourth-spectrum entries in the all-odd-nonzero regime. Grünbaum–Moore (1995) assume rational cyclic signals with a nonzero mean, excluding the antiperiodic class whose mean is identically zero, and do not quantify minimal fourth-order individual entries. Casper–Orozco treat rational data and demonstrate a different sparse-support obstruction; their counterexample for order six has zeros at the self-conjugate odd frequency and hence does not cover the stated class. Bendory–Edidin–Kreymer's few *generic linear measurements* of high-order spectra are neither fixed individual trispectrum entries nor the same real anti-periodic class. Search comparisons against the connected mathematical-results index showed the closest bispectral sample-count theorem for asymmetric frequency bands, which makes different support and order assumptions and does not imply the present fourth-order theorem. An unindexed equivalent derivation in invariant theory remains possible; novelty is relative to the searched evidence, not mathematically certified by absence of a hit.
+## originality
 
-## Value — PASS
+PASS
 
-This family has complete loss of all odd-order autocorrelations, making ordinary bispectral phase recovery impossible. Determining exactly how much fourth-order data repairs that obstruction, **for every signal in the class**, is a well-motivated finite sampling problem. The constructive recurrence achieves the information-theoretic nonadaptive lower bound of \(\lfloor N/4\rfloor\) complex entries with exact translation ambiguity. The result is an exact optimal sampling specification, not a routine reparameterization of a generic sufficiency criterion.
+The distinct indexed full-fourth-order coset theorem already implies full-spectrum reconstruction for this class. The supported increment is the exact minimum number of individual entries with the power spectrum, including the specified deterministic design, proof for all allowed signals, and lower bound against every fixed smaller design. A generic few-measurement theorem or the larger full-spectrum result does not determine the number or this subset; generic recursive phase recovery is prior method, not itself credited.
 
-## Closest literature and limitations
+## value
 
-The 1995 classical cyclotomic invariant article, 2026 general autocorrelation bounds, 2025 rational reconstruction/counterexamples, and 2021 generic high-order spectrum compression paper are compared in RESULT.md. The full odd-frequency nonvanishing condition, real signals, known power spectrum, and nonadaptive *individual* complex trispectrum entries are essential scope restrictions. Perturbation stability and arbitrary functionals are not addressed. There has been no independent external assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The proof turns a full higher-order spectrum into an explicit set of only floor(N/4) entries once power is known, in a natural all-zero-bispectrum family. The sharp match to a lower bound, including the two parity cases and every full-odd-support signal, is the valuable increment, not reconstruction using the entire fourth-order array.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

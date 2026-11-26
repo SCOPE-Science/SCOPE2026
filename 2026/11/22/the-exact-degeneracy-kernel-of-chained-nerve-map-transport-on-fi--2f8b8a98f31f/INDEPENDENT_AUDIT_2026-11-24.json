@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:07:28.229142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original pointwise estimate uses the union of the two localized supports, the maximum of the two normalizers, and common valid centers. Full support makes both localized supports the same open ball B_r(m), all centers valid, and both denominators positive and bounded by r. At a nonisolated x, the center-x cost to every y!=x is positive (for y inside, both kernel and distance are positive; otherwise the term D_x r is positive). The total off-diagonal flow out of or into x is at least the absolute change of its coordinate. Thus the positive minimum of those costs divided by r controls the coordinate change on every link and, by the scalar triangle inequality, on every chain. Conversely, a coupling diagonal on the active sites and arbitrary on the isolated residual mass costs zero at every center: isolated sites are outside all nonsingleton balls and singleton centers contribute zero. Two isolated sites allow a nonzero positive-simplex perturbation with the same active-site coordinates; one isolated coordinate is determined by total mass. This gives exactly r>rho_(2), with equality nonseparating. With at most one isolated site, the l1 difference is bounded by 2(n-1) times the maximum active coordinate difference (also valid when every site is active), giving the stated uniform bound. For TV defined as half l1 the equivalent coefficient is a/(n-1). Independent hand checks gave the Appendix A costs 3/4, 2/9, 1/2 and, on the three-site line {0,1,2}, total degeneracy at r=1 and constants (1,5/3,1) at r=3/2. The numerical script was inspected but not executed; its reported 275 cases are recorded evidence, not independently replayed and not a proof about arbitrary chains. No claim is made for chains through zero weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.3 treats d_L^r, with coefficient 2r instead of the support diameter; Theorem 3.4 supplies an upper comparison for the pointwise estimate. The cited Wasserstein Transform results concern upper stability for kernel-localized measures.",
+          "The related Resultary record ffe56d4ec4e4 treats a radial-tree transport formula on finite ultrametrics for the 2r-coefficient metric and expressly excludes the support-diameter chain case."
+        ],
+        "reasoning": "A metric on a larger class with a different cost is not a stronger theorem for this cost. An upper bound by a metric gives no lower bound on an infimum over chains.",
+        "searches": [
+          "McCabe–Perea arXiv:2611.15938v1 Proposition 3.3, Theorem 3.4 and §3 cost definitions",
+          "Jin–Mémoli–Smith–Wan arXiv:1810.07793v2 §4.5.1",
+          "Resultary localized nerve metrics and ultrametric transport"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and nerve_chain_check.py",
+        "McCabe–Perea arXiv:2611.15938v1 original definitions, Proposition 3.3, Theorem 3.4, §7 and Appendix A",
+        "Jin et al. arXiv:1810.07793v2 cited comparison",
+        "Resultary 2f8b8a98f31f self-match and ffe56d4ec4e4 mirrored statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original formulas fix the object, but neither the different metric nor its upper comparison gives a one-link lower control that can be summed through every chain. The present proof isolates the site-centered off-diagonal mass bound and a matching zero-cost coupling.",
+          "The identity of support diameters on the positive simplex is a direct specialization of the definitions; it is not itself claimed as new."
+        ],
+        "reasoning": "The proof adds a two-sided classification that does not follow mechanically from the compared statements; isolation is exactly where the support-dependent coefficient can vanish.",
+        "searches": [
+          "McCabe–Perea §3 Eqs. (26), (36)–(39), Appendix A and §7",
+          "Resultary ffe56d4ec4e4 mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent zero-kernel statement is that quotienting the positive simplex by redistribution among scale-isolated sites removes exactly all zero distances. The nearest-neighbor threshold follows from this kernel including ties.",
+          "The original Appendix A defines the same chain construction on a class of measures and specifically leaves separation open; the exact Resultary match 2f8b8a98f31f is the frozen finding itself."
+        ],
+        "reasoning": "The definition and known failure of the one-link triangle inequality do not decide whether chains can make distinct measures arbitrarily close. The quotient description identifies exactly which equivalence classes collapse.",
+        "searches": [
+          "Resultary: chain pseudometric, nerve-map transport kernel and finite metric separation",
+          "McCabe–Perea arXiv:2611.15938v1 Appendix A and §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical index result is the assignment itself, and the related same-day result addresses a different cost. The prior numerical 3-point example only covers pointwise triangle failure."
+        ],
+        "reasoning": "No numerical table can replace the quantified chain-kernel claim for all finite spaces; the pertinent exact database check is for a published structural criterion. No separate equivalent criterion was identified in the inspected material.",
+        "searches": [
+          "Resultary exact chain kernel, separation and scale threshold",
+          "Resultary radial-tree transport formula ffe56d4ec4e4",
+          "McCabe–Perea Example A.1"
+        ]
+      },
+      "rationale": "The original Appendix A construction and triangle-inequality counterexample are credited. The supported distinct contribution is its exact full-support zero kernel, including the strict nearest-neighbor threshold and a uniform coordinate/TV lower bound. The directly inspected original leaves separation open and its nearby positive metric theorem treats a different transport cost.",
+      "residual_risks": [
+        "The external literature-search query was unavailable; this is not a negative result. An equivalent unindexed classification remains possible.",
+        "The scope is the full-support finite simplex with chains restricted to it. A variable-support or infinite-space theorem is not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full-support specialization verified; same chain construction introduced but point separation expressly left open",
+          "evidence": "The diameter is that of the union of localized supports, the denominator uses max of normalizers, and the chain infimum is taken over a chosen measure class.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15938v1",
+          "material_read": "§2.4 S2.Ex16/S2.SS4.p3 (~124543), §3 S3.Ex22 and S3.Ex36–38 (~197042 and ~264214–267756), Appendix A A1.Thmtheorem1/A1.p2 (~780943/~793500), §7 S7.p2 (~698911)",
+          "method": "Targeted primary arXiv HTML passage inspection; offsets are HTML character offsets",
+          "title": "Wasserstein Stability of the Nerve Map",
+          "trigger": "Exact cost/denominator and chain definition; whether separation is already answered"
+        },
+        {
+          "assessment": "Positive metric theorem for a different cost does not imply the target lower bound",
+          "evidence": "The localized metric uses coefficient 2r; the direction of comparison is Delta_L^r <= beta^(-1) d_L^r under the stated condition.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15938v1",
+          "material_read": "S3.Ex26 (~214836), S3.Thmtheorem3 (~239303), S3.Ex39 (~273094)",
+          "method": "Targeted primary arXiv HTML passage inspection",
+          "title": "Wasserstein Stability of the Nerve Map: comparison metric",
+          "trigger": "Strongest adjacent positive metric theorem"
+        },
+        {
+          "assessment": "Upper stability of the transform is a different property than a chain metric's zero kernel",
+          "evidence": "The compared estimates concern normalized localized measures in Wasserstein distance.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.07793v2",
+          "material_read": "Theorem 27 and Lemma 48 in §4.5.1 as scoped in the cited comparison",
+          "method": "Targeted secondary statement comparison; not used as a whole-document exclusion",
+          "title": "The Wasserstein Transform",
+          "trigger": "Related kernel-localization stability"
+        },
+        {
+          "assessment": "Different transport metric and specialization, with explicit scope exclusion; no date-based priority inference",
+          "evidence": "Tree cuts compute the 2r-coefficient metric on finite ultrametrics, excluding the support-diameter cost and chain question.",
+          "identifier_or_url": "Resultary ffe56d4ec4e4, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md offsets 0 and 7550",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact radial-tree transport formula for localized nerve metrics on finite ultrametrics",
+          "trigger": "Material same-day index overlap in localized nerve metrics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Chain metricization of a useful estimate can identify points that a single link distinguishes, so nondegeneracy cannot be presumed. The result settles the full-support finite case of the motivating separation question, both identifying the invisible masses and furnishing a scale-only test and a quantitative lower bound independent of the measures and chain length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

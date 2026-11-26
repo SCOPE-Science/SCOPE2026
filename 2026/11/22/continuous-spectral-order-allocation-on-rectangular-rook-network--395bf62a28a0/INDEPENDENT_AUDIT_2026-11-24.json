@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:47:37.470207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–65; fixed-m scope and Limitations at line 74",
+        "Frozen verify.py and VERIFICATION.md, inspected but not executed"
+      ],
+      "rationale": "On the orthogonal complement of constants, strict trace convexity follows from the positive divided differences of the scalar derivative, including coincident eigenvalues, for t^(-p) and -log(t). Edge weights determine the restricted Laplacian injectively, since the full operator kills constants and its off-diagonal entries determine the edges. A connected feasible point exists; at disconnected limits the vanishing eigenvalue causes blowup, with the other eigenvalues bounded by the fixed trace 2. Existence and uniqueness therefore precede symmetry reduction. Coordinate automorphisms force the two edge classes, and both are positive to ensure connectivity. The rates a=mx and b=ny occur with multiplicities m-1 and n-1, and a+b with (m-1)(n-1); the costs of a and b are n(m-1)/2 and m(n-1)/2. Equating the negative marginal derivatives per unit cost gives the stated root with s=p+1, common factor p canceled for p>0; the logarithmic case has s=1. The left side is strictly decreasing, and its value at q=1 equals n only for m=n. At s=1 clearing denominators gives nq^2=m. At fixed m and s>1, q tends to zero and q≥(m/n)^(1/s) makes m/n negligible compared to q in the balance (m/n)q^(-s)=1-(1-m/n)(1+q)^(-s)~sq. This gives the stated powers and constants after using x/y=nq/m and the exact class cost share. For fixed m and s_n/log n→alpha in (0,infinity), the same lower bound stays positive, so the second term of the divided root equation vanishes, and log q=(log(m/n)+o(1))/s_n. If alpha is infinite the lower bound tends to one; if alpha is zero any subsequence q≥epsilon makes the first term n^(-1+o(1)) and bounds the second strictly below one. These arguments also give the two unequal iterated limits; at fixed n the same lower bound tends to one. The crossover is for fixed smaller factor m and for q, not for x/y or for arbitrary growing m.",
+      "residual_risks": [
+        "Small rational Laplacian checks and floating-point root checks are diagnostics. The audit rests on the all-parameter proof; there is no fixed-order uniform estimate claimed for p growing with n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general resistance minimization framework includes p=1 on arbitrary graphs, but the relevant analytic example is a barbell, not the Cartesian product in this record.",
+          "The all-order cyclic-prism result uses C_m square K_2 and a p=1/2 transition. The matching-priced balanced bipartite result uses K_{m,m} and a logistic price threshold at p/m scale."
+        ],
+        "reasoning": "An arbitrary-graph convex optimization framework does not give this exact analytic solution and joint limit. Neither same-day all-order theorem covers the claimed complete-product family or the p/log n rate crossover.",
+        "searches": [
+          "Ghosh–Boyd–Saberi 2006, introduction and §V",
+          "Resultary all-real-order spectral allocation and high-order crossover comparisons: 8a4a15cc3c55, 6a54dc4c69eb"
+        ]
+      },
+      "checked_sources": [
+        "The three open papers and four mirrored RESULTS identified above; comparison mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Frozen RESULT.md, originality boundaries in Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching edges and within-layer edges of the complete prism are exactly the two directional classes at m=2. Setting its relative price to one gives the overlapping p=1 optimum.",
+          "The high-order bipartite crossover is for a different graph with a distinguished priced matching and a different varying quantity; its limit is not the rook normalized rate ratio."
+        ],
+        "reasoning": "The exact common subcase is old. Neither varying the prism price at p=1 nor changing the bipartite price/order jointly entails the all-order rectangle statement.",
+        "searches": [
+          "SCOPE-three-allocation-scales-in-priced-complete-prisms--ab8d476367b2, RESULT.md Finding",
+          "SCOPE-spectral-moment-price-hierarchy-on-matching-priced-balanced-bipa--6a54dc4c69eb, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At p=1 the Kirchhoff index is mn times the inverse Laplacian trace on this graph, so the priced-prism unit-price optimum at m=2 is genuinely equivalent.",
+          "At p=2 the inverse-square trace in the fractal-network literature identifies the coherence objective up to normalization, without an edge allocation theorem on the required graph.",
+          "At p=0 the product of nonzero eigenvalues is proportional to the weighted spanning-tree sum; the cited coherence objectives do not supply its optimum here."
+        ],
+        "reasoning": "Objective equivalence is counted as coverage for the prism subcase, not treated as a new design problem by switching normalizations. General objective definitions give no corresponding rate-ratio law.",
+        "searches": [
+          "Resultary complete-prism/rook/product spectral optimization semantic comparison",
+          "arXiv:1112.4011 and arXiv:1310.2592; Ghosh–Boyd–Saberi effective-resistance minimization",
+          "Focused primary-literature search for complete-product conductance allocation and spectral order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched all-order rook record is the assigned record itself.",
+          "The prior complete-prism Finding actually states the overlapping n^(2/3)/2 per-edge scale at equal prices; the cyclic-prism first/second-order Finding uses cycles instead of complete layers."
+        ],
+        "reasoning": "No separate catalogue entry or exact table reproducing the all-order complete-rectangle root or joint limit was identified in the bounded results. The actual matched prism constant is credited rather than ignored.",
+        "searches": [
+          "Resultary exact rook/complete-prism and same-day allocation results, ab8d476367b2, 8a4a15cc3c55, 5aa5b5174067, 6a54dc4c69eb"
+        ]
+      },
+      "rationale": "The identified direct overlap is the unit-price p=1, m=2 prism optimization and its n^(2/3)/2 per-edge ratio; do not credit that subcase. The supported distinct contribution is the complete-factor all-real-order allocation, including its general fixed-order laws and logarithmic order crossover for the normalized rate ratio. Related same-day high-order and fixed-order results were compared by actual family, objective, variable and limit, not by date.",
+      "residual_risks": [
+        "Only relevant cited paper passages and mirrored Findings were inspected, not all related literature. An unlocated equivalent general design theorem could cover more.",
+        "Same-day record precedence was not inferred; the bounded primary query's lack of hits does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, distinct explicit example",
+          "evidence": [
+            "The analytic example comprises two cliques joined by a single edge."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "PDF p. 2 introduction; pp. 9–10 §V",
+          "method": "Open primary PDF passage inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General resistance-design result and strongest analytic example"
+        },
+        {
+          "assessment": "Related metric context, not this design theorem in the read passages",
+          "evidence": [
+            "Studies coherence and local feedback on regular lattices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.4011",
+          "material_read": "PDF p. 1 abstract and introduction",
+          "method": "Open primary PDF passage inspection",
+          "title": "Coherence in Large-Scale Networks: Dimension-Dependent Limitations of Local Feedback",
+          "trigger": "Potential coverage via coherence of product graphs"
+        },
+        {
+          "assessment": "Identifies the coherence objective, not a rook optimum",
+          "evidence": [
+            "Second-order coherence has a term proportional to the sum of inverse squared positive Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2592",
+          "material_read": "PDF p. 1 and pp. 2–3 spectral formulas",
+          "method": "Open primary PDF passage inspection",
+          "title": "Consensus and Coherence in Fractal Networks",
+          "trigger": "Potential inverse-square trace equivalence"
+        },
+        {
+          "assessment": "Direct coverage of m=2, p=1 at equal price",
+          "evidence": [
+            "Two K_n layers with a perfect matching; Kirchhoff-index minimization; relative price 1 gives matching-to-clique ratio asymptotic to n^(2/3)/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-allocation-scales-in-priced-complete-prisms--ab8d476367b2",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Three allocation scales in priced complete prisms",
+          "trigger": "Direct prior subcase"
+        },
+        {
+          "assessment": "Different graph family and transition",
+          "evidence": [
+            "All-fixed-real-p allocation for C_m square K_2, transition at p=1/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-half-order-allocation-transition-for-inverse-laplacian-spectra--8a4a15cc3c55",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A half-order allocation transition for inverse Laplacian spectral moments on cyclic prisms",
+          "trigger": "Strong same-day continuous-order comparison"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "Exact first/second-order laws for C_m square K_2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-second-order-coherence-on-cyclic-prisms-a-five-rung-reversal-and--5aa5b5174067",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Second-order coherence on cyclic prisms: a five-rung reversal and a six-fifths allocation law",
+          "trigger": "Same-day fixed-order comparison"
+        },
+        {
+          "assessment": "Different graph, varying parameter and scaling law",
+          "evidence": [
+            "Matching-priced K_{m,m}; logistic price-threshold crossover for p/m→alpha."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-moment-price-hierarchy-on-matching-priced-balanced-bipa--6a54dc4c69eb",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Spectral-moment price hierarchy on matching-priced balanced bipartite networks",
+          "trigger": "Strong same-day high-order crossover analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding lines 20–35 and Proof lines 58–65",
+        "Priced complete prisms, mirrored Finding ab8d476367b2"
+      ],
+      "rationale": "For a natural anisotropic network and independently controllable weighted edges, the optimum shows that the direction with a diminishing aggregate budget share can have diverging relative individual conductance. The all-order solution yields a continuously varying exponent and an exact logarithmic crossover with unequal iterated limits. These distinctions are useful beyond reducing an optimization by symmetry or recovering the priced-prism subcase.",
+      "residual_risks": [
+        "The laws concern the specified unit-price two-factor network with fixed smaller factor in the large-size limits, not a general product or pricing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

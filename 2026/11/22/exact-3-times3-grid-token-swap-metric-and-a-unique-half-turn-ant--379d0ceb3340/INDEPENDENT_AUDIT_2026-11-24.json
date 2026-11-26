@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:20:43.465980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md, verify_grid.py and verify_grid_factoradic.cpp (inspected)",
+        "python3 /workspace/evidence/4.py; output /workspace/evidence/4.txt"
+      ],
+      "rationale": "The horizontal and vertical coordinate steps give precisely twelve distinct transpositions. The connected site graph generates all permutations; parity changes with each move, and token relabeling gives transitivity. An independent exact layer traversal packs each placement into nine four-bit fields, swaps fields by XOR, and constructs each next set as all legal neighbors not yet seen. Induction makes each layer the set at its stated minimum distance. Enumeration reaches all 9! placements, reproduces every claimed layer, and terminates with only 876543210 at depth 16. Relabeling the identity by p transports that last state to p composed on the right with the positional half-turn. This involution has no fixed configuration and pairs the states, giving 181440 unordered diametral pairs; transitivity gives radius 16. Each swap moves two tokens one edge and hence can reduce the total Manhattan distance by at most two. Computing the bound on every reached state reproduces the full six-bin excess distribution, with twenty maximizing states at excess five.",
+      "residual_risks": [
+        "This is an exhaustive finite certificate for the specified graph, not an extrapolation or an analysis of larger, blank-tile, or parallel models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complexity and approximation results concern general token swaps, restricted classes, trees or other objectives. The inspected grid theorem concerns approximate parallel makespan, and the prior sequential papers distinguish that objective."
+        ],
+        "reasoning": "These results explain the standard model and useful bounds without giving an exact extremal characterization for the sequential square grid. The three-cube, ladder and prism data are host-specific and give no dominating exact formula for this host.",
+        "searches": [
+          "Aichholzer et al. arXiv:2103.06707",
+          "Miltzow et al. ESA 2016.66",
+          "Bonnet–Miltzow–Rzążewski DOI:10.1007/s00453-017-0387-0",
+          "Demaine et al. SoCG 2018.29"
+        ]
+      },
+      "checked_sources": [
+        "CSES Swap Game same-model public solution sources",
+        "Resultary 70982a1323ed, 2f77b68ee3e5 and afeca1314233",
+        "SoCG 2018.29",
+        "arXiv:2103.06707",
+        "ESA 2016.66",
+        "Algorithmica DOI:10.1007/s00453-017-0387-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-grid solution runs BFS from a given input until the goal; it does not characterize which input takes longest. General vertex transitivity transports a characterization at identity if known, but does not itself determine it. The known lower bound alone gives no sharp distribution of the gap."
+        ],
+        "reasoning": "The finite computation is routine algorithmically, but neither a prior exact census nor a theorem giving the antipode and precise excess fact was established. Obtaining these facts from the known solver requires a separate all-state evaluation, explicit comparison with the Manhattan bound and examination of its maximizers.",
+        "searches": [
+          "CSES Solutions – Swap Game, algorithm passage",
+          "USACO Guide Swap Game, BFS note",
+          "ESA 2016 token-swapping background",
+          "Resultary exact q_3, ladder and prism findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CSES Swap Game, as stated in the inspected CSES solution article, has exactly nine numbered cells, both occupied in each orthogonal swap, and goal the increasing row-major board. Subtracting one from each label identifies its distance-to-goal problem exactly with this identity distance.",
+          "The reviewed grid motion-planning theorem instead optimizes parallel makespan; the eight-puzzle retains a single blank."
+        ],
+        "reasoning": "The same-puzzle alias constitutes real model and method coverage. Neither a parallel measure nor a blank-tile search is an equivalent formulation of the exact sequential metric.",
+        "searches": [
+          "Grid-edge transposition Cayley graph on S_9 and full-occupancy grid tokens",
+          "CSES Swap Game 1670, maximum distance/reverse order/grid transpositions",
+          "Resultary sequential swap metric/unique antipode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary hit is the bound record itself. The three-cube 70982a1323ed, pentagonal prism 2f77b68ee3e5, and ladder afeca1314233 have explicit but different exact censuses.",
+          "The inspected same-model article gives example depths 9 and 10, not a histogram or a maximum assertion. No matching exact numerical table was read from the prefix lookup."
+        ],
+        "reasoning": "Single-instance depths and general code are not prior tabulated extremal or sphere/excess facts. Nearby same-day tables use other hosts; their ordering cannot be inferred from publication dates.",
+        "searches": [
+          "Resultary exact 3x3 grid diameter 16, antipode, distance and excess counts",
+          "Numeric sphere prefix '88' '470' '1978' '6658' with grid transposition and OEIS terms",
+          "CSES 1670 source and same-model worked solutions"
+        ]
+      },
+      "rationale": "The exact graph and its shortest-path computation by BFS are already the CSES Swap Game. The supported distinct contribution is not the model, search procedure or standard displacement bound, but the exact extremal and census results, especially the unique geometric maximizer and the complete quantitative deficit of the displacement bound. The strongest inspected same-model sources solve a given input and do not supply the claimed extrema and histograms.",
+      "residual_risks": [
+        "Direct full-page retrieval of the CSES task was unavailable; the same model and prior computation are established by the inspected open solutions. A public solution repository, test corpus or older permutation-generator table not inspected may already record one or more precise invariants; unsuccessful exact-prefix retrieval does not rule this out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the exact graph and input-to-goal BFS, not the all-state extrema in the passages read",
+          "evidence": [
+            "Nine occupied cells; each move swaps an orthogonally adjacent pair. Runs BFS from a given input until the increasing goal, with sample distances 9 and 10."
+          ],
+          "identifier_or_url": "https://www.geeksforgeeks.org/dsa/cses-solutions-swap-game/",
+          "material_read": "Problem statement, examples and BFS approach, HTML offsets 270–2285",
+          "method": "OA original public article",
+          "title": "CSES Solutions – Swap Game",
+          "trigger": "Same host, distinct tokens, exact equivalence of moves and goal"
+        },
+        {
+          "assessment": "Prior BFS approach; text read does not supply a numerical census",
+          "evidence": [
+            "The text explicitly presents two implementations differing in board hashing."
+          ],
+          "identifier_or_url": "https://usaco.guide/problems/cses-1670-swap-game/solution",
+          "material_read": "Public HTML offset 0, solution overview",
+          "method": "OA website reader",
+          "title": "Solution – Swap Game (CSES)",
+          "trigger": "Same puzzle under competitive programming alias"
+        },
+        {
+          "assessment": "Same kind of invariant, different host graphs",
+          "evidence": [
+            "Q_3 has diameter 12 and a unique antipode; the pentagonal prism has diameter 17 and four antipodes, and P_2 square P_5 has diameter 21 and four. None is the nine-site square grid."
+          ],
+          "identifier_or_url": "Resultary 70982a1323ed, 2f77b68ee3e5, afeca1314233",
+          "material_read": "Each original finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact token swapping on the three-cube; exact swapping diameter of the pentagonal prism; exact sequential token-swap geometry of the five-rung ladder",
+          "trigger": "Closest exact finite sequential swap and antipode analogues"
+        },
+        {
+          "assessment": "Parallel objective and approximation rather than sequential census",
+          "evidence": [
+            "The grid algorithm obtains a constant-factor approximation for makespan, using maximum individual travel distance, not a sum of elementary swaps."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2018.29",
+          "material_read": "PDF p. 3, offset 6620",
+          "method": "OA conference PDF",
+          "title": "Coordinated Motion Planning: Reconfiguring a Swarm of Labeled Robots with Bounded Stretch",
+          "trigger": "Grid label-routing theorem might dominate the studied distance"
+        },
+        {
+          "assessment": "Tree results and distinction between grid models",
+          "evidence": [
+            "Distinguishes grid parallel approximations from sequential token swapping; the principal results concern trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.06707",
+          "material_read": "PDF p. 3, offset 12483, related grid result and scope",
+          "method": "OA original preprint PDF",
+          "title": "Hardness of Token Swapping on Trees",
+          "trigger": "Cited exact sequential token-swapping literature and grid comparison"
+        },
+        {
+          "assessment": "Definitions, hardness and approximation, not the exact grid invariants in the inspected passages",
+          "evidence": [
+            "The operation is a sequential swap across an edge; the discussion explicitly distinguishes blank-square puzzles."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2016.66",
+          "material_read": "PDF pp. 1–3, offsets 2210, 5401 and 9243",
+          "method": "OA conference PDF",
+          "title": "Approximation and Hardness of Token Swapping",
+          "trigger": "General graph sequential-swap results"
+        },
+        {
+          "assessment": "Complexity results on different regimes, no matching table in inspected material",
+          "evidence": [
+            "The introductory scope covers parameterized complexity and restricted classes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-017-0387-0",
+          "material_read": "Abstract and introduction, offsets 93 and 2266",
+          "method": "OA source passages",
+          "title": "Complexity of Token Swapping and Its Variants",
+          "trigger": "Cited exact algorithms and restricted host graph classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Same-model CSES solution statement",
+        "Frozen Finding and proof §§3–4",
+        "Independent layer and excess output"
+      ],
+      "rationale": "The established Swap Game is a natural fixed routing benchmark rather than an arbitrary subset of states. The all-state diameter gives its exact worst routing budget, while the unique half-turn identifies the configuration needed to test the extremal case. The second census independently measures sharp error of a standard lower bound (including the number of maximizers), giving exact benchmarks for pruning and lower-bound improvements beyond rerunning one known puzzle input. Value belongs to these precise invariants, not to the textbook use of BFS.",
+      "residual_risks": [
+        "The method is standard exhaustive search, and the results give neither a new routing algorithm nor larger-grid asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

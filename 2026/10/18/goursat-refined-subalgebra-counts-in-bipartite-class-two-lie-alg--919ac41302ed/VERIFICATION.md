@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verification/verify.py` with standard Python 3 and no extra packages. The program explicitly enumerates every reduced-row-echelon subspace of the ambient vector space, independently checks Lie closure by direct coordinate brackets, computes the invariants \((i,j,t,e)\) from ranks, and compares the actual count in **each** stratum to the theoretical Gaussian product. Its RREF generator does not construct candidate subalgebras from the theorem.
+## correctness
 
-The eight completely enumerated configurations are \((a,b,q)=(1,1,2),(1,1,3),(1,1,4),(1,1,5),(1,2,2),(1,2,3),(2,1,2),(2,2,2)\). The extension-field case \(q=4\) explicitly implements \(\mathbb F_2[X]/(X^2+X+1)\). The last case has ambient dimension eight; its \(15727\) subalgebras occupy fifty-five four-way profile strata and have dimension histogram \(1,255,2347,6147,5267,1443,251,15,1\). Every expected stratum count matched the independent enumeration and the program ended with `ALL_EXACT_STRATUM_CHECKS_PASSED 8 cases`.
+PASS
 
-The proof, not a finite test, establishes the result for unbounded \(a,b\) and every prime power \(q\). No machine formalization or external expert certification is claimed. Independent audit has not been performed.
+For the image S in the central quotient, its two projections A,B and its two coordinate kernels A0,B0 recover S as the inverse image of the graph of an isomorphism A/A0→B/B0. This gives exactly the four Gaussian factors and |GL_t|, with quotient dimensions t. In complements X,Y associated by that isomorphism, the bracket image contains exactly A0⊗B0, A0⊗Y, X⊗B0 and the paired off-diagonal differences in X⊗Y. These pieces are disjoint by tensor coordinates; the paired differences are independent even in characteristic two because each has a coordinate unique to its unordered index pair. Thus rank is ij−t(t+1)/2. A central slice of dimension ρ+e is exactly an e-space in Z/[S,S]; modulo that slice the lifts are all graphs S→Z/T. This proves attainability, the count and the dimension (and hence codimension) generating polynomials. It includes t=0, S=0, and full projection S=U⊕V, in which case only H=L occurs. The profile describes incidence in the central quotient, not a direct specification of H∩U or H∩V. Frozen test code was inspected but not run; the proof establishes all prime powers without relying on finite tests.
+
+## originality
+
+PASS
+
+The inspected same-family ideal formulas do not give this all-subalgebra profile: their central closure requirement ignores the coupling rank in the commutator image. The known Heisenberg index polynomial is a covered special case, not evidence of general four-way coverage. No equivalent or dominating profile was found in the bounded checks.
+
+## value
+
+PASS
+
+The tensor-bracket family is already natural in class-two zeta counting, but ideal counts do not explain its subalgebra lattice dimensions. The closed, characteristic-independent count resolves how the coupling of the two projected summands changes bracket rank and the census, and yields every dimension coefficient without enumerating the subspaces of the full algebra. The unrefined Heisenberg case is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

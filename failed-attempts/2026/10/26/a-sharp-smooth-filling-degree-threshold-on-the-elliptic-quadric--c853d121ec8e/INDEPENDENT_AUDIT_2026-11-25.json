@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:04:01.939245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Verification",
+        "Frozen VERIFICATION.md, verify.py and recorded expected_output.txt",
+        "/workspace/branches/1a22c714-6679-479a-bdb4-ed90f917b6ab/sextic_check.py and sextic_check.out (fresh independent exact reproduction)"
+      ],
+      "rationale": "Over the splitting field the quadric has ruling classes swapped by Frobenius, so an F2 curve has type (d,d), degree 2d and smooth genus (d-1)^2. A smooth conic has only three rational points. A smooth quartic filling the quadric would be genus one with five F2-points; its trace -2 gives five F4-points. An F2-point identifies its degree-two Picard torsor with the elliptic curve, so all degree-two classes rational over F4 are already rational over F2. The two projection bundles are exchanged by Frobenius and thus must coincide. Each projection uses the complete two-section series, so coincident bundles would put the embedded curve in the graph of a projectivity, contrary to type (2,2). The given quadric is smooth and nonsplit and has the five listed points. The cubic is not a multiple of the quadric (compare its wz^2 term) and vanishes at all five. An independent exact four-chart Jacobian check gave the unit ideal on each chart. Over the closure the (3,3) divisor is connected: disjoint effective components would have pairwise intersection zero, forcing all into the same ruling and contradicting the total class. Smoothness and connectedness give geometric integrality. All smooth nonsplit quadrics over F2 have the same projective form, so the witness transfers.",
+      "residual_risks": [
+        "The Jacobian replay certifies this witness, not the minimum by itself; the Picard argument proves the lower bound. Singular filling curves are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faber–Grantham prove a genus-four gonality/point-count result and give a smooth geometrically irreducible curve filling the five-point nonsplit quadric. Homma–Kim's closing question asks about the elliptic case in general. The split-quadric minimum discussed by Ahammed–Campbell–Moon concerns a surface with nine rational points over F2."
+        ],
+        "reasoning": "The general open question and split results do not establish novelty of the binary nonsplit specialization. The explicit prior genus-four result does cover its upper bound.",
+        "searches": [
+          "Faber–Grantham arXiv:2005.07054 Theorem 5.3",
+          "Homma–Kim arXiv:2203.11595 p. 9",
+          "Ahammed–Campbell–Moon arXiv:2512.02796 §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Faber–Grantham Theorem 5.3",
+        "Resultary de62e0421b7a and 4f6dfdabde86",
+        "Homma–Kim p. 9",
+        "Ahammed–Campbell–Moon §2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A smooth F2-curve on Q has even degree; a conic has at most three F2-points. Degree four is excluded by the exact indexed anticanonical bound, while Theorem 5.3 already constructs the very same degree-six filling curve up to the transformation T."
+        ],
+        "reasoning": "There is no further mathematical obstruction or construction to prove to infer the exact minimum six. The Picard argument is a valid proof but does not make the covered finding original.",
+        "searches": [
+          "de62e0421b7a geometric bound without the census",
+          "Faber–Grantham Theorem 5.3, explicit intersection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With (x_FG,y_FG,z_FG,w_FG)=(y,z,w,x), the prior quadric equals Q and the prior cubic becomes H=yz^2+y^2w+z^2w+zw^2+y^2x+w^2x. In F2[w,x,y,z], for the invertible involution T(w,x,y,z)=(w+y,x,y,x+y+z), exact expansion gives Q∘T=Q and H∘T=G+(w+x+y)Q."
+        ],
+        "reasoning": "The two displayed complete intersections are the same solution up to a quadric-preserving projectivity. This is an exact model match, not just agreement of genus and point count. Also, a degree-four curve on the nonsplit quadric is precisely a geometric (2,2) divisor, hence an anticanonical section as in the indexed obstruction.",
+        "searches": [
+          "Faber–Grantham arXiv:2005.07054 Theorem 5.3, explicit equations",
+          "Resultary de62e0421b7a, geometric bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "de62e0421b7a, geometric bound in mirrored RESULT.md (offsets 4982–6610), explicitly excludes a smooth anticanonical section vanishing at all five points, not merely a member of the enumerated pencils. Index entry 4f6dfdabde86 concerns nonsplit characteristic-two genus-four pencils for field exponents m>=2 and makes no filling claim; e7a76829ef36 concerns the split quadric."
+        ],
+        "reasoning": "The first entry is exact independent coverage of the lower bound's only nontrivial degree obstruction. The other indexed results are not coverage of this setting. A single database entry spelling out the combined minimum is not required for the mechanical implication.",
+        "searches": [
+          "Local Resultary elliptic/nonsplit binary quadric, smooth genus-one anticanonical filling and genus-four sections"
+        ]
+      },
+      "rationale": "Existing results give both decisive bounds, and the displayed sextic is projectively equivalent to the published Faber–Grantham example. The earlier indexed exact exclusion of a smooth filling anticanonical section, the standard even-degree and conic facts, and the published explicit smooth sextic mechanically give the frozen threshold. No separate new theorem is established by packaging these ingredients. This is demonstrated coverage, not an absence-of-search-evidence judgment.",
+      "residual_risks": [
+        "The bounded comparison does not determine which source first stated the combined threshold as a standalone theorem. The exact implication and projective equivalence do not depend on resolving that priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact upper-bound and witness coverage",
+          "evidence": "The cubic vanishes on all five points of the displayed quadric; coordinate substitution and an equality modulo Q identify the curve with the frozen example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.07054",
+          "material_read": "Curve convention p. 4 and Theorem 5.3 with equations p. 9",
+          "method": "Primary OA PDF passages and exact F2 polynomial comparison",
+          "title": "Binary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "Binary genus-four canonical curves on the nonsplit quadric with five points"
+        },
+        {
+          "assessment": "Exact lower-bound coverage in degree four",
+          "evidence": "No smooth anticanonical (2,2) section can vanish at all five points; this statement is not limited to the enumerated pencils.",
+          "identifier_or_url": "2026/10/18/SCOPE-all-smooth-anticanonical-genus-one-pencils-on-the-nonsplit-binar--de62e0421b7a",
+          "material_read": "Geometric bound without the large census, mirrored RESULT.md offsets 4982–6610",
+          "method": "Local Resultary search and mirror passage",
+          "title": "All smooth anticanonical genus-one pencils on the nonsplit binary quadric",
+          "trigger": "Exact binary (2,2) obstruction"
+        },
+        {
+          "assessment": "Context, not a binary nonsplit obstruction or example",
+          "evidence": "Asks for existence and least degree in the elliptic case; the main work is split.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.11595",
+          "material_read": "Closing elliptic-quadric question, PDF p. 9",
+          "method": "Primary OA PDF passage",
+          "title": "Filling curves for the product of projective lines",
+          "trigger": "Split filling threshold and explicit elliptic-quadric question"
+        },
+        {
+          "assessment": "Split case only",
+          "evidence": "Discusses the split bidegree (4,3) or (3,4), not a nonsplit sextic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.02796",
+          "material_read": "§2.3, pp. 2 and 4–5",
+          "method": "Primary OA PDF passages",
+          "title": "Minimal algebraic space filling curves on the product of projective lines",
+          "trigger": "Direct comparison of small-field filling thresholds"
+        },
+        {
+          "assessment": "No binary filling case",
+          "evidence": "Family requires m>=2 for F_(2^m), has no parameter over F2 and makes no filling claim.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-smooth-nonsplit-quadric-genus-four-pencil-in-characteristic-tw--4f6dfdabde86",
+          "material_read": "Finding and scope, offsets 0–1285",
+          "method": "Local Resultary mirror",
+          "title": "A smooth nonsplit quadric genus-four pencil in characteristic two",
+          "trigger": "Closest indexed genus-four pencil on a nonsplit quadric"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Faber–Grantham Theorem 5.3 and the explicit change of coordinates",
+        "Resultary de62e0421b7a geometric bound"
+      ],
+      "rationale": "The binary nonsplit filling problem is natural and the minimum is useful, but the frozen claim adds no unknown finite threshold or distinct witness: the minimum is a direct consequence of known bounds and even the displayed cubic model is equivalent to the published one. The proof is expository in this submission; it does not yield a further filling criterion, classification or new invariant.",
+      "residual_risks": [
+        "This value judgment is for the frozen mathematical contribution, not a claim that the broader elliptic-quadric filling problem is unimportant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

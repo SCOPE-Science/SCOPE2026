@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:35.865895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projecting to the cycle of antipodal rungs excludes selecting two lifts of one rung or selecting adjacent rungs. At a quotient gap of two (unique two-edge arc for m≥5), a graph path of length ≤2 would have to follow that arc with no rung step. The other lift thus has distance exactly three, via that arc and a rung. No other pair constrains the lifts, since a length≤2 path would project to an arc of length≤2. A gap surplus L=m−2t>0 gives r>0 broken constraint links; each chain has two lifts even when traversing the twist. The positive compositions of L and the choice of their positions contribute binom(L−1,r−1)binom(t,r), and marking/unmarking multiplies by m/t. At L=0 the alternating rungs have two possible origins and the t lift reversals must compensate for the single twist; that gives four configurations exactly for odd t. The empty packing and t=1 work separately or by the stated formula. Evaluating the first nonzero top coefficient gives 2m for odd m, 4 for m≡2 mod 4, and 2m+m(m−4)=m(m−2) for m≡0 mod 4. Every top configuration has a length-two gap: the surplus is strictly less than the number of gaps in all three regimes. Rotation preserves the resulting distance-three pair, uses valid direct edges and visits every vertex; the timewise packing bound proves optimality even for strong tours. The separate bounded check (python3 /workspace/review_checks.py, tours) enumerated from BFS distances for m=5..10 and confirmed that every maximum had minimum separation exactly three; it does not prove the unbounded result. The supplied verification files were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The capacity paper gives cycle capacities and a separate 2-capacity result for balanced Hamiltonian bipartite graphs. Goddard–Henning's cubic packing paper is a relevant broader work but its original statements were not retrievable in the bounded lawful search."
+        ],
+        "reasoning": "The cycle has different distances and the bipartite result uses d=2. A packing-number result even if exact for this family would not automatically count all labelled packings or verify exact tour separation. No conclusion about precise coverage in the inaccessible paper.",
+        "searches": [
+          "arXiv:2605.16852v1, Propositions 3.10 and 3.12",
+          "doi:10.1016/j.disopt.2024.100850"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–60 and supporting verification files",
+        "Span capacities arXiv:2605.16852v1",
+        "Indexed ladder records 29b9b4b6ef11 and 2d809678ac3c",
+        "MathWorld Möbius Ladder",
+        "Goddard–Henning 100850 (limited)",
+        "McSorley (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tours use surjective tracks; exact d is required. The twisted packing saturation and minimum gap are not instances of the stated untwisted polynomial."
+        ],
+        "reasoning": "The upper bound and translation strategy are natural, but prior capacity definitions and Hamiltonicity cannot alone show distances along an exact-three tour. One still needs worst-case distance exactly three in the starting maximum packing; the gap analysis provides this for every maximum packing.",
+        "searches": [
+          "arXiv:2605.16852v1, Definitions 2.13–2.14 and 3.2–3.3",
+          "Indexed circular-ladder result, labelled two-packing statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance-three packing is ordinary independence on the square. The indexed result counts maximal independent sets on the original graph, and MathWorld's independence-polynomial discussion is of the unsquared ladder."
+        ],
+        "reasoning": "Replacing G by G² is decisive. The cited ordinary enumerators of G do not classify labelled independent sets of G². Identifying the square as circulant does not give its enumerator.",
+        "searches": [
+          "Resultary: SCOPE-odd-cardinality-rigidity-and-exact-independent-domination-polyno--2d809678ac3c",
+          "MathWorld: Möbius Ladder; square circulant and independence polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed circular-ladder two-packing polynomial has the identical strictly positive surplus coefficient; the saturated coefficient is four when t is even, rather than odd. The older Möbius enumerative paper was identified, but not available for an exact formula comparison."
+        ],
+        "reasoning": "A connected twist with all gaps constrained changes the product constraint and swaps the even-m maximum regimes. This is a substantive difference even though the positive-surplus counting agrees. No matching square-graph enumerator was established by the inspected evidence.",
+        "searches": [
+          "Resultary: SCOPE-exact-two-packing-profiles-and-unique-response-roman-weights-on--29b9b4b6ef11",
+          "doi:10.1016/S0012-365X(97)00086-1"
+        ]
+      },
+      "rationale": "Pass for the twisted-family polynomial including its different saturated branch, and for the exact separation and capacity conclusion. Do not credit the general gap-counting method, or the shared unsaturated sum in isolation, as new. An indexed same-day result for untwisted circular ladders has that same sum, but the boundary switches parity; the dates establish no relative priority. Older enumeration and packing-number sources were not fully accessible, so historical priority remains qualified.",
+      "residual_risks": [
+        "Goddard–Henning or another inaccessible packing reference may establish the maximum cardinality.",
+        "McSorley may contain an equivalent enumeration; unavailable full text is not negative evidence.",
+        "Possible equivalent square-circulant enumerators outside the bounded searches; same-day untwisted record is not dated priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definition matches; cited results do not cover these Möbius ladder exact-three capacities",
+          "evidence": "Surjective tracks, exact minimum d; cycle formulas and balanced Hamiltonian bipartite d=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.16852v1",
+          "material_read": "Defs. 2.13–2.14 and 3.2–3.3 (pp. 4–6); Props. 3.10 and 3.12 (pp. 7–9)",
+          "method": "Lawful OA PDF located passages",
+          "title": "Span capacities of graphs",
+          "trigger": "Same distance-capacity definition and related graph families"
+        },
+        {
+          "assessment": "Strong partial overlap, not equivalent even at equal vertex counts",
+          "evidence": "Untwisted C_n □ K_2, same positive-surplus sum, four at saturation iff k even.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-packing-profiles-and-unique-response-roman-weights-on--29b9b4b6ef11/RESULT.md",
+          "material_read": "Labelled packing-polynomial statement and saturation branch",
+          "method": "Configured index and local mirror text",
+          "title": "Exact two-packing profiles and unique-response Roman weights on circular ladders",
+          "trigger": "Same labelled invariant for the closest alternate ladder family"
+        },
+        {
+          "assessment": "Different admissible sets",
+          "evidence": "Inclusion-maximal independent sets on M_{2m}, not all independent sets on its square.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-odd-cardinality-rigidity-and-exact-independent-domination-polyno--2d809678ac3c/RESULT.md",
+          "material_read": "Finding on what sets are enumerated",
+          "method": "Configured index and local mirror text",
+          "title": "Odd-cardinality rigidity and exact independent domination polynomial",
+          "trigger": "Same graph family and related independent-set enumerator"
+        },
+        {
+          "assessment": "Does not establish a matching formula",
+          "evidence": "Mentions ordinary independence polynomial and that the square is circulant.",
+          "identifier_or_url": "https://mathworld.wolfram.com/MoebiusLadder.html",
+          "material_read": "HTML passage about independence and graph square, near offset 900; equations not legible in extracted text",
+          "method": "Public page text",
+          "title": "Möbius Ladder",
+          "trigger": "Same object and square-graph lookup"
+        },
+        {
+          "assessment": "Exact packing-number overlap unresolved",
+          "evidence": "Cubic graph packing is relevant; no theorem comparison from metadata.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disopt.2024.100850",
+          "material_read": "Bibliographic identification; no lawful OA full text obtained",
+          "method": "Bounded OA/publisher lookup",
+          "title": "The packing number of cubic graphs",
+          "trigger": "Same maximum invariant on a broader class"
+        },
+        {
+          "assessment": "Precise enumeration overlap unresolved",
+          "evidence": "The title and family make this plausible prior work, but do not establish its enumerated classes.",
+          "identifier_or_url": "https://doi.org/10.1016/S0012-365X(97)00086-1",
+          "material_read": "Bibliographic identification; no lawful OA full text obtained",
+          "method": "Bounded OA/publisher lookup",
+          "title": "Counting Structures in the Möbius Ladder",
+          "trigger": "Older explicit enumeration on the exact family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labelled coefficient sequence is a useful exact invariant of this standard cubic family, while the contrast with the prism isolates an effect of the twist at density saturation. The exact-three tour construction explains why this static optimum remains achievable under the stronger traversing constraint; it is not merely a generic upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

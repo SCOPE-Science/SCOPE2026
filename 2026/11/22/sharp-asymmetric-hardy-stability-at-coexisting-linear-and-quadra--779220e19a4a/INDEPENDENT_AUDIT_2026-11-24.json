@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:48.313618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:9–36, 40–94, 112; independent norm, compactness, and counterexample checks",
+        "repairs/2/RESULT.md:5–82",
+        "Frozen VERIFICATION.md and check_critical_nilpotent.py:8–38, inspected without execution"
+      ],
+      "rationale": "The original's assertion that every asymptotically extremal sequence converges to one fixed monomial up to phases is false: alternate the supplied inner f_t with t=1/j and t=1-1/j (j>=3). Both deficits tend to zero through positive values, whereas |f_t'(0)| tends to 0 and 1 on alternating terms, regardless of phase. Original Step 5 also needed an accumulation-point rather than a full-sequence dichotomy. The repaired result asserts distance to the union and branchwise subsequential convergence. Its quantitative core passes: f=zg gives y=|g'(0)|<=1-x, and the 2x2 squared singular values have sum 4x+3y² and product 3x². The nonnegative matrix norm grows in y. At y=1-x, det(3I-H)=6x(1-x) with positive first minor on 0<x<1, so dividing by the other eigenvalue 3-lambda_-≤3 gives the sharp stated lower bound; endpoint equality gives just the two monomial classes. As deficits tend to zero, x clusters at {0,1}; the trace bound forces y→1 on the x→0 branch, and coefficient order separates the nearer classes. In the quadratic branch s=1-y≥x and the smaller eigenvalue is O(x²); thus delta=6s-4x+O(s²) and d_2²≤2s. In the linear branch h=1-x bounds y, the diagonal gap of the squared matrix stays nonzero and the off-diagonal term is O(y); hence delta=3h+O(h²) and d_1²≤h+O(h²). Exact inner-family distances and the two parameter limits attain both constants and the mixing coefficient. The repair also corrects the v1 equality-section pointer.",
+      "residual_risks": [
+        "The attached finite diagnostics do not test the corrected quantifier and are not a proof. The correction is analytic. Only RESULT.md needed changes.",
+        "No all-deficit sharp Hardy-distance coefficient or unanchored extension is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-shift power-norm formula yields sqrt(3) here; the complete dimension-three Crouzeix result treats the universal constant 2 and other operator/representing-measure stability, not the limit of the squared norm at 3 for this shift."
+        ],
+        "reasoning": "The known broader inequalities are not coefficient-resolved sharp deficit or Hardy-distance inequalities at this smaller threshold.",
+        "searches": [
+          "Crouzeix–Greenbaum arXiv:2508.12768v1 Lem. 1",
+          "Åhag et al. arXiv:2608.27346v1 Thm. 1.1 / near-equality / §10",
+          "Looi arXiv:2611.01416v1 Thm. 1.1",
+          "Bickel et al. arXiv:2312.04537 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 273e463de3d2 and 8569868be0fe",
+        "arXiv:2508.12768v1, 2608.27346v1, 2611.01416v1, 2312.04537, at passages listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An anchored norm bound does not bound the deficit in terms of x, and a single balanced quadratic-well constant cannot constrain the absent linear branch. The earlier operator-level stability targets a different extremal regime."
+        ],
+        "reasoning": "The determinant deficit, branch separation, uniform near-well rates and inner witnesses are separate information, not obtained by translating the cited constants.",
+        "searches": [
+          "Compare arXiv:2508.12768v1 Lem. 1 and arXiv:2608.27346v1 near-equality statements to repaired stability",
+          "Compare balanced 273e463de3d2 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 273e463de3d2 proves one quadratic-well stability for sqrt(2)J_3 and norm deficit 2-||f(A)||, with sharp coefficient sqrt(2); neither simple phase change nor deficit renormalization changes its weights or produces two wells.",
+          "Weighted-shift power norms cover exact norm attainment, not parametric symbol-distance profiles."
+        ],
+        "reasoning": "The reconstructed norm is a first-two-coefficient optimization but the distances involve the full Hardy norm; operator closeness or use of a monomial as an extremizer is not equivalent.",
+        "searches": [
+          "Resultary sharp Hardy-space stability, balanced three-site nilpotent",
+          "Critical weighted-shift coefficient norm / symbol near-equality literature search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched earlier exact constants are from the balanced case (273e463de3d2); the distinct matching-date entry 8569868be0fe is about width/Hausdorff defects of diagonal matrix perturbations. No inspected table gives the two critical symbol-distance constants."
+        ],
+        "reasoning": "Existing exact indexed special-case constants and formulas are the relevant table analogue; neither matched setting has the optimization variables and competing wells of the repaired theorem.",
+        "searches": [
+          "Resultary exact Hardy stability / three-site nilpotent rigidity records"
+        ]
+      },
+      "rationale": "The surviving claim is the sharp anchored mixing deficit and both sharp symbol-distance coefficients at the critical unequal weights, not the background spectral-set constant, equality case existence, or a new universal Crouzeix estimate. No inspected theorem gives these quantitative two-branch conclusions by specialization. Restricting the convergence statement to distance from the union does not change the novelty object.",
+      "residual_risks": [
+        "Bounded search and primary passage checks are not comprehensive priority certification. Broader whole-symbol stability not present in the checked statements could affect priority if found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related one-well result, not coverage",
+          "evidence": "Balanced shift sqrt(2)J_3, unique quadratic extremizer class, unsquared deficit at 2 and sharp coefficient sqrt(2).",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-hardy-space-stability-at-the-extremal-three-site-nilpotent--273e463de3d2",
+          "material_read": "RESULT.md finding and relationship to prior work (offsets 0, 5674)",
+          "method": "Published-record mirror",
+          "title": "Sharp Hardy-space stability at the extremal three-site nilpotent spectral-set constant",
+          "trigger": "Closest earlier exact Hardy-stability theorem"
+        },
+        {
+          "assessment": "Covers the exact norm and power attainment, not the quantitative symbol deficit",
+          "evidence": "The disk spectral-set norm is the largest norm of a matrix power.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.12768v1",
+          "material_read": "pp. 1–2 (offsets 1104, 4824), Lemma 1",
+          "method": "Bounded OA PDF passages",
+          "title": "A New Proof that the Numerical Range is a Complete 2-Spectral Set for Weighted Shift Matrices",
+          "trigger": "Weighted-shift spectral-set background"
+        },
+        {
+          "assessment": "Related near-equality theory, no direct two-well Hardy constants at the anchored squared-norm limit 3",
+          "evidence": "Complete constant 2; stability discussion for operator blocks and representing-measure Fourier coefficients. The §12 pointer does not apply to v1.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27346v1",
+          "material_read": "Thm. 1.1 p. 1, near-equality p. 3 and §10 p. 26 (offsets 3851, 12284, 111350)",
+          "method": "Bounded OA PDF passages",
+          "title": "Square Functions and the Complete Crouzeix Conjecture in Dimension Three",
+          "trigger": "Broader dimension-three equality and near-equality"
+        },
+        {
+          "assessment": "Does not supply this sharp deficit",
+          "evidence": "Universal complete bound 2 in dimensions at most three.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.01416v1",
+          "material_read": "Thm. 1.1 p. 1 (offset 1213)",
+          "method": "Bounded OA PDF passage",
+          "title": "A short proof of the complete Crouzeix inequality in dimension three",
+          "trigger": "Current broader dimension-three bound"
+        },
+        {
+          "assessment": "No Hardy-stability implication in material read",
+          "evidence": "Crouzeix results for classes of nilpotent matrices and shift compressions.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.04537",
+          "material_read": "Introduction p. 1 (offset 1006)",
+          "method": "Bounded OA PDF passage",
+          "title": "Crouzeix's conjecture, compressions of shifts, and classes of nilpotent matrices",
+          "trigger": "Broader nilpotent matrix classes"
+        },
+        {
+          "assessment": "Distinct object and deficit; no chronological priority inferred",
+          "evidence": "Perturbs real matrix diagonal entries and estimates numerical-range width/Hausdorff defects, not Schur symbol distance.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadratic-width-rigidity-near-a-three-site-numerical-range--8569868be0fe",
+          "material_read": "RESULT.md finding (offset 0)",
+          "method": "Published-record mirror",
+          "title": "Sharp quadratic width rigidity near a three-site numerical range",
+          "trigger": "Distinct indexed three-site exact stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/2/RESULT.md, Finding and Proof",
+        "Weighted-shift and balanced-stability comparisons above"
+      ],
+      "rationale": "The unequal critical weights are the natural coexistence point where the two power norms agree. The exact coexistence penalty and different local rates quantify what a nearly extremal function must look like in the full Hardy norm. This is more than repeating norm attainment or qualitative convergence and remains useful with the corrected union-of-classes statement.",
+      "residual_risks": [
+        "The result covers one critical anchored shift; no universality beyond it is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

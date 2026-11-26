@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:57.037142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd m=n/2, row-minus-column parity descends to the twisted strip. A run's rainbow triangles are successive windows on the complementary track. For two nonadjacent empty columns the two windows lists are disjoint for two phase choices, giving 36 colourings each, and share exactly the two empty-column endpoints for the other two. Equality of endpoint colours is forced iff the separation is divisible by three on that list. Since 3 does not divide m, the lists cannot both force equality, and are compatible iff both separations are nonzero mod 3. The compatible shared case gives 54 per phase, including two free vertices. Adjacent empties give 108 per pair. There are m pairs per distance, giving 108m+72m(h-1)+108mg; reducing residues yields both quadratic laws, including m=5 with g=0. Weight m needs bipartiteness and the closed period-three sequence; with only one empty column an odd strip closes the two endpoints of the same track and again needs 3 dividing m. The even one-empty strip has distinct endpoints and recovers the credited linear case. Thus the revised proof also establishes the weights without importing a counting or existence assumption.",
+      "replay": "python3 /workspace/branches/independent_checks.py 4: independent exact finite min-and-count column transfer, with both twisted seam constraints, agreed at all even n from 6 through 28 and at 42, e.g. (weight,count)=(7,900) at n=10 and (9,2520) at n=14. The independent code computes minima, unlike the supplied bounded checker, which is run at prescribed weights. Neither finite check proves the general case. The frozen verification text and script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lange proves the set-valued lower bounds and supplies empty-or-singleton witnesses; this determines optimal weights in the target model, not multiplicities.",
+          "The related cylindrical-graph article was visible only at landing/abstract level; exact Kuzman passage lookup timed out."
+        ],
+        "reasoning": "A bound with witnesses does not enumerate all optima. No stronger counting theorem covering the two singleton residues was found in the material read.",
+        "searches": [
+          "Focused primary literature lookup for exact optimal rainbow-function counts on Möbius ladders",
+          "Lange §5.2 and Appendix A; Kuzman arXiv:1907.08430v1; Žerovnik Mathematics 14(16), 2917"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records e6c4969c972e and 6a2d2531557b",
+        "Lange arXiv:2610.06906v1",
+        "Kuzman arXiv:1907.08430v1 (access limited)",
+        "Žerovnik Mathematics 14(16), 2917 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The surplus-zero argument implies exact singleton counts in the constant and linear regimes. The prism's 225-state automaton addresses the untwisted cyclic closure. Lange's witnesses give existence at m+2."
+        ],
+        "reasoning": "A generic transfer framework can be adapted by imposing the row-swapped seam, but the known prism counts and witness proofs do not evaluate that twisted minimum coefficient or give its quadratic law.",
+        "searches": [
+          "e6c4969c972e RESULT.md offsets 0 and 4861; 6a2d2531557b RESULT.md offset 0; Lange v1 Theorem 13 and Lemmas 14–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier outer-independent set-valued optimum tally equals the singleton tally precisely in the zero-surplus cases it classifies; the same-day prism has an untwisted seam."
+        ],
+        "reasoning": "Independent zero sets are automatic in the cubic singleton model, but counted coloured subsets in the set-valued model need not be singleton. In n≡10 mod 12 the earlier optimum has smaller weight and a double-coloured vertex. The other quadratic residue is not enumerated there.",
+        "searches": [
+          "Local Resultary semantic lookup: Möbius ladder singleton three-rainbow optimum multiplicities, including e6c4969c972e and 6a2d2531557b",
+          "Lange arXiv:2610.06906v1 §5.2 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first hit gives 12 and 12m for its zero-surplus cases, but no table of named singleton optima in the two quadratic cases. The second gives exact prism counts, not twisted-ladder counts."
+        ],
+        "reasoning": "The database match is genuine for four residues, now excluded from the new contribution; the table for a different seam does not supply the other two. No separate general registry of these coefficients was identified.",
+        "searches": [
+          "Local Resultary exact-family and related-family hits e6c4969c972e and 6a2d2531557b"
+        ]
+      },
+      "rationale": "The repaired contribution is the two quadratic named singleton counts only. The strongest earlier Möbius-ladder enumeration demonstrably covers the constant and linear counts, now credited, but not the quadratic cases. The bounded literature evidence did not identify equivalent coverage of the surviving counts. This is a best-of-knowledge assessment, not priority certification.",
+      "residual_risks": [
+        "Full Kuzman and Žerovnik passages were not retrieved; an unlocated general enumerator or earlier equivalent count remains possible.",
+        "The same-day mirror date does not establish ordering or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial direct coverage of frozen finding, credited in repair",
+          "evidence": "Exactly 12 and 12m with zero surplus; the m≡5 mod 6 set-valued optimum has weight m+1 with a double colour; m≡1 mod 6 not enumerated.",
+          "identifier_or_url": "2026/10/18/SCOPE-rigidity-and-enumeration-of-minimum-outer-independent-three-rain--e6c4969c972e",
+          "material_read": "RESULT.md offsets 0 and 4861",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity and enumeration of minimum outer-independent three-rainbow functions on Möbius ladders",
+          "trigger": "Same graph family and minimizer enumeration"
+        },
+        {
+          "assessment": "Related, not equivalent coverage",
+          "evidence": "225-state pair automaton and A^8=A^2 for C_m square K_2 with untwisted closure. Same date does not settle priority.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-optimal-singleton-three-rainbow-domination-multiplicities--6a2d2531557b",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal singleton three-rainbow domination multiplicities of cycle prisms",
+          "trigger": "Distinct same-day exact multiplicity result"
+        },
+        {
+          "assessment": "Covers weights, not these multiplicities",
+          "evidence": "Theorem 13 is set-valued, with empty-or-singleton constructions; in particular Lemmas 17–18 construct weight m+2 witnesses.",
+          "identifier_or_url": "https://arxiv.org/html/2610.06906v1",
+          "material_read": "§5.2 offsets 40700–45659 and Appendix A offsets 82400–95400",
+          "method": "Open-access HTML, targeted passages",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Cited source of Möbius-ladder minimum weights"
+        },
+        {
+          "assessment": "Access limitation; not a noncoverage result",
+          "evidence": "No independent full-text confirmation of the cited section in this review.",
+          "identifier_or_url": "https://arxiv.org/html/1907.08430v1",
+          "material_read": "No decisive passage retrieved",
+          "method": "OA lookup for Theorem 4.5 timed out",
+          "title": "On k-rainbow domination in regular graphs",
+          "trigger": "Related set-valued result cited for comparison"
+        },
+        {
+          "assessment": "Access limitation; not a noncoverage result",
+          "evidence": "Relevant adjacent topic; no full-text claim about the target coefficients was verified.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/14/16/2917",
+          "material_read": "Landing page and abstract only",
+          "method": "OA lookup; full-page access returned 403 and the PDF request timed out",
+          "title": "On Singleton 3-Rainbow Domination of Cylindrical Graphs",
+          "trigger": "Adjacent singleton-domination literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two missing classes are the ones where a minimum singleton solution has two empty columns. Resolving how the twists couple their alternating runs both classifies the viable supports and determines the exact growth coefficient of the minimum solution space, useful for testing algorithms and for comparison with prism and set-valued models. This is not a recomputation of the minimum weight or an isolated small-order count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:37.485207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over the fixed finite valuation universe, each nonempty convex union-closed family is upward closed inside its maximum team. Conjunction preserves this description in a nonempty intersection. For strict splitting, a successful partition can be extended to any larger team in the union of the operands' maximum teams by allocating each additional row to one permitted side. This proves soundness without assuming that a pair of arbitrary overlapping witnesses can be disjointed. Conversely, a flat test constrains the team to its maximum, and hitting the complements of all maximal nonmembers describes the family there. Each hit is expressible by a nonempty flat witness and its leftover, so the formula works under either split convention; bottom conjoined with NE covers the empty family. For strict model checking, certificates give one subset per split occurrence, and the explicit team and syntax tree make verification polynomial. Encoding distinct hypergraph vertices by binary valuations makes each edge test a polynomial-size flat minterm disjunction. Under strict splitting, both sides must hit all edges, exactly property B of a 3-uniform hypergraph; the lax witnesses can both be the whole team. The published lax P result applies. Scope is fixed declared domain for expressivity, variable domain and explicit team for combined complexity; no claim of locality. The supplied checker was inspected, not run. Its three-row closure calculation concerns an abstract subuniverse of valuations rather than all valuations of an exact alphabet of size log2(3); the general proof applies to actual declared domains.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang gives strict locality failures for other union-closed team logics. Hannula et al. Theorem 11 proves PSPACE-complete model checking for a richer logic with contradictory negation by TQBF; Theorem 10 concerns inclusion. Anttila–Kontinen–Yang's P theorem is for lax PL(NE)."
+        ],
+        "reasoning": "The richer syntax and its reductions do not imply hardness for positive NE in a strict outer self-split. The locality examples explain the importance of declared domain but do not prove this complexity result.",
+        "searches": [
+          "Yang arXiv:2008.10324 §5",
+          "Hannula–Kontinen–Virtema–Vollmer arXiv:1504.06135v2 abstract and model-checking theorems",
+          "arXiv:2510.08122 §3 Proposition 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "arXiv:2503.21850v3, 2510.08122, 2008.10324, 1504.06135v2",
+        "Resultary 2253425a894a and 6cedf96a57ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constructive first proof in Convex Team Logics uses a flat top constraint and a conjunction of positive existence tests of classical disjunctions for upward closure. Each is unchanged under disjoint split; the frozen maximal-nonmember expression is another monotone clause presentation. The richer-language PSPACE lower bound uses contradictory negation for universal quantification and in the matrix, not the allowed positive fragment."
+        ],
+        "reasoning": "The common expressive witnesses are already implicit and are not credited as new in isolation. Prior expressive equivalence does not give efficient translation of arbitrary strict inputs, and neither complexity theorem gives the hitting-partition hardness on the frozen fragment. The property-B reduction is the separate, supported contribution.",
+        "searches": [
+          "arXiv:2503.21850v3 Lemmas 2.12, 3.2–3.3; arXiv:2510.08122 Proposition 4; arXiv:1504.06135v2 Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anttila–Brinck Knudstorp's flat schema and upward-closure schema already provide common-semantics witnesses after interpreting the classical disjunctions by flat split and taking the disjoint complement for the witness in Diamond. Anttila–Kontinen–Yang Definition 2 explicitly admits overlapping witnesses t=s∪u."
+        ],
+        "reasoning": "Changing to disjoint split does not change expressive completeness of these witnesses on a fixed domain, but does change truth of arbitrary formulas, notably two identical copies of a positive hitting test. A complexity result for lax splitting therefore cannot be relabelled as a strict one.",
+        "searches": [
+          "Resultary: nonemptiness team logic with strict or disjoint disjunction; fixed-domain convex union closure; model-checking separation",
+          "arXiv:2503.21850v3 §§2.1, 3.1; arXiv:2510.08122 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2253425a894a is a four-round cutoff for lax model checking; 6cedf96a57ef is a counterteam bound and coNP-complete lax entailment. No exact strict complexity counterpart was identified among the inspected entries."
+        ],
+        "reasoning": "The comparison is of exact complexity statements with their input and semantic conventions, not of table entries. Entailment is a different problem from testing an input team, and the lax cutoff relies on a semantics not requiring disjointness.",
+        "searches": [
+          "Resultary: strict NE model checking, disjoint positive tests and hypergraph two-colouring, and nonemptiness-team complexity"
+        ]
+      },
+      "rationale": "Credit the known lax P baseline and the prior expressive-completeness construction (which already yields common-semantics witnesses). The supported distinct claim is the complexity separation, in particular strict NP-completeness on a single self-split of a conjunction of positive edge tests, despite fixed-domain expressive equivalence. No inspected source covers this restricted strict model-checking result.",
+      "residual_risks": [
+        "Specialized earlier work under exact-split, separating or resource-sensitive terminology could contain an equivalent NP-hardness reduction. The comparison is limited to the cited and retrieved passages and does not claim exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lax expressivity explicit; common-semantics expressive witnesses implicit in first construction",
+          "evidence": [
+            "Conjunction of F- and U-schemas; F is a flat split of flat tests, U a conjunction of Diamond tests of classical disjunctions. These witnesses transfer to strict split by assigning rows disjointly or using a witness's complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.21850v3",
+          "material_read": "§2.1 Lemma 2.12 (offset 68366), §3.1 Proposition 3.1 and Lemmas 3.2–3.4 (offsets 97300–105667)",
+          "method": "Open-access HTML passage inspection",
+          "title": "Convex Team Logics",
+          "trigger": "Potential prior fixed-domain expressivity and common normal form"
+        },
+        {
+          "assessment": "Exact lax baseline, not strict",
+          "evidence": [
+            "Split asks for a union without a disjointness requirement; combined PL(NE) model checking is in P."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.08122",
+          "material_read": "§2 Definition 2 and §3 Proposition 4 (offsets around 8400 and 21400)",
+          "method": "Open-access HTML passage inspection",
+          "title": "Complexity Results in Team Semantics: Nonemptiness Is Not So Complex",
+          "trigger": "Direct possible coverage of NE combined model checking"
+        },
+        {
+          "assessment": "Strict-locality failures in other languages; no matching model-checking claim in the passage",
+          "evidence": [
+            "Disjoint split and examples for CPL(/) and CPL(⊆)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.10324",
+          "material_read": "§5, pp. 37–38",
+          "method": "Open-access PDF passage inspection",
+          "title": "Propositional union closed team logics",
+          "trigger": "Strict splitting in nearby union-closed logics"
+        },
+        {
+          "assessment": "Different languages and reduction",
+          "evidence": [
+            "Inclusion-language P-completeness and contradictory-negation PSPACE-completeness. The latter's TQBF reduction uses contradic­tory negation and richer quantification not available in the frozen fragment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.06135",
+          "material_read": "Abstract and Theorems 10–11, pp. 13–14 (offsets 0 and 35800)",
+          "method": "Read lawful arXiv copy after publisher access failure",
+          "title": "Complexity of Propositional Logics in Team Semantics",
+          "trigger": "Potential broader complexity result for team atoms"
+        },
+        {
+          "assessment": "Lax only",
+          "evidence": [
+            "Four-round cutoff with overlapping witnesses."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 2253425a894a",
+          "material_read": "RESULT.md Finding and split assumption",
+          "method": "Local mirror reading",
+          "title": "A sharp four-round cutoff for nonemptiness-team model checking",
+          "trigger": "Same atom and model-checking problem"
+        },
+        {
+          "assessment": "Lax entailment, not strict model checking",
+          "evidence": [
+            "Counterteam bound and coNP-complete entailment."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 6cedf96a57ef",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local mirror reading",
+          "title": "Sharp counterteam bound and coNP-complete entailment in propositional nonemptiness team logic",
+          "trigger": "Nearby complexity result for NE"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The separation shows why equal expressive power on a fixed valuation domain is not a reliable guide to combined model-checking complexity. Hardness already emerges from a single outer redundant-looking disjunction of identical positive formulas: disjointness alone creates the two-colour obstruction. This identifies a sharply restricted source of complexity without attributing novelty to property B or to the previous lax results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

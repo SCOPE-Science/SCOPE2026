@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite result
+# Independent mathematical audit
 
-Python 3 with its standard library suffices to execute `verify_direct.py` and `verify_bitsets.py`. Both programs build the McGee graph from the explicit 24-vertex period-three LCF chord list, independently enumerate all minimum power-dominating configurations, reconstruct the token-jump and token-slide graphs, and calculate their distances without external input files.
+## correctness
 
-The set-based checker confirms every one of the 165,600 unordered configuration-pair distances under both rules, all eight exceptional jump-distance-one/slide-distance-eight pairs, and their disjointness. The integer-bitset checker independently enumerates all 576 optima and re-evaluates every pair with bitset layer expansion. Both certify the full locality-penalty distribution and eccentricity split with assertions.
+PASS
 
-The calculation is a complete finite enumeration because there are only 24 graph vertices, 2,024 three-subsets and 165,600 unordered pairs of successful three-subsets. Its correctness depends on the published LCF graph identification, ordinary power-domination rules and the transparent finite algorithms. It does not establish any result for other graphs by sampling or extrapolation. Independent audit has not been performed.
+The corrected statement specifies the unique cubic seven-cage, i.e. minimum order, rather than unqualified uniqueness among cubic graphs of girth seven. The latter is not true: for example take two copies of the cage, choose an edge outside a fixed 7-cycle in each, and cross-connect their endpoints after deleting the two edges. The new graph is cubic, has more vertices and retains a 7-cycle; a cycle using the new edges must traverse both sides and each side's replacement path has length at least six. This correction does not change the explicitly labelled graph or any enumeration. An independent exhaustive computation constructed the graph, checked degree, girth and base diameter, tested all 0–3 vertex subsets using simultaneous Boolean observation arrays, and compared sparse all-pairs shortest paths for the two exact exchange relations. It reproduced 0, 0, 0, 576 successful placements, wave counts 144, 272, 160, edge counts 6184 and 1328, all distance and eccentricity histograms, and the exact eight named pairs at (1,8) with sixteen distinct endpoints. The bound and matching refer only to minimum placements. The frozen scripts were inspected, not executed.
+
+## originality
+
+PASS
+
+Best of current knowledge: the prior framework and cage are known, but the optimum census and paired-distance result on their specific feasible configurations are supported as distinct. The narrow wording correction makes no novelty claim about cage uniqueness.
+
+## value
+
+PASS
+
+The canonical smallest cubic girth-seven graph gives a reproducible benchmark for minimum-preserving relocation. The joint metric and labelled matching identify exactly which one-step jumps intrinsically force eight slides, information not present in the separate diameters or in a minimum placement count. The repair preserves that finite structural contribution and makes no application or larger-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

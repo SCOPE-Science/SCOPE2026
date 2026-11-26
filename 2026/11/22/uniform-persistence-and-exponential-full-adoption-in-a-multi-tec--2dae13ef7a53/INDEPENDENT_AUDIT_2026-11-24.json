@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:09.680709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–77; VERIFICATION.md lines 19–21; verify_mate_persistence.py lines 11–106 (inspected, not executed)",
+        "arXiv:2611.04407v1 §1.1 and Assumption 1(ii) for innate-opinion range",
+        "/workspace/repairs/1/RESULT.md, Assumptions and Proof §§1–4"
+      ],
+      "rationale": "The complete repaired claim explicitly restricts innate opinions to (0,1], the cited model range, and proves invariance. The frozen positivity-only parameter list does not suffice: n=1, m=2, each p=100, beta=gamma=1/2, delta=1, and lambda=xi=0 make x(1)=100 and the printed c=50. In the repaired range the nonnegative population flows conserve total mass, x is a convex update, and x(t)≥x_* from t=1. The four path types have probabilities ≥q per edge (especially the D_k hold, ≥gamma_i^[k]), even with delta=1 or time-varying opinions. Their products lower-bound the adopter row without taking a matrix limit. Monotone b survives each hop at time 6ℓ because b+(1-b)L≥L for L∈[0,1], with edges oriented by the receiving row. This gives b_i≥B after 6(n−1), applies also at n=1, and gives the asserted adopter bound from T, the dissatisfied bound from T+1 and the geometric iteration from T. The all-dissatisfied seed and periodic physical contacts require no additional condition. The v1 theorem numbers and prior-work description were also corrected.",
+      "residual_risks": [
+        "Bounds are model- and seed-dependent, not uniform as the seed or rates tend to zero. Full adoption means disappearance of never-adopted mass, not disappearance of dissatisfaction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives ADE convergence under condition (11), implying eventually positive adopter fractions and geometric susceptible decay in that restricted regime.",
+          "The earlier two-technology coexistence result concerns equilibrium existence and uniqueness, not the same trajectory bound."
+        ],
+        "reasoning": "A stronger conclusion on a smaller parameter regime does not subsume the trajectory estimate at arbitrary feedback; a smaller technology count does not subsume m≥2.",
+        "searches": [
+          "arXiv:2611.04407v1 Theorems 1–3 and Appendix B.6",
+          "arXiv:2601.16719v1 abstract and equilibrium proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.04407v1",
+        "arXiv:2601.16719v1",
+        "Resultary 2dae13ef7a53 (self), baad16c7462c and 4ce4c378e96e (distinct)",
+        "Focused primary web query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known three-step minorization to a selected dissatisfied state directly yields a local four-step adopter minorization by appending a positive switch. The source applies it to contraction of consecutive-time differences, closing that estimate under (11)."
+        ],
+        "reasoning": "No novelty is credited to the minorization or weak-feedback special case. Reusing the local comparison as a mass bound and inducting via the susceptible hazard across the physical graph is the substantive addition, rather than a parameter substitution into an existing stronger network statement.",
+        "searches": [
+          "arXiv:2611.04407v1 Appendix B.6 pp. 12–13, Eqs. (B.18–B.23)",
+          "arXiv:2611.04407v1 Theorem 3 and condition (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited preprint is the exact model. Corollary 1 gives monotone susceptible fractions and positive opinions. ADE equilibria have s*=0 and positive adopter/dissatisfied compartments, but that is not a global trajectory statement.",
+          "The focused web lookup returned no relevant additional source; this is not evidence of absence."
+        ],
+        "reasoning": "An equilibrium condition, monotonicity of s, and uniform coordinatewise persistence for all nonzero seeds are different assertions. Full adoption is measured by susceptible depletion, not takeover by one technology.",
+        "searches": [
+          "Resultary: MATE multi-technology adoption opinion dynamics uniform persistence full adoption susceptible depletion arbitrary feedback",
+          "Focused primary websearch on published MATE persistence/convergence",
+          "arXiv:2611.04407v1 Eqs. (1a–1d), Corollary 1 and Theorems 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact hit 2dae13ef7a53 is the assigned record itself.",
+          "Distinct same-day hits prove permanent action adoption in a quantized multiaction model and guaranteed middle-action adoption in a three-action threshold model, respectively."
+        ],
+        "reasoning": "Same-day results were compared on model and statement rather than date. Neither threshold-adoption model is the competing susceptible/adopter/dissatisfied MATE recurrence or tabulates the bounds under review.",
+        "searches": [
+          "Configured Resultary adoption/persistence search",
+          "Inspected local mirror Results baad16c7462c and 4ce4c378e96e"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the quantitative, trajectory-wide network consequence on the repaired physically admissible range. The local mixing is directly prior-implied, and eventual persistence and depletion on the weak-feedback regime follow from the prior convergence theorem. The distinct claim is graph-wide explicit bounds for all feedback in the admissible simplex, with no convergence premise, and an arbitrary positive non-susceptible seed.",
+      "residual_risks": [
+        "A differently indexed all-feedback persistence theorem could overlap; the literature and Resultary searches are nonexhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and local ingredient already covered; convergence is restricted to (11)",
+          "evidence": "Innate opinions lie in (0,1]; Eq. (B.18) is a three-step row minorization; (B.22–B.23) use feedback smallness to force vanishing increments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.04407v1",
+          "material_read": "§1.1 p. 2 and Assumption 1(ii), offsets about 12000 and 23000–25000; Eqs. (1a–1d), Corollary 1 and Theorems 1–3 pp. 3–5; Appendix B.6 pp. 12–13, offsets 98900 and 106810 among inspected passages",
+          "method": "Bounded OA PDF extracts and decisive appendix inspection",
+          "title": "Competition, Switching, and Control in Coupled Adoption-Opinion Dynamics",
+          "trigger": "Exact model, strongest prior theorem and local-lemma overlap"
+        },
+        {
+          "assessment": "Equilibrium results, not a stronger trajectory bound",
+          "evidence": "Existence and uniqueness of a coexistence equilibrium and exclusion of partial-adoption/monopoly equilibria.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.16719v1",
+          "material_read": "Abstract, p. 1, and equilibrium proof around p. 5, extracted offsets 0–4400 and 35000–43000",
+          "method": "Bounded OA PDF inspection",
+          "title": "On a Coupled Adoption-Opinion Framework for Competing Innovations",
+          "trigger": "Earlier competing-innovation model with coexistence"
+        },
+        {
+          "assessment": "Different update mechanism and observable",
+          "evidence": "Quantized, self-consistent multiaction model with robust permanent adoption times.",
+          "identifier_or_url": "2026/11/22/baad16c7462c",
+          "material_read": "Mirrored result statement",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact finite-event adoption clocks for heterogeneous multiaction dynamics",
+          "trigger": "Distinct same-day Resultary guarantee of adoption times"
+        },
+        {
+          "assessment": "Different update mechanism and observable",
+          "evidence": "Three-action threshold model with permanent middle-action guarantee.",
+          "identifier_or_url": "2026/11/22/4ce4c378e96e",
+          "material_read": "Mirrored result statement",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact two-sided bootstrap certification of middle-action adoption",
+          "trigger": "Distinct same-day Resultary guarantee of adoption"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof; arXiv:2611.04407v1 Theorem 3 and Appendix B.6"
+      ],
+      "rationale": "The result separates a global persistence and saturation question from convergence of the full coupled state. It makes both conclusions quantitative when the convergence criterion cannot be invoked, for every community and technology and even when no active adopter is initially present. It is more than the local stochastic-matrix estimate or a positive-equilibrium existence result.",
+      "residual_risks": [
+        "The conservative floors and decay factor are not fitted forecasts or sharp rates; stability and asymptotic shares are not resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

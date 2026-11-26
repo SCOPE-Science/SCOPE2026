@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:55:58.265563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The enumerator and deepest-coset formulas are correct. Internal incidence constraints force arm constants, and endpoint incidence enforces even parity. Nearest distance is the sum of local minority weights, except in the absence of a tied block when the preferred parity is odd: then it costs an extra L−2 max(a_i). Tied words and the two untied parity classes yield the displayed polynomial after division by 2^(m−1). For L=2s a no-tie odd word with deficits t_i=s−a_i≥1 has distance ms−sum(t_i)+2min(t_i)<ms; for L=2s+1 equality at ms+1 in the corresponding bound requires every deficit to vanish. An independently written full-word calculation reproduces all four finite spectra, including coefficient vectors (1,8,13,8,2) and (1,12,66,163,189,81) for (4,2) and (4,3); replay: branches/526dd565-1112-495a-a67c-2114b31e85fc/independent_coset_bruteforce.py (output in the corresponding .out file). The correctness defect is in the unrestricted channel corollary and its proof in RESULT.md lines 31–34 and 83: the claim gives no message distribution and the proof assumes all-zero may be sent without loss for any tie rule. At p=1/2, the valid deterministic ML rule always outputting a fixed codeword has conditional success 1 for that word and 0 for the others, whereas the formula gives 1/|C|. The formula is correct for uniformly averaged block success with arbitrary ML tie-breaking, or conditional on any fixed word with translation-equivariant ML syndrome decoding. The missing qualification does not affect the distance distribution.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The book-graph source gives the 2-sum construction and code parameters. Solé–Zaslavsky's accessible abstract/landing material concerns graph-cycle-code covering radius; the article text was not obtained. The catalogue source covers the full common parameter range."
+        ],
+        "reasoning": "Matching code parameters and radius theory alone do not entail an enumerator; the catalogue formula, independently of any broader theorem, supplies it for every frozen parameter.",
+        "searches": [
+          "arXiv:2610.04617v1 §3.2",
+          "Solé–Zaslavsky DOI:10.1016/0166-218X(93)90140-J",
+          "bb986fb5af02/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify_coset.py inspected as evidence",
+        "Resultary bb986fb5af02/RESULT.md",
+        "arXiv:2610.04617v1 §3.2",
+        "DOI:10.1016/0166-218X(93)90140-J, abstract/landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ambient distribution encodes the radius as its degree and the deepest multiplicity by its leading coefficient divided by 2^(m−1)."
+        ],
+        "reasoning": "The complete normalized polynomial and both deepest-coset results follow immediately. The qualified BSC formula is the standard maximum-likelihood mass sum (one maximum-likelihood error probability per coset); it leaves no distinct substantive result.",
+        "searches": [
+          "bb986fb5af02/RESULT.md, Finding and proof, offsets 0–8652",
+          "Frozen RESULT.md lines 21–35, 41–83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bb986fb5af02 defines F_{r,ell}(z)=sum_x z^d(x,C) for even r≥4 and ell≥2, with the same repeated even-parity arm-constant code."
+        ],
+        "reasoning": "Set r=m and ell=L. The exponent is constant on a coset and equals its minimum weight; every coset contains 2^(m−1) words. The ambient and coset formulations determine each other by a fixed scalar.",
+        "searches": [
+          "Resultary semantic comparison for equal-arm binary multi-theta cycle code and complete ambient or coset distance spectrum",
+          "bb986fb5af02/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue entry gives exact closed formulas for every coefficient of the ambient distance polynomial, not just samples or one radius."
+        ],
+        "reasoning": "Dividing every coefficient by the same, explicit coset cardinality gives the exact counts in the frozen record. No independent table would be needed to establish overlap.",
+        "searches": [
+          "Local Resultary catalogue, bb986fb5af02/RESULT.md, offsets 0–4783"
+        ]
+      },
+      "rationale": "The separate 2026-10-13 Resultary record bb986fb5af02 already supplies the entire ambient distance spectrum of the identical code for all the same parameters. Its polynomial is exactly 2^(m−1) times the frozen polynomial. This demonstrates equivalent prior catalogue coverage, not a claim about first historical discovery.",
+      "residual_risks": [
+        "Older cycle-code or parity/repetition-block literature may give equivalent coverage. No conclusion about precedence in that literature follows from the indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact main claim",
+          "evidence": [
+            "The identical even-parity block code with even r≥4 and length ell≥2 is used and all ambient distance coefficients are given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-ambient-distance-spectrum-of-binary-multi-theta-cycle-c--bb986fb5af02",
+          "material_read": "RESULT.md, Finding and coefficient formulas at offsets 0–4783; proof, verification and relationship material at 4783–8652",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete ambient distance spectrum of binary multi-theta cycle codes",
+          "trigger": "Exact code and complete enumerator under ambient-word rather than coset normalization"
+        },
+        {
+          "assessment": "Construction and parameters overlap; the passages do not give the full spectrum",
+          "evidence": [
+            "The book-graph 2-sum construction, parameters and examples are given."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04617v1",
+          "material_read": "Section 3.2, HTML offsets 32250–36750 and 41400–46349",
+          "method": "OA full text, relevant section passages",
+          "title": "New Methods for Constructing Classical and Quantum Codes from Graphs and Matroids",
+          "trigger": "Primary source of the book-graph 2-sum code"
+        },
+        {
+          "assessment": "Full statement-level comparison unresolved; not negative evidence",
+          "evidence": [
+            "The available material concerns covering radius, not an inspected full distance theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(93)90140-J",
+          "material_read": "Landing and abstract material only",
+          "method": "Lawful OA lookup, no full text obtained",
+          "title": "The covering radius of the cycle code of a graph",
+          "trigger": "Directly relevant graph-cycle-code radius and T-join literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete distance spectrum is a useful invariant of this natural graph code, but this record's purported addition is a constant normalization of a previously available complete spectrum. The conventional qualified channel corollary and the deepest coefficient do not supply an independently substantive remainder. No repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

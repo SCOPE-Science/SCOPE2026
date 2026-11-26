@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:02:35.263313Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three-subset exchange graph is simple, unit weight, degree 3(n−3) and diameter three for every n≥6. For a vertex at distance j from a fixed vertex, replacing a common element by an outside element has b_j=(3−j)(n−3−j) choices; replacing a noncommon element by a missing common element has c_j=j². Iterating these transitions with the negative degree stay reproduces the normalized entries per pair. Independently propagated one sparse basis row through integer powers Q^0,…,Q^4 on the explicit exchange graphs for n=6,7,10,33,34,40; every off-diagonal coefficient matched. As a crossover check, 24(3n−4)^4 t_1(n,2/(3n−4)) from the explicit rows is 5616 at n=33 and −78720 at n=34. For all n the diagonal is strictly positive by the spectral scalar-square identity, and the distance-two discriminant is negative with a positive leading coefficient. The edge cubic is strictly decreasing because 3AC−B² has positive coefficients in n−6; the positive constant and negative leading cubic give one positive root. The distance-three bracket has single root 2/(3n−4). At this point the edge sign is opposite F(n); the certificate in z=(n−6)/27 is strictly negative for 6≤n≤33 and the expansion in n−34 is strictly positive for n≥34, ruling out boundary ties and reentry. At forward Euler's endpoint h=1/[3(n−3)] the edge entry is positive from the (A/d)/3 term of the convex decomposition and the distance-three bracket is still positive since n≥6. This proves the strict improvement. Read VERIFICATION.md and verify.py; their finite and symbolic results are recorded, not represented as re-execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed universal strongly regular result assumes diameter two; the indexed local tree theorem assumes acyclic graphs. The Hamming distance-three/edge crossover has a different adjacency and parameter.",
+          "Blanes–Iserles–Macnamara treat unconditional positivity barriers; Bresten et al. give SSP coefficients for multistep RK methods."
+        ],
+        "reasoning": "Neither the graph assumptions nor the stronger unconditional or method-class properties give the exact conditional completed-step interval for the diameter-three exchange graph. A matching proof strategy on trees does not cover the non-tree walk counts.",
+        "searches": [
+          "Resultary: sharp RK4 for distance-regular and strongly regular graphs",
+          "Resultary: finite-tree and Hamming diffusion positivity horizons",
+          "arXiv:2102.08242",
+          "arXiv:1307.8058"
+        ]
+      },
+      "checked_sources": [
+        "Hora 2004, doi:10.4036/iis.10.1",
+        "arXiv:1307.8058 and 2102.08242",
+        "Resultary comparators listed above, including triangular graphs and quantum average mixing",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hora's Theorem 4 is on limiting measures. The local tree formula is min of edge-cubic roots and 4 over a four-vertex degree sum; the strongly regular theorem has only edge and distance-two off-diagonal entries.",
+          "Convex Euler decomposition gives a sufficient baseline without an exact upper bound."
+        ],
+        "reasoning": "Prior algebra can supply the setup and stepsize sufficiency, but determining the globally controlling class and proving the all-n cubic sign crossover requires the triple-Johnson calculation, not mere substitution into the located theorems.",
+        "searches": [
+          "Hora 2004 Theorem 4",
+          "Resultary local tree formula and universal strongly regular theorem",
+          "arXiv:2102.08242, unconditional barriers and graph-Laplacian example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hora identifies exchange-graph adjacency with Bernoulli–Laplace diffusion and distance with 3−|X∩Y| in the triple case.",
+          "The inspected three-subset Kneser Finding instead uses disjoint triples as neighbors."
+        ],
+        "reasoning": "Bernoulli–Laplace on unordered triples with unit exchange rates is the same model; a common time rescaling for a normalized generator would not create novelty. The Kneser triple family is not an equivalent adjacency or normalizing rescale. Hora's limiting spectral results concern a different observable.",
+        "searches": [
+          "Resultary: J(n,3), three-subset Johnson, Bernoulli–Laplace and completed RK4 positivity",
+          "Hora 2004, doi:10.4036/iis.10.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact triangular cubic is for J(n,2). The triple-Johnson rank-transition table concerns a quantum Cesàro average-mixing matrix. Table 3 in Bresten et al. tabulates effective SSP coefficients."
+        ],
+        "reasoning": "These tables do not describe positivity of R4(−hL) on the triple exchange graph. No exact match emerged among the inspected catalogue results; that is a bounded comparison.",
+        "searches": [
+          "Resultary: exact RK4 J(n,3) threshold, n=34, Johnson triples, distance-regular positivity",
+          "2026/11/8/SCOPE-sharp-rk4-positivity-horizons-on-triangular-graph-diffusion--1a3e2a741280",
+          "2026/10/12/SCOPE-a-sharp-full-rank-transition-for-average-mixing-on-johnson-tripl--f264c31288fe",
+          "arXiv:1307.8058 §4.2.3 Table 3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact range and its unique integer switch on J(n,3). The diffusion model and intersection-number algebra are established; the located SSP statements and other exact graph families do not supply these signs or sharp Johnson triple thresholds.",
+      "residual_risks": [
+        "A targeted primary-literature query returned unrelated results; it is not evidence of novelty. Unindexed work on Bernoulli–Laplace time stepping or all Johnson parameters remains possible.",
+        "A catalogue date is not used to infer public priority; the conclusion is a comparison of mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports setting and graph algebra, not cutoff",
+          "evidence": "J(v,d) and its distance-regularity are defined; Theorem 4 is about limiting spectral distributions.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/iis/10/1/10_1_1/_pdf/-char/en",
+          "material_read": "PDF pp. 1–2 and Theorem 4",
+          "method": "OA full text, offsets 0, 3398, 20363",
+          "title": "Asymptotic Spectral Analysis on the Johnson Graphs in Infinite Degree and Zero Temperature Limit",
+          "trigger": "Same Johnson exchange graph, possibly equivalent Bernoulli–Laplace formulation"
+        },
+        {
+          "assessment": "Does not give a graph-specific entrywise horizon",
+          "evidence": "The numbers are effective SSP coefficients for fourth-order multistep RK methods.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.8058",
+          "material_read": "§4.2.3, p. 14, Table 3",
+          "method": "OA PDF, offset 39366",
+          "title": "Explicit Strong Stability Preserving Multistep Runge–Kutta Methods",
+          "trigger": "Sharp RK stability data despite different method class"
+        },
+        {
+          "assessment": "Different universal order question",
+          "evidence": "General unconditional order barrier; graph-Laplacian dynamics illustrate the system class, not the finite J(n,3) restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+          "material_read": "PDF pp. 5 and 7",
+          "method": "OA PDF, offsets 19038 and 24380",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph-Laplacian positivity and RK barriers"
+        },
+        {
+          "assessment": "Diameter-two scope does not cover J(n,3)",
+          "evidence": "One cubic edge cutoff for connected noncomplete strongly regular graphs, with nonedges positive; Johnson triple graphs have a further distance class.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-sharp-rk4-positivity-horizon-on-connected-strongly-r--ffa09f555e63",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A universal sharp RK4 positivity horizon on connected strongly regular graphs",
+          "trigger": "Closest stronger parameter theorem in distance-regular algebra"
+        },
+        {
+          "assessment": "Tree hypothesis excludes the target",
+          "evidence": "Uses the degree sum along the unique geodesic and gives no reentry for trees.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-local-rk4-positivity-horizons-on-every-finite-tree--2042521dfc9d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact local RK4 positivity horizons on every finite tree",
+          "trigger": "Structurally matching min of edge and distance-three obstructions"
+        },
+        {
+          "assessment": "Different graph and generator",
+          "evidence": "Adjacency requires disjointness rather than replacing one element.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-rk4-positivity-on-three-subset-kneser-graphs-and-an-all-st--f23d7ce9379c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact RK4 positivity on three-subset Kneser graphs",
+          "trigger": "Same triple state space and RK order"
+        },
+        {
+          "assessment": "Different generator and integer transition",
+          "evidence": "In Hamming dimension three the crossover is in alphabet size, at q=13.",
+          "identifier_or_url": "2026/11/8/SCOPE-alphabet-driven-positivity-barriers-for-rk4-on-hamming-diffusion--4d16a209d9cc",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Alphabet-driven positivity barriers for RK4 on Hamming diffusion",
+          "trigger": "Similar edge/distance-three switch on another distance-regular family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three-subset diffusion is a natural Bernoulli–Laplace exchange model and provides a fixed diameter-three test of endpoint positivity distinct from strong stability or absolute stability. The determination that the limiting entry changes from maximal-distance to adjacent pairs precisely between n=33 and n=34 is not supplied by forward Euler or orbit algebra alone. A user selecting a maximum positivity-preserving time step needs both the exact endpoint and nonreentry, not merely the smaller Euler guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

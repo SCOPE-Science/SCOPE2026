@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,7 @@
 }
 ---
 # Verification
-The proof was checked from the definitions rather than inferred from computational data. The critical steps are:
 
-- the secure-domination occupancy criterion for \(K_{s,t}\);
-- the exact four-block upper construction for \(s=2\);
-- the one-shore hub constructions for \(3\le s\le5\);
-- the two mixed-hub construction for \(s\ge6\);
-- the excess lower bound, including the equality case for a six-vertex shore with no singleton block.
+The proof of the retained \(K_{2,t}\) branch is from the defender-exchange definition. The upper bound proves that a third block supported on the larger shore would have no coalition partner; the lower bound uses an explicit partition with four blocks. The contextual larger-shore classification uses the cited double-coalition theorem with the stated partition-size reduction.
 
-`verify.py` independently enumerates every set partition for all complete bipartite graphs of total order at most \(9\), tests secure domination directly from the defender-exchange definition, and confirms the stated maximum partition order. It also checks the occupancy characterization on \(1110\) profiles and the explicit constructions on all \(820\) profiles with \(1\le s\le t\le40\).
-
-The computation is finite and does not establish the theorem for arbitrary orders. The unrestricted claim is supported by the analytic proof in `RESULT.md`.
+The unchanged `verify.py` checks secure domination by defender exchange, enumerates set partitions through total order nine, and verifies explicit constructions on \(1\le s\le t\le40\). The original `verification_output.txt` is its recorded output. These finite checks are corroborative; neither the retained formula for every \(t\) nor the contextual classification is inferred from enumeration.

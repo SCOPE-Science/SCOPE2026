@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:40.205493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On two variables an independence team is exactly a rectangle (or empty); lax union means Boolean rank at most two, not a disjoint cover. A two-rectangle cover has nonempty row patterns among A,B,A union B. Zero, one or two distinct patterns always work; three work exactly with incomparable A,B and their union, and the minimal two patterns identify the pair without overcounting. Inclusion–exclusion applies to using every distinct nonzero pattern across labelled rows, even if their sizes coincide. The four atom sizes of A,B give the stated multinomial regrouping. In the independent factor model both exclusive column codes and all four row codes occur off an exceptional set of probability at most 6(3/4)^N. On this event the three nonzero patterns determine the factors up to exactly two ordered encodings; every other coverable matrix has an encoding in the exceptional set. This bounds the exceptional mass under both laws and proves the TV transfer. For the symmetric kernel the conditional means on 00,10,01,11 are 0,1/2,1/2,3/4; hence mean 7/16 and projection variance 19/256. Orthogonality of the zero-conditional-mean remainder (even when two terms share one index) gives variance 25/(256N^2); the two projections contribute 38/(256N), leading to the stated Gaussian limit by the i.i.d. CLT and the TV bound. The exact finite moments are for the factor model only. Independent row enumeration, positive multinomial counting and direct rectangle unions agree at all 16 sizes 1<=m,n<=4, including totals 356 and 8776. Exhaustion of order-four encodings confirms moment values 7/16 and 177/4096 and multiplicity two on every output with three distinct nonzero row patterns. Replay: python3 /workspace/reviews/reproduce.py 2; /workspace/reviews/reproduce-output.txt. Frozen code was inspected, not executed; the run does not establish the asymptotic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Team counting results quoted are complexity characterizations for classes of formulas.",
+          "Boolean-rank uniqueness at full free rank is a broader deterministically stated theorem; the OA paper's simulations plant identity blocks rather than analyze uniform distinct outputs.",
+          "Small-real-rank comparisons and labelled sequent calculi address different outputs."
+        ],
+        "reasoning": "Broad prior results cover relevant definitions and the generic uniqueness mechanism, not cardinality-weighted enumeration or a distinct-team density distribution.",
+        "searches": [
+          "Haak et al. arXiv:1902.00246 Theorems 11–12",
+          "DeSantis et al. arXiv:2012.10496 §§4,6 passages on uniqueness and experiments",
+          "Parnas–Shraibman arXiv:2507.05824",
+          "Barbero et al. arXiv:2606.31860"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Local Resultary e22bc6a91416 and self-match 19dd6dc12a11",
+        "OEIS A354741",
+        "arXiv:2012.10496, 1902.00246, 2507.05824 and 2606.31860"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Row and column singleton codes in the generic event generate a 2x2 identity up to permutation. The prior rank/free-rank theorem proves uniqueness on this event, so uniqueness itself is not a separate contribution.",
+          "The prior theorem does not compare the pushforward factor law with unweighted counting on distinct supported matrices; this requires estimating bad mass and using constant good-fiber size.",
+          "A count stratified by Boolean rank alone loses the size weights; e.g. t=1 cannot distinguish the degree-0 contribution from the many positive degrees."
+        ],
+        "reasoning": "The prior theorem is a useful ingredient, not a result giving the team counting and probability outputs by parameter substitution. The weighted pattern-occupancy formula and quantified distributional transfer and CLT make distinct claims.",
+        "searches": [
+          "DeSantis et al. arXiv:2012.10496, Proposition 7 and Theorem 5, and random planted-factor experiment",
+          "OEIS A354741 exact square totals",
+          "Resultary e22bc6a91416"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical Boolean-rank/biclique-cover interpretation is precisely the cover by up to two rectangles; biclique partitions are different because overlap is allowed here.",
+          "The Resultary dependence-atom polynomial uses dep(x,y) or dep(x,z) on three sorts and factors as H(t)^m, not this two-variable rank model.",
+          "DeSantis et al., Proposition 7 and Theorem 5, cover factor uniqueness of matrices containing a permutation submatrix of size equal to Boolean rank."
+        ],
+        "reasoning": "Rephrasing the team claim as Boolean matrix rank exposes the known class and uniqueness lemma. It does not identify its distribution with the distribution on arbitrary sampled factorizations without a further argument.",
+        "searches": [
+          "Local Resultary two-rectangle Boolean rank, biclique covers and split independence team enumeration",
+          "Haak et al. arXiv:1902.00246",
+          "Parnas–Shraibman arXiv:2507.05824",
+          "DeSantis et al. arXiv:2012.10496"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A354741 gives rank-two square count (3^N-2*2^N+1)^2+(4^N-2*3^N+2^N)^2/2, including 306 and 8550 at N=3,4. Adding ranks zero and one gives 356 and 8776.",
+          "The earlier Resultary size enumerator tabulates a different team formula, not the current rank class."
+        ],
+        "reasoning": "A354741 exactly gives the square totals at t=1, not coefficients by number of ones, rectangular values or the distinct-team density law.",
+        "searches": [
+          "OEIS A354741, FORMULA and EXAMPLE",
+          "Local Resultary size-refined team enumeration e22bc6a91416"
+        ]
+      },
+      "rationale": "The square unweighted counts and generic factor uniqueness are genuine prior material. The strongest uniqueness theorem, read in DeSantis et al.'s OA arXiv copy, already gives rank-two factor uniqueness in the presence of a 2x2 permutation submatrix; the frozen generic event ensures such a submatrix. No inspected source supplies the weighted polynomial for labelled rectangular alphabets or the probabilistic result on distinct matrices. The latter needs an additional measure comparison controlling the exceptional outputs, and evaluation of the fluctuations, neither of which follows as a specialization of the deterministic uniqueness statement. The article experiments with rank-five planted identity blocks, not a uniform law on distinct rank-two teams.",
+      "residual_risks": [
+        "Statement-level search is bounded; an equivalent edge-refined enumeration or limit could be indexed under other matrix or graph terminology. A prior generic uniqueness result has been explicitly credited, and the publisher access issue was addressed by the arXiv copy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the generic uniqueness ingredient, not the asserted full size or probability laws. The frozen citation's author attribution should be DeSantis, Skau, Truong and Alexandrov.",
+          "evidence": "Permutation submatrix characterizes free rank; equality with Boolean rank implies unique factors up to permutation. Experiment adjoins identity blocks to random rank-five factors with density 0.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.10496 (lawful author copy for DOI 10.1145/3522594)",
+          "material_read": "ArXiv v2 title and authors, Proposition 7 and Theorem 5 around offsets 40850–44140, random planted-factor experiment around offsets 73350–75556",
+          "method": "Publisher could not be read; found and read identified OA PDF by bounded offset",
+          "title": "Factorization of Binary Matrices: Rank Relations, Uniqueness and Model Selection of Boolean Decomposition",
+          "trigger": "The cited Boolean factor uniqueness paper, materially relevant to the measure transfer"
+        },
+        {
+          "assessment": "Complexity scope overlap only",
+          "evidence": "Counts satisfying teams and characterizes classes of counting problems; compared the cited theorem statements, not every possible weighted consequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.00246",
+          "material_read": "Definition discussion p. 2, Theorems 11–12 p. 10",
+          "method": "OA PDF passage inspection",
+          "title": "Counting of Teams in First-Order Team Logics",
+          "trigger": "Published team model counting with independence atoms"
+        },
+        {
+          "assessment": "Confirms vocabulary; no counting theorem inferred from the retrieved statements",
+          "evidence": "Rank relations and biclique cover/partition interpretations at small real rank.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.05824",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "A study of the binary and Boolean rank of matrices with small constant real rank",
+          "trigger": "Boolean rank and graph cover reformulation"
+        },
+        {
+          "assessment": "The inspected scope is proof theory",
+          "evidence": "Labelled calculi and proof search, not a size distribution statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31860",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Labelled Sequent Calculi for Propositional Team Logics",
+          "trigger": "Team-logical tensor disjunction precedent"
+        },
+        {
+          "assessment": "Exact prior overlap for square totals, not the weight refinement",
+          "evidence": "Rank vectors (1,49,306,156) at N=3 and (1,225,8550,37488,19272) at N=4.",
+          "identifier_or_url": "https://oeis.org/A354741",
+          "material_read": "FORMULA and EXAMPLE",
+          "method": "OA page inspection",
+          "title": "OEIS A354741",
+          "trigger": "Exact Boolean rank table"
+        },
+        {
+          "assessment": "Different atoms and alphabets, with a different product polynomial",
+          "evidence": "Three-sort dependence disjunction has size polynomial H(t)^m and Bernoulli satisfaction probability.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416",
+          "material_read": "Local mirror finding at offset 0 and proof around 2400",
+          "method": "Local Resultary search and OA mirror",
+          "title": "Exact size enumerator for a two-dependence-atom disjunction",
+          "trigger": "Closest earlier indexed weighted split-team count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size distribution refines a known unweighted class on arbitrary labelled rectangular domains, and the square limit answers a natural observable of uniform distinct covers. Distinguishing distinct outputs from factor encodings matters: the proof controls the multiplicity bias rather than assuming it away. Together the explicit coefficient formula and quantified Gaussian law supply useful size-resolved information not present in known totals or deterministic uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

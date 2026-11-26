@@ -2,106 +2,57 @@
 
 ## Finding
 
-For any integer \(m\geq 3\), positive \(t\), squeeze \(a\geq1\), and orientations \(\Theta=(\theta_0,\ldots,\theta_{m-1})\in(\mathbb R/\pi\mathbb Z)^m\), set
+For a fixed integer \(m\ge3\), set \(q_a(d)=a^{-1}\cos^2d+a\sin^2d\) for a common squeeze \(a\ge1\), and let \(\Theta\) be any \(m\) axes on the circle of circumference \(\pi\), with repetitions allowed. Define
 \[
-q_a(d)=a^{-1}\cos^2d+a\sin^2d,\qquad
-L_m(t;a,\Theta)=\min_{\phi\in\mathbb R/\pi\mathbb Z}\frac1m\sum_{j=0}^{m-1}e^{-tq_a(\phi-\theta_j)}.
+L_m(t;a,\Theta)=\min_\phi\frac1m\sum_{j=0}^{m-1}e^{-tq_a(\phi-\theta_j)},\quad
+L_m^*(t)=\sup_{a,\Theta}L_m(t;a,\Theta),\quad
+\delta=\frac{\pi}{2m},\quad a_m=\cot\delta,\quad s_m=\sin(\pi/m).
 \]
-Let \(L_m^*(t)=\sup_{a\geq1,\Theta}L_m(t;a,\Theta)\). Define \(\delta_m=\pi/(2m)\), \(a_m=\cot\delta_m\), and \(s_m=\sin(\pi/m)\). Then
+For \(t>0\) the supremum is attained, and \(e^{ts_m}L_m^*(t)\to 2/m\) as \(t\to\infty\). For every family of maximizing configurations, **first list the axes in positive cyclic order**, choose any first axis, and take increasing lifts on an interval of length \(\pi\) starting at that axis. Then
 \[
-\boxed{\lim_{t\to\infty}e^{ts_m}L_m^*(t)=\frac2m.}
+a(t)=a_m+o(t^{-1/2}),\qquad \theta_j(t)-\theta_0(t)=j\pi/m+o(t^{-1}).
 \]
-Every choice of maximizers, after cyclic relabeling and a common rotation, satisfies
+For fixed real \(v,u_0,\ldots,u_{m-1}\), set \(a(t)=a_m+v/\sqrt t\) and \(\theta_j(t)=\theta_{\rm ref}+j\pi/m+u_j/t\), where \(\theta_{\rm ref}\) is a common reference angle. With \(u_m=u_0\),
 \[
-a(t)=a_m+o(t^{-1/2}),\qquad
-\theta_j(t)=\theta_0(t)+\frac{j\pi}{m}+o(t^{-1}),
-\quad j=0,\ldots,m-1.
+\lim_{t\to\infty}\frac m2e^{ts_m}L_m(t;a(t),\Theta(t))
+=\exp\left[-\frac{\sin^3\delta}{\cos\delta}v^2-\cos(\pi/m)\max_j(u_{j+1}-u_j)\right].
 \]
-More sharply, if \(v,u_0,\ldots,u_{m-1}\) are any *fixed* real numbers and
-\[
-a(t)=a_m+v/\sqrt t,\qquad
-\theta_j(t)=\theta_0+j\pi/m+u_j/t,
-\]
-then, putting \(u_m=u_0\),
-\[
-\boxed{\lim_{t\to\infty}\frac m2e^{ts_m}L_m(t;a(t),\Theta(t))
-=\exp\!\left[-\frac{\sin^3\delta_m}{\cos\delta_m}v^2
--\cos(\pi/m)\max_{0\leq j<m}(u_{j+1}-u_j)\right].}
-\]
-For \(m=1\) or \(m=2\), the exact optimum at every \(t>0\) is \(L_m^*(t)=e^{-t}\), obtained only at \(a=1\) (angles then play no role). Thus three is the smallest number of equal-precision Gaussian channels that improves the sharp large-disk exponential coverage rate below \(1\). For \(m=3\), the rate is \(\sqrt3/2\), the optimal squeeze is \(\sqrt3\), and the optimal prefactor is \(2/3\).
+For \(m=1,2\) and every \(t>0\), \(L_m^*(t)=e^{-t}\), with equality only at \(a=1\) and arbitrary angles. Three is the first channel count to improve the exponential rate below 1; at \(m=3\) the large-disk rate, squeeze and prefactor are \(\sqrt3/2,\sqrt3,2/3\), respectively.
 
 ## Assumptions and scope
 
-The Fourier convention is \(\widehat f(\omega)=\int_{\mathbb R}f(x)e^{-2\pi i\omega x}\,dx\). The normalized Gaussian \(g_a(x)=(2a)^{1/4}e^{-\pi ax^2}\) has ambiguity magnitude
-\[
-|\mathcal A g_a(X,\Omega)|^2=e^{-\pi(aX^2+a^{-1}\Omega^2)}.
-\]
-Rotations through fractional Fourier transforms, followed if necessary by a common quarter-turn, produce precisely \(e^{-\pi r^2q_a(\phi-\theta)}\). With equal independent channel-noise variances and a fixed total precision budget, \(m^{-1}\sum_j|\mathcal A g_{a,\theta_j}|^2\) is the squared norm of the normalized pointwise linear ambiguity-inversion multiplier. On the disk \(X^2+\Omega^2\leq R^2\), all the summands decrease radially and the minimum occurs on its boundary, with \(t=\pi R^2\). The theorem concerns this explicitly defined linear multiplier and does not assert global nonlinear phase-retrieval stability.
-
-We optimize over a *common* Gaussian squeeze, arbitrary orientation angles (repetitions allowed), and equal channel precision. Each \(m\) is fixed while \(t\to\infty\). The angular and squeeze perturbation formula applies for fixed parameters \(u_j,v\), and any common rotation \(\theta_0\).
+With \(\widehat f(\omega)=\int f(x)e^{-2\pi i\omega x}\,dx\), the normalized Gaussian \(g_a(x)=(2a)^{1/4}e^{-\pi ax^2}\) has \(|\mathcal A g_a(X,\Omega)|^2=e^{-\pi(aX^2+a^{-1}\Omega^2)}\), by completing the square. Rotation gives the angular profiles above, with a common quarter-turn if needed. In the pointwise linear model with independent equal-noise channels and fixed total precision, the whitened forward vector for the unknown scalar consists of \(m^{-1/2}\mathcal A g_{a,\theta_j}\), up to a common precision factor. The sum of squared magnitudes of that vector is the normalized information gain; its reciprocal is the noise variance factor for the linear least-squares inverse. This is not a claim about nonlinear phase retrieval. Each summand decreases radially, so the minimum gain on a disk of radius \(R\) is at its boundary and \(t=\pi R^2\).
 
 ## Proof
 
-**1. Angular geometry and global exponential bound.** Order the orientation axes cyclically on a circle of circumference \(\pi\). If \(g\) is the largest of the \(m\) consecutive gaps, then \(g\geq\pi/m\). At its midpoint, the circular geodesic distance to every axis is at least \(g/2\); two gap endpoints are at distance exactly \(g/2\). For \(a\geq1\), \(q_a(d)\) is increasing in the geodesic distance \(d\in[0,\pi/2]\). Therefore
+**Global upper bound and existence.** Let \(g\ge\pi/m\) be the largest gap in cyclic order. Its midpoint has geodesic distance at least \(g/2\) from every axis. Because \(q_a\) is nondecreasing on \([0,\pi/2]\),
 \[
-L_m(t;a,\Theta)\leq e^{-tq_a(g/2)}
-\leq e^{-tq_a(\delta_m)}\leq e^{-ts_m}.
+L_m\le e^{-tq_a(g/2)}\le e^{-tq_a(\delta)}\le e^{-ts_m}.
 \]
-The final inequality follows from
-\(q_a(\delta_m)=a^{-1}\cos^2\delta_m+a\sin^2\delta_m\geq2\sin\delta_m\cos\delta_m=s_m\),
-with equality precisely at \(a=a_m\). When \(m\geq3\), the inequality in the gap is strict unless \(g=\pi/m\) and \(a=a_m\).
+The last step is AM–GM and is an equality only at \(a=a_m\). For \(a>1\) the gap step is strict if \(g>\pi/m\). For fixed \(t\), the first upper bound tends uniformly to zero as \(a\to\infty\), since \(q_a(g/2)\ge a\sin^2\delta\). The objective is continuous on compact parameter sets, and the value at \(a=1\) is positive, so a maximizer exists.
 
-**2. Equispaced lower construction and its exact prefactor.** Set \(a=a_m\), \(\theta_j=j\pi/m\). Each gap midpoint has exactly two nearest axes at distance \(\delta_m\), with all other axes at strictly greater distance. At each such midpoint the normalized sum equals
+**Minimum near an equispaced design.** Consider \(a\to a_m\) and all cyclic gaps \(g_j\to2\delta\). Write \(Q=\max_j q_a(g_j/2)\). In a small fixed neighborhood of a gap midpoint the endpoint distances are \(g_j/2\pm x\). Here \(q'_a\) has a uniform positive lower bound and \(q''_a\) is bounded. Therefore \((e^{-tq_a})''=e^{-tq_a}(t^2(q'_a)^2-tq''_a)>0\) on the distance band for all sufficiently large \(t\). The sum of the two endpoint terms is at least \(2e^{-tq_a(g_j/2)}\) by convexity, hence at least \(2e^{-tQ}\). Outside these midpoint neighborhoods, the nearest axis has distance at most \(g_j/2-\varepsilon\) within its gap, so by monotonicity and the same positive slope near \(g_j/2\) its exponent is at most \(Q-c\) for some fixed \(c>0\). Its term alone exceeds \(2e^{-tQ}\) for sufficiently large \(t\). At a midpoint of a largest gap exactly two axes have distance \(g/2\); all other distances stay uniformly separated above \(g/2\), as in the equispaced limit. At that point the other terms are bounded by \(O(e^{-t(Q+c')})\) for a fixed \(c'>0\). Thus in this regime
 \[
-\frac2m e^{-ts_m}(1+O_m(e^{-c_mt}))
+L_m=\frac2m e^{-tQ}(1+O(e^{-c't})).
 \]
-for a fixed \(c_m>0\). These midpoints are the asymptotic global minima. Indeed, away from their neighborhoods the nearest axis has \(q_{a_m}(d)<s_m-\epsilon\) for some positive \(\epsilon\), making the normalized sum exponentially larger than \(e^{-ts_m}\). In a neighborhood of any midpoint write \(\phi=\phi_{\rm mid}+z/t\). Taylor expansion for bounded \(z\), with \(b_m=q'_{a_m}(\delta_m)=2\cos(\pi/m)>0\), gives
+In particular, the equispaced configuration at \(a_m\) has \(Q=s_m\).
+
+**Optimality and rigidity.** Comparing the equispaced lower value with the global upper bound at maximizers gives \(0\le q_a(g/2)-s_m=O(1/t)\). Coercivity and the unique minimizer of \(q_a(\delta)\) imply \(a\to a_m\); monotonicity, strict at the limiting squeeze, implies \(g\to2\delta\). All gaps then tend to \(2\delta\), since their sum is \(\pi\). The preceding asymptotic now applies to the maximizers and shows \(e^{ts_m}L_m^*(t)\to2/m\) and \(t(Q-s_m)\to0\). The gap and squeeze increments in
 \[
-\frac1m\sum_j e^{-tq_{a_m}(\phi-\theta_j)}
-=\frac2m e^{-ts_m}(\cosh(b_mz)+o(1)).
+Q-s_m=[q_a(g/2)-q_a(\delta)]+[q_a(\delta)-q_{a_m}(\delta)]
 \]
-If \(|z|\to\infty\) while \(\phi\to\phi_{\rm mid}\), one of the two terms dominates and grows relative to \(e^{-ts_m}\), so no smaller limiting value is possible. It follows that
-\(L_m(t;a_m,(j\pi/m)_j)=(2/m+o(1))e^{-ts_m}\).
+are both nonnegative. The first bounds a positive multiple of \(g-2\delta\) near the limit; the second bounds a positive multiple of \((a-a_m)^2\). Thus \(g-2\delta=o(t^{-1})\) and \(a-a_m=o(t^{-1/2})\). The gap deviations sum to zero and so each is \(o(t^{-1})\); summing them in positive cyclic order yields the asserted angular estimate.
 
-**3. Global optimal constant and rigidity.** A maximum exists for fixed \(t\): the orientations form a compact torus, and letting \(a\to\infty\) makes the value at the midpoint of a largest gap tend uniformly to zero (since \(g\geq\pi/m\)). Let \(a(t),\Theta(t)\) maximize. Combining Step 1 with Step 2 shows \(q_{a(t)}(g(t)/2)-s_m=O(1/t)\); hence \(a(t)\to a_m\) and \(g(t)\to\pi/m\). As the \(m\) gaps sum to \(\pi\), all gaps tend to \(\pi/m\). At the midpoint of any largest gap, exactly the two adjacent axes have limiting distance \(\delta_m\). Every other axis has a uniformly larger limiting distance, so its exponential contribution is negligible. Consequently
+**Perturbations.** Now \(g_j/2=\delta+(u_{j+1}-u_j)/(2t)\). At \((a_m,\delta)\), \(\partial_a q=0\), \(\partial_d q=2\cos(\pi/m)\) and \(\tfrac12\partial_a^2q=\sin^3\delta/\cos\delta\). Taylor expansion, with vanishing rescaled mixed and higher terms, gives
 \[
-L_m^*(t)\leq\frac2m e^{-tq_{a(t)}(g(t)/2)}(1+o(1))
-\leq\frac2m e^{-ts_m}(1+o(1)).
+t(q_a(g_j/2)-s_m)=\cos(\pi/m)(u_{j+1}-u_j)+\frac{\sin^3\delta}{\cos\delta}v^2+o(1).
 \]
-Together with Step 2 this proves the first displayed limit. In fact, the same inequalities now imply
-\(t[q_{a(t)}(g(t)/2)-s_m]\to0\). Since \(q_a(d)\) has strictly positive \(d\)-derivative at \((a_m,\delta_m)\) and a strictly positive second \(a\)-derivative there, the separate nonnegative increments
-\[
-q_{a(t)}(g(t)/2)-q_{a(t)}(\delta_m),\qquad
-q_{a(t)}(\delta_m)-s_m
-\]
-force \(t(g(t)-\pi/m)\to0\) and \(\sqrt t(a(t)-a_m)\to0\). Summing the gap deviations and using their maximum shows that *every* gap differs from \(\pi/m\) by \(o(t^{-1})\); cyclic integration proves the stated angular rigidity.
+Taking the maximum over the finitely many gaps and applying the midpoint estimate proves the formula. For \(m=2\), the largest-gap midpoint has all distances at least \(\pi/4\), so \(L_m\le e^{-t(a+a^{-1})/2}<e^{-t}\) if \(a>1\). For \(m=1\) the direction orthogonal to the axis gives \(L_1=e^{-ta}\). In both cases \(a=1\) attains \(e^{-t}\).
 
-**4. Sharp perturbation law.** In the regime of the third display, the \(j\)-th gap has size \(\pi/m+(u_{j+1}-u_j)/t\). At its midpoint, a two-variable Taylor expansion gives
-\[
-tq_{a(t)}\!\left(\frac{\theta_{j+1}(t)-\theta_j(t)}2\right)
-=ts_m+\cos(\pi/m)(u_{j+1}-u_j)
-+\frac{\sin^3\delta_m}{\cos\delta_m}v^2+o(1).
-\]
-Here \(\partial_aq_{a_m}(\delta_m)=0\), \(\partial_dq_{a_m}(\delta_m)=2\cos(\pi/m)\), and \(\tfrac12\partial_a^2q_{a_m}(\delta_m)=\sin^3\delta_m/\cos\delta_m\). At an additional angular offset \(z/t\) from that midpoint, the two neighboring terms have limiting relative sum \(2\cosh(2\cos(\pi/m)z)\); all other terms are exponentially smaller. As in Step 2, compactness away from midpoints and nearest-axis domination for unbounded rescaled offsets show that all minima are captured by these local profiles. Minimizing each \(\cosh\) at zero, and then choosing the largest gap increment, proves the asserted perturbation formula.
+## Verification and limitations
 
-**5. One and two channels.** For \(m\leq2\), the largest gap is at least \(\pi/2\) when \(m=2\) (and \(\pi\) when \(m=1\)). At its midpoint all distances are at least \(\pi/4\); thus \(q_a\geq(a+a^{-1})/2\geq1\) for \(m=2\), with strict inequality if \(a>1\). For \(m=1\), the opposite point has \(q_a=a\geq1\). The isotropic Gaussian \(a=1\) attains \(e^{-t}\) for either number of channels, establishing the exact claim.
-
-## Verification
-
-The stand-alone script `checks/gaussian_design_check.py` (Python standard library only) evaluates discrete-angle minima for equispaced and perturbed designs, confirms the asymptotic prefactors numerically for several \(m\), checks the one-/two-window identity, and verifies the elementary derivative and squeeze identities. It was executed from its delivered path and returned `PASS: 86 finite analytic-identity and numerical assertions.` These finite computations corroborate the formulas but do not establish any continuum minimax assertion; Steps 1–5 supply those proofs.
+The accompanying `checks/gaussian_design_check.py` reports 86 finite identity and numerical checks in the archived verification. Finite angle grids do not establish the continuum minima or asymptotic law; the proof above supplies those conclusions. The theory fixes \(m\), uses a common squeeze and equal precision on a circular region, and does not assert finite-\(t\) angular optimality for \(m\ge3\), optimization over unequal weights or other windows, or nonlinear recovery stability.
 
 ## Relationship to prior work
 
-Alaifari and Yang, *Multi-Window Approaches for Direct and Stable STFT Phase Retrieval* (arXiv:2410.05486, first posted 2024-10-07), Section 2.1 and Remark 2.1, introduce the rotated/dilated Gaussian construction, use equally spaced orientations, and calculate the threshold-ellipse intersection denominator \(a^{-1}\cos^2(\pi/(2m))+a\sin^2(\pi/(2m))\). That geometric formula yields the corresponding threshold-coverage exponential rate after minimizing in \(a\); it is therefore **not** claimed here as a novel standalone observation. The present statement instead optimizes the *sum of squared ambiguity magnitudes* over arbitrary orientation placement and common squeeze, identifies the sharp multiplicative factor \(2/m\), proves asymptotic optimizer rigidity at two distinct scales, and obtains the fully quantitative perturbation penalty. Those are distinct from the largest disk contained in a union of threshold ellipses or a positive *unsquared* ambiguity sum. The comparison is conditional on the specific equal-noise least-squares multiplier defined above.
-
-Hardin, Kendall, and Saff, *Polarization optimality of equally spaced points on the circle for discrete potentials* (arXiv:1208.5261, 2012), prove equally spaced optimality for nonincreasing *convex* geodesic-distance potentials. The potential here is \(e^{-tq_a(d)}\), which has negative second derivative at \(d=0\) for every \(a>1,t>0\), so the stated convexity hypothesis does not apply. The theorem therefore cannot be inferred directly from that polarization result. Existing general Gaussian ambiguity formulas justify the normalization and rotation model, not the asserted sum-of-squares global asymptotics and microscopic rigidity.
-
-## Limitations
-
-No claim is made about arbitrary window families, unequal channel weights, channel-dependent squeezing, noncircular regions, increasing \(m\), exact optimal orientations at finite \(t\) for \(m\geq3\), or nonlinear stability of recovering a signal from STFT magnitudes. The asymptotic \(o(\cdot)\) terms are for fixed \(m\); the local perturbation statement is for fixed real offsets. The uniqueness assertion for \(m=1,2\) concerns squeezing, not the irrelevant orientations at \(a=1\). Although targeted searches and primary-text comparisons found no covering quantitative theorem, unseen literature on Gaussian polarization or optimized multiwindow inversion remains a historical-priority risk.
-
-## References
-
-1. R. Alaifari and Y. Yang, *Multi-Window Approaches for Direct and Stable STFT Phase Retrieval*, arXiv:2410.05486 (first posted 2024-10-07), particularly Section 2.1, Remark 2.1 and equation (7). https://arxiv.org/abs/2410.05486
-2. D. P. Hardin, A. P. Kendall and E. B. Saff, *Polarization optimality of equally spaced points on the circle for discrete potentials*, arXiv:1208.5261 (2012), Theorem 1. https://arxiv.org/abs/1208.5261
-3. K. Gröchenig, *Foundations of Time-Frequency Analysis*, Birkhäuser (2001), for the classical ambiguity/STFT normalization and identities; cited for background rather than novelty comparison.
+Alaifari and Yang, *Multi-Window Approaches for Direct and Stable STFT Phase Retrieval*, [arXiv:2410.05486](https://arxiv.org/abs/2410.05486), §2.1 and Remark 2.1, use equally spaced squeezed Gaussians. Their threshold-ellipse denominator supplies the same geometric exponential rate after minimizing in the squeeze; that rate alone is not claimed as a new finding. Their threshold construction and positive unsquared recovery sum do not give the prefactor, arbitrary-angle optimality and rigidity, or angular perturbation law of the equal-weight squared sum. The separate three-window squared-sum [record a5ef66ef0375](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-squeezing-threshold-for-three-rotated-gaussian-ambiguity-w--a5ef66ef0375) obtains the same leading factor and rate on the fixed three-axis grid while allowing variable weights and optimizing the squeeze. Its fixed-placement result does not supply the placement rigidity or the general common-squeeze theorem here. Hardin, Kendall and Saff, *Polarization optimality of equally spaced points on the circle for discrete potentials*, [arXiv:1208.5261](https://arxiv.org/abs/1208.5261), Theorem 1, require a convex geodesic-distance potential. Here \((e^{-tq_a})''(0)=-2t(a-a^{-1})e^{-t/a}<0\) at nontrivial squeezes. Historical priority beyond these statement comparisons is not certified.

@@ -1,11 +1,21 @@
-# Scientific review: first second homology of symmetric-group clique quotients
+# Independent mathematical audit
 
-**Correctness — PASS.** The bijection between group-clique faces and group elements comes from the credited prime-primary decomposition. Distinct prime labels forbid vertex permutation by a simplex stabilizer. The quotient cellular differential therefore is the integral alternating deletion matrix of prime-primary components, with each conjugacy class represented by its cycle-type partition. The verified matrices enumerate every such class for all ranks in the claim. Free-edge elimination directly kills every potential two-cycle below fifteen and retains only the four tetrahedral triangles at fifteen. Independently, for ranks below fifteen the two-boundary is injective modulo 101; in rank fifteen it has modular rank 23 and has the explicit primitive four-face integral cycle. Absence of three-cells up to sixteen letters proves that this cycle survives. This proves exactly the asserted integral groups, not merely a finite-sample conjecture.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest same-object primary text, Bate–Everitt–Ford (arXiv:2607.22369, Sections 1.2, 1.4, 2.1, 3.3 and 4.1), establishes the group clique complex and its conjugacy-class schematic, but not the first degree-two homology of the *geometric quotient*. A schematic and its individual two-faces do not imply a two-cycle or determine quotient homology. Published-record and semantic-result searches found no equivalent threshold or stronger formula. The 2006 construction by Donkin was identified through the newer paper but not inspected in full, leaving a residual overlap risk. Non-detection by a database is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The new 2026 complex was studied through conjugacy-class schematics and sheaf homology. Determining the earliest integral two-dimensional class of its natural conjugation quotient answers a concrete gap about the topology encoded by those schematics. The class has a structural explanation as a four-prime tetrahedral boundary, and its uniqueness and sharp threshold are not read off from the known dimension or connectivity statements. The natural group-rank cutoff and explicit primitive generator make the finite result mathematically interpretable; no wider theorem is needed to justify it.
+Each nonempty face corresponds to the product of its commuting primary factors; this is equivariant under conjugation. The prime labels are pairwise distinct and invariant under conjugation, so a setwise stabilizer fixes a simplex pointwise. More strongly, equality of two quotient points from one closed simplex forces equality of the barycentric coordinate at each prime and hence equality of points. Orbit-simplex closures thus give cells, with alternating boundary signs in increasing prime order and no stabilizer multiplicities. Deleting the p-factor acts on a length-L cycle by a power whose exponent has gcd p^v_p(L) with L; this gives the stated split into p^v_p(L) equal cycles. Four distinct primes require at least 17 letters: assign each prime to a cycle it divides, whose length is at least the product of its assigned primes, at least their sum. The same bound with three primes excludes triangles before 10. Independent exact enumeration and boundary reconstruction checked ∂₁∂₂=0 and gave C₂ counts (1,2,5,9,15,24) at n=10,…,15, with peeling rounds [1], [2], [5], [8,1], [12,3], [15,4,1]. A uniquely incident triangle on a remaining edge must have coefficient zero in any integral cycle, so peeling preserves the two-cycle group. The last four simplices at n=15 are exactly the specified disjoint-prime cycles; their edge and vertex labels and orbit identifications are precisely those of a tetrahedral boundary. Its six edge equations force all integral triangle coefficients to be a common integer times (1,−1,1,−1); this agrees with the independent residual rank 3 and verifies primitivity and exhaustion. Since there are no three-cells, the cycle generates H₂, and injectivity below 15 gives the sharp first occurrence (also covering empty Y₁).
 
-**Limitations.** No all-rank formula, homotopy splitting, or lower-degree classification is claimed. The exact proof covers the stated finite ranks. The independent review of these mathematical conclusions has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original group clique complex and conjugacy-class schematic are antecedents; the latter already supplies much of the combinatorial model and should not itself be credited as new. The inspected results do not supply the vanishing and generation computation for integral H₂ of these symmetric-group geometric quotients. The classification includes ruling out cycles carried by nonminimal orbit cells, not just locating the four primed faces.
+
+## value
+
+PASS
+
+The group clique complex and its conjugacy-class schematic motivate asking which integral cycles actually survive in the associated geometric orbit space. The exact first occurrence, exhaustion of H₂, and embedded primitive representative identify a specific qualitative transition, which would not follow from prime supports alone. It is a reproducible benchmark for studies of group-complex quotients even without an all-n homology theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

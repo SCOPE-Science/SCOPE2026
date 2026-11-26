@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Distinct-length Parikh vectors are disjoint. The alternating-projection proof gives exact and exhaustive even and odd factor recurrences, including the two boundary lengths; these match Stern's recurrence. A direct finite rank-one base case proves all ranks. The total and Fibonacci-extremal assertions follow from independently written row-sum and adjacent-pair arguments. The Jacobsthal witness is verified through a two-term Stern recurrence. The standalone checker enumerates the entire Parikh spectrum through rank nine, without serving as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Source and claim comparisons searched Zimin/ruler-word Abelian/Parikh complexity, Stern/fusc Fibonacci/Jacobsthal aliases and related general Abelian-automatic results, both through published research records and primary literature. The closest source, de Luca and De Luca (arXiv:1410.4085), connects a ruler word to Stern's sequence but uses different invariants: Christoffel word lengths and central-word periods; it does not supply this finite-Zimin Parikh-factor identification in the inspected full text. Cooper and Rorabaugh (arXiv:1409.3080) supply the Zimin definition and valuation structure without Abelian complexity. The independent Stern Fibonacci bound is not claimed as new. Search incompleteness is a residual historical-priority risk.
+PASS
 
-**Value — PASS.** This identifies the *entire natural Abelian factor-complexity spectrum* of an important recursive word, not an arbitrary numerical slice. It transfers structural Stern theory to word-factor Parikh images, yields the exact total \((3^n-1)/2\), and locates the sharp Fibonacci growth at natural Jacobsthal scales. It also permits computing any rank-length value in logarithmic time without constructing the exponentially long word. The precise invariant is relevant to anagram equivalence of contiguous factors and Abelian pattern analysis.
+Independently, write a factor as the interval of positions L+1,…,L+ℓ (positions start at one), and let R=2^n−1−ℓ−L. Letter a_(j+1) marks positions of 2-adic valuation j. The Parikh vector is equivalent by cumulative sums to the numbers T_j of multiples of 2^j in the interval. Since L+ℓ=2^n−1−R, T_j=2^(n−j)−1−floor(L/2^j)−floor(R/2^j) for 0≤j≤n. In particular the vector of floor sums D_j is determined, and D_j−2D_(j+1) is the sum of the j-th binary digits of L and R. Conversely these digit sums determine all the floor sums, starting from D_n=0. Thus distinct Parikh vectors are in bijection with hyperbinary representations of 2^n−1−ℓ: every digit 0, 1 or 2 in a representation splits into two binary digits, giving a valid L,R. This includes ℓ=0 and ℓ=2^n−1. Hyperbinary counts h satisfy h(0)=1; odd indices force a units digit 1, while positive even indices have units digit 0 or 2, giving h(2m+1)=h(m) and h(2m)=h(m)+h(m−1); hence h(k)=s(k+1). The nonempty total follows from the Stern even/odd recurrence summed over a dyadic row, giving A_n=3A_(n−1)−1 if the empty count is included. Row insertion of adjacent sums yields successive maxima and maximum adjacent sums (F_(m+1),F_(m+2)): a maximizing pair containing a maximum produces a maximizing adjacent pair containing the next row maximum. The Jacobsthal recurrence gives the Fibonacci update for (s(J_m),s(J_m+(−1)^m)), with base (1,1) at m=2; the n=1 length is direct. Since 2^n−J_n=J_(n+1), this supplies an attaining length. Inspected the supplied checker without running it. An independent finite JS count using differences of floor quotients checked 2046 lengths at ranks 1–10; replay: node /workspace/branches/review5-arithmetic-check.js. This checks those counts only; the bijection and recurrences prove the infinite-rank assertions.
 
-**Limitations.** Alphabet letters must be distinct; no assertion about occurrence multiplicities, arbitrary morphic images, or other orders of equivalence. The proof and computer checks are self-reviewed only. Historical priority is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the distinct part is the exact identification of the full finite Zimin Parikh spectrum with the reversed Stern prefix. Neither the Zimin word description nor the Stern arithmetic, hyperbinary model, table or Fibonacci extremum is asserted to be new. The total and attaining length are consequences for factors once the identification is made, not independent novelty claims.
+
+## value
+
+PASS
+
+The word is a standard recursively nested test object and the Parikh spectrum is a natural measure of the diversity of its contiguous factors. The exact profile across every relative length, including its extremum and a concrete attaining length, replaces direct substring enumeration and shows a precise structural link to binary arithmetic. This is not a recomputation of Stern's table: it supplies the missing identification of what those entries count for these finite words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rational generating function reduces the full cyclic end-step matrix to the sign of one polynomial in the step parameter. The finite short-cycle positivity base cases have explicit *strictly positive* Bernstein coefficients on two half-intervals. Descartes' rule supplies an all-degree two-root upper bound, while a common algebraically negative point gives two actual simple roots for every cycle of length at least five. Uniformization and root bracketing prove the asymptotic boundary laws. The 355 symbolic checks rerun the nonstandard algebraic certificates; finite tests alone are not used as infinite proofs.
+## correctness
 
-## Originality — PASS (with residual risk)
-The 2015 open preprint by Bonaventura and Della Rocca was inspected in full, notably its strong-stability analysis of the identical stability function and its periodic-upwind example on 100 grid points. That paper's broad SSP criterion and the numerical experiment overlap the method and the physical discretization, but neither explicitly states nor mathematically implies the sharp necessary-and-sufficient matrix positivity polynomial for each cycle size, the smallest cyclic obstruction, the two disconnected positivity windows, or the upper boundary's linear scaling. The original 1977 Alexander paper is accessible only via metadata/abstract in the present review. Horváth's general positivity work remains a relevant source of residual implicit-specialization risk because complete full texts could not be inspected. Published related results for distinct rational stability functions were compared, and accessible earlier claims were checked for aliases and implication overlap. No equivalent statement was found; this is not a guarantee of priority.
+PASS
 
-## Mathematical value — PASS
-A directed periodic upwind stencil is a natural positivity-critical semidiscretization used in transport. The exact sign classification identifies an unexpected *reentrant* regime in a classical L-stable method: smaller steps can break positivity, yet all sufficiently large steps recover it, and the size-five threshold and growth law are sharp. The result is a motivated all-size structural classification, not an arbitrary numerical instance, and it clarifies why method-wide SSP restrictions are not exact for a fixed spatial stencil.
+Substituting r=γh/(1+γh) gives the absolutely summable coefficients (1−r)r^k[1+ak−a(k+1)r]; projection onto residue classes mod n gives the asserted kernel. For a forward row shift the bracket exceeds the diagonal bracket by aj(1−r^n), so the diagonal controls positivity. Independent replay /workspace/branches/replay_4.py reconstructed all six exact Bernstein minima for dimensions 2–4, checked the five-cycle witness and directly inverted circulants at rational r for three sizes, and recomputed both n=5 endpoints and c*. The n=5 value at r=3/5 is strictly negative; H_(n+1)−H_n=r^n[1−an(1−r)] is strictly negative there for n≥5. With H_n(0)=1 and H_n(1)=n, two roots are forced and Descartes' two-sign-change bound makes them simple and exhaustive. Pointwise limits on compactly bracketed fixed r locate the lower root at 1/a; bracketing the upper root on r=1−c/n reduces its scaled limit to the unique strictly positive zero of e^c−1−(a/√2)c. Thus the asymptotic claims do not rely on numerical fitting. Unit row sums follow from R(0)=1; at zero the map is I, and at either positive boundary only the diagonal vanishes. The analysis is for exact end steps on uniform one-way cycles, not general or internal-stage positivity.
 
-## Scientific limitations
-The result concerns a finite uniform one-way directed cycle, end-step matrices and exact arithmetic; it does not establish universal arbitrary-generator or intermediate-stage positivity, nor numerical accuracy at the recovered large steps. Independent audit is pending; the originality conclusion retains risks from specialized or inaccessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The L-stable rational function, its method-wide positivity bound, and its use on periodic upwind advection already exist. The matched primary coverage and related catalogue claims do not establish the same map's complete dimension-dependent cyclic positivity region, including the sharp five-state loss/recovery threshold and the upper asymptotic law. No global publication-priority claim is supported.
+
+## value
+
+PASS
+
+This separates a useful sufficient timestep restriction from exact endpoint positivity on a standard model of periodic transport. It explains why a stochastic endpoint can recover beyond a forbidden band, gives the smallest such cycle and exact entry diagnostics, and distinguishes an order-one initial bound from order-n recovery. These are structural and directly useful facts, not sample-specific sign tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

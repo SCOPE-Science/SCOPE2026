@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete-square identity is exact for the displayed three-by-two data matrix. It provides a strict global attainment dichotomy. The ridge term is coercive, and compactness of strict sublevels below the asymptotic value proves attainment below the threshold. For nonattaining parameters, all minimizing sequences have bounded penalized coordinate and divergent unpenalized coordinate. Matched variational lower and constructive upper bounds then give the fourth-root and sixth-root escape rates and exact value constants. Every quantifier concerns global minimizers for fixed parameters and positive ridge weights approaching zero. The embedded checker recomputes independent symbolic identities and representative numerical minima; the proof, not those experiments, establishes the limits.
+## correctness
 
-## Originality — PASS, subject to historical uncertainty
-The closest primary literature includes Nguyen–Nguyen (2026), whose nonattainment criterion and example are respected, Beck–Ben-Tal (2006), and Xia–Wang–Yang (2018). Their inspected statements address attainment criteria and solution algorithms, not the singular small-ridge asymptotic exponent change at a column-correlation threshold. The present result is not a corollary of the stated sufficient finite-attainment condition: the two data regimes at and below the boundary have the same nullspace spectral diagnostic when \(\beta\ge1\). An older unindexed perturbation analysis might contain an equivalent special case; the 2006 full text was not inspected, and this remains a bibliographic risk. Broad generic semi-algebraic asymptotic theory does not by itself supply these precise constants and the two-sided attainment classification.
+PASS
 
-## Mathematical value — PASS
-Rank-one singular regularization is the smallest model in which the penalty leaves a free direction. Correlated data columns create a nontrivial cancellation that shifts the conditioning of regularized solutions from one fourth-power law to one sixth-power law. The exact constants give numerical scales for choosing a ridge parameter, while the attainment threshold distinguishes problems for which vanishing ridge converges to finite solutions from those for which it provably cannot. The result applies to an entire continuous data family rather than a numerical curiosity.
+Independently reduce the given 3-by-2 problem on each circle u²+v²=s. The angular minimum of (1+s)u²+2γuv is s λ₋(1+s), where λ₋(d)=(d−sqrt(d²+4γ²))/2. The reduced unregularized value is 1+[β−1−2γ²s/(1+s+sqrt((1+s)²+4γ²))]/(1+s). The term subtracted from β−1 is strictly less than γ² at finite s and tends to γ². Thus for K≥0 the infimum is 1, is not attained and ridge minimizers escape; for K<0 the profile has a compact sublevel below 1, confining all small-ridge minimizers. At infinity the excess over 1 is K/s+(γ²−K)/s²+O(s⁻³). Add εs; the trial radii and matching lower bounds confine ε^(1/2)s (K>0) or ε^(1/3)s (K=0) to compact positive intervals. The unique minimizers of the limiting profiles q+K/q and q+γ²/q² give exactly the asserted norm and value constants. On either escaping branch the optimal eigenvector has u/v=−2γ/(1+s+sqrt((1+s)²+4γ²))∼−γ/s, hence |v|∼sqrt(s) and uv→−γ for every global minimizer. The frozen square-completion proof is consistent with this separate reduction. CHECK.py was inspected, not executed: its symbolic identities and sampled BFGS diagnostics have different evidentiary scope; the conclusion about global minima follows analytically. Parameters γ and β are fixed and γ is strictly positive.
 
-## Closest literature and limitations
-Nguyen–Nguyen, arXiv:2610.22880v1; Xia–Wang–Yang, arXiv:1810.11972; Beck–Ben-Tal, DOI 10.1137/050624418; Golub–Hansen–O'Leary, DOI 10.1137/S0895479897326432. The first two primary full texts were materially inspected. The latter two were inspected through accessible publication records/abstracts; inaccessible detailed historical equivalents remain possible. The theorem makes no assertion about unmodeled stochastic noise, floating-point algorithms, or arbitrary singular penalties.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work covers singular-penalty nonattainment and global solution methodology, and the familiar fourth-root balance is already implicit in augmenting a simpler uncoupled example. The positive-correlation attainment boundary and the sharp critical sixth-root escape for all global minimizers are not covered by the strongest inspected statements. This is a bounded priority assessment, not a claim that fractional-exponent perturbation theory is new.
+
+## value
+
+PASS
+
+A minimal full-column-rank overdetermined benchmark separates boundedness, ordinary escape and critical escape for a genuinely singular regularizer. The sharp band boundary and differing constants can test global regularized solver behavior near nonattainment; the example also shows where a standard sufficient condition ceases to be informative. The value is this mechanism and benchmark, not a claim of general TLS rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

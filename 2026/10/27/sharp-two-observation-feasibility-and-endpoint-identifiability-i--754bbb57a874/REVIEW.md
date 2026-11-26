@@ -1,19 +1,21 @@
-# Scientific review: sharp two-point Green–Ampt inverse classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized forward integral \(Kt=Bg(F/B)\), where \(g(u)=u-\log(1+u)\), gives the exact two-point ratio \(R_\rho(u)=g(\rho u)/g(u)\). The proof's key nonstandard step is global elasticity monotonicity: \(h(u)=u^2/[(1+u)g(u)]\) satisfies \(h'(u)<0\), because \(H(u)=u^2/(u+2)-g(u)>0\) and \(H'(u)=u^2/[(1+u)(u+2)^2]>0\). Therefore the ratio descends strictly from \(\rho^2\) to \(\rho\), giving exact existence, strict boundary exclusions, and uniqueness. Taylor expansion at small \(u\) and the logarithmic large-\(u\) identity establish both parameter boundary laws. The packaged Python checker passed 4,000 reproducible parameter recoveries, exact rational checks of the derivative identity, the exact example, and extreme-regime comparisons. Finite tests corroborate, but do not establish, the theorem.
+PASS
 
-## Originality
+Integration from F=0 gives Kt=B g(F/B), g(u)=u−log(1+u), a strictly increasing forward coordinate for F>0. With u=F₁/B the inverse reduces to Rρ(u)=g(ρu)/g(u)=q and then B=F₁/u, K=F₁g(u)/(t₁u). For h=ug′/g, an independent check is h(u)⁻¹=∫₀¹ s(1+u)/(1+us) ds, whose derivative is the integral of s(1−s)/(1+us)² and is strictly positive. Thus u(log Rρ)′=h(ρu)−h(u)<0. The limits are ρ² and ρ, so neither equality endpoint yields finite positive parameters. As u→0, g=u²/2−u³/3+O(u⁴) gives δ∼2ρ²(ρ−1)u/3, giving the claimed reciprocal-depth and linear-conductivity laws. As u→∞, the exact ratio difference is [ρ log(1+u)−log(1+ρu)]/g(u), so ε∼(ρ−1)log(u)/u and log(1/ε)/log(u)→1. This verifies the logarithmic correction in B and the linear K-deficit with their stated leading constants. Independent bounded checks of the rational derivative identity, the u=1 example and both asymptotic regimes agreed (slower convergence on the logarithmic side). The uploaded script was inspected, not executed. The asymptotics fix F₁,t₁ and ρ>1; the conclusion identifies the product capillary length only and does not assert inference from noisy data.
 
-**PASS, with stated historical-priority qualifications.** Exact two-point feasibility \(\rho<q<\rho^2\), uniqueness of both parameters throughout that region, and the contrast between reciprocal and logarithmic inverse degenerations were compared against the relevant Green–Ampt forward literature and prior inverse-parameter studies. Zeleke and Si (2005) fully discuss inversion and numerical uniqueness for falling-head data; Rucker (2009) concerns joint electrical/wetting-front observations; Lai et al. (2015) concern an enhanced forward infiltration/redistribution scheme. The relevant inspected passages do not give this constant-head two-observation parameter-domain theorem. The source law alone is not treated as a novel contribution. The nearest incomplete comparisons are Warrick (1993), addressing general inverse hydraulic scaling, and Mohammadzadeh-Habili and Heidarpour (2011), addressing upward-front parameter estimation. These sources remain named risks, as does possible implication from a general nonlinear inverse-function monotonicity theorem. No absolute priority or independent validation is claimed.
+## originality
 
-## Mathematical and scientific value
+PASS
 
-**PASS.** Two observations are the minimal number naturally needed to recover the two effective positive parameters of this idealized forward model. The exact feasible region supplies a pre-fitting falsification test, as well as an inverse that is unique when feasible. The sharp and asymmetric endpoint degenerations identify where conductivity and capillary length separate poorly, and at what rate; the logarithmic edge is not conveyed by a generic uniqueness statement or the first-order forward-rate equation. These are structural statements about physical data compatibility and calibration conditioning, not isolated numerical examples or arbitrary parameter slices.
+The supported distinct result is the exact range and injectivity for the two known-origin cumulative observations together with the two sharp endpoint laws. The inspected related Resultary inverse theorem has a different data map; no compared source establishes the frozen classification or its endpoint constants. The standard forward law and generic calibration are not original here. The pass is bounded by the indicated historical-access risks.
 
-## Scientific limitations
+## value
 
-Only exact, cumulative, uninterrupted-ponding observations with known zero-time and a constant two-parameter Green–Ampt law are covered. No measurement-noise stability theorem, statistical confidence interval, empirical validation, layered-soil or changing-rainfall extension, or independent audit is provided. The accessible historical coverage does not establish absolute originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural minimal known-origin observation design admits a complete, exact compatibility test and a unique parameter pair when compatible. The unequal endpoint rates explain distinct analytic parameter degenerations at the two feasibility boundaries; they are not supplied by the existence of the classical forward formula or a numerical fit. This is useful as a model check and a baseline for conditioning analyses, without treating exact feasibility as statistical reliability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

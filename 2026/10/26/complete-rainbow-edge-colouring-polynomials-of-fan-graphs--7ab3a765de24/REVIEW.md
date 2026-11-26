@@ -1,19 +1,21 @@
-# Review of the fan rainbow-colouring polynomial
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. All four-cycles in the fan have the hub and three consecutive path vertices, hence a chord. Two consecutive triangle diamonds determine the exact four-spoke exclusion interval for each path edge; no pair of nonconsecutive path edges shares a diamond. This is a necessary-and-sufficient list description. Inclusion-exclusion on equalities of adjacent path edge colours gives the all-palette polynomial and the recurrence. Hub degree gives the lower bound, a uniform explicit colouring attains it for every order at least five, and the small orders are decided by the exact polynomial. The supplied checker compares independently generated conflict graphs, exhaustive completion counts and the composition formula. These finite checks corroborate but do not replace the infinite proof.
+PASS
 
-## Originality
+Every four-cycle uses the hub and a three-vertex rim interval. Its middle spoke is incident to every perimeter edge, so properness makes the B and D constraints identical. Fixing the distinct spoke colours gives the stated forbidden list on each rim edge; the only rim-to-rim conflicts are between neighbours. In inclusion-exclusion a subset of adjacent equalities partitions the rim into consecutive blocks, with independent pre-exclusion choices given by the complements of the unions of forbidden intervals. The block signs and last-block recurrence follow, including q<n where the falling factorial vanishes. The triangle, diamond, middle rim edge at n=4, and hub degree give the lower bounds; the explicit rim construction respects the lists for n>=5, and changing the first rim colour to 6 when n>=6 preserves legality and gives an inequivalent colouring. Minor proof-text correction, not a change to the Finding: RESULT.md line 60 says the normalized polynomial equals 1 at n=3. In fact R_{3,2}(5)=2, with the two completions exchanged by swapping the two colours not on spokes. Thus there is indeed one class. The independent replay builds actual four-cycles and five-edge diamonds, enumerates fixed-spoke completions for n=2 through 9 and bounded palettes, and checks the recurrence and the optimum counts with the residual colour permutations removed.
 
-PASS within inspected literature, with qualification. The general equivalence of rainbow-diamond and rainbow-four-cycle colourings on chordal graphs is explicitly prior work in Hu–Kong–Wang (2026). The five-colour diamond and four-path-vertex fan exceptions were already established in Gyárfás–Martin–Ruszinkó–Sárközy (2024). Wang (2026) introduced the new D-parameter and general bounds. None of these inspected results provides the palette-sensitive polynomial, infinite exact optimum census or uniqueness cutoff for fans. Research-record comparisons identified a fan dissociation polynomial (different invariant) and D-indices on complete multipartite graphs (different graph family), but no equivalent statement. Unindexed results or alternate terminology remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The formula is a complete, labelled, all-palette enumeration for a canonical 2-connected maximal outerplanar graph family, bridging two active rainbow-edge-colouring notions. It sharpens general outerplanar colour bounds on an infinite family, supplies reproducible counts of all optimum designs rather than one construction, and detects the exact rigidity-to-flexibility transition at six path vertices. The family and parameters are canonical rather than arbitrary finite slices.
+Pass is for the explicit all-palette fan polynomial and complete optimum enumeration, not for the independently known B/D equivalence or small palette bounds. The strongest compared cone results give other rim structures or only the minimum palette. The all-palette enumeration and its optimal specializations do not follow by specializing those statements.
 
-## Limitations and closest work
+## value
 
-The theorem does not claim a new general chordal equivalence, the prior small-order values, or an extension to arbitrary outerplanar graphs. The elementary inclusion-exclusion technique is standard; the family-specific four-spoke conflict classification and its resulting exact enumerator are the proposed new content. Source material inspected includes arXiv:2606.06831v1, arXiv:2607.14837, and arXiv:2408.09059v2. Independent review and an exhaustive historical-priority search remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fan is a natural maximal outerplanar family and the full named count at every palette (and exact count modulo colour names at the optimum) is substantially more informative than an index or one construction. It provides an exact family-wide counting benchmark and detects the rigid-to-nonrigid boundary. The value is the interval-sensitive enumeration, not the use of generic inclusion-exclusion or the known existence cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Smith-set event is the intersection of dominance and internal strong connectivity, giving a finite integral. Scaling all core scores by \(n^{1/\ell}\) yields an overlap-sensitive anchored-box functional: intersections among distinct majority voter subsets contribute only higher-order terms. The analytic proof supplies a uniform integrable envelope, proves positivity for every fixed size, and obtains total-variation convergence of conditional score densities. Independent exact enumeration at three and four alternatives and rational cylinder union calculations reproduce the finite identities. The analytic limit does not rely on finite enumeration.
+## correctness
 
-## Originality — PASS, with risk
-Berchenko and Liu, arXiv:2610.03814v1, Theorem 1.4 and §2.2 establish a tight polynomial **order**, not the exact coefficient or conditional local geometry. Sauermann, arXiv:2203.13713v1, treats the singleton Condorcet winner. Liu et al., arXiv:2503.10990v2, conjecture the fixed-size orders. A public finite three-voter tournament enumeration is not an asymptotic constant. The searched primary statements and related indexed records did not provide an implication establishing the present two conclusions. A more general unpublished or previously unlocated component-limit theorem remains a priority risk; no claim of exhaustive uniqueness is made.
+PASS
 
-## Mathematical value — PASS
-The exact leading coefficient answers a quantitative question left open by the existing two-sided asymptotics, and the stronger conditional total-variation theorem determines the complete scaled score configuration of the exceptional strongly connected winner set. The overlap-aware integral is mathematically required to account for correlations between different top alternatives. The theorem holds for all fixed odd electorates and all fixed core sizes at least three, while explicitly excluding growing-size or nonuniform preferences.
+Independent continuous uniform scores generate the specified independent voter permutations. Strong components of a tournament have uniformly oriented cross-edges and their condensation is a totally ordered tournament. Hence a fixed s-subset is the Smith set exactly if its own tournament is strongly connected and it beats every outsider. Conditional on its scores x, each outsider is forbidden by the union of the majority cylinder boxes with volume b(x), independently of other outsiders. The exact probability is therefore binom(n,s) times the integral of H(x)(1−b(x))^(n−s). At x=n^(−1/ℓ)y group the cylinders by their ℓ-coordinate voter subsets. The union within a group has volume n^−1 V_J(y) exactly; an intersection across distinct groups constrains at least ℓ+1 coordinates and contributes O(n^(−1−1/ℓ)) uniformly on bounded y. This yields the limiting kernel H(y) exp(−Φ(y)). For the global bound, b is at least the average of its s binom(m,ℓ) cylinder volumes, so the scaled kernels extended by zero are bounded by a product of e^(−a σ_ℓ(y_i)) with a>0 for n≥2s. To check integrability, order a row, let t be its ℓth-largest coordinate, and write the larger coordinates as t u_i with u_i≥1. The smaller coordinates contribute a factor proportional to t^(m−ℓ), and σ_ℓ is at least t^ℓ∏u_i. Integrating t then bounds the row integral by a finite constant times ∏∫₁^∞u^(−m/ℓ)du since m>ℓ. Dominated convergence gives L¹ convergence of scaled kernels. The binomial asymptotic and the score Jacobian give factor 1/s! and exponent ms/ℓ−s=s(ℓ−1)/ℓ. Positivity follows from three cyclic orders of three nonempty blocks (the directed inter-block cycle makes the whole tournament strongly connected), with the extra voters in opposite pairs; this gives an open positive-volume set of scores. Exchangeability for the increasing-label lists contributes the same binomial factor in the unnormalized conditional density, so normalizing cancels it and yields the stated TV convergence. The proof requires fixed ℓ,s, and the conditional law uses the specified score representation. The frozen finite-profile and rational overlap checks were inspected but not run; they do not prove either limit.
 
-## Scientific limitations
-The leading constant is an integral without an elementary evaluation; convergence rates and nonuniform-voter analogues are not proved. The computation is a finite exact consistency check, not an infinite proof. Independent literature priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is the exact fixed-s≥3 union-volume coefficient and the TV law for all rescaled scores of the rare core. The exponent and the basic score/conditional-independence representation are prior, and the exact one-candidate equivalent (with a TV deduction) is already covered. None of the inspected stronger-looking statements gives this multi-candidate law.
+
+## value
+
+PASS
+
+For a rare event in a standard voting model, the order theorem left the coefficient and the law of the conditioning event’s score geometry unresolved. The shared-outside-alternative union volumes distinguish the law from a product of one-candidate laws, and TV convergence controls bounded measurable features of this fixed-size core, not just its occurrence rate. This is a concrete probabilistic improvement within the fixed-parameter regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

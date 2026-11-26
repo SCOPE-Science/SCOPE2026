@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:38:01.007172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning that t specified labels are origins forces all n images into the other n−t labels and leaves a uniform restricted map with exactly the same cycles. Summing over ordered labels proves deletion for every h and t≤n−1. Given the k roots and their cyclic permutation, the attached directed forest is uniform among k n^(n−k−1) forests. Deleting t prescribed nonroot leaves and allowing their parents to be any remaining label gives ratio (1−t/n)^(n−k−1), including the empty forest when every nonroot is deleted. This yields the factorial moments and PGF, with L_n=0 for k=n. The displayed adjacent decrement is positive including k=n−1, where it is one. Pairing two independent copies of the full-support K_n yields the covariance sign for increasing g; taking t=1 in deletion yields the exact covariance identity. The product law for K_n gives Rayleigh convergence and Gaussian tail control of all fixed scaled moments. Expanding log(1−1/n) uniformly for k≤C√n gives m_n(k)=n/e+1/(2e)−k²/(2en)+o(1), and subtracting n(1−1/n)^n yields the stated shift. The quadratic bound on the centered mean controls the covariance integrand by a constant times 1+(K_n/√n)^3. For its endpoint k=n, use n(1−1/n)^n≤n/e≤(n−1)/2 for n≥4, and direct evaluation for n=2,3, rather than bounding the last decrement by (n−1)/n. Fourth-moment control gives uniform integrability, and E X³=3 E X for the Rayleigh limit gives the coefficient −√(π/2)/(2e). Empty-box indicator covariances give Var(L_n)/n→e^−1−2e^−2 while Rayleigh moments give Var(K_n)/n→2−π/2. The frozen verification notes and finite-check script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior pruning theorem covers arbitrary functions of all cycle-length counts C_{n,j}, not just K_n. The exchangeable-indegree theorem can be combined with a tilt by the number of zero indegrees to access joint PGFs; it does not print the frozen estimates in the inspected statement. Arney–Bender marks cycle count rather than cyclic-vertex count."
+        ],
+        "reasoning": "K_n=Σ j C_{n,j}, so the pruning theorem implies the exact frozen arbitrary-h assertion. The exchangeable-indegree and cycle-marking frameworks are relevant, but not needed to infer exact prior coverage.",
+        "searches": [
+          "Resultary e4cf3e3e51f2 Finding, offset 0",
+          "Hansen–Jaworski arXiv:math/0603529v1 §3 Theorem 1",
+          "Arney–Bender §7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e4cf3e3e51f2",
+        "Resultary 007c2a04bfe9",
+        "Resultary 0c1fa0e07cad",
+        "Resultary 0ede72eb318a",
+        "Resultary 8ecf17ba1e55",
+        "Arney–Bender 10.2140/pjm.1982.103.269",
+        "Hansen–Jaworski math/0603529v1",
+        "Flajolet–Odlyzko 10.1007/3-540-46885-4_34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "007c2a04bfe9 states m_n(k) exactly, strict antitonicity and the coefficient −√(π/2)/(2e). Its m_n(k) minus n(1−1/n)^n expands to e^−1(1−k²/(2n))+o(1) uniformly on bounded Rayleigh scales. The pruning identity with t=1 and h(k)=k gives the finite covariance formula."
+        ],
+        "reasoning": "A paired-copy covariance identity gives the sign for any increasing g from prior strict mean monotonicity. Taylor expansion of the already exact regression formula supplies the claimed quadratic correction, and the sharp integrated consequence was already stated.",
+        "searches": [
+          "007c2a04bfe9 Finding and conditional rooted-forest law, offset 0",
+          "e4cf3e3e51f2 Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Finding identifies the conditional law as the empty count among n−k specified boxes after n−k−1 uniform throws into n boxes, and gives its identical factorial moments. For k=n the count is zero."
+        ],
+        "reasoning": "Indegree-zero vertices are called origins, leaves or terminal vertices here. Factorial moments uniquely give the bounded count law; the binomial expansion of z^L gives the frozen PGF term for term.",
+        "searches": [
+          "Resultary: random mapping origins leaves terminal vertices cyclic core pruning conditional covariance",
+          "007c2a04bfe9 RESULT.md Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two records, dated 2026-10-18 UTC, contain analytic theorems for the exact law and limits, not just tables. The later two records give a related exact joint law and stronger likelihood-ratio ordering, respectively, but do not establish earlier priority. The same-day 8ecf17ba1e55 concerns two-cycle counts, not K_n."
+        ],
+        "reasoning": "A finite table would not establish these infinite-parameter laws. The earlier indexed results supply the precise universal statements, while the other hits are distinguished by time or observable.",
+        "searches": [
+          "Resultary 007c2a04bfe9, e4cf3e3e51f2, 0c1fa0e07cad, 0ede72eb318a and 8ecf17ba1e55"
+        ]
+      },
+      "rationale": "Two preceding Resultary records give exact coverage. Record e4cf3e3e51f2 proves a deletion identity for all functions of the full cycle-count vector, which specializes to arbitrary functions of cyclic-core size. Record 007c2a04bfe9 gives the same full conditional origin law, strict decrease of the mean, identical covariance coefficient, and stronger correlation asymptotic. The finite PGF, monotone-function sign and Rayleigh-scale mean shift follow routinely from these verified formulas; there is no distinct substantive remainder.",
+      "residual_risks": [
+        "Hansen–Jaworski 2010 was not assessed at full-text statement level; this does not affect exact verified coverage by the two earlier records. The audit makes no claim to locate the earliest source of each equivalent statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact specialization",
+          "evidence": "Factorial-moment deletion identity for functions of the cycle-length-count vector.",
+          "identifier_or_url": "e4cf3e3e51f2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Pruning invariance and sharp terminal-component anticorrelation",
+          "trigger": "Broader origin-deletion rule"
+        },
+        {
+          "assessment": "Equivalent or stronger coverage",
+          "evidence": "Identical conditional factorial moments and exact regression, identical sharp covariance, and asymptotic correlation rate.",
+          "identifier_or_url": "007c2a04bfe9",
+          "material_read": "RESULT.md Finding, scope and start of proof, offsets 0–2586",
+          "method": "Resultary local mirror",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Exact joint-law and covariance match"
+        },
+        {
+          "assessment": "Related but different marked observable",
+          "evidence": "The variable in the §7 joint generating function marks number of cycles, not total cyclic vertices.",
+          "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+          "material_read": "§1, pp. 269–270, offset 1500; §7 p. 281, offset 29100",
+          "method": "OA PDF bounded passages",
+          "title": "Random mappings with constraints on coalescence and number of origins",
+          "trigger": "Primary origin and cycle enumeration"
+        },
+        {
+          "assessment": "Broader framework, not the displayed regression",
+          "evidence": "Cyclic-size probabilities are given through indegree expectations; a tilt preserving exchangeability could encode the origin statistic.",
+          "identifier_or_url": "https://arxiv.org/html/math/0603529v1",
+          "material_read": "§3 Theorem 1, offsets 14372–14592 and adjacent statement",
+          "method": "OA HTML passage",
+          "title": "A new random mapping model",
+          "trigger": "General exchangeable-indegree formula"
+        },
+        {
+          "assessment": "Access limitation",
+          "evidence": "The title and citation do not establish coverage or noncoverage.",
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-094-ars-articles/random-mappings-with-a-given-number-of-cyclical-points/",
+          "material_read": "No scientific statement inspected from the PDF",
+          "method": "Lawful retrieval attempted; no extractable text",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Potential prior core-conditioned laws"
+        },
+        {
+          "assessment": "Separate marginal background",
+          "evidence": "Asymptotic expectations and a separate terminal-node marking analysis in the inspected passages.",
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/3-540-46885-4_34.pdf",
+          "material_read": "§3.1 Theorem 2, p. 337, offset 25900; proof offset 28200",
+          "method": "OA PDF passages",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical generating-function asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditional law and sharp covariance are natural statistics, but their exact content and the general pruning mechanism are already covered. The remaining re-expression as a PGF, monotone-test covariance sign and Taylor expansion of the known mean do not establish a separately motivated unknown fact or new technique.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

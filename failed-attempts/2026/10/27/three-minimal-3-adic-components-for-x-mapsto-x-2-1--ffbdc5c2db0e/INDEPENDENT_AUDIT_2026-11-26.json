@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:57:14.179018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–58; VERIFICATION.md lines 18–21; verification.py lines 13–46, inspected, not run."
+      ],
+      "rationale": "The mod-3 transitions are 0→1→2→2 and f is an isometry on the class 2, by f(x)-f(y)=(x-y)(x+y). Direct squaring modulo 27 gives exactly the three listed cycles. A finite arithmetic replay of the key valuation avoids large polynomials: with g=f³, the mod-81 trajectories of 2, 8, 17 are 2→5→26→29, 8→65→14→35, and 17→47→23→44. In each case g(x)-x≡27 mod 81. At any other phase of the same cycle the congruence persists because g commutes with f and f'(x)≡1 mod 3 in B. It persists throughout each mod-27 ball by g'(x)≡1 mod 3. For any return map H with δ=H(x)-x of valuation n≥2 and d=H'(x)≡1 mod 3, H³(x)-x≡(1+d+d²)δ modulo 3^(2n). Since 1+d+d²≡3 mod 9 and 2n≥n+2, the new valuation is n+1. The first lift and each further lift therefore join all three classes, giving cycle length 3^(n-2) on each component for n≥3 and the common 3-cycle modulo 9. Coherent cycle labellings give translation by one on the inverse limit of the cyclic 3-power quotients, hence the adding-machine conjugacy and minimality. The three clopen sets exhaust B, so the entry bound gives unique basins throughout Z_3 and rules out periodic points outside as well as inside B.",
+      "residual_risks": [
+        "The recorded finite check modulo 3^n for n≤8 is not an unbounded argument. The arithmetic replay above certifies the base valuation; the Taylor step is what justifies the infinite induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Liao Proposition 2.5(1), citing Desjardins–Zieve: a growing cycle's unique lift grows again for p≥3 and n≥2. The next paragraph states that the cycle's clopen union is then minimal. Theorem C gives the adding machine on a minimal clopen set. Theorem B alone only lists allowable periods, not absence of periodic points."
+        ],
+        "reasoning": "The persistent-growth result applies directly at p=3 and n=3. It does not require a fresh lifting lemma for f; it converts the immediate mod-81 growth check into the full minimality and cycle-growth law.",
+        "searches": [
+          "Fan–Liao arXiv:1010.5583v2 Theorems A–C; literal 'p = 3' locating Proposition 2.5; pp. 5 and 7 cycle type and growth passages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1010.5583v2 affine lift types, Proposition 2.5, Theorems A–C and 6.1",
+        "arXiv:1408.4574v1 Theorems 3–4",
+        "Resultary exact-map and component searches; same-map other-prime hits ending 170fdf08b793 and 0a089f6c693f (index summaries only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At each mod-27 cycle representative r=2,8,17, the three modular squarings with addition of 1 give f³(r)≡r+27 mod 81. Also f³′(r)≡1 mod 3. Thus in all three cases the affine lift of the return is t↦t+1 on F_3, precisely the published growing case. The centers form all cycles in class 2 mod 3, and their projection mod 9 is the single cycle (2,5,8)."
+        ],
+        "reasoning": "Proposition 2.5 now implies all subsequent cycle lengths with no unstated condition, and gives minimality on each entire residue union. The odometer is Z_3 since the lengths are powers of three going to infinity. The mod-3 entry table then forces the three-basin decomposition, and unbounded cycle lengths exclude periodic points. This is a concrete corollary requiring only the small finite input check, not a claim that the exact wording or residue table appeared in the source.",
+        "searches": [
+          "Exact comparison with Fan–Liao's affine lift classification on p. 5 and Proposition 2.5(1) on p. 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6.1 is the quadratic classification on Z_2 and covers λ=−1 there, not on Z_3. The second paper's odd-prime theorem is for x², not x²+1."
+        ],
+        "reasoning": "Neither same-polynomial results at a different prime nor the square-map classification give the stated decomposition by renaming. The decomposition is equivalently the three mod-27 cycles with persistent growth starting at that level and all tails entering their union. That equivalent formulation is the one addressed by the general growth criterion.",
+        "searches": [
+          "Exact polynomial x²+1 (also x²−λ with λ=−1), Z_3, and mod-27 component description in Resultary and primary literature",
+          "Fan–Liao arXiv:1010.5583v2 Theorem 6.1; arXiv:1408.4574v1 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest index summaries, records ending 170fdf08b793 and 0a089f6c693f, concern the same map at 7 and 2 respectively. No returned indexed hit matched the Z_3 residue list."
+        ],
+        "reasoning": "The indexed summaries do not establish same-prime coverage, and the matching files for those two hits were not retrievable from the local mirror. The negative search is not the basis of the verdict; the general primary theorem and finite specialization are.",
+        "searches": [
+          "Resultary targeted searches for x²+1 on Z_3, constant c=1 in quadratic dynamics, and the mod-27 three-component claim"
+        ]
+      },
+      "rationale": "The exact residue list was not located as a published statement. Nevertheless the entire finding is a mechanical specialization of the published cycle-growth criterion, not just an application of an abstract existence theorem after new dynamical analysis. The only input beyond the existing criterion is the elementary finite cycle table at moduli 3, 9, 27 and 81 and the derivative mod 3. The direct computation and implication are given below; this verdict is not based on unavailable sources or on the quadratic classification over the wrong prime.",
+      "residual_risks": [
+        "No absolute priority determination was made for the explicit residue table. The scientific failure is direct stronger-theorem coverage of the actual conclusions after the elementary finite checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Quadratic classification itself is at 2; exact general growth criterion covers the all-level claim after a small finite input",
+          "evidence": "Proposition 2.5(1): 'If p ≥ 3 and n ≥ 2 then' the lift of a growing cycle grows. The authors explicitly deduce growth forever and minimality of the union of classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.5583v2",
+          "material_read": "Theorems A–C and Introduction pp. 1–2; Theorem 6.1 p. 17 offset 51500; lift classification p. 5 near offset 16324 and Proposition 2.5 with succeeding paragraph p. 7 at offset 19900",
+          "method": "OA primary PDF, bounded passage inspection",
+          "title": "On minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "Quadratic classification and stronger all-level growth theorem"
+        },
+        {
+          "assessment": "Different quadratic map; general adding-machine machinery",
+          "evidence": "The odd-prime decomposition is for x↦x², while Theorem 3 concerns general minimal clopen invariant sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.4574v1",
+          "material_read": "Introduction p. 1, Theorem 3 p. 3 near offset 12969, Theorem 4 p. 4 offset 14200",
+          "method": "OA primary PDF passage inspection",
+          "title": "Dynamics of the square mapping on the ring of p-adic integers",
+          "trigger": "Potential odd-prime quadratic classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–11, 17–58, 63–67; Fan–Liao arXiv:1010.5583v2 Proposition 2.5 and its minimality consequence"
+      ],
+      "rationale": "This is a correct illustration of the small-prime split-before-growth behavior, but for this one map the reported datum is exactly what the standard cycle-growth test reads from three return computations modulo 81 and the mod-3 entry table. The record supplies neither a new boundary for the test nor a separate invariant, parameter phenomenon, or need for these precise residue representatives beyond illustrating the established criterion. As a standalone research result it does not establish value beyond a worked example of an existing method.",
+      "residual_risks": [
+        "This does not dispute the usefulness of the computation as an example or claim that all individual p-adic classifications lack research value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

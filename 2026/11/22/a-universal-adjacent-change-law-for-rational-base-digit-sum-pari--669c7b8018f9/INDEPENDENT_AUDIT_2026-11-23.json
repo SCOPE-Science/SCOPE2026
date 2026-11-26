@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:22.567841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–47; VERIFICATION.md and verify.py inspected but not executed",
+        "Independent bounded reproduction: compute digit sums by repeated quotient/remainder for n=0,…,1500 for all reduced 1≤a<b≤17; accumulate successive unequal bits and verify the all-prefix identity or all-odd alternation. 142595 checks over 95 radices, no mismatch."
+      ],
+      "rationale": "The Euclidean digit recursion gives the last-digit parity plus the bit at q(n)=floor(an/b). As n runs from 0 to M−1, q(n) stays still or rises by one, with its rising edges covering exactly the q(M) input edges. The last-digit difference is a−b[q(n+1)−q(n)]. For even a, a stationary edge contributes zero and a rising edge contributes the complement of its input change. For even b, a stationary edge contributes one and a rising edge contributes the complement. This directly proves C(M)+C(q(M))=q(M) for even a, or =M for even b, a check also valid off the block grid and at M=0. At M=bN this gives the claimed identity. With β=t/(a+b), the all-prefix relation gives E(M)=−E(q(M))+O(1), and q contracts geometrically to zero, yielding the claimed logarithmic discrepancy. The difference between counts of 01 and 10 telescopes to the endpoint bit difference. For odd a,b, induction through the same recursion proves x(n)=n mod 2. No separate mixed-parity equal-pair frequencies follow from this argument.",
+      "residual_risks": [
+        "Finite checks do not establish the infinite-family result. The error is an upper bound for each fixed radix, not asserted sharp nor uniform in a,b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arithmetic subsequence and automaticity closure applies broadly, but gives neither the transition count identity nor its density/error. The later pair-code construction gives a relevant procedure and an explicit substitution for the standard 3/2 word, not the formula for all parity types."
+        ],
+        "reasoning": "The general structural framework supplies representations; deriving a conserved or alternating aggregate count requires the specific last-digit parity and the exhaustive enumeration of rising quotient edges. The general weighted count law is not a mere restatement of closure.",
+        "searches": [
+          "arXiv:2102.10828, Corollary 48 and transducers; arXiv:2602.21895, Theorem 18 and sliding-block example pp. 35–36"
+        ]
+      },
+      "checked_sources": [
+        "Rigo–Stipulanti arXiv:2102.10828",
+        "Dekking arXiv:2301.13563",
+        "Cassaigne et al. arXiv:2602.21895",
+        "Resultary d6bfcaf54f1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For pair symbols c=2x_n+x_{n+1}, let w(c)=1 for c=1,2 and zero otherwise. Each of the eight listed legal 2-blocks (00,01,12,13,20,21,32,33) has input w-weight plus substituted 3-block w-weight exactly 2. The pair word is fixed by this substitution."
+        ],
+        "reasoning": "Summing the block weights proves C(3N)+C(2N)=2N immediately for the standard 3/2 word. The contraction then gives the specialized O(log N) error. The earlier paper calls the full pair-frequency vector experimental; nevertheless its proven substitution already entails this aggregate special case. No inspected theorem gives the uniform formula in (a,b), including b even and both odd.",
+        "searches": [
+          "Cassaigne et al., arXiv:2602.21895, p. 35, PDF offset 100420, explicit pair-code substitution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen algorithm means n=(1/a)Σ d_j(b/a)^j. At (a,b)=(2,3) its word starts 001; Dekking's unnormalized expansion gives its sibling t′, starting 010. The distinct Resultary result uses t′ (A357448), with unequal ordered pair proportions 2/5 each."
+        ],
+        "reasoning": "The records should not be identified by the radix or title alone. The frozen text's statement that Dekking studies the same sequence is imprecise; the normalization and exact words differ. This correction to related-work attribution does not change the frozen claim.",
+        "searches": [
+          "arXiv:2301.13563, Dekking's 3/2 block formulation; arXiv:2602.21895, t versus t′ and sliding pair code",
+          "Resultary d6bfcaf54f1b, sharp logarithmic transition discrepancy for base 3/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary 3/2 entry concerns the sibling word. The primary paper reports experiments with 01 and 10 frequencies 2/10 each for the standard word, matching the frozen specialization; see next check for exact coverage by implication."
+        ],
+        "reasoning": "Neither the numerical predictions for one radix nor the distinct sharp discrepancy theorem for the sibling gives the full rational-radix law.",
+        "searches": [
+          "Local Resultary search on rational-base digit-sum parity and transition discrepancy; inspected d6bfcaf54f1b (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "Cassaigne et al., arXiv:2602.21895, p. 35, pair-frequency table/description"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-coprime-radix identity and its parity-controlled discrepancy and densities, not a new numerical observation or a new isolated 3/2 theorem. Cassaigne et al.'s published sliding-pair substitution already implies the exact standard 3/2 instance. The closest separate Resultary record treats a genuinely different 3/2 sequence under a different digit normalization.",
+      "residual_risks": [
+        "A universal parity-count statement may occur in another account of generalized block substitutions; the reviewed literature does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not the count law",
+          "evidence": "The transducers prove closure of p/q-automatic sequences under arithmetic subsequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10828",
+          "material_read": "pp. 24–25, Corollary 48 and preceding construction",
+          "method": "Targeted OA PDF passage",
+          "title": "Automatic sequences: from rational bases to trees",
+          "trigger": "General rational-base digit recursions and transducers"
+        },
+        {
+          "assessment": "Related but differently normalized sequence",
+          "evidence": "Unnormalized expansion; conjectural 01 frequency 4/10 is for the sibling t′.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.13563",
+          "material_read": "Expansion definition, p. 2 substitution, p. 3 Conjecture 6",
+          "method": "Targeted OA PDF passage",
+          "title": "The Thue-Morse sequence in base 3/2",
+          "trigger": "Strong same-title and same-radix candidate"
+        },
+        {
+          "assessment": "Exact one-radix overlap by implication, not the universal theorem",
+          "evidence": "The 2-to-3 substitution yields the exact 3/2 change identity by pair weighting; the paper reports a broader four-pair vector experimentally.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21895",
+          "material_read": "pp. 6–7 definitions; p. 22 Theorem 18; pp. 35–36 pair code, substitution and discussion; decisive passage offset 100420",
+          "method": "Targeted OA PDF passages",
+          "title": "Symbols frequencies in the Thue–Morse word in base 3/2 and related conjectures",
+          "trigger": "Same standard word at 3/2 and same pair-frequency question"
+        },
+        {
+          "assessment": "Different word, not equivalent coverage",
+          "evidence": "Its substitution 00,01→010 and 10,11→101 concerns the unnormalized sibling and gives 2M/5+O(log M) for each unequal ordered-pair count.",
+          "identifier_or_url": "Resultary d6bfcaf54f1b",
+          "material_read": "RESULT.md finding and digit convention",
+          "method": "Configured local Resultary mirror",
+          "title": "Sharp logarithmic transition discrepancy in the base-3/2 digit-parity word",
+          "trigger": "Distinct indexed record with nearly the same transition statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and limitations",
+        "Cassaigne et al., pair-frequency discussion, p. 35"
+      ],
+      "rationale": "Exact transition statistics are natural in rational-base parity words, for which full pattern-frequency questions are nontrivial. The identity determines every radix's leading transition frequency with an effective sublinear error without relying on separate single-bit or equal-pair frequencies, and classifies the radically different both-odd case. The useful new benchmark is universal, not its already implied isolated 3/2 value.",
+      "residual_risks": [
+        "Does not address separate 00 and 11 frequencies or general pattern frequencies; the reported discrepancy order is not a sharpness claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

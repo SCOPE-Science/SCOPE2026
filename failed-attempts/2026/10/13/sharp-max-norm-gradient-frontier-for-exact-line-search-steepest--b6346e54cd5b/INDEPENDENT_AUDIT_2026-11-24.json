@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:30:37.355936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is the supremum over all SPD orientations at a fixed condition number and all nonzero gradients, not a bound attained for every fixed Hessian. In units where eigenvalues lie in [1,κ], use the gradient-squared spectral weights, with moments m1 and m2. Exact line search gives α=1/m1, h=g⁺ perpendicular to g, and ||h||₂²/||g||₂²=m2/m1²−1. The inequality m2≤(1+κ)m1−κ yields the sharp Euclidean factor c=(κ−1)/(2√κ) by maximizing at m1=2κ/(1+κ). Projection onto g's perpendicular space bounds |h_j| by c times (Σ_{i≠j}g_i²)^{1/2}. The supplied two-plane block has trace 1+κ, determinant κ and sends the chosen unit g=u to a step with h=cv; its projections attain the claimed factor. Equivalently take any sharp Euclidean step and rotate to g supported equally on n−1 coordinates, h supported on the remaining coordinate. For κ=1 the update is zero. Solving c√(n−1)≤1 yields the stated inclusive threshold. Independently checked the displayed 3×3 matrix by exact symbolic arithmetic: spectrum {1,1,4}, α=5/8, h=(3√2/4,−3√2/8,−3√2/8), which gives both ratios. The frozen decimal checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives the Euclidean squared ratio bound (κ−1)²/(4κ) for every steepest descent step on a strictly convex quadratic; its equation (4.3) reduces the inequality to Kantorovich in z=A^{1/2}g.",
+          "Kantorovich equality in this specific expression is realized with z proportional to e_min+e_max: at A=diag(1,κ) the product of the two Rayleigh factors is (1+κ)²/(4κ). Identity extension realizes any dimension n≥2. Equation (4) of the exact-line-search analysis gives h⊥g."
+        ],
+        "reasoning": "The known Euclidean theorem supplies both the sharp scalar limit and a direct realizable equality step via the very expression in its proof. Orthogonality gives the only additional geometric constraint relevant under arbitrary rotation. The max-norm theorem does not require a new spectral or line-search extremal result.",
+        "searches": [
+          "Nocedal–Sartenaer–Zhu DOI 10.1023/A:1014897230089, Theorem 4.1 and equations (4.1)–(4.3)",
+          "de Klerk–Glineur–Taylor arXiv:1606.09365 equation (4)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Author-hosted Nocedal–Sartenaer–Zhu §4 and beginning of §5",
+        "de Klerk–Glineur–Taylor arXiv:1606.09365",
+        "Resultary ranked searches and records 66a691631a0e, 67008dbfdce1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h⊥g, |h_j|≤||h||₂||P_{g⊥}e_j||₂≤c(Σ_{i≠j}g_i²)^{1/2}. Conjugate a Kantorovich equality example by an orthogonal map taking its unit gradient to (0,1,…,1)/√(n−1) and its unit outgoing gradient to e_1. This gives equality for the max norm without a new optimization.",
+          "The claimed inclusive threshold is the solution of √(n−1)c≤1. The special 3×3 example is one instance of the same rotation mechanism, not a separate extremal fact."
+        ],
+        "reasoning": "This is a routine sharp corollary, using a projection bound and a coordinate rotation; the independent check shows mechanical implication from the primary result rather than conjectured overlap.",
+        "searches": [
+          "Theorem 4.1 and equations (4.1)–(4.3) in the authors' open copy; orthogonality equation (4) of arXiv:1606.09365"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact line search commutes with orthogonal conjugation of A and rotation of the gradient. For nonzero orthogonal vectors g,h, the largest possible ratio ||h||∞/||g||∞ over simultaneous rotations is exactly √(n−1)||h||₂/||g||₂."
+        ],
+        "reasoning": "The upper bound for the rotation problem is coordinate projection (Pythagoras followed by Cauchy–Schwarz). Attainment sends h to a coordinate axis and g to equal entries on all other coordinates. Consequently the two optimization problems differ only by this elementary constant under the frozen quantifier allowing all SPD orientations; this would not follow for a fixed Hessian in fixed coordinates.",
+        "searches": [
+          "Resultary: exact one-step infinity norm gradient amplification steepest descent SPD quadratic",
+          "Resultary: max norm gradient exact line search condition number dimension threshold",
+          "Resultary: componentwise gradient increase exact steepest descent orthogonality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "67008dbfdce1 concerns a single-row sketched-GMRES true-residual frontier, with different factor and threshold. The distinct same-day 66a691631a0e concerns the Euclidean gradient on Armijo-accepted steps, not this exact-line-search infinity norm."
+        ],
+        "reasoning": "Neither indexed mathematical result is an exact match. This is a formula, not a finite optimum requiring an exact-data table. The scientific coverage conclusion instead follows from the inspected earlier Euclidean theorem and its geometric implication.",
+        "searches": [
+          "Resultary: sqrt(n-1) (kappa-1)/(2 sqrt(kappa)) max norm gradient",
+          "Resultary: one-step infinity norm gradient amplification; max-norm dimension threshold"
+        ]
+      },
+      "rationale": "The max-norm law is not asserted verbatim in the inspected primary result, but it is mechanically implied by the known sharp Euclidean step estimate, ordinary exact-line-search orthogonality and the freedom to rotate the entire problem. The evidence is the direct implication, not the presence of matching search words or a claim that the paper literally prints the infinity-norm formula.",
+      "residual_risks": [
+        "The catalogue screen is bounded and does not establish where the max-norm expression was first written. The coverage verdict rests on a verified implication and does not require finding its exact printed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the frozen sharp max-norm law when combined with exact-step orthogonality and free orientation. Its statement uses the Euclidean norm; no verbatim infinity result relied on.",
+          "evidence": [
+            "Eq. (4.3) expresses the squared ratio as the product of the two Kantorovich Rayleigh factors minus one.",
+            "Eq. (4.4) is the Euclidean monotonicity cutoff, not the general-n max-norm cutoff."
+          ],
+          "identifier_or_url": "https://users.iems.northwestern.edu/~nocedal/PDFfiles/steep.pdf (DOI 10.1023/A:1014897230089)",
+          "material_read": "Author-hosted PDF, §4, printed p. 11, offsets 29680–32576 (Theorem 4.1, eqs. 4.1–4.4); opening of §5, offset 32576",
+          "method": "Lawful open author copy located through the author's publication list; bounded passage reading",
+          "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+          "trigger": "Same iteration, metric-dependent sharp factor and saturation"
+        },
+        {
+          "assessment": "Supplies the standard exact successive-gradient orthogonality; objective-gap bound is not itself the max-norm claim.",
+          "evidence": [
+            "Equation (4): successive gradients are orthogonal by exact line search."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.09365",
+          "material_read": "PDF p. 4 equation (4), offset 13780; p. 2 objective-gap bound, offset 5520",
+          "method": "OA PDF passage reading",
+          "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+          "trigger": "Earlier exact-line-search geometry"
+        },
+        {
+          "assessment": "Different step acceptance and norm; not equivalent indexed coverage.",
+          "evidence": [
+            "Uses Armijo-accepted steps and a sufficient-decrease-parameter-dependent Euclidean frontier."
+          ],
+          "identifier_or_url": "66a691631a0e",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Indexed lookup and local-mirror passage reading",
+          "title": "Sharp gradient-norm safety frontier inside Armijo sufficient decrease",
+          "trigger": "Distinct same-day catalogue finding on gradient-norm monotonicity"
+        },
+        {
+          "assessment": "Different method and quantity, no literal coverage.",
+          "evidence": [
+            "The residual factor is √n q/(1−√(n−1)q) for q=(κ−1)/(2√κ), not the present gradient factor."
+          ],
+          "identifier_or_url": "67008dbfdce1",
+          "material_read": "Local mirror RESULT.md Finding at offset 0",
+          "method": "Indexed lookup and local-mirror passage reading",
+          "title": "The sharp dimension-dependent true-residual frontier for single-row DEIM–GMRES",
+          "trigger": "Related dimension-dependent factor and Euclidean angle constant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The diagnostic and contrast with Euclidean decrease are mathematically legitimate, but the advertised frontier for unrestricted orientations is a routine norm-geometric consequence of the established sharp exact-line-search result. The particular numeric matrix is a freely rotated equality step, not a separately motivated problem or a nonroutine new witness. No genuinely independent exact claim for fixed orientations, structured Hessians or trajectories is offered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

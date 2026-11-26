@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nodal greatest convex minorant is a continuous piecewise-affine map, whose local Jacobians are exactly nonoverlapping chord-interpolation matrices. On a face \([a,b]\), the weighted variation contribution is \(\overline w_{ab}|h_b-h_a|\), hence is bounded by the displayed maximum times the input contribution on that same face. A line-segment integration passes from local Jacobians to arbitrary input pairs. For any fixed face, quadratic baseline data with elevated interior knots expose that face strictly; a small step perturbation on its minimum-weight edge attains the corresponding ratio exactly. Strict positivity of the nodal gaps and weights handles all boundaries. Exact rational checks replay 900 constructions and 900 pairwise tests; they are supplementary, not infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The inspected full-text order-regression reference by Kearsley concerns the convex minorant of cumulative diagrams for least-squares isotonic fitting, rather than the direct-data nodal convex-envelope operator with first-variation sensitivity. The inspected Yang–Barber paper states a neighbor-averaging criterion for isotonic Euclidean projection, which does not determine the chord-interpolation derivative and this weighted sharp factor. Anevski–Hössjer treats stochastic scaling and limits (abstract reviewed); Gorokhovik supplies abstract piecewise-affine characterizations (full text reviewed). Published records on weighted-variation cycle isotonic regression and sliding morphology were directly compared in full and do not imply this claim. The record search found no equivalent sharp formula; this does not establish absolute priority. The older GCM and approximation literature may contain an unindexed equivalent claim.
+PASS
 
-## Mathematical value — PASS
-Finite lower-convex-hull interpolation is a canonical nonlinear convexification operation. Quantifying its **two-input** BV stability matters for perturbation propagation when data are irregularly sampled and variation is spatially weighted. The theorem identifies all possible sharp sensitivity values through exposed hull faces, classifies the entire nonexpansive weight regime, and gives physically interpretable single-jump extremizers. These are not merely algorithmic restatements or textbook one-input variation comparisons.
+For a fixed contact chain, chord interpolation Q replaces the increments on [a,b] by the total increment on the block distributed proportionately to the knot gaps. Its weighted nodal variation on that block is the length-weighted average edge weight times |h_b-h_a|, bounded by the displayed block ratio times the input block variation. The region where the chain gives the hull can be described by closed linear inequalities: increasing chord slopes in the non-strict sense and data on or above the chords. Such a chordal interpolation is the GCM since it is feasible and any convex minorant lies below the chords between its endpoint contact bounds. These finitely many regions cover all inputs and intersect a segment in closed intervals. Subdividing at their endpoints lets the bound be summed over the segment, including a segment inside tie loci. Each prescribed face is strictly realizable by keeping x_i^2 at its endpoints and outside it, lifting interior data above its chord. Outside consecutive chord slopes are strictly increasing and those immediately adjacent to the chosen face bound its slope strictly wherever present. A tiny upward unit step immediately after a cheapest edge preserves the chain, contributes only that edge to input variation, and changes the GCM values by a chord ramp on the desired face and constants elsewhere. This attains the corresponding exact quotient even for arbitrarily close pairs. Equal weights give one on all intervals; unequal weights give a quotient strictly above one on the full interval. In the four-knot example the first two edges give (1+14)/3=5; the last two also give 5, the full interval gives 4, and single edges give 1. The two-knot and constant-difference cases are consistent with the stated seminorm and translation property.
 
-## Boundaries and sources
-The conclusion concerns nodal first differences on finite real grids and no other derivative, higher-dimensional or continuous-input norm. Closest full-text sources: Kearsley (2006), Yang–Barber (2017), Gorokhovik (2011), and the published finite-window and cyclic-isotonic mathematical findings cited in RESULT.md. Historical-priority risk remains. Verification is same-model only, without independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arbitrary-knot sharp nonunit coefficient and every-interval sharpness in the nodal variation seminorm pass on the inspected evidence. The standard cumulative-sum representation is more closely related than the frozen literature discussion suggests: it gives an exact weighted slope-projector conjugacy, not a least-squares projection of the original nodal vector. Uniform-mesh contraction rigidity is already a consequence of Yang–Barber after that conjugacy. What distinguishes the full finding is the exact operator norm over all pooled blocks with independent fitting masses and target coordinate weights, not the mere use of isotonic regression or the unweighted contraction.
+
+## value
+
+PASS
+
+Nodal variation is a natural error measure for lower hull convexification on irregular meshes. The exact amplification for independently chosen edge weights identifies the responsible interval and cheapest perturbation edge, with witnesses at arbitrarily small scale. This is sharper than just knowing strict anisotropy breaks contraction or bounding by the global weight ratio, and it quantifies an operator and a perturbation regime a later stability analysis could use. The main value is this sharp arbitrary-mesh, arbitrary-weight coefficient and where it is attained, not transferring a binary isotonic-contraction criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

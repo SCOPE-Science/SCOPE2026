@@ -1,19 +1,21 @@
-# Scientific review: dispersion phase diagram for one-inflated zero-truncated negative-binomial counts
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The law, domains, and mixture normalization are explicit. Both truncated factorial moments follow from the negative-binomial probability generating function and conditioning on positive counts. Their substitution gives the exact variance-minus-mean polynomial. The nonstandard all-parameter inequality has an elementary derivative proof via \(g_r\) and \(h_r\), with a strict sign switch at \(r=1\). The auxiliary cutoff is unique because the size-biased excess-count distribution forms a nondegenerate exponential family in \(\log q\), making the derivative of \(A/B\) its strictly positive variance. The global classification follows from these facts and exact quadratic endpoint signs. An exact rational example is cross-checked by a standalone checker. Remaining limitation: the checker samples parameters and is **not** an infinite proof; the written proof supplies that part.
+PASS
 
-## Originality (O): PASS, with historical qualification
+The NB generating function gives the two factorial moments, each divided by the positive-count mass after truncation. The point mass contributes to the mean but not to the second factorial moment, so variance minus the distribution's own mean is exactly −1+At−B²t², with A,B>0. At t=1 its sign is that of 1−(r+1)(1−q)^r. I checked the factorization of the endpoint derivative A−2B² using u=1−q: the auxiliary derivative h'_r(u)=r(r−1)u^(r−2)(1−u) and h_r(1)=1 give the asserted strict sign reversal at r=1. In the size-biased law of Y−1 the statistic is k, so the log-q derivative of A/B is its strictly positive variance (convergent differentiated series on each compact subinterval of 0<q<1). The limits 0 and +infinity give a unique A/B=2. For r>1 the positive vertex is below 1, and at A=2B one has B>1 and a negative endpoint value −(B−1)². The vertex and endpoint signs give all five regimes, including the interior double root and the roots B^(−2),1 at q_c. For r≤1 the derivative is strictly positive on the open retention interval, even at r=1, giving precisely the stated exceptions at t=1. An independent exact PGF differentiation (`python3 /workspace/checks/dispersion.py`, SymPy) gave −1, 2479941473/21532234108 and −421000000/37681409689 at the three witness weights. That computation is a witness, not a continuum proof. Frozen verification material was inspected, not executed.
 
-The known object and moment formulas (Godwin 2012, Chapter Four, p.80), together with the 2023 excess-one formulation and later inference articles, are explicitly credited. The proposed result is not a rederivation of those formulas: it combines a strict shape-dependent curvature identity, a unique nontrivial rate boundary, and a full \(0/1/2\) equidispersion-transition classification. In the inspected sections of the accessible original dissertation and 2024 arXiv text, no such theorem was found. The 2022 equivalence and 2024 modelling articles provide mixture/likelihood results, not the shape-dependent sign diagram. Searches of related mathematical records and literature likewise returned no covering result. These comparisons support a provisional self-review, not definitive priority proof. The 2016 journal full text and the publisher's original 2023 PDF were unavailable; the 2023 indexed paper text has badly degraded formulas. Such limitations remain priority risks and do not establish noncoverage of inaccessible texts.
+## originality
 
-## Value (V): PASS
+PASS
 
-The unconditional dispersion index is a natural first diagnostic for positive count regression, sampling and capture–recapture models. A non-obvious operational effect is that adding an atom at one can turn an underdispersed zero-truncated negative-binomial law into an overdispersed law and then back into an underdispersed law, not merely move dispersion monotonically. The criterion gives exact parameter regions and sharp equidispersion boundaries, including an explicit rational witness. This can prevent incorrectly inferring dispersion direction from the baseline family or the amount of one-inflation. The contribution is a complete mathematical phase classification, not a claim of new probability model or estimation method.
+Qualified for the full phase diagram: the probability model, moments and quadratic reduction are covered or immediate from prior work, not original. The positive evidence is a distinct quantified statement about shape, ordered cutoffs, and strict interior root counts; the inspected same-law sources establish the ingredients but not the global shape inequality or the unique discriminant transition.
 
-## Closest literature and limitations
+## value
 
-Godwin (2012) gives exactly the same probability model and first two moments, but the inspected mathematical development concerns distributional specification, inference and testing rather than this global dispersion partition. Godwin (2016) is a particularly plausible priority source whose accessible abstract cannot exclude overlap. Jolayemi–Aderoju (2023) is the date-qualified literature lead, and Godwin (2024) and Böhning–Friedl (2024) supply related probability representations and inference. The accessible 2012 and 2024 primary texts and indexed 2023 source were compared at the claim level; historical novelty remains subject to human literature review. This theorem is unconditional, does not concern fitted-model residuals, and its numerical thresholds are illustrative.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Variance relative to one's own mean is a standard unconditional summary for positive-count mixtures. A pair of underdispersed endpoint laws does not control their mixture: here the theorem says exactly when intermediate structural-one mass reverses and then reverses back the sign. The uniform real-shape result, strict cutoffs and exact witness are useful beyond a routine moment calculation, without claiming regression-residual, inference or Poisson-characterization consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

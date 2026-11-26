@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:15:16.928049Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 29–52",
+        "Frozen VERIFICATION.md and verification/verify_circular_sas.py, inspected without executing supplied code",
+        "Independent bounded replay: form the word for every admissible ordered gap tuple with 2≤k≤5 and directly test all binary targets through length k+1 at every indexed cut; 56 tuples and 612 cuts agreed"
+      ],
+      "rationale": "A cut just after a one partitions the word into k mixed blocks, so it is k-universal. Every length-(k+1) target with an adjacent 01 embeds by taking that pair in one block and one symbol in each remaining block. For a nonincreasing target 1^a0^(k+1−a), an embedding must double up on zeros in a long block after a blocks used for ones. Conversely, a long block of index at least a+1 makes this possible by using the first a blocks for the ones. Thus if h is the last long-block index, exactly the a from h to k+1 are absent. Reversal handles cuts immediately before ones. At a split long gap the alternating subsequence (01)^k0 has k mixed blocks and contains every length-(k+1) target except the all-ones word: greedy starts at index 1 or 2 and each change saves one position compared to a repeat. The terminal streak lengths contributed by each short-gap run of length r are 1 through r, once each on each side; zero streaks occur once per long gap on each side. This gives the claimed full histogram even for periodic words. For the Fibonacci images the cyclic source avoids 11 and 000, giving gaps 1 or 2 with no two short gaps adjacent. Letter counts determine both gap counts and are coprime, so indexed cuts there are distinct rotations.",
+      "residual_risks": [
+        "The frozen output reports the larger k≤8 and Fibonacci m≤11 ranges; these were not independently replayed in full. Its 'necklaces' label counts ordered tuples, not 501 distinct cyclic equivalence classes. This does not affect the theorem or the number of checked indexed cuts across those tuples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SAS results give structural representations and enumeration algorithms for individual linear strings.",
+          "0661c6ab7a7d gives more detailed per-root SAS information but assumes no cyclically adjacent short gaps."
+        ],
+        "reasoning": "Greater per-cut detail under a stricter hypothesis does not cover arbitrary gap runs. Generic computation per rotation does not itself yield the tail-count law or independence from cyclic run order.",
+        "searches": [
+          "arXiv:2108.13968 §3",
+          "arXiv:2504.21471 abstract",
+          "arXiv:2202.07981 introduction",
+          "Resultary 0661c6ab7a7d Finding"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 0661c6ab7a7d, 29d94c67931e, 1a6556f14d28",
+        "arXiv:1301.3334, 2108.13968, 2202.07981, 2504.21471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The m-bonacci paper treats factor balance; arch factorizations and SAS representations apply to single linear words. The constrained rotation results have no hypothesis allowing a short-gap run of length at least two."
+        ],
+        "reasoning": "The missing implication is the symbolic evaluation across all cuts, including longer streaks. Neither a balance bound nor executing a general SAS algorithm establishes it. The specializations that coincide are not treated as distinct claims on the same formulas.",
+        "searches": [
+          "arXiv:1301.3334 p. 1",
+          "arXiv:2108.13968 §3",
+          "Resultary 0661c6ab7a7d and 29d94c67931e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0661c6ab7a7d and 29d94c67931e identify the same three-point histogram subject to isolated short gaps; 0661c6ab7a7d also has the exact same Fibonacci specialization.",
+          "The linear-word papers describe shortest absent scattered targets and near-universality rather than distribution of their multiplicities over indexed cuts."
+        ],
+        "reasoning": "When r_i≤1, the arbitrary-run formula reduces to the corroborated three-point formula. At r_i≥2 it permits further multiplicities beginning at 4; replacing indexed cuts by distinct words for periodic inputs would also change the invariant.",
+        "searches": [
+          "Resultary searches on cyclic/rotation shortest absent subsequences with binary gaps and on Fibonacci SAS",
+          "arXiv:2108.13968",
+          "arXiv:2202.07981"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two contain exact matching subcase data; 1a6556f14d28 gives Fibonacci-valued extremal counts among length-n linear words, not rotation counts for a fixed substitution word."
+        ],
+        "reasoning": "Exact indexed overlap is credited for the isolated-gap and Fibonacci data. No inspected table or indexed finding covers the formula for unrestricted short-gap-run length.",
+        "searches": [
+          "Local Resultary: 0661c6ab7a7d, 29d94c67931e, 1a6556f14d28"
+        ]
+      },
+      "rationale": "The distinct claim supported by the comparison is the complete indexed-cut law for arbitrary runs of short gaps, not an exclusive claim on the three-point law or the Fibonacci specialization. Two materially overlapping indexed records cover the no-adjacent-short-gap case; one gives the same Fibonacci histogram exactly. Neither supplies the arbitrary-run histogram. The inspected linear-word algorithms permit a per-cut calculation but do not state the cyclic aggregation.",
+      "residual_risks": [
+        "Exact overlap in the restricted cases is material; dating alone neither establishes priority nor excludes a relationship. The comparisons do not exhaust alternate terminology or develop every possible corollary of general SAS theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in the restricted subcase; no arbitrary short-gap runs.",
+          "evidence": "A root-by-root law and histogram (t,2t,2(m−t)) when short gaps are isolated, with the identical Fibonacci histogram.",
+          "identifier_or_url": "2026/11/2/SCOPE-rotation-by-rotation-shortest-absent-subsequences-of-constrained--0661c6ab7a7d",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Rotation-by-rotation shortest absent subsequences of constrained binary necklaces",
+          "trigger": "Direct rotation histogram and Fibonacci match"
+        },
+        {
+          "assessment": "The restriction changes the domain materially.",
+          "evidence": "Same three values under the no-adjacent-short-gap restriction.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-three-point-shortest-absent-subsequence-spectrum-for-constrain--29d94c67931e",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A three-point shortest absent subsequence spectrum for constrained binary necklaces",
+          "trigger": "Exact three-point histogram"
+        },
+        {
+          "assessment": "Different invariant and object.",
+          "evidence": "Maximizes SAS counts over linear words of a given length, not the rotation histogram of a Fibonacci substitution word.",
+          "identifier_or_url": "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Fibonacci numbers in an exact SAS theorem"
+        },
+        {
+          "assessment": "Factor balance, not scattered absence.",
+          "evidence": "Binary Fibonacci word is 1-balanced; the subject is letter balance of factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.3334",
+          "material_read": "PDF p. 1, offset 694",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Balances of m-bonacci words",
+          "trigger": "Fibonacci morphic word properties"
+        },
+        {
+          "assessment": "Supplies linear-word machinery; no cyclic formula in relevant passages.",
+          "evidence": "Characterizations, compact SAS/MAS representations, and individual-word/factor queries.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "PDF abstract p. 1, offset 1254, and §3 p. 3, offset 8036",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General SAS characterization"
+        },
+        {
+          "assessment": "Relevant to per-word evaluation, not the asserted rotation aggregation.",
+          "evidence": "Studies near-universality and absent scattered factors, including the 1-nearly-universal case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.07981",
+          "material_read": "PDF pp. 1–2, offsets 1153 and 7036",
+          "method": "Bounded OA primary PDF passages",
+          "title": "m-Nearly k-Universal Words – Investigating Simon Congruence",
+          "trigger": "Counting missing subsequences at the universality boundary"
+        },
+        {
+          "assessment": "Algorithmic rather than a structural cyclic classification.",
+          "evidence": "Algorithms enumerate absent subsequences of an individual string.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Abstract, PDF p. 1, offset 1140",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General efficient SAS enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, especially lines 8–24 and 36–52",
+        "Exact restricted-domain comparisons 0661c6ab7a7d and 29d94c67931e"
+      ],
+      "rationale": "For one necklace the least absent length does not distinguish any cuts; the number of witnesses at that length does. The complete invariant identifies why large multiplicities arise and shows that the order of the short-gap runs is immaterial, avoiding a per-rotation enumeration even for periodic words. The Fibonacci case is an illustrative specialization, not the main value beyond the exact subcase overlap.",
+      "residual_risks": [
+        "Does not classify arbitrary gap lengths, and outside primitive words the histogram is for indexed cuts, not distinct rotations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

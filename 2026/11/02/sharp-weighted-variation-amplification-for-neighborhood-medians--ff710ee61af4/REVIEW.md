@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer pair of part sizes and every strictly positive edge-weight array, the coarea/layer-cake identity reduces real data to binary cuts. At thresholds excluding finitely many signal values, the lower-median superlevel indicator is the strict-majority bit. All cuts with differing majority bits have positive weight and are bounded below by the finite minimum; a minimizing indicator cut attains the exact ratio. An explicit cardinality minimization independently produces the parity formula, and direct patterns establish universal strict amplification beyond the single-edge case and the unbounded anisotropic family. The exact checker passed 64,516 unit-weight binary, 26,908 positively weighted binary, 12,250 real-signal, 12,250 dynamical, and 224 witness tests. The analytical argument, not the enumeration, proves the infinite collection of instances.
+PASS
 
-## Originality — PASS (with risk)
+A thresholded lower median is high iff strictly more than half the samples are high, including when the threshold equals an observed value. Each updated part is constant. At every threshold where the updated parts differ the input cut has weight at least c_w; integrating the cut inequality gives the stated upper bound. Positive weights and connectedness give c_w>0, and the binary indicator of a minimizing cut attains W/c_w. For unit weights the cut is [pq−(p−2|A|)(q−2|B|)]/2. Opposite strict-majority labels maximize the product at −1 when both sizes are odd and at 0 when at least one size is even, using that even part as the nonmajority part at a tie. If some part has size at least two, one can label the opposite part all high and put one high vertex in that part: the majorities differ but positive weight remains uncut. For the weighted K_{2,2} example, a cut can omit the heavy column by labeling it and both row vertices high, leaving exactly the two weight-one edges cut, and all eligible cuts cross at least two edges. The iteration just swaps the two constants, with a fixed point when they coincide. These arguments establish the one-input assertion, not a two-data Lipschitz bound.
 
-published-finding corpus searches on graph median/majority filtering, complete bipartite total variation and sharp median inequalities returned no equivalent claim or dominating theorem. A prior unweighted majority-median result for trees already covers certain star instances under its own tie convention; those are not treated as novel. Arias-Castro–Donoho concern asymptotic risk of classical spatial medians, Sandryhaila–Moura linear graph-shift filtering, and Benjamini et al. (also Goles–Olivos) majority-cycle behavior. These do not imply the sharp positive-weighted variation cut minimum on \(K_{p,q}\) or the unweighted parity formula. The potentially relevant center-weighted graph-median conference contribution was accessible only by abstract; an unstated corollary or older median-Lipschitz inequality remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a finite complete, attained sharp stability invariant for a robust nonlinear graph filter, rather than a mere test on a small instance. The exact odd/odd versus even-part parity transition quantifies amplification that can approach two even in uniformly weighted dense graphs, while arbitrary positive measurement weights produce unbounded amplification on the fixed four-cycle. The fact that a single step has this effect and repeated steps never dissipate its resulting variation identifies a precise stability limitation of neighborhood medians.
+The supported distinct contribution is the attained positive-edge-weight one-input cut formula for open-neighborhood lower medians on complete bipartite graphs, with the nontrivial cyclic parity and weighted amplification consequences. The threshold method and periodicity are not credited as new, and the exact unweighted odd-star overlap with a distinct same-day record is credited explicitly without inferring priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Edge variation and the standard open-neighborhood order statistic motivate the sharp question independently of computation. The exact constant determines when this nonlinear filter can be relied on not to amplify edge variation. The result gives a complete positive-weight nonexpansivity boundary and a fixed four-vertex example with arbitrarily large attained gain, in contrast to the universal factor at most two for uniform edges. Those conclusions and the parity correction make the contribution more than the generic coarea lifting rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

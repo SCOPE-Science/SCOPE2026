@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:41:11.035904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The excluded origin is 1. In a nonempty antichain, sorting by distinct increasing first exponents forces strictly decreasing nonnegative second exponents, so the size r is finite. Then a_i>=i and b_i>=r-1-i, and the positive decreasing geometric weights give W_(r-1) as the sharp bound for r>=2, with equality only at the full layer. A singleton weighs at most x<W_1. For z=y/x in (0,1), R_d=x(1+(1-z)z^(d+1)/(1-z^(d+1))) decreases strictly to x<1, establishing existence of the maximum and exactly the stated tie rule. R_1=H(x,y)=(x^2+xy+y^2)/(x+y) increases strictly in each positive argument; along (p^-t,q^-t) it falls from 3/2 to 0, giving the unique crossing. Both arguments are dominated by the (2,3) arguments at every positive t, with at least one strictly smaller for another pair. This proves sharpness and the exact equality cases, not just the finite-grid check. An independent Decimal bisection reproduced 0.46067160387338256928301317344350148...; the monotone exact equation, not bisection or a finite simulation, establishes the boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banks–Martin Theorem 6 covers general prime sets with t>1 and a sufficient prime-sum condition. Their (7) is a finite gcd class identity before any layer monotonicity is used. The inspected weighted-chain paper arXiv:2509.26493v2 maximizes cardinality for k-separated subsets on bounded cubes; the q-product theorem appeared relevant but was available only as an abstract or search excerpt."
+        ],
+        "reasoning": "The stated restricted-prime theorem cannot be applied at the subunit exponent without checking the proof. Its finite-partition identity does apply there, and in two primes every proper-divisor subproblem is already a chain or empty. Other weighted-poset papers are not needed to establish that implication.",
+        "searches": [
+          "arXiv:1301.0948, Theorem 6, Lemmas 9–10 and Proposition 11",
+          "arXiv:2012.01677 and 2410.16243v2",
+          "Weighted Sperner and strict normalized matching for products of chains; Harper product theorem; DOI 10.1016/j.aam.2007.11.005"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspected)",
+        "arXiv:1301.0948, 2012.01677, 2410.16243v2, 2509.26493v2",
+        "Resultary 9ab75c4d4560 ranked summary",
+        "DOI 10.1016/j.aam.2007.11.005 search abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let ell be the minimum degree in a nonempty primitive S and s an element of that degree. In (7) both S and L_ell are divided into gcd classes indexed by divisors d of s; the proper-d classes after dividing by d use Q_d=P minus the primes dividing s/d. At |P|=2 a proper d leaves at most one prime and ell-Omega(d)>0. If Q_d is empty both classes are empty; otherwise the reference class contains exactly the least allowed power of that sole prime. The S class is empty or one power with exponent no smaller. At positive t strict equality in that class forces the same power. The d=s class is {s} on both sides. Thus W_ell>=weight(S), with equality only at S=L_ell, for every t>0, before the final step in Lemma 9 that assumes decreasing weights. Equation (9) gives precisely W_1>=W_2 as the prime-layer inequality."
+        ],
+        "reasoning": "Since every complete layer is attainable, (7) now yields the global maximum and rigid equality for all t, including the subcritical region. The geometric formula for W_d immediately gives strictly declining ratios, so W_1>=W_2 is necessary and sufficient. The explicit increasing rational ratio (x^2+xy+y^2)/(x+y) makes (2,3) its dominating prime pair and the stated number its scalar crossing. The frozen fixed-cardinality argument is a different proof of the advertised optimum, not an uncovered optimum or boundary.",
+        "searches": [
+          "Banks–Martin, arXiv:1301.0948, Lemma 9 proof, equation (7), and equation (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banks–Martin optimize exactly the same n^-t sum over primitive subsets of the semigroup with 1 excluded. Their degree layers N_k(P) specialize to L_k. Resultary 9ab75c4d4560 instead concerns finite Delannoy lattices."
+        ],
+        "reasoning": "Unique factorization identifies divisibility with coordinatewise order and Omega with the rank. An unrelated normalized-matching poset cannot be substituted for this weighted grid.",
+        "searches": [
+          "Resultary: all-t two-prime geometric weighted antichain, normalized matching, exact 2–3 decimal",
+          "arXiv:1301.0948, model and theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact decimal or theorem hit surfaced in the inspected ranked results. Chan–Lichtman–Pomerance discuss the unrestricted-domain tau_1 about 1.14, not the two-prime crossing. The frozen checker examines a bounded grid and finitely sampled exponents."
+        ],
+        "reasoning": "This is not a rejection based on a numeric table or matching digits; a critical exponent for all prime supports simultaneously is a different quantity from a supremum restricted to pairs.",
+        "searches": [
+          "Resultary: 0.4606716038733825692830131734435 and two-prime critical-exponent/complete-layer claims",
+          "arXiv:2012.01677 critical-exponent convention"
+        ]
+      },
+      "rationale": "The closed-form specialization is not stated verbatim in the closest paper. Nevertheless, Banks–Martin's published equation (7) and its same-object decomposition mechanically give the exact optimal layer and equality result for two primes at every t>0. The stated Theorem 6 has t>1; the implication here uses the algebraic identity in the proof, not an extension of that theorem by fiat. After the decomposition, the rank rule and sharp uniform exponent follow by evaluating and comparing the two-variable geometric layer sums. This finding is covered by that concrete implication, not rejected because an unrelated weighted-poset paper was inaccessible.",
+      "residual_risks": [
+        "The 2008 Wang–Zhang q-product theorem and Harper's morphology paper were not available in full text through the attempted lawful routes; their exact overlap is not decided here.",
+        "The explicit threshold may also have been printed elsewhere. The rejection rests on the verified Banks–Martin implication, not the absence of the decimal from ranked results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic and decomposition; mechanically gives exact all-t maximum/equality for two primes, even though the stated theorem assumes t>1",
+          "evidence": "The algebraic gcd partition precedes use of layer monotonicity; for a two-prime set its proper-divisor classes have at most singleton prime support. Equation (9) is the first-two-layer comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.0948",
+          "material_read": "pp. 1, 4, 7–9: Theorem 6, Lemma 9 including both sides of equation (7), Lemma 10 and Proposition 11 including (9), OA offsets 1800, 10950, 21840, 25750",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Optimal primitive sets with restricted primes",
+          "trigger": "Exact model and same prime-layer condition; check whether the proof implies more than the stated exponent scope"
+        },
+        {
+          "assessment": "Different domain, unrestricted prime support",
+          "evidence": "Defines the unrestricted tau_k; tau_1 is about 1.14.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.01677",
+          "material_read": "p. 2, definition and tau_1, OA offset 6350",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "On the critical exponent for k-primitive sets",
+          "trigger": "Prior critical exponent for the same power weighting"
+        },
+        {
+          "assessment": "Counts maximal antichains in the inspected statement rather than optimizing the frozen geometric sum",
+          "evidence": "The statement is about finite products of chains and maximal-antichain enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.16243v2",
+          "material_read": "p. 1, opening abstract",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "About maximal antichains in a product of two chains: A catch-all note",
+          "trigger": "Same underlying finite-grid orders"
+        },
+        {
+          "assessment": "Different objective and restrictions in the inspected result",
+          "evidence": "Weights are used in the chain decomposition to maximize cardinality of k-separated subsets of bounded cubes; not the stated weighted two-prime sum.",
+          "identifier_or_url": "https://arxiv.org/html/2509.26493v2",
+          "material_read": "Abstract and §1 opening, OA offset 0",
+          "method": "Lawful OA HTML, targeted passage reading",
+          "title": "A generalisation of Sperner’s theorem using weighted chain decomposition",
+          "trigger": "Potential weighted antichain classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The phase boundary is a natural numerical application, but the full two-prime optimum and equality cases are mechanically obtained from a published same-domain decomposition. Selecting a rank via geometric ratios and solving the first-two-rank equality at the dominating smallest prime pair do not add an independently useful unknown exact fact under the review standard. The short coordinatewise proof is useful exposition, but does not change what the frozen theorem supplies.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

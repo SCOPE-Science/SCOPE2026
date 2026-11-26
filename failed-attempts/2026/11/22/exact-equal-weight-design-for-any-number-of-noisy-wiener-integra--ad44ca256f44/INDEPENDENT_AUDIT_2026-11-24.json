@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:31.527650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic regression risk follows from stochastic Fubini and Itô isometry. Compactness of the sorted site simplex gives attainment. After merging positive repeated sites the Brownian precision matrix plus the inverse noise matrix is a strictly diagonally dominant M-matrix; the computed K^{-1}k is strictly positive, giving positive weights at every positive site. Replacing an unused zero site is a strict improvement by a nonzero residual partial covariance. At an interior knot of multiplicity m, symmetric splitting changes the loss at first order by -2(m-1)v² times the displacement; at 1, moving one of m copies left changes it by -(2m-1)v² times the displacement. Subtracting the interior normal equations forces consecutive weights equal because the multiplier is η+(v_i+v_{i+1})/8>0. The smaller quadratic root is the only feasible one; the larger lies above 2/(2n-1). The projection identity then gives the claimed risk. Uniqueness is of the sorted design, or up to permutation of sensor labels. The companion verify.py was inspected, not executed; it uses rational perturbations for n≤4 and does not certify the continuous search. The proof, not the finite checks, establishes global optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The joint design searches all deterministic times and all positive precisions summing to P, including every fixed-variance design at P=n/η. The joint optimum is unique up to simultaneous relabeling and is strictly interior without replication.",
+          "Cai–Lam–Scarlett §3 Theorem 2 supplies a general noisy Bayesian quadrature lower bound rather than the optimizing Wiener nodes. The historical exact integral-design articles could not be checked in full."
+        ],
+        "reasoning": "Optimization over the larger feasible set with an optimizer lying in the restricted set implies the claimed global restricted optimum and its uniqueness; general quadrature rates alone do not.",
+        "searches": [
+          "Joint precision-and-time RESULT.md, Finding and Assumptions",
+          "arXiv:2202.10615v1 §3 Theorem 2",
+          "DOI:10.1081/STA-120022249",
+          "DOI:10.1214/aos/1176348517"
+        ]
+      },
+      "checked_sources": [
+        "ca21be61c9e2",
+        "arXiv:2202.10615v1",
+        "DOI:10.1081/STA-120022249 (not accessible in full)",
+        "DOI:10.1214/aos/1176348517 (not accessible in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At P=n/η the joint risk is nw³/12+(1−nw)³/3+nηw². Its spacing obeys (4n²−1)w²−8(n+η)w+4=0."
+        ],
+        "reasoning": "Expanding the joint risk and eliminating (n+η)w with the displayed quadratic gives exactly 1/3−nw/2+n(4n²−1)w³/24. Thus no claim of the Finding, including strict inferiority of replication, survives as a distinct result. The comparison does not decide historical priority.",
+        "searches": [
+          "Joint precision-and-time RESULT.md, Finding at offset 0 and Proof §§3–4 at offset 4181"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint-design Finding uses the identical zero-start standard Brownian path, integral, deterministic point observations, independent Gaussian errors, and conditional-mean loss. Its precision variable is the reciprocal of variance."
+        ],
+        "reasoning": "At P=n/η, its optimum has p_i=P/n=1/η for every sensor, and its spacing d is exactly 1/(n+η+sqrt(2nη+η²+1/4)), the submitted w. Both its node formula and estimator become identical.",
+        "searches": [
+          "Resultary semantic search for exact all-n Brownian integral optimal sites, equal weights and Gaussian observation noise",
+          "2026/11/22/SCOPE-sharp-joint-precision-and-time-design-for-wiener-integral-quadra--ca21be61c9e2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed joint-budget source gives explicit expressions uniformly in n and P, including equal weights and the optimal risk, not just a numerical example."
+        ],
+        "reasoning": "A table of special cases is unnecessary: the published closed expressions cover every parameter pair in the submitted result via P=n/η. The comparison is between two distinct indexed records.",
+        "searches": [
+          "Resultary exact Wiener integral fixed-noise/all-sample-count design comparison; joint-budget entry ca21be61c9e2"
+        ]
+      },
+      "rationale": "The distinct indexed joint precision-and-time theorem covers the complete submitted fixed-variance theorem as an exact restriction; in particular its broader optimum is feasible for the restricted problem. Both records bear the same UTC calendar date in the catalogue, so this establishes coverage, not which result came first.",
+      "residual_risks": [
+        "Exact priority within the shared catalogue date is unresolved.",
+        "Earlier product-covariance and stochastic-integral designs were not available in full, so their historical coverage is not ruled out.",
+        "The deferred general literature lookup contributed no evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full submitted claim; chronology within the date is not established.",
+          "evidence": [
+            "Optimal p_i=P/n, common d_{n,P}, and unique interior times; exact three-term risk."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-joint-precision-and-time-design-for-wiener-integral-quadra--ca21be61c9e2/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0; proof §§3–4, offset 4181",
+          "method": "Local original-file mirror and algebraic specialization",
+          "title": "Sharp joint precision and time design for Wiener-integral quadrature",
+          "trigger": "Same all-n Gaussian Wiener design with free precision allocation"
+        },
+        {
+          "assessment": "Different conclusion in the inspected passages.",
+          "evidence": [
+            "Average-case bounds, not exact optimal Brownian nodes or weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615v1",
+          "material_read": "Abstract p. 1 and §3 Theorem 2 p. 5",
+          "method": "Lawful arXiv PDF text and statement comparison",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy GP quadrature comparator"
+        },
+        {
+          "assessment": "Exact historical overlap undetermined.",
+          "evidence": [
+            "A product-covariance design result is relevant, but access denial does not establish its scope in the presence of independent measurement noise."
+          ],
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Citation and description in frozen RESULT.md; no decisive original passage accessible",
+          "method": "Attempted DOI abstract and full-text access",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Historical exact product-covariance design"
+        },
+        {
+          "assessment": "No full-text scope determination.",
+          "evidence": [
+            "The frozen record describes regular-design and asymptotic methods; this is not an independent finding of noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176348517",
+          "material_read": "Citation and description in frozen RESULT.md; no decisive original passage accessible",
+          "method": "Attempted publisher HTML and lawful PDF/download routes",
+          "title": "Sampling Designs for Estimating Integrals of Stochastic Processes",
+          "trigger": "Classical stochastic-integral design"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact noisy design is a useful result in itself, but the frozen contribution as a distinct finding is a direct budget substitution into an indexed theorem that already gives equal weights, uniqueness, nonreplication and exact risk. No separately motivated new invariant or structural result remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,25 +1,21 @@
-# Scientific review: mixed-dimensional Euclidean Rips homotopy of type-\(B_n\) roots
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an integral homotopy classification for every \(n\ge3\) and every Euclidean diameter bound \(0\le r<\sqrt3\), with equality included at \(1\) and \(\sqrt2\). The length convention is essential: short roots have norm \(1\), long roots norm \(\sqrt2\). Pairwise squared distances show that no additional faces enter between the stated critical thresholds. The first graph is exactly the once-subdivided crosspolytope graph, of cycle rank \(2n(n-2)+1\).
+PASS
 
-At the squared threshold two, maximal cliques fall into exactly four families: short-root crosspolytope faces, signed-coordinate cone faces, exceptional long-root triangles, and uniquely determined mixed bridging triangles. Each signed-coordinate cone collapses to its radial spoke tree relative to pairwise intersections. The exceptional triangles attach the two-cells of the crosspolytope two-skeleton, which is simply connected. The bridges yield a homotopy pushout of two null-homotopic graph maps into simply connected complexes. Its splitting gives \(\left(\bigvee^{8\binom n3}S^2\right)\vee S^{n-1}\). The proof uses actual integral homotopy equivalences; there is no unsupported inference from finite mod-prime Betti numbers to homotopy type.
+Each long root is the sum of one edge of the short-root crosspolytope graph G; the two summands are its only short neighbors at distance 1 or at squared threshold 2. Distinct short roots are joined at squared distance 2 exactly when they have different supports. The distance-one graph is therefore the once-subdivided G, with rank |E|-|V|+1=2n(n-2)+1; nothing is joined below 1. For long roots, squared distance 2 means exactly one shared coordinate with matching sign. Pairwise-intersecting distinct two-element supports either form a star or the three edges of a triangle. In a star, antipodal choices of the other signed summand cannot be adjacent; the allowed faces form the stated crosspolytope base. The triangles on three supports have matching signs and give precisely 8 binom(n,3) exceptional long triangles. This leaves only the short crosspolytope boundary and the mixed bridge triangles in addition to the short-vertex cones. Each cone collapses relative to its radial edges by pairing nonvertex base faces with their cones, in descending dimension; separate cones meet only at untouched long vertices. Under this collapse, each side of an exceptional triangle retracts to the radial two-edge path in its cone, up to homotopy relative to endpoints. Thus the cones plus exceptional triangles form, up to homotopy, the short boundary's two-skeleton. It is simply connected and its Euler characteristic gives H_2 of rank 8 binom(n,3)-q, with q=2n(n-2)+1. Hurewicz and the simply connected homology Whitehead theorem give a wedge of that many 2-spheres. The bridge triangles give a mapping cylinder between the once-subdivided graph and the short graph, so the final gluing is the homotopy pushout over G. Both graph maps are null because the targets are simply connected, and the additional summand is the suspension of G, a wedge of q two-spheres. This proves the integral wedge with S^{n-1}, including the coincident dimensions giving nine 2-spheres at n=3. Coordinate integrality excludes squared pair distances strictly between 2 and 3, and the endpoints are inclusive as claimed.
 
-The included self-contained verifier constructs the roots, checks all maximal cliques against the four families, enumerates all faces, and computes binary simplicial homology for \(n=3,4,5,6\). It was executed successfully with `VERIFY_OK`. Its finite role is made explicit.
+## originality
 
-## Originality — PASS, with limitations
+PASS
 
-The closest accessible source claims on Euclidean roots treat the long-root type-\(D_n\) configuration and the type-\(A\) configuration. Neither statement includes the unrescaled short roots of type \(B_n\), nor determines their coning, mixed triangles or the added crosspolytope sphere. Adamaszek–Adams, arXiv:1503.03669, provides exact Rips changes for circles and does not contain this root family. Their hypercube paper, arXiv:2103.01040, uses the Hamming metric on binary strings rather than this unequal-length Euclidean root metric. The published source was compared at the theorem, metric definitions and proof-object level, not merely by title.
+Credit the established line-graph clique/two-skeleton mechanism and the exact B_3 overlap. The distinct supported statement is the uniform all-rank metric result and the short-sphere/bridge gluing that produces genuinely different homology dimensions for every n>=4; neither the known two-skeleton result nor the n=3 classification determines it.
 
-Actual searches for type-\(B\) roots, doubled crosspolytope edge sums, root-system clique homotopy, and Rips sphere wedges retrieved related but non-covering claims. A failed search does not prove global uniqueness. Residual risk: an equivalent calculation under Coxeter-complex, graph-flag or signed-incidence terminology may be unindexed. The mathematical statement is nevertheless distinct from the strongest accessible implications.
+## value
 
-## Value — PASS
+PASS
 
-Type-\(B_n\) roots form a canonical infinite family, and their two natural root lengths generate a genuinely nontrivial first Rips transition. The result shows a uniform mixed-dimensional wedge with a cubic number of two-spheres and one high-dimensional crosspolytope sphere. The specific top homology class is explained by the short-root sphere and bridging attachments, not an arbitrary selection of a small parameter. It provides an exact structural benchmark for the persistent topology of an unequal-radius Coxeter point configuration, and it distinguishes the complete root set from the long-root-only subconfiguration. No full-filtration, integrality of a group representation, or downstream theorem is claimed.
+The two unequal Euclidean root shells form a canonical metric point cloud, and the first nontrivial thresholds are intrinsic rather than arbitrary. The mixed gluing yields a rank-uniform, torsion-free example with homology in both a fixed degree and a rank-dependent degree; knowing the long roots or a field Betti table would not explain the additional sphere or the integral attaching type.
 
-## Closest literature, boundary and remaining risks
-
-Adamaszek–Adams, *The Vietoris–Rips complexes of a circle*, arXiv:1503.03669 (original 2015-03-12); Adamaszek–Adams, *On Vietoris–Rips complexes of hypercube graphs*, arXiv:2103.01040 (original 2021-03-01); accessible earlier claim on the Euclidean type-\(D_n\) long-root subconfiguration, identifier `7b5415da-1fee-4381-b7e4-7fff0fb9929d`. The latter is a different point cloud and is not being recertified here. Only \(0\le r<\sqrt3\) is established; the verifier is finite, and no independent external audit was carried out. Bibliographic incompleteness remains possible.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

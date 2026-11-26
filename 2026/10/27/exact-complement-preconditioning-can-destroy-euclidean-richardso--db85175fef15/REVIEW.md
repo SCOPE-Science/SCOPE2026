@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The block Schur complement is positive for \(0<\varepsilon<1/2\). A uniform spectral bound makes Type II with unit scaling strictly Euclidean contracting. Two explicit unit test vectors give incompatible inequalities for *any* positive Type-III scaling when \(\delta\le\varepsilon^6/4\). The sharp limiting gain follows from bounded near-minimizers and a constructive matching scaling. The spectral-radius and minimal-dimension claims follow from SPD similarity and one-dimensional complement equivalence. The rational example independently checks all parameter inequalities.
+## correctness
 
-## Originality — PASS
-The motivating 2026 article defines Type III and proves its nonsingularity; its displayed Richardson bounds concern Type I. Earlier additive coarse-grid comparisons chiefly concern spectra, conditioning, and deflation. Closely related scalar-complement Type-II classifications do not imply the anisotropic exact-fine Type-III separation or the sharp limiting gain. Published mathematical records were compared by implication, not just matching terminology. A fuller survey of older broad preconditioning theory could reveal a dominating general norm result; one relevant 2009 full text was not completely accessible.
+PASS
 
-## Value — PASS
-A supposedly stronger exactly inverted fine block can destroy *all* scalar-tunable Euclidean one-step nonexpansion even though plain identity completion is safe and a spectrally convergent Type-III setting exists. The dimension-three minimality and sharp nonzero minimax amplification distinguish it from an isolated numerical anomaly. This informs preconditioner choice and transient-error diagnostics; no full-PDE performance claim is made.
+The fine diagonal block is SPD and its Schur complement is 1−2ε²>0. The largest absolute row sum of A is bounded by 1+2ε<2, so all eigenvalues are in (0,2) and the symmetric Type-II error map at β=1 has norm <1. For Type III the applied inverse is diag(1,α,α/δ); its first and second coordinate test gains are at least αε/√δ and exactly √(ε²+(1−α)²), respectively. Norm ≤1 would force α≤√δ/ε≤ε²/2 and thus squared gain at least 1+ε⁴/4, impossible. At α=δ, F^(1/2)AF^(1/2) is SPD with row sums <2, so the similar FA gives spectral radius <1 for I−FA. The same α gives a norm limit √(1+ε²); every sequence of bounded near-minimizers as δ→0 has α=O(√δ), so the second coordinate test proves the matching lower limit. The rational example has exact gains bounded below by max(64α,√(1/16+(1−α)²)); at α≤1/64 the latter is at least 65/64. With a one-dimensional complement, compression of T⁻¹ is a positive scalar, so the two scaling families coincide after reparameterization. The obstruction range is sufficient, not claimed to be a sharp transition for fixed δ. The checks in check.py are finite corroboration; the uploaded program was inspected, not run, and the universal bounds were independently derived.
 
-## Limits
-Exactly specified real SPD three-mode arrow matrices, a fixed one-dimensional reduced space, an exact complementary basic inverse, an unrelaxed fixed Richardson step, and exact arithmetic. The explicit finite-parameter cutoff is sufficient, not claimed optimal. Independent verification is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected close literature and catalogue statements do not cover the combined Type-II-safe, exact-complement Type-III-unsafe example and sharp limiting infimum in the same original Euclidean norm. This is a bounded judgment about that specific separation, not a claim that nonnormal transient amplification or spectral-versus-Euclidean distinctions are new.
+
+## value
+
+PASS
+
+This example answers a concrete tuning question: even an exact inverse of the fine block with an optimally chosen positive scalar may be strictly worse than leaving that block unpreconditioned for Euclidean one-step Richardson safety. The sharp limiting gap and the minimum dimension distinguish it from a generic example of nonnormal growth and give an explicit benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

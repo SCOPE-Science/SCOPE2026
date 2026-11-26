@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python verify_heterogeneous.py` with Python 3.10 or later. No third-party packages, random sampling, downloads, or network access are required.
+## correctness
 
-The script constructs the all-subset stationary moments using exact rational arithmetic, obtains full joint probabilities by Walsh inversion, and checks the independent continuous-time master-equation balance for every state on 21 heterogeneous stars of sizes one through seven. It also verifies positivity, normalization, exact hub-to-leaf and leaf-to-leaf correlations, and current-balance identities. The execution reported `HETEROGENEOUS_EXACT_STATIONARITY_OK cases=21 state_checks=1524`. A separate check compares exact homogeneous-subset moments with the beta-mixing moments for stars of sizes one through eight and two parameter families; it reported `HOMOGENEOUS_BETA_MOMENTS_OK sizes=1..8 two-rate-sets`.
+PASS
 
-The tests verify only the finite parameter choices explicitly hard-coded in the program. The theorem for every star size and every stated strictly positive parameter follows from exact generator identities, subset induction, Walsh inversion and the stationary two-state transport equations in `RESULT.md`. The historical novelty comparison is bounded by the checked literature. No independent scientific audit has been performed.
+Hub redraw at rate c contributes −cC to the generator (effective flip rate c/2); leaf i contributes ℓ_i(t_i C−σ_i). Acting on the two Walsh monomials for each subset gives the two triangular equations, with only lower-order terms in the numerators. Positivity of the spin-flip rates implies irreducibility, so inversion of configuration indicators indeed recovers the unique stationary law. The singleton and pair equations give the claimed positive cross-leaf correlations and the ratio 1+2c/(ℓ_i+ℓ_j). A leaf redraw changes only its bond contribution; the resulting mean energy inflow is J_iℓ_i(B_{i}−t_i), proving the individual negative current, hub balance and positive entropy production under the stated convention. For common leaf rate ℓ, conditional on the stationary hub past each leaf has mean t_i Z by its independent exponential age. An independent check of the beta law uses the generator on Z^k and CZ^k: E[C Z^k]=E[Z^{k+1}], and E[Z^{k+1}]=k E[Z^{k−1}]/(k+c/ℓ) for k≥1, with E[Z]=0. These are the moments of the claimed beta density and its sign-resolved law; compact support determines the distribution. The conditional variance of the homogeneous empirical mean is at most 1/n, giving the asserted limit and variance.
+
+## originality
+
+PASS
+
+The supported distinct claim is the explicit arbitrary-heterogeneity joint law together with the multibath energy-current identities. The homogeneous noisy-voter specialization and the classical beta filtering phenomenon are prior coverage, not novel in isolation.
+
+## value
+
+PASS
+
+The result gives an exact joint law in a natural finite nonequilibrium benchmark, with arbitrary reservoir and clock parameters and no leaf exchangeability assumption. The analytic separation between nonzero cross-leaf correlation and decoupled individual energy currents provides a concrete diagnostic for more strongly interacting models. The classical beta law by itself is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

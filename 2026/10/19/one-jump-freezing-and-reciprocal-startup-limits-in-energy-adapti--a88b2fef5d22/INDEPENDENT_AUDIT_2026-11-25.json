@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:52.802444Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–100",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected only)",
+        "Liu, Shen and Zhang, arXiv:2301.02942 §§2.1–2.2; in the competing limiting argument the projected stationarity condition is r_star times the gradient equals zero, not gradient equals zero when r_star=0."
+      ],
+      "rationale": "The exact auxiliary-energy decrement gives ||x_{k+1}-x_k||=(r_k-r_{k+1})/||F(x_k)|| whenever the direction is nonzero. The first step gives x_1=x_star+O(1/eta) and r_1=O(1/eta) explicitly. In a closed ball around x_star with ||F||>=m>0, choose eta so that ||x_1-x_star||+r_1/m is strictly below the radius. This bounds the step taking a purported first exit as well as all earlier steps, so no exit occurs. Thus r decays with ratio at most (1+2 eta m^2)^(-1), total remaining path length is at most r_1/m, and the limit stays inside the nonstationary ball. Set epsilon=1/(2 eta). Expanding the first displacement and energy gives x_1=x_star+epsilon r_0 v_0/||v_0||^4+O(epsilon^2) and r_1=epsilon r_0/||v_0||^2+O(epsilon^2). Local Lipschitz continuity gives F(x_1)=v_star+O(epsilon), so the second displacement contributes -epsilon r_0 v_star/(||v_0||^2 ||v_star||^2)+O(epsilon^2). Since r_2=O(epsilon^2), the full subsequent path contributes at most r_2/m. For the scalar quadratic, F=x/(2 sqrt(c+x^2/2)) gives the stated inverse landing point. At c=x_0=1, the first-step formulas give x_1=-2+9/(eta+3) and r_1=3 sqrt(3/2)/(eta+3). On [-2,-1], F is negative with magnitude at least 1/sqrt(6), so the increasing tail moves by at most 9/(eta+3); -2+18/(eta+3)<-1 for eta>=16 closes that trap. Substituting F(1)=1/sqrt(6) and F(-2)=-1/sqrt(3) gives 9+9 sqrt(2)/2.",
+      "residual_risks": [
+        "The trapped-ball proof depends on the landing point being noncritical and the base step being held fixed during the infinite trajectory. Finite floating-point iteration in the supplied evidence cannot certify either the infinite limit or exact depletion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AEPG and AEGD establish unconditional auxiliary-energy dissipation and conditional stationarity/convergence, not the large-step trap. SAV notes rapid depletion, but asserts convergence to a solution for fixed step in §2.2 and claims stationarity when both variables converge in §2.1."
+        ],
+        "reasoning": "Energy dissipation does not bound the infinite displacement by itself. The SAV stationarity assertion requires a nonzero limiting auxiliary factor if inferred from (2.3); the unrelaxed L=0 equations permit r_star=0, and the scalar trap is a counterexample to the unrestricted fixed-step assertion as written. This is not an equivalent prior theorem.",
+        "searches": [
+          "AEPG arXiv:2310.06733, Theorems 2.1 and 2.5",
+          "AEGD arXiv:2010.05109, Theorem 3.1 and Remark 3.2",
+          "SAV arXiv:2301.02942, Theorem 1 and §§2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "AEPG, AEGD and SAV primary passages above",
+        "Local Resultary scalar comparison",
+        "Frozen RESULT.md, lines 106–119"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general energy theorem supplies sums of squared displacements. Small-step primal convergence and a positive energy lower bound are in a different regime. The exact scalar overlap uses a particular objective and preconditioner."
+        ],
+        "reasoning": "None of those statements yields a uniform first-exit estimate near an arbitrary noncritical autonomous landing point. Turning the energy decrement into a length bound, and then bounding the displacement after the second step by O(eta^-2), are the ingredients required for the distinct general result.",
+        "searches": [
+          "AEPG Theorems 2.1 and 2.5",
+          "AEGD Remark 3.2",
+          "SAV Eq. (2.5) and §2.2",
+          "Resultary scalar ghost-limit Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AEPG gives the exact recurrence, and AEGD and unrelaxed SAV with L=0 coincide at T=I. Parameters are C=c and delta t=eta in the SAV notation."
+        ],
+        "reasoning": "The names label the same iteration on the matched slice. The novelty question concerns the large-step infinite dynamics and the asymptotic, not the scheme or its representation.",
+        "searches": [
+          "arXiv:2310.06733 §1 Eqs. (1.6a–c)",
+          "arXiv:2010.05109 §2 Eqs. (2.3)–(2.4)",
+          "arXiv:2301.02942 §2.1 Eqs. (2.3)–(2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reciprocal ghost limits record gives the same scalar recurrence, infinite-tail trapping and coefficient (a^2+2C)^2/a^3 times (1+|a|/sqrt(2C)) at a=x_0. That coefficient is the substitution of the quadratic into the frozen first-order formula."
+        ],
+        "reasoning": "This is substantive exact coverage of the scalar specialization, not just shared terminology. Its scope is scalar quadratic T=1; it does not cover general smooth objectives, dimensions or autonomous preconditioner fields. Its later catalogue date is not used to dismiss this equivalence or settle priority.",
+        "searches": [
+          "Local Resultary: AEPG/SAV large-step freezing and reciprocal quadratic limits",
+          "2026/10/26/SCOPE-reciprocal-ghost-limits-of-the-unrelaxed-scalar-auxiliary-variab--9ab7620e177b"
+        ]
+      },
+      "rationale": "The mathematical contribution is the general conditional large-step theorem for autonomous preconditioners, including the uniform infinite-tail estimate and first correction. Neither the recurrence nor the qualitative possibility of auxiliary-energy depletion is new. An independently indexed scalar result gives exact equivalent coverage of the reciprocal quadratic limit and correction; those scalar formulas should not be treated as an originality basis independent of the general theorem. The relative catalogue dates do not settle priority.",
+      "residual_risks": [
+        "The related SAV or invariant-energy literature could contain a closer large-step theorem. The bounded search is not a priority certificate, and the scalar equivalent has been explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scheme and energy theorem; inspected primal convergence has small-step restrictions.",
+          "evidence": [
+            "Theorem 2.1 tolerates depletion of auxiliary energy; Theorem 2.5 imposes a base-step range."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.06733",
+          "material_read": "p. 2 Eqs. (1.6a–c), pp. 5–6 Theorem 2.1, p. 7 Theorem 2.5; offsets 8268, 19305, 26137",
+          "method": "OA PDF passages",
+          "title": "Adaptive Preconditioned Gradient Descent with Energy",
+          "trigger": "Introduces the actual recurrence and investigates its convergence"
+        },
+        {
+          "assessment": "Prior scheme and qualitative distinction between auxiliary stability and primal convergence.",
+          "evidence": [
+            "Remark 3.2 cautions that unconditional energy stability is insufficient for primal convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.05109",
+          "material_read": "pp. 4–5, Eqs. (2.3)–(2.4), Theorem 3.1 and Remark 3.2; offsets 12978, 16510, 18530",
+          "method": "OA PDF passages",
+          "title": "AEGD: Adaptive Gradient Descent with Energy",
+          "trigger": "Unpreconditioned recurrence and convergence warning"
+        },
+        {
+          "assessment": "Same scalar/identity-preconditioner update. The unrestricted fixed-step convergence sentence is incompatible with the exact c=x_0=1 trap for eta>=16, whereas the modified-energy dissipation identity is compatible.",
+          "evidence": [
+            "The zero auxiliary limit makes the limiting equation (2.3) vacuous for the gradient. The opening of §2.2 itself discusses rapid auxiliary depletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02942",
+          "material_read": "§2.1 Eqs. (2.3)–(2.5), preceding limiting inference and Theorem 1; opening of §2.2, PDF pp. 3–5, offsets 10400–19403",
+          "method": "OA PDF passages with explicit equation comparison",
+          "title": "A SAV based algorithm for discrete gradient systems",
+          "trigger": "Same unrelaxed recurrence under L=0 and a purported conflicting convergence inference"
+        },
+        {
+          "assessment": "Same scalar limiting law and first correction, but not the general autonomous theorem.",
+          "evidence": [
+            "Reciprocal limit -2C/a, matching coefficient and an all-iteration scalar witness."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reciprocal-ghost-limits-of-the-unrelaxed-scalar-auxiliary-variab--9ab7620e177b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Reciprocal ghost limits of the unrelaxed scalar auxiliary variable iteration",
+          "trigger": "Exact theorem-level match for the scalar specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–40 and 48–100",
+        "AEPG Theorems 2.1 and 2.5",
+        "SAV §§2.1–2.2"
+      ],
+      "rationale": "An unconditionally stable auxiliary variable can vanish while a primal iterate converges away from stationarity, even for a strongly convex objective. The general theorem tells when this occurs, locates the infinite-trajectory limit and its first correction, and separates the first-step overshoot from the entire small remaining path. This directly clarifies what the stability guarantee of an existing optimization scheme does not deliver, beyond a single numerical failure or scalar formula.",
+      "residual_risks": [
+        "No sharp finite-step threshold, behavior at a stationary landing point, or extension to general history-dependent, noisy or relaxed schemes is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

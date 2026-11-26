@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof establishes arbitrary minimal Cantor systems and arbitrarily large positive jumps, without an enumeration assumption. Necessity uses full-support measure invariance of a clopen image; sufficiency uses a permutation of residue classes modulo the difference of jumps; orbit number follows from boundary crossings; the threshold uses an explicit positive conjugation of the second iterate. No additional conjectural lemma is needed.
+## correctness
 
-Run `python3 verify.py` (standard library only). The finite test enumerates 48,960 jump assignments on cyclic proxies and checks six transposition proxies. The observed output was `VERIFY_OK 48960 exhaustive finite-cycle two-valued assignments; 6 positive-triple conjugation proxies`. These finite cyclic tests do not imply the infinite-space theorem and do not certify originality. The novelty comparison was limited to the named accessible research works and search records; there is no independent audit.
+PASS
+
+Minimality on a Cantor space makes T aperiodic. The only candidate S-preimages of T^b x are x (if p(x)=b) and T^d x (if p(T^d x)=a). Exactly one exists iff membership in {p=b} is the same at x and T^d x; this gives both directions using bijectivity on the T-orbit and compactness for the inverse. On the integer orbit each increasing S-orbit crosses the cut at 0 exactly once. There are a guaranteed crossings plus k positions of jump b in the next block of length d; periodicity makes the count T-invariant and minimality makes it constant. Translates of a T^d-minimal set are equal or disjoint and their union is X; the number of clopen components divides d. For the upper bound, conjugation of T^2 by the swap of disjoint clopen levels A and TA realizes p=3,1,2 on A,TA,T^2A respectively and only positive jumps 1 through 3 elsewhere; T^2 is minimal by total minimality. Independently replayed 48,960 cyclic assignments and 6 conjugation proxies, without executing verify.py. Finite cycles corroborate the bounded classification/construction only, not the Cantor or universal minimality assertions.
+
+## originality
+
+PASS
+
+Credit prior constant orbit number, coboundary formula, standard cyclic decomposition, and prior explicit minimal three-jump example. The supported distinct result is the fixed-pair necessary and sufficient criterion and the universal sharp construction conjugate to T^2 on every totally minimal Cantor system.
+
+## value
+
+PASS
+
+The admissibility test can be applied to any prescribed pair without solving a general speedup-equivalence problem. The sharp bound distinguishes failure of a nontrivial small alphabet from failure of nonconstant positive realizations: the first possible alphabet is achieved by a minimal speedup with explicit conjugacy on every totally minimal Cantor system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

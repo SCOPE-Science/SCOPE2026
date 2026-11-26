@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:32:16.959072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–66",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen check.py, lines 35–173, inspected without execution"
+      ],
+      "rationale": "The incidence map on a tree is onto edge coordinates and has independent rows, so prescribing active upper differences and strict interior values elsewhere defines a feasible potential. On a fixed face the tangent space is constant on active forest components, hence the derivative of weighted projection is mass-weighted averaging there. For every forest F, choose all active multipliers strictly positive at y=u+M^{-1}D_F^Tλ. The affine face solution and its multipliers depend continuously on y; strict slack and positivity give an open cell with that derivative. The global Lipschitz constant equals the maximum of the resulting local norms by finite piecewise affinity and continuity along segments, and arbitrary small finite perturbations realize the local ratios. In vertex space modulo constants the indicators of the two sides of each original edge cut, with one side chosen per edge, give the ℓ¹ edge-gradient basis. Thus the norm is the greatest output TV of one such indicator. For an inactive cut it is unchanged; for an active cut its only output jumps are on the boundary of its active block B, where the common average is M_A/(M_A+M_C). Counting jumps on each side gives the stated b_A M_C+b_C M_A numerator. Any connected B and internal cut occurs by taking exactly its internal edges active. The empty forest gives baseline 1. Paths have at most one external edge per cut half; for a star the block consisting of the center and one leaf maximizes each corresponding term. In the six-vertex example the total boundary of B is at most three and each cut side has at most two external edges. Boundary three forces B⊆{0,1,2}, with maximum 5/3 realized by all three and the cut 01. If the boundary is at most two, unit masses and |B|≤6 bound the ratio by 2(1−1/6)=5/3. Both spine halves in the caterpillar have q−1 external leaves when the whole spine is active, giving the stated lower bound.",
+      "residual_risks": [
+        "Requires finite strictly nondegenerate bands, positive vertex masses, a tree and unweighted edge TV. The exact rational test enumerates small trees and checks one finite-perturbation KKT witness, not all instances or widths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b99f82190bf8 covers paths with heterogeneous edge bands and broader losses. 9fedb9294a7c gives a heat-semigroup contraction threshold, coinciding for equal-leaf-mass stars but not determining the whole hard-band amplitude.",
+          "Yeganova–Wilbur Eqs. (20)–(22) give the weighted Lipschitz-isotonic path fit. Kolmogorov–Pock–Rolinek Eqs. (1)–(2) give soft penalties, not boxes. The cyclic-cover result has a different graph and feasible cone."
+        ],
+        "reasoning": "The broader-loss path theorem covers the path claim on its common scope; no relative priority is inferred from its same-day date. Neither heat-flow threshold nor TV penalties alone give the main result. The decisive implication is from the earlier local per-forest unweighted calculus, not from comparing names or different estimators in isolation.",
+        "searches": [
+          "Resultary SCOPE-universal-path-variation-contraction-for-heterogeneous-convex-sl--b99f82190bf8",
+          "Resultary SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c",
+          "DOI 10.1007/s10957-008-9477-0",
+          "arXiv:1502.07770",
+          "Resultary SCOPE-cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803"
+        ]
+      },
+      "checked_sources": [
+        "Published record IDs 8a180bae4c2f, 28f1c81af7f5, d4226f395931, b4b1357d8d1c, b99f82190bf8, 9fedb9294a7c and c6a0693fe803",
+        "DOI 10.1007/s10957-008-9477-0 and arXiv:1502.07770",
+        "Frozen RESULT.md, §§ Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior symmetric-band proof realizes every forest by choosing saturated edges, strict slack and positive multipliers, so variable radii after recentering do not affect the attainable derivative family. Its Eq. (4) is valid per active forest and cut, not just at its overall maximizer.",
+          "The inflated tree leaves each original connecting-edge cut and block boundary count unchanged while making each side cardinality the summed integer multiplicity. Testing only connecting-edge indicators avoids contamination by the inflated tree's additional columns."
+        ],
+        "reasoning": "Combining the prior cut-column identity, this exact replication reduction and the same strict-face argument yields the asserted formula and attainment for arbitrary finite nondegenerate bands and positive masses. The distinct feasible set is genuine, but not a distinct exact sensitivity invariant past that implication. No absolute priority conclusion or literal earlier statement on the weighted hard-band map is needed for this assessment.",
+        "searches": [
+          "28f1c81af7f5 Proof §§1–2, Eqs. (3)–(4), mirror offset 3207",
+          "8a180bae4c2f Finding and local averaging proof, offsets 0 and 3569",
+          "d4226f395931 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8a180bae4c2f Eq. (1) gives the connected-block cut maximum with cardinalities in the role of masses and proves local attainability. 28f1c81af7f5 §§1–2 Eqs. (3)–(4) gives all active forests and the identical cut columns for hard symmetric bands.",
+          "b4b1357d8d1c gives a connected averaging partition maximum for an edge-TV penalized estimator on general graphs, but uses counting-measure fidelity."
+        ],
+        "reasoning": "The nonlinear estimators are different, but their maximums range over the same averaging derivatives on a tree in the unit-mass case. Unequal observation masses are represented by forced within-fiber averaging in the existing local unweighted formula, so changing the measure does not produce a new cut calculation.",
+        "searches": [
+          "Resultary SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+          "Resultary SCOPE-a-sharp-tree-branching-law-for-variation-sensitivity-of-bounded--28f1c81af7f5",
+          "Resultary SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact connected-subtree expression and equal-mass path, star and subcubic examples are already present or follow by evaluating 8a180bae4c2f Eq. (1); the same formula on hard symmetric boxes is explicit in 28f1c81af7f5 Eq. (4).",
+          "Setting variation weights to one in d4226f395931 gives exactly max{1,max_i (d−1)m_i/(m_0+m_i)} for weighted star isotonic regression."
+        ],
+        "reasoning": "The repositories contain exact formulas, not merely matching qualitative terms. In particular no independently new six-vertex invariant is established by quoting 5/3: it is a finite evaluation of an existing formula. The weighted star amplitude is already known for the same averaging family.",
+        "searches": [
+          "Resultary SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+          "Resultary SCOPE-sharp-weighted-star-isotonic-variation-modulus-and-optimal-stabi--d4226f395931",
+          "Resultary SCOPE-a-sharp-tree-branching-law-for-variation-sensitivity-of-bounded--28f1c81af7f5"
+        ]
+      },
+      "rationale": "The mathematical finding is correct, but the exact invariant and its advertised examples do not establish a distinct result over the published local cut calculus. The closest tree-isotonic finding gives the same exact formula and attainability for counting masses, and the bounded-slope finding already carries that calculus to hard symmetric bands by showing that every active forest occurs. The arbitrary-mass cut calculation is mechanically implied by that prior local formula via vertex replication, not just analogous to it. For rational-proportional masses replace each vertex v by a connected tree of p_v vertices with p_v proportional to m_v, retaining one connecting edge for each original tree edge. Activate all edges within each fiber and the edges corresponding to the original active forest. Lift an original edge-cut indicator to be constant on fibers: it is precisely the corresponding connecting-edge cut indicator on the inflated tree. Arithmetic active-block averages on that tree are the original mass averages; both input and output TV are unchanged because no within-fiber edge contributes. Thus the prior per-forest, per-edge formula gives every weighted column, not only an upper bound from a potentially larger inflated-tree maximum. Continuity of finitely many mass ratios extends this to real masses. For the fitting map, shifting by a tree potential with edge increments equal to the band midpoints centers arbitrary bands, and the existing strict-face construction works verbatim with each edge's own radius and with M^{-1} applied to the normals. This does not assert that an earlier source states the weighted nonlinear fit itself, or that one-sided isotonic regression and slope-band regression are the same map. It shows that the claimed exact invariant is a direct consequence of the existing calculus on the unchanged family of active forests. The separate weighted-star result already contains the claimed star constant; the equal-mass examples are evaluations of the known cut formula.",
+      "residual_risks": [
+        "The finding is not rejected as mathematically false or as a verbatim duplicate of a theorem on the identical nonlinear estimator. The decisive coverage is the exact prior local calculation and the demonstrated implication; a noisy or empty search was not used as evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equal-mass formula, including local attainability",
+          "evidence": "Eq. (1) is the maximum of 1 and (bp+aq)/(a+b); path, star, and a subcubic family are explicit.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-tree-variation-sensitivity-of-isotonic-projection-and-unbo--8a180bae4c2f",
+          "material_read": "Finding, assumptions and local averaging proof, offsets 0 and 3569",
+          "method": "Published index and local mirror passages",
+          "title": "Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification",
+          "trigger": "Same cut formula and examples"
+        },
+        {
+          "assessment": "Decisive structural overlap; same exact local calculus needed here",
+          "evidence": "Strict face witnesses for every forest, arithmetic averaging, and the cut-indicator boundary formula on a tree, credited there to the earlier isotonic result.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-tree-branching-law-for-variation-sensitivity-of-bounded--28f1c81af7f5",
+          "material_read": "Finding and Proof §§1–2 Eqs. (3)–(4), offsets 0 and 3207",
+          "method": "Published index and local mirror passages",
+          "title": "A sharp tree branching law for variation sensitivity of bounded-slope regression",
+          "trigger": "Same hard-band estimator on the common parameter subdomain and a prior per-forest calculation"
+        },
+        {
+          "assessment": "Exact amplitude on stars after setting variation weights to one",
+          "evidence": "The same weighted center–leaf expression, maximized over leaves with baseline 1.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-weighted-star-isotonic-variation-modulus-and-optimal-stabi--d4226f395931",
+          "material_read": "Finding, offset 0",
+          "method": "Published index and local mirror passage",
+          "title": "Sharp weighted-star isotonic variation modulus and optimal stability weights",
+          "trigger": "Exact heterogeneous-mass star case"
+        },
+        {
+          "assessment": "Different estimator; further overlap in connected-block norm calculus",
+          "evidence": "Unweighted squared fidelity and weighted edge penalties; attained connected-partition cut maximum.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+          "material_read": "Finding, assumptions and local affine proof, offsets 0 and 2811",
+          "method": "Published index and local mirror passages",
+          "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+          "trigger": "Potentially broader connected-averaging cut theorem"
+        },
+        {
+          "assessment": "Covers the path specialization on its common scope",
+          "evidence": "Coefficient 1 for arbitrary positive masses and finite bands with some nonzero width, including a broader loss class.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-path-variation-contraction-for-heterogeneous-convex-sl--b99f82190bf8",
+          "material_read": "Finding, offset 0",
+          "method": "Published index and local mirror passage",
+          "title": "Universal path variation contraction for heterogeneous convex slope constraints",
+          "trigger": "Potential dominating path statement"
+        },
+        {
+          "assessment": "Threshold correspondence, not the whole modulus",
+          "evidence": "For a unit-variation-weight star with common leaf mass α, center mass β≥(d−2)α is exactly the heat-flow contraction condition.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-conductance-independent-contraction-criterion-for-weighted-tre--9fedb9294a7c",
+          "material_read": "Finding and proof passage, offsets 0 and 3487",
+          "method": "Published index and local mirror passages",
+          "title": "A conductance-independent contraction criterion for weighted tree heat flow in total variation",
+          "trigger": "Cited contraction overlap"
+        },
+        {
+          "assessment": "Fitting framework for a path subfamily",
+          "evidence": "Monotonicity and upper-slope constraints on consecutive points, not the tree cut-modulus theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-008-9477-0",
+          "material_read": "p. 11 Eqs. (20)–(22), OA text offset 34500",
+          "method": "Open PDF passage",
+          "title": "Isotonic Regression under Lipschitz Constraint",
+          "trigger": "Weighted constrained least squares on a path"
+        },
+        {
+          "assessment": "Different estimator",
+          "evidence": "Pairwise absolute-difference and truncated penalties rather than a hard band fit.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+          "material_read": "p. 1 abstract and Eqs. (1)–(2)",
+          "method": "Open preprint passage",
+          "title": "Total variation on a tree",
+          "trigger": "Tree TV regression terminology and possible equivalent estimator"
+        },
+        {
+          "assessment": "Different graph and constraint regime",
+          "evidence": "Cyclic Hasse cover graph and a contractivity criterion for variation weights.",
+          "identifier_or_url": "2026/11/2/SCOPE-cyclic-cover-rigidity-of-weighted-variation-stability-for-isoton--c6a0693fe803",
+          "material_read": "Finding and proof passage at offsets 0 and 3564",
+          "method": "Published index and local mirror passages",
+          "title": "Cyclic-cover rigidity of weighted-variation stability for isotonic regression",
+          "trigger": "Variation stability on related order cones"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–4",
+        "Published record IDs 8a180bae4c2f and 28f1c81af7f5"
+      ],
+      "rationale": "The sensitivity question is meaningful: weighted least squares is nonexpansive in its native norm, which does not control amplification of differences in tree variation. An attained cut expression and a subcubic family with unbounded gain are useful for diagnosing that distinction in hard-band fits. This is value of the mathematical result and its application, not credit for the cut calculus or instability phenomena as new contributions.",
+      "residual_risks": [
+        "No distinct new weighted or heterogeneous-band effect beyond the known active-forest mechanism was established; the utility of the formulation cannot rescue failed originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

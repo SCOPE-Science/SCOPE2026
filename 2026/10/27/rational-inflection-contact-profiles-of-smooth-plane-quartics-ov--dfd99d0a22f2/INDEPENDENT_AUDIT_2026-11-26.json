@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:18:46.819390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and all frequency rows",
+        "VERIFICATION.md, both scripts, TSV and JSON catalogues, and recorded outputs",
+        "reproductions/audit_quartics_f2.py"
+      ],
+      "rationale": "The projective action exhausts the nonzero 15-bit forms. On each affine chart the ideal of the equation and its two derivatives detects geometric singularity exactly. A smooth plane quartic has no line component, and the first nonzero coefficient of the tangent restriction in a local parameter gives the claimed contact order. Independent replay: run python3 /workspace/reproductions/audit_quartics_f2.py with the frozen quartic package directory as its argument. It enumerates all masks directly by binary linear conditions for singularity at points over fields of orders 2, 4, 8 and 16. This cutoff is exact: an absolutely irreducible singular quartic has sum of geometric delta invariants at most three by the genus formula; a reduced reducible quartic of component degrees (3,1) or (2,2) has a Frobenius-stable intersection scheme of length at most four, of degrees (2,1,1) has a rational intersection of its two lines, and of degrees (1,1,1,1) has Frobenius orbits of pair intersections of size at most four. In the nonreduced case a unique repeated component is a rational line or conic with a rational point, or the two repeated lines intersect rationally. A separate elementary-generator orbit traversal and a 21-flag tangent-restriction calculation matched all 34 histogram rows and all 78 representative masks, sizes and contact data in both the TSV and JSON, with 279 orbits in the ambient nonzero space and 10,920 smooth equations. The stated weighted totals, extrema, and the two exceptional single orbits all match.",
+      "residual_risks": [
+        "Classifies only rational contacts over F2, not contact schemes over extensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nart–Ritzenthaler classify characteristic-two quartics by rational normal models and class counts. Pacini–Testa's reconstruction theorem assumes characteristic coprime to six; their characteristic-two theorem concerns general theta hyperplanes."
+        ],
+        "reasoning": "The normal models give the input classes, but class counts do not evaluate contact orders or their correlations with point count. The generic theta result does not enumerate arithmetic tangent profiles on all small-field curves.",
+        "searches": [
+          "Nart–Ritzenthaler arXiv:math/0312366, introduction and §1.4",
+          "Pacini–Testa arXiv:1711.05776 introduction, arXiv:2004.00955 Thm. 3.11"
+        ]
+      },
+      "checked_sources": [
+        "Nart–Ritzenthaler",
+        "Pacini–Testa (both works)",
+        "Betten–Kaplan–Karaoglu database",
+        "Resultary records 986597a0550f, 601a101494b8 and 9f8d96c7feec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 result already states a4 ≤ 3 and identifies the unique orbit of 28 equations with exactly three rational points, all hyperflexes. The October 26 theta result has n1=a4, hence already supplies the (N,a4) marginal. The independent pair of matched theta profiles with different a3 rules out reading off a3 from that table."
+        ],
+        "reasoning": "Credit these exact prior consequences, but the point-count-resolved ordinary flex distribution still needs mathematical contact calculation. A complete old list of equations makes this possible; it does not state the refined invariant or make it a projection of its tabulated statistics.",
+        "searches": [
+          "Resultary 2026-10-18 986597a0550f, 2026-10-26 601a101494b8, 2026-11-08 9f8d96c7feec"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tangent multiplicity three is not detected by the square binary-quartic restriction defining a theta line. In the independent replay the smooth masks 4114 and 4115 both have theta profile (N,n0,n1,n2)=(3,0,1,0), but tangent-point profiles (3,0,2,1) and (3,2,0,1).",
+          "The later 2026-11-08 flex-spectrum finding 9f8d96c7feec retains (a3,a4) but not joint N; its frequencies give the same ordinary-flex mean."
+        ],
+        "reasoning": "Neither the older theta distribution nor the flex-count marginal alone determines the full joint invariant. The later record is real overlap but does not establish prior publication of the joint table.",
+        "searches": [
+          "Resultary: smooth plane quartics over F2, rational flex, hyperflex, theta contact and point-count profiles",
+          "Pacini–Testa arXiv:1711.05776 and 2004.00955"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved Betten–Kaplan–Karaoglu tables tabulate point counts, bisecants and bitangents for listed fields, not the F2 ordinary-flex-sensitive table. Resultary returned the related 40-cell theta table and the later 11-cell flex marginal."
+        ],
+        "reasoning": "No exact prior table was retrieved; the checked tables' invariants and domains give concrete limits on their coverage.",
+        "searches": [
+          "Betten–Kaplan–Karaoglu quartic-curves database",
+          "Resultary exact joint contact-profile and flex-spectrum searches"
+        ]
+      },
+      "rationale": "Pass applies to the joint ordinary-flex-sensitive 34-profile classification, not the previously classified set of curves, the hyperflex bound, the 28-equation orbit, or the joint point-count/hyperflex marginal. Prior work that counts theta contacts does not determine the ordinary-flex count even at a fixed full theta profile. The full enumeration after refining by ordinary tangent contact was not found in the compared earlier results.",
+      "residual_risks": [
+        "An external literature query returned no results; no absence claim follows. Specialist or unindexed contact catalogues remain possible.",
+        "The full classification of F2 curves is antecedent; another finite calculation from its normal forms may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying curve classification covered; not the computed rational contact refinement",
+          "evidence": "Rational normal-model families are exhaustive up to k-isomorphism and support class counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312366",
+          "material_read": "Introduction p. 2 and §1.4 pp. 13–14",
+          "method": "Open-access full-text passages",
+          "title": "Non-hyperelliptic curves of genus three over finite fields of characteristic two",
+          "trigger": "Complete classification of the exact ambient curve family"
+        },
+        {
+          "assessment": "Different field scope and problem",
+          "evidence": "Main reconstruction statement assumes characteristic coprime to six.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.05776",
+          "material_read": "Introduction p. 1, offset about 2700",
+          "method": "Open-access full-text passage",
+          "title": "Reconstructing general plane quartics from their inflection lines",
+          "trigger": "Inflection-line classification"
+        },
+        {
+          "assessment": "General theta scheme does not classify rational ordinary flex profiles",
+          "evidence": "Theorem gives degree and individual multiplicities for theta hyperplanes of a general canonical curve in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.00955",
+          "material_read": "Introduction pp. 1–3 and Thm. 3.11 p. 13",
+          "method": "Open-access full-text passages",
+          "title": "Complex and tropical counts via positive characteristic",
+          "trigger": "Characteristic-two contact enumeration"
+        },
+        {
+          "assessment": "Not the stated contact-profile table",
+          "evidence": "Listed statistics include point counts, bisecants and bitangents; no F2 contact-profile section was retrieved.",
+          "identifier_or_url": "https://www.math.colostate.edu/~betten/mathdata/quartic_curves.html",
+          "material_read": "Retrieved field listing and example table columns (offsets 0 and approximately 9305–9525)",
+          "method": "Public database page",
+          "title": "Classification of Quartic Curves Over Small Finite Fields",
+          "trigger": "Potential exact enumerated table"
+        },
+        {
+          "assessment": "Exact overlap on (N,a4), not a3",
+          "evidence": "F restricted to a rational theta line is a square; one rational root of the contact quadratic is exactly a hyperflex. Identical theta profiles can have different a3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-joint-rational-theta-contact-profiles-of-smooth-plane-quartics-o--601a101494b8/RESULT.md",
+          "material_read": "Finding at offset 0, definitions and table",
+          "method": "Published record text",
+          "title": "Joint rational theta-contact profiles of smooth plane quartics over F2",
+          "trigger": "Same field, forms, geometric smoothness and joint tangent-related census"
+        },
+        {
+          "assessment": "Covered subclaim",
+          "evidence": "Three hyperflexes is maximal; there are 28 such equations in one orbit and all three rational points are hyperflexes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-three-rational-hyperflexes-characterize-one-projective-orbit-of--986597a0550f",
+          "material_read": "Published finding statement",
+          "method": "Published record comparison",
+          "title": "Three rational hyperflexes characterize one projective orbit",
+          "trigger": "Exact extremal claim"
+        },
+        {
+          "assessment": "Matching marginal in a later dated record; not full joint table",
+          "evidence": "Frequencies give the same average a3=1 and the same maximum of four ordinary flexes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rational-flex-spectra-of-smooth-plane-quartics-over-the-two-elem--9f8d96c7feec",
+          "material_read": "Published finding and 11-stratum flex-count frequencies",
+          "method": "Published record comparison",
+          "title": "Rational flex spectra of smooth plane quartics over the two-element field",
+          "trigger": "Exact flex-spectrum overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Certified frequency and representative comparison in the independent calculation",
+        "Earlier theta-contact and extremal hyperflex findings"
+      ],
+      "rationale": "This is a complete joint distribution of natural local tangent contacts on the smallest-field smooth canonical quartics. The ordinary-flex refinement separates examples that have identical theta profiles and supplies exact simultaneous possibilities and incidence totals, useful as small-field arithmetic benchmarks beyond the known hyperflex extremum.",
+      "residual_risks": [
+        "Value is in the joint refinement; no general higher-field or geometric flex classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

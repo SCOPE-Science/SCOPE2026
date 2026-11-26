@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:32.750308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the coordinate graph definitions both have degree six and two common neighbors for any distinct pair; every nonedge has distance two. Thus geodesic triples are exactly induced P3s (144 in each graph); diameter is measured in the full graph. A P3-free induced graph is a union of cliques, by taking a shortest path inside a noncomplete component. Reviewed the packaged augmented boundary method, not executing uploaded code. Independently reproduced by full-graph shortest distances, marking all supersets of the forbidden triples, then eliminating row coface incidence vectors over F2: Shrikhande faces (1,16,120,416,672,432,144,16), ranks (1,15,105,311,304,128,16); rook faces (1,16,120,416,632,240,16), ranks (1,15,105,311,223,16). Exact replay and retained output: /workspace/branches/800b1579-f3cc-4b4a-bb96-43b194eb39cb/independent_check.py and independent_check.log in the same directory, with both membership predicates checked on all masks and consecutive boundaries composing to zero. The separate distance-and-superset replay was run via python3 /tmp/opencode/gp_audit_3.py and agrees. c_k-r_k-r_(k+1) gives 57 at k=4 only for Shrikhande, 98 at k=4 and 1 at k=5 only for the rook; the augmentation gives zero in degree -1. The repaired conclusion claims only Shrikhande reduced F2 homology, not integral or homotopy information.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7d66b9444862 gives a stronger homotopy-type statement for K4 square K4 only. The primary general characterization and polynomial definition determine admissibility or encode size counts, not boundary ranks."
+        ],
+        "reasoning": "The stronger result covers the exact rook configuration, but shared strong regularity parameters do not identify the complexes. Nothing in these comparisons extends the homotopy statement to Shrikhande.",
+        "searches": [
+          "Resultary exact Shrikhande or rook GP homotopy and higher-independence homology",
+          "arXiv:1812.08460 Thm. 3.1 and arXiv:2401.05696 Def. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7d66b9444862, fc2af413d7b2, ed2defa4529e, debfba8c66bb",
+        "arXiv:1812.08460",
+        "arXiv:2401.05696",
+        "Focused outbound graph-complex literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wedge of 98 three-spheres and one four-sphere has exactly the originally claimed rook homology over F2. Higher-independence removes triangles; avoiding a four-vertex path is a different exclusion."
+        ],
+        "reasoning": "Reduction to F2 gives direct rook coverage even if only the integral homotopy statement were read. Neither of the neighboring Shrikhande results implies the ranks of the GP complex; counting simplices alone also cannot recover those ranks.",
+        "searches": [
+          "7d66b9444862 Finding and verification",
+          "ed2defa4529e and debfba8c66bb findings and face predicates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 characterizes GP via complete components and a distance partition; the intercomponent distances are all two in these diameter-two graphs. Equivalently this is the independent-set complex of the 3-uniform hypergraph of forbidden geodesic triples."
+        ],
+        "reasoning": "The graph Ind_2 complex is not the hypergraph independence reformulation: it excludes triangles as components of size three. It has 384 three-vertex faces, not 416. The separate four-vertex-path predicate also defines a different complex.",
+        "searches": [
+          "Resultary searches for general position of Shrikhande and rook, induced P3 avoidance or cluster graphs, and independence / path-free complexes",
+          "arXiv:1812.08460 Thm. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fc2af413d7b2 explicitly lists 1,16,120,416,632,240,16 as the coefficients of the rook P_(4,4); the later rook homotopy record checks the mod-two ranks 98 and 1."
+        ],
+        "reasoning": "The rook numerical data are covered. A superficially matching Shrikhande rank 57 in ed2defa4529e concerns a different face set and is not an exact match of these invariants.",
+        "searches": [
+          "Resultary face counts and exact homology of Shrikhande / four-by-four rook",
+          "fc2af413d7b2 and 7d66b9444862 RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete mod-two homology of the specified Shrikhande general-position complex, using the rook result as a credited comparator. Exact rook ranks and face counts are not claimed as distinct. None of the strongest inspected statements determines the Shrikhande boundary ranks for this predicate.",
+      "residual_risks": [
+        "No priority order inferred between same-day records. Unlocated computations under hypergraph independence or cluster-subgraph terminology may give the same Shrikhande ranks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers entire rook homology component, not Shrikhande",
+          "evidence": "Wedge of 98 copies of S^3 and one S^4, with matching rook counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-ninety-eight-three-spheres-and-one-four-sphere-in-the-four-by-fo--7d66b9444862",
+          "material_read": "RESULT.md Finding and Assumptions offsets 0–1800; later verification locator around offset 3502",
+          "method": "Primary local mirror; match coordinate models and take homology of wedge",
+          "title": "Ninety-eight three-spheres and one four-sphere in the four-by-four rook general-position complex",
+          "trigger": "Same rook graph and identical GP face predicate; stronger homotopy claim"
+        },
+        {
+          "assessment": "Covers rook face counts, not homology",
+          "evidence": "Explicit P_(4,4)(z)=1+16z+120z²+416z³+632z⁴+240z⁵+16z⁶.",
+          "identifier_or_url": "2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Primary local mirror; compare polynomial coefficients",
+          "title": "General-position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Exact rook f-vector or more general parametrized enumeration"
+        },
+        {
+          "assessment": "Covers set characterization, not ranks",
+          "evidence": "Complete induced components and additional distance-partition conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+          "material_read": "Theorem 3.1, p. 4, extraction offset 11061",
+          "method": "Primary text and diameter-two specialization",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Equivalent characterization of the precise GP predicate"
+        },
+        {
+          "assessment": "Definition counts by size; does not identify homology",
+          "evidence": "Coefficient of the size-k monomial counts the size-k general-position sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Definition 1.1, p. 2, offset 3900",
+          "method": "Primary passage comparison",
+          "title": "General position polynomials",
+          "trigger": "Enumeration object closely tracks the f-vector"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Requires each induced component to have at most two vertices, so excludes triangles.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-independence-homotopy-distinguishes-the-shrikhande-and-four--ed2defa4529e",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Primary local mirror; compare face predicates",
+          "title": "Two-independence homotopy distinguishes the Shrikhande and four-by-four rook graphs",
+          "trigger": "Same graphs and numerical Shrikhande rank 57"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Forbids four-vertex paths (not necessarily induced), not induced three-vertex paths.",
+          "identifier_or_url": "2026/11/1/SCOPE-integral-homology-of-four-vertex-path-devoid-complexes-distingui--debfba8c66bb",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Primary local mirror; compare forbidden subgraphs",
+          "title": "Integral homology of four-vertex-path-devoid complexes distinguishing the strongly regular pair",
+          "trigger": "Same graphs and related path-free condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete reduced F2 homology of a geodesic complex on one of the two canonical (16,6,2,2) graphs, not a generic finite census or a recomputation of the covered rook case. The absence of a fourth-degree class alongside the 57 third-degree generators gives a natural exact discriminator against the credited rook type despite equal parameters and counts through size three.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

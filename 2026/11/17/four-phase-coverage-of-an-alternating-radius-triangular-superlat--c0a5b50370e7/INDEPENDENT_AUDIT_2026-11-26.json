@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:22.352084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set a=1/2 and b=√3/2. Each color is an axis-aligned rectangular lattice, the second shifted by (a,b). The colors are preserved by reflection and rectangular translation, so coverage reduces to [0,a]×[0,b], with nearest centers o=(0,0) and v=(a,b). For 0<r<1, radial contraction toward o takes any uncovered-by-r point to the radius-r arc and cannot decrease its distance to v. Conversely every point on that arc is a limit of points strictly outside the first disk: move toward v, increasing at least one nonnegative coordinate while leaving the others nondecreasing. This justifies taking the arc maximum despite using closed disks; the same limit argument works at r=0. On the arc, distance squared to v is 1+r²−2(a x+b y); the linear expression parameterized by angle is strictly concave on the quadrant, so its minimum is at an endpoint of the contiguous arc. Below a the horizontal-axis endpoint wins. On (a,b) the right-edge distance b−√(r²−a²) decreases at a rate below −1 and the vertical-axis distance √(a²+(b−r)²) at a rate above −1; they tie exactly at 1/√3. Above b the right-edge minus top-edge distance is strictly increasing to zero at 1, so the top edge wins before then. These give all four branches with matching endpoints, and r≥1 covers the cell without the other color. For r²+S(r)² the first and fourth branches reduce to the quadratic 1+2u²−2au with minimum 7/8 or greater; the middle two decrease to and increase from 2/3, respectively, by the stated substitutions. For r≥1 the cost is at least 1, and increasing s beyond S(r) raises the formal area. Thus the density and its unique equality case follow for the fixed pattern. The supplied finite grid is diagnostic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Fejes Tóth abstract describes a sharp lower bound on the density of coverings with two kinds of circles; a lawful DOI-based PDF attempt did not retrieve the theorem. Sriamorn pp. 1–2 addresses j-fold lattice coverings by translates of a fixed triangular shape, not differently sized disks.",
+          "The classical equal-disk setting has the radius 1/√3 and the familiar density in this lattice; it does not vary the two radii independently."
+        ],
+        "reasoning": "Even a sharp general density lower bound is not in itself a necessity-and-sufficiency criterion in both radii for prescribed alternating sites. Full-text overlap with Fejes Tóth remains unresolved, and no inspected broader result was found that supplies the four branches. A generic power diagram is a representation, not an evaluated frontier.",
+        "searches": [
+          "Fejes Tóth, Covering the Plane with Two Kinds of Circles, DOI 10.1007/BF02574055",
+          "Sriamorn arXiv:1412.5096v3",
+          "Resultary mixed disk covering and weighted Voronoi comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary c0a5b50370e7, 01d108217b2c and 30c44c89e1c3",
+        "Sriamorn arXiv:1412.5096v3 pp. 1–2",
+        "Fejes Tóth DOI 10.1007/BF02574055 indexed abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirrored records supply phase boundaries for different allowed site patterns. In the frozen proof the aspect ratio a:b=1:√3 makes the competing arc endpoints exchange at 1/√3, unlike the square and index-three settings.",
+          "The equal-disk triangular covering fixes only the diagonal r=s. Area minimization over unequal radii requires comparing costs along the whole off-diagonal frontier."
+        ],
+        "reasoning": "The geometric method and equal-circle density are not new. The exact transition law and costs cannot be read off from the diagonal benchmark or by substituting radii into either located profile for a different lattice coloring.",
+        "searches": [
+          "Resultary 01d108217b2c and 30c44c89e1c3 mirrored RESULT.md offset 0; Fejes Tóth DOI 10.1007/BF02574055; classical equal-circle context in frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the frozen result the two colors are two translates of a rectangular lattice with periods 1 and √3 and one site of each color per cell. Resultary 01d108217b2c has one A and two B sites per index-three triangular period; Resultary 30c44c89e1c3 uses a square checkerboard."
+        ],
+        "reasoning": "Color exchange or reflection leaves the tested frontier equivalent to itself. Neither an index-three color split nor equal horizontal and vertical square checkerboard spacings can be turned into this two-color distance geometry by rigid motion, uniform scaling and color exchange. The optical paper is cited for the arrangement, not credited with a coverage result on unavailable text.",
+        "searches": [
+          "Resultary alternating horizontal row radii, two-radius triangular covering and checkerboard coverage",
+          "Neff–Summers DOI 10.1364/OPEX.13.003166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result, c0a5b50370e7, is the bound record itself. The index-three triangular profile in 01d108217b2c has three pieces, and the square checkerboard profile in 30c44c89e1c3 has two."
+        ],
+        "reasoning": "These are exact profiles for other periodic designs, not a table of the four stripe switches. The same-day dates do not establish an order of publication or priority.",
+        "searches": [
+          "Resultary four-phase stripe boundary, mixed triangular disk-covering phase diagram and square checkerboard boundary"
+        ]
+      },
+      "rationale": "The alternating triangular geometry is not claimed as new, and the equal-radius density is the classical triangular benchmark. The supported distinct claim is the explicit unequal-radius coverage frontier, with the consequent uniqueness of the balanced minimum within this specific two-color geometry. The closest indexed alternatives change the site pattern, and the located primary evidence on general binary covering does not establish this frontier.",
+      "residual_risks": [
+        "Primary full text of Fejes Tóth, Neff–Summers and Kershner was not obtained for decisive passages; the indexed Fejes Tóth abstract does not settle further overlap.",
+        "The comparison does not establish priority among same-day records or exclude another formulation of the stripe frontier. The density is multiplicity-counted and the optimum is only for fixed alternating-row sites."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related exact frontiers, but geometrically distinct",
+          "evidence": "One has an index-three triangular period with three pieces; the other is a two-piece square checkerboard profile.",
+          "identifier_or_url": "Resultary 01d108217b2c and 30c44c89e1c3",
+          "material_read": "Both mirrored RESULT.md statements at offset 0",
+          "method": "Local indexed search and mirrored passage inspection",
+          "title": "A sharp two-price phase transition for mixed disk coverings on the triangular lattice; exact weighted-price transition in checkerboard lattice disk coverings",
+          "trigger": "Strongest indexed overlapping two-radius coverage profiles"
+        },
+        {
+          "assessment": "General density result is relevant; further fixed-pattern overlap unresolved",
+          "evidence": "The indexed abstract states a sharp lower bound on the density of a covering with two kinds of circles.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02574055",
+          "material_read": "Indexed abstract; configured direct PDF retrieval timed out before a decisive full-text passage",
+          "method": "Targeted primary lookup by exact title and lawful PDF retrieval attempt",
+          "title": "Covering the Plane with Two Kinds of Circles",
+          "trigger": "Potential broader primary two-radius covering theorem cited in the related checkerboard record"
+        },
+        {
+          "assessment": "Different shape and multiplicity problem",
+          "evidence": "Uses j-fold lattice coverings with translates of a single fixed shape, with theorem for triangles.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5096",
+          "material_read": "v3 pp. 1–2, PDF offset 0, definitions and theorem on triangles",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Multiple Lattice Packings and Coverings of the Plane with Triangles",
+          "trigger": "Cited lattice covering result that might be confused with heterogeneous covering"
+        },
+        {
+          "assessment": "Pattern provenance and equal-radius benchmark are credited as background; uninspected contents are not cleared",
+          "evidence": "The bound record attributes the superlattice layout to Neff–Summers and cites Kershner for equal circles.",
+          "identifier_or_url": "DOI 10.1364/OPEX.13.003166; Kershner, Amer. J. Math. 61 (1939), pp. 665–671",
+          "material_read": "Frozen comparison and bibliographic data; direct attempts returned landing or challenge pages, not decisive primary text",
+          "method": "Lawful DOI/publisher retrieval attempts",
+          "title": "A photonic crystal superlattice based on triangular lattice; The number of circles covering a set",
+          "trigger": "Cited sources for the pattern and the classical equal-radius benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a studied triangular two-radius superlattice, the question is the complete range of usable radius pairs, not just the known equal-disk cover. The exact boundary identifies where a different point first limits coverage, handles zero and touching cases, and determines whether redistributing formal disk area between rows helps. The negative answer and uniqueness at balance are useful in this fixed design; neither is presented as an improvement on unrestricted binary covering theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

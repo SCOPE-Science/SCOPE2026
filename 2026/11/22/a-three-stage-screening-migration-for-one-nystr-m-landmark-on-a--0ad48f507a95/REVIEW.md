@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result concerns a fully specified five-by-five screened weighted-Laplacian inverse, all positive screening values, and all weakening factors strictly between zero and one. An explicit inverse-diagonal identity gives three positive rational orbit scores, a resolvent derivative gives the exact Nyström trace-gain criterion, and the sign polynomials have exactly one positive root each. Descartes' rule plus a derivative argument rigorously establish the ordering of the roots and the exhaustive optimality and tie cases. All critical rational identities were reconstructed and verified in `verify.py`, with 871 checks. The algebraic proof, not finite testing, covers the continuum.
+## correctness
 
-**Originality — PASS on inspected sources, subject to residual literature risk.** Belabbas and Wolfe's Section 4 gives the general trace-residual framework and determinant sampling, without this one-defect cycle or its optimality phase diagram. Krause, Singh and Guestrin compare Gaussian sensor criteria but do not present the explicit one-defect five-cycle comparison. The derived claim is the exact double threshold, strict three-stage classification, and equality cases uniformly over the exceptional edge weight. This is different from a homogeneous cycle (no spatial distinction) and from an open path (the exceptional edge has nonzero conductance). Related indexed findings about a defective-cycle *observability* problem concern spectral observability rather than the Nyström objective. Relevant publications not indexed or fully accessible could still establish an equivalent result.
+PASS
 
-**Value — PASS.** This is a minimal symmetry-breaking cyclic sensor model for which entropy maximization and total posterior variance minimization select different sites, with a provably necessary intermediate optimal orbit, not merely a two-design reversal. The precise interval endpoints are useful as a small exact benchmark for noisy-network covariance design, greedy landmark methods, and design-criterion comparisons. The scope is intentionally restricted to one landmark; no general large-graph placement or computational speed advantage is claimed.
+For the stated weighted Laplacian, the uniform-cycle inverse sends e_0-e_4 to an antisymmetric vector with amplitudes (x+2)/Q and 1/Q on A and B, and zero on C. The rank-one Downdate denominator is D/Q>0; this gives the three stated diagonals and strict A>B>C diagonal ordering. The trace gain is the negative log derivative of the diagonal. Independently setting N=(x^2+3x+1)D and d=1-w gives G_B/G_C=1+dx/N and G_A/G_C=1+(x+2)^2 dx/N. Expanding the derivatives recovers the stated polynomials as F=xN'-N and J=((x+2)^2-1)F-2(x+2)x(N+dx). F increases from a negative constant and J has one coefficient sign change and opposite endpoint signs. At the B=C score crossing, (dx/N)'=0 but the A-to-C diagonal ratio is increasing, so R_A<R_B=R_C; hence that crossing comes strictly before the A=B crossing. This proves the whole minimizer and tie classification. I verified both rational root brackets at w=1/2. Three- and four-cycles with one exceptional edge have at most two reflection orbits; no broader minimality is implied. RESULT.md, proof steps 1–5, is a replay path; the supplied script was inspected, not executed.
 
-**Literature comparison and limitations.** The primary Nyström source is M.-A. Belabbas and P. J. Wolfe, arXiv:0906.4582, Sections 3.2 and 4.1--4.2 (full text consulted). The sensor-design comparison source is A. Krause, A. Singh and C. Guestrin, JMLR 9 (2008), Sections 1 and 9.5 (PDF pages inspected). The two objective-specific formulas are prior knowledge; the all-parameter sharp optimizer transition is the limited new statement. Search and indexing are not an exhaustive priority search. The result does not extend by assertion to larger rings, multiple observations, or the strengthened-edge regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trace/determinant disagreement and screening-driven migration are already known in other graph families. The supported distinctive claim is the exact three-orbit, two-boundary singleton classification for every weak-edge weight on the five-cycle, together with its fixed determinant optimum. No stronger covering statement was established in the inspected sources.
+
+## value
+
+PASS
+
+The smallest defective cycle family member with three candidate orbits gives a natural model for a local conductance perturbation. The exact and universal two-threshold law is useful beyond exhibiting generic design-objective disagreement: it identifies every screening interval and both tie sets where a one-landmark choice changes even though marginal-variance ordering does not. The claim is limited to noiseless singleton observations and the specified weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

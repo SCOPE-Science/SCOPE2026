@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:48:08.181933Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–44 and 48–103",
+        "VERIFICATION.md lines 19–32; verify_squares.py lines 15–73, inspected only",
+        "Independent execution: /workspace/branches/1452671b-6eb6-43b2-a6ab-d41008be9fab/independent_check.py and large_run.txt. Literal scans of 23,751 words through m=25 match all 26 corresponding coefficients, including T_0=1 and T_25=34564."
+      ],
+      "rationale": "The number of ones in uu is even, so a factor here has zero or two ones. Zero-one-count factors contribute exactly floor(max(a,b,c,d)/2). Each two-one square has a unique pair x,y of exterior zero counts, with internal gap x+y. Its ones must be adjacent among the three ones of the word. For the first pair the admissible integer x runs from max(0,b−c) to min(a,b), and the second uses the corresponding b,d;c interval. Two pairwise strings coincide only at b=c; then x,y must satisfy x≤a and y≤d in addition to x+y=b, giving precisely the stated overlap. This also checks all zero-gap cases (111 has one square string). In the aggregate, a shape for one pair contributes z^{2(x+y)+r+s+t} over five free nonnegative parameters; a common shape contributes z^{3(x+y)+r+s} over four. For zero-only shapes of length 2k, inclusion-exclusion over the gaps ≥2k gives the binomial sum in (2). The dominant pole at 1 has order five and coefficient H_4/2+1/2=37/24; the overlap pole has order four there and all nontrivial-root poles are at most double. Coefficient extraction and division by binom(m+3,3) yield the claimed 37/96 slope with O(1) remainder. Uniform scaled weak compositions converge by Riemann sums to the uniform simplex. Off b=c the difference between S/n and F(a/n,b/n,c/n,d/n) is O(1/n); only O(m²) of the Θ(m³) compositions are on that diagonal. This proves the weak limit. S/n is uniformly bounded by the counting formula, so its limiting mean is the same 37/96. F at the two displayed interior examples is 0.60 and 0.44; open neighborhoods have positive probability, proving positive variance.",
+      "residual_risks": [
+        "The independent finite check tests bounded literal counts and aggregate coefficients, not the unrestricted formula or limiting law; those are checked by the proof. Uploaded code was not executed.",
+        "No closed density or exact value of the limiting variance is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li Theorem 2 gives (2k−1)|w|/(2k+2), or 5|w|/8 at k=3, for the minority letter. Theorem 3 concerns a bound on all distinct nonempty powers via ordered gap lengths. §5, Lemma 11 invokes Jonoska–Manea–Seki for k≤9.",
+          "The author presentation p. 39 explicitly states the same upper bound for words with at most k occurrences, k=2,…,9.",
+          "Brlek–Li gives the uniform bound |w|−|Alph(w)|+1, not an exact fixed-weight count."
+        ],
+        "reasoning": "These bounds permit many values within the fixed weight and do not distinguish words according to the order of their four gaps or when two adjacent pairs produce the same square string. Even a sharp worst-case bound would not determine the conditional mean or distribution.",
+        "searches": [
+          "arXiv:2209.06891 Theorems 2 and 3 and proof §5",
+          "Jonoska Manea Seki A Stronger Square Conjecture on Binary Words Proposition 2; author SOFSEM 2014 presentation",
+          "arXiv:2204.10204 general bound"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.06891, arXiv:2204.10204 and SOFSEM author slides",
+        "doi:10.37236/1196",
+        "Three comparator Resultary Findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate adjacent-pair counts can use the one-pair argument present at weight two, but summing them without handling b=c overcounts identical strings (e.g. 111). The equality diagonal gives its own exact generating term.",
+          "Bounds on total powers cannot be specialized to isolate the pointwise overlap-corrected square count; circular and Abelian counts include factors not counted here."
+        ],
+        "reasoning": "The new three-one content is the first interacting-pair classification and its joint aggregate law. The asymptotic expectation and weak limit are consequences of that census, not credited as novel general transfer theorems.",
+        "searches": [
+          "Compare weight-two census, weight-three circular and Abelian statements, and Li's sparsity bounds to RESULT.md equations (1)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li uses a^{r_1} b a^{r_2} b ⋯ b a^{r_(k+1)} and the number of distinct squares, so k=3 can be compared directly under a↔0, b↔1.",
+          "Fraenkel–Simpson's shape-based distinctness is the same notion of distinctness, but the inspected p. 1 statement is on longest words under a bound on square count.",
+          "The same-date Abelian record uses the same gap model but equal-Parikh halves, not literal equality."
+        ],
+        "reasoning": "The four-gap re-encoding does not create a mathematical distinction from sparse-word literature. The outcome and constraints do: counting powers, Abelian factors, occurrences, or circular factors does not give this literal linear count.",
+        "searches": [
+          "Resultary: literal distinct squares, three marker letters, four zero gaps, fixed Hamming weight",
+          "Shuo Li arXiv:2209.06891, sparse binary words and distinct nonempty powers",
+          "Fraenkel–Simpson, How Many Squares Must a Binary Sequence Contain?"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-exact-square-census-for-binary-words-with-two-marked-symbols--4960a7d58af1, Finding at offset 0: exact literal square formula, OGF and mean at weight two only.",
+          "2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18, Finding at offset 0: weight-three Abelian-square census, with quadratic scale and mean 1/40 in the scaled law.",
+          "2026/11/22/SCOPE-exact-square-spectra-of-three-marker-binary-circular-words-and-a--73b1560ba9d6, Finding at offset 0: circular factor census and mean slope 5/9."
+        ],
+        "reasoning": "These are actual nearby censuses, not preceding entries with the same exact sequence. In particular the circular census allows factors crossing a cut and the two-one census has no overlap of shapes contributed by two distinct adjacent pairs. The same-date comparison rests on the definition, not an inferred order.",
+        "searches": [
+          "Resultary: exact square census, sparse marked-symbol words, three-marker linear and circular words"
+        ]
+      },
+      "rationale": "The supported claim is the exact ordinary distinct-square count for every linear indexed weight-three word, including the duplicate-string diagonal, and its aggregate and distributional consequences. Published sparse-word bounds do address the same population but do not give the count. The closest catalogue statements change the weight, equality of halves, or linear boundary. No inspected stronger statement already determines this count and its conditional limit.",
+      "residual_risks": [
+        "Non-exhaustive. Full proceedings text for Jonoska–Manea–Seki and the 1998 Fraenkel–Simpson full text (doi:10.1006/jcta.1997.2843, no OA full text found in the attempted lookup) were not inspected. Those access limitations do not rule out an earlier classification in proof material or under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier sparse exact-parameter bounds but not a census",
+          "evidence": "Upper bound 5n/8 for k=3; distinct-power bound in terms of sorted gaps and an earlier upper-bound result for k≤9.",
+          "identifier_or_url": "arXiv:2209.06891",
+          "material_read": "PDF p. 2 Theorems 2–3; §5, pp. 5–7 around offsets 14000–20562, including Lemmas 11–15",
+          "method": "OA PDF passage retrieval",
+          "title": "An upper bound of the number of distinct powers in binary words",
+          "trigger": "Same sparse words, gap parameters and distinct-square statistic"
+        },
+        {
+          "assessment": "Verified statement is a broad upper bound, not an exact census; proof-level overlap not ruled out",
+          "evidence": "At most (2k−1)n/(2k+2) squares for words with at most k b's, 2≤k≤9; slides summarize solved bound regimes.",
+          "identifier_or_url": "https://users.ics.aalto.fi/sseki/presen/20140127_SOFSEM2014.pdf",
+          "material_read": "Authors' SOFSEM 2014 presentation pp. 39–41 (offset 24220); full proceedings paper not read",
+          "method": "Lawful author presentation and attempted proceedings route",
+          "title": "A Stronger Square Conjecture on Binary Words",
+          "trigger": "Proposition 2 cited for minority count k≤9"
+        },
+        {
+          "assessment": "General bound only in inspected statement",
+          "evidence": "Bound n−|Alph(w)|+1 does not determine fixed-weight counts.",
+          "identifier_or_url": "arXiv:2204.10204",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "On the number of squares in a finite word",
+          "trigger": "General distinct-square result"
+        },
+        {
+          "assessment": "Different extremal question",
+          "evidence": "Shape-based distinctness; seeks longest words under a cap on the number of distinct squares.",
+          "identifier_or_url": "doi:10.37236/1196",
+          "material_read": "EJC PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "How Many Squares Must a Binary Sequence Contain?",
+          "trigger": "Classical distinct-square counting convention"
+        },
+        {
+          "assessment": "Prior weight-two case; no claim for three ones",
+          "evidence": "Ordinary distinct linear squares and mean slope 7/18 at fixed weight two.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-square-census-for-binary-words-with-two-marked-symbols--4960a7d58af1",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact square census for binary words with two marked symbols",
+          "trigger": "Closest ordinary linear catalogue census"
+        },
+        {
+          "assessment": "Structural overlap but different equality relation",
+          "evidence": "Equal-Parikh halves, n² scaling, mean 1/40 in its limiting law.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact Abelian-square diversity and conditional limit law for three ones",
+          "trigger": "Same-date same gap setup and aggregate law"
+        },
+        {
+          "assessment": "Circular observation, not linear indexed word",
+          "evidence": "Three cyclic gaps, factors crossing a cut and mean slope 5/9.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-square-spectra-of-three-marker-binary-circular-words-and-a--73b1560ba9d6",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact square spectra of three-marker binary circular words",
+          "trigger": "Same number of markers and literal squares"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(4) and classification at lines 48–76",
+        "arXiv:2209.06891 Theorem 2, for comparison with upper bounds"
+      ],
+      "rationale": "Weight three is the first weight with competing adjacent marked pairs whose repeated strings can coincide. Resolving that overlap gives an exact per-word answer where sparse-word maxima or upper bounds do not suffice, and the OGF and nondegenerate conditional law quantify typical growth. This is a motivated finite-weight classification, not an arbitrary fixed length or a numerical census alone.",
+      "residual_risks": [
+        "Does not classify higher weights or give a density for the limiting pushforward."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

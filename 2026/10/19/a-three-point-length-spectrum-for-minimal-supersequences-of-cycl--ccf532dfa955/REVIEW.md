@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The essential-position argument bounds multiplicities by two. The unique-zero case forces one particular word; two zeros plus a singleton nonzero symbol forces the other particular word by prefix/suffix containment, and the remaining case has all multiplicities two. A disjoint-unique-embedding construction establishes full-length existence for every \(n\ge3\). All quantifiers and the \(n=2\) boundary are explicit. Two exact finite enumerators independently agree where both apply; neither is cited as a proof of the infinite classification.
+## correctness
 
-## Originality
-**PASS within examined evidence.** The complete accessible March 2026 primary paper (arXiv:2603.22591v1, Sections 2–7) proves generic minimal-supersequence algorithms and essential-index characterizations, but not this exact family-specific three-point spectrum or uniqueness of its two submaximal words. The 1996 Fraser–Irving–Middendorf work is broader algorithmic background; its abstract does not give the formula. Semantic research-record searches and comparisons with related existing findings on opposite binary blocks and forbidden-pattern amalgamation did not identify an implication covering the theorem. The 1996 full text was inaccessible, and unindexed prior formulations remain a residual risk. Search nonhits alone are not treated as proof of novelty.
+PASS
 
-## Value
-**PASS.** Minimality is substantially weaker than minimum length, making output-length behavior relevant to enumeration and worst-case data-merging algorithms. The theorem characterizes *every* submaximal minimal output for a natural, distinct-letter, one-step rotation input pair. The sole additional attainable length is the absolute \(2n\)-length maximum, creating an expanding gap \(n+2,\ldots,2n-2\) despite the shortest possible supersequence having length \(n+1\). This rigid discontinuity does not follow from a length bound alone and gives a complete natural structural classification.
+In a deletion-minimal word any chosen pair of embeddings covers all positions, or an uncovered position could be deleted. Each symbol therefore occurs once or twice. Put C=1...n-1. A single zero forces C on each side with no extra positions, hence C0C, whose two required embeddings are unique. For two zeros, A can always reuse the first instead of a later zero, and B can always reuse the last instead of an earlier zero. If a nonzero symbol j occurs just once, both embeddings must pass through it. The prefix required by A through the cut contains the prefix required by B, so one A-prefix embedding can serve both: minimality forces the left part to equal 0...j-1. The symmetric right requirement is the longer B suffix j+1...n-1,0. Thus the only such word is 0C0, with each position essential. All other candidates have every symbol twice and hence length 2n. The exhibited E_n has a unique embedding of A: its earlier zero and all second copies of nonzero letters are forced in forward order. B must use its later zero and all first copies in reverse forcing order. These embeddings are disjoint and exhaustive for n>=3, proving minimality and attainability, not a classification of every full-length word. For n=2, a word containing both 01 and 10 has at least three runs and therefore contains 010 or 101; minimality gives precisely those two. Inspected RESULT.md lines 23–43, verify.py, VERIFICATION.md and verification_output.txt. The bundled Python 3 alignment enumeration and separate small direct search are finite corroboration, not required for the proof; their recorded outputs were read and not re-executed.
 
-## Limitations and closest literature
-The long \(2n\)-word family is not enumerated; the result is a length and below-maximum rigidity theorem, not a count of all minimal words. The 1996 general-algorithm article was accessible only at abstract level. Published general enumeration methods still apply to each instance but do not provide this all-parameter symbolic classification. Full-length finite test counts are not claimed as closed forms. No external verification or independent scientific audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the uniform n>=3 length spectrum for the one-step shift of a distinct-letter permutation, with rigidity of both shorter words and an all-n full-length witness. Earlier opposite binary blocks share precisely the separate n=2 boundary when their blocks are singletons. A distinct cyclic-sequence catalogue entry covers full-length counts at n=3,4,5, but neither shorter layer nor the all-n assertion. General position characterizations, fixed-input enumeration and longest-word algorithms do not by themselves yield the singleton-cut rigidity or missing intermediate lengths. This is a best-of-knowledge finding with a specific full-text access limitation, not a priority guarantee.
+
+## value
+
+PASS
+
+For the natural one-letter rotation, the result explains why deletion-minimal (as opposed to shortest) words can jump from a unique shortest word to two much longer possible lengths, with an unbounded interval of absent lengths. The rigidity of the two shorter words and existence at the absolute 2n bound are independent structural information, not counts extrapolated from small alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

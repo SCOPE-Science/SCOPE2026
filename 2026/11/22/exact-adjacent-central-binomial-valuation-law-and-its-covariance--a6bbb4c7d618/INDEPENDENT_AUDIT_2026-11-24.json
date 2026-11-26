@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:55:23.694749Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The digit update for the three carries (doubling n, incrementing n, doubling n+1), split at a=m−1,m,2m for p=2m+1 and with separate incoming states, gives the stated weighted rows on the five reachable states. If a terminal increment remains, the terminal state is A or B and the doubling carry for n+1 is zero, so the additional leading 1 contributes no weight even at p=3. The other leading-zero cases also add no carry. The recurrence B_(n+1)/B_n=2(2n+1)/(n+1) expresses the jump as a difference of valuations on disjoint residue classes. There are exactly (p−1)p^(k−j−1) representatives on each signed level j<k and exactly one on each signed level k; p≥3 prevents higher levels. The one-carry expectations and covariances follow from the Bernoulli chain with conditional-expectation contraction 1/p. Summing gives the stated mean and W_k−W_(k−1)=(p+1)(1−p^(−k))²/[4(p−1)], hence the closed W_k. The endpoints have equal zero valuation, so equal marginals and the jump tail give K_k=W_k−∑(2j−1)p^(−j). For k≥1 the increase in W strictly exceeds (2k+1)p^(−k−1): lower and upper bounds are 32/81 versus 1/3 at p=3 and 144/625 versus 3/25 at p≥5. The k=1 sign, K_(3,2)=−4/81 and K_(3,3)=167/729 then establish the phase. The infinite jump correction (p+1)/(p−1)² and W_k's linear coefficient give the Pearson expansion. An independently written integer/rational reproduction, `python /workspace/branches/audit_arithmetic_reproduction.py 3`, matched joint counts, jumps and moments on eight prime-depth pairs including both negative cases and the sign transition. Submitted verification code was inspected, not executed; finite checks do not establish the unrestricted statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barat–Grabner's general block-digit methods and parameter-bivariate functions address valuations/residue distributions; the examined material supplies no evaluated two-shift law for this pair.",
+          "Spiegelhofer–Wallner's row-wise distribution counts k across a fixed Pascal row with a prescribed valuation, not consecutive points on the central diagonal."
+        ],
+        "reasoning": "A broad framework can organize a product-state computation but does not give this minimized transfer, signed overflow law or covariance phase by a stated parameter substitution.",
+        "searches": [
+          "Barat–Grabner, Distribution of Binomial Coefficients and Digital Functions, abstract, introduction and valuation framework",
+          "Spiegelhofer–Wallner arXiv:1604.07089, valuation counts for a Pascal row"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0811.2028 and arXiv:1604.07089",
+        "Barat–Grabner, DOI 10.1112/S0024610701002630",
+        "Sakib DOI 10.33774/coe-2026-1w9zm (title and cited scope; access limited)",
+        "Resultary a6bbb4c7d618 (self), c99e090ba83a, 1999135510ae, 767a9e2b871f, a941d310bb46, 8587a753dc01 and c0f80e993a75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The title and frozen description of Sakib's source identify only the marginal law (v=1 here); DOI request returned 404 and the official page timed out. No full-text noncoverage claim is made.",
+          "The recurrence links the Catalan joint pair to B_(n+1) by an extra ν_p(2n+1). Distribution of X and ν_p(n+1) alone does not give the conditional distribution with that extra term on ν_p(n+1)=0, where positive jumps occur. Likewise the disjoint-root signed jump law and a marginal distribution alone do not specify the complete bivariate count."
+        ],
+        "reasoning": "The full proof constructs the simultaneous increment/doubling states and calculates the boundary and covariance exactly. Prior single-index or other-pair laws do not already assert those simultaneous data.",
+        "searches": [
+          "Sakib DOI 10.33774/coe-2026-1w9zm, exact one-index law; comparison with v=1 projection",
+          "Resultary c99e090ba83a and 1999135510ae, their exact pair definitions and covariance claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single-binomial valuation as base-p digit sums or as doubling carries is equivalent and prior. The exact Catalan joint analogue c99e090ba83a instead pairs ν₃(B_n) with ν₃(B_n/(n+1)). These are not adjacent central coefficients: B_(n+1)=2(2n+1)B_n/(n+1) has an additional varying valuation term at p=3."
+        ],
+        "reasoning": "An existing marginal digit-function expression and an existing pair with a varying extra term in its second coordinate are not the same joint distribution.",
+        "searches": [
+          "Resultary exact odd-prime adjacent central-binomial valuations, joint Kummer carries and covariance",
+          "Straub–Moll–Amdeberhan arXiv:0811.2028, eqs. (1.6)–(1.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit a6bbb4c7d618 is the frozen self-match. Resultary c99e090ba83a concerns the central/Catalan pair at p=3; 1999135510ae is central/threefold at p=3; 767a9e2b871f and a941d310bb46 are dyadic central/threefold joint counts. None gives the same odd-prime shifted-index pair. c99e090ba83a is a same-date comparison, not an inferred statement about order."
+        ],
+        "reasoning": "The known bivariate tables are genuine methodological overlap but enumerate a different pair or different prime regime.",
+        "searches": [
+          "Resultary exact joint finite-block valuations of binomial pairs; adjacent central-binomial law and covariance sign"
+        ]
+      },
+      "rationale": "The known one-index Kummer valuation and elementary coefficient recurrence are not counted as new. The checked sources do not state or mechanically supply the complete finite-block pair distribution for adjacent central coefficients across odd primes, nor its exact covariance sign phase.",
+      "residual_risks": [
+        "An unindexed simultaneous valuation law or the inaccessible full Sakib paper could cover more than the retrieved evidence shows; a broader theorem under different digital-function terminology remains possible. None of these access or scope risks is affirmative overlap evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known one-index valuation mechanism, not the adjacency law",
+          "evidence": "The valuation is expressed using base-p digit sums for a single binomial coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.2028",
+          "material_read": "pp. 1–2, especially equations (1.6)–(1.7)",
+          "method": "Lawful OA paper text",
+          "title": "The p-adic valuation of k-central binomial coefficients",
+          "trigger": "Closest primary valuation identity underlying the digit computation"
+        },
+        {
+          "assessment": "General digital framework; inspected material does not evaluate the reviewed adjacent pair",
+          "evidence": "Uses block-multiplicative functions for distributions in residue classes and by p-adic valuations; discusses multinomial extensions.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Abstract p. 1 and introduction valuation/residue discussion, pp. 2–3, OA offset around 4500",
+          "method": "Lawful author-hosted PDF",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Plausibly stronger digital-function treatment"
+        },
+        {
+          "assessment": "Reported one-dimensional scope overlaps the marginal; full-paper coverage unresolved",
+          "evidence": "The title identifies exact distribution of one valuation over n mod p^k. The DOI route returned 404 and the official route timed out.",
+          "identifier_or_url": "https://doi.org/10.33774/coe-2026-1w9zm",
+          "material_read": "Bibliographic title and cited scope only; full text unavailable in attempted routes",
+          "method": "DOI lookup and official article-page attempt",
+          "title": "Carry–Run Theorem and Sakib Index for the Exact Distribution of ν_p binom(2n,n) over n mod p^k",
+          "trigger": "Directly cited earlier finite-block central-binomial valuation law"
+        },
+        {
+          "assessment": "Exact but a different second variable",
+          "evidence": "Pairs central and Catalan valuations at the same index and has an explicit covariance law; the adjacent central coefficient also involves 2n+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-joint-ternary-valuation-law-for-catalan-and-central-binomi--c99e090ba83a",
+          "material_read": "RESULT.md Finding and prior-work discussion, local offsets 104 and 8200",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact joint ternary valuation law for Catalan and central binomial coefficients",
+          "trigger": "Strong exact two-variable comparison at p=3"
+        },
+        {
+          "assessment": "Different second coefficient and p fixed at 3",
+          "evidence": "Exact joint law for ν₃(B_n) and ν₃ binom(3n,n), with covariance tending to 3/16.",
+          "identifier_or_url": "2026/11/8/SCOPE-joint-ternary-valuations-of-central-and-threefold-binomial-coeff--1999135510ae",
+          "material_read": "RESULT.md Finding and prior-work passage, local offsets 82 and 6742",
+          "method": "Resultary lookup and local mirror",
+          "title": "Joint ternary valuations of central and threefold binomial coefficients",
+          "trigger": "Earlier exact bivariate carry distribution sharing the first variable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair is the natural unit shift of a classical valuation word, and its ordered joint counts are not recovered from the known single-index histogram. The law isolates a bounded jump discrepancy even as the variance grows, and exhibits an exact finite-depth change of covariance sign with two exceptional blocks. Those are usable structural invariants beyond the routine carry formula or a claim of asymptotic correlation alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:17.668926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–83",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "python /workspace/review_evidence/3.py (SymPy; passed)"
+      ],
+      "rationale": "Independently assembled the consistent mass and stiffness blocks and formed H=−(A+Aᵀ)/2 using MHM=(KM+MK)/2. Both matrices M and K are positive definite by their element quadratic forms and the zero boundary data; physical dissipation follows from d(cᵀMc)/dt=−2cᵀKc. H has positive diagonals and determinant equal to the stated positive factor times Δ, so Δ=0 is included in contractivity. Differentiating the squared Euclidean norm gives necessity and sufficiency over all times. When det H<0, −H has one positive eigenvalue and a positive off-diagonal, so a maximizing unit eigenvector has strictly positive coordinates. The symbolic replay gave Δ(1,r)=−P(r) and the four exact endpoint signs (+,−,−,+). Descartes' two sign changes and the two distinct brackets prove that both positive roots are simple and exhaust the positive roots; P(1)<0 determines the interior sign. The limiting scaled H and the mass eigenvalues reproduce the claimed coefficient and conditioning bound. The radical-to-trace ratio decreases for 0<r≤1, giving the stated supremum via r→0, not an attained maximum. The bound by √κ₂(M) distinguishes divergence of the initial rate from any divergence of finite-time amplification. With one degree of freedom A is a negative scalar. The two exact positive witnesses were also verified.",
+      "residual_risks": [
+        "Only the 1-D three-element, two-interior-node consistent-P1 coefficient norm is classified. The algebraic and analytical argument, not mesh sampling, supplies the universal result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The shear catalogue result classifies upper-triangular stable shears and a two-boundary interval in p; the primary paper's fixed shear grows initially in l2.",
+          "The uniform consistent-mass heat catalogue result classifies entrywise positivity at 1–3 interior nodes."
+        ],
+        "reasoning": "Neither an arbitrary nonorthogonal triangularization nor entrywise positivity transfers those statements to Euclidean contractivity over all two-element-length parameters.",
+        "searches": [
+          "Resultary 6e17594aec7a and fed0fef23ca8",
+          "arXiv:2608.19913v1 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.11871v1",
+        "arXiv:2608.19913v1",
+        "Resultary 6e17594aec7a",
+        "Resultary fed0fef23ca8",
+        "Resultary 1f6f56bd0eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mass-based norm bound has a condition-number prefactor and does not constrain the initial slope to be nonpositive. Filtered Crank–Nicolson positivity is a time-discrete uniform-lattice statement."
+        ],
+        "reasoning": "The known bounds and positivity statements give neither both sharp grading thresholds nor the divergent Euclidean numerical abscissa and its coefficient.",
+        "searches": [
+          "arXiv:2603.11871v1 Theorem 1 and §3.3",
+          "Resultary 6e17594aec7a and 1f6f56bd0eac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mass similarity moves the physical dissipation statement to a transformed Euclidean norm. Tatsuoka et al. actually exhibit a rightward untransformed numerical range in an advection–diffusion test with P1 mass conditioning 3.99."
+        ],
+        "reasoning": "The Gelfand/semigroup stability distinction and mass similarity are known; the similarity is not an isometry in the original nodal norm and does not give the pure heat mesh boundary.",
+        "searches": [
+          "Primary search for consistent-mass finite elements, coefficient numerical range/logarithmic norm and graded-mesh growth",
+          "arXiv:2603.11871v1, §2 Theorem 1 and §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited P1 table concerns moderate conditioning and a finite 2-D advection–diffusion experiment, not roots of the pure-heat quartic or a thin-element limit. The closest exact Resultary diagrams found use different matrices or parameters."
+        ],
+        "reasoning": "No matching table, inequality on the pair (u,v), or threshold values came from the concrete inspected comparisons; search non-retrieval is not proof of absence.",
+        "searches": [
+          "Resultary: exact quartic and graded two-node FE contractivity; bounded mass conditioning with unbounded numerical abscissa",
+          "Primary comparison: arXiv:2603.11871v1 §3.3"
+        ]
+      },
+      "rationale": "The supported distinction is the exact mesh-dependent polynomial region in pure heat flow, its sharp cutoffs and the explicit divergent rate despite bounded mass conditioning. Mass-energy decay, the logarithmic norm criterion, and the possibility of a rightward coefficient numerical range for an FEM operator are not new.",
+      "residual_risks": [
+        "Söderlind's 2006 logarithmic-norm review was identified but the OA full-text attempt did not yield an inspectable copy; it is not used for exclusion.",
+        "A specialized prior graded-mesh calculation could have escaped the finite searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material background overlap, not the claimed pure-heat region or asymptotic",
+          "evidence": "W(A) extends rightward while W(M^{1/2}AM^{−1/2}) is leftward in a 2-D advection–diffusion example; the error bound uses √κ(M).",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11871v1",
+          "material_read": "§2, Theorem 1 (p. 4), and §3.3 (p. 8, including P1 data)",
+          "method": "OA primary-text passages",
+          "title": "An error control framework for computing the exponential of matrices arising from the finite element discretization",
+          "trigger": "Mass-inverted FE generators, numerical range and mass conditioning"
+        },
+        {
+          "assessment": "Different matrix family and variable",
+          "evidence": "The double transition is in the norm exponent p for a stable upper-triangular shear, not in the heat mesh ratio r.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-exact-l-p-contractivity-phase-diagram-for-planar-triangular-shea--6e17594aec7a",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Resultary search and local mirror",
+          "title": "Exact Lp contractivity phase diagram for planar triangular shears",
+          "trigger": "Exact planar contractivity region"
+        },
+        {
+          "assessment": "Known mechanism, not a mesh classification",
+          "evidence": "The fixed shear with diagonal (−1,−10) and off-diagonal 9 is l1-contractive and has positive l2 numerical abscissa.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.19913v1",
+          "material_read": "§5, pp. 13–14",
+          "method": "OA full-text passage",
+          "title": "On the Numerical Range of Linear Relations in Banach Spaces",
+          "trigger": "Primary exact planar transient example underlying the shear comparison"
+        },
+        {
+          "assessment": "Uniform meshes and entrywise positivity",
+          "evidence": "Positive semigroup entries with one or two nodes do not test the unweighted l2 norm on graded meshes.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-three-interior-nodes-are-the-first-uniform-one-dimensional-galer--fed0fef23ca8",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary search and local mirror",
+          "title": "Three interior nodes are the first uniform one-dimensional Galerkin positivity counterexample",
+          "trigger": "Same heat discretization and neighboring minimal dimension"
+        },
+        {
+          "assessment": "Different invariant and setting",
+          "evidence": "The positive mass-preserving map is a filtered time step on a uniform infinite or periodic lattice.",
+          "identifier_or_url": "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Finding and relation to literature",
+          "method": "Resultary local mirror",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Heat positivity comparison cited in the original record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–30 and 67–91",
+        "arXiv:2603.11871v1 §2 and §3.3"
+      ],
+      "rationale": "A concrete smallest-dimension example is useful because stability in the physical energy and good mass conditioning do not certify monotonic nodal Euclidean decay. The full two-parameter criterion and the simple grading family with failure at both ends give exact benchmarks, and the thin-element calculation distinguishes arbitrarily steep initial growth from bounded amplification. These features are not supplied by just quoting dissipativity or exhibiting an arbitrary stable matrix.",
+      "residual_risks": [
+        "Not a failure of physical stability, a time-integration claim, or a result about general meshes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

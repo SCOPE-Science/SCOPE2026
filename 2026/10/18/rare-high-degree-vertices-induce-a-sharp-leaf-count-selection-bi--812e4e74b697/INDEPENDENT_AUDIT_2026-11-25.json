@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:23:50.638743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scope in RESULT.md lines 29–37 and 165 is subsequential: take integer pairs (n,k) with n→∞ and n/k!→eλ, for example n=floor(eλ k!) along k→∞. The positive finite intensity is generally impossible along every integer n because the successive intensity levels have diverging ratios. Prüfer multiplicities are multinomial on m=n-2 draws, and the degree threshold is k+1. For fixed r, n^r times the probability that r specified loads all equal k tends to λ^r, and the ratio on raising any coordinate is at most 2/(k+1); summing over excess compositions controls the first and second moments of the excess J-rk, with J the selected total load. Conditional empty-box expectation equals f(n-r,m-J), where f(b,t)=b(1-1/b)^t. At (n,m) its first derivatives in b,t are 2/e+O(1/n), -1/e+O(1/n); on b≥n/2 and 0≤t≤m its second derivatives are O(1/n). Thus for fixed r, the conditional shift is (rk-2r)/e+o(k), yielding rλ^r/e for the scaled mixed factorial moment. For all r with rk≤m, bounded first derivatives give C(J+r). Multiplying the event indicator bound by J uses x(x)_k=(x)_(k+1)+k(x)_k, giving the displayed uniform bound Cr(k+2)(n/k!)^r; r with rk>m contribute zero. Dividing by k r! gives a summable bound, so the alternating sum gives -λe^(-λ)/e for the no-hub indicator and the opposite sign for A_n. The ordinary factorial moments likewise give the Poisson law and its no-hub mass; dividing by the limiting event probabilities gives both conditional means. The frozen verifier was inspected, not run. An independent exact finite check enumerated partitions of n-2 with at most n parts, padded with zeros; for multiplicities c_j of load j, weight each profile by n!(n-2)!/∏_j(c_j!(j!)^c_j). For (n,k)=(11,3),(15,4),(24,4),(38,5), total weight and leaf total matched n^(n-2) and n(n-1)^(n-2), and the covariances were positive. This finite check does not certify the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson's labelled-tree maximum-load transition gives e^(-x/e) and 1-e^(-x/e) for n/k!→x, matching the relevant marginal with x=eλ. The fixed-degree Gaussian covariances keep the degrees fixed.",
+          "The generalized allocation limits article was identified but both lawful OA attempts returned HTTP 403; no claim about its full theorem is made."
+        ],
+        "reasoning": "The known maximum and fixed-degree laws do not yield a moving-threshold conditional mean correction on the smaller k scale. A weaker conclusion such as independence in a sqrt(n)-scaled limit would not suffice either.",
+        "searches": [
+          "Janson arXiv:1112.0510v1, Theorem 18.23, Example 18.24, Remark 18.25, §20.2 equation (20.7)",
+          "Poisson limits for generalized random allocation problems, DOI 10.1016/0167-7152(89)90004-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.0510v1 §§18.4 and 20.2",
+        "SCOPE-20261013-841548d3e0e4",
+        "SCOPE-20261018-2ebe6d26d6d6",
+        "SCOPE-20261102-0e8a59994112",
+        "DOI 10.1016/0167-7152(89)90004-7 (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactly, writing Q(b,m) for the no-hub probability in b boxes at fixed m=n-2, Cov(L,A)=E[L](Q(n,m)-Q(n-1,m)). An o(1)-accurate limiting marginal gives no control of this adjacent difference at scale k/n.",
+          "The earlier exact conditional mean for one load illuminates the r=1 contribution only; the coefficient λe^(-λ)/e requires mixed factorial moments for all r and a summable uniform bound."
+        ],
+        "reasoning": "Neither the marginal statement nor the one-label identities mechanically supply the required precision or summation.",
+        "searches": [
+          "arXiv:1112.0510v1 Example 18.24 and equation (20.7)",
+          "SCOPE-20261013-841548d3e0e4 and SCOPE-20261018-2ebe6d26d6d6 RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prüfer degree minus one is a box load. The target is empty-box count versus an indicator of at least one box exceeding a moving load threshold.",
+          "SCOPE-20261013-841548d3e0e4 gives exact falling-factorial covariance of the degree of a fixed marked vertex with the total leaves; it is not inclusion-exclusion over all labels."
+        ],
+        "reasoning": "A fixed box, a sum of rare-event indicators, and the indicator of their union are distinct. In the finite-positive intensity regime multiple high boxes occur with nonvanishing probability, and the union cannot be substituted by the sum at the needed precision.",
+        "searches": [
+          "Resultary semantic comparison: Cayley leaves and maximum degree, marked-vertex degree, empty boxes and rare high loads",
+          "arXiv:1112.0510v1 §§18.4 and 20.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day stochastic-valley result supplies an exact empty-box conditional law and conditional-mean profile for the degree of one marked vertex, with no critical maximum event.",
+          "The later stochastic-order diagram orders those same marked-vertex conditional laws; it is not a table of maximum-conditioned means."
+        ],
+        "reasoning": "The closest exact indexed profiles tabulate or order conditional quantities with a different event. A bounded search is not an exclusion of all other exact profiles.",
+        "searches": [
+          "Resultary semantic search: leaf count conditional on high degree, Cayley tree exact conditional leaf statistics and covariance",
+          "SCOPE-20261018-2ebe6d26d6d6; SCOPE-20261102-0e8a59994112"
+        ]
+      },
+      "rationale": "The accepted contribution is the mixed critical-event coefficient and resulting leaf-mean shifts, not the Poisson count or the critical maximum marginal. The inspected allocation and fixed-mark results do not supply the uniform mixed calculation needed for the global union of rare events.",
+      "residual_risks": [
+        "The full Carr–Goh–Schmutz 1994 paper (DOI 10.1002/rsa.3240050104) was not available in the frozen comparison, which reports only a relevant maximum-degree abstract; no conclusion about all its results follows.",
+        "The inaccessible generalized allocation paper and uninspected literature may treat other mixed occupancy scales. The documented comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the maximum marginal and extreme counts, not the mixed moving-threshold result in these passages",
+          "evidence": [
+            "Example 18.24 uses n/k!→x, and §20.2 studies jointly Gaussian counts for fixed outdegrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.0510v1",
+          "material_read": "Printed pp. 104–105, §18.4 Theorem 18.23, Example 18.24, Remark 18.25; pp. 134–135 §20.2, especially (20.7)",
+          "method": "Lawful OA full text, targeted passages",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Same critical maximum transition and fixed-degree counts"
+        },
+        {
+          "assessment": "Marked-vertex overlap only",
+          "evidence": [
+            "Gives Cov((D-1)_r,L) for one vertex and fixed-r limit (r-1)/e."
+          ],
+          "identifier_or_url": "SCOPE-20261013-841548d3e0e4",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Read-only local mirror",
+          "title": "Cayley-tree degree is leaf-orthogonal only at first order",
+          "trigger": "Same model and exact mixed factorial covariance"
+        },
+        {
+          "assessment": "Works with one marked vertex, not the maximum",
+          "evidence": [
+            "The law of L given D=d is an exact empty-box law for the remaining labels."
+          ],
+          "identifier_or_url": "SCOPE-20261018-2ebe6d26d6d6",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Read-only local mirror",
+          "title": "A stochastic valley and a sharp nonlinear dependence scale for leaves and degree in Cayley trees",
+          "trigger": "Same-day conditional leaf selection"
+        },
+        {
+          "assessment": "Stronger ordering for conditioning on one marked degree, no maximum event",
+          "evidence": [
+            "Orders L given D=d; neither A_n nor the k-normalized coefficient is the stated quantity."
+          ],
+          "identifier_or_url": "SCOPE-20261102-0e8a59994112",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Read-only local mirror",
+          "title": "The complete conditional leaf-count stochastic order diagram",
+          "trigger": "Possibly stronger conditional law"
+        },
+        {
+          "assessment": "Coverage unresolved, not ruled out",
+          "evidence": [
+            "Publisher access returned HTTP 403 on the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(89)90004-7",
+          "material_read": "Bibliographic identification only; no theorem retrieved",
+          "method": "Primary literature lookup and lawful OA attempts",
+          "title": "Poisson limits for generalized random allocation problems",
+          "trigger": "Potentially broader joint allocation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural rare-extreme threshold produces a quantitatively diverging leaf selection bias, smaller than the standard sqrt(n) fluctuations. The exact mixed coefficient and separate event-conditioned means capture dependence that marginal extrema and ordinary central-limit laws miss. The subsequential lattice restriction is necessary rather than an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

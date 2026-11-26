@@ -24,9 +24,9 @@ so that the relative squared \(A_n\)-norm error after \(d\) CG steps is
 T_{\rm CG,n}(\varepsilon,p)=\min\{d\ge0:M_{d,n}(p)\le\varepsilon\}.
 \]
 
-Fix an integer \(d\ge1\) and assume
+Fix an integer \(d\ge1\) and a positive power-law decay exponent \(p\) with
 \[
-(4d+2)p<1.
+0<p<\frac{1}{4d+2}.
 \]
 Define
 \[
@@ -250,12 +250,13 @@ power-law convergence analysis. Accordingly, the Jacobi representation above
 is used as an explicit calculation, not claimed as the conceptual novelty of
 this record.
 
-Paquette and Trogdon prove central limit theorems and almost-deterministic CG
-iteration counts for broad sample-covariance ensembles. That work establishes
-important precedent for fluctuation analysis of Krylov methods, but it treats a
-different random-matrix regime. Here the spectrum is deterministic and
-power-law, while the randomness relevant to fixed-degree CG comes from the
-Haar source weights.
+Paquette and Trogdon prove fixed-step CG central limit theorems for broad
+sample-covariance ensembles (Theorem 1.4) and explicitly obtain a 50/50
+two-point stopping law at an exact critical tolerance (Remark 2). Thus the
+Gaussian-to-stopping argument and the general half-step phenomenon have a
+precedent. The present calculation treats a different model: the spectrum is
+deterministic and power-law, while the randomness relevant to fixed-degree CG
+comes from the Haar source weights.
 
 The contribution claimed here is the critical-tolerance fluctuation law for
 this Haar power-law source model, including the explicit variance and the
@@ -263,7 +264,7 @@ two-point limiting stopping distribution.
 
 ## Limitations
 
-- The theorem is fixed-degree and assumes \((4d+2)p<1\). It does not cover the
+- The theorem is fixed-degree and assumes \(0<p<1/(4d+2)\). It does not cover the
   variance-critical boundary \((4d+2)p=1\) or the heavier-tail regime above it.
 - It concerns exact arithmetic and exact unpreconditioned CG.
 - It does not sharpen the terminal-floor Schur-complement regimes already

@@ -1,15 +1,21 @@
-# Scientific review: exact anti-periodic Brownian supremum
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a fixed, fully normalized standard Brownian path. Conditional on the endpoint, the probability of confinement is a killed-Brownian transition kernel, including the correct unconditioned endpoint density. Dirichlet eigenfunctions integrated over antipodal endpoint pairs produce the alternating series with coefficient exactly two. Jacobi transformation gives a nonnegative image series; Tonelli and the gamma integral give every positive moment. For peak location, strict uniqueness follows from uniqueness of Brownian extrema and the density of the joint extrema/endpoint distribution obtained by differentiating the smooth killed heat kernel; a signed rotation preserves the covariance and yields the Haar law conditional on the peak height. The standalone checker passed 61,766 deterministic assertions. Infinite claims rest on proof rather than finite tests.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risks)
-The initiating 2026 article explicitly constructs the anti-periodic covariance and sample paths but does not give a maximum distribution or location law. The fully inspected relevant sections of classical Jacobi/Brownian-extrema literature concern bridge, excursion, meander and Bessel maxima, not this antipodal-endpoint Gaussian process. A related earlier Gaussian bridge-mixture small-ball result implies only the leading small-threshold asymptotic, not the CDF at every threshold, all moments or the independent argmax. Semantic mathematical-record searches against alternate process names, theta functions, moments and circular maximizing times returned no equivalent or stronger coverage. The possibility of an older non-indexed anti-periodic excursion formula is a genuine unresolved historical-priority risk; a search failure is not an independence certificate.
+PASS
 
-## Mathematical value — PASS
-The precise observable is the canonical uniform-excursion threshold and peak time for the nonlocal anti-periodic boundary process identified in the initiating paper. Its complete theta-series law, sharp opposite tails, explicit gamma–zeta moment family and uniform independent maximizing time supply the full excursion height/location description, rather than merely a known covariance or a local small-ball estimate. This is a natural exact invariant of a recently systematized Gaussian boundary model, useful for calibrating sup-norm events in that model. The computation uses standard machinery, but its exact combined description is not a simple rephrasing of the cited covariance or bridge-maximum formulas.
+Conditionally on W₁=z the process is a unit-time bridge from −z/2 to z/2; the free endpoint density exactly cancels in the killed-kernel ratio. The change of variable z=−2x contributes 2, and reflection of the Dirichlet eigenfunction contributes (−1)^(k+1). Independently, in the interval (0,L) with L=2h, the killed kernel from x to L−x is the sum over integers k of φ(L−2x+2kL)−φ((2k+1)L), with φ the standard normal density. Twice its integral over x∈(0,L) is 1−2L times the sum of the reflected densities: the translated intervals in the first term partition the real line. This gives the image law directly. The CDF is continuous on h>0, S>0 a.s., and termwise nonnegative tail integration gives the moments for q>0. Brownian path extrema are individually unique; the strict extrema and endpoint have an interior joint density by differentiating the smooth two-barrier killed kernel, with no boundary mass by local oscillation at both time endpoints. Hence max W+min W=W₁ has probability zero. The signed rotation preserves Gaussian covariance, and therefore the joint law of the height and the unique circular location. For every height event the corresponding finite location measure must be its total mass times Haar measure, proving independence.
 
-## Sources and limitations
-Primary: Lars Lau Raket, arXiv:2610.33747v1 (2026-10-24), Section 4.2 and Proposition 4.3. Closest classical comparators: Biane–Pitman–Yor, arXiv:math/9912170, Sections 2 and 4; Perman–Wellner, 2014, Theorem 6. The result assumes exact anti-periodicity and fixed Brownian variance normalization. Earlier aliases in classical theta/extrema tables could still change the originality assessment. Independent validation and comprehensive priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The anti-periodic process is known, and the theta law in isolation is classical. The distinct result identifies that law for the supremum of this path and combines it with the unique uniform independent peak. The closest matched same-process source studies an unrelated quadratic functional, and the closest matched classical supremum is for a differently pinned path.
+
+## value
+
+PASS
+
+The supremum is the natural confinement statistic of a standard anti-periodic Gaussian path. The result supplies all thresholds and moments with complementary formulas useful in different tail regimes, and an exact spatial law for the peak even conditional on a rare height. The path-specific identification and peak comparison matter even though the scalar distribution, once identified, is a transform of a classical one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

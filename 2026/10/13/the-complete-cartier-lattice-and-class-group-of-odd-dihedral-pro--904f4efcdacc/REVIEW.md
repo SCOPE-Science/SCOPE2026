@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the class group with the equivariant Picard group by deleting precisely the finite nonfree locus and descending along a finite étale torsor. Explicit honest two-dimensional representations split the degree map, leaving one sign-character torsion factor. At the four corners rotation eigencharacters force degree divisibility by \(n\); all four independent reflection eigenline signs force even degrees and trivial sign twist. Therefore the stated Cartier lattice is both necessary and sufficient. The quotient pencils and the non-Cartier locus of the unique torsion class follow from these fiber calculations. The finite checker provides a consistency test, not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to bibliography risk.** Section 6 of the initiating full paper presents the quotient, its singularities, and its natural polarizations, not the integral class group or its exact Cartier subgroup. Focused published-finding queries for this quotient, its characters, Picard lattice, and class-group torsion returned no covering statement; the most relevant adjacent results concern unrelated quotient surfaces. General equivariant class-group work explains the method but does not compute this family. An older equivalent computation in alternative quotient terminology remains possible.
+PASS
 
-**Value — PASS.** The explicit finite-index obstruction to Cartier descent is a complete integral divisor invariant of a naturally occurring infinite family of singular projective surfaces. It proves that the ruling polarizations generate the entire Picard group and identifies exactly where the torsion class fails to be Cartier, data unavailable from numerical divisor or Seshadri computations alone.
+For this complex action all nonidentity rotations fix exactly the four corners because 2 is invertible modulo n. Each reflection fixes four noncorner points; no two distinct reflections can fix the same point since their product is a nonidentity rotation. There are two corner orbits and four reflection orbits, each reflection tangent action being (−1,−1). Removing the nonfree points gives an étale torsor. Removing finitely many points preserves the class group on the normal quotient and the equivariant Picard group upstairs (line bundles and their equivariance extend uniquely on the smooth surface). Hence Cl is the equivariant Picard group. The lifts diag(ζ^h,ζ^(−h)) and diag(ζ,ζ^(−1)), h=(n+1)/2, with the swap, give the degree-one generators; the kernel is the character group C₂ of odd D_n. For the Cartier subgroup one must kill inertia on every fiber. The corner congruences ha±b=0, along with their negatives modulo n, imply n divides both a and b. The reflection eigenline pairs (+,+), (−,+), (+,−), (−,−) force ε=0 and a,b even. Conversely these conditions kill every stabilizer, so descent is sufficient and the sublattice is (2nZ)² with zero torsion coordinate. The sign twist has precisely the asserted local obstructions. The invariant functions on each factor have degree 2n, so the two descended ruling line bundles give the basis and (n−4,1) is primitive.
 
-The comparison does not certify uniqueness across all unpublished literature. The result is for odd group orders in characteristic zero, not even orders or resolutions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior statements located for this exact quotient describe its construction, local singularities, ruling maps, polarization or joint branch geometry. They do not give the global integral Weil group, the exact embedded Cartier lattice, or the sign twist's descent behavior. The general equivariant class group theorem does not turn those geometric data into the stated answer without the splitting and simultaneous local restrictions computed here.
+
+## value
+
+PASS
+
+This is the full integral Cartier obstruction for a naturally occurring family of Seshadri-constant examples. In particular the result determines which Weil classes are honest line bundles and distinguishes the reflection obstructions from the cyclic ones. It identifies all polarization divisibilities in the two ruling coordinates, rather than just producing known Cartier classes or recomputing the singularity types. The local-to-global character computation is substantive for this exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

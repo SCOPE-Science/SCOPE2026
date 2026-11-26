@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:52.259218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonidentity rotation preserves weight and must change at least two coordinates. Two windows at distance at least three share at most one coordinate, so their nonidentity outputs cannot coincide. The number of new outputs contributed by the latest window therefore depends only on it and the two preceding windows, and comparing their padded outputs on the joint six-bit string is exact. Splitting off the first two windows gives the correct five-bit initial states and suffix transition: for each terminal tb only at followed by b can be a predecessor, and its increment is independent of the earlier prefix. An independent bit-mask verifier (python3 /workspace/audit_evidence/rotation_ball_certificate.py) enumerated every full word at lengths 6 and 11, verified the displayed v6 and the shift of +11 for all 32 suffix states, and directly obtained bases [4,7,9,11,13,15,18] at lengths 4–10. The max-plus update commutes with adding the same scalar to every state, so this certifies the identity at all n≥6. The independent verifier checked the witness at 4 and 5 and the complete six-bit increment period [2,2,2,2,3], which repeats structurally and proves attainment at every length. There is no assumption of wraparound or allowance of shorter windows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 treats redundancy for exact k≥9, and Section IV gives general counting bounds.",
+          "6f184b72619c proves the exact 3n−8 maximum for the same operator when q≥3, using a witness with three distinct symbols.",
+          "ba87e3492861 proves 3n−6 for arbitrary binary four-window permutations; 6f89836efb99 gives per-center formulas for arbitrary permutations and a binary maximum at k=3."
+        ],
+        "reasoning": "These yield ambient upper bounds or different parameter/channel maxima, not the sharp binary-restricted value and witness. The alphabet restriction cannot be removed from the ternary witness without changing local collisions.",
+        "searches": [
+          "Chen–Milenkovic Theorem 3 and Sections IV–V",
+          "Resultary 6f184b72619c, ba87e3492861 and 6f89836efb99, exact findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cyclic4.py",
+        "arXiv:2610.15701v1",
+        "Resultary/SCOPE 6f184b72619c, 31d5888bce8c, ba87e3492861 and 6f89836efb99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known same-operator q≥3 result would give at best 3n−8 as a binary upper bound. The binary arbitrary-permutation maximum 3n−6 is even larger. A length-three rotation does not have the same reward or second-previous-window collision geometry."
+        ],
+        "reasoning": "None of these implications yields the slope 11/5, residues at all lengths, or the binary period-five attaining word. The new calculation uses the finite state space for this operator and a verified componentwise translation, not a specialization of a known extremal formula.",
+        "searches": [
+          "6f184b72619c compared at q=2 with 2610.15701v1 Definition 3",
+          "ba87e3492861 exact arbitrary-permutation vs binary rotation result",
+          "31d5888bce8c binary specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3 defines the exact-length rotation channel; Definition 4 permits lengths at most k.",
+          "Binary four-window rotations are a proper subset of arbitrary four-window permutations, for example in the two-one type with adjacent ones versus alternating ones."
+        ],
+        "reasoning": "Count the union over distinct rotations of exactly one length-four window including the center. Neither all lengths up to four nor all permutations within four is an equivalent formulation.",
+        "searches": [
+          "Resultary exact binary four-window cyclic rotation ball and variants for cyclic substring permutations, arbitrary block permutations, and adjacent window lengths",
+          "Chen–Milenkovic arXiv:2610.15701v1 Definitions 3 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 1 gives one length-five input rather than the sequence of worst-case volumes. The ternary census concerns q≥3; the length-three spectrum includes binary but k=3."
+        ],
+        "reasoning": "No matched table was identified in the bounded checks. Finite examples or an exact census for another alphabet or window length do not certify the all-length 32-state identity.",
+        "searches": [
+          "Chen–Milenkovic k=4 Example 1",
+          "Resultary 6f184b72619c ternary extremizer census; 31d5888bce8c exact spectrum for length-three rotations"
+        ]
+      },
+      "rationale": "The same channel is prior work, and an exact maximum for this window size is available for q≥3, but the inspected results do not give this binary exact-window maximum. A strict superchannel and an adjacent window length likewise do not dominate this exact invariant.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unindexed equivalent phrased as a binary cyclic block permutation sphere or a distinct-neighbor count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator in Definition 3, but cited exact-volume candidate is an example; other statements are code/redundancy bounds",
+          "evidence": "Example 1 concerns one k=4 center, Theorem 3's lower bound uses k≥9, and Section V analyzes code constructions and shorter rotations.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15701v1",
+          "material_read": "Definition 3 near offset 26784; Definition 4; Example 1 near 41283; Theorem 3 and §§IV–V including offsets 44987–48982",
+          "method": "OA HTML primary text",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "Exact channel definition and plausible explicit k=4 maximum"
+        },
+        {
+          "assessment": "Material exact prior overlap on a different alphabet regime",
+          "evidence": "The q≥3 maximum 3n−8 is attained using (000121) periodic, not a binary word.",
+          "identifier_or_url": "2026/10/26/SCOPE-ternary-four-window-cyclic-burst-maximizers-exact-census-and-ent--6f184b72619c",
+          "material_read": "RESULT.md Finding, offset 347",
+          "method": "Local mirror",
+          "title": "Ternary four-window cyclic burst maximizers",
+          "trigger": "Same window/operator and exact extremum"
+        },
+        {
+          "assessment": "Different length even in its binary specialization",
+          "evidence": "All-length exact spectrum for length-three rotations.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-sphere-spectrum-for-nonbinary-length-three-cyclic-permutat--31d5888bce8c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact sphere spectrum for length-three cyclic permutations",
+          "trigger": "Closest earlier exact binary spectrum with different window"
+        },
+        {
+          "assessment": "Later-dated distinct strict superchannel results",
+          "evidence": "Arbitrary four-window binary permutations have maximum 3n−6; general per-center formulas and the k=3 extremum do not give a rotation-only equality.",
+          "identifier_or_url": "Resultary ba87e3492861 and 6f89836efb99",
+          "material_read": "RESULT.md for ba87e3492861 near offset 254; for 6f89836efb99 offsets 0 and 2152",
+          "method": "Local mirror",
+          "title": "Sharp binary four-window permutation burst spheres; Sharp sphere volumes and extremizers for one permutation burst",
+          "trigger": "Plausible broader permutation theorem covering rotations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the worst-case neighborhood size of a previously motivated channel at a window length with genuine overlap at two different offsets. It quantifies how collisions depress the binary extremum below the simple count of rotations and the q≥3 extremum, and supplies a uniform extremal pattern. The exact maximum gives a precise local degree input for coding bounds; it is not presented as the optimum code size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

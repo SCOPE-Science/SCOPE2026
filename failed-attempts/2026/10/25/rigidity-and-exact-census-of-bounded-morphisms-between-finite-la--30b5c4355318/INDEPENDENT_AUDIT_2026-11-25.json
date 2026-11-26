@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:35:08.790339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–35",
+        "VERIFICATION.md and the supplied verifier and recorded output (inspected, not executed)"
+      ],
+      "rationale": "For any surjective monotone map and any target antichain level of size at least two, choose preimages of two distinct images there. They must lie in the same source level, since otherwise they are comparable. Every other preimage is in that level by comparing it to a preimage of a different image. Thus the preimage of each target level is confined to one source level. Two distinct target levels cannot have preimages confined to the same source level: from a preimage of a lower target point one must lift a higher target point, but all its preimages are in that same antichain and distinct from the starting point. The resulting assignment of levels is increasing by monotonicity and onto by nonemptiness of source levels, hence an increasing bijection. Levelwise surjections satisfy back, using the starting point for an equal target and any preimage in a higher level otherwise. For distinguished sets the level choices multiply and each surjection count is q! S(p,q), zero for p<q. Duplicating a singleton target level into two consecutive singleton source levels really is an onto bounded morphism: all distinct higher targets can be lifted in a higher level, and an equal target at the source point itself.",
+      "residual_risks": [
+        "The 181 reported finite test cases are only corroboration. The proof uses surjectivity and the upward back condition, not merely continuity or monotonicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For level sizes at least two on both sides, the prior result covers all bounded maps: a surjective prefix followed either by a constant tail, or by an arbitrary final level map.",
+          "A constant tail cannot cover its target level. An arbitrary final map gives global surjectivity exactly when the heights match and this map is onto."
+        ],
+        "reasoning": "The more general all-map normal form thus gives the entire claimed rigidity and counting product as its onto specialization on thick sources. The omission of singleton sources cannot leave a new feasible case.",
+        "searches": [
+          "2026/10/18/SCOPE-prefix-surjective-bounded-morphisms-of-finite-weak-pierce-frames--667c3a806964, Finding, Assumptions and Step 2"
+        ]
+      },
+      "checked_sources": [
+        "October 18 prefix/tail normal form",
+        "November 2 exact layered transfer result",
+        "October 4 weak-order mapping-space and homotopy results",
+        "Rzążewski–Stronkowski arXiv:2509.06841",
+        "Pouzet–Zaguia DOI record (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior factors s(a,b) count labelled surjections by inclusion–exclusion, exactly b! S(a,b).",
+          "A singleton source level is comparable to every other source point; if its image belongs to a thick target level, no preimage of a different point in that level is possible by monotonicity.",
+          "The October 18 limitations already flag failure of thickness-based rigidity when singleton target levels are allowed."
+        ],
+        "reasoning": "On thick sources global surjectivity retains just the all-surjective levelwise branch of the prior normal form; on any other source the elementary comparability argument forces zero, exactly as the frozen formula predicts. Splitting a singleton target point into a two-point consecutive chain is a direct fiber duplication, not a new census or classification of the exceptional regime.",
+        "searches": [
+          "October 18 prefix/tail result, local mirror offsets 280–5296 and Limitations at 7350",
+          "Frozen RESULT.md, lines 10–16 and 21–30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed normal form defines bounded morphisms by f(up x) = up f(x) and uses the same ordinal antichain sums but indexes from the top.",
+          "Rzążewski–Stronkowski use the same forward and back conditions; their stated tractable tree-source case does not give this layered census."
+        ],
+        "reasoning": "Upper-cone equality is exactly order preservation and upward back together. Reversing the order of the indices in both sequences is a relabelling, not a different morphism notion.",
+        "searches": [
+          "Resultary: bounded morphism height rigidity, weak-order Stirling factors and quotients by level size",
+          "2026/10/18/SCOPE-prefix-surjective-bounded-morphisms-of-finite-weak-pierce-frames--667c3a806964",
+          "arXiv:2509.06841, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 result explicitly gives the same product for arbitrary positive source-level sizes and thick targets, within a more general recurrence allowing singleton targets.",
+          "The October 4 mapping-space result counts ordinary monotone maps; the associated homotopy and cross-height records do not impose back."
+        ],
+        "reasoning": "The November 2 match is exact but later and not used as evidence of earlier coverage. The earlier October 4 records do not imply the census; the decisive earlier coverage is the October 18 stronger normal form.",
+        "searches": [
+          "Resultary: exact census and mapping-space recurrence",
+          "2026/11/2/SCOPE-exact-bounded-morphism-transfer-on-finite-layered-intuitionistic--c66b24e63c82",
+          "2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06"
+        ]
+      },
+      "rationale": "The earlier October 18 prefix/tail normal form already gives the exact nonzero regime, rigidity and census. Its formal assumption that the source has no singleton level leaves out only an immediate zero case: if a point in a singleton source level maps into a target level of size at least two, a distinct point in that target level cannot have a preimage, since all other source points are comparable to the singleton-level point. Therefore the full principal claim is mechanically implied by the prior result plus this direct order obstruction; the Stirling notation is the same levelwise surjection count. The singleton-target sharpness illustration does not rescue the census claim.",
+      "residual_risks": [
+        "The chronological relationship to the later November 2 overlap was not determined beyond the displayed dates; the failure does not depend on it.",
+        "Unavailable Pouzet–Zaguia full text does not undermine the positive October 18 implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage by specialization and the singleton-source obstruction.",
+          "evidence": "The alternatives are a constant tail after surjective earlier levels, or h≤k with surjective earlier levels and arbitrary A_h to B_h. Every listed map satisfies upper-cone equality. The limitations identify why singleton targets are exceptional.",
+          "identifier_or_url": "2026/10/18/SCOPE-prefix-surjective-bounded-morphisms-of-finite-weak-pierce-frames--667c3a806964",
+          "material_read": "RESULT.md Finding, Assumptions, proof Steps 1–3 and Limitations; local mirror offsets 280–5296 and 7350–8116",
+          "method": "Resultary followed by mirror passage inspection",
+          "title": "Prefix-surjective bounded morphisms of finite weak-Pierce frames: rank and idempotent spectra",
+          "trigger": "Earlier broader normal form for the exact same thick layered frame maps"
+        },
+        {
+          "assessment": "Full coverage as a mathematical statement but later date; not the basis of the priority decision.",
+          "evidence": "Allows all positive source sizes; thick targets give zero at mismatched heights and otherwise the product of surjection counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-bounded-morphism-transfer-on-finite-layered-intuitionistic--c66b24e63c82",
+          "material_read": "RESULT.md Finding and scope, mirror offsets 0–6873",
+          "method": "Resultary and mirror passage",
+          "title": "Exact bounded-morphism transfer on finite layered intuitionistic frames",
+          "trigger": "Exact product census hit"
+        },
+        {
+          "assessment": "Establishes the broader problem and terminology; inspected passages not the exact census.",
+          "evidence": "Forward and back conditions agree with the frozen claim; tractable case concerns tree sources.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06841",
+          "material_read": "PDF pp. 1–2, definition, decision problem and tree-source result",
+          "method": "OA PDF",
+          "title": "Tabular intermediate logics comparison",
+          "trigger": "Primary reference for p-morphism recognition"
+        },
+        {
+          "assessment": "Different map class.",
+          "evidence": "Counts order-preserving functions rather than onto bounded morphisms.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-cardinality-recurrence-for-mapping-spaces-between-finite-w--1cee64311a06",
+          "material_read": "RESULT.md Finding and scope, mirror offsets 0–4936",
+          "method": "Resultary and mirror passage",
+          "title": "Exact cardinality recurrence for mapping spaces between finite weak orders",
+          "trigger": "Earlier count of maps on the same underlying class"
+        },
+        {
+          "assessment": "Unresolved as independent coverage; not needed for the prior implication.",
+          "evidence": "The bibliographic description is not evidence about a bounded-morphism census.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.05.038",
+          "material_read": "Bibliographic record; no usable full text in retrieval attempt",
+          "method": "DOI access attempt",
+          "title": "Weak orders admitting a perpendicular linear order",
+          "trigger": "Cited structural weak-order reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and singleton-target construction",
+        "October 18 normal form and limitations"
+      ],
+      "rationale": "The census is natural and the short argument is clear, but the exact invariant is already mechanically implied in all parameter cases. The only added source sizes yield no possible quotients by one monotonicity comparison. The singleton-target example is an elementary duplication, not a systematic description of the exceptional cases. No independently useful new exact invariant, witness at a substantive boundary, or broader classification remains in the frozen claim.",
+      "residual_risks": [
+        "This judgment does not deny the utility of the all-map normal form or of studying singleton levels in a genuinely broader classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

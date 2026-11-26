@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:19.213861Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-annihilator hypothesis makes B nondegenerate. Over F_(2^e) the square map is bijective, so each natural frame normalizes uniquely for the chosen generator; all normalized frames form a torsor for O(B), and reordering acts freely. The normalized dot product satisfies B(x,x)=B(x,t)^2, so every isometry fixes t. In odd dimension t splits off an alternating complement: the orbit is ct plus either {0} or all nonzero complement vectors. In even dimension with B(s,t)=1, s=e1, the span of s,t is nondegenerate and its alternating complement H gives all isometries by a symplectic map S on H and arbitrary z in H and a in the field. The coefficient B(z,Sx) in g(x) is forced by orthogonality to g(s) and imposes no other constraint; the images preserve all pairings. This gives G_d and the three even-dimensional orbit cases, including the fixed line and the impossibility of a moving zero-sum vector in d=2. The nonzero-coordinate sum recursion gives A_k. Deleting ct or the fixed line from the relevant hyperplane gives exactly the displayed corrections, with the zero vector irrelevant to positive weights. Orbit–stabilizer and free reordering give G_d H_k/(d! T). Equal pairs and a nonzero triple show positivity at the claimed supports, and the full-support constructions avoid the deleted scalar points. A generator change multiplies the normalized coordinates by a common nonzero square root and preserves all cases. Replay: python /workspace/checks/3-4.py directly counts unordered projective-line cliques in F4^4 and gives (10,30,70,50), (0,48,64,48), and (0,0,0,160). Frozen verify.py and supporting notes were inspected, not executed. Counts concern basis classes of a fixed algebra for q≥4, not binary parity or algebra isomorphism classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2025 one-dimensional-square paper Theorem 3.8 p. 10 supplies a bilinear/isometry classification",
+          "Survey Q14 notes the basis-change description and the absence of a counting formula there",
+          "b82d0cd6a8f9 covers all finite fields but only dimension two"
+        ],
+        "reasoning": "General algebra classification and basis-change criteria give the group-action framework, not the weight-refined count. The all-field d=2 theorem covers a genuine portion of the stated characteristic-two field range but cannot cover higher dimensions.",
+        "searches": [
+          "arXiv:2610.22248v1",
+          "DOI:10.1007/s00009-025-02812-7",
+          "Resultary b82d0cd6a8f9: all-field natural-basis graph counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support files",
+        "Resultary 0462b1e51370, c81c76269fc1, b82d0cd6a8f9",
+        "Frozen record 3",
+        "arXiv:2610.22248v1",
+        "arXiv:2006.14460",
+        "DOI:10.1007/s00009-025-02812-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary orbit analysis exhibits a prescribed parity of supports below full support for moving vectors",
+          "q≥4 allows nonzero triples summing to zero and two distinct nonzero entries summing to a specified nonzero coordinate sum",
+          "General isometry data do not enumerate by graph support"
+        ],
+        "reasoning": "An orthogonal-group order alone gives total bases, not the support histogram. Deriving the four extension-field strata requires the affine-hyperplane orbit analysis, correction by the deleted fixed point/line and the q-ary weight calculation. Naively substituting q for 2 in a parity law would give the wrong spectrum.",
+        "searches": [
+          "Resultary 0462b1e51370 Finding and Limitations; c81c76269fc1 Finding and distribution; b82d0cd6a8f9 Finding",
+          "arXiv:2006.14460 Corollary 2.13 and 2025 classification Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Survey p. 13 gives an orthogonal-group example; Q14 asks about bases up to permutation and scaling; Q17 and Q30 ask graphical questions",
+          "Corollary 2.13 describes natural-basis changes by natural-ideal decompositions",
+          "Resultary 0462b1e51370 uses a characteristic-vector case and parity constraints over F2"
+        ],
+        "reasoning": "The same enumeration can be phrased as the Hamming-weight distribution of g^(−1)u for uniform orthonormal frames, followed by the free reordering quotient. The inspected natural-ideal and graph formulations do not supply this law; binary parity is not an extension-field coordinate-sum count.",
+        "searches": [
+          "Resultary: characteristic-two rank-one natural-basis graph spectra, orthogonal orbits and exact support distributions",
+          "arXiv:2610.22248v1 Questions 14, 17 and 30",
+          "arXiv:2006.14460 Corollary 2.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0462b1e51370 is exact binary support realization with F2 and n≥3; it expressly leaves extension fields out",
+          "c81c76269fc1 adds exact binary frequencies",
+          "b82d0cd6a8f9 gives exact total and per-graph counts in dimension two over all finite fields",
+          "Frozen record 3 uses odd-field quadratic-character correction"
+        ],
+        "reasoning": "The two binary results do not give the q≥4 multiplicities. The all-field two-dimensional postdated result overlaps the full d=2 slice (here C_1=1, C_2=q/2−1 for c≠0; only C_2=q/2 on the line), not the four-case all-dimensional formula.",
+        "searches": [
+          "Local Resultary: finite characteristic-two support spectra and natural-basis multiplicities, including binary and dimension-two aliases"
+        ]
+      },
+      "rationale": "The supported distinct result is the coupled extension-field classification of graph support and exact quotient-frame multiplicities in all dimensions, not the separate orthogonal and symplectic group facts. The inspected earlier binary result is a close conceptual antecedent with a different support law, and the indexed all-field dimension-two formula is slice-level overlap only.",
+      "residual_risks": [
+        "Older specialized orthonormal-frame support enumerations could cover the same coupled count. This is a targeted local-index and primary-text comparison, not exhaustive priority clearance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping method and graph invariant but disjoint field hypothesis",
+          "evidence": [
+            "F2, n≥3; fixed characteristic vector and parity-constrained moving support; extension fields explicitly left open"
+          ],
+          "identifier_or_url": "Resultary 0462b1e51370",
+          "material_read": "RESULT.md Finding and Limitations",
+          "method": "Local Resultary mirror",
+          "title": "Exact natural-basis graph spectra of binary rank-one evolution algebras",
+          "trigger": "Closest earlier indexed graph-support result"
+        },
+        {
+          "assessment": "Binary probability law only",
+          "evidence": [
+            "F2 binomial/parity distribution"
+          ],
+          "identifier_or_url": "Resultary c81c76269fc1",
+          "material_read": "RESULT.md Finding; distribution around offset 4400",
+          "method": "Local Resultary mirror",
+          "title": "Exact natural-basis graph spectra and distribution for binary rank-one evolution algebras",
+          "trigger": "Potential exact weight-distribution overlap"
+        },
+        {
+          "assessment": "Exact common d=2 slice, not higher-dimensional coverage; catalog date 2026-11-02",
+          "evidence": [
+            "Total and per-graph basis counts for d=2 over all finite fields"
+          ],
+          "identifier_or_url": "Resultary b82d0cd6a8f9",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All-field natural-basis graph counts for two-dimensional rank-one evolution algebras",
+          "trigger": "Potential all-field subsumption"
+        },
+        {
+          "assessment": "Framework and open questions, not the finite-extension histogram",
+          "evidence": [
+            "Orthogonal-group example; enumeration/description of bases up to permutation and scaling; graph-detectability and simultaneous realization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "p. 13; p. 22 Q14 and Q17; p. 24 Q30",
+          "method": "OA source text",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Natural-basis quotient and graph questions"
+        },
+        {
+          "assessment": "Basis-change structure, no graph-support count in the inspected result",
+          "evidence": [
+            "Natural-ideal decompositions characterize permissible changes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.14460",
+          "material_read": "Corollary 2.13 p. 7",
+          "method": "OA paper",
+          "title": "Natural Families in Evolution Algebras",
+          "trigger": "Possible general natural-basis count from basis-change criteria"
+        },
+        {
+          "assessment": "Isometry classification input, not multiplicities of basis graphs",
+          "evidence": [
+            "Bilinear-form/isometry description"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-025-02812-7",
+          "material_read": "Theorem 3.8 p. 10",
+          "method": "Accessible article text",
+          "title": "Commutative Algebras with One-Dimensional Square",
+          "trigger": "Same rank-one framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Enumeration modulo scaling and reordering is a natural question about natural bases, and graph support is intrinsic to the variability across those bases. The result gives all attainable graph types and exact counts rather than just the group order, explains why the fixed characteristic line is exceptional, and quantifies the disappearance of binary parity restrictions in extension fields. This is a complete classification for a defined algebra family, not a claim to solve the general survey questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

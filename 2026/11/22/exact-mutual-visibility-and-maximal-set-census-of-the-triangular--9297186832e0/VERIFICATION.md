@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-# Reproducibility and exact verification
+# Independent mathematical audit
 
-Graph: the \(24\) vertices \((j,r)\) of \(C_3\square C_8\) have ID \(3j+r\); each vertex has two triangle-neighbors and two cycle-neighbors.
+## correctness
 
-Execute the supplied programs directly:
+PASS
 
-```sh
-c++ -std=c++17 -O2 verify_torus_bfs.cpp -o torus_bfs
-./torus_bfs
-python3 verify_torus_geodesic.py
-```
+In the Cartesian product, a geodesic follows a shortest cyclic arc and uses zero triangle steps for equal rows, otherwise exactly one. Both directions at antipodal columns and all positions of that step must be included. Checking existence of an interior mask disjoint from the selected set for each selected pair is therefore equivalent to ordinary mutual visibility. Heredity gives one increasing-order path per feasible set and makes maximality equivalent to failure of every one-vertex extension, including vertices smaller than the last inserted ID. Both supplied programs and their logs were inspected without executing them. An independently written BFS/distance-descent replay reproduced all labeled coefficients: from size 0 through 9, feasible [1,24,276,1952,8808,24720,40256,33000,9960,928], maximal [0,0,0,0,0,0,0,4608,4656,928], with totals 119925 and 10192. There were no larger feasible sets. Replay and saved output: /workspace/branches/7eb8e17e-a688-4029-8a64-ddcabd18ae17/independent_census.py and independent_width8.txt in the same directory. The seven-vertex witness also has a direct check: the pair of complete columns 0 and 4 can use the arc avoiding (1,0), and (1,0) can reach either complete column visibly by choosing when to change row. A new vertex on columns 5–7 is separated from (1,0) by the filled columns; on columns 1–3 its geodesics to (0,0) either use (1,0) or reach column 0 in another selected row. This verifies maximality of that witness independently of the counts.
 
-The C++ output must be byte-for-byte the supplied `bfs_results.txt`, and Python output must equal `geodesic_results.txt`. Their common coefficient table is:
+## originality
 
-```text
-size feasible maximal
-0 1 0
-1 24 0
-2 276 0
-3 1952 0
-4 8808 0
-5 24720 0
-6 40256 0
-7 33000 4608
-8 9960 4656
-9 928 928
-total_feasible 119925
-total_maximal 10192
-```
+PASS
 
-The Python program prints three additional explicit examples, one each of cardinalities seven, eight, and nine. In particular the seven-set with IDs `[0, 1, 2, 3, 12, 13, 14]` is feasible and has no feasible one-vertex extension.
+The upper cardinality nine follows from published work and is explicitly credited. The minimum size among inclusion-maximal ordinary visible sets on this even torus, and the exact labeled census, are not supplied by the checked maximum-size theorem, the general lower-invariant paper, or the odd-width result. The exact catalog match is the frozen record itself.
 
-**Why exhaustive:** The recursively generated search only prunes when a set is no longer mutually visible, a hereditary property. Every feasible set is uniquely reached by its increasing vertex order. The predicate checks every selected pair against *all* its shortest paths, and maximality checks every possible one-vertex addition. The Python route generates all geodesics by cycle-arc interleavings; the C++ route generates them independently by graph-distance descent. These are two distinct implementations of one fully specified finite theorem. No timeout, probabilistic search, approximate arithmetic, or assumed cutoff enters the claim.
+## value
 
-**Limits:** The verification proves a finite graph statement, not a formula for larger even circumferences. The agreement of programs is not an independent external audit. The maximal cardinality nine was already available in the primary literature and is credited in RESULT.md.
+PASS
+
+The lower invariant on Cartesian tori is a published problem, and the two antipodal shortest arcs make even widths a different case from the known odd-width value. Here the precise gap between the smallest inclusion-maximal size seven and the known maximum nine, together with the labeled distribution of maximal sizes, is a concrete benchmark for proposed even-width classifications and for testing maximal-set algorithms. This is not just a recomputation of the known maximum, and implies no general even-width theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

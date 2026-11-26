@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is an exact enumerator of unordered two-read deletion-confusability edges in the entire \(q\)-ary run-capped source. The first/last-mismatch interval is unique by the Type-A theorem (Cai–Kiah–Nguyen–Yaakobi, Proposition 9). For a fixed two-symbol block, each outside context is admissible exactly unless its terminal run has full length \(r\) and uses one of the two symbols. Subtracting that explicit boundary class gives \(H_{q,r}\), and multiplication gives the rational bivariate formula without double counting. Dominant-pole analysis proves the geometric limit and linear mean degree. Two different standard-library verifiers passed (direct deletion-deck enumeration and exact recurrence arithmetic). The checks are finite; the infinite proof is mathematical.
+## correctness
 
-## Originality: PASS (qualified)
-The unrestricted all-alphabet edge theorem already establishes the alternating-block bijection, and earlier work explicitly covers the zero-repeat case \(r=1\). Those premises are not claimed as new. The contribution is the complete all-length, all-alphabet, every-finite-run-cap \(r\ge2\) induced-graph enumerator, together with exact disagreement-span refinement and its geometric limit. The primary full texts checked were Kulkarni–Kiyavash (2012, Section V), Cai–Kiah–Nguyen–Yaakobi (2020, Proposition 9), and Chrisnata–Kiah–Yaakobi (2020); closely matching full published edge, degree, and bounded-run-profile notes were also read. No inspected source states or implies the bounded-homopolymer enumerator without the new boundary enumeration. A differently indexed old exact counting identity remains a residual priority risk.
+PASS
 
-## Value: PASS
-Two-read reconstruction codes must avoid exactly these graph edges. Run-length caps are motivated channel constraints, and the theorem gives an exact quantitative input for every alphabet and every finite cap, rather than a single computational case. The span refinement identifies the spatial extent of an ambiguity, and the universal geometric limit and mean-degree slope describe the typical shape and abundance of conflicts. These are useful exact graph invariants; they do not pretend to solve maximum-code-size optimization.
+Cai et al. Proposition 9 gives exactly two distinct common deletion outputs precisely for opposite alternating phases, with the block forced by the first and last disagreements. For either endpoint of the block, one phase extends the adjacent context run if its symbol is in the selected pair; thus the only forbidden contexts are those whose adjacent run has length r in either of the two symbols. A fixed terminal symbol and run length r contribute z^r/(1−(q−1)S_r); subtracting twice this from the all-context series gives H. Since L≥2 the interfaces cannot coalesce, and multiplying by the two independent contexts and one unordered choice of symbols gives the bivariate count with no overcounting. The unique smallest-modulus pole is simple for H and double for the edge series: equality in the triangle inequality forces all summands, including z and z², to align with the positive real axis. The fixed-span/total coefficient ratio gives the stated geometric law; differentiating in u gives convergence of the mean to (2−R)/(1−R). Comparing the double-pole edge asymptotic to the single-pole vertex asymptotic gives the stated linear mean degree constant. The frozen scripts were inspected, not executed: the direct one checks total edges and observed edge structure, not individual expected span counts. A separate enumeration tested span counts at 42 parameter/length points, including 69,18,3 for spans 2,3,4 at q=3,r=2,n=4. Replay: /workspace/branches/8394f34b-b488-4f62-8bd9-33c79cb55a7c/independent_bounded_check.py and bounded_enumeration.txt in the same directory. The finite test is corroboration only.
 
-## Closest sources and limitations
-See RESULT.md references [1]–[6]. The full-alphabet graph edge count and previously known run-cap-one case are explicitly excluded as novel claims. The result does not determine independence numbers, reconstruction code capacity, or higher-deletion ambiguity. External independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the finite run-cap r≥2 enumerator and its run-cap-dependent consequences, not the Type-A characterization, the unrestricted count or its geometric limit. The inspected matches do not cover the required finite-cap boundary compatibility.
+
+## value
+
+PASS
+
+The two-read exclusion graph is a natural reconstruction object; enforcing a maximum run length changes both the finite adjacency counts and their asymptotics. An exact all-length, all-span formula quantifies how localized ambiguity is for a uniformly sampled edge and provides an exact linear mean-degree benchmark beyond the unconstrained case. It does not solve an independence-number problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

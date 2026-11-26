@@ -1,19 +1,21 @@
-# Review of the two-axis orthodiagonal width-deviation theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim uses genuine convex quadrilaterals with fixed perpendicular diagonal lengths and uniform directional width, and its normalization is the squared coefficient of variation. The exact four-vertex support maximum reduces each angular quadrant to one local crossover. Explicit triangular integration establishes the complete quadratic and coupled absolute-cubic terms, including a uniform fourth-order remainder for each fixed aspect ratio. The universal sign follows from two elementary, exhaustive bounds on \(\arctan t\). The resulting negative definite two-axis quadratic term proves local strictness, not an unsupported global extremum. A direct-vertex standalone numerical checker completed 203 regression tests. It is corroboration, not an infinite proof.
+## correctness
 
-## Originality
-**PASS with historical-priority risk.** Akiyama and Kamae's *Width deviation of convex polygons* (arXiv:2201.06736v1, 2022-01-18) formulates the objective, develops general moments, and explicitly singles out the unresolved four-gon case. A published exact random-width density for all **kites** (2026) gives stronger one-axis information than our intermediate one-axis formulas; these alone are therefore not claimed as new. The decisive new assertion concerns **generic non-kite orthodiagonal quadrilaterals** with both independent offsets, including the coupled \(|ts+h|^3+|ts-h|^3\) term and strict local instability over the complete fixed-diagonal two-parameter class. Neither inspected source supplies these claims; in particular, two separate one-axis kite calculations cannot determine the coupled cubic term. An earlier triangular-truncation variation concerns a different parent polygon. Indexed records and relevant primary text were compared by implication, not titles alone. Unindexed equivalent work remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The motivating gap is the unsolved four-vertex width-deviation minimization problem. The complete two-mode local response excludes every rhombus from being a local minimizer, retains both diagonals and area exactly, and identifies the two crossover ridges that distinguish genuinely non-kite perturbations. A third-order anisotropic profile and a universal negative-definiteness theorem provide more mathematical structure than a single perturbative example. This is a local theorem within a natural complete two-parameter subclass, not a global quadrilateral classification or a proven global minimizer.
+The diagonal lengths are 2 and 2t and the area is 2t. In the two angular quadrants the projection extrema give W=W0+D with W0=cos(theta)+t sin(theta)+|cos(theta)-t sin(theta)| and D=(|s cos(theta) minus-or-plus h sin(theta)|-|cos(theta)-t sin(theta)|)_+. For fixed t the entire change is within O_t(epsilon) of theta0=arctan(1/t). On that interval the model d=(|a+b xi|-R|xi|)_+ has a=(ts minus-or-plus h)/R and b=O_t(epsilon); the uniform pointwise model error is O_t(epsilon^3) on the union of the supports, and hence gives O_t(epsilon^4) integral error even at a switching line. The two triangles have widths |a|/(R minus-or-plus sign(a)b), giving total area a^2 R/(R^2-b^2)=a^2/R+O_t(epsilon^4) and first signed moment O_t(epsilon^4). Each of the integrals of 2R|xi|d and d^2 is 2|a|^3/(3R)+O_t(epsilon^4), so both are required in the second moment. Base quadrant integrals are 2R and I0. Summing the two quadrants with weight 1/pi and dividing the second moment by the square of the first gives exactly the claimed coefficients. Independently, Cauchy–Schwarz gives I0>=8R^2/pi>=16t/pi>4t, so the quadratic form is strictly negative at every fixed t; the cubic and uniform remainder cannot change the nearby sign. Along a single axis the nonzero |h|^3 term also forbids a cubic Taylor polynomial. These are local at fixed t; arbitrary quadrilaterals are implicated only in ruling out local minimization. The stored Simpson checker reports 203 finite regressions; a separate piecewise exact-in-angle integration script /workspace/branches/5a46a59c-66b6-45b4-b133-05159763f20a/independent_width_check.py cross-checked the edge-kernel moments and 36 mixed paths at t=0.7,1,1.8, including both switching lines. The largest sampled scaled fourth-order residual was about 0.00338806. These tests are not the uniform proof.
 
-## Closest literature and limitations
-- S. Akiyama and T. Kamae, *Width deviation of convex polygons*, https://arxiv.org/html/2201.06736v1, especially Sections 1 and 7. The full publicly available preprint was inspected.
-- *Three spectral singularities reconstruct asymmetric kites from random widths*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-three-spectral-singularities-reconstruct-asymmetric-kites-from-r--0fca3299603f. Full RESULT.md inspected; its all-kite density dominates any one-axis kite moment calculation, but excludes the generic two-axis family.
-- A prior triangle-truncation width-variation theorem describes a triangular rather than rhombic parent. A three-dimensional rhombic-dodecahedron width-variance record concerns a different body and invariant constraints.
+## originality
 
-The proof is local with a fixed aspect ratio; it does not give a global optimum or uniform neighborhood over degenerating rhombi. Numerical tests are finite. Publicly accessible sources do not rule out unindexed historical equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct supported result is the all-aspect-ratio, simultaneous two-skew expansion and coupled cubic cusp, with an all-t strict local comparison. Do not credit either axis alone or the quadratic instability of the square as a distinct result in this assessment: the former are accessible from the exact kite law and the latter is covered by a separate same-day catalogue record. The general width-moment kernel is known; the new conclusions are about the evaluated local two-axis variation, not the existence of a formula for the moments.
+
+## value
+
+PASS
+
+Keeping both diagonal lengths and area fixed isolates two genuine shape degrees of freedom and yields a directional-width instability for every rhombus, relevant to the open minimization problem without claiming to solve it. The exact mixed cubic describes the change of active support vertices and the third-order regularity failure, information that cannot be read off from the square Hessian or from separate one-axis perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

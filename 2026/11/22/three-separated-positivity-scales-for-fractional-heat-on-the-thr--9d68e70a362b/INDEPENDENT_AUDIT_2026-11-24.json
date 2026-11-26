@@ -1,0 +1,198 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:20:37.408849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and §§1–7; VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "Character degree j has Laplacian eigenvalue 2j; summing the character signs at each distance gives the four exact rows. Diagonal and distance-one entries are positive, and ordinary product heat plus positive subordination yields strict positivity for 0<alpha<=1. Set a=2^alpha, b=4^alpha, c=6^alpha. The derivative of the distance-two numerator, multiplied by exp(ct), is a exp((c−a)t)+b exp((c−b)t)−c, strictly increasing and negative initially for alpha>1. This gives one positive crossing. For distance three an exponential sum with four distinct exponents has at most three real zeros with multiplicity (divide out one term and induct by Rolle). Its initial slope divided by a is 3−3*2^alpha+3^alpha; this three-term sum has its two roots at alpha=1 and 2 and is negative between, positive above. At alpha=2 the time-zero root is double with second derivative −576. For 1<alpha<=2, the negative initial sign and positive limit force one simple positive zero by the count and sign parity. For alpha>2 the initial sign is positive, but the entry is negative at (log 2)/b and tends to a positive limit, giving exactly two simple positive zeros. At (log 2)/b the distance-two numerator is also negative, using b/a>=4 and c/b>=9/4; at (log 2)/a it is positive while the distance-three numerator is negative. Thus the negative intervals overlap and entrywise nonnegativity returns exactly at the later distance-three zero, with the isolated t=0 case. At t=u/b and t=v/a the antipodal numerators tend to −2+3 exp(−u) and 1−3 exp(−v), yielding the two constants by brackets. For the middle zero u=bt_2 and p=b/a, evaluating between (1±epsilon)log p gives u~log p, then (1−exp(−u/p))exp(u)=1−exp(−(c/b−1)u) gives u exp(u)/p→1. The slope of u+log u is >=1, giving the stronger additive o(1) Lambert remainder.",
+      "residual_risks": [
+        "All root counts are analytic; the recorded floating-point comparisons are not a root-count certificate. The result is specific to the unweighted combinatorial Q3 Laplacian and does not classify higher cubes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A dominant projection criterion supplies eventual positivity but not its exact start; a sharp window horizon is attained uniformly over a class, not determined for this generator.",
+          "The general near-one result includes Q3 for sufficiently small alpha−1; complete multipartite graphs do not include Q3."
+        ],
+        "reasoning": "The qualitative eventual positivity and the near-one regime are covered in principle or in part. None dominates the exact fixed-generator sign pattern above exponent two.",
+        "searches": [
+          "arXiv:1511.05294, Thm. 1.1 and finite-dimensional discussion",
+          "Resultary: spectral-window horizon; complete multipartite fractional heat; diameter-dependent near-one positivity onset"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and matching mirror Findings",
+        "arXiv:1511.05294",
+        "arXiv:1506.06167"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest comparison, P4 recovery, has signs +,−,+ for every alpha>2 and separate recovery scales for P4; its eigenvalues and endpoint kernel coefficients are different.",
+          "The Q3 squared case and the near-one crossing case follow from matching exact graph-class statements in their respective ranges. The Q3 high-exponent equation 1−exp(−u/p)=exp(−u)−exp(−ru) is specific to its distance-two spectral coefficients and rates."
+        ],
+        "reasoning": "The analogous mechanism is not unique to Q3. No inspected claim specializes to the Q3 all-alpha>2 reentrance plus strict interlacing/brackets and the exact asymptotic constants; this is a statement comparison, not a priority claim for the general phenomenon.",
+        "searches": [
+          "Resultary 2026/11/22 records 94392e78d2a0, 4ec9967002dc, f03089a5a92e, bcd2ed2fdb92",
+          "arXiv:1511.05294"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh multipliers on the Boolean cube are exp(−t(2j)^alpha); at alpha=1 these are ordinary degree multipliers of the noise operator.",
+          "The inspected Radau and Gauss–Legendre cube positivity findings concern rational heat-step maps, not these exponential multipliers.",
+          "The Riascos–Mateos network diffusion passage uses exponent in (0,1)."
+        ],
+        "reasoning": "Changing between distance kernels and Walsh multipliers preserves the present question; switching to a rational step or the ordinary product multiplier does not. Neither supplies the all-superlinear roots.",
+        "searches": [
+          "Resultary: exact fractional heat, reentrant antipodal/endpoint kernel, Boolean cube positivity",
+          "arXiv:1506.06167 on spectral fractional network diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cube biharmonic record covers Q3 alpha=2: one positive zero at both distances 2 and 3, with Q4 the first biharmonic cube with antipodal reentrance.",
+          "Distinct indexed P4 records give the same transition in the exponent for endpoints, with no Q3 root table or Q3 formula."
+        ],
+        "reasoning": "This is exact-formula catalogue coverage rather than a finite numerical table for a continuum of exponents. Exact coverage at a single exponent or on another graph is not equivalent to the three varying Q3 roots. Same-day dates do not establish ordering.",
+        "searches": [
+          "Resultary local index: Q3 fractional heat and cube biharmonic crossing; four-site/P4 reentrance",
+          "Matching RESULT.md Findings of f03089a5a92e, 94392e78d2a0, 4ec9967002dc"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact Q3 superlinear sign regime and its three quantitative large-exponent scales, including the additive Lambert remainder and the exact later recovery root. There is substantial overlap at alpha=2, near alpha=1, and on another four-level graph; those pieces and the ordinary/noise or subordinated range are not fresh claims in isolation.",
+      "residual_risks": [
+        "Relative priority among distinct same-day results is not established. Bounded web search yielded mostly unrelated results; that does not rule out unindexed analogous or exact Q3 statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest thematic overlap; P4 rather than Q3 and different eigenvalues and constants; relative chronology unresolved",
+          "evidence": [
+            "P4 endpoints have two positive zeros for every alpha>2 and a +,−,+ sign pattern, with separated distance-two and recovery scales."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-endpoint-signs-and-separated-recovery-scales-for-spect--94392e78d2a0",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Reentrant endpoint signs and separated recovery scales for spectral-power heat on the four-vertex path",
+          "trigger": "Same all-exponents threshold and separated recovery-scale question"
+        },
+        {
+          "assessment": "Different graph; one P4 endpoint entry only, not whole-matrix recovery",
+          "evidence": [
+            "One positive zero on 1<alpha<=2 and two simple zeros above two."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-order-transitions-in-endpoint-positivity-for-four-site-fract--4ec9967002dc",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Two order transitions in endpoint positivity for four-site fractional heat",
+          "trigger": "Identical exponent boundary for a four-level kernel"
+        },
+        {
+          "assessment": "Exact partial coverage at alpha=2, not the superquadratic-exponent result",
+          "evidence": [
+            "At alpha=2, the distance-two and distance-three entries have a single simple positive crossing; the first reentrant antipodal cube is Q4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-distance-controlled-zero-crossings-and-the-first-reentrant-bihar--f03089a5a92e",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Distance-controlled zero crossings and the first reentrant biharmonic heat kernel on Boolean cubes",
+          "trigger": "Same Q3 at alpha=2, with higher cubes"
+        },
+        {
+          "assessment": "Covers one-crossing Q3 nonedges sufficiently near alpha=1, not large alpha",
+          "evidence": [
+            "Each nonedge has a negative-to-positive crossing for alpha=1+epsilon and epsilon sufficiently small on each finite connected weighted graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-diameter-dependent-fractional-heat-positivity-onset-on-finite-we--bcd2ed2fdb92",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Diameter-dependent fractional-heat positivity onset on finite weighted graphs",
+          "trigger": "Broader result that includes Q3 near alpha=1"
+        },
+        {
+          "assessment": "General criteria, not exact horizon or transient signs",
+          "evidence": [
+            "Dominant spectral value and positive projection underlie eventual positivity; finite-dimensional discussion treats asymptotic positivity of matrix exponentials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Thm. 1.1 p. 2, PDF text offset 7400; p. 32 finite-dimensional discussion, offset 106250",
+          "method": "Lawful OA primary text",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General eventual positivity could subsume the recovery claim qualitatively"
+        },
+        {
+          "assessment": "Sublinear model; no superlinear Q3 classification",
+          "evidence": [
+            "Uses evolution −L^gamma with 0<gamma<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.06167",
+          "material_read": "p. 3, PDF text offset 12000",
+          "method": "Lawful OA primary text",
+          "title": "Fractional dynamics on networks: Emergence of anomalous diffusion and Lévy flights",
+          "trigger": "Origin of the fractional network power convention"
+        },
+        {
+          "assessment": "Extremal window result uniform over generators does not determine these four Q3 entries",
+          "evidence": [
+            "Given a positive null vector and fixed spectral window, obtains a sharp class-wide horizon."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-entrywise-spectral-window-envelopes-and-the-exact-eventual--aea2a1d10bf1",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Sharp entrywise spectral-window envelopes and the exact eventual-positivity horizon",
+          "trigger": "Exact horizon terminology and possible stronger generator bound"
+        },
+        {
+          "assessment": "Different graph family; does not include the diameter-three cube",
+          "evidence": [
+            "Gives exact eventual-positivity horizon for noncomplete connected complete multipartite graphs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Same exact semigroup and superlinear exponent on another graph class"
+        },
+        {
+          "assessment": "Rational completed Radau map, not the spectral-power exponential",
+          "evidence": [
+            "Positive for every positive step through dimension three; a reentrant Q4 interval."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-radau-positivity-loss-and-reentry-on-boolean-hypercubes--093b06a03097",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Sharp Radau positivity loss and reentry on Boolean hypercubes",
+          "trigger": "Same graph family and reentry terminology"
+        },
+        {
+          "assessment": "Rational two-stage time step, not continuous spectral-power heat",
+          "evidence": [
+            "Sharp Q3 step-size cutoff for the two-stage map."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-hypercube-dimension-barriers-and-a-sharp-three-cube-threshold-fo--d5410a2c25f5",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary discovery and mirror primary text",
+          "title": "Hypercube dimension barriers and a sharp three-cube threshold for Gauss–Legendre heat steps",
+          "trigger": "Exact threshold on the same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase transition, exact positivity set and large-alpha limits",
+        "Same-day P4 recovery finding and cube biharmonic classification; general qualitative eventual-positivity theory"
+      ],
+      "rationale": "The three-cube is the first cube with the distance-three entry needed for this question. Its antipodal positive–negative–positive pattern disappears when testing positivity of the full matrix because the distance-two obstruction overlaps the antipodal interval. Separating the three characteristic times, including a logarithmically enhanced middle scale, quantifies what an eventual-positivity criterion or a single antipodal test misses on this natural graph.",
+      "residual_risks": [
+        "The mechanism has an analogous manifestation on P4; value here rests on the exact quantitative Q3 distinction, not on claiming unique or graph-universal reentrance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

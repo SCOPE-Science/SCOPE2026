@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:24:14.023652Z",
+  "axes": {
+    "correctness": {
+      "limitations": "This is an analytic audit, not a finite simulation or formal certification. The proof uses the integrator realization, Euclidean trigger and sufficient small-parameter regime, not arbitrary plants with the same ideal closed-loop Jordan matrix. The frozen original is unchanged.",
+      "rationale": "The frozen claim is true, but the proof's assertion at RESULT.md line 65 that every nonzero initial state eventually has positive slope is false on the nonzero eigenline, where the slope is always zero. The frozen conclusion therefore needed an explicit case repair, not a new hypothesis. In the complete corrected RESULT.md, the held flow is (I+sJ)x, the denominator is positive up to delta, and the positive derivative follows from x^T Jx >= -L||x||^2. The lower and upper comparison functions give a unique crossing in [c,s_+] with c=sigma/[L(1+sigma)]>0 and s_+=sigma/(m-sigma L)<delta. The wait gives exactly the maximum of T and that crossing. The sample map is invertible and has diagonal p_k=1-a tau_k in (0,1). Initial states on the eigenline remain there with constant event interval; otherwise the second coordinate never vanishes, and the reciprocal slope increases by gamma tau_k/p_k >= gamma c at every step, even across a vertical direction. Thus all directions converge projectively to the eigenline. Compactness of the crossing interval and uniqueness of the limiting root prove continuity at that line. The root is obtained from as=sigma(1-as). Uniform positive intervals and invertible updates establish infinitely many non-Zeno events; the geometric times polynomial bound on products proves the stated stability consequence. All hypotheses, the exact limit, and its scope are preserved.",
+      "replay_path": "/workspace/repairs/3/RESULT.md",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved Theorems 3–4 concern distinct real eigenvalues or a repeated semisimple eigenvalue; the defective-case discussion explicitly says those results do not apply.",
+          "The TAC paper identifies the 2019 predecessor in ref. 36; the direct DOI attempt did not yield its full text."
+        ],
+        "reasoning": "Neither limiting intervals for distinct real modes nor the semisimple repeated case covers a positive Jordan shear. Taking a repeated-eigenvalue limit of a theorem outside its domain does not establish the uniform all-direction behavior here.",
+        "searches": [
+          "IEEE TAC 2023 Theorems 3–4 and defective-case discussion",
+          "IEEE CDC 2019 DOI 10.1109/CDC40024.2019.9028888"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Corrected repairs/3/RESULT.md",
+        "Postoyan–Sanfelice–Heemels IEEE TAC 2023 full-text passages",
+        "Resultary 5485bdd814d0 and 1663a429c1ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper distinguishes attractiveness in the defective case and leaves convergence of the intervals as a conjecture rather than supplying the required conclusion for all sampled directions. Its approximate limit does not specify the second-order term or exact wait crossover."
+        ],
+        "reasoning": "Neither a first-order estimate nor the nondefective convergence cases imply a uniform positive projective drift for the held Jordan integrator. The corrected proof establishes that drift and the separately needed scalar root and wait formula.",
+        "searches": [
+          "IEEE TAC 2023 p. 7 defective-case discussion, offset 61700",
+          "IEEE TAC 2023 Theorems 3–4, offsets 50800 and 54900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper uses held state feedback, a Euclidean relative error trigger, and a minimum wait; its model includes the canonical integrator. Its proposed small-sigma defective limit is near max{T,sigma/|lambda_1|}, not the exact denominator 1+sigma."
+        ],
+        "reasoning": "Taking A=0,B=I,K=J gives the same ambient plant/trigger setting, but does not add the defective case to the proved theorems. The limiting direction is the substantive step; solving the scalar crossing after that step is not claimed as a separate novel lemma.",
+        "searches": [
+          "Postoyan–Sanfelice–Heemels IEEE TAC 2023 §§I–II",
+          "Resultary defective Jordan sample-and-hold relative trigger inter-event limit",
+          "canonical integrator A=0,B=I,K=J"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5485bdd814d0 gives decaying intervals asymptotic to 1/i and logarithmic event times for a safety-barrier/rotation model. 1663a429c1ea gives finite zero-input gaps for commuting symmetric generators. The primary paper reports simulations in support of the approximate defective conjecture."
+        ],
+        "reasoning": "None of these inspected claims gives an exact positive interval limit for a defective shear with the same trigger and held-input flow. A benchmark or trajectory trace could not alone certify the all-state limit.",
+        "searches": [
+          "Resultary 5485bdd814d0",
+          "Resultary 1663a429c1ea",
+          "IEEE TAC 2023 defective-case conjecture and simulations"
+        ]
+      },
+      "rationale": "The exact affine held-flow crossing on the eigenline is elementary; the surviving distinct claim is that it is the exact limiting interval for every nonzero sample direction, with the wait and explicit domain included, for this defective realization. The closest inspected primary paper contains the very same type of trigger, but expressly leaves geometric multiplicity one untreated and gives only an approximate conjecture. The indexed related trigger results have different dynamics or conclusions. This is a bounded assessment, not a historical priority claim; the repair does not change the theorem compared.",
+      "residual_risks": [
+        "The cited 2019 predecessor full text was not retrieved; its detailed scope was not independently established directly.",
+        "The conclusion is best of current knowledge for the stated realization; alternate terminology for defective sampled-data projective maps could hide coverage. The search does not prove global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the setting but leaves the defective case open; approximate conjecture is not exact coverage",
+          "evidence": "Theorems 3–4 exclude geometric multiplicity one; the defective discussion conjectures convergence near max{T,sigma/|lambda_1|}.",
+          "identifier_or_url": "https://heemels.tue.nl/content/papers/PosSan_TAC23a.pdf ; doi:10.1109/TAC.2022.3147009",
+          "material_read": "PDF pp. 2–3, offsets 11700–27485; pp. 6–7, offsets 50800, 54900 and 61700; p. 16 ref. 36",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Explaining the ‘Mystery’ of Periodicity in Inter-Transmission Times in Two-Dimensional Event-Triggered Controlled Systems",
+          "trigger": "Closest primary source: same trigger, defective matrix case"
+        },
+        {
+          "assessment": "Unresolved access; not evidence for or against exact coverage",
+          "evidence": "Predecessor identified; the TAC paper directly supplies the inspected positive evidence about its own scope and conjecture.",
+          "identifier_or_url": "doi:10.1109/CDC40024.2019.9028888",
+          "material_read": "Bibliographic entry in TAC 2023 ref. 36; no readable primary full text from DOI attempt",
+          "method": "OA reference inspection and direct DOI retrieval attempt",
+          "title": "Inter-event Times Analysis for Planar Linear Event-triggered Controlled Systems",
+          "trigger": "Predecessor possibly discussing defective directions or trigger expansion"
+        },
+        {
+          "assessment": "Different trigger, matrix and limiting behavior",
+          "evidence": "Safety-barrier trigger under skew rotation, intervals tend to zero, event times grow logarithmically.",
+          "identifier_or_url": "Resultary 5485bdd814d0",
+          "material_read": "Finding and the stated asymptotic claims",
+          "method": "Resultary and local-mirror passage",
+          "title": "Harmonic event-time asymptotics at a safety barrier",
+          "trigger": "Same-day event-time asymptotics"
+        },
+        {
+          "assessment": "Different class and gap invariant",
+          "evidence": "Commuting symmetric on/off generators, finite zero-input gap.",
+          "identifier_or_url": "Resultary 1663a429c1ea",
+          "material_read": "Finding",
+          "method": "Resultary and local-mirror passage",
+          "title": "Exact modal gap for sparse event-triggered control",
+          "trigger": "Indexed event-trigger gap claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical integrator is a minimal realization of the defective case explicitly identified as open in prior event-time work. The result proves convergence rather than only calculating the crossing at an eigenvector. It gives a practically distinct sharp crossover under time regularization and determines the second-order correction and shear independence. This is valuable in the stated model without claiming to settle general defective closed loops.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: hypersimplex rigidity of cube edge-geodesic packings
+# Independent mathematical audit
 
-## Correctness — PASS
-For each \(d\ge2\) and \(2\le t\le d\), uniform averaging over antipodal geodesics supplies the known sharp objective bound \(t2^{d-1}\). Equality saturates every antipodal geodesic, not merely their mean. Two choices of a two-edge square route, each completed by an identical remaining-coordinate tail, yield the independent identities \(a+c=b+h\) and \(a+b=c+h\). They force opposite-square edge weights to coincide. Hypercube square connectivity propagates these equalities along each coordinate class. All feasible optimal fractional weights therefore correspond exactly to \(\Delta(d,t)\); its integral points give the optimum set classification and \(\binom dt\) count. No unproved auxiliary combinatorial lemma or finite-to-infinite inference is required.
+## correctness
 
-In addition, every optimum was exhaustively checked for \(d=2,3\) across all eligible \(t\), and complete integer-programming enumerations checked \(d=4,t=2,3\), including exclusion of every other maximum. Each program is supplied in full with reproducible output; the finite checks corroborate, rather than certify, the all-dimensional proof.
+PASS
 
-## Originality — PASS (provisional publication priority)
-The primary 2021 paper, arXiv:2105.04292, Theorem 3.2, proves the optimum size for capacity two and constructs a pair of coordinate classes. Its proof does not derive all-case rigidity. The 2022 generalization, arXiv:2207.07357, Theorem 4.2, proves the optimum value for each admissible capacity, again not the equality-case classification or the fractional optimum face. The related 2023 partial-cube paper studies Fibonacci and Lucas cubes, and a 2024 extremal paper studies different graph families. A previously computed four-dimensional finite case counts six optima, consistent with this theorem; it cannot imply every dimension and capacity. Searches under all-optima, coordinate-class, equivalent linear-programming, and hypersimplex formulations found no published all-parameter classification.
+Independently reconstructed the equality case in RESULT.md §§1–5. For any fixed coordinate order and a uniform starting vertex, the edge sampled in each direction is uniform in that direction. Averaging gives the upper bound t·2^(d−1); a union of t directions attains it. At equality, for every order every antipodal path has weight t. In a square, compare both routes from 00 to 11 and append a common suffix of unused flips. Repeat from 10 to 01. For weights a,b at 00 and c,h on the corresponding perpendicular continuations, these comparisons give a+c=b+h and a+b=c+h, hence c=b and h=a. For d=2 the suffix is empty. The remaining coordinates of an i-edge can be changed one at a time across such squares, so every i-edge has the same c_i. Antipodal saturation gives sum c_i=t; conversely a geodesic uses each direction at most once and c_i≥0, proving feasibility. Integral t and the box bounds imply every vertex of the slice is zero-one: two fractional entries admit an opposite perturbation, and one alone cannot sum to an integer with the others. This gives exactly binom(d,t) integral maximizers, dimension d−1 for t<d by the interior point c_i=t/d, and a singleton for t=d. The frozen VERIFICATION.md records checks on Q₂, Q₃ and Q₄ (six optima at Q₄,t=2 and four at Q₄,t=3); the all-d result rests on the analytical argument, not a rerun or a formal certificate.
 
-Risks: unindexed dissertations, subsequent preprints, and alternative descriptions of the same polyhedral face may exist. A 2025 subscription article has an accessible abstract describing small-diameter graph families, but not accessible full theorem details; its scope appears distinct. This is a best-knowledge priority assessment, not proof of global uniqueness of publication.
+## originality
 
-## Mathematical value — PASS
-The existing literature determines \(t2^{d-1}\) but does not, in the inspected results, say what every maximizing edge configuration looks like. The new opposite-square saturation lemma is a nontrivial equality mechanism covering every dimension and every allowed capacity. The entire optimal LP face is the standard hypersimplex, which simultaneously gives integrality of all vertices, exactly \(\binom dt\) maximum edge sets, and the optimizer-face dimension. This is a natural, all-parameter structural refinement of an established extremal problem, not a routine recomputation of a single minimum.
+PASS
 
-## Scope and limits
-Only Boolean cubes, ordinary graph geodesics, capacity \(2\le t\le d\), and the explicitly defined box-constrained fractional relaxation are treated. Arbitrary feasible subsets and other partial cubes are not classified. Independent external mathematical validation and exhaustive publication-priority clearance have not been performed.
+Pass for the all-dimension, all-capacity equality characterization and fractional face, not the classical maximum value or the specific integral census at d=4,t=2. In the inspected prior proofs a union of coordinate classes is a construction, not the conclusion of an equality analysis; no general classification or fractional face was established by the inspected matches.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An equality classification answers which optima exist, not just how large they can be. More strongly it identifies the entire optimal face of the natural geodesic LP and shows that no new fractional extreme optimizer occurs. The result holds uniformly across dimensions and capacities and explains the fixed four-cube census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

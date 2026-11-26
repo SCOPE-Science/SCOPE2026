@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:55:22.715868Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45 and VERIFICATION.md",
+        "Packaged checker.py and recorded checker_output.txt, inspected without re-running",
+        "Replay: python3 /workspace/review-evidence/tree_census.py"
+      ],
+      "rationale": "Both in the ordinary game and with only f declared, every finishing selection set contains b and d because a and e are undeclared leaves. Also b and d are undeclared and nonadjacent, so any finishing set of size at most three must add their only common neighbor c. With no declaration, indicating f,a,e successively forces c,b,d. With f declared, selecting b,d via a,e leaves only b,d possibly undominated and at most two moves. If an initial indication is one of b,c,d, Staller can choose an outsider a,f,e, respectively. Otherwise b or d is forced, immediately covering c. Neither c nor f can then be indicated, and any later legal indication of b or d can be answered by a leaf (a or e has no other neighbor through which it could already have been selected). Thus Staller can avoid c and rule out any three-move finish. An independent census used all simple (n−1)-edge subsets filtered by connectivity, and a descending covered-set DP, not Prüfer sequences or the packaged selected-set recursion. For a legal indication no neighbor has previously been selected, hence the DP depends only on the covered set. Across 1, 3, 16, 125, 1296 labelled trees the violating counts are 0, 0, 0, 0, 360 respectively, testing all inclusions. Every offending labelled tree has a degree-three center with arms of lengths 1,2,2 (the single isomorphism class of T₀); each had 13 violating nested pairs. The all-r classification of the displayed game values follows from strategies, not the finite replay.",
+      "residual_risks": [
+        "The all-pair search is only for isolate-free trees of orders 2–6, and the two family values concern the empty declaration and {f}, not all declarations on that family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "v3 shows an eight-vertex failure with values 2 and at least 3; it asks about ordinary-play tree values versus Γ_t separately",
+          "v2 §2 incorrectly asserted general monotonicity, which v3 disproves",
+          "Resultary 184337b36a20 concerns orientable total domination and vertex deletion"
+        ],
+        "reasoning": "Existential failure in the larger class of graphs cannot specialize to trees. The ordinary-play tree equality question does not quantify over declarations. Orienting or deleting vertices changes the graph/game rather than its initial covered set.",
+        "searches": [
+          "Henning–Rall arXiv:2310.03506v3, continuation §2 and tree question §3; comparison with v2",
+          "Resultary: indicated total domination game continuation failure tree predomination"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Finding and prior-work section",
+        "Henning–Rall arXiv:2310.03506 versions 2 and 3",
+        "Brešar et al. arXiv:2310.14647",
+        "Resultary queries and the 184337b36a20 record above",
+        "S0166218X18304761 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's counterexample is cyclic and needs two declarations in the exhibited comparison",
+          "The related closed-neighborhood game and the alternating game total domination context of S0166218X18304761 do not have the same rules"
+        ],
+        "reasoning": "No inspected result implies the six-vertex cutoff, uniqueness, or existence for every larger order with just one declared vertex. No priority claim is made for general continuation failure.",
+        "searches": [
+          "arXiv:2310.03506v3 §2, p. 5 and §3, p. 7",
+          "arXiv:2310.14647, p. 3",
+          "ScienceDirect PII S0166218X18304761"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Henning–Rall v3 §2 p. 5 uses open neighborhoods and compares the empty set with {u₁,u₄} on a graph with a six-cycle, chord, and two attached leaves",
+          "Brešar et al. arXiv:2310.14647 p. 3 uses closed neighborhoods"
+        ],
+        "reasoning": "Declaring existing domination is predomination, not selecting or deleting a vertex. Henning–Rall's graph example is the same rule but not a tree; the closed-neighborhood indicated game is a different minimax problem.",
+        "searches": [
+          "Literature: \"indicated total domination game\" continuation principle tree counterexample predomination",
+          "Resultary: indicated total domination game continuation principle predomination tree small-order counterexample tree one declared vertex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue near hit 184337b36a20 studies deletion and has a chorded-cycle family rather than an indicated-tree table",
+          "The inspected continuation result supplies one cyclic graph, not a census of trees or their nested declared sets"
+        ],
+        "reasoning": "A catalogue of unlabeled trees would list the shapes but not supply the minimax values for their declarations. The exact finite object of interest is the all-inclusions census through order six; no source inspected supplies it.",
+        "searches": [
+          "Resultary: indicated total domination game continuation principle predomination tree small-order counterexample tree one declared vertex",
+          "Resultary: indicated total domination game continuation failure tree predomination",
+          "Henning–Rall v3, §2"
+        ]
+      },
+      "rationale": "Henning–Rall already show that general-graph continuation fails, but their cyclic eight-vertex witness with two declarations gives neither an acyclic one-declaration obstruction nor the sharp tree cutoff and uniqueness. The comparison supports those specific distinctions; it does not establish exhaustive priority.",
+      "residual_risks": [
+        "The predomination paper's full text could not be inspected, and the local catalogue search is not a proof of no earlier tree-specific result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general-graph precedent; different restricted theorem",
+          "evidence": "Six-cycle, chord and leaves; γ undominated=2 and γ after declaring u₁,u₄≥3. The tree question is Γ_t(T)=γ_t^i(T) in ordinary play.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.03506v3",
+          "material_read": "§2 p. 5 (text offsets about 13900–16291), §3 tree question p. 7 (offset 21872); compared v2 §2 p. 5",
+          "method": "OA PDF passages, version-specific",
+          "title": "Indicated total domination game",
+          "trigger": "Primary source and direct continuation precedent"
+        },
+        {
+          "assessment": "Different game",
+          "evidence": "Staller chooses from the indicated vertex's closed neighborhood and finishes at an ordinary dominating set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.14647",
+          "material_read": "Rules, p. 3, offset 7174",
+          "method": "OA PDF passage",
+          "title": "Indicated domination game",
+          "trigger": "Potential equivalence of indicated-game terminology"
+        },
+        {
+          "assessment": "Different quantity and operation",
+          "evidence": "Directed total domination over valid orientations, removing vertices from a chorded-cycle family, not indicated play with an initial declaration.",
+          "identifier_or_url": "2026/11/2/SCOPE-first-failures-of-vertex-deletion-monotonicity-for-orientable-to--184337b36a20",
+          "material_read": "RESULT.md statement and witness",
+          "method": "Resultary local mirror",
+          "title": "First failures of vertex-deletion monotonicity for orientable total domination",
+          "trigger": "Strongest close catalogue hit"
+        },
+        {
+          "assessment": "Adjacent from abstract; full-text coverage not determined",
+          "evidence": "The accessible description concerns the game total domination number; no detailed theorem inferred from failed retrieval.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X18304761",
+          "material_read": "Search-result abstract only; full text returned HTTP 403 via attempted retrieval routes",
+          "method": "Literature search, OA and page retrieval attempted",
+          "title": "Effect of predomination and vertex removal on the game total domination number of a graph",
+          "trigger": "Predomination in adjacent domination literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5",
+        "Henning–Rall v3 §2",
+        "Independent all-labelled tree census"
+      ],
+      "rationale": "The result locates exactly where a familiar monotonicity principle first fails within trees, identifies the unique first obstruction even allowing arbitrary nested declarations, and uses one already-dominated leaf to force failure at every larger order. This is stronger and structurally different from finding another cyclic example or computing an arbitrary tree invariant.",
+      "residual_risks": [
+        "No classification of larger offending trees, sizes of larger gaps, or resolution of the separate ordinary-tree equality problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

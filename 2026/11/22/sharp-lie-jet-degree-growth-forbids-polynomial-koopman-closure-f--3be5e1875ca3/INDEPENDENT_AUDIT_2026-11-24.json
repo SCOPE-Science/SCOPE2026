@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:04:15.259503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43",
+        "Frozen VERIFICATION.md and gradient_degree_checker.py (inspected, not executed); the all-order check here is analytic via the displayed recurrence"
+      ],
+      "rationale": "Independently, choose a maximizer of |V_d| on the unit sphere with nonzero value; at a, ∇V_d(a)=λa with λ=dV_d(a)≠0 by constrained stationarity and Euler's identity. For any homogeneous H of degree m, the top derivation satisfies (D H)(a)=−λm H(a). Hence for a fixed i with a_i≠0 and m_j=1+j(d−2), (D^k x_i)(a)=a_i(−λ)^k∏_{j=0}^{k−1}m_j, never zero. In the full generator, lower homogeneous terms cannot reach degree m_j+d−2 at the next step, proving the exact degree by induction. This works also on the two-point sphere in one dimension, where every gradient is already radial. Strict degree growth proves independence. If fixed polynomial initialization and a constant matrix reproduced the trajectory via a linear projection, every kth derivative at zero would be a linear combination of the same finite collection of initial polynomials. The assumption holds for all real initial states, so these are polynomial identities; local existence suffices. For degree at most two the gradient is affine and the span including the constant is invariant. The radial strong-convexity example has Hessian (1+||x||²)I+2xxᵀ, so it genuinely lies outside common multi-equilibrium obstructions.",
+      "residual_risks": [
+        "Existence of a fixed coordinate does not assert growth for every coordinate. The argument does not exclude nonpolynomial lifts or restrictions to special proper sets of initial states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv search abstract reports a characterization of polynomial control systems with exact finite-dimensional bilinear polynomial-observable realization containing the coordinates. The full characterization and hypotheses could not be read. Frozen RESULT.md lines 43–51 compares other known criteria, including topological obstructions."
+        ],
+        "reasoning": "A broader characterization can cover qualitative closure if its hypotheses specialize appropriately. The abstract alone does not prove the specific gradient condition or the fixed-coordinate degree identity. A multiple-equilibrium obstruction cannot establish the strongly convex single-equilibrium quartic case.",
+        "searches": [
+          "Primary search: locally finite derivations and gradient polynomial Koopman obstructions",
+          "Rigidity for Lie algebras of locally finite derivations, arXiv:2608.12567",
+          "Bass–Meisters (1985); Coomes–Zurkowski (1991); Brunton et al. (2016)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Resultary exact and semantic searches",
+        "Primary search excerpt for arXiv:2608.12567; bounded cited-source retrieval and comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact proof uses a nonzero radial critical direction for the leading real homogeneous potential, ensuring no cancellation in the maximal degree at any iteration. The prior descriptions concern existence or detection of closure, or structure of locally finite derivations."
+        ],
+        "reasoning": "Failure of a finite Lie span entails unbounded degree, since polynomials of bounded degree form a finite-dimensional space; it does not entail growth by exactly d−2 each time in one fixed coordinate. No available broader result gave that stronger conclusion. The older polynomial flow results and the more recent rigidity result could cover part of the qualitative conclusion.",
+        "searches": [
+          "arXiv:2608.12567, exact targeted gradient/locally finite comparison; html and PDF access attempts",
+          "Frozen RESULT.md lines 19–37 and 45–51"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 19–37, 45–59; any finite invariant space containing coordinates makes each coordinate's Lie span finite."
+        ],
+        "reasoning": "For a polynomial derivation, finiteness on coordinate generators implies local finiteness on the whole polynomial algebra: derivatives of a product remain in the finite span of products from the corresponding finite Lie spans. This reformulation gives exactly the qualitative obstruction, not the asserted sharp rate. The classical equivalence is prior, not the novelty claim.",
+        "searches": [
+          "Resultary: Euclidean polynomial gradient Koopman closure, Lie-jet degree growth and locally finite derivations",
+          "Harshana–Belabbas arXiv:2503.13849; Coomes–Zurkowski (1991)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending 3be5e1875ca3 is the same frozen finding. No distinct exact-degree law was returned in the bounded catalogue results."
+        ],
+        "reasoning": "The quantity is a universal all-orders theorem, not a fixed finite data table. Exact-formula matching therefore targeted the indexed theorem statement, not finite symbolic jets.",
+        "searches": [
+          "Resultary searches for the formula 1+k(d−2), a fixed coordinate, and polynomial gradient Koopman closure"
+        ]
+      },
+      "rationale": "The finite-Lie-span criterion and general theory of locally finite derivations are not new. The supported distinct claim is the maximal exact degree slope for a single fixed state coordinate at all orders for every real Euclidean polynomial gradient field, and the resulting sharp scope-specific obstruction. No available statement was shown to subsume that degree theorem; there is unresolved historical and recent qualitative overlap risk.",
+      "residual_risks": [
+        "The rigidity paper's theorem and the older polynomial-flow classification were not fully inspectable; priority of the qualitative consequence remains open. Catalogue nonmatches are not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible qualitative overlap, no demonstrated exact degree coverage",
+          "evidence": "Available excerpt advertises exact finite-dimensional bilinear realizations of polynomial control systems with polynomial observables containing the state coordinates.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.12567",
+          "material_read": "Search-result abstract excerpt; no full-text theorem passage obtained",
+          "method": "Focused primary lookup and targeted lawful HTML/PDF retrieval attempts",
+          "title": "Rigidity for Lie algebras of locally finite derivations",
+          "trigger": "Potentially subsuming state-inclusive polynomial realization characterization"
+        },
+        {
+          "assessment": "Potential source for the qualitative obstruction; exact degree law not established by material read",
+          "evidence": "The frozen text identifies this reference as an unresolved historical route, not evidence of its precise scope.",
+          "identifier_or_url": "Coomes and Zurkowski, J. Dyn. Diff. Equat. 3 (1991), 29–66",
+          "material_read": "Frozen RESULT.md lines 45–59 and cited bibliographic item; full-text passage not confirmed",
+          "method": "Source-specific retrieval attempt and statement-level comparison to the criterion",
+          "title": "Linearization of polynomial flows and spectra of derivations",
+          "trigger": "Potential historical characterization of polynomial flow and local finiteness"
+        },
+        {
+          "assessment": "Credit the lift criterion; no evidence in the material obtained of the real-gradient degree classification",
+          "evidence": "The frozen comparison distinguishes polynomial coordinate invariance from the exact gradient-specific degree theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.13849",
+          "material_read": "Frozen RESULT.md lines 45–59; no independent full-text passage confirmed",
+          "method": "Targeted cited-source comparison and OA attempt",
+          "title": "On the invariance of super-linearization under polynomial automorphisms",
+          "trigger": "Same polynomial finite-lift notion and Lie-span criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 19–47"
+      ],
+      "rationale": "This supplies a quantitative, all-dimensions obstruction in a canonical dynamics class, not just one counterexample. Exact maximal degree growth gives a simple test for when a finite state-inclusive polynomial dictionary is impossible, even for a globally strongly convex single-equilibrium system. It complements, rather than restates, topological or conditional finite-dictionary criteria.",
+      "residual_risks": [
+        "No quantitative approximation-error lower bound, no obstruction to arbitrary observables, and no global trajectory requirement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

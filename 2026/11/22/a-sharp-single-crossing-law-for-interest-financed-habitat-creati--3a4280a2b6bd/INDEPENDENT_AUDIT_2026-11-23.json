@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:10.992066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a deterministic date s, solve P'=q−(q+μ)P with P(0)=0, then set q=ae^(rs), t=H−s and y=q+μ. This gives F(s)=q(1−exp(−yt))/y. Differentiating with q'=rq and t'=−1 gives F'=q exp(−yt)(rB−1). To check the critical strict inequality independently, put x=yt, p=μ/y and z=exp(x)−1. Then yB=(1−p)x+pz, B_t=1+pz, and yqB_q=p(1−p)[(x−2)z+2x]. Expanding gives y(B_t B−qB_q)=p²z(z+1)+p(1−p)(3z−x)+(1−p)²x>0 for t>0. Thus at any zero of G(s)=rB−1 before H, its derivative is strictly negative, using r=1/B at the zero. With G(H)=−1, two downward zeros would force an intervening non-downward zero, which is impossible. At r=r_c the endpoint zero itself has negative derivative. This proves uniqueness in both regimes including r=0, without assuming that G is globally decreasing. The identity B=t+μ∫₀ᵗ(t−u)exp((q+μ)u)du proves strict decrease of r_c in a,μ,H and r_c<1/H. The no-extinction expression reduces to maximizing ae^(rs)(H−s) and gives the stated comparison. Independent bisection for a=μ=H=r=1 gave s*=0.364045975707 and occupancy 0.464936881234 versus 0.432332358382 at zero, with r_c=0.476811688088. At r=0.6 with those other parameters, delay still wins, directly illustrating the sub-unit rH regime. RESULT.md, VERIFICATION.md and check.py were inspected, not executed; the finite 4,498-check run is reported by the frozen verification file, not an independent certificate. All conclusions are for a single initially empty created patch with fixed rates after creation and a terminal occupancy reward.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The search results for Southwell et al. identify occupancy-state-dependent schedules and spatial dynamics; a JSTOR excerpt points to appendices for 64 states and objective/horizon variants. These are discovery evidence, not an inspection of model-inclusive coverage.",
+          "The available Iacona comparison in the frozen record is investment timing for a deterministic species-area/extinction-debt objective; primary equations were not retrieved."
+        ],
+        "reasoning": "A spatial stochastic optimizer could contain a descendant of the one-target problem, so it cannot be ruled out from an abstract. The evidence presently available does not establish an analytical sharp one-crossing criterion for this transient objective. Likewise an existence or Bellman principle would not imply uniqueness or the threshold by specialization alone.",
+        "searches": [
+          "DOI 10.1002/eap.1666, PMID 29266594, Minerva 1aab5c36-1fff-5707-963e-e11748abf946, JSTOR 26623163",
+          "DOI 10.1073/pnas.1702111114, PMCID PMC5625895",
+          "Resultary c2a414fb8e87 and acc3d9cfe952"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary self hit 3a4280a2b6bd and distinct RESULT.md records c2a414fb8e87 and acc3d9cfe952",
+        "Southwell et al. 10.1002/eap.1666 (bibliographic and access comparison only)",
+        "Iacona et al. 10.1073/pnas.1702111114 (identification and access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known occupancy dynamics and the idea of reaping interest by waiting are antecedents. The present comparison instead uses B_t B−qB_q>0 specifically on the stationary-date condition rB=1 and shows that no second local maximum can occur."
+        ],
+        "reasoning": "Even if a prior numerical setup allowed a single created patch and the same objective, a numerical schedule or the forward equation alone would not yield the strict all-parameter threshold. The inspected alternative one-crossing theorem concerns trajectory differences, not critical dates of an objective. The possibility of an uninspected analytical special case is retained as a risk.",
+        "searches": [
+          "10.1002/eap.1666 and its institutional or bibliographic records",
+          "Resultary c2a414fb8e87 and acc3d9cfe952",
+          "10.1073/pnas.1702111114 and PMCID PMC5625895"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c2a414fb8e87 optimizes a release date for a second site over competing irreversible first arrivals; Resultary acc3d9cfe952 compares three-state occupancy trajectories, not creation times.",
+          "The publisher and bibliographic search records for Southwell et al. describe a spatial metapopulation with compensatory patch creation and an interest-rate-dependent timing decision. These are conceptually close, but the model equations were not retrieved."
+        ],
+        "reasoning": "Rewriting this as a two-state reliability model or a deterministic one-shot Markov reward makes equivalence depend on the exact transient empty-to-occupied CTMC, constant extinction and the derivative of q(s). Neither competing absorption nor time rescaling of a different three-state chain supplies these ingredients.",
+        "searches": [
+          "Local Resultary semantic lookup for investment-financed habitat timing, occupancy one-crossing and optimal opening",
+          "Southwell Heard McCarthy 10.1002/eap.1666 Optimal Timing of Biodiversity Offsetting for Metapopulations pdf author repository single patch occupancy offset colonization interest",
+          "Iacona Possingham Bode 10.1073/pnas.1702111114 Waiting Can Be an Optimal Conservation Strategy even in a crisis discipline accepted manuscript repository pdf species area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 3a4280a2b6bd is the same frozen finding, not independent coverage. The distinct closest index theorems were inspected in their actual RESULT.md files.",
+          "The available JSTOR search excerpt mentions computed schedules for a finite set of occupancy states but is not sufficient to establish what analytic statements the article or appendices contain."
+        ],
+        "reasoning": "The claim classifies all positive rate/horizon parameters continuously, so a finite timing table is not itself an equivalent threshold; no mathematical match was established in the inspected distinct indexed records.",
+        "searches": [
+          "Local Resultary lookup for exact appreciation thresholds and unique optimal habitat release or creation dates",
+          "Southwell et al. bibliographic listings, 10.1002/eap.1666 and JSTOR 26623163"
+        ]
+      },
+      "rationale": "The bounded evidence supports the distinct exact result for an empty target with exogenous colonists and fixed-rate recolonization after creation. The most relevant published offsetting work already studies interest-financed delay and gets credit for that timing concept; its stronger possible relation to this special case remains unresolved because the full paper was inaccessible. The actual closest indexed statements do not give the optimizer or comparative statics. This is not a priority verdict on interest-financed timing generally.",
+      "residual_risks": [
+        "The Southwell paper and its appendices were not inspected despite identified publisher and alternate routes; they could contain a similar or model-inclusive special case.",
+        "Primary comparison to Iacona et al. remained inaccessible to the tools used. Other optimal-stopping or reliability literature may use different terminology. Historical priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial conceptual overlap; exact/model-inclusive coverage unresolved, not excluded",
+          "evidence": "Available excerpts describe state-dependent patch creation in an interest-financed spatial metapopulation. Publisher and alternate routes did not deliver usable primary passages for the rate law, objective and analytic conclusions.",
+          "identifier_or_url": "https://doi.org/10.1002/eap.1666",
+          "material_read": "Publisher and public bibliographic search excerpts only; no primary full text or appendices read. PubMed 29266594, University of Melbourne Minerva item 1aab5c36-1fff-5707-963e-e11748abf946, and JSTOR 26623163 were located.",
+          "method": "Targeted literature search, lawful DOI and publisher retrieval, and alternate institutional and bibliographic retrieval attempts",
+          "title": "Optimal Timing of Biodiversity Offsetting for Metapopulations",
+          "trigger": "Closest published match to interest-financed delay and stochastic patch occupancy"
+        },
+        {
+          "assessment": "Potential analytic timing analogue; no whole-paper exclusion based on failed retrieval",
+          "evidence": "The frozen comparison describes a deterministic species-area/extinction-debt objective, as opposed to a recolonizing target's terminal probability. This scope comparison was not independently verified from equations.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.1702111114",
+          "material_read": "Bibliographic identification and the limited comparison in the frozen report; no usable primary passages retrieved",
+          "method": "Lawful DOI, PNAS, PMC5625895 and Europe PMC retrieval attempts plus targeted open-copy lookup",
+          "title": "Waiting Can Be an Optimal Conservation Strategy, Even in a Crisis Discipline",
+          "trigger": "Published analytic timing formula for appreciating conservation funds"
+        },
+        {
+          "assessment": "Different dynamics, reward and conclusion",
+          "evidence": "Second-site release optimizes both sites' native occupancy despite competing first arrivals. Rates are fixed, outcomes irreversible, and there is no extinction, recolonization or interest threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-interior-release-law-for-invasion-exposed-habitat-re--c2a414fb8e87",
+          "material_read": "RESULT.md offsets 0–3528, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection after Resultary search",
+          "title": "A universal interior release law for invasion-exposed habitat restoration",
+          "trigger": "Closest distinct indexed optimum over a release date at a deadline"
+        },
+        {
+          "assessment": "Different mathematical object and crossing variable",
+          "evidence": "Contrasts occupancy trajectories at different turnover speeds in a three-state suitability/occupancy CTMC; it does not optimize a one-shot creation date.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-one-crossing-law-for-occupancy-under-accelerated-hab--acc3d9cfe952",
+          "material_read": "RESULT.md offsets 0–1387, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection after Resultary search",
+          "title": "A universal one-crossing law for occupancy under accelerated habitat turnover",
+          "trigger": "Distinct indexed occupancy one-crossing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "With a fixed census, interest improves later colonization while waiting removes occupancy time, and even this one-target tradeoff is not decided by a general first-order condition alone. The exact unique-optimum classification isolates the effect of extinction: increasing it strictly lowers the rate required to justify waiting, even below the no-extinction rH=1 threshold. It provides a motivated analytic benchmark separating colonization and extinction effects, without implying that delay improves spatial conservation outcomes generally.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

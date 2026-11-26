@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:52.154310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and printed sets",
+        "VERIFICATION.md and verify.py, inspected but not executed",
+        "Sarkar, Hansda and Maji, arXiv:2608.04889v1, Example 1",
+        "Independent finite label census: /workspace/review-evidence/3.js, replay with node"
+      ],
+      "rationale": "The nonzero first blocks are distinct so a pair is a repair exactly when its two columns sum to the target column. A helper determines its partner uniquely, so the target's pair count is already the disjoint availability. Two positions in one spread member force all three into it, where the label must vanish; this gives 2^(m-1)-1 internal pairs. Otherwise each two other members are complementary subspaces, giving exactly one decomposition with both summands nonzero, and the label XOR decides if it works. Independent enumeration of the 17 printed labels gives 33 zero-XOR distinct-index triples, t=(4,3,9,6,4,3,8,8,6,6,7,6,9,12,12,12,12), the asserted histogram after multiplying by 15, and 33*15+4*35=635 dual supports. For the distance, the annihilators of the spread members partition the nonzero dual vectors, so a nonzero linear functional vanishes on exactly one member and is balanced on every other member before deleting zero. If u members are selected by the label functional, the mixed weights are 128-u or 144-u; the pure label weights are 15u. The recalculated nonzero u range is 4 to 9, with u=4 for the first two indicator rows summed. Thus rank 12 and distance 60 follow on every realization, not just the test spread. All 17 subspaces of dimension four in dimension eight fill the nonzero vectors since 17*15=255.",
+      "residual_risks": [
+        "The frozen Desarguesian-instance check is corroborative only; no fresh replay of the frozen program was used. The theorem applies to the index sets as printed, not to a possible intended different example."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Ge IV.5/IV.6 and IV.10/IV.11 construct different locality/distance families using partial spreads.",
+          "Resultary 8a93f68a5775 counts weight-three checks through a coordinate in two trinomial trace-code classes. Resultary ac1dd2c59a8f counts generalized-weight minimizers in affine-half codes with duplicated positions."
+        ],
+        "reasoning": "These constructions and code invariants do not give an arbitrary full-spread label XOR count or imply this example's profile.",
+        "searches": [
+          "Ma–Ge arXiv:1711.07138v1, abstract and Section IV",
+          "Resultary search: repair incidence and partial-spread codes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.04889v1",
+        "arXiv:1711.07138v1",
+        "Resultary 9363868e508b, 8a93f68a5775, ac1dd2c59a8f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even a correct ordinary weight enumerator determines global dual weight-three multiplicity via MacWilliams, not its incidences by coordinate; a partition of checks likewise does not count all possible checks.",
+          "The index sets themselves furnish a direct weight-60 correction via S1 symmetric difference S2."
+        ],
+        "reasoning": "The weight correction is an elementary consequence of the printed construction, not a new code construction or a new weight theory. The coordinatewise profile and spread-independence require counting local incidences beyond the reported global data.",
+        "searches": [
+          "arXiv:2608.04889v1, Example 1 weight enumerator",
+          "arXiv:1711.07138v1, Definition II.9 and Section IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9363868e508b classifies two-helper profiles for three-subspace punctured simplex codes, not these four indicator rows on a full spread.",
+          "Ma–Ge's disjoint repair groups are a partition into local-check supports, not alternatives through a fixed coordinate."
+        ],
+        "reasoning": "Neither the dual-triple formulation nor the disjoint-groups terminology identifies these different code families and distinct notions of disjointness.",
+        "searches": [
+          "Resultary semantic search: four-label binary spread repair availability; Sarkar–Hansda–Maji",
+          "Ma–Ge arXiv:1711.07138v1, Definition II.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper prints exactly the four tested sets and a weight enumerator with first nonzero weight 75. It does not tabulate this coordinate availability profile; the printed enumerator disagrees with the weight-60 witness from the sets."
+        ],
+        "reasoning": "This is the exact prior construction and its reported global weight table, not a table of pair incidences; the retrieved Resultary matches treated other objects.",
+        "searches": [
+          "Sarkar–Hansda–Maji arXiv:2608.04889v1, Example 1",
+          "Resultary semantic same-code lookup"
+        ]
+      },
+      "rationale": "The code construction is prior work. The distinct supported result is the full alternative two-helper incidence profile and its full-spread counting rule, together with the verified correction to the printed example. None of the confirmed exact or neighboring sources supplies that local incidence result.",
+      "residual_risks": [
+        "The general literature query returned no useful relevant hits; the judgment rests on retrieved source comparisons, not a proof that related or unindexed work is absent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact construction is known; printed distance/weight table does not match that construction; no local profile in this example",
+          "evidence": "The four sets match and the example labels the code [255,12,75], printing a z^75 leading nonconstant term.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04889v1",
+          "material_read": "Example 1, PDF p. 12, text offset 41598",
+          "method": "Read bounded primary paper text",
+          "title": "Minimal Binary Linear Codes of Dimension n+4 from Partial Spreads and Their Dual Access Structures",
+          "trigger": "Exact same printed construction and conflicting distance"
+        },
+        {
+          "assessment": "Different construction and disjointness notion",
+          "evidence": "Relaxed notion here would be misleading: the paper's disjoint repair groups partition coordinates by their local check supports.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.07138v1",
+          "material_read": "Abstract, Definition II.9 p. 3, Construction IV.5/Theorem IV.6 p. 6 and IV.10/IV.11 p. 7",
+          "method": "Read identified primary paper passages",
+          "title": "Optimal Binary Linear Locally Repairable Codes with Disjoint Repair Groups",
+          "trigger": "Partial-spread methods and apparent alternative repair groups"
+        },
+        {
+          "assessment": "Different code construction",
+          "evidence": "Profiles of three-subspace punctures include [22,5,10]_2 examples; no four-label 255-position evaluation code in the matching claim.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-helper-repair-availability-spectra-for-three-subspace--9363868e508b",
+          "material_read": "Indexed scientific finding",
+          "method": "Local Resultary comparison",
+          "title": "Exact two-helper repair availability spectra for three-subspace punctures",
+          "trigger": "Closest Resultary exact-spectrum hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, general formula and Example 1 specialization",
+        "arXiv:2608.04889v1, Example 1"
+      ],
+      "rationale": "An exact per-coordinate failure-recovery profile for a specified existing code distinguishes coordinates with three disjoint local options from those with twelve, which global distance or the total number of dual triples cannot do. The reusable full-spread count explains why the profile is intrinsic to the labels, and the distance witness materially corrects how the published example can be used.",
+      "residual_risks": [
+        "No general tradeoff optimality, classification of larger repair groups, or asymptotic claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

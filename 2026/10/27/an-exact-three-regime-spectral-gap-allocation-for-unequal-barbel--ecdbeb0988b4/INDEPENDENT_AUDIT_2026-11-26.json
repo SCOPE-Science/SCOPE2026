@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:17:47.863069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Center the four scalar levels 0,t,t+1,t+2 with group sizes r,1,1,q-1, and attach a centered simplex of squared radius 1-t² to the r left leaves. The spokes and bridge have unit length, the right internal edges collapse, and the left internal squared length is 2r(1-t²)/(r-1), giving t≥sqrt(p/(2r)) for r>1. For p=q=2 the interval is just t=1 and the simplex is zero. The centered squared norm is the scalar squared deviation plus r(1-t²), which expands to the stated D(t). Summing the Laplacian Rayleigh inequalities over coordinates gives lambda_2 D(t)≤B; maximizing the quadratic clips t0 as claimed and yields the three cases including both equality boundaries. At t=t*, the left and right leaf equations fix a and b, summing the eigen-equations over the larger clique fixes the bridge h=lambda(p mu-t), and the remaining equations follow by balance. All three are positive: mu>0, t+1>mu, and p mu-t=(q r t+p(2q-1))/N>0. Both contrast blocks have eigenvalues at least lambda (left a+rc, right b, when present); when t<1 the simplex gives the left contrast eigenvalue lambda. The positive scalar gradients on the three quotient edges identify lambda as the least eigenvalue of C^(1/2) Delta M^(-1) Delta^T C^(1/2), by the negative off-diagonals and irreducibility. This proves it is the first positive quotient eigenvalue. All positive conductances are on unit-length embedding edges, so the coordinate eigen-equations give the exact budget lambda D*. Equality for any competing allocation forces zero on short edges and the eigen-equations individually on each scalar coordinate level. In particular the individual spoke weights are forced at leaves and the bridge is forced by summing over one clique. When t<1 the simplex coordinates span the left-leaf zero-sum space and determine its internal Laplacian to be (lambda-a) times the orthogonal projector; when t=1 the left internal weights vanish by strict slackness. This proves unrestricted uniqueness even at equality of the regime conditions. The wording about activated edges concerns non-spoke clique edges; the spokes and bridge are positive throughout. Frozen barbell_verification.py and VERIFICATION.md were inspected, not run; the supplied NumPy sweep is diagnostic, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed biclique-gateway theorem uses equal orders and k≥2 gateways per side with every cross-gateway edge present. Song et al.'s institutional abstract states its barbells are cycles joined by a path and it studies unweighted extremal/perturbation questions."
+        ],
+        "reasoning": "Neither family contains the general unequal-clique single-bridge budgeted problem as a stated specialization. The generic fastest-mixing SDP covers its formulation, not the result of solving it.",
+        "searches": [
+          "Resultary: exact conductance allocation for two cliques, barbell and three regimes",
+          "The algebraic connectivity of barbell graphs 114027 Song open access pdf author preprint"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and barbell_verification.py",
+        "Resultary ranked index and biclique-gateway RESULT.md",
+        "Sun et al. §4.1",
+        "Richter–Rocha double brooms",
+        "Ghosh–Boyd–Saberi §V",
+        "Song et al. institutional abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spokes and bridge form the diameter-three double broom. Directly, removing its absent left-leaf length constraint lets the embedding optimize at min(1,t0); the stated spoke/bridge construction with c=d=0 attains that tree value. This agrees in the first two regimes and gives denominator p+4q-4 in the third, where the full value is strictly larger. The effective-resistance comparator solves the sum of pairwise resistances on a balanced barbell."
+        ],
+        "reasoning": "The earlier tree result genuinely accounts for the first two values, but cannot assign weight to an absent edge or force the third clipping boundary. The resistance objective is not the worst Rayleigh quotient; its minimizer does not imply this optimizer.",
+        "searches": [
+          "Richter–Rocha Theorem 1, diameter-three double broom",
+          "Ghosh–Boyd–Saberi, Min. Effective Resistance §V",
+          "2026/10/26 biclique gateway Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The budgeted objective is identical up to budget scaling to absolute algebraic connectivity; the reciprocal unit-budget gap is the maximal centered variance with unit edge-length bounds."
+        ],
+        "reasoning": "The dual formulation and scaling are known; the new content is its solution with the competing left-leaf length constraint, not the equivalence.",
+        "searches": [
+          "continuous-time fastest mixing, maximum variance unfolding, absolute algebraic connectivity",
+          "Sun et al. DOI 10.1137/S0036144504443821 §4.1",
+          "Richter–Rocha PREPRINT_10.pdf Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That indexed theorem activates within-clique gateway edges, forces nongateway pairs to zero, and gives uniqueness in the symmetry-invariant class. It does not state the single-bridge formula or a table of its cases."
+        ],
+        "reasoning": "The activated edge classes and admissible parameter families are distinct; k=1 is excluded by the gateway theorem and would not provide unequal clique orders anyway.",
+        "searches": [
+          "Resultary: unequal single-bridge weighted barbell, three-regime optimal gap",
+          "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846/RESULT.md Finding"
+        ]
+      },
+      "rationale": "The variance-unfolding dual and the optimum realized by the double-broom support are covered. A separate indexed gateway result also exhibits three regimes but on a different topology and activates different edges. The supported distinct result is the exact single-bridge unequal-clique solution, in particular the third-regime transition where the larger clique's non-spoke edges necessarily become positive and the optimum exceeds the tree-support value. No inspected result covers the full formula and unrestricted uniqueness.",
+      "residual_risks": [
+        "Song et al. full text was not accessible through the routes checked; the abstract establishes the stated geometry and optimization contrast only. The bounded search is not an exhaustive priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general primal/dual framework, no exact target allocation in inspected passages",
+          "evidence": [
+            "Maximization of lambda_2 with linear constraints; centered point variance with edge-distance constraints."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "PDF opening near offset 900 and §4.1, printed pp. 689–690, offsets 25700–30741",
+          "method": "OA PDF bounded passages",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "general graph rate-budget dual"
+        },
+        {
+          "assessment": "direct tree-support overlap, cannot give non-tree activation",
+          "evidence": [
+            "Nonnegative weights summing to |E|, formula for double brooms and variance embedding."
+          ],
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+          "material_read": "Definition in pp. 1–2 and optimization and Theorems 1 and 3 opening, offsets 3500–8374",
+          "method": "OA PDF literal locator and bounded read",
+          "title": "Absolute algebraic connectivity of double brooms",
+          "trigger": "exact budgeted comparator for the same spoke-and-bridge tree"
+        },
+        {
+          "assessment": "material activation analogy, not theorem coverage",
+          "evidence": [
+            "Equal clique orders with complete bipartite gateway and k≥2; within-clique gateway activation, no nongateway-nongateway weights, symmetry-restricted uniqueness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846/RESULT.md",
+          "material_read": "Finding, geometry and opening symmetry proof, offsets 0–3936",
+          "method": "local mirror bounded read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with a biclique gateway",
+          "trigger": "closest indexed three-regime optimizer"
+        },
+        {
+          "assessment": "related graph, different objective",
+          "evidence": [
+            "Sum of pairwise resistances and symmetric three-class balanced solution."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Abstract (offset 0) and §V, offsets 67000–72462",
+          "method": "OA PDF bounded passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "analytic solution for a balanced single-bridge barbell"
+        },
+        {
+          "assessment": "the abstract describes a different graph and objective; no full-document conclusion",
+          "evidence": [
+            "Its barbell is two cycles joined by a path, and the abstract discusses minimizing unweighted connectivity in graph classes and graph perturbations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114027",
+          "material_read": "Northwestern Polytechnical University institutional abstract at https://pure.nwpu.edu.cn/en/publications/the-algebraic-connectivity-of-barbell-graphs/ offsets 450–1641; not full text",
+          "method": "publisher access unsuccessful; lawful identified institutional abstract located and read",
+          "title": "The algebraic connectivity of barbell graphs",
+          "trigger": "same terminology and spectral invariant in title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bottleneck of a single bridge makes the spoke tree a natural guess. The two thresholds show when this support remains optimal, when a contrast mode first becomes binding, and when the largest clique genuinely needs internal edges. The certificate establishes exact value and individual conductances in a natural family, including the unrestricted uniqueness and boundary behavior, rather than just a numerical instance or a balance approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

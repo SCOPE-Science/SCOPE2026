@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:22.429987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 60–194 in exact arithmetic. The fixed-point quadratic has product -qr/h² and sum q-(1-a²)r/h². Since p>q and h²p+r=a²rp/(p-q)>a²r, and h²p+r>r, the projective multiplier ρ lies strictly between zero and one. Write t=t(P_n) and Δ=P_{n+1}-P_n. From the inverse φ(t)=(p-mt)/(1-t), the ratio of successive increments is ρ(1-t)/(1-ρ²t), so the second difference divided by Δ is (ρ-1)(1+ρt)/(1-ρ²t). Substituting gives φ(ρ²t²) for the extrapolate wherever defined. For 0<|a|≤1, P₁≥q>(p+m)/2, so -1<ρt<0 for all triples from a lower start: no denominator vanishes, raw iterates increase below p, and squared coordinates give decreasing upper bounds. With h=r=1, P₀=0 and 0<q<a²-1, the second difference is positive and the first extrapolate is -q(q+1)/(a²-1-q), independently verifying sharpness. The formal identity at arbitrary t is understood only away from poles and zero differences. The proof does not cover finite precision, feedback of extrapolates, matrix covariances or over-starts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carli–Sepulchre discuss projective/Hilbert-metric contraction of Riccati maps and zero-start monotone convergence.",
+          "The broader scalar Steffensen result bounds absolute error after restart for arbitrary scalar contractions, including a refinement for nondecreasing maps."
+        ],
+        "reasoning": "Neither norm contraction nor its worst-case accelerated error factor fixes which side of p the estimate lies on, much less gives the exact cross-ratio update or uniform gain threshold.",
+        "searches": [
+          "arXiv:1503.09113, Introduction",
+          "DOI 10.1017/S1446181110000076, Introduction and Theorem 3.4",
+          "Resultary record 6741f4b1d748"
+        ]
+      },
+      "checked_sources": [
+        "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+        "arXiv:1503.09113",
+        "DOI 10.1017/S1446181110000076",
+        "DOI 10.3934/math.2026971 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The discrete Kalman projective analysis supplies the raw convergence setting, not the Aitken denominator or bracketing sign.",
+          "The latter follows here from the sign of 1+ρt, which can switch even with an attracting positive Riccati root. Transport-theory overlap is not resolved by whole-document inspection."
+        ],
+        "reasoning": "A bound using a generic contraction constant cannot recover the first-iterate midpoint test or distinguish open-loop gain from stability of the positive fixed point.",
+        "searches": [
+          "arXiv:1503.09113",
+          "DOI 10.3934/math.2026971",
+          "DOI 10.1017/S1446181110000076",
+          "Resultary record 6741f4b1d748"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local contraction result concerns restarted Steffensen and norm-error factors, not a signed crossover of raw three-point extrapolates.",
+          "Equivalently the audited identity makes the Aitken value the Newton step for (X-p)(X-m) at X=P_{n+1}; that follows by rewriting φ(t(X)²)=(X²-pm)/(2X-p-m). Riccati contraction alone does not provide that three-point relation."
+        ],
+        "reasoning": "Compared fixed-point acceleration and projective formulations rather than requiring Kalman-specific terminology. A Newton update for a quadratic as such is not the new claim; the equality of that step to Aitken on the raw orbit is the relevant comparison.",
+        "searches": [
+          "Resultary: Aitken–Steffensen / scalar contraction robustness",
+          "arXiv:1503.09113",
+          "DOI 10.3934/math.2026971",
+          "Möbius/projective Riccati and Aitken comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed Resultary formula is a contraction-factor frontier, rather than covariance bracketing; the Kalman comparison is an analytic convergence result."
+        ],
+        "reasoning": "No numerical table is a plausible certificate for this continuum-wide identity and boundary; compared the closest indexed exact formula instead.",
+        "searches": [
+          "Resultary record 6741f4b1d748",
+          "arXiv:1503.09113"
+        ]
+      },
+      "rationale": "The inspected material covers the projective viewpoint, convergence, or Aitken robustness separately, not the coupled exact relation, monotone covariance certificate, and sharp parameter-uniform bracketing boundary. Credit the classical projective conjugacy and raw monotonicity separately; this is a best-of-knowledge finding about the stated combination, not a priority claim about those ingredients.",
+      "residual_risks": [
+        "Older fractional-linear iteration, continued-fraction, or acceleration literature may express the same Aitken/Newton identity with different terminology.",
+        "The transport Riccati paper's unavailable body could contain a related identity not visible from its description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material background overlap, not covering the scalar Kalman certificate",
+          "evidence": "Worst-case factor 2q²/((1-q)(1+2q)) for restarted Aitken–Steffensen, with a refinement for nondecreasing contractions.",
+          "identifier_or_url": "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+          "material_read": "RESULT.md finding, offsets 0–2328 in the retrieved snapshot",
+          "method": "Local Resultary search and mirror reader",
+          "title": "Aitken–Steffensen contraction stability frontier",
+          "trigger": "Closest indexed Aitken robustness and threshold result"
+        },
+        {
+          "assessment": "Covers the projective framework and raw convergence, not the tested Aitken claim in the inspected passage",
+          "evidence": "Zero-start monotone covariance convergence and Hilbert-metric contraction discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09113",
+          "material_read": "Introduction, p. 1, offsets 3920–9616",
+          "method": "Bounded OA full-text excerpts",
+          "title": "On the Projective Geometry of Kalman Filter",
+          "trigger": "Projective geometry of the same covariance recursion"
+        },
+        {
+          "assessment": "Different filtering hypotheses and matrix recursion",
+          "evidence": "Riccati difference equations for time-delayed Markovian-jump models.",
+          "identifier_or_url": "https://doi.org/10.1017/S1446181110000076",
+          "material_read": "Introduction p. 2 and Theorem 3.4 p. 8, around offsets 5200 and 28600",
+          "method": "Bounded OA full-text excerpts",
+          "title": "Optimal Filtering in Discrete-Time Systems with Time Delays and Markovian Jump Parameters",
+          "trigger": "Filtering via Riccati difference equations"
+        },
+        {
+          "assessment": "Access-limited; no whole-document noncoverage asserted",
+          "evidence": "Identifies a nonsymmetric transport-theory algebraic Riccati problem, not a scalar Kalman covariance problem.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2026971",
+          "material_read": "Citation and abstract-level description reported in the frozen evidence; no independently readable body located",
+          "method": "Publisher/DOI OA attempts and alternate-copy lookup",
+          "title": "An Aitken method for accelerating the solution of the non-symmetric algebraic Riccati equation in transport theory",
+          "trigger": "Direct overlap in Aitken and Riccati terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact signed error law explains when a standard extrapolation certifies an upper covariance bound and gives an explicit nonphysical extrapolate beyond the uniform threshold. This matters as a diagnostic for extrapolation, even though the scalar fixed point can itself be found by a quadratic formula. It is not a claim of a faster or more stable finite-precision solver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

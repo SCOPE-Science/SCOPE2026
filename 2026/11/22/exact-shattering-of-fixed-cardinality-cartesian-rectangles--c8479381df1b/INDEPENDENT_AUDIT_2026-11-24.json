@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:05:16.280425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a length-three simple path, positive end edges force the middle edge positive. In a bipartite graph absence of such paths makes each nontrivial component a star. For a left star with h>0 positives, its center and exactly the h specified leaves must be selected; for h=0 the disjoint choices are omit the center with any leaf subset or select the center with no leaves. These give the claimed inventory factors, with exchanged sorts on right stars. Components and unused vertices have disjoint coordinates, so coefficient multiplication counts completions for the exact quotas; permuting leaves reduces the labels to their h vector. In the padded region, the all-positive label tests the incident quotas. For any other label choose the positive endpoints (a negative edge has a degree-one endpoint not selected this way), then fill from unused coordinates. The labeled exponential formula counts the two star orientations with isolated edges included once. A nonempty forest has ell+t−number_of_components edges; the one-star and two-or-more-star bounds, and explicit stars attaining them, give the VC formula. For r,s≥3 the maximal edge count forces two nontrivial stars of opposite center sorts on all r+s available incident slots; choosing the two centers gives rs configurations on each active vertex set. Empty supports and quota one are included. My separate trace-fiber replay (`/tmp/opencode/frozen-review-repro.py rectangles`) reproduced the complete polynomials of the (4,6;2,3), (6,6;3,3) and (5,5;3,3) cases and checked aggregate face counts on the 3×3 grid for all nine positive quota pairs. Source code and recorded runs were inspected, not executed. No extrapolation from finite checks or assertion of necessary padding is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted rectangle result gives iff star forest for arbitrary factors and an enumerator.",
+          "Manurangsi gives hardness of dimension approximation for explicitly represented concept classes via maximum unbalanced biclique."
+        ],
+        "reasoning": "Shattering by the larger family does not give exact-quota witnesses inside it, even for one cell when both factors are forced to be full. Hardness in arbitrary inputs neither supplies this special support criterion nor implies its formulas.",
+        "searches": [
+          "Resultary ...41f165ae6da1, Finding/assumptions/proof offsets 0–3200",
+          "Manurangsi DOI:10.4230/LIPIcs.ITCS.2023.85, abstract and p. 3 (offset 9116)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ...41f165ae6da1, ...83f66320ef8a and ...cba8fc708d0d",
+        "DOI:10.4230/LIPIcs.ITC.2021.16 and DOI:10.4230/LIPIcs.ITCS.2023.85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-point Cartesian rectangle result already classifies VC and online dimensions for exact quotas (2,2) on every grid.",
+          "The unrestricted star-forest enumerator identifies admissible shapes but does not classify whether all star-wise label inventories simultaneously meet two exact quotas on a particular grid."
+        ],
+        "reasoning": "The (2,2) strength on small grids is explicitly credited and does not imply arbitrary exact quotas. Unrestricted shape sufficiency transfers to the incident-vertex bounds only with the completion argument in the padded regime; in the unpadded regime a separate exact inventory is necessary.",
+        "searches": [
+          "Resultary ...83f66320ef8a, Finding and assumptions offsets 0–2200 and prior-work discussion 5000–6596",
+          "Resultary ...41f165ae6da1, offsets 0–3200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Block et al. study induced-P4-free partition/cover of the edges. Their bipartite components may be bicliques, including K2,2, whose four edges contain a forbidden length-three simple path for membership shattering."
+        ],
+        "reasoning": "Partition/cover exchanges one membership hypothesis and all its possible restrictions for a decomposition problem; the two path conditions are not equivalent.",
+        "searches": [
+          "Resultary: fixed-cardinality Cartesian rectangle, star-forest and uniform-factor aliases",
+          "Block et al., DOI:10.4230/LIPIcs.ITC.2021.16, abstract and p. 2 (PDF offset 7359)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct matching-date record classifies rook-graph closed-neighborhood shattering; its concepts are full row OR full column through a specified cell, not a quota-limited row AND column product.",
+          "No distinct exact match surfaced in the bounded search."
+        ],
+        "reasoning": "The same-day match has a different trace family. No priority is inferred from date or index order or from an unsuccessful exact lookup.",
+        "searches": [
+          "Resultary: exact-size rectangle and rectangular shattering searches",
+          "Resultary mirror ...cba8fc708d0d, Finding offsets 0–2963"
+        ]
+      },
+      "rationale": "The non-induced-path obstruction, unrestricted star-forest classification and its species method are prior; the (2,2) dimensions are prior. The distinct all-grid exact-quota feasibility criterion, and the exact-quota stable enumeration and extremal consequences in their stated ranges, survive the source comparison. The stable count reuses the prior species argument rather than introducing a new unrestricted enumerator.",
+      "residual_risks": [
+        "The bounded external searches were noisy; alternate formulations or unindexed equivalents remain possible. The 2020 ePrint returned HTTP 403; the 2021 published open text was inspected instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural overlap; unrestricted hypothesis family",
+          "evidence": "Arbitrary factor subsets; no simple three-edge path; star forests and unrestricted enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattered-edge-supports-of-combinatorial-rectangles-are-star-for--41f165ae6da1",
+          "material_read": "RESULT.md Finding, assumptions and proof, offsets 0–3200",
+          "method": "Resultary local mirror",
+          "title": "Shattered edge supports of combinatorial rectangles are star forests",
+          "trigger": "Closest theorem on individual supports"
+        },
+        {
+          "assessment": "Covers dimensions for quotas (2,2), not the asserted all-quota theorem",
+          "evidence": "Concepts have exactly two rows and two columns, m,n≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-static-and-online-shattering-thresholds-for-four-point-car--83f66320ef8a",
+          "material_read": "RESULT.md offsets 0–2200 and 5000–6596",
+          "method": "Resultary local mirror",
+          "title": "Sharp static and online shattering thresholds for four-point Cartesian rectangles",
+          "trigger": "Exact factor cardinalities on all finite grids"
+        },
+        {
+          "assessment": "Different hypotheses and support shapes",
+          "evidence": "N[(a,b)] takes row a or column b, not a product of both fixed-size factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-closed-neighborhood-shattering-of-unequal-rectangular-rook-graph--cba8fc708d0d",
+          "material_read": "RESULT.md Finding offsets 0–2963",
+          "method": "Resultary local mirror",
+          "title": "Closed-neighborhood shattering of unequal rectangular rook graphs",
+          "trigger": "Distinct same-date grid shattering result"
+        },
+        {
+          "assessment": "Related partition/cover problem, not the trace result",
+          "evidence": "The components of its induced-P4-free bipartite graphs are bicliques.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITC.2021.16",
+          "material_read": "Open published PDF, abstract and p. 2 including biclique footnote, offset 7359",
+          "method": "OA paper PDF",
+          "title": "P4-free Partition and Cover Numbers & Applications",
+          "trigger": "Closest related bipartite rectangle/path terminology"
+        },
+        {
+          "assessment": "General approximation hardness rather than rectangle shattering",
+          "evidence": "Reduction from maximum unbalanced biclique to finding or approximating dimensions of arbitrary explicitly represented concept classes.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+          "material_read": "Open PDF, abstract and p. 3, offset 9116",
+          "method": "OA paper PDF",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "Biclique and learning-dimensional overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact quotas are a natural restriction, not a numerical slice: padding fails on small grids even for some star forests whose incident vertices fit. The local inventories solve that obstruction for every support, while the stable polynomial and extremal description separate support-level structure from a scalar VC dimension. The result does not claim a sharp padding boundary or a polynomial-time test in the number of queried cells.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 check.py` alongside `census.json` using Python 3.9 or later. The only imports are standard-library modules. It completes a full finite breadth-first traversal for every modulus \(2^k\), \(1\le k\le11\), then explicitly tests the reachable/unreachable status of every residue pair in the ambient state square, checks the exact histogram endpoint, and independently validates small-depth results. The program prints `EXACT_CENSUS_AND_INDEPENDENT_CROSSCHECKS_PASSED` after all assertions succeed. The `census.json` output is regenerated from the recurrence rather than used as an input to the proof.
+## correctness
 
-The exhaustive check reaches \(3\,145\,728\) primitive states at the largest modulus, and the ambient grid there has \(4\,194\,304\) pairs. All finite state-distances are checked. This is an exhaustive finite computation for the claimed domain, not a verification of an infinite conjecture. The mathematical identification of the finite graph with the indexed Stern sequence and its binary-order first occurrences is given in the proof.
+PASS
 
-## Limits
+The Stern recurrence gives S(2n)=(a,a+b), S(2n+1)=(a+b,b) for S(n)=(a,b). Each move is invertible modulo 2^k and preserves the condition that at least one coordinate is odd. The start (0,1) is fixed by the zero move, so fixed-length binary words with leading zeros give exactly the stipulated half-open prefix, and the first distance and least numerical index are correctly identified by breadth-first order and binary tie order. Independently computed via a synchronous predecessor recurrence: at each pair (a,b), take the minimum of twice the previous least index at (a,b-a) and twice that at (a-b,b) plus one, with infinity marking absence. This is exact by splitting indices into even and odd. The whole primitive grid was counted and the complete distance histograms, extreme layers and least indices agreed for all eleven k. The radii are (2,5,8,11,14,18,20,23,26,30,33); each final layer has size one, with (1,0) at k=1 and (-1,-1) thereafter. In particular the last index at k=11 is 4,920,978,067, between 2^32 and 2^33.
 
-No exponents beyond eleven have been examined or accepted as part of the claim. No independently audited certification is represented. General published asymptotic results establish eventual coverage but not these finite sharp thresholds.
+## originality
+
+PASS
+
+The ordered pair graph and its eventual coverage are known. The extra claim is the exact rooted out-eccentricity, last-layer uniqueness and earliest binary index at every exponent in the stated range. The closest inspected exact and asymptotic results do not give this combined statement or imply the finite values without an additional exhaustive calculation.
+
+## value
+
+PASS
+
+For a canonical integer sequence and a natural family of nested moduli, the rooted depth is exactly the minimum binary index budget needed to realize all allowed consecutive residues. The census resolves the sharp cutoffs, identifies the obstruction and its exact occurrence, and reaches far enough to exhibit two four-step increases rather than giving only tiny examples of eventual coverage. These are useful finite benchmarks distinct from a new asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

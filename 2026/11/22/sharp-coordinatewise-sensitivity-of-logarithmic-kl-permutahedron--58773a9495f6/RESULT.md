@@ -1,49 +1,42 @@
 # Sharp coordinatewise sensitivity of logarithmic KL permutahedron projection
 
 ## Finding
-Let \(n\ge 2\), let \(b=(b_1,\ldots,b_n)\in(0,\infty)^n\) be nonconstant, and put \(B=\sum_i b_i\), \(m=\min_i b_i\), and \(\mathcal P(b)=\operatorname{conv}\{(b_{\pi(1)},\ldots,b_{\pi(n)}):\pi\in S_n\}\). Define
+
+Let \(n\ge2\), let \(b\in(0,\infty)^n\) be nonconstant, set \(B=\sum_i b_i\), \(m=\min_i b_i\), and let \(\mathcal P(b)\) be the convex hull of the coordinate permutations of \(b\). For \(z\in\mathbb R^n\), define
 \[
-F_b(z)=\log\left[\operatorname*{argmin}_{\mu\in\mathcal P(b)}\sum_{i=1}^n\left(\mu_i\log\frac{\mu_i}{e^{z_i}}-\mu_i+e^{z_i}\right)\right],\quad z\in\mathbb R^n,
+F_b(z)=\log\operatorname*{argmin}_{\mu\in\mathcal P(b)}\sum_i[\mu_i\log(\mu_i/e^{z_i})-\mu_i+e^{z_i}],
 \]
-where logarithm is componentwise. The exact global two-input coefficient in the coordinate maximum norm is
-\[
-\sup_{z\ne z'}\frac{\|F_b(z)-F_b(z')\|_\infty}{\|z-z'\|_\infty}=2\left(1-\frac mB\right).
-\]
-The supremum is approached at interior projections converging to permutahedron vertices, but it is not attained by any distinct finite inputs. In particular, the entropy-regularized soft-rank map based on \(b=(e^n,e^{n-1},\ldots,e)\) and scale \(\varepsilon>0\) has coefficient
-\[
-\frac2\varepsilon\left(1-\frac{e-1}{e^n-1}\right).
-\]
-This is strictly greater than the quadratic-regularized soft-rank coefficient \((2-2/n)/\varepsilon\) for every \(n\ge2\).
+where the logarithm of the minimizer is componentwise. Its sharp two-input Lipschitz coefficient in the coordinate maximum norm is \(2(1-m/B)\). No distinct finite inputs attain this coefficient. It can be approached with relative-interior projections tending to a vertex, or more generally to any feasible point with some coordinate equal to \(m\).
+
+For the entropy-regularized soft rank with target \(b=(e^n,e^{n-1},\ldots,e)\) and score scaling \(-1/\varepsilon\), \(\varepsilon>0\), the sharp coefficient is \(2\varepsilon^{-1}(1-(e-1)/(e^n-1))\). The quadratic soft rank has sharp coefficient \((2-2/n)/\varepsilon\), which is strictly smaller.
 
 ## Assumptions and scope
-All inputs are arbitrary real \(n\)-vectors; all target weights are strictly positive, and nonconstancy is essential. The case of constant \(b\) gives a singleton permutahedron and a constant map, with Lipschitz coefficient zero. The logarithmic projection is well defined since every coordinate of any feasible \(\mu\) is at least \(m>0\). For the soft-rank specialization, the sign reversal of the scores leaves the Lipschitz coefficient unchanged.
+
+The objective is strictly convex on the feasible set and the minimum exists by compactness. Every feasible coordinate is at least \(m>0\), so all logged coordinates are defined. A constant \(b\) instead gives a constant map and coefficient zero. The theorem concerns the logged projection, not the unlogged KL projection or a Sinkhorn map.
 
 ## Proof
-**1. Local Jacobian.** Sort \(z\) and \(b\) in decreasing order. The isotonic reduction of the log-KL permutahedron projection partitions coordinates into blocks \(I\), on each of which the output satisfies \(\mu_i=c_I e^{z_i}\) with a positive common scale \(c_I\) and \(\sum_{i\in I}\mu_i\) fixed. On a smooth active-set region, differentiation yields
+
+**Block formulas along segments.** Sort \(z\) and \(b\) decreasingly. Use the isotonic reduction of Blondel et al., Proposition 3 and Lemma 2. In sorted order a pool \(I\) is an interval with mass \(B_I=\sum_{j\in I}b_j\) in that order. The output on it satisfies
 \[
-\frac{\partial F_{b,i}}{\partial z_j}=\delta_{ij}-\mathbf1_{\{i,j\in I\}}\frac{\mu_j}{\sum_{k\in I}\mu_k}\quad(i\in I).
+F_{b,i}(z)=z_i+\log B_I-\log\sum_{j\in I}e^{z_j},\qquad i\in I.
 \]
-The row absolute sum is exactly \(2(1-\mu_i/\sum_{k\in I}\mu_k)\) (and is zero on singleton blocks). For every feasible \(\mu\), we have \(\mu_i\ge m\) and \(\sum_{k\in I}\mu_k\le B\); hence every Jacobian has induced \(\ell_\infty\) norm at most \(2(1-m/B)\). The map is continuous and locally Lipschitz: the isotonic representation has finitely many sorting/block types, each with a smooth formula on its type region and denominators bounded away from zero. Integrating its almost-everywhere derivative along any segment proves the stated global upper bound.
+Undo the sorting permutation in the output. The row of the derivative of this formula has absolute sum \(2(1-\mu_i/B_I)\), since the derivative row is \(\delta_{ij}-\mathbf1_{j\in I}\mu_j/B_I\).
 
-**2. Sharpness.** Since \(b\) is not constant, its permutahedron has affine hull \(\sum_i\mu_i=B\) and its centroid \(\bar b\mathbf1\), \(\bar b=B/n\), lies in the relative interior. Fix a permutation \(v\) of \(b\) with \(v_j=m\), and let \(\mu^{(\delta)}=(1-\delta)v+\delta\bar b\mathbf1\) for \(0<\delta<1\). This is in the relative interior. At \(z^{(\delta)}=\log\mu^{(\delta)}\), the KL projector is \(\mu^{(\delta)}\); for sufficiently small changes to \(z\), only the total-mass equality is active, so
-\[
-F_b(z)=z+\log B\,\mathbf1-\log\left(\sum_i e^{z_i}\right)\mathbf1.
-\]
-Its Jacobian row \(j\) has absolute sum \(2(1-\mu^{(\delta)}_j/B)\), realized infinitesimally by a sign vector taking value \(+1\) at \(j\) and \(-1\) elsewhere. Letting \(\delta\downarrow0\) proves the reverse bound.
+These formulas also apply piecewise to any affine input segment, including a segment contained in a tie stratum. Sorting changes only at finitely many nonidentical linear crossings; equal inputs along the whole segment can be ordered by a fixed tie rule. Pool-adjacent-violators compares values \(\log\sum_{j\in I}e^{z_j}-\log B_I\) for candidate consecutive intervals \(I\). Each possible comparison after sorting is a difference of real-analytic functions of the segment parameter, analytic on a neighborhood of the whole closed parameter interval with that fixed ordering. It has finitely many zeros there unless it is identically zero, in which case use a fixed tie rule. There are only finitely many comparisons. Thus along the segment the output is a finite piecewise-smooth selection of the formulas. The projection is continuous, by compactness, continuity of the objective and uniqueness of the minimizer; the piecewise-smooth selection is therefore absolutely continuous along the segment.
 
-**3. Strict finite-pair inequality.** On an open differentiability cell with a proper block \(I\), there are coordinates outside \(I\) carrying positive total mass; thus \(\sum_{k\in I}\mu_k<B\) and the row norm is strictly smaller than \(2(1-m/B)\). On a full-block cell, the projected point is in the relative interior of the permutahedron, so \(\mu_i>m\) for all \(i\); again the row bound is strict. Along any affine input segment the sorted-coordinate and pool-block structure changes only on boundaries of finitely many real-analytic formulas. On open subsegments in a fixed lower-dimensional tie stratum, the one-dimensional derivative is the restriction of an adjacent smooth formula; if the projected coordinate remains fixed at its vertex-minimum value its derivative is zero. Therefore on every nonconstant segment the coordinate derivatives have absolute value strictly less than the displayed coefficient almost everywhere. Absolute continuity and integration yield strict inequality for any two distinct inputs. The only possible sharp limit is consequently a degeneration of the full-block region toward a vertex, as constructed above.
+**Upper bound and strictness.** For \(z(t)=z+t(z'-z)\), \(0\le t\le1\), set \(h=z'-z\). On a smooth segment piece the row bound gives \(|(F_{b,i}\circ z)'(t)|\le2(1-\mu_i/B_I)\|h\|_\infty\). When \(I\) is proper, the inequality \(B_I<B\) makes the coefficient strictly less than \(2(1-m/B)\). For a full pool, the same is true if \(\mu_i>m\). At any differentiability time \(0<t<1\) with \(\mu_i=m\), the scalar output \(F_{b,i}(z(t))\) attains its lower bound \(\log m\), and its derivative is zero. For \(h\ne0\), the bound by \(2(1-m/B)\|h\|_\infty\) is consequently strict almost everywhere for every coordinate. Integrating and taking the maximum over finitely many coordinates proves the upper bound and excludes finite-pair equality.
 
-**4. Quadratic comparator.** Euclidean projection onto any nondegenerate permutahedron has a.e. derivative with blocks equal to coordinate-centering matrices \(I-|I|^{-1}\mathbf1\mathbf1^\top\). Their maximum absolute row sum is \(2-2/n\), realized on the full-dimensional relative interior of the permutahedron. Since nonconstant positive \(b\) obeys \(m/B<1/n\), the entropic coefficient is strictly larger. Substituting geometric weights yields the soft-rank formula.
+**Sharpness.** The affine hull is \(\sum_i\mu_i=B\): differences of permutations put a nonzero multiple of \(e_i-e_j\) into the span for every pair \(i,j\). The centroid \(c=(B/n)\mathbf1\) lies in the relative interior, as it is a positive average of all vertices. Choose any feasible \(v\) with \(v_j=m\), and for \(0<\eta<1\) let \(\mu^\eta=(1-\eta)v+\eta c\), in the relative interior. In a neighborhood of \(z=\log\mu^\eta\) the total-mass-only minimizer \(B e^z/\sum_i e^{z_i}\) remains feasible, hence is the minimizer. The \(j\)-th derivative row of its logarithm has absolute sum \(2(1-\mu_j^\eta/B)\), realized using \(+1\) in coordinate \(j\) and \(-1\) elsewhere. Taking local pair ratios and then \(\eta\downarrow0\) proves sharpness. In particular the limit point need not be a vertex: for \(b=(3,2,1)\), one can take \(v=(5/2,5/2,1)\), the midpoint of a minimum-coordinate edge.
 
-## Verification
-The standalone script `check_projection.py` implements the isotonic pool-adjacent-violators projection in log coordinates, tests deterministic random input pairs against the claimed coefficient, and approaches the coefficient from the interior at increasing vertex proximity. These finite checks corroborate, but do not replace, the universal proof. Run with Python 3, NumPy, and SciPy: `python check_projection.py`.
+**Soft ranks.** In Blondel et al., equation (6), the sorted rank target is \(\rho=(n,n-1,\ldots,1)\). The entropy map uses \(b=e^\rho\), with \(m/B=(e-1)/(e^n-1)\); the quadratic map uses Euclidean projection onto \(\mathcal P(\rho)\). Its affine-cell derivatives are coordinate-centering blocks \(I-|I|^{-1}\mathbf1\mathbf1^\top\) after permutation. Their absolute row sums are \(2-2/|I|\). The continuous piecewise-affine projector has coefficient at most \(2-2/n\) by segment integration, and the full centering derivative is realized in a neighborhood of a relative-interior point, giving equality for the coefficient. The scaling contributes \(1/\varepsilon\), irrespective of the score sign. Finally, \(m/B<1/n\) because the weights are nonconstant.
 
-## Relationship to prior work
-Blondel, Teboul, Berthet, and Djolonga (2020, arXiv:2002.08871) define the log-KL permutahedron projection and provide its blockwise Jacobian (Proposition 3, Lemma 2, Proposition 4). Lim and Wright (2016) establish general Bregman projection reductions for permutahedra. Those formulas and the underlying algorithm are prior work; the finding here is the sharp **global** coordinatewise modulus, its dependence only on the least vertex coordinate relative to total mass, nonattainment, and the exact quantitative contrast with quadratic soft-ranking. None of those sharp global assertions appears in the inspected main texts. Published equivalents under alternative convex-duality language remain possible.
+## Verification and relation to prior work
 
-## Limitations
-The result is finite-dimensional, assumes strictly positive and nonconstant \(b\), and concerns the logarithm of the KL projection, not the unlogged Bregman projector or entropic optimal-transport Sinkhorn ranks. It does not assert independent validation or absolute historical priority. Its sharpness is asymptotic near a vertex, not a finite pair attaining equality.
+The proof above gives the all-input assertion. The accompanying `check_projection.py` (Python, NumPy, SciPy) gives supplementary finite PAV checks for geometric weights and tests one vertex-limit construction. Those checks do not prove the general assertion and do not test every feasible limit point.
+
+Blondel–Teboul–Berthet–Djolonga provide the map and its local blockwise Jacobians; Lim–Wright establish the broader projection reduction. The distinction is the sharp global maximum-norm coefficient and strict finite-pair inequality, not a new projector, soft-rank definition, or differentiation algorithm. The literature comparison is not a certification of absolute priority.
 
 ## References
-- M. Blondel, O. Teboul, Q. Berthet, J. Djolonga, *Fast Differentiable Sorting and Ranking*, arXiv:2002.08871, first submitted 2020-02-20; ICML/PMLR 119 (2020), https://proceedings.mlr.press/v119/blondel20a.html.
-- C. H. Lim and S. J. Wright, *Efficient Bregman Projections onto the Permutahedron and Related Polytopes*, AISTATS/PMLR 51 (2016), https://proceedings.mlr.press/v51/lim16.html.
+
+- M. Blondel, O. Teboul, Q. Berthet and J. Djolonga, *Fast Differentiable Sorting and Ranking*, ICML/PMLR 119 (2020), arXiv:2002.08871, equation (6), Propositions 3–4 and Lemma 2.
+- C. H. Lim and S. J. Wright, *Efficient Bregman Projections onto the Permutahedron and Related Polytopes*, AISTATS/PMLR 51 (2016), §3.

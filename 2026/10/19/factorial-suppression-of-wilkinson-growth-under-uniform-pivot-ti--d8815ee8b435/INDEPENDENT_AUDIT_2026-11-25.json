@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:58.662389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–36 and 44–69",
+        "Frozen check.py, lines 14–85",
+        "Frozen VERIFICATION.md, lines 19–21"
+      ],
+      "rationale": "In exact row-pivoted GEPP, a natural prefix preserves the leading Wilkinson block and doubles the constant last column at each step. After a first lower-row choice, any nonsingular k-row leading minor excluding the original first row consists of rows 2 through k and one row s>k, since two rows beyond k agree in the first k columns. Replacing row 1 of the leading triangular matrix with an all-minus-one row gives determinant magnitude 2^(k-1): its inverse has strict-lower entries 2^(i-j-1). Adjoining an eligible lower row gives pivot magnitude 2 and at least one such row exists until the lower rows are exhausted; adjoining original row 1 gives 2^(1-k). In the Schur complement, any remaining lower row is reduced by the selected row s and so has last component zero and other entries bounded by 2. The coefficients expressing row 1 on the pivot columns sum to -1 (first column), with coefficient -2^(1-k) on s (triangular elimination), so it retains last component 2q and other entries bounded by 1. Therefore a first lower pivot at stage j gives exactly 2^j, and either choice at the last two-row stage gives the same maximum. Multiplying conditional probabilities 1/m gives the stated tails and point masses, including n=2; tail increments give the exact mean and the k>=3 terms have successive ratios at most 2/3 over their range, yielding O(n^-3). The supplied exact DP retains the peak in its state as needed; the reported finite check is auxiliary, not used for the theorem.",
+      "residual_risks": [
+        "No claim for perturbations, nonuniform tie laws or floating-point trajectories. Supplied code was inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deterministic maximal growth and the class of extremizers are known. The Gaussian and smoothed analyses concern random input entries. Shah–Urschel uses |pivot|^p weights and discusses exponential large-growth behavior for other constructions."
+        ],
+        "reasoning": "A sharp worst-case bound or classification cannot determine the mass at smaller values; even the top mass depends on how the matrices and pivot choices are sampled. Smoothed random perturbation is not the tied limit law derived on the fixed matrix.",
+        "searches": [
+          "arXiv:2608.19189, §§1–2 and large-exponent pivot limit",
+          "Higham–Higham (1989), Theorem 2.2",
+          "arXiv:2610.08701, introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.19189",
+        "Higham–Higham (1989), Theorem 2.2",
+        "The order the greedy rule cannot choose",
+        "A worst case is as fragile as its margin",
+        "arXiv:2610.08701",
+        "Local Resultary: 465b1636c184, 0f4ba5c4f2a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known forward doubling and one growth-2 cyclic order supply endpoints, not the bound for all possible continuations following the first non-natural pivot."
+        ],
+        "reasoning": "Conditional uniformity gives factorial prefix probabilities but only the all-continuation Schur-complement lemma makes those probabilities the growth tails. The inspected generic rule and endpoint examples do not imply that collapse.",
+        "searches": [
+          "Shah–Urschel, arXiv:2608.19189, offsets 10478 and 62100",
+          "The order the greedy rule cannot choose, growth-2 example and tie policy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Wilkinson essay at offset 4200 onward gives a low-growth cyclic ordering, first/last tie extremes, and an enumerated best value at n=7.",
+          "Shah–Urschel at offset 62100 identifies random selection among ties in the large-exponent limit."
+        ],
+        "reasoning": "A uniform random initial row permutation followed by first-tie pivoting gives the same growth law here: the first j-1 natural pivots require exactly that ordered prefix of original rows, and subsequent legal choices after a break have no effect on the peak. Thus exact coverage in a row-permutation formulation would count; the inspected essay supplies a minimum, not that law. The randomized-pivot limit covers the policy as a model, not the claimed distribution.",
+        "searches": [
+          "Resultary: exact Wilkinson GEPP uniform maximum-pivot ties and factorial growth distribution",
+          "The order the greedy rule cannot choose, Wilkinson tie rules and row-order enumeration",
+          "Shah–Urschel, arXiv:2608.19189, random pivot limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches 465b1636c184 and 0f4ba5c4f2a0 give Gaussian boundary laws, not exact-tie values. The essay's example reports min 2 and forward value 64, not frequencies."
+        ],
+        "reasoning": "Neither a different-input distribution nor a stated minimum or maximum reproduces this law or a table of its exact probabilities. Ranked results are bounded evidence.",
+        "searches": [
+          "Local Resultary, exact ties/Wilkinson growth-law comparison",
+          "Wilkinson essay, enumeration in the n=7 example"
+        ]
+      },
+      "rationale": "The supported distinct result is the closed finite-size distribution (and consequences) on one fixed input, under uniform exact tie resolution. Neither the deterministic extremes nor the generic random-pivot model supplies the support/stopping event and its factorial masses. The closest same-matrix essay actually states a cyclic low-growth ordering and an enumerated minimum, not the law across all legal paths. This is a best-of-knowledge determination.",
+      "residual_risks": [
+        "Unindexed elimination or row-order analyses could give an equivalent law; the targeted public search was uninformative and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Policy covered in limit; exact law not supplied by inspected results",
+          "evidence": "The p-power rule tends to partial pivoting up to random selection among ties.",
+          "identifier_or_url": "https://arxiv.org/html/2608.19189",
+          "material_read": "Introduction, definitions and Wilkinson extremizer; large-exponent remark, OA offsets 10478, 18136 and 62100",
+          "method": "Primary OA passages",
+          "title": "Entry growth in Gaussian elimination",
+          "trigger": "Closest general randomized-pivot model"
+        },
+        {
+          "assessment": "Deterministic extremizers, not a stochastic law",
+          "evidence": "Characterizes real matrices attaining maximal growth under partial pivoting.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/356/1/0610012.pdf",
+          "material_read": "Theorem 2.2, PDF p. 7, OA offset 17729 (imperfect extraction)",
+          "method": "Primary OA theorem passage",
+          "title": "Large Growth Factors in Gaussian Elimination with Pivoting",
+          "trigger": "Same extremizing input family"
+        },
+        {
+          "assessment": "Endpoint overlap, not equivalent distribution",
+          "evidence": "Forward rule 64 at n=7; backward rule and best of all 7! orders give 2; highlights one cyclic shift.",
+          "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/the-order-the-greedy-rule-cannot-choose/",
+          "material_read": "Wilkinson examples, OA offsets 4200–7699",
+          "method": "Public page by offset",
+          "title": "The order the greedy rule cannot choose",
+          "trigger": "Same fixed matrix, explicit tie orders and enumeration"
+        },
+        {
+          "assessment": "Different random model",
+          "evidence": "Randomness is Gaussian entry perturbation, not tie selection.",
+          "identifier_or_url": "https://www.numerical-linear-algebra.com/essays/a-worst-case-is-as-fragile-as-its-margin/",
+          "material_read": "Perturbation setup and measured median, OA offset 0",
+          "method": "Public page passage",
+          "title": "A worst case is as fragile as its margin",
+          "trigger": "Randomized growth of the same matrix"
+        },
+        {
+          "assessment": "Different input distribution",
+          "evidence": "Growth results concern iid Gaussian inputs and smoothed A+σR.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08701",
+          "material_read": "Introduction, OA offset 3900",
+          "method": "Primary OA passage",
+          "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+          "trigger": "GEPP probabilistic growth theory"
+        },
+        {
+          "assessment": "Different randomness and objectives",
+          "evidence": "The Gaussian records are not uniform tie measures on the fixed classical W_n.",
+          "identifier_or_url": "Resultary: 465b1636c184, 0f4ba5c4f2a0",
+          "material_read": "Ranked record statements on Gaussian edge/boundary laws",
+          "method": "Configured local Resultary search",
+          "title": "Related Resultary Gaussian-growth records",
+          "trigger": "Local exact-result overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, structural lemma and distribution",
+        "Wilkinson essay, deterministic endpoint examples",
+        "arXiv:2608.19189, randomized-pivot context"
+      ],
+      "rationale": "The classical extremizer makes the question of how much its exponential growth depends on exact tie order natural. The distribution measures a structural distinction between admissible elimination paths: one departure from the natural prefix fixes all subsequent attainable growth for that path, giving a factorial worst-case probability and a bounded mean. Deterministic endpoints alone do not quantify that contrast.",
+      "residual_risks": [
+        "Restricted to exact arithmetic on W_n; not evidence that arbitrary or smoothed matrices have small growth or backward error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

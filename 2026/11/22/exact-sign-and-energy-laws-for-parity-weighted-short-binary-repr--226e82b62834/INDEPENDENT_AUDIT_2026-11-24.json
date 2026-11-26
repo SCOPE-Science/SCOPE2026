@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:32:11.762558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition, transition proof and generating functions, and the three moment recurrences (lines 5–102)",
+        "VERIFICATION.md; verify.py (inspected, not executed); correctness checked algebraically without relying on the finite script",
+        "Exact zero-language Finding in Resultary c38bf7959659"
+      ],
+      "rationale": "The least-significant-digit split preserves the forbidden leading pair for m≥1 in the odd recurrence and reverses parity on the −1 branch. The exceptional short strings at 1 and 2 each contribute +1; the recurrence is not applied at odd n=1. The resulting (a,b)→(a,a−b),(a−b,b) transitions preserve the eight reachable state classes from (1,1). Solving their count equations gives (1−z)/(1−2z) for positive words with z counting digits after the leading 1, which sums to 2^(L−1) through length L. The zero class series z/(1−z−z²) yields F_(L+1)−1 positive zero indices below 2^L; subtraction gives the stated negative count. At the moment boundaries g(1)=g(2)=g(2^L)=1. The adjacent-product recurrence telescopes the difference g(m)²−g(m+1)² to zero across m=1,…,2^L−1, leaving T_L=1. The first sum adds 1 each level and the second satisfies S_(L+1)=3S_L−1 with S_1=1. Variance follows by normalization. The squared total grows as 3^L; the per-integer second moment instead decays as (3/4)^L. If limiting density is taken at arbitrary cutoffs, the automaton also proves it: the closed four N/R states form an aperiodic irreducible class with equal total stationary mass on each sign, all other states are transient, and the uniform suffix transition converges exponentially from every state. Partitioning [0,X) into aligned binary-prefix blocks of distinct sizes sums the exponentially sublinear block errors to o(X), proving natural densities without claiming exact half-count at arbitrary cutoffs.",
+      "residual_risks": [
+        "The frozen proof states exact dyadic limits; the ordinary-density interpretation requires the additional prefix-block argument given here. The exact sign census remains dyadic. The exponential growth description applies to the aggregate squared sum, not to the normalized second moment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact same-family mirror theorem gives the language 1(01*0)*10* and the Fibonacci zero counts. Its four-state partition merges the nonzero classes needed for sign counts."
+        ],
+        "reasoning": "The earlier result determines zeros and hence the sum of the positive and negative counts, not their difference or the distribution of nonzero magnitudes. The eight-state refinement and adjacent-product identity supply the missing statistics.",
+        "searches": [
+          "Resultary c38bf7959659 (four-state parity-balanced short representations)",
+          "Primary literature on signed Stern variants and parity-weighted short representations"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and exact Fibonacci zero-law mirror statement",
+        "OEIS A145865 and named primary passages",
+        "Frozen RESULT.md, scope and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing statements fix the defining recurrence, zero indices, several sparse subsequences and other representation statistics. The target derives its energy from an evaluated adjacent-product invariant and computes the separate positive and negative classes."
+        ],
+        "reasoning": "The known recurrence is sufficient input for new deductions, but pointwise computation is not an evaluated dyadic law. The unweighted total does not determine a parity difference, and even the zero count cannot determine the split among nonzeros or their squared sum.",
+        "searches": [
+          "OEIS A145865 recurrence and special-index formulas",
+          "Resultary c38bf7959659 recurrence and zero automaton",
+          "arXiv:2308.07448 and arXiv:2108.12417 weighted/unweighted variants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A145865 is exactly g as an integer sequence, with the same seeds, doubling rule and odd subtraction. Anders et al. count total short representations, and Monroe's fixed-length BSD polynomials weight the zero digits."
+        ],
+        "reasoning": "The same sequence is indexed, so the claim cannot be novelty of the sequence itself. Evaluating a sign by number of negative digits under the shortness rule is not the unsigned total or the fixed-length zero-weight statistic. No dyadic sign counts or moment laws occur in the inspected A145865 entry.",
+        "searches": [
+          "OEIS A145865 recurrence, comments, formulas and linked table",
+          "Anders et al. arXiv:2308.07448",
+          "Monroe arXiv:2108.12417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen record itself; the other close indexed entry is the acknowledged Fibonacci zero result. OEIS A145865 displays terms, links a table through 10000 and lists several special-index evaluations."
+        ],
+        "reasoning": "A finite value table can confirm small cutoffs but is not an all-L positive census or energy evaluation; the OEIS formulas inspected do not state those totals.",
+        "searches": [
+          "Resultary semantic search for exact dyadic parity-weighted sign, first-moment and energy laws",
+          "OEIS A145865"
+        ]
+      },
+      "rationale": "The dyadic positive-sign census and evaluated energy law for the known recurrence are supported as distinct to the best of current knowledge. The recurrence, short-representation definition, unweighted count and zero-language result are prior. The first moment follows by a short telescoping identity and is not the principal novelty on its own.",
+      "residual_risks": [
+        "A bounded comparison does not exclude an unindexed dyadic aggregate calculation or a differently phrased general treatment of the signed recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior recurrence and values, not the claimed aggregate formulas",
+          "evidence": "Lava and Balzarotti's 2008 contribution; same a(0), a(1), a(2n) and a(2n+1); added formulas treat special indices such as 2^k−1.",
+          "identifier_or_url": "https://oeis.org/A145865",
+          "material_read": "Entry definition, samples, comments, formulas, table link and author credit (page offsets 0–1885)",
+          "method": "Public OEIS website passage",
+          "title": "OEIS A145865",
+          "trigger": "Exact sequence match"
+        },
+        {
+          "assessment": "Zero census is prior; no sign split or moment law in the inspected theorem",
+          "evidence": "Four-state classification gives language 1(01*0)*10* and counts F_(r−1), F_(L+1)−1 by length and dyadic cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-fibonacci-law-for-parity-balanced-short-signed-binary-representa--c38bf7959659",
+          "material_read": "RESULT.md Finding, automaton and prior-work discussion, offsets 0, 2850 and 5024, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Fibonacci law for parity-balanced short signed-binary representations",
+          "trigger": "Strongest same-family indexed overlap"
+        },
+        {
+          "assessment": "Relevant unweighted result; not the parity-signed census",
+          "evidence": "The total number of short representations equals Stern's sequence.",
+          "identifier_or_url": "arXiv:2308.07448",
+          "material_read": "PDF p. 2, offsets 5136 and 5772, shortness definition and main counting statement",
+          "method": "Bounded OA primary passage",
+          "title": "Non-standard binary representations and the Stern sequence",
+          "trigger": "Same definition and representation ensemble"
+        },
+        {
+          "assessment": "Different weight and fixed-length truncation",
+          "evidence": "Stern polynomials count fixed-length signed-digit representations by the number of zero digits.",
+          "identifier_or_url": "arXiv:2108.12417",
+          "material_read": "§3, Theorem 6, around offset 9700",
+          "method": "Bounded OA primary passage",
+          "title": "Binary Signed-Digit Integers and the Stern Polynomial",
+          "trigger": "Potential weighted-representation equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, sign automaton and energy derivation",
+        "Exact Fibonacci zero-language record and OEIS A145865"
+      ],
+      "rationale": "Parity-weighted counts are a natural signed evaluation on a standard representation system, and powers of two are the canonical complete levels of its binary recursion. Knowing which values vanish did not determine the split of the remaining signs or the sharp scale of their magnitudes. The exact positive census and second moment resolve distinct parts of that distribution; the first moment gives the contrasting scale of net cancellation. Neither the seed values nor the Fibonacci zero count alone supplies this information.",
+      "residual_risks": [
+        "No exact nondyadic census or full distribution of the magnitudes is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

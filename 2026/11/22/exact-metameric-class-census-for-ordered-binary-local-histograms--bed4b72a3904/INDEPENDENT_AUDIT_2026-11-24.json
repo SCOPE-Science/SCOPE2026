@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:48.537937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–72; VERIFICATION.md and verify.py inspected, not executed",
+        "Fresh exact enumeration by direct ordered reads for 2≤h≤n≤10"
+      ],
+      "rationale": "For a difference d=y−x, equality of adjacent read increments is exactly d_(i+h)=d_i; equality of the first read is the additional condition Σ_(j≤h)d_j=0. Together these are necessary and sufficient, including a single window. Each mixed binary column is rigid under constant shifts; pure columns can be recolored independently subject only to conserving t, their number of one columns. Thus the invariant data give precisely a binomial fiber, and the products over mixed columns count the full fiber census. For B(z)=∏(b_j+z), the total is B(1)+B′(1); the singleton count is 2B(1)−B(0), since t=0 and t=p coincide only when p=0. This remains valid for columns of length one. For h+1, there are h−1 non-singletons with all columns pure and 2(h−2) with the sole length-two column mixed. The maximal central binomial coefficient at h≥2 cannot be matched by fewer columns; the maximizing reads are the one or two central constant vectors. A zero-error code is a transversal of the fibers. A fresh independent direct grouping of 16,388 word-width instances across 45 pairs 2≤h≤n≤10 agreed with the full histogram and all counts, including the boundaries.",
+      "residual_risks": [
+        "No statement about unordered weights, wrapping, noise, erased windows, or larger alphabets",
+        "Independent enumeration corroborates finitely; the difference identity and enumeration proof establish the general theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multilevel result uses normalized residue patterns and bounded-composition coefficients, but only for equal-length cyclic classes",
+          "Histogram algebra repartitions overlapping domains and gives reconstruction tools; the inspected passages do not give the present finite census"
+        ],
+        "reasoning": "A larger alphabet or arbitrary stride does not remove the cyclic or asymptotic restrictions of those theorems. The general algebra is a plausible derivation framework, not identified prior exact coverage.",
+        "searches": [
+          "Resultary 3dd4b884b257 Q-ary indexed cyclic window sums",
+          "An algebra for local histograms, DOI 10.3389/fcomp.2022.939563",
+          "Weighted Read Channel, arXiv:2401.15368v1 Thm. 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and SCOPE mirror: 21136e4ec91c and 3dd4b884b257",
+        "DOI 10.3390/e24030433",
+        "DOI 10.3389/fcomp.2022.939563",
+        "arXiv:2401.15368v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h dividing n, gcd(n,h)=h and the cyclic residue-column fibers coincide with the linear fibers; the cyclic theorem implies even the histogram on this slice",
+          "For n=5,h=2, the cyclic graph has one residue class and is injective (32 outputs); the linear operator has 31 outputs, 30 singleton outputs and one doubleton"
+        ],
+        "reasoning": "The shared rigidity proof extends naturally, but specialization of the cyclic theorem has a different kernel and cannot yield the unequal-length linear result; asymptotic rate also cannot imply it.",
+        "searches": [
+          "Resultary cyclic binary 21136e4ec91c and multilevel 3dd4b884b257 Findings",
+          "Sporring–Darkner Sections 4.3–4.4",
+          "Yerushalmi–Etzion–Yaakobi Thm. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A positional binary local histogram is equivalent to its count of ones; Sporring–Darkner use exactly these observations",
+          "The weighted-read channel with δ=1 is the same linear operator; Thm. 2 states asymptotic rate 1, not its exact finite multiplicity distribution"
+        ],
+        "reasoning": "Renaming read vectors/profiles or regarding the total as a code size is not independent novelty. The distinct object counted is the finite inverse-fiber spectrum in the general linear case.",
+        "searches": [
+          "Sporring–Darkner binary metameres, DOI 10.3390/e24030433",
+          "weighted-read channel with shift δ=1, arXiv:2401.15368v1",
+          "Local Resultary: cyclic weighted reads and metameric fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing boundary values include K(n,2)=1, K(h,h)=h−1 and K(h+1,h)=3h−5",
+          "Section 4.4 says a general closed form for κ(n,m) had not been obtained in that work; the matched closed-form catalogue entries are cyclic"
+        ],
+        "reasoning": "Credit exact known slices. A finite enumeration or existing cyclic formula does not replace the general finite linear K or the histogram.",
+        "searches": [
+          "Local Resultary exact fiber, constant-weight capacity and multilevel inverse-fiber comparisons: 21136e4ec91c and 3dd4b884b257",
+          "Sporring–Darkner Section 4.4 general κ(n,m) and boundary cases"
+        ]
+      },
+      "rationale": "The exact finite census in the nonwrapping model with general (possibly unequal) column lengths closes a named counting gap in the same-model literature and gives more than K. Boundary cases, the shared pure/mixed rigidity argument, and the divisible-length full census are already covered. The distinct cyclic results, including the same-day multilevel result, do not cover the general nonwrapping theorem.",
+      "residual_risks": [
+        "Not exhaustive priority evidence; possible unindexed derivations from reconstruction frameworks",
+        "Cyclic rigidity and the divisible-length result are not claimed as new"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and special cases, not all-parameter census",
+          "evidence": "Identifies the two-bin histogram with number of ones; for 2≤m<n−1 reports an upper bound but ‘yet to come up with a closed form for κ(n,m)’",
+          "identifier_or_url": "https://doi.org/10.3390/e24030433",
+          "material_read": "OA PDF §4.4, printed pp. 8 and 10, offsets about 38900 and 50000–51347",
+          "method": "Bounded primary full-text comparison",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Exact same local histogram model and finite counts"
+        },
+        {
+          "assessment": "Actual coverage of divisible case only",
+          "evidence": "All n wraparound reads; d=gcd(n,ℓ), L=n/d; outputs (2^L−1)^(d−1)(2^L+d−1) and binomial fibers",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-fiber-and-constant-weight-capacity-laws-for-cyclic-binary--21136e4ec91c/RESULT.md",
+          "material_read": "Finding at mirror offset 187",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact fiber and constant-weight capacity laws for cyclic binary weighted reads",
+          "trigger": "Binomial fibers and exact count in seemingly equivalent operator"
+        },
+        {
+          "assessment": "Broader alphabet but cyclic operator; no date-order inference",
+          "evidence": "Fiber coefficients of ∏(1+z+⋯+z^(Q−1−h_r)) for normalized cyclic residue patterns and a sum of class minima",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-multilevel-inverse-fiber-spectrum-of-indexed-cyclic-window--3dd4b884b257/RESULT.md",
+          "material_read": "Finding at mirror offset 85",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact multilevel inverse-fiber spectrum of indexed cyclic window sums",
+          "trigger": "Close same-day stronger-alphabet claim"
+        },
+        {
+          "assessment": "Asymptotic capacity, not finite fiber counts",
+          "evidence": "For δ dividing ℓ the rate is log₂(δ+1)/δ, hence 1 at δ=1",
+          "identifier_or_url": "https://arxiv.org/html/2401.15368v1",
+          "material_read": "Introduction and Thm. 2, offsets 0 and about 15900",
+          "method": "Primary OA full-text passage",
+          "title": "The Capacity of the Weighted Read Channel",
+          "trigger": "Equivalent unit-stride channel and code interpretation"
+        },
+        {
+          "assessment": "General framework, no explicit finite formula in inspected passages",
+          "evidence": "Partitions overlapping domains into disjoint regions and treats reconstruction; conclusion describes expressiveness as unfinished",
+          "identifier_or_url": "https://doi.org/10.3389/fcomp.2022.939563",
+          "material_read": "OA PDF pp. 2 and 9, offsets about 10300 and 48000",
+          "method": "Primary OA full-text passage",
+          "title": "An algebra for local histograms",
+          "trigger": "Broader reconstruction/counting framework might imply exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–26 and 31–61",
+        "Sporring–Darkner DOI 10.3390/e24030433 §4.4"
+      ],
+      "rationale": "Resolves the explicitly posed general count of ambiguous read classes in the exact ordered binary model. The full distribution distinguishes many different collision behaviors with the same total, proves the extremal ambiguity, and determines finite zero-error code size. The result is a complete natural census, not just a check of a boundary number or a restatement of asymptotic capacity.",
+      "residual_risks": [
+        "Interpretation limited to all exact ordered linear reads; no noisy-channel coding guarantee"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

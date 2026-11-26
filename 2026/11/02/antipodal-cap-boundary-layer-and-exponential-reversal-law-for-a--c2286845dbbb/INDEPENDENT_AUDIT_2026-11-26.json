@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:54:42.988441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–66",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 8–49 (inspected only)"
+      ],
+      "rationale": "Reconstructed the killed axial generator D exp(-ξu) [(1-u²) exp(ξu) f′]′. Boundedness at the north pole eliminates the nonzero homogeneous flux, yielding the stated positive Green operator and exact mean. The fixed-b endpoint Laplace estimate uses a neighborhood of b; the remaining interval, including the removable pole at 1, is exponentially smaller. In s=ξ(1+u) coordinates the scaled integrand is (exp(-s)-exp(-2ξ))/(s(1-s/(2ξ))). On s≤ξ the second-order remainder is bounded after integration by a constant times ξ⁻²∫s exp(-s)ds. On s≥ξ, (1-exp(-(2ξ-s)))/(2ξ-s)≤1 gives an exponential tail. The first two integrals give E₁(η) and exp(-η)/(2ξ). For the moments, the ordered positive Green rows give m_k=kK m_{k-1} and 0≤m_k/(k!M^k)≤1. The normalized rows for u≥0 differ from the row at 1 in mass by at most exp(ξ)/(DξM), which tends to zero. The row at 1 assigns v<0 mass at most exp(ξ)E₁(η)/(DξM), by changing variables in the outer integral. Thus normalized moments converge inductively to 1 in the well, giving k! for the mean-normalized exit time. The first moment gives tightness and the factorial moments determine the exponential law. This uses fixed D,η>0 and an interior absorbing axial threshold; it does not cover a point target or spatial arrival.",
+      "residual_risks": [
+        "The supplemental quadrature has an incorrect value at the single removable endpoint s=2ξ (it should be exp(-2ξ)); this does not affect the integral or theorem. The quadrature is not evidence of a full exit-time law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest inspected angular escape record f0b37aa5eadb concerns a fixed planar interval; narrow-capture paper 10.1137/080733280 was identified but its theorem text could not be retrieved lawfully."
+        ],
+        "reasoning": "A fixed-generator small-trap asymptotic or fixed-domain metastability result cannot be applied without control as both the drift and the cap change. No verified broader theorem in the checked sources supplies such uniformity here. No scope inference is made from the inaccessible paper's title.",
+        "searches": [
+          "Resultary: rotational diffusion on sphere with potential well north pole absorbing south pole small target cap metastability exit law",
+          "Resultary: axial diffusion sphere strong alignment exponentially rare reversal exit time distribution",
+          "DOI:10.1137/080733280"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31914",
+        "arXiv:cond-mat/0702001",
+        "36d67459f871",
+        "f0b37aa5eadb",
+        "02233086b6e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard occupation integral suffices for the exact mean. The joint asymptotic resolves the vanishing antipodal diffusion coefficient, including the contribution of s/(2ξ) in the denominator expansion. The exponential moment law also requires concentration of normalized Green mass, rather than just the large mean."
+        ],
+        "reasoning": "Neither the inspected magnetic MFPT formula nor the routine fixed-boundary asymptotic gives the two-term crossover and all-moment limit as a direct corollary. Partially inaccessible older literature leaves priority risk.",
+        "searches": [
+          "arXiv:cond-mat/0702001, Eq. (4.9)",
+          "DOI:10.1103/PhysRevE.49.3976",
+          "DOI:10.1103/PhysRevB.20.2558",
+          "Frozen RESULT.md, Eqs. (6)–(11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuznetsov et al., pp. 7 and 9: absorption of the spatial process and integrated spatial flux, not hitting an axial orientation threshold.",
+          "Denisov et al., p. 11, Eq. (4.9): a separatrix mean passage calculation in a driven bistable magnetic model."
+        ],
+        "reasoning": "Expressing the target either as projection -1+η/ξ or as angular radius asymptotic to √(2η/ξ) does not identify it with a spatial target or a separatrix between magnetic wells. The conventional backward operator does overlap the mean representation.",
+        "searches": [
+          "Resultary: rotational Brownian motion strong alignment shrinking antipodal cap first passage fixed eta E1 eta",
+          "Resultary: magnetic rotational Brownian motion orientation first passage reversal cap boundary",
+          "arXiv:2606.31914",
+          "arXiv:cond-mat/0702001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored RESULT.md of 36d67459f871: antipodal distances of independent uniform spherical-cap points near a hemisphere.",
+          "Mirrored RESULT.md of f0b37aa5eadb: fixed planar angular-exit cumulants.",
+          "Mirrored RESULT.md of 02233086b6e8: spatial exit from a planar annulus."
+        ],
+        "reasoning": "These are distinct records, not matches to the E₁(η) crossover and mean-normalized moving-target time law. This is a bounded indexed search, not an exhaustive priority proof.",
+        "searches": [
+          "Resultary: antipodal cap boundary layer axial diffusion exit time exponential law E1 eta",
+          "Resultary: fixed eta shrinking antiparallel cap b=-1+eta/xi axial diffusion exit time moments exponential reversal"
+        ]
+      },
+      "rationale": "Credit is limited to the fixed-η joint strong-field/shrinking-antipodal-cap asymptotic with its second term and the simultaneous normalized exponential law with all fixed moments. The scale-speed representation, endpoint Laplace method, and general exponential metastability mechanism are established techniques, not independent novelty claims. No inspected prior statement supplies or directly implies the joint result.",
+      "residual_risks": [
+        "Older magnetic-rotation and spherical narrow-capture full texts above were not accessible; an equivalent result or broader moving-boundary exit theorem remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared model; different stopping event",
+          "evidence": "Semi-infinite spatial domain; mean absorption computed from spatial first-passage flux.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31914",
+          "material_read": "pp. 7, 9, bounded passages on the spatial target and flux",
+          "method": "OA paper PDF",
+          "title": "Drift-diffusion interplay in active Brownian particles under orienting field",
+          "trigger": "Same orienting-field model and first-passage terminology"
+        },
+        {
+          "assessment": "Methodological precursor, no demonstrated joint-regime coverage",
+          "evidence": "Rotating-field magnetic basin model, with averaged mean passage to the separatrix and comparison to a boundary beyond it.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0702001",
+          "material_read": "pp. 7, 11; Eq. (4.9) and nearby comparison",
+          "method": "OA paper PDF",
+          "title": "Rapidly driven nanoparticles: Mean first-passage times and relaxation of the magnetic moment",
+          "trigger": "Magnetic orientation passage and strong-barrier MFPT"
+        },
+        {
+          "assessment": "Unresolved source-level comparison, not negative coverage evidence",
+          "evidence": "SIAM access denied; both MPG retrievals timed out.",
+          "identifier_or_url": "https://doi.org/10.1137/080733280",
+          "material_read": "Source identification only; no theorem text",
+          "method": "SIAM lookup and identified OA MPG copies attempted",
+          "title": "Diffusion on a sphere with localized traps: Mean first passage time, eigenvalue asymptotics, and Fekete points",
+          "trigger": "Small spherical targets and passage/eigenvalue analysis"
+        },
+        {
+          "assessment": "Residual access risk",
+          "evidence": "HTTP 403; no lawful repository copy located.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.49.3976",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Rotational Brownian motion and dielectric relaxation of polar molecules subjected to a constant bias field: Exact solution",
+          "trigger": "Rotational diffusion under constant bias"
+        },
+        {
+          "assessment": "Residual access risk",
+          "evidence": "HTTP 403; no lawful repository copy located.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.20.2558",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Some exact results for one-dimensional diffusion with absorption",
+          "trigger": "General absorbing diffusion comparison"
+        },
+        {
+          "assessment": "Materially distinct",
+          "evidence": "Respectively static two-point distances, planar fixed-interval angular escape, and spatial annular escape.",
+          "identifier_or_url": "36d67459f871; f0b37aa5eadb; 02233086b6e8",
+          "material_read": "Mirrored RESULT.md findings, opening passages",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Closest published records on antipodal and angular escape laws",
+          "trigger": "Nearest published Resultary matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–26 and 41–66",
+        "arXiv:2606.31914, pp. 7 and 9"
+      ],
+      "rationale": "The cap is not an arbitrary small target: at angular width of order ξ⁻¹ᐟ², selection near a pole where the axial diffusion coefficient vanishes changes the activation prefactor relative to fixed thresholds. The E₁(η) dependence and sharp correction quantify that balance, and the concentration argument shows a usable exponential waiting-time law on the very same scale rather than merely an estimate of its mean. These are useful orientation-reversal statistics under the specified model, not an assertion about spatial transport.",
+      "residual_risks": [
+        "No joint uniformity as η also tends to zero or infinity, or transfer to spatial first passage, has been established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

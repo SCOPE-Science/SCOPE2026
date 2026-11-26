@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:12:27.465753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two discarded multiples of 3 in inclusion–exclusion are zero mod 3^(k+2) from the stated starting index, compensating exactly for v_3(720)=2. Every length-2·3^k late block gives one full t-block on each parity. For A=log25, B=log16, C=log4, the reductions mod 27 are (24,15,21), obtained by truncating the logarithm after its cubic term. The even branch's coefficient of t is 1 mod 3 and all nonlinear coefficients vanish mod 3, by m−1−v_3(m!)≥1 for m≥2. For g=f_1/3, the linear numerator is −5A+10B+5C=0 mod 27, the t² coefficient is 2 mod 3, and the t³ numerator after removing 3³ cancels mod 3 by the cube congruence. For m≥4, m−2−v_3(m!)≥1 by Legendre's bound. These estimates also ensure restricted convergence. Thus g' is an isometry with a unique zero α in 3Z_3; translating the restricted series and factoring s² leaves U(s)=u mod 3 coefficientwise, where u=g''(α)/2 is 2 mod 3. The unit square root in 1+3Z_3⟨s⟩ follows by convergent binomial expansion, so s√(U(s)/u) is an isometry (identity plus 3 times a restricted integral series), not just a local approximation. Also g(α)=1/40 mod 9, giving δ=21 mod 27. The even branch contributes one per target; the odd branch has three lifts per lower-depth square root, including k=1. Even-valuation square classes, scaled Haar measure and the modulo-three count (four out of six) give the other claims. Fresh recurrence-only checks at nonaligned blocks n=7..60 (k=3) and n=8..493 (k=5) matched all finite branch profiles; these tests do not determine the high digits of u, which is defined canonically by the derivative. Replay /workspace/branches/79519d69-e82a-41b5-9545-32753b2a0f87/record4_finite_check.py. No supplied checker was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relevant general period bound specializes to 2·3^k. Sun gives related prime-modulus period/congruence information, and the inspected Davis results are about divisibility, valuations or simultaneous-index p-adic limits."
+        ],
+        "reasoning": "A least period constrains block length but not how preimages are distributed. Divisibility is a zero-residue or valuation predicate, not a census of all output classes.",
+        "searches": [
+          "Kwong 1989 Theorems 2.1–2.2, Corollary 3.4, Theorem 3.5",
+          "Sun arXiv:math/0512071 Corollary 1.2",
+          "Davis arXiv:0807.2629 pp. 1–2 and arXiv:1307.7687 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Kwong Fibonacci Quarterly 27 (1989) 217–221",
+        "arXiv:math/0512071",
+        "arXiv:1307.7687",
+        "arXiv:0807.2629",
+        "Resultary 2c5deda1b9d1",
+        "Resultary a900c8064e91",
+        "Resultary 604e339dbb14",
+        "Resultary c5b9d086114e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "As in Kwong, the shifted column series has denominator f_6(x)=∏_(i=1)^6(1−ix). Any eventual period d gives polynomiality of (1−x^d)/f_6(x) modulo 3^k, and hence divisibility of 1−x^d by the factors (1−2x) and (1−x)(1−4x) over that ring. The first evaluated mod 3 forces 2|d. Canceling 1−x using (1−x^d)/(1−x)=Σ_(j=0)^(d−1)x^j and evaluating at 1/4 forces 3^k|d since the sum there has valuation v_3(d) by the unit lifting formula."
+        ],
+        "reasoning": "This recovers exact least-period coverage without depending on a strict versus weak inequality in the scan. It supplies neither the divisibility of all odd-branch outputs by three as an exact analytic statement, nor the canonical critical point and square normal form needed to assign every target a fiber. The different binomial analogues do not imply this analytic decomposition.",
+        "searches": [
+          "Kwong 1989 general generating-function criterion and b-parameter period formulas",
+          "Local Resultary exact sixth binomial images and fourth-binomial/pentatope fibers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sixth-binomial record 2c5deda1b9d1 concerns binom(n,6), not S(n,6). The fifth Stirling result a900c8064e91 has a different column and prime, and yields uniform rather than square-enhanced fibers. Davis varies the second argument in the inspected limit theorem."
+        ],
+        "reasoning": "A fixed column of Stirling numbers is an exponential sum and is not the binomial polynomial; in particular the parity split and scaled translated square are specific to the claimed exponential maps.",
+        "searches": [
+          "Local Resultary S(n,6) sixth Stirling column modulo powers of three exact fibers",
+          "Local Resultary 2c5deda1b9d1 and a900c8064e91",
+          "arXiv:1307.7687 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fifth Stirling column's binary table has uniform fibers. Fourth-binomial and pentatope entries both concern binom(n,4), with two baseline preimages per target and an additional square branch, rather than one baseline preimage from exactly one parity."
+        ],
+        "reasoning": "The fitting structural pattern does not match the evaluated residue tables: the present k=1 multiplicities are (4,1,1) over six indices, not the comparable fourth-binomial multiplicities (5,2,2) over nine indices. No distinct exact table of the claimed column was identified in the checked sources.",
+        "searches": [
+          "Local Resultary sixth Stirling ternary fiber census",
+          "Local Resultary a900c8064e91, 604e339dbb14 and c5b9d086114e Findings"
+        ]
+      },
+      "rationale": "Credit only the evaluated all-target fiber law and odd-branch image for the sixth Stirling column modulo all powers of three, with the stated arbitrary-block start condition. The period itself is baseline information. Kwong's Corollary 3.4 gives the period upper bound; the extracted inequalities in Theorem 3.5 are typography-sensitive at b=2, so direct invocation of that statement was not needed: his general generating-function criterion already gives the matching least-period obstruction on specialization. Other inspected Stirling congruence and p-adic results do not give this square-folded branch distribution. The exact binomial-polynomial analogues concern different maps.",
+      "residual_risks": [
+        "An unindexed evaluated fixed-column theorem or a stronger p-adic classification might still subsume the fiber result.",
+        "The bound proof and the period-source comparison do not establish bibliographic priority for the period, which is not part of the original contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Period is covered by the general method and not credited as new. Extracted inequality glyphs do not reliably resolve the direct theorem's boundary condition. No target-fiber theorem in the inspected passages.",
+          "evidence": "The reciprocal fixed-column denominator is the product of 1−ix; polynomiality of the numerator times that series is the period criterion. The period-divisibility upper bound gives 2·3^k for column 6 and p=3; the 1−4x factor with 1−x proves the sharp lower bound via evaluation.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+          "material_read": "pp. 217–220, generating-function criterion, Corollary 3.4 and Theorem 3.5 with proof (OA offsets 2650–4799, 4350–10146 and 9750–11880; opening statements also in text extraction)",
+          "method": "OA PDF bounded theorem and proof passages; specialization checked algebraically",
+          "title": "Minimum Periods of S(n,k) Modulo M",
+          "trigger": "Broader period theorem for the exact column and modulus"
+        },
+        {
+          "assessment": "Prime-modulus period/congruence result, not all-target counts at higher powers.",
+          "evidence": "The corollary gives a period modulo p.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0512071",
+          "material_read": "Corollary 1.2 p. 3 (OA offset 6800)",
+          "method": "OA PDF bounded congruence passage",
+          "title": "Combinatorial congruences and Stirling numbers",
+          "trigger": "Possible prior Stirling modular classification"
+        },
+        {
+          "assessment": "Different limiting family; not a stated fixed-column census.",
+          "evidence": "The paper studies limits of S(p^e a+c,p^e b+d).",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7687",
+          "material_read": "p. 1 (OA offset 0)",
+          "method": "OA PDF bounded statements of main scope",
+          "title": "p-adic Stirling numbers of the second kind",
+          "trigger": "Potential broader p-adic Stirling theorem"
+        },
+        {
+          "assessment": "Divisibility and valuations, not the all-target fixed-column law in the inspected scope.",
+          "evidence": "The checked introductory statements concern valuations and divisibility rather than multiplicities for arbitrary target residues.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.2629",
+          "material_read": "pp. 1–2 (OA offset 0)",
+          "method": "OA PDF bounded statements of scope",
+          "title": "Divisibility by 2 and 3 of certain Stirling numbers",
+          "trigger": "Same prime, potentially related residue/valuation classification"
+        },
+        {
+          "assessment": "Different function and classification. Also compared fifth Stirling and fourth-binomial/pentatope analogues.",
+          "evidence": "Its map is binom(n,6), and its statements are about image components and cardinality, not S(n,6) target multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local Resultary and exact mirrored Finding",
+          "title": "Exact ternary residue images of the sixth binomial polynomial",
+          "trigger": "Same number six and same prime; potential polynomial alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parity split exposes a genuine distinction between permutation behavior and critical concentration in a standard Stirling sequence. The global analytic coordinate gives the exact output counts for every target at every ternary depth and the exact exceptional support, which are not supplied by the period or divisibility data alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

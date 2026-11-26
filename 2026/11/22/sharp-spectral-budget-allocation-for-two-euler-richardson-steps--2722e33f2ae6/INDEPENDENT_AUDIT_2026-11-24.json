@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:54:30.484755Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md lines 19–27 and check.py lines 7–82, inspected without executing the uploaded checker",
+        "Independent bounded scalar feasibility check, 348 parameter pairs, including transition neighborhoods and near kappa=1, 2 and 1+sqrt(2). For target norm M, the feasible u interval is [max(0,(tv-1-M)/v^2), min(t^2/4,t-1+M,(t*kappa-1+M)/kappa^2)] with v=clip(2(1+M)/t,1,kappa). Bisect the target M using nonemptiness of that interval. The maximum discrepancy in the objective scaled by max(1,M) was 5.46e-12."
+      ],
+      "rationale": "Scaling the spectrum to [1,kappa] makes the residual polynomial p_u(x)=1-tx+ux^2; the unordered feasible pair is exactly the nonnegative roots of z^2-tz+u with 0<=u<=t^2/4. The maximum P(u) of p_u strictly increases and the negative minimum N(u) strictly decreases because x^2>=1. At u=0, P-N=2-t(1+kappa), and at u=t^2/4 the polynomial is a nonnegative square not identically zero, so P-N>0. This proves a unique boundary optimum or a unique interior crossing, with positive unequal steps in the latter case. The maximum changes endpoint at t/(1+kappa). The minimum is at kappa, the vertex, or 1, separated by t/(2kappa) and t/2. Comparing the strictly increasing P-N at these three products in order gives, respectively, the signed expressions 2-t(kappa^2+2kappa-1)/(2kappa), 2-t(kappa^2+6kappa+1)/(4(1+kappa)), and 2+t(kappa^2-2kappa-1)/2. Their zeros give t_1,t_2,t_3 (no finite third zero for kappa>=1+sqrt(2)); the strict ordering follows from strict increase in u and the zero comparisons, including t_0<t_1. At the crossing, balancing opposite endpoints gives u=[t(1+kappa)-2]/(1+kappa^2), while balancing endpoint a and the vertex gives a^2 u^2+(2-ta)u-t^2/4=0 with its unique positive root; the formulas agree on transition boundaries. Strictly positive steps cannot attain the first-branch optimum, but can approach it. Independently, for norm at most one, p_u<=1 requires u<=t/kappa, and p_u>=-1 then requires t x(1-x/kappa)<=2 everywhere. The maximum of x(1-x/kappa) is 1-1/kappa if kappa<=2 and kappa/4 otherwise. This necessary bound is sufficient for t>=4/kappa by using the feasible product u=t/kappa, or for t<=4/kappa by equal steps. Below the boundary, strictness follows from equal steps for t<4/kappa and otherwise by a sufficiently small decrease from t/kappa, since the lower inequality has uniform slack on the compact interval. The equality case kappa=2 is shared and both time ratios follow.",
+      "residual_risks": [
+        "The numerical comparison is finite and uses fixed precision; the crossing argument and feasibility inequalities establish the full continuum claim. This is a final-time SPD spectral-envelope bound, not an accuracy or intermediate-step bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schöberl minimizes over degree at most n subject to p(0)=1 and uses rescaled Chebyshev polynomials. For n=2 its dimensionless derivative at zero is -8(kappa+1)/(kappa^2+6kappa+1), exactly -t_2. At the kappa>=2 stability endpoint the polynomial in y=H lambda is T_2(1-y/4)=1-y+y^2/8, the degree-two maximal-real-axis stability shape on 0<=y<=8."
+        ],
+        "reasoning": "Credit exact prior coverage of the one unrestricted Chebyshev budget and of the kappa>=2 time endpoint. The first formula fixes only one derivative; the second treats an interval reaching zero, while the finite-band frontier near kappa=1 can have HL>8. Neither provides the fixed-t family for general t.",
+        "searches": [
+          "Schöberl, The Chebyshev Method, §77 and §77.1",
+          "Resultary: maximum stable step size two stage explicit Runge Kutta real negative axis maximal stability polynomial sum coefficients fixed first derivative"
+        ]
+      },
+      "checked_sources": [
+        "Schöberl §77 and §77.1; Rack–Vajda §1 Eqs. (1.3)–(1.4)",
+        "Frozen AUDIT.json originality comparisons, including Agarwal–Goel–Zhang and Takabe–Wadayama method sections; those two texts were not independently retrieved",
+        "Local Resultary entries 2722e33f2ae6, 31fff666d705, 742359c7b394 and 0f63ee987045; bounded primary literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate robust nonexpansion restricts each dimensionless step to <=2/kappa, so it supplies pairs with t<=4/kappa only. The present final-product horizon can reach 8/kappa or 2kappa/(kappa-1). The residual-polynomial Chebyshev references optimize without an exogenous value of the first derivative."
+        ],
+        "reasoning": "Individual-safety optima cannot imply the full fixed-budget final-time theorem, which allows transient expansion and different active extrema. Unconstrained optimum theorems likewise cannot supply optima over slices not containing their minimizer.",
+        "searches": [
+          "Stagewise-safe Resultary 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "Schöberl §77 rescaled degree-two formula",
+          "Agarwal–Goel–Zhang arXiv:2103.01338 §2.2–2.3 and Takabe–Wadayama arXiv:2010.13335 §III, bound comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent polynomial problem fixes p(0)=1 and p'(0)=-t with nonnegative step factorization. Rack–Vajda fix the leading and second-leading coefficients of a monic polynomial, minimizing its unweighted interval norm. With x=1/y the two fixed coefficients can be made leading, but the objective becomes weighted by y^(-2) on [1/kappa,1] and the remaining coefficient remains constrained."
+        ],
+        "reasoning": "The reciprocal transformation does not reduce this theorem to the unweighted Zolotarev problem in the inspected primary source. A specialized weighted analogue could matter, but none was identified in the bounded literature comparison.",
+        "searches": [
+          "Resultary: constrained Chebyshev polynomial degree two prescribed derivative p prime zero fixed total Richardson steps",
+          "Primary query: degree two constrained Chebyshev minimax polynomial prescribed derivative at zero fixed sum two Richardson Euler steps spectral interval stability Zolotarev leading coefficients",
+          "Rack–Vajda DOI 10.33993/jnaat482-1173, §1, Eqs. (1.3)–(1.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2722e33f2ae6 is the assigned self-match. 31fff666d705 reports individual-step-safe Richardson with a condition-number transition. Distinct same-day 742359c7b394 concerns random delivery failures and expected squared error; 0f63ee987045 is a fixed-budget periodic variable-step BDF2 Floquet result."
+        ],
+        "reasoning": "These indexed statements do not identify the same five-branch table. The same-day result is distinguished by random delivery and its expected-error objective, not by dating, and BDF2 does not use the two Euler-factor polynomial.",
+        "searches": [
+          "Resultary: two Euler Richardson stages sum step sizes minimax robust contraction final product SPD interval stages allowed transient growth",
+          "Resultary: stagewise-safe two Richardson steps sharp frontier individual updates nonexpansive"
+        ]
+      },
+      "rationale": "The supported distinct theorem is the complete prescribed-sum minimax product and phase classification, with the finite-band time frontier for 1<kappa<2 as a consequence. The unrestricted Chebyshev optimum at t_2 and the classical degree-two real-axis stability endpoint for kappa>=2 are existing special coverage, not independently credited. No inspected statement supplies the full constrained classification; residual risk in weighted polynomial approximation and inaccessible related texts remains.",
+      "residual_risks": [
+        "Full stagewise-safe and cited modern Chebyshev papers were not retrievable for this audit. An earlier weighted minimax result may contain the same branch classification in another form. The bounded review does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the unconstrained optimizer, hence the t=t_2 slice",
+          "evidence": "The actual displayed minimization fixes only p(0)=1. The formula scales the argument to map the spectral endpoints to -1 and 1, then divides by the value at zero; its n=2 derivative evaluates to -t_2.",
+          "identifier_or_url": "https://jschoeberl.github.io/iFEM/iterative/Chebyshev.html",
+          "material_read": "§77 and §77.1, text offsets 1000–1700 and 4000–4567",
+          "method": "OA HTML literal locator and bounded passage reads",
+          "title": "The Chebyshev Method",
+          "trigger": "Strong general residual-polynomial minimax comparison"
+        },
+        {
+          "assessment": "Different fixed coefficients in the unweighted norm; no direct coverage after inversion",
+          "evidence": "Defines P_n,s(x)=x^n-ns x^(n-1)+sum_{j<=n-2}a_j x^j, optimizing the remaining coefficients on [-1,1] in the uniform norm. Reciprocal conversion of the audited objective introduces a nonconstant weight.",
+          "identifier_or_url": "https://doi.org/10.33993/jnaat482-1173",
+          "material_read": "§1, p. 2, Eqs. (1.3)–(1.4), text offset 3200–5579",
+          "method": "Lawful journal PDF literal locator and bounded primary passage",
+          "title": "Explicit algebraic solution of Zolotarev’s First Problem for low-degree polynomials",
+          "trigger": "Plausible broader fixed-coefficient low-degree minimax problem"
+        },
+        {
+          "assessment": "Indexed theorem has a different feasible set that cannot address t>4/kappa",
+          "evidence": "Summary constrains both stages separately to be Euclidean nonexpansions and reports a transition at kappa=1+sqrt(2); it does not state the fixed-total-step frontier.",
+          "identifier_or_url": "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+          "material_read": "Local Resultary scientific summary; full text unavailable",
+          "method": "Local Resultary lookup and bounded mirror attempt",
+          "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+          "trigger": "Same two steps and spectral envelope with a separate safety condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43, 58–83 and 95–97"
+      ],
+      "rationale": "An externally prescribed final integration or solver budget makes spectral minimization at fixed p'(0) a natural constraint. The optimizer, unique up to step order, explains when one full step is best and when the active spectral modes shift between endpoints and the interior. The finite-band nonexpansion time can substantially exceed the equal-step or stagewise-safe budget, which matters when only final-time amplification is constrained.",
+      "residual_risks": [
+        "Does not establish faster convergent physical integration, lower truncation error, intermediate safety, or nonnormal robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

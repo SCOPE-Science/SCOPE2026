@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is limited to the reduced saddle equation in the low-temperature periodic-boundary regime. The proof retains both singular terms in the polylogarithm expansion, cancels their opposite \(1/\delta\) poles, solves for \(x^{-\delta}\), and derives both limiting regimes. The NIST expansion used in the proof states the required domain. The finite-temperature correction and finite-volume terms are explicitly excluded.
+PASS
 
-## Originality — PASS
+PASS is for the replacement files, not the original. The original fails twice: after multiplying by delta the omitted O(x) remainder contributes O(delta*x), which is not a uniform O(delta^2*y); and dropping the zeta shift before raising to 1/delta does not preserve relative equivalence under delta*X→infinity. In the repair the monotone defining series has one solution and bounds it uniformly away from any x>=epsilon for large X. DLMF's convergent series with the pole terms removed has uniform R=-zeta(-delta)*x+O(x^2) (functional equation plus Stirling for the tail). With B=-zeta(1-delta)>0 and z=(Gamma(delta)/(X+B))^(1/delta), log(x/z)=-log(1-R/(X+B))/delta=O(x/(1+delta*X)); convergence of the ratio to one allows x to be replaced by z. Gamma(delta) and B both equal delta^(-1)-gamma_E+O(delta), so the leading elementary formula contributes an extra O(delta) in relative error. The relative power-law ratio has log -log(1+B/X)/delta+o(1); bounding this term above and below proves the iff condition delta^2*X→infinity and the limits exp(-1/c) and zero on the two smaller scales. Along delta=exp(-2X), the original pure O(delta) relative error is disproved by a correction asymptotic to exp(-X)/2; along (delta,X)=(j^(-2),j^3), the original relative endpoint ratio tends to zero. These are analytic checks, not simulation. The corrected scope remains the reduced periodic saddle, with no bound on the omitted finite-temperature term or on the force.
 
-The closest primary source gives the endpoint asymptotics separately but the inspected equations do not state the joint \(\delta X\) law. The 2013 thermal-regime paper, the 2017 scaling-function paper, and the 2020 anisotropic-lattice paper concern different scale hierarchies or different dimensional-crossover mechanisms. published-finding corpus semantic searches and the accessible ledger claim/ID scan found no matching claim. Search failure alone is not treated as proof of novelty; an unindexed derivation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The crossover variable \(\delta X\) specifies when the fixed-\(d<3\) power law is nonuniform near \(d=3\), and the formula reconciles the exponential and power-law endpoint scales without interchanging limits. This is a motivated asymptotic statement about the force-controlling saddle, not a routine numerical recomputation or a claim of new model physics.
+For the replacement, credit the original model, saddle equation, gamma and zeta terms of the forward expansion, and both fixed-dimension endpoints to Jakubczyk–Napiórkowski–Sęk, and the full polylogarithm expansion to DLMF. The supported distinct result is the joint relative inverse estimate and its sharp separation between a logarithmic crossover on the delta*X scale and relative recovery of the power law on the delta^2*X scale. Neither the anchor's separate limits nor the distinct indexed sources inspected state this comparison. The verdict is best-of-knowledge and does not claim an exhaustive priority result.
 
-## Closest literature and limitations
+## value
 
-Jakubczyk, Napiórkowski, and Sęk (2016), arXiv:1601.05435, equations (12), (16), (21), (26), and (34), is the primary model source. Napiórkowski, Jakubczyk, and Nowak (2013), arXiv:1305.4643, treats the ordinary thermal Casimir regime. Diehl and Rutkevich (2017), arXiv:1704.00507, treats broad scaling functions in a different width-to-thermal-wavelength limit. Łebek and Jakubczyk (2020), arXiv:2003.07458, studies anisotropy-driven effective dimensionality. The result is asymptotic, restricted to the stated model and regime, and not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform saddle approximation is useful precisely because the known endpoint expressions can be wrong by an arbitrarily large relative factor near the critical dimension. The corrected result identifies distinct logarithmic and relative scales and quantifies the latter boundary by exp(-1/c), including why one cannot retain the originally claimed error. It is not a claim of novelty for a Gamma/zeta expansion, nor a purported formula for the full finite-temperature force.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

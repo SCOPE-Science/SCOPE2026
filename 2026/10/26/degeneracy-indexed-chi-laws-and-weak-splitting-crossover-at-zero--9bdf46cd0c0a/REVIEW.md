@@ -1,15 +1,21 @@
-# Scientific review of the critical multi-defect zero-range limit
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact stationary product weight follows from a site-by-site global-balance identity on the directed ring. Canonical conditioning reduces the distinguished-site occupations to a tilted negative-binomial mass. A uniform local limit, together with a Gaussian lower-tail bound from the negative-binomial mass ratios, proves the stated Riemann-sum limit and uniform integrability. The chi law and independent Dirichlet shares follow from the simplex Jacobian. The truncated-exponential two-defect crossover is its explicit marginal. A deterministic finite-state test program independently checked the weights and generator balance, as well as convergence trends; it is supporting evidence only.
+## correctness
 
-## Originality
-PASS relative to inspected material, with residual historical risk. Angel–Evans–Mukamel (arXiv:cond-mat/0401262, Section V) treat one slow site and finite-size current effects. Godrèche–Luck (arXiv:1209.4749, Appendix A) give an important fixed-mass two-site weak-bias law without an extensive fluctuating background. Armendáriz–Grosskinsky–Loulakis (arXiv:0912.1793, Sections 1–2) concern condensation from decreasing occupation-dependent rates. Kocharovsky–Kocharovsky (arXiv:1511.01610, Section IX) derive canonical Bose formulas for a single ground state and degenerate excited states. None of those inspected statements directly evaluates the joint critical law of multiple near-degenerate slow sites with density and splitting detunings. The abstract of Zeng's many-defect paper was available, but its full content was not examined; a more general exact Bose-gas result could conceivably subsume the claim. A failed search is not proof of global novelty.
+PASS
 
-## Value
-PASS. The critical stationary mass is not simply Gaussian or geometric: a finite number of equivalent traps produces an entire chi hierarchy, with Rayleigh behavior for two traps and an independent Dirichlet partition. The result also identifies the rate contrast required to influence onset fluctuations: order \(L^{-1/2}\), contrasting with inverse-mass splittings for a fixed macroscopic two-site total. These are natural observables and a complete limiting classification for fixed defect multiplicity and weak detuning, rather than an arbitrary small-parameter numerical example.
+For the directed finite ring, each feasible predecessor feeding site i has stationary weight ratio a_i/a_(i-1), so after multiplying by the predecessor jump rate its incoming flux divided by the proposed weight is a_i, exactly the total-outflow contribution indexed by a nonempty site i. Irreducibility gives uniqueness. Summing ordinary-site occupations at fixed slow vector k gives binom(L+N-|k|-1,N-|k|); the proposed negative-binomial identity follows after multiplying by the common factor q^N(1-q)^L. The geometric summands have span one, mean rho_c and variance v, so the lattice local CLT gives the uniform compact approximation, including the boundary k_j=0; the floor changes the scaled displacement by O(L^-1/2). For a uniform tail proof use the mode m=floor(t) with t=q(L-1)/(1-q). Below it, mass(b-1)/mass(b)=b/[q(L+b-1)] decreases when stepping down, and 1-ratio is at least c(t-b)/L for 1<=b<=m. Multiply the ratios using log x<=-(1-x), sum the linear deficits, and use the local-CLT supremum O(L^-1/2) at the mode and globally. Since t differs from rho_c L by O(1), this yields the stated one-sided Gaussian envelope. Counting r-tuples with total s and multiplying the envelope by the weak tilt and any fixed polynomial gives an integrable polynomial times a Gaussian in s/sqrt(L). Compact Riemann sums with this tail control give the positive finite normalizer, weak limit and polynomial moment convergence. The s/share Jacobian is s^(r-1), so zero shift and tilt give the normalized chi_r and independent uniform Dirichlet shares; for r=2 integration over the second site's mass gives the stated h_theta and conditional law for either tilt sign and continuously at zero. The frozen checker was inspected, not executed: its scaling samples use round rather than the theorem's floor (a bounded displacement), and its balance and finite comparisons are corroboration, not the limit proof.
 
-## Boundaries
-Fixed defect count and fixed positive \(q<1\); homogeneous bulk with constant per-nonempty-site hop rates; canonical particle total within an order-\(\sqrt L\) critical window. No dynamic mixing-time theorem, growing-number defect regime, or arbitrary occupation-dependent rates are implied. Historical originality is based on accessible literature and research-record comparison, not an exhaustive priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the joint canonical critical-window law for an arbitrary fixed finite set of slow sites with separate weak splittings, moment control, and its chi_r/share consequence. Prior canonical product weights, fixed-total two-site sharing and single-defect finite-size analyses are not new here. The closest indexed two-site result is exactly overlapping at r=2 after reparametrization but dated later and does not supply the arbitrary fixed-r family. A plausible 2014 many-defect paper remains an access risk, not verified coverage.
+
+## value
+
+PASS
+
+A fixed degeneracy changes the critical bulk deficit law from a truncated Gaussian into a chi family, with an independent share vector only in the symmetric case described. The full finite-dimensional weak-splitting window quantifies competition on the scale where the macroscopic background still fluctuates. The moment conclusion and arbitrary fixed number of competing sites make this a useful equilibrium benchmark beyond a two-site computation or a restatement of product stationarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

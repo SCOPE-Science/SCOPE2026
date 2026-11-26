@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:46:38.556197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4",
+        "Frozen VERIFICATION.md and check.py, inspected statically"
+      ],
+      "rationale": "A leaf requires selection from its spoke pair, and selecting a single rim vertex with all other leaves meets the lower bound n. Every optimum thus has no hub, chooses exactly one from each pair, and its selected rim set is independent and nonempty; slides preserving those pair counts are exactly spoke toggles. For n=3 the only states are isolated singletons, and for n=4 each opposite pair and its two singletons form a P3. For n≥5 Hamming is a lower bound; a shared vertex, or insertion of a compatible target vertex before the last source deletion, provides a Hamming geodesic. Otherwise the supports are disjoint and completely cross-adjacent, so a Hamming-length route must pass through empty; toggle parity gives the lower bound of two extra. A cycle of length at least five has no K2,2 subgraph, so the only obstructed types are adjacent singletons and a singleton versus its two neighbors. A singleton buffer outside the two neighborhoods gives a four-step route for the first type; for the second, buffer a+2 survives until transfer to a−1 (nonadjacent to the buffer even at n=5), and then insertion of a+1 finishes in five steps. These are 2n distinct unordered pairs. The Fibonacci vertex count follows by conditioning on a vertex; an edge toggling a given coordinate corresponds to a nonempty allowed subset of the residual n−3 path, giving the stated edge count. For a state of size k with gaps g_i, subtracting its intersection from any target cannot reduce their Hamming distance; the maximal distance is thus B=k+Σ floor(g_i/2), attained by an independent choice in the complementary paths. Exactly singletons and two-neighbor sets must take max(B,5). Writing 2B=n+2k−o with o the odd-gap count gives the stated radius bound and singleton attainment at n≥8; at n=5 all types are exceptional, n=6 has an opposite pair of eccentricity four, and n=7 the 2-set gaps are (2,5) or (3,4) with B=5 while three vertices give B=6. For n≥6 the puncture distances are at most five and do not attain or exceed the diameter: the alternating pair is the only complementary independent pair in even length, and omitting one vertex leaves a path with a unique unordered bipartition in odd length. At n=5 exactly the five singleton/two-neighbor pairs have distance five.",
+      "residual_risks": [
+        "The supplied direct-helm and BFS routines cover only n≤8 and n≤13 respectively; no uploaded code was run.",
+        "The stated Python 3.8 compatibility in RESULT.md is inaccurate: the checker calls int.bit_count(), available from Python 3.10. Its replay requires Python 3.10 or newer; no change to the mathematical result is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The i-graph definition covers the moves; the cycle i-graph theorem classifies minima on C_n, not allowable rim supports of optima on a helm.",
+          "The ordinary Lucas-cube theorem studies the full-cube radii and center; the Castro–Mollard retrieval yielded a landing page/abstract only."
+        ],
+        "reasoning": "Optimizing independent domination on the original cycle selects only a restricted collection and has different moves. General connectivity or eccentricity results with the zero state present are not post-deletion distance results. A more general faulty-cube theorem remains a literature risk, not verified coverage.",
+        "searches": [
+          "arXiv:2303.06299 §1.3",
+          "arXiv:2303.08190 Theorem 3.7",
+          "arXiv:2305.17814 Problem 5(b)",
+          "Munarini et al., Theorem 1",
+          "DOI:10.1016/j.disc.2011.11.006"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b10f220378c0 (self-match) and 7db8cebed305",
+        "arXiv:2303.06299, 2303.08190, 2305.17814 and 2410.19326",
+        "Munarini et al. (2001), Theorem 1",
+        "DOI:10.1016/j.disc.2011.11.006 (landing page/abstract only)",
+        "IEEE Xplore 4725792 (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When the empty state is available, deleting down to it and then reconstructing realizes Hamming even for completely cross-adjacent disjoint states.",
+          "In the punctured Boolean case, every disjoint pair has a compatible cross pair by the lack of forbidden coordinate pairs.",
+          "The published cycle i-graph does not include the required full set of nonempty independent supports."
+        ],
+        "reasoning": "The basic Hamming obstruction is an elementary deduction from the representation, but the inspected prior results do not give its exact repair cost, cycle-specific enumeration or punctured extrema. These require the new local detour cases and gap argument.",
+        "searches": [
+          "Munarini et al., On the Lucas Cubes, Theorem 1",
+          "Resultary 7db8cebed305, RESULT.md offsets 0–5820",
+          "arXiv:2303.08190, Theorem 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the Lucas Cubes defines precisely the cyclic nonconsecutive-one graph before the puncture.",
+          "The earlier Resultary spider result has a zero-punctured Boolean cube with full Hamming distances, not the cycle-independent-set state family.",
+          "IEEE Xplore 4725792 is a plausible fault-routing hit, but only a snippet was available and its equivalence is unverified."
+        ],
+        "reasoning": "Both optimum helm slides and cyclic-independent-set flips lead to the same punctured object. The full Lucas cube's Hamming metric and the Boolean cube's puncture result do not determine the loss of routes in this object.",
+        "searches": [
+          "Resultary: helm minimum independent domination; punctured Lucas cube routing; equivalent i-graphs",
+          "Faulty Lucas/extended Lucas cube routing literature lookup",
+          "Munarini et al., On the Lucas Cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact hit b10f220378c0 is the assigned record itself; closest distinct hit 7db8cebed305 concerns a subdivided star and a different punctured cube."
+        ],
+        "reasoning": "Its state-space and metric identify the meaningful nearest catalogue comparison, but the Hamming-exact spider property neither tabulates nor supplies the helm's 2n obstructed pairs or radius, including the small anomalies. The lookup does not prove historical absence.",
+        "searches": [
+          "Resultary: minimum independent domination reconfiguration on helms; deleted-zero Lucas and Boolean cubes"
+        ]
+      },
+      "rationale": "The established move model and ordinary Lucas-cube metrics are prior. The supported distinct claim is the helm representation and exact puncture-induced routing penalty, its complete 2n-pair classification, and the resulting extremal geometry. The closest prior punctured-cube i-graph examined has no detours.",
+      "residual_risks": [
+        "An equivalent zero-deletion theorem could appear in inaccessible faulty/extended Lucas-cube routing work, including IEEE Xplore 4725792 or the separately surfaced Springer work whose PDF retrieval failed. The snippets do not resolve that risk.",
+        "A bounded catalogue and primary-text comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive analogy, different graph and metric",
+          "evidence": "On the once-subdivided star it gives Q_s−{0}, Hamming-isometric, diameter s.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-cube-deletion-transition-for-minimum-independent-domination-re--7db8cebed305",
+          "material_read": "RESULT.md offsets 0–3118 and 3100–5820",
+          "method": "Configured local catalogue mirror",
+          "title": "A cube-deletion transition for minimum independent domination reconfiguration",
+          "trigger": "Earlier zero-punctured optimum-slide cube"
+        },
+        {
+          "assessment": "Established general move model",
+          "evidence": "The i-graph joins minimum independent dominating sets differing by one legal token slide.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06299",
+          "material_read": "§1.3, p. 4, offsets 9680–12469",
+          "method": "Bounded primary OA PDF read",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Same mode of adjacency between optima"
+        },
+        {
+          "assessment": "Original graph is the cycle itself, not the helm",
+          "evidence": "Theorem classifies I(C_n), not the graph of all nonempty independent subsets under toggles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08190",
+          "material_read": "p. 2 and Theorem 3.7 p. 12, offsets 3000–5758 and 30700–33208",
+          "method": "Bounded primary OA PDF read",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Could already classify the cycle-induced state graph"
+        },
+        {
+          "assessment": "Covers full-cube geometry, not directly the induced graph with zero deleted",
+          "evidence": "Uses cyclically nonconsecutive strings, Hamming-1 adjacencies, and retains the all-zero state for its radius/center theorem.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/39-1/munarini.pdf",
+          "material_read": "Opening definition (offset 0) and Theorem 1 (around offset 6000)",
+          "method": "Bounded primary OA PDF read",
+          "title": "On the Lucas Cubes",
+          "trigger": "Ordinary Lucas-cube definitions and extremal geometry"
+        },
+        {
+          "assessment": "Unresolved; no inference of either exact coverage or noncoverage",
+          "evidence": "Snippet describes extended-Lucas-cube routing in networks with faulty nodes or links but does not identify this induced graph or its all-pairs metric.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/4725792",
+          "material_read": "Search snippet only; full-text request returned HTTP 202",
+          "method": "Literature search and bounded OA attempt",
+          "title": "Data Routing Algorithms in Extended Lucas Cube Networks",
+          "trigger": "Plausible overlap with routing after a node fault"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Resultary 7db8cebed305, Hamming-exact punctured Boolean comparison"
+      ],
+      "rationale": "Removing the empty state is forced by hub domination, not an arbitrary fault choice. The distance and exact exceptional-pair list tell which natural optimum-to-optimum transformations require a detour, give an optimal route, and distinguish this family from known punctured Boolean networks where no detour is needed. The radii and antipodal counts follow as useful exact features of this routing benchmark.",
+      "residual_risks": [
+        "Applies to sequential slides between minimum independent dominating sets of this helm, not arbitrary starting sets, helms with modified spokes or parallel replacements."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

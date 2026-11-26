@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:26.191430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unweighted combinatorial Laplacian, I+hL² is positive definite for h≥0, so its determinant and the inverse diagonal are positive. An independent SymPy reproduction enumerated all connected labelled simple graphs of orders 1–4 (counts 1, 1, 4, 38) and checked 241 unordered off-diagonal cofactor polynomials. Every polynomial has at most one coefficient sign variation, hence at most one positive root by Descartes' rule. This rules out a strict +,−,+ triple; the nine-representative table also agrees. The independent P₅ computation gave the stated denominator and all six cofactor representatives under reflection, including h²(5h²−21h+1) at (0,4). Its positive roots are h±=(21±√421)/10, with strict +,−,+ signs on the three intervals. The (0,2) cofactor is negative through h− because h−<1/5; the (0,4) cofactor excludes all remaining h in (h−,h+). At and above h+>2 the other five cofactor representatives are positive by their displayed factors and coefficients or the explicit increasing polynomial inequalities, while (0,4) is nonnegative and vanishes only at h+ there. At zero the matrix is the identity. Independent replay: /workspace/branches/c6603a2e-ba79-4106-b81f-531daf7e3791/graph_biharmonic_resolvent_exact_check.py and matching .log; uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 7992c0c75083 treats the same operator on positively weighted stars: full positivity is controlled by the pair of weakest leaves, and the result includes unit-weight star cases.",
+          "Benzi–Simunec analyze rational Krylov approximations to fractional graph diffusion; Ulm addresses the continuum fourth-order boundary-value analogue and was not readable in full."
+        ],
+        "reasoning": "The weighted-star result covers part of the small-graph calculation but not the nonstar P₅ witness or the exhaustive bound for all smaller connected graphs. The numerical method and continuum analogue do not supply a dominating all-graph theorem in the available evidence.",
+        "searches": [
+          "Resultary: weighted-star positivity recovery for graph biharmonic resolvents",
+          "arXiv:2012.08389 and DOI 10.1090/S0002-9939-99-04556-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification support",
+        "Resultary 7992c0c75083, cbdb39e5b48d, and d420a169b802 (self)",
+        "arXiv:1712.07370 and arXiv:2012.08389",
+        "Ulm DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The semigroup work identifies nonpositivity via a positive off-diagonal of L². The first-order resolvent expansion yields the analogous small-step obstruction to whole-matrix positivity, and the large-step limit is the positive constant projection.",
+          "The P₅ reentrant entry is not one of those first-order negative entries; its sign changes depend on a second-order factor with two positive roots."
+        ],
+        "reasoning": "Small-step obstruction and large-step recovery do not force any fixed entry that starts positive to become negative before recovery. The exact reentrance, minimal order and sharp recovery threshold require the distinct cofactor calculation.",
+        "searches": [
+          "Gregorio–Mugnolo arXiv:1712.07370, pp. 8 and 29",
+          "Resultary 7992c0c75083 and cbdb39e5b48d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Laplacian-square heat semigroup e^{-tL²} is positive for all t≥0 exactly for complete graphs, and is eventually irreducible on finite connected graphs.",
+          "Resultary cbdb39e5b48d treats (I+sL+s²L²/2)^{-1}, whose P₅ distance-four entry is negative at small positive s; the frozen (0,4) entry instead starts positive."
+        ],
+        "reasoning": "The cofactor sign problem is an equivalent algebraic formulation of this resolvent question. Heat-semigroup positivity and Padé barriers are not equivalent formulations; the resolvent is a Laplace average of the heat semigroup, and a semigroup sign property does not determine these entry sign reversals.",
+        "searches": [
+          "Resultary: reentrant graph biharmonic resolvent entries, five-vertex path, and Pade positivity",
+          "Gregorio–Mugnolo arXiv:1712.07370 Proposition 2.3 and Proposition 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact five-vertex and h+ hit, d420a169b802, is the assigned record itself.",
+          "The distinct cbdb39e5b48d record also has a P₅ cutoff/threshold but computes a different rational kernel; the distinct 7992c0c75083 record specializes to stars, not P₅."
+        ],
+        "reasoning": "Neither distinct table or family determines the required P₅ numerator  h²(5h²−21h+1) for (I+hL²)^{-1} or tabulates the absence of reentrance across all smaller graphs.",
+        "searches": [
+          "Resultary: P₅ biharmonic backward-Euler cofactor, graph order cutoff, positive-negative-positive and restoration threshold"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp five-vertex minimum for a single reentrant entry of this resolvent and the exact P₅ full-matrix threshold. Same-operator star positivity, a Padé P₅ threshold, and semigroup positivity results are credited but do not establish this claim.",
+      "residual_risks": [
+        "One focused literature search was unavailable; no evidence of absence is inferred. Ulm's detailed continuum theorem was inaccessible. Earlier unindexed finite-graph computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Semigroup background, not resolvent reentrance",
+          "evidence": "Proposition 2.3 tests positivity for the semigroup using the sign of L²; Proposition 6.1 establishes eventual irreducibility on connected finite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.07370",
+          "material_read": "PDF p. 8 Proposition 2.3 and p. 29 Proposition 6.1",
+          "method": "Bounded original PDF text",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Same operator and sign questions in the heat semigroup"
+        },
+        {
+          "assessment": "Covers the star part, not the decisive nonstar or global minimality",
+          "evidence": "Full nonnegativity holds at 0 or above the threshold determined by the two least-conductive leaves.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-weakest-spokes-control-positivity-recovery-of-weighted-star--7992c0c75083/RESULT.md",
+          "material_read": "Finding and threshold at local text offsets 0 and 729",
+          "method": "Configured Resultary query and local mirror",
+          "title": "Two weakest spokes control positivity recovery of weighted stars",
+          "trigger": "Distinct same-operator exact family result"
+        },
+        {
+          "assessment": "Different operator and small-step endpoint sign",
+          "evidence": "The denominator operator is I+sL+s²L²/2, not I+hL².",
+          "identifier_or_url": "2026/11/8/SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d/RESULT.md",
+          "material_read": "Finding at local text offset 0",
+          "method": "Configured Resultary query and local mirror",
+          "title": "Five-vertex and distance-four positivity barriers for Padé graph filters",
+          "trigger": "Strong P₅ and exact threshold match in another filter"
+        },
+        {
+          "assessment": "No exact entry-sign theorem in inspected material",
+          "evidence": "Focus is approximating f(L^T)b for fractional diffusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.08389",
+          "material_read": "PDF p. 1 abstract and formulation",
+          "method": "Bounded original PDF text",
+          "title": "Rational Krylov Methods for Fractional Diffusion Problems on Graphs",
+          "trigger": "Rational graph diffusion comparison"
+        },
+        {
+          "assessment": "Exact theorem-level comparison unresolved; no negative evidence taken",
+          "evidence": "The application is to a continuum biharmonic operator, not the stated finite graph family.",
+          "identifier_or_url": "10.1090/S0002-9939-99-04556-6",
+          "material_read": "Bibliographic identification only; original and identified AMS PDF route inaccessible",
+          "method": "Lawful OA access attempts",
+          "title": "The interval of resolvent-positivity for the biharmonic operator",
+          "trigger": "Closest cited continuum resolvent positivity analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp minimal counterexample to monotone-in-step positivity of individual graph diffusion transfers, with a simple unweighted path witness. The separation between a positive small-step endpoint transfer and a much later whole-matrix restoration threshold is a distinct, useful boundary for this time discretization. Exhausting only the smaller orders is mathematically dictated by the witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

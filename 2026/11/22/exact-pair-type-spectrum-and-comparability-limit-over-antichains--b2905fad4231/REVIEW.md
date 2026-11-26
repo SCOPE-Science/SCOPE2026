@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed objects are complete injective pair types in the Fraïssé limit of finite linearly ordered posets, over pointwise named induced antichains. The proof establishes a bijection with finite extensions, classifies each old parameter's available comparison states in the three linear-order regions, and derives necessary *and sufficient* global transitivity exclusions. The resulting local counts are summed over all insertions and both possible orientations of the linear order. Geometric-series identities prove the closed forms for every nonnegative parameter size. The independent brute-force finite transitivity enumeration through five old parameters confirms the critical local formulas; the algebraic proof, not finite checks, handles all sizes. Residual correctness risk is the usual possibility of an unnoticed derivation error, not an asserted need for an unproved lemma.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2012 Dolinka–Mašulović classification identifies the generic linearly ordered poset but contains no corresponding conditional pair-type spectrum. The fully examined earlier published antichain pair-type theorem concerns the *pure* generic poset, with a different leading coefficient and \(1/2\) comparability limit. A second published height-two pair-type theorem also omits the named linear extension. Direct comparison shows their statements do not supply the present placement-dependent formulas as immediate corollaries; an additional weighted extension count is essential. Indexed scholarly searches and external literature searches under several aliases found no stronger matching result. Historical enumerative literature may contain an equivalent weighted identity; exact priority is not independently proven.
+PASS
 
-## Mathematical value — PASS
-The count is a natural parameter-relative orbit/type spectrum of a classical homogeneous ordered structure. It treats an infinite family exactly, including the full comparable/incomparable split. The nontrivial \(3/7\) comparability limit differs from the \(1/2\) limit in the pure reduct, making visible the genuine effect of retaining a homogeneous linear extension. The \(7/6\) ratio to the square of the unary type count gives a second interpretable statistic, not an arbitrary finite table lookup. It does not assert a higher-arity theorem or stronger consequences not proved.
+Finite induced extensions of the fixed named antichain are realizable by the Fraïssé extension property, and their diagrams identify complete types by ultrahomogeneity. At gap i the legal unary count u_i=2^i+2^(n-i)-1 excludes a nonempty subset on both sides, which would compare old points. Each such type has arbitrarily many realizations, since copies in the same gap can be kept mutually incomparable; summing gives U_n. For x<y, fix l,m,r old points left, middle and right. Incomparable x,y permit otherwise independent unary choices except the middle witness x≺a≺y, giving J=u_l u_(l+m)-2^(l+r)(4^m-3^m). With x≺y, allowed left/middle/right local status alphabets have sizes 3/4/3. If there is neither an old point below x nor an old point above y, no old-vertex comparison is forced and one gets 2^(l+r)4^m choices. If some old point is below x, then no right parameter can have an incidence; middle parameters may only be unrelated or below y. The dual case is disjoint and yields, in total, H=2^(l+r)4^m+(3^l+3^r-2^l-2^r)2^m. These restrictions account for every length-two transitivity condition; the rest follow from these. As a separate summation check, put S_b=sum_(m=0)^n (n-m+1)2^(n-m)b^m. Then I_n=U_n^2+sum_i u_i^2-2(S_4-S_3), with S_4=4·4^n-(n+3)2^n and S_3=9·3^n-(2n+8)2^n. Also C_n=2S_4+4[z^n]((1-3z)^(-1)-(1-2z)^(-1))/((1-2z)(1-z)), where the coefficient applies to the entire rational difference. This gives the displayed closed forms, including (2,2,4) at n=0. The leading terms 8·4^n, (32/3)4^n and U_n~4·2^n give 3/7, 4/7 and 7/6 under the asserted type-counting conventions.
 
-## Scope and limitations
-Only ordered injective pairs outside individually fixed antichain parameters are counted; the measure is uniform over types, not over realizations. Unindexed equivalents are a residual literature-priority risk. Computational checks are finite and independent scientific validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generic linearly ordered poset and the underlying finite extension method are prior. Best of checked evidence, the distinct contribution is the exact relation-split census for the ordered expansion of a named antichain and its normalized limits. The chain companion is a substantial same-day overlap and explicitly mentions the 3/7 antichain limit by reference; it does not deliver the antichain census or 7/6 ratio. The pure-poset counts do not supply the weights from possible linear placements.
+
+## value
+
+PASS
+
+Adding a named linear extension to a standard homogeneous poset changes how finite partial-order types are weighted by possible gaps. The exact enumeration measures that effect: comparability changes from the pure-poset limit 1/2 to 3/7, while the complete pair count is asymptotically 7/6 of the square of the single-point count. These are usable invariants for comparing the structure and its reduct, with a complete natural base family rather than an isolated small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

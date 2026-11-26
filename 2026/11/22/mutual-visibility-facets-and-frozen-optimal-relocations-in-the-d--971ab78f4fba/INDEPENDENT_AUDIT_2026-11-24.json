@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:11:28.856565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49",
+        "Frozen VERIFICATION.md; verify_visibility.py and verify_bfs.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/dfcd337e-7548-4129-82fe-d2cc7a8734fd/independent_check.py --max-layer 9"
+      ],
+      "rationale": "In the specified two-/three-subset inclusion graph, a selected pair passes exactly when deleting the other selected vertices does not increase its distance. An independent blocked-BFS census generated all feasible sets up to the first empty layer (size nine); pruning by infeasible subsets is exact by heredity. It reproduced (1,20,190,1080,3925,8944,11300,5840,150), the total 31,450, and facet counts (60,4700,150) at sizes (6,7,8) by testing all one-vertex extensions. It verified the two optimum orbits of sizes 30 and 120 under the 240 label permutations and complement operations, including their stated induced types. Independently, on one shore a disjoint selected pair has distance four and its geodesics use a middle shore vertex consisting of one label from each endpoint. If omissions intersect, by relabelling they are 01 and 02, and the pair 12,34 has all four such intermediates selected. If the omissions are disjoint, they cannot both avoid crossing between the two chosen disjoint endpoints: neither equals an endpoint and both would need the fifth label. Thus a pure optimum corresponds exactly to an omitted Petersen edge. The checked optimum exchanges identify precisely two copies of the line graph, with no edges to the mixed optima. The line graphs have diameter three (the Petersen graph has diameter two, and the edges (01,23) and (02,13) have all cross-endpoint distances two). Within a shore no exchange is a slide because the original graph is bipartite. All 150 optima are therefore slide-frozen.",
+      "residual_risks": [
+        "The census is exhaustive on this fixed labelled graph, not on all middle-level graphs. The movement result fixes cardinality eight and does not address routes through suboptimal configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The read class-level results concern other named classes, including Cartesian products, triangle-free graphs with mutual-visibility number three, and hypercubes, cube-connected cycles or butterflies. The word hypercube-like does not itself include all two-adjacent-level inclusion graphs in these results.",
+          "The legal-slide API of the movement problem is already in the literature as a mathematical relation on sets; the read mobile-visibility statements do not evaluate that relation for the target graph."
+        ],
+        "reasoning": "Use the known predicates and methods, but no cited class theorem in the checked passages supplies the evaluated census or exchange structure on H(5,2).",
+        "searches": [
+          "arXiv:2105.02722v2 p. 1; arXiv:2112.13024v2 p. 1; arXiv:2308.14443v1 p. 1; arXiv:2509.22571v1 p. 1",
+          "Mobile mutual-visibility sets in graphs, §1 and Desargues literal query"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact record and Pappus and Heawood analogues",
+        "arXiv:2105.02722v2, 2112.13024v2, 2308.14443v1, 2509.22571v1, 2412.03066",
+        "DOI 10.26493/1855-3974.3410.9bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shortest paths and allowed subsets in the double cover differ from those in the base graph. A cardinality polynomial on the base graph does not give the extendibility profile or symmetry and exchange relations of the cover. A maximum or a mobility number also does not list exact legal moves between all optimum configurations."
+        ],
+        "reasoning": "Neither passage carries the selected sets or the required geodesic witnesses across the cover. Identifying the two Petersen line graphs requires the structure of the omitted pairs and ruling out every mixed exchange; it is not a parameter substitution into the prior polynomial.",
+        "searches": [
+          "arXiv:2412.03066 p. 9 compared with the bipartite double-cover construction",
+          "Dettlaff et al., §1, compared with optimum state graphs",
+          "Frozen proof lines 27–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the bipartite double cover of Petersen: complement the three-subsets to identify adjacency with disjointness across the shores. It is not the Petersen graph itself. The Petersen passage gives ordinary and outer visibility information on ten vertices, not on the double cover.",
+          "The mobile-visibility paper allows exactly the local move of a token slide, but its invariant additionally asks for a trajectory visiting all vertices. A jump here need not use a graph edge."
+        ],
+        "reasoning": "The graph aliases preserve the statement; the ten-vertex quotient does not. A global mobility number does not in general determine the entire optimum slide graph, and does not encode jumps. No equivalent evaluation under an inspected alias was established.",
+        "searches": [
+          "Desargues, H(5,2), GP(10,3) and Petersen/generalized-Petersen aliases in primary mutual-visibility sources",
+          "Bujtás–Klavžar–Tian arXiv:2412.03066 p. 9",
+          "Dettlaff et al., Mobile mutual-visibility sets in graphs, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-mutual-visibility-facets-and-frozen-optimal-relocations-in-the-d--971ab78f4fba is the exact frozen record itself. Distinct closest catalogue matches concern Pappus and Heawood, not the Desargues graph."
+        ],
+        "reasoning": "The identical record is not independent coverage. The distinct entries count different cubic incidence graphs; literal misses do not establish universal absence.",
+        "searches": [
+          "Resultary Desargues ordinary visibility face/facet polynomials and optimal reconfiguration",
+          "Literal Desargues and alternate graph labels in the inspected literature"
+        ]
+      },
+      "rationale": "The distinct finding is the evaluated ordinary-visibility complex and structural optimum reconfiguration of the Desargues graph. The inspected class-level visibility methods, the evaluated Petersen polynomial, the mobile-visibility definition, and other small cubic graphs do not give the Desargues counts, orbits, or relocation graphs.",
+      "residual_risks": [
+        "A comparable exact census under a different graph alias or in an unindexed graph database could affect historical priority. The conclusions are restricted to the compared statements and passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL background",
+          "evidence": "Defines the invariant and names other evaluated graph classes in the overview.",
+          "identifier_or_url": "arXiv:2105.02722v2",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary-text passage and alias checks",
+          "title": "Mutual Visibility in Graphs",
+          "trigger": "Foundational exact visibility results"
+        },
+        {
+          "assessment": "DISTINCT scope in the inspected statement",
+          "evidence": "Cartesian product methods and the triangle-free characterization at mutual-visibility number three do not give the stated Desargues census.",
+          "identifier_or_url": "arXiv:2112.13024v2",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary-text passage",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Possible class theorem applying to the target"
+        },
+        {
+          "assessment": "Comparison limited to named classes",
+          "evidence": "The analyzed objects in the overview are hypercubes, cube-connected cycles and butterflies, not the two adjacent levels in the frozen claim.",
+          "identifier_or_url": "arXiv:2308.14443v1",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary-text passage and alias checks",
+          "title": "Mutual visibility in hypercube-like graphs",
+          "trigger": "The inclusion graph is a middle-level subgraph of a cube"
+        },
+        {
+          "assessment": "Class-level polynomial background in the inspected material",
+          "evidence": "No evaluated Desargues face/facet polynomial is established by the read statements.",
+          "identifier_or_url": "arXiv:2509.22571v1",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary-text passage",
+          "title": "Visibility Polynomial of Some Graph Classes",
+          "trigger": "Possible prior evaluated face polynomial"
+        },
+        {
+          "assessment": "DISTINCT graph and in part a distinct predicate",
+          "evidence": "An ordinary polynomial and outer-visibility results for Petersen do not count ordinary sets in its double cover.",
+          "identifier_or_url": "arXiv:2412.03066",
+          "material_read": "Petersen passage p. 9, offset 23283",
+          "method": "OA primary-text passage",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Petersen graph polynomial and visibility variants"
+        },
+        {
+          "assessment": "PARTIAL exact movement convention, different output",
+          "evidence": "A legal move goes to an unoccupied adjacent vertex and preserves ordinary mutual visibility. Mobile sets require a path visiting all vertices; the passage does not enumerate optimum states or local transitions on the target.",
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.3410.9bc",
+          "material_read": "§1, offset 4880–6565 in https://rodin.uca.es/bitstream/handle/10498/39355/amc_3410.pdf",
+          "method": "OA author-hosted PDF; bounded definition passage and Desargues query",
+          "title": "Mobile mutual-visibility sets in graphs",
+          "trigger": "Existing move definition and possible frozen-state theorem"
+        },
+        {
+          "assessment": "IDENTICAL frozen Desargues record; DISTINCT graphs for analogues",
+          "evidence": "The exact hit reproduces the same optimum counts and exchange structure. The analogues name Pappus and Heawood, not alternate descriptions of Desargues.",
+          "identifier_or_url": "2026/11/22/SCOPE-mutual-visibility-facets-and-frozen-optimal-relocations-in-the-d--971ab78f4fba",
+          "material_read": "Local RESULT.md offsets 80–2175 and 3525–7212; indexed Pappus b594fa4a2eb4 and Heawood d06e4ce1cb54 entries",
+          "method": "Local Resultary mirror and index",
+          "title": "Resultary exact hit and related cubic-incidence censuses",
+          "trigger": "Exact catalogue hit and close graph analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17 and 27–45",
+        "Independent labelled and movement census",
+        "Mobile mutual-visibility sets in graphs, definition in §1"
+      ],
+      "rationale": "The Desargues graph is a natural symmetric incidence graph. Its precise optimum structure sharply separates the two movement rules: every optimum is slide-frozen, while jumps have two nontrivial components naturally indexed by Petersen edges and 120 isolated optima. This gives an exact structural benchmark that a maximum, or even the complete face polynomial alone, does not provide. The separate facet census records maximal configurations smaller than the optimum.",
+      "residual_risks": [
+        "The value is a complete single-graph classification, not an asserted general reconfiguration theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

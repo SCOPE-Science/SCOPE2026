@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:32:38.359037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an unglued radius-one planar sector and independent area-uniform sampling, the radial densities are 2r and the independent gap density is 2(theta-delta)/theta². Strict separate convexity of the squared distance in the two radii puts all maximizers at radial corners, with distances 1 for tip–arc pairs and 2 sin(theta/2) for the two ordered arc-endpoint pairs. They are disjoint types at theta=pi/3. Compactness localizes near-maximal configurations (also for moving angles after normalizing the angles by theta). In small fixed neighborhoods the positive linear loss bounds the local coordinates up to constants, so dominated convergence on bounded rescaled coordinates applies. At a tip–rim pair the loss is V+U cos(delta); the two orders together have density 8 epsilon³ U/theta² in rescaled radial and original angular variables. The radial simplex integral is 1/(6 cos²(delta)), and the double-angle secant-square integral equals -2 log cos(theta). The result is -8 log cos(theta)/(3 theta²), including at pi/3. At the rim endpoints the loss is s(U+V)+cT with s=sin(theta/2), c=cos(theta/2), and density 8 epsilon⁴ T/theta². The unit simplex T-moment after scaling is 1/24, giving 4/(3 theta² sin²(theta)). The normalized losses and slack have the two stated Dirichlet limits by their U and T density weights; the tip loss coordinate is U cos(delta) and the gap mark density is (theta-delta) sec²(delta)/[-log cos(theta)]. The rim orders are symmetric. For fixed lambda, the moving diameter raises the threshold relative to 1 by (sqrt(3) max(lambda,0)/2-1) epsilon plus O(epsilon²); the tip simplex weight has homogeneity three and its volume yields exactly the stated positive-part function. At lambda=2/sqrt(3) the threshold is 1-epsilon²/6+O(epsilon³), so the tip term is at most order epsilon⁶; for larger lambda there is no tip event for sufficiently small epsilon. In both cases the rim has a quartic contribution with coefficient 16/pi². The logarithmic derivatives/weighted secant-square identity establish the monotonicity assertions; more precisely the two-preimage range of the wide coefficient is strictly between its minimum and 16/pi², its excluded left-endpoint value. The exact polar survival disintegration follows by integrating the triangular angle law above the cosine-rule threshold. All limits used here are pointwise in the stated parameters. I inspected sector_verifier.py but did not execute it; its selected fixed-angle quadratures do not check the critical window or prove the limits, which are reproduced by the local integrals above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel's cited formulas are for right triangles and regular polygons, not circular arcs.",
+          "Cone records b319e1ca315a and 6f35d2b9779f identify developed-sector radial boundaries and use the shorter wrapped angular gap; it does not vanish linearly at its maximum."
+        ],
+        "reasoning": "The sector is neither a polygon in the cited domains nor the cone with its radial sides identified. The cone's uniform shorter gap does not reproduce the triangular gap for Euclidean distance in the unglued planar sector.",
+        "searches": [
+          "Bäsel arXiv:1208.6228 and arXiv:1204.2707, exact random-distance distributions",
+          "Resultary: intrinsic flat-cone and finite circular-cone upper-distance asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and sector_verifier.py",
+        "MathWorld Circular Sector Line Picking and attempted Zerr archive retrieval",
+        "Resultary a78b7da51a18, 5e50adb149fb, 6f35d2b9779f and b319e1ca315a",
+        "Bäsel arXiv:1208.6228 and arXiv:1204.2707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cone record gives additive cubic contributions at its transition; the later intrinsic-cone record also gives a flat-disk exponent 5/2.",
+          "The planar result has a linear zero of the gap-density at the largest gap, causing the fourth power and changing the asymptotic profile.",
+          "The cited Zerr archive page did not yield readable text in the bounded access attempt."
+        ],
+        "reasoning": "The cone theorem already identifies the two radial contact types and the crossover at maximum unwrapped gap pi/3. Its exact integral can be mixed, but its leading asymptotics are pointwise in cone aperture. For a wide sector the cone mixture at a distance threshold near the planar diameter draws on a shrinking set of cone apertures, and in the critical window the aperture and loss both move. Termwise insertion of the pointwise equivalents does not justify either limit. The endpoint expansion with the new angular weight supplies the quartic constant, critical profile and conditional shape, rather than merely renaming an earlier coefficient. The same-object moments do not determine these quantities. No negative coverage conclusion is drawn about the unread Zerr solution.",
+        "searches": [
+          "Resultary 6f35d2b9779f and b319e1ca315a, exact cone contact transitions",
+          "Resultary 5e50adb149fb, same-object moments",
+          "G. B. Zerr, Solution to Problem 11031, cited p. 138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld's Circular Sector Line Picking is the same independent planar point experiment and reports mean distances.",
+          "Resultary 5e50adb149fb uses the same unglued planar sector with uniform area and gives exact second and fourth distance moments.",
+          "The triangular density equals the mixture of Uniform(0,a) with mixing density 2a/theta² on (0,theta)."
+        ],
+        "reasoning": "Independent radial laws are the same in the planar and cone models. Integrating the exact normalized cone survival formula for developed angle 2a against 2a da/theta² yields the frozen planar polar survival integral. This equivalence of integral representations is credited as prior machinery; this is not a closed endpoint expansion. The investigated mean and moment formulas do not themselves give a CDF or its tail.",
+        "searches": [
+          "Circular sector line picking; exact planar circular-sector distance distribution and upper endpoint",
+          "Resultary: planar circular sectors, Euclidean pair distance and diameter tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match a78b7da51a18 is this frozen record.",
+          "Distinct same-object record 2026/11/17/SCOPE-threefold-ambiguity-of-two-euclidean-distance-moments-for-planar--5e50adb149fb supplies exact moments but no sharp tail.",
+          "The inspected online entry records mean distances at selected angles rather than a tail table."
+        ],
+        "reasoning": "The self-hit is not independent coverage. The other exact same-object quantities neither encode nor determine the near-diameter probabilities.",
+        "searches": [
+          "Resultary: cubic-to-quartic planar sector diameter law including pi/3",
+          "MathWorld Circular Sector Line Picking, tabulated same-object formulas"
+        ]
+      },
+      "rationale": "The same planar sampling object is already studied, with exact mean distances at selected openings and exact moment formulas. The sharp upper tail, critical profile and conditional shapes are distinct from those statistics. The strongest near-diameter comparisons use the intrinsic cone metric with glued boundary rays. Mixing their exact integral representations gives the planar integral, which the frozen text does not claim is novel. Their fixed-parameter asymptotic statements do not evaluate that mixture near a moving support endpoint or give the planar angular marks. The unread original referenced by MathWorld is an explicit residual risk. This is a bounded evidence judgment, not a historical priority certification.",
+      "residual_risks": [
+        "The original Zerr problem solution was not readable in the bounded archive access attempt.",
+        "An uninspected same-sector full CDF or an earlier sharp-tail derivation could imply part or all of the result.",
+        "The cited adjacent studies were compared within the inspected passages, not exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object and measure; reported means rather than a near-diameter law",
+          "evidence": "Discusses the average distance between two uniform planar-sector points and cites problem 11031.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CircularSectorLinePicking.html",
+          "material_read": "OA HTML entry, offset 0",
+          "method": "Bounded public-page reading",
+          "title": "Circular Sector Line Picking",
+          "trigger": "Historical reference on the exact sampling object"
+        },
+        {
+          "assessment": "Unread original, no whole-text implication claim or negative coverage inference",
+          "evidence": "Secondary entry cites the solution for circular-sector line picking; its original scope could not be checked.",
+          "identifier_or_url": "G. B. Zerr, solution cited by MathWorld, p. 138",
+          "material_read": "Citation and locator in MathWorld only; identified archive page timed out",
+          "method": "Bounded lawful public archive lookup",
+          "title": "Solution to Problem 11031",
+          "trigger": "Potentially relevant original historical sector calculation"
+        },
+        {
+          "assessment": "Exact same-object formulas for different statistics",
+          "evidence": "Gives exact second and fourth Euclidean distance moments and their ambiguity under the same area-uniform planar-sector sampling.",
+          "identifier_or_url": "2026/11/17/SCOPE-threefold-ambiguity-of-two-euclidean-distance-moments-for-planar--5e50adb149fb",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary search and bounded mirror text",
+          "title": "Threefold ambiguity of two Euclidean distance moments for planar circular sectors",
+          "trigger": "Strongest distinct same-sampling-object catalogue hit"
+        },
+        {
+          "assessment": "Exact cone probability integral is transferable by mixing; the stated asymptotics are for a different endpoint density and only fixed apertures",
+          "evidence": "Shorter gap is uniform on (0,a); (2) gives the exact cone radial disintegration. The scope disclaims moving-aperture uniformity. The two contact families cross at maximum gap pi/3, with additive cubic terms for the cone.",
+          "identifier_or_url": "2026/10/25/SCOPE-cubic-diameter-tails-and-a-two-contact-transition-on-finite-circ--6f35d2b9779f",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0; scope and proof §§1–2, offsets 1880–4210, including (1)–(2)",
+          "method": "Resultary search and bounded primary mirror passages",
+          "title": "Cubic diameter tails and a two-contact transition on finite circular cones",
+          "trigger": "Similar contact transition and probability tails; possible reduction by mixing angular-gap laws"
+        },
+        {
+          "assessment": "Intrinsic wrapped cone, not unglued planar sector",
+          "evidence": "Developed radial sides are identified and the shorter developed angle is uniform; the result also analyzes a 5/2 power in the flat-disk case.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-upper-distance-tails-at-the-tip-rim-transition-of-a-finite--b319e1ca315a",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary search and bounded mirror text",
+          "title": "Sharp upper-distance tails at the tip–rim transition of a finite flat cone",
+          "trigger": "Cited closest intrinsic tip–rim comparison"
+        },
+        {
+          "assessment": "Different domain explicitly stated in the inspected abstract",
+          "evidence": "The distance distribution in the stated result is for a right-angled triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.6228",
+          "material_read": "Primary PDF p. 1 abstract, offset 0",
+          "method": "Bounded primary OA PDF passage",
+          "title": "The distribution function of the distance between two random points in a right-angled triangle",
+          "trigger": "Potential general random-distance method"
+        },
+        {
+          "assessment": "Regular polygon domain, not a circular sector",
+          "evidence": "The inspected statement gives chord and pair-distance distributions for regular polygons.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Primary PDF p. 1 abstract, offset 0",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Potential broader law for polygonal or angular domains"
+        },
+        {
+          "assessment": "Self-hit, not an independent prior",
+          "evidence": "Same unglued sector, transition, constants and critical window.",
+          "identifier_or_url": "a78b7da51a18",
+          "material_read": "Indexed claim and frozen Finding",
+          "method": "Resultary search and frozen text comparison",
+          "title": "A sixty-degree diameter transition and a cubic-to-quartic law for random points in circular sectors",
+          "trigger": "Exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sector is a standard line-picking domain, and the upper-endpoint law reveals something the diameter and moments alone miss: at the exact contact transition a continuum of tip–arc maximizers still dominates, whereas just above it a suppressed angular endpoint weight changes the exponent. The explicit critical profile resolves when that competition disappears at leading order, and the conditional shapes quantify the geometry of the rare pairs. These address a natural gap in the same-object distribution problem despite not giving a full CDF.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,28 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a bipartition with side volumes \(a,b\), cut size \(c\), and \(m\) graph edges,
-\[
-Q=\frac{ab}{2m^2}-\frac{c}{m}
-\]
-and
-\[
-\operatorname{Ncut}=\frac{2mc}{ab},
-\]
-hence
-\[
-Q=\frac{ab}{2m^2}\left(1-\operatorname{Ncut}\right).
-\]
-The packaged verifier enumerates every connected labeled graph through six vertices and every admissible bipartition, using exact rational arithmetic. It finds no strict reversal through five vertices, \(420\) labeled reversing partition pairs at six vertices, and exactly two isomorphism classes after exhaustive canonicalization. The verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the statement intentionally excludes singleton sides and nonpositive-modularity splits.
+PASS
 
-## Originality
-**PASS.** Shi–Malik normalized cut and Newman–Girvan modularity are established graph-partitioning and community-detection objectives. Newman 2013 directly relates their spectral algorithms. That broader relation does not state that the original discrete objectives preserve partition rankings, nor does it imply the sharp positive-modularity finite boundary. Searches by objective names, bipartition formulas, volume balance, reversal, and small-graph language did not locate the six-vertex cutoff or the two complete first-layer classes.
+For one bipartition the internal edge fraction is (m−c)/m and its null term is (a^2+b^2)/(4m^2), with a+b=2m. Thus Q=(ab−2mc)/(2m^2) and Ncut=2mc/(ab), proving the stated identity, positivity equivalence, and opposite numeric monotonicity at fixed ab. Independently exhausted connected graph orbits through six, all partitions by smaller-side representatives (lexicographic on equal halves), and all unordered partition pairs. Used the integer signs of the difference of ab−2mc and the cross-product comparison of c/(ab), requiring Q>0 for both splits. Orbit-weighted labeled counts are zero strict reversals through five and 420 at six. Explicit relabelings of both decorated witnesses yield disjoint orbits of sizes 360 and 60 that exhaust the 420; the exact Q, Ncut and cut/volume statistics also match. The positivity restriction is substantive: with no positivity requirement the independent census finds 180 labeled strict reversals at order five, including pairs with both Q negative. Replay: python /workspace/replay_frozen_graphs.py 3, output /workspace/replay_3.log.
 
-Risk: a specialist note or software test could contain one of the small witnesses without framing the sharp boundary.
+## originality
 
-## Value
-**PASS.** Modularity maximization and normalized-cut minimization are standard but conceptually different ways to choose communities. The exact identity isolates when they are guaranteed to agree—fixed volume product—and shows the smallest positive-modularity network where changing balance is enough to reverse their choices. Requiring both splits to have positive modularity and nontrivial sides makes the witnesses community-like rather than artifacts of plainly poor partitions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct result is the exact sharp positive-modularity reversal boundary at six and the complete two-class decorated first layer. The standard objective definitions, their elementary balance identity, and the spectral algorithm connection do not by themselves constitute novelty. The strongest checked connection concerns the relaxation and does not cover discrete rankings.
+
+## value
+
+PASS
+
+These are standard but differently balanced discrete community scores. The positive-modularity filter keeps both splits above the null baseline, so the disagreements are not merely artifacts of comparing two poor partitions. The two minimal decorated graph types and exact objective values provide diagnostic cases for whether an objective or code really responds to volume balance as intended, despite a connection between spectral relaxations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

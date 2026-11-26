@@ -1,37 +1,50 @@
-"""Symbolically certify the local Taylor identities used in the proof."""
-import sympy as s
-A,B,C,D=s.symbols('A B C D', integer=True)
-r=s.symbols('r', integer=True, even=True)
-X=(A,B,C,D)
-perms=[]
-import itertools
-for perm in itertools.permutations(range(4)):
-    parity=(-1)**sum(perm[i]>perm[j] for i in range(4) for j in range(i+1,4))
-    perms.append((perm,parity))
+"""Exact determinant coefficients for z = sign * exp(exponent * tau)."""
 
-def coefficient(signs,k):
-    rows=(0,1,2,r)
-    terms=[]
-    for pm,sgn in perms:
-        vec=[(s.Integer(signs[pm[i]])**rows[i], X[pm[i]], rows[i]) for i in range(4)]
-        for ks in itertools.product(range(k+1), repeat=4):
-            if sum(ks)!=k: continue
-            factor=sgn
-            for i,(sign,x,pow) in enumerate(vec):
-                factor*=sign*s.binomial(pow,ks[i])*x**ks[i]
-            terms.append(factor)
-    return s.factor(s.expand(sum(terms)))
+from itertools import permutations, product
+from math import factorial
+
+import sympy as s
+
+
+A, B, C, D, d = s.symbols("A B C D d", integer=True)
+Z = (A, B, C, D)
+ROWS = (0, 1, 2, d)
+# The symbolic fourth row is even. Only row one carries column signs.
+PERMS = [
+    (perm, (-1) ** sum(perm[i] > perm[j] for i in range(4) for j in range(i + 1, 4)))
+    for perm in permutations(range(4))
+]
+
+
+def coefficient(signs, n):
+    """Extract the degree-n coefficient from the Leibniz expansion."""
+    terms = []
+    for perm, parity in PERMS:
+        for powers in product(range(n + 1), repeat=4):
+            if sum(powers) != n:
+                continue
+            term = s.Integer(parity * signs[perm[1]])
+            for row, column, k in zip(ROWS, perm, powers):
+                term *= (row * Z[column]) ** k / factorial(k)
+            terms.append(term)
+    return s.expand(sum(terms))
+
 
 def verify():
-    e3=coefficient((1,1,1,-1),3)
-    assert s.simplify(e3-2*r*(r-2)*(A-B)*(A-C)*(B-C))==0,e3
-    e3b=coefficient((1,1,-1,-1),3)
-    assert s.simplify(e3b+2*r*(r-2)*(A-B)*(C-D)*(A+B-C-D))==0,e3b
-    e4=coefficient((1,1,-1,-1),4)
-    subs=s.factor(e4.subs(D,A+B-C))
-    goal=s.Rational(2,3)*r*(r-2)*(r-4)*(A-B)*(C-D)*(A-C)*(B-C)
-    assert s.simplify(subs-goal.subs(D,A+B-C))==0,(subs,goal)
-    for signs in ((1,1,1,-1),(1,1,-1,-1)):
-        for k in (0,1,2): assert coefficient(signs,k)==0,(signs,k)
-    print('PASS: exact symbolic t^0,t^1,t^2 vanish; t^3,t^4 identities confirmed')
-if __name__=='__main__':verify()
+    three = (1, 1, 1, -1)
+    two = (1, 1, -1, -1)
+    for signs in (three, two):
+        for n in range(3):
+            assert coefficient(signs, n) == 0
+    expected_three = 2 * d * (d - 2) * (A - B) * (A - C) * (B - C)
+    expected_two = -2 * d * (d - 2) * (A - B) * (C - D) * (A + B - C - D)
+    assert s.expand(coefficient(three, 3) - expected_three) == 0
+    assert s.expand(coefficient(two, 3) - expected_two) == 0
+    expected_four = s.Rational(2, 3) * d * (d - 2) * (d - 1) * (A - B) * (C - D) * (A - C) * (B - C)
+    assert s.expand((coefficient(two, 4) - expected_four).subs(D, A + B - C)) == 0
+    print("PASS: determinant coefficients through degree two vanish;")
+    print("both degree-three and the equal-sum degree-four identities hold.")
+
+
+if __name__ == "__main__":
+    verify()

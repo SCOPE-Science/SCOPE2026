@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:01.402959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–52",
+        "VERIFICATION.md and verification/check_rank.py, check_direct.py, expected.txt, inspected without executing"
+      ],
+      "rationale": "At a vertex an even positive degree cannot be carried by only one odd multiplicity, so both colors of the opposite parity-side palette occur and occur oddly. Thus for either side the indicator solves Bf=1; the other indicator works because B1=0. A coordinate half of the side gives a solution (neighbor counts 1 and d-1). Independently, write the full binary adjacency matrix in last-coordinate slices as A=[[P,I],[I,P]], with P the adjacency of Q_(d-1). The coordinate flips commute in characteristic two, so P^2=I, and the kernel is the graph of P with dimension 2^(d-1). In parity order A has off-diagonal blocks B and B^T, so rank B=2^(d-2). Also A^2=0, giving BB^T=B^TB=0; rank half implies that the image of each transpose equals the kernel of its opposite block, hence each side kernel equals its orthogonal complement. Constants are ruled out as solutions, so all palettes are used. The independent side choices yield the stated sixfold named count and a free 24-fold renaming quotient. For the four-color minimum, a putative three-coloring forces (I+A)h=1 for every color indicator h; squaring I+A gives I, hence h=1 for each color, impossible. Two and one colors are excluded by even positive degree and properness, respectively. The argument includes d=2 and makes no count for nonsplit colorings.",
+      "residual_risks": [
+        "The finite direct checker tests only d=2,4, and its subset generation already imposes the odd-neighborhood equation; the analytic equivalence and all-d proof are decisive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 26 gives chi_so=4 for even cube dimension, by a construction and lower bound. The higher-distance rank law explicitly applies at Hamming distances >=4 and identifies lower distances as older adjacency-code territory."
+        ],
+        "reasoning": "An extremal value and one coloring do not census the optimizers, and the higher-distance exact state-dynamics census is not a coloring census. In conjunction with prior rank, the key additional step is the all-colorings equivalence, joining the two disjoint colored sides and accounting for label orbits.",
+        "searches": [
+          "Caro–Petruševski–Škrekovski–Tuza arXiv:2509.20763 Proposition 26 and §5",
+          "Resultary 2026/10/26/SCOPE-a-linear-quadratic-rank-law-for-higher-distance-hypercube-parity--69a62e027bca"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.20763 Proposition 26",
+        "Seneviratne DOI 10.13069/jacodesmath.13099",
+        "Resultary exact and nearby records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full adjacency code is the orthogonal direct sum of the two codes on parity supports. The same-day syndrome record proves a lower bound for alpha_od using a labeled-coordinate syndrome and maximizes size rather than counting all complementary pairs."
+        ],
+        "reasoning": "The full-code result genuinely implies both side-code assertions and is credited. The stated census still requires the parity restriction to force each used color to occur oddly in every opposite-side neighborhood, and the two affine choices to be independent with free renaming. Neither the palette minimum nor the extremal odd-independent-set bound supplies that enumeration. No temporal order is attributed to the same-day syndrome record.",
+        "searches": [
+          "arXiv:2509.20763 Proposition 26",
+          "Seneviratne, DOI 10.13069/jacodesmath.13099, introduction",
+          "Resultary 2026/11/22/SCOPE-a-parity-syndrome-construction-resolves-the-asymptotic-odd-indep--73360ca00c7c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent enumeration is the number of subsets on each parity side meeting every opposite-side open neighborhood oddly, with an independent complementary split of the two remaining colors. Seneviratne's introduction credits the even-cube neighborhood code's self-duality; the indexed parity-syndrome construction ending 73360ca00c7c exhibits one large set of this kind, through its syndrome complement."
+        ],
+        "reasoning": "Self-duality supplies the homogeneous rank data but not the formulation of optimal color partitions as paired inhomogeneous systems. The syndrome construction supplies a particular patterned family and extremal size bound, not the complete count of all solutions.",
+        "searches": [
+          "Resultary: even dimensional hypercube Q_d open odd neighborhood parity affine census of bipartition-side subsets binary adjacency rank self-dual code side 24 1536 25769803776 strong odd coloring",
+          "Seneviratne, DOI 10.13069/jacodesmath.13099, p. 37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 3dbef98168c9 is the audited record. The returned strong-majority edge-coloring records have edge labels and majority constraints; the FAT-coloring result classifies a fractional neighbor-count constraint, not odd neighbor multiplicities and the four-palette count."
+        ],
+        "reasoning": "None of the inspected related enumerators tabulates these vertex colorings; differing palette names or arbitrary small-instance coincidences would not establish general equivalence.",
+        "searches": [
+          "Resultary: even dimensional hypercube Q_d open odd neighborhood parity affine census of bipartition-side subsets binary adjacency rank self-dual code side 24 1536 25769803776 strong odd coloring"
+        ]
+      },
+      "rationale": "The supported distinctive result is the complete optimal parity-split census and its identification with two independent affine code cosets. The minimum palette is known. Self-duality of the full even-cube adjacency code is known and implies the side-kernel dimension and self-duality by the parity direct-sum decomposition, so those binary linear facts are not fresh standalone coding results.",
+      "residual_risks": [
+        "This bounded comparison does not establish historical priority; an older census framed as odd dominating parity-side subsets may still be found. Direct access to the older Key–Seneviratne source was not used; the rank and self-duality are treated as covered, not credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimum palette, not the split-coloring census.",
+          "evidence": [
+            "Proposition 26 gives chi_so(Q_d)=4 for even d and 2 for odd d with construction and lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.20763",
+          "material_read": "Proposition 26, PDF p. 22, offset 49489",
+          "method": "OA primary PDF passage",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact strong odd minimum for the same cubes"
+        },
+        {
+          "assessment": "Positive evidence for the existing full-code fact; not used as whole-paper evidence about the coloring census.",
+          "evidence": [
+            "The introduction credits Key and Seneviratne with self-duality and minimum weight n for the even n-cube neighborhood code."
+          ],
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.13099",
+          "material_read": "Introduction, p. 37, match at PDF text offset 2147",
+          "method": "OA PDF passage",
+          "title": "Generalized hypercube graph Q_n(S), graph products and self-orthogonal codes",
+          "trigger": "Potential prior self-duality of the even-cube neighborhood code"
+        },
+        {
+          "assessment": "The construction gives particular side subsets and a maximum-size bound, not an enumeration of all two-side partitions.",
+          "evidence": [
+            "The proof chooses the complement of the zero-syndrome subset on the even side and proves odd opposite-side counts by the labeled-coordinate multiplicities."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-syndrome-construction-resolves-the-asymptotic-odd-indep--73360ca00c7c",
+          "material_read": "Finding and proof steps 1–4, offset 0",
+          "method": "Local mirrored primary record",
+          "title": "A parity-syndrome construction resolves the asymptotic odd independence of even hypercubes",
+          "trigger": "Same parity-side odd-neighborhood condition"
+        },
+        {
+          "assessment": "Its theorem excludes distance one and studies binary state dynamics, not vertex colorings.",
+          "evidence": [
+            "The marked scope is distances 4 through n; the references point to older neighborhood codes for the ordinary cube."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-linear-quadratic-rank-law-for-higher-distance-hypercube-parity--69a62e027bca",
+          "material_read": "Finding and scope at offset 0; literature discussion and references near 6930",
+          "method": "Local mirrored primary record",
+          "title": "A linear–quadratic rank law for higher-distance hypercube parity dynamics",
+          "trigger": "Potential broader binary adjacency rank and enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 29–52",
+        "Prior palette minimum in Proposition 26"
+      ],
+      "rationale": "The canonical bipartition is the natural setting of the known optimal construction, not an arbitrary class restriction. Counting every optimum in that setting shows exactly how nonunique the construction is; the affine description gives the full degrees of freedom for constructing or sampling split optima and a baseline for separate nonsplit enumeration. The contribution is the census and its coloring characterization, not recomputation of the known code rank.",
+      "residual_risks": [
+        "No graph-automorphism quotient, general odd-independent-set count, or nonsplit census is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

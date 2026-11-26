@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is an integral homotopy classification for the ordinary geometric orbit space, not merely a rational homology calculation. A fresh standalone standard-library checker exhausts all twelve-edge subsets and computes 771 nonempty legal two-matching faces; independently it confirms an acyclic discrete-Morse matching leaving one vertex and no cells in dimensions one or two. The complete 48-element automorphism group acts without inversions on the barycentric flag complex, yielding quotient cell counts \((35,316,1101,1718,1200,300)\) and exact signed boundaries. All consecutive boundary compositions vanish. The reduction consists of 1,021 isolated unit-incidence cancellations and 1,313 exact integer Schur-complement unit cancellations, leaving one integral zero-cell and one integral four-cell with no differential. Direct uncancelled ranks over primes two, three and five corroborate the Betti vector. Three explicit fixed-point automorphisms generate the full group, so Armstrong's theorem gives trivial quotient fundamental group; Hurewicz and homological Whitehead yield \(S^4\). No inference from experiments to untested graph sizes or homological ranks alone is made.
+PASS
 
-## Originality — PASS relative to inspected sources
+Independently enumerated the legal faces and all 48 automorphisms. A spanning tree and triangular relations in the covering complex kill every edge generator of pi_1, independently of the submitted Morse calculation. The three specified edge-fixing elements generate the group, so Armstrong's theorem gives a simply connected ordinary orbit space. Barycentric flags have strictly ordered sizes and no inversions; the orbit cells therefore have the signed deletion boundaries. Independent descending-flag enumeration gave (35,316,1101,1718,1200,300); the integral boundaries compose to zero. Separate integer reductions of each boundary using only unit pivots gave ranks (34,282,819,899,300), with all nonzero integral elementary divisors equal to one. Thus each image is saturated and the quotient homology is free with ranks (1,0,0,0,1,0). Hurewicz supplies a sphere map representing a generator in degree four; homological Whitehead makes it a homotopy equivalence. This proves neither homeomorphism nor a Borel quotient claim.
 
-The two closest full published exact-object result texts (October 18 and November 1, 2026) compute the homotopy type of the original \(M_2(K_{2,2,2})\), not the quotient action or integral orbit homotopy. The additional full text for octahedral *ordinary* matching concerns capacity one, and the full cube two-matching result concerns a different graph. Vega's higher-matching investigations and Singh's complete/bipartite results have inapplicable graph-family assumptions; Jonsson is historical graph-complex background, with only bibliographic and chapter-level material accessible. Multiple indexed searches for the quotient, aliases, signed-group action, and possible covering families did not identify an equivalent or stronger classification. The literature searches are not a proof of priority; an unindexed equivalent result or an inaccessible historical statement remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The smallest balanced complete tripartite graph is a natural test object for bounded-degree matching topology, and its full octahedral symmetry is intrinsic rather than an arbitrary subgroup. Prior exact computations established mixed-dimensional integral homology and sphere wedges on the covering complex; the orbit topology was not implied. The exact classification distinguishes the surviving four-dimensional class from the disappearance of three-dimensional classes and rules out hidden torsion and fundamental-group obstructions. A complete, reproducible, natural finite classification has value even without a new family theorem.
+The closest verified prior work determines the underlying complex without quotienting. The ordinary full-automorphism quotient, particularly its integral homology and fundamental group, is distinct in the material inspected.
 
-## Closest literature and scope limits
+## value
 
-The closest same-object sources are the full published result texts at the URLs in `RESULT.md` references [4] and [5]. Their original-complex homotopy equivalence does not imply quotient homology without action data, and quotient homology alone cannot establish \(S^4\) without simple connectivity. The exact computation only covers the stated 48-element full group; equivalences, other subgroups, homeomorphism, and a general multipartite theorem are not claimed. The historical Jonsson source was inspected as a publisher preview, not full text.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical graph where the underlying complex has homology in two positive dimensions, this computes the integral ordinary full-group quotient type and rules out lower-dimensional torsion. The stabilizers and integral orbit boundary calculation address real distinctions from the unquotiented wedge and a rational character computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The global probability bound separates the obvious dominant case from a genuinely non-dominant six-variable case. The latter has an exact two- and three-subset counting formula because singletons fail and four-sets always succeed. The regimes follow from: forced pairs under \(p\le1/5\); intersecting failed-pair graphs under \(p\le1/4\); and perfect-matching transversals plus 2-intersecting failed-triple families under \(p\le1/3\). The borderline case with exactly five successful pairs is treated separately and yields a strictly positive deficit \(p^2(1-p)^3(5p-1)\). Positive-weight core constructions attain every asserted lower envelope and an independent dominant construction attains the universal value \(p\). Each step covers strict endpoint conditions and every allowable real weight vector. The exact-rational checker supports the combinatorial counts and identities, without standing in for the proof.
+## correctness
 
-## Originality — PASS, residual uncertainty
-The complete Milojević–Sudakov article (arXiv:2606.30287v1), including its conjecture, proofs and concluding relation to Samuels' problem, does not provide the six-variable classification or the sharp non-dominant envelope. The complete Fokkink–Meester–Pelekis study (arXiv:2002.06804v4) concerns upper, not lower, optimization of weighted Bernoulli tails. The 2012 predecessor question and the relevant June 2026 overview discuss rational parameters and the original conjecture, but do not establish the stated full-interval minima. Related published mathematical records concerning Bernoulli cumulants, exchangeability and Poisson-binomial tails have different domains or hypotheses and do not imply this six-weight extremal formula. The priority search is not exhaustive and cannot exclude an unindexed equivalent.
+PASS
 
-## Value — PASS
-The fixed-six result isolates a natural tractable slice of an explicitly stated open Bernoulli mean-exceedance conjecture. More substantively than the bare global inequality, the theorem determines the exact least possible exceedance probability when no individual stake can trigger exceedance alone, and identifies two parameter-dependent changes of the extremal number of active stakes. The piecewise classification rests on a nontrivial interplay of graph matching and triple-intersection extremal constraints, rather than an arbitrary computation or textbook deduction.
+For six i.i.d. Bernoulli(p) trials with strictly positive stakes summing to one, a stake at least p already certifies probability at least p. In the complementary class p>1/6 is necessary and sufficient for feasibility, singletons lose and every set of size at least four wins. Up to and including 1/5 every pair wins; up to and including 1/4 beyond that, failed pairs intersect (at most five) and all triples win. In the final interval, all 15 perfect matchings meet the winning pairs and each pair is counted three times. Hence at least five pairs win. Failed triples are pairwise 2-intersecting, since otherwise their union plus at most one remaining singleton gives weight below 3p≤1. Such a family has size at most four: after choosing two triples with common pair, either all triples contain that pair or all are contained in the union of those two. The only five-winning-pair case is a star, since each matching then has exactly one winning pair; every triple wins in that case (a failed triple off the center, the remaining failed pair and the center would sum to less than 3p). Its probability exceeds the four-core baseline by p²(1−p)³(5p−1). Otherwise six winning pairs and sixteen winning triples already give that baseline exactly. Equal or nearly equal cores of sizes six, five and four realize the three laws with all six stakes positive. The strict light-stake inequality and the dominant equality example were checked separately, including the endpoints. This is a continuum proof, not a grid inference.
 
-## Closest literature and limitations
-Milojević–Sudakov: arXiv:2606.30287v1, source conjecture and very-small-parameter general bound; Fokkink–Meester–Pelekis: arXiv:2002.06804v4, opposite optimization direction; Fernandez (2012), original question and partial cases; First Proof Second Batch arXiv:2606.18119v1, rational-parameter partial cases. The theorem does not establish the conjecture for seven or more stakes and does not resolve all equality cases. Priority beyond the available record and independent scientific audit remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported for the sharp six-weight non-dominant envelope, hence the six-weight bound across the stated full interval, not for the general conjecture, its reciprocal-p cases or the binomial-tail formulas themselves. The closest five-weight result has two coincident envelope values on a strictly smaller feasible class. It does not bound the larger six-weight class from below. No verified source compared here supplies the full six-weight envelope.
+
+## value
+
+PASS
+
+Six is a meaningful finite case of the weighted mean-crossing question. Removing the immediate single-stake certificate isolates the genuinely collective tail mechanism. The three attained laws locate exact jumps caused by the strict light-stake constraint, and the last branch settles the competing matching/star and triple configurations. This supplies a sharp benchmark not determined by the unrestricted bound or a smaller-stake computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,21 +5,24 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification and limits
 
-# Verification and reproducibility
+The proof in `RESULT.md` computes the joint generating function of total incidences and active-catalyst counts. The Pareto rescaling and the integrable bound give a sequential limit for the single-catalyst transform; raising to the power of the catalyst count proves the sharp window. The upper and lower off-window probabilities are checked directly from the probability of no incidence, not from extrapolation of a bounded-offset approximation.
 
-The accompanying standard-library `check.py` enumerates short ordered reaction counts, checks the exact Pareto-half no-link integral against quadrature, and recalculates finite cutoff probabilities and their asymptotic scaling. It verifies the explicit \(n=60\), \(\ell=28\) example and checks positivity and initial coefficients of the Sibuya mark distribution.
+The mathematical comparison with RAF formation is a reindexing of Kim and Sönmez (arXiv:2611.06033v1), Theorem 8 and Section 3.3.4. It uses the fact that an ambient RAF with all members of its food closure in the restricted subsystem is exactly a RAF in that subsystem. No new RAF existence theorem or limiting law in the RAF critical window is claimed.
 
-Run with `python check.py`; successful execution prints `checks passed` with the finite examples. All parameters are spelled out in `RESULT.md`. The program does not simulate existence of an RAF, prove a limiting distribution or replace the analytic argument. For the nonvacuous RAF probability-one assertion, the independent mathematical input is Kim and Sönmez (2026), Theorem 8, specialized as specified in `RESULT.md`.
-
-Proof limits: model-specific asymptotics and a necessary molecular-length obstruction, not an exact minimal RAF length or finite-dimensional chemical-kinetics certification.
+Run `python3 check.py` (Python standard library only) for finite consistency checks of the ordered-split counts, one exact zero-event formula evaluated numerically at Pareto index one half, the prefactor and a Sibuya series. The script tests neither asymptotic theorem nor the existence of finite RAFs. This is a mathematical random-word model, not a chemical-kinetics calculation.

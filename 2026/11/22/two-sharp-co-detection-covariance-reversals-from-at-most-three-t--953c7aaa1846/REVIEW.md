@@ -1,11 +1,21 @@
-# Scientific review: finite-template co-detection sign phases
+# Independent mathematical audit
 
-**Correctness — PASS.** With \(N\in\{0,1,2,3\}\), the exact emptiness probabilities yield \(C(t)=G(1-2t)-G(1-t)^2=t^2F(t)\). The derived quartic has \(F''(t)\le-2\mu w/3-v(v-w)/2-w^2t^2/3\le0\) for \(0<t<1/2\), and strict inequality whenever \(\Pr(N\ge2)>0\). Thus there are at most two zeros; the \(N\le2\) factorization is strictly increasing and gives the sharper one-zero bound. The rational three-copy and two-copy witnesses have the exact claimed opposite signs. The standalone checker passed 102,356 exact-rational assertions, supplementary to the proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual historical risk.** The motivating Augustine et al. study, doi:10.1101/2024.03.27.586987, models replicate copy numbers by a conditional Poisson law and addresses count-based inference, not the exact binary covariance sign changes of two disjoint aliquots from a random finite extract. Basu (2017), doi:10.1177/2472630317705680, develops ordinary partitioning and digital PCR statistics; Jacobs et al. (2014), doi:10.1186/1471-2105-15-283, analyzes measurement variance and dilution. The established PGF empty-cell identity is not novel. The inspected source material did not show the arbitrary-three-copy concavity theorem, its sharp minimum, or both explicit rational phase examples. A 2009 infinite-urn paper was available only by abstract; earlier equivalent fixed-stock occupancy results remain possible.
+PASS
 
-**Value — PASS.** Technical PCR replicates at low copy number are often evaluated through their agreement or correlation. The theorem demonstrates that simply changing the aliquot fraction, with unchanged underlying molecule-count heterogeneity, can change the sign of pairwise agreement dependence *twice*. The exact minimal copy cap and strict two-reversal maximum distinguish genuine non-Poisson finite-extract behavior from an unrestricted heuristic. This is a motivated, sharp counterexample and boundary for dependence-based biomonitoring design rather than merely a numerical example. It does not estimate field-specific copy distributions, assay error or finite-sample uncertainty.
+Replace both detections by complementary empty-box indicators, preserving covariance. Conditional on N=n, a specified box is empty with probability (1−t)^n and both are empty with probability (1−2t)^n. Hence C(t)=G(1−2t)−G(1−t)^2. Expanding G(1−t)=1−μt+vt²/2−wt³/6 gives the stated C(t)=t²F(t). For the entire allowed interval, F″≤−v(v−w)/2−2μw/3−w²t²/3, with v≥w≥0. If N can equal 2 or 3, this is strictly negative: for w=0 use v>0, and for w>0 use μ>0. Three distinct zeros would contradict strict concavity between the first and third. Two strictly interior zeros force negativity at both endpoints by the same strict chord inequality extended from either end and positivity between; those three signs conversely give two reversals. With N≤2 and b=P(N=1), c=P(N=2), F=2c−(b+2c−ct)² increases strictly when c>0; when c=0 it is constant −b², including the zero law. Independently expanding the two witness PGFs in integer coefficients gave 1024F=−57+680t−1558t²+504t³−81t⁴ and 100F=−44+120t−25t². Exact rational evaluation reproduced the five displayed three-copy signs (including zero at 1/9), and the two-copy root 2/5. No endpoint root is counted as a strict interior reversal. Read VERIFICATION.md and check.py as frozen evidence; the source program was not executed. The finite source tests do not substitute for the curvature bound.
 
-**Limits and priority risk.** Shared PCR failures, inhibition, finite-sample estimation error, unknown aliquot fractions, and input count support above three are outside the result. The mathematical proof is self-contained, but an independently performed audit and an exhaustive historical literature review are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The balls-in-bins routing model and the empty-box PGF identity are not new. What survives comparison is the sharp volume-driven sign-reversal bound for an arbitrary fixed law on {0,1,2,3}, its lower-support refinements and witnesses. The strongest same-model occupancy treatment supplies the fixed-n laws, not the sign classification after arbitrary count mixing; the closest indexed sign-window results change a different parameter or use different events. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Under the simple finite-disjoint-stock detection model, the theorem identifies precisely how many items are needed for a reentrant covariance sign pattern. It proves a distribution-uniform cap and supplies realizable interior witnesses, showing that a positive window alone need not indicate a common measurement fault. This is more than computing a PGF or restating conditioned negative association. It is a population probability result, not a validation of an assay, an estimator, or a field detection claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

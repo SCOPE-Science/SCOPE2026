@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:15.927926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof §§1–5 and m=6 boundary",
+        "Frozen VERIFY.py and VERIFICATION.md (inspected, not executed)",
+        "Independent replay: python /workspace/branches/audit-harmonic.py"
+      ],
+      "rationale": "The ambient harmonic dimension is m-1 in the sense that the polynomials live on the (m-1)-dimensional zero-sum subspace. Independently derived the unit-diagonal zonal polynomial by imposing the Laplace equation on z^5+aRz^3+bR^2z, where z is the coordinate along a unit vector and R is squared norm. The addition formula makes the true evaluation Gramian dim(H_5) times this matrix. For each Johnson sector i, the product of i membership contrasts on disjoint pairs belongs to the i-incidence space and is orthogonal to lower incidence spaces by a pair swap. Summing its kernel action at a triple with one selected member of each pair independently gives the four factored scalars. All modular residue lists match; only the constant sector can vanish for integer m>=7 and only at 27. The independent values at 27 are 0, 855/256, 455/256, 225/256 in sectors of dimensions 1, 26, 324, 2574. The m=6 boundary gives rank ten. At 27 any deleted centroid leaves independent rows because the unique relation has every coefficient nonzero. The tangent Laplacian applied to p5 and R*p3 verifies H_27 is harmonic, and exact substitution gives zero at each unnormalized triangle centroid and 7475/13122 at every unnormalized vertex; normalization preserves both properties. The replacement row is independent, and the stated pseudoinverse interpolation and norm have the correct normalization.",
+      "residual_risks": [
+        "The calculation concerns exact degree five on the full triple orbit or the stated single-vertex replacement, not all degree-at-most-five polynomials or other replacement points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burcroff Cor. 7.5 describes spectra for the entire Johnson adjacency algebra",
+          "Dai–Xu Eq. (2.8) and Cor. 2.7 give the addition formula",
+          "f5a84d916bec exhibits a different orbit where low-degree moment exactness and single-degree rank differ"
+        ],
+        "reasoning": "General formulas provide the reduction but do not give integral root exclusion. A moment identity can detect the mean mode, not the absence of other null modes or the off-orbit repair.",
+        "searches": [
+          "Dai–Xu addition theorem",
+          "Burcroff Johnson spectra",
+          "Resultary cubic sampling on hypersimplices and spherical-design/cubature aliases"
+        ]
+      },
+      "checked_sources": [
+        "Resultary configured index and available mirrored findings",
+        "Dai–Xu arXiv:1304.2585",
+        "Burcroff Cor. 7.5",
+        "Khalid–Kennedy–McEwen arXiv:1403.4661"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint use of the zonal and Johnson formulas yields computable sector scalars; the published generic statements do not decide which integer parameters annihilate them",
+          "The off-orbit evaluation witness is independent of the adjacency algebra of the original orbit",
+          "Khalid–Kennedy–McEwen study iso-latitude sampling on S^2"
+        ],
+        "reasoning": "The specialized arithmetic check and separating harmonic are substantive steps, not automatic parameter substitutions or consequences of a spherical-design label.",
+        "searches": [
+          "Dai–Xu §2",
+          "Burcroff Cor. 7.5",
+          "Khalid–Kennedy–McEwen §I.B",
+          "Resultary design-vs-rank and vertex-repair aliases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3ca167cb3557: degree three on the same triple-centroid orbit is onto for n>=7, with n=6 antipodal",
+          "a9addfb59135: degree five on edge midpoints has constant-mode loss at n=16",
+          "dca009d35f16: degree-five edge directions at n=27 give identity Gramian"
+        ],
+        "reasoning": "Neither changing degree on the same orbit nor changing orbit at the same degree or parameter preserves this claim.",
+        "searches": [
+          "Resultary: degree-five simplex triangle-centroid evaluation, third hypersimplex Johnson scheme, constant-sector resonance, one-point repair"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact classifications 3ca167cb3557, a9addfb59135, dca009d35f16 concern different degree or orbit; earlier 5142078e64c3 concerns ten dodecahedral axes and exceptional degrees 8 and 14"
+        ],
+        "reasoning": "The inspected exact entries do not tabulate the exceptional triple-orbit spectrum or the repair. No matching distinct same-day entry was among the retrieved results; dates do not decide equivalence or priority.",
+        "searches": [
+          "Resultary: simplex vertex replacement, harmonic sampling dimension 27, degree-five Gram eigenvalues, triangle centroid orbit"
+        ]
+      },
+      "rationale": "The strongest inspected overlaps separate the degree, orbit, or assertion: cubic sampling on exactly the triple orbit, quintic constant-mode failure on two-subset centroids, and a quintic orthogonality resonance at parameter 27 on edge directions. The general kernel and Johnson formulas are known, but no inspected result supplies the conjunction of the all-integer quintic triple-orbit rank classification, exact mean-only defect at 27, and any-vertex repair.",
+      "residual_risks": [
+        "The Pell-resonances record's full finding and the Delsarte–Goethals–Seidel paper were not inspected. An earlier implicit arithmetic instance in orbit-design work cannot be excluded; the review distinguishes such risk from demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same nodes and Johnson reduction, different degree",
+          "evidence": "Cubic evaluation onto for n>=7; n=6 antipodal.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-all-dimension-cubic-sampling-gap-for-the-third-hypersimp--3ca167cb3557",
+          "material_read": "mirrored RESULT.md, Finding and Proof §2",
+          "method": "configured Resultary search and mirror passage",
+          "title": "A sharp all-dimension cubic sampling gap for the third hypersimplex",
+          "trigger": "same complete normalized three-subset orbit"
+        },
+        {
+          "assessment": "two-subset orbit, not the frozen triple orbit",
+          "evidence": "At n=16 the quintic midpoint rank is 119 of 120; all k>=6 are onto for those nodes.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-degree-spherical-harmonic-sampling-of-simplex-edge-midpoin--a9addfb59135",
+          "material_read": "mirrored RESULT.md, Finding and Assumptions",
+          "method": "configured Resultary search and mirror passage",
+          "title": "Exact-degree spherical-harmonic sampling of simplex-edge midpoints",
+          "trigger": "same quintic degree, simplex centroids and constant mode"
+        },
+        {
+          "assessment": "different geometric orbit and nondeficient spectrum",
+          "evidence": "On type-A edge directions at n=27, the Gramian is the identity on 351 samples.",
+          "identifier_or_url": "2026/11/2/SCOPE-cubic-and-quintic-orthogonality-resonances-for-regular-simplex-e--dca009d35f16",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured Resultary search and mirror passage",
+          "title": "Cubic and quintic orthogonality resonances for regular simplex edge harmonics",
+          "trigger": "quintic result with the same parameter 27"
+        },
+        {
+          "assessment": "different degree and orbit; informative distinction",
+          "evidence": "The signed orbit is a spherical 5-design at a stated resonance while its pure cubic map has a nontrivial kernel.",
+          "identifier_or_url": "2026/11/16/SCOPE-cubic-harmonic-sampling-on-signed-constant-weight-spheres-exact--f5a84d916bec",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured Resultary search and mirror passage",
+          "title": "Cubic harmonic sampling on signed constant-weight spheres",
+          "trigger": "design/cubature alias and relation to single-degree sampling"
+        },
+        {
+          "assessment": "different configuration, dimension and degrees",
+          "evidence": "The constant-data losses are at degrees 8 and 14 on a ten-point configuration in S^2.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-degree-wise-harmonic-interpolation-on-the-ten-dodecahed--5142078e64c3",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured Resultary search and mirror passage",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "earlier degree-wise interpolation and constant-data obstruction"
+        },
+        {
+          "assessment": "unresolved beyond the cubic topic, not negative evidence",
+          "evidence": "The accessed summary describes a Pell-family cubic rank loss; no finding text was accessible.",
+          "identifier_or_url": "2026/10/26/SCOPE-pell-resonances-in-cubic-spherical-harmonic-sampling-on-hypersimp--af1002126e73",
+          "material_read": "index summary only; mirror RESULT.md unavailable",
+          "method": "configured catalogue and attempted mirror retrieval",
+          "title": "Pell resonances in cubic spherical harmonic sampling on hypersimplices",
+          "trigger": "possible related integral resonance on a hypersimplex"
+        },
+        {
+          "assessment": "direct methodological predecessor",
+          "evidence": "Spherical harmonic addition and zonal Gegenbauer formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.2585",
+          "material_read": "§2, p. 8, Eq. (2.8) and Cor. 2.7",
+          "method": "OA PDF passage inspection",
+          "title": "Spherical Harmonics (Dai and Xu)",
+          "trigger": "zonal Gram reproducing-kernel method"
+        },
+        {
+          "assessment": "general spectral formula, not the specialized arithmetic or repair in the inspected passage",
+          "evidence": "Formula covers every matrix in the Johnson adjacency algebra.",
+          "identifier_or_url": "https://math.uchicago.edu/~may/REU2017/REUPapers/Burcroff.pdf",
+          "material_read": "Cor. 7.5, p. 30",
+          "method": "OA PDF passage inspection",
+          "title": "Johnson Schemes and Certain Matrices with Integral Eigenvalues",
+          "trigger": "general specialization for any Johnson matrix"
+        },
+        {
+          "assessment": "different node geometry and setting",
+          "evidence": "Uses an iso-latitude scheme on S^2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4661",
+          "material_read": "§I.B, p. 2",
+          "method": "OA PDF passage inspection",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "same broad harmonic sampling problem"
+        },
+        {
+          "assessment": "access limit, not an assertion of noncoverage",
+          "evidence": "No exact scope claim is made from the access attempts.",
+          "identifier_or_url": "https://doi.org/10.1007/BF03187604",
+          "material_read": "bibliographic identification; no full text retrieved",
+          "method": "lawful OA retrieval attempts via DOI and publisher routes",
+          "title": "Spherical Codes and Designs",
+          "trigger": "classic cubature/design predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–5",
+        "Mirrored cubic triple-orbit and quintic midpoint findings"
+      ],
+      "rationale": "The third-hypersimplex node set is a natural symmetric sampling orbit. The result gives a usable all-integer criterion for interpolation on that orbit, identifies the exact one-dimensional missing data mode, and shows that any simplex vertex deterministically repairs any single deleted row. The arithmetic obstruction and off-orbit repair add structural content beyond numerical ranks or restating a generic spectrum.",
+      "residual_risks": [
+        "No general stability guarantee for perturbed or noisy samples or arbitrary sample replacements is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

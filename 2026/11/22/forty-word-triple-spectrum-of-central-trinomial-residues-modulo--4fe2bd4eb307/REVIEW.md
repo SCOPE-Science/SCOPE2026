@@ -1,19 +1,21 @@
-# Self-review: forty-word trinomial triple spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the central-trinomial definition, every exponent residue, the strict finite cutoff and the limiting natural-density quantifier. The identity \(T_{5m+t}\equiv T_mT_t\pmod5\) follows from a Laurent-polynomial coefficient separation; the exact digit-sum distribution follows from \((1+J)^R=1+(5^R-1)J/4\), where \(J^2=4J\). The finite increment histogram splits the trailing-four run and separately includes the all-four boundary word. The five last-digit cases produce the full exact sixty-four-cell block counts. Their limits give the three probability tiers and the forty-word support. An aligned-block decomposition proves the all-cutoff logarithmic-squared discrepancy. The standalone checker reproduces every sixty-four-cell count for six base-five depths, with independent integer-sequence checks. The infinite statements rely on the proof, not finite experiments. Residual mathematical risk: none identified after reviewing the carry boundary, the all-four exception and the frequency normalization; no external proof validation has been performed.
+PASS
 
-## Originality — PASS, qualified
+The exponent separation in (x^-1+1+x)^(5m+t) modulo 5 is exact for 0<=t<=4: a term from the low digit has exponent of absolute value at most four, so it cannot cancel a nonzero multiple of five. The group-ring digit distribution is (1+J)^R=1+(5^R-1)J/4. In the histogram of exponent pairs (S(m),S(m+1)-S(m)), a low digit a<4 contributes A_R(s-e(a)) when d=a; the low digit 4 contributes B_R(s-2,d+2) to B_{R+1}(s,d). Unrolling, with B_0 concentrated at (0,0), gives the displayed formula including the all-four carry into a new digit. The five final-digit cases then give exactly N_r, with B_R=5^R/16+O(R+1) and the claimed rational masses. The three no-carry sets are disjoint (b-a=0,1,2 and c!=b), and the two carry sets b=a-1 and c=b intersect in four cells. The low digit plus one free high digit realizes every pair (s,d), so the support is already full at 125 starts. For arbitrary N the base-five aligned blocks translate the exponents diagonally except at at most two boundary starts per block; P is translation-invariant, and at most four blocks per depth each cost O(r+1), proving the log-squared error. An independent replay, python3 /workspace/audit_trinomial.py, used repeated Laurent-polynomial multiplication and a digit-pair histogram recursion rather than the supplied checker. It matched all triple counts at depths 1–5 (support sizes 5,22,40,40,40), the limiting tiers and both adjacent-pair and lag-two checks. The all-depth result is deductive, not inferred from finite checks. The scope's modular-arithmetic wording should be read as applying to exponent operations and indicator arguments, not sums of counts or rational probabilities.
 
-Deutsch–Sagan establishes classical central-trinomial congruences; Rowland–Yassawi gives a general automatic/Lucas-product framework. The closest exact same-object result, *All-lag two-point laws and exact logarithmic bias for central trinomial residues modulo five*, determines every pair marginal and sharp finite adjacent-pair counts. The new triple joint law is not specified or logically determined by its two-point marginals: its twenty-four forbidden words and three distinct positive mass tiers are additional data. Direct comparison of the full earlier two-point proof and the relevant sections of both primary papers reveals no evaluated three-consecutive-word classification. Relevant indexed mathematical record and sequence-database queries did not locate such a table. Residual risks: unindexed work and a possible pre-existing explicit multipoint calculation; a general algorithm implies that the result is computable but does not furnish this evaluated exact statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first consecutive higher-order joint distribution after the known complete two-point analysis is a natural invariant: it answers which triples can actually occur, with what exact frequencies, and how quickly finite counts approach them. The contrast between sixteen equally likely adjacent ordered pairs and twenty-four forbidden length-three words exposes structural dependence not visible in pair data; the exact forty-word onset at a finite cutoff and a closed all-depth formula are meaningful complete classifications, not arbitrary tables or a routine substitution of a parameter.
+Pass for the evaluated consecutive triple law, full support and exact/discrepancy counts, not for the Lucas product, automaticity, or the pair marginals. No distinct examined source gives or immediately determines that package; this is not a historical priority certification.
 
-## Scope and verification limit
+## value
 
-The analysis is restricted to modulus five and consecutive length-three patterns. The exact six-level check is supporting evidence only; no independent audit, uniqueness certification, or exhaustive search of all possible historical literature is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The consecutive triple is a natural next invariant after all fixed-lag pair laws. Uniform adjacent pairs coexist with 24 globally forbidden triple words and three distinct positive mass tiers. The exact counts and quantified arbitrary-cutoff estimates make the higher-order obstruction usable in future sequence and digit-dependence comparisons. This is not an arbitrary subset of computed cells or an extrapolation to other moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

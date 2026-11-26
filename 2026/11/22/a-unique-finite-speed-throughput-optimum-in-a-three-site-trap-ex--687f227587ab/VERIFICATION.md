@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Computational verification
 
-The accompanying `verify.py` constructs the full eight-configuration continuous-time generator from the transition rules (one central departure-time multiplier and two boundary reservoirs), normalizes the stationary distribution, and verifies the exact current on the first bond, second bond and left reservoir. All expressions use exact SymPy rational functions, with exact cancellation checks rather than floating-point fitting. It also checks the displayed quartic derivative, homogeneous and fast-centre limits, the strict-comparison factorization and the radical example. A separate family of 45 admissible rational state-space solves checks stationary nonnegativity and the current expression.
+The accompanying `verify.py` forms the seven exact stationary equations for the nonconstant occupation monomials by applying the continuous-time generator on all eight configurations, then taking Boolean differences. It solves the equations over a polynomial domain and checks the currents on both bonds and at the left reservoir by exact cancellation. It also checks the quartic derivative, homogeneous and fast-centre limits, strict-comparison factorization and radical example. A separate computation solves configuration balance at 35 admissible rational parameter triples (seven pairs of mean density and contrast, five dwell times for each).
 
-Run with `python verify.py` after installing SymPy. The packaged script was executed successfully. Infinite parameter coverage depends on the symbolic identities, coefficient sign bounds, Descartes' rule and the explicitly stated parameter domain; the 45 checks only guard the implementation. No formal proof assistant or independent scientific audit has been performed.
+Run with `python3 verify.py` after installing SymPy. The terminating line ends in `35 rational configuration-balance checks.` The symbolic identities, coefficient signs and Descartes' rule prove the claim throughout the parameter domain; the rational samples are bounded implementation checks.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the planar quantile-Kaczmarz identity
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no nonstandard packages. The program produces the exact recorded line in `verification_output.txt` upon success. The code builds the stated unit projective-angle frame, chooses rows under the inclusive numerical order-statistic cutoff, applies the orthogonal row projection, and compares explicit predicted factors against direct conditional expectations.
+## correctness
 
-The recorded execution performed 39,420 checks. Coverage includes the tight-frame Gram identity for \(2\le m\le23\), all integer cutoff ranks \(1\le r\le m\) in that range, the sharp first-step orientation, every post-projection grid-perpendicular orientation, and exact transition-energy enumeration over four iterations. It also checks many non-extremal starting orientations and asymptotic sine-limit relations at larger \(m\).
+PASS
 
-These are deterministic floating-point checks with explicit tolerances and are only supplementary evidence. They cannot prove the asserted infinitely many frame sizes or all iteration counts. The proof in `RESULT.md` supplies the exact finite sine identity, the inclusive tie argument, the invariant grid orientation, the iteration conditioning identity and the convergence argument; these are the steps needed to independently reconstruct the theorem. Floating-point tie handling is not an exact arithmetic certificate. No independent audit has been performed.
+This PASS is for repairs/5/RESULT.md and SLOGAN.txt, not the frozen unrestricted retained-row statement. At x_0=x_star, m=4 and r=1, all residuals are zero after every projection, so all four rows are retained, not one as the frozen Finding states. The replacement gives the parity count only for nonzero post-projection errors, gives the count m for zero, and preserves arbitrary initialization for the moment identities. Independently, normalized squared residual is sin² of projective distance to the error-perpendicular line. The r nearest admit a consecutive r-block, and its doubled-angle geometric sum gives average removal at least 1−Q; additional cutoff ties can only increase this average. The block midpoint makes the bound exact (strict gap to the complement if r<m). A nonzero post-projection error has its perpendicular line on the grid: after the zero residual come equal pairs, with a possible singleton at projective distance pi/2 ranked last. This gives exactly the stated parity change for r<m and all m for r=m. The centered block then gives multiplier B, while at zero the same conditional equality holds because both sides vanish. The tower property gives every finite-horizon identity. At r=1 a least-residual row cannot erase a nonzero error and all later updates vanish; at r≥2 the multiplier is strictly below one, and nonincrease of squared norm plus bounded convergence gives almost-sure convergence. Direct Taylor expansion and the doubled-angle frame Gram sum give the stated rates and normalization. The supplied numerical checker and recorded 39,420 checks were treated as finite supplementary evidence, without executing the script.
+
+## originality
+
+PASS
+
+The tie-inclusive algorithm and the uniform-sampling full-rank cutoff case are covered by prior work. The verified distinctive contribution, retained in the repair, is the sharp all-horizon law for adaptive rank r<m on this frame, particularly the change after the first step and the resulting even/odd factor. The at-zero correction itself is not claimed as new.
+
+## value
+
+PASS
+
+The repaired theorem quantifies a concrete consequence of adaptive low-residual sampling even for a perfectly conditioned tight frame: sharp worst-case loss over any number of steps and a change at even ranks caused solely by inclusion of ties. The orientation reduction, parity, and m^(−2) contraction gap calibrate behavior not predicted by frame conditioning or uniform sampling. Correct handling of the absorbing zero state preserves that quantitative result for every deterministic initialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

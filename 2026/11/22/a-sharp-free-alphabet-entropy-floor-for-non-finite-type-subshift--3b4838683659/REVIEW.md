@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The key splice is made from witnesses of the prefix and suffix of an arbitrarily long minimal forbidden word. Every forbidden interval on the splice must cover the entire missing word, leaving at most \(\ell-n+1\) sites. Since the free coordinate is iid uniform, each proposed forbidden product word has matching probability \(q^{-\ell}\) at each site. For any generating list with rate below \(\log q\), the resulting union-bound tail converges to zero, contradicting guaranteed obstruction on every free-coordinate sequence. The reverse inequality follows by product-lifting all generators, and minimal forbidden and language product identities yield the exact motivating triple. The checker supplies finite corroboration, not proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For each arbitrarily long minimal forbidden A-word of length n, splice two points of X realizing its prefix and suffix on their common overlap. The resulting z contains the obstruction but agrees with a point of X on each half-line through the overlap. Every forbidden block of z must cover the whole obstruction, giving at most ℓ−n+1 starts at length ℓ. Any word in any generator of the product must have an absent A-projection, since B is completely free. For a uniform independent B-coordinate the union over all matching events has probability one, so 1≤Σ_{ℓ≥n}(ℓ−n+1)|H_ℓ|q^(−ℓ). If the generating-list rate were below log q the right side would be bounded by tails of a convergent exponentially weighted series, contradicting arbitrarily large n. Lifting all banned words by all B-words proves the upper bound, with the −∞ convention and the SFT boundary preserved. In the source example 3 is right-absorbing and 2 left-absorbing: any point containing both would contain 2u3^(|u|²+1) for a nonempty binary gap u, or the forbidden adjacent pair 23. Thus the two-sided language really is the union of the 2-prefix and 3-suffix binary families. Their sizes give 3·2^n−2; the minimal words 2u3 give rate log 2, and the sparse quadratic-length list gives generating rate zero (a non-SFT cannot have negative generating rate). Language and minimal-forbidden counts scale exactly by q^n, giving the triple. VERIFICATION.md and check.py were inspected, not executed. Their finite checks do not replace the arbitrary-generator argument.
 
-Wu–Zhang's complete accessible preprint gives the definition and base example, together with an upper estimate for a *self-product* (Proposition 1), but not the universal lower entropy floor for a full-shift factor. Published comparison records concerning explicit minimal-antidictionary counts and maximal-entropy examples do not imply the new lower bound. The older symmetric-constraint theory uses a different invariant and does not, in inspected abstract/background material, settle this statement. Exact historical priority remains subject to the stated residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem is a sharp structural obstruction for *every* non-finite-type finite-alphabet subshift, with no mixing or entropy positivity assumptions. It identifies an abrupt \( -\infty \)-versus-\(\log q\) lower boundary under adding independent symbolic freedom. The concrete example realizes equality and separates generating-list complexity from both topological and minimal-forbidden complexity by an exact constant. This is a natural invariant of constraints, not a case-specific enumeration.
+The arbitrary-generator lower bound for adding a free full-shift coordinate is the distinct claim. The entropy definitions, source example and its base entropies, and the antecedent upper-bound lifting method are credited to Wu and Zhang. The exact product triple includes a genuinely new forced generating entropy, not new base-system counts.
 
-## Limits
+## value
 
-The bound does not settle arbitrary non-full second factors or exact products when the base generating-list entropy is positive. Finite checker runs do not certify the infinite theorem. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An unrestricted independent coordinate raises the best possible forbidden-description rate to a sharp positive floor for every non-SFT base, even when the base has zero generating entropy. This universal obstruction to recoding the product by sparse decorated forbidden patterns is not supplied by the usual product-language count. Its exact sharp family and the SFT contrast make the result useful when interpreting the generating-list entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

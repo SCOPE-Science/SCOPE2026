@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-`odd_area_certificate.py` runs with standard Python 3 and requires no third-party packages. Run it in the same directory as this file with `python3 odd_area_certificate.py`.
+## correctness
 
-The checker represents the seven centers by integer pairs in the basis \((\sqrt3/24,0),(0,1/8)\). It uses integer-square-root rational enclosures for radicals, Machin's arctangent identity with alternating remainder for \(\pi\), and a positive-term \(\arcsin\) expansion with explicit tail. It verifies that every relevant pairwise circle-intersection event is strictly ordered, and integrates signed Green boundary arcs by rational interval arithmetic. The algebraically simplified expression is enclosed independently and cross-checked against the Green calculation. An additional midpoint radial integration with 8,192 and 65,536 directions produces concordant approximate values but does not enter any proof or certificate.
+PASS
 
-The certificate proves \(-0.033502<\operatorname{OA}-\pi<-0.033500\), which is stronger than the strict inequality needed to certify the perturbation neighborhood. It does not establish an optimal configuration, an optimal area or an optimal perturbation radius. Independent mathematical validation is not yet performed.
+For almost every point of a disk circumference the other disks have constant parity locally. Its arc is positively oriented for the odd region exactly when that parity is even. Green's theorem then gives the signed boundary formula. Independently computed all 84 ordered events and the exact coefficients by taking the vector cross product in the Green primitive, rather than expanding the individual trigonometric functions. In coordinates (X√3/24,Y/8), let D=(m√3/24,n/8) be the center displacement, s=m²+3n², and β=±1 indicate the two crossings. The angle is wπ/6−β asin(√(s/768)), with w chosen by the heading and the full-turn lift. At this event the cross-product contribution to the primitive is (Xn−Ym)√3/384+β(Xm+3Yn)√((768−s)s)/(384s). Initial coverage by the other disk is equivalent to m>0 and s²<768m². Summing the signed primitives reproduces the exact identity. An independent fixed-point interval check yields (-36834745203,-36834742557)/1099511627776 for OA−π, wholly inside the claimed rational bracket. Parallel slicing of disk translates gives symmetric difference at most 4||h||, even for large h, and XOR changes only on the union of the symmetric differences. Combined with the strict margin, this proves the stated aggregate displacement guarantee, with no dependence assumptions on the translations.
+
+## originality
+
+PASS
+
+The equilateral triangle construction and sub-π conclusion are due to Steinerberger. Pass only the explicit exact evaluation and its quantitative certificate and stability refinement, not the witness or qualitative continuity. The closest indexed exact match is the same record, not independent prior coverage.
+
+## value
+
+PASS
+
+This pre-existing counterexample to a natural parity-area bound is a motivated nonarbitrary benchmark. Its exact value and rigorous gap quantify the example and give a usable guarantee against independent geometric perturbations. The explicit arrangement arithmetic is not supplied by a general Green theorem or by the approximate published value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

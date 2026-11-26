@@ -1,13 +1,21 @@
-# Review: single-node integer reachability on small trees
+# Independent mathematical audit
 
-**Correctness (PASS).** All isomorphism types and their coordinate roots through nine vertices are covered by the inductive leaf-attachment generator and canonical rooted-string isomorphism test. The public checker independently computes all determinants by Bareiss integer elimination and rational Gaussian elimination, reproducing the complete table. The exceptional parity condition follows from an explicit modular annihilator and a determinant of absolute value two; integer Cayley–Hamilton ensures longer horizons add no extra lattice states.
+## correctness
 
-**Originality (PASS on inspected evidence; qualified).** The earlier tree-topology literature classifies real controllability using spectral interlacing and component eigenvalues. Earlier path/cycle reachability work and special path/spider unimodularity statements do not give the sharp nine-vertex minimality theorem for arbitrary unweighted tree shapes or the index-two integer-lattice characterization. Actual searches for the tree walk-matrix determinant and integral controllability found no dominating order-nine theorem, but such negative searches do not certify publication priority.
+PASS
 
-**Value (PASS).** The smallest failure of integer unimodularity in a real-controllable graph is a natural exact boundary: it separates the ability to steer arbitrary real states from the ability to steer arbitrary integer states on otherwise identical unit networks. The fully classified nine-vertex case supplies a concrete parity obstruction and a reproducible finite benchmark; no broader significance beyond these proved facts is assumed.
+An independent census builds rooted trees by multiset decomposition of child branches, then uses the unique centroid or unordered pair of centroid halves to get each unrooted shape once. A tree has a unique centroid precisely when every branch there has fewer than half the vertices; in the bicentroid case the middle edge cuts two equal halves. For each root the signed −L columns are updated by summing edge differences. A division-free subset expansion of the determinant reproduces all nine rows of the exact zero/unit/nonunit table over 749 instances. At order nine the counts are 361/60/2, and both nonunit cases belong to one shape. On the displayed labels both roots 2,3 have determinant −2, and the displayed permutation exchanges them. The asserted parity vector annihilates all columns for root 2 modulo two; the parity kernel and full-rank column lattice both have index two and hence coincide. Integer Cayley–Hamilton expresses each later column in the first nine columns with integer coefficients, so allowing longer horizons does not remove the obstruction.
 
-**Closest literature.** Ji, Lin, Lee and Ling (American Control Conference, 2010), *Multi-agent Controllability with Tree Topology*; Parlangeli and Notarstefano (arXiv:1109.3556, 2011), *On the reachability and observability of path and cycle graphs*. The first gives a real-controllability criterion for trees; the latter gives path/cycle arithmetic criteria. Neither examined statement gives the integer index classification. The 2010 PDF was materially inspected in extracted full text, while its screenshot service was unavailable after a redirect.
+## originality
 
-**Limitations and risks.** The minimality claim is finite through nine vertices. All edges have unit weight, only one coordinate is actuated, and controls are signed integers. Complete priority search and independent mathematical review are not claimed; unindexed equivalent walk-matrix results remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The best-supported new content is the sharp all-tree, all-coordinate threshold for a nonunit nonsingular Kalman determinant, its unique exceptional shape, and the full parity obstruction. Ordinary real controllability, restricted path/spider unimodularity, and graph walk-matrix determinant formulas are meaningful prior comparisons, but the inspected results do not imply the finite integer classification.
+
+## value
+
+PASS
+
+The cutoff measures the first point at which ordinary real controllability ceases to guarantee exact integer-input reachability for a natural family of unit-network systems. Locating the single minimal shape, both actuators, and an explicit parity test explains the difference rather than supplying an arbitrary small spectral census. The result serves as a sharp counterexample for general unimodularity conjectures about Laplacian input columns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

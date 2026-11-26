@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter in the directory containing this file. The program requires no extra packages or external data. `verification_output.txt` records one execution of that exact program.
+# Independent mathematical audit
 
-The program constructs the fourteen-vertex co-Heawood graph from the Singer difference set \(\{0,1,3\}\) in \(\mathbb Z/7\mathbb Z\). It verifies the unique-line-pair property, degree four, and Fano nonincidence definition. Every one of the \(16384\) possible vertex masks is evaluated by two face predicates: induced maximum degree one and avoidance of all three-vertex forbidden paths.
+## correctness
 
-The complete face vector including the empty face is \((1,14,91,280,420,266,42,2)\); the \(86\) facets lie in dimensions four, five and six with multiplicities \((56,28,2)\). The deterministic toggle algorithm uses \(553\) pairs. It independently constructs every nonempty-face Hasse incidence (\(4298\) in total), reverses the matched pairs, and topologically sorts the resulting \(1115\)-vertex directed graph. All vertices are visited, proving the absence of directed cycles; the unmatched cells are precisely one vertex and eight four-dimensional simplices.
+PASS
 
-The reduced mod-two chain ranks in cardinalities one through seven are \((1,13,78,202,218,40,2)\), yielding reduced mod-two Betti numbers \((0,0,0,0,8,0,0)\) in degrees zero through six. Integral wedge homotopy uses the verified discrete-Morse certificate rather than inferring integral results from mod-two data.
+The face condition is maximum induced degree one, equivalent here to forbidding a three-vertex path as a subgraph. An independently written check (independent_check.py; preflight.txt and reproduction.txt) exhausts the 14-vertex subsets, reproduces 553 pairs and topologically sorts all 1,115 nonempty faces and 4,298 oriented Hasse incidences. The critical cells are one vertex and eight four-cells, proving the integral nonequivariant wedge by discrete Morse theory. Connectedness makes the two parts intrinsic; permutations preserving the Fano line family give the 168 part-preserving maps, and composition with the given polarity enumerates the other coset. Exhaustive signed fixed-simplex traces agree on all eight rows; the reduced degree-four sign is positive and the reduced augmentation contributes -1. The resulting character has squared sum 336 and sum zero, proving absolute irreducibility and absence of invariants. This does not assert an equivariant wedge equivalence. The frozen verifier was not executed.
 
-All \(5040\) permutations of seven points are checked, producing \(168\) point-line-preserving automorphisms. Their compositions with the specified polarity give another \(168\). Adjacency preservation is explicitly checked for each. For each of the \(336\) automorphisms, signed fixed-face Lefschetz contributions determine its action on the sole nonzero rational reduced homology group; character table multiplicities and both character sums are checked exactly. The result \(\sum_g\chi(g)^2=336\) proves absolute irreducibility, and \(\sum_g\chi(g)=0\) proves absence of invariants.
+## originality
 
-The run makes no claim about larger plane orders or independent expert certification. The named source studies concern published definitions and matching theory; novelty cannot be proved by computation alone.
+PASS
+
+The warranted distinct contribution is the integral wedge type of this exact nonincidence dissociation complex and the realization of the specified full-group character on its homology. The related Heawood forest calculation has the same restricted collineation-group representation, which is not credited as a new abstract representation here. Neither that calculation nor the Heawood five-cut calculation specifies this complex, its dimension, or which extension of the restricted action is realized. The part-swapping traces are not determined by the restriction (twisting by the nontrivial quotient character preserves the restriction). No exact coverage was identified in the inspected evidence.
+
+## value
+
+PASS
+
+Fano nonincidence is a canonical symmetric graph outside the standard higher-independence families. A verified integral wedge together with its full symmetry action provides a reusable test case for equivariant higher-independence topology: restriction alone would miss which full-group extension occurs and whether the full action has invariants. The precise realization and degree, not a new name for a known abstract representation, are the useful data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of the reciprocal-power denominator law
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed closed form and recurrence agree. The crucial lemma establishes not only \(\nu_3(U_n(a))=\nu_3(n)\) but \(U_n(a)/n\equiv(-1)^{n-1}\pmod3\): direct reduction handles indices coprime to three, and the exact factorization of \(U_{3m}(a)\) into \(3(1+3t+3t^2)U_m(a)\) propagates the assertion. For the fixed prefix only the one or two indices divisible by the highest available power \(3^r\) survive at minimum valuation; each contributes unit \(1\pmod3\). Their sum is nonzero, proving both claimed equalities for all quantified parameters. The included checker passed 1750 exact rational and 1024 modular checks; these are corroboration, not a substitute for the proof.
+## correctness
 
-**Originality — PASS on inspected evidence.** The 2022 Gaber preprint treats inverses of infinite reciprocal and alternating reciprocal tails of ordinary Jacobsthal numbers. Its scope and theorem statements, read in the original seven-page paper, do not settle finite prefixes' three-adic denominators, nor the uniform generalized-base/all-exponent statement. The closest complete published published-finding corpus paper treats real-valued floors of inverse infinite square tails and is not logically stronger on the asserted finite-sum valuation. Search comparisons also covered generalized Lucas reciprocals, denominator valuations, possible prime-power and ternary leading-unit equivalents. The risk of unindexed or implicitly stronger literature remains, not an assertion of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Exact prime-adic denominator growth for rational prefixes is a natural arithmetic invariant independent of the known real-tail approximation. The theorem gives a complete simultaneous three-parameter law (base, reciprocal exponent, index), detects every denominator jump at ternary powers, and identifies a previously nonobvious leading ternary unit without cancellation, using a structural Lucas-unit lemma. It also gives a demonstrable boundary on the base hypothesis. The result is a substantive arithmetic classification rather than a few arbitrary computed examples.
+For n prime to 3 the geometric difference quotient gives U_n/n congruent to (-1)^(n-1); tripling n multiplies U_n by exactly 3 times a unit congruent to 1, since a^m=(-1)^m(1+3t) gives the factor 3(1+3t+3t^2). This proves both the term valuation and its normalized unit. Scaling the finite prefix by 3^(hr) kills all lower layers. At n=3^r the surviving unit is 1, and at n=2·3^r it is -2=1 mod 3. The d surviving terms therefore give d, nonzero for d=1,2, including r=0 and at jumps N=3^r. This proves the denominator and digit for all stated a,h,N. The a=4 example is outside the theorem; at N=2 it violates integrality under the claimed r=0 normalization. The supplied finite tests were inspected, not run or used as proof.
 
-**Limitations and closest source.** The result is specific to the ternary prime and to full positive prefixes of the indicated Lucas/Jacobsthal family. It does not claim any general denominator theory at other primes. The closest source is Gaber, arXiv:2207.12857v1 (19 July 2022), and the later published infinite-tail floor theorem; neither inspected claim includes the present full-prefix law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected prior statements concern real inverse tails, term valuations, or fibers of individual terms. None covers the exact joint finite-prefix valuation and normalized digit across the stated bases and powers. The elementary term valuation by itself does not resolve the tie between two maximal-depth summands.
+
+## value
+
+PASS
+
+The exact reduced denominator at 3 and the next unit digit are natural arithmetic invariants of finite reciprocal prefixes. The uniform no-cancellation result is useful precisely when two summands attain the minimal valuation, a regime where the analogous ordinary harmonic power sums can cancel. It gives both invariants for every positive power and permitted base without computing the large reduced fraction. Its contribution is elementary and prime-specific, not a general theory of reciprocal sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

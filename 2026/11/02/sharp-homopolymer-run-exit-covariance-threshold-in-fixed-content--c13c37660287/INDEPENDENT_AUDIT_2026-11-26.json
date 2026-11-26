@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:51:01.025481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a linear word with b ones, the b+1 lengths L_j of zero gaps are a uniform weak composition of a. The probability of prescribed lower bounds totaling s on distinct gaps is R_s=binom(n−s,b)/binom(n,b), or zero if s>a. Write S_s=sum_{t=s}^a R_t; by the hockey-stick identity this equals binom(n−s+1,b+1)/binom(n,b) (zero for s>a). Since X=sum_j (L_j−2)_+ and Y=sum_{j≤b}1_{L_j≥2}, EX=(b+1)S_3 and EY=bR_2. Each same-gap term of EXY gives S_3, each distinct-gap term S_5, hence EXY=bS_3+b²S_5. Therefore Cov=bS_3[1−(b+1)R_2]+b²S_5. Substitution and a+b=n give the frozen formula, including n=4,5 with impossible gap events counted as zero. The source's separate ordered window proof also has the stated counts of n−3, n−4 and (n−4)(n−5) for +1, +2 and disjoint pairs at n≥6. The remaining factors are strictly positive, so the sign is that of τ_n−a. In the zero equation t=2n−3 divides (n+6)(n−1); four times the product is 15 mod t. With t≥5 only 5 and 15 are possible, giving exactly (4,3,1) and (9,4,5), and the leading powers yield the normalized limit. Independent exact enumeration agreed on all 88 compositions at lengths 4–14 (including smaller a with X identically zero); output /workspace/branches/ae960dac-a50f-4325-ba26-2e2c660dd19e/enumeration-check.txt. This finite check does not prove the general sign law. The frozen verification notes and script were read, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Örnek uses iid fair bits and enumerates runs over all 2^n strings. The frozen law conditions on a and b, so even disjoint windows need not be independent.",
+          "The frozen bibliography relates Rukhin and Régnier to broader joint pattern generating functions for Bernoulli or Markov sources. Decisive full-text passages were not accessible for those two citations; no no-coverage conclusion is based on that limitation."
+        ],
+        "reasoning": "Broader word-count machinery may encode the moments after extracting content coefficients, but marginals in unconditioned iid or Markov laws do not supply the conditional cross-covariance or its sign.",
+        "searches": [
+          "Primary literature: fixed-composition overlapping binary word counts joint covariance and run statistics",
+          "Örnek, Pattern occurrence and run enumeration in random binary strings, pp. 1–2, 4",
+          "Rukhin DOI 10.1137/S0040585X97984115; Régnier DOI 10.1016/S0166-218X(00)00195-5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_pattern_covariance.py",
+        "Resultary 72a017004061 and c6b28ad6d93d (source); 3cf268842cf9 (synopsis only)",
+        "Örnek, Parabola 62(1), article 7",
+        "Bibliographic comparisons to Rukhin, Régnier and the 2019 WIREs overview, not full-text exclusions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 000/001, compatible positive displacements +1 and +2 prescribe 0001 and 00001; disjoint pairs prescribe five zeros, one one. The mixed-trigram result and local two-position formulas supply neither these terms nor their factorization.",
+          "Exact vanishing depends on the integer divisibility 2n−3 | 15, after obtaining the specific finite-composition expression."
+        ],
+        "reasoning": "A general indicator expansion or generating-function framework does not itself give the factorization, finite displacement from 1/4 or the arithmetic classification. No inspected exact formula yielded these by renaming or simple parameter specialization.",
+        "searches": [
+          "Resultary 72a017004061 and two-position run transitions c6b28ad6d93d, exact definitions and thresholds",
+          "Örnek, PDF model and enumeration",
+          "2019 WIREs overlapping-pattern computations overview, search synopsis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "72a017004061 measures 001 and 010 and gives positive covariance iff zeros outnumber ones by at least two, negative otherwise; both motifs are mixed. 000 in the frozen pair is constant under bit reversal and always remains a constant word under alphabet relabeling.",
+          "The equivalent uniform weak-composition formulation distinguishes the last gap (no following one) and measures (L−2)_+ against exit counts, not a single run-length bin or two-position transition."
+        ],
+        "reasoning": "The close formula has genuinely different pair overlaps, threshold and zero set. Relabeling, word reversal and rewriting as runs do not identify it with the frozen invariant.",
+        "searches": [
+          "Resultary: fixed-composition trigram covariance and composition thresholds for overlapping binary motifs",
+          "Resultary 72a017004061 and c6b28ad6d93d",
+          "Run formulation: excess zero-gap lengths and long zero-run exits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact formulas concern the 001/010 pair or two-position transition indicators with thresholds in (a−b)², not the threshold (n+6)(n−1)/(4n−6).",
+          "The synopsis of 3cf268842cf9 concerns one-runs and singleton-one-runs, but mirror retrieval timed out; only the synopsis was available for that hit."
+        ],
+        "reasoning": "No exact matching entry was located among the bounded inspected results. The all-n sign/zero theorem could not in any case be exhausted by a finite numerical table. The inaccessible record is a residual source limitation, not evidence of noncoverage.",
+        "searches": [
+          "Resultary fixed-count covariance and run-transition catalogue searches: 72a017004061, c6b28ad6d93d and 3cf268842cf9"
+        ]
+      },
+      "rationale": "The supported distinct result is the fixed-count linear 000/001 covariance sign threshold and exact nondegenerate equality classification, including the finite-size shift. The closest inspected result concerns different overlapping trigrams; it cannot be transformed into this one by relabeling or reversing the word. Broad pattern-count methods motivate the calculation but no inspected theorem gave a direct fixed-count sign law or equality classification for these observables. This is best-of-knowledge, not a historical priority assertion.",
+      "residual_risks": [
+        "A general fixed-content multivariate pattern-count generating function might give a closer specialization than the inspected passages; inaccessible Rukhin, Régnier and WIREs material does not rule it out.",
+        "3cf268842cf9 could not be fully inspected; the catalogue comparison is synopsis-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct pair and sign law",
+          "evidence": "The motifs are 001 and 010; its covariance is positive iff zeros exceed ones by at least two and negative otherwise.",
+          "identifier_or_url": "Resultary 72a017004061",
+          "material_read": "Mirrored RESULT.md finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and statement inspection",
+          "title": "A sharp composition threshold for two adjacent binary motif counts",
+          "trigger": "Same fixed-content model and overlapping trigrams"
+        },
+        {
+          "assessment": "Two-position rather than trigram statistics",
+          "evidence": "Adjacent and disjoint transition pairs have thresholds in (a−b)², for different random variables.",
+          "identifier_or_url": "Resultary c6b28ad6d93d",
+          "material_read": "Mirrored RESULT.md finding at offset 0, same snapshot",
+          "method": "Local catalogue and statement inspection",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Frozen citation and fixed-count run transitions"
+        },
+        {
+          "assessment": "Synopsis suggests different observables; no full-text judgment",
+          "evidence": "Synopsis describes covariance of one-run and singleton-one-run statistics.",
+          "identifier_or_url": "Resultary 3cf268842cf9",
+          "material_read": "Catalogue synopsis only; mirror retrieval timed out",
+          "method": "Local catalogue and bounded retrieval attempt",
+          "title": "Likelihood-ratio ordering of singleton success runs under fixed composition",
+          "trigger": "Same-day fixed-composition run covariance"
+        },
+        {
+          "assessment": "Different sampling model",
+          "evidence": "Bits are independent fair trials, and run enumeration is over all 2^n words.",
+          "identifier_or_url": "Parabola 62(1), article 7 (2026), Örnek",
+          "material_read": "OA PDF pp. 1–2 at offset 0 and p. 4 at offset 7927",
+          "method": "Primary OA passage inspection",
+          "title": "Pattern occurrence and run enumeration in random binary strings",
+          "trigger": "Binary overlapping patterns and runs"
+        },
+        {
+          "assessment": "Possible general encoded moments remain a risk",
+          "evidence": "The frozen citation refers to stationary-source pattern frequencies; this characterization is not an independent full-text exclusion.",
+          "identifier_or_url": "DOI 10.1137/S0040585X97984115",
+          "material_read": "Bibliographic information and frozen comparison only; no usable full passage retrieved",
+          "method": "Lawful source lookup, no full-text assessment",
+          "title": "Joint Distribution of Pattern Frequencies and Multivariate Polya–Aeppli Law",
+          "trigger": "Cited joint pattern framework"
+        },
+        {
+          "assessment": "Possible broader framework; no verified covering statement",
+          "evidence": "The frozen comparison describes Bernoulli and Markov word occurrence models; full-source scope is not independently established.",
+          "identifier_or_url": "DOI 10.1016/S0166-218X(00)00195-5",
+          "material_read": "Bibliographic information and frozen comparison only; no usable full passage retrieved",
+          "method": "Lawful source lookup, no full-text assessment",
+          "title": "A unified approach to word occurrence probabilities",
+          "trigger": "Possible general word-count moment specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both observables are natural complementary summaries of long zero runs: excess length and the number of exits into a one. Their covariance under the exact fixed-content null changes sign and is neither generically absent nor fixed by independent-bit intuition. The exact crossover and two finite exceptional zeros can be used to calibrate contrasts even near the asymptotic threshold. This is useful without implying independence or greater statistical power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

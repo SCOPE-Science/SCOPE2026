@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:15:03.685114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: lines 5–24 and 28–66; VERIFICATION.md and checker.py (source inspection only)",
+        "/workspace/branches/811ae9da-d633-43c9-8da2-2828bac7daed/replay.py, small-run.json and bounded-run.json (independent replay)"
+      ],
+      "rationale": "The statement is for increasing, order-decreasing restrictions of translations, with the empty map counted once. For a fixed shift d>0, each rank-r domain gives r distinct edges in a residue-class forest, so there are 2^(n-r) partial identities with equal membership bits at the endpoints. The sum over d gives binomial(n,r+1) domains; reversing the factor order doubles the count. Normalizing at j=r+1 gives the asserted truncated Bin(n,1/3) law; the crossing event is empty at n=1, as the stated scope requires. In the concentration proof the selected positions exceed k+l, making all indicated bits admissible, and spacing K+1 makes the equations independent. The per-equation probabilities 3/4 and 5/8 account for coincident bits at zero shift; summing the geometric stratum sizes and tail is valid. With K=floor(sqrt(n)/2), each error is O(exp(-sqrt(n)/4)), and the normalizing size differs from 2^(n+1) by n+1. A separate composition replay matches all crossing ranks, the idempotent core, and complete ordered totals 4,21,102,449,1820,7033,26420,98245 for n=1..8.",
+      "residual_risks": [
+        "The independent computation is finite; the all-size conclusion uses the proof. No optimal rate or exact all-pair formula is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "015301143d17 Finding: exponential idempotent concentration for all order-preserving partial isometries (positive and negative shifts). 2523a33ab907, proof lines 34–40: exponential suppression outside the same idempotent core even in the full inverse monoid."
+        ],
+        "reasoning": "For the larger monoid P_n, the set of commuting pairs outside E_n^2 contains that for M_n. Both sizes are comparable to 2^n, and E_n is identical. Thus an exponential bound on the excess divided by |P_n|^2 gives an exponential bound when divided by |M_n|^2; the change from 1/9 (or 1/36 in the full monoid) to 1/4 comes solely from the known size normalization.",
+        "searches": [
+          "Resultary: commuting probability order-preserving order-decreasing partial transformation monoid chain",
+          "Resultary: commuting probability symmetric inverse monoid inverse partial transformations finite set"
+        ]
+      },
+      "checked_sources": [
+        "e6b2ccea87b9",
+        "015301143d17",
+        "2523a33ab907",
+        "f54b34cb7503 Finding",
+        "548536412e8b Finding (centralizers of particular nonzero shifts, not crossing counts)",
+        "arXiv:1702.04485",
+        "arXiv:2611.12150v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2523a33ab907: a partial injection f centralizes 2^c(G_f) partial identities, with G_f the undirected graph of its moved arrows. Its translation calculation explicitly has the coefficient binomial(n-d,r)2^(n-r) at shift d."
+        ],
+        "reasoning": "Summing only the downward shifts by the hockey-stick identity and doubling gives the exact crossing count. Its sum and conditioned law are direct binomial normalization; the wider exponential result dominates the stated stretched-exponential bound. Neither the translations-only restriction nor the change of counting orientation supplies a separate surviving claim.",
+        "searches": [
+          "Resultary: commuting probability order-preserving order-decreasing partial transformation monoid chain",
+          "2523a33ab907 lines 25–32 and 34–40; 015301143d17 and e6b2ccea87b9 Results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "015301143d17 Finding: signed translations have one-placement mixed rank count 2^(n-r+1) binomial(n,r+1). Inversion preserves rank and e f = f e for each fixed partial identity e, and swaps the two nonzero shift signs."
+        ],
+        "reasoning": "Halving for downward shifts and doubling for the two ordered factor placements exactly recovers B_(n,r). Normalizing at j=r+1 is the same truncated-binomial law, not a new rank distribution. This does not assert a binomial law for each fixed idempotent.",
+        "searches": [
+          "Resultary: rank distribution commuting idempotent partial translation binomial",
+          "Resultary: commuting probability order-decreasing partial isometries finite chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e6b2ccea87b9 gives I_(n,r)=2^n binomial(n,r)+2^(n-r) binomial(n,r+1)+R_(n,r), identifying the middle term exactly with positive downward translations; R is the reversing contribution. arXiv:1702.04485, Theorem 2.4, gives the size of the increasing order-decreasing monoid."
+        ],
+        "reasoning": "The symbolic spectrum is more decisive than finite table matches: its already-separated middle term, times two, is the entire submitted crossing array. The known monoid cardinality is not a new invariant either.",
+        "searches": [
+          "Resultary: rank distribution commuting idempotent partial translation binomial",
+          "Resultary: rank-refined spectrum e6b2ccea87b9, Finding and translation term in proof",
+          "OA: arXiv:1702.04485, Abstract and order-preserving strata"
+        ]
+      },
+      "rationale": "Both principal conclusions are covered at the statement/implication level by distinct same-day records. The parity-sensitive spectrum explicitly identifies the exact downward-translation summand before doubling for factor order. The broader signed-translation concentration theorem gives an exponentially small excess count over 4^n; restriction to the submonoid preserves the entire idempotent core and only removes excess pairs. Since the two sizes are both of order 2^n, this gives a stronger rate for this very probability and for conditional idempotent concentration. This is demonstrated coverage, not an inference of historical priority from the catalogue date or a claim that the result is false.",
+      "residual_risks": [
+        "Publication order among the distinct same-day findings was not established. The demonstrated mathematical implications do not depend on that ordering.",
+        "Keyword misses in earlier primary literature are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank coverage after factor-order conversion",
+          "evidence": "The middle term 2^(n-r) binomial(n,r+1) counts nonempty increasing downward translations with an idempotent first factor; reversals are separate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-parity-sensitive-rank-spectra-of-idempotent-commutants-in-full-o--e6b2ccea87b9",
+          "material_read": "RESULT.md Finding (offset 0) and translation summand in the proof",
+          "method": "Local mirror passage inspection",
+          "title": "Parity-sensitive rank spectra of idempotent commutants in the full order-decreasing monoid",
+          "trigger": "Plausible stronger exact rank spectrum"
+        },
+        {
+          "assessment": "Equivalent mixed-rank counts and stronger concentration after rescaling",
+          "evidence": "Both signs of partial translations are admitted; the Finding states exponential convergence and the mixed rank coefficient 2^(n-r+1) binomial(n,r+1) for one factor placement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exponential-convergence-to-one-ninth-commutativity-for-finite-ch--015301143d17",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection and inversion/restriction comparison",
+          "title": "Exponential convergence to one-ninth commutativity for finite-chain partial translations",
+          "trigger": "Both shift directions; plausible exact relation and stronger error"
+        },
+        {
+          "assessment": "Independent implication of both conclusions by restriction",
+          "evidence": "Forest edge count at fixed shift and rank; exponential suppression of the remaining pairs outside E_n^2.",
+          "identifier_or_url": "2523a33ab907",
+          "material_read": "Frozen RESULT.md lines 4–23 and 25–40",
+          "method": "Direct proof inspection",
+          "title": "Commutativity and the reflection factor in finite-chain partial-isometry monoids",
+          "trigger": "Individual centralizer and larger ambient monoid"
+        },
+        {
+          "assessment": "Size and rank/fixed-point background; inspected passages do not state a commuting law",
+          "evidence": "The order-preserving order-decreasing monoid has size 2^(n+1)-n-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.04485",
+          "material_read": "Abstract and pp. 2–3, OA offsets 0, 5000, 9500, including Theorem 2.4",
+          "method": "OA locating and bounded PDF passages",
+          "title": "Combinatorial results for certain semigroups of order-decreasing partial isometries of a finite chain",
+          "trigger": "Same underlying objects and prior enumeration"
+        },
+        {
+          "assessment": "Ideal-generation and presentation background only in the inspected material",
+          "evidence": "The announced ranks refer to generators of ideals, rather than ranks of elements occurring in commuting pairs.",
+          "identifier_or_url": "https://arxiv.org/html/2611.12150v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA bounded text",
+          "title": "On semigroups of order-decreasing partial isometries: presentations and ranks of certain ideals",
+          "trigger": "Cited primary work on the same monoids"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "e6b2ccea87b9 exact summand",
+        "015301143d17 Finding",
+        "2523a33ab907 proof"
+      ],
+      "rationale": "The monoid and crossing invariant are natural, but the submitted exact statistics are obtained by discarding other terms in a known rank sum (or by inversion and doubling); the concentration law follows from the larger monoid with a weaker advertised rate. No fixed-idempotent distribution, new estimate beyond the wider result, or additional statistic not obtained by these direct reductions is proved. A rewrite or an additional finite check would not change that.",
+      "residual_risks": [
+        "The rejection is of this result as a distinct finding, not a judgment that the broader isometry commutation problem is unmotivated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

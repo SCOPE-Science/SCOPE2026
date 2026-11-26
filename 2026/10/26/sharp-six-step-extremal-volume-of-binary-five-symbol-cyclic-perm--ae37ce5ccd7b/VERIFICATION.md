@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 verify.py`. All computations use Python standard-library string sets and exact integers.
+## correctness
 
-The checker independently constructs four nontrivial rotations per possible five-bit window and compares the direct union of all rotated outputs with the locality sum for every binary word of lengths 5 through 14. It builds 256 suffix states and computes all 512 nine-bit local window scores. It calculates exact optimal suffix vectors and verifies, component by component, the relation \(V_{n+6}(s)=V_n(s)+19\) for every suffix and each of the six base indices \(n=12,\ldots,17\). The max-plus recurrence propagates the identity to every subsequent length; this inductive step is mathematical, not a finite experiment. It also checks the explicit six-periodic extremizer.
+PASS
 
-The emitted output must finish in `VERIFY_OK`. The separately embedded `verify_output.txt` records one execution and is not itself a proof certificate.
+Count the unchanged word once, then assign each nonidentity outcome to its earliest producing window. Outcomes from disjoint windows cannot coincide because their nonempty change sets lie in disjoint positions. A new window therefore needs comparison only with four previous windows, so the last eight input bits are a sufficient state. The exact initial vector at length eight and the suffix transition recurrence follow directly. The independent replay /workspace/replays/5.py used integer XOR change masks, direct whole-word unions for initialization, and the two predecessor states of each target suffix. It checked all 512 weights, all 256 components of V_(n+6)−V_n=19 at each n=12,…,17, and the maximum profile for lengths 5–23 (including whole-word exhaustive enumeration at 5–12). One statewise equality at n=12 already propagates to all n≥12 because the update commutes with a common shift; the finite base maxima plus that algebraic step prove the upper bound for all lengths. For the explicit periodic word the replay checked starts 0–9, covering all four truncated boundary cases and one full period of nine-bit windows, with gains 4,4,3,3,3,4,3,3,3,3. Thus for m=n−4≥2 the gain sum is 3m+2+floor(m/6), and the ball includes one further unchanged word. At n=5 the single block has at most five rotations, attained because a nonconstant five-bit word has period five. The proof is exact and computer-assisted; the optional periodic-word checks through length 60 are not the induction.
 
-The theorem does not depend on floating-point computations, external network access, or unrecorded auxiliary files. Checks are self-review reproducibility work, not independent scientific validation.
+## originality
+
+PASS
+
+The closest indexed results give exact size laws for different operators or parameters. The cited primary source defines the identical fixed-window cyclic operator in general, but its inspected theorems address coding redundancy or use coarser ball bounds. Neither the all-length binary fixed-five maximum nor the exact six-step and extremizer statements are given or directly implied by those comparisons.
+
+## value
+
+PASS
+
+The result gives the exact worst-case number of distinct received words in a previously defined channel, measuring how much overlap between nearby windows cuts down the naive sum of their outputs. It gives both the six-length correction and explicit words attaining it, data one can use directly to benchmark bounds on the local output sets. That is a motivated exact invariant, not a sampled table or a claim about code cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

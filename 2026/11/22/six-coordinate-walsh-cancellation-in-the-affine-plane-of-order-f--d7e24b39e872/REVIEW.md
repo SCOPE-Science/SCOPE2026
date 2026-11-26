@@ -1,23 +1,21 @@
-# Mathematical review of the affine-plane Fourier result
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and unambiguously normalized: unnormalized XOR convolution on sixteen point-incidence coordinates, using exactly the 480 noncollinear triples of the affine plane over the four-element field. The twenty lines were constructed both by slope-intercept equations and by finite-field displacement and agreed. The elementary one-point and two-point basis incidences are respectively 90 and 12, yielding the exact coefficient identity
-\[
- W(S)=480-180|S|+48\binom{|S|}{2}-8\binom{|S|}{3}+8\sum_L\binom{|S\cap L|}{3}.
-\]
-This proves the first possible cancellation degree is six. Five collinear triples on a six-set without a complete line would require a Steiner triple system on six points, an impossibility by point-degree integrality; the line-plus-transversal classification and 960 count follow. The supplied checker independently evaluates direct Walsh sums and the geometric incidence formula at every sixteen-bit frequency. It verifies the entire histogram, zero support weights, rank, sharp positive-spectrum gap and exact endpoint projector norm. Translation averaging justifies optimality over every bounded projection, not only invariant ones. No infinite-family extrapolation is used.
+## correctness
 
-## Originality — PASS, bounded comparison
-The 2016 affine-geometry reference supplies the matroid and incidence framework, not an exact positional signed-spectrum classification. The 2016 matroid-visualization thesis explicitly shows the sixteen-point geometry but focuses on drawings, not Fourier multipliers. A nine-point affine-plane spectrum concerns lines of size three and a different Boolean group; its values and projection norm do not determine those of the sixteen-point order-four plane. Related published dyadic results for Steiner triple-system matroids and for binary projective geometry assume line size three or a binary projective matroid, respectively, and do not imply the present four-point-line affine spectrum. No matching table or equivalent six-point characterization was recovered by the actual mathematical record and literature searches. The external database's indexed summaries did not always permit full-text inspection of the related publications; this is a residual priority risk and not a claim of global uniqueness.
+PASS
 
-## Value — PASS
-The affine plane of order four is the smallest affine plane beyond the ternary example, and the first nontrivial even-characteristic order with four-point collinear circuits. The first zero support is not an arbitrary chosen subset: its geometry is exactly a complete line plus a transverse exterior pair. The full Fourier rank quantifies which signed basis-incidence data are recoverable, and the unrestricted endpoint projection norm quantifies the smallest possible recovery amplification. The exact, self-contained finite theorem is a natural benchmark for incidence-code Fourier analysis; no downstream infinite generalization is asserted or needed for that claim.
+There are 20 lines, 480 bases, 90 bases through a point and 12 through a pair. Expanding (1-2) to the intersection size yields W(S)=480-180k+48 binom(k,2)-8 binom(k,3)+8t, where t counts the collinear triples in S. For k<5 the part independent of t is positive, and at k=5 it is not divisible by 8. At k=6 cancellation needs t=5; without a full line, five collinear triples would partition the pairs of six points into triangles, impossible at odd vertex degree. With a full line the only extra collinear triple uses the two exterior points and the intersection of their joining line with the full line. This gives 20 times (66-18)=960. The independent field/coset replay matched the entire absolute Walsh table and complement-sign relation, the zero counts (960,4230,960) at weights (6,8,10), the rank 59386, and the projection-support transform numerator 2232436. Largest and least nonzero magnitudes are 480 and 4, so the nonzero-spectrum condition number is 120. Translation-averaging any projection preserves identity on the prescribed range, keeps the image in that range, and cannot increase its endpoint norm. The unique commuting projection is the support multiplier, with both endpoint norms equal to the absolute kernel sum (real or complex), giving exactly 558109/16384. Replay: /workspace/branches/93fb65a0-4dc7-420f-b86c-2cec86339a46/replay_record2.py and replay_record2.log, with the supplied verify.py and reproducibility notes inspected but not executed.
 
-## Closest literature and limits
-- Jens Zumbrägel, *Designs and codes in affine geometry*, arXiv:1605.03789 (first public 2016-05-12): defines affine geometry/design matroids, not these Walsh coefficients.
-- R. L. Schepens, *Matroid visualization* (2016), figure 35: depicts the order-four affine matroid; no spectral result observed in the material reviewed.
-- Related published dyadic studies of Steiner triple-system bases and binary projective bases: distinct matroid classes; their indexed summaries do not substitute for reading inaccessible full text.
+## originality
 
-The complete spectral table and endpoint numerator rely on exhaustive exact arithmetic for 65,536 cases. The proof of the minimal cancellation geometry and unrestricted projection optimality is independent of that exhaustive enumeration. A possibly unindexed prior equivalent remains a historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of knowledge, the supported contribution is the exact first-cancellation geometry, full multiplier data, and the resulting exact endpoint projection constant for the GF(4) affine plane's basis-incidence convolution. The coefficient expansion and the norm-minimizing averaging technique are methods, not original claims. Closely related affine-plane computations at other parameters are credited separately from this case.
+
+## value
+
+PASS
+
+AG(2,4) is a standard small affine plane with four-point lines; its natural basis-incidence operator tests cancellation outside the three-point-line Steiner setting. The nullity measures the precise obstruction to recovery, the minimal supports show that the first lost frequencies have a rigid geometric cause, and the sharp endpoint constants measure the unavoidable cost of projecting onto the recoverable modes even without imposing translation invariance. The full small-instance invariant is useful beyond an unsupported spectrum computation or a routine averaging lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

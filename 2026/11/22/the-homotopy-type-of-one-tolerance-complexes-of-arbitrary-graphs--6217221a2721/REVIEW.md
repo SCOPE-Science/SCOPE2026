@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a finite simple graph regarded as a one-dimensional complex, the one-tolerance complex has all two-vertex faces and precisely those three-vertex faces containing a graph edge; no four-faces. An inclusion-exclusion count yields the exact number of triangles, including triples with three graph edges. The explicit forest-parent discrete Morse matching has no repeated faces and no closed gradient path (the largest vertex strictly decreases along dimension-one gradient paths). Its critical cells consist of one vertex, exactly \(\binom{c-1}{2}\) edges, and the nonnegative derived number of triangles. The simplicial root-component retraction induces an isomorphism on fundamental groups; the critical one-skeleton maps by a free basis, so every remaining two-cell attaching loop is trivial. This establishes an integral wedge of circles and spheres, not merely field homology. Independent exact boundary computations agree for all labeled graphs through six vertices, and complete gradient acyclicity was also checked for all graphs through five vertices and larger natural test families. These finite tests supplement rather than establish the general proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest primary sources are Kim–Lew (2023), which develops tolerance complexes, Leray bounds and individual examples, and Selvaraja (arXiv:2611.14384v1, first public November 2026), which establishes Leray and collapsibility properties, chiefly in chordal/flag situations. Inspection of their available full papers did not identify the full integral homotopy classification for arbitrary one-dimensional graph complexes, a component-count formula for fundamental groups, or the explicit triangle-counted sphere ranks. Searches for alternative terminology, graph-parameter special cases, and existing public records found related graph-complex topology, but no statement implying this theorem. This is best-knowledge originality, not proof that an independent or unindexed equivalent treatment cannot exist. The previously known disjoint-two-edge sphere is acknowledged, not claimed as new.
+PASS
 
-## Mathematical value — PASS
-This is a uniform complete homotopy classification of the natural one-tolerance construction on *every* finite one-dimensional graph complex. It determines torsion-free integral homology, the free fundamental group, and exact second Betti rank from graph data. The striking path–star contrast shows tolerance topology detects combinatorial structure even for trees whose underlying ordinary one-dimensional homotopy types are both contractible. The proof gives a reusable combinatorial Morse construction and identifies exactly which nontrivial homotopy dimensions can occur. This is not an arbitrary small enumeration or a consequence merely of the known Leray bound.
+For the unfilled graph input every edge of the complete one-skeleton occurs, and a triple is present exactly when it spans at least one original edge. Inclusion-exclusion gives s; there are no larger faces. The forest Morse matching is injective and gradient paths decrease the maximal vertex (the vertex-level paths go toward a root and then r0). The attaching-map conclusion can also be checked without identifying attaching maps under the Morse equivalence: retain the complete one-skeleton and just the forest-matched triangles. In descending nonroot order, each edge uv with v currently maximal and u != p(v) is free in its own uvp(v); after those collapses the leaf v and its parent edge collapse. This leaves the complete root graph. The component-root map on the full complex is a retraction because every triangle projects to at most two roots. Consequently all discarded triangles have attaching loops trivial in the retained subcomplex, whose collapse to the roots induces the same fundamental-group isomorphism as the retraction. Reattaching them wedges on two-spheres; their number is s-[binom(n,2)-(n-c)-binom(c,2)], and the root graph gives binom(c-1,2) circles, including edgeless graphs and n=2. The independent bounded replay `python3 /workspace/checks/tolerance.py` checks the triangle formula and these actual elementary collapses for all 33,866 labelled graphs on 2–6 vertices; it is not the all-orders or attaching-map proof.
 
-## Closest literature and limitations
-M. Kim and A. Lew, *Leray Numbers of Tolerance Complexes*, *Combinatorica* 43 (2023), 985–1006, https://doi.org/10.1007/s00493-023-00044-5. S. Selvaraja, *Tolerance complexes of chordal graphs and squarefree symbolic powers*, arXiv:2611.14384v1, https://arxiv.org/abs/2611.14384. R. Forman, *Morse theory for cell complexes*, *Adv. Math.* 134 (1998), 90–145. The result does not cover \(t\ge2\), filled flag clique input, naturality of maps, or equivariant integral representations. Independent mathematical validation and global publication-priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full integral homotopy classification at t=1 for arbitrary unfilled graph inputs. Neither the retrieved special-family statements nor the available evidence of general Leray and collapsibility results gives this classification. The disjoint-two-edge sphere and the disjoint-clique overlap in the shared domain are not new here. This is a bounded best-of-knowledge finding, not a claim of historical priority.
+
+## value
+
+PASS
+
+At the first nontrivial tolerance parameter this determines the entire integral homotopy type of a natural two-complex on any graph, not just vanishing or field Betti numbers. The component-rank formula and the quadratic path–star contrast give useful structural information even for classically homotopy-equivalent graph inputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

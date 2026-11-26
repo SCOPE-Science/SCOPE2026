@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:51.618900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent replay: /workspace/audit_checks.py, python3 audit_checks.py 2"
+      ],
+      "rationale": "The stated rare-intensity theorem holds. With z=bt, Delta=lambda b^2/a and Q=2 Delta (E exp(zJ/b)-1-z E[J/b])/z^2, algebra gives c/b=sup (1-1/M)/z, where M=(1+Q)/(1+Delta E[(J/b)^2]); for z outside the candidate moment domain the objective is already bounded by 1/z. Laplace integration of the endpoint distribution gives E exp(zJ/b)~K exp(z)z^(-beta), with log derivative tending to 1 by tilted concentration. The trial z=L+(beta+3)log L gives objective (1-o(1))/L. For each fixed epsilon, the bounds Delta exp(z)/3 and 1/z exclude respectively z<=(1-epsilon)L and z>=(1+epsilon)L. This also supplies the missing justification of interior attainment for all sufficiently small intensities: the continuous extension at zero is only O(Delta), and the objective tends to zero at infinity. Thus every maximizing z is asymptotic to L and Q diverges there. Stationarity then gives Q/z->1, recovering the tilt expansion upon taking logs; the inverse objective is z+z/(M-1)=z+1+o(1). A fresh non-integer test with a mixture of an atom at zero and Beta(1,1/2), whose endpoint amplitude is 2/3, produced tilt errors 0.72807, 0.12234, 0.01705 and inverse-scale errors 0.77709, 0.12799, 0.01763 at L=60,600,6000, respectively. Numerical stationarity is corroboration only.",
+      "residual_risks": [
+        "Step 3's initial inference of a positive interior maximum from continuity, positivity and decay alone does not hold at arbitrary intensity. For instance, with uniform scaled jumps and Delta>=12, coefficient comparison gives the sharp scale Delta/[12(1+Delta/3)] attained only in the z->0 limit of the objective. The trial-point argument proves interior attainment in the stated rare-intensity regime, so no change to the theorem is required.",
+        "The endpoint has no atom, but atoms elsewhere are allowed; no rate or uniformity in the jump law is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen's Theorem 3.1 is a broader variance-exact variational formula; Section 7.2 is a bounded two-point jump example. The same-day Gaussian-noise transition record covers the atomic special case to constant order and gives a leading logarithmic scale for general bounded positive jumps."
+        ],
+        "reasoning": "The general identity and leading law alone do not imply the secondary log coefficient or amplitude-dependent constant. The decisive coverage instead comes from the exact theorem in the distinct endpoint-tail record.",
+        "searches": [
+          "Resultary: general optimal-scale variational formula, Gaussian noise transition, bounded and Beta jumps",
+          "arXiv:2610.00032v1, Theorem 3.1 and Section 7.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed comparisons: 64ea017c3b4b, 14cc4c8da31b, fafa66d95c35",
+        "arXiv:2610.00032v1",
+        "arXiv:2609.02590v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Skellam result is rare positive direction at fixed total intensity and with atomic endpoints; the direct Gaussian-noise comparator is fixed-size jumps; the Beta M-class theorem has no Gaussian component."
+        ],
+        "reasoning": "These sources explain the atomic coefficient 3 or alternative optimization regimes without furnishing the beta>0 expansion. The matched endpoint-tail theorem, by contrast, implies the complete frozen claim in one normalization substitution.",
+        "searches": [
+          "arXiv:2609.02590v1, Theorems 3.1 and 7.1",
+          "SCOPE-a-sharp-gaussian-noise-transition-for-optimal-sub-gamma-scales--14cc4c8da31b",
+          "SCOPE-a-sharp-m-class-phase-boundary-and-quadratic-onset-for-compound--fafa66d95c35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching RESULT.md states the same fixed-Gaussian rare-intensity problem with a power-law survival tail and gives the sharp scale and every-maximizer tilt under a different dimensionless normalization."
+        ],
+        "reasoning": "Writing m2=E J^2, its L'=log(V_lambda/(lambda m2))=L+log(b^2/m2)+o(1) and K'=2K b^2/m2. Then (beta+3)log L'=(beta+3)log L+o(1), so L'-log K'=L-log(2K)+o(1). Both expansions coincide, including the constant term.",
+        "searches": [
+          "Resultary: rare Gaussian compound-Poisson jumps, endpoint tail exponents and optimal sub-gamma scales",
+          "SCOPE-endpoint-tail-exponents-determine-the-sharp-rare-jump-sub-gamma--64ea017c3b4b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed entry contains both exact asymptotic formulas, not a mere leading-order hit or finite beta-family table."
+        ],
+        "reasoning": "Matching assumptions and constants after normalization demonstrate coverage of the general theorem, not just of a tested parameter slice.",
+        "searches": [
+          "Resultary: non-atomic power-law jump endpoints and sharp rare-jump beta+3 logarithmic correction",
+          "SCOPE-endpoint-tail-exponents-determine-the-sharp-rare-jump-sub-gamma--64ea017c3b4b/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct published record has full mathematical overlap, including the every-maximizer asymptotic and the additive +1 for the sharp scale. The two formulas differ only by a variance/moment normalization. There is no supported distinct remainder in this claim. This is a finding of equivalent catalog coverage, not a finding that the 2026-11-08 record was first, independently derived, or the source of the frozen work.",
+      "residual_risks": [
+        "The order of mathematical discovery and relationship of the equivalent entries are not established by catalog dates.",
+        "Other historical instances of the Laplace optimization may exist; they are not needed for this coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete mathematical claim; priority not determined",
+          "evidence": "Fixed positive Gaussian variance, bounded jump with upper endpoint power law, every-maximizer tilt and inverse-scale expansion differing by +1. Normalizations are explicitly related above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-tail-exponents-determine-the-sharp-rare-jump-sub-gamma--64ea017c3b4b",
+          "material_read": "RESULT.md: assumptions, sharp scale and optimizing tilts",
+          "method": "Read indexed full text through the local mirror",
+          "title": "Endpoint tail exponents determine the sharp rare-jump sub-gamma scale",
+          "trigger": "Strongest apparent full-statement match"
+        },
+        {
+          "assessment": "Covers variational principle, not the sharp endpoint expansion",
+          "evidence": "Theorem 3.1 optimizes the cumulant-based objective; Section 7.2 treats two-point jumps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00032",
+          "material_read": "Theorem 3.1 (p. 6), Section 7.2 (p. 14)",
+          "method": "Lawful OA PDF, relevant passages by offset",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "General theorem potentially implying rare-jump expansion"
+        },
+        {
+          "assessment": "An atomic comparator, not the rare-intensity Gaussian theorem",
+          "evidence": "Theorem 7.1 gives the centered Skellam tilt log(1/p)+3 log log(1/p)-log 2+o(1) as the positive-jump fraction tends to zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02590",
+          "material_read": "Theorem 3.1 (pp. 7–8), Theorem 7.1 (pp. 19–20)",
+          "method": "Lawful OA PDF, relevant passages by offset",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws",
+          "trigger": "Rare directional endpoint asymptotics"
+        },
+        {
+          "assessment": "Atomic constant-order comparator; general jumps to leading order only",
+          "evidence": "Deterministic jumps give the 3 log log term with constants -log 2 and 1-log 2; general bounded positive jumps give c_s log(s/V)->b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-gaussian-noise-transition-for-optimal-sub-gamma-scales--14cc4c8da31b",
+          "material_read": "RESULT.md, deterministic and general bounded jump transition statements",
+          "method": "Indexed full text via local mirror",
+          "title": "A sharp Gaussian-noise transition for optimal sub-gamma scales",
+          "trigger": "Same Gaussian-plus-jump scale with potential generality"
+        },
+        {
+          "assessment": "Different regime with no Gaussian variance",
+          "evidence": "The scale there is independent of Poisson intensity and the onset concerns a Beta shape boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-m-class-phase-boundary-and-quadratic-onset-for-compound--fafa66d95c35",
+          "material_read": "RESULT.md, Beta-jump M-class boundary and onset",
+          "method": "Indexed full text via local mirror",
+          "title": "A sharp M-class phase boundary and quadratic onset for compound-Poisson jumps",
+          "trigger": "Beta-jump optimal-scale record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and assumptions",
+        "Chen–Wang, Section 7, atomic comparator",
+        "Gaussian-noise transition record and exact endpoint-tail match"
+      ],
+      "rationale": "The mathematical question is substantive: a leading Bernstein scale does not distinguish endpoint behavior, whereas this sharp true-variance asymptotic recovers both the power exponent and amplitude and locates the optimizing tilt. The value is in that theorem, not in another rendering of the same theorem; the duplicate coverage independently prevents acceptance.",
+      "residual_risks": [
+        "Scope is restricted to fixed positive Gaussian variance and the stated power-law survival tail; applicability to other regimes is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

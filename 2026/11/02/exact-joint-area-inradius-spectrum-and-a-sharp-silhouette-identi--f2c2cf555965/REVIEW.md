@@ -1,15 +1,21 @@
-# Scientific review of the exact joint shadow-area/inradius spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric domain is fixed by the explicit six vertices, Euclidean metric, and all planar orientations. Cauchy's formula reconstructs the area as \(\max\{a+b+c,2c\}\). Polarizing inside the plane gives the inradius as the reciprocal circumradius of the cube section; exhaustive inspection of the three possible free coordinates, with the displayed signed product comparisons, gives the two exact inradius branches. The fixed-radius fibers are parametrized *without omission* by \(z\in[0,1]\) for dominant normals and \(t\in[1-q,1]\) for triangle normals. A monotone extremum and an interior critical point yield all four sharp endpoints, not just bounds. Squared-difference factorizations prove a single gap-closing point, and the degeneracies \(q=0,1\) are addressed separately. Independently reconstructed planar convex hulls passed all 2,500 normalization/area/inradius/vertex checks; numerical tests are diagnostic rather than proofs.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest complete published scientific record on octahedron shadow inradius provides its *one-variable marginal CDF*, and the closest result on octahedron polygon type gives an *unconditional six-vertex probability* and a sharp stretched-axis bound. Both primary results were read; neither specifies the paired area/inradius support or the sharp point where separate silhouette bands touch. Finch's paper gives area moments and silhouette frequencies; Black and Criado's manuscript supplies combinatorial shadow complexity estimates. A previous cube-shadow-diameter/octhedron-silhouette result compares a different cube invariant, which does not determine this inradius–area fiber. General Cauchy and polar formulas alone do not supply the fixed-radius optimization, the two-band geometry, or the contact value. Published mathematical statements were compared by implications, not by title alone. Residual risk: a classically indexed convex-tomography inequality might imply this exact special-case joint image set without sharing its wording.
+PASS
 
-## Mathematical value — PASS
-An exact joint feasible region of two canonical planar-shadow invariants supplies geometric information unavailable from their separate distributions or moments. The sharp threshold \(\sqrt{\sqrt2-1}\) is a genuine topology change of the fixed-inradius area fiber, from two disjoint bands to one connected interval. In the separated phase two simple scalar measurements determine the combinatorial type of the shadow; in the overlapping phase this inference provably fails. Every boundary is attained, so the classification provides complete metric and combinatorial information for a natural Platonic solid rather than an arbitrary sampled slice.
+The frozen deterministic area intervals and threshold are correct, but the claimed positive Haar measure at each fixed interior q is false and the boundary counts are underspecified. The complete repaired RESULT and diagnostic classify this boundary and distinguish positive arc length, zero Haar area on the exact fiber, and positive Haar area in open q-neighborhoods of either strict chamber. Re-audit: Cauchy's facet sum gives max(a+b+c,2c) for sorted nonnegative unit-normal coordinates. Central symmetry permits centering the inball, and polarity makes r^{-1} the greatest norm on the central cube section. Intersecting the section with the cube edges yields q=(a+b)/c in the dominant chamber and q=(c−a)/b in the triangle chamber (the two displayed cross-products establish the latter ratio is greatest). The continuous parameter intervals are exhaustive. The quadrilateral area decreases with its imbalance, giving Q_− and Q_+; the triangle area has derivative sign q²−q−2t+2, maximum at 1+(q²−q)/2 and smaller endpoint at t=1−q. The cross-band squared difference Q_−²−H_+² has numerator 2(1−2q²−q⁴); the other squared comparisons order the exterior endpoints. Equality is at q=r=√(√2−1), area 2^(3/4). The two orientations at q=0 give the asserted two areas (up to symmetry). The projected relation a p_1+b p_2+c p_3=0 proves which points are extreme; at q=1 one signed pair lies on the diamond boundary and the remaining four points are extreme, including the coincident-pair endpoint. Smooth one-dimensional q-fibers establish the corrected Haar statement. The changed diagnostic explicitly uses the dominant formula at equality and tests the symmetric boundary normal; the proof is independent of this diagnostic.
 
-## Scope and residual limitations
-This is not a joint density formula or a theorem for arbitrary distorted octahedra. Nongeneric transition normals are described as limits and do not support claims about generic vertex counts there. Finite numerical checks are not substituted for the continuum proof, and historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior two-branch pointwise radius formula and classical brightness formula are explicit inputs, not claimed as new. The closest earlier computed area law conditions on the size of the largest absolute normal coordinate; the same-day cube-shadow joint law changes both observables. Neither computes the fixed-inradius extrema or the exact boundary-overlap polynomial. Finch gives, in addition to marginals, a mixed area–perimeter moment, not the claimed area–inradius feasible set. The repaired literature paragraph accurately credits this. The surviving content is the evaluated pair of area ranges and exact classification transition, not the availability of a coordinate representation from which one can optimize them.
+
+## value
+
+PASS
+
+The exact joint constraints answer a natural inverse question about identifying a silhouette with two Euclidean measurements. A genuine forbidden interval and its sharp contact give a simple limit to identification; beyond the contact, both polygon types realize the same measurements. This requires the full attainable set, not a conjectured bound, separate moments or a few arbitrary fibers. The repaired Haar clarification does not add an unproved probabilistic contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:38.539793Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–62",
+        "VERIFICATION.md, lines 18–47",
+        "artifacts/verify_target.py, lines 51–84",
+        "Otsubo arXiv:2610.03100v1, Theorem 1.1 and Eq. (4.8)",
+        "SageMath Reference Manual, cm_j_invariants_and_orders"
+      ],
+      "rationale": "Away from mu^3=1 the denominator is nonzero. Literal equality mu'=mu gives the degree-five polynomial 9mu^3(mu^2+mu+1)-(mu+2)^3, whose product expansion is (mu-1)(3mu^2+2mu+4)(3mu^2+4mu+2). The excluded root is 1 and the two quadratics give the claimed four distinct roots, of moduli sqrt(4/3) and sqrt(2/3). To check the j labels independently, set w=3mu and W=w^3. Reduce W(W+216)^3 and (W-27)^3 in the basis (1,w). Modulo w^2+2w+12 the vectors are (177045504,-164888576) and (-5403,5032), ratio -32768. Modulo w^2+4w+6 they are (234984000,110960000) and (29373,13870), ratio 8000. Each denominator is nonzero at the roots. Sage's documented (field discriminant, conductor, j) entries have conductor one and discriminants -11 and -8. Otsubo Theorem 1.1 applies since both parameters are allowed and equal, giving the endomorphism and the indicated intersection of the kernel line with H(mu). The frozen exact checker was inspected but not executed; the independent reduction used integer arithmetic and the cited isogeny and CM statements were checked separately.",
+      "residual_risks": [
+        "The result treats literal Hesse-parameter equality over C, not all pairs of isomorphic curves, all branches of an AGM iteration, or reduction to finite fields. Several duplicated TeX displays in RESULT.md contain malformed escape characters; the intended formulas are unambiguous from the clean Finding and the checker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Otsubo states the cubed parameter relation and isogeny with its kernel for all allowed source/target pairs, not just the diagonal. Otsubo's discussion identifies Hashimoto–Nuida's finite-field map as the same isogeny.",
+          "Arpin et al. factor Phi_3(j,j) as -j(j-54000)(j-8000)^2(j+32768)^2 at the unmarked j level."
+        ],
+        "reasoning": "The modular polynomial gives a broader unmarked classification but does not identify marked lifts. The decisive broader formula for this exact marked pair is the explicit correspondence and j expression in Otsubo, whose scope includes all four roots over C.",
+        "searches": [
+          "arXiv:2610.03100v1, Theorem 1.1 and Eq. (4.8)",
+          "arXiv:2609.14300v1, Theorem 4.2 and Theorem 5.6",
+          "Arpin et al., Adventures in Supersingularland, section 3.3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03100v1",
+        "arXiv:2609.14300v1",
+        "doi:10.1080/10586458.2021.1926009",
+        "SageMath cm_j_invariants_and_orders",
+        "Resultary 6858c1a81a3d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set mu'=mu directly in the theorem's scalar polynomial relation, discard the singular root of unity, solve the two quadratic factors, and substitute using Eq. (4.8). The theorem itself already gives the kernel for every such pair."
+        ],
+        "reasoning": "This is a direct, fully determinate restriction and evaluation of the prior formulas; it does not require a new isogeny, a criterion replacing the diagonal equation, or a new CM identification.",
+        "searches": [
+          "Otsubo v1, PDF p. 2 Theorem 1.1 (OA offset 7040) and p. 15 Eq. (4.8) (offset 51300)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A loop in the algebraic relation is obtained by intersecting Otsubo's relation with the diagonal, not by testing equality of j-invariants. Hashimoto–Nuida include loops as length-one cycles in the finite-field ratio graph discussion, p. 9; their ratio update yields the same cubed relation by Theorem 4.2.",
+          "The nearby Resultary 6858c1a81a3d concerns primitive period-three cycles of h(x)=(4-x)^3/(27x^2), not this parameter diagonal."
+        ],
+        "reasoning": "The relevant equivalence is between literal equality of the two parameter coordinates and a fixed point of their correspondence; a j-level loop is strictly weaker. The related finite-field graph is not a complex fixed-locus theorem.",
+        "searches": [
+          "Resultary: Hesse cubic-AGM parameter fixed points, 3-isogeny lifts and exact cycles",
+          "Otsubo arXiv:2610.03100v1, Theorem 1.1; Hashimoto–Nuida arXiv:2609.14300v1, 'length 1'"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sage lists (-8,1,8000) and (-11,1,-32768); the two j values and their double-loop multiplicities are in the modular-polynomial calculation.",
+          "No literal four-parameter table was located in the checked sources or returned catalogue records."
+        ],
+        "reasoning": "The exact CM labels and j-level double-loop entries are known. The absence of a located literal Hesse parameter table does not prevent their mechanical evaluation on the given locus.",
+        "searches": [
+          "SageMath Reference Manual, cm_j_invariants_and_orders",
+          "Arpin et al., section 3.3.1, diagonal modular polynomial",
+          "Resultary: cubic AGM parameter diagonal and exact Hessian cycles"
+        ]
+      },
+      "rationale": "The complex parameter list was not found printed in the checked prior work. Nevertheless Otsubo's stronger result already specifies the full correspondence, maps and kernels, and his j formula specifies the class of every parameter. Restricting those exact formulas to the diagonal requires only elementary univariate factorization and residue substitution, followed by a known CM table. This is coverage by direct implication, not an assertion that the modular-polynomial paper gives the Hesse-parameter lifts.",
+      "residual_risks": [
+        "This is not a claim of an earlier verbatim complex fixed-point table. Other level-structured treatments may also give exact parameter lifts; the verdict already follows from the explicit prior correspondence and j formula. The full-text inspection supersedes the frozen description of Hashimoto–Nuida as abstract-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger explicit formulas imply the frozen diagonal calculation",
+          "evidence": [
+            "For allowed mu,mu' the stated polynomial relation gives a degree-three map with kernel X+Y+Z=0; Eq. (4.8) gives the displayed Hesse rational j expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03100v1",
+          "material_read": "Theorem 1.1 (= Theorem 4.10), p. 2 and Eq. (4.8), p. 15",
+          "method": "Bounded OA PDF passages, checked hypotheses and specialization",
+          "title": "Cubic arithmetic-geometric mean and isogenies of Hesse elliptic curves",
+          "trigger": "Exact parameter correspondence, kernel and j expression"
+        },
+        {
+          "assessment": "Same normalized relation in the finite-field setting, not direct evidence of the complex classification",
+          "evidence": [
+            "Theorem 4.2 has eta^3=9(rho^2+rho+1), 3rho'=3(rho+2)/eta over finite fields q=2 mod 3; Theorem 5.6 treats quotient by ratios and cycles including length one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.14300v1",
+          "material_read": "Theorem 4.2, p. 6 around offset 18200; ratio cycle discussion and Theorem 5.6, p. 9, offsets 27380–30479",
+          "method": "Read targeted full-text passages, not just abstract",
+          "title": "Cubic AGM graphs and Hessian 3-isogenies over finite fields",
+          "trigger": "Possibly equivalent ratio-update self-loops"
+        },
+        {
+          "assessment": "Direct j-level precedent only",
+          "evidence": [
+            "The factors j-8000 and j+32768 are squared; j and j-54000 are simple."
+          ],
+          "identifier_or_url": "doi:10.1080/10586458.2021.1926009",
+          "material_read": "Section 3.3.1, p. 14, around OA offsets 60250–63238",
+          "method": "Read the modular-polynomial factorization and compared parameters",
+          "title": "Adventures in Supersingularland",
+          "trigger": "Known self-3-isogeny j-values"
+        },
+        {
+          "assessment": "Known exact table entries",
+          "evidence": [
+            "Output is (D,f,j); (-8,1,8000), (-11,1,-32768)."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/arithmetic_curves/sage/schemes/elliptic_curves/cm.html",
+          "material_read": "cm_j_invariants_and_orders definition and documented examples",
+          "method": "Compared the exact triples",
+          "title": "SageMath Reference Manual: CM j-invariants and orders",
+          "trigger": "Verify fundamental discriminants"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": [
+            "Period three of a univariate j-line map, with 24 points; not the literal period-one pair in the stated Hesse relation."
+          ],
+          "identifier_or_url": "Resultary 6858c1a81a3d",
+          "material_read": "Local mirror, Finding at offset 0",
+          "method": "Compared the defining maps and cycle lengths",
+          "title": "Arithmetic descent of the eight primitive Hessian three-cycles",
+          "trigger": "Closest catalogue comparison on Hessian cycles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 27–76",
+        "Otsubo Theorem 1.1 and Eq. (4.8)",
+        "Arpin et al., section 3.3.1"
+      ],
+      "rationale": "The distinction between a literal parameter loop and a loop up to isomorphism is legitimate. Here the four-point list is a routine diagonal substitution and quadratic solve in a published explicit relation, and the interpretation consists of evaluated known j and CM formulas. No additional structural selection criterion or independently nonmechanical exact computation is demonstrated. The valid list may be pedagogically useful but the surviving difference is not a standalone scientific contribution under this standard.",
+      "residual_risks": [
+        "No judgment about value of a future classification of longer cycles or marked fixed loci in more general families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

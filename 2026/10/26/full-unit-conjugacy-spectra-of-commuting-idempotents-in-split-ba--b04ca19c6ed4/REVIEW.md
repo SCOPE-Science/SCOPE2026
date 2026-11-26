@@ -1,11 +1,21 @@
-# Scientific review
-## Correctness
-PASS. Spectral projections are a polynomial bijection between commuting-idempotent tuples and complete orthogonal families. The explicit intertwiner \(u=\sum f_\alpha d_\alpha\) lies in \(1+J\) and proves full conjugacy within each quotient-color fiber; the Peirce decomposition computes its exact stabilizer, yielding every orbit size. The edge-subset expansion and two-cycle parity argument are direct identities for all allowed parameters. The embedded checker independently exhausts relevant small algebras and unit centralizers; its finite tests are ancillary.
+# Independent mathematical audit
 
-## Originality
-PASS (best knowledge, with explicit residual risks). Published incidence-algebra simultaneous diagonalization (Santulo–Souza–Yasumura, Lemma 8), triangular idempotent counts (Gargate–Gargate), nilpotent-radical lifting work (Mazurek–Nielsen–Ziembowski), and the Potts expansion (Sokal) are cited as antecedents. The closest own incidence-algebra Tutte scheme result already covers the incidence specialization; the final claim does not claim that specialization as novel. The new scope is arbitrary split basic algebras and their **full-unit conjugacy orbit-size multiset**, with a uniform infinite nonreconstruction family of different Loewy lengths. A broader theorem based on classical lifting might imply the count; full text of one 2015 source was unavailable, so absolute priority is not established.
+## correctness
 
-## Value
-PASS. The theorem identifies a natural but unexpectedly coarse invariant of representations of Boolean idempotent families: the entire all-arity full-unit conjugacy class-size data ignore all radical products and the dimensions of diagonal radical corners. It gives the computable invariant for all finite split basic algebras and produces arbitrarily large Loewy-length ambiguity within a natural two-vertex path-algebra family. This is stronger structural information than a fixed-size numerical census or the earlier incidence-only coloring count.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Simultaneous Boolean spectral projections give an inverse pair of constructions between ordered commuting idempotents and labeled complete orthogonal families, including zero projectors and characteristic two. For the standard family d_alpha formed from the e_i, any family f_alpha with the same quotient has u=sum f_alpha d_alpha in 1+J and u d_alpha=f_alpha u. Distinct quotient colorings cannot be related by any unit, as A/J is commutative. Independently, write J=J_diag plus J_cross by same-color and cross-color Peirce blocks. The stabilizer in 1+J is exactly 1+J_diag, since commuting with all d_alpha is the same as being block diagonal. Each right coset has a unique representative 1+x with x in J_cross: right multiply any unit of 1+J by the inverse of its block diagonal part; off-block stays off-block and the resulting diagonal is 1, proving both existence and uniqueness. Thus the exact orbit index is q^(dim J_cross)=q^d(c) and also counts the full-unit orbit. The Q^n colorings cover the entire tuple locus without coordinate permutations. Expanding X+(1-X)delta on each individual edge counts Q^k(F) colorings per chosen edge subset, including parallel edges and isolated vertices. In the two-cycle quotients, each direction has exactly s odd paths strictly below either cutoff, so d(c) is 0 or 2s as claimed. The radical consists of positive-length paths; the longest surviving path certifies each distinct nilpotency index. Equal cardinality multisets do not imply equal stabilizers or unit groups. The supplied small-case enumeration was inspected, not executed, and is not needed for the all-parameter proof.
+
+## originality
+
+PASS
+
+Credit is for the explicit all-arity full-unit size invariant on arbitrary split basic algebras and the natural two-cycle, arbitrary-Loewy-length obstruction as a package, not for conjugacy lifting, the graph identity or the incidence specialization. A distinct later-dated catalogue result demonstrably covers the core orbit classification and cardinalities, and implies the nonreconstruction after the odd-path computation; this is genuine mathematical overlap, not a novelty distinction based on the group name. No demonstrated earlier source of the combined arbitrary-algebra invariant and this nonreconstruction is established by the evidence checked.
+
+## value
+
+PASS
+
+The multiset for all arities is a natural refinement of a count of Boolean idempotent decompositions. The Peirce law explains which data survive and which disappear, even beyond radical-square-zero algebras. The connected two-vertex examples have nontrivial off-diagonal cut weights and prove that this complete size-only invariant cannot detect different and arbitrarily large Loewy lengths; this structural limitation is stronger than a single numerical coincidence or the prior incidence enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

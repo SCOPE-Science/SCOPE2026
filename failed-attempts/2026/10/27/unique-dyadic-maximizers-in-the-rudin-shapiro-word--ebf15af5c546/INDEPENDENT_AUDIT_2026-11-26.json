@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:52:30.057276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At length L=2^k every start has an aligned block pair and offset; the eight legal pairs follow from internal and boundary pairs of the substitution and all occur in σ^4(a). Splitting at half the block gives the two stated branches for F: add the first block's second-half sum for the first branch, and the next block's first-half sum for the second. Taking maxima checks T and the G matrices from k=2,3 and their parity updates. Restricting to legal pairs excludes da for even k and cb for odd k, leaving ba and ca respectively. For even k with parameter t=2^(k/2), the ca/cb child branches compare 4t-2 versus 2t, strictly inheriting J_k(da). For odd k with parameter t=2^((k+1)/2), the ba/da branches compare t versus 3t-2, strictly inheriting J_k(cb) with a shift of 2^k. At k=2 the ba and da words have the sole maximizing offset 3; the resulting recursion gives j_k and stays strictly below L. This proves uniqueness of the distinct word, not of its occurrence. A separate finite check used signs (-1)^popcount(i&(i>>1)) and running sums and compared the actual maximizing words and offsets in the prefix of length 2^(k+4), for 2≤k≤12; this prefix contains all legal pairs at scale k. It agreed, for example (k,M_k,j_k)=(2,4,3),(3,6,3),(12,190,2731). The bundled verification.py was inspected but not executed; neither finite check is used in place of induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published recurrence M(4n)=2M(n)+2 with M(1)=1,M(2)=2 covers the dyadic values exactly, and its Lemma 6 constructs maximizing factors.",
+          "The automata paper computes synchronized prefix-sum functions; a window sum is a difference, but those inspected theorem statements do not specify extremal factor identity.",
+          "The first-attainment record bounds all starts, treating both signs, and gives the exact equality conditions by block sign and offset class."
+        ],
+        "reasoning": "The all-length abelian maxima subsume M_k, not by themselves a unique realizing word. The later first-location statement treats both signs; it is the proof's all-window equality analysis that supplies coverage here.",
+        "searches": [
+          "Lü–Chen–Wen–Wu Theorem 1 and Lemma 6",
+          "Rampersad–Shallit arXiv:2302.00405v3 §3 and Thm. 1",
+          "Resultary 5cea8f57dd29 Proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary 5cea8f57dd29 RESULT.md",
+        "Lü–Chen–Wen–Wu arXiv:1606.06935",
+        "Rampersad–Shallit arXiv:2302.00405v3",
+        "Allouche–Mendès France 1985 and Lü–Han 2022 OA access routes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its §3 restricts every positive maximizer to +Q_k,+P_k with the prefix difference d_k maximal when k is even, and to -Q_k,+P_k with the prefix sum c_k maximal when k is odd.",
+          "For even k, d_k is zero in the first half and equals 2b_(k-1) in the second. For odd k≥3, c_k is 2a_(k-1) in the first half and the smaller constant 2p_(k-1) in the second. Its §2 gives the extrema of these prefixes and the two-half recursions."
+        ],
+        "reasoning": "Those recursions force unique relevant prefix maxima by strict comparisons. P_(2h) reaches its maximum strictly in the second half and inherits the maximizer of Q_(2h-1); Q_(2h-1) for h≥2 reaches its maximum strictly in the first half, as U_(2h-2)>p_(2h-2), and inherits the maximizer of P_(2h-2). The initial Q_1=(+,-) has one maximizing prefix, and P_2 follows. Thus the least offsets in the other record are the only possible offsets for all maximizing windows. Together with the prescribed signed block pairs this mechanically implies the frozen distinct-word theorem. The first-location theorem in isolation would not imply this.",
+        "searches": [
+          "Resultary 5cea8f57dd29 RESULT.md §§2–4, offsets 2900–7673"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the first-attainment record's adjacent-11 convention the canonical blocks P_k,Q_k,-Q_k,-P_k are precisely the coded a,b,c,d blocks, since their concatenations agree at level zero and at every doubling.",
+          "Its positive block pairs are (+Q_k,+P_k) and (-Q_k,+P_k), and its first within-block offsets (2L+1)/3 and (L+1)/3 match j_k."
+        ],
+        "reasoning": "This is an exact encoding and indexing match. Equality of the first offsets identifies the same extremal word at the first occurrence, but uniqueness at later occurrences requires the separate implication check below.",
+        "searches": [
+          "Resultary first-attainment-location/dyadic Rudin–Shapiro queries; 5cea8f57dd29 Proof §§1–4",
+          "Lü–Chen–Wen–Wu arXiv:1606.06935 §§2.2–2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed closed formulas for H_k and first starts give exactly the dyadic maximum values and within-block offsets, and the published all-length recurrence gives the same infinite dyadic value sequence.",
+          "The finite verification is recurrence corroboration, not an independent earlier table of unique words."
+        ],
+        "reasoning": "The matched formulas are stronger evidence than a finite table match. Neither an exact maximum-value sequence nor finite enumeration by itself determines that all dyadic maximizers give one distinct word.",
+        "searches": [
+          "Resultary 5cea8f57dd29 Finding and offsets in §4",
+          "arXiv:1606.06935 exact recurrence and initial maxima",
+          "Frozen verification.py"
+        ]
+      },
+      "rationale": "The extremal sums are already a specialization of the published Abelian-complexity recurrence. A distinct indexed first-attainment record has the same offset and blocks, and its proof mechanically implies uniqueness, not merely the existence of an earliest witness. This is demonstrable current mathematical coverage; the catalogue paths are not used to adjudicate historical priority or copying.",
+      "residual_risks": [
+        "Exact coverage in the 1985 and 2022 papers was not resolved. This does not affect the explicit mathematical implication from the indexed first-attainment proof.",
+        "The dates in the record paths are not used to infer historical priority or an order of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Statement gives first occurrences, but uniqueness follows from its global equality conditions and strict prefix comparisons",
+          "evidence": "Only the indicated signed Q,P pairs can realize H_k; maximizing d_k or c_k reduces to maximizing an odd Q or even P prefix, with the indicated strict half comparisons except the directly checked base.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-first-attainment-locations-for-dyadic-extremal-rudin-shapiro-fac--5cea8f57dd29",
+          "material_read": "RESULT.md Finding, Proof §§1–4, relationship/limitations, local mirror offsets 0–7673 and 7673–end; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic retrieval and direct local-mirror reading of equality conditions and prefix recursions",
+          "title": "First-attainment locations for dyadic extremal Rudin–Shapiro factors",
+          "trigger": "Same extrema, signed blocks and exact dyadic offsets; proof might determine all maximizers"
+        },
+        {
+          "assessment": "Exact M_k already covered; inspected statements do not themselves give uniqueness or the offset",
+          "evidence": "Theorem 1 gives M(4n)=2M(n)+2 with starting values M(1)=1, M(2)=2.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.06935",
+          "material_read": "§§2.2–2.3 pp. 3–5 (PDF-text offsets about 8500–12952); Lemma 6 pp. 9–10 (about 18700–23698)",
+          "method": "OA primary PDF passages",
+          "title": "On the Abelian complexity of the Rudin–Shapiro sequence",
+          "trigger": "Exact maximal signed sums and realizing factors"
+        },
+        {
+          "assessment": "Computes prefix-sum functions; not a direct location or unique-word claim in the passages examined",
+          "evidence": "The synchronized automata compute s(n),t(n); substrings require taking differences and analyzing equality.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00405v3",
+          "material_read": "pp. 1–5, §3 and Theorem 1 (PDF-text offsets 0–15889)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Rudin-Shapiro sums via automata theory and logic",
+          "trigger": "Synchronized automata as a possible means of recovering all maximizing positions"
+        },
+        {
+          "assessment": "Scope unresolved; not used to reject",
+          "evidence": "No full-text inference made.",
+          "identifier_or_url": "doi:10.1112/S0025579300010822",
+          "material_read": "Bibliographic identification only",
+          "method": "Primary OA route returned 403; no lawful alternate copy recovered",
+          "title": "On an extremal property of the Rudin–Shapiro sequence",
+          "trigger": "Older potential extremal statement"
+        },
+        {
+          "assessment": "Coverage in this paper unresolved; not used to reject",
+          "evidence": "No full-text inference made.",
+          "identifier_or_url": "doi:10.3390/math10020221",
+          "material_read": "Bibliographic identification; full text not recovered in this review",
+          "method": "Attempted OA retrieval",
+          "title": "A Note on the Abelian Complexity of the Rudin–Shapiro Sequence",
+          "trigger": "Related potential exact extremal or localization result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing the extremal word from its sum and from its occurrence positions is a worthwhile question. In this record, however, current coverage supplies the sums, blocks and offsets and forces uniqueness by the two strict prefix comparisons. The alternate max-matrix proof does not establish an additional invariant or consequence outside that coverage. There is no remaining claim to repair on the stated dyadic range.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

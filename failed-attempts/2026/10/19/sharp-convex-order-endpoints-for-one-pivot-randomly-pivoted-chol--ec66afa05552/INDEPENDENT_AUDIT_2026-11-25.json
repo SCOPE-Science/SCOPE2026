@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:26:42.028670Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions, proof Steps 1–4 and planar example",
+        "VERIFICATION.md; verify.py; verification_output.txt"
+      ],
+      "rationale": "If a_i=A_ii and b_i=(A²)_ii, the sampled gain is b_i/a_i with weight a_i/S. Zero a_i means Ae_i=0, so no quotient is needed there. Summing gives q. In an eigenbasis decomposition with W_ij=|U_ij|², take J with weight λ_j/S and randomize it to I via W. Then I has the pivot marginal and G_i is E[λ_J|I=i]. Ordinary and conditional Jensen give both convex-order bounds simultaneously. The identity basis attains the spectral law. The trace-zero matrix A²−qA has an orthonormal zero-diagonal frame: choose a zero-quadratic-form unit vector in the span of two opposite-sign eigendirections, then repeat on the trace-zero compression. This works over the reals and in the Hermitian case. Thus the lower endpoint is also attained for all convex losses, and the diagonal condition is necessary and sufficient. The variance is pointwise continuous on the orbit even at a_i=0 because b_i²/a_i≤λ_max² a_i. The real orbit is the continuous image of SO(n) since multiplying a frame by an eigenvector sign flip does not change the conjugated matrix; the unitary orbit is also connected. Therefore the two attained variance endpoints fill the entire stated interval. The one-dimensional and equal-positive-eigenvalue cases give zero variance; the exact (1,4) planar illustration checks the nondegenerate endpoints.",
+      "residual_risks": [
+        "The argument concerns the trace gain from the first exact pivot, not later adaptive pivots, residual Loewner order, or ordinary tail dominance.",
+        "The stored real numerical tests were inspected, not executed. They do not certify universal convex losses, the complex case, or all dimensions; the analytic proof covers them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original RPCholesky expectation gives q. Steinerberger uses a different diagonal-power pivot, but the pointwise inequality b_i²≤a_i(A³)_ii already gives the candidate's variance cap when evaluated at the candidate's weights. Accelerated RPCholesky preserves the pivot law without analyzing the full convex envelope.",
+          "The classical f-divergence theorem applies to arbitrary convex losses for a finite classical experiment, not merely operator convex functions; Horn's theorem admits real orthostochastic matrices for any majorized pair of real vectors."
+        ],
+        "reasoning": "The strongest broader implication is independent of the choice of v and r: Jensen/data processing and real Schur–Horn give these optimal endpoints for any such likelihood-ratio pair. Inserting squared size-biased eigenvalues is a substitution into that broader construction, not a new bound requiring a Cholesky-specific lemma.",
+        "searches": [
+          "arXiv:2207.06503, Algorithm 1 and eq. (5.3)",
+          "arXiv:2404.11487, weighted pivot and moment inequality",
+          "arXiv:2410.03969, accelerated sampling",
+          "Polyanskiy–Wu §7.2; arXiv:0710.5566, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.06503, 2404.11487 and 2410.03969",
+        "Polyanskiy–Wu, f-divergences §7.2",
+        "arXiv:0710.5566",
+        "Resultary 73b2b6cddee0 and 8657b8293542"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply the same stochastic matrix to both spectral probability vectors. By monotonicity, D_f(Wr||Wv)≤D_f(r||v), and Jensen gives its nonnegative lower bound. To attain zero apply Horn to r−v; to attain the upper law take W=I. Substituting the candidate spectral vectors yields the entire envelope for every loss, not only an upper estimate for variance.",
+          "Variance then uses f corresponding to the square, the endpoints, and continuity of a finite function along a connected orbit. Exact determinism is simply Wr=Wv, i.e. diag(A²−qA)=0."
+        ],
+        "reasoning": "Once the known pivot gain is expressed as a likelihood ratio, the preceding two general theorems and this single parameter substitution mechanically give all distributional endpoints. No comparison of expectation-only theorems is being used to infer the envelope.",
+        "searches": [
+          "Polyanskiy–Wu §7.2 Theorem 7.1, eq. (7.9), conditional-Jensen proof",
+          "Kaftal–Weiss arXiv:0710.5566, Theorem 1.1(ii)–(iii)",
+          "arXiv:2207.06503, eq. (5.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set v_j=λ_j/S and r_j=λ_j²/tr(A²). The input likelihood ratio r_j/v_j is λ_j/q on the positive support. The two output probability vectors after W_ij=|U_ij|² are Wv and Wr, with ratio (Wr)_i/(Wv)_i=G_i/q. Thus for f(x)=φ(qx)−φ(q), the output f-divergence is exactly Eφ(G_A)−φ(q), and the input is Eφ(Λ)−φ(q).",
+          "The same W makes all sampled gains equal exactly when W(r−v)=0. The signed vector r−v sums to zero, hence majorizes the zero vector, and Horn gives such an orthostochastic W in every dimension. The identity W gives the other extreme."
+        ],
+        "reasoning": "This is an exact identification of the objective and both orbit endpoints with a general finite binary statistical experiment. Data processing contracts its convex likelihood-ratio dispersion; Schur–Horn produces the zero-information experiment within the real orbit itself. No uniform real flat matrix is assumed. Finite convex losses with endpoint issues are also covered directly by finite Jensen, or by convex interpolation on the finite set of ratios.",
+        "searches": [
+          "Polyanskiy–Wu f-divergence lecture, §7.2 Theorem 7.1",
+          "Schur Horn theorem real orthostochastic zero diagonal trace zero theorem Horn constant diagonal full text f-divergence data processing likelihood ratio stochastic matrix Csiszar Sason",
+          "arXiv:0710.5566, Theorem 1.1(ii)–(iii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest returned distributional record gives an at-most-two-atom residual law in a common-factor family, including k=1. Another gives two-pivot expected residual extrema for spectrum {L,1,1}, noting first-pivot mean invariance. Neither returned statement gives the claimed general first-pivot spectral-orbit envelope literally."
+        ],
+        "reasoning": "The indexed overlaps are restricted family and different pivot-depth results. The absence of a literal exact statement in these ranked returns is not grounds to pass: the explicit implication comes from broader named results.",
+        "searches": [
+          "Resultary searches on convex-order one-pivot randomly pivoted Cholesky trace gain, fixed-spectrum orbit and variance endpoints",
+          "Resultary records 73b2b6cddee0 and 8657b8293542"
+        ]
+      },
+      "rationale": "The mean is already the trace of the known one-step expected map, and the full additional claim is a direct application of classical likelihood-ratio data processing and real/complex Schur–Horn for two spectral probability vectors. The decisive implication covers the full convex envelope and both simultaneous endpoints, not just the individual variance inequality. The variance interval and determinism criterion are immediate topology and the equality equation, respectively. This is not a claim that the cited RPCholesky algorithm papers literally state the envelope.",
+      "residual_risks": [
+        "The bounded search does not establish priority of wording or whether the RPCholesky specialization has appeared verbatim. The grounds for failure are mathematical implication from inspected broader statements, not inaccessible original Horn text or a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pivot rule and mean; the inspected equation alone does not give the convex-order assertion",
+          "evidence": [
+            "Expected residual map A−A²/tr(A)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "Algorithm 1, eq. (2.6), p. 5, and eq. (5.3), p. 20; PDF-text offsets 20400 and 77350",
+          "method": "Open-access PDF passage inspection",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Exact same pivot and mean trace gain"
+        },
+        {
+          "assessment": "A different sampling rule; a shared moment inequality directly gives the variance cap",
+          "evidence": [
+            "The squared-diagonal pivot is analyzed for Schatten progress and the argument uses ((A²)_ii)²≤A_ii(A³)_ii."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+          "material_read": "p. 3 and pp. 8–9, offsets 9250 and 28530",
+          "method": "Open-access PDF passage inspection",
+          "title": "Randomly Pivoted Partial Cholesky: Random How?",
+          "trigger": "Weighted Cholesky pivot and spectral moments"
+        },
+        {
+          "assessment": "Implementation equivalence, not the orbit extremal result",
+          "evidence": [
+            "Rejection sampling simulates the diagonal-proportional pivot selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.03969",
+          "material_read": "pp. 4–5, offset 14050",
+          "method": "Open-access PDF passage inspection",
+          "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+          "trigger": "Same sampling distribution preserved by acceleration"
+        },
+        {
+          "assessment": "General classical result giving the exact candidate upper and lower inequalities under the displayed substitution",
+          "evidence": [
+            "Marginalizing a joint law contracts D_f, by conditional Jensen of the joint likelihood ratio. Use the same pivot-label channel for both laws."
+          ],
+          "identifier_or_url": "https://people.lids.mit.edu/yp/homepage/data/LN_fdiv.pdf",
+          "material_read": "§7.2, Theorem 7.1 and its Jensen proof, p. 4 of PDF, offset 9930",
+          "method": "Open-access lecture PDF, bounded passage read",
+          "title": "Information Theory lecture notes, §7: f-divergences",
+          "trigger": "Exact likelihood-ratio reformulation of all convex loss inequalities"
+        },
+        {
+          "assessment": "The quoted finite Horn theorem directly provides real equalization for the signed vector r−v",
+          "evidence": [
+            "A majorized vector is the image of the dominating vector under a Schur square of a real orthogonal matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.5566",
+          "material_read": "Theorem 1.1(ii)–(iii), p. 1, PDF-text offset 2990",
+          "method": "Open-access PDF precise finite theorem passage; the original Horn DOI 10.2307/2372705 did not yield full text",
+          "title": "An infinite dimensional Schur–Horn theorem and majorization theory",
+          "trigger": "Existence of a real orthogonal, zero-gain-dispersion basis"
+        },
+        {
+          "assessment": "Overlap limited to a common-factor family",
+          "evidence": [
+            "At-most-two-atom residual law for a range of pivot counts starting at one."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-atom-residual-law-and-sharp-pivoting-reversal-on-commo--73b2b6cddee0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact two-atom residual law and sharp pivoting reversal on common-factor matrices",
+          "trigger": "Distributional RPCholesky result, includes one pivot"
+        },
+        {
+          "assessment": "Two-step expected residual, not a first-step convex-loss envelope",
+          "evidence": [
+            "Extrema for spectrum {L,1,1} and first-step mean invariance."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-orientation-sensitivity-of-two-step-randomly-pivoted-chole--8657b8293542",
+          "material_read": "RESULT.md Finding and scope, offsets 0 and 1400",
+          "method": "Resultary local mirror",
+          "title": "Sharp orientation sensitivity of two-step randomly pivoted Cholesky on a three-dimensional rank-one spike",
+          "trigger": "Sharp spectral-orbit extrema under orientation changes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof Steps 1–4 and Limitations",
+        "arXiv:2207.06503, eq. (5.3)",
+        "Polyanskiy–Wu, Theorem 7.1",
+        "arXiv:0710.5566, Theorem 1.1"
+      ],
+      "rationale": "The example clarifies that first-step mean invariance does not ensure identical convex risk. But the submitted exact orbit result gives the textbook best and worst experiments for a pair of probability vectors, specialized to a known pivot ratio; all endpoints, the deterministic equation and the variance interval are immediate from the general theorems and continuity. No new one-step invariant beyond those implications, later-step theorem, or construction with a new algorithmic constraint is established.",
+      "residual_risks": [
+        "The exact specialization can still be pedagogical or useful notation for applications. The negative judgment concerns incremental value as an independent result, not the practical RPCholesky analysis or classical implications themselves."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

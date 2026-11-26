@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:03:09.137468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unrestricted exchange distance is |U∖T| by exchanging an edge of U∖T against an edge outside U in its fundamental cycle. Maximizing this distance from T gives the graphic rank of E∖T, since a maximal forest in E∖T extends to a spanning tree. A six-edge graph inside a graph of girth five has at most one cycle: the symmetric difference of two distinct cycles would be a nonempty even subgraph on at most two edges. For a pentagon the five external edges form a matching, since an off-cycle vertex with two pentagon neighbors would make a triangle or quadrangle; the other five vertices therefore form a pentagon, and deleting one edge of it leaves a path with five pendant edges. Deleting a chordless hexagon leaves its six vertices as leaves and leaves three internal edges on four vertices, which form a tree by triangle-freeness. Thus the complementary cycle census is 12·5+10. Independently reproduced by python3 /workspace/reproductions/petersen_exchange.py: the outer/inner pentagon construction is checked isomorphic to the disjoint-pairs labeling, nine-edge sets are filtered by connectivity, and all-source BFS is run over actual swap adjacency without using the distance formula. It obtained 2,000 connected vertices, eccentricity counts 70 at 5 and 1,930 at 6, complement-core split 60+10, and unordered coefficients (28140,222360,651080,748200,314220,35000), yielding 1,999,000 pairs and Wiener index 7,200,000. Separately, counting submasks of each tree reproduced all ten squared forest-extension moments, without the attached contraction routine. The exact finite computations cover the entire claimed graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dara et al. Lemma 2.3 proves exchange distance for maximal forests",
+          "6102930841e3 uses complement cycle rank to analyze wheels (same displayed date)",
+          "Kuhl treats single-subset rank and Tutte uniqueness; Kim–Oum treats Hamiltonicity/cycles of basis graphs"
+        ],
+        "reasoning": "General distance and complement rank are background or methodological overlap. Wheel-specific counts do not transfer to the Petersen graph. Neither Hamiltonicity nor the usual Tutte rank-size enumerator evaluates the required pair-overlap counts.",
+        "searches": [
+          "Dara et al., The Dynamics of the Forest Graph Operator, arXiv:1601.01041",
+          "Resultary 6102930841e3, wheel spanning-tree exchange centers",
+          "Kuhl, The Tutte polynomial and the generalized Petersen graph",
+          "Kim–Oum, arXiv:2308.05772"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py and verify_contraction.py",
+        "Resultary a0f4ecd55781, 6102930841e3, 5bd5eae1b8df and f5fe22f9b2d8",
+        "Dara et al. arXiv:1601.01041; Kim–Oum arXiv:2308.05772; Kuhl AJC 40; Brouwer's Petersen graph page; Al-Hawary access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier pivot series has first moment 9,047,350; the excess counts have first moment 1,847,350, hence the displayed Wiener index is already implied",
+          "A marginal pair of histograms for d_piv and d_piv−b does not generally give the law of b or per-tree eccentricities",
+          "The older Tutte rank-size sum concerns individual subgraphs, not the squared numbers of tree extensions at fixed forest size"
+        ],
+        "reasoning": "Credit the mechanically implied first moment. The exact distance polynomial needs the distribution of overlap sizes, for which the frozen squared-extension moments encode genuinely different exact data. The later support census can recover the 60+10 split via complement rank, but does not recover the polynomial, and the ordinary cycle census alone does not count tree complements without a structural argument.",
+        "searches": [
+          "a0f4ecd55781 Finding: pivot-distance series and excess counts",
+          "Kuhl, rank/edge-size definition and Theorem 5",
+          "5bd5eae1b8df Proof §3 and 6102930841e3 complement-rank proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a0f4ecd55781 defines pivots by incident removed and inserted edges, and gives pivot diameter 8 and different eccentricities; it identifies the unrestricted metric b(T,U) for comparison",
+          "5bd5eae1b8df Proof §3 counts the same 60 five-cycle-plus-edge and 10 six-cycle supports, in a shattering statement dated Nov. 22"
+        ],
+        "reasoning": "Unrestricted exchanges and pivots are not equivalent. For the later shattering result, cyclic excluded supports that are complements of trees are exactly the central complements in the frozen rank formulation; the overlap is real even though the main formulations differ.",
+        "searches": [
+          "Resultary: Petersen spanning-tree exchange geometry, pivot exchange, centers, shattering and Walsh spectrum",
+          "Dara et al., arXiv:1601.01041 Lemma 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pivot-distance and excess marginal histograms are given explicitly; its checking code computes individual b values, but does not give a joint table or the b histogram",
+          "Brouwer's cycle counts are 12 pentagons and 10 hexagons, not an exchange-graph census",
+          "The Nov. 16 Walsh record reports a different invariant of the spanning-tree indicator"
+        ],
+        "reasoning": "Published aggregate evidence yields the unrestricted first moment, not the shape. Computing the actual full b distribution requires joint pair data or a new aggregation over the labeled tree set; the pivot verifier's ability to enumerate that set is not a prior evaluated unrestricted table.",
+        "searches": [
+          "Resultary and primary-literature searches for the exact Petersen tree-graph distance polynomial and Wiener index",
+          "a0f4ecd55781 RESULT.md and verification code",
+          "f5fe22f9b2d8 Walsh-spectrum result; Brouwer's Petersen subgraphs and circuits"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the unrestricted central-tree classification and exact full unordered distance distribution. The known tree count and exchange-distance identity are explicitly excluded from novelty. The earlier pivot record has the same tree set but a different adjacency and different distance statistics. Its two scalar histograms already determine the Wiener sum by subtraction, so the Wiener index is not an independent originality contribution. They do not give the unrestricted histogram or the unrestricted eccentricity classification. The forest-support counts in a later Petersen shattering record are a material equivalent of the central-complement census once the rank criterion is supplied, but are later on the displayed dates. This is a bounded best-of-knowledge assessment, with the historical matroid manuscript an unresolved access risk.",
+      "residual_risks": [
+        "Al-Hawary's full text could not be inspected; an older basis-graph table remains possible.",
+        "The earlier pivot paper's 60-tree extremal orbit may coincide with a center subtype, but the inspected result does not identify it by the complementary cycle property. No identity or nonidentity of orbits is inferred from equal size.",
+        "Order between same-day records was not established; the wheel result has a different stated family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph; unrestricted first moment follows, unrestricted full distribution and centers not given by the recorded margins",
+          "evidence": [
+            "Pivot adjacency requires a shared endpoint; diameter 8; explicit pivot and excess histograms"
+          ],
+          "identifier_or_url": "Resultary a0f4ecd55781 (2026-10-26)",
+          "material_read": "RESULT.md Finding and assumptions, mirror offsets 0–3305; verification code's pair aggregation",
+          "method": "Bounded mirror inspection, adjacency comparison, and first-moment calculation from both exact margins",
+          "title": "Exact pivot-exchange geometry of the Petersen spanning-tree graph",
+          "trigger": "Same Petersen trees and an exact distance enumerator"
+        },
+        {
+          "assessment": "Direct coverage of expressly excluded general background",
+          "evidence": [
+            "Maximal forest distance equals one-sided edge difference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.01041",
+          "material_read": "PDF p. 3, Lemma 2.3 and introductory tree-graph attribution",
+          "method": "Bounded primary PDF reading",
+          "title": "The Dynamics of the Forest Graph Operator",
+          "trigger": "General basis-exchange distance identity"
+        },
+        {
+          "assessment": "Material method overlap; different base graphs, not exact Petersen counts",
+          "evidence": [
+            "Wheel tree eccentricity determined by complementary cycle rank"
+          ],
+          "identifier_or_url": "Resultary 6102930841e3 (2026-11-02)",
+          "material_read": "RESULT.md Finding and complement-rank proof",
+          "method": "Bounded mirror comparison",
+          "title": "Wheel spanning-tree exchange centers and complementary tree census",
+          "trigger": "Same complement-rank mechanism for eccentricities"
+        },
+        {
+          "assessment": "Tutte uniqueness and single-subset ranks, not an evaluation of squared forest extension moments or exchange distances",
+          "evidence": [
+            "Petersen graph is P(5,2); Tutte-uniqueness theorem includes m=5"
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/40/ajc_v40_p087.pdf",
+          "material_read": "Rank-generating-polynomial definition, p. 89 identification, p. 93 Theorem 5",
+          "method": "Bounded original PDF reading",
+          "title": "The Tutte polynomial and the generalized Petersen graph",
+          "trigger": "Plausible rank-size subgraph statistics for the same graph"
+        },
+        {
+          "assessment": "Prior coverage of cycle counts only in inspected sections",
+          "evidence": [
+            "12 five-cycles and 10 six-cycles"
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Petersen.html",
+          "material_read": "Subgraphs and Circuits and Hamiltonicity sections",
+          "method": "Bounded public-page reading",
+          "title": "Petersen graph",
+          "trigger": "Classical exact cycle data for the structural count"
+        },
+        {
+          "assessment": "Equivalent central-complement split via rank, in a later record on the displayed dates",
+          "evidence": [
+            "70 excluded six-edge supports: 60 pentagon plus edge and 10 hexagons"
+          ],
+          "identifier_or_url": "Resultary 5bd5eae1b8df (2026-11-22)",
+          "material_read": "RESULT.md Proof §3",
+          "method": "Bounded mirror reading and complement comparison",
+          "title": "Exact spanning-tree shattering complex of the Petersen graph",
+          "trigger": "Exact count of analogous six-edge nonforest supports"
+        },
+        {
+          "assessment": "Historical contents unresolved; the snippet establishes neither presence nor absence of applicable basis data",
+          "evidence": [
+            "Bibliographic match to Petersen graphic matroid; no checked numerical passage"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/266273614_The_Petersen_matroid",
+          "material_read": "Indexed snippet about graphic matroids; no full text read",
+          "method": "Lawful OA retrieval attempted at both the record and identified author-uploaded PDF link; direct/VPN HTTP 403; targeted lookup did not identify another readable lawful copy",
+          "title": "The Petersen Matroid",
+          "trigger": "Strong historical object match; possible basis tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a canonical small symmetric graph, and the distance distribution and center structure of its unrestricted spanning-tree exchanges are natural invariants of that move system, not arbitrary selected instances. The cycle characterization explains the nonuniform eccentricities; the full exact histogram gives a usable benchmark for comparing unrestricted swaps with incident-edge pivots and for procedures using distances between trees. The previously implied first moment is not the basis of this value judgment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

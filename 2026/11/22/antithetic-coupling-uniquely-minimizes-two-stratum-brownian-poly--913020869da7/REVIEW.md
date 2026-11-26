@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full claim is reduced to Gaussian orthogonal projection for the two Brownian increments, an exact rational factorization of the coupling-sensitive interior bridge variance and elementary nonnegativity. Equality requires the antithetic coupling almost surely because uniform marginals charge no boundary atoms. The embedded symbolic/rational verifier checks the exact formulas and 841 rational pairs, but those finite checks are supplementary to the universal algebraic certificate.
+## correctness
 
-## Originality
-PASS on the accessible evidence, with priority qualifications. The 2019 polynomial Brownian approximation paper motivates the moment but does not optimize a copula of two uniform-stratified observation locations. The 2018 Bayesian quadrature paper provides a posterior-variance foundation but no such coupling theorem. The closest published mathematical-record abstract concerns independently jittered sampling for the unweighted Brownian integral; its unavailable full text leaves a residual historical risk. Standard antithetic and optimal-transport principles are not claimed as inventions. The result-specific factor identity, exact risk and uniqueness for the sign-changing first moment are not entailed by those inspected statements.
+PASS
 
-## Value
-PASS. The first centered polynomial moment is a canonical information channel in Brownian polynomial path approximation. The result solves exactly the full dependence-design problem under the fixed one-sample-per-half budget and marginal uniformity, giving an explicit global certificate even though the inter-node cost lacks a fixed Monge sign. It supplies a concrete, reproducible antithetic pairing rule and quantifies the small but strict improvement of \(2/125\) in posterior risk over independent or synchronous offsets. No claims are made for other integrands, noisy sensors or unrestricted site marginals.
+For the disclosed exogenous sites, stochastic Fubini gives J as the Brownian stochastic integral of q(s)=s(1-s)/2. Conditional Gaussian projection removes the averages of q on [0,X] and [X,Y], leaving the full squared integral of q on the tail. With a=1-U and b=V, the middle-interval contribution minus (a^5+b^5)/1440 is exactly ab(a+b)(a-b)^2/1152. This verifies a global pointwise inequality, not just on a grid or for a family of copulas. Atomless uniform marginals eliminate the zero factors at the boundary, so equality forces b=a almost surely, and this coupling is admissible. The expected endpoint contribution is 107/69120, the optimum is 41/23040, both independent and common offsets give 25/13824, and the difference is 1/34560. I reconstructed the projection and Mathemathematical identities by polynomial integration, independently of the supplied checker.
 
-## Closest sources and risks
-Foster–Lyons–Oberhauser, arXiv:1904.06998 (polynomial path integrals); Karvonen–Kanagawa–Särkkä, arXiv:1812.08509 (Bayesian quadrature foundations); the published-finding corpus independent-jitter Brownian record (abstract, full text unavailable). A general coupling theorem specialized to this Brownian cost could change historical-priority assessment; no such decisive equivalent was found in the executed searches. Independent mathematical and historical validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The covered ingredients are Brownian polynomial-time information, Bayesian quadrature, antithetic sampling, and fixed-marginal dual certificates. The strongest distinct indexed comparison also solves an exact two-observation Brownian posterior-risk coupling problem, but for a different target and covariance with different marginals and a different optimizer. The signed Brownian-motion half-stratum deficit, uniqueness and exact risks are not established by the matched statements. This is a bounded best-of-knowledge finding, not priority certification.
+
+## value
+
+PASS
+
+A signed first moment is natural in polynomial Brownian path approximation. Under the given observation budget the result distinguishes node dependence from marginal design: independent and perfectly synchronized offsets tie, yet neither minimizes risk. The exact deficit gives both a unique implementable pairing and a quantitative penalty for departing from it even without a uniform mixed-derivative sign. This structural classification, not the modest 2/125 relative saving by itself, is the useful result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

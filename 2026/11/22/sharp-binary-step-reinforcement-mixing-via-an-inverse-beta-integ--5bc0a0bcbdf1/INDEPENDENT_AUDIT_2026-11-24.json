@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:30:16.591996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Yule embedding has uniform parent choice independent of birth times, so conditioning on population size gives the ordinary z^(n-1) series of the parity expectations. The two-type backward equations give A'=A^2+alpha B^2 and B'=(1+alpha)AB, with (A,B)(0)=(0,1). For v=A/B these give v'=alpha(1-v^2)^(1-h) and B=(1-v^2)^(-h), proving the stated local inverse, signs and first coefficients. At odd time, interchanging all bits interchanges the two position states. For the analytic step compressed at RESULT.md line 72, nonnegative Taylor coefficients and Pringsheim rule out a radius smaller than R: the real inverse is analytic all the way up to R. The derivative diverges as v tends to 1 there, giving radius exactly R. Monotone convergence gives the absolute coefficient sum 1 at R; positivity of the z and z^3 coefficients forces strict inequality |v(z)|<1 elsewhere on the circle except at -R. Local analytic ODE continuation then applies at those ordinary boundary points. To justify the dented domains at the two exceptions, write R-z=(1-v)^h times an analytic nonvanishing factor at v=1, take a local analytic h-th root of the factor, and invert the resulting regular map in (R-z)^(1/h); use oddness at -R. The leading contribution is 1/[(1+alpha)(R-z)] and the error has order (R-z)^(-1+1/h). The two pole terms add for the odd powers z^(n-1), and transfer gives the claimed relative O_alpha(n^(-1/h)); dividing the character by two gives TV. The integral gives R>2/(1+alpha)>1 and R=pi/2 at alpha=1/2. The uploaded check.py was inspected, not run; it has 680 counted exact comparisons/assertions and 3 floating diagnostics, despite the frozen summary calling the combined count 683 exact. This does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-group mixing bounds establish exponential convergence. Peres–Qin Corollary 1.6 gives f_(2n-1)=0 and exp(-(1-alpha)n) alpha^n <= f_(2n) <= alpha^n in the same fair two-state model; the proof even gives the lower exponent 2(1-alpha)/(2+alpha) times n.",
+          "Murahara–Tokumitsu Lemma 4.1 bounds the characteristic function by 3 exp(-lambda_alpha n sin^2(theta)), with lambda_alpha=min((1-alpha^2)/8,1/32)."
+        ],
+        "reasoning": "These prove parts of the frozen finding, including exact odd-time uniformity, and bound but do not determine the decay base. Their upper and lower exponents do not coincide in the interior parameter range; none determines the asymptotic prefactor or error.",
+        "searches": [
+          "arXiv:2604.07207 Example 1.1, Proposition 1.3 and Remark 1.4",
+          "arXiv:2604.07227 Corollary 1.6 and Proposition 2.10",
+          "arXiv:2610.35019 Lemma 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 5bc0a0bcbdf1 and 147a5a736601",
+        "arXiv:2604.07227v2, 2604.07207, 2401.04959, 2610.35019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 2.5 uses elephant polynomials to identify and squeeze the even coefficients without finding their exact exponential base. The near-complete record fixes the scaling N(1-alpha_N) to a finite limit, not alpha in (0,1)."
+        ],
+        "reasoning": "Neither substituting x=0 in the polynomial recurrence nor specializing the general exponential inequalities yields the explicit rate and prefactor; the recurrence must be solved or analyzed further. Taking lambda large in a fixed-scaling limit is not a justified exchange of limits and cannot produce the fixed-alpha errors.",
+        "searches": [
+          "Peres–Qin arXiv:2604.07227v2 §2.5, Eq. (37), Proposition 2.10 and proof of Corollary 1.6",
+          "Resultary 147a5a736601 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fair ±1 elephant steps at memory p=(1+alpha)/2 have the same law as the recoded fair-fresh/copy steps: given the sampled historical sign, the next sign agrees with it with probability alpha+(1-alpha)/2.",
+          "Peres–Qin, Transition probabilities, Lemma 2.8 and Eq. (37) identify f_n=i^n R_n(0)=P(all clusters have even size). Guérin–Laulin–Raschel, Eqs. (1), (4)–(5), give the same polynomial recurrence and Fourier relation."
+        ],
+        "reasoning": "These are exact prior reformulations and can recursively compute all finite coefficients. This covers the interpretation and low-order examples, but summing to an inverse-beta closed analytic form and proving its dominant singularities require further work.",
+        "searches": [
+          "Resultary binary step reinforcement, recursive forest even clusters, and fixed-parameter mixing",
+          "arXiv:2401.04959 fair elephant characteristic polynomials",
+          "arXiv:2604.07227 §2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 5bc0a0bcbdf1 is the assigned record. Resultary 147a5a736601 uses the same process but reports an even-time limit 2^(-lambda-1) for N(1-alpha_N) approaching lambda.",
+          "The elephant-polynomial table singles out a=0, 1, -1/2 and -1 among finite parameters; the generating function on p. 9 concerns the a=-1 coefficient triangle, not the fixed interior 0<alpha<1 series here."
+        ],
+        "reasoning": "The finding is not a finite table lookup. The distinct catalogue entry and special-parameter formulas do not cover an all-interior-parameter exact generating function or asymptotic.",
+        "searches": [
+          "Resultary exact binary step-reinforcement mixing, inverse beta integral and near-complete reinforcement",
+          "arXiv:2401.04959 Table 1 and generating-function passages in §3"
+        ]
+      },
+      "rationale": "Credit prior exact odd-time uniformity, even-time positivity, the recurrence/evaluation representation and exponential convergence in the identical model. The distinct supported claim is the exact inverse-beta generating function and sharp fixed-alpha even-time exponential base, prefactor and relative error. The strongest same-model paper, inaccessible to the frozen author in full, was accessed for this review: it proves two-sided exponential bounds rather than that sharp asymptotic. The bounds, prior recurrence, and other regimes were assessed for implication, not just exact wording.",
+      "residual_risks": [
+        "A different treatment of elephant polynomials or recursive forests may solve the relevant generating function; the reasonably searched and inspected passages do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical indexed record",
+          "evidence": "Same fixed-alpha asymptotic and exact inverse-integral series.",
+          "identifier_or_url": "Resultary 5bc0a0bcbdf1",
+          "material_read": "Original Finding and assumptions; proof in frozen RESULT.md lines 33–95",
+          "method": "Local Resultary mirror and frozen record",
+          "title": "Sharp binary step-reinforcement mixing via an inverse beta integral",
+          "trigger": "Exact match"
+        },
+        {
+          "assessment": "Material overlap, distinct regime",
+          "evidence": "Odd-time uniformity and a triangular-array even-time limit with finite N(1-alpha_N).",
+          "identifier_or_url": "Resultary 147a5a736601",
+          "material_read": "Original Finding and assumptions",
+          "method": "Local Resultary mirror, RESULT.md opening",
+          "title": "Poisson fringe defects and a sharp near-complete reinforcement mixing law",
+          "trigger": "Identical finite-group process and forest interpretation"
+        },
+        {
+          "assessment": "Direct prior coverage of parity, positivity, polynomial and forest evaluation, and coarser even-time estimates",
+          "evidence": "Exactly f_n=i^n R_n(0); stated even envelopes have different bases and do not determine the sharp asymptotic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.07227",
+          "material_read": "Corollary 1.6 and Remark 1.3 (p. 4); Lemma 2.8, Eq. (37), Proposition 2.10 and proof of Corollary 1.6 (pp. 15–17)",
+          "method": "Direct lawful OA primary PDF, text near offsets 14530, 59820, 64187 and 67818",
+          "title": "Transition probabilities of step-reinforced random walks",
+          "trigger": "Same-model companion paper and plausible stronger bounds"
+        },
+        {
+          "assessment": "Related bounds and prior two-state example",
+          "evidence": "P(S_2=0)=(1+alpha)/2 and a coarser lower bound for the even-time discrepancy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.07207",
+          "material_read": "Example 1.1 p. 2; Proposition 1.7 and Remark 1.4 p. 5",
+          "method": "OA primary PDF, offsets 7030 and 16530",
+          "title": "Mixing times of step-reinforced random walks",
+          "trigger": "Finite-group article with two-state example"
+        },
+        {
+          "assessment": "Equivalent recurrence, different closed forms at special parameters",
+          "evidence": "a=2p-1 and phi_n(t)=R_n(cos t); explicit generating function in §3.2 is for the negative parameter a=-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.04959",
+          "material_read": "Definition and Eqs. (1), (4)–(5) pp. 1–2; Table 1 context and generating-function passage in §3.2 p. 9",
+          "method": "OA primary PDF, offsets 2240, 4770, 5750 and query generating function",
+          "title": "Elephant polynomials",
+          "trigger": "Equivalent fair ±1 model and recurrence"
+        },
+        {
+          "assessment": "Broader but non-sharp estimate at the parity frequency",
+          "evidence": "Uniform exponential Fourier bound does not give parity-frequency asymptotic equivalence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.35019",
+          "material_read": "Lemma 4.1 p. 17",
+          "method": "OA primary PDF, offset 73410",
+          "title": "Optimal Rates in Local and Central Limit Theorems for the Elephant Random Walk",
+          "trigger": "Potential uniform or sharp Fourier coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The even-time character is the exact obstruction to uniformity in this minimal nontrivial finite group. Identifying its sharp mixing scale and normalization resolves what prior two-sided bounds leave undetermined. The inverse-integral series is a usable all-times description of the same probability (also the all-even-cluster probability), not merely another probabilistic encoding or a fitted finite rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

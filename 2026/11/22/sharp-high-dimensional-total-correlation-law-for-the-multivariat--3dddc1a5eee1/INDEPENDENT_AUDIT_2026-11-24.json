@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:12:00.361806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the corrected RESULT.md under repairs/4. The original's identification of the ordinary joint copula of X was false as stated: the cited equations (8)–(9) identify the law of exp(−X) as the survival copula. The distinction is substantive: for a bivariate margin the lower joint tail of X at x approaching 0 is O(x²), since X_i>=qE_i; its upper joint survival at x tending to infinity is asymptotic to θ exp(−x)/(1−q/2) by conditioning on the shock. Their tail-dependence roles reverse under the uniform reflection. The repair names the law exactly and uses preservation of KL under coordinatewise bijection to retain the intended total-correlation claim. For the repaired formula: the Laplace transform gives unit exponential margins, and the conditional likelihood factors through M=min X_i for inference about W=JZ. Conditional on W, M is a translated scale-q/d exponential; conditioning on J yields the displayed two-component density. Conditional entropies imply T_d=d log(1/q)+1+log(q/d)−h(M). The entropy decomposition over J gives precisely R_d=H(J|M)−θ[h(Z+(q/d)E)−1]. The bracket is between 0 and log(1+q/d) by conditioning and the mean-constrained entropy maximum. The binary classifier at d^(−1/2) has error bounded by the stated argument, and H(J|M) is bounded by binary entropy of that error, giving both remainder bounds under the stipulated half-probability condition. Thus the fixed-interior expansion follows, with no endpoint or moving-parameter guarantee. Frozen check.py was inspected, not executed. Independent replay at d=2, θ=1/2: composite Simpson quadrature of −g log g on [0,80] with 200000 subintervals gives h(g)=0.6845326906103 and T_2=0.3154673093897. This is a finite cross-check only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The heterogeneous model includes/restates the homogeneous representation but its inspected moments and dependence statements are not entropy evaluations. The normal-mode catalogue record e13a318382d7 treats invariant information and decaying rank dependence in a different model; Gaussian magnitudes record 4eebefe6d8fe uses order-2 Rényi total correlation."
+        ],
+        "reasoning": "Embedding the homogeneous law in a broader family does not imply the reviewed result unless the broader theorem evaluates KL with these parameters; no such implication was found in the inspected passages.",
+        "searches": [
+          "Resultary: total correlation common latent mixture logarithmic dimension asymptotic",
+          "Resultary: common shock Bernoulli latent variable sample minimum sufficient statistic mutual information entropy",
+          "Saali et al. 2024 DOI 10.54216/IJNS.230224, pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; corrected repairs/4/RESULT.md",
+        "DOI 10.3390/math11020414",
+        "DOI 10.54216/IJNS.230224",
+        "arXiv:0808.0845",
+        "DOI 10.3390/e21100921 (access attempt)",
+        "Scoped Resultary and primary-literature checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 paper supplies precisely the shock model and the joint distribution of the survival uniforms. Its inspected statements compute dependence quantities and identify the copula, not the exact minimum entropy or the log and binary-entropy terms."
+        ],
+        "reasoning": "Having the full copula specifies the KL integral in principle but does not itself give its scalar reduction or asymptotic: the sufficiency and posterior-mixture argument makes the additional implication explicit.",
+        "searches": [
+          "Primary web search: \"Raftery copula\" total correlation entropy minimum high-dimensional common shock",
+          "Resultary: Saali Mesfioui Shabri Raftery copula entropy",
+          "2023 primary PDF, equations (7)–(9) and section outline"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma–Sun identify multivariate mutual information with negative copula entropy. Relative entropy is invariant under simultaneous coordinate reflections of the joint and the product reference."
+        ],
+        "reasoning": "Changing to survival uniforms or using copula entropy gives equivalent definitions, not the minimum-mixture entropy evaluation or its constant-order expansion.",
+        "searches": [
+          "Resultary: copula entropy total correlation mutual information equivalence differential entropy",
+          "Resultary: Raftery common shock mutual information sample minimum",
+          "arXiv:0808.0845, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalogue hit is the assigned record itself; it is not corroborating prior coverage. Distinct information-theoretic hits used other models or divergences."
+        ],
+        "reasoning": "An identity for a continuum of θ and all integer d, with an asymptotic remainder, is not a finite table entry. The exact catalogue check targeted the model and expression instead.",
+        "searches": [
+          "Resultary: Raftery copula total correlation entropy high dimensional",
+          "Resultary: high-dimensional total correlation common shock exact entropy expansion"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the repaired exact scalar reduction and quantitative fixed-parameter expansion. The survival copula, the shock representation, and the generic copula-entropy identity are prior inputs, not claimed contributions. The repaired identification restricts attribution to the actual cited survival law; the novelty comparison remains about entropy evaluation and the log and constant terms.",
+      "residual_risks": [
+        "The Gaussian total-correlation paper was not available for a full-text comparison. Catalogue searches were bounded. Earlier evaluations under common-shift or other equivalent terminology remain possible; keyword misses and mirror timeouts are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; corrects the copula convention; no reviewed entropy evaluation in these statements",
+          "evidence": [
+            "Proposition 1 explicitly calls the law of V_j=exp(−λ_j X_j) the survival copula."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11020414",
+          "material_read": "2023 open PDF p. 3 equations (7)–(9), offset 13198; section outline offset 9665",
+          "method": "Lawful open PDF alternate copy at pdfs.semanticscholar.org, bounded passage reading",
+          "title": "Multivariate Extension of Raftery Copula",
+          "trigger": "Identical shock construction and exact choice of copula coordinates"
+        },
+        {
+          "assessment": "Model generalization, not an entropy asymptotic",
+          "evidence": [
+            "Restates single-parameter shock model, then gives the multiple-parameter construction and moments discussion."
+          ],
+          "identifier_or_url": "https://doi.org/10.54216/IJNS.230224",
+          "material_read": "pp. 2–3, offsets 6739 and 9475",
+          "method": "Open primary PDF passages",
+          "title": "A novel multivariate copula of Raftery type with multiple dependence parameters and its neutrosophic application in finance",
+          "trigger": "Broader family"
+        },
+        {
+          "assessment": "Generic identity only",
+          "evidence": [
+            "Multivariate mutual information is negative copula entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.0845",
+          "material_read": "p. 1, offsets 2867 and 5100",
+          "method": "Open primary PDF passages",
+          "title": "Mutual information is copula entropy",
+          "trigger": "Equivalent information-theoretic formulation"
+        },
+        {
+          "assessment": "No full-text inference; unresolved comparison to general background",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.3390/e21100921",
+          "material_read": "Landing information only",
+          "method": "DOI and publisher PDF routes attempted",
+          "title": "The Sampling Distribution of the Total Correlation for Multivariate Gaussian Random Variables",
+          "trigger": "Cited total-correlation background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a named dependence model the scalar integral avoids a d-dimensional divergence calculation and the expansion separates linear accumulation from the activation-probability logarithmic deficit and a specified mixture-entropy constant. The quantitative envelope distinguishes this from a routine restatement as copula entropy. Correcting the reflection convention leaves that application and all quantitative claims intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

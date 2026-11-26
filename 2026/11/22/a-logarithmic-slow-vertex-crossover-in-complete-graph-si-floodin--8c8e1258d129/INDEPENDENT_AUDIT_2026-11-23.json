@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:17:48.884899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, METADATA.json, AUDIT.json, SLOGAN.txt and weak_vertex_verifier.py (inspected, not executed)",
+        "Independent finite path check: q_1=1, q_(k+1)=q_k(m-k)/(m-k+rho); add expected holding time at each unmarked state weighted by q_k and expected subsequent ordinary-only residual at each first marked transition. An independently written exact backward recurrence agreed for 44 rational parameter pairs (3<=N<=13; rho=1/7,1,3/2,7/3). N=3,rho=1/7 gives E[T]=777/64 and marked-last probability 7/8."
+      ],
+      "rationale": "For m=N-1 and k ordinary infected vertices, the competing rates before marked infection are k(m-k)/N and rho_N k/N. The product of ordinary-win probabilities is the stated gamma ratio, with log probability -rho_N log N+O(rho_N+rho_N^2). In the ordinary-only birth chain, the time to any fixed interior fraction has mean log N+O(1) and bounded variance by summing reciprocal rates and their squares. The expected infected count is at most exp(t), which controls the early side even when rho_N log N diverges. Thus the normalized integrated count is (x-1)_+ at time x log N. Conditional Poisson survival gives the delayed exponential limit for the marked time and both boundary regimes. Ordinary completion is squeezed between the ordinary-only chain and one with a fully active marked vertex from time zero; the two bounds have means 2 log N+O(1) and bounded variances. Taking the maximum with marked time requires no independence. The half-population hitting time plus a rate-rho_N/3 exponential bounds marked time from above and gives uniform L^2 control in the critical window. The resulting mean is 2+exp(-c)/c and the atom has mass 1-exp(-c).",
+      "residual_risks": [
+        "The asymptotic theorem assumes an ordinary seed, a single marked vertex, independent exponential contacts and 0<rho_N<=1, and both directions on marked incident edges are slowed. The exact last-vertex identity also holds for rho_N>1. The finite check does not prove the asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peterson §1.1 has the same factorized edge rates but recovery at rate one, and analyzes extinction and quasi-stationarity.",
+          "Aalto–Leskelä §2.1 varies sender rates and transmitter roles but selects recipients uniformly.",
+          "Leskelä–Ngo Theorem 2.1 treats a sparse graph and independent additive node boundary delays."
+        ],
+        "reasoning": "None gives a stronger theorem for irreversible complete-graph flooding with an N-dependent receiver-specific contact hazard.",
+        "searches": [
+          "Peterson arXiv:1005.0810",
+          "Aalto–Leskelä arXiv:1412.7563",
+          "Leskelä–Ngo arXiv:1806.09568"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index",
+        "Janson manuscript",
+        "Aalto–Leskelä 1412.7563",
+        "Peterson 1005.0810",
+        "Leskelä–Ngo 1806.09568"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous flooding has deterministic leading scale 2, not positive mass above 2. Janson's birth-time concentration provides an ordinary-sector input but neither the delayed exponential marked time nor its terminal-order probability. Setting Peterson's positive recovery to zero is outside the stated results."
+        ],
+        "reasoning": "Combining standard tools proves the new law, but it is not a substitution into the cited theorems; the additional marked hazard and its coupling to ordinary completion must be analyzed.",
+        "searches": [
+          "Janson Theorem 1 and proof",
+          "Aalto–Leskelä introduction and model",
+          "Peterson model and main results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson Theorem 1(ii) is the homogeneous FPP equivalent after rescaling edge times; one row of slowed rates violates identical distribution.",
+          "The Resultary wheel near-match has weak rim edges and Gumbel fluctuations, not a distinguished receiver on a complete graph."
+        ],
+        "reasoning": "Using FPP terminology does not remove the exceptional clocks; a graph where multiple rim edges become weak has a different exploration and different limiting statistic.",
+        "searches": [
+          "Resultary: complete graph SI first passage flooding one slow vertex weakened incident edge exponential rate logarithmic crossover last vertex",
+          "Web: first passage percolation complete graph one slow vertex weakened incident edges marked receiver crossover last infected rank one exponential flooding susceptibility epidemic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index returned this same finding, a wheel crossover, clique bouquets and a weighted barbell, rather than an earlier exact gamma ratio paired with this marked-vertex limit. The double-star-targeted web results did not give a substantive match."
+        ],
+        "reasoning": "Different graph structures and rates cannot be matched by relabeling; a generic gamma recurrence merely rewrites the probability once derived and is not a prior exact listing of it.",
+        "searches": [
+          "Resultary: complete graph SI first passage flooding one slow vertex weakened incident edge exponential rate logarithmic crossover last vertex",
+          "Web: asynchronous double star rumor spreading weak vertex flooding mixed exponential SI complete graph target heterogeneous transmission crossover last infection"
+        ]
+      },
+      "rationale": "The homogeneous logarithmic baseline and general birth-chain and hazard techniques are known; the precise marked-last and mixed completion laws are not covered by the strongest relevant statements inspected.",
+      "residual_risks": [
+        "The indexed related graph results were compared at statement level, not exhaustively. A poorly indexed prior theorem on marked targets in inhomogeneous complete-graph FPP could change the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Baseline only",
+          "evidence": "IID hypothesis; maximum distance from fixed seed is asymptotically 2 log n/n; exploration waits use rates k(n-k).",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/260-FMIE/Papers/janson_123.pdf",
+          "material_read": "Introduction, Theorem 1, Remark 1, and exponential exploration proof",
+          "method": "Open manuscript PDF text",
+          "title": "One, Two and Three Times log n/n for Paths in a Complete Graph with Random Weights",
+          "trigger": "Homogeneous equivalent and strongest baseline"
+        },
+        {
+          "assessment": "Different heterogeneity",
+          "evidence": "Rate Z_i is attached to sender i, which selects a uniformly random target distinct from itself.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7563",
+          "material_read": "Introduction, equations (1.3)–(1.4), model §2.1",
+          "method": "Open preprint PDF text",
+          "title": "Information Spreading in a Large Population of Active Transmitters and Passive Receivers",
+          "trigger": "Heterogeneous complete-graph broadcast and selected receiver times"
+        },
+        {
+          "assessment": "Does not imply irreversible completion",
+          "evidence": "The edge rate is lambda w_i w_j/n but infected vertices recover at rate one; the results address survival and quasi-stationarity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.0810",
+          "material_read": "Abstract, introduction and §1.1 including generator",
+          "method": "Open preprint PDF text",
+          "title": "The Contact Process on the Complete Graph with Random Vertex-Dependent Infection Rates",
+          "trigger": "Exact edge-rate factorization"
+        },
+        {
+          "assessment": "Different graph and delay mechanism",
+          "evidence": "Adds independent source and terminal costs to a sparse random-graph path metric; a single weakened set of incident clocks is not such an additive cost.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.09568",
+          "material_read": "Model, Theorem 2.1 and discussion of complete-graph comparison",
+          "method": "Open preprint PDF text",
+          "title": "First passage percolation on sparse random graphs with boundary weights",
+          "trigger": "Boundary delays and logarithmic flooding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Janson homogeneous comparison"
+      ],
+      "rationale": "A canonical dense flooding model usually concentrates at a deterministic time at leading logarithmic order. This natural one-vertex perturbation identifies exactly when a single exceptional clock defeats that concentration, yielding a mixed law, a last-vertex probability and a nonzero explicit mean penalty. The model is an abstract graph benchmark, not a claim about physical spread.",
+      "residual_risks": [
+        "No claim about several marked vertices, finer fluctuations or non-exponential times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

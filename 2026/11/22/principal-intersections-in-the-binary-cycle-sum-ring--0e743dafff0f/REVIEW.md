@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact finite-divisor zeta isomorphism reduces the cycle-sum ring to products of binary local rings with square-zero radicals. In each such local factor, a principal ideal is zero, the whole factor, or a two-element nilpotent line; the intersection of two of them is again principal. The explicit generator is stable under expanding the divisor cutoff, which is the indispensable step transferring the finite calculation to the infinite finite-support ring. All coefficients and exceptional zero/unit cases are included. The independent product-law checker exhaustively verified 139,536 ordered element pairs in six finite subrings and four cutoff-embedding families, but this does not replace the general proof.
+## correctness
 
-**Originality — PASS, with priority qualification.** The primary March 2026 source explicitly leaves the all-pairs intersection question unresolved in Section 3.7 and proves only the regular-factor and zero-product cases (Propositions 3.23 and 3.24). The constructed generator handles both-nonregular, nonzero-product cases. Published-record, general idealization, and specific-paper searches did not identify a stronger result that already states the cycle-sum conclusion. This is a best-knowledge novelty judgment, not proof of uniqueness or priority. General square-zero idealization results or later updates remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** A published open structural question about a naturally defined algebra of finite dynamical systems is answered for all elements, not merely on a chosen small finite slice. The divisor-supported generator is algorithmically usable. The accompanying two-generated nonprincipal ideal shows the intersection phenomenon is not a disguised consequence of the whole ring being a principal ideal ring.
+Reconstructed the unbounded step as well as the local one. For a cutoff 2^aK, at each odd divisor t of K, sum coefficients at 2^j d over d|t for each layer j. The transform is triangular with diagonal ones. The condition lcm(d,e)|t is equivalent to both d|t and e|t; two positive two-adic layers multiply to zero. Thus the cutoff ring is a product of F_2⊕F_2^a with square-zero second summand. Each local principal ideal is the ring, zero, or one radical line, so the stated case rule produces its meet. Enlarging to 2^bL pulls back the old t-coordinate along s↦gcd(s,K) and pads the radical vectors with zeros; the same case rule commutes with both operations. For w=xr=ys, include the finite supports of both witnesses in one larger cutoff, proving equality globally and yielding the claimed support bound; iteration gives the finite-intersection statement, with zero and all-odd cutoffs included. For (C_2,C_4), the homomorphism retaining the odd-divisor-1 coordinate and layers 0,1,2 is surjective, so the image of the actual source ideal is the two-dimensional radical; a principal source ideal would have principal image. This directly justifies the nonprincipality conclusion in place of relying on the wording about the inverse image. The frozen VERIFY.py and the recorded 139,536 finite pairs were inspected without running uploaded code; the finite checks are not the proof of compatibility at arbitrary cutoffs.
 
-**Closest prior work and limitations.** Gadouleau–Johnson, *Semirings of formal sums and injective partial transformations*, arXiv:2603.26508v1, Sections 3.1–3.2 and 3.7. Guerrieri–Loper, arXiv:2002.00950, treats integral domains, hence does not cover this ring with square-zero elements. The result is specific to binary cycle sums, does not cover chains or the original natural-number coefficient semiring, and makes no assertion for infinite intersections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gadouleau–Johnson already provide the multiplication and Boolean/square-zero structure. The general meet result with a stable finite-support construction is the distinct claim: their published discussion explicitly leaves arbitrary pairs open and establishes two restricted cases. The local radical-line argument is elementary, not claimed as a new abstract theorem.
+
+## value
+
+PASS
+
+This closes an explicit general-case gap for a natural cycle ring, with an algorithm that stays within the inputs' divisor cutoff even though global multiples may use arbitrary cycles. The positive intersection theorem together with the nonprincipal two-generator sum identifies a meaningful boundary of the ring's ideal structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

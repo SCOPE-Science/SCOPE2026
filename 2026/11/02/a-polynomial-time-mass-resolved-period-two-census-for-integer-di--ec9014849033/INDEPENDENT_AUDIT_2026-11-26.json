@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:26.387176Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The finite replay certifies the two witness trees, not the general recurrence; the proof covers arbitrary labelled simple trees and fixed integer totals, not transient basins or cyclic graphs. The frozen script and log were inspected, not treated as independent evidence.",
+      "rationale": "The tree incidence matrix is injective on edge fluxes (successively remove leaves). Hence F²(x)=x is equivalent to exact reversal of every edge sign. For a parent-child sign t and fluxes q,q′ the gap is zero only if q=q′, or tk with 1≤k≤t(q−q′)−1. On a tree these gap choices integrate uniquely up to translation, and the coefficient extraction enforces q=s+sum(t). The weight z^(−m_w tk) records the child's subtree contribution to total modulo n. Each residue-matching gap configuration has one lift to a specified integer total S; F preserves S, and the only fixed configurations are constant. This gives the subtraction and division by two, including n=1. The scalar transfer costs at most O(nΔ³) exact operations (n=1 separately); width-n cyclic arrays and at most O(Δ) monomial shifts per edge-weight entry fit the stated O(n³Δ³) bound. Coefficient lengths are polynomial because each edge has O(Δ) gaps. The independent direct two-update replay matches both six-vertex vectors and totals. Up to five vertices, each feasible tree degree multiset specifies a unique shape (paths, stars and the unique five-vertex tree with degrees 1,1,1,2,3).",
+      "replay_paths": [
+        "/workspace/replay/tree_diffusion_grid.py (python3; root fixed at zero, coordinate ranges bounded by the sum of d(u)+d(v)−1 along each root path; full grid, direct time updates; A: [97,94,92,90,92,94] -> [48,47,46,45,46,47], 279; B: [65,64,66,70,66,64] -> [32,32,33,35,33,32], 197)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long–Narayanan prove eventual period dividing two on all finite graphs but supply no relevant counts in the statement inspected.",
+          "The cut-degree conserved-mass enumerator and the complete rooted d-ary recurrence concern degree-threshold parallel chip-firing with nonnegative chips, not sign-gradient diffusion."
+        ],
+        "reasoning": "Wider graph coverage of eventual periodicity does not calculate the orbit distribution. The other mass-transfer constructions apply different dynamics and do not give the claimed census by specialization.",
+        "searches": [
+          "Primary literature lookup for tree diffusion periodic configuration census",
+          "arXiv:1609.05792",
+          "arXiv:1704.04295",
+          "Resultary: 5004d505b623, d45dad7c82d0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof, VERIFICATION.md, tree_diffusion_verify.py and tree_diffusion_verify.log",
+        "arXiv:1609.05792, 1704.04295, 2010.04750, 2010.07745",
+        "Resultary 5004d505b623, d45dad7c82d0, f915d6fb5be9, 8f481ff2628e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star Finding gives a one-residue correction to a uniform orbit count and the bistar Finding gives a group-ring polynomial for every labelled bistar; neither gives a closure rule for arbitrary subtrees.",
+          "The path's local multipliers and known edge reversal can motivate the construction but do not state or yield the arbitrary-tree mass DP without the boundary-flux transfer and subtree-size weights."
+        ],
+        "reasoning": "Credit explicit overlap on stars and bistars regardless of unresolved same-day ordering. The arbitrary branching and residue-weighted junctions are the distinct content.",
+        "searches": [
+          "arXiv:2010.04750, §3",
+          "Resultary local primary Findings f915d6fb5be9 and 8f481ff2628e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mullen–Nowakowski–Cox give a path recurrence for p₂-orientations and count normalized path configurations via local multipliers. The present transfer handles arbitrary branching and retains total modulo n."
+        ],
+        "reasoning": "A scalar orientation or gap count on paths is not equivalent to the full labelled-tree residue transfer. Common translation changes total by n, so the residue profile and the fixed-total counts are equivalent, not independent novelty claims.",
+        "searches": [
+          "Resultary: sign-gradient diffusion, period-two orbit counts on trees, mass residues and translation classes",
+          "arXiv:2010.04750, Theorem 3 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The recorded vectors for the degree twins match direct independent enumeration. The star and bistar findings supply exact data for restricted families; no same-dynamics all-tree or degree-twin table was identified in the bounded check."
+        ],
+        "reasoning": "The witnesses are not accepted as new merely because their numbers differ from a table. The substantive comparison is between distinct labelled tree shapes with identical degree multisets, whose all-mass profiles and orbit counts differ.",
+        "searches": [
+          "Resultary degree-multiset and fixed-mass two-cycle census comparisons; exact star and bistar hits f915d6fb5be9 and 8f481ff2628e",
+          "Frozen tree_diffusion_verify.log, lines 24–25"
+        ]
+      },
+      "rationale": "Credit prior edge-reversal dynamics, orientation/gap counting on paths, and exact mass-resolved restricted tree families. The supported distinct result is the polynomial-time fixed-total residue census for arbitrary labelled trees in sign-gradient diffusion, with an exact degree-twin obstruction. No equivalent arbitrary-tree result was evidenced in the examined comparisons.",
+      "residual_risks": [
+        "Not an exhaustive literature search; historical equivalence to an unlocated transfer is possible.",
+        "Ordering of the overlapping same-day star and bistar results is unresolved, with no priority claim for their special cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dynamics precedent",
+          "evidence": "Introduces the sign-comparison transfer and periodicity results, not the all-tree mass census in the inspected statement.",
+          "identifier_or_url": "arXiv:1609.05792v1",
+          "material_read": "p. 1, opening statements",
+          "method": "Lawful OA primary text",
+          "title": "A Variation on Chip-Firing: the diffusion game",
+          "trigger": "Origin of the identical sign-gradient rule"
+        },
+        {
+          "assessment": "Prior covers periodicity, not enumeration",
+          "evidence": "Eventual periods are at most two; this does not count their mass-resolved states.",
+          "identifier_or_url": "arXiv:1704.04295v1",
+          "material_read": "p. 1, abstract and theorem statement",
+          "method": "Lawful OA primary text",
+          "title": "Diffusion on graphs is eventually periodic",
+          "trigger": "Potential broader general-graph coverage"
+        },
+        {
+          "assessment": "Genuine restricted-family precedent",
+          "evidence": "The recurrence R_n=R_(n−1)+2R_(n−2)−R_(n−4) concerns path orientations. Section 3 fixes a path endpoint at zero and uses local multiplicities.",
+          "identifier_or_url": "arXiv:2010.04750v1",
+          "material_read": "p. 1 abstract; Theorem 3 p. 11; §3 starting p. 13",
+          "method": "Lawful OA primary text",
+          "title": "Counting Path Configurations in Parallel Diffusion",
+          "trigger": "Same dynamics and exact recurrence"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Complete-graph counts do not give the labelled-tree mass enumeration.",
+          "identifier_or_url": "Integers 22 (2022); preprint arXiv:2010.07745",
+          "material_read": "pp. 1–2, introductory scope",
+          "method": "Lawful OA primary text",
+          "title": "Diffusion and Polyominoes",
+          "trigger": "Exact counts in same dynamics"
+        },
+        {
+          "assessment": "Restricted same-model overlap",
+          "evidence": "A closed fixed-total orbit formula for labelled stars with one exceptional residue.",
+          "identifier_or_url": "Resultary f915d6fb5be9",
+          "material_read": "Finding",
+          "method": "Local indexed primary text",
+          "title": "A one-residue anomaly in the recurrent orbit census of star diffusion",
+          "trigger": "Same-day mass-resolved overlap"
+        },
+        {
+          "assessment": "Restricted same-model overlap",
+          "evidence": "Exact orbit totals and group-ring residue polynomial for labelled bistars.",
+          "identifier_or_url": "Resultary 8f481ff2628e",
+          "material_read": "Finding",
+          "method": "Local indexed primary text",
+          "title": "Exact recurrent orbit and minimum resource laws for integer diffusion on bistars",
+          "trigger": "Same-day group-ring overlap"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": "Uses threshold firing and nonnegative chips rather than edgewise sign transfers.",
+          "identifier_or_url": "Resultary 5004d505b623",
+          "material_read": "Finding and assumptions",
+          "method": "Local indexed primary text",
+          "title": "Cut-degree census and maximum-cut thresholds for period-two chip-firing",
+          "trigger": "General conserved-mass result on trees"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": "Two-variable transfer in degree-threshold parallel chip-firing.",
+          "identifier_or_url": "Resultary d45dad7c82d0",
+          "material_read": "Finding and model scope",
+          "method": "Local indexed primary text",
+          "title": "Primitive two-cycle entropy and root boundary law on complete rooted trees",
+          "trigger": "Close rooted recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite residue vector replaces infinite enumeration with exact computation at every conserved total for every tree. The smallest structural degree-twin witness demonstrates that degree statistics cannot substitute for connectivity information in this census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

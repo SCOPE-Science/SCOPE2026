@@ -5,7 +5,7 @@ Choose uniformly a two-dimensional *simple jump path* from \((n,n)\) to \((0,0)\
 \[
 X_n(u)=\#\{i\le K_n:S_i\ge u\},\qquad L_n=\max_{i\le K_n}S_i.
 \]
-**Theorem.** For any integer sequence \(u_n\) such that
+**Theorem.** Along any sequence of positive integers \(n\to\infty\) (in particular, an arbitrary subsequence of sizes), let \(u_n\ge2\) be integer thresholds such that
 \[
 \lambda_n=n u_n 2^{-u_n}\longrightarrow\lambda\in(0,\infty),
 \]
@@ -19,13 +19,13 @@ for every fixed \(j\ge1\), with \(S^{\downarrow}_{n,j}\) the \(j\)-th largest ga
 \[
 L_n=\log_2 n+\log_2\log_2 n+O_{\mathbb P}(1).
 \]
-The fluctuations are lattice-valued and do **not** generally have one phase-independent centered limiting law. For example, along \(n_t=2^{2^t}\), for every fixed integer \(h\),
+There is no centered limiting law for \(L_n-\log_2 n-\log_2\log_2 n\) along all integer sizes. For example, along \(n_t=2^{2^t}\), for every fixed integer \(h\),
 \[
 \Pr(L_{n_t}<2^t+t+h)\longrightarrow\exp(-2^{-h}).
 \]
 
 ## Assumptions and scope
-The path starts at \((n,n)\), includes its terminal step to the origin, and every coordinate of every step is a strictly positive integer. The path is selected uniformly from *all* lengths, not conditioned on its number of steps. Gap *sum* is the \(\ell^1\)-size \(A_i+B_i\), **not** the Euclidean gap length or the largest single coordinate. Integers \(n\) tend to infinity. The Poisson theorem concerns fixed factorial-moment order and thresholds with the specified positive finite limit. The extreme-value statements concern any fixed successive rank. All logarithms with subscript 2 are base two.
+The path starts at \((n,n)\), includes its terminal step to the origin, and every coordinate of every step is a strictly positive integer. The path is selected uniformly from *all* lengths, not conditioned on its number of steps. Gap *sum* is the \(\ell^1\)-size \(A_i+B_i\), **not** the Euclidean gap length or the largest single coordinate. The Poisson theorem is a subsequential limit statement with the specified positive finite intensity limit; the tightness statement is for the full sequence of integer sizes. The extreme-value statements concern any fixed successive rank. All logarithms with subscript 2 are base two.
 
 ## Proof
 **1. Exact composition model and concentration of length.** A strict path of length \(k\) is equivalently a pair of ordered positive \(k\)-compositions \((A_1,\ldots,A_k)\) and \((B_1,\ldots,B_k)\), each summing to \(n\). There are exactly \(\binom{n-1}{k-1}^2\) such paths, hence by Vandermonde there are \(\binom{2n-2}{n-1}\) paths in total. Conditionally on \(K_n=k\), the two compositions are independent and separately uniform. The variable \(K_n-1\) has a hypergeometric law with population size \(2n-2\), \(n-1\) marked items, and sample size \(n-1\). Thus \(\mathbb E K_n=(n+1)/2\), and the hypergeometric Hoeffding bound implies
@@ -48,13 +48,13 @@ whenever the displayed compositions are feasible. Here \((z)_{\underline j}=z(z-
 \]
 The same formula applies independently to \(B_1,\ldots,B_r\), yielding joint probability \(2^{-\sum_i(a_i+b_i)}(1+o(1))\) for selected gap vectors of total size \(O_r(\log n)\).
 
-The restriction to small sizes causes no loss in the rare-event range. In fact, for any \(v\ge0\) and central \(k\), one coordinate of one step satisfies
+The restriction to small sizes causes no loss in the rare-event range. In fact, for any integer \(v\ge0\) and central \(k\), one coordinate of one step satisfies
 \[
 \Pr(A_i>v\mid K_n=k)=
 \frac{\binom{n-v-1}{k-1}}{\binom{n-1}{k-1}}
 \le\left(\frac{n-k}{n-1}\right)^v\le 0.51^v
 \]
-for all sufficiently large \(n\), with zero understood beyond the feasible range. Consequently \(\Pr(S_i>T\mid k)\le2(0.51)^{T/2}\). For each fixed \(r\), choose \(T=C_r\log_2 n\) with \(C_r\) large enough that the probability any one of \(r\) selected gaps exceeds \(T\) is \(o(n^{-r})\). In the independent geometric comparison, the same truncation is also \(o(n^{-r})\).
+for all sufficiently large \(n\), with zero understood beyond the feasible range. Consequently \(\Pr(S_i>T\mid k)\le2(0.51)^{\lfloor T/2\rfloor}\). For each fixed \(r\), choose \(T=C_r\log_2 n\) with \(C_r\) large enough that the probability any one of \(r\) selected gaps exceeds \(T\) is \(o(n^{-r})\). In the independent geometric comparison, the same truncation is also \(o(n^{-r})\).
 
 **3. Joint rare-gap probabilities.** For independent positive-geometric variables \(G_1,G_2\), with \(\Pr(G_i=a)=2^{-a}\) for \(a\ge1\), their sum has
 \[
@@ -83,7 +83,7 @@ On the noncentral event, \((X_n)_{\underline r}\le n^r\), so its unconditional c
 \[
 n_tu_t2^{-u_t}=(1+(t+h)2^{-t})2^{-h}\longrightarrow2^{-h},
 \]
-which gives the displayed explicit lattice-phase law. \(\square\)
+which gives the displayed explicit lattice-phase law. To verify the absence of a full-sequence centered limit, also take \(n'_t=\lfloor 2^{2^t+1/2}\rfloor\). Here \(b_{n'_t}=2^t+t+1/2+o(1)\), and at the threshold \(2^t+t+h\) the intensity tends to \(2^{1/2-h}\). For each real \(z\in(0,1/2)\) the event \(L_n-b_n\le z\) is equivalent to \(L_n<2^t+t+1\) for both sequences (eventually). Its probabilities approach \(e^{-1/2}\) and \(e^{-2^{-1/2}}\), respectively. Since any candidate limiting distribution has a continuity point in that interval, a full-sequence weak limit is impossible. These same two phases explain the subsequence qualification: a positive finite intensity limit would require \(u_n-b_n\to-\log_2\lambda\), which cannot hold at both phases with integer \(u_n\). \(\square\)
 
 ## Verification
 The executable `verify.py` independently enumerates all pairs of same-length positive compositions for \(2\le n\le8\), checks the total \(\binom{2n-2}{n-1}\), and compares the complete maximum-gap threshold counts with a separate dynamic program based on the polynomial \(\sum_{a,b\ge1,\ a+b<u}x^a y^b\). It checks 70 threshold identities. These finite calculations are reproducibility tests; the Poisson limit, sharp location, and lattice-phase formula rely on the preceding proof, not numerical extrapolation.
@@ -97,4 +97,4 @@ Only two-dimensional **simple**, strictly decreasing paths with equal starting c
 ## References
 1. N. Borade, D. Cai, D. Z. Chang, B. Fang, A. Liang, S. J. Miller and W. Xu, *Gaps of Summands of the Zeckendorf Lattice*, arXiv:1909.01935v1 (first public 4 September 2019), https://arxiv.org/abs/1909.01935 ; Fibonacci Quarterly 58 (2020), 143–156, DOI:10.1080/00150517.2020.12427596.
 2. A. Bower, R. Insoft, S. Li, S. J. Miller and P. Tosteson, *The Distribution of Gaps between Summands in Generalized Zeckendorf Decompositions*, arXiv:1402.3912 (2014), https://arxiv.org/abs/1402.3912.
-3. *Rigorous decorrelation of part count and maximum in uniform compositions*, mathematical-record publication (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31 ; concerns single-composition maxima, not paired-coordinate gap sums.
+3. *Rigorous decorrelation of part count and maximum in uniform compositions* (2026), https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31 ; concerns single-composition maxima, not paired-coordinate gap sums.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python checker.py` from a directory with Python 3 and SymPy. The program enumerates every injective word and computes every ordered semigroup product for the cases \(n=1,2,3,4\), verifying commutation is exactly prefix comparability. It constructs the full \(2\)-, \(5\)-, \(16\)-, and \(65\)-vertex adjacency matrices directly and checks exact symbolic characteristic polynomials against the formula from the theorem. It verifies the noncentral decomposition and all \(-1\) multiplicities in those cases.
+## correctness
 
-The same checker independently calculates quotient determinants, exceptional-root derivatives, and the required principal minors through \(k=10\), and checks the claimed characteristic degrees and exponent sums through \(n=15\). It emits three markers: `DIRECT_ALL_PRODUCTS_AND_FULL_CHARPOLY_PASS`, `RADIAL_MINUS_ONE_SIMPLE_AND_MINOR_PASS`, and `DEGREE_AND_MULTIPLICITY_IDENTITIES_PASS`.
+PASS
 
-These finite checks do not establish the infinite theorem; the proof is the orthogonal invariant-space decomposition and determinant argument in `RESULT.md`. The counting-graph convention includes the empty word, with a separate noncentral corollary. The only assumed dependency is SymPy for symbolic matrices and polynomials. No external audit or formal proof certification has been performed.
+Both products begin with their left word; equality forces prefix comparability, which conversely gives commutation. For the resulting strict ancestor graph, the level-constant restriction has one ancestor per earlier level and the stated factorial number of descendants per later level. For a vertex with k+1 children, weights orthogonal to the all-ones vector on children cancel the adjacency contribution at the vertex itself and all its ancestors, while each child's radial coordinates act by H_k. Nested contrast spaces are orthogonal by levelwise cancellation; disjoint subtrees are orthogonal by support. Completeness can be checked at each absolute depth j: if N_d=n!/(n−d)!, the dimensions at that depth add to 1+Σ_{d<j}N_d(n−d−1)=1+Σ_{d<j}(N_{d+1}−N_d)=N_j. The restrictions are self-adjoint in the positive weights k!/(k−i)! on the levels. For M=H_k+I the last two rows and columns coincide. In the leading k-square minor, differencing successive rows produces pivots k−1 through 1 and a last first-column entry 1, hence determinant (−1)^(k−1)(k−1)!. All principal cofactors vanish except the two equal ones at the endpoints of the identical pair. This gives P'_k(−1)=−2(k−1)! and telescoping exponents give n!. The k=1 minor is [1]. For n≥2 the empty word alone is central; deleting it partitions the graph by first letter into n copies of the smaller graph.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the explicit orthogonal adjacency decomposition into depthwise sibling modes with identified factorial-sized quotient entries and block multiplicities, and the simple-root derivative for each radial block. The prefix graph itself occurs in older work; the bulk characteristic polynomial is recoverable algebraically from a prior trivially perfect graph recursion, and the whole-graph −1 count is covered by general cograph multiplicity results. Neither bare spectral computability nor the whole-graph −1 count is independent novelty.
+
+## value
+
+PASS
+
+The orthogonal block spaces identify actual adjacency modes, not only a factorization or an eigenvalue count. They give a constructive eigenfunction reduction from a graph with factorially many vertices to depth quotients of size at most n+1 and locate each copy at a specific prefix with levelwise cancellation. This is useful for adjacency representation and eigenfunction questions where a characteristic polynomial or a congruence algorithm cannot recover the modes. The analysis of −1 within each radial block further identifies how that repeated eigenvalue is assembled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

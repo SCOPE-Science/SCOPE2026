@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:38:15.670980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 5–44 and example at line 54",
+        "Assigned VERIFICATION.md and verify.py (inspected, not executed)",
+        "`python3 /workspace/independent_checks.py`, squareful"
+      ],
+      "rationale": "Reduce modulo p²: the conditional sample consists of p⁴−p² equally likely primitive pairs. When y is zero modulo p, x is a unit and every form is a unit. Otherwise, writing z=x/y, a form can be divisible by p only at its two simple unit roots if its slope is a nonzero square modulo p. Each represented square slope thus occupies two separate projective directions of mass 1/(p+1) each. In either direction a matching form allows exactly one of the p residual lifts of z, by the nonzero derivative 2z modulo p. Two such lifts coincide exactly when the slopes agree modulo p², since the congruence is z²=t_i. A coherent fiber keeps 1/p of the mass in its two directions; an incoherent one keeps none. This gives the stated conditional density including s=0, where there are no exclusions. Every incoherent fiber needs a second form, so h≥max(0,2s−k); the bound is realizable for all allowable s≥1 with two distinct unit lifts on the required fibers and repetitions for any excess forms. The objective s−max(0,2s−k)/p is strictly increasing, with slopes 1 and 1−2/p>0, giving s=m and the exact equality criterion, including saturation k≥p−1. Independently enumerated the forbidden residue pairs and all 12031 unordered families of unit slopes modulo p² across (p,k)=(3,1…5),(5,1…4),(7,1…2), including nonsquare slopes and repeated forms. The exact minima, all minimizers and joint counts agreed.",
+      "residual_risks": [
+        "The supplied verifier's random families use only square slopes; the independent check includes nonsquares and the analytic argument covers all permitted unit coefficients. No p=2 or global claim was checked or inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shute §3 treats three linear forms with the same valuation exclusion, and §6.1 treats one diagonal quadratic form. These are weighted Campana factors in a global leading-constant framework. Pohl proves a global asymptotic for one binary diagonal quadratic form and computes character-weighted local integrals."
+        ],
+        "reasoning": "The weights, family of forms and objectives differ. A general local-measure framework for simultaneous exclusions does not itself give the exact shared-root multiplicity objective, its attainment at exactly k forms, or all its minimizers. The submitted theorem does not purport to compare or extend global counting asymptotics.",
+        "searches": [
+          "Primary search: squareful Campana Shute Pohl simultaneous binary quadratic forms local density valuation exactly one",
+          "Resultary: Campana local density simultaneous forms",
+          "Shute §§3 and 6.1; Pohl Introduction, §5 and §7.2.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f6b288710442, actual Finding",
+        "Shute arXiv:2104.14946v2 §§3, 6.1",
+        "Pohl arXiv:2610.20316v1 Introduction, §§5, 7.2.4",
+        "Assigned RESULT.md prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-form weighted projective factor does not encode collisions even for two forms. The two-polynomial law can yield the two-form answer but does not optimize over how a budget of k forms populates (p−1)/2 square-slope fibers. The submitted exact optimization uses a second distinct lift in each incoherent fiber and proves the minimum requires maximum coverage of square slopes."
+        ],
+        "reasoning": "Nothing inspected supplies the joint minimizers or the sharp transition to the density floor at k=p−1 as a special case. The distinction is the explicit arbitrary-family and extremal calculation, not use of root lifting or of Campana language. Index dates are not used to decide discovery order.",
+        "searches": [
+          "f6b288710442, RESULT.md Finding, offset 0",
+          "Shute §6.1 pp. 21–22, eqs. (6.1)–(6.2) and Lemma 6.2",
+          "Pohl §7.2.4, eq. (7.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f6b288710442 determines the joint valuation law of two simple-root polynomials from the congruence depth of Hensel roots. The unit-y chart rewrites the fixed diagonal forms as a_i z²+b_i, so this directly supplies the joint avoidance probability for k=2 after adjusting the primitive chart mass.",
+          "Shute identifies the equivalent single-form projective Campana condition v_p(ax²+by²)−2min(v_p(x),v_p(y))≠1."
+        ],
+        "reasoning": "At k=2 the collision content is covered after this chart reduction. A bivariate joint law is not a statement about an arbitrary indexed family, and no accompanying fixed-k extremal theorem was found. The classical lifting mechanism itself is not claimed as novel.",
+        "searches": [
+          "Resultary: collision dependence modulo p squared; Hensel-root collisions; exact joint squareful density and shared primitive input",
+          "Resultary f6b288710442, RESULT.md Finding",
+          "Shute arXiv:2104.14946v2, §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching indexed statement inspected was f6b288710442, which provides exact finite-depth joint tails for two simple-root polynomials. It does not index or tabulate the k-form minimum over all admissible families."
+        ],
+        "reasoning": "It is exact positive coverage for an important slice but does not cover the all-k extremal invariant. No matching table or theorem for that invariant surfaced in the bounded search; this is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: joint p-adic density simultaneous squareful values; sharp minimum local density k quadratic forms; exact joint squareful density and shared primitive input"
+        ]
+      },
+      "rationale": "The supported distinction is the all-k shared-input local density and especially its sharp optimization and full equality conditions. The literature covers the single-form valuation constraint and Campana factors; a distinct indexed root-collision result covers the two-form mechanism. Neither inspected statement furnishes the arbitrary-family optimization or its saturation threshold and equality conditions.",
+      "residual_risks": [
+        "An unindexed equivalent may occur in broader local-sieve or Campana work. The k=1 setting and two-polynomial collision mechanism are not distinctive contributions of this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two-form reduction; not the stated k-family extremum",
+          "evidence": [
+            "Two polynomials with simple roots modulo an odd prime; exact law from Hensel root collision depths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadr--f6b288710442",
+          "material_read": "RESULT.md Finding, offset 0, statement of joint law and finite-depth counts",
+          "method": "Resultary and local mirror",
+          "title": "A root-collision law for joint polynomial valuations (Resultary)",
+          "trigger": "Same collision mechanism and plausible stronger theorem"
+        },
+        {
+          "assessment": "Multiple linear forms and single diagonal quadratic case with weighted factors",
+          "evidence": [
+            "Primitive valuation-one exclusion for a single quadratic form; good-prime factor depends on the split/nonsplit symbol. The triple-condition example uses z_0, z_1, z_0+z_1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14946",
+          "material_read": "§3 pp. 12–14, eqs. (3.8)–(3.10) and Lemma 3.1; §6.1 pp. 21–22, eqs. (6.1)–(6.2) and Lemma 6.2",
+          "method": "Open primary PDF passages",
+          "title": "On the leading constant in the Manin-type conjecture for Campana points",
+          "trigger": "Same squareful exclusion on primitive pairs and multiple local conditions"
+        },
+        {
+          "assessment": "Single-form result and weighted local factor, not a joint extremum",
+          "evidence": [
+            "The good-prime domain is expressed through v_p(az²+b); I_p(z) is a weighted integral. Remark 5.1 relates a special case to Shute’s factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.20316v1",
+          "material_read": "Introduction, §5 eq. (5.4) and Remark 5.1, §7.2.4 good-prime domain and eq. (7.5)",
+          "method": "Open primary HTML passages",
+          "title": "S-squareful values of binary quadratic forms",
+          "trigger": "Single-form global and local results in the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md Finding, proof and p=5 comparison",
+        "Shute §6.1; Pohl §7.2.4; Resultary f6b288710442"
+      ],
+      "rationale": "A simultaneous local test on a common primitive input cannot in general use a product of single-form factors, or even reconstruct the answer from the slopes modulo p alone. The exact formula identifies the second residue digit that matters and gives a sharp nonzero floor, the exact family size needed to reach it, and all extremizers. This is useful for bounding local obstructions uniformly with many constraints; the parameter range and the extremal gap are natural, not just selected finite instances. No downstream global conclusion is needed or asserted.",
+      "residual_risks": [
+        "Restricted to odd good primes and primitive pairs; the formulas do not imply any global squareful asymptotic or Euler product convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

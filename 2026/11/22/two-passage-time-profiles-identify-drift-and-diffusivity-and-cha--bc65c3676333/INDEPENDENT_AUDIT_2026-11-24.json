@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:51:52.315012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the finite interval with absorption at 0 and normal reflection at L, the mixed backward equations are L tau=-1 and L m2=-2 tau. The diffusion product rule gives L v=-2D(tau')^2. Multiplying this equation by tau' and subtracting v' times the mean equation gives DW=v'. With I=exp(integral b/D), the derivatives are I(x)^(-1) times the rightward integrals of I/D and 2I(tau')^2, respectively, so both are strictly positive for x<L. Substituting the inverse coefficients, with the stipulated C1 uniformly elliptic extension and the four mixed conditions, solves both equations; a homogeneous difference has derivative proportional to 1/I, zero at L, and value zero at 0. This proves both realization and uniqueness including the limiting coefficients at L. Writing s=L-x gives tau'(L-s)=s/D(L)+O(s^2); the variance integral then gives v'(L-s)=2s^3/(3D(L)^2)+O(s^4), with the stated quartic constant on integration. In the mean-blind family the two terms in L tau cancel the eta-dependence, and the integrand ratio sqrt((1+eta s^2)/(1+eta u^2)) is strictly increasing in eta for 0<u<s. At eta=0 the exact variance is [1-(1-x)^4]/6. The frozen numerical checker was inspected, not used as a proof or replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keidar et al., equations (1)–(4): absorbing half-line, prescribed constant diffusivity, unknown potential",
+          "Bal and Chou, abstract and introduction: full first-exit distribution at a fixed starting point and a priori coefficient information",
+          "Only landing/abstract material obtained for Xiang et al.; full text not assessed"
+        ],
+        "reasoning": "Neither an inversion with known diffusivity nor one with a priori spatial coefficient data implies this regular two-function realization theorem. Time-resolved state moments likewise do not follow from the two passage-time profiles. The Xiang article remains an access risk, not evidence for or against coverage.",
+        "searches": [
+          "The Inverse Mean First-Passage Time Problem, arXiv:2611.03831v1",
+          "Bal and Chou, On the reconstruction of diffusions from first-exit time distributions, DOI 10.1088/0266-5611/20/4/004",
+          "Xiang, Zhou and Xiang, DOI 10.3390/math14142586"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Configured Resultary with two closely related mirror records",
+        "arXiv:2611.03831v1",
+        "Bal–Chou 2004 author PDF",
+        "arXiv:1702.06859",
+        "DOI 10.3390/math14142586 landing/abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The moment hierarchy yields two coefficient equations but does not assert their invertibility, positivity of W, or endpoint-compatible realization",
+          "The paired-mean inversion results require two experiments with altered boundary conditions or altered reset rates; the present equations use a single generator with two different right hand sides"
+        ],
+        "reasoning": "The standard moment equations are ingredients rather than a stronger identification result: invertibility for all interior starting positions relies on positivity of two rightward integrals, and endpoint compatibility and the quartic scaling require the mixed boundary analysis. No separate novelty is assigned to the backward equations or elimination of a two-by-two system.",
+        "searches": [
+          "Bal and Chou introduction, pp. 1, 3",
+          "arXiv:2611.03831v1, equations (1)–(4)",
+          "Resultary local-mirror RESULT.md findings for the opposite-boundary and paired-reset-rate claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 37–59; raw second moment m2=v+tau^2 gives the same data",
+          "Theorem 2.3 and Corollary 2.4 of arXiv:1702.06859 use short-time process moments, not passage moments",
+          "Resultary two-boundary mean tomography and two-reset-rate records use different mean profiles"
+        ],
+        "reasoning": "Searching both moment and coefficient-identification formulations matters because replacing variance by the raw second moment is exactly equivalent. An opposite-boundary mean or a mean under a second reset rate is not such a reparametrization of the observations; those results do not supply the required passage-variance profile or its wall signature.",
+        "searches": [
+          "Resultary: mean variance spatial profiles uniquely reconstruct unknown drift and diffusivity on one-dimensional interval absorbing reflecting boundary inverse first passage",
+          "Literature: inverse diffusion identify unknown drift and diffusivity from mean and variance first passage time profiles reflecting absorbing boundary moment equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself, SCOPE-two-boundary-mean-passage-tomography-a-complete-compatibility-cr--5d128ff35a13, and SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb were the materially close hits"
+        ],
+        "reasoning": "The theorem classifies compatible functions, not a tabulable finite invariant. An indexed statement is relevant instead; the self-hit is not independent coverage and the other hits require different input data.",
+        "searches": [
+          "Configured Resultary search for mean/variance reflecting–absorbing spatial-profile identification; inspected neighboring two-boundary and two-reset-rate records"
+        ]
+      },
+      "rationale": "Credit the classical backward moment hierarchy and the algebraic nature of elimination. The supported distinction is the explicit identification and necessary-and-sufficient realization from the first two full spatial passage-time moments for this same mixed-boundary diffusion, with the wall signature. The inspected closely related coefficient-identification results need different data or stronger prior information. This is a best-of-knowledge comparison, not a priority certification.",
+      "residual_risks": [
+        "Full text of Xiang et al. not verified; an equivalent result in the inverse-passage literature or in terms of raw moments could predate the record",
+        "The catalogue lookup does not establish priority"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observation and known diffusivity",
+          "evidence": [
+            "One mean profile on an absorbing half-line with fixed D; reconstructs potential"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03831v1",
+          "material_read": "Abstract and equations (1)–(4), HTML offsets 0–2886 and 5480–7974",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "The Inverse Mean First-Passage Time Problem",
+          "trigger": "Directly related inverse-passage result"
+        },
+        {
+          "assessment": "Different observables and a priori coefficient information",
+          "evidence": [
+            "Distribution at fixed initial condition rather than two moment functions over starting points"
+          ],
+          "identifier_or_url": "https://www.stat.uchicago.edu/~guillaumebal/PAPERS/FirstExit.pdf",
+          "material_read": "Abstract p. 1 and introduction p. 3; extraction offsets 0 and 4918–7341",
+          "method": "Author-hosted primary OA PDF",
+          "title": "On the reconstruction of diffusions from first-exit time distributions",
+          "trigger": "Potential broader inverse first-exit theorem"
+        },
+        {
+          "assessment": "Short-time state process moments, not passage moments",
+          "evidence": [
+            "First and second moments of X_t for small positive time and initial data in a small set"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1702.06859",
+          "material_read": "Theorem 2.3 and Corollary 2.4, HTML offsets 12700–14986",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "Simultaneous determination of the drift and diffusion coefficients in stochastic differential equations",
+          "trigger": "Same unknowns and two-moment language"
+        },
+        {
+          "assessment": "Full strength unverified; frozen record reports scalar Brownian-model identification",
+          "evidence": [
+            "Do not treat limited landing material as excluding stronger results"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14142586",
+          "material_read": "Landing/abstract material only; publisher PDF full text not available via attempted OA access",
+          "method": "Publisher article and PDF lookup",
+          "title": "Moment-Based Identification of Diffusion Generators via First Hitting Times",
+          "trigger": "Closest cited moment-based title"
+        },
+        {
+          "assessment": "Different data; no priority inferred from same-day date",
+          "evidence": [
+            "Both inputs are means, with opposite endpoint orientations"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-boundary-mean-passage-tomography-a-complete-compatibility-cr--5d128ff35a13",
+          "material_read": "RESULT.md finding and assumptions, offsets 0–2923",
+          "method": "Configured Resultary and local-mirror reader",
+          "title": "Two-boundary mean-passage tomography",
+          "trigger": "Close indexed coefficient and compatibility theorem"
+        },
+        {
+          "assessment": "Different data; no priority inferred from same-day date",
+          "evidence": [
+            "Both inputs are means at different reset rates"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-reset-rate-first-passage-profiles-uniquely-reconstruct-drift--b85c2498a4eb",
+          "material_read": "RESULT.md finding and assumptions, offsets 0–3170",
+          "method": "Configured Resultary and local-mirror reader",
+          "title": "Two reset-rate first-passage profiles uniquely reconstruct drift and diffusivity",
+          "trigger": "Close indexed two-profile reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers a concrete inverse-data question: one spatial mean can be shared by inequivalent diffusion generators, whereas the mean and variance from the same experiment suffice and also admit a compatibility test. The boundary vanishing order both recovers wall diffusivity from a local invariant and identifies where the interior ratio has a vanishing denominator. These conclusions add usable structural information beyond the routine moment equations. This is exact profile identification, not a numerical stability or finite-sample claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

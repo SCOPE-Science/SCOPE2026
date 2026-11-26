@@ -37,7 +37,7 @@ At the excluded boundary \(t=1\), \(U=1\) produces the identity chain: it preser
 
 ## Assumptions and scope
 
-The dimension \(d\) is any positive integer; \(A\) is a fixed real symmetric positive-definite matrix, \(h>0\), and \(U\) is an arbitrary Borel probability law on \([0,1]\), independent of all current and past states and of each step's fresh Brownian motion. The law is *shared across eigendirections within a step* and independently resampled between steps. The stage noise \(W_{Uh}\) and final noise \(W_h\) are Brownian increments on the same step, **not independent noise draws**. The fixed-time target is the exact equilibrium of the stated OU diffusion. Stationarity and unique finite-variance equilibrium mean a genuine contractive Markov chain, not merely an invariant distribution of the identity map.
+The dimension \(d\) is any positive integer; \(A\) is a fixed real symmetric positive-definite matrix, \(h>0\), and \(U\) is an arbitrary Borel probability law on \([0,1]\), independent of all current and past states and of each step's fresh Brownian motion. The law is *shared across eigendirections within a step* and independently resampled between steps. The stage noise \(W_{Uh}\) and final noise \(W_h\) are Brownian increments on the same step, **not independent noise draws**. The fixed-time target is the exact equilibrium of the stated OU diffusion. No centring hypothesis is imposed on a candidate stationary distribution. Preserving a single law does not constitute uniqueness of stationarity.
 
 Define \(m_1=\mathbb E U\) and \(m_2=\mathbb E U^2\). All results are exact finite-step statements, not asymptotic order conditions. The optimal contraction refers to the exact Gaussian-preserving deterministic subfamily and to convergence measured per numerical step, not per unit simulated physical time, gradient-evaluation cost, or general nonlinear-target error.
 
@@ -54,21 +54,25 @@ By \(\operatorname{Cov}(W_h,W_{uh}\mid U=u)=uhI\),
  Q(u):=\operatorname{Cov}(\xi_U\mid U=u)
  =2h(I-2uhA+uh^2A^2).
 \]
-If the current covariance is \(A^{-1}\), the next covariance minus \(A^{-1}\) is exactly
+If the current covariance is \(A^{-1}\) and the mean is \(\mu\), the law of total covariance gives
 \[
- \Delta=h^2 A\left[(1-2m_1)I+h^2m_2A^2\right].\tag{1}
+  \operatorname{Cov}(X')-A^{-1}
+  =h^2 A\left[(1-2m_1)I+h^2m_2A^2\right]
+    +\operatorname{Cov}(P(U)\mu).\tag{1}
 \]
-An invariant centered law with this covariance must have \(\Delta=0\). For every eigenvalue \(\lambda_j>0\) this is the necessary condition
-\[
-  1-2m_1+(h\lambda_j)^2m_2=0.\tag{2}
-\]
-If two eigenvalues differ, subtracting their equations forces \(m_2=0\), hence \(U=0\) almost surely and \(m_1=0\), contradicting (2). Therefore exact target covariance requires \(A=\lambda I\).
+Indeed, conditional on \(U=u\) the covariance is \(P(u)A^{-1}P(u)+Q(u)\) and the mean is \(P(u)\mu\). Expanding the conditional covariance cancels its terms of orders \(h\) and \(h^3\); the remaining terms give the first summand in (1). The second summand is positive semidefinite and may be nonzero for an uncentred input.
 
-**2. Sharp scalar threshold and existence.** With \(t=h\lambda\), the condition is \(\mathbb E q_t(U)=0\), where
+**2. Necessity, sharp scalar threshold, and existence.** Write \(t_j=h\lambda_j\) in an orthonormal eigenbasis. The first term of (1) on eigenmode \(j\) is \(h^2\lambda_j\mathbb E q_{t_j}(U)\), with
 \[
- q_t(u)=1-2u+t^2u^2=(1-u)^2+(t^2-1)u^2.
+  q_t(u)=1-2u+t^2u^2=(1-u)^2+(t^2-1)u^2.
 \]
-For \(t>1\) this polynomial is strictly positive on \([0,1]\). At \(t=1\) its expectation vanishes precisely for \(U=1\), where \(P=I\) and \(Q=0\): the chain is exactly the identity. For \(0<t<1\), the polynomial decreases strictly on \([0,1]\) and has a unique root
+If any \(t_j>1\), that mode has strictly positive covariance defect even before the nonnegative mean contribution is added, ruling out stationary target covariance. If any \(t_j=1\), stationarity of its target variance forces \(\mathbb E(1-U)^2=0\), so \(U=1\) almost surely. Now the mean contribution vanishes, and (1) forces \(q_{t_i}(1)=t_i^2-1=0\) for every mode \(i\). Thus all \(t_i=1\), where \(P=I\), \(Q=0\), and the chain is the identity with no unique stationary distribution.
+
+It remains to consider \(0<t_j<1\) for every \(j\). Then \(0<1-t_j\le R_{t_j}(U)\le1-t_j+t_j^2<1\). A stationary finite mean satisfies \(\mu=\mathbb E[P(U)]\mu\) and is therefore zero. Now (1) requires
+\[
+  1-2m_1+(h\lambda_j)^2m_2=0\quad\text{for every }j.\tag{2}
+\]
+If two eigenvalues differ, subtracting their equations forces \(m_2=0\), hence \(U=0\) almost surely and \(m_1=0\), contradicting (2). Therefore \(A=\lambda I\), and with \(t=h\lambda\) the condition is \(\mathbb E q_t(U)=0\). For \(0<t<1\), the polynomial decreases strictly on \([0,1]\) and has a unique root
 \[
  \alpha_t=(1-\sqrt{1-t^2})/t^2
  =1/(1+\sqrt{1-t^2})\in(1/2,1).
@@ -84,7 +88,7 @@ The random affine chain is thus uniformly contractive, and its series of past in
  V_{k+1}=\mathbb E R_t(U)^2\,V_k
        +\mathbb E[2h(1-2tU+t^2U)].
 \]
-The difference between the right-hand side evaluated at \(V=\lambda^{-1}\) and \(\lambda^{-1}\) is \(h^2\lambda\,\mathbb E q_t(U)\). Therefore precisely the displayed stage laws give stationary variance \(\lambda^{-1}\). Diagonal independence of the Wiener increments implies the matrix stationary covariance \(\lambda^{-1}I\), despite possible higher-order cross-coordinate dependence from shared \(U\).
+The difference between the right-hand side evaluated at \(V=\lambda^{-1}\) and \(\lambda^{-1}\) is \(h^2\lambda\,\mathbb E q_t(U)\). Therefore precisely the displayed stage laws give stationary variance \(\lambda^{-1}\). For the centred stationary law the off-diagonal covariances are multiplied by \(\mathbb E R_t(U)^2<1\) in each step, since the conditional innovation covariance is a scalar multiple of \(I\); hence those covariances vanish. Higher-order cross-coordinate dependence from shared \(U\) is still possible.
 
 **3. The complete Gaussianity obstruction and fourth cumulant.** Fix one coordinate and let \(v=\lambda^{-1}\), \(r=R_t(U)\) and \(s=2h(1-2tU+t^2U)\). If \(X\sim\mathcal N(0,v)\), then conditional on \(U\), the next iterate is \(\mathcal N(0,r^2v+s)\). Its unconditional variance equals \(v\) for a calibrated law. Its fourth moment equals \(3\mathbb E(r^2v+s)^2\), exceeding \(3v^2\) unless \(r^2v+s=v\) almost surely. The difference equals \(h^2\lambda q_t(U)\), and \(q_t\) is strictly decreasing for \(0<t<1\); hence target Gaussian invariance requires and is achieved by the single deterministic stage \(U=\alpha_t\).
 
@@ -118,7 +122,7 @@ At \(\lambda=1\), \(t=3/5\), the deterministic calibrated stage is \(\alpha_t=5/
 
 ## Relationship to prior work
 
-He, Balasubramanian and Erdogdu (2020), particularly their Section 2 and RLMC update, study uniform-stage randomized midpoint overdamped Langevin sampling and general stationary bias / convergence. The present proof uses that precisely identified update, but changes the intermediate-stage law and establishes an *exact finite-step Gaussian covariance/law classification*, a sharp stage threshold, and a unique calibrated mixing optimum not implied by their uniform-stage asymptotic results.
+He, Balasubramanian and Erdogdu, particularly Section 2 of arXiv:2011.03176v2, study uniform-stage randomized midpoint overdamped Langevin sampling and general stationary bias / convergence. Their two normalized Gaussian noise vectors have conditional cross-covariance \(\sqrt{U}I\), as in the shared-increment update here. The present proof changes the stage law and establishes an *exact finite-step Gaussian covariance/law classification*, a sharp stage threshold, and a unique calibrated mixing optimum not implied by their uniform-stage bias bounds.
 
 Shen and Lee (2019) develop a randomized midpoint framework for **underdamped** Langevin dynamics rather than the present overdamped Gaussian-stage classification. Laurent and Vilmart (2017) provide general long-time invariant-measure order analysis for stochastic Runge–Kutta methods, but finite-order conditions alone do not give the specific all-step quadratic spectral obstruction or positive fourth-cumulant identity.
 
@@ -126,12 +130,12 @@ Related published exact Gaussian sampling analyses of random-order drift/diffusi
 
 ## Limitations
 
-This is a Gaussian-target theorem for a specific explicit predictor/corrector with a *shared* Brownian increment and i.i.d. scalar stage law. It does not say that its deterministic tuned member is unbiased or optimal for general nonlinear potentials, and the uniform-stage method has different stochastic quadrature motivations. For nonisotropic targets, the no-go assumes one common stage time for all eigenmodes; eigenvalue-specific stages or modified noise covariances are outside scope. Variance calibration is not equivalent to matching the full stationary law; in particular calibrated random stages are non-Gaussian. The mixing optimum is measured per step, not per unit physical time or computational cost, and is not a comparison with implicit samplers. Independent publication-priority and mathematical review have not been performed.
+This is a Gaussian-target theorem for a specific explicit predictor/corrector with a *shared* Brownian increment and i.i.d. scalar stage law. It does not say that its deterministic tuned member is unbiased or optimal for general nonlinear potentials, and the uniform-stage method has different stochastic quadrature motivations. For nonisotropic targets, the no-go assumes one common stage time for all eigenmodes; eigenvalue-specific stages or modified noise covariances are outside scope. Variance calibration is not equivalent to matching the full stationary law; in particular calibrated random stages are non-Gaussian. The mixing optimum is measured per step, not per unit physical time or computational cost, and is not a comparison with implicit samplers. No assertion of exhaustive publication priority is made.
 
 ## References
 
-1. Y. He, K. Balasubramanian, and M. A. Erdogdu, *On the Ergodicity, Bias and Asymptotic Normality of Randomized Midpoint Sampling Method*, arXiv:2011.03176v1 (first posted 2020-11-06). https://arxiv.org/abs/2011.03176
+1. Y. He, K. Balasubramanian, and M. A. Erdogdu, *On the Ergodicity, Bias and Asymptotic Normality of Randomized Midpoint Sampling Method*, arXiv:2011.03176 (first posted 2020-11-06), especially Section 2 of v2. https://arxiv.org/abs/2011.03176v2
 2. R. Shen and Y. T. Lee, *The Randomized Midpoint Method for Log-Concave Sampling*, arXiv:1909.05503v1 (first posted 2019-09-12). https://arxiv.org/abs/1909.05503
 3. A. Laurent and G. Vilmart, *Exotic aromatic B-series for the study of long time integrators for a class of ergodic SDEs*, arXiv:1707.02877v1 (first posted 2017-07-10), Math. Comp. 89 (2020). https://arxiv.org/abs/1707.02877
-4. *Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC*, public research record (2026-09-19): https://github.com/published-finding corpus/2026/blob/main/2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b/RESULT.md
-5. *Spectral minimax calibration and unavoidable fourth-order dependence in random-order Langevin splitting*, public research record (2026-11-08): https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-spectral-minimax-calibration-and-unavoidable-fourth-order-depend--ba2056df054f/RESULT.md
+4. *Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC*, research record 160d754f339b (2026-09-19).
+5. *Spectral minimax calibration and unavoidable fourth-order dependence in random-order Langevin splitting*, research record ba2056df054f (2026-11-08).

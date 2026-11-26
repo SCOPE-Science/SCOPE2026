@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes existence and uniqueness of aggregate loads through the strictly convex Beckmann potential. Two variational inequalities and the scalar inequality \((u^p-v^p)(u-v)\ge|u-v|^{p+1}\) give the uniform perturbation bound with precisely stated norms. Homogeneity and positivity of every resource reachable by a positive-demand commodity yield the sharper singleton rate; a two-link exact equation attains its exponent. Polynomial complementarity and semialgebraic projection prove finite changes to all minimum-cost active-strategy indicators on each demand ray. Numerical tests are only corroborating finite checks.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2023/2024 Cominetti–Dose–Scarsini paper's §6 explicitly leaves BPR region asymptotics open and its Theorems 6/12 address monotonic loads and order-class subregions, rather than a demand-uniform homogeneous comparison or sharp high-demand rate. Their 2021 paper proves finite transitions only for affine single-OD routing, while their 2023 multi-commodity paper treats phase-transition derivatives. The present statement covers a different quantitative comparison and rigorous eventual stabilization for common-exponent polynomial costs in arbitrary finite congestion games. Its ingredients are standard convex analysis and semialgebraic geometry; independent literature priority remains unverified.
+PASS
 
-**Value — PASS.** The universal additive discrepancy gives demand-scale-independent control of the difference between BPR and monomial equilibrium loads, and the sharp \(t^{-3}\) standard BPR improvement makes its high-traffic accuracy explicit on fixed-proportion singleton demand rays. Eventual nonrecurrence settles a specific consequence identified as open in the motivating paper, while not claiming its stronger multidimensional geometric conjecture. These are structural facts about congestion planning rather than arbitrary numerical slices.
+The Beckmann objective is strictly convex in loads on the same compact convex load polytope. Adding the two minimizer inequalities with their displayed signs and using (u^p-v^p)(u-v)>=|u-v|^(p+1) for u,v>=0 gives the uniform bound by Hölder, also when the difference vanishes. Homogeneity follows by scaling flows. Every resource available to an active singleton commodity has positive limiting homogeneous load, since an unused resource would beat any used resource in that commodity's menu. After rescaling, t>=2C/eta keeps both load vectors on those coordinates above eta/2, and the scalar derivative lower bound yields the claimed Euclidean constant and factor t^(1-p). The two-link binomial equation gives the stated nonzero leading coefficient, including a constant difference for p=1 and the stated cubic for p=4. In the stability proof the base complementarity constraints by themselves allow slack multipliers for zero-demand commodities. For the pair being projected, however, c_s=lambda_h together with all c_{s'}>=lambda_h forces precisely the minimum condition; conversely one may choose the minimum for every multiplier. Thus the projected integer-power semialgebraic set is exact even at zero demand, and its finite union of points and intervals is eventually constant. No path-flow uniqueness or multidimensional boundary asymptote is inferred. The supplied SciPy script was inspected, not executed; the all-demand results follow analytically, not from the bounded test grid.
 
-The uniform comparison assumes a common polynomial exponent with strictly positive coefficients. The sharper rate is only for singleton games and its constant depends on demand proportions. Broader prior art may subsume the results; the present assessment is not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed package concerns an explicit additive all-demand load comparison between two games at the same demand, its sharp fixed-ray singleton exponent, and eventual stability of the entire set of cost-minimizing strategies on each ray. Credit the classical potential, monotonicity, strong-convexity and projection tools, and the affine breakpoint and existing cost-class results. The strongest inspected statements use different perturbations or give narrower regime claims; no verified broader result was found that supplies this package. Status is bounded by the identified sources, not a priority certification.
+
+## value
+
+PASS
+
+The common-power benchmark yields a topology-independent absolute error at every demand. The result also identifies when high demand produces much smaller absolute error and shows the exponent cannot be strengthened, while separating tie-set stability from the stronger boundary-geometry conjecture. These are concrete load and regime predictions, not merely a reformulation of convex optimality or a fixed-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

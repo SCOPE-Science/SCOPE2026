@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:02.822451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof lines 7–58",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent integrated stationarity check; for c=h=1 integrate 2[(2T+1)v-T] exp(-(Tv)^2) over v in [0,1] and bisect in T"
+      ],
+      "rationale": "White noise with covariance proportional to exposure time gives squared matched-filter SNR proportional to ||S_T||_2^2/T; dividing by the positive cycle duration gives Q_h. Expanding the squared norm as a double time integral counts lags with triangular weight 2(T-u). For k(u)=K(au), let A(T)=integral from 0 to T of u k(u). Then F'=2A/T^2>0 and F''=2k(T)/T-4A/T^3<0 by strict decrease of k, without differentiating k. Thus (T+h)F'-F decreases strictly from h to -2M_0 (use A(T)<=M_1); its unique crossing is the global maximizer. The inverse stationarity equation h=F/F'-T is strictly increasing in T and has limits 0 and infinity. Integrating the local cusp gives F-T F' asymptotic to 2 kappa nu T^(nu+1)/[(nu+1)(nu+2)]; F' tends to 1 at zero. At infinity F tends to 2M_0 and T^2 F' tends to 2M_1, giving h/T^2 tending to M_0/M_1. Gaussian autocorrelation uses c=a/(2 sigma), with moments sqrt(pi)/(2c) and 1/(2c^2), agreeing with both constants. Independent Simpson integration of the stationarity numerator on 4096 panels and bisection give T_h=1.378327080411 for c=h=1. Frozen support was inspected but not executed.",
+      "residual_risks": [
+        "Small-overhead power law needs the separate local cusp expansion, not just strict decrease. Large-overhead asymptotic needs the stated finite first moment. Discrete finite-transit scheduling and detector read noise are outside the model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boldt-Christmas et al. optimize simulated transit detection after SYSREM, and explicitly describe the velocity-smearing versus observing-overhead trade-off.",
+          "The other two comparisons concern transit-light-curve parameter precision and matched filtering weak interferometric lines, respectively; the inspected objectives are not the stationary exposure-cycle rate."
+        ],
+        "reasoning": "General matched filtering and the astronomical trade-off are prior. Optimizing finite simulated schedules or a different inference objective does not cover the functional theorem for arbitrary decreasing k.",
+        "searches": [
+          "Boldt-Christmas et al. arXiv:2312.08320v1, abstract and smearing simulation discussion",
+          "Hernandez Camero et al. arXiv:2302.02897v1, abstract",
+          "Loomis et al. arXiv:1803.04987, PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: d7c45e8a2083 and 6cf92380bd95",
+        "arXiv:2312.08320v1, 2302.02897v1, 1803.04987"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian source already uses the concavity criterion and the first two moments for its chosen kernel; those steps are close to the general proof.",
+          "The frozen record permits different leading orders of 1-k(u) and computes their effect on the throughput optimum. For instance, an exponential autocorrelation has nu=1 and a square-root small-overhead law instead of the Gaussian cube root."
+        ],
+        "reasoning": "The Gaussian proof provides reusable machinery and makes the generalization short. Its stated conclusion fixes the kernel, however; it does not give a theorem for variable cusp exponents, and no compared broader theorem was shown to supply that classification.",
+        "searches": [
+          "Mirrored d7c45e8a2083, Step 3 and Step 4, offset 4600–6816",
+          "Frozen proof lines 19–46 versus Boldt-Christmas et al. smearing passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-template objective J_m in d7c45e8a2083 uses K(u)=exp(-4 beta^2 u^2). Identifying c=2 beta gives identical Gaussian F, the same stationary equation, the same unique increasing optimum, and the same overhead constants in both limits.",
+          "A uniformly translating template in another measurement coordinate with the same white-noise throughput would be a mathematical alias; no equivalent general crossover theorem was identified among the inspected statements."
+        ],
+        "reasoning": "Treat the Gaussian full-template result as exact coverage of that subcase, not merely a similar title. The fixed-template objective in the same source is distinct. The general cusp exponent and kernel class cannot be inferred by identifying parameters of a Gaussian.",
+        "searches": [
+          "Local Resultary: Doppler drift and overhead; Gaussian drift exposure asymptotics; decreasing autocorrelation and uniqueness; imaging blur and overhead",
+          "Published Resultary d7c45e8a2083, Proof Steps 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d7c45e8a2083 is a distinct exact Gaussian match, including the cube- and square-root laws for full matched filtering; the shared date supplies no priority ordering.",
+          "6cf92380bd95 gives a cube-root law for phase-balanced sinusoidal photometry, but its optimum saturates at large overhead."
+        ],
+        "reasoning": "Neither catalogued result provides the parameterized cusp law or a table covering the full decreasing-kernel class. The same exponent in a different model does not cover the two-regime classification.",
+        "searches": [
+          "Resultary Gaussian-overhead and monotone-autocorrelation searches",
+          "Published d7c45e8a2083 and 6cf92380bd95, original mirrored Findings"
+        ]
+      },
+      "rationale": "The supported distinct theorem is the autocorrelation-class result: strict uniqueness and comparative statics for all the specified decreasing kernels, a small-overhead law with a profile-dependent exponent, and a large-overhead moment law. The Gaussian subcase has demonstrable equivalent coverage in a distinct indexed record, and earns no separate originality credit. Their within-day priority is not established. The frozen 'In particular' Gaussian calculation is an illustration of the broader theorem, not the basis for this originality pass.",
+      "residual_risks": [
+        "The Gaussian subcase should be cross-cited when comparing coverage; no priority order is inferred from the shared record date.",
+        "Broader translating-signal and motion-blur throughput literature could contain a general version; the inspections are bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent Gaussian subcase, not a general-kernel result. Same-day priority unresolved.",
+          "evidence": [
+            "Step 3 has the same decreasing stationarity numerator for K(u)=exp(-4 beta^2 u^2).",
+            "Step 4 derives h asymptotic to (4/3) beta^2 t^3 at small h and t^2 asymptotic to h M_1/M_0 at large h."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-fixed-template-penalty-for-doppler-smeared-gaussian-spec--d7c45e8a2083/RESULT.md",
+          "material_read": "Finding and Proof; especially Steps 3–4, offsets 4600–6816",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; located and read the decisive passage",
+          "title": "A sharp fixed-template penalty for Doppler-smeared Gaussian spectra",
+          "trigger": "Strongest exact match to Gaussian matched-template optimum"
+        },
+        {
+          "assessment": "Covers motivation and simulated optima, not the specified stationary autocorrelation theorem in the compared text.",
+          "evidence": [
+            "Trade-off between spending less time on overheads and reducing line broadening caused by radial-velocity change; detection significance after SYSREM for simulated transit spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.08320v1",
+          "material_read": "Abstract (HTML offsets 1050–4610) and velocity-smearing discussion (16300–19465)",
+          "method": "Original OA HTML, bounded passage reads",
+          "title": "Optimising spectroscopic observations of transiting exoplanets",
+          "trigger": "Primary source on the same exposure-smearing/overhead trade-off"
+        },
+        {
+          "assessment": "Different observable and loss.",
+          "evidence": [
+            "Cadence effects on precision of light-curve parameters, including radius ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.02897v1",
+          "material_read": "Abstract, offsets 720–3719",
+          "method": "Original OA HTML passage",
+          "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+          "trigger": "Analytical cadence comparison in transit observations"
+        },
+        {
+          "assessment": "Prior spectral matched filtering, not the same optimization in the material read.",
+          "evidence": [
+            "Uses matched templates to detect weak interferometric spectral lines."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.04987",
+          "material_read": "PDF p. 1, around offset 1700",
+          "method": "Original OA PDF passage",
+          "title": "Detecting Weak Spectral Lines in Interferometric Data through Matched Filtering",
+          "trigger": "Potential general matched-filter formulation"
+        },
+        {
+          "assessment": "Different signal and large-overhead behavior.",
+          "evidence": [
+            "Small-overhead cube-root and finite saturation of the optimal exposure at large overhead."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 6cf92380bd95",
+          "material_read": "Mirrored Finding",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact overhead-smearing law for phase-balanced sinusoidal photometry",
+          "trigger": "Potential exact overhead law in another measurement domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen general kernel theorem and endpoint expansions",
+        "Gaussian exact-overlap record d7c45e8a2083 and observational comparator arXiv:2312.08320v1"
+      ],
+      "rationale": "For a natural observing objective the theorem identifies precisely when a unique duration can be chosen from the autocorrelation, and what features of a non-Gaussian profile determine the response to overhead. In particular, a cusp changes the small-overhead exponent, whereas finite integrated correlation and first moment set the large-overhead constant. This is a transferable model diagnostic, not just the Gaussian calculation or a fit to one simulated transit.",
+      "residual_risks": [
+        "Not a tested telescope scheduling rule; realistic multi-line correlations, finite observing windows and instrumental noise can invalidate these predictions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

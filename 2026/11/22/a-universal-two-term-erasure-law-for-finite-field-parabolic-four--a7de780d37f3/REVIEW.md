@@ -1,19 +1,21 @@
-# Scientific assessment: universal two-term parabolic Fourier erasure law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single claim is a uniform asymptotic expansion for the exact endpoint Fourier multiplier norm after erasing an arbitrary fixed or sub-square-root number of points from a finite-field parabola, with the complete order-\(q^{-1}\) dependence expressed by a one-dimensional Wiener norm. The proof establishes the exact convolution norm, both finite character-correlation identities, a controlled Taylor expansion, and a cubic-correlation cancellation ensuring the stated order-\(q^{-3/2}\) remainder. The special two-erasure formula follows from an elementary finite cosine sum. The assumptions of odd characteristic, \(h<q\), and \(q\ge16h^2\) are explicit; the proof does not infer asymptotics from enumeration. Direct checks independently reproduce both moment identities for 48 test configurations including \(\mathbb F_9\).
+PASS
 
-## Originality — PASS relative to inspected evidence
+With q⁻² normalized inversion, the complex convolution norm equals the kernel's ℓ¹ norm by choosing conjugate phases at a single output location. Complete-parabola sums have modulus sqrt(q) for b≠0 and are q times the indicator of a=0 on b=0, so the latter slice changes by exactly D_q(B)/q². On b≠0 put u=E conjugate(G)/sqrt(q); summing over all a there, the linear moment is hq(q−1)/sqrt(q) and the sum of (Im u)² is hq(q−h)/2. The latter follows by comparing |E|² with Re(E² conjugate(G)²/q): equal sums and squared sums force equality of unordered pairs in odd characteristic, giving 2h²−h ordered pairings before the b=0 subtraction. The two normalized Taylor terms sum to −3h/(4 sqrt(q))+h(4−h)/(4q^(3/2)). The cubic uses Re(u|u|²−u³)/4: for the first correlation (r−s)(t−s)=0 gives exactly 2h²−h configurations before subtracting b=0; for the other, choose the three erased coordinates and one unrestricted coordinate, then solve a quadratic for at most two remaining ordered pairs. Both normalized cubic contributions are O(h³ q^(−3/2)). Uniform Taylor control for |u|/sqrt(q)≤1/4 gives the O(h⁴ q^(−3/2)) remainder. Uniform fibres of the nontrivial character applied to a(u−v), and the odd-p cosine sum, give the displayed two-erasure coefficient. As an independent geometry check, in F_(3^m) an erased three-point F3-line has total ℓ¹ sum q, whereas {0,x,y} with x,y F3-independent has q(3+6 sqrt(3))/9 by the nine equally frequent phase pairs; subtract 6 in both cases. All checks are replayable from RESULT.md Steps 1–5 and these counts. The bundled checker was inspected, not executed; its samples principally check normalization and moments, not the uniform theorem. The strict leading-decrease interpretation is for fixed h, not all h permitted by the error bound.
 
-The full mathematical text of Iosevich–Li–Yu, arXiv:2609.25404, Sections 2, 4, 5, 6 and closing questions, gives the norm of the complete parabola and transitive-set synthesis; its argument does not contain the arbitrary deletion expansion or its one-dimensional second term. The full accessible text of Bhowmik–Deodhar–Iosevich, arXiv:2508.12194v2, Sections 1–5, addresses general support-size and synthesis inequalities, not sharp erasure sensitivity. Relevant indexed results about erasing points from conics target fourth-power extension (rather than endpoint projection), and the fixed two-deletion quadratic-chirp sidelobe result treats a different norm. Earlier incomplete Gauss-sum value distributions handle long intervals, rather than small arbitrary holes averaged across the full dual plane. Searches for punctured parabolas, Wiener norms, Gauss-sum perturbations, and finite-field erasures did not reveal direct coverage. Search absence does not prove uniqueness; a differently named averaged Gauss-sum expansion remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the natural finite-frequency parabola used as a model in Fourier spectral synthesis, the theorem measures exact first and second perturbative scales of the sharp endpoint projection cost after missing sites. The leading loss is universal in the number of erased points, yet the second term retains the *entire deleted pattern* as a one-dimensional Fourier-algebra norm. The two-deletion corollary exhibits explicit characteristic dependence and the limiting \(4/\pi\) arithmetic coefficient. This connects erasure robustness, quadratic Gauss-sum geometry and Wiener norms in a result for every odd prime-power field and every small deletion set, not a single numerical instance.
+Credit the known complete Gauss-sum baseline and the standard Fourier-algebra/convolution identity. The distinct result is the normalized averaged perturbation for arbitrary small masks, in particular the universal −3h/(4 sqrt(q)) and exact one-dimensional spectral term at the next fixed-h order. Inspected primary synthesis and indexed erasure/moment results neither state nor imply both terms and their uniform remainder.
 
-## Limits and closest literature
+## value
 
-This is a uniform asymptotic, not an exact finite-field closed form, and no characteristic-two or macroscopic-erasure extension is asserted. Possible unindexed equivalents and the lack of independent proof review are acknowledged. Closest sources: arXiv:2609.25404; arXiv:2508.12194; Akarsu–Marklof, *The value distribution of incomplete Gauss sums* (2013); and the public summary of *Sharp Fourier extension and phase transitions under arbitrary erasures of finite-field conics*, which concerns a different optimization problem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Fourier-algebra norm measures the sharp endpoint cost for a standard finite-field frequency set. The theorem separates a universal cardinality loss from an arithmetic and geometric correction for arbitrary small masks over prime-power fields. The two-point characteristic dependence and the three-point geometry example show the correction is informative, rather than solely a nonsharp uniform bound. The useful asymptotic interpretation is fixed h; the expression is not a finite-q closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

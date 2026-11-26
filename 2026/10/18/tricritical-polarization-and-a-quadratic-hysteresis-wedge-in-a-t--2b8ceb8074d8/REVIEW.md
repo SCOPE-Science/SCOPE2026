@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact reduced vector field follows from the published confidence weights by elementary cancellation. On the linear-neutral curve, the Taylor coefficients have been independently recomputed symbolically from that quotient, giving the unique cubic-zero parameter and a **negative** fifth coefficient. The signed fifth-order drift proves attraction and \(t^{-1/4}\) decay. Parameterizing the central eigenvalue by \(\mu\), the analytic implicit-function arguments establish the fourth-root branch and the unique local fold. Positivity of \(x^2\), strict local concavity in \(y=x^2\), and \(F'(x)=2yG_y\) prove the exact local five-state configuration and stability ordering. The verification script passed; its finite numerical checks are supporting evidence rather than a substitute for the local analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest inspected full text is Brooks, Chodrow and Porter, arXiv:2209.07004, especially the original equations and its competing-zealot Theorem 5. It establishes the *linear* loss of stability but does not furnish this exact nonlinear codimension-two point, the \(-3/10\) drift, the \(10/9\) hysteresis-width coefficient or the fourth-root onset and critical relaxation. Other accessible related opinion-dynamics sources concern different nonlinear responses. The earlier specialized large-confidence five-equilibrium parameter regime is mathematically separate from the present local degeneracy and does not imply its asymptotic coefficients. A derivation in obscure specialist literature remains possible; searching alone does not prove publication priority.
+PASS
 
-## Value — PASS
-The result identifies an intrinsic change in polarization-transition type **inside** the motivating confidence model: the source's linear threshold cannot distinguish continuous and discontinuous symmetry-breaking. The exact degeneracy and fold width give a quantitative hysteresis prediction and critical slowing law for its smallest competing-zealot motif. This is motivated by the model's phase transition rather than by a selected arbitrary coefficient. The theorem is a local deterministic result and neither claims a global phase diagram nor general network behavior.
+For the normalized two-zealot rule, direct cancellation gives F=sinh(2 gamma x)/(cosh(2 gamma x)+A exp(-gamma x^2))-x, with A=exp(gamma(delta-1)). Setting the linear coefficient to zero gives A=2 gamma-1. Expanding the cross-multiplied numerator and then dividing by the positive denominator gives the critical cubic (4 gamma^2-3)/6 and the printed general critical quintic. The unique positive cubic zero lies inside delta>=0 and has quintic -3/10. The inward fifth-order drift gives d(x^-4)/dt=6/5+o(1) along any sufficiently small nonzero forward solution. With y=x^2, F=xG, the positive root on the critical-gamma slice follows from the simple root after rescaling y=sqrt(mu)z, and is attracting by 2y G_y<0. The fold equations G=G_y=0 after y=nu z and mu=nu^2 s have nonsingular Jacobian, giving the two stated coefficients. For the full wedge, G_yy<0, G_mu>0 near the origin (G(0,mu,nu)=mu), and G at the fold's positive y is therefore positive when mu exceeds the fold value. With both boundary values negative, there are exactly two positive roots in the fixed neighborhood. The slope signs yield the two repellers and the three attractors including zero. This is a local classification, not a count of distant equilibria.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same model and its linear stability boundary are prior work; qualitative nonlinear plots and a distinct fixed-gamma exact classification also overlap. The inspected results do not cover the unique cubic degeneracy, critical quintic, or the near-degeneracy fourth-root and quadratic-fold laws.
+
+## value
+
+PASS
+
+The degeneracy is selected by the model's known stability boundary, not by an arbitrary parameter slice. The calculation separates continuous from hysteretic onset and quantifies the local interval of tristability, the anomalous fourth-root polarization scale and the critical relaxation rate, none of which can be read off a linear stability diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is the labelled \(n\ge3\) sunlet, closed-neighborhood two-threshold (up one, down three), and permutation-sequential update order (rim, then leaves). The coding map duplicates the first site pair at the final rim position and is injective through its leaf bits. A rim-by-rim induction establishes \(a_i'=a_{i+1\bmod(n-1)}\), including the special final rim whose two neighbors have already changed. The pendant update then gives \(b_i'=s_{i+1\bmod(n-1)}\). Separately the all-one rim is preserved and its leaves complement. Lucas trace counting, inclusion-exclusion at the two alternating words, and Möbius inversion yield the stated exact counts **only within the constructed subsystem**. Verification scripts executed successfully; finite complete-system enumeration is not promoted to an infinite completeness proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-Kuhlman et al. (arXiv:1108.2974, 2011), Proposition 3.6 and Section 4, exhibit one long orbit on a bare cycle and general graph constructions but not this decorated-graph invariant encoding. The closest later published research-record abstract, *Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles*, treats the bare cycle and all its binary necklaces, not dynamic private leaves or a golden-mean restriction. Existing sunlet calculations found in the record use synchronous majority or neighbor-parity maps, with different transition rules. The new statement supplies a concrete conjugacy and exact orbit counts not implied by those results alone. The closest 2026 full text was inaccessible, so an uninspected stronger theorem or unindexed equivalent could affect priority.
+PASS
 
-## Value — PASS
-The minimal operation of attaching one private leaf to every cycle vertex changes the phenomenon from a documented single long-period construction to a geometrically motivated *exponential family* of rigorously constructed orbits, with an explicit hard-core symbolic dynamical system and exact divisor-by-divisor periods. An independent leaf-memory component produces \(2^{n-1}\) two-cycles, and the intersection has a sharp parity correction. These are natural orbit invariants for a canonical graph corona and hysteretic asynchronous updating, not an arbitrary finite parameter slice. No claim of complete global attractor classification, basin probabilities or relaxation bounds is necessary or made.
+For a cyclic independent word s of length L=n−1, let a_i=s_i OR s_{i−1} with indices mod L and repeat pair zero at i=L. During the rim sweep the closed count is 2a_i+a_{i+1}+s_i: at the first site the incoming neighbor is the repeated pair, at interior sites it is the already updated predecessor, and at the last the two updated neighbors have bits a_0 and a_1. If a_i=0 then s_i=0, if a_i=1 and s_i=0 the threshold tests a_{i+1}, and if s_i=1 then a_{i+1}=1. Thus the new rim is the shift by one. The degree-one leaf rule is b'_i=a'_i(1−b_i), giving s_{i+1} by cyclic independence. The first L leaf bits show injectivity. All-one rim states retain the rim and complement all leaves; the two families intersect only at the alternating words, two states for even L and none for odd L. The transfer matrix trace is Lucas, including the repetition test at e=1; divisor inversion on fixed words yields primitive orbit counts. Period two in the rotation occurs only at alternation, already counted among the 2^{n−1} leaf-flip orbits. This handles n=3 as well; a single one has exact period L for L≥3. An independent indegree-pruning check confirmed all stated finite recurrent counts at n=3–9, without extrapolating to general n.
 
-## Closest literature and limitations
-The full 2011 open text was inspected, including its definitions, Proposition 3.6 and Section 4. The indexed 2026 bare-cycle result is the main unresolved full-text priority risk because its full file could not be accessed; the abstract describes no pendant-leaf reduction. Other contemporary sunlet records concern distinct update rules. The complete recurrent state equality observed in finite experiments through \(n=9\) remains unproved for arbitrary \(n\) and is not part of the accepted claim. Independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest retrieved overlap is the same-day two-sector classification for bare cycles under arbitrary permutation schedules. Its cyclic-order sector uses unrestricted binary words and it has no leaves. Neither it nor the synchronous sunlet results cover the encoded independent words coexisting with arbitrary leaf flips on the all-one rim in the claimed map.
+
+## value
+
+PASS
+
+The natural decorated cycle gives a concrete mechanism for simultaneously supporting many two-cycles and long cycles in the same deterministic update. The explicit conjugacy and exact intersection resolve how two quite different recurring behaviours fit together. The value is not a new Lucas-word identity or a claim of global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

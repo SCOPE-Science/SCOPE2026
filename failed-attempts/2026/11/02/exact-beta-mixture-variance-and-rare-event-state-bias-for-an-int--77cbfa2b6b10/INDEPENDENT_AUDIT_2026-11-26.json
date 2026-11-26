@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:31.120959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive mean drift gives a finite conditional variance in the backward stationary convolution by the ergodic theorem. Coupling two stationary versions with the same initial environment (which has a unique marginal) and the same future noises makes their position difference contract almost surely, proving uniqueness; the variance process contracts by the squared multiplier. The variance is strictly greater than D/a almost surely. In the variance transport equations the opposite fluxes are proportional to (v-c)^eta (v+d)^(-xi) and vanish at both endpoints. The resulting nonnegative integrable densities solve the invariant equations; alternatively any constant nonzero total flux would force nonintegrable plus density at c or minus density at infinity. The change to Y gives precisely the two beta shapes. Their beta-endpoint survivals give the displayed variance coefficients, and the common independent Gaussian factor gives the claimed two-sided coefficient: v^theta P(V>v|S=s) is bounded, allowing domination by a multiple of |Z|^(2 theta). The moment statement is for nonnegative p, including logarithmic divergence at equality. The relative state coefficients are a:b in plus/minus share reversed, i.e. the minus-to-plus ratio is a/b, giving the stated share. The explicit example gives K_V=8/(3 pi) and hence the stated K_X. A separate finite diagnostic at (a,b,u,w,D)=(1.5,0.7,0.9,4.62,0.8) matched second and fourth joint moments to within 4.4e-15. To reproduce, start at the invariant environmental masses and solve (Q^T-2r diag(a,-b))M_r=-2r(2r-1)D M_(r-1) at r=1,2, where Q is the environment generator and M_r stores the joint order-2r moments. Compare to beta integrals of (2r-1)!! v(y)^r. The variance survival computed by the beta integrals at threshold 10^4 gave a repulsive share 0.6817909 against limit 0.6818182. This diagnostic is not a proof. The frozen verification prose names check.py but the supporting script is standalone_check.py; the packaged expected output is not an independent run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Saporta–Yao give a positive power-law limit constant and a renewal integral for it; their spectral equation specializes to kappa=w/b-u/a. The inspected theorem goes beyond just the exponent, but does not evaluate the integral as the present beta/gamma expression.",
+          "Guyon–Iovleff–Yao use exactly the frozen numerical example and establish ergodicity and the p<1 moment range.",
+          "The earlier Resultary finding gives the complete state-labeled variance laws and, beyond this record, finite even moment formulas and critical-rate residues."
+        ],
+        "reasoning": "The general published switching-diffusion theorems give substantial background. The earlier exact Resultary solution additionally supplies the evaluated quantities whose absence from the general results would otherwise distinguish this finding.",
+        "searches": [
+          "arXiv:math/0503527, Theorem 2 and §6.5 Eq. (17)",
+          "10.1051/ps:2003017, §3.3",
+          "Resultary 93bb1b2e24d1, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, standalone_check.py",
+        "Local Resultary 93bb1b2e24d1",
+        "de Saporta–Yao 2005, arXiv:math/0503527",
+        "Guyon–Iovleff–Yao 2004, DOI 10.1051/ps:2003017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each of its beta-prime components the variance survival constant is L^theta divided by theta times the corresponding beta function. State weighting gives the minus/plus ratio [pi_-/pi_+] B(eta,theta)/B(eta+1,theta)=(u/w)(xi/eta)=a/b. The standard Gaussian multiplier is identical in both states."
+        ],
+        "reasoning": "The earlier finding does not need to state the posterior share explicitly. Its state-conditional laws and tail coefficient method immediately imply a/(a+b), without a new model, computation, or nontrivial theorem. The worked example is then a parameter substitution.",
+        "searches": [
+          "Resultary 93bb1b2e24d1, joint conditional laws and tail proof offsets 4424–6150"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 93bb1b2e24d1 identify its attractive stiffness k=a, inverted magnitude h=b, reverse rate v=w, and its two shapes (a,b) with (eta,theta). Its beta-prime variable T=(kV/D-1)/(1+k/h) equals (V-c)/(c+d).",
+          "Consequently T/(1+T)=(V-c)/(V+d), precisely the frozen Y. The state-specific first shape increment and both environmental masses also coincide."
+        ],
+        "reasoning": "The beta versus beta-prime forms are the same joint distribution under a bijective change of coordinate, not two different variance models or calculations.",
+        "searches": [
+          "Local Resultary: attractive/inverted switching harmonic trap, conditional beta or beta-prime thermal variance, explicit tail coefficient",
+          "Resultary 93bb1b2e24d1, RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding gives the explicit position-tail constant pi_+ (1+k/h)^(theta+1) (D/k)^theta E|Z|^(2 theta)/(theta B(eta,theta)).",
+          "Using L=(1+k/h)D/k and pi_-/B(eta+1,theta)=(k/h)pi_+/B(eta,theta), this is exactly K_X, including the same one-sided factor of one half."
+        ],
+        "reasoning": "This exact archived formula matches on the entire parameter family, not just at one example or to a few digits. A finite sequence-table search is not pertinent to these two continuous-parameter laws.",
+        "searches": [
+          "Local Resultary exact-law match 93bb1b2e24d1, RESULT.md offsets 510–3100"
+        ]
+      },
+      "rationale": "The earlier Resultary record 93bb1b2e24d1 states and proves the same joint state-conditional variance laws in beta-prime coordinates, the same position mixture, and the identical explicit tail coefficient and moment cutoff. The highlighted extreme-state share follows directly from those already stated joint laws and identical Gaussian multiplication in each state. Nothing material in the frozen finding survives that comparison as a distinct contribution.",
+      "residual_risks": [
+        "Further exact external literature was not exhaustively searched. That does not weaken the demonstrated earlier matching Resultary result or establish the ultimate historical origin of the formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact distribution and explicit coefficient; the additional posterior share is a direct corollary.",
+          "evidence": "It specifies T|+ as BetaPrime(eta,theta), T|- as BetaPrime(eta+1,theta), the same Markov weights and Gaussian mixture, and the evaluated two-sided tail coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-beta-prime-thermal-variance-and-tail-amplitude-in-a-switch--93bb1b2e24d1",
+          "material_read": "RESULT.md Finding, offsets 510–3100; variance law and tail proof around offsets 4424–6150",
+          "method": "Local-mirror statement inspection, change of variables and symbol-by-symbol coefficient comparison",
+          "title": "Exact beta-prime thermal variance and tail amplitude in a switching stable–inverted harmonic trap",
+          "trigger": "Strong exact-match Resultary hit from an earlier dated record"
+        },
+        {
+          "assessment": "Covers the power-law exponent, positive limiting constant, and its general implicit representation, not the matched evaluated beta/gamma formula in inspected passages.",
+          "evidence": "The spectral-radius equation yields kappa=2 theta; Eq. (17) is a renewal expression for the constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503527",
+          "material_read": "§1 Theorem 2, PDF pp. 2–3; §2 conditional Gaussian representation; §6.5 Eq. (17), PDF p. 17",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Tail of a linear diffusion with Markov switching",
+          "trigger": "Cited general theorem potentially covering exponent and exact tails"
+        },
+        {
+          "assessment": "The example and its moment cutoff precede the record; not the evaluated variance laws or coefficient in the inspected passage.",
+          "evidence": "Drifts -1,+1, rates 1,2, unit diffusion coefficient give ergodicity and finite moments below order 1.",
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ps:2003017.pdf",
+          "material_read": "§3.3, PDF p. 10, offset near 33600",
+          "method": "Primary OA PDF passage inspected for hypotheses and example",
+          "title": "Linear diffusion with stationary switching regime",
+          "trigger": "Cited attractive/repulsive switching example and moment theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An evaluated state-resolved stationary law and tail amplitude are valuable observables, but the earlier result already resolves them for precisely this family. Taking the ratio of its two state coefficients highlights a physical interpretation, but is a mechanical normalization, not a further scientific contribution in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

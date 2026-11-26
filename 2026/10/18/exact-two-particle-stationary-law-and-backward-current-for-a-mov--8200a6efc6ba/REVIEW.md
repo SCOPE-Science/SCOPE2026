@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result specifies a fixed-duration moving defect with rates \(p/2\) only for particle exits from the active site, exactly two particles, and a pre-dwell comoving observation convention. Writing \(z=e^{-p/(2v)}\), the one-dwell transition kernel has three explicitly derived alternatives: no hop, one permitted exit, or two permitted exits. The four-class weight formula is normalized by exact combinatorial counting, and seven disjoint target classes establish every stationarity balance equation for arbitrary ring length \(L\geq3\). The connected two-token graph and a positive-probability full tour implement every elementary exclusion move, establishing uniqueness when \(0<z<1\). The two adjacent-pair configurations yield the exact signed displacement and bond-current factor \(v/L\). All claimed limiting coefficients follow from direct expansions. Independent numeric solves for \(3\leq L\leq11\) and exact symbolic balances for \(3\leq L\leq20\) confirmed the formulas. These finite checks support but do not substitute for the all-size proof.
+PASS
 
-## Originality — PASS
+Reconstructed the one-step kernel from the exponential dwell clocks and rotation by minus one. With b=(1+z²)/2, the incoming weights for targets containing 0 are z, (1−z)+z(1−z)+z²=1, or b+(1−z²)/2=1. The other target classes receive b, z²+(1−z²)/2=b, or z² (including z·z at the corner). At L=3 the three surviving equations are z, 1 and z². Counting weights gives T_L. A full tour can implement any single allowed hop with positive probability and return the frame to its starting orientation. The exclusion configuration graph is connected: reduce the separation to get an adjacent pair, and translate adjacent pairs using two successive hops. This gives uniqueness. Only the two neighbor-blocked states contribute to the signed drift, with opposite signs and weights 1 and z; their difference gives −(1−z)²/T_L. Over a full tour each fixed bond is exposed to each relative phase, so its mean current is v/L times this drift. The limits use z→0, T_L(1)=L(L−1)/2 and 1−z∼p/(2v), and B_L∼L²/4, respectively.
 
-The original moving-defect model (Chatterjee et al., 2014; DOI `10.1103/PhysRevE.89.022138`) gives hopping probabilities and exact identities involving *unknown* conditional correlations; its explicit transport predictions use mean-field factorization. Those identities do not evaluate the complete two-particle stationary distribution or its all-ring exact current. The 2016 multiple-defect and ordered-update treatment (DOI `10.1103/PhysRevE.93.062124`) and the 2023 moving-barrier interaction analysis (DOI `10.1103/PhysRevE.108.034107`) study related dynamics but do not imply the stated four-class distribution in the material examined. Indexed record comparisons found no matching statement or stronger result implying it; the highest semantic similarities concerned unrelated Markov/dynamical transport and topological particle-configuration problems. Residual risk remains from unindexed or differently phrased earlier work; absence from a search is not mathematical evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies a complete closed stationary law, rather than a small additional numerical sample, for the first genuinely interacting particle sector of a physically motivated periodically driven exclusion model. It converts previously correlation-dependent exact transport identities into a formula for every finite ring and driving speed, proves strict backward pumping without mean-field assumptions in this sector, and gives finite-size and slow-/fast-drive coefficients suitable as exact benchmarks. Two particles are the smallest sector in which exclusion affects the current: with one particle the local left/right exit probabilities cancel. The fixed particle count is dictated by this minimal-interaction gap, not an arbitrary parameter slice. The result does not claim a theorem for finite positive density or general interactions.
+Pass is for the closed full two-particle stationary law and explicit finite-ring current. The moving-defect model, one-dwell dynamics, exact current identities and the qualitative backward-current observation are prior. The frozen summary should be read as saying that mean field closes the exact identities, not that all prior current relations were approximate.
 
-## Sources and limitations
+## value
 
-Closest primary literature: Chatterjee et al. (2014), arXiv `1404.4144`; Chatterjee et al. (2016), arXiv `1602.02691`; Das et al. (2023), arXiv `2304.06606`. Supporting MSC2020 ownership is 82C22 (interacting particle systems). Explicit restrictions: exactly two particles; one defect; finite positive dwell and hop rates; no bulk or inward-defect hopping; one-dimensional ring with \(L\geq3\). Bibliographic incompleteness remains possible, and independent audit has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full finite-ring law is a usable benchmark for closing the moving-defect correlations. It explains the sign by the unequal stationary weights of the two locally blocked configurations, quantifies the coefficient and distinguishes speed and ring-size scalings without mean field. The known qualitative direction is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

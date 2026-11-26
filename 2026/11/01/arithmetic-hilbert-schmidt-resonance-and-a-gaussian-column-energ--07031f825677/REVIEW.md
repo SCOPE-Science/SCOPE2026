@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The statement fixes the Hilbert space, the finite distinct atomic support, all normalizations and the **particular** monomial cutoff. Each atomic weighted-composition operator is bounded by Schur's test. The explicit column formula reduces squared norms to boundary integrals. Gaussian concentration gives each diagonal contribution and Riemann–Lebesgue decay eliminates cross terms because the angular speeds \( (1-t_j)/t_j \) are distinct. Summation yields the sharp square-root law. At simultaneous resonance every amplitude vanishes linearly at the contact point and has square-summable column energies; off resonance the strictly positive leading coefficient prevents Hilbert–Schmidt membership. The arithmetic condition follows exactly. The standalone checker verifies finite identities and limiting diagnostics, not the infinite-dimensional theorem.
+PASS
 
-## Originality (O) — PASS, best-knowledge assessment
+Row and column sums 1 and 1/t give Hardy boundedness by Schur. The log identity for 1-phi_t holds on the prescribed branch by analyticity and equality at zero, and gives the exact column factor z^k h_tau(z) sum_j A_j(z) B_j(z)^k. For q_j=1-t_j the linear and quadratic terms of log B_j(e^{ix}) are i(q_j/t_j)x and -q_j x^2/(2t_j^2); a Gaussian bound on the whole angular interval follows from the exact denominator t_j^2+2q_j(1-cos x). At x=u/sqrt(k) the weight tends to e^(pi tau) on the positive side and e^(-pi tau) on the negative side. Each diagonal term thus contributes |a_j(t_j^(-i tau)-1)|^2 cosh(pi tau)/(2 sqrt(pi) t_j sqrt(q_j)) to the sqrt(k)-scaled column square norm; the factor 1/2 comes from the normalized Hardy integral of the two half Gaussians. A cross term has a Gaussian-dominated L^1-convergent amplitude times a linear phase of frequency sqrt(k)(q_j/t_j-q_l/t_l), which diverges in modulus; one can replace the amplitude by its limit in L^1 before using Riemann–Lebesgue. This gives o(k^(-1/2)) with no positivity restriction on a_j. Summing multiplies the column coefficient by 2 at scale sqrt(K). If every resonance holds, each A_j vanishes linearly at 1, and the integral is bounded by a constant times the second moment of the Gaussian, O((k+1)^(-3/2)); otherwise the leading coefficient is positive and the column sum diverges. This also covers tau=0 and proves the commensurability assertion. The checker was read, not executed: its quadrature is a finite truncation of a rescaled boundary integral, and none of its shift-commutator diagnostics is a premise.
 
-The literature comparison includes the full motivating arXiv HTML, Lo–Loh's 2020 full paper on weighted-composition Hilbert–Schmidt differences, accessible older Hausdorff records, and targeted published-result semantic searches. Matache's single weighted-composition ideal criterion (quoted in Lo–Loh) and classical Hausdorff matrix representation are acknowledged prior work. The primary contribution is the **arbitrary finite distinct-atom exact monomial-cutoff coefficient and phase-independent asymptotic decoupling**, with its collective resonance consequence. Neither the 2026 BMOA/Bloch spectral results nor the inspected 2020 qualitative difference criteria state this coefficient. Possible indirect stronger older theorems remain a scientific priority risk; the original 2001 full text was not available in the inspected record.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-Finite Hausdorff atoms model bounded weighted compositions with a common Hardy boundary contact. A sum of such operators has potentially interacting complex phases; mere single-operator ideal tests do not quantify whether their high-degree commutator energies reinforce or cancel. The explicit \(\sqrt K\) coefficient shows additive decoupling and proves an exact arithmetic boundary between square-summability and divergent energy. This identifies a structural noncancellation mechanism and a natural sharp quantitative invariant, not a routine perturbation or arbitrary finite calculation.
+Pass for the combined finite-atomic column-energy law and exact arithmetic ideal characterization, not for the Hardy Hausdorff representation or for generic one- or two-term Hilbert–Schmidt membership criteria. The additive cutoff coefficient is the strongest supported distinction.
 
-## Limits and verification
+## value
 
-Only finite distinct atoms and bounded analytic imaginary powers are treated. The coefficient is for the specified monomial truncation, not a singular-value or arbitrary-cutoff asymptotic. Independent mathematical review, definitive novelty certification, and a full reading of the historical 2001 paper were not performed. The checker requires NumPy/SciPy; all included assertions passed on the completed source before packaging.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantitative law explains exactly how an imaginary-power multiplier probes these distinct boundary maps: at the natural degree cutoff each atom contributes independently even for complex coefficients. The resulting arithmetic classification distinguishes genuine Hilbert–Schmidt cancellation from nonresonant square-root divergence. The specified cutoff is natural for Hardy polynomials and is not advertised as a basis-independent singular-value invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

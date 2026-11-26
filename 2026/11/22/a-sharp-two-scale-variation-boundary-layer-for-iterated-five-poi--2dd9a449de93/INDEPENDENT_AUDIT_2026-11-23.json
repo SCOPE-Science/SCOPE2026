@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:32:33.688014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Discrete differentiation commutes with convolution, and the unit step has derivative δ₀, so the variation norm equals the convolution kernel's ℓ¹ norm for each power and is attained. For u=1/8+λ/r the two contacts of 1−4u(1−cosθ)² have orders four at 0 and two at π; the Nyquist peak has sign − and peak modulus ρ_r=1+16λ/r. Its powered height converges to exp(16λ) uniformly for compact λ. To check the tail estimate, on a small neighborhood divide the absolute symbol by its peak height and take its smooth log g. There g≤−c|s|^p and g^(k)=O(|s|^(p−k)) for k≤p, with higher derivatives uniformly bounded (p=4 or 2). With d∼r^(1/p), derivatives through order four of r g(v/d) are bounded by polynomials in |v| uniformly on the rescaled cutoff; the exponential and its derivatives are then dominated by a polynomial times exp(−c'|v|^p). This gives O(d³) for the fourth derivative's L¹ norm before rescaling and a uniform O(R⁻³) for the ℓ¹ mass outside |j|≤Rd. Uniform local convergence and Riemann sums give the quartic and Gaussian masses. Off the two neighborhoods a strict uniform modulus gap with two derivative bounds makes the coefficient remainder o(1) in ℓ¹. At radius r^(3/8), the Gaussian mass inside is O(r^(-1/8)) and the quartic mass outside O(r^(-3/8)); hence the loss from combining them before taking absolute values tends to zero. Fixed u on either side leaves only the corresponding dominant peak, and the second signed moment of the unit-mass quartic inverse transform is zero, forcing sign change and L₄>1. Independent cosine and absolute-integral quadrature at mesh pairs (.01,.025), (.007,.01), (.005,.005), truncated at s=4 and z=50,60,70 respectively and doubled by symmetry, gave 1.2372919, 1.2372952, 1.2372945; this checks the displayed rounded value but is not the asymptotic proof. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first work gives a fixed-kernel power-boundedness criterion and coefficient local limits. The second gives fixed-kernel coefficient suprema and local-limit results for multiple Fourier contacts."
+        ],
+        "reasoning": "These theorems concern fixed kernels; the coefficient ℓ∞ statement does not control the integrated mass at scale √r, and a fixed-kernel bound does not evaluate a sharp norm limit at a moving parameter.",
+        "searches": [
+          "Diaconis–Saloff-Coste, Theorems 2.1 and 2.3",
+          "Randles–Saloff-Coste, arXiv:1212.4700, Theorems 1.1–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check_biharmonic_boundary.py",
+        "Primary fixed-kernel results and both local Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian peak contributes O(r⁻¹ᐟ²) per site and is below the dominant quartic O(r⁻¹ᐟ⁴) coefficient scale, yet has O(1) total mass. At the moving parameter its powered modulus is (1+16λ/r)^r."
+        ],
+        "reasoning": "A uniform error of order o(r⁻¹ᐟ⁴) in a leading local limit can hide the whole Gaussian mass. A direct fixed-parameter specialization cannot show additivity or compact-uniform λ-dependent mass. The frozen proof supplies these missing estimates, using known individual peak types rather than claiming those as new.",
+        "searches": [
+          "Diaconis–Saloff-Coste §§2, fixed-family critical example and power-limit theorems",
+          "Randles–Saloff-Coste fixed-kernel local-limit theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The BV norm is exactly the ℓ¹ convolution-power norm. In the older five-tap family, s maps to u=s²/4, so s=1/√2 is the identical critical stencil.",
+          "The adjacent same-date five-tap smoothing result minimizes a weighted ℓ² difference cost over stencils, not convolution-power ℓ¹ norms."
+        ],
+        "reasoning": "The parameter and stencil match is exact in the fixed critical case; the independently evaluated moving-parameter limit is a different global observable. A periodic complete-pair Gini norm or ℓ² difference cost is not the stated BV seminorm.",
+        "searches": [
+          "Local Resultary searches on critical five-tap convolution powers and BV amplification",
+          "Diaconis–Saloff-Coste, arXiv:1205.6490, Proposition 2.4 and Example 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed identical frozen item was excluded as independent coverage. Distinct indexed results concern one-step Gini stability and ℓ²-optimal weights. The older example identifies the critical stencil and powers' contact orders, not a table/formula for the moving sharp norm."
+        ],
+        "reasoning": "A five-tap coefficient list or a fixed-parameter numerical norm sequence does not give the compact-uniform limiting profile in the scaling variable. No exact matching indexed entry was found.",
+        "searches": [
+          "Local Resultary retrieval of same-stencil five-tap results",
+          "Diaconis–Saloff-Coste, identical family in Proposition 2.4 and Example 2.2"
+        ]
+      },
+      "rationale": "Substantial existing coverage of the identical fixed-parameter stencil and both contact orders is verified. The distinct result is the sharp global ℓ¹/BV limit through the moving u=1/8+λ/r layer, compact-uniform in λ. The inspected pointwise limit and uniform boundedness statements do not imply that limit or its two masses by substitution; controlling their absolute masses and their interaction at two spatial scales is essential. No claim of priority for the stencil, threshold, contacts, or individual Fourier profiles.",
+      "residual_risks": [
+        "A separate sharp Wiener-algebra norm asymptotic or varying-kernel local-limit theorem outside the inspected passages may give stronger prior coverage. The comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on fixed kernel and contact orders, not covering the moving sharp norm",
+          "evidence": "Identifies the critical parameter s=1/√2 and quartic/second-order contacts; gives fixed-kernel local limits and power boundedness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.6490",
+          "material_read": "Theorems 2.1 and 2.3, PDF pp. 5–7, offsets 13800 and 18938; Proposition 2.4 and Example 2.2, pp. 9–10, offsets 27247 and 30339",
+          "method": "Bounded primary PDF passages",
+          "title": "Convolution powers of complex functions on Z",
+          "trigger": "Identical five-tap family and both critical contacts"
+        },
+        {
+          "assessment": "Relevant theory for fixed powers, different convergence target",
+          "evidence": "Coefficient supremum and local limit results for fixed kernels, not an ℓ¹/BV crossover for moving taps.",
+          "identifier_or_url": "https://arxiv.org/pdf/1212.4700",
+          "material_read": "Theorem 1.1, PDF p. 4, offset 7913; Theorems 1.2–1.3, pp. 9–10, offsets 21530 and 23673",
+          "method": "Bounded primary PDF passages",
+          "title": "On the convolution powers of complex functions on Z",
+          "trigger": "Broader multiple-peak local-limit theory"
+        },
+        {
+          "assessment": "Distinct operator norm and setting",
+          "evidence": "Uses a complete-pair seminorm on a finite periodic cycle for a single smoothing operation.",
+          "identifier_or_url": "2026/11/17/SCOPE-an-eight-site-boundary-for-gini-stability-of-cyclic-five-point-s--5205bd65e5b0",
+          "material_read": "RESULT.md, statement of the Gini seminorm problem",
+          "method": "Local published-record mirror",
+          "title": "An eight-site boundary for Gini stability of cyclic five-point smoothing",
+          "trigger": "Strong nearby same-stencil published-record hit"
+        },
+        {
+          "assessment": "Different objective and no priority inference from date",
+          "evidence": "Optimizes a weighted quadratic difference cost over five-tap filters, not the powers of the specified family in variation norm.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-unrestricted-five-tap-fourier-smoothing-at-every-differenc--64e6a942b2b3",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp unrestricted five-tap Fourier smoothing at every differencing order",
+          "trigger": "Same-date five-tap smoothing result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural stability boundary for the five-point biharmonic iterate has a sharp transition profile in an attained operator norm. It isolates a positive mass that is invisible in the leading coefficient asymptotic and shows why adding absolute masses is legitimate despite two peaks contributing to every spatial site. This is useful for finite-variation stability of the bilateral scheme and is more than the already known criterion for fixed-parameter boundedness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

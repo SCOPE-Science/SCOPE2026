@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Actual computational checks
+## correctness
 
-Run with `python3 verify.py` using only the Python standard library. The verifier is standalone and computes deletion outcomes directly from breadth-first search on unit-weight cycles and Dijkstra shortest paths on positive-integer weighted cycles; the success test does not invoke the terminal-gap characterization.
+PASS
 
-Observed output:
+For positive lengths every shortest path is simple, and deletion increases a terminal distance strictly exactly when no original shortest path for that pair survives. Each gap of length at most half the circumference is itself shortest for its two endpoints and must be hit, including at equality and when t=2. A surviving terminal geodesic could only use whole consecutive unhit gaps; if the obligatory gaps are hit, the only candidate is the single strictly longer-than-half gap, which cannot be shortest. This gives the classification for all positive real lengths. Multiplication over the disjoint edge sets counts by deletion cardinality, not deletion weight. Minima delete precisely one edge in each required gap and none in the optional gap; the connected terminal pair in the latter case remains connected through that gap but at strictly greater distance. Each required factor has the listed shifted roots of unity; the optional factor contributes exactly the root −1 with its gap's edge count as multiplicity. A required size at least three gives a nonreal root with no possibility of cancellation. After removing initial zeros the coefficient factors are consecutive binomial blocks with decreasing ratios; their Toeplitz matrices have nonnegative two-by-two minors, preserved by convolution via Cauchy–Binet, with interval supports. Independent Dijkstra enumeration checked every deletion set for three C_6 assignments (two half-length gaps, a single half-length gap, and a uniquely longer gap); see /workspace/branches/72b74973-19c4-47a3-9f3a-f217850f5217/independent_small_check.py and independent_small_check.out. The frozen VERIFICATION.md reports wider finite checks; uploaded code was not executed and the all-weight proof does not depend on such checks.
 
-```
-CYCLE_N_PASS 3 terminal_sets 4
-CYCLE_N_PASS 4 terminal_sets 11
-CYCLE_N_PASS 5 terminal_sets 26
-CYCLE_N_PASS 6 terminal_sets 57
-CYCLE_N_PASS 7 terminal_sets 120
-CYCLE_N_PASS 8 terminal_sets 247
-CYCLE_N_PASS 9 terminal_sets 502
-ALL_ORDERS_DISTANCE_ENUMERATION_PASS 340304
-LOG_CONCAVITY_AND_TOTAL_COUNTS_SAMPLE_PASS
-VERIFY_OK
-WEIGHTED_CYCLE_N_PASS 3
-WEIGHTED_CYCLE_N_PASS 4
-WEIGHTED_CYCLE_N_PASS 5
-WEIGHTED_CYCLE_N_PASS 6
-WEIGHTED_CYCLE_N_PASS 7
-WEIGHTED_CYCLE_N_PASS 8
-WEIGHTED_DIRECT_DISTANCE_ENUMERATION_PASS 333120
-WEIGHTED_VERIFY_OK
-```
+## originality
 
-The unweighted check ranges over every terminal subset of size at least two and every deleted-edge subset on cycles with \(3\le n\le9\), for 340,304 terminal/deletion tests. The weighted check uses four deterministic positive integer edge-length assignments on each \(3\le n\le8\), for 333,120 tests. For every tested terminal placement it compares the complete coefficient vectors, minimum cardinality and minimum-set count, not merely the total count. Additional selected coefficient log-concavity and total-count checks cover orders up to \(100\).
+PASS
 
-## Unrestricted argument and limitations
+The known semi-cutting definition and universal lower bound are not contributions. There is direct coverage of some unweighted cycle instances, but the distinct, supported claim is the all-terminal, positive-weight cycle classification and resulting full spectrum, which the inspected sources do not supply.
 
-The proof in `RESULT.md` covers every \(n\ge3\), every terminal set of cardinality at least two, and every assignment of positive real edge lengths. Finite computation does not certify infinite quantifiers, historical originality, or independent validation. The weighted test uses selected integer length assignments, not all real length vectors; the all-weight conclusion follows from the gap argument rather than sampling. There is no independent mathematical audit.
+## value
+
+PASS
+
+The gap rule solves a natural exact extremal question for the shortest-path transversal problem, including precisely when the universal lower bound is attained and why a minimum need not disconnect every terminal pair. It also determines the whole deletion spectrum for arbitrary positive lengths; the strictly-half transition is informative even with the same edge counts. Simple factorization consequences add a root and coefficient description without requiring unrelated machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

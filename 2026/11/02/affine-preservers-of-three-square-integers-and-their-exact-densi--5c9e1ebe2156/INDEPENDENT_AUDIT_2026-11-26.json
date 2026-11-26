@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:37.000824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–5",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected without executing"
+      ],
+      "rationale": "For the forbidden 2-adic set E, its closure off E is the singleton 0 and its Haar measure is 1/6. A nonzero point of T^{-1}(E) outside E gives a whole cylinder containing a nonnegative integer counterexample; zero is already an input. An odd slope preserves measure, making the inclusion equality almost everywhere: any nonzero preimage of 0 has a neighborhood either inside or outside E but with a mixed preimage of E, a contradiction. Hence b=0 for an odd slope and checking the mod-8 odd classes gives a≡1. A slope 2u with u odd and b odd has preimage measure 1/4, impossible. For b even its 2-adic zero t lies in the closure of E by preimages of high forbidden cylinders, so t is 0,4,7 mod 8. The preimage of 28 mod 32 then has residue t+14/u mod 8, none of 0,4,7, contradiction. Common division by four preserves membership of the output; for the remaining slope divisible by four, outputs 1 or 2 mod 4 always pass, and 3 mod 4 needs a fixed residue 3 mod 8 (otherwise n=0 or 1 fails). This also gives the stated valuation conditions. Disjoint pair buckets give the recurrence, whose main term sums (9/64) times the geometric series of ratio 1/16; floors contribute only O(X) by geometric summation.",
+      "residual_risks": [
+        "The bundled recurrence check samples powers of two through 256, not every box up to 256; general validity is analytical. The O(X) assertion is for positive intercepts only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "She–Sun–Zhou use the same excluded classes for sufficiently large integers in their almost-prime representation theorem. The same-day record db0217659bdb and later records b27baf1a454b and ca60adc2684c treat failures on binary-partition or generalized-derangement sequences."
+        ],
+        "reasoning": "The former studies restricted representations, and the latter study different sequence domains. None decides the inclusion of the whole three-square set under every integer affine map.",
+        "searches": [
+          "arXiv:2606.04744v1, Theorem 1.3",
+          "Resultary: three-square 2-adic obstructions, affine classification and densities"
+        ]
+      },
+      "checked_sources": [
+        "Legendre membership criterion",
+        "Matijasevick arXiv:2610.36284v1",
+        "She–Sun–Zhou arXiv:2606.04744v1",
+        "Published Resultary records db0217659bdb, b27baf1a454b and ca60adc2684c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Legendre identifies exactly the forbidden cylinders and gives the reduction to T^{-1}(E)⊆E; the two cited prior papers do not resolve this inclusion for the ternary value set."
+        ],
+        "reasoning": "The raw forbidden-class description supplies a membership oracle, not an evaluated affine classification: the odd-slope measure rigidity and valuation-one exclusions are needed to exhaust the infinitely many candidate parameters.",
+        "searches": [
+          "Classical Legendre three-square theorem",
+          "arXiv:2610.36284v1 and arXiv:2606.04744v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6.7 classifies affine self-maps of sums of two triangular numbers; Proposition 7.10(c) classifies self-maps of sums of two squares."
+        ],
+        "reasoning": "Those value sets have different local conditions and cannot substitute for the fixed ternary square form. For example, the present classification permits 4n+1, unlike the stated two-square classification.",
+        "searches": [
+          "Resultary and literature lookup for affine preservers of three squares and 2-adic ternary-form values",
+          "arXiv:2610.36284v1, Theorem 6.7 and Proposition 7.10(c)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Their densities 1/32, 1/6 and 1/24 or 1/6 respectively belong to sequence index problems, not a square box of affine parameters."
+        ],
+        "reasoning": "No exact bucket/recurrence table or affine-pair density match was identified in the bounded search. Densities of excluded inputs or sequence indices are not densities of parameter pairs.",
+        "searches": [
+          "Resultary comparison of three-square obstruction density records db0217659bdb, b27baf1a454b, ca60adc2684c"
+        ]
+      },
+      "rationale": "The supported content is the complete affine-preserver classification for the fixed ternary form, including positive intercepts and the pair density. The ordinary Legendre obstruction and the excluded-value density 1/6 are classical inputs, not originality claims. Compared indexed and published statements address different value sets or distributions and do not cover this classification and count.",
+      "residual_risks": [
+        "The bounded search does not exclude an unindexed equivalent classification in the language of affine maps of local quadratic-form value sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different value sets",
+          "evidence": [
+            "Two triangular numbers: a≡1 mod 4, a two-square, b=(a−1)/4. Two squares: b=0 and a two-square."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36284v1",
+          "material_read": "Theorem 6.7 p.13 (extracted offset 46214); Proposition 7.10(c) p.18 (offset 64969)",
+          "method": "Targeted OA primary-text inspection",
+          "title": "Retriangular numbers and affine maps between polygonal numbers",
+          "trigger": "Closely related affine self-map classifications"
+        },
+        {
+          "assessment": "Same obstruction, different assertion",
+          "evidence": [
+            "A restricted representation result for large integers, not affine preservation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.04744v1",
+          "material_read": "Theorem 1.3 p.2 (extracted offset 6568)",
+          "method": "Targeted OA primary-text inspection",
+          "title": "Representations of positive integers by three almost-prime squares",
+          "trigger": "Identical forbidden ternary classes"
+        },
+        {
+          "assessment": "Adjacent, not equivalent",
+          "evidence": [
+            "Failures at indices of five-colored binary partitions or generalized derangements, not affine self-map parameters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-four-thue-morse-progressions-of-three-square-obstructions-for-fi--db0217659bdb",
+          "material_read": "Finding sections of db0217659bdb, b27baf1a454b and ca60adc2684c",
+          "method": "Local published-record mirror inspection",
+          "title": "Four Thue–Morse progressions of three-square obstructions and related dyadic obstruction records",
+          "trigger": "Same-day and adjacent indexed three-square density claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and independently checked local rigidity and count"
+      ],
+      "rationale": "This is a complete arithmetic classification for a canonical classical value set, not a list of congruential examples. It separates homogeneous from positive shifts, rules out every slope of dyadic valuation one at the reduced level, and gives an exact count and limiting fraction for all positive pairs.",
+      "residual_risks": [
+        "Does not address other ternary forms or negative affine coefficients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

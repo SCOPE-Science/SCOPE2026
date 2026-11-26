@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:45:38.367831Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–110",
+        "VERIFICATION.md lines 19–25",
+        "verify_degree_triangles.py lines 12–104 (read, not executed)"
+      ],
+      "rationale": "Reconstructed the covariance using independent uniform ranks. An edge inside a decreasing triple contributes 1/12; a singly shared extreme contributes signed 1/24 because its conditional mean is 3/4 or 1/4, and a shared middle contributes zero. With A=i−1 and B=n−i, triples containing i contribute binom(n−1,2)/6 plus [binom(B,2)(B−A−2)+binom(A,2)(A−B−2)]/24. Other triples contribute 1/12 only when they straddle i, giving AB(n−3)/24. This simplifies to (1); AB≤(n−1)^2/4 gives the positive central lower bound, including n=3, and the claimed positional monotonicity. Conditional on X_i=x, D_i has A Bernoulli(1−x) and B Bernoulli(x) terms, independent conditionally, so total variance is (n−1)/6+(A−B)^2/12. For T, disjoint triples give no covariance and pairs with at least two shared indices are O(n^4). The single-index projection gives the main term. With y=x−1/2, its scaled limit is [(1−2t)y+(1−6t+6t²)(y²−1/12)]/4. The two terms are orthogonal in x, with x-moments 1/12 and 1/180 and squared t-integrals 1/3 and 1/5, giving 13/7200. Uniform O(1/n) projection error and the polynomial Riemann sum give the O(n^4) remainder. The normalized covariance tends to 1/96 on the stated scale, the degree variance divided by n tends to (1+2s²)/6, and outside the window that latter ratio diverges while normalized covariance is bounded. This proves the constant and both regimes.",
+      "residual_risks": [
+        "The supplied finite replay path is python3 verify_degree_triangles.py; the checker is corroborative, not relied on for either universal claim. The priority discussion could more precisely say that the triple indicator can be written as a product of two comparisons by transitivity; either representation still requires more than pairwise second moments for the mixed covariance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-length subsequence variance theorem specializes at length three to 13/7200, also valid for decreasing subsequences by reversal.",
+          "The general component–pattern formula includes ordinary 321 occurrences but uses component count, not a marked degree."
+        ],
+        "reasoning": "The existing broader theorems cover a variance ingredient and other mixed statistics, not this joint law. Component count is not a reparametrization of marked degree, and marginal laws do not supply a joint moment.",
+        "searches": [
+          "arXiv:1706.09510 Theorem 5.1, equation (8)",
+          "arXiv:1901.06678 §7, fixed clique size",
+          "Resultary 97dcef300448, general graph-component/pattern covariance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1706.09510",
+        "arXiv:1503.03582",
+        "arXiv:1901.06678",
+        "Resultary f6af0a8c3805",
+        "Resultary 73bbc75cbd49",
+        "Resultary 1d27f6d9bfba",
+        "Resultary 5a13f0bb8311",
+        "Resultary 97dcef300448"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inversion-indicator covariance matrix gives moments of linear combinations of comparison indicators. T is a nonlinear comparison statistic; even the representation 1_{X_a>X_b}1_{X_b>X_c} requires a moment of a product of three comparisons when paired with D_i.",
+          "The published middle-degree limit and triple-count variance do not give the cross term or limiting correlation coefficient."
+        ],
+        "reasoning": "The joint one-index overlap signs and counts are the additionally required calculation. Once the mixed law is known, combining it with the variance ingredients does yield the correlation window; the existing ingredients alone do not.",
+        "searches": [
+          "Resultary f6af0a8c3805, all pairwise inversion indicators",
+          "arXiv:1503.03582 Theorem 2.1",
+          "arXiv:1706.09510 Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gürerk–Işlak–Yıldız explicitly identify a clique count with a decreasing subsequence count; setting m=3 makes their clique statistic T.",
+          "Bhattacharya–Mukherjee treat degree at a specified vertex label, including the middle vertex."
+        ],
+        "reasoning": "These are the same graph observables interpreted under their exact rank conventions, but their inspected statements describe marginal laws or moments, not the covariance of a marked D_i with T. Consecutive-pattern counts are not equivalent to T.",
+        "searches": [
+          "arXiv:1901.06678, permutation-graph vertex degree and m-clique counts",
+          "arXiv:1503.03582, marked vertex degree or degree-process limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved formula records concern second-order inversion-indicator covariance/precision, fixed-point versus inversion covariance, cycle count versus consecutive patterns, and component count versus ordinary patterns."
+        ],
+        "reasoning": "No exact entry was identified in the checked catalogue. The closest indexed position-window result is for different observables, and the closest indexed result sharing T has a different first observable. This is a formula/limit claim rather than an integer-sequence claim.",
+        "searches": [
+          "Resultary/SCOPE: f6af0a8c3805, 73bbc75cbd49, 1d27f6d9bfba, 5a13f0bb8311 and 97dcef300448"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact position-marked degree/decreasing-subsequence cross-covariance and the resulting sharp correlation profile. The individual degree asymptotics, the leading triangle-count variance, and the overlap/projection techniques are not credited as new.",
+      "residual_risks": [
+        "The broad literature lookup did not resolve historical priority. Unindexed or more general marked/vincular mixed-moment results might contain an equivalent statement; the identified primary results and catalogue comparisons do not establish such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the leading marginal variance",
+          "evidence": "(binom(10,5)−2 binom(5,3)^2)/(2(5!)²)=13/7200; no marked degree in the variance theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.09510",
+          "material_read": "§5, Theorem 5.1, equation (8), PDF p. 15, text offset near 48600",
+          "method": "OA paper text, located passage",
+          "title": "Asymptotic results on weakly increasing subsequences in random words",
+          "trigger": "General fixed-length subsequence variance could subsume a claimed constant"
+        },
+        {
+          "assessment": "Degree marginal coverage only in the inspected statements",
+          "evidence": "Gives degree distributions at specified normalized vertex labels and a middle-vertex degree limit; no decreasing-triple variable in that theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.03582",
+          "material_read": "Abstract and Theorem 2.1, PDF pp. 1 and 3",
+          "method": "OA paper text, bounded passages",
+          "title": "Degree Sequence of Random Permutation Graphs",
+          "trigger": "Same marked degree and center distinguished"
+        },
+        {
+          "assessment": "Exact identification of T and related marginals; no matching joint statement located",
+          "evidence": "K_m is the decreasing-subsequence count of length m; degree and clique results are separate in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06678",
+          "material_read": "Degree passages and §7 clique-count theorem, PDF pp. 2–3 and 16–17",
+          "method": "OA paper text, bounded passages",
+          "title": "A Study on Random Permutation Graphs",
+          "trigger": "Studies both vertex degrees and decreasing-subsequence/clique statistics"
+        },
+        {
+          "assessment": "Does not give the necessary mixed comparison product moment",
+          "evidence": "Second-order covariance/precision law for the vector of pair indicators; T is not a linear statistic of that vector.",
+          "identifier_or_url": "Resultary f6af0a8c3805",
+          "material_read": "Finding: pair-indicator covariance and precision",
+          "method": "Local Resultary mirror",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Exact prior joint second moments on the same indicator family"
+        },
+        {
+          "assessment": "Different variables and scaling statement",
+          "evidence": "Fixed-point indicator versus total inversions under Ewens sampling, rather than fixed-position inversion degree versus all decreasing triples under uniform sampling.",
+          "identifier_or_url": "Resultary 73bbc75cbd49",
+          "material_read": "Finding: variables, sampling law and positional scaling",
+          "method": "Local Resultary mirror",
+          "title": "A centered parabolic covariance law for fixed points and inversions",
+          "trigger": "Parabolic covariance and square-root central window"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Both the first statistic and the admissible triple indices differ.",
+          "identifier_or_url": "Resultary 1d27f6d9bfba and 5a13f0bb8311",
+          "material_read": "Findings: cycle-count and consecutive-pattern definitions",
+          "method": "Local Resultary mirror",
+          "title": "Exact cycle-count covariances with monotone/all six consecutive triple patterns",
+          "trigger": "Triple pattern and covariance terminology"
+        },
+        {
+          "assessment": "Even disregarding chronology, does not cover marked degree",
+          "evidence": "For pattern 321 the second variable agrees, but the theorem has inversion-graph component count as its first variable.",
+          "identifier_or_url": "Resultary 97dcef300448",
+          "material_read": "Finding: general component–pattern covariance",
+          "method": "Local Resultary mirror",
+          "title": "A direct-sum fingerprint law and a sharp 2143 component–pattern covariance",
+          "trigger": "Stronger pattern family includes T"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(4)",
+        "arXiv:1503.03582 Theorem 2.1",
+        "arXiv:1901.06678 §7"
+      ],
+      "rationale": "A marked degree and a triangle count are natural local and global observables of the same permutation graph. The exact positional covariance distinguishes the endpoint maximum of raw covariance from the central localization of normalized dependence. The explicit transition profile resolves a question not answered by the two separate marginals.",
+      "residual_risks": [
+        "No implication of joint asymptotic normality or independence is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:17.116605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–52 and both bundled programs and outputs (inspected)",
+        "Independent replay: python3 /workspace/review_evidence/5.py and its captured 5.out",
+        "Repaired RESULT.md proof tables; Resultary 9829d0d5cf3e Finding and Symmetry and metric sections"
+      ],
+      "rationale": "The original mathematical computations held up. I independently used the bipartite disjointness cover on pairs, monotone synchronous closure, generator closure on all triples, and all-source distance layers in each exchange graph. All 211 smaller seeds fail; all 1,140 triples split into twelve orbits, of which just two succeed, with counts and times (120,3) and (120,2). Both edge sets, all-source eccentricities and original table entries agree. The repaired proof isolates the timing and local slide results. It uses the independently confirmed baseline census and its transitivity. Adjacency in the subset model is Hamming distance one; monotone alternating insertion/deletion paths inside the middle levels achieve Hamming distance between any two masks. The listed initialization masks and exact subsequent singleton-neighbor additions were verified at both representatives. With three nonadjacent selected vertices of degree three, the nine replacement candidates at each representative are exhaustive; classification by the two feasible profiles gives exactly two within-type and two cross-type slides. By automorphism transitivity these checks apply to every minimum state. The two-round deadline thus keeps exactly half of the full slide degree in the feasible states. The claimed degree and eccentricity trade-off uses the full optimal-state graphs, not their deadline-restricted subgraphs.",
+      "residual_risks": [
+        "Rounds are counted after the initial closed-neighborhood observation. The repaired finding gives no connectivity or diameter assertion for the deadline-restricted graph. The bundled programs use int.bit_count and hence Python 3.10 or newer (the frozen 3.9 claim was too permissive)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrera–Ferrero bound the minimum by min(k,m−k), giving at most 3 for GP(10,3) but no timing census there; their exact odd-order result for the k=2 family is different. Benson et al. give a general relation to zero forcing. Bjorkman et al. define the reconfiguration moves and illustrate them on other examples. OA retrieval for two other generalized-Petersen papers did not succeed."
+        ],
+        "reasoning": "The examined results give general methodology or bounds and do not determine the propagation times of both X=240 optimum states or the effect of a two-round constraint. Inaccessible sources are not ruled out.",
+        "searches": [
+          "Barrera–Ferrero DOI:10.1002/net.20413 §5; Benson et al. arXiv:1510.02421 Observation 1.1; Power Domination Reconfiguration DOI:10.1007/s44007-025-00187-5 §1; DOI:10.7151/DMGT.2137; DOI:10.1007/s10878-010-9293-y"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9829d0d5cf3e and exact deadline-constrained index query",
+        "DOI:10.1002/net.20413, §5",
+        "arXiv:1510.02421, Observation 1.1",
+        "DOI:10.1007/s44007-025-00187-5, §1",
+        "DOI:10.7151/DMGT.2137 and DOI:10.1007/s10878-010-9293-y (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched record proves the baseline that the repair uses. It characterizes successful seeds, but its two slide-distance sequences only give total degree four at distance one; it neither compares the forcing histories of the types nor separates the one-step neighbors by type. The repaired proof computes the two representative histories and partitions their nine candidate moves by feasibility and resulting type."
+        ],
+        "reasoning": "The old orbit result reduces the work to two representatives, and its metric data can then be compared with speed. It does not itself give the representative time traces or imply the two-versus-two neighbor split from the stated degree, eccentricity or antipodal results. No novelty is claimed for the old metrics or for priority over the exact indexed overlap.",
+        "searches": [
+          "Resultary 9829d0d5cf3e Finding and proof, especially symmetry and metric; Benson arXiv:1510.02421 Observation 1.1; DOI:10.1007/s44007-025-00187-5, §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The subset incidence model maps to the pair double cover by complementing the three-subsets and preserving the two sides as layer labels. Resultary 9829d0d5cf3e uses that same graph and same simultaneous propagation rule. Benson et al. relate power domination to zero forcing after observing the closed neighborhood."
+        ],
+        "reasoning": "The overlap is exact for the original graph, states and moves, not a different Desargues presentation. In the repair, additional forcing time excludes initialization; knowledge of the feasible optimum sets under that convention is not knowledge of their time split.",
+        "searches": [
+          "Desargues / GP(10,3) / bipartite Petersen double cover, optimum power-domination triples, synchronous forcing time and relocation by adjacent exchanges; Resultary 9829d0d5cf3e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9829d0d5cf3e Finding and proof give both 120-element classes, the same slide BFS shells, full slide metrics and jump degrees, plus an antipodal matching. They do not supply the time labels or the within-class versus cross-class adjacent-degree split. The analogous indexed speed result 6a07e18862f2 concerns the Gray graph, not Desargues."
+        ],
+        "reasoning": "Most of the frozen theorem is directly covered. The overlapping exact slide shell table counts all targets by distance, without distinguishing the speed classes at distance one. Timing and the speed-preserving slide alternatives are the distinct exact data in the narrowed claim.",
+        "searches": [
+          "Resultary: Desargues graph GP(10,3) power propagation time two versus three synchronous forcing rounds optimal triples profile 3 3 4 two-round deadline monitoring token slides preserving time changing speed degree two; Resultary 9829d0d5cf3e"
+        ]
+      },
+      "rationale": "This passes only the narrowed repair. The frozen scope is materially covered in its primary claims of 240 optima, both orbit profiles and the main jump/slide metrics by Resultary 9829d0d5cf3e. Its additional antipodal result does not give the split by synchronous completion time or classify one-slide options by deadline preservation. The repair credits the minimum-set and full relocation results explicitly and establishes the completion-time split together with the exact speed-preserving and speed-changing slide counts. No inspected source states or gives these deadline-constrained numbers without a new timing and local-exchange calculation.",
+      "residual_risks": [
+        "The exact indexed baseline has a later catalogue path; this establishes coverage, not discovery order. The two inaccessible Petersen papers were not assigned noncoverage. Bounded checks do not establish global priority for the repaired deadline result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct material coverage of the original census and core relocation results, but the narrower timing and local speed constraint are absent from the inspected results",
+          "evidence": [
+            "Exactly 240 optimal triples, two equal orbit signatures; slide radius 7 and diameter 8 with same shell sizes; jump degrees 17/13 and diameter 4. An additional exact antipodal matching is stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-symmetry-types-and-a-unique-antipodal-pairing-in-desargues-p--9829d0d5cf3e/RESULT.md",
+          "material_read": "Finding, assumptions and census proof from offset 0; symmetry/metric, antipode proof and verification from offset 3670",
+          "method": "Targeted passages in local Resultary mirror",
+          "title": "Two symmetry types and a unique antipodal pairing in Desargues power-domination relocation",
+          "trigger": "Same graph, minimum sets, orbit signatures and relocation metrics"
+        },
+        {
+          "assessment": "General upper bound and different exact family",
+          "evidence": [
+            "γ_P(P(m,k)) ≤ min(k,m−k); exact case for P(m,2) with odd m≥5 is not Desargues."
+          ],
+          "identifier_or_url": "https://cpb-us-e1.wpmucdn.com/wp.txstate.edu/dist/1/556/files/3/2016/03/BarreraFerrero.pdf",
+          "material_read": "§5, pp. 5–6, OA text from offset 29885",
+          "method": "Author-accessible OA PDF section",
+          "title": "Power domination in cylinders, tori, and generalized Petersen graphs",
+          "trigger": "Potential generalized Petersen theorem subsuming GP(10,3)"
+        },
+        {
+          "assessment": "General relation, not the optimum-seed deadline data",
+          "evidence": [
+            "Power domination reduces to the zero-forcing process after observing the closed-neighborhood set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02421",
+          "material_read": "Abstract and p. 2 around offset 5900, Observation 1.1",
+          "method": "OA PDF passages",
+          "title": "Zero forcing and power domination for graph products",
+          "trigger": "Power-domination to zero-forcing implication"
+        },
+        {
+          "assessment": "Establishes the general move notions; different examples, not the claimed Desargues deadline result",
+          "evidence": [
+            "Defines jumping/sliding and gives examples on a paw and another graph of order six."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "pp. 1–2 scope and definitions; §1 Examples 1.1–1.2 around offset 14081",
+          "method": "Journal PDF passages",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Same monitoring reconfiguration framework"
+        },
+        {
+          "assessment": "Coverage not determined",
+          "evidence": [
+            "DOI and authors are identified, but the relevant primary theorem was not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/DMGT.2137",
+          "material_read": "Bibliographic citation in Resultary 9829d0d5cf3e only",
+          "method": "Lawful OA attempted; primary text unavailable",
+          "title": "Zhao–Shan–Kang generalized-Petersen power-domination paper",
+          "trigger": "Potential exact optima or forcing times in a stronger family result"
+        },
+        {
+          "assessment": "Coverage not determined",
+          "evidence": [
+            "DOI and authors are identified, but the relevant primary theorem was not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10878-010-9293-y",
+          "material_read": "Bibliographic citation in Resultary 9829d0d5cf3e only",
+          "method": "Lawful OA attempted; primary text unavailable",
+          "title": "Xu–Kang generalized-Petersen power-domination paper",
+          "trigger": "Potential exact generalized-Petersen coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and two proof tables; Resultary 9829d0d5cf3e baseline; review_evidence/5.out"
+      ],
+      "rationale": "Minimum sensor count alone treats the two orbits identically. A natural next objective is to minimize time to full observation without buying another sensor, and to know how many optimized placements are locally reachable by a single slide while meeting that time constraint. The repair gives the fastest deadline, identifies exactly which orbit meets it, and determines the local degree loss from four to two everywhere in that orbit. This is useful exact data about the interaction of two different objectives, not a repeat of full-graph diameter or a claim about a global restricted radius. The broader frozen census and main full-graph metrics do not qualify as separate new contributions.",
+      "residual_risks": [
+        "Local deadline-preserving branching only, on this specific twenty-vertex graph. No general propagation/mobility trade-off theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

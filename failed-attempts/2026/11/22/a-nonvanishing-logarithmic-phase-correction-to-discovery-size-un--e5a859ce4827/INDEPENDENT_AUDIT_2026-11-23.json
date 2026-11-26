@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:02:18.679731Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed R>1 the independent miss product equals exp(c-cR^n), including n=0, with c=aR/(R-1). Expanding R^K by telescoping and interchanging the nonnegative terms gives the convergent exact expectation. Set h(u)=u exp(-u) and c=R^(-m-theta); reindexing sum_{n≥0} h(cR^n) removes only the left tail of the bilateral profile, bounded by c/(R-1) uniformly. The remaining profile converges uniformly by geometric decay on the left and faster decay on the right, and exp(c)=1+O(c). Fourier integration changes variables from j-theta to u=R^(j-theta), producing Gamma(1+2πik/log R)/log R with the stated sign convention. Gamma has no zeros, so the phase profile is nonconstant for each fixed R>1. Exactly prescribed phase sequences realize every profile value; compactness and continuity of the phase circle give the full interval of limits. The R=10 phase examples were independently evaluated by summing j=-22 through 5 (the omitted tails there are negligible at the reported precision), giving 3.805605035176776 and 3.227809993075674. Supplied check.py was inspected, not executed. There is no claim of uniformity in R down to 1, or of validity for a carrying-capacity or randomized-phase model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The harmonic-sum theorem factors the Mellin transform into the base transform and the amplitude-frequency Dirichlet series, then reads the small-argument expansion from its poles. Example 12 and Corollary 1 to Theorem 4 specifically handle the vertical pole lattice.",
+          "Parnell et al. (2015) uses unknown introduction time, logistic prevalence and discrete rounds of N random samples; its smooth rΔ/N rule additionally approximates continuous sampling and exponential growth."
+        ],
+        "reasoning": "The harmonic-sum result genuinely dominates the analytic asymptotic. The applied literature is a useful normalization comparator but the smooth prevalence rule does not describe the fixed-founding-phase weighted abundance; application-level overlap is not asserted beyond the actual passages read.",
+        "searches": [
+          "Flajolet–Gourdon–Dumas (1995), Theorems 4–5 and Example 12",
+          "Resultary: 10.1016/j.jtbi.2012.03.009 periodic invasion surveillance detection harmonic sum",
+          "Primary search: Parnell Gottwald Gilks 2012 Estimating incidence epidemic when first discovered design early detection monitoring periodic discrete expected size full paper pdf",
+          "Parnell et al. (2015), §2 and §2(a), Eqs. (2.1)–(2.6)"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Gourdon–Dumas, TCS 144 (1995), Theorems 4–5 and Example 12",
+        "Resultary 8dcf61e17ffb and exact-match self-record; ranked analogues 246736a29f1b, b8bd60e73388",
+        "Parnell et al. (2012), PMID 22480434 abstract and exact Rothamsted access record",
+        "Parnell et al. (2015), DOI 10.1098/rspb.2015.1478",
+        "Robinson et al., DOI 10.1002/oik.11269, publisher abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With g(u)=u exp(-u), its Mellin transform is Gamma(1+s), and the factor for amplitudes 1 and frequencies R^n is (1-R^(-s))^(-1). The poles s=2πik/log R give residues Gamma(1+2πik/log R)/log R times c^(-2πik/log R); shifting between real parts -2 and -1 picks up an O(c) term at s=-1. Gamma decay and horizontal contours midway between lattice poles justify the uniform error by the Example 12 argument.",
+          "The miss product and discrete tail sum give exactly sigma E[A(KT)]=a+[(R-1)^2/R] exp(c) S_R(c). Substituting the earlier residue expansion immediately gives the proposed series, phase mean and uniform O_R(a) error. Gamma zero-freeness and the range of a continuous periodic function give the non-singleton interval.",
+          "The smooth prevalence-at-discovery approximation in the applied comparator is not the source of this implication."
+        ],
+        "reasoning": "No new threshold or nonstandard property of this harmonic function is needed to obtain any core conclusion. The short survey transformation and normalization give a concrete application of an existing stronger analysis, even if the exact scientific wording was not printed there.",
+        "searches": [
+          "Flajolet–Gourdon–Dumas (1995), Thm. 5, extracted offsets 53000–55460; Example 12, offsets 64500–67385",
+          "Resultary 8dcf61e17ffb, Finding and Proof §§2–3",
+          "Parnell et al. (2015), §2(a)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 12 is the geometric exponential sum G_2(c)=sum_{n≥0} exp(-c 2^n); it gives an exact logarithmic term, periodic Gamma series, and power-series remainder.",
+          "For any R>1 the relevant S_R(c)=sum_{n≥0} cR^n exp(-cR^n) is -c G'_R(c), where G_R is the same geometric exponential sum with base R. At R=2 this is exactly the differentiated earlier example, with termwise differentiation justified by normal convergence on compact positive-c sets.",
+          "Resultary 8dcf61e17ffb, Finding and Proof §§2–3: the profile G_{alpha,b}(t) has a Gamma spectrum, and F_R(theta)=G_{1,R}(-theta). Alpha=1 is outside its stated operator-theorem range alpha>1; this is a profile overlap, not literal operator-theorem coverage."
+        ],
+        "reasoning": "The application has different vocabulary, but the transformed observable is the geometric sum with the same harmonic frequencies. Changing the parameter from 2 to R replaces log 2 by log R in the same geometric Dirichlet factor; the independent broader theorem below gives coverage for all R. The phase-reversed profile comparison is additional corroboration, not the decisive implication.",
+        "searches": [
+          "Resultary: periodic invasion surveillance harmonic sum coefficients detection probability",
+          "Resultary: harmonic sum geometric lattice log-periodic Fourier coefficients Mellin transform Gamma function",
+          "Primary search: Flajolet Gourdon Dumas Mellin transforms harmonic sums x exp(-x) geometric scale periodic Gamma example dyadic exponential harmonic sum",
+          "Flajolet–Gourdon–Dumas (1995), Example 12, pp. 30–31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 8dcf61e17ffb gives the analogous parameter-indexed Gamma profile in a different operator model; the exact same surveillance title returned in the ranked searches is the assigned record itself.",
+          "Example 12 supplies an exact dyadic representation, including periodic Fourier coefficients rather than merely a finite numerical table."
+        ],
+        "reasoning": "No inspected source tabulates the target surveillance observable by R and phase. Such a table is unnecessary for coverage because the older analytic representation already fixes those values after the elementary transformation. The ranked local results do not rule out other tables.",
+        "searches": [
+          "Resultary: size at detection invasion surveillance periodic sampling article",
+          "Resultary: 10.1002/oik.11269 size at detection invasion periodic surveillance",
+          "Resultary: harmonic sum geometric lattice log-periodic Fourier coefficients Mellin transform Gamma function",
+          "Flajolet–Gourdon–Dumas, Example 12, exact expansion"
+        ]
+      },
+      "rationale": "The core mathematical finding is a direct specialization of the established geometric harmonic-sum expansion, not just an application of a related method. The modeled expectation is an elementary affine rescaling of the differentiated geometric exponential sum. The standard residues supply all-R nonvanishing modes and uniform error, and the interval is an immediate consequence of a continuous periodic leading term. The available applied papers do not establish an exact duplicate of this surveillance setting; the negative decision rests on the positive mathematical implication from the earlier full-text harmonic-sum result, not on missing full texts.",
+      "residual_risks": [
+        "The 2012 first-discovery paper and the later Oikos article were not independently read in full. An exact applied antecedent could therefore also exist; the finding already fails on a positive mathematical implication.",
+        "No exhaustive search or claim of an exact same-model publication is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by differentiation/specialization and the vertical pole expansion",
+          "evidence": "Example 12 gives sum exp(-x2^k), Dirichlet factor (1-2^(-s))^(-1), poles at 2πik/log 2, and Gamma Fourier coefficients. Theorem 5 is general in the frequency sequence and base function.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlGoDu95.pdf",
+          "material_read": "Introduction; Theorem 4 and Corollary 1 context; Theorem 5 (offsets 53000–55460); Example 12 pp. 30–31 (offsets 64500–67385)",
+          "method": "Lawful OA PDF, targeted pages",
+          "title": "Mellin transforms and asymptotics: Harmonic sums",
+          "trigger": "Same exponential geometric harmonic sum and potential stronger theorem"
+        },
+        {
+          "assessment": "Same profile shape and coefficient mechanism; stated operator theorem does not cover alpha=1",
+          "evidence": "Its bilateral profile has terms b^(alpha(t-l)) exp(-b^(t-l)); reflection and alpha=1 match the target series.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-log-periodic-mellin-spectra-and-measurable-weak-traces-for-geome--8dcf61e17ffb/RESULT.md",
+          "material_read": "Finding and Proof §§2–3",
+          "method": "Local Resultary query and exact mirror",
+          "title": "Log-periodic Mellin spectra and measurable weak traces for geometric-circle Bergman Toeplitz operators",
+          "trigger": "Same periodic Gamma-profile mechanism"
+        },
+        {
+          "assessment": "Close applied relationship; exact expectation in full text unresolved",
+          "evidence": "Abstract discusses regular intervals, first discovery and an approximation; it gives no basis to rule out the harmonic expression from the paper.",
+          "identifier_or_url": "https://repository.rothamsted.ac.uk/id/eprint/18659/; DOI 10.1016/j.jtbi.2012.03.009; PMID 22480434",
+          "material_read": "Repository metadata and PubMed Abstract/AbstractText; exposed exact PDF is marked staff-restricted and was not read",
+          "method": "Lawful repository/OA attempts and exact PubMed record",
+          "title": "Estimating the incidence of an epidemic when it is first discovered and the design of early detection monitoring",
+          "trigger": "Closest early regular-interval first-discovery paper"
+        },
+        {
+          "assessment": "Related detection product and smooth approximation under different timing and normalization",
+          "evidence": "Round detection 1-(1-q(t_1))^N; unknown introduction assumed uniformly timed. The exponential-prevalence/continuous-sampling approximation gives E q*=rΔ/N.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4571706/?report=reader",
+          "material_read": "§1 and §2, especially Eqs. (2.1)–(2.6) and §2(a)",
+          "method": "Lawful OA article",
+          "title": "Early detection surveillance for an emerging plant pathogen: a rule of thumb to predict prevalence at first discovery",
+          "trigger": "Accessible first-discovery derivation and possible equivalent approximation"
+        },
+        {
+          "assessment": "Potential applied overlap remains unresolved",
+          "evidence": "Abstract treats fixed traps, conditional detection hazard and a Weibull approximation, not evidence about the entire paper's calendar analysis.",
+          "identifier_or_url": "10.1002/oik.11269; https://api.crossref.org/works/10.1002/oik.11269",
+          "material_read": "Publisher abstract in DOI metadata; no full text retrieved",
+          "method": "Exact DOI and lawful OA routes; publisher full-text routes inaccessible",
+          "title": "Using survival analysis to develop models for estimating size-at-detection of invasive species under surveillance",
+          "trigger": "Close later size-at-detection paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The phase warning is a useful illustration of geometric-lattice sampling, and the example shows how large the effect can be in the idealized model. As a standalone new finding, however, the asserted exact profile, uniform leading error, nonvanishing and interval are a routine reduction to the known analytic result. The unbounded fixed-phase model contributes no further nonroutine invariant or independent empirical or model-comparison result; the numerical phase example does not remedy that.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

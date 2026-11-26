@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:36:51.308931Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A positive matching T leaves 2k vertices. For |S|≤n−2 there are at most k−2 residual negative-query edges besides the fixed missing matching, giving minimum degree at least k and hence a perfect matching by alternating edges of a Dirac cycle. This proves the whole trace identity, including intersecting supports. On a matching support of size n−1, a proper positive subset leaves at least four vertices, and the residual forbidden graph is a union of two matchings; Dirac applies for k≥3, and at k=2 each forbidden matching can hit only one member of the three 1-factors of K4. The full positive trace is equivalent to the single remaining edge being allowed. At size n a perfect matching with exactly one queried edge set negative cannot be realized. Every smaller face extends to a perfect matching and hence to a face of size n−1; these top faces correspond bijectively to (perfect matching, removed edge). Inclusion–exclusion on the disjoint prescribed pairs gives both factorial sums, including n=2. An adaptive shattered tree's positive branch fixes two endpoints and restricts to a perfect-matching class on the remaining vertices, giving the inductive online upper bound n−1 from the two-vertex base; VC shattering gives the lower bound. An independent insertion enumeration in /workspace/reproduction/check_1.py (stdout check_1.out in the same directory) verifies all 104,500 supports for n=2–5, the face vectors, and adaptive depths 1,2,3 for n=2–4. The finite tests corroborate rather than establish the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Yu treat sufficient extendability conditions with m,n fixed at sufficiently large graph order; Chase–Freitag give general learning-theoretic definitions."
+        ],
+        "reasoning": "The cited sufficient conditions do not give the moving, sharp boundary including the residual four- and two-vertex cases, nor the exact online dimension.",
+        "searches": [
+          "arXiv:1807.11159, definition and Corollary 2.4",
+          "arXiv:1801.06566, learning dimension setup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verifier source and recorded support-count evidence",
+        "Resultary: d84d57a040aa, 51a4905acdf5",
+        "arXiv:2209.11319, 1807.11159, 1906.05908, 1801.06566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Intersection proportions are aggregate quantities, not a complete trace criterion. The bipartite case has a different maximum and the crossing-parity case uses parity-compatible completions."
+        ],
+        "reasoning": "Earlier counts, sufficient extension statements and analogues do not imply the universal local traces and the allowed-edge boundary together for this graph. No novelty is credited to inclusion–exclusion for p_n.",
+        "searches": [
+          "arXiv:1906.05908, matching intersection statistics",
+          "arXiv:1807.11159, signed matching extension",
+          "Resultary bipartite and crossing-parity classifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The off-diagonal derangement-board theorem uses K_{n,n} minus its prescribed matching and has no faces of size n−1.",
+          "Crossing-parity matching classes use all of K_{2n} and a parity condition, not a fixed excluded perfect matching."
+        ],
+        "reasoning": "Identical low-support wording on a bipartite board does not characterize this nonbipartite concept class. Choosing positive and negative matching edges is the relevant extension reformulation, but general supports here can also have intersecting negative queries.",
+        "searches": [
+          "Resultary d84d57a040aa and 51a4905acdf5",
+          "arXiv:2209.11319, deranged matchings of a complete graph",
+          "arXiv:1807.11159, E(m,n)-extendability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Johnston–Kayll–Palmer count the same graph's perfect matchings D_n. The catalogue comparators enumerate faces of different complexes, with different top counts."
+        ],
+        "reasoning": "The exact number p_n is known. It does not itself enumerate shattered supports; multiplying by n is justified only by the new boundary and unique-completion bijection.",
+        "searches": [
+          "Resultary d84d57a040aa and 51a4905acdf5 face polynomials",
+          "arXiv:2209.11319, pp. 1–3"
+        ]
+      },
+      "rationale": "Supported distinct claim: the trace and sharp shattering classification, pure complex and online dimension for the nonbipartite deranged-pairing class. The earlier bipartite local trace theorem is a substantial analogue, and the same-graph deranged-pairing count is prior. Neither implies this top-face or online statement. This is a best-of-knowledge assessment, not a priority certification.",
+      "residual_risks": [
+        "Initial primary search was tangential and is not negative evidence; older equivalent extension or matching-preclusion statements may be indexed under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial analogue, not same-class coverage",
+          "evidence": "Off-diagonal derangement board has all matching traces through n−2 but no shattered (n−1)-support.",
+          "identifier_or_url": "2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+          "material_read": "RESULT.md Finding at mirror offset 0 and limitations near offset 7696",
+          "method": "Resultary local mirror",
+          "title": "Perfect matching trace universality and the shattering polynomial",
+          "trigger": "Closest low-support trace analogue"
+        },
+        {
+          "assessment": "Different class and top-edge criterion; no date-order inference",
+          "evidence": "Crossing parity and whether the omitted chord crosses the support control its top faces.",
+          "identifier_or_url": "2026/11/22/SCOPE-crossing-parity-perfect-matchings-a-complete-shattering-classifi--51a4905acdf5",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Crossing-parity perfect matchings: a complete shattering classification",
+          "trigger": "Same-day similar exact classification"
+        },
+        {
+          "assessment": "Same matching count, distinct invariant",
+          "evidence": "Defines deranged matchings on K_{2n} minus a perfect matching and studies D_n/(2n−1)!!.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+          "material_read": "pp. 1–3, OA offsets 0–7978",
+          "method": "OA paper",
+          "title": "Deranged matchings: proofs and conjectures",
+          "trigger": "Same nonbipartite graph and exact count"
+        },
+        {
+          "assessment": "Related sufficient conditions, not the sharp universal trace law",
+          "evidence": "E(m,n) extends one matching while avoiding another; the cited result assumes sufficiently large order for fixed parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.11159",
+          "material_read": "Definition p. 1 and Corollary 2.4 pp. 6–7",
+          "method": "OA paper",
+          "title": "Binding Number, Toughness and General Matching Extendability in Graphs",
+          "trigger": "Positive and negative matching extension"
+        },
+        {
+          "assessment": "Aggregate matching statistics in the inspected passage",
+          "evidence": "Studies intersection proportions for perfect matchings.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+          "material_read": "p. 1, near OA offset 857",
+          "method": "OA paper",
+          "title": "Perfect matchings and derangements on graphs",
+          "trigger": "Perfect-matching intersection interpretation of query traces"
+        },
+        {
+          "assessment": "General definitions, no same-object dimension claim in the inspected material",
+          "evidence": "Boolean learning and dimension framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.06566",
+          "material_read": "pp. 1–2",
+          "method": "OA paper",
+          "title": "Model Theory and Machine Learning",
+          "trigger": "VC and Littlestone context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cocktail-party graph is the standard nonbipartite model of pairings avoiding a fixed pairing. Its arbitrary-support trace law and exact near-perfect boundary determine the entire Boolean restriction structure at the critical sizes, information lost in the matching count and in VC dimension alone. Purity, the facet correction and the exact adaptive dimension are useful comparisons with the bipartite derangement-board result, whose top size is different.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:50:18.499534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For interior t, logit time yields unit Gaussian Z with correlation exp(−|u−v|/2), and the area measure is w(u)du with w(u)=1/(8 cosh³(u/2)). The standardized noisy datum gives correlation r(v) exp(−|u−v|/2), where r(v) decreases in |v| or is constant in the noiseless case. An independent projection check is to draw two paths conditionally independently given the same datum; their cross-correlation at u,u′ is the product of the two correlations with the datum. The covariance of the two absolute normal values is (2/π)(sqrt(1−ρ²)+ρ arcsin ρ−1); expanding its derivative (2/π)arcsin ρ reproduces the positive even-power coefficients in the risk series. Projection and Fubini are justified by the integrable w and Gaussian L². Each resulting convolution H_m has derivative m∫₀∞ e^(−my)[w(v+y)−w(v−y)]dy<0 for v>0, and is even and positive. The first term is nonzero and suffices for strictness, including η=0; both endpoint observations are uninformative. At the midpoint G1=4∫₀^(π/4) sin⁴θ dθ=3π/8−1; its contribution gives the sharp η^(−2) asymptotic, and higher terms are O((1+4η)^(−4)). The prior moments follow from the ordered-triangle Gaussian product integral (contributions 2π/105 and 17π/1680) and also from the published exact area moments. Reflection eliminates all affine gain. The long decimals in the frozen finding are uncertified 100-term estimates, not exact prefixes: independent quadrature after the substitution G_m=(4m)^(-1)∫₀∞ e^(−y)sech³(y/(2m))dy gave gain ≈0.01048443994 and risk ≈0.00800745631; the analytic series tail after M terms is bounded by 1/(48π M³) from G_m≤1/(4m) and the central-binomial coefficient bound. The 100-term values match the reported truncation; the tiny display discrepancy does not affect either the exact series or the scientific claim. VERIFY.py, its dependencies and VERIFICATION.md were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson collects full unconditional Laplace and moment information for the same area.",
+          "Grothaus–Voßhall establish an integration-by-parts formula for the modulus law.",
+          "The occupation-sensing theorem allows a broader class of noise laws under its own standardized-scale condition, but with binary sensing and a different target; the signed-vector design gives a noise threshold, not a general midpoint rule."
+        ],
+        "reasoning": "Unconditional structural information and broader noise-law scope do not dominate the joint nonlinear conditional-risk problem. The design requires an all-t strict inequality for the particular gain and the varying Gaussian observation attenuation.",
+        "searches": [
+          "arXiv:0704.2289, Sec. 20, Eqs. (132)–(149)",
+          "arXiv:1609.02438, abstract",
+          "Resultary ceae124732ac and 89a9092c8f3a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0704.2289",
+        "DOI 10.1214/aoap/1035463325 (metadata only)",
+        "Swanepoel Sec. 2",
+        "arXiv:1609.02438",
+        "Resultary ceae124732ac, 89a9092c8f3a, 254aad83cd24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same real Gaussian-observation family, the two signed linear moments have reflected off-center optima below η=1/2, unlike the audited absolute area.",
+          "The local-time comparator gives Cov(L,J)=1/3−π/8; Swanepoel instead uses a signed linear area.",
+          "The present nonconstant projection starts at Hermite degree two."
+        ],
+        "reasoning": "The known signed linear and occupation objectives cannot recover the even nonlinear coefficients or the strict optimum at every noise level. The covariance with local time is not an observation-risk formula. Classical ingredients are credited, not claimed as original.",
+        "searches": [
+          "Resultary ceae124732ac, 89a9092c8f3a and 254aad83cd24, findings",
+          "Swanepoel Sec. 2",
+          "Janson Sec. 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson's B_br is exactly J, the integral of the bridge modulus. His Eq. (132) is an alternative unconditional representation in law; it is not an identity for the joint law with the observed B_t.",
+          "Resultary ceae124732ac targets the positive occupation fraction from one bit, whereas the audited design uses magnitudes encoded in a real datum."
+        ],
+        "reasoning": "Neither a path-functional law identity nor a sign-only design can be substituted into the J-vs-real-Y conditional projection. In particular an even target has zero linear association with a symmetric signed datum, but its magnitude can carry information.",
+        "searches": [
+          "Resultary: Brownian bridge absolute area one-point noisy observation and midpoint",
+          "Primary lookup for absolute-area conditional variance and one-point Gaussian design",
+          "arXiv:0704.2289, Sec. 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published recurrence gives D1=1/4 and D2=7/32, so the exact tabulable inputs EJ=√(2π)/8 and EJ²=7/60 follow at once; neither is a novelty claim.",
+          "The distinct indexed design and covariance records concern other risks or conditional variables. The 1996 Project Euclid entry was not readable as a paper and cannot be used to certify noncoverage."
+        ],
+        "reasoning": "Credit the exact moment overlap. The unconditioned transform/table cannot give a risk from Y_t without new joint information; the checked conditional records concern different variables.",
+        "searches": [
+          "arXiv:0704.2289, Eqs. (135) and (149)",
+          "Resultary: midpoint absolute-area Gaussian noisy risk",
+          "DOI 10.1214/aoap/1035463325"
+        ]
+      },
+      "rationale": "Bounded pass for the strictly optimal design for the specific nonlinear target and full noisy datum, its risk series and sharp noise scaling. Unconditional absolute-area moments and the area law are verified prior coverage, and the Gaussian correlation and even-chaos ingredients are standard. The strongest inspected design comparators are distinct in their observation or target; neither gives a more general theorem of which this specific risk theorem was found to be a special case.",
+      "residual_risks": [
+        "Equivalent optimal-design consequences in older Gaussian nonlinear prediction or unindexed conditional-area work remain possible.",
+        "The Project Euclid item's exact paper content was not inspected, but the area law and exact moments are already known independently and are not part of the originality pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same unconditional variable and verified stronger moment coverage, not the observation-design statement in the passages inspected",
+          "evidence": "Defines the absolute bridge integral; uses the Airy Laplace law and moment recurrence. D1 and D2 give exactly the stated prior moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/0704.2289",
+          "material_read": "Sec. 20, pp. 102–105, Eqs. (132)–(136) and (145)–(149), text offsets 76585 and 82000",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Brownian excursion area, Wright’s constants in graph enumeration, and other Brownian areas",
+          "trigger": "Exact same absolute bridge area and antecedent prior moments"
+        },
+        {
+          "assessment": "Unresolved exact content, not evidence of noncoverage",
+          "evidence": "Indexed terms include absolute value, Brownian bridge and moments; the paper could not be read via those routes.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1035463325",
+          "material_read": "Project Euclid public landing/search metadata only; no verified paper passage",
+          "method": "Lawful OA attempt at article and PDF links",
+          "title": "On the distribution of Brownian areas",
+          "trigger": "Potential direct prior coverage of the absolute-area distribution"
+        },
+        {
+          "assessment": "Signed linear integral, not this nonlinear target",
+          "evidence": "Uses ∫h(s)B_0(s)ds with deterministic h.",
+          "identifier_or_url": "https://www.journals.ac.za/sasj/article/download/5227/3260/",
+          "material_read": "Sec. 2 p. 3, text offset 8609",
+          "method": "Lawful OA PDF passage",
+          "title": "A note on Brownian areas and arcsine laws",
+          "trigger": "Related bridge-area law"
+        },
+        {
+          "assessment": "Law-level method overlap; no design inference from the inspected claim",
+          "evidence": "An infinite-dimensional integration-by-parts formula for the modulus law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.02438",
+          "material_read": "Abstract, p. 1, offset 379",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "Integration by parts on the law of the modulus of Brownian bridge",
+          "trigger": "Prior same bridge modulus"
+        },
+        {
+          "assessment": "Distinct target and information; no inference of priority from shared date",
+          "evidence": "Positive occupation fraction predicted from one binary sign observation, with a standardized-noise-scale condition.",
+          "identifier_or_url": "2026/11/22/SCOPE-distribution-free-midpoint-optimality-for-one-bit-brownian-bridg--ceae124732ac",
+          "material_read": "Finding and assumptions, offset 400",
+          "method": "Configured local index and mirror passage",
+          "title": "Distribution-free midpoint optimality for one-bit Brownian-bridge occupation sensing",
+          "trigger": "Very close same-day indexed midpoint design"
+        },
+        {
+          "assessment": "Different risk and design conclusion",
+          "evidence": "The pair of signed linear moments has the unique midpoint only at η≥1/2, and reflected off-center minimizers below it.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-induced-restoration-of-midpoint-sampling-for-two-bro--89a9092c8f3a",
+          "material_read": "Finding, offset 0",
+          "method": "Configured local index and mirror passage",
+          "title": "Sharp noise-induced restoration of midpoint sampling for two Brownian-bridge moments",
+          "trigger": "Same real noisy one-point observation family"
+        },
+        {
+          "assessment": "Same target in a different covariance; not a design risk",
+          "evidence": "For unit weight the covariance with the local time is 1/3−π/8.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-factorized-local-time-displacement-covariance-profile-for-the--254aad83cd24",
+          "material_read": "Finding, offset 350",
+          "method": "Configured local index and mirror passage",
+          "title": "A factorized local-time–displacement covariance profile for the Brownian bridge",
+          "trigger": "Explicit covariance involving the same absolute area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural nonlinear path integral gives a concrete sensing problem where every affine estimator is uninformative yet the nonlinear observation at a precisely identifiable time removes more than half the prior variance in the noiseless model. The strict global design theorem, full risk series and quantitative high-noise rate describe this phenomenon across the entire model rather than a grid or arbitrary precision slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

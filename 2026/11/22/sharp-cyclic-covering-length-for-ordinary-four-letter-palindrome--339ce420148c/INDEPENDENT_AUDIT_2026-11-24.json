@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:43:15.522073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix one cyclic occurrence per target. For distinct abba words a gap of one would require a three-symbol overlap bba=cdd, forcing equality of all letters and hence the targets. A two-gap can only be abba followed by baab with a!=b. These transitions use each unordered pair at most once, since reciprocal transitions would isolate a two-cycle in the single ordering of q^2>=4 distinct targets. Writing r for the number of two-gaps and z for gaps at least four gives L>=3q^2-r+z. Project the cyclic ordering to first letters: three-gaps are loops and the entire projection is balanced. For even q every vertex of K_q has odd degree, so each must be incident to an omitted pair or to a long-gap edge. Counting two incidences per omitted pair or long-gap transition gives the extra q/2 lower bound. For odd q use an Euler tour of K_q; for even q>=4 delete a perfect matching first (the remainder is connected and even-degree). Each retained edge contributes its two orientations in succession at gap two; neighboring edge blocks meet at a common first letter and have gap three. Diagonal targets and both orientations of deleted pairs are inserted at their corresponding first-letter vertices at gap three. The cyclic overlaps really glue: successive gaps are at least two, so nonneighbor starts in either cyclic direction are at least four apart and have no shared positions. The supplied q=2 circle attains 12. Independent replay `python3 /workspace/reproduce_frozen.py 3` checks binary cyclic hosts directly and exact minimum overlap tours at q=2,3,4 (12,24,44). The frozen checker was inspected, not executed. Finite tests do not prove the formula for unrestricted q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "11abece62ea8 covers ternary abcba (length five); 18d0cf3a4b8f covers aba (length three). Neither states the present arbitrary-alphabet length-four classification.",
+          "The Orenstein–Shamir landing material identifies a different all-k-mer question; no decisive primary passage was retrieved, so an implication from its full text remains unchecked."
+        ],
+        "reasoning": "Coverage of all factors in a larger family could give a host, not a sharp restricted-family lower bound. General shortest-overlap-tour formulations also require evaluation of the specialized optimum; they do not themselves yield the parity correction. No stronger covering statement was established.",
+        "searches": [
+          "Orenstein–Shamir PMC3694677 (lawful primary-text attempts)",
+          "Resultary 11abece62ea8 and 18d0cf3a4b8f: other palindrome lengths",
+          "Resultary reverse-complement and tandem motif covers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 339ce420148c (self-match), ae58e2469c73, 35e46779014c, 1c5013f138d2, 11abece62ea8, 18d0cf3a4b8f and 511d6dab62fc",
+        "OEIS A330022",
+        "PMC3694677 (landing/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-point-free reverse-complement formula is (5q^2-q)/2 for its own targets, and the abab formula is 2q(q+1). The quaternary census gives the identical minimum only for sixteen targets at q=4."
+        ],
+        "reasoning": "The target symmetry controls the overlap digraph: for ordinary reversal the two-overlap transitions are reciprocal pairs and a one-overlap preserves the first letter. The resulting simple-graph parity argument and matching/Euler construction for every size do not follow by substituting parameters in the inspected theorems.",
+        "searches": [
+          "Resultary ae58e2469c73, 1c5013f138d2, 35e46779014c, 11abece62ea8 original Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 339ce420148c is the assigned record itself.",
+          "Resultary ae58e2469c73 covers exactly the same target and cyclic minimum at q=4 only; it adds a census, not an all-q formula.",
+          "35e46779014c covers abab tandem squares, and 1c5013f138d2 uses a fixed-point-free letter complement, not ordinary reversal."
+        ],
+        "reasoning": "Ordinary reversal requires no complement map; taking the map to be the identity is outside the fixed-point-free theorem. Equality of some alphabet sizes and lengths does not identify the target family. The quaternary match is genuine but limited in q.",
+        "searches": [
+          "Resultary and focused literature lookup: shortest cyclic superstring of ordinary four-symbol reversal palindromes abba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A330022 gives 12 for linear binary strings at length four.",
+          "ae58e2469c73 states 44 for q=4 in precisely the cyclic problem and additionally gives 5,472 shortest circular words."
+        ],
+        "reasoning": "The linear binary value gives a cyclic upper bound by using the same string as a circle, not a cyclic lower bound. The exact cyclic quaternary value is existing same-day coverage of a special case and not claimed as a distinct result here. Neither supplies the all-q formula.",
+        "searches": [
+          "OEIS A330022, n=4",
+          "Resultary q=4 ordinary four-letter cyclic palindrome cover and exact circumference"
+        ]
+      },
+      "rationale": "Credit the known linear binary value and the directly overlapping q=4 cyclic minimum in a distinct same-day quaternary census. Only the universal arbitrary-alphabet cyclic parity theorem and all-parameter construction are supported as distinct by this bounded comparison. Different symmetries, lengths, or partial parameter tables do not give that theorem. No within-day priority is inferred.",
+      "residual_risks": [
+        "A primary full-text implication from Orenstein–Shamir was not assessable; lawful alternate routes did not retrieve a decisive passage.",
+        "The quaternary same-day match confirms coverage of q=4, not its publication order or an all-alphabet classification.",
+        "No exhaustive priority claim is made for the arbitrary-alphabet theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case overlap; same-day priority not determined",
+          "evidence": "Sixteen ordinary abba targets, minimum 44 and a census of 5,472 shortest circular words, over a four-symbol alphabet.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-census-of-shortest-quaternary-cyclic-covers-of-four-let--ae58e2469c73",
+          "material_read": "Mirrored RESULT.md, Finding at offset 287",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete census of shortest quaternary cyclic covers of four-letter palindromes",
+          "trigger": "Same ordinary targets and cyclic optimization at q=4"
+        },
+        {
+          "assessment": "Known linear binary value, not cyclic all-q theorem",
+          "evidence": "Entry at n=4 is 12; definition uses linear binary substrings.",
+          "identifier_or_url": "https://oeis.org/A330022",
+          "material_read": "Definition and values around offset 226",
+          "method": "Public database text",
+          "title": "Length of shortest binary string containing all palindromes of length n as substrings",
+          "trigger": "Exact binary minimum"
+        },
+        {
+          "assessment": "Different target family",
+          "evidence": "Targets abab, minimum 2q(q+1).",
+          "identifier_or_url": "SCOPE-exact-shortest-cyclic-covers-of-all-four-letter-tandem-squares--35e46779014c",
+          "material_read": "Mirrored RESULT.md Finding around offset 300",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest cyclic covers of all four-letter tandem squares",
+          "trigger": "Similar length and universal cyclic covering method"
+        },
+        {
+          "assessment": "Fixed-point-free condition excludes ordinary reversal",
+          "evidence": "Targets use ab followed by complements in reverse order; the cyclic formula is (5q^2-q)/2 under that condition.",
+          "identifier_or_url": "SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2",
+          "material_read": "Mirrored RESULT.md Finding around offset 343",
+          "method": "Resultary local mirror",
+          "title": "Sharp cyclic and linear covers of reverse-complement four-palindromes",
+          "trigger": "Potentially more general involution on the same type of motif"
+        },
+        {
+          "assessment": "Does not treat length four or arbitrary alphabet sizes",
+          "evidence": "Ternary abcba targets, minima 66 cyclic and 68 linear.",
+          "identifier_or_url": "SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8",
+          "material_read": "Mirrored RESULT.md Finding around offset 321",
+          "method": "Resultary local mirror",
+          "title": "Exact ternary length-five palindromic covers: 66 cyclic and 68 linear",
+          "trigger": "Ordinary reversal and cyclic optimum, different likely length"
+        },
+        {
+          "assessment": "Unresolved access; no document-level absence inference",
+          "evidence": "Bibliographic and landing material identify an all-k-mer double-stranded problem, not an explicit arbitrary-alphabet ordinary reversal result.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3694677/",
+          "material_read": "Landing and abstract material only; no decisive primary full-text passage retrieved",
+          "method": "OA attempts at PMC and alternate Europe PMC, publisher and PubMed routes",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+          "trigger": "Possible broader shortest cyclic superstring or symmetry reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural family of ordinary reversal motifs, the exact minimum tells how short a single cyclic test word can be over any finite alphabet. The proof makes the even-alphabet cost structural via parity and supplies optimal hosts. This value is in the uniform parity classification, not a recomputation of the known small cases or a claim about biological targets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

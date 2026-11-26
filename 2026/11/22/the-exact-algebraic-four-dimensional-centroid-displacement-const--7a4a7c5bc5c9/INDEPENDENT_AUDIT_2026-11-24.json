@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:42:32.410611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary arXiv:2611.11635v1 p. 2, equations (1)–(4) and Theorem 1.1 do state the given sharp variational reduction and absolute directional inequality for every unit u, and identify the projected-volume constant. Scaling the affine profile removes one endpoint; r=∞ correctly represents the zero left endpoint. Independently integrating by the formula I_j=1/(j+1)+2(r-1)/(j+2)+(r-1)^2/(j+3) gives the displayed F(r). Differentiation yields -3Q/(20 A^2 B^2), with a strictly positive denominator on r>=0. One sign change and Q(0)<0<Q(1) give one positive zero and strictly increasing then decreasing F, including strict comparison to the two endpoint values 3/20 and 1/20. The exact resultant is 1769472000 times the displayed sextic in z. In /workspace/branches/check_centroid.py, polynomial powering and Euclidean GCDs modulo 113 give gcd(f,z^(113^i)-z)=1 for i=2 and 3 (and likewise for Q). This excludes all irreducible factors of degrees 1,2,3, hence proves irreducibility at degree six with unchanged leading degree. For the value sextic the actual remainders for i=2,3 are 13z^5-56z^4+2z^3+z^2+14z-42 and 4z^5+19z^4-23z^3+16z^2-48z+19. The replay also certifies the printed decimal prefixes with rational brackets and exact root counts. For the sharpness polytopes the cross-section volume is 4ε^4 tℓ(t)^2, yielding I2/I1; the bottom and top face densities are constant multiples of ℓ(t)^2 and total order ε^2, whereas lateral and end faces contribute O(ε^3) and O(ε^4). Thus their boundary first-coordinate centroid tends to I1/I0. Width is one, diameter tends to one and the ratio is sharp. Uniqueness is of the normalized affine optimizer only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 proves the sharp width and diameter bounds in all dimensions. Equations (11)–(13) give the very same thin-body family parameterized by an optimizer.",
+          "The 2022 paper explicitly gives D_n(s) in general, evaluates D_3 at its critical point, then turns to monotonicity and the limiting constant.",
+          "Indexed 862b94b2293c describes a sharp first-order dimensional gap with leading coefficient about 0.03826706098 and a limiting exponential profile."
+        ],
+        "reasoning": "The general theorems are fully covering for the geometry, not new here; the first-order large-n gap and limiting profile do not determine the finite n=4 value, minimal polynomial or exact slope.",
+        "searches": [
+          "arXiv:2611.11635v1 Theorem 1.1 and §4",
+          "arXiv:2212.14456v1 §4 Steps 4–6",
+          "Resultary dimensional gap and centroid displacement asymptotics; 862b94b2293c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11635v1, p. 2 and §4",
+        "arXiv:2212.14456v1, §4 Steps 4–6",
+        "Resultary:862b94b2293c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting n=4 and s=r-1 in the 2022 rational objective gives the frozen F(r) by simplification. Setting n=4 in (11) of the 2026 paper gives the exact sharpness family with ℓ still a maximizing affine profile.",
+          "To isolate the maximizer one must still solve the stationary-value problem with endpoint comparisons, and then eliminate r and rule out every lower-degree factor over Q."
+        ],
+        "reasoning": "The known objective and sharpness family are mechanically implied and credited. They alone give no evaluated global maximum or degree. Even deriving a degree-six resultant does not imply the value has degree six; the finite-field obstruction to all lower-degree factors is a substantive separate certificate.",
+        "searches": [
+          "arXiv:2212.14456v1 pp. 6–7, Steps 4–5",
+          "arXiv:2611.11635v1 p. 2 and pp. 5–6, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 projection-centroid expression D_n(s) uses the slope-to-intercept ratio s, and gives a supremum for s>=-1.",
+          "The 2026 paper uses affine endpoint values. Its moment objective with ratio r is the older objective at s=r-1, including the limiting zero-intercept endpoint. Its p. 2 identifies both geometric constants."
+        ],
+        "reasoning": "These are the same constant and optimization under different normalizations; neither change of variable nor applying it to boundary centroids is the contribution of this record.",
+        "searches": [
+          "arXiv:2212.14456v1, §4 Steps 4–5",
+          "arXiv:2611.11635v1, p. 2 equations (1)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highlighted list on p. 2 of arXiv:2611.11635 gives D2=1/6, D3=1-sqrt(2/3), and the limit about 0.2016, not an evaluated D4 in that list.",
+          "The earlier Step 5 displays the algebraic solution for D3 and Step 6 addresses the large-dimensional limit. Targeted text checks in these papers produced no matching dimension-four root or value passage.",
+          "The same-date asymptotic catalogue hit does not give an exact D4 in its accessible summary; no chronology was inferred."
+        ],
+        "reasoning": "A list of other dimensions and limiting values is not the evaluated dimension-four constant and specifying an asymptotic coefficient cannot determine the four-dimensional algebraic number. The comparison is limited to passages and indexed statement actually checked.",
+        "searches": [
+          "arXiv:2611.11635v1 p. 2 explicit values",
+          "arXiv:2212.14456v1 §4 Steps 5–6 and targeted text check for D4, 0.189, 0.447, sextic",
+          "Resultary:862b94b2293c"
+        ]
+      },
+      "rationale": "Credit the full geometric inequality, common constant, already-computed one-parameter objective in general dimension, and the exact family K_ε with unspecified maximizing profile to the primary papers. Neither decisive source passage supplies the evaluated maximum in dimension four. The supported distinct result is specifically the evaluation and proof of its algebraic degree and unique normalized optimizer, not the variational characterization or polytope construction principle. Substitution into the prior formula supplies an unevaluated rational optimization, not the new exact facts about its maximizer and arithmetic degree.",
+      "residual_risks": [
+        "The full same-day asymptotic catalogue entry was not retrieved. Comparison to it concerns its indexed claims only.",
+        "The source comparison is bounded; an explicit four-dimensional computation in another note or unindexed table may affect historical priority. The broader general theorem and the sharpness mechanism are definitely prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general directional and diameter theorems and the exact family parameterized by a maximizer, not the explicit four-dimensional evaluation in those passages",
+          "evidence": [
+            "D_n=max(I2/I1−I1/I0), with exponent n−2; sharp absolute inequality for all u.",
+            "Eq. (11) specifies the same ∞-norm transverse section and height ε²t; §4 proves its sharpness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11635",
+          "material_read": "v1 p. 2, moment formula, Theorem 1.1 and comparator list; pp. 5–6 §4 equations (11)–(13)",
+          "method": "Open arXiv PDF, bounded layout text extraction, decisive p. 2 checked against original page image",
+          "title": "The sharp bound on the distance between the centers of mass of a convex body and its boundary",
+          "trigger": "Direct prior theorem and possibly the very same sharpness construction"
+        },
+        {
+          "assessment": "Provides the same objective up to shift of parameter, explicitly optimizes only the displayed three-dimensional instance before the asymptotic treatment",
+          "evidence": [
+            "Step 4 sets D_n=sup_{s>=−1}D_n(s) with a general rational expression.",
+            "Step 5 identifies D3=1−sqrt(2/3); Step 6 moves to higher-dimension monotonicity and the limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.14456",
+          "material_read": "v1 pp. 6–7 §4 Steps 4–5 and start of Step 6",
+          "method": "Open arXiv PDF, bounded layout text extraction, decisive p. 7 checked against original page image",
+          "title": "How far apart can the projection of the centroid of a convex body and the centroid of its projection be?",
+          "trigger": "Direct prior one-dimensional formula, different geometric form"
+        },
+        {
+          "assessment": "Asymptotic, not the evaluated finite-dimensional statement in accessible material",
+          "evidence": [
+            "Leading first-order gap coefficient about 0.03826706098 and limiting affine-profile result."
+          ],
+          "identifier_or_url": "Resultary:862b94b2293c",
+          "material_read": "Indexed summary only; matching full-text mirror passage unavailable",
+          "method": "Local Resultary search and mathematical scope comparison",
+          "title": "A sharp first-order dimensional gap for convex-body centroid displacement",
+          "trigger": "Related exact or asymptotic dimensional constant from same-date catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "D4 is a natural unknown sharp coefficient shared by two established centroid inequalities, in the first dimension beyond the explicitly solved three-dimensional case. The useful outputs beyond a substituted objective are the first exact four-dimensional threshold with a certified algebraic degree, and the unique taper ratio to instantiate known extremizing bodies. An exact algebraic specification permits rigorous comparisons rather than reliance on approximate optimization, and the degree-six certificate establishes that a lower-degree algebraic equation cannot suffice. The incremental value is this evaluated invariant and the isolated profile, not new geometry or a general dimension formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

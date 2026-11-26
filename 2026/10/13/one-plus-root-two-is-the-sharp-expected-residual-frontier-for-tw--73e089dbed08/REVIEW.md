@@ -1,46 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact coordinate updates give a conditional second-moment matrix
-\[
-M
-=
-\frac1{p+q}
-\begin{pmatrix}
-p(1+pq)&-2pq\\
--2pq&q(1+pq)
-\end{pmatrix}.
-\]
-The condition
-\[
-M\preceq I
-\]
-is equivalent to
-\[
-p+q+pq\le1.
-\]
-After spectral normalization, the full fixed-condition-number family reduces to
-\[
-\frac{2\delta t+\delta^2t^2}
-{1-\delta^2+\delta^2t^2},
-\qquad
-\delta=\frac{\kappa-1}{\kappa+1}.
-\]
-The proof shows this is at most \(2\delta+\delta^2\) throughout the safe regime, and the equal-diagonal family attains that value. This yields the exact boundary
-\[
-\kappa=1+\sqrt2.
-\]
-The packaged checker replays the matrix identities and exact witness.
+## correctness
 
-## Originality
-PASS with stated residual risk. The full randomized Gauss-Seidel source defines the same proportional sampling and exact coordinate minimization, but its expected convergence analysis controls the least-squares residual or induced energy norm. That quantity corresponds to an \(A^{-1}\)-weighted equation residual after an SPD square-root reduction, not the Euclidean equation residual classified here.
+PASS
 
-The closest published research records concern deterministic complete-sweep solution-error transients and delayed randomized Gauss-Seidel in a different scaled mean-square metric. Targeted searches found no implication-equivalent fixed-matrix criterion or condition-number-\(1+\sqrt2\) Euclidean residual frontier.
+The two residual maps leave the lone components r_2-(c/a)r_1 and r_1-(c/b)r_2, respectively. For c=0 the mean is a diagonal contraction; changing sign of one coordinate reduces c<0 to c>0. With p=c/a, q=c/b the diagonals of I-M are q(1-p^2)/(p+q), p(1-q^2)/(p+q). Its determinant is pq[(1-pq)^2-(p+q)^2]/(p+q)^2, hence nonnegative exactly when p+q<=1-pq, since pq<1. That inequality also makes both diagonals nonnegative. Equivalently (a+b)|c|<=det A. Fix eigenvalues mu and kappa*mu; the trace and determinant are fixed and the largest possible |c| is half the eigenvalue gap, attained at equal diagonals. Substitution gives (kappa^2-1)/2<=kappa, precisely kappa<=1+sqrt(2) including equality. The incoming residual (1,-1) at the stated equal-diagonal witness yields the ratio 2*kappa^2/(kappa+1)^2 and in particular 9/8 at kappa=3; every residual is realizable because A is invertible. Independent exact checks built the residual maps directly for 1,032 rational SPD examples (610 unsafe, 8 exactly on the determinant boundary). The proof, not this finite check, controls all orientations and all residuals.
 
-## Value
-PASS. Ordinary Euclidean residual norm is a standard progress diagnostic for linear solves. The theorem identifies exactly when a canonical randomized exact-coordinate update is guaranteed to improve its squared value in conditional expectation and gives a simple \(2\times2\) example where the diagnostic worsens despite coordinate-wise objective minimization.
+## originality
 
-## Closest literature and limitations
-The closest primary source is the full 2015 randomized Gauss-Seidel analysis of Ma, Needell, and Ramdas. The theorem is limited to two dimensions, one update, exact arithmetic, and probabilities proportional to \(A_{ii}\). Higher dimensions and alternative sampling rules are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The method and coordinate-proportional sampling are established; the distinct claim is the necessary-and-sufficient Euclidean equation-residual condition and its worst-orientation condition-number frontier. Neither the inspected convergence theorems nor the closest same-day records cover those quantifiers. The originality decision is limited to the available comparative evidence.
+
+## value
+
+PASS
+
+The ordinary residual norm is a natural progress/stopping diagnostic, different from the energy that coordinate minimization controls. The exact per-matrix test and the sharp condition-number cutoff tell when one can trust that diagnostic in conditional expectation; even a modestly conditioned kappa=3 example separates the two metrics. This is a useful narrow boundary, not a competing general convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,85 +1,49 @@
 # Exact binary16 logistic dynamics depend on rounding placement
 
-## Finding
+## Finding: a coupled real-start comparison
 
-Let \(R\) denote IEEE 754 binary16 round-to-nearest, ties-to-even, with subnormal numbers retained. The two maps
+Let \(R\) be IEEE 754 binary16 nearest-even rounding with subnormals retained. Compare the maps
 \[
- F(x)=R\bigl(4x(1-x)\bigr),\qquad
- G(x)=R\bigl(4R(xR(1-x))\bigr)
+F(x)=R(4x(1-x)),\qquad G(x)=R(4R(xR(1-x)))
 \]
-act on the same set \(\mathcal H\) of all nonnegative binary16 numbers in \([0,1]\), with one arithmetic result rounded in \(F\) and separate rounded subtraction and multiplication in \(G\). Despite representing the same real polynomial before rounding, their *entire finite-state dynamics* differ sharply.
+on the 15,361 nonnegative binary16 encodings from `0x0000` to `0x3c00`. Use **one** uniform real sample \(U\) on \([0,1]\), round it once, and start *both* deterministic orbits at \(R(U)\). The following table gives the complete joint law of their eventual cycles; entries are in units of \(2^{-25}\).
 
-There are \(15{,}361\) states. Their exact periodic orbit and basin census is:
+| Eventual cycle under \(F\) | \(G\): zero | \(G\): \(3/4\) | \(G\): period 40 |
+| :--- | ---: | ---: | ---: |
+| Zero | 11,335,435 | 0 | 21,950,155 |
+| \(3/4\) | 2,730 | 22,528 | 0 |
+| Period 5 | 2,602 | 0 | 240,982 |
 
-| Map | Primitive cycle period | Basin states | Uniform-real-start weight, units of \(2^{-25}\) | Largest entry time |
-| --- | ---: | ---: | ---: | ---: |
-| \(F\) | 1 (zero) | 15,236 | 33,285,590 | 109 |
-| \(F\) | 1 (three quarters) | 8 | 25,258 | 7 |
-| \(F\) | 5 | 117 | 243,584 | 14 |
-| \(G\) | 1 (zero) | 5,092 | 11,340,767 | 55 |
-| \(G\) | 1 (three quarters) | 2 | 22,528 | 1 |
-| \(G\) | 40 | 10,267 | 22,191,137 | 83 |
+Thus switching from \(F\) to \(G\) sends exactly \(21{,}950{,}155/2^{25}\) of real starts (about 65.4%) from eventual zero to a nonzero cycle. The reverse change, from a nonzero \(F\) cycle to zero under \(G\), occurs on only \(5{,}332/2^{25}\) of starts (about 0.0159%). Neither a comparison of cycle periods nor the two marginal basin probabilities identifies these directional events under a common start.
 
-The maps disagree on precisely \(2{,}774\) of their single-step state transitions. Moreover, precisely \(10{,}194\) starting *states* differ in whether their eventual cycle is zero. If \(U\) is uniform on the real interval \([0,1]\), its initial value is rounded once using \(R\), and the resulting orbit is iterated deterministically, then the expected infinite-time Cesàro means exist and are exactly
+The infinite-time Cesàro means of the two orbits exist for every rounded start. Their expectations for the stated real ensemble are
 \[
- \mathbb E\left[\lim_{n\to\infty}\frac1n\sum_{j=0}^{n-1}F^j(R(U))\right]
- =\frac{19241579}{4294967296}=0.00448002922348678\ldots,
+\mathbb E[C_F]=\frac{19241579}{4294967296},\qquad
+\mathbb E[C_G]=\frac{11845614952233}{35184372088832}.
 \]
+The increase is \(11687987937065/35184372088832\), about 0.332193. This is not the mean under uniformly chosen bit encodings.
+
+## Model and exact finite proof
+
+Exclude negative zero, negative values and values above one, infinities and NaNs. Every input and stored result is a nonnegative binary16 encoding. In \(F\) the polynomial is evaluated exactly up to its final rounding. In \(G\) subtraction, product and multiplication by four round at exactly the locations displayed. No compiler or instruction semantics are inferred.
+
+Put \(Q=2^{24}\). The value at encoding \(j\) is \(q_j/Q\); for exponent field \(e\) and fraction field \(f\), \(q_j=f\) if \(e=0\) and \(q_j=(1024+f)2^{e-1}\) otherwise. The \(q_j\) increase from 0 to \(Q\). To round a value \(p/(dQ)\), find consecutive encodings bracketing \(p/d\) and compare the exact integer distances from \(p\) to their \(d q_j\). On a tie choose even encoding parity, which is even low significand bit, including at format boundaries. With \(\mathcal R(p,d)\) denoting the resulting index, the two successors are
 \[
- \mathbb E\left[\lim_{n\to\infty}\frac1n\sum_{j=0}^{n-1}G^j(R(U))\right]
- =\frac{11845614952233}{35184372088832}=0.336672626196815\ldots.
+f(j)=\mathcal R(4q_j(Q-q_j),Q),\qquad
+g(j)=\mathcal R(4q_{\mathcal R(q_j q_{\mathcal R(Q-q_j,1)},Q)},1).
 \]
-The difference is exactly \(11687987937065/35184372088832\), or approximately \(0.332193\).
+The certificate checks that the arguments to this interval rounder are in range for every call. Starting at each unlabelled code, follow successors until reaching a labelled code or encountering an earlier code of the current path. In the second case the repeated suffix is a new primitive cycle. Give every code on the path the resulting cycle label. This algorithm processes all encodings, including fixed points and their basin states. Each map has a zero fixed point, a \(3/4\) fixed point and exactly one nonfixed cycle, whose period is 5 or 40, respectively.
 
-## Assumptions and scope
+The initial rounding cell of code \(j\) has length \(w_j/(2Q)\), where \(w_j=q_{j+1}-q_{j-1}\) in the interior; clamp a missing neighbor to the endpoint code. These lengths are consecutive midpoint intervals truncated at 0 and 1. The tie convention changes only endpoints of measure zero. The integer weights sum to \(2Q\). To compute the displayed table, add \(w_j\) to the entry indexed by the pair of labels of code \(j\), not by labels from two independent starts. This is an exhaustive sum over both graphs on the common grid. The row sums are \((33285590,25258,243584)\), and column sums are \((11340767,22528,22191137)\). Periodic tails give each code the arithmetic mean of its labelled cycle. In the table's row order the cycle means under \(F\) are \((0,3/4,8837/16384)\); in column order those under \(G\) are \((0,3/4,533001/1048576)\). Dotting each set of cycle means with the respective marginal, normalized by \(2Q\), gives the two fractions above.
 
-For each index \(b\) from \(0\) through hexadecimal `0x3c00`, interpret \(b\) as the *nonnegative* IEEE binary16 bit pattern. Signed negative zero is excluded, as are negative numbers, numbers above one, infinities, and NaNs. This set has exactly \(\mathrm{0x3c01}=15{,}361\) members. The real polynomial is evaluated exactly before its *single* final rounding in \(F\); it is **not** claimed that a particular instruction compiler performs this fusion. In \(G\), the subtraction \(1-x\) rounds first, the product rounds second, and the final factor of four rounds last. The input is exact binary16 at each step; all output values remain in \([0,1]\). Every tie chooses the even final significand. The stated ensemble statistics assume **uniform real initial sampling followed by one binary16 rounding**, not uniform sampling from the discrete representable states and not the real logistic invariant measure.
+## Comparisons and limitations
 
-## Proof
+[*Exact complete expanded-evaluation binary16 logistic cycle census*](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c), in “Prior coverage and value,” credits the same once-rounded and staged-factored cycle periods, encoding basin counts and edge digests to [*Rounding placement changes the complete binary16 logistic attractor census*](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929). We use those finite graphs as comparison baselines, not as claims of a new cycle census. The referenced record itself was not available for a direct comparison of initial ensembles. The independently stated comparison numbers are for the counting law on encodings. They do not determine the midpoint-weighted joint law of the two basins: the pair of labels for each shared initial code is required. [*Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation*](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d) shares the once-rounded baseline but compares it to an eight-cycle completed-square map, not \(G\). Klöwer et al. ([DOI 10.1038/s41598-023-37004-4](https://doi.org/10.1038/s41598-023-37004-4), logistic section and Methods) study low-precision periodic orbits, including binary16, but the inspected passages do not give the two-map coupling or real-start means stated here.
 
-Define \(Q=2^{24}\). The exact value \(h_b\) of the binary16 state indexed by \(b\) can be written \(h_b=q_b/Q\) with an integer \(q_b\). If \(e\) and \(f\) are the exponent and fraction fields, then
-\[
- q_b=\begin{cases}f,&e=0,\\(1024+f)2^{e-1},&1\le e\le15.\end{cases}
-\]
-These \(15{,}361\) integers are strictly increasing from \(q_0=0\) to \(q_{15360}=Q\). To round any nonnegative rational \(p/d\) in units of \(Q^{-1}\), use exact integer comparisons against its two nearest consecutive \(q_b\) values and break midpoint ties by bit-pattern parity. This implements the stipulated IEEE rounding exactly, including across exponent boundaries and subnormal/normal boundaries.
+This is an exact comparison of two finite maps and one initialization law. It is not a claim about compiler optimizations, stochastic rounding, other evaluation trees, or the real logistic invariant measure. The comparisons do not exclude an unindexed calculation or the possibility that an unavailable graph reference also reports a real-start quantity.
 
-Consequently the index maps are computed with *integers only* by
-\[
- \begin{split}
-  f(b)&=\mathcal R\bigl(4q_b(Q-q_b)/Q\bigr),\\
-  s(b)&=\mathcal R(Q-q_b),\\
-  p(b)&=\mathcal R(q_bq_{s(b)}/Q),\\
-  g(b)&=\mathcal R(4q_{p(b)}),
- \end{split}
-\]
-where \(\mathcal R(z)\) returns the bit index of the binary16 number nearest to \(z/Q\), ties-to-even. The supplied `verify.py` constructs *every* directed edge from these formulas with exact integer arithmetic. Its two packed little-endian 16-bit edge-list SHA-256 digests are
+The bfloat16 comparison [*Exact bfloat16 logistic basin inversion under a single intermediate rounding*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-bfloat16-logistic-basin-inversion-under-a-single-intermedi--305f9651a5de) likewise cross-classifies basins on a common grid, under uniform counting of bfloat16 encodings. It uses a different floating-point format and rounds the complement but not the inner product of its staged map. Its dominant migration goes toward zero, not away from it. It is a counterpart, not a calculation of the real-start binary16 weights above.
 
-- `262e0316d1e5e82c3b1c694ecde3dde9b8c6a8a24956d407f6b6b008c2d116af` for \(F\);
-- `300ed95c25d2fe4a9b836b60802d0c6b8af3c9c1c01e0654f895781ea889027c` for \(G\).
+## Replay
 
-A directed graph with one outgoing edge at each vertex decomposes uniquely into disjoint directed cycles with rooted in-trees. The script traces each unprocessed vertex until it enters a known component or revisits a vertex; in the latter case it records the newly closed cycle, then labels every vertex on the prefix path in reverse order. An independent edge-by-edge check verifies equal basin IDs across edges and exactly decreasing entry time off cycles, followed by a full check that each state's advertised number of iterations actually reaches its recorded cycle. Thus no unexamined state, cycle, or branch can remain. These finite exhaustive calculations yield the table, both maximum entry times, and the \(2{,}774\) and \(10{,}194\) comparison counts.
-
-For a Lebesgue-uniform real initial point, initial rounding to state \(b\) selects the interval between adjacent rounding midpoints. Its length is \(w_b/(2Q)\), with
-\[
- w_0=q_1-q_0,\quad w_b=q_{b+1}-q_{b-1}\ (0<b<15360),\quad
- w_{15360}=q_{15360}-q_{15359}.
-\]
-The integer weights sum to \(2Q=2^{25}\). Because every state eventually cycles, its Cesàro mean is the ordinary arithmetic mean of its primitive cycle. Summing the rational cycle means against the **exact** basin weight totals in the table produces both displayed rational ensemble means. Exchanging expectation and the limit is also valid by bounded convergence, since all iterates stay in \([0,1]\). No numerical asymptotic extrapolation is involved.
-
-## Verification
-
-Run `python3 verify.py`. It requires only Python's standard library, computes every transition from integers, proves by exhaustive finite-state logic that every state enters its assigned cycle, and asserts all tabulated counts and rational means. Optionally run `python3 verify.py --native` with NumPy installed: this independently evaluates all \(30{,}722\) individual transitions through native `float16` arithmetic and compares the resulting bit patterns with the exact integer implementation. Both commands were executed successfully; all \(30{,}722\) native comparisons agreed.
-
-## Relationship to prior work
-
-Klöwer, Coveney, Paxton and Palmer's public preprint (2022) studies finite-precision chaotic dynamics, initially emphasizing the generalized Bernoulli map; the expanded 2023 version also studies the logistic map in binary16 and documents spuriously attracting fixed points and short cycles. It motivates finite-precision orbit analysis, but the inspected relevant logistic-map sections do not report the two precisely defined evaluation orders, their **exhaustive** orbit/basin tables, or their exact uniform-real-start means. Galias (2021) systematically classifies logistic-map cycles at **single and double** precision, not these binary16 operations. Persohn and Povinelli (2012) investigate finite-bit logistic pseudorandom number generators; their published abstract does not establish this binary16 expression-order comparison. These sources establish methodology and known qualitative phenomena rather than the exact present comparison.
-
-## Limitations
-
-This is a theorem about the two precisely specified **finite binary16 state maps** and the stated initial ensemble. It does not say which expression a compiler chooses, or make claims for stochastic rounding, fused instruction semantics, other evaluation orders, other precisions, or the true real-valued logistic invariant distribution. Completeness is finite and follows from checking every one of the \(15{,}361\) possible states, not from evidence about real-valued infinitely many trajectories. Bibliographic searches and accessible source inspections do not rule out an uncatalogued implementation-specific census or table; an independent literature and mathematical audit remains outstanding.
-
-## References
-
-1. M. Klöwer, P. V. Coveney, E. A. Paxton, T. N. Palmer, *Periodic orbits in chaotic systems simulated at low precision*, Research Square preprint first posted **8 November 2022**, DOI: `10.21203/rs.3.rs-2223046/v1`; expanded *Scientific Reports* **13**, 11410 (2023), DOI: `10.1038/s41598-023-37004-4`.
-2. Z. Galias, *Periodic orbits of the logistic map in single and double precision implementations*, *IEEE Transactions on Circuits and Systems II* **68**, 3471–3475 (2021), DOI: `10.1109/TCSII.2021.3081604`.
-3. K. Persohn, R. J. Povinelli, *Analyzing Logistic Map Pseudorandom Number Generators for Periodicity Induced by Finite Precision Floating-Point Representation*, *Chaos, Solitons & Fractals* **45**, 238–245 (2012), DOI: `10.1016/j.chaos.2011.12.006`.
+`python3 verify_ensemble.py` reconstructs the joint table and asserts the cycle means and marginal-derived expectations. Binary16 rounding comparisons, weight additions and cycle sums use exact integers, and the expectations use exact fractions from the Python standard library. The companion `verify.py` addresses the baseline graph census and the marginal ensemble means, not the new joint table.

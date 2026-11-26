@@ -1,29 +1,21 @@
-# Review: second-order coherence on weighted sunlets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The spectral blocks of the weighted sunlet Laplacian yield exact identities for both inverse moments. Strict matrix trace convexity on the mean-zero positive-definite subspace, injective edge-weight parametrization, and averaging under dihedral automorphisms prove unrestricted global uniqueness. The derivative of the exact one-variable F2 objective is the cubic P_n with exactly one positive zero. For every n>=3, the verified positive polynomial T(n-3) proves P_n(t_1)<0, hence t_2>t_1. Leading orders of the cubic give t_2/n -> c, while the first-order square-root allocation gives t_1/sqrt(n) -> 1/sqrt(6); direct expansion yields absolute regret asymptotic to (sqrt(6)/90)n^(11/2). Independently executed check_sunlet.py passed 1009 finite numerical and algebraic diagnostics; those checks are not infinite proofs.
+PASS
 
-## Originality — PASS on inspected evidence, with qualification
+The simple weighted Laplacian on the mean-zero space is injective in the conductances; the trace Hessians for x^(-1) and x^(-2) have strictly positive divided-difference coefficients, using f'' whenever eigenvalues coincide, so both objectives are strictly convex. Approaching disconnected support makes the inverse moment diverge. Uniqueness under dihedral symmetry forces two orbit weights; a zero weight on either entire orbit disconnects the sunlet. For each nonzero cycle mode the 2x2 block has trace a*lambda+2b and determinant a*b*lambda, so its inverse-square trace is (trace/det)^2−2/det. The zero mode contributes only (2b)^(-2); summing gives A/b^2+B/(ab)+C/a^2 by the csc^2 and csc^4 cycle identities. With t=a/b under n(a+b)=1, the derivative has the sign of the stated cubic, which has one positive zero by Descartes and the opposite endpoint signs. The first-order derivative gives t_1=sqrt(B/E) with E=n−1/2. At t_1, E times the cubic is B(n−1)t_1−Q with Q=2CE−B^2. Independently reproduced the positive cofactor of Q and the positive-coefficient certificate for EQ^2−B^3(n−1)^2 using exact SymPy arithmetic; replay python3 /workspace/frozen_review_arithmetic.py. This yields the strict sign for every n>=3, not just a numerical ordering. At t=s*n, the rescaled cubic tends to 2s^3+s^2/6−1/90 and positive-root bracketing gives t_2/n→c. The term n^2 C(1+1/t)^2 dominates F_2 at both designs. At t_1 the cross term 2n^2 C/t_1 gives (sqrt(6)/90)n^(11/2); every other correction is O(n^5), as are the optimal corrections at t_2. This proves the absolute regret and vanishing relative regret in the raw trace. The frozen RESULT.md, verification note and diagnostic script were read; the source script was not executed and finite tests cannot prove global or infinite-domain claims.
 
-Primary coherence work establishes the squared-reciprocal Laplacian metric but not sunlet conductance optimization. Effective-resistance design optimizes a different first inverse moment. The weighted corona paper supplies spectral characteristic polynomials and first-order coherence, not the optimized second inverse moment. Two retrieved complete sunlet and one-leaf corona results maximize the smallest positive Laplacian eigenvalue: their statements and proofs use eigenvalue min-max/SDP, whereas the new theorem minimizes the full inverse-square spectral sum and has a distinct cubic stationary equation. published-finding corpus semantic search with aliases for biharmonic index, spectral zeta, edge allocation, and source objects returned no implication-covering claim among the inspected closest results. Searches do not certify universal novelty; unindexed equivalent work remains a residual priority risk.
+## originality
 
-The closest primary sources and mathematically comparable findings are:
+PASS
 
-- Patterson and Bamieh (2013), arxiv:1310.2592v1, Section II-B: second-order coherence is a squared-inverse spectral sum, but no sunlet conductance budget optimum.
-- Ghosh, Boyd and Saberi (2008), *Minimizing Effective Resistance of a Graph*: first-order inverse-trace conductance allocation, not the second-order objective.
-- Du, Zhu, Gao and Li (2022), *Consensus analysis of the weighted corona networks*: weighted corona identities and first-order coherence, not second-order design.
-- *Unique price-optimal fastest mixing on sunlet networks* (2026), full RESULT.md inspected: optimizes the Fiedler eigenvalue under prices, not the full inverse-square trace.
-- *Exact price-optimal continuous-time mixing on transitive one-leaf coronas and rigid cyclic sunlets* (2026), full RESULT.md inspected: same difference in objective.
+Available prior statements cover the underlying design framework, other spectral objectives on exactly this graph, and coherence/spectral formulas. They do not supply the fixed-budget order-two cubic optimizer, its strict mismatch with the first-order allocation at every size, or the resulting sharp cross-objective regret. The pendant exponent n^(-2) alone is not a distinctive sunlet design phenomenon: it also occurs under a different, checked spectral-gap objective. Acceptance concerns the actual squared-inverse trace optimum and comparison under the stated equal-cost assumptions, not a claim of physical equivalence across noise models or historical priority.
 
-An unindexed equivalent optimization remains a publication-priority risk. The inspected literature and bounded semantic searches establish only a qualified originality assessment.
+## value
 
-## Value — PASS
+PASS
 
-This is an infinite natural family of two-class unicyclic networks: the precise second-order optimal budget and support are determined against arbitrary asymmetric edge allocation, with a strict all-size structural mismatch from the classical first-order objective. The discrepancy changes the power-law scaling of pendant conductance from n^(-3/2) to n^(-2), and entails a sharp diverging absolute second-order regret. The relative regret tends to zero; no constant-factor penalty is claimed. The result supplies a reproducible spectral-network design benchmark beyond an unmotivated numerical instance.
+For a standard cycle-with-leaves graph, the result resolves a genuine design question: the edge weights optimal for first-order coherence always overinvest in pendant conductance when assessed by the twice-inverted trace. The exact cubic permits design for any size, with unrestricted uniqueness and a strict all-size comparison rather than large-size advice alone. The comparison quantifies a divergent absolute penalty and a vanishing fractional penalty under the stated normalization; it does not claim a constant-factor loss.
 
-## Scientific limits and verification
-
-The proof requires connected support, symmetric undirected weighted Laplacians, one pendant per cycle vertex, uniform edge prices, and a unit total conductance budget. The absolute regret grows at the specified rate, but the relative regret vanishes. The executable checker was run and passed 1009 finite diagnostics; it is not an exhaustive infinity check. No external mathematical certification is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The independent literal-update checker in `proof/verify_rook_gh.py` exhaustively evaluated all labelled states for widths one through four and found exactly 6, 72, 2562, and 119880 primitive three-periodic states. The symbolic coefficient procedure separately aggregated all 6859 nonempty palette/subpalette triples and asserted the full twelve-base coefficient table using integer arithmetic. Recorded output is provided in `proof/check.out`.
+# Independent mathematical audit
 
-The infinite-family result relies on the proven inclusion–exclusion identity and the fixed finite symbolic coefficient certificate, not on extrapolation from four enumerated sizes. Other periods, attraction basins, spatial symmetry orbits and historical priority are not certified. Independent external review has not been performed.
+## correctness
+
+PASS
+
+In a state returning after three synchronous updates, any site that is ever excited must cycle 1,2,0, and a site that is never excited must stay at 0. An edge between the two classes would excite the latter; connectedness therefore makes all sites cycle unless all are zero. The excitation at each site's resting time is exactly the presence of its initial cyclic successor in its open neighborhood. With exact row palettes specified, this is a per-column test; inclusion–exclusion forces every color of each specified palette to occur. The finite integer computation is independent of n: a separate nine-bit subset-zeta aggregation reproduced every coefficient, and literal updates on all states at widths 1–3 gave 6, 72, 2562. The formula gives 119880 and 5109306 at widths 4 and 5. Every nonfixed returning phase has orbit size three. After normalizing by 27^n the two largest surviving corrections have bases 18/27 and 14/27, proving the stated leading term and remainder.
+
+## originality
+
+PASS
+
+The local phase characterization is prior context. The inspected exact counts concern different graph families or a different row count. They do not give the exact three-row product census or its evaluated twelve coefficients.
+
+## value
+
+PASS
+
+The first width beyond two matched cliques introduces a different column-support mechanism on the natural line graphs of complete bipartite graphs. The exact formula specifies recurrent populations and the leading failure probability, quantities usable in further study of how many states must undergo a transient; it is not a list of sampled finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

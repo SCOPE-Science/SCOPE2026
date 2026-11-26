@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:38:04.879903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive acceptance gives a copying path to consensus from every transient state, making the finite-chain Dirichlet solution unique. Conditional on a hub holding 0, the total rates for hub flip and leaf decrement are α01 k/m and α10 k; conditional on hub holding 1, hub flip and leaf increment have rates α10(m−k)/m and α01(m−k). Dividing by the nonzero k or m−k factors on the corresponding transient intervals gives F_k−F_{k−1}=(r/m)(G_k−F_k) and G_{k+1}−G_k=(1/(rm))(G_k−F_k). Subtraction at consecutive indices multiplies D_k=G_k−F_k by (1+1/(rm))/(1+r/m)=q_m, and the boundaries F_0=0, G_m=1 give D_0=1/Z_m. At equal total seeds the difference is D_{k−1}(1−r q_m/m), whose second factor is (m²−1)/(m(m+r)); this also verifies the m=1 tie. The single-seed ratio is m/(r q_m). At fixed r, m log q_m tends to r^{-1}−r, giving uniform exponential convergence for the powers with 0≤j≤m and hence the moving-endpoint Riemann sums. The neutral case has q_m=1 and Z_m=2. The m=4, r=2 illustration gives q_m=3/4 and Z_m=687/512 as stated. The full-chain checker verify.py was inspected, not executed. Its exact finite cases are corroboration only. The frozen Python 3.8 compatibility note is too broad: int.bit_count at line 60 requires Python ≥3.10, without affecting the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becchetti et al., §2 offset 14413 and Theorem 3 offset 31029: same accept/reject model; exact law on regular graphs.",
+          "Kaveh et al., p. 3 offset 10329 and p. 5 offset 15000: scope of exact formulas and the assumption that transition odds depend only on total mutant count.",
+          "de Souza–Neves p. 3 offsets 7987–8451 cites Monk et al.'s constant-fitness BD star law; primary Monk et al. and the identified ResearchGate PDF both returned HTTP 403."
+        ],
+        "reasoning": "The star is regular only for m=1. For m>1 the total positive-count increase/decrease odds at a fixed count are r/m with a negative hub and rm with a positive hub. Thus the count-only exact recursion in the broader mortality-selection comparison cannot yield the law. The constructed BD reweighting is not an ordinary unweighted star; the secondary citation is insufficient to decide whether the inaccessible original has a general theorem that also covers this weighted directed kernel.",
+        "searches": [
+          "arXiv:2305.07377v2, Section 2 and Theorem 3",
+          "arXiv:1411.4556, scope and mutant count recursion",
+          "DOI 10.1098/rspa.2013.0730, lawful alternate copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary records 1a6126618f57, 543fbd6abc96, 8fbd1a5070da",
+        "arXiv:2305.07377v2",
+        "arXiv:2003.05462",
+        "arXiv:1411.4556",
+        "arXiv:2201.08207",
+        "arXiv:2203.05376",
+        "DOI 10.1098/rspa.2013.0730 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Becchetti et al. gives the count formula (1−r^{−k})/(1−r^{−n}) on regular graphs.",
+          "The de Souza–Neves star DB kernel has fitness-normalized parent probabilities; Kaveh et al. includes the target kernel but the inspected count-recurrence exact result has additional hypotheses."
+        ],
+        "reasoning": "For conventional birth-weighted DB on a star with k positive leaves and positive-parent fitness r, the hub-rate to opposite leaf-event-rate ratios are r/(m−k+rk) for a negative hub and 1/(m−k+rk) for a positive hub. In the target those ratios are r/m and 1/(rm), respectively. Except in the neutral case or particular degenerate states, holding-time changes cannot remove the discrepancy. The inspected equivalent death-weighted model does not supply an all-state fixation formula for these distinct hub-state odds. Thus the stated nonneutral law and its placement and scaling consequences do not follow by direct substitution into the examined results.",
+        "searches": [
+          "arXiv:2305.07377v2, Theorem 3",
+          "arXiv:2003.05462, Section 2",
+          "arXiv:1411.4556, DB definition and count recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaveh–Komarova–Kohandel p. 4, offset 11664, defines type-weighted deaths followed by local parent selection. With equal birth weights the target is a special case, up to a common normalization for all moves from each configuration.",
+          "ArXiv:2003.05462, pp. 3–6 offsets 7900–12224, defines a fitness-weighted parent draw for ordinary DB and fitness-weighted reproduction first for BD."
+        ],
+        "reasoning": "Set death weights of 0 and 1 to α01 and α10, respectively, and draw a uniform replacement neighbor: the kernel is equivalent for fixation, not holding times. It also equals BD with parent fitnesses 1,r and a directed row-stochastic star kernel P(h→leaf)=1/m, P(leaf→h)=1/m² and a leaf self-loop 1−1/m², up to a configuration-dependent common factor. The usual unweighted star BD kernel and birth-weighted DB do not match this construction under bias. Neutral DB does match up to scaling.",
+        "searches": [
+          "arXiv:1411.4556, type-dependent death and BD/DB duality passages",
+          "arXiv:2003.05462, update rules and exact star fixation",
+          "DOI 10.1098/rspa.2013.0730, weighted BD martingales"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top hit ad1f89da5394 is the assigned claim. Distinct exact indexed RESULTS at offset 0 include 1a6126618f57 (biased neighbor choice), 543fbd6abc96 (quadratic conformity), and 8fbd1a5070da (partisan neutrality)."
+        ],
+        "reasoning": "For the full real-parameter formula one needs a formula match, not a finite tabulation of hitting probabilities. The neighbor-choice record normalizes its bias in the draw; the conformity rule has rates quadratic in discordant counts; the neutrality result concerns site preferences and a special example. None of the inspected statements is the globally directional acceptance law. No priority inference is made from the same-date neutrality record.",
+        "searches": [
+          "Resultary: exact fixation law star graph context-dependent voter acceptance bias hub leaf seed advantage (limit 50)"
+        ]
+      },
+      "rationale": "Credit the context-dependent adoption model, its regular-graph law, the neutral case and the equivalence to death–birth with selection on death. The supported distinct claim is the all-initial-state biased law on nonregular stars for this kernel, with exact hub-placement gain and fixed-bias scaling. The closest inspected model-equivalent general paper's scalar count reduction does not apply; the exact star formulas inspected for different replacement rules are not mechanically applicable. Possible broader weighted directed BD coverage in Monk–Green–Paulin could not be confirmed from primary text and remains a specific limit, not evidence of noncoverage.",
+      "residual_risks": [
+        "Monk–Green–Paulin primary full text was inaccessible; a general martingale theorem covering the transformed weighted directed BD process is not ruled out. The standard regular-graph and ordinary unweighted-star computations are not evidence for such coverage.",
+        "Czaplicka et al. was compared at abstract level and the Durocher et al. excerpt did not establish its complete kernel. The audit is not an exhaustive historical-priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; exact result for regular graphs only in examined theorem",
+          "evidence": "Uniform neighbor sampling and directional acceptance; regular-graph count reduction.",
+          "identifier_or_url": "https://arxiv.org/html/2305.07377v2",
+          "material_read": "Section 2 offset 14413; Theorem 3 offset 31029",
+          "method": "OA primary manuscript, bounded passages",
+          "title": "On a Voter Model with Context-Dependent Opinion Adoption",
+          "trigger": "Same model and exact fixation theorem"
+        },
+        {
+          "assessment": "Same graph and type of invariant; different biased replacement rules",
+          "evidence": "DB selects the replacement parent by local fitness and BD selects the reproducer first; the secondary Monk citation is for constant-fitness BD.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.05462",
+          "material_read": "pp. 3–6, offsets 7900–12224; discussion of Monk et al. at offsets 7987–8451",
+          "method": "OA primary text, bounded passage",
+          "title": "Exact fixation probabilities for the Birth-Death and Death-Birth frequency-dependent Moran processes on the star graph",
+          "trigger": "Exact all-state formulas on the same graph"
+        },
+        {
+          "assessment": "Broader model contains target but inspected exact method does not cover its star odds",
+          "evidence": "Type-dependent death, local parent choice and duality; inspected scalar count reduction assumes count-dependent transition probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4556",
+          "material_read": "p. 3 offset 10329; p. 4 offset 11664; p. 5 offset 15000",
+          "method": "OA primary text, bounded definitions and exact-solution passages",
+          "title": "The duality of spatial death-birth and birth-death processes and limitations of the isothermal theorem",
+          "trigger": "Exact mortality-selection kernel equivalence"
+        },
+        {
+          "assessment": "Primary coverage unresolved",
+          "evidence": "Both access attempts returned HTTP 403, and no repository copy was found; the secondary citation does not specify coverage for the directed, self-loop weighted star.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2013.0730",
+          "material_read": "No primary theorem retrieved; secondary discussion in arXiv:2003.05462 p. 3 offsets 7987–8451",
+          "method": "OA publisher and identified ResearchGate alternate attempted",
+          "title": "Martingales and fixation probabilities of evolutionary graphs",
+          "trigger": "Potential broader weighted directed BD martingale theorem"
+        },
+        {
+          "assessment": "Limited comparison, not a whole-paper conclusion",
+          "evidence": "Uniform focal death and local reproduction appear; excerpt does not expose the full neighbor lottery.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.08207",
+          "material_read": "p. 2, offsets 12467–14068",
+          "method": "OA bounded excerpt",
+          "title": "Invasion Dynamics in the Biased Voter Process",
+          "trigger": "Cited biased voter invasion comparison"
+        },
+        {
+          "assessment": "Limited comparison",
+          "evidence": "Confidence bias toward a common state; complete-graph mean field and Erdős–Rényi pair-approximation focus.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.05376",
+          "material_read": "p. 1, abstract only",
+          "method": "OA abstract read",
+          "title": "Biased-voter model: how persuasive a small group can be?",
+          "trigger": "Vocabulary and alternate biased copying model"
+        },
+        {
+          "assessment": "Different biased kernel",
+          "evidence": "Single-seed star analysis where neighbor choice is weighted by mutant status.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-fixation-ceiling-and-degree-scaled-incentive-in-the-positi--1a6126618f57",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded exact-ID local-mirror read",
+          "title": "Sharp fixation ceiling and degree-scaled incentive",
+          "trigger": "Exact indexed star fixation and hub advantage"
+        },
+        {
+          "assessment": "Different adoption rule",
+          "evidence": "Closed-neighborhood conformity with effective quadratic rates and m^{-2} single-leaf scaling.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fixation-and-quadratic-leaf-seed-suppression-under-asynchr--543fbd6abc96",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded exact-ID local-mirror read",
+          "title": "Exact fixation and quadratic leaf-seed suppression",
+          "trigger": "Indexed all-state star fixation and leaf scaling"
+        },
+        {
+          "assessment": "Different model and claim scope",
+          "evidence": "Site-preference-dependent acceptance and special neutral star example rather than an all-state law at constant directional acceptance.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-neutrality-criterion-for-finite-partisan-voter-networks--8fbd1a5070da",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded exact-ID local-mirror read",
+          "title": "Exact neutrality criterion for finite partisan voter networks",
+          "trigger": "Same-date star/neutrality overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On this nonregular graph an adopter count loses the distinction between the hub and leaves. The all-state law restores that dependence in a solvable form and gives an exact placement decision at every fixed seed budget. The distinct nonvanishing hub probability and inverse-size leaf probability at fixed directional bias quantify a degree effect that a regular-graph count formula or neutral degree weighting alone does not provide.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

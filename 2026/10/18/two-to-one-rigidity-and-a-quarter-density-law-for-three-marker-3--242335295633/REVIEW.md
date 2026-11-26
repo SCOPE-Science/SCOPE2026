@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each binary word of weight three corresponds bijectively to three nondecreasing zero-before-one counts \((a,b,c)\) bounded by \(n-3\). The entire length-at-most-three scattered profile is an explicit function of \(S=a+b+c\), \(Q=\sum\binom{d}{2}\), and \(T=2a+b\); these are themselves measured components. Solving for the second triple reduces to a quadratic whose nontrivial root interchanges the successive zero gaps subject to divisibility by three and boundary conditions. Counting the uniquely oriented pairs gives the exact doubleton sum and rational generating function. The fourth-order pole and \(\binom n3\) denominator establish the limiting proportion. The companion independent subsequence DP checked every triple at lengths 3–30 and coefficient identities through 1000. No finite search is treated as the infinite proof.
+PASS
 
-## Originality — PASS, with defined source-access risk
+At fixed n and weight three, (a,b,c) are precisely the ordered counts of zeros before each one. Directly counting the patterns with one selected one gives 001=Q, 010=(z-1)S-2Q, and 100=3 binom(z,2)-(z-1)S+Q. Counting those with two selected ones gives 011=T, 101=2(c-a)=2(S-T), and 110=3z-2S+T. The single-symbol counts and pure patterns are fixed, and S is 01; indeed the exact length-three deck also determines S via S=011+101/2 in this layer. Fixing S,T leaves b=T-2a, c=S-T+a; equality of Q requires equality of the sum of squares, a quadratic with nonzero leading coefficient 6. Its other root shifts a by (u-v)/3 for gaps u=b-a and v=c-b, swapping the gaps. Unequal gaps, integrality and the endpoints give the unique orientation v=u+3t, with t>=1, a>=t, a+2u+3t<=n-3; zero gaps are allowed and equal gaps give no distinct partner. Writing a=t+j and allowing the remaining endpoint slack h>=0 gives n=7+2u+4(t-1)+j+h, yielding the stated count and generating function. Its pole at 1 gives n^3/48+O(n^2), and it is the fraction of words in doubletons, 2C(n)/binom(n,3), that tends to 1/4. The author-recorded finite dynamic program was inspected but not executed; it is not needed for the all-length proof.
 
-The 2015 introduction and testing algorithms for \(k\)-binomial equivalence do not classify this particular sparse fiber. The 2020 full paper on binomial classes focuses on general properties, including global class-growth bounds and \(2\)-binomial classes; its concluding discussion explicitly identifies structural analysis for \(k\ge3\) as an avenue for further work. OEIS A258585 already supplies global counts and the specific length-seven collision, which are acknowledged as previously known; neither directly implies the all-length three-one collision involution, the exact doubleton generating function, or one-quarter limiting ambiguity. The 2019/2023 general \(k\)-deck study lists unrestricted counts and bounds. Its full paper was not accessible through the paths attempted, so an unpublished or unadvertised specialization remains a residual risk. General asymptotic results for unrestricted decks in 2026 are not weight-conditioned fiber classifications. Relevant database searches returned broad neighboring topics but no equivalent or dominating sparse-layer theorem. Search failure is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A length-three scattered-deck channel is a natural low-observation reconstruction model. The weight-three layer is the first sparse regime with a genuine collision; the theorem determines *all* its collisions and proves a sharp two-element maximum class size. The exact rational generating function provides an all-length count and the asymptotic result shows a substantial (one-quarter) ambiguity probability, rather than an isolated curiosity or a finite census. This conditional slice is motivated by sparse-marker reconstruction, not arbitrary numerical truncation. No unrestricted reconstruction claim is made.
+The distinct contribution is the proof of the all-length formula and the exact singleton/doubleton classification, not proposing the formula, identifying the first collision, or finding the nullspace direction. The frozen literature discussion misses a direct antecedent: Chrisnata et al. explicitly analyze weight-three gaps and conjecture the exact profile-count generating function in §5.3, Conjecture 1. That attribution should be corrected in any public exposition. Their published conjecture and initial coefficients do not establish the classification or the all-length formula. Several later indexed records prove the same result; their catalog dates do not show priority over the frozen record.
 
-## Closest literature and limitations
+## value
 
-Freydenberger et al., *Testing k-binomial equivalence* (arXiv:1509.00622, 2015); Lejeune–Rigo–Rosenfeld, *On the binomial equivalence classes of finite words* (arXiv:2001.11732, 2020); OEIS A258585 (2015); Chrisnata et al., *On the number of distinct k-decks* (2019 and 2023 versions); Nilforoushan–Parvaresh (arXiv:2609.23106, 2026). The all-length proof is for binary weight three only. The close 2019/2023 paper's full text remains incompletely inspected. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem settles a specific published fixed-weight deck-enumeration conjecture and shows exactly which sparse inputs fail unique reconstruction, not just how many decks exist. Weight three is the first potentially ambiguous layer, and the quarter-density result quantifies its ambiguity in a natural low-depth observation model. These are substantive consequences of the classification, not claims about arbitrary weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

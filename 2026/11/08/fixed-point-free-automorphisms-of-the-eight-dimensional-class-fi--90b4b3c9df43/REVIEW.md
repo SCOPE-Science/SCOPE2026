@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The multiplication table, the corrected seven-parameter normal form, its completeness, and all field-characteristic denominators are given in the proof. The source's sign in one term is not silently reused: its inconsistency is isolated by the relation \([\varphi(e_2),\varphi(e_1)]=\varphi(e_3)\), and the corrected form is symbolically verified on every ordered basis pair. Block triangularity reduces fixed-point-freeness to eight explicit monomial conditions. Cyclic-group square counting supplies the exact coefficient including the \(q=5\) boundary. Standalone computations corroborate rather than substitute for these arguments.
+PASS
 
-## Originality — qualified PASS
+For the exact multiplication table, the right multiplication commutators yield the right Leibniz identity. On the quotient by the product span, invertibility and [U,U]=0 force a=U1 and b=V2 nonzero. The symmetrized product and [[V,U],U]=0 force U5=U7=0. At that point [U,V]=−ab e3, so the symmetrized relation forces the e8 component of [V,U] to vanish; this justifies the step used to solve for V7. Equality of [φ(e5),V] and [φ(e6),V] gives a=3V1+b. Independently checked sufficiency from the three possible nonzero right slots: right multiplication by Y is Y1 R1+Y2 R2+Y3 R3; substituting the displayed columns into those three operators gives the generator images and all other defining products, and the higher slots are zero. Only 2, 3 and nonzero torus coordinates need be inverted. The block diagonal yields the eight weights and determinant a^6 b^15. For b not in μ2∪μ3, the four forbidden a's are distinct, and the extra quadratic roots exist exactly for square b and cannot coincide with any of the four. The square count n/2−g−ε and resulting quadratic prove the formula, the 5/7 boundary and the density limit. The independent branch check (branches/15be6f16-7356-47d7-bafe-a32ae7d4318c/independent_check.py) found the plus-sign residual at p=7 and matched the torus count at all even orders 4 through 120. These finite checks supplement the proof. Uploaded scripts and recorded output were inspected, not run.
 
-The October 29, 2026 primary paper, arXiv:2610.40348v1, introduces the example and computes automorphism parameters over the complex numbers. It neither treats finite-field fixed-point-free enumeration nor obtains the congruence-dependent count. A 1989 fixed-point-free theorem concerns Lie algebras and structural implications, not this specific non-Lie Leibniz algebra. A previously published exact count for three-dimensional Heisenberg Lie algebra automorphisms also concerns a different structure and different eigenvalue constraints. The closest semantic mathematical records and available own research claims were compared by mathematical implication, not by title. Residual priority risk: an equivalent enumeration might be implicit in obscure algebraic-group or toric-arrangement literature, and the original source's automorphism formulas have an apparent sign error needing external confirmation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source singles out this algebra as a minimal non-Lie nilpotent example with rigid local symmetry, giving a natural reason to examine its actual finite-field automorphisms. Fixed-point-free automorphisms constitute a standard structural class; the exact count yields a sharp exceptional field \(\mathbb F_5\), proves existence over all larger permitted fields, and exhibits genuinely arithmetic modulation through roots of unity and quadratic characters. This is a complete natural invariant of a motivated algebra, not a randomly selected coefficient.
+The algebra, automorphism parameters over C and diagonal weights have direct prior coverage. The original computational claim that passes is the exact fixed-point-free count over each finite field of characteristic >3, including the repaired normal form needed there and the finite-field existence boundary; it is not a new algebra or a new complex automorphism classification.
 
-## Limitations and relevant literature
+## value
 
-The result does not classify all Leibniz algebras, establish finite-field local-automorphism rigidity, handle characteristics two or three, or guarantee that all nonidentity powers of one automorphism are fixed-point-free. The primary 2026 paper supplies the original algebra and most of the coordinate setup; the exact count and finite-field conclusion are the contribution. Historical novelty has not received independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The input is a previously singled-out class-five example, not an arbitrary table. The answer resolves existence at every allowed field size and exposes both order-3 and order-4 arithmetic in the exact defect from total automorphisms. The explicit correction also matters to anyone using the published automorphism matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

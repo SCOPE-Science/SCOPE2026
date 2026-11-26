@@ -1,11 +1,21 @@
-# Review of matching-skeleton open NOR dynamics
+# Independent mathematical audit
 
-**Correctness — PASS.** The local update identity decomposes an auxiliary input graph uniquely into isolated edges, isolated vertices, and components of size at least three. Its full image classification yields every recurrent phase, with inverse-image counting giving the individual basin formulas. Formal labelled-component EGFs and a precise Bonferroni bound establish the generating function and doubled defect coefficient. A direct Python implementation checks every state for \(3\le n\le6\) and a separately written C++ implementation checks every state for \(3\le n\le7\), comparing individual basin maps; both passed. Only finite verification is computational; all-n statements have independent symbolic arguments.
+## correctness
 
-**Originality — PASS, with historical risk.** Comparisons of mathematical statements, not titles, found established universal \(F^3=F\), fixed-point/MIS correspondence, and general periodic-point methods; none of these is claimed as new. Readable primary literature discusses general NOR/minterm dynamics and sequential MIS algorithms, not this explicit open-neighborhood triangular-graph matching/clique basin theorem. The closest recorded closed-neighborhood triangular result differs in self-dependence and has no matchings as equilibria, while open rook and Kneser systems have different adjacency. Historical work unavailable or unindexed might contain equivalent basin identities. The explicit individual attraction basins and doubling of the sharp rare-defect coefficient remain not implied by the inspected results.
+PASS
 
-**Value — PASS.** Line graphs of complete graphs provide a canonical infinite family with increasing state-space dimension. Exact matchings-plus-cliques classes and individual basin populations explain how the seemingly minor removal of self-input changes stable states and doubles the dominant rare-event scale. This is a natural all-size dynamical classification and a precise robustness comparison, not a single-graph census or generic textbook period bound.
+An active root edge survives precisely when isolated as a component, while an inactive edge becomes active precisely when both endpoints are isolated vertices. Thus F(S)=I(S)⊔E(U(S)). Independently, undirected open NOR is antitone with S⊆F²(S); applying this twice in the two directions gives F³=F. The complement W of the isolated vertices and isolated-edge matching supports components of order at least three, so |W| is zero or at least three. Substituting |U|≤1, |U|=2, and |U|≥3 in the image formula gives exactly the fixed matchings and the two disjoint classes of cycles; when |U|=2 its edge joins the matching, rather than forming a separate clique case. A two-edge path is not an image and realizes one-step entry. Fibres of a clique phase of order at least three uniquely specify the isolated vertices and matching. For a matching phase its fibre additionally allows replacing at most one matching edge by two isolated vertices, which gives the extra m·a_r term and the perfect/near-perfect distinction. Removing labelled components of orders one and two gives the EGF; counting unordered complementary parts gives the orbit census. For the dominant basin the complement is the union of pair-isolation and isolated-edge events with the empty graph removed. Each event prescribes 2n−3 bits; compatible shared-endpoint pairs prescribe at least 3n−6 and disjoint pairs 4n−10. Bonferroni yields the displayed relative O(n·2^(−n)) error; the empty graph correction is smaller. The union bound gives strict majority for n≥4, and n=3 gives 5/8. An independent truth-table enumeration checked F³=F and every individual basin through n=7, including 2,097,152 inputs there and distinguished basin 2,059,625.
 
-**Limitations.** The claim is restricted to synchronous open NOR on labelled \(L(K_n)\) with \(n\ge3\), and the concentration law assumes uniform independent initial bits. Full historical-priority certification is not possible from the inspected corpus. No external independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete matching-and-clique basin spectrum and two-family rare-event deficit are materially distinct from the inspected earlier and same-day results. The generic period bound, one-step entry identity, and maximal-independent-set fixed point correspondence are not credited as new.
+
+## value
+
+PASS
+
+This is a natural synchronous rule on a canonical line-graph family, and generic two-periodicity leaves the distribution of initial states among orbits unresolved. Exact sizes of every individual basin expose both the matching skeleton and an explicit effect of excluding self-neighbors, including the change in the sharp leading rare-event coefficient. The classification and phase-resolved counts are materially more informative than an orbit census or a mere concentration bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

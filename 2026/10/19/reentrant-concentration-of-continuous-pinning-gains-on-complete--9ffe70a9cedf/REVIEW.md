@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The pinned Laplacian is positive definite on the full budget simplex. The exact second derivative of inverse trace is strictly positive in every nonzero gain direction, so the global optimizer is unique before invoking symmetry. The normal-mode decomposition yields the objective, and verified boundary derivatives prove both that the larger part must have positive gain and that the smaller part is unpinned if and only if the cubic is nonpositive. Strict convexity of the reciprocal-level function determines the complete two-transition budget picture. The finite reproducibility program checks independent matrix inverses and rational signs, not an infinite theorem.
+## correctness
 
-**Originality: PASS with residual risk.** Fitch and Leonard (arXiv:1407.1569) study noisy leader placement with one shared positive gain for a fixed leader subset. Their original results and appendices do not solve arbitrary continuous nonnegative gains with a total budget. Shafi, Arcak and El Ghaoui (Allerton 2010) optimize node/edge-weighted generalized-Laplacian eigenvalue bounds, rather than pinned inverse trace. Targeted scientific-semantic database queries were compared against closest published results, including discrete complete-bipartite hitting/PMU placement and fading-memory gain tuning; these are not implication-strength predecessors. Generic strict convexity and optimality conditions are prior methods and are not claimed as new. Undetected A-optimal-design specializations and unindexed equivalent statements remain substantive originality risks.
+PASS
 
-**Value: PASS.** Continuous resource pinning on two-community graphs is motivated by noisy leader-follower consensus. The sharp all-size conditions determine when the unique optimal gain support changes twice as total available feedback increases. This reentry cannot be inferred from high-degree heuristic leadership or the previously studied equal-gain fixed-cardinality selections. The explicit \(K_{6,2}\) example is a certificate for the broader algebraic phase classification.
+The frozen Finding is correct, but the proof's Step 4 (RESULT.md line 68) reverses the sign of the upper-endpoint derivative in the increasing-y coordinate. Step 3 uses the increasing-x inward coordinate, so its strictly negative derivative implies a strictly positive derivative in increasing y. The complete corrected RESULT.md supplies this change and a short independent endpoint calculation. Specifically, existence follows from connectedness, positive definiteness and compactness. For a nonzero diagonal perturbation the Hessian trace is strictly positive since it is twice the trace of a positive definite weight times the square of a nonzero symmetric matrix. Uniqueness then forces within-part equality. The two within-part zero-sum spaces and the part-constant 2-by-2 block give the stated trace; taking the budget derivative at y=0 yields (q/p^2)[p(p-1)/(z+q)^2-1-2/z], which expands to the negative multiple of H in the source. At x=0 the swapped expression for the inward increasing-x derivative is strictly negative because q(q-1)<p^2. The feasible restriction is strictly convex with positive increasing-y derivative at the upper end, giving exactly the stated KKT support rule including zero derivative at y=0, and the unique interior marginal equation otherwise. H(z)/z=R_q(z)-(p^2-p), and strict convexity and divergence at both ends give the conditional root classification. Independent rational inline evaluation of K_{6,2} verified signs 1117/216, -487/216, 1396/27 and two sign-changing transition brackets (3.34679965326,3.34679965327) and (10.38249485813,10.38249485814); it did not create a persistent script. The frozen verify.py is a separate finite replay path, inspected, not executed. The repaired q=3 example uses the exact values H_{8,3}(1/4)=625/64, H_{8,3}(1)=-8, and H_{8,3}(4)=70. Numerical and finite sign checks do not establish the all-parameter result.
 
-**Limitations.** Complete bipartite unit-weight graphs, homogeneous feedback prices, isotropic independent noise and exact sum budget only; no assertion for arbitrary graphs. The roots are algebraic and may require numerical evaluation. Related primary literature could still imply this profile under another formulation. Independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired text credits exact existing coverage of the two-hub q=2 support law, including its worked example, and claims the arbitrary-part-size phase diagram including q>=3. Neither a fixed count of equally weighted leaders, a Laplacian extremal spectral problem, nor a clique–independent-set join gives that general unit K_{p,q} continuous pinning result in the compared statements. This is not an originality claim about strict convexity or KKT, nor a priority ruling on the two-hub case.
+
+## value
+
+PASS
+
+The supported result is a complete support phase diagram for a natural family of convex stochastic-network design problems. It identifies when extra budget makes an entire part lose positive gain and when further budget restores it, with exact endpoints and a new scope beyond the two-hub overlap. This is a useful diagnostic beyond either generic optimization principles or recompilation of one numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

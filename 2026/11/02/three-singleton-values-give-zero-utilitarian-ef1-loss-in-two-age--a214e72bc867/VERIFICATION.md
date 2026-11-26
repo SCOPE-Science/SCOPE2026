@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mixed-manna three-level theorem
+# Independent mathematical audit
 
-The accompanying `verify.py` can be run using `python3 verify.py` without external packages. The test uses exact integer arithmetic and a direct, bundle-wise EF1 definition, including both permitted ways to eliminate mixed-manna envy: removing a positively valued item from the other bundle or a negatively valued item from one's own bundle.
+## correctness
 
-The executable enumerates 488,275 small signed item sequences across five three-level alphabets at lengths one to seven, of which 117,995 meet the equal-total condition. In every eligible case, it checks the explicit algorithm's EF1 property and exact itemwise-optimal welfare. Independently, it enumerates all two-way allocations for 3,186 selected eligible profiles and compares maximum EF1 welfare to the unrestricted maximum. A further 50,000 seeded random profiles are generated; 13,555 meet the equal-total condition and are checked. As a boundary check, it exhaustively searches all allocations for six published four-level counterexample instances indexed by integers two through seven, verifying unrestricted and EF1-constrained welfare exactly.
+PASS
 
-These finite tests are not a proof for all item counts or arbitrary real values. The universally quantified proof is contained in RESULT.md: it uses equal directed-pair counts, the signed common-item witness invariant and explicit envy-gap equations. Computations do not verify that all equivalent prior formulations have been indexed. This document reports no independent audit or external certification.
+I reconstructed the all-real, all-length proof. Both signs in a common alphabet of size at most three leave at most one unequal same-sign value pair u>v. Equality of totals gives equally many of its two orientations, so assigning each unequal item to the higher valuer produces the same nonnegative own-bundle comparison advantage Δ for both agents. For tied items the signed lower-sum-for-goods/higher-sum-for-chores rule reduces the magnitude when the sign of the difference is preserved; on a strict crossing or departure from zero the new item supplies the correct-side deletion witness. Thus either positive total envy gap is at most the magnitude of the signed common-item difference, which one legal deletion can repair. The source's strict d>E₂ (and symmetric inequality) can be equality at Δ=0; the weak inequality suffices. Itemwise maximization proves utilitarian optimality, including for negative unequal values; the scan takes linear arithmetic operations, and the optimum is at least 1 by allocating everything to either agent. Independently for Teh's family in units of 1/3, write s for agent 1's number of ordinary goods minus ordinary chores, and z∈{0,1} for receipt of the balancing good. Welfare is 3+s−z and agent 2's envy gap is 2(s+2z)−3. Even the largest legal deletion (at most 1 when z=0 and 2 when z=1) forces s≤2 or s≤0, respectively. The value 5 is realized with two ordinary goods and no chores or balancing good for agent 1; unrestricted welfare k+4 is itemwise optimal. Both agent totals equal 3 in these units.
+
+## originality
+
+PASS
+
+The verified prior result is the four-level obstruction, not the three-nonzero-level zero-loss guarantee. The closest positive theorems and indexed records cover different valuation domains or different objectives; none of those inspected implies the stated ordinary-welfare claim.
+
+## value
+
+PASS
+
+Zero loss versus unbounded loss is a meaningful sharp threshold for the price of EF1 in the same normalized sign-agreeing model. The proof isolates why the single directed comparison type can be assigned efficiently without sacrificing fairness, and makes a linear constructive guarantee, not just existence. It does not re-claim the four-level witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

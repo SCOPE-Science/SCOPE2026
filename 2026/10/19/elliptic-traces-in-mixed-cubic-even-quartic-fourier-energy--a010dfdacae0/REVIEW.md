@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved by a bijective nonzero-shift parameterization of mixed collisions, an explicitly proved quadratic character-sum identity, and exact treatment of its two degeneracies. The critical expansion is \(3w^2=4v^3+2cv+(v-1/4)h^2\); the sum counts all ordered quadruples, including the trivial \(q^2\). The Frobenius trace equals the negative character sum and is invoked only for the nonsingular curve with \(c\ne0\). At \(c=0\), the repeated root is counted once and the resulting three congruence regimes hold for prime powers. Tests of \(179\) parameter/field cases reproduce direct convolution energies, but the proof is valid independently of those tests.
+PASS
 
-## Originality — PASS, best-knowledge
+Replayed frozen RESULT.md lines 55–104. The first-coordinate equation determines the ordered difference h; h=0 contributes q². In midpoint coordinates the cubic difference is −3hw²−h³/4 and the even-quartic difference is h(4v³+2cv)+vh³. For h≠0, counting w yields the baseline q(q−1) and the χ(3)-weighted character sum. For nonzero a,b, counting z²−h²=a/b by its two linear factors gives the full sum −χ(b), then removing h=0 subtracts χ(a); when a=0 or b=0 the direct constant-character counts give exactly the listed corrections, including a=b=0. The linear-argument character sum over v vanishes, and P_c(1/4)=(1+8c)/16, so the formula handles the common zero and distinct cubic roots without multiplicity. For c≠0 the cubic derivative has no common root, and the unique smooth point at infinity gives trace −C_c and Hasse. For c=0, (C,H,J)=(0,χ(−1),1); quadratic reciprocity on the prime field and the parity of extension degree give the claimed q mod 12 regimes. Nontrivial additive orthogonality in both coordinates gives the unnormalized mixed Fourier moment with q⁻². An independent direct convolution and separate formula evaluation for c=0, −1/8, α in F₅[α]/(α²−3) gave 1275, 1269, 1267 and in F₇[α]/(α²−6) gave 4851, 4837, 4739, with exact agreement. These are targeted checks besides the all-field proof. Frozen verify.py was inspected, not executed; verification_output.txt is recorded evidence only. The file's trace check computes the point count via the same character sum, rather than independently enumerating pairs (v,w); the trace identity is proved in the text.
 
-The closest published full texts calculate either a quartic graph's **self-energy** or the sharp cubic graph's **self-extension** norm; their identities do not determine energy of the sum of *different* cubic and even-quartic graphs. González-Riquelme–Oliveira e Silva's 2024 sharp finite-field results treat paraboloids and cones, with no asserted mixed degree-(3,4) family. Targeted searches for mixed energy, elliptic character sums, Fourier formulations and deformation equivalences, together with accessible prior-claim comparisons, found no stronger covering theorem. An unindexed algebraic-curve or bilinear character-sum identity remains a genuine residual originality risk, not resolved by search absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This formula evaluates a natural bilinear Fourier fourth-moment correlation which cannot be recovered from the separate fourth moments of the cubic and quartic graphs. The mixed collision's first genus-one arithmetic term appears explicitly, with Hasse-size fluctuation, a complete finite-field parameter family and a three-regime modulo-twelve degeneration. The two branch corrections specify singular geometry rather than an arbitrary numeric parameter slice. These are reusable exact structural invariants; no new sharp unrestricted bilinear operator constant is claimed.
+No inspected source covers the mixed exact invariant. The strongest concrete comparisons compute either self-collisions, quadratic-surface extension, or a different ring/modulus. This decision credits only the mixed constant-input energy and its exact corrections, not extension estimates in general, the quadratic-character identity, or elliptic point counting.
 
-## Closest literature and limits
+## value
 
-See González-Riquelme and Oliveira e Silva, *Sharp extension inequalities on finite fields* (arXiv:2405.16647), and the published full scientific results *Exact additive energy of the finite-field quartic graph* and *Sharp cubic-graph Fourier extension and its inflection-point deficit*. The Hughes–Wooley integer-torus cubic paper is in a different ambient setting and its full text was not inspected. Characteristics two and three, arbitrary input weights and complete individual fiber distributions lie outside the theorem. Bibliographic priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mixed fourth moment is a natural invariant not determined by separate cubic and quartic energies. Its exact evaluation separates order-q branch effects from a bounded elliptic-trace fluctuation and resolves an exact three-regime law at the undeformed quartic, with uniform field and parameter coverage. This is useful as an exact Fourier/convolution benchmark, not a claimed sharp weighted extension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

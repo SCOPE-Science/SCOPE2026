@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At a common total \(N\), Shannon entropy is exactly \(\log N-N^{-1}\log Q\) with \(Q=\prod_i n_i^{n_i}\), and Simpson concentration is exactly \(N^{-2}\sum_i n_i^2\). Thus equality of the two ecological indices reduces to equality of two integers, avoiding floating-point ambiguity. The verifier exhaustively generates every partition through \(N=30\), cross-checks partition counts by an independent dynamic program, and reproduces exactly two first pair-collisions at \(N=24\) and one first richness-augmented collision at \(N=30\). It returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem is specific to positive integer census profiles and exact equality, not noisy estimated diversities.
+PASS
 
-## Originality
-**PASS.** Hill's classical framework owns the identification of richness, Shannon diversity, and inverse Simpson as diversity orders \(0\), \(1\), and \(2\), and later diversity-profile literature owns the use of the full order continuum to characterize abundance structure. The checked literature and exact-profile searches did not state the finite inverse thresholds \(23/24\) or \(29/30\), nor the complete first collision layers.
+At each fixed, known positive integer census N, unlabeled profiles with positive species counts are the integer partitions of N. Shannon entropy is log(N)-log(Q)/N for Q=product n_i^(n_i) and population Simpson concentration is M2/N^2 with M2=sum n_i^2. Thus their equality is exactly equality of Q and M2; the Hill-number transformations are injective. An independent enumeration chose multiplicities c_j in descending part size j, between zero and the remaining census divided by j; the multiplicity of 1 is the final remainder. Every admissible profile has exactly one such choice sequence. The distinct implementation keyed Q by all prime valuations sum_j j*c_j*v_p(j), equivalent by unique prime factorization, and optionally added S=sum_j c_j. It checked 28,628 profiles over N=1 through 30, with partition counts matching the external p(N) table. It found no pair collisions through 23; exactly two at 24: (1^6,3^2,4^3) versus (2^9,6), with Q=12230590464, M2=72 and richness 11/10, and (1^4,4^2,6^2) versus (2^2,3^4,8), with Q=142657607172096, M2=108 and richness 8/7. There were no triple collisions through 29 and exactly one at 30: (1,4,4,4,4,4,9) versus (2,2,3,3,6,6,8), with S=7, Q=2^40*3^18 and M2=162. Replay: /workspace/branches/a268cca5-88ac-449b-95af-14789a6aeba8/audit_hill_partition_enum.py; captured census in audit_hill_partition_enum.txt in the same directory. The bundled verifier was inspected but not executed. The result is exact injectivity for each fixed N, not across different totals (scaling all counts preserves the diversities), and not a statement about approximate or estimated values.
 
-Risk: a small exact collision could exist in unindexed pedagogical or software material.
+## originality
 
-## Value
-**PASS.** Shannon and Simpson are among the most widely used abundance-sensitive biodiversity summaries, and richness is their canonical order-\(0\) companion in the Hill framework. The result quantifies, for the first time located here, exactly how far these familiar summaries remain jointly lossless on integer census profiles and gives the first compositions they cannot distinguish. This supplies a natural identifiability benchmark for diversity summaries rather than an arbitrary numerical comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closest published scholarly result counts marginal entropy and Gini–Simpson values on the same integer partitions; the closest indexed findings concern rarefaction with Simpson or ranking reversals. Their actual conclusions differ from the exact joint equalities, both sharp cutoffs, and the complete first collision layers. Counts and definitions for the individual statistics are established prior work; lack of a hit alone is not the originality basis.
+
+## value
+
+PASS
+
+The domain and invariant are canonical: integer census partitions and Hill orders 1 and 2, with order 0 as the natural additional observable. The exact first loss of joint information, all first failures, and the amount by which adding richness delays that failure give a concrete benchmark separating summaries that are lossless at small fixed totals from ones that are not. The answer is not obtainable from the published marginal counts alone and is not a randomly chosen small slice. Its significance is exact finite identifiability, not ecological inference at nonzero measurement error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

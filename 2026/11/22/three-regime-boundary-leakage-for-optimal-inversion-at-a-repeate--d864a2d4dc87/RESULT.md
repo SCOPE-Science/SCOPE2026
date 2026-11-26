@@ -79,7 +79,7 @@ Comparing its \(t^{-1}\) coefficient at infinity yields \(P(1)=C_{\beta,m}\); ta
 \[
 \left|\sum_{k=0}^L k^j(k+1)^{-\alpha}z^k\right|=O_{j,\alpha,\delta}(L^{j-\alpha}).
 \]
-Multiplying by \(L^\beta A_{j,L}=O(L^{-j})\) gives \(O(L^{-1})\). The \(j=0\) coefficient tends to \(D_{\beta,m}\); hence the positive-weight boundary formula.
+Multiplying by \(L^\beta A_{j,L}=O(L^{-j})\) gives \(O(L^{-\alpha})=o(1)\). The \(j=0\) coefficient tends to \(D_{\beta,m}\); hence the positive-weight boundary formula.
 
 **6. Nonpositive weights and both boundary endpoints.** If \(\alpha\le0\), write \(\beta\ge1\). The exact algebraic identity
 \[
@@ -104,9 +104,9 @@ A standalone checker `verify.py` reconstructs each finite moment Gramian, checks
 
 ## Relationship to prior work
 
-Bénéteau, Manolaki, and Seco, *Boundary behavior of optimal polynomial approximants*, arXiv:1901.00694, Section 7, already give the **exact repeated-root coefficient formula** and sharp **squared-norm** asymptotic. Their discussion directly following Corollary 7.4 leaves the repeated-root *uniform closed-disk convergence* problem for future work. Those prior results are explicitly used and are not relabeled as new. Their Theorems 1.8 and 6.1 concern **simple** zeros and do not supply this repeated-zero boundary asymptotic.
+Bénéteau, Manolaki, and Seco, *Boundary behavior of optimal polynomial approximants*, arXiv:1901.00694, Section 7, already give the **exact repeated-root coefficient formula** and sharp **squared-norm** asymptotic. The squared norm is the initial coefficient, so their constant \(1/[\beta B(m,\beta)^2]\), where \(B\) is the beta function, is precisely \(D_{\beta,m}\). Their discussion directly following Corollary 7.4 leaves the repeated-root *uniform closed-disk convergence* problem for future work. Their Theorems 1.8 and 6.1 concern **simple** zeros and do not supply this repeated-zero boundary asymptotic.
 
-The published 2026 published-finding corpus finding *Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants* gives a Hardy-space coefficient profile for mixed distinct boundary zeros; in its single-root specialization it supplies information from which the \(\alpha=0\) boundary endpoint profile can also be deduced. The distinct claims here are the all-multiplicity **non-Hardy** boundary laws, sharp constants, and the transition through the zero-weight case; no originality is asserted for the standalone Hardy coefficient profile. Acuaviva–Seco (2022) investigates zeros of approximants principally with simple boundary zeros. The Bénéteau–Centner survey provides context but no comparable non-Hardy repeated-zero boundary law.
+The 2026 research record *Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants* gives a Hardy-space coefficient profile for two or more distinct boundary nodes with multiplicities. Its single-node Legendre polynomial term has the same endpoint constants as the \(\alpha=0\) law here, though the single-node configuration is outside that theorem's stated hypotheses. The distinct contribution here is the sharp weighted boundary profiles, including both non-Hardy regimes and the transition at zero weight. Acuaviva–Seco (2022) investigates zeros of approximants principally with simple boundary zeros. The Bénéteau–Centner survey provides context but no comparable non-Hardy repeated-zero boundary law.
 
 ## Limitations
 
@@ -117,4 +117,4 @@ All statements fix one repeated root at \(1\), multiplicity \(m\ge2\), and one r
 1. C. Bénéteau, M. Manolaki, D. Seco, *Boundary behavior of optimal polynomial approximants*, arXiv:1901.00694, first posted 2019-01-03, Sections 6–7, especially Theorems 7.1 and 7.3, discussion after Corollary 7.4. https://arxiv.org/abs/1901.00694
 2. A. Acuaviva, D. Seco, *Equidistribution of zeros of some polynomials related to cyclic functions*, published online 2022-03-18, DOI:10.1007/s13324-022-00655-z. https://doi.org/10.1007/s13324-022-00655-z
 3. C. Bénéteau, R. Centner, *A survey of optimal polynomial approximants, applications to digital filter design, and related open problems*, arXiv:2102.01725, 2021. https://arxiv.org/abs/2102.01725
-4. *Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants*, published research record 2026-10-18. https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee
+4. *Additive squared-multiplicity law and Legendre boundary profiles for optimal Hardy approximants*, research record 2026-10-18, ID `SCOPE-additive-squared-multiplicity-law-and-legendre-boundary-profiles--5397a5ef85ee`.

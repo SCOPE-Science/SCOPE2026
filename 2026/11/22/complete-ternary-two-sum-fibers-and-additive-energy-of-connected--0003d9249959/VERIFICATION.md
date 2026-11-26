@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-From the directory containing these embedded files, run:
+## correctness
 
-```sh
-python3 fiber_certificate.py
-python3 independent_energy_check.py
-```
+PASS
 
-Both scripts use only Python's standard library and deterministic exact integer arithmetic. The first reconstructs the whole carry-state closure, checks every state transition and output label, and verifies the exact 18-by-18 integer matrix identity \(T^2(T-3I)(T-I)^5=0\). It also checks the proposed multiplicity histograms and energy at all depths zero through seventeen. The identity, the explicit degree-four-plus-exponential formulas and the first eight checks jointly give a rigorous all-depth proof.
+Gessel's congruence identifies the positive input residues exactly as ternary digit sums 1 and 2. Carrying and discarding a top carry cannot raise digit sum. Targets of weights 2 through 4 are obtained by partitioning their digit units into two nonempty groups of size at most two. The top-position sums in the proof supply weight 0 and every weight 1, including r=1. The ordered-pair transitions on the two input digit weights and incoming carry follow from a_i+b_i+c_i=t_i+3c_{i+1}; both outgoing carries count, but either zero input weight is rejected. My separate exact check /workspace/branches/reproduce_5.py folds partial weights by exchange symmetry, reconstructs 18 reachable states, verifies the annihilator T^2(T-3I)(T-I)^5 on every basis row and checks the full initial histograms plus direct sums for r=1..9. The eight initial values and recurrence prove the histograms for all depths since the formulas at r>=2 are degree-at-most-four polynomials plus the 3^r term, and the two early exceptions are killed by the squared shift. Summing j^2H_j gives the displayed energy, with r=1 checked separately. I inspected the supplied certificate and four-input check without executing them.
 
-The independent script forms sparse digit-support sets directly, enumerates ordered pair sums modulo \(3^r\) for depths one through ten, compares support and additive energy, and separately uses four-input carry paths through depth seventeen. Its finite checks are cross-validation of the main proof, not a substitute for the symbolic matrix identity. Representative exact energies are \(E_1=6\), \(E_2=77\), \(E_3=309\), and \(E_4=822\).
+## originality
 
-Only the precise ternary two-sum theorem stated in `RESULT.md` is asserted. Historical priority cannot be proven by search, and a separate independent mathematical audit has not been performed.
+PASS
+
+The exact cyclic ordered histogram and energy for this specific ternary weight-one-or-two index set are distinct in the inspected evidence. The closest catalog analogue changes the set and carry language, not just the names; graph congruences supply membership, and general energy estimates do not give the exact distribution.
+
+## value
+
+PASS
+
+This arithmetic index set is natural before enumeration, and ordered cyclic collisions are a genuine invariant of it. The precise uniform cap, full distribution and energy distinguish ordinary partition counts from carry-induced collisions and provide an exact benchmark for higher digit-weight carry problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite coverage proof is exact: every finite poset is produced by adjoining a maximal element over an order ideal, and isomorphic duplicates are rejected by exact directed graph isomorphism on the complete strict order. Birkhoff representation translates all nontrivial distributive lattices with one through eight join-irreducibles to these posets. Every order ideal and every ordered pair of strict predecessor/successor counts is enumerated without approximation. The recorded runs give the established unlabeled-poset census \(1,2,5,16,63,318,2045,16999\) and a single shared signature among all \(19449\) objects. A separate combinations-based program verifies the specific eighteen-element witness, unequal source-poset heights, and the separation after refinement round two. Risk: an independent human audit of the exhaustive implementation has not taken place.
+PASS
 
-## Originality — PASS (qualified)
+Birkhoff duality identifies the eight-generator bound with the bound on the poset of join-irreducibles, with order direction fixed. An independent exact census added a minimal point below each up-set, which is exhaustive by deletion of a minimal point. It canonically minimized the strict-relation masks over all permutations within the invariant (number of predecessors, number of successors) classes, so equality of keys is exactly isomorphism. For each ideal S, the numbers below and above are ideal counts in the induced subposets on S and its complement, minus one. The independent counts used deletion of a maximal element or forcing it and all its predecessors, rather than all pairwise ideal comparisons. The layer counts were 1, 2, 5, 16, 63, 318, 2045, 16999; one combined profile map contained 19,448 keys for 19,449 types. Its only nonsingleton bucket consisted exactly of the two claimed eight-point masks up to canonicalization, with the stated eighteen pairs. The longest chains have four and five points by the predecessor recurrence. Direct two-direction refinement confirms separation at round two: the unique (4,8) node in A has lower first-round colors (0,17), (1,13), (1,15), (3,12), and this round-two key does not occur in B. Equality and incomparable counts per color add no extra distinction once the common first-round totals and the two directed counts are given.
 
-The 2002 Erné–Heitzig–Reinhold paper develops poset/lattice generation and tabulates numbers of distributive lattices; those contributions are acknowledged, not represented as new. Its inspected full-text sections and full-document term searches do not state this paired principal-ideal/principal-filter degree-profile collision layer. The 2015 Arvind–Köbler–Rattan–Verbitsky paper and 2014 Krebs–Verbitsky preprint establish refinement and counting-logic methodology, but the inspected relevant sections and whole-document keyword checks do not give the sharp eight-join-irreducible collision classification. Research-index searches and accessible earlier scientific claim comparisons found no mathematically equivalent or dominating theorem. Failed searches do not prove priority: an unlocated specialised lattice enumeration may already contain this profile.
+## originality
 
-## Value — PASS
+PASS
 
-For finite structures represented only by strict order, the first synchronous counting-refinement colour of an element records its strict-lower and strict-upper degree. The theorem determines, across every finite distributive lattice of generator rank at most eight, exactly when the first global count histogram ceases to determine isomorphism. The single exceptional collision among \(19449\) nontrivial isomorphism classes is a sharp natural finite boundary, with an explicit structural witness and the proved next-round repair. The result is not just a new lattice count or a known-table transcription; it classifies the information loss of a canonical finite-model-theoretic invariant. The scope does not extend beyond eight join-irreducibles.
+The inspected prior work supplies enumeration and refinement machinery and closely related invariants, not this first collision and its cross-layer census. The finite classification, not Birkhoff duality, the known type counts, or the general logic framework, is the supported distinct claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The cutoff is the first failure of a natural invariant on a canonical lattice family, not an arbitrary enumeration slice. The unique obstruction at that first layer, including cross-layer exclusions and its resolution at the next round, is a precise benchmark for reconstruction by local counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

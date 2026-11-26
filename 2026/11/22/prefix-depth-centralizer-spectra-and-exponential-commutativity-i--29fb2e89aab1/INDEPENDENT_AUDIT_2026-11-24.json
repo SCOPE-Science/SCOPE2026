@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:03:53.116478Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, multiplication and proof",
+        "Frozen VERIFICATION.md, check.py and check-output.txt, inspected rather than executed",
+        "/workspace/branches/independent-replay.py, record 5"
+      ],
+      "rationale": "Composition of balanced prefix replacements gives either zero or a balanced pair at the larger input level; inverse swaps the two words. Counting normal forms gives B. Fix x=(u,v) at level m. For a candidate y=(s,t) at j<=m, nonzero xy requires s to be the j-prefix of v and nonzero yx requires t to be the j-prefix of u. Inclusion-exclusion gives (r^j-1)^2 both-zero outcomes; the unique both-nonzero pair commutes exactly when the two prefixes agree. For j>m, both nonzero requires s=va,t=ub; the products are (ua,ub) and (va,vb), equal iff u=v. The two nonzero events have size r^(2j-m) and intersection size r^(2(j-m)), giving the longer summand. Zero and identity commute with everything, including N=0. A common prefix of length d<m is counted by choosing its d letters, an ordered pair of distinct next letters and independent tails, giving the stated multiplicity. On summing with the shorter level fixed, the both-zero term is r^(2h)(r^ell-1)^2; the both-nonzero term is r^ell times r^(2(h-ell)), also valid on the diagonal. After the zero-containing pairs are included, the deficit per level pair is 2r^(ell+2h)-r^(2h)-r^(2h-ell). The lower-order terms total O(N r^(2N)) as N tends to infinity. Writing ell=N-j and h=N-k gives the scaled leading diagonal sum 2/(1-r^(-3)) and the off-diagonal sum 4/((r-1)(1-r^(-3))). Dividing by the squared size factor (1-r^(-2))^(-2) gives the stated positive coefficient. Independently, composition of explicit partial maps on depth-N words matched every tested centralizer and level-pair count at (r,N)=(2,0),(2,1),(2,2),(2,3),(3,2); the last two counts were 5062 and 6298 (python3 /workspace/branches/independent-replay.py 5).",
+      "residual_risks": [
+        "The bounded replay is not a proof for arbitrary r or N. The asymptotic is at fixed r and only in the degree-zero cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph inverse semigroup of the n-loop rose provides the ambient P_n structure. Its checked representation theorem does not enumerate balanced elements commuting across varying levels.",
+          "Lawson's accessible author-institution abstract asserts an orthogonal completion isomorphism with finitely generated right ideal isomorphisms and a connection to Thompson groups."
+        ],
+        "reasoning": "An ambient representation theorem or completion isomorphism does not itself count the elements commuting inside this finite degree-zero submonoid. The abstract establishes scope, not exclusion of an incidental exact statement in inaccessible full text.",
+        "searches": [
+          "arXiv:1106.3644, pp. 1, 19, 22, Theorem 3.19",
+          "arXiv:1409.4380, p. 4",
+          "DOI 10.1080/00927870601169317 and Heriot–Watt repository entry"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.3644",
+        "arXiv:1409.4380",
+        "DOI 10.1080/00927870601169317, institutional abstract only",
+        "Resultary f634d5544368 and identical record 29fb2e89aab1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a single positive level the prefix test is equality of the middle index, so the level plus zero is a Brandt matrix-unit semigroup. Across levels nonzero products require extension of a prefix, not equality of same-length middle indices.",
+          "The bicyclic paired generator lengths concern a different cutoff, with no large mass of simultaneous zero products."
+        ],
+        "reasoning": "The centralizer depends on the shared prefix through all shorter levels, and the asymptotic constant sums interactions of different levels as well as diagonal ones. Neither isolated Brandt calculations nor bicyclic balls supply these cross-level data.",
+        "searches": [
+          "arXiv:1106.3644, polycyclic prefix-comparability multiplication",
+          "Resultary f634d5544368, assumptions and finite-count claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the finite rooted tree through depth N the element uv^(-1) is the partial isomorphism vw -> uw on a single descendant subtree; zero is the empty map. Prefix composition agrees and the encoding is injective.",
+          "Jones–Lawson realize graph inverse semigroups by partial bijections on right-infinite paths, not by stating the finite-depth count."
+        ],
+        "reasoning": "The rooted-tree version is an actual equivalent formulation, so an existing census in that language could cover the theorem. Neither the general infinite-path representation nor closure of the finite balanced subclass gives the enumerated centralizer sizes or coefficient.",
+        "searches": [
+          "Resultary: balanced polycyclic prefix replacement and centralizer/commuting-pair census",
+          "arXiv:1106.3644, prefix multiplication and Section 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the record under review. The distinct same-day bicyclic record gives individual centralizers and finite ball counts with commuting probability 2/N+O(N^(-2))."
+        ],
+        "reasoning": "The bicyclic result uses one generator and no zero, and a length ball is not a submonoid. Its enumerator cannot specialize or dominate the finite depth-radix law for r>=2. A shared date is not evidence of posting order.",
+        "searches": [
+          "Resultary: 29fb2e89aab1 (exact self-match)",
+          "Resultary: f634d5544368 (bicyclic centralizer and commuting law)"
+        ]
+      },
+      "rationale": "The normal form and partial-bijection representation are standard, and a single level is a known matrix-unit object. The checked statements do not cover the balanced finite truncation's cross-level centralizer multiset and sharp pair deficit. This is a best-of-current-knowledge judgment with explicit finite-tree and access risks.",
+      "residual_risks": [
+        "The Lawson full text was not independently accessible via the cited copy; the repository abstract cannot exclude an incidental result.",
+        "Equivalent finite-prefix or rooted-tree counts in older or unindexed literature could overlap. No claim of absolute priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural input, not the finite enumerative statements in the inspected passages.",
+          "evidence": "Normal forms, prefix comparison, and partial bijections on infinite paths.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.3644",
+          "material_read": "p. 1 normal form and multiplication, Section 3.4 p. 19, Theorem 3.19 p. 22",
+          "method": "OA full-text passages at offsets 1320, 65200 and 73800",
+          "title": "Graph inverse semigroups: their characterization and completion",
+          "trigger": "Origination of relevant graph inverse semigroup and prefix calculus"
+        },
+        {
+          "assessment": "Explains the standard rose model and one-letter connection, not the claimed finite cross-depth census.",
+          "evidence": "One vertex with n loops yields P_n; the one-letter bicyclic example is structurally related.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4380",
+          "material_read": "p. 4, loop graph example",
+          "method": "OA full-text passage at offset 9800",
+          "title": "The structure of a graph inverse semigroup",
+          "trigger": "Graph inverse semigroup and one-letter comparison"
+        },
+        {
+          "assessment": "Accessible material concerns completion; full-text overlap remains an access risk, not a negative result.",
+          "evidence": "Orthogonal completion is identified with isomorphisms between finitely generated right ideals of the free monoid.",
+          "identifier_or_url": "https://doi.org/10.1080/00927870601169317",
+          "material_read": "Author-institution abstract and bibliographic entry at https://researchportal.hw.ac.uk/en/publications/orthogonal-completions-of-the-polycyclic-monoids/; no full text read independently",
+          "method": "The cited ResearchGate copy returned HTTP 403; checked lawful institutional alternate via OA website reader, abstract passage at offset 260",
+          "title": "Orthogonal completions of the polycyclic monoids",
+          "trigger": "Prefix transformations and potentially covering results in a related inverse monoid"
+        },
+        {
+          "assessment": "Overlapping type of statistic but no coverage of the balanced multi-letter family.",
+          "evidence": "The zero-free bicyclic monoid has a generator-length bivariate series and finite-ball probability 2/N+O(N^(-2)); its balls are not submonoids.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-centralizer-dichotomy-and-a-bivariate-commuting-law-for-the-bicy--f634d5544368",
+          "material_read": "RESULT.md, offsets 0–3474 and 4800–6189",
+          "method": "Resultary and local mirror statement comparison, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Centralizer dichotomy and a bivariate commuting law for the bicyclic monoid",
+          "trigger": "Closest distinct same-day centralizer and commuting-pair statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and cross-level proof",
+        "arXiv:1106.3644, ambient prefix structure"
+      ],
+      "rationale": "Balanced prefix maps preserving depth give a canonical family of finite inverse submonoids, rather than a size cutoff chosen arbitrarily. The whole centralizer multiset identifies the role of shared prefixes and allows exact pair counts for unequal levels. A sharp positive coefficient for the vanishing noncommuting mass explains behavior not captured by any isolated matrix-unit level or by cardinality alone.",
+      "residual_risks": [
+        "No corresponding result for unbalanced elements, arbitrary graph inverse semigroups, or joint growth of r and N is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

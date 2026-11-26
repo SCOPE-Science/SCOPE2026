@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:04:07.152482Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, including exact CDF, both log scores and height formulas",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "Independent /workspace/replay_constants.py and /workspace/replay_constants.log, bimodal calculation"
+      ],
+      "rationale": "Taking the CDF power gives the location change with the stated minus sign and mass exp(-c_n). For a scaled negative excursion t, the ratio of the two CDFs gives the exact conditional survival exp[-c_n*expm1(t^p/c_n)]. The single exponential coupling realizes these conditional laws (not the original nested maxima); c*log(1+E/c) has positive derivative for E>0 and tends to E. On either branch put v=|x|^p/sigma. The density is proportional to v^k y exp(-y), where y=c_n exp(v) on the negative branch and y=c_n exp(-v) on the positive branch. The log scores k/v+1-y and k/v+y-1 both strictly decrease from positive infinity and each crosses zero once. The density vanishes at zero and at both tails, so these are strict distinct local maxima at every n. At the negative root t=c_n*v solves t exp(t/c_n)=k+t/c_n, giving t=k+O(1/c_n) and y=c_n+k+O(1/c_n); substituting preserves the exp(-k) height factor. At the positive root v=L-log(1-k/v), L=log c_n, which gives v=L+k/L+O(L^-2) and y tending to 1. Restoring units gives the two stated positions and heights; their ratio forces eventual unique positive global dominance. The ordinary unconditioned normalization follows by expanding the inverse signed power of b_n+sigma*G on its eventually positive branch. Independent high-precision finite checks corroborated the two location and height scales.",
+      "residual_risks": [
+        "Requires independent samples and fixed p>1, mu and sigma>0. The rare conditioned Weibull law is not the law of typical maxima. Positive global dominance is eventually, not universally, asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The revised models apply a location-centered signed power to a GEV baseline with baseline location zero, with some special-case distribution overlap but a different general parameterization.",
+          "The regression paper explicitly derives a transformed, unconditioned block-maxima limit in its BGEV: Block subsection; that comparison is directly relevant but its statement is not about rare conditioned excursions and competing density peaks."
+        ],
+        "reasoning": "An unconditioned weak extreme law does not control exponentially rare subevents or local density derivatives. The inspected broader block theorem does not imply the finite-n conditioned law or modal asymptotics.",
+        "searches": [
+          "Otiniano et al. 2025 Entropy §1 and mode discussion",
+          "Otiniano et al. 2026 TEST §§2.1, 2.1.2 BGEV: Block",
+          "Resultary check on rare modal locations and density heights"
+        ]
+      },
+      "checked_sources": [
+        "Otiniano et al., Entropy 2023 25:1598",
+        "Otiniano et al., Entropy 2025 27:749",
+        "Otiniano et al., TEST 2026 35:498–534",
+        "Otiniano et al., Austrian Journal of Statistics 2023 52:45–65",
+        "Resultary 2a81f3dd8c03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the prior CDF to the nth power mechanically gives closure and the negative mass. The prior implicit equation gives the stationary equations after the location change.",
+          "The Austrian Journal model instead tilts the density by a quadratic and its incomplete-gamma CDF is not the power-transform CDF.",
+          "Neither the prior implicit root equation nor the transformed block-maxima limit supplies the two root expansions, the exponential-scale density height constant, or the conditioned coupling limit as a stated stronger result."
+        ],
+        "reasoning": "The novelty is not the elementary CDF power, nor derivation of a variant of a known equation. The rare-event scaling plus separate large-c branch-root and peak-height analysis give the incremental content beyond the checked prior results.",
+        "searches": [
+          "Otiniano et al. 2023 Entropy eqs. (4)–(6)",
+          "Otiniano et al. 2026 TEST BGEV: Block",
+          "Otiniano et al. 2023 Austrian Journal of Statistics §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 CDF and power variable are the same, including the shape reparametrization p=1+delta. Its single-distribution implicit mode equation supplies the stationary equations.",
+          "The identical local hit 2a81f3dd8c03 is the assigned record, not independent evidence."
+        ],
+        "reasoning": "Rewriting by the signed-power bijection recovers an ordinary Gumbel and the standard unconditioned law, not the boundary-layer comparison between conditioning and the two peaks.",
+        "searches": [
+          "Resultary checks on original invertible bimodal Gumbel, negative-branch conditional survival and exponential coupling",
+          "Otiniano et al. 2023 Entropy §2, equations (3)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same set of formulas at the indexed 2a81f3dd8c03 hit is the record itself. The separate copula hit on the exact-formula search concerned a different problem."
+        ],
+        "reasoning": "There is no discrete database or enumeration here. The comparable exact items are the conditional-law and peak formulas; no distinct inspected entry supplies those jointly.",
+        "searches": [
+          "Resultary exact-formula checks for exp[-c_n(e^(t^p/c_n)-1)], the conditional coupling and modal location/height laws",
+          "Local-mirror 2a81f3dd8c03 Finding and relationship to prior work"
+        ]
+      },
+      "rationale": "The signed-power Gumbel family, underlying mode equation and closure from max-stability are prior ingredients. The assessed addition is the combined rare conditional law and quantitative description of both peaks across block sizes. Comparison with the exact underlying model and the related published block-maxima limit found no covering statement of the conditional boundary layer together with the sharp peak asymptotics. Conditioning and stationary-point analysis are standard methods, not asserted as new.",
+      "residual_risks": [
+        "Generic conditional excess results and unindexed transformed-extreme analyses may contain individual ingredients. The checked material supports only a bounded originality judgment for the combined, specifically parameterized modal and conditional result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and stationary equation are prior",
+          "evidence": "Signed-power transform, its CDF/PDF, and implicit single-distribution modes, but the inspected statements give no rare block-maximum peak estimates.",
+          "identifier_or_url": "https://doi.org/10.3390/e25121598",
+          "material_read": "OA PDF §2, pp. 3–4 of 14, equations (3)–(6), offsets 11200 and 20100",
+          "method": "OA PDF primary passages",
+          "title": "Bridging Extremes: The Invertible Bimodal Gumbel Distribution",
+          "trigger": "Exact original model"
+        },
+        {
+          "assessment": "Related parameterization and modes, not the target block analysis",
+          "evidence": "Power transform applied about x=mu with zero GEV baseline location.",
+          "identifier_or_url": "https://doi.org/10.3390/e27070749",
+          "material_read": "OA PDF §§ on redefinition and mode discussion, offsets 7500, 12300, 25000",
+          "method": "OA PDF primary passages",
+          "title": "A Revised Bimodal Generalized Extreme Value Distribution: Theory and Climate Data Application",
+          "trigger": "Potential broader transformed-GEV coverage"
+        },
+        {
+          "assessment": "Unconditioned transformed block limit, not rare-lobe condition or peaks",
+          "evidence": "Derives a transformed block-maxima limit and motivates BGEV modeling.",
+          "identifier_or_url": "https://doi.org/10.1007/s11749-026-01005-y",
+          "material_read": "OA PDF §§2.1–2.1.2, journal pp. 502–503, offsets 9900 and 14200",
+          "method": "OA PDF primary passages",
+          "title": "A regression-type model for bimodal extreme-valued data",
+          "trigger": "Explicit BGEV block-maxima result"
+        },
+        {
+          "assessment": "Non-equivalent family",
+          "evidence": "Quadratic tilt of the Gumbel density and incomplete-gamma expressions for the CDF.",
+          "identifier_or_url": "https://doi.org/10.17713/ajs.v52i2.1392",
+          "material_read": "OA PDF §2, journal pp. 46–47, offset 5300",
+          "method": "OA PDF primary passages",
+          "title": "On the Bimodal Gumbel Model with Application to Environmental Data",
+          "trigger": "Alternative same-name Gumbel model"
+        },
+        {
+          "assessment": "Identical assigned record, no independent priority inference",
+          "evidence": "Same mass, coupling, two modes and peak expansions.",
+          "identifier_or_url": "Resultary 2a81f3dd8c03",
+          "material_read": "RESULT.md Finding at offset 0 and relationship at offset 7500",
+          "method": "Local mirror text",
+          "title": "A rare Weibull boundary layer beneath persistent bimodality of Gumbel block maxima",
+          "trigger": "Exact indexed overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding items 1–3 and unconditioned extreme-law context",
+        "Original Entropy 2023 model introduction and stationary-mode comparison",
+        "TEST 2026 BGEV: Block comparison"
+      ],
+      "rationale": "Bimodality is a defining feature of the model, so comparing its persistence under the standard block-maximum operation with the actual branch mass is natural. A zero-density valley preserves two strict local modes while the secondary peak and branch probability collapse on explicit different scales. The conditional law describes the fluctuations within that shrinking branch and the peak constants distinguish this from merely restating closure or the ordinary Gumbel limit.",
+      "residual_risks": [
+        "No inference about observed multimodality for dependent or parameter-varying blocks, and no statistical estimation claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

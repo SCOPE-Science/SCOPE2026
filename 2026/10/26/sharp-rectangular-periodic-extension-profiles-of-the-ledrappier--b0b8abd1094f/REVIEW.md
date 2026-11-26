@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The row recurrence realizes vertical translation by \(1+T\) on cyclic seed rows. The square-periodic subspace is the annihilator of \((1+t)^n-1\) in \(\mathbb F_2[t]/(t^n-1)\), with generator \((t^n-1)/\gcd(t^n-1,(1+t)^n-1)\) and dimension \(d_n\). Every cyclic code of dimension \(d\) has its first \(d\) consecutive coordinates as an information set: the shifted generator basis is lower triangular with ones on the diagonal, and cyclic symmetry covers any consecutive window. The rectangle's bottom row and successive right-edge coordinates give a triangular coordinate transformation of its \(w+h-1\) free data. Combining these proves rank \(\min(d_n,w+h-1)\), correct image and fiber counts, and the extension threshold even for rectangles exceeding the period. Frobenius factorization and Lucas parity establish the arithmetic bound with equality if and only if the odd part of \(n\) is a Mersenne number. Finite exact computations test examples independently; no finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS under examined evidence
+An independent dual check is to impose the torus relation in F₂[X,Y]/(Xⁿ−1,Yⁿ−1): the coordinate functionals modulo the relation span F₂[t]/(gcd(tⁿ−1,(1+t)ⁿ−1)), by X=t and Y=1+t. The restriction rank is the dimension of the span of the images of tⁱ(1+t)ʲ for 0≤i<w, 0≤j<h. Before quotienting, each has degree at most w+h−2, and for each degree k from 0 through w+h−2 an admissible i+j=k supplies a monic polynomial of that degree. Triangular elimination gives the whole degree-<w+h−1 space. Reduction modulo the gcd has rank min(d_n,w+h−1), with no assumption about fitting inside one period. This also verifies the frozen proof's consecutive-coordinate rank mechanism. The locally legal rectangle has w+h−1 independent bits: specify its bottom row and right edge and generate subsequent rows from the rule, without wrapping. Rank-nullity now proves the image, fraction, fiber counts and criterion. Frobenius lifts the gcd and degree by 2^a. For odd m the roots of t^m−1 are simple; the maximal possible degree m−1 means that adding 1 takes each nonidentity m-th root to another m-th root. The group of m-th roots together with 0 is then stable under adding 1, and multiplying this relation by any member proves closure under all sums. It is a field of size m+1, which is a power of 2. Conversely those fields give all roots except 1, including the m=1 case. This verifies the iff independently of the binomial parity argument. Powers of two give the zero group; the density consequence follows by fitting the finite window into a sufficiently large Mersenne depth. All assertions use prescribed periods, not least periods.
 
-Miles–Ward (arXiv:1504.04973), Ledrappier example, previously obtain the Mersenne-period point count, so this component is explicitly attributed. Salo (arXiv:2603.16591v1) gives structural consequences of dense totally periodic points, not the sharp local rectangle restriction rank. Salo (arXiv:2504.11071) treats periodic point density in unishifts, not the all-\(n\) rank profile; Kari–Moutot (arXiv:1806.07107) concern low-complexity periodicity, not local extension counts. The closest published and database records examined do not state the jointly sharp \((n,w,h)\) profile, pattern fraction, or all-\(n\) arithmetic extremality. Database ranking alone does not prove novelty. Residual risks include historical cyclic-code information-set formulations, older algebraic \(\mathbb Z^2\)-actions, and works on multidimensional pattern extension not retrieved in this examination.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact image-size theorem answers a natural dynamical reconstruction question: what fraction of legal local patches can be imposed inside a finite-period torus, and at what precise perimeter does universal extension fail? It produces a complete three-parameter finite-index restriction profile, not only a periodic-point census. The Mersenne versus power-of-two dichotomy makes the obstruction concrete and gives explicit cofinal periods admitting every fixed patch, a quantitative refinement of periodic-density mechanisms. The polynomial gcd computes the threshold efficiently for any proposed period. Its scope is intentionally limited to the canonical Ledrappier shift; no stronger universality is asserted.
+Credit the standard dual periodic module and classical point counts, including the Mersenne count. The strongest same-day comparator proves a dual-module formula and orbit classification for restricted periods; its underlying quotient calculation is also applicable more generally. The supported contribution is the geometric rectangle restriction law for all square periods, via the contiguous seed window or dual total-degree span, and the converse arithmetic classification of the periods attaining the largest possible depth after scaling out the power of two. No inspected statement gives this pair of results or an already established rectangle-span theorem dominating it. The count and qualitative density are not credited as original.
 
-## Closest literature and limits
+## value
 
-The Mersenne-period cardinality and the general cyclic-algebra method have precedents (Miles–Ward 2015). There may be uncatalogued equivalent cyclic-code formulations of the local information-set statement. No independence or historical-priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The local-to-global question is natural for a classical spacetime shift: a fixed-point cardinality or qualitative density cannot tell which window sizes are guaranteed to extend at a specified period. The depth law provides exact surjectivity, obstruction fractions and multiplicities for arbitrary sizes; the Mersenne-odd-part iff identifies when that depth reaches the arithmetic upper bound. This is useful quantitative content distinct from the routine count, density and rank-nullity consequences taken alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

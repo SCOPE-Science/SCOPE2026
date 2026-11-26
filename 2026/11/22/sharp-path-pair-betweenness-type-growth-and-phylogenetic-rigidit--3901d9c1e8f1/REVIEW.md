@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact structural identity \(q(T,A)=m+b+s+\varepsilon\) follows by partitioning the marked set according to the components left by deleting each candidate vertex and then identifying the precise duplicate signatures on pendant compressed segments. The degree-sum argument proves \(b\le l-2\), yielding the sharp \(3m-4\) upper bound. Explicit contractions, edge subdivisions and an external leaf realize every host order. At equality, the complete-bipartite signatures are exactly the leaf-labelled tree splits, giving reconstruction and the \((2m-5)!!\) count. The packaged checker independently recomputes path truth vectors, compares all 89,629 tested finite instances against the structural formula, and enumerates binary extremal signatures for \(m\le7\). This testing supports but does not replace the all-size proof.
+PASS
 
-## Originality
+For a vertex in the minimal marked hull, the signature is the complete multipartite graph whose parts are the marked sets in the deletion components, together with the singleton of the vertex if marked. Distinct nonleaf essential vertices x,y are distinguished by choosing two parts at x other than the part facing y. An interior compressed-edge vertex realizes a split; different compressed edges have different splits because the intervening region contains a mark or has a branch leading to one. Only pendant splits coincide with marked-leaf stars. Every vertex outside the hull contributes the same empty signature. Thus q=m+b+s+epsilon. If l is the number of hull leaves, b≤l−2 by degree sum and s≤m+b−1−l, giving q≤min(n,3m−4), with equality at the second bound forcing all marks to be leaves, trivalency, every internal edge subdivided, and a vertex beyond the hull. All-marked paths, contraction of internal edges of a binary marked-leaf skeleton, internal subdivision, then attachment outside the hull give all orders; for m=2 there is just the marked-path type and possibly the empty type, and for m=1 all traces are empty. Maximal families expose all the edge splits, and these recover the reduced tree (equivalently, their separating counts recover pairwise leaf distances in the reduced unit-edge tree). Inserting the next named leaf in an edge is uniquely reversible, yielding (2m−5)!!. Independent replay in branches/080ee1f0-6235-4b3f-bec2-0d14e7da863a/independent_check.py compared 56,515 labelled-tree/marked-set cases through n=6 and obtained 1,3,15,105 maximal families for m=3–6. These are checks of the proof, not the basis of the universal claim.
 
-PASS within investigated evidence; historical priority is not independently established. The closest structural papers are Courcelle (arXiv:2004.10127) on axiomatization of tree betweenness; Bradley-Williams and Truss (arXiv:2108.12904) on tree-of-B-sets one-point extensions; and Hellmuth, Lindeberg and Moulton (arXiv:2606.16963) on LCA comparisons of leaf pairs. Their inspected claims are about first-order or MSO definability, Fraïssé-style amalgamation, and network reconstruction by pair-pair LCA ordering. None supplies the exact finite-size growth of one-variable *undirected path-pair incidence* signatures, the arbitrary-marked-hull correction, or the sharp host-order spectrum. Classical tree split reconstruction covers the final reconstruction substep after the trace family is characterized, and is expressly credited. Queries to the published mathematical-record index included pair-incidence, betweenness types, phylogenetic reconstruction, equivalence and broad one-point growth formulations; relevant near hits use different query families (geodesic halfspaces, strict ancestor, clade shattering). The remaining priority risk is an unindexed classical combinatorial-geodesy formulation of the same  \(3m-4\) fact.
+## originality
 
-## Value
+PASS
 
-PASS. The primitive two-parameter path-membership formula yields only linearly many one-point behaviours, with an exact sharp coefficient/additive term, not just an asymptotic VC-density estimate. The theorem determines the optimal growth simultaneously as a function of host size and number of parameters, gives an exact invariant of every marked host tree, characterizes extremality, and makes maximal logical truth-pattern families topology-faithful. This is useful when choosing a finite set of path queries for tree identification and comparing graph-theoretic versus logical encodings; it is not an arbitrary finite table.
+Pass for the inclusive marked-pair trace formula, sharp host-order bound and characterization of when the family realizes every reduced edge split, not for classical split reconstruction or binary-tree enumeration in isolation. Inspected related results use a different relation, different parameters, or only reconstruct from assumed split data. No exact covering statement or immediate implication for the supported claim was found in the sources assessed.
 
-## Boundaries and closest literature
+## value
 
-The result concerns finite, connected simple trees and inclusive geodesic betweenness over distinct marked pairs. It does not count complete first-order types or apply to arbitrary geodetic graphs. Courcelle, *Axiomatizations of betweenness in order-theoretic trees*, https://arxiv.org/pdf/2004.10127; Bradley-Williams and Truss, *On limits of betweenness relations*, https://arxiv.org/pdf/2108.12904; Hellmuth, Lindeberg and Moulton, *Encoding Phylogenetic Networks with Least Common Ancestor Constraints*, https://pdfs.assets.alphaxiv.org/2606.16963v1.pdf. These are not priority guarantees. Classical compatible-split reconstruction is acknowledged as prior mathematical machinery.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The local formula measures exactly how much the host tree can be distinguished by the naturally specified path queries. It handles internal marks and explains separately which subdivisions contribute information and why arbitrary extra exterior vertices do not. The sharp all-order bound and conversion of saturation into the recovery of a named-leaf tree are useful beyond a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

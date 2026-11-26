@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has a precisely quantified domain: one deterministic time \(x\in[0,1]\), one full real noiseless Brownian state observation, a fixed zero-start Brownian prior, occupation fraction \(Q=\int_0^1\mathbf1_{\{B_t>0\}}dt\), and squared-error Bayes risk. The exact Gaussian sign identity yields a double-integral expression for captured variance. The logarithmic-time change of variables is valid for all interior times; its integrable singularity permits differentiation and produces \(dV(e^{-r})/dr=e^{-2r}(C-G(r))/\pi\). The explicitly evaluated \(C>0\) and strictly increasing unbounded \(G\) prove one and only one global time maximizer, including both boundary times. The exact antiderivative gives the claimed risk, and the separate convergent arcsine series supplies a reproducible check with a uniform tail bound. The standalone verifier was executed successfully on the packaged calculations. No finite scan is used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For standard Brownian motion starting at zero, at a predetermined time x>0 the full observation is equivalent to Z=B_x/sqrt(x). Two independent conditional Gaussian residuals that share Z have unconditional sign-input correlation rho_x(s)rho_x(t); the Gaussian orthant identity therefore gives the stated double integral for Var(E[Q|B_x]). In log time the two straddling rectangles contribute zero to the derivative, while the two same-side squares give e^(-2r)(C-G(r))/pi. This can be justified by splitting at the moving boundaries (the boundary terms cancel by continuity) and using the locally integrable kernel (e^(a+b)-1)^(-1/2). Integrating H'' over the square gives G=H(2r)-2H(r); G rises strictly from zero to infinity, so the derivative changes sign exactly once. The endpoints x=0 and x=1 are covered, with V(0)=0 and V(1)=(1-log 2)/4. Projection in L² yields risk 1/8-V(x). Independent scalar evaluation gives x=0.58958511090724239247 and risk 0.02553546323245417006; the closed variance agrees with an independently evaluated 100,000-term arcsine series to 7.90e-15, within the uniform bound 1.60e-11. The series tail follows from a decreasing cubic bound. The line calling the result 'minimax' is a terminology slip: the objective proved is minimum unconditional Bayes risk under a specified Brownian law, not a worst-case criterion.
 
-The closest inspected primary sources were Altmeyer (2017), Ivanovs–Podolskij (2020), Altmeyer–Le Guével (2021), and Cui–Chronopoulou (2023). The first three analyze occupation-functional estimation from fixed regular, typically increasingly dense, observation grids; they do not prove an optimal *freely chosen single observation time* for the nonlinear Brownian sign occupation functional. The fourth optimizes state-path recovery rather than occupation-time conditional risk; even Brownian state-reconstruction sampling at the midpoint does not imply the present off-midpoint optimizer. Related prior published claims concern endpoint linear covariance with sojourn times or randomized sign-function quadrature, neither implying the variance of the full conditional-mean estimate as the observation time changes. This is a statement-and-implication comparison, not a novelty inference merely from different titles. The classical Brownian arcsine law and Gaussian orthant identity are admitted prior tools; the terminal observation special case is not asserted novel.
+## originality
 
-An equivalent theorem could reside in unindexed occupation/sensor-design literature; accessible primary full texts and available published claims were checked but independent priority confirmation has not been performed. The conclusion is scientific best knowledge, not certification of uniqueness in the literature.
+PASS
 
-## Value — PASS
+No inspected source establishes the full-real-state, fixed-in-advance one-point optimum for Brownian positive occupation. Conditional-mean estimation and Gaussian orthant identities are prior ingredients. The supported distinction is the exact design risk as a function of time and its unique optimizer, not conditional expectation, the arcsine law, or occupation estimation in general.
 
-A positive occupation fraction is a standard nonlinear discontinuous functional of Brownian paths. With only one full state reading, its optimal sampling location is genuinely different from the endpoint and the state-path reconstruction midpoint. The exact unique optimum \(0.589585110907\ldots\), closed Bayes-risk law, and comparison (about \(79.57\%\) versus \(61.37\%\) of total occupation variance captured by the best versus terminal snapshot) answer an actionable sparse quadrature design problem, rather than a mere normalization check or known-table recomputation. The theorem does not make an application claim beyond the stated information model.
+## value
 
-## Scope and remaining scientific risks
+PASS
 
-The proof depends on the zero-start Brownian log-time sign-correlation kernel. General kernels, noise, adaptive sampling, multiple snapshots, nonzero thresholds, and weighted occupation times are unproved. Several related articles were inspected in their accessible full text, but publication priority could change with an obscure equivalent historical theorem. Numerical verification is not independent audit.
+One noiseless state is a natural sparse-information constraint, and Brownian positive occupation is a nonlinear path summary for which optimal timing for reconstructing the path is not a substitute. An exact global location and risk solve that design problem and give testable benchmarks against terminal or one-bit observations. The explained-variance comparison is substantive (about 79.57% at the optimum versus 61.37% at the endpoint under the same experiment); the analytic uniqueness rules out alternative equally good deterministic designs.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: contact chronology and invasion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof controls all quantifiers: any \(N\ge2\), any nonnegative phase contacts, any positive phase durations, and one common positive recovery coefficient. Two-factor cyclic similarity gives general impossibility; transpose plus similarity exhausts all three-phase reciprocal permutations. Exact two-by-two expressions certify the first attainable directed and reciprocal reversals with a strict spectral gap on both sides of threshold. `verify.py` reconstructs the exact algebra and radical inequalities from independent matrix expressions. The nonlinear corollary uses comparison and monotone iteration; uniqueness of the positive periodic orbit is neither used nor asserted. The critical equality case is unproved and excluded.
+PASS
 
-## Originality — PASS with explicit risk
+The repaired theorem retains the valid mathematics and identifies the dimension-two comparison explicitly. The one-dimensional exclusion is commutativity; two-factor invariance is similarity, and transposition and cyclic permutations exhaust the three-factor symmetric permutations. These facts use invertibility and symmetry, not entrywise strict positivity of the individual factors. The independently written /workspace/branches/6e05f9a8-75de-4e6f-b3de-78b0c6a36c2a/record2_replay.py checks all four exact products, their threshold inequalities and both parametric trace differences. The bound script was inspected, not executed. Strict spectral inequalities persist by continuity, including within the nonnegative symmetric class after splitting the repeated factor. In the model interpretation the cube is invariant and the flow order-preserving (off-diagonal derivatives nonnegative there); linear domination and a Perron-vector subsolution justify the two strict conclusions by iteration. No general attractivity result or critical-case verdict follows. In two groups, zero-diagonal reciprocal contacts all have the same off-diagonal matrix up to scalar, hence commute; diagonal within-group terms remove that obstruction.
 
-Valdano et al. (2022 preprint, published 2023) and Rocha–Masuda (2016) contain the underlying temporally changing contact and epidemic-threshold framework. The chronological importance of contacts and the Floquet threshold themselves are **not new**. The claimed distinction is the *sharp universal phase-count obstruction* under reciprocal versus directed group contacts, with exact minimal opposite-threshold schedules. Detailed comparison of their accessible full texts, related mathematical records, and recoverable prior claims did not identify the same combined statement or stronger covering implication. Equivalence with an independent theorem in positive-system matrix product literature remains an unresolved publication-priority risk, not a certification of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The number of temporally separated interventions/contact regimes is a natural parameter in epidemic planning. The result gives a complete universal lower phase-count boundary, an explicit comparison at the first admissible orders, and robust pairs of schedules that preserve all phase exposures but reverse disease invasion and nonlinear persistence. The result applies to group-level contact rates, not necessarily simple unweighted individual contact networks.
+Reassessed on /workspace/repairs/2/RESULT.md. The frozen universal reciprocal phase count alone is not a distinct finding: its proof applies in the indexed simple-graph theorem's symmetric-factor form, and that theorem gives four-phase sharpness in a subclass. The corrected record credits it and focuses on the minimum-dimension weighted directed–reciprocal comparison, including the directed three-phase and two-group reciprocal four-phase certificates. The strongest inspected match does not give that comparison; it explicitly rules out two-group witnesses in its narrower reciprocal class. Priority of the shared result is not inferred from dates.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired comparison answers both minimum phase and minimum dimension for the weighted model with an exact inequality witness. It identifies a real distinction between reciprocal class restrictions and isolates the effect of phase permutation rather than total exposures. Neither the elementary two-factor similarity alone nor another example at an already achieved dimension would suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

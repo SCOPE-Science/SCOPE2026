@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Sharp positive-contraction row bound follows from a two-eigenvalue support-function maximization, with an explicit positive rank-one equality projector; the integral resolvent derivative has a common row bound for all parameters; the same rank-one spectral endpoint and all-ones perturbation attain the integral derivative bound. An interior two-input limiting sequence proves sharp global Lipschitz modulus. The integral evaluates exactly, and the fixed-width and n^{-1/2}-width limits follow by dominated convergence; 625 finite numerical comparisons passed as supplemental evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Crouzeix–Kressner arxiv:2007.09784, Corollary 5.1: Frobenius-induced derivative bounds based on numerical ranges; not the maximum-entry norm and not a sharp real-SPD spectral-band formula.",
+        "Existing one-sided positive-semigroup/shifted-resolvent envelope gives a weaker bound proportional to c_n squared divided by the lower spectral endpoint; it is independent of the finite upper endpoint.",
+        "Positive-coefficient power series on nonnegative spectral strips do not represent the logarithm by a nonnegative Taylor series over all positive spectral intervals."
+      ],
+      "reasoning": "An upper bound on the larger half-line class can control but cannot yield the exact smaller constant on a bounded spectral interval. The precise dependence on both endpoints and its critical window are not implications of the stronger-domain upper bound; Crouzeix–Kressner controls a different input/output norm.",
+      "searches": [
+        "Exact entrywise Lipschitz constant of matrix inverse and matrix logarithm on positive definite matrices",
+        "Matrix logarithm spectral interval norm infinity to infinity Schur multiplier bound extremal rank-one eigenprojection",
+        "arxiv:2007.09784",
+        "doi:10.1137/130950082"
+      ]
+    },
+    "checked_sources": [
+      "Kandolf et al. arxiv:2008.12926 / DOI:10.1002/nla.2401",
+      "Crouzeix–Kressner arxiv:2007.09784",
+      "Higham–Relton DOI:10.1137/130950082",
+      "published-record semantic searches for global matrix-log band sharpness, componentwise derivative norms, spectral interval formulation and rank-one extremizer",
+      "Accessible previous mathematical claims on matrix function powers, resolvents, and 2-by-2 square-root max-entry sensitivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper provides resolvent integral input to the proof, but its optimized object is Krylov approximation error, not maximum over all matrices and entrywise perturbations.",
+        "The 2014 condition-estimation paper studies normwise relative condition numbers of Fréchet derivatives, not maximum-entry global Lipschitz constants of the matrix-log map.",
+        "The one-sided-bound comparison lacks dependence on b; the new exact formula is strictly below that bound for finite b when n>1."
+      ],
+      "reasoning": "Using the standard resolvent representation and a known positive-contraction row norm is substantial prior machinery, but the simultaneous saturator, finite-upper-bound integral and dimension-width crossover require additional analysis. They do not follow by an existing displayed prior formula or a direct parameter substitution.",
+      "searches": [
+        "Matrix logarithm coordinatewise max entry norm derivative sharp row sum semidefinite interval Schur multiplier spectral calculus",
+        "Exact entrywise Lipschitz constant of matrix inverse and matrix logarithm on positive definite matrices",
+        "arxiv:2008.12926 section 4",
+        "arxiv:2007.09784 section 5",
+        "doi:10.1137/130950082 sections 1 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kandolf et al., Section 4, derivative resolvent representation and Krylov error bounds, DOI:10.1002/nla.2401, equations (52)–(57); no global max-entry extremal constant stated in the examined main results.",
+        "Higham–Relton DOI:10.1137/130950082, introduction and Sections 4–6, estimates norm conditioning of a derivative rather than the optimized two-input matrix-log modulus."
+      ],
+      "reasoning": "Checked alternative formulations as first-order entrywise/elementwise condition number, norm of a Fréchet logarithm derivative, and global Lipschitz coefficient. The theorem optimizes over all real symmetric spectra in a prescribed band; none of the inspected primary formulations states or implies its closed band-dependent extremum.",
+      "searches": [
+        "Sharp maximum entrywise Lipschitz modulus matrix logarithm log(A) on spectral interval aI≤A≤bI, rank-one extremizer, c_n=(1+sqrt(n))/2 and integral inverse resolvent squared",
+        "Matrix logarithm coordinatewise max entry norm derivative sharp row sum semidefinite interval Schur multiplier spectral calculus",
+        "Exact componentwise perturbation error for principal matrix logarithm positive definite band aI<=A<=bI, supremum over matrices and directions",
+        "arxiv:2008.12926",
+        "doi:10.1002/nla.2401"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved neighboring published mathematical results addressed PSD projection, Nyström matrix-log statistics, matrix-sign iterations, spectral multipliers and other matrix transformations; none returned an equivalent sharp matrix-log band-dependent formula.",
+        "The literature searches located the matrix-log derivative algorithms and condition estimators cited in References 1–3; no exact table entry for this stability coefficient was identified."
+      ],
+      "reasoning": "A negative semantic search is not a uniqueness proof. Comparisons were made against statements and norms of closest records, not only titles. These findings preserve uncertainty about unindexed results.",
+      "searches": [
+        "Sharp maximum entrywise Lipschitz modulus matrix logarithm log(A) on spectral interval aI≤A≤bI, rank-one extremizer, c_n=(1+sqrt(n))/2 and integral inverse resolvent squared",
+        "Sharp maximum-entry logarithm Lipschitz condition number for matrix log on bounded positive spectral band, with log(b/a)/(b-a) and c_n=(1+sqrt(n))/2",
+        "Exact componentwise perturbation error for principal matrix logarithm positive definite band aI<=A<=bI, supremum over matrices and directions",
+        "Matrix logarithm spectral interval norm infinity to infinity Schur multiplier bound extremal rank-one eigenprojection",
+        "\"matrix logarithm\" \"max norm\" Lipschitz constant symmetric positive definite"
+      ]
+    },
+    "rationale": "Actual published-record semantic searches of precise statement, aliases, norm formulations, a spectral-band coefficient and its rank-one witness returned no equivalent result; previous mathematical claims were compared for implication; the three principal primary papers were inspected at relevant full-text sections. The closest literature supplies derivative formulas and broader norm bounds but not the finite-spectral-band sharp max-entry coefficient or critical window. Novelty remains qualified by unindexed and indirect-priority risk.",
+    "residual_risks": [
+      "Historical equivalent result might occur in books, older matrix-log inequalities or non-indexed numerical linear algebra literature.",
+      "General matrix-function perturbation inequalities can imply nonsharp estimates; exhaustive uniqueness was not established.",
+      "The theorem concerns real symmetric matrix logarithms; broader complex or nonnormal cases are outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Fréchet derivative representations and Krylov error/convergence estimates; no displayed sharp maximum-entry perturbation constant over spectral bands",
+        "evidence": [
+          "Section 4 logarithm integral formula and Theorems 7–8 give convergence estimates rather than global maximum-entry Lipschitz optimization."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.2401",
+        "material_read": "Open-access full HTML: abstract, Section 1, Section 2 derivative frameworks, Section 4 matrix logarithm including equations (52)–(57), and conclusion",
+        "method": "Read full-text HTML with targeted section examination and term search",
+        "title": "Computing low-rank approximations of the Fréchet derivative of a matrix function using Krylov subspace methods",
+        "trigger": "Same analytic matrix logarithm and resolvent Fréchet derivative; motivating original arxiv:2008.12926 posted 2020-08-29"
+      },
+      {
+        "assessment": "Uses Frobenius-induced derivative norm/numerical range with non-sharp general factor; does not cover sharp max-entry two-input coefficient",
+        "evidence": [
+          "Introduction formula (3) and Section 5 identify norm as Frobenius-induced, with a generic analytic derivative bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.09784",
+        "material_read": "Full arXiv HTML text, especially Sections 1, 3, 5, 6 and Theorem 3.1/Corollary 5.1",
+        "method": "Open-access arXiv HTML and examination of theorem hypotheses, norm and conclusion",
+        "title": "A bivariate extension of the Crouzeix-Palencia result with an application to Fréchet derivatives of matrix functions",
+        "trigger": "Potentially dominating general norm bound for matrix-function Fréchet derivatives"
+      },
+      {
+        "assessment": "Condition number estimation and numerical matrices; not universal sharp entrywise global matrix-log constant",
+        "evidence": [
+          "Introduction formula (1.2) is the general Fréchet derivative norm identity; Section 5.1 reports test matrices and estimates, Section 6 summarizes numerical estimation."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2197/1/130950082.pdf",
+        "material_read": "Open-access 19-page PDF: abstract, introduction, methodological Section 2, Section 5.1 matrix-log tests, Section 5.3 example, Section 6 conclusion; page images 2 and 13 (zero-index 1 and 12) inspected",
+        "method": "Parsed PDF text plus page screenshots for primary source verification",
+        "title": "Estimating the Condition Number of the Fréchet Derivative of a Matrix Function",
+        "trigger": "Matrix-log condition-number precedent and possible equivalent derivative formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d768844e-b47f-4029-b158-5f5b1b7c9cc6",
+  "value": {
+    "rationale": "The matrix logarithm is a central real-symmetric functional-calculus transform used for covariance and network matrices. The result provides an exact, sharp entrywise robustness budget depending on both conditioning endpoints, a nontrivial linear-dimensional amplification law at fixed spectral ratio, and the natural critical n^{-1/2} spectral-width crossover with explicit polynomial profile. The upper spectral boundary is mathematically essential; the crossover cannot be deduced from the known one-sided worst-case coefficient.",
+    "status": "PASS"
+  }
+}

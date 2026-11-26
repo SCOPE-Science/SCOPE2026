@@ -1,23 +1,21 @@
-# Self-review of the first-order two-stage parking correction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the short length, takes the infinite-substrate limit first, and concerns only sequential Model I. The argument reconstructs a finite-interval renewal recurrence and solves its generating function exactly; the resulting boundary constant is \(-s(1-p_s)\). The first-stage gap integrals and both gap-sum identities follow from the cited primary model. An explicit small-gap bound makes the sum of finite-size errors negligible at order \(k^{-1}\). Finally, Euler–Maclaurin gives the local part of the continuum correction, while the geometric series near scaled distance \(x\asymp k\) gives a **separate negative boundary-layer contribution**. All limiting exchanges are controlled by the stated bounds. Exact-enumeration and quadrature checks support, but do not replace, these proofs. Risk: the asymptotic coefficient would be wrong if one discarded the large-distance tail.
+PASS
 
-## Originality — PASS under checked evidence
+The first accepted short rod splits an interval into two smaller ones with uniform feasible starts. The resulting first-placement recurrence gives B_s(z)=A_s(z)/(1−z)^2 with A_s entire, A_s(1)=p_s and A_s′(1)=s−(s−1)p_s. Subtracting the poles gives b_s(n)=p_s n−s(1−p_s) plus an absolutely summable error. Conditional on the first-stage gaps, expectation is additive even though the global short-rod sampling interleaves gaps: conditional on selecting a gap, its feasible starts are uniform. The zero-gap-inclusive sum identities give counts p_k/k and empty length 1−p_k per site. Splitting the integral for the maximal gap density at 1−1/k bounds it by O(log k/k²), so the summable remainder gives exactly the stronger stated intermediate estimate. For p_k, the change t=e^(−x/k) and trapezoid expansion on x≤L=k^(1/4) leave first-order integrand (1−e^(−x))W(x); the integrated remainder multiplied by k is O(L/k) using W=O((1+x)^−2), and integration by parts gives p∞/2. On x≥L the harmonic prefactor and geometric-logarithm approximations have scaled integrated error tending to zero (the prefactor alone contributes O(1/L), and the remaining tails are exponentially small in L). After scaling x=ky, the difference e^(−y)/(1−e^(−y))²−1/y² has integral −1/2, so the tail contributes −exp(−2γ)/2. This produces the stated p_k coefficient and, after substitution, the positive defect for each fixed s≥2. In fact the single-site gap density is positive, so 1−p_s>0. Independent quadrature gives p∞=0.7475979202534115 and the s=2 coefficient 0.1730958919649851; the scaled defect at k=4096 is about 0.17308409. The quadrature is a diagnostic, not the asymptotic proof.
 
-Pinsky (2026), Theorems 4 and 6, supplies an integral representation and the limiting staged coverage but not the inverse-long-rod correction. Klaassen–Runnenburg (2001/2003) addresses joint fixed-rod gap fluctuations, not this two-scale problem. The previously known single-rod continuum correction alone cannot determine the staged correction, which also requires the finite-interval boundary constant and a uniform gap-error estimate. A published result on gap-mass monotonicity compares a different functional. Searches also covered two-size adsorption, asymptotic rates and equivalent formulations. Residual risk: a specialized or unindexed deposition-asymptotics paper could contain the same inverse-length formula.
+## originality
 
-## Value — PASS
+PASS
 
-The known staged limiting density does not indicate the rate or side of convergence. The explicit positive coefficient proves eventual below-limit approach for every fixed short-rod length, and isolates a universal finite-gap penalty. This is relevant to continuum approximation of sequential multi-scale packing and supplies asymptotic evidence (without claiming a full proof) for the known monotonicity conjecture. It is a first-order structural correction for a natural family, not a chosen isolated numerical instance.
+Credit Pinsky for the exact Model I equations and the limiting density, and credit the classical one-stage literature for the lattice-to-continuum law and known inverse-length scale. The supported distinct claim is the exact two-stage inverse-length defect and short-rod boundary penalty for fixed s. The closest distinct Resultary item takes both rod lengths to infinity at fixed ratio; it does not retain this finite-short-length correction. No priority claim is needed for the intermediate one-stage coefficient.
 
-## Closest literature and scope
+## value
 
-- R. G. Pinsky, *A new look at some aspects of one-dimensional random sequential adsorption and its continuum limit*, arXiv:2608.04730, esp. Theorems 1, 2, 4 and 6.
-- C. A. J. Klaassen and J. T. Runnenburg, *Discrete Spacings*, arXiv:math/0112056, Theorem 1.1, on fixed-length gap-count normal limits.
-- Classical continuum parking and single-length lattice asymptotics, used and explicitly distinguished from the two-stage correction.
+PASS
 
-The theorem does not establish all-length monotonicity, a growing-short-rod regime, or the simultaneously competing model. Independent mathematical verification has not been performed.
+The signed rate refines an established limiting model and answers a concrete approach question not answered by convergence alone. It quantifies the competition between a positive first-stage lattice correction and a larger negative finite-gap short-rod penalty. This supplies a reusable boundary estimate and shows eventual approach from below for each fixed short rod, without claiming monotonicity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:49.502622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Comparing the two arcs gives the distance table for 0<t≤2, including t=2. Every last proper prefix omits one vertex v≠0 and sends it to one of four retained vertices, so the sixteen witness ratios cover every ordering and every such map. For omissions 1,2,3 the witnesses are always 2 or 1+t; for omission 4 they include 1+t, 2, 2/t and (1+t)/t. All these ratios are at least 1+t for t≤1 and at least 2/t for 1≤t≤2. The exhibited maps fix their prefixes, and checking adjacent compositions r_{j-1}r_j=r_{j-1} gives full commutativity by iteration and range nesting. For t≤1 the only enlarged graph edge is 3–4 under r_3, with image length 1+t. For t≥1 the unit-edge images have length at most 1 and the closing edge images have length at most 2, so the bound is max(1,2/t). Edge bounds extend along shortest paths even after the closing edge ceases to be geodesic at t=4. The identity gives the lower bound 1. The linearized retraction has norm equal to its Lipschitz constant by testing canonical molecules and using the free-space universal property; the commuting nested projections induce a basis, not an assertion about all linear bases.",
+      "replay": "python3 /workspace/branches/independent_checks.py 3: enumerated 24 orders × 24 choices of deletion targets, composing backwards to reconstruct each compatible system, at nine rational values including 1, 2, 4 and points on either side. All exact optima agreed. This finite check supplements the all-real witness and edge arguments. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Novotný treats unit-style samples with a central point and a bound for at least ten peripheral points; Hájek–Medina develop the general framework for nets.",
+          "The quarter-circumference formula covers unit-edge cycles."
+        ],
+        "reasoning": "None of those assumptions subsumes a one-edge weighted five-point shortest-path metric with its distinguished basepoint on the rim. The unit-cycle formula covers t=1 exactly.",
+        "searches": [
+          "Novotný §3 Theorem 5 and Hájek–Medina Definition 1.2",
+          "Resultary quarter-circumference law 5a387625e7ef"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a387625e7ef, 724ddba83104 and b98930fbc1cd",
+        "Novotný arXiv:1905.13188",
+        "Hájek–Medina arXiv:2112.03095"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quarter-circumference is stated for equilateral edge lengths, and the facet resonance concerns a different invariant. Cactus coordinate projection norms need not be induced by prefix retractions."
+        ],
+        "reasoning": "Neither varying t in the weighted facet result nor specializing the unit-cycle theorem produces the two nontrivial branches. Replacing the long edge by a path of unit edges changes the point set and permitted retractions, so it is not a specialization of the unit-cycle law.",
+        "searches": [
+          "RESULT.md Finding passages for local records 5a387625e7ef, 724ddba83104 and b98930fbc1cd",
+          "Novotný §3 and Hájek–Medina Definition 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here the final deletion lower bound is attained by a commuting chain, so the one-point deletion optimum coincides with the full optimum.",
+          "A spanning-tree edge coordinate projection can have norm 5/3 at t=3/2 where the optimal commuting prefix constant is 4/3."
+        ],
+        "reasoning": "The deletion and compatible-chain optima coincide for this metric by proof, but no earlier deletion classification was found. Linearization preserves Lipschitz norms; this is not the different invariant of spanning-tree edge-molecule suppression norms.",
+        "searches": [
+          "Resultary semantic search for sharp commuting retractions of weighted metric cycles",
+          "Novotný arXiv:1905.13188 and Hájek–Medina arXiv:2112.03095 retractional definitions",
+          "Cactus transportation basis record b98930fbc1cd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unit-cycle formula gives κ(C_5)=2. The exact one-edge-weighted facet record evaluates facet counts for the same class of metrics, not retractional constants."
+        ],
+        "reasoning": "There is an exact known shared special value, but the catalogue results examined do not give a table or exact law for the weighted invariant. No dedicated table of weighted finite deletion constants was identified.",
+        "searches": [
+          "Local semantic lookup for the exact weighted-pentagon invariant and adjacent metric-cycle findings 5a387625e7ef and 724ddba83104"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp dependence on the weight t and the resulting threshold at 2, not the general retractional-basis framework or the unit-pentagon value 2. That value is shared with a distinct same-day unweighted-cycle result. The strongest same-metric and same-invariant comparisons do not establish the weighted law; priority is not certified.",
+      "residual_risks": [
+        "Bounded searches do not exclude an older weighted metric deletion or retraction classification under other terminology.",
+        "The shared catalogue date does not establish priority at t=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at t=1, not weighted law",
+          "evidence": "κ(C_n)=ceil(n/4) for unit-edge cycles, giving 2 at n=5.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-quarter-circumference-law-for-commuting-retractions-of-finit--5a387625e7ef",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The quarter-circumference law for commuting retractions of finite metric cycles",
+          "trigger": "Distinct same-day result for the same invariant"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts facets of the free-space unit ball for a cycle with n−1 unit edges and one edge t.",
+          "identifier_or_url": "2026/11/2/SCOPE-resonant-facet-collapse-in-one-edge-weighted-cycle-free-spaces--724ddba83104",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror, same commit",
+          "title": "Resonant facet collapse in one-edge-weighted cycle free spaces",
+          "trigger": "Distinct same-day hit in the same weighted cycle family"
+        },
+        {
+          "assessment": "Different projections",
+          "evidence": "Suppression norms for spanning-tree edge-molecule bases are not the minimum over compatible point-map projections.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror, same commit",
+          "title": "Sharp coordinate-projection norms for edge bases of cactus transportation spaces",
+          "trigger": "Cited formula for a different free-space projection family"
+        },
+        {
+          "assessment": "Foundational and different circle model",
+          "evidence": "Uses C_n^0 with a distinguished center and bounds for n≥10 peripheral vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.13188",
+          "material_read": "p.3 offset 9625 and p.6 offsets 18275, 19770",
+          "method": "Targeted OA PDF passages",
+          "title": "Some Remarks on Schauder Bases in Lipschitz Free Spaces",
+          "trigger": "Cited circle obstruction in the same retractional framework"
+        },
+        {
+          "assessment": "Framework and existence, not finite sharp formula",
+          "evidence": "Definition formalizes the prefix and commutation conditions; results concern nets and grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.03095",
+          "material_read": "p.1 abstract and p.3 Definition 1.2, offset 8148",
+          "method": "Targeted OA PDF passages",
+          "title": "Schauder bases in Lipschitz free spaces over nets in Banach spaces",
+          "trigger": "General compatible-retraction framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weighted pentagon is a minimal concrete odd cycle testing how commuting retractions respond to an edge perturbation. The exact dependence shows that a nonexpansive chain is possible while the closing edge is still genuinely shorter than the alternate route, separating the retractional cutoff at 2 from metric redundancy at 4. The lower bound is intrinsic to the last deletion, making this a reusable benchmark beyond enumerating one order or reproducing the unit cycle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:08.285482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The open-neighborhood simplex at e=uv is on the two disjoint truncated stars A_e and B_e. The unmixed faces are exactly the union of the star boundaries. For a mixed pair uw,vz, the endpoints are distinct by triangle-freeness; the only possible alternative connectors to uv are uz, vw or wz, which would give a triangle or quadrilateral. Thus all cofaces of a mixed pair stay in one block. In each block, first match every mixed face containing an A_e vertex other than a_e by toggling a_e, then match the remaining mixed faces with some B_e vertex other than b_e by toggling b_e. In either stage, a coface other than the chosen upper partner belongs to a pair with a larger lower face, so reverse-size order gives actual elementary collapses with no external cofaces. The only retained mixed face is the chosen cross edge. The target is a connected union of boundary spheres glued at point intersections according to H, with no triple intersection and one added interval per edge. One may insert a connecting interval for each point identification (contracting that interval recovers the identification), move attachment points within each connected sphere by homotopy of the attaching maps, then contract an incidence spanning tree. This yields m−n+1 incidence loops and the separate sphere summands; the added intervals contribute m more loops. The degree-three spheres supply n_3 further circles. For the order-three plane incidence graph (26 vertices, 52 edges, degree four) the counts are 79 circles and 26 two-spheres. Integral homotopy and torsion-freeness are proved by this reduction, not by mod-two numerics. Replay: RESULT.md lines 24–52; verify.py and verification_output.txt inspected, not executed. The examples do not certify graphs with triangles, squares, or smaller degrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shukla treats bounded maximum degree and special circulants; a line-graph vertex uv here has degree d_u+d_v−2≥4. A degree-four base vertex also gives a K_4 in the line graph with overlapping 4-cycles. The block-graph treatment contains line graphs of trees, while a shortest base cycle induces a cycle of length ≥5 in the line graph here. The clique and closed Čech complexes use different faces.",
+          "The exact overlapping open-complex record also describes the canonical action on higher homology; its coverage of the wedge type is not restricted to the cubic case."
+        ],
+        "reasoning": "Neighboring broader results for different complexes or graph classes do not cover this family; the identically scoped open-complex result does.",
+        "searches": [
+          "arXiv:1802.04526 Theorem 2.1",
+          "arXiv:2009.12130 Corollary 3.3",
+          "Resultary records 2a7bb737f35c, d8f86495e49d, 69ae03a7604c and 2a6eda3435b3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary records 2a6eda3435b3, 2a7bb737f35c, d8f86495e49d and 69ae03a7604c",
+        "arXiv:1802.04526",
+        "arXiv:2009.12130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 2 states that the intersection of a block with the star-boundary union is the two unmixed simplices. Step 3 states that different blocks have no intersection outside that union. Step 4 then attaches one interval up to homotopy for each block."
+        ],
+        "reasoning": "The classification is explicitly covered. The homotopy conclusion alone would not imply the particular simplicial collapse. But the proved face-level intersection properties reduce the collapse to an arbitrary simplex with the two disjoint faces on complementary vertex blocks retained: toggle a chosen vertex in each block in turn, in descending face size, to leave any chosen mixed edge. No additional graph-specific obstruction or classification has to be solved.",
+        "searches": [
+          "2a6eda3435b3/RESULT.md, Steps 2–4, offsets 4240 and 6450"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finding of indexed record 2a6eda3435b3: for exactly the same open complex and graph hypotheses, it gives m+b circles and one S^{d_v−2} per vertex, where b=m−n+1."
+        ],
+        "reasoning": "Collecting the d_v=3 spheres contributes n_3 circles, giving exactly the frozen 2m−n+1+n_3 formula and the same higher-degree summands. The web results supplied no stronger relevant evidence.",
+        "searches": [
+          "Resultary: open neighborhood complex line graph girth",
+          "Resultary: star-boundary sphere wedges open-neighborhood complexes high-girth line graphs",
+          "Web: \"open neighborhood complex\" line graph girth high minimum degree sphere wedges simplicial collapse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both records give 79 circles and 26 two-spheres for the same order-three plane incidence graph, and the comparison record supplies a universal formula rather than only that finite example."
+        ],
+        "reasoning": "Exact family coverage dominates recomputation of the tabulated examples; the evidence does not depend on agreement of finite mod-two ranks alone.",
+        "searches": [
+          "Resultary: open neighborhood complex line graph girth",
+          "Resultary record 2a6eda3435b3, Finding and projective-plane example"
+        ]
+      },
+      "rationale": "A distinct same-day indexed finding states the identically scoped wedge theorem, including the projective-plane case, and already gives the same block decomposition and relative intersection facts. The explicit elementary collapse is a genuine strengthening of the type of equivalence, not asserted in the matched passage, but it follows by a routine vertex-toggle collapse on exactly the two-block simplex already isolated by that finding. Relative priority within the day is not resolved or presumed.",
+      "residual_risks": [
+        "Same-day indexing does not resolve relative priority.",
+        "No absolute historical priority verdict; the exact indexed overlap is sufficient, independent of unindexed work.",
+        "The matched record uses interval-attachment equivalence in the inspected proof; it is not credited with explicitly printing the elementary deletion list."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical formula and graph-specific decomposition; does not explicitly state the arbitrary-choice elementary collapse in the inspected passage",
+          "evidence": "The intersection of each two-star block with the rest is exactly the disjoint union of its two unmixed simplices; the formula uses b=m−n+1 and vertex spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-open-neighborhood-homotopy-of-line-graphs-without-short-cycles--2a6eda3435b3/RESULT.md",
+          "material_read": "Finding offset 0; Steps 1–4, especially offset 4240 and continuation at 6450; plane example",
+          "method": "Ranked local Resultary lookup followed by bounded mirror passages",
+          "title": "Open-neighborhood homotopy of line graphs without short cycles",
+          "trigger": "Exact hypothesis and complex match"
+        },
+        {
+          "assessment": "Different degree restrictions",
+          "evidence": "Theorem 2.1 covers connected maximum-degree-three graphs with exceptions, not general L(H) of minimum degree at least four.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.04526",
+          "material_read": "Abstract and Theorem 2.1, PDF pp. 1–2",
+          "method": "OA primary text",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Same open neighborhood invariant and closest low-degree theorem"
+        },
+        {
+          "assessment": "Clique complex, not open neighborhood complex",
+          "evidence": "For triangle-free G, the clique complex of its line graph is homotopy equivalent to G.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.12130",
+          "material_read": "Corollary 3.3, PDF p. 6",
+          "method": "OA primary text",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Same line graphs, different likely complex"
+        },
+        {
+          "assessment": "Block-graph domain does not contain the cyclic line graphs here",
+          "evidence": "Treats connected block graphs and includes line graphs of trees.",
+          "identifier_or_url": "Resultary 2a7bb737f35c",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Blockwise sphere bouquets in neighborhood complexes of block graphs",
+          "trigger": "Analogous star-boundary decomposition"
+        },
+        {
+          "assessment": "No coverage of higher-sphere cases with overlapping squares",
+          "evidence": "It assumes that no edge lies in distinct four-cycles, violated by K_4 from a base degree-four star.",
+          "identifier_or_url": "Resultary d8f86495e49d",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Graph-like neighborhood complexes with edge-disjoint four-cycles",
+          "trigger": "Possible higher-girth neighborhood spine theorem"
+        },
+        {
+          "assessment": "Closed rather than open neighborhoods",
+          "evidence": "The simplex includes the generating edge, unlike the frozen open-neighborhood simplex, and the target is the clique complex.",
+          "identifier_or_url": "Resultary 69ae03a7604c",
+          "material_read": "Finding and assumptions at mirror offset 0 in comparison inspection",
+          "method": "Bounded local mirror comparison",
+          "title": "A scale-two Čech collapse theorem for line graphs of girth at least five",
+          "trigger": "Same base graph family and collapse formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact wedge classification is a worthwhile invariant, but it is already covered for the identical domain. The narrower relative-collapse list is constructive, yet after the known two-block intersections it is just the generic matching that toggles a vertex on each side; no further application, obstruction, or nonroutine invariant of the prescribed target is established here. This does not support salvaging the frozen classification by presenting that routine refinement as a distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

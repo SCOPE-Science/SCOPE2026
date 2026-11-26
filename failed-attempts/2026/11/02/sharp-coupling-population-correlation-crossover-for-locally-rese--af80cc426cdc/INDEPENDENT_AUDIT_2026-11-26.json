@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:37.126661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding states that the time-covariance matrix has precisely two relaxation rates, but its stated domain includes λ=0. At that allowed point the exact formulas give K(t)=[Q/(2ν+r)]e^{−(ν+r)t}I: one rate, not two. The finite-N formulas and scaling limits themselves check out. With P the mean projector and b=ν+r, the centered linear conditional drift is −bI−λ(I−P). The stationary expected quadratic increment is (Q+rS_N)I, since each independent replacement affects only one coordinate. The two covariance eigenvalues u,v consequently satisfy 2bu=2(b+λ)v=Q+rS_N; together with S_N=[u+(N−1)v]/N this gives the stated S_N and C_N. The conditional semigroup yields the lag formulas, with distinct rates and both modes present for λ>0. At λ=cN, u→Q/(2b) and Nv→Q/(2c), which recovers both time limits. Common-noise pathwise contraction and the confining quadratic Lyapunov bound justify the finite-moment stationary law. I inspected RESULT.md lines 35–101, VERIFICATION.md and verify_correlation.py; I did not execute the code. Its rational raw-moment checks replay the finite-N equations, while its floating lag checks recombine the same two modal terms and are not independent evidence for large-N limits.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff gives finite-particle local dynamics with resets to fixed initial locations; the harmonic stationary local analysis is mean-field, whereas two-point correlations are treated with global resetting. The indexed positive-growth model gives an exact finite-size second-moment threshold but has no thermal term and fixes x₀."
+        ],
+        "reasoning": "Neither compared primary statement subsumes independent finite-N random-target Brownian resets. The indexed threshold quantifies the additional instability of its own growth model and cannot be imported as an actual threshold here.",
+        "searches": [
+          "arXiv:2401.03501 local-reset dynamic and stationary harmonic sections versus global-reset correlation section",
+          "Resultary 16b63514c061, assumptions and second-moment dynamics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.03501",
+        "Resultary 16b63514c061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous process has conditional centered drift −δI−φ(I−P); deriving its exponential on the two eigenspaces and inserting the stated covariance gives the same lag regressions, although the prior record does not print them. Setting φ=cN gives prior u→Q/(2δ), Nv→Q/(2c). For any frozen b,Q>0 choose an earlier g in (0,b), reset rate b+g, and x₀ so that (b+g)x₀²g²/b²=Q. Then δ=b, the earlier process is second-moment stable even at zero coupling, and both displayed critical-scale profiles coincide exactly."
+        ],
+        "reasoning": "The earlier formulas imply the two scaling profiles in their own valid model, and the transfer to the new model needs a new generator input, not new spectral or asymptotic structure. The older theorem does not literally quantify over the new physical process.",
+        "searches": [
+          "Resultary 16b63514c061, proof of first/second moment dynamics and explicit covariance",
+          "arXiv:2401.03501 local/global comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Write the prior intrinsic growth rate as g, its reset rate as r and redistribution as φ. Its centered covariance equations exactly become RESULT.md (lines 74 and 80) when g is replaced by −ν, φ by λ and the scalar forcing by Q. The prior denominator δ(r−2g)+φ(2δ−r/N) becomes T_N/N under the same substitution."
+        ],
+        "reasoning": "The moment calculation is algebraically equivalent, not just numerically similar. The stochastic processes are not equivalent, because the earlier theorem assumes g>0, fixed targets and no Brownian term.",
+        "searches": [
+          "Resultary 16b63514c061, explicit covariance and locking threshold",
+          "arXiv:2401.03501, finite-particle local resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed correlation is φ/[N(r−g)+φ], exactly λ/[Nb+λ] under the identification φ=λ and δ=b. Its variance and covariance formulas use the same rational functions under the analytic substitutions above."
+        ],
+        "reasoning": "The correlation formula and its complete coupling crossover are already covered as exact scalar functions, even with parameters chosen inside the prior model's valid domain. The different forcing and confining stochastic model are not a database match for trajectory laws.",
+        "searches": [
+          "Local Resultary finite-N local-reset covariance: 16b63514c061"
+        ]
+      },
+      "rationale": "The positive-diffusivity, arbitrary-iid-reset-law statement is not literally supplied by the prior positive-growth fixed-target process: its assumptions do not include the harmonic diffusion, and the needed negative intrinsic drift is outside the prior theorem. This is a narrow pass for that change of model, not a finding that the scalar correlation law or the crossover and layer profiles are distinct mathematics. The exact analytic overlap is detailed below and is decisive for value.",
+      "residual_risks": [
+        "A general affine resetting moment theorem may already cover both models outright; the inspected primary comparisons do not establish that. The absence of a matching Brownian statement in these passages is not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Physical-model antecedent without the finite-size local stationary covariance in the compared passages",
+          "evidence": [
+            "The local harmonic calculation uses an effective shifted reset point at mean-field level; two-point correlations are discussed for global resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.03501",
+          "material_read": "PDF p. 5, p. 8, pp. 12–13 and 15–16; OA offsets around 9200, 20400, 34600, 42500",
+          "method": "Targeted OA PDF passages",
+          "title": "Global density equations for interacting particle systems with stochastic resetting: from overdamped Brownian motion to phase synchronization",
+          "trigger": "Same underlying locally resetting Brownian interaction"
+        },
+        {
+          "assessment": "Exact covariance algebra and implied crossover and lag-profile overlap, but not literal coverage of the harmonic diffusion assumptions",
+          "evidence": [
+            "The model assumes 0<g<r, deterministic growth and fixed-target independent replacements. Its finite-second-moment regime has the same pair of centered linear equations under the substitutions documented above."
+          ],
+          "identifier_or_url": "16b63514c061",
+          "material_read": "RESULT.md beginning through the two centered covariance equations, offset 0–6293",
+          "method": "Local Resultary mirror and statement-level substitution",
+          "title": "Critical covariance locking and the finite-size variance frontier in local-reset growth",
+          "trigger": "Identical normalized covariance function in another local-reset system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Brownian model is natural, but the distinct part is a routine transfer of a known covariance calculation: Brownian noise and independent random reset values only add a scalar diagonal forcing, and putting the confining sign into the already-known linear coefficients gives identically the same stationary solve. Normalization removes the entire noise-law dependence. The lag regression is the exponential of the same two affine drift modes, and the two large-N profiles are mechanically implied by the prior finite-size equations even in its valid growth regime. No distinct covariance phenomenon or nontrivial extension beyond this scalar-forcing transfer is established. Correcting the zero-coupling sentence would not address this failure, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

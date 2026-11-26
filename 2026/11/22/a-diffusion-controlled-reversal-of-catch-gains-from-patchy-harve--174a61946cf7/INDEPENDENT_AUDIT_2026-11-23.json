@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:44:31.284637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Neumann linearization has spectrum -c-Dλ_j and is an isomorphism between the stated Hölder spaces; the analytic local branch stays positive and its reaction coefficient stays below -c/2 for small amplitude at each fixed D. The maximum of B1/B2>1 contradicts the second derivative sign (also at a Neumann endpoint) since per-capita recruitment strictly decreases. Integrating B''/B gives the positive log-gradient term; Jensen yields the exact inverse-stock bound and strictness when effort varies. Independently, writing g(B)=aB/(b+B)-mB, integration gives Y=mean g(B). With w_j=-ηqv_j/A_j and c z̄=-(bh³/a²)mean(w²)-η mean(vw), one obtains the stated stock coefficient. Expanding mean g directly gives Y2=(hr-m) z̄-(bh³/a²)mean(w²), exactly (2). At D→0 the catch bracket is -m(1-r)/c, with dominated convergence on square-summable v_j; at large D and K>0 all brackets turn positive by λ_j≥λ_1. The one-mode zero solves Dλ_j=m(1-r)c/(hr-m); if hr≤m there is no sign reversal. For the example the factor mean cos²=1/2 gives B2=(2D+1)/(4(1+D)²) and Y2=(2D-1)/(8(1+D)²), including the zero at D=1/2. The uploaded script is an inspected finite numerical diagnostic, not a PDE certificate; the comparisons above are analytic. The headline is read subject to the explicit positive-stationary and small-amplitude hypotheses, not as a universal finite-amplitude switch.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aye–Bock §6 treats bounded space-time control and a finite-horizon objective with penalty, rather than the Hessian of unpenalized stationary yield at fixed spatial mean.",
+          "For logistic per-capita growth r-B, dividing by B yields a related biomass comparison. With logistic net production the second derivative is constant and the specialized cutoff is not a formula for saturating recruitment."
+        ],
+        "reasoning": "General elliptic sensitivity and convexity methods make the calculations accessible; no theorem for arbitrary nonlinear recruitment giving all of these precise comparisons was identified. A first variation or homogeneous stability calculation cannot recover the mode-by-mode yield Hessian. The stock inequality alone is a short Jensen consequence and does not support a broad originality claim.",
+        "searches": [
+          "heterogeneous resource fishery fixed average harvesting intensity stationary yield diffusion perturbation Fourier logistic optimal harvesting mean constrained spectral yield Neumann mortality heterogeneity Beverton Holt",
+          "spatially heterogeneous mortality increases total population biomass average same mean mortality logistic diffusion reciprocal Jensen harvesting yield fishing mortality spectral Neumann",
+          "Mazari Ruiz Balet optimal harvesting fixed volume constraint spatial logistic diffusion weak strong uniform control Hessian choice optimal harvesting Nash equilibria (lookup unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Aye–Bock arXiv:2610.08374v1 (primary HTML passages)",
+        "Hilborn et al. doi:10.1007/s12080-024-00596-2 (primary open results and model)",
+        "Resultary near matches including 5d8b1181bd2f and c724-related dispersal topics (indexed results only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous perturbation rates f'(B*)-Dμ_k already give the resolvent denominator; they are not derivatives with respect to effort or yield.",
+          "Hilborn uses delays, discrete adult and juvenile movement, and harvest 1-exp(-qV) with a fixed vessel total, not linear proportional effort in a stationary Neumann PDE."
+        ],
+        "reasoning": "The candidate's second-order terms depend on both f'' and the effort–stock covariance (equivalently on the net-production Taylor expansion), absent from the scalar linearized stability. No simulated pair of signs implies strict positivity of stock for every admitted positive stationary profile or the spectral zero formula.",
+        "searches": [
+          "Aye–Bock arXiv:2610.08374v1 §5 Proposition 5 and §§6–8",
+          "Hilborn fixed-effort methods and Table 3 doi:10.1007/s12080-024-00596-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aye–Bock arXiv:2610.08374v1 Eq. (14)–(15) is the same forward model. Hilborn et al. fixed-effort Table 3 reports the closest qualitative comparison.",
+          "Resultary returned the assigned record and dispersal/resource analogues, including 5d8b1181bd2f (heterogeneous patch resources, not proportional effort on one saturating biomass field)."
+        ],
+        "reasoning": "Reformulating as total natural-plus-fishing mortality or as integrated net production yields the same objective, but no equivalent explicit fixed-mean spatial mode response was located in these compared statements.",
+        "searches": [
+          "Beverton Holt harvesting effort spatial heterogeneity diffusion average yield Neumann heterogeneous fishing mortality equilibrium spatial harvesting profit biotic resource diffusion thresholds",
+          "Resultary: diffusive logistic harvesting patchy spatial effort yield reverses with diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hilborn et al. Table 3 compares discrete low/medium/high movement and fishing pressure, not a continuously variable Neumann eigenmode threshold; Aye–Bock's numerical cases are forward and optimization diagnostics."
+        ],
+        "reasoning": "Existing simulation tables establish sign examples but not the exact cutoff D*=1/2 in the normalized example or its dependence on h,m,r,λ_j. No independent exact matching table was found in the inspected material.",
+        "searches": [
+          "Resultary: diffusive logistic harvesting patchy spatial effort yield reverses with diffusion",
+          "Hilborn et al. 10.1007/s12080-024-00596-2 Table 3",
+          "Aye–Bock 2610.08374v1 §§5–8"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the quantitative fixed-mean stationary comparison: the general quadratic spectral multiplier with its exact one-mode cutoff and the accompanying explicit nonlinear stock bound. The governing PDE, homogeneous stability, and the qualitative movement-dependent biomass/catch distinction are prior. In particular Hilborn et al. already simulate increase in stock at every tested fixed-effort case and, in the heavily fished case, catch reversal between low and higher adult movement. Do not present the broad qualitative reversal as new.",
+      "residual_risks": [
+        "Older exact second-variation results for fixed-volume stationary harvest or general heterogeneous mortality may cover parts; a targeted logistic-harvesting lookup was unavailable, not a negative finding.",
+        "The received bibliography's Ding–Lenhart and Kurata–Shi comparisons were not independently read in full in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and spectral stability precedent; inspected theorems are about homogeneous equilibrium or a different control problem, not fixed-mean effort sensitivity.",
+          "evidence": [
+            "Eqs. (14)–(15) same reaction–diffusion model, Proposition 5 modal rates f'(B*)-Dμ_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08374v1",
+          "material_read": "Abstract, §4.1, §5 including Proposition 5, and scope of §§6–8 in contents/introduction",
+          "method": "Primary full HTML, read equations (14)–(17) and stability calculation",
+          "title": "Spatially Explicit Optimal Harvesting and Adjoint-Based Diagnostics for Nonlinear Biomass Dynamics",
+          "trigger": "Identical PDE and modal stability could cover calculation"
+        },
+        {
+          "assessment": "Covers the qualitative effect in simulated cases, not the exact stationary Neumann model or quantitative Hessian and cutoff.",
+          "evidence": [
+            "Table 3 discussion: stock increases in all tested fixed-effort cases; catch increases at intense exploitation except low dispersal. Eqs. (5)–(7),(10)–(17) show recruitment, nonlinear harvest and movement rules."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12080-024-00596-2",
+          "material_read": "Open full text Methods through fixed-effort Results, especially Eqs. (1)–(17) and Table 3 discussion",
+          "method": "Publisher HTML §§Methods and Results",
+          "title": "When does spillover from marine protected areas indicate benefits to fish abundance and catch?",
+          "trigger": "Fixed effort and movement-dependent catch signs already studied"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scientific comparison holds total linear fishing effort fixed, separating redistribution from reducing effort. A mode-length-dependent threshold quantifies when a strictly increased stationary stock does or does not translate into increased catch, and the explicit gradient bound provides a distinct nonperturbative comparison. No empirical or finite-amplitude yield claims are needed to make these benchmarks useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

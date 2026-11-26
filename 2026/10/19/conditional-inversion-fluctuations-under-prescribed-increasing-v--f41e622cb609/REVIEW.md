@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The successions event is in bijection with all value-axis orders of its prescribed contiguous blocks. Under this bijection the inversion statistic is a weighted inversion sum. The stated orthogonal decomposition has pairwise uncorrelated residuals of variance \(1/12\), yielding the exact finite-sample mean and variance; direct substitution gives the single-run parabola and its sharp extremizers. An independent endpoint insertion argument proves the uniform limiting law. The attached exact-arithmetic verifier checked 505 finite identities, and no asymptotic conclusion is inferred solely from finite tests.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Diaconis–Evans–Graham's enumerative lemma gives the block-order count but not the evaluated conditional Kendall inversion covariance/variance profile. Johnson–Fu derive marginal increasing-run distributions; Burstein treats descending value adjacencies jointly with major-index-type statistics, and does not assert the exact prescribed-location Kendall law. Rawlings studies ordinal consecutive patterns rather than consecutive numerical values. The closest available research records on unconditional inversion covariance, inversion versus cycle count, and fixed-composition run transitions do not imply the conditioned law. The conclusion is best-knowledge originality, not a proof of uniqueness; an inversion-refined succession or shuffle paper may still subsume it.
+PASS
 
-## Mathematical value — PASS
-The prescribed-successions event is a natural shuffle-diagnostic conditioning event studied in probability. Whereas its inversion mean ignores run position, exact inversion uncertainty varies quadratically with run position. A long run creates macroscopic uniform fluctuations at an endpoint but cancels them centrally. This quantifies a meaningful conditional-null sampling effect rather than merely restating run counts or unconditional permutation moment formulas.
+Forced adjacent numeric successions make each labeled position block an increasing interval of consecutive values. Every ordering of the blocks on the value axis assigns disjoint intervals uniquely, including permutations with extra unforced successions. Thus the event has probability b!/n!, block ranks are uniform and each reversed pair contributes weight w_ij=ℓ_iℓ_j, giving the full conditional histogram and mean. For independent uniform ranks in continuous representation, subtract (U_i−U_j) from the centered indicator on pair i<j. The residual has variance 1/12 and zero conditional mean given either argument; distinct residuals sharing one argument are orthogonal by conditional independence. Summing the linear coefficients ℓ_i(Σ_{j>i}ℓ_j−Σ_{j<i}ℓ_j) and residual squares gives the general variance. Independently, for a single run at an endpoint the count is an independent sum of the inversion count of h singletons and L times a uniform integer on {0,…,h}. The endpoint variance is h(h−1)(2h+5)/72+L²h(h+2)/12. For i<j<k the three shared-index comparisons have covariances +1/12, −1/12, +1/12 in order (ij,ik),(ij,jk),(ik,jk). Moving the long block between two of the singletons changes the triple contribution by (2L−2L²)/6, leaving all other variances and triple contributions unchanged. Hence placement a reduces the endpoint variance by L(L−1)a(h−a)/3, yielding exactly the stated formula and gap, including h=0,1. The independent endpoint decomposition gives the centered uniform n²-scale limit, as the singleton count has O(n³) variance. At a nearest center the h-scaled polynomial part has a positive cubic coefficient when L/n→λ∈(0,1), and the position term is only O(n²); variance is Θ(n³) and the centered n²-scaled variable vanishes in L². A separate enumeration through n=6 checked all forced sets, conditional histograms, moments and single-run extrema (266 finite checks; no saved script). It can be reconstructed by tabulating permutations satisfying each set and enumerating orders of the labeled blocks for comparison. The supplied script and its reported 505 assertions were inspected, not executed.
 
-## Limitations
-The event need not be maximal; the central \(n^{3/2}\)-scale limit is not determined. Priority risk remains for inversion-refined run enumerations and general conditioned shuffle results. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the inversion refinement and, in particular, the exact placement-dependent variance and differing endpoint and central fluctuation regimes. Prescribed-succession block ordering is known, and the weighted count itself follows directly by recording inversions in that bijection; the review does not credit contraction or the event count as novel. The closest sources inspected do not supply the weighted covariance sum, the quantitative placement law, or the endpoint/center comparison for this conditioning.
+
+## value
+
+PASS
+
+The conditioning event is a standard permutation statistic and total inversions are a natural test of its global effect. A constant conditional mean across positions conceals a sharp and quantifiable dependence in variance: with the same asymptotic forced fraction, only a change of position separates n⁴ variance with a nondegenerate uniform limit from n³ variance and no n²-scale fluctuation. The formula measures that effect exactly and gives a usable benchmark for structured permutation models; proving a full lower-scale central law is not necessary for this comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

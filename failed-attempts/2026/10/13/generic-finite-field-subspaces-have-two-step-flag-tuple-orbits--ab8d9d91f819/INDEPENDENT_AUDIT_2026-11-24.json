@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:13.560196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–35 and 37–94",
+        "VERIFICATION.md; verification.py; verification_output.txt",
+        "Independent Gaussian recurrence and direct binary small-subspace enumeration"
+      ],
+      "rationale": "Finding line 20 asserts that injective ordered tuples have K=0, while line 35 explicitly defines injective as pairwise distinct. Already a one-entry tuple is vacuously pairwise distinct: there are three orbits (zero, nonzero in G, outside G), not I_1(q)=2. Also, (e_1,e_2,e_1+e_2) is pairwise distinct and dependent over every F_q. The scope supplies the intended correction (linearly independent tuples), and the theorem under that reading is correct. Equal flags give a marked-span isomorphism respecting its intersection with G; choose bases for the intersection and lifts of quotient basis vectors, extend the two bases in G and V/G, and match them to extend the map to an automorphism. Every quotient F_q^n/K marked by U/K embeds by the infinite dimensions on both sides. The resulting Gaussian sums are correct. Their dominant exponents are obtained at balanced block sizes; subtracting the exponents from n²/3 and n²/4 gives, respectively, half the sum of squared deviations of three block sizes and the single squared deviation from n/2. Uniform discrete Gaussian bounds give the stated Θ estimates, including the rounding. Independent recurrence evaluation reproduced the supplied q=2 tables through n=8 and the q=3 all-flag table through n=6; direct binary subspace-pair enumeration through n=3 gave 1,3,12,66 and distinct membership signatures. These are finite checks, not a proof of all n. The source script was inspected but not run.",
+      "residual_risks": [
+        "The pairwise-distinct profile is not the I_n profile proved here; the contradiction is in the frozen Finding despite its scope caveat."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general quantifier-elimination/type result describes types by base-language formulas and membership/module data of linear combinations; here no extra structure remains.",
+          "Kousidis has positive finite theta-function asymptotic limits along each residue class for arbitrary fixed flag length. The degree formula (3.10) is floor(n²/3) for length 3 and floor(n²/4) for length 2; the normalization differs at most by the specified constant exponent shift."
+        ],
+        "reasoning": "Both the structural type reduction and the growth estimates are covered by stronger results; the Gaussian tail argument is an elementary proof of a weaker asymptotic for these cases.",
+        "searches": [
+          "Berenstein–d’Elbée–Vassiliev, Theorem 2.4, Corollary 2.5",
+          "Kousidis, Theorem 3.2, equations (3.8)–(3.10), Remark 3.4 and Corollary 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source and verification tables",
+        "Resultary searches and inspected indexed comparison ee908111b8bd",
+        "arXiv:2204.10758",
+        "arXiv:1109.2546v2",
+        "OEIS A006116"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base type of a pure tuple is just its linear equalities K. Membership of all its linear combinations is precisely U, and module formulas for combinations in G reduce to linear equalities there. Equal marked data give equal types by the criterion, or equal orbits directly by the elementary basis extension; every flag is realized by that same extension argument.",
+          "Substituting flag lengths 3 and 2 into the prior enumerators and growth theorem gives both exact counts and both exponents."
+        ],
+        "reasoning": "This is a direct specialization and change of interpretation, not a new classification beyond the existing type criterion or a new asymptotic enumeration.",
+        "searches": [
+          "arXiv:2204.10758, Theorem 2.4 and Corollary 2.5 with proof",
+          "arXiv:1109.2546v2, §1 and Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O_n(q) is G_n^(3)(q) counting weak flags 0⊆K⊆U⊆F_q^n, while I_n(q) is G_n^(2)(q). In the type criterion the coefficient kernel determines the base type and the coefficient-subspace U identifies exactly the combinations in the distinguished space; their internal marked module type is already fixed by the linear relations.",
+          "The inspected indexed exact-product tuple-orbit result ee908111b8bd instead uses a kernel and a descended bilinear form in a homogeneous bilinear space. It does not classify the marked-subspace model. The indexed echeloned-space Fubini profile uses weak orders in a different structure."
+        ],
+        "reasoning": "The relevant equivalences are marked finite-space types and weak flag counts, not finite flag-code orbits under actions on unmarked flags. The indexed bilinear record is a methodological precedent, not coverage by identical objects.",
+        "searches": [
+          "Resultary semantic searches for tuple profiles in pure finite-field pairs with a distinguished subspace and two-step flags",
+          "Berenstein–d’Elbée–Vassiliev, arXiv:2204.10758, Corollary 2.5 and pure-space examples",
+          "Kousidis, arXiv:1109.2546v2, §1 generalized Galois number definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A006116 lists the exact q=2 independent-stratum sequence from 1,2,5,16,67,374,2825,29212,417199 and identifies it as a Gaussian sum.",
+          "The prior length-3 weak-flag enumerator specifies the entire O_n(q) table, including q=2 values 1,3,12,66,513,5769 and q=3 values 1,3,15,133,2193,69699. Independent finite checks reproduce these values."
+        ],
+        "reasoning": "The tabulations are not new exact numbers. Their interpretation as a particular tuple profile is a separate implication checked below.",
+        "searches": [
+          "OEIS A006116",
+          "Kousidis, §1, generalized Galois counts at lengths 2 and 3",
+          "Frozen verification_output.txt and independent recurrence comparison"
+        ]
+      },
+      "rationale": "Even on the intended linearly independent reading, the orbit identification is a direct pure finite-field specialization of the prior generic-submodule type criterion, with flag realization by immediate linear embeddings. The two exact sequences are generalized Galois numbers of lengths 3 and 2, whose asymptotics are given in stronger form by Kousidis. No separately substantive claim survives these implications. No verbatim prior orbit-profile statement was located in the inspected material.",
+      "residual_risks": [
+        "No verbatim orbit-profile source was found in the bounded comparison; the failure rests instead on direct prior implications. The result for a merely pairwise-distinct stratum is not the submitted correct enumerative statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural specialization, not a displayed profile",
+          "evidence": [
+            "Corollary 2.5 compares base type and module type of the marked span part; the proof explicitly uses terms of the form q·a⊆G or q·a outside G via Theorem 2.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.10758",
+          "material_read": "PDF p. 5, Corollary 2.5 and proof near offset 16464; pure/related examples pp. 20, 37–38",
+          "method": "Bounded primary OA PDF text by exact passage",
+          "title": "Vector spaces with a dense-codense generic submodule",
+          "trigger": "General type theorem may already imply the orbit classification"
+        },
+        {
+          "assessment": "Direct broader enumerative and asymptotic coverage",
+          "evidence": [
+            "Uses non-strict flags and gives theta limits for every fixed flag length and dimension residue; for length 2 gives a separate explicit asymptotic corollary."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.2546",
+          "material_read": "§1 pp. 1–2; Theorem 3.2, pp. 5–7 (offset 17420), including (3.10); Remark 3.4 and Corollary 3.6, pp. 8–9",
+          "method": "Located theorem and then read bounded primary PDF passages by offset",
+          "title": "Asymptotics of generalized Galois numbers via affine Kac-Moody algebras",
+          "trigger": "Exact weak flag counts and their dominant asymptotics"
+        },
+        {
+          "assessment": "Identical table as finite-space count",
+          "evidence": [
+            "The entry starts at n=0 and refers to Goldman–Rota's subspace count."
+          ],
+          "identifier_or_url": "https://oeis.org/A006116",
+          "material_read": "Sequence, OFFSET, COMMENTS and first reference",
+          "method": "Public page exact passage",
+          "title": "Sum of Gaussian binomial coefficients for q=2",
+          "trigger": "Exact q=2 table for I_n"
+        },
+        {
+          "assessment": "Related methodology and motivation, different structure and invariant",
+          "evidence": [
+            "The second orbit invariant is the descended bilinear form rather than a marked subspace, so not identical coverage."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-product-tuple-orbit-profiles-for-homogeneous-finite-field--ee908111b8bd",
+          "material_read": "Indexed RESULT.md, tuple classification and profiles",
+          "method": "Local Resultary lookup and decisive result passage through the mirror",
+          "title": "Exact product tuple orbit profiles for homogeneous finite-field structures",
+          "trigger": "Closest indexed tuple profile with kernel and finite-field data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Berenstein–d’Elbée–Vassiliev, Corollary 2.5",
+        "Kousidis, Theorem 3.2"
+      ],
+      "rationale": "This is a natural profile for a natural homogeneous structure, but the numbers and growth are already known as general flag asymptotics, and moving to that formulation only takes the standard finite marked-span argument. The exponent comparison is between immediate instances, not an independent boundary theorem. Correcting the injective wording does not leave a new worthwhile invariant or result beyond these direct implications.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

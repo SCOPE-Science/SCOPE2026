@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial parametrization has generic inverse \(u=Z/h_m(X)\) and is generically injective. The independent affine equation is a double cover with precisely \(m\) double roots and one simple root. The rank-three projective cone's divisor class group identifies the Hilbert polynomial with the cone over \(2m+1\) distinct conic points; its Hilbert function gives \(p_a=m(m-1)\). The genus-defect calculation gives the unique infinity delta. The explicit Apéry set has exactly the same number of gaps, proving equality with the intrinsic branch value semigroup and determining its conductor. Exact finite checks for \(2\le m\le16\) pass. The infinite theorem is proved symbolically and geometrically, not inferred from computations.
+PASS
 
-## Originality — PASS, subject to stated publication-priority limits
+Pass applies to the corrected RESULT.md in /workspace/repairs/3/. The frozen text defined the conductor using every strictly greater integer, which instead picks the last gap when gaps exist; e.g. <3,5,7> has last gap 4 but conductor 5. The repaired definition explicitly requires all integers at least c to belong to the semigroup and gives c=0 at the smooth boundary m=2. It also expresses map degree via the pullback of O(1), distinct from the birational degree. Over algebraically closed characteristic zero, the distinct nonzero roots of T_n pair by ±u, giving squarefree h_m with h_m(−1)≠0. In Z²=(X+1)h_m(X)²/2 the double roots give distinct tangents and exactly m ordinary nodes. The inverse Z/h_m(X) and the basepoint-free degree-n system on P¹ give the normalization, degree and only point at infinity. Independently, the cone has coordinates W=A², X=AB, Y=2B²−A², Z=T from weights (1,1,2); the closure is cut in this weighted coordinate ring by the primitive irreducible polynomial A^(n−4)T²−(A+B)(A^m h_m(B/A))²/2 of weight n. Its even Veronese Hilbert function for d≥m is (d+1)²−(d−m)(d−m+1), verifying p_a=m(m−1) and the cone computation. The normalization has one point over infinity; coordinate orders there are n,n−2,n−4. For a=n−4, the residue minima for <a,a+2,a+4> are a ceil(j/2)+2j for 0≤j<a, obtained by using the fewest increments of size 1 or 2 to reach j. The gap count is m(m−2), which equals the local delta from genus minus the m finite node contributions. The inclusion of this semigroup in the actual value semigroup is then equality, by the length/gap identity for a unibranch completed local ring. The largest Apéry value minus a plus one yields the stated conductor in the corrected convention, and the a=1 case is smooth.
 
-The 2026 initiating paper Example 5.8 already identifies the three **affine** singular points for the \((2,4,7)\) example; this is prior work. Its inspected Sections 1–5 concern affine geometry, not a uniform projective infinity semigroup or degree-genus equality. The 2025 and 2024 Lissajous/Chebyshev papers and the 2009 Chebyshev embedding paper address affine degree, singularity, and embedding questions; the examined passages do not contain this specific projective basket or infinity semigroup. published-finding corpus semantic searches for the family, projective singularities, semigroups and genus returned closest work on plane Chebyshev dual curves and nodal plane curves, not a logically covering theorem for the space curve. The classical Castelnuovo bound does imply the extremal genus of **any** degree-\(n\) divisor on this cone; that classical implication is credited. The genuinely compared proposition is the uniform, complete node-plus-infinity-semigroup classification. Unindexed older projective-curve calculations remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural frequency triple \((2,4,7)\) appears as a worked singular example in a current Lissajous study. Varying the odd frequency gives an infinite geometric family of nonnormal, Castelnuovo-extremal space curves whose normalization is rational. The theorem quantifies precisely how the arithmetic genus splits into finite transverse nodes and a single boundary branch, and computes its full valuation semigroup and conductor. Those invariants control the local normalization defect and are not supplied by an affine singular-point census. The value does not rest on routine recomputation of the classical Castelnuovo bound alone.
+Supported for the geometric identification of the actual local value semigroup at the unique infinity branch and the full singularity data of the projective zero-phase (2,4,2m+1) family. Known abstract Apéry and conductor facts, the standard cone genus formula, and the known affine locations for n=7 are not credited as new. The repaired text explicitly cites the overlap in the abstract semigroup calculation.
 
-## Sources, limitations, residual risk
+## value
 
-The primary comparison includes full HTML sections of Mascarin 2026 and the relevant sections of Mascarin–Telen 2025, Bel-Afia–Meroni–Telen 2024 and Freudenburg–Freudenburg 2009. All statements are restricted to the zero-phase odd-frequency family over algebraically closed characteristic-zero fields. No claim is made about other phases, fields or an exhaustive survey of historical projective Chebyshev constructions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The low frequencies (2,4) force a natural quadric cone relation in the Chebyshev family. The uniform computation shows exactly how an explicit rational family attains extremal arithmetic genus: the affine nodes and one very different infinity branch account for every unit of genus defect. The precise local value semigroup, rather than just a numerical lower bound or an abstract semigroup calculation, is usable for normalization and local singularity comparisons. This value survives the conductor-definition repair and does not depend on claiming the classical Castelnuovo calculation as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

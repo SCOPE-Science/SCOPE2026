@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The logical universe and operations are explicit. The signature upper bound checks both implication and co-implication by finite upward/downward closures; the converse reconstructs the junction and all Boolean signature cells using actual terms. The rank proof treats the sole three-element exception, and inclusion-exclusion enforces the nonempty lower-trace condition for every upper-type variable. For the limit theorem, conditioned bottom-code sampling is compared in total variation with independent bits, then standard birthday inequalities and a binomial central limit theorem give the limiting normal interval. Direct semantic closure exhaustively confirms 8,936 tuples and the enumeration formula in 36 finite parameter cases. These tests do not establish general or asymptotic statements; the proof does. No unproved probabilistic independence assumption is used for the conditioned bottom codes.
+PASS
 
-## Originality — PASS with stated residual risk
+Permuting worlds within a signature class fixes the valuation and preserves the order, hence all term values are unions of classes. For a nonempty generator contained in U, adjoining its pseudocomplement gives U. For a proper generator meeting L, intersecting it with the upward closure of its complement gives U. Relative complements are then given by restricting pseudocomplement to the bottom Boolean interval, and adjoining U to co-negation in the top interval. Thus both Boolean intervals realize every signature-class union and share just U; the all-constant tuple instead generates only the extrema. Injectivity forces the two ceiling-log budgets and is achieved at that budget by including a lower all-ones signature (except that the two-singleton chain needs U itself as a generator). Choosing the upper coordinates and then distinct labeled words gives the falling factorial; inclusion–exclusion removes all-zero lower coordinate columns, which would be assigned to the wrong type. The subtraction of the constant 2^k tuples is needed only for two singleton levels and handles k=0. In the balanced random model, conditioning on the coordinate-type set gives independent uniform upper words and lower bits conditioned on nonzero columns; the error from dropping that condition is at most k_t 2^−t. Birthday bounds make either injectivity factor essentially a step at 2 log₂t outside a strip of diverging width o(√log₂t); binomial anti-concentration handles the strips. The type count has mean k_t/2+o(1), variance asymptotic to log₂t, and a normal limit under this scaling. Both sides clear the birthday boundary on the limiting centered interval (−c/2,c/2) for c>0; at c=0 the mass vanishes by continuity, and c<0 cannot give a nonempty interval. This yields the claimed Gaussian formula.
 
-The first-public 2026 source, *Definable Classes of Models and Frames in Bi-intuitionistic Logic*, Proposition 18, identifies the general generated algebra but supplies neither levelwise signatures, the exact rank/count, nor the Gaussian threshold. Its Theorems 27 and 29 are model- and frame-axiomatizability closure characterizations, not numerical generator theorems. The 2017 double-Heyting thesis and the 2025 profinite paper supply broader algebraic settings; inspected portions do not contain this classification or dominate its probability law. Text and publication searches for height-two generators, Boolean ordinal-sum rank, exact valuation counts, and Gaussian random generation, as well as published mathematical-record comparisons, yielded no result with the same hypotheses and conclusions. The full 2016 directed-bisimulation article and the full 2017 thesis were not read; they remain legitimate historical-priority risks. Search absence is not proof of worldwide novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural, complete numerical specialization of the definable-upset algebra singled out by the recent paper. It determines exactly how many truth sets can be expressed from **every** finite propositional valuation, including all exceptional cases; the sharp least number of variables and labeled generating-tuple count answer concrete reconstruction questions. The Gaussian limit describes a nontrivial separation between optimal deterministic coding and uniformly sampled coding, including the full critical probability curve, rather than a minor finite-table increment.
+The new content supported by the inspected comparisons is the explicit signature algebra, ordered census and two-budget Gaussian completeness window for complete two-level double-Heyting upset algebras. The general definability-as-generation statement and birthday methods are prior background, not distinct claims.
 
-## Boundaries and literature comparison
+## value
 
-The frame must be a complete height-two order with nonempty levels. Results concern finite algebra generation, not unrestricted frame definability, proof complexity, or arbitrary bi-intuitionistic models. Sources and open priority risks are listed in the result and structured assessment. The independent audit is not complete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These are natural generation invariants of an explicit finite frame family: the signature description identifies the actual definable sets and supplies an exact count for each alphabet size. It also explains why typical uniform generation needs roughly twice the optimum deterministic budget and why the random window is Gaussian rather than a single fixed-budget birthday transition. This gives a useful complete calculation on a nontrivial family without claiming general height-two or nonuniform results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

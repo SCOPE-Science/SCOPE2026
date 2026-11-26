@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:14:14.390058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof contains a false coarea equality: the weighted density integral must extend over the whole hyperplane v⊥, not the bounded section O∩v⊥. The integrand is strictly positive outside the bounded section. The repaired proof instead triangulates the hexagon with vertices u,w,z,−u,−w,−z obtained by the six edge crossings. After the opposite triangles cancel the triangle factor of 1/2, the three cross products contribute a/((a+b)(a+c)), c/((a+c)(b+c)), and b/((b+c)(a+b)) to area divided by normal length. Continuity of the section area and the axis diamond supply the missing-coordinate cases. The boundary is the radial level set at one; coordinate-plane strata are covered by continuity. Independent symbolic calculations verify the stated section formula, all signed forms and the Cayley change. The Cayley gradient forces all q_i to solve the same quadratic; checking multiplicities (1,3) and (2,2) and the equal-coordinate case leaves exactly the four coordinate points. Each has nondegenerate quadric tangent cone, and all their images have t≠0. A reducible projective cubic would be singular along a curve or surface, so these are absolutely irreducible. Their signed cubic and quadratic coefficients distinguish them; each has a smooth real octant patch and its Zariski closure is the whole cubic. These arguments certify the repaired claim, not just the finitely checked nodes. The frozen checker was inspected but not executed.",
+      "repaired_files": [
+        "/workspace/repairs/1/RESULT.md",
+        "/workspace/repairs/1/SLOGAN.txt"
+      ],
+      "replay": "python3 /workspace/branches/audit-checks/1.py (SymPy)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cross-polytope central-section integral has factor 2^n/[π(n−1)!] times the integral of the product of (1+a_j²t²)^−1; §2.1 credits earlier section theory.",
+          "Berlow et al. prove semialgebraicity and give a chamber computation framework. Brandenburg–Meroni focus on translation and convexity."
+        ],
+        "reasoning": "At n=3 the integral gives the radial law by partial fractions and continuity, hence that law is covered. The general polytope construction and translation results do not supply a Cayley normal form or classify the singularities of the octahedral components.",
+        "searches": [
+          "Brazitikos–Pandis arXiv:2606.07163 §2.1 Eq. (2.3)",
+          "Berlow et al. arXiv:2110.05996v2 Theorem 2.6",
+          "Brandenburg–Meroni arXiv:2302.11764 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.07163 §2.1",
+        "arXiv:2110.05996v2 Theorem 2.6 and Example 5.3",
+        "arXiv:2302.11764 abstract/introduction",
+        "MATHREPO intersection-bodies documentation",
+        "Resultary exact cross-polytope boundary degrees 27eb6be26fa6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general degree proof uses primitive linear-in-homogenizing-variable irreducibility, not a classification of isolated singularities.",
+          "The 3-cube example reports cubics of elliptope type for the different polar-dual body."
+        ],
+        "reasoning": "A list of cubic equations determines the surfaces but does not by its degree/count assertion exhibit their Cayley structure or determine singularities and their affine locations. The repaired result supplies a concrete projective linear identification and an exhaustion of the projective singular locus; it does not repeat equation specialization as the novelty claim.",
+        "searches": [
+          "Exact cross-polytope degrees RESULT.md Finding offset 0 and irreducibility/geometry proof from offset 3850",
+          "Berlow et al. arXiv:2110.05996v2 Example 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berlow et al. explicitly identify the centered cube's eight cubics up to coordinate change with the elliptope; the cube also has six planes.",
+          "The same-date cross-polytope result explicitly identifies its 3D specialization P3=e2 with the eight branches already under discussion."
+        ],
+        "reasoning": "The section formula and signed cubic equations give the same components of the octahedron under the 3D specialization. The 3-cube example has a different input body; polar duality by itself does not convert its conclusion to a Cayley classification with octahedral affine node locations.",
+        "searches": [
+          "octahedral intersection body algebraic boundary Cayley cubic cross-polytope sections",
+          "arXiv:2110.05996v2 Example 5.3",
+          "Resultary cross-polytope algebraic boundary, dimension-three specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local-mirror Finding gives c_n, D_n, P_n and signed equations, and specifically notes that n=3 gives P3=e2 and the eight cubic branches.",
+          "The MATHREPO documentation describes general Sage input and a worked 3-cube computation, not an octahedron node table."
+        ],
+        "reasoning": "The indexed 3D specialization sets c3=2 and recovers exactly F_s=D3−2e2 in signed coordinates, covering equation/count/degree data. The inspected formulas and proof do not identify the node loci or the projective Cayley equivalence.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-algebraic-boundary-degrees-for-intersection-bodies-of-cros--27eb6be26fa6",
+          "MATHREPO Intersection Bodies of Polytopes, Sage and worked example"
+        ]
+      },
+      "rationale": "Pass only for the repaired refinement: explicit Cayley normal form and projective/affine singularity classification of the eight octahedral cubics. The section law follows directly from known section theory, and the equations, component count and degree overlap materially with the distinct same-date general cross-polytope record. The repair credits and retains these parts as background without assigning dated priority. No inspected source supplied the Cayley identification and the ambient affine node locations for this object.",
+      "residual_risks": [
+        "Unindexed or supplementary explicit singularity calculations may contain the same octahedral Cayley identification.",
+        "No priority order inferred from the matching index dates; the overlap is credited without claiming who first computed the equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Section formula covered by specialization and partial fractions",
+          "evidence": [
+            "Eq. (2.3) gives the integral with exactly the Euclidean normalization for unit normals."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.07163",
+          "material_read": "§2.1 equations (2.1)–(2.3), offset 16330 onward",
+          "method": "Open primary text",
+          "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+          "trigger": "General section integral directly applicable to the octahedron"
+        },
+        {
+          "assessment": "Known method and cube geometry; does not establish the octahedral refinement",
+          "evidence": [
+            "Centered 3-cube: six planes and eight cubics equivalent to elliptope boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2110.05996v2",
+          "material_read": "Theorem 2.6 (offset 10545) and Example 5.3 (offset 30240)",
+          "method": "Open primary text",
+          "title": "Intersection Bodies of Polytopes",
+          "trigger": "General method and exact cubic components for a nearby object"
+        },
+        {
+          "assessment": "Compared passages focus on translations and convexity",
+          "evidence": [
+            "No exact octahedron boundary or singularity result in those passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.11764",
+          "material_read": "Abstract and introduction, offsets 0–2676",
+          "method": "Open primary text",
+          "title": "Intersection bodies of polytopes: translations and convexity",
+          "trigger": "Follow-up may evaluate more examples"
+        },
+        {
+          "assessment": "General software and a worked cube case; residual supplementary risk",
+          "evidence": [
+            "General Sage interface, step-by-step 3-cube calculation."
+          ],
+          "identifier_or_url": "https://mathrepo.mis.mpg.de/intersection-bodies/",
+          "material_read": "Implementation description and worked example listing, offset 1280",
+          "method": "Open documentation; notebook contents not comprehensively inspected",
+          "title": "Intersection Bodies of Polytopes — MATHREPO",
+          "trigger": "Potential exact supplementary computation"
+        },
+        {
+          "assessment": "Material equation/count overlap, distinct refinement retained; date does not establish priority",
+          "evidence": [
+            "Dimension-three specialization explicitly noted; no Cayley node classification in these passages."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-algebraic-boundary-degrees-for-intersection-bodies-of-cros--27eb6be26fa6",
+          "material_read": "Original mirror Finding and dimension-three remark at offset 1646, and irreducibility/boundary proof from offset 3850",
+          "method": "Local mirror exact original passage comparison",
+          "title": "Exact algebraic-boundary degrees for intersection bodies of cross-polytopes",
+          "trigger": "Exact matching equation and component structure under n=3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired refinement answers the natural geometric question of how the known octahedral boundary components sit projectively and which singularities appear in the physical affine chart. The explicit normal form and exact node exhaustion distinguish an extraneous algebraic point (the origin) from the axial boundary nodes; this is more informative than a degree recomputation and complements the different cube boundary geometry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

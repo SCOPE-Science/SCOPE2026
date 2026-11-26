@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:13:24.309947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive tau, the infinite negative one-sided penalty derivative at zero forces full support; the interior stationarity equation also realizes every positive probability by a finite score. Write H=diag(tau/p_i+kappa), J the inverse of its constrained tangent system. For tangent u, weighted Cauchy gives sum(u_i²/p_i)≥||u||_1², with equality only if |u_i| is proportional to p_i. If k,h count the positive and negative coordinates, sum u_i²≥||u||_1²(1/k+1/h)/4≥n||u||_1²/(4 floor(n/2)ceil(n/2)); equality forces full balanced supports and equal magnitudes within each. Thus the sharp Hessian bound is mu=tau+kappa n/(4 floor(n/2)ceil(n/2)), with equality exactly at the two-block shapes and directions in the finding. Integrating gives the closed-simplex strong-convexity bound (boundary by continuity); small interior segments prove sharpness. For a score direction s and u=Js, u^T H u=u^T s, giving ||J||≤1/mu, and any local equality forces the same Hessian equality. Conversely at an extremizing p take u=±p on the two blocks and s=sign u: H u differs from mu s by a scalar all-ones vector. Hence Js=u/mu, yielding sharpness and every stated local extremizer. On a segment between distinct output probabilities, the weighted Cauchy equality for the fixed nonzero difference would require p along the segment to be the same fixed |u|/||u||_1; the integrated strong-monotonicity inequality is therefore strict. Applied to the stationarity equations and Holder, this gives a strict finite-score secant bound, also strict when scores differ but outputs agree. The separate replay python3 /workspace/branches/independent_checks.py 3 tests direct exact output 1-norms on 102 profiles in dimensions 2–7; it supplements rather than proves this argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies the Fenchel–Young strong-convexity-to-smoothness framework, which transfers a modulus but does not evaluate the mixed tangent quotient by itself.",
+          "Tsallis entmax features a power-law curvature, not tau/p_i+kappa on the entire simplex with both parameters positive. Bounded Gibbs uses a different variable domain and pure entropy-type regularization."
+        ],
+        "reasoning": "Summing two separately valid moduli gives an upper Lipschitz estimate, with exactness only if the equality configurations can be made simultaneous. The constrained balanced directions and probabilities supply this extra optimization. Neither an individual pure penalty nor its reparameterization reproduces the two positive terms over the full simplex.",
+        "searches": [
+          "arXiv:1805.09717; arXiv:1901.02324; arXiv:2108.01988",
+          "JMLR Vol. 21 19-021 official alternate",
+          "Resultary b6094ff64b5e, c3f08b1304de, 4ac33efe6eb4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and checker evidence",
+        "Resultary b6094ff64b5e, c3f08b1304de, 4ac33efe6eb4 (indexed scientific statements) and exact target 9f41e7317a3b",
+        "arXiv:1805.09717, 1901.02324, 2108.01988 (frozen comparison and primary retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal quadratic summary has finite full-support secant equality, whereas strictly positive Shannon curvature makes equality nonpersistent on every nonconstant interior probability segment. The Tsallis summary has interior two-block witnesses; the mixed proof requires the exact weighted Cauchy equality as well as balancing support sizes.",
+          "The strong convexity duality and partition structure are already in the prior framework; the frozen result explicitly limits the contribution to the mixed quantitative and equality aspects."
+        ],
+        "reasoning": "These available statements imply some ingredients and limiting pure cases, not the whole-domain mixed equality classification. The local matrix similarity to a diagonal penalty does not render that penalty fixed along a score segment.",
+        "searches": [
+          "Resultary b6094ff64b5e (same-day), c3f08b1304de, 4ac33efe6eb4",
+          "Frozen RESULT.md 49–87, 95–107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent constant is the infimum of the interior tangent Hessian quotient (tau sum(u_i²/p_i)+kappa sum(u_i²))/||u||_1². The norm constant is its sharp reciprocal.",
+          "The diagonal quadratic summary b6094ff64b5e concerns exact cross norms via a partition discrepancy and finite full-support equality, so this relevant alias was compared, not dismissed by title."
+        ],
+        "reasoning": "The mixed Hessian has entries tau/p_i+kappa varying with the prediction, unlike a fixed diagonal quadratic penalty. Applying a fixed-Hessian result locally can supply cut expressions but not the mixed probabilities maximizing them or secant nonattainment.",
+        "searches": [
+          "Resultary: Shannon–quadratic simplex l-infinity to l1 sensitivity, parity, finite secant",
+          "Resultary: exact l1 strong convexity of Shannon plus squared Euclidean regularization",
+          "Blondel–Martins–Niculae arXiv:1901.02324"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mixed match 9f41e7317a3b is the assigned record. The distinct cross-norm records indexed correspond to diagonal quadratic, Tsallis and bounded Gibbs, not a table covering arbitrary tau,kappa>0 with full score domain."
+        ],
+        "reasoning": "The familiar pure formulas and a parity pattern are not a lookup of the mixed modulus and its equality statements. This bounded database evidence is not an exclusion of unindexed exact results.",
+        "searches": [
+          "Resultary exact mixed prediction coefficient 9f41e7317a3b",
+          "Resultary b6094ff64b5e, c3f08b1304de, 4ac33efe6eb4",
+          "Focused primary query: mixed Shannon–quadratic simplex prediction sharp strong convexity parity"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the exact mixed curvature/norm constant with all local extremizers and finite-score nonattainment, not for simplex-duality construction or balanced partition methods themselves. The prior exact pure-penalty and bounded Gibbs results give important neighboring cases and ingredients, not a displayed theorem for strictly positive Shannon and quadratic coefficients. Full-text limits are explicit.",
+      "residual_risks": [
+        "OA attempts did not yield independent primary passages. A stronger existing tangent-curvature or equality theorem could imply the mixed result; this comparison does not assert whole-document noncoverage.",
+        "Same-day catalogue dates do not settle priority; the distinct records were compared by assumptions and stated implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed diagonal quadratic sensitivity, not shown to cover the mixed theorem",
+          "evidence": [
+            "Exact coefficient via two-way discrepancy; bound is attained by distinct full-support inputs."
+          ],
+          "identifier_or_url": "Resultary b6094ff64b5e",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary; exact mirror retrieval attempted and unavailable",
+          "title": "Sharp cross-norm stability and partition complexity of diagonal quadratic simplex prediction",
+          "trigger": "Strongest same-day structural overlap in cross-norm and two-way cuts"
+        },
+        {
+          "assessment": "Related parity structure with different regularizer",
+          "evidence": [
+            "Parity-sensitive l-infinity to l1 sensitivity and two-block interior witnesses for Tsallis entmax."
+          ],
+          "identifier_or_url": "Resultary c3f08b1304de",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary search",
+          "title": "Sharp two-norm stability and parity rigidity for Tsallis sparse prediction",
+          "trigger": "Parity correction and balanced profiles"
+        },
+        {
+          "assessment": "Bounded logit domain and different penalty",
+          "evidence": [
+            "Weighted Gibbs maps, bounded scores and an even–odd saturation threshold."
+          ],
+          "identifier_or_url": "Resultary 4ac33efe6eb4",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary search",
+          "title": "Partition discrepancy governs bounded-logit Gibbs stability",
+          "trigger": "Shannon/Gibbs type prediction, parity and cross-norm stability"
+        },
+        {
+          "assessment": "Credit general prediction/duality framework; no independently read exact mixed formula or whole-body exclusion",
+          "evidence": [
+            "Frozen comparison identifies the strong convexity and smoothness relationship, not a quoted mixed extremum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.02324",
+          "material_read": "Frozen RESULT.md 95–107 related-work passage only",
+          "method": "ArXiv OA and official JMLR 19-021 PDF alternate attempted; unavailable",
+          "title": "Learning with Fenchel–Young Losses",
+          "trigger": "Could cover Lipschitz versus strong-convexity formulation"
+        },
+        {
+          "assessment": "Broader modeling framework acknowledged; exact mixed priority remains provisional",
+          "evidence": [
+            "Frozen RESULT.md 97 describes generalized Shannon and Tsallis prediction maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.01988",
+          "material_read": "Frozen comparison only",
+          "method": "Primary OA passage request unavailable",
+          "title": "Sparse Continuous Distributions and Fenchel–Young Losses",
+          "trigger": "Generalized Shannon and Tsallis prediction might provide a stronger family result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A tight sensitivity budget and its obstruction to finite attainment matter for the commonly used cross norm that bounds total probability change from coordinatewise score errors. The finite odd-dimensional correction and the full balanced extremizer shape identify why the standard dimension-only bound can be loose and where its substitute is sharp. The contribution is not general duality, nor a claim of improved generalization or training convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:27:59.281616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A valid length-32 cycle traverses all 32 five-bit states via a permutation. For each four-bit tail the two incoming first-bit choices must append opposite bits, giving a unique feedback truth table. A full orbit from 00000 is therefore both necessary and sufficient, without duplicate rotations. The balance of the period makes its maximum absolute circular-factor imbalance the prefix-sum range, including when a factor wraps. Independently, exhaustive Euler-tour traversal of the four-bit graph, with five-bit edges and 00000 first, reproduced the claim using direct circular-factor discrepancy. Every cyclic class has this single anchor, and the search tries each unused outgoing edge and requires closure after all 32 edges. It visited 92,636 search nodes and accepted 2,048 tours, with a direct five-factor check on each. At D=5,6,7,8 it obtained total counts (224,688,912,224), CR counts (16,16,24,8), and no individually complement- or reversal-fixed cycle; direct orbit deduplication gave sizes 2 and 4 with counts (8,8,12,4) and (52,168,222,54), respectively. Equivalently the order-four action has stabilizer {1,cr} precisely for CR-fixed classes, and otherwise trivial stabilizer. The total is 528. All four literal witness strings in RESULT.md also passed direct tests. Replay the bounded independent enumeration with `python3 /workspace/branches/4c3a7688-cbdf-4235-8dab-7616449dde75/independent_edge_census.py` (without --limit); the saved output is independent_edge_census.txt next to that file. The supplied scripts were inspected, not executed. The half-word enumeration relies on the fixed-point-free reflected index involution for a CR period (its reflection parameter is odd, hence can be shifted to 31), and exhausts only the CR subset. No claim at another order follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Álvarez et al. establish attainability of discrepancy n and provide an algorithm, not a nonminimal count by symmetry.",
+          "A later Resultary record partitions 528 symmetry classes by subsequence universality, not by circular imbalance."
+        ],
+        "reasoning": "An optimal construction does not count suboptimal classes. General CR structure and a classification by a different invariant are relevant, but the passages compared do not imply this discrepancy-conditioned symmetry spectrum.",
+        "searches": [
+          "arXiv:2407.17367 p. 2 and Theorem 1, optimal discrepancy",
+          "arXiv:2408.01794 Lemma 1.1, general odd-order CR sequences",
+          "Resultary record 4cfde61eda1f, complement/reversal orbit setting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.01794",
+        "arXiv:2005.01638",
+        "arXiv:2407.17367",
+        "Resultary: 2c8828a3eb45, 29504196af99, 4cfde61eda1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even with 64 CR-fixed cycles known and 16 allocated to D=5, the remaining 48 CR-fixed cycles are not allocated to individual D=6,7,8 cells by the total or by the unrestricted counts.",
+          "The new CR counts (16,24,8) for D=6,7,8 fix the orbit counts in their respective strata once individual c- and r-fixed classes are excluded."
+        ],
+        "reasoning": "The action on discrepancy classes gives elementary arithmetic once the stabilizer counts are given. That arithmetic does not run backwards from the earlier marginal and minimum orbit counts to all three remaining CR cells.",
+        "searches": [
+          "Compare Resultary 2c8828a3eb45 Finding with the higher-D cells in the frozen result",
+          "Compare Chang–Wang CR characterization and later Resultary total-orbit count 4cfde61eda1f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Wang characterize CR periods as rotations of X cr(X), with an even period. This describes the same subset by an anti-palindromic half-period, not by discrepancy.",
+          "Gabric–Sawada use the same maximum absolute imbalance over circular factors, rather than a different linear balance statistic."
+        ],
+        "reasoning": "Changing from CR-fixed rotations to anti-palindromic representatives, or from circular imbalance to balanced-period prefix range, gives equivalent ways to compute the new cells; the inspected definitions and CR characterization do not tabulate them.",
+        "searches": [
+          "Resultary: joint circular discrepancy distribution and complement/reversal orbits of order-five binary de Bruijn cycles",
+          "arXiv:2408.01794 Lemma 1.1",
+          "arXiv:2005.01638 p. 2, circular discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/12 RESULT.md gives exactly (224,688,912,224) and the D=5 split of 52 size-four and 8 size-two orbits. This is verified earlier coverage, not a new calculation being credited.",
+          "The 2026/11/2 RESULT.md has the same discrepancy marginal without conditioning that table on CR."
+        ],
+        "reasoning": "The earlier exact table and minimum orbit decomposition cover the expressly excluded part of the result. No inspected exact table covers the higher-D CR cells.",
+        "searches": [
+          "Resultary exact order-five discrepancy census, 2c8828a3eb45",
+          "Resultary later order-five circular discrepancy census, 29504196af99"
+        ]
+      },
+      "rationale": "The unrestricted order-five marginal and the D=5 orbit split are explicitly covered by the earlier exact census, and the CR characterization is prior work. Accept the remaining cross-classification: the nonminimal discrepancy strata conditioned on CR and their orbit counts. None of the strongest examined statements gives those cells or fixes them via its stated marginal data.",
+      "residual_risks": [
+        "The original Etzion–Lempel paper was not independently accessed; the relevant structural statement was checked in Chang–Wang.",
+        "Primary comparisons are bounded and the additional web-search wave was deferred. An unindexed CR catalog may encode the cells; no historical uniqueness is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted distribution and minimum-discrepancy orbit split, not the higher-D conditioned counts",
+          "evidence": [
+            "The earlier counts are 224, 688, 912, 224 and the 224 optimal cycles give 52 size-four and eight size-two orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-complete-discrepancy-census-for-binary-order-five-de-bruijn-sequ--2c8828a3eb45",
+          "material_read": "Local mirrored RESULT.md, offsets 234–2275, claim and orbit split",
+          "method": "Compared numerical cells and rotational/complement/reversal equivalences",
+          "title": "Complete discrepancy census for binary order-five de Bruijn sequences",
+          "trigger": "Exact earlier census for the same objects and discrepancy"
+        },
+        {
+          "assessment": "Covers the structural half-word form used in checking the conditioned family",
+          "evidence": [
+            "Lemma 1.1 characterizes a CR-sequence by an even period of the form (X cr(X))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.01794",
+          "material_read": "Primary preprint p. 3, Lemma 1.1, offset 10869",
+          "method": "Read the stated characterization and matched rotation conventions",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Exact CR-fixed sequence family"
+        },
+        {
+          "assessment": "Prior statistic and bound, no conditioning in the compared passage",
+          "evidence": [
+            "The maximum of absolute imbalance is taken over the circular substrings of w."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.01638",
+          "material_read": "Primary preprint p. 2, offset 4637, definitions and lower bound",
+          "method": "Compared the scope of the discrepancy definition and bound",
+          "title": "Investigating the discrepancy property of de Bruijn sequences",
+          "trigger": "Same cyclic discrepancy statistic"
+        },
+        {
+          "assessment": "Covers the optimum value, not the orbit spectrum",
+          "evidence": [
+            "Theorem 1 constructs a binary de Bruijn sequence attaining minimum discrepancy n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.17367",
+          "material_read": "Primary preprint p. 2, offset 5585, minimum and Theorem 1",
+          "method": "Compared the existence and constructive statement with the cross-table",
+          "title": "De Bruijn Sequences with Minimum Discrepancy",
+          "trigger": "Potential stronger bound or enumeration"
+        },
+        {
+          "assessment": "Partial overlaps after the frozen date",
+          "evidence": [
+            "The first gives the discrepancy marginal; the second gives 528 complement/reversal classes and a different statistic."
+          ],
+          "identifier_or_url": "Resultary 29504196af99 and 4cfde61eda1f",
+          "material_read": "Findings of both local mirrored records",
+          "method": "Compared aggregated counts and the invariants defining the partitions",
+          "title": "Complete circular discrepancy distribution of binary order-five sequences; first cut-sensitive optimal subsequence universality spectrum",
+          "trigger": "Later exact discrepancy and symmetry-orbit matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reverse-complement symmetry selects an established class of de Bruijn cycles, and circular discrepancy is a natural quantitative balance criterion within that class. The nonminimal cells tell how many distinct symmetry-constrained cycles and orbits exist at each feasible imbalance, information that neither an optimal witness nor the unrestricted marginal supplies. This is a useful complete finite benchmark at a specified natural order, not a claim that the previously known minima or marginals are new or that the pattern persists at larger orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

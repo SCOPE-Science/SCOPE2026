@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is strictly an ordinary orbit-space homotopy equivalence \(|\mathcal M(T)|/\operatorname{Aut}(T)\simeq S^3\). The included standalone verifier independently checks twelve graph automorphisms, 1051 nonempty matchings, 162053 strict flags, 13904 orbit cells, all integral boundary-squared identities, 6524 legitimate geometric elementary collapses, and 427 subsequent unit **chain-level** cancellations. These integer operations leave one chain generator in degrees zero and three, proving full integral homology without torsion. The direct nonabelian presentation of the actual topologically collapsed complex eliminates 193 generators, so Hurewicz and homological Whitehead justify the homotopy equivalence. The code was run from its actual current package path and the output recorded. No finite sampling replaces an exhaustive check.
+## correctness
 
-## Originality — PASS relative to checked evidence
-The closest exact-object published result determines the original Tietze matching complex as a wedge of sixteen three-spheres and its rational dihedral character. It does not logically imply the quotient's integral homology or fundamental group; its fully read result contains no such classification. The separate Tietze perfect-matching result concerns a different complex. Jonsson's complete-graph matching exact sequences and Marietti–Testa's forest methods do not cover this graph and action. Full published results for a wheel and a prism classify different group actions on different graphs. Searches explicitly tested the line-graph independence-complex synonym and the \(S_2\times S_3\) versus dihedral group descriptions. Residual risk remains from unindexed or inaccessible equivalent calculations.
+PASS
 
-## Value — PASS
-The Tietze graph is the canonical triangle expansion of the Petersen graph. Its full symmetry quotient is a natural, fully specified topological object, rather than an arbitrary numerical slice. Earlier knowledge of the rational invariant line left open torsion and nonabelian fundamental-group obstructions. The exact integral homotopy type resolves both and distinguishes the ordinary matching complex from the graph's perfect-matching extendibility complex. The numerical certificate is in service of this structural classification, not itself the research claim. No extension to a family or manifold identification is asserted.
+The stated graph was rebuilt from KG(5,2) with one inflated vertex; testing all adjacency-preserving extensions confirmed exactly the twelve lifted permutations stabilizing {0,1}. Distinct ranks in each flag force a quotient identification within its closed simplex to be the identity on barycentric coordinates; each simplex is embedded, its facets have distinct rank sets, and the alternating deletion boundary has no stabilizer factor. The independent /workspace/review-work/orbit_check.py run with argument 1 used a different edge order, ordered-partition flag generation, reverse canonical representatives and alternative collapse, spanning-tree and pivot orders. It recovered 1051 matchings, 162053 flags, orbit cells (121,1250,3981,5222,2850,480), and 6524 verified free pairs leaving (43,235,385,193). All 193 generators in the resulting genuine 2-skeleton were eliminated by nonabelian substitutions. Exact unit pivots with higher-boundary coordinate checks left free chain ranks one in degrees zero and three and zero elsewhere. This gives trivial pi_1 and integral homology (not just rational). Hurewicz gives pi_2=0 and a sphere map realizing the H_3 generator; the simply connected homological Whitehead theorem gives the stated homotopy equivalence.
 
-## Limitations and closest work
-Machine-reproducible exhaustive finite calculations are essential; no independent mathematical audit was conducted. Literature coverage is bounded. Closest checked sources: *Sixteen three-spheres and the full dihedral character of the Tietze matching complex* (full published result), *The Tietze perfect-matching complex: six circles and its full rational symmetry character* (full published result), Jonsson (arXiv:1203.5641) and Marietti–Testa (arXiv:0705.1461).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected exact-object precursor gives the unquotiented ordinary matching complex and rational symmetry character, not the integral geometric orbit type. The other close claims change the graph, the action or the simplicial construction. In particular the proof of simple connectivity and the absence of integral torsion are not supplied by the rational representation. The bounded source comparison supports a distinct result, not a universal priority claim.
+
+## value
+
+PASS
+
+The ordinary matching complex of a standard symmetric cubic graph and its full geometric orbit space are natural objects. The exact sphere type supplies integral and nonabelian information not recoverable from the known character, and distinguishes what the quotient does from what rational averaging predicts. The reproducible extraction of integral chains and actual attaching words is meaningful for precisely this action, even without a graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

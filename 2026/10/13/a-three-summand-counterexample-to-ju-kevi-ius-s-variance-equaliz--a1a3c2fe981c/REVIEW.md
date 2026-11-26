@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source definitions were reconstructed exactly. The three summands have variances \(0\), \(1\), and \(2\), and the source variance function is strictly decreasing in \(\alpha\), making \(1/2\) the unique variance-matching common parameter. Exact convolution gives \(\mathcal Q_2=2/5\) for the proposed triple and \(\mathcal Q_2=3/8\) for three Rademacher summands. The half-open length-two interval convention is handled explicitly.
+## correctness
 
-## Originality
-PASS. The primary source states Conjecture 6.1 in the opposite direction. Candidate-specific searches covered the source notation, exact parameters, variance matching, Rademacher/five-point-uniform aliases, symmetric three-point convolutions, Schur-concavity, and concentration-function terminology. The closest prior result proves only the two-summand case. Mattner--Roos treat symmetric three-point convolutions, whereas \(T(2/5)\) is uniform on five points, so that literature does not imply this counterexample. Residual risk remains that an equivalent elementary example appears under different notation.
+PASS
 
-## Value
-PASS. A short exact counterexample to a named conjecture is mathematically substantive. The example uses the natural uniform member \(T(2/5)\) immediately below the \(1/2\) regime, and the violation is an exact rational gap \(1/40\), not a numerical artifact.
+The Juškevičius family uses the half-open (x,x+2] definition, and its canonical cells include all the proposed positive parameters, including 1. For the centered mixture of nu_k and nu_(k+1), the variance is the corresponding convex combination of (k^2-1)/3 and ((k+1)^2-1)/3. The mixing weight on the smaller variance strictly increases with alpha, and the endpoint formulas agree across cells. Thus variance is strictly decreasing and 1/2 is the unique common parameter for total variance 3. T(1) is a point mass, T(1/2) is Rademacher, and in T(2/5) the mixture weights 3/5 and 2/5 assign probability 1/5 to each of five consecutive integers. The original convolution has integer multiplicities (1,1,2,2,2,1,1)/10 on -3,...,3, so the heaviest possible two-adjacent-site window has mass 2/5. The comparison convolution has masses (1,3,3,1)/8 on -3,-1,1,3, so any such half-open window contains at most one atom and the maximum is 3/8. All variables are independent and the gap is 1/40. No optimality or classification is claimed.
 
-## Closest literature and limitations
-The direct source is Juškevičius, arXiv:2201.09861 / doi:10.1112/blms.13132. The closest broader comparison is Mattner--Roos, arXiv:math/0603522 / doi:10.1007/s00440-006-0043-0. The result does not optimize the violation, classify all three-summand failures, or propose a repaired general conjecture.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the explicit failure at the variance-one matching boundary alpha_*=1/2, with the five-point T(2/5) and exact gap 1/40. The unrestricted conjecture's falsity by itself is NOT a distinct first refutation: Mattner–Roos's older Schur-concavity discussion and adjacent-window identity already imply a refutation in the three-point T regime. At the present total variance 3 that regime cannot give any heterogeneous comparison, because each of its three variances is at most one. Thus that earlier result does not cover the boundary witness, and no implying comparison at this variance was verified.
+
+## value
+
+PASS
+
+The specific counterexample probes the natural transition at matched alpha_*=1/2, the maximal mean variance of the three-point regime in which any heterogeneous choice at that variance is impossible. A five-point factor can reach it, and the exact mass comparison isolates the discrete adjacent-window effect at a Rademacher comparator. A further arbitrary refutation of the conjecture, which already follows from older work, would not on its own pass value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

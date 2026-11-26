@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses \(b,r,d>0\), \(4d>r^2\), the switching convention, and the all-real-initial-data quantifier are explicit. A sine-phase representation guarantees first exit from the right half-plane by step \(k\); the following one or two left steps reach the positive axis or zero. Exact right-branch recurrence coefficients yield \(F^{k-1}(u,0)=(-Au,-Bu)\), from which both clock lengths and multipliers follow with no unproved itinerary assumptions. The origin's global stability, periodic rays, or escape then follows from the same exact scalar multiplier. The singular case has global finite annihilation in at most \(2k+2\) steps, with necessity from a nonzero ray orbit when \(M>0\). A standalone exact-arithmetic and randomized numerical checker passed. Numerical checks do not replace the all-parameter proof.
+## correctness
 
-## Originality — PASS within inspected literature
-The 2024 originating study explicitly excludes the unforced case; the 2016 general stability paper excludes zero-piece determinants in its detailed noninvertible application, and the 2026 detailed return-map paper works at nonzero forcing. The two closest indexed exact homogeneous-map findings treat respectively zero left trace and two negative traces; neither implies the mixed trace + right-focus claim by parameter restriction, sign change, or relabeling. Searches also tested aliases, first return maps, nilpotence, period rays and overall homogeneous stability. No published source inspected supplied the joint exact mixed-trace classification. Unindexed or less-accessible equivalent work remains a real priority risk.
+PASS
 
-## Mathematical value — PASS
-Global origin stability in piecewise homogeneous switching maps is subtle: separate Jacobian spectra do not classify the switched dynamics. This theorem produces an exact full-plane return reduction, a sometimes-present but uniquely determined finite-time extinction resonance, and a complete sharp transition between attraction, periodic rays and escape. The two clock lengths are physically counted planar iterates. The simple integer example exhibits two neutral four-step boundaries, a finite annihilation point and a neutral three-step boundary in one natural parameter family. This is a substantive global phase portrait, not merely a matrix identity or a small numerical improvement.
+For the prospective linear right orbit with x0>0, write x_j=C rho^j sin(phi+j theta), 0<phi<pi, using the distinct roots rho exp(±i theta). The first crossing of pi happens by ceil(pi/theta), cannot skip the nonpositive half-cycle, and has y_j=-d x_(j-1)<0 including x_j=0. A left iterate lands on the horizontal axis and a negative landing is made positive by the next iterate. For (u,0), the phase is theta and the recurrence gives x_j=u rho^j sin((j+1)theta)/sin(theta); at j=k-1 this gives exactly (-Au,-Bu). Hence the next landing has sign of bA-B; a negative landing adds exactly one step and multiplies its magnitude by b. All intervening right iterates have negative second coordinate, so the positive-ray return is primitive at M=1. At k theta=pi, A=0 but B>0, hence there is no cancellation at any b>0; otherwise b=B/A is the only cancellation and k+2+k bounds full-plane extinction. For 0<M<1 the rate sigma=M^(1/h) works up to a fixed multiplicative constant, by bounded reset time, bounded operator norms on the finite prefix and the finitely many ray phases. The same nonzero ray phases give norm divergence for M>1 unless the orbit reaches zero. Exact examples: (r,d)=(1,3) gives (u,0)→(u,-3u)→(-2u,-3u); neutral gains are 1/2,1,2. The exact-angle test (r,d)=(2,2) gives (0,-4u) at step 3, then (-4u,0), then (4bu,0). Supporting checker read as finite regression only, not executed. The proof gives a sufficient, not claimed sharp, uniform extinction exponent, and does not establish stability under forcing or nonlinear perturbations.
 
-## Scope and residual risk
-The right-focus condition and strictly opposite branch traces are essential; no assertion is made outside these constraints. Full priority against every possible unindexed treatment is unresolved. The sufficient finite-extinction bound need not be minimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of inspected evidence, for the exact homogeneous mixed-sign family only. The right-branch sine coefficients and rank-one return mechanism are prior ingredients; the contribution is the exact admissible positive-ray clock with the second left reset, its angular obstruction to nilpotence, and the all-orbit conclusion, not a new matrix power formula or a new general theory of first returns.
+
+## value
+
+PASS
+
+The unforced switching fixed point is a natural outstanding slice of the originating normal form. The exact return not only tests stability but identifies which periodic clocks can occur, and an extinction resonance which depends on whether the right focus reaches the switching line exactly. The r=1,d=3 example shows how exponential attraction, escape and finite annihilation can occur in one fixed pair of branch entries. These outcomes cannot be read from separate branch eigenvalue stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

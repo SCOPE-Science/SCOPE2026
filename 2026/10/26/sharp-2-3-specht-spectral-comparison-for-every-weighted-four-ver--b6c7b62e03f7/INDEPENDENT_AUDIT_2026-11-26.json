@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:22.154042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and scope, Proof; frozen VERIFICATION.md and verify.py inspected",
+        "Caputo–Liggett–Richthammer interchange-process spectral-gap theorem, also used in Alon arXiv:2610.22151v1 §1.1"
+      ],
+      "rationale": "A transposition fixes the matching containing its edge and swaps the other two matchings. On the sum-zero quotient, the triangle Laplacian with weights a,b,c therefore realizes (2,2); its two eigenvalues have sum 2W and product 3(ab+bc+ca), giving minimum W-sqrt(Delta). The (2,1,1) module is the sign twist of (3,1), so its minimum is 2W-Lambda where Lambda is the largest eigenvalue of the ordinary Laplacian restricted to the sum-zero space. Each edge contributes the outer product of the difference of its two vertex-coordinate rows in the Hadamard basis. This gives diagonal b+c,a+c,a+b and off-diagonal entries the three opposite-edge differences. Hence tr(M^2) <= 2W^2+2Delta. For deviations from mean 2W/3, the two other deviations sum to minus the largest deviation, so the latter is bounded by sqrt((2/3)(tr(M^2)-4W^2/3)). It follows that Lambda <= 2W/3 + (2/3)sqrt(W^2+3Delta), and 0<=sqrt(Delta)<=W implies sqrt(W^2+3Delta)<=W+sqrt(Delta). This proves the key comparison with no division by a gap. The dominance chain's remaining distinct pairs are covered by Aldous for (3,1) or the upper bound 2W on all spectra for the sign representation. The disconnected case of the Aldous comparison follows by adding positive rates and passing to the limit by eigenvalue continuity. The unit star has standard sum-zero eigenvalues 1,1,4 and bundles (1,1,1), giving exact ratio 2/3.",
+      "residual_risks": [
+        "The supplied sampled rates are not an exhaustion of real weights; the uniform result is proved by the trace estimate. Neither higher graph order nor classification of equality is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uniform all-pairs proved comparison in Alon Theorem 1.4 is 1/n^3, which is 1/64 at n=4. The 2/3 theorem in Theorem 4.4 requires w_ij=a_j for i<j in a suitable labeling; for instance all six rates distinct are excluded.",
+          "Aldous covers pairs above which sits (3,1), but the star rules out applying a constant-one theorem to the critical (2,2) versus (2,1,1) pair."
+        ],
+        "reasoning": "The broader graph-size bounds are weaker in constant, while the equally sharp quasi-complete theorem is materially narrower in allowed edge weights.",
+        "searches": [
+          "Alon Theorem 1.4, Definition 4.1, Theorems 4.4–4.5",
+          "Alon–Kozma §1 and star Corollary 1; constant-one Aldous order"
+        ]
+      },
+      "checked_sources": [
+        "Alon arXiv:2610.22151v1",
+        "Alon–Kozma arXiv:1003.1710",
+        "Resultary 840471779283"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star witness fixes an upper bound for the best comparison constant. The quasi-complete proof uses tableau diagonalization for the restricted weight structure. The frozen proof instead bounds a standard-Laplacian largest eigenvalue using all three opposite-edge differences and handles arbitrary weights."
+        ],
+        "reasoning": "The tested distinct claim is the lower comparison on the entire weight cone; it is neither a consequence of the upper witnesses nor a parameter substitution in the restricted 2/3 theorem.",
+        "searches": [
+          "Alon Theorems 1.4, 4.4, 4.5; Alon–Kozma star comparison; frozen trace-bound proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon defines the same Specht minimum and weighted dominance comparison; C((2,1,1),(2,2))>=2/3 is the critical four-vertex constant in his conjecture.",
+          "Alon–Kozma's star eigenvalues n-2 and n-1 for the indicated hooks and two-column shape give exactly the four-vertex ratio 2/3 but demonstrate failure at constant one, not a uniform lower bound."
+        ],
+        "reasoning": "The conjectural constant and eigenvalue-ratio formulations are equivalent here, including nonnegative zero rates when written as inequalities. The old sharpness example gives an upper bound on the possible uniform constant, not the lower bound.",
+        "searches": [
+          "Alon arXiv:2610.22151v1 §1.1, Theorem 1.3 and Conjecture 1.5",
+          "Alon–Kozma arXiv:1003.1710 §1 and star Corollary 1 (preprint numbering)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related indexed same-day record 840471779283 handles the unweighted family K_(2,n-2), n>=6, and bounds the conjecturable constant from above via ratios tending to 2/3. It does not prove the reverse inequality on the weighted four-vertex cone.",
+          "Tests on finite unweighted graphs or sampled weighted graphs cannot cover the continuous six-parameter space."
+        ],
+        "reasoning": "The relevant inspected indexed result and computational evidence do not give an exact all-weights theorem. The same-day relation is judged by claim content, not assumed priority.",
+        "searches": [
+          "Resultary weighted Specht ordering and two-thirds spectral comparison, including 840471779283",
+          "Alon arXiv:2610.22151v1 §1 and its simulations/partial-results discussion"
+        ]
+      },
+      "rationale": "Credit only the uniform sharp lower bound for arbitrary weighted four-vertex graphs. Alon's Conjecture 1.5 is exactly the more general proposed comparison and the unit-star obstruction and equality are known. The strongest inspected theorems do not supply the sharp unrestricted four-vertex lower bound. This is an assessment of the distinct proved claim, not of priority beyond the consulted evidence.",
+      "residual_risks": [
+        "The bounded independent literature lookup added no usable primary match beyond the directly inspected sources. An unlocated equivalent sharp spectral inequality could limit priority; a search miss is not evidence against such a result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conjecture and sharp witness known; general proved constant weaker, sharp proved case restricted",
+          "evidence": [
+            "Theorem 1.4 gives 1/n^3; Definition 4.1 imposes w_ij=a_j for i<j; Theorem 4.4 gives 2/3 on that class; Theorem 4.5 supplies even-order star equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22151v1",
+          "material_read": "§1.1 Theorems 1.3–1.4 and Conjecture 1.5; §4 Definition 4.1 and Theorems 4.4–4.5",
+          "method": "OA primary full-text passages at offsets 0–3793, 3750–6692, near 29981–30600 and 35250–38224",
+          "title": "Spectral comparison on Specht modules and mixing of the interchange process",
+          "trigger": "Same comparison and exact proposed constant"
+        },
+        {
+          "assessment": "Known same sharpness example at n=4, not universal sharp lower bound",
+          "evidence": [
+            "Star minima n-2 and n-1 yield 2 and 3 when n=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.1710",
+          "material_read": "§1 printed pp. 3–4 and star Corollary 1 printed p. 8 (preprint numbering)",
+          "method": "OA primary PDF passages at text offsets 8000–10982 and 26700–29125",
+          "title": "Ordering the Representations of S_n Using the Interchange Process",
+          "trigger": "Known four-vertex constant-one obstruction and weighted ordering results"
+        },
+        {
+          "assessment": "Upper obstruction for higher order, not the present lower comparison",
+          "evidence": [
+            "Unweighted family for n>=6 admits pairs with ratio tending to 2/3."
+          ],
+          "identifier_or_url": "Resultary 840471779283",
+          "material_read": "RESULT.md Finding on K_(2,n-2)",
+          "method": "Local mirrored record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-vertex connectivity does not improve the conjectural two-thirds bound",
+          "trigger": "Same constant and nearby Specht comparison in an indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md trace proof and dominance chain",
+        "Alon Conjecture 1.5 and Theorems 4.4–4.5; Alon–Kozma's star obstruction"
+      ],
+      "rationale": "The four-vertex dominance chain is the first to contain a comparison not settled by the ordinary interchange gap or the sign endpoint, and the star shows that its constant cannot be one. Settling the sharp constant on the whole nonnegative cone is a complete and natural test of the general conjecture. The trace proof explains the uniform result beyond the examples and special weight classes already in the literature.",
+      "residual_risks": [
+        "No general-size conjecture, equality classification, or mixing-time improvement follows from this finding alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:28:55.496562Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed nonzero starting vector, singular updates have probability zero and rotational invariance makes the conditional log multiplier law independent of the past. The norm multiplier is between min(1,|1-bS|) and max(1,|1-bS|) with S=||u||^2, so the squared logarithm is integrable under the exponential radial density, even at S=1/b. The variance is positive since the multiplier is nonconstant on the Gaussian support. Circle averaging gives log((1+|1-bS|)/2); S/2 is unit exponential. The split at S=1/b, integration by parts with cancelling boundary terms, and evaluation give exactly the displayed E1/Ei expression. Differentiation is justified on compact positive b intervals; the derivative sign is that of 1-R(b), and the factor b^-1 exp((1/2-t)/b) makes R strictly decreasing from infinity to zero. Together with the limits Lambda(0+)=0 and Lambda(b)~log b as b goes to infinity, this proves unique minimization and a unique positive stability zero. The critical LIL gives unbounded positive and negative excursions of the log norm and hence norm liminf 0 and limsup infinity. The Gaussian second and fourth moments independently give the multiplier 1-2b+4b^2, with neutral endpoint 1/2 and minimizer 1/4. Replay: python3 /workspace/reproduction/5.py (mpmath and standard library; output 5.txt). Independent quadrature of the split expectation and its derivative reproduced the displayed digits and brackets at 65-digit working precision (not an interval certificate for the digits). A separate directed rational Taylor/Riemann bound certifies Lambda(1)>0.0236062 without relying on floating-point exp, placing the positive zero in the asserted domain. The theorem is pathwise for the stated fixed noiseless recursion; simulations or finite trajectories are not its proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaussian LMS gives the matrix second-moment multiplier, and scalar LMS already distinguishes almost-sure from second-moment stability.",
+          "Chayti–Mirrokni–Jaggi and Song et al. give the exact second-moment boundary for the respective isotropic Gaussian specialization.",
+          "Gürbüzbalaban et al. Proposition 5 supplies eta_crit=2B/[sigma^2(d+B+1)] and an interval beyond it with negative exponent; the discussion identifies the limiting edge with rho=0. At d=2,B=1,sigma^2=1 the prior eta_crit is 1/2.",
+          "Later Resultary ...472ee7d72553 gives a high-dimensional 24/d^3 asymptotic gap"
+        ],
+        "reasoning": "The exact 1/2 second-moment edge and the qualitative pathwise advantage have direct or general-theorem prior coverage for this model. Neither an interval-existence result nor an asymptotic d-to-infinity law supplies the global planar shape and the exact planar scalar equation with unique optimum and edge.",
+        "searches": [
+          "Gaussian LMS Sayed–Nascimento §§3.6–3.9",
+          "Chayti–Mirrokni–Jaggi arXiv:2610.13871v1 Eqs. (7)–(9)",
+          "Song et al. arXiv:2604.14669v1 Theorem 1",
+          "arXiv:2006.04740 Proposition 5 and discussion of three step-size regimes; Resultary ...472ee7d72553"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.04740",
+        "arXiv:2610.13871v1",
+        "Sayed–Nascimento §§3.6–3.9",
+        "arXiv:2604.14669v1",
+        "arXiv:1905.07531",
+        "Resultary ...472ee7d72553 and ...bd4e7bf676c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad Gaussian result already entails the expectation and its sign criterion at d=2; Proposition 5 supplies a strict qualitative gap",
+          "Products of themselves rank-one matrices in arXiv:1905.07531 are not these almost surely full-rank updates",
+          "The planar calculation needs conditional circle integration with an eigenvalue sign switch, followed by the strictly monotone derivative ratio to establish the complete phase and optimization diagram"
+        ],
+        "reasoning": "Neither a parameter substitution into the expectation, a numeric quadrature without shape control, nor the second-moment law implies the claimed unique global minimizer and zero with the evaluated planar expression. Once the independent log-increment law and root hypotheses are available, LIL is a direct standard implication, not separate evidence of originality.",
+        "searches": [
+          "Compare arXiv:2006.04740 Eq. (3.9), Proposition 5 and Appendix D with the frozen angular integration and derivative ratio",
+          "Compare arXiv:2610.13871v1 Eqs. (7)–(9) and arXiv:1905.07531 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In arXiv:2006.04740 the product uses M=I-(eta/B)H with a batch Hessian H; for B=1 and a~N(0,I) this is precisely I-eta aa^t. Appendix D proves the iid directional log-increment law and the same limit as an expectation.",
+          "Resultary ...472ee7d72553 gives the same model and generic expectation plus a high-dimensional edge gap"
+        ],
+        "reasoning": "The law, exponent as a one-multiplier expectation, and homogeneous growth/decay by its sign for any fixed direction are already covered. The distinctive planar contribution evaluates that expectation, establishes its complete monotonicity pattern in the parameter (strictly decreasing then increasing), and locates its unique minimizer and positive zero.",
+        "searches": [
+          "Resultary: planar Gaussian single-probe Lyapunov exponent and almost-sure stability frontier; isotropic Gaussian zeroth-order update",
+          "Primary search: isotropic Gaussian two tap LMS exact almost sure stability stepsize Lyapunov exponent dimension 2 0.937087 exponential integral",
+          "Read arXiv:2006.04740 Eq. (3.9) and Appendix D Lemma 16 under unit covariance and batch size one"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected indexed record ...472ee7d72553 has the generic finite-d expectation and asymptotic large-d edge gap, not a planar exact evaluated formula",
+          "...bd4e7bf676c0 varies the number of probes in a scalar recursion and gives different scalar boundaries",
+          "No retrieved table states the planar special-function expression or its parameter extrema; the literal miss alone was not used to infer absence"
+        ],
+        "reasoning": "The tabulated/asymptotic quantities concern different regimes or a different dimension/probe count. Direct evaluation of the same-model expectation is necessary to infer the specific numbers, and a sampled value cannot establish unique extrema.",
+        "searches": [
+          "Targeted Resultary searches for the exact planar formula and single- versus averaged-probe thresholds",
+          "Primary Gaussian two-tap exact-number and exponential-integral search; arXiv:2006.04740 literal 0.937 locator and statement passages"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the distinct planar analytic calculation: the closed E1/Ei rate and proof of unique rate optimum and positive zero, providing the sharp evaluated planar boundary. The generic Gaussian logarithmic-multiplier formula and the existence of a regime beyond the second-moment edge were already established for this same matrix family by Gürbüzbalaban et al.; they are not separate contributions here. The random walk at the critical root is a standard LIL consequence once the root and increment hypotheses are identified. The known mean-square identities are not new.",
+      "residual_risks": [
+        "A previously evaluated exact two-tap Gaussian LMS or rotation-invariant product formula under other terminology remains possible; the searches and comparisons are bounded.",
+        "The generic Gaussian expected log formula and the qualitative gap are demonstrated prior coverage, regardless of the later Resultary record's date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of the directional iid log law, expectation formula, second-moment edge and qualitative gap; inspected claims do not evaluate the planar expectation or prove its unique minimizer",
+          "evidence": "The LLN proof uses iid ||M_i x||/||x|| with the same law as ||M e1||. Proposition 5 states eta_crit=2B/[sigma^2(d+B+1)] and an interval (eta_crit,eta_max) with negative Lyapunov exponent, with the discussion associating eta_max with rho=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.04740",
+          "material_read": "pp.6–8 Eqs. (3.7), (3.9), Theorem 3, Proposition 5, and following regimes discussion (offsets 23850–37041); Lemma 16 proof, Appendix D pp.31–32 (106500–110696)",
+          "method": "OA PDF bounded passages",
+          "title": "The Heavy-Tail Phenomenon in SGD",
+          "trigger": "Same Gaussian least-squares matrix product and expected log growth"
+        },
+        {
+          "assessment": "Prior recursion and exact second-moment law for Gaussian probes",
+          "evidence": "E_{k+1}=(I-beta P_k)E_k; theta(b)=1-2b+c_d b^2 is exact for Gaussian probes; b=2/c_d is neutral for this second-moment comparison.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13871v1",
+          "material_read": "Idealized stationary residual discussion Eqs. (7)–(9), offsets 17868–22226",
+          "method": "OA article passage following stationary locator",
+          "title": "Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking",
+          "trigger": "Exact same stationary residual recursion and threshold comparison"
+        },
+        {
+          "assessment": "Exact prior Gaussian second moment; scalar pathwise gap, not planar rate evaluation",
+          "evidence": "F=I-2 mu R+mu^2[2R^2+Tr(R)R]. The single-tap conditions E log A<0 and log EA<0 need not be equivalent.",
+          "identifier_or_url": "https://asl.epfl.ch/wp-content/uploads/publications/book_chapters/wiley_2003_b.pdf",
+          "material_read": "§3.6 Eqs. (3.17)–(3.19), PDF pp.vii–ix, offsets 18000–21989; §§3.7–3.9 Eqs. (3.20)–(3.27) pp.xiv–xviii, offsets 32600 and 38950–43034",
+          "method": "OA PDF bounded passages",
+          "title": "Energy Conservation and the Learning Ability of LMS Adaptive Filters",
+          "trigger": "Gaussian multitap LMS and a prior pathwise/mean-square distinction"
+        },
+        {
+          "assessment": "Exact moment boundary, not plane-specific almost-sure optimum and edge",
+          "evidence": "The Gaussian two-point estimator and threshold sum_i eta lambda_i/[2(1-eta lambda_i)]=1 specialize to eta=2/(d+2) for H=I_d.",
+          "identifier_or_url": "arXiv:2604.14669v1",
+          "material_read": "§2 Eq. (3), §4.2 Theorem 1, offsets 14592–14812 and 23000–25999",
+          "method": "OA primary passages",
+          "title": "Zeroth-Order Optimization at the Edge of Stability",
+          "trigger": "Gaussian two-point SGD for isotropic quadratics"
+        },
+        {
+          "assessment": "Later-dated same-model result at different parameter limit",
+          "evidence": "One fresh isotropic Gaussian direction; rate (1/2)E log F_d; 24/d^3+o(d^-3) edge gap, not the exact d=2 rate or optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-24-d-3-pathwise-mean-square-gap-for-gaussian-zeroth-order--472ee7d72553/RESULT.md",
+          "material_read": "RESULT.md generic exponent and asymptotic gap finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp 24/d^3 pathwise–mean-square gap for Gaussian zeroth-order optimization",
+          "trigger": "Strongest indexed same-model overlap"
+        },
+        {
+          "assessment": "Different dimension and update family",
+          "evidence": "Scalar averaging of n probes gives a two-versus-four-probe reversal and a large-n boundary 2+4/n+O(n^-2).",
+          "identifier_or_url": "Resultary 2026/11/2 ...bd4e7bf676c0",
+          "material_read": "RESULT.md Finding on scalar probe averaging",
+          "method": "Local Resultary mirror",
+          "title": "Probe averaging can reverse almost-sure stability in Gaussian zeroth-order updates",
+          "trigger": "Exact Gaussian pathwise threshold data"
+        },
+        {
+          "assessment": "Different class of matrices",
+          "evidence": "Matrices are themselves rank one, unlike I-buu^t which is full rank almost surely.",
+          "identifier_or_url": "arXiv:1905.07531",
+          "material_read": "p.2 Theorem 2.1, offset 7907 onward",
+          "method": "OA PDF bounded passage",
+          "title": "Lyapunov Exponent of Rank-One Matrices: Ergodic Formula and Inapproximability of the Optimal Distribution",
+          "trigger": "Potential broader exact formula for rank-one products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The actual typical-trajectory rate and best constant step differ materially from the classical second-moment prescription. The explicit scalar evaluation and strict single-minimum proof resolve the natural full step-size optimization in the planar baseline and give the precise limit of almost-sure contraction, rather than asserting only the previously known existence of a gap. The scope is the homogeneous model; these rates cannot replace expected-error guarantees for a noisy or drifting optimizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

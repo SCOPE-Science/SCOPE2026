@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:16:50.784867Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 22–90; both supplied C++ files inspected, not executed.",
+        "Independent certificate: /tmp/opencode/frozen-math-independent/r4.py. It uses analytic local costs in place of Bellman–Ford, so the different zero-arc count is expected."
+      ],
+      "rationale": "The 81-state trace counts each labelled cyclic assignment once, checks every zero for exactly one 2-neighbor and every positive vertex for positive support, and accumulates each column weight once. Independently, let z,o,p count labels 0,1,2. The total number of zero-to-2 incidences is z, and each 2 has at most two zero neighbors. Thus 3w−4n=o+2(2p−z). I assigned a different nonnegative local transition cost: one per 1 in the middle column, plus twice (# positive neighbors − 1) for each 2 in that column. These costs sum to exactly the same excess on closed walks. The independently constructed graph has 468 arcs, 49 of this alternative cost zero, exactly two cyclic zero components (simple cycles of lengths 3 and 6), and six cost-one arcs admitting zero-cost returns, all of closed length 5 mod 6. Exact arbitrary-precision counting in the cost-lifted graph matched H_{n,d} for d=0,1,2,4 and every formal 1≤n≤333. This is an all-order certificate: det(I−tB(0))=(1−t^3)(1−t^6)=D, deg [q^j] det(I−tB(q))≤81, and a term with k factors of positive q-degree in the log expansion contributes to D^{d+1}Φ_d a numerator of degree at most 81k+9(d+1−k)≤81d+9 after −t times differentiation. For d=0 the numerator is −tD'. The proposed series have the same denominator divisibility and degree bound. Agreement through 333 suffices, including the formal corrections at n=1,2 (not simple-prism evaluations). Since d≡−n mod 3, the smallest allowed costs with positive counts are 0,2,4,0,2,1 in residue order; cost 1 is excluded at n≡2 mod 6. This gives both rows of the claimed minimum/multiplicity function. In particular n=8 has weight 12 and 936 minimizers. The result counts labelled functions, not orbits. The frozen verifier's unsigned __int128 is a compiler extension, so its portability claim should be read as requiring a compiler providing that type; the arbitrary-precision reproduction does not rely on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almulhim's Proposition 1 bounds total perfect Roman between perfect Roman and total Roman; Theorem 3 characterizes the upper endpoint |V|, not the cubic lower endpoint.",
+          "The cubic edge count gives ceil(4n/3), including no information about multiplicity and a strictly lower value than the prism optimum at residue two."
+        ],
+        "reasoning": "The general inequalities and the cubic incidence bound do not decide the obstruction or enumerate optimal configurations. Ordinary perfect Roman has no positive-support condition.",
+        "searches": [
+          "Almulhim 2023, DOI 10.3390/sym15091676, Propositions 1,4 and Theorem 3; cubic equality and total perfect Roman domination treatments",
+          "Almulhim–Akwu–Al Subaiei 2022, DOI 10.1155/2022/1957027, Cartesian product comparison"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/sym15091676",
+        "Resultary b1badea27fb1",
+        "Resultary d51511ed039b",
+        "DOI 10.1155/2022/1957027 (bibliographic comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=6 the open ladder has one minimizer whereas the prism has nine at the same weight eight; at n=8 the cubic bound is eleven but the prism optimum is twelve with 936 minimizers."
+        ],
+        "reasoning": "The number of open-ladder minimizers cannot be converted by identifying endpoints in its aggregate counts; a boundary-conditioned transfer is needed. Neither the lower bound nor the cited total/ordinary comparison produces the stated census.",
+        "searches": [
+          "Statement-level comparison of the open-ladder Finding, cycle Finding, and published total-vs-perfect Roman inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b1badea27fb1 treats P_2 square P_n, with weight 2n−2 floor(n/3) and a three-residue count.",
+          "d51511ed039b treats the degree-two graph C_n, with weight n and a rational series for its labelled optimizer counts."
+        ],
+        "reasoning": "Adding a rung-neighbor to a cycle or closing the two open rails changes both exact defender counts at zeros and the positive-neighbor constraint. Neither enumerator is a reparameterization of the prism count.",
+        "searches": [
+          "Resultary and literature comparison: cyclic prism, circular ladder, cylinder, total perfect Roman domination, minimum functions",
+          "Same invariant on open ladders and simple cycles: b1badea27fb1 and d51511ed039b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact cyclic-prism match in the examined hits was the frozen record itself. The exact open-ladder result gives counts 1, q+1 and 13+(9/2)q(q+3) in residue order; the cycle result has denominator 1−x−2x^3−x^4."
+        ],
+        "reasoning": "The distinct indexed counts address different graphs and do not cover the labelled cyclic-prism quartic or the six-residue table. No exhaustive database coverage is asserted.",
+        "searches": [
+          "Local Resultary searches on total perfect Roman labelled minimizers, circular prism/parity obstruction and cyclic vs open ladders"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact six-residue cyclic-prism weight and optimum census, including the one-unit excess over the rounded cubic bound precisely at residue two. The closest verified exact enumerations change the graph, and the closest Cartesian-product paper changes the invariant. The underlying local transfer and cubic counting bound are not claimed as new.",
+      "residual_risks": [
+        "The 2022 Cartesian-product paper's specific theorem and tables were not inspected due to access errors.",
+        "The search does not exclude an unindexed treatment or an equivalent formulation of cyclic-prism minimizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and inequality baseline, not the cyclic-prism optimizer law",
+          "evidence": [
+            "γ_R^p≤γ_tR^p≤γ_tR; γ_tR^p≤2γ_R^p−1; Theorem 3 concerns γ_tR^p=|V|."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15091676",
+          "material_read": "Full-paper relevant passages: definition, Propositions 1 and 4, Theorem 3 (PDF pp. 3,4,6)",
+          "method": "OA publisher PDF, text offsets 14902, around 22389 and 30696–30863",
+          "title": "Total Perfect Roman Domination",
+          "trigger": "Defines the same invariant and gives general bounds and extremal classifications"
+        },
+        {
+          "assessment": "Open ladder, not cyclic closure",
+          "evidence": [
+            "Specifies P_2 square P_n and a period-three minimum census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-total-perfect-roman-domination-and-minimum-function-multip--b1badea27fb1/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local mirror, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact total perfect Roman domination and minimum-function multiplicity on open ladders",
+          "trigger": "Exact same objective and same strip with different boundary"
+        },
+        {
+          "assessment": "Cycle without the second rail; its quartic denominator is not the prism's quartic residue-class polynomial",
+          "evidence": [
+            "Simple C_n, minimum weight n and labelled count series (7x^3+6x^4+3x^5+x^6)/(1−x−2x^3−x^4)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-quartic-recurrence-for-all-minimum-total-perfect-roman-labelin--d51511ed039b/RESULT.md",
+          "material_read": "Finding and relationship to prior work (latter around offset 6500)",
+          "method": "Local mirror",
+          "title": "A quartic recurrence for all minimum total perfect Roman labelings on cycles",
+          "trigger": "Same invariant, cycles, exact minimum count"
+        },
+        {
+          "assessment": "Named invariant is ordinary perfect Roman; the particular product formulas remain unverified here",
+          "evidence": [
+            "Ordinary perfect Roman omits positive support; the accessible 2023 source explicitly distinguishes the two invariants."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2022/1957027",
+          "material_read": "Bibliographic title and frozen citation only; theorems and tables not retrieved",
+          "method": "DOI and identified publisher full-text/download routes returned access errors",
+          "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+          "trigger": "Plausible product table with cycle factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact optimum and its multiplicity answer different natural questions about a standard domination invariant on a standard cubic family. The cubic incidence bound alone misses an infinite residue family, and counting the large low-cost degeneracies cannot be inferred from the optimum. The six-residue weights and degree-zero through degree-four counts are useful benchmarks for extremal structure and counting algorithms, independent of applications or a full optimizer classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -42,7 +42,7 @@ Among the \(k^4\) equally weighted ordered hole pairs, the fast, intermediate, a
 \[
 S_{2m}=\frac{m+1}{4^m}\quad(m\ge0),\qquad \gamma_{0,0}=\log 2,
 \]
-whereas every other case has a simple leading spectral root and an asymptotically constant exponential prefactor.
+whereas in every other case the even-horizon probabilities have a simple leading spectral root and satisfy \(S_{2m}\sim C_{d,e}e^{-2m\gamma_{d,e}}\) for some \(C_{d,e}>0\). The rate applies to both horizon parities; a common prefactor for the two parities is not asserted.
 
 ## Assumptions and scope
 
@@ -98,7 +98,7 @@ so \(\lambda_H>\lambda_M\). Finally, after \(2m\) visits, the next forbidden two
 \[
 \frac{k-1}{k}S_{2m}\le S_{2m+1}\le S_{2m}.
 \]
-Both parity subsequences therefore have the same per-iterate exponential rate, giving the stated \(\gamma\).
+Both parity subsequences therefore have the same per-iterate exponential rate, giving the stated \(\gamma\). This bound does not extend the strict ordering to odd horizons. Indeed, reversing a word of length \(2m+2\) preserves the observation parity at which each pair is tested, reverses each forbidden pair, and exchanges \(d\) and \(e\) in that reversed-pair problem.
 
 **4. Number of configurations.** The conditions \(q=r\) and \(p=s\) are independent for a uniformly selected quadruple of digits. There are \(k^2\), \(k^2(k-1)\), \(k^2(k-1)\), and \(k^2(k-1)^2\) configurations with \((d,e)=(1,1),(1,0),(0,1),(0,0)\), respectively. Grouping by the three spectral values gives the distribution.
 
@@ -110,6 +110,8 @@ Run `python3 verify.py`. The standalone standard-library checker exhaustively co
 
 Livorati, Georgiou, Dettmann and Leonel study time-periodically moving holes in the doubling map, reporting numerical Ulam escape rates and overlap-based analytical approximations. Their moving boundaries are sinusoidal, not the arbitrary ordered pair of exact Markov cylinders considered here; their formulas do not provide this complete four-type finite-time law or the binary polynomial prefactor. Georgiou, Dettmann and Altmann give exact spectral and periodic-orbit methods for *static* Markov holes. Cheriyath and Agarwal derive generating-function and escape-rate methods for shift spaces with a *fixed* union of forbidden-word cylinders. The present time-alternating experiment is different from forbidding both words at every time: for example, static exclusion of both binary words \(00\) and \(11\) leaves only two alternating sequences, whereas alternating the two holes has \(2(m+1)\) allowed length-\(2m+1\) words. Generic transfer-matrix methodology motivates the proof, but the all-base three-rate classification, strict phase-sensitive finite-horizon hierarchy, and endpoint correction require the explicit rank-two calculation above.
 
+Kong, Sun and Wang already give the exact moving-hole transition-product count in bases \(b\ge3\) (Lemma 2.3) and study periodic overlap patterns (Theorem 1.8). The additional analysis here concerns explicit coefficient comparisons and the binary endpoint outside that base range; the transition-product identity itself is standard. The later-indexed *Complete overlap-code classification of moving two-digit holes* gives a stronger rank-two formula for arbitrary moving length-two holes for \(b\ge3\), as well as the same period-two trace and determinant table. The four generating functions in that base range follow by substituting the alternating overlap code and applying the order-two recurrence. This is substantive overlap in the results; catalog dates by themselves do not establish priority.
+
 ## Limitations
 
 The holes have exactly one forbidden word of length two in each temporal phase and the underlying map is a full integer-branch expansion; the theorem makes no claim for arbitrary hole shapes, longer words, nonuniform digit measures, or nonperiodic schedules. The comparisons described above do not rule out unlocated equivalent formulations in the wider symbolic-dynamics literature. The proof establishes exact ensemble survival probabilities and rates, not a universal conditional invariant measure or an escape law for every deterministic initial point. No independent audit has been performed.
@@ -119,3 +121,5 @@ The holes have exactly one forbidden word of length two in each temporal phase a
 1. A. L. P. Livorati, O. Georgiou, C. P. Dettmann and E. D. Leonel, “Escape through a time-dependent hole in the doubling map,” *Physical Review E* 89 (2014), 052913. First arXiv posting 2013-12-25, arXiv:1312.7030. DOI: 10.1103/PhysRevE.89.052913. Full text: https://people.maths.bris.ac.uk/~macpd/brazil/pre14.pdf.
 2. O. Georgiou, C. P. Dettmann and E. G. Altmann, “Faster than expected escape for a class of fully chaotic maps,” *Chaos* 22 (2012), 043115. DOI: 10.1063/1.4766723. Full text: https://people.maths.bris.ac.uk/~macpd/georgiou/avesc.pdf.
 3. H. Cheriyath and N. Agarwal, “Subshifts of Finite Type with a Hole,” *Journal of the Australian Mathematical Society* 115 (2023), 73–98 (published online 2022). First arXiv posting 2019-05-28, arXiv:1905.11767. Full text: https://arxiv.org/pdf/1905.11767.
+4. D. Kong, B. Sun and Z. Wang, “Open dynamical systems with a moving hole,” arXiv:2505.02336v2, Lemma 2.3 and Theorem 1.8. https://arxiv.org/html/2505.02336v2.
+5. “Complete overlap-code classification of moving two-digit holes,” Resultary record f19d7b26fc6b, Finding and proof of the rank-two factorization.

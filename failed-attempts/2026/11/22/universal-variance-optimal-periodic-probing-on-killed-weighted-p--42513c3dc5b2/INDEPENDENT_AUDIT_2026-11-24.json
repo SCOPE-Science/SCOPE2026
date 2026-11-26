@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:09:53.395308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Rademacher cross terms from distinct unordered pairs are orthogonal, so the variance is four times the sum of G_ij² over monochromatic unordered pairs (equivalently twice the ordered sum). The homogeneous left and right solutions are strictly monotone by induction with positive killing; the interior equations conserve the conductance-weighted Wronskian. The piecewise product solves each inverse column: the single diagonal jump, including the one-sided endpoint cases, contributes precisely that Wronskian. Squaring the product and telescoping both positive increments gives the interval kernel, including its boundary coefficients. Each interval count-square sum is minimized by balanced counts, and residues balance every interval at once. Equality forces each length-k window to have all colors, hence entering and departing colors agree; k=1 is trivial, and k=n consists of singletons. A collision in a length-k window costs at least two count-square units, giving the stated factor four. Independent bounded replay: python /workspace/replay/checks.py 2 constructs a new rational five-site matrix, computes exact variances by averaging over all sign vectors, and checks interval gaps and k! labeled optima for each budget. It is a normalization and uniqueness check on that instance, not the proof for all paths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary Finding covers arbitrary nonzero positive measures on [0,∞) of shifted resolvents, explicitly including A⁻¹, with the same path, killing, and exact class/support model.",
+          "The primary stochastic probing paper has the general per-class variance formula but does not solve this partition optimization in the inspected theorem."
+        ],
+        "reasoning": "Taking the measure δ₀ and the trace target B=A⁻¹ exactly recovers the assigned parameter domain and objective, with no inference from a different topology or estimator.",
+        "searches": [
+          "Resultary 3a7efbceeb4d, RESULT.md Finding, mirror offset 0",
+          "arXiv:2308.07722 §3.2 (3.5)–(3.6)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a7efbceeb4d",
+        "arXiv:2009.01589",
+        "arXiv:2308.07722",
+        "arXiv:1302.4018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For δ₀ the broader result's T_ab for a<b is exactly the product of squared Green-factor increments; singleton intervals have identically zero gap. Its §4 formula is twice the sum of T_ab times the excess count squares, and states the same uniqueness.",
+          "In that formula every length-k collision yields count-square excess at least two (an integer excess of the same parity as the sum of counts). Discarding nonnegative remaining terms gives the submitted factor-four lower bound."
+        ],
+        "reasoning": "No nontrivial remainder survives: the gap, strictness and local certificate follow directly. The hierarchical coloring source by itself is not such an implication.",
+        "searches": [
+          "Resultary 3a7efbceeb4d, RESULT.md §§3–4, mirror passage offset 4700",
+          "arXiv:1302.4018 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3a7efbceeb4d, Finding and §§3–4: exact same objective, residue partition and equality propagation in the inverse specialization.",
+          "arXiv:2009.01589 states the residue coloring for a minimum-color distance constraint, which is a different optimization."
+        ],
+        "reasoning": "The paired comparison separates an equivalent variance theorem (by choice of a point mass) from mere equality of the candidate partition in distance coloring.",
+        "searches": [
+          "Resultary: weighted killed path inverse/Green kernel periodic residue variance, interval gaps and uniqueness",
+          "arXiv:2009.01589 §2.1, (2.2)",
+          "arXiv:2308.07722 §3.2, Thm. 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned record itself and distinct 3a7efbceeb4d in the same dated directory. The latter is substantive theorem-level coverage, not an exact numerical table."
+        ],
+        "reasoning": "The identity hit is excluded. There is no need for a table of parameter values: the distinct indexed theorem treats the whole family exactly, regardless of catalogue ordering.",
+        "searches": [
+          "Resultary: periodic optimal stochastic probing for weighted path resolvents and matrix-function variants"
+        ]
+      },
+      "rationale": "A distinct Resultary result proves the same optimization and exact interval gap for a larger class containing the assigned inverse. The explicit local lower bound is obtained simply by retaining the defective length-k interval terms. This is mathematical coverage, not a priority determination between same-date records.",
+      "residual_risks": [
+        "No priority or publication order is inferred from the shared date.",
+        "Independent earlier equivalences under interval or anti-Monge terminology were not excluded; this does not affect demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader mathematical coverage of the assigned theorem and gap.",
+          "evidence": [
+            "Finding: any nonzero positive measure of shifted resolvents, including A⁻¹ as an example.",
+            "§§3–4: positive T_ab, telescoping, exact gap, and equality by consecutive length-k windows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-variance-optimal-periodic-log-determinant-probing-on-arbitrarily--3a7efbceeb4d/RESULT.md",
+          "material_read": "Finding and assumptions, strict interval decomposition and gap/uniqueness passages of §§2–4",
+          "method": "Resultary lookup followed by the local source mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; direct substitution and window bound comparison",
+          "title": "Variance-optimal periodic log-determinant probing on arbitrarily weighted paths",
+          "trigger": "Strongest distinct indexed hit on the same path and partition model"
+        },
+        {
+          "assessment": "Identical partition in a distinct minimum-color problem.",
+          "evidence": [
+            "The optimality attached to the residue pattern is distance-coloring optimality with nonzero entries inside the band."
+          ],
+          "identifier_or_url": "arXiv:2009.01589",
+          "material_read": "PDF §2.1, (2.2), offset 16106",
+          "method": "OA primary-text passage comparison",
+          "title": "Analysis of probing techniques for sparse approximation and trace estimation of decaying matrix functions",
+          "trigger": "Known identical periodic design in banded systems"
+        },
+        {
+          "assessment": "Covers the variance identity; the inspected theorem does not supply the exact-k path optimizer.",
+          "evidence": [
+            "Per-class variance is twice the sum of squared off-diagonals over ordered pairs; general partitions are allowed for this identity."
+          ],
+          "identifier_or_url": "arXiv:2308.07722",
+          "material_read": "PDF §3.2, Thm. 3.3, (3.5)–(3.6), pp. 7–8, offset 25564",
+          "method": "OA primary-text passage comparison",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "Exact Rademacher objective in general stochastic probing"
+        },
+        {
+          "assessment": "The inspected construction does not assert the all-partition killed weighted path variance optimum.",
+          "evidence": [
+            "The hierarchy is based on preserving and refining distance colorings."
+          ],
+          "identifier_or_url": "arXiv:1302.4018",
+          "material_read": "§2.1, p. 9, nested distance colorings",
+          "method": "OA primary-text passage comparison",
+          "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+          "trigger": "Hierarchical graph-distance probing antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The estimator design question is well motivated, but as a standalone contribution the proposed theorem is a point-mass specialization of the existing general interval balance result; the local bound merely discards nonnegative terms in the same exact gap. The audited scope supplies no independent new quantitative or structural conclusion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

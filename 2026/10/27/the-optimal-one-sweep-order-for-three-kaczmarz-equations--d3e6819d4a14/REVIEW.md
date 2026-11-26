@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projector identity for the trace of the sweep Gram matrix and the rank-one action of the exterior square determine the two nonzero squared singular values. The larger root is strictly decreasing with the adjacent-correlation product on the feasible interval; this supplies a necessary-and-sufficient ordering criterion. The common characteristic polynomial and sharp two-leaf limiting family establish spectral order-independence and the optimal universal penalty. Separate exact-rational checks and an analytically proved limit support the result; finite checks do not prove the real-parameter theorem.
+## correctness
 
-**Originality — PASS, with risk.** Yu–Diakonikolas (2026) analyzes general cyclic Kaczmarz convergence and row correlations; Hansen–Hochstenbach (2026) analyzes spectral and initial dynamics. These inspected statements do not give the six-order closed singular-norm formula, correlation-product minimizer, or sharp universal penalty. Ferreira–Acebrón–Monteiro surveys row-action variants, and the indexed ordering discussion in Dax (2022) concerns empirical shuffling and near-orthogonality heuristics rather than the claimed minimax theorem. Closest mathematical records concern two-row relaxation, greedy residual selection, and inconsistent-system bias; none entails this theorem. Older specialized three-projection results remain an originality risk, and direct full publisher text for Dax (2022) was rate-limited.
+PASS
 
-**Mathematical value — PASS.** This classifies all six orderings for the minimal three-equation full-rank case by a natural row-correlation invariant and resolves a concrete conflict between a local adjacency heuristic and optimal one-sweep worst-case Euclidean error. The sharp supremum and spectral/singular-value separation are meaningful beyond a single numerical example.
+For the ordered normals with correlations a,b,c, trace(M^T M)=a^2+c^2+(b-ac)^2 by inserting the last rank-one loss after the first two projections. The exterior square of each plane projection is the rank-one projection on its normal, so the exterior-square product is ac u_k u_i^T. Its squared Frobenius norm yields the product p=a^2 c^2 of the two possibly nonzero squared singular values (zero ranks included). Thus the sum is Q+p and the product p. The sweep is strictly contractive by norm equality for orthogonal projections and independence of the three normals. With 0<Q<1 the feasible p range is contained in [0,(1-sqrt(1-Q))^2]; implicit differentiation shows the larger root decreases strictly since its derivative is (lambda_+-1)/sqrt((Q+p)^2-4p), with the endpoint handled by continuity. Ordering by the largest adjacent product covers zeros and ties; all-orthogonal sweeps vanish. Trace(M)=a^2+b^2+c^2-abc and trace of the exterior square is abc; cyclic shifts and transpose reversal also independently show the six spectra agree. The quadratic identity yields lambda_+<=Q, and lambda_+>= (Q+p)/2>Q/2 for p>0; for p=0 and Q>0 one has lambda_+=Q. For the independent star family in the record the endpoints have 2t^2 and the middle order has t^2+O(t^3), which proves the sharp nonattained sqrt(2) supremum. Inspected check.py without executing it: its invariants are rational, but its separate numerical ordering tests use approximations and do not establish strict monotonicity.
 
-**Scientific limitations.** Three real independent normalized rows, exact unrelaxed Kaczmarz, one complete sweep, worst-case Euclidean solution error. Not a result about arbitrary dimensions, residual norms, repeated sweeps, noise, or roundoff. No independent bibliographic or mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact Gram-based sweep operator to prior work and the order-invariant spectrum to elementary cyclic-permutation and transpose identities. The supported distinct claim is the exact one-sweep minimizer for arbitrary independent triples, including ties, together with the sharp global comparison of best and worst orders on the same instance. The literature and catalogue statements inspected do not give that comparison or a stronger order-selection theorem that yields it as a special case.
+
+## value
+
+PASS
+
+The least-sized nonsingular setting in which a sweep has genuinely different ordering choices has an exact worst-direction optimizer that need not follow conventional low-coherence heuristics. The equality of eigenvalues explains why spectral-radius analysis misses this initial effect, and the sharp ratio quantifies the maximum benefit of changing the order on one instance. This has value for the explicitly motivated one-sweep objective, not as a general recommendation for asymptotic convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

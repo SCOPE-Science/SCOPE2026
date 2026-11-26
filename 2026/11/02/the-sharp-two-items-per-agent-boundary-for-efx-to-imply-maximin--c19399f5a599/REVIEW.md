@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The focal-agent proof is complete and applies to arbitrary positive real tiers and all \(n\ge2\). If the focal bundle already reaches the high tier, each hypothetical \(n\)-partition with \(m<2n\) has a singleton/empty part worth no more than the focal bundle. Otherwise, EFX forces each high-valued good to occupy a singleton foreign bundle; EFX bounds every remaining low-only foreign bundle at one more low good than the focal bundle. The resulting exact low-good count contradicts any hypothetical all-strictly-better MMS partition. The \(m=2n\) example is globally EFX and has an explicit MMS partition strictly exceeding its focal recipient's value. An independent count-based verifier checked \(893{,}790\) finite configurations, including \(305{,}148\) focal EFX instances, plus four boundary witnesses. Finite checks corroborate but are not used to prove universal quantifiers.
+PASS
 
-## Originality — PASS with stated residual priority risk
+Fix an agent and measure all bundle values by their strictly positive tiers L<H. For s≥H and m<2n, every benchmark partition has an at-most-singleton part of value at most H≤s. For s<H, the agent's own bundle has t low goods, s=tL, and each of the p high goods must be alone in a foreign bundle: delete any other good to contradict EFX otherwise. Thus p≤n-1. After reserving those p bundles there are at most t+(n-p-1)(t+1) total low goods, since deletion of a low good from any other nonempty low bundle leaves at most t low goods. In any benchmark partition with all values strictly above s there would be at least n-p high-free parts, needing at least (n-p)(t+1) low goods, one more than available. This independent argument covers real tiers, empty bundles including m=0, and the case where a tier is absent. At m=2n the identical-valuations witness gives the focal recipient 4 from its two 2-goods, with every reduced foreign bundle worth at most 3 to any agent, so all EFX inequalities hold. Pair each 2 with a 3 to attain minimum 5 in the benchmark; the construction also works when n=2. In fact 5 is exact here: to beat 5 every part needs at least two goods, hence exactly two each, and a part containing a 2 cannot beat 5. The mathematical count, not the frozen finite integer-grid tests, proves both unrestricted quantifiers.
 
-Source-level comparisons distinguish the universal quantifier over *all* EFX allocations from Zhang's 2026 existence theorem for an MMS allocation. Qin's exact unrestricted \(10/17\)-MMS bound does not imply an exact factor of \(1\) for positive bivalued goods below \(2n\), and the inspected relevant sections do not state such a restriction. Amanatidis–Birmpas–Markakis (2018) already provide EFX-not-MMS obstructions at the two-items-per-agent frontier: that counterexample is used only for sharpness and not claimed as new. Searches for equivalences, cardinality bounds and relevant mathematical records yielded no exact or stronger covering statement. The complete Zhang manuscript was inaccessible; as a highly relevant source it is an explicit priority risk, not evidence of noncoverage. Unindexed prior work is another residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact, all-agent, all-positive-tier-value compatibility threshold at the smallest possible supply for a failure. It explains which local EFX certificate automatically enforces the global MMS benchmark under the recently studied personalized-bivalued model, and the high-tier lemma identifies an unbounded-size regime where the implication still holds agentwise. The distinction from EF1 and arbitrary multi-valued allocations shows that this is a substantive structural threshold rather than a tautological item-count consequence. It complements recent MMS-existence theorems without claiming an algorithm or paper-sized generalization.
+The new content is the exact guarantee for every complete EFX allocation below 2n goods and the focal high-tier barrier without a supply bound. Prior positive bivalued counterexamples already show failure at equality for two agents, and padding with high pairs readily adapts the obstruction. The inspected exact MMS existence theorems do not imply the universal benchmark guarantee, and the inspected EFX guarantees are weaker. No inspected prior result covers the two positive statements.
 
-## Literature and limitations
+## value
 
-Closest sources are arXiv:2608.15822, arXiv:2608.30267, and arXiv:1806.03114. Primary full-text excerpts of the last two were inspected; Zhang was accessible only through its indexed abstract and summaries, and an institutional full-text attempt did not provide access. Full priority confirmation remains open. The result assumes complete EFX allocations of positive two-valued goods, makes no EFX existence claim, and is independently unvalidated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp compatibility regime for two central fairness criteria gives useful information about all algorithmic outputs that are complete EFX under arbitrary personalized tiers, not just existence of a good output. The high-tier barrier is an agent-level sufficient criterion at any supply and shows why the ordinary singleton pigeonhole observation does not alone give this theorem. The statement validates exactly when the size-based guarantee first can fail without treating older counterexamples as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

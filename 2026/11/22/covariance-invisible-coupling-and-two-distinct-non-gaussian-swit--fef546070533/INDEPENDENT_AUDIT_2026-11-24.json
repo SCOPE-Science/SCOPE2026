@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:03:05.874464Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md and check.py inspected",
+        "/workspace/review-evidence/fold_switch.py and fold_switch.out, conditional covariance calculation"
+      ],
+      "rationale": "Uniform drift contraction at rate at least a−g constructs the unique stationary process from the infinite Brownian past, with finite moments. Reflecting Y and the shared telegraph sign gives zero cross-product at every time pair; simultaneous inversion of X and Y gives both zero means (the reflection alone would only give the Y mean). As a separate reconstruction, condition on the sign path: the law is centered Gaussian, with equal diagonal covariance S and off-diagonal L satisfying S′=−2aS+2gσL+2D and L′=−2aL+2gσS. These yield E[S]=D(a+q)/(b+aq) and close the linear stationary system for E[S²], E[σSL], E[L²], including the −2q multiplier for sign-bearing moments. Solving gives κ₄=3 Var(S)=3D²g⁴q/[a(b+aq)²(2b+aq)], independently matching the frozen position-generator solution. Normalizing yields the stated excess. The derivative sign numerators for the two scaled profiles are 1−x−x² and r−rt−t². They change sign exactly once on the positive axis. The raw peak value follows by φ²=φ+1; at t=r/φ the excess root polynomial is r(r−1)<0. The roots scale as r/φ and √r in units of a, giving the stated separation.",
+      "residual_risks": [
+        "The optimization holds at fixed a,D,g using q as the flip rate in each direction, not the telegraph correlation-decay rate 2q. No claim for independent switches on the two couplings or for auto-correlations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eab–Lim gives a scalar OU representation, mean/covariance and moment stability; the inspected inertial Méndez model is second order and studies stability and second moments under fluctuating damping."
+        ],
+        "reasoning": "These are substantive antecedents for one-mode analysis, not a general joint theorem implying the exact raw and excess maxima for reciprocal coupling.",
+        "searches": [
+          "Eab–Lim arXiv:1612.03013v3; Méndez et al. DOI 10.1103/PhysRevE.84.041137; stochastic oscillator spectra and switching damping"
+        ]
+      },
+      "checked_sources": [
+        "Sources above; actual frozen parameter and generator definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract states spectrum mixing without cross-correlations; it does not state either fourth-order optimization. APS article and supplement were inaccessible, and the targeted lawful alternate manuscript lookup furnished no accessible copy."
+        ],
+        "reasoning": "Zero cross-covariance at all lags does not determine higher marginal moments or optimal rates. No whole-document exclusion is made for the unread paper.",
+        "searches": [
+          "Kryuchkov et al., DOI 10.1103/PhysRevLett.129.034102, accessible abstract",
+          "Interacting Oscillators with Fluctuating Coupling Kryuchkov Mantsevich Yurchenko 034102 author accepted manuscript arxiv research repository pdf DOI lawful open full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normal coordinates U=(X+Y)/√2, V=(X−Y)/√2 have complementary scalar telegraph damping. They use independent Brownian motions but one shared sign process. Either individual normal-mode marginal is a scalar fluctuating-damping OU process."
+        ],
+        "reasoning": "Independent single-mode moments do not reconstruct E[U²V²]; one needs the dependence between their conditional variances to obtain the original-coordinate fourth cumulant.",
+        "searches": [
+          "Telegraph-coupled overdamped oscillator fourth cumulant and kurtosis resonance; dichotomous parametric damping",
+          "Eab–Lim arXiv:1612.03013v3, scalar overdamped model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest earlier inspected archive findings give fourth-cumulant diagnostics for a single switched trap; neither gives this paired oscillator result or the two peak-rate formulas. No empirical table is needed for the exact claim."
+        ],
+        "reasoning": "The pertinent exact look-up is for identical formulas or a tabulated equivalent law; the confirmed archive hits are different stochastic systems.",
+        "searches": [
+          "Resultary: covariance-invisible coupling, stationary fourth cumulant, switched harmonic trap, excess-kurtosis peak",
+          "Direct identifier and title search: Kryuchkov–Mantsevich–Yurchenko DOI 10.1103/PhysRevLett.129.034102"
+        ]
+      },
+      "rationale": "Credit is for the coordinate fourth-order formula, its two distinct unique maxima under raw and variance-normalized observations, and their scale separation in the specified shared-sign overdamped model. Covariance-invisible fluctuating coupling is explicitly credited to prior work. The assessed joint-coordinate fourth-order result is not implied by the inspected scalar switching laws or the published spectral observation. The closest oscillator paper's full text was not available, a material but not dispositive risk.",
+      "residual_risks": [
+        "Full text of DOI 10.1103/PhysRevLett.129.034102 was not inspected: direct article and supplement routes were inaccessible and no lawful alternate copy was found. Exact higher-order overlap remains possible. A bounded lookup does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covariance antecedent; unresolved whether full text gives higher-order coverage",
+          "evidence": [
+            "Accessible abstract describes mode mixing although there are no cross-correlations. It gives no stationary fourth-cumulant or two maximizing-rate formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.129.034102",
+          "material_read": "Bibliographic metadata and accessible PubMed abstract excerpt, PMID 35905345; not article or supplement",
+          "method": "Indexed abstract; lawful OA article/supplement and alternate-copy searches attempted",
+          "title": "Interacting Oscillators with Fluctuating Coupling: Mode Mixing without Cross-Correlations",
+          "trigger": "Closest fluctuating interoscillator coupling and directly overlapping covariance observation"
+        },
+        {
+          "assessment": "Each mode marginal is an instance; insufficient to determine joint-coordinate fourth-order law",
+          "evidence": [
+            "The model uses scalar overdamped drift with µ(t)=µ₀+εξ(t), and discusses mean, covariance and moment stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.03013v3",
+          "material_read": "Abstract, pp. 3–4 (offset 9700), p. 8 (24500), pp. 15–16 (47300–52291)",
+          "method": "Open original PDF passages",
+          "title": "Ornstein-Uhlenbeck Process with Fluctuating Damping",
+          "trigger": "Scalar reduction by diagonalizing reciprocal coupling"
+        },
+        {
+          "assessment": "Inertial scalar oscillator, not this overdamped coordinate-cumulant problem",
+          "evidence": [
+            "The starting equation is second order; the indicated focus is on dichotomous damping and moment stability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.84.041137",
+          "material_read": "Open PDF p. 1, offset 4400",
+          "method": "Open original PDF passage",
+          "title": "Instabilities of the harmonic oscillator with fluctuating damping",
+          "trigger": "Potential prior dichotomous damping and harmonic steady-state result"
+        },
+        {
+          "assessment": "Single on/off trap and different observable structure",
+          "evidence": [
+            "A covariance twin is distinguished by its fourth cumulant; there are no coupled reciprocal coordinates or peak-rate pair in that finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-covariance-twins-and-fourth-cumulant-identification-in-a-randoml--ec8c472a2b8e",
+          "material_read": "Finding, offsets 95 and 747",
+          "method": "Resultary local mirror",
+          "title": "Covariance twins and fourth-cumulant identification in a randomly switched trap",
+          "trigger": "Earlier covariance invisibility and explicit fourth-order diagnostic"
+        },
+        {
+          "assessment": "Switched single-particle stiffness and autocovariance rather than cross-coordinate coupling",
+          "evidence": [
+            "The non-Gaussian diagnostic is for one stiffness-switched coordinate with equilibrium-like autocovariance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-complete-equilibrium-covariance-camouflage-manifold-for-a-swit--8f817ade8710",
+          "material_read": "Finding, offset 90",
+          "method": "Resultary local mirror",
+          "title": "A complete equilibrium-covariance camouflage manifold for a switched trap",
+          "trigger": "Earlier exact covariance camouflage with positive fourth cumulant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; inspected covariance antecedent"
+      ],
+      "rationale": "The fourth cumulant detects a coupling that disappears from all cross-position covariances, and switching rates optimized for the unnormalized and normalized diagnostic separate parametrically near instability. This is a meaningful distinction between measurements on a natural stochastic harmonic model, not solely another moment identity.",
+      "residual_risks": [
+        "The resonances concern two specified stationary scalar diagnostics, not optimal sensing in noise, experimental dynamics or general nonequilibrium response."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

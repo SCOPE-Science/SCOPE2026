@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:45.833696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–54, 61–62 and VERIFICATION.md; verify.py inspected but not executed",
+        "Vongkok–Chumsri–Pochai, Eqs. (2.1), (3.3), (3.5), (3.6), (4.2), Table 1, §4",
+        "Independent replay checks/frozen_replay.py, option 5"
+      ],
+      "rationale": "The published equations (3.3) and (3.6) give the coefficients in the frozen statement, including right-end factor 2λ/(1+λ) under the homogeneous Neumann condition. At t_0=0 the diagonal coefficient is b_0=[1−λ+(M−m)Δt]/(1+λ), and b_n≥b_0 when the exponent is nonnegative. The left and right forward coefficients are nonnegative. If b_0,c≥0, induction through nodes and time steps preserves the closed cone, also at equality. If b_0<0, choose zero boundary and the first interior basis vector; if c<0, choose zero boundary and the second interior basis vector. The first output component isolates the respective offending coefficient, so no conclusion from a signed coefficient hidden by later sweep entries is required. Rearrangement gives exactly the two inequalities. Substituting the printed numerical values directly into the printed stencil gives λ=9, b_0=−79941/100000 and the time ceiling 100/89941. With the given nonconstant input h_1=25+exp(0.01)<27 and C_1^0=100,C_2^0=0, the upper bounds on the first interior output are −55.5735, −55.1685 and −54.7635 for the three velocities. The sign is independent of the nutrient/light exponent at t_0. Independent `python3 /workspace/checks/frozen_replay.py 5` passed exact sweeps of the cone generators on a 3×3 parameter grid that includes both equality boundaries, as well as the three exact witness bounds. The frozen claim is about the printed formula and direct numerical inputs, not the physical rescaling or what the authors' implementation and constant-25 initial condition do.",
+      "residual_risks": [
+        "The primary paper reports normalized-looking mesh numbers alongside physical units in meters, seconds and days and gives inconsistent right-end locations. No internally consistent conversion to an implemented or physically scaled case was verified; λ=9 and the three witness bounds are for the raw printed numbers only.",
+        "The frozen proof assumes a fixed nonnegative exponent, while the source permits a Monod field μ(x,t). For sign purposes nonnegative field values still give b_(i,n)≥b_0 and the same t_0 coefficient, but no coupled nutrient evolution or certification of an implementation is claimed. 'Zero flux' here denotes the printed homogeneous Neumann condition, not zero total advective-plus-diffusive flux."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper calls Saulyev unconditionally stable in §3.1; the printed interior and right-end formulas do not identify their map as a different positivity-preserving integrator.",
+          "Resultary 541ef955f230 proves an alternating diffusion pair threshold, assuming zero Dirichlet boundaries and no advection or reaction. The full texts of the cited Chen–Charpentier–Kojouharov and Pourghanbar papers were not retrieved; their theorem hypotheses were not verified."
+        ],
+        "reasoning": "A stability bound does not give entrywise nonnegativity. The inspected alternating-map theorem concerns a different family and cannot dominate the frozen sign region when advection, growth and loss are present. Related work on monotonicity can overlap in method without supplying this mixed-boundary classification.",
+        "searches": [
+          "Vongkok–Chumsri–Pochai §3.1 and Eqs. (3.3),(3.6)",
+          "Chen–Charpentier–Kojouharov DOI 10.1016/j.mcm.2011.05.005",
+          "Pourghanbar et al. DOI 10.1155/2020/9647416, query monotonicity",
+          "Resultary Saulyev/Péclet search above"
+        ]
+      },
+      "checked_sources": [
+        "Vongkok–Chumsri–Pochai DOI 10.28924/2291-8639-24-2026-39",
+        "Resultary 541ef955f230 and 7860a0a17e77",
+        "Open retrieval attempts for Chen–Charpentier–Kojouharov, Pourghanbar et al., and related Samalerk–Pochai papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day Resultary finding gives r≤1 for a completed alternating diffusion pair, with a one-node exception. The present proof exposes the first one-way output and retains signed advection and reaction coefficients. Its pure-diffusion boundary number reduces to λ≤1 at u=0 and M=m with zero growth exponent.",
+          "The 2026 source supplies all recurrence terms and a nonzero left boundary input; it simulates a different initial profile."
+        ],
+        "reasoning": "The shared diffusion threshold is credited, but a two-step sign statement cannot imply both a separate cell-Péclet bound and the shifted diagonal bound. Even a general positive-matrix criterion needs the source-specific sign exposure and first-row witness analysis with the stated input to give this raw-grid counterexample.",
+        "searches": [
+          "Vongkok–Chumsri–Pochai Eq. (3.3), (3.6) and §4",
+          "Resultary 541ef955f230, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vongkok–Chumsri–Pochai Eq. (3.3) gives the three coefficients, and Eq. (3.6) gives the homogeneous Neumann closure. Resultary 541ef955f230 supplies a sharp sign boundary for an alternating pure-diffusion pair; 7860a0a17e77 concerns positive stationary phytoplankton equilibria."
+        ],
+        "reasoning": "Cone preservation, entrywise nonnegativity of the first-step map with the boundary input included, and positivity in the weak (nonnegative) sense are equivalent sign tests for that map. The cell-Péclet restriction alone is c≥0 and does not imply b_0≥0. A stationary PDE equilibrium or a two-step alternating map is not the one-step map under review.",
+        "searches": [
+          "Resultary: sharp positivity criterion for a forward Saulyev advection diffusion reaction sweep, Monod phytoremediation biomass, Peclet number two, negative concentration on the published Vongkok Chumsri Pochai grid",
+          "Web: Saulyev advection diffusion reaction forward sweep positivity nonnegativity monotonicity coefficients Peclet 2 zero Neumann Vongkok Chumsri Pochai Monod 10.28924/2291-8639-24-2026-39 negative biomass Pourghanbar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table and simulation text report the numeric coefficient and grid inputs as well as the three velocities, not a positivity table or a witness with C_1^0=100 and C_2^0=0. The indexed alternating-pair example proves −4/27 at r=2 with two interior nodes for a different map."
+        ],
+        "reasoning": "The raw inputs are already known. Applying the signed first row of the printed sweep to a different nonnegative initial state certifies a conclusion that is not furnished by the table, the paper's fixed-profile plots, or the alternate-pair example.",
+        "searches": [
+          "Vongkok–Chumsri–Pochai Table 1 and §4 velocity cases",
+          "Resultary Saulyev/Péclet/negative concentration search above"
+        ]
+      },
+      "rationale": "Neither entrywise positivity as a general method nor the pure diffusion Saulyev threshold is new. The supported distinct result is the sharp combined advection/reaction constraint for this printed one-way sweep with its boundary, and its explicit all-velocity negative witness on direct substitution of the article's mesh numbers. The source's discussion of stability is not an all-input cone-invariance claim. Inspected work on an alternating diffusion pair does not cover this time-dependent, advective mixed-boundary update.",
+      "residual_risks": [
+        "Older Saulyev-related results unavailable in full text and other coefficientwise monotonicity treatments could overlap; neither an access failure nor an empty search is negative evidence. No priority is inferred from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the printed recurrence and numerals, not a consistent physical-unit implementation or prior all-input comparison",
+          "evidence": "The right factor is 2λ/(1+λ) with zero Neumann data; Δx=Δt=0.01; D=0.09, M=0.990, m=0.400; velocities 0.05,0.35,0.65; initial concentration 25 in plots and left input 25+exp(t).",
+          "identifier_or_url": "https://doi.org/10.28924/2291-8639-24-2026-39",
+          "material_read": "PDF pp. 5–8, Eqs. (2.1),(3.3),(3.5),(3.6),(4.2), Table 1 and §3.1; velocity passages on pp. 8, 10, 12; offsets 10050, 10850–11500, 14650–18164, 19240, 22429, 25461",
+          "method": "Open PDF passage and equation inspection",
+          "title": "Numerical Simulation of Phycoremediation for Nutrient Removal Using the Extended Monod Model with Saulyev Technique",
+          "trigger": "Exact recurrence, parameters and boundary data"
+        },
+        {
+          "assessment": "Overlap in diffusion threshold and sign method; distinct map, boundary conditions and witness",
+          "evidence": "Pure diffusion with two opposite sweeps and homogeneous Dirichlet data has λ≤1 exactly for universal positivity at two or more interior nodes; no advection, reaction or published Monod parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-is-the-sharp-positivity-frontier-for-an-alternating-saul-yev--541ef955f230/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, offset 0–3821",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One is the sharp positivity frontier for an alternating Saul'yev diffusion pair",
+          "trigger": "Closest indexed sharp positivity theorem for a Saulyev update"
+        },
+        {
+          "assessment": "Different object, not discrete positivity",
+          "evidence": "Concerns positive stationary phytoplankton–nutrient equilibria under self-shading.",
+          "identifier_or_url": "Resultary 7860a0a17e77",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Strong self-shading selects a unique phytoplankton equilibrium",
+          "trigger": "Indexed phytoplankton positivity analogue"
+        },
+        {
+          "assessment": "Scheme-specific overlap unverified; not used to establish noncoverage",
+          "evidence": "The available title asserts positivity for a scheme, but gives neither its stencil nor the scope of its theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mcm.2011.05.005",
+          "material_read": "Title and citation only; full text not read after OA retrieval and page/PDF failures",
+          "method": "Lawful open-text retrieval attempted",
+          "title": "An unconditionally positivity preserving scheme for advection–diffusion reaction equations",
+          "trigger": "Plausibly broader positivity theorem for the same equation class"
+        },
+        {
+          "assessment": "No full-text conclusion about coverage",
+          "evidence": "The frozen comparison identifies §4.2 as relevant; its statement could not be independently read.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/9647416",
+          "material_read": "Citation only; configured direct and alternate routes returned HTTP 403, no repository copy identified by DOI lookup",
+          "method": "Lawful open-text retrieval attempted",
+          "title": "An Efficient Alternating Direction Explicit Method for Solving a Nonlinear Partial Differential Equation",
+          "trigger": "Cited related monotonicity method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and scope",
+        "Vongkok–Chumsri–Pochai §3.1, Table 1 and §4",
+        "Independent exact witness bounds"
+      ],
+      "rationale": "The general coefficient test alone is elementary. The useful result is the complete target-specific boundary with an explicit severe negative first-step value at each printed velocity under the article's own left boundary input. It separates universal numerical admissibility from stability and provides concrete guidance on when the printed update can guarantee meaningful nonnegative concentrations. The raw-numeric example exposes a reproducibility problem for any user who plugs the supplied grid numbers into the formula; it does not claim that the physically converted or plotted run is negative.",
+      "residual_risks": [
+        "Physical unit reconciliation and the article's actual implementation remain outside the validated claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

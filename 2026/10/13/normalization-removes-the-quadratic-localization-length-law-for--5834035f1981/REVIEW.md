@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source's exact one-particle concurrence identity is reconstructed, the exponential profile is normalized before integration, and the resulting scaling is derived analytically. The discrete geometric profile provides an exact finite-chain check:
-\[
-M\bar C_L=\frac{S_L^2}{Z_L}-1.
-\]
-Its boundary-away limit and large-\(\xi\) expansion are derived from geometric sums. The bundled verifier independently reconstructs the finite pair sums and checks the displayed formulas. The main risk is model scope rather than algebra: a generic Anderson eigenstate is not asserted to be an exact exponential envelope.
+PASS
 
-## Originality
+The pure one-particle two-site concurrence is 2|psi_i psi_j|; summing unordered pairs and using unit L² norm gives (sum |psi_i|)^2−1. In the two-sided continuum ansatz the squared norm before scaling is xi, so the peak amplitude scales as xi^(−1/2). The cutoff used in source Eq. (8) gives an L¹ integral 2 sqrt(xi)(1−e^(−1)), and the whole line gives 2 sqrt(xi). These are continuum model expressions, not exact discrete concurrences for small xi. For the discrete model the geometric sums give S_L²/Z_L−1, and their fixed-xi limits give (1+r)^3/[(1−r)(1+r²)]−1, equal to the reported rational form. With t=1/xi, K_infty+1=coth²(t/2)tanh(t); expansion gives 4/t−2t/3+59t³/180+O(t^5). At fixed finite L the growth saturates; the order of limits matters. Independent direct pair sums and the symbolic series corroborate the proof (record5_discrete_check.py, record5_full.txt and record5_series_check.py, record5_series.txt under /workspace/branches/8753c010-e247-4ba9-847a-6c399c9a4293). The source's artifacts/verification_output.txt is a recorded computation, not independent proof or attestation.
 
-**PASS.** Searches of published findings used the exact source identifier, title/correction aliases, normalized-exponential phrasing, average-concurrence terminology, and localization-length formulations. The closest retrieved results were about unrelated normalization or \(L^1\) concentration problems and did not imply this quantum-localization correction. The main source was read at the equations defining average concurrence, the exponential ansatz, and the quadratic estimate. Closely related one-particle literature was checked for stronger coverage; the principal nearby exact relation concerns average squared concurrence and participation ratio, not the average concurrence considered here. Residual risk remains for an unindexed comment or differently worded correction.
+## originality
 
-## Value
+PASS
 
-**PASS.** The corrected exponent changes the quantitative sensitivity of the source's stated analytic bridge between entanglement and localization length. It distinguishes a genuine normalized-envelope prediction from a normalization artifact while preserving the paper's qualitative disorder/localization interpretation. This is a motivated correction to a published scaling argument rather than a recomputation of a known table.
+Distinct claim: the quadratic inference in a specific prior calculation fails under normalization of that calculation's own envelope, with an exact discrete model confirming the corrected asymptotic. Neither the general pair-concurrence identity nor exponential localization itself is new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The normalization check changes the exponent of the analytical law used in a paper's interpretation, not merely a prefactor or notation. The discrete limit shows the correction is not an artifact of replacing sums by integrals, and clarifies where finite-size saturation intervenes. It does not claim a universal scaling for actual Anderson eigenstates or that the qualitative localization trend is reversed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

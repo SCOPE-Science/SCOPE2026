@@ -1,24 +1,21 @@
-# Mathematical assessment of an exact anisotropic complexity theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement fixes the binary valuation subshift and all integer ranges. The language argument handles both possible singular-site colors rather than extrapolating from a periodic truncation. The central four-to-one recurrence is injective because its active parity block cannot vanish once both smaller sides are at least two. The exceptional one-short-side base is counted through a fully specified family of truncated one-dimensional valuation words, with explicit first two levels and a recurrence whose disjointness is proved. These give an all-parameter exact formula. The stand-alone finite verifier corroborates the argument through dyadic windows of side length \(32\); no finite enumeration is used as a replacement for the proof. The sole delicate point is correct inclusion of both discontinuity-fiber values; the proof constructs both as genuine limits and is compatible with the motivating paper's description.
+PASS
 
-## Originality
+Gómez–Petite use the opposite assignment of 0 and 1 away from the exceptional site. The explicit c is equivalent to their system by global bit complement, not literally the same labeled language; complementation is a bijection on fixed-window patterns, which is all the numerical claim requires. For any window with sides at most 2^K, a translation residue fixes all bits except a possible jointly divisible site; lifting the translate can set that site's minimum valuation to K or K+1 at a nonsingular point. Hence both assignments at the origin generate the same language, and each pattern has a nonsingular copy that recurs on a lattice coset (take a modulus larger than all valuation depths in the copy), proving uniform recurrence and minimality of the hull. Decimation restricts to the jointly even parity class, complements the smaller pattern and forces zero elsewhere. If both exponents are at least two, the smaller pattern has a zero, so the lifted one identifies the active class and the factor of four is exact. The 2×2 base consists of an all-zero pattern and four singleton ones. On the 2×2^k base for k≥2 the active row has a one of valuation exactly one, and its capped valuation words split by parity: either a full active half for cap 1 or the complement of a shorter capped word for larger caps. From the six words at length four, the count doubles after adding one to the previous count, giving 2^(k+1)−2 words and twice this many two-row patterns. Iteration gives the exact formulas. Next-dyadic square containment and the linear square count imply zero entropy. Normalized counts depend only on |n−m|, so the fixed integer gaps and gaps tending to infinity give exactly the stated subsequential limits. A fresh bounded enumeration over strictly positive integral translates with shifts up to 4·2^max(n,m) matched all 16 pairs n,m≤4 (rows start 5,12,28,60 and diagonal is 5,20,80,320). The frozen checker was inspected but not executed.
 
-**PASS on the inspected literature, with residual priority risk.** The 2026 Gómez–Petite construction proves a \(2|F_k|\) *upper bound* for fundamental-domain complexity (Proposition 5.3) but does not state the exact square coefficient \(5/4\), anisotropic rectangular formula, or failure of shape-independent normalized Følner complexity. The latter cannot be inferred from an upper bound alone. The 2024 Cabezas–Petite maximal-normalizer subshift is a different substitutive construction. The 2016 Lee–Flom–Ben-Abraham two-dimensional period-doubling array is explicitly the pullback of a one-dimensional word under coordinate sum, not this minimum-of-valuations binary array. The 2020 Sell result concerns one-dimensional simple Toeplitz languages. Published mathematical-record searches did not surface an equivalent exact two-dimensional count; this is evidence for best-knowledge originality rather than a proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The precise coefficient in a general linear-complexity bound is a natural invariant of the distinguished minimal dyadic Toeplitz example. The theorem goes beyond calculating one finite patch count: it classifies all dyadic rectangular scales, proves genuine Følner-sequence shape dependence for the normalized quantity, and gives its entire discrete accumulation spectrum. Both comparison families have side lengths tending to infinity and therefore remain valid Følner sequences. The result clarifies how maximal normalizer symmetry can coexist with sharply non-isotropic symbolic observation statistics, without asserting that this solves a general classification problem.
+The relevant new claim is the exact count for this specific dyadic two-dimensional semicocycle, hence the complete collection of normalized limits for dyadic rectangular windows. Its source construction, the general fundamental-domain complexity bound and one-dimensional valuation-word methods are not new. The inspected exact and general prior results do not provide the two-dimensional count.
 
-## Closest literature and limitations
+## value
 
-- Gómez and Petite, arXiv:2610.06488v1, Sections 4–5, Proposition 5.3 and Example 5.9: same exact system, a non-sharp general upper bound but no exact rectangle formula found in the full text.
-- Cabezas and Petite, arXiv:2309.10156v2, Section 4: a different substitutive construction and an automorphism/normalizer theorem; no directly covering rectangle identity in the full text.
-- Lee, Flom and Ben-Abraham, DOI 10.1107/S2053273316004897, Sections 3–6: a different multidimensional array, reducing in dimension two to dependence on coordinate sum.
-- Sell, arXiv:2006.15348: a related one-dimensional language-complexity theory, reviewed through its public summary rather than an exhaustive full-text priority check.
+PASS
 
-The proof addresses dyadic rectangles and the particular binary valuation array. No non-dyadic-window theorem, generalized classification, independent audit, or priority certification is asserted. Broader unindexed symbolic-combinatorics literature could contain an equivalent formula.
+An explicit zero-entropy minimal system admits an exact complexity invariant whose area normalization retains window shape. The leading constant 5/4 on squares and the discrete family converging to 2 off the diagonal cannot be read from entropy or the fundamental-domain upper bound. The same proof gives the full dyadic rectangular shape spectrum, not a small-window census.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

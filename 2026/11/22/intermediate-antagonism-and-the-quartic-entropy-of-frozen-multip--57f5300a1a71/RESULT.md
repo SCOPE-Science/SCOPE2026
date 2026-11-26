@@ -22,7 +22,7 @@ Consequently, \(F_3=36\), \(F_4=120\), \(F_5=366\), and, writing \(\alpha\) for 
 F_n=\alpha^n+O(2^n),\qquad
 \alpha=3.2494533945\ldots .
 \]
-Thus the number of nonuniform *frozen* bilayer configurations grows exponentially at a precise natural graph-family entropy: \(\lim_{n\to\infty}\frac1{2n}\log F_n=\frac12\log\alpha\) per vertex of one contact layer. Every conclusion holds for every real \(a\in(1,3)\), without dependence on its exact value inside that interval.
+Thus the number of nonuniform *frozen* bilayer configurations grows exponentially at a precise natural graph-family entropy: \(\lim_{n\to\infty}\frac1{2n}\log F_n=\frac12\log\alpha\) per vertex of one contact layer. The cubic-prism conclusions hold for every real \(a\in(1,3)\), without dependence on its exact value inside that interval.
 
 ## Assumptions and scope
 
@@ -41,7 +41,7 @@ The prism graph has vertices \((i,h)\), \(i\in\mathbb Z/n\mathbb Z\), \(h\in\{0,
 \[
 0<s\left(\sum_{j\sim i} A_j-aB_i\right)=\sum_{j\sim i}sA_j-a.
 \]
-Since \(a>d-2\), this requires \(\sum_{j\sim i}sA_j=d\), i.e. \(A_j=s\) for **every** neighbor. Applying the second field likewise gives \(B_j=s\) for every neighbor. Hence every neighbor of \(i\) is aligned with sign \(s\). Graph connectedness propagates this through all vertices. Thus any absorbing state with even one aligned pair must be one of the two completely uniform aligned states. Both are absorbing because their local signed fields equal \(d-a>0\) times their own signs; the inequality \(a<d\) is essential.
+Since \(a>d-2\), this requires \(\sum_{j\sim i}sA_j=d\), i.e. \(A_j=s\) for **every** neighbor. Applying the second field likewise gives \(B_j=s\) for every neighbor. Hence every neighbor of \(i\) is aligned with sign \(s\). Graph connectedness propagates this through all vertices. Thus any absorbing state with even one aligned pair must be one of the two completely uniform aligned states. Both are absorbing because each local field multiplied by its corresponding spin equals \(d-a>0\); the inequality \(a<d\) is essential.
 
 **Step 2: all other absorbing states are sitewise opposed.** In a state with no aligned pairs, \(B_i=-A_i\) for every \(i\). Let \(r_i\) be the number of neighbors of \(i\) with \(A_j\ne A_i\). The local field signed by \(A_i\) equals \(d-2r_i+a\). The \(B\)-layer signed field is the *same* number because both its spin and its neighbor sum are sign-reversed. If \(r_i\le d-1\), the expression is at least \(a-(d-2)>0\). If \(r_i=d\), it equals \(a-d<0\). These are the only possibilities, so the configuration is absorbing if and only if \(r_i\le d-1\) for each vertex, exactly the no-singleton-color condition. This completes the graph-uniform classification. Strict inequalities guarantee no undecided ties in any classified state.
 
@@ -76,11 +76,11 @@ Reproduce with `python3 verify.py` using Python 3 and no external packages. The 
 
 ## Relationship to prior work
 
-Hughes et al. [1, Sections 2–4] specify the same two-layer sign rule and prove that the two spatially uniform opposed states are absorbing; their inspected main text does not classify all absorbing microstates in the intermediate-inhibition interval or give a prism transfer entropy. The homogeneous aligned states occurring here rely on \(a<d\) and are **not** the uniform oppositely polarized states of that paper.
+Hughes et al. [1, Sections 2 and 3.4] specify the same two-layer sign rule and prove that the two spatially uniform opposed states are absorbing. Their baseline simulations use independent random contact graphs, rather than identical layers. The homogeneous aligned states occurring here rely on \(a<d\) and are **not** the uniform oppositely polarized states of that paper.
 
 A separate published result [2] proves that at *dominant* inhibitory strength \(a>d\), the complete update becomes the immediate involution \((A,B)\mapsto(-B,-A)\). That regime has \(2^N\) absorbing states on arbitrary layer graphs and is disjoint from \(d-2<a<d\). Its enumeration neither implies the present no-singleton graph condition nor the prism polynomial.
 
-A separate prism census [3] concerns a **single** uncoupled graph \(C_n\square K_2\) with open-neighbor majority, whose fixed-state count grows as a Lucas number. Our system has two coupled copies of this graph, an antagonistic local field, and exponentially different absorption count. Classical symmetric-threshold theory [4] bounds eventual temporal periods by two under its hypotheses but does not give the intermediate-coupling fixed microstates or this exact graph-family count. The binary no-singleton-color interpretation is related to familiar zero-temperature Ising local-minimum conditions, so the generic local-neighbor rule itself is not asserted as a novel mathematical technique; the precise coupled-model reduction and evaluated prism entropy are the claimed contribution.
+A separate prism census [3] counts fixed colorings for **strict majority on a single** graph \(C_n\square K_2\). At degree three this requires at least two same-colored neighbors, not the one required here, and gives a different, Lucas-growth count in the binary case. For \(d=2\), [5] already enumerates the corresponding binary cycle colorings with no singleton monochromatic runs via its weak-plurality rule; that coloring census by itself does not classify the bilayer absorbing states. Classical symmetric-threshold theory [4] bounds eventual temporal periods by two under its hypotheses but does not give the intermediate-coupling fixed microstates or this exact graph-family count. The claimed contribution is the coupled-model reduction throughout the intermediate interval and the evaluated cubic-prism count, not the binary cycle census or the use of a local coloring predicate.
 
 ## Limitations
 
@@ -90,8 +90,10 @@ Both contact layers must use the **same** graph; identical degrees but different
 
 [1] J. C. M. Hughes, A. Kusmartseva, G. Muschert, H. F. Jelinek and F. V. Kusmartsev, *Metastability and Entropy Peaks in Antagonistic Multiplex Consensus Dynamics*, Entropy **28** (2026), article 857; first public online date 1 August 2026, https://doi.org/10.3390/e28080857 ; full text https://pmc.ncbi.nlm.nih.gov/articles/PMC13512852/ .
 
-[2] *Exact involution and exponential prevalence of two-cycles under dominant antagonistic coupling*, publicly indexed research finding, 12 October 2026; https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad .
+[2] *Exact involution and exponential prevalence of two-cycles under dominant antagonistic coupling*, 12 October 2026; https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-involution-and-exponential-prevalence-of-two-cycles-under--39f67e98d2ad .
 
-[3] *A Lucas-number orbit census for synchronous majority on prism graphs*, publicly indexed research finding, 17 November 2026; https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-lucas-number-orbit-census-for-synchronous-majority-on-prism-gr--f39104b86e05 .
+[3] *Exact locally-optimal colouring polynomial of circular ladders*, 18 October 2026; https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-locally-optimal-colouring-polynomial-of-circular-ladders--b9c77d1b74ba .
 
 [4] E. Goles and J. Olivos, *Periodic behaviour of generalized threshold functions*, Discrete Mathematics **30** (1980), 187–189, https://doi.org/10.1016/0012-365X(80)90121-1 .
+
+[5] *Exact locally-optimal colouring polynomials of clique-blown-up paths and cycles*, 18 October 2026; https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-locally-optimal-colouring-polynomials-of-clique-blown-up-p--aaec0f6009f6 .

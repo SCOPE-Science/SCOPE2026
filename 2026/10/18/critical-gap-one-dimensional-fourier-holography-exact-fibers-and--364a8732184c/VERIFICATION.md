@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the included standard-library checker using `python3 verification/check.py`. It exercises 2,185 independently generated parameter cases with integer lengths from 1 through 23. It checks (i) recovery of all lower-index coefficients from isolated outer lags; (ii) the exact one-collision identity at lag \(n\); (iii) reconstruction of the entire autocorrelation from \(4n+1\) equally spaced intensity samples; (iv) eigenvalues of the independently assembled two-real-coordinate Gram matrix against the claimed exact singular squares; and (v) explicit preservation of every autocorrelation by each balanced conjugate-reflection partner.
+## correctness
 
-Expected terminal line: `PASS 2185 parameter cases; exact edge coefficients, finite Fourier sample inversion, real singular spectrum, and balanced two-fold fibers`.
+PASS
 
-These finite numerical comparisons are not an exhaustive proof. The proof in `RESULT.md` uses identities valid for all integers \(n\ge1\) and all complex parameters with \(b\ne0\). Standard floating-point error is tolerated only in the checker, not in the theorem. No independent audit or formal certification has been performed.
+With C_k the coefficient of e^(ikt) in the intensity, each k=2n−j>n has only the term b·conj(a_j), recovering the head even if it contains zeros. At smaller positive lags, subtract the fixed head products; the data for z=a_n are conj(a_(n−k))z for k<n and conj(a_0)z+b·conj(z) at k=n. The squared change on a perturbation h is S|h|²+|conj(a_0)h+b·conj(h)|². On the unit circle the cross term ranges over its full phase, so the claimed squared extremes are attained, including when a_0=0 or the middle is empty. At rank loss, S=0 and |a_0|=|b|. Rotate z by a unit square root of b/conj(a_0); the remaining positive lag fixes the rotated real part and C_0 fixes the modulus. Exactly the stated reflected pair results, possibly coincident. On the full sequence this is conjugate reversal times the unique phase preserving b and a_0. A 4n+1 grid separates the Fourier modes −2n through 2n. With m≥2n+1 every reference-to-unknown lag exceeds n and separates. All arguments include n=1.
+
+## originality
+
+PASS
+
+Pass is for the all-signal classification at exact support-distance equality and the residual singular values there. Strictly separated reconstruction, finite inverse Fourier inversion, and conjugate reversal itself are known and not credited. The inspected plausible matches use strict geometric separation, different measured data, or generic uniqueness rather than this single reference and touching lag.
+
+## value
+
+PASS
+
+The neighboring outer-lag method ceases to isolate one coefficient at exactly the critical spacing. A complete classification there for arbitrary complex data, including zero coefficients and singleton fibers on the reflection axis, is a natural inverse-problem boundary result. The exact conditional spectrum quantifies ill-conditioning near the exceptional stratum, which the mere symmetry or generic uniqueness would not show.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

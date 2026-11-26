@@ -19,11 +19,11 @@ The order of \(a\) and \(b\) does not change which of these three regimes occurs
 
 In particular, let \(g=\sqrt{ab}\) be the fixed geometric-mean recruitment coefficient and write \(a=g e^\theta\), \(b=g e^{-\theta}\). If \(g<2\), every population goes extinct for all contrasts \(\theta\). At \(g=2\), a positive semistable state exists only at \(\theta=0\). For \(g>2\), survival from sufficiently large initial populations is possible exactly when
 \[
-|\theta|<\theta_c(g),\qquad
+|\theta|\le\theta_c(g),\qquad
 \theta_c(g)=\operatorname{arsinh}\!\left(
 \frac{\sqrt{(g^2-4)(3g^2+4)^3}}{32g}\right).
 \]
-At equality there is one semistable positive state; for larger contrast all states go extinct. Thus maintaining the same geometric mean does **not** maintain persistence.
+For strictly smaller contrast there are two positive two-season states and the larger is attracting. At equality there is one semistable positive state, and every initial even-year biomass at or above it survives. For larger contrast all states go extinct. Thus maintaining the same geometric mean does **not** maintain persistence.
 
 For an exact comparison with \(ab=9\), the pair \((a,b)=(1,9)\) gives \(\mathcal H=132571>0\), whereas \((a,b)=(1/4,36)\) gives \(\mathcal H=-178229<0\). The second environment alternates more strongly and is universally extinct despite an unchanged geometric mean.
 

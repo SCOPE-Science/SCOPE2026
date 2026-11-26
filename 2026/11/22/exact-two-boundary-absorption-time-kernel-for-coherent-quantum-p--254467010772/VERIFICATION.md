@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-boundary survival-time operator
+# Independent mathematical audit
 
-The file `verify.py` checks the four asserted integer-index identities for every ordered site pair and for every path length from 2 through 100. It prints `EXACT_IDENTITIES_PASSED 338349` when all entries agree. Because this is a finite check, it is supporting evidence only: the arbitrary-length conclusion follows from the Green-kernel argument, the boundary first-difference identities and uniqueness of the stable Lyapunov solution in `RESULT.md`.
+## correctness
 
-When NumPy and SciPy are installed, the same standalone program independently solves the full complex Sylvester/Lyapunov equation on seven distinct path lengths and three pairs of positive hopping and end-loss rates. It prints `INDEPENDENT_LYAPUNOV_CASES 21`; the maximum entrywise and equation-residual tolerances are \(2\times10^{-9}\). This numerical check is intentionally separate from the symbolic verification and not claimed as a proof for infinitely many lengths.
+PASS
 
-Reproduce with `python3 verify.py`. Only Python's standard library is required for the exact integer checks; NumPy and SciPy are optional for the independent numerical comparison.
+An eigenvector with purely imaginary eigenvalue must vanish at the endpoints by the dissipative quadratic form, then vanish everywhere by the nearest-neighbor recurrence with J≠0. Thus e^(−Kt) decays, the integrated Gramian is positive definite, and its Lyapunov solution is unique. The same-parity part G of the Dirichlet inverse commutes with A, since the parity sign conjugates A to −A. The inner-path analogue B commutes on interior rows/columns and is zero on endpoints; hence [A,B] is supported on the boundary, with first-row entries B(2,j) and last-row entries B(N−1,j), matching the skew C anticommutator PC+CP (both vanish between opposite endpoints). For same-parity i<j the four affine neighbor terms in [C,A] cancel before truncation, with missing neighbors at i=1 and j=N contributing N+1−j and i respectively, exactly the corresponding copies of G. Opposite-parity entries there are zero. The commutator diagonal is twice the sum of adjacent C entries, giving −4 in the interior and 2(N−2) at either end. These identities, including N=2 where P=I and Q=I/κ, yield K†Q+QK=I with the stated sign of the imaginary term. The survival expectation is Tr(Qρ); the localized diagonal has the form a/κ+bκ, with a,b>0 in the interior and b=0 at an endpoint. Differentiation and strict convexity give the unique interior optimizer and stated minimum; both limiting optimal rates follow directly. An independent diagonal-phase transformation to a real rational Lyapunov equation followed by exact linear solves checked every complex entry for seven paths N=2 through 8 at varied rational couplings and rates.
 
-The physical model assumes one walker, equal positive loss rates at *both* endpoints, uniform real nearest-neighbor coherent hopping, no bulk loss, and Lindblad first absorption. The results concern the integrated survival operator and total mean time to either absorber, not the probability of which absorber clicks first, full first-passage distributions, or unequal-rate control. Independent external audit has not been performed.
+## originality
+
+PASS
+
+Full survival Gramians and site-dependent localized-source optimization already appear for a single terminal sink, and two-loss scattering is also prior. The distinct contribution supported here is the explicit finite equal-two-end Gramian and the resulting finite-size dependence on distance to both boundaries, not the Lyapunov method or the idea of optimizing a loss rate. The conclusion is bounded by inspected statements.
+
+## value
+
+PASS
+
+The finite coherent path with two terminal absorbers is a natural transport model, and absorption time cannot be recovered from eventual efficiency (which is one). An all-entry formula handles initial relative phases without a matrix solve. The finite-size site dependence of the optimum distinguishes fixed distance from one end from a bulk-scaled start; the exact endpoint case also shows why imposing a universal finite optimal rate would be wrong. This goes beyond solving the routine Lyapunov equation for isolated lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

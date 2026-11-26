@@ -1,11 +1,21 @@
-# Review of the four-site diagonal-loading condition-number theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The global optimality proof first rules out every asymmetric allocation using strict Rayleigh--Ritz and positivity of the minimal eigenvector. Independent reflection-even/odd blocks produce exact extreme eigenvalues. A derivative with exactly one positive zero establishes the unique per-budget minimizer, and the activation equation has exactly one positive root below \(q=1/2\). Limit statements follow by direct asymptotic analysis. The standalone symbolic and numerical checks supplement this infinite-domain proof.
+## correctness
 
-**Originality (PASS on inspected evidence, with qualification).** Lu and Pong (2011) solve general spectral condition-number optimization using convex programming, but the inspected primary full text does not contain this explicit four-site optimal allocation, strict asymmetry exclusion or active-set root. Torres and Roy (2015) and van den Driessche (1994) address dominant-eigenvalue perturbation, not the largest-to-smallest positive eigenvalue ratio. A prior condition-number loading classification on stars is not a four-site path classification; the two reflection parity blocks here require different arguments. A plausible diagonal-perturbation publication was accessible only as an abstract and literature equivalence is not conclusively excluded.
+PASS
 
-**Value (PASS).** Four sites are the first unweighted path not isomorphic to a star. The exact budget frontier shows when a controller must begin funding the interior nodes, despite endpoints receiving more gain at every finite budget. Complete optimizer uniqueness across arbitrary four-node asymmetric allocations makes this a usable design rule, not just a symmetric ansatz.
+PASS applies to repairs/1/RESULT.md. The frozen proof of uniqueness omitted the feasible interval 1/2<t<1 and asserted a sign at t=1/2 without limiting it to feasible budgets. The latter need not hold off-domain (e.g. μ=q=0.01). The repaired proof restricts all derivative comparisons to |t|≤q; for 1/2≤t<1 it compares t/a(t)≥(1−t)/b(t) and 0<m−a(t)<m+1+b(t) to obtain a strictly positive derivative. For t≥1 both derivative contributions are nonnegative with the first strictly positive; for t≤0 the derivative is strictly negative. Between 0 and 1/2 the two positive terms are respectively increasing and decreasing, which gives the correct feasible zero or the endpoint optimum. The full nonsymmetric uniqueness check uses the strictly positive even minimum eigenvector of the symmetrized matrix: equality in the Rayleigh quotient would require a nonzero diagonal reflection difference to annihilate that vector. The two parity blocks differ by diag(0,2), verifying the extreme eigenvalues and condition number. At t=q the factorizable first term rises strictly on 0<q<1/2 while the other decreases, giving the unique crossing and including equality in the endpoint regime. The ratio of derivative terms strictly decreases in m at fixed t, so the interior root increases with budget and tends to 1/2. At fixed q<1/2 the large-μ boundary difference multiplied by μ tends to a negative value; the small-μ limit of its first term is >1, forcing q_c→0 and q_c/(μ+q_c)→1/[√2(2+√2)]. This gives the two stated threshold asymptotics. Own bisection gave B_c(1)≈0.669854112320272, correcting the last quoted digits, and κ_*(1,1)≈3.681873906750853. Inspected but did not execute CHECKER.py; the finite tests are not the universality proof.
 
-**Boundaries and reproducibility.** Equal edge conductances, common baseline \(\mu>0\), additive nonnegative diagonal gains and a single equal-price budget are essential. No arbitrary-network classification or external independent certification is claimed. `CHECKER.py` reproduces the exact symbolic identities and supplementary numerical comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded evidence supports the narrow four-path global activation classification, not general condition-number optimization, exact diagonal preconditioning, or the first threshold in any graph design problem. The generic convex framework covers the feasible family, but the reviewed prior statements do not give its explicit optimizer or threshold; bounds on full-text access remain explicit.
+
+## value
+
+PASS
+
+The path is a natural small diffusion network with distinct endpoint and interior costs in spectral effect even when prices are equal. The result determines exactly when a free budget should concentrate only at endpoints, and proves strict global uniqueness against asymmetric candidates, not just a restricted or numerical design. It quantifies the resulting contrast and both asymptotic thresholds and is distinct from routine graph eigenvalue evaluation or a generic optimizer call.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact transition rates lead to an absorbing birth-death chain. Harmonic increments integrate to powers of binomial coefficients; Vandermonde gives a closed hypergeometric denominator. Symmetric unimodal likelihood ratios establish the finite-population strict-majority comparison, and a one-crossing test identifies the exact maximizing count. Stirling's formula, exact variances and tightness yield both central Gaussian limits and the universal maximum-gap constant. The submitted standard-library checker independently verifies 4305 finite statements, without using finite samples to prove the asymptotic theorem.
+## correctness
 
-**Originality: PASS with publication-priority risk.** The primary 2023 nonlinear-voter study contains the model, its finite transition rates and equality of deterministic drift for the two panel sizes. Earlier 2009 work explores voter exit probabilities through diffusion approximation; a 2025 generalized biased-voter paper uses numerical finite-state Markov analysis. None of those relevant inspected arguments states the exact binomial-versus-hypergeometric finite exit comparison plus sharp maximized asymptotic separation. Well-established birth-death formulas, Vandermonde convolution and Gaussian approximation theory supply ingredients, so unlocated broader coverage is a material residual risk and independent priority verification is outstanding.
+PASS
 
-**Value: PASS.** The object is a natural first-passage observable for two rules explicitly identified as deterministic twins. The finding identifies precisely how stronger unanimity amplifies an existing majority and determines the largest quantitative disagreement obtainable by tuning the initial support. The positive 8.3032-percentage-point limit reveals failure of uniform stochastic equivalence despite equality of the mean-field equations; this is not an arbitrary parameter slice or simply a recalculated example.
+With replacement from the other N−1 vertices, the two interior jump rates are positive, and a finite path to either endpoint gives almost-sure absorption. Dividing the generator drift by N and taking N large gives the stated common drift, because x+(1−x)=1 and x²−(1−x)²=2x−1. The harmonic equation gives consecutive increments in ratio ((N−j)/j)^(q−1); multiplying telescopes to binomial powers. The binomial theorem and Vandermonde normalize the q=2 and q=3 laws exactly. For m=N−1≥2 the squared-binomial-to-binomial mass ratio is strictly increasing up to the central set and then strictly decreasing, except for the possible central tie. There are negative tails and a positive central part. For m odd the left half has zero total difference, and for m even the left half without the central atom has difference minus half that atom's positive difference; this proves strict negativity for all prefixes strictly below the midpoint and reflection proves the other sign. On the upper half the successive difference crosses zero when binom(m,k) decreases through binom(2m,m)/2^m; equality yields the adjacent tie and the stated index test. Compact-uniform Stirling expansions and Chebyshev truncation using variances m/4 and m²/[4(2m−1)] give the two moving-threshold Gaussian limits. The local ratio tends to √2 exp(−2s²), and the monotone discrete crossing is bracketed by any two positive offsets straddling √log(2)/2. Substituting in the limiting distribution difference yields the stated 0.08303203749… limit. Nonvanishing in the window means separation at nonzero fixed scaled offsets and a positive limiting maximum, not a uniform positive lower bound all the way down to the midpoint. Independent safe-integer recurrence comparisons covered all 204 counts for N=3,…,19, including the stated N=5 example; verify_exit.py was inspected, not executed, and its frozen reported finite checks are not the proof.
 
-Scientific limits: complete graph, two opinions, only panel sizes two and three, independent neighbor sampling with replacement, no noise. No claims are made for larger panel sizes or transient consensus times.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit established coverage of the common drift and of the two exact fixation CDFs under specialization of the later general catalogue formula. The supported distinct contribution is the strict same-drift finite-N comparison, exact maximizing-index characterization and sharp limiting maximal separation for these two panels. The checked earlier diffusion treatments and the later binary fixation formula do not supply that comparison. Chronology is not used as a substitute for comparing the statements.
+
+## value
+
+PASS
+
+The result answers an identifiable modeling question: two rules indistinguishable at the deterministic drift level can yield a sizeable, precisely quantified difference in consensus predictions. The effect does not disappear in the maximal critical window, even though the fixed-density predictions agree. The strict finite comparison, exact optimizer test and limiting location and size make the example usable as a benchmark; displaying two standard CDFs alone would not establish that value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

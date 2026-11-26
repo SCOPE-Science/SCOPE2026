@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite-dimensional simplex is compact, the transport response extends continuously to zero flows, and the exact logarithmic ratio of pairwise derivatives proves that any unequal positive pair can be strictly improved. Hence all positive optimal flows must be equal; direct comparison of the resulting \(k\)-support values proves the exact optimum, the strictly ordered support transitions, and all ties. The standalone script reproduced 141230 numerical and algebraic diagnostic assertions. The proof, not numerical sampling, establishes the universal quantifiers.
+PASS
 
-## Originality
+The passive-tracer benchmark assumes a constant source flux per active branch, not fixed inlet concentration or a fixed total source load independent of support. The transit-time scaling gives a=λℓA_c/Q, and g_a(0)=0 is the continuous extension. Compactness gives an optimizer. For a fixed pair total t>0, put b=a/t and r=(1-x)/x>1 for the normalized smaller share x. The log ratio of the positive derivative terms g_b'(x) and g_b'(1-x) is 2 log r-b(r-r^(-1)). Its sign is that of u/sinh(u)-b with u=log r. The ratio u/sinh(u) decreases strictly from 1 to 0 because u cosh(u)-sinh(u) has derivative u sinh(u)>0 and starts at 0. Thus as x increases toward 1/2, the pair objective either decreases throughout or first decreases and then increases; a noncentral interior stationary point is a strict minimum. Only the endpoints and equal split can maximize, with the pair tie at b=log 2. Unequal positive components in a simplex optimum would admit a strict pairwise improvement. Evaluating every equal k-support yields k exp(-ak), and the adjacent ratios ((k+1)/k)exp(-a) decrease strictly with k. Hence all the stated consecutive phases and only adjacent ties follow, with all optimizer permutations included. Replay: RESULT.md lines 27–49. The numerical checks in verify.py were inspected, not run. No empirical validation is inferred.
 
-PASS on the specifically inspected record, with unresolved historical priority. The 2023 eDITH paper's Methods equation (1) directly models exponential travel-time attenuation and outlet dilution, but estimates biodiversity given hydrological flow and never optimizes controlled distribution of a fixed total flow. The 2020 full-text river-network paper optimizes sampling locations rather than channel discharges. The 2014 sigmoidal-optimization paper covers the broad separable objective class, and so the general approach is *not* original; its inspected material did not supply the exact equal-active-support staircase and log-ratio cutoffs for this response. Published results for Hill-dose optimization and resource-allocation staircases have analogous structure but different responses and parameter domains, so do not imply these numerical thresholds. A plausible older S-shaped utility allocation report was accessible only as an abstract; potential equivalences in broader optimization literature remain a real risk.
+## originality
 
-## Value
+PASS
 
-PASS. The complete \(n\)-channel classification is a sharp, fully quantified phase diagram, not a single-parameter optimization or numerical instance. It exposes a counterintuitive network-pruning consequence of first-order transit losses: increasing attenuation relative to water throughput makes fewer equally loaded channels optimal, with every active count realized on a nonempty interval. This is a benchmark for controllable flumes; no empirical river intervention is advised.
+The inspected evidence covers the general optimization class and transport law, but supports the exact inverse-exponential equal-positive-support classification and its full logarithmic staircase as distinct. No historical-priority claim is made for sigmoidal resource allocation, eDNA attenuation, or the same-day analogues.
 
-## Limitations
+## value
 
-The flow-independent tracer flux per active branch, constant channel cross sections and decay rate, fixed total discharge, identical reaches, and zero-flow exclusion convention are essential. Historical-priority review is incomplete; biological natural-river applicability is unvalidated. Finite computations are not an independent proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closed-form all-size staircase is a motivated structural benchmark for identical flow routes transporting a passive, first-order-decaying tracer. It answers when opening another route helps, whether a support count is skipped, and what happens at coexistence, none of which is given by a generic numerical solver or by the transport law alone. The equal-source-flux and fixed-geometry assumptions bound its interpretation; it does not prescribe management of natural rivers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

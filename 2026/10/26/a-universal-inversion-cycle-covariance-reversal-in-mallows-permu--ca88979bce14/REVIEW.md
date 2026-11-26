@@ -1,15 +1,21 @@
-# Review: inversion–cycle covariance reversal in Mallows permutations
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed covariance is the exact parameter derivative \(q\mu_n'(q)\). At the uniform point, a self-contained two-prescribed-arc completion argument gives \(\operatorname{Cov}(C,\operatorname{inv})=-(2n-1)/12\). Near the identity, the unique zero-inversion permutation and the \(n-1\) one-inversion neighbors determine the negative first term. Near the reversal, the unique maximum-inversion permutation and its \(n-1\) immediate neighbors yield the exact parity-dependent positive first term. Continuity gives a zero above \(1\); an elementary rational formula handles \(n=2\). The \(n=3\) derivative and uniqueness follow from an explicit polynomial and Descartes' rule. Exact enumeration through \(n=8\) is supporting evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS (with priority uncertainty)
-The 2016 Gladkich–Peled work treats cycle-count order estimates under \(0<q<1\); its reflected-regime discussion does not imply an all-size sign reversal. The 2022 He–Müller–Verstraaten paper studies limiting distributions and asymptotics as \(n\to\infty\) at fixed \(q\), not the finite-size derivative with respect to \(q\) and its near-reversal coefficient. A published published-finding corpus result already gives the \(q=1\) covariance, so that part is acknowledged as prior; it alone does not imply positivity at strong reverse bias. Targeted searches for aliases of cycle/inversion covariance, Mallows monotonicity, and extreme-bias expansions found no matching positive-bias theorem. Residual risk: an older finite-\(n\) identity or discussion may cover this sign change without the searched wording; global novelty is not independently established.
+PASS
 
-## Value — PASS
-The parameter \(q\) directly biases the ranking model toward more inversions. The intuitive inference that this should monotonically reduce the number of permutation cycles fails **for every nontrivial size \(n\ge3\)**, not just at an isolated parameter example. The theorem identifies the complete size boundary \(n=2\) versus \(n\ge3\), the exact leading sign and coefficient on both parameter extremes, and an interior turning point. This is a structural dependence change in a classical probability model; it is not merely a small computational improvement or a relabeling of the known uniform-point identity.
+RESULT.md:22–26 is the exact derivative of a finite tilted mean: qμ'_n=Cov_q(C,I). For q=1, contracting the two prescribed arcs to residual paths gives H_(n−2) plus the already closed cycles, valid even when there are zero paths. With i<j fixed, the descending image pairs force loops or a 2-cycle in (i−1)+(n−j)+1 cases, giving conditional mean H_n−[2(j−i)−1]/[n(n−1)]. Hence summing pair covariances gives −(2n−1)/12. Near 0, all one-inversion neighbors of identity merge two cycles and yield −(n−1)q. Near infinity, the reversal is the unique top state and its adjacent swaps are all next-to-top states. Swaps merge cycles except that the unique central adjacent pair for even n splits one; the resulting mean correction is (−n+1)/q for odd n and (−n+3)/q for even n. The rational functions are analytic in the relevant endpoint variables, so taking q times the derivative gives the claimed high-bias coefficients and the signs for n≥3. On a compact interval with negative derivative at the left endpoint q=1 and positive derivative at its right endpoint, a minimizer must be interior. n=1 is deterministic and n=2 has covariance −q/(1+q)². Independent exact n=3 enumeration gave the displayed partition and numerator polynomials, and their derivative numerator has exactly one positive root by its one coefficient sign change and endpoint signs. Bisection gives 2.324963524095. Independent enumeration for n=3–7 agreed at the uniform and reversal endpoints. The frozen script was not executed. No claim of general uniqueness was evaluated.
 
-## Limitations
-The number and positions of positive-parameter covariance zeros remain unclassified for \(n\ge4\). The asymptotics fix \(n\); there is no uniform statement about growing \(n\) and simultaneous parameter scaling. Search and self-review do not substitute for independent priority verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The uniform covariance is already known and is explicitly credited. The strongest prior related high-inversion finding establishes a different, parity-signed fixed-point theorem, which does not determine the total cycle count. The supported distinct result is the fixed-size total-cycle reversal, its parity-dependent coefficient and n=2 boundary, with the n=3 crossing as a special case. No strong prior coverage of that result was located in the comparisons below.
+
+## value
+
+PASS
+
+The all-size reversal shows that total cycles do not respond monotonically to inversion bias, despite their negative uniform response and their extremal identity value. It isolates the adjacency mechanism distinguishing odd from even sizes, yields an exact first-size boundary, and distinguishes total cycles from fixed points. This value comes from the general qualitative reversal, not solely a small polynomial or the already known uniform invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

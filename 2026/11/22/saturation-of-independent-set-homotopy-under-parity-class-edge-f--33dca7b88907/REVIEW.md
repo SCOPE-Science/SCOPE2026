@@ -1,19 +1,21 @@
-# Review: parity-class edge-fault saturation in the four-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the sixteen-vertex graph and the eight symmetry-equivalent four-edge parity-class matchings. The standalone verifier reconstructs 742 intact faces and a 367-pair, 2,816-incidence acyclic discrete-Morse matching with one critical vertex and seven critical three-cells. It verifies that the residual link of the first missing edge collapses onto an octahedral two-sphere in eight elementary pairs. The signed octahedral three-cycle evaluates to unit value on the cochain of an explicit maximal tetrahedron; this proves primitive attachment and a six-sphere wedge by the three-dimensional Hurewicz theorem. The subsequent nested edge faults are individually certified by 26, 32 and 40 relative elementary collapses, and explicit graph symmetries cover every nested fault pair. Full independent mod-two boundary reductions agree with ranks seven and six in degree three; they are checks, not substitutes for the integral proof.
+PASS
 
-## Originality — PASS against inspected evidence
+An independent replay (/workspace/review-evidence/3-replay.py, passing the frozen certificate.json path as its sole argument) regenerated each independence complex by enumerating all vertex masks against explicit Hamming-distance-one edges. It recovered 742/785/837/901/981 nonempty faces and verified the 367 pivot pairs, all 2816 Hasse incidences by DFS acyclicity, and exactly one vertex and seven 3-face critical cells. Thus the intact complex has a CW model of seven 3-cells attached to a point. The first fault fills e*L with intersection (∂e)*L; the replay verified all eight strict free coface pairs taking L onto the three-edge matching independence sphere. The attached S³ is the four-edge octahedral sphere. The replay checked its signed integral boundary vanishes and {0,6,11,13} occurs with coefficient one and has no proper coface. Its dual cochain is closed and evaluates to one, yielding a primitive element. Hurewicz for the two-connected wedge and the unimodular change of basis on that wedge show the cofiber removes exactly one sphere (and the natural homology map is split onto). The replay verified the frozen collapse pairs for K₂→K₁, K₃→K₂, K₄→K₃, counts 26, 32, 40, by checking the unique strict coface and exact end complex. The 24 actions realizing S₄ carry a flag A⊆B to the canonical flag of sizes |A|,|B|; translations and coordinate permutations carry the canonical matching to all eight classes. This proves actual relative collapses for the claimed inclusions, including equal sets by the empty sequence. No extension to arbitrary matchings, larger cubes, or equivariant homotopy type is inferred. The supplied checker was inspected, not executed; no field Betti number is used to establish the integral result.
 
-The full mathematical results of the previously published intact four-cube homotopy and its octahedral carrier representation were read. They imply neither the first-edge homotopy cofiber nor later relative simplicial collapses. Matsushita–Wakatsuki (arXiv:2203.16391, 2022-03-30) concerns rectangular grids, while Adamaszek (arXiv:1202.1655) develops the general deletion-cofiber method but does not calculate parity-class edge-fault saturation. The 2010 Jonsson periodic-grid work supplied only abstract-level comparisons because its full text was not accessible, leaving a disclosed literature risk. Searches also compared higher-independence, graph-cut, open-neighborhood and demihypercube-flag complexes by definitions: those have different face predicates. The originality lies in the sharp first deletion followed by all-inclusion simple-homotopy stability, not the known intact seven-sphere result or standard cofiber theorem.
+## originality
 
-## Value — PASS
+PASS
 
-A parity class of parallel four-cube edges is a natural orbit of pairwise separated defects in the sixteen-vertex periodic hard-square graph. The exact loss of one primitive sphere under the first fault, followed by no simple-homotopy change under three further faults, is a structural stability threshold. The complete classification of nested inclusions is not determined by the previously known intact homology lattice or by generic cofiber machinery. No arbitrary-defect or larger-cube theorem is claimed.
+The intact wedge, its specific primitive octahedral carriers and generic edge cofibration are all known. The distinct result is the action of the first deletion on integral homology and actual stabilization by relative collapses under all subsequent deletions in the same parity class. No inspected existing result supplies that relative classification.
 
-## Limitations and closest sources
+## value
 
-The finite certificates fully enumerate only the stated graph. Relevant sources are arXiv:2203.16391, arXiv:1202.1655, DOI 10.1007/s00454-009-9224-9 (abstract examined), and the two published intact four-cube results explicitly linked in RESULT.md. Possible unindexed equivalent fault studies remain a bibliographic risk; no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural symmetry orbit of parallel faults on the smallest hypercube supporting these nontrivial octahedral classes. It distinguishes the first deletion from every later inclusion by identifying the exact primitive integral class lost and by showing elementary relative collapses rather than just Betti number stability. These are independently useful facts about the diagram of fault complexes, not further counts of the intact complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

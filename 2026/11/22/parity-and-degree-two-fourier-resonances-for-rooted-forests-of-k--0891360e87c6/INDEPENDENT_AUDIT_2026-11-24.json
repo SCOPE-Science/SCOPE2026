@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:25:55.271810Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–59",
+        "Frozen VERIFICATION.md and checks/check_rooted_forest.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/dd75e301-8344-4784-8ccd-dfea9f1a6aec/reproduce_rooted_forest.py"
+      ],
+      "rationale": "Each character weights the edge subset by the product of its edge signs, and the rooted-forest determinant counts each acyclic subset with its full product of component sizes. The polynomial identity allows signed weights; incidence-minor expansion also gives it by dropping one row in each tree component. Eliminating the n diagonal pivots 3,1,1,-1 gives the claimed Schur matrix and prefactor. With s=b+c and e=b-c the scaled determinant H factors as (1+a-2s-d)(3+a+3d)-3e², agreeing with the stated expansion. The counting convolution is diagonal in the unnormalized Walsh convention with these exact eigenvalues, and column multiplicities are multinomial, so its nullity and rank follow. Modulo two all sign choices give the unsigned value (n+1)(n+3)3^{n-1}, odd for even n. On odd n=2k+1 the type (k,0,0,k+1) zeros the first factor, giving the stated lower bound. At weight two the same-column, same-shore distinct-column, and opposite-shore distinct-column values of H are (n-1)(n+5), n²-4n-17, and (n-5)(n+1), respectively. Weight one gives n²-7 and weight zero is positive. Thus only the opposite-shore distinct-column case at n=5 is singular among these degrees, with exactly 20 such frequencies.",
+      "residual_risks": [
+        "The independent integer edge-subset/Walsh replay agrees for all 1,364 coefficients at n=1 through 5. Type summation reproduces 0,3,0,30,0,245,0,1638 at n=2 through 9, and bounded type and low-weight sweeps support the symbolic result. n=1 is only diagnostic; finite tests do not prove the all-n conclusions. No formal or expert verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general weighted matrix-forest theorem supplies the determinant before evaluation.",
+          "The K_{m,n} prior record gives a broader graph family for a vertex-root-set statistic."
+        ],
+        "reasoning": "The broader theorem gives a general representation, not an evaluated signed spectrum, parity converse or degree-two criterion. The broader graph family does not dominate an edge-frequency problem when its Fourier variable records a different statistic.",
+        "searches": [
+          "Focused literature search for evaluated rooted-forest Walsh spectra and matrix-forest specializations",
+          "Chebotarev–Shamis Theorem 5",
+          "Resultary K_{m,n} rooted-forest Walsh comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary comparison records above",
+        "Chebotarev–Shamis and Goodall passages above",
+        "Focused primary literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goodall's inspected passages concern graph-related Fourier methods and Cayley-graph tree enumeration, not this spectrum.",
+          "Reducing the signed determinant mod 2 proves even-width nonsingularity, but the converse needs a realizable odd-width zero; the weight-two classification additionally requires the distinct-column analysis."
+        ],
+        "reasoning": "The determinant identity provides the starting representation. The odd-width witness and the classification by support at weight two require additional deductions specific to this graph and kernel. They are not instances of the inspected vertex-root-set or spanning-tree spectrum laws.",
+        "searches": [
+          "Compare indexed forest and tree spectrum statements with the frozen Schur, parity and low-weight arguments",
+          "Goodall, Fourier Analysis on Finite Abelian Groups: Some Graphical Applications, pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day bipartite rooted-forest Walsh result 2026/11/22/SCOPE-a-parity-sharp-walsh-nullity-law-for-rooted-forests-of-complete--7a0c1bc2e70a uses vertex root-set incidence, not edge-set incidence.",
+          "The earlier spanning-tree K_{2,n} spectrum 2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c uses the spanning-tree indicator, not the sum of root multiplicities over all acyclic edge sets."
+        ],
+        "reasoning": "Moving the signs from vertex root selections to edge selections changes the determinant variables and the signal space. Restricting to trees changes the kernel even on the same labeled edge group; for example the present kernel assigns mass one to the empty subset whereas the tree indicator is zero there. These are not equivalent normalizations.",
+        "searches": [
+          "Resultary semantic search for rooted forest edge-incidence Walsh spectra on K_{2,n}, parity and low-degree zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-spectrum matches located were the tree-indicator spectrum on K_{2,n} and the vertex-root-set spectrum on K_{m,n}; their definitions were checked in the findings and proofs."
+        ],
+        "reasoning": "Both are exact data but neither is a table or formula for this counting measure on the full Boolean edge group. The identical indexed finding is this claim itself and is not a separate comparison.",
+        "searches": [
+          "Resultary indexed exact Walsh spectrum and nullity searches for complete bipartite graphs and rooted forests"
+        ]
+      },
+      "rationale": "The signed forest determinant and Walsh convolution machinery are established. The checked claim is the explicit edge-spectrum evaluation together with global invertibility and the exact degree-two exception. The strongest same-graph and same-family indexed results use materially different kernels; neither yields those classifications. The judgment is bounded to the sources checked, not a priority inference from record dates.",
+      "residual_risks": [
+        "An unlocated evaluation of this specialization of the weighted determinant could exist; the noisy general lookup is not negative evidence. No priority inference is made for the distinct same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close but different edge kernel",
+          "evidence": "The input is the zero-one spanning-tree indicator and excludes non-tree forests; component-root multiplicities are not present.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c",
+          "material_read": "RESULT.md finding at offset 0 and related-work passage at offset 6249",
+          "method": "Resultary local mirror",
+          "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+          "trigger": "Same graph, edge group and exact Walsh evaluation"
+        },
+        {
+          "assessment": "Material methodological overlap, but different indexed statistic",
+          "evidence": "Its two-parameter spectrum uses vertex root sets on F₂^{m+n}, whereas the frozen edge group would be F₂^{mn} in K_{m,n}.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-sharp-walsh-nullity-law-for-rooted-forests-of-complete--7a0c1bc2e70a",
+          "material_read": "RESULT.md Finding and Proof, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "A parity-sharp Walsh nullity law for rooted forests of complete bipartite graphs",
+          "trigger": "Rooted forests, bipartite graphs and a parity nullity law"
+        },
+        {
+          "assessment": "Covers the determinant representation only",
+          "evidence": "The weighted rooted-forest sum equals the determinant of identity plus the weighted Laplacian.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602575",
+          "material_read": "Theorem 5, p. 5, PDF text offset 13227",
+          "method": "OA primary PDF passage",
+          "title": "Matrix-Forest Theorems",
+          "trigger": "General exact identity used as input"
+        },
+        {
+          "assessment": "Methodological and graph enumeration background",
+          "evidence": "The inspected tree-counting discussion treats Cayley graphs, not signed rooted-all-forest edge-incidence multipliers on K_{2,n}.",
+          "identifier_or_url": "https://iuuk.mff.cuni.cz/~andrew/dwajgApr06.pdf",
+          "material_read": "pp. 7–8, PDF offsets 18379 and 20306",
+          "method": "OA primary PDF passages",
+          "title": "Fourier Analysis on Finite Abelian Groups: Some Graphical Applications",
+          "trigger": "Prior finite Fourier techniques for graph counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen spectrum, parity, nullity and low-weight statements",
+        "Weighted determinant and distinct-kernel comparisons above"
+      ],
+      "rationale": "The natural observable is the spectrum of convolution by the actual rooted-forest counting measure, retaining labeled edges and root multiplicity. The parity law resolves recovery on the full edge signal space; the unique width-five resonance distinguishes recovery of two-edge components from full invertibility and specifies exactly which components are lost there. The evaluated spectrum and type multiplicities are reusable for ranks without enumerating all labeled frequencies. These are structural facts, not a determinant restatement or a finite list of computed examples.",
+      "residual_risks": [
+        "No sharp conditioning result or simplified general count of high-weight odd-width zeros is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

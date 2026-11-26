@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact mixed-moment marking identity is proved from the Ewens normalization, with all length restrictions and endpoint signs accounted for. The strictly decreasing increment signs force one finite crossover. Gamma-ratio and harmonic endpoint bounds justify the macroscopic Riemann limit; integral sign structure gives a unique continuum zero, and controlled parameter asymptotics give its endpoints. The exact-rational checker exhausts the sample space for 81 small-parameter/model/cutoff instances. Universal assertions rest on proof, not enumeration.
+## correctness
 
-## Originality — PASS (historical risk remains)
-Betz–Schäfer (arXiv:1605.08383) prove conditional no-long-cycle central limit theorems; they do not state the unrestricted Ewens mixed-covariance classification. Lugo (arXiv:0909.2909, Proposition 1) gives broad uniform-permutation mixed moments, which already cover the finite uniform case algebraically; no such finite identity is claimed new. Nikeghbali–Zeindler (arXiv:1105.2315) and Maples–Nikeghbali–Zeindler (arXiv:1203.4132) cover related weighted cycle-statistic limits but not the asserted theta-wide uniqueness and parameter endpoint transition in their inspected statements. Related prior work on Ewens/Pitman–Yor block-count and pair-homozygosity covariance concerns a different size-squared statistic. Absence in a bounded search does not prove historical priority; a more general historic Poisson–Dirichlet argument may imply parts of this theorem.
+PASS
 
-## Value — PASS
-The statistic of cycles longer than a macroscopic size is a canonical large-component observable. The unique crossover provides a sharp finite sign law and shows how concentration parameter sensitivity switches between increasing and decreasing long-cycle abundance. Its quantitative location and distinct small-/large-parameter scaling regimes are intrinsic questions of permutation fragmentation, not arbitrary numerical slices.
+Marking a j-cycle gives its mean times 1+h_(n−j) for the mixed moment; subtracting the total-cycle mean gives the stated factor δ. The factors are strictly decreasing in j; deleting nonnegative terms lowers the tail, with any flat step already negative, and the remaining negative tail cannot cross back. The variance at cutoff 0 is positive since the Ewens law gives positive mass to permutations with different total counts, and the n−1 cutoff is strictly negative even for n=2. The gamma and harmonic ratios converge uniformly on interior compact intervals. Near j=n, writing s=n−j+1 and grouping dyadically gives O(ε^θ(1+|log ε|)) limsup from the bound n^(−θ)s^(θ−1)(1+log(n/s)), including θ<1. The limiting integrand changes sign at 1−e^(−1/θ), is integrable at 1, and has a positive θ/x singularity at zero. The single integrated root and two-sided cutoff convergence follow. At small θ, differentiating the integration-by-parts expression gives Q/θ→log((1−t)/t); at large θ, u=θx gives E1(c)−e^(−c), dominated on u≤θ/2 by e^(−u/2)(1+2u)/u and with O(2^(−θ)) tail from y=1−u/θ. Two-sided sign tests then prove both parameter limits. Independent exact enumeration corroborated 60 marked moments and 60 cutoff cases; independent root calculations agreed with both numerical constants to the stated digits.
 
-## Limits
-The asymptotic cutoff theorem is pointwise in fixed positive theta; uniform convergence rates are not claimed. The finite transition can jump over zero. The absolute historical priority and external proof validation remain open, and the full theorem should be independently reviewed before use as a verified research fact.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the aggregate-tail sign classification, limit root and parameter endpoint laws. The marking identity and limit intensity use standard Ewens theory; their provenance is not the novelty claim. Near matches either change the conditioning, change the observable, or supply moments without analyzing the aggregate threshold.
+
+## value
+
+PASS
+
+The natural statistic compares total cycle count with the number of cycles above a cutoff. Its nonmonotone covariance could permit multiple crossings; the theorem rules them out for every finite n and θ, then locates the macroscopic transition and distinguishes its dilute and high-θ regimes. These are reusable sign and scale statements beyond recomputing a known moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

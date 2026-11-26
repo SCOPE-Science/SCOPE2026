@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:07:40.442613Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55; VERIFICATION.md lines 19–23; checker.py lines 16–85, inspected only"
+      ],
+      "rationale": "IID atomless endpoints give a uniform perfect matching of ranks. An interval is minimal exactly when it opens before the first right endpoint, so M_n≥k means no internal match in the first k ranks. Reflection gives the analogous last-l ranks event. Conditional on j initial openings, the next endpoint is new with probability (2n−2j)/(2n−j). For the joint event the rank blocks A,B are disjoint; choose and biject h endpoints of each to make the A–B pairs, assign the remaining k+l−2h labeled vertices injectively into the middle c, and pair the remaining 2z middle ranks. The product is exactly k!l!c!/[h!(k−h)!(l−h)!2^z z!], with the stated bounds from z≥0 and h≤min(k,l). This includes k or l zero and n=1; mixed finite differences give the masses. For uniform endpoints, the minimum right endpoint T and reflected maximum left endpoint W exclude disjoint squares of endpoint space for thresholds a+b≤1, giving (1−a²−b²)^n and the joint independent limit for sqrt(n)(T,W). Conditional on the winning interval and T=t, the other endpoint pairs are independent truncated to R>t, with P(L≤t | R>t)=2t/(1+t); this distribution does not depend on the winning index. Thus the scaled difference between the counts and 2sqrt(n)(T,W) goes to zero in L²: conditional variance is O(n E T)=O(sqrt(n)), and the squared bias is O(1) by E T^4=O(n^−2). Reflection handles W. The product bound exp(−k(k−1)/(4n)) gives uniform fourth moments and uniform integrability of scaled squares and products. Integrating the limiting tail gives mean sqrt(pi) and second moment 4, hence the stated variance and zero limiting correlation. The checker was read, not run; the argument proves all n.",
+      "residual_risks": [
+        "Requires IID atomless endpoints and precedence order; not a claim about finite-n independence or unscaled covariance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record d692eb283908 gives joint independent Rayleigh limits (tail exp(−t²)) for sqrt(n) min R and sqrt(n)(1−max L) and a conditional Poisson limit for universal intervals. Record 9e288e46509a gives coupled Poisson degree extremes and independent side-specific least-degree limits with tail exp(−x²/4). Neither finding states the two-sided rank-block count."
+        ],
+        "reasoning": "There is real coverage of the underlying asymptotic mechanism, not just a shared title or model. It does not determine the finite survival law for the counts.",
+        "searches": [
+          "Resultary 2026/11/22 records d692eb283908 and 9e288e46509a",
+          "Diaconis–Holmes–Janson §2.3 and Iliopoulos §4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match 65bf5632821e and distinct records d692eb283908, 9e288e46509a, c51867200019",
+        "arXiv:1102.2841, 1507.06275",
+        "DOIs 10.1080/00029890.1990.11995679 and 10.1007/BF02189092, retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint endpoint law asymptotically transfers to the counts after proving that their scaled discrepancies from doubled endpoint locations vanish. Neither a joint limit for endpoint locations or degrees nor the older one-dimensional degree asymptotic yields the exact finite forbidden-pair block counts."
+        ],
+        "reasoning": "Credit the source-level asymptotic overlap, while retaining the direct all-size bivariate enumeration. It specifies second differences and finite dependence not resolved by those limiting laws. Same-day metadata alone determines no priority.",
+        "searches": [
+          "Resultary d692eb283908 Finding, offsets 0–3567; 9e288e46509a Finding, offsets 0–3477",
+          "arXiv:1102.2841, Eq. (2.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary counts equal the initial opening run and terminal closing run in a uniform rank matching. Diaconis–Holmes–Janson Eq. (2.2) and Iliopoulos Theorem 4.5 give the single global minimum interval-graph degree, with limiting tail exp(−x²/2). Resultary c51867200019 studies inclusion-minimal and inclusion-maximal intervals with different definitions and even different asymptotic orders on the maximal side."
+        ],
+        "reasoning": "The graph minimum degree and containment-frontier statistics are not rank-run lengths. A shared leading mean or scale does not identify their finite joint distributions.",
+        "searches": [
+          "Resultary: joint boundary counts of random interval orders, independent Rayleigh extremes and random endpoint pairing",
+          "Focused primary search: random interval orders minimal and maximal elements joint survival",
+          "arXiv:1102.2841 §2.3; arXiv:1507.06275 §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is this same record, not an earlier comparator. The exact finite observables found in related accessible passages concern different statistics, including the maximum-degree/universal-interval event reported as probability 2/3 for n>1. Neither older article was fully accessible."
+        ],
+        "reasoning": "What needs separate coverage is a joint rank-matching survival table or its exact coefficient formula, not a count of universal intervals. Older inaccessible papers leave a comparison risk, not a negative finding.",
+        "searches": [
+          "Resultary exact record 65bf5632821e and distinct nearby records d692eb283908, 9e288e46509a, c51867200019",
+          "Justicz–Scheinerman–Winkler DOI 10.1080/00029890.1990.11995679; Scheinerman DOI 10.1007/BF02189092"
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite exact bivariate survival law for the counts of precedence-minimal and precedence-maximal intervals. The same-day endpoint-extreme result explicitly covers the underlying joint Rayleigh limit for endpoint positions, and another same-day result gives that limiting law after doubling for different degree observables. The boundary-count limit follows by a concentration bridge and should not be treated as an independent discovery of the endpoint law. These sources do not supply the exact finite rank-block joint law for the counts.",
+      "residual_risks": [
+        "An equivalent finite law in the inaccessible 1988 or 1990 text, or another treatment of random endpoint matchings, remains possible. No priority order is assigned to same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the endpoint limit, not the count law",
+          "evidence": "Independent exp(−t²) tails for scaled endpoint extremes and conditional Poisson law for universal intervals.",
+          "identifier_or_url": "Resultary 2026/11/22 record d692eb283908",
+          "material_read": "RESULT.md offsets 0–3567, Finding",
+          "method": "Local published-record mirror",
+          "title": "A randomly clipped Poisson field of universal random intervals",
+          "trigger": "Same endpoint extrema and joint limit"
+        },
+        {
+          "assessment": "Material overlap of limits, distinct statistics",
+          "evidence": "The two side minima in the limiting degree fields are 2A and 2B with independent exp(−t²) tails for A,B.",
+          "identifier_or_url": "Resultary 2026/11/22 record 9e288e46509a",
+          "material_read": "RESULT.md offsets 0–3477, Finding",
+          "method": "Local published-record mirror",
+          "title": "Coupled Poisson extremes of degrees and universal vertices in random interval graphs",
+          "trigger": "Identical independent side-specific limiting law"
+        },
+        {
+          "assessment": "Different inclusion order",
+          "evidence": "Inclusion-minimal mean asymptotic sqrt(pi n); inclusion-maximal mean asymptotic log n.",
+          "identifier_or_url": "Resultary 2026/11/22 record c51867200019",
+          "material_read": "RESULT.md offsets 0–3586, Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact dual containment-frontier means for random intervals",
+          "trigger": "Potential order-convention alias"
+        },
+        {
+          "assessment": "Gives a different minimum-degree observable; secondary evidence on the 1990 paper is limited to a maximum-degree result",
+          "evidence": "Minimum degree divided by sqrt(n) has limiting tail exp(−x²/2).",
+          "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+          "material_read": "PDF §2.3 p. 4, Eq. (2.2), offsets 10582–13552",
+          "method": "Lawful OA primary paper passage",
+          "title": "Interval graph limits",
+          "trigger": "Same paired-endpoint model and comparable Rayleigh statistic"
+        },
+        {
+          "assessment": "Degree marginal, not the pair of precedence counts",
+          "evidence": "Reiterates the Rayleigh-type global minimum-degree limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.06275",
+          "material_read": "PDF §4.4 p. 29, Theorem 4.5",
+          "method": "Lawful OA thesis passage",
+          "title": "Random Interval Graphs",
+          "trigger": "Broad same-model thesis"
+        },
+        {
+          "assessment": "Direct comparison unresolved",
+          "evidence": "The secondary report attributes a probability 2/3 for the existence of a universal vertex; no whole-paper inference.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679",
+          "material_read": "No original text retrieved; specific secondary report at Interval graph limits §2.3 p. 4",
+          "method": "Lawful retrieval attempted; blocked",
+          "title": "Random Intervals",
+          "trigger": "Historical paper on the same random intervals"
+        },
+        {
+          "assessment": "Direct comparison unresolved",
+          "evidence": "Identification from the frozen references; no claim about unread statements.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+          "material_read": "No usable full text retrieved",
+          "method": "Lawful DOI/publisher attempts redirected or timed out",
+          "title": "Random interval graphs",
+          "trigger": "Historical same-model source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finite joint survival and extrema sections",
+        "Same-day endpoint and degree results d692eb283908 and 9e288e46509a"
+      ],
+      "rationale": "Both extremal-rank counts measure the boundary of the natural random precedence poset. Their transparent exact joint law is useful for finite probabilities and dependence and distinguishes the order boundary from previously studied graph and containment observables. The asymptotic independence and moment statement clarify how that finite dependence behaves; they complement rather than substitute for the exact count.",
+      "residual_risks": [
+        "Does not quantify the rate of decay of correlation or give an unscaled covariance limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:15.655596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof; VERIFICATION.md and verify.py inspected",
+        "Replay: python3 /workspace/branches/repro-12.py (Path output)"
+      ],
+      "rationale": "The singleton partition has finite welfare, so only compositions of contiguous intervals can maximize. Counting ordered adjacent and nonadjacent pairs gives w_l. Its strictly concave quadratic term gives a strict gain 2q(a-b-1) by balancing lengths a,b at fixed k, proving the complete census including ties between k. A negative endpoint could detach without disconnecting the source, doubling its personal gain in welfare; interior members have strictly larger utility than endpoints. An interior member cannot connect to another coalition, and a feasible boundary join leaves old within-block distances unchanged, so its welfare increment is exactly twice the deviator's utility gain. The decreasing sequence of density differences gives precisely the claimed consecutive ties, with L>=2 because d_2>d_1. Off criticality the residual-block construction bounds the total deficit uniformly, and the positive density gap then bounds the number of exceptional vertices, yielding polynomially many placements. At criticality n=Lh+r with h>=L-1>=r is representable by L and L+1; both lengths alone attain the optimal density. The composition generating function has a simple positive dominant pole and no other pole on its modulus because L,L+1 are coprime. The recurrence with a_0=1 is for those coefficient counts; they coincide with N_n on the stated representable range, not necessarily for every small n. An independent cut-mask replay checked 72 parameter profiles and every unilateral destination for 145 exact optimum partitions, without running uploaded code.",
+      "residual_risks": [
+        "The bounded replay does not prove the large-n classification; the density and pole arguments do. The labeled path and connectivity convention are integral to the Nash assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The open-score discussion makes the tail constant beyond the specified vector; δ=2 gives the present scores. General work gives algorithmic/diameter results",
+          "Kaklamanis et al. prove price of stability one on trees for a normalized positive inverse-distance game"
+        ],
+        "reasoning": "An algorithm, diameter bound or existence of one stable optimizer in a different model does not imply stability of every negative-tail optimizer or their exact census.",
+        "searches": [
+          "Ganian et al. arXiv:2307.05061 Theorem 7 and open-score discussion; arXiv:2312.07632 open-score discussion",
+          "Kaklamanis et al., Theorem 12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.05061, 2312.07632, 1809.03392",
+        "Kaklamanis et al. Theorem 12; Brânzei–Larson IJCAI 2011 definition",
+        "Resultary 9e24aeb8034c, 676f75d25d45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pairwise potential relation applies to connectivity-preserving endpoint changes; it does not dispense with rejecting disconnection or profitable singleton departures",
+          "The critical density locus and eventual two-length optimizer set are facts specific to the negative-tail block welfare"
+        ],
+        "reasoning": "Once those pieces are proved, standard counting and pole analysis apply. The inspected broad models or exact normalized-path formula do not provide those pieces as a mechanical specialization.",
+        "searches": [
+          "Ganian et al. open-score framework; Kaklamanis et al. Theorem 12; Okubo et al. Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Okubo et al. Lemma 2 and Theorem 1 use normalized reciprocal distance and path blocks P_2,P_3,P_4 selected by n modulo 3",
+          "Resultary 9e24aeb8034c uses exactly that normalized scoring, and 676f75d25d45 uses normalized signed edge-only payoffs"
+        ],
+        "reasoning": "All use ordered path pieces, but altering the normalization, the edge support, or the negative tail changes the block-welfare sequence. There is no equivalence to the target's p/q-indexed optimum family.",
+        "searches": [
+          "Resultary: path/cycle social-distance welfare and optimizer counts, signed hedonic path partitions",
+          "Okubo–Hanaka–Ono arXiv:1809.03392, path partitions",
+          "Brânzei–Larson IJCAI 2011, definition of social distance games"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9e24aeb8034c tabulates exact welfare/counts for normalized reciprocal-distance on cycles and discusses path block types",
+          "676f75d25d45 gives an optimal tiling using blocks of at most three for the different signed edge payoff"
+        ],
+        "reasoning": "The target is a formula across n,p,q rather than a finite external data entry. Exact prior comparisons use different scores; the generic two-tile generating function is known and not counted as novelty.",
+        "searches": [
+          "Resultary catalogue matches 9e24aeb8034c and 676f75d25d45; arXiv:1809.03392 path optimum theorem"
+        ]
+      },
+      "rationale": "The credited claim is the all-parameter census and its score-induced critical change in optimizer counts, with every such optimizer stable on a path. Standard pairwise welfare, concavity, and composition generating functions are tools, not claimed original. Strongest path analogues checked use different payoff normalizations and yield different optimal lengths; the open-score framework does not give the census or density phase transition.",
+      "residual_risks": [
+        "Best-of-knowledge comparison. No further broad search results were available in the admitted lookup; keyword or retrieval limitations are not evidence of absent prior equivalents.",
+        "No priority conclusion from same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and general structural/algorithmic aspects rather than these exact path conclusions",
+          "evidence": "Open scores keep s(δ) at distances beyond δ; the paper distinguishes this from its closed-vector welfare result.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05061; https://arxiv.org/abs/2312.07632",
+          "material_read": "First PDF Theorem 7 p. 9 offset 30605, open-score discussion p. 12 offsets 42600–43563; expanded PDF p. 16 offset 120700",
+          "method": "Bounded OA primary text",
+          "title": "Maximizing Social Welfare in Score-Based Social Distance Games",
+          "trigger": "Identical open-tail framework and welfare/stability"
+        },
+        {
+          "assessment": "Close path theorem with distinct normalized reciprocal-distance payoffs",
+          "evidence": "The optimum uses 2-, 3-, and 4-vertex blocks with dependence on n modulo 3, not a negative-tail density tie.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.03392",
+          "material_read": "OA PDF pp. 4–6, offsets 10400 and 15400–16076, Lemma 2 and Theorem 1",
+          "method": "Bounded primary-text inspection",
+          "title": "Optimal Partition of a Tree with Social Distance",
+          "trigger": "Exact path optimal blocks and welfare"
+        },
+        {
+          "assessment": "Existential optimum stability under normalized inverse distances",
+          "evidence": "Constructs a stable compact optimum; PoS=1 does not claim all optima stable.",
+          "identifier_or_url": "https://repository.essex.ac.uk/29051/1/Hedonic%20games.pdf",
+          "material_read": "Theorem 12, PDF p. 17 offset 52773; model comparison with Brânzei–Larson IJCAI 2011 pp. 91–92",
+          "method": "Bounded primary-text inspection",
+          "title": "On the Price of Stability of Some Simple Graph-Based Hedonic Games",
+          "trigger": "Nash-stable welfare optimum on trees"
+        },
+        {
+          "assessment": "Overlapping methodology; different utility and no Nash theorem",
+          "evidence": "Uses normalized reciprocal distances; gives exact cycle counts and path block sizes 2,3,4.",
+          "identifier_or_url": "Resultary 9e24aeb8034c",
+          "material_read": "Mirrored RESULT.md offsets 0 and 4800–8466",
+          "method": "Local catalogue and mirror inspection",
+          "title": "Complete welfare and optimal-partition counts on cyclic social-distance networks",
+          "trigger": "Exact counts and path decomposition"
+        },
+        {
+          "assessment": "Different payoff, no full optimizer classification",
+          "evidence": "Path tiles are singletons, pairs and triples using signed edge-only values with a size denominator.",
+          "identifier_or_url": "Resultary 676f75d25d45",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Local catalogue and mirror inspection",
+          "title": "Linear-time optimal fractional-hedonic coalitions with signed weights on paths and cycles",
+          "trigger": "Signed welfare maximization on path"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof; independent bounded replay"
+      ],
+      "rationale": "The result gives more than an optimal welfare algorithm: it determines the full optimizer multiplicity, proves that no maximizer needs to be discarded for Nash instability, and shows that an exact tie in per-vertex welfare creates an exponential optimizer family whereas noncritical parameters allow only polynomial degeneracy. This is a structural distinction relevant to counting and selecting optimal coalitions.",
+      "residual_risks": [
+        "The growth comparison keeps p and q fixed and does not extend to arbitrary graphs or negative tails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

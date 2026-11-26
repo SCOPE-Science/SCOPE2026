@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:11.608234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "VERIFICATION.md and verify_mas_fibonacci.py (inspected as frozen evidence, not executed)",
+        "Independent replay: python /workspace/branches/audit-mas-ising.py 1"
+      ],
+      "rationale": "Reconstructed the MAS condition for scattered subsequences: deleting the preceding letter forces each proposed next letter to occur in the previous greedy block, since otherwise its greedy position and the eventual failure are unchanged. Conversely, after any single deletion the block witnesses place the remaining suffix one block earlier; deletion of the last letter gives the already embedded prefix. A word has a unique greedy path. At the first position of run j>=3 the only arrivals are from the last position of run j-2 and the first position of run j-1. Both first-position states admit both letters because the intervening run has length at least two, so first-position and within-run totals obey the Fibonacci recurrence with A_1=A_2=1. A final letter of the last-run type fails only after its last position; the other final letter can fail exactly at the end of the penultimate run or at the first position of the last run. The binary complement and two-run cases agree. Independent prefix exploration and individual deletion tests corroborated both counts on 360 run tuples, using lengths 2, 3, 4 and 2–5 runs. The induction, not the finite test, covers unbounded r and lengths.",
+      "residual_risks": [
+        "No assertion is made with singleton runs, larger alphabets, or contiguous factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "56438eb0ba34 and c5410870c77b: complete lists imply 8 with split 3/5 and 13 with split 5/8 respectively when inner runs are nonsingletons; these lists allow singleton outer runs",
+          "Manea et al. give general enumeration algorithms"
+        ],
+        "reasoning": "Fixed-run formulae do not give all r, and output-sensitive enumeration is not a closed evaluation or a dilation-invariance theorem.",
+        "searches": [
+          "Resultary four- and five-run complete MAS bases",
+          "arXiv:2504.21471"
+        ]
+      },
+      "checked_sources": [
+        "Resultary configured index and local RESULT.md mirror",
+        "Kosche et al. DOI 10.3233/FI-222159",
+        "arXiv:2407.18599",
+        "arXiv:2504.21471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known path criterion determines membership, but the two incoming groups and uniform within-run counts require the separate run-state argument",
+          "Tight Bounds for the Number of Absent Subsequences counts all length-prescribed absent words at fixed universality index, not the minimal antichain by terminal letter"
+        ],
+        "reasoning": "The frozen statement is a new evaluation of a known construction in the inspected evidence, not a direct substitution into an existing count.",
+        "searches": [
+          "arXiv:2108.13968 Theorem 3.1",
+          "arXiv:2407.18599 Abstract",
+          "arXiv:2504.21471 Abstract/Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al., Theorem 3.1 and Example 3.3: greedy characterization and the three MAS of 0011",
+          "Resultary 06eff8b8a564: F_(r+2) in the all-runs-of-length-two family"
+        ],
+        "reasoning": "The exact doubled family fixes each length, and the general greedy characterization does not evaluate the count under the frozen hypotheses.",
+        "searches": [
+          "Resultary: Fibonacci MAS, doubled or dilated alternating binary runs, minimal absent-subsequence bases",
+          "arXiv:2108.13968"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "06eff8b8a564 gives the doubled-run length spectrum, 56438eb0ba34 and c5410870c77b give exact four/five-run lists, and 47ef0e5dde29 gives the singleton-run alternating length spectrum"
+        ],
+        "reasoning": "Exact overlap is documented where it occurs. The singleton-run table is outside scope (four singleton runs have 5 MAS, not 8). No checked exact entry states the general terminal split and invariance.",
+        "searches": [
+          "Resultary length-spectrum and finite-run basis hits",
+          "arXiv:2108.13968 Example 3.3"
+        ]
+      },
+      "rationale": "The established greedy criterion and the two-run example are reused. No inspected earlier source gives or subsumes the arbitrary-run-length Fibonacci count together with the terminal-symbol split. The later exact catalogue overlaps are material but cover different subfamilies or statistics and do not establish earlier coverage.",
+      "residual_risks": [
+        "Catalogue and published coverage is not exhaustive. Relative dates of later records establish neither dependence nor general priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general predecessor and exact base case only in the passages inspected",
+          "evidence": "Theorem 3.1 specifies the greedy blocks and the final failed letter; Example 3.3 treats 0011.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Theorem 3.1, pp. 203–204; Example 3.3, p. 204",
+          "method": "OA PDF passage inspection",
+          "title": "Absent Subsequences in Words",
+          "trigger": "same MAS definition and greedy path characterization"
+        },
+        {
+          "assessment": "exact total for a narrower all-double family; record dated later",
+          "evidence": "F_(r+2) overall and F_r, 2F_(r-1), F_(r-2) by length r,r+1,r+2; not arbitrary lengths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-fibonacci-length-spectrum-for-minimal-absent-subsequences-of-dou--06eff8b8a564",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured catalogue search and local mirror passage",
+          "title": "Fibonacci length spectrum for minimal absent subsequences of doubled-run binary words",
+          "trigger": "same Fibonacci formula"
+        },
+        {
+          "assessment": "exact overlap at four runs; allows outer singletons; later record",
+          "evidence": "At both inner runs of length at least two the basis gives eight words split 3/5.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-complete-minimal-absent-subsequence-basis-of-a-four-run-bina--56438eb0ba34",
+          "material_read": "mirrored RESULT.md, Finding and explicit basis",
+          "method": "configured catalogue and local mirror",
+          "title": "The complete minimal absent-subsequence basis of a four-run binary word",
+          "trigger": "arbitrary run lengths at fixed four runs"
+        },
+        {
+          "assessment": "exact overlap at five runs; later record",
+          "evidence": "The three nonsingleton inner runs give thirteen words split 5/8.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-minimal-absent-subsequence-basis-for-five-run-binary-wo--c5410870c77b",
+          "material_read": "mirrored RESULT.md, Finding and explicit basis",
+          "method": "configured catalogue and local mirror",
+          "title": "Complete minimal absent-subsequence basis for five-run binary words",
+          "trigger": "arbitrary run lengths at fixed five runs"
+        },
+        {
+          "assessment": "disjoint singleton-run regime",
+          "evidence": "The alternating (01)^m counts start 3,5,9,16, unlike the all-nonsingleton family.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-binomial-length-spectrum-of-minimal-absent-subsequences-in--47ef0e5dde29",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured catalogue and local mirror",
+          "title": "Exact binomial length spectrum of minimal absent subsequences in alternating binary words",
+          "trigger": "exact alternating-word formula"
+        },
+        {
+          "assessment": "different statistic in inspected statement",
+          "evidence": "Bounds on counts of absent subsequences at fixed length and universality index.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "exact absent-subsequence counts"
+        },
+        {
+          "assessment": "algorithmic predecessor/related result; no run formula in inspected passages",
+          "evidence": "Enumeration of minimal and shortest absent subsequences and algorithms for finding longer MAS.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Abstract and Introduction, pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "general MAS enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Kosche et al., Theorem 3.1 and Example 3.3"
+      ],
+      "rationale": "The cardinality of the minimal obstruction antichain is a natural invariant of the subsequence order. Its independence from arbitrarily large and nonuniform run dilations, and the sharper terminal split, reveal structure beyond enumerating a fixed alternating example or reporting the output of a general algorithm.",
+      "residual_risks": [
+        "Value concerns structure of this family; the result does not provide a length-resolved spectrum for arbitrary dilations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the comparison-dependence theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The independent-priority representation gives the elementary indicator identity, after which the complete four-case joint-event probabilities follow by conditioning on the first priority in the relevant union. The calculation includes zero and deterministic boundaries. A separate argument using independence of argmin location from minimum order statistics proves mutual independence for entire strict-laminar families. The converse follows from strict nonzero covariance for every forbidden nondegenerate pair. The standalone finite checker exhaustively confirms all instances through eight keys, but is not substituted for the proof.
+PASS
 
-## Originality
+Use iid continuous priorities; the first pivot in an interval compares the endpoints iff it is one of them. The success probability is 2/u and the variance is 2(u-2)/u². In disjoint intervals the priorities are independent. For strict containment, conditioning on a successful outer minimum removes an outside endpoint without biasing the inner relative order, giving joint probability 4/(uv). In shared-endpoint containment the two possible outer minimizing endpoints give (1+2/s)/ell. For touching intervals the minimizing label must be one of the three endpoints, giving (2/v+1+2/u)/(u+v-1). In a strict interleaving only the two outside endpoints are eligible, giving (2/v+2/u)/t. Subtraction of 4/(uv) yields the displayed exact kernel. For mutual independence, remove an inclusion-minimal interval J from a compatible family. Every remaining interval is disjoint from J or strictly contains it, so their indicator vector is measurable with respect to the numerical minimum inside J and the entire priority vector outside J. Exchangeability makes the minimizing label uniform and independent of that information. Thus I_J is independent of the entire remaining vector, not just each component, and induction gives the product generating function. Conversely, in lengths >=3 all incompatible endpoint cases have strict nonzero covariance. Adjacent ranks are deterministic ones and must not be used in the converse obstruction.
 
-PASS on available comparative evidence, with historical priority risk. The elementary single-pair marginal and the classical variance of total comparisons are acknowledged as known. In the examined full text of Iliopoulos–Penman (arXiv:1006.4063), the main result and derivation concern the scalar total count via a recursive generating function, not the resolved covariance matrix or arbitrary-cardinality independent subfamilies. Alonso et al. (arXiv:math/0312437) study errors and resulting inversion statistics; their full-text results concern that altered model. Standard lecture explanations give only the pair marginal. Comparable public research summaries on Quicksort/inversions and conditioning concern different statistics. No directly dominating equivalence was found in the searches performed; a potentially unindexed treap or random-tree restatement is the principal residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The classification gives a nontrivial exact probabilistic structure for an important randomized algorithm. It answers precisely which collections of actual comparison events can be modeled as independent Bernoulli variables, which cannot, and the signs/magnitudes of every residual pair dependence. Beyond the known total-cost moment, this supports exact joint probabilities for nested/disjoint comparison sets and variance calculations for nonuniformly weighted comparisons. The classification is not just an arbitrary small-parameter value or a renamed textbook expectation.
+The distinct assessed content is the interval-resolved dependence result culminating in a necessary and sufficient condition for mutual independence. The standard priority representation, marginal and variance of total cost are antecedents. In particular, novelty is not inferred merely from known total-variance analyses using different proofs.
 
-## Scientific limits
+## value
 
-All assertions require distinct keys and the uniform-pivot model; length-two intervals are deterministic and explicitly excluded from the converse. Full literature priority and independent mathematical validation remain open, and the general higher-order law for non-laminar families is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intervals correspond to natural direct comparisons in a standard randomized algorithm, and the result supplies the exact signed kernel for arbitrary weighted comparison counts. More structurally, it identifies exactly which nonconstant comparison families have a factorized law and proves that no higher-order dependence survives in precisely those families. This is not a recomputation of the known unweighted total variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

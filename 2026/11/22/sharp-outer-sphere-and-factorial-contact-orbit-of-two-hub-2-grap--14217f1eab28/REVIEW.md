@@ -1,24 +1,21 @@
-# Scientific review — two-hub 2-graph polytope outer sphere
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is fully quantified for integer \(q\ge2\), in the exact standard-coordinate simplex-sum realization \(Q_{K_{2,q},2}\). Its vertex classification follows by assigning each connected singleton, edge or triple simplex to the largest entry of a strict ordering; every original vertex is attained, and each resulting point is exposed. The exact formula for its signed squared-distance gap is reduced to a polynomial with 41 positive monomials after setting \(u=s\), \(v=k-s\), \(w=q-k\), so the radius inequality and its equality cases hold in every dimension. The proposed center belongs to the convex hull of the contacts with explicit positive barycentric weights, proving global optimality and uniqueness. The embedded standard-library checker verifies the formal polynomial identity and separately enumerates all strict total orders for \(2\le q\le6\). The all-dimensional conclusion does not depend on the finite enumeration. Risk: arithmetic transcription errors are mitigated by the independent exact polynomial expansion and direct vertex enumeration but independent audit has not occurred.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Each vertex is uniquely exposed by some strict coordinate order, which assigns each eligible simplex to its largest coordinate. Counting the singleton, edge and connected-triple contributions yields the hub and leaf formulas of RESULT.md:36–44. The two endpoint patterns have equal squared distance to the proposed center. An independent exact re-expansion from the squared coordinate sums (python /workspace/independent_checks.py 4) checks both endpoint distances, the barycentric coefficient and 41 positive gap monomials in (s,k-s,q-k). All monomials contain k-s or s(q-k), with both of those monomials present, so the equality locus is exactly the two endpoints. Strict convexity excludes nonvertices. The proposed center is a strict convex mixture of the two orbit means; averaging squared distances gives R_q^2+||z-c_q||^2 for any alternative center z, proving uniqueness. RESULT.md:85 should say squared radius, not radius, is bounded below by this average; the preceding identity gives the intended result. The two unequal hub values identify (s,k) except at (0,0); precisely the first s leaves are indistinguishable. This yields the stated exact vertex count including q=2, and summing the factorial series yields the asymptotic contact fraction. No uploaded checker was executed.
 
-Pešović and Stojadinović, arXiv:2209.12053v1 (2022-09-24), Definition 2.1 and Sections 3–4, were materially inspected: their construction, fan and enumerator results neither state nor imply the Euclidean minimum enclosing sphere, its barycentric contact certificate or the two exact orbit counts for \(K_{2,q}\) at \(m=2\). Indexed related results for complete-bipartite graphical zonotopes are about \(m=1\), and those for star interpolation consider \(K_{1,q}\) and inscribed balls; the indexed path 2-graph result concerns Gaussian-exposed vertex inertia for a path, not worst-case Euclidean radius for \(K_{2,q}\). Search comparisons were statement-level and no equivalent mathematical statement was identified in the compared sources. This does not prove global uniqueness of the result: related published records whose full texts could not be retrieved, plus unindexed work, are residual risks. No decisive broader coverage was identified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the exact, natural Euclidean Chebyshev geometry of the first connected-triple stage of the published graph-polytope interpolation on a graph with two interchangeable hubs, not an arbitrary finite subproblem. It classifies the unique enclosing ball and every contact for all sizes; the contact set separates sharply into a factorial leaf-permutation orbit and precisely two hub-order points. The explicit full vertex count shows the share of contacts decreases like \(1/(2e q)\). The positive polynomial certificate is a structural, nontrivial global extremality result rather than a numerical census or a change of notation. The scope remains this precise canonical family, not general graph-associahedra or general weighted hypergraphs.
+Best-of-knowledge pass for the exact enclosing ball and complete vertex/contact classification of this coefficient-one Euclidean realization. The nearest indexed precedents change either the graph or the summands, while the defining paper's documented construction and combinatorial theorems are inputs rather than a Euclidean optimization result. Unavailable full texts are an access risk, not negative evidence.
 
-## Closest prior work and limitations
+## value
 
-- M. Pešović and T. Stojadinović, *Between graphical zonotope and graph-associahedron*, arXiv:2209.12053v1, https://arxiv.org/html/2209.12053v1 (full arXiv HTML Sections 2–4 inspected).
-- *Inball-contact phase transitions inside the fixed star graph-associahedron fan*, public indexed research record dated 2026-10-18 (indexed summary only, full text unavailable): star, inball, unlike the present biclique outer ball.
-- *Exact Gaussian-exposure inertia and a radial central limit law for path 2-graph polytopes*, public indexed research record dated 2026-11-17 (indexed summary only): path rather than biclique and a different metric statistic.
-- *Complete multipartite graphical zonotopes have cubic-moment circumspheres*, public indexed research record dated 2026-10-11 (indexed summary only): the \(m=1\) family lacks the connected triples that determine the present realization.
+PASS
 
-The independent scientific audit is unperformed; the priority comparison does not include all possibly unpublished or unindexed mathematics. The theorem is restricted to unweighted \(m=2\) and \(K_{2,q}\), \(q\ge2\).
+The first connected-triple stage and the smallest nonstar complete bipartite family are natural tests of whether known zonotope and star metric behavior extends to a new canonical realization. The solution gives all extremizers rather than a size-by-size radius computation, with a factorial contact orbit plus a distinct two-point orbit and a vanishing contact fraction. The strict gap certificate decides the global metric problem and may be used without enumerating orders.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

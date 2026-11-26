@@ -1,69 +1,34 @@
-# Unique four-prime layer of Sándor's prime equation
-## Finding
-Let \(p<q<r<s\) be distinct odd primes. Then
-\[
-pqrs-2(p-1)(q-1)(r-1)(s-1)=5
-\]
-holds if and only if
-\[
-(p,q,r,s)=(3,5,17,251).
-\]
-This is exactly the \(r=4\) layer of the prime equation posed by Sándor after reducing \(\varphi(4m)+d(4m)=m\) on the family \(m=2^r p_1\cdots p_r\). Hence within \(m=2^4pqrs\) the unique solution is
-\[
-m=2^4\cdot3\cdot5\cdot17\cdot251=1024080.
-\]
+# Four-prime classification for Sándor’s displayed prime equation
 
-## Assumptions and scope
-The variables \(p,q,r,s\) are distinct odd primes in increasing order. The result classifies only the fixed four-prime layer of Sándor's broader prime equation; it does not settle the conjectured infinitude as the number of odd prime factors varies.
+## Finding
+For distinct odd primes \(p<q<r<s\), put \(P=pqrs\) and \(F=(p-1)(q-1)(r-1)(s-1)\). Then
+\[
+P-2F=5\quad\Longleftrightarrow\quad(p,q,r,s)=(3,5,17,251).
+\]
+This classifies the four-prime case of the prime equation displayed in Sándor [1], considered as a separate Diophantine equation. Its solution does not solve the totient–divisor equation \(\varphi(4m)+d(4m)=m\) with \(m=2^4P\), where \(d\) counts positive divisors. The latter equation requires \(P-2F=7\), not \(5\).
 
 ## Proof
-Divide the equation by \(pqrs\). It gives
+Since \(P-2F=5>0\),
 \[
-2\left(1-\frac1p\right)\left(1-\frac1q\right)\left(1-\frac1r\right)\left(1-\frac1s\right)
-=1-\frac5{pqrs}<1.
+2(1-1/p)(1-1/q)(1-1/r)(1-1/s)<1.
 \]
-If \(p\ge5\), then \(q\ge7\), \(r\ge11\), and \(s\ge13\), so the left side is at least
-\[
-2\cdot\frac45\cdot\frac67\cdot\frac{10}{11}\cdot\frac{12}{13}
-=\frac{5760}{5005}>1,
-\]
-a contradiction. Thus \(p=3\).
+If \(p\ge5\) then the left hand side is at least \(2(4/5)(6/7)(10/11)(12/13)=5760/5005>1\). Thus \(p=3\). If then \(q\ge11\), the left hand side is at least \((4/3)(10/11)^3=4000/3993>1\). Hence \(q=5\) or \(7\). If \(q=7\), both \(P\) and \(2F=24(r-1)(s-1)\) are divisible by three, but five is not.
 
-With \(p=3\), if \(q\ge11\), then \(r,s>q\), and therefore the left side is greater than
+With \(q=5\), expansion gives
 \[
-\frac43\left(\frac{10}{11}\right)^3=\frac{4000}{3993}>1.
+(r-16)(s-16)=235.
 \]
-Hence \(q\in\{5,7}\}\).
+If both factors are negative their product is at most \(9\cdot5=45\), since \(5<r<s\) are odd primes. They cannot be zero or have opposite signs, so both are positive. The positive factor pairs of \(235=5\cdot47\) give \((r,s)=(17,251)\) or \((21,63)\). The latter is composite in both entries. Both entries of the former are prime and give \(P=64005\), \(F=32000\), verifying \(P-2F=5\).
 
-For \(q=7\), direct expansion gives
-\[
-3(r-8)(s-8)=163,
-\]
-which is impossible modulo \(3\).
+Finally \(4m=2^6P\), so \(\varphi(4m)=32F\) and \(d(4m)=7\cdot 2^4\). Thus the totient–divisor equation is equivalent to \(P-2F=7\) in the specified family. At the solution to the displayed prime equation the corresponding \(m=1024080\) gives \(\varphi(4m)+d(4m)=1024112\), not \(m\).
 
-For \(q=5\), direct expansion gives
-\[
-(r-16)(s-16)=235=5\cdot47.
-\]
-If both factors were negative, then \(5<r<s<16\), hence \(|r-16|\le9\) and \(|s-16|\le5\), so their product would be at most \(45\), not \(235\). Thus both factors are positive. The positive factor pairs of \(235\) are \((1,235)\) and \((5,47)\). They yield \((r,s)=(17,251)\) and \((21,63)\), respectively; only the first pair is prime. Finally,
-\[
-3\cdot5\cdot17\cdot251-2(2)(4)(16)(250)=5,
-\]
-so the surviving quadruple indeed works.
-
-## Verification
-The accompanying `verify.py` checks the two exact rational inequalities, the modular obstruction, the factor-pair classification, and the final identity. It also performs a regression scan over the first three primes below \(500\) using the exact solved-for-\(s\) formula. The scan is not used as an infinite proof; the preceding reductions are.
+## Verification and scope
+`verify.py` checks the exact bounds, factor pairs, primality, and the arithmetic-function normalization. The inequalities and factorization prove exhaustiveness without a global prime cutoff. No claim about other prime supports, other powers of two, or infinitude is made.
 
 ## Relationship to prior work
-Sándor's 2023 paper studies \(\varphi(n)+d(n)=n/4\), reduces a squarefree odd-prime family to
-\[
-p_1\cdots p_r-2\prod_{i=1}^r(p_i-1)=r+1,
-\]
-and conjectures infinitely many prime solutions as \(r\) varies. In the \(r=4\) discussion it fixes \(p_1=3\), \(p_2=5\), derives \((p_3-16)(p_4-16)=235\), and exhibits \((17,251)\); it does not prove that every four-prime solution must begin with \((3,5)\). The argument above supplies that missing global reduction and therefore closes the entire four-prime layer. The 2022 predecessor concerns the different equation \(\varphi(n)+d(n)=n/2\) and does not imply this classification.
-
-## Limitations
-This theorem is a fixed-support classification. It gives no infinitude result for the variable-\(r\) conjecture and no classification for \(r\ge5\). The literature search did not reveal another statement of the four-prime uniqueness theorem; absence from the checked sources is not a proof that no equivalent observation exists elsewhere.
+Sándor [1, p. 136] displays the prime equation with right-hand side \(t+1\) for \(t\) odd prime factors, and in the four-prime instance exhibits \((3,5,17,251)\) after choosing the two smallest primes to be \(3,5\). The classification here proves those choices are forced. For the separate arithmetic-function equation with \(m=2^t\prod_i p_i\) and \(t\) distinct odd primes, the divisor count of \(4m\) is \((t+3)2^t\); the normalization yields a right-hand side of \(t+3\), not \(t+1\). The obstruction to solutions of that actual equation with four distinct odd prime factors and squarefree odd part is already given in [2].
 
 ## References
-1. J. Sándor, "On certain equations and inequalities involving the arithmetical functions \(\varphi(n)\) and \(d(n)\) – II," Notes on Number Theory and Discrete Mathematics 29 (2023), 130–136. DOI: 10.7546/nntdm.2023.29.1.130-136. Online First: 2023-03-07.
-2. J. Sándor and S. Bhattacharjee, "On certain equations and inequalities involving the arithmetical functions \(\varphi(n)\) and \(d(n)\)," Notes on Number Theory and Discrete Mathematics 28 (2022), 376–379. DOI: 10.7546/nntdm.2022.28.2.376-379.
+[1] J. Sándor, “On certain equations and inequalities involving the arithmetical functions \(\varphi(n)\) and \(d(n)\) – II,” *Notes on Number Theory and Discrete Mathematics* 29 (2023), 130–136, DOI 10.7546/nntdm.2023.29.1.130-136.
+
+[2] [Squarefree odd-part obstruction for the totient–divisor quarter equation](https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-squarefree-odd-part-obstruction-for-the-totient-divisor-quarter--13b58b41e74c), four-odd-prime case.

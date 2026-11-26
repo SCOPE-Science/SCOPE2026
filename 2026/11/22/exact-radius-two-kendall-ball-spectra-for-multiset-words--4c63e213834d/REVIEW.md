@@ -1,19 +1,21 @@
-# Scientific review: radius-two Kendall balls for repeated-symbol words
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The swap-history classification distinguishes disjoint transpositions from overlap three-cycles using the minimal interval on which an output differs. Counting the two overlap histories for three distinct letters, one for an exactly-one-change triple, and zero for an alternating-return or constant triple yields the displayed formula with both endpoint corrections. The two-state polynomial enumerator follows from the equality status of successive adjacent pairs. The binary extremizers, exact mean, Gaussian limit, and rare-collision Poisson limit follow from the same identities. An independent finite breadth-first enumeration checks all 33,730 centers in the declared parameter ranges and verifies the weighted transfer enumerator. The proof, rather than bounded testing, supports arbitrary lengths.
+PASS
 
-## Originality
+The frozen maximizer characterization has a boundary error: at n=2 the consecutive-triple condition is vacuous, but an equal-letter word such as aa has ball size 1 and ab has size 2. The replacement requires unequal adjacent pairs as well and leaves the correct numeric count unchanged. For the exact identity, disjoint active swaps give distinct four-position supports. Overlapping active swaps on an all-distinct triple give two three-coordinate outputs; on a triple with one equal boundary there is one endpoint-only output, distinct from adjacent one-swap outputs. Returning and constant triples add none. These cases and the identity and one-swap outputs exhaust the ball. The transfer counts extensions by the last equality state, including exactly one returning choice from D. For binary maxima, A equals the number of consecutive active pairs; relative to the alternating ball, the difference is K(K-2m+7)/2 minus 2(e_1+e_m)+3C. For m>=8 this is strictly negative for K>0; at m=7 only K=7 could tie before penalties. At m=5,6 the bound e_1+e_m+C >= K-floor((m-1)/2) makes the few possible nonnegative quadratic terms strictly negative after penalties. Independent short-word breadth-first enumeration confirms the exceptional values. For the mean and limits the adjacent equality pattern has independent Bernoulli(1/q) entries by the sequential uniform letter counts. The binomial delta method applied to t^2/2, whose ball-size error and expected centering error are O(m), gives variance p^3(1-p). In the sparse-collision regime K is tight and converges to Poisson(lambda), while the expected C and A are o(1) and O(1), so dividing the exact deficit by m leaves K+o_P(1).
 
-**PASS, with priority risk.** The closest available literature establishes radius-one sizes and radius-two bounds for multipermutations (Buzaglo–Yaakobi–Etzion–Bruck, 2013), codes for distinct-label Kendall permutations (Bereg et al., 2023), unrestricted-position swap graphs (Adamson et al., 2023), and star-swap Gray codes (Gregor–Merino–Mütze, 2023). None of the inspected mathematical statements implies the exact per-center correction formula or its full joint-statistic distribution. Searching the terms “radius two ball Kendall multiset permutation exact center size”, “adjacent swap distance at most two q-ary strings exact output-ball size mean variance”, and “radius two balls in Kendall tau metric on multiset permutations arbitrary center” found no equivalent full theorem. This does not exclude earlier unindexed equivalent results, especially as a specialization of an unrecognized general theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** Adjacent-transposition errors on words with repeated symbols are a standard model for rank-modulation and multipermutation coding. Explicit local corrections characterize the exact channel ambiguity for *every center*, while the polynomial law converts them into an all-blocklength census; this provides more information than an extremal size or an asymptotic bound. The two probability regimes reveal a Gaussian fixed-alphabet fluctuation law and a Poisson rare-collision law. No optimal code size or error-correcting decoder is claimed.
+Equation (1) is already recoverable directly from the strongest same-day record. The repaired contribution is the full weighted all-word transfer distribution and its binary extremal and probabilistic analysis. It cites the overlap, retains the center-specific identity as an ingredient, and does not present that identity or its immediate nonbinary extremal consequence as new.
 
-## Scope and residual risks
+## value
 
-The results concern radius at most two, indexed linear words, and uniformly random labeled words for the stated limits. Prior work could contain an overlooked equivalent expression; mathematical priority requires a broader independent literature review. Computational enumeration checks only finite instances and does not constitute independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting radii-two ball multiplicities rather than just evaluating a ball at one word resolves the heterogeneity of local neighborhoods in an adjacent-transposition error model. The small two-state polynomial makes those multiplicities available without enumerating all words, while the binary exception table and two sampling regimes distinguish extremal and typical behavior. This is useful information beyond the prior per-center reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

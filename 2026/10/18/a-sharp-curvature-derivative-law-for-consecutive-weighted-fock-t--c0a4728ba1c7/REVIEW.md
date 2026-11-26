@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The difference of consecutive monomial eigenvalue functionals is the signed measure \(\mu_{k+1}-\mu_k\), with exact density \(r^2/m_k-1\) relative to \(\mu_k\). Its norm is the stated absolute first moment, attained by the sign of that density. A uniform strongly log-concave saddle and explicit cubic remainder give the centered Gaussian absolute first moment with curvature \(2\gamma+\gamma'\), including the displayed quantitative remainder. The square-root metric and periodic-phase assertions follow from the saddle equation.
+## correctness
 
-**Originality (PASS, with priority risk).** Bdarneh's radial eigenvalue representation and metric-regularity analysis do not state a sharp total-variation norm for successive eigenvalue functionals. Xu–Dong treats individual Toeplitz singular-value coefficients rather than the all-symbol dual norm. The closest logarithmic spectral-filter result is about a fixed Gaussian weight and a different statistic. Other prior fixed-symbol Weyl coefficients cannot imply the supremum over degree-dependent optimal threshold symbols. Exact analogous local moment-law variation formulas under exponential-family terminology could exist, so publication-priority verification remains warranted.
+PASS
 
-**Value (PASS).** The result quantifies the sharp local square-root-metric sensitivity of the radial Toeplitz eigenvalue transform. It gives both an exact finite-rank optimizer and the large-degree curvature-derivative phase, identifying nonconstant smooth geometries for which the optimal local metric coefficient genuinely oscillates. This invariant is motivated by the metric structure of radial Toeplitz eigenvalue algebras, rather than selected for a numerical calculation.
+The unnormalized moment density for the written e^(−2Φ) norm is r^(2k+1)e^(−2Φ(r)). Its strictly concave log has unique mode r_k with r_k²γ(log r_k)=k+1/2 and −h_k''(r_k)/2=A_k=2γ+γ′ there. The exact normalized adjacent likelihood ratio is R²/m_k with m_k=E_k R², so the optimizer changes sign at √m_k, not generally at r_k, and the optimum is the L¹ distance (twice probability TV). For |x|≤r_k^(1/8), the log density of x=R−r_k differs from −A_k x² up to a constant by O(|x|³/r_k). The bound on γ″ controls this remainder; h_k''≤−3/2 controls the complement and normalization is uniformly bounded below by a fixed-size interval at the mode. Integrating the weighted Gaussian difference yields E x=O(r_k^−1), E x²=O(1), and E|x|=1/√(πA_k)+O(r_k^−1). Thus m_k=r_k²+O(1) and E|R²−m_k|=2r_k/√(πA_k)+O(1). Dividing by m_k and using the mode relation proves the claimed scaled error O(k^−1/2). For the globally Gaussian weight, R² is Gamma(k+1,1), giving Δ_k=2e^−(k+1)(k+1)^(k+1)/(k+1)! and the same leading constant by Stirling. In the periodic tail D_g′≥7/4, τ(u+2L)=τ(u)+L, and rounding exp(u+2Lm) gives integer subsequences for each phase. Q_g constant forces g′/g constant and hence zero by periodicity. This verifies the full cluster interval and the factor two in the adjacent square-root-metric slope. The numerical checker was inspected, not executed; its finite sinusoidal examples do not prove uniformity over weights or symbols.
 
-The result is confined to one complex variable, specified smooth uniformly convex weights, adjacent indices and radial symbols. Finite checker tests corroborate moment calculations only. No assertion of a globally sharp modulus or a fixed common optimizer is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The radial eigenvalue representation is established, and the exact total-variation/threshold identity follows directly from it. The supported distinct contribution is the sharp moving-saddle coefficient for arbitrary admissible γ and the quantitative log-periodic phase and full cluster set. Neither fixed-symbol Weyl results (including a distinct same-day record with the same saddle) nor prior metric continuity for each symbol give this optimized adjacent law. The later power-log total-variation theorem treats a different curvature regime. This is a bounded statement-level comparison, not a priority certificate.
+
+## value
+
+PASS
+
+The natural optimization asked by the square-root spectral metric is the exact unit-ball sensitivity of a pair of consecutive coordinate functionals. The sharp law shows that a variable radial geometry changes this sensitivity through a derivative term, and the complete cluster interval detects oscillation and its size, even under uniform convexity. Index-dependent optimizers and local leading coefficients give information unavailable from fixed-symbol regularity. The result does not claim the global modulus or a common optimal symbol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

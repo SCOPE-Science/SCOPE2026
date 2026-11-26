@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:49:35.171783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered leftmost leaf always follows the left child; its kernel is exactly the equal mixture of J and m-J with mass 1/(j H_{m-1}) for J=j. For potential log H_{m-1}, the J-branch rth drop moment is a singular-endpoint Riemann sum for the rth exponential moment r!: the mesh is at most 1/H_{m-1}, the first cell is separately bounded, and the difference of upper and lower sums on the other cells telescopes under that mesh bound. On the m-J branch, J≤m/2 makes the drop O(1/H_{m-1}); J>m/2 has probability O(1/H_{m-1}) and drop at most the full potential. This establishes both the 1/2 drift and 3/4 variance, with a uniform fourth-moment bound. Above cutoff potential b=y^{1/3}, y=log H_{n-1}, the cumulative drift error is negligible in probability and in expectation because Eτ≤4y and the uniform error is exponentially small in b up to a polynomial. The stopped telescope gives τ/y→2 and the martingale bracket divided by y tends to 3/2; conditional Lindeberg follows from the fourth moments and Eτ=O(y), using a deterministic n-1 horizon with increments zero after stopping. Inversion of the drift gives variance parameter 6 for the CLT. The remaining mean time is O(1+b) by the fixed low-state drift bound and strict descent; it is negligible at the CLT scale, and the expected telescope gives E[T_n]=2y+O(1+b). This checks CLT normalization, not a separately asserted asymptotic for Var(T_n). An independent direct moment recurrence (`python3 /workspace/branches/eea45fe0-d889-41a7-8485-f669c546fef2/independent_boundary_recurrence.py`) checked normalization through 2000 and gave E[T_2000]≈4.94939, Var(T_2000)≈7.34794; the finite check is not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader parameter-family and joint-height statements inspected tag a leaf uniformly, hence induce size bias. The discrete maximum-height theorem studies the maximum over all labels."
+        ],
+        "reasoning": "Critical parameter specialization does not remove the bias or turn a random label or maximum into label 1; those broader statements do not entail this endpoint CLT.",
+        "searches": [
+          "Aldous Janson beta-splitting leftmost leaf depth 2 log log n Gaussian limit variance 6 log log n critical beta splitting (literature)",
+          "arXiv:2302.05066; arXiv:2510.17343; arXiv:2608.18320 Cor. 2.3; arXiv:2609.14329 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_boundary.py (read only)",
+        "arXiv:2303.02529, 2302.05066, 2510.17343, 2608.18320, 2609.14329",
+        "Resultary query results for deterministic ordered endpoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 14 attributes a proof of B2(n)∼2 log log n to Pittel via private communication; §3.9 itself gives a heuristic for leaf 1 and poses its discrete/continuous distribution problem. Cor. 2.3 concerns a uniformly tagged leaf."
+        ],
+        "reasoning": "By the symmetric recursion the reported mean asymptotic is already covered; neither a first-moment asymptotic nor the heuristic renewal analogy gives the martingale fluctuation control or the CLT for label 1.",
+        "searches": [
+          "arXiv:2303.02529 Remark 14 and Open Problem 2",
+          "arXiv:2608.18320 Cor. 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2303.02529 §3.9 explicitly describes the left-side clade chain with kernel q(m,i) and contrasts it with size-biased random tagging. Section 3.8's recursion for expected B2 is the recursion for the expected number of fair branch choices up to absorption."
+        ],
+        "reasoning": "Because q(m,i)=q(m,m-i), an annealed path with fair independent left/right branch choices has the same size transition as the deterministic left path. The reported B2 mean therefore overlaps exactly, but the passage gives no Gaussian law for this path.",
+        "searches": [
+          "critical beta-splitting ordered leftmost boundary leaf depth Gaussian 2 log log n variance 6 log log n Aldous Janson (Resultary)",
+          "critical beta-splitting ordered interval labels deterministic leftmost leaf depth (Resultary)",
+          "Aldous Janson beta-splitting leftmost leaf depth 2 log log n Gaussian limit variance 6 log log n critical beta splitting (literature)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed searches yielded no materially matching boundary-depth fluctuation result. The primary paper's table concerns finite expected entropy/balance, not the limiting distribution."
+        ],
+        "reasoning": "A finite table or first-moment recurrence does not tabulate an asymptotic CLT coefficient or distribution; no exact indexed endpoint law was located.",
+        "searches": [
+          "critical beta-splitting ordered leftmost boundary leaf depth Gaussian 2 log log n variance 6 log log n Aldous Janson (Resultary)",
+          "arXiv:2303.02529 §3.8 Table 1 and §3.9"
+        ]
+      },
+      "rationale": "Credit the CLT for the deterministic endpoint of the ordered interval model, not the first-order mean or a uniform-leaf CLT. The closest primary source poses the ordered-label distribution question explicitly, predicts 2 log log n in the discrete case, and reports the same first-order mean indirectly via a recursion for expected tree balance. The Gaussian fluctuation statement with its stated normalization is not supplied by these sources.",
+      "residual_risks": [
+        "A result under different fragmentation/path terminology may have escaped these focused searches. No priority claim is made for the first-order mean."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical kernel, heuristic and reported mean overlap; distribution remains a posed question in that passage",
+          "evidence": "Eq. (34) is 1 plus the expected fair-child B2 and reduces by symmetry to the boundary mean recurrence. Remark 14 reports B2(n)∼2 log log n; Open Problem 2 asks for ordered-label height distributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.02529",
+          "material_read": "§3.8 pp.19–20, text offsets 51750 and 53900; §3.9 pp.22–23, offset 59900",
+          "method": "OA original PDF passages",
+          "title": "The Critical Beta-splitting Random Tree II: Overview and Open Problems",
+          "trigger": "Exact ordered boundary model and log-log scale"
+        },
+        {
+          "assessment": "Different tagging",
+          "evidence": "CLTs concern the uniformly random leaf, including its edge height.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05066",
+          "material_read": "Abstract, p.1",
+          "method": "OA original PDF passage",
+          "title": "The Critical Beta-splitting Random Tree: Heights and Related Results",
+          "trigger": "Earlier height CLT"
+        },
+        {
+          "assessment": "Different tagging",
+          "evidence": "Uniform-leaf heights are the subject of the joint discrete/continuous results inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.17343",
+          "material_read": "Abstract and §1, pp.1–2 including offset 5600",
+          "method": "OA original PDF passages",
+          "title": "Some central limit theorems for critical beta-splitting tree",
+          "trigger": "Later joint height CLTs"
+        },
+        {
+          "assessment": "Uniform tag, not deterministic endpoint",
+          "evidence": "The broader theorem uses a uniformly tagged leaf, including at the critical parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.18320",
+          "material_read": "Abstract; §2 p.6 offset 20500; Cor. 2.3 p.7 offset 24273",
+          "method": "OA original PDF passages",
+          "title": "Asymptotics for Beta-Splitting Trees via Homogeneous Fragmentations and Meromorphic Potential Theory",
+          "trigger": "General parameter family and discrete-height CLT"
+        },
+        {
+          "assessment": "Maximum, not endpoint",
+          "evidence": "The theorem is for maximum depth.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.14329",
+          "material_read": "Theorem 1.1 p.1 offset 3500",
+          "method": "OA original PDF passage",
+          "title": "The height of discrete-time critical beta-splitting trees",
+          "trigger": "Critical discrete-time height result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers the discrete fixed-endpoint instance of an explicit ordered-label distribution question. Its depth scale and Gaussian normalization identify behavior not captured by uniform tagging or maximum-height theorems, and the proof turns the heuristic harmonic jump picture into controlled fluctuations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed object is the integral adjacency cokernel on the sixteen geometric exceptional curves of a smooth degree-four del Pezzo surface over a finite field of odd characteristic. The proof reconstructs the five exceptional, ten line-transform, and one conic-transform classes using the Picard intersection form; identifies their intersection graph with Hamming-distance-four edges on odd five-bit masks; and identifies the full even-signed permutation action. Right-exact coinvariants reduce the problem to explicitly defined orbit-quotient integer matrices. The standard-library verifier exhausts all 1920 signed permutations, checks the 18 signed-cycle rows, and verifies every Smith normal form via an explicitly tracked unimodular transformation identity. A distinct SymPy normal-form computation corroborates the table. This proves the finite universal classification, not a claim of realization over all small fields.
+PASS
 
-## Originality — PASS, qualified
+Computing with marked Picard classes independently identifies intersection one with distance four on the odd five-bit words. The even translation subgroup acts regularly. On its character basis, indexed by coordinate subsets modulo complement, the distance-four translations give eigenvalues 5, −3 and 1 for representatives of sizes 0, 1 and 2. The character matrix is invertible over Z[1/2]; the determinant is odd, so it gives the full geometric 3- and 5-primary structure: five elementary 3 factors and one elementary 5 factor, or Smith diagonal 1^11,3^4,15. The 3-primary representation is the signed action on the five singleton characters and the 5-primary action is trivial on constants. Each signed cycle has a one-dimensional coinvariant over F3 exactly when positive, including cycles of length divisible by 3. Thus C_F is (Z/3)^p plus Z/5 with p the number of positive signed cycles. Independently, orbit matrices constructed from Picard pairings for all 1920 elements give these ranks, all eighteen class sizes, and the sets p={0,1,2} and p={1,2,3} at the equal line-orbit profiles (4^4) and (2^8), respectively. This is a conditional classification on abstract Weyl actions; no fieldwise realization is inferred. The support scripts use int.bit_count, so the claimed Python 3.9 compatibility should read 3.10 or newer; the independent exact calculation used Python 3.12.
 
-Compared by statements rather than titles: Jahnel–Schindler's Section 2 provides the known sixteen-line Picard and Weyl configuration but computes algebraic Brauer groups from Galois cohomology of Picard modules, not the adjacency cokernel. Darwin's Theorem 1.2 counts geometric lines in the Grothendieck–Witt ring, not integral graph coinvariants. Jahnel–Loughran Section 3.7 studies Frobenius line-orbit types but not the Smith arithmetic module. Standard Clebsch-graph spectra give rational eigenvalues only. Related published numerical results concern conic-support maps, Picard orbit lattices, or other incidence configurations; their statements do not imply the full 18-type arithmetic \(3\)- and \(5\)-primary table. A possible unindexed equivalent integer graph calculation is a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete integral classification for a canonical algebraic-geometric marking, and it detects information invisible to splitting-field orbit degrees. In particular, one orbit partition into four length-four line orbits admits three nonisomorphic arithmetic groups. The invariant separates the canonical intersections of the exceptional curves from the set-theoretic Galois action. It requires no downstream theorem, and makes no assertion about Brauer or Picard torsion.
+The line geometry, the group of automorphisms, the spectrum and, consequently by elementary Fourier calculation, the unactioned Smith form do not supply a distinct novelty claim. The supported contribution is the Weyl-equivariant arithmetic adjacency quotient and its exact dependence on signed cycles, including the failure of the line-orbit spectrum to determine it. No inspected source gives the relevant modular signed cokernel or its equivalent coinvariant classification.
 
-## Residual limitations
+## value
 
-The arithmetic types are conditional on the Frobenius class; no universal fieldwise realization theorem is asserted. The attached finite checker gives exact exhaustive arithmetic but does not constitute an external independent mathematical audit. Older print or unindexed table equivalence has not been ruled out absolutely.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unsigned adjacency operator is intrinsic to the geometric intersection configuration. The arithmetic quotient measures how Frobenius acts on that finite relation module beyond the splitting spectrum of the sixteen lines. The classification produces concrete coincident orbit profiles with three distinct groups each and separates the arithmetic signed-cycle dependence from the known geometric eigenvalues. This is a natural finite invariant with explicit witnesses, not merely a new table of the sphere sizes or adjacency spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

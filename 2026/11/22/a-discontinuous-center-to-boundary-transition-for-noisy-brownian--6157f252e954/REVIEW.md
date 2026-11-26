@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Gaussian conditioning equation is valid with positive denominator. Piecewise integration gives a quadratic numerator in squared displacement and an affine variance. The derivative numerator has derivative \(2(M-z)/3>0\), so every interior stationary displacement is a minimum, not a maximum; the endpoint comparison then identifies *all* optimizers including ties. The critical polynomial has exactly one root in the allowed width range. An independently written checker rederives the covariance integrals, checks the algebra and exact examples, and performs direct numerical quadratures. The proof has no unverified infinite enumeration or finite-case extrapolation.
+## correctness
 
-## Originality — PASS (evidence-qualified)
-Nguyen and Peraire's arXiv:1405.7569v1 supplies a general linear-functional Gaussian regression framework; Ji and Müller's arXiv:1604.05375v1 supplies an integrated prediction-error criterion for noisy point measurements. Neither inspected full text states the center-versus-boundary phase law for one Brownian-bridge average. The closest identified Brownian-bridge kernel-quadrature result optimizes a random two-node *integral* estimator, not this continuous-path sensor risk. Related statements about Brownian-bridge two-point placement and Brownian-motion window averaging do not imply this distinct observation-kernel combination or its discontinuous three-optimum transition. A historical path-design dissertation was only catalog-accessible and specialized unindexed work remains a publication-priority risk; absence from search is not proof of priority.
+PASS
 
-## Value — PASS
-Real measurements frequently average a continuous signal over an acquisition window. The theorem gives a complete, exact and usable design phase diagram, including a discontinuous transition and a three-way coexistence boundary; it is not simply an evaluation of one arbitrary window or a substitution into a known point-observation formula. The transition also demonstrates that the endpoint pinning of a Gaussian prior can qualitatively reverse the optimal placement behavior of an averaged observation. The width restriction and small numerical advantages in certain regimes are limitations, not a claim of broad engineering dominance.
+Reconstructed the Gaussian gain using C(s)=(1-q)s-(s-t)_+^2/(2h)+(s-t-h)_+^2/(2h), q=t+h/2. Split integration recovers V=(3-2h)/12-z and I=(5-5h^2+2h^3)/240+(h^2-2)z/12+z^2/3 for z=(q-1/2)^2. The derivative numerator for I/(M-z) increases strictly since H'=2(M-z)/3>0. Thus interior displacements cannot tie either maximizing endpoint; the two distinct reflected boundary starts correspond to the same far endpoint in z. Clearing the positive endpoint denominators gives the stated bracket h(35h-14h^2-20)-60η(1+2h-2h^2). This establishes all strict regimes including h=h_c with positive noise, as well as the three-way tie. Exact substitution gives 779/87600 and both printed rational gains. Read the frozen result and all supporting files, including verify.py (symbolic checks and direct-kernel quadratures, not executed). The replay for the mathematical result is the piecewise covariance, polynomial integration, and sign test above, not the finite sample of quadratures. No claim for h=0, h=1, other window profiles or adaptive sensors.
 
-## Limits and references
-The result is specific to a single uniformly averaged Brownian-bridge path, fixed exposure width and independent positive-variance noise. Independent verification and scholarly priority review remain outstanding. Primary comparison references are arXiv:1405.7569v1 (2014), arXiv:1604.05375v1 (2016), Mukherjee's *Optimal designs for estimating the path of a stochastic process* (dissertation catalog), and the published *Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature* record.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected statements furnish the Gaussian criterion or solve point-sampling and scalar-moment problems; they do not give the placement phase diagram for this window sensor and trace loss. This is an evidence-qualified assessment, not a priority certificate.
+
+## value
+
+PASS
+
+One fixed exposure and integrated recovery error are natural restrictions. The theorem excludes continuously departing asymmetric optimizers and distinguishes a genuine jump and exact three-way tie from an intuition based on reflection symmetry. The guarantee is structural across the full width/noise domain; small absolute gain in some regimes does not establish practical superiority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

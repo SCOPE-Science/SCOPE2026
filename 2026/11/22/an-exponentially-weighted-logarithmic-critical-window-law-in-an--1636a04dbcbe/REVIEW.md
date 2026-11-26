@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem states fixed \(\alpha,\lambda\), positive fixed initial data, experiment-wise constant detuning \(\lambda/N\), and a time window separated from zero. A direct global convergence argument at the critical base parameter ensures a fixed finite entry time for each initial state. The exact relation \(h_{n+1}=\alpha h_n-y_{n+1}\) supplies an exponentially contracting fast direction; a quadratic graph and its residual provide the cubic slow coefficient. Reciprocal expansion, summable errors, and weighted harmonic summation yield the universal exponentially modulated logarithm. A standalone checker tests the critical Taylor identities exactly and samples finite trajectories. The finite samples are not treated as proof.
+## correctness
 
-**Originality — PASS on checked coverage, with stated risk.** Hu–Shen–Jia (2024, DOI 10.3934/math.2024592) treats exactly these host–parasitoid dynamics and proves the transcritical bifurcation and critical global attraction, but not a \(\lambda/N\) finite-horizon second-order expansion. The nearest publicly indexed sigmoid-flip study (2026; see reference [2] in RESULT.md) obtains an analogous exponential reweighting for an inverse-square amplitude in a different one-dimensional smooth map; its reported theorem cannot directly imply the present two-dimensional, positive-initial-data result or its explicit host response. General scalar transcritical finite-time scaling gives the leading-order crossover (Martin–Tang–Chialvo 2025, arXiv:2505.24673, Sec. II) and is explicitly not claimed as new. The higher-order logarithmic coefficient and fast host response remain map-specific. Several other indexed quadratic-critical population maps treat different model equations. The general normal-form/weighted-sum idea is not claimed as original. Unindexed equivalent specializations and general reductions outside the inspected statements remain possible literature risks.
+PASS
 
-**Value — PASS.** The source establishes what the transcritical bifurcation and critical attractor are but does not quantify how finite-generation parasite densities respond to \(O(1/N)\) immigration detuning. The exact explicit second-order coefficient is model-dependent and gives an asymptotic calibration law distinguishing finitely many generations near threshold, including dependence on the fast host state and uniformity across positive initial conditions. This is not merely a coefficient at one arbitrarily chosen initial state.
+This assessment is for repairs/4/RESULT.md. The frozen proof at line 68 asserts invariance of the entire equal-width wedge, which is false: at alpha=1/2, mu=0, p=-2, z=p-delta and y=delta, one has r=1-(3/2)delta+O(delta^2) and z_next-p=-2delta+O(delta^2). The repair separately chooses the y-width after the z-width. The exact ratio update then contracts by at most (1+alpha)/2 plus a forcing smaller than the inward margin, and the negative quadratic term traps y. Taking reciprocals in the two ratio bounds gives affine bounds with slopes 1-O(1/N) and 1+O(1/N); on n<=NT these give u_n comparable to n+1. Independently checking the slow jet gives q=-alpha(1+alpha)/[2(1-alpha)^3] and b=(1-6alpha^2-alpha^3)/[6(1-alpha)^3]. The slaving error is bounded by convolution with a geometric ratio even after comparison with y_n^3. The repaired reciprocal recurrence discards only terms whose absolute sum is bounded; its weighted harmonic part has coefficient (a^2-b)/a=B and weight exp(-c lambda t) uniformly away from t=0, for both detuning signs and at lambda=0. The host scaling follows from the linear term of the slaving graph. The theorem and coefficients are unchanged. The checker was inspected, not executed; it does not establish trapping or uniformity.
 
-**Limits.** Not a global supercritical asymptotic for fixed detuning. The error is bounded, not proven convergent after subtraction. Literature search cannot certify novelty outside inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired statement, the supported contribution is the explicit model-specific second-order logarithm with a bounded remainder for arbitrary fixed positive initial data on a detuned linear-time window. The model, bifurcation, critical global attraction, leading scalar transcritical scaling function and general weighted-harmonic method are not new claims.
+
+## value
+
+PASS
+
+The threshold is set by the model's bifurcation and the 1/N window by the linear-time crossover. The new term quantifies how the common leading clock is corrected at finite horizon; it gives a positive explicit coefficient independent of fixed positive initial data, and shows how detuning acts on the logarithm while fast-transient effects enter only at bounded order. The repair justifies the regime needed for those conclusions rather than changing the scientific target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

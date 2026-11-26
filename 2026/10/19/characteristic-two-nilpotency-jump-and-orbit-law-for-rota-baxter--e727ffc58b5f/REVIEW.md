@@ -1,15 +1,21 @@
-# Scientific review: Characteristic-two Rota–Baxter nilpotency and orbit law
+# Independent mathematical audit
 
-## Correctness — PASS
-The weight-zero identity on \(K1\oplus V\), \(V^2=0\), forces images into \(V\), and in characteristic two it forces only \(T^2=0\), not \(T(u)=0\). The converse is checked bilinearly and the sharp index-three example is explicit. The automorphism action reduces to a marked square-zero Jordan operator, whose four possible vector positions give the orbit count. The finite-field count follows from image–kernel flags and quotient isomorphisms. The Gaussian-binomial product identity and a summable discrete-Gaussian bound establish the sharp probability equivalent. Direct enumeration, explicit orbit computations, and large-dimension numerical formula checks agree with these statements. The all-dimensional theorem rests on the proof, not finite tests.
+## correctness
 
-## Originality — PASS (same-model)
-Farooq's May 2026 classification treats this exact algebra and weight but requires characteristic zero and concludes all operators square to zero; in characteristic two the key division by two is unavailable. The new classification permits index three and adds the automorphism-orbit census and fixed-field limit law. Gubarev's general unital nilpotency theorem likewise assumes characteristic zero. The quadratic-algebra study of Benito–Gubarev–Pozhidaev explicitly excludes characteristic two. Closest accessible prior records on a small exterior algebra and weight-one operators address different multiplication tables or weights, not this finite-field family. The familiar square-zero Jordan normal form and Gaussian coefficients are prior mathematical tools, not claimed new results. Targeted searches found no stronger covering theorem. Unindexed equivalent literature is an unresolved residual risk, not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The result identifies a sharp characteristic boundary in the nilpotency index of weight-zero Rota–Baxter operators on the infinitesimal-neighborhood algebra \(K\oplus V\), a standard object in algebraic deformation problems. The exact conjugacy-orbit classification describes the full moduli problem over arbitrary characteristic-two fields, while the exact finite-field enumeration and sharp probability law show that the characteristic-two index-three behavior is asymptotically generic, not exceptional. These are natural structural and counting invariants, not an arbitrary isolated small-field computation.
+Reassessed the narrowed result in repairs/2/RESULT.md. The weight-zero identity at (v,v), (1,1), and (1,v) gives radical-valued P(a+v)=au+T(v), T^2=0; bilinearity and characteristic two give the converse. Thus P^3=0 and P^2=0 exactly when T(u)=0, of conditional probability q^(−r) at rank r. Counting image–kernel flags and the induced quotient isomorphism gives B_(n,r)=q^(2r(n−r)) c_n/(c_r c_(n−2r)); every T has equally many markings, so the finite probability is the B-weighted average of q^(−r). Substitution r=m−j yields the displayed limiting weights. The finite product ratio is at most one and tends to one for fixed j; a positive infinite-product lower bound gives summable bounds on the weights and on q^j times the weights. Dominated convergence with positive denominator yields the sharp fixed-q equivalent, separately on both parities. An independent series evaluation through j=40 at 60-digit precision gave constants (1.41971069617869, 1.08804625771742) for q=2 and (1.24519786046859, 1.01264585799863) for q=4, in even/odd order. The q=2 truncation bound in the repair controls both series. The frozen script was inspected, not executed; the bounded series check is not a substitute for the limit proof. The frozen structural, orbit and count statements are mathematically correct; the repair is for claim scope, not a counterexample.
 
-## Closest work and limitations
-The principal comparison is A. Farooq, arXiv:2605.15670v1 (2026), Theorem 3.4. Additional comparisons are V. Gubarev, arXiv:1805.00723 (2018), and P. Benito, V. Gubarev, A. Pozhidaev, arXiv:1801.07037 (2018). The result is limited to characteristic two and square-zero local algebras; the probability equivalent fixes the finite field while increasing the radical dimension. Independent validation and exhaustive coverage of unindexed literature are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the frozen package as asserted, the characteristic-two normal form, nilpotency jump, orbit classification and exact finite counts fail as distinct contributions: the 2026/10/12 Resultary entry daddf5c855da already states them, and assignment 3 independently shows the same overlap with explicit orbit sizes. The repaired finding is only the fixed-field sharp parity asymptotic; it retains known structural and enumerative inputs with credit and drops the orbit claim from the finding. A later-dated catalog entry gives an equivalent sharp limit, so we do not claim uniqueness or historical priority. In the earlier available statements checked here neither the sharp scale with the parity-dependent coefficients nor an applicable theorem giving it was established.
+
+## value
+
+PASS
+
+The repaired result quantifies how exceptional square-zero behavior is in the natural uniform census, distinguishing the two parity subsequences. A statement that index three is possible or generic does not determine the exponentially small residual fraction or its constants. The result supplies that precise asymptotic with an explicit convergent evaluation; it does not count already-covered orbit results as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

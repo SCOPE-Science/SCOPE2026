@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:59.195902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty leader set, the grounded principal Laplacian is positive definite. Write u,x,c,y for the neither/core-only/leaf-only/both pair counts. Eliminating the leaves gives the core matrix diag(n on u, n+1 on c) minus the all-ones matrix. Every attached follower leaf contributes 1 plus its core inverse diagonal and every isolated follower leaf contributes 1. This yields (1), including when there are no follower cores. Exchanging a both-and-neither pair for a core-only and leaf-only pair preserves u+x, strictly decreases the other linear and numerator terms and strictly increases the positive denominator. For b<=n one then has u=n-b,y=0. Up to a constant the objective for x core leaders is nx/(n+1)+A/(b+nx), where A=2(n-b)(n+1)/n+b>0. The consecutive differences n/(n+1)-nA/((b+nx)(b+n(x+1))) increase in x and the difference at x=1 is positive for b>=2: A<=2(n+1) and (b+n)(b+2n)>2(n+1)^2. The difference at x=0 reduces to the stated P_n(b) divided by the claimed positive denominator. Modulo n, equality implies n|2b; P_n(n)>0 and P_n(n/2)<0 rule out all candidates. Rescaling the quadratic by n^3 gives the stated positive limiting root. For b>n, u=0 and y=b-n; the derivative with respect to c is -n/(n+1)+1/(n+1-c)^2<0 since c<=n-1, so all leaves are leaders. Substitution gives the costs and permuting pairs gives the counts. The supplied checks are bounded: the symbolic identities use the trace formula, and the small-matrix runs are independent of its derivation. An independent replay, python3 -B /workspace/reproduce_finite.py 4, used exact rational Gauss–Jordan inversion on all 1,338 nontrivial leader sets for n=3,4,5, agreeing on every optimizer and minimum. No supplied script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparison record allows n>=2 and 1<=k<=2n; the assignment requires n>=3 and excludes the empty follower block at k=2n.",
+          "Fitch–Leonard describe explicit cycle/path special cases; Sharma–Adhikari–Mishra treat ordinary corona spectra rather than selecting grounded subsets."
+        ],
+        "reasoning": "The wider Resultary statement restricts to the assigned parameter range and compares the same alternatives. Generic joint centrality and corona spectra are not by themselves such results.",
+        "searches": [
+          "Resultary exact all-budget leader selection clique corona private leaves grounded Laplacian inverse trace optimizer quadratic transition",
+          "arXiv:1407.1569 pp. 1, 3",
+          "arXiv:1507.05335 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8/...--9b274a4d27c1 RESULT.md",
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "DOI:10.3389/fphy.2022.948247",
+        "arXiv:1507.05335"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set k=b, q=n-b and ell=b-x in the comparison record's F_{n,k}(ell). The cases x=0,1 give exactly F_0,F_1. Its high-budget expression r(n+2-r)/((n+1)(n+1-r)) with r=2n-b equals F_+. At b=n the assignment has P_n(n)>0 and both sources give all leaves and cost 2n/(n+1).",
+          "The wider theorem allows a conditional tie branch; n|2b and the two endpoint evaluations eliminate it for n>=3. Its root assertion (sqrt(3)-1)n+O(1) implies the claimed normalized limit."
+        ],
+        "reasoning": "The later published record gives the mathematical solution outright up to an elementary arithmetic pruning of an empty branch. The exact root formula is just the quadratic formula. Neither the no-tie observation nor that formula is a substantial distinct remainder warranting repair of the main originality claim.",
+        "searches": [
+          "Resultary 9b274a4d27c1 RESULT.md Finding, optimizer clauses and minimum formulas, offset 0",
+          "arXiv:1302.0450 p. 6 LS2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Fardad–Jovanović, arXiv:1302.0450 p. 6 LS2, explicitly minimizes the same unscaled grounded trace generically.",
+          "Du et al., DOI:10.3389/fphy.2022.948247 §2.2 and Theorem 2, use full nonzero Laplacian eigenvalues for leaderless coherence, not selected-grounding optimization.",
+          "Resultary 2026/11/8/...--9b274a4d27c1, RESULT.md Finding, uses the identical unscaled grounded block of the original Laplacian on the identical graph."
+        ],
+        "reasoning": "Normalization and naming do not distinguish the assigned optimizer from the Resultary comparison. Leaderless corona coherence, by contrast, is a different invariant. The public literature query was unavailable, not a negative result.",
+        "searches": [
+          "exact all-budget leader selection clique corona private leaves grounded Laplacian inverse trace optimizer quadratic transition",
+          "“clique corona” “leader selection” “inverse trace” grounded Laplacian exact optimal leaders one pendant leaf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Resultary searches located 2026/11/8/SCOPE-a-sharp-all-budget-leader-transition-on-complete-clique-coronas--9b274a4d27c1. Its Finding states T_n(k)=P_n(k), the identical sign-based optimizer alternatives and binomial counts, and all leaves plus k-n cores for k>=n."
+        ],
+        "reasoning": "This is a distinct exact mathematical record, not a duplicate title or the frozen record itself. Its displayed date is later than the frozen path's date; the overlap is demonstrable irrespective of historical priority.",
+        "searches": [
+          "P_n(b)=nb^2+(2n^2+3n+2)b-2n(n+1)^2 exact clique corona leader transition",
+          "exact all-budget leader selection clique corona private leaves grounded Laplacian inverse trace optimizer quadratic transition"
+        ]
+      },
+      "rationale": "A distinct published Resultary record gives the same all-budget solution, including the exact optimizer sets, counts, and costs, for a larger parameter range. The only material sharpening in the assigned statement is ruling out an equality branch of the same polynomial, an immediate modular check. This is present coverage, not a finding that the later-dated record had historical priority or that either record was derived from the other.",
+      "residual_risks": [
+        "The public literature query was unavailable; this prevents any exhaustive historical-priority conclusion but does not weaken the inspected exact coverage.",
+        "Relative publication and derivation history of the two records was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of optimizer classification and costs, conditional on the same equality branch; permits a larger parameter range",
+          "evidence": [
+            "Finding clauses 1–4; T_n(k); F_{n,k}; high-budget formula; root asymptotic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-all-budget-leader-transition-on-complete-clique-coronas--9b274a4d27c1/RESULT.md",
+          "material_read": "RESULT.md offset 0 through the Finding, Assumptions and beginning of exchange proof",
+          "method": "Read bounded original passage in the published-record mirror",
+          "title": "A sharp all-budget leader transition on complete-clique coronas",
+          "trigger": "Exact Resultary match to objective, graph and transition polynomial"
+        },
+        {
+          "assessment": "Same generic objective, not a clique-corona classification in the compared passage",
+          "evidence": [
+            "LS2 uses trace of inverse of follower Laplacian after deleting leader rows and columns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "PDF pp. 5–6 around offsets 11700 and 17146, problem LS2",
+          "method": "OA primary PDF passage inspection",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Foundational inverse-grounded-trace problem"
+        },
+        {
+          "assessment": "Related framework; explicit families in the inspected overview are paths and cycles",
+          "evidence": [
+            "Overview distinguishes explicit cycle/path solutions from the generic joint-centrality approach."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "PDF pp. 1 and 3, offsets 680 and 9800",
+          "method": "OA primary PDF passage inspection",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Equivalent centrality formulation and possibly dominating special-graph solutions"
+        },
+        {
+          "assessment": "Does not cover selected grounding in the compared coherence model",
+          "evidence": [
+            "All-node noise in the dynamics; first-order coherence from nonzero full-Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2022.948247",
+          "material_read": "PDF pp. 2 and 4, §2.2 and Theorem 2, offsets 12300, 14588, 36500",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Consensus analysis of the weighted corona networks",
+          "trigger": "Same graph operation and coherence terminology"
+        },
+        {
+          "assessment": "Graph-spectrum background rather than a grounded subset optimum in the inspected material",
+          "evidence": [
+            "Iterated corona construction and structural/spectral scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05335",
+          "material_read": "PDF pp. 1–2 around offsets 650 and 4100: aims and corona definition",
+          "method": "OA primary PDF passage inspection",
+          "title": "Structural and Spectral properties of Corona Graphs",
+          "trigger": "Broader corona graph spectral results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-budget closed solution of the grounded trace on a natural two-role graph family is a meaningful exact optimization result. It distinguishes cheap grounding of core-mediated correlations at small budgets from removing noisy leaves at larger budgets, gives all minimizing configurations, and replaces combinatorial search by a quadratic sign test. This assesses the mathematical problem and solution, not novelty. The elementary no-integer-tie refinement is not a separately valuable repair of the overlapping classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

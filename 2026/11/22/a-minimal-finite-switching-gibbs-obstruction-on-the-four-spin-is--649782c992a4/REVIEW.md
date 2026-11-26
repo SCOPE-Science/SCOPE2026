@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite-state generator, orbit counting, elimination, and factorization are given in `RESULT.md`. The positive coefficients of \(H(\gamma,w)\), the factors \(\gamma+2\) and \(w^2-4\), and positivity of \(D\) prove the sign throughout the declared domain, not just in sampled cases. The Gibbs-ratio logic and three-cycle minimality argument use full stationary symmetry and flux balance. The symbolic checker and three independently constructed exact 32-state generators all passed. The high-rate coefficient follows from dominant polynomial powers and a logarithmic expansion.
+PASS
 
-## Originality — PASS (qualified)
+Rebuilt the spin-flip quotient by enumerating each of the 16 configurations per bath and checking agreement of total rates to each target orbit within each source orbit. The multiplicities are 2, 8, 4, 2 and the summed C equation is 2B-4C=0. Independently solved the normalized joint quotient using exact polynomial-domain elimination (multiply by u=e^(2 beta) to clear denominators, replace one row with normalization); both B and the mean-energy rational forms agree. Clearing D^2 gives exactly 4(gamma+2)(w^2-4)H for the defect, with all coefficients of D and H positive on the stated domain. As a replay point (u,gamma)=(2,1) gives (A,B,C,F)=(1828,3334,1667,514)/7343. The two Gibbs gap estimates differ by one quarter of log(1+Delta/B^2); the leading terms of H and D give Delta/B^2=2(w-2)/gamma+O(gamma^-2). The limiting averaged generator has up/down ratio 1/u at a +4 energy gap, hence inverse temperature beta/2. On C3, the total flux out of aligned configurations is strictly less than 3 A3 and the reverse flux is strictly greater than F3 because both cold-bath orbit masses are positive. Thus 3 A3>F3 and the positive per-state weight ratio defines the single Gibbs temperature. Applies only to simple cycles with the specified flip law and fixed beta for the expansion. The attached checker was inspected, not executed; the exact elimination above was independent.
 
-The closest exact public result is [the four-spin switching-rate energy theorem](https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-switching-rate-reversal-on-a-four-spin-ising-plaquette--b8870460e67a), whose full `RESULT.md` and generator were compared. Its mean-energy classification is credited and not presented as new. The all-rate non-Gibbs orbit-weight sign, its exact factorization and temperature-mismatch coefficient, and the triangle minimality comparison are distinct mathematical assertions not established by a mean-energy formula alone. The [Dutta–Sarkar–Basu study](https://arxiv.org/abs/2509.00494) studies effective-temperature fits and the infinite-fast-switching Gibbs limit, not this exact finite-rate inequality. Spatially alternating temperature chains and Gibbs-preserving tempering algorithms use different protocols. Literature indexing is not complete; an unindexed stronger theorem or implicit exact stationary solution remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The question whether fluctuating-bath steady states admit one exact equilibrium temperature is physically motivated. The theorem identifies the smallest simple-cycle obstruction and proves that approximate Gibbs behavior at arbitrarily fast finite switching is never exact, with a quantitative \(1/\gamma\) mismatch. This is a structural benchmark for interpreting observable-dependent effective-temperature fits, not merely a numerical orbit table. The scope is deliberately finite and does not claim a thermodynamic-limit transition.
+Credit the global bath protocol, the exact four-cycle generator, and the mean-energy law to prior work. The distinct increment is the all-finite-rate strict obstruction for the full marginal, its sharp mismatch coefficient, and the triangle-versus-square boundary, not the existence of an effective fast-switching temperature or mean-energy nonmonotonicity.
 
-## Limitations and source comparison
+## value
 
-The hotter bath is exactly infinite-temperature and the spin rates are exponential detailed-balance rates; standard logistic Glauber rates and larger systems are not covered. The original publication date is 30 August 2025, not the later journal publication date. The closest published four-spin result uses the same generator, so independent publication-priority examination is particularly important. Details of searched equivalences, source inspections and remaining risks appear in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first cycle with three energy levels supplies a minimal test of whether a single fitted temperature describes the whole stationary marginal. Persistent failure is not implied by nonequilibrium currents or nonmonotonic mean energy. The exact sign and 1/gamma discrepancy quantify both the failure and its approach to an equilibrium-looking limit in an appropriate benchmark. No infinite-volume non-Gibbs claim is warranted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

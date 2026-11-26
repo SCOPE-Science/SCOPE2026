@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:36.125792Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–113; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python -B /workspace/review-evidence/recompute.py 1; exact minima, gradients, cubic and four full Laplacians including positive holding and zero central weight"
+      ],
+      "rationale": "For connected admissible walks the grounded Laplacian is positive definite; the Hessian of its inverse trace is strictly positive along every nonzero symmetric direction. Averaging preserves feasibility and is strict unless the walk is invariant. The even layer sector gives eigenvalues 0, x (multiplicity m-1), and (m+1)x; the odd sector gives x+2z (multiplicity m-1) and the stated two-dimensional quotient. Independently reconstructed exact gradients in holding coordinates (u,v,y) have positive shifted coefficients for m>=3. In the two-page case the reduced derivative has the stated cubic sign and the holding derivatives are strictly positive; the stationary edge point satisfies the supporting-plane inequality globally. Both choices are connected and loop-free, so the bipartite sign vector gives eigenvalue -1; lazification gives the unattained aperiodic infimum. The benchmark ratio follows from the leading terms. The fastest-mixing values can also be checked independently: SLEM is the convex norm ||P-J||, so it suffices to average; for m>=3 the star eigenvalue gives SLEM>=1-x>=1-1/m. At x=1/m and y=0 the odd-block eigenvalues lie in [1/m,2-1/m] exactly over the displayed rung interval by the two Schur-complement inequalities, and the other eigenvalues meet those bounds there. For m=2, the norm of I minus the odd block is at least its absolute off-diagonal entry sqrt(2)x, so SLEM>=max(1-x,sqrt(2)x). At x=sqrt(2)-1, setting both odd-block diagonal entries to 1 attains equality and is feasible; equality requires positive central weight. Thus the disjointness is independently established even without the historical manuscript.",
+      "residual_risks": [
+        "The aperiodic infimum is not a minimum. The central edge is a shared rung, not a bridge in the graph-theoretic sense; removal leaves connected support."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reversible-chain results provide a trace objective and convex optimization framework. The rook graphs are products of complete graphs, rather than K_{1,m} square K_2 for m>=2; the weighted book leader result varies leader choice for a trace of an inverse square."
+        ],
+        "reasoning": "The general machinery does not solve the graph-specific inequalities or select the zero-holding measures. The exact result for rook graphs is not a stronger theorem containing the frozen graph family.",
+        "searches": [
+          "Patel–Agharkar–Bullo reversible weighted Kemeny framework, Theorem 2; Boyd–Diaconis–Xiao fastest mixing framework; Resultary rook-graph Kemeny 468f0374a99a and weighted book leaders 60bf432f35f3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3b37aec41c1b, 468f0374a99a, 60bf432f35f3 and 6b01fb4d937e; ca9ef0ce-4718-416f-8bab-e6d27f6de957 citation and access attempt",
+        "Hunter; Patel–Agharkar–Bullo; Boyd–Diaconis–Xiao"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior claim as cited deletes the same central rung for m>=3. The SLEM-optimal upper rung bound is smaller than the Kemeny-optimal weight by 1/[2(m-1)], and the latter has SLEM 1 in all sizes.",
+          "The independent gradient check verifies the allocation and uniqueness under the different inverse-trace criterion."
+        ],
+        "reasoning": "Removal of the common edge does not determine the other weights or force zero holding. The SLEM optimum cannot imply the Kemeny minimizer, and indeed the optimizer sets are disjoint.",
+        "searches": [
+          "Frozen RESULT.md lines 28–30 and 115–118; Boyd–Diaconis–Xiao SLEM definition; Patel–Agharkar–Bullo Kemeny trace formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this connected weighted Laplacian K_0=tr(L^+), so the all-pairs Kirchhoff index is (2m+2)K_0. Hunter's full-target normalization adds 1.",
+          "6b01fb4d937e has the deleted-spine phenomenon for a clique-book with a total budget, not the square book with individual stochastic row constraints."
+        ],
+        "reasoning": "The mathematical objective is shared with resistance design, but the feasible sets and graph differ. The same-graph two-leader trace-inverse problem instead pins a choice of vertices and inverts a principal block. None of these differences is just a change of normalization.",
+        "searches": [
+          "Local Resultary: quadrilateral books, Kemeny/trace-inverse and Kirchhoff conductance optimization; matching 3b37aec41c1b, 468f0374a99a and 6b01fb4d937e",
+          "Hunter, arXiv:1208.4716, eq. (9) and Kirchhoff-index discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md lines 28–30, 115–118 record the historical exact SLEM values and invariant rung interval; the historical manuscript was not recovered. These values and the interval were independently derived in this review.",
+          "The distinct same-graph indexed exact calculation 3b37aec41c1b tabulates leader locations, not optimal transition weights."
+        ],
+        "reasoning": "The recorded interval is for a different objective and even excludes the inverse-trace optimal rung weight. Unsuccessful retrieval cannot rule out earlier equivalent weight calculations.",
+        "searches": [
+          "Local Resultary exact title/identifier and matching interval queries for ca9ef0ce-4718-416f-8bab-e6d27f6de957; exact graph and Kemeny allocation comparison",
+          "Primary query: \"quadrilateral-book\" \"fastest mixing\" \"central-rung\" deletion"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact all-size unique inverse-trace optimum under stochastic vertex budgets and the precise distinction from the SLEM optimizer. Kemeny, the pseudoinverse trace and fixed-order total resistance coincide as objectives, and neither that equivalence nor the shared rung-deletion page-count boundary is claimed as new. The inspected near matches do not supply this allocation for this graph and these budgets.",
+      "residual_risks": [
+        "The cited earlier same-graph fastest-mixing manuscript was unavailable; no historical priority order beyond the inspected evidence is asserted.",
+        "Unindexed equivalent conductance designs under vertex budgets remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the recorded common deletion boundary; not a chronological or manuscript-level re-audit",
+          "evidence": "Exact SLEM values and rung interval for the other objective, corroborated independently.",
+          "identifier_or_url": "ca9ef0ce-4718-416f-8bab-e6d27f6de957",
+          "material_read": "Recorded exact claims in frozen RESULT.md lines 28–30 and 115–118; prior manuscript not recovered",
+          "method": "Local Resultary exact title/ID searches and check of bound citation; independent spectral comparison",
+          "title": "Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing",
+          "trigger": "Same graph, exact apparent deletion and SLEM overlap"
+        },
+        {
+          "assessment": "Different design variables and operator",
+          "evidence": "Two noiseless leaders, minimizing tr(L_FF^{-1}) on an unweighted book.",
+          "identifier_or_url": "Resultary 3b37aec41c1b",
+          "material_read": "Finding and scope, offsets 0 and 1501",
+          "method": "Local mirror",
+          "title": "A three-stage two-leader transition on quadrilateral book graphs",
+          "trigger": "Same graph and inverse trace"
+        },
+        {
+          "assessment": "Different graph and constraints",
+          "evidence": "Kirchhoff index on K_2 joined with m cliques under a total budget.",
+          "identifier_or_url": "Resultary 6b01fb4d937e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Zero-spine optimal conductance design for clique books",
+          "trigger": "Equivalent resistance objective with edge deletion"
+        },
+        {
+          "assessment": "Different product graph",
+          "evidence": "Rook graphs K_p square K_q.",
+          "identifier_or_url": "Resultary 468f0374a99a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Cubic-root coordinate allocation in Kemeny-optimal walks",
+          "trigger": "Exact all-size same-day Kemeny allocation"
+        },
+        {
+          "assessment": "Different design objective",
+          "evidence": "Two leaders and tr(L_FF^{-2}), not stochastic weight design.",
+          "identifier_or_url": "Resultary 60bf432f35f3",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A universal hub-pair regime and one sharp transition for second-order leader selection",
+          "trigger": "Weighted same-graph spectral comparison"
+        },
+        {
+          "assessment": "Framework and identity, not a book optimizer",
+          "evidence": "Eq. (9) adds 1 to the spectral sum; Kirchhoff-index connection for regular graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.4716",
+          "material_read": "PDF pp. 5 and 11, offsets 18055 and 39450",
+          "method": "Bounded OA passages",
+          "title": "The Role of Kemeny's Constant in Properties of Markov Chains",
+          "trigger": "Normalization and resistance equivalence"
+        },
+        {
+          "assessment": "General trace/convex framework only in these passages",
+          "evidence": "Trace formula for a reversible irreducible chain.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Abstract and Theorem 2, offsets 560 and 17700",
+          "method": "Bounded OA passages",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General minimization could cover this case"
+        },
+        {
+          "assessment": "General framework and separate criterion",
+          "evidence": "Minimize second-largest eigenvalue modulus over symmetric kernels on a fixed graph.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "PDF pp. 1–2, offsets 2450 and 6250",
+          "method": "Bounded OA passages",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "SLEM optimization precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; independent SLEM comparison"
+      ],
+      "rationale": "The natural hitting-time and asymptotic mixing objectives have exact globally disjoint solutions on the same graph even though they share a deletion boundary. The all-size stochastic allocation identifies the exception and shows a genuine criterion-dependent pathology: the hitting-time optimum is periodic and becomes an unattained infimum under an aperiodicity requirement. The structural comparison is meaningful independently of the maximum-degree benchmark.",
+      "residual_risks": [
+        "No claim for asymmetric stationary laws, directed kernels, lower bounds on all weights or added stochastic-step constraints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

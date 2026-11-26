@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:32:52.767899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A defect selects q=f(k)-1 distinct rows of degrees at least 2,...,q+1. The induced graph on these rows and the k columns has cycle rank at least T_q-k+1 and any simple cycle uses at most q rows. This proves the lower endpoint for K and excludes all earlier defects in the unicyclic case. At T_r, an excess beyond r+2 would force cycle rank at least r+2. For the needed lower bound at T_r, Zeng–Xue–Zeng Theorem 6.4 has exactly the required hypotheses. Independently, a shortest cycle gives r rows of degree two on its r columns, with no chord. For r>=3 each selected row has infinitely many private columns, since pairs of rows have at most one common column. For r=2, an eventual inclusion between the neighbor sets of the two shifted rows would make the characteristic sequence eventually monotone on each residue class of their difference, hence eventually periodic, which is impossible. Thus one can add 0,...,r-1 private columns to the respective rows. Long gaps give count zero and also count one by aligning the last pattern position with the first support element after a sufficiently long gap. In the witness D_r, the two positive prefix sums r-1 and r form an alternating path, and L_0 R_0 closes a 2r-cycle. Each new sum greater than twice the previous largest cannot lie on any new cycle: both its endpoint indices would be bounded by the previous largest sum. The bundled traversal and witness checks are finite evidence; they are not needed for the proof and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper proves the general lower envelope and an upper bound for forests, plus defect at T_r given a 2r-cycle. The second paper's lower bound requires recurrence and aperiodicity by projection."
+        ],
+        "reasoning": "The lower envelope and cycle obstruction are used as premises. Neither broader lower bound gives the rank-sensitive upper bound on a graph that is allowed to have cycles.",
+        "searches": [
+          "arXiv:2609.28059: Propositions 5.4, 5.7 and Theorem 6.4",
+          "arXiv:1301.5113: Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28059",
+        "arXiv:1301.5113",
+        "Resultary e3a97eafa17a, fd19a03eea19, 3ec886d6644d and assigned-record match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 5.7 already proves the forest upper bound using a selected finite degree subgraph. Proposition 6.9 already excludes cycles through separated largest edge sums. The three-spike rank formula verifies the rank of the witness prefix but not its length, K, or complexity at the defect."
+        ],
+        "reasoning": "The new inference is to bound the length and rank of a forced cycle using only the rows realizing counts >=2, allowing a quantitative upper estimate despite the ambient graph having cycles. This reaches both triangular endpoints and gives rigidity using the rank constraint, rather than restating the prior forest estimate or forward obstruction.",
+        "searches": [
+          "arXiv:2609.28059: proofs of Propositions 5.7 and 6.9; Theorem 6.4",
+          "Resultary: e3a97eafa17a and fd19a03eea19 actual findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem D covers the exact K=infinity equivalence on this domain. Proposition 6.8 covers the presence/absence of a defect at k=3 via Sidon sets, corresponding here to 4-cycles."
+        ],
+        "reasoning": "Relabeling the graph or using the equivalent Sidon criterion recovers those boundary cases, not the full finite-girth inverse or the unicyclic endpoint for arbitrary r.",
+        "searches": [
+          "arXiv:2609.28059: Theorem D, Theorem 6.4, Propositions 5.7 and 6.8",
+          "Resultary: Abelian maximal pattern complexity, sum-incidence girth and first defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fd19a03eea19 classifies girth for shifted geometric supports; 3ec886d6644d gives the forest threshold in that family; e3a97eafa17a gives the three-spike cycle rank and includes the rank-one prefix {0,r-1,r}."
+        ],
+        "reasoning": "These exact family classifications are material overlaps but do not tabulate K(D), compute P_D(T_r) for unicyclic incidence graphs, or cover the specified infinite unicyclic family. The indexed copy of the assigned record is not a separate result.",
+        "searches": [
+          "Resultary: fd19a03eea19, e3a97eafa17a, 3ec886d6644d and assigned record 3835d6796f65"
+        ]
+      },
+      "rationale": "The prior paper already proves the cycle-to-defect direction, the forest equivalence, and the arity-three Sidon case. Its Proposition 5.7 already selects distinct degree rows and counts edges in the forest case, and its Proposition 6.9 uses the maximal-sum argument underlying the tail. Credit those premises and methods. The distinct supported contribution is the quantitative converse at every arity band and the exact unicyclic endpoint and complexity attained for all r. The prior full statements do not give bounds for these cyclic graphs in terms of the number of rows that can support a cycle or the rank of that finite certificate.",
+      "residual_risks": [
+        "Ranked corpus searches and the inspected primary sources do not certify historical priority; an unindexed quantitative refinement of Proposition 5.7 remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the forward direction, forest case and the arity-three case; closely anticipates the counting technique, not the general cyclic quantitative bounds.",
+          "evidence": "Prop. 5.7 bounds the selected degree subgraph using its being a forest; Theorem 6.4 gives P_D(T_r)>=r+2 from a cycle; Prop. 6.9 uses a cycle edge of maximal sum.",
+          "identifier_or_url": "https://arxiv.org/html/2609.28059",
+          "material_read": "Theorem D and §§5–6, especially Propositions 5.4, 5.7, 6.8–6.9 and Theorem 6.4; article text around offsets 88,600–111,485",
+          "method": "Original arXiv HTML, located and read by sections and offsets",
+          "title": "Abelian maximal pattern complexity and extremal words",
+          "trigger": "Same incidence graph and lower envelope"
+        },
+        {
+          "assessment": "Different recurrence hypothesis and conclusion.",
+          "evidence": "Lower bound (r-1)k+1 for recurrent words aperiodic by projection.",
+          "identifier_or_url": "https://arxiv.org/html/1301.5113",
+          "material_read": "Definition and Theorem 4",
+          "method": "Original arXiv HTML",
+          "title": "Abelian maximal pattern complexity of words",
+          "trigger": "Original statistic and precursor bounds"
+        },
+        {
+          "assessment": "Covers the rank of the prefix; does not identify its precise girth or first defect.",
+          "evidence": "Rank max(0,a+b-c+gcd(b-a,c-b)+1) is one for {0,r-1,r}.",
+          "identifier_or_url": "Resultary 2026/11/8 SCOPE-e3a97eafa17a",
+          "material_read": "RESULT.md finding and triple rank formula",
+          "method": "Configured local mirror",
+          "title": "Exact cycle rank and admissible three-spike prefixes for Abelian pattern Sturmian words",
+          "trigger": "Same rank-one base triple"
+        },
+        {
+          "assessment": "Distinct shifted geometric family and no quantitative defect formula.",
+          "evidence": "Girth trichotomy concerns {b^j+c}, not the unicyclic prefix with separated tail.",
+          "identifier_or_url": "Resultary 2026/11/8 SCOPE-fd19a03eea19",
+          "material_read": "RESULT.md finding and three girth regimes",
+          "method": "Configured local mirror",
+          "title": "Exact girth trichotomy for shifted geometric supports and Abelian pattern Sturmian words",
+          "trigger": "Exact girth for infinite geometric supports"
+        },
+        {
+          "assessment": "Family-specific threshold, no first-defect endpoint.",
+          "evidence": "Forest iff c<b(b-2) for the shifted geometric support family.",
+          "identifier_or_url": "Resultary 2026/10/25 SCOPE-3ec886d6644d",
+          "material_read": "RESULT.md finding",
+          "method": "Configured local mirror",
+          "title": "Sharp translation threshold for geometric support Abelian pattern Sturmian words",
+          "trigger": "Closely related forest threshold and cycle witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonminimal arity locates the shortest cycle of an infinite incidence graph, refining a qualitative forest criterion. The exact rank-one case explains the largest possible delay and shows that this delay is realized at every even girth, making the triangular cutoff sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

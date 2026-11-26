@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:02.441553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original factorial moments follow by adjoining distinct prescribed outside neighbors to the marked component and taking the ratio of forest extension counts; an outside vertex cannot attach twice to that component without creating a cycle. Independently, the repaired proof uses contraction and weighted Cayley to establish the exact input law. In the repair the common sequence of nonnegative endpoint trials is shortened, and the first member in a single random ordering of the expanding marked sets is marginally uniform and can only lose, not regain, either endpoint. The final spanning-path case is (1,1) and the endpoint means decrease strictly. Conditioning on distance averages over interior label choices with identical pair laws. Our bounded reproduction enumerated all Cayley trees on six labels and confirmed the attachment histogram of two distinct marked subtree topologies (24 conditioned extensions each, 14 supported cells). Neither that check nor the source's geodesic coefficient enumeration is an all-size proof.",
+      "replay": "python3 /workspace/audit_checks/frozen_examples.py (record 2 check); source geodesic_degree_checker.py inspected, not executed",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moon's forest-extension identity counts n^(c-2) times the product of component sizes.",
+          "Cayley's stronger degree-generating polynomial determines the entire conditional attachment vector by contraction."
+        ],
+        "reasoning": "These are broader enumeration results, credited as background; they count the laws at each distance but do not compare them via an increasing-test-function order. The repair supplies and needs the nested coupling.",
+        "searches": [
+          "Pitman, Coalescent Random Forests, §2.2 Lemma 3",
+          "Bernardi and Morales, Counting trees using symmetries, eq. (1)"
+        ]
+      },
+      "checked_sources": [
+        "Bernardi–Morales eq. (1)",
+        "Pitman §2.2 Lemma 3",
+        "Three local Resultary records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact weighted extension count is Z(m+Z)^(m-1); normalization at Z=q recovers the original formula in one substitution.",
+          "The prior one-endpoint theorem gives decreasing scalar laws only; marginal laws allow different joint threshold probabilities."
+        ],
+        "reasoning": "The original polynomial and routine consequences are mechanically covered. Turning the known formulas into a common pathwise two-coordinate ordering requires synchronizing both the trials and the allocation of the obligatory attachment; no cited prior statement supplies that ordering.",
+        "searches": [
+          "Bernardi–Morales eq. (1) and Pitman Lemma 3 against original Finding and repaired Proof",
+          "Local Resultary exact negative regression against repaired pair ordering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contracting the marked tree and substituting the sum of its marks at the contracted vertex gives exactly the archived PGF.",
+          "The Cayley endpoint regression is scalar; the complete bipartite result is a different tree measure and explicitly omits joint coordinatewise order."
+        ],
+        "reasoning": "Weighted enumeration is mathematically equivalent to the original attachment formula after contraction, but not a previously established comparison of ordered laws. Scalar stochastic order is not equivalent to vector stochastic order.",
+        "searches": [
+          "Bernardi and Morales, Counting trees using symmetries, eq. (1)",
+          "Resultary: Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "Resultary: Two-endpoint degree dependence along paths in bipartite uniform spanning trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/04 Cayley record gives the exact binomial-plus-Bernoulli marginal. The 10/26 leaf-law record counts leaves, not the ordered endpoint-degree pair; the other 10/26 record gives a joint PGF in a different model."
+        ],
+        "reasoning": "No compared catalogue result gives the Cayley endpoint pair order; a finite table of individual counts would not entail an all-order comparison.",
+        "searches": [
+          "Local Resultary exact negative regression, joint leaf law along a marked path, and bipartite two-endpoint degree dependence records"
+        ]
+      },
+      "rationale": "The original headline attachment PGF failed originality: it is a direct specialization of weighted Cayley, as are the exchangeability and the ensuing moment/limit calculations. The repaired claim is the simultaneous stochastic order of the fixed endpoint pair, not the polynomial or the previously recorded one-endpoint regression. On the inspected evidence the pair order is distinct: it needs a common coupling of the dependent one-hot contributions across distances, not the scalar marginal ordering or just degree enumeration. The narrower claim is assessed here, not a pass for the original headline.",
+      "residual_risks": [
+        "An older explicit endpoint-pair order could be present elsewhere in conditioned Cayley tree literature; the inspection is bounded.",
+        "An earlier explicit version of the now-credited PGF was mentioned without identification; its priority does not determine that of the repaired pair order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original PGF upon contraction",
+          "evidence": "Sum of the degree monomials over trees equals the product of marks times the sum of marks to the N-2.",
+          "identifier_or_url": "Bernardi and Morales, equation (1)",
+          "material_read": "p. 1, equation (1), PDF text offset 1831",
+          "method": "lawful primary PDF text",
+          "title": "Counting trees using symmetries",
+          "trigger": "Weighted Cayley could mechanically imply attachment PGF"
+        },
+        {
+          "assessment": "Background count, not joint order",
+          "evidence": "The forest count is n^(c-2) times the product of component sizes.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+          "material_read": "§2.2 Lemma 3, PDF p. 5, offset 11288",
+          "method": "lawful primary PDF text",
+          "title": "Coalescent Random Forests",
+          "trigger": "Cited forest-extension count"
+        },
+        {
+          "assessment": "Covers scalar regression, not pair ordering",
+          "evidence": "Bin(n-k-2,1/n) plus independent Bernoulli(1/(k+1)) and marginal stochastic decrease.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Finding, offset 0",
+          "method": "local publication mirror",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Same endpoints and distance conditioning"
+        },
+        {
+          "assessment": "Different statistic; flags earlier attachment PGF",
+          "evidence": "Conditional leaf counts are the result; its prior-work section mentions a fixed-subtree PGF without identifying it.",
+          "identifier_or_url": "2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71",
+          "material_read": "Finding offset 0; prior work offset 4803",
+          "method": "local publication mirror",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Same conditioned path and joint statistics"
+        },
+        {
+          "assessment": "Different model; does not show coordinatewise stochastic order",
+          "evidence": "Joint PGF for complete bipartite trees and endpoint marginal comparisons.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-endpoint-degree-dependence-along-conditioned-paths-in-bipart--67820a932340",
+          "material_read": "Finding and scope, offset 0",
+          "method": "local publication mirror",
+          "title": "Two-endpoint degree dependence along paths in bipartite uniform spanning trees",
+          "trigger": "Closest bivariate analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result makes a joint negative-regression statement under a natural conditioning variable, giving simultaneous control of threshold events at the endpoints despite their dependent attachments. This is a mathematically motivated strengthening over the scalar expectation and is useful without a full-tree coupling. The classical attachment PGF is no longer presented as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

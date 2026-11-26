@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:07:26.285533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and check.py"
+      ],
+      "rationale": "The maximum of the two factor supports gives the join support. At fixed planar directions let a be the square support and m≤M the polygon's opposite support values. With t=a‖u_E‖/‖u_F‖, the width is a[max(t,m)+max(t,M)]/√(a²+t²). It decreases up to m, increases past M, and the derivative sign in between is that of a²−tM, so its minimum is at m or M. Both endpoint values strictly increase with a, which excludes off-edge square directions; pure-component normals cannot be minimizing. For even q, m=M is minimized exactly at outward edge normals. For odd q use δ=π/q and 0≤θ≤δ/2 from a vertex radius after reflection/reversal: m=cos(δ−θ), M=cos θ. With a²=1/2, mM≥cos δ≥a², so the endpoint at m has derivative strictly negative for θ>0 (the sign is that of m′(a²−mM)+M′(a²+m²)); the endpoint at M also strictly decreases. Even in the triangle boundary case both minimize only at θ=δ/2. Then a‖u_E‖=γ_q‖u_F‖ uniquely; both components are nonzero and the oriented counts 4q and 8q halve to the stated line counts. The minimum of the single support instead balances at cos(π/q); symmetry averaging of admissible centers makes the origin optimal for the unrestricted inradius. Expanding 2z/√(1+2z²) at z=1 verifies the asymptotic coefficients and the odd gap. Independent evaluation on actual vertices gives widths 1.095445115010, 1, 1.134904029214, and 1.095445115010 at the predicted directions for q=3,4,5,6. The q=5 radical agrees. The recorded checker was inspected, not executed; its sampling cannot prove the continuum or equality assertions.",
+      "residual_risks": [
+        "The argument uses exactly the assumed orthogonal centered unit-regular factors; the odd angular inequality uses the square support minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The free-sum support identity reduces width to a sum of two maxima. The same-date indexed orthogonal-disk result concerns directional width near the minimum for two perpendicular unit disks."
+        ],
+        "reasoning": "Central symmetry gives width equal to twice the inradius for even q, but not for odd q. Two unit disks have constant support in each factor plane, so that case cannot provide the finite odd polygon's angular equality set or its gap. The same-date result is distinct; no priority order is inferred.",
+        "searches": [
+          "General free-sum support and Euclidean centrally symmetric width–inradius relation",
+          "Resultary a276467e90bf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Relationship to prior work",
+        "arXiv:2611.10078v1, abstract, introduction and Theorem 7.1",
+        "Resultary identifiers listed above (index statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Medgyes's theorem identifies the unique orthogonal square–pentagon volume maximizer. Single-support distance and free-sum support formulas give the inradius but leave unequal antipodal supports in odd order."
+        ],
+        "reasoning": "No implication from the volume equality case to this width minimization is given. The odd proof additionally needs the endpoint analysis and the angular inequality mM≥a², with strictness sufficient for the equality census. General support operations do not evaluate that optimization mechanically.",
+        "searches": [
+          "Medgyes arXiv:2611.10078v1, abstract and Theorem 7.1",
+          "Resultary 3e844f44dce8; standard support identities cited in the frozen references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary spherical nearest-vertex-gap summary reports 20 deepest directions for the square–pentagon join; the other summary concerns normal-cone angles and vertex-selection probabilities. The target is equivalently the minimum support of the difference body P_q−P_q."
+        ],
+        "reasoning": "Deepest spherical nearest-vertex gaps minimize max_v ⟨u,v⟩=h(u) for the unit vertices, not h(u)+h(−u). For the pentagon, minimizing h(u) requires the polygon component to be an edge normal with support cos(π/5), and gives 20 oriented directions. The width minimum instead has its polygon component midway between a vertex radius and an edge-normal direction, with equal opposite supports cos(π/10); it gives 20 lines or 40 oriented directions. These objectives and equality sets do not coincide. Cone-angle statistics do not determine the two-support minimum.",
+        "searches": [
+          "Euclidean minimum width/thickness of orthogonal free sums or joins",
+          "Resultary 3e844f44dce8 and 0fcd3e8e3622"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact parity formula indexed under 61e259ec49f3 is the frozen record itself, not corroborating priority evidence. The same-parameter accessible volume theorem supplies the optimal inscribed join, not its width; the 20 count in the deep-hole index is for the single-support objective."
+        ],
+        "reasoning": "These exact entries determine either volume or a different directional extremum. Neither supplies the square–pentagon width radical and its equality lines as a table or formula for the width objective.",
+        "searches": [
+          "Resultary square–pentagon orthogonal join thickness, 61e259ec49f3 and 3e844f44dce8",
+          "Medgyes arXiv:2611.10078v1, abstract and Theorem 7.1"
+        ]
+      },
+      "rationale": "The even-width identity and single-support inradius are standard consequences of symmetry and free-sum support; credit those as background. The supported distinct contribution is the sharp odd minimum-width classification, including every equality line and the separation from twice the inradius, in the parity comparison. Neither the motivating volume theorem nor the closest directional comparators supplies the necessary two-sided optimization on the accessible evidence.",
+      "residual_risks": [
+        "The related Resultary full texts were not available through the attempted retrievals. A more general nonsymmetric free-sum width theorem could cover the result; no such statement was located.",
+        "The primary search and literal text misses do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected theorem treats inscribed four-volume, not an antipodal width optimum; no whole-document absence assertion",
+          "evidence": [
+            "The abstract and Theorem 7.1 identify the regular square and pentagon in orthogonal planes as the volume equality case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.10078 (v1)",
+          "material_read": "Abstract at text offset ~317, introduction ~2763, Theorem 7.1 passage ~60199",
+          "method": "Lawful OA paper passage inspection",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "Exact square–pentagon object in a primary theorem"
+        },
+        {
+          "assessment": "The identified overlap is the join, not its width extremum; full texts could not be inspected",
+          "evidence": [
+            "Single-support deep holes and normal-cone selection probabilities are not the antipodal width objective; see explicit count comparison above."
+          ],
+          "identifier_or_url": "Resultary 3e844f44dce8; 0fcd3e8e3622",
+          "material_read": "Catalogue statements, in particular the nearest-vertex-gap objective and the 20-direction count",
+          "method": "Resultary index; local mirror full-text retrieval attempted",
+          "title": "Sharp cubic deep-hole tails for orthogonal joins of regular spherical polygons; Universal two-level normal-cone angle inversion in orthogonal regular polygon joins",
+          "trigger": "Same family and superficially matching pentagon count"
+        },
+        {
+          "assessment": "Disk factors rather than finite regular polygon factors",
+          "evidence": [
+            "Continuous planar directions in the disk case do not give the odd-polygon angular minimizers."
+          ],
+          "identifier_or_url": "Resultary a276467e90bf",
+          "material_read": "Catalogue statement",
+          "method": "Resultary index",
+          "title": "A singular crossover in near-minimal random widths of two orthogonal disks",
+          "trigger": "Distinct same-date near-minimum width of an orthogonal join"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof §§3–5, and motivating volume comparison",
+        "Medgyes arXiv:2611.10078v1, Theorem 7.1 passage"
+      ],
+      "rationale": "This is an exact Euclidean invariant of a natural one-parameter family including the distinguished inscribed nine-vertex maximizer. Odd parity changes the extremizing construction, doubles the line count relative to the even pattern, and separates width from diameter of the insphere. The full equality set and sharp asymptotic gap are more informative than a numeric width for one example or the symmetric inradius identity.",
+      "residual_risks": [
+        "No general extremal-width result for all nine-vertex polytopes is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

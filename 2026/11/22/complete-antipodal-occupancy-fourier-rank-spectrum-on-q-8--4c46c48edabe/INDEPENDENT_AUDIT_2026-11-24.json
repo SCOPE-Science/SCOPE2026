@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:57:04.265040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md; witness JSON, both checker implementations, requirements and recorded verification_output.txt (inspected, not executed)",
+        "/workspace/independent_checks/five_quaternion.py and five_quaternion.log"
+      ],
+      "rationale": "For exact complex support, pair sums give four scalar Walsh coefficients, and pair differences give the two-dimensional irreducible block, repeated twice in the regular representation. The determinant is the sum of the four squared differences; the block vanishes only when all differences vanish. Singleton differences have prescribed sign and magnitude, while doubles exclude just the two choices ±s. Walsh support sizes on 0,1,2,3,4 nonzero coordinates are respectively {0}, {4}, {2,4}, {3,4}, {1,2,3,4}; in particular two Walsh terms cannot make a three-coordinate vector. With no doubles, isotropy excludes a=1, excludes K=2 at a=2, and excludes K=1 at a=4 (a pure Walsh character has nonzero square sum); the remaining possibilities have explicit witnesses. With one double and no singleton isotropy is impossible for a nonzero block. Otherwise the real choices 7 on earlier doubles and an imaginary final difference solve the one quadratic equation without destroying exact support. The zero-block case requires no singleton. These exclusions and constructions give the whole table, not merely lower bounds. The affine group of F2^2 is S4 on its coordinates and preserves Walsh zero count; independent singleton sign changes preserve the determinant. Thus attainment holds on each specified support, with 255 total and 64 row-rank entries. Independently reproduced all 64 canonical entries by number-field rank of direct Hamilton regular matrices; no search was used to prove exclusion.",
+      "residual_risks": [
+        "The independent numerical scope is exact canonical attainment; transport and completeness are algebraic. The frozen report of 1,148 direct all-support checks was not independently replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alagic–Russell's inequality specializes to |S| rank L_f ≥ 8; Stanković et al. Table 1 and transform reconstruct the four characters and defining block"
+        ],
+        "reasoning": "A cardinality-based inequality cannot distinguish four-point occupancies or rank gaps on one fixed support. The transform is proof infrastructure; it does not evaluate the coupled exact-support and quadratic rank constraints.",
+        "searches": [
+          "Alagic–Russell arXiv:math/0608702, compact-group rank-weighted uncertainty; Stanković–Moraga–Astola 2001, quaternion transform"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 502b53e637a6, 532e420fbc24, 0f28cf825a80, f54aef0f9268, eb09d9b17153",
+        "Stanković–Moraga–Astola (2001)",
+        "Alagic–Russell arXiv:math/0608702"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S3 and dihedral papers condition on their own support geometries; spinor theorem applies to rank-one coefficients of one irreducible representation"
+        ],
+        "reasoning": "No group identification or support/rank preserving reduction yields the Q8 table. The spinor result genuinely subsumes the corresponding defining-block-only rank-two constructions, but exact attainability and exclusions for mixed blocks require the independent Walsh–quadratic analysis.",
+        "searches": [
+          "Same-day S3 support-shape classification and order-ten dihedral four-tap classification; spinor zero-set primary Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spinor coefficient zero sets …, 502b53e637a6, Finding and assumptions; Fourier identification rank(L_f)=sum dρ rank(f̂(ρ))"
+        ],
+        "reasoning": "The weighted Fourier count is the regular rank, not the number of Fourier blocks. For rank two realized solely in the defining block, rank-one matrix coefficients give the known full, six-point and four-point antipodally paired support patterns. This comparison does not give arbitrary mixtures with the four scalar blocks or all intermediate ranks.",
+        "searches": [
+          "Resultary: Q8 antipodal occupancy, quaternion Fourier rank, spinor coefficient zero sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct Q8 hit was the frozen claim itself; catalogued comparison tables include S3 532e420fbc24, order-ten dihedral 0f28cf825a80, A4 f54aef0f9268 and odd-prime dihedral eb09d9b17153"
+        ],
+        "reasoning": "Analogous tables are genuine claims, but none evaluates rank by the four Q8 antipodal pairs. Absence of a distinct hit in the inspected catalogue is not a proof of priority.",
+        "searches": [
+          "Resultary semantic searches for Q8 antipodal-occupancy convolution spectrum and exact S3 and dihedral support-rank spectra"
+        ]
+      },
+      "rationale": "Supported scope is the complete joint scalar/matrix block classification on each fixed Q8 support, not the transform, the general uncertainty inequality, or the isolated spinor rank-two cases. The closest same-day analogue uses S3, which has a different Fourier and support structure. No inspected comparison dominates the combined claim.",
+      "residual_risks": [
+        "The bounded comparison does not rule out an unindexed earlier quaternion-convolution calculation; no within-day priority inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered subfamily, not full classification",
+          "evidence": "Rank-weighted count two; zero set empty, one antipodal pair, or a coset of a maximal cyclic subgroup of order over two; restricted to the defining representation's rank-one coefficients.",
+          "identifier_or_url": "502b53e637a6",
+          "material_read": "Finding and assumptions, offsets 289 and 2225",
+          "method": "Public Resultary mirror passage comparison",
+          "title": "Spinor coefficient zero sets and projective rigidity across finite binary polyhedral groups",
+          "trigger": "Closest same-group overlap"
+        },
+        {
+          "assessment": "Prior Fourier decomposition, not a fixed-support rank census in inspected material",
+          "evidence": "Five unitary irreducibles and direct/inverse transform.",
+          "identifier_or_url": "https://web.cecs.pdx.edu/~mperkows/CAPSTONES/Quaternion/fuxcxlltext.pdf",
+          "material_read": "Table 1, p.232; transform equations, offsets 13055 and 14922",
+          "method": "Lawful OA PDF passages",
+          "title": "From Fourier Expansions to Arithmetic-Haar Expressions on Quaternion Groups",
+          "trigger": "Explicit Q8 transform and possible rank analysis"
+        },
+        {
+          "assessment": "Bound only",
+          "evidence": "μ(supp f)·sum dρ rank(f̂(ρ)) ≥ 1.",
+          "identifier_or_url": "arXiv:math/0608702",
+          "material_read": "v2, p.1 statement",
+          "method": "Lawful OA PDF passage",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "General weighted-rank inequality"
+        },
+        {
+          "assessment": "Methodological analogues, distinct groups",
+          "evidence": "The statements constrain their own support types or fixed tap counts and do not evaluate Q8.",
+          "identifier_or_url": "532e420fbc24; 0f28cf825a80; f54aef0f9268; eb09d9b17153",
+          "material_read": "Findings and tables at offsets 0, 0, 84, 313 respectively",
+          "method": "Public Resultary mirror passage comparison",
+          "title": "Exact fixed-support rank spectra for S3, order-ten dihedral, A4, and odd-prime dihedral groups",
+          "trigger": "Equivalent or dominating classification under an alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen table and exact support case analysis; compared uncertainty and explicit-transform passages"
+      ],
+      "rationale": "Q8 is a standard minimal nonabelian test of Fourier uncertainty with both scalar and matrix blocks. The classification detects kernel dimensions not recoverable from sparsity alone: two doubled four-point pairs allow rank two and only even ranks, whereas a double and two singletons admit ranks 4 through 8. Resolving the complete profile, not just its minimum or the known isolated spinor cases, provides a concrete benchmark for nonabelian uncertainty and structured convolution.",
+      "residual_risks": [
+        "Finite case for one group and complex coefficients; not a real, positive or larger-group theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

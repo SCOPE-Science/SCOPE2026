@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:49.872468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two ensembles have the same graph-distance compatibility and normalization 2b, but different measures on terminal configurations. From the cited exact formulas, put A(t)=sum_{k=b}^{2b−1} t^k(1+t); it increases strictly from 0 to 2b and the equilibrium root solves A(t)=1. Logarithmic differentiation at that root gives S=b/[t A'(t)], reproducing the stated reciprocal and giving monotone algebraic bounds. My independent /workspace/branches/audit_ladder.py used dyadic root brackets, those polynomial derivative bounds, and the composite midpoint rule rather than the frozen trapezoid code. For the dynamic term it enclosures e^v for v=−P_b or v=2H_b−1/b by the positive Taylor series with directed integer rounding, bounds the remainder by 7/6 times term 41 for 0<=v<=6, and reciprocates. From |P'|<=2b, |P''|<=2b² and e^P<=1, the scaled midpoint error is at most b³/(4N²). For N=4096 every exact comparison was strict: S−J<0 at b=1,...,9, with S_9−J_9 in [−0.0001030740,−0.0000813480], and S_10−J_10 in [0.0026574377,0.0026872401]. Separately q=t^b satisfies −log q=2b artanh(q(1−q)); q(1+q)<=1 bounds q uniformly away from 1. For x=2bq, this yields x=O(log b), then x+log x=log(2b)+O(log² b/b), and monotone inversion gives x=W(2b)+O(log² b/b). Substitution in 1/S gives 1+1/x+O(q). The derivative of x/(1+x) is O(1/log² b) near W(2b), giving the asserted O(log b/b) error. Expanding 1/(1+W) with W(z)=log z−log log z+O(log log z/log z) gives the stated second coefficient. This verifies the first crossing, not that all b>=10 have the same strict ordering. The cited dynamic limit is background, not a new deduction from the ten comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ladder paper abstract covers exact mean coverage statistics in both ensembles, and its visible Table 1 snippet names the scaled jamming and equilibrium limits.",
+          "Krapivsky–Luck p. 1 defines a renewal setting on a one-dimensional lattice, including Rydberg blockade. The frozen citation identifies §5.3 as the one-dimensional Lambert-W antecedent.",
+          "Resultary 37956dff0b32 studies dynamic count variance, not static equilibrium saturation or the comparison of the two limiting ensemble means."
+        ],
+        "reasoning": "General input formulas and one-dimensional renewal scaling are prior ingredients, not a broader theorem shown to imply the two-row error bound or exact minimal index. The retained rows modify the equilibrium polynomial.",
+        "searches": [
+          "Primary arXiv:2312.02747v3 §4 and arXiv:2302.08852v2 §5.3, equations (5.27)–(5.31); arXiv:2302.08791",
+          "Resultary stronger/general ladder results and 37956dff0b32"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and ladder_gap_checker.py",
+        "Resultary 604e644db49f and 37956dff0b32",
+        "arXiv:2312.02747v3 p. 1 and Table 1 excerpt; arXiv:2302.08852v2 p. 1; targeted primary body attempts including arXiv:2302.08791"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published inputs as cited give an algebraic root and an exponential integral, but deciding their narrow separation at b=9 requires control of both terms.",
+          "The qualitative limits S_b→1 and J_b→R<1 imply eventual reversal but do not locate the first one or give a logarithmic deficit. The ladder artanh reduction and quantitative inversion supply extra estimates."
+        ],
+        "reasoning": "Neither the table nor the limiting inequality is logically sufficient for the minimal index; neither qualitative saturation nor the 1D leading mechanism fixes the displayed two-row coefficient and error.",
+        "searches": [
+          "Compare cited exact density inputs and limiting statements with frozen proof §§1–3",
+          "Krapivsky–Luck 1D renewal and Došlić et al. 1D blockade setting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary PDF p. 1 explicitly studies dynamic and static ensembles on the same two-row square ladder, with integer blockade range.",
+          "The exact Resultary hit 604e644db49f states the same first crossing and the same two-row equilibrium asymptotic and is the assignment itself."
+        ],
+        "reasoning": "Raw and normalized density orderings are equivalent because 2b is positive. A crossing in tabulated examples is not equivalent to the first positive-integer crossing or to a certified sign at b=9.",
+        "searches": [
+          "Resultary: first two-row equilibrium/dynamic density crossing, b=9 versus 10, and logarithmic or Lambert-W saturation",
+          "Došlić–Puljiz–Šebek–Žubrinić arXiv:2312.02747v3 and frozen RESULT.md equations (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary arXiv HTML search excerpt confirms the presence of Table 1 and limiting scaled values, not the numerical rows themselves. The frozen comparison reports rows b=1,2,3,4,5,10,100, thus a published sign reversal between sampled b=5 and b=10.",
+          "Exact Resultary hit 604e644db49f is the frozen record. No retrieved distinct summary reports the intervening b=6,...,9 certified signs."
+        ],
+        "reasoning": "Credit the reported table signs and avoid presenting the sign at b=10 alone as new. Even if the reported table rows are taken as given, those rows cannot determine the first crossing without the intervening cases.",
+        "searches": [
+          "Ladder Table 1 and b=9,10 via targeted arXiv/DOI and exact Resultary comparisons",
+          "Resultary mathematical form W(2b)/(1+W(2b))"
+        ]
+      },
+      "rationale": "The distinct contributions supported by the available comparison are the certified first crossing at b=10 and the quantitative two-row equilibrium expansion. Do not credit as new the exact ladder formulas, the already tabulated reversal signs at separated ranges, limiting coverage or the general Lambert-W mechanism. The strongest indexed match is the identical record; the nearby variance result and one-dimensional asymptotic literature do not directly supply the two-row claims. Primary body/table retrieval was limited, leaving explicit priority risk.",
+      "residual_risks": [
+        "The original density-formula body passages and entire Table 1 were not accessible in the bounded inspection; equation and numerical row attribution rests on the cited frozen text, and the independent computation uses those exact inputs.",
+        "A stronger statement in uninspected primary text or another ladder analysis could reduce the distinct content. Neither a provider error nor a same-record search match is evidence of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same model and prior density study confirmed; formula and row locators as cited in the frozen work, not independently transcribed from the body",
+          "evidence": [
+            "Abstract: two-row square ladder, dynamic and static analysis, explicit mean coverage statistics.",
+            "Available Table 1 excerpt refers to the last-row limiting scaled jamming limit and equilibrium density. Frozen RESULT.md lines 29–49 and 121–125 give formula and finite-row attributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02747; DOI:10.1088/1751-8121/ad909c",
+          "material_read": "v3 PDF p. 1, and an indexed excerpt referring to Table 1; full passages for equations (3.9), (4.2), (4.4) and the numerical rows could not be recovered",
+          "method": "Primary PDF preview, targeted arXiv/DOI OA passage requests and focused literature lookup",
+          "title": "A model of random sequential adsorption on a ladder graph",
+          "trigger": "Exact same ladder ensembles, density equations, and possible first-crossing table"
+        },
+        {
+          "assessment": "One-dimensional method and blockade illustrations verified; specific asymptotic locators attributed as in the frozen text",
+          "evidence": [
+            "The abstract limits the method to one-dimensional constrained configurations, illustrated on k-mers and Rydberg blockade ensembles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08852",
+          "material_read": "v2 PDF p. 1, abstract and setting; §5.3 passages were not retrieved",
+          "method": "Primary PDF preview and targeted passage attempt",
+          "title": "A renewal approach to configurational entropy in one dimension",
+          "trigger": "Prior Lambert-W coverage mechanism"
+        },
+        {
+          "assessment": "Reported as one-dimensional; no exact coverage attributed from uninspected text",
+          "evidence": [
+            "Frozen RESULT.md lines 121–135 distinguishes this work from the two-row formula."
+          ],
+          "identifier_or_url": "arXiv:2302.08791",
+          "material_read": "Frozen citation and §Relationship description; no primary passage recovered",
+          "method": "Targeted lawful OA attempt and citation comparison",
+          "title": "Complexity Function of Jammed Configurations of Rydberg Atoms",
+          "trigger": "Related equilibrium blockade density literature"
+        },
+        {
+          "assessment": "Exact overlap for the identical record only; variance is a different invariant",
+          "evidence": [
+            "604e644db49f has the same first crossing and saturation claim. 37956dff0b32 treats dynamic count variance rather than the density ordering."
+          ],
+          "identifier_or_url": "604e644db49f; 37956dff0b32",
+          "material_read": "Indexed scientific summaries",
+          "method": "Configured indexed search",
+          "title": "First dynamic–equilibrium reversal; exact extensive jamming count variance",
+          "trigger": "Exact overlap and closest distinct indexed ladder result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this shared admissibility rule, dynamic sampling and uniform sampling of maximal configurations are different scientific ensembles. Locating their first strict inversion resolves what the older widely spaced samples could not, including the close sign at nine. The asymptotic also quantifies the slow static approach to its limit, which matters for finite blockade ranges where a qualitative limit alone is not predictive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

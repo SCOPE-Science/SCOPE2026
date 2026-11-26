@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:27.473917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–24 and 26–44",
+        "VERIFICATION.md status and replay notes",
+        "verify_rung_fault.py (inspected, not executed)",
+        "Independent unmatched-vertex perfect-matching backtracking over 2<=n<=9: 16 endpoint forced-pair checks and 28 exact face-set cover/intersection checks"
+      ],
+      "rationale": "Every column cut has an even number of graph vertices on the left and two crossing edges, so a perfect matching uses both crossing edges or neither. This gives exactly the claimed monomer/dimer tilings. An endpoint fault forces one horizontal pair. For an interior fault the two ways to cover column j each give a cone on the corresponding forced pair. Common faces contain no edge incident to columns j-1,j,j+1. Their restrictions are extendible in the remaining subladders: each occupied horizontal tile is disjoint from the others because the face already extends in the full graph, and all unused columns in a subladder can take rungs. Conversely a pair of such restricted faces can be completed with either forced pair and the rung on the third deleted-from-overlap column. Thus the intersection is the exact join. Simplicial inclusions are cofibrations, so the nonempty intersection suspends up to homotopy. When both factors are L_0, the only interior case is n=3,j=2 and the two cones are disjoint, giving S^0. The intact classification can also be checked directly: split at the first column into the rung and paired-horizontal cones. Their intersection consists of extendible faces on the last m-2 columns, since the rung branch can fill column 2 with its rung. Thus for m>=3 the intact type suspends the type at m-2; the bases at m=1 and m=2 are a point and two disjoint simplices. The two overlap lengths add to n-3; they are both even exactly when n is odd and j is even, with zero lengths omitted as join identities. The join is then a sphere of dimension (n-5)/2 except in the already treated empty case, and suspension gives (n-3)/2. Otherwise a positive odd length gives a contractible join and union.",
+      "residual_risks": [
+        "The bounded backtracking validates 44 structural cases, not homology or arbitrary n. The source's replay path is python verify_rung_fault.py; its stated mod-two computation was not independently rerun. The homotopy classification is justified by the proof, not extrapolated from mod-two ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Chandrakar–Singh abstract explicitly includes 2 by n grids and discusses contractible or wedge-of-spheres types. The frozen citation to Theorem 3.3 identifies the intact odd/even ladder classification; the precise primary theorem passage was not retrievable.",
+          "The related ordinary matching-complex paper is cited in RESULT.md line 47 for a different face definition. The circular result is independently available at its Finding and has a different underlying topology of the strip."
+        ],
+        "reasoning": "The intact result controls each smaller factor but gives no exact intersection after deletion, especially across independently varying fault positions. A general theorem for mixed polygonal strips could in principle dominate the defect result; the inspected abstract does not establish such a specialization.",
+        "searches": [
+          "Chandrakar–Singh arXiv:2407.05809, abstract and Theorem 3.3; alternate OA HTML attempt",
+          "Bayer–Jelić Milutinović–Vega, doi:10.1016/j.disc.2023.113428 (frozen comparison)",
+          "Local Resultary: exact linear and circular ladder perfect-matching complexes and rung defects"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24 and 46–59",
+        "Local Resultary and the mirrored circular-rung Finding, plus the horizontal-defect catalog statement",
+        "arXiv:2407.05809 first-page abstract; full Theorem 3.3 passage and stronger generalizations not assessed from the primary text",
+        "The focused primary-literature lookup yielded no available mathematical statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact circular intersection is P(L_(n-3)); the exact straight intersection is P(L_(j-2))*P(L_(n-j-1)). Their total lengths agree but their complexes need not: for n=7,j=3 the straight overlap has positive odd lengths 1 and 3 and is contractible, while the cited circular overlap is P(L_4) and spherical.",
+          "Removing the wraparound edges changes which perfect matchings and their subfaces are present, and is not an operation preserving the circular homotopy type."
+        ],
+        "reasoning": "The circular recognition of the two-cone method is credited, and the intact classification is a known input. Neither conclusion by itself gives the independent tiling extensions needed for the straight join; that structural fact is what makes the position-dependent classification follow.",
+        "searches": [
+          "Local Resultary circular rung defect 2ac322ee8e80, mirrored RESULT.md Finding",
+          "arXiv:2407.05809, cited intact classification",
+          "Frozen RESULT.md lines 26–41 and 46–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A straight ladder with one interior rung deleted is a strip of square cells with the two adjoining squares merged into one hexagon; its matchings are monomer/dimer tilings with one forbidden monomer.",
+          "The closest circular Finding explicitly uses C_n times K_2, every odd n and a single intact L_(n-3) intersection, not the positional split into L_(j-2) and L_(n-j-1)."
+        ],
+        "reasoning": "An equivalent mixed-cell perfect-matching complex theorem could give coverage even without calling the hexagon a rung fault. A theorem on ordinary matching complexes would not be equivalent: it does not require extension to a perfect matching of the modified graph. A circular forbidden-monomer theorem has a different adjacency and boundary condition.",
+        "searches": [
+          "Local Resultary: straight ladder vertical-rung deletion perfect matching complex, parity and interior exact intersection",
+          "Local Resultary: single-defect ladder matching tiling, straight and circular",
+          "Primary-literature lookup for perfect-matching complexes of ladder/polygonal strips with a deleted rung or one hexagonal cell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalog result with a retrieved Finding gives a sphere for all odd circular ladders with a missing rung, not the table indexed by n and j in straight ladders.",
+          "The adjacent horizontal defect entry uses circular ladders and a different deleted edge. The frozen cited linear reflection result is described for intact graphs; its decisive exact file was unavailable."
+        ],
+        "reasoning": "Matching sphere dimensions in some examples does not constitute exact prior coverage of the straight-ladder table: circular symmetry removes the role of defect position, and its single factor would not detect when the linear intersection has a contractible odd-length factor. The subject record itself and its finite diagnostics do not count as independent tables.",
+        "searches": [
+          "Local Resultary: single rung faults in straight ladder perfect-matching complexes",
+          "2026/11/17/SCOPE-a-deleted-rung-turns-odd-circular-ladder-perfect-matching-comple--2ac322ee8e80",
+          "2026/11/17/SCOPE-the-horizontal-edge-defect-law-for-circular-ladder-perfect-match--d788a230d73b",
+          "2026/11/17/SCOPE-the-full-integral-reflection-character-of-linear-ladder-perfect--f5ba5944885e"
+        ]
+      },
+      "rationale": "The exact independently variable two-ladder overlap and its position- and size-dependent fault classification distinguish the straight result from both the known intact result and the strongest distinct circular defect theorem. The latter shares the two-cone method and sphere dimension but not the graph, parity selection or full overlap. No available broader published statement was found that specializes to this mixed square/hexagon straight strip. Primary theorem-level access was limited and publication priority is not established.",
+      "residual_risks": [
+        "A broader result for even mixed polygonal chains or equivalently constrained domino tilings could include the straight single-hexagon case. No such coverage was located; incomplete primary and symmetry-source access prevents an exhaustive priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material method and sphere-dimension overlap, not the straight positional classification or exact join",
+          "evidence": "For odd n>=3 on C_n times K_2, any deleted rung gives S^((n-3)/2) and the exact cone intersection P(L_(n-3)).",
+          "identifier_or_url": "2026/11/17/SCOPE-a-deleted-rung-turns-odd-circular-ladder-perfect-matching-comple--2ac322ee8e80",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary match and bounded local mirror passage comparison",
+          "title": "A deleted rung turns odd circular-ladder perfect-matching complexes into spheres",
+          "trigger": "Strongest distinct theorem with the same fault and method"
+        },
+        {
+          "assessment": "Credits prior intact classification; scope of any stronger mixed-cell result not established by available abstract",
+          "evidence": "Abstract names 2 by n grids and contractible or wedge-of-spheres outcomes. Frozen RESULT.md lines 41 and 53 specify Theorem 3.3 as the intact odd-contractible/even-sphere result.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "First-page abstract and frozen citation to Theorem 3.3; no independently retrieved theorem passage",
+          "method": "Targeted OA result-page and alternate HTML retrieval, with exact proof checked separately",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Cited intact classification; potentially broader polygonal line-tiling coverage"
+        },
+        {
+          "assessment": "Available statement treats neither this edge nor this boundary condition",
+          "evidence": "It classifies a horizontal-edge deletion on a circular ladder rather than a vertical-rung deletion on a straight ladder.",
+          "identifier_or_url": "2026/11/17/SCOPE-the-horizontal-edge-defect-law-for-circular-ladder-perfect-match--d788a230d73b",
+          "material_read": "Local catalog statement",
+          "method": "Resultary comparison of graph and fault hypotheses",
+          "title": "The horizontal-edge defect law for circular ladder perfect-matching complexes",
+          "trigger": "Closest adjacent defect classification"
+        },
+        {
+          "assessment": "Reported intact homology scope; independent full-text comparison not available",
+          "evidence": "Frozen RESULT.md line 47 describes a symmetry result for intact complexes, not an interior fault theorem.",
+          "identifier_or_url": "2026/11/17/SCOPE-the-full-integral-reflection-character-of-linear-ladder-perfect--f5ba5944885e",
+          "material_read": "Frozen citation and statement-level comparison, not the mirrored article",
+          "method": "Local mirror retrieval attempt; file unavailable",
+          "title": "The full integral reflection character of linear-ladder perfect-matching homology",
+          "trigger": "Cited prior straight-ladder result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–19 and 26–41",
+        "Mirrored circular defect Finding for comparison"
+      ],
+      "rationale": "This is a complete positional topology classification for one natural graph defect: in an otherwise contractible odd straight ladder, one local fault can create a sphere whose dimension grows without bound, but only at alternate positions. The exact product-like simplicial join explains the two boundary distances controlling the effect and can be used independently of the homotopy conclusion. Neither an endpoint calculation nor intact homology alone captures this mechanism.",
+      "residual_risks": [
+        "The value concerns one vertical fault and ordinary homotopy type; it does not establish simultaneous or horizontal-fault laws, simple homotopy or equivariant conclusions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

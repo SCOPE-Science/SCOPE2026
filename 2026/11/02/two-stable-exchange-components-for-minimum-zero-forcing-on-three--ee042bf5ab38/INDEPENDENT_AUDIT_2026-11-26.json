@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:31:22.345625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and explicit masks",
+        "Frozen VERIFICATION.md and verify/infinite_fort_dfa.py, inspected but not executed",
+        "Independent replay and exact output: /workspace/branches/13b881bf-234a-4e19-ac01-850143cf5fe7/independent_replay.py and REPLAY_RESULTS.md"
+      ],
+      "rationale": "Ordinary zero forcing is equivalent to meeting every nonempty fort: a stopped white set is a fort, and no first force can enter an initially all-white fort. The two adjacent masks and nonempty flag suffice to certify each candidate fort column once its right mask is known; zero exterior masks impose the exact open boundary conditions. The frozen product closure keeps the blue population exact, rejecting overflow, and saturates length at five, so no accepted extension is lost. An independent implementation with a different parser and an overflow population class closed 811,208 reachable states under all eight column masks; in 2,948 states at population three and length at least five, it found no disagreement with the template language, and in 615 states at smaller population and length at least three none forced. This checks arbitrary lengths and is not a run through finitely many widths. The frozen verifier's reported state totals apply to its smaller representation, not to the replay. The independent direct enumeration found exactly 20,44 (states,edges) at n=3 and 26,56 at n=4, both connected; it also matched the templates at n=5..10. At n>=5 opposite ends overlap in at most one column, which carries at most one marked vertex in each template. Thus a left/right pair can neither coincide nor meet in two marks as required for a token jump. The separately enumerated exchange graph on the thirteen templates is connected, with 24 edges, degrees 2,3,4,6 of respective multiplicities 2,2,8,1 and eccentricities 3,4,5 of multiplicities 5,6,2. Reflection yields the other isomorphic component.",
+      "residual_risks": [
+        "The independent closure uses the proved fort criterion and its own product representation. It verifies language equivalence, not the precise size of a differently encoded product. The direct forcing replay alone would give only finite-width verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geneson–Haas–Hogben define the same minimum-set exchange graph, discuss disconnected examples and prove connectivity for forests. The path product in this finding has cycles.",
+          "Barioli et al. give the standard unique-white-neighbor rule and minimum forcing-set parameter; the inspected passage does not classify the bases or their exchange graph."
+        ],
+        "reasoning": "Prior zero-forcing definitions or bounds on minimum size do not enumerate all minimizing sets. The forest theorem has inapplicable hypotheses and the disconnected examples do not supply a uniform rectangular-strip classification.",
+        "searches": [
+          "arXiv:2009.00220v1, abstract and §5",
+          "arXiv:1003.2028v1, §1",
+          "Focused primary literature lookup for grid minimum sets and their exchange graph"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d32ef2501f8, 8f1eaf3a981b",
+        "arXiv:2009.00220v1 and arXiv:1003.2028v1",
+        "Targeted literature lookup and Resultary comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forest connectivity does not imply the stated sharp transition on the cyclic host. The path-power theorem instead forces each of its components to be complete, contradicting identification with the required H.",
+          "On the circular ladder the minimum sets and move counts scale linearly with n while the exchange graph stays connected, so its template count is a different conclusion."
+        ],
+        "reasoning": "The inspected sources do not determine the status of each triple at arbitrary width or the overlap graph of the thirteen valid end words. These are the needed additional results, beyond computing Z.",
+        "searches": [
+          "arXiv:2009.00220v1, forest result and abstract",
+          "Resultary path-power 8f1eaf3a981b and circular-ladder 5d32ef2501f8 exact statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_n^k for n>=k+4 has two cliques K_k in the inspected path-power record. At k=13 the component orders agree but those cliques have 78 edges each, not 24.",
+          "The same-date circular-ladder record concerns C_n Cartesian K_2, ordinary Z=4 and a connected exchange graph with 13n states and 48n edges."
+        ],
+        "reasoning": "A Cartesian path grid and a power of a path are different graphs, and neither the component structure nor the classified sets agree. A cyclic two-row strip is also not an alias for the open three-row strip. The definition of token jumping agrees with the literature's one-vertex exchange.",
+        "searches": [
+          "Resultary semantic searches for P3 Cartesian Pn minimum zero forcing sets, token-jump exchange and thirteen templates",
+          "Resultary 8f1eaf3a981b and 5d32ef2501f8, respective RESULT.md Findings",
+          "arXiv:2009.00220v1, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact path-grid record was identified in the bounded ranked search. The two closest count or host analogues were inspected and are not equivalent.",
+          "The frozen invariant covers unbounded n; a table of finitely many widths would not itself supply the stabilizing all-width templates."
+        ],
+        "reasoning": "The relevant exact check is whether a catalogue records this particular infinite family and its exchange adjacency. Neither the example with the same component orders nor the same-date cyclic-family count does so.",
+        "searches": [
+          "Resultary ranked searches for the exact path-grid host, width three, templates and two 13-state components",
+          "Resultary 5d32ef2501f8 and 8f1eaf3a981b full-text Finding comparisons"
+        ]
+      },
+      "rationale": "The supported claim is the exhaustive end-template classification of minimum triples and the sharp transition to a specified two-component token-jump geometry. The general parameter Z and the exchange graph are prior definitions; the inspected forest theorem and alternate host-graph results do not cover these path Cartesian products. In particular the same counts of configurations and components in a path-power example do not give the asserted exchange graph.",
+      "residual_risks": [
+        "Ranked searches and inspected passages do not rule out an unlocated classification of all minimal triples on rectangular grids under a different terminology. No priority inference is drawn from the same-date comparator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different host; no inference about priority from same-date indexing.",
+          "evidence": "C_n Cartesian K_2, n>=6, has Z=4, 13n minimum sets and a connected exchange graph with 48n edges.",
+          "identifier_or_url": "Resultary 2026/11/2, 5d32ef2501f8",
+          "material_read": "RESULT.md Finding, offset 84",
+          "method": "Resultary local mirror text",
+          "title": "Thirteen linear families of minimum zero forcing sets in cycle prisms",
+          "trigger": "Same-date similar template count in a strip-like family"
+        },
+        {
+          "assessment": "Different host and exchange structure.",
+          "evidence": "For P_n^k and n>=k+4 the graph is K_k disjoint union K_k; these are not the sparse components of the grid.",
+          "identifier_or_url": "Resultary 2026/10/26, 8f1eaf3a981b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror text",
+          "title": "A connectivity dichotomy for minimum zero forcing on powers of paths",
+          "trigger": "Same numerical component counts at k=13"
+        },
+        {
+          "assessment": "Same convention, coverage shown only for different settings in the inspected passages.",
+          "evidence": "One-vertex replacement between minimum sets is the move; the forest theorem gives connectivity and the abstract notes disconnected examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "p. 1 abstract, offset 825, and §5 p. 9, offset 28651",
+          "method": "Primary OA PDF passages",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same exchange definition; possible broader graph-family theorem"
+        },
+        {
+          "assessment": "Establishes definitions, not the classified minima or their exchange invariant.",
+          "evidence": "States the unique-white-neighbor rule and defines Z(G) by the minimum initial blue population.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.2028",
+          "material_read": "§1 p. 4, offset 10848",
+          "method": "Primary OA PDF passage",
+          "title": "Zero forcing parameters and minimum rank problems",
+          "trigger": "Foundational parameter and possible implications for minimum grid sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen template and exchange classification",
+        "Independent language and exchange-graph replay",
+        "arXiv:2009.00220v1, forest comparison"
+      ],
+      "rationale": "This is a natural fixed-width family for minimum zero forcing reconfiguration. Proving that all minimizers localize at the ends explains permanent failure of single-token connectivity even as the grid grows, and identifies n=5 as the exact transition from the two shorter grids. The explicit component, its distances and templates provide reachable-state information beyond the known minimum size or a generic example of disconnection.",
+      "residual_risks": [
+        "No wider-grid, token-slide or nonordinary forcing conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

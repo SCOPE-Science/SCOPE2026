@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:47.501889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orient each cycle coherently. The simple-cycle relations are a basis of the incidence kernel and are supported within individual blocks. Thus a sum of block-span vectors can vanish only when each block vector vanishes, giving a linear isomorphism from the product of block spaces onto 1-perp. Normalized uniform volume pulls back to a product measure by its constant Jacobian, without any orthogonality assumption. A bridge gives a^2/12. On a cycle the fibers in the uncentered coefficient box differ by translations along the all-ones direction; subtracting the minimum picks a unique allowable coefficient vector with a zero, and ties are null sets. The omitted-column parallelepipeds have equal unweighted Jacobians (the only relation has coefficients all one), hence the probability of omitting edge i is 1/(a_i H_C). Conditional on that tile, the centered mean is −a_i b_i/2 and the other coefficient fluctuations give their ordinary segment variances. The unconditional mean vanishes since p_i a_i is constant, and the variance plus squared-mean terms give a_i²/12+p_i a_i²/6, exactly (1). Strict positivity and graph simplicity give exact support recovery. Given positive edge coefficients, the per-cycle candidate a_e(t)=12c_e/(sqrt(t²+12c_e)+t) is positive and strictly decreasing; t times the sum of its reciprocals increases from zero to infinity, so there is exactly one root and hence exactly one positive length vector. The argument also covers a single bridge, trees and cycles glued at a vertex. An independent rational hull-triangulation check of three cycle weight profiles (including fractional ones) matched the full covariance in a cycle basis and checked the rationalized inverse (/workspace/branches/independent_replay.py, zonotope()). The frozen artifacts/verify.py was inspected, not executed. Finite checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol–Pilaud–Poullot study graphical-zonotope deformation cones and standard geometric quantities.",
+          "Kipp Prop. 6.1 bounds the isotropic constant and characterizes equality; its proof normalizes to a cube plus one segment and uses shadow movements.",
+          "Resultary f1ed193363a9 is unit-incidence and uniform on distinct vertices of generalized theta graphs."
+        ],
+        "reasoning": "A weighted cycle with r edges lies in Kipp's general class with dimension r−1 and r generators, but an extremal determinant/volume statement does not yield a covariance matrix in the original incidence coordinates or its inverse. Graphical-zonotope deformation geometry and the theta vertex-sampling result do not give the claimed volume law. Standard parallelotope moment integration is usable here, but does not by itself give diagonal incidence coefficients or recover the separate edge lengths.",
+        "searches": [
+          "Padrol–Pilaud–Poullot arXiv:2111.12422v2, graphical zonotope/deformation geometry",
+          "Kipp arXiv:2407.01353v2 §6, at most d+1 generators",
+          "Resultary weighted-volume and theta-graph covariance nearby results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b39706fc7ceb, 8efca44e3b81, 6d8eaf369ca2 and f1ed193363a9 (original Findings)",
+        "Resultary 871fb109ede6 (index only)",
+        "arXiv:2111.12422v2 introductory passages",
+        "arXiv:2407.01353v2 §6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact forward profiles use either only unit weights or one independent edge parameter per single cycle; the graph-recovery antecedent has a different body, unit lengths, and a covariance precision."
+        ],
+        "reasoning": "Neither special profile determines the coefficients as functions of all independent cycle weights. The new tile-probability calculation supplies all of those dependencies simultaneously. Its positive off-diagonal support and monotone one-scalar constraint give the length inverse, which does not follow from having the full body, an isotropic bound, or the prior recovery of an unweighted graph from a different law.",
+        "searches": [
+          "Direct statement comparison: Resultary b39706fc7ceb, 8efca44e3b81, 6d8eaf369ca2; Kipp Prop. 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-edge-weighted cycle record uses the affine coordinates K_{d,s}=[−1/2,1/2]^d+[−s1/2,s1/2].",
+          "The earlier cactus Lipschitz theorem uses the precision of a uniform polar body for unit edges."
+        ],
+        "reasoning": "Putting the first d cycle incidence columns into a cycle basis identifies K_{d,s} with the specialization in which all but one length are one. In that basis the harmonic correction gives αI+γ11^T, with α=[1+(d+2)s]/[12(1+ds)] and γ=s²(3+ds)/[12(1+ds)], exactly the prior profile. The restriction is genuine. The polar body and use of precision instead of covariance in the other theorem change the distribution and invariant; polarity does not invert uniform-volume covariance in general. Independent uniform generator coefficients also give a different measure when there are dependent generators.",
+        "searches": [
+          "Resultary: weighted graphical-zonotope covariance and covariance tomography",
+          "Resultary 8efca44e3b81 and 6d8eaf369ca2, original Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact unit-incidence record gives L_B/12+Σ_C(ℓ_C+2)L_{E(C)}/(12ℓ_C).",
+          "The one-edge record gives an exact nonconstant single-parameter profile. The full arbitrary-weight covariance and inverse hit was the assigned record itself."
+        ],
+        "reasoning": "The first coefficient agrees identically at a_e=1, and the second record agrees on its stated slice. Neither is an exact formula or table over the independent continuous parameters of all cactus blocks, and the self-hit is not separate evidence.",
+        "searches": [
+          "Resultary exact cactus covariance coefficient and edge recovery lookup",
+          "Resultary b39706fc7ceb and 8efca44e3b81"
+        ]
+      },
+      "rationale": "The distinct scope is uniform-volume covariance for arbitrary independent positive weights on cacti together with exact reconstruction of the whole labeled weighted graph. Unit-incidence covariance, a one-special-edge cycle profile, standard zonotope geometry and an analogous recovery theorem for another body are credited antecedents. In the checked statements none gives this all-weight forward and inverse result.",
+      "residual_risks": [
+        "The book-graph comparison was limited to its indexed summary.",
+        "An uninspected general moment formula may encode the forward part; the checked sources establish no dominating all-weight covariance-and-recovery claim. The bounded checks do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unit-weight overlap only",
+          "evidence": "Volume coefficient (ℓ_C+2)/(12ℓ_C) on each cycle edge, 1/12 on bridges.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-vertex-volume-covariance-sandwich-for-cactus-graphical-z--b39706fc7ceb",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and matching original via local mirror",
+          "title": "A sharp vertex–volume covariance sandwich for cactus graphical zonotopes",
+          "trigger": "Same graph and volume law, restricted weights"
+        },
+        {
+          "assessment": "Exact specialization to one non-unit edge, not independent edge weights or inversion",
+          "evidence": "Single-cycle affine box-plus-diagonal model; longitudinal eigenvalue (1+2s+ds²)/12 with the stated normalization.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "material_read": "RESULT.md Finding and assumptions from offset 0",
+          "method": "Resultary and matching original via local mirror",
+          "title": "Exact covariance and quantitative isotropic profile of one-edge-weighted cycle zonotopes",
+          "trigger": "Same volume covariance with variable cycle weight"
+        },
+        {
+          "assessment": "Different convex body/invariant; no arbitrary weighted zonotope inverse",
+          "evidence": "The polar Lipschitz ball has Laplacian precision; its off-diagonal support gives the unit-edge cactus.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sparse-covariance-precision-and-exact-graph-recovery-for-unifo--6d8eaf369ca2",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and matching original via local mirror",
+          "title": "A sparse covariance precision and exact graph recovery for uniform Lipschitz potentials on cactus graphs",
+          "trigger": "Same graph class and graph-recovery question via second moments"
+        },
+        {
+          "assessment": "The inspected claims supply context, not covariance or inversion",
+          "evidence": "Graphical-zonotope realization and deformation-cone results; not a located population moment theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2111.12422v2",
+          "material_read": "OA HTML abstract and introduction, offsets 0–1394",
+          "method": "Open primary HTML, bounded read",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "General weighted graphical-zonotope geometry"
+        },
+        {
+          "assessment": "Covers an extremal invariant on a broader class, not the claimed covariance coefficients or inverse",
+          "evidence": "L_Z≤L_cube with equality only up to affine cube equivalence; proof uses cube plus one segment and movements.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.01353v2",
+          "material_read": "PDF §6, Prop. 6.1, Lemmas 6.2–6.3 and proof passages pp. 13–15, offsets 46500–51979 and 53330–56695",
+          "method": "OA PDF locate and bounded reads",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "General codimension-one generator class containing weighted cycles"
+        },
+        {
+          "assessment": "Related but different distribution and graph class",
+          "evidence": "The law samples unit-incidence distinct vertices, not intrinsic volume with arbitrary weights.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-terminal-rank-one-covariance-law-for-generalized-theta-graphic--f1ed193363a9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary and matching original via local mirror",
+          "title": "A terminal rank-one covariance law for generalized-theta graphical zonotopes",
+          "trigger": "Nearby covariance formula for graphical zonotopes"
+        },
+        {
+          "assessment": "Indexed as a specific weighted book-graph family; full-text overlap not established",
+          "evidence": "Summary concerns weighting the spine of a triangular-book family, not an indexed inverse for arbitrary cactus lengths.",
+          "identifier_or_url": "2026/11/8/SCOPE-spine-edge-weighting-creates-three-sharp-covariance-axis-transitions-in-book-graph-zonotopes--871fb109ede6",
+          "material_read": "Catalogue summary only; matching file unavailable from local mirror",
+          "method": "Resultary, with attempted local-mirror retrieval",
+          "title": "Spine-edge weighting creates three sharp covariance-axis transitions in book graph zonotopes",
+          "trigger": "Indexed nearby weighted-volume covariance claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers an identifiable information-loss question: labeled second moments alone encode both adjacency and arbitrary lengths, even with unequal weights on multiple interacting-at-vertices blocks. The harmonic correction describes how uniform volume differs from independent generator sampling, and the recovery is constructive with one scalar equation per cycle. It does not purport to establish finite-sample stability, noncactus identifiability or complexity guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

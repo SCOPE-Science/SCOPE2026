@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:23:57.300482Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–69",
+        "VERIFICATION.md",
+        "verify.py (inspection only)"
+      ],
+      "rationale": "For the fixed nonzero PSD matrix and reused probes at budgets 1,2,4, substitution gives T=x-B/(S-c), where B=(y-x)^2, c=3y-x and S=X3+X4 is independent of x,y. The gamma-simplex bound for g, the density of S, is O(s^(rank(A)-1) exp(-cs)) and in particular g is bounded even at rank one. For t>|x-mu| the pole windows on the positive and negative sides have lengths B/(t+x-mu) and B/(t-x+mu). Conditional on c>0 both contribute B g(c) after multiplication by t; for c<0 neither contributes in the limit, and c=0 is a null set. The bound 4B sup(g) on |x-mu|<=t/2 and the exponential complementary x-tail justify averaging. Positivity on x<3y away from x=y gives a nonzero constant, so tail integration gives exactly the stated positive moment range. For the ridge, H=delta*u reduces the rescaled squared correction to the integrable kernel u^2/(1+u^2)^2 of mass pi/2; bounded g and finite E[B^2] dominate it. The uncorrected square vanishes after scaling and the cross term is O(sqrt(delta)) by Cauchy–Schwarz. Independently integrating v^r(2-v) on [-1,2] gives 9/4 and 27/10, and the remaining gamma integrals at rate 2 give J2=27/256 and J4=243/256 for I2. This verifies the two explicit constants. The frozen verifier was inspected, not executed; its finite simulation and historical status are not used as proof.",
+      "residual_risks": [
+        "Scope is this one exact estimator, in exact arithmetic, not other probe laws or budget schedules. The conditional display is an almost-everywhere statement; the rank-one density at its support boundary need not extend continuously by zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kalantzis et al. p. 2 describe an approximately linearly convergent probing-derived sequence and distinguish it from Monte Carlo estimates. Fika's publisher description concerns inverse-trace extrapolation and mentions a stochastic route; the decisive full chapter was not available. The Avron–Toledo full-text access attempt did not succeed."
+        ],
+        "reasoning": "The inspected primary Aitken discussion has a different premise; it does not furnish a theorem on the stochastic pole and the corresponding regularized MSE. The inaccessible material cannot be ruled out as coverage.",
+        "searches": [
+          "Kalantzis et al., ICASSP 2023, DOI 10.1109/ICASSP49357.2023.10095081",
+          "Fika, DOI 10.1007/978-3-319-74325-7_7",
+          "Avron and Toledo, DOI 10.1145/1944345.1944349"
+        ]
+      },
+      "checked_sources": [
+        "Kalantzis et al. ICASSP 2023 author PDF",
+        "Three indexed published findings identified above",
+        "Fika publisher description",
+        "Avron–Toledo access attempt",
+        "DOI target of RESULT.md reference 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic cancellation in the Aitken denominator explains a possible pole, but gives neither its weighted density at zero nor the rank-one integrable domination or the regularization constant. The indexed Gaussian observation theorem assumes jointly Gaussian noisy inputs, which the nonzero PSD quadratic forms are not."
+        ],
+        "reasoning": "The compared theorems do not imply the full frozen claim by specializing their parameters or translating the ridge notation. The actual model-specific conditional analysis, rather than the general pole intuition, is the distinct contribution.",
+        "searches": [
+          "Kalantzis et al., author PDF p. 2",
+          "2026/11/2/SCOPE-complete-gaussian-correlation-rigidity-for-noisy-aitken-extrapol--8d6f25ce24ea",
+          "2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first model has jointly Gaussian additive observations of a geometric contraction; it has the same t^-1 exponent and q<1 threshold outside perfectly common noise. The second is scalar two-point Anderson mixing; the ridge exponents agree after lambda=delta^2. The third is a randomized GCV score with a t^-1/2 score tail."
+        ],
+        "reasoning": "Neither additive jointly Gaussian observations, a different mixing objective and penalty, nor a different GCV pole is a reformulation of the nested sums of Gaussian quadratic forms. The same-day indexed observation result is a genuine overlap in mechanism; its date does not settle priority.",
+        "searches": [
+          "2026/11/2/SCOPE-complete-gaussian-correlation-rigidity-for-noisy-aitken-extrapol--8d6f25ce24ea",
+          "2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a",
+          "2026/11/2/SCOPE-gaussian-trace-placement-changes-the-moment-spectrum-of-randomiz--3ec5c0a3a402"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related indexed statements report different model-dependent quantities, not the chi-square-two nested-probe pair of coefficients 27/128 and 243*pi/512. The reviewed constants arise by exact integration of the density on the estimator's own pole surface."
+        ],
+        "reasoning": "No matching exact entry is evidenced by these comparisons; finding common exponents would not establish an exact match of either coefficient. This is not a claimed exhaustive census of published constants.",
+        "searches": [
+          "2026/11/2/SCOPE-complete-gaussian-correlation-rigidity-for-noisy-aitken-extrapol--8d6f25ce24ea",
+          "2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a",
+          "RESULT.md lines 59–69"
+        ]
+      },
+      "rationale": "The pole mechanism, Aitken identity, and threshold exponent have close precedents. The supported distinct result is the sharp all-PSD law, including rank one, for the dependent numerator and denominator of the specified nested Gaussian quadratic-form samples, together with the smooth-ridge coefficient and its explicit I2 specialization. Neither the deterministic probing paper nor the inspected indexed Gaussian observation and Anderson models establishes that joint-law-and-ridge result. The conclusion is best-of-evidence, not a priority certification.",
+      "residual_risks": [
+        "Fika's full chapter and Avron–Toledo's cited full text were not inspected. Specialized inverse-trace or stochastic sequence-transformation literature may contain related laws.",
+        "Correct the mismatched DOI in reference 4 before relying on that reference. It is not needed in the proof or for the positive originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related estimator, not the same sampling regime",
+          "evidence": "Aitken acts on a probing-derived sequence assumed approximately linearly convergent, distinguished from Monte Carlo.",
+          "identifier_or_url": "https://vkalantzi.github.io/papers/icassp12023.pdf",
+          "material_read": "p. 2, passage near extracted offset 1674 on the probing sequence and relation to Monte Carlo",
+          "method": "Open author PDF, targeted passage",
+          "title": "Accelerating Matrix Trace Estimators by Aitken’s Delta Squared Process",
+          "trigger": "Primary Aitken trace-estimation reference"
+        },
+        {
+          "assessment": "Material but distinct overlap; date does not determine precedence",
+          "evidence": "Jointly Gaussian perturbations of a geometric contraction, not nested quadratic-form means; t^-1 and q<1 overlap.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-gaussian-correlation-rigidity-for-noisy-aitken-extrapol--8d6f25ce24ea",
+          "material_read": "Indexed statement and assumptions",
+          "method": "Published finding comparison",
+          "title": "Complete Gaussian correlation rigidity for noisy Aitken extrapolation",
+          "trigger": "Same transform and exponent"
+        },
+        {
+          "assessment": "Different regularizer and coefficient",
+          "evidence": "Scalar mixing with risk of order lambda^-1/2; this coincides in exponent with delta^-1 after lambda=delta^2 only.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a",
+          "material_read": "Indexed statement",
+          "method": "Published finding comparison",
+          "title": "Sharp Gaussian ridge risk law for two-point Anderson mixing",
+          "trigger": "Closest ridge exponent comparison"
+        },
+        {
+          "assessment": "Specialized overlap remains possible",
+          "evidence": "The description mentions a stochastic route but does not establish the nested-probe pole or ridge theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-74325-7_7",
+          "material_read": "Publisher abstract-level description only",
+          "method": "Publisher description and lawful full-text access attempt",
+          "title": "Extrapolation Methods for Estimating the Trace of the Matrix Inverse",
+          "trigger": "Plausible stochastic extrapolation overlap"
+        },
+        {
+          "assessment": "No passage-level noncoverage determination",
+          "evidence": "Publisher access denied; not counted as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1145/1944345.1944349",
+          "material_read": "No decisive full-text passage",
+          "method": "Full-text access attempt and repository lookup",
+          "title": "Randomized Algorithms for Estimating the Trace of an Implicit Symmetric Positive Semi-Definite Matrix",
+          "trigger": "Randomized trace baseline"
+        },
+        {
+          "assessment": "Incorrect citation locator, not evidence for Aitken coverage",
+          "evidence": "The DOI identifies M. Cai's incompressible-flow preconditioner article, not the cited Aitken paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2014.12.003",
+          "material_read": "Bibliographic result identified by the DOI",
+          "method": "DOI lookup",
+          "title": "DOI comparison for the cited Buoso–Karapiperi–Pozza reference",
+          "trigger": "Classical Aitken reference with a suspect locator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–37 and 43–69",
+        "Kalantzis et al., author PDF p. 2"
+      ],
+      "rationale": "The nested doubling budget is a natural way to reuse costly matrix-vector probes. The result quantifies a real risk of applying deterministic acceleration to those means: even absolute error of order one has no first moment, and smoothing trades the pole for MSE of order 1/delta with an explicit strictly positive coefficient. This is actionable insight about the proposed acceleration and regularization, not merely restatement of the Aitken identity. It does not claim an optimal ridge or discredit deterministic probing.",
+      "residual_risks": [
+        "Practical regularizer choice and performance at other probe counts are outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

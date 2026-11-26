@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated tensor-product stiffness and quadrature mass are reconstructed from the quadratic Gauss–Lobatto element matrices. An exact reflection-parity inversion and integer polynomial sign certificate establish the unique cutoff for every positive grading ratio, not just for sampled values. The standalone exact-arithmetic verifier reconstructs 55 representative Green entries and tests all required polynomial inequalities. The claim is limited to this fixed 25-interior-node family.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** Cross–Zhang (arXiv:2310.15341) proves sufficient nonuniform-grid monotonicity criteria and reports a different five-cell numerical failure. Its Theorem 4.1 and Section 5.2 do not imply the exact symmetric three-cell cutoff. Cross–Zhang (arXiv:2010.07282) discusses the related Q3 scheme and uniform-grid Q2 theory. The 2021 Hao Li thesis was located, but its full text could not be inspected, leaving a real priority risk. Searches did not establish a covering theorem, which is not proof of global uniqueness.
+PASS
 
-**Value — PASS.** The exact transition is a natural sharp benchmark for Q2 graded-mesh discrete maximum principles: it converts nonsharp mesh restrictions into a precise necessary-and-sufficient criterion on an interpretable minimal symmetric family, with a positive-to-negative Green-entry sign change and equality characterization. The result does not classify general anisotropic or arbitrary graded meshes, nor time-integration behavior.
+Independently integrated derivatives of the reference quadratic Lagrange basis (the products are quadratic, hence the Lobatto rule is exact here), used the basis integrals for the nodal quadrature weights, assembled before boundary restriction, and inverted the entire polynomial matrix 18tS(t) over Z[t] by characteristic-polynomial arithmetic, without parity blocks or the frozen script. Verified the 625 entries and their 55 reflection/exchange/transposition classes. The exact recalculation found 45 zero-variation and 10 one-variation classes, positive denominator coefficients up to allowed zeros, and strictly positive numerator constants. Only the (1,3) orbit is negative at 21/5; every other numerator is strictly positive there, hence positive throughout (0,21/5] by Descartes' rule, including multiplicities. The recomputed witness is the stated -3Q divided by the stated positive denominator. Q has one sign variation and opposite signs at 41999/10000 and 21/5, so its only positive root is simple. At that root the eight witness entries alone vanish, and at every larger t the witness is negative. The rational value at 5 and the displayed root digits agree. S is SPD by the Dirichlet energy with a positive diagonal 1D mass and SPD 1D stiffness. Right multiplication by M_2 preserves signs. This is exactly the stated homogeneous Dirichlet nodal inverse criterion, not a general boundary or time-stepping result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected primary papers and strongest related indexed result provide a sufficient mesh condition, an experiment on a different mesh, and a different time-discretization threshold, not a covering theorem for the exact spatial transition. Pass is limited to the present family and to the best knowledge supported by accessible evidence. The Li dissertation remains a real priority risk.
+
+## value
+
+PASS
+
+This is a natural graded family with a single interior element adjustable independently of overall rescaling, and with a nontrivial discrete monotonicity issue even though stiffness remains SPD. The exact interval, complete critical zero pattern and rational failure witness are useful as a graded-mesh benchmark and distinguish a genuinely sharp limit from conservative sufficient mesh bounds. The value is not a claim of new general finite-element convergence or stability theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

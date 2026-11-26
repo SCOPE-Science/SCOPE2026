@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:28:52.344473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–25; VERIFICATION.md; verify.py (inspected, not executed); supplied witness files code6.txt and code8.txt checked read-only by independent code",
+        "/workspace/branches/63edd4e6-f36d-45d3-b061-6c529e26a86a/independent_check.py lines 25–70, 73–127 and 130–173 (replay with Python 3, modes small and full); small-run.txt and independent-run.txt in the same directory"
+      ],
+      "rationale": "The incompatibility graph exactly describes the stated aligned Hamming and reverse-complement constraints after filtering for exact half-GC content, unequal adjacent symbols and self-separation. Reverse complementation is a Hamming isometry and preserves eligibility. Each eligible orientation class has two members, at most one of which can be selected; reversing either representative only interchanges the two cross distances being compared. Thus the unweighted compatibility clique number of the orientation classes equals capacity. Independently, n=2 is impossible by distance alone; n=4 has 40 eligible words, four size-four quotient cliques and no size-five clique, hence 4·2^4=64 labeled maxima. At n=6 there are 344 eligible words and 7804 incompatibility edges, yielding 172 orientation classes with 1908 cross-class conflicts. A separately written integer bitset search proved no clique of size 28: each candidate-prefix greedy coloring partitions into independent sets, bounding the extension by the number of colors; the recursion branches on inclusion and removes each candidate before considering later branches, and prunes only branches that cannot beat the independently checked size-27 incumbent. The complete run visited 5,237,256 search nodes. Direct read-only witness checks establish sizes 27 at six and 136 at eight for precisely the stated constraints. Since taking subsets preserves eligibility and separation, eight is the least positive even length for 32 or 128 messages.",
+      "residual_risks": [
+        "The six-symbol upper bound is an exact finite exhaustive computation, not a formal or symbolic certificate. There is no exact eight-symbol optimum asserted.",
+        "The precise adjacency condition excludes identical adjacent symbols only; it does not in general exclude tandem repeats of whole two-symbol motifs, despite the imprecise wording in the limitations. No insertions, deletions or biochemical read effects are modeled."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "King's accessible abstract gives fixed-GC Hamming and reverse-complement bounds; the frozen comparison describes Aboluion et al. as constructions without this adjacency filter and Nguyen et al. as run-limited GC-constrained error coding without the same orientation condition.",
+          "Run-Length Constraint of Cyclic Reverse-Complement and Constant GC-content DNA Codes is a strong additional lead: the accessible abstract excerpt explicitly combines constant GC with a maximum number of consecutive duplicates, in a cyclic reverse-complement setting."
+        ],
+        "reasoning": "An exact unrestricted bound applies as an upper bound to a restricted class, but an unrestricted achievable size need not survive an adjacency restriction. A cyclic or general construction combining run limits and complement conditions would need an applicable exact upper bound and a matching lower bound for the same length, GC precision, run length, orientation and Hamming parameters. Those decisive statements were not found in the excerpts; the cyclic paper is not ruled out in full.",
+        "searches": [
+          "King arXiv:math/0306197; Aboluion–Smith–Perkins doi:10.1016/j.disc.2011.11.021; Nguyen–Cai–Immink–Kiah arXiv:2001.02839",
+          "Primary search with constant GC, run length one and cyclic reverse complement (query above)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–36",
+        "Local Resultary hits and primary search excerpts identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted four-symbol equality cases have size six rather than four. Filtering that list of maximizers as whole codebooks does not enumerate all four-word codebooks; deleting forbidden words would additionally require that every restricted maximum extend to some listed ambient maximum.",
+          "The indexed matching-length closed result uses prefix/suffix non-overlap, whereas the present problem uses two Hamming separation conditions and self-separation."
+        ],
+        "reasoning": "The possible four-symbol overlap is auxiliary, and no such filtering implication was verified. More importantly, none of the available statements supplies both the applicable upper bound 27 at six and a feasible witness satisfying all filters, so the exact cutoff and first-length conclusions do not follow from the compared bounds or neighboring classifications.",
+        "searches": [
+          "Frozen RESULT.md lines 27–36; local Resultary 1efe3bc8cf7b, 2ef0e1385e6b and c132e6c5828f",
+          "Primary cyclic-run-length paper and unrestricted repositories above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Run length one and absence of identical adjacent symbols are equivalent here. Reverse-complement avoidance means choosing one representative per compatible orientation class; equivalently the doubled set is reverse-complement-closed and has ordinary Hamming distance at least three, with no fixed words and with both orientations encoding the same message.",
+          "Same-day Resultary c132e6c5828f instead concerns a reverse-complement-closed non-overlapping code with capacity 44 at length six."
+        ],
+        "reasoning": "Closure in the doubled-set reformulation must still impose pairwise Hamming separation and run length one, and counts twice as many words as messages. Non-overlap imposes prefix/suffix avoidance instead, so the closed cross-bifix-free result cannot be transferred by dividing its number by two.",
+        "searches": [
+          "Resultary: restriction on runs of length 1 no identical adjacent symbols exact constant GC reverse complement Hamming separation code length six maximum 27 and four-symbol code equality census A4 GC RC (4,3,2) 512",
+          "Primary search: exact maximum short constant GC DNA codes no adjacent same run length one Hamming 3 reverse complement length six 27 A4 GC RC King combinatorial code table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md line 28 credits King with an achievable size at least 41 at length six, GC weight three, distance three, before the adjacency restriction. The primary search surfaced the jaredwilder/constant-gc-reverse-complement-codes repository defining the standard A_RC^GC maximum without that extra filter, and owhs/DNA_GC_codes_2026 describing orbit-based construction under GC and distance symmetries; full targeted reads timed out.",
+          "Resultary exact hits for the unconstrained length-four parameters include 1efe3bc8cf7b and 2ef0e1385e6b (optimum 6 and 512 labeled maxima); 4130581d3102 gives related ordinary Hamming classifications. The exact hit 8ad1fa1a18b8 was the assignment itself."
+        ],
+        "reasoning": "The standard optimizing parameters omit the adjacent-symbol restriction; arbitrary coordinate permutations used in standard constructions need not preserve it. No available independent table establishes the restricted length-six optimum 27. A length-four table may cover part of the auxiliary census by filtering if it classifies all relevant smaller subcodes, not merely its unrestricted maxima.",
+        "searches": [
+          "Primary search under A4 GC RC, Hamming three and length six (query above)",
+          "Resultary query above; exact Finding request for 1efe3bc8cf7b"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact six-symbol cutoff under the simultaneous fixed-composition, run-length-one and orientation-aware Hamming conditions, with the resulting first feasible message lengths. Credit ordinary constant-GC reverse-complement capacity, run-length-limited code concepts and the neighboring unrestricted four-symbol equality classifications; do not treat those as new. The available strongest comparisons do not give the exact restricted cutoff.",
+      "residual_risks": [
+        "The cyclic-run-length paper, recent repositories and some exact indexed records were not accessible in full. Their additional tables, or an unindexed equivalent classification with the same constraints, could alter priority; possible auxiliary four-symbol filtering remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Highly relevant; matched GC and consecutive-duplicate limits in the available statement, but no exact six-symbol table or implication for the present linear Hamming model was verified.",
+          "evidence": [
+            "The accessible abstract excerpt refers to constant GC content and to allowing a maximum predetermined number of consecutive duplicates; the title specifies cyclic reverse-complement coding."
+          ],
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E103.A/1/E103.A_2019EAP1053/_article/-char/en",
+          "material_read": "Indexed publisher abstract excerpt; targeted publisher web and PDF passage requests timed out.",
+          "method": "Primary search and bounded lawful OA publisher HTML/PDF requests",
+          "title": "Run-Length Constraint of Cyclic Reverse-Complement and Constant GC-content DNA Codes",
+          "trigger": "Primary published source combining exactly the constraint families at issue"
+        },
+        {
+          "assessment": "Useful relaxations or neighboring coding problems, not a verified implication for exact restricted capacity.",
+          "evidence": [
+            "King's abstract states fixed GC-weight and Hamming distance with and without reverse-complement distance. The reported table lower bound 41 is attributed to the frozen comparison, not an independent full-table read."
+          ],
+          "identifier_or_url": "arXiv:math/0306197; doi:10.1016/j.disc.2011.11.021; arXiv:2001.02839",
+          "material_read": "King abstract excerpt and frozen comparison at lines 27–36; targeted OA reads timed out.",
+          "method": "Primary search, frozen citations and bounded lawful OA attempts",
+          "title": "Bounds for DNA codes with constant GC-content; Linear and nonlinear constructions of DNA codes with Hamming distance d, constant GC-content and a reverse-complement constraint; Capacity-Approaching Constrained Codes with Error Correction for DNA-Based Data Storage",
+          "trigger": "Fixed-composition Hamming/orientation bounds and run-limited error correction"
+        },
+        {
+          "assessment": "The visible definition is the standard relaxed model; no claim about every repository file or table.",
+          "evidence": [
+            "The first excerpt defines A_RC^GC using fixed weight, Hamming distance and reverse-complement distance including self; it does not include any adjacency constraint. The second describes GC/distance-preserving symmetry constructions."
+          ],
+          "identifier_or_url": "https://github.com/jaredwilder/constant-gc-reverse-complement-codes/tree/main; https://github.com/owhs/DNA_GC_codes_2026/blob/main/README.md",
+          "material_read": "Primary search definition and README excerpts; targeted README requests timed out.",
+          "method": "Primary search and bounded OA passage retrieval",
+          "title": "Constant-GC reverse-complement codes; DNA_GC_codes_2026",
+          "trigger": "Potential newer exact tables and constructions for the same short blocks"
+        },
+        {
+          "assessment": "Real overlap of parameter conventions, not verified coverage of the main simultaneous constraints.",
+          "evidence": [
+            "The four-symbol summaries report 6 with 512 labeled optima prior to the adjacent-symbol restriction; the six-symbol summary gives 44 under closure and prefix/suffix non-overlap instead of orientation-aware Hamming-distance avoidance."
+          ],
+          "identifier_or_url": "Resultary 1efe3bc8cf7b; Resultary 2ef0e1385e6b; Resultary c132e6c5828f",
+          "material_read": "Indexed summaries; relevant full mirrored passages for 1efe3bc8cf7b and c132e6c5828f timed out.",
+          "method": "Local Resultary and bounded local-mirror passage requests",
+          "title": "Complete equality-case census for A4 GC RC (4,3,2); Complete equality census for the smallest optimal constant-GC reverse-complement DNA code; Exact capacity of reverse-complement-closed GC-balanced non-overlapping codes",
+          "trigger": "Exact auxiliary four-symbol counts and same-day length-six result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–22 and 27–31; independent small and full runs"
+      ],
+      "rationale": "The restrictions model a finite substitution code under composition and orientation constraints. Exact exclusion of 28 codewords at length six certifies that improving the search or construction cannot deliver a five-bit payload at that block length; the eight-symbol lower bound answers the corresponding five- and seven-bit feasibility questions. This is a concrete design boundary where asymptotic results and unrestricted-distance tables do not decide the answer.",
+      "residual_risks": [
+        "Value is as a finite combinatorial benchmark. It does not validate a storage channel or establish exact asymptotic or length-eight capacity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

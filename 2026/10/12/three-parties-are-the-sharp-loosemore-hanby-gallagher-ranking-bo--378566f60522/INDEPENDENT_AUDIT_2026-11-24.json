@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:49.448679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two coordinates of a zero-sum vector are x and -x. For three, sign and permutation give (a,b,-a-b), hence 4 G² = 3 L² + (a-b)². The endpoint shapes attain both bounds, so the strict ratio cutoff follows, with equality excluded. The prescribed values are admissible index values 0 < L_A < L_B < 1; positivity at those exact values follows by taking votes v=d^-+((1-L)/3)1 and seats s=d^++((1-L)/3)1, not by rescaling a fixed prescribed L. On the grid the analogous one-unit lower bound is equivalent to integer positive discrepancy mass l ≤ N−3, by placing an integer slack vector with each entry at least one beneath both the positive and negative parts. Thus through N=10 the largest possible ratio is at most 6/7. At N=11 only l_A=7, l_B=8 can reverse. At l=7 the four possible squared Gallagher numerators are 37,39,43,49, and at l=8 the minimum is 48 with the next value 49. Exactly the two extremal shapes therefore reverse; each has six labeled versions and the l-values distinguish the members, giving 36 unordered pairs. The realizable-vector count is 1+sum_{l=1}^8 6l=217 (hexagonal shells). Independent replay python3 /workspace/reproductions/3.py confirms all layers. 'Shapes' means relabeling and sign change separately for the two elections, as in the frozen canonicalization, not a claim of one simultaneous symmetry orbit; the replay finds three simultaneous orbits of size 12. Below N=3 there are no positive three-part compositions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marín et al. p. 4 attribute the all-party inequality G≤L to Borisyuk et al. and give equality iff a nonzero discrepancy has one positive and one negative coordinate (the exact proportional case is separately noted). The cited Borisyuk and related Bolun full texts were not read independently."
+        ],
+        "reasoning": "That published upper comparison covers two-party equality but supplies neither the attaining lower edge for triples nor the positive integer first-layer census. A more detailed general comparison in uninspected work is a residual risk for the continuous bound.",
+        "searches": [
+          "Marín, Moreno-Ternero and Montes-Rojas DOI 10.3390/economies7010017 §3.4",
+          "Borisyuk, Rallings and Thrasher DOI 10.1023/B:QUQU.0000013239.55304.98",
+          "Bolun, Comparison of indices of disproportionality in PR systems, CSJM 20 (2012), 246–271"
+        ]
+      },
+      "checked_sources": [
+        "Marín et al. DOI 10.3390/economies7010017 §§3.2–3.4",
+        "Gallagher DOI 10.1016/0261-3794(91)90004-C (limited access)",
+        "Borisyuk et al. DOI 10.1023/B:QUQU.0000013239.55304.98 (limited access)",
+        "Loosemore–Hanby DOI 10.1017/S000712340000925X (full text not independently retrieved)",
+        "Resultary 785cb5dc23d2, da327edb82c3, 7859a3bd1acf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior upper bound and definitions account for the familiar limiting two-party case. The lower edge at fixed L requires minimizing squared mass within each sign; the grid also requires L mass ≤ N−3 and parity of the integer imbalance."
+        ],
+        "reasoning": "The continuous deduction is elementary, not a separate new inequality about arbitrary party counts. The positive common-grid first layer and its 36 labeled pairs do not follow from qualitative index differences or those catalogue statements.",
+        "searches": [
+          "Gallagher DOI 10.1016/0261-3794(91)90004-C",
+          "Marín et al. §§3.2–3.4",
+          "Resultary 785cb5dc23d2, da327edb82c3, 7859a3bd1acf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marín et al. present the absolute- and square-deviation forms for zero-sum discrepancies. The Resultary Gini–Pietra analogue 785cb5dc23d2 uses G=(2/3)(ℓ+ν), P=max(ℓ,ν) on income vectors."
+        ],
+        "reasoning": "The latter is an order split in a different geometry: its piecewise-linear pair does not give the quadratic Gallagher concentration criterion. Maximum deviation equals Loosemore–Hanby on triples but this substitution does not make the income-index result equivalent.",
+        "searches": [
+          "Resultary: Loosemore–Hanby/Gallagher ranking reversal, two versus three parties",
+          "Resultary: three-coordinate ranking splits",
+          "10.3390/economies7010017 §§3.2–3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Gini–Atkinson threshold record da327edb82c3 has positive income triples of total 11, exactly one pair (1,5,5) vs (2,2,7). The fixed-leader Laakso–Taagepera/Golosov record 7859a3bd1acf has a first pair at N=10."
+        ],
+        "reasoning": "Neither counts pairs of zero-sum seat/vote discrepancy vectors; coincident thresholds do not establish coverage or priority. No exact applicable table was established.",
+        "searches": [
+          "Resultary: Loosemore–Hanby Gallagher common denominator 11, 36 reversals",
+          "Resultary 2026/10/12 da327edb82c3 and 2026/10/13 7859a3bd1acf"
+        ]
+      },
+      "rationale": "Credit the indices, the two-party coincidence and the prior upper comparison; the supported contribution is the exact sharp three-party reversal geometry and the positive-grid first layer. The close catalogue parallels use different indices and comparison spaces. This is a best-of-knowledge comparison, not bibliographic uniqueness.",
+      "residual_risks": [
+        "Uninspected primary text includes Gallagher's institutional copy, Borisyuk et al., Loosemore–Hanby, and the cited Bolun comparison (journal access did not supply full text). The Borisyuk/Bolun comparison literature is most relevant to a sharper general bound.",
+        "Equivalent elementary continuous geometry or a grid benchmark may occur in specialist notes or software tests. Search nonhits do not establish novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers definitions and pointwise upper inequality, not the reversal cutoff or the grid in these passages",
+          "evidence": "p. 4: G≤L with equality for exactly one over- and one underrepresented party in the nonzero case.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/economies/economies-07-00017/article_deploy/economies-07-00017.pdf",
+          "material_read": "§§3.2–3.4, pp. 3–4, extracted offsets 9490 and 11782; Proposition locators in §5",
+          "method": "Lawful OA full text, located and paged",
+          "title": "A New Quota Approach to Electoral Disproportionality",
+          "trigger": "Exact indices and general comparison"
+        },
+        {
+          "assessment": "Credit known claims as reported by the frozen source; no whole-paper noncoverage inference",
+          "evidence": "Definitions independently corroborated by Marín et al. §§3.2–3.3.",
+          "identifier_or_url": "DOI 10.1016/0261-3794(91)90004-C; https://www.tcd.ie/Political_Science/about/people/michael_gallagher/ElectoralStudies1991.pdf",
+          "material_read": "DOI landing material; exact full-text pages unavailable on tried lawful routes",
+          "method": "DOI and identified institutional PDF routes",
+          "title": "Proportionality, Disproportionality and Electoral Systems",
+          "trigger": "Primary definition, two-party equality and empirical rankings"
+        },
+        {
+          "assessment": "Limited to corroborated upper inequality; possible stronger coverage unresolved",
+          "evidence": "Marín et al. §3.4 explicitly credits the inequality to this source.",
+          "identifier_or_url": "DOI 10.1023/B:QUQU.0000013239.55304.98",
+          "material_read": "No independently readable full text; attribution seen in Marín et al. p. 4",
+          "method": "Lawful OA/DOI recovery attempted",
+          "title": "Selecting Indexes of Electoral Proportionality: General Properties and Relationships",
+          "trigger": "Potential stronger comparison theorem"
+        },
+        {
+          "assessment": "Different pair of indices; analogous result",
+          "evidence": "Two-household identity and sharp three-household witness for Gini and Pietra.",
+          "identifier_or_url": "Resultary 2026/10/13 785cb5dc23d2",
+          "material_read": "Mirrored RESULT.md offset 326",
+          "method": "Local Resultary mirror",
+          "title": "Three households are the sharp Gini–Pietra ranking split",
+          "trigger": "Closest small-coordinate strict ranking split"
+        },
+        {
+          "assessment": "Different measures and feasibility constraints; same day does not settle priority",
+          "evidence": "One Gini–Atkinson income-triple pair at total 11.",
+          "identifier_or_url": "Resultary 2026/10/12 da327edb82c3",
+          "material_read": "Mirrored RESULT.md offset 2250",
+          "method": "Local Resultary mirror",
+          "title": "Three-household Gini–Atkinson reversal starts at total income eleven",
+          "trigger": "Same N=11 positive-grid threshold"
+        },
+        {
+          "assessment": "Not a comparison of the two discrepancy indices",
+          "evidence": "Fixed-leader fragmentation comparison at N=10, with pair (4,4,2) vs (4,3,3).",
+          "identifier_or_url": "Resultary 2026/10/13 7859a3bd1acf",
+          "material_read": "Mirrored RESULT.md offset 456",
+          "method": "Local Resultary mirror",
+          "title": "Ten common vote units are the sharp fixed-leader Laakso–Taagepera reversal threshold",
+          "trigger": "Nearby vote-share integer-grid census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two common disproportionality measures the exact threshold identifies when rankings can disagree, explaining the tradeoff between total and concentrated error. The integer cutoff is a reproducible minimal test of that effect under explicit positivity and common granularity, rather than an arbitrary enumeration of election outcomes. It is not a claim about actual electorate sizes or electoral-system quality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

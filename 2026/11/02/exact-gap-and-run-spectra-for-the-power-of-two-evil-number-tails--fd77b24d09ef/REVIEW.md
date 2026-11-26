@@ -1,13 +1,21 @@
-## Correctness
-The proof uses the minimum generator to identify initial gaps, a constructive parity partition of binary digits to fill one complete conductor interval, and an exact adjacent-pair Thue–Morse recurrence for maximal-run counts. Boundary positions and both parities of the exponent are covered. Exact standalone finite enumeration independently agrees for exponents 2 through 10; finite data do not establish the infinite statement.
+# Independent mathematical audit
 
-## Originality
-Shallit (arXiv:2103.10904) computes Frobenius numbers of evil-number tails; Allouche and Shallit (arXiv:2112.13627) study unrestricted additive representation counts. Neither inspected primary text states the exact power-of-two-threshold gap set or its singleton/doubleton run spectrum. The Frobenius specialization is expressly acknowledged as prior context; the genus and detailed gap spectrum are the distinct claim. Related published search matches on numerical-semigroup gaps involve different generating families. The principal risk is an unstated derivation from automatic methods or other earlier publications.
+## correctness
 
-## Mathematical value
-The thresholds are the powers-of-two starting indices natural to automatic sequences and extremal behavior of the known Frobenius question. The gap-set theorem classifies every forbidden integer, the genus counts them, and the run formulas quantify the local structure (including a precise limiting isolated-gap fraction). This is a motivated complete classification of a natural infinite subfamily, rather than a numerical sample or an arbitrary slice.
+PASS
 
-## Independent validation and limitations
-Standalone finite testing covers nine parameter families and is independent of the symbolic counting argument, but is not an infinite proof. The literature comparison is bounded, and independent human examination has not occurred.
+The minimum generator m=2q+1 prevents any two-generator sum below 4q+2. In the conductor interval, with n=4q+t, odd digit parity of t gives a generator; even parity for t<2q gives two evil generators by partitioning its ones into two odd-sized sets. The endpoint t=2q+1 is represented using a=2^j and b=2q+1-a, with j=1 for even r and j=2 for odd r; both have odd parity and lie strictly between 0 and 2q. One complete residue interval modulo m is therefore present. Binary parity balances the upper gap band, giving genus 3q. In the upper band the Thue–Morse recurrences exclude triples; singletons correspond to 00 pairs at even sites and 11 pairs at odd sites in the halved prefix. The recurrence E_r=2^(r-1)-1-E_(r-1) counts these, and the last gap contributes an extra singleton exactly for even r. Pairing the remaining upper-band gaps gives R2 and the ratio tends to 1/9. A separate reachability replay agreed for r=2 through 10 (6,132 gaps and 4,106 candidate generators); the supplied verifier was inspected but not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported contribution is the semigroup run spectrum, including the exact parity-dependent boundary effect. The evil-tail object, the Frobenius problem and general membership machinery are already established. Once F=4q is given for this subfamily, the gap set itself follows immediately from the minimum generator, so I do not treat it as independent novelty relative to that Frobenius specialization. Neither the inspected evil-tail literature nor the closest indexed gap-run result states or directly yields the exact run frequencies without separately analyzing adjacency and the terminal gap.
+
+## value
+
+PASS
+
+The power-of-two threshold is natural for a binary-digit generator family. Its exact maximal-run spectrum separates the large initial block from the short holes, quantifies the persistent parity correction and gives the limiting isolated-gap fraction. This measures clustering, rather than simply recomputing the conductor or genus. The calculation is elementary but uses the structure of the interior and the endpoint, not a renaming of a bound on the largest gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

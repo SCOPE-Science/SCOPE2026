@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:19.820689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Putting y=|z|² in the normalized area integral gives β times the beta integral B(m+1,β), exactly 1/h_m. The complete orthonormal monomial basis converts each orbit vector to one scalar entry √(h_s/h_m), and summation of squared coefficients over indexed pairs by Tonelli gives the diagonal and the sharp global bounds by testing each basis vector. Initial coverage s₀=0 makes every finite diagonal entry positive. At s_j the new coefficient is one and the prior sum is rescaled by h_(s_j−1)/h_(s_j)→1. Boundedness therefore forces B∞−A∞≥1. On [s_j,s_(j+1)−1] the numerator does not change, so max/min on the gap is exactly the corresponding ratio of h's. Using h_m∼m^β/Γ(β+1) at both endpoints bounds limsup s_(j+1)/s_j by κ∞^(1/β), including adjoining insertions. For any larger q, iterating s_(j+1)≤q s_j eventually gives s_j≤Cq^j, proving the lower count for all sufficiently large real R and then the sharp inequality as q decreases to the bound. For geometric seeds, h_(s_j)/r^(βj) tends to a positive constant. Dividing the partial sum by r^(βj), split off finitely many initial terms (vanishing) and squeeze the remaining terms between geometric sums with constants arbitrarily close to the limit; the post-insertion limit is (1−r^−β)^−1. The gap endpoint ratio tends to r^β, giving the other limit. All gaps are monotone, hence these are the true asymptotic extrema and finite initial entries preserve the frame. Counting geometric degrees gives log R/log r+O(1). For β=1, the dyadic prefix is 2^(J+1)−1 on 2^J≤m+1≤2^(J+1)−1, giving the exact infimum 1 and supremum 2 plus the floor count. These are analytic checks (RESULT.md lines 37–101); the inspected numeric script uses floating-point diagnostics, even for the exact dyadic identity, and was not executed. No claim for general seeds or renormalized iterates, α=−1, or a general global-condition optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aguilera et al., arXiv:2506.00567v1, Thm. 4.2, gives γ_p(T)=dim (I−TT*)H for the Parseval frame index.",
+          "Gallardo-Gutiérrez–Partington, arXiv:2605.29671v1, Thm. 2.5 is a Carleson/weighted-interpolation criterion."
+        ],
+        "reasoning": "These characterize a generator number or particular constructions without bounding where each unit monomial seed is placed under an assigned limsup/liminf ratio. Neither gives the sharp constant β/log κ∞ or the geometric extremizers.",
+        "searches": [
+          "Resultary: frame orbit index dynamical frames possible generators cardinality",
+          "Web: lacunary generator sequence orbit frames weighted unilateral shift gap ratios frame condition",
+          "arXiv:2506.00567v1 and arXiv:2605.29671v1, main statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.00912v1; arXiv:2506.00567v1; arXiv:2605.29671v1; arXiv:2610.31278v1",
+        "Resultary: 57e6c8392310, f3c03f2fc07e, 57373dad5d93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu, arXiv:2610.31278v1 p. 1, bounds N_μ(R) using spectral occupancy m_A(R) in weighted time designs along fixed orbits.",
+          "The frozen condition ratio compares the endpoint diagonals on each gap in the initial seed degrees; it is not a count of retained times."
+        ],
+        "reasoning": "Counting times by spectral occupancy of a positive-operator orbit is not equivalent to prescribing the initial monomial degrees for a nonnormal forward shift with all times retained. The weighted-shift index or finite polynomial point-sampling results likewise supply no endpoint ratio to turn into the claimed sharp bound.",
+        "searches": [
+          "Resultary: Optimal weighted sampling positive and normal operator orbits logarithmic sampling count",
+          "Web: logarithmic lower density gap ratios frame bounds weighted shifts orbit frame generators",
+          "arXiv:2610.31278v1, literal: Every real sampling design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aguilera–Carando, arXiv:2606.00912v1, Theorem 2.6: finite Blaschke symbols give a Hardy orthonormal basis made of finitely many orbits (and characterize finite generation there).",
+          "Resultary f3c03f2fc07e covers a seed-energy and generator-cardinality criterion for positive contractive unilateral weighted shifts."
+        ],
+        "reasoning": "In the weighted sequence coordinates the Bergman shift has squared weights h_m/h_(m+1); its diagonal is a weighted cumulative insertion sum. The Hardy M_z orbit from 1 is already an orthonormal basis because the weights are constant; it does not specialize to positive β. A countably infinite index does not fix degree gaps or κ∞.",
+        "searches": [
+          "Resultary: Bergman monomial multiplication orbit frame logarithmic generator density",
+          "Resultary: sparse weighted shift orbit frames seed degree density condition number",
+          "Web: weighted Bergman monomial orbit frame M_z sparse generator degrees density theorem frame bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 57e6c8392310: logarithmic number of distinct point-sampling radii for finite weighted-Bergman polynomials, with a dyadic construction.",
+          "Same-day Resultary 57373dad5d93: lazy backward shift on complex ℓ¹, asymptotics of norms of powers and successive differences."
+        ],
+        "reasoning": "The closest logarithmic count concerns point-evaluation functionals and radii of a finite system, not placements of initial basis-vector seeds and all subsequent iterates. The ℓ¹ result has a different norm/invariant. Neither matches the exact dyadic benchmark or the infinite frontier.",
+        "searches": [
+          "Resultary: logarithmic gap density lower bound geometric sequence frame spectral ratio",
+          "Resultary: Bergman monomial multiplication orbit frame logarithmic generator density"
+        ]
+      },
+      "rationale": "What survives comparison is the sharp logarithmic degree-count versus high-degree condition ratio for indexed norm-one monomial seeds under the weighted Bergman forward shift, with all-ratio attainment. Existing cardinality results, finite polynomial point-sampling complexity, and thinning of times along given orbits measure different quantities. No inspected result supplies this condition–density relation. This is not a priority certification.",
+      "residual_risks": [
+        "A broader weighted-shift sparsity or log-gap density theorem under different terminology could overlap.",
+        "Record comparisons use the decisive available passages, not every proof or later version, and are not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hardy finite-generation result; no weighted Bergman condition–density law",
+          "evidence": [
+            "Finite Blaschke iff finitely many orbits suffice in one variable; such symbols admit an orthonormal orbit basis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.00912v1",
+          "material_read": "Abstract and Thm. 2.6, pp. 9–10, text offset 29900",
+          "method": "Lawful primary PDF, bounded theorem passage",
+          "title": "Frames of orbits of multiplication operators on Hardy spaces",
+          "trigger": "Same multiplier-orbit setting on a neighboring space"
+        },
+        {
+          "assessment": "Cardinality criterion, not a degree density; title here is that of the inspected v1",
+          "evidence": [
+            "γ_p(T)=dim (I−TT*)H for Parseval generator index."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.00567v1",
+          "material_read": "v1 p. 1 and Thm. 4.2 p. 10, offset 33497",
+          "method": "Lawful primary PDF and literal locator γp (T ) = dim",
+          "title": "Existence and Properties of Frames of Iterations",
+          "trigger": "General generator-count theory"
+        },
+        {
+          "assessment": "Different construction and criterion",
+          "evidence": [
+            "Carleson and weighted interpolation condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.29671v1",
+          "material_read": "Abstract and Thm. 2.5, p. 8, offset 25221",
+          "method": "Lawful primary PDF",
+          "title": "Frame constructions associated with operator orbits",
+          "trigger": "Potential general orbit-frame construction theorem"
+        },
+        {
+          "assessment": "Different counted variable; later catalogue/public submission date does not establish a priority relationship",
+          "evidence": [
+            "N_μ(R)≥m_A(R)−O_μ(1) for sampling times, and a near-matching construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31278v1",
+          "material_read": "Abstract p. 1, offset 690",
+          "method": "Lawful primary PDF, bounded passage",
+          "title": "Optimal weighted sampling of positive and normal operator orbits",
+          "trigger": "Logarithmic orbit sampling count"
+        },
+        {
+          "assessment": "Different sampling system, not a seed-degree density",
+          "evidence": [
+            "Distinct radii needed in finite polynomial point-sampling, with dyadic attainment."
+          ],
+          "identifier_or_url": "Resultary 57e6c8392310",
+          "material_read": "Mirrored Finding and assumptions at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Logarithmic radial complexity of positive weighted Bergman polynomial sampling",
+          "trigger": "Same weighted space and dyadic log count"
+        },
+        {
+          "assessment": "Neither result determines placement of monomial seeds under fixed high-degree conditioning",
+          "evidence": [
+            "Seed-energy bound and index dichotomy by product of weights; a separate ℓ¹ lazy-shift norm asymptotic."
+          ],
+          "identifier_or_url": "Resultary f3c03f2fc07e; 57373dad5d93",
+          "material_read": "Mirrored Findings at offset 0",
+          "method": "Local mirror",
+          "title": "Sharp seed-energy rigidity and frame-index dichotomy for contractive weighted shifts; Gaussian sharp constants for lazy positive weighted shifts",
+          "trigger": "Shift and seed cardinality or asymptotic norm overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count of normalized monomial sensors below a resolution degree is a natural cost beyond minimum generator cardinality. The result determines the precise tradeoff with high-degree conditioning and supplies a construction at every feasible ratio; it does not rely on a small computed improvement or claim generality over arbitrary seeds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

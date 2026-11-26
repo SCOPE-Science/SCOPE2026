@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:42:49.722336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 37–84",
+        "Frozen VERIFICATION.md and verify.py, inspected as text"
+      ],
+      "rationale": "Checked the unnormalized directed-edge convention and the same-tail/head predecessor/successor counts. They give K=XWX^T−YWY^T with W=diag(d−2). An independent rank derivation uses orthonormal symmetric/antisymmetric vectors for each pair of arcs: K has zero diagonal blocks and off-diagonal block SWD^T, where S and D here are the unoriented and signed edge-by-vertex incidences. Connectivity gives im D^T=1^perp. The kernel of S is zero if nonbipartite and otherwise spanned by the bipartition sign b. Thus the block has rank n−1 except when b belongs to W(1^perp), precisely when 1^T W^(−1)b=0; then it has rank n−2. Block singular values give both signs. Independently checked the inverse-form radical argument in the record and the trace-square formula by X^TX=Y^TY=diag(d), X^TY=A. For the regular spectrum, each adjacency eigenvector at |lambda|<d generates a two-dimensional plane with the stated ± eigenvalues. At |lambda|=d, the overlap gives a one-dimensional common subspace, not a two-dimensional plane. If k is the count of these exceptional adjacency eigenvalues, that subspace contributes k zeros and the orthogonal complement contributes 2m−2n+k, yielding the stated 2m−2n+2k total. This clarifies the source's abbreviated attribution of zeros without changing its formula. Frozen script inspected only; its reported finite output is not the basis of acceptance.",
+      "residual_risks": [
+        "No extension to degree-two vertices, for which W may be singular; no independent finite program run was needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwon covers a more general multigraph incidence factorization, but not the signed inertia theorem. The indexed same-day Rhaly theorem concerns a compact terraced operator on sequence space and two infinite indices, not this finite graph operator."
+        ],
+        "reasoning": "A broader representation of B is not a broader theorem about inertia. Neither distinct operator has a reduction yielding the graph balance case.",
+        "searches": [
+          "arXiv:2607.21294, Proposition 5.1",
+          "arXiv:2203.10824, Definition 2.15",
+          "Resultary: 2026/11/22/SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Resultary exact hit and Rhaly comparison",
+        "arXiv:2607.21294",
+        "arXiv:2011.09385",
+        "arXiv:2203.10824",
+        "arXiv:2303.00373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Kwon's B=J(O^TO−I) one can square to recover the Gram identity. Neither that identity nor the regular overlap calculation supplies the rank on the degree-weighted hyperplane in the bipartite case."
+        ],
+        "reasoning": "Detecting whether a weighted hyperplane contains the unoriented incidence null vector is the decisive structural calculation, not a parameter substitution into a published classification.",
+        "searches": [
+          "arXiv:2607.21294, Proposition 5.1",
+          "arXiv:2011.09385, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glover–Kempton use K for an auxiliary nonbacktracking eigenvalue reduction, not B^TB−BB^T. Mulas–Zhang–Zucal study singular values of a nonbacktracking Laplacian, not the signed difference of the two Gram matrices."
+        ],
+        "reasoning": "The equivalent rank problem is for SWD^T; neither ordinary eigenvalues of B nor singular values of one Laplacian determine this restricted rank.",
+        "searches": [
+          "Resultary: Hashimoto/nonbacktracking signed self-commutator inertia and reciprocal-degree balance",
+          "Primary search: nonbacktracking self-commutator rank/inertia",
+          "arXiv:2011.09385",
+          "arXiv:2303.00373"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the frozen finding itself. The published adjacency/eigenvalue formulas inspected concern other operators. A finite graph table would not settle the all-graphs classification."
+        ],
+        "reasoning": "No distinct formula or tabulation covering the reciprocal-degree exception was identified; finite inputs are not the scope of the central result.",
+        "searches": [
+          "Resultary entry 2026/11/22/SCOPE-reciprocal-degree-balance-and-complete-signed-inertia-of-nonback--3fd358511fcd",
+          "arXiv:2011.09385, opening spectral comparison"
+        ]
+      },
+      "rationale": "The supported distinct part is the signed inertia classification for irregular graphs, including the exact balance exception. Prior incidence and standard projection tools cover structural inputs, and the trace and regular formulas are natural corollaries rather than separate priority claims. No inspected earlier or distinct indexed claim gives the irregular balance classification.",
+      "residual_risks": [
+        "Bounded search and bounded passages do not exclude unindexed equivalent signed-incidence or indefinite-form results; no historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers factorization, not inertia",
+          "evidence": "B_C=J_C(O_C^TO_C−I), including a multigraph formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.21294",
+          "material_read": "p. 27, Proposition 5.1",
+          "method": "Open-access original, bounded passage",
+          "title": "Critical-exponent stratification and inverse realization on biregular trees",
+          "trigger": "General Hashimoto incidence formula"
+        },
+        {
+          "assessment": "Different matrix and invariant",
+          "evidence": "K is used for a reduced ordinary eigenvalue problem for the Hashimoto operator.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.09385",
+          "material_read": "pp. 1–2, opening reduction",
+          "method": "Open-access original, bounded passage",
+          "title": "Spectral properties of the non-backtracking matrix of a graph",
+          "trigger": "Potentially equivalent K and adjacency relation"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "The operator is the random-walk Laplacian of the nonbacktracking graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.10824",
+          "material_read": "p. 2 and Definition 2.15, p. 6",
+          "method": "Open-access original, bounded passages",
+          "title": "Spectral theory of the non-backtracking Laplacian for graphs",
+          "trigger": "Potential normalized or related operator coverage"
+        },
+        {
+          "assessment": "Does not supply the signed balance criterion",
+          "evidence": "Passage analyzes singular values of the Laplacian in relation to independence numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.00373",
+          "material_read": "p. 18, singular values section",
+          "method": "Open-access original, bounded passage",
+          "title": "There is no going back: Properties of the non-backtracking Laplacian",
+          "trigger": "Potential singular-spectrum reformulation"
+        },
+        {
+          "assessment": "Analogy only",
+          "evidence": "The operator is (R_a x)_n=a_n sum_{j≤n}x_j on ell^2, with both sign spaces infinite-dimensional.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e/RESULT.md",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror, original passage",
+          "title": "Infinite two-sided commutator inertia of compact power-decaying Rhaly operators",
+          "trigger": "Distinct indexed commutator-inertia result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and example at line 84",
+        "arXiv:2607.21294, Proposition 5.1"
+      ],
+      "rationale": "The self-commutator measures nonnormality of a standard graph operator. The result determines its full signed rank profile in terms of elementary graph data, revealing an extra nullity jump among irregular bipartite graphs that regular formulas and bipartiteness alone miss. The balance test is operational without forming a 2m-by-2m matrix and distinguishes K_{3,4} from the balanced irregular K_{4,4} minus an edge. This structural payoff does not rely on treating the regular corollary as novel.",
+      "residual_risks": [
+        "Does not determine magnitudes of the irregular eigenvalues or make a general normalized-operator claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

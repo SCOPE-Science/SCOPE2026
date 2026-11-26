@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:45:41.341609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–118",
+        "VERIFICATION.md:19–27",
+        "VERIFY.py:12–80 (inspected, not executed)"
+      ],
+      "rationale": "On each atom x the norm of evaluation equals w_x=Φ⁻¹(1/p_x), since the one-coordinate modular bound is attained by w_x times the singleton indicator. Integrable w gives a common full-probability event via the scalar strong laws on all coordinates and on a countable finite-set exhaustion of the tails; it gives convergence even in empirical-functional norm. If E w=∞, independence and the tail-sum test imply w(X_n)/n is unbounded almost surely. Equivalently to the proof's uniform boundedness step, select increasing n_j with w(X_n_j)/n_j≥j2^j and sum the positive norm-one singleton witnesses with coefficients 2⁻ʲ. The series converges in the Luxemburg space (and evaluations converge), and its empirical means exceed j at n_j. Integrability follows from Φ≥identity. The logarithmic inverse asymptotic follows by bounding the integral on its last half and all of [0,t]. For the automorphism formula, Hom factor sizes give ℓ^S endomorphisms; reduction on G/ℓG is block triangular by cyclic-order size and invertibility requires each multiplicity block to be invertible. The correction to log |Aut| is O(√S), uniformly by the column bound. The Gaussian estimate on the square-partition product gives log N(s)=O(s^(1/3)); the disjoint binary-column families make the opposite strict side diverge. The cyclic-type witness has a summable Orlicz modular but each q-moment q>1 diverges. The endpoint is not decided.",
+      "residual_risks": [
+        "The verifier checks only small group orders and weights and is not a strong-law certificate; the infinite proof is analytic. The law assumes iid idealized samples, not arithmetic sampling. No verdict is made for β=1/3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartel–Morgan prove the power-mass criterion and all positive power-mass sums for the Cohen–Lenstra law.",
+          "Mies estimates one distribution's Orlicz norm from samples, not all linear empirical means of Orlicz-class test functions."
+        ],
+        "reasoning": "All positive power-mass bounds do not decide sums of stretched-logarithmic weights; the generality in the underlying countable probability law does not extend the prior L^q theorem to this function class.",
+        "searches": [
+          "Bartel–Morgan arXiv:2610.29880v1, Definition 1.1, Theorem 1.2, Corollary 1.3 and Proposition 2.11",
+          "Mies arXiv:2510.25408v1, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.29880v1",
+        "arXiv:2510.25408v1",
+        "Resultary 3a5b52c61cb7",
+        "OEIS A001156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior power result implies simultaneous convergence over the union of power spaces, and the frozen cyclic witness lies outside that union.",
+          "Classical square-partition growth supplies the 1/3 counting exponent after the identification with S, but does not supply the Luxemburg convergence criterion or the nonnegative sample-dependent witness."
+        ],
+        "reasoning": "Neither the theorem for power spaces nor the classical counting result alone or in combination directly specializes to the new dichotomy. The Orlicz atom criterion and the link between log inverse masses and S are essential to the implication.",
+        "searches": [
+          "Bartel–Morgan Theorem 1.2 and Corollary 1.3, compared to RESULT.md §§1–5",
+          "OEIS A001156 formula/asymptotic and exact product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bartel–Morgan Definition 1.1 uses the exact same simultaneous (‘promising’) quantifier; Theorem 1.2 decides it for power norms.",
+          "Same-day Resultary 3a5b52c61cb7 concerns uniform empirical discrepancy on a geometric alphabet for fixed q."
+        ],
+        "reasoning": "The L^q result is precisely the specialization Φ(t)=t^q of the atom sum. Geometric-alphabet fluctuation regimes and convergence for a fixed test are not equivalent to the Cohen–Lenstra statement. A Banach-lattice point-evaluation version is a natural reformulation, but an exact antecedent was not established by this search.",
+        "searches": [
+          "Resultary facets: simultaneous Orlicz strong law; point-evaluation criterion; Cohen–Lenstra Orlicz integrability; one-third threshold through square partitions",
+          "Focused literature search on countable atoms and simultaneous Orlicz sample averages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001156 tabulates exactly the coefficients at S=s, with the Euler product and an exp(const·s^(1/3)) asymptotic scale.",
+          "The known coefficients count square columns, not the admissibility of a class for a random empirical law."
+        ],
+        "reasoning": "The coefficient identification credits an exact existing sequence and growth scale. The lookup does not establish how this counting measure enters the weighted expectation of an Orlicz point-evaluation norm, or the resulting almost-sure dichotomy.",
+        "searches": [
+          "OEIS A001156 (ordinary partitions into square parts)",
+          "Resultary semantic catalogue: exact one-third Orlicz threshold and weighted partition growth"
+        ]
+      },
+      "rationale": "The simultaneous-law question, its L^q criterion, and the square-partition growth scale are prior. The supported distinct content is the exact countable-atom Luxemburg criterion and the resulting two-sided Orlicz threshold for Cohen–Lenstra sampling, not a new asymptotic for partitions into squares.",
+      "residual_risks": [
+        "Priority for the abstract point-evaluation equivalence in empirical-process or function-space literature is not settled. The classical power-partition growth scale is credited; the database is not a primary-source priority audit of that asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case coverage for power spaces, not the stated Orlicz class",
+          "evidence": [
+            "L^(1/δ) is promising iff ∑p(x)^(1−δ)<∞; Cohen–Lenstra has the needed power-mass estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29880v1",
+          "material_read": "Definition 1.1, Theorem 1.2, Corollary 1.3 and Proposition 2.11; OA offsets around 3300–5741 and 19600–23397",
+          "method": "Targeted primary full-text reading",
+          "title": "On the notion of reasonable functions in Cohen–Lenstra type heuristics",
+          "trigger": "Same simultaneous strong-law question for Cohen–Lenstra weights"
+        },
+        {
+          "assessment": "Different empirical functional",
+          "evidence": [
+            "Estimates the Orlicz norm of a sampled distribution rather than imposing an Orlicz bound on a class of test functions for empirical averages."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.25408v1",
+          "material_read": "Abstract and §1, OA offsets 0–2497",
+          "method": "Targeted primary full-text reading",
+          "title": "Empirical Orlicz norms",
+          "trigger": "Potential differently formulated empirical Orlicz law"
+        },
+        {
+          "assessment": "Related uniform discrepancy question, different alphabet and space",
+          "evidence": [
+            "Fixed q on geometric masses, with Gaussian, logarithmic and rare-atom regimes."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/3a5b52c61cb7, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md, Finding and stated setting",
+          "method": "Targeted local mirror reading",
+          "title": "Three fluctuation regimes for uniform empirical averages on a geometric alphabet",
+          "trigger": "Same-day uniform empirical-average theorem on a countable alphabet"
+        },
+        {
+          "assessment": "Exact counting ingredient is prior; no simultaneous-sampling result",
+          "evidence": [
+            "The Euler product has factors (1−x^(k²))⁻¹; the entry records an exponential of order n^(1/3) times algebraic factors."
+          ],
+          "identifier_or_url": "https://oeis.org/A001156",
+          "material_read": "Entry definition, table and Formula/Example passages, including offsets 4700–5900",
+          "method": "Targeted public database reading",
+          "title": "OEIS A001156: Number of partitions of n into squares",
+          "trigger": "Exact coefficient sequence and 1/3 counting scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:15–26 and 31–118",
+        "Bartel–Morgan Corollary 1.3"
+      ],
+      "rationale": "The exact atomic test converts a simultaneous convergence question into a checkable property of the mass distribution and controls the norm of the empirical functional when it holds. For the standard Cohen–Lenstra law this yields an explicit boundary within classes strictly beyond every positive extra power moment; the failure result is equally informative and does not contradict the scalar strong law.",
+      "residual_risks": [
+        "No critical-endpoint conclusion, quantitative convergence rates or arithmetic-family consequences are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

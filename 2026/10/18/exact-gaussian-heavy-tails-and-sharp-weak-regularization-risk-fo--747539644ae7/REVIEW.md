@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update follows directly from the two scalar Gaussian oracle evaluations and the depth-one least-squares minimizer. The joint Gaussian change of variables is nonsingular; its conditional moments and the denominator density are explicit. Local integration around the pole proves the exact \(T^{-1}\) tail and fractional-moment cutoff; conditioning, rescaling, and Gaussian domination prove both \(\lambda^{-1/2}\) ridge risk constants. The verification script checks 375 exact rational realizations and independent Gaussian quadratures, without treating finite tests as proofs.
+PASS
 
-## Originality — PASS (best knowledge, not independent validation)
+For R=r1 and D=r0−r1 the two actual oracle calls give y1=1+D+2R and y0−y1=−R; the unrestricted minimizer yields Z=y1+R²/D. The affine noise transform has determinant one in absolute value. Its D variance is σ²B and regression gives R|D=0 with mean −δ(δ+2)/B and variance σ²/B. Independently, T P(|R²/D|>T) integrates T times the joint density over |d|<r²/T; domination follows from 2r² sup_d f(d,r)≤C r² f_R(r) by nondegenerate conditional Gaussianity. The linear Gaussian y1 is negligible by the tail sandwich at (1±ε)T. This gives 2hM₂ and the positive-moment cutoff from the tail integral. The two ridge minimizers give the singular terms R²D/(D²+aλ), a=1 or 2; squaring and setting d=√(aλ)u gives (π/2)hM₄/√a on the √λ scale since f_D(d)E[R⁴|D=d] is bounded and continuous. The rest has uniformly bounded L² norm, so mixed terms vanish by Cauchy–Schwarz. Both outputs are polynomially bounded for fixed λ>0. The σ=0 affine check gives Z=q²−q²=0. The frozen verifier was read, not run: it checks rational substitutions and finite quadrature, not the limiting claims, which follow analytically.
 
-The nearest paper on stochastic AA, Lupo Pasini et al. (2021), studies smoothing and safeguards, not exact unregularized heavy-tail laws or sharp ridge asymptotics. Scieur–d'Aspremont–Bach (2017) analyze regularized nonlinear acceleration on *iterates*, with stochastic bounds but without the precise image-mixture variable or risk constant. Ouyang et al. study safeguarded adaptive regularization, and Pollock–Rebholz study deterministic history filtering. The published deterministic Aitken/Steffensen contraction robustness calculation has no random denominator. The standard general ratio-of-Gaussians pole observation is not claimed as a new probability lemma. Unindexed equivalent first-step derivations remain a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-This quantifies a concrete stability blind spot in an established acceleration mechanism: arbitrarily small Gaussian noise can change a deterministic one-step exact solve into a random output without even an absolute mean. Beyond the basic pole observation, the exact \(\lambda^{-1/2}\) risk exponent and normalization-dependent leading constants give mathematically sharp information for choosing ridge strength. The fact is confined to two evaluations and is not promoted to a general convergence theorem.
+Credit the existing Gaussian-pole mechanism, the centered ridge, and the closely related exact fixed-site tail and weak-ridge laws. The surviving distinction is the actual two-call Anderson trajectory (the second site is the first noisy image), with explicit conditional-square and conditional-fourth-moment constants for that adaptive trajectory and the two specified penalties. The strongest inspected fixed-site exact laws do not specialize to this setup.
 
-## Limits of review
+## value
 
-This report covers the mathematical claim, assumptions, source comparisons, and the reproducibility artifact supplied with it. No independent scientific validation was performed. The closest primary works were inspected in the applicable algorithm/analysis sections; unindexed literature is a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first genuinely accelerated iterate of a strict affine contraction is a natural stability baseline, not a chosen rare path. Arbitrarily small fixed fresh noise changes exact deterministic recovery into a nonintegrable output, and explicit weak-ridge risks quantify how preservation of finite moments fails as ridge is removed. The constants are useful to compare precise penalty conventions; they are not an optimal tuning rule, joint zero-noise asymptotic, or long-run stability guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

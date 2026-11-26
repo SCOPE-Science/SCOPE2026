@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:14:14.296120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting rb gives a positive denominator and the numerator r[t(t+r)-b(t+ar)(Lt+2r)]. The ratio of the first product to the second has derivative with sign given by -δt²+4art+2ar². This proves the claimed location and kind of transition, including uniqueness of the finite tie. A subcritical value above the plateau and above the zero-time limit forces an interior maximum. The superlevel sets of the ratio as b increases to its supremum escape to infinity for δ≤0 and shrink to the finite tie point for δ>0. For z=1/t, stationarity after clearing the denominator has leading terms Lε+2rδz/L for δ<0 and Lε-6ar²z²/L for δ=0. The remaining terms are respectively O(εz+z²) and O(εz+z³), so the displayed coefficients apply to every maximizing sequence. Direct high-precision substitution gave t_c=4.6247529557426437 and √b_c=0.24025307335204215 for the quoted example. Replay: factor the numerator as above and use the reciprocal polynomial of RESULT.md lines 49–62; the packaged verification/check.py was inspected, not executed. This settles only the stipulated rational four-direction model, not physical validation or uniqueness away from the finite tie.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem adds finite optimizer uniqueness, a spinodal, and a metastability interval.",
+          "Its h>1 does not leave a new η=1 family: write X=η times the run time and S=η times the persistence time. Then η D_b=s X[X+s+bX(X+as)]/[(X+s)(X+as)(X+2)] with s=S. Changing η while fixing X,S only rescales time and the objective by positive factors."
+        ],
+        "reasoning": "Every η=1 case transfers exactly from the indexed η=2 case at the same S (including optimizer asymptotics after restoring time units); the endpoint does not substantiate a surviving remainder.",
+        "searches": [
+          "Resultary 2026/11/8 f4d418839924, Finding and Proof §§3–4",
+          "Pietrangeli et al., arXiv:2404.07680, Eq. (27) and Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "Pietrangeli et al., arXiv:2404.07680, Eq. (27), Fig. 7 and Appendix C",
+        "Resultary 2026/11/8, f4d418839924, Finding and proof of coexistence and tricritical divergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix C treats the strict sufficient 2a−αηr>0 case and gives inverse-linear divergence as wall speed tends to critical. The source discusses a numerical discontinuous tie, not the sharp δ=0 law or general exact coexistence point.",
+          "The distinct entry proves the positive-factor plateau comparison, the complete phase separation and the vanishing inverse-first-power coefficient at equality."
+        ],
+        "reasoning": "The full finding is not implied by the 2024 strict sufficient condition. It is implied by the distinct exact analysis, including at the apparent domain endpoint by rescaling.",
+        "searches": [
+          "arXiv:2404.07680, Appendix C (C2)–(C3)",
+          "Resultary 2026/11/8 f4d418839924, Proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Finding has F_w(x) with (x,t,h,w,Δ)=(run time, persistence time, η, b, −δ). It gives the identical radical for the tie point and H(x)=x(x+t)/[(x+at)((ht+2)x+2t)].",
+          "On Δ=0, ht+2=2/(1−a), so the apparently different inverse-square-root coefficient t(1−a)√(3a/2) is precisely t√(6a)/(ht+2). The inverse-linear coefficients agree directly."
+        ],
+        "reasoning": "This is equality of the objectives, thresholds and asymptotics after a variable change, not merely similar terminology. The exact superlevel-set envelope in its proof also yields convergence of finite optimizers to the unique tie point.",
+        "searches": [
+          "Resultary: four-direction slit model, exact coexistence and tricritical scaling",
+          "Resultary 2026/11/8 f4d418839924, RESULT.md offsets 550–4476 and 6350–8386"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 7 reports the transition near wall-speed ratio 0.24 at (a,η,r)=(1/2,2,10). The distinct indexed Finding gives the same exact closed form and decimals 4.62475295574264 and 0.24025307335204."
+        ],
+        "reasoning": "The older graphical example is not an exact parameter table; the indexed coverage consists of an exact theorem as well as the matching evaluation.",
+        "searches": [
+          "Resultary 2026/11/8 f4d418839924, Finding example",
+          "arXiv:2404.07680, Sec. IV A 2 and Fig. 7 caption"
+        ]
+      },
+      "rationale": "The core is demonstrably covered by a distinct indexed theorem. This is a finding of equivalent and stronger coverage in the present catalogue, not attribution of priority to that entry from its date. The earlier model paper alone does not supply the full classification.",
+      "residual_risks": [
+        "The relationship in authorship, dependence and historical priority between the two exact analyses is not determined by the catalogue entries.",
+        "The additional spinodal claim of the overlapping entry was not required for, or independently validated by, this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, scenarios, strict continuous threshold and ordinary scaling; not the full exact classification",
+          "evidence": [
+            "2α′−αητ_r>0 and critical dimensionless speed 1/√(2+ητ_r); Fig. 7 gives the approximately 0.24 discontinuous threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.07680",
+          "material_read": "Printed p. 9, Eq. (27), Sec. IV A 2 and Fig. 7 caption (not plot pixels); p. 12 Appendix C, especially (C2)–(C3)",
+          "method": "OA PDF, relevant text passages",
+          "title": "Optimal run-and-tumble in slit-like confinement",
+          "trigger": "Exact parent coefficient and potentially covering transition analysis"
+        },
+        {
+          "assessment": "Demonstrable equivalent and stronger coverage, without a priority inference",
+          "evidence": [
+            "Its H(x), z, w_c and continuous prefactors reduce to the frozen formulas. Its assumed h>1 covers h=1 by exact scaling of run and persistence times."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-coexistence-and-tricritical-scaling-of-optimal-transport-i--f4d418839924/RESULT.md",
+          "material_read": "Finding and scope, offsets 550–4476; proof of coexistence and asymptotics, offsets 6350–8386",
+          "method": "Local catalogue mirror and exact formula comparison",
+          "title": "Exact coexistence and tricritical scaling of optimal transport in a mobile-wall run-and-tumble slit",
+          "trigger": "Distinct indexed theorem on the same diffusivity and thresholds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics the plateau comparison settles a natural global optimizer question left by qualitative plots: the finite-to-infinite change and the different equality-surface exponent tell when a large finite run time is optimal and when a finite steady choice coexists with the plateau. This is substantive even though the originality axis fails on indexed coverage. No continuous-orientation or transport-design validation follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

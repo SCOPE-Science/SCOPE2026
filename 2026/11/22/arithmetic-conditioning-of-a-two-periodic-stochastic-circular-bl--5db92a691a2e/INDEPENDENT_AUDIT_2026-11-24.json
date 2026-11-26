@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:18:33.162325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; VERIFICATION.md; verify.py, by inspection"
+      ],
+      "rationale": "The unitary transform in the two-site cell index gives the stated blocks. Their determinants are (ab/2)(cos(2π α)−cos(2π k/q)) in the supercritical regime. The leading coefficient and roots with multiplicities of T_q−1 give the exact determinant, including its sign. Each vanishing block has rank one; the two interior resonant frequencies are distinct, whereas the critical case has just k=0. Subcritical block determinants stay ≥1−a−b. The largest singular value is attained at k=0 by entrywise monotonicity after removing phases. At either zero the determinant has slope magnitude πab sin(2π α) and the other singular value tends to √S_*. A nearest sample gives an O(1/q) upper bound on the minimum, so every minimizing sample lies within O(1/q) of a root by the local two-sided linear bound and compactness away from the roots. The relative Taylor error there is O(1/q), even when the nearest distance is unusually small. This gives exactly the stated constant and the three approximation regimes. Transposition preserves all singular values.",
+      "residual_risks": [
+        "No archived script was executed. The approximate Liouville parameter in the supplied check is only a finite real-number test, not evidence for Liouville behavior; the theorem for the exact parameter follows from the arithmetic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general periodic-convolution result reduces rank and conditioning to block singular values."
+        ],
+        "reasoning": "The reduction covers the representation and block computation, not the precise resonant sampling law; the latter uses simple determinant zeros, optimization over the grid and arithmetic of the phase.",
+        "searches": [
+          "arXiv:2611.16144 Theorem 4.2 and §7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary audit target and 9b231153d1a7",
+        "arXiv:2611.16144",
+        "arXiv:2109.10771",
+        "arXiv:math/0503663"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearby Resultary theorem concerns the largest norm on a centered subspace for one application, not an inverse governed by the smallest singular value.",
+          "Boxcar mode-wise loss and periodic block SVD do not give the least singular value and fixed sharp constant as the present sample grid varies."
+        ],
+        "reasoning": "General tools account for the setup and part of the computation. They do not remove the distinct quantitative finite-grid conclusion. No ordering claim is made from the shared date.",
+        "searches": [
+          "arXiv:2611.16144 §7",
+          "arXiv:math/0503663 §1",
+          "Resultary record 9b231153d1a7 actual finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite tridiagonal formulas omit cyclic wraparound.",
+          "Periodic boxcar inversion reciprocates sin(πka)/(πka) and already has rational losses and Diophantine small divisors, but k is a frequency of a fixed continuous operator, not the dimension of finite two-phase matrices."
+        ],
+        "reasoning": "Neither the real-symmetric representative of a periodic Jacobi spectrum nor the scalar continuous boxcar multiplier supplies the Euclidean singular-value prefactor of this generally nonnormal finite matrix. The analogy to boxcar rules out a claim of a new general small-divisor mechanism.",
+        "searches": [
+          "Resultary search centered on the two-phase blur, determinant/rank and inverse conditioning",
+          "arXiv:2109.10771 §4",
+          "arXiv:math/0503663 §1, equations (3)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the audited finding itself. The distinct nearby published result gives a noise-amplification threshold for a directed two-tap blur."
+        ],
+        "reasoning": "Neither that threshold nor its formula for a different stencil lists the determinant, rational rank loss or sharp inverse condition number of this family.",
+        "searches": [
+          "Resultary: audited record 5db92a691a2e and distinct record 9b231153d1a7"
+        ]
+      },
+      "rationale": "The independently supported distinction is the exact all-grid inverse-conditioning law and rank-loss classification for this positive, genuinely two-periodic finite blur. Neither Fourier block diagonalization, Chebyshev products nor the Diophantine mechanism in deconvolution is new on its own. No inspected distinct source states or implies the full finite-grid law and its sharp Euclidean constant for this family.",
+      "residual_risks": [
+        "The focused general literature lookup did not return usable evidence; the two SIAM papers remain uninspected. An exact earlier formula for cyclic two-periodic stencils may exist. The PASS is a bounded statement-level judgment, not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general Fourier and singular-value reduction, not the all-grid formula in question.",
+          "evidence": "Theorem 4.2 block-diagonalizes; §7 derives rank and conditioning from the collection of blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16144",
+          "material_read": "Theorem 4.2 (p. 8) and §7 (p. 14, from text offset 41400)",
+          "method": "OA primary text",
+          "title": "Fast circular convolution with periodic kernels",
+          "trigger": "Same broad operators and conditioning"
+        },
+        {
+          "assessment": "Different finite boundaries and spectral invariant.",
+          "evidence": "Tridiagonal determinant and spectrum, without cyclic closure or the inverse-SVD arithmetic.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.10771",
+          "material_read": "Introduction, §4 eqs. (4.1)–(4.3) and determinant passage (offset 35540)",
+          "method": "OA primary text",
+          "title": "On the spectrum of the tridiagonal matrices with two-periodic main diagonal",
+          "trigger": "Possible equivalent Jacobi determinant"
+        },
+        {
+          "assessment": "Strong conceptual antecedent, not coverage of the finite two-periodic theorem.",
+          "evidence": "The Fourier multiplier sin(πka)/(πka) loses all k divisible by the rational denominator; irrational widths retain invertibility mode by mode in a statistical estimation problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503663",
+          "material_read": "§1 pp. 2–3 (offset 5200), equations (3)–(5)",
+          "method": "OA primary text",
+          "title": "Periodic boxcar deconvolution and Diophantine approximation",
+          "trigger": "Direct competing Diophantine deconvolution mechanism"
+        },
+        {
+          "assessment": "Same setting and timing, materially different claim.",
+          "evidence": "Directed two-tap stencil and exact one-step centered gain threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-cycle-size-threshold-for-noise-amplification-by-two-phas--9b231153d1a7",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp cycle-size threshold for noise amplification by two-phase directed circular blur",
+          "trigger": "Strongest distinct indexed record"
+        },
+        {
+          "assessment": "Unresolved scope; no noncoverage inferred.",
+          "evidence": "Publisher access denied; bibliographic title alone cannot exclude overlapping material.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479899351052",
+          "material_read": "Citation only; no accessible abstract or full text verified in this review",
+          "method": "Publisher direct and lawful alternate retrieval attempted",
+          "title": "On the Almost Strong Stability of the Circular Deconvolution Algorithm",
+          "trigger": "Circular deconvolution stability"
+        },
+        {
+          "assessment": "Unresolved scope; no noncoverage inferred.",
+          "evidence": "Publisher access denied; bibliographic title alone cannot exclude overlapping material.",
+          "identifier_or_url": "https://doi.org/10.1137/0729085",
+          "material_read": "Citation only; no accessible abstract or full text verified in this review",
+          "method": "Publisher direct and lawful alternate retrieval attempted",
+          "title": "On the Stability of Transform-Based Circular Deconvolution",
+          "trigger": "Circular deconvolution stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding, examples and limitations; distinct centered-gain finding 9b231153d1a7; Johnstone–Raimondo §1"
+      ],
+      "rationale": "For an elementary positive local blur, invertibility at every finite size does not imply even a polynomial conditioning bound. The result identifies the fixed phase that decides which resolutions are unusable and gives the sharp perturbation scale on the others. This is a useful explicit benchmark separating inverse-conditioning pathologies from one-step amplification and from FFT implementation effects.",
+      "residual_risks": [
+        "The sharp law is for fixed exact parameters and exact arithmetic, not for coefficient rounding or algorithmic stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

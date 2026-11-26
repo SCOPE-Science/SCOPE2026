@@ -32,13 +32,13 @@ For \(Z=0\), put the facilities at the common reported location and obtain zero 
 \[
 N=u(2v+w),\qquad Z=u+v+w.
 \]
-For any two centres, at least two of the three clients are assigned to the same centre. For two clients at distance \(\delta\), the triangle inequality forces their sum of distances to that centre to be at least \(\delta\ge u\). Choosing facilities at the endpoints of an edge of length \(u\) achieves cost \(u\). Consequently \(\mathrm{OPT}_2=u\). Since \(v\le w\),
+For any two centres, at least two of the three clients are assigned to the same centre. For two clients at distance \(\delta\), the triangle inequality forces their sum of distances to that centre to be at least \(\delta\ge u\). Choosing one endpoint of a shortest edge and the remaining report as facilities achieves cost at most \(u\): the unchosen endpoint can use the chosen one. Consequently \(\mathrm{OPT}_2=u\). Since \(v\le w\),
 \[
 2(2v+w)\le 3(u+v+w),
 \]
 and therefore \(N\le\tfrac32 Z\mathrm{OPT}_2\), including \(u=0\). For reports \((0,1,T+1)\) on the line, \(T\ge1\), the expected-cost ratio is \((3T+1)/(2(T+1))\), which increases to \(3/2\).
 
-**Four agents: reduction to cluster sizes.** Fix arbitrary comparison centres \(f,g\in X\). Assign each report to a nearer comparison centre. If one centre has no assigned report, relocate that unused centre to a report and assign that report to it; this cannot increase the comparison cost. The resulting two nonempty clusters have sizes \((1,3)\) or \((2,2)\). Write \(N=\sum_{i<j}d(x_i,x_j)C_{ij}\) and \(Z=\sum_{i<j}d(x_i,x_j)\). We prove \(N\le2ZC(\{f,g\})\), with the inequality referring to the cost of the original comparison pair before any nonincreasing relocation.
+**Four agents: reduction to cluster sizes.** Fix arbitrary comparison centres \(f,g\in X\). Assign each report to a nearer comparison centre. If one centre has no assigned report, relocate that unused centre to a report, reassign just that report to it, and leave the other assignments unchanged. With \(K\) the sum of the distances to the resulting *assigned* centres, \(K\le C(\{f,g\})\) for the original pair: at most one summand changed, and it changed to zero. The two nonempty clusters have sizes \((1,3)\) or \((2,2)\). Write \(N=\sum_{i<j}d(x_i,x_j)C_{ij}\) and \(Z=\sum_{i<j}d(x_i,x_j)\). It suffices to show \(N\le2ZK\) for this fixed partition and its assigned centres.
 
 **The \((1,3)\) case.** Denote the singleton by \(o\), and the other reports by \(p,q,r\). For \(i\in\{p,q,r\}\), write \(D_i=d(o,i)\), let \(e_i\) be the length of the edge opposite \(i\) in the triangle \(pqr\), and set \(P=e_p+e_q+e_r\) and \(D=D_p+D_q+D_r\). Then \(Z=D+P\). When a sampled facility pair consists of \(o\) and \(i\), the cost from the two unsampled triangle clients is at most the sum of their distances to \(i\), which is \(P-e_i\). Therefore the cross-pair contribution to \(N\) is at most
 \[
@@ -59,15 +59,15 @@ To prove it, relabel so that \(D_p\le D_q\le D_r\), and put \(u=d(p,q)\), \(v=d(
 \]
 using \(u+v\ge w\). Adding the two contributions gives \(N\le P(D+P)=PZ\). If the three-client cluster is assigned to comparator centre \(f\), its three triangle edges each satisfy the triangle inequality through \(f\), so
 \[
-P\le2\sum_{i\in\{p,q,r\}}d(i,f)\le 2C(\{f,g\}).
+P\le2\sum_{i\in\{p,q,r\}}d(i,f)\le 2K.
 \]
-Consequently \(N\le2ZC(\{f,g\})\).
+Consequently \(N\le2ZK\).
 
 **The \((2,2)\) case.** Name the two clusters \(A=\{p,q\}\) and \(B=\{r,s\}\). Let \(u=d(p,q)\), \(v=d(r,s)\), and let \(H\) be the sum of all four distances between one report in \(A\) and one report in \(B\). Then \(Z=u+v+H\). A sampled cross-cluster facility pair costs at most \(u+v\), because the unsampled member of each cluster can use the chosen centre in the same cluster. The sum of its weighted contributions is at most \((u+v)H\). For sampled pair \(\{p,q\}\), the total cost of clients in \(B\) is at most \(H\), so this pair contributes at most \(uH\); analogously \(\{r,s\}\) contributes at most \(vH\). Therefore
 \[
 N\le 2(u+v)H\le2(u+v)Z.
 \]
-If the pair in \(A\) uses comparison centre \(f\) and the pair in \(B\) uses \(g\), triangle inequalities give \(u+v\le C(\{f,g\})\). Again \(N\le2ZC(\{f,g\})\).
+The triangle inequalities through the respective assigned centres give \(u+v\le K\). Again \(N\le2ZK\).
 
 Both cluster cases prove the bound for every comparison pair, and therefore, upon taking the infimum, \(\mathbb E[C]\le2\mathrm{OPT}_2\) for \(Z>0\). When \(Z=0\), both sides are zero by definition. This also covers \(\mathrm{OPT}_2=0\), without dividing by zero or assuming that the infimum is attained.
 
@@ -90,6 +90,8 @@ A standalone integer-arithmetic checker, `check_pairwise_finite.py`, independent
 
 Ma and Peng (2026) introduced the Global Pair mechanism, proved the general factor-four approximation result, and studied strategyproofness and mixtures. Chan, Lin, and Wang (2026) independently studied the same rule under the name Pairwise-Distance, with a general factor-four bound that applies even to arbitrary metric spaces. Jia (2026) identifies the same two-facility rule as the \(k=2\) Product-Gap specialization and proves a \(2k\) bound for the general Product-Gap mechanism on the line. Those population-independent bounds do not imply the sharp three-agent factor \(3/2\) or the four-agent factor \(2\) by themselves. The result here is a small-population exact refinement for the unmodified mechanism, not a new mechanism or an improved strategyproofness theorem. The cited relevant main theorems and definitions were compared, although equivalent treatments elsewhere cannot be excluded.
 
+The line-case constant \(3/2\) is covered by the Product-Gap first-surplus result [4] at \(k=2\). Another result [5] gives both constants for line profiles supported on exactly three sites; it does not cover four distinct sites for four agents. The contribution claimed here is the unrestricted metric-space comparison, including the exact four-agent bound and its sharpness with four distinct reports on the line. No priority ordering is inferred from same-day postings.
+
 ## Limitations
 
 The theorem concerns exactly three or four agents, utilitarian nearest-facility cost, two facilities, and the distance-proportional unordered-pair sampling rule. It does not determine the sharp approximation ratio at five or more agents. It does not assert incentive compatibility in arbitrary metrics; the source papers distinguish the metric conditions needed for strategyproofness. The equalities for the worst-case constants are suprema, with the displayed line families approaching the constants. The universal assertions rest on the triangle-inequality proof, not finite metric enumeration. Independent external validation and publication-priority certification have not been performed.
@@ -99,3 +101,5 @@ The theorem concerns exactly three or four agents, utilitarian nearest-facility 
 1. M. Ma and B. Peng, *Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location*, arXiv:2608.09061v1 (first public submission 2026-08-10), https://arxiv.org/abs/2608.09061.
 2. H. Chan, J. Lin, and C. Wang, *Randomized Strategyproof Facility Location: Two Facilities and Beyond*, arXiv:2608.22484v1 (first public submission 2026-08-23), https://arxiv.org/abs/2608.22484.
 3. J. Jia, *Product Gap Mechanisms for Multi-Facility Location*, arXiv:2608.19633v1 (first public submission 2026-08-20), https://arxiv.org/abs/2608.19633.
+4. *Exact one-omission approximation frontier for Product-Gap facility location*, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5.
+5. *Exact finite-population phase transition for three-site distance-proportional facility location*, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-finite-population-phase-transition-for-three-site-distance--e3c37f844010.

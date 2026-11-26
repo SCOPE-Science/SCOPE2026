@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` and `python finite_models.py` with standard Python 3. The first program checks all nine canonical block probes, the 30 term-function closure, all 512 projected term kernels and the fixed-dimensional formula. Its exact observed output is `verify_output.txt`. The second program constructs actual subspaces, meets and joins over fields of orders two and three in ambient dimensions one through three, checks each of 26,405 ordered triples and compares the nine equation bits with the classical normal-form multiplicities; its exact output is `finite_models_output.txt`.
+## correctness
 
-The proof of all-field validity uses D4 three-subspace decomposition, componentwise term evaluation, and explicit nine-probe separation. The programs are finite checks and do not replace that theorem. Marking all three generators and naming zero and unit are essential; arbitrary first-order types, unmarked lattice isomorphism and infinite-dimensional ambient spaces are outside the claim. Independent audit has not been performed.
+PASS
+
+The corrected set T has eight possible members, each a subset of the three generator names. A complement to the sum removes B_empty. A projection onto the triple intersection splits it from all three. Each remaining pair intersection is disjoint from the third subspace, so a projection onto it killing the third splits all three compatibly. Once pair intersections vanish, a complement inside one subspace to its intersection with the sum of the others splits by a projection killing those others. Previously acquired sum inclusions are preserved by the complementary projection. The three residual subspaces are pairwise disjoint and each pair spans; identifying the third as a graph of an isomorphism gives copies of the three-line plane over any field, including F_2. On a line block indexed by R, E_S fails exactly at R=S; on the plane, E_S always holds and E_triangle alone fails. Bounds and all recursively generated terms evaluate componentwise, with identical marked two-element chains or three-atom diamonds across fields, so term equality is completely determined by which blocks appear, not by multiplicity. Identical term kernels give precisely the marked bounded isomorphisms, including the one-element algebra in dimension zero. Each selected line contributes dimension one and each plane two, yielding the minimum |T|+2ε, all extra dimensions with any line present, and only positive even dimensions when the plane alone is present. Summing nonempty line supports at the two thresholds plus the even plane-only case gives N(n); independent realization of all 512 kernels forces at least nine yes/no tests.
+
+## originality
+
+PASS
+
+The standard three-subspace normal form, Dedekind's classical free modular lattice, and the earlier Resultary use of the same normal form for three-variable inclusion logic are not new here. The distinct contribution supported by the compared claims is a minimal explicit equation fingerprint distinguishing all realized marked bounded term kernels, with every support realized over every field and an exact dimension range for each. The review does not claim exhaustive priority over all formulations in congruence theory.
+
+## value
+
+PASS
+
+These are explicit tests of marked generated lattices, not a re-count of the nine linear normal forms. They give a bounded comparison procedure even when input fields or ambient dimensions differ, and show exactly which fingerprints cannot occur in a given ambient dimension, including the persistent parity obstruction of the plane-only type. The exact minimum dimension and optimal bit count supply useful information not captured by generic finite generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:47.357639Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and weight formulas, VERIFICATION.md, and verify_hexagonal_midpoints.py (source inspected, not run)",
+        "Independent bounded dual replay: for each of the 6^4 labeled trees (Prüfer sequences), choose each of the 2^5 edge signs at Euclidean edge length, solve the resulting differences with f(v0)=0, discard potentials violating any of the 15 pair constraints, and maximize pairwise output quotients over the remaining potentials. The tight-edge graph at a polytope vertex must be connected, so it contains a spanning tree. There were 354 feasible signed-tree patterns including duplicates. Candidate maxima on mixed and midpoint pairs were respectively 1.029346317584997 and 0.981685480829087; for endpoint averaging, 1.035084657640491 and 1 to rounding."
+      ],
+      "rationale": "The reflection fixing a midpoint pairs the six vertices into three orbits. After averaging, the signed coefficients sum to one. For the three orbit representatives, test distance-to-the-vertex functions. The sums across the three tests of the distances at each reflection-pair column are all 4+2 sqrt(3). These signed linear inequalities sum to the claimed lower bound even without positivity (and already work for a single midpoint). Solving the three equioscillation equations gives the stated a,b,c; the middle row fixes B and the end-row difference fixes A-C, while their sum fixes L. Simple rational square-root enclosures give a>b>c>0. The given convolution is a probability law and gives coefficients (a,a,b,c,c,b) exactly. Translation-invariant transport contracts under this convolution, and shifts by 1,2,3 of the original two-vertex measures admit couplings with costs sqrt(3)/2, 3/2, sqrt(3), exactly the midpoint distances. Mixed pairs attain L by transporting to a single vertex; vertex pairs have ratio one. For endpoint averaging the far vertex ratio (2+sqrt(3))/sqrt(13) dominates all other pairs and is strictly larger than L.",
+      "residual_risks": [
+        "The independent dual enumeration used floating-point feasibility (tolerance 1e-10); exact equalities and the signed lower bound rely on the analytic argument. The frozen interval checker corroborates near-agreement numerically in its pair identities; it is not the exact proof of them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random projections and Kantorovich–Rubinstein duality provide sufficient norm controls.",
+          "The n-gon snowflake result adds only the center; the equilateral cyclic example has a three-point domain."
+        ],
+        "reasoning": "Neither general norm bounds nor a different family of targets gives the sharp local three-orbit balancing and simultaneous midpoint control.",
+        "searches": [
+          "Ambrosio–Puglisi arXiv:1609.01450 pp. 2, 6–7",
+          "Bruè–Di Marino–Stra arXiv:1801.07533 §3 and Theorem 4.1",
+          "Resultary regular n-gon center snowflake 55dc55bc9348 and cyclic triples 6e15c63e9614"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2deb3cd36f34, e491b9ad8b61, 062ae3b7e374, 55dc55bc9348, 6e15c63e9614",
+        "arXiv:1609.01450, arXiv:1801.07533, arXiv:2104.14238"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pentagon uses similar orbit and transport methods but with different stabilizer orbits and costs; square/cube gives two other configurations, not a result parameterized by polygon order.",
+          "The hexagon certificate ties the single-midpoint lower bound to a positive operator whose six midpoint measures satisfy a separate pairwise bound."
+        ],
+        "reasoning": "The formula and nonexpansivity require geometry-specific identities rather than substitution into the earlier specific answers or a general LP guarantee.",
+        "searches": [
+          "Resultary pentagon Finding and proof",
+          "Resultary square/cube, simplex and polygon-center comparisons",
+          "Basso §5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basso identifies the extension invariant with a relative projection constant and gives a general polyhedral LP framework.",
+          "The close pentagon, simplexes, and square/cube findings have different source/target pairs."
+        ],
+        "reasoning": "The free-space/projection reduction encodes the same problem but does not evaluate the hexagonal instance or yield its positive solution.",
+        "searches": [
+          "Resultary searches for regular polygons, all edge midpoints, and the exact hexagon formula",
+          "Basso arXiv:2104.14238 Eq. (1.6), Theorem 1.4 and §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved exact catalogue hit is the five-edge pentagon result 2deb3cd36f34, not this six-edge instance; relevant square/cube e491b9ad8b61 and simplex 062ae3b7e374 findings are different cases.",
+          "The apparent public regular-polygon search hit was about polyhedral extension complexity rather than linear extension of Lipschitz data."
+        ],
+        "reasoning": "No inspected table or exact entry represents the given twelve-point Euclidean pair. The lack of a relevant web hit is not proof that none exists.",
+        "searches": [
+          "Local Resultary formula-targeted and configuration searches",
+          "Focused web search for regular polygon linear Lipschitz extension to all edge midpoints"
+        ]
+      },
+      "rationale": "The closest prior cases are the exact pentagon, square/cube, and simplex midpoint extensions. They substantially overlap in method, but their stated formulas do not cover the regular hexagon and its six added midpoints, or the nonexpansive midpoint restriction here. The inspected literature gives representations and constructions, not this value.",
+      "residual_risks": [
+        "This is bounded claim-level comparison, not a priority proof. Differently phrased or less-indexed finite computations and stronger polygon-specific results may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely adjacent method; not the hexagon claim",
+          "evidence": "Five source vertices and five edge midpoints, with independent orbit coefficients and a different constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-positive-linear-lipschitz-interpolation-at-every-regular-p--2deb3cd36f34",
+          "material_read": "Finding and proof passages in RESULT.md",
+          "method": "Bounded local mirror read",
+          "title": "Sharp positive linear Lipschitz interpolation at every regular pentagon edge midpoint",
+          "trigger": "Closest exact all-edge polygon case"
+        },
+        {
+          "assessment": "Adjacent cases, no priority inference from date",
+          "evidence": "The cases stated are square and cube, not a theorem in polygon order or covering the hexagon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-sharp-real-linear-lipschitz-extension-to-all-edge-midpoints-of-t--e491b9ad8b61",
+          "material_read": "Catalogue finding scope",
+          "method": "Local Resultary comparison",
+          "title": "Sharp real-linear Lipschitz extension to all edge midpoints of the square and cube",
+          "trigger": "Exact all-midpoints extension and a same-UTC-date entry"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": "A regular simplex has one distance between distinct vertices, unlike the three lengths in the hexagon.",
+          "identifier_or_url": "Resultary 062ae3b7e374",
+          "material_read": "Catalogue finding scope",
+          "method": "Local Resultary comparison",
+          "title": "Sharp linear Lipschitz extension to the edge midpoints of a regular simplex",
+          "trigger": "General all-edge-midpoint result"
+        },
+        {
+          "assessment": "Different target and invariant",
+          "evidence": "The n-gon example adds its center rather than edge midpoints.",
+          "identifier_or_url": "Resultary 55dc55bc9348",
+          "material_read": "Configuration and metric in the indexed finding",
+          "method": "Local Resultary comparison",
+          "title": "A sharp snowflake threshold for simultaneous linear Lipschitz extension",
+          "trigger": "Regular n-gon with a variable metric parameter"
+        },
+        {
+          "assessment": "General transport framework",
+          "evidence": "Probability-measure random projections are controlled by W1; these passages do not evaluate the hexagonal metric pair.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01450",
+          "material_read": "p. 2 and pp. 6–7, around offsets 4322 and 17526",
+          "method": "Located OA PDF passages",
+          "title": "Linear extension operators between spaces of Lipschitz maps and optimal transport",
+          "trigger": "Transport reduction could encode a prior solution"
+        },
+        {
+          "assessment": "Extension construction and estimates, not sharp finite polygon evaluation",
+          "evidence": "Integrates against random-projection measures and gives doubling-space bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "§3 p. 9 and Theorem 4.1 p. 12, around offsets 27050 and 36136",
+          "method": "Located OA PDF passages",
+          "title": "Linear Lipschitz and C¹ Extension Operators through Random Projection",
+          "trigger": "General norm constructions"
+        },
+        {
+          "assessment": "Reduction and general optimization tool",
+          "evidence": "Relates the finite-source invariant to relative projection constants and formulates relevant polyhedral LPs, but does not compute the present metric pair in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14238",
+          "material_read": "Equation (1.6), Theorem 1.4 p. 3 and §5.2 pp. 19–20, around offsets 9774, 57742 and 60474",
+          "method": "Located OA PDF passages",
+          "title": "Absolute Lipschitz Extendability and Linear Projection Constants",
+          "trigger": "Equivalent projection formulation and possible exact polyhedral computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lower bound, positive extension and midpoint-pair proof",
+        "Compared exact polygon midpoint variants in Resultary"
+      ],
+      "rationale": "The regular hexagon and all its edge midpoints are a canonical Euclidean refinement. The contribution is not just the small gain over averaging: the local bound for arbitrary signed operators is obtained by a positive simultaneous operator without a midpoint-pair obstruction. This identifies the exact simultaneous norm and shows why using only the two nearby vertices is insufficient for the sharp constant.",
+      "residual_risks": [
+        "This does not yield a formula for arbitrary polygon order or all minimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

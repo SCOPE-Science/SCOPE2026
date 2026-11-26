@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:19:51.738878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate by m times the constant vector to the weighted mean-zero space V. Jensen and strict convexity give a unique minimizer at 0 and strict increase along every positive ray. The closed sublevel is an interval when N=2, and is a ball in the weighted norm for any strictly convex quadratic entropy. Both have radial clipping equal to metric projection. Conversely, choose any u≠0 in V, budget E(m1+u)>η(m), and extrapolated candidate m1+(1+ε)u. If both operators agree, the normal cone condition demands that u be parallel to the gradient of the translated entropy in V. The gradient is nonzero by strict convexity at u≠0. Tangential derivatives therefore vanish on the connected weighted spheres for dim V≥2. In particular, the entropy restricted to each sphere is even. Taylor subtraction at ±tu has leading odd term η'''(m)t³ Σw_i u_i³/3, since the linear term is zero. The cubic sum is nonzero for some u: use (w_j,−w_i) on two unequal weights, or (1,1,−2) on three equal weights. Thus η''' vanishes at each m, giving a quadratic with positive second derivative. Independently recomputed the Simpson witness in integer-scaled arithmetic: all states have mean 1 and are positive, θ=5/6, E(y)=59/64, E(z)=2359745276177/2560000000000, and the squared errors are 1/300 and 2497/800000 respectively. Strict increase on the ray verifies that y is the radial output; z is strictly feasible and closer. Replay: python3 /workspace/reproductions/review_05_entropy.py (standard library). The frozen checker was inspected, not run. The necessity uses all means and budgets for each fixed positive weight vector, not identity at one mean or one point. This does not audit entropies on constrained physical domains, vector states, extra invariant-set constraints, or PDE stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen discussion describes radial-versus-coordinate-separable rigidity on an unconstrained Cartesian domain; evidence for the precise theorem on restriction to weighted mean-zero subspaces was not recoverable.",
+          "The earlier Resultary summary treats weighted distortion of radial correction under nonnegativity constraints."
+        ],
+        "reasoning": "Eliminating one coordinate via the mean produces a term η of a weighted linear combination of all the other coordinates, not a sum separable in free coordinates. Full-domain rigidity as described thus does not directly imply the required restricted-domain rigidity. Nonnegative coordinates instead impose flat inequalities, not the entropy sublevel surfaces.",
+        "searches": [
+          "arXiv:2602.08419 Radial Müntz–Szász Networks, radial/additive-separability rigidity",
+          "Resultary 61df896f464f conservative positivity scaling"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support including verify.py",
+        "Resultary 61df896f464f and matching assigned entry (summaries)",
+        "arXiv:2604.00301, 2603.27478, 2602.08419 (attempted primary retrieval; available descriptions listed above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A quadratic entropy gives a centered ball and the motivating quadratic scaling example is consistent with this sufficient case. Mean-preserving feasible scaling by itself lacks the necessary condition in dimensions ≥2; the mean-hyperplane nonzero cubic direction is essential in proving its converse."
+        ],
+        "reasoning": "The quadratic example and general raywise feasibility do not deliver the iff classification or its sharp dimensional exception. The truth of the iff claim is not an assertion that prior limiter methods claimed global optimality.",
+        "searches": [
+          "Frozen relationship to prior work lines 54–62; Resultary 61df896f464f and arXiv:2604.00301, 2603.27478, 2602.08419"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited methods are described as optimizing an entropy-feasible scale on a fixed ray. In contrast, an equivalent formulation of the audited global property in dimension at least two is that all positive sublevels on each translated mean-zero hyperplane have radial outward normals."
+        ],
+        "reasoning": "The direction itself is a free optimization variable for a nearest correction but not for the scale-limiter problem. The witness verifies that the two optimization formulations are not interchangeable for general convex entropies.",
+        "searches": [
+          "Resultary: mean-conserving radial versus weighted metric projection, clipped entropy sublevels",
+          "arXiv:2604.00301 §§5.1–5.2 and 9.1; arXiv:2603.27478 §3 (frozen locators)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching summary was the assigned record itself. The nearest distinct earlier summary, 61df896f464f, gives a distortion comparison under positivity alone, not the quartic-entropy Simpson feasibility/error data or the all-weights rigidity statement."
+        ],
+        "reasoning": "The comparison is to exact classifications and witness examples rather than to a generic numerical limiter table. Index results are bounded evidence, not a priority proof.",
+        "searches": [
+          "Resultary: sharp two-node entropy least-squares classification, positive Simpson-rule example, radial-versus-nearest conservative nodal corrections"
+        ]
+      },
+      "rationale": "The supported distinct statement is the sharp two-node/three-node boundary and all-positive-weights quadratic rigidity for global equality of a conservative radial limiter and the weighted nearest-entropy correction, with its exact positive-state separation. The underlying convex projection condition and conservative scaling construction are prior techniques.",
+      "residual_risks": [
+        "Primary full passages were not independently recovered for the three cited works. The most relevant open coverage question is whether arXiv:2602.08419 includes a stronger separability theorem applicable on affine hyperplanes.",
+        "An unindexed mean-constrained rigidity or exact equivalent example may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Described ray feasibility and quadratic example are pertinent but not a global nearest-point classification",
+          "evidence": [
+            "Scaling anchored at the cell average with an entropy admissibility radius."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.00301",
+          "material_read": "Frozen RESULT.md lines 54–56 and AUDIT.json locators for §§5.1–5.2 and 9.1; independent PDF retrieval timed out",
+          "method": "OA lookup and assumption-level comparison of available descriptions",
+          "title": "EPO: A Unified Framework for Entropy Stability, Positivity, and Oscillation Suppression",
+          "trigger": "Natural motivating scaling method"
+        },
+        {
+          "assessment": "Raywise entropy feasibility as described does not determine the metric projection",
+          "evidence": [
+            "Conservative scaling to enforce a fully discrete entropy inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.27478",
+          "material_read": "Frozen RESULT.md line 56 and AUDIT.json §3 locator; PDF not recovered",
+          "method": "OA lookup then compare stated optimization domains",
+          "title": "A limiter-based approach to construct high-order fully-discrete entropy stable explicit DG schemes for hyperbolic conservation laws",
+          "trigger": "Another conservative entropy scaling construction"
+        },
+        {
+          "assessment": "No demonstrated implication; stronger or adaptable content remains unverified",
+          "evidence": [
+            "The described coordinate-separable domain is not the weighted mean-zero subspace used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.08419",
+          "material_read": "Indexed citation and frozen RESULT.md lines 58 and 62; abstract/PDF and HTML requests timed out",
+          "method": "Bounded lawful lookups; comparison to the full-domain separability formulation described in frozen material",
+          "title": "Radial Müntz–Szász Networks: Neural Architectures with Learnable Power Bases for Multidimensional Singularities",
+          "trigger": "Plausible broader structural rigidity theorem"
+        },
+        {
+          "assessment": "Genuine related earlier comparison, different constraint and target theorem",
+          "evidence": [
+            "Nearest conservative nonnegative nodal vector versus mean-anchored positivity scaling."
+          ],
+          "identifier_or_url": "Resultary 61df896f464f",
+          "material_read": "Resultary summary",
+          "method": "Local statement search and compare feasible sets",
+          "title": "Sharp weighted distortion of conservative nodal positivity scaling",
+          "trigger": "Matches mean constraint and radial-versus-nearest distinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing the largest feasible scale is common in mean-conserving nodal limiting; it does not answer whether one has minimized weighted data perturbation among all feasible corrections. The classification identifies precisely when this distinction matters as a function of dimension and entropy, not simply one arbitrary example. The small exact Simpson witness makes the first possible disagreement concrete while preserving positivity. No numerical scheme's entropy guarantee is contradicted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

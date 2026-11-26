@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:03.762090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and scope and proof §§1–4",
+        "Frozen VERIFICATION.md and artifacts/check.py (inspected, not executed)"
+      ],
+      "rationale": "The constant-drift ODE with absorbing value 1 at zero and Neumann data at L gives the stated two-exponential resolvent. On bounded drift sets, sqrt(a²+4Dr)−2sqrt(Dr) tends uniformly to zero and the reflected term after normalization has an extra factor at most exp[−2(L−x₀)sqrt(r/D)] times a bounded drift factor. The ratio of the ODE exponents is bounded by exp(|a|/sqrt(D)) for r≥1, yielding the needed whole-line exponential envelope. On [0,r^(-1/3)], sandwich the integrated drift between constant drifts V₀±sup|V−V₀| using the same independent spatial Brownian motion. The path differences are nonnegative AND nondecreasing, so their upper regulators differ by at most the final path difference; the absorbed hitting times are ordered when truncated to the horizon. The missing discounted tail is at most exp(−r^(2/3)), even after comparison. Continuity and the OU representation as a scaled time-changed Brownian motion on a bounded clock provide convergence of the drift bounds and finite exponential moments of the maximum for either allowed initial law. Dominated convergence then works for the unbounded Gaussian. The regenerative cycle mean is (1−pᵣ)/r and each cycle succeeds with probability pᵣ, so the mean is (1−pᵣ)/(rpᵣ). The Gaussian Laplace moment is exp[x₀² Var(V₀)/(8D²)]; the ratio of Gaussian-redraw to zero-redraw means is its reciprocal.",
+      "residual_risks": [
+        "The reported 134 checks concern finite comparison formulas and sampled paths, not the OU limit. The proof fixes x₀, D, L and the OU parameters; it neither treats position-only resets nor makes a uniform claim at D=0 or the endpoints. Every position reset is to the same x₀, and every velocity reset is an independent fresh draw from the specified law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley start from a short-time first-passage law A t^b exp(−C/t).",
+          "The related catalogue claim treats any compactly supported velocity reset law, with a uniform error estimate and convex-order optimization; its bounds are uniform on a fixed compact set of initial velocities."
+        ],
+        "reasoning": "The first theorem is broader in restart scope but needs the short-time coefficient as input. The second is stronger on compact supports only. Integrating the pointwise limit certified there against an unbounded Gaussian does not follow without domination or another tail estimate.",
+        "searches": [
+          "arXiv:2302.05409, Theorem 3",
+          "Resultary 80daf37210f7, localization argument at offsets 5900–7400"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 80daf37210f7",
+        "arXiv:2609.21124v1, 2302.05409, 1607.06048, 2509.18515v1",
+        "Bounded same-model external search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linn–Lawley's theorem with b=1/2 and C=x₀²/(4D) would give the target transform if the first-passage coefficient were already known to be 2 sqrt(D) Aρ/(x₀ sqrt(π)).",
+          "Pal–Reuveni give the exact renewal identity; the catalogue's compact-support estimates do not supply a Gaussian-tail bound."
+        ],
+        "reasoning": "The original mathematical step is computing the model- and protocol-dependent Laplace prefactor with a control valid under unbounded Gaussian redraw. Neither the generic renewal transformation nor the closest scope-limited result supplies that step as a direct specialization.",
+        "searches": [
+          "arXiv:2302.05409, Theorem 3",
+          "arXiv:1607.06048, Appendix Eq. (4.1)",
+          "Resultary 80daf37210f7, Proof and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgiou–Bressloff–Bertrand formulate the confined process and compare fixed-velocity protocols; the inspected weak-activity and simulation statements do not give the sharp high-rate prefactor.",
+          "Resultary 80daf37210f7 gives the same exponential moment under complete reset for compactly supported laws and uses the same normalization."
+        ],
+        "reasoning": "The velocity-memory factor is the same quantity as the Laplace-transform prefactor (inverted in the mean), not a different invariant. The unbounded fixed Gaussian law requires separate uniform integrability.",
+        "searches": [
+          "Resultary 80daf37210f7",
+          "Same-model literature search under active Ornstein–Uhlenbeck first passage, resetting, and high-rate prefactors",
+          "arXiv:2609.21124v1, §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue formula covers each deterministic velocity as a point-mass specialization. The inspected catalogue statement does not give the Gaussian-redraw result.",
+          "The inspected same-model literature contains finite protocol comparisons, not a tabulation of exact strong-reset Gaussian prefactors."
+        ],
+        "reasoning": "The exact deterministic overlap is credited irrespective of catalogue ordering. The target Gaussian factor is a function of continuous physical parameters and its validity is not settled by discrete checks.",
+        "searches": [
+          "Resultary 80daf37210f7, Finding and Limitations; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2609.21124v1, §3.4"
+        ]
+      },
+      "rationale": "The same model, renewal identity, and generic frequent-restart asymptotics are known. A distinct catalogue result gives the exact same factor for bounded velocity laws, including deterministic velocity. The scope supporting this assessment is the nonperturbative protocol-dependent prefactor including arbitrary fixed-variance centered Gaussian redraw, not an originality claim for deterministic redraw by itself or for renewal.",
+      "residual_risks": [
+        "The near-exact bounded-law overlap is material and does not establish priority or independence. A more general short-time diffusion result with the requisite unbounded-velocity tail control could imply the Gaussian result; the inspected broader theorem takes that coefficient as input."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlapping bounded-law statement, not a Gaussian-redraw theorem",
+          "evidence": "Integrates a pointwise factor e^(−cv) with uniform O(r^(-1/4)) estimates on compact velocity support; limitation expressly excludes a uniform limit for unbounded laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-high-reset-velocity-memory-factor-and-sharp-convex-order-design--80daf37210f7/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof, Limitations; decisive localization at offsets 5900–7400 and limitations near 8000–10323",
+          "method": "Resultary discovery and local-mirror text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "High-reset velocity-memory factor and sharp convex-order design for an active Ornstein–Uhlenbeck searcher",
+          "trigger": "Same model, high-rate regime and exact velocity-memory factor"
+        },
+        {
+          "assessment": "Same system, but no exact claim match in inspected portions",
+          "evidence": "Fixed v₀=±1 velocities are compared by direct simulation; the perturbation theory is in weak activity.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21124v1",
+          "material_read": "Abstract and model pp. 1 and 3; §3.4, pp. 12–13",
+          "method": "Open-access PDF passages",
+          "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+          "trigger": "Same confined AOUP and velocity-reset protocols"
+        },
+        {
+          "assessment": "Conditional implication, not an AOUP prefactor computation",
+          "evidence": "Transforms first-passage asymptotic A t^b exp(−C/t) to the high-rate transform; A must be supplied.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05409",
+          "material_read": "Theorem 3, p. 6",
+          "method": "Open-access PDF passage",
+          "title": "First-passage times under frequent stochastic resetting",
+          "trigger": "Broader rigorous frequent-restart theorem"
+        },
+        {
+          "assessment": "Exact renewal step is existing",
+          "evidence": "Exponential restart gives mean (1−T̃(r))/(rT̃(r)).",
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "Appendix p. 13, Eq. (4.1)",
+          "method": "Open-access PDF passage",
+          "title": "First Passage under Restart",
+          "trigger": "Generic restart identity"
+        },
+        {
+          "assessment": "Different observable in inspected material",
+          "evidence": "Studies displacement statistics and position distributions, not the confined absorption prefactor.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.18515v1",
+          "material_read": "Abstract and model, pp. 1–3",
+          "method": "Open-access PDF passages",
+          "title": "Active Ornstein–Uhlenbeck particle under stochastic resetting",
+          "trigger": "Similar model and resetting terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "arXiv:2609.21124v1, model and §3.4",
+        "Resultary 80daf37210f7, compact-support assumptions"
+      ],
+      "rationale": "The exact factor discriminates reset protocols whose logarithmically leading cost is identical. The reciprocal Gaussian-to-zero limit quantifies a genuine relative improvement at a fixed activity and persistence, beyond merely transporting a known renewal formula. The Gaussian is the natural stationary velocity law and its unbounded tail makes the averaging step substantive.",
+      "residual_risks": [
+        "The limiting ratio is not a finite-rate optimum or a result for partially renewed active velocities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

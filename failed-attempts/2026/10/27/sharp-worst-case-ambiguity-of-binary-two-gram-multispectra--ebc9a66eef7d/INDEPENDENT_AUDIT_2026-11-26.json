@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:59.901922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Telescoping gives u-v=final bit minus initial bit. When u=v=r>0 the two possible endpoint symbols contribute distinct words with (r+1,r) or (r,r+1) zero/one run counts. Adding their weak-composition counts gives (n-1)/r times the product of binomials with lower index r-1; imbalanced transitions have r runs of each symbol and one endpoint orientation per profile. For r>1 a loop-balancing exchange strictly gains unless the split is already even to within one; r=1 is flat. With t=floor((n-1)/2), the adjacent balanced ratios are (t-r)^2/[r(r+1)] at odd length and (t-r)(t-r+1)/[r(r+1)] at even length, yielding exactly the stated balanced maxima and the even tie. The imbalanced peaks occur at floor((t+2)/2) for odd n and floor(t/2)+1 for even n. At these r the balanced-to-imbalanced ratios are 2(t-r+1)/r and (2t+1)(t-r+1)/(rt), respectively. The former is 1 only at t=2, where B_1=4 exceeds U_2=2; the latter is strictly greater than 1 even at t=1. Constant-word profiles cannot win for n>=3. Substitution and Stirling give the stated formulas and coefficient, with the empty and one-pair observations handled directly. Independently, appending bits in a dynamic program with terminal-symbol-tagged profiles recovered all maxima and ties through n=80, cross-checked by direct words through n=10 (python3 /workspace/repro/frozen_checks.py). The proof supplies validity beyond those bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Euler enumeration gives individual start/end-fixed k-abelian class sizes; binary cyclic Markov-type enumeration counts distinct matrices; substring spectrum coding uses the observed multiset to design unambiguously recoverable codebooks."
+        ],
+        "reasoning": "Endpoint-fixed formulas can be summed to obtain individual endpoint-unobserved fibers, but do not by themselves identify the extremal profile. Counting matrices or seeking one representative per class is not maximizing its size. The prior direct extremum resolves the claimed advance.",
+        "searches": [
+          "arXiv:1605.03319v1, Cor. 4.3 and Prop. 4.7",
+          "doi:10.46298/dmtcs.2768, binary frequency matrices",
+          "arXiv:1804.04548v1, length-L multiset definition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary binary oriented adjacent-pair extremum search",
+        "October 13 exact worst-case ambiguity",
+        "October 4 two-multispectrum census and composition reconstruction",
+        "arXiv:1605.03319v1",
+        "doi:10.46298/dmtcs.2768",
+        "arXiv:1804.04548v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first states every maximizer has u=v=j=k, or also j=k-1 for N=1 mod 4; the two loop counts differ by at most one for j>=2, and all splits tie for j=1. The composition result merges 01 and 10."
+        ],
+        "reasoning": "The j rule gives precisely all four residue optimizer lists and ties at 3–6. The composition problem changes the observable and is not needed for prior coverage. At n=1,2 the trivial boundary cases add no substantive remainder.",
+        "searches": [
+          "October 13 exact extremum, proof sections 2–5",
+          "October 4 length-limited composition reconstruction, assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both statements use linear binary words with ordered 00,01,10,11 count profiles and unobserved endpoints. Earlier exact maximum is (N/k) binom(floor(N/2)-1,k-1) binom(ceil(N/2)-1,k-1), N=n-1, k=ceil(N/4)."
+        ],
+        "reasoning": "Substitute n mod 4 and use adjacent-binomial identities (or the stated tied optimizer when n=4m+2). The result is the same maximum for every n>=3, with earlier asymptotic 2^(n+1)/(pi(n-1)).",
+        "searches": [
+          "Resultary: binary oriented adjacent-pair fiber maxima and ties",
+          "SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact extremum lists the same small-length maxima, optimizer counts and all-length selection rule; the earlier census states Q_(2m)=3m^2-m+2 and Q_(2m+1)=3m^2+2m+2 for distinct observations, and classifies singleton fibers."
+        ],
+        "reasoning": "The extremum match goes beyond a finite table. The census alone is not an extremum result and is not the basis of failure.",
+        "searches": [
+          "Resultary: binary ordered two-gram extremum, profile counts, and singleton fibers",
+          "October 13 exact extremum and October 4 two-multispectrum census"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary record explicitly solves the same linear, binary, ordered adjacent-pair problem. Its general formula transforms into the four displayed residue formulas and its set of maximizing profiles matches including all small-length ties at n=3 through 6. The values at n=1,2 are immediate from seeing no pair or the entire word. No substantive uncovered claim remains. This finding of prior scientific coverage does not assert a provenance or authorship relationship.",
+      "residual_risks": [
+        "No claim of resolving the earliest priority across all Markov-type literature or of identifying authorship/provenance. Older work could also give an exact extremum; that cannot undo the identified exact prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact statement and proof of the full substantive claim",
+          "evidence": [
+            "Maximum formula in N and ceil(N/4); complete optimizer rule including r=1 ties; same asymptotic equivalent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§2–5, mirror offsets 0–4843 and 4700–8425",
+          "method": "Resultary local mirror",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Exact indexed word/profile and objective match"
+        },
+        {
+          "assessment": "Related fixed-endpoint enumeration",
+          "evidence": [
+            "Euler paths with fixed endpoints; class-cardinality formula."
+          ],
+          "identifier_or_url": "arXiv:1605.03319v1",
+          "material_read": "PDF p. 2; Cor. 4.3 and Prop. 4.7, offsets approx. 17600–22550",
+          "method": "OA PDF text",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "General fixed-type cardinality formula"
+        },
+        {
+          "assessment": "Counts types, not largest class cardinality",
+          "evidence": [
+            "Balanced cyclic binary matrices satisfy k12=k21; count of distinct matrices has order n^2."
+          ],
+          "identifier_or_url": "doi:10.46298/dmtcs.2768",
+          "material_read": "PDF pp. 389–390 binary example, offset approx. 7000",
+          "method": "OA PDF text",
+          "title": "Counting Markov Types",
+          "trigger": "Possible exact extremum of binary Markov types"
+        },
+        {
+          "assessment": "Reconstruction-code objective differs",
+          "evidence": [
+            "Multiset of length-L substrings and codebooks uniquely determined by it."
+          ],
+          "identifier_or_url": "arXiv:1804.04548v1",
+          "material_read": "PDF p. 2, observation and objective, offset approx. 8000",
+          "method": "OA PDF text",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same exact ordered observation"
+        },
+        {
+          "assessment": "Profile census, not maximum fiber",
+          "evidence": [
+            "Counts distinct profiles and classifies unique reconstruction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+          "material_read": "Finding from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Exact enumeration on identical observation"
+        },
+        {
+          "assessment": "Different observation",
+          "evidence": [
+            "Pair compositions merge orientations 01 and 10."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1732",
+          "method": "Resultary local mirror",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "Near match stated with composition language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Worst-case ambiguity and its maximizing profiles are natural information-loss quantities. However, the earlier exact result already provides both, including the asymptotic constant. Rewriting by residue class and adding the trivial n=1,2 cases does not constitute a distinct valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

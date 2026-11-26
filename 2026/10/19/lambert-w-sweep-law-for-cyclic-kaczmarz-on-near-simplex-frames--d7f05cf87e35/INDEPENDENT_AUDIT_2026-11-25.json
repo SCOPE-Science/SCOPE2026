@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:21.724742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–139",
+        "Frozen VERIFICATION.md and VERIFY.py, inspected and not executed",
+        "Independent numerical diagonalizations of (I−βL)^(-1)βU, compared to the positive scalar root for the four stated cases"
+      ],
+      "rationale": "Under z=A_n^T y the error sweep is similar to (I−βL)^(-1)βU for β=α/(n−1). Its trailing principal block is strictly positive, and the other column is zero. The geometric vector (1,t,...,t^(n−1)) solves the eigenvector equations with eigenvalue t^n: the first equation gives t^(n−1)=βΣ_(j=0)^(n−2)t^j, and differences yield t^(n−1)(1+β−t)=β. The nonunit root in (0,1) is unique by the strictly increasing exponential average after t=exp(−x_n/n). Positivity identifies it as the Perron root and gives a real error trajectory attaining the spectral factor, not a claim about one-sweep norm. Row relabeling leaves the Gram matrix fixed. The exponential sums converge uniformly on compact intervals to I(x); rearrangement of I(x)=1/α yields W_(−1) since W_0 returns the extraneous x=0. The trapezoid formula gives S_n=I+(I−E)/(n−1)+O(n^(−2)), so inversion yields the stated positive correction since E>I and I'>0. At α↓0, log(1/α)=x−log x+o(1), giving r∞∼α/log(1/α). At α=1−ε, S_n'(0)=1/2 and S_n''(0)=(2n−1)/(6n), and x_n≤2ε/(1−ε) since S_n'(y)≥1/2 for y≥0. Third derivatives are uniformly bounded on this interval, so expansion and inversion give the stated dimension-uniform coefficient (4n−2)/(3n), including the limiting gap 2ε. Independently constructed small sweep matrices at (n,α)=(2,.4),(3,.5),(5,.8),(8,.95) matched the inferred spectral radius to about 10^(−12) or better; the independent n=2 check also gives α² exactly.",
+      "residual_risks": [
+        "The O_α(n^(−2)) correction is for fixed interior α, not a joint endpoint bound. The ε expansion is uniform in n and does not assert invertibility at ε=0. Numerical checks do not prove either uniformity or finite-precision stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Wright's Gram family includes either sign and their sweep formula applies; their deterministic quantitative rate analysis considered the positive-off-diagonal regime, and their sharper permutation results treat a different algorithm.",
+          "Yu–Diakonikolas gives matrix-based exact worst-case factors and a general triangular representation; the full text is now accessible. The inspected statements do not evaluate the target signed spectral radius or give any of its asymptotic constants.",
+          "The focused external result list was not useful; no inference of absence is drawn from it."
+        ],
+        "reasoning": "An exact matrix representation in all cases is not an evaluation of this asymptotic invariant. To cover the claim a broader rate theorem would have to determine the scalar dominant branch and permit the two parameter limits and the specified corrections.",
+        "searches": [
+          "Lee–Wright DOI 10.1093/imanum/dry040, §§1–3",
+          "Yu–Diakonikolas arXiv:2609.32034, Theorem 1 and Lemma 1",
+          "Focused external lookup on signed equicorrelation Gauss–Seidel spectral rates"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Sun–Ye v1 and corresponding v2 passage",
+        "Lee–Wright",
+        "Yu–Diakonikolas",
+        "Local Resultary hits listed in exact_database_or_table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constituent root polynomial is obtainable by signed substitution, but the polynomial has multiple candidate roots and a spurious unit root; the positive block identifies the actual maximum-modulus eigenvalue.",
+          "The negative scaling converts the continued root identity to an exponential-sum law, whose continuum solution is on W_(−1), and the interior quadrature defect determines the sign and coefficient of the first correction.",
+          "The uniform simplex-end expansion uses the exact finite second moment and a derivative bound uniform in n, not the positive-correlation singular-rate analysis."
+        ],
+        "reasoning": "The rate evaluation and its scaled limit and uniform endpoint are not simply the signed family or the polynomial in another notation. The checked sources do not give a stronger evaluation subsuming the claimed classification.",
+        "searches": [
+          "Sun–Ye v1 §4.3, (26)–(27)",
+          "Lee–Wright (1.17) and §2",
+          "Yu–Diakonikolas Theorem 1",
+          "Frozen RESULT.md, lines 67–134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic Kaczmarz error sweep is similar to the Gauss–Seidel sweep on the row Gram matrix.",
+          "Sun–Ye's q^(n−1)(q−1+c)=c and associated sweep eigenvalue q^n for positive c continue algebraically at c=−β to q^(n−1)(1+β−q)=β.",
+          "The target Gram is exactly the Lee–Wright member δ=1+α/(n−1), not their small-δ positive-off-diagonal regime."
+        ],
+        "reasoning": "The sign change is real overlap in the polynomial method, not a new derivation of an unrelated polynomial. The equivalent scalar law selects the nonunit positive root by a Perron argument unavailable from the positive-correlation rate estimate.",
+        "searches": [
+          "Sun–Ye arXiv:1604.07130v1, §4.3, Lemma 4.1 and (26)–(27)",
+          "Lee–Wright arXiv:1607.08320, (1.17) and cyclic coordinate descent setup",
+          "Yu–Diakonikolas arXiv:2609.32034, Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-sweep record gives finite-sweep residual and energy-error limits for positive fixed coherence, not asymptotic sweep radii with negative coherence of size O(1/n).",
+          "The Fourier Kaczmarz Lambert spectrum concerns a one-atom sampling bias; the norm-frontier record concerns a one-sweep Euclidean operator norm; the away-step record is a different algorithm on an isotropic simplex."
+        ],
+        "reasoning": "The hits are relevant transforms or method relatives but do not evaluate the same function, limit, or endpoint expansion. Exact overlap was tested by the sign and size of coherence, the algorithm, and the spectral quantity, not by date.",
+        "searches": [
+          "Local Resultary: cyclic Kaczmarz, signed equicorrelation, rank-one Gram, Gauss–Seidel and Lambert limit",
+          "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+          "2026/11/17/SCOPE-a-continuum-spectral-law-for-cyclic-fourier-kaczmarz-under-vanis--dc7eecc4fd2f",
+          "2026/11/8/SCOPE-two-sharp-condition-number-frontiers-for-euclidean-nonexpansion--f0328ba972a3",
+          "2026/10/25/SCOPE-an-exact-all-dimensional-local-spectrum-and-lambert-w-rate-for-v--13ec52d48a2a"
+        ]
+      },
+      "rationale": "The underlying Gauss–Seidel representation, signed equicorrelation family, and characteristic-root method are established. The Sun–Ye root polynomial algebraically continues to the relevant negative sign; it does not itself designate the Perron root there or give the scaled dimension limit. The supported distinct result is the negative O(1/n) correlation spectral classification, including the selected real branch, the explicit finite-size correction and the dimension-uniform near-simplex law. Bounds on other sign regimes, fixed-sweep errors, or general norm characterizations do not supply this rate law.",
+      "residual_risks": [
+        "An unindexed signed equicorrelation or matrix-splitting result could cover the evaluated law. Classical Gauss–Seidel works invoked by Lee–Wright were considered through that discussion, not independently as whole primary texts. The bounded comparison is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algebraically related polynomial established; stated regime differs",
+          "evidence": "Defines c∈(0,1) as the off-diagonal correlation and obtains λ=1−q^n and q^(n−1)(q−1+c)=c.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07130v1",
+          "material_read": "§4.3, p. 17, Lemma 4.1 and (26)–(27), text offsets about 71064–75344; corresponding v2 §6, Lemma 6.1",
+          "method": "Lawful OA preprint PDF passages",
+          "title": "Worst-case Complexity of Cyclic Coordinate Descent: O(n²) Gap with Randomized Version",
+          "trigger": "Potential equivalent characteristic-root law"
+        },
+        {
+          "assessment": "Exact Gram family and sweep input are prior; rate statements checked do not cover the target",
+          "evidence": "A=δI+(1−δ)11^T, 0<δ<n/(n−1), and cyclic coordinate descent equals Gauss–Seidel.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.08320",
+          "material_read": "Eq. (1.17), PDF p. 5; sweep pp. 6–7 and 9–10; CCD estimates §2 pp. 11–12 and Theorem 3.3",
+          "method": "Lawful OA submitted paper",
+          "title": "Random permutations fix a worst case for cyclic coordinate descent",
+          "trigger": "The same Gram family and potential signed extension"
+        },
+        {
+          "assessment": "General factors and triangular representation, not the signed scalar evaluation",
+          "evidence": "Gives exact worst-case iterate-factor characterization and a matrix M via a lower-triangular inverse.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32034",
+          "material_read": "Theorem 1 p. 3, text offset about 12600; Lemma 1 p. 5, offset about 27350, and following discussion",
+          "method": "Lawful OA full paper, bounded passages",
+          "title": "Tight Convergence Bounds for the Classical Kaczmarz Method",
+          "trigger": "Main contemporary broadly applicable prior; frozen access gap"
+        },
+        {
+          "assessment": "Method overlap but mismatched spectral quantity and sign regime",
+          "evidence": "Normalized positive fixed coherence; fixed finite sweep counts with high-dimensional residual and energy-error limits.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+          "material_read": "RESULT.md finding, offset 0, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "A fixed-sweep Gauss–Seidel residual illusion for rank-one Gram systems",
+          "trigger": "Closest local rank-one Gram rate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–57 and 89–149",
+        "Sun–Ye positive-correlation rate context",
+        "Lee–Wright and Yu–Diakonikolas comparison passages"
+      ],
+      "rationale": "The near-simplex family is a natural symmetric approach to one-dimensional rank loss on which a cyclic projection rate can be resolved exactly. The sweep rate, including the dimension-uniform ratio of its gap to the Gram gap and the distinct small-coupling logarithmic law, is a substantive diagnostic unavailable from a generic norm estimate. The first correction also distinguishes the finite and limiting factors with a known sign. This is an exact invariant of this model, not a general algorithmic improvement.",
+      "residual_risks": [
+        "No claim of stability under arbitrary near-simplex perturbations or of sharp one-sweep Euclidean contraction is evaluated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

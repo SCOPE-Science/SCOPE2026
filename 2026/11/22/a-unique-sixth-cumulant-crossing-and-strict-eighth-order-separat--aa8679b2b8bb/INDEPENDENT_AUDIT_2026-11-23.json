@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:24.276794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both invariant laws give mean m and centered variance 2m^2. Their centered diffusivities f are stationary reversible Markov observables with conditional decay exp(-q lag); for OU this is the second Hermite eigenfunction. Thus the covariance is the stated exponential. At ordered triples, conditioning the two ends on the middle (using reversibility for the left end) gives exp(-q times the full span) E[f^3]. The skew moments are 8m^3 for squared OU and 2m^3 times (2/u-u) for the binary law. The ordered integral is 6J_q(t)>0 for t>0; the Gaussian-mixture conversion factor 6!/3!=120 gives the two stated sixth cumulants. Matching skew selects the unique u=sqrt(6)-2 in (0,1), since 2/u-u is strictly decreasing there. Conditional Gaussian Wick pairings depend on at most three integrated diffusivities through tracer total degree six (at most two through degree four); odd total degrees vanish. Matching diffusivity joint moments, not merely single-time cumulants, therefore proves the claimed multi-time equalities. Independently, for ordered gaps a,b,c the raw centered four-point moment equals exp(-q(a+c)) E[f_0^2 f_b^2]. For squared OU, f^2=2m^2+4mf+H_4(Y), with H_4(y)=y^4-6my^2+3m^2, variance 24m^4, orthogonal to f and decaying at 2q. For the two-state law, f^2=2m^2+m(2/u-u)f with no residual. At the matching u, raw four-point differences thus equal 24m^4 exp(-q(a+2b+c)); the covariance-pair corrections cancel. Integrating over all 24 orderings gives the strictly positive time-window difference. The dimensionless transform of H is 24/[s^2(s+1)^2(s+2)], independently checked symbolically along with H=z^4-4z^5/5+O(z^6). Scaling q and multiplying the integrated gap by 8!/4!=1680 gives the stated coefficient and dimensions. The rank-two joint covariance integration likewise gives the stated fourth cumulant. Conditioning is valid because the tracer noise is independent; the OU integrated-diffusivity MGF exists near zero by Jensen and the one-time Gaussian-square MGF (the two-state one is bounded on each finite window). The supplied generator-hierarchy code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reset-to-fresh diffusivity model gives exact all-order finite-time moments and includes the two-state chain by using two atoms with weights p_+,1-p_+ and refresh rate q. Sposini et al. give the squared-OU integrated-diffusivity MGF. Hidalgo-Soria et al. give occupation-time laws and a displacement mixture for strictly positive switching states."
+        ],
+        "reasoning": "These cover substantial forward ingredients, especially the full individual single-time branches, rather than an all-parameter comparison across them. They do not themselves enforce equality of general multi-time tracer moments through six or order the eighth cumulants for all positive windows. The latter requires a comparison of fourth connected correlations, here governed by the additional Hermite eigenmode.",
+        "searches": [
+          "arXiv:2501.13754v2, moments and two-atom specialization",
+          "arXiv:1911.11661, Sections 4–5",
+          "arXiv:2012.11265, two-state model and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary mirrors b41de1dff3bf, 56d3d976847e, 4bb3a4c40dbd and c69dc0d762a5",
+        "arXiv:1811.09531, 1911.11661, 2012.11265 and 2501.13754v2",
+        "Targeted web query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit two-state formula recovers its side of the sixth crossing by direct substitution; likewise Taylor coefficients of the OU transform supply its single-time cumulants. The earlier two-state identification scope excludes simultaneous increment laws. The previously verified 6/8-order result inside a confined model is not an inter-model equality theorem."
+        ],
+        "reasoning": "The scalar sixth crossing can be extracted by comparing known forward formulas. This part alone merits limited novelty. The substantive result is the combination with equality for arbitrary observation-time families and a strictly positive fourth connected diffusivity residual, whose sign survives integration at every positive window. This comparison is not mechanically implied by a single-time forward transform or by identification within one model family.",
+        "searches": [
+          "Resultary mirror b41de1dff3bf, opening formulas and scope",
+          "arXiv:1911.11661, Section 4 squared-OU integrated-diffusivity transform",
+          "arXiv:2501.13754v2, finite-time moment statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covariance-matched bath record c69dc0d762a5 uses Gaussian OU, telegraph noise and resetting Brownian noise as forcing baths; it compares ordered four-point signs and their persistence under positive filters. The confined-moment record 56d3d976847e reaches an order-6/8 distinction with symmetric switching among different parameter triples, not with these two unconfined diffusivities."
+        ],
+        "reasoning": "Equivalent ways to state the present crossing are matching third joint moments of the diffusivity or cancelling the integrated third cumulant at every time. The fourth connected diffusivity residual integrates to an eighth tracer cumulant. Filtered fourth-order bath signs and confined stationary single-time moments lack the Gaussian-variance-mixture order conversion and the same matched model pair.",
+        "searches": [
+          "Resultary: unique sixth cumulant crossing squared-OU positive two-state covariance-matched eighth cumulant gap",
+          "Resultary: covariance-matched squared Ornstein Uhlenbeck diffusivity two-state switching tracer sixth cumulant eighth order",
+          "Web: squared Ornstein Uhlenbeck two state switching diffusivity matched covariance sixth eighth displacement cumulants higher joint moments exact diffusing diffusivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror two-state tomography note b41de1dff3bf explicitly lists general two-state K2, K4 and K6; its K6=720 c t^3 G(qt) becomes the frozen switching formula using c=2m^3(2/u-u). The symmetric note 4bb3a4c40dbd gives exact K2, K4, K8 but has K6=0. The confined identification table is a different process."
+        ],
+        "reasoning": "Exact moment tables for the switching branch are prior results, including its sixth expression. The matched branch at sqrt(6)-2 is asymmetric with nonzero sixth cumulant. No inspected table covers the paired finite-time crossing and all-time eighth gap, let alone the multi-time equality at the crossing; a tabulation of the individual forward moments would still have to be compared.",
+        "searches": [
+          "Resultary: Four cumulant observations identify a two-state fluctuating diffusivity",
+          "Resultary: Sharp eighth-moment identification of hidden diffusivity switching and dissipation",
+          "Resultary mirror 4bb3a4c40dbd, exact symmetric switching cumulant formulas"
+        ]
+      },
+      "rationale": "Best of current knowledge: the exact cross-mechanism moment-matching boundary and uniform positive eighth-order gap are distinct. Exact forward transforms and two-state single-time cumulants are credited as prior coverage, as are generic Gaussian-mixture and Markov tools. The comparative classification is not a new individual forward formula, a treatment of all diffusing diffusivities, or a priority certification.",
+      "residual_risks": [
+        "General Markov moment-matching or stochastic-volatility literature and supplemental derivations beyond the inspected passages might contain an equivalent comparison.",
+        "No priority, inference from finite samples, or classification outside this model pair is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of individual switching cumulants through six, not the comparative joint theorem",
+          "evidence": "K2=2 mu t, K4=24 w t^2 F(lambda t), K6=720 c t^3 G(lambda t); recovery from four cumulant observations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-four-cumulant-observations-identify-a-two-state-fluctuating-diff--b41de1dff3bf",
+          "material_read": "Mirror RESULT.md, opening formulas, claim and scope",
+          "method": "Resultary query and bounded local mirror reading",
+          "title": "Four cumulant observations identify a two-state fluctuating diffusivity",
+          "trigger": "Same asymmetric positive two-state law, exact forward cumulants"
+        },
+        {
+          "assessment": "Order-of-distinguishability analogy; not equivalent model or observation law",
+          "evidence": "Harmonically confined model, symmetric two-state diffusivity, stationary one-time position moments and parameter triples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-eighth-moment-identification-of-hidden-diffusivity-switchi--56d3d976847e",
+          "material_read": "Mirror RESULT.md, Finding at offset 0",
+          "method": "Resultary lookup and bounded mirror inspection",
+          "title": "Sharp eighth-moment identification of hidden diffusivity switching and dissipation",
+          "trigger": "Sixth-order matching and identification at eighth order"
+        },
+        {
+          "assessment": "Unconfined but symmetric subfamily, not the crossing candidate",
+          "evidence": "Exact orders 2, 4, 8 and vanishing sixth cumulant, unlike the target matched asymmetric chain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-time-cumulant-tomography-of-a-symmetric-two-state-fluctua--4bb3a4c40dbd",
+          "material_read": "Mirror RESULT.md, Finding at offset 0",
+          "method": "Bounded local mirror reading of indexed result",
+          "title": "Single-time cumulant tomography of a symmetric two-state fluctuating diffusivity",
+          "trigger": "Exact eighth cumulant of a related switching tracer"
+        },
+        {
+          "assessment": "Substantive analogue, not matching positive variance mechanisms",
+          "evidence": "Opposite signs or zero for ordered connected correlations of those forcing baths; no tracer sixth crossing.",
+          "identifier_or_url": "c69dc0d762a5 (Resultary, 2026/11/8)",
+          "material_read": "Mirror RESULT.md, Finding at offset 0",
+          "method": "Bounded local mirror reading of indexed result",
+          "title": "Four-time sign fingerprints of covariance-matched resetting, Gaussian and telegraph baths",
+          "trigger": "Common time covariance and sign separation at higher connected order"
+        },
+        {
+          "assessment": "Different paired models and kurtosis comparison",
+          "evidence": "Generalized-grey Brownian versus continuous diffusing diffusivity, short-time kurtosis agreement and long-time Gaussian kurtosis for the continuous model.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.09531",
+          "material_read": "Section 5.4, pp. 16–17, PDF offset about 44750",
+          "method": "OA original, literal kurtosis query and bounded page reading",
+          "title": "Random diffusivity from stochastic equations: comparison of two models for Brownian yet non-Gaussian diffusion",
+          "trigger": "Prior model comparison using matched low-order statistics"
+        },
+        {
+          "assessment": "Covers the squared-OU integrated-diffusivity transform and a different jump mechanism",
+          "evidence": "Section 5 resamples independent diffusivities on regular discrete intervals rather than the chain with exponential jump times.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.11661",
+          "material_read": "Section 4 p. 10 offset about 32350, Section 5 pp. 11–12 offset about 37850",
+          "method": "OA original, literal OU and jump-process lookups followed by bounded reading",
+          "title": "Universal spectral features of different classes of random-diffusivity processes",
+          "trigger": "Squared-OU forward law and alternative jump diffusivity"
+        },
+        {
+          "assessment": "Covers the switching forward representation, not the covariance-matched OU comparison",
+          "evidence": "Positive-D-minus Gaussian displacement mixture based on occupation law with general waiting distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.11265",
+          "material_read": "Two-state occupation law, pp. 5–6 offset about 9000; Appendix A, pp. 28–29 offset about 73950",
+          "method": "OA original, literal queries and bounded page reading",
+          "title": "Cusp of non-Gaussian density of particles for a diffusing diffusivity model",
+          "trigger": "Earlier analytic displacement mixture for positive two-state diffusivity"
+        },
+        {
+          "assessment": "Directly covers forward moments of the two-state process by specialization",
+          "evidence": "Refresh-at-Poisson-time model gives general finite-time moments; two atoms and refresh rate q reproduce exit rates q times the other atom's weight.",
+          "identifier_or_url": "https://arxiv.org/html/2501.13754v2",
+          "material_read": "Main text on exact moments and two atoms, HTML offsets about 650 and 7900; supplemental sections not separately read",
+          "method": "OA original, literal moments query and bounded reading",
+          "title": "Large Deviations in Switching Diffusion: from Free Cumulants to Dynamical Transitions",
+          "trigger": "Broader exact all-order time-dependent switching moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean and covariance matching alone often obstruct identification of random environments. Here even all multi-time statistics of polynomial degree at most six fail to distinguish two qualitatively different stationary mechanisms at a unique parameter, while one eighth cumulant succeeds at every positive window. The time-uniform sign and explicit residual mode show why the separation holds and identify the first distinguishing even order. This is a motivated identifiability boundary, not just a numerical comparison of forward moments or a promise of robust estimation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

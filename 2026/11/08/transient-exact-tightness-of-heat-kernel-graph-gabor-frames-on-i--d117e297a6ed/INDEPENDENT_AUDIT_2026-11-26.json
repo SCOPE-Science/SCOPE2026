@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:14:18.011735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–84 and accompanying verification notes",
+        "/workspace/branches/e5430b80-1648-44df-b296-168b9a83cb3c/reproduce_heat_frame.py"
+      ],
+      "rationale": "With the specified unscaled atoms, Parseval on the entire modulation basis, followed by summing over heat-window centers, gives S=diag(exp(-2tL)_{vv}). Degree distinguishes the two vertex orbits (13k-1 and 12k-1); clique permutations give transitivity within each group. The orthogonal decomposition into constants, component-constant contrasts within A and B, within-clique zero sums in A and B, and the A/B contrast has Laplacian eigenvalues 0,8k,10k,13k,12k,18k with multiplicities 1,1,3,10k-2,8k-4,1. The within-group contrast weights are their ranks divided by group sizes; the final contrast has weights (8k)/(10k*18k) and (10k)/(8k*18k). This gives both heat diagonals and all optimal bounds in the stated squared-norm inequality. Both diagonals are one at t=0 and strictly positive at all finite times. Subtraction yields x^8(1-x)Q_k(x)/(40k) at x=exp(-2kt); the stated substitution y=x/(1-x) and multiplication by (1+y)^9 give the displayed polynomial. At k=1 the coefficients through y^5 are positive, and from y^6 onward negative. At k>=2 the coefficients from y^5 onward are negative and only the preceding y^4 coefficient can change sign or vanish. In every case there is one sign change and the polynomial goes from positive to negative, so by Descartes there is exactly one positive simple y-root. Q_k(0)=4 and Q_k(1)=-40k set the crossing direction because x decreases with t. For fixed 0<epsilon<1, P_k(epsilon) goes to minus infinity; the unique root lies below epsilon for large k. Rearrangement gives 40k x_k^4(1-x_k)=4+O(x_k^2), yielding both asymptotics. Independent symbolic checks and direct matrix/atom checks at k=1,2 agreed; bisection gave t_1=0.34663861547152 and a common bound about 0.05604343479159354.",
+      "residual_risks": [
+        "The direct matrix checks are finite and numerical; the projector and polynomial arguments prove the unrestricted claim. The common limit at infinite time is not a finite tightness time. Different atom or Laplacian conventions can change the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buck–Okoudjou give the full diagonal criterion and prove all-time tightness on vertex-transitive and strongly regular graphs.",
+          "Horton–Kloster–Sullivan also consider functions f(beta A) and collisions among adjacency walk classes, retaining the adjacency operator."
+        ],
+        "reasoning": "The diagonal criterion applies here but does not establish an exceptional root. The earlier sufficient graph hypotheses exclude the irregular family, and generalizing the function of A does not by itself put a noncommuting degree matrix into that operator.",
+        "searches": [
+          "arXiv:2402.15902 Theorems 3.1–3.2 and 4.2–4.3",
+          "arXiv:1804.05966 introduction, offsets 2450–7550"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d117e297a6ed and 945862e75bb1",
+        "arXiv:2402.15902 Theorems 3.1–3.2 and 4.2–4.3",
+        "arXiv:1804.05966 introduction",
+        "arXiv:cond-mat/0504730 pp. 6–7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior graph-frame criterion reduces the problem to equality of heat diagonals, while the inspected sufficient cases achieve it identically in time.",
+          "Adjacency walk entropy and cyclic two-channel optimization solve different equations under different operators or bases."
+        ],
+        "reasoning": "Here unequal degree gives the initial ordering from the derivative at t=0, and the lowest nonconstant eigenvalue supported on A gives the reverse ordering for large t. Those two signs alone do not imply exactly one crossing. The join-specific spectral projector weights and the one-sign-change calculation establish uniqueness, scale and ordering; they are not direct evaluations of any of the inspected prior results.",
+        "searches": [
+          "arXiv:2402.15902 Theorems 3.1–3.2 and 4.2–4.3",
+          "arXiv:1804.05966 introduction",
+          "Resultary 945862e75bb1 Finding and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buck–Okoudjou's full modulation convention equates tightness to a constant diagonal of exp(-2tL), equivalently equal continuous-time heat return values.",
+          "Horton–Kloster–Sullivan explicitly define their exceptional entropic values using exp(beta A) for the adjacency matrix A. Their introduction discusses infinite families and values accumulating at zero for that statistic.",
+          "Estrada–Rodríguez-Velázquez, pp. 6–7, likewise define subgraph centrality through exp(A)."
+        ],
+        "reasoning": "Uniform exp(-2tL) diagonals at one time under this convention are genuinely equivalent to the tightness claim. The analogous adjacency equality coincides up to a scalar on regular graphs, but the degree matrix is not scalar here and does not commute with adjacency on edges between the two degrees. Exceptional adjacency-centrality values are therefore a meaningful analogue, not a rewording or specialization proving this crossing.",
+        "searches": [
+          "Resultary meaning search for transient exact heat-kernel graph-Gabor tightness on irregular clique joins",
+          "graph Laplacian entropic graphs heat kernel equal diagonal irregular graph return probability exceptional time",
+          "Subgraph centrality and walk-regularity open preprint",
+          "arXiv:1804.05966 introduction pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d117e297a6ed is the target itself: same graph, spectral values, root, crossing direction and t_1.",
+          "Distinct record 945862e75bb1 concerns a cyclic heat window optimized over two modulation channels, not the full graph Fourier basis on an irregular join."
+        ],
+        "reasoning": "The exact entry is not independent coverage. The cyclic result even has optimal condition number greater than one for even N>=4 in its two-channel problem, with all-time equality at N=2; it does not give this time-specific equality or polynomial.",
+        "searches": [
+          "Resultary meaning search for irregular Laplacian heat-frame equality, isolated tightness time and the two-orbit clique join"
+        ]
+      },
+      "rationale": "The distinct supported claim is the single isolated positive tightness time and crossing law for these irregular combinatorial-Laplacian clique joins, not the diagonal frame-operator criterion or the broad concept of uniform matrix-exponential diagonal at special parameters. The most relevant inspected earlier results treat all-time tightness within different graph classes or exponential adjacency centrality rather than this Laplacian heat law.",
+      "residual_risks": [
+        "The comparison with the entropic-graph paper is to its stated definitions and results overview, not an exclusion of every result in the paper.",
+        "An implicit earlier result in the literature on Laplacian heat returns or diagonal centrality may exist; the bounded search does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same finding",
+          "evidence": "Same graph, two spectral values, exceptional root and crossing law.",
+          "identifier_or_url": "2026/11/8/SCOPE-transient-exact-tightness-of-heat-kernel-graph-gabor-frames-on-i--d117e297a6ed",
+          "material_read": "Mirrored RESULT.md Finding at offset 418 and bound Finding",
+          "method": "Configured Resultary search and local mirror reader",
+          "title": "Transient exact tightness of heat-kernel graph Gabor frames on irregular clique joins",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different graph family and modulation problem",
+          "evidence": "All cyclic translations but only two optimized modulation channels, not heat-diagonal equality with complete modulation on the irregular join.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-antipodal-two-channel-fourier-frame-optimality-and-sharp-cyclic-heat-bounds--945862e75bb1",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and Proof §1, offsets 0–4999",
+          "method": "Configured Resultary search and local mirror reader",
+          "title": "Universal antipodal two-channel Fourier frame optimality and sharp cyclic heat bounds",
+          "trigger": "Closest distinct catalog result on exact heat-window frame optimization"
+        },
+        {
+          "assessment": "Covers general criterion and all-time sufficient classes",
+          "evidence": "Diagonal squared heat-column norms; all-time tightness for vertex-transitive or strongly regular graphs, not the irregular join's isolated root.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15902",
+          "material_read": "Definition p. 5, offset 22500; Theorems 3.1–3.2 pp. 5–6, offsets 25338–31764; Theorems 4.2–4.3 pp. 9–10, offsets 43495–49487",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Tight Frames Generated by a Graph Short-Time Fourier Transform",
+          "trigger": "Same unscaled graph heat atoms and tightness criterion"
+        },
+        {
+          "assessment": "Strong analogue but different operator",
+          "evidence": "Defines exp(beta A) diagonal uniformity, including isolated witnessing parameters in non-walk-regular graphs and families; the inspected generalization still concerns f(beta A).",
+          "identifier_or_url": "https://arxiv.org/abs/1804.05966",
+          "material_read": "Primary introduction pp. 1–3, offsets 2450–7550",
+          "method": "After publisher access failed, used a lawful open preprint and read the bounded definition and results overview",
+          "title": "Subgraph centrality and walk-regularity",
+          "trigger": "Exceptionally uniform exponential diagonals and families of entropic parameters"
+        },
+        {
+          "assessment": "Adjacency-based centrality, different from the heat return on an irregular graph",
+          "evidence": "Its sum of closed-walk counts with factorial weights is the diagonal of exp(A).",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0504730",
+          "material_read": "pp. 6–7, offsets 8308–13216",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Subgraph Centrality in Complex Networks",
+          "trigger": "Potential alias for graph heat-return centrality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and single-crossing proof",
+        "arXiv:2402.15902 Theorems 3.1–3.2 and 4.2–4.3"
+      ],
+      "rationale": "The natural question is whether the heat-window frame can be exactly tight at an isolated positive scale even when equality at every scale is ruled out by unequal degrees. This explicit irregular family realizes that boundary case with unmodified atoms. Its exact uniqueness, direction of the exchange of the sharp bounds, and scale as the family grows specify when heat returns (and thus the frame bounds) actually coincide, going beyond an existence-by-continuity example or numerical near-tightness.",
+      "residual_risks": [
+        "Not a minimal-order claim or classification of all transiently tight graphs; no assertion of robustness under changes to the graph or heat-window convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

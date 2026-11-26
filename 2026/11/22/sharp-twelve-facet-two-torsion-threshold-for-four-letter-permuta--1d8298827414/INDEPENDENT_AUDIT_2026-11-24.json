@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:49:01.659412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, especially lines 33–72; VERIFICATION.md; verify_threshold.py; certificate_output.txt (inspected only)",
+        "Govc, arXiv:2611.11362, p. 1, Theorem 1",
+        "Independent replay: python3 audit-evidence/permutation-top-boundary.py",
+        "Additional H1 mask audit: python3 audit-evidence/permutation-lower-boundary.py"
+      ],
+      "rationale": "The signed deletion matrix uses ordered triples and distinct permutation columns. Govc's freeness theorem makes H1 torsion-free; by universal coefficients the difference in degree-two Betti numbers over F2 and Q is the top-boundary rank gap. Independently, after relabeling to contain 0123, contract its forward-edge tree and eliminate remaining forward edges with the increasing triangles. Each nonincreasing triple abc then gives the relation e_bc-e_ac+e_ab on the six backward-edge generators, with forward edges zero. Iterative OR-union of the nonincreasing triple masks of the other 23 facets gives 24,469 attainable sets of relations; exact integer-scaled elimination and binary elimination give the same rank in every case (rank histogram from 0 to 6: 1,3,13,96,366,2534,21456). Thus even without Govc there is no two-primary H1 torsion here; H0 and H3 cannot contain torsion. The empty generator set is harmless. Any top rank gap forces a binary dependence within a rational column basis, hence a rationally independent support of a nonzero binary-kernel vector. Independent code found rank 15, nullity 9, and 52 rationally independent supports among the 369 nonzero kernel supports of weight at most 12, all of weight 12 and all of binary rank 11. This proves both directions of the minimum-set census. It reproduced the five relabel/reversal orbits and all displayed representatives, full ordered two-skeletons, and Smith diagonals 1^11,2. For the full two-skeleton, contracting the three edges 1→a lets the triangles 1ab kill every edge between nonroot vertices, then a1b kills each a→1. The skeleton is simply connected and has H2 of rank 15 by Euler characteristic; Hurewicz and Whitehead give a wedge of fifteen S². The cycle lattice is primitive, so the same Smith diagonal classifies the twelve attaching classes in π2. Unimodular changes in domain and target are realized by sphere-wedge homotopy equivalences; the cofiber splits into eleven contractible summands, the degree-two Moore space, and three S² summands. The two-primary threshold, rather than an all-prime threshold, is what is proved.",
+      "residual_risks": [
+        "Exact finite enumeration for the four-letter case only; no claim of Lean verification, general alphabet bounds, or exclusion of odd-primary torsion at smaller sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Govc establishes free fundamental groups of permutation complexes; the alternating-word result treats A4 and A5, not arbitrary selections from S4."
+        ],
+        "reasoning": "Neither broader alphabet coverage under parity selection nor general freeness in degree one controls the needed top-boundary ranks for arbitrary selections.",
+        "searches": [
+          "arXiv:2611.11362, Theorem 1",
+          "Resultary e61a258467d9, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.11362 Theorem 1",
+        "Resultary e61a258467d9 Finding",
+        "Frozen RESULT.md prior-work discussion, lines 80–84, distinguished from fresh comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Freeness enables the rank-gap test; A4 gives the matching upper bound and its own homology."
+        ],
+        "reasoning": "The absence of smaller rationally independent binary supports and the integer attachment data for all distinct minimum orbits require additional evidence; they do not follow from either prior statement.",
+        "searches": [
+          "arXiv:2611.11362, p. 1 Theorem 1",
+          "Resultary e61a258467d9, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A4 has twelve generators and Z/2 in H2, i.e. one rational-versus-binary rank-gap example; the lower-bound formulation asks for absence of a rank gap on all sets of at most eleven."
+        ],
+        "reasoning": "One parity-selected example cannot imply minimality or describe the rank-drop supports for all generator masks.",
+        "searches": [
+          "Local Resultary comparison against the twelve-facet full-permutation two-primary threshold and minimal-support census",
+          "Resultary record e61a258467d9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching threshold/census hit was this same record; the strongest distinct record located supplies the homology of the alternating case only, not a census of 52 masks or five orbits."
+        ],
+        "reasoning": "The prior A4 entry accounts for a concrete minimum example, not an independently indexed table of the claimed classification.",
+        "searches": [
+          "Local Resultary search for the four-letter two-torsion threshold and minimum-facet classification"
+        ]
+      },
+      "rationale": "Verified prior coverage of the twelve-facet A4 upper bound and general freeness; no inspected source covers the lower bound over arbitrary generator subsets, the complete minimum census and orbits, or the common homotopy type of every minimizer. The indexed copy of the assigned record is the same work, not another source.",
+      "residual_risks": [
+        "Bounded literature/index coverage cannot exclude an older unindexed equivalent finite census; precedence is not inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the freeness premise, not the threshold or any top-boundary census.",
+          "evidence": [
+            "Theorem 1: π1 of a permutation complex is free."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.11362",
+          "material_read": "OA PDF p. 1, Theorem 1 (OA offset approximately 3150)",
+          "method": "Targeted lawful OA full-text passage",
+          "title": "Fundamental Groups of Permutation Complexes",
+          "trigger": "General theorem used in the torsion detector; possible broader implication"
+        },
+        {
+          "assessment": "Directly covers twelve-facet existence and the integral homology of this example; not the general minimum or orbit/homotopy classification.",
+          "evidence": [
+            "The stated H̃2(X(A4);Z) is Z³⊕Z/2, and its other reduced homology vanishes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-integral-two-torsion-in-alternating-permutation-word-complexes-o--e61a258467d9/RESULT.md",
+          "material_read": "Finding (OA offset 250), local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored source passage",
+          "title": "Integral two-torsion in alternating-permutation word complexes on four and five letters",
+          "trigger": "Same alphabet, facet count and torsion prime for the A4 example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Prior A4 example, Resultary e61a258467d9"
+      ],
+      "rationale": "Facet count is intrinsic to these small complexes. The transition from an example to an exact obstruction and complete equality classification is a useful benchmark for torsion in ordered-word complexes. The integral homotopy upgrade, common to five distinct generator orbits, says more than a table of modular ranks.",
+      "residual_risks": [
+        "Value lies in the sharp threshold and full minimum classification, not in rediscovering A4 or inferring a general torsion law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:05:31.865686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A>0 the second update excludes a fixed point and forces x'=-x for a two-cycle, with x nonzero. Choose x=u>0 and y=z-u/2. Adding and subtracting the first-coordinate closure equations gives z²+u²/4=1-1/B and A cos u=Bu²z. No solution is possible for B<=1; for 1<B<=4/3 the bound 2R<=1 keeps cos positive and z strictly positive, excluding endpoints and giving a bijection. The rescaled logarithmic second derivative is strictly negative by the separate estimates on t²<=1/2 and t²>=1/2; endpoint vanishing gives exactly the two/one/zero census. I reconstructed the Jacobian product: with c=Bu², trace=2-2c-S² and determinant=(1-c)²-H²; P(1) has sign opposite to G'_B. In the stated weak-gain stability range 1<B<=9/8, c<=1/2, H<1/2, and S<1/4. These imply positive determinant below one and P(-1)>0; the rising branch has one root in (0,1) and one above one, and Schur's inequalities give a sink on the falling branch. The bound 0<d<1 at equality is read within the same explicit stability subregion, as in the proof and scope, not throughout the counting region: for B=4/3, the fold relation already gives c>=8/9 and d=trace-1<0. For fold nondegeneracy one can take e=x'+u=y''-y as one residual and subtract a smooth multiple of e from the other to replace x' by -u. Their sum and difference then give the two scalar equations above via invertible row operations. Since z>0 one eliminates z, with the remaining equation having nonzero A derivative and nonzero u second derivative at the maximum; the unit multiplier is simple. Finally the interior maximizer continues by the implicit function theorem from t=√(2/3) and is the unique maximum by strict concavity. Expansion of B R³ and sec(2Rt) gives the relative coefficient 2(2/3)-1/2=5/6. The uploaded script was inspected, not executed; the proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former covers the two/one/zero count for 1<beta<=2, hence dominates the 4/3 count domain, but states no stability classification.",
+          "The latter proves a sharp barrier at beta=3/2 for some forcing, with an attracting cycle only asserted for sufficiently small forcing below the barrier. It excludes attractions for every forcing above the barrier."
+        ],
+        "reasoning": "A small-forcing existence result with a wider gain domain does not establish which branch is stable for every 0<A<A*(B) in the weak-gain domain or at all weak-gain folds. The widened census and stability barrier have different quantifier coverage.",
+        "searches": [
+          "Resultary 2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02",
+          "Resultary 2026/11/22/SCOPE-the-sharp-three-halves-two-cycle-stability-barrier-in-a-cosine-m--1f73da1ae4b9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "DOI:10.3390/math11061319",
+        "Resultary 3b64e28eaf02 and 1f73da1ae4b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader census implies the exact weak-region count and leading onset. Its scalar fold formula also enables a further Taylor calculation of the next coefficient, so that coefficient is a modest refinement.",
+          "The stability threshold record determines whether there exists some forcing with a sink; it does not order the two branches by full subcritical stability or identify their weak-gain transverse fold multiplier."
+        ],
+        "reasoning": "Pass is supported by exact branchwise stability over a forcing interval together with the fold expansion, not by counting the already-matching scalar census as distinct from its later-path analogue. No chronological priority follows from catalogue paths.",
+        "searches": [
+          "FPFM1 original paper §§2–3",
+          "Resultary 3b64e28eaf02, Finding and proof",
+          "Resultary 1f73da1ae4b9, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper's Eqs. (4)–(5) give the same map after identifying a_1=A and a_2=B. Its no-fixed-point claim cannot count primitive two-cycles.",
+          "The mirrored Nov. 1 record 3b64e28eaf02 uses alpha,beta and gives the same reduced fold and onset exponent. The exact search did not find an independently matching primary result."
+        ],
+        "reasoning": "The map and scalar orbit-count statement in the mirror are identified by parameter renaming, not dismissed as a different system. The stability and second asymptotic term require separate comparison.",
+        "searches": [
+          "\"A cos x\" \"B(y^2-1)x\" period-two fixed point-free memristor map saddle sink fold",
+          "Resultary: FPFM1 and cosine quadratic memristor primitive two-cycle census",
+          "Almatroud–Pham Eq. (5), DOI:10.3390/math11061319"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 figures use numerical sweeps, including a_2 in [1.35,1.85]; they are not exact real-phase-space orbit catalogues.",
+          "The local Resultary census gives the exact leading coefficient 8/(3 sqrt(3)) but not the displayed next relative coefficient."
+        ],
+        "reasoning": "The exact orbit count in the later-path mirror is real overlap, whereas a bifurcation figure cannot certify an exhaustive count, a simultaneous threshold, or a second asymptotic coefficient.",
+        "searches": [
+          "Resultary exact cosine–memristor fold and three-halves onset records 3b64e28eaf02 and 1f73da1ae4b9",
+          "Mathematics 11 (2023) 1319, Figs. 4–5"
+        ]
+      },
+      "rationale": "The strongest exact census overlap is with a later-path Resultary record covering a wider count regime, not with the paper that introduced the map. The independent distinct content is the all-subcritical-forcing weak-gain saddle/sink classification and the second onset coefficient. The bounds and priority are assessed separately, and no novelty is assigned here to the map or to no fixed points.",
+      "residual_risks": [
+        "Later-path overlap does not settle actual chronology or lineage. An equivalently worded pre-existing branchwise stability calculation outside the inspected sources cannot be ruled out.",
+        "The narrow proved weak-gain range is not claimed optimal; the positive fold multiplier bound does not extend to all gains in the census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and no-fixed-point antecedent; numerical rather than exact period-two evidence in inspected material",
+          "evidence": [
+            "The first coordinate has cosine forcing and quadratic memristance; the second is y+x. The paper reports bifurcation diagrams and Lyapunov plots."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061319",
+          "material_read": "Publisher PDF pp. 3–5, Eqs. (4)–(5), §§2–3 and Figs. 4–5",
+          "method": "Lawful OA publisher PDF",
+          "title": "Building Fixed Point-Free Maps with Memristor",
+          "trigger": "Exact map introduced as FPFM1"
+        },
+        {
+          "assessment": "Material exact count and leading-onset overlap, broader gain range, later path date",
+          "evidence": [
+            "Two/one/zero census on 1<beta<=2 and nondegenerate fold; no stability assertion."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02",
+          "material_read": "RESULT.md offsets 0–4937 and 5200–7788",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-cycle fold and a three-halves onset law for a fixed-point-free map",
+          "trigger": "Same map, scalar fold and leading coefficient"
+        },
+        {
+          "assessment": "Partial stability overlap, not an all-forcing saddle/sink census for weak gains",
+          "evidence": [
+            "No sink at any forcing for 3/2<=beta<=2; a sink at sufficiently small forcing for each 1<beta<3/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-halves-two-cycle-stability-barrier-in-a-cosine-m--1f73da1ae4b9",
+          "material_read": "RESULT.md Finding and comparison, offsets 0–1993 and 7800–9400",
+          "method": "Local Resultary mirror",
+          "title": "The sharp three-halves two-cycle stability barrier in a cosine–memristor map",
+          "trigger": "Same fold and stability multipliers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a specific published fixed-point-free model, the result isolates a complete real primitive two-cycle birth mechanism near the natural gain threshold and answers which branch attracts for all subcritical amplitudes in a proved weak-gain range. This is stronger than visualization, the lack of fixed points, or an isolated small-forcing sink; the second onset coefficient also quantifies the location of the fold beyond its leading singular scaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

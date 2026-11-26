@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:40:48.218944Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4; VERIFICATION.md; CHECK.py; TAIL_CHECK.py; review-evidence/independent_checks.py (first_binding)"
+      ],
+      "rationale": "For the density-based conditioning at t>0, the marked-batch intensity for a designated binder of age u carries weight z rho(u) psi'(w(u)+z ell(u)). Its independent background contributes the Poisson generating functional; at z=1 the age integral is 1-psi(q(t)). The binder accounts for the extra one in the mean. Monotone differentiation from below is valid even with infinite second moment: the possibly singular integral is bounded by mu-psi'(q(t)), by changing variables from age to binding probability. Uniform convergence of the short-age marks then gives the normalized pgf psi'(z)/mu and reduces the mean to the difference quotient of psi'. If J=1 almost surely, the triggering-batch sibling term vanishes identically. For the tail exponent between one and two, the rescaled sum has integrable bounds proportional to x^(-alpha) min(x,1), and integration by parts gives Gamma(2-alpha)/(alpha-1). At alpha=2, truncating at j=floor(1/F) and replacing 1-(1-F)^(j-1) by (j-1)F costs O(F) including the upper tail; the lower sum has leading c F log(1/F). The erfc asymptotic and the bounds exp(-dt)P(H<=t)<=F(t)<=P(H<=t) give the displayed constants. Finite ordinary mean follows by domination by total production. Inspected both frozen scripts without executing them. A separate finite check, python3 -B /workspace/review-evidence/independent_checks.py 2, passed 12 uniformized exponential-hitting generator comparisons; it does not attest to Brownian or infinite-tail limits.",
+      "residual_risks": [
+        "Density conditioning and exact regularity/moment hypotheses matter; numerical corroboration covers only a bounded exponential-hitting surrogate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv source handles general diffusion with bursts for survival and the population density; Resultary 6da71896305d extends the timing to dependent renewal burst/interval marks for a long-time survival exponent."
+        ],
+        "reasoning": "More general motion or production timing for a marginal does not cover its joint law with live traffic at the first hit.",
+        "searches": [
+          "arXiv:2611.04843v1 §§4.1, 6.1–6.3",
+          "Resultary: renewal bursts and mortal search first passage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.04843v1",
+        "Resultary 529a680dc770 and 6da71896305d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula reduces at z=1 to the known no-hit/arrival marginal; derivatives in z need the survivor marks absent there. The classical tagged-particle/size-bias mechanism gives the right weighting but is not the sharp three-regime theorem."
+        ],
+        "reasoning": "No verified stronger joint-law statement among the inspected sources supplied the conditional theorem by specialization.",
+        "searches": [
+          "arXiv:2611.04843v1 §§4.1, 6, Eqs. (38)–(44), (64)–(73)",
+          "Palm/concomitant and burst-size-bias comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 529a680dc770 Finding gives a joint arrival-mark/survivor-count limit for N co-released searchers under critical mortality tuning."
+        ],
+        "reasoning": "That count excludes the successful searcher; adding one resolves the convention, but does not yield Poisson immigration, random batch size or the fixed-model early-time heavy-tail limit.",
+        "searches": [
+          "Resultary: first-success arrival marks, live/survivor count and Poisson-batch early size bias",
+          "Primary literature: stochastic synthesis and degradation, burst first-passage and binding-conditioned live population"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strong related catalogue results 529a680dc770 and 6da71896305d are limits for different population/asymptotic models or marginals, as their Findings specify."
+        ],
+        "reasoning": "The object is a family of analytic conditional laws rather than a tabulated invariant. The catalogue comparisons do not supply the all-batch formula or the stated limiting constants.",
+        "searches": [
+          "Resultary catalogue: joint live count at binding; size-biased Poisson batch; Brownian power-tail crossover"
+        ]
+      },
+      "rationale": "Credit the same-model survival marginal, standard Palm weighting and regular-variation tools as prior. The checked sources do not cover the joint live count, its early size-biased limit in the stated batch immigration model, or its sharp Brownian mean crossover. Same-day related records are compared on their statements, not presumed later.",
+      "residual_risks": [
+        "General marked-point-process concomitant results or unindexed prior work could provide overlapping joint-law statements; no absolute priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the first-binding marginal and ordinary population quantities, not the checked joint binding-time count",
+          "evidence": [
+            "Eqs. (38)–(44) give marginal survival/first passage; Eqs. (64)–(73) extend the model to bursts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.04843",
+          "material_read": "v1 date; §4.1 pp. 12–13 and §§6.1–6.3 pp. 18–20",
+          "method": "OA primary PDF, bounded section inspection",
+          "title": "Stochastic synthesis and degradation of arbitrary diffusive processes",
+          "trigger": "Same stochastic model and explicit burst extension"
+        },
+        {
+          "assessment": "Material overlap in observable, not equivalent",
+          "evidence": [
+            "Simultaneous fixed-N release, scaled mortality, counts other survivors in a large-population limit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 529a680dc770",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Critical Poisson–Gaussian arrivals and logarithmic survivor fluctuations",
+          "trigger": "Joint first-success/survivor-count result"
+        },
+        {
+          "assessment": "Different observable and asymptotic regime",
+          "evidence": [
+            "The optimized quantity is the long-time no-reaction exponent under coupling, not population at the hit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 6da71896305d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp renewal burst–interval coupling for mortal diffusive first passage",
+          "trigger": "Similar batch-produced mortal transport"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Eqs. (1)–(5) and Brownian specialization"
+      ],
+      "rationale": "The actual population present at binding is distinct from ordinary occupancy or mean first-passage time. The finite-time integrability versus early-time divergence and the change from an essential singularity to an inverse-time law and then a finite limit identify exactly when marginal population averages are misleading for this observable.",
+      "residual_risks": [
+        "No experimental accessibility, robustness to interactions, or inference guarantees follow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:33:30.793330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–66",
+        "VERIFICATION.md:19–20",
+        "CHECKER.py:7–50 (inspected, not executed)",
+        "CHECKER_OUTPUT.txt:1–5 (recorded output)"
+      ],
+      "rationale": "Increasing paths of length three give exactly (abc,bcd,abg+adf+ecd) in positions (14,25,15); the higher three input entries contribute q³ freely. For (A,B)≠(0,0) one chooses b,c nonzero and solves uniquely for a,d; the last output is a nonzero linear functional with q² lifts. At A=B=0, there are H=q⁴−(q−1)²(q²−1) eligible quadruples. A nonzero last functional occurs in three disjoint cases: ad≠0 and bc=0, or ad=0 with ab≠0 (forcing d=c=0), or ad=0 with cd≠0 (forcing a=b=0). They give L=(q−1)²(2q+1) quadruples. A nonzero C has q⁵L lifts; at zero the count is q⁵[L+q(H−L)], as claimed. The counts are positive and strictly increasing in the stated order for q≥2, and with target multiplicities q(q²−1), q−1, 1 their sum is q¹⁰. In characteristic three the binomial identity holds since I commutes with X. The filtration 1+N₅^i bounds the lower central series in one direction by commutator degree, and elementary matrix commutators generate each permitted superdiagonal in the other; thus γ₃=1+N₅³.",
+      "residual_risks": [
+        "Fresh replay: loop over all ten strict upper entries at q=2, and the first two superdiagonals at q=3 and q=4, cube by literal matrix multiplication, and weight skipped entries by q³. All targets and totals agreed; the fibers ordered as zero, nonzero central, other were (672,160,32), (22113,6804,972), (246784,82944,9216), respectively. These are finite checks, not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "That Finding gives q^K times (q−1)^(m−1), (q−1)^(m−1)((m−1)q+1), or q^(m+2)−(q−1)^m(q²+mq+1) on the same target strata, for J=N_(m+2). It also gives identical group counts at prime-power exponents in characteristic p."
+        ],
+        "reasoning": "Substitute m=3, K=5. The last two factors expand exactly to 2q³−3q²+1 and 5q³−5q²+1. No stronger hypotheses are needed.",
+        "searches": [
+          "Resultary: near-top power fibers at arbitrary exponent in niltriangular algebras; f5d834a0af02"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:8–24,66–81",
+        "Resultary f5d834a0af02, 415af50377ac, 0240d15e6f42",
+        "arXiv:1905.04244v1, 1201.6513v1, 1506.02806v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalization gives the frozen zero probability from the same q¹⁰ domain. The stronger result explicitly calls m=3 recovery of an existing calculation. Sosnovsky studies verbal width; Menshov–Roman’kov study adjoining roots in a larger group."
+        ],
+        "reasoning": "All quantitative and qualitative consequences of the frozen statement follow mechanically from the exact indexed theorem. The older inspected literature offers context rather than the cause of FAIL.",
+        "searches": [
+          "f5d834a0af02, Finding and Relationship to prior work",
+          "arXiv:1201.6513v1",
+          "arXiv:1506.02806v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In characteristic three, X↦I+X identifies the cube fibers exactly; Theorem A and Proposition 3.4 of Dolfi–Singh–Yadav concern power images/classes and subgroup containment or equality."
+        ],
+        "reasoning": "The characteristic-three group reformulation adds no claim outside the broader theorem. The published image results alone are weaker than the exact root count.",
+        "searches": [
+          "Resultary: strictly upper-triangular N₅ cubic-power roots and prescribed target multiplicities",
+          "arXiv:1905.04244v1, p-power images of unitriangular groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Beyond the bound self-hit, f5d834a0af02 yields the full exact table by specialization. The rank-resolved full-matrix roots 415af50377ac omit the fixed flag, and 0240d15e6f42 is an image census for UT_(p+3), not a root census."
+        ],
+        "reasoning": "The distinct broader record provides all entries, not merely sample field values or a coincident matrix size.",
+        "searches": [
+          "Resultary: five-by-five cubic fibers, finite-field prescribed fixed-flag roots, first nonsurjective unitriangular power map"
+        ]
+      },
+      "rationale": "There is verified, exact coverage in the distinct indexed Near-top matrix-power fibers theorem. At exponent m=3 its domain, all three prescribed-target cases, positivity, support and characteristic-three group scope are identical. This is a coverage decision, not an assertion that the broader record was first or that either proof was copied. Both have the same publication date; the broader text describes m=3 as recovery of an existing calculation and does not claim it as new, but this does not establish publication order or independently identify that calculation's provenance.",
+      "residual_risks": [
+        "Publication priority and the direction of dependence between the two same-day records are not established. Bier's exact full-text scope remains unread; neither issue erases the directly verified exact table overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covering statement; chronology unresolved",
+          "evidence": "The m=3 specialization recovers an existing finite-field cubic-power fiber calculation for N₅(k); the broad theorem also gives the three group strata at m=p^t=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-near-top-matrix-power-fibers-and-concentration-in-niltriangular--f5d834a0af02/RESULT.md",
+          "material_read": "Finding, group paragraph and assumptions at offset 0; relationship to prior work at offsets 5950–8159; publication date in METADATA.json",
+          "method": "Resultary local mirror",
+          "title": "Near-top matrix-power fibers and concentration in niltriangular algebras",
+          "trigger": "Exact wider dimensions/exponents and target strata"
+        },
+        {
+          "assessment": "Related image/class results, not the prescribed fiber table",
+          "evidence": "The studied power images and subgroup containments do not assign the number of roots at an individual image.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.04244",
+          "material_read": "Abstract p. 1; Theorem A p. 2 offset 3850; Proposition 3.4 p. 7 offset 19000",
+          "method": "OA PDF bounded passages",
+          "title": "p-Power conjugacy classes in U(n,q) and T(n,q)",
+          "trigger": "Same unitriangular power map and surjective size range"
+        },
+        {
+          "assessment": "Width background",
+          "evidence": "The abstract concerns verbal-subgroup width, not prescribed root multiplicities.",
+          "identifier_or_url": "https://arxiv.org/html/1201.6513v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA HTML passage",
+          "title": "On the Width of Verbal Subgroups of the Groups of Triangular Matrices over a Field of Arbitrary Characteristic",
+          "trigger": "Triangular power-word background"
+        },
+        {
+          "assessment": "Different domain",
+          "evidence": "Roots are adjoined in a larger unitriangular group.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.02806",
+          "material_read": "Abstract p. 1",
+          "method": "OA PDF passage",
+          "title": "Adjunction of roots to unitriangular groups over prime finite fields",
+          "trigger": "Roots of elements in unitriangular groups"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "The alternate at https://www.academia.edu/88269862/The_Width_of_Verbal_Subgroups_in_the_Group_of_Unitriangular_Matrices_Over_a_Field returned 403 on both configured routes.",
+          "identifier_or_url": "doi:10.1142/S0218196712500191",
+          "material_read": "No full text; publisher and identified Academia transcription unavailable",
+          "method": "Lawful source retrieval including the alternate transcription",
+          "title": "The Width of Verbal Subgroups in the Group of Unitriangular Matrices Over a Field",
+          "trigger": "Natural p-power subgroup boundary and potential stronger results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–24",
+        "Resultary f5d834a0af02, Finding"
+      ],
+      "rationale": "The root census is mathematically meaningful at this natural cube-image boundary, and the proof is a convenient small worked case. As a standalone exact finding against the available corpus, however, it supplies no independent invariant or refinement beyond a direct parameter specialization of the broader census. The enhanced central fibers, zero probability and cube-word interpretation are all already obtained from it.",
+      "residual_risks": [
+        "This does not deny historical credit or pedagogical usefulness; the finding contains no separable new-value claim to repair without doing different research."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

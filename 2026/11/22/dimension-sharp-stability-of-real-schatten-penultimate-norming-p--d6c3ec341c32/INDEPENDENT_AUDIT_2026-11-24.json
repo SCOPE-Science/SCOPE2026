@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:11:15.547958Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–42 and 50–129",
+        "Frozen VERIFICATION.md, recorded finite diagnostic and status metadata",
+        "Frozen checker.py, lines 8–38 and 42–52 (inspected, not executed)"
+      ],
+      "rationale": "For every normalized X in the plane, the nuclear norm is at most N, so s_max <= 1+epsilon. Subtracting the other N−1 squares from N bounds each squared singular value below by 1−(N−1)(2epsilon+epsilon²). Thus both the Gram defect and distance to the polar factor are at most delta=3N epsilon. Apply this to A, B and (A+B)/sqrt(2) to obtain a cross-Gram defect at most 4delta. Moving to their polar factors U,V adds at most 6delta to the symmetrized defect, so the symmetric part H of W=U^T V has norm at most 5delta. The commuting skew part K has K^T K=I−H²; its polar factor J is skew and orthogonal, and is within 2||H|| of W. This proves 3 and 33 in spectral norm; the coefficient bound gives sqrt(1098)<34. At epsilon=0 the frame is exactly conformal; conversely every linear combination in such a plane has all singular values equal. For the block witness, the ratio of the small and large block singular values is minimized at the pure skew element, giving epsilon=t/(m−1) exactly. Every conformal target has zero singular-value spread, so the distance from the normalized skew element is at least half its spread, giving the stated lower bound. The strict comparison at proof line 108 is only strict when epsilon>0; it is equality at zero, and the theorem's non-strict bound is valid there. I inspected the checker; its finite angle grid and explicit block examples are diagnostics, not proof of the uniform estimates or of the exact supremum.",
+      "residual_risks": [
+        "Bounds concern a directed spectral-norm distance after Hilbert–Schmidt normalization. No symmetric Grassmannian bound, optimal leading constant, or other Schatten exponents are established here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prochno (arXiv:2611.08448, pp. 1–2 and p. 6) addresses scalar width bounds and states exact c_{N²}, the last Gelfand number.",
+          "The inspected asymptotic s-number statements provide bounds on optimal scalar restriction values, not a geometry of near-minimizing planes."
+        ],
+        "reasoning": "Neither last-index exactness nor estimates up to constants control an arbitrary nearly minimizing ordered frame, or show that its best distance bound costs N times the excess.",
+        "searches": [
+          "arXiv:2611.08448, OA Gelfand number and last index",
+          "arXiv:2011.06554, abstract",
+          "arXiv:2103.13050, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records fc1996e343be, 9d93319a3182, 5cfc577c963d",
+        "arXiv:2611.08448, 2011.06554, 2103.13050 (bounded materials indicated above)",
+        "Primary search on quantitative approximate Clifford relations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar parity law follows from optimizing a restriction, and cannot specify how perturbations of every ordered frame behave. The N=2 formula gives linear excess control in its own metric, at fixed N. The N=3 result concerns a different parity and is scalar."
+        ],
+        "reasoning": "Taking p=1 and q=infinity recovers the known baseline exactly, but none of those substitutions or implications yields the upper N dependence or rules it out being improved. The varying-order witness resolves that question.",
+        "searches": [
+          "Resultary: fc1996e343be Finding; 9d93319a3182 Finding and Relationship to prior work; 5cfc577c963d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The N=2 stability record (9d93319a3182, Finding) actually measures the norm of the difference of two Hilbert–Schmidt-space projectors, not directed spectral-norm distance on normalized matrices.",
+          "The primary search did not yield a matching quantitative theorem for a two-plane defined by trace-to-spectral excess; this is bounded discovery, not proof of absence."
+        ],
+        "reasoning": "A conformal frame may be expressed as a two-generator orthogonal design after left multiplication. Even a rounding lemma for an almost skew orthogonal factor would not by itself yield either the conversion from trace-to-spectral deficit or the sharp N loss. The two-by-two graph identity is a genuine precedent, not an equivalent norm or parameter range.",
+        "searches": [
+          "Resultary: near Clifford stability approximate anticommuting orthogonal matrices two-plane real Schatten extremizers",
+          "Primary search: quantitative stability of approximate Clifford relations almost anticommuting orthogonal matrices operator norm finite-dimensional near Clifford representations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parity record fc1996e343be tabulates the penultimate optimum; at (1,infinity) it already gives min R=1 for even N.",
+          "The distinct same-day record 5cfc577c963d gives exact real 3-by-3 scalar widths over the indicated exponents, not a stability table or all-even-order estimate."
+        ],
+        "reasoning": "Catalogued exact widths are credited. The invariant added here is a sharp order for distance of near-optimal planes, not an unlisted scalar width. The distinct same-day entry was compared on content without assuming priority.",
+        "searches": [
+          "Resultary: sharp dimension dependent stability near minimizing two-dimensional Schatten trace operator norm planes conformal real matrices",
+          "Resultary: same-day 2026 November 22 real Schatten near minimizer rigidity conformal plane Clifford stability"
+        ]
+      },
+      "rationale": "Pass for the quantitative even-order N≥4 frame and plane stability theorem, including matching order from the explicit family. Not a new Gelfand number or a claim of priority for the scalar optimum, orthogonal complex structures, or the structural ingredients. No inspected statement or implication covers the all-even-order uniform spectral-norm bound together with the matching dimension-dependent obstruction.",
+      "residual_risks": [
+        "An unlocated orthogonal-design or near-Clifford theorem formulated in the same deficit could change priority. The comparison is to the materials actually inspected; the bounded search does not establish exhaustive precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar minimum",
+          "evidence": "Penultimate value N^(1/q−1/p) for even N and (N−1)^(1/q−1/p) for odd N.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-parity-law-for-the-penultimate-gelfand-number-of-real-schatten--fc1996e343be",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary and local source mirror",
+          "title": "A parity law for the penultimate Gelfand number of real Schatten embeddings",
+          "trigger": "Cited exact baseline"
+        },
+        {
+          "assessment": "Exact fixed-N stability, different metric",
+          "evidence": "Projector distance rho/sqrt(1+rho²) for the graph-plane parametrization; endpoint excess rho on the nonsingular branch.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-grassmannian-landscape-and-endpoint-stability-for-real-two--9d93319a3182",
+          "material_read": "RESULT.md, Finding and prior-work passage at offsets 0 and 7000",
+          "method": "Resultary and local source mirror",
+          "title": "Exact Grassmannian landscape and endpoint stability for real two-by-two Schatten widths",
+          "trigger": "Closest stability precedent"
+        },
+        {
+          "assessment": "Different invariant and dimension",
+          "evidence": "Exact real N=3 scalar widths for 0<p≤1 and 2≤q≤infinity, with a traceless-symmetric first-transition witness.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-real-three-by-three-schatten-gelfand-spectrum-and-its-firs--5cfc577c963d",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary and local source mirror",
+          "title": "Exact real three-by-three Schatten Gelfand spectrum and its first transition",
+          "trigger": "Distinct same-day match on exact Schatten widths"
+        },
+        {
+          "assessment": "Inspected statements are scalar width results",
+          "evidence": "Last Gelfand number c_{N²}=N^(1/q−1/p); abstract describes quasi-Banach lower bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08448",
+          "material_read": "Abstract pp. 1–2 and p. 6 near offset 22450",
+          "method": "OA full-text passage inspection",
+          "title": "Gelfand numbers of Schatten class embeddings in the quasi-Banach range",
+          "trigger": "Broader primary width theorem"
+        },
+        {
+          "assessment": "Background estimates, not evidence about near-extremizers",
+          "evidence": "Asymptotically sharp Gelfand number estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.06554",
+          "material_read": "Abstract, p. 1, offset 600",
+          "method": "OA passage inspection",
+          "title": "Gelfand numbers of embeddings of Schatten classes",
+          "trigger": "General width estimates"
+        },
+        {
+          "assessment": "Background estimates, not evidence about near-extremizers",
+          "evidence": "Asymptotic s-number bounds up to exponent-dependent constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.13050",
+          "material_read": "Abstract, p. 1, offset 800",
+          "method": "OA passage inspection",
+          "title": "Approximation, Gelfand, and Kolmogorov numbers of Schatten class embeddings",
+          "trigger": "General s-number estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition of the normalized spectral-norm distance and the upper/lower estimates",
+        "Resultary records fc1996e343be and 9d93319a3182 for the baseline and fixed-size context"
+      ],
+      "rationale": "The exact width alone says nothing about how much singular-value imbalance can be hidden in nearly optimal two-planes. The uniform rounding theorem and the construction concentrating the loss on a single real skew block show that distance can be of order N times a very small deficit. This is a sharp stability modulus for a standard matrix-norm extremal problem, useful even without optimal constants.",
+      "residual_risks": [
+        "Use is limited to the stated endpoint, directed distance, and even real order; the order-optimality does not determine the leading coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

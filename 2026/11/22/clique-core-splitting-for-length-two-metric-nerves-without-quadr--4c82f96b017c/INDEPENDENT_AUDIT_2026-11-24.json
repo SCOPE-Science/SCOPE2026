@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:06:51.152982Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Assumptions and Proof, lines 18–34; VERIFICATION.md",
+        "checkers/verify_quadfree.py and checkers/verify_small_integral.py (read, not executed); recorded outputs in evidence/quadfree_mod2.txt and evidence/smith_examples.txt"
+      ],
+      "rationale": "The listed nondegenerate tuples exhaust the inclusive cutoff: each nondegenerate step uses at least one unit of length, and a backtrack is not a degeneracy. At cutoff two the oriented-edge pair for each underlying edge has two backtrack disks. Using one disk removes the reverse edge, and the other attaches by a nullhomotopic loop. Each directed distance-two shortcut is removed using its unique length-two disk, uniqueness following from no four-cycle. The remaining non-backtrack disks are precisely the six ordered triangle disks per triangle. One disk removes a triangle edge and the five remaining boundary loops become nullhomotopic. These are homotopy substitutions, not just boundary-matrix operations: at each step the chosen disk has a single boundary arc mapping to the eliminated edge and the rest stays in the retained one-skeleton; this pair retracts to the retained subcomplex before the other disks are attached along the induced loops. Replacing nullhomotopic attaching maps by constant maps gives spheres. Triangle edge sets are disjoint and alternate paths preserve connectivity on every removal. The same edge removal collapses each filled triangle in the clique complex; no larger clique exists. The remaining graph thus gives e−v+1−t circles and the ordered cells give e+5t spheres. In the single-vertex case both counts are zero. The triangle sharing an entire edge with the pentagon checks the noncactus qualification.",
+      "residual_risks": [
+        "The finite homology checks do not by themselves show homotopy type; it is the elimination of attaching loops that does. The homotopy splitting is not asserted natural or equivariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected length filtration literature gives constructions, normalized-chain comparisons, spectral sequences or interleavings, not a fixed-stage realization description with these triangular relators.",
+          "Resultary 1370e294b1e8 assumes cutoff at least three and girth greater than twice the cutoff; 16a8307afa4c is an interleaving-distance result for cactus enriched nerves."
+        ],
+        "reasoning": "Algebraic filtered-chain statements do not alone control the remaining attaching loops at scale two. Stronger girth assumptions exclude triangles rather than cover the new cases. Cactus interleavings do not determine a fixed-stage homotopy wedge for noncactus graphs.",
+        "searches": [
+          "Primary search: blurred magnitude homology graph length 2 homotopy total length simplicial set triangle girth enriched nerve wedge two spheres graph",
+          "Inspect Asao arXiv:2611.05972v1, Kuribayashi arXiv:2611.22433v1, Melodia arXiv:2608.21479, and Resultary 1370e294b1e8 and 16a8307afa4c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4c82f96b017c (identical), 0b4ce5b4173d, 1370e294b1e8, 16a8307afa4c",
+        "Otter arXiv:1807.01540v3; Ivanov–Xu §1.1; Melodia arXiv:2608.21479; Asao arXiv:2611.05972v1; Kuribayashi arXiv:2611.22433v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the triangle-free case every distance-two pair is a nonedge; the six ordered disks per triangle are absent.",
+          "Triangle–pentagon edge gluing is not a one-vertex wedge. The triangular attaching loop here kills a circle and five duplicate triangular loops survive as spheres."
+        ],
+        "reasoning": "Applying the prior girth-five theorem to the graph obtained by removing one edge per triangle cannot account for the changed ordered distance-two tuples and new triangular relators in the original graph. The local attaching-map argument plus edge-disjointness is a material additional step; a fixed-stage result for a cactus would also not prove it.",
+        "searches": [
+          "Compare Resultary 0b4ce5b4173d theorem to the frozen cell-cancellation proof, lines 24–34",
+          "Compare the cactus interleaving claim 16a8307afa4c with the edge-glued triangle–pentagon example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Otter, arXiv:1807.01540v3, §3, Definitions 11–12 (p. 8), and Ivanov–Xu, §1.1 (1.1)–(1.3), give the same ordered total-length construction at p=1 with inclusive cutoff.",
+          "The unordered clique/Rips and graph Čech results concern different simplices, without the directed backtrack pair."
+        ],
+        "reasoning": "Matching names do not count as equivalence. The ordered enriched nerve and inclusive l1 simplicial set match exactly, whereas unordered simplicial complexes do not realize the same ordered-cell data.",
+        "searches": [
+          "Resultary: Clique core splitting length two ordered enriched nerve graphs with triangles without quadrilaterals homotopy wedge e+5t; cactus ordered graph length two wedge",
+          "Primary search: quadrilateral-free graphs total length two enriched nerve length filtration l1 Vietoris Rips simplicial set homotopy wedge triangles magnitude Otter Ivanov Xu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4c82f96b017c is the assigned claim itself. The strongest distinct hit 0b4ce5b4173d gives exactly the triangle-free t=0 wedge and extra representation/persistence data within that restricted scope."
+        ],
+        "reasoning": "The t=0 wedge is credited even though it shares the same listing date. Neither that entry nor the broader comparisons give the full triangle count or the clique core in the presence of triangles.",
+        "searches": [
+          "Resultary exact title and 'e+5t' triangle correction",
+          "Primary exact stage query: enriched nerve metric graph length two homotopy magnitude path homology triangle square fundamental group l1 Vietoris Rips"
+        ]
+      },
+      "rationale": "The construction and triangle-free length-two wedge are already known. The supported distinct claim is the exact homotopy correction for all four-cycle-free graphs with triangles, including graphs whose triangular cycles share edges with longer cycles. The strongest distinct inspected sources do not imply this correction.",
+      "residual_risks": [
+        "The particular earlier one-point graph-wedge comparison mentioned without a precise citation in the frozen result was not independently identified. No historical priority inference is made from same-date entries or incomplete retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict special case, not the triangle correction",
+          "evidence": "For graphs with neither triangles nor four-cycles it gives |G| wedged with e spheres; it also describes signed edge homology and persistence on that domain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-girth-five-sphere-wedge-theorem-for-ordered-graph-length--0b4ce5b4173d",
+          "material_read": "Local RESULT.md theorem and graph hypotheses",
+          "method": "Resultary local mirror",
+          "title": "A sharp girth-five sphere-wedge theorem for ordered graph length nerves",
+          "trigger": "Identical construction and t=0 homotopy formula"
+        },
+        {
+          "assessment": "Same construction; the cited passage does not imply the graph decomposition",
+          "evidence": "Ordered tuple admission is by the sum of consecutive distances, and the homology theory concerns this filtration.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.01540",
+          "material_read": "ArXiv v3 §3, Definitions 11–12, PDF p. 8, offset 21131",
+          "method": "OA arXiv full-text passage; repository accepted manuscript link unavailable",
+          "title": "Magnitude meets persistence: Homology theories for filtered simplicial sets",
+          "trigger": "Original enriched nerve and blurred magnitude framework"
+        },
+        {
+          "assessment": "Equivalent inclusive simplicial-set definition, not a triangle-count theorem",
+          "evidence": "At p=1 the tuple weight is total consecutive distance; inclusive sublevel variant is stated separately from the strict one.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-026-00247-x",
+          "material_read": "§1.1, equations (1.1)–(1.3), PDF pp. 3–4, offset 8000",
+          "method": "OA paper passage",
+          "title": "On ℓp-Vietoris–Rips complexes",
+          "trigger": "Equivalent l1 formulation and potential general homotopy result"
+        },
+        {
+          "assessment": "Chain-filtration comparison, not the asserted realization classification",
+          "evidence": "Defines the length-sublevel nerve and identifies its associated graded normalized chains with magnitude homology.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21479",
+          "material_read": "v1 §4, equation (4.3), p. 7, offset 23701; v2 retitled",
+          "method": "OA arXiv PDF passage",
+          "title": "Magnitude Homology Is the Associated Graded of the Length Filtration",
+          "trigger": "Plausible overlap on the same length filtration"
+        },
+        {
+          "assessment": "Different invariant; no fixed length-two clique splitting shown",
+          "evidence": "Compares the filtration to a point by an interleaving threshold, and assumes a cactus.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-pentagon-threshold-for-the-homotopy-interleaving-distanc--16a8307afa4c",
+          "material_read": "Local finding on the cactus distance to a point",
+          "method": "Resultary local mirror and indexed lookup",
+          "title": "A sharp pentagon threshold for the homotopy interleaving distance of cactus enriched nerves",
+          "trigger": "Potential broader or duplicate cactus comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and C4 boundary example",
+        "Strongest distinct girth-five Resultary theorem 0b4ce5b4173d"
+      ],
+      "rationale": "This is an explicit integral homotopy type at a natural early filtration stage, not an Euler characteristic or a table of examples. The theorem separates the graph clique core from the spheres contributed by the ordered cells, and isolates the effect of both triangles and the four-cycle obstruction. It covers arbitrary cycle overlap with longer cycles and is not restricted to one-point gluing.",
+      "residual_risks": [
+        "No natural splitting, group action, or persistent map classification is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

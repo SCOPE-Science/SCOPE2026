@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:52:34.419544Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired tail claim, independently checked all three integrated Lagrange denominators and numerator F; L is the exact dual sup-norm amplification. On p,r<delta the positive numerators make only the middle weight negative and yield 1+2F/(pr). The product sublevel area is epsilon(1+log(delta^2/epsilon)); using g±delta with x-domains [0,1-2delta] and [0,1] gives matching scaled bounds after delta tends to zero. A fixed positive lower bound on one spacing leaves an O_delta(1/t) tail. The coefficient is 12 integral g=2 and layer cake gives the moment cutoff including divergence at q=1. The frozen sign integrations were also verified directly; their omission is for overlap, not error. Frozen verification and script inspected, not executed. The bounded area argument, not finite checks, establishes the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "03159ea86990 addresses all n≥2 and arbitrary target second moment q∈(0,1), but explicitly excludes the distribution and conditioning of weights.",
+          "c46807d7872b Finding states an all-m feasibility probability and a large-m failure asymptotic, not a large-amplification threshold at fixed m.",
+          "arXiv:1809.09842 abstract describes selecting a positive rule from samples by a Vandermonde-null-space construction."
+        ],
+        "reasoning": "A stronger positivity/feasibility result does cover the removed sign facts; neither feasibility nor adaptive positive-weight selection controls the high tail of the fixed unmodified signed rule.",
+        "searches": [
+          "Resultary 03159ea86990",
+          "Resultary c46807d7872b",
+          "arXiv:1809.09842"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md sections 1–3; VERIFICATION.md and verify.py; Resultary 03159ea86990, c46807d7872b, 31e79eafd4fb; arXiv:1809.09842 abstract; recorded focused primary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "03159ea86990 gives outer and inner finite-n densities proportional to (a+b)^(n−2) and (2−u−v)^(n−2). For three nodes the outer failure is W_y<0, including all-one-sign samples, and the inner failure is exactly one negative endpoint. Integrating the outer density for product ≥1/3 gives 1/3; subtracting p3 and reflecting gives each endpoint-negative probability.",
+          "The interpolation tail coefficient depends on evaluation point and uses a pointwise l2 norm. The repaired proof instead obtains 12 integral F(x,x) after integrating the numerators first."
+        ],
+        "reasoning": "The removed sign law is a direct specialization and does not establish originality. The tail requires a separate signed-integral and norm calculation even given fixed-point tails, and is not implied by the feasibility decomposition.",
+        "searches": [
+          "Resultary 03159ea86990 proof offsets 4250–8978",
+          "Resultary 31e79eafd4fb Finding offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 03159ea86990 Finding and proof: n=3, q=1/3, and affine change from [0,1] to [-1,1] give the same three-point positivity event, with exactly the two disjoint failure modes of the frozen sign result.",
+          "Resultary 31e79eafd4fb Finding: fixed z, Euclidean norm of degree-two Lagrange evaluation weights, coefficient 6 sqrt(2)(z^2-z+1/3)."
+        ],
+        "reasoning": "The repaired variable is the l1 norm of the integral of the signed Lagrange evaluation vector, not its pointwise l2 norm. A family of marginal fixed-z tail formulas does not give the law of the integral or the norm after integration.",
+        "searches": [
+          "Resultary: three uniform nodes interpolatory quadrature exact sign probabilities logarithmic instability tail",
+          "Resultary: iid uniform nodes on [0,1] unique unmodified three-node degree two interpolatory rule weight signs",
+          "Primary: \"three\" \"uniform\" random nodes interpolatory quadrature weights sign probabilities tail log t/t"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed Findings give p3=log(3)/2−1/3 explicitly. The nearby interpolation entry reports its own different tail constant, including 1/sqrt(2) at z=1/2."
+        ],
+        "reasoning": "The matching finite entry concerns feasibility. No inspected table gives a large-threshold law for the unmodified quadrature norm; deterministic quadrature tables at fixed nodes do not tabulate this random variable.",
+        "searches": [
+          "Resultary: three uniform nodes interpolatory quadrature exact sign probabilities logarithmic instability tail",
+          "Resultary c46807d7872b and 03159ea86990"
+        ]
+      },
+      "rationale": "For the revised tail-only result, no matching law or stronger result implying the sharp coefficient for integrated Lagrange weights was found in the checked sources. Removed the covered sign law and the original contribution claim attached to it. The nearby fixed-point interpolation result is for a different norm and functional; same collision mechanism does not imply the repaired coefficient.",
+      "residual_risks": [
+        "Priority under random Vandermonde inverse, interpolatory conditioning or linear-functional terminology is not exhaustively resolved. Shared collision techniques are not claimed new; no generic tail theorem for the repaired variable was found in the checked passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen sign law; no weight-norm tail claim in relevant passages",
+          "evidence": "P3(1/3)=log(3)/2−1/3; E_n(q)={ab≥q} minus {uv>q}; outer and inner densities displayed separately; limitations explicitly exclude distribution/conditioning.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-random-node-feasibility-and-a-two-mechanism-phase-transiti--03159ea86990/RESULT.md",
+          "material_read": "Finding offsets 0–1517; proof sections 2–3 and limitations offsets 4250–8978",
+          "method": "Local mirror bounded reads and algebraic specialization",
+          "title": "Exact random-node feasibility and a two-mechanism phase transition for positive quadratic quadrature",
+          "trigger": "Same uniform degree-two feasibility and possible stronger prior coverage of sign probabilities"
+        },
+        {
+          "assessment": "Exact component overlap; no same-day priority inferred",
+          "evidence": "States p3=log(3)/2−1/3 and explicitly disclaims novelty for the three-node case; its tail is in m, not the norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-all-sample-positivity-probabilities-for-random-quadratic-q--c46807d7872b/RESULT.md",
+          "material_read": "Finding and opening assumptions offsets 0–1800",
+          "method": "Local mirror bounded read",
+          "title": "Exact all-sample positivity probabilities for random quadratic quadrature",
+          "trigger": "Explicit same three-node case in a broader table"
+        },
+        {
+          "assessment": "Technically close parallel result on fixed-point interpolation, not an equivalent tail or a stronger theorem that implies it",
+          "evidence": "W(z) is the l2 norm of the evaluation weights for deterministic z with coefficient 6 sqrt(2) integral (z-u)^2 du.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb/RESULT.md",
+          "material_read": "Finding, assumptions, and first Lagrange formulas offsets 0–1572",
+          "method": "Local mirror bounded read",
+          "title": "A logarithmic collision tail for three-node random quadratic interpolation",
+          "trigger": "Same node law and sharp log(t)/t collision mechanism"
+        },
+        {
+          "assessment": "Abstract distinguishes an adaptive construction; no whole-document noncoverage inferred from abstract alone",
+          "evidence": "Positive rules are obtained through selecting nodes using the Vandermonde null space.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09842",
+          "material_read": "Abstract at opening of OA PDF",
+          "method": "OA abstract inspection",
+          "title": "Generating nested quadrature rules with positive weights based on arbitrary sample sets",
+          "trigger": "Cited related randomly sampled positive quadrature construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm measures worst-case amplification of bounded sample errors in a natural minimal random-node rule. The sharp coefficient and logarithmic enhancement distinguish simultaneous close spacings from a single collision and establish a concrete moment cutoff (including infinite mean) rather than an arbitrary numerical stability statistic. No universal fixed-integrand error claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

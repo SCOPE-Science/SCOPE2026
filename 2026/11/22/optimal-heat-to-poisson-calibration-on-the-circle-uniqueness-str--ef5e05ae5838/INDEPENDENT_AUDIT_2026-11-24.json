@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:16:12.165280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–138",
+        "VERIFICATION.md lines 19–25",
+        "CHECK.py lines 11–91"
+      ],
+      "rationale": "With probability Haar measure, Parseval gives twice the positive-frequency sum; the n=1 cross term forces center zero at r>0. For a=−log r, the derivative has the sign of G_t(a)−1. The decreasing Gaussian tilt lowers the mean of the law proportional to n exp(−an), so (log G_t)'≥2 coth a−coth(a/2)=tanh(a/2)>0. Its endpoint limits are 0 and ∞, and F'_t(t)<0 by every mode n≥2; r=0 has higher loss by strict increase past the root in a. At q→0, expanding r/(1−r²)²=q+2q⁴r+O(q⁹r²) gives q−2q³+11q⁵, with the residual O(q⁷) controlled by derivative bounded away from zero. For h=√t and c=a/h, monotone bracketing uses H(c)=4∫y exp(−y−y²/c²)dy, strictly increasing from 0 to 4. Uniform Euler–Maclaurin on compact positive c has h² coefficient c²(H(c)−1)/3 in G; the h⁴ coefficient at c_* is −c_*⁴/20−c_*²/30. Since H'(c_*)>0 this gives the displayed t^(5/2) correction and remainder. For the loss the first odd derivative at 0 vanishes and the third is −12c−6c³; J'(c_*)=0 absorbs the O(h⁴) movement of c, giving the t^(3/2) correction. At a=t the squared Poisson tail alone is t^(-1)+O(1), and the other terms are O(t^(-1/2)), proving the diverging comparison. Independently evaluated the three defining constants by bounded quadrature and scalar bisection: 1.077742254305174, 0.067380556580826, 0.090982449802525. The frozen CHECK.py was inspected, not executed; the VERIFICATION.md finite-check decimals are coarser than the theorem's constants, consistent with the explicit 10^(-8) tolerance rather than agreement to every digit printed.",
+      "residual_risks": [
+        "Numerical integration corroborates rounded constants only. Uniqueness and the remainder estimates are analytic and depend on t>0, fixed unit mass and the specified Fourier multiplier convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ameijeiras-Alonso pp. 3, 5–6 selects density-estimator bandwidth by AMISE for fixed density and sample size, and discusses both kernel families.",
+          "Catalogue summary for c39128e11afd describes a concentric Poisson mixture, not a heat kernel; local full-text access did not succeed."
+        ],
+        "reasoning": "The AMISE loss is not a deterministic L² distance between the two kernels. A positive mixture of concentric unit-mass Poisson kernels has second Fourier moment at least the square of its first by Jensen; e^(−4t)<e^(−2t) for the heat sequence. Thus the stated mixture domain in the summary does not specialize to this target. The unavailable full texts do not support a negative whole-document conclusion.",
+        "searches": [
+          "Ameijeiras-Alonso DOI:10.1007/s11222-024-10384-x, AMISE and wrapped-normal/wrapped-Cauchy",
+          "Resultary: least-squares fit of one Poisson kernel to a mixture of concentric Poisson kernels",
+          "Bailey–Codling DOI:10.1007/s10182-020-00380-7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fa07f8ed31c0",
+        "Resultary summary c39128e11afd",
+        "Ameijeiras-Alonso DOI:10.1007/s11222-024-10384-x",
+        "RESULT.md lines 144–158 for attributed (not independently recovered) prior material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The least-squares scalar equation is already attributed to a mixture calculation, not claimed new. The inspected KL proof yields a different optimizer expansion and short-time scale."
+        ],
+        "reasoning": "The stationarity identity by itself does not decide the number of critical points, prove that the radius always lies below the moment-matched value, or imply cancellation of the h² term in the scaled root. Those require the tilted-law comparison and uniform singular expansion. The accessible different-loss and estimator results do not give them by specialization.",
+        "searches": [
+          "Bailey §6.3.2 (6.5)–(6.7)",
+          "Resultary fa07f8ed31c0, Finding and asymptotic proof",
+          "Ameijeiras-Alonso AMISE passages pp. 3, 5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct November 22 KL record explicitly states a unique radius strictly below e^(−t), but with forward relative entropy.",
+          "Frozen RESULT.md line 146 explicitly credits Bailey's wrapped-normal mixture least squares with the same loss and stationarity on setting one component weight to zero or coalescing components; the primary passage was not recovered independently."
+        ],
+        "reasoning": "The wrapped-normal/heat and wrapped-Cauchy/Poisson aliases preserve the actual kernels and, for Gaussian variance 2t, preserve the moment normalization. This makes the credited least-squares specialization genuinely the same objective. Changing the loss to KL does not preserve the minimizer. No date ordering is inferred from the distinct same-day hit.",
+        "searches": [
+          "Resultary: heat-to-Poisson circle calibration, wrapped-normal to wrapped-Cauchy projection",
+          "2026/11/22/SCOPE-unique-directed-relative-entropy-projection-of-the-circle-heat-k--fa07f8ed31c0",
+          "Bailey Essex thesis §6.3.2, (6.5)–(6.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected KL record gives q−q³+3q⁵+O(q⁷), not the L² q−2q³+11q⁵+O(q⁷), and a different short-time law.",
+          "The indexed item matching the claimed L² numbers is the identical assigned record, not a distinct comparison. The concentric-mixture lead was summary-only."
+        ],
+        "reasoning": "The coefficients and limiting constants are natural exact comparisons, but an expansion for the KL optimizer or a positive-mixture target does not tabulate the L² quantities. No independent matching L² coefficient or constants table was identified in the material read.",
+        "searches": [
+          "Resultary fa07f8ed31c0, optimizer expansions",
+          "Resultary c39128e11afd, Poisson-mixture boundary law",
+          "Bailey thesis §6.3.2 equation locators from the frozen prior-work statement"
+        ]
+      },
+      "rationale": "Pass for the global L² calibration theorem, strict inward bias and sharp asymptotics, not the loss or stationary equation. The closest available distinct catalogue statement has the same kernels, uniqueness and sign but uses forward KL; its differing coefficients rule out merely relabeling the optimum. The closest cited L² prior work is Bailey's wrapped-normal mixture fitting, already credited for the loss and stationarity; the cited primary pages and related journal article could not be inspected independently. No inspected source establishes the stated L² global and asymptotic assertions. This is a bounded statement-level decision, not a priority certification.",
+      "residual_risks": [
+        "The most relevant cited L² thesis section and journal manuscript remained inaccessible; their detailed coverage beyond the credited equation is unchecked. Jones–Pewsey and Chaubey primary texts were also not recovered here.",
+        "Deferred or inconclusive web results were not used as evidence of no prior art. A distinct earlier L² asymptotic or uniqueness analysis may remain uninspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in question and qualitative conclusions, distinct objective and quantitative results",
+          "evidence": "Forward KL rather than squared L²; its radius has q−q³+3q⁵ expansion and a different short-time scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-directed-relative-entropy-projection-of-the-circle-heat-k--fa07f8ed31c0/RESULT.md",
+          "material_read": "RESULT.md Finding offsets 0–3688 and proof of expansions from offset 3600",
+          "method": "Resultary lookup and local mirror bounded passages",
+          "title": "Unique directed relative-entropy projection of the circle heat kernel onto Poisson kernels",
+          "trigger": "Strong same-day overlap: same heat kernel and approximating family, uniqueness and inward bias"
+        },
+        {
+          "assessment": "Credit the reported loss/equation; leave further coverage unresolved",
+          "evidence": "Both routes returned certificate errors. The same-day KL record attributes related work to the same URL with a differing title; it does not verify the equations independently.",
+          "identifier_or_url": "https://repository.essex.ac.uk/26383/1/Thesis_2%281%29.pdf",
+          "material_read": "No primary passage recovered; frozen RESULT.md lines 146,157 report Chapter 6 §6.3.2, equations (6.5)–(6.7)",
+          "method": "Lawful direct and VPN attempts on cited PDF and repository page",
+          "title": "Fitting probability models to mixtures of directional distributions",
+          "trigger": "Closest cited primary L² calculation with a one-component specialization"
+        },
+        {
+          "assessment": "Unresolved access, not evidence of noncoverage",
+          "evidence": "Could not verify whether the manuscript extends the cited least-squares calculations.",
+          "identifier_or_url": "https://doi.org/10.1007/s10182-020-00380-7",
+          "material_read": "No relevant full-text passage recovered",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Emergence of the wrapped Cauchy distribution in mixed directional data",
+          "trigger": "Related Bailey–Codling journal treatment of wrapped-Cauchy fitting"
+        },
+        {
+          "assessment": "Statistical bandwidth selection, not the asserted deterministic projection",
+          "evidence": "AMISE is optimized at fixed density and sample size; the kernel comparison includes wrapped-normal and wrapped-Cauchy families.",
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s11222-024-10384-x.pdf",
+          "material_read": "p. 3 at offset 12592, p. 5 at 33245 and p. 6 offsets 35000–39956",
+          "method": "OA primary paper, bounded relevant passages",
+          "title": "A reliable data-based smoothing parameter selection method for circular kernel estimation",
+          "trigger": "Both circular kernels used with a potentially competing optimization objective"
+        },
+        {
+          "assessment": "Stated positive-mixture regime is distinct; no whole-document conclusion",
+          "evidence": "Concentric Poisson mixtures satisfy moment log-convexity at frequencies 0,1,2, opposite to the heat multipliers for t>0.",
+          "identifier_or_url": "2026/11/22/SCOPE-convex-order-concentration-bias-and-a-sharp-boundary-law-f--c39128e11afd",
+          "material_read": "Resultary summary only; mirror was unavailable",
+          "method": "Resultary lookup and local mirror attempt",
+          "title": "Convex-order concentration bias and a sharp boundary law for concentric Poisson-mixture fitting",
+          "trigger": "Same-day L² Poisson fitting and boundary-law lead"
+        },
+        {
+          "assessment": "Unresolved primary passages; frozen comparison distinguishes fixed moment matching",
+          "evidence": "403 responses; these attempts are not negative evidence concerning exact uniqueness or asymptotics.",
+          "identifier_or_url": "DOI:10.1198/016214505000000286; DOI:10.1155/2018/5372803",
+          "material_read": "No independent full-text passage recovered; frozen RESULT.md line 146 describes Jones–Pewsey §4.1",
+          "method": "Lawful publisher and OA attempts",
+          "title": "A Family of Symmetric Distributions on the Circle; Smooth Kernel Estimation of a Circular Density Function",
+          "trigger": "Moment-matched circular L² comparisons and Poisson-kernel terminology cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof lines 99–138",
+        "Resultary fa07f8ed31c0",
+        "Ameijeiras-Alonso kernel comparison pp. 5–6"
+      ],
+      "rationale": "This unit-mass benchmark compares two standard circular kernels that are often calibrated by the first trigonometric moment. It proves that this natural calibration misses the actual optimum at every finite time and can cost an unbounded factor near the singular limit. The vanishing first correction and sharp positive irreducible L² coefficient specify more than numerical proximity or a textbook Fourier reduction.",
+      "residual_risks": [
+        "No claim about other losses, mixtures, free normalization, or estimator performance follows from this L² projection result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

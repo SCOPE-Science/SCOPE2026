@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:56.490336Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–90",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exhaustive replay: python3 /workspace/reviews/replay_5.py"
+      ],
+      "rationale": "The parity coloring makes GP(8,3) bipartite. The incidence nullspace has dimension nine; any even six-edge subgraph must be one 6-cycle because a simple bipartite graph has no cycle shorter than four. Independent code row-reduces the incidence matrix and enumerates the 512 even subgraphs in free-edge coordinates, finding exactly 24 words of weight six. Exact direct character sums give the seven reduced counts 33,168,160,96,30,24,1 at -8,-4,0,4,8,12,24; on the full dual each occurs in 2^15 extensions. This gives rank 11,534,336, nullity 5,242,880 and visible condition number 24/4. Inverting the nonzero indicator by direct character sums independently gives all nine stated projector numerator counts and absolute sum 3936, with scaling 1/512 on the cycle space and zero off it. Each endpoint convolution norm equals the kernel's absolute sum by a column delta or an aligned row sign. Averaging any real or complex projection onto the invariant range preserves its image and its action as identity on that range; it cannot increase the norm and yields the unique translation-equivariant projection (diagonal in one-dimensional character spaces). Hence the endpoint optimum is unrestricted.",
+      "residual_risks": [
+        "The exhaustive replay addresses this one finite graph. Unrestricted optimality is proved by averaging, not by testing a subset of projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Potočnik–Vidali cover the same graph in a broad girth-six classification and calculate its girth signature. The indexed six-cycle family is K_(3,n); the minimum-projection family concerns edge-character subspaces of unicyclic graphs."
+        ],
+        "reasoning": "The known signature gives uniform edge incidence and the exact girth-cycle count. Neither it nor the different operator families determines the Walsh table or endpoint norm in this graph.",
+        "searches": [
+          "Potočnik–Vidali, Cubic vertex-transitive graphs of girth six, Theorem 1, §2.4 and Fig. 6",
+          "Resultary 2026/11/16 SCOPE-fourier-spectrum-and-zero-free-congruence-classes-of-six-cycle-o--cc25e1909584",
+          "Resultary 2026/11/2 SCOPE-a-modulo-four-cycle-law-for-minimum-walsh-projection-constants--937e50b4a079"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Potočnik–Vidali original paper and Brouwer's graph page",
+        "Local Resultary Finding comparisons, especially Heawood 79bddf4f8e9f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signature (6,6,6) means each edge lies on six hexagons; double counting gives (24*6)/6=24. The toroidal Cayley model can have only eight hexagonal faces in the displayed embedding. Brouwer's graph spectrum is ordinary adjacency spectrum; the frozen result uses all 24 hexagons as translations on an edge-vector space."
+        ],
+        "reasoning": "The count and a graph realization are covered, but not the parity refinement over all switchings. General Fourier diagonalization and projection averaging yield a formula in terms of this shell, not the computed signature of zero and nonzero modes or the exact norm.",
+        "searches": [
+          "Brouwer, Möbius–Kantor graph, Construction/Spectrum",
+          "Potočnik–Vidali, girth signature definition and Theorem 1(a)",
+          "Lijnen–Ceulemans 10.1021/ci049865c and Kutnar et al. 10.1002/jgt.23041"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All hexagons are the minimum-weight shell of the binary [24,9] cycle code. The spectrum is 24 minus twice the codeword weights of the 24 parity tests over switching classes, not a list of eigenvalues of the 16-vertex adjacency matrix."
+        ],
+        "reasoning": "The ordinary cycle-code weight count supplies the shell size but not the signed histogram of the parity tests or the inverse transform of its nonzero support.",
+        "searches": [
+          "Möbius Kantor GP(8,3) six cycles switching signings signed hexagons cycle space code Walsh weight enumerator Lijnen Ceulemans Kutnar consistent cycles",
+          "Potočnik–Vidali arXiv:2005.01635v4, Theorem 1 and §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry 4a1f184ef45c is the frozen target. The distinct same-day Heawood entry gives 28 hexagons and 121/16; the Fano and Desargues entries transform basis supports of different matroids."
+        ],
+        "reasoning": "Different cycle codebooks or basis supports give different tables. The same-day Heawood analogue is compared on its graph, transform and norm, not excluded by its date.",
+        "searches": [
+          "Local Resultary exact and analogous signed Walsh and projection tables: 4a1f184ef45c, 79bddf4f8e9f, cd9c61e17f90 and e94144cd35f4"
+        ]
+      },
+      "rationale": "The graph, its girth and its 24 hexagons are known: the count follows immediately from Potočnik–Vidali's six girth cycles per edge. The distinct contribution supported here is the full signed switching-class histogram for the weight-six shell, its recoverable range, and the exact 123/16 minimum endpoint projection norm. The inspected stronger cycle classification and close indexed comparisons do not give these character or projection tables.",
+      "residual_risks": [
+        "Full texts of the Lijnen–Ceulemans embedding article and the identified consistent-cycle article were not recovered. An equivalent signed girth-shell distribution or sharp projection constant in unindexed code, matroid or graph literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers girth, graph realization and the exact girth-cycle count by double counting",
+          "evidence": "Theorem 1(a) lists signature (6,6,6) for the Möbius–Kantor graph; §2.4 identifies its dihedral Cayley model and describes the torus embedding.",
+          "identifier_or_url": "https://arxiv.org/html/2005.01635v4",
+          "material_read": "Signature definition and Theorem 1(a), offsets 4800–6800; §2.4, offsets 24000–25537; Fig. 6 at about 49700",
+          "method": "Lawful OA original article, bounded passages",
+          "title": "Cubic vertex-transitive graphs of girth six",
+          "trigger": "Broader girth-six classification covering the exact graph and codebook size"
+        },
+        {
+          "assessment": "Same graph, different spectrum",
+          "evidence": "The affine point–line construction is corroborated; the listed eigenvalues ±3, ±sqrt(3), ±1 refer to 16-vertex adjacency.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/MoebiusKantor.html",
+          "material_read": "Construction and Spectrum passages",
+          "method": "Public graph reference page",
+          "title": "Möbius–Kantor graph",
+          "trigger": "Same graph, construction and apparent spectrum match"
+        },
+        {
+          "assessment": "Different graph and exact invariants",
+          "evidence": "For 28 Heawood hexagons it gives six levels and endpoint bound 121/16, not 123/16.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-level-hexagon-walsh-spectrum-and-sharp-recovery-projection-f--79bddf4f8e9f",
+          "material_read": "RESULT.md Finding at offset 80",
+          "method": "Local mirror",
+          "title": "Six-level hexagon Walsh spectrum and sharp recovery projection for the Heawood graph",
+          "trigger": "Closest indexed same-task result"
+        },
+        {
+          "assessment": "Unresolved scope beyond embedding comparison",
+          "evidence": "The documented subject is symmetry classes of embeddings; this neither excludes other computations nor equates faces to all six-cycles.",
+          "identifier_or_url": "https://doi.org/10.1021/ci049865c",
+          "material_read": "Bibliographic description; no full text recovered",
+          "method": "Lawful DOI retrieval attempt",
+          "title": "Oriented 2-Cell Embeddings of a Graph and Their Symmetry Classification: Generating Algorithms and Case Study of the Möbius-Kantor Graph",
+          "trigger": "Same graph, potential six-cycle data"
+        },
+        {
+          "assessment": "Possible subsidiary overlap; no negative inference from unavailable text",
+          "evidence": "The frozen record describes consistent-cycle structure, an object distinct from signed character sums over the whole girth shell.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.23041",
+          "material_read": "Bibliographic identification; original text not recovered",
+          "method": "Lawful DOI retrieval and primary-literature search",
+          "title": "On the structure of consistent cycles in cubic symmetric graphs",
+          "trigger": "Same graph in cycle-action results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§2–4",
+        "Independent cycle-space and projection replay",
+        "Heawood comparison and Potočnik–Vidali signature comparison"
+      ],
+      "rationale": "For a natural symmetric cubic graph, all shortest-cycle flips define a canonical local measurement operator without arbitrary selection of faces. Its signed table precisely distinguishes lost and recoverable modes (11/16 are recoverable), while the endpoint projection constant measures the best possible linear extraction of that recoverable space, not just its dimension. Both serve as exact benchmarks for comparisons across girth-six graphs. Merely recounting the already-known 24 hexagons would not have this value.",
+      "residual_risks": [
+        "A finite graph-specific invariant, not a claim about other cycle lengths, graph families, or nonlinear recovery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

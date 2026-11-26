@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,7 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-Run `python3 verify.py` with Python 3. The script reconstructs all cells and boundaries, checks that \(\partial_1\partial_2=0\), verifies the configuration one-skeleton is connected and the graph chord basis has parking vertices, constructs six disjoint-pentagon product tori and confirms their rational rank five, then certifies a determinant-\(-2\) minor of \(\partial_2^{\mathsf T}\), its rank sixty-nine modulo two, and a determinant-\(-1\) minor of \([\partial_2^{\mathsf T}\mid C]\), where \(C\) is the integral cup-product matrix. Finally it checks that the displayed torsion combination annihilates each torus and is nonzero modulo boundaries over \(\mathbb F_2\).
+# Reproducibility
 
-Expected terminal output: `VERIFY_OK cells (45, 120, 75) minor_D -2 mod2_coboundary_rank 69 torus_rank 5 unimodular_cup_minor -1 tau_order 2`.
-
-All checks use exact signed integers and finite enumerations. The validity of the product cochain formula follows from the geometric particle-sum map into the six-torus; the script verifies its cellular values and the resulting algebraic certificates. The computation does not independently establish historical priority, determine every alternative ring presentation, or constitute external validation.
+Run `python3 verify.py` using the Python standard library. It reconstructs the Petersen cubical cells in the stated order and evaluates the cup-product representative from the two coordinate linear forms. It checks the integral cochain identity witnessing that twice the product vanishes, and a mod-two cycle with odd pairing witnessing that the product is nonzero. The expected marker is `PRODUCT_ORDER_TWO_OK`. The geometric identification of the product is justified in `RESULT.md`, not by the checker alone.

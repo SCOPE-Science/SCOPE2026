@@ -1,19 +1,21 @@
-# Research review: temporal energy anticorrelation under collective renewal resetting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional-Gaussian reduction gives cross-particle squared-position covariance equal to four times squared diffusion strength multiplied by stationary renewal-age covariance. The phase-age process is a piecewise-deterministic Markov process with a finite cyclic Erlang stage chain; the explicit gamma-distributed stationary conditional ages produce the stated initial moments. The finite linear generator gives all four positive-shape closed forms, and the nonzero residue of the dominant complex eigenpair rigorously forces infinitely many negative and positive lag intervals at all integer shapes at least five. The boundary case four retains a dominant strictly positive nonoscillatory mode. The independent direct-renewal sampling and 124 comparisons are supporting tests, not proofs of the infinite-lag assertion.
+PASS
 
-## Originality — PASS, with residual risk
+Conditional on the entire reset schedule, different particle labels have independent Gaussian noises, even at two different times. Their squared-position means are 2D times their respective ages, giving 4D² times the age autocovariance. Rescaling from rate λ to one supplies λ⁻². At unit rate the stage events are Poisson with a uniform phase; conditioning on stage j leaves a Gamma(j+1,1) backward age. This gives the frozen initial G,F moments, and the age reset eliminates the incoming F term at j=0, including k=1. Summing the conditional second moments gives Var(A)=(k+1)(k+5)/12. Independently resolving the phase system yields the exact expression C_k(t)=k exp(−t)−∑_{z^k=1,z≠1} exp((z−1)t)/(z−1)². Indeed the G-mode with eigenvector (z^(−j)) has coefficient 1/[k(z−1)] and yields the F particular vector with entries (j+1) z^(−j−1)/[k(z−1)]. At t=0 the sum of these particular vectors is (j+1)G_{j+1 mod k}(0), which agrees with F_j(0) except at j=k−1, where the excess is k. That residual evolves solely as k exp(−t) in the last coordinate. Summing the mode entries gives the displayed root-of-unity expression. Substituting the roots for k=1,…,4 recovers the four frozen formulas and their strictly positive lower bounds for every finite lag, including the borderline pair of oscillatory modes with real part −1 at k=4. For k≥5 the unique leading conjugate pair has real part cos(2π/k)−1>−1 and a nonzero coefficient. The other terms are exponentially smaller, and at successively positive and negative extrema of the leading sinusoid the sign persists on disjoint open intervals by continuity. As a bounded corroboration this expression gives C_5(4.75)≈−0.0105949462353. The frozen verify.py and its reported generator and Monte Carlo evidence were inspected, not executed; those finite tests alone cannot certify a sign threshold at all lags.
 
-De Mauro et al., arXiv:2509.06658v1 (2025), provide the common renewal reset model and same-time Brownian-gas correlations, not a stationary, unequal-time covariance of the squared positions of distinct particles. Eule and Metzger, arXiv:1510.07876 (2015), provide renewal-reset mixtures and Gamma-family one-time distributions. Stojkoski et al., arXiv:2107.11686 (2021), provide single-particle temporal correlations with Poisson resetting; Bengtsson, arXiv:2205.06103 (2022), provides binary alternating-renewal switch correlations. General stationary age/residual-life moment and correlation research addresses same-time ages and remaining lifetimes, rather than lagged shared-clock cross-particle energy. The assessed claim is the exact spectral five-stage threshold, not the renewal representation or phase-type formalism. A broad, implicit theorem about all phase-type age covariances might cover this specialization and remains a genuine residual literature risk; absence of search hits is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The 2025 collective-reset Brownian gas makes equal-time particle correlations a natural measurement, but their temporal sign is not settled by equal-time results. The theorem determines whether temporal energy anticorrelation can arise solely from increased clock regularity, supplies the first integer stage for which it must occur, and identifies a nonzero leading oscillatory mode. It is a structural and physically motivated boundary rather than an arbitrary parameter slice. Negative correlations decay at long lag, and detectability has not been established.
+The supported contribution is the sharp integer Erlang lag-sign threshold with its explicit leading mode for the stationary age autocovariance and hence for two distinct particles' squared positions. Collective renewal resetting, age mixtures and equal-time squared-position covariance are established; no originality is assigned to them here. The closest inspected temporal same-gas result uses a linear same-particle observable, while exact age/residual covariance concerns a different pair of variables. The targeted retrieval of related recurrence-time covariance papers left specific access risks, not contrary coverage evidence.
 
-## Scope of review
+## value
 
-Scientific claims are proved under the idealized free-particle assumptions in the accompanying RESULT.md and reproduced at finite lags using verify.py. The proof is not an independent certification, and general renewal-spectral literature could contain a stronger preexisting theorem. All numerical tests are finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This distinguishes two physically different consequences of a common clock: shared ages force positive equal-time covariance, while sufficient clock regularity makes lagged energies anticorrelate. The exact boundary at five stages, including exclusion at all finite lags for four stages despite its oscillatory modes, is stronger than observing a negative value or computing a decay rate. The residue and decay ordering explain the mechanism and provide an exact benchmark for renewal reset models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

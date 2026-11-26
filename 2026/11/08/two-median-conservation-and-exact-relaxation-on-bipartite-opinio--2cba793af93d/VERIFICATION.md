@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,7 +21,7 @@
 
 # Verification of the two-median formula
 
-The analytic derivation is in `RESULT.md` and controls the full range of real initial conditions and arbitrary positive finite weights. The only nontrivial outside premise is the global non-expansiveness of the selected weighted-median operator, explicitly proved for the initiating model in Han et al., arXiv:2404.16318v1; uniqueness also follows locally along the strict-median trajectory.
+The analytic derivation is in `RESULT.md` and applies to arbitrary real initial values and positive finite weight profiles satisfying the stated unique-median condition. Uniqueness follows from a pointwise comparison with the explicit trajectory's unique group medians and Grönwall's inequality; no global non-expansiveness assertion or openness of the unique-median regime is needed.
 
 Run `python verify.py` with Python's standard library. The verified output is:
 

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:32.557105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar and Frobenius actions multiply the exponent-19 sum by a nonzero factor and square it, respectively. A normalized space on a scalar orbit is exactly u^(-1)E for nonzero u in E. The frozen certificate checks all 10,795 normalized spaces without omission. In a fresh enumeration using binary reduced row echelon bases rather than normalization (/workspace/audit_replay_3.py), trial division through degree four confirmed the field polynomial, and all 788,035 linear three-spaces gave 1,606 zero spaces, 22 through 1. Direct disjoint scalar images of F_8, E_0, E_0^2, and E_0^4 partitioned the zero set in sizes 73, 511, 511, 511; squaring the last representative returned to the scalar orbit of E_0. Thus both semilinear orbits and the explicit representative are correct. No claim for other degrees or affine spaces was checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 counts zero-Welch three-spaces in general odd degree, including those through 1. In degree nine the input Kl_9=-5 yields 1,606 and 22."
+        ],
+        "reasoning": "It is not an orbit theorem in general degree. In this degree the ambient action is so restrictive that this numerical result is sufficient for the claimed decomposition.",
+        "searches": [
+          "Resultary: Cheng–Hu counting subspaces with prescribed Welch sums",
+          "Cheng–Hu arXiv:2610.15694v1, Theorem 1.1 and Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and welch9_orbits_verify.py",
+        "Cheng–Hu arXiv:2610.15694v1",
+        "Hou–Zhao arXiv:2609.31489v1",
+        "Resultary canonical F_8 witness and degree-seven census records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar stabilizer acts freely on the seven nonzero elements of a three-space, so its order is 1 or 7. The unique order-seven scalar group is F_8^×, and its transitivity on E minus zero forces E=aF_8. Thus the known subfield family is the sole short scalar orbit and the other 1,606−73 spaces give exactly three 511-orbits.",
+          "A Frobenius-fixed scalar orbit has E^2=aE and hence the representative a^(-1)E is Frobenius-invariant. On that three-space squaring has order dividing both 9 and |GL(3,2)|=168, hence its cube is the identity. The three-space then lies in F_8 and equals it. No generic scalar orbit is fixed, so Frobenius cycles the three generic orbits."
+        ],
+        "reasoning": "The count plus the canonical subfield witness force the complete size and permutation data using only the orders of the acting groups and a rescaling. A verified explicit E_0 does not change that coverage assessment of the principal claim.",
+        "searches": [
+          "Cheng–Hu Theorem 1.1 and equation (4.4)",
+          "Resultary canonical F_8 witness result",
+          "Ambient scalar stabilizer and Frobenius action on three-dimensional F_2-spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The canonical F_8 witness result covers the short-orbit family at n=9.",
+          "The seven-level common-neighbor census uses the one-scalar-orbit result over F_128 at exponent 11, not the degree-nine action."
+        ],
+        "reasoning": "Normalized scalar class sizes 1,7,7,7 and one Frobenius three-cycle away from the singleton express the same orbit theorem. Neither related indexed record states that full split in this degree; the implication below is decisive instead.",
+        "searches": [
+          "Resultary: exact degree-nine zero-Welch scalar and semilinear orbit data 73, 511, 1533",
+          "Resultary: Welch exponent 19 and E_0 with basis 1, t^3, t^8+t^7+t^6+t^5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 of Hou–Zhao has determinant/gcd degree 134 at n=9. Cheng–Hu equation (4.4) identifies that degree as 2+6B_9, giving exactly 22 normalized zero spaces. No inspected degree-nine table directly lists the orbit sizes, permutation, or the displayed representative."
+        ],
+        "reasoning": "The table is a source for the exact numerical input, not an orbit list. Its count is already enough for the structural argument because the latter is independent of the Welch exponent apart from invariance and the known subfield solution.",
+        "searches": [
+          "Resultary: degree-nine exact orbit data and Hou–Zhao further results on sum-freedom",
+          "Hou–Zhao arXiv:2609.31489v1, Section 5.3, Table 1",
+          "Cheng–Hu arXiv:2610.15694v1, equation (4.4)"
+        ]
+      },
+      "rationale": "No explicit matching degree-nine orbit table was found, but the principal classification is a direct orbit-stabilizer and group-order corollary of the published count, not an independent invariant requiring a new census. The displayed coordinate representative was not located in prior sources; it names the single already-forced generic orbit rather than distinguishing any additional classes.",
+      "residual_risks": [
+        "The searches cannot exclude a direct or differently indexed earlier orbit table. The assessment does not depend on finding such a table.",
+        "No priority claim is made for the specific coordinate representative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers counts that imply the main orbit classification in degree nine",
+          "evidence": [
+            "Counts N_{n,3}(0) and B_n, and links B_n to the known determinant degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15694v1",
+          "material_read": "Theorem 1.1 (near offset 4,562) and Section 4, equation (4.4) (near offset 31,400)",
+          "method": "Open-access full-text passages",
+          "title": "Counting subspaces with prescribed Welch sums",
+          "trigger": "General exact count and potential orbit refinement"
+        },
+        {
+          "assessment": "Exact degree-nine count input; no direct orbit list in the inspected sections",
+          "evidence": [
+            "The n=9 table entry is 134, the determinant criterion's degree, not the number of orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.31489v1",
+          "material_read": "Section 5.3, Theorem 5.8, Corollary 5.9 and Table 1 (p. 19)",
+          "method": "Open-access paper passages",
+          "title": "Further Results on Sum-Freedom of Binary and q-ary Functions",
+          "trigger": "Earlier finite degree-nine computation"
+        },
+        {
+          "assessment": "Covers the exceptional family, not an explicit generic orbit",
+          "evidence": [
+            "F_8 is a zero-Welch three-space in odd degrees divisible by 3, including 9; scalar covariance gives its multiples."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-canonical-mathbb-f-8-witness-for-welch-functions-when-n-equiv3--f24e68fac382",
+          "material_read": "Finding and scope for the subfield construction",
+          "method": "Published record in the local mirror",
+          "title": "A canonical F_8 witness for Welch functions when n≡3 mod 6",
+          "trigger": "Potential exact overlap with the short orbit"
+        },
+        {
+          "assessment": "Different degree and exponent",
+          "evidence": [
+            "Uses the 127-space scalar orbit over F_128 for exponent 11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-seven-level-common-neighbor-census-of-the-welch-zero-subsp--0283f762dc31",
+          "material_read": "Degree and one-orbit statement",
+          "method": "Published record in the local mirror",
+          "title": "Exact seven-level common-neighbor census of the Welch zero-subspaces",
+          "trigger": "Analogous published orbit calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between short and full semilinear orbits is naturally motivated, but the exact split is already forced by the known count and the ambient scalar and Frobenius actions. The independent census is useful corroboration, not a new classification problem being solved. A particular coordinate basis in the forced unique generic orbit is not a separately motivated invariant or distinguished witness here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:08:29.557693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each lag j=t-k-1 the exact probability lies between (1-q)q^j and q^j. Independent Bernoulli choices yield the uniform log moment bound m[s²/(2β)+Oβ(s+1)] by splitting the geometric product at j=floor(s/β). At s=βr/m this gives log upper tail at most −βr²/(2m)+O(r+1). Requiring all m hits at the first h=ceil(r/m) arrivals costs at most βmh(h−1)/2−mh log(1−q) in negative log probability, with the same leading coefficient. Taking disjoint birth intervals gives order n/(h+1) independent witnesses, without assuming independent degrees. The upper union bound and lower no-witness probability are summable at n=2^j at the respective (1±ε) thresholds. Monotonicity and consecutive dyadic log ratios extend the simultaneous rational-ε bounds to all n; the root convention and a uniform additive m compare the two maxima. This verifies the almost-sure limit for fixed m and β and with multiplicity only. The inspected artifacts/verify.py is a replay of finite rational identities, not the limit proof, and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The neighboring maximal-degree strong law reported in Eslava et al. applies to bounded random vertex weights and is logarithmic for a fixed number of independent parent choices."
+        ],
+        "reasoning": "Deterministic e^{βk} is neither bounded over labels nor an identically distributed vertex-weight sequence. Constant weights give log n scaling, not a specialization to a positive fixed β.",
+        "searches": [
+          "Eslava, Lodewijks and Ortgiese, arXiv:2109.15270v2, introduction",
+          "Lodewijks and Ortgiese, arXiv:2007.05438v4"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/nws.2025.3",
+        "arXiv:2611.02329v1",
+        "arXiv:2109.15270v2",
+        "arXiv:2007.05438v4 via the explicit account in arXiv:2109.15270v2",
+        "Resultary c7cff8a9c92e, 027a95dadcb2 and 7dce7199876b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-node degree laws control marginal behavior; recurrence, collisions and block aggregates do not supply extremal lower bounds. The bounded-weight class excludes the model here."
+        ],
+        "reasoning": "Even with marginal upper tails, a lower bound for the maximum requires addressing dependence among vertex degrees. The matching independent-block lower bound and sharp coefficient are not supplied by these comparisons.",
+        "searches": [
+          "Aguech et al., fixed-node results and closing discussion, p. 19",
+          "Tang et al., main results, p. 5",
+          "Eslava et al., p. 1 weighted-graph comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 tree selects parents proportionally to a^i; a=e^β and a shift of all labels multiply weights by a common factor. The closing discussion names ‘the maximal degree’ as future research.",
+          "The 2026 random-walk paper takes m independent targets with weights e^{βk}; its main results concern recurrence and infinite collisions."
+        ],
+        "reasoning": "These are exact model matches for m=1 and general fixed m respectively, but not equivalent maximum theorems. Counting incoming rather than undirected edges in this model changes the maximum by at most m.",
+        "searches": [
+          "Resultary: maximal indegree and maximal degree in exponentially preferential recursive trees and age-biased multigraphs",
+          "Aguech, Mahmoud, Mohamed and Yang, DOI:10.1017/nws.2025.3",
+          "Tang, Wang and Wu, arXiv:2611.02329v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact search match was the frozen record itself. Distinct hits cover one-parent leaf fluctuations, two-parent triangles and transitivity after suppressing parallel edges, or all-m block lifetime indegrees; the last cites the frozen maximum result."
+        ],
+        "reasoning": "None is a table or theorem for the maximum over all vertices counting multiplicity. The statistic, and in the triangle comparison also the edge counting convention, differ.",
+        "searches": [
+          "Resultary maximum degree under exponential or geometric age preference",
+          "Resultary matches c7cff8a9c92e, 027a95dadcb2 and 7dce7199876b"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp first-order maximum law, not introduction of the model. The same one-parent model explicitly left maximal degree open; the same general-m model is used in work on random walks. No checked statement or implication gives the frozen maximum asymptotic for geometric weights.",
+      "residual_risks": [
+        "Direct retrieval of arXiv:2007.05438v4 timed out; comparison uses the explicit neighboring-paper account, not a whole-document exclusion.",
+        "Possible historical work under deterministic recursive weights or another age indexing remains outside the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same tree, maximum left as a future direction",
+          "evidence": [
+            "Node i has weight a^i; ‘the maximal degree’ is explicitly listed among possible future topics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/nws.2025.3",
+          "material_read": "PDF abstract p. 1 and concluding discussion p. 19, offsets 0 and 119500",
+          "method": "Targeted primary PDF passages",
+          "title": "Exponentially preferential trees",
+          "trigger": "Exact one-parent model"
+        },
+        {
+          "assessment": "Same attachment with different observables",
+          "evidence": [
+            "Independent e^{βk}-weighted choices for m edges; recurrence and collision results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02329v1",
+          "material_read": "Abstract and main results, PDF pp. 1 and 5, offsets 0 and 8400",
+          "method": "Targeted primary preprint passages",
+          "title": "Random Walk on age-preferential random growth processes",
+          "trigger": "Exact multigraph model"
+        },
+        {
+          "assessment": "Different weight class and scaling",
+          "evidence": [
+            "Logarithmic maximum law with constant 1/log(1+E[W]/m) for bounded random weights, as reported there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.15270v2",
+          "material_read": "Introduction, p. 1, offsets 0 and 4000",
+          "method": "Targeted primary preprint passages and its explicit report of the adjacent theorem",
+          "title": "Fine asymptotics for the maximum degree in weighted recursive trees with bounded random weights",
+          "trigger": "Maximum-degree comparison for a neighboring weighted recursive model"
+        },
+        {
+          "assessment": "No distinct matching maximum law in inspected records",
+          "evidence": [
+            "The leaf and block results quantify different observables; the triangle record uses simple-graph statistics."
+          ],
+          "identifier_or_url": "c7cff8a9c92e; 027a95dadcb2; 7dce7199876b",
+          "material_read": "Findings on leaf counts, triangle/transitivity and block indegrees respectively",
+          "method": "Local Resultary comparison",
+          "title": "Published Resultary neighbors for exponential-age attachment",
+          "trigger": "Same or overlapping attachment models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum was an explicit gap for the one-parent model. The first-order limit distinguishes exponential age bias from logarithmic-degree behavior in uniform models, and the factor √m quantifies the effect of independent multiplicity rather than merely bounding the maximum. Neither fixed-vertex degree laws nor graph-walk behavior answer this question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

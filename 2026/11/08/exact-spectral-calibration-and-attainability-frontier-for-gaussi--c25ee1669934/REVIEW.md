@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The claim is established by an explicit Gaussian posterior calculation, strict convexity over every symmetric precision direction, sign-reflection reduction to the common spectral basis, and a one-variable polynomial stationary equation. Coercivity of the unregularised objective on the closed precision cone is proved from the positive observation-noise floor. Boundary cases \(a_i=0\), \(a_i<0\), and \(a_i=b_i\) are included. The self-contained checker and independent numeric matrix stress tests agree with the proof. Numerical tests do not replace the infinite-dimensional-in-parameter analytic reasoning.
+## correctness
 
-**Originality — PASS (qualified).** Schneider and Helin supply the functional, biconvexity/convexity ingredients, Gaussian objective, optimal shift, and a single sign-flipped nonattainment example. The additional classification supplies the closed-cone global spectral optimiser over **all** SPD precision matrices, the exact attainability criterion for every commuting spectrum, and the modal EEA ordering law. Earlier low-rank posterior approximation papers have different admissible parameter classes; no checked result states or dominates this complete calibration classification. The priority comparison is not exhaustive.
+PASS
 
-**Value — PASS.** Inverse-model approximation naturally requires deciding whether a posterior-optimal covariance exists and how it deviates from EEA's residual-variance choice. The result shows that nonpositive true sensitivities force likelihood precision to the boundary and that calibration can move precision in opposite directions simultaneously. The full-SPD optimality statement avoids an artificial diagonal-only benchmark.
+For C=(I+BGB)^(-1) and centered observations the shift penalty is xi^T GBCBG xi/2, so zero is sufficient and unique for G positive definite (not necessarily unique on the boundary). Writing Z=BGB, the quadratic coefficient of y in the integrated likelihood is B^(-1)Z(I+Z)^(-1)B^(-1), bounded between 0 and B^(-2); the residual covariance is at least sigma^2 I. The linear trace term therefore dominates the log determinant bounded above by d log(1+||B||^2 tr G), proving coercivity. The log-partition Hessian is a conditional variance strictly positive in every nonzero symmetric direction because the tilted Gaussian has full support and B is invertible. This also holds along boundary segments. Joint sign symmetry in a common eigenbasis then gives strictly improving diagonal pinching whenever G is nondiagonal. In a scalar mode differentiate the reduced objective: 2(1+z)^2 j'(z)=L z^2+(2L-1)z-2 rho. For rho<=0, L>1, and its derivative sign enforces the unique endpoint minimizer; for rho>0 the unique positive root is the given formula. At 1/L the numerator is 2(1-rho), giving the EEA ordering, including equality and opposite-mode signs. Continuity of the closed problem and the sequence G_*+epsilon I give exactly the stated attainability criterion; an ignored mode contributes its true mutual information, log(1+a_i^2/sigma^2)/2. Independent replay python3 /workspace/review_replay.py (section 4) evaluates the direct posterior KL for 108 two-mode PSD grid cases, including boundary and nondiagonal competitors. This is bounded corroboration, not global evidence; the reported separate random experiment was not rerun.
 
-**Closest literature and limitations.** Schneider and Helin, arXiv:2610.38434v1, Sections 2–4; Spantini et al., arXiv:1407.3463 and arXiv:1607.01881; Carere and Lie, arXiv:2411.01112. The theorem assumes an identity Gaussian prior, isotropic positive noise, commuting symmetric forward maps and positive-definite surrogate. Its boundary likelihood is a posterior limit rather than a proper finite Gaussian noise model. A separate independent mathematical audit would be needed before external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit spectral optimizer with the all-mode attainment frontier and precision comparison is distinct on current evidence. The OAE objective, convexity in precision at fixed shift, Gaussian objective, optimal shift and existence of a scalar nonattainment example receive prior credit.
+
+## value
+
+PASS
+
+Commuting symmetric forward models are a natural benchmark for a generally coupled surrogate calibration problem. Optimizing over the entire precision cone, not only diagonal competitors, makes the boundary phenomenon interpretable: the unregularized algorithm can fail to attain its optimum because it should discard precisely the data in nonpositive modes. The sign law predicts where residual-based EEA over- or underweights information, and mixed eigenmode differences show why a uniform precision inflation or deflation cannot always implement the correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

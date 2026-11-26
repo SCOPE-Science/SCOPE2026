@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The I-type embedding and dihedral permutation data are explicitly taken from the cited primary construction. Four displayed kernel translation vectors have determinant eight, equal to the dihedral quotient order, proving the lattice congruences. The group-algebra finite-conjugacy argument proves the center invariant-ring formula in all characteristics. Eight exact fixed-vector generating functions yield the rational series algebraically. The independently implemented degree-sixteen finite checker confirms all initial terms without being used as infinite proof.
+## correctness
 
-**Originality (O): PASS, with residual priority risk.** Source and equivalent-formulation searches included the 2026 primary paper, general IG/I-type monoid algebras, group algebra finite-conjugacy centers, permutation Zhang-twist centers, explicit dihedral I-type examples, and exact central Hilbert series. The source computes dihedral permutation holonomy and group cohomology but not the central lattice or its rational series. The closest cyclic Zhang-twist center result has a different permutation action and does not contain this dihedral computation; general invariant-ring principles need the new index-eight kernel and fixed-point enumerators to obtain this exact series. Unindexed prior calculations could coincide and have not been ruled out absolutely.
+PASS
 
-**Value (V): PASS.** The center is a natural invariant of a distinguished noncommutative four-generator regular monoid algebra from the new classification. The theorem identifies every central homogeneous dimension, not only a few low-degree coefficients, and exhibits the nontrivial congruence-lattice action responsible for the entire series. It also gives a concrete characteristic-independent invariant-ring model against which twisted families and other I-type algebras can be compared; this is not merely an isolated substitution into a known general numerical table.
+The semidirect images respect all six defining relations. Independently, each relation swaps one of the six unordered distinct coordinate-increment pairs at the identity, and a prefix with permutation p transports that swap by p. Each ordered increment list decodes to a unique word, so adjacent swaps identify exactly words with the same nonnegative translation coordinate. The word x_0^2 x_1 x_3 gives the central translation q=(1,1,1,1), and the increment argument expresses it with any x_i first. Thus every x_i inverse is a positive word times q inverse, giving first-coordinate existence and uniqueness on the fraction group by translating far enough by q. In particular left translation cosets of N correspond to coordinate cosets and its index is eight; this fills the index step explicitly. The four stated translation vectors satisfy the congruences and have determinant of magnitude eight, and the congruence map onto Z/2 × Z/4 is surjective. Thus N is precisely Lambda. Conjugation by its full-rank translation subgroup gives infinite classes for elements with nonidentity permutation and finite F-orbits for translations. Finite-support central elements have constant coefficients on conjugacy classes in every characteristic; commuting with the monoid generators implies commuting with their inverses in the group algebra. This gives the stated positive-support center. The exact independent script /workspace/review-work/algebra_check.py verifies the local swaps, translation vectors, all eight fixed-vector residue polynomials by cross-multiplication, and their Burnside sum numerator 8(1-t^2+t^4) over the common denominator. Hence the series is an infinite rational identity and remains characteristic-independent, not merely a degree-sixteen fit.
 
-The result excludes nontrivial coefficient twists and does not supply a minimal presentation of the center. The relevant closest published work was inspected at material level; independent expert checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact coefficient-free algebra and its semidirect structure are known from Bhatoy. The inspected primary and indexed claims do not give its graded center; specifying the embedded translation lattice and carrying out the dihedral fixed-vector count are additional mathematical work, not renaming the abstract kernel or reading a table entry. This verdict is limited to the sources checked.
+
+## value
+
+PASS
+
+This determines a natural invariant of a previously specified I-type algebra with nonabelian holonomy. The embedded congruence lattice describes actual central orbit sums, while the full graded series gives their multiplicities in every characteristic, including modular characteristics where averaging vectors over the group is not valid. This is concrete center information not given by the abstract group extension or a finite-dimensional census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

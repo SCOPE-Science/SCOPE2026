@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:37.297766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact finite-tree recursion has initial ratios λ (free) and 0 (empty), and p=r/(1+r). At r_c=1/(b−1) the single-step derivative is −1. For the centered two-step map and δ=λ/λ_c−1, the multiplier is 1+a_bδ+O(δ²) and the cubic at δ=0 is −C_b with C_b=(b+1)(b−1)^3/(6b²). Critical entry follows from the single fixed point of the square; independently, the single-step Schwarzian is −(b²−1)/(2(1+r)^2), so the square has negative Schwarzian and ((F²)')^(−1/2) is strictly convex. A nontrivial two-cycle would straddle r_c and give two more points with (F²)'=1 by Rolle, contradicting strict convexity. After fixed-time entry, a small centered interval is forward invariant by the sign of the cubic at its endpoints. In the inverse-square recursion the term (1/n)√w is at most a fixed constant times w/n locally. The remaining small radial error is absorbed in the positive source term, giving w_j comparable to j+1 up to n/2, uniformly for t in compact sets. The geometric sum has limit C_b(1−e^(−a_bt))/(a_bt) after division by n, with continuous value C_b at zero; the cumulative remainder is O(√n) before division. The odd update flips the sign, and multiplying the separation by σ'(r_c)=(b−1)^2/b² gives the stated amplitude. Independent bounded checks gave 8 exact finite-tree comparisons, 9 rational arity coefficient checks and 48 crossover cases with worst relative error 0.00122794. The reproduction was bounded_check.py, not a run of the frozen verify.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic discrete scaling derivation permits the reference fixed point to be either stable or unstable, with a nearby attracting branch and initial point on the applicable side. It explicitly includes k=3 and both signs.",
+          "The hard-core and tree-shift papers provide thresholds or different conclusions, not this crossover law."
+        ],
+        "reasoning": "Although Corral treats multiplier +1 rather than −1, the audited result itself passes to the increasing square. If its centered quadratic term B(δ) is nonzero off criticality, write a near-identity change H(x)=x−B(δ)x²/[m(δ)(m(δ)−1)], where m is the two-step multiplier. The coefficient extends analytically across δ=0 because B(0)=0 and m'(0)=a_b>0. This removes the quadratic term, preserves the critical cubic and preserves the leading displacement. Critical entry and increasing dynamics give the applicable attracting side for each starting ratio.",
+        "searches": [
+          "Corral arXiv:2405.19947 §III.1–III.3, Taylor form (5) and cubic pitchfork example (10)",
+          "Galvin–Martinelli–Ramanan–Tetali arXiv:1007.4806 §2.2",
+          "Efthymiou et al. arXiv:1604.01422 p. 2",
+          "Ban–Chang arXiv:1509.08325 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–98 and 100–116; VERIFICATION.md and verify.py inspected",
+        "arXiv:2405.19947 §§III.1–III.3",
+        "arXiv:1007.4806 §2.2",
+        "arXiv:1604.01422 p. 2",
+        "arXiv:1509.08325 p. 1",
+        "Resultary originals ec0c86124761, ce9c495d8324 and 9f9f85490de8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior derivation already uses the inverse-power recurrence with exponent k−1 and sums the resulting geometric progression. Its exposition drops higher-order terms formally and does not give the precise compact-uniform remainder bound for these tree boundary data."
+        ],
+        "reasoning": "With 2ℓ∼n, m−1=a_bt/n+O(n⁻²) and P*=C_b, the published equation yields n times the squared centered displacement equal asymptotically to G(a_bt)/C_b. The audited remainder estimate justifies that same calculation uniformly: the recurrence comparison makes all discarded terms o(n) after summation, uniformly for bounded t, and the geometric sum is uniform on such sets. This tightens justification of the specialized formula, not the mathematical scope of the known scaling law.",
+        "searches": [
+          "Corral arXiv:2405.19947 §III.1, Eq. (5) through Eq. (8), and §III.3, Eq. (10)",
+          "Frozen RESULT.md lines 59–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corral's scaling function is G(z)=z/(1−e^(−z)); for a cubic map, Eq. (7) gives squared displacement asymptotic to G(2y)/(2P*ℓ), y=ℓ(m−1). Eq. (8) gives the signed branches.",
+          "The indexed ec0c86124761 hard-core result concerns non-quasilocality after removal of isolates; the indexed 9f9f85490de8 uses a different recursion (tetration)."
+        ],
+        "reasoning": "The squared tree message displacement uses ℓ=floor(n/2), P*=C_b and 2y→a_bt. Its pointwise crossover, both sides and its critical value are exactly the cubic formula, with an extra odd update multiplying the displacement by −1+o(1). The difference of the two signs and the smooth occupation map give the stated constant. Tetration is only an analogy, not the basis for rejection.",
+        "searches": [
+          "Resultary: hard-core tree exact critical-window boundary difference, finite-height crossover",
+          "Primary literature: Corral Sardanyes Alseda finite time scaling local bifurcations pitchfork discrete flip cubic map; arXiv:2405.19947 Fig. 1 and Eqs. (4), (6)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared Resultary findings are not a table of tree boundary responses. Fig. 1 illustrates the cubic curve while Eq. (7) specifies it analytically."
+        ],
+        "reasoning": "A finite table of arities/heights cannot settle a continuum limit and no exact tree table is relied on. Coverage comes from the analytic formula and its applicability, not from sampled agreement.",
+        "searches": [
+          "Resultary hard-core onset ec0c86124761 and finite-height tetration 9f9f85490de8",
+          "Corral arXiv:2405.19947 Eq. (7) and Fig. 1"
+        ]
+      },
+      "rationale": "The critical-window profile, including its nonzero critical amplitude once the two derivatives of the tree map are inserted, is the cubic discrete scaling law already given by Corral. The hard-core calculation is correct, and supplies explicit compact-uniform error control for the specialized iteration, but does not establish a distinct profile or a substantive new normal-form mechanism. The comparison is a reduction to an inspected prior equation, not a claim that Corral tabulated the tree observable.",
+      "residual_risks": [
+        "Literature comparison is bounded; there may also be a direct tree-specific statement not located here.",
+        "The decisive comparison is to the explicitly stated generic asymptotic and its elementary reduction; no claim is made that the prior article proves the particular hard-core remainder bound verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main profile via the two-step cubic reduction; does not state the hard-core-specific uniform error justification",
+          "evidence": "Eqs. (4), (6)–(8), (10) state G, scaled multiplier, cubic displacement and signed branches. Eq. (5) motivates the tested conjugacy for the parameter-dependent quadratic term.",
+          "identifier_or_url": "https://arxiv.org/html/2405.19947",
+          "material_read": "§III.1–III.3, HTML offsets 11000–21965, normal form at offset about 21988",
+          "method": "Lawful OA full-text passages located and read",
+          "title": "Universal finite-time scaling in the transcritical, saddle-node, and pitchfork discrete and continuous bifurcations",
+          "trigger": "Potential stronger exact near-critical discrete asymptotic"
+        },
+        {
+          "assessment": "Established threshold and recursion; different claim",
+          "evidence": "Capacity one yields λ_c=b^b/(b−1)^(b+1), not a finite-height two-boundary crossover.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.4806",
+          "material_read": "§2.2, PDF pp. 9–10, text offset about 26900",
+          "method": "Lawful OA PDF passage",
+          "title": "The multi-state hard core model on a regular tree",
+          "trigger": "Classical hard-core critical threshold and admissible critical cycles"
+        },
+        {
+          "assessment": "Strict-subcritical conclusions do not cover the window",
+          "evidence": "Degree-Δ threshold agrees after setting Δ=b+1; the rate result has strict uniqueness and graph hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01422",
+          "material_read": "PDF p. 2, offset about 6800",
+          "method": "Lawful OA PDF passage",
+          "title": "Convergence of MCMC and Loopy BP in the Tree Uniqueness Region for the Hard-Core Model",
+          "trigger": "Subcritical correlation and convergence rates"
+        },
+        {
+          "assessment": "Different observable and problem",
+          "evidence": "The finding is a non-quasilocality witness for an isolate-removed Bernoulli field, not finite-volume occupation under the two homogeneous boundaries.",
+          "identifier_or_url": "Resultary 2026/10/12 ec0c86124761",
+          "material_read": "Original Finding at offset 0",
+          "method": "Read local mirror",
+          "title": "Exact onset of the hidden hard-core discontinuity under isolate removal",
+          "trigger": "Closest indexed hard-core threshold result"
+        },
+        {
+          "assessment": "Analogous form, different recurrence and observable",
+          "evidence": "Gives a compact-uniform crossover for towers of exponents, not hard-core messages.",
+          "identifier_or_url": "Resultary 2026/11/22 9f9f85490de8",
+          "material_read": "Original Finding at offset 0",
+          "method": "Read local mirror",
+          "title": "Exact finite-height crossover at the Euler boundary of tetration",
+          "trigger": "Indexed square-root crossover analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Critical boundary sensitivity is a natural observable, and the specialization is a correct worked example. Its sharp scale, crossover and branching-number amplitude are obtained by evaluating the known cubic law and the elementary single-step observable. Compact-uniform control is useful justification for that application, but is supplied by the same local inverse-square recurrence and a bounded-window comparison, not a new independently useful estimate or invariant. No substantive distinct repaired claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

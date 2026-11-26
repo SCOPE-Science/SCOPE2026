@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:28.026432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md and verify.py (read only)",
+        "checks/replay_certificates.py, paired"
+      ],
+      "rationale": "For each a>b>0, let u=1−m and v=sm. The habitat swap gives P=(J(MD₊)²)²; the trace of the inner matrix is (a+b)²uv and its determinant is −(ab)²(u²−v²)². Thus the isolation comparison is the sign of the characteristic polynomial at 1 after normalization, exactly mH. The endpoints are R(0)=1 and R(1)=s, including lossless full migration. For s below 1 the cubic is strictly convex, at s→0 it is uniformly positive, and at s=4/c it is negative at small positive m. For each interior m, increasing s strictly increases the positive square-block matrix and Perron root; this gives one open upper interval of strict migration benefit. The threshold is below 4/c, so both H endpoints are strictly positive and compactness forces an interior zero minimum. Strict convexity makes its position unique, and rules out any other interior tie or tangency in the specified ranges. Local positivity of H near m=0 persists for s in a neighborhood of s*, so all maximizers approaching from above stay away from 0 and converge to m* by compactness and uniqueness of the positive tie. R′(0)=(cs−4)/4 gives the claimed interval of local loss with global benefit; above threshold no endpoint can maximize. The submitted text does not claim uniqueness of the positive maximizing fraction for all larger s. Independent matrix and polynomial reconstruction and numerical root replay agree with the stated example.",
+      "residual_risks": [
+        "The conclusion presumes a common fixed migration fraction and survival at all four phases, linear dynamics, and the specified order of reproduction and movement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The short-period theorem covers reversible movement and mortality but only at periods one and two. The four-season theorem assumes conservative mixing and shows it is possible to optimize in the interior, using four different profiles in its example.",
+          "Benaïm et al. establish growth bounds and criteria with time-periodic continuous migration; Schreiber–Li study evolutionary dispersal strategies."
+        ],
+        "reasoning": "A mortality matrix can be factored into normalized costless mixing times (1−m+sm); that prefactor depends on the decision m. A costless interior-optimum theorem does not carry over to this penalized objective. Conservative continuous migration and selection on resident versus invading strategies also do not supply this discrete objective's parameter classification.",
+        "searches": [
+          "Resultary two-season endpoint (4bf78d70bf53), four-season interior dispersal (277a84601303) and order reversal (3268e9366f52)",
+          "arXiv:2407.07553v1 Theorems 12–13 and Eq. (39)",
+          "arXiv:1007.5267 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records ending 8d9ff6f0b92c, 96e146c90265, 087b8ca4b9b8, 4bf78d70bf53, 277a84601303, 3268e9366f52",
+        "arXiv:2407.07553v1",
+        "arXiv:1007.5267 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Temporal-order reversal compares fixed mixing fractions, not survival optima. The lossless three-phase result covers the mechanism in a different family but does not give this cubic or its strict convexity/supporting monotonicity proof.",
+          "The conservative continuous model can establish growth existence under periodic migration but not the boundary between a unique zero, an exact two-point tie, and wholly interior optima here."
+        ],
+        "reasoning": "Even a general spectral-radius evaluation would not settle the optimizer or its discontinuity without the isolation factorization, survival monotonicity and the proof of unique interior contact. The new content is this quantitative classification, not the existence of migration benefit or the qualitative discontinuity alone.",
+        "searches": [
+          "Resultary annual/alternating mortality threshold, paired blocks and period-four temporal-order reversal",
+          "arXiv:2407.07553v1 Theorems 12–13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lossless three-season H_r,L_r,L_r result ending 8d9ff6f0b92c has abrupt onset and a local/global reversal, but the varied parameter is r with onset at 2+√3.",
+          "The two-season exactly alternating comparison has an endpoint survival switch at √(b/a) and no interior maximizer; it is not the simultaneous interior/no-migration tie."
+        ],
+        "reasoning": "Swapping labels, cyclically rotating phases, or taking a whole-cycle matrix power does not convert an alternating word into paired blocks, nor reduce the lossless three-phase word to four paired phases. Compressing each reproductive block into a matrix square does not preserve the one-season common mixing-times-diagonal form of the two-season endpoint theorem.",
+        "searches": [
+          "Resultary paired-block dispersal, mortality survival and discontinuous interior onset",
+          "Resultary records ending 8d9ff6f0b92c, 96e146c90265 and 087b8ca4b9b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby concrete four-season interior example has four distinct profiles with d=24/25; fixed-order reversal is at m=1/2 in a different costless problem.",
+          "The indexed two-season mortality cases give an endpoint equality, not H=∂ₘH=0 at a strictly positive interior fraction."
+        ],
+        "reasoning": "The checked exact values and certificates attach to different objectives and seasonal profiles; they are not entries for the paired-block survival contact or a table from which the all-contrast theorem follows.",
+        "searches": [
+          "Resultary four-season paired migration mortality, cubic double root and local/global reversal",
+          "Resultary four-season example (277a84601303, RESULT.md offset 4400)"
+        ]
+      },
+      "rationale": "Inspected prior results cover endpoint switches with exactly alternating seasons and interior-optimum existence or fixed-order comparisons in costless four-season models. A distinct same-day record captures the qualitative abrupt-onset and local/global reversal phenomenon, but with another seasonal word, parameter and no mortality. None of these resolves the mortality-dependent paired-block tangency for every contrast.",
+      "residual_risks": [
+        "Earlier periodic positive-matrix optimization under other notation may contain an exact specialization. DOI 10.1007/s00285-025-02325-7 was not resolved to readable text in the literature check; no noncoverage inference is made.",
+        "The common catalogue date does not determine priority for the distinct three-season comparator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive qualitative overlap; not equivalent",
+          "evidence": "Lossless H_r,L_r,L_r, abrupt threshold r=2+√3 in fitness contrast, not in survival.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-discontinuous-migration-benefit-threshold-in-a-binary-th--8d9ff6f0b92c",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Resultary retrieval and original mirror",
+          "title": "A sharp discontinuous migration-benefit threshold in a binary three-season environment",
+          "trigger": "Closest qualitative abrupt and local/global onset"
+        },
+        {
+          "assessment": "Exact neighboring endpoint result",
+          "evidence": "One good season per patch before switching; threshold √(b/a), full switching rather than positive interior optimizer.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-exact-all-or-nothing-dispersal-transition-under-alternating-h--087b8ca4b9b8",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0; compared the record ending 96e146c90265, Finding and Assumptions",
+          "method": "Resultary retrieval and original mirror",
+          "title": "An exact all-or-nothing dispersal transition under alternating habitat quality and migration mortality",
+          "trigger": "Same migration mortality and alternating patches"
+        },
+        {
+          "assessment": "Cannot specialize to the four elementary seasons",
+          "evidence": "Endpoint domination for one or two seasons with reversible dispersal and possible migrant mortality.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Resultary retrieval and original mirror",
+          "title": "Two-season endpoint optimality and the first interior dispersal optimum",
+          "trigger": "Stronger short-period endpoint theorem"
+        },
+        {
+          "assessment": "Interior possibility under lossless mixing only, not the new threshold",
+          "evidence": "Equal-pool lossless mixing and a four-profile example with d=24/25.",
+          "identifier_or_url": "2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0; explicit example offset 4400",
+          "method": "Resultary retrieval and original mirror",
+          "title": "Four seasons are necessary and sufficient for interior-optimal dispersal in a two-patch periodic model",
+          "trigger": "Same number of phases and positive interior optimum"
+        },
+        {
+          "assessment": "Fixed-fraction sequence rankings, not mortality optimization",
+          "evidence": "In the lossless comparison, ordering switches at m=1/2.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-season-ecological-growth-has-an-exact-temporal-order-revers--3268e9366f52",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Resultary retrieval and original mirror",
+          "title": "Four-season ecological growth has an exact temporal-order reversal at half dispersal",
+          "trigger": "Same four-season matrix products and exact reversal"
+        },
+        {
+          "assessment": "Different migration model and conclusions",
+          "evidence": "Continuous conservative migration and time-averaged local-rate bounds/growth criteria.",
+          "identifier_or_url": "https://arxiv.org/html/2407.07553v1",
+          "material_read": "Theorems 12–13 near offset 32200; Eq. (39) near offset 68200",
+          "method": "Original OA arXiv text, bounded passages",
+          "title": "Dispersal-induced growth or decay in a time-periodic environment",
+          "trigger": "Potential general periodic migration theorem"
+        },
+        {
+          "assessment": "Inspected abstract addresses another objective; full coverage not inferred",
+          "evidence": "Evolutionary stability/convergence of unconditional strategies, rather than the mortality-penalized optimization studied here.",
+          "identifier_or_url": "https://arxiv.org/html/1007.5267",
+          "material_read": "Abstract only, offset 0",
+          "method": "Original OA arXiv text",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Potential general discrete periodic dispersal analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Resultary adjacent alternating-mortality and costless four-season results"
+      ],
+      "rationale": "The difference between a harmful marginal perturbation and a beneficial finite move changes the decision in a natural periodic population model. The survival dimension is physically meaningful even when the paired habitat schedule is idealized. The cubic contact yields an exact global cutoff and co-optimal fraction for every contrast, supplementing prior endpoint and costless analyses; a local derivative or a grid of optima would miss the sharp onset.",
+      "residual_risks": [
+        "The result is a deterministic growth benchmark; it is not a field-calibrated recommendation or demographic extinction prediction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

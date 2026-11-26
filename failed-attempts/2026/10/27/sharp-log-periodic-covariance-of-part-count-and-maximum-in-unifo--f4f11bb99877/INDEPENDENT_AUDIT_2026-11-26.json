@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:18:06.221781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fair-cut representation gives n=N−1 and (K,M)=(1+S,1+R). For k zero-run starts, compressing out the kr prescribed zeros gives the two binomial counts, with p^k or p^(k−1) according as the first start is interior or at the boundary. The Bernoulli score identity gives −(1/4)∑F′. At r=m+j the binomial terms divided by k! are dominated by an exponential series, including their scaled derivatives, and the limit of F′/m is 2x_j exp(−x_j). For the derivative tails the union of candidate windows about a pivotal site has length at most 2r−1; when r≤n/8 a disjoint length-≥n/4 segment gives an independent no-run condition, bounded using independent geometric runs and a binomial lower-tail bound. This yields summable centered tails; the omitted r>n/8 terms are exponentially small. The analogous probability tails give uniform integrability, so the phase-specific variance and the covariance normalization by sqrt(n)/2 are valid. Mellin integration over adjacent dyadic intervals gives the stated Gamma coefficients. Independent integer enumeration via aggregate cut counts (python3 /workspace/audit_evidence/composition_count_check.py) recovered −7/8 for four bits and the three finite table comparisons within 2.4e−7. Those checks are diagnostic; the all-sequence claim follows from the tail estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "83b82e8c5cb7 gives −[(log₂ n−2)P(θ)+Q(θ)]/2+o(1) and the identical Gamma Fourier coefficients, where Q is bounded and periodic.",
+          "0ee24a72cd31 proves only the one-sided O(log² N) covariance bound and explicitly lacks a matching asymptotic."
+        ],
+        "reasoning": "The stronger estimate contains the complete frozen leading covariance, including genuine nonconstancy. The coarser result alone would not cover it.",
+        "searches": [
+          "Resultary 83b82e8c5cb7 Finding and proof §§3–6",
+          "Resultary 0ee24a72cd31, proof and limitations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary local records 83b82e8c5cb7 and 0ee24a72cd31",
+        "Finch arXiv:2010.06643v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The central-window formula f=A_r z_r^(−n)+O((3/2)^(−n)), with A_r=1+O(rε) and ln z_r=ε+O(rε²), ε=2^(−r−1), gives exp(−2^(θ−1−j))+o(1) at r=floor(log₂ n)+j, each fixed j. Section 6 has uniform geometric tails on both sides of this center and Var(K)=n/4."
+        ],
+        "reasoning": "The displayed tails give uniform integrability of the squared centered maximum, so the variance is v(θ)+o(1). Dividing that record's stronger covariance by sqrt(n v(θ))/2 gives the phase-resolved formula, even though its Finding states correlation only to order. Uniformity follows from the uniform pole formula at each fixed j and the phase-independent geometric tails.",
+        "searches": [
+          "83b82e8c5cb7 proof at mirror offsets 4050–5650 and 6870–7969"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/13/SCOPE-a-two-term-log-periodic-covariance-law-for-the-largest-part-of-a--83b82e8c5cb7, Finding: same unrestricted uniform compositions and n=N−1. P(x)=∑_k 2^(x−k) exp(−2^(x−k)).",
+          "Finch, p. 3, treats the same unrestricted correlation but conjectures the slower negative constant times (ln N)^(−5/2)."
+        ],
+        "reasoning": "Shifting k=j+1 makes P(θ) exactly h(θ); separator formulations describe the same probability law, not a change of model.",
+        "searches": [
+          "Resultary: largest part and part count in uniform compositions; covariance and longest zero-run/separator statistics",
+          "arXiv:2010.06643v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch tabulates finite correlations; the three frozen checker values at 100, 200, and 1000 agree by independent cut-count recurrence.",
+          "Resultary 83b82e8c5cb7 is theorem-level rather than numerical-table coverage."
+        ],
+        "reasoning": "No finite table establishes the lattice-phase asymptotic. The decisive record is the exact analytic entry, not agreement with tabulated cases.",
+        "searches": [
+          "Resultary covariance records 83b82e8c5cb7 and 0ee24a72cd31",
+          "Finch arXiv:2010.06643v2, p. 3"
+        ]
+      },
+      "rationale": "A distinct earlier-dated public mathematical record gives a stronger two-term result for the very same covariance, with the very same logarithmic phase and profile. Its displayed pole estimate and geometric tails also imply the exact variance phase and hence the asserted phase-resolved correlation coefficient by direct normalization. No conclusion about exact historical order beyond the records and their dates is needed for this coverage judgment.",
+      "residual_risks": [
+        "Mirror dates alone are not a complete independent history of releases. This does not affect the demonstrated mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers frozen covariance and implies frozen correlation",
+          "evidence": "Two-term asymptotic with P=h by indexing; central-window pole estimate and uniform geometric tails imply phase-specific variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-two-term-log-periodic-covariance-law-for-the-largest-part-of-a--83b82e8c5cb7/RESULT.md",
+          "material_read": "Finding; proof §§3–6, including offsets 4050–5650 and 6870–7969",
+          "method": "Exact text from local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A two-term log-periodic covariance law for the largest part of a random composition",
+          "trigger": "Same objects and candidate stronger covariance"
+        },
+        {
+          "assessment": "Partial prior coverage only",
+          "evidence": "Antitonicity and O(log² N) covariance magnitude without matching asymptotic.",
+          "identifier_or_url": "2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+          "material_read": "RESULT.md proof and limitation near offset 7918",
+          "method": "Local mirror",
+          "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+          "trigger": "Cited same-model result"
+        },
+        {
+          "assessment": "Same question and finite numerical evidence, not the asymptotic theorem",
+          "evidence": "Conjectures a slower logarithmic power for the unrestricted correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.06643",
+          "material_read": "v2 PDF text p. 3, around offset 9500",
+          "method": "OA paper text",
+          "title": "Covariance within Random Integer Compositions",
+          "trigger": "Same statistics and claimed conflicting decay"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp covariance problem is worthwhile, but the frozen finding supplies no distinct scientific increment over the stronger covariance result and its direct variance-normalized consequence. The finite comparisons do not add an independent mathematical claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

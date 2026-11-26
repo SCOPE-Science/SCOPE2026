@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact symmetric fixed-row-sum Dirichlet identity gives a nonnegative Rayleigh defect. For at least two strictly positive peripheral totals, \(\Lambda^2=h\Lambda+Q> L_i^2\), so every defect coefficient is strictly positive. The explicit irreducible hub-star is feasible and has eigenpair \((\Lambda,(\Lambda,L_1,\ldots,L_m))\); hence it is the unique global minimizer. The threshold condition follows from the positive quadratic root. The rational symbolic verifier and independent finite spectral tests agree with the identities but are not used as a proof for arbitrary size.
+## correctness
 
-**Originality — PASS within the precise model.** Bizzotto–Ball–Britton, arXiv:2602.23885, Theorem 3.2, present a generally nonsharp detailed-balance bound and Appendix 8.1 gives an optimization formulation; Theorem 3.6 analyzes two groups explicitly. The new theorem handles at least three groups, heterogeneous peripheral totals, gives a closed-form sharp value and **unique** optimizer, and quantifies the strict penalty for every peripheral mixing pattern. Engel–Schneider–Sergeev, arXiv:1312.2782, allows arbitrary nonnegative matrices with graph restrictions but does not impose reciprocal balance; Xing–Zhou, arXiv:1309.5604, studies broader entry-dependent inequalities without the new constrained minimum. Search and inspection have not established equivalent or stronger coverage. Residual risk: unindexed symmetric weighted-graph spectral optimization could imply the same formula.
+PASS
 
-**Mathematical value — PASS.** The motivating epidemic literature specifically asks for sharp bounds with only row totals known under reciprocal contacts. The theorem analytically settles a nontrivial, arbitrarily high-dimensional, strongly heterogeneous regime where the motivating source otherwise proposes general semidefinite computation. Uniqueness, an explicit quantitative deviation certificate, and the exact criterion \(h+Q\le1\) for potential subcritical mixing give directly interpretable conclusions rather than an arbitrary numerical instance.
+For the symmetric nonnegative fixed-row-sum class with m>=2, positive L_i and H>=sum L_i, put h=H-sum L_i and Q=sum L_i^2. The star's positive eigenvector v=(Lambda,L_1,...,L_m) has eigenvalue Lambda by Lambda^2=h Lambda+Q, so Lambda is its Perron root, also at h=0. For D=M-M_star, D1=0 by the row constraints and symmetry. Thus v^T D v = (Lambda 1-v)^T D (Lambda 1-v) = g_per^T M_per g_per with g_i=Lambda-L_i>0, because the hub coordinate is zero and the star's peripheral block vanishes. Dividing by Lambda^2+Q via Rayleigh–Ritz proves both reported defect inequalities. Any nonzero peripheral block makes the defect strict; a zero block forces the star by the row sums. Evaluating the quadratic at 1 proves Lambda<=1 iff h+Q<=1; this is a condition for existence of an admissible matrix at or below threshold, with only the star at equality. The exact example's Rayleigh defect is 3/55. The universal decision is analytic; the submitted script was inspected and not executed.
 
-**Scope and limitations.** Equal population fractions, strictly positive peripheral row totals, and a hub total at least their sum are required. The model concerns a reproduction threshold, not final epidemic sizes. The general semidefinite formulation in the cited source covers the optimization abstractly; a hidden specialized proof remains an originality risk. Independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the closed form and unique minimizer for arbitrary, including unequal, peripheral totals and the quantitative defect. The optimization problem itself is established, and a distinct same-day record already gives the full minimizer/value in the equal-peripheral subfamily. Neither the matched general optimization formulation nor the two-rate result states or implies the arbitrary heterogeneous formula and defect by direct specialization.
+
+## value
+
+PASS
+
+This is an exact answer to a natural constrained minimization previously posed in general SDP form. In the heterogeneous dominant-row regime it replaces optimization with an explicit feasibility threshold, identifies the only minimizer, and bounds the loss away from the minimum by an interpretable peripheral mass defect. These are substantive beyond repeating the equal-peripheral example or a generic spectral estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

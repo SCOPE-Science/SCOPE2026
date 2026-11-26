@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:07:40.599473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4; VERIFICATION.md and verify_crossfacet_stdlib.py inspected, not executed",
+        "Independent bounded reproduction: for each 3<=d<=12 and 1<=k<=d, minimize the k-by-k assignment cost by the partial-sink-mask recurrence D(S union {j})=min(D(S union {j}),D(S)+c(|S|,j)), with diagonal cost 2 and off-diagonal cost sqrt(2). Multiply by a-b and divide by 2 sqrt(k)/d; compare the result with the two mixed-pair costs and the closed formula. Maxima at d=3,6,12 were 1.172211621632336, 1.333052557189806, 1.391596983136669, respectively, tied between the incident and antipodal constraints."
+      ],
+      "rationale": "Averaging over signed permutations reduces every finite-norm extension, even a signed one, to incident and opposite weights a=1/d-b and b. The distance-to-an-incident-vertex test bounds the norm below by A(b)=sqrt(2(d-1)/d)+2b/r, and the two-level test on antipodal facets bounds it below by sqrt(d/2)|1-2db|. For d>=3 the increasing and decreasing affine bounds meet at a strictly positive b*<1/(2d), and their maximum bounds every real b from below by the intersection value. For these positive weights, the mixed pair with an opposite vertex is no worse than the incident pair: at b=0 the comparison is 1<=(2-sqrt(2))(d-1), and increasing b only improves it. For a k-coordinate sign change, cancel the equal masses. If k=1 the only transport costs 2(a-b); otherwise each remaining cross-distance is at least sqrt(2), attained in all k matches by a cyclic permutation of the changed coordinates. Thus the centroid-pair maximum is achieved at k=d, including comparison with k=1. Substitution gives the stated formula, which exceeds 1, is strictly below ordinary averaging, and tends to sqrt(2).",
+      "residual_risks": [
+        "Assignment checks are finite floating-point corroboration, not the all-d proof. The additional solver run described in the frozen notes was not needed or independently replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 supplies norm bounds for general doubling subsets, not a two-constraint sharp constant here.",
+          "The indexed one-point result concerns a different augmentation; its full text was not available through the inspected mirror."
+        ],
+        "reasoning": "Even if a one-centroid theorem applied, it would not imply the simultaneous optimum: ordinary facet averaging for a single centroid has norm A(0), strictly below the simultaneous optimum, by the audited mixed-pair comparison.",
+        "searches": [
+          "arXiv:1801.07533 Theorem 4.1",
+          "Resultary one-point heterogeneous equilateral cluster record dceb184368f3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 8b9185500178 and dceb184368f3",
+        "Basso arXiv:2104.14238",
+        "Bruè–Di Marino–Stra arXiv:1801.07533"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior edge-midpoint proof optimizes a different family of target-pair constraints; the present lower bound exploits opposite facet centroids.",
+          "General formulations and existence bounds do not solve the competing incident-vertex and opposite-centroid inequalities."
+        ],
+        "reasoning": "No explicit implication was found. Polar duality relates combinatorics, not the distances or the direction of the extension invariant.",
+        "searches": [
+          "Resultary 8b9185500178 Finding and Proof §§2–4",
+          "Basso arXiv:2104.14238 §1.1",
+          "Bruè–Di Marino–Stra arXiv:1801.07533 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basso defines the corresponding based extension modulus and general projection-constant framework.",
+          "The closest Resultary record targets edge midpoints rather than triangular-face centroids even in d=3 (12 versus 8)."
+        ],
+        "reasoning": "The alternate formulation preserves the finite metric pair; changing from edge midpoints to facet centroids does not preserve that pair.",
+        "searches": [
+          "Local Resultary semantic search for cross-polytope / octahedral linear extension, including one-point formulations",
+          "arXiv:2104.14238 §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue match has a distinct target and separate formulas; the focused web search produced no relevant match, which is not evidence of absence.",
+          "Basso's absolute constant for three-point metric spaces does not tabulate the d=3 octahedron's 6-to-14-point extension."
+        ],
+        "reasoning": "An exact table entry would have to encode the specified vertex-to-facet metric or an isometric reduction; no inspected entry does.",
+        "searches": [
+          "Local Resultary search; strongest hit 8b9185500178",
+          "Focused primary-literature search for cross-polytope facet-centroid and octahedron linear Lipschitz extension constants"
+        ]
+      },
+      "rationale": "No inspected source covered the exact signed-coordinate-vertex to all facet-centroid extension constant. The closest catalogue result has the same domain and an adjacent geometric target, but not the target metric or the antipodal-facet obstruction. The inspected general theory supplies tools, not this exact pairwise optimum.",
+      "residual_risks": [
+        "Focused search is bounded and cannot establish priority; less-indexed finite metric computations may exist. The indexed one-point record was assessed only as described, not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial adjacent result, not equivalent",
+          "evidence": "Target consists of all edge midpoints; even in d=3 it has twelve added points versus the eight facet centroids here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-simultaneous-lipschitz-extension-from-cross-polytope-verti--8b9185500178/RESULT.md",
+          "material_read": "Finding, Proof §§2–4 and Relationship to prior work",
+          "method": "Bounded local mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp simultaneous Lipschitz extension from cross-polytope vertices to edge midpoints",
+          "trigger": "Same vertex set and exact simultaneous extension problem"
+        },
+        {
+          "assessment": "General framework, not an instance-specific solution in the inspected material",
+          "evidence": "Defines T extending all source data and the least extension norm; three-point absolute extendability concerns a different parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14238",
+          "material_read": "§1.1, pp. 2–3, around text offset 6204",
+          "method": "Located passage in OA primary PDF",
+          "title": "Absolute Lipschitz Extendability and Linear Projection Constants",
+          "trigger": "Possible equivalent formulation or known finite constants"
+        },
+        {
+          "assessment": "Method and general bound, not the claimed exact optimum",
+          "evidence": "Produces extension operators on doubling subsets with norm controlled by the doubling constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "Theorem 4.1, p. 12, around text offset 35916",
+          "method": "Located passage in OA primary PDF",
+          "title": "Linear Lipschitz and C¹ Extension Operators through Random Projection",
+          "trigger": "General transport construction might dominate the claim"
+        },
+        {
+          "assessment": "Not treated as negative full-text evidence",
+          "evidence": "The summary concerns one added point. The audited one-centroid ordinary-average bound is already strictly less than the simultaneous optimum.",
+          "identifier_or_url": "Resultary dceb184368f3",
+          "material_read": "Indexed summary only; exact mirror text unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Sharp one-point linear Lipschitz extension on heterogeneous equilateral clusters",
+          "trigger": "Potential single-centroid reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, two signed-operator lower witnesses and positive transport construction"
+      ],
+      "rationale": "Facet centroids give a canonical family in every dimension, with a genuinely simultaneous obstruction. Ordinary averaging on just the incident vertices is sufficient for a strictly smaller one-centroid norm, but treating every facet at once forces a competition with antipodal centroid differences. The exact result quantifies this cost and shows how strictly positive mass on all vertices improves the simultaneous norm from order sqrt(d) to a bounded constant.",
+      "residual_risks": [
+        "No conclusion about uniqueness, other augmentation sets or other metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

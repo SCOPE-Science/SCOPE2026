@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the exact frozen-moment relation \(s_i=c p_i^2\), direct cancellation gives the arithmetic mean \(q=A\), and the stated feedback equation has precisely this balance as its fixed-point condition. The strict weighted Chebyshev comparison gives \(T\le A\). For the sharp upper bound, the objective \(\mathbb E[p]\,\mathbb E[p^{-2}]/\mathbb E[p^{-1}]\) attains a maximum over probability distributions on the spectral interval. Its first variation has an extremality function with strictly increasing derivative numerator, forcing support on interval endpoints. Exact one-variable differentiation yields the unique endpoint frequency and bound. Integer-square condition numbers give finite equality examples; rational proportions approximate the optimum for every other condition number. Exact-rational tests corroborate, but do not replace, those continuous arguments.
+PASS
 
-## Originality — PASS, with residual risks
+Balance gives q=E p, with uniform empirical averaging, and the oppositely ordered pairwise products give (E p)(E p⁻²)≥E p⁻¹, strict for nonconstant spectra. The upper bound can be checked without the variational argument: after scaling to p∈[1,κ], fix the mean of X=1/p. Both x↦1/x and x↦x² are strictly convex. Their secants on [1/κ,1] bound their expectations by those of the same endpoint law with that mean, strictly if the spectrum has any interior mass. Both moments are positive and the denominator E X is fixed. With κ=t²>1 and smaller-p endpoint mass u, the endpoint objective is F=1+C u(1−u)/D, where D=1+(t²−1)u and C=(t²−1)²(t²+1)/t². The identity D−(t+1)²u(1−u)=[1−(t+1)u]² proves the sharp formula and unique optimizer u=1/(t+1). This u is realizable by an equal-weight finite multiset exactly if t is rational; otherwise approximate u by rational frequencies with both endpoints present to keep κ exact. At κ=1 the ratio is identically one. The stationary update identity holds with c=1/γ and α>0 for the unregularized frozen model; it establishes no stochastic trajectory claim.
 
-The closest source is Yu--Chen--Feng, arXiv:2605.12878v1, Lemma 2.2 and Appendix C: its weighted Chebyshev proof covers \(q\ge T\), not the three-moment sharp upper bound on \(q/T\) under equilibrium second moments or the extremizing endpoint frequencies. Yu--Chen--Xu, arXiv:2604.08742v1, develops deterministic preconditioner analysis, but not the stochastic surrogate. Classical Lehmer-mean monotonicity recovers the lower inequality only; classical Kantorovich estimates concern the different product of first and inverse moments. No covering formulation appeared in the checked published mathematical records. A specialized generalized-mean inequality or unindexed equivalent argument remains a possible overlap; this review does not establish universal priority.
+## originality
 
-## Value — PASS
+PASS
 
-The bound answers a natural quantitative question left by the source's computable sufficient learning-rate surrogate. Perfect coordinate alignment and even exact frozen feedback balance do not prevent near-condition-number loss: the sharp ratio grows as \(\kappa-2\sqrt\kappa+O(1)\). It identifies both the spectrum and multiplicity pattern causing maximum conservatism, providing a concrete diagnostic boundary for choosing a trace-based certificate. It is not presented as a new algorithm, general convergence theorem, or performance guarantee.
+Credit the sharp quantitative upper loss and its optimal finite-spectrum frequencies for the balanced trace surrogate. The lower ordering, the notion of a Lehmer mean, and the method of using secants for convex moments are standard. The inspected sharp Kantorovich inequalities bound different moment expressions and the original adaptive-method analysis does not supply this upper bound. Watson's broad method is the closest remaining full-text risk; its available abstract does not establish an exact specialization, so the pass is limited to the statements compared.
 
-## Scientific limitations
+## value
 
-The idealized unsmoothed, frozen-moment setting differs from dynamically changing moments and positive numerical regularization. The sharp constant is dimension-free; finite dimensions with other endpoint proportions may have smaller optima. Generalized-mean literature may contain equivalent special cases, and no independent validation has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perfect balance is a natural model because it is the frozen fixed-point relation of the unregularized adaptive preconditioner, not a slice chosen merely to fit a calculation. In this regime an input to a learning-rate sufficient condition can underestimate its allowable ratio by a factor growing linearly with κ; exact sharpness shows this is not an artifact of a loose auxiliary estimate. The optimizer describes the balance of spectral extremes responsible for the loss. This quantifies headroom in a sufficient bound, not a practical recommendation to multiply an optimizer's step size by that factor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

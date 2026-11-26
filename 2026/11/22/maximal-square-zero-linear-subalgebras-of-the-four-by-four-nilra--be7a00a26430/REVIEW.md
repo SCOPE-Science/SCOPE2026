@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument is exact over every field. The three coordinates of \(X^2\) are \(ad\), \(df\), and \(ae+bf\). The all-fields linear-functional product lemma reduces any admissible space with nonzero \(d\)-functional to the single four-space. On \(d=0\), the determinant of \(\begin{psmallmatrix}a&b\\-f&e\end{psmallmatrix}\) is zero, and an elementary common-row/common-column proof classifies every maximal singular matrix pencil. Removing the unique row plane already contained in the four-space yields all and only the stated maximal spaces. Explicit multiplication and rank-one-plane intersections establish the algebra-type and complete graph claims; elementary finite-field rank-one counts establish the point incidence. The argument does not require dividing by two, so includes characteristic two. The embedded checker independently enumerates every three- through six-dimensional linear subspace for \(q=2,3\), replays the matrix relations, and matches all claimed finite statistics. Finite checks supplement, rather than replace, the proof. Residual mathematical risk: unrecognized misuse of inclusion maximality or field-characteristic restrictions; the proof explicitly treats both.
+## correctness
 
-## Originality — PASS (best-knowledge; priority not independently certified)
-The closest fully inspected same-algebra publication, *Three determinantal components of commuting square-zero pairs in the four-by-four nilradical* (2026), classifies components of an ordered-pair variety. It supplies the single-matrix square-zero equations, but no maximal-space list, complete intersection graph, or multiplication-type census. A second inspected work, *Exact associative-subalgebra spectra in three-block nilpotent radicals* (2026), concerns the distinct five-dimensional \((1,2,1)\)-block radical, not the full six-dimensional \(\mathfrak n_4\). De Seguins Pazzis's 2011/2012 paper on one-eigenvalue matrix spaces gives global dimension bounds, not the square-zero maximal-space incidence. Zhao, Wang and Wang's 2008-online preserver paper is highly relevant but only its abstract/metadata was accessible; its full text could contain related pencil lemmas. The new comparison is therefore a provisional best-knowledge assessment, especially for the incidence-enhanced classification, not an assertion that every underlying quadratic-geometric technique is new.
+PASS
 
-## Value — PASS
-The four-by-four nilradical is the first naturally small strictly triangular algebra in which a nontrivial split quadratic constraint interacts with an adjacent quadratic constraint. Its square-zero matrix locus supports two families of maximal linear spaces but uniquely promotes one member into a higher-dimensional zero-product algebra. The resulting exact \(K_{q+1,q+1}\) incidence, point-containment multiplicities, and division between zero-product and nonzero-product associative subalgebras give a complete, nonuniform structural invariant for all finite fields. The characteristic-two commutativity change separates vector-space square-zero geometry from multiplication behavior. This is a motivated natural classification, not a single arbitrary small-field census; no higher-dimensional or downstream theorem is claimed.
+Direct multiplication gives ad, df and ae+bf as the only possibly nonzero square coordinates. The annihilator line kE14 must be in every maximal admissible space. If d is not identically zero, the products of linear functionals ad=df=0 force a=f=0, including over F₂: independent functionals can both be made one, and proportional nonzero ones cannot have identically zero product. In the slice d=0, quotient by kE14 turns the remaining quadratic into det M=0. Normalize one nonzero rank-one member to E11; applying the determinant to B and B+E11 forces B22=0, then B12 B21=0, so the common-image or common-row classification holds over any field. Each such space extends to a ruling plane, and exactly the row with first coordinate zero extends further by adding a middle-coordinate direction in W₀. Products in the slice are central, so all lifts are associative subalgebras. On the column ruling the product coefficient is p₁p₂ times the alternating determinant of the two row parameters; fixed-row spaces and W₀ have zero products. This gives q−1 nonzero-product algebras including in characteristic two, when the table is commutative. The ruling intersections and replacement of the exceptional row give K_(q+1,q+1). Each nonzero rank-one quotient point selects exactly one space from each ruling; adding W₀ and the annihilator incidence gives the three stated strata and total 2q⁴−q².
 
-## Closest literature and limitations
-- Y. Zhao, D. Wang and X. Wang, *Maps preserving square-zero matrices on the algebra consisting of all upper triangular matrices*, DOI 10.1080/03081080802531770 (first online 2008-12-29): abstract inspected, complete paper inaccessible. The authors study bijective preservers, not expressly the present incidence invariant; full-text overlap risk remains.
-- C. de Seguins Pazzis, *Spaces of matrices with a sole eigenvalue*, arXiv:1105.1872v1 (2011-05-10): accessible HTML introduction and main statements inspected; treats nilpotent/one-spectrum spaces in the whole matrix algebra, not maximal square-zero subspaces of the fixed nilradical.
-- *Three determinantal components of commuting square-zero pairs in the four-by-four nilradical* (2026-11-08): full scientific result and proof inspected; pair components rather than maximal linear spaces.
-- *Exact associative-subalgebra spectra in three-block nilpotent radicals* (2026-11-02): full scientific result and proof inspected; different underlying algebra and counting question.
+## originality
 
-The statement is restricted to the four-by-four nilradical; no scheme-theoretic smoothness, general-order analogue, or independent priority certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The square-zero equations, determinantal cone and rulings are standard, and prior Borel-orbit theory materially overlaps the geometry of the underlying square-zero locus. The supported distinct result is the ambient inclusion-maximal linear-space and associative-algebra classification with one exceptional extension, together with its embedded all-prime-power incidences and multiplication types. Prior descriptions of point or pair varieties are not credited as new here.
+
+## value
+
+PASS
+
+This small fixed-flag algebra exhibits both an exceptional maximal dimension and a nontrivial distinction between the two otherwise symmetric rulings at the level of multiplication. The subspace incidence answers how often a square-zero element extends to a maximal admissible algebra; the product census shows when that extension can have nonzero products despite every element squaring to zero. The characteristic-two result and all-prime-power uniformity make it a useful exact baseline, beyond classifying the two algebraic components of a point locus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

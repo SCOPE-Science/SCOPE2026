@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:50.851185Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, formulas (1)–(3) and Proof",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Wang–Yin–Wang arXiv:2610.01329, PDF pp. 1 and 3"
+      ],
+      "rationale": "The zero is unique. The intrinsic sets A=S\\S² and B=S²\\{0} have sizes m,k≥1, and every product with a factor in B or the zero vanishes. Conversely every symmetric map on pairs of A with image containing B defines such an associative table, since all triple products vanish. The marked labelled formula follows by inclusion–exclusion on omitted nonzero colors with a z for a nonzero diagonal value. For the Burnside average the two permutations act on pairs and on colors; on a length-ℓ pair orbit one chooses a color fixed by the ℓth power of the color permutation. Choosing nonzero on a diagonal orbit contributes z^ℓ. Equivariance makes the color image a union of whole cycles, so omission of whole cycles, not individual colors, is the correct inclusion–exclusion. The finite-basis equivalence is exactly Wang–Yin–Wang Corollary 1.2 at d=3, with the full powerset and constant-free binary signature confirmed in the source. A diagonal-free table must cover all colors off-diagonal, and each such off-diagonal table admits (k+1)^m completions with exactly one diagonal-free completion. Thus the stratum fraction is at most (k+1)^(-m) and is zero unless k≤m(m-1)/2. For k<n/2 one has m>(n-2)/2, and otherwise nonzero fraction requires m>sqrt(n). The maximum of the stated bounds controls the weighted average. An independent direct count at n=4 gives L_4=12+48z+24z² and U_4=1+2z+2z², using the sole feasible stratum m=2,k=1.",
+      "residual_risks": [
+        "The large-n conclusion is a bound for labelled tables within the exactly three-nilpotent commutative class, not a sharp equivalent or a bound proved for the uniform unlabelled measure.",
+        "Finite examples beyond the independent hand check were not needed for the proof. The frozen optional replay path is python verify.py from the record directory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distler–Mitchell provides exact unmarked counts for the same objects. Theorem 7.2 in Dolinka–FitzGerald–Mitchell gives an upper bound on unmarked semirigid commutative classes.",
+          "Wang–Yin–Wang proves the finite-basis characterization for every eligible index d, including d=3."
+        ],
+        "reasoning": "The latter directly covers the criterion and receives credit for it. None of these statements counts the square-marked fibers or controls their relative labelled frequencies; the unmarked census is a specialization at z=1 rather than a theorem carrying the full marked distribution.",
+        "searches": [
+          "Distler–Mitchell DOI 10.37236/2441, Theorems 1(ii), 5",
+          "arXiv:2411.00466 Theorem 7.2",
+          "arXiv:2610.01329 Corollary 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Yin–Wang arXiv:2610.01329v1",
+        "Distler–Mitchell DOI 10.37236/2441",
+        "Dolinka–FitzGerald–Mitchell arXiv:2411.00466",
+        "Resultary matches 29b4bd8b40d3 and 736169cfad6f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The criterion implies finite basability iff the mark is positive at d=3, but supplies no frequency. The earlier models provide the domains and permutations used for Burnside; obtaining the refinement requires different weights for diagonal and off-diagonal orbits.",
+          "The density proof additionally compares completions of diagonal-free tables within each feasible product-set stratum."
+        ],
+        "reasoning": "The finite-basis labels follow by specialization from an older theorem, so they are not a new criterion. The marked count uses standard enumeration tools on known models, but is not given by substituting into the published unmarked totals, and the quantitative labelled bound is a further consequence of the marked problem.",
+        "searches": [
+          "arXiv:2610.01329, Introduction and Corollary 1.2",
+          "arXiv:2411.00466 §§2,7",
+          "Distler–Mitchell Theorems 1(ii), 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric partial-partition model retains diagonal cells, but the inspected enumeration does not mark how many of those cells have nonzero output.",
+          "Resultary 29b4bd8b40d3 treats all-square-zero cubic-nilpotent objects of order at most five by a product-digraph criterion, with commutativity not imposed."
+        ],
+        "reasoning": "Counting occupied diagonal cells in the partition model is exactly the statistic here; that identifies an equivalent representation, not an existing marked census. The small-order graph criterion is neither a reformulation of the marked polynomials nor of the all-n labelled density.",
+        "searches": [
+          "Resultary: square-marked commutative three-nilpotent semigroups; zero-square tables and finite bases for full power semirings",
+          "Dolinka–FitzGerald–Mitchell arXiv:2411.00466, §§2,7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same unmarked totals are established in Distler–Mitchell. The matched indexed records 29b4bd8b40d3 and 736169cfad6f classify finite basability in graph-based regimes and do not give an exact marked table or density."
+        ],
+        "reasoning": "The old numerical totals cannot decide coefficients in z or even the zero-square constant term. This is a bounded comparison with located exact censuses, not a claim that no other table exists.",
+        "searches": [
+          "Resultary: exact labelled and isomorphism-class square counts for commutative three-nilpotent semigroups; finite-basis count and density",
+          "Distler–Mitchell Theorems 1(ii), 5 (unmarked enumeration)"
+        ]
+      },
+      "rationale": "The unmarked totals, symmetric partial-partition model, and finite-basis criterion are established prior results. The supported distinct claim is the square-marked labelled and orbit census paired with its quantitative conditional density consequence, not those ingredients. The compared sources either forget the diagonal mark or only describe the finite-basis criterion and do not enumerate the resulting subclasses asymptotically.",
+      "residual_risks": [
+        "The refinement is accessible from standard weighted orbit counting; an equivalent diagonal-marked count could occur in specialized enumeration literature not located in the bounded search. No novelty is attributed to the underlying unmarked presentation or to the finite-basis criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the criterion; not the census",
+          "evidence": "All subsets including the empty set, constant-free binary operations; finite nonzero commutative S of index d is finitely based in full power semiring form iff some a satisfies a^(d-1)≠0.",
+          "identifier_or_url": "arXiv:2610.01329v1",
+          "material_read": "PDF p. 1, Introduction; p. 3, Corollary 1.2",
+          "method": "Lawful OA primary text",
+          "title": "Finite bases for full power semirings of finite nilpotent semigroups",
+          "trigger": "Exact finite-basis criterion relied on"
+        },
+        {
+          "assessment": "Exact unmarked specialization",
+          "evidence": "Labelled and isomorphism-class formulas for commutative degree-three nilpotent semigroups, without a diagonal-square statistic.",
+          "identifier_or_url": "DOI 10.37236/2441",
+          "material_read": "PDF p. 3, Theorem 1(ii); p. 7, Theorem 5",
+          "method": "Lawful OA primary text",
+          "title": "The Number of Nilpotent Semigroups of Degree 3",
+          "trigger": "Same semigroups and exact earlier census"
+        },
+        {
+          "assessment": "Related model and unmarked bound",
+          "evidence": "Partial partitions encode nonzero products; symmetric partitions encode commutativity. The inspected theorem concerns a bound for semirigid classes, not weighted diagonal occupancy.",
+          "identifier_or_url": "arXiv:2411.00466",
+          "material_read": "PDF p. 3, §2; pp. 14–15, §7 and Theorem 7.2",
+          "method": "Lawful OA primary text",
+          "title": "Semirigidity and the enumeration of nilpotent semigroups of index three",
+          "trigger": "Partial partitions and orbit counting might retain diagonal marks"
+        },
+        {
+          "assessment": "Different regime and output",
+          "evidence": "Product-digraph criterion for square-zero semigroups of order at most five, without assuming commutativity.",
+          "identifier_or_url": "Resultary 29b4bd8b40d3",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Local Resultary and mirror",
+          "title": "A sharp five-element finite-basis cutoff for cubic nilpotent semigroups",
+          "trigger": "All-square-zero endpoint of census and finite basability"
+        },
+        {
+          "assessment": "No marked census or density in inspected statement",
+          "evidence": "Finite basability in terms of a bipartite nonzero-product graph, not a count by nonzero squares.",
+          "identifier_or_url": "Resultary 736169cfad6f",
+          "material_read": "Indexed RESULT.md, Finding",
+          "method": "Local Resultary and mirror",
+          "title": "A bipartite product-digraph threshold for full power semirings",
+          "trigger": "Other matching finite-basis threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and density proof",
+        "Wang–Yin–Wang Corollary 1.2",
+        "Earlier unmarked censuses documented under originality"
+      ],
+      "rationale": "Nonzero-square count is an algebraically motivated mark: its zero stratum is precisely the failure of finite basability. The exact marked labelled and unlabelled polynomials separate that stratum and give distributions beyond the published unmarked totals. The completion comparison shows that failure is quantitatively rare under a natural labelled model. This does not depend for significance on a recomputation of a small unmarked table.",
+      "residual_risks": [
+        "No sharp density equivalent, uniform-unlabelled concentration, or enumeration of distinct semiring varieties follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

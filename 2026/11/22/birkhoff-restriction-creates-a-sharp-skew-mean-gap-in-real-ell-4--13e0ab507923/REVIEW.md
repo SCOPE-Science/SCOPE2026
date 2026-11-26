@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-variable Birkhoff parametrization is global because the quartic norm is smooth and every unit tangent direction is determined up to a sign. The exact fourth-power identities, uniform expansion, single nondegenerate maximum of \(J\), and stationary implicit-function equation justify the complete claimed local expansion and uniqueness, not just its finite sample behavior. The strict global gap follows from equality cases of a two-variable generalized eigenvalue problem: when \(t\ne1\), each maximizing coordinate row belongs to one of two perpendicular lines, and the two unit-column constraints force a nonzero Birkhoff functional. At \(t=1\), the explicit balanced unit pair attains equality. The analytic proof does not require numerical sampling; the packaged checker independently confirms 3,322 exact-algebra and finite consistency assertions.
+## correctness
 
-## Originality — PASS, qualified
-The public 2026 definition paper studies general estimates and specific hexagonal examples, not a quartic-plane strict comparison or its local optimization. The 2025 unrestricted-mean paper treats the unrestricted and isosceles-restricted objects. The published exact real \(\ell_4\) unrestricted value is explicitly acknowledged and used, not claimed as new. A separate public result on the Birkhoff **difference** functional \(D_t^B\) gives a different perturbation problem and a quadratic optimizer drift. Full relevant source texts were compared by statements and implications rather than titles: none supplies the joint global strictness, restricted cubic expansion, and linear optimizer drift. Earlier, unindexed equivalent results remain possible; no general proof of literature uniqueness is asserted.
+PASS
 
-## Mathematical value — PASS
-This is a complete global equality/strict-inequality classification for the natural question whether restricting skew norm means to Birkhoff-orthogonal pairs loses information. It also computes the sharp first-order cost, the full first three nonconstant coefficients, and a locally unique extremizing orbit with explicit displacement. These facts distinguish two canonical geometric constants and the direction of optimizer motion, not merely a normalization or a scalar exercise.
+For t≠1 the generalized quadratic form for the scalar norm of M_t has a simple top eigenline with RQ≠0. Every nonzero real (R,Q) is attained by (a²−b²,2ab) by complex squaring; over the maximizing eigenline its preimages are two perpendicular input lines. Thus every nonzero coordinate row of an unrestricted maximizing pair is proportional to (a,b) or (b,−a), with ab(a²−b²)≠0. One line, including the case of only one nonzero row, is incompatible with both columns having norm one. Distinct lines and the two norm conditions give equal absolute scales, so the Birkhoff functional is a nonzero scalar multiple of ab(a²−b²). Compactness now gives strictness. The explicit balanced pair at t=1 attains 2^(3/4). For the local law, quartic expansion of the two norm arguments under x⊥_B y gives the displayed J and B. The uniform small-t expansion over both orientations confines all maximizing ratios to a neighborhood of u0 and the positive-linear orientation. At u0, q=3u0 and (1−u0)²=2u0, giving J=c and B=1/√3; differentiation gives f1″=−c(7+4√3)/4 and f2′=1+√3/2. The analytic implicit equation is ∂_u((F−1)/t)=0, which extends to t=0 and is nondegenerate there; concavity near u0 and exclusion outside the neighborhood yield one ratio and one ordered-pair orbit. The drift is −f2′/f1″ and substituting it changes the cubic coefficient by −(f2′)²/(2 f1″), giving (7√3−9)c/18. The unrestricted linear coefficient is √2/4 and c²=2/(3√3)<1/2. Neither uniqueness nor the cubic series is claimed at large t. The supplied checker was inspected and not executed; several coefficient checks use numerical tolerances, so the analytic calculation is decisive.
 
-## Limits and closest literature
-Qi et al. (arXiv:2602.13974, Section 2), Ni–Liu–Zhou (DOI:10.7153/mia-2025-28-22, Sections 3–4), the public exact unrestricted \(\ell_4\) norm record, and the public small-skew Birkhoff difference record are the closest inspected comparators. No exact restricted profile for large weights, no higher-dimensional statement, and no absolute priority certification are claimed. Finite checks do not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-weight unrestricted expression and its operator-norm derivation, and the leading reverse Birkhoff residual, are prior. The supported contribution is ruling out unrestricted equality under the Birkhoff constraint away from equal weights and establishing the optimized mean's local coefficients and moving orbit. The strongest matching Resultary proofs give either the unrestricted objective or the restricted difference quotient; neither gives the restricted sum maximum. The equality exclusion uses known generalized-eigenvalue data but additionally analyzes all norming rows under both unit constraints. The perturbation proof additionally optimizes a different Taylor series and is not a normalization of the earlier difference law.
+
+## value
+
+PASS
+
+The real quartic plane is a natural smooth non-Hilbert test case for directional orthogonality constants. The theorem resolves exactly when the restriction changes the sharp arithmetic mean and quantifies both the optimized loss and how a maximizing pair moves. The leading common residual alone cannot reveal the linear versus quadratic optimizer motion of the sum and difference problems. This is a substantive comparison beyond evaluating a known formula at one weight, with no claimed closed form for the restricted mean at arbitrary weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

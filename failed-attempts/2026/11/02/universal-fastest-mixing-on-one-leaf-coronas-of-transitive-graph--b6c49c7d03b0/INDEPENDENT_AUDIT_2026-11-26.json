@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:16.096941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging over base automorphisms preserves feasibility and cannot increase the spectral norm, giving the two-orbit family with a+db≤1. The symmetric two-by-two block at core eigenvalue lambda has eigenvalues 1−a−b lambda/2 ± sqrt(a²+(b lambda/2)²). Upper modes decrease with lambda, and every positive-core-eigenvalue block has nonnegative trace because lambda≤2d, so the positive eigenvalue of that block dominates its negative modulus. The only extra mode is 1−2a at lambda=0. For nonzero interior a the upper mode at alpha decreases strictly with b, and optimizing at b=(1−a)/d gives the scalar F with F''=c²/[a²+c²(1−a)²]^(3/2)>0. The stated stationary point satisfies the unsquared sign equation and a≤1/2, so the extra mode is dominated there. Strictness gives uniqueness in the two-orbit family only. In terms of s=sqrt(alpha/d), the same solution is gap s²/(2+2s+s²), pendant probability s(1+s)/(2+2s+s²), and core probability (2+s)/[d(2+2s+s²)], using the factorization D=(1−s/2)(2+2s+s²). The K2, balanced bipartite, complete-graph and small-s limits follow; the certificate is analytic, not the recorded finite verifier. Its sampled matrices are symmetric as matrices but may be non-invariant under the graph automorphisms; the script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multi-leaf theorem covers r≥1 for n≥3 and asserts rigidity of all optimizers. The separate continuous-time theorem optimizes a linear price budget over general symmetric rates.",
+          "Jafarizadeh's Theorem 1 concerns complete bipartite connections between clique fibers; Section 7.4 concerns the complete-core path-attached topology, not arbitrary transitive cores. Boyd's symmetry theorem is the general averaging method."
+        ],
+        "reasoning": "r=1 is a direct specialization. The continuous-time result also implies the frozen optimum at the matching price and budget once the negative spectrum is bounded. The broad averaging method alone does not give the optimum.",
+        "searches": [
+          "Resultary 9e788ca7bde4 (multi-leaf discrete-time theorem); eed5b428788a (arbitrary positive prices)",
+          "arXiv:2501.02421v1, Theorem 1 and Sections 3, 5 and 7.4",
+          "Boyd et al., arXiv:0709.0955, Theorem 2.1 and Corollaries 2.2–2.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eed5b428788a, 9e788ca7bde4, 16afafb3a1dc and 6de3873d5eaa",
+        "Jafarizadeh arXiv:2501.02421v1 (clique-lifted and related topology passages)",
+        "Boyd–Diaconis–Xiao doi:10.1137/S0036144503423264",
+        "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous-time theorem has gap B/(n(2c+Q+2sqrt(cQ))), with c=dP/(2alpha). For the indicated parameters c=1/s², giving gap s²/(2+2s+s²), and the rate formulas give the displayed optimizer.",
+          "In the matching discrete-time setting, all core row budgets sum to precisely the aggregate price constraint, and the orbit optimizer realizes equality per row. Nontrivial generator blocks have trace at most 2, giving the required bound on the most negative transition eigenvalue."
+        ],
+        "reasoning": "The general gap theorem plus the elementary trace check derives the full one-leaf theorem from the same-day comparison. The exact multi-leaf SLEM theorem separately supplies all conclusions on n≥3 without needing that transfer. K2 and all asymptotic corollaries leave no distinct submitted theorem.",
+        "searches": [
+          "eed5b428788a, Finding and scope at offset 0; set P=2, Q=1, B=n",
+          "9e788ca7bde4, Finding at offset 0; set r=1; scope and publication metadata",
+          "Boyd–Diaconis–Xiao, author PDF p. 13, offset 43505"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 9e788ca7bde4 gives gap x/[1+r(1+sqrt(x))²] and explicit core/leaf weights; setting r=1 exactly matches the frozen theorem.",
+          "The earlier sunlet record 6de3873d5eaa matches by alpha/d=1−cos(2pi/n)."
+        ],
+        "reasoning": "These are exact symbolic identifications in the symmetric uniform-stationary objective, not evidence based on graph names or numerical similarity.",
+        "searches": [
+          "Resultary: one-leaf corona fastest mixing SLEM vertex edge transitive normalized algebraic connectivity core holding exact formula private leaves sunlet",
+          "Primary literature: Jafarizadeh fastest mixing reversible Markov chain leaf corona transitive cores pendant branches attachment algebraic connectivity clique lifted full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact path solution assigns probability 1/2 to edges and the two end loops. The indexed sunlet and balanced complete multipartite cases already identify exact optima for those subfamilies."
+        ],
+        "reasoning": "Finite spectral tables are inapplicable as evidence of all-core novelty. The symbolic general match and exact special-case formulas cover the theorem and its exceptional K2 case.",
+        "searches": [
+          "Resultary one-leaf discrete-time SLEM query above; October sunlet 6de3873d5eaa and four-fifths barrier 16afafb3a1dc",
+          "Boyd–Diaconis–Xiao, doi:10.1137/S0036144503423264, path discussion"
+        ]
+      },
+      "rationale": "Two distinct indexed theorems supply the complete nontrivial family. First, the multi-leaf discrete-time theorem 9e788ca7bde4 specializes at r=1 to the exact three formulas in the correctness check and strictly strengthens the conclusion with global holding and pendant-weight rigidity. Second, the same-day price-optimal continuous-time theorem eed5b428788a has an exact reduction here, not just analogous notation: choose base-edge price 2, pendant price 1, budget n. Every feasible stochastic chain has total corresponding expenditure at most n by summing the core row constraints, hence its spectral gap is at most the continuous-time optimum. The orbit-uniform continuous-time optimizer has a+db=1 and gives exactly the same three expressions. Its positive-core-eigenvalue Laplacian blocks have trace at most 2, so the other eigenvalue is at most 2 minus the optimal gap; the remaining radial Laplacian eigenvalue is 2a≤1. Thus the continuous-time bound is attained also for the discrete-time SLEM. Orbit uniqueness descends from continuous-time uniqueness. K2 is the already known P4 path chain. This is mathematical coverage, not an allegation about who found it first; the later catalogue publication date of the multi-leaf theorem is not evidence that it was prior to the frozen text.",
+      "residual_risks": [
+        "No chronological priority is assigned to either same-day record; catalogue publication of the stronger discrete-time theorem is later, and no historical priority is inferred from current coverage.",
+        "The inspected Jafarizadeh passages are not a claim about the scope of every result in that document; its accessibility is not the basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the SLEM theorem by choosing prices and checking trace/radial feasibility",
+          "evidence": [
+            "It optimizes all independent symmetric rates under linear spending, gives an exact optimum in the two orbit classes, and expressly gives orbit uniqueness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-price-optimal-continuous-time-mixing-on-transitive-one-lea--eed5b428788a/RESULT.md",
+          "material_read": "Finding and budget assumptions, offset 0–2281",
+          "method": "Resultary and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact price-optimal continuous-time mixing on transitive one-leaf coronas and rigid cyclic sunlets",
+          "trigger": "Identical graph family and potential optimizer equivalence across the two objectives"
+        },
+        {
+          "assessment": "Exact mathematical supersumption at r=1 for n≥3; publication metadata is later",
+          "evidence": [
+            "With t=s and D=1+r(1+s)², its optimum is 1−s²/D. It fixes pendant weights and zero core holding in every optimizer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4/RESULT.md",
+          "material_read": "Finding and scope, offset 0–2195; catalogue publication metadata",
+          "method": "Resultary then bounded local mirror passages",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex- and edge-transitive leaf coronas",
+          "trigger": "Exact stronger SLEM formula over arbitrary private leaf multiplicity"
+        },
+        {
+          "assessment": "Prior exact equality cases and structural lower bound, not the complete formula",
+          "evidence": [
+            "The optimum reaches 4/5 exactly for balanced complete multipartite cores, with pendant probability 2/5 and core probability 3/(5d)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc",
+          "material_read": "Finding and spectral barrier/attainment proof, offsets 77 and 4500–6350",
+          "method": "Local mirror RESULT.md passage",
+          "title": "A sharp four-fifths fastest-mixing barrier for transitive leaf coronas",
+          "trigger": "Earlier one-leaf statement on the exact core class"
+        },
+        {
+          "assessment": "Clique blow-up equivalence does not transfer to private leaves; the CCS topology includes the complete-core attachment subfamily",
+          "evidence": [
+            "Clique fibers have all cross edges where base vertices are adjacent; private leaves instead have degree one. The CCS section explicitly joins one path per vertex of a complete core, so the length-one case is related without covering arbitrary transitive cores."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421v1",
+          "material_read": "Definition 1, Section 3.1 and Theorem 1, offset 15400–19998; Section 5 locator and Section 7.4 at offset 104400–108247",
+          "method": "Primary arXiv PDF found by literature lookup; literal locators followed by bounded read",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Lawful arXiv copy of the cited closely relevant clique-lifted paper"
+        },
+        {
+          "assessment": "Covers the K2 boundary via P4",
+          "evidence": [
+            "The optimal path chain puts weight 1/2 on each edge and on the two endpoint loops; on P4 its nontrivial modulus is 1/sqrt(2)."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Path conclusion following Section 4, PDF p. 13 offset 43505",
+          "method": "Author-hosted primary PDF",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Exact known path case K2 corona"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The formula is intrinsically informative, but the frozen contribution is an exact parameter specialization of the broader leaf theorem, and also follows from the matching price-budget result by an elementary block trace check. The P4 boundary and the displayed asymptotics give no distinct research contribution. No genuinely surviving submitted claim warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

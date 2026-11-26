@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:07.232708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4, VERIFICATION.md, and verify.py (inspected, not executed)",
+        "Replay: python3 -B /workspace/branches/triangular_interval_replay.py; 1000 exact integer-grid forward/inverse steps per phase, integer-directed products and tails, then correctly rounded decimal ln/exp widened by adjacent numbers"
+      ],
+      "rationale": "The product coordinate v=xy−1 obeys F(v)=(7v−v³)/6, increases to 1, and has summable forward defects since (1−F(v))/(1−v)=(6−v−v²)/6. Thus the coordinate product L converges to a positive finite limit and y converges to 2/(x₀L). At the repeller the analytic Koenigs coordinate has h′(0)=1 and is odd by uniqueness. Pullback by the increasing analytic inverse g gives h′>0 throughout (0,1); forward iterates show its range is (0,∞). Analyticity of the two products follows by pulling into complex neighborhoods of the attracting fixed points for F and g respectively, where the factors approach one geometrically. The one-step identities cancel exactly in A, giving the periodic analytic phase. From gʲ(v)=h⁻¹(λ⁻ʲh(v)) the summable linear terms give B(v)=1−2v+O(v²); the phase change from h(v)/v=1+O(v²) is uniformly O(v²) relatively by positivity and bounded derivative. Independently checked all three tails using q=.9: the forward log tail is at most 5w_N; the backward product tail is at least 1−3z_N by the sum-of-defects bound; summing z_{N+j}²/(7−z_{N+j}²) gives less than z_N² for the Koenigs tail. Independently bracketed both reported amplitudes inside their published decimal intervals and obtained a certified lower difference exceeding 1.2906×10⁻²⁴.",
+      "residual_risks": [
+        "The replay relies on correct rounding of Python decimal ln/exp; it is not formal verification. Only the specified strip and d=1/3 are reviewed. The certificate is of nonconstancy, not a full oscillation range or least period."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sornette derives a power times a unit-periodic logarithmic amplitude for a scale-invariant Cantor example. Proposition 11(ii) states divergence outside the listed parameter band and does not treat this singularity."
+        ],
+        "reasoning": "The general discrete-scale invariance permits a constant phase. It does not prove separation for the specified cubic or determine the analytic correction factor. The apparent convergence conflict at d=1/3 is resolved by the equations themselves.",
+        "searches": [
+          "arXiv:cond-mat/9707012, §3.1 eq. (3)",
+          "arXiv:1307.6666v1, Lemma 10 and Proposition 11(ii)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the mirrored 6a5de5b86d75 finding",
+        "Cima–Gasull–Mañosa, arXiv:1307.6666v1",
+        "Sornette, arXiv:cond-mat/9707012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary map gives two fixed multipliers on xy=2 at d=1/3, while the general log-periodic structures have no map-specific phase test."
+        ],
+        "reasoning": "The relevant implication would have to recover the backward-product correction and show that the particular invariant is not constant. Neither the known dynamics nor the general periodic forms do that.",
+        "searches": [
+          "arXiv:1307.6666v1 Example F and Proposition 11",
+          "arXiv:cond-mat/9707012 §3.1",
+          "Local mirrored Resultary record 6a5de5b86d75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior family gives the identical system at d=1/3 and the prior scalar variable is u=xy, so v=u−1 is just a translation."
+        ],
+        "reasoning": "Credit the model and scalar dynamics. Merely translating the scalar recurrence does not give the limiting x-coordinate product asymptotic.",
+        "searches": [
+          "Literature lookups using the frozen title and exact triangular map",
+          "arXiv:1307.6666v1 Example F, Lemma 10 and (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed statement treats finite backward-time blow-up of a homogeneous planar polynomial ODE and nonconstancy governed by an angular coefficient."
+        ],
+        "reasoning": "That ODE statement is not an exact record for a discrete iteration or its phase values; no same-map result appeared in the bounded comparison.",
+        "searches": [
+          "Resultary local semantic search for triangular-map log-periodic singularity and oscillatory amplitude; closest inspected record 2026/11/17/SCOPE-log-periodic-backward-blow-up-and-the-attracting-cycle-amplitude--6a5de5b86d75"
+        ]
+      },
+      "rationale": "The polynomial family and its scalar recurrence are prior, as is the general log-periodic mechanism. The supported distinction is the explicit two-term limiting-coordinate law and certified nonconstant phase for this map. No inspected primary or indexed statement supplies that claim. The divergence assertion in arXiv v1 Proposition 11(ii) does not refute convergence at d=1/3: its own on-fiber equations are the identity there, and the summable transverse defects prove convergence from the stated strip directly.",
+      "residual_risks": [
+        "The separate journal version or an erratum to Proposition 11 was not inspected; alternate access did not provide it. Unindexed studies of this family or related products may exist. No claim of global priority for the mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and scalar dynamics, not the boundary-coordinate law. Printed divergence claim has a special-parameter exception.",
+          "evidence": [
+            "On xy=2 the displayed updates are x′=x/(3d), y′=3dy. At d=1/3 they leave every point fixed despite the printed assertion of divergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.6666v1",
+          "material_read": "Example F, Lemma 10 and Proposition 11(ii), especially p. 15 and (9)",
+          "method": "Lawful open PDF; localized by proposition and read statement and proof around offset 45780",
+          "title": "Basin of attraction of triangular maps with applications",
+          "trigger": "Identical family and scalar dynamics"
+        },
+        {
+          "assessment": "Prior mechanism, not map-specific coverage",
+          "evidence": [
+            "The triadic Cantor example has a power factor and a logarithmically periodic function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9707012",
+          "material_read": "§3.1 p. 7, eq. (3)",
+          "method": "Open primary PDF, targeted section",
+          "title": "Discrete scale invariance and complex dimensions",
+          "trigger": "General logarithmic periodicity"
+        },
+        {
+          "assessment": "Phenomenon overlap, different theorem",
+          "evidence": [
+            "Continuous-time finite blow-up and angular radial coefficient rather than the triangular cubic's infinite coordinate product."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-log-periodic-backward-blow-up-and-the-attracting-cycle-amplitude--6a5de5b86d75",
+          "material_read": "Finding and nonconstancy condition",
+          "method": "Local Resultary mirror",
+          "title": "Log-periodic backward blow-up and the attracting-cycle amplitude",
+          "trigger": "Closest indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Steps 1–4",
+        "Prior Example F and the independently enclosed two phases"
+      ],
+      "rationale": "The object is a limiting position in a previously studied family near a repelling fiber. Nonconstancy decides whether v^αL(v) has a limit, not merely whether another decimal can be computed. Its very small size is precisely why ordinary trajectories do not settle the power-law versus periodic-amplitude distinction. The invariant and uniform linear correction explain the dependence on the initial product.",
+      "residual_risks": [
+        "No claim for other parameters, basins, or a macroscopic effect."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

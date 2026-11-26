@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:33:20.572814Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b≥2, the only mixed triples are 001,100,011,110. A subgroup of S3 either joins both mixed pairs (the two singleton supports, or their complements, are in the same position-orbit) or neither; the optional constants add c to every count. For a singleton run, after relabeling, the factors are residue supports modulo m=a+b. When n<m there are n one-hot factors and the zero factor. For n=tm+r≥m there are m distinct phases, split by weight into r and m−r phases if r>0, or one class if r=0. The diagonal block permutations preserve each weight class and give any prescribed number of phase orbits in it (permute one block, fix the rest). The orbit counts add, so every intermediate target is achieved, including n=1 and r=0. The frozen replay path is `python3 verify.py` in the source record; the supplied log reports 1,662 sparse target checks and 49 long-run cases. The script and log were inspected, not executed; their finite scope is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper checks eventually periodic words up to length n_max+π−1 and illustrates the test on (001232)^ω. The 2015 group's Morse–Hedlund result bounds aperiodic group complexity and concerns Sturmian equality."
+        ],
+        "reasoning": "The former criterion decides instances but does not itself identify the full two-parameter classification or the length-three gap; the latter has different hypotheses. The distinct exact catalogue match, not these broader results, supplies coverage.",
+        "searches": [
+          "Resultary: Sturmian universal group complexity eventually periodic classification finite algorithm criterion",
+          "arXiv:2607.07620v1 §6 Corollary 4",
+          "arXiv:1505.03848 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3143435de6dd (mirrored theorem and proof)",
+        "Resultary 94ce429bbfa5 (catalogue statement only)",
+        "arXiv:2607.07620v1",
+        "arXiv:1505.03848"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The match covers all a,b≥1, all lengths on the positive side, the same subgroup spectrum at length three on the negative side, and constructive witnesses."
+        ],
+        "reasoning": "Each frozen conclusion follows by taking exactly the same parameters and ambient orbit definition. The distinct record's path is dated 11/8 versus 10/18 for the frozen input; coverage by the indexed theorem and precedence are different questions.",
+        "searches": [
+          "3143435de6dd Finding and Proof",
+          "arXiv:2607.07620v1 §§1,6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3143435de6dd Finding: min(a,b)=1 is necessary and sufficient, with explicit realizing groups. Relabeling or rotating preserves the same factor sets up to relabeling and does not define a new case."
+        ],
+        "reasoning": "Both queries converge on the identical mathematical classification, not merely on terminology or the same ambient model.",
+        "searches": [
+          "Resultary: universal group complexity binary periodic word two runs (0^a 1^b)^omega min(a,b)=1 length three obstruction",
+          "Resultary: explicit subgroup construction all intermediate group complexity sparse one-marker periodic word"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published match gives the exact spectrum {2+c,4+c} for c=1_(a≥3)+1_(b≥3), with 3+c absent, and additionally describes lengths 1 and 2. Hit 94ce429bbfa5 concerns aperiodic binary words with complement-closed factor languages, not the same classification."
+        ],
+        "reasoning": "The catalogue contains an exact parametric statement; no finite table or extrapolation is needed.",
+        "searches": [
+          "Resultary: length-three missing intermediate group complexity for periodic binary two-run word",
+          "3143435de6dd mirrored RESULT.md"
+        ]
+      },
+      "rationale": "A distinct published Resultary record, 3143435de6dd, gives the same two-run iff theorem, the same exact length-three spectrum and missing middle value, and explicit positive-case realizations. No part of the frozen Finding escapes that statement-level coverage. This is failure to distinguish this finding from equivalent existing catalogue coverage, not a finding that the 11/8 record predates the 10/18 record or a determination of historical priority. The earlier literature alone would not settle the comparison this way.",
+      "residual_risks": [
+        "The relationship between the two equivalent packages and their historical precedence were not determined.",
+        "The additional primary-literature search query was deferred, so no comprehensive negative literature claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, distinct record; historical order not established by this comparison",
+          "evidence": "Finding and proof give the same iff, spectrum and constructions; lengths one and two pass.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-group-complexity-dichotomy-for-two-run-periodic-binary--3143435de6dd",
+          "material_read": "RESULT.md offsets 0–7664 and 7600–9639, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading",
+          "title": "Universal group complexity dichotomy for two-run periodic binary words",
+          "trigger": "Exact two-run and length-three searches"
+        },
+        {
+          "assessment": "Broader per-word decision method, not the same uniform classification in these passages",
+          "evidence": "Sturmian universality; finite cutoff n_max+π−1 for eventually periodic inputs; example (001232)^ω.",
+          "identifier_or_url": "https://arxiv.org/html/2607.07620v1",
+          "material_read": "§1 around HTML offset 1500; §6 from offset 81600, including Corollary 4 and the periodic example",
+          "method": "Primary open full-text passages",
+          "title": "On possible values of the group complexity function of infinite words",
+          "trigger": "Foundational universality and finite periodicity criterion"
+        },
+        {
+          "assessment": "Different theorem and quantifiers",
+          "evidence": "Aperiodic lower bound with equality for every length characterizing Sturmian words.",
+          "identifier_or_url": "https://arxiv.org/html/1505.03848",
+          "material_read": "Abstract and §1, HTML offsets 0–4977",
+          "method": "Primary open full-text passages",
+          "title": "On a group theoretic generalization of the Morse–Hedlund theorem",
+          "trigger": "Earlier group-complexity framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the result replaces per-word finite testing with a closed structural classification of a natural infinite family. The three-position obstruction is already complete, and the attaining groups give witnesses at every positive length rather than only a decision procedure. This intrinsic value does not supply distinct content relative to the equivalent published finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

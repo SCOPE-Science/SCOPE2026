@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:11:34.850058Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalizing independent Gaussian pairs in the two planes gives the uniform squared plane radius T and independent angular coordinates; conditioning on the sectors retains those properties. Distance to the complement of the hemisphere intersection is the minimum inward margin, and folding each angle chooses the lesser sine for apertures ≤π. The two inequalities on T give exactly the asserted positive interval length. Its maximum is at the two half apertures, giving q and inradius ρ. For endpoint asymptotics I bounded the positive support using convexity of csc² at fixed subhemispheric aperture and sec²(d+δ)−sec²(d)≥δ²+2dδ near the hemispheric limit, where d is the half-aperture deficit and δ the folded-angle deficit. This gives bounded rescaled domains and a rigorous dominated-convergence argument. The limiting interval lengths are the stated positive parts with linear or quadratic terms; integrating gives H³/(6c_ac_b), 4H^(5/2)/(15c_b√q), and π before the folded-angle factor 4/(αβ), hence the three coefficients. For moving d=λ√h/2, expansion of the difference of sec² values gives h(x²+λx) when δ=√h x. Centering at the moving ρ before expanding gives the two window integrals, also at zero window parameters. The description 'Gaussian-quadrant integrals' in the last proof line of this part is imprecise: these are compact positive-part polynomial integrals. For the both-hemisphere case the normalized marginal density of X₂=s≥0 is (4/π)√(1−s²), and the conditional X₄ is uniform on [0,√(1−s²)]. Differentiating both sin t cutoffs and integrating verifies the exact closed form including the endpoints. For fixed subhemispheric apertures the rescaled conditional density is constant on bounded domains whose indicators converge in L¹ to the indicator of Ω. The affine four-slack map yields uniform measure on the simplex, giving the claimed TV convergence and Dirichlet limit. Full analytic replay: /workspace/calculations/geometric_checks.md. The frozen quadrature code was inspected, not executed; finite samples are not certificates for the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lune finding treats all d≥3 but only one angular restriction; its own hemispheric critical aperture window is linear in the clearance deficit. Both sector restrictions in a general join depend on complementary squared radii T and 1−T.",
+          "3e844f44dce8 uses orthogonal joins in S³ but solves nearest-vertex covering error. The triangle record 9631069f9bd6 has clearance and conditional geometry on S², with powers 2 and 3/2.",
+          "The inspected Koçak–Ratiu passage concerns Euclidean inner tubes, while Besau et al. use the orthogonal wedge for a different random hull statistic."
+        ],
+        "reasoning": "A single-lune marginal does not give the joint event of satisfying both sector clearances, and neither different-dimensional contacts nor Euclidean fixed-facet polynomial results furnish these moving-angle limits.",
+        "searches": [
+          "Resultary b412d984a5a4, 3e844f44dce8 and 9631069f9bd6",
+          "Spherical lune / inner parallel volume",
+          "Orthogonal-wedge convex hull and spherical inner volume"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b412d984a5a4, 3e844f44dce8, 9631069f9bd6, 54d3a41332c4, 145195954dd3",
+        "Lassak DOI 10.1007/s00010-013-0237-3",
+        "arXiv:1801.01161, arXiv:1008.2040, arXiv:2203.07916"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spherical hemisphere distances and the probability/inner-volume identity are background. The single-lune theorem directly implies the right-angle doubly hemispheric subcase, but its one-radius conditional law (Dirichlet(1,k,1) for a fixed nonhemispheric lune) is not the joined four-slack law.",
+          "The square-root windows require expanding a moving pair of complementary-radii constraints and keeping the linear and quadratic changes together; neither the lune's linear window nor the nearer-vertex cubic tail provides those integrals."
+        ],
+        "reasoning": "The ingredients and the both-hemispheric endpoint do not receive novelty credit. The general coupled two-sector classification remains distinct from the inspected stronger results on other objects and from the exact subcase already covered.",
+        "searches": [
+          "Lune b412d984a5a4 Finding, proof and marked-law statement",
+          "Lassak, Width of spherical convex bodies, §2",
+          "Koçak–Ratiu arXiv:1008.2040 abstract",
+          "Orthogonal-join nearest-vertex result 3e844f44dce8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent geometric observable is normalized spherical inner-erosion volume; nearest vertex, two-point distance and random hull facet count are different observables.",
+          "K_{π,π} is exactly a right-angle lune in S³ after permuting the coordinate axes: X₂,X₄≥0. In b412d984a5a4 use ambient d=4, longitude aperture π/2 and k=1. Its tail is (4/π)∫_t^(π/4)(1−sin²(t)csc²(u))du, which evaluates to the frozen both-merger formula, and the same theorem gives the coefficient 4/π of h²."
+        ],
+        "reasoning": "Credit the exact equivalence of those boundary-case laws even though the two records use different coordinates and labels for the hemispheric parameters. For one or both apertures strictly subhemispheric the join requires additional restricting facets and is not a single lune.",
+        "searches": [
+          "Resultary: spherical orthogonal join nearest boundary distance endpoint exponents 3 5/2 2 critical aperture merger crossover",
+          "Resultary: critical facet merger crossover spherical sectors marked boundary slacks Dirichlet law",
+          "Spherical-lune clearance b412d984a5a4, mirrored RESULT.md Finding offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact query returned the frozen record itself; it is not evidence of separate coverage. The distinct lune record gives exact coverage at K_{π,π}, as above, though not a matching table for the moving join.",
+          "The antipodal-lune result 54d3a41332c4 and positive-orthant result 145195954dd3 are two-point laws. Even though the latter includes the same positive orthant domain as K_{π/2,π/2}, maximal separation is not one-point distance to its boundary."
+        ],
+        "reasoning": "The overlap in exact domains does matter when the observable coincides, as it does for the right-angle lune; it does not confer coverage for a different statistic or for the remaining aperture coefficients.",
+        "searches": [
+          "Resultary query on 3, 5/2 and 2 with aperture merger",
+          "Resultary query on critical facet merger and Dirichlet slacks",
+          "Mirrored RESULT.md for b412d984a5a4, 54d3a41332c4 and 145195954dd3"
+        ]
+      },
+      "rationale": "The distinct result is the joined two-sector law and its full classification, particularly the aperture-dependent coefficients, the single/double square-root merger windows, and the four-slack marked law. The exactly both-hemispheric tail formula and its quadratic endpoint are demonstrably covered by the distinct same-day spherical-lune result at a right-angle aperture, so those are not credited as independent originality. This mathematical coverage does not establish priority order within the day. Standard inner-volume, local-scaling and simplex arguments also are not claimed as new.",
+      "residual_risks": [
+        "Earlier spherical inner-parallel, right-angle wedge, or joint two-lune formulas may overlap. The bounded search is not exhaustive.",
+        "Same-day exact subcase equivalence is verified irrespective of which item was first; publication-day granularity does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact both-hemispheric subcase coverage; distinct from the general join and moving aperture laws",
+          "evidence": "The exact integral uses the single-lune Beta(1,k) radius with k=(d−2)/2. At d=4, aperture π/2 it equals the both-hemisphere formula; the fixed-aperture asymptotic gives (4/π)h².",
+          "identifier_or_url": "Resultary 2026/11/22, b412d984a5a4",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, plus proof and comparison passages around 6900 and 9100",
+          "method": "Local Resultary mirror and exact specialization d=4, aperture π/2",
+          "title": "The clearance distribution of spherical lunes and its hemispherical critical law",
+          "trigger": "Closest one-point clearance theorem with aperture crossover, exact tail, and marked law"
+        },
+        {
+          "assessment": "Analogue, not implication",
+          "evidence": "Its two-angle law and cubic tail measure nearest-vertex covering error, not boundary clearance.",
+          "identifier_or_url": "Resultary 2026/11/17, 3e844f44dce8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp cubic deep-hole tails for orthogonal joins of regular spherical polygons",
+          "trigger": "Strongest shared geometry and cubic exponent"
+        },
+        {
+          "assessment": "Different dimension and domains",
+          "evidence": "Proper triangles on S² have powers 2 and 3/2 according to contact rank.",
+          "identifier_or_url": "Resultary 2026/11/22, 9631069f9bd6",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Contact-rank transition in maximal spherical-triangle clearance",
+          "trigger": "Related contact-rank transition in the same random observable"
+        },
+        {
+          "assessment": "Geometric framework only in the inspected text",
+          "evidence": "Defines the spherical lune by intersecting hemispheres and discusses width/thickness.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-013-0237-3",
+          "material_read": "PDF p. 1 abstract and p. 3 §2",
+          "method": "Targeted lawful PDF passage inspection",
+          "title": "Width of spherical convex bodies",
+          "trigger": "Classical prior spherical lune and supporting-hemisphere geometry"
+        },
+        {
+          "assessment": "Related context; not evidence of full-text noncoverage",
+          "evidence": "The abstract concerns constant-width properties, not the stated probability law.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01161",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA abstract inspection",
+          "title": "Spherical bodies of constant width",
+          "trigger": "Potential width/lune implication"
+        },
+        {
+          "assessment": "Euclidean rather than spherical join",
+          "evidence": "The statement concerns piecewise-polynomial inner-neighborhood volume formulas for Euclidean polytopes.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2040",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA inspection of scope and main claim",
+          "title": "Inner tube formulas for polytopes",
+          "trigger": "Potential general inner-parallel volume result"
+        },
+        {
+          "assessment": "Same wedge, different random observable",
+          "evidence": "Studies expected facets of the convex hull of many sampled points rather than single-point inner clearance.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.07916",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA inspection of scope and random observable",
+          "title": "Spherical convex hull of random points on a wedge",
+          "trigger": "Exact orthogonal wedge domain at both hemispheric apertures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a tractable spherical family with distinct or coalescing facets, the problem identifies exactly how clearance near the inradius changes, and gives both moving-aperture profiles and a conditional shape law. Those describe a quantitative loss of the fixed-aperture regime that plain width or a static tail exponent cannot capture. The value rests on the coupled two-sector classification, not on reevaluating the already covered right-angle-lune tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

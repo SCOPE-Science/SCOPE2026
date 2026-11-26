@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:33.570831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any new cube must be a suffix; a fixed constituent length determines at most one appended letter. Below length 8 there cannot be three distinct witness lengths. For lengths 8–10 the only possible triple is 1,2,3: the length-1 and length-2 constraints force the middle length-3 block of the final nine letters to contain one u and two v, incompatible with the final block uut for three distinct extension letters u,v,t. At length 11 the frozen proof also excludes 1,3,4 by comparing the count of the fourth-length witness letter in the middle and last four-blocks, and 2,3,4 by the mod-three composition of the first three and first six letters and the resulting two last-letter cases. Thus 1,2,4 are the unique constituent lengths. Labeling by that assignment gives terminal 100, with A and B permutations of 0012 and B ending in 01 or 10. No internal cube can contain a 2 because there are exactly two occurrences. All length-nine factors meet the 2 of B, and the only possible length-six factors avoiding 2 are 001100 and 010100, neither a cube. The only remaining obstruction is the four A/B joins forming 000. The 44 representatives each use all three symbols, and the normalization is unique. A separate prefix-Parikh exhaustive calculation on all words of lengths 0–11 reproduces no shorter crucial word, 50,520 cube-free length-11 words, and 264 crucial words normalizing to exactly the 44 constructions; each of the six witness assignments occurs 44 times. Replay: branches/803f0658-a80a-474d-b98c-43ae286ddbff/independent_ternary_cubes.py and its .out. The attached CSV has the stated 44 AB100 constructions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary work gives extremal lengths across alphabet sizes, a general construction, and constraints on Parikh counts (preprint §2.2). It already establishes length 11 for the ternary case."
+        ],
+        "reasoning": "A minimum-length theorem and witness construction do not exhaust all minimum words. Parikh count constraints do not settle block order or which of the 48 pairs avoid internal cubes.",
+        "searches": [
+          "arXiv:0812.4730 abstract, construction and lower-bound sections",
+          "DMTCS 12(5), pp. 83, 85–86"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and canonical_representatives.csv",
+        "arXiv:0812.4730",
+        "DOI:10.46298/dmtcs.513",
+        "JIS 7 (2004), Article 04.2.7",
+        "Resultary 8264b8fe6898 and 8e797a662627"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior papers supply crucial-word and avoidance background, including congruence constraints and a length-11 example; the frozen proof uses the interaction of different extension suffixes to exclude length 3 and then eliminates four joins."
+        ],
+        "reasoning": "Obtaining this shape and count requires those joint constraints and an avoidance classification, or an additional exhaustive extension computation. Neither is a parameter substitution into the prior extremal or raw avoidance results.",
+        "searches": [
+          "arXiv:0812.4730 §2 and DMTCS §2.1",
+          "JIS Article 04.2.7, p. 2",
+          "Frozen RESULT.md lines 23–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 of the preprint gives X_3=31213121211, which becomes 20102010100 under 1→0, 2→1, 3→2: one of the canonical AB100 forms. The inspected Resultary 8264b8fe6898 instead classifies longest rich cube-free words."
+        ],
+        "reasoning": "Right-maximal cube avoidance on the prescribed alphabet is the relevant equivalent formulation. The example is genuinely in the frozen family but does not enumerate it; richness and a maximum-length condition are different predicates.",
+        "searches": [
+          "Glen–Halldórsson–Kitaev arXiv:0812.4730 §2.1 and §2.2",
+          "DMTCS DOI:10.46298/dmtcs.513 §2.1",
+          "Resultary searches for ternary crucial Abelian cubes and complete extremizer census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published count 50,520 counts all length-11 ternary Abelian-cube-free words, with no extension criterion. The read rich-word record gives 24 words and four relabeling orbits at length 180. The same-day 8e797a662627 catalogue description concerns Abelian-border signatures at length 16; its mirror full text was unavailable."
+        ],
+        "reasoning": "None of the actual counts compared determines the 264/44 counts or lists the same family. The unavailable same-day record is assessed only at description level; its date supplies no priority inference.",
+        "searches": [
+          "Aberkane–Currie–Rampersad, JIS 7 (2004), Article 04.2.7, p. 2",
+          "ranked Resultary census lookup; 8264b8fe6898 and 8e797a662627"
+        ]
+      },
+      "rationale": "The distinct result is the census, the complete normal form with its four exclusions, and the unique constituent witness-length profile. Minimum length, examples, and the full ambient avoidance count are established prior work. The sources compared support a bounded originality pass only for the distinct classification.",
+      "residual_risks": [
+        "An unindexed exhaustive table, implementation, or equivalent classification could exist. The comparison with 8e797a662627 is limited to the catalogue description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Length, construction and congruence methods are prior; compared passages do not enumerate the ternary extremizers",
+          "evidence": [
+            "Minimum lengths 2,5,11,20 for alphabet sizes one through four; X_3=31213121211; modular suffix composition constraints in §2.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4730",
+          "material_read": "Abstract p. 1; §2.1 Theorem 1 p. 3 (offset 6800 and continuation at 10285); §2.2 lower-bound setup and Lemmas 3–5, offset 17280 onward",
+          "method": "OA PDF, bounded relevant excerpts",
+          "title": "Crucial words for abelian powers",
+          "trigger": "Primary shortest crucial-word theorem and possible extremizer coverage"
+        },
+        {
+          "assessment": "Relevant statements are minimum-length and construction results",
+          "evidence": [
+            "The inspected statements repeat the length result and construction/example, not the exact 44/264 census."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/513/download",
+          "material_read": "Abstract p. 83; §2.1 pp. 85–86, offset 8150",
+          "method": "OA journal PDF",
+          "title": "Crucial abelian k-power-free words",
+          "trigger": "Published version may strengthen the preprint's classification"
+        },
+        {
+          "assessment": "Ambient avoidance table, not crucial subset",
+          "evidence": [
+            "The table reports 50,520 Abelian-cube-free ternary words at length 11."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.pdf",
+          "material_read": "p. 2, offset 4460",
+          "method": "OA journal PDF",
+          "title": "The Number of Ternary Words Avoiding Abelian Cubes Grows Exponentially",
+          "trigger": "Exact published count at length 11"
+        },
+        {
+          "assessment": "Different extremal class",
+          "evidence": [
+            "Length 180 with richness, 24 labeled words and four relabeling orbits."
+          ],
+          "identifier_or_url": "8264b8fe6898",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b…",
+          "title": "Complete extremizer classification at the ternary rich Abelian-cube-free bound",
+          "trigger": "Closest indexed ternary Abelian-cube-free extremizer classification"
+        },
+        {
+          "assessment": "Description suggests different statistic and length; statement-level comparison not made",
+          "evidence": [
+            "The description concerns length-16 Abelian-border signatures."
+          ],
+          "identifier_or_url": "8e797a662627",
+          "material_read": "Catalogue description only; local RESULT.md unavailable",
+          "method": "Local Resultary lookup and mirror attempt",
+          "title": "Ternary Abelian border-array census and sharp leading-fiber classification",
+          "trigger": "Same-day ternary finite census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff is the natural minimum for a classical avoidance problem, not an arbitrary word length. The result identifies every shortest right obstruction, explains why all three witnessed block lengths are determined, and lets later work use exact labeled or symmetry-reduced examples without repeating a search. This is more than reproducing the known minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

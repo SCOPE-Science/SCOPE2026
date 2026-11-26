@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:08:33.040924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rotation by 2^(-s) fixes all the indexed carries simultaneously and toggles the central bit, so it pairs the two central-bit events inside every profile fiber, including when the profile is empty. Independently, the sawtooth kernel follows by reducing the two frequencies to coprime u,v and writing the phase as (i+t)/(uv): the residues modulo u and v are independent uniform for fixed t, and the conditional centered means are (t-1/2)/u and (t-1/2)/v. The integral is therefore 1/(12uv) in the coprime case. In the carry covariance the two central-versus-final-frequency terms cancel, and gcd(d/2,j)=gcd(d,j) gcd(2,b)/2 yields (gcd(2,b)^2-1)/(12a(b-a)). The fair marginals determine all four cells; even b gives strictly positive covariance and excludes each such coordinate from any independent profile. This is a Lebesgue-phase result, not a statement about independent p-adic digits. The recorded checks are bounded; the separately written /workspace/branches/independent-finite-checks.py verified 220 pair cells and 24 balanced complete-profile fibers at d=2,8,12,18,20 using exact integer grids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct Resultary Finding gives an eight-term gcd-square kernel for arbitrary pairs and proves nonnegativity, with strict positivity when neither index is central.",
+          "The original uses the classical integer-frequency sawtooth covariance, not a new covariance kernel."
+        ],
+        "reasoning": "The broader pair result includes the central covariance when one index is d/2; the gcd specialization gives exactly the parity cases here. It neither quantifies over profile events nor supplies a translation fixing the entire noncentral profile while exchanging the two central states.",
+        "searches": [
+          "Local Resultary: covariance and positive dependence for all pairs of common-phase Kummer carries",
+          "SCOPE-positive-dependence-and-exact-covariance-of-common-phase-kummer--13ae5fcbd861"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-51206b5a8350",
+        "SCOPE-20261122-13ae5fcbd861",
+        "arXiv:2611.25794v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion's Relationship section refers to a separate study of central-coordinate independence; this reference is not a second statement or proof of the full-vector result.",
+          "Cui–Yang's inspected lemma gives the floor expression, its zero-set measure, and its role in the valuation identity."
+        ],
+        "reasoning": "Fairness and zero covariance give pairwise independence for binary coordinates, not independence from their joint vector. The rotation supplies precisely this missing implication; the explicit positive covariances then give maximality. Different prime-power evaluation phases are not the common Lebesgue phase of this theorem.",
+        "searches": [
+          "SCOPE-20261122-13ae5fcbd861, Finding and Relationship to prior work",
+          "arXiv:2611.25794v1, Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching full-profile statement under record 51206b5a8350 is the assigned source itself, not a distinct precedent.",
+          "Cui–Yang define the same floor carry (or its zero set) and prove single-ratio half-measure in Lemma 2.2."
+        ],
+        "reasoning": "Complementing carries or working with their zero sets preserves the independence question, but an individual half-measure statement does not determine the measure of intersections of complete-profile fibers with the central zero set.",
+        "searches": [
+          "Local Resultary: common-phase Kummer carry profiles and central odd-denominator vector",
+          "arXiv:2611.25794v1, Lemma 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two matching records index a full-vector theorem (the assigned finding) and a distinct all-pair formula, respectively."
+        ],
+        "reasoning": "The exact indexed formula is material overlap at pair level. A table of numerical pair cells would not cover a universal theorem about all complete-vector fibers; no separate numerical census is the claimed contribution.",
+        "searches": [
+          "Local Resultary mirror: 51206b5a8350 and 13ae5fcbd861"
+        ]
+      },
+      "rationale": "The distinct contribution is joint independence from the complete maximal profile, with a sharp boundary, not the classical correlation kernel or a separately novel pairwise law. The strongest distinct same-day result covers the pair covariance by specialization, but its second moments do not yield the eventwise theorem. Relative priority of the pairwise statements is not inferred from their shared publication date.",
+      "residual_risks": [
+        "A broader older joint carry theorem could imply the profile statement; the bounded literature search did not locate one, which is not a priority proof.",
+        "The Lemke Oliver–Soundararajan source was not available in full text on the bounded attempt; the kernel is independently established and not credited as original.",
+        "Relative ordering of the two November 22 records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned finding, not independent prior coverage",
+          "evidence": "Eventwise statement for every v, and the period rotation that proves it.",
+          "identifier_or_url": "SCOPE-20261122-51206b5a8350",
+          "material_read": "Finding and proof, especially lines 47–82 of the frozen RESULT.md; mirror Finding from its beginning",
+          "method": "Frozen text and local Resultary mirror",
+          "title": "Maximal collective independence and a sharp parity obstruction for Kummer carry profiles",
+          "trigger": "Exact indexed profile match"
+        },
+        {
+          "assessment": "Covers the pairwise specialization, not the full-vector theorem; relative priority unresolved",
+          "evidence": "Arbitrary-pair gcd-square covariance sum and nonnegativity; strict positivity for pairs with neither index central; the Relationship section distinguishes separate central-independence work.",
+          "identifier_or_url": "2026/11/22/SCOPE-positive-dependence-and-exact-covariance-of-common-phase-kummer--13ae5fcbd861",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Local Resultary mirror, statement-level comparison",
+          "title": "Positive dependence and exact covariance of common-phase Kummer carry profiles",
+          "trigger": "Same variables and stronger pair formula"
+        },
+        {
+          "assessment": "Confirms the individual phase marginal and valuation link; the inspected lemma does not cover same-phase profile independence",
+          "evidence": "Half measure of an individual zero set and the floor-sum valuation identity.",
+          "identifier_or_url": "https://arxiv.org/html/2611.25794v1",
+          "material_read": "Lemma 2.2, HTML text around offset 12873",
+          "method": "Open-access paper text",
+          "title": "The distribution of greatest common divisors of binomial coefficients and their upper indices",
+          "trigger": "Same phase-floor variable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The whole-profile result answers which simultaneous binomial-ratio tests can be conditioned on without changing the central phase law. It gives an explicit maximal family, works for arbitrarily large profiles without assuming independence among their coordinates, and supplies a strict obstruction for every excluded ratio. It is useful at the phase-model level without asserting a valuation or prime-distribution law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

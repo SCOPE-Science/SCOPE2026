@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:23.708874Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and scope",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "For an exact block p^a, phi(p^a)*sigma(p^a)=p^(2a)−p^(a−1), giving both the product identity and F(p^a)=p^(a−1). For n=m p^a q^b with distinct p<q and gcd(m,pq)=1, the remaining normalized product is in (0,1]. Thus F(n) is at least m² p^(a−1)q^(b−1)(p^(a+1)+q^(b+1)−1), which is at least 2²+3²−1=12. Equality forces m=1, a=b=1, and p=2,q=3, and F(6) really is 12. On n>1 the smaller fibers follow by enumerating p^(a−1)=1,2,...,11: 1 gives precisely the primes, 6 and 10 are not prime powers, and positive prime-power targets p^j give the single input p^(j+1). No power of one prime gives 12. The sub-12 equivalence is on n>1, as stated by the proof; F(1)=0 if one includes the unit. The supplied verifier was inspected but not executed; the symbolic bound proves exhaustiveness independently of the finite range.",
+      "residual_risks": [
+        "No fibers above 12 are classified. The restriction n>1 is essential in the sub-12 equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Stack Exchange answer proves strict positivity by comparing each factor p^(2a)−p^(a−1) with p^(2a). The known square-product paper was identified but its full text could not be retrieved."
+        ],
+        "reasoning": "Strict positivity and local product evaluations do not state or supply the sharp constant without a quantitative mixed-support argument. No general monotonicity theorem is asserted by the frozen record. The unread paper's potential implications are unresolved, not ruled out.",
+        "searches": [
+          "A164875 Comments citing Hardy–Wright, Th. 329",
+          "Math StackExchange question 4346249, answer 4346255",
+          "Broughan–Ford–Luca, DOI 10.4064/cm130-1-11; DOI lookup and titled open-copy search"
+        ]
+      },
+      "checked_sources": [
+        "A069249",
+        "A164875",
+        "A164876",
+        "Resultary 581aaf63c0d9",
+        "Math StackExchange 4346255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior positivity proofs estimate the normalized factors only against 1; the submitted bound keeps the defect of two coprime exact prime-power factors and optimizes it at 2 and 3."
+        ],
+        "reasoning": "The finite enumeration adds no proof of the mixed-support exclusion by itself. The short uniform estimate with an equality analysis is the distinct mathematical content beyond products, single-prime evaluations, and tabulated record values.",
+        "searches": [
+          "Compare A069249 prime-power formula and A164875/A164876 record definitions with RESULT.md, inequalities (3)–(4)",
+          "Resultary 581aaf63c0d9, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A069249 is the exact function, also written n²−A062354(n). The same-day Resultary 581aaf63c0d9 studies a different defect, sigma_2(n)+phi(n)sigma(n)−2n², with threshold 34 after excluding squarefree semiprimes."
+        ],
+        "reasoning": "A support-isolation theorem for that other defect does not translate to one for F: H(n)=sigma_2(n)−n²−F(n), and the different supports and separately varying sigma_2 term prevent a direct implication.",
+        "searches": [
+          "Resultary: n²−phi(n)sigma(n), mixed support, prime-power isolation and low fibers",
+          "Web: n^2 - phi(n) sigma(n), mixed prime factors lower bound 12 n=6 OEIS A069249 A164875"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A069249 states F(n)=1 iff n is prime (with F(1)=0) and F(p^a)=p^(a−1); it tabulates individual values, including F(6)=12. A164875 and A164876 pair 6 with the record 12, followed by 10 with 28."
+        ],
+        "reasoning": "These records compare 6 to smaller arguments or tabulate values. They do not exclude larger arguments with mixed support below or at 12. The prime-power side and some individual fibers within table range have existing coverage; the unrestricted exclusion supplies the missing part.",
+        "searches": [
+          "OEIS A069249, Comments and terms",
+          "OEIS A164875 and A164876, record-holder and record-value sequences"
+        ]
+      },
+      "rationale": "The defect itself, prime and prime-power evaluations, individual terms, positivity, and the product formula need not be new. The comparison supports the distinct sharp lower bound on all mixed-support inputs, including its equality case and the resulting unrestricted low-fiber completeness. No inspected statement establishes that restriction by a bound or forces it from a table alone.",
+      "residual_risks": [
+        "The 2013 paper at DOI 10.4064/cm130-1-11 was not read. The elementary argument for the longstanding sequence may also occur in an unindexed source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact function, prime characterization and prime-power formula already known",
+          "evidence": "The prime-power comment gives the same p^(a−1), but does not stratify the complete mixed-support spectrum.",
+          "identifier_or_url": "https://oeis.org/A069249",
+          "material_read": "Definition, terms, comments and formula",
+          "method": "Public OEIS page",
+          "title": "a(n)=n²−phi(n)*sigma(n)",
+          "trigger": "Exact function and relevant low values"
+        },
+        {
+          "assessment": "Exact record values are known; a record is an extremum only up to its index",
+          "evidence": "6 and 12 occur in the two sequences respectively; this does not constrain all later mixed inputs below the next record.",
+          "identifier_or_url": "https://oeis.org/A164875 and https://oeis.org/A164876",
+          "material_read": "Terms, comments, formulas and worked example",
+          "method": "Public OEIS pages",
+          "title": "Record holders and record differences for the totient–sigma defect",
+          "trigger": "Direct extremal context"
+        },
+        {
+          "assessment": "Similar support stratification, not the same function",
+          "evidence": "Minimum 34 at n=12 in a class excluding squarefree semiprimes; it does not give the asserted bound for the totient–sigma defect.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-34-barrier-and-low-spectrum-of-sigma-2-n-varphi-n-sigma-n--581aaf63c0d9",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Resultary and mirrored record",
+          "title": "Sharp 34-barrier and low spectrum of sigma_2(n)+phi(n)sigma(n)−2n²",
+          "trigger": "Closest material catalogue hit"
+        },
+        {
+          "assessment": "Qualitative positivity only in the cited argument",
+          "evidence": "Each p^(2a)−p^(a−1) is less than p^(2a).",
+          "identifier_or_url": "https://math.stackexchange.com/questions/4346249/show-that-phin-sigmann2-for-all-n1#answer-4346255",
+          "material_read": "Accepted answer comparing exact prime-power factors",
+          "method": "Targeted web lookup and public answer",
+          "title": "Proof that phi(n)*sigma(n)<n² for n>1",
+          "trigger": "Directly relevant inequality"
+        },
+        {
+          "assessment": "Potential overlap unresolved",
+          "evidence": "Title and DOI were confirmed; no readable article or lawful alternate copy was obtained.",
+          "identifier_or_url": "https://doi.org/10.4064/cm130-1-11",
+          "material_read": "Bibliographic metadata, not the article",
+          "method": "Identified DOI, open-text and publisher retrieval attempts, and targeted search for a lawful copy",
+          "title": "On square values of the product of the Euler totient and sum of divisors functions",
+          "trigger": "Same product in primary literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "A069249",
+        "A164875 and A164876"
+      ],
+      "rationale": "This is the first possible defect for mixed prime support, not an arbitrary numerical cutoff. Up to the cutoff the exact defect determines whether the input is a prime power, and for 2≤F(n)≤12 it determines the entire fiber, including two gaps and the first mixed case. The contribution is modest but structural; listing the known prime-power evaluations alone would not suffice.",
+      "residual_risks": [
+        "The bound establishes no general classification of larger fibers or monotonicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

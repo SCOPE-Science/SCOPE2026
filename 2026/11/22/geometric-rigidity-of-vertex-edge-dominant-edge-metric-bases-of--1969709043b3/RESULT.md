@@ -13,7 +13,9 @@ For \(d=2,3,4,5\), its minimum size and number of labelled minimum sets are, res
 | 4 | 4 | 176 | 16, 64, 96 |
 | 5 | 5 | 160 | 160 |
 
-In particular, the ordinary edge-metric dimension is \(3\) for \(Q_4\) and \(4\) for \(Q_5\), but no minimum ordinary edge-resolving set of either cube also vertex-edge dominates the edges. Adding exactly one landmark is necessary and sufficient in both dimensions.
+The \(Q_2\) row and the minimum size for \(Q_3\) are included for comparison, not claimed as new. The main claims are the joint minima and geometric classifications for \(Q_4\) and \(Q_5\).
+
+In particular, the ordinary edge-metric dimension is \(3\) for \(Q_4\) and \(4\) for \(Q_5\), but no minimum ordinary edge-resolving set of either cube also vertex-edge dominates the edges. The joint minimum cardinality exceeds the ordinary minimum cardinality by exactly one in both dimensions. This comparison does not assert that an arbitrary ordinary minimum set can be extended to a joint minimum set by adding one vertex.
 
 Every four-cube minimum set belongs to exactly one of the following three geometric families:
 
@@ -75,14 +77,15 @@ Each script prints the four rows in the proof table and its own final success to
 
 ## Relationship to prior work
 
-Ikhlaq, Hayat and Siddiqui introduced the joint *vertex-edge dominant edge-metric dimension* and studied common graphs and some Cartesian products, but did not classify these binary cubes. Kelenc, Teo Masa Toshi, Škrekovski and Yero established relationships among the ordinary metric, edge-metric and mixed metric dimensions of hypercubes, including \(\operatorname{edim}(Q_4)=3\). Those results do not impose the additional edge-coverage requirement and therefore do not imply the new joint optimum or its geometric classification. A different 2023 parameter called *dominant edge metric dimension* uses a **vertex cover** as the coverage condition; it is strictly stronger than vertex-edge domination and must not be conflated with the present invariant.
+Ikhlaq, Hayat and Siddiqui introduced the joint *vertex-edge dominant edge-metric dimension*. Their Theorems 11 and 12 give the minimum sizes for \(Q_2=P_2\mathbin{\square}P_2\) and \(Q_3=C_4\mathbin{\square}P_2\), respectively. The complete-prism classification [4] with \(n=2\) also gives all four labelled \(Q_2\) minima. The \(Q_3\) row here records the full minimum-set census in addition to its known minimum size. Kelenc, Teo Masa Toshi, Škrekovski and Yero established relationships among the ordinary metric, edge-metric and mixed metric dimensions of hypercubes, including \(\operatorname{edim}(Q_4)=3\). Ordinary edge resolution does not impose the additional edge-coverage requirement and therefore does not imply the \(Q_4,Q_5\) joint optima or their geometric classifications. A different 2023 parameter called *dominant edge metric dimension* uses a **vertex cover** as the coverage condition; it is strictly stronger than vertex-edge domination and must not be conflated with the present invariant.
 
 ## Limitations
 
-The classification and numerical statement concern dimensions \(2\) through \(5\) only. No formula for \(\gamma_{emd}(Q_d)\) or all its optimizers for \(d\ge6\) is asserted. Exhaustive small-cube enumeration does not imply any infinite-dimensional classification. Independent mathematical validation and exhaustive historical-priority clearance remain outstanding.
+The classification and numerical statement concern dimensions \(2\) through \(5\) only. No formula for \(\gamma_{emd}(Q_d)\) or all its optimizers for \(d\ge6\) is asserted. Exhaustive small-cube enumeration does not imply any infinite-dimensional classification. Exhaustive historical priority is not asserted.
 
 ## References
 
 1. H. M. Ikhlaq, S. Hayat, H. M. A. Siddiqui, *Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension*, arXiv:2211.09327, first submitted 17 November 2022, https://arxiv.org/abs/2211.09327.
 2. A. Kelenc, A. T. M. Toshi, R. Škrekovski, I. G. Yero, *On Metric Dimensions of Hypercubes*, arXiv:2102.10916, first submitted 22 February 2021, https://arxiv.org/html/2102.10916v1.
 3. M. Tavakoli, M. Korivand, A. Erfanian, G. Abrishami, E. T. Baskoro, *The dominant edge metric dimension of graphs*, Electronic Journal of Graph Theory and Applications 11 (2023), DOI:10.5614/ejgta.2023.11.1.16, https://www.ejgta.org/index.php/ejgta/article/view/1686.
+4. *Exact vertex-edge dominant edge-metric bases of complete prisms*, 2026-11-02, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-vertex-edge-dominant-edge-metric-bases-of-complete-prisms--458dd571fbf7.

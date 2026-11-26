@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:16.704924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Edge transitivity gives a single absolute column sum; sign changes of edge orientations are harmless. The incidence symbol yields the stated product kernel up to the sign chosen for spatial displacement: with inverse phase +ixθ and x the target vertex minus the source, the physical column uses a_i conjugate(a_j), so the displayed product corresponds to measuring x in the reverse direction (or to the corresponding row). Reflecting x permutes the residues and leaves the norm sum unchanged. On the infinite lattice the degree-one remainder on a dyadic annulus of radius s contributes O_N(s³(1+s|x|)^−N); summation gives the required O(|x|^−3). The inverse transform of θ_iθ_j/|θ|² away from the origin is the stated negative second derivative of −log|x|/(2π); subtracting the cutoff affects only rapidly decreasing terms away from the origin (sufficiently high derivatives of the high-frequency symbol are integrable). For Gaussian regularization the root-of-unity filter is exact before taking its limit; the zero frequency tends to the isotropic mean δ_ij/2 and must be subtracted. For m≠0 and centered x, subtract H(nm) from K(x+nm), leaving an absolutely summable O((1+|x|)n^−3 |m|^−3) error by the derivative bound. The homogeneous images cancel by quarter-turns or reflections with weights exp(−t|nm|²); changing to exp(−t|x+nm|²) contributes O(|x|√t/n²) as t→0 by the mean-value bound and counting image shells. This gives the uniform O(n^−2) comparison, hence O(1) in the column sum. The absolute angular density is Lipschitz in angle, so unit-cell quadrature errors sum absolutely; each of |cos 2φ| and |sin 2φ| integrates to 4, yielding 4/π. The rank of Q is n²−1, all its diagonals equal (n²−1)/(2n²), and complementary column sums therefore differ by n^−2. Symmetry gives the same endpoint norms at infinity. The n≥3 restriction avoids duplicate positive-direction edges. The frozen numerical script was read, not executed; no numerical extrapolation is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 31 gives bounds of order √log n to log n for the minimum projection norm, and Question 32 explicitly seeks sharper asymptotics; the surrounding discussion says even the orthogonal asymptotic was not known there.",
+          "The lattice heat Green expansion of Gurevich contains spatial angular corrections but not a finite-torus endpoint norm."
+        ],
+        "reasoning": "A minimum across projections is not the prescribed orthogonal projection. An infinite-lattice kernel asymptotic supplies input to the proof, not uniform control of its finite-torus absolute norm.",
+        "searches": [
+          "arXiv:2305.12582v1, Proposition 31 and Question 32",
+          "Gurevich arXiv:1809.04850v1, §§2, 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_torus.py",
+        "arXiv:2305.12582v1",
+        "arXiv:1809.04850v1",
+        "2026/10/26/SCOPE-endpoint-hodge-norms-and-a-sharp-projection-dominance-transition--58fa50f7a7be",
+        "2026/10/18/SCOPE-sharp-endpoint-hodge-projection-norms-on-the-three-rail-infinite--ea2ae52cfb9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives the exact cut/cycle difference and poses the sharper asymptotic problem; the latter gives expansions of lattice Green functions, not of sums over images on a finite square torus."
+        ],
+        "reasoning": "Even given the infinite-lattice angular tail, its images are not absolutely summable; extracting the coefficient with bounded error requires zero-mode normalization, cancellation, and a uniform torus estimate. These steps and their conclusion are not furnished by the inspected sources.",
+        "searches": [
+          "arXiv:2305.12582v1, Proposition 27, Proposition 31, Question 32",
+          "arXiv:1809.04850v1, Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proof of Proposition 27 applies the trace argument to any invariant cycle projection, so it includes the complementary cut/cycle identity for orthogonal projections.",
+          "The nearest Resultary cylinder and strip records concern K_m × C_n at fixed m≥3 and P_3 × Z, respectively."
+        ],
+        "reasoning": "Cut versus cycle adds only n^−2, and symmetric matrices give equivalent 1 and infinity statements. Fixed transverse size is not a reparameterization of square tori with both dimensions growing.",
+        "searches": [
+          "Resultary endpoint Hodge norms, square torus, logarithmic coefficient",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582v1, §2.4.3, Proposition 27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source tabulates the orthogonal norms at n=3,4,5 and gives the n=6 orthogonal pair 3839/1260 and 317/105 separately from its minimizing pair.",
+          "The nearest indexed finite-width cylinder tends to finite limits with a (log n)/n correction."
+        ],
+        "reasoning": "Known finite values coincide with the frozen check values but cannot certify the asymptotic coefficient or remainder; there is no claim to novelty for those values.",
+        "searches": [
+          "arXiv:2305.12582v1, §2.4.3 small-order table and examples (HTML offsets 59600–61400)",
+          "Resultary exact endpoint graph-projection constants"
+        ]
+      },
+      "rationale": "The distinctive assertion is the coefficient 4/π with an absolute bounded additive remainder for the orthogonal projections. The finite complementary identity and known finite sizes are prior results and excluded from the novelty claim.",
+      "residual_risks": [
+        "The targeted literature and ranked Resultary searches are not exhaustive. Other discrete torus Riesz/Green expansions could yield the same constant and remainder. Martinsson–Rodin's lattice Green expansion (DOI 10.1098/rspa.2002.1025) was identified but not read; the attempted OA lookup did not locate a repository copy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite identity and examples covered; sharp orthogonal asymptotics left open",
+          "evidence": "Norm complement gap n^−2 for invariant cycle projections; distinct orthogonal/minimizing pairs at n=6; no sharp coefficient in the stated bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2305.12582v1",
+          "material_read": "§2.4.3 small-order values, Proposition 27 proof, Proposition 31 and Question 32, PDF pp. 17–18; HTML offsets about 59600, 59900, 63700",
+          "method": "Lawful OA HTML/PDF, decisive passages located and read",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Exact same torus projections and open asymptotic question"
+        },
+        {
+          "assessment": "Related spatial Green expansion, not a torus norm theorem",
+          "evidence": "An angular r^−2 term occurs in a stationary correction to the second heat Green function; no finite-torus image or absolute column estimate in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.04850",
+          "material_read": "v1 §2 p. 2 and Theorem 4.1, equations (4.3)–(4.5), p. 5, offset about 14000",
+          "method": "Lawful OA primary PDF",
+          "title": "Asymptotics of the heat kernels on 2D lattices",
+          "trigger": "Infinite-lattice Green asymptotics potentially implying the kernel tail"
+        },
+        {
+          "assessment": "Different graph family and transverse-size regime",
+          "evidence": "K_m × C_n at fixed m≥3 has finite limiting norms, with a (log n)/n correction.",
+          "identifier_or_url": "2026/10/26/SCOPE-endpoint-hodge-norms-and-a-sharp-projection-dominance-transition--58fa50f7a7be",
+          "material_read": "Opening theorem in mirrored RESULT.md",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Endpoint Hodge norms and a sharp projection-dominance transition on cyclic clique cylinders",
+          "trigger": "Closest indexed graph-projection asymptotic"
+        },
+        {
+          "assessment": "Different infinite graph",
+          "evidence": "Exact constants for P_3 × Z, not finite square tori.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-hodge-projection-norms-on-the-three-rail-infinite--ea2ae52cfb9b",
+          "material_read": "Indexed claim and scope",
+          "method": "Configured Resultary ranked search",
+          "title": "Sharp endpoint Hodge projection norms on the three-rail infinite strip",
+          "trigger": "Other indexed endpoint projection constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Answers the orthogonal-projection part of an explicit asymptotic question for square tori with a sharp constant and bounded additive error. It quantifies the endpoint norm of the canonical projection, without identifying an arbitrary norm-minimizing projection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exterior-degree calculations give \(L_a^3=0\). For nonzero linear part, an invertible right-factor reduction produces an eight-dimensional graph image over the exterior algebra on the remaining three generators. For zero linear part and nonzero two-form, a graded image argument gives first-rank four or six. Direct calculation of the square, together with the Pfaffian criterion and the rank-difference identities, recovers every Jordan partition. The finite-field weights come from the three-dimensional kernel of wedge by a nonzero one-form and the Gaussian-binomial count of decomposable two-forms. Every count is an exact identity valid in the stated characteristic; they sum to \(q^{15}\). Numerical checks over four prime fields corroborate the proof without being treated as a proof for all fields.
+## correctness
 
-## Originality — PASS (provisional, non-independent)
-The central claim is the complete **all-element distribution** of nilpotent Jordan partitions in the four-generator exterior algebra, not the classical exterior multiplication identities, alternating-form orbit counts, or ordinary generic linear-form rank. The full available Fløystad 2004 article was inspected: its resolution constructions and relevant Grassmannian material do not imply the requested finite-field histogram. The full indexed treatments of constant Jordan type and other Artinian Jordan theory concern different modules/families. Published research-record comparisons include the 4-dimensional exterior-algebra Rota–Baxter operator count, a commutative width-two Jordan classification, and an unrelated Jordan lift distribution. Historical internal claim comparisons find results on different exteriors or on adjoint commutators, not the same operation/4-generator object. An unlocated equivalent exterior multiplier classification remains possible; search noncoverage does not establish absolute priority.
+PASS
 
-## Mathematical value — PASS
-The four-generator exterior algebra is the first nontrivial case in which a two-form can have alternating rank either two or four. The theorem resolves a natural complete regular-module invariant for *all* nonhomogeneous positive-degree multipliers, not merely generic forms or linear multipliers. Exact finite-field frequencies and the odd/even characteristic collapse of length-three blocks exhibit structural and arithmetic information unavailable from a single rank bound or a generic Jordan type. A six/seven-stratum closed census is suitable for further comparisons with modular exterior and local-algebra rank spectra.
+I recovered the two rank invariants on the 16-dimensional regular module. For nonzero linear part write a=e₁v+c with v a unit in B=Λ⟨e₂,e₃,e₄⟩. Multiplying a on the right by v⁻¹ does not change aE. For a′=e₁+u+w, projection to e₁B gives eight independent images from B, and a′e₁b=a′(u−w)b because (u+w)(u−w)=0 in B. Thus r₁=8, also in characteristic two. The correct sign explanation of the displayed square is that odd–odd cross terms cancel, whereas odd–even terms commute and contribute 2ℓ∧ω in degree three; the remaining square term is ω². The frozen explanatory sentence reversing this sign rule is a slip, not an error in the square identity or tables. The degree-three image of a² on 1 and its degree-four image on V give r₂=2 when ℓ∧ω≠0 in odd characteristic; if ℓ≠0 and ℓ∧ω=0, ω=ℓ∧z and r₂=0. When ℓ=0 and ω≠0, filtration gives r₁=2+rank(ω∧−|V), namely 4 or 6 by the alternating normal forms, with r₂=1 only for rank four in odd characteristic. Higher leading degrees give r₁=2,1,0; all cubes are zero. The formula (b₃,b₂,b₁)=(r₂,r₁−2r₂,16−2r₁+r₂) then gives the partitions. A fixed nonzero ℓ leaves q³ two-forms in its wedge kernel, and (q−1) times the number of two-planes counts the nonzero decomposable forms, giving all the multiplicities after allowing the q⁵ higher-degree terms. These arguments apply over extension fields. I inspected artifacts/verify.py and VERIFICATION.md without executing the uploaded code: selected ranks are checked by elimination, whereas the exhaustive binary histogram uses the structural predictor rather than independent ranks on all 32,768 elements.
 
-## Closest literature and remaining risks
-G. Fløystad, *Exterior algebra resolutions arising from homogeneous bundles* (2004, DOI 10.7146/math.scand.a-14438) treats a different resolution-theoretic invariant in the same ambient algebra. Carlson–Friedlander–Pevtsova, *Modules of Constant Jordan Type*, and Benson–Pevtsova (arXiv:1007.3827v1) concern rank-one restrictions and realization of bundles rather than arbitrary radical multipliers. Standard alternating-form/Pfaffian classification and Gaussian-binomial counts are background. Literature priority remains subject to unlocated specialized treatments of nilpotent Grassmann multiplication. The theorem is not an independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the all-radical finite-field distribution including inhomogeneous multipliers in both characteristics. Homogeneous form counts and some rank strata are prior ingredients. A later indexed full-algebra theorem does reproduce the radical tables exactly; it is not evidence of prior coverage based on the available chronology.
+
+## value
+
+PASS
+
+Four generators are the first exterior dimension with nondegenerate bivectors and enough higher grades to distinguish the mixed-degree contribution to the square from the Pfaffian contribution. The entire regular-module histogram distinguishes two ways of producing size-three blocks in odd characteristic and their collapse in characteristic two. It is a useful exact finite-field benchmark beyond homogeneous orbit counts or a generic Jordan type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

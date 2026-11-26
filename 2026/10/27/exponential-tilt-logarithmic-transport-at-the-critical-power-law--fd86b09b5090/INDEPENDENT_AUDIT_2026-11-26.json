@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:15:43.889575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponent is constant within each row. Integral tail bounds give Φ_a=a^(1−s_N)(1+O(1/a))/((s_N−1)ζ(s_N)); logarithmic summation yields m_N~I_λ log N/ζ(2) and the proposed masses of logarithmic age windows. For n/N→c>0, n^(2−s_N) is bounded and m_n~m_N. The truncated second moment is O(n) from Σ_(a<n)(2a+1)Φ_a. For k~d n/m_N the truncated sum divided by n converges in probability to d, and the omitted-tail probability kΦ_n is O(1/log N). The identity n(1−E exp(−T/n))=n(1−exp(−1/n))Σ exp(−a/n)Φ_a yields m_n+O(1): the lower-window correction is bounded by Σ_(a<n)aΦ_a/n=O(1), and for a≥n the tail sum is bounded by an exponential integral with factor n^(2−s_N). These bounds are row-wise for fixed λ, not uniform for fixed exponents in a neighborhood of two. The resulting exponential envelope on P(S_k≤n) gives Σ_(j≤n)u_j~n/m_N by dominated sums. Local masses genuinely are controlled: the geometric mixture gives log-convex Φ_j, and the increasing ratios Φ_j/Φ_(j−1) inductively make all nonconstant coefficients of 1/(ΣΦ_jz^j) nonpositive. Since U(z) is that reciprocal divided by 1−z, u_j decreases, and macroscopic forward/backward average bounds give u_j~1/m_N uniformly on compact proportional windows. Now P(A_N=a)=u_(N−a)Φ_a gives the stated ν_λ on subintervals of (0,1); its total mass one rules out endpoint mass. For the walk, solving (I+D)v=2Ds_ℓ⟨s_ℓ,v⟩ for D=diag(e^(−ik),1,e^(ik)) gives the unit-eigenvalue direction s_ℓ−i c tan(k/2)χ_A with c=√(2/(ℓ+2)). The cross term integrates to zero by reflection, and the average of 1/(1+c²tan²(k/2)) is 1/(1+c), giving precisely W and the dark and active cases. The dispersive phases have cos ω=−(2+ℓ cos k)/(ℓ+2), with zero group velocity only on a null set. Fourier shifts in the characteristic function of Y_a/a isolate the same-band terms by orthogonality, giving a zero atom of weight W; oscillatory Fourier integrals on the monotone phase arcs vanish at fixed sites, whose flat profile sums to W by Parseval. Thus for every exponent v∈(0,1), the probability of |Y_a|≤a^v tends to W (fixed-site lower bound and zero-velocity upper bound); finite propagation yields the split between exponent zero and one. Conditioning on A_N∈[N^α,N^β] makes the bounded-continuous test-function error uniform by ordinary sequential convergence and uniform continuity; the ages outside those windows have arbitrarily small limiting mass as α↓0, β↑1. This proves the position mixture, not independence of position from age. Supplied numerical diagnostics were not used to justify the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huillet studies the exact fixed-law excursion tail (k+1)^(−β). The later-indexed near-critical extension bc04ae7f3e11 gives the same tilted logarithmic age marginal with β_N=1+c/log N, but its rows have that exact excursion tail, not normalized power-law masses.",
+          "Bodrova–Sokolov consider renewal resets in continuous-time classical random walks, not the Grover spectral channels."
+        ],
+        "reasoning": "The different tails are asymptotically proportional at the relevant scales; this explains overlap of the age marginals and a similar local-renewal method. Neither inspected statement is a broader theorem implying the quantum position law. The later record's date is not used to establish publication order.",
+        "searches": [
+          "arXiv:2610.29974 §3.1 Eq. (15)",
+          "Resultary bc04ae7f3e11 triangular renewal age and residual ratio",
+          "arXiv:2001.01350v3 §I"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2609.08973v1",
+        "arXiv:2610.29974v1",
+        "arXiv:2001.01350v3",
+        "Resultary 06010005ec2e and bc04ae7f3e11",
+        "Attempted lawful OA retrieval of Erickson's fixed-law renewal paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-s stationary or ballistic facts do not control the row-uniform local renewal masses near N. The latter Resultary proof obtains a similar age limit using a Laplace transform and monotone renewal masses for its own array; it has no localization/transport selector."
+        ],
+        "reasoning": "The known spectral ingredients and an applicable triangular local renewal estimate can be combined, but the fixed-s quantum antecedent does not supply the latter. The proof of the moving logarithmic age scale plus the control of both shrinking subballistic windows and fixed-site mass are needed to identify the distribution, not just its moments.",
+        "searches": [
+          "arXiv:2609.08973v1 p. 11 Eq. (56), p. 12 critical MSD and App. C",
+          "Resultary bc04ae7f3e11 proof Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das uses the same flat-band projections and weights and a fixed exponent; the paper gives the stationary age law for s>2 and the critical MSD, not the logarithmic-position law for s_N=2+λ/log N.",
+          "Resultary 06010005ec2e gives ballistic X_t/t⇒UV for the flat-band-dark coin with fixed 1<s<2 and explicitly excludes s=2 and active coins."
+        ],
+        "reasoning": "The operators and restart convention are closely related, but neither fixed-exponent observation regime can be identified with a single moving-exponent row family by rewriting the scaling.",
+        "searches": [
+          "Resultary logarithmic age/restart and flat-band Grover comparisons",
+          "arXiv:2609.08973v1 Eqs. (22)–(26), (56), App. C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Das gives the precise two nonzero eigenweights of the integrated projector and the same active/antisymmetric coin basis. The catalogue supplies a fixed-exponent quantum law and a tilted age law for a different waiting distribution, but no observed match to the combined logarithmic-position statement."
+        ],
+        "reasoning": "The weighted constant in the atom is already known exactly. The main target is a family of weak limits, not finite exact table data; the examined exact formulas have been credited to their stated regimes.",
+        "searches": [
+          "Resultary 06010005ec2e and bc04ae7f3e11",
+          "arXiv:2609.08973v1 Eqs. (25)–(26)"
+        ]
+      },
+      "rationale": "The exact flat-band weight, fixed-site localization, underlying ballistic transport and the fixed-exponent threshold are known. The supported distinct claim is the moving-exponent logarithmic position mixture together with the local renewal analysis for the stated interarrival array. A related Resultary theorem gives the same tilt for an age marginal in a different near-critical renewal law, but not the quantum-position conclusion or the exact row-wise law of this claim.",
+      "residual_risks": [
+        "Erickson's original passage was inaccessible; the indexed related-work discussion attributes fixed-law logarithmic aging at the critical exponent to him, so no novelty is claimed for a uniform age law in isolation at λ=0. A more general triangular renewal theorem could cover part of the age result; the inspected exact results do not establish coverage of the coupled position statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact spectral inputs and fixed-exponent threshold covered; moving logarithmic-position claim not given by the inspected results",
+          "evidence": "Eqs. (25)–(26) give exactly the projector coefficient formula; Eq. (23) is fixed-site convergence. App. C proves the non-restart ballistic law and p. 12 gives t²/log t for the s=2 MSD.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08973v1",
+          "material_read": "Abstract, pp. 4–5 Eqs. (11)–(14), (22)–(26) (offsets 30500–40208), p. 11 Eq. (56) (98000), p. 12 critical MSD (107900), App. C Eq. (C6) (149000)",
+          "method": "OA original PDF passage inspection",
+          "title": "Restart and first detection in a lackadaisical quantum walk with flat-band localization",
+          "trigger": "Identical weighted Grover walk and power-law restart threshold"
+        },
+        {
+          "assessment": "Distinct regime",
+          "evidence": "Under dark-coin restarts and fixed 1<s<2 the result is on the ballistic scale, X_t/t⇒UV with a beta age factor; neither s=2 nor active coins are included.",
+          "identifier_or_url": "2026/10/25/SCOPE-an-aging-konno-ballistic-law-with-a-sharp-front-shape-transition--06010005ec2e",
+          "material_read": "RESULT.md Finding and assumptions (offsets 245–3832) and Limitations (8600)",
+          "method": "Resultary local mirror",
+          "title": "An aging Konno ballistic law with a sharp front-shape transition",
+          "trigger": "Closest indexed quantum restart scaling result"
+        },
+        {
+          "assessment": "Material age-marginal and method overlap, not the same row-wise interarrival model or quantum claim",
+          "evidence": "For the excursion survival (k+1)^(−β_N) with β_N=1+c/log N, Eq. (3) gives a proportional-window local renewal estimate and Step 4 yields tilt e^(−cu)/h(c). Its additional conclusion concerns a residual ratio, not a quantum spectral atom.",
+          "identifier_or_url": "2026/11/2/SCOPE-near-critical-logarithmic-aging-and-independent-residual-ratios--bc04ae7f3e11",
+          "material_read": "RESULT.md Finding and assumptions (offsets 96–4215), proof of local masses, logarithmic age and residual ratios (2500–6143)",
+          "method": "Resultary local mirror",
+          "title": "Near-critical logarithmic aging and independent residual ratios",
+          "trigger": "Matching near-critical logarithmic age density"
+        },
+        {
+          "assessment": "Fixed exponent, different row law",
+          "evidence": "Gives the Zipf-disaster excursion survival (k+1)^(−β) and its finite mean threshold β>1, not the moving-exponent age or quantum law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29974v1",
+          "material_read": "§3.1 p. 9 Eq. (15), offset 31650",
+          "method": "OA original PDF passage inspection",
+          "title": "On Divisibility Properties of Zipf Law and Relatives",
+          "trigger": "Strong earlier fixed-parameter discrete renewal comparator"
+        },
+        {
+          "assessment": "Classical context, not the same scaling law",
+          "evidence": "Distinguishes complete and incomplete resets and studies MSD and density behavior for continuous-time random walks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01350v3",
+          "material_read": "pp. 1–2 abstract and §I Eqs. (1)–(3), offsets 0 and 9000",
+          "method": "OA original PDF passage inspection",
+          "title": "Continuous time random walks under power-law resetting",
+          "trigger": "Earlier complete power-law resetting comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural divergent-mean threshold, a logarithmic observation scale separates persistent localization from transport over a continuum of scales that a single ballistic rescaling or an MSD misses. The exp(−λu) tilt quantifies how the moving exponent redistributes these scales, while the localization atom is identified separately for every coin. The row-uniform local renewal argument is substantive and explains why the limit is not a fixed-exponent substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:04:13.029830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–58",
+        "VERIFICATION.md, verification statuses and reported finite checks",
+        "artifacts/verify_tjurina.py, static inspection",
+        "Independent rational Gröbner calculation on (f,f_x,f_y) with m=5,q=2 and (a_1,a_2)=(0,1)"
+      ],
+      "rationale": "With weights (m,n), each perturbing term is higher than mn by m(i−1)+1. Substitution x=t^m, y=t^nY gives simple leading roots Y^m=1; the t↦ζt action is transitive on them because gcd(m,n)=1, giving one branch with the stated pair and semigroup. The initial partial derivatives are the coprime pure powers x^(n−1), y^(m−1), giving Milnor colength (m−1)(n−1). For nonzero parameters the weighted Euler remainder is x^v y times a unit, and xf_x then forces x^n into the ideal. Conversely f belongs to (f_x,f_y,x^n) by eliminating y^m and using that xf_x forces x^v y modulo x^n. In the free monic quotient over R/(x^n), the remaining generator is g=x^(v−1)y−c x^(n−1) with c=n/(v a_j); multiplying by x^(n−v) yields x^(n−1)y. Its products by y through y^(m−2) give precisely the extra relations killing x^(v−1)y^k, 2≤k≤m−2. The last reduced product adds no scalar relation since x^(v−1)h is divisible by x^(2v−1) and 2v−1≥n. These products span the whole ideal over R/(x^n), and replacing y by y−c x^(n−v) diagonalizes the module. The stated length and x-adic dimensions follow. At the central point the ideal is (x^(n−1),y^(m−1)); otherwise the defects are positive and pairwise distinct, giving the flag and the quasihomogeneity conclusion by the Milnor–Tjurina criterion. An independently written rational Gröbner check for f=y^5−x^11+x^10y gave leading monomials y^4,x^9y,x^11, colength 38 and the stated profile for that case.",
+      "residual_risks": [
+        "The uploaded checker was not executed. The independent calculation tests one case only; the argument for arbitrary complex coefficients is the unit reduction and finite free module calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semiuniversal fixed-principal-part construction and its moduli framework apply to the broader ambient setting. The analytic classification framework applies to the broader fixed-equisingularity setting.",
+          "Neither inspected result supplies the elementary divisors n,v−1,…,v−1 or the equalities between the coordinate-flag pieces and the exact Tjurina-number loci of the frozen family."
+        ],
+        "reasoning": "Having an ambient family or an analytic classification in principle is not a closed formula for this coordinate-dependent module. Applying the framework still requires calculating the Tjurina relations and their dependence on v and the coefficients.",
+        "searches": [
+          "Greuel–Hertling–Pfister, arXiv:alg-geom/9503013v1, offsets 4945–6745 and 17533–19730",
+          "Hefez–Hernandes, arXiv:0707.4502v1, introduction; discussion of Delorme's one-Puiseux-pair setting"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Local Resultary search and record ba84d23737be",
+        "arXiv:alg-geom/9503013v1, 0707.4502v1, 2501.12836v1, 2604.05825"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-branch high-intersection result does not cover unibranch germs. The Hodge-to-de Rham criterion relates degeneration to quasihomogeneity but does not compute a local defect on the specified parameter slice.",
+          "The conclusion uses that the Euler remainder isolates x^v y up to a unit and that the products of the one residual derivative relation in the monic quotient impose no further relation on the scalar summand."
+        ],
+        "reasoning": "The general moduli and quasihomogeneity results provide theory to interpret the output but do not themselves yield the module, the nonlinear defect at the highest perturbation, or the complete flag.",
+        "searches": [
+          "arXiv:alg-geom/9503013v1, Introduction and semiuniversal framework",
+          "arXiv:2501.12836v1, Introduction",
+          "arXiv:2604.05825, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed principal part y^m−x^n puts the family in the semiquasihomogeneous setting. Greuel–Hertling–Pfister use a weight-induced Tjurina-algebra filtration for moduli strata; the frozen invariant uses powers of x in a fixed projection.",
+          "Hefez–Hernandes organize equisingular branches by the value set of Kähler differentials, not by the elementary divisors for multiplication by x on their Tjurina algebras."
+        ],
+        "reasoning": "The alternative classifications overlap on the objects, but their stratifying invariants are different; one cannot identify the weight-induced Hilbert function or the differential value set with this x-adic module without further calculations.",
+        "searches": [
+          "Local Resultary fixed-Puiseux-pair, Tjurina module, coefficient-flag and Tjurina stratification searches",
+          "arXiv:alg-geom/9503013v1, Introduction and fixed-principal-part family",
+          "arXiv:0707.4502v1, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected record ba84d23737be gives formulas for numbers of repeated separated-variable Thom–Sebastiani sums from Milnor data, using the original mu and tau in the plane-curve case. It does not tabulate or determine the starting Tjurina numbers or module for the single-branch family here.",
+          "The frozen finite examples are checks of a symbolic all-parameter formula, not evidence of earlier coverage or novelty."
+        ],
+        "reasoning": "The nearest exact-formula record depends on different input and construction, and does not solve this flag even when its input is a plane curve. No exact table or matching symbolic entry was located by the bounded lookup.",
+        "searches": [
+          "Local Resultary semantic searches for the Tjurina-number flag and module for a fixed Puiseux pair; nearest compared record ba84d23737be"
+        ]
+      },
+      "rationale": "The checked general classifications give fixed-principal-part and fixed-Puiseux-pair frameworks, not the explicit module over the fixed x-projection or the first-nonzero-coefficient formula on this slice. The supported distinct result is the exact full coefficient flag and the module, not the existence of Tjurina strata in general, an analytic classification, or a priority claim.",
+      "residual_risks": [
+        "No exhaustive priority certification. The checked broader methods might yield additional specializations; searches and bounded passages cannot exclude another exact treatment in the classification literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader framework and a different filtration; no inspected statement of the frozen exact flag",
+          "evidence": "Fixed weighted principal part, weight-induced Tjurina Hilbert strata and contact-equivalence moduli, not elementary divisors for the fixed x-projection.",
+          "identifier_or_url": "https://arxiv.org/html/alg-geom/9503013v1",
+          "material_read": "Introduction (offsets 2664–3985 and 4945–6745), semiuniversal family passage (17533–19730)",
+          "method": "Lawful OA text, bounded passage inspection",
+          "title": "Moduli spaces of semiquasihomogeneous singularities with fixed principal part",
+          "trigger": "Closely overlapping fixed-principal-part family and Tjurina Hilbert function stratification"
+        },
+        {
+          "assessment": "Genuine broader analytic framework, not exact module coverage in the inspected statement",
+          "evidence": "Normal forms and strata of values of Kähler differentials in equisingular classes; discussion of generic classification for one Puiseux pair.",
+          "identifier_or_url": "https://arxiv.org/html/0707.4502v1",
+          "material_read": "Introduction, offsets 1458–3954",
+          "method": "Lawful OA text, bounded passage inspection",
+          "title": "The Analytic Classification of Plane Branches",
+          "trigger": "Broader classification for the same branch type"
+        },
+        {
+          "assessment": "Different hypothesis in the inspected statement",
+          "evidence": "Uses two branches and high intersection multiplicity; not a fixed unibranch coefficient slice.",
+          "identifier_or_url": "arXiv:2501.12836v1",
+          "material_read": "Introduction, offset 0",
+          "method": "Lawful OA text",
+          "title": "The Tjurina number of a plane curve with two branches and high intersection multiplicity",
+          "trigger": "Explicit Tjurina numbers for plane curve singularities"
+        },
+        {
+          "assessment": "Motivation, not module or flag coverage",
+          "evidence": "Global degeneration and local quasihomogeneity are related. The retrieved version lists Yunfan He and Junxiao Wang, whereas the frozen citation uses a shorter title and lists He alone; the scientific check does not rely on those bibliographic fields.",
+          "identifier_or_url": "arXiv:2604.05825",
+          "material_read": "Introduction, offset 0",
+          "method": "Lawful OA text",
+          "title": "Derived Hodge-to-de Rham Degeneration and Quasihomogeneous Curve Singularities",
+          "trigger": "Motivating connection between quasihomogeneity and degeneration"
+        },
+        {
+          "assessment": "Distinct construction and invariant data",
+          "evidence": "It computes Tjurina numbers of iterated sums using singularity data, not the module or parameter flag of the original branch. Same-day dating does not determine priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-universal-k-1-2-law-for-tjurina-numbers-of-repeated-thom-sebas--ba84d23737be",
+          "material_read": "RESULT.md, offset 0, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A universal (k−1)/2 law for Tjurina numbers of repeated Thom–Sebastiani sums",
+          "trigger": "Nearby exact Tjurina-number formula in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, Proof and the high-exponent boundary example",
+        "arXiv:alg-geom/9503013v1, fixed-principal-part moduli context"
+      ],
+      "rationale": "The semiweighted homogeneous slice varies a natural band of higher terms linear in y while preserving the singularity's topological data. It gives a usable closed formula for every allowed complex coefficient choice, not just a generic or individual Tjurina number. The fixed-projection module strengthens the scalar defect, determines the complete x-adic profile, and detects a positive defect even for the endpoint perturbation lying in the central Jacobian ideal. The resulting coordinate flag describes concrete jumps within a single equisingular family.",
+      "residual_risks": [
+        "Value is restricted to the stated slice; the x-adic decomposition is not an abstract analytic invariant, and the result gives neither the moduli of all branches of that type nor a theorem about their compactifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

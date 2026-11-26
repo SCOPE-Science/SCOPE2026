@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:21.673469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a primitive two-cycle the positions must be nonzero and of opposite sign: at zero the memory alone contracts, and the two displacements must cancel. With a=λ|x₁|, b=λ|x₂| and memory square roots u,w, cancellation gives a(u+ε)=b(w+ε), whereas the memory equations give (1+β)(a²u²−b²w²)=β(a⁴−b⁴). Unequal a,b give opposite signs, so the cycle is antipodal, with memory λ²r² and r=h/2−ε/λ>0. At the positive phase the Jacobian entries are −1+4(1−β)r/h, 2β/(hλ²), 2(1−β)λ²r, β in row order. Position reflection R gives the return derivative (RJ₊)². The trace and determinant of RJ₊ are t=1+β−4(1−β)r/h and β. The degree-two Schur inequalities reduce to 1−β>0 and 1+β±t>0, both strict for every supercritical gain, giving local exponential attraction at the smooth nonzero states. The two-step spectral radius equals its lower bound β precisely for |t|≤2√β. The trace decreases from 1+β to −1+3β, and 1−3β−2√β=(1−3√β)(1+√β), so the finite exit exists exactly below β=1/9 and at equality only the infinite-gain limit reaches that edge. At a finite edge the nonzero off-diagonal makes the repeated nonzero root defective, and squaring preserves the Jordan defect. Substitution verifies [3,8] in the exact example. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loh et al. give an exact multi-dimensional K and square its eigenvalues for Floquet multipliers. Their stated attraction theorem is near threshold and their scalar all-gain observation is numerical. Dimitrieski et al. treat strictly subcritical steps."
+        ],
+        "reasoning": "It is the scope of the earlier exact Jacobian and cycle identities, not the scope of either stability theorem or the numerical observation, that supplies coverage.",
+        "searches": [
+          "arXiv:2610.30078, equations (39)–(44), Theorem 5.7 and section 8.3.1",
+          "arXiv:2603.15823, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 779e48cdeae5; a80d03e85890",
+        "arXiv:2610.30078; arXiv:2603.15823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In dimension one, on the positive branch, ζ⁻¹λ=2 and X=1/2−ε/(hλ). Equation (44) becomes the 2-by-2 matrix with rows (1−4(1−β)X, −4βX/λ) and ((1−β)λ, β), so trace 1+β−4(1−β)X and determinant β hold identically at all supercritical gains."
+        ],
+        "reasoning": "Schur stability follows from 0<X<1/2. The determinant fixes the minimum when the discriminant is nonpositive, and solving the two linear trace inequalities gives both cutoffs and the 1/9 condition. The finite boundary Jordan defect follows from the nonzero off-diagonal. No additional result about the RMSProp dynamics is needed to specialize the earlier formula.",
+        "searches": [
+          "Loh et al., arXiv:2610.30078, reduced cycle equation (22), (42) and (44), pp. 16–17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loh et al. use the newly updated memory in the epsilon-outside denominator; their normalized scalar amplitude is X=r/h=1/2−ε/(hλ).",
+          "Resultary 779e48cdeae5 instead uses stale memory; a80d03e85890 treats critical gain only."
+        ],
+        "reasoning": "Normalization and taking the square root of the memory are smooth changes of coordinates at the nonzero cycle, preserving the spectrum. Stale-memory and critical-only results do not cover the claim.",
+        "searches": [
+          "Loh et al., arXiv:2610.30078, Algorithm 1, map (5), Lemma 5.1 and Theorem 5.3",
+          "Resultary scalar epsilon-outside RMSProp two-cycle and plateau comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day lagged update has attraction only for 2ε/λ<h<4ε/λ, on a different map. The critical-gain result does not involve primitive supercritical cycles. No exact catalogue match was identified."
+        ],
+        "reasoning": "Matching dynamics terminology does not imply matching model, and absence of an exact indexed statement is not proof of originality.",
+        "searches": [
+          "Focused semantic Resultary searches for scalar RMSProp exact Floquet plateau and 1/9 threshold; inspected 779e48cdeae5 and a80d03e85890"
+        ]
+      },
+      "rationale": "No inspected source states the exact 1/9 split verbatim. However, the same-map earlier general Floquet formula, combined with its reduced cycle equation, specializes directly to the scalar polynomial for every admissible gain. Both stability and the claimed optimal interval are mechanical consequences of the trace range and quadratic discriminant; this is coverage by implication, not an exact catalogue duplicate or a historical priority judgment.",
+      "residual_risks": [
+        "The bounded comparison does not determine historical priority or whether the 1/9 split has also been stated explicitly elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains general exact formulas directly implying the claimed scalar conclusions",
+          "evidence": "Antipodal structure and threshold are established explicitly; (42)–(44) give the full scalar trace and determinant on substitution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30078",
+          "material_read": "Algorithm 1, map (5), Lemma 5.1, Theorems 5.3 and 5.7, equations (39)–(44), section 8.3.1; decisive equation (44) at OA extraction offset 71100",
+          "method": "Lawful OA PDF passages",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "Same map and strongest plausible exact-spectrum precursor"
+        },
+        {
+          "assessment": "Subcritical scope",
+          "evidence": "Its step parameter is strictly below 2ε/L, whereas the claimed cycle is supercritical.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.15823",
+          "material_read": "Theorem 1, p. 2, extraction offset 16400",
+          "method": "Lawful OA PDF passage",
+          "title": "Global Stability and Step Size Robustness of RMSProp",
+          "trigger": "Possible existing scalar gain coverage"
+        },
+        {
+          "assessment": "Different update order or critical regime, not exact duplicates",
+          "evidence": "The first denominator uses stale memory; the second gain equals the fixed-point threshold.",
+          "identifier_or_url": "Resultary 779e48cdeae5; a80d03e85890",
+          "material_read": "Findings and stated update and gain regimes",
+          "method": "Local Resultary mirror",
+          "title": "Sharp update-order instability of a one-step-lag RMSProp two-cycle; Universal critical relaxation for scalar epsilon-outside RMSProp",
+          "trigger": "Closest indexed Resultary hits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The gain interval is a useful tuning readout and the Jordan caveat is accurate, but for the frozen scalar map both are direct quadratic-spectrum calculations from the earlier exact formula. The record does not resolve an independent dynamical gap such as basin size, nonlinear endpoint rates, or a setting not already covered by the formula. The failure is for the mechanically implied result as a standalone contribution, not for studying gain tuning.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory. The standalone script independently enumerates every subset of each of the two named seven-vertex graphs and recomputes the complete ordinary and independent-support histograms from the edge sets. It checks their formal difference as a polynomial, not merely at sampled field orders, and compares the stored `CERTIFICATE.json` with direct enumeration. It also executes literal group multiplication, squares, and centralizers over the finite fields of orders two and four for small graphs, and computes the full seven-vertex square-one conjugacy-class counts over the binary field. The observed binary distributions are \( (256,256,256,416,112,16) \) and \( (256,256,320,320,160,8) \), with exactly \(7424\) square-one elements in each group. The program returned `VERIFY_OK_GRAPHICAL_INVOLUTION_CLASS_TWINS`.
+## correctness
 
-This finite exhaustive certificate is valid only for the displayed pair; the universal group-theoretic involution formula is proved separately in `RESULT.md`. Verification does not constitute independent review. The subgroup- and support-count operations are explicit, and no unidentified computations or inaccessible paths are needed.
+PASS
+
+Verified the repaired pair claim from the algebra. Commutation sets the outside-neighbor coordinates to zero and equates b_v/a_v along each internal edge, giving rank |S|+|N(S)|-c(S) independently of nonzero coordinate choices and of the field. Conjugation preserves vertex coordinates. In characteristic two the independent edge coordinates of the square vanish exactly for independent S. Independent GF(2) row elimination for all 128 masks per graph gives identical ordinary histograms and differences -1,3,-3,1 only at |S|=2 and ranks 2,3,4,5. Weighting gives the stated factorization and the F_2 class vectors and 7424 totals; the field-independent rank proof extends the histogram, not just the F_2 sample. Subtracting the identity does not change the difference.
+
+## originality
+
+PASS
+
+For the repaired statement only: none of the decisive comparisons supplies a pair for which both marginals agree but the full order-restricted size spectrum differs, much less this specific pair and polynomial. Equivalent universal enumeration is explicitly credited and removed from the contribution. This is best-of-knowledge, not a priority claim.
+
+## value
+
+PASS
+
+The fixed small pair is a field-uniform obstruction to recovering a natural joint invariant from two existing natural marginals. This addresses an identifiable information-loss question in graphical-group conjugacy enumeration and separates even-characteristic groups that both marginals miss. The value is the witness, not recomputing a known formula for one graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

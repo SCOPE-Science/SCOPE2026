@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-From a directory containing `verify_icosahedral_lerw.py`, run:
+## correctness
 
-```sh
-python3 verify_icosahedral_lerw.py
-```
+PASS
 
-The script is Python 3 standard-library only. It builds the graph explicitly, checks its 12-vertex 30-edge degree sequence and distance shells, evaluates its spanning-tree cofactor exactly, exhaustively enumerates all simple paths for all 66 unordered endpoint pairs, and verifies the three entire integer path-length distributions, rational means and geodesic probabilities. Exact rational Green-function checks are performed on selected paths independently of the fraction-free determinant implementation.
+For any specified simple endpoint path, trees containing its edges are in bijection with spanning trees after contracting it; the cofactor at the contracted vertex is precisely the Laplacian principal minor on the vertices outside the path, with parallel edges counted. Different endpoint paths are mutually exclusive in a tree. An exact separate implementation evaluated the minors and exhaustively summed them for all 66 pairs (30, 30, 6 by distance). Every length entry matched, each row summed to the separately computed cofactor 5,184,000, and the rational means and geodesic masses matched. In particular 7/30 < 26/75 < 11/30 gives the asserted nonmonotonicity. The standard UST path/chronological loop-erasure identity applies to the unweighted walk stopped at the fixed endpoint.
 
-Successful output ends with `PASS: all 66 vertex pairs, exact distributions, matrix-tree normalization, and Green-function spot checks`.
+## originality
 
-The finite search is exhaustive because every simple path on a twelve-vertex graph has at most eleven edges and the recursion visits every unused neighbor at each step. The mathematical equivalence between path minors and tree counts is proved in `RESULT.md`. The reproducibility check is not a general theorem for larger graphs and not an independent scientific audit.
+PASS
+
+The known UST/LERW equivalence, cofactor methods, denominator and adjacent-edge marginal are not distinct contributions. The strongest inspected sources do not give or subsume the graph-specific full length census at the three fixed-pair distances, or its nonmonotone geodesic comparison. This decision is on that combined exact law, not a priority claim about the method or individual known entries.
+
+## value
+
+PASS
+
+The icosahedral graph is a canonical small regular polyhedral graph with exactly three pair distances. The complete distribution is a finite exact test case for UST or LERW length calculations at near, intermediate and antipodal separation. In particular it provides a concrete counterexample to monotone dependence of the geodesic probability on separation: an antipodal pair has more compulsory steps but also more short routes, and the exact comparison is not captured by the adjacent resistance or the total spanning-tree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

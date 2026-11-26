@@ -1,15 +1,21 @@
-# Review: A sharp spectral-ratio transition for two-level positive-part conditioning
+# Independent mathematical audit
 
-## Correctness
-The local derivative is the divided-difference Schur mask \(\left(\begin{smallmatrix}1&q\\q&0\end{smallmatrix}\right)\) in the mixed-sign eigenbasis. Maximizing its operator norm over selfadjoint symmetries is a one-variable exact calculation, with a branch change at \(q=1/\sqrt2\). Trace-pairing self-adjointness gives the same sharp trace-norm constant; explicit rank-one perturbations attain it. The Hilbert–Schmidt norm is one directly from the mask. Along any Hermitian two-by-two matrix segment, singular crossings form a finite set unless the determinant vanishes identically, in which case the rank-one segment is handled separately. This establishes the global constants without extrapolating finite tests. A standalone checker passes 1,892 reproducible finite-dimensional tests. No check is an independent mathematical certification.
+## correctness
 
-## Originality
-The main object is the **full local spectral-ratio profile and its strict nonexpansion threshold**, not the known endpoint triangular-mask constant. Levene, *Norms of idempotent Schur multipliers*, arXiv:1302.4849, Proposition 5.1, identifies the \(2/\sqrt3\) norm of an **idempotent** two-by-two Schur mask, equivalent to the limiting mask here as \(q\to1\). It does not specify the continuous non-idempotent family, its threshold, or the positive-part spectral interpretation. Aleksandrov–Peller (arXiv:0907.3049), Bhatia (DOI 10.1007/s13226-010-0014-0), and Caspers et al. (arXiv:1309.3378) study operator-function regularity and global estimates, not this finite-dimensional sharp local profile. Christensen (arXiv:2505.24670) gives a general exact *variational* Schur-norm characterization but does not evaluate the one-parameter closed form. A recent positivity-restricted triangular mask in dimension three addresses a different input cone and different map. Equivalently parameterized old multiplier calculations are a genuine residual priority risk; the available literature comparison does not prove universal priority.
+PASS
 
-## Value
-The result completely resolves a natural local conditioning invariant for positive-semidefinite spectral clipping at the smallest noncommutative matrix size. It isolates the sharp eigenvalue-ratio boundary where trace- and operator-norm amplification begins, while Frobenius nonexpansion persists. This is useful quantitative sensitivity information rather than a numerical sample, a renamed special case of the \(q=1\) idempotent, or an arbitrary choice of matrix entries.
+At diag(a,-b), differentiating the positive spectral projector multiplies an off-diagonal entry by 1/(a+b), so differentiation of the positive eigenvalue times that projector gives the Hermitian Schur mask (1,q;q,0). The 2-norm is one by the entrywise formula and the first diagonal coordinate. Independently optimize in trace norm: the Hermitian trace unit ball is the convex hull of signed rank-one orthogonal projectors. A unit projector with first diagonal r has output trace norm squared r^2+4q^2 r(1-r), using the nonpositive determinant. On [0,1] this has maximum 1 at r=1 up through q^2=1/2, and otherwise maximum 4q^4/(4q^2-1) at r=2q^2/(4q^2-1). Trace duality and mask symmetry transfer the maximum to operator norm. The exhibited real symmetry has unit input and top output eigenvalue (t+sqrt(4q^2+(1-4q^2)t^2))/2, attaining the maximum at t=1 or t=1/sqrt(4q^2-1), as appropriate. The threshold is a/b>1+sqrt(2) in the stated infinitesimal sense. For global bounds the nonzero determinant polynomial yields finitely many crossings on a segment, with derivative bounds integrated between them; the identically singular segment is rank at most one, with its positive part either the input or zero according to affine trace, and bounded on both pieces. The profile increases on its upper branch to 2/sqrt(3); derivative ratios first at fixed indefinite input then as b/a->0 approach this ceiling. Frobenius sharpness already occurs in the positive cone. The claims apply on the real space of Hermitian matrices, not automatically to unrestricted perturbations. The inspected check.py gives finite corroboration only; 1892 checks is the frozen report, not a fresh run.
 
-## Limitations
-No claim for higher matrix sizes, additional Schatten exponents, or derivatives at zero eigenvalues. Earlier general multiplier norm-factorization methods can encode the problem implicitly; historically equivalent explicitly evaluated families have not been ruled out. The standalone finite-dimensional checks do not establish all-parameter statements without the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact fixed-ratio Hermitian derivative profile, especially the interior transition at q=1/sqrt(2). Divided differences, the triangular endpoint, and Hilbert–Schmidt projection nonexpansion are not new. Neither the known endpoint nor the inspected broader variational characterizations evaluate this fixed-q problem. Later published Resultary statements have real overlap on the global bound and derivative machinery but do not supply the evaluated fixed-q transition in the passages read.
+
+## value
+
+PASS
+
+The local threshold resolves whether infinitesimal perturbations can be amplified at a given mixed-sign input in two commonly used matrix norms. A universal constant or its known endpoint does not answer that question. The exact identity/expanding regimes over the full natural two-eigenvalue family, contrasted with Frobenius nonexpansion, are the substantive sensitivity result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

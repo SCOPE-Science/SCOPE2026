@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:33:17.634766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With e_k the high/low squared spectral-energy ratio, direct substitution of r_k−r_(k−1)=−alpha_(k−1)Br_(k−1) in the RD quotient gives alpha_k=(a²e_(k−1)+b²)/(a³e_(k−1)+b³). Both mode filters are nonzero for positive finite e and e_(k+1)=e_k/(kappa⁴e_(k−1)²). The first residual Rayleigh step gives e_1=1/e_0. Thus phi=log(kappa²e) obeys phi_(k+1)=phi_k−2phi_(k−1), phi_0=2L+t, phi_1=2L−t. The roots (1±i sqrt(7))/2 give q=sqrt(2), cos(theta)=1/(2q), and phi_j=Cq^j cos(j theta−delta) with cosine coordinate 2L+t and sine coordinate (2L−3t)/sqrt(7). Their squared sum is 4L²+16(t+L/2)²/7, strictly positive, minimized at t=−L/2 (realizable by mixed data). The two negative log filter gains differ by uniformly bounded amounts from [phi_(k−1)]_+ and [−phi_(k−1)]_+, respectively, since log(1+kappa exp(phi))=[phi]_++O_kappa(1). Summing from k=1 to n−1 gives an O(n) log error including the fixed first step; after scaling, set m=n−j, so the first term of U is at m=2. Extending the series to infinity costs O(q^(−n)) and preserves uniform continuity. Opposite spectral phases give U and U shifted by π; comparing the Euclidean norm with the larger orthogonal component changes its log by at most log(sqrt(2)), hence the pointwise minimum H is correct. Four successive phases have gaps <π, so the finite part m=2..5 alone guarantees positive values of both positive-part sums at every phase, and compactness gives min H>0. The frozen irrational-rotation argument is also valid since 2cos(theta)=1/sqrt(2) cannot be an algebraic integer (its field norm is −1/2). This establishes the exact phase law, the double-log exponent and no mixed finite termination or geometric exception. On either nonzero pure mode the first step terminates. The conclusion is all mixed starts at fixed spectrum in exact arithmetic, not a one-step Q-rate or a uniform bound over coalescing eigenvalues.",
+      "replay": "python3 /workspace/review-evidence/replay.py 3: 108 exact direct rational steps shared with record 3; 64 independent log-recursion/profile samples comparing the linearly iterated log ratio and stable log multipliers with the truncated phase series, including the minimizing initial ratio. Frozen verify_rd.py inspected, not executed. The finite samples do not certify the exact asymptotic or the minimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu §3.2 analyzes DR, while §4 tests RD under an RSHK first step.",
+          "Dai Eq. (2.5) gives the same recurrence for BB1.",
+          "Yang–Yuan Prop. 3.2 conjugates fixed weighted delayed dynamics and Theorem 3.4/Corollary 3.5 yields R-linear estimates for BB2 including arbitrary positive first steps.",
+          "The Raydan thesis primary host timed out. The identified Rice repository copy returned HTTP 202/403 without readable full text."
+        ],
+        "reasoning": "A general R-linear upper envelope is consistent with slow equilibrated orbits and does not imply an exact double-log rate or a start-specific profile. Classical ratio dynamics supply the oscillator after conjugacy, not the sharp nonzero minimum over the physical residual-SD start. Exact earlier arbitrary-start BB1 phase/amplitude coverage would be material, but the unread thesis cannot be assessed as either covering or not covering.",
+        "searches": [
+          "Web: Two-point residual step size gradient methods for linear systems residual-difference two singular values RD BB2",
+          "OA: Yang–Yuan arXiv:2609.12100 BB2; conjugacy",
+          "OA: Dai 2013 two-dimensional",
+          "Web: Marcos Raydan Rice University thesis Convergence Rate for the 2 Eigenvalues Case Barzilai Borwein choice of steplength full text repository Rice"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 3 and 4 and their support",
+        "Resultary 80f835ec743a, 0e04302e58f6, e4d106d38983, df4e091a200b and 1806d3485327",
+        "Xu arXiv:2611.02743v1 §§3–4",
+        "Dai 2013 Eq. (2.5)",
+        "Yang–Yuan arXiv:2609.12100 §§3.2–3.3",
+        "Raydan thesis (indexed heading only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier profile's cos(phi)−(3/sqrt(7))sin(phi) is a sinusoid with amplitude 4/sqrt(7) and fixed phase shift, so its positive-part-series envelope is the same up to scale and translation.",
+          "Matched BB1 has a geometric balanced orbit and the alternating theorem changes the positive-index update. The broad weighted conjugacy preserves two-level norm logs up to an O(1) additive constant but does not supply arbitrary-first-step exact phase estimates.",
+          "The present sharp C² is the quadratic amplitude restricted to (2L+t,2L−t), with unique minimum 4L²; H has a strictly positive minimum, so the full profile implies the entire weaker rate claim in record 3."
+        ],
+        "reasoning": "The new content is the initialized amplitude law/gap and uniquely minimizing energy ratio for this algorithm, not discovery of H's shape or the characteristic roots. Neither a theorem restricted to the BB1 line through the origin, nor the alternating law, nor a linear upper bound on all delayed states gives the strict minimum and asymptotic norm constants for the physical RD start by specialization. The recurrence-and-filter proof adapts a known phase method and should be described that way.",
+        "searches": [
+          "Frozen RESULT.md records 3 and 4, proof of norm/multiplier bounds and profile",
+          "Resultary 80f835ec743a matched BB1 profile and 0e04302e58f6 alternating step Finding",
+          "arXiv:2609.12100 Prop. 3.2 and Cor. 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both assigned RD records have the same initialization, short step and exact rate; record 3 has no positive sharp amplitude or exact profile claim.",
+          "For w=Br the delayed RD quotient is ||w_(k−1)||²/(w_(k−1)^T B w_(k−1)); the transformed scheme is delayed Rayleigh (BB1-type) after startup.",
+          "The same-day Resultary 1806d3485327 compares the same short/long schemes and first SD step but asserts only two-update amplification."
+        ],
+        "reasoning": "This is an actual conjugacy, not merely a name similarity, but the initial Rayleigh step on r becomes a weighted step on w. The w-log data lie on phi_0+phi_1=4L rather than the matched BB1 line phi_0+phi_1=0. The common exponent alone is not distinct, but the exact distance of the RD startup curve from the balanced state in the recurrence-amplitude norm is not given by the matched theorem.",
+        "searches": [
+          "Resultary: residual-difference RD BB2 pure short step two spectral modes exact double-log rate mixed starts amplitude profile",
+          "OA: Yang–Yuan arXiv:2609.12100 BB2; conjugacy",
+          "Xu arXiv:2611.02743v1 §3.1 Eq. (14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "df4e091a200b is self; e4d106d38983 is a distinct but weaker same-day theorem for exactly the same RD process; 80f835ec743a is an earlier matched BB1 phase profile; 0e04302e58f6 is an alternating BB1/BB2 rate law."
+        ],
+        "reasoning": "For this analytic exact invariant the relevant database comparison is with indexed exact claim statements, not finite samples or numerical tables. The same-day RD rate duplicates the leading exponent but does not contain the sharper amplitude formula; the earlier profile and alternating records have distinct start or update assumptions. No temporal order between the two RD entries follows from the date.",
+        "searches": [
+          "Resultary: residual-difference RD BB2 pure short step two spectral modes exact double-log rate mixed starts amplitude profile"
+        ]
+      },
+      "rationale": "Credit the shared exponent to the common content of the two frozen RD records, not twice. The phase-envelope shape, logarithmic recurrence and weighted conjugacy have known antecedents. The supported distinct claim is the sharp, strictly positive startup-amplitude law along the prescribed residual-SD initial-data curve for unmixed RD, including the minimizing input energy ratio and its specific phase-resolved norm law. The closest prior envelope is for matched BB1, a different curve that contains the geometric zero-amplitude state. The earlier broad weighted-BB theorem gives conjugacy and sharp linear estimates, not this amplitude along this initialization. No global priority or within-day order is claimed.",
+      "residual_risks": [
+        "The original 1988 BB paper and the identified Raydan thesis were inaccessible in the bounded audit; an earlier exact result with off-matched two-component startup might effectively imply the profile by conjugacy.",
+        "The phase-envelope shape itself is not new and the rate alone overlaps fully with record 3. No within-day priority is determined.",
+        "No historical priority clearance beyond available statements and implication comparisons is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the rate theorem and no exception; no coverage of the additional sharp amplitude/profile",
+          "evidence": [
+            "Same two-sided exp(−Theta(2^(k/2))) rate, same Rayleigh warm start and log-ratio recursion."
+          ],
+          "identifier_or_url": "Resultary e4d106d38983 and frozen assignment record 3",
+          "material_read": "Frozen Finding, Assumptions and Proof, lines 3–60; corresponding indexed and local-mirror statements",
+          "method": "Statement and exact norm-law comparison",
+          "title": "Sharp all-start double-log rate for residual-difference spectral steps on two-mode systems",
+          "trigger": "Same date, same RD algorithm and exponent"
+        },
+        {
+          "assessment": "Same envelope shape up to scale and phase after trigonometric normalization; different matched initialization",
+          "evidence": [
+            "The single-frequency shape cos(phi)−(3/sqrt(7))sin(phi) can be written as (4/sqrt(7))cos(phi+beta). Matched data permit a zero amplitude."
+          ],
+          "identifier_or_url": "Resultary 80f835ec743a",
+          "material_read": "Local-mirror RESULT.md profile, startup and balanced-case passages",
+          "method": "Indexed comparison against exact formula and assumptions",
+          "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+          "trigger": "Apparent exact prior phase profile under BB1"
+        },
+        {
+          "assessment": "Alternating result is a different algorithm; identical startup in the other result is used for finite amplification, not a phase law",
+          "evidence": [
+            "The former alternates BB1 and BB2 and the latter stops at two updates."
+          ],
+          "identifier_or_url": "Resultary 0e04302e58f6 and 1806d3485327",
+          "material_read": "Local-mirror RESULT.md decisive algorithm and rate/amplification claims",
+          "method": "Indexed comparison followed by local passages",
+          "title": "Alternating long–short spectral steps eliminate the balanced two-mode slowdown; Cubic versus linear two-step residual amplification in delayed residual methods",
+          "trigger": "Same exponent or identical RD startup in other records"
+        },
+        {
+          "assessment": "Prior update/warm start and DR analysis; no exact RD amplitude result in these passages",
+          "evidence": [
+            "Eq. (14) is the frozen quotient; §3.2's window contraction is for DR; §4 uses RSHK startup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02743v1",
+          "material_read": "PDF §3.1 Eq. (14) p. 5 offset 15453, §3.2 Eq. (25), §4 p. 7 offset 25778",
+          "method": "OA primary PDF, literal location and bounded read",
+          "title": "Two-point residual step size gradient methods for linear systems",
+          "trigger": "Defines the actual RD method and physical first step"
+        },
+        {
+          "assessment": "Exact recurrence antecedent for BB1, not RD startup minimization",
+          "evidence": [
+            "The two-dimensional BB1 ratio obeys q_(k+1)=q_k/q_(k−1)²."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40305-013-0007-x",
+          "material_read": "Springer PDF §2 Eq. (2.5), p. 190 offset 8376",
+          "method": "OA primary passage",
+          "title": "A New Analysis on the Barzilai–Borwein Gradient Method",
+          "trigger": "Classical identical two-level recurrence in the transformed variable"
+        },
+        {
+          "assessment": "Contains exact conjugacy and R-linear envelopes but not the sharp phase/asymptotic claim in these passages",
+          "evidence": [
+            "S=W^(1/2) yields T_W=S_W^(−1)T_I S_W; first step need only be positive for the R-linear theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.12100",
+          "material_read": "PDF §3.2 Prop. 3.2 Eqs. (3.8)–(3.10) p. 5 offset 15450; §3.3 Thm. 3.4/Cor. 3.5 Eqs. (3.11)–(3.14) p. 6 offset 19370",
+          "method": "OA primary PDF bounded passages located by BB2 and conjugacy",
+          "title": "R-Linear Convergence of Barzilai-Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+          "trigger": "Known spectral-weight conjugacy could transfer a dominating result"
+        },
+        {
+          "assessment": "Coverage unresolved, not evidence of absence",
+          "evidence": [
+            "Search identified the exact chapter title; neither direct nor alternate route supplied decisive theorem text."
+          ],
+          "identifier_or_url": "https://repository.rice.edu/bitstreams/cb23e85e-3da8-4939-b8a5-2288a5699f7e/download",
+          "material_read": "Search-indexed heading only; no full thesis passage retrieved",
+          "method": "Primary referenced PDF attempt and identified Rice repository alternate, bounded OA attempts",
+          "title": "Raydan thesis, Chapter 5: Convergence Rate for the 2 Eigenvalues Case",
+          "trigger": "Potential exact older fast-rate result for two spectral levels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The specified first step is a natural startup for an actual short spectral solver. Its exact two-mode oscillatory strength, worst initial spectral-energy ratio for that amplitude, and phase-resolved residual scale are useful for distinguishing robust all-start asymptotics from results that only exclude a null trajectory generically. The strictly positive gap quantifies the startup's margin against the balanced geometric orbit without alternation. The exponent and common envelope shape are not counted as separate value, and the result does not promise improved floating-point behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

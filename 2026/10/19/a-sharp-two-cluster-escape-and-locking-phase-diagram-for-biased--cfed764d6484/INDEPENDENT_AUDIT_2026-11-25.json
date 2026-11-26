@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:23:14.328310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 21–97 and 103; VERIFICATION.md lines 18–24; verify_two_cluster.py lines 7–121 inspected, not executed"
+      ],
+      "rationale": "The bounded Lipschitz convolution kernel gives a unique measure flow for the probability datum (the usual characteristic stability estimate controls velocity differences by the spatial distance plus the Wasserstein distance). In its invariant two-atom class the self terms are p·b/e and q·b/e in the two velocities before the common factor c, and their inclusion gives the exact gap and barycenter equations in lines 66–79. Uniqueness rules out finite-time collision. Differentiating R gives R'=2(F−1)/sinh²(2d); F' has the sign of 1−2d², F(0)=1, and F tends to −∞. Thus R starts at 0, has one strictly nondegenerate maximum, and then falls past 0 to −∞. Reading the signed level δbR−(2−b) gives all basins, including the semistable fold, the equal-mass frozen continuum at b=2, and strict shrinking for b=0. For δ<0 on the escape side the derivative tends to cb|δ|/e; the two collapse rates follow from j~2d and h−1~d². The fold uses the bias derivative 2/b_lock and gap curvature δb_lock R'', yielding the stated coefficient. Independently solving R'=0 and R=0 at 48-digit precision confirmed d*=0.907739233841074601..., R*=0.292182549800972871..., and d₀=1.555728630669671926...; with |δ|=1/2 and b=1.95 the signed levels reproduce the example gaps 0.103110814637206529..., 1.506831535033476222..., and 1.598639907304102643.... These numerical checks corroborate the example only, not the phase portrait.",
+      "residual_risks": [
+        "Only zero diffusion, the entire real line, the fixed normalized Gaussian shape and two positive atom masses with self-interaction. 'Merging' is asymptotic vanishing of the gap, not collision at a finite time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper suggests that larger groups may leave slower groups behind with free boundaries, and reports that this case was not tested. Reference [25] identifies the closely related master's thesis; repository access did not yield its text."
+        ],
+        "reasoning": "Generic invariant-atom characteristics supply finite-dimensional equations, not the number of stationary gaps or their basins for this kernel. The paper's hypotheses and investigated solutions do not demonstrate broader coverage of this phase diagram; no claim is made about the inaccessible thesis contents.",
+        "searches": [
+          "Web: \"Modeling Continuous Opinion Dynamics with Biased Interactions\" Koertje 2023 thesis PDF Binghamton biased perception kernels group drift",
+          "arXiv:2310.01564v1, p. 9 discussion and reference [25]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.01564v1; Koertje thesis citation in that source",
+        "Resultary 40c6dc082b82, 0299c02712ba, 80eebf38bb43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's escape conjecture is qualitative in the full PDE. For the atomic system the exact negative level for δ<0 gives a separatrix, while the positive level for δ>0 yields the two-root saddle-node from strict unimodality of R."
+        ],
+        "reasoning": "Far-separated clusters drifting at mass-dependent speeds is consistent with the source's observation. That observation and exact kernel do not establish when finite-distance locking occurs or which initial separations escape; those are the substantive additional conclusions.",
+        "searches": [
+          "arXiv:2310.01564v1 p. 9; RESULT.md lines 42–62, 81–97",
+          "Resultary: Koertje Sayama opinion dynamics PDE groups outrunning smaller groups infinite line biased kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koertje–Sayama Eqs. (1) and (4) with μ=σ=1 give exactly the same kernel and PDE before setting diffusion to zero. Their Eq. (18) is the spatially homogeneous instability boundary b_c=2−2D_P/c.",
+          "The frozen fold b_lock=2/(1+δR*) depends on atom mass orientation at zero diffusion, whereas the source's uniform-state criterion does not."
+        ],
+        "reasoning": "Conventions are aligned on the kernel and equation. That identity does not make the homogeneous Fourier-mode criterion an equivalent formulation of the two-atom spectral/phase-line criterion.",
+        "searches": [
+          "Resultary: two atom biased Gaussian opinion transport exact gap phase diagram orientation locking escape R(d) saddle node",
+          "Resultary: Koertje Sayama PDE biased Gaussian kernel atomic solutions stationary group separation",
+          "arXiv:2310.01564v1, Eqs. (1), (4), (18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest non-self ranked hit inspected, 40c6dc082b82, is about period-two orbits of a finite node–group map. Nearby 0299c02712ba studies synchronous network updates, and 80eebf38bb43 studies two-cluster bifurcation in complete-graph Keller–Segel chemotaxis."
+        ],
+        "reasoning": "A lookup of a numerical extremum alone would not establish the continuous parameter and gap classification. No comparable indexed theorem or exact Gaussian extremal record was identified among the plausible inspected hits.",
+        "searches": [
+          "Resultary: universal Gaussian shape maximum R(d) = (cosh(2d)-exp(d^2))/sinh(2d) d*=0.9077392338",
+          "Resultary: Koertje Sayama two-cluster biased Gaussian lock escape stationary gap threshold",
+          "Resultary: A sharp two-cluster escape and locking phase diagram for biased Gaussian opinions"
+        ]
+      },
+      "rationale": "The kernel, transport equation, homogeneous instability analysis and qualitative speculation about escape already belong to Koertje–Sayama. The distinct checked claim is the complete two-atom gap phase portrait, in particular the Gaussian level geometry, explicit mass-dependent fold, and orientation-sensitive basins and escape speed. No equivalent theorem was found in the material inspected; same-model thesis access is the main remaining risk.",
+      "residual_risks": [
+        "The 2023 same-model master's thesis could not be read; publication priority cannot be determined exhaustively from the inspected literature and indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; neither homogeneous instability nor qualitative free-boundary drift supplies the reviewed theorem",
+          "evidence": "Eq. (18) depends on diffusion, not atomic masses. Free-boundary group loss is explicitly suggested but not tested in p. 9 discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.01564v1",
+          "material_read": "PDF p. 2 Eq. (1), p. 3 Eq. (4), p. 6 Eq. (18), p. 9 discussion, p. 12 ref. [25]",
+          "method": "Primary OA PDF passages; text offsets approximately 11400, 17100, 37500, 50000, 71000",
+          "title": "Collective group drift in a PDE-based opinion dynamics model with biased perception kernels",
+          "trigger": "Same governing equation and kernel, plus group drift and escape discussion"
+        },
+        {
+          "assessment": "Unresolved access risk; no coverage inference",
+          "evidence": "Exact-title lookup supplied no lawful full-text copy, and repository DNS resolution failed.",
+          "identifier_or_url": "Christian Koertje, 2023 master's thesis, SUNY Binghamton; identified by arXiv:2310.01564v1 ref. [25]",
+          "material_read": "Citing reference only; no thesis text obtained",
+          "method": "Exact-title web search and identified Binghamton repository OA attempt",
+          "title": "Modeling Continuous Opinion Dynamics with Biased Interactions",
+          "trigger": "Same author's plausible same-model thesis"
+        },
+        {
+          "assessment": "Different system and invariant",
+          "evidence": "Finite-support node–group mean-field map and period-two orbits, not atomic solutions of the biased-Gaussian PDE.",
+          "identifier_or_url": "Resultary 40c6dc082b82",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Indexed lookup and mirrored passage comparison",
+          "title": "A sign-selective two-cycle obstruction for coupled node–group opinion dynamics",
+          "trigger": "Strongest ranked non-self match"
+        },
+        {
+          "assessment": "Different hypotheses and target",
+          "evidence": "Synchronous finite-network dynamics, not full-line two-atom transport.",
+          "identifier_or_url": "Resultary 0299c02712ba",
+          "material_read": "Mirrored result statement",
+          "method": "Mirrored passage comparison",
+          "title": "Vanishing-response opinion biases: subgeometric consensus and exact rates",
+          "trigger": "Opinion dynamics with asymptotic convergence"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Complete-graph Keller–Segel chemotaxis, not Gaussian perception.",
+          "identifier_or_url": "Resultary 80eebf38bb43",
+          "material_read": "Mirrored result statement",
+          "method": "Mirrored passage comparison",
+          "title": "Two-cluster bifurcation and the universal mobility-two degeneracy",
+          "trigger": "Cluster bifurcation motif"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–19, 48–62 and 103",
+        "Koertje–Sayama arXiv:2310.01564v1 p. 9"
+      ],
+      "rationale": "This is a natural exact test of the source paper's free-line group-drift question. It supplies the sharp initial-distance boundary and shows that orientation can give bounded translating locks instead of merely merger or drift, a qualitative distinction not observable from the homogeneous instability test. The finite-dimensional specialization is scientifically useful without claiming diffusive stability.",
+      "residual_risks": [
+        "Does not answer whether finite-width clusters, more than two groups, finite boundaries, or positive diffusion preserve the phase portrait."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

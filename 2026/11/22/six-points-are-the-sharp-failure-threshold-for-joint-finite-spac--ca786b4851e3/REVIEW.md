@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All finite posets with at most five elements occur in the exhaustive transitive-closure enumeration after a linear-extension relabeling. The exact program enumerates 1, 2, 7, 40, and 357 orders, canonically compares their simultaneous graph signatures, constructs full order complexes, and validates all free-face elementary collapses to one-dimensional graphs. It verifies an identical sorted componentwise first-Betti-rank spectrum within every graph-signature class. Such graphs are determined up to homotopy by their componentwise first Betti ranks. The explicit six-point pair consists of two three-layer ordinal sums differing only by one middle comparability; their common pair of graphs and contrasting sphere/contractible order complexes are checked both structurally and computationally. The result concerns a completely enumerated finite domain; it is not an inference from partial small-size experiments.
+## correctness
 
-## Originality — PASS, subject to priority limitations
-Cameron and Kumar, *Graphs on Topological Spaces* (arXiv:2610.14783v1), establish definitions, inclusions, Alexandrov graph relationships, ordinal-sum graph formulas, and a collision for **one** graph at four points. Their six-point witness is derivable from their ordinal-sum identities and is **not claimed as a standalone original construction**. The new assertion is the sharp five-point *no-collision* theorem for both graphs simultaneously. Their positive result for the specialization graph is inapplicable because that graph distinguishes the present pair. Matsushima and Tsukuda's small-space homotopy classification does not compare joint separation-graph signatures. Targeted published-finding corpus and published-literature searches did not uncover an equivalent sharp threshold; older work on clique graphs uses other invariants. The full 2008 clique-graph paper was not accessible and unindexed equivalent work remains a residual priority risk; negative searches are not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The five separation graphs were expressly introduced as topological invariants. This result identifies a precise smallest cardinality at which *two distinct nontrivial invariants together* fail to recover weak homotopy, and supplies an explicit sphere-versus-contractible topological obstruction, with an exhaustive sharp lower bound. It delineates the recovery power of the new graph hierarchy, rather than reporting an arbitrary numerical table or a minor variation of an existing example.
+In the downset topology, the two adjacency predicates are common lower and common upper bound, respectively. The Urysohn graph is the square of the former and the functional graph completes its connected components, so all four signatures are equivalent to the common-bijection pair. My independent enumeration generates each poset with a fixed linear extension by adjoining the next vertex above every element of a chosen lower ideal; this covers all isomorphism types. It forms the two-bit edge color of each pair and minimizes simultaneously over every permutation, not separately for each graph. Order-complex faces are all nonempty chain subsets. Every removed face has exactly one strict coface, a valid elementary simplicial collapse; no higher face remained at any size through five. The surviving graph's sorted componentwise ranks E−V+1 are complete homotopy invariants for these graph unions. Replay: python3 /workspace/independent_checks.py 2. Counts of orders were 1,2,7,40,357; simultaneous classes 1,2,5,15,52; elementary pairs 0,0,1,20,400; zero collisions. The two six-point ordinal sums on the same labels have only the bottom nonedge in the first graph and only the top nonedge in the second. Their order complexes are S^0*S^0*S^0≅S² and S^0*Δ¹*S^0, which is contractible. The finite-space/order-complex equivalence gives the asserted weak homotopy distinction. The empty space, if included, is the only zero-point space. This is an exhaustive finite theorem, not a claim about ordinary homotopy of finite spaces or recovery on larger sets.
 
-## Limits
-Common-label graph isomorphism, finite \(T_0\) Alexandrov spaces, and weak homotopy are essential; the theorem does not classify all six-point collisions or stronger notions of topological equivalence. The supporting source with DOI 10.1016/j.ejc.2006.04.012 was assessed at abstract level only. The finite checker has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is the sharp lower bound: simultaneous preservation of both common-bound graphs forces the same weak homotopy type through five vertices. Cameron–Kumar already provide the graph machinery that makes the six-point collision elementary, and a four-point witness for the first graph alone; neither supplies the five-point paired exclusion. No checked small-space classification or distinct catalogue comparison identifies the paired cutoff.
+
+## value
+
+PASS
+
+The pair is motivated by a pre-existing hierarchy of topological graph invariants. The result quantifies how much adding closure-meeting to inseparability postpones failure of weak-homotopy recovery, from a four-point single-graph example to a sharp six-point joint threshold. A same-label sphere-versus-contractible collision makes the obstruction substantive rather than a census of distinct posets. The sharp exclusion through five, not the simple six-point join by itself, is the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

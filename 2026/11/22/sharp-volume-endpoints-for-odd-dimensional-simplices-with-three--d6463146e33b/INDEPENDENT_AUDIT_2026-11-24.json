@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:04:10.583824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–59",
+        "VERIFICATION.md, lines 3–23",
+        "centered_simplex_checker.py, lines 9–69"
+      ],
+      "rationale": "Put m=n+1 and v_i=e_i−1/m on the sum-zero space H. The frame operator of the v_i is I_H. For u_i=Tv_i with unit circumradius, tr(TᵀT)=m. The opposite facet has distance 1/(m||T⁻ᵀv_i||), since ⟨v_j,v_i⟩=−1/m for j≠i. With A=(n/m)TᵀT the resulting traces are n and 1/(nh²) for A and A⁻¹, and the normalized volume is √det A. At h=1/n, equality in the reciprocal-trace Cauchy–Schwarz inequality forces A=I. Otherwise the spectral feasible set is compact away from zero and the two gradients are independent. Stationarity for log determinant gives a quadratic in each eigenvalue. With roots x>y the Lagrangian Hessian is negative at x and positive at y. A difference of two coordinate directions for a repeated root is tangent to both constraints; the second-order necessary condition rules out repeated x at a minimum and repeated y at a maximum. The eigenvalue ratios y/x=t² and exceptional multiplicity one give h⁻²=n²+(n−1)(1/t−t)² and the printed product formulas. For actual attainment, a balanced unit sign vector q∈H has |⟨q,v_i⟩|²=1/m for every i. Thus the two deformations along its rank-one projection preserve vertex uniformity and, using their inverses, facet-distance uniformity. In every equality case equal vertex lengths force these same coordinate squares, and any balanced signs differ only by permutation, giving congruence by the polar decomposition. As h↓0, t∼√(n−1)h gives both constants and powers. An independent arithmetic check at n=5,t=1/2 gives h⁻²=34 and the stated extremal trace pairs; the supplied rational Gram checker was inspected, not executed.",
+      "residual_risks": [
+        "The uploaded finite checks corroborate specific constructions only, not the all-dimensional extremality or rigidity. There is no claim that intermediate volumes occur."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv:2607.08113 search excerpt claims exact sharp extremization on an admissible spectral variety but does not specify the constraints in the retrieved passage.",
+          "The frozen comparison at RESULT.md line 67 describes Edmonds–Hajja–Martini on center coincidence and Gram matrices, and Nour on bicentric constructions and ball-union obstructions, including a rank-two Fourier-mode degeneration."
+        ],
+        "reasoning": "These are plausible broader coverage routes, but the available descriptions do not supply joint volume extremality and rigidity under the three-center conditions. The spectral-search excerpt does not exclude prior determinant extremization as a constituent result.",
+        "searches": [
+          "Sharp Spectral Bounds for Symmetric Positive Definite Matrices, arXiv:2607.08113, trace and spectral variety",
+          "Edmonds–Hajja–Martini, Coincidences of Simplex Centers and Related Facial Structures, section 4",
+          "Nour, arXiv:2611.14181v1, simplex"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 29–59 and 65–77",
+        "Resultary indexed statements for --39aba912fe6f, --3c21c1faa6d8 and --e834c8a44f9f",
+        "Focused literature search on positive trace/inverse-trace optimization and centered simplex volume"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen construction every equality spectrum has one exceptional axis; equal diagonals force its coordinates to have equal squares, hence balanced signs on an even number of vertices.",
+          "The available cyclic-family statement compares polar duals with an ordering reversal across dimensions; it does not state extremality against all centered simplices.",
+          "The earlier tetrahedron statement addresses three dimensions, and the trace-bound search results address spectra rather than realizable simplex centers."
+        ],
+        "reasoning": "The known geometry and optimization components would have to be joined by a feasible balanced eigenspace and the converse forced-axis argument. Substituting n≥5 into a three-dimensional interval, using only a spectral bound, or comparing only two polar duals does not yield the claimed attainable endpoints and uniqueness.",
+        "searches": [
+          "Resultary --39aba912fe6f, cyclic Fourier family and fixed-inradius volume ordering",
+          "Trace and inverse trace eigenvalue bounds, oam-16-54; arXiv:2607.08113",
+          "Resultary --3c21c1faa6d8, sharp volume interval for concentric bicentric tetrahedra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectral relaxation fixes the arithmetic and harmonic means of positive eigenvalues and optimizes their geometric mean; the geometric object also requires constant frame diagonals for A and A⁻¹.",
+          "Note on bounds for eigenvalues using traces, oam-16-54, explicitly concerns bounds on eigenvalues using trace and trace of the inverse. The Eigenvalue Bounds of Symmetric Positive Definite Tensors lead describes a framework with trace and determinant as inputs."
+        ],
+        "reasoning": "Bounding an individual eigenvalue or assuming the determinant is known is not the volume objective here. To transfer spectral endpoint information one needs the optimizing spectrum and geometric feasibility of its eigenbasis.",
+        "searches": [
+          "sharp determinant bounds fixed trace inverse trace sum reciprocals positive eigenvalues determinant extrema harmonic arithmetic geometric mean simplex volume coincident centroid inradius odd dimension",
+          "Resultary: fixed trace and inverse trace determinant extrema, centered simplex volume"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record --3c21c1faa6d8 describes all allowable volumes in dimension 3 and disphenoidal endpoints with R>3r.",
+          "Record --e834c8a44f9f proves an equifacetality conclusion for vertex-uniform two-distance 7-simplices with coincident incenter and centroid.",
+          "Distinct same-date record --39aba912fe6f compares volumes of normalized polar duals in a cyclic Fourier family at equal inradius."
+        ],
+        "reasoning": "Dimension 3 is excluded in the frozen claim. Equifacetality is a structural conclusion, not the optimized volume at a fixed inradius. A paired comparison within a Fourier family is not an all-simplex bound; even if that family contains an endpoint, further global comparison and rigidity are required.",
+        "searches": [
+          "Resultary: coincident centroid incenter circumcenter odd simplex volume at fixed circumradius and inradius",
+          "Resultary: sharp volume interval for concentric bicentric tetrahedra; cyclic bicentric polar-congruence transition; two-distance 7-simplices"
+        ]
+      },
+      "rationale": "The creditable claim is the global odd-dimensional three-center volume envelope with actual attainment and unique congruence classes, not the three-dimensional result, general coincidence of simplex centers, or spectral optimization presented as a new matrix inequality. The closest available statements concern different spectral objectives, specific geometric families or lower dimensions. Even prior coverage of the relaxed determinant extrema would not settle whether simultaneous equal-vertex and equal-facet diagonal conditions can be attained and uniquely enforced in the claimed regime.",
+      "residual_risks": [
+        "Relevant geometry and matrix full texts were not retrieved. The Fourier family could contain one or both extremizers, and a prior sharp matrix determinant theorem could cover the relaxed spectral step. The pass does not credit either component in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved coverage of the exact spectral subproblem; none of these excerpts supplies the centered-simplex realization and rigidity",
+          "evidence": [
+            "The oam-16-54 excerpt explicitly describes bounding eigenvalues given trace and trace of inverse, not optimizing determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08113; https://files.ele-math.com/articles/oam-16-54.pdf; https://doi.org/10.1007/s42967-026-00589-4",
+          "material_read": "Available search excerpts on exact spectral optimization, eigenvalue bounds from reciprocal trace, and eigenvalue bounds from determinant/trace. No decisive full-text passage obtained.",
+          "method": "Search statement comparison and lawful OA requests, including abstract and PDF routes for arXiv:2607.08113",
+          "title": "Sharp Spectral Bounds for Symmetric Positive Definite Matrices; Note on bounds for eigenvalues using traces; Eigenvalue Bounds of Symmetric Positive Definite Tensors",
+          "trigger": "Possible prior solution of the relaxed spectral extremization"
+        },
+        {
+          "assessment": "Plausible geometric antecedents, with no verified inclusion of a fixed-inradius global envelope; this is not a whole-text exclusion",
+          "evidence": [
+            "The supplied comparison distinguishes center coincidences and a rank-two degeneration for covering obstructions from balanced rank-one volume extremizers."
+          ],
+          "identifier_or_url": "https://eudml.org/serve/126304/accessibleLayeredPdf/0; https://arxiv.org/abs/2611.14181",
+          "material_read": "Frozen comparison at lines 65–76; no independent full-text passage obtained",
+          "method": "Attempted retrieval of EUDML text and cited arXiv text, including arXiv HTML alternate",
+          "title": "Coincidences of Simplex Centers and Related Facial Structures; A counterexample to the strong version of the union of uniform closed balls conjecture in dimensions three and higher",
+          "trigger": "Coincident-center Gram models and Fourier constructions"
+        },
+        {
+          "assessment": "Polar comparison within a family, lower-dimensional sharp interval, and structural result respectively; none of the available statements gives this odd-dimensional envelope",
+          "evidence": [
+            "The cyclic result compares normalized duals, not all centered simplices; the tetrahedron record is explicitly three-dimensional."
+          ],
+          "identifier_or_url": "Resultary record suffixes --39aba912fe6f, --3c21c1faa6d8, --e834c8a44f9f",
+          "material_read": "Indexed statements giving family, dimension and conclusion; decisive mirror passage on the Fourier family not retrieved",
+          "method": "Resultary statement comparison and local mirror retrieval attempts",
+          "title": "A dimension-four polar-congruence transition for cyclic bicentric simplices; Sharp volume interval for concentric bicentric tetrahedra; Two-distance 7-simplices satisfy the precise center conjecture",
+          "trigger": "Close published geometric results and same-date equal-inradius comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–27 and 31–59"
+      ],
+      "rationale": "At fixed inradius and circumradius the volume is not determined even under all three center constraints. The sharp extremes identify how degeneration can proceed at two distinct asymptotic powers and rigidly specify the corresponding endpoint shapes. The balanced-axis argument explains the odd-dimensional regime beyond a stand-alone determinant computation; this directly answers a natural extremal geometry question.",
+      "residual_risks": [
+        "No even-dimensional envelope or claim about every intermediate volume, covering-radius improvements or arbitrary bicentric simplices is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

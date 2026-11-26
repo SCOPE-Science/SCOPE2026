@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:30.011824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The eight-ballot score differences give the stated covariance, full lattice and zero step. Scaling Fourier inversion of the pinned marginal gives pair masses 2/(pi n) and sqrt(2/(pi(p^2+q^2)n)) and a centered nondegenerate conditional gap. Thus half of tied pairs beat the third at leading order, and the full-lattice triple events have orders at most n^-2 and n^-1. Read the proof's pair-count discussion as counting strict winners once and then adding the triple probability once, or counting weak pair ties and subtracting two triple probabilities. The finite assertion follows from (U,V)=(kp,-kq) and |V|<=n, and q=1 makes n<q vacuous for n>=1. This is a pair equality statement only. Exact ordered-profile replay through four voters (python3 /workspace/replay_thiele.py) confirms score differences, covariance, exact pair identity and winning-tie examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia's integer theorem implies the rational order after scaling by q. Xia–Conitzer study manipulation probabilities and rough ties, not exact Thiele winner equality."
+        ],
+        "reasoning": "Existing broad frameworks explain the rational order, not the irrational constant or the exact rational coefficient.",
+        "searches": [
+          "arXiv:2503.03082v1 Theorem 14, p. 19",
+          "Xia–Conitzer EC 2008 abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 2 and 1",
+        "arXiv:2503.03082v1",
+        "arXiv:2305.01769v1",
+        "Xia–Conitzer EC 2008",
+        "Resultary 0d19a8f984bb, 63dca58972b3, 6f885c038aef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 1's per-voter factors (1-A)(B-C) and A(B-C) are disjoint contributions in {-1,0,1}. Its rational equality condition is qU+pV=0. The two frozen records state the same limits."
+        ],
+        "reasoning": "Euclid's lemma forces q|V; n<q gives V=0 then U=0. This is a direct implication of the model and score identities already explicit in the other frozen package, not a new winner-classification theorem.",
+        "searches": [
+          "Assigned record 1 RESULT.md:23–34, 42–66",
+          "Assigned record 2 RESULT.md:17,29–39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The limit in record 1 is the expansion here with p=a,q=b. Both use independent fair approvals, fixed exact marginal, all maximizing two-member committees out of three."
+        ],
+        "reasoning": "The shared asymptotic theorem is mathematically identical; the added clause is treated separately.",
+        "searches": [
+          "Assigned record 1, RESULT.md:3–19 and 23–34",
+          "Resultary targeted search for irrational/rational Thiele ties and the n<q condition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest hits 0d19a8f984bb, 63dca58972b3 and 6f885c038aef concern representation guarantees or deterministic counts. Janeczko–Faliszewski discuss tie-counting algorithms and experiments."
+        ],
+        "reasoning": "No located exact table gives this theorem independently; algorithmic tie counts and reported frequencies do not imply these limits.",
+        "searches": [
+          "Resultary: exact fixed-weight Thiele tie constants, three candidates, finite denominator equality",
+          "arXiv:2305.01769v1"
+        ]
+      },
+      "rationale": "The frozen core duplicates record 1 in the same culture; no priority between the same-day packages is asserted. The additional n<q clause is not itself stated in record 1, but is an immediate coprimality-and-range corollary of its explicit integer score-difference expression and does not establish a distinct substantive tie asymptotic. In fact |U|+|V|<=n from the mutually exclusive ballot contributions, so the same argument gives the stronger n<p+q cutoff; the frozen bound is not sharp in general.",
+      "residual_risks": [
+        "Frozen date does not establish priority.",
+        "Ranked search and bounded readings do not exclude unindexed publications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent asymptotic theorem; score decomposition supplies the finite corollary",
+          "evidence": "Exact constants, same hypotheses, and both integer score coordinates.",
+          "identifier_or_url": "fdf693518a03/RESULT.md",
+          "material_read": "Finding, modeled culture, integer decomposition and proof, lines 3–19 and 23–66",
+          "method": "Frozen full-text comparison",
+          "title": "An arithmetic phase transition in tie probabilities for three candidates",
+          "trigger": "Exact possible overlap"
+        },
+        {
+          "assessment": "Rational order only",
+          "evidence": "Nonunique top expected utility for integer Thiele scores yields Theta(n^-1/2) irresoluteness.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.03082v1",
+          "material_read": "p. 19, Theorem 14 and neighboring proof sketch",
+          "method": "OA full text, offset about 80101",
+          "title": "A Linear Theory of Multi-Winner Voting",
+          "trigger": "Thiele ties in symmetric approval cultures"
+        },
+        {
+          "assessment": "Different target event",
+          "evidence": "Rough ties relate to one voter being able to change the winner; focus is manipulability.",
+          "identifier_or_url": "https://www.cs.cmu.edu/~conitzer/generalized_scoringEC08.pdf",
+          "material_read": "Abstract and §1, pp. 1–2",
+          "method": "OA full text, including offsets 13000–14156",
+          "title": "Generalized Scoring Rules and the Frequency of Coalitional Manipulability",
+          "trigger": "Related near-tie asymptotics"
+        },
+        {
+          "assessment": "Relevant but does not state these limits in inspected material",
+          "evidence": "Tie detection/counting and experiments for moderate sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA full text, offsets 773–1484",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Same Thiele tie problem family"
+        },
+        {
+          "assessment": "Different events or deterministic inputs",
+          "evidence": "JR violation by a maximizer, cyclic-profile counts or AJR compliance in a random culture.",
+          "identifier_or_url": "0d19a8f984bb; 63dca58972b3; 6f885c038aef",
+          "material_read": "Each RESULT.md opening Finding",
+          "method": "Local-mirror paper reader, offset 0",
+          "title": "Three nearby Resultary records on approval and PAV",
+          "trigger": "Potential exact tie results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The submitted theorem as a whole has useful quantitative content about maximal committee ties and fixed score arithmetic. Its finite equality condition clarifies a regime where a denominator cannot generate new pair equalities, but on its own it is an elementary and generally nonsharp corollary rather than a worthwhile standalone repair for the duplicated main theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

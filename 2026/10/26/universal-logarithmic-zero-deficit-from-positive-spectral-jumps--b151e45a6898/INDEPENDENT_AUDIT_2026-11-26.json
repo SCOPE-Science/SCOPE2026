@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:32:06.137789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–118, including equations (1)–(11)",
+        "Frozen two-arc exact model at lines 123–128 and check_jump_zeros.py and VERIFICATION.md (inspected, not executed)",
+        "Noda–Shirai arXiv:2106.02860v1 Fourier convention, p. 2"
+      ],
+      "rationale": "With the covariance Fourier convention exp(-i(n-m)theta), the diagonal covariance is the positive Poisson extension u divided by 1-r^2. Edelman–Kostlan uses (4*pi)^(-1) times the Euclidean Laplacian; harmonicity of u gives the negative energy term, and the radial derivative of the disk deficit is r/(4*pi) times its angular energy. The periodic jump model is -Delta_j/pi times Im log(1-z exp(-i theta_j)); subtracting these leaves Lipschitz boundary data. Its Poisson approximation error is O(epsilon log(e/epsilon)), tangential derivative is bounded, and radial derivative is O(log(e/epsilon)) by the conjugate Poisson kernel acting on the bounded boundary derivative. Near theta_j, replacing 1-r exp(is) by epsilon-is introduces a bounded error in its reciprocal because the numerator error is O(epsilon*|s|+s^2) and both denominators have modulus comparable to sqrt(epsilon^2+s^2). This checks the two gradient components and the metric factor. With u and the step profile bounded below, the integrated error from their denominators and gradients is O(log^2(e/epsilon)), radially integrable. The model jump contributes Delta_j^2/[pi*epsilon*w_-*w_+] to angular energy, since the arctangent change of variables gives pi times the integral of the squared reciprocal linear interpolation on [0,1]. Integration gives the logarithmic coefficient with O(1) remainder. At s=epsilon*x, the same estimates are compact-uniform and the factor (1-r^2)^2/(4*epsilon^2) tends to one. The case of no jumps has an integrable energy bound and a bounded deficit, and the coefficient is nonnegative for either sign of jump.",
+      "residual_risks": [
+        "The proof uses a fixed positive lower bound and finitely many interfaces; no uniform zero-height limit is justified. The source's 120 finite assertions are recorded evidence, not a fresh run or the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noda–Shirai prove a general deficit inequality; their detailed finite-dependence results concern continuous trigonometric-polynomial spectra.",
+          "Shirai's fixed-angle theorem assumes smoothness at the approached angle. The half-circle example treats a direction inside its gap, not the interface approached on the angular scale 1-r."
+        ],
+        "reasoning": "The broader inequality determines a sign, not a divergence with an explicit coefficient or a moving-angle local law; the smooth or fixed-direction asymptotics do not cover the jump layer.",
+        "searches": [
+          "Noda–Shirai arXiv:2106.02860v1 Theorem 1.2 and Corollary 1.5",
+          "Shirai arXiv:2501.02586v2 Theorem 2.1 and Example 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Noda–Shirai arXiv:2106.02860v1",
+        "Shirai arXiv:2501.02586v2",
+        "Resultary a2142a95ac70, 83ff40e0e0f9 and ba346044db55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-side endpoint profile agrees formally with the frozen local expression at fixed rescaled x, but the global interface integral 1/(w_-*w_+) is singular in that substitution.",
+          "The frozen law evaluates the two-positive-side nonlinear integral and needs an integrable radial error, beyond the general covariance formula."
+        ],
+        "reasoning": "A pointwise jump-layer model or a comparison of counts does not control the tail integral or yield the bounded remainder. The common local step geometry alone does not imply the material new two-positive-side disk law.",
+        "searches": [
+          "Shirai arXiv:2501.02586v2, covariance and boundary theorem",
+          "Resultary a2142a95ac70, Finding and endpoint proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero count is equivalent via Edelman–Kostlan to the radially integrated energy |grad u|^2/u^2; reversing the Fourier convention reflects angles and leaves the global coefficient invariant.",
+          "The indexed double-Hilbert jump law evaluates a different functional, without the reciprocal Poisson weight."
+        ],
+        "reasoning": "A logarithmic jump divergence in a quadratic boundary energy is not an equivalent claim about this nonlinear harmonic energy. The denominator matters even for one jump: its average weights both positive heights as a reciprocal product.",
+        "searches": [
+          "Resultary spectral jumps, Poisson interface energy, Gaussian zero deficits",
+          "Shirai arXiv:2501.02586v2, Poisson covariance representation",
+          "Indexed half-Sobolev jump law ba346044db55"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a2142a95ac70 gives exact support-fraction leading count and +J/(4*pi^2) logarithmic coefficient on unions of bands, with zero density between bands.",
+          "83ff40e0e0f9 gives finite limiting deficit for a continuous cusp and excludes jumps."
+        ],
+        "reasoning": "There is no finite lookup table for the universal continuous-parameter claim. The strongest indexed exact formulas are in different spectral regimes; the zero-side formula is not a finite specialization of the positive-side global coefficient.",
+        "searches": [
+          "Local Resultary a2142a95ac70 endpoint logarithms, 83ff40e0e0f9 continuous cusp, ba346044db55 half-Sobolev law"
+        ]
+      },
+      "rationale": "Credit the global additive logarithmic coefficient with bounded remainder for jumps between two strictly positive values, and the compact-uniform interface law in that regime. The exact Poisson covariance representation and general sign of the deficit are known. The closest same-day indexed endpoint result has a local half-plane profile of the same form at an interface with one zero side; its disk result has a different leading term and a positive logarithmic correction. It does not determine the nonlinear reciprocal jump-energy coefficient for two positive sides. The source comparisons do not establish precedence for the shared local profile mechanism.",
+      "residual_risks": [
+        "The shared local interface formula with an indexed band-limited result is a material overlap, not a priority conclusion. The broad literature lookup did not furnish useful evidence; an unindexed nonlinear Poisson-energy theorem is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general inequality and the smooth finite-dependence cases, not discontinuous strictly positive jump asymptotics.",
+          "evidence": "The positive trigonometric-polynomial case has bounded correction; zeros of that polynomial can give fractional-power corrections.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.02860v1",
+          "material_read": "Fourier convention p. 2 around offset 4500; Theorem 1.2 p. 3 offset 13055; Corollary 1.5 pp. 4–5 around offset 15456",
+          "method": "OA primary PDF passages",
+          "title": "Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients",
+          "trigger": "Exact stationary Gaussian zero-count comparison and asymptotic rates"
+        },
+        {
+          "assessment": "Fixed approached directions with smoothness near that direction; does not give the moving positive jump layer or its disk integral.",
+          "evidence": "The half-circle mask example uses a fixed direction inside the spectral gap; theorem hypothesis fails at its jumps.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02586v2",
+          "material_read": "Theorem 2.1 pp. 2–3 around offset 5968; Example 2.4 pp. 4–5 around offset 13695",
+          "method": "OA primary PDF passages",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "Closest Poisson representation, boundary theorem and discontinuous example"
+        },
+        {
+          "assessment": "Substantive shared local profile structure, but zero-side and two-positive-side global regimes are distinct; date is not evidence of priority.",
+          "evidence": "Zero-off-band spectral indicator yields a support-fraction leading term and a positive, endpoint-count logarithmic correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-endpoint-logarithms-for-zeros-of-band-limited-stationa--a2142a95ac70",
+          "material_read": "Original Finding and endpoint analysis in RESULT.md at offsets 0 and 5991",
+          "method": "Local Resultary mirror",
+          "title": "Universal endpoint logarithms for zeros of band-limited stationary Gaussian analytic functions",
+          "trigger": "Strongest same-day indexed overlap in exact jump-layer profiles"
+        },
+        {
+          "assessment": "Treats continuous cusps and expressly excludes jumps.",
+          "evidence": "Finite limiting deficit and cusp-dependent approach rate rather than a logarithmically growing deficit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-half-h-lder-transition-in-the-zero-deficit-of-stationary-g--83ff40e0e0f9",
+          "material_read": "Original Finding and scope at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp half-Hölder transition in the zero deficit of stationary Gaussian analytic functions",
+          "trigger": "Potential broader strictly positive spectral deficit law"
+        },
+        {
+          "assessment": "Different quadratic functional, not this zero-count theorem.",
+          "evidence": "Truncated double-Hilbert jump law does not contain the nonlinear reciprocal Poisson weight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-half-sobolev-law-truncated-diagonal-hilbert-eigenstrips--ba346044db55",
+          "material_read": "Original Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Half-Sobolev law for truncated diagonal Hilbert eigenstrips",
+          "trigger": "Possible general jump-energy antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22, 88–118",
+        "Closest smooth, continuous cusp and band-limited comparison passages"
+      ],
+      "rationale": "The result identifies a distinct boundary regime for Gaussian zero counts: discontinuities can cause an unbounded disk deficit even with no spectral zeros. The exact normalized coefficient separates heights and interfaces, and the compact-uniform angle law localizes the mechanism and justifies its integrated contribution with bounded error. This gives more than either a deficit inequality or the leading iid bulk term.",
+      "residual_risks": [
+        "This is a one-point expectation theorem; it supplies neither zero fluctuations nor limits for a full zero process."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

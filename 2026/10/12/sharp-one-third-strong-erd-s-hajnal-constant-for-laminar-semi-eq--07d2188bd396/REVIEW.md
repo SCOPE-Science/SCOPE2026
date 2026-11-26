@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Restricting a \((2,1)\)-semi-equation to a finite left set preserves laminarity. If a fibre has size between one third and two thirds, the three-way laminar partition into supersets, proper subsets, and disjoint fibres gives the desired rectangle immediately. Otherwise large fibres form a chain; if they are numerous their intersection gives a complete rectangle. If small fibres dominate, their distinct maximal members are disjoint, and either their total union is small or a greedy union lies between one third and two thirds; partitioning the small fibres according to that union gives an empty rectangle. The sharpness blow-up has three fibre types \(A,A_1,A_2\) and forces any rectangle using more than one third of the right side to use at most one third of the left side.
+PASS
 
-The proof handles multiplicities of equal fibres and all finite nonempty side sizes. The finite checker is independent corroboration and is not used to infer the infinite family statement.
+Global laminarity passes to restrictions; conversely a nonlaminar intersecting pair has a finite witness consisting of one point in its intersection and one in each difference. For a restricted fibre S of intermediate size, containing, properly contained and disjoint fibres cover the right side. The source calls these classes a partition, although an empty fibre belongs to both of the last two; the covering pigeonhole argument is sufficient, or the empty fibres can be assigned to just one class. A class of at least one third yields a complete rectangle on S or an empty one on S or its complement. If there is no intermediate fibre, the large fibres form a chain, so a third of the right side in large fibres gives a complete rectangle. Otherwise more than two thirds have small fibres. Their distinct maximal fibres are disjoint, with each small fibre contained in a maximal one. If the union of maximal fibres is smaller than one third of the left side, its complement avoids them all; otherwise take maximal fibres until their union first reaches one third, never reaching two thirds. The small fibres are either contained in this union or disjoint from it, so one group exceeds one third of the right side and gives an empty rectangle on a sufficiently large left side. Multiplicities are counted by right indices throughout. In the three-block construction, any right side exceeding one block must see two types; their intersection has at most one block and the complement of their union has at most one block. This rules out every fraction above one third, including for arbitrarily large sides.
 
-## Originality
+## originality
 
-PASS. Tong's primary 2026 paper identifies \((2,1)\)-semi-equations with laminar fibre systems and proves the general effective constant \(6^{-(k-1)}\), hence \(1/6\) for \(k=2\). It explicitly records Fu's earlier \(1/64\) constant and Chernikov--Starchenko's ineffective general constant. The full relevant sections of Tong's paper were inspected; no \(1/3\) specialization or sharpness example appears there. Candidate-specific published-finding corpus and open-literature searches for the exact constant, laminar homogeneous rectangles, nested-or-disjoint neighbourhoods, and semi-equation aliases found no equivalent theorem. The closest retrieved laminar-set-system literature concerns tree representation rather than balanced homogeneous rectangles.
+PASS
 
-Residual bibliographic risk remains that an equivalent elementary laminar-family lemma appears under a different graph-theoretic name, but no searched source supplied it or implied the exact sharp constant.
+The distinct claim is the sharp universal fraction 1/3 for all finite restrictions of laminar-fibre relations, not existence of a positive strong Erdős–Hajnal constant. The strongest inspected quantitative predecessor for the same class gives 1/6. The broader methods and structural descriptions inspected did not imply the improved lower bound and matching obstruction.
 
-## Value
+## value
 
-PASS. The motivating paper makes the strong Erdős–Hajnal constant explicit for the first time in the general \((k,1)\) hierarchy. The \(k=2\) endpoint is structurally special because its fibres are exactly laminar. Determining the exact uniform constant at that natural base case replaces the available \(1/6\) guarantee by the optimal \(1/3\), and the matching extremal example identifies the genuine obstruction rather than merely improving a proof constant.
+PASS
 
-## Closest literature and limitations
+This settles the first nontrivial endpoint of a studied hierarchy: it doubles the cited general guarantee specialized to k=2 and shows that even the pure laminar structure cannot force a larger common fraction. The result applies to all relative sizes of the two sides and handles repetitions, so the exact constant is useful both as a baseline for stronger hypotheses and as a limitation of arguments that use laminarity alone.
 
-The closest primary source is Tong's arXiv:2609.07475, which gives \(1/6\) at \(k=2\) through the general theorem. Fu's earlier result gives \(1/64\), and Chernikov--Starchenko prove existence of a positive constant without an effective value. The result here is specific to the laminar \(k=2\) case and does not claim an improved recurrence for larger \(k\).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

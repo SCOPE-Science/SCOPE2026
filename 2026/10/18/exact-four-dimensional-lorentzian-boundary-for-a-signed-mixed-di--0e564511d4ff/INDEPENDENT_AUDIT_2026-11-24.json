@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:13.478614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After diagonalizing Z orthogonally, extract the coefficient of t²su in det(tA+sZ+uI). Fixing the two complementary diagonal rows for sZ and uI leaves the two-by-two principal minor of A; the polarization coefficient is 12. With complementary pair sums w_ij this gives the diagonal block W/24, where W has those off-diagonal entries and zero diagonal, and six independent scalar terms −w_ij a_ij²/12. W is nonzero for Z≠0 and has trace zero, so has a strictly positive eigenvalue; a negative w_ij adds a second independent positive direction. For W entrywise nonnegative the largest eigenvalue bounds every eigenvalue in absolute value (apply |xᵀWx|≤|x|ᵀW|x|). Thus if there are two positive eigenvalues, the remaining two are strictly negative by zero trace. The determinant is then positive; with exactly one positive eigenvalue it is nonpositive, including zeros. Independently, set u₁=λ₁λ₂+λ₃λ₄ and take u₂,u₃ from the other two pair partitions. The three complementary products of W-entries are P_i=e₂−u_i, and the determinant expansion is (∑P_i)²−4∑_{i<j}P_iP_j=−4∑_{i<j}u_iu_j using ∑u_i=e₂. The last sum contains exactly the twelve monomials of e₁e₃ other than the four copies of e₄. This proves the determinant criterion including all equalities. Orthogonal decomposition along any vector of strictly positive quadratic value proves the reverse inequality; zero gives it trivially, and PSD arguments have nonnegative value by the weighted principal-minor formula. I checked that (−1,3,4,100) gives e₁e₃−4e₄=56528 outside the weak balance cone, and that (−1,1,2,3) gives −1 and the asserted deficit −5t²/144 for the given positive definite matrices. The frozen symbolic support was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brauner and Ortega-Moreno cover strict balance, then allow degenerate hyperbolicity under weak balance. At n=4, weak balance is λ₁+λ₂+λ₃≥λ₄.",
+          "Ross–Süß–Wannerer’s results concern positive-definite quadratic-form inputs and dually Lorentzian weights; Shenfeld–van Handel treats convex-body mixed volumes."
+        ],
+        "reasoning": "The exact region includes indefinite Z outside the weak balance condition, as demonstrated by (−1,3,4,100). Neither a positive-definite-reference theorem nor the prior balance sufficiency test reaches this extra region or characterizes its boundary.",
+        "searches": [
+          "arXiv:2610.08746v1, Proposition 4.5 and Theorem 4.7 including its proof",
+          "arXiv:2304.08399, §8.1 Theorems 8.1–8.2",
+          "arXiv:1811.08710, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspection only)",
+        "Resultary focused catalogue checks",
+        "arXiv:2610.08746v1",
+        "arXiv:2304.08399",
+        "arXiv:1811.08710"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior principal-minor formula is the starting block decomposition; Proposition 4.5 and the proof around Theorem 4.7 prove sufficiency over spectral balance cones, not a determinant test.",
+          "The reviewed argument additionally determines the sign of det W from the number of positive eigenvalues under the nonnegative pair-sum condition and evaluates that determinant as a symmetric polynomial."
+        ],
+        "reasoning": "Writing down the earlier form does not by itself settle its inertia. The nonnegative-matrix/trace argument is what makes a scalar sign test sufficient as well as necessary, and the explicit outside-cone example excludes mere restatement or specialization of the known sufficient region.",
+        "searches": [
+          "arXiv:2610.08746v1, Lemma 4.2, Proposition 4.5, Theorem 4.7 and accompanying proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 4.2 specializes exactly to the coordinate principal-minor formula in the frozen proof.",
+          "Lemma 4.3 corresponds, at n=4,j=2, to strict pair-sum positivity as a test for positive-definite input positivity; it is not an ambient-space inertia test."
+        ],
+        "reasoning": "Hyperbolicity of the quadratic form when it has a positive direction is equivalent here to the Lorentzian inertia property, but the prior formula and cone-positivity test are not equivalent to the claimed iff. The sample (−1,1,2,3) distinguishes complementary-sum nonnegativity from the needed determinant bound, even within the positive definite inequality test.",
+        "searches": [
+          "Resultary: exact four-dimensional Lorentzian boundary, e1 e3 − 4 e4, signed mixed-discriminant inertia",
+          "arXiv:2610.08746v1, §4.1 Lemmas 4.2–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused catalogue searches did not surface a distinct record stating the full-space criterion or the complementary-sum plus determinant-sign test for this parameter family."
+        ],
+        "reasoning": "An exact entry would need to decide inertia over all real ordered tuples including degeneracies. No such indexed entry was identified; this is not evidence of exhaustive coverage.",
+        "searches": [
+          "Resultary: title and exact sign boundary e₁e₃≥4e₄, inertia for D(A,A,Z,I₄)"
+        ]
+      },
+      "rationale": "The principal-minor identity, strict pair-sum positivity test on definite inputs, and strict and weak spectral-balance sufficiency are established antecedents. The distinct contribution is the exact positive-index-one criterion on the full ten-dimensional space, including the polynomial equality boundary and parameters outside weak spectral balance. The comparison in the frozen record would be more complete if it also cited the weak-balance result in Theorem 4.7 and its proof; that result still does not give the necessary-and-sufficient boundary.",
+      "residual_risks": [
+        "An in-preparation geometric j=2 result referenced by Brauner–Ortega-Moreno had no retrievable text in this check; no evidence establishes equivalent coverage of the fixed-matrix inertia result.",
+        "The catalogue and inspected literature are not exhaustive; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the expansion and real prior coverage on the weak balance cone, not the sharp dimension-four boundary.",
+          "evidence": [
+            "Lemma 4.2 has coefficient 2!/4! at n=4,j=2; Proposition 4.5 uses strict balance; the proof for Theorem 4.7 obtains a possibly degenerate but still hyperbolic form under weak balance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08746v1",
+          "material_read": "§1 definition of spectral balance; §4.1 Lemmas 4.2–4.3; §4.2 Proposition 4.5, Theorem 4.7 and the weak-balance proof (HTML offsets about 6730, 44831, 47843, 51642, 57000)",
+          "method": "OA bounded original HTML passages",
+          "title": "Hyperbolicity Beyond Convexity in the Alexandrov–Fenchel Inequality",
+          "trigger": "Same mixed-discriminant family and strongest spectral sufficiency antecedent"
+        },
+        {
+          "assessment": "Relevant AF precedents; no sharp inertia criterion for the fixed signed reference Z in these statements.",
+          "evidence": [
+            "Theorem 8.1 treats positive-definite quadratic forms and Theorem 8.2 applies dually Lorentzian polynomial weights in that input setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.08399",
+          "material_read": "§8.1 Theorems 8.1–8.2 (OA text offsets about 73171 and 73680)",
+          "method": "OA bounded paper passages",
+          "title": "Dually Lorentzian Polynomials",
+          "trigger": "General AF and mixed-discriminant results"
+        },
+        {
+          "assessment": "Geometric antecedent, not an ordered-eigenvalue classification for a signed mixed discriminant.",
+          "evidence": [
+            "The theorem is the mixed-volume AF inequality for convex bodies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.08710",
+          "material_read": "§1.1, Theorem 1.1 (OA text offset about 2842)",
+          "method": "OA bounded paper passage",
+          "title": "Mixed Volumes and the Bochner Method",
+          "trigger": "Classical geometric AF scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural signed Alexandrov–Fenchel quadratic form this replaces a sufficient cone with a checkable necessary-and-sufficient spectral boundary on the full space, rather than only positive input tests. It handles degenerate forms and exhibits both a signed case that works outside prior balance and a positive-definite inequality failure when only the pair-sum test holds. These distinctions are substantive even though the classification is specific to dimension four and one signed reference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

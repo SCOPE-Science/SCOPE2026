@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:12:37.502226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–105, VERIFICATION.md, verify_prism.py inspected but not executed",
+        "python3 /workspace/branches/endpoint-audit.py — 504 exact edge-column checks through n=18 and exact checks of both published difference rows through n=11"
+      ],
+      "rationale": "The positive periodic kernel solves (L_cycle+2I)h=2δ_0, sums to one, and has total variation 2(a−b). A rung source is antisymmetric. At a rim source the two layer gradients split into A_i and D_i, with A_i=δ_i0−1/n and D_i=δ_i0−h_i. The two absolute rail drops add to max(|A_i|,|D_i|); a>1/n and the rung variation give precisely q_R. The two diagonal corrections give both c columns. Graph automorphisms leave only two orbits and symmetry equates the endpoints. A separate exact calculation checks all n=3,…,11 orbit-difference fractions. For n≥12 there are n−5 sites at distance at least three, with total mass <61/1000; summing (1/n−h_i)_+≥1/n−h_i there gives the bound used in both strict inequalities. The cut-minus-cycle rim difference is 1−1/n−a, strictly positive for n≥5 by decreasing a and a_5=11/19; n=3,4 were separately checked. Uniform geometric upper and lower bounds in cyclic distance give 2 log(n)/log(1/ρ)+O(1) non-source sites above threshold and O(1/n) mass outside them. Thus substituting the positive-part sum gives precisely both stated limits and their common logarithmic deficit.",
+      "residual_risks": [
+        "The replay covers only finite sizes through 18; the tail bound and geometric threshold establish the unrestricted inequalities and asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "58fa50f7a7be states m≥3,n≥5 and explicitly excludes the two-vertex cross-section. Its column formulas in §§1–3 remain valid at m=2, but its orbit inequalities in §4 depend on m≥3.",
+          "Cinkir's §§2–3 give effective resistances and the Kirchhoff index on the same prisms. Double centering the resistance matrix recovers L⁺, not the norm comparison directly.",
+          "58e400c99cce gives 12/5−16/(5n) for the unrestricted minimum ℓ1 cycle projection at n≥10 rather than for the canonical projection."
+        ],
+        "reasoning": "A stronger theorem on column-entry data or a different minimum-projection objective does not answer which orbit wins the canonical norm. Restricting the graph family alone is not a novelty argument; the proof needs the threshold comparison that fails to follow by the documented m≥3 estimates.",
+        "searches": [
+          "Resultary 58fa50f7a7be cyclic clique cylinders",
+          "Cinkir arXiv:1704.03429",
+          "Resultary 58e400c99cce circular-ladder minimal projections"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 58fa50f7a7be, 833010be3478 and 58e400c99cce",
+        "arXiv:2306.10497 Theorem 4.3, arXiv:1704.03429 §§2–3, arXiv:2305.12582 Theorem 45 and Corollary 60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=2, the cylinder kernel and mean are R=h_prism/2 and t=1/(2n). Its W=sum|R−t| is exactly the prism t_n since the deviations sum to zero and the source is above the mean. With z=b_n/2 and R_0−z=(a_n−b_n)/2, A_H, A_V, B_H, B_V specialize to q_R,q_V,c_R,c_V. Its threshold argument also applies to the rim asymptotics and yields the same two constants and correction coefficient.",
+          "In the cylinder proof of rim dominance, the cut comparison uses m−3≥0 and a lower bound for h; this cannot be used at m=2 with the opposite sign. The cycle comparison uses m≥4 or m=3 explicitly. The precise finite signs for m=2 and the n=3,4 transition therefore require a separate calculation, not substitution of a dominating parameter.",
+          "Entrywise data give the four sums after absolute values; they do not, without further inequalities, decide the sharp finite winners."
+        ],
+        "reasoning": "Credit the direct specialized formulas and eventual asymptotic regime. The unsupported leap would be extending the universal m≥3 winner result to m=2, which even has exceptional behavior at n=3,4 and needs its own uniform finite proof.",
+        "searches": [
+          "58fa50f7a7be §§1–6, mirrored RESULT.md offsets 0–8253",
+          "Azimi–Farrokhi §4 Theorem 4.3",
+          "Cinkir §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking differences of vertex columns of the incidence pseudoinverse in Theorem 4.3 gives the exact edge-current entries (D⁺D).",
+          "C_4×K_2 is the three-cube, whose norms 2 and 11/6 are already given."
+        ],
+        "reasoning": "The transfer-current data are equivalent underlying matrices, but not their evaluated absolute column maxima. Matching cube values are exact coverage at n=4.",
+        "searches": [
+          "Circular ladder electrical stretch and canonical endpoint projection norms",
+          "Azimi–Farrokhi arXiv:2306.10497 Theorem 4.3",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 Theorem 45 and Corollary 60"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Möbius-ladder finding gives the same limits and logarithmic coefficient for a different graph family.",
+          "The same-day clique cylinder carries exact matching prism subformulas but excludes the prism from the theorem's range.",
+          "The cube precedent supplies exact n=4 norm values; the catalogue's canonical and minimum-norm formulations have distinct objectives."
+        ],
+        "reasoning": "These are material matches where their formulas coincide, but none inspected states the prism's full maximizing-orbit classification.",
+        "searches": [
+          "Local Resultary searches on prism cut/cycle endpoint norms, maximizing rims/rungs and logarithmic deficits",
+          "58fa50f7a7be, 833010be3478, 58e400c99cce",
+          "arXiv:2305.12582 cube calculation"
+        ]
+      },
+      "rationale": "There is substantial equivalent coverage of components: Azimi–Farrokhi give the exact incidence-pseudoinverse data, the cube norms are known, and the same-day clique-cylinder derivation specializes to the four prism column-sum formulas and the coefficient of the logarithmic rim deficit. I do not count those as distinct facts. The distinct claim supported by the full finding is the finite prism norm classification by competing orbits: the broader record does not prove a rim-winner theorem at m=2, and its lower-bound proof of the two comparisons does not specialize. The all-size rim-versus-rung inequalities, their different triangular-prism winners, and strict finite cut–cycle ordering are not a statement or direct substitution of those sources. No discovery chronology is inferred from the same-day dates.",
+      "residual_risks": [
+        "The focused web query provided no decisive exact-norm source; the DOI 10.3934/math.2023137 paper was not retrieved and no negative inference is made.",
+        "An independently published evaluation from the known matrix entries could exist; the decisive inspected exact statements do not give the full rim–rung transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Column formulas and rim asymptotic coefficient specialize; finite orbit classification does not follow from the proof's m≥3 comparison",
+          "evidence": "Explicit exclusion m=2; in §4 the coefficient m−3 controls the inequality orientation and cycle analysis is split into m≥4 and m=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-endpoint-hodge-norms-and-a-sharp-projection-dominance-transition--58fa50f7a7be/RESULT.md",
+          "material_read": "Mirrored Finding, scope, §§1–6, offsets 0–8253, snapshot 36a7204",
+          "method": "Local Resultary and bounded mirror reads",
+          "title": "Endpoint Hodge norms and a sharp projection-dominance transition on cyclic clique cylinders",
+          "trigger": "Potential stronger product theorem with same endpoint formulas"
+        },
+        {
+          "assessment": "Same asymptotic constants, different family",
+          "evidence": "Twisted boundary connectivity; not the all-prism two-orbit theorem.",
+          "identifier_or_url": "Resultary 2026/10/26/833010be3478",
+          "material_read": "Mirrored Finding and related-work comparison",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp logarithmic endpoint projection deficit on Möbius ladders",
+          "trigger": "Matching asymptotic coefficient and closely related graphs"
+        },
+        {
+          "assessment": "Different objective and domain",
+          "evidence": "Minimum over all projections is 12/5−16/(5n) at n≥10, not the canonical orthogonal norm.",
+          "identifier_or_url": "Resultary 2026/11/2/58e400c99cce",
+          "material_read": "Mirrored Finding",
+          "method": "Local mirror passage comparison",
+          "title": "Sharp ℓ1 cycle-space projection constants for circular ladders",
+          "trigger": "Same family, possible stronger cycle-norm theorem"
+        },
+        {
+          "assessment": "Exact entrywise data, no inspected evaluated maximum or orbit threshold",
+          "evidence": "Theorem 4.3 specifies both rim and spoke entries of the incidence pseudoinverse for all cyclic positions; multiplying by incidence produces the projection.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.10497",
+          "material_read": "Abstract p. 1 offset 0; §4 p. 8 offset 27630; Theorem 4.3 and proof opening p. 10 offsets 34520–37981",
+          "method": "OA PDF literal locate and bounded offset reads",
+          "title": "Moore–Penrose inverses of incidence matrices of trees and circular ladders",
+          "trigger": "Same prism family and current data"
+        },
+        {
+          "assessment": "Exact resistances and Kirchhoff index, not the sharp endpoint-ordering theorem",
+          "evidence": "All-pairs resistance formulas provide L⁺ by centering; the Kirchhoff index is a scalar aggregate different from absolute edge-current sums.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.03429",
+          "material_read": "Abstract and introduction p. 1, §2 pp. 2–6, Theorem 3.1 pp. 6–7 offset 23546",
+          "method": "OA PDF passage comparison",
+          "title": "Effective Resistances and Kirchhoff index of Prism Graphs",
+          "trigger": "Same graph and electrical data; full text unavailable in frozen comparison"
+        },
+        {
+          "assessment": "Exactly covers square-prism constants, not all n",
+          "evidence": "Cut and cycle norms of Q_3 are 2 and 11/6 respectively.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Theorem 45 p. 23 offset 74468; Corollary 60 p. 32 offset 99396",
+          "method": "OA PDF passage comparison",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Known square prism as a Hamming cube"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§3–6",
+        "Resultary 58fa50f7a7be §§3–6 and arXiv:2306.10497 Theorem 4.3"
+      ],
+      "rationale": "The prism is the simplest periodic two-layer network. Different winning edge types for the two complements at n=3, a precise tie at n=4, and strict rim maxima thereafter give a usable finite-size classification beyond known current entries or eventual asymptotics. Showing that the classification persists at every n≥5 requires comparison of the positive-part threshold and diagonal penalties, not merely naming the cut matrix or evaluating a resistance.",
+      "residual_risks": [
+        "The result concerns specified canonical projections, not minimal projections or uniform estimates for greater cross-section widths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

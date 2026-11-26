@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:54:05.563315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44, full hypotheses and proof",
+        "Frozen VERIFICATION.md and verify.py, inspected only (12 prime-field parameter cases and restricted associativity checks)"
+      ],
+      "rationale": "There is a direct check of the cocycle normal form: in any scalar twist normalize the lifted x to have p-th power 1 using bijectivity of the p-th power map on the coefficient group. If conjugation by the lift y gives a scalar times x^r, taking p-th powers makes that scalar a p-th root of unity, hence 1. The ordered homogeneous monomials give the pm-element basis. The ideal of t=x−1 is two-sided and t-adically filtered by y-conjugation; t^p=0, t^{p−1}≠0, and the quotient by t is the squarefree algebra B=F_q[Y]/(Y^m−a), so the ideal is the radical with the claimed dimensions. Frobenius multiplies a root by c, with all orbits of length d and h=m/d irreducible factors. The primitive idempotents of the embedded B lift those of A/J. In each graded layer of Ae_j, the action of Y is multiplied by r^k; on the orbit set root multiplication by r is a single h-cycle. Each layer is simple of dimension d, and each radical power of the projective has a simple top and unique maximal submodule, giving uniseriality. Counting residues in p=1 mod h proves the matrix, its spectrum and determinant, including h=1. Surjectivity onto μ_m supplies all h. The frozen finite check is only corroboration; this argument works over every stated finite field.",
+      "residual_risks": [
+        "The checker is not a replay over arbitrary extension degree and not a classification of abstract algebra isomorphism classes; the proof rather than the checker treats these coefficient fields.",
+        "The Wallace citation overstates the scope of the cited theorem: its ordinary group-algebra mechanism is relevant by analogy, not a twisted-algebra theorem. This does not enter the direct proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic path algebra quotient has graded Cartan polynomial sum(t^j P_h^j), giving exactly the same integer matrix for length p after setting t=1, but starts with h splitting-field vertices and does not compute arithmetic descent.",
+          "The cited Wallace theorem is ordinary group algebra radical theory. The Saunders text was not accessible (HTTP 403, no readable alternate found), so no conclusion about its full scope is drawn."
+        ],
+        "reasoning": "Split cyclic-defect structure is compatible and the split specialization is standard. In a nonsplit twist, simple endomorphism fields of degree d preclude simply substituting h in a split basic algebra over the base field. No source checked supplies the additional Frobenius computation in the modular case.",
+        "searches": [
+          "Split and nonsplit Brauer-star/serial comparisons; Wallace DOI 10.1017/S0013091500009445, Thm 3.4",
+          "Saunders DOI 10.1080/00927872.2024.2336134",
+          "Resultary 92ac4bc2f2ed, cyclic Nakayama quotients"
+        ]
+      },
+      "checked_sources": [
+        "Named Resultary records 92ac4bc2f2ed and 6fa3bd18d928",
+        "arXiv:2603.22185v1 and arXiv:1902.04281",
+        "Wallace Theorem 3.4",
+        "Saunders access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cyclic path counting gives the final matrix immediately once the layers are known to form the h-cycle. The submitted calculation obtains h by the action β↦β^q=cβ, and the layer motion from multiplication by r on Frobenius orbits.",
+          "A general radical mechanism or cocycle normalization alone gives neither relation."
+        ],
+        "reasoning": "The established path counting and class parametrization account for substantial ingredients, not the substantive identification between the twist classes and cyclic simple types and layers. Exact coverage of the latter is not established in the inspected stronger sources.",
+        "searches": [
+          "Resultary 92ac4bc2f2ed Finding; arXiv:2603.22185v1 §2 and semisimple decomposition passage; Wallace Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.3 in the exact group-family paper parametrizes scalar classes in a different coefficient regime; its later decomposition uses a semisimple group algebra of C_p, unlike the submitted nilpotent filtration.",
+          "Resultary 6fa3bd18d928 treats two quadratic coefficient algebras with involution and truncated skew multiplication. For complement order two, t=(x−1)/(x+1) changes sign under conjugation; this explains the subfamily overlap without identifying the commutation-graph invariant with Cartan data."
+        ],
+        "reasoning": "The known class group description explains a modulo powers, but not how twisting changes the number of simple factors and entire layer permutation in characteristic p. The quadratic skew-truncation presentation is genuinely related for m=2, but its result about centralizers/commutation is neither equivalent to the Cartan statement nor a classification for all m.",
+        "searches": [
+          "Resultary: twisted modular split metacyclic group algebra, nonsplit finite-field Cartan, serial truncation and dihedral",
+          "arXiv:2603.22185v1 Theorem 2.3; arXiv:1902.04281 twisted ring comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cyclic path-count matrix appears structurally in 92ac4bc2f2ed. The finite-field Wedderburn comparisons in the family paper are for characteristic different from p. No retrieved table specifies the composition multiplicities by a for this characteristic-p family."
+        ],
+        "reasoning": "The same numerical matrix in another parametrization is not enough here: its size h is itself a twist-dependent output, not an input number of split vertices. Prime-field checker cases are not an originality table.",
+        "searches": [
+          "Resultary serial/Cartan 92ac4bc2f2ed and quadratic skew truncations 6fa3bd18d928",
+          "arXiv:2603.22185v1 coefficient-regime comparison"
+        ]
+      },
+      "rationale": "Credit is for the explicit dependence of the modular finite-field simple count, radical-layer descent and Cartan matrix on the scalar twist, including nonsplit classes. The split Brauer-star pattern, general cohomology parameter mechanism, and cyclic path counting themselves are not new. None of the examined close results provides the full twist-to-orbit-to-Cartan determination for this modular family.",
+      "residual_risks": [
+        "Older finite-field cyclic-defect or species literature may contain an exact equivalent descent not retrieved; Saunders was inaccessible. No historical priority ruling rests on dates in registry paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Class parametrization antecedent; decomposition uses a different coefficient characteristic",
+          "evidence": [
+            "Vanishing in positive degree for C_p with p'-order scalar coefficients supports inflation. The later calculation explicitly uses semisimplicity of F C_p e_O."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.22185v1",
+          "material_read": "§2 Theorem 2.3 (OA offset 8420) and decomposition passage (offset 17400)",
+          "method": "OA paper full-text passages",
+          "title": "Twisted group algebras of faithful split metacyclic groups C_p ⋊ C_m over finite fields",
+          "trigger": "Same twisted group family"
+        },
+        {
+          "assessment": "The inspected decomposition theorem is not characteristic p in this group",
+          "evidence": [
+            "Its Theorem 3.4 assumes coefficient characteristic does not divide the group order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.04281",
+          "material_read": "PDF pp. 3 and 10; cover methods and Theorem 3.4",
+          "method": "OA PDF passages",
+          "title": "The twisted group ring isomorphism problem over fields",
+          "trigger": "Possible more general twisted-ring classification"
+        },
+        {
+          "assessment": "Ordinary group-algebra theorem; frozen prose overstates its applicability to twists",
+          "evidence": [
+            "States J(KG)=J(KM)KG in its setting, not a theorem on the nonsplit twisted radical layers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0013091500009445",
+          "material_read": "PDF p. 5, Theorem 3.4, offsets 12970–13316 and surrounding context",
+          "method": "OA PDF passage",
+          "title": "The radical of the group algebra of a sub-group, of a polycyclic group and of a restricted SN-group",
+          "trigger": "Frozen prior-work citation for a radical mechanism"
+        },
+        {
+          "assessment": "Path-count identity covers numerical cyclic formula, not its descent for scalar twists",
+          "evidence": [
+            "For kQ_n/J^L the graded matrix is sum(t^j P_n^j); n=h,L=p,t=1 recovers it numerically."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-integral-smith-forms-and-cyclic-actions-for-graded-cartan-specia--92ac4bc2f2ed/RESULT.md",
+          "material_read": "Finding, from offset 0",
+          "method": "Actual local mirror statement, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Integral Smith forms and cyclic actions for graded Cartan specializations",
+          "trigger": "Exact Cartan shapes from cyclic layers"
+        },
+        {
+          "assessment": "Complement-order-two representation overlaps, studied invariant is different",
+          "evidence": [
+            "Quadratic skew truncations with a commutation-preserving linear bijection; odd-characteristic truncation length p includes split modular dihedral group algebra."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-indistinguishable-commutation-graphs-of-split-and-nonsplit-quadr--6fa3bd18d928/RESULT.md",
+          "material_read": "Finding, from offset 0",
+          "method": "Actual local mirror statement, same snapshot",
+          "title": "Indistinguishable commutation graphs of split and nonsplit quadratic skew truncations",
+          "trigger": "Possible equivalent presentation of the nonsplit twists"
+        },
+        {
+          "assessment": "Unresolved source scope; not negative evidence",
+          "evidence": [
+            "No full-text conclusion is based on this item."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2024.2336134",
+          "material_read": "Bibliographic entry only; OA full text returned HTTP 403 and no readable repository copy was identified",
+          "method": "OA and alternate-copy attempt",
+          "title": "Cohomology and Ext for blocks whose Brauer trees are lines or stars",
+          "trigger": "Cited close split Brauer-tree background and plausible nonsplit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Result and proof of attainability",
+        "Split cyclic-path and nonsplit semisimple quotient comparison"
+      ],
+      "rationale": "The family is a natural same-characteristic counterpart to known semisimple twisted-metacyclic calculations. The full finite-field twist parameter is converted to concrete projective composition data, giving all attainable simple counts (hence a Morita-equivalence obstruction) and a fixed determinant despite a changing Cartan matrix. The matrix shape alone would be routine; the arithmetic identification tells which matrix and simple fields to use for each nonsplit twist.",
+      "residual_risks": [
+        "No complete classification of Morita equivalence or algebra isomorphism for twists with the same h is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

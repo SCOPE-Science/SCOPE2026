@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:53.645855Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For X_i=U_i U_i^T−I/d, the triangle is tr((I/d+X_i)(I/d+X_j)(I/d+X_k)). Its linear terms vanish by tracelessness, the pair terms equal ((U_i·U_j)^2−1/d)/d, and the cubic term is completely degenerate by independence and E X_i=0. Pair and cubic contributions are orthogonal, even at partial index overlap. Fourth spherical moments yield E h²=(d+8)/(d²(d+2)²), Var(h)=A=(d−1)(d²+8d+4)/(d⁴(d+2)²) and pair-projection variance B=2(d−1)/(d⁴(d+2)); the third-order variance per triple is A−3B=(d−2)(d−1)(d+4)/(d⁴(d+2)²). Distinct triples sharing exactly one edge have covariance B and there are C(n,2)C(n−2,2) unordered such pairs. The planar identity is the vanishing 3-by-3 Gram determinant. The repaired Bingham comparison is exact: B_n−m=d(d+2)P/n, so the pair contribution after n² scaling is (1−2/n)(B_n−m)/(d²(d+2)); Var(Q/n²)=O_d(1/n). This verifies the same fluctuation law, finite variance coefficient and d=2 and n=3 boundaries, with no assumption of full-rank Gram matrices. The frozen Python script was inspected, not executed; actual simulation n=500 differs from a stale n=1000 inline comment, and the icosahedral checks use floating-point tolerance. Neither is used in the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Archakov–Hansen–Luo give related random Gram constructions on p. 16; Bubeck et al. use thresholded adjacency triangles, not raw inner products; Bingham's asymptotic law pertains to the second trace power."
+        ],
+        "reasoning": "Neither marginal correlation laws nor a Gaussian limit of the empirical scatter matrix gives the exact finite-sample variance of the orthogonal third-order projection without the overlap and fourth-moment analysis.",
+        "searches": [
+          "arXiv:2210.08147, §4.2 Random Gram Methods",
+          "arXiv:1411.5713, signed triangles and thresholded spherical overlap",
+          "arXiv:1804.00286, Bingham null law"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.00286 p. 7",
+        "Resultary 955e3ffe3131 and 104aa867bba8 findings",
+        "arXiv:2210.08147 §4.2",
+        "arXiv:1411.5713 p. 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bingham's limit and the asymptotic negligibility of Q yield the same limiting law. The 3-by-3 Gram determinant yields the d=2 pointwise cancellation immediately."
+        ],
+        "reasoning": "Those facts alone do not quantify the omitted cubic part for any d≥3. Explicit subtraction of the three orthogonal pair-projection variances from the exact triangle variance reveals its positive factor (d−2)(d−1)(d+4) and gives the scale of the approximation error.",
+        "searches": [
+          "arXiv:1804.00286, p. 7, Bingham (1974)'s test",
+          "Resultary 955e3ffe3131, LKJ trace and triangle mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Gram G with unit diagonal, 6T=tr(G³)−3tr(G²)+2n. The frame potential tr(G²) determines the pair term exactly.",
+          "García-Portugués–Verdebout, p. 7: the Bingham statistic is nd(d+2)(tr((W_n/n)²)−1/d)/2, with the same degrees of freedom m under spherical uniformity."
+        ],
+        "reasoning": "Passing between Gram and scatter trace powers just rewrites the statistic. The pair limit is known up to the exact affine transform; the finite-sample degenerate cubic error remains after that equivalence.",
+        "searches": [
+          "Resultary: spherical signed triangles, Gram trace moments and triangle cumulants",
+          "arXiv:1804.00286, Bingham test"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 955e3ffe3131 gives the LKJ single-triangle expectation ν⁻² and the expected cubic centered trace. On the nonsingular spherical-Gram match η=(d−n+1)/2, ν=d. Resultary 104aa867bba8 studies cumulants of sums of individual edge overlaps, not triangle-product sums."
+        ],
+        "reasoning": "The exact earlier mean is credited, but neither record tabulates the audited third-order variance. The nonsingular LKJ parameter match does not model all n at fixed d.",
+        "searches": [
+          "Resultary exact triangle cumulants and spherical overlap cumulant defects"
+        ]
+      },
+      "rationale": "Pass applies to the repaired finite-sample claim: the exact total and degenerate third-order variances and the resulting dimension-specific error in the pair approximation. The repair explicitly credits the exact pointwise Gram identity as elementary and the limiting law as a consequence of the classical Bingham null limit, not independent novelty. The checked moments and broader asymptotics do not give the exact all-n third-order residual.",
+      "residual_risks": [
+        "Bounded comparisons do not establish absolute priority. An unindexed raw Gram-moment calculation or an exact finite-sample trace-power expansion yielding the same residual could exist.",
+        "The repaired claim does not rely on novelty of classical spherical moments, the planar determinant identity or the Bingham null law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the null limit of the pair part with exact normalization",
+          "evidence": "B_n=nd(d+2)[tr((W_n/n)²)−1/d]/2, χ² limit with (d−1)(d+2)/2 degrees of freedom.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.00286",
+          "material_read": "p. 7, Bingham (1974)'s test, text offset 31630",
+          "method": "Focused OA PDF passage",
+          "title": "An overview of uniformity tests on the hypersphere",
+          "trigger": "Known Bingham statistic may reproduce the leading law"
+        },
+        {
+          "assessment": "Exact mean overlap, not the finite corrected variance claim",
+          "evidence": "Triangle expectation ν⁻² and cubic centered trace expectation in a positive-definite LKJ law.",
+          "identifier_or_url": "Resultary 955e3ffe3131",
+          "material_read": "RESULT.md finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact triangle cumulants reveal the first hidden dependence in LKJ correlation matrices",
+          "trigger": "Same triangle monomial and Gram-law equivalence in nonsingular range"
+        },
+        {
+          "assessment": "Different statistic, not an exact overlap",
+          "evidence": "Cumulants for sums of edge overlaps and cycle-count defects.",
+          "identifier_or_url": "Resultary 104aa867bba8",
+          "material_read": "RESULT.md finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Girth from the first cumulant defect of random spherical overlaps",
+          "trigger": "Same spherical overlap objects and cycle language"
+        },
+        {
+          "assessment": "Ensemble overlap, not the variance",
+          "evidence": "Random Gram constructions and correlation laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08147",
+          "material_read": "§4.2 p. 16, text offset 44013",
+          "method": "Focused OA PDF passage",
+          "title": "A New Method for Generating Random Correlation Matrices",
+          "trigger": "Same random Gram construction"
+        },
+        {
+          "assessment": "Thresholded statistic and different regime",
+          "evidence": "Uses centered geometric adjacency indicators, not raw inner-product products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.5713",
+          "material_read": "p. 5, signed statistic and model, text offset 16652",
+          "method": "Focused OA PDF passage",
+          "title": "Testing for high-dimensional geometry in random graphs",
+          "trigger": "Signed triangles of spherical geometric data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed triangle sum is the distinct-index part of the cubic Gram trace, and its natural pair approximation is the centered frame potential. The exact residual variance gives the finite-sample mean-square loss incurred by replacing triangles with pairs, with a sharp dimension boundary: loss is zero in the plane and strictly positive elsewhere, though asymptotically lower order at fixed d. This information is useful when distinguishing higher-order terms from a known pair fluctuation; it is not supplied by the limiting distribution alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

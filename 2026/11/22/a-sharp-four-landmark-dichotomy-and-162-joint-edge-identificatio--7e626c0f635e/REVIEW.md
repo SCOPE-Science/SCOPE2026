@@ -1,15 +1,21 @@
-# Scientific review: Petersen joint edge-identification census
+# Independent mathematical audit
 
-## Correctness — PASS
-The ten Petersen vertices and fifteen edges are explicitly fixed as the two-subset Kneser model. For every edge, exactly four root cross-pairs are at edge distance two, so a four-landmark set fails vertex–edge coverage exactly when it equals one of the fifteen distinct cross-pair sets. The exact certificate tests all \(2^{10}=1024\) vertex subsets and all fifteen signatures; all \(210\) four-sets and all \(252\) five-sets are partitioned into respectively six ground-label symmetry orbits, whose members have the same measured edge-resolving predicate. The four accepted five-set orbits have sizes \(60,60,30,12\). An independently written standard Petersen-graph/BFS implementation agrees with all three cardinality polynomials. The claim concerns only this finite graph, for which the enumeration is exhaustive.
+## correctness
 
-## Originality — PASS, provisional
-Ikhlaq, Hayat and Siddiqui (arXiv:2211.09327; first posted 2022-11-17) introduced the exact joint invariant but did not give a Petersen four-landmark dichotomy or a full joint census. Filipović, Kartelj and Kratica (arXiv:1807.00580) had already established the Petersen ordinary edge-metric value \(4\); this scalar is explicitly excluded from the novelty claim. Tavakoli et al. (DOI:10.5614/ejgta.2023.11.1.16) use vertex-cover domination, which differs from the distance-one vertex–edge domination employed here. The numerical answer and the root-graph orbit classification are not implied by those results. Search coverage cannot rule out an uncatalogued earlier computation; the 2023 publisher article was read in its complete publicly accessible twelve-page PDF and does not use the Petersen graph.
+PASS
 
-## Mathematical value — PASS
-The two independently motivated sensor conditions give a sharp and non-obvious incompatibility at their first relevant cardinality in a canonical 3-regular graph. The exact difference between ordinary and joint minima, the 162 configurations divided into four geometric types, and the complete feasible-set polynomials are stronger than an isolated invariant evaluation. They furnish a reproducible benchmark for distance-sensitive sensor coverage versus identifiability.
+In KG(5,2), distinct intersecting root pairs have distance two because their union leaves a common disjoint pair. For a Petersen edge ab its distance-two set is exactly the four cross-pairs between a and b. These are 15 distinct root four-cycles with one isolated ground label; the two missing diagonals recover ab. Domination fails precisely on subsets of these blocks, so is automatic from size five. Independently reproduced the full finite census in a bounded JavaScript calculation: construct GP(5,2) in outer/inner coordinates, take all-pairs Floyd–Warshall distances, and take minima to endpoints for each edge column. For each of the 105 pairs of edge columns mark every submask of their agreement mask as nonresolving; likewise mark all submasks of the 15 far masks as nondominating. There are 40 distinct agreement masks, with maximum size six. Tallying all 1024 masks gives resolving counts (0,0,0,0,15,162,195,120,45,10,1), dominating (0,0,0,60,195,252,210,120,45,10,1), and joint (0,0,0,0,0,162,195,120,45,10,1). The two failed-predicate flags at size four are complementary for every mask, not merely in aggregate. To reconstruct the orbits, assign Kneser labels 01,23,04,12,34 to the outer cycle, and 24,14,13,03,02 to the respective spokes' other endpoints. Permuting the five labels on each supplied representative gives pairwise disjoint complete orbits of sizes 5,10,15,60,60,60 and 60,60,60,30,30,12 in table order, and exactly the stated yes rows and root types. S5 is also the full automorphism group: the five maximum independent sets are the root stars (an intersecting family without a common label has size at most three), and their pairwise intersections determine every vertex. Both provided scripts and both saved outputs were inspected but not executed; the agreement-mask reconstruction independently tests the exact claim.
 
-## Computational verification and limits
-The two standalone programs `census_symbolic.py` and `census_bfs.cpp` yield `PET_X5_SYMBOLIC_OK` and `PET_X5_BFS_OK`. The first computes the full \(S_5\)-orbit census and the second independently constructs shortest-path distances by BFS on \(GP(5,2)\). Their saved outputs are included. The classification is not extrapolated to other generalized Petersen graphs. Literature-priority coverage is provisional and no independent external mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Current evidence supports the structural four-set incompatibility and complete joint census as distinct from the known scalar edge-metric dimension and the prior definition of the joint invariant.
+
+## value
+
+PASS
+
+Petersen is a natural small symmetry-rich test for a pre-existing joint edge identification and coverage invariant. Its entire set of ordinary optimal sensors is precisely the set failing coverage, a stronger structural result than a one-unit numerical gap between optima. The four types at the true joint minimum describe the possible optimal layouts and the polynomials quantify redundancy over all sizes. This is useful as an exact benchmark without implying a general theorem for all generalized Petersen graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

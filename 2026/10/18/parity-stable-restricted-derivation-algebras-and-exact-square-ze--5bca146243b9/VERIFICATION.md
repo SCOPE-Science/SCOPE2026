@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence and limits
 
-The file `verify.py` enumerates the coefficient vectors of all derivations on the even and odd truncated polynomial modules over \(\mathbb F_2\) and \(\mathbb F_4\), computing operators on full monomial bases. The tests directly check the square-zero matrix product, each Gaussian-elimination rank, and the exact matrix intertwiner entry by entry. They cover all \(1\le s\le4\) over \(\mathbb F_2\) and all \(1\le s\le3\) over \(\mathbb F_4\), including the extension-field multiplication law \(w^2+w+1=0\) in the latter case.
+# Independent mathematical audit
 
-Expected square-zero rank distributions are: \(1+T\) at \((q,s)=(2,1)\), \(1+3T+2T^2\) at \((2,2)\), \(1+3T+4T^2+4T^3\) at \((2,3)\), \(1+3T+12T^2+8T^3+8T^4\) at \((2,4)\); \(1+3T\), \(1+15T+12T^2\), and \(1+15T+48T^2+48T^3\) at \((4,1)\), \((4,2)\), and \((4,3)\) respectively.
+## correctness
 
-All checked cases passed when the program was executed directly on its source text. Successful execution prints `VERIFY_OK_EVEN_ODD_DERIVATIONS`. The complete proof for arbitrary characteristic-two fields and unbounded \(s\) is the valuation and intertwiner argument in `RESULT.md`; exhaustive tests are finite corroboration, not independent or infinite verification.
+PASS
+
+The repaired result uses the exact common action (b,c)↦(ec,gc) over R=K[z]/(z^s) on A_{2s} and tA_{2s+1}, with constants providing a trivial complement in the latter. The condition on the coefficient of ∂t is vacuous at length 2s and exactly vanishing of its constant term at length 2s+1; this proves surjectivity, also at s=1. Faithfulness and the single intertwiner give restricted compatibility and all claimed operator consequences. The original rank formula is also correct: D²=0 iff eg=g²=0; the annihilator of (e,g) has codimension s−min(v(e),v(g)). With h=floor(s/2), among ranks ≤r the g=0 contribution is q^r, and nonzero g with v(g)=s−m, 1≤m≤min(h,r), contributes (q−1)q^{m−1+min(r,s−m)}. Differencing gives the stated low and high coefficients and the s=1 total. Fresh basis-matrix corroboration checked both lengths and their intertwiner for F₂ (s≤4) and F₄ (s≤3), saved as record3_matrix_check.py and record3_matrix_check.txt with the review work. These are bounded tests, not the all-field proof. The frozen verifier was inspected but not executed.
+
+## originality
+
+PASS
+
+Pass is for the repaired simultaneous natural-representation statement only. The exact finite-field rank polynomial is covered by an indexed rank-variety classification, and the same ordinary Lie isomorphism is indexed in an adjoint calculation. The repaired result proves a single identification of the entire family of natural actions, including nonsquare-zero derivations, after adjoining a trivial line; neither equal square-zero rank fibres nor the ordinary bracket calculation provides this module equivalence.
+
+## value
+
+PASS
+
+Passing from equal ranks or isomorphic Lie brackets to an explicit stable equivalence on natural modules answers a different, natural representation question. It transports simultaneous operator information and gives the exact effect on Jordan blocks and ranks of powers for arbitrary derivations and all truncation lengths in characteristic two. This is an independently usable structural result; the covered census contributes no novelty or value credit here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

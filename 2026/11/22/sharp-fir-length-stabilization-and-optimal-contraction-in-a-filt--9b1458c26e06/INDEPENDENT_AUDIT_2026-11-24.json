@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:11:13.981626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–89, independently derived companion polynomial, equality case, small-gain existence and endpoint",
+        "VERIFICATION.md:19–23",
+        "verify.py:11–65, inspected rather than executed"
+      ],
+      "rationale": "At a constant state p the equation is G²p²+(1−β)p−α=0, with one root of each sign. The first delay-Jacobian row is −2Gp c_j+β·1_{j=1}, with unit subdiagonal; thus P_p(1)=1−β+2G²p=±√Δ. On the positive branch, the product of distances from 1 to the multipliers is at most (1+ρ)^n. When √Δ>1, equality at ρ=√Δ^(1/n)−1>0 means every root equals −ρ, by equality in each triangle inequality and radius bound. The monic coefficients determine the taps injectively. The coefficients of (z+ρ)^n, with the β compensation at tap 1, are strictly positive and sum before division to (1+ρ)^n−1+β=2G²p_+. For √Δ≤1 the delayed selector gives z^(n−2)(z²+√Δ−1), with radius strictly below one; a sufficiently small interior perturbation of the normalized taps preserves Schur stability. This includes n=2 and √Δ=1. The closed-disk attainment at √Δ=2^n is unique; above this threshold the universal bound forces a multiplier outside. Finally, P_−(1)<0 and the monic polynomial tends to +∞ on the positive real axis, giving a real multiplier >1 on the negative branch.",
+      "residual_risks": [
+        "The repeated −1 endpoint is nonhyperbolic. The result does not diagnose nonlinear attraction there or monotone decay in a fixed state norm, and does not claim an optimum in the low-feedback regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former computes two-tap fixed points and numerically plots the c0,c1 stability region",
+          "The latter gives the generic FIR setting and the arbitrary-length Jacobian, with §3 expressly proceeding to numerical prototype-filter studies in §4"
+        ],
+        "reasoning": "A larger parameter domain than two taps is present in the latter reference; optimization over all filters at given sum and its exact equality case are not outcomes of the inspected prototype-filter studies.",
+        "searches": [
+          "arXiv:2211.16964v1, fixed points and stability",
+          "arXiv:2401.10281v1 §§2–5 and Appendix A context; SSRN 4487008"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.16964v1 and arXiv:2401.10281v1",
+        "SSRN 4487008, attempted",
+        "Resultary 9b1458c26e06 and catalog summary 5744d0bd2daf",
+        "Bounded primary-literature lookup and general polynomial reduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For monic p with |p(1)|>1 the product bound is attained only at the repeated negative root",
+          "The model's derivative subtracts β from the second coefficient, so inverse coefficient placement adds β at tap 1; the signed-tap optimum remains feasible in the strictly positive simplex"
+        ],
+        "reasoning": "The general polynomial bound and Jacobian provide a short route, but the frontier requires the positive-tap inverse realization, plus a distinct feasibility argument below √Δ=1. The later paper's conclusion on negative-branch instability is numerical; this record proves a real eigenvalue above one for the full stated domain.",
+        "searches": [
+          "Primary literature: fixed-value polynomial largest-root minimization; arXiv:2401.10281v1 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 9b1458c26e06 is the subject itself",
+          "A distinct polynomial result 5744d0bd2daf concerns extrema of a truncated-trapezoidal symbol, per its catalog entry",
+          "P(1) fixed identifies the signed-tap family with real monic polynomials on an affine hyperplane"
+        ],
+        "reasoning": "Maximizing a symbol modulus on a boundary is not minimizing the largest root modulus for fixed value at 1 or producing positive Hénon taps. The general unconstrained polynomial bound is shared mathematics, not itself a distinct result.",
+        "searches": [
+          "Primary literature: FIR filtered Hénon fixed gain stability, root-radius minimization with fixed P(1)",
+          "Resultary: filtered Hénon gain frontier, unique binomial root placement, optimized polynomial extrema"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit is this record; two-tap stability plots and longer-length prototype/gain figures were identified in the cited papers"
+        ],
+        "reasoning": "A plot can evidence a stable regime for sampled designs or encode a two-dimensional region, but does not establish the sharp optimum over all coefficients and arbitrary lengths, or uniqueness of the attaining taps.",
+        "searches": [
+          "Resultary: exact filtered Hénon stabilization gain by FIR length",
+          "arXiv:2211.16964v1 Fig. 1; arXiv:2401.10281v1 §§3–4"
+        ]
+      },
+      "rationale": "The map, stationary branches, gain dependence, and Jacobian precedent are known, as is the elementary root-product argument in its general mathematical form. The inspected closest work analyzes selected filter families rather than optimizing all taps. The distinct result supported here is the attaining positive design, sharp all-length gain frontier and rigidity under the fixed-sum constraint, not the companion linearization or root-product bound by itself.",
+      "residual_risks": [
+        "The earlier SSRN version and unindexed equivalent fixed-gain designs were not ruled out. The generic polynomial lemma is elementary and is not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-tap model and linear stability background are covered; the inspected passages use numerical regions, not the all-length or fixed-gain optimizer",
+          "evidence": "Fixed points depend on (c0+c1)², and stability of the positive branch is displayed in the c0×c1 plane.",
+          "identifier_or_url": "https://arxiv.org/html/2211.16964v1",
+          "material_read": "Abstract; fixed points and stability passages around (6)–(11) and Figure 1",
+          "method": "Targeted original arXiv PDF abstract and HTML body inspection",
+          "title": "A filtered Hénon map",
+          "trigger": "Original FIR-filtered map and two-tap stability"
+        },
+        {
+          "assessment": "Direct model and linearization precedent; the inspected stability analysis is design-specific and numerical",
+          "evidence": "§3 states that fixed points depend only on G, stability depends on all coefficients, and selected prototypes are numerically studied in §4. The estimate of negative-state instability in §3 is expressly numerical.",
+          "identifier_or_url": "https://arxiv.org/html/2401.10281v1",
+          "material_read": "Abstract, §3 gain/stability passages, selected prototype cases in §4 and discussion in §5; §3 identifies Appendix A as the Jacobian calculation",
+          "method": "Targeted original arXiv PDF abstract and HTML passages",
+          "title": "Chaotic properties of an FIR filtered Hénon map",
+          "trigger": "Same arbitrary-length model, stationary points and Jacobian"
+        },
+        {
+          "assessment": "Same-version coverage remains unresolved",
+          "evidence": "No absence conclusion about the SSRN version follows from access failure.",
+          "identifier_or_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487008",
+          "material_read": "Earlier full text unavailable; compared later arXiv version separately",
+          "method": "Targeted lawful SSRN lookup and later-version comparison",
+          "title": "Chaotic Properties of an FIR Filtered Hénon Map, earlier version",
+          "trigger": "Earlier public version of closest same-model work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:9–40,60–89",
+        "arXiv:2401.10281v1 §§3–4"
+      ],
+      "rationale": "Optimizing the local spectral radius at fixed feedback gain answers a concrete design question left open by stability diagrams for prescribed filters. The result gives a realizable positive design, rules out improvements even with signed coefficients, and quantifies a substantial length effect: the gain frontier grows exponentially in length and the best radius at fixed high feedback falls on the order of 1/n. The simple polynomial argument supplies a sharp structural boundary rather than merely renaming the known fixed-point equation.",
+      "residual_risks": [
+        "No claims of transient optimality, prescribed frequency response, robustness or global dynamics are credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

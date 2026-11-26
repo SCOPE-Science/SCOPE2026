@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:21:28.452565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96",
+        "VERIFICATION.md lines 18–24",
+        "check_torus_area.py lines 14–79",
+        "Finch, arXiv:2611.15546v1, §§4–5, Lemma 16 and equation (3), §7 Exercise 3"
+      ],
+      "rationale": "Reconstructed the classifier independently: for 0<β<π/2, a meridian fibre at φ is a line segment in the unit (H,V) disk exactly when (M−Rs cosφ)^2≤q²+s² cos²φ, where s=sinβ and q=cosβ. The sublevel set in u=cosφ is an interval since the coefficient of u² is (R²−1)s²>0. Its containment of both, one, or neither of ±1 gives the full angle circle, one arc, or two arcs, respectively, for a plane that hits; the segment bundle is trivial on the circle (the continuous direction (−q,s cosφ) never vanishes), and over each arc the fibre collapses only at the ends. This proves the annulus/disk/two-disks classification off null boundaries. The toroidal Jacobian gives density (1+H/R)/π and Φ uniform. For fixed β>0 and Rs>1 the two disk caps have half-width arccos(1−δ±/[(R+H)s]), with clipping when necessary, where δ±=1+sH±qV∈[0,2]. Their scaled limits follow from arccos(1−y)∼√(2y); a constant times s^(-1/2) bounds the scaled probability for Rs≥4 and also for Rs<4 by the trivial probability bound. This is integrable under s dβ; the semicircle projection and β-integral give the stated gamma quotient. In the annulus layer put t=Rs<1, then the Jacobian after scaling by R² is t/√(1−t²/R²); it is dominated for R≥2 and offset threshold equality has zero probability. Integrating in t gives E[τ²]/2, and splitting on V+cosΦ≥0 by symmetry gives the stated tangent-half-angle integral and 16/(9π²). The complementary topology and Crofton baseline follow, with disk offset numerator tending to 2 and annulus numerator asymptotic to 1/(6R²) against normalizer 1+πR/4. The supplied checker was read, not run: its grid discretizes the same topology inequalities, not an independent classification of the geometry.",
+      "residual_risks": [
+        "Finite quadrature is corroboration only; limiting proof is for circular ring tori with the stated joint sampling law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8cf34e87984a treats symmetric convex-meridian toroids, including the unit circle, but calculates topology probabilities under Crofton hit-plane sampling. The broader rare-annulus mark result 641dc57f960c gives 2b³/(3π R³) under that same invariant-plane law."
+        ],
+        "reasoning": "Wider meridian geometry does not cover changing the plane law. The known wider classifier is used, not claimed as new.",
+        "searches": [
+          "Resultary 8cf34e87984a and 641dc57f960c, RESULT.md",
+          "Finch arXiv:2611.15546v1, topology law"
+        ]
+      },
+      "checked_sources": [
+        "Finch arXiv:2611.15546v1",
+        "Resultary 8cf34e87984a, 641dc57f960c and 3f2e0b5e194a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finch gives the tilt-dependent offset lengths, implying disk 8/(πR) and annulus 2/(3πR³) under unweighted hit sampling; the central-plane record concerns offset zero only."
+        ],
+        "reasoning": "The coarea reweighting is exact but requires the section-area integral over each topology window. Neither its pointwise offset dependence nor the two asymptotic integrals follow from the inspected unweighted probabilities or central-plane regime.",
+        "searches": [
+          "Finch arXiv:2611.15546v1, §§4.1–5 and §7 Exercise 3",
+          "Resultary 8cf34e87984a and 3f2e0b5e194a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For unit normal n and signed offset t, the anchored joint density is area(n,t)/(4π Vol(T_R)) against dΩ dt. Finch uses dΩ dt conditioned on hit, whose tilt marginal has the additional factor 1+R sinβ.",
+          "Finch's disk condition |c−|M||≤1<c+|M| is the same topology event off null boundaries."
+        ],
+        "reasoning": "Point anchoring is equivalent to biasing the invariant hit-plane measure by section area, not to uniform-offset planes nor to choosing a central plane. The label 'point anchored' alone does not distinguish it from an area-biased formulation.",
+        "searches": [
+          "Finch, Slicing a Doughnut at Random, §§4–5 and §7",
+          "Resultary search for torus topology and point-anchored or area-biased sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified distinct results are 8cf34e87984a (unweighted Crofton), 641dc57f960c (same-day unweighted rare annulus), and 3f2e0b5e194a (area cusp and central-plane topology). None of those inspected results gives the anchored pair of coefficients."
+        ],
+        "reasoning": "Same-day 641dc57f960c was compared on the merits without assuming within-day priority. Its R^-3 law is the baseline, not the R^-2 weighted annulus law. No exact table for this weighted model was located.",
+        "searches": [
+          "Configured Resultary results for thin-torus rare disks, annuli, anchored and Crofton laws; compare exact RESULT.md statements"
+        ]
+      },
+      "rationale": "The classifier and two unweighted baselines are prior mathematics. The two anchored limits, including their constants, are distinct from those baselines and the closest obtained area or rare-topology results.",
+      "residual_risks": [
+        "Older or unindexed stereological literature could frame the same law as section-area sampling; the inspected evidence does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact geometry and unweighted baseline, not point- or area-biased limits.",
+          "evidence": [
+            "Disk iff one unit meridian disk is met; both give annulus. Hit conditioning weights tilt by (1+R sinβ)sinβ."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15546v1",
+          "material_read": "§§4.1–5, Lemma 16 and equation (3), HTML character offsets 19898–29380, and §7 Exercise 3",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Slicing a Doughnut at Random",
+          "trigger": "Same ring torus and three topologies"
+        },
+        {
+          "assessment": "Exact probabilities are for invariant hit planes; classifier is shared.",
+          "evidence": [
+            "Symmetric convex meridian generalization, including the circular case."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-three-topology-crofton-law-and-inverse-support-tomography-for--8cf34e87984a",
+          "material_read": "RESULT.md finding and sampling assumptions, offset 0",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "A three-topology Crofton law and inverse support tomography for convex-meridian toroids",
+          "trigger": "Broader geometry and exact topology probabilities"
+        },
+        {
+          "assessment": "Different plane law despite material geometry overlap.",
+          "evidence": [
+            "Annulus probability under hit conditioning asymptotic to 2b³/(3π R³)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-rare-annulus-marks-and-a-sharp-exposed-face-defect-for--641dc57f960c",
+          "material_read": "RESULT.md offsets 0 and 1900",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Universal rare-annulus marks and a sharp exposed-face defect",
+          "trigger": "Same-day rare-annulus asymptotic for thin tori"
+        },
+        {
+          "assessment": "Central planes only; does not integrate off-center area over offset windows.",
+          "evidence": [
+            "Haar tilt law at the central Villarceau transition."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-logarithmic-area-cusp-and-haar-topology-law-at-the-villarceau-tr--3f2e0b5e194a",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Logarithmic area cusp and Haar topology law at the Villarceau transition",
+          "trigger": "Section area and topology in the same torus geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–27 and 45–96",
+        "Finch hit-plane comparison"
+      ],
+      "rationale": "A natural sampling change in random sections changes both rare topology exponents, not just normalization. The exact constants quantify two different mechanisms: an azimuthal cap near projection extrema for disks and a shrinking tilt cone for annuli. These are usable benchmarks for random planar sections taken through interior points rather than for an arbitrary subcase of Crofton sampling.",
+      "residual_risks": [
+        "No extension to other meridians or practical finite-R error bounds is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

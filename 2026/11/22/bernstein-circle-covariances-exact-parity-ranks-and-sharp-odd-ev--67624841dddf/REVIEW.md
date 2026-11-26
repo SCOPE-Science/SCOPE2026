@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies both Fourier normalizations, the Bernstein degree and all sampling quantifiers. The crucial strict coefficient statement follows from exact endpoint coefficients: when output frequency exceeds the folded input harmonic, strict decrease plus nonnegative sine partial sums yields positivity; below it, an explicitly strictly decreasing weight has a positive sine integral by integration by parts. This yields an exact parity-support characterization. The derivative boundary terms give the \(k^{-2}\) constants; aliasing all two-sided Fourier masses yields exact ranks and the two sharp reciprocal-square minimizations, including one-parity and zero-input cases. The extracted standalone code passed 7,807 finite assertions. It is supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, relative to inspected evidence
-The most relevant source, Otten–Nguyen–Watts (arXiv:2608.04836), is a full-text comparison: its main theorem establishes nonnegative Bernstein cosine coefficients and positive semidefiniteness, but not exact positive coefficient supports, cyclic covariance ranks, or sharp odd/even least-eigenvalue limits. The compact-abelian strict positive-definiteness literature gives abstract criteria rather than these sampled Bernstein results. The closest public positive-definite Bernstein node-grid study concerns which interpolation nodes preserve the cone, not ranks or spectral conditioning on circle sampling grids. These implication differences are essential; keyword nonmatches are not novelty proof.
+PASS
 
-## Value — PASS
-The sharp limits quantify covariance interpolation stability and show an arithmetic phenomenon: odd grids remain invertible under a single Fourier parity even when every large even grid is singular. Exact finite ranks and the strict-positive-definite criterion identify when noiseless interpolation is possible, while the explicit constants quantify its increasingly poor conditioning when it is possible. This is a natural, reusable covariance-sampling invariant rather than a narrowly selected numerical example.
+For the repaired claim, endpoint differences give the two k^-2 tails, and folding and reflection prove exact vanishing in each inactive nonconstant parity. The uniform interior alias remainder is O(N^-2) after scaling. The fixed positive-frequency terms needed to exclude active edge indices are strictly positive by Abel summation (first positive partial sum) and the strictly decreasing sine-integral weight; a positive even mass supplies a positive mean. At an inactive odd-grid edge all nonconstant active aliases have |k| at least N-j after reflection, so the uniform tail bound extends to the edge and gives nD/2. The constant case gives zero, and minimization of the interior profiles gives both stated constants. The supplied finite checks were inspected, not executed, and are not used as proof.
 
-## Residual limitations
-The 2026 primary paper supplies an explicit coefficient formula that is reused and sharpened; the result should not be represented as independent discovery of circle cone preservation. Some older spline/spectral-discretization results may imply particular asymptotics. Related repository records were available through summaries rather than full article contents; the independent priority question is not settled. Fixed-degree versus jointly growing-degree behavior is not addressed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen attribution of global strictness and exact cyclic ranks as contributions does not pass: an earlier arbitrary-node nullity theorem covers both, and also gives the endpoint tail. The corrected files limit the new claim to the sharp even/odd least-eigenvalue limits. Neither the verified nullity theorem, which identifies kernels, nor the preservation theorem quantifies these limits; alias splitting and edge control are needed. The fixed-degree all-frequency sign refinement is used in the proof, not promoted as the main novelty.
+
+## value
+
+PASS
+
+The repaired quantitative bounds determine the conditioning scale that nullity alone cannot predict. In particular the same single-parity kernel has an exactly singular large even grid yet a positive odd-grid inverse-size constant, and with both masses active the explicit gap can be significant. The result is motivated by stable covariance sampling and captures all fixed Bernstein inputs, not a choice of isolated parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

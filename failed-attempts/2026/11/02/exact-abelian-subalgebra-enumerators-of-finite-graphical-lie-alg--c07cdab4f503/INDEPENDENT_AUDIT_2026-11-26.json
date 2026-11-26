@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:32.612597Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–4; VERIFICATION.md and verify.py",
+        "/workspace/reproduction/frozen_checks.py (run `python3 /workspace/reproduction/frozen_checks.py 3`): exhaustive RREF check of the full Lie algebra in five configurations over F_4, including the empty graph, no edges, isolated vertices, and a path with two edges. For the path the matched distribution is (1,341,677,101,1,0)."
+      ],
+      "rationale": "Distinct edge brackets are linearly independent, so pairwise commuting basis rows are exactly the matrices satisfying the edgewise 2×2 minors, in every characteristic. For a given nonzero support, one line per component and one nonzero scalar per vertex give the stated F_r. For the full-rank count, the commuting matrices in any fixed j-dimensional column subspace of F_q^k are in bijection with the j-row commuting matrices, and lattice inversion gives the stated sum before dividing by |GL_k|. In U⊕Z, an abelian subalgebra with vertex projection X and intersection T with Z is uniquely a graph into Z/T; this yields exactly the Gaussian lift factors. The rank bound k≤c(S)≤α is sharp; rank α forces independent component columns and gives the displayed top coefficient. This includes the empty graph and characteristic two. The sentence saying Z can be larger than the full center is reversed: Z=[g,g] is contained in the center, which is strictly larger with isolated vertices. The proof uses the quotient by Z, not by the full center, so that wording error does not change the theorem or its proof.",
+      "residual_risks": [
+        "The bundled full-algebra loop does not include P4 with its three edges, despite P4 direct-comparison values in the verification notes. The displayed P4 values agree with the derived formula; do not attribute their direct enumeration to that loop. The independent F_4 census is finite, and the general claim rests on the analytic count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldi et al. supply the dimension bound that gives m+α in this family, not the counts. Lee supplies a general Lie-subalgebra counting framework. Kushwaha gives the ideal's prime decomposition and a graded Hilbert-series treatment, not rational point counts in the checked passages. Rauh explicitly supplies the supportwise geometry, stronger than a component list or Hilbert series for this purpose."
+        ],
+        "reasoning": "It is Rauh's statement about actual support and proportionality that allows a disjoint sum over supports, rather than counting a union of closed sets with overlaps. The claim is not rejected merely on the basis of a general computational framework.",
+        "searches": [
+          "Rauh arXiv:1210.7960 §3 Lemma 5 and Theorem 7",
+          "Aldi et al. arXiv:2504.19836, Propositions 21 and 24; Lee arXiv:2010.02268 p. 3; Kushwaha arXiv:2609.12730v2 §2 and Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Rauh arXiv:1210.7960 §3",
+        "Kushwaha arXiv:2609.12730v2 §2 and Theorem 3.7",
+        "Aldi et al. Propositions 21 and 24",
+        "Lee p. 3",
+        "Resultary --05a73a94483e, --640289cbe228, --0a1963133942"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Rauh's support stratum S, fix one anchor per induced component. Each of the other |S|−c(S) columns is a unique nonzero scalar multiple of its anchor, giving the power of q−1. Each anchor can be any nonzero vector, giving F_r immediately. To count rank-k row spaces directly, choose a k-space of F_q^c with nonzero projection onto every anchor coordinate and duplicate those coordinates by the chosen multiples. The number of such spaces is Σ(i=0..c)(−1)^(c−i) binom(c,i)[i choose k]_q by inclusion–exclusion on zero coordinates. This is the same A_k as the frozen Gaussian inversion. For k=c there is one such anchor space. For full algebras the t-dimensional central intersection and graphs of maps into its quotient give the standard Gaussian coefficient and q^(k(m−t))."
+        ],
+        "reasoning": "No further graph-specific structure is needed to pass from the known support characterization to all ranks or the central lift, even without using the frozen inversion. The maximum slice follows by taking the largest possible support component count. These are exact implications, not an assertion that Rauh printed the Lie-algebra formula.",
+        "searches": [
+          "Rauh arXiv:1210.7960 §3 p. 4 support criterion, pp. 4–5 Lemma 5; arXiv:2504.19836 Propositions 21 and 24; Resultary --0a1963133942"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rauh's equations consist of exactly the minors of all row pairs at each adjacent column pair. His §3 states that on the actual nonzero support the columns are proportional within each connected component. This is the frozen graph-specific counting lemma, not just a resemblance between ideals."
+        ],
+        "reasoning": "The rows give an abelian frame if and only if they give a point of this variety; restricting to full row rank and changing basis gives exactly the Grassmannian of commuting subspaces in the vertex space. The point characterization works over finite fields directly, not by inferring point counts from a Hilbert series.",
+        "searches": [
+          "Generalized binomial edge ideals, finite-field point counting and rank refinement; Rauh arXiv:1210.7960, definition and §3 pp. 4–5",
+          "Graph Lie abelian subalgebra census, local Resultary --05a73a94483e, --640289cbe228, --0a1963133942"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--05a73a94483e gives the all-dimension census on complete bipartite graphs only. --640289cbe228 handles any simple graph but counts inclusion-maximal abelian subalgebras. --0a1963133942 counts maximum-dimensional abelian ideals and states that all maximum-dimensional abelian subalgebras are ideals, so it gives the same top slice."
+        ],
+        "reasoning": "The earlier biclique table is not an all-graph table; inclusion-maximal and maximum-dimensional are not interchangeable. The distinct same-day overlap is exact at top dimension, not evidence of priority or of an indexed all-dimension formula.",
+        "searches": [
+          "Local Resultary all-dimension abelian graph Lie census and maximum-dimensional census; inspected --05a73a94483e, --640289cbe228, --0a1963133942"
+        ]
+      },
+      "rationale": "Rauh's verified characterization of points of generalized binomial edge ideals is exactly the graph-specific nonzero-support geometry needed to derive the frame formula and rank counts. The rest is a standard row-space quotient (or Gaussian inversion) and central graph-lift formula. This covers the all-graph census by mechanical implication without requiring an earlier paper to print B_d. A distinct same-day indexed record also covers the maximum-dimensional slice in a different formula. No publication precedence is inferred from that date.",
+      "residual_risks": [
+        "No claim of locating the earliest explicit finite-field point-count expression or all-dimension B_d formula. The verdict relies on verified prior implications, not a negative search or same-day chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive graph-specific geometry already covered",
+          "evidence": "A point belongs to V_G iff its nonzero columns in each connected component of G[S] are proportional; Lemma 5 gives the corresponding support varieties.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.7960",
+          "material_read": "p. 1 definition, §3 pp. 4–5 support characterization and Lemma 5 (offset 15100 onward), Theorem 7 p. 6",
+          "method": "OA PDF passages",
+          "title": "Generalized Binomial Edge Ideals",
+          "trigger": "Exact edge-minor equations and induced components"
+        },
+        {
+          "assessment": "Maximum dimension covered, not the all-dimension enumeration",
+          "evidence": "The independence data and upper bound specialize to m+α for the graph Lie algebra.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.19836",
+          "material_read": "pp. 6–7 Propositions 21 and 24",
+          "method": "OA PDF passages",
+          "title": "Independence Polynomials of 2-step Nilpotent Lie Algebras",
+          "trigger": "Graph Lie algebra maximum dimension and independence theory"
+        },
+        {
+          "assessment": "Graded series/join results, not direct point counts in the checked passages",
+          "evidence": "The defined series is standard graded; a graded Hilbert series is not a rational point count.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12730v2",
+          "material_read": "§2 including prime decomposition printed p. 5, OA offset 11647, §2.2 Hilbert series and Theorem 3.7",
+          "method": "OA PDF passages",
+          "title": "Generalized binomial edge ideals Hilbert-series work (Kushwaha)",
+          "trigger": "Possible stronger finite-field enumeration or exact table"
+        },
+        {
+          "assessment": "General framework, not an exact graph-uniform abelian census in the checked passage",
+          "evidence": "Subalgebra counts are formulated via zeta functions; they are not restricted to this commuting edge-minor problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02268",
+          "material_read": "p. 3 Lie-subalgebra zeta function setup",
+          "method": "OA PDF passage",
+          "title": "Zeta functions of F_p-Lie algebras and finite p-groups",
+          "trigger": "Broader subalgebra enumeration framework"
+        },
+        {
+          "assessment": "Exact top slice in different presentation; no date-based priority conclusion",
+          "evidence": "The maximum-dimensional abelian subalgebras are ideals; the Schubert-stratum count enumerates them.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-schubert-stanley-reisner-census-of-maximal-abelian-ideals-in-gra--0a1963133942",
+          "material_read": "Mirrored Finding and maximum-dimensional subalgebra/ideal relation",
+          "method": "Local Resultary search and mirrored record passage, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Schubert–Stanley–Reisner census of maximal abelian ideals in graph Lie algebras",
+          "trigger": "Exact overlapping top-dimensional census for any graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4 and P4 example",
+        "Rauh arXiv:1210.7960 §3 support criterion",
+        "Resultary --0a1963133942 top-slice comparison"
+      ],
+      "rationale": "The full dimension distribution is a natural invariant and improves on stating only the maximum. As a standalone research result here, the entire enumeration is a mechanical point count of the known support strata, a Grassmannian count with coordinate exclusions, and an ordinary central-subspace lift. The work supplies no separate uncovered structural statement or application requiring new reasoning beyond those steps.",
+      "residual_risks": [
+        "The resulting expressions may be useful as explicit formulas in exposition or computation. No stronger algorithmic, structural, or asymptotic claim is assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

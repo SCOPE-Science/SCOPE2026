@@ -1,15 +1,21 @@
-# Review: odd-characteristic cycle-sum division
+# Independent mathematical audit
 
-## Correctness — PASS
-Normalization of cycle basis turns all positive prime-valuation indices into a square-zero ideal. Divisor zeta coordinates identify every finite divisor-supported algebra with independent trivial-extension blocks; invertibility is proved over arbitrary fields. The multiplicative gcd/restriction map retracts arbitrary finite sums into the divisor cutoff, and thus establishes the existence equivalence for division in the entire cycle algebra. The three scalar/nilpotent local conditions are exact; finite-field pair counts follow by a disjoint image-count argument. A separate exhaustive checker confirms seven odd-prime truncation configurations and five binary controls. No finite experiment is used to infer the theorem's unbounded quantifiers.
+## correctness
 
-## Originality — PASS with residual bibliographic uncertainty
-Gadouleau and Johnson, *Semirings of formal sums and injective partial transformations* (arXiv:2603.26508v1), Theorem 3.9, cover the characteristic-two cycle division problem. Their Section 5 proposes other prime fields for future investigation. The prior cycle multiplication and divisor-zeta method are credited, while neither the odd-characteristic local square-zero product decomposition, nor the all-support retraction together with the exact q-ary divisible-pair enumeration appears in the inspected text. Targeted indexed-research comparisons with graph- and semigroup-related records did not locate equivalent coverage, but this absence does not certify global uniqueness. An unindexed equivalent remains possible.
+PASS
 
-## Value — PASS
-The result addresses the named odd-prime-coefficient extension of a studied division problem, supplies an effective necessary-and-sufficient criterion for all finite-support inputs, and determines the entire distribution of divisible ordered pairs at each finite divisor cutoff. The exact block structure and p-adic versus coprime-factor dependence provide reusable structural explanations rather than an isolated finite computation.
+For i=p^k d and j=p^l e with d,e prime to p, the normalizing factor gcd(d,e)lcm(d,e)/(de)=1 leaves coefficient p^min(k,l). Thus all positive-p-valuation basis products with each other vanish, and a valuation-zero factor acts by lcm on prime-to-p indices without changing the other valuation. The coordinate map multiplies correctly since indicators of d|r and e|r multiply to the indicator of lcm(d,e)|r; the same unit-triangular divisor matrix acts separately on each valuation, so inversion works even in characteristic p. Independently, the span of lengths not dividing m is an ideal (a nonzero basis product has index a multiple of each input); hence discarding those lengths gives a unital projection to R_m and proves the full-to-finite existence assertion. Also checked the stated, different retraction: truncation of positive valuations commutes with maximum and preserves positivity if a≥1; if a=0 all positive parts vanish on both sides. Prime-to-p gcd cutoff commutes with lcm by checking prime exponents. In a block, scalar α≠0 solves first for the scalar of X then its vector, uniquely; nonzero pure-vector A gives one scalar on the line Kv and q^a arbitrary vector choices; A=0 reaches only zero with q^(a+1) choices. Counting targets by first factor gives (q−1)q^a·q^(a+1)+(q^a−1)q+1, then independent multiplication over τ(u) blocks. At a=0 this gives (q−1)q+1 per field, as required. It applies to all finite extensions of F_p; it counts ordered inputs (A,B) for which a solution exists, not triples or the size of a global fiber. The frozen code was inspected, not executed: it works with the normalized multiplication, counts images without asserting each solution-fiber cardinality, and samples retraction identities in prime fields. The independent proof check, not this supplemental enumeration, validates the general cases.
 
-## Limits
-No result about chain sums is asserted. The counting theorem applies only to finite fields. The exact finite-truncation solution counts are not asserted to count every infinite-ring solution. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the odd-characteristic cycle-division criterion with explicit finite-field solvable-pair and cutoff-fiber counts, not novelty of the cycle product, marks/zeta coordinates, the square-zero mechanism by itself, or the binary case. The Burnside-ring identification yields substantial structural coverage in a different language; the cited binary division theorem and inspected modularly relevant mark material do not give the odd-characteristic division package.
+
+## value
+
+PASS
+
+There is a concrete division problem beyond binary coefficients in the cited formal-sum framework. The result connects finite supports in the full algebra to a small finite ring, provides a coefficient-level criterion and determines how often division is possible, as well as how many cutoff solutions exist. The count is elementary after the block reduction, but the combination answers a motivated solvability and enumeration question for all odd fields, rather than selecting isolated cases or counting already enumerated configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

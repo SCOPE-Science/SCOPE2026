@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two cyclic permutation matrices commute and are normal, so their tensor Fourier modes give a complete orthonormal eigensystem. Every purported collision between distinct summed eigenvalues forces nonzero chord differences in both factors. The exact chord identity and coprimality then force conjugate indices in each coordinate; the sine equality is both necessary and sufficient for a double collision. No third mode can have the same eigenvalue. An eigenspace-wise PBH evaluation reduces every two-node failure exactly to simultaneous divisibility. The uniform-rate exception and the prime-order placement consequence follow from elementary modular arguments. The proof covers all coprime integer sizes and every positive real rate ratio. The supplied checker passed 4,248,701 consistency checks; these tests are not substituted for infinite proofs.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+Unitary Fourier diagonalization gives sums of two rate-weighted roots of unity, up to the shift convention. In a collision both indices differ. The nonzero root-of-unity chords must have parallel directions, so (j+j′)n−(k+k′)m is a multiple of mn. Coprimality and 1≤j+j′≤2m−3 (likewise for n) force sums m and n. Thus neither index is a self-conjugate frequency and each mode has at most one partner. Opposite signs of the two imaginary parts are necessary for positive rates, giving exactly the pairs and positive sine ratios stated. The two Fourier evaluation rows at inputs translated to (0,0),(u,v) lose rank exactly when 2ru/m−2sv/n is integral, equivalent by coprimality to both divisibilities. Simple modes never obstruct one input, repeated modes require two, and each coordinate adjacency clears the corresponding divisibility. Equal sines in (0,π) would force equal or supplementary angles, both excluded by the same modular argument at these indices; prime orders force zero displacement for a failure. An independent real-space eigensolver/PBH SVD checked 109 site sets including resonant composite orders and an equal-rate case (/workspace/branches/frozen_math_replay.py, argument 2). These numeric checks are bounded corroboration, not the analytic proof. The uploaded 82-digit checker was inspected, not executed.
 
-General graph-product eigenvalue sums and PBH criteria already appear in Notarstefano–Parlangeli (arXiv:1203.0129) and Chapman–Nabi-Abdolyousefi–Mesbahi (DOI:10.1109/TAC.2014.2328757). Nabi-Abdolyousefi–Mesbahi (DOI:10.1109/TAC.2013.2259992) establish a broad circulant maximum-multiplicity actuator-count theorem, so that generic principle is explicitly excluded from novelty claims. The specialized exact sine-resonance set, proof that no higher multiplicities occur, the full two-site placement divisibility classification, and the uniform-rate coprime simplification were not found in inspected applicable full texts or query results. The full 2013 circulant paper was not accessible despite open-access searches, so specialist priority risk remains. This is a best-knowledge overlap judgment, not proof of uniqueness or independent validation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural parameter-and-actuator-placement classification for a fixed two-generator network family, rather than a small parameter substitution or a numerical example. It reveals a finite algebraic set of exceptional interdirection rate ratios where an extra actuator becomes necessary, and gives an explicit local two-actuator remedy and a test for any proposed pair. The unexpectedly robust equal-rate result and the distinction between prime and composite placement geometries motivate the exact formulas. It does not imply robustness to uncertainty near resonance, and no extension beyond the stated family is claimed.
+Pass restricted to the exact positive-rate collision classification and all two-site placements on the stated directed family. Product eigenvalue sums, PBH eigenspace rank, Fourier modes, and the generic multiplicity-based actuator-count framework are not the original contribution. The strongest inspected related statements and indexed records do not give the directed coprime chord restriction or its exact resonance and placement formulas. Directly relevant specialist full-text access remains unresolved, so this is not a priority guarantee.
 
-## Closest literature and limitations
+## value
 
-- G. Notarstefano and G. Parlangeli, arXiv:1203.0129 (undirected grid spectral and control method).
-- A. Chapman, M. Nabi-Abdolyousefi and M. Mesbahi, DOI:10.1109/TAC.2014.2328757 (general Cartesian-product PBH theory, full author text inspected).
-- M. Nabi-Abdolyousefi and M. Mesbahi, DOI:10.1109/TAC.2013.2259992 (circulant-network maximum-multiplicity bound, abstract available; entire text inaccessible).
-- B. Liu and collaborators, DOI:10.1109/TSIPN.2024.3487411 (general discrete-time Cartesian-product controllability).
+PASS
 
-The independent validation and specialist originality check remain outstanding. The finite checker does not establish the universal theorem.
+Exact exceptions determine sensor or actuator placement in a natural directed lattice family. The criterion distinguishes truly inadequate displacements from adjacent or other successful pairs at resonance, handles all positive ratios rather than generic ones, and provides a concrete composite-order obstruction. This is useful beyond the generic eigenvalue-multiplicity principle.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

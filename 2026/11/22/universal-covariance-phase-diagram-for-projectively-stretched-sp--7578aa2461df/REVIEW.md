@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is an exact sign classification of pairwise coordinate covariances of the explicitly defined projectively rescaled spherical-Dirichlet law. Independence of Gamma totals and Dirichlet proportions gives exact within-block factorization; formula (1) reduces every within-block sign to one scalar ratio. Differentiation gives formula (2), and strict moment log-convexity proves strict monotonicity for every finite positive scale. A complete beta-prime asymptotic trichotomy proves the large-scale crossing for **all** positive complement shapes, including the nonintegrable cases. Gamma log-convexity proves the baseline and strict limiting gaps. The opposite block follows by inversion of scale, and opposing monotonic functions give strictly negative cross-block covariance. The proof uses no numerical extrapolation, finite enumeration, or unproved special-function bound.
+PASS
 
-The standalone program `verify_covariance.py` passed 96 deterministic high-precision integral and sign checks. This supplementary program tests examples; it does not certify the theorem's universal quantifiers. No independent mathematical audit was performed.
+The independent gamma-block construction gives Y_i=√P_i√W in I and Y_j=√S_j√(1−W) in J, with the two Dirichlet proportion vectors independent of W and one another. The distinct I pair has E√(P_iP_j)=c_ic_j/A and E√P_i=c_iΓ(A)/Γ(A+1/2); the covariance therefore has the sign of Q−K_A. Interchanging the blocks sends r to 1/r, and for a cross-block pair an independent-copy covariance identity makes the product of the increasing and decreasing differences strictly negative. These statements include singleton blocks by vacuity for nonexistent pairs. For m_s=E W^s, local dominated differentiation gives r m_s'=−s(m_s−m_{s+1}); strict moment log-convexity for a nonconstant W gives m_2/m_1>m_{3/2}/m_{1/2}, hence strict increase of Q. At r=1 beta moments give Q=K_A/K_{A+T}<K_A by strict gamma log-convexity. The beta-prime density of V=L/H is proportional to v^(T−1)(1+v)^(−A−T). For T>s dominated inverse moments give order r^(−s); for T<s, u=rv gives the beta integral of order r^(−T). At T=s, on 1/r≤v≤1 the scaled integrand is proportional to 1/v with integrated error O(1), bounded by a constant times the integral of [v+1/(rv)]/v; the outer ranges are O(r^(−s)). These regimes give divergence of Q for T≤1, including the log endpoints. For T>1 its limit is K_AΓ(T)Γ(T−1)/Γ(T−1/2)^2>K_A. Strict monotonicity then proves the claimed unique crossings and ordering for every positive shape. The uniform S³ formula was corroborated by 50-digit independent quadrature and by bisection of the elementary uniform-beta moments for d=r−1>0: m_1=(r log r−d)/d², m_(1/2)=r arctan(√d)/d^(3/2)−1/d. These give 4.258066031391 and reciprocal 0.234848401276, diagnostic decimals rather than an interval certificate. The uploaded checker was read, not run.
 
-## Originality: PASS on inspected evidence
+## originality
 
-Guardiola's 2025 source (updated in 2026) establishes strict negativity of undeformed spherical-Dirichlet coordinates and their exact moments, but does not study blockwise projective deformation or a two-boundary phase diagram. The 2020 original reports undeformed moments only. Furman, Kye, and Su (2019) and Lakhani (2026) study ordinary scaled Dirichlet compositions with unequal Gamma scales, including positive-covariance examples or general mixed moments, but do not supply simultaneous unique reversals of the square-root directional covariances. Geneyro and Núñez-Antonio (2022) project independent Gamma variables instead of coordinatewise Gamma square roots and focus on density modeling and inference. Targeted statement-level searches in mathematical research records found no matching stronger phase classification.
+PASS
 
-The full 2024 dissertation on alternative hyperspherical Dirichlet-type laws was not accessible; only its abstract was reviewed. That is a genuine historical-priority uncertainty, not evidence of noncoverage. Related literature could contain an unlocated equivalent result. No claim of exhaustive global novelty is made.
+The exact singleton-versus-rest model and examples of sign changes are not new: they are SDirIII from Leshilo (2024), whose full thesis was obtained and read for the comparison, beyond the bibliographic abstract used in the frozen record. The supported claim is the universal all-shape unique crossing and full two-block sign diagram for coordinate values. The inspected thesis formulas and example plots do not already settle that statement or its all-shape singleton specialization; no novelty is credited to the distribution in that specialization or to the existence of positive covariance in general.
 
-## Mathematical value: PASS
+## value
 
-The negative off-diagonal dependence familiar in the spherical-Dirichlet model is not stable under a natural coordinate reweighting followed by normalization. The theorem supplies a complete, sharp, globally valid classification for all positive parameters, including two distinct critical scales, synchronization across heterogeneously shaped coordinates, and persistence of negative cross-block dependence. In the area-uniform four-dimensional positive sphere, the thresholds numerically equal approximately \(0.234848401276\) and \(4.258066031391\). This structural phase diagram is useful for designing and interpreting correlated nonnegative directional models and is stronger than an isolated sign example.
+PASS
 
-## Scope and residual risks
+The theorem turns earlier selected sign changes for a known special case into a complete strict sign classification, including singular beta-shape regimes with divergent inverse moments. Dependence only on block totals and opposite unique crossing scales reduce the whole sign pattern to two scalar roots. The contribution is this structural result, not the baseline spherical moment or a computed four-dimensional example alone.
 
-The theorem is restricted to two blocks with a common scale inside each; it is not an arbitrary multi-scale covariance classification. Critical scales are implicit. The inaccessible dissertation and potential unindexed equivalent Gamma-direction results remain priority risks; the proof has received no independent validation.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the Kreisel–Putnam first-defect theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The local failure predicate is derived from the definition of implication on downsets. Any failure forces two incomparable maxima in the local negated-antecedent downset and a separate minimal antecedent witness, yielding eight distinct triples via swapping consequents and independently adjoining that minimal element. The induced four-point subposet forces the nine-element minimum and unique boundary; direct counting gives 24 failures there. The explicit upper-chain construction gives precisely eight failures for every algebra order at least eleven. Finite direct-computation and independent local-criterion checks support the proof without being used as an infinite certificate.
+## correctness
 
-## Originality
-**PASS under accessible comparisons.** The arXiv 2021 degree-of-satisfiability paper addresses the general counting paradigm but does not supply this Kreisel–Putnam defect classification in the inspected text. The published 1997 book gives a qualitative Kripke-frame characterization; that result does not state the numerical minimum or construct sharp witnesses of every carrier size. The inspected 2023 Kreisel–Putnam paper studies rule admissibility rather than finite Heyting-algebra failure counts. Searches of the scholarly web and semantic mathematical research records disclosed no stronger covering count theorem. Residual risks include specialized intuitionistic-frame literature and uninspected older or inaccessible primary papers; search nonappearance is not a novelty proof.
+PASS
 
-## Mathematical value
-**PASS.** Kreisel–Putnam is a standard intermediate intuitionistic principle. An absolute first-positive-defect theorem, a unique smallest carrier boundary, and exact optimal nonvalid satisfaction for each algebra size at least eleven quantify the distance to validity; the extremal sequence also distinguishes absolute from normalized satisfiability gaps. These are complete structural and quantitative statements with natural parameter choices, not isolated census entries.
+A failure occurs at some x precisely when Q=↓x∩¬A is covered by B∪C but by neither alone. Hence Q has distinct incomparable maxima u,v, and x has an A-predecessor. A minimal such predecessor s is minimal in P and incomparable with both u and v. The downsets Q without u and ↓u cover Q properly; independently adjoining s to either and reversing the ordered pair gives eight distinct failures with the same A. The induced poset on s,u,v,x is A_3⊕A_1; restriction of downsets is onto its nine-element lattice, and equality of sizes makes restriction an isomorphism. In this poset three singleton antecedents each give eight failures, verified directly over 9^3 ordered triples. In the displayed size-h family the base fork plus an isolated s has ten downsets, and each upper-chain point adds exactly one. Only A={s} can fail, only at an upper-chain witness; then u and v must be assigned to opposite consequents, with independent choices for including s, giving exactly eight for each h≥11. Direct implication over 11^3 triples also confirms the seed count. These finite checks corroborate the multiplicities rather than replace the universal proof.
 
-## Limits
-Only finite algebras and uniformly sampled ordered triples are covered. No claim is made for size ten's exact optimum, alternative probability distributions, or independent verification. The qualitative frame criterion predates this result and is credited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defensible distinct claim is quantitative: sharp smallest positive KP failure count eight, with exact attainment at every size h≥11. The minimum-order boundary follows from the standard sort of qualitative frame obstruction once one counts its downsets, so do not credit the underlying obstruction as original. The exact multiplicities and sharp quantitative profile are not supplied by the inspected validity and satisfiability results.
+
+## value
+
+PASS
+
+The smallest nonzero count is a natural quantitative boundary for a named intermediate-logic principle. The local counting argument explains why a single failure forces multiplicity eight, and the attaining construction yields a precise optimum at every order h≥11 rather than an isolated small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

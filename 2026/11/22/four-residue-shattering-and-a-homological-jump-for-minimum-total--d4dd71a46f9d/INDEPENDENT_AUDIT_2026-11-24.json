@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:02:37.372427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every open-neighbor constraint is an edge-covering constraint on the step-two graph, so complementing the minimum vertex covers gives the maximum independent sets and preserves shattering. Maximum sets split by component. On an even component the only choices are the two alternations, also true of the single-edge components at n=4. On an odd cycle of length m, a maximum word has exactly one 00 edge and no 11 edge. For a nonadjacent pair, prescribed endpoint bits force odd 00 parity on exactly one arc. Use alternation on the other and insert a duplicated zero in an alternating word shortened by one edge on the odd-parity arc (it has length at least two). Adjacent pairs fail the 11 trace. For three queried vertices, the mod-two endpoint differences L_i-1 are consistent because the three arc lengths sum to odd m; they force at least one 00 on each arc, impossible. This proves the full support test, not just the degree bound. The odd-component complex is the graph complement of the cycle, with no filled triangles: it is connected for m>=5 (minimum degree m-3 precludes disconnectedness for m>=5), and a spanning tree gives wedge rank E-V+1. The triangle is discrete. For two components the support counts multiply and the complexes join; collapsing the based contractible part of the join gives suspension of the smash and hence the claimed sphere dimensions and squared ranks, including n=6. The supplied brute force checker was inspected, not executed; its finite traces and Euler data are not the proof of unrestricted homotopy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximal-independent-set record's Finding covers all inclusion-maximal sets of one cycle, not maximum sets.",
+          "Beaton–Brown–Cameron count independent sets by weight in the independence polynomial, not query supports by shattering."
+        ],
+        "reasoning": "Shattering by a larger concept family need not persist after restricting to optimizers. Neither the broader concept family nor a weight polynomial gives the smaller family's all-support traces.",
+        "searches": [
+          "Resultary SCOPE-complete-shattering-polynomial-and-forbidden-gap-law-for-maximal--4d0afc364bee",
+          "arXiv:1810.05317"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 253357213fec",
+        "Resultary 4d0afc364bee",
+        "Resultary 49796f81cbd6",
+        "arXiv:1810.05317",
+        "arXiv:2010.02341",
+        "arXiv:2106.06702"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier fixed-weight VC formula yields the component VC dimensions at maximum weight except a literal m=2 gap (covered directly by two concepts); its limitations expressly disclaim an all-coefficient polynomial.",
+          "A single shattered witness and a size-three obstruction do not establish that every nonedge pair is shattered. The all-pair alternating-arc realization supplies that missing input. Neither ordinary domination nor the inclusion-maximal trace family supplies it."
+        ],
+        "reasoning": "Credit the actual scalar implication, then separate the finer trace lemma and the structural consequences that require it.",
+        "searches": [
+          "Resultary 253357213fec Finding, Proof §§2–3 and Limitations",
+          "Resultary 4d0afc364bee Finding",
+          "Resultary 49796f81cbd6 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation reduces the target to maximum-independent-set traces on step-two components. The fixed-weight Finding and Proof §§2–3 supply a scalar upper bound and one attaining support, not all attaining pairs.",
+          "Bahadır–Ekim–Gözüpek's opening definitions and results address minimal total domination and size structure, not the optimum trace complex."
+        ],
+        "reasoning": "Compare the statement in the independent-set language rather than assuming total-domination terminology makes it new. Scalar dimension alone does not identify the edges of the complex.",
+        "searches": [
+          "Resultary SCOPE-fixed-weight-cyclic-independent-sets-a-one-logarithm-online-boun--253357213fec",
+          "arXiv:2010.02341"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day ordinary minimum-domination record gives exact supports and a three-residue table but explicitly addresses a different family, with closed rather than open neighborhoods.",
+          "Alikhani–Jafari's total domination polynomial counts selected vertex sets by their weight, not the subsets of queried vertices with all traces."
+        ],
+        "reasoning": "These are the closest polynomial/table matches; neither tabulates the queried-support invariant or its topology for optimum total domination. Date alone was not used to discard a match.",
+        "searches": [
+          "Resultary SCOPE-minimum-domination-on-cycles-the-full-three-residue-shattering-l--49796f81cbd6",
+          "arXiv:2106.06702"
+        ]
+      },
+      "rationale": "The scalar fixed-weight VC result is prior coverage and expressly excluded from the contribution. Best of the inspected statement-level evidence, the exact optimum-only support criterion and ensuing support polynomial and homotopy are distinct. Counting and homotopy once the support lemma is proved are elementary, not claimed as new general techniques.",
+      "residual_risks": [
+        "Equivalent extremal cyclic-word or minimum vertex-cover trace statements may appear under other terminology; no exhaustive priority claim.",
+        "The prior scalar result and elementary product/join steps should not be marketed as distinct advances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the scalar component VC bound for lengths at least three, not all pair traces or topology",
+          "evidence": "VCdim=min(k,r+1) for r=n-2k; necessity plus an explicit example and no full support polynomial claim",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-weight-cyclic-independent-sets-a-one-logarithm-online-boun--253357213fec/RESULT.md",
+          "material_read": "Finding, Proof §§2–3 and Limitations, offsets 0, 2850 and 6200",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-weight cyclic independent sets: a one-logarithm online boundary effect",
+          "trigger": "Same component concept class at maximum weight"
+        },
+        {
+          "assessment": "Different instance family",
+          "evidence": "All inclusion-maximal independent sets, not just optimizers",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-shattering-polynomial-and-forbidden-gap-law-for-maximal--4d0afc364bee/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete shattering polynomial and forbidden-gap law for maximal independent sets of cycles",
+          "trigger": "Same shattering invariant for a related cyclic set family"
+        },
+        {
+          "assessment": "Does not cover total domination",
+          "evidence": "Ordinary minimum dominating sets; different neighborhood constraint",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-minimum-domination-on-cycles-the-full-three-residue-shattering-l--49796f81cbd6/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimum domination on cycles: the full three-residue shattering law",
+          "trigger": "Exact same-day shattering polynomial for cycle domination"
+        },
+        {
+          "assessment": "The compared independence-polynomial statement is a weight count, not a support trace test",
+          "evidence": "Counts independent sets by size",
+          "identifier_or_url": "https://arxiv.org/abs/1810.05317",
+          "material_read": "Opening abstract and introduction",
+          "method": "OA primary PDF text",
+          "title": "Independence Equivalence Classes of Paths and Cycles",
+          "trigger": "Cycle independence invariants"
+        },
+        {
+          "assessment": "The compared results discuss structure and cardinality, not shattering complexes",
+          "evidence": "Minimal total dominating sets and when all such sets have the same cardinality",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02341",
+          "material_read": "Opening abstract and introduction",
+          "method": "OA primary PDF text",
+          "title": "Well-Totally-Dominated Graphs",
+          "trigger": "Structural results on total domination"
+        },
+        {
+          "assessment": "The compared invariant has a different definition",
+          "evidence": "Counts total dominating sets by cardinality",
+          "identifier_or_url": "https://arxiv.org/abs/2106.06702",
+          "material_read": "Opening abstract and introduction",
+          "method": "OA primary PDF text",
+          "title": "More on total domination polynomial and D_t-equivalence classes of some graphs",
+          "trigger": "Possible polynomial overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard optimization family, the all-support invariant answers every query feasibility question; cardinality counts of optimizers and a scalar VC bound cannot do that. The support graph and its parity joins explain a concrete jump from circles to three-spheres and give their exact integral ranks. The value lies in this complete description, not a claim about an arbitrary graph or unrelated domination notions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

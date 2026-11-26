@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:56:36.399034Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 21–73; VERIFICATION.md; verification.py (inspected, not executed). Replay paths: renewal inversion and implicit differentiation above; symbolic tilted determinant in verification.py:9–31 checks only the exponential Markov specialization; lines 67–95 are finite nonexponential diagnostics."
+      ],
+      "rationale": "The quantified threshold, tomography, third-order witness, and Pareto asymptotic hold for the stated regenerative emitter. In G the reset is a self-loop; in E the next clock has rate gamma+sum(s_i)+r. A failed attempt adds a fresh min(U_i,Exp(r)) if shelved, otherwise zero, and restarts in G. The attempts give the displayed Laplace transform f(z)=p*gamma/H(z) and an exponential moment. For the cumulant step, the renewal MGF has time Laplace transform (1-f(z))/(z(1-exp(x)f(z))). The interarrival distribution has a density, hence |f(iu)|<1 for u!=0; f decays as O(|u|^-2) uniformly in a small strip by the displayed formula. Thus in a smaller strip for complex x near zero the only pole of the renewal MGF transform is the simple root H(z(x))=p*gamma*exp(x). Shifting the inversion contour (subtract 1/z first) gives an analytic nonzero leading residue and uniform exponentially smaller error; local Cauchy differentiation yields c_j=z^(j)(0). Three implicit derivatives give the reported ratios, including F-1=2p*gamma*(p*K-1)/H'(0)^2 and c3/c1=1-(p*gamma)^2*H'''(0)/H'(0)^3 at equality. H'''(0)>0. K strictly decreases to zero from half the weighted second moment (possibly infinite). Right continuity upgrades Laplace uniqueness to all t>0; decomposition into channels is not generally identifiable. After the Pareto rescaling v=rt, v^(1-alpha)*exp(-v) dominates, giving the exact amplitude by Gamma integration. The headline 'nonanalytic' should not be read as universal: for alpha=3/2, putting z=sqrt(r*tau) makes z*K(r) analytic and nonzero at z=0 by the erfc formula, so the threshold r(p) itself is analytic at zero by the implicit function theorem. The precise displayed power-law claim is correct. Fano equality concerns the limiting variance-to-mean ratio, not all second-order time correlations.",
+      "residual_risks": [
+        "The frozen supplementary script was not replayed. The analytic result uses independent fresh dwell times and complete Poisson resets; neither finite-time nor experimental validity is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu derives a reset-dependent SCGF implicit root; Lachman et al. compute shelving-emitter statistics without the modeled resets; cited blinking source's full text was not accessible."
+        ],
+        "reasoning": "Neither the inspected reset formalism nor the unreset three-level formulas state the arbitrary-survival sign identity, inversion, or third-cumulant inequality at a general crossing.",
+        "searches": [
+          "arXiv:2308.02214, Secs. II–III",
+          "arXiv:2407.13273, Sec. 6",
+          "DOI:10.1063/1.4881460"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and mirror, record fa3b9db644e0",
+        "arXiv:2308.02214",
+        "arXiv:2407.13273",
+        "DOI:10.1063/1.4881460 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset framework supplies a generic tilted renewal equation. The one-exponential record gives the rational threshold, not the weighted dark survival transform for arbitrary dwell laws."
+        ],
+        "reasoning": "The generic equation requires evaluation of the complete-reset attempt transform and cancellation of all terms but the weighted truncated second moment for the sign; that identity supplies the data function for inverse recovery. The Markov specialization alone gives neither the monotone distribution-free crossing nor the inverse map.",
+        "searches": [
+          "arXiv:2308.02214, Eqs. (17)–(26)",
+          "Local mirror RESULT.md for fa3b9db644e0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day reset-emitter result states r*=sqrt(p*s)-u and c3/c1<1; substituting U~Exp(u) gives K=s/(r+u)^2 exactly."
+        ],
+        "reasoning": "An exact equivalent for one exponential law, not for arbitrary truncated survival; the reset-MGF formulation is a method rather than an already evaluated dark-time threshold.",
+        "searches": [
+          "Resultary: reset shelved emitter shot-noise crossover and third cumulant",
+          "arXiv:2308.02214, Sec. III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct exact hit is exponential three-level shelving with the same two witnesses in that specialization; its inspected result does not recover an unknown aggregate dwell law."
+        ],
+        "reasoning": "An indexed exact specialization is credited; finite benchmark numbers or rate tables cannot cover distribution-level identifiability.",
+        "searches": [
+          "Resultary indexed reset-emitter findings; local mirror RESULT.md for fa3b9db644e0"
+        ]
+      },
+      "rationale": "Credit the exact one-exponential-channel crossing and third-cumulant witness to the distinct matching record; same-day indexing establishes overlap, not priority. Neither that scalar case nor the inspected general renewal machinery supplies the combined arbitrary-law sign criterion and inverse observable. PASS is for the distinct arbitrary-law result, not a separate claim to the Markov specialization or Laplace uniqueness.",
+      "residual_risks": [
+        "Volkán-Kacsó full text unavailable in inspected copies; only bibliographic comparison.",
+        "Unindexed or unrecognized model-specific implications of general reset-renewal formulas could overlap. The same-day overlap does not establish chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact specialized overlap",
+          "evidence": "Positive threshold iff p*s>u^2, with r*=sqrt(p*s)-u; third normalized cumulant is strictly below one there.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-shot-noise-crossover-under-ground-state-resetting-of-a-s--fa3b9db644e0",
+          "material_read": "Local mirror RESULT.md, offsets 0–7747",
+          "method": "Published-record lookup and local mirror reading",
+          "title": "A sharp shot-noise crossover under ground-state resetting of a shelved three-level emitter",
+          "trigger": "Strongest distinct indexed match"
+        },
+        {
+          "assessment": "Methodological coverage",
+          "evidence": "Memoryless reset toward one state and implicit SCGF equation; not the specific dark-survival threshold or inversion.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.02214",
+          "material_read": "PDF pp. 1–5, Secs. II–III, Eqs. (17)–(26)",
+          "method": "Lawful OA PDF passages",
+          "title": "Semi-Markov Processes in Open Quantum Systems. II. Counting Statistics with Resetting",
+          "trigger": "General reset-counting theorem"
+        },
+        {
+          "assessment": "Unreset model overlap",
+          "evidence": "Above-band pumping and three levels with shelving; correlation and binned-detection calculations do not include the independent complete ground resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.13273",
+          "material_read": "PDF pp. 10–11, Sec. 6, Eqs. (41)–(47)",
+          "method": "Lawful arXiv copy of the cited paper",
+          "title": "Experimental Certification of Level Dynamics in Single-Photon Emitters",
+          "trigger": "Same shelving emitter base model"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "Title establishes relevance to arbitrary waiting times and binning, but not what reset or threshold results are inside.",
+          "identifier_or_url": "https://doi.org/10.1063/1.4881460",
+          "material_read": "Bibliographic title only; full text not read",
+          "method": "DOI/AIP attempts denied; no lawful alternate located",
+          "title": "Two-state theory of binned photon statistics for a large class of waiting time distributions and its application to quantum dot blinking",
+          "trigger": "Arbitrary waiting times in photon blinking"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen threshold, inverse map and witness; exact exponential comparison; Liu's reset framework"
+      ],
+      "rationale": "The shot-noise boundary is a naturally measurable invariant of a non-Markov dark sector. The exact all-rate sign criterion both decides the number of crossings even with infinite unreset moments and turns the full threshold curve into an identifiable aggregate observable. A strictly non-Poisson third-order witness at F=1 further distinguishes matching shot noise from a Poisson count. The mathematical utility is not the already available three-level rational example.",
+      "residual_risks": [
+        "Laplace inversion from a continuum of exact thresholds is an identifiability statement, not a stable finite-data reconstruction or a separation of multiple channels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

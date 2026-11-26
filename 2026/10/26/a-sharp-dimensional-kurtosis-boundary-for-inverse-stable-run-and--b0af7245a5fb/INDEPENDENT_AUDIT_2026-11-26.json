@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:34.303015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent operational-time check uses the renewal equation at the first Poisson redraw: the projection's characteristic-function Laplace transform is A/(1−αA), where A=E[(w+α−ikvY)⁻¹] and Y is the initial directional projection. Expansion at k=0 with μ₂=1/d and μ₄=3/[d(d+2)] gives the recorded transforms, with the fourth coefficient including both the single-direction μ₄ and repeated-direction αμ₂² terms. The independent inverse clock inserts s^ν for w and multiplies by s^(ν−1). With no redraw the operational jth even moment starts at v^j μ_j u^j; the redraw error is O(u^(j+1)) as u↓0. The poles at zero of the operational transforms give growth 2v²μ₂ u/α and 12v⁴μ₂² u²/α², with polynomially bounded remainders of orders 1 and u+1. Averaging using E[(E_ν(t))^j]=j!t^(jν)/Γ(1+jν) justifies both kurtosis limits without a Laplace-to-pointwise inference. Continuity follows also from the marginal clock scaling and the bound on displacement; the no-redraw event gives positive variance for positive t. Digamma monotonicity gives the unique short-time boundary and strict late positivity for 0<ν<1; the intermediate value theorem yields at least one finite zero for ν>ν_d. The derivative F′(1)=14 verifies the large-d expansion; an independent numerical bisection gives ν₂≈0.693572909926177. Redraw rate α means flip rate α/2 in d=1. No uniqueness, global positivity below threshold or sign at equality is inferred. The supplied check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Fourier–Laplace kernel covers the full inverse-clock law and shows MSD growth; extracting moments is possible from it, whether or not written out. The indexed untime-changed result covers isotropic velocity refreshment and gives an operational-time sign theorem."
+        ],
+        "reasoning": "Law-level coverage and general velocity-refresh formulas remove novelty from the model and the underlying transform. The operational-time sign classification does not persist under mixing the time parameter and is not a stronger version of the fractional sign theorem.",
+        "searches": [
+          "Resultary: inverse stable run tumble gamma ratio short time excess kurtosis dimensional boundary",
+          "arXiv:2404.15941 §3 equations (3.2)–(3.9), §4 equations (4.2)–(4.9)"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and check.py",
+        "Angelani et al., arXiv:2404.15941; D’Ovidio, Orsingher and Toaldo, arXiv:1206.2511",
+        "Resultary mirrors of 326fd65bca2f and 5fb0d7185df7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying s^(ν−1) times the w=s^ν substitution to the known operational fourth transform reproduces the physical fourth transform. In the untime-changed result, d≤4 instead has negative excess at every positive time; its dimension-five transition is not the fractional boundary.",
+          "The primary paper gives the identical time-change relation and an explicit MSD; the inspected passages do not give the normalized two-end kurtosis sign comparison."
+        ],
+        "reasoning": "The physical transform is a direct implication and is not credited. The exact ν_d classification comes from the competition between the directional fourth-moment ratio and the inverse-clock gamma ratio at small t, and the nondegenerate clock variance makes the long-time sign strictly positive. Obtaining and comparing those normalized limits gives the retained claim, rather than just relabeling an earlier crossover.",
+        "searches": [
+          "326fd65bca2f, mirrored Proof §1 and long-time diagnostic",
+          "arXiv:2404.15941 §3 equation (3.4) and §6 equations (6.3), (6.6), (6.8)–(6.12)",
+          "Primary literature query: inverse-stable run-and-tumble fourth moment projection kurtosis gamma ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angelani et al. specify the identical uniform-redraw inverse-clock model, including the one-dimensional telegraph convention.",
+          "326fd65bca2f has identical operational fourth transform after m₂=v²μ₂, m₄=v⁴μ₄, γ=α. The fractional driving in 5fb0d7185df7 is time integration against a power-law kernel, not substitution of an independent inverse clock."
+        ],
+        "reasoning": "Matching the clock, redraw convention and projection identifies actual equivalent formulations. A fractional power-law drive or an ordinary telegraph flight may use similar terms but need not have the same moments after time change.",
+        "searches": [
+          "Resultary: inverse stable uniform random flight fourth projection moment gamma ratio kurtosis threshold dimension",
+          "Resultary: uniform-refresh inverse-stable run-and-tumble exact fourth projection transform",
+          "arXiv:2404.15941 §§2–4 and §6; arXiv:1206.2511 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives a dimension-five sign change for the untime-changed process; the second gives a power-3/4 boundary for a different fractional model. Neither is a table or exact formula for ν_d in the stated model."
+        ],
+        "reasoning": "The relevant exact lookup would match the inverse-clock gamma-ratio condition across dimension, not just a fourth cumulant or a threshold with a matching number. No such claim was identified by the bounded registry queries.",
+        "searches": [
+          "Resultary: Gamma(1+4 nu) Gamma(1+2 nu) dimension kurtosis threshold inverse stable",
+          "Resultary: inverse stable Poisson direction refresh short-time kurtosis d dimension gamma",
+          "Mirrored RESULT.md for 326fd65bca2f and 5fb0d7185df7"
+        ]
+      },
+      "rationale": "Credit is limited to the exact dimension-dependent short-time sign boundary for the specified time change, combined with a strictly positive late limit and the resulting sign reversal. The model and inverse-stable kernel are known; the operational fourth transform is directly covered and the physical fourth transform follows mechanically by subordination, so neither moment transform by itself supports originality. The strongest inspected statements do not classify the inverse-clock kurtosis signs. Their combination supplies inputs for the claim, but requires analysis of the two moment scales, the normalized limits and the monotone dimension-dependent boundary; it is not a specialization of their stated sign classifications. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "The known characteristic kernels make retrospective derivation possible; bounded text and index checks cannot rule out a prior explicit normalized sign analysis under alternate telegraph or random-flight terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical process and mechanical subordination rule; no explicit dimensional kurtosis sign theorem in the compared results",
+          "evidence": [
+            "Equations (3.2)–(3.4) give the Fourier–Laplace time change. Equations (3.5)–(3.9) compute MSD. The d=1 convention has sign changes at α/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.15941",
+          "material_read": "§2 pp. 3–5 equations (2.1)–(2.5); §§3–4 pp. 8–11 equations (3.2)–(3.9), (4.2)–(4.9); §6 pp. 16–19 telegraph kernel",
+          "method": "Bounded open-primary passages from the OA PDF reader",
+          "title": "Anomalous random flights and time-fractional run-and-tumble equations",
+          "trigger": "Identical uniform-refresh model and inverse-stable clock, with full characteristic kernel"
+        },
+        {
+          "assessment": "Exact operational moment overlap; different crossover theorem without the inverse clock",
+          "evidence": [
+            "The two fourth-transform terms combine to the exact operational rational expression; fixed speed gives its stated crossover only for d≥5 in operational time."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-dimension-five-kurtosis-transition-for-run-and-tumble-pa--326fd65bca2f",
+          "material_read": "Local mirrored RESULT.md, Proof §1 and additional long-time diagnostic and sign classification",
+          "method": "Resultary search and bounded mirror inspection",
+          "title": "A sharp dimension-five kurtosis transition for run-and-tumble particles (indexed SCOPE result)",
+          "trigger": "Closest indexed operational-flight kurtosis and fourth transform result"
+        },
+        {
+          "assessment": "Earlier telegraph clock constructions, not a dimensional threshold in the inspected material",
+          "evidence": [
+            "Defines the classical process with flip rate λ and gives a separate Brownian-time example; the displayed comparison does not state a fourth-moment sign criterion for the target inverse clock."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.2511",
+          "material_read": "§1 pp. 4–5 equations (1.20)–(1.24)",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Time-changed processes governed by space-time fractional telegraph equations",
+          "trigger": "Related fractional telegraph processes where a one-dimensional claim might be implicit"
+        },
+        {
+          "assessment": "Different mechanism for fractional dynamics and different threshold",
+          "evidence": [
+            "A stationary two-state drive integrated against a fractional power law has a 3/4 long-time cumulant-growth boundary, not independent inverse-clock directional mixing."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fourth-cumulant-threshold-for-fractional-run-and-tumble-mo--5fb0d7185df7",
+          "material_read": "Local mirrored RESULT.md, model and finding",
+          "method": "Resultary search and bounded mirror inspection",
+          "title": "Sharp fourth-cumulant threshold for fractional run-and-tumble motion (indexed SCOPE result)",
+          "trigger": "Very similar title and fourth-cumulant observable; model equivalence checked"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign boundary distinguishes ballistic directional mixing from the macroscopic randomness of the inverse clock and gives a concrete, dimension-sensitive crossover condition. It applies to a natural projection observable and can guide a researcher beyond MSD-based comparisons; it does not overstate what is known about the full time profile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

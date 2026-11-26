@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification record
 
-Run `python3 verify.py` using only Python standard libraries. The program checks the even-language Fibonacci count for lengths 0–14 and the complete list of cyclic ternary words of periods 1–10 against the marked-code logarithmic zeta formula. It uses exact rational comparisons to prove \(221/500<r<443/1000\) from a finite sum and a rigorously bounded remaining tail. The output is recorded verbatim in `verification_output.txt`.
+# Independent mathematical audit
 
-The general periodic-orbit identity is proved by marker decomposition. The exact natural boundary is proved analytically from Binet's formula and dense non-polar singularities of \(\sum_{j\ge0}t^{2^j}\) at dyadic roots of unity; testing finitely many coefficients cannot verify an analytic natural boundary. The cited entropy identity was available in the previous literature, and is independently justified by a word-count upper bound plus periodic growth. The full historical-priority audit of abstract renewal-system zeta literature and independent validation remain unperformed.
+## correctness
+
+PASS
+
+In the closed code-generated shift, binary factors come from single gaps and all even-shift words extend to arbitrarily long allowed gaps. Thus the marker-free subsystem is exactly the even shift; pointing one marker in a labeled n-window gives n/k times the tuple count for k blocks even when the least period divides n. The language Fibonacci count and trace correction for all-zero orbits give the stated W and the factor (1+z)/(1−z−z²). Positive coefficients and code lengths 2 and 3 give a unique simple dominant pole r, since equality in the triangle inequality forces both phases one. The logarithmic derivative after removing that pole is holomorphic on a larger disk, giving the strict exponential error, and divisor inversion gives the orbit asymptotic. The word-count renewal bound and periodic lower bound establish the already known entropy identity. At the dense dyadic directions, the dominant Binet component is unbounded but grows at most logarithmically along the radius (split at 2^j≈1/(1−t)), so it cannot be meromorphic there; the other Binet components are analytic through the circle. The meromorphic quotient identity transfers the obstruction to the zeta function, notwithstanding the smaller Taylor radius. The separate exact-rational bracket and n=1–10 cyclic enumeration agree with the original support, and evaluation of the displayed series gives r≈0.442107675333 and 1/r≈2.261892420770.
+
+## originality
+
+PASS
+
+The pass is for the explicit closed-system zeta, its dominant periodic growth, and the positive-background-entropy meromorphic boundary. The shift and its TPO context, the entropy location equation, and classical lacunary/renewal tools are explicitly credited. The nearest distinct record gives a related Sturmian zeta and boundary at one; it does not cover a marker-free periodic factor or the dyadic even-shift Fibonacci boundary. A broader abstract zeta formula remains possible, but no inspected stronger result establishes the claimed analytic behavior for this example.
+
+## value
+
+PASS
+
+The shift is a previously singled-out nonsofic example with typical periodic optimization, not an arbitrary series selected to force lacunarity. Its zeta explains both periodic growth at the system entropy and a distinct obstruction at the background entropy. The exact meromorphic distinction is not obtained just by knowing either entropy or nonrationality, and the complete count identifies how the background contributes periodic points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

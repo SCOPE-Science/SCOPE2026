@@ -1,19 +1,21 @@
-# Scientific review: endogenous periodic epidemics in a quadratic behavioural-contagion SIS model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from equations (7)–(8) of Plank et al. under the original invariant independence condition. The exact reduction, the disease-free saddle, and the unique endemic equilibrium are checked algebraically. A strict derivative bound \(15185/28800>0\) excludes other endemic equilibria, and the exact endemic Jacobian has positive trace \(8387/52440\), positive determinant \(1075/6992\), and negative characteristic discriminant. The epidemic–behaviour system therefore has a hyperbolic interior repeller. The explicit barrier \(L=Ie^{-30B}\) rules out convergence to the boundary for every initially interior trajectory. A compact forward trapping rectangle and Poincaré–Bendixson then prove periodic \(\omega\)-limits, independently of numerical simulation. Hyperbolicity, root monotonicity, and the persistence barrier remain valid for nearby \(q_c<1\). The standard-library rational checker returned `VERIFY_OK`.
+PASS
 
-## Originality — PASS (restricted to the stated system and conclusion)
+The source's factorization manifold gives exactly the stated planar flow. The square is forward invariant and an interior orbit cannot hit a face. At I=0, tau<4 rules out positive B equilibria and the origin has eigenvalues 203/437 and -2. On the infection nullcline the behavior-nullcline residual has opposite endpoint signs and (1-B)^2 h'(B) >= 15185/28800, giving exactly one endemic equilibrium. The stated Jacobian there has trace 8387/52440, determinant 1075/6992 and negative discriminant. A small outward-pointing quadratic level set excludes that repeller from the omega-limit of every other orbit. For L=I exp(-30B), the logarithmic derivative is at least (R-1)-(R+60)I. If L <= epsilon exp(-30), with epsilon=(R-1)/(2(R+60)), this is strictly positive. This yields a positive trajectory-dependent lower bound on I, then a lower bound on B; the upper-face bounds keep both variables below one. Hence every nonequilibrium interior orbit has a nonempty compact omega-limit set without equilibria and Poincare–Bendixson applies. Near q_c=1 the admissible nullcline interval ends at 203/(640 q_c), its slope bound persists by continuity on a fixed neighborhood of the original interval, the endemic repeller persists by the implicit-function theorem, and the log-barrier still holds since R q_c<3/2.
 
-The motivating article's main model, appendices, parameter table, and associated numerical code were inspected. Its regime diagrams use \(\alpha=1/4\), \(\chi=1/5\); they do not demonstrate periodic solutions at the displayed parameter set. The stronger literature comparison is Zhou–Levin–Leonard's active-control SIS model, which proves oscillation in a heterogeneous four-dimensional risk-response setting, not this quadratic social-contagion two-dimensional model. The Ryan–Brindal–Roberts–Hickson precursor uses linear behavioural contagion, and the exact present result does not follow from its conclusions. Published mathematical records queried for the title, parameter tuple, behavioural SIS periodicity, equivalent models, and broader Hopf results returned no exact covering statement. This search is not a guarantee of absolute priority. The remaining source-version and broader-literature uncertainties are recorded in the structured review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source paper's ten-regime equilibrium classification gives a natural reason to test whether sustained periodic motion was overlooked. The theorem identifies a qualitatively different recurrent regime in the same two-variable model, with physically admissible positive parameters, no external seasonal forcing, and \(\tau<4\), where behaviour-only disease-free states are absent. Its global planar argument identifies sustained endogenous infection cycles for every interior non-equilibrium initial condition. The left-neighbourhood persistence in \(q_c\) shows the mechanism does not rely only on perfect protective behaviour. This is a substantive bifurcation boundary, not a routine recomputation of an existing fixed point.
+The same vector field is in Plank et al., but neither the inspected low-tau analysis nor its supplement covers this repelling endemic point and global periodic omega-limit result. A later catalog record mentions periodic solutions in the Plank reduction, without supplying the parameters or global conclusion; its proved theorem is for a different SIS–logit system. This decision credits that qualitative overlap, not novelty of behavioral oscillations in general.
 
-## Closest prior results and limitations
+## value
 
-Plank et al., arXiv:2604.10995v1, equations (7)–(8), Supplement S1.1–S1.3; associated public code `getPar.m`. Zhou, Levin, and Leonard, arXiv:2007.01424, Secs. 3–4 and Theorem 4.1; Ryan et al., J. R. Soc. Interface 21 (2024), 20240038. The proof does not determine the number, period, or stability type of all periodic orbits, and makes no empirical forecast. The observed source model may have later versions not yet evaluated. Results in unpublished or unindexed literature cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The witness identifies an autonomous periodic regime in the published two-variable model even when a positive-behavior disease-free equilibrium is absent. Showing periodic omega-limits for every nonstationary interior trajectory and persistence below full protection is materially stronger than showing a locally unstable equilibrium or plotting a cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

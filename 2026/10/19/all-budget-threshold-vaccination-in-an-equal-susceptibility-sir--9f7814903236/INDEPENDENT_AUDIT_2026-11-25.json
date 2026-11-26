@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:02.443459Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative integrated removals are bounded by initial susceptible plus infectious mass, so bounded beta/mu implies finite integrated force. The stable infectious equation with integrable incidence gives I(t,x) tending to zero. Integrating then yields H=B+T(1-exp(-H)), and the surviving mass is m+(S-m)exp(-H). Convexity, the negative value at zero when B>0 and the positive asymptotic slope give one positive root; at that root T exp(-H)=(H-B)/(exp(H)-1)<1. Thus at fixed m<S minimizing remaining weighted exposure strictly improves the objective and the threshold exchange integral gives all equality cases, with arbitrary allocation on the cut level. Adding a positive feasible increment strictly increases survival, so the budget is saturated, including the endpoints. The rearrangement and implicit differentiation give the frontier and its positive marginal term, regular through T=1. The inherited dynamic-control conclusion is about a supremum, not attainment; at the full endpoint it also follows by taking lower budgets tending to S and using S as an upper bound. Independent bounded bisection reproduced the reported two-group survivor masses 1.853622849292 and 1.574692330951. This is corroboration only; the continuum claim rests on the proof and the dynamic equivalence on the cited theorem. Uploaded code was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper gives the dynamic/static supremum reduction but does not solve the threshold problem for all budgets. Gavish–Katriel treat leaky vaccination and a high-R0 asymptotic ordering. Penn–Donnelly's abstract concerns small supply/subgroups. Rao–Brandeau's retrieved abstract excerpt describes approximating interacting-population dynamics; its full text was not inspected."
+        ],
+        "reasoning": "A general equivalence of suprema does not compute the common value. Approximate or asymptotic rules are not themselves the exact finite-seed result. The inaccessible full text remains a risk, not a finding of noncoverage.",
+        "searches": [
+          "arXiv:2605.18256 Theorems 3–4 and §2.5",
+          "arXiv:2202.03909 Theorem 1",
+          "Penn–Donnelly DOI:10.1007/s11538-022-01114-3",
+          "Optimal allocation of limited vaccine to control an infectious disease: Simple analytical conditions, PMC8076816"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2605.18256",
+        "Duijzer et al. institutional preprint",
+        "arXiv:2202.03909",
+        "DOI:10.1007/s11538-022-01114-3",
+        "Resultary 317027b179a6 and 26c046e62806",
+        "PMC8076816 and PMC7168135 access leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof uses a small-budget condition securing residual weighted exposure greater than one. The frozen proof establishes strict positive-root response for all nonnegative exposure, proves saturation and integrates the rearranged index to obtain the whole curve."
+        ],
+        "reasoning": "The proof extends the regime rather than substituting parameters in a stated stronger theorem. The existing static/dynamic equivalence transfers the newly computed value and is not another original claim.",
+        "searches": [
+          "Almeida–Ducasse–Paparelli arXiv:2605.18256, Theorem 4, Remark 1.4 and proof pp. 21–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4 gives the same ranking only in a restricted budget regime; Remarks 1.4 and 2.2 already discuss ties. Duijzer et al. give a separable-mixing greedy rule for a critical reproduction constraint, not the all-budget finite-seed survivor objective."
+        ],
+        "reasoning": "Greedy allocation language and even the same index do not identify the objectives; the new assertion is exact optimality for each fixed budget across criticality.",
+        "searches": [
+          "Resultary title and beta/mu all-budget allocation searches",
+          "arXiv:2605.18256 Theorems 3–4, Remarks 1.4 and 2.2",
+          "Duijzer et al., repub.eur.nl/pub/79912/EI2016-06.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed topical hits concern endemic incidence versus immunity duration at fixed realized dose and a one-generation star-outbreak overload objective, respectively. The bound claim is a continuum frontier for every budget, not a numerical benchmark or tabular invariant."
+        ],
+        "reasoning": "Neither indexed exact result tabulates or solves this frontier. There is no separate numerical table on which the all-budget theorem rests; its two-group example is not the novelty claim.",
+        "searches": [
+          "Resultary title, scalar final-size formula and all-budget beta/mu allocation searches; nearby IDs 317027b179a6 and 26c046e62806"
+        ]
+      },
+      "rationale": "Pass for the exact all-budget allocation and finite-seed survivor frontier, including through and beyond the critical-exposure value. The priority ordering, tie handling in the restricted regime and the equality of dynamic and initial suprema are already in Almeida–Ducasse–Paparelli and are not credited as new. The primary theorem and its proof expressly restrict the budget for threshold optimality, with the all-budget extension posed as a possibility. Inspected analogues optimize another objective or operate in an approximation regime. This is a bounded best-of-knowledge decision with the stated access risks.",
+      "residual_risks": [
+        "Full text for PMC8076816 and PMC7168135 remained unavailable despite lawful alternate attempts.",
+        "An unlocated stronger allocation theorem could imply the common-force exact frontier; index searches alone do not rule it out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted threshold/ties and dynamic equivalence already covered, all-budget frontier not covered there",
+          "evidence": [
+            "Remark 1.4 suggests removing the restriction; proof uses residual exposure greater than one; Theorem 3 concerns equal suprema and early approximants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.18256",
+          "material_read": "Theorem 3 p. 7; Theorem 4 and Remark 1.4 p. 9; proof pp. 21–24 including Remark 2.2",
+          "method": "OA primary PDF statement and proof passages",
+          "title": "Optimizing vaccine allocation in an age-structured SIR model",
+          "trigger": "Same model, objective and priority index"
+        },
+        {
+          "assessment": "Distinct optimization constraint",
+          "evidence": [
+            "Greedy optimum with reproduction constraint R_f<=1; minimum critical supply rather than all fixed-budget final sizes."
+          ],
+          "identifier_or_url": "https://repub.eur.nl/pub/79912/EI2016-06.pdf",
+          "material_read": "Abstract p. 1, offset 716; pp. 14–15, offset 38000",
+          "method": "OA institutional preprint passages",
+          "title": "The most efficient critical vaccination coverage and its equivalence with maximizing the herd effect",
+          "trigger": "Related greedy order for separable mixing"
+        },
+        {
+          "assessment": "Different vaccine and asymptotic regime",
+          "evidence": [
+            "Leaky vaccine, exposure-index ordering asymptotically near optimal at high R0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.03909",
+          "material_read": "Theorem 1, p. 4, offset 14500",
+          "method": "OA primary PDF passage",
+          "title": "Optimal vaccination at high reproductive numbers: sharp transitions and counter-intuitive allocations",
+          "trigger": "Final-size allocation comparison"
+        },
+        {
+          "assessment": "Inspected passage concerns asymptotics, not an exact all-budget theorem",
+          "evidence": [
+            "Small-supply and small-subgroup asymptotics, with a linearized knapsack approximation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-022-01114-3",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA abstract scope inspection",
+          "title": "Asymptotic Analysis of Optimal Vaccination Policies",
+          "trigger": "Related multi-group final-size optimization"
+        },
+        {
+          "assessment": "Unresolved full-text access risk; excerpt not a whole-paper verdict",
+          "evidence": [
+            "The excerpt states that model dynamics are approximated to obtain analytical conditions for several objectives."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8076816/",
+          "material_read": "Indexed abstract excerpt only; full text not read",
+          "method": "OA retrieval plus attempts at lawful Europe PMC and journal copies; exact-title index lookup for abstract scope",
+          "title": "Optimal allocation of limited vaccine to control an infectious disease: Simple analytical conditions",
+          "trigger": "Similar objective and initial allocation in interacting populations"
+        },
+        {
+          "assessment": "Unresolved possible overlap; no full-text noncoverage conclusion",
+          "evidence": [
+            "The accessible evidence did not yield a theorem statement to compare."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7168135/",
+          "material_read": "Indexed lead only; full text not read",
+          "method": "OA retrieval and alternate Europe PMC attempt",
+          "title": "Dose-Optimal Vaccine Allocation over Multiple Populations",
+          "trigger": "Related multi-population allocation title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extension resolves a specific open regime in the cited model: finite-seed survivor optimization at budgets that can drive post-vaccination exposure through one. It provides a constructive exact allocation and continuous scalar frontier rather than a simulation, and clarifies why the marginal benefit has no singularity there. The common-hazard, perfect-vaccine objective bounds its practical interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

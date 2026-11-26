@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:48:04.773016Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the complete three-valued labeling: IN iff all attackers are OUT, OUT iff an attacker is IN, and UNDEC otherwise. This is equivalent to a conflict-free defense fixed point with OUT exactly the attacked vertices. Propagate along 1,…,n−1 after assigning vertex 0. If 0 is UNDEC, the compulsory predecessor and any chord attacker are UNDEC at every step, so all are UNDEC. If 0 is OUT, each optional attack from 0 is neutral in the propagation; the bits alternate with the odds IN and closure at 0 requires n even. If 0 is IN, all targets in {1}∪K are OUT and the others alternate; along the suffix after h, n−1 is OUT iff n−1−h is even, exactly the closure condition at 0. Both nonempty cases are two-valued and stable. Preferred extensions are complete by maximal admissibility, so these nonempty cases give exactly the preferred extensions unless all-UNDEC is alone; empty is always grounded. For max K=k there are 2^(k−2) lower-target subsets and empty K contributes h=1. Summation over the required parity gives both stated formulas, including n=4,5 and K=∅; division by 2^(n−3) gives the two limits 1/3. Independent direct powerset enumeration confirmed 1,022 frameworks for n=4…12 and exact chord census through n=24. Replay: /workspace/branches/ef9810e0-36f7-4e77-88be-f9ce5b9a5dbc/independent_check.py with check_n12.log and census_n24.log. The supplied script was inspected, not run. Enumeration is finite corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No-odd-cycle existence and no-even-cycle preferred uniqueness decide limited subfamilies only. Optional chords can retain cycles of both parities, and the hub outdegree is unbounded across the family."
+        ],
+        "reasoning": "The generic results do not count all complete/stable/preferred extensions at each permitted chord set, even on a family with one common cycle vertex.",
+        "searches": [
+          "arXiv:2610.30176, path-based preferred–stable agreement and kernel conditions",
+          "DOI 10.1177/19462174241306715, no-even-cycle uniqueness and bounded-degree results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related cycle/degree-one/quasi-kernel findings",
+        "arXiv:2610.30176",
+        "Bench-Capon 2013 Liverpool repository PDF",
+        "DOI 10.1177/19462174241306715",
+        "Dung 1995 landing/abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bench-Capon gives the pure directed-cycle parity result, exactly K=∅. For odd n=7, choices {2} and {2,3} both have odd and even cycles, yet only {2} admits a stable extension. Thus knowing the bare parity mix, or applying sufficient pure-parity theorems, cannot produce the classifier."
+        ],
+        "reasoning": "The complete-label propagation tests the parity of the last specified chord target, not just absence of a parity of directed cycle. The closed formulas additionally count labeled chord subsets by that condition.",
+        "searches": [
+          "Bench-Capon (2013) pp. 2–3",
+          "Zhang–Liu arXiv:2610.30176 §1 and path criteria",
+          "Elaroussi, HTML no-even-cycle discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A stable extension is an independent out-dominating set (kernel under reversal of the convention using arcs into a kernel); the binary fixed-point equations encode it. Neither encoding alone supplies the last-target parity criterion, and the binary equations exclude the all-UNDEC complete labeling."
+        ],
+        "reasoning": "The graph-theoretic and Boolean restatements identify the stable object; they are not previously computed solutions for this chord family.",
+        "searches": [
+          "Resultary meaning search: one-source chorded directed cycle Dung semantics and stable extensions",
+          "Zhang–Liu arXiv:2610.30176 p. 2, kernel equivalence",
+          "negative-unate Boolean fixed points via x_v=AND_{u→v}(1−x_u)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit SCOPE-exact-dung-semantics-for-one-source-chorded-directed-cycles--512316b4c61c is the assigned record. SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469 enumerates bidirected cycles, not the present directed chords. The degree-one diversity and private-sink quasi-kernel results have different assumptions or objects."
+        ],
+        "reasoning": "No distinct covering count was established. Distinct hits are excluded by their mathematical assumptions, not publication date or subject labels.",
+        "searches": [
+          "Resultary meaning search: bidirected cycle complete extension polynomial, one-source chord subsets, exact stable-extension census",
+          "Resultary degree-one stable-extension diversity and quasi-kernels of cycles"
+        ]
+      },
+      "rationale": "The classical chordless boundary and generic kernel characterization overlap, but neither specifies which arbitrary sets of one-source chords admit the additional extension or the census over those sets. Reviewed related results do not imply the full three-valued classification.",
+      "residual_risks": [
+        "An unindexed exact specialization in graph-kernel or signed Boolean-network terminology remains possible; limited searches do not establish priority.",
+        "The Dung (1995) publisher route supplied only landing/abstract access, not full original text; the decision uses the available specific comparisons instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general kernel existence/comparison, not the last-chord extension classes",
+          "evidence": [
+            "Identifies stable extensions with the appropriate kernels and cites Richardson's no-odd-cycle existence criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30176",
+          "material_read": "Introduction p. 2, around text offset 6500; relevant cycle/path statements",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "When Stable and Preferred Semantics Agree: A Path-Based Approach",
+          "trigger": "Broader stability–preference and cycle criteria"
+        },
+        {
+          "assessment": "Covers K=∅",
+          "evidence": [
+            "Even directed cycles admit the two alternating preferred sets and empty grounded set; the odd directed cycle has only the empty preferred and grounded extension."
+          ],
+          "identifier_or_url": "https://livrepository.liverpool.ac.uk/3004007/1/TBCLoopsFinal.pdf",
+          "material_read": "pp. 2–3, offsets around 4790 and 6700",
+          "method": "Lawful repository PDF passages",
+          "title": "Dilemmas and Paradoxes: Cycles in Argumentation Frameworks",
+          "trigger": "Exact pure-cycle comparison"
+        },
+        {
+          "assessment": "Does not imply the fixed-hub last-chord classification",
+          "evidence": [
+            "The no-even-cycle uniqueness result is attributed to Dunne and Bench-Capon; the bounded-degree results concern acceptance, with hypotheses not uniform here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1177/19462174241306715",
+          "material_read": "Full-text HTML passages around offsets 16050 and 37500",
+          "method": "Lawful article HTML",
+          "title": "Analyzing the impact of bounded degree constraints on computational complexity of argumentation frameworks",
+          "trigger": "Low-degree and cycle-parity general results could cover subsets"
+        },
+        {
+          "assessment": "Bidirected attack relation; no coverage of the stated one-source added arcs",
+          "evidence": [
+            "The enumerated framework is the bidirected simple cycle, with classification via cyclic gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469/RESULT.md",
+          "material_read": "RESULT Finding and assumptions, local text offsets 0–3874",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "Cyclic gap classification and exact complete-extension polynomial",
+          "trigger": "Closest distinct indexed exact cycle-extension census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an exponentially large perturbation family of the classical stable-existence obstruction, a single rightmost shortcut decides the additional stable alternative; the other shortcuts determine its vertices but not its existence. The rule also excludes any partially undecided nonempty complete extension. This yields an exact, finite-n labeled census and a sharp frequency, rather than recomputation of the classical chordless case or an application of a cycle-existence condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

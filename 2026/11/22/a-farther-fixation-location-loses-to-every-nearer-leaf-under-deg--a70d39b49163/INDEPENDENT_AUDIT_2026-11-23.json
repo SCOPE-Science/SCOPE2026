@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:45:50.201294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform selection among mutants is the jump chain of independent rate-one clocks, with null events retained. Thinning by destination gives independent edge clocks of rate 1/deg(source). On the rooted tree only the parent can first occupy a child, so independent outward waiting times can be started when each parent is reached. The far time is Gamma(3,1/2); each short terminal time is the same hub wait plus an independent Exp(1/(k+1)) wait. The hub wait must not be treated as independent across short leaves. Only leaves other than the root can finish last; ties have probability zero. Integrating out the hub wait gives the stated binomial–Laplace expression, including at jb=1/2 where -a L'(a)=3/16. Symmetry then gives the near-leaf probabilities. Independently recomputed with labeled-set states and exact fractions: at k=4 the far probability is 40122073072/243729729243, a near leaf has 203607656171/974918916972, and near minus far is 43119363883/974918916972. Replay: make adjacency lists, memoize on the occupied bitmask S, return the indicator of the far leaf when exactly one vertex remains, and otherwise average over S union {v} with weights sum_{u in S adjacent to v} 1/deg(u), normalizing by their sum. The labeled recursion visited 67 states at k=4 and also checked k=1,2,3,5,10. The all-k claim follows separately by bounding the conditional product by (T/(k+1))^k; the gamma moment is 2^(k-1)(k+2)! and Stirling yields O(k^(5/2)(2/e)^k). An open set of clock realizations gives q_k>0 for each k. The conclusion is reversal at k=4 and for sufficiently large k, not for all k; the exponential statement is an upper bound, not an exact decay rate. The frozen checker was inspected as text.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brewster et al. give an augmented Markov-chain procedure and a reachability characterization of possible locations.",
+          "Kopfová–Tkadlec give bounds and graph-specific duration results; their extra null steps in the stated time convention do not change the ordering of non-null changes."
+        ],
+        "reasoning": "Reachability does not compare positive probabilities. Expected completion time does not identify the argmax distribution. The general finite-state procedure can reproduce individual entries but does not give the family formula or separate the probabilities uniformly as k tends to infinity.",
+        "searches": [
+          "arXiv:2605.26411v3, Computational aspects and Supplement §5",
+          "arXiv:2410.09476v1, Model and Results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.26411v3",
+        "arXiv:2410.09476v1",
+        "Resultary indexed related tree and Moran results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit earlier counterexample has a triangle and three vertices tied for farthest; two of those are not maximizers. It does not single out a uniquely farthest vertex or compare it to every nearer leaf.",
+          "Independent edge waits and binomial/Laplace calculus are standard; the subtraction and order comparison depend on the specific shared hub delay and degree normalization."
+        ],
+        "reasoning": "A tied-distance cyclic example cannot establish the acyclic unique-farthest statement; the available general methods still require the tree-specific calculation and asymptotic bound.",
+        "searches": [
+          "arXiv:2605.26411v3, Results and Supplement §5",
+          "arXiv:2410.09476v1, Model and graph examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent is the argmax of weighted root-to-leaf path times, with directed forward edge rates fixed by parent degrees and shared path increments.",
+          "The closest matching Resultary hit is this record. The related permanent two-infection tree result measures terminal territory between two seeds; it does not compare terminal arrival locations of this one-type process."
+        ],
+        "reasoning": "The single-source maximum with correlated path sums is not the two-source partition. The originating fixation-location paper supplies the same statistic and update, but the inspected results do not give this path-versus-shared-hub comparison.",
+        "searches": [
+          "Resultary: Moran colonization fixation location uniquely farthest tree closer leaves hub rate terminal last mutant",
+          "Web: fixation location colonization rooted trees farthest leaf Moran last terminal exponential first passage push tree degree",
+          "arXiv:2605.26411v3, Model and Supplement §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 2 is a census of five-vertex connected undirected graphs; the claimed T_4 has nine vertices. An additional bounded exact enumeration of labeled five-vertex rooted trees found no strict comparison of a unique farthest leaf losing to a nearer leaf: enumerate all four-edge subsets, retain connected sets, fix root label 0 without loss of generality, compute distances and apply the labeled-state recursion to the candidates.",
+          "The self-hit and the nearby Moran forest or competing-infection results do not constitute an earlier table of these probabilities."
+        ],
+        "reasoning": "The closest small-graph census neither includes the exhibited tree nor supplies an equivalent five-vertex tree witness. This check does not establish minimality or rule out an earlier larger table.",
+        "searches": [
+          "Brewster et al., Fig. 2 and Colonization on small undirected graphs",
+          "Resultary terminal-location and Moran rooted-tree query"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit rooted-tree reversal and all-k formula/separation, not for the fixation-location statistic, the generic computation method, or the observation that a farthest vertex can lose a ranking on some graph.",
+      "residual_risks": [
+        "A pre-existing result on maxima of degree-weighted passage times on rooted trees, or a table for larger rooted trees, could contain equivalent coverage.",
+        "The five-vertex check is not a general minimality search; no priority is claimed for the stochastic embedding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process and statistic; neither the displayed ranking counterexample nor the inspected general criteria assert the tree-family probability law",
+          "evidence": [
+            "Small undirected graphs: add an edge between two leaves of a four-leaf star; the farthest set has size three.",
+            "Computational aspects reduces location probabilities to labeled absorption; §5 treats possible locations by reachability rather than their relative probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.26411v3",
+          "material_read": "Model, small-undirected-graph results and Fig. 2 caption, computational aspects, and targeted supplementary §5 passages",
+          "method": "Open arXiv full-text inspection",
+          "title": "Fixation location in structured populations",
+          "trigger": "Defines the same statistic and prints a small distance-ranking counterexample"
+        },
+        {
+          "assessment": "Provides the process context, not the inspected terminal-location comparison",
+          "evidence": [
+            "The model counts null updates in which a resident is picked; the main bounds concern expected times, with star and double-star duration comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.09476v1",
+          "material_read": "Abstract, Model and Results on time bounds and star/double-star time comparisons",
+          "method": "Open arXiv PDF text inspection",
+          "title": "Colonization times in Moran process on graphs",
+          "trigger": "Same infinite-selection process and relevant tree structures"
+        },
+        {
+          "assessment": "Its stated invariant is distinct; no whole-document noncoverage conclusion",
+          "evidence": [
+            "Weighted binomial prefix of the two-seed path and variance of territory, not the last location reached by one type."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-variance-extremizers-for-two-competing-irreversible-infect--91dba2625947",
+          "material_read": "Indexed published summary only",
+          "method": "Resultary comparison",
+          "title": "Sharp variance extremizers for two competing irreversible infections on finite trees",
+          "trigger": "Nearby finite-tree propagation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original distance intuition has a particularly clean failure on a tree: the path to the uniquely farthest leaf is longer, yet the fixed reproduction budget is divided among the hub's children, making each nearer leaf more likely to finish last. The exact nine-vertex comparison and the ratio diverging along a family distinguish a robust mechanism from a distance tie or a tiny finite fluctuation. Useful as an exact check on fixation-location methods in this infinite-selection model, not as a finite-fitness or empirical prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

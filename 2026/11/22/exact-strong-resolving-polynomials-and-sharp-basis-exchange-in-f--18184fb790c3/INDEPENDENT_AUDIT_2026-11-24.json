@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:38:26.395188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48, including all omission cases, exchange convention and metrics",
+        "VERIFICATION.md, lines 3–13, 20–24, 46",
+        "verify.py, lines 65–82 and 91–137; verify_duads.cpp, lines 30–72, inspected statically"
+      ],
+      "rationale": "The incidence axioms give distances 2 and 4 on each shore and 1 and 3 across shores. The distance-4 pairs are MMD; every shorter pair has a neighbor at a greater distance from its opposite end (for a nonincident point and line, use a different line through the point from the unique one meeting that line). A third vertex cannot strongly resolve an MMD pair, and every shortest path can be extended at its ends until the resulting end pair is MMD, showing why covering MMD pairs suffices. Omitted points must be pairwise collinear and hence on one line by the unique-collinear-point axiom; omitted lines obey the dual pencil criterion, independently. A subset of size at least two identifies its line or pencil uniquely. Counting empty, singleton and larger subsets gives the two polynomials; completing each shore yields every maximal omission, proving purity, dimension st(s+t+2) and N_P N_L bases. Exchange cost is half the symmetric difference, added over shores, giving costs s/s+1 and t/t+1 for the respective single-coordinate changes and at least s+t for simultaneous changes. Below max(s,t) a coordinate is fixed; at this budget the allowed single-coordinate moves yield the stated connected Cartesian factors. A point has s(t+1) collinear neighbors and s^2 t noncollinear others, so every point has collinearity-graph eccentricity 2 by the quadrangle axiom; dually every line has intersection-graph eccentricity 2. The complete factors have eccentricity 1. Additivity of product distances gives both the radius and diameter 4 or 3 for the two cases.",
+      "residual_risks": [
+        "The finite Python and C++ checks were not rerun. They exercise examples, not a premise of the all-order proof. In proof step 4 the number of exchanges is one side of the symmetric difference, not its full cardinality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard general strong-resolving vertex-cover reduction is credited in the frozen proof. The DOI and identified copy did not expose its full text. The three inspected Resultary statements concern generalized wheels, once-subdivided complete graphs, and cycle–clique products, respectively."
+        ],
+        "reasoning": "The general criterion holds for this family, but does not itself identify its MMD graph, the clique census on two shores, or the distances between different bases. The other exact family statements do not specialize to thick GQ incidence graphs.",
+        "searches": [
+          "Oellermann and Peters-Fransen, DOI 10.1016/j.dam.2006.06.009; identified Academia copy",
+          "Resultary b89d09c4bbfa, e52c4405d821, and 88ae76317dd1, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 18184fb790c3 (self-match), 744f6c23d455, b89d09c4bbfa, e52c4405d821, 88ae76317dd1, d77d7a0f3f14",
+        "arXiv:1706.06583; DOI 10.1016/j.dam.2006.06.009 (landing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard reduction replaces strong resolution by meeting MMD pairs. The GQ literature inspected gives ordinary metric bounds and the separate cycle–clique product record gives sharp batch exchange on C_n square K_m."
+        ],
+        "reasoning": "The polynomial follows once the admissible omissions on the GQ shores are identified. The independent omission geometry and exact exchange costs need the incidence classification and intersections of different full lines and pencils. Neither an ordinary dimension bound nor the general reduction alone gives those costs or threshold factors.",
+        "searches": [
+          "Oellermann–Peters-Fransen vertex-cover characterization, as credited in RESULT.md proof §2",
+          "arXiv:1706.06583, Proposition 4.3 and Theorem 4.10",
+          "Resultary 88ae76317dd1, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit 18184fb790c3 is this record. Earlier 744f6c23d455 studies the same GQ(q,q) incidence metric, but a powered-distance negative-type exponent. Bartoli et al. Proposition 4.3 and Theorem 4.10 bound ordinary metric dimension."
+        ],
+        "reasoning": "Ordinary distance-vector resolution and strong geodesic resolution are not aliases. Swapping point and line shores by duality just interchanges s,t and the factors in the same finding; the prior negative-type exponent does not describe those factors.",
+        "searches": [
+          "Resultary: generalized quadrangle incidence graph strongly resolving sets, strong metric dimension, bases and reconfiguration",
+          "arXiv:1706.06583, GQ sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b89d09c4bbfa gives a complete strong-resolving polynomial for generalized wheels. d77d7a0f3f14 gives an exact 125-basis classification for GP(25,2). The indexed GQ polynomial hit is the assigned record itself."
+        ],
+        "reasoning": "The outputs here are parameterized polynomials and a threshold for an infinite conditional family, not a single small-graph table entry. The closest independent exact counts refer to other families; the frozen small-order checks do not constitute a previously known general entry.",
+        "searches": [
+          "Resultary: exact basis counts and strong-resolving polynomial for generalized quadrangles",
+          "Resultary b89d09c4bbfa and d77d7a0f3f14, Findings"
+        ]
+      },
+      "rationale": "The general MMD vertex-cover criterion and the quadrangle axioms and distances are established inputs. The distinct claim is the full GQ-specific strong-resolving classification and polynomial coupled with the sharp exchange graph. Same-day and earlier catalogued analogues and ordinary GQ metric dimension were compared without treating a shared invariant name or date as equivalent coverage.",
+      "residual_risks": [
+        "Unindexed or inaccessible treatments of strong resolving sets of GQ incidence graphs could contain overlapping results. The bounded broad web search and inaccessible Oellermann–Peters-Fransen full text are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the standard reduction; primary text not independently examined",
+          "evidence": "The credited criterion is equivalence of strong resolving sets with MMD vertex covers, also checked directly by extending shortest paths; no family-specific conclusion attributed to the inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2006.06.009",
+          "material_read": "Publisher landing page; no full-text passage retrieved. The criterion is stated in the frozen proof, line 40.",
+          "method": "DOI and identified lawful Academia copy attempted; latter returned HTTP 403",
+          "title": "The strong metric dimension of graphs and digraphs",
+          "trigger": "General vertex-cover criterion used as input"
+        },
+        {
+          "assessment": "Ordinary metric dimension, not strong resolving polynomial or exchange",
+          "evidence": "The GQ(q,q) lower bound in Proposition 4.3 concerns distance vectors; Theorem 4.10 is for W(q) and Section 4.1 addresses the thin case.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.06583",
+          "material_read": "Abstract p. 1; Section 4.1 pp. 14–15; Proposition 4.3 p. 16; Theorem 4.10 p. 20",
+          "method": "Open-access PDF, bounded passages",
+          "title": "On the metric dimension of affine planes, biaffine planes and generalized quadrangles",
+          "trigger": "Closest primary study of the same GQ incidence graphs"
+        },
+        {
+          "assessment": "Different invariant on the same family",
+          "evidence": "Gives a powered-distance negative-type exponent for GQ(q,q).",
+          "identifier_or_url": "744f6c23d455",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Sharp negative-type exponent for incidence metrics of generalized quadrangles",
+          "trigger": "Same incidence-graph family"
+        },
+        {
+          "assessment": "Same enumerator type on another family",
+          "evidence": "Classifies and counts sets for C_n joined to an independent set.",
+          "identifier_or_url": "b89d09c4bbfa",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "All strong resolving sets of generalized wheel graphs",
+          "trigger": "Complete exact strong-resolving polynomial"
+        },
+        {
+          "assessment": "Different incidence graph and scope",
+          "evidence": "Classifies inclusion-minimal sets for S(K_n).",
+          "identifier_or_url": "e52c4405d821",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Minimal strong resolving sets of once-subdivided complete graphs",
+          "trigger": "Strong-resolving classification in a bipartite graph family"
+        },
+        {
+          "assessment": "Closest exchange analogue, not a covering theorem",
+          "evidence": "Deals with strong bases of C_n Cartesian K_m and different exchange factors; common date does not establish relative priority.",
+          "identifier_or_url": "88ae76317dd1",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Optimal strong metric basis exchange geometry of cyclic clique corridors",
+          "trigger": "Same-day sharp basis-exchange theorem and product graphs"
+        },
+        {
+          "assessment": "Different graph, no GQ exchange assertion",
+          "evidence": "Counts 125 bases of GP(25,2).",
+          "identifier_or_url": "d77d7a0f3f14",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "A sharp counterexample and all strong metric bases of GP(25,2)",
+          "trigger": "Same-day exact strong-basis enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–28, 38–48 and 68–74",
+        "Ordinary metric dimension and strong basis comparisons in the originality assessment"
+      ],
+      "rationale": "An explicit geometric description of every strong resolving set is more useful than the minimum cardinality alone: it gives the full size distribution and shows all locally deletion-minimal sets are optimal. The sharp exchange budget and exact product distances determine how to reconfigure those optimal sets without increasing their size. This holds uniformly for thick quadrangles without symmetry assumptions, including unequal orders.",
+      "residual_risks": [
+        "The exact exchange result concerns batched replacements of selected vertices, not token sliding or reconfiguration through larger strong resolving sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

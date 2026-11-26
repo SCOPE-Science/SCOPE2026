@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:38.483458Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md and verification_check.py inspected without execution.",
+        "Independent replay: python -B /workspace/branches/independent-reproductions.py 2; /workspace/branches/reproduction-2.out. Direct quadrature of the first five moments at and near the first roots in d=2,3,8 corroborates collisions and the scaled asymptotic coefficients."
+      ],
+      "rationale": "The spherical Fourier–Bessel multiplier has modulus (2π)^{d/2}r^{−ν}|J_{ν+k}|, and polar integration leaves r dr. Differentiating rJ_{ν+k}J_{ν+k+1} gives the adjacent difference; adding two differences and using the recurrence orders each parity chain. Consecutive orders have no common positive zero by uniqueness for Bessel's ODE. This yields a single, double or triple top space as claimed and excludes every higher degree. The gap is the difference from the best nonmaximal entry of either parity chain, with sharpness realized in one excluded mode. At a J_{ν+1}-root z the product has positive derivative zJ_ν(z)²; on the right the quadratic even competitor dominates the minimum, on the left the linear odd-to-even gap does. At a J_ν-root y the product has derivative −yJ_{ν+1}(y)², and the same-parity competitors remain uniformly separated, giving linear onset on both sides. The gap at the collision is positive because the projector there excludes the entire tied space; neither side limit equals this positive value.",
+      "residual_risks": [
+        "The finite quadrature is diagnostic only. The proof relies on the centered ball, unweighted surface measure, and stated phase convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1–2 already address all d≥2, all R>0, the full harmonic spectrum for equality, and the optimal constant off the full extremizer space. Corollary 3 treats jumps at tie radii and analytic behavior between them. The nearby Resultary cusp is for a radial–angular mixed extension objective, not a finite-ball coincidence."
+        ],
+        "reasoning": "The exact scope and gap are verified in primary literature regardless of the separate Resultary overlap.",
+        "searches": [
+          "arXiv:2107.14273v2 Theorems 1–2 and Corollary 3",
+          "Resultary:768d238766cd"
+        ]
+      },
+      "checked_sources": [
+        "Negro–Oliveira e Silva arXiv:2107.14273v2; Resultary 768d238766cd; frozen RESULT.md proof and prior-work statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The competing prior branch differences in unnormalized units are the differences of T₀ to T₁/T₂, T₁ to T₀/T₃, and, at the ties, T₀ to T₂/T₃ or T₃/T₄. The Bessel derivative J′_{ν+1}=J_ν at its root makes the crossing term linear and the squared same-parity term quadratic. At a J_ν-root, J′_ν=−J_{ν+1} and the relevant same-parity terms do not vanish."
+        ],
+        "reasoning": "A one-step Taylor expansion of the prior formulas gives precisely the announced coefficients; the multiplicity numbers likewise follow from the already identified harmonic spaces. Absence of those expanded expressions in the inspected theorem does not leave a distinct result.",
+        "searches": [
+          "arXiv:2107.14273v2 §1 Theorem 2 and Corollary 3; §2 (2.3)–(2.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Agmon–Hörmander estimate in the primary paper uses R⁻¹(2π)⁻ᵈ times the same ball integral. Its Λ_{k,d}(R) equals T_k(R)/R and its S_d(R) equals G(R)/R; the harmonic subspaces and all radius conditions are identical."
+        ],
+        "reasoning": "This is an exact change of normalization of the same operator estimate, not a different restriction exponent or radial aperture.",
+        "searches": [
+          "Negro Oliveira e Silva Agmon Hörmander constant spherical ball sharp stability Bessel Fourier extension",
+          "arXiv:2107.14273v2 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local-mirror hit concerns a critical-exponent cusp and does not tabulate the centered-ball gap. The primary paper already specifies the exact casewise gap with the same nearest excluded modes; this is stronger than a table of special dimensions or radii."
+        ],
+        "reasoning": "Individual Bessel-zero tables would not encode this operator invariant, but the primary explicit all-radius formulas do.",
+        "searches": [
+          "Resultary local search for sharp spherical extension, stability gap and cusp; Resultary:768d238766cd",
+          "arXiv:2107.14273v2 Theorem 2, eqs. (1.5)–(1.9)"
+        ]
+      },
+      "rationale": "Negro–Oliveira e Silva (arXiv:2107.14273v2), Theorems 1 and 2, already proves the same all-radius sharp norm, complete equality modes and explicit sharp stability gap after undoing normalization. Corollary 3 already treats the transitions. The Taylor coefficients need not be printed to be covered: they follow mechanically from the prior explicit branches and the first-derivative Bessel recurrences. No distinct substantive claim survives.",
+      "residual_risks": [
+        "Not a comprehensive history of earlier related estimates; the identified primary theorem is already sufficient for rejection. This is prior implication, not mathematical falsity of the frozen formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior theorem, with the remaining written refinements immediate consequences",
+          "evidence": [
+            "Λ=T/R; same modal/equality switches; optimal S_d=G/R; same candidate mode differences and tie-radius discontinuities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.14273v2",
+          "material_read": "Theorem 1 (1.2)–(1.3), Theorem 2 (1.5)–(1.9), Corollary 3, §2 (2.3)–(2.5); arXiv HTML offsets 2600 and 10000 (Corollary 3 starts at 10803)",
+          "method": "Targeted primary OA HTML passages",
+          "title": "Intermittent symmetry breaking and stability of the sharp Agmon–Hörmander estimate on the sphere",
+          "trigger": "Exact finite-ball adjoint restriction and sharp stability under the Agmon–Hörmander alias"
+        },
+        {
+          "assessment": "Different extension norm and transition parameter",
+          "evidence": [
+            "Radial–angular mixed extension with a critical-exponent cusp, not this centered finite-ball L² spectrum."
+          ],
+          "identifier_or_url": "Resultary:768d238766cd",
+          "material_read": "Local-mirror RESULT.md Finding, extracted offset 84",
+          "method": "Resultary lookup and local mirror",
+          "title": "A universal critical (1,d) cusp in sharp spherical Fourier extension",
+          "trigger": "Catalogue overlap on spherical extension stability cusp"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2107.14273v2 Theorem 2 and Corollary 3; frozen Finding and transition proof"
+      ],
+      "rationale": "The sharp estimate and transitions are natural, but their mathematical value as new results is already realized in the exact prior theorem. After subtracting explicitly known norms, stability formulas and tie classifications, the remaining first nonzero Taylor terms are routine local evaluations of the prior branches, with no additional mechanism, regime or application established to justify a repaired standalone claim.",
+      "residual_risks": [
+        "A separate application of such expansions might be valuable; none is part of this frozen result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

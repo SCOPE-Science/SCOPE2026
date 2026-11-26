@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:30:00.127162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–55",
+        "VERIFICATION.md lines 19–35 and source verify.py (inspected, not executed)",
+        "Independent replay: /workspace/branches/rook_small_replay.py"
+      ],
+      "rationale": "For the nonempty-subset power monoid a central subset commutes with each singleton. If a member sends i to j != i, its right restriction by the singleton-domain identity on i produces an arrow with image j, impossible on the other side. Thus every member is a partial identity. Conjugation by full permutations makes a central subset a union of the rank layers E_r. Conversely, for a partial bijection of rank d, composing on either side with E_r gives exactly its restrictions to u domain points with max(0,r+d-n) <= u <= min(r,d): the chosen r-set is completed outside its domain or outside its image, respectively. Intersection of supports gives the claimed rank multiplication. For 1 <= r < n, the square of E_r contains E_(r-1), forcing downward closure below n for an idempotent; n is an independent identity layer. This gives exactly 2n+1. An intersection of any nonempty family of supports can be realized using at most n members by choosing one missing-point witness for each point outside the intersection (one member if the intersection is full); repeated factors pad to n. Hence A^n = A^(n+1). Exactly n distinct coatoms are required to make the empty intersection, so E_(n-1) proves sharpness for n >= 2; n=1 has exponent one. The subgroup and non-band consequences follow. An independent arrow-set calculation returned (number central, number idempotent, maximal stabilization index) = (3,3,1), (7,5,2), (15,7,3) for n=1,2,3.",
+      "residual_risks": [
+        "The replay is exhaustive over all nonempty subsets only for n=1,2; n=3 exhausts subsets of partial identities after the proved obstruction. Infinite completeness rests on the proof, not the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Tringali Theorem 4.5 and Corollaries 4.6–4.7 concern preservation of singletons by power-semigroup isomorphisms and reconstructing the base inverse semigroup.",
+          "The group rigidity paper treats reconstruction for groups and finitary rigidity for certain additive subgroups of Q; the survey also identifies the older terminology semigroups of complexes."
+        ],
+        "reasoning": "Reconstruction from external isomorphisms does not supply a central-subset test or a description of the internal multiplication and semigroup identity on that center.",
+        "searches": [
+          "arXiv:2610.29525v1 §4",
+          "arXiv:2606.01917v1 abstract and §1",
+          "arXiv:2602.15754v3 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Prior work and References",
+        "Local Resultary eed1acb94dd5",
+        "arXiv:2610.29525v1 §4",
+        "arXiv:2606.01917v1 §1",
+        "arXiv:2602.15754v3 §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known singleton preservation concerns images of subsets under isomorphism. Individual-element centralizers (scope reported in RESULT.md lines 60–66 for Konieczny; primary text not independently accessible) are not inclusion tests for setwise commutation of a subset."
+        ],
+        "reasoning": "Setwise equality need not mean elementwise commutation. The singleton-idempotent obstruction and the rank-layer sufficiency calculation are logically additional. The n bound is elementary for families of partial identities once that reduction has been proved.",
+        "searches": [
+          "arXiv:2610.29525v1 §4, Theorem 4.5 and Corollaries 4.6–4.7",
+          "Tringali survey arXiv:2602.15754v3 §1",
+          "Konieczny DOI 10.1080/00927872.2020.1782926 lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary Brandt-center record eed1acb94dd5, opening Finding, classifies diagonal central subsets by conjugation-invariant subsets in B_I(G), optionally with zero; its multiplication depends on the number of indices."
+        ],
+        "reasoning": "This is a close analogue, not an equivalent formulation: a Brandt semigroup is a single nonzero inverse-semigroup layer with zero, not the monoid with all domain ranks and the Boolean idempotent lattice. Its diagonal classification neither identifies the rook center nor produces the intersection-rank product.",
+        "searches": [
+          "Local Resultary: rook/symmetric inverse monoid, centers of power semigroups and central subsets",
+          "Primary literature lookup on center of a rook/symmetric inverse power semigroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified catalogue result eed1acb94dd5 counts conjugacy-class choices and normal-subgroup idempotents, not rank choices or rank-downset idempotents."
+        ],
+        "reasoning": "There was no matched table for rank support, 2n+1 idempotents or the all-n identity. The catalogue comparison is evidence of a different theorem, not an exhaustive proof of absence.",
+        "searches": [
+          "Local Resultary: rank-layer center, central subsets and stabilization for rook and inverse power monoids; checked closest Brandt result"
+        ]
+      },
+      "rationale": "The strongest inspected comparisons cover a different base semigroup or isomorphism rigidity, not the internal center of the finite symmetric inverse monoid's nonempty-subset power monoid. The distinct claim credited here is the entire rank-layer algebra, with its idempotent structure and exact uniform power bound; ordinary subset-intersection identities in isolation are not novel.",
+      "residual_risks": [
+        "The primary search returned no usable match in its result; the Konieczny primary text could not be independently inspected. Older work under complexes, rook monoids, or setwise centralizers may contain an equivalent formulation. No absolute historical priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogous but different semigroup and structure; indexed path later than the frozen record",
+          "evidence": "Central diagonal copies of conjugation-invariant group subsets, optional zero, cardinality 2^(k(G)+1)-1 and normal-subgroup idempotent count.",
+          "identifier_or_url": "2026/11/8/SCOPE-central-subsets-of-brandt-power-semigroups-recover-conjugacy-cla--eed1acb94dd5",
+          "material_read": "Opening RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and local-mirror source reading",
+          "title": "Central subsets of Brandt power semigroups recover conjugacy classes",
+          "trigger": "Closest indexed power-semigroup center classification"
+        },
+        {
+          "assessment": "Does not imply the center description",
+          "evidence": "Power-semigroup isomorphisms preserve singletons, yielding reconstruction of base inverse semigroups.",
+          "identifier_or_url": "https://arxiv.org/html/2610.29525v1",
+          "material_read": "§4, Theorem 4.5, Corollaries 4.6–4.7, offsets 38200–45199",
+          "method": "Original OA text",
+          "title": "Kobayashi's problem for power semigroups of inverse semigroups",
+          "trigger": "Plausible stronger inverse-semigroup theorem"
+        },
+        {
+          "assessment": "Different rigidity questions",
+          "evidence": "Reconstruction from power-semigroup isomorphisms for groups and a finitary result for subgroups of Q.",
+          "identifier_or_url": "https://arxiv.org/html/2606.01917v1",
+          "material_read": "Abstract and §1, offsets 0–4935",
+          "method": "Original OA text",
+          "title": "Power Semigroups and Two Rigidity Theorems for Groups",
+          "trigger": "Plausible power-semigroup structural overlap"
+        },
+        {
+          "assessment": "Context rather than matching theorem",
+          "evidence": "Survey scope includes isomorphisms, subgroups, automorphisms, varieties and arithmetic; older works used semigroups of complexes.",
+          "identifier_or_url": "https://arxiv.org/html/2602.15754v3",
+          "material_read": "§1, offsets 1800–6299",
+          "method": "Original OA text",
+          "title": "Power monoids and their arithmetic: a survey",
+          "trigger": "Broader coverage and older terminology"
+        },
+        {
+          "assessment": "Unresolved direct access; the frozen citation's stated scope is individual-map centralizers",
+          "evidence": "No negative inference from failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2020.1782926",
+          "material_read": "Frozen discussion lines 60–66; no primary mathematical text obtained",
+          "method": "DOI/publisher access attempted, no lawful alternate located",
+          "title": "The structure of centralizers in the finite symmetric inverse semigroup",
+          "trigger": "Same base monoid and centralizer terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–23, 33–55",
+        "Comparison with the Brandt-center result and inverse-semigroup reconstruction theorem"
+      ],
+      "rationale": "This is a natural complete center classification for a standard finite inverse monoid. The rank product replaces multiplication of subsets of a large semigroup by rank intervals, gives a complete idempotent census, and yields a best possible aperiodicity identity for the whole center. The distinctive useful fact is the structural reduction to rank supports rather than a small-instance calculation.",
+      "residual_risks": [
+        "Value is specific to the full nonempty-subset power monoid of the finite rook monoid, not a claim about all inverse semigroups or reduced power monoids."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:34:43.704223Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5; VERIFICATION.md and verify.py are supporting finite checks, not the proof"
+      ],
+      "rationale": "Gauge averaging preserves each squared commutator norm under conjugation and yields a feasible diagonal with no higher energy. The quadratic form is strictly convex on supported matrices: a compact K commuting with S² satisfies norm(K S^{2m}e_j)=norm(K e_j) for j=0,1, while the left side tends to zero because the shifted unit vectors are weakly null. Commutation then gives K=0. Thus the minimizer is unique and diagonal. Its exact energy has steps of length two with conductance one and steps of length one with conductance ε², with all indices beyond the support grounded. Each chain reaches a boundary even at ε=0, so the maximum principle puts the scalar harmonic solution in [0,1]. For N=2L the chain pins are x_0=1 and x_L=y_L=0, while y_0 is free. At zero coupling the even linear profile and the identically zero odd profile give 1/L. At ε=c/(2L), the scaled rails give exactly 2 times the squared H1 seminorm of the two interpolants; the two weak edges per cell jointly give c²∫(x−y)². Bounded scaled trial energy gives compactness in the uniform norm; weak lower semicontinuity and sampling the smooth limiting minimizer give the two bounds on the limiting minimum. With u=(x+y)/2 and v=(x−y)/2, fixing their initial values a and b gives energy 4(a²+κb²), where κ=c coth c and κ(0)=1 by continuity. The optimal a+b=1 gives a=κ/(1+κ), b=1/(1+κ) and the stated linear and hyperbolic profiles, which obey 0≤u−v≤u+v≤1. The unique limiting minimizer gives uniform convergence of the full sequence. κ increases strictly for c>0 because sinh(c)cosh(c)>c. Monotonicity in ε sandwiches the two off-critical regimes against fixed c/N; the diagonal d_j=1−j/N independently gives N E_N(ε)≤4−3/N+ε² for the upper supercritical bound. This proves the asserted constants and restrictions without appealing to numerics.",
+      "residual_risks": [
+        "Positive means positive semidefinite, not invertible or bounded away from zero. The odd chain vanishes at zero coupling. The operator is not a commutator with a sum; even sizes and the stated boundary conditions matter to the proof as written."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Voiculescu identifies certain group-shift moduli with graph capacities and uses diagonal reduction. Liu–Zhao give vanishing k₂(T) for a single almost-normal T. Same-day records respectively optimize a single-shift energy with a trace budget and study exhaustive orthogonal projections for forward/backward shift pairs."
+        ],
+        "reasoning": "The qualitative modulus controls no fixed-cutoff rate with a varying generator; summing separate commutator squares is not the single-operator almost-normal statement. Neither a trace bound nor a projection constraint dominates the prescribed support and pins to an extent yielding the limiting energy or profiles.",
+        "searches": [
+          "Voiculescu, Capacity and the quasicentral modulus, §5",
+          "Liu–Zhao, arXiv:2611.15604v1, §1.2",
+          "Resultary: sharp quasicentral energy for finite-multiplicity shifts and projection-restricted modulus"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.11924v4, §5; DOI:10.4171/QT/208, §5 and Proposition 5.1; arXiv:2611.15604v1, §1.2",
+        "Resultary suffixes 1c968d5ff6c5, 18efdfc6c0e6, 2e6659a27da2 and c3c9745565b5; identical record a6e54ddb40d3 excluded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Capacity reduction supplies a scalar variational problem, and Proposition 5.1 gives the uncoupled path value. The related trace-budget shift gives a large-budget single commutator law, while the periodic crossover relates the optimized rung coupling to price."
+        ],
+        "reasoning": "Those statements neither pass from the discrete weak conductance to the critical two-chain variational limit with one free left endpoint nor evaluate its matching minimum and profiles. Solving the continuum ODE alone is standard; the distinct claim is the rigorous crossover for the supported operator and its boundary geometry.",
+        "searches": [
+          "Voiculescu arXiv:2107.11924v4, §5; DOI:10.4171/QT/208, Proposition 5.1",
+          "Resultary trace-budget finite-multiplicity shift and November 2 periodic ladder crossover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gauge reduction makes the claim equivalent to the energy of a two-rail conductor with unit longitudinal conductances, weak straight and slanted links, both right ends grounded and only the left even end pinned. A November 2 cyclic-ladder record has a coth expression but optimizes a tree sum with periodic boundaries and a rung price."
+        ],
+        "reasoning": "The resistor-network version is a true alias. The periodic weighted-tree optimum is not a Dirichlet conductance with these pins; substituting u=2c² in its displayed coth expression gives coth(c)/(2c), not the claimed energy. Matching the hyperbolic function alone does not match the boundary-value problem.",
+        "searches": [
+          "Resultary: parity-mixing finite-section Hilbert–Schmidt shift energy; exact coth weak-coupling ladder",
+          "Primary literature: two-rail ladder equivalent resistance and critical weak coupling; Voiculescu arXiv:2107.11924v4, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bilateral single-shift formula is k_p=(Σ_j(b_j−a_j)^(1−p))^(1/p); a single p=2 gap of length L gives squared capacity 1/L. The identified exact finite-ladder allocation result concerns optimal conductances for the spanning-tree objective."
+        ],
+        "reasoning": "The path formula is precise coverage at zero coupling, not an exact table for the supported weakly coupled operator. No matching exact coupled calculation was identified in the compared material.",
+        "searches": [
+          "Resultary: D-optimal cyclic ladder crossover and finite endpoint-enhanced rung allocation",
+          "Voiculescu, DOI:10.4171/QT/208, §5 and Proposition 5.1",
+          "Primary literature: weakly coupled ladder resistance with coth dependence"
+        ]
+      },
+      "rationale": "Condenser capacities and diagonal reduction are established, and the uncoupled value is exactly the known one-gap path capacity in squared units. The supported distinct claim is the coupled finite-section scaling law for these pins, together with both limiting profiles and scaling regimes. The closest coth formula identified concerns a different optimization objective and periodic boundary; neither that formula nor the qualitative modulus theorem determines this crossover.",
+      "residual_risks": [
+        "An older exact electrical-ladder calculation with equivalent pins and scaling could overlap. The examined ladder results and searches did not resolve exhaustive historical priority; generic circuit references do not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural precursor, no varying coupling or exact crossover in compared material",
+          "evidence": [
+            "Relates group-shift moduli to Cayley-graph condenser capacities and uses diagonal reduction."
+          ],
+          "identifier_or_url": "arXiv:2107.11924v4",
+          "material_read": "§5, PDF pp. 5–7, OA offsets approximately 11000–15949",
+          "method": "OA primary PDF passages",
+          "title": "Capacity and the quasicentral modulus",
+          "trigger": "General shift-to-condenser reduction could cover the theorem"
+        },
+        {
+          "assessment": "Exact coverage for a path at ε=0, not the coupled network",
+          "evidence": [
+            "For p=2 and one gap of length L, the squared condenser value is 1/L."
+          ],
+          "identifier_or_url": "DOI:10.4171/QT/208",
+          "material_read": "§5 and Proposition 5.1, PDF pp. 14,16 (journal pp. 433,435), OA offsets around 28400 and 33200",
+          "method": "OA primary PDF passages",
+          "title": "The condenser quasicentral modulus",
+          "trigger": "Exact single-shift condenser formula"
+        },
+        {
+          "assessment": "Qualitative infinite-cutoff theorem for one operator",
+          "evidence": [
+            "k₂(T)=0 under trace-class self-commutator; no finite-size coupled claim in this statement."
+          ],
+          "identifier_or_url": "arXiv:2611.15604v1",
+          "material_read": "§1.2, PDF p. 1, OA HTML offset near 1399",
+          "method": "OA primary HTML passage",
+          "title": "Quasicentral modulus for almost normal operators",
+          "trigger": "Hilbert–Schmidt modulus for a shift-like operator"
+        },
+        {
+          "assessment": "Different optimization and boundary",
+          "evidence": [
+            "Gives coth(√(u/2))/√(2u)=κ_price/P for the optimized conductance in a periodic weighted spanning-tree problem."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-d-optimal-cyclic-ladders-with-a-linear-price-crossover--1c968d5ff6c5",
+          "material_read": "Finding in the original RESULT.md",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "D-optimal cyclic ladders with a linear price crossover",
+          "trigger": "Coth weak-coupling asymptotic in a ladder network"
+        },
+        {
+          "assessment": "Different generators and admissibility, no priority inference",
+          "evidence": [
+            "Single commutator and trace budget, with asymptotic 4r²/(9B)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-trace-budget-quasicentral-energy-for-finite-multiplicity-u--2e6659a27da2",
+          "material_read": "Finding in the original RESULT.md",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Sharp trace-budget quasicentral energy for finite-multiplicity unilateral shifts",
+          "trigger": "Close same-day finite energy for shifts fixing a wandering subspace"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–5",
+        "Voiculescu capacity and condenser comparisons",
+        "Liu–Zhao arXiv:2611.15604v1, §1.2"
+      ],
+      "rationale": "At ε=0 the parity rails decouple. For small positive ε the competition between longitudinal gradients and mixing depends on the support scale, and is invisible to the qualitative vanishing of the usual modulus. The theorem gives the sharp crossover from 2 to 4, not merely its exponent, and identifies where the odd-parity profile develops. This is a natural finite-section benchmark distinguishing a supported tuple energy from unconstrained asymptotic moduli.",
+      "residual_risks": [
+        "No assertion of general norm, tuple, cutoff, or boundary-condition classification, or of a nonzero ordinary quasicentral modulus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

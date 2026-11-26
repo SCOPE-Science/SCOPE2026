@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:54:40.146644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–3; both scripts and verification_output.txt inspected, not run",
+        "Independent reproduction: python3 /workspace/reproduce.py 3 (row/column singleton characterization, matching DAG, signed integral reduction)."
+      ],
+      "rationale": "Rook distance is Hamming distance, so the only forbidden triples are 144 three-corner L shapes (72 nonadjacent pairs, two middle vertices each). Independently recognized the same rule by requiring every selected square to be alone in at least one of its selected row or column: a violation supplies an L, and conversely. Enumerated the f-vector (16,120,416,632,240,16), so the maximum facet dimension is five. Reconstructed the 670 disjoint pairs on the nonempty face poset and topologically sorted all 5312 oriented covers. The critical cells are one vertex, 98 three-cells and one four-cell; discrete Morse theory gives a homotopy-equivalent CW model, not a claim of elementary simplicial collapse to an abstract wedge. Independently reduced the signed boundary of the critical 4-cell in DAG order using 191 nonzero unit-pivot updates. Each update subtracts the boundary of the matching upper cell, with its orientation determined by the position of the deleted vertex. The zero residual in the full 3-chain group leaves zero Morse boundary; neither torsion nor nullhomotopy is inferred from finite-field Betti numbers. Below the sole 4-cell the CW model is a wedge of 98 three-spheres; Hurewicz identifies π₃ with H₃ there, so zero integral attaching degrees prove nullhomotopy and the claimed wedge.",
+      "residual_risks": [
+        "This is only the four-by-four board; no equivariant or all-rectangles claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-row theorem gives GP(K₃□K_n) ≃ (∨^(2^n)S^(n−1)) ∨ (∨^n S²) for n≥3; swapping factors still cannot produce K₄□K₄.",
+          "The product-independence article computes independence complexes for path-containing products, not the whole GP complex of a complete-graph product. Iršič et al. and Rather study counting polynomials and their coefficients."
+        ],
+        "reasoning": "There is no applicable more general homotopy theorem in these inspected results. A known 12-vertex K₃□K₄ case is a different complex even though some of its reduced homology is in degree three.",
+        "searches": [
+          "Resultary: integral homotopy of rectangular rook complexes and related three-row results",
+          "Web: graph general position complex homotopy Cartesian product complete graphs rook graph 4x4 induced cluster subgraph P3-free simplicial complex homology",
+          "Primary GP polynomial paper §3 and product-independence paper abstract"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact hit and alternate star-forest, maximal cluster and three-row theorem records; primary references above; two targeted literature queries."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comprehensive star-forest formula applies to the assigned graph and recovers the full f-vector, including the 16 maximal-dimension faces.",
+          "The three-row theorem only gives integral homotopy for a different fixed row count. The assigned theorem's acyclic matching and integer attaching zero provide new topological data."
+        ],
+        "reasoning": "An exact enumerator fixes the alternating sum but not boundary ranks, critical cells or attachment. The supported distinction is the mixed-dimensional wedge in a 4×4 board, not just the existence of dimension-five facets or general-position equivalence.",
+        "searches": [
+          "General-position polynomials of rectangular rook graphs via bipartite star forests, Finding and forbidden-path proof",
+          "Maximal induced cluster subgraphs of rook graphs, line-graph reduction",
+          "Integral homotopy of three-row rook general-position complexes, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this diameter-two line graph a geodesic triple is precisely an induced P₃, and the induced-cluster condition corresponds to a star forest of K₄,₄. The same bijection is explicit in the earlier Resultary star-forest polynomial result.",
+          "The web lookup for the star-forest phrase returned irrelevant results; it is not negative evidence."
+        ],
+        "reasoning": "An actual bijection preserving selected cells and inclusion gives the same simplicial complex under the star-forest alias. A face-recognition theorem specifies the object but not its homotopy without a further calculation; familiar independence or chessboard complexes require all components to be single edges and are strictly smaller.",
+        "searches": [
+          "Resultary: K₄□K₄ general-position complex, bipartite star forest edge-set complex and induced cluster vertex subsets",
+          "Web: simplicial complex of star forests homotopy type complete bipartite graph K4,4 star forest complex path-free edges wedge spheres",
+          "Line-graph reduction in maximal-induced-cluster-subgraphs record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact homotopy hit 7d66b9444862 is the assigned record itself. The earlier accessible star-forest record gives P₄,₄(z)=1+16z+120z²+416z³+632z⁴+240z⁵+16z⁶.",
+          "The maximal-size support in the inspected prior enumerators is {4,5,6}, hence actual facet dimensions {3,4,5}."
+        ],
+        "reasoning": "Exact f-vector, Euler characteristic and facet sizes are prior overlap, but none independently implies which Betti groups or spheres realize that Euler characteristic, or whether there is torsion.",
+        "searches": [
+          "Resultary: exact four-by-four GP homotopy and star-forest f-vector; Resultary rectangular rook and maximal induced cluster enumerators"
+        ]
+      },
+      "rationale": "The star-forest description, all face counts, maximum facet dimension, and even the set of maximal dimensions of the same board are covered by prior enumerators. The integral wedge type, specifically the 98 three-spheres and one four-sphere with null integral attachment, is not explicitly or mechanically obtained from those counts. The closest inspected integral homotopy theorem has three rows, not four. Pass applies to the homotopy classification, not to the classical or enumerative inputs.",
+      "residual_risks": [
+        "The exact cited 2026/11/8 rook-enumerator local mirror file was not retrievable; no claim is made about uninspected parts of that source. The accessible same-object polynomial and maximal-family results establish enumerative overlap independently. Unindexed earlier topological calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS FACE COUNTS AND REDUCTION ONLY",
+          "evidence": "The displayed P₄,₄ polynomial matches all coefficients, but states no homotopy type.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-general-position-polynomials-of-rectangular-rook-graphs-via-bipa--fc2af413d7b2/RESULT.md",
+          "material_read": "Finding, offset 0, and Forbidden paths and star forests, offset 2900",
+          "method": "Local mirror exact theorem, formula and alternative model comparison",
+          "title": "General-position polynomials of rectangular rook graphs via bipartite star forests",
+          "trigger": "Same 4×4 object and equivalent star-forest model"
+        },
+        {
+          "assessment": "COVERS MODEL AND FACET DATA, NOT HOMOTOPY",
+          "evidence": "The cluster/forest reduction describes the same faces. Its enumerators concern maximal subsets, not attaching maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3/RESULT.md",
+          "material_read": "Line-graph reduction, offset 2460, and maximal-cardinality support",
+          "method": "Local mirror proof and facet data comparison",
+          "title": "Maximal induced cluster subgraphs of rook graphs: an exact enumerator and cardinality gaps",
+          "trigger": "Alternate cluster definition and maximal faces"
+        },
+        {
+          "assessment": "INAPPLICABLE ROW PARAMETER",
+          "evidence": "K₃□K₄ has 12 vertices and wedge of 16 S³ and four S². There is no four-row specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-integral-homotopy-of-three-row-rook-general-position-complexes--9c72bc026ce0/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror comparison of parameters and topological conclusions",
+          "title": "Integral homotopy of three-row rook general-position complexes",
+          "trigger": "Closest integral homotopy classification in same family"
+        },
+        {
+          "assessment": "ENUMERATION, NOT THE CLAIMED HOMOTOPY",
+          "evidence": "Counts GP subsets by cardinality and studies graph operations including Cartesian products of paths.",
+          "identifier_or_url": "https://arxiv.org/html/2401.05696v1",
+          "material_read": "Definition and introduction, §3 description around offset 3787",
+          "method": "Primary text comparison of result type and graph family",
+          "title": "General Position Polynomials",
+          "trigger": "Primary GP definition and counting on Cartesian products"
+        },
+        {
+          "assessment": "DIFFERENT COMPLEX",
+          "evidence": "Independence requires no adjacent squares, while the entire row of four squares is a GP face here. Results stated in the abstract concern path-containing products.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.06457",
+          "material_read": "Abstract and contents, offset 0",
+          "method": "Primary statement and face definition scope comparison",
+          "title": "On independence complexes of graph products",
+          "trigger": "Graph-product complex topology, and search surfaced chessboard alias"
+        },
+        {
+          "assessment": "INSPECTED PRIMARY SCOPE IS ENUMERATIVE",
+          "evidence": "Abstract discusses explicit counting polynomials and unimodality for complete multipartite graphs. Keyword misses are not a full-text exclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.06930",
+          "material_read": "Abstract, offset 0; literal keyword searches for rook and star-forest did not locate a passage",
+          "method": "Scoped primary text comparison",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Cited newer GP counting results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, face vector and matching certificate; comparison with general-position enumerators for rook graphs"
+      ],
+      "rationale": "Determines the complete wedge type and the two nonzero reduced integral homology groups of a natural board complex, despite maximal simplices in dimension five. This is genuinely different data from face enumeration: identifying the wedge requires verifying a null attachment. The balanced board is a useful exact reference for the broader problem of topologizing graph general-position sets or bipartite star forests.",
+      "residual_risks": [
+        "No assertion that this is the first board with mixed-dimensional topology; no general formula from the one-board calculation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

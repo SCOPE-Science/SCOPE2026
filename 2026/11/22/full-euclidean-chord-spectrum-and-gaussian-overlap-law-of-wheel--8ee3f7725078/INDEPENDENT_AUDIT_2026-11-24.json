@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:42:44.868221Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–96",
+        "VERIFICATION.md:19–23; check_wheel_chords.py:22–104",
+        "Independent replay: python3 -B /workspace/replays/frozen_math.py 5; separate symbolic determinant and implicit differentiation"
+      ],
+      "rationale": "In a tree, each path component of the chosen proper set of rim edges needs exactly one spoke. With a missing rim edge the cyclic scan resets at the next vertex, establishing a unique state history; with none missing, a closed scan permits no spoke and has two constant histories. Re-summing the pairs of local transitions with monomial q^(ss'+rr') gives M; weighting overlap with the all-rim set gives A. The ordered one-invalid contributions have multiplicity four overall; both-invalid contributes 4q^m, giving the displayed correction after eliminating the one-copy term. Each incidence vector is exposed by its own dot product, and since all trees have m edges, the squared pair distance equals 2(m-X). On antisymmetric pair states M acts by q; its symmetric three-dimensional block gives the stated cubic. A symbolic determinant and implicit differentiation independently reproduce the characteristic polynomial, mean and positive variance constants. At q=1 the positive M has a simple strict Perron modulus gap, also dominating the corrections from A and q^m. Continuity and analyticity give a uniform complex-neighborhood gap with a nonvanishing leading branch. Taylor expansion of the log of the normalized moment generating function at the imaginary scale m^(-1/2) gives the standard normal limit; Cauchy bounds control derivatives of the uniform exponential error for the moment limits.",
+      "residual_risks": [
+        "Tree connectivity enumeration for m=3–8 compared the exact histogram against the trace polynomial at m+1 distinct integers for each m, sufficient by the polynomial degree bound from the closed histories. It covers 5688628 ordered pairs, not the infinite theorem. The frozen verifier's advertised Python 3.9+ is slightly too broad: int.bit_count requires Python 3.10+. This does not affect the result or replay on a compatible version."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For any connected graph, F_G(q)=sum over forests S of (q-1)^|S| times tau(G/S)^2; equivalently one can use squared inclusion probabilities from the spanning-tree determinantal kernel. Bóna–Wagner treat other graph families and note an asymptotically normal unbalanced complete-bipartite regime in v1."
+        ],
+        "reasoning": "The general spanning-tree identity follows by expanding q^|T intersection U| and counting trees that include each S; Kirchhoff determinants can evaluate the contracted tree counts. It provides general exact access but potentially exponentially many terms, no four-state trace reduction, and no CLT. Normality on a growing complete bipartite family is not normality on the wheel family.",
+        "searches": [
+          "Bóna–Wagner arXiv:2501.18570v1, pp. 1,7; v4, pp. 1,14,16",
+          "General spanning-tree inclusion formula by expanding q^X"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.18570v1 and v4; arXiv:2010.10227v1",
+        "Resultary 6102930841e3, 20c51f1ae988, 8adb2e48710a, afdf0b7435d7, 1a1aa8bee4b6, 558a912ed933, 8d3f4214e855"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With one-tree marginals p and covariance matrix C, E X=sum p_e^2 and Var X=tr(C^2)+2 p^T C p; prior one-tree moment/covariance information therefore controls the first two overlap moments. The Fourier record concerns Walsh coefficients of a tree indicator."
+        ],
+        "reasoning": "First and second moments do not imply Gaussian convergence; the higher cumulant control here comes from the explicit pair transfer and its Perron gap. General enumerability and known Fourier cancellations are not the claimed short closed-history trace formula.",
+        "searches": [
+          "Wheel covariance 20c51f1ae988, Finding and related-work passage",
+          "Wheel Fourier record 8adb2e48710a, Finding",
+          "Bóna–Wagner arXiv:2501.18570v4, general-graphs discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Overlap and squared incidence-vector chord distance are interchangeable here. The same-day zonotope law afdf0b7435d7 uses graphical zonotope vertices, not wheel tree bases. The same-day wheel polytope thickness result 1a1aa8bee4b6 concerns widths and minimizing normals."
+        ],
+        "reasoning": "A minimum width is not a distribution over tree pairs, and a cycle zonotope transfer on different vertices does not become the wheel tree transfer by a parameter substitution. Prior exchange diameter and complementary pairs determine only the distance endpoint.",
+        "searches": [
+          "Resultary 6102930841e3, 20c51f1ae988, 8adb2e48710a, afdf0b7435d7, 1a1aa8bee4b6; compared Findings",
+          "Bóna–Wagner arXiv:2501.18570v1 and v4, common-edge distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact wheel-spectrum hit is the assigned record itself. The two distinct exact common-edge laws 558a912ed933 and 8d3f4214e855 are for complete bipartite graphs. Wheel record 6102930841e3 gives the exact ordered complementary-pair endpoint 2^(m+1)-4."
+        ],
+        "reasoning": "A single known coefficient is not a full polynomial; complete bipartite distributions do not cover arbitrary wheel sizes. No historical order is inferred from dates of same-day comparisons.",
+        "searches": [
+          "Local Resultary wheel spectrum and exact-common-edge record comparisons; 6102930841e3, 558a912ed933, 8d3f4214e855"
+        ]
+      },
+      "rationale": "The supported distinct content is the fixed four-state exact transfer expression, including its cyclic corrections, and the wheel-specific nondegenerate limit in distribution. Bare computability of the full histogram by general spanning-tree formulas, the disjoint and diagonal endpoints, the wheel tree count, and moments derivable from prior covariance information are not credited as new. The inspected sources neither give the transfer reduction nor imply the wheel CLT.",
+      "residual_risks": [
+        "A bounded web lookup gave no useful match; this is not negative evidence. Unindexed fixed-width transfer results or more general overlap limit theorems could affect historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published asymptotic regimes and examples do not supply the inspected wheel law",
+          "evidence": [
+            "v1 covers complete and complete multipartite examples, including a fixed-small-shore bipartite normal regime; the Erdős–Rényi results cited in the frozen discussion occur in v4, not the referenced v1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.18570",
+          "material_read": "v1 pp. 1 and 7, offsets 0, 22664; v4 pp. 1, 14 and 16, offsets 0, 48900, 56026",
+          "method": "Targeted OA primary text",
+          "title": "On the Intersection of Pairs of Trees",
+          "trigger": "Same overlap variable and potential broader limit law"
+        },
+        {
+          "assessment": "Inspected statements concern graph reconstructibility rather than Euclidean pair histograms",
+          "evidence": [
+            "The main problem is reconstructing the matroid polytope from its graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.10227v1",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary text",
+          "title": "Reconstructibility of matroid polytopes",
+          "trigger": "Possible general matroid polytope coverage"
+        },
+        {
+          "assessment": "Exact endpoint already known",
+          "evidence": [
+            "Counts 2^m-2 unordered complementary pairs, which doubles for the q^0 coefficient."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-wheel-spanning-tree-exchange-centers-and-complementary-tree-cens--6102930841e3",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local mirror",
+          "title": "Wheel spanning-tree exchange centers and complementary-tree census",
+          "trigger": "Same wheel distance endpoint"
+        },
+        {
+          "assessment": "One-tree marginals and covariance give the low moments but not a distribution theorem",
+          "evidence": [
+            "Covariance spectrum of uniform wheel tree incidence vectors."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-quadratic-vertex-covariance-anisotropy-of-wheel-spanning-tree-po--20c51f1ae988",
+          "material_read": "RESULT.md, offsets 0 and 5953",
+          "method": "Local mirror",
+          "title": "Quadratic vertex-covariance anisotropy of wheel spanning-tree polytopes",
+          "trigger": "Same polytope, possible overlap moments and limit"
+        },
+        {
+          "assessment": "Walsh vanishing and multiplier information, not a pair overlap law",
+          "evidence": [
+            "The classified statistics are tree-indicator Fourier coefficients."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-period-three-fourier-singularity-and-fourfold-divisibility-for-w--8adb2e48710a",
+          "material_read": "RESULT.md, offset 0",
+          "method": "Local mirror",
+          "title": "Period-three Fourier singularity and fourfold divisibility for wheel spanning-tree kernels",
+          "trigger": "Same wheel tree indicator and a spectral description"
+        },
+        {
+          "assessment": "Related result types but different domain or statistic",
+          "evidence": [
+            "Cycle graphical zonotope distance law, wheel polytope thickness, and the two complete-bipartite common-edge laws, respectively."
+          ],
+          "identifier_or_url": "Resultary afdf0b7435d7, 1a1aa8bee4b6, 558a912ed933, 8d3f4214e855",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Closest exact distance-law and same-polytope same-day records; exact bipartite overlap laws",
+          "trigger": "Possible equivalent transfer law or exact common-edge catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:7–44,46–96",
+        "Comparisons with the general forest expansion and prior wheel covariance and complementary-pair findings"
+      ],
+      "rationale": "The chord distribution is a natural geometric invariant and an exact random-spanning-tree overlap law. A fixed-width transfer computes the full distribution without summing over all forests or all tree pairs, and quantifies nontrivial Gaussian fluctuations in a sparse structured family. The exact cyclic correction and the limit in law, rather than the standard Perron theorem or already computable moments, make the result useful.",
+      "residual_risks": [
+        "The normal approximation is a weak limit, not a local limit, error estimate or universal sparse-graph statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

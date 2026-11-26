@@ -15,6 +15,7 @@ Then the complete support-refined optimal census is
 \begin{cases}
 4u^{n/2}+4(k-1)u^{3n/4}+(k-1)^2u^n,&n\equiv0\pmod4,\\
 (n/2)^2u^n,&n\equiv2\pmod4,\ k\text{ odd},\\
+nu^n,&n\text{ and }k\text{ both odd},\\
 u^n,&\text{otherwise}.
 \end{cases}}
 \]

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An elementary Fano-incidence argument characterizes all twenty-one minimum dominating four-sets. Exact cooccurrence counts imply that the shattered supports are exactly singleton vertices and seventy nonedges, with no triples. The first-query branching count gives the adaptive upper bound, while an explicit full eight-leaf decision tree gives the lower bound. The resulting graph-complex homotopy and cycle rank follow from connectivity. Two standalone implementations built from different Fano representations independently enumerate the complete finite domains and reproduce the claims. Risk: the theorem concerns this single finite graph, and no general higher-order extrapolation is warranted.
+## correctness
 
-**Originality — PASS within checked evidence.** The inspected 2016 projective-plane domination paper, 2018 Heawood-related domination paper and 2020 regular-graph domination paper do not establish the minimum-set Boolean trace classification or online dimension. Prior calculations of exactly twenty-one ordinary minima are appropriately treated as background. A closely related prior classification of thirty-seven *maximal* independent sets has a strictly different concept class and a different shattering polynomial; it does not imply the new subset-class traces. Closest secure- and total-domination studies also have distinct hypotheses. Exact research-record searches found related but mathematically inapplicable statements, and two directly related records were read in full. Risk: unindexed finite enumeration and incomplete external priority coverage remain possible.
+PASS
 
-**Value — PASS.** Minimum domination is a canonical extremal selection problem, and the Heawood graph is the smallest projective-plane Levi graph. Its entire minimum-set shattering complex is identified naturally with the Fano nonincidence graph, rather than summarized by a lone dimension, and it gives a small explicit strict adaptive/static separation with exact integral topology. The structural duality and sharp online witness make this a reusable finite benchmark; no unsupported claim of a general graph-family theorem is made.
+Cubic closed neighborhoods exclude three dominators. If a four-set dominates, the point and line coverage inequalities force two of each. For chosen points p,q the selected lines must avoid them and cover all five other points. Their intersection must be the third point r of pq: at any other candidate intersection there are two distinct lines to p and q and only one line left. Conversely the two lines through r other than pq cover the five required points and are exactly the two lines not incident to p or q. This yields 21 concepts. Every vertex has frequency six. Pair frequencies are one for same-type pairs by point-pair uniqueness and duality, three for nonincidence by choosing r on the line, and zero for incidence. Hence all four traces occur exactly on nonedges (counts t,6−t,6−t,9+t), and any triple contains a same-type pair with just one all-positive witness, forbidding one of its two third-vertex extensions. Complement connectivity follows from the two part-cliques and cross nonedges. Contracting a spanning tree leaves 70−14+1=57 loops, proving the homotopy statement. For the online lower bound use point 1 and functional 1 as the first two queries in the binary labeling. The line contains points 2,4,6; the concepts containing it have point pairs among {1,3,5,7}. The third queries at points 2,3,2,3 have respective positive counts 5,2,1,1 among 12,3,3,3 surviving concepts, as also checked by an independent exhaustive witness replay. A root positive branch always has just six concepts and cannot realize eight leaves, giving the upper bound. The topology is that of a one-dimensional graph, not the clique complex of its 1-skeleton.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+On the inspected evidence the exact shattered-support complex and adaptive dimension for this ordinary minimum-domination class are distinct. Domination number four is known and the 21-set census is treated as background, not as a novelty claim. The identical catalogue item shares the frozen record identifier and statement and is its own mirror, not a distinct predecessor.
+
+## value
+
+PASS
+
+This is the natural ordinary minimum-domination class of the smallest projective-plane incidence graph. The complete Boolean traces recover exactly the nonincidence/nonadjacency relation, and the explicit small adaptive tree provides a robust witness that even this symmetric set class distinguishes online and fixed-query shattering. The obstruction and tree are useful independent of the known optimal size; the cycle rank quantifies the geometry of the resulting support complex. Value does not rest on a routine 21-set census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

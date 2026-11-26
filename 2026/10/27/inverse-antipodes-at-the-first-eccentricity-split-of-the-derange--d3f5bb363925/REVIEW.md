@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The move definition uses swaps of images, with exactly the two diagonal-exclusion tests. The bipartite perfect-matching formulation proves the enumeration is exhaustive. Cycle-type conjugation reduces eight orbit types to eight certified full distance vectors. Each distance vector passes necessary and sufficient graph-distance conditions: zero at the root, nonnegative labels, edgewise Lipschitzness, and a descending neighbor from every other vertex. Exact n=4,5,6 root-shell and full pair-distance counts agree between separately organized programs. The inverse uniqueness at n=6 is checked on every vertex, and also has a separate lower-bound argument for distance six. Risk: finite computational proof assumes correct execution of the transparent checkers and proper integer/permutation indexing; there is no extrapolation beyond n=6.
+## correctness
 
-**Originality (PASS, qualified).** Smith's arXiv:1301.7357v1 treats the matching-preserving transposition walk via mixing and comparison inequalities. Jain's 2021 paper treats exactly the same graph and establishes connectivity, degrees, and shortest spanning walks, which do not imply pairwise geodesics. Mendonça's sample-generation paper uses the same move condition without graph diameter. Previously studied four-cycle counts and fourth trace moments of the same graph do not determine n=6 diameter or inverse antipodes. Source-access and indexing risks remain: an unindexed supplemental finite table could duplicate the result; no exhaustive global novelty guarantee is claimed.
+PASS
 
-**Value (PASS).** The graph encodes an exact natural restricted-transposition dynamics of a derangement Markov chain. The first loss of self-centeredness is a motivated structural cutoff; the twenty canonically paired diameter witnesses distinguish geodesic mobility from mere connectivity and from local cycle counts. Exact finite facts are not represented as a broad infinite-family theorem. The packaged certificate is a reusable distance benchmark.
+An image swap that leaves both moved positions fixed-point-free gives exactly one edge in the simple graph, equivalently an alternating four-cycle flip of a perfect matching of the crown graph. The independent all-roots BFS rebuilt the vertices and edges from this rule and reached all vertices for n=4,5,6. It found vertex/edge counts 9/12, 44/120, 265/1260, and unordered distance histograms (12,18,6), (120,300,360,166), (1260,5310,11490,12100,4800,20). G_4 and G_5 have constant eccentricities 3 and 4, respectively. In G_6 exactly the 40 type-(3,3) vertices have eccentricity 6 and each has only its inverse in that shell; all 225 others have eccentricity 5. Replay: python3 /workspace/branches/1bca7efc-9c1f-442c-ae3a-925674b099c9/independent_derangement_metrics.py --min-n 4 --max-n 6. The supplied representative labels also have a valid exact certificate design: a zero root, edgewise unit variation and descending neighbors imply both distance bounds; conjugation is a graph automorphism and transports each cycle-type row and inversion. The four-step unrestricted geodesic obstruction is sound: each first transposition in such a geodesic must split a relative three-cycle, but swapping within either original three-cycle makes a fixed point, and parity excludes distance five. The proof of uniqueness and of the split is exhaustive for these orders, not for n≥7.
 
-**Most pertinent literature:** Smith (2013, arXiv:1301.7357v1), Jain (2021, DOI:10.13140/RG.2.2.35817.42088), Mendonça (2018, arXiv:1809.04571v1), Baril–Vajnovszki (DOI:10.1016/j.dam.2003.06.002). Primary priority uncertainty: prior unpublished or differently indexed finite-geodesic calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the complete finite eccentricity split, unique inverse partners and pair-distance census in the first three connected orders considered. The graph and its matching-switch/Markov-chain formulations are known. The closest checked same-graph sources concern local closed walks or spectral/mixing estimates, while the available Jain description concerns spanning walks. Later indexed exact inverse-distance results cover a portion of the n=6 result or a different graph order, not the full frozen result. This is a bounded best-of-knowledge comparison, not a priority claim.
+
+## value
+
+PASS
+
+The orders are not an arbitrary sample: they give the first nonconstant eccentricity among the connected orders compared. Identifying the precise cycle type and a unique inverse partner explains which obstruction appears at that cutoff; the unrestricted transposition distance misses it. This is a useful exact benchmark for conjectures or algorithms on derangement switches and perfect-matching reconfiguration, without extrapolating the phenomenon to all orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

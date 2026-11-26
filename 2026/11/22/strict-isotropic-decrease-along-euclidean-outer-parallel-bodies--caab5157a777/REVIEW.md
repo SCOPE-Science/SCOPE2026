@@ -1,12 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is fully quantified for \(a,b>0\) and \(t\ge0\). The area, the two unnormalized diagonal second moments, and their covariance normalization are derived by direct horizontal slicing. Substituting the formula into the derivative produces a seven-term polynomial whose coefficients are positive combinations of positive monomials for \(157/50<\pi<22/7\). This proves strict decrease for all real positive radii; the finite numerical checks are additional, not a substitute. The endpoint values and the quadratic expansions follow by exact polynomial division. The attached verifier independently reconstructs the raw moments by slices and checks the complete derivative identity.
+## correctness
 
-## Originality — PASS, with residual priority risks
-The full primary text of Richter and Saorín Gómez, arXiv:2003.14182, concerns perimeter, volume, and quermassintegral quotients. Those theorems do not logically imply a sign for the determinant of the two uniform interior second-moment eigenvalues. The full primary text of Kipp, arXiv:2303.18033, provides perturbative first-order conditions and no all-radius rectangular disk-rounding profile. Kipp, arXiv:2407.01353, studies maximal polytopes and zonotopes; its cube restrictions are a different statement. The full public result *Sharp isotropic response to Euclidean rounding of cubes* proves only an infinitesimal planar square assertion and a full three-dimensional cubical assertion; a general non-square rectangular planar theorem is not a corollary. A prior regular-polygon rounding calculation includes the square but does not imply the ellipse-gauge deformation equivalent to rounding an unequal rectangle. Exact older inertia formulas may exist under engineering terminology, and priority cannot be established unconditionally by searches.
+PASS
 
-## Mathematical value — PASS
-This is a complete, strict ordering over a natural two-shape-parameter family under the affine-invariant covariance determinant, linking the universal rectangle value to the limiting disk value. The strict global result is stronger than near-zero asymptotics, while the aspect-ratio-independent normalized quadratic response is a structural feature not forced by isoperimetry alone. Unlike a one-shape numerical calculation, the theorem covers arbitrarily elongated rectangles, gives an exact sign certificate for every rounding radius, and states sharp endpoint asymptotics. It does not assert a theorem for all convex bodies or provide an optimal rate for more general families.
+Reflection symmetry makes the covariance diagonal and centered. Independently decomposing into the base rectangle, side strips and four quarter-disks gives A and both unnormalized moments: the x moment of one translated quarter-disk is a²πt²/4+2at³/3+πt⁴/16. Normalization is MxMy/A⁴. The expansion of 4A′MxMy−A(MxMy)′ has no constant term or terms above degree seven and agrees with all seven frozen coefficients. The first is positive by π<4; for the others the rational shift π=157/50+u gives positive monomial coefficients, establishing the sign for every a,b,t>0, including unequal sides and no aspect-ratio restriction. The endpoint values follow from the constant and leading terms. The coefficients of t and t⁷ in the derivative numerator give the stated quadratic corrections after division by A⁵ and integration at the respective endpoints; they also show the linear corrections vanish. Continuity gives strict decrease on the closed half-line despite J′(0)=0. Replay: python /workspace/audit_checks/reconstruct.py 1. The uploaded checker was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for strict all-radius monotonicity of the nonsquare rectangle family and its sharp quadratic responses. The unit-square onset is demonstrably prior and the square profile is not counted as new. No retrieved stronger theorem supplies the unequal-rectangle all-radius inequality.
+
+## value
+
+PASS
+
+Euclidean outer rounding is a natural path from a rectangle to the disk, and the determinant normalized by area is an intrinsic affine shape statistic along it. The result controls the ordering at all radii and arbitrarily large aspect ratio, not just near the initial body; the common onset in units of √(ab) exposes a simple aspect-independent response. It makes no assertion for arbitrary planar bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

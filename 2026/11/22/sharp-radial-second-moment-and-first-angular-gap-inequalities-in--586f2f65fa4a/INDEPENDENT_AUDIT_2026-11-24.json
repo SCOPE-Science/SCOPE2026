@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:07:09.639529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative frequency m has q radial polynomial coordinates with weight t^m(1-t)^alpha; the negative frequency -r has q-r with exponent r. Compression of multiplication by t has simple Jacobi-zero eigenvalues: dividing the degree-n orthogonal polynomial by t minus a zero gives the eigenpolynomial by orthogonality. Strict covariance with log t raises the Rayleigh quotient with the exponent (test the minimizer for the larger exponent). Strict consecutive-degree interlacing at exponent 1 handles even frequency -1, where monotonicity in the exponent alone would not give strictness; larger negative frequencies follow by the degree/exponent comparisons. The Christoffel numerator Q_(q+1)+Q_q changes sign between consecutive radial zeros. All ordered eigenvalues increase strictly with the exponent by min-max (strictness is uniform on the compact unit sphere at fixed block dimension). Thus the lowest exponent-one root lies before the second radial zero. For q=1 there are no negative blocks or higher radial roots. This puts exactly one simple ground state and one simple first excited state at the bottom. Testing these two eigenstates respectively proves sharpness and the spectral decomposition gives equality. Jacobi reflection and fixed-parameter Mehler-Heine place each smallest shifted zero at j_(beta,1)^2/(4 q^2) to leading order; their difference has the stated limit. An independent SciPy quadrature/compression diagnostic (/workspace/reproductions/frozen_diagnostics.py 1) passed 50 angular-block scenarios and ten hard-edge spot checks at q=256. Numerical checks are not the all-order argument. The frozen checker was inspected, not run. RESULT.md line 51 contains a malformed beta glyph; context and equations make the exponent unambiguous.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 primary abstract explicitly decomposes the same weighted polyanalytic disk space by frequency and represents bounded radial Toeplitz operators as matrix sequences. The older concentration record's indexed statement concerns an indicator of a centered disk and includes an explicit unweighted bianalytic sharp gap, not the square-radius symbol."
+        ],
+        "reasoning": "The general matrix representation contains the requisite matrices, not their cross-frequency ordering. Indicator symbols can represent a moment by integration in radius, but lowest eigenvectors and their orthogonal complements can depend on the radius, and one cannot exchange an eigenvalue extremum with that integral to infer the exact gap and equality spaces. Full-text implications of the concentration record could not be excluded.",
+        "searches": [
+          "arXiv:2009.14301v2, Abstract; Proposition 8.5 identified in the frozen citation",
+          "arXiv:2306.06231",
+          "Resultary 006121c65ee5 (radial disk concentration)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.14301v2 (Abstract)",
+        "arXiv:2306.06231 (citation; passage not obtained)",
+        "Resultary 006121c65ee5 and 56f967b9701f (summaries)",
+        "Resultary 586f2f65fa4a (self hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing representation directly supplies the radial blocks and classical results supply the individual edge scales. The proof additionally compares a q- and a (q-1)-dimensional block at exponent 1 and places the first exponent-one root before the second radial root, then identifies the global equality spaces."
+        ],
+        "reasoning": "Those strict spectral comparisons give the combined inequality; it is not a mere change of notation in a supplied per-block spectrum. The fixed-weight Bessel gap is a consequence of the new ordering and classical per-block asymptotics, not a new Mehler–Heine theorem.",
+        "searches": [
+          "arXiv:2009.14301v2",
+          "Classical Jacobi–Christoffel and Mehler–Heine comparison with RESULT.md §§2–5",
+          "Resultary 006121c65ee5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The result is equivalent to finding the lowest two spectral levels of the radial Toeplitz compression with symbol |z|^2, including the corresponding unique frequencies. Within a fixed frequency the spectrum is the standard Gaussian-quadrature spectrum."
+        ],
+        "reasoning": "The exact match is the bound record itself. An independent per-block formula does not identify which frequency supplies the first excited level, or decide whether the second radial root lies above it.",
+        "searches": [
+          "Resultary: polyanalytic weighted Bergman sharp radial moment spectral gap Jacobi zeros",
+          "Barrera-Castelán et al., arXiv:2009.14301v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct prior concentration entry reports spectra for the indicator symbol; the distinct same-day quadratic harmonic Toeplitz entry 56f967b9701f reports spectral islands for harmonic compressions. Neither accessible statement tabulates these two levels and their multiplicities for the stated weighted polyanalytic moment family."
+        ],
+        "reasoning": "Jacobi-zero tables can evaluate the two constants after the correct degrees and exponents are fixed but do not select the sectors or establish simplicity for the whole direct sum. The full source passages for those distinct records were unavailable.",
+        "searches": [
+          "Resultary: globally lowest weighted polyanalytic radial compression eigenvalues and Bessel gap",
+          "Resultary 006121c65ee5; 56f967b9701f"
+        ]
+      },
+      "rationale": "Best of current knowledge for the combined globally ordered first two simple levels and sharp stability theorem. The block representation, Gaussian-quadrature spectral identification, classical Jacobi comparisons and separate hard-edge formulas are antecedents or standard tools, not independently novel claims.",
+      "residual_risks": [
+        "The actual concentration and related harmonic result passages and sections of the cited operator-algebra papers were not obtained. Prior equivalent global Jacobi ordering within this operator family remains possible; per-block classical formulas are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified broader block framework, not independent reading of the exact body passage",
+          "evidence": "Abstract gives orthogonal Fourier subspaces and sequences of matrices for bounded radial Toeplitz symbols.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.14301",
+          "material_read": "v2, first PDF page, Abstract; frozen record's section references separately identified",
+          "method": "Public PDF excerpt after dedicated passage retrieval timed out",
+          "title": "Radial operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Same weighted space and bounded radial compression"
+        },
+        {
+          "assessment": "Indicator concentration instead of multiplication by squared radius in indexed statement",
+          "evidence": "Indexed explicit first/second spectrum and gap for the unweighted bianalytic concentration case.",
+          "identifier_or_url": "Resultary 006121c65ee5",
+          "material_read": "Catalogue summary only",
+          "method": "Resultary search; attempted original passage retrieval unavailable",
+          "title": "Radial rigidity and the sharp spectral gap for polyanalytic disk concentration",
+          "trigger": "Strongest overlapping global gap and equality claim"
+        },
+        {
+          "assessment": "Different function space and spectral target in available statement",
+          "evidence": "Summary describes quadratic harmonic Toeplitz compressions and arbitrary rotation-invariant measures.",
+          "identifier_or_url": "Resultary 56f967b9701f",
+          "material_read": "Catalogue summary only",
+          "method": "Resultary search",
+          "title": "Two-moment universality and sharp spectral islands for radial harmonic Toeplitz compressions",
+          "trigger": "Distinct same-day radial spectral result"
+        },
+        {
+          "assessment": "No independent whole-source noncoverage conclusion",
+          "evidence": "Frozen RESULT.md lines 67–76 identify the operator-algebra comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.06231",
+          "material_read": "Citation only; no relevant passage extracted",
+          "method": "Source location and attempted passage retrieval",
+          "title": "C*-algebras generated by radial Toeplitz operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Related cited operator-algebra source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square-radius moment directly measures radial localization. The theorem distinguishes the radial minimizer from the unique first angular competitor on the full function space, supplying the exact coercivity and equality data that a per-frequency spectrum does not itself provide. The leading ground and stability scales hold for every fixed admissible weight; neither a uniform-in-alpha limit nor the ordering of the higher spectrum is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

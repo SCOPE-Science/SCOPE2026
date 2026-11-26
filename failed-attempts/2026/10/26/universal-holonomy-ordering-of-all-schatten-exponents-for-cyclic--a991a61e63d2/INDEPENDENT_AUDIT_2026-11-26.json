@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:29:01.009282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof (lines 3–53)",
+        "Frozen VERIFICATION.md and check_phase.py (inspected, not executed)"
+      ],
+      "rationale": "Every phase is feasible by the uniform positive spectral fence. Determinant expansion leaves only the two full directed cycles as phase-bearing terms, giving Q(lambda)-2Rt with the negative sign. Differentiating simple roots gives 2R times the order-(m-1) divided difference of p*x^(p-1). Hermite–Genocchi gives the stated signed derivative, with simplex volume 1/(m-1)!; integrating over length 2 gives both fences and 4mR at p=m. A repeated root satisfies Q'=0, so corresponds to one of finitely many parameters. Continuity of the roots handles these points without losing strict order. The largest simple root has positive characteristic derivative, so its strict monotonicity extends in the same way. The plateau at lower integers, quasi-norm convention, and unique endpoint phase classes outside the plateaux are consistent.",
+      "residual_risks": [
+        "Finite companion checks are supplementary only. The proof assumes single-cycle support and strict cyclic row dominance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teschl (7.40): lambda solves Delta(lambda)=cos(theta) for general periodic Jacobi coefficients.",
+          "Mitchison–Jozsa appendix gives the root-coefficient derivative and Hermite–Genocchi evaluation, applied there to entropy."
+        ],
+        "reasoning": "The former covers arbitrary Jacobi diagonals and the latter root calculus is independent of the chosen spectral functional. The latter paper's explicit entropy result is not itself the claimed all-exponent law.",
+        "searches": [
+          "https://www.mat.univie.ac.at/~gerald/ftp/book-jac/jacop.pdf",
+          "https://arxiv.org/pdf/quant-ph/0309177v1"
+        ]
+      },
+      "checked_sources": [
+        "Teschl §7.1–7.2",
+        "Mitchison–Jozsa quant-ph/0309177, theorem and appendix",
+        "Resultary 4e59b6ed7525, original Finding and proof",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the characteristic relation with the coefficient derivative gives F'_p=2R[p*x^(p-1);lambda_1,...,lambda_m]; its simplex integrand is the falling factorial of p times x^(p-m)."
+        ],
+        "reasoning": "This is direct function substitution and bounding a derivative on the row-sum spectral interval, rather than an unsolved matrix comparison. The endpoint and top-root assertions follow from the same coefficient family.",
+        "searches": [
+          "Teschl §7.2 equations (7.39)–(7.41)",
+          "Mitchison–Jozsa appendix, pp. 8–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen Gram matrix is the twisted finite Jacobi matrix with diagonal 1; spectral powers of V*V and VV* agree.",
+          "The distinct indexed weighted directed-cycle result controls even moments of tW+sW*, not all positive real powers of this Gram matrix."
+        ],
+        "reasoning": "The Jacobi identification is exact; the nearby directed-shift finding is a partial mechanism overlap, not a second record of the full finding. Its same-day indexing supplies no priority conclusion.",
+        "searches": [
+          "Resultary: phase sensitivity / Schatten moments / cyclic overlaps",
+          "Teschl, Jacobi Operators and Completely Integrable Nonlinear Lattices, §7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives the first phase-sensitive even moment at exponent n or 2n, according to parity, for a directed-shift combination."
+        ],
+        "reasoning": "No finite table is needed for the analytic claim. The nearest exact indexed formula has different operators and applies to a restricted moment sequence, not this complete phase envelope.",
+        "searches": [
+          "Local Resultary, SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525"
+        ]
+      },
+      "rationale": "Not an exact indexed duplicate, but the phase ordering and quantitative gap are mechanical consequences of prior Floquet discriminant and coefficient-derivative formulas. Teschl's (7.39)–(7.41) give, for the same twisted finite Jacobi matrix with b_j=1 and a_j=r_j, chi_t=2R(Delta-t). Mitchison–Jozsa's appendix supplies the root derivative in the varying elementary symmetric coefficient and the simplex divided-difference formula. For any smooth trace power, the chain rule and g(x)=p*x^(p-1) immediately give the sign and min/max derivative bounds including the constant derivative at p=m. Positive spectral fencing is row-sum bounding; continuity and selecting the outer root give the remaining assertions. The result is covered by implication, not by an earlier verbatim Schatten-cycle theorem.",
+      "residual_risks": [
+        "No claim of historical priority between the same-day indexed contributions. An earlier source might state the specialization verbatim; the verdict is based on established implication, not on search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader phase–spectrum relation; does not need positive definiteness.",
+          "evidence": "Floquet multiplier exp(i theta) is equivalent to Delta(lambda)=cos(theta); (7.41) fixes the monic normalization 2 times the edge product.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~gerald/ftp/book-jac/jacop.pdf",
+          "material_read": "§7.1 (7.8)–(7.19) and §7.2 (7.38)–(7.41), OA offsets 349350 and 361300",
+          "method": "OA PDF passage read",
+          "title": "Jacobi Operators and Completely Integrable Nonlinear Lattices",
+          "trigger": "Classical twisted-cycle characteristic equation"
+        },
+        {
+          "assessment": "Explicit entropy monotonicity, plus reusable general root derivative and divided-difference machinery.",
+          "evidence": "Derivative of a root with respect to an elementary symmetric coefficient and Hermite–Genocchi evaluation; the frozen trace-power formula is obtained by substituting the power function.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0309177v1",
+          "material_read": "Page 4; appendix pp. 8–10, OA offsets 14368, 27792, 30747 and 34038",
+          "method": "OA PDF passage comparison",
+          "title": "Towards a geometrical interpretation of quantum information compression",
+          "trigger": "Prior Gram spectral entropy and coefficient derivatives"
+        },
+        {
+          "assessment": "Partial overlap; a different matrix and only integer moment thresholds.",
+          "evidence": "R_theta*R_theta has diagonal plus two-step shifts; its first variable even moment is obtained by closed walks of minimal nonzero winding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525/RESULT.md",
+          "material_read": "Finding, scope and word proof, local offset 0 onward",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First flux-sensitive Schatten moments of weighted directed cycles",
+          "trigger": "Strongest nearby distinct cycle/Schatten index match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–22 and 27–53",
+        "Teschl §7.2 and Mitchison–Jozsa appendix"
+      ],
+      "rationale": "The phase question is natural and the formula is pedagogically useful, but the claimed theorem is the direct trace-power application of known Jacobi phase dependence and general coefficient calculus. The quantitative bounds use only a row-sum interval and the extremal integrand values; they do not add a nonmechanical invariant or a sharp amplitude-dependent gap beyond the known coefficient identity at p=m.",
+      "residual_risks": [
+        "No judgment is made about prospective other graph families or optimal gap estimates outside this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

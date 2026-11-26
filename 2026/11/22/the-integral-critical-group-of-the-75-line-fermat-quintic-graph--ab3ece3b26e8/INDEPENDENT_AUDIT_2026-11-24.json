@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:10:13.317938Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md geometry and Smith proof; VERIFICATION.md and verify_fermat_quintic.py inspected, not executed",
+        "Independent replay: python3 /workspace/independent_checks.py 2 (SymPy and python-flint); /workspace/check-2.txt",
+        "Schütt–Shioda–van Luijk arXiv:0812.2377 §3 Eq. (5); Degtyarev arXiv:1305.3073 Introduction and §2.4"
+      ],
+      "rationale": "The three pairings exhaust the complex lines: on a line the four coordinate restrictions are binary linear forms. Fifth powers of up to four projectively distinct nonzero binary forms are independent by the Vandermonde identity in characteristic zero (choose coordinates with nonzero first coefficient). Thus in the Fermat equation each proportionality class must have at least two nonzero members. Because the restrictions span two dimensions, there are exactly two classes of two, and each ratio has fifth power −1. Within a family the intersections are precisely the row/column matches. For two different families the four coordinates form one cycle of nonzero ratios; a projective solution exists exactly when the cycle product is 1. This both verifies the symbolic equations and permits the faithful reduction of the order-ten ratio group to F_11. I reconstructed each line by its twelve normalized F_11 projective points, independently tested intersections by set overlap, and calculated the exact characteristic polynomial, integer cofactor determinant, and direct integer Smith form. They give degree 18, 675 edges, connectedness, and the claimed 74 factors 1×26,5×11,15×13,60,300×12,1500×9,7500×2, with product 2^48·3^37·5^84. The claimed five-adic profile follows directly. The archived local pivot argument is valid at the specified precision, greater than the total determinant valuation at each prime.",
+      "residual_risks": [
+        "Characteristic-zero completeness is not inferred from the finite-field model. This check does not establish an analogous claim for all lines in special reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e239fc6da92d applies to every degree d≥3: at d=5 it already gives adjacency spectrum 18×1,3×38,−2×24,−7×12 and tree number 2^48·3^37·5^84; the limitations explicitly exclude the Laplacian Smith form.",
+          "Distinct same-day da6a1354b758 covers prime degrees and gives the 5-rank 48 at p=5 (rank 26 modulo 5), not the higher valuation distributions."
+        ],
+        "reasoning": "Credit the existing spectrum, order, and overlapping mod-5 rank. The stronger parameter ranges address weaker invariants and do not classify all integer factors. No priority order is assumed between same-day findings.",
+        "searches": [
+          "Resultary: all-degree Fermat line-graph critical group/spectrum; wild-prime rank of Fermat surface line graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e239fc6da92d, da6a1354b758, e6a8bff17712, 38c504a00bda and exact self-hit ab3ece3b26e8",
+        "arXiv:0812.2377",
+        "arXiv:1305.3073",
+        "arXiv:1711.02628"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Order and mod-5 rank fix the sum 84 and the number 48 of positive 5-valuations, not the distribution 1×25,2×12,3×9,4×2. For instance, 1×12 and 2×36 would have the same sum and count.",
+          "The quintic line lattice has discriminant 5^12 and generates the Néron–Severi group. Knowing this and the graph incidence predicates does not give the Smith structure of the shifted adjacency, with degree 18 and one deleted row and column."
+        ],
+        "reasoning": "The closest prior facts supply presentations, checks and overlapping coarse invariants, not the integral valuation depths or combined factors. An additional integer Laplacian calculation is required.",
+        "searches": [
+          "e239fc6da92d Finding, Corollaries, Limitations; da6a1354b758 Finding, Passage to the critical group, Relationship and Limitations",
+          "arXiv:0812.2377 §§3,6.2; arXiv:1305.3073 Theorem 1.2 and §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric line equations and exact intersection relations are the same as §3 Eq. (5), but the graph has degree 18 and uses a reduced Laplacian, not the divisor-class Gram form in §6.2.",
+          "Resultary e6a8bff17712 computes the graph critical group for the 48-line Fermat quartic; 38c504a00bda computes a 325-line characteristic-two Hermitian quintic intersection matrix."
+        ],
+        "reasoning": "Chip-firing, sandpile and graph Jacobian name the same invariant on this specific graph. The line lattice, the different degree, and the different characteristic/vertex set do not identify this graph cokernel.",
+        "searches": [
+          "Resultary: complex Fermat quintic 75-line simple graph critical or sandpile group, reduced Laplacian Smith form",
+          "Targeted websearch for Fermat quintic line-intersection graph critical group and Laplacian Smith form",
+          "Schütt–Shioda–van Luijk arXiv:0812.2377 §§3,6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact hit ab3ece3b26e8 is the current record itself; the materially related distinct results were inspected.",
+          "Table 1 of arXiv:1711.02628 gives rank 37 and entries 1×26,5×10,25 for the linear Hodge-cycle lattice. It is not a table of graph Laplacians; the coincident 26 unit entries are not equivalent coverage."
+        ],
+        "reasoning": "Neither the self-match nor the same degree in a different table provides a distinct matching integral graph classification.",
+        "searches": [
+          "Resultary: 75-line Fermat quintic 74-entry Smith decomposition; 7500 exponent",
+          "Aljovin–Movasati–Villaflor arXiv:1711.02628, Table 1, (n,d)=(2,5)"
+        ]
+      },
+      "rationale": "The complete reduced-Laplacian decomposition is distinct from the established all-degree adjacency spectrum and tree number and the same-day wild-prime rank theorem. The most close integral table is for the line/Hodge-cycle lattice itself, not its line-incidence graph. The supported distinct contribution includes the higher 5-adic layers and the combined invariant factors, not the already covered numerical invariants.",
+      "residual_risks": [
+        "Bounded search leaves possible unindexed or differently named graph Smith tables; generic websearch results are not evidence of absence. Same-day publication order is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers spectrum and determinant, not integral Smith form",
+          "evidence": "All d≥3; its own limitations exclude the Laplacian Smith decomposition.",
+          "identifier_or_url": "Resultary 2026/11/2 e239fc6da92d",
+          "material_read": "RESULT.md, Finding offset 0, Proof/Corollaries offset 4994, Relationship and Limitations offset 8458",
+          "method": "Local Resultary mirror",
+          "title": "Integral adjacency spectra and spanning-tree counts for all Fermat-surface line configurations",
+          "trigger": "Stronger degree range on the identical graph definition"
+        },
+        {
+          "assessment": "Partial overlap, no same-day chronology inferred",
+          "evidence": "Gives 5-rank 48 at p=5, not higher 5-primary elementary divisors or the complete integral group.",
+          "identifier_or_url": "Resultary 2026/11/22 da6a1354b758",
+          "material_read": "Finding offset 0, Passage to the critical group offset 4972, Relationship and Limitations offsets 7949–10853",
+          "method": "Local Resultary mirror",
+          "title": "Wild-prime critical-group ranks of Fermat-surface line graphs",
+          "trigger": "Same-day distinct general critical-group theorem including p=5"
+        },
+        {
+          "assessment": "Different lattice",
+          "evidence": "For (2,5), rank 37 and elementary divisors 1×26,5×10,25 for the linear Hodge cycles.",
+          "identifier_or_url": "arXiv:1711.02628",
+          "material_read": "p. 2, Table 1 (offset 6582) and explanation (offset 10180)",
+          "method": "OA original PDF passage",
+          "title": "Integral Hodge conjecture for Fermat varieties",
+          "trigger": "Published exact same-degree Smith-type table"
+        },
+        {
+          "assessment": "Same geometric lines, different integral invariant",
+          "evidence": "Eq. (5) gives intersections; §6.2 gives the Néron–Severi lattice discriminant 5^12, not graph chip-firing.",
+          "identifier_or_url": "arXiv:0812.2377",
+          "material_read": "§3 pp. 5–7 (offsets 12451–23090); §6.2 p. 17 (offset 47654)",
+          "method": "OA original PDF passages",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Line completeness, adjacency conditions, and possible integral lattice overlap"
+        },
+        {
+          "assessment": "Geometry/Picard group, not graph Jacobian",
+          "evidence": "The 3m² lines and three families are given; Theorem 1.2 treats generation of the Picard group.",
+          "identifier_or_url": "arXiv:1305.3073",
+          "material_read": "p. 1, Theorem 1.2 p. 2, §2.4 p. 5",
+          "method": "OA original PDF passages",
+          "title": "Lines generate the Picard groups of certain Fermat surfaces",
+          "trigger": "Line enumeration and possible stronger integral presentation"
+        },
+        {
+          "assessment": "Different graphs or lattices",
+          "evidence": "Respectively the quartic graph and the 325×325 intersection Gram matrix over the characteristic-two configuration.",
+          "identifier_or_url": "Resultary e6a8bff17712 and 38c504a00bda",
+          "material_read": "RESULT.md Findings",
+          "method": "Local Resultary mirror",
+          "title": "Critical group of the 48-line intersection graph on the complex Fermat quartic; The exact Smith form of the Hermitian quintic line lattice",
+          "trigger": "Closest other-degree and other-characteristic exact Smith results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations; independent exact Smith calculation",
+        "All-degree spectrum and wild-prime rank comparators e239fc6da92d and da6a1354b758"
+      ],
+      "rationale": "The simple intersection graph of all lines of the canonical complex quintic is intrinsically defined. Its precise integral chip-firing quotient gives the exponent and distinguishes elements of orders 5,25,125,625, even after the determinant and number of 5-primary generators are known. These are useful data for integral divisor and symmetry calculations on this graph, not extra terminology for its rational spectrum or a Picard calculation.",
+      "residual_risks": [
+        "A complete exact invariant for one natural graph, not a degree-uniform Smith theorem or a claim about the quintic’s surface divisor class group."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

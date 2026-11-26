@@ -1,11 +1,21 @@
-# Mathematical review: covariance-invisible temporal direction in a resetting comb
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary renewal law has partial Fourier transform \(r e^{-\alpha|y|}/(2D_y\alpha+D_xk^2)\), yielding independent spatial Laplace marginals with the correct backbone normalization. Separating trajectories with and without a complete reset reduces the directional fourth-order contrast to a covariance between \(Y^2\) and the free vertical heat kernel evaluated at the backbone. An independent-copy argument proves this covariance strictly negative at every positive time. The opposite directional contrast is exactly zero by autonomous vertical dynamics. Gaussian–exponential integration produces the complementary-error-function formula, and its short- and long-lag constants follow from the heat-kernel limit and a Laplace resolvent. The standalone reproducibility program passed 66 checks, including direct nested quadrature, without being treated as a proof of the infinite-time inequality.
+## correctness
 
-**Originality — PASS, with prior-art qualification.** The product stationary distribution and ordinary mean-square/covariance phenomena are consequences of existing global-reset comb solutions, and no novelty is assigned to them. In *Stochastic resetting on comblike structures* (2020), Domazetoski et al. evaluated marginal stationary densities and mean-square displacements and related their three-dimensional solution to two-dimensional combs. In *Random Walks on Comb-like Structures under Stochastic Resetting* (2023), Masó-Puigdellosas et al. focused on one-time mean-square displacement under general resetting. Taźbierski et al. (2025) provided general two-time renewal-resetting formulas but only explicitly evaluated ordinary Brownian, scaled-Brownian and related cases, not the continuous comb's asymmetric mixed-squared lag. The specific *evaluated* strict negative-versus-zero all-lag theorem, including its closed form and long-lag coefficient, is not supplied by those inspected statements. A general renewal formula underlies the decomposition, and an earlier unlocated specialization remains possible; independent priority validation has not been performed.
+PASS
 
-**Scientific value — PASS.** This is a naturally motivated stationary transport observable rather than an arbitrary subcase: in the standard comb, motion along the backbone is controlled by the vertical local time, yet the stationary coordinates factorize and all ordinary two-time cross-covariances vanish. The exact fourth-order lag detects that one-way physical dependence at every scale, quantifies its amplitude, and supplies an experimentally interpretable distinction between spatial independence and dynamical independence. The result is restricted to complete Poisson resets, Brownian fingers, and the singular continuous comb; it does not establish more general reset protocols.
+The exponential-age stationary resolvent has vertical decay exp(-alpha|y|) with alpha=sqrt(r/D_y); integrating across zero gives amplitude r/(2 D_y alpha+D_x k^2), yielding the stated product Laplace law. The local-time normalization gives conditional horizontal variance (D_x/D_y)L_t=2D_x times backbone occupation density integrated in time. The independent reset event contributes no initial–terminal covariance on reset paths; on no-reset paths, conditional martingale means give the ordinary covariance matrix and autonomous vertical motion gives the reverse mixed-square covariance zero. The forward mixed-square covariance is 2D_x exp(-rt) times the time integral of Cov(Y^2,p_s(0|Y)), strictly negative at every s>0 by the independent-copy argument on |Y|. Differentiating the Gaussian–exponential integral with respect to its exponential rate twice gives the stated kernel; differentiating its erfc primitive and checking its value at zero verifies the displayed all-lag formula. The kernel tends to -1 in dimensionless units with O(sqrt(rt)) correction. For an independent check of the long-lag coefficient, the integrated heat-kernel difference from the kernel at y=0 is -|y|/(2D_y); covariance with Y^2 under the Laplace law thus integrates to -2/(D_y alpha^3). These arguments cover every positive lag under the stated strictly positive parameters and exact stationarity.
 
-The source comparison is based on the complete accessible mathematical sections and exact model equations, not on keyword absence as a proof of novelty. The independent-audit channel has not been used.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content is the evaluated nonzero-lag negative-versus-zero mixed-square contrast, including the all-lag strict sign and scale constants. The static product law, generic renewal decomposition, and ordinary covariance comparison are not credited as new. No inspected source covers the evaluated directed lag result.
+
+## value
+
+PASS
+
+A natural hidden coupling of the canonical comb is screened both by the stationary position distribution and by every ordinary covariance. The signed, time-ordered exact statistic distinguishes this dynamics even at arbitrarily small or large positive lags and quantifies the decay; it is also a direct witness against reversibility of the stationary pair. The result gives more than a new quadrature for an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

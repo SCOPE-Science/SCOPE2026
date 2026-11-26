@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:46:02.329789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–72",
+        "Frozen VERIFICATION.md and steiner_negative_type_check.py inspected, not executed",
+        "Robertson arXiv:2309.16070, Theorem 1.2",
+        "Replay: python3 -I /workspace/branches/review_reproduction.py 5; /workspace/branches/review_reproduction.txt"
+      ],
+      "rationale": "Two distinct blocks meet in at most one point, yielding the stated four distance classes and the block-block term 4^p J+(2^p-4^p)N^T N+((k-1)4^p-k2^p)I. Full row rank of N and b>v give a nonzero zero-sum block kernel, which is positive above p*=log2(k/(k-1)) and zero at it. On the mean-zero paired modes the endpoint determinant is (r-1)(a^2/(k-1)-(3^p*-1)^2), with a=k/(k-1); for k>=4 the mean-value theorem bounds 3^p*-1 by (log2 3)a/(k-1), and for k=3 one has (3/2)^(5/3)<2 and 1< (3/2)/sqrt(2). The first diagonal entry is negative. On the constant-population zero-sum mode the form normalized by vb is -rv-2v(b-r)(3^p*-(2^p*+4^p*)/2), strictly negative by concavity. The orthogonal splitting exhausts the zero-sum form, proving the endpoint equality space exactly. Strict negative type below follows from the Schoenberg nesting result, and rank of the centered Gram gives both least affine dimensions. Standalone finite diagnostics starting with graph distances independently reproduced the inertias for AG(2,3), PG(3,2), and AG(2,5).",
+      "residual_risks": [
+        "Floating-point inertia checks are finite diagnostics; the exact endpoint sign and nullity follow from the analytic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-Steiner record considers simple Steiner 2-(v,k,1) designs with b>v and treats the frozen k>=3 regime in full; b>v and r>k are equivalent because bk=vr.",
+          "Robertson gives a general determinant formula for finite metrics, not the endpoint signs for this class in the passages inspected."
+        ],
+        "reasoning": "The exact all-Steiner result includes every design permitted here and is stronger in scope than the affine-plane-only predecessors.",
+        "searches": [
+          "Resultary: endpoint nullity of nonsymmetric Steiner incidence graphs; affine resolvable incidence designs",
+          "Robertson arXiv:2004.10923, pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 74–84",
+        "Published Resultary comparisons: exact prior all-Steiner record and multiple affine-plane/affine-design entries",
+        "Bounded primary passages in Robertson arXiv:2004.10923 and arXiv:2309.16070, Sánchez arXiv:1108.0451, Li–Weston arXiv:0901.0695"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier result explicitly identifies the endpoint block-side dependencies, nullity b-v, and ranks 2v-1 at and v+b-1 below the threshold."
+        ],
+        "reasoning": "Restriction to k>=3 preserves the prior equality subspace and ranks. Neither the binary triple-system specialization nor passing from Euclidean to real Hilbert terminology adds a claim for a finite set.",
+        "searches": [
+          "Earlier all-Steiner RESULT.md finding, offsets 0–5700",
+          "Frozen RESULT.md lines 24–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior RESULT.md, offsets 0–5700: all-scale Gaussian threshold for powered point–block distances, equal to log2(k/(k-1)) on the same k>=3 class.",
+          "Robertson arXiv:2309.16070 p. 2, Theorem 1.2: negative type and squared Hilbert distance equivalence."
+        ],
+        "reasoning": "All-scale positive semidefiniteness of exp(-s d^p), s>0, is equivalent to conditional negativity of d^p and to a Hilbert embedding of d^(p/2). Thus the earlier threshold uses the same exponent; no rescaling or alternate graph separates the claims.",
+        "searches": [
+          "Resultary: exact Steiner threshold and endpoint Hilbert dimension",
+          "2026/11/1/SCOPE-universal-gaussian-negative-type-threshold-for-nonsymmetric-stei--242e1ef03c73/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed affine-plane results give nullity q and endpoint dimension 2q^2-1 for q>=3 (respective RESULT.md offsets 0–3683, 0–4456).",
+          "The distinct all-Steiner entry supplies exact dimension and nullity formulas without tables."
+        ],
+        "reasoning": "Putting v=q^2, k=q, b=q^2+q into the frozen formula returns precisely those affine-plane entries. They alone would not imply the general extension, but the all-Steiner result does.",
+        "searches": [
+          "Resultary: affine-plane incidence negative type and endpoint rank",
+          "2026/11/2/SCOPE-exact-negative-type-and-hilbert-rank-transition-of-finite-affine--bf5cc73baa2d",
+          "2026/11/2/SCOPE-exact-negative-type-of-finite-affine-plane-incidence-metrics--d323fae9abcc"
+        ]
+      },
+      "rationale": "The distinct Resultary record 2026/11/1/SCOPE-universal-gaussian-negative-type-threshold-for-nonsymmetric-stei--242e1ef03c73 explicitly covers the full k>=3 nonsymmetric Steiner class, not just affine planes. Its threshold, block-kernel equality space, and both dimension formulas coincide with the frozen claims. Gaussian positivity at all scales is the equivalent Schoenberg formulation, and the rank assertions are explicit there as well. Catalogue coverage, not an inference about authorship or first worldwide publication, is decisive.",
+      "residual_risks": [
+        "External priority under alternate Levi-graph terminology was not exhaustively determined. Missing access to the cited design library does not affect the explicit Resultary overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material coverage",
+          "evidence": "For k>=3, log2(k/(k-1)), equality precisely the block-side incidence kernel, endpoint dimension 2v-1 and subcritical dimension v+b-1.",
+          "identifier_or_url": "2026/11/1/SCOPE-universal-gaussian-negative-type-threshold-for-nonsymmetric-stei--242e1ef03c73/RESULT.md",
+          "material_read": "Finding and endpoint statements, offsets 0–about 5700",
+          "method": "Published Resultary search and local mirror",
+          "title": "Universal Gaussian negative-type threshold for nonsymmetric Steiner designs",
+          "trigger": "Same designs and equivalent Gaussian formulation"
+        },
+        {
+          "assessment": "Exact restricted overlap; not all Steiner designs",
+          "evidence": "For order q>=3, same log2(q/(q-1)), nullity q and dimension 2q^2-1.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-negative-type-and-hilbert-rank-transition-of-finite-affine--bf5cc73baa2d/RESULT.md",
+          "material_read": "Finding, offsets 0–3683",
+          "method": "Local Resultary mirror",
+          "title": "Exact negative type and Hilbert rank transition of finite affine planes",
+          "trigger": "Affine-plane subfamily"
+        },
+        {
+          "assessment": "Provides an applicable framework, not the exact Steiner result in the inspected passages",
+          "evidence": "General determinant formula for supremal negative type; applying it still requires the independent endpoint sign analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.10923",
+          "material_read": "pp. 2–3, determinant criterion and Hamming example",
+          "method": "OA primary PDF",
+          "title": "The Maximal Generalised Roundness Of Finite Metric Spaces",
+          "trigger": "Cited general exact finite-metric method"
+        },
+        {
+          "assessment": "General tools and different concrete examples",
+          "evidence": "Theorem 1.2 supplies the negative-type/Hilbert connection and nesting; examples concern complete bipartite and Hamming metrics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.16070",
+          "material_read": "pp. 1–2, especially Theorem 1.2, and p. 11 examples",
+          "method": "OA primary PDF",
+          "title": "Negative type and bi-Lipschitz embeddings into Hilbert space",
+          "trigger": "Cited equivalence and lower-exponent strictness"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The calculation there is for complete bipartite graphs, not Steiner incidence graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "p. 7, Theorem 3.1",
+          "method": "OA primary PDF",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Exact graph negative-type calculations"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": "HTTP 406/403 or different records identifier; no basis to infer contents.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.8262680",
+          "material_read": "No primary files inspected; DOI and records-page retrieval attempted",
+          "method": "OA lookup",
+          "title": "A library of combinatorial 2-designs",
+          "trigger": "Cited design library and possible exact table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–12, 67–78",
+        "Earlier all-Steiner RESULT.md, finding and dimensions"
+      ],
+      "rationale": "An exact snowflake cutoff and embedding-rank transition for a natural incidence graph would be a meaningful invariant. Here the same class, cutoff, rank transition and dependence space are already available; the finite diagnostic examples do not supply a new invariant or extension.",
+      "residual_risks": [
+        "The rejection concerns the incremental contribution of this record, not the utility of the existing theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

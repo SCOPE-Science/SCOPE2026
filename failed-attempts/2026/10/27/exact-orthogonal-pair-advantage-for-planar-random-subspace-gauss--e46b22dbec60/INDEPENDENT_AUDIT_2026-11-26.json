@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:21.976374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof lines 23–78",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent exact computation: python3 /workspace/branches/planar_integrals.py (SymPy); covariance and all four identities verified, isotropic limits [1/4, 1/4, 0, 0]"
+      ],
+      "rationale": "With r equal to the square root of the condition number, the energy coordinates turn the two exact searches into Euclidean projections. After the first search the residual is (w^T y_0)w, where w=(-sin(theta),r cos(theta))/sqrt(r^2 cos^2(theta)+sin^2(theta)). The fresh normalized search vector has covariance diag(r,1)/(r+1). The rotated second vector instead has squared inner product r^2/(DE) with w, with D and E the two conjugate angular denominators. Mixed coefficients integrate to zero by reflection. Substituting X=tan^2(theta) gives rational functions with poles at -1, -r^2 and -1/r^2, of order at most two. Independently decomposed and integrated the rational terms exactly: the two diagonal iid coefficients are (r^2+r+2)/(2(r+1)^3) and r(2r^2+r+1)/(2(r+1)^3), and each paired coefficient is its iid counterpart times ((r^2-1)/(r^2+1))^2. For r=1 the paired projections kill both coordinates exactly and the iid coefficients are 1/4. Both energies vanish for the zero start; otherwise iid energy is strictly positive and the ratio is less than one for every finite r.",
+      "residual_risks": [
+        "The result concerns two planar sequential exact line searches on one fixed SPD quadratic, not higher dimensions, noisy or safeguarded searches, or runtime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cartis–Fowkes–Shao random-subspace framework covers safeguarded nonlinear least-squares methods and complexity; Kozak et al. give a rate for finite-difference stochastic gradient steps on orthogonal frames. The exact matching indexed result is more directly applicable than either broad framework."
+        ],
+        "reasoning": "Rates for these different update maps are not the frozen identity. The matching indexed theorem covers a possibly shifted quadratic, so the centered case is included without changing the mathematics.",
+        "searches": [
+          "Resultary: randomized subspace Gauss Newton exact rank-one line minimization two-step expectation",
+          "Cartis–Fowkes–Shao, arXiv:2211.09873v1, Section 5",
+          "Kozak et al., arXiv:2107.03941, Theorem 5.12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d73676e44901, 1370f23f939c, 1e26d5d8b110, 21774554697b, 78fb0fd40ae7 and 433e68df3b50",
+        "arXiv:2211.09873v1, 1111.0194v2, 2107.03941, 1803.08200 and 2006.06589 (last, abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1370f23f939c proves a fixed-axis strict objective advantage at relaxation one, 1e26d5d8b110 compares Euclidean squared error, and 21774554697b studies worst-case Euclidean amplification for a fixed order. The web lookup produced no relevant result."
+        ],
+        "reasoning": "Averaging a fixed-axis strict comparison, or changing the norm in its conclusion, does not produce this exact ratio or the second independently Haar-uniform line. In contrast the inspected d73676e44901 claim needs only the zero-shift specialization.",
+        "searches": [
+          "Resultary: randomized coordinate descent random permutation versus independent directions planar Hessian expected transient",
+          "Two-coordinate Gauss–Seidel/transient web lookup",
+          "Resultary 1370f23f939c, 1e26d5d8b110, 21774554697b and d73676e44901"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d73676e44901, Finding at offset 0 and proof at offset 4954: two exact sequential minimizations with independent uniform versus Haar-orthogonal directions have the identical condition-number ratio."
+        ],
+        "reasoning": "The sign or orientation convention for Haar orthogonality does not change an exact line minimizer, and normalizing an isotropic Gaussian gives the same uniform first line. Taking the center to be zero identifies every term of the frozen identity.",
+        "searches": [
+          "Resultary: two sequential exact line minimizations SPD planar quadratic uniform directions orthogonal pairing kappa expected energy ratio",
+          "Resultary: random pursuit orthogonal paired directions exact line search quadratic expected energy two steps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent baseline has a separate all-horizon indexed analysis (433e68df3b50); the exact joint comparison is indexed in d73676e44901."
+        ],
+        "reasoning": "A numerical lookup table is inapplicable to the continuum of SPD inputs and deterministic starts. The analogous exact-catalogue test finds the complete symbolic identity, not merely matching sample values.",
+        "searches": [
+          "Resultary exact line-minimization searches above; full statement d73676e44901",
+          "Resultary 433e68df3b50, Finding"
+        ]
+      },
+      "rationale": "There is verified equivalent coverage in a distinct indexed record, which gives the exact same all-start objective-gap ratio with both sampling laws and even allows a shift of the minimizer. This is an assessment of coverage, not an inference that the comparator was discovered or made public first. The earlier fixed-axis results by themselves would not establish this failure.",
+      "residual_risks": [
+        "The two distinct record paths do not establish historical priority. Bounded literature checks do not establish the first derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact verified coverage, with broader allowance for a shifted minimizer",
+          "evidence": "Same sequential exact minimization, iid and Haar-orthogonal line laws, all deterministic starts, objective gap and ratio ((kappa-1)/(kappa+1))^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-query-gain-from-orthogonal-sampling-in-planar-quadrati--d73676e44901/RESULT.md",
+          "material_read": "Finding and scope at offset 0; proof at offset 4954",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Exact two-query gain from orthogonal sampling in planar quadratics",
+          "trigger": "Strongest exact-ratio Resultary hit"
+        },
+        {
+          "assessment": "Related strict inequality, different laws and no matching ratio",
+          "evidence": "At relaxation one, compares a random permutation of a fixed coordinate pair to independent draws from the same fixed pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-sampling-order-reversal-for-two-coordinate-overrelaxed-des--1370f23f939c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp sampling-order reversal for two-coordinate overrelaxed descent",
+          "trigger": "Closest fixed-axis exact objective comparison"
+        },
+        {
+          "assessment": "Different objective and protocol",
+          "evidence": "Best fixed order, worst-case one-sweep Euclidean amplification rather than a randomized objective gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Two-coordinate Gauss–Seidel Euclidean transient threshold",
+          "trigger": "Plausible analogue identified in frozen Limitations"
+        },
+        {
+          "assessment": "Broader algorithmic framework, not statement-level coverage in the inspected material",
+          "evidence": "Subspace Gauss–Newton with trust-region or regularization variants and global complexity.",
+          "identifier_or_url": "https://arxiv.org/html/2211.09873v1",
+          "material_read": "Abstract and Section 5, offsets 111700–115802",
+          "method": "Bounded open HTML inspection",
+          "title": "Randomised subspace methods for non-convex optimization, with applications to nonlinear least-squares",
+          "trigger": "Broader Gauss–Newton setting"
+        },
+        {
+          "assessment": "Covers baseline type, not paired protocol in those passages",
+          "evidence": "Uniform single search directions and expected progress/rates.",
+          "identifier_or_url": "https://arxiv.org/html/1111.0194v2",
+          "material_read": "Abstract and random-direction/exact-line-search setup near offset 10600",
+          "method": "Bounded open HTML inspection",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Exact line-search iid baseline"
+        },
+        {
+          "assessment": "Different update map and conclusion",
+          "evidence": "Finite-difference updates tend to projected-gradient steps, with an expected function-value convergence rate.",
+          "identifier_or_url": "https://arxiv.org/html/2107.03941",
+          "material_read": "Algorithm and frame discussion at offsets 7800–12221 and Theorem 5.12 at 85950–90148",
+          "method": "Bounded open HTML inspection",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Orthogonal random frames in optimization"
+        },
+        {
+          "assessment": "Related design contrast, not the matched angular experiment",
+          "evidence": "Fixed coordinates and quadratic convergence-rate comparisons, not paired versus independent continuous uniform directions.",
+          "identifier_or_url": "https://arxiv.org/html/1803.08200",
+          "material_read": "Quadratic updates at offsets 9000–13441 and convergence criteria at 17100–20569",
+          "method": "Bounded open HTML inspection",
+          "title": "Randomness and Permutations in Coordinate Descent Methods",
+          "trigger": "Exact quadratic coordinate descent with and without replacement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Resultary d73676e44901, Finding and scope"
+      ],
+      "rationale": "An all-start exact ratio for the effect of pairing would be useful and is stronger than a fixed-coordinate inequality, but the frozen finding adds no independently useful claim beyond the indexed identical comparison. Strictness, the isotropic endpoint and the condition-number limit are immediate from that ratio and the baseline.",
+      "residual_risks": [
+        "The incremental-value judgment does not question the utility or correctness of the mathematical identity itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

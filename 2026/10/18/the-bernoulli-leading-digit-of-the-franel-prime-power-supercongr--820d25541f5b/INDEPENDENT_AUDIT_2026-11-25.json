@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:39:06.617819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66 and VERIFICATION.md lines 19–25",
+        "Frozen VERIFY.py (inspected, not executed)",
+        "Straub, Lemma 5.1, equation (34), OA offset 40100"
+      ],
+      "rationale": "Straub's Jacobsthal lemma gives the valuation bound for the ratio with a=p^(r−1), b=j and 1≤j<a. Writing s=v_p(j), both j and a−j have valuation s, so for p≥5 the ratio differs from 1 by a multiple of p^(r+2+2s). Lucas gives v_p(binomial(a,j))=r−1−s; the difference of the cubes is divisible by p^(4r−1−s), at least p^(3r+1) since s≤r−2. Endpoints cancel and at r=1 they comprise the entire divisible-index sum. For p∤k, Lucas gives binomial(p^r−1,k−1)≡(−1)^(k−1) (base-p digit parity); the normalized cubic terms contribute (−1)^(k−1)/k³. For k=ap+b the alternating sum over the odd number p^(r−1) of block signs is 1. The full reciprocal cube sum is zero modulo p, so the alternating sum is −1/4 times the half-range sum. The p-integral Bernoulli polynomial power sum with m=p−3 gives [B_m(1/2)−B_m]/m; since 2^(1−m)≡8, that is −2B_m. This yields the asserted B_(p−3)/2 and the divisibility and exact-valuation dichotomy, including the p=5 boundary.",
+      "residual_risks": [
+        "The proof uses Jacobsthal and the classical Wolstenholme-prime criterion as external theorems; the recorded finite tests do not prove the unbounded assertion. The exceptional-prime valuation is only a lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Straub gives the baseline p^(3r) Franel congruence as a specialization of a multivariate theorem and the needed binomial quotient refinement.",
+          "Sun's inspected Theorem 1.1 is about weighted Franel sums modulo p²."
+        ],
+        "reasoning": "Straub's prime-power Franel specialization stops at cubic divisibility, and the binomial quotient theorem does not evaluate the contribution of indices indivisible by p. Sun's weighted observable and precision differ.",
+        "searches": [
+          "Straub, Example 3.6, equation (30), and Lemma 5.1",
+          "arXiv:1112.1034, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.7858/eamj.2026.023",
+        "Straub equation (30) and Lemma 5.1",
+        "arXiv:1112.1034",
+        "Resultary item 6ea940ca2aa7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known p^4 residue propagates along the tower by cubic divisibility, but it is unchanged by any change to the coefficient of p^(3r) in a subsequent step r≥2.",
+          "The reviewed proof separately controls every divisible-index cubic difference at precision p^(3r+1), then sums the residue of the indivisible block using the parity of the number of p-blocks."
+        ],
+        "reasoning": "The exact uniform digit is not a specialization of the baseline theorem. The known initial digit acquires a higher-height interpretation only after the valuation estimate and residue-block argument. The Wolstenholme characterization itself is classical.",
+        "searches": [
+          "Kim Theorem 1.1; Straub equation (30) and Lemma 5.1; catalogue item 6ea940ca2aa7 Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim gives f_p≡2+(p³/2)B_(p−3) mod p^4. This exactly identifies the normalized digit at r=1, since F_1=2.",
+          "The matching indexed fixed-modulus theorem gives the same coefficient at prime powers, but measures F_(p^a)−2 rather than the successive difference."
+        ],
+        "reasoning": "Writing the target as F_(p^r)≡F_(p^(r−1))+p^(3r)B_(p−3)/2 mod p^(3r+1) makes the distinction from a fixed p^4 congruence explicit. The prime-index overlap is exact but only a base case.",
+        "searches": [
+          "DOI 10.7858/eamj.2026.023, Theorem 1.1",
+          "Resultary: Franel prime-power congruence, Bernoulli/H_p leading digit, Wolstenholme criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That item gives F_(p^a)≡2+p³B_(p−3)/2 mod p^4 for all a≥1, exact valuation of F_(p^a)−2 when the coefficient is nonzero, and a Wolstenholme criterion for improvement of this fixed modulus."
+        ],
+        "reasoning": "At r≥2 subtracting two of those fixed-precision residues yields only vanishing modulo p^4, already weaker than Straub's p^(3r). No exact higher-tower digit was identified in the targeted searches. The later date path is not used as a coverage test.",
+        "searches": [
+          "Resultary: prime-power Franel residues and Wolstenholme-prime criterion",
+          "Indexed item 6ea940ca2aa7, Finding and Proof §§1–3"
+        ]
+      },
+      "rationale": "Credit Straub for cubic prime-power divisibility and Aeran Kim for the exact r=1 Bernoulli digit, which the frozen comparison should acknowledge. The supported distinct claim is the uniform first digit of the successive differences at precision p^(3r+1), extending the prime-index case to every tower step. An overlapping indexed theorem gives the weaker fixed modulus p^4 for each term relative to 2. Neither of those statements nor their combination with cubic divisibility determines the first digit at r≥2.",
+      "residual_risks": [
+        "The bounded comparison does not rule out unlocated higher-order binomial-sum theorems that give the same leading digit. Historical priority for the prime-index theorem is not determined by an acceptance date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prime-index coverage; not the higher-height formula in the inspected theorem",
+          "evidence": "The theorem gives f_p≡2+p³B_(p−3)/2 modulo p^4. The printed acceptance date does not establish a first public-online date.",
+          "identifier_or_url": "https://doi.org/10.7858/eamj.2026.023",
+          "material_read": "Theorem 1.1, journal p. 333; acceptance date on inspected copy",
+          "method": "Compare the primary theorem with r=1 and F_1=2",
+          "title": "Congruences for Franel Numbers and Harmonic Numbers of Order 2",
+          "trigger": "Exact Bernoulli coefficient at prime index"
+        },
+        {
+          "assessment": "Prior cubic divisibility and proof tool, not exact Franel leading digit",
+          "evidence": "The Franel modulus is p^(3r); the binomial ratio modulus is determined by the valuation of p³ab(a−b)/12, with positive sign at p≥5.",
+          "identifier_or_url": "https://msp.org/ant/2014/8-8/ant-v8-n8-p07-s.pdf",
+          "material_read": "Example 3.6, equation (30) at OA offset 27480; Lemma 5.1, equation (34) at offset 40100",
+          "method": "Inspect the modulus, then specialize the binomial-ratio bound to a=p^(r−1), b=j",
+          "title": "Multivariate Apéry numbers and supercongruences of rational functions",
+          "trigger": "Closest primary prime-power theorem and decisive proof ingredient"
+        },
+        {
+          "assessment": "Same Bernoulli residue at first tower step and same fixed-modulus theme; no higher-digit coverage",
+          "evidence": "The theorem determines F_(p^a)−2 at modulus p^4. Its proof keeps indices of valuation a−1 to achieve this fixed precision.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-prime-power-franel-residues-and-the-wolstenholme-prime-criterion--6ea940ca2aa7/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read exact congruence, its observable and modulus and compare after subtraction at successive heights",
+          "title": "Prime-power Franel residues and the Wolstenholme-prime criterion",
+          "trigger": "Closest indexed coefficient, tower and exceptional-prime match"
+        },
+        {
+          "assessment": "Related congruences for different observables in the inspected theorem",
+          "evidence": "Weighted sums modulo p², not the digit of the prime-power step.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.1034",
+          "material_read": "Theorem 1.1, PDF p. 2, OA offset 5380",
+          "method": "Compare the weighted sums, indices and moduli of the theorem",
+          "title": "Congruences for Franel numbers",
+          "trigger": "Prior primary Franel congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–16 and 21–66",
+        "Straub equation (30)",
+        "Kim Theorem 1.1",
+        "Indexed item 6ea940ca2aa7, Finding"
+      ],
+      "rationale": "This measures sharpness of a classical prime-power supercongruence rather than testing an arbitrary modulus: the first possible nonzero digit is the same at every height, and the p^(3r) bound is exact simultaneously for every height at all non-Wolstenholme primes. At a Wolstenholme prime the improvement occurs at every height. The relation of the exception to a classical Bernoulli invariant is a usable uniform arithmetic distinction and is not obtained from the fixed p^4 prime-power residue.",
+      "residual_risks": [
+        "No exact exceptional-prime valuations, composite-index characterization, or arbitrary-index tower extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

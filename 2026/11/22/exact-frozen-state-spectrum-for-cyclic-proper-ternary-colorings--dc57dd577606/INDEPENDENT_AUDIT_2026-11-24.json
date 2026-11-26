@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:23.863892Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An indexed proper coloring is specified by its first named color and a cyclic sign word. If p of the increments are +1, closure is 2p−n≡0, equivalently p+n≡0 (mod 3). An adjacent swap is allowed exactly when both outside neighbors are the third color, or equivalently the surrounding three increments are equal; the same argument works on the triangle where the outside neighbors coincide. Frozen words thus avoid 000 and 111, not isolated signs. The weighted trace over states 00,01,10,11 counts indexed cyclic words with no division for periodic orbits; summing the three twists implements closure and cancels the factor 1/3 against three initial colors. Direct determinant expansion gives (1−z−z²)(1+z+z²) and, for either nontrivial twist, (1−z)(1+z+z³). The traces and Newton sums produce the stated Lucas term, cubic recurrence and rational generating function, subtracting the length-two coefficient 6 (length one is zero). Minority-run capacity excludes the admissible weights at lengths 3,5,7; alternating words at even lengths and (001)^3 followed by alternating pairs at odd lengths at least nine give valid cyclic witnesses including the closing triples. The cubic has one negative real root −alpha (local extrema are positive), and the conjugate pair has modulus alpha^(-1/2) by the root product. Thus the Lucas root dominates and division by 2^n+2(−1)^n yields the claimed asymptotic fraction. /workspace/evidence/reproduce_other_checks.py verified counts for n=3..27 by a separate twelve-state trace over actual consecutive color triples. That check supports, but does not replace, the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arrighi et al. swap adjacent objects of a linear order with width bounds; Belavadi et al. change a single vertex color and study connectivity and diameter. Fuchs et al.'s inspected §4.1 treats paths and path reachability."
+        ],
+        "reasoning": "Those broader-looking results address different reconfiguration relations or boundary conditions, not an all-cycle enumeration implied by a general theorem. A generic transfer-matrix prescription needs both the local swap equivalence and the closure-specific weighted evaluation.",
+        "searches": [
+          "Resultary: frozen proper-color swap-degree spectrum and cycle winding",
+          "Arrighi et al. MFCS 2021 abstract and problem",
+          "Belavadi–Cameron–Merkel arXiv:2206.09268 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.06473",
+        "4d7ccc34519c",
+        "10.4230/LIPIcs.MFCS.2021.8",
+        "arXiv:2206.09268",
+        "Agur–Fraenkel–Klein 1988 (full-text access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path rigidity results impose neither the seam test nor mod-three winding closure. The Agur et al. scan yielded no text and the identified author-hosted alternate was unreachable, so the precise theorem was not read."
+        ],
+        "reasoning": "An unweighted cyclic forbidden-triple count, even if assumed, would only give the untwisted trace and would not determine either twisted trace or the sharp exceptional-length set. A prior theorem including the weighted cyclic language would be relevant; none was established by the available passages.",
+        "searches": [
+          "Fuchs et al. §4.1 pp. 17–18, Resultary 4d7ccc34519c path assumptions",
+          "Agur–Fraenkel–Klein 1988 The Number of Fixed Points of the Majority Rule, exact title and identified open copies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fuchs et al. define the identical adjacent legal swap and employ no-swappable-pair rigidity on paths. On indexed cycles the exact equivalent language is no constant triple and p+n≡0 mod 3, with three choices of starting color."
+        ],
+        "reasoning": "Path words do not close and lack a wraparound swap. Counting all binary cyclic words without constant triples is also not equivalent: counting colorings requires the congruence slice, not just the total.",
+        "searches": [
+          "Resultary: rigid/frozen proper three-colorings under adjacent swaps, cycle vs path",
+          "Fuchs et al. arXiv:2511.06473 §4.1",
+          "Primary search: cyclic binary words avoiding 000 and 111 with a modulo-three weight condition or frozen cycle 3-colorings under adjacent swaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue hit is the assigned record itself. Distinct same-day 4d7ccc34519c gives an exact path spectrum, including the q=3 path frozen count 6F_{n−2} for n≥4 with F Fibonacci, and excludes wraparound. The targeted web query only surfaced a least-period binary-word discussion unrelated to the required filter."
+        ],
+        "reasoning": "The exact path table cannot be used as the cycle table; for instance the cycle count is zero at length five despite positive path count. The shared date does not settle priority. An uninformative web query adds no evidence of originality.",
+        "searches": [
+          "Resultary: exact indexed frozen ternary cycle spectrum, Lucas/cubic formula and missing lengths",
+          "4d7ccc34519c Finding and Limitations",
+          "Targeted primary search for the weighted cyclic binary count"
+        ]
+      },
+      "rationale": "The supported claim is the exact congruence-refined cycle count, exceptional lengths and asymptotics for named proper colorings under adjacent legal swaps. The swap model, path rigidity and generic weighted transfer methods are not claimed as new. The precise forbidden-word statement attributed in the frozen record to Agur et al. was not independently verified and is not used as negative coverage evidence.",
+      "residual_risks": [
+        "The unread 1988 paper or unindexed symbolic-dynamics work could contain a more general weighted cyclic count.",
+        "Catalogue and primary search were bounded; no absolute priority or relative order of same-day catalogue findings is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same move, but inspected rigidity and reachability statements are for paths",
+          "evidence": [
+            "A proper path coloring is rigid if no neighboring pair is swappable; the section gives a path reachability algorithm, not the cycle count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.06473",
+          "material_read": "p. 1 abstract, §4.1 pp. 17–18, PDF offsets 1336, 60784, 62434",
+          "method": "Open PDF passages",
+          "title": "Coloring Reconfiguration under Color Swapping",
+          "trigger": "Identical adjacent operation and rigid proper three-colorings"
+        },
+        {
+          "assessment": "Exact path counts, no cycle closure or wraparound; order unresolved",
+          "evidence": [
+            "Uses named indexed path vertices and gives 6 times a Fibonacci number for q=3 and n≥4; scope explicitly excludes cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-swap-degree-spectrum-and-frozen-proper-colorings-of-a-path--4d7ccc34519c/RESULT.md",
+          "material_read": "Finding and Limitations, including offset 373",
+          "method": "Local mirror passages",
+          "title": "Exact swap-degree spectrum and frozen proper colorings of a path",
+          "trigger": "Same-day exact frozen-state count using the same move"
+        },
+        {
+          "assessment": "Studies orders subject to width constraints, not the cycle coloring invariant",
+          "evidence": [
+            "Adjacent exchanges of linear-order elements are constrained by cutwidth or pathwidth."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.8",
+          "material_read": "p. 1 abstract, offset 241",
+          "method": "Open PDF passage",
+          "title": "Order Reconfiguration Under Width Constraints",
+          "trigger": "Constrained adjacent swaps and equivalent binary rewriting possibilities"
+        },
+        {
+          "assessment": "Single-vertex recoloring rather than adjacent transpositions",
+          "evidence": [
+            "Studies connectivity and diameter of single-vertex recoloring graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.09268",
+          "material_read": "p. 1 abstract and introduction, offset 833",
+          "method": "Open PDF passages",
+          "title": "Reconfiguration of Vertex Colouring and Forbidden Induced Subgraphs",
+          "trigger": "Related reconfiguration of proper colorings"
+        },
+        {
+          "assessment": "Residual priority risk; no whole-document noncoverage judgment",
+          "evidence": [
+            "The frozen record describes it as an unweighted result, an attribution not independently verified here."
+          ],
+          "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+          "material_read": "Bibliographic identification only; the precise full-text condition and theorem were not read",
+          "method": "Open PDF text retrieval attempts; scan had no extractable text, and the identified author copy at https://u.cs.biu.ac.il/~tomi/Postscripts/majority.pdf could not be reached",
+          "title": "The Number of Fixed Points of the Majority Rule",
+          "trigger": "Plausible prior cyclic binary enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Isolation is the most immediate obstruction to moving within proper adjacent-swap colorings. Indexed cycles are the simplest family where the local obstruction must satisfy global color closure. The count resolves every length, explains the small odd exceptions, and gives an exponential rate for the proportion of states with no permitted first move. It does not claim to classify larger components or add a new general transfer-matrix method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

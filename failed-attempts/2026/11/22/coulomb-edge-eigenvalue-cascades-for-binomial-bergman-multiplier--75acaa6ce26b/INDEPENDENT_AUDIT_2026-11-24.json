@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:02:46.956951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof applies to all the stated weights and residues. Rotation removes the symbol phase, and gamma-ratio monomial norms give the reducing weighted shifts with weights w_j. Expansion of the finite product over the m factors gives w_j²=1−(alpha+1)/j+O(j^−2) and w_j=1−(alpha+1)/(2j)+O(j^−2). The coefficient limits give a compact perturbation of the constant Jacobi block and hence its Fredholm interval, also for c=0. For 0<c<1, after alternating signs, an independent way to write the exact shifted form is sum_j cw_j|u_(j+1)−u_j|² + sum_j V_j|u_j|² with V_j=w_j²−1+2c−c(w_j+w_(j−1)), taking w_(−1)=0. Thus V_j=−(alpha+1)(1−c)/j+O(j^−2). In [N,2N] the potential is bounded above by −(alpha+1)(1−c)/(4N) for large N, while Dirichlet sine vectors on consecutive segments of length K sqrt(N), separated by one zero site, have weighted kinetic cost at most c pi²/(K² N). The span has dimension proportional to sqrt(N) and Rayleigh loss at least eta/N after choosing K large. The min–max inequality at that intermediate threshold is non-strict as written; taking N=floor(eta/(2 epsilon)) supplies strict slack at the claimed counting threshold L_c−epsilon, so the final statement follows. For c=0, the weights squared are strictly increasing to 1 and give the explicit discrete eigenvalues. For c>=1 the pointwise bounds on the analytic multiplier imply the asserted full spectral interval, blockwise as well. A Jacobi recurrence with nonzero off-diagonals gives simplicity for c>0 within each block. These are analytic checks; the supplied finite rational inequalities are supplementary and were not used as a proof of the infinite count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luef–Teschl gives oscillation for the block with coefficient expression asymptotic to −(alpha+1)(1−c)j/c, but not a count. The degree-one Bergman case in Monsalve-López–Seco gives explicit eigenvalues at m=1 only; their general square-summability result constrains gaps but does not imply a lower count. The quadratic Bergman paper gives nonexistence/dimension criteria, not these counts. The classical Pollaczek formula plus the two-sided tail comparison does cover all the stated higher-degree blocks in the attractive regime."
+        ],
+        "reasoning": "The older Bergman results are scope-limited, but the soluble-Coulomb reduction does not require m=1, integer alpha, or zero diagonal deviation. It uses only a positive limiting kinetic coefficient and the leading attractive potential, after the ordinary shift calculation. The essential band, diagonal case c=0 and c>=1 no-outlier bound follow from standard compactness and pointwise multiplier estimates.",
+        "searches": [
+          "arXiv:math/0109213, Theorem 2.1",
+          "arXiv:2501.12298v1, §§4–5",
+          "arXiv:2611.18044v1, Theorem 1.3",
+          "DLMF §18.35(ii) and Ismail (2009) §5.5"
+        ]
+      },
+      "checked_sources": [
+        "NIST DLMF §18.35 (Ismail 2009 §5.5 underlying discrete-mass formula)",
+        "arXiv:math/0109213",
+        "arXiv:2501.12298v1",
+        "arXiv:2611.18044v1",
+        "Published findings 15d9b643524f and b8745f13efaa",
+        "DOI:10.1016/S0021-9045(02)00038-2 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put gamma=(alpha+1)(1−c)>0. Given 0<delta<min(c,gamma), outside a finite set the signed Bergman block shifted by L_c is bounded in quadratic form between H_(c−delta,gamma+delta) and H_(c+delta,gamma−delta): each weighted gradient coefficient is between c−delta and c+delta, and each potential coefficient is between −(gamma+delta)/(n+1) and −(gamma−delta)/(n+1). On the common Dirichlet tail these inequalities include the left edge; compressing away finitely many sites changes each count by at most that finite codimension. Min–max therefore bounds the liminf of sqrt(epsilon)N_r(epsilon) below by (gamma−delta)/(2 sqrt(c+delta)) and the limsup above by (gamma+delta)/(2 sqrt(c−delta)). Letting delta go to zero gives gamma/(2 sqrt(c)) for every residue, stronger than the frozen lower bound."
+        ],
+        "reasoning": "This is actual implication by coefficient comparison, not matching names or demanding the Bergman polynomial appear in the older source. The lower bound is covered for every fixed c∈(0,1), alpha>−1, integer m>=2 and all r; a common positive constant and epsilon_0 follow because there are finitely many residues. A sharper leading coefficient by itself would still be this corollary.",
+        "searches": [
+          "DLMF §18.35 equations (18.35.2_1), (18.35.6_2)–(18.35.6_4)",
+          "Comparison with the actual shifted block coefficients in the frozen Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For k,g>0 define H_(k,g)=k(2I−S−S*)−diag(g/(n+1)), n>=0 with the half-line Dirichlet boundary. Subtract 2kI, divide by 2k and alternate signs. The resulting Jacobi matrix has constant off-diagonal 1/2 and diagonal −b/(n+1), b=g/(2k), which is exactly type-2 Pollaczek with parameters lambda=1, a=0 in (18.35.2_1) and the associated type-3 parameter set to zero. With these parameters (18.35.6_4) gives discrete mass points −sqrt(1+b²/(n+1)²)."
+        ],
+        "reasoning": "The Pollaczek matrix is not literally the Bergman matrix. It is an exact discrete Coulomb comparator for the shifted alternating-sign form. Its compactly supported determinate orthogonality measure is the cyclic spectral measure (or use uniqueness of the bounded recurrence), so the masses give simple eigenvalues. The comparator count below −epsilon is asymptotic to g/(2 sqrt(k epsilon)).",
+        "searches": [
+          "Published-finding semantic searches for binomial Bergman Gram operators, congruence blocks and Jacobi Coulomb counts",
+          "Primary search: Jacobi matrices discrete Schrödinger negative Coulomb potential 1/n eigenvalue counting asymptotic accumulation bound states n squared Coulomb hydrogen discrete half line eigenvalues Pollaczek",
+          "DLMF §18.35 equations (18.35.2_1) and (18.35.6_4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The DLMF formula is an exact spectrum table for the constant-hopping comparator, not a table of Bergman-block eigenvalues. The two separate same-day published findings give sharp Coulomb laws for a negative Dirichlet weighted Jacobi family and a Bergman hyponormality Toeplitz Jacobi matrix. Both differ from this Gram operator. The target match is not a distinct earlier publication."
+        ],
+        "reasoning": "The prior comparator eigenvalues are sufficient for the claimed bound even in the absence of exact eigenvalue tables for these Bergman matrices. The same-day analogues evidence related scale laws and are not used to infer chronological priority.",
+        "searches": [
+          "DLMF §18.35(ii) discrete Pollaczek masses (18.35.6_4), with source Ismail (2009), §5.5",
+          "Published-finding search of quantitative Coulomb edge laws; records 15d9b643524f and b8745f13efaa"
+        ]
+      },
+      "rationale": "The lower counting bound and qualitative cascade are correct but are corollaries of an older, exactly solvable discrete Coulomb model. After the frozen record's elementary residue decomposition and weight expansion, comparison to that model even yields a sharp leading asymptotic for every block. Thus the decisive quantitative assertion is covered by prior mathematics, not merely reminiscent of another Bergman example. This finding is based on the recurrence, discrete mass formula and form comparison, not on lack of access to another paper or on the date of a same-day record.",
+      "residual_risks": [
+        "The original Ismail monograph was not independently inspected; the explicitly corrected DLMF recurrence and mass formulas were inspected and suffice for the comparator. No claim is made that an older Bergman paper states this exact family in these words.",
+        "No verdict about the asymptotic-analysis paper's inaccessible full text or chronological priority between same-day published findings is needed for the demonstrated older implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient prior result for a stronger leading count, after coefficient comparison",
+          "evidence": [
+            "Type 3 at its extra parameter zero is type 2. Parameters lambda=1, a=0, b>0 satisfy the orthogonality condition and the attractive discrete-mass regime. The displayed exact points at these parameters are −sqrt(1+b²/(n+1)²), with positive weights. DLMF attributes the mass formula to Ismail (2009), §5.5, and displays its correction to the source notation."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.35",
+          "material_read": "§18.35(i) recurrence and type reductions, HTML offset 1900–4084; §18.35(ii) orthogonality parameters near offset 12431 and discrete formula/source at offsets 13700–15500; equations (18.35.2_1), (18.35.6_2) and (18.35.6_4)",
+          "method": "OA website text of the recurrence, orthogonality and exact mass equations; specialized them in the block comparison",
+          "title": "NIST DLMF §18.35, Pollaczek polynomials",
+          "trigger": "Decisive older exact discrete Coulomb model for two-sided edge comparison"
+        },
+        {
+          "assessment": "Covers qualitative attractive-regime infinitude, not the count",
+          "evidence": [
+            "The constant edge comparison solution has Q_0(j)∼j/c and A(j)→−c. The divergent negative coefficient expression lies below the theorem's −1/4 threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0109213",
+          "material_read": "Theorem 2.1, PDF p. 3, OA offset 8000",
+          "method": "OA full-text passage",
+          "title": "On the Finiteness of the Number of Eigenvalues of Jacobi Operators below the Essential Spectrum",
+          "trigger": "Broader oscillation criterion"
+        },
+        {
+          "assessment": "Explicit point spectrum in the degree-one Bergman case; general gap constraints not an attractive count",
+          "evidence": [
+            "For degree one, 0<|a|<1 gives explicit eigenvalues and |a|>=1 empty point spectrum. The residue moment sequences for m>=2 are not those standard degree-one moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.12298v1",
+          "material_read": "Theorems 4.3–4.4, HTML offsets 30600–35558; Theorem 5.1 near offset 38000",
+          "method": "OA HTML full-text passages",
+          "title": "Towards spectral descriptions of cyclic functions",
+          "trigger": "Closest established Bergman Gram result, including Jacobi perturbation results"
+        },
+        {
+          "assessment": "Different conclusion; no per-residue eigenvalue existence or counting implication from a dimension upper bound",
+          "evidence": [
+            "It treats the classical Bergman quadratic case, with a condition for empty point spectrum and otherwise an eigenspace dimension upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.18044v1",
+          "material_read": "Theorem 1.3, PDF p. 4, OA offset 11123",
+          "method": "OA full-text passage",
+          "title": "Another step towards spectral descriptions of cyclic functions",
+          "trigger": "Degree-two Bergman spectral source"
+        },
+        {
+          "assessment": "Quantitative analogue in a different family; not the foundation for the priority decision",
+          "evidence": [
+            "Zero diagonal and bonds ((n+2)/(n+1))^(s/2), with limit sqrt(epsilon)N_s(epsilon)=s/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-coulomb-edge-law-for-the-negative-dirichlet-jacobi-matrices--15d9b643524f",
+          "material_read": "Finding and proof of edge law in mirror RESULT.md, offsets 0–8355",
+          "method": "Published full-text mirror",
+          "title": "Coulomb edge law for the negative Dirichlet Jacobi matrices",
+          "trigger": "Distinct same-day exact count comparator"
+        },
+        {
+          "assessment": "Different operator family and parameter transition",
+          "evidence": [
+            "An unweighted Bergman Toeplitz hyponormality Jacobi matrix has a sharp counting law and a transition at s=1/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa",
+          "material_read": "Finding, mirror RESULT.md offsets 0–4229",
+          "method": "Published full-text mirror",
+          "title": "The half-power spectral transition and Coulomb edge law for Bergman operators",
+          "trigger": "Distinct same-day Bergman Coulomb count"
+        },
+        {
+          "assessment": "Unresolved; not used for the FAIL",
+          "evidence": [
+            "No full theorem and hypotheses were established by the lookup."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9045(02)00038-2",
+          "material_read": "Landing-page/abstract only",
+          "method": "Bibliographic and OA lookup did not furnish the full statements",
+          "title": "Spectral properties of Jacobi matrices by asymptotic analysis",
+          "trigger": "Plausible general long-range Jacobi result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural Bergman spectral question, and the elementary proof of the lower estimate is correct. However, the frozen result supplies only the standard essential band and phase cases plus a weaker version of what direct comparison to the classical Coulomb spectrum already yields. It establishes neither new outlier locations nor a new invariant beyond that comparison. A readable worked specialization can be useful exposition, but the claimed count is mechanically implied and is not a distinct mathematical finding under the stated standard. No repaired finding is asserted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

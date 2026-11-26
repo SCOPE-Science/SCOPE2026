@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Bayes' rule reduces posterior ordering exactly to the sign of a four-term exponential sum. An elementary logarithmic-derivative argument proves the one-reversal regime; the elementary real-exponential Chebyshev zero bound proves the global three-reversal limit. The three exact adjacent switches are certified via rational enclosures of exponentials, with independent eight-state posterior enumeration. The proof covers all stated real parameters, not only a finite simulation.
+PASS
 
-## Originality — PASS on investigated evidence
+At each count the observation probability is positive. Subtracting the marginal posterior presences cancels all configurations with equal compared indicators. After removing the positive factorial and evidence factors, the numerator is p1(1-p2)L_u - p2(1-p1)L_v, where L_t is the two-term nuisance average. All bases are positive even at beta=0. If c<=u-v the log-derivative of L_u/L_v is strictly positive: its two weighted averages of log bases are strictly ordered even at the shared-base endpoint. With no nuisance there is a single increasing exponential ratio. In the general case, combine any equal bases; the largest base is uniquely the positive u+c+beta term. Dividing by the smallest exponential and applying Rolle's theorem inductively bounds distinct real zeros by three. Each strict sign reversal after omitting ties consumes a separate root interval. The witness has prior weights 1/22 and 5/11 and the claimed rescaling. A separate rational Taylor/geometric-tail replay certifies signs -,+,+,-,-,+ at 1,2,5,6,19,20. The three disjoint adjacent intervals use the entire root allowance. The strict witness signs persist under small admissible parameter changes, including small positive backgrounds. The supplied verifier and its notes were inspected, not executed. Independent replay: /workspace/branches/fba8dcda-6e9a-462b-ef31-e1e69ca4be0c/independent_replay.py. No general empirical eDNA inference is established.
 
-The general exponential-polynomial zero bound and nonclosure of ordinary likelihood-ratio order under unrestricted mixtures are established theory, not claimed as new. The reviewed eDNA study examines field copy counts and downstream dilution, rather than posterior ordering of two upstream source presences from an unlabelled downstream count. The reviewed 1986 likelihood-ratio paper concerns convolution order preservation, not this sharp three-source classification and certified witness. The 1979 exponential-sum work implies a generic upper bound, but it does not itself give the modeled source-separation criterion and attained minimal-source example. Focused searches of related mixed-Poisson, source-attribution, and published mathematical findings found no statement implying all these claims. Historical priority remains provisional: relevant broad results can have uninspected specializations.
+## originality
 
-## Value — PASS
+PASS
 
-A high molecular count is not necessarily monotone evidence favoring one upstream source over another when a third high-intensity source is rarely present. The complete sharp count of possible reversals and the minimal extra source show a genuine interpretation hazard: a single monotone detection threshold is inadequate in this mechanistic model. The positive intensity gap criterion identifies a regime where such repeated reversals cannot occur. The model is a benchmark, not a validated ecological prediction.
+The zero bound is classical, not new. The supported distinct contribution is the sharp posterior-marginal attribution statement combining the cutoff, minimal nuisance-source count, and a feasible exact witness under the shared Bernoulli nuisance constraints. No equivalent or dominating statement was established in the compared evidence; this is not historical-priority certification.
 
-## Closest literature and limitations
+## value
 
-Van Driessche et al. (2022), doi:10.1002/edn3.361, provides downstream eDNA/droplet count motivation. Carraro et al. (2018), doi:10.1073/pnas.1813843115, studies river inverse transport. Shanthikumar–Yao (1986), doi:10.1016/0304-4149(86)90039-6, establishes broader likelihood-ratio convolution theory. Voorhoeve (1979), doi:10.1112/jlms/s2-20.3.446, treats general exponential sums. The idealized independent latent-source, additive Poisson-count assumptions have not been checked against field data; the general literature is too broad for a definitive historical novelty certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The posterior ordering is a natural attribution decision statistic. The result gives a sharp qualitative failure of monotone ranking from only one latent nuisance source, and a simple physical intensity-gap condition under which more than one switch cannot happen. That boundary is useful in the stated inference model independently of the exact example's calibration. It neither predicts field frequencies nor evaluates assay performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

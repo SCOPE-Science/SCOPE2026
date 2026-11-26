@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:49.460453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Row and column sums 1 and 1/t give Hardy boundedness by Schur. The log identity for 1-phi_t holds on the prescribed branch by analyticity and equality at zero, and gives the exact column factor z^k h_tau(z) sum_j A_j(z) B_j(z)^k. For q_j=1-t_j the linear and quadratic terms of log B_j(e^{ix}) are i(q_j/t_j)x and -q_j x^2/(2t_j^2); a Gaussian bound on the whole angular interval follows from the exact denominator t_j^2+2q_j(1-cos x). At x=u/sqrt(k) the weight tends to e^(pi tau) on the positive side and e^(-pi tau) on the negative side. Each diagonal term thus contributes |a_j(t_j^(-i tau)-1)|^2 cosh(pi tau)/(2 sqrt(pi) t_j sqrt(q_j)) to the sqrt(k)-scaled column square norm; the factor 1/2 comes from the normalized Hardy integral of the two half Gaussians. A cross term has a Gaussian-dominated L^1-convergent amplitude times a linear phase of frequency sqrt(k)(q_j/t_j-q_l/t_l), which diverges in modulus; one can replace the amplitude by its limit in L^1 before using Riemann–Lebesgue. This gives o(k^(-1/2)) with no positivity restriction on a_j. Summing multiplies the column coefficient by 2 at scale sqrt(K). If every resonance holds, each A_j vanishes linearly at 1, and the integral is bounded by a constant times the second moment of the Gaussian, O((k+1)^(-3/2)); otherwise the leading coefficient is positive and the column sum diverges. This also covers tau=0 and proves the commensurability assertion. The checker was read, not executed: its quadrature is a finite truncation of a rescaled boundary integral, and none of its shift-commutator diagnostics is a premise.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matache’s criterion as reproduced by Lo–Loh gives the single-atom membership test by substitution: 1-|phi_t|^2 is comparable to x^2 and its modified weight has nonzero one-sided limiting modulus unless resonant, in which case it is O(|x|).",
+          "Lo–Loh’s exact two-term L^2 criterion applies to the two-atom case by absorbing signs and coefficients into weights. Their Corollary 3.4 concerns unweighted constant multiples, not arbitrary finite weighted sums.",
+          "The BMOA/Bloch spectral and Fredholm essential-spectral setting of arXiv:2610.22554 does not state a Hardy monomial energy limit."
+        ],
+        "reasoning": "Single-atom membership is prior coverage by specialization; the two-atom membership problem is also accessible through the general two-term criterion. Neither criterion is a cutoff growth result or a classification for arbitrary finite supports. No inspected broader result supplies the coefficient or its absence of cross contributions.",
+        "searches": [
+          "Lo–Loh (2020) §2, §3, Eq. (2.1), Theorem 3.1 and Corollary 3.4",
+          "arXiv:2610.22554v1 p. 1",
+          "Resultary: finite weighted-composition cancellation and Hausdorff regularization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check.py (read, not executed)",
+        "Lo–Loh DOI 10.7494/OpMath.2020.40.4.495; Matache criterion via its reproduction there",
+        "arXiv:2610.22554v1 and DOI 10.1215/ijm/1258138149 (retrieval limited as noted)",
+        "Resultary 8d286d944eb1, 04e588d68667, 50d8b8e55b64, 19b79a8d5f82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited 2001 Hardy Hausdorff work supplies context for the classical representation; full text was not retrieved.",
+          "The two-tap Hardy weighted-composition result 19b79a8d5f82 is for radial polynomial weights and singular-value tails, not this commutator or degree-cutoff norm."
+        ],
+        "reasoning": "Adding separate single-atom Hilbert–Schmidt sufficiency is immediate. Its converse for general finite sums and the additive leading law are not consequences of the triangle inequality or individual membership: cancellation must be controlled. In the cutoff problem the distinct nonzero phase differences after dilation do the work. None of the compared criteria asserts this decoupling asymptotic.",
+        "searches": [
+          "DOI 10.7494/OpMath.2020.40.4.495, Theorem 3.1",
+          "DOI 10.1215/ijm/1258138149",
+          "Resultary 19b79a8d5f82, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lo–Loh, Eq. (2.1) and Theorem 3.1, give membership criteria for a single weighted composition and for a difference of two, respectively.",
+          "Resultary 8d286d944eb1 gives an arithmetic phase coefficient for mixed-adjoint monomial composition commutators, not the Hausdorff family or its defined cutoffs."
+        ],
+        "reasoning": "Rewrite each atom of the commutator as a single weighted composition with modified analytic weight. This is a useful equivalence for ideal membership, but does not identify the specified growth of partial column sums; radial regularization of a different operator is not equivalent to the stated monomial cutoff.",
+        "searches": [
+          "Resultary: Hardy Hausdorff imaginary-power commutator cutoff energy and resonance",
+          "Primary literature: \"Hilbert-Schmidtness of weighted composition operators\" Hardy spaces Matache Lo Loh differences Hausdorff operator finite sum asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 04e588d68667 gives a Hankel commutator cusp in a damping parameter, not the growth of this column cutoff.",
+          "50d8b8e55b64 gives an explicit Gram kernel for Hausdorff shift commutators and a lacunary synthesis criterion; it uses the shift rather than the imaginary-power multiplier and is dated 2026-11-08."
+        ],
+        "reasoning": "The claim is an exact formula over continuous atomic parameters and arbitrarily large cutoffs, not a finite catalogue entry. Searches for exact kernels and related explicit square-root constants did not identify a table or formula for these columns.",
+        "searches": [
+          "Resultary: imaginary-power cutoff law and phase resonance",
+          "Resultary 04e588d68667 and 50d8b8e55b64, Findings"
+        ]
+      },
+      "rationale": "Pass for the combined finite-atomic column-energy law and exact arithmetic ideal characterization, not for the Hardy Hausdorff representation or for generic one- or two-term Hilbert–Schmidt membership criteria. The additive cutoff coefficient is the strongest supported distinction.",
+      "residual_risks": [
+        "An unlocated finite-sum weighted-composition or Hardy Hausdorff asymptotic could give indirect coverage, in particular for membership alone.",
+        "The 2001 full text was not inspected, and the generic primary search was unproductive; this is a bounded best-of-knowledge assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers membership tests at one or two terms, not the stated cutoff limit",
+          "evidence": "The single-term integral has denominator 1-|phi|^2; Theorem 3.1 is an exact difference criterion; Corollary 3.4 concerns constant weights.",
+          "identifier_or_url": "https://doi.org/10.7494/OpMath.2020.40.4.495",
+          "material_read": "§2 p. 498 Eq. (2.1), §3 Theorem 3.1 pp. 501–503 and Corollary 3.4 p. 504",
+          "method": "OA primary PDF passages",
+          "title": "Hilbert–Schmidtness of weighted composition operators and their differences on Hardy spaces",
+          "trigger": "Potential broader single- and two-operator prior coverage"
+        },
+        {
+          "assessment": "Scope comparison only",
+          "evidence": "Studies spectra and Fredholm essential spectra on BMOA and Bloch, not Hardy imaginary-power column cutoff energies.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22554",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF abstract",
+          "title": "Hausdorff Matrices on the BMOA and Bloch spaces",
+          "trigger": "Same Hausdorff representation and possible operator asymptotics"
+        },
+        {
+          "assessment": "Representation antecedent; detailed scope unresolved",
+          "evidence": "The frozen record credits the representation to this work; no claim about its uninspected results is made.",
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1258138149",
+          "material_read": "Citation and bibliographic information only; full-text attempt did not retrieve text",
+          "method": "Identifier lookup and attempted OA retrieval",
+          "title": "Hausdorff matrices and composition operators",
+          "trigger": "Earlier Hardy-space Hausdorff paper"
+        },
+        {
+          "assessment": "Earlier analogy, different class and regularization",
+          "evidence": "Uses a resonance indicator for mixed-adjoint monomial composition commutators in a radial Hilbert–Schmidt coefficient.",
+          "identifier_or_url": "8d286d944eb1",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "Arithmetic phase residues for radially damped monomial composition",
+          "trigger": "Earlier arithmetic commutator resonance"
+        },
+        {
+          "assessment": "Different mathematics, irrespective of date order",
+          "evidence": "The squared norm is linear in a small damping parameter for an ell^2 Hankel commutator, not asymptotic to sqrt(K) for a fixed Hardy commutator.",
+          "identifier_or_url": "04e588d68667",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "A universal square-root Hilbert–Schmidt cusp for power-damped Hankel commutators",
+          "trigger": "Same-day square-root Hilbert–Schmidt asymptotic"
+        },
+        {
+          "assessment": "Different multiplier and limit; later dated",
+          "evidence": "An exact Gram kernel treats commutators with the shift and lacunary synthesis, not the imaginary-power family.",
+          "identifier_or_url": "50d8b8e55b64",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "Hilbert–Schmidt regularization of lacunary Hausdorff matrices",
+          "trigger": "Same atomic operators and a commutator ideal criterion"
+        },
+        {
+          "assessment": "Different weight class and invariant; later dated",
+          "evidence": "Radial polynomial weights and singular-value tails differ from monomial column energies at a boundary phase discontinuity.",
+          "identifier_or_url": "19b79a8d5f82",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "Two-scale singular-value laws for two-tap Hardy weighted composition",
+          "trigger": "Two-branch Hardy weighted-composition asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantitative law explains exactly how an imaginary-power multiplier probes these distinct boundary maps: at the natural degree cutoff each atom contributes independently even for complex coefficients. The resulting arithmetic classification distinguishes genuine Hilbert–Schmidt cancellation from nonresonant square-root divergence. The specified cutoff is natural for Hardy polynomials and is not advertised as a basis-independent singular-value invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

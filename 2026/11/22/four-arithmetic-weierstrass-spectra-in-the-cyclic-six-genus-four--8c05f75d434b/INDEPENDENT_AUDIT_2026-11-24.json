@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:46.767046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Since the characteristic is neither 2 nor 3, squarefreeness and ten simple geometric branch points are equivalent to b≠0 and separability of h. Degree ten gives genus four and no branch at infinity. The repeated-root cubics with b≠0 have roots r,r,−1−2r and are counted once for each r≠0,−1/2, including the triple root, giving q−2. Three distinct nonzero roots summing to −1 give (q²−6q+11)/6 by excluding zero coordinates and collisions before dividing by six. For one rational root r≠0 the irreducible quadratic has trace −1−r, with (q−1)/2 conjugate pairs for each trace; subtraction gives the irreducible-cubic count (q²−1)/3. For refinement in K=F_(q²), the cubes form a union of (q+1)/3 nonzero k-lines since k*=F_q* is all cubes. The trace-zero line is among them: w^(q−1)=−1 there, so w^((q²−1)/3)=1 as (q+1)/3 is even. Every other included line meets each nonzero trace in one point; removing the rational point and pairing conjugates gives (q−5)/6 quadratic pairs per nonzero trace and (q−1)/2 at zero. Exactly one allowable r gives trace zero. A rational h-root has one rational cube root and one pair; noncube roots of the quadratic lift through degree three over K and yield a six-cycle. For an irreducible cubic the cube map on F_(q³) is bijective and adjoining the nontrivial cube roots of unity gives the degree-six orbit. Together with x=0 this proves the types, counts, positivity for q≥5, and splitting degrees and branch zeta function. The rational point x=0 rules out Frobenius taking an even subset to its complement, so the rational 2-torsion dimension is c−2 for c cycles. The verification note and supplied code were inspected, not executed. The bounded independent replay /workspace/branches/e5d30ab9-87ee-4d6c-a029-ff6ae91fa034/independent_census.py, with arguments 5 and 125, recovered the exact counts (1,2,6,8) and (2481,2522,5166,5208) by full-polynomial Frobenius gcd counts and independently confirmed the cube/noncube split in the quadratic case. Those runs do not prove the all-field theorem; the trace and degree arguments do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The superspecial enumeration takes place in the exact family but does not give the uniform branch-divisor census in the inspected material.",
+          "The cubic/quadratic theorem examined fixes simultaneous irreducibility conditions on different polynomial shapes, not cube membership by prescribed trace in a quadratic extension."
+        ],
+        "reasoning": "The constructions and counting tools are established, but no inspected more general statement evaluates the relevant joint factorization-and-lift distribution for this fixed-trace family.",
+        "searches": [
+          "Kudo–Nakagawa–Takagi arXiv:2210.14822v1",
+          "Bruin–Kulkarni arXiv:2309.01959, Example 7.3",
+          "A note on some quadratics and cubics over finite fields (2025), Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_frobenius.py and verify_trace.py",
+        "Kudo–Nakagawa–Takagi arXiv:2210.14822v1",
+        "Ohashi–Kudo arXiv:2312.16858",
+        "Bruin–Kulkarni arXiv:2309.01959",
+        "Cubic/quadratic irreducibility Theorem 1.1 (2025)",
+        "Resultary 9c29cb326f10, d832be6dd626, 51423d54dfe7, 366b0706ceb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior four-type result uses square-root lifting, whereas the mixed quadratic sector here splits according to whether its roots are cubes in F_(q²), with a special trace-zero line.",
+          "All fields in the target have cube-bijectivity at odd extension degrees and first acquire μ₃ at degree two."
+        ],
+        "reasoning": "The target needs a distinct exact cubic-residue trace evaluation and lifts with degrees 2 and 6; these are not parameter substitutions into the inspected prior results. The 2-torsion numbers are routine consequences once the new branch table is known.",
+        "searches": [
+          "Kudo–Nakagawa–Takagi family passage and stated goal; 2025 cubic/quadratic Theorem 1.1; Resultary 9c29cb326f10 Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kudo–Nakagawa–Takagi uses the literal target family. Ohashi–Kudo uses the normalized genus-four normal form x¹⁰+Ax⁷+Bx⁴+x.",
+          "The normalized q≡1 comparator would work over fields already containing μ₃, unlike the assumed q≡2 fields."
+        ],
+        "reasoning": "An equation in another normalization can encode the same geometry; neither a normal form alone nor an arithmetic table restricted to fields containing μ₃ implies the Frobenius counts here. The claimed q≡1 table itself was not located.",
+        "searches": [
+          "Resultary meaning searches for the literal x¹⁰+x⁷+ax⁴+bx family and the normalized x¹⁰+ux⁷+vx⁴+x branch table",
+          "Ohashi–Kudo arXiv:2312.16858, p. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two are rank strata in characteristics seven and five; the same-day 366b0706ceb7 tabulates Weil and other arithmetic data for 101 smooth F₁₁ pairs.",
+          "The four-type branch table 9c29cb326f10 studies y²=(x²+1)G_(u,v)(x) and quadratic lifting; it has different types."
+        ],
+        "reasoning": "The record for F₁₁ is a concrete same-equation overlap in the underlying parameter census, not the target branch table. Even the characteristic polynomial mod 2 of the Tate module would not separate the first two target types: both give (X−1)^8 on the even-subset quotient. Neither its statement nor the distinct quadratic-family branch table contains the target four frequencies.",
+        "searches": [
+          "Resultary d832be6dd626, 51423d54dfe7 and 366b0706ceb7, same-family arithmetic tables",
+          "Resultary 9c29cb326f10, four exact genus-four branch types"
+        ]
+      },
+      "rationale": "The family, the hyperelliptic 2-torsion representation, and elementary cubic and trace methods are not new. The supported distinct result is the four exact frequencies with the fixed x⁷ normalization, valid throughout q≡2 mod 3. The same-family sources inspected concern superspecial enumeration, Cartier or Weil data, not the cube-sensitive branch census. The closest full four-type branch table is for a different polynomial and a quadratic lifting mechanism. General quadratic/cubic irreducibility counts and the genus-four normal forms do not supply the trace-zero correction and mixed quadratic refinement for this coefficient slice. The asserted q≡1 comparator table was not retrieved; this is an explicit limitation, not absence evidence.",
+      "residual_risks": [
+        "No citation for the asserted q≡1 frequency table was supplied, and the targeted normalized-equation search did not identify it; only the corresponding normal form was verified.",
+        "An unlocated equivalent branch census or a same-family dataset with partially recoverable small-field results remains possible. The pass is for the exact all-q marked family table, not priority for the family or for general 2-torsion theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family precedent; no all-q branch census evidenced there",
+          "evidence": [
+            "The object is y²=x¹⁰+x⁷+ax⁴+bx; superspecial members and automorphism structure are the focus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.14822v1",
+          "material_read": "OA p. 2, offset 5491, family and scope passage",
+          "method": "Compare literal equation and enumeration objective",
+          "title": "Efficient search for superspecial hyperelliptic curves of genus four with automorphism group containing Z₆",
+          "trigger": "Exact equation and family overlap"
+        },
+        {
+          "assessment": "Same relevant geometric form, not itself a Frobenius census",
+          "evidence": [
+            "Lists y²=x¹⁰+Ax⁷+Bx⁴+x."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.16858",
+          "material_read": "OA p. 5, offset 12528",
+          "method": "Inspect the normal form",
+          "title": "Computing superspecial hyperelliptic curves of genus 4 with automorphism group properly containing the Klein 4-group",
+          "trigger": "Normalization alias"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "The construction is the one used by 9c29cb326f10, not the cyclic-six polynomial xh(x³)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.01959",
+          "material_read": "OA PDF Example 7.3, pp. 20–21, offset 76950",
+          "method": "Compare the Jacobian-square construction and branch polynomial",
+          "title": "On (2,2)-decomposable genus 4 Jacobians",
+          "trigger": "Underlying construction of the nearest other genus-four four-type census"
+        },
+        {
+          "assessment": "Different irreducibility census",
+          "evidence": [
+            "Counts simultaneous irreducibility of x²+ζx−ζ and x³−γx²−ζ, not cube residues of prescribed trace."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/note-on-some-quadratics-and-cubics-over-finite-fields/6B2F227573881D91E17CD5B93028900E",
+          "material_read": "OA p. 2, Theorem 1.1, offset 4358",
+          "method": "Compare inputs and counted condition",
+          "title": "A note on some quadratics and cubics over finite fields",
+          "trigger": "Potentially broader cubic-character counting theorem"
+        },
+        {
+          "assessment": "Material conceptual overlap but mathematically distinct",
+          "evidence": [
+            "Quadratic square-root tests for y²=(x²+1)G_(u,v)(x), with degree patterns including 1⁸, 1⁴2², 2⁴ and 4² for the relevant block."
+          ],
+          "identifier_or_url": "Resultary 9c29cb326f10",
+          "material_read": "Local mirror RESULT.md offsets 0 and 3493, Finding and lift comparison",
+          "method": "Compare polynomial, cycle types and lifting conditions",
+          "title": "Four Frobenius types in a two-parameter genus-four Jacobian-square family",
+          "trigger": "Closest actual table by invariant and dimension"
+        },
+        {
+          "assessment": "Same equation over F₁₁, distinct census; same day does not establish ordering",
+          "evidence": [
+            "101 smooth pairs and 69 Jacobian Weil types, together with rank and supersingularity information; the scope read does not give the branch counts."
+          ],
+          "identifier_or_url": "Resultary 366b0706ceb7",
+          "material_read": "Local mirror RESULT.md offsets 0 and 3115",
+          "method": "Compare arithmetic invariants and scope",
+          "title": "Sixty-nine Weil types and two supersingular members of an order-six family",
+          "trigger": "Same literal family at an allowed field size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-field arithmetic census of a previously studied two-parameter genus-four family, measuring a marked branch invariant not supplied by its superspecial or Weil classifications. It resolves the genuinely unequal cubic-lift split within one cubic factorization type and gives the exact sizes of the resulting rational-2-torsion and splitting strata, with a uniform formula that includes nonprime fields. This is more useful than listing possible cycle types or recomputing a few sample curves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the endpoint-witness covering theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact Dirichlet exponential-spacing coupling gives \(R_n=\max(D_0,D_n,\max D_i/2)\), so the boundary event is \(W<2Z\) with independent \(Z\) and \(W\). The Beta integral is evaluated exactly, including \(n=1\). The transformed auxiliary density is normalized by that event probability and converges to a Gamma half-shape density with an integrable envelope. Conditional Chebyshev concentration of the spacing denominator establishes the claimed observable covering-radius limit. The exchange symmetry proves fair and independent endpoint marking. Reproducible rational checks support finite cases; they are not used as infinite proofs.
+## correctness
 
-## Originality
-**PASS, with historical priority risk.** The original 2015 Reznikov–Saff article includes the asymptotic expected covering radius for rectifiable curves (Corollary 3.6), but not the boundary-versus-interior maximizer indicator on a line segment; the 2021 Penrose treatment includes a polytope strong law applicable to intervals, but not the exact finite one-dimensional marked event. Search comparisons against uniform-spacings extrema and selected mathematical-record results located related maximum-gap dependence but no matching probability plus conditional Gamma law. This is a statement-level distinction, not a claim that absence from search proves priority. Classical exponential/Dirichlet and Gumbel laws are attributed as background. The possibility of an unindexed older formula remains material.
+PASS
 
-## Value
-**PASS.** Worst-case coverage is a standard measure of point-set quality. The theorem gives a finite-sample probability that the bottleneck is an endpoint, proves the sharp \(n^{-1/2}\) localization rate, and identifies an explicitly different conditional error law. This provides location-sensitive reliability information absent from the unconditional covering-radius asymptotic and is not a simple marginal reparameterization.
+The two endpoint gaps and the half-interior gaps are the only candidate radii, with ties on a null set. A common gamma normalization of independent exponentials leaves the witness unchanged. If Z is the larger endpoint exponential, integrating the interior cutoff at 2Z gives 2∫₀¹(1-u)(1-u²)^(n−1)du = B(1/2,n)−1/n, including probability one at n=1. For T=n exp(−2Z), the conditional density tends to Gamma(1/2,1); an integrable envelope follows from (1−t/n)^(n−1)≤exp(−t/2) for n≥2. The gamma denominator differs relatively from n by o_P(1/log n) even after dividing the deviation bound by the order n^(−1/2) rare probability, so the limiting radius cdf is erfc(exp(−y/2)). Exchanging endpoints fixes the radius and witness event and flips the label. Independent rational expansion and factorial comparison for n=1,…,20 corroborates the exact probability (branches/426cb915-c17f-4719-aea2-02c0aa98a796/endpoint_probability_check.py). Frozen check.py was inspected, not executed; its finite quadrature and simulation logic cannot establish the conditional limit.
 
-## Closest literature and limits
-Reznikov–Saff, arXiv:1504.03029, is the qualifying historical source (initial posting 2015-04-12; primary MSC includes 60D05). Penrose, arXiv:2101.06306, is a later relevant boundary-effects comparison. Hüsler (1988) was visible through bibliographic metadata and abstract only; undiscovered one-dimensional specializations remain an originality risk. The theorem is restricted to independent uniform sites and the ordinary Euclidean interval metric.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the weighted endpoint-versus-interior witness probability and its conditional non-Gumbel radius law, not the exponential spacings representation, unmarked coverage threshold, or unweighted Gumbel limit.
+
+## value
+
+PASS
+
+The endpoint mark is geometrically canonical for interval coverage and cannot be read off a usual coverage statistic. Its exact rate quantifies how often boundary rather than interior gaps control the radius; the conditional law shows that keeping the rare mark changes the limiting fluctuation profile despite the familiar unconditional scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

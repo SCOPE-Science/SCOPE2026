@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:10:35.656528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With inherited Euclidean metric and full width, the box and segment contribute b times the spherical l1 norm and a times the absolute sum of coordinates, respectively. Each unit projection has absolute mean c_d. For two unit projections the absolute product mean is K(rho)/d by independent Gaussian polar decomposition and the two-dimensional angular integral. The coordinate pairs have rho=0 and the coordinate/diagonal pairs have rho=d^(−1/2); this yields the stated finite cross term as well as both individual variances. For fixed a,b, the joint iid CLT for (|G|−mu,G²−1,G) separates the last coordinate from the first two by odd parity. Radial expansion produces the correction −mu/2 times the second fluctuation in the l1 term, so its variance is 1−3/pi, and the diagonal produces an independent folded normal. The gamma ratio permits exact-mean centering. Sphere concentration with Lipschitz constants at most sqrt(d) for each width component gives uniform higher absolute moments and thus third-moment convergence. The absolute Gaussian third moment is 2mu, giving a³mu(4/pi−1). The a=0 boundary removes exactly the folded term. Independent vertex enumeration and midpoint quadrature for d=2 with 65,536 directions agreed with the exact mean and variance to 8.75e−10 and 5.78e−10, respectively. Replay: python3 /workspace/branches/d050110f-c0fb-40d8-850a-1b3e12aae924/independent_d2_width_check.py; see independent_d2_width_check.txt there. That check does not prove asymptotics. Frozen verification describes internal finite checks, not attestation or formal proof verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Prochno–Thäle Thm. 1.1 is a joint norm CLT for vectors uniform on lp balls; the Introduction credits Paouris–Pivovarov–Zinn for the fixed-dimensional cube projection CLT and hence the one-dimensional cube component.",
+          "Bounded-degree graphical width result: generators are graph edge vectors, measured in the zero-sum space, with a Gaussian width limit."
+        ],
+        "reasoning": "Neither the lq norms together nor the scalar cube projection incorporates the signed diagonal sum. The long generator here does not fit the graph family and its persistent folded term would contradict a purely Gaussian conclusion. No negative inference from the broad web lookup lacking useful returns.",
+        "searches": [
+          "OA arXiv:1709.09470: random projections; Theorem 1.1",
+          "Websearch: \"random widths\" \"graphical zonotopes\" Gaussian universality bounded degree spherical",
+          "SCOPE-gaussian-universality-for-random-widths-of-bounded-degree-graphi--7b346228232c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–114 and frozen verification evidence",
+        "Distinct Resultary/SCOPE records 3a97c54a1863, d9196c6837b8, da9911a588e4, 7b346228232c",
+        "arXiv:2009.13858v1",
+        "arXiv:1709.09470"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zonotope representation immediately gives the support function. A scalar CLT for its box part plus a marginal Gaussian limit for the diagonal does not establish joint independence. Norming by the same radius changes the box fluctuation and retaining the finite cross term requires mixed spherical moments."
+        ],
+        "reasoning": "The joint signed/absolute/quadric Gaussian expansion and its parity calculation supply the missing coupling and are not a parameter specialization of the compared claims. The general CLT is a standard tool, not an originality claim.",
+        "searches": [
+          "OA arXiv:2009.13858v1 Corollary 3.16; arXiv:1709.09470 Introduction and Theorem 1.1",
+          "SCOPE-a-complete-spherical-angle-spectrum-and-a-skew-normal-exposure-l--3a97c54a1863, Proof Step 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct SCOPE-a-complete-spherical-angle-spectrum-and-a-skew-normal-exposure-l--3a97c54a1863, Finding and Proof Step 1, gives the exact underlying support expression (ell−a)/2 times sum |g_i| plus a/2 times |sum g_i|.",
+          "Distinct same-day SCOPE-a-complete-joint-width-law-for-an-aligned-cube-and-octahedron--d9196c6837b8, Finding and Assumptions, gives the joint three-dimensional widths for the cube and its polar octahedron."
+        ],
+        "reasoning": "The first source concerns exposure rank of the maximizing vertex, not the maximizing support value as a random variable. The polar pair's second width is proportional to the maximum absolute coordinate, not the diagonal projection; fixed dimension three is also not the high-dimensional regime. The bound record's search hit is a self-hit.",
+        "searches": [
+          "Resultary: isocanted alcoved cube support width Gaussian limit folded normal",
+          "Resultary: random support width cube plus diagonal generator Haar sphere limiting distribution",
+          "arXiv:2009.13858v1, Corollary 3.16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The latter gives exact joint angular statistics for a different pair of 3D bodies; the former gives exact covariance under uniform volume inside an isocanted cube."
+        ],
+        "reasoning": "These exact comparators do not supply entries for the positive-cant Haar width covariance invariant, let alone a formula for all d. Interior-coordinate covariance is not directional support covariance.",
+        "searches": [
+          "Resultary: random support width cube plus diagonal generator Haar sphere limiting distribution",
+          "SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4; SCOPE-a-complete-joint-width-law-for-an-aligned-cube-and-octahedron--d9196c6837b8"
+        ]
+      },
+      "rationale": "The box-plus-diagonal geometry, support identity, cube-only limit and general probability tools are prior. The strongest distinct width and isocanted-cube comparisons inspected do not provide the positive-cant Haar variance or the independent folded correction after radial normalization. The pass goes to the combined angular statistic under the stated sampling, not to the representation or a new Gaussian CLT.",
+      "residual_risks": [
+        "The direct Paouris–Pivovarov–Zinn full text was not independently assessed; its one-dimensional scope here is based on the explicit attribution in arXiv:1709.09470. Related projection literature may contain ancillary joint estimates.",
+        "Search and bounded statement comparisons do not settle historical priority or exclude unindexed equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical support identity; different computed statistic",
+          "evidence": [
+            "Support equals (ell−a)/2 sum |g_i| plus a/2 |sum g_i|; the theorem describes the exposed-vertex rank and normal-cone angles."
+          ],
+          "identifier_or_url": "SCOPE-a-complete-spherical-angle-spectrum-and-a-skew-normal-exposure-l--3a97c54a1863",
+          "material_read": "Finding and Proof Step 1, offsets 0–5157",
+          "method": "Resultary local mirror",
+          "title": "A complete spherical angle spectrum and a skew-normal exposure law for isocanted cubes",
+          "trigger": "Same body and same Gaussian objective considered for exposure"
+        },
+        {
+          "assessment": "Finite-dimensional angular widths but a different invariant and bodies",
+          "evidence": [
+            "One common direction for the 3D aligned cube and its polar octahedron; not a box plus a diagonal segment."
+          ],
+          "identifier_or_url": "SCOPE-a-complete-joint-width-law-for-an-aligned-cube-and-octahedron--d9196c6837b8",
+          "material_read": "Finding and Assumptions, offsets 0–4644",
+          "method": "Resultary local mirror",
+          "title": "A complete joint width law for an aligned cube and octahedron",
+          "trigger": "Distinct same-day Haar angular width law"
+        },
+        {
+          "assessment": "Different probability measure and random quantity",
+          "evidence": [
+            "Lebesgue-uniform points internal to the body rather than Haar directional widths."
+          ],
+          "identifier_or_url": "SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+          "material_read": "Finding and Assumptions, offsets 0–4156",
+          "method": "Resultary local mirror",
+          "title": "Uniform-volume covariance and latent interval law for isocanted cubes",
+          "trigger": "Exact covariance on same family"
+        },
+        {
+          "assessment": "Prior box-plus-diagonal representation",
+          "evidence": [
+            "The isocanted polytope has form B+[0,av_{d+1}]; translation and equal box edge lengths give the submitted body."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2009.13858v1",
+          "material_read": "Corollary 3.16, offsets 46065–49664",
+          "method": "OA HTML statement-level inspection",
+          "title": "Isocanted alcoved polytopes",
+          "trigger": "Primary proof of the precise model"
+        },
+        {
+          "assessment": "Compared norm CLT and cited cube limit; not a claim about all joint spherical statistics",
+          "evidence": [
+            "The Introduction identifies l1 of a uniform spherical point from the k=1 cube projection result. Theorem 1.1 treats multivariate lq-norm fluctuations, no signed diagonal projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.09470",
+          "material_read": "Introduction p. 1; Theorem 1.1 p. 3; bibliography p. 21",
+          "method": "OA PDF bounded passages",
+          "title": "High-dimensional limit theorems for random vectors in lp-balls",
+          "trigger": "Closest primary joint norm limit and explicit cube CLT comparison"
+        },
+        {
+          "assessment": "Distinct generator family and limit",
+          "evidence": [
+            "Bounded-degree graph-edge generators are in the zero-sum space; cannot encode the positive-cant longitudinal generator of this family."
+          ],
+          "identifier_or_url": "SCOPE-gaussian-universality-for-random-widths-of-bounded-degree-graphi--7b346228232c",
+          "material_read": "Finding, Assumptions and Proof Step 3, offsets 0–5971",
+          "method": "Resultary local mirror",
+          "title": "Gaussian universality for random widths of bounded-degree graphical zonotopes",
+          "trigger": "Published Gaussian limit for related width invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Angular width on this natural perturbation of the cube gives a concrete boundary of Gaussian width behavior: a single longitudinal generator retains its own random component even when the leading width scales like sqrt(d). The exact variance distinguishes the finite covariance from limiting independence, and the different first- and third-moment scalings recover box length and cant separately. This is more than computing an isolated low-dimensional entry or restating the cube CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

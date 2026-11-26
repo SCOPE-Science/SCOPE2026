@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:59.877826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and scope",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspection only)"
+      ],
+      "rationale": "A noninterval has a component missing all maximum vertices of the cosine projection (the maximum vertices are a singleton or an adjacent pair). At a largest-weight vertex of that component, a step toward a nearest maximum strictly raises the weight and exits the component, hence exits the mask. For nonzero Z fix its argument and repeat these strict adjacent swaps. Finiteness forces an interval; the last noninterval is obtained by moving an interval endpoint one step outward, hence is a one-gap arc. If the starting mask is not one-gap, the first portion of this path strictly raises its projection above |Z(S)| and the final one-gap modulus bounds the raised value. A geometric sum plus the swapped endpoint gives R²=M²−4(sin²(kπ/N)−sin²(π/N)); the subtracted difference is positive by the sine product identity. For N≥6, R²=(1−4sin²(π/N))M²+4sin²(π/N)>0; for N=5 the size-two case and its complement have nonzero sums. For N=4 the only nonintervals are the two opposite pairs. In the interior range the unique longer occupied and vacancy runs distinguish the two orientations and forbid rotational stabilizers; for k=2 the distance-two pairs give N masks unless N=4, and complementation handles k=N−2. The unitary-basis Gram matrix has diagonals k/N and off-diagonal modulus |Z|/N, yielding the claimed sharp gap by rationalization. The frozen floating enumeration was inspected, not used as proof or rerun.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact erasure result treats more frequency differences but optimizes over all retained sets.",
+          "The continuous theorem fixes exchanged measure relative to the phase-centred arc; its equality family removes and adds two symmetric caps.",
+          "Baeza-Guasch proves continuous phase alignment and interval concentration."
+        ],
+        "reasoning": "A broader range of character pairs for a different optimization domain is not coverage; nor does continuous relaxation characterize second-best discrete masks.",
+        "searches": [
+          "e1e03f96b6f0 exact erasure finding",
+          "1d3091d9c873 Finding and Proof §§1–4",
+          "arXiv:2307.04558 Theorem 2.2, Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "e1e03f96b6f0",
+        "1d3091d9c873",
+        "aabfaa5078e3",
+        "8941e9dc35a8",
+        "arXiv:1611.07121",
+        "arXiv:2307.04558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted interval theorem gives strictness off its equality class but no sharp second value.",
+          "Embedding a one-gap set as equal grid cells need not meet continuous equality: for N=6 and k=2 the cells around roots 0 and 2 leave a central gap about their Fourier phase, where the continuous extremizer at the corresponding exchanged mass requires a central arc."
+        ],
+        "reasoning": "Direct specialization of the sharp continuous inequality is not sharp even on a true discrete optimizer. A discrete compression argument is needed to identify the second class.",
+        "searches": [
+          "e1e03f96b6f0 Proof §§1–3",
+          "1d3091d9c873 Proof §§2–4, local mirror offsets 0–4989",
+          "External query: cyclic roots of unity largest sum of k roots excluding consecutive block second largest Fourier concentration two characters erasure masks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-character squared-norm concentration problem is equivalent to the regular-polygon vector-sum problem via the 2×2 Gram matrix.",
+          "At frequency difference one the earlier exact erasure theorem gives sin(kπ/N)/sin(π/N) and the interval equality class, not the best among the excluded masks."
+        ],
+        "reasoning": "Searched both Fourier/erasure and polygon formulations and compared the same spectral normalization and optimization domain.",
+        "searches": [
+          "Resultary: maximum modulus of k distinct N-th roots excluding cyclic intervals",
+          "Resultary: second-largest concentration eigenvalue for the span of the constant and first Fourier character",
+          "e1e03f96b6f0 Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former indexed result gives L1 point concentration, not a k-mask second maximum.",
+          "The four-point catalogue hit is an exact minimum of a root-sum modulus, not the maximum once the interval class is removed."
+        ],
+        "reasoning": "No inspected exact entry supplies the runner-up or its labeled equality count; matching characters or a shared cardinality do not identify the extremum.",
+        "searches": [
+          "Resultary: one-gap arcs and exact runner-up after exclusion of consecutive phase classes",
+          "Resultary mirrors aabfaa5078e3 and 8941e9dc35a8, Findings"
+        ]
+      },
+      "rationale": "The earlier exact erasure theorem already determines the unconstrained maximum, the spectrum formula and its unrestricted interval optimizer at unit frequency difference. The supported distinct result is the exact second extremum with all intervals excluded, including the one-gap equality count. Neither the strongest discrete predecessor nor the sharp continuous stability theorem gives that classification or exact gap.",
+      "residual_risks": [
+        "A semantic catalogue search and unproductive literature query do not exclude an unindexed equivalent polygon extremum or folklore."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted maximum and equality geometry covered",
+          "evidence": [
+            "At frequency difference one, exact modulus maximum M and consecutive retained indices only; no restricted second maximum."
+          ],
+          "identifier_or_url": "e1e03f96b6f0",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Resultary local mirror",
+          "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "trigger": "Direct prior spectral result for the same characters"
+        },
+        {
+          "assessment": "Continuous, relative-to-phase mass deficit; not a sharp discrete classification",
+          "evidence": [
+            "Equality masks have a central interval and two symmetric exterior caps, at prescribed exchanged angular measure."
+          ],
+          "identifier_or_url": "1d3091d9c873",
+          "material_read": "Finding, assumptions and Proof §§1–4 (offsets 0–4989)",
+          "method": "Resultary local mirror",
+          "title": "Sharp phase-centred stability and bang–bang rigidity for two-mode circle concentration",
+          "trigger": "Potential stronger quantitative interval deficit"
+        },
+        {
+          "assessment": "Different norm and observation problem",
+          "evidence": [
+            "Point concentration with global L1 denominator."
+          ],
+          "identifier_or_url": "aabfaa5078e3",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact two-frequency L1 concentration on every cyclic group",
+          "trigger": "Related exact concentration invariant on cyclic groups"
+        },
+        {
+          "assessment": "Four-point minimum, not the present second maximum",
+          "evidence": [
+            "Parity-dependent minimizer classification."
+          ],
+          "identifier_or_url": "8941e9dc35a8",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Parity and the sharp primitive-Fourier cancellation gap for four-point cyclic masks",
+          "trigger": "Exact root-sum extremal geometry"
+        },
+        {
+          "assessment": "Framework, not erasure runner-up",
+          "evidence": [
+            "Cyclic harmonic frames are parametrized via subsets; counting and equivalence are the stated goals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.07121",
+          "material_read": "pp. 2–3 (text offsets 5344–7944)",
+          "method": "OA primary passage",
+          "title": "On the number of harmonic frames",
+          "trigger": "Cyclic harmonic-frame framework"
+        },
+        {
+          "assessment": "Continuous analogue",
+          "evidence": [
+            "Phase alignment and arc maximization of the first Fourier coefficient at fixed angular measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.04558",
+          "material_read": "Theorem 2.2 p. 6 and Lemma 3.1 p. 7",
+          "method": "OA primary passages",
+          "title": "On an uncertainty result by Donoho and Stark",
+          "trigger": "Prior first-mode interval extremality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and equality count",
+        "e1e03f96b6f0 unrestricted optimum",
+        "1d3091d9c873 continuous stability comparison"
+      ],
+      "rationale": "Once intervals are known optimal, the first attainable finite defect is a natural exact measure of rigidity for these erasure masks. Its equality geometry identifies the single-endpoint defect, with a full count including the degenerate cases. That is useful information not supplied by strictness of the unrestricted optimum or a continuous deficit bound.",
+      "residual_risks": [
+        "No stability classification for other Fourier bands or arbitrary weights is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

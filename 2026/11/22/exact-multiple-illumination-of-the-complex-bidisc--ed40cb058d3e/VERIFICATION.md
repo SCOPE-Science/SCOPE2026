@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` handles every positive integer multiplicity, including all open-boundary cases. The independent finite verifier `verify.py` uses integer modular comparisons to evaluate exactly which of the explicit cyclic open half-squares contain a sampled torus point, with no floating-point geometry or external packages.
+## correctness
 
-The side endpoints and square-edge coordinates lie on an integer grid of scale \(1/(4N)\), and this grid contains a sample in every zero-, one- and two-dimensional stratum of the finite line arrangement: endpoints have even grid indices and there is an odd grid index between consecutive distinct boundaries. Consequently the finite verifier's minima are exhaustive for each tested \(m\). Executed with `python3 verify.py`, it reports \(N=4m+3\) and minimum multiplicity exactly \(m\) for every \(m=1,\ldots,15\), ending in `PASS`. These tests do not prove the universal quantifier; that follows from the closed-semicircle gap lemma.
+PASS
 
-The novelty comparison inspects the relevant 2024 torus-covering article and the 2023 multiple-illumination article at their identified claims. It does not certify absence of all possible prior equivalents. Independent mathematical audit remains unperformed.
+On a saturated disk coordinate the exact inward criterion is a strictly negative radial real part; equality cannot illuminate because the quadratic norm increment is then nonnegative. Both saturated coordinates give open half-circles in angle space. A direction simultaneously inward on two saturated coordinates works for the corresponding point with one nonsaturated coordinate as well by continuity, for small positive time. For the torus lower bound, 2r open half-arcs cannot r-cover: integral equality would force count r almost everywhere, while any starting endpoint loses at least one arc relative to the adjacent right cell. At each horizontal slice this requires at least 2m+1 active squares, whose second-coordinate arcs then require at least 4m+3 squares. With N=4m+3, an open half-circle contains at least 2m+1 consecutive starts of the regular grid even at an endpoint. Their doubled second starts have minimum cyclic gap 2/N and closing gap 3/N. Any closed half-circle contains at most m+1 such points, since m+2 would force span ≥2(m+1)/N>1/2; the complementary open half-circle therefore contains at least m. This proves the upper bound without discarding square edges or intersections. The two phases with offsets −1/4 give exactly the two specified open angular intervals.
+
+## originality
+
+PASS
+
+Credit ordinary bidisc illumination, fractional mass, the slice argument, and the rank-one doubled-phase construction at multiplicity one to prior work. The distinct claim is the exact integer multicover spectrum at every higher multiplicity. The strongest compared prior construction is structurally very close but fixes the number of points by dimension and reciprocal side length and guarantees only one point of coverage. It does not state or mechanically yield the exact all-multiplicity optimum without the multiplicity-specific spacing and boundary check.
+
+## value
+
+PASS
+
+This computes the complete integral spectrum of a natural product body whose fractional coverage and ordinary illumination were already established. The constant three-direction excess for all m precisely measures the open-boundary covering penalty, and the sharp construction is explicit. Merely knowing the fractional mass or repeating the ordinary cover does not give that penalty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:01.765017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 32–62; VERIFICATION.md, check_cycle_max.py and check_results.txt (recorded check and code read, not rerun)",
+        "Shepp–Lloyd (1966), §§ 4 and 6"
+      ],
+      "rationale": "For a specified marked j-cycle its occurrence leaves an exactly uniform complementary permutation, and summing its occurrence probability over the candidate cycles gives 1/j. This proves the exact covariance identity, including j=n with the empty complement. Uniform insertion of label r+1 is a bijective sampling rule and grows a chosen longest cycle with conditional probability M_r/(r+1). The uniform length of a tagged cycle gives E M_r >= (r+1)/2, hence each increment of the mean is at least 1/2. For m=n-j >= j, bounding the shortfall below j by that of a uniform tagged cycle gives E[(j-M_m)_+] <= j(j-1)/(2m). Subtract the gain of at least j/2 in E M_n and divide by j to obtain the stated strict negative bound, including the midpoint. For j>n/2 the maximum in the marked identity is j identically. The mean is strictly above n/2 and below n for n>=2, proving the sign, conditional zero criterion, and existence and location of the first positive length. Shepp–Lloyd's mean limit then gives both asymptotic claims.",
+      "residual_risks": [
+        "The theorem does not resolve integrality of E M_n; the zero criterion is conditional on equality. The bounded recorded checks are diagnostics, not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shepp–Lloyd provide the classical longest-cycle asymptotics and growth machinery. Granville treats cycle-length marginal counts, including conditioned counts. Betz–Schäfer study a CLT for the total count under bounds on the largest length. The identified Ewens article's public snippet concerns the expected maximum; full text was inaccessible."
+        ],
+        "reasoning": "Changing sampling or aggregating over lengths changes the joint observable. The short-cycle inequality in particular does not follow by substituting the longest-cycle asymptotic.",
+        "searches": [
+          "Shepp–Lloyd (1966), §§ 1, 4, 6",
+          "Granville, EJC 13 R107, §5",
+          "Betz–Schäfer arXiv:1605.08383, §2 Theorem 1",
+          "Literature search on ordered/longest cycle covariance and Ewens sampling; PII S0167715226001951"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and three matched records",
+        "Shepp–Lloyd",
+        "Granville",
+        "Lugo",
+        "Betz–Schäfer",
+        "Ewens longest-cycle article listing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The long-length covariance is immediate from marking and the deterministic maximum once a long cycle is present. The short-length part must control the truncation loss at j and compare it uniformly against the mean increment; at the midpoint strictness still depends on the discrete j(j-1) rather than j^2 bound."
+        ],
+        "reasoning": "The complete all-length classification, rather than the isolated long case or the limit constant, is the additional statement.",
+        "searches": [
+          "Shepp–Lloyd §§4 and 6, equations (13)–(14) and growth analysis; Lugo Theorem 3 and Proposition 4",
+          "Frozen RESULT.md lines 39–62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marking a cycle weights by multiplicity and does not condition simply on the existence of a j-cycle. The classical length-interval count moments and marginal law of M_n do not state the per-length weighted maximum comparison."
+        ],
+        "reasoning": "The exact sign claim compares the expected maximum after adding a forced j-cycle to the unconditional mean for the same total size. Neither a maximum marginal nor a covariance between two differently defined observables is that comparison.",
+        "searches": [
+          "Resultary: frozen title and per-length cycle count / longest-cycle covariance",
+          "Shepp–Lloyd (1966) ordered-cycle moments; Lugo arXiv:0909.2909, Theorem 3 and Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day distinct e65722ae53e6 record pairs exact-length counts with ordinary successions, not the maximum. The 700d4371e2f3 record concerns two counts conditional on three cycles; 7a0ec035875d concerns two counts conditional on a near-maximal cap. No exact joint classification surfaced from those searches."
+        ],
+        "reasoning": "These are results involving related permutation statistics and even sign boundaries, but their covariance pairs or sampling laws differ. The Golomb–Dickman numerical constant is not a new table entry or the new claim.",
+        "searches": [
+          "Local Resultary: frozen title and cycle-count/maximum-covariance wording; comparison of matched records identified below"
+        ]
+      },
+      "rationale": "The distinct supported claim is the finite sign boundary for the covariance between the maximum and each exact cycle-length count, together with a uniform short-length bound. The marked moment machinery and longest-cycle limit are classical. None of the checked matches supplies or immediately implies the all-length sign assertion without the shortfall-versus-growth estimate.",
+      "residual_risks": [
+        "Not an exhaustive priority determination. The Ewens article was not inspectable beyond its indexed description, and older equivalent joint-statistic results under other terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Longest-cycle marginal moment and limit, including G_(1,1) approximately .62432997, and growth ingredients; inspected statements do not give the finite per-length covariance boundary.",
+          "identifier_or_url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Ordered-cycle-lengths-in-a-random-permutation.pdf",
+          "material_read": "§§1, 4, 6; printed pp. 346–348 and 355–356; equations (13) and (14)",
+          "method": "Lawful OA PDF, targeted moments and growth passages",
+          "title": "Ordered cycle lengths in a random permutation",
+          "trigger": "Likely classical source for longest cycle and covariance ingredients"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Factorial moments for counts in intervals and a marginal limit for the longest cycle above half the size, not the covariance with the maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2909",
+          "material_read": "Theorem 3 and Proposition 4, pp. 3–4",
+          "method": "Lawful OA PDF",
+          "title": "The number of cycles of specified normalized length in permutations",
+          "trigger": "Factorial moments for macroscopic individual cycle lengths"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Counts including conditioning by total cycle number, not the maximum joint sign rule in the inspected text.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r107/pdf",
+          "material_read": "Abstract and §5, p. 19",
+          "method": "Lawful OA PDF",
+          "title": "Cycle lengths in a permutation are typically Poisson",
+          "trigger": "Conditioned counts and possible broader cycle-law coverage"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "A CLT for the total count under a cutoff, not a complete finite per-length covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.08383",
+          "material_read": "§2 Theorem 1",
+          "method": "Lawful OA PDF",
+          "title": "The number of cycles in random permutations without long cycles is asymptotically Gaussian",
+          "trigger": "Joint-behavior implications from upper truncation"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Pairs the cycle count with the ordinary succession statistic, not M_n.",
+          "identifier_or_url": "Resultary 2026/10/27, e65722ae53e6",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Cycle-length orthogonality of ordinary successions in a uniform permutation",
+          "trigger": "Distinct same-day exact-length covariance result"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Pairs two length counts conditional on exactly three cycles, with a square-root-scale boundary.",
+          "identifier_or_url": "Resultary 2026/10/26, 700d4371e2f3",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A square-root covariance transition among three-cycle-conditioned permutations",
+          "trigger": "Similar sign boundary in cycle covariances"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Pairs fixed points and 2-cycles under a cap, not a length count with the realized maximum.",
+          "identifier_or_url": "Resultary 2026/10/26, 7a0ec035875d",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Boundary-layer sign reversal of Ewens cycle-count covariance under near-maximal-cycle truncation",
+          "trigger": "Covariance reversal involving the maximum as a constraint"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Snippet mentions expected-longest-cycle asymptotics; cannot rule out an unexposed joint result.",
+          "identifier_or_url": "ScienceDirect PII S0167715226001951",
+          "material_read": "Indexed publication snippet only; article page returned HTTP 403",
+          "method": "Literature lookup and attempted lawful full text",
+          "title": "On the Golomb–Dickman constant under Ewens sampling",
+          "trigger": "Adjacent work on the expected maximum in a more general sampling family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the short-cycle regime",
+        "Shepp–Lloyd and Lugo for comparison with the marginal and count laws"
+      ],
+      "rationale": "This is a natural joint dependence question for the uniform permutation, not a new evaluation of a classical constant. The theorem resolves every exact length and finite size with one interpretable boundary, identifies the boundary with a known marginal statistic, and gives quantitative control of the entire short-cycle regime. This supplies information neither of the individual marginal distributions conveys by itself.",
+      "residual_risks": [
+        "No claim about a nonuniform or general Ewens law, or about conditioning on a given count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

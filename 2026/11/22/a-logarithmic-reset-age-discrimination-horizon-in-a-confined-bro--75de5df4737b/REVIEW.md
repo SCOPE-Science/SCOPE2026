@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For two known candidate reset ages, the conditional snapshot measures are centered Gaussian products with one scalar variance each. The Neyman–Pearson decision is exactly a squared-radius threshold, yielding both chi-square error terms. A Gaussian affinity bound controls small ages uniformly, the chi-square central limit theorem gives the sharp logarithmic age-resolution window, and dominated convergence gives the stationary-reference-age average. Direct Gaussian half-moment integration proves the displayed prefactor. The exact zero-reference-age case is a point mass and is handled separately. A standalone numerical checker corroborates, but does not replace, these proofs.
+PASS
 
-## Originality — PASS, with residual priority risk
+For the two centered product normal laws the log likelihood ratio is affine, increasing in squared radius. Its zero yields the younger and older chi-square cutoffs Nq log(q)/(q-1) and N log(q)/(q-1) respectively; at zero reference age the laws are mutually singular. Put z=exp(-2 kappa t) and c=1-exp(-2 kappa Delta). The single-coordinate affinity has fourth power 1-[cz/(2-(2-c)z)]^2; the product affinity bounds twice the Bayes error above by exp(-Nc^2z^2/16). This proves the high-signal limit and dominates the stationary average; in the low-signal limit the affinity tends to one and total variation tends to zero. In the finite-signal window the standardized chi-square cutoffs converge to +/-c eta/(2 sqrt(2)), giving the stated risk. For p=r/(2 kappa), the scaled reference variable u=sqrt(N)z has density p N^(-p/2) u^(p-1) on (0,sqrt(N)). Integrating the limiting profile against p u^(p-1) via the Gaussian positive-part moment gives 2^(2p-1) Gamma((p+1)/2)/(sqrt(pi)c^p). These are limits for the stated regimes, not convergence for arbitrary oscillating signals. The exact exponent p/2 can be an integer at particular fixed rate ratios; 'noninteger' in the introductory prose is a generic possibility, not an additional restriction or an always-noninteger conclusion.
 
-De Mauro, Majumdar and Schehr (arXiv:2606.31634, 2026-06-30) established the model and shared-age conditional Gaussian structure. The full accessible result for the beta law of collective energy and a separate full energy-tail result were materially inspected; neither states the age-pair Bayes test, its sharp Gaussian log-population crossover or its stationary-age-averaged coefficient. Targeted record searches using age-inference, Gaussian-scale, likelihood and chi-square aliases found no covering theorem. The primary paper's complete 67 pages could not be read, and standard Gaussian hypothesis-testing literature could already imply parts or all of the evaluated test. No claim is made that similarity search proves uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem isolates the precise physical observability boundary for elapsed common-reset time under harmonic confinement. It resolves a full finite-population optimal decision and sharp time/population phase law, including the previously non-tabulated stationary-calibrated error decay. The distinction from an unknown-age mixture is essential: the result is useful for reference-age-calibrated experiments, not a universal estimator for hidden reset times.
+The stochastic model, sufficient energy statistic, Gaussian testing mechanism and closely analogous equilibrium-energy edge integral are established. The distinct contribution is the calibrated pair-of-ages experiment with sharp age resolution and averaged optimal error, not a new mixture model or new general testing method.
 
-## Limits
+## value
 
-Parameters and both candidate times are calibrated, and all particle positions are measured without error. Independent Brownian noise, exactly common zero resetting, harmonic potential and fixed positive parameters are assumed. The result has no interacting/non-Gaussian generalization and no independent mathematical or publication-priority validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a precise resolution limit for a motivated, fully specified inverse question about a canonical regenerative model. The finite optimal test, the temporal crossover profile and its averaged error jointly quantify information lost when OU relaxation nearly erases the elapsed time. The contribution is narrow and analytically close to the known stationary energy edge, but not a relabeling of an exceedance event; the experiment distinguishes the effects of the candidate offset, relaxation and reset rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

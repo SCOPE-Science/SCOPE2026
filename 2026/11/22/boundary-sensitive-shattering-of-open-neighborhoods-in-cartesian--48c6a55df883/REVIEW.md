@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The argument specifies the entire family of open neighborhoods on \(\square_i P_{n_i}\), with all side lengths at least two, and shattering of unordered sets of vertex queries. Bipartiteness and the one-or-two common-neighbor rule prove that there are no shattered quadruples, and the pair test has an explicit necessary-and-sufficient private-neighbor condition. For three-query supports the proof first forces three different coordinate axes, then separates the singleton-trace obstructions at an interior versus boundary center, accounting for every possible number of interior coordinates. Counting centers uses uniqueness of the containing open neighborhood, preventing duplicate counts. The standalone checker uses independently constructed graph traces, reproducing all coefficient vectors through degree four for 21 parameter boxes; it is evidence for the finite cases, not the proof of unbounded parameters. The only limitation on C is that it applies to the stated Cartesian path products, not arbitrary induced subgraphs.
+PASS
 
-## Originality (O): PASS (historical priority qualified)
+Manhattan distance shows that distinct centers share at most two open neighbors; a trace on three elements of a hypothetical shattered four-set would contradict this when compared with the all-positive center. Every singleton has both labels. A pair is shattered exactly when it has a common center and each endpoint has a private center; a support vertex itself supplies the empty trace by bipartiteness. Straight distance-two pairs have just one common center, diagonal pairs two. This gives n-4 truncated at zero on a path, removes exactly four corner incidences for diagonal pairs in a rectangle (correcting the double subtraction of its two diagonals at 2 by 2), and leaves all distance-two pairs in d>=3. For triples, opposite neighbors on the same axis cannot be labeled positive without the third point. On three distinct axes the unique all-positive center, pairwise intermediate centers, and bipartiteness supply all but singleton traces. A singleton has a witness exactly when its chosen direction extends straight, or there is an unused direction on another axis. A fourth axis always works. In d=3 the numbers of interior axes h=3,2,1,0 give, respectively, 8 times the product, the sum of pairwise products, the sum of truncated (n_i-3), and the all-sides-at-least-3 indicator, using the interior counts (n_i-2). These counts imply the stated VC thresholds, including (2,2,3) and (2,2,4) on opposite sides of the threshold.
 
-Adler, Benediktsson and Macpherson (arXiv:2007.16042, first posted 2020-07-31), Section 4, establish the open-neighborhood VC-dimension upper bound three for Hamming graphs and their induced subgraphs, but not the rectangular Cartesian-path support counts. The public exact full-Hamming coefficient census explicitly does not claim induced-subgraph formulas: its all-binary special case is already prior art. An inspected path-grid profile counts *geodesically convex subsets*, not the open-neighborhood concepts. A separate rank-three first-order theory classification of path boxes neither gives shattering traces nor their coefficients. The closest results were compared by mathematical implication rather than title or numerical degree; none inspected supplies the displayed boundary-sensitive cubic coefficient for arbitrary path boxes. Residual historical-priority risk persists for unindexed equivalent formulas or uninspected papers. No independence is claimed.
+## originality
 
-## Value (V): PASS
+PASS
 
-The previously known uniform VC upper bound does not count which supports are shattered after boundary truncation. The new exact polynomial solves the complete finite support census for any number of nontrivial path factors, with a genuinely different boundary phase in dimension three: two specific box types have dimension two while all other three-dimensional boxes have dimension three. The formula additionally distinguishes spaces with the same scalar VC dimension, giving a motivated model-theoretic/neighborhood-complex invariant beyond routine scalar dimension evaluation.
+The distinct result is the exact support classification and coefficientwise boundary dependence for all Cartesian path boxes. The Hamming upper bound and the entire all-binary specialization are already covered and receive no originality credit. Inspected results on all boxes, convex sets and different neighborhood relations are not equivalent.
 
-## References and limits
+## value
 
-- Adler, Benediktsson and Macpherson, arXiv:2007.16042, Section 4, first posted 2020-07-31.
-- *Coefficientwise VC-shattering census of open neighborhoods in Hamming graphs*, public research record (2026), full scientific statement and proof inspected, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2.
-- *Exact VC-shattering polynomial of rectangular path grids*, public research record (2026), geodesic-convexity result compared, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-vc-shattering-polynomial-of-rectangular-path-grids--dd0fe3219184.
-- Coudert, Csikós, Ducoffe and Viennot, *Practical Computation of Graph VC-Dimension*, SEA 2024, DOI:10.4230/LIPIcs.SEA.2024.8, closed-neighborhood computational context.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coefficients answer more than the scalar VC dimension: they locate and count every support. The private-witness criterion explains why three dimensions are genuinely boundary sensitive and why a fourth axis removes the obstruction; it decides concrete finite-box questions, such as the first cubic support appearing at 2 by 2 by 4 rather than 2 by 2 by 3. This is a structural and exact result for the natural finite induced-grid family, beyond the already known degree cap and binary counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

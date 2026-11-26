@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, \(16\)-site pure state, prime dimensions and unordered eight-versus-eight cuts are precisely specified. Finite-field character orthogonality proves a flat Schmidt spectrum of rank \(p^r\) for cross-block rank \(r\). An integral Smith-normal-form enumeration covers all \(\binom{15}{7}=6435\) complement representatives and checks fifteen classes; an independent point–triple incidence construction and modular elimination reconstruct the exact rank distributions for four primes. Both standalone scripts passed, and the integral diagonal factors restrict *all* characteristic effects to primes two and three. Exhaustiveness follows from the loop and complement-pair count, not a finite extrapolation.
+PASS
 
-## Originality — PASS on examined evidence
+Deleting within-shore phases by local unitaries gives amplitudes p^−8 times the cross phase. Tracing the other shore gives entries p^−8 on pairs in the same coset of ker(C^T), zero elsewhere. Each coset contributes one eigenvalue p^−r and there are p^r cosets. I enumerated all 6,435 representatives containing vertex 15, constructed blocks by the three modular edge predicates, and implemented integer Smith reduction using unimodular row/column Euclidean operations, including adding a trailing row when the pivot fails to divide the remaining block. The resulting positive diagonal entries were checked for divisibility and matched all 15 class multiplicities. The only possible prime divisors are 2 and 3; the histograms in rank order 5,6,7,8 are (124,1923,3056,1332) at 2, (189,1851,2892,1503) at 3, and (124,1539,2888,1884) for every p≥5. Exactly one block has factors (1,1,1,1,1,3,3,3); its shores are the two color classes, as all 24 edges cross and the graph is connected. The modular ranks follow by reducing the unimodular transformations, not by extrapolating from a finite prime test.
 
-The general cut-rank rule is established by Hein, Eisert and Briegel, and prime-dimensional graph states by Looi and collaborators. A public generalized-Petersen theorem already proves the entropy of the **single** alternating-layer cut and therefore covers the special point–block defect itself; this contribution is explicitly excluded from originality. That paper does not classify the remaining balanced cuts. The present claim is the complete fifteen-class integer Smith distribution across all 6435 cuts and uniqueness of the largest qutrit loss within this *entire* population. The existing Heawood and icosahedral Smith censuses apply to different graphs and do not imply these numbers. The published general line-graph theorem is inapplicable because a 3-regular girth-six graph is not a line graph. Searches found no dominating all-cut table. Unindexed historical equivalents remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The uniquely symmetric \((8_3)\) incidence configuration supplies a motivated quantum network, and the full balanced-cut entropy spectrum is a natural resource invariant. A single rank-three characteristic-three collapse, compared to a qubit-full-rank canonical incidence cut, makes prime sensitivity unusually pronounced. This is a complete and reusable finite classification, not a routine restatement of a determinant or an unmotivated partial enumeration. No claim is made that these exact counts imply a quantum-computing advantage.
+The earlier alternating-layer theorem already gives the exceptional incidence cut's prime-dependent ranks, and the frozen record credits that fact. The distinct assessed result is the complete integral Smith census of all balanced cuts, including global uniqueness of the triple drop. The exact indexed hit was the audited record itself; the other inspected cut classifications have a different graph, a restricted cut family, or a different invariant.
 
-## Limitations and literature
+## value
 
-Only the pure unit-weight sixteen-site graph state and prime local dimensions are covered. The fifteen-class counts are computer-assisted exact finite proofs independently cross-checked, not a symbolic all-graph formula. Primary sources are Hein–Eisert–Briegel (arXiv:quant-ph/0307130), Looi–Yu–Gheorghiu–Griffiths (arXiv:0712.1979), and Chen–Zhou (arXiv:1507.05386). The closest published generalized-Petersen and line-graph statements are cited and compared in `RESULT.md`. Unindexed equivalent tables and independent validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete integral rank profile of a canonical symmetric incidence graph answers the natural balanced-cut question for every prime, with one compact finite classification. The uniqueness of a three-unit characteristic-three loss across the full population gives information that a single-cut theorem cannot provide. This is a quantitative benchmark for arithmetic sensitivity of graph-state entanglement, not a claim of computing advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

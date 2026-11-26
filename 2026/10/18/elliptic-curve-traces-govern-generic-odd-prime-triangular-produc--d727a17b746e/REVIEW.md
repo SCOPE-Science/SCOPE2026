@@ -1,17 +1,21 @@
-# Scientific review: elliptic-trace triangular-product density
+# Independent mathematical audit
 
-## Correctness — PASS
-The transformation u=2a+1 and v=2b+1 preserves normalized Haar measure; the zero locus of F=(u²-1)(v²-1)+64n is smooth modulo p under p∤n(1+64n). Each smooth zero class contributes precisely 1/[2(p+1)] conditional square probability. Exact quadratic-character sums give S=1+pχ(n)(3+χ(m)); the smooth quartic point count gives Z=p-3-a_p(E). Substitution establishes the density identity, and Hasse bounds the uniform error. The embedded standard-library checker corroborates 108 finite-field and 5 modular cases; the proof covers arbitrary admissible primes and shifts.
+## correctness
 
-## Originality — PASS, with residual risks
-The exact smooth-locus odd-prime p-adic triangular-product density and its elliptic-trace correction were not found in targeted mathematical-result databases, primary literature, or database searches. Bagchi-Zhou-Zheng provides qualitative local existence, and Kazalicki-Naskręcki count another Diophantine-tuple variety. Previous 2-adic and 3-adic density formulas cannot imply the stated p≥5 genus-one trace identity. The search cannot certify uniqueness; implicit coverage in general character-sum or local zeta literature remains possible.
+PASS
 
-Closest motivating literature: Bagchi and Zhou-Zheng, arXiv:2608.27697, studies qualitative shifted-square and local existence for triangular pairs. Kazalicki and Naskręcki, arXiv:2101.11705, concern a different three-factor Diophantine configuration despite also using elliptic traces. The exact statement is not identified in the inspected prior sources; this is not a claim that failed search proves novelty. In particular, full text access to the closest motivating paper was incomplete and a general local-zeta equivalence could remain undiscovered.
+The affine substitution u=2a+1, v=2b+1 preserves Haar measure, and the factor 64 is a square unit. The only possible singular zero classes of F=(u²−1)(v²−1)+64n would require n=0 or 1+64n=0 modulo p. On a smooth zero ball, varying the coordinate with unit derivative gives an affine bijection for each next residue digit of F/p; this establishes uniformity and square probability 1/(2(p+1)) by summing the even positive valuations and square units. The measure of F=0 is zero. Summing the quadratic character in v gives 1+p χ(n)(3+χ(m)), with the exceptions u=±1 and u²=m accounted for separately. At F=0 the substitution w=(u²−1)v gives w²=(u²−1)(u²−m); the quartic has simple roots and two rational points at infinity, and its affine points with u=±1 are exactly the two points to remove. Thus Z=p−3−a_p. Substitution yields the claimed formula; Hasse gives the stated uniform remainder. Independently checked both examples and 420 generic prime-power cases using weighted triangular residues in the original coordinates and the exact residual smooth-ball mass. Replay: python3 -B /workspace/branches/independent-checks/record5.py. The finite tests do not prove the all-prime identity; the preceding argument does. No claim is verified at the excluded shifts or primes.
 
-## Mathematical value — PASS
-The source local-solubility question has a natural quantitative refinement. The theorem determines that probability for every prime p≥5 and every shift on the full nonsingular parameter locus, where the two excluded residue classes are dictated by discriminant singularities rather than an artificial slice. The exact formula exhibits a nontrivial elliptic Frobenius trace and a uniform first-order quadratic-character bias, giving arithmetic information unavailable from qualitative solubility or finite enumerations alone.
+## originality
 
-## Limits
-No result for the two singular residue classes, primes two and three, global integer-solvability frequencies, or individually evaluated trace closed forms. Finite exact computations are not treated as proofs for infinitely many primes. No independent expert review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of current knowledge: the specific Haar-density formula and its uniform first-order bias are not covered by the inspected triangular-pair solvability or finite-field tuple-counting results. No priority is claimed for the underlying equation, quadratic-character sums, smooth lifting, or the Hasse estimate.
+
+## value
+
+PASS
+
+This quantifies a natural local restriction from triangular Diophantine pairs rather than merely testing solvability of the equation: a uniform local input model has an explicit shift-dependent bias and a separately identifiable elliptic fluctuation. One finite-field curve count suffices to compute the exact infinite-level Haar measure on the full smooth shift locus. The value lies in that quantitative relation, not in the sample computations or in the classical local machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

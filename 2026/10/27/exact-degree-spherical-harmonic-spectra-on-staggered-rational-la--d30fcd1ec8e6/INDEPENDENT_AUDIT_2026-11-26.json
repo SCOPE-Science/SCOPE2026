@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:28:57.211104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In longitude order the normalized Gram matrix is circulant with displacement entry P_ell((1-c²)cos(πd/N)+(-1)^d c²), by the probability-measure addition theorem. A harmonic of order m occupies discrete frequency (N+1)m+N ell modulo 2N and contributes eigenvalue weight 2N a_(ell,m). The multiplier N+1 has gcd 2 with 2N for odd N and gcd 1 for even N; this gives the claimed alias sums with their zero multiplicities. The Rodrigues coefficients of the k-th derivative, relative to the leading coefficient, are (-1)^j binom(ell-k,2j)(2j-1)!! divided by the product of the j descending odd factors from 2ell-1. Thus every such ratio is 2-adically integral. Since v_2(c)<0, the leading evaluated term has uniquely least valuation (the constant derivative case also holds). This establishes strict positivity at every allowed order, so counting attained residue classes proves the rank formulas and sharp onsets, including degree zero and one degree below each onset. The Gram diagonal is P_ell(1)=1; at N=3, c=1/2, ell=1 the weights 1/4, 3/8, 3/8 give the stated example. Dyadic heights give density. The frozen check.py and check_output.txt were inspected, not executed; the recorded 130 numerical spectral comparisons and 2,520 exact amplitude tests are corroborative only. The conclusion rests on the analytic argument, not on numerical agreement or formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 of arXiv:math/0407448 gives multiring polynomial interpolation through a degree cutoff, including half-step shifts in its construction.",
+          "The abstracts of arXiv:1110.6298 and arXiv:1403.4661 concern full bandlimited signals and sampling schemes with different scope."
+        ],
+        "reasoning": "A bandlimit interpolation or reconstruction result on its own sampling sets neither supplies the individual Gram eigenvalues nor implies surjectivity of each single harmonic degree on one fixed two-ring set.",
+        "searches": [
+          "arXiv:math/0407448",
+          "arXiv:1110.6298",
+          "arXiv:1403.4661"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Resultary entries 35d45a63d3a2 and 38d9014ee346",
+        "arXiv:math/0407448, arXiv:1110.6298, arXiv:1403.4661"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former result uses 2L samples on each ring, the combined degrees through L, and a sin²(Lδ) determinant law. Its half-step specialization is not a spectrum for the single degree ell.",
+          "A fixed-height nonvanishing statement for every Legendre derivative is needed to turn the alias formulas into uniform-in-degree rank assertions."
+        ],
+        "reasoning": "The compared statements explain the use of Fourier analysis and the geometry, but do not imply the frozen spectrum and arithmetic rank conclusion together.",
+        "searches": [
+          "Local Resultary mirror: 35d45a63d3a2, RESULT.md offsets 0 and 4200",
+          "arXiv:math/0407448, Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-ring angular-offset result 35d45a63d3a2 uses Fourier blocks and a half-step optimum for its two symmetric rings.",
+          "In longitude order the frozen result can equivalently be written as Fourier eigenvalues of a circulant Legendre-kernel Gram matrix."
+        ],
+        "reasoning": "Equivalence of the circulant and ringwise block descriptions makes the methodology standard, but an offset-dependent determinant for a cumulative-degree space is not that fixed exact-degree spectral family.",
+        "searches": [
+          "Resultary: harmonic spectra, staggered latitude rings, rank and conditioning",
+          "arXiv:math/0407448, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest cumulative-degree entry gives an angular-offset determinant; the quadrupole entry treats exact degree two."
+        ],
+        "reasoning": "An exact-degree-two spectrum or conditioning classification can overlap finitely in degree, but does not tabulate or establish the claimed all-degree rational eigenvalue sums, parity, and sharp rank thresholds.",
+        "searches": [
+          "Resultary: harmonic spectra and paired latitude rings; 35d45a63d3a2, 38d9014ee346"
+        ]
+      },
+      "rationale": "The best verified overlaps cover half-step geometry, Fourier block separation, and related interpolation or conditioning, not the complete fixed-configuration exact-degree spectrum and parity-sharp rank for every degree at even-denominator heights. No priority claim is made for circulant diagonalization, the special-function identities, or the denominator argument in isolation.",
+      "residual_risks": [
+        "An unlocated historical circulant or exact-degree interpolation formulation may give equivalent coverage; the search is not a publication-priority proof.",
+        "Two adjacent bandlimited sources were used only for their advertised scope, not ruled out by full-document inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related geometry and cumulative-degree unisolvence, not exact-degree coverage",
+          "evidence": "Theorem 3.1 works with spaces through a degree cutoff on several circles rather than exact-degree Gram spectra on a fixed double ring.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+          "material_read": "Opening page and Theorem 3.1, pp. 10–11, offset 34301",
+          "method": "Lawful OA primary text, located passage and bounded reading",
+          "title": "Polynomial Interpolation on the Unit Sphere II",
+          "trigger": "Half-step rotations and interpolation on latitude rings"
+        },
+        {
+          "assessment": "Related sampling context; abstract scope only",
+          "evidence": "The stated target is sampling of bandlimited spherical functions, not the fixed-ring exact-degree Gram operator.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.6298",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA primary text",
+          "title": "A novel sampling theorem on the sphere",
+          "trigger": "Spherical sampling and Fourier analysis"
+        },
+        {
+          "assessment": "Related bandlimited sampling context; abstract scope only",
+          "evidence": "Presents an optimal-dimensionality bandlimited scheme and distinguishes it from a theoretically exact sampling theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA primary text",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Efficient spherical sampling"
+        },
+        {
+          "assessment": "Material method and geometry overlap; different harmonic space and invariant",
+          "evidence": "The sin²(Lδ) determinant and half-step optimum are for the space including all degrees through L with 2L sites per ring.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2",
+          "material_read": "RESULT.md offsets 0 and 4200, statement and block analysis",
+          "method": "Local Resultary mirror",
+          "title": "Sharp angular offset determinant and conditioning for two spherical latitude rings",
+          "trigger": "Strongest indexed overlap: same two-ring symmetry, half-step shift and Fourier blocks"
+        },
+        {
+          "assessment": "Narrower exact-degree result; no inference about the full source from the summary",
+          "evidence": "Its identified contribution concerns degree two, not arbitrary degree.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346",
+          "material_read": "Indexed scope summary",
+          "method": "Resultary search",
+          "title": "Sharp quadrupole conditioning on paired spherical latitude rings",
+          "trigger": "Indexed match for the exact-degree formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For points that are fixed across degrees, knowing the exact alias weights and the parity-dependent sharp reachability threshold is materially stronger than a generic-rank or cumulative-bandlimit result. The even-denominator criterion gives an explicit dense choice of heights rather than exceptions defined separately at each degree. The spectral formula gives usable multiplicities and eigenvalues while correctly not promising uniform conditioning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

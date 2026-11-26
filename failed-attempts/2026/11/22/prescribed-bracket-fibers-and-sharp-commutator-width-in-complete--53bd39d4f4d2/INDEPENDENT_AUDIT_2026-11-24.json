@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:15.055168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42",
+        "Frozen VERIFICATION.md, verify_biclique_fibers.py and checker_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/evidence/biclique_check.py; captured output /workspace/evidence/biclique_output.txt"
+      ],
+      "rationale": "The vertex-coordinate bracket is exactly AB with A=(u,u') and B=(w';-w), a bijective reparameterization of ordered vertex pairs, including in characteristic two; the two free central inputs supply q^{2ab}. For a fixed rank-r target, count A of rank s by first choosing an s-plane containing the target image, then a surjection from k² onto it. For each such A every target column has q^{2-s} preimages. The resulting normalized count is the sum over r<=s<=2 of [a-r choose s-r]_q times the product of (q²-q^i) for 0<=i<s, times q^{(2-s)b}. Expanding gives exactly the three displayed nonempty counts, the symmetry at zero, and empty fibers above rank two. The image consists of matrices of rank at most two over every field; the derived ideal is all central matrices since edge basis elements are individual brackets. Rank subadditivity bounds the number of brackets below by ceil(r/2); a decomposition into r rank-one matrices grouped two at a time attains it, with zero requiring none. Full-rank targets give the stated width. Choosing image and quotient bases gives the ordinary rank census and hence the normalization; the rank-two stratum has dimension 2(a+b-2), yielding the stated codimension when both parts have size at least three. An independent weighted-convolution replay and separate rank tests checked every target and rank count at (a,b,q)=(4,4,2),(2,2,5). The normalized nonempty fibers were (1186,90,6) and (4705,1080,480); ranks 3 and 4 were absent from the first image. The factor for central inputs and the arbitrary-field width rest on the proof, not on enumeration.",
+      "residual_risks": [
+        "The independent replay is bounded to those dimensions and prime fields; field generality follows from the counting and rank arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gavrilyuk–Koolen explicitly state (D,b,alpha,beta)=(d,q,q-1,q^e-1) for general Bil_q(d×e), citing Brouwer–Cohen–Neumaier Table 6.1. Their parameters determine the full array by (5) and (6). The q=2 hypothesis of their characterization theorem does not restrict this stated background result.",
+          "Delsarte's article/PDF routes were inaccessible; the exact broader parameters were independently read in open text of Gavrilyuk–Koolen. Mainkar's Theorem 1.1 is graph/Lie rigidity, not a fiber count, and her introductory construction assumes characteristic different from two."
+        ],
+        "reasoning": "An earlier whole intersection array, not merely the existence of rank factorization or a similar Lie algebra, dominates the finite-field computation. The second search did not surface the source; the known arXiv identifier yielded the relevant paper directly. Failure to retrieve Delsarte or a generic matrix chapter is not evidence against coverage.",
+        "searches": [
+          "Web search: finite field count of factorizations of a fixed rank-r matrix as A B with prescribed inner dimension, including rank-factorization enumeration and prescribed matrix product fibers",
+          "Web search: Gavrilyuk Koolen ‘A characterization of the graphs of bilinear forms over the field of two elements’ general q intersection array bilinear forms graph distance rank parameters",
+          "Direct identified OA alternate: arXiv:1511.09435v2, §2.4",
+          "Delsarte DOI:10.1016/0097-3165(78)90027-4"
+        ]
+      },
+      "checked_sources": [
+        "Gavrilyuk–Koolen arXiv:1511.09435v2, pp. 2, 6–7, 9–10, 28",
+        "Mainkar arXiv:1310.3414v1; DeCoste et al. arXiv:1512.07944, inspected passages",
+        "Resultary c92e90370f3f, 4fd12b2e1ff8, ad8a3a2d7106, 7a538d5f93a5, f31f1793ea7b, 05a73a94483e, 45cb378c3dbb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing lambda=q^a+q^b-1 for the zero outer-product weight, the normalized bracket fibers at ranks 0,1,2 are respectively lambda²+(q-1)² b0, 2 lambda(q-1)+(q-1)² a1, and (q-1)² c2. The counts vanish above two. Negating the second outer product does not change any weight. Algebraic expansion recovers the frozen formulas exactly.",
+          "A rank-two-or-less step is exactly a step of length at most two in rank-one distance, over any field. The minimum number of such steps is ceil(rank/2), with zero at distance zero; rank reaches min(a,b)."
+        ],
+        "reasoning": "The known array supplies the complete nonzero-summand convolution and the residual factors are elementary preimage counts. This determines every claimed prescribed fiber, not just rank aggregates. The additional arbitrary-field wording uses a rank argument that does not depend on finiteness; the threshold, width and image are direct consequences of grouping rank-one summands. Thus not locating the Lie-specific wording does not establish a new distinct theorem here.",
+        "searches": [
+          "Gavrilyuk–Koolen arXiv:1511.09435v2, pair-distance definition and §§2.2, 2.4",
+          "Frozen RESULT.md lines 23–36 and bracket coordinates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gavrilyuk–Koolen §1 defines Bil_q(d×e), e>=d>=2, on all d×e matrices with edges exactly rank-one differences. The distance between vertices is the rank of their difference: rank subadditivity and rank-one decomposition prove this directly.",
+          "The different Resultary claims c92e90370f3f, 4fd12b2e1ff8 and ad8a3a2d7106 treat forests, triangles with leaves, and graphs with no even cycle, respectively. The assigned bicliques contain a four-cycle."
+        ],
+        "reasoning": "Transposition permits d=min(a,b) and e=max(a,b), so the classical graph definition has exactly the required dimensions and fields. The rank metric underlying the graph also controls the input bracket. Neighboring graphical-Lie results do not cover these bicliques, but the standard matrix graph is an equivalent formulation for the needed fixed-target counts. The identical indexed submission was not used as overlap evidence.",
+        "searches": [
+          "Resultary: prescribed bracket fibers complete bipartite graph Lie algebra commutator width",
+          "Resultary: fixed matrix AB=M rank factorization number of factorizations inner dimension two finite field",
+          "arXiv:1511.09435v2, literal locators bilinear forms and intersection numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "From the inspected classical-parameter equations, b0=(q^a-1)(q^b-1)/(q-1), b1=(q^a-q)(q^b-q)/(q-1), c1=1 and c2=(q+1)q. Since a1=b0-b1-c1, a1=q^a+q^b-q-2. These tabulated intersection parameters count common neighbors for target distances zero, one and two, respectively b0,a1,c2.",
+          "The distinct same-date 7a538d5f93a5 counts six strata after deleting one edge of K3,3, and 45cb378c3dbb restricts products to symmetric 2×2 factors. They are not exact matching tables for the full-biclique fibers."
+        ],
+        "reasoning": "The classical intersection array is exact function-level numerical coverage rather than a few matching small examples. The deleted-edge table merges all completions of a missing matrix coordinate and so does not recover the full-dimensional fixed-target table. No relative priority is inferred from same-date metadata.",
+        "searches": [
+          "arXiv:1511.09435v2 §§2.2, 2.4, equations (5)–(6) and Result 2.2; cited Table 6.1 of Distance-regular graphs",
+          "Resultary: prescribed matrix product fiber fixed target rank factorization A in M(a,2) B in M(2,b) finite field GL2 count",
+          "Resultary 7a538d5f93a5 and 45cb378c3dbb, Finding"
+        ]
+      },
+      "rationale": "The full finite-field census is mechanically implied by the classical bilinear-forms graph intersection array, explicitly confirmed in the general-q statement of Gavrilyuk–Koolen, arXiv:1511.09435v2, §2.4, equations (5)–(6) and Result 2.2. A bracket is an ordered sum of two rank-one or zero matrices; each nonzero rank-one summand has q-1 input factorizations and zero has q^a+q^b-1. The fixed-target convolution is therefore a fixed scalar combination of the known intersection numbers, plus a free central factor. Width is rank-metric distance in the square of the rank-one-difference graph; over an arbitrary field the same formula is an immediate rank-decomposition consequence. Using the graphical Lie-algebra name does not change the underlying census or produce an independent new boundary. No claim is made that the older paper explicitly stated the Lie-algebra wording.",
+      "residual_risks": [
+        "The exact historical priority of the graphical Lie wording was not resolved. The primary Delsarte and Dani–Mainkar bodies remained inaccessible; the originality failure rests on the positively verified implication from the open general-q array, not on these access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed general-q prior table from which every finite-field fiber follows",
+          "evidence": [
+            "Adjacency is rank-one difference. The graph is distance-regular; valency b0=c_i+a_i+b_i.",
+            "(5) states c_i=[i]_b(1+alpha[i-1]_b), (6) b_i=([D]_b-[i]_b)(beta-alpha[i]_b); Result 2.2 gives (d,q,q-1,q^e-1) and attributes it to Table 6.1 of Brouwer–Cohen–Neumaier, Distance-regular graphs (1989)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.09435v2",
+          "material_read": "§1 definition (p. 2); intersection-number definitions pp. 6–7 (offset 17480); §2.4 equations (5)–(6) and Result 2.2 pp. 9–10 (offset 26490); reference [4] on p. 28",
+          "method": "Lawful arXiv PDF, literal locators followed by bounded original equation-layout and statement reads",
+          "title": "A characterization of the graphs of bilinear (d × d)-forms over F2",
+          "trigger": "Exact general-q intersection data for the rank-metric graph underlying the bracket convolution"
+        },
+        {
+          "assessment": "Not relied on for the exact array; another open source settles it",
+          "evidence": [
+            "Article/PDF returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(78)90027-4",
+          "material_read": "Bibliographic identification only; no article body",
+          "method": "DOI, ScienceDirect article and PDF routes tried; no readable passage",
+          "title": "Bilinear forms over a finite field, with applications to coding theory",
+          "trigger": "Original classical bilinear-forms scheme reference"
+        },
+        {
+          "assessment": "Graph/Lie rigidity and nilpotent metric geometry rather than fiber coverage in inspected text",
+          "evidence": [
+            "Mainkar's theorem concerns isomorphism, and DeCoste et al. frame their work around singularity classes and geodesics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1310.3414v1 ; https://arxiv.org/abs/1512.07944",
+          "material_read": "Mainkar introduction and Theorem 1.1 (offsets 1308 and 2050–4997); DeCoste et al. p. 1 (offset 350)",
+          "method": "OA passage reads",
+          "title": "Graphs and two-step nilpotent Lie algebras; Graphs and Metric 2-step Lie Algebras",
+          "trigger": "Primary literature on the same graph Lie construction"
+        },
+        {
+          "assessment": "Unresolved exact content; not counted as negative evidence",
+          "evidence": [
+            "No accessible statement from this paper was compared directly."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-04-03518-4",
+          "material_read": "Bibliography only; no paper body",
+          "method": "AMS landing page and PDF attempted; HTTP 403",
+          "title": "Anosov automorphisms on compact nilmanifolds associated with graphs",
+          "trigger": "Original construction cited by the assigned record"
+        },
+        {
+          "assessment": "Different graph families or projected targets; dates not used as priority evidence",
+          "evidence": [
+            "The one-edge-deleted K3,3 has a distinct eight-dimensional target space, and the deletion projects away a coordinate of the full matrix. The remaining families do not include the required complete bipartite graphs."
+          ],
+          "identifier_or_url": "Resultary c92e90370f3f, 4fd12b2e1ff8, ad8a3a2d7106, 7a538d5f93a5",
+          "material_read": "Finding of each local mirror RESULT.md, offset 0",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Graphical Lie algebra fiber comparisons: forests, triangles with leaves, no even cycle, and one-edge-deleted biclique",
+          "trigger": "Closest exact bracket-fiber and width results by graph family"
+        },
+        {
+          "assessment": "Different counted objects or restrictions; not the decisive prior coverage",
+          "evidence": [
+            "The first two count ideals and abelian subalgebras; the product census requires two symmetric 2×2 factors and stratifies by similarity type."
+          ],
+          "identifier_or_url": "Resultary f31f1793ea7b, 05a73a94483e, 45cb378c3dbb",
+          "material_read": "Local-mirror Findings at offsets 139, 459 and 0, respectively",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Complete ideal-dimension polynomials; complete abelian-subalgebra census; prescribed products of symmetric matrices",
+          "trigger": "Same biclique structure or analogous exact product-fiber task"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Gavrilyuk–Koolen arXiv:1511.09435v2, general Bil_q parameters and intersection-number definitions"
+      ],
+      "rationale": "The natural exact invariant is correctly explained, but its formula is a weighted two-step count in a classical distance-regular graph, the image and width are immediate rank consequences, and the remaining normalization and codimension are standard determinantal counts. There is no new invariant or nonmechanically implied boundary beyond that change of presentation. This can be useful exposition but is not a separate valuable research finding under the stated standard.",
+      "residual_risks": [
+        "The assessment is limited to full bicliques; no deduction is made about arbitrary graphical Lie algebras or the value of a different new graph family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

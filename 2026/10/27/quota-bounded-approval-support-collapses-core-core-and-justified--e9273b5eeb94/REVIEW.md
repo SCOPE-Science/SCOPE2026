@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to unweighted approval elections with candidate supporter size at most the unrounded Hare quota. The integral-core implication follows from a tight double count of approval incidences over any blocking coalition. The stronger core+ implication uses an explicit uniform positive payment and reserve certificate satisfying every constraint of Becker–Greger–Peters Theorem 3.3, including strict reserve deficiency at each losing candidate. For each positive integral quota, the three-candidate sharpness construction has a direct proof of integral-core membership and an exact feasible fractional core+ block. Cases with nonintegral quota, no supporters, and quota one are covered. The accompanying standalone program checks 10,893 eligible profile-and-committee-size configurations, 37,417 committees, and exact witnesses for quota 1 through 50. The finite checks are not the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+The cap gives an independent direct proof for fractional blocking, without LP duality. Write L=sum_i y_i, Z=sum_c z_c and u_i=u_i(W). In any blocker, qZ <= L <= sum_i (1+u_i)y_i = sum_(i,c) x_ic <= sum_c |S_c|z_c <= qZ. Equality throughout forces u_i y_i=0 and, for every z_c>0, |S_c|=q and x_ic=z_c for every supporter. Those supporters have y_i>0 by their row equalities and are therefore all unrepresented; c is unelected and violates JR. Conversely a JR violation gives an integral singleton block, which embeds into the fractional system (choose exactly 1+u_i approved alternatives for each participating voter). This proves both equivalences and vacuity for nonintegral q, including q<1. A maximal disjoint family of quota-size supports has size at most k and intersects each other quota-size support, as required. For the sharp example, only q-1 voters gain from singleton c, and neither two-candidate alternative can improve all 2q voters: each leaves one of the two represented c-supporters at utility one. The fractional witness has the stated row equalities and sum_i y_i=q with only z_c=1; this remains valid at q=1. The frozen script was inspected, not run. Its capped-profile regression tests JR and integral core, not all fractional obstructions; line 107 checks a weak inequality rather than explicitly testing equality, which the displayed witness satisfies exactly by direct substitution.
 
-The 2026 motivating paper proves existence of core committees in unrestricted profiles and establishes the general core+ payment criterion. It does not state the all-committees JR/core/core+ equivalence on the candidate support cap, the greedy characterization, or the one-over-quota fractional-integral separation. Published work on Lindahl priceability proves a distinct and often stronger constraint, while sparse-disapproval existence results bound the opposite side of the approval incidence graph. Searches of relevant papers and indexed research summaries yielded no implication-equivalent result. Nevertheless the positive direction has a short derivation from the 2026 payment certificate, and pre-existing variants under sparse hypergraph terminology remain a historical-priority risk; novelty is not certified independently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Hare quota is the natural threshold for cohesive voter groups and simultaneously bounds candidate incidence capacity. At that exact threshold, a generally LP-defined, stronger fractional fairness property collapses to a basic combinatorial JR test **for every committee**, supplying a simple exact recognition and construction algorithm. The separation from the integral core with only one above-quota candidate, three candidates total, and every integral quota establishes a sharp boundary rather than a cosmetic increment. This informs when the fractional fairness hierarchy has substantive content.
+The imported core+ notion, its implication of integral core, and its dual characterization are not contributions. The supported distinct result is the exact cap-specific converse for every committee, its constructive characterization, and the sharp one-voter breach at every integral quota. Existing results inspected do not give that combination or mechanically yield the sharp family.
 
-## Limits and comparisons
+## value
 
-Only the explicitly stated quota-capped election domain is characterized. Above it, the witness refutes uniform collapse but does not imply that core+ is absent. The payment-system equivalence is a cited prior theorem. Complete historic priority and external mathematical auditing are outstanding. Main comparisons: Becker–Greger–Peters (arXiv:2609.11912), *On the Edge of Core (Non-)Emptiness* (arXiv:2512.16895), *Sparse Disapproval Guarantees a Nonempty Hare Core* (arXiv:2609.04537), and *Justified Representation: From Hare to Droop* (arXiv:2508.00811).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The support cap turns two otherwise stronger blocking notions into an elementary incidence test and greedy construction for all committees in a natural sparse-approval regime. The uniform three-candidate obstruction identifies a sharp boundary, rather than merely showing that fractional and integral blocking sometimes differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

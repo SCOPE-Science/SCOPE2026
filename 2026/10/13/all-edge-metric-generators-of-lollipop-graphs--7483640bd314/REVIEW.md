@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two necessity obstructions are explicit unresolved edge pairs, and the sufficiency proof writes down enough distance information to separate every clique edge, every path edge, and every cross-type pair. The generating function is a disjoint count of the two proved set types. The packaged direct-definition verifier exhaustively checks 7,440 subsets over \(3\le k\le6\) and \(1\le\ell\le5\); this finite check is supporting evidence rather than an all-orders proof.
+## correctness
 
-## Originality
-PASS. The foundational edge-metric paper defines the invariant but does not treat lollipop graphs. Database and literature searches covered lollipop, clique-path, path-attachment, polynomial, block-graph, and edge-basis-membership aliases. The later paper on forced and void edge-basis vertices was inspected because it is the closest framework to the corollary; its searchable full text does not supply this lollipop classification. A prior result on zero forcing of lollipops concerns a different invariant and does not imply edge-distance resolvability. Residual risk remains for poorly indexed equivalent work.
+PASS
 
-## Value
-PASS. This is a complete set-system theorem on a standard graph family. It shows that the edge metric dimension stays at \(k-1\) while the number of minimum bases is \(1+(k-1)\ell\), gives every higher-cardinality coefficient, and identifies the unique edge-basis-void vertex. These are structural facts not recoverable from the scalar dimension alone.
+Two omitted nonattachment clique vertices x,y leave ax and ay indistinguishable. With just x omitted and no tail vertex, ax and ap_1 are indistinguishable even if a is selected. On all of X, distinct clique edges have different nonempty zero-coordinate sets, while path edge p_{r−1}p_r has constant distance r. With one omission x, the remaining clique coordinates (nonempty even at k=3) distinguish path edges by their constant r, and reduce the residual clique collisions to ax′ versus xx′ for each remaining x′. Any selected p_j separates those by distances j and j+1; it also separates ax from ap_1 by distances j and j−1. This proves sufficiency for every ℓ≥1, including the single-edge tail. Counting disjoint cases gives the polynomial; the minimum sets are X and the (k−1)ℓ single-replacement sets, proving the counts and all three membership assertions. Fresh independent BFS/signature enumeration agreed on k=3…6 and ℓ=1…5 (7,440 subsets, 170 coefficient comparisons, 20 parameter pairs for the minima and membership checks). The frozen verifier was inspected, not executed; its expected output alone was not evidence of fresh execution or of the infinite theorem.
 
-## Closest literature and limitations
-The closest primary source is arXiv:1602.00291, which introduces ordinary edge metric dimension and lists MSC 05C12 first. The closest later basis-membership source is DOI 10.1016/j.dam.2025.08.054. The theorem is restricted to the stated simple lollipop family and does not cover weighted, multi-tail, or fault-tolerant variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest exact-family match establishes vertex covers as generators for tails of length at least two and characterizes dominant edge metric bases. Its actual proof uses the cover assumption and does not establish necessity or sufficiency over all ordinary candidates. The sources reached do not supply the ordinary set system or basis enumerator; the related basis-membership paper could only be checked at landing/abstract level, which is not evidence of noncoverage.
+
+## value
+
+PASS
+
+A natural clique-with-tail joining operation raises a concrete question not answered by knowing the edge dimension of either factor alone: which clique landmarks can be replaced, and by which tail vertices? The classification answers it for every candidate, separating the attachment vertex from positive tail vertices, yielding the full enumeration and exact basis incidence rather than just a dimension or a sample of short tails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

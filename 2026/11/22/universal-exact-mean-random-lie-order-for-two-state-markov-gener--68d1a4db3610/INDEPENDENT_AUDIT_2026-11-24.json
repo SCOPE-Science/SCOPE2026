@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:52.375068Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In row convention the shared scalar slope is r=uv, and the reversal changes the deterministic first-mass offset by Delta. The repaired derivation correctly transposes the published split: its final A time is vartheta*h. The two endpoint pi_B coefficients are (1-v) and u(1-v); interpolation with q=(1-exp(-s*vartheta*h))/(1-u) gives the exact coefficient t(1-r)/(s+t). Independent centered innovations give scalar variance q(1-q)Delta^2 times the geometric sum; the Euclidean squared vector error is twice this, with the stated h^3 coefficient. As an exact check, for pi_A=1, pi_B=0, s=1, t=2, h=log 2, q=4/9 and the one-step vector risk is 5/72. For the 3-state pair both split traces agree by cyclicity; after removing the common absorbing contribution, the exact trace uses cosh(sqrt(5)h/2), strictly below cosh(h)cosh(h/2) by Jensen applied at 1/4 and 9/4. Zero-block embedding works in larger dimensions. The frozen verification and script were inspected, not executed; the script's second-state stationary weights in its Delta check change only a sign, which is squared. The analytic review, not the finite grid, supports the verdict.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 38d8d8425ab3 studies arbitrary matrices and fair order, obtaining an h^(3/2) trajectory scale and O(h^2) mean accuracy rather than calibrated finite-n risk",
+          "Childs–Ostrander–Su abstract concerns randomized Hamiltonian product approximations; Veldman–Zuazua §2.2, Eq. 17 concerns random submatrix selection; Eisenmann–Stillfjord pp. 1, 3 treats convergence in temporal step; Sumner abstract treats binary Markov Lie geometry"
+        ],
+        "reasoning": "The broader asymptotic bounds and structural representation do not give an exact second moment for the two calibrated endpoints. The earlier general fair-order rate is explicitly credited.",
+        "searches": [
+          "Resultary fair random order trajectory limit; arXiv:1805.08385v2; arXiv:2109.13798v2; arXiv:2210.05375; arXiv:1212.5311v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, VERIFICATION.md and verify.py; repaired RESULT.md",
+        "Resultary records 9b0eeef7eade, 543ac65eaf32, 38d8d8425ab3, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2109.13798v2, 2210.05375, 1805.08385v2, 1212.5311v1, passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interpolation parameter q=(1-exp(-s*vartheta*h))/(1-u) gives the frozen probability and its uniqueness directly from the exact factorization",
+          "The exact risk additionally needs the branch offset difference and the common slope in an independent endpoint recursion; the third-state witness uses an explicit strict transient trace comparison"
+        ],
+        "reasoning": "The frozen distinction 'three exponentials versus two' cannot support originality of the lead theorem. The replacement gives the corollary openly and isolates the stochastic risk and concrete obstruction; neither a generic rate bound nor an exact deterministic split specifies this risk.",
+        "searches": [
+          "Resultary 9b0eeef7eade exact factorization proof and parameter formula; Resultary 38d8d8425ab3 fair-order asymptotics; Golden–Thompson trace comparison on symmetric blocks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9b0eeef7eade, Finding and Proof §2: same stationary coefficients and exact split parameter in column convention",
+          "Resultary 543ac65eaf32, Finding: selects exp(hQ_+/p) or exp(hQ_-/(1-p)), not either full-length order"
+        ],
+        "reasoning": "The deterministic split is equivalent to exact chord membership in this binary model, not to the centered finite-n risk of the chosen endpoint randomization. One-piece randomization samples different maps and does not have the same innovations.",
+        "searches": [
+          "Resultary semantic lookup: binary exact-mean random forward/reverse Lie ordering; exact three-factor splitting; one-piece exact-mean calibration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant formula catalogue entries are those three nearby records, not independent tables of finite-n moments or witnesses"
+        ],
+        "reasoning": "A numerical sequence lookup is not suitable for a continuous-rate analytic identity; the formula-catalogue matches were compared at statement level.",
+        "searches": [
+          "Resultary claim-level search for exact binary random Lie order and finite-step risk; 9b0eeef7eade, 543ac65eaf32, 38d8d8425ab3"
+        ]
+      },
+      "rationale": "The repaired finding centers the exact finite-n vector risk of calibrated full-length order randomization and the explicit all-positive-h three-state affine obstruction. The binary calibration is explicitly derived and credited as known coverage. No inspected statement gives the finite-step risk for this random experiment; in particular, the known fair-order scaling does not furnish this finite-h moment. The trace obstruction is a concrete witness, not a new trace inequality.",
+      "residual_risks": [
+        "Broad external search was limited; possible non-indexed treatments of calibrated moments are not excluded",
+        "The underlying strict trace inequality is standard; originality is not assigned to that general inequality or to the binary exactness corollary",
+        "No priority or formal/numerical certification is claimed"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers binary calibration by reparametrization, not the finite-step variance or dimension-three witness",
+          "evidence": [
+            "Exact e^(theta h Q_A)e^(h Q_B)e^((1-theta)h Q_A) with the same total substeps",
+            "Coefficient of pi_B is exp(-s theta h)(1-v)/(1-r) in the normalized offset"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-positive-three-factor-split-for-two-state-markov-genera--9b0eeef7eade",
+          "material_read": "Finding and Proof §§1–3 through offset 3982",
+          "method": "Local mirror full statement and proof",
+          "title": "An exact positive three-factor split for two-state Markov generators",
+          "trigger": "Strongest equivalent formulation"
+        },
+        {
+          "assessment": "Different random map",
+          "evidence": [
+            "One importance-rescaled one-way generator is selected per step"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unique-mean-exact-calibration-and-a-cantor-stationary-law-for-ra--543ac65eaf32",
+          "material_read": "Finding on calibrated individual jumps",
+          "method": "Local mirror",
+          "title": "Unique mean-exact calibration and a Cantor stationary law for randomized two-state generator splitting",
+          "trigger": "Alternative mean-exact binary randomization"
+        },
+        {
+          "assessment": "Overlapping error scale, not exact finite-step calibrated risk",
+          "evidence": [
+            "Independent fair ordering gives an h^(3/2) trajectory scale with O(h^2) mean accuracy"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-gaussian-trajectory-error-law-for-random-order-lie-split--38d8d8425ab3",
+          "material_read": "Finding on trajectory limit and mean error",
+          "method": "Local mirror",
+          "title": "A sharp Gaussian trajectory-error law for random-order Lie splitting",
+          "trigger": "Same branch experiment at fair probability"
+        },
+        {
+          "assessment": "Distinct sampling and conclusions",
+          "evidence": [
+            "Random submatrix selection and mesh-refinement convergence in expectation"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.13798v2",
+          "material_read": "Abstract and §2.2 Eq. 17/Algorithm 1",
+          "method": "OA HTML",
+          "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+          "trigger": "Randomized splitting literature"
+        },
+        {
+          "assessment": "Convergence result, not this risk identity",
+          "evidence": [
+            "Random operator decomposition and at least half-order temporal convergence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.05375",
+          "material_read": "pp. 1 and 3",
+          "method": "OA PDF",
+          "title": "A randomized operator splitting scheme inspired by stochastic optimization methods",
+          "trigger": "General randomized operator splitting"
+        },
+        {
+          "assessment": "Relevant context only; no whole-paper exclusion based on abstract",
+          "evidence": [
+            "Randomized Hamiltonian-summand ordering improves approximation bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1805.08385v2",
+          "material_read": "Abstract",
+          "method": "OA HTML",
+          "title": "Faster quantum simulation by randomization",
+          "trigger": "Random ordering of exponential products"
+        },
+        {
+          "assessment": "Relevant general structure; abstract not sufficient to exclude equivalent treatments",
+          "evidence": [
+            "Lie-geometric parametrization of 2x2 Markov matrices"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1212.5311v1",
+          "material_read": "Abstract",
+          "method": "OA HTML",
+          "title": "Lie geometry of 2x2 Markov matrices",
+          "trigger": "Binary fixed-determinant affine geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a mean-exact random update the remaining question is how much randomness affects the computed probabilities. The finite-n rate/horizon-dependent coefficient answers that directly, beyond an order-of-accuracy statement. The explicit all-h obstruction shows that even allowing signed affine mixing does not produce a universal extension outside the binary setting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

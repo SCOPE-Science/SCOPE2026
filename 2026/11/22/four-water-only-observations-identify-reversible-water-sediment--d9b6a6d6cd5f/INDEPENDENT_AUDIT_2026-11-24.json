@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:56:45.684036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized response equals the (1,1) entry of exp(tK), where K has diagonal (-A,-D) and positive off-diagonal entries a,b. Its Laplace transform is (s+D)/[(s+A)(s+D)-B] with A=a+theta*d, D=b+e and B=ab. AD>B gives positive decay roots; the polynomial has value -B at D, giving strict interlacing and strictly positive modal weights. The known y0=1 makes the two recurrence equations invertible: y2-y1^2 is the positive weighted variance of the two sampled roots. The roots and weights recover A1,D,B uniquely. Independently, differentiating exp(tK) by Duhamel's formula with respect to its first loss, using the similar matrix with off-diagonals B,1, gives minus the convolution of its positive (1,1) response with itself, so the second reading is strictly monotone in A2. The full positive one-condition fiber is B/D<a<A1. Equivalently the scalar inversion can be bracketed by the images of the two fiber endpoints under A2=A1+(theta2-theta1)(A1-a)/theta1, in either intervention order. Recovering a,b,d,e uses only nonzero denominators. Padding fewer than four scalar components of a putative continuous injection with zeros contradicts invariance of domain on the open positive orthant. This proves the sharp count only for the stated fixed designs and given initialization. Independently generated matrix-exponential observations and inverted them at 65-digit precision in /tmp/opencode/frozen-review-replay.py (compartment), including the reported example and an example with theta2<theta1; both recoveries had absolute error below 1e-54. Frozen support was inspected, not run. There is no noise-conditioning or physical-selectivity guarantee.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cuyt–Lee p. 2 gives 2n equally spaced samples for known n exponentials; in the assigned problem the first condition has n=2 and a known zeroth sample.",
+          "The accessible 1980 abstract discusses rates nonunique under SISO measurements and using an additional input or measurement, including a differently shaped second input."
+        ],
+        "reasoning": "Classical Prony covers the first three observed values plus initialization. A changed external input shape under a fixed rate matrix is not automatically a changed diagonal rate under identical initial pulses. Abstract evidence cannot rule out a matching result elsewhere in the inaccessible paper.",
+        "searches": [
+          "Cuyt–Lee arXiv:1610.06329, univariate Prony sample bound",
+          "Godfrey–Jones–Brown DOI 10.1007/BF01060058, extra inputs and measurements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py and its stated mpmath requirement",
+        "Resultary d9b6a6d6cd5f (self-match), 1d30ea7555b9 and b41de1dff3bf",
+        "Meshkat et al. DOI 10.1371/journal.pone.0110261",
+        "Cuyt–Lee arXiv:1610.06329",
+        "Godfrey et al. DOI 10.1007/BF01060058 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Meshkat's one-condition invariants and Cuyt–Lee's minimal reconstruction determine only A1,D,B; 1d30ea7555b9 breaks ambiguity by known steady velocity offsets, which do not change a first-pool loss in a reversible pulse model."
+        ],
+        "reasoning": "What remains to prove is strict global injectivity of one measured second-condition response along the entire physical fiber, not merely generic recovery of more combinations or a dimension count. The convolution comparison supplies exactly that step for the changed generator.",
+        "searches": [
+          "Compare the Meshkat one-condition rate combinations and the Cuyt–Lee sample construction with the selective-rate design",
+          "Compare Resultary 1d30ea7555b9 Finding with the three-plus-one design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match d9b6a6d6cd5f is the assigned record itself. Meshkat et al., Example 1, gives the same rate structure at one condition: k11=a+theta*d, k22=b+e, k12*k21=ab, with another unknown gain/volume."
+        ],
+        "reasoning": "The aliases open two-compartment pharmacokinetics and one-compartment output lead to the known single-condition invariant reduction, not the finite selective two-condition design. Normalize the gain to see the same one-condition ambiguity; there is no such converse reduction to the two-condition data in the inspected example.",
+        "searches": [
+          "Resultary: four scalar measurements / two-compartment pulse / selective decay",
+          "Meshkat–Kuo–DiStefano (2014), impulse input–output two-compartment example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct matches 1d30ea7555b9 and b41de1dff3bf give four-observation minima respectively for steady advection–dispersion and fluctuating diffusivity.",
+          "1d30ea7555b9 uses two stations in each flow, not three equally spaced pulse observations in one condition and one at the second."
+        ],
+        "reasoning": "The invariant being checked is a universal minimal design, not the numeric example. A matching number four or the presence of an unresolved family does not match the model, observed function or intervention.",
+        "searches": [
+          "Resultary: four concentration observations / globally identifiable four rates / one-condition fiber",
+          "Resultary: four observations and unidentifiable two-state models"
+        ]
+      },
+      "rationale": "Pass limited to the exact globally valid three-plus-one selective-loss design and its sharp measurement count for this observation map, with the positive ambiguity fiber made explicit. Neither the single-condition transfer-function ambiguity, Prony inversion from four samples including time zero, nor the topological dimension argument is independently new. The strongest inspected candidates cover these ingredients or structurally different interventions; none of the inspected passages provides or mechanically implies the strict one-reading resolution under a selective change of the first-pool degradation multiplier.",
+      "residual_risks": [
+        "A closer protocol may appear in the inaccessible full 1980 paper or historical compartment experiment-design literature. The available abstract is not evidence about the whole paper.",
+        "The bounded comparisons do not establish exhaustive historical priority; no priority follows from a shared catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the type of single-condition unidentifiability and invariant combinations; not the selective three-plus-one design in the inspected example",
+          "evidence": [
+            "The transfer function uses k11, k22, k12*k21 and an unknown output volume; four combinations for five unknowns leave rates nonunique."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0110261",
+          "material_read": "Full-text printable PDF p. 3, Example 1",
+          "method": "Lawful OA PDF, relevant passage",
+          "title": "On Finding and Using Identifiable Parameter Combinations in Nonlinear Dynamic Systems Biology Models and COMBOS",
+          "trigger": "Same two-compartment impulse-input, first-compartment-output model"
+        },
+        {
+          "assessment": "Covers the first-condition sampling step, not the extra-condition rate recovery",
+          "evidence": [
+            "For n known modes the Prony-based univariate approach uses 2n equally spaced samples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.06329",
+          "material_read": "PDF p. 2, univariate equal-spacing sampling discussion",
+          "method": "Lawful OA PDF, relevant passage",
+          "title": "Multivariate exponential analysis from the minimal number of samples",
+          "trigger": "The first three samples are a two-mode Prony reconstruction with known y0"
+        },
+        {
+          "assessment": "Unresolved full-paper overlap risk; accessible evidence covers general extra-input/measurement questions, not this finite selective-loss design",
+          "evidence": [
+            "The abstract discusses nonunique constants in SISO compartment experiments and a possible remedy by a second input of different shape."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01060058",
+          "material_read": "Indexed abstract only; no full-text material verified",
+          "method": "Bounded attempts at publisher page/PDF and identified indexed routes, with no accessible full text found",
+          "title": "Identifiable pharmacokinetic models: the role of extra inputs and measurements",
+          "trigger": "Most plausible historical extra-experiment comparison"
+        },
+        {
+          "assessment": "Related minimum-design result, structurally different observation map",
+          "evidence": [
+            "Steady advection–dispersion with known velocity offsets and two spatial one-sided stations per flow; a single full profile leaves a two-parameter family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-four-one-sided-concentrations-separate-diffusion-loss-drift-and--1d30ea7555b9",
+          "material_read": "RESULT.md Finding, model, observation protocol and limitation",
+          "method": "Bounded local Resultary mirror reading",
+          "title": "Four one-sided concentrations separate diffusion, loss, drift, and source strength",
+          "trigger": "Closest distinct four-reading/two-condition design match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a genuinely confounded passive-tracer compartment model, the output-only ambiguity can persist even for an entire noiseless trace. The theorem locates exactly the new measurement that resolves it, attainably at the dimension lower bound, and works on the entire strictly positive domain rather than only generically or locally. This distinguishes structural identifiability from experimental feasibility and is useful as an ideal-model design benchmark without making a field claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

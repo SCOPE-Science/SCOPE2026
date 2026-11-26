@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:58:22.104440Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md and both checks/*.py (inspected, not run)",
+        "Independent replay: python3 /workspace/checks/review_2_3_5.py 2"
+      ],
+      "rationale": "In KG(5,2), color classes are intersecting edge sets of K5. For each class, any outside edge meeting all its edges is forced into the other class. A singleton edge forces two disjoint other-color edges; for a two-edge star ab,ac the forced edges ad and bc are disjoint. Empty classes are impossible. Intersecting families of size at least three are triangles or stars. A 3-star forces its missing spoke into the other class; that other class must be the full star at the missing leaf (a triangle would overlap and a 3-star there would have a missing spoke the first class cannot cover). Two full stars overlap. A full star can pair with any triangle or 3-star on its four remaining points. Two edge-disjoint triangles necessarily share exactly one ground point. In each allowed case the intersection transversals are already colored, so all zero vertices see both colors. This gives 30 ordered triangle pairs and four 20-member types at weight seven. Each type is a transitive S5-set, and the five full stars are the maximum independent sets, so their pair intersections force Aut(P)=S5. An independent support-first replay oriented bipartite components in every induced nonzero subgraph and filtered for the zero-neighbor requirements; it reproduced 30 at weight six, 80 at seven, the five precise orbit sizes, and the triangle characterization for all 30 optima.",
+      "residual_risks": [
+        "Colors are named and automorphisms act only on graph vertices; quotienting by color swap changes the census. No extension to other generalized Petersen graphs is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.9 is a formula for the minimum weight on the whole P(n,2) family, including six for n=5.",
+          "2263ae4eab5a gives a general polynomial on KG(n,2), including 90 minimum named labelings at n=5, for the different outer-independent and double-color model."
+        ],
+        "reasoning": "The same-model family theorem establishes the first weight only. The general polynomial for a different feasibility rule cannot be specialized to this census simply by setting n=5.",
+        "searches": [
+          "Gabrovšek–Peperko–Žerovnik, §4.3 Theorem 4.9; Resultary 2263ae4eab5a, Finding and Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Theorem 4.9, DOI 10.1007/s10100-023-00840-w",
+        "Lemma 12, DOI 10.1007/s40314-025-03189-9",
+        "Local Resultary dde53fd50c0f, f63f1a00725c, 2263ae4eab5a and ed86e1999f07 (metadata only for ed86e1999f07)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 and 2025 papers give gamma_ri2(P)=6; the former refers to the 2021 announcement.",
+          "The four-class partition result determines, via the stated bijection, the 30 named triangle-pair configurations and their transitivity."
+        ],
+        "reasoning": "A known minimum or witness cannot imply higher-weight counts. The stronger same-graph optimum information in the partition paper should be credited despite the change of invariant; the weight-seven census and completeness remain substantive.",
+        "searches": [
+          "Gabrovšek–Peperko–Žerovnik §1 and §4.3; Božović–Radić–Tepeh Lemma 12; f63f1a00725c Finding and allowed-class proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(5,2) and KG(5,2) are the same graph. Gabrovšek et al. give the minimum for the same rule. The outer-independent rule in 2263ae4eab5a requires independent zero vertices and admits double colors, unlike the frozen rule.",
+          "In f63f1a00725c each triple class is a full open neighborhood, equivalently a triangle of K5; the two optimal triple classes are edge-disjoint and their centers are disjoint 2-sets."
+        ],
+        "reasoning": "For two triangles meeting at one point, the four remaining edges form K2,2 on the exclusive leaves. The two valid splits into intersecting doubletons are by the endpoints on one exclusive side or the other. Selecting which side determines which triangle is color 1, giving an S5-equivariant bijection from optimal class-domination partitions to the named-color triangle pairs. It is an optimum-only correspondence: every weight-seven type has a 4-star, which cannot be contained in any open neighborhood of the cubic Petersen graph.",
+        "searches": [
+          "Primary literature lookup for Petersen 2-rainbow independent domination census, optimizers and orbits",
+          "Generalized Petersen P(5,2), Gabrovšek–Peperko–Žerovnik Theorem 4.9; Resultary f63f1a00725c and 2263ae4eab5a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dde53fd50c0f is the self-match. f63f1a00725c has 30 optimum unordered partitions in one orbit at four classes with sizes (3,3,2,2); 2263ae4eab5a's 90 and the indexed ed86e1999f07 count of 60 are for other color models.",
+          "Lemma 12 exhibits a weight-six function and rules out weight five rather than enumerating all functions."
+        ],
+        "reasoning": "There is a real exact overlap at the optimum with the class-domination census. Its higher coefficients count other partitions by number of classes, not a table of two-rainbow independent dominating functions by weight. None of the compared records supplies the 80 weight-seven colorings or four corresponding orbits.",
+        "searches": [
+          "Local Resultary searches for exact Petersen named-color census and optimum orbits: dde53fd50c0f, f63f1a00725c, 2263ae4eab5a, ed86e1999f07",
+          "Božović–Radić–Tepeh Lemma 12"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full named-color census, in particular all weight-seven functions and their four orbits, together with completeness of the five-orbit classification. The optimum value six is already known. The triangle-pair data at weight six have a substantive equivalent overlap with a distinct same-day Resultary class-domination result, as verified by a bijection; I do not credit those optimum data as exclusive novelty or infer priority by publication date. The class-domination polynomial does not count the feasible weight-seven functions.",
+      "residual_risks": [
+        "The 2018 introducing paper and SOR 2021 pp. 173–178 were not available in inspected lawful full text. The similar 2020 Independent Rainbow Domination Numbers of Generalized Petersen Graphs article was also not retrieved. An earlier exact enumeration not established by the inspected evidence remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the minimum, not the census",
+          "evidence": [
+            "Theorem 4.9 specializes to a minimum of six at n=5; §1 says the 2021 announcement was without many details and proofs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10100-023-00840-w",
+          "material_read": "§1 p. 2 and §4.3 Theorem 4.9 pp. 12–13 of the inspected version",
+          "method": "OA primary full-text passages",
+          "title": "On the 2-rainbow independent domination numbers of some graphs",
+          "trigger": "Same invariant for generalized Petersen graphs including P(5,2)"
+        },
+        {
+          "assessment": "Covers the minimum, not the polynomial or orbit classification",
+          "evidence": [
+            "States gamma_ri2(P)=6 and proves it by a witness and exclusion of weight five."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-025-03189-9",
+          "material_read": "Lemma 12 and proof p. 8 of the inspected version",
+          "method": "OA primary full-text passages",
+          "title": "2-rainbow independent domination in complementary prisms",
+          "trigger": "Specific Petersen result under the same requirements"
+        },
+        {
+          "assessment": "Exact optimum triangle-pair overlap under a bijection; no priority inference from same-day dating and no weight-seven coverage",
+          "evidence": [
+            "Unordered classes lie in open neighborhoods; all 30 optima have sizes (3,3,2,2), with two disjoint neighborhood triples and either of the two doubleton splits."
+          ],
+          "identifier_or_url": "Resultary f63f1a00725c",
+          "material_read": "RESULT.md offset 0–2479, Finding, Assumptions and allowed-class proof",
+          "method": "Local mirror full-text passage",
+          "title": "One optimum orbit and six real zeros for the Petersen class-domination partition polynomial",
+          "trigger": "Potential exact duplicate of the 30 optima and one orbit on the same graph"
+        },
+        {
+          "assessment": "Different independence rule and allowed labels",
+          "evidence": [
+            "Zero-class independence, double-color labels, and 90 Petersen minimum labelings."
+          ],
+          "identifier_or_url": "Resultary 2263ae4eab5a",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Outer-independent two-rainbow polynomials and optimum colorings",
+          "trigger": "A general exact polynomial on KG(n,2), including Petersen"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and structural proof",
+        "Theorem 4.9 and Lemma 12 for minimum-value context",
+        "Resultary f63f1a00725c for optimum geometry overlap"
+      ],
+      "rationale": "The whole weight enumerator and orbit decomposition are natural invariants of the canonical Petersen graph with named independent colors. The four distinct weight-seven families plus the optimum orbit give exact symmetry-reduced data for comparing two-rainbow variants and for testing proposed generalized-Petersen enumerators. Neither the already known minimum nor the adjacent optimum partition calculation provides those data.",
+      "residual_risks": [
+        "One natural fixed graph and rule only; no sweeping assertion about generalized Petersen graphs or novelty of the minimum in isolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

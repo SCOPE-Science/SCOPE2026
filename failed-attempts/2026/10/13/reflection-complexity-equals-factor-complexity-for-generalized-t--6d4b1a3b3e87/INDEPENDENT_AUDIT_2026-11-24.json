@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:45:31.687446Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md; VERIFICATION.md, certificate.json, and verify.py (frozen script read, not executed)",
+        "/workspace/audit_evidence/replay_5.py and /workspace/audit_evidence/replay_5.txt"
+      ],
+      "rationale": "Incrementing n flips exactly ν₂(n+1) trailing ones to zeros and one zero to one, yielding the given first-difference congruence. Every length-three window has one difference 1 because among its two transition indices one is odd. For its reverse to occur it must also have a difference −1; since 1 and −1 are distinct modulo every ℓ≥3, the two differences sum to zero and the original factor is a palindrome. At length four the two parity cases exhaust all windows. When the two outer transition indices are odd, the triple is (1,a,1); otherwise the middle difference is 1 and exactly one even outer transition index is 2 mod 4, guaranteeing an outer zero. Negative reversal of (1,a,1) has neither two outer ones nor an outer zero; negative reversal of the other pattern has middle −1 and an outer zero. Both are excluded from both types. Taking the length-four prefix and the corresponding suffix of the reversal proves the assertion for all longer factors, including the palindrome exclusion. The equivalence classes of factors therefore have no mergers at lengths ≥3. Separately, the replay used the substitution x↦x(x+1) modulo ℓ. For k=12 every output window of length ≤k comes from a parent window of length ≤k, so iterating the bounded factor-set map from 0 to a fixed point gives the exact languages up to that length. It confirmed both claims for ℓ=3,…,9 and the recorded six modulus-four pairs. The proof, not that bounded check, covers every ℓ and length.",
+      "residual_risks": [
+        "The replay settles only the listed finite lengths and moduli; the general result is established by symbolic parity and difference arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f12270a0ea48 gives uniform base/modulus results, the sharp cutoff four when m≥3 and gcd(b−1,m)≤2, and length-two counts.",
+          "Allouche–Shallit prove that palindromes have unbounded length iff the modulus is at most two; the inspected statement does not classify nonpalindromic reversal pairs.",
+          "arXiv:2610.14637 Theorem 34 is about a group including letter exchange in the binary-alphabet family t_{b,2}."
+        ],
+        "reasoning": "At b=2, gcd(b−1,ℓ)=1 automatically, placing every frozen modulus in the broader Resultary branch. The palindrome and binary group results are adjacent, but the Resultary coverage is decisive without extending either of them.",
+        "searches": [
+          "Resultary:f12270a0ea48, Finding and Proof §§1–3",
+          "Allouche–Shallit, Sums of Digits, Overlaps, and Palindromes, §5 Theorem 8",
+          "arXiv:2610.14637, §6.2 Theorem 34"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f12270a0ea48, 4c1615f0a563, and 6ece0d5d3c7b",
+        "arXiv:2406.09302, Question 62 in later version; DOI 10.1007/s00224-026-10278-7",
+        "Allouche–Shallit Theorem 8; Starosta Proposition 3.1; arXiv:2610.14637 Theorem 34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the matching base-two proof, even starts have differences (1,x,1), odd starts have (x,1,y) with one outer zero, and negative reversal cannot fit either form. The proof deals with reversible triples separately and passes to arbitrary larger lengths by prefix/suffix.",
+          "The 2026 follow-up's open question at p. 12 concerns binary G-complexity with letter exchange.",
+          "Question 62 does not supply the uniform stronger obstruction."
+        ],
+        "reasoning": "Both the conclusion and the decisive proof are already covered by the base-two section of a broader record. Specializing directly establishes each frozen claim, including ℓ=4 and no reversible factors at any length ≥4. Prefix enumerations and the displayed small counts are corroboration, not a new theorem or different mechanism that would survive narrowing.",
+        "searches": [
+          "f12270a0ea48, Proof §§2–3, exact mirror passage",
+          "arXiv:2406.09302, Question 62 in later version",
+          "DOI 10.1007/s00224-026-10278-7, PDF p. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f12270a0ea48 defines T_{b,m}(n)=s_b(n) mod m, using ordinary reversal, including self-reversing factors.",
+          "Question 62 already states equality for ℓ=3 and reports apparent behavior for ℓ>4. It does not state the uniform stronger obstruction.",
+          "Starosta's dihedral antimorphisms reverse words and also send each letter k to x−k."
+        ],
+        "reasoning": "T_{2,ℓ} is precisely the frozen sequence, with no reparametrization of letters or reflection operation needed; digit-sum symmetry composed with a letter map is not ordinary reversal. Equality of complexities alone rules out distinct reverse pairs but not palindromes. The indexed record uses the stronger, matching definition.",
+        "searches": [
+          "Resultary: reflected factors, reversal-freeness, arithmetic cutoffs and generalized Thue–Morse digit-sum words",
+          "Allouche et al., arXiv:2406.09302, Question 62 in the later version (Question 64 in v1)",
+          "Starosta, Kybernetika 48 (2012), Prop. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f12270a0ea48's inspected RESULT.md, Finding: r_{b,m}(h)=ρ_{b,m}(h) for b≥2, m≥3, h≥3. Its gcd 1 or 2 clause states every reversible triple is a palindrome, exactly 2m occur, and none of length ≥4 occur.",
+          "Distinct indexed 4c1615f0a563 states the binary-modulus claim; 6ece0d5d3c7b treats bases b≥3, so is not an exact check for base two."
+        ],
+        "reasoning": "This is an exact theorem match after b=2, not merely a title, numerical match, or the identical frozen record as a search hit. The earlier-dated path and the later exact hit are distinct records, but path dates are not proof of priority.",
+        "searches": [
+          "Resultary semantic search for binary digit-sum mod ℓ reflection complexity, length-four reverse factors and sharp cutoffs"
+        ]
+      },
+      "rationale": "Verified full coverage, not merely possible overlap: distinct Resultary record f12270a0ea48, Finding and Proof §§2–3, treats the same digit-sum word and ordinary reversal. Set b=2, so gcd(b−1,m)=1 for every m; its theorem gives every frozen assertion, including modulus four and the exclusion of palindromic as well as nonpalindromic reversible length-four factors. Its base-two proof uses the same parity/difference obstruction. The coverage finding is independent of any inference about authorship or priority from dates. There is no distinct surviving central claim to repair.",
+      "residual_risks": [
+        "No authorship or priority adjudication is made from path dates. The coverage conclusion rests on a verified distinct statement and proof.",
+        "The inspected palindrome theorem extract did not permit an exact short-length proof comparison; this does not affect the decision based on the exact indexed match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the full frozen claim and the same difference proof, with stronger general base, sharpness and small-length results. Its prior-work note refers to an unidentified earlier base-two equality calculation, which does not identify authorship, precedence or provenance for this frozen record.",
+          "evidence": [
+            "For m≥3 and gcd(b−1,m)∈{1,2}, every reversible length-three factor is a palindrome and no reversible factor has length ≥4.",
+            "Proof §2, paragraph beginning 'For b=2', explicitly excludes negative reversals of both parity forms.",
+            "Relationship to prior work: 'An earlier fixed-base-two calculation determines the equality' at lengths at least three; no identifier for this calculation is supplied in the references."
+          ],
+          "identifier_or_url": "Resultary:f12270a0ea48",
+          "material_read": "Mirrored RESULT.md offsets 0–7995 (Finding, Assumptions and scope, Proof §§1–3) and 9200–12527 (including Relationship to prior work and References)",
+          "method": "Bounded local-mirror text inspection and explicit b=2 specialization",
+          "title": "Arithmetic sharp cutoffs for reflected factors of generalized Thue–Morse words",
+          "trigger": "Earlier-dated distinct general-base indexed record with potentially exact ordinary reversal overlap"
+        },
+        {
+          "assessment": "Further exact overlap; this hit is not needed to infer priority or decide coverage.",
+          "evidence": [
+            "The binary digit-sum reduction is reversal-free at length four for moduli at least three."
+          ],
+          "identifier_or_url": "Resultary:4c1615f0a563",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local-mirror passage inspection",
+          "title": "Reversal freeness at length four for every nonbinary digit-sum reduction",
+          "trigger": "Additional indexed exact base-two claim"
+        },
+        {
+          "assessment": "Its stated bases b≥3 exclude the frozen family b=2.",
+          "evidence": [
+            "Base condition b≥3."
+          ],
+          "identifier_or_url": "Resultary:6ece0d5d3c7b",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local-mirror passage inspection",
+          "title": "Base-uniform reflection rigidity and a gcd law for digit-sum words",
+          "trigger": "Another broader-appearing digit-sum reversal result"
+        },
+        {
+          "assessment": "States the ternary equality and gives experimental support for ℓ>4, not the uniform theorem with the stronger obstruction.",
+          "evidence": [
+            "Question 62 states r_{t_3}(n)=ρ_{t_3}(n) for all n≥3 and reports a similar apparent property for ℓ>4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "Later version PDF p. 31, Question 62, text offset 69278; corresponding question located in v1, p. 32, Question 64",
+          "method": "Bounded OA primary passage inspection and version-locator check",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Primary source posing precisely this extension question"
+        },
+        {
+          "assessment": "Inspected open question is for a different symmetry relation and binary words.",
+          "evidence": [
+            "G={Id,R,E,ER} includes E exchanging the binary letters."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00224-026-10278-7",
+          "material_read": "OA PDF p. 12 of 13, text around offset 34200",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Reflection on the Reflection Complexity",
+          "trigger": "Cited follow-up to the reflection-complexity questions"
+        },
+        {
+          "assessment": "Boundedness of palindrome lengths for m≥3, not (as read) the full reversal-pair result.",
+          "evidence": [
+            "Arbitrarily long palindromes iff m≤2."
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/282/download",
+          "material_read": "§5, Theorem 8, PDF pp. 8–9",
+          "method": "Bounded OA primary passage inspection; garbled extraction limits detailed proof comparison",
+          "title": "Sums of Digits, Overlaps, and Palindromes",
+          "trigger": "Potential prior coverage via exact palindrome bounds"
+        },
+        {
+          "assessment": "Dihedral antimorphisms act with a nontrivial letter transformation at m≥3, unlike the matched ordinary reversal.",
+          "evidence": [
+            "The antimorphism has letter action k↦x−k and reverses the word."
+          ],
+          "identifier_or_url": "https://www.kybernetika.cz/content/2012/3/361/paper.pdf",
+          "material_read": "§§3–4, Proposition 3.1, PDF pp. 4–6",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Generalized Thue–Morse words and palindromic richness",
+          "trigger": "Potential equivalence under known generalized reversal symmetries"
+        },
+        {
+          "assessment": "Binary-alphabet t_{b,2} with a larger group, not the claimed multi-letter case.",
+          "evidence": [
+            "The theorem computes H-complexity for t_{b,2} with letter exchange in H."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.14637",
+          "material_read": "§6.2 Theorem 34, PDF pp. 18–19, text offset about 36880",
+          "method": "Bounded OA primary passage inspection",
+          "title": "Generalized reflection complexity",
+          "trigger": "Recent stronger-appearing generalized reflection computation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Verification",
+        "Resultary:f12270a0ea48, Finding and base-two proof in §§2–3",
+        "arXiv:2406.09302, Question 62 in later version"
+      ],
+      "rationale": "The motivating question and the all-length obstruction are worthwhile mathematics. But this frozen contribution repeats the base-two theorem and the same local proof already available within a broader result. The finite computations are corroboration, not an additional invariant or use of the method, and the small examples do not supply an independent mathematical contribution. No substantive value survives as a distinct result requiring repair.",
+      "residual_risks": [
+        "This is a judgment about the frozen contribution, not a claim that the underlying reflection-complexity question lacks value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

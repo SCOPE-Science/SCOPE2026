@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:49.088885Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In flag coordinates (u,v,w), the four vanishing coefficients in F(u,v,0) and the nonzero u³w coefficient exactly express order-four tangency at a smooth point when F has no line component, which is automatic for a geometrically smooth projective quartic. Allowing a zero v⁴ coefficient before geometric screening is harmless. The independent replay /tmp/opencode/quartic_review.py fixes u³w=1 in the flag basis, enumerates the other ten free ternary coordinates for each of 52 flags, then transforms back and normalizes. It reproduced every positive flag count in the frozen table, with 9,997 forms having ≥5 flags and none rationally nonsingular. Of the 87,750 four-flag forms, 52,884 have no rational Jacobian zero. Euler's identity applies because 4=1 in F3. Generator closure on that candidate set gives 18 orbits; chart-wise Jacobian Gröbner bases leave exactly three geometrically smooth orbits, matching the literal F_A,F_B,F_C in sizes 1872,234,234. Thus stabilizer orders are 5616 divided by the respective sizes, and 2,340 equations attain equality. Independent substitution at rational points gave point counts 5,4,4 and hyperflex sets on Y=0 for A, on X=Y for C, and with all triple determinants nonzero for B. The no-rational-singularity test alone was used only to discard candidates, not to certify geometric smoothness. Frozen programs were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both earlier archive records provide complete joint spectra on the same class of smooth ternary quartics, strictly refining the hyperflex-only extremal count.",
+          "Oyono–Ritzenthaler classify characteristic-three geometric contact exceptions; Bergvall counts moduli with marked bitangents; Dolgachev–Martin classify automorphism types."
+        ],
+        "reasoning": "The existing complete joint spectra specialize directly. The cited geometric or moduli theorems alone do not refine by the number of rational contacts on individual ternary projective orbits.",
+        "searches": [
+          "Resultary 1af4ae8246e7, full joint proper-bitangent/hyperflex spectrum",
+          "Resultary 0cd27d77201d, joint ordinary-flex/hyperflex spectrum",
+          "arXiv:1006.0873, p. 4",
+          "arXiv:2106.13072, pp. 3–4",
+          "arXiv:2303.16170, pp. 12,18"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, enumeration and geometric-screening code, orbit and contact summaries",
+        "Local Resultary records 1af4ae8246e7, 0cd27d77201d, 507518098bb6",
+        "arXiv:1006.0873, arXiv:2106.13072, arXiv:2303.16170 and arXiv:2208.09890"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete h=4 catalogue already gives all three polynomial codes, 2340 normalized equations and their arithmetic equality orbits.",
+          "The separate tangent-filling record requires collinear rational points and concurrent tangents, rather than four hyperflexes."
+        ],
+        "reasoning": "The new verification route does not avoid the prior exact coverage. Once the same three literal quartics are selected from the database, their collinearity labels are immediate by evaluating tangent restrictions at 13 rational points and testing determinants, not a new classification. The nearby tangent-filling result is not used as coverage.",
+        "searches": [
+          "Resultary 1af4ae8246e7, joint spectrum plus complete orbit CSV",
+          "Resultary 0cd27d77201d, hyperflex marginal",
+          "Resultary 507518098bb6, tangent-filling quartic classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The refined-bitangent record uses the number of F3-lines with divisor 4P and the complete table has h≤4 with the h=4 row (proper bitangents 0, equations 2340, orbits 3).",
+          "The rational-inflection record defines hyperflexes as rational points and reaches exactly 4 in the 468-equation two-orbit and 1872-equation one-orbit categories."
+        ],
+        "reasoning": "A line with divisor 4P has singleton geometric support; if the line and curve are rational, that support is Frobenius-fixed. Conversely a rational hyperflex has a rational tangent and a smooth point has only one tangent. Thus the apparently different observables are equivalent.",
+        "searches": [
+          "Local Resultary: F3 quartic hyperflex point and line counts, hyperflex-refined rational bitangents",
+          "Resultary 1af4ae8246e7, RESULT.md offset 420",
+          "Resultary 0cd27d77201d, RESULT.md offsets 430 and 8300"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier CSV uses code,size,smooth,bitangent_proper,hyperflex,rational_points. The exact rows are 83262,1872,1,0,4,5; 78741,234,1,0,4,4; and 78754,234,1,0,4,4. The joint table certifies there are no other h=4 smooth orbits and no h>4 rows.",
+          "The database reference surfaced in arXiv:2208.09890 concerns nonhyperelliptic curves over Q, not this F3 contact table."
+        ],
+        "reasoning": "The earlier table already identifies exactly the complete set of smooth equality orbits, as well as each representative and size. Stabilizers follow by orbit-stabilizer, and the rational-point counts are literally present.",
+        "searches": [
+          "Local Resultary: exact F3 quartic orbit tables and rational hyperflex catalogues",
+          "Resultary 1af4ae8246e7, orbits.csv header and offsets 6800 and 9300",
+          "arXiv:2208.09890, scope and database reference"
+        ]
+      },
+      "rationale": "The distinct October 18 Resultary record 1af4ae8246e7 gives the full joint spectrum, including maximum hyperflex count four and exactly 2,340 equations in three orbits at that count. Its complete orbit table gives the very same representatives (matching numerical polynomial codes), orbit sizes and rational-point counts. Rational hyperflex line count is exactly rational hyperflex point count here: Frobenius fixes the unique geometric contact point of a rational line meeting the curve in 4P, and the tangent to a rational smooth point is rational. A second distinct October 18 record states the same hyperflex marginal for rational points explicitly. This is demonstrated exact coverage, not a speculative priority concern or an inference from matching titles.",
+      "residual_risks": [
+        "This is a bounded scientific comparison, not a survey of all literature or an adjudication of formal publication priority. The decisive matching table and rows were inspected directly. The Dolgachev–Martin comparison used the lawful arXiv version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior coverage",
+          "evidence": "The only h=4 row gives 2340 equations in 3 orbits. Rows 83262,1872,1,0,4,5; 78741,234,1,0,4,4; and 78754,234,1,0,4,4 match the frozen representatives and metadata exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-hyperflex-refined-rational-bitangents-of-smooth-plane-quartics-o--1af4ae8246e7",
+          "material_read": "RESULT.md joint spectrum from offset 420; orbits.csv header and rows near offsets 6800 and 9300, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local archive mirror passages and exact CSV lookup",
+          "title": "Hyperflex-refined rational bitangents of smooth plane quartics over F3",
+          "trigger": "Direct same-field joint spectrum and complete orbit catalogue"
+        },
+        {
+          "assessment": "Independent exact catalogue comparison, same marginal",
+          "evidence": "Two orbits/468 equations with (0 ordinary flexes,4 hyperflexes), one orbit/1872 with (1 ordinary flex,4 hyperflexes), and explicit discussion of the earlier hyperflex marginal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-rational-inflection-spectrum-of-smooth-plane-quartics-over-mathb--0cd27d77201d",
+          "material_read": "RESULT.md around offsets 430 and 8300",
+          "method": "Bounded local archive mirror passages",
+          "title": "Rational inflection spectrum of smooth plane quartics over F3",
+          "trigger": "Earlier same rational-point observable and joint classification"
+        },
+        {
+          "assessment": "Different equality condition",
+          "evidence": "Four collinear rational points and concurrent tangents do not constitute the hyperflex definition.",
+          "identifier_or_url": "Resultary 507518098bb6 (2026/10/26)",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local archive mirror passage",
+          "title": "Three projective types of four-point tangent-filling quartics",
+          "trigger": "Plausible analogous field/contact classification"
+        },
+        {
+          "assessment": "Geometric, not the F3-rational count",
+          "evidence": "Discusses the 28 geometric Fermat hyperflexes in characteristic three and a less-than-12 geometric bound in the other case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.0873",
+          "material_read": "PDF p. 4, offset 9250",
+          "method": "Bounded open-access primary PDF passage",
+          "title": "On rationality of the intersection points of a line with a plane quartic",
+          "trigger": "Characteristic-three hyperflex classification"
+        },
+        {
+          "assessment": "Aggregate mark count, not the per-orbit contact refinement",
+          "evidence": "Counts marked-bitangent moduli points by q⁶−q+2 and identifies hyperflex as coinciding bitangent contacts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13072",
+          "material_read": "PDF pp. 3–4, offsets 7457 and 10450",
+          "method": "Bounded open-access primary PDF passages",
+          "title": "Arithmetic and topology of classical structures associated to plane quartics",
+          "trigger": "Marked bitangent aggregate might specialize to hyperflexes"
+        },
+        {
+          "assessment": "Does not list the arithmetic hyperflex equality slice in the inspected passages",
+          "evidence": "Fermat characterization by infinitely many inflection points and a table of wild automorphism-group types and parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.16170",
+          "material_read": "PDF p. 12 offset 40200 and p. 18 offset 60000",
+          "method": "Bounded open-access author preprint after DOI page unavailable",
+          "title": "Automorphisms of del Pezzo surfaces in odd characteristic",
+          "trigger": "Characteristic-three Fermat case and stabilizer types"
+        },
+        {
+          "assessment": "Algorithms for individual point counts and Frobenius data, not the needed contact census",
+          "evidence": "The relevant database reference concerns nonhyperelliptic curves over Q.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.09890",
+          "material_read": "PDF pp. 1–2, offsets 0 and 6250, database reference",
+          "method": "Bounded open-access primary PDF passages",
+          "title": "Counting points on smooth plane quartics",
+          "trigger": "Possible exact equation or point-count database coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is natural, but the exact extremal cut-off and equality representatives are already present in a strictly richer same-field census. Re-enumeration corroborates those tables; it does not produce a distinct scientific result. The extra incidence labels follow from elementary tests on the already catalogued representatives and do not support a new general bound, classification or nonmechanical residual claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

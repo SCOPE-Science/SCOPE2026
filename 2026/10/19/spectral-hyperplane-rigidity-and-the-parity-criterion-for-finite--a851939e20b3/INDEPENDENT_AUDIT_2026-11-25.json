@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:17.394275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–76; VERIFICATION.md and checker.py (supplied script not executed)",
+        "/workspace/branches/412a1f1b-7a28-45d2-8415-a9af746d6873/fourier_reproduction.py"
+      ],
+      "rationale": "The normalization and complex-valued convention matter. In one odd cyclic coordinate the two grid contacts at ±(n−1)/2 bound the real part of f(1); equality makes both nonnegative Fourier values zero, and the sine term then forces the imaginary part to vanish. For n even the antipodal contact fixes Re f(1)=1/2, leaving a nonzero interval |Im f(1)|≤(1/2)tan(π/n) as imposed by the closest samples to π. For products, marginal sums and restrictions are positive definite. Bounding the mass by successively marginalizing all coordinates outside an axis shows that at full equality each axis must reach its one-factor bound. Each odd-axis Fourier contact is a zero average of nonnegative full Fourier coefficients, so all coefficients on the corresponding frequency hyperplane vanish. Inverting in the other coordinates gives two linear equations on each spatial triple; subtraction, using a nonzero sine, forces the two outer entries equal and their value to be the central one divided by 2cos(π/n). Applying this in every odd coordinate gives the stated tensor when all are odd, including n=3. Its transform factors with exactly two deleted grid frequencies per axis. When an even side occurs its interval of phases tensors with fixed maximizing factors to give distinct normalized maximizers. A separate direct DFT check corroborated the small-grid, product and even-phase cases.",
+      "residual_risks": [
+        "The direct DFT replay is a bounded numerical check, not an equality proof. The theorem does not classify the whole optimizer face with an even side."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolountzakis–Révész prove Turán constant multiplicativity through iteration and products of admissible factors. The inspected proof does not propagate equality from the axis restrictions into arbitrary Fourier slices.",
+          "Krenedits–Révész study maximizing a value at a point, not maximizing total mass over the box."
+        ],
+        "reasoning": "The general product theorem covers the maximum, not all maximizers. Constructing a product attaining the maximum does not establish that a nonproduct maximizer cannot exist.",
+        "searches": [
+          "arXiv:math/0312218, Corollary 2, equation (18), and proof",
+          "arXiv:1304.0071, §4 Theorems/Problems 4.1–4.3",
+          "Resultary: group Turán tensor product extremizers and uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0211291",
+        "arXiv:math/0312218",
+        "arXiv:1304.0071",
+        "arXiv:2608.15643v2",
+        "Resultary 7553e12c9845, 4ee4fb06cb90 and e8ddc54a784b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the known one-dimensional scalar bound and product corollary recovers the target mass. The new proof step is that zero marginal Fourier contacts force entire hyperplanes to be zero and give two independent constraints on every three-site slice.",
+          "The A₃ analogue concerns a rank-three torus with a nonproduct twelve-site support and one modulus, not arbitrary box dimensions and side lengths."
+        ],
+        "reasoning": "No matching earlier equality criterion was shown. The nonnegative-hyperplane argument plus three-site rigidity supplies actual information beyond the numerical product law; the Fourier count then follows directly from the determined maximizer.",
+        "searches": [
+          "arXiv:math/0312218, Corollary 2 proof",
+          "arXiv:math/0211291, Theorems 2–3",
+          "Resultary 7553e12c9845, 4ee4fb06cb90 and e8ddc54a784b findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real-even degree-one grid LP of Gorbachev–Manoshina gives the same odd scalar bound after multiplying the normalized value by the cyclic order.",
+          "The later literature three-point formulation in Fu et al. for {0,±N} uses nonnegativity on the whole circle (a discrete problem on ℤ), not just a finite cyclic grid. The even imaginary phase interval is a discrete-grid phenomenon."
+        ],
+        "reasoning": "Normalization and Fourier dual formulation identify the real scalar overlap, but global circle constraints and real-even restrictions are not equivalent to complex grid constraints; neither provides the multidimensional equality statement.",
+        "searches": [
+          "Resultary: finite cyclic Turán three-point boxes, complex optimizer uniqueness, parity and Fourier zero sets",
+          "arXiv:math/0211291, Theorems 2–3",
+          "arXiv:2608.15643v2, Theorem 3.3 and Example 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed matches 7553e12c9845 and 4ee4fb06cb90 use an A₃ root neighborhood and a seven-point root hexagon, not a Cartesian three-point box. The cyclic hit e8ddc54a784b uses {0,±1,±3} and reports odd real-even uniqueness, not the complex box classification."
+        ],
+        "reasoning": "Parity or an exact value attached to a different neighborhood cannot substitute for a table or theorem classifying the box optimizer. The bounded catalogue comparisons did not establish an exact matching equality entry.",
+        "searches": [
+          "Resultary: exact finite box Turán masses, optimizer faces, parity rigidity and Fourier support"
+        ]
+      },
+      "rationale": "The scalar product law and the corresponding one-dimensional real-even mass are prior knowledge and receive no originality credit. The inspected closest theorem gives product values, not a classification of arbitrary complex maximizers. The additional finding is rigidity precisely in the all-odd case, with an exact Fourier support and a phase continuum otherwise.",
+      "residual_risks": [
+        "An implicit finite-grid tensor equality theorem or unindexed trigonometric-polynomial treatment could supply equivalent coverage. The stated priority comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real-even one-dimensional antecedent",
+          "evidence": "The p=2, odd-q value equals (1+sec(π/q))/q in its normalization.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211291",
+          "material_read": "pp. 1–2 and 4, Theorems 2–3",
+          "method": "Lawful OA full-text passages",
+          "title": "Turan Extremum Problem for Periodic Function with Small Support",
+          "trigger": "Three-point finite LP and matching odd scalar constant"
+        },
+        {
+          "assessment": "Covers scalar product law",
+          "evidence": "Tensor products give a lower bound and iteration gives the matching upper bound; the corollary states constant multiplicativity.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218",
+          "material_read": "Corollary 2, p. 9, (18) and proof",
+          "method": "Lawful OA full-text passage",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "General Cartesian-product Turán theorem"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Maximizes a point value rather than box mass.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.0071",
+          "material_read": "§4, p. 13, Problems 4.1–4.2 and Theorem 4.3",
+          "method": "Lawful OA full-text passage",
+          "title": "The Carathéodory–Fejér type extremal problem on locally compact Abelian groups",
+          "trigger": "Finite cyclic extremal reductions"
+        },
+        {
+          "assessment": "Related non-equivalent discrete polynomial problem",
+          "evidence": "The discrete {0,±N} example on ℤ imposes a whole-circle constraint, without the finite box equality question.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.15643",
+          "material_read": "v2, §3.1 Theorem 3.3 p. 6, §4.1 Example 1 p. 9",
+          "method": "Lawful OA full-text passages",
+          "title": "Fu et al., Turán extremal problems on unions of intervals",
+          "trigger": "Three-point trigonometric polynomial comparison"
+        },
+        {
+          "assessment": "Parity analogue, different support",
+          "evidence": "For the twelve-root neighborhood on a rank-three torus, the optimizer is unique for odd modulus and the face has real dimension six for even modulus.",
+          "identifier_or_url": "2026/11/1/SCOPE-parity-locking-and-a-six-dimensional-optimizer-face-for-the-fini--7553e12c9845",
+          "material_read": "Finding and scope",
+          "method": "Resultary search and local mirrored record",
+          "title": "Parity locking and a six-dimensional optimizer face for the finite A₃ problem",
+          "trigger": "Closest indexed complex odd/even optimizer rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–27 and 56–76",
+        "arXiv:math/0312218, Corollary 2"
+      ],
+      "rationale": "Extremal mass and a complete rigidity test are different information. Here the test works in all dimensions and detects instability of uniqueness from any even side in the complex-valued problem. The forced Fourier zeros also determine the exact Fourier support and furnish a short equality-propagation argument rather than a case enumeration.",
+      "residual_risks": [
+        "Special to three-point supports; in the even-side case only nonuniqueness, not a face dimension or full classification, is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

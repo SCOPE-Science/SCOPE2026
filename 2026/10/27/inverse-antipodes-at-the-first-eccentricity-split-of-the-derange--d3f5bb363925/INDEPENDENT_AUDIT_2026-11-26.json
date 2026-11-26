@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:02:52.217321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An image swap that leaves both moved positions fixed-point-free gives exactly one edge in the simple graph, equivalently an alternating four-cycle flip of a perfect matching of the crown graph. The independent all-roots BFS rebuilt the vertices and edges from this rule and reached all vertices for n=4,5,6. It found vertex/edge counts 9/12, 44/120, 265/1260, and unordered distance histograms (12,18,6), (120,300,360,166), (1260,5310,11490,12100,4800,20). G_4 and G_5 have constant eccentricities 3 and 4, respectively. In G_6 exactly the 40 type-(3,3) vertices have eccentricity 6 and each has only its inverse in that shell; all 225 others have eccentricity 5. Replay: python3 /workspace/branches/1bca7efc-9c1f-442c-ae3a-925674b099c9/independent_derangement_metrics.py --min-n 4 --max-n 6. The supplied representative labels also have a valid exact certificate design: a zero root, edgewise unit variation and descending neighbors imply both distance bounds; conjugation is a graph automorphism and transports each cycle-type row and inversion. The four-step unrestricted geodesic obstruction is sound: each first transposition in such a geodesic must split a relative three-cycle, but swapping within either original three-cycle makes a fixed point, and parity excludes distance five. The proof of uniqueness and of the split is exhaustive for these orders, not for n≥7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith gives Dirichlet-form comparisons and mixing/spectral bounds. The later inverse-triangle-product record gives distance 2k+2 ceil(k/2) for a product of k disjoint three-cycles and its inverse, including distance 6 at k=2."
+        ],
+        "reasoning": "The inverse-triangle theorem covers one family of endpoint pairs, not an upper bound for arbitrary endpoints or exclusion of other antipodes, and is later than the frozen record. Mixing or spectral bounds do not give this exact classification.",
+        "searches": [
+          "Resultary: derangement graph α(n) exact shortest-path metric restricted transposition distance antipodes cycle type",
+          "arXiv:1301.7357v2, pp. 8–9",
+          "Resultary a01ace1f3db3, Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.7357v2",
+        "Jain DOI 10.13140/RG.2.2.35817.42088 (description only)",
+        "Resultary 0b3ffe565987 (index only)",
+        "Resultary a01ace1f3db3",
+        "Resultary 6d5778bc7d5d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only a public description of Jain's shortest spanning-walk calculation was available. The unrestricted distance of a type-(3,3) inverse pair is four rather than six. The later k=2 inverse-triangle specialization recovers six for precisely those specified endpoints."
+        ],
+        "reasoning": "None of the inspected claims supplies exact distances to all legal endpoints or proves uniqueness in the order-six graph. The constrained distance cannot be taken from the unrestricted formula, and the later special-pair theorem does not subsume the split. No assertion is made about the uninspected parts of Jain's work.",
+        "searches": [
+          "Jain DOI 10.13140/RG.2.2.35817.42088, OA copy attempts and public search description",
+          "arXiv:1301.7357v2, abstract and application",
+          "Resultary a01ace1f3db3, 6d5778bc7d5d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith studies a lazy Metropolized chain on derangements; its transition calculation is about the restricted transposition setting, not the loopless shortest-path profile. A derangement is also a perfect matching of K_{n,n} minus its diagonal, and a swap is exactly a feasible alternating four-cycle flip."
+        ],
+        "reasoning": "The matching and permutation descriptions encode the same distances; lazy loops are irrelevant for those distances. A spanning walk has an all-vertices constraint and is a different optimization from the shortest walk between prescribed endpoints.",
+        "searches": [
+          "Resultary: derangement transposition switch graph shortest-path distance eccentricity antipodes distance distribution",
+          "\"Transpositions in Derangements\" Jain derangement graph restricted transposition distance shortest path",
+          "arXiv:1301.7357v2, random-transposition chain on derangements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed same-graph census describes four-cycles and a fourth adjacency moment, not a table of distances (full record not recovered). The later full antipode characterization at order nine gives diameter 10 with 1,120 inverse pairs of type (3,3,3), rather than the exact data at orders 4–6."
+        ],
+        "reasoning": "Neither indexed data item establishes the frozen pair-distance table or the order-six eccentricity profile. There may be unindexed small-graph enumerations.",
+        "searches": [
+          "Resultary: derangement transposition switch graph shortest-path distance eccentricity antipodes distance distribution",
+          "Resultary 0b3ffe565987, 6d5778bc7d5d"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete finite eccentricity split, unique inverse partners and pair-distance census in the first three connected orders considered. The graph and its matching-switch/Markov-chain formulations are known. The closest checked same-graph sources concern local closed walks or spectral/mixing estimates, while the available Jain description concerns spanning walks. Later indexed exact inverse-distance results cover a portion of the n=6 result or a different graph order, not the full frozen result. This is a bounded best-of-knowledge comparison, not a priority claim.",
+      "residual_risks": [
+        "Jain's full text and the full earlier cycle-census record were not recovered; they could discuss more than their available descriptions. An earlier general distance theorem or unindexed exact enumeration was not established by these checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same setting; inspected results are spectral/mixing comparisons",
+          "evidence": [
+            "The application compares the lazy walk on the symmetric group with a Metropolized chain on derangements through Dirichlet forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.7357v2",
+          "material_read": "Abstract p. 1; application pp. 8–9, OA text offset 20768",
+          "method": "OA PDF passage inspection",
+          "title": "Comparison Theory for Markov Chains on Different State Spaces and Application to Random Walk on Derangements",
+          "trigger": "Same restricted transposition state space"
+        },
+        {
+          "assessment": "Description concerns spanning walks; exact full-text scope unresolved",
+          "evidence": [
+            "The available description refers to a spanning path in a related graph and a shortest spanning-walk length in α(n)."
+          ],
+          "identifier_or_url": "10.13140/RG.2.2.35817.42088",
+          "material_read": "Public search description only, not paper full text",
+          "method": "Primary literature search and lawful OA attempts via full-text link, public page and DOI; HTTP 403",
+          "title": "Transpositions in Derangements",
+          "trigger": "Potential prior treatment of exact distances in α(n)"
+        },
+        {
+          "assessment": "Indexed result is a closed-walk calculation; full scope unresolved",
+          "evidence": [
+            "The index describes an all-order four-cycle census and fourth adjacency moment."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-four-cycle-census-and-fourth-adjacency-moment-of-the-derangement-switch-graph--0b3ffe565987",
+          "material_read": "Local index summary only; local RESULT.md retrieval failed",
+          "method": "Resultary search and local mirror attempt",
+          "title": "Exact four-cycle census and fourth adjacency moment of the derangement-switch graph",
+          "trigger": "Earlier exact census of the identical graph"
+        },
+        {
+          "assessment": "Later; includes exact distance of the specified inverse pairs but no full profile",
+          "evidence": [
+            "The formula 2k+2 ceil(k/2) at k=2 gives six."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3",
+          "material_read": "RESULT.md Finding and assumptions, OA offset 603",
+          "method": "Local Resultary mirror",
+          "title": "An exact linear derangement-swap detour between inverse triangle products",
+          "trigger": "Broader exact distance for the potential antipodal endpoints"
+        },
+        {
+          "assessment": "Later, different order",
+          "evidence": [
+            "The order-nine diameter pairs are inverse pairs of type (3,3,3), unlike the order-six classification here."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d",
+          "material_read": "RESULT.md Finding and assumptions, OA offset 325",
+          "method": "Local Resultary mirror",
+          "title": "Unique antipodes in the nine-symbol derangement-switch graph",
+          "trigger": "Same inverse antipode phenomenon at another order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orders are not an arbitrary sample: they give the first nonconstant eccentricity among the connected orders compared. Identifying the precise cycle type and a unique inverse partner explains which obstruction appears at that cutoff; the unrestricted transposition distance misses it. This is a useful exact benchmark for conjectures or algorithms on derangement switches and perfect-matching reconfiguration, without extrapolating the phenomenon to all orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

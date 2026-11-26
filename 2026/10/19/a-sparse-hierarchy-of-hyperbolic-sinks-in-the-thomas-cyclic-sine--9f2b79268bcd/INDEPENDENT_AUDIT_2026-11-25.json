@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:22:56.904030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A synchronous equilibrium has b=sin u/u for u≠0. The cyclic Jacobian gives exactly the strict test −2b<cos u<b. By oddness only u>0 is needed. On a positive sine lobe, the derivative numerator of g(u)=sin u/u is u cos u−sin u, strictly decreasing because its derivative is −u sin u. Thus only the decreasing branch passes cos u<b; for k=0 the branch starts at the excluded u=0. After v_k, the second inequality holds precisely before the unique zero of tan u+u/2, which increases from −∞ to a positive value. Applying g to this branch yields (H_k,F_k); converting the root identities to threshold formulas gives the stated square roots. The endpoint inequalities 1+f_{k+1}²>4+h_k² give disjointness, so there is one positive sink at admissible b and its negative partner, with no endpoint sinks on these branches. Setting f=v−δ_F and h=v+δ_H gives δ_F=v⁻¹+O(v⁻³), δ_H=2v⁻¹+O(v⁻³) from the cotangent expansion. Inserting into the denominators gives F=v⁻¹+v⁻³/2+O(v⁻⁵), H=v⁻¹−4v⁻³+O(v⁻⁵), hence width (9/2)v⁻³+O(v⁻⁵). A partial window at ε contributes O(ε³), and the full-window tail starts at v=ε⁻¹+O(1) on a lattice of step 2π; integral comparison gives ∑v⁻³=ε²/(4π)+O(ε³) and ∑v⁻⁵=O(ε⁴), proving the measure formula for all sufficiently small ε. Independent bounded bisection on u cos u+2 sin u confirms H_0≈0.328990102242739 and H_1≈0.119910744243336. The frozen numerical script was inspected, not executed. Its crossing description refers to the right endpoint in u, which is the lower damping endpoint H_k, not F_k. No nonlinear endpoint or nonsynchronous stability claim is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 work explicitly treats an infinite sequence of bifurcations and stability losses as b decreases, including outer/inner branch stability and examples of crossing roots. The 2007 measure-zero remark is about diagonal initial conditions."
+        ],
+        "reasoning": "An infinite bifurcation sequence does not give the summed damping-window widths. The asserted measure is on the damping parameter, not an invariant measure, basin probability or initial-condition set. The inaccessible historical articles are not counted as negative evidence.",
+        "searches": [
+          "Infinite Bifurcations in Thomas system, arXiv:2408.09525v1, pp. 2–4",
+          "Labyrinth Chaos, author manuscript paper302.pdf, pp. 2098–2100",
+          "Thomas 1999 DOI and Hyperlabyrinth chaos 2007 DOI, lawful copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "Sprott–Chlouverakis DOI 10.1142/S0218127407018245, author PDF",
+        "Sorin–Tulchinsky arXiv:2408.09525v1",
+        "Resultary critical damping, stationary statistics and discrete-map comparisons listed above",
+        "Thomas 1999 and Hyperlabyrinth chaos 2007 (full text not reached)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sorin–Tulchinsky derive the same implicit spectral boundaries and describe the repetition numerically; they connect creation thresholds to maxima of sin u/u. Their inspected passages do not provide the quantitative separation or an accumulated measure near b=0."
+        ],
+        "reasoning": "Branch thresholds are obtainable from the earlier scalar and spectral equations, so the overlap is substantial. The exhaustive count needs a global disjointness inequality and exclusion of the increasing branches. The sharp coefficient needs contrasting third-order expansions of the boundary levels and a quantified tail sum; neither a list of Hopf roots nor qualitative stability yields it.",
+        "searches": [
+          "arXiv:2408.09525v1 pp. 2–4, especially §2.2: outer/inner stability and repeated bifurcations",
+          "Sprott–Chlouverakis pp. 2098–2100: spectral relation, diagonal stability and initial-condition measure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2007 paper gives synchronous roots and their eigenvalues, principal crossing at b≈0.3289901, and high-amplitude stable roots on the diagonal. The 2024 paper gives the full synchronous Jacobian spectrum, repeated double saddle-nodes with stable outer equilibria, and loss of stability given by −u cos u/2=sin u."
+        ],
+        "reasoning": "The paper’s Hopf equation is exactly tan u=−u/2 at the relevant roots, not a new condition. Diagonal stability is weaker than full three-dimensional sink stability. The 2024 analysis overlaps directly with the full-space phenomenon, while its stated qualitative/numerical repetition is not a sharp asymptotic Lebesgue measure statement.",
+        "searches": [
+          "Sprott–Chlouverakis, DOI 10.1142/S0218127407018245, pp. 2098 and 2100",
+          "Sorin–Tulchinsky, arXiv:2408.09525v1, §2.2, equations (2)–(4) and Figs. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/20/SCOPE-thomas-critical-damping-and-sharp-algebraic-decay--4d0951ae2296 and 2026/9/21/SCOPE-thomas-critical-damping-and-logarithmic-relaxation--2bd40880d8a8 concern the origin threshold and critical b=1 dynamics. 2026/10/4/SCOPE-exact-stationary-feedback-calibration-and-speed-defects-in-the-t--aaf7d9dbc057 and 2026/10/11/SCOPE-fiberwise-feedback-calibration-and-a-stationary-speed-budget-in--9a95ca1e137b concern invariant statistics. The inspected later 2026/11/22 discrete fold-to-flip catalogue result concerns a map rather than a flow."
+        ],
+        "reasoning": "The origin threshold does not tabulate the high-lobe windows. The stationary and map results concern different measures or dynamics. A few numerical thresholds in primary literature are not an exact all-lobe table or a width/measure asymptotic.",
+        "searches": [
+          "Resultary semantic lookup for Thomas synchronous damping windows, high lobes and parameter measure"
+        ]
+      },
+      "rationale": "Repeated synchronous branch creation and stability loss are already documented, as are the synchronous scalar and spectral equations, the principal window, and the boundary mechanisms. The distinct supported result is the exact disjoint-window and sparsity theorem: an exhaustive full-space synchronous count and a sharp width and damping-parameter measure asymptotic. The substantive originality rests especially on the latter quantitative statements, not the existence of high-lobe stable branches or the Hopf condition.",
+      "residual_risks": [
+        "The exact extent to which early literature formalized the complete window classification is unresolved. The 2024 paper substantially prefigures the repeated branch behavior; no inspected text gave the sharp damping-measure law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Principal window and spectral ingredients are known; diagonal stability is not the full-space all-window theorem",
+          "evidence": [
+            "Threshold b≈0.3289901 with tan u=−u/2 on p. 2098",
+            "The measure-zero statement on p. 2100 concerns diagonal initial conditions"
+          ],
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper302.pdf",
+          "material_read": "Author PDF pp. 2098 and 2100: synchronous equation, spectral test, principal crossing, large-root diagonal behavior",
+          "method": "Targeted primary author-manuscript passage inspection",
+          "title": "Labyrinth Chaos",
+          "trigger": "Foundational analysis of the same flow and synchronous stability"
+        },
+        {
+          "assessment": "Substantial antecedent for the full-space higher-lobe mechanism, not the stated sharp width and measure theorem",
+          "evidence": [
+            "Outer equilibria stable and inner equilibria unstable at repeated double saddle-nodes",
+            "Maxima of sin u/u explain new pairs; repeated stability loss is described numerically",
+            "Hopf condition −0.5u cos u=sin u"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.09525v1",
+          "material_read": "Analytical Analysis and §2.2, pp. 2–4 around offsets 5800–12988; equations (2)–(4), repeated creation/loss passages and Figs. 1–2",
+          "method": "Targeted primary OA PDF passage inspection",
+          "title": "Infinite Bifurcations in Thomas system",
+          "trigger": "Exact system and infinitely many equilibrium bifurcations, with potentially dominating stability coverage"
+        },
+        {
+          "assessment": "Different objects: b≥1 origin threshold and critical relaxation, not nonzero synchronous windows",
+          "evidence": [
+            "The matched scope centers on b=1 and the origin, not high-lobe parameter-window measure"
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-thomas-critical-damping-and-sharp-algebraic-decay--4d0951ae2296; 2026/9/21/SCOPE-thomas-critical-damping-and-logarithmic-relaxation--2bd40880d8a8",
+          "material_read": "Matched findings on origin stability and critical relaxation",
+          "method": "Resultary semantic lookup and statement comparison",
+          "title": "Thomas critical damping and sharp algebraic decay; Thomas critical damping and logarithmic relaxation",
+          "trigger": "Earlier indexed same-system claims with overlapping critical parameter"
+        },
+        {
+          "assessment": "No whole-paper exclusion; the access limitation is a residual priority risk",
+          "evidence": [
+            "The accessible 2007 author manuscript and the 2024 preprint were checked separately for the concrete synchronous assertions"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0218127499001383; https://doi.org/10.1063/1.2721237",
+          "material_read": "Identifiers and topical context only; no full-text theorem verified",
+          "method": "Direct access and bounded lawful-copy recovery attempted",
+          "title": "Deterministic Chaos Seen in Terms of Feedback Circuits: Analysis, Synthesis, ‘Labyrinth Chaos’; Hyperlabyrinth chaos",
+          "trigger": "Historical same-system sources could contain prior spectral or bifurcation classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this standard nonlinear flow, the exact count and disjointness distinguish an infinite sequence of locally stable synchronous branches from overlapping windows. The explicit leading measure and remainder quantify the scarcity of stable parameter values despite infinitely many windows. This is a parameter-level statement, not a claim about the basins or about other attractors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Run `g++ -O2 -std=c++17 verify_exact.cpp -o verify_exact && ./verify_exact` and `python3 verify_recursive.py` in a directory containing the embedded source files. Both outputs should equal the included `exact_out.txt` and `recursive_out.txt`, ending with `VERIFY_OK`.
+# Independent mathematical audit
 
-The C++ implementation builds the dodecahedral graph from an explicit thirty-edge list and the Desargues graph as the two-/three-subset containment incidence graph on a five-element set. It verifies explicit twenty-vertex isomorphism permutations with the appropriate generalized Petersen graphs. It computes the exact two-person minimax recurrence **for every one** of the \(2^{20}\) possible dominated-vertex masks, for both possible players. Descending numeric-mask order is safe because adding a nonempty new dominated subset strictly raises the binary mask. Every nonfinal mask has a legal move, as all vertices have neighbors. Both score arrays are therefore completely determined, not sampled.
+## correctness
 
-The independently structured Python script builds \(\operatorname{GP}(10,2)\) and \(\operatorname{GP}(10,3)\) directly, runs cached recursion from initial states and validates all twenty first moves, all 380 ordered opening pairs and all shell distances. The scripts check the listed values via assertions. Identical outputs of the two mathematical constructions and algorithms were obtained. The verifier outputs are not independent external review.
+PASS
 
-Finite boundaries: two graphs of order twenty, first two legal moves and optimal continuations only. No infinite-family consequence or unverified partial search is claimed. This package does not include publisher full texts and needs no proprietary dependencies.
+Open-neighborhood union is the only needed history: any previously played vertex has no new neighbor, and at any nonterminal state some undominated vertex has a neighbor that can cover it. Thus taking the min/max over strictly increasing dominated sets is exact. I independently solved the equivalent deadline game on uncovered sets by testing whether Dominator can ensure completion in h further moves: at his turn one legal successor must suffice, at Staller's every successor must suffice. The terminal state is successful and a nonempty state with more than 3h uncovered vertices fails. With interleaved Petersen labels and Floyd–Warshall distances, the independent computation checks all 380 distinct ordered opening pairs per graph, each second move's legality and every first move under both conventions. It gives (11,10) and (10,10); by distance 1 through 5 the dodecahedron yields (10,11),(11,11),(10,11),(10,11),(10,10), and the Desargues graph gives (10,10) throughout. The common distance-shell sizes are (1,3,6,6,3,1). Taking the appropriate extremum proves exactly the stated optimal reply sets. The frozen programs use two graph constructions with fixed isomorphisms and have byte-identical recorded outputs. Independent replay: python3 /workspace/branches/independent_game.py. This establishes only the stated two graphs and rules.
+
+## originality
+
+PASS
+
+The closest inspected Resultary findings use closed neighborhoods and give different values and second-response geometry, even on the same graphs. Inspected primary material gives general total-game bounds and exact-results context, not the forced-pair shell table. The distinct comparison is supported to best current knowledge, with explicit limits on external retrieval and on possible coverage under the equivalent hypergraph game.
+
+## value
+
+PASS
+
+Matching distance-shell cardinalities, sizes and degrees make these two canonical graphs a controlled comparison. The exact opening classification shows that those shell sizes do not determine the strategy: one graph distinguishes sharply between distance two and the antipode depending on who starts, while the other is completely indifferent at move two. This is an independently useful exact strategic invariant, not just an isolated optimum or a claim about static total dominating sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

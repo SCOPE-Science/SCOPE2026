@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:52:02.279780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For reduced u_n/v_n=(x_0+...+x_n)/h, the next pair is (u_n²+v_n²,u_nv_n) and remains coprime. With g=gcd(h,u_n), Q_{n+1}=(u_n+2v_n)/g=(u_{n-1}+v_{n-1})²/g for n≥1. An odd prime dividing g precludes integrality by coprimality; if g has no odd prime and is even, it equals 2 since a sum of two odd squares is 2 mod 8. Division by 2 then precludes an integer square. This independently establishes the imported criterion. Over F_p, 0 maps to infinity and infinity is fixed. For p≡3 mod 4 zero has no preimage; for p≡13,17 mod 20 the two roots of -1 have no preimages since the discriminant -5 is a nonsquare; over F_2 the sole preimage 1 has no preimage. Thus an incident prime can affect Q_2 only. Matching the valuations of x_0 and h at an active p reduces the obstruction to one or two residue classes modulo p^{a+1}, and the CRT yields the stated counts, including 167·287=47929 at h=221. For least period, the nonempty no-failure set is a product of nonempty local good sets; any period must preserve each local set and its complement under translation. A nontrivial translation modulo p^{a+1} has orbit lengths divisible by p, incompatible with 0<r_p<p. Hence each active modulus divides a period; the empty product gives period one. The supplied verifier was inspected, not executed; the finite-field loop tests active primes rather than all eligible inert primes, which are handled analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited paper bounds failures by the number of potentially obstructing primes, gives the if-and-only-if local criterion, and asks for the density. The October 13 Resultary law gives exact CRT periodicity and counts from finite-field first hits at fixed h; the October 25 law gives all failure-index patterns for all h. Jones–Manes study general preimage trees. The cited Matijasevick companion preprint was not retrieved."
+        ],
+        "reasoning": "The recurrence-square paper motivates the problem but does not itself give the restricted density formula. The general Resultary laws apply here without changing initialization or what counts as a failure. The needed local inputs are already evaluated in the October 18 Finding.",
+        "searches": [
+          "arXiv:2610.00765v1, Theorem B, Proposition 4.1 and §7 Question 1",
+          "Resultary bf30e6481c84 and 09945960029e",
+          "Exact-title lookup: Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+          "arXiv:1101.4339"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 25f5def5c1af, bf30e6481c84, 09945960029e and later overlapping entries a2f80adbc313, 86147800c0ff",
+        "arXiv:2610.00765v1",
+        "arXiv:1101.4339 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior all-start one-step rigidity criterion removes every failure pattern except no failure and Q_2 alone; each local CRT factor has p^{a+1}-r_p good choices. Two later November 2 records overlap in early failure laws or exact failure-set densities."
+        ],
+        "reasoning": "Multiplying the already known local good counts yields N_0, subtracting from M yields N_1, and counting blocks yields the natural densities. If exact period is interpreted as least period it is also immediate from the local table: a nontrivial local period would require at least p bad residues, but there are fewer. Later overlaps corroborate equivalence, not precedence.",
+        "searches": [
+          "Resultary 25f5def5c1af rigidity criterion, local table and CRT formula",
+          "Resultary bf30e6481c84 exact periodicity",
+          "Resultary a2f80adbc313 and 86147800c0ff later comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Finding confines all failures to Q_2 exactly when 5∤h and no prime divisor is 1 or 9 mod 20; its local table gives c_{2,2}=1, c_{p,2}=2 for p≡13,17 mod 20 and c_{p,2}=0 for p≡3 mod 4."
+        ],
+        "reasoning": "A prime other than 2 or 5 is either 3 mod 4 or lies in the classes 1, 9, 13, 17 mod 20. The prior exclusion is exactly the frozen support restriction, with the same Q_2 local counts and no later obstructions.",
+        "searches": [
+          "Resultary: reciprocal-sum square failure, two-stage square defects, one-step rigidity and exact density",
+          "SCOPE-exact-two-stage-square-defect-spectrum-and-one-step-rigidity-for--25f5def5c1af"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier table gives the first-stage local counts 1, 0, and 2 and zero second-stage counts on the corresponding prime classes. The October 13 formula supplies the same product modulus for the present support."
+        ],
+        "reasoning": "This is exact structural table coverage; for p^a∥h the number of good lifts is p^{a+1}-c_{p,2}, giving 47929 good and 912 bad classes directly for h=221.",
+        "searches": [
+          "Resultary: first-zero counts for reciprocal-sum square failures",
+          "SCOPE-exact-two-stage-square-defect-spectrum-and-one-step-rigidity-for--25f5def5c1af local table"
+        ]
+      },
+      "rationale": "An earlier Resultary finding explicitly identifies the same support criterion for no failures after index 2 and computes the same local counts. Substitution into its CRT law gives the exact frozen density and examples. Earlier more general density records also cover the fixed-h distribution. The new presentation does not isolate a distinct exact result.",
+      "residual_risks": [
+        "The cited companion preprint was not available and might bear on external priority. The earlier exact catalogue coverage is independently decisive and does not establish originating authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence and obstruction; asks for proportions",
+          "evidence": [
+            "Square iff gcd(h,u_n)=1; each obstructing prime can divide at most one u_n; §7 asks for the proportions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00765v1",
+          "material_read": "Theorem B, Proposition 4.1 and §7 Question 1 (offsets 4503, 17211, 31740)",
+          "method": "OA full-text passages",
+          "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+          "trigger": "Imported square criterion and open distribution question"
+        },
+        {
+          "assessment": "Covers the frozen support, confinement and computable density",
+          "evidence": [
+            "5 and primes 1 or 9 mod 20 are precisely excluded; local (first, second) counts are (1,0), (0,0) and (2,0) on the allowed classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-two-stage-square-defect-spectrum-and-one-step-rigidity-for--25f5def5c1af/RESULT.md",
+          "material_read": "Finding, prime-by-prime table and CRT density statement",
+          "method": "Local full-text mirror",
+          "title": "Exact two-stage square-defect spectrum and one-step rigidity for reciprocal-sum sequences",
+          "trigger": "Strongest match for the same prime support and local counts"
+        },
+        {
+          "assessment": "Same modulus on this support; local counts left as finite-field data",
+          "evidence": [
+            "A prime first-hit law and CRT give starting-value distributions for fixed h."
+          ],
+          "identifier_or_url": "SCOPE-exact-starting-value-law-for-square-failures-in-reciprocal-sum-r--bf30e6481c84",
+          "material_read": "Finding, period and CRT distribution",
+          "method": "Local full-text mirror",
+          "title": "Exact starting-value law for square failures in reciprocal-sum recurrences",
+          "trigger": "General periodic distribution cover"
+        },
+        {
+          "assessment": "Covers exact densities for every pattern and h",
+          "evidence": [
+            "Finite-field first-zero counts enter an idempotent CRT product."
+          ],
+          "identifier_or_url": "SCOPE-exact-finite-field-density-law-for-nonsquare-indices-in-reciproc--09945960029e",
+          "material_read": "Finding and finite-field product statement",
+          "method": "Local full-text mirror",
+          "title": "Exact finite-field density law for nonsquare indices in reciprocal-sum sequences",
+          "trigger": "All-pattern generalization"
+        },
+        {
+          "assessment": "General background in the inspected passage, no fixed-h start density there",
+          "evidence": [
+            "Studies Galois actions on preimage trees of degree-two rational maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.4339",
+          "material_read": "Abstract, offset 107",
+          "method": "OA abstract inspection",
+          "title": "Galois theory of quadratic rational functions",
+          "trigger": "Cited general preimage-tree framework"
+        },
+        {
+          "assessment": "Unresolved coverage; not used for the verdict",
+          "evidence": [
+            "Lookup returned the citing paper; no mathematical statement is attributed to the inaccessible preprint."
+          ],
+          "identifier_or_url": "Matijasevick companion preprint, cited in arXiv:2610.00765v1",
+          "material_read": "Citation only; no lawful full text located",
+          "method": "Exact-title literature lookup",
+          "title": "Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+          "trigger": "Potentially relevant preimage-specific theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original distribution question is meaningful and the uniform one-failure boundary would be valuable if unknown, but both that boundary and the local inputs to all the claimed densities are already determined. Product substitution, the sample counts, and the elementary least-period consequence leave no independently valuable new invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

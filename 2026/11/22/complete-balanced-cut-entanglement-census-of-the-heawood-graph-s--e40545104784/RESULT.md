@@ -1,102 +1,41 @@
 # Complete balanced-cut entanglement census of the Heawood graph state
 
-## Finding
+## Finding — crossing-edge refinement
 
-Let \(H\) be the point–line incidence graph of the Fano plane, with seven point vertices, seven line vertices, and twenty-one edges. Prepare the pure fourteen-qubit graph state \(\lvert H\rangle\) by applying one controlled-\(Z\) gate for each edge to \(\lvert+\rangle^{\otimes14}\). For each labelled seven-vertex subset \(A\subset V(H)\), let \(S(A)\) be the von Neumann entropy (in bits) of the reduced state on \(A\).
+Let \(H\) be the point–line incidence graph of the Fano plane. Prepare its pure fourteen-qubit graph state by applying one controlled-\(Z\) gate per edge to \(\lvert+\rangle^{\otimes14}\). Among cuts into two seven-vertex shores, the cuts with maximal entropy (seven bits) have **exactly eleven or thirteen crossing edges**. Each crossing-edge count occurs for exactly 336 labeled seven-vertex shores, counting a shore and its complement separately (168 unordered cuts per edge count). Both shores of every such cut contain points and lines. In contrast, the point-versus-line cut crosses all 21 edges but has only four entanglement bits.
 
-**Theorem.** The complete balanced-cut entanglement distribution is
-
-\[
-\#\{A\subset V(H):|A|=7,\ S(A)=r\}=\begin{cases}
-100,&r=4,\\980,&r=5,\\1680,&r=6,\\672,&r=7,\\0,&\text{otherwise.}
-\end{cases}
-\]
-
-Each reduced state has exactly \(2^{S(A)}\) equal nonzero eigenvalues \(2^{-S(A)}\); consequently **every** positive-order Rényi entropy agrees with \(S(A)\). The mean entropy over all \(\binom{14}{7}=3432\) labelled seven-subsets is exactly \(5021/858\) bits. There are \(672\) maximally entangled oriented cuts, or \(336\) unordered bipartitions, and they cross precisely \(11\) or \(13\) graph edges, with \(336\) oriented cuts in each crossing-edge class. Conversely the point-versus-line cut crosses all \(21\) edges but has only \(4\) entanglement bits. These counts treat \(A\) and its complement as distinct subsets, even though both have the same entropy.
+The new claim considered here is the crossing-edge refinement of the maximal-entropy class, not the marginal histogram of entropies. For context, the associated integral Smith census [2] already yields the marginal counts \(100,980,1680,672\) for entropy \(4,5,6,7\) respectively by reduction modulo two and doubling to count labeled shores. These give mean entropy \(5021/858\) bits.
 
 ## Assumptions and scope
 
-Represent points and line normals by the seven nonzero binary triples \(p,\ell\in\mathbb F_2^3\setminus\{0\}\). Incidence is \(p\cdot\ell=0\) over \(\mathbb F_2\); this defines the fourteen distinct labelled vertices and their graph. An alternative cyclic Fano presentation has line sets \(\{i,i+1,i+3\}\) modulo seven, for \(i=0,\dots,6\). The seven-subset census is exhaustive for **this** specific ideal graph state, with no quotient by graph automorphisms or point–line duality and no noise, measurements, or edge weights.
+Points and line normals are the seven nonzero vectors of \(\mathbb F_2^3\), on two separate labeled vertex shores. Incidence is \(p\cdot\ell=0\). The state is pure, all edges have unit weight, no edges are deleted, and both cut shores contain seven vertices. The statement is about this particular graph state, not all incidence graphs.
 
 ## Proof
 
-**1. Bipartite Schmidt spectrum.** For any graph-state split \(A\sqcup B=V(H)\), let \(C=\Gamma[A,B]\) be its binary cross-adjacency matrix. Local diagonal gates on the separate registers do not affect the Schmidt spectrum, and the remaining computational-basis amplitudes are proportional to \((-1)^{a^{\mathsf T}Cb}\). Summing over \(b\) in the reduced density matrix gives
+**Entropy and binary rank.** If \(C\) is the cross-adjacency block of a cut \(A\mid B\), within-shore controlled-phase gates are local unitaries. After removing them, basis amplitudes are \(2^{-7}(-1)^{a^{\mathsf T}Cb}\). The trace over \(B\) gives \(\rho_A(a,a')=2^{-7}\mathbf1_{C^{\mathsf T}(a+a')=0}\). With \(r=\operatorname{rank}_{\mathbb F_2}C\), the cosets of the kernel give \(2^r\) nonzero eigenvalues \(2^{-r}\), so the entropy is \(r\) bits, also for every positive-order Rényi entropy. This is the standard graph-state cut-rank rule [1].
 
-\[
-\rho_A(a,a')=2^{-|A|}\,\mathbf 1_{\{C^{\mathsf T}(a+a')=0\}}
-\]
+**Reduction to two bases.** Write \(P_A\) and \(L_A\) for the point and line sets in \(A\), and similarly for \(B\). The two nonzero cross blocks, up to transpose, are \(M[P_A,L_B]\) and \(M[P_B,L_A]\), where \(M_{p,\ell}=1+p\cdot\ell\) is the Fano incidence matrix over \(\mathbb F_2\). Its rank is four: \(M\) factors through the four coordinates of \((1,p)\) and \((1,\ell)\), and the four coordinate functions are independent on the nonzero vectors on either side. Thus any block of size at least five rules out rank seven. Up to interchanging cut shores, the only possible sizes are \(|P_A|=|L_B|=3\), \(|P_B|=|L_A|=4\).
 
-up to conjugation by a diagonal local unitary. If \(r=\operatorname{rank}_{\mathbb F_2}C\), this matrix has \(2^r\) identical nonzero eigenvalues \(2^{-r}\), hence every positive-order Rényi entropy, and its von Neumann entropy, equals \(r\) bits. This standard graph-state cut-rank fact is due to Hein, Eisert and Briegel [1]; the displayed calculation fixes the normalization.
+For the four-by-four block the two feature matrices with rows \((1,p)\) and \((1,\ell)\) are square. Such a matrix for four distinct indices is singular exactly when the sum of the four vector indices is zero: any nontrivial dependence has even support, and support two would repeat a vector. The seven nonzero vectors sum to zero, so the four-by-four block is invertible exactly when the two complementary triples \(P_A,L_B\) are both bases of \(\mathbb F_2^3\). This also explains why the pure-shore cut, which crosses all 21 incidence edges, has entropy four.
 
-**2. Splitting the incidence matrix.** If \(A\) contains \(a\) point vertices \(P_A\) and \(7-a\) line vertices \(L_A\), then its complement has point set \(P_B\) of size \(7-a\) and line set \(L_B\) of size \(a\). After permuting row and column orders, the cut matrix is block diagonal (up to transposition of one block) with binary square blocks
+**Counting the full-rank cuts.** There are \(\binom73-7=28\) unordered choices for the point basis \(P_A\). Fix an ordering of its three column vectors in the matrix \(P\). As the ordered line basis matrix \(L\) ranges over \(\mathrm{GL}(3,2)\), the matrix \(N=P^{\mathsf T}L\) ranges once over that group. The three-by-three incidence block is \(N+J\), where \(J=\mathbf1\mathbf1^{\mathsf T}\). The determinant lemma gives \(\det(N+J)=\det(N)(1+\mathbf1^{\mathsf T}N^{-1}\mathbf1)\). For uniform \(N\), the vector \(N^{-1}\mathbf1\) ranges uniformly over the seven nonzero vectors. Three have even weight, so \(168\cdot3/7=72\) of the ordered bases give rank seven.
 
-\[
-M[P_A,L_B],\qquad M[P_B,L_A].
-\]
+For these 72 choices, every row of \(N+J\) has one or two ones, since neither \(N+J\) nor its entrywise complement \(N\) can have a zero row. If there are three ones in total then \(N+J\), being invertible, is a permutation matrix and \(N\) has even row sums, a contradiction. Six ones are excluded by the same argument with the matrices interchanged. Thus the incidence block has four or five ones. The involution \(N\mapsto N+J\) on the 72 choices exchanges these cases, leaving 36 each. Dividing by \(3!\) leaves six unordered line bases per case for each point basis.
 
-Therefore
-
-\[
-S(A)=\operatorname{rank}_{\mathbb F_2}M[P_A,L_B]
-+\operatorname{rank}_{\mathbb F_2}M[P_B,L_A].
-\]
-
-At the canonical \(a=7\) split, \(M_{p\ell}=1+p_1\ell_1+p_2\ell_2+p_3\ell_3\) over \(\mathbb F_2\). The four functions \(1,p_1,p_2,p_3\) are independent on the seven nonzero triples, as are their line analogues, so \(\operatorname{rank}_{\mathbb F_2}M=4\). This proves the surprising four-bit entropy at the cut containing all twenty-one edges.
-
-**3. Exhaustive finite rank census.** For each integer \(a\in\{0,\dots,7\}\), list every \(a\)-subset of seven points and every \((7-a)\)-subset of seven lines, and evaluate the two binary ranks in Step 2 by exact Gaussian elimination. This is exhaustive because
-
-\[
-\sum_{a=0}^{7}\binom{7}{a}\binom{7}{7-a}=\binom{14}{7}=3432.
-\]
-
-The exact rank counts, by the number \(a\) of point vertices in \(A\), are:
-
-| \(a\) | \(S=4\) | \(S=5\) | \(S=6\) | \(S=7\) |
-|---:|---:|---:|---:|---:|
-| 0 | 1 | 0 | 0 | 0 |
-| 1 | 28 | 21 | 0 | 0 |
-| 2 | 21 | 252 | 168 | 0 |
-| 3 | 0 | 217 | 672 | 336 |
-| 4 | 0 | 217 | 672 | 336 |
-| 5 | 21 | 252 | 168 | 0 |
-| 6 | 28 | 21 | 0 | 0 |
-| 7 | 1 | 0 | 0 | 0 |
-| **Total** | **100** | **980** | **1680** | **672** |
-
-The full finite calculation is specified by the standalone standard-library program `verify_blocks.py`; the independent `verify_direct.py` instead builds the fourteen-by-fourteen adjacency matrix from binary scalar products and directly eliminates all \(3432\) seven-by-seven cut matrices. Thus the finite enumeration is exhaustive and exactly reproducible; no numerical rank tolerance or sampling is used.
-
-**4. Crossing-edge profile and average.** The direct program also counts the graph edges crossing each cut, giving exactly \(336\) rank-seven cuts with \(11\) edges and \(336\) with \(13\) edges. Both point–line orientations have \(21\) crossing edges and rank four. The exact mean is
-
-\[
-\frac{4\cdot100+5\cdot980+6\cdot1680+7\cdot672}{3432}
-=\frac{5021}{858}.
-\]
-
-Steps 1–4 prove the claimed Schmidt spectra and all tabulated counts for every balanced cut.
+If the three-by-three block has \(e\) ones, the opposite four-by-four incidence block has \(21-9-9+e=3+e\): each point and each line has degree three. The cross-cut edge count is therefore \(3+2e\), equal to 11 or 13. For each value there are \(28\cdot6=168\) cut shores having three points. Complementation doubles this for the labeled-shore count, giving 336 per value.
 
 ## Verification
 
-From a directory containing the accompanying Python 3 standard-library files, run:
+The proof of the crossing-edge refinement is analytic. The accompanying `verify_direct.py` independently exhausts the 3432 labeled seven-vertex subsets, and its output line `DIRECT_RANK7_EDGES=[(11, 336), (13, 336)]` checks the refinement. `verify_blocks.py` separately checks the contextual entropy counts. No conclusion about noise, larger planes or experimental resources is drawn from this finite classification.
 
-```text
-python3 verify_direct.py
-python3 verify_blocks.py
-```
+## Relationship to prior work and limitations
 
-Expected markers are `DIRECT_OK histogram=[(4, 100), (5, 980), (6, 1680), (7, 672)]` and `BLOCKS_OK histogram=[(4, 100), (5, 980), (6, 1680), (7, 672)]`. The first script separately checks the canonical rank, exact entropy mean, maximal-cut crossing-edge counts, graph regularity, and adjacency symmetry; the second constructs a different Fano incidence model and applies separate matrix-elimination code to the two blocks in the analytic decomposition. Neither script uses probabilistic sampling or external packages.
-
-## Relationship to prior work
-
-The graph-state entropy/rank correspondence and the general flat-Schmidt-spectrum mechanism are established, not claimed as new [1,2]. Existing graph-state entanglement classification data explicitly cover graphs up to twelve qubits [3], whereas the present incidence graph has fourteen. A published projective-plane matching-gate-omission result [4] derives entanglement shifts at the **fixed entire point-versus-line cut** (including its four-bit baseline at order two), whereas the present finding enumerates entanglement under **all** balanced vertex bipartitions with no gates deleted. A separate Heawood result on minimum linear arrangements and cutwidth [5] counts edge boundaries, not ranks of binary cross-adjacency matrices. The examined sources do not give the histogram or its maximal-cut crossing-edge refinement. Historical priority beyond the checked material remains open.
-
-## Limitations
-
-This is a complete finite fourteen-qubit balanced-cut census, not a theorem for larger projective planes or noisy graph states. The all-subset rank distribution at unequal partition sizes is not assessed. Exact finite enumeration certifies this graph only; it does not prove a general size-asymptotic formula. Historical originality has not been independently certified.
+The entropy/rank rule is established in [1]. The same-date associated qudit record [2] gives an integral Smith histogram and explicitly checks the binary marginal. That table does not record crossing-edge counts for the full-rank binary class. Its date alone does not determine precedence between the records. The incidence-matching result [3] already gives the canonical four-bit baseline at the fixed point-versus-line cut; here the comparison is with **all** maximum-entropy balanced cuts of the undeleted graph. The minimum arrangement/cutwidth result [4] treats edge boundaries, not the edge distribution conditioned on full binary rank. The database in [5] covers at most twelve qubits. The proof above classifies the conditional crossing-edge counts, without claiming historical priority beyond the examined sources or extensions to other graph states.
 
 ## References
 
-1. M. Hein, J. Eisert and H. J. Briegel, *Multi-party entanglement in graph states*, arXiv:quant-ph/0307130, publicly posted 18 July 2003, especially Section III.2, https://arxiv.org/abs/quant-ph/0307130 .
-2. A. Cosentino and S. Severini, *Weight of quadratic forms and graph states*, arXiv:0906.2488, publicly posted 13 June 2009, https://arxiv.org/abs/0906.2488 .
-3. A. Cabello, L. E. Danielsen, A. J. López-Tarrida and J. R. Portillo, *Database of Entanglement in Graph States*, online introduction identifying the twelve-qubit scope, https://www.codetables.de/larsed/entanglement/ .
-4. *Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes*, public scientific result, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768 .
-5. *All optimal linear arrangements of the Heawood graph*, public scientific result, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-all-optimal-linear-arrangements-of-the-heawood-graph--dc3e824375f5 .
+1. M. Hein, J. Eisert and H. J. Briegel, *Multi-party entanglement in graph states*, Proposition 3, https://arxiv.org/abs/quant-ph/0307130 .
+2. *Characteristic-three entanglement defects in the Heawood qudit graph state*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-characteristic-three-entanglement-defects-in-the-heawood-qudit-g--970e77e34ed4 .
+3. *Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes*, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768 .
+4. *All optimal linear arrangements of the Heawood graph*, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-all-optimal-linear-arrangements-of-the-heawood-graph--dc3e824375f5 .
+5. *Database of Entanglement in Graph States*, Introduction, https://www.codetables.de/larsed/entanglement/ .

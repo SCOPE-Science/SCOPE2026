@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exhaustive finite carry enumeration yields all \(18\) states and \(24\) edges for multiplier \(85\), and all \(3\) states for multiplier \(13\). The exact integer identity \((A_{85}^9-A_{85}^8-A_{85}^4-2A_{85}^2-I)\mathbf1=0\) on every reachable state proves the recurrence at all depths. Initial counts determine the rational series. Its factored denominator and positivity establish the common dominant growth constant; the published path-set dimension theorem completes the argument. The standalone integer verifier checks the full finite certificate and independent short prefixes.
+## correctness
 
-## Originality
-**PASS, with residual historical-priority risk.** Abram and Lagarias establish the general finite-automaton method and the same algebraic growth constant for multipliers \(13\) (their \(L_3\) family) and \(19\); neither result entails the specialized \(85\) recurrence or equality with \(13\) without an additional computation. Their sequel studies other infinite families, but only its abstract and bibliographic record were accessible for comparison. Specific search for the multiplier \(85\), equivalent ternary pattern \((10011)_3\), exact generating series, and matching eigenvalue returned no explicit matching theorem. This is not a proof of uniqueness, and further specialist tables may contain the numerical instance.
+PASS
 
-## Mathematical value
-**PASS, narrowly.** Sparse ternary multiplier intersections are a natural test family for arithmetic sensitivity of fractal dimension. The \(18\)-state automaton for \(85\) has an unexpected ninth-order statewise recurrence and the same leading entropy as a distinct \(3\)-state automaton for \(13\). The exact recurrence specifies the entire prefix-complexity profile, while the equality shows that distinct arithmetic digit restrictions can have precisely the same dimension. Both facts make this finite case a reproducible structural benchmark, beyond a single numerical approximation.
+The input is read from the least significant ternary digit. A carry c with next digit a in {0,1} is allowed exactly when (c+Ma) mod 3 is not 2, and maps to floor((c+Ma)/3). The carry interval [0,floor(M/2)] is invariant. Independent fixed-point enumeration starting from zero gave the 3 and 18 states and 4 and 24 edges, with no reachable sinks, so every counted prefix extends. Iterating the adjacent-state sum on an initial all-ones vector gave zero residual at all states for A13^3-A13^2-I and A85^9-A85^8-A85^4-2A85^2-I. Multiplication by A^k proves every subsequent recurrence, unlike a scalar finite fit. The computed initial coefficients give the displayed numerators. The factorization of the 85 denominator is exact; its second factor H=1+z^3+z^4+z^6 is positive on the positive real axis. Neither numerator vanishes at the unique root r in (0,1) of 1-z-z^3. Pringsheim's theorem rules out a smaller radius, and the cited right-resolving path-set theorem gives Hausdorff dimension log_3(1/r) in the stated metric. The denominator is even reduced: N85=(z^2+z+2)H-1, and 1-z-z^3 is irreducible over Q and cannot divide N85. The distinct length-three counts verify different prefix languages.
 
-## Sources and risks
-The primary method and known examples are in Abram–Lagarias, arXiv:1308.3133, sections 2, 4 and 5, DOI:10.4171/JFG/11. The relevant sequel is Abram–Bolshakov–Lagarias, arXiv:1508.05967; full-text comparison was incomplete. Further undocumented calculations of multiplier \(85\) could affect historical priority. This is one exact specialized case, not a new general family theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pass concerns the specialized 85 prefix law and exact 85-to-13 dimension comparison, not the carry algorithm, the known 13 case, or the idea of obtaining different graphs with a common growth constant. The strongest nearby catalogue computation is for 31. The primary sequel's families and comparison examples do not give this exact 85 case.
+
+## value
+
+PASS
+
+The multiplier is the next small sparse 3^k+4 case after 13 and the indexed 31 example. The exact prefix law resolves all scales of a natural intersection and exhibits the same entropy as the simpler 13 intersection despite different finite languages and graph sizes. That gives both a precise benchmark for sparse-multiplier classification and a concrete example of information the dimension discards, beyond a tabulated decimal or a short prefix sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

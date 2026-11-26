@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:06:57.152678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected model, detailed balance reduces each edge flux to min(r_i,r_j)/2. Positive rates and single-label moves make the labelled chain irreducible in continuous time and under uniform single-label discrete updates. With heterogeneous depths the single-label attempted-move kernel is primitive, so synchronous product updates are also primitive. The separate equal-depth even-cycle cases in the repair correctly distinguish reducibility for simultaneous moves from mere periodicity for single-label updates. Gibbs partial-sum differentiation gives strict non-permutation majorization; vacancy is a strictly convex separable sum. Conditional on a pair's total R and the other counts, its Gini contribution is symmetric and discretely convex, with a positive second difference from |2t−R| whenever R≥2. Binomial averaging then gives strict pair balancing for M≥2 and positive Gibbs probabilities. In the fixed-T limit, conditional site Poisson errors are O(1/L), normalizers obey the LLN and Efron–Stein with a 2/L bounded difference controls the empirical fraction; the uniformly bounded Poisson rates give the tail bound. No uniform mixing or T→0 joint-limit conclusion follows.",
+      "replay_paths": [
+        "/workspace/reproductions/2.js (labelled placement enumeration and 64 equal-depth synchronous transitions)",
+        "Frozen verify.py and VERIFICATION.md (inspected, not executed; previously recorded results only)"
+      ],
+      "reproduction_result": "For M=4 the independently enumerated (G,V) values were (134/343,286/1029) with weights (1,2,4), and (26/81,16/81) at uniform weights. Relative parity was preserved on all 64 ordered-label/move choices of the L=4, M=2 synchronous counterexample. These bounded checks do not establish the monotonicity or limit in general.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest inspected catalogue result involves a different scalar functional and no Gibbs family.",
+          "Aydiner §IV uses fixed attempts per particle, not an invariant probability construction; the primary literature lookup returned no usable matching source."
+        ],
+        "reasoning": "Standard majorization and Poisson laws cover tools or components; no inspected stronger theorem establishes the strict random-count Gini and the wealth-model equilibrium comparison together. The possibility of a general occupancy or stochastic-order theorem is retained as a risk, not treated as excluded.",
+        "searches": [
+          "Resultary: multinomial sampled Gini, stochastic majorization, pair balancing, random-weight mixed-Poisson occupancy",
+          "Primary literature search on expectation of multinomial Gini and mixed-Poisson occupancy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08143v1 §§III–V",
+        "Resultary bd2c764a90dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary acceptance plus symmetric proposals implies the reversible Gibbs vector; independence then immediately gives the product law, and vacancy follows by convexity.",
+          "The strict sampled-Gini statement requires comparing the three collections of terms involving two counts conditional on their shared multinomial total. The finite simulation and scalar-binomial result do not give that comparison."
+        ],
+        "reasoning": "Do not count the Gibbs, basic vacancy or Poisson-approximation recipes as individually original; the substantive model-specific assertion includes the sampled inequality proof and why the limiting model cannot display Pareto tails at fixed T.",
+        "searches": [
+          "Aydiner §§III–V, especially Eq. 11 and the fixed-step particle protocol",
+          "Resultary bd2c764a90dd, Finding and pair-balancing law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aydiner gives the same acceptance factor at proposed hops; the retrieved passage does not specify the 1/2 proposal weight.",
+          "The analogue balances independent Bernoulli parameters at fixed scalar mean and considers E|W−W′|, with the opposite response to balancing. It does not compare components of the same multinomial draw."
+        ],
+        "reasoning": "Neither a fitted wealth curve, an inequality index applied to mean wealth, nor a scalar Poisson-binomial Gini mean difference is the paired-count statistic here.",
+        "searches": [
+          "Expected multinomial Gini Schur convexity and bounded Gibbs weighted occupancy; Resultary",
+          "arXiv:2610.08143v1 §§III–V",
+          "Resultary bd2c764a90dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching exact entry treats sums of independent nonidentical Bernoulli trials and a two-copy statistic; it is not a table of multinomial Gini or thermal curves.",
+          "Aydiner §V reports finite-run vacancy and Gini around T≈0.05, not exact stationary counterparts."
+        ],
+        "reasoning": "No inspected entry reproduces the actual stationary observables and occupancy limit in the stated regime; this is a bounded catalogue comparison.",
+        "searches": [
+          "Resultary: exact Gini pair balancing and bounded quenched trap wealth occupancy",
+          "Resultary 2026/10/4 bd2c764a90dd, RESULT.md"
+        ]
+      },
+      "rationale": "Credit Gibbs/Metropolis reversibility, Schur-convexity methods, vacancy as a separable occupancy average, and Poisson approximation as established tools. The supported contribution is a model-specific exact equilibrium comparison with strict monotonicity of the expected sampled Gini (not Gini of the mean and not scalar two-copy dispersion), and the complete fixed-temperature light-tail conclusion for this wealth rule. The inspected primary simulation and closest exact catalogue analogue do not supply that result for the stipulated model.",
+      "residual_risks": [
+        "An older general comparison theorem for multinomial Bernstein expectations or a random-weight occupancy theorem could cover components more directly.",
+        "The strongest retrieved literature did not establish symmetry of Aydiner's proposal probabilities or every interpretation of the transfer rules. This does not affect the corrected explicit model.",
+        "The local catalogue and unsuccessful primary lookup do not prove global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same acceptance and related simulation; does not cover exact equilibrium observables under the stated symmetric independent-unit model",
+          "evidence": [
+            "§III acceptance min(1,exp((φ_j−φ_i)/T)); Eq. 11 also describes pair transactions.",
+            "§IV L=100, 10 initial units per site, 5×10^4 attempts per particle and 1000 realizations; §V reports nonmonotonic finite-run statistics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08143v1",
+          "material_read": "§III p. 3; §IV pp. 4–5; §V pp. 6–8 on the transition, numerical protocol and observable curves",
+          "method": "Lawful OA PDF locations and bounded passage reads",
+          "title": "A New Model for the Income Distribution",
+          "trigger": "Same proposed-hop acceptance and motivating temperature curves"
+        },
+        {
+          "assessment": "Related functional, not equivalent or dominating",
+          "evidence": [
+            "Balancing Bernoulli parameters at fixed mean increases E|W−W′| for independent copies of the same scalar sum."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-pair-balancing-law-for-gini-dispersion-of-poisson-binomial--bd2c764a90dd",
+          "material_read": "RESULT.md finding and comparison of pair-balancing statistic",
+          "method": "Resultary local-mirror full-text passage",
+          "title": "Exact pair-balancing law for Gini dispersion of Poisson-binomial sums",
+          "trigger": "Closest exact Gini/majorization analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact benchmark addresses an independently motivated question raised by apparent temperature maxima and heavy tails in finite runs. In particular, strictness concerns the empirical wealth inequality of actually sampled counts, where occupancy fluctuations persist, and the tail theorem explains what the specified equilibrium cannot exhibit. The delivery makes no unsupported inference about the time needed to reach that law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

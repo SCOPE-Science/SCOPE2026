@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The two standalone source files in `verify/` were actually compiled or executed and checked:
+## correctness
 
-- `python3 verify/check_direct.py` emitted `PETERSEN_DIRECT_PASS faces=5886 facets=1930 facet_orbits=19 bad_cotrees=70` after exhaustive forest/connectivity, cycle-type, orbit, purity and exchange tests on all 32768 possible edge supports.
-- `c++ -std=c++17 -O2 -o /tmp/petersen_check verify/check_traces.cpp && /tmp/petersen_check` emitted `PETERSEN_TRACES_PASS trees=2000 faces=5886 facets=1930`. It reconstructs the graph and counts traces directly from all 2000 spanning trees, without using the first program's forest/complement criterion.
+PASS
 
-The graph is defined internally as \(KG(5,2)\) with a canonical edge order. No input files, randomness, external packages or network access are needed. Computation proves the finite graph result by exhaustiveness of explicitly bounded loops, not any unbounded generalization. The cycle and group interpretations are explained in the proof. These source checks are not independent external scientific validation.
+The all-positive and all-negative traces force a forest and connected complement; extending any desired positive subforest in the complement plus that subforest suffices. The negative trace bounds the support size by six. An independent standard-library replay built KG(5,2), generated all connected nine-edge subsets by graph flood fill, and compared the actual traces against the forest (leaf stripping) and connected-complement predicates. It reproduced 2000 trees, face counts (1,15,105,445,1230,2160,1930), purity with 1930 six-edge facets, the 60 five-cycle-plus-edge and 10 six-cycle exclusions, all 19 orbit representatives and the 30,40,60^3,120^14 orbit census, and the three failed exchanges 111,126,8302 for A=238, B=8283 and removed edge 7. The full automorphism group acts on the five size-four independent sets, which are exactly the five stars of pairs through one symbol: any intersecting family with two pairs 12,13 and a pair omitting 1 is confined to the triangle 12,13,23. Each vertex is determined by its two incident stars, so the natural S5 already gives the full action.
+
+## originality
+
+PASS
+
+Qualified originality applies to the complete Petersen-specific face/facet, coforest exclusion and orbit census and its exchange obstruction, not to the known support criterion, the tree count, or the algorithms underlying the enumeration. None of the compared statements supplies that joint census or its purity/nonmatroid boundary.
+
+## value
+
+PASS
+
+This is a canonical highly symmetric cubic graph and a natural exact incidence-shattering invariant, not an arbitrary test case. The facet-orbit list gives reusable explicit types, and purity together with an exact exchange failure separates two natural independence properties in a case where neither is answered by the general criterion. The full count and cycle exclusions are useful small-instance benchmarks for common graphic/cographic independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:24:30.313163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The up-cone equality implies monotonicity and maps source maxima to target maxima. For a nonsingleton last target level, an earlier point mapped to a maximal v would force the last source level to map constantly to v, and then every earlier point, being below the last level, has image at most v. This last inference rules out attaining a different maximal value even on the same earlier level. Consequently the last source level alone covers the last target level, and lower back witnesses all stay in the lower prefix. An optional extra value encodes omitted elements of a truncated last level, giving the T weight. For a singleton top v above a nonempty target prefix, the last source level is all v and the last source level with a non-v image is some t<i. Restrict to that level's non-v points and all earlier levels; this preserves all lower back witnesses. Extension by v is inverse and every retained point sees a later v witness. A one-point target and the virtual empty-prefix cases give the stated bases. Prefix sums give the stated complexity in the specified arithmetic model. The frozen artifacts/check_pmorph.py exists; reading it confirms it compares the tables against the exact up-cone definition, but the recorded 687-case output was not counted as independent replay. A separate implementation checked 65 small vector pairs by exhaustive function enumeration and checked the two W(3,3) examples by 729 functions each, obtaining 12 and 6. This is bounded corroboration, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first counts all order-preserving maps by a 2k-state recurrence; the second counts homotopy classes with equal heights and nonsingleton levels."
+        ],
+        "reasoning": "All monotone maps include onto maps violating back, e.g. the middle point sent to the target bottom in the frozen example; the all-map count does not resolve that property. The homotopy count neither retains labeled maps nor handles singleton levels.",
+        "searches": [
+          "Resultary: exact cardinality recurrence for mapping spaces between finite weak orders, 1cee64311a06",
+          "Resultary: off-diagonal homotopy rigidity for finite weak-order pseudospheres, b0d3c63112c5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/check_pmorph.py",
+        "Resultary exact transfer c66b24e63c82; prefix normal form 667c3a806964; monotone count 1cee64311a06; homotopy classes b0d3c63112c5",
+        "Kupke–Pattinson DOI 10.1016/j.tcs.2011.04.023",
+        "Huczynska–Ruškuc DOI 10.1007/s11083-014-9326-8 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Advance uses S(a,q) alone except immediately below a covered singleton, where the weight is S(a,q)+S(a,q+1)=T(a,q). A stay is permitted exactly at a covered singleton frontier."
+        ],
+        "reasoning": "For a nonsingleton top the first advance is mandatory, deletes one level on each side and contributes S. For a singleton top, after covering it, sum over the last level t carrying any lower image: the intervening stays have weight one, and the next advance permits values in the new layer plus the old singleton. Partition those assignments by the nonempty retained subset U; the prefix count summed over U is exactly G_{t,j-1}. This recovers the frozen formulas, not just their numerical output, without any additional scientific gain identified in the two-table grouping.",
+        "searches": [
+          "Resultary mirrored transfer Finding and proof, c66b24e63c82, offsets 490–5531"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The transfer record uses the same principal-upset equality on labeled ordinal sums of antichains. The powerset coalgebra equality identifies the same local notion abstractly, but contains no enumeration."
+        ],
+        "reasoning": "Neither the frame or Alexandrov vocabulary nor an alternative description of the local back condition changes which maps are counted. The indexed transfer uses precisely the same notion, with global surjectivity.",
+        "searches": [
+          "Resultary: exact bounded-morphism transfer on finite layered intuitionistic frames, c66b24e63c82",
+          "Kupke–Pattinson manuscript, §2, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day prefix-surjective classification covers the surjective layerwise product on wholly nonsingleton inputs, not the singleton cases.",
+          "The exact transfer record explicitly handles all nonempty source and target layers, including singleton layers, with a k+1-state recurrence and O(hk) transitions."
+        ],
+        "reasoning": "The transfer is exact on the full stated domain, not just on shared examples. Both distinct matches are retained; dates do not determine priority.",
+        "searches": [
+          "Resultary: prefix-surjective bounded morphisms of finite weak Pierce frames, 667c3a806964",
+          "Resultary: exact bounded-morphism transfer, c66b24e63c82"
+        ]
+      },
+      "rationale": "A distinct indexed exact transfer counts the same labeled surjective bounded morphisms including singleton levels, with the same O(hk) transition complexity once weights are available. Its transitions recover the F/G factors by grouping singleton stays before the next advance and distinguishing the optional already-covered singleton. This is demonstrable scientific equivalence, not a chronological priority or copying claim. The simpler all-monotone and homotopy counts do not themselves cover this result.",
+      "residual_risks": [
+        "No chronological priority inference is made from the two distinct catalogue dates or the same-day related hit.",
+        "The Huczynska–Ruškuc full text was not verified; the decisive equivalence is established independently of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full claim by regrouping its transitions",
+          "evidence": [
+            "States track uncovered target prefixes, adding an entire new target level at a time; an old singleton may be reused, and only an old singleton allows a stay."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-exact-bounded-morphism-transfer-on-finite-layered-intuitionistic--c66b24e63c82/RESULT.md",
+          "material_read": "Finding, scope, and proof steps 1–3",
+          "method": "Resultary search and local mirror, offsets 490–5531",
+          "title": "Exact bounded-morphism transfer on finite layered intuitionistic frames",
+          "trigger": "Exact same count and potentially equivalent recurrence"
+        },
+        {
+          "assessment": "Covers the wholly nonsingleton overlap, not arbitrary singleton targets",
+          "evidence": [
+            "Surjective prefix plus tail; the globally onto case forces layerwise surjections in the all-nonsingleton regime."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 record 667c3a806964",
+          "material_read": "Finding and assumptions, offsets 0–2986",
+          "method": "Resultary search and local mirror",
+          "title": "Prefix-surjective bounded morphisms of finite weak Pierce frames",
+          "trigger": "Same-day related per-level morphism normal form"
+        },
+        {
+          "assessment": "Different class of maps",
+          "evidence": [
+            "All monotone maps, 2k states and O(hk^2) transitions."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 record 1cee64311a06",
+          "material_read": "Finding and scope, offsets 0–2135",
+          "method": "Local Resultary mirror",
+          "title": "Exact cardinality recurrence for mapping spaces between finite weak orders",
+          "trigger": "Cited enumeration for the same underlying orders"
+        },
+        {
+          "assessment": "Different equivalence relation and no singleton gates",
+          "evidence": [
+            "Counts homotopy classes of monotone maps for equal heights, different size vectors and nonsingleton levels."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 record b0d3c63112c5",
+          "material_read": "Finding and scope, offsets 0–2650",
+          "method": "Local Resultary mirror",
+          "title": "Off-diagonal homotopy rigidity for finite weak-order pseudospheres",
+          "trigger": "Cited classification for related weak orders"
+        },
+        {
+          "assessment": "Foundational equivalence, not a count",
+          "evidence": [
+            "Coalgebra maps obey Tf composed with the source structure equals the target structure composed with f."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~dpattinson/Publications/tcs2011.pdf",
+          "material_read": "§2, pp. 2–3, powerset functor and coalgebra morphism definition",
+          "method": "OA author manuscript, offsets about 6358 and 7449",
+          "title": "Coalgebraic Semantics of Modal Logics: an Overview",
+          "trigger": "Morphism definition under a different formalization"
+        },
+        {
+          "assessment": "Unresolved literature comparison; not a reason for failure",
+          "evidence": [
+            "Publisher route failed on redirects; no lawful repository copy was identified in the bounded lookup."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11083-014-9326-8",
+          "material_read": "No newly inspected full-text passage; frozen record reports an abstract only",
+          "method": "Lawful publisher retrieval attempt and repository lookup",
+          "title": "Homomorphic image orders on combinatorial structures",
+          "trigger": "Cited onto-homomorphism comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The counting problem is well motivated and the singleton phenomenon is mathematically useful, but the alternate table decomposition neither extends the exact transfer's domain nor improves its order of transition complexity. Its auxiliary table is exactly the transfer's optional-singleton step summed over retained labels. No independently useful uncovered invariant survives that equivalence in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

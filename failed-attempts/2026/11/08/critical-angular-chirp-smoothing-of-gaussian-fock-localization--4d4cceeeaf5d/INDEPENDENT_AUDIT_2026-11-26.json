@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:44:51.489205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the fixed-mode band: the angular integral selects n+k, and t=r² gives shape n+k/2+1 and prefactor Γ(n+k/2+1)/sqrt(n!(n+k)!)→1. Stirling at r=√n+s gives density √(2/π)e^(−2s²), and convergence of probability densities in L¹ follows from pointwise convergence and equal masses. This permits uniform tail removal and replacement by the fixed Gaussian on compact intervals even for rapidly oscillating phases. For γ<1 the bounded-shell phase difference tends to zero, γ=1 gives the characteristic function at frequency βk of N(0,1/4), and γ>1 gives zero for k≠0 by integration by parts (phase derivative has size n^((γ−1)/2), derivative of its reciprocal tends to zero). For either sign of k, S_(n+k)−S_n=k n^(γ/2)+O(n^(γ/2−1)), matching the sign of the unitary conjugation for γ≤1. A band with weights tending to zero is compact by truncation; uniform trigonometric approximation and contraction give the general result. In the Hardy Toeplitz quotient the essential data follow from the continuous effective symbol, including negative winding and nonvanishing heat multipliers. Replay: RESULT.md lines 30–63; the supplied numerical script was inspected but not executed. No uniformity as γ varies or full spectrum assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulsche identifies the essential spectrum of A∈C₁ as the union of limit-operator spectra",
+          "Wu–Zheng recall Berezin-transform compactness for bounded symbols; Dewage–Ólafsson treat classes invariant under specified groups"
+        ],
+        "reasoning": "The general Fock results are relevant tools, not direct statements of this chirp's angular gauge or index. The stronger mathematical coverage in this review comes from the concrete Gamma estimates combined with the separate angular-band argument.",
+        "searches": [
+          "Fulsche arXiv:2405.15496 Theorem 2.4",
+          "Wu–Zheng arXiv:2103.03458 p. 1",
+          "Dewage–Ólafsson arXiv:2107.01465 pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3fa838eb35e3 and cbcee7a7e9fa",
+        "arXiv:2405.15496, 2103.03458, 2107.01465",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radial proof treats exp(im X^q) with Gamma X, matching the band formula on putting m=−βk and shifting shape by k/2",
+          "The disk proof sums per-degree phases in a diagonal unitary, uses compactness of vanishing band differences and takes the norm limit"
+        ],
+        "reasoning": "The fixed real frequency substitution leaves all derivative and characteristic-function arguments unchanged. Shifting the shape by a fixed real constant also leaves these limits unchanged: its density relative to the integer-shape law is x^sΓ(a)/Γ(a+s), with expectation 1 and second moment Γ(a+2s)Γ(a)/Γ(a+s)^2→1, hence L¹ error tends to zero. Recentring the phase at n^(γ/2) for γ≤1 differs by o(1). Multiplying the Fock matrix by the routine gamma prefactor tending to one now gives the same band argument and norm closure as the weighted disk; the resulting Hardy model automatically yields all asserted essential information.",
+        "searches": [
+          "3fa838eb35e3 §§2–4, offsets 3006–7020",
+          "cbcee7a7e9fa §§4–5, offsets 3219–7283",
+          "Frozen RESULT.md lines 31–63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3fa838eb35e3 §§2–4 gives subcritical centering, critical exp(−m²/8), and vanishing supercritical Gamma integrals",
+          "cbcee7a7e9fa §§1, 4–5 gives the angular monomial band calculation, compact Hardy reduction and its winding index"
+        ],
+        "reasoning": "Neither the radial diagonal Fock operator nor the weighted disk operator with a log-Gamma multiplier is literally the assigned operator. The scalar Fock integrals and angular operator step, nonetheless, coincide with the two modules of its proof.",
+        "searches": [
+          "Resultary: Gaussian Fock angular chirp phase speed heat smoothing",
+          "Resultary: log Gamma spectral smoothing critical winding weighted Bergman angular spiral diagonal gauge Hardy Toeplitz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3fa838eb35e3 uses p(|z|^β), the same Gaussian normalization and heat multipliers exp(−m²/8)",
+          "cbcee7a7e9fa uses a rotating angular f on the weighted disk, with log-Gamma convolution and essential norm/spectrum/index"
+        ],
+        "reasoning": "No one exact matching catalogue formula for the angular Fock operator was established. These are theorem-level matches in complementary parts, not a finite-value recomputation.",
+        "searches": [
+          "Resultary local catalogue 3fa838eb35e3 and cbcee7a7e9fa, mirrored RESULT.md Findings and proofs"
+        ]
+      },
+      "rationale": "Distinct from each comparison statement read separately, but the central mechanism and concrete angular conclusion are mechanically assembled from two material catalogue matches: one proves the same Fock Gamma-shell phase trichotomy and heat factor, the other gives the same angular matrix-to-Hardy gauge construction and winding argument. Comparing the actual proofs yields the implication below. They are same-date records; no historical priority or publication ordering is inferred. The failure is mathematical coverage by this combination, not similarity of titles or an unresolved lookup.",
+      "residual_risks": [
+        "No publication priority is asserted for the two complementary same-day catalogue records.",
+        "The bounded primary-literature check does not rule out a single document already stating the angular theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the scalar fixed-mode building blocks, not the angular operator statement in isolation",
+          "evidence": [
+            "Critical shell √X−√q converges to N(0,1/4)",
+            "Supercritical nonstationary phase bounds each fixed nonzero mode"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-radial-fock-toeplitz-phase-speed-transition-filtered-spectra-and--3fa838eb35e3/RESULT.md",
+          "material_read": "Finding and proof §§1–5, offsets 0–7020",
+          "method": "Local Resultary mirror",
+          "title": "Radial Fock Toeplitz phase-speed transition: filtered spectra and all-Schatten collapse",
+          "trigger": "Exact Fock heat filter and shell exponents"
+        },
+        {
+          "assessment": "Different radial layer and critical multiplier; same assembly from limiting matrix bands",
+          "evidence": [
+            "§4 gauges by cumulative phase and subtracts constant-diagonal shifts; §5 applies the Hardy Toeplitz extension"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-log-gamma-spectral-smoothing-at-the-critical-winding-of-weighted--cbcee7a7e9fa/RESULT.md",
+          "material_read": "Finding, gauge and proof §§1–5, offsets 0–7283",
+          "method": "Local Resultary mirror",
+          "title": "Log-Gamma spectral smoothing at the critical winding of weighted Bergman boundary spirals",
+          "trigger": "Exact angular three-way Hardy reduction and index"
+        },
+        {
+          "assessment": "General framework, not the concrete angular normal form",
+          "evidence": [
+            "Theorem 2.4 expresses the essential spectrum of A∈C₁ in terms of limit operators"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.15496",
+          "material_read": "pp. 3–4, Theorem 2.4 and C₁ definitions, offsets 7500–11074",
+          "method": "Primary OA text",
+          "title": "Essential positivity for Toeplitz operators on the Fock space",
+          "trigger": "Potential broader essential-spectrum framework"
+        },
+        {
+          "assessment": "Relevant Fourier and compactness criteria; no claim about every statement in the paper",
+          "evidence": [
+            "Vanishing of the Berezin transform at infinity for bounded symbols is cited as a compactness criterion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.03458",
+          "material_read": "p. 1 abstract, offsets 0–1243",
+          "method": "Primary OA text",
+          "title": "Toeplitz operators on the Fock space via the Fourier transform",
+          "trigger": "Fourier and compactness precedent"
+        },
+        {
+          "assessment": "Group-invariant quasiradial classes differ from the general angular chirp",
+          "evidence": [
+            "The symbol classification is based on G-invariance and diagonalization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.01465",
+          "material_read": "pp. 1–3, offsets 7000–13266",
+          "method": "Primary OA text",
+          "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+          "trigger": "Possible overlapping Fock symbol scope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The angular Hardy description, including nonnormal index information, is useful in isolation. But the surviving difference relative to the demonstrated combined coverage is a fixed shape offset, a frequency substitution and transfer of the already implemented angular-band argument. No additional angular phenomenon requiring a distinct claim or independent invariant remains within this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

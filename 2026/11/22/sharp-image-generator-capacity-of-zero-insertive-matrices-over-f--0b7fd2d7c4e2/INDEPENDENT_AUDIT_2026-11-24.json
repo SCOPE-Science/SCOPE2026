@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:46:27.621727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49; VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/review_reproduction.py: chain(), 102 exact shift witnesses and 424 mixed-characteristic upper checks by enumerating images over Z/(2^k)"
+      ],
+      "rationale": "In Smith coordinates the right factor has form D_{k-a}H after the coordinate change, because Ann(pi^a)=pi^{k-a}R including levels 0 and k. The middle product Y=D_a S D_{k-a} is supported only on a_i<a_j. At any h its entries are covered by the rows a_i<h and columns a_j>h. Splitting into those two blocks factors YH through a free module of rank n-n_h, proving the upper bound without confusing image generators with reduction rank or minors. For an independent sharpness argument, sort the levels and write m=max n_h. Pair row i with column i+m for 1<=i<=n-m; a_{i+m}>a_i since no equal-level block has m+1 entries. Put ones at any t of these pairs in S and take H=I. The resulting t separated entries are nonzero powers of pi, and their image is a direct sum of t nonzero cyclic modules, each contributing one residue-field generator by Nakayama. This realizes every t including zero for the original A by reversing the coordinate changes. Balanced multiplicities give the global optimum n-ceil(n/(k+1)), also for n=1 and fields, and yield the k>=n-1 criterion at n>=2.",
+      "residual_risks": [
+        "Finite test samples do not replace the argument for arbitrary finite chain rings or establish a classification of attainable full Smith shapes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Smith-shape reference supplies the normal form and module shapes; its inspected passages concern multiplicative channels, not capacity with AB=0. The half-rank result applies to all division rings but has no nonzero nilpotent radical."
+        ],
+        "reasoning": "The shape theory yields coordinates but not the strict-level support capacity. The classical bounded-rank setting is over fields and does not directly control image generators in a nilpotent chain.",
+        "searches": [
+          "Resultary: chain-ring zero-product sandwiches and Flanders/Smith products",
+          "Nóbrega et al. arXiv:1311.4861, p. 5 Smith forms and shapes",
+          "Flanders DOI 10.1112/jlms/s1-37.1.10, retrieval attempted"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b7fd2d7c4e2 (self), 8052759fe4ed, 0e6f8541078f",
+        "Subba–Subedi arXiv:2609.24439v1 and arXiv:2508.01333v1",
+        "Nóbrega et al. arXiv:1311.4861",
+        "Flanders 10.1112/jlms/s1-37.1.10, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Field rank-nullity gives rank B<=n-rank A, and the earlier fiber proof uses min(a,b) and a+b<=n. These yield the field fixed-A bound min(rank A,n-rank A), attainable by selecting im B in ker A and T to map it onto enough independent image directions. The prior field proof does not allow a witness with more than floor(n/2) generators. Over length two the frozen pi E12+pi E23 has two generators at n=3 and reduces to zero."
+        ],
+        "reasoning": "In a chain ring, the image and kernel can both require many generators for the same Smith component. The level-cover upper bound plus a complementary strict-level witness resolves this, rather than a substitution into the field result or into Smith-form existence.",
+        "searches": [
+          "Earlier half-rank locus 8052759fe4ed, Finding and Proof",
+          "Earlier finite-field sandwich fibers 0e6f8541078f, fixed-rank incidence formula and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior terminology uses precisely the AB=0 sandwich. Corollary 2.7 is a size-two field result, and Remark 2.19 produces a one-entry matrix over a general coefficient ring. The earlier precursor focuses on nil clean rings."
+        ],
+        "reasoning": "The shared sandwich terminology is not itself the finding. One-entry witnesses do not imply a maximal number of independent cyclic summands, and residue-field rank does not equal the number of generators of the ring image.",
+        "searches": [
+          "Resultary: fixed Smith multiplicity n-max_h n_h, zero-product sandwich, zero-insertive half-rank locus",
+          "Subba–Subedi arXiv:2609.24439v1 Corollary 2.7 and Remark 2.19; arXiv:2508.01333v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fixed/global formula match 0b7fd2d7c4e2 is the same frozen record. Distinct records 8052759fe4ed and 0e6f8541078f give exact field locus/cardinality and finite-field fiber counts, respectively."
+        ],
+        "reasoning": "Their exact output ranks and tables only constrain the field boundary, k=1; none of the inspected exact entries computes the k>=2 Smith-profile invariant.",
+        "searches": [
+          "Resultary: fixed profile formula, chain-ring maximum, and zero-product sandwich fibers"
+        ]
+      },
+      "rationale": "The field boundary is covered, including the fixed-rank bound by ordinary subspace arguments. The checked statements do not cover the arbitrary-length, fixed-Smith-level generator capacity. The radical filtration changes the support to strict inequalities over k+1 levels; the optimized bound detects capacity above half rank, already at n=3, k=2, where reduction to the residue field loses the witness.",
+      "residual_risks": [
+        "An unindexed factorization or structural-rank result with the identical chain-ring constraint could precede the finding. Classical Flanders full text was not recovered; the judgement is based on the actual checked comparisons, not that failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage at k=1 only",
+          "evidence": "Division-ring rank at most floor(n/2) by rank-nullity and the product rank inequality; matrix units realize every rank in that range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-insertive-matrices-are-exactly-the-half-rank-locus--8052759fe4ed/RESULT.md",
+          "material_read": "Finding and Proof, local mirror offsets 0–3356",
+          "method": "Bounded local mirror passage",
+          "title": "Zero-insertive matrices are exactly the half-rank locus",
+          "trigger": "Same sandwich and global capacity"
+        },
+        {
+          "assessment": "Field-only stronger counting result; no positive radical length beyond k=1",
+          "evidence": "The sum for an output X of rank r indexes a,b>=r with a+b<=n and counts field subspaces of specified dimensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-finite-field-fibers-of-the-zero-product-sandwich-map--0e6f8541078f",
+          "material_read": "Finding and fixed-rank proof passage",
+          "method": "Bounded local mirror passage and literal locations",
+          "title": "Exact finite-field fibers of the zero-product sandwich map",
+          "trigger": "Stronger exact fiber counts and fixed-rank restrictions"
+        },
+        {
+          "assessment": "Size-two field and one-entry witnesses, no fixed-profile generator formula in these passages",
+          "evidence": "All nonunits of M_2(K) are zero-insertive; wE11 is zero-insertive over general coefficient rings at n>=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24439v1",
+          "material_read": "PDF p. 4 Corollary 2.7 and p. 7 Remark 2.19",
+          "method": "OA text passage near offsets 10870 and 18570",
+          "title": "Semicommutativity via Zero-Insertive Elements: Insights from Path and Leavitt Path Algebras",
+          "trigger": "Primary source on zero-insertivity with matrix theorems"
+        },
+        {
+          "assessment": "Smith normal form background, distinct invariant in the inspected passages",
+          "evidence": "Defines shape of the row/column modules of matrices in principal rings, including finite chain rings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.4861",
+          "material_read": "Abstract and p. 5 near offset 14935",
+          "method": "OA PDF passage retrieval",
+          "title": "On Multiplicative Matrix Channels over Finite Chain Rings",
+          "trigger": "Potential broader shape/product theorem"
+        },
+        {
+          "assessment": "Residual access risk; no evidence of nonfield capacity from this source",
+          "evidence": "No scientific passage recovered; no paper-wide absence claim is made.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-37.1.10",
+          "material_read": "Bibliographic identification only; full text access failed",
+          "method": "Primary lookup and OA retrieval attempt",
+          "title": "On spaces of linear transformations with bounded rank",
+          "trigger": "Possible general rank bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen fixed-profile and global statements, proof steps 2–4 and depth-two witness",
+        "Prior field half-rank classification"
+      ],
+      "rationale": "The zero-product sandwich is an established object and the generator count is its natural image-size invariant over a local ring. The exact formula sees the full Smith profile, explains the field/nonfield change, and detects precisely when an image can have n-1 generators. The witness and bound make the result useful without assuming a particular residue field or equal characteristic.",
+      "residual_risks": [
+        "Only capacity is claimed; ruling on exact attainable Smith shapes or counting fibers would require additional work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

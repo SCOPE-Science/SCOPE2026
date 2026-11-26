@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:08:51.872333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–58",
+        "VERIFICATION.md:19–23, verify.py and verification_output.txt (inspected, not executed)",
+        "Independent finite check: python3 /workspace/review_checks.py cubic"
+      ],
+      "rationale": "Eliminating b and using the bijection u=2a−x gives 3xu²=4y−x³. For a unit x, the target is affine-equivalent to u²: the (p²−p)/2 unit squares each have two simple roots and zero has p roots. For x=pv≠0, first require y=pw, then cancel p from the congruence before reducing to 3v u²=4w modulo p; each solution has p lifts. This gives one fiber of size p and (p−1)/2 of size 2p for each of the p−1 such x. At x=0 there is only the fiber at y=0 of size p². These cases give exactly the stated histogram, including p²−1 fibers of size p. Summing nonempty fibers and squared multiplicities gives the stated support and energy. Frequency orthogonality contributes p⁴ and the coefficient normalization contributes p⁻⁸, so the constant-input moment is energy divided by p⁴ as asserted. An independent per-slice direct enumeration verified all of these multiplicity levels and energy for p=5,7,11,19,29; at p=5 the histogram in level order is (392,200,24,8,1).",
+      "residual_risks": [
+        "The argument relies on units 2 and 3 and on modulus exactly p². The moment is for constant input with counting measure; it is not an operator norm or a weighted extremizer theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026/11/8 prime-power record gives all ordered fibers for the cubic graph and specializes at modulus p² to this histogram and energy. The inspected earlier field results have no nonunit x-stratum and do not give this ring specialization."
+        ],
+        "reasoning": "The later broader indexed result is exact mathematical coverage, not evidence of earlier disclosure. Reducing to a field loses the p- and 2p-fold lifts and the p²-fold fiber.",
+        "searches": [
+          "Resultary finite-field cubic extension 2db777d1e47b",
+          "Resultary prime-power cubic pair-sum census 1bbc7ea862f6",
+          "arXiv:2405.16647 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a783058468ac, 2db777d1e47b, 8251985a3185 and 1bbc7ea862f6",
+        "arXiv:2405.16647",
+        "DOI 10.1134/S0037446626040154 abstract excerpt and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 the later result gives p⁴+(p−1)p²(5p−3)=6p⁴−8p³+3p² and the same unit, nonzero multiple of p, and zero strata. In the scalar result the condition a+b=c+d is absent."
+        ],
+        "reasoning": "The later theorem directly implies all claimed counts after specializing and tallying the strata. Earlier scalar and spectral statements do not imply the ordered convolution result without the missing conditional calculation. The shared date with the scalar paper is not used to infer order or priority.",
+        "searches": [
+          "1bbc7ea862f6 Finding and Relationship to prior work",
+          "8251985a3185 Finding",
+          "a783058468ac Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-first-coordinate problem reduces to square fibers via 3xu²=4y−x³. The unweighted fourth moment is equivalent to one collision count by orthogonality, but does not recover the full multiplicity distribution. A search hit on Dirichlet-character-weighted fourth moments supplies no inspected statement of the present census."
+        ],
+        "reasoning": "Fixing the sum of the two inputs is essential. Moment results would need matching normalization and domain, and a moment or an orthogonal-basis classification is not the complete ordered fiber invariant.",
+        "searches": [
+          "Resultary cubic-graph pair-sum fibers / additive moments",
+          "Primary queries: cubic graph ordered convolution and energy at prime square; fourth moments of complete two-term cubic exponential sums at prime powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-ring classification tabulates orthogonal spectra, and the same-day scalar count has no target x=a+b. The later prime-power result gives a formula for each ordered target, not merely a sample table."
+        ],
+        "reasoning": "No earlier inspected table covers the same target variable and ring; the later formula, in contrast, supplies every fiber and therefore the histogram.",
+        "searches": [
+          "Resultary same-ring exponential spectra a783058468ac",
+          "Resultary same-day scalar cube sums 8251985a3185",
+          "Resultary prime-power cubic graph fibers 1bbc7ea862f6"
+        ]
+      },
+      "rationale": "The indexed prior work on exponential spectra uses the same graph, but its statement is a classification of orthogonal exponential bases, not ordered convolution fibers. Field extension results and scalar two-cube counts do not include the required prime-square graph lifts. A later, stronger prime-power census gives exactly this specialization and is credited as verified overlap, not as a prior result based on the dated records. The assessment is best-of-knowledge.",
+      "residual_risks": [
+        "The literature comparison does not rule out an earlier equivalent calculation in the exponential-sum or local-ring literature. Particular risk is prior derivation of the constant-input moment alone. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant",
+          "evidence": "The spectrum is an orthogonal exponential basis for the graph, not the distribution of ordered sum counts.",
+          "identifier_or_url": "2026/10/11/SCOPE-all-exponential-spectra-of-the-cubic-graph-over-prime-square-cyc--a783058468ac",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "All exponential spectra of the cubic graph over prime-square cyclic rings",
+          "trigger": "Same polynomial graph and ring with a 'spectra' classification"
+        },
+        {
+          "assessment": "Field domain, not the prime-square ring",
+          "evidence": "A sharp unrestricted inequality over a field does not determine the extra lift strata or their moment.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact sharp finite-field cubic-graph L² to L⁴ extension norm and extremizers",
+          "trigger": "Same cubic graph and fourth moment framework"
+        },
+        {
+          "assessment": "Related scalar problem, not graph-target counts",
+          "evidence": "Counts fibers of a³+b³ alone without fixing a+b.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-level-collision-moments-and-p-adic-fibres-for-sums--8251985a3185",
+          "material_read": "RESULT.md Finding, text offset 91",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-level collision moments and p-adic fibres for sums",
+          "trigger": "Same-day cubic collision problem over prime powers"
+        },
+        {
+          "assessment": "Verified exact later generalization",
+          "evidence": "The targetwise odd-prime-power formula at p² recovers the frozen histogram and p⁴+(p−1)p²(5p−3); the normalized fourth moments then agree.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-pair-sum-fibers-of-the-cubic-graph-over-odd-residue-rin--1bbc7ea862f6",
+          "material_read": "RESULT.md Finding (opening) and Relationship to prior work (offset 8500)",
+          "method": "Local Resultary mirror",
+          "title": "Complete pair-sum fibers of the cubic graph over odd residue rings",
+          "trigger": "Direct possible exact implication"
+        },
+        {
+          "assessment": "Related Fourier method, different models and domain",
+          "evidence": "The inspected sharp inequality concerns a paraboloid over a field, not the cubic graph over Z/p²Z.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.16647",
+          "material_read": "Abstract p. 1 and Theorem 1.1 p. 2 (offset 9800)",
+          "method": "Original OA PDF",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Cited closely related extension framework"
+        },
+        {
+          "assessment": "Unresolved potential moment overlap; not negative full-text evidence",
+          "evidence": "The indexed excerpt describes two-term exponential sums weighted by Dirichlet characters, without an exact matching statement for the unweighted graph.",
+          "identifier_or_url": "https://doi.org/10.1134/S0037446626040154",
+          "material_read": "Indexed abstract excerpt only; full text not obtained",
+          "method": "Lawful primary lookup and retrieval attempt",
+          "title": "On the Fourth Moments of Exponential Sums Weighted by Dirichlet Characters",
+          "trigger": "Primary search found a related polynomial exponential-sum fourth-moment result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:8–28,33–58",
+        "Comparison to field extension and same-ring bases above"
+      ],
+      "rationale": "The first nonreduced level is a natural comparison with the field cubic graph. The exact ordered convolution partition quantifies the singular strata that the field and the normalized moment alone do not exhibit; it yields exact support and a test value for ring extension problems. The square-root step uses standard lifting, but the motivated, complete decomposition of the graph convolution is the useful result, not the lifting fact itself.",
+      "residual_risks": [
+        "No claim of a sharp weighted norm or of a new general lifting theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

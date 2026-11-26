@@ -41,7 +41,7 @@ def optimum(k,F,t):
 def run():
     rng=random.Random(11444)
     assertions=0
-    assert abs(tcrit(1,2)-1.7653315356636703)<1e-11;assertions+=1
+    assert abs(tcrit(1,2)-1.7653315356634109)<1e-11;assertions+=1
     for i in range(3500):
         k=10**rng.uniform(-1,0.4)
         F=10**rng.uniform(-1,0.55)

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:17:11.671777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bernini et al.'s cover formula counts distinct balanced-pair insertion words and gives the stated pair-product deficit, nonnegative and zero for a single arch. For n>2r a component of size n−r is unique; choosing its Catalan interior and the ordered prefix/suffix of total size r gives C_{n−r−1}C_{r+1}. The limiting masses sum to C(1/4)−1=1, so the complement size R_n is tight. Separating the largest arch gives Q_n=(n−R_n)R_n plus the pair products among the remaining arches; those are in [0,R_n²/2]. Thus 0≤R_n−Q_n/n≤R_n²/n, proving convergence at the half-integer thresholds. The Catalan asymptotics give the stated r^(-3/2) mass tail and infinite limiting first moment. Marking two ordered-by-position distinct arches gives C³(zA′)², with no additional factor of two. The identity z²C³/(1−4z)=1/[2(1−4z)]−3/[2√(1−4z)]+C gives the claimed exact finite mean and its asymptotic; at n=1 the mean is zero. RESULT.md, VERIFICATION.md and check.py were inspected; reported finite enumeration through n=8 and recurrence through n=150 were not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stufler gives total variation convergence of the remainder in the convergent composition case. Here I(z)=zC(z) is subexponential with radius 1/4 and I(1/4)=1/2, below the radius 1 of the outer sequence series. Removing a marked sequence element leaves prefix and suffix with series C(z)^2.",
+          "The specialized Boltzmann law is (1/4)^r[z^r]C(z)^2/C(1/4)^2=C_{r+1}/4^{r+1}. Stufler's component-count moment statement does not itself furnish the finite weighted pair-product mean.",
+          "The inspected 2019 paper sections enumerate selected intervals and related covers, not the present uniform-source aggregate."
+        ],
+        "reasoning": "The Catalan remainder mechanism and law are consequences of a stronger theorem. Direct coverage of the exact marked-pair mean comes from the separate indexed record, not from mistaking component-count moments for length-weighted pair moments.",
+        "searches": [
+          "arXiv:1609.08859v1, Stufler Theorem 3.1 and Proposition 3.2",
+          "arXiv:1910.00299v1, selected interval and covering results",
+          "Subcritical/convergent Catalan compositions, largest arch remainder and weighted arch-pair means"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b0d39b903b8b (RESULT.md) and 425e8fe1de91 (summary only)",
+        "arXiv:1303.3785v1",
+        "arXiv:1609.08859v1",
+        "arXiv:1910.00299v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Since X_n=Q_n, replace zI′ by z/√(1−4z) in Eq. (4). Decomposing the resulting algebraic series gives coefficients 4^n/2−(3/2) binom(2n,n)+C_n, exactly the claimed mean times C_n.",
+          "Tightness of the remainder and |X_n/n−R_n|≤R_n²/n transfer the expressly given remainder law to Q_n/n. Its half-integer probabilities, tail and infinite first moment follow by continuity at nonintegers and the Catalan asymptotic."
+        ],
+        "reasoning": "The two substantive quantitative claims reduce to the existing exact pair-sum identity and exact remainder law with only elementary transfer and coefficient extraction. There is no distinct surviving theorem in the frozen claim after this comparison.",
+        "searches": [
+          "Bernini et al. Proposition 2.2",
+          "Resultary b0d39b903b8b, §3 Eq. (4) and §4",
+          "Stufler Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernini et al.'s upper covers are precisely the distinct balanced-pair insertion words; subtracting that formula from n²+1 gives Q_n=Σ_{i<j}a_i a_j.",
+          "The separate deletion record defines X_n by exactly this pair sum on a uniformly random Dyck word of semilength n. Its headline statistic L_n differs, but its proof statistic X_n equals Q_n pointwise."
+        ],
+        "reasoning": "The different insertion/deletion headlines conceal an exact identification, not just an asymptotic analogy. All distributions and moments of the latter proof statistic are distributions and moments of Q_n.",
+        "searches": [
+          "arXiv:1303.3785v1, Proposition 2.2, Eq. (3)",
+          "Resultary: Dyck arch size pair-products, insertion-degree deficit and deletion rare-event variance",
+          "Resultary record b0d39b903b8b, Proof §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equation (4) is an exact generating function for all n: Σ_n C_n E[X_n]z^n=(zI′)²C³; Eq. (6) also gives the stated leading mean.",
+          "Section 4 gives for each r and n>2r exactly C_{n−r−1}[z^r]C² sources and the limiting mass for the largest-arch remainder.",
+          "The indexed universality-index summary addresses a different statistic; its original file could not be retrieved from the mirror."
+        ],
+        "reasoning": "An exact coefficient series encodes all finite means even if it is not printed as a binomial list. The closest record supplies both exact generating and probability-count data, not only matching asymptotic exponents or a table of small cases.",
+        "searches": [
+          "Resultary: Dyck arch size composition, exact balanced insertion/deletion degree statistics and Catalan remainder",
+          "Resultary b0d39b903b8b original RESULT.md §3 Eq. (4), §4",
+          "Resultary 425e8fe1de91, Catalan composition law and universality index"
+        ]
+      },
+      "rationale": "Equivalent coverage is established for the asserted contribution. The separate balanced-deletion record computes the exact generating function for the identical random variable on the identical ensemble, and explicitly gives the Catalan largest-arch remainder law. The insertion identity identifies this variable without a new counting step; elementary coefficient extraction and the tight-remainder bound give the exact finite mean and deficit limit, respectively. This is a finding about substantive overlap, not an inference about publication order between two records dated the same day.",
+      "residual_risks": [
+        "The precise relative chronology of the two same-date entries was not established; this review does not claim chronological priority.",
+        "The universality-index record was not available in the mirror beyond its summary, and the Barbour–Granovsky DOI attempt yielded only a landing page. Neither limitation is used as negative evidence or as the basis of failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact generating function for the same deficit and explicit limit for its asymptotically equivalent remainder; same-date chronology unresolved.",
+          "evidence": [
+            "The exact series for X_n is (zI′)²C³, with I=zC, and E[X_n]~(√π/2)n^(3/2).",
+            "Section 4 gives the exact fixed-r count and normalized limiting law for R_n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-rare-event-variance-anomaly-for-balanced-deletion-outputs-of-r--b0d39b903b8b",
+          "material_read": "Mirrored RESULT.md, Proof §§3–4, especially offsets 4150–7373, Eqs. (4), (6) and the fixed-r largest-arch count",
+          "method": "Local catalogue and original record passage inspection",
+          "title": "A rare-event variance anomaly for balanced deletion outputs of random Dyck words",
+          "trigger": "Different headline but identical arch pair-sum and random remainder"
+        },
+        {
+          "assessment": "Identical upper-cover count, correctly credited; identifies the deficit with the pair-product statistic.",
+          "evidence": [
+            "A Dyck path with component semilengths f_i has exactly 1+Σ_i f_i²+Σ_{i<j}f_i f_j upper covers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1303.3785v1",
+          "material_read": "§2, Proposition 2.2 and Eq. (3), around offset 11196",
+          "method": "OA HTML statement and proof passage",
+          "title": "The Dyck pattern poset",
+          "trigger": "Credited exact deterministic insertion identity"
+        },
+        {
+          "assessment": "Specializes to the exact Catalan remainder law, but the component-count moments are not this weighted finite mean.",
+          "evidence": [
+            "Removing a largest component yields a derived outer structure with the Boltzmann remainder at the component radius; the derived sequence gives C² here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.08859v1",
+          "material_read": "Composition definitions, p. 5, offset 15600; subexponential class p. 8, offset 25980; Theorem 3.1 p. 9, offset 28280; Proposition 3.2 p. 10",
+          "method": "OA targeted paper inspection",
+          "title": "Gibbs partitions: the convergent case",
+          "trigger": "General tight largest-component remainder and exact Boltzmann limit"
+        },
+        {
+          "assessment": "Selected interval enumerations; no same aggregate identified in the inspected sections.",
+          "evidence": [
+            "Those counts are for specified intervals and covers, not the uniform-source pair sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00299v1",
+          "material_read": "Abstract p. 1 and §3.2 p. 10",
+          "method": "OA targeted paper inspection",
+          "title": "Enumerative combinatorics of intervals in the Dyck pattern poset",
+          "trigger": "Same poset and covering relations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The typical-versus-mean discrepancy is useful in interpreting insertion counts, but the proposed additional exact facts are already mechanically supplied for the same natural statistic: a fixed-r remainder transfer and the extraction of coefficients from the exact known mean series. Renaming that statistic as an insertion deficit by the credited deterministic identity does not add a distinct invariant, mechanism or classification. No valuable distinct narrowed claim was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

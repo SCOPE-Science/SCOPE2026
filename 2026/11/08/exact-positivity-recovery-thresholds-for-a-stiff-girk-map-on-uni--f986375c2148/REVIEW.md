@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stability rational is derived directly from the displayed two-stage tableau. On the transient Jordan block the rational matrix function has a terminating Taylor series; the final absorbing column is the complementary row-sum. Differentiating the rational function produces exact factored expressions for every entry capable of changing sign through dimension five. These yield both necessity (negative first-row absorbing entries below each threshold) and sufficiency (all derivatives and all absorbing entries nonnegative above). A separate exact symbolic matrix verifier reproduces the identities, including \([P_5(1/2)]_{1,5}=-7/625\). Boundary and zero-step cases are included. Risk: external execution requires SymPy; no numerical experiment is used as an infinite sign proof.
+## correctness
 
-**Originality — PASS, with historical-priority uncertainty.** Original GIRK preprints establish the stiff coefficient set and its spectral behavior, not this finite-dimensional Markov entrywise positivity classification. Horváth's 1998 and 2005 general positivity treatments have been inspected for dominating formulations: their absolute-monotonicity and positive-problem statements do not furnish the exact four- and five-state factorization and recovery thresholds for this map. Closest indexed mathematical records concern different RK rational functions ([2/2] Padé and SSP-SDIRK2). A search is not proof of novelty; unindexed special-case coefficient tables could contain equivalents. No decisive equivalent was identified in the material reviewed.
+PASS
 
-**Value — PASS.** The mathematical gap is the distinction between eigenmode stability (the focus of the recent stiff GIRK analysis) and entrywise preservation of a positive kinetic semigroup. The entire minimal-size equal-rate chain classification through five states determines when negative probability first survives the scheme's own half-step stiff cutoff, and why positivity reappears at a larger step. It is an exact natural invariant of this test family and can serve as a benchmark when evaluating implicit source maps for positive-transfer problems. The result does not assert failure of the physical gas–dust solver or a universal Markov dimension bound.
+The RK determinant is 1−2z+2z² and the numerator is 1−z. The matrix denominator is invertible because its diagonal is D=1+2h+2h² on transient states and 1 on the absorbing state. The transient block is F(−hI+hN) with N nilpotent; equivalently its bands are the coefficients of (1+h−hx)/(D−(2h+4h²)x+2h²x²). Conservation F(hQ)1=1 gives the remaining column. A fresh exact denominator-clearing check verified the proposed entries and row sums for every n=2,3,4,5, including the −7/625 witness at h=1/2. Sizes two and three use only nonnegative entries. For h>0 in size four the only obstruction is the factor 2h²+2h−1 in B4; in size five the first-row B5 is negative throughout 0<h<1/√2. At and beyond 1/√2 both tails are nonnegative and the order-three transient band is positive (4h⁴+16h³+12h²−1>0); the lower bands are nonnegative as well. At h=0 the update is the identity. These are sign proofs including both threshold equalities, not a sampled classification.
 
-Closest prior work: Tedeschi-Prades et al. 2025, Chen et al. 2026, Horváth 1998/2005 and distinct previously recorded Runge–Kutta birth-chain rational functions. Uncertainty is limited to historical priority for an unindexed equivalent special calculation; scientific scope is explicitly narrow.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tableau and its spectral damping are known, as is the matrix-function machinery. The checked prior results on the same chain use materially different rational maps, and the closest source using the identical map analyzes drag/gyromotion eigenmodes rather than the defective birth chain. The exact finite-dimensional recovery sets and the stiff-window witness are distinct on the inspected evidence; this is not a priority certification.
+
+## value
+
+PASS
+
+This is a bounded but motivated diagnostic for a stiff update already used in the literature. It identifies the smallest chain that exhibits a negative entry in the specified stiff window and the exact recovery boundary, despite damped scalar modes. The absorbing-tail sign and its separation from spectral damping are useful information not supplied by the prescribed stiffness condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

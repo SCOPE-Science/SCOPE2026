@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:26.294514Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof lines 25–82",
+        "VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "Every disconnected graph on five vertices is a subgraph of a spanning K₄+K₁ or K₃+K₂. Each has exactly three two-edge matchings, and removal of any edge destroys one, proving the equality support. For nonnegative p, the expected number of two-edge matchings is the sum of 15 marginal products, at least 15p² by matching independence; for p<0 the claimed upper bound is trivial. At the boundary every product and then every marginal is tight. Equating perfect matching products on four vertices implies b_uv+b_wx=b_uw+b_vx=b_ux+b_vw. The first three labels define t₁,t₂,t₃ from their three pair values; the identities then determine b_uv=t_u+t_v for all pairs. With S=Σt_v, the mass a_z=1/5−S+t_z and the marginal on uv is 3/5−2(t_u+t_v), so equality of marginals forces constant t. The resulting masses are positive, sum to one over the fifteen states, and have the requisite disjoint-edge probabilities. For full independence only sizes 2+2 and 2+3 are nontrivial. For a triple the triangle has probability b+2a, with joint probability b for the complementary edge; b=p⋆(b+2a). The other three triple outcomes are equiprobable single edges even conditional on that edge's indicator, by the now-proved symmetry. No exchangeability was assumed in deducing the law.",
+      "residual_risks": [
+        "The frozen finite enumeration and rank certificate were not independently replayed; the support characterization and rank implication are checked by the direct counting and algebra above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Day et al. give the complete-graph threshold ½(1−tan²(π/(2n))) in the stronger class; n=5 is exactly 1/√5.",
+          "The bounds from Lengler et al., Theorem 7 at n=5 are 1/√5≤ρ_mat(5)≤3/5. Their Proposition 27 gives a subgraph-independent disconnected witness, not a matching-independent upper bound at 1/√5."
+        ],
+        "reasoning": "The strongest available general theorem covers the numeric value in the stronger class. The inspected bounds for matching independence leave a strict gap and so do not subsume the new weak-class assertion.",
+        "searches": [
+          "Day–Falgas-Ravry–Hancock, arXiv:1909.13771v2, Theorem 1.16 and §7.1",
+          "Lengler et al., arXiv:2305.02974, Theorem 7, §4.2 and §4.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.13771v2",
+        "arXiv:2305.02974 and doi:10.1002/rsa.21220",
+        "Resultary --3ec5afbe8986"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary construction passages supply the stronger independence property of the proposed law.",
+          "The proof under review first forces support and tight marginals without symmetry and then eliminates all uneven state weights via the four-point identities and the equal-marginal constraints."
+        ],
+        "reasoning": "One cannot infer that a law is the only feasible one from its existence or by averaging over vertex permutations. The nonsymmetric constraints provide the additional implication needed to obtain uniqueness and automatic stronger independence for every weak-class extremizer.",
+        "searches": [
+          "Day et al., Theorem 1.16 and §7.1",
+          "Lengler et al., Theorem 7, §4.2, and Proposition 27",
+          "RESULT.md, lines 27–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lengler et al. distinguish matching independence from subgraph independence. On K₅ the former only tests disjoint pairs of edge indicators, whereas the latter can test a triple's entire induced graph against the complementary edge.",
+          "The nearest catalogue item returned, --3ec5afbe8986, concerns an invariant disconnected law on C₆ and makes no optimal-threshold claim."
+        ],
+        "reasoning": "A lower construction in the stronger class works in the weaker class, but a guarantee of connectivity in the stronger class does not transfer to that weaker class. A cycle law with another ground graph gives neither bound nor uniqueness here.",
+        "searches": [
+          "Resultary local searches: K5 matching-independent connectivity threshold, disconnected five-vertex boundary laws, 1-independent complete-graph rigidity",
+          "Lengler et al., arXiv:2305.02974, definitions p. 3 and Theorem 7 p. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The construction formulas give the same exact law upon specialization, not just the same threshold: the clique sizes 4 and 3 give (√5−2)/5 and (3−√5)/10 per graph, respectively.",
+          "No inspected exact table or record classifies every matching-independent law at that threshold."
+        ],
+        "reasoning": "The state-weight formulas are exact prior coverage of the candidate law and its attainment; an exact construction is not an exhaustive solution of the potentially nonsymmetric equality system.",
+        "searches": [
+          "Resultary local index for exact disconnected K₅ laws and five-vertex thresholds",
+          "Day et al., §7.1 state weights",
+          "Lengler et al., §4.4 formula (2), Lemma 26 and Proposition 27"
+        ]
+      },
+      "rationale": "The stronger-class threshold, explicit fifteen-state construction, exact masses, and subgraph independence of that construction are known. The pass is for the matching-independent upper bound on five vertices and the uniqueness argument in that weaker class, which also shows that every disconnected matching-independent boundary law is automatically subgraph independent. The strongest inspected results neither prove the weak-class upper bound at this value nor classify nonsymmetric equality laws.",
+      "residual_risks": [
+        "Local indexing and bounded primary passages cannot rule out another five-vertex uniqueness result under different terminology. The pass does not credit the already known construction or its stronger independence as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong-class threshold and exact construction covered",
+          "evidence": [
+            "The displayed formula specializes to 1/√5 and the two-clique weight formula specializes to the two stated masses."
+          ],
+          "identifier_or_url": "arXiv:1909.13771v2",
+          "material_read": "Theorem 1.16 at HTML offset 24900; §7.1 at offset 95500",
+          "method": "OA HTML, bounded passages",
+          "title": "Long paths and connectivity in 1-independent random graphs",
+          "trigger": "Exact complete-graph threshold and witness"
+        },
+        {
+          "assessment": "Matching bounds leave a gap; strong-class construction is the same law",
+          "evidence": [
+            "Proposition 27 asserts subgraph independence and disconnection for the law given by formula (2); Theorem 7 only gives the stated interval for matching independence at five vertices."
+          ],
+          "identifier_or_url": "arXiv:2305.02974; doi:10.1002/rsa.21220",
+          "material_read": "Definitions p. 3, Theorem 7 p. 6, §4.2 p. 12, §4.4 Lemma 26 and Proposition 27 pp. 14–15 (offsets 49900–56681)",
+          "method": "OA PDF, bounded passages",
+          "title": "On connectivity in random graph models with limited dependencies",
+          "trigger": "Same independence hierarchy and exact strong-class witness"
+        },
+        {
+          "assessment": "Different ground graph and no rigidity or optimum theorem there",
+          "evidence": [
+            "The witness is dihedrally invariant on C₆ and has marginal about 0.5973455; no optimal threshold is claimed."
+          ],
+          "identifier_or_url": "Resultary --3ec5afbe8986",
+          "material_read": "Finding and stated scope",
+          "method": "Local mirror, bounded passage",
+          "title": "An algebraic disconnected 1-independent law on the six-cycle",
+          "trigger": "Closest indexed disconnected-law result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, proof lines 25–82",
+        "Lengler et al., Theorem 7 and §4.4"
+      ],
+      "rationale": "The five-vertex case sharply separates what must be proved from pairwise disjoint-edge constraints from what is given by stronger independence assumptions. An exact boundary law resolves the gap at this order and gives a concrete rigidity result: the weaker class has no additional disconnected boundary laws. The matching-count witness and the nonsymmetric uniqueness step supply a meaningful finite benchmark, not just another numerical construction.",
+      "residual_risks": [
+        "No near-boundary stability result or extension to graphs on more than five vertices is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

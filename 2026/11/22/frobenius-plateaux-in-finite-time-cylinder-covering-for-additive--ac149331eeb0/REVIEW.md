@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns a bilateral prime-field difference cellular automaton and quantifies every prime, prime power, permitted non-singleton block length, pattern and time. A bilateral recurrence gives a finite-dimensional kernel with explicit triangular initial-coordinate basis. The Frobenius identity \((1+y)^{p^a}=1+y^{p^a}\) splits the observed polynomial rows into two matched blocks, so the low-degree projection and its high-degree kernel yield the exact rank at every time. Surjectivity of each iterate turns full restriction rank into full cylinder image. A separate exhaustive-small-case pattern enumeration and modular elimination support the critical steps; they are not mistaken for infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Related existing quantitative results for equally spaced probes cover the two-isolated-site case, so the claimed novelty expressly requires both blocks to have length at least two and concerns their complete rank profile. The closest accessible primary texts are the 2025 group-CA paper (Section 4 and conclusions) and the 2019 additive-CA paper (Lemma 18, plus supporting sections). Both discuss qualitative strong transitivity and do not present the explicit two-block, prime-power finite-time rank profile. Earlier papers on efficient strong-transitivity classification are relevant but their reported conclusions are qualitative, so no asserted statement implies the quantified full-image times. The 1999 Manzini–Margara paper could not be fully read despite open-access and institutional attempts; this is a genuine priority risk rather than evidence of noncoverage. published-finding corpus and accessible local records were compared by claimed consequence, not by title alone. Broader standard binomial and duality tools are acknowledged as antecedents, not treated as proof of novelty.
+PASS
 
-## Value — PASS
-The finite-time covering exponent quantifies how quickly a local constraint becomes compatible with every target trajectory, going beyond binary yes/no strong transitivity. The theorem explains an arbitrarily long, exactly flat restriction-rank plateau with only fixed-size observed blocks; its sharp escape time reflects Frobenius scale,. This gives a complete natural classification within the stated two-block geometries and a reproducible quantitative benchmark for symbolic information propagation. The result is not a cosmetic reparameterization of a known yes/no criterion.
+For t≥1 each homogeneous or inhomogeneous recurrence extends from t consecutive symbols in both directions because the constant and leading coefficients of (1−S)^t are units. In particular F^t is surjective and the homogeneous solution space has dimension t. The binomial coordinates ((S−1)^j x)_0, 0≤j<t, form a unit triangular transform of the free initial coordinates, so restriction rows are represented by (1+y)^e modulo y^t. Independently reduce the row-space generators before truncation: the first block spans y^j for j<L, and the second spans (1+y^N)y^j for j<R, by triangularity and Frobenius. Subtract matching rows for j<h and retain the first block plus the unmatched second rows when R>L. The resulting basis has pairwise distinct lowest degrees 0,…,H−1 and N,…,N+h−1; modulo y^t only the rows of lowest degree below t survive and they stay independent. Counting them proves the formula, including t=0, t=N, and H=N. Write W=(ker F^t)|_E. If W is full, all preimage fibers meet any cylinder. If W is proper, for any prescribed v choose x with x|_E outside v+W and set z=F^t x; the fiber over z misses that cylinder. Thus the exact full-image threshold holds for every fixed pattern, not just for a quantifier over all patterns collectively. The time plateau has N−H steps of no rank increase. N is the separation of the two starting positions, not the number N−L of unobserved sites. The frozen finite checker was inspected; the all-parameter conclusion here follows from the rank proof, not from the finite evidence.
 
-## Limitations and closest prior literature
-The main limitation is the fixed local rule and the geometries expressly quantified; older strong-transitivity classifications, especially Manzini–Margara (1999), remain a priority risk because complete text inspection was unavailable. The analytical theorem does not rely on the checker, and no theorem for arbitrary finite observation shapes is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the sharp rank and filling profile for two prime-power-separated contiguous blocks with both lengths at least two, on the bilateral system. Standard recurrence, polynomial and strong-transitivity tools, and the reported singleton special case, receive no novelty credit. The inspected results do not already determine this profile; see the limits on historical and archive access below.
+
+## value
+
+PASS
+
+A precise delay for observing two contiguous pieces is a natural quantitative strengthening of strong transitivity: it quantifies the compatibility of spatial constraints with every output, not simply eventual covering. With fixed block widths their joint degrees of freedom can remain flat for arbitrarily many iterates by increasing the prime-power separation, then become independent at the exact reported time. The result describes all times and all block lengths in that geometry, with a clean mechanism explaining the delay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

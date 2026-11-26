@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:26:26.791935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed: the retained 54-case result is bounded corroboration, not the proof",
+        "Higgins arXiv:2610.01912v1, Definition 3.4, Lemma 3.5 and Corollary 3.7",
+        "Khare–Zhou arXiv:0906.4242, Definition 4.3 and Theorem 4.5(3)"
+      ],
+      "rationale": "In the orthonormal monomial basis the deletion coefficients are u_i, and the adjoint adds one count with coefficient u_i+1. The same-color contribution to DU-UD is 2u_i+1 and cross-color terms cancel, giving 2k+m in degree k. The positive commutator gives injectivity of U and surjectivity of D, so H_k=UH_{k-1} direct sum ker D_k. On the string based in degree j, summing the commutator scalars gives D U^p=p(2j+m+p-1)U^(p-1). Taking k=r-1 and p=r-j gives the listed Gram eigenvalues; differences of consecutive homogeneous dimensions give the multiplicities. The eigenvalues are strictly decreasing for r<n and positive, so their extreme square roots and their ratio are as claimed. For r=n the one-color matrix is [n]; for r=1 the sole Gram eigenvalue is n. The exact Pólya chain identification independently confirms the full spectrum.",
+      "residual_risks": [
+        "Applies to the Euclidean coordinates of the multiplicity weighting, not to the unweighted transversal matrix or arbitrary reweightings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For population N, s draws and d colors with parameters alpha, Theorem 4.5(3) gives degree-j eigenvalue (N falling j)(N+s+|alpha| rising j)/[(N+s falling j)(N+|alpha| rising j)] with multiplicity binom(d+j-2,j), and an eigenbasis.",
+          "The frozen scalar commutator is degree dependent and fits Fomin's broader graded-operator setting; a constant differential-poset parameter is not the basis of the prior-coverage finding."
+        ],
+        "reasoning": "The up-down formula has strictly broader urn parameters and includes exactly the present case at N=r-1, s=1, d=n-r+1, all alpha_i=1.",
+        "searches": [
+          "Khare–Zhou arXiv:0906.4242 Theorem 4.5(3), PDF pp. 17–18",
+          "Fomin, Duality of Graded Graphs, Definitions 1.3.1–1.3.4"
+        ]
+      },
+      "checked_sources": [
+        "Khare–Zhou arXiv:0906.4242",
+        "Higgins arXiv:2610.01912v1",
+        "Fomin doi:10.1023/A:1022412010826",
+        "Resultary 6e78a72de921"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With k=r-1 and m=n-r+1, the theorem's ratios simplify to (k+1-j)/(k+1) and (k+m+j)/(k+m), respectively. Multiplying by nr yields (r-j)(n+j) with multiplicity binom(n-r+j-1,j)."
+        ],
+        "reasoning": "Nonzero singular spectrum, full row rank and conditioning all follow directly, with a trivial one-entry endpoint. Higgins's margins alone give only the top value, but the older stronger spectral theorem supplies all the rest.",
+        "searches": [
+          "Khare–Zhou Theorem 4.5(3), specializing the falling/rising factorial ratios",
+          "Higgins §3 balanced row and column sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higgins's entry counts individual deletion positions. On level k=r-1, Khare–Zhou's one-draw symmetric Pólya up-down model first adds color i with probability (u_i+1)/(k+m), then uniformly removes one of the k+1 balls in the enlarged composition.",
+          "The product of the two incidence factors, summed over the intermediate composition, is (EE^T)(u,v); its normalization is (k+m)(k+1)=nr."
+        ],
+        "reasoning": "This is equality of matrices on the same count coordinates, including self-loops; it is not just an analogy with differential posets or the distinct Pólya level/Moran model.",
+        "searches": [
+          "Higgins arXiv:2610.01912v1 §3",
+          "Pólya up-down, Khare–Zhou arXiv:0906.4242 Definition 4.3",
+          "Fomin doi:10.1023/A:1022412010826"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary record 6e78a72de921 evaluates integral cokernel and characteristic-p rank, plus a unimodular interlacing minor, not the real Gram spectrum. The exact spectral list is supplied by the older urn theorem under the identified normalization."
+        ],
+        "reasoning": "Same semigroup object is not sufficient to establish coverage of this invariant; the independently identified exact spectrum on the equivalent count chain is. No order is inferred from the same-day catalog dates.",
+        "searches": [
+          "Resultary weighted multiset deletion / Higgins; inspected matching object record 6e78a72de921",
+          "Khare–Zhou Theorem 4.5, exact spectrum of the corresponding count chain"
+        ]
+      },
+      "rationale": "The entire nontrivial squared singular spectrum and its multiplicities are an exact specialization of Khare–Zhou's 2009 Pólya up-down theorem. The differing contexts do not change the operator: the earlier transition matrix is EE^T/(nr). Rank, norm and conditioning follow immediately from the same spectrum. The result is correct, but the exact invariant claimed as new is covered.",
+      "residual_risks": [
+        "The exact prior-coverage conclusion does not require deciding who first wrote the spectrum in Higgins's notation, or exhausting other possible older formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior coverage",
+          "evidence": "Draw s times then remove s uniformly from the enlarged count state, with the original color representatives excluded from removal; the spectral theorem gives the normalized eigenvalues and their multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/0906.4242",
+          "material_read": "PDF pp. 17–18, Definition 4.3 and Theorem 4.5(3), OA offsets about 48700–52474; separately p. 20 Proposition 4.7 for the model distinction",
+          "method": "Primary OA text",
+          "title": "Rates of convergence of some multivariate Markov chains with polynomial eigenfunctions",
+          "trigger": "Exact up-down normalization of the Gram operator"
+        },
+        {
+          "assessment": "Identical multiplicity weighting; gives margins, not the full spectrum in inspected material",
+          "evidence": "Deletion counted by positions even when values repeat; row sum n and column sum r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01912",
+          "material_read": "§3, Definitions and margins on pp. 7–8 around OA offset 21800, Corollary 3.7",
+          "method": "Primary OA text",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "Verify the frozen weighting in the originating semigroup construction"
+        },
+        {
+          "assessment": "Prior framework; not needed for the decisive exact coverage",
+          "evidence": "Recurrent and linear commutation relations allow rank-varying parameters.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1022412010826",
+          "material_read": "Abstract and PDF pp. 5–6, Definitions 1.3.1–1.3.4",
+          "method": "Primary OA text",
+          "title": "Duality of graded graphs",
+          "trigger": "Possible exact implication from a general up/down decomposition"
+        },
+        {
+          "assessment": "Same object but different invariant",
+          "evidence": "Integral cokernel and characteristic-p rank, plus an interlacing minor, not the real Gram eigenvalues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-integral-deletion-torsion-and-unimodular-interlacing-in-balanced--6e78a72de921",
+          "material_read": "Original finding including integral and mod-p claims",
+          "method": "Local Resultary mirror",
+          "title": "Integral deletion torsion and unimodular interlacing in balanced weightings",
+          "trigger": "Same weighted multiset-deletion object in the indexed record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 61–65; exact normalized comparison with Khare–Zhou Theorem 4.5(3)"
+      ],
+      "rationale": "Higgins's matrix is mathematically motivated, and the urn interpretation is useful context, but the frozen claimed contribution is a known exact spectrum under direct normalization. The other headline quantities are immediate corollaries. The record does not establish a separate unknown invariant or substantive new semigroup consequence that would survive this coverage.",
+      "residual_risks": [
+        "This decision does not diminish the value of Higgins's construction or preclude a separate result using its semigroup structure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

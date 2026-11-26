@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:57.086910Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–92",
+        "VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Conditional binomial counting has thresholds k-r when the expert is right and k+1 when wrong, and beta integration gives the displayed tail. For the marginal from r to r+1, in the gain case the removed voter is wrong and the other novices have k-r-1 successes, while in the loss case the removed voter is right and the others have k successes. The binomial coefficients agree by complementation. Integration yields the two beta functions, and their ratio is the shifted gamma product from j=k-r-1 through k. Adding a factor (a+j)/(b+j)>1 at each step makes the bracket strictly decreasing, so at most two adjacent maximizers occur on [0,k]; r>=k is exactly the dictator plateau. If r/k tends to t<1, the log product is (a-b)log(1/(1-t))+o(1), by expansion at O(1/k) and summing reciprocal indices. At ratios just below and above rho the limiting brackets have opposite strict signs, so monotonicity traps every maximizer; eventually r<k and the plateau cannot be optimal. This gives rho/2 of the whole electorate and conditional pairwise correlation Var(Theta)/[E(Theta)(1-E(Theta))]=1/(a+b+1). The (3,2) product telescopes to (k+3)/(k-r+1), sign 4k-7r-2. For k>=2 its zero lies strictly before the last increment, so the ceiling optimizer, ties at k=4 mod 7 and absence of a dictator optimum follow. At k=1 the unique relevant increment in each model is positive. For fixed p=3/5 the marginal bracket q-(1-q)(3/2)^(r+2) is positive for r=0 and negative for r>=1. A separate finite exact-rational replay performed 136 tail-difference and example maximizing-set checks, the latter through k=29; these checks do not prove the universal limit. The frozen script was not executed.",
+      "residual_risks": [
+        "Requires fixed a>b>0 and fixed 1/2<q<1, sincere strict majority and an independent expert. A beta concentration varying with k may remove the premise of persistent correlation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gilbert et al. condition on a binary public signal and study network mechanisms. Strnad discusses dependent judgments and log-odds weights through independent information components. Dhillon et al. give the independent-signal capped log-odds delegation count. The indexed common-signal theorem gives eventual optimization by the least competent state, yielding a fixed count under its finite positive-competence assumptions."
+        ],
+        "reasoning": "These statements establish epistemic delegation and conditional-mixture methodology, but their broader topics do not cover the result with continuous beta mixing and a persistent sub-half accuracy tail. Optimizing unrestricted information weights is not automatically the same as transferring a chosen count of existing ballots.",
+        "searches": [
+          "Gilbert et al. arXiv:2608.16738v1 Definition 4",
+          "Strnad arXiv:2505.04136 §2.2.3",
+          "Dhillon et al. arXiv:2306.03960 Propositions 3–4 discussion",
+          "8d3d2ea032f1 original Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matched results 8d3d2ea032f1, 54094fecb0a2, 6a41be4f4ced",
+        "arXiv:2608.16738, 2505.04136, 2212.09715, 2306.03960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-state pivotal sums have the same two conditional terms; replacing the sum by a beta integral directly gives the probability difference before simplification. The compared unimodality theorem requires p_s>1/2 everywhere and the mixed-state paper in fact exhibits loss of unimodality outside that restriction in a different finite model. The independent fixed-p formula instead has a geometric marginal ratio (p/(1-p))^(r+2)."
+        ],
+        "reasoning": "The conditional two-event formula is an established ingredient, not new alone. Integration and the shifted product show how the beta family retains single crossing even outside the older competence condition. The asymptote of that product is (1-r/k)^(-(a-b)), not a fixed-state ratio. Neither the N=3 law, nor the bounded-count result, nor the finite-state theorem implies the stated scaling or its exact finite crossing.",
+        "searches": [
+          "Resultary 8d3d2ea032f1, boxed pivotality formula, unimodality hypotheses and limit",
+          "Dhillon et al. arXiv:2306.03960 Proposition 3",
+          "Mooers et al. arXiv:2212.09715 Appendix B.6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8d3d2ea032f1 adopts conditionally i.i.d. novices and one expert who casts all delegated weights. It varies delegation count, but uses a finite state law with all novice competences above one half for the theorem. The probability law of Mooers' N=3 novice pair equals a two-draw beta mixture: with marginal precision p and probability alpha of independent draws, its covariance is p(1-p)(1-alpha), matching shapes p alpha/(1-alpha), (1-p) alpha/(1-alpha) for 0<alpha<1."
+        ],
+        "reasoning": "Delegating r votes is a weight r+1 for the expert and removal of r independent conditional draws, not just arbitrary fixed-p weight optimization. The N=3 two-draw equivalence identifies substantive finite overlap but supplies no arbitrary-size exchangeable extension or proportional optimizer.",
+        "searches": [
+          "Resultary common-signal proxy voting, beta-mixed majority and one-crossing delegation entries 8d3d2ea032f1, 54094fecb0a2 and 6a41be4f4ced",
+          "Mooers et al. arXiv:2212.09715 Appendix B.6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The beta-mixed majority entry 54094fecb0a2 examines the peak of independence approximation error as electorate size varies, not expert delegation. 6a41be4f4ced examines a fixed single-edge move versus electorate size. The closest exact formula indexed in 8d3d2ea032f1 is a finite-state mixture and does not give the all-k beta optimizer or limit. The additional discovery results were mostly unrelated statistical applications of beta-binomial distributions."
+        ],
+        "reasoning": "The parameterized theorem is not suited to validation or originality inference from a finite optimizer table. Standard beta-binomial probabilities are background; the appropriate exact indexed comparison is a theorem about the optimum of this restricted architecture. Irrelevant search results are not negative evidence.",
+        "searches": [
+          "Resultary 54094fecb0a2, 6a41be4f4ced and 8d3d2ea032f1",
+          "Primary-literature discovery query: optimal delegation count expert correlated voters beta-binomial majority weighted voting proportional asymptotic common difficulty"
+        ]
+      },
+      "rationale": "The finite beta-integrated marginal product and proportional restricted optimizer are distinct from established expert-vote weighting, beta-binomial vote counts and common-signal models. The strongest indexed result shares the one-expert architecture and conditional pivotal formula, but its unimodality and bounded optimizer require all conditional novice accuracies above one half. A beta mixture with positive density below one half is not a specialization of that theorem. The independent-vote benchmark and small correlated-vote precedents are credited explicitly.",
+      "residual_risks": [
+        "Broader optimal weighted aggregation under dependent Bernoulli signals or exchangeable juries could have additional equivalent results not located; no global priority claim.",
+        "Local match dates are not evidence of provenance or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full text was accessible; related common-signal network model, not the beta optimizer",
+          "evidence": "A binary public state, voter-specific competence and independent sink votes conditional on the state.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.16738",
+          "material_read": "PDF abstract p. 1, offset 0, and Definition 4 p. 5, offset 22095",
+          "method": "OA full-paper passages",
+          "title": "Liquid Democracy under Vote Correlation: On the Fallacies of Averaging and the Excluded Middle",
+          "trigger": "Explicit delegation and correlated conditional votes"
+        },
+        {
+          "assessment": "Established broad dependence framework, different specialization",
+          "evidence": "Perfectly correlated bloc example and Proposition 2.2 independent-information decomposition with log-odds weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.04136",
+          "material_read": "§2.2.3, printed pp. 11–12, offset 30339",
+          "method": "OA full-paper passage",
+          "title": "Delegation and Participation in Decentralized Governance: An Epistemic View",
+          "trigger": "Dependent epistemic voting and optimal information weights"
+        },
+        {
+          "assessment": "Matching two-novice signal law at corresponding beta parameters; strategic equilibrium rather than all-count finite and limiting optimization",
+          "evidence": "Mixture of independent signals and a shared novice signal in the three-voter example.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.09715",
+          "material_read": "Appendix B.6.3, printed pp. 20–21, offsets 260442–266381",
+          "method": "OA full-paper passages",
+          "title": "Liquid Democracy or Direct Democracy? One Theoretical Result and Two Experiments",
+          "trigger": "Independent expert and correlated novice pair"
+        },
+        {
+          "assessment": "Direct coverage of independent benchmark, not beta mixture",
+          "evidence": "A capped count determined by the expert-to-novice log-odds weight, bounded at fixed independent precisions as size grows.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03960",
+          "material_read": "Proposition 3 PDF p. 19, offset 60854; Proposition 4 discussion p. 23, offset 72770",
+          "method": "OA full-paper passages",
+          "title": "Information Aggregation with Delegation of Votes",
+          "trigger": "One-expert bounded delegation comparator"
+        },
+        {
+          "assessment": "Shared conditional tail and pivotal mechanism under another mixing law; optimizer theorem does not cover this beta family",
+          "evidence": "Finite state space, all conditional novice competences above one half for the main theorem, and a unique eventual fixed count under distinct competencies and noninteger log-odds ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unimodality-and-weakest-signal-selection-in-common-signal-proxy--8d3d2ea032f1/RESULT.md",
+          "material_read": "Finding and assumptions, through offset 4685",
+          "method": "Local result mirror",
+          "title": "Unimodality and weakest-signal selection in common-signal proxy voting",
+          "trigger": "Exact same restricted voting architecture and a finite unimodality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–52 and 64–92",
+        "Dhillon et al. arXiv:2306.03960 independent comparison",
+        "Resultary 8d3d2ea032f1 finite-state comparison"
+      ],
+      "rationale": "Keeping positive marginal competence and expert precision fixed while changing the dependence model turns a bounded optimal delegation count into a genuinely macroscopic one. The exact pivotal product explains the switch and gives a useful finite selection rule, not merely a limiting heuristic or a restatement that correlation can matter. The explicitly calibrated rational comparison holds the marginal precisions fixed.",
+      "residual_risks": [
+        "Model-based ex-ante welfare conclusion within a restricted one-expert protocol, not a strategic, normative or empirical prescription."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

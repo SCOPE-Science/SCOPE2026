@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For \(f=f^{-1}\), source and target affine subspaces coincide. The proof reduces each map to \(f(x)=(I+N)x+b\) with \(N^2=0\), \(b\in\ker N\), and classifies the fixed-point equation \(Nx=b\). It separately establishes the rank-\(r\) square-zero operator count by image/kernel/quotient choices, then counts all affine domains. The normalizations in the asymptotic passage are explicit. The Euler product is used with both parity projections; dominated convergence is justified by a summable Gaussian tail. The code verifies literal finite compositions and the exact table through ambient dimension four, then independently checks asymptotic values numerically through dimension twenty. The proof, not the finite tests, establishes the infinite result.
+PASS
 
-## Originality (O): PASS relative to checked material
+Nonempty self-inverse partial maps have equal affine domain and image. On each domain the map is I+N with translation b, with N²=0 and Nb=0. The image–kernel flag and induced isomorphism give T(k,r) without multiplicity; solvability of Nx=b gives exactly 2^r admissible translations with fixed points. Including the empty map and taking the rank variable as domain cardinality gives the polynomial. An independent pointwise enumeration through internal dimension 4 matched every stratum; at k=4 the strata by fixed-point count 0, 4, 8, 16 were 645, 840, 210, 1. The normalized affine-involution weights are a_s P_k/P_r at s=k−2r. The Euler product F(u) has F(−1)=0, F(1/2)=F/2 and F(−1/2)=P∞, giving the parity split. Summable domination of a_c P_d/P_{d−c} h_{d−c} gives the codimension law and total constant. Taking even and odd d subsequences separately, the two limits of the fixed-point-free fraction both equal one-half, since the limiting even/odd codimension masses are equal. The independent branch did not execute the frozen verify.py; enumeration is corroboration, not a proof of the limits.
 
-The closest primary results are [1], whose category-equivalence theorem defines the affine partial inverse monoid, and [2, Proposition 3.1], which already counts linear involutions by their rank parameters. The latter is an ingredient, not a new claim. It does not specify the present joint domain-and-fixed-point spectrum or the global half-density and parity-codimension mixing law. No matching claim was located in the queried indexed findings or relevant web searches. These negative searches alone do not establish uniqueness or priority. A broader counting theorem for the affine general linear groups, combined with Gaussian domain counting, could cover the fixed-point formula or yield the half-density; this is the principal residual publication-priority risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The self-inverse elements of the binary affine-partial inverse monoid are a canonical family of reversible partial operations, directly related to the inverse categorical semantics of controlled-not circuits. The theorem gives a complete natural joint invariant (domain size and number of fixed inputs) in every ambient dimension, including fixed-point gaps, not an arbitrary finite sample. Its asymptotic statement identifies a non-obvious symmetry: separate affine dimensions have two unequal limiting fixed-point-free proportions, while the natural ensemble of partial maps tends to exactly one-half because domain codimensions asymptotically equilibrate parity. This global cancellation is not merely the general-linear involution count. It does not require a claimed downstream theorem.
+The finite joint enumeration is covered as a coefficient extraction from Fripertinger’s broader affine cycle index followed by the standard affine-domain count. Do not claim new priority for those finite numerical data. The supported distinct result is the asymptotic codimension distribution and two-level parity cancellation, including the total constant and global limit. The inspected prior-cycle-index and linear-involution statements do not supply these limits by specialization.
 
-## Evidence and limits
+## value
 
-Primary papers inspected in relevant sections: Cockett–Comfort–Srinivasan, arXiv:1707.02348, original PDF pages 1, 5–8, and 33–36; Fulman–Guralnick–Stanton, arXiv:1602.03611, original PDF pages 1–2 and 12–15. Exact direct computations are reproduced by `verify.py`; the proof covers every \(d\ge0\). Priority over unlocated general affine-involution literature is unconfirmed, and there has been no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The new limiting information concerns the natural uniform ensemble of self-inverse partial affine symmetries. It explains why the partial-map sampling law has half density even though the full-domain probabilities have two different limits, and specifies the nondegenerate limiting distribution of the missing dimension. This goes beyond re-extracting finite cycle-index coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

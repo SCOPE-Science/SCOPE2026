@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact central-path complementarity, fixed optimal-support geometry, and the source's Schur complement formula give the block expansion of the preconditioned reduced Newton matrix. Its small singular values have explicit first-order coefficients because the nonbasic projected Gram matrix is positive definite on the orthogonal complement of the optimal positive columns. Exact algebra on an integer \(2\times3\) linear program attains the linear reciprocal-gap growth; the full-row-rank-support case tends to identity. The proof is analytic and the bundled checker is a transcription check only.
+## correctness
 
-## Originality
-PASS. The anchor proves only a worst-case \(O(1/\mu)\) estimate with its fixed scalar proxy. The older Chai--Toh paper supplies the general reduced-augmented formalism and rank-sensitive eigenvalue clustering for *different* diagonal or \(\mu\)-scaled proxies, but not this prescribed fixed scalar's asymptotic support-rank coefficient. The exact integer central-path witness and if-and-only-if rank criterion were not found in the full primary text or targeted semantic searches. Residual risk remains from unindexed classical preconditioning results in other notation.
+PASS
 
-## Value
-PASS. The distinction between quadratic and linear reciprocal-duality-gap condition numbers is central to the source's quantum linear-system complexity analysis. The result determines when the improved linear order is genuinely necessary for that preconditioner, when the matrix instead approaches perfect conditioning, and how degeneracy of the optimal positive support controls the constant. The witness is integral, strictly complementary, exactly central, and has a valid basis, excluding several artificial explanations for the deterioration.
+The compared primary definitions give the same partition threshold, current-iterate ω and unnormalized reduced Y. Strict complementarity on the exact path yields x_N=O(μ), x_J bounded below, D_1=μ diag(x_J^−2) and D_2^−1=μ diag(s_N^−2), so the threshold identifies J. From Ax*=b≠0, r≥1. With B=A_J(I+D_1)^−1/2, let C=B diag(x_J²)Bᵀ. The push-through identity for S=B D_1^−1/2 gives G=SSᵀ(ĥ I+SSᵀ)^−1=C(C+μĥ I)^−1. In the fixed orthogonal decomposition ran A_J ⊕ ker A_Jᵀ, C is uniformly positive definite on the first summand and zero on the second. Thus G equals I+O(μ) and 0 respectively, and H=BBᵀ+μQ(μ) with Q(μ)→A_N diag((s_N*)^−2)A_Nᵀ. This gives Y blocks I+O(μ), O(μ²), O(μ), and μQ⊥/h₀+o(μ), respectively. Full row rank of A makes Q⊥ positive definite by its weighted Gram form. For r<m, two invertible elimination factors I+O(μ) reduce Y to its upper diagonal block and the Schur complement, changing the latter by O(μ³). Applying singular-value inequalities with those factors and their inverses gives relative factors 1+O(μ) for every singular value, so this argument does not confuse eigenvalues of a generally nonsymmetric Y with singular values. The r=m case directly gives Y→I and includes N empty. The source's additional norm normalization of its reduced equation leaves the condition number unchanged and tends to 1 here. For the integer witness, columns 1,2 give an admissible I₂ basis, both primal and dual are strictly feasible at the displayed positive μ points, and μ→0 gives a strictly complementary optimum. Inserting the diagonal blocks and ω=1 gives Y₁₁=(1+μ)/(1+γ₁μ(1+μ)), Y₂₂=2μ/γ₁, so μκ₂→γ₁/2; the original normal matrix is diag(1/μ,2μ). This independently verifies the example exactly, not by extrapolation. The frozen verification notes and rational checker were inspected read-only.
 
-## Closest literature and limitations
-The closest sources are Wu--Yang--Terlaky, arXiv:2412.11307 / DOI 10.1007/s10589-025-00750-4 (their Lemma 3.6 and exact scalar proxy), and Chai--Toh, DOI 10.1007/s10589-006-9006-8 (their Section 6 spectral clustering with other proxies). The theorem requires a strictly complementary central-path limit, full-row-rank integer data, nonzero right-hand side, and the source's fixed scalar proxy. It is not a lower bound for all possible preconditioners or for the cost of a quantum algorithm.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact support-rank dichotomy and leading compressed-Gram singular-value law for the WYT scalar, and the verified attaining witness. The preconditioner, the two-scale partition and the reciprocal-gap upper bound are prior work; the result does not establish that the broad rank-loss mechanism is new. Coverage by Chai–Toh beyond the verified comparison remains a limitation, not evidence that the law was previously known.
+
+## value
+
+PASS
+
+The theorem explains exactly which strictly complementary LP limits saturate the specified preconditioner's prior worst-case bound. A verifiable geometric diagnostic, rank of the positive support, predicts whether conditioning tends to one or diverges, and the weighted projected Gram matrix gives a usable coefficient in the divergent case. The witness shows this is not an artifact of a misidentified partition or of unbounded integer data. This is narrowly useful for the specified linear-system stage, not a lower bound for quantum algorithms or arbitrary preconditioners.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

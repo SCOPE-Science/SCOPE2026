@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:58:40.251664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55; VERIFICATION.md, verify_dfs.py and verify_matching.py inspected, not executed",
+        "Independent replay: /workspace/branches/4e2d262f-7b0c-4517-a91c-3a1ee75d379a/walsh_held_karp.py; full.out and source_orbit_compare.out in the same directory"
+      ],
+      "rationale": "Independent exact subset dynamic programming assigns weight −1 to a selected support edge and +1 to every other edge, sums paths starting at 0 through each visited set with each final vertex, and appends the closing edge. Each undirected Hamiltonian incidence set is counted twice, with the same sign, so halving gives exactly the specified Walsh sum. The empty support gives 1344 cycles, and edge transitivity gives 672 using each edge, so all singleton coefficients vanish. Each automorphism fixing 0 is determined by its permutation of the four neighbors, since distances to 0 and those neighbors determine any vertex. Translations and coordinate permutations thus give all 384 automorphisms. Representative DP values expanded over the 6 pair and 24 triple orbits reproduce both full histograms, zero pair coefficients at no supports, and 1120 zero triples in six orbits of sizes 64, 96, 192, 192, 192, 384. The six listed representatives were checked against this partition. Each vertex cut meets any cycle evenly. A cut taking a singleton to a triple has size at most four. The exhaustive cut check finds only the 16 stars at these sizes. Independently, for a smaller shore of size k≤8 the induced edge bound e≤k log₂(k)/2 follows by splitting on a bit and using binary entropy H(p)≥2p when p≤1/2. Thus for 2≤k≤8 the cut has size at least k(4−log₂(k))≥6 by concavity; the k=1 shores are precisely the stars. These give 64 distinct singleton-derived zeros, leaving 1056 non-cut-derived triples in the stated sense.",
+      "residual_risks": [
+        "The theorem does not classify frequencies of weight at least four or all equivalences under arbitrary functions constant on the cycle ensemble; the forced-cancellation comparison is about cuts from singleton supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary ed467419ae0a gives nonvanishing at specified binary-digit orders for tours of K_n, including n=16. Record 0106f170e54d classifies sparse cancelling supports up to weight four for complete graphs, with exceptions at n=9,10. The unsigned Q4 classification gives 9 classes under cube automorphisms."
+        ],
+        "reasoning": "Q4 cycles form a restricted subfamily of K16 cycles; restricting the allowed edges inserts the indicator of avoiding all noncube edges, not a specialization within the known low-support counts. Cycle orbit classes, if represented explicitly, can serve as input for a new intersection calculation with support orbits, but the class count does not evaluate that relative incidence distribution.",
+        "searches": [
+          "Local Resultary Hamiltonian-tour Walsh spectra on complete graphs; Chebiryak–Kroening DOI 10.3233/SAT190038, Q4 classification and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: 984863e5d9b1, ed467419ae0a, 0106f170e54d, b52baedd0542",
+        "Chebiryak–Kroening open PDF, cited sections; Dvořák open contribution; pending-access sources as listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine cut identity and vanishing of all singletons give 64 zeros without the signed census; the checked result has 1056 further cubic zeros. Gimbel is described in related work as concerning a common aggregate label on every Hamiltonian cycle; the primary text was not readable in the bounded OA attempt."
+        ],
+        "reasoning": "If a mod-two label is shown constant on the cycle ensemble, it produces a maximal absolute Walsh coefficient, not an even split. A general label-constraint result could bear on symmetries, but was not shown to classify balanced signs. Neither complete-graph nonvanishing nor an unsigned count settles the additional cubic cancellations. The same-day complete-graph result is distinguished by content, not date.",
+        "searches": [
+          "Mirrored complete-graph and dimer Walsh findings, Dvořák open prescribed-edge contribution, Chebiryak–Kroening cycle classification, Gimbel group-label citation and OA access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a support S the Walsh sum is Σ_{A⊆S}(−2)^|A| N(A), where N(A) counts cycles containing A. Thus exact marked-edge joint inclusion counts would be an equivalent route to the audit, as would the signed edge weighting used in the replay.",
+          "The inspected prescribed-edge sources and summaries concern whether N(A) is positive, not the complete collection of its counts. The local signed-dimer census uses 272 perfect matchings, not connected unions of two of them."
+        ],
+        "reasoning": "Existence cannot determine equality between the positive and negative terms of the signed count. Dimer marginals alone do not evaluate the connectedness-filtered matching-pair problem; the Hamiltonicity filter requires joint data.",
+        "searches": [
+          "Local Resultary: Q4 Hamiltonian-cycle signed Walsh sums, signed incidence correlations and cubic cancellation",
+          "Targeted primary search on four-cube Hamiltonian signed correlations and prescribed-edge counts; Chebiryak–Kroening and Dvořák passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exactly matching catalog hit 984863e5d9b1 is the frozen record itself. Chebiryak–Kroening directly confirms the prior total 1344, the 9 automorphism classes of cycles and 4 edge-weight classes. Dimer table b52baedd0542 gives the same graph but a different family."
+        ],
+        "reasoning": "The known entries are credited as such. No distinct evaluated table of the Q4 Hamiltonian pair/triple Walsh values, or of the six cubic cancellation orbits, was located in the sources inspected.",
+        "searches": [
+          "Local Resultary focused Q4 Hamiltonian, low-order Walsh and cubic-zero queries; Check Table 1 of Chebiryak–Kroening"
+        ]
+      },
+      "rationale": "The distinct claim is the signed low-support census on Q4, especially the full symmetry decomposition of cubic cancellation and the separation from cut-forced zeros. The known total of 1344 and the classification of the Hamiltonian cycles themselves are reproduced inputs or baselines, not asserted as new. The inspected sources do not give the evaluated signed counts or establish an implication that avoids the edge-incidence calculation.",
+      "residual_risks": [
+        "Full texts of Parkhomenko, Caha–Koubek, the SIAM Dvořák article and Gimbel were not verified in the bounded retrieval; no negative inference was made from that.",
+        "There may be unindexed marked-edge calculations in Gray-code or cube-cycle enumeration literature. The comparison is not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of 1344 and cycle-class baseline, not the signed low-support table in these passages",
+          "evidence": "Q4 has 1344 cycles, 9 automorphism classes and 4 edge-weight classes; the paper attributes the earlier four-type classification to Parkhomenko.",
+          "identifier_or_url": "https://doi.org/10.3233/SAT190038",
+          "material_read": "Open PDF p. 2 at offset 2360; p. 3 at offset 3203, Table 1 and accompanying discussion",
+          "method": "ETH Zurich open PDF",
+          "title": "Towards a Classification of Hamiltonian Cycles in the 6-Cube",
+          "trigger": "Same graph and exact unsigned classification"
+        },
+        {
+          "assessment": "Direct full-text scope not adjudicated; prior count/classification separately confirmed",
+          "evidence": "Unsigned overlap supported by Chebiryak–Kroening at pp. 2–3.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/at1807",
+          "material_read": "MathNet landing record and abstract; later primary paper's description of its four classes",
+          "method": "OA lookup; full PDF attempt did not complete",
+          "title": "Classification of the Hamiltonian Cycles in Binary Hypercubes",
+          "trigger": "Same family and earlier cycle classification"
+        },
+        {
+          "assessment": "Existence overlap attested; full paper not adjudicated",
+          "evidence": "The description treats existence of a Hamiltonian cycle through at most n−1 prescribed edges.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20128",
+          "material_read": "Referenced description in the open Dvořák contribution, p. 1 offset 819; publisher full text inaccessible",
+          "method": "OA access attempt and inspection of the cited secondary passage",
+          "title": "Hamiltonian cycles and paths with a prescribed set of edges in hypercubes and dense sets",
+          "trigger": "Possible prior on inclusion counts of labelled edge sets"
+        },
+        {
+          "assessment": "Open text gives existence, not signed counts; not established to be the same paper",
+          "evidence": "In the open contribution, for |P|≤2n−3, a Hamiltonian cycle through P exists exactly for prescribed edges inducing vertex-disjoint paths.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480103432805",
+          "material_read": "Publisher not accessible; related author-hosted contribution at https://ksvi.mff.cuni.cz/~dvorak/files/eurocomb.pdf, p. 2 offset 2277",
+          "method": "Publisher OA attempt and separate open contribution",
+          "title": "Hamiltonian Cycles with Prescribed Edges in Hypercubes",
+          "trigger": "Possible information for marked-edge inclusion statistics"
+        },
+        {
+          "assessment": "Primary exact scope unresolved",
+          "evidence": "The related passage describes common aggregate label conditions, which concern constancy rather than cancellation.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-051/abelian-group-labels-on-hamiltonian-cycles/",
+          "material_read": "Related Resultary discussion at offset 6060; original is image-only in this OA retrieval",
+          "method": "Local comparison passage and OA article/PDF lookup",
+          "title": "Abelian Group Labels on Hamiltonian Cycles",
+          "trigger": "Possible parity constraints on the same kind of sample space"
+        },
+        {
+          "assessment": "Distinct graph and orders",
+          "evidence": "K_n tours at stated binary-digit orders, including n=16.",
+          "identifier_or_url": "2026/11/16/SCOPE-nowhere-zero-walsh-spectra-of-hamiltonian-cycle-orbits-at-binary--ed467419ae0a",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Nowhere-zero Walsh spectra of Hamiltonian cycle orbits at binary orders",
+          "trigger": "Walsh/Hamiltonian comparison including sixteen vertices"
+        },
+        {
+          "assessment": "Same invariant type, different graph family",
+          "evidence": "Complete graphs, with low-support exceptions at n=9,10.",
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-walsh-zeros-of-undirected-hamiltonian-tours-the-exception--0106f170e54d",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Sparse Walsh zeros of undirected Hamiltonian tours",
+          "trigger": "Strongest related sparse support classification"
+        },
+        {
+          "assessment": "Different configurations on Q4",
+          "evidence": "272 perfect matchings; 96 adjacent-edge pair zeros rather than the Hamiltonian pair nonvanishing.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-signed-dimer-fourier-spectrum-and-sharp-recovery-projectio--b52baedd0542",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact signed dimer Fourier spectrum and sharp recovery projections",
+          "trigger": "Same edge universe and Walsh family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, low-support histograms, representatives and cut comparison; independent coefficient and orbit replay; neighboring complete-graph comparison"
+      ],
+      "rationale": "Hamiltonian cycles in the four-cube are a natural structured discrete ensemble, and low-degree signed incidence moments probe dependencies not visible in the cycle count. The exact absence of quadratic cancellation, the full cubic orbit classification, and the large set of zeros beyond the evident cut mechanism give a meaningful benchmark for low-degree detection and for analogous cube or tour problems. The enumeration is exhaustive in its stated degree range rather than a chosen subset of convenient labels.",
+      "residual_risks": [
+        "No proof of a corresponding pattern in higher dimensions or at larger frequency supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

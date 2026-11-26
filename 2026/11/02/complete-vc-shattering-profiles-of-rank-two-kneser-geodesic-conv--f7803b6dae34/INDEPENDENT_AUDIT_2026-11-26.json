@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:35.440687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Shattering is equivalent to s not belonging to the hull of S without s for each s, by monotonicity of hull. An intersecting pair ab,ac forces every edge on the complement of {a,b,c}; a disjoint pair forces nothing. At n≥7 this complement has at least four elements, so for each edge not already forced one can choose an intersecting pair on three complementary elements avoiding its endpoints. This forces that edge as well, proving the stable matching classification. At n=6 the intersecting pair closes to the two complementary triangles T_A. Adjoining a mixed edge ad to triangles abc and def first forces be,bf,ce,cf (using ab and ac with ad) and then ae,af,bd,cd (using bc and ef with those mixed edges). Thus a triple in some T_A fails, and one in no T_A shatters. Each bad triple has a unique T_A, so 455−10·20=255. Any four-support contains an intersecting pair; that pair with a third element either already fails shattering or generates the full hull, precluding omission of the fourth. At n=5 an intersecting pair forces its unique disjoint complementary edge, and this hull is convex. Thus the 30 bad triples are exactly a two-edge path plus a disjoint edge. A four-support with no such triple is a four-cycle, a triangle with a pendant edge, or a four-star (check four edges on four or five nonisolated vertices). The last two have a three-star whose hull is full: ab,ac,ad force be,ce,de, then bc,bd,cd, then ae. In a four-cycle each three-edge path extends to a convex five-cycle using the spare base vertex, avoiding the missing edge, so these 15 supports shatter. Two distinct four-cycles cannot share three edges, ruling out five-supports. Independent hull replay in branches/32d2bfb2-619c-47de-bc07-f1fdd3dde6ea/independent_rank2_kneser_check.py reproduced both exceptional profiles and checked pair hulls at n=7,8,9; the finite checks do not replace the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 gives hull number two for the family K(2r+k,r) with k≥r−1 and k>2, and Example 9 gives one generating triple in K(6,2). The exact Petersen and six-point shattering counts are not consequences of the existence of a minimum generator.",
+          "The inspected catalogue Johnson and multipartite results concern other interval structures. The available Thiessen–Gärtner abstract concerns the same general convexity convention and online bounds; the full text was not obtained."
+        ],
+        "reasoning": "The rank-two stable family falls inside the hull-number theorem and has the transitivity necessary to use it. In the small cases no pair generates, but this alone neither specifies their proper pair hulls nor decides exclusion from triple hulls.",
+        "searches": [
+          "Bedo–Leite–Oliveira–Protti arXiv:2203.03406, §4, Example 9 and Theorem 10",
+          "Resultary c881a68b611c and b3add06e76db",
+          "Thiessen–Gärtner DOI 10.1007/978-3-031-26412-2_22 and TU Wien entry 20.500.12708/101896"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and two verification approaches",
+        "arXiv:2203.03406",
+        "arXiv:2401.05696",
+        "Resultary c881a68b611c and b3add06e76db",
+        "Thiessen–Gärtner repository abstract and open-copy locator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=2 and k=n−4≥3, existence of a generating pair implies every intersecting pair generates, since a disjoint pair is already convex and permutations act transitively on intersecting pairs. Then all proper convex sets are matchings, and the stable count follows immediately.",
+          "Corollary 11's literal K(8,2) label conflicts with its own inequalities and the preceding Theorem 10 (at r=2, k=4); they instead give K(8,3) as the third exception, and the stable K(8,2) hull is confirmed independently. The paper's K(6,2) generating example is not a classification of all pair hulls or the 200 forbidden supports."
+        ],
+        "reasoning": "The infinite stable component is already implied. The exceptional classifications require the actual small-order closure incidence (including triple hulls to distinguish four-cycles in the Petersen graph), not its minimum generating size or its general-position table.",
+        "searches": [
+          "Bedo et al. Theorem 10 and Corollary 11, HTML offsets 34400–40346",
+          "Iršič et al. Petersen example and definition of general position"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shattering is exactly convex independence (the free-set condition), because the hull of the requested positive points is the smallest possible convex witness. A geodesic general-position set only avoids a selected point on a geodesic between two other selected points and need not satisfy hull avoidance after iteration.",
+          "In rank two, the Petersen general-position polynomial has quartic coefficient 80, not 15; sets in the complement Johnson graph also satisfy a different interval operator."
+        ],
+        "reasoning": "Neither general position nor complementing the graph preserves geodesic-hull dependence. The proof uses all shortest paths and counts supports, not convex hypotheses or hull generators.",
+        "searches": [
+          "Primary query on Kneser geodesic convexity, shattering and convex independence",
+          "Thiessen Gärtner Online Learning of Convex Sets on Graphs pdf Petersen Kneser convex independence shattered",
+          "Resultary search for Kneser/Petersen geodesic hull shattering and counting convexly independent supports"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Petersen general-position polynomial is 1+10x+45x²+90x³+80x⁴+30x⁵+5x⁶; agreeing low coefficients do not identify either the quartic coefficient or higher terms. The two identified catalogue entries count supports in different graph families."
+        ],
+        "reasoning": "No inspected exact table gave both exceptional convex-independence profiles. A short match of the first coefficients is not equivalent coverage.",
+        "searches": [
+          "Resultary exact shattering profiles and geodesic convexity: c881a68b611c, b3add06e76db",
+          "Iršič et al., arXiv:2401.05696, Petersen polynomial near HTML offset 8500"
+        ]
+      },
+      "rationale": "Credit is confined to the exceptional shattered-support classifications and exact coefficients at n=5,6, and their contrast with the stable behavior. The n≥7 rank-two shattering formula is a direct consequence of Bedo et al.'s hull-number-two theorem and the fact that all nonadjacent pairs of a rank-two Kneser graph are equivalent under relabeling. It is not counted as a separate original claim.",
+      "residual_risks": [
+        "The exact exceptional profiles might be recorded under convex independence or free sets in another source.",
+        "The Thiessen–Gärtner full text remains unread; the abstract does not settle exact small-graph overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stable rank-two component implied; n=5,6 support census not supplied by these claims",
+          "evidence": "Theorem 10 gives two for excess k>2. Example 9 gives the hull of one six-point three-star. The third graph name in Corollary 11 conflicts with (7) and its own inequalities.",
+          "identifier_or_url": "https://arxiv.org/html/2203.03406",
+          "material_read": "Hull definition near offset 3000; Example 9, Theorem 10 and Corollary 11 within offsets 34400–40346",
+          "method": "OA HTML bounded passage inspection",
+          "title": "Geodetic convexity and Kneser graphs",
+          "trigger": "Same Kneser family and hulls; strongest implication check"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The quartic count is 80 with nonzero degrees five and six, unlike the frozen shattering profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "General-position definition and Petersen example, HTML offsets near 437 and 8500",
+          "method": "OA text passage inspection",
+          "title": "General Position Polynomials",
+          "trigger": "Same Petersen graph and exact superficially similar invariant"
+        },
+        {
+          "assessment": "Different shortest-path intervals",
+          "evidence": "Private-coordinate condition and support counts concern Johnson adjacency, the complement of rank-two Kneser adjacency, not its geodesic convexity.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-maximal-shattering-counts-and-a-rank-plateau-for-johnson-g--c881a68b611c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact maximal shattering counts and a rank plateau for Johnson geodesic convexity",
+          "trigger": "Same-day catalogue overlap and complementary graph"
+        },
+        {
+          "assessment": "Different graph class and combinatorics",
+          "evidence": "The support rule is expressed using partial transversals, not Kneser edge intersections.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-shattering-profile-and-online-dimension-of-multipartite-ge--b3add06e76db",
+          "material_read": "Finding on complete multipartite graphs",
+          "method": "Resultary comparison",
+          "title": "Exact shattering profile and online dimension of multipartite geodesic convexity",
+          "trigger": "Same-day exact shattering profile in a diameter-two family"
+        },
+        {
+          "assessment": "Limited to abstract scope, no whole-paper exclusion",
+          "evidence": "The abstract states the all-shortest-path convexity convention and discusses online mistake bounds. The linked conference PDF returned 404; the publisher PDF route redirected without full text.",
+          "identifier_or_url": "https://repositum.tuwien.at/handle/20.500.12708/101896?mode=full",
+          "material_read": "Author repository abstract and open-copy locator; publisher and linked conference full text not readable",
+          "method": "OA website metadata and abstract inspection; attempted publisher PDF and identified conference PDF",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Same graph convexity convention and learning terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first two diameter-two graphs in the rank-two series have structurally different small hulls from the stable family and from each other. Classifying the exceptional shattered supports identifies the four-cycle mechanism at the Petersen endpoint and the two-triangle obstruction at six, explaining a real dimension drop and separating shattering from ordinary geodesic general position. The finite cutoffs are intrinsic, not arbitrary tabulation ranges.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

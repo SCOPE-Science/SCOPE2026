@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:41.160069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Haar probability on the ordinary four-torus, the 36 ordered two-edge pairs have 6 singleton, 12 double and 1 six-element sum fibers. The latter consists of the three perfect matchings with both orderings. Thus the unweighted witness gives (6+48+36)/36=5/2. For arbitrary complex coefficients Parseval gives 2S²−sum |a|⁴ plus eight times the real part of the three distinct cross products of matching products. Grouping squared magnitudes into matching masses b_j gives the upper bound 3S²−(3/2) sum b_j². Equality requires all three masses equal, equality within each pair of magnitudes, and all three matching products aligned. Since S>0, their products then agree and the phase factorization follows by choosing a unit square root of a_12 a_13/a_23 after normalizing magnitudes. The converse is immediate. This checks the unrestricted-complex statement, not only the finite count. The supplied checker was inspected, not executed; no formal verification or external attestation is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-layer record's scope explicitly includes degrees one and two in the proof, and its prior-work section explicitly calls degree two a special case; the Finding supplies the binomial formula and product-phase law. The graph Fourier preprint studies graph energy and adjacency Fourier ratios rather than arbitrary coefficients on this torus layer."
+        ],
+        "reasoning": "All six K4 edge modes constitute exactly the full square-free layer at n=4,k=2. The k≥3 emphasis in the Finding does not remove the explicitly included degree-two case.",
+        "searches": [
+          "Resultary: complete square-free Fourier layers and sharp fourth moments",
+          "Resultary 49c8d2da27e1; arXiv:2610.31807"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 1–55, VERIFICATION.md and checker.py",
+        "Resultary 49c8d2da27e1, 7e3f7e3ac70b, b11b0dc59997, db8d34ed1235",
+        "arXiv:2610.31807, 1712.05549, 2208.09441, 1807.04358"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C_{4,2}=(1+8+6)/6=5/2 and a_{ij}=t u_i u_j, with arbitrary complex coefficient arrays and independent Haar unit phases."
+        ],
+        "reasoning": "Substitution proves the whole frozen statement, including necessity and sufficiency of the projective equality law, with no new hypotheses or optimization.",
+        "searches": [
+          "Resultary 49c8d2da27e1, Finding, Assumptions and scope, Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six-root record for q≥5 gives the same fiber pattern and puts the six modes into three opposite pairs, with equal opposite products at equality."
+        ],
+        "reasoning": "Bijection of its opposite pairs with the three tetrahedral matchings identifies the whole coefficient quartic and norm, even though the two Fourier supports are different.",
+        "searches": [
+          "Resultary: tetrahedral squarefree Fourier, six-edge Steinhaus chaos and single-collision Λ(4) formulations",
+          "Resultary 7e3f7e3ac70b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7e3f7e3ac70b gives 5/2 with equal magnitudes and three equal opposite-pair products; b11b0dc59997 assumes only two colliding unordered pairs, not three; the same-day db8d34ed1235 concerns zeros of a Fourier transform, not fourth moments."
+        ],
+        "reasoning": "The six-root match includes the exact law, not just a coincident number; the other two catalog hits are not covering. No separate numerical table is needed to infer coverage.",
+        "searches": [
+          "Resultary exact six-mode / 5/2 collision and extremizer comparison: 7e3f7e3ac70b, b11b0dc59997, db8d34ed1235"
+        ]
+      },
+      "rationale": "An existing indexed all-squarefree-layer result explicitly includes degree two in its scope and proof; its n=4,k=2 specialization gives both the identical constant and identical full coefficient equality family. A six-root result also optimizes the identical coefficient quartic after relabeling. The failure is demonstrated coverage, not inability to exclude unknown sources.",
+      "residual_risks": [
+        "External searches are bounded and not a historical priority determination; possible other sources do not change the demonstrated exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Degree two explicitly included; binomial sum and phase law specialize exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/RESULT.md",
+          "material_read": "Finding, scope, balancing and phase proof, related-work passage (offsets 0, ~3700–7600, 8034)",
+          "method": "Local mirror, bounded statement and proof excerpts",
+          "title": "Sharp fourth moments and phase rigidity of all square-free Fourier layers",
+          "trigger": "Direct larger-family candidate"
+        },
+        {
+          "assessment": "COVERING after coefficient relabeling in the unaliased regime",
+          "evidence": "Six singleton fibers, twelve double fibers and one six-element fiber, with the three opposite pairs in the last fiber.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-order-four-torsion-and-sharp-phase-rigidity-for-the-six-root-fou--7e3f7e3ac70b/RESULT.md",
+          "material_read": "Finding and pair-sum structure for q≥5",
+          "method": "Local mirror, relevant result passages",
+          "title": "Order-four torsion and sharp phase rigidity for the six-root Fourier spectrum",
+          "trigger": "Identical collision pattern candidate"
+        },
+        {
+          "assessment": "Read results do not give the target optimization",
+          "evidence": "The adjacency Fourier ratio and directed graph edge-label energy use different objects and quantifiers.",
+          "identifier_or_url": "https://arxiv.org/html/2610.31807v1",
+          "material_read": "Abstract and sections 1–2, including (1.1)–(1.2)",
+          "method": "Open-access statement excerpts",
+          "title": "Additive energy and Fourier complexity of graphs",
+          "trigger": "External graph Fourier and additive-energy result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural and instructive collision example, but the submitted theorem is an exact parameter substitution of an existing broader result and its optimization is duplicated under six-root relabeling. The small direct proof adds exposition without a distinct invariant, boundary theorem or reusable extension established in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

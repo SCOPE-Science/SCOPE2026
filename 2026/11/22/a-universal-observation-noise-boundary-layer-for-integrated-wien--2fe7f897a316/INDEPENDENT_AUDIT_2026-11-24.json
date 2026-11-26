@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:16:11.134664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75, including the covariance gain, inflection and boundary expansions",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent polynomial checks at low orders and numerical stationary-gain calculations using scaled covariance integrals"
+      ],
+      "rationale": "Stochastic Fubini gives X_p(s)=integral_0^s (s-u)^p/p! dW(u), also for p=0. Itô isometry gives V_p and covariance K_p(s,t) with W(t) by integrating the kernel from 0 to min(s,t); scalar Gaussian conditioning therefore gives the stated gain I_p/(t+eta). In I_p', use u=s-t on s>t: the integrand up to its factorial and factor of 2 is ((u+t)^(p+1)-u^(p+1))*u^p. Expansion and integration give the polynomial in y=t/(1-t). Differentiating, the coefficient of y^j in S_p for 1<=j<=p is binom(p+1,j)*[(p+1-j)/(2p+1-j)-1]=-p*binom(p+1,j)/(2p+1-j), with positive constant and leading coefficient -1. This includes p=0, with S_0=1-y. There is one inflection, and H_p'= -I_p*I_p''/(I_p')^2 so H_p first decreases then increases. At small t the polynomial gives I_p'=2t/[(p!)^2(2p+1)]+O(t^2) and hence H_p=-t/2+O(t^2). At t=1 the gain numerator is positive and I_p' vanishes. The sign of the derivative of I_p/(t+eta) on (0,1) is the sign of eta-H_p, yielding the unique interior solution increasing in eta. For z=1-t, expansion of the integral for I_p' gives 2z^(p+1)/[(p+1)!]^2 times (1+O_p(z)). Stationarity gives the claimed z and the integrated numerator loss is 2z^(p+2)/[(p+2)*((p+1)!)^2]+O_p(z^(p+3)). In the optimized gain over the endpoint, that loss subtracts 1/(p+2) of the leading denominator benefit I_p(1)*z/eta^2, which confirms the regret coefficient and sign. Independent checks used the exact p=0 polynomial I_0=t^2-2t^3/3 and bounded quadrature in u=z*v for the endpoint loss and derivative, solving stationarity in z by bisection. At p=1, eta=10^6 the distance and regret divided by the predicted leading terms are 1.000105 and 1.000077, respectively; at p=6, eta=10^21 they are 1.000077 and 1.000068.",
+      "residual_risks": [
+        "Numerical calculations do not establish any uniformity in integration order; the proof and asymptotics concern p fixed and eta the noise variance. They say nothing about conditioning on a noisy observation of X_p(t) for p>=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The MISE formalism applies to a general same-process noisy design and covers the ordinary conditional prediction criterion. Schober et al. use a once-integrated Wiener prior for Euler matching. Mukherjee's abstract covers fixed-n designs under weighted integrated MSE, including Brownian examples and integral estimation."
+        ],
+        "reasoning": "A general minimum-MISE optimization problem or derivative evaluation under an ODE prior does not classify optimal noisy measurement locations here. An integral-estimation result could overlap, but estimation of a single functional differs from minimizing the integral of the conditional variance of the entire indefinite-integral trajectory. The dissertation abstract is not evidence about all of its theorems and appendices.",
+        "searches": [
+          "Ji–Müller arXiv:1604.05375 §2, eq. (6)",
+          "Schober–Duvenaud–Hennig arXiv:1406.2582 §3.2, Theorem 1",
+          "Purdue dissertation catalog record AAI3043760"
+        ]
+      },
+      "checked_sources": [
+        "Exact assigned Resultary mirror and distinct indexed record --234c270723d5",
+        "Ji–Müller §2, Schober et al. §3.2, Mukherjee Purdue catalog abstract",
+        "Frozen proof and prior-work statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the direct X_1 sensor case, for t>=s the t-derivative of Cov(X_1(s),X_1(t)) is Cov(X_1(s),W(t))=s^2/2. The endpoint derivative of the integrated squared covariance is then positive. In the frozen W sensor case, I_p'(1)=0 with order p+1 of vanishing, so stationary balancing is different.",
+          "The ordinary conditioning formula is known, but its all-p implications use the signed-coefficient inflection identity and the quantified terminal derivative order, neither supplied by the inspected generic design formulation."
+        ],
+        "reasoning": "The objective follows mechanically from covariance conditioning and should not be credited as new. Neither the order-one direct-value threshold nor the broad MISE criterion implies this all-order optimizer shape and high-noise law without the additional model-specific sign and endpoint analysis.",
+        "searches": [
+          "Ji–Müller MISE criterion and covariances in arXiv:1604.05375 §2",
+          "Resultary --234c270723d5 versus frozen kernel derivatives and first-order condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ji–Müller specify noisy observations of process values and MISE trajectory error. For a known Gaussian Brownian prior and one observation, their criterion includes the p=0 setup.",
+          "The distinct Resultary statement at order one chooses one observation of X_1 itself and has a terminal optimum for eta>=8/273. The target record observes its underlying Brownian motion, not its value."
+        ],
+        "reasoning": "Base-process observation of W is observation of the p-th mean-square derivative of X_p for p>=1, so this variant should be compared by its cross-covariance rather than by target naming. Unlike direct value sensing, the scalar observation variance is t+eta and K_p has zero t-derivative at the terminal choice for almost every target location. There is no relabeling of the direct integrated-Wiener sensor that preserves these quantities and the path-loss objective.",
+        "searches": [
+          "Resultary integrated Wiener one noisy observation and endpoint optimum, distinct --234c270723d5",
+          "Mukherjee Purdue AAI3043760 abstract",
+          "Ji–Müller arXiv:1604.05375 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-order record match is the assigned theorem, not independent evidence. The exact order-one threshold in the separate record belongs to direct sampling of X_1."
+        ],
+        "reasoning": "This is not a new optimum obtained by looking up an order-one threshold: the distinct table-like exact cutoff pertains to different observations and yields the opposite endpoint conclusion. Low-order formulas alone are not claimed as a distinct contribution.",
+        "searches": [
+          "Resultary exact assigned match --2fe7f897a316 and distinct exact placement match --234c270723d5"
+        ]
+      },
+      "rationale": "Credit standard Gaussian risk reduction and the directly sampled Brownian case as background or framework-level overlap. The supported distinct result is the all-order base-process sensing law for integrated targets, including the strict finite-noise interior optimum, the order-dependent exponent and the sharp regret. The closest separately indexed placement theorem controls a different covariance and has terminal placement at high but finite noise. The dissertation's complete scope is unresolved.",
+      "residual_risks": [
+        "Mukherjee's full dissertation was not inspected and could include closer special cases or broader optimal-design theorems. No priority is inferred from same-day dates or from the absence of matching statements in inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct framework-level overlap for p=0, no all-order cross-process law in the inspected passage.",
+          "evidence": "U(t_j)=X(t_j)+e_j and trajectory recovery is assessed by MISE.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+          "material_read": "§2, pp. 3–4, including equation (6), OA text offsets 9314–15691",
+          "method": "Primary OA PDF passage",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "General integrated prediction objective with timed noisy observations"
+        },
+        {
+          "assessment": "Brownian examples and integral-estimation overlap; theorem-level comparison unresolved.",
+          "evidence": "The abstract describes fixed-n weighted IMSE designs and Brownian examples; access to the dissertation itself was not available as lawful OA.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Catalog abstract, OA web offset 0–2751; full text not obtained",
+          "method": "Lawful Purdue catalog passage and access assessment",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Plausible exact or broader Brownian-path design thesis"
+        },
+        {
+          "assessment": "Different task and optimized quantity.",
+          "evidence": "Uses a once-integrated Wiener prior for a match with Euler's method, not a noise-dependent one-point placement theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2582",
+          "material_read": "§3.2 p. 4, Theorem 1, OA PDF text near offset 20140",
+          "method": "Primary OA PDF passage",
+          "title": "Probabilistic ODE Solvers with Runge-Kutta Means",
+          "trigger": "Integrated-Wiener priors with evaluations tied to derivatives"
+        },
+        {
+          "assessment": "Direct target observation, not a base-process sensor law; materially close but not equivalent.",
+          "evidence": "For observing X_1 itself, the claim is interior below variance 8/273 and terminal at or above 8/273.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-activation-threshold-for-one-noisy-integrated-w--234c270723d5",
+          "material_read": "Claim and sensing modality in the indexed statement",
+          "method": "Resultary search and statement-level comparison",
+          "title": "A sharp endpoint activation threshold for one noisy integrated-Wiener observation",
+          "trigger": "Strongest distinct indexed single noisy observation result with iterated Brownian target and endpoint optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen optimization and regret theorem",
+        "Independent scaled stationarity calculations",
+        "Distinct integrated-Wiener value-sensing threshold"
+      ],
+      "rationale": "The theorem quantifies when placing a noisy sensor at the endpoint is strictly suboptimal and by how much, for an important distinction in trajectory design: measuring the base process while estimating a smoothed path. The all-order terminal scale and risk-regret distinguish a mathematically real but vanishing gain from an exact endpoint optimizer, while the monotone unique optimum gives a complete finite-noise location rule rather than only an asymptotic.",
+      "residual_risks": [
+        "One homoscedastic Gaussian observation, known Wiener prior, and fixed integration order only. The numerical value of the gain need not matter in a real sensor system with discrete times or additional costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

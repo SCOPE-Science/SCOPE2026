@@ -1,19 +1,21 @@
-# Review of the three-monitor crosswind spacing theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is \(d\geq0\), \(r,\sigma>0\), and \(0<p<1\) with conditional independence. The counts of covered intervals yield three complete Gaussian-CDF formulas, including continuity at \(d=r\) and \(d=2r\). Their derivatives have exactly one possible sign transition on each open geometry regime. The ratio \(\varphi_\sigma(r+d)/\varphi_\sigma(r-d)=e^{-2rd/\sigma^2}\) proves strict optimality, with both nonsmooth boundaries handled using one-sided derivatives. The checker independently tests integration against finite interval partitions; numerical tests are not offered as an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For k covering monitors the conditional alarm probability is 1−q^k, with q=1−p. Integrating the layers uses weights p,pq,pq². For d<r the union and triple intersection have half-widths r+d and r−d, and the doubly-or-more covered region is the middle footprint. For r<d<2r the union still has half-width r+d and two disjoint pair overlaps each have Gaussian mass Φσ(r)−Φσ(d−r); beyond 2r only the three single layers remain. Touching endpoints have zero measure, giving continuity at both contacts. Independently recovering the moving-endpoint flux gives, up to the positive factor 2pφσ(r−d), the sign of exp(−2rd/σ²)−q² before r, exp(−2rd/σ²)−q between r and 2r, and a strictly negative sign past 2r. Thus the derivative changes sign at d=ell in the first smooth segment or d=ell/2 in the second; the downward jumps select r when r≤ell≤2r and 2r when ell≥4r. This proves a global unique maximizer including transition equalities (isolated zero slopes do not create a flat set of maximizers), and excludes d=0 since its right slope is strictly positive. At r=σ the recomputed change points are 0.6321205588, 0.8646647168, and 0.9816843611. The analytic argument covers the full unbounded spacing domain and is not a numerical grid search.
 
-Litvak et al.'s published two-sensor overlap principle covers the elementary probability model but does not assert the triple-detector two-contact phase structure. The additional center instrument creates an exact plateau between two different Gaussian likelihood-ratio thresholds, which cannot be obtained by assigning the two-sensor optimizing separation to three instruments. Wettergren and Costa (2013) numerically design moving-target collaborative surveillance rather than a fixed binary three-device plume alarm. Frasca et al. use worst-distance coverage rather than single-event detection probability, and the closely ranked Gaussian-plume three-sensor Fisher-information finding optimizes parameter estimation, not binary alarms. The full historical priority search is necessarily incomplete; related uninspected sensor-design literature remains a risk. No exclusive novelty claim is inferred merely from unsuccessful queries.
+## originality
 
-## Value — PASS
+PASS
 
-The concrete scientific issue is how much to overlap *three* fallible finite-footprint monitors when a crosswind plume-center prediction is uncertain. An exact four-regime phase diagram supplies the unique best spacing within an operationally natural symmetric transect and identifies a stable design plateau spanning a nonzero reliability interval. This is a structural answer not contained in the generic motivation to balance redundant and new spatial coverage. It is explicitly not a validated field deployment prescription.
+Weighted overlap coverage for fallible sensors, Gaussian spacing optimization and monitor contact geometry all have inspected precedents. The supported distinct contribution is the exact four-regime spacing of three identical hard-footprint monitors in this particular symmetric Gaussian at-least-one-alarm problem, with both contact plateaus and uniqueness. No inspected statement supplies those two plateau intervals or implies the complete optimizer. This is not a priority certification.
 
-## Closest literature and limitations
+## value
 
-Bittner et al. (2024), https://doi.org/10.1039/D3EA00170A, motivate localized smoke monitoring, but do not justify the idealized sensor response assumptions. Litvak et al., https://miis.maths.ox.ac.uk/268/2/thales-report.pdf, §5.2.1, are closest in objective but treat two instruments. Frasca et al. (2015), https://doi.org/10.1137/140968094, treat a different loss; Wettergren and Costa (2013), https://doi.org/10.1155/2013/145496, optimize moving-target surveillance numerically. No unconstrained location optimum or multi-period result is asserted; conditional independence, normal plume displacement, hard detection footprints and known parameters are substantive limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The constrained transect presents a concrete coverage-versus-redundancy tradeoff: higher reliability changes the value of losing triple and double coverage differently. The exact rule identifies a nonzero interval over which the unique spacing does not move despite reliability changes, followed by another moving regime and eventual just-adjacent spacing. The two thresholds for entering and leaving the intermediate plateau and the final threshold are usable as a benchmark for this stylized layout. The value is the sharp structural contact classification, not a claim of better real deployments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

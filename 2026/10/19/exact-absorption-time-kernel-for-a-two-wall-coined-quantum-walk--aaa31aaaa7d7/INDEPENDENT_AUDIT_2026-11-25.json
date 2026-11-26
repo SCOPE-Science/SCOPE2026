@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:31:00.252549Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49, VERIFICATION.md, check_kernel.py and requirements.txt (inspected, frozen script not executed)",
+        "Replay: python3 /workspace/review-evidence/3/check_lyapunov.py (SymPy)"
+      ],
+      "rationale": "The interior compression K is a contraction. For a unit-modulus eigenvector the left lost channel is zero by norm equality, and the leftmost surviving R channel has no predecessor. The nonzero cos(theta) then forces the leftmost L amplitude to vanish. Propagating the same eigenvector equations through successive sites forces all components to vanish, proving rho(K)<1. This makes the integrated survival sum convergent and the equation Q-K†QK=I uniquely solvable. An independent SymPy block check gave zero residual in all 12 component cases (onsite, separation 2, generic larger even separation) and checked the zero extension at both missing directional channels, including both shifted indices at the same sink. Opposite parity vanishes by parity preservation and swapped positions follow by transpose. The tail-sum identity counts the detecting step and gives the stated localized quadratic form, with real cross term 4ux Re(conj(alpha) beta) and scalar midpoint block. Q gives the integrated survival operator, not a list of per-step survival kernels.",
+      "residual_risks": [
+        "The argument is for homogeneous real C_theta and projective detection; it does not cover trapping at the excluded endpoint theta=pi/2. The independent check is symbolic algebra, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konno et al. give finite-line recurrences/transforms and a single-wall conditioned mean from site 1. The other absorbing-time treatments use a single line absorber or different geometries."
+        ],
+        "reasoning": "The absorbing-time calculations in different geometry and the implicit finite-line quantities do not supply the evaluated two-sink result under specialization.",
+        "searches": [
+          "arXiv:quant-ph/0208122v4 §4",
+          "arXiv:quant-ph/0205045v3 §2.2",
+          "arXiv:2602.14880v1 §III B"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.13318v3",
+        "arXiv:quant-ph/0208122v4",
+        "arXiv:quant-ph/0207008",
+        "arXiv:quant-ph/0205045v3",
+        "arXiv:2602.14880v1",
+        "Resultary 5f817ec7069b, 38f306607e7a and 254467010772"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Konno et al. encode absorptions using first-hit amplitude recurrences and integrals. The prior two-sink continuous kernel solves a continuous-time operator equation, not the discrete shift Lyapunov identity."
+        ],
+        "reasoning": "In-principle recoverability via differentiating or summing a transform still requires an evaluation. Neither those implicit identities nor the continuous kernel gives the site phases, cross-position coin entries or onsite polynomial by direct substitution.",
+        "searches": [
+          "arXiv:quant-ph/0208122v4 §4 equations (4.16)–(4.22), Theorem 2 and Corollary 3",
+          "Resultary 254467010772"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ammara et al. use the two-absorber finite line but evaluate eventual exit probabilities in the large-size limit. Bach et al. §4.4 include probability coefficient tables for two-wall Hadamard absorption."
+        ],
+        "reasoning": "Which sink detects the walker and how long the walk lasts are distinct observables; even exact eventual probabilities need not determine a time moment.",
+        "searches": [
+          "Web literature lookup for discrete two-wall coined walk expected duration and first moment",
+          "arXiv:2508.13318v3",
+          "arXiv:quant-ph/0207008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5f817ec7069b and 38f306607e7a give coherent survival operators for continuous-time paths with one terminal sink. 254467010772 has equal sinks at both endpoints and an explicit integral kernel for continuous-time Lindblad losses."
+        ],
+        "reasoning": "The two-endpoint record is the strongest matching catalog item by geometry and observable, but its evolution and Hilbert space differ: no directional coin or coin-shift step with projective removal. These are not reparametrizations of the frozen discrete-time kernel.",
+        "searches": [
+          "Local Resultary/SCOPE search for exact absorption-time operators, survival kernels and two-boundary quantum paths"
+        ]
+      },
+      "rationale": "Earlier work gives the same discrete monitored model and methods for obtaining exit probabilities or first-hit distributions; no inspected result evaluates the finite two-wall integrated survival operator or gives the same all-site mean. Continuous-time kernels indexed nearby use different generators and detection.",
+      "residual_risks": [
+        "An equivalent closed summation of older generating functions or unindexed derivation could exist. The comparison is not a proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, different observable",
+          "evidence": "Closed large-size exit probabilities; finite-size material is on probabilities and their approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.13318v3",
+          "material_read": "PDF pp. 2–6 and 14–16, model and finite-size discussion",
+          "method": "Open full-text PDF passages",
+          "title": "Quantum Walk on a Line with Absorbing Boundaries",
+          "trigger": "Same coined walk with two finite-line absorbers"
+        },
+        {
+          "assessment": "Implicit finite-line method, different evaluated mean",
+          "evidence": "Finite interval uses recurrence-determined functions and integrals; the evaluated conditioned mean is on the single-absorber half-line.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0208122v4",
+          "material_read": "§4, equations (4.16)–(4.22), Theorem 2 and Corollary 3, PDF pp. 7–12; §5",
+          "method": "Open full-text PDF passages",
+          "title": "Absorption Problems for Quantum Walks in One Dimension",
+          "trigger": "Finite two-wall first-hit transforms and a time moment"
+        },
+        {
+          "assessment": "Exit probabilities, not the evaluated mean-time operator",
+          "evidence": "The two-wall coefficient table is for absorption probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0207008",
+          "material_read": "§4.4, PDF pp. 18–20",
+          "method": "Open full-text PDF passages",
+          "title": "One-dimensional quantum walks with absorbing boundaries",
+          "trigger": "Two-wall Hadamard coefficients"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": "The line example uses a single marked absorber on the integer line; theoretical calculations also treat other graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0205045v3",
+          "material_read": "§2.2 and the line and hypercube discussions, PDF pp. 3–8",
+          "method": "Open full-text PDF passages",
+          "title": "Analysis of Absorbing Times of Quantum Walks",
+          "trigger": "Explicitly studies absorbing times"
+        },
+        {
+          "assessment": "Distinct one-absorber mean",
+          "evidence": "Hadamard walk with one absorber and fixed initial coin, not the two-wall all-state calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.14880v1",
+          "material_read": "§III B equation (13) and Table I",
+          "method": "Open full-text PDF passage",
+          "title": "Infinite reduction in absorbing time in quantum walks over classical ones",
+          "trigger": "Line-walk mean time"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "Continuous-time integrated evolution for an open path with equal Lindblad boundary losses.",
+          "identifier_or_url": "Resultary 254467010772",
+          "material_read": "Finding and proof passages, offsets 0 and 7906",
+          "method": "Local full-text mirror",
+          "title": "Exact two-boundary absorption-time kernel for coherent quantum paths",
+          "trigger": "Same observable and two endpoints"
+        },
+        {
+          "assessment": "Different geometry and dynamics",
+          "evidence": "Single-sink continuous-time tight-binding paths; arbitrary coherent means but no matching coin or monitoring map.",
+          "identifier_or_url": "Resultary 5f817ec7069b and 38f306607e7a",
+          "material_read": "Both findings",
+          "method": "Local full-text mirror",
+          "title": "Exact absorption-time operator and size-independent sink optimum on quantum paths; Exact survival-time operator and sink-rate optimization on finite quantum paths",
+          "trigger": "Explicit integrated-survival kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–46",
+        "Konno et al. arXiv:quant-ph/0208122v4 §4"
+      ],
+      "rationale": "The finite-line lifetime is a standard observable, and the evaluated operator removes recurrence solving for every choice of initial state, including coherent superpositions across sites. Its explicit parity, phase and coin dependence and the exactly coin-independent midpoint mean give quantitative information not supplied by eventual detection probabilities or a generic Lyapunov representation.",
+      "residual_risks": [
+        "No time-resolved operator or universality for other coins, walks or measurements is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

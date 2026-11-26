@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:01.483983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a block not containing v, distance is 2 iff the block is the singleton mate of v; otherwise it is 1. In the same block, distinct vertices therefore collide exactly when neither mate is singleton. For s singleton blocks among k blocks, each nonsingleton block of size r needs at least r−1 distinct singleton mates, so s≥2n−k. Equality k=n would make all blocks singleton and leave vertices uncovered. With k=n+1, s is n or n−1. In the first case the one size-n block has at most one endpoint from each pair (an internal pair would create two exceptions), hence is a transversal; its complement gives the singleton blocks. In the second case tightness forces exactly one exception in each of the two large blocks and requires all singleton vertices to have nonsingleton mates. The exceptions must be mated across the two blocks, leaving the remaining n−1 mates to distribute with both blocks receiving one. These forms are sufficient by the same distance criterion. Canonically naming a large block by which endpoint of the exceptional pair it contains avoids a spurious division by two, giving 2^n+n2^(n−1)(2^(n−1)−2) on labeled vertices with unordered blocks; ordering multiplies by (n+1)!. The finite independent replay `python3 /workspace/branches/independent-checks.py 2` enumerated restricted-growth strings for n=3,4,5 (203,4140,115975 partitions) and tested distance vectors, giving optimum values 4,5,6 and counts 32,208,1152. This corroborates, but does not replace, the proof for n≥3. Read the frozen checker and expected output without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-multipartite dimension result is cited by the frozen record as giving the scalar specialization. The archive PDF is an image scan; alternate OA routes did not expose readable proof passages. Zafari–Alikhani's full same-graph section does not give equality classification."
+        ],
+        "reasoning": "A scalar dimension theorem does not force the form or count of all optimizing partitions. Coverage in the 2009 proof beyond its stated scalar result remains unconfirmed.",
+        "searches": [
+          "Darmaji–Uttunggadewa–Simanjuntak–Baskoro, JCMCC 71 (2009), pp. 209–215; archive by exact title",
+          "Resultary: exact cocktail party graph CP_n partition dimension resolving basis"
+        ]
+      },
+      "checked_sources": [
+        "Zafari–Alikhani Theorem 2.2 and examples, journal PDF",
+        "Darmaji et al. exact publisher scan identified but proof unreadable through available retrieval",
+        "Five Resultary comparators listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of minimum partitions and the optimum cardinality are established in Zafari–Alikhani. The inspected proof and examples do not impose the asserted exhaustive restrictions on a partition of arbitrary minimum form."
+        ],
+        "reasoning": "Obtaining the two types requires keeping all equality possibilities of the singleton-mate bound, then separating the two cases and counting every assignment. Neither an extremal construction nor the scalar minimum alone gives these deductions as a prior theorem.",
+        "searches": [
+          "Zafari–Alikhani Theorem 2.2 proof and worked minimum partitions, pp. 333–335",
+          "Compare the crown adjacency-basis and Petersen-partition Results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting a matching and taking complete multipartite parts of size two are identical graph constructions. Zafari–Alikhani use CP(m+1), stating pd(CP(m+1))=m+2. The crown comparators use K_{n,n} minus a matching and either adjacency bases or strong resolving partitions."
+        ],
+        "reasoning": "Translating n=m+1 identifies the same graph and scalar optimum, not the complete set of equality partitions. The crown graphs and their invariants are not alternate nomenclature for this one.",
+        "searches": [
+          "Resultary: cocktail-party graph partition dimension all minimum resolving partitions unordered bases classification exact count",
+          "Resultary: cocktail party graph partition dimension CP_n resolving partitions n+1",
+          "Zafari–Alikhani Theorem 2.2; comparison with K_{2,…,2}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-graph basis census surfaced in inspected ranked hits. The Petersen graph result counts 7,040 minimum resolving partitions for a different graph. The Potts and general-position records concerning the same graph count/study different objects."
+        ],
+        "reasoning": "Neither a count on another graph nor a different invariant of this graph tabulates these bases. The primary same-graph paper gives examples, not the exact unordered census.",
+        "searches": [
+          "Resultary: unordered resolving partitions cocktail-party graph basis exact count",
+          "Zafari–Alikhani journal PDF by exact title and DOI, §2 and conclusion"
+        ]
+      },
+      "rationale": "The scalar dimension is credited to prior work; the supported contribution is the complete classification and enumeration of all minimizers, explicitly the narrower claim of the frozen record. The strongest same-graph comparison, Zafari–Alikhani, verifies the scalar dimension and exhibits constructions rather than describing all minimizers. The old complete-multipartite scan could not be read and is an explicit residual risk, not negative evidence.",
+      "residual_risks": [
+        "The Darmaji et al. scanned proof could contain unconfirmed equality information. The inspected Zafari–Alikhani full same-graph section resolves the frozen record's previously stated risk about that source. The catalogue and literature checks are bounded and cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scalar result and constructions; no complete equality-case classification/census in these passages",
+          "evidence": "Theorem 2.2 gives pd(CP(m+1))=m+2 and is followed by a proof and sample minimum partitions.",
+          "identifier_or_url": "https://jas.shahroodut.ac.ir/article_3740_af8a41a2bae4aeaf1816b1399a8df30d.pdf (doi:10.22044/JAS.2024.14317.1816)",
+          "material_read": "Theorem 2.2 and proof/examples, PDF pp. 3–5 (offsets 6400–10700); conclusion near offset 24600",
+          "method": "Lawful full journal PDF after landing/index route was blocked; relevant bounded passages read",
+          "title": "The partition dimension and k-domination number of two specific graphs",
+          "trigger": "Same graph and partition dimension; exact-title/DOI literature query"
+        },
+        {
+          "assessment": "Credit scalar result, leave exact coverage beyond scalar unresolved",
+          "evidence": "The frozen record cites JCMCC 71 (2009), 209–215 for the complete-multipartite partition dimension. No inference of noncoverage is made from the scan.",
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20071/vol-071-paper%2014.pdf",
+          "material_read": "Bibliographic identification and prior-theorem description in frozen RESULT.md; not the scanned proof",
+          "method": "Publisher archive via OA direct and configured alternate; PDF found but no extractable text. Earlier publisher/archive reading attempts also failed.",
+          "title": "The partition dimension of a complete multipartite graph, a special caterpillar and a windmill",
+          "trigger": "Broader theorem applies to K_{2,…,2}"
+        },
+        {
+          "assessment": "No statement-level overlap with the claimed two types and count",
+          "evidence": "They concern crown adjacency bases, strong crown partition dimension, the Petersen census, cocktail-party Potts ground states, or the cocktail-party general-position complex.",
+          "identifier_or_url": "Resultary/SCOPE: 7667ce13f106, 282653d90e7f, fa2b190525a1, 4725ceae9993, d7bb2fc1ebce",
+          "material_read": "RESULT.md Findings of local mirror records",
+          "method": "Local catalogue search then statement comparison",
+          "title": "Closest Resultary classifications and same-graph records",
+          "trigger": "Minimum resolving partitions or similar matching-deletion graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural extremal gap for a standard complete-multipartite family. The classification exposes a second family that a proof by a single construction can miss and describes every optimum at all n, with an exact count for labeled vertices. The already-known scalar partition dimension is not the basis for this assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

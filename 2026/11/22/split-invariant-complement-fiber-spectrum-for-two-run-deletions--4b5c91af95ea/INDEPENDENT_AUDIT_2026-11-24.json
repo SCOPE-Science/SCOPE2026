@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:29:42.014472Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–47 and VERIFICATION.md",
+        "Frozen verify_exhaustive.py and verify_token_model.py and their recorded outputs (447 cases including length two, and 286 full dictionary comparisons)",
+        "python3 /workspace/branches/independent_small_checks.py: independently enumerated zero and one index sets and matched the histogram and embedding total for 276 parameter triples with 1<=n<=8 and k>=3"
+      ],
+      "rationale": "For a strictly order-preserving deletion of 0^a1^b from (01)^n, each source block leaves F=01, A=1, B=0, or E=empty. The A's precede the B's, and at most one E can occur, after the A's and before the B's. Each adjacent 01 in the output is precisely an F, since the only possible new 01 boundary would require a B followed by an A. Thus the output determines the nonempty tokens. The E-free embeddings give binom(n,k) singleton outputs, disjoint from outputs with E by the number of F's. In the E case the prescribed central gap of s full blocks gives exactly s+1 embeddings; there are k-2 other gaps distributing n-k+1-s full blocks. This gives binom(n-t-1,k-3) for t=s+1 in the stated range, independently of the run split, and puts all full blocks in a single gap for the unique maximal fiber. The sum of histogram entries is the stated output count; to count embeddings directly, increment the selected one-block indices by one so that the combined zero and shifted one indices form a strict k-subset of [n+1]. At n=k-1 only one singleton output occurs, and for n<k-1 there is no embedding. The n=6,k=4 example gives 19,3,2,1 fibers at sizes 1,2,3,4 as stated.",
+      "residual_risks": [
+        "Bounded checks corroborate but do not establish the all-parameter claim. The block parsing and reinsertion argument supplies that conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. supply general algorithms, including residual multiplicities, and identify closed formulas for special cases as an open direction. The distinct-subsequence enumeration concerns total residual subsequences, not the prescribed deleted pattern and its embedding multiplicities."
+        ],
+        "reasoning": "A general procedure computing each finite instance does not give the explicit, all-length split invariant. The distinct-subsequence count is coarser and solves a different problem.",
+        "searches": [
+          "arXiv:2603.20790v1, Theorem 3.1, Algorithm 2 and Section 5",
+          "Flaxman–Harrow–Sorkin, DOI:10.37236/1761, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary adjacent records above; alternating-prefix fiber and length-two run-pair hits were outside the claimed regime",
+        "Adamson, Fleischmann and Huch arXiv:2603.20790v1",
+        "Flaxman, Harrow and Sorkin DOI:10.37236/1761"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None of the overlapping statements identifies the only ambiguity for the two-run pattern as insertion of one empty block into the distinguished gap. Both a residual count and a total number of embeddings would give only two sums of the histogram."
+        ],
+        "reasoning": "The uniqueness of parsing, separation of the two output types and gap enumeration yield the complete histogram; the inspected restricted counts and general algorithms do not mechanically imply it.",
+        "searches": [
+          "arXiv:2603.20790v1, Section 3 and conclusion",
+          "Resultary exact three-symbol and differing-pattern histogram findings, compared to Frozen RESULT.md steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The length-three output theorem covers 001 and 011, but counts distinct residuals without fibers. The two-point collision theorem does count fibers, but for 010 and 101, which have three runs. In the earlier alternating-pattern law both host and longer pattern alternate; the fixed-composition theorem ranges over all deletion patterns of the composition."
+        ],
+        "reasoning": "Reversal or letter exchange does not turn a three-run pattern into a two-run one; neither pooling by composition nor counting each output once determines the individual prescribed-pattern histogram.",
+        "searches": [
+          "Resultary exact prescribed complement fiber queries and local records 2026/11/22/SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b, 2026/11/22/SCOPE-two-point-collision-spectrum-for-alternating-words-with-a-scatte--e046ddbbf6b9",
+          "Resultary alternating pattern and fixed-composition records 2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92 and 2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day length-three record gives binom(n-1,3)+binom(n,2)=binom(n,3)+n-1 for the matching k=3 cases. No distinct exact source in the inspected hits tabulates the full histogram for arbitrary k and split. The precise full-histogram self-hit is not independent evidence."
+        ],
+        "reasoning": "Credit the exact k=3 output-count overlap without inferring priority from a same-day date. It is one marginal of the full finding, not the submitted general fiber table.",
+        "searches": [
+          "Resultary length-three complement deletion, two-point collision and two-run fiber records named above"
+        ]
+      },
+      "rationale": "Pass for the complete split-independent embedding-fiber law at arbitrary two-run pattern length k>=3, not for already overlapping distinct-output counts at k=3 or for elementary total embedding counts. The strongest restricted overlap matches the k=3 number of residuals but supplies no multiplicity histogram for the target family. A nearby full histogram is for a three-run pattern, not for this family.",
+      "residual_risks": [
+        "No historical priority claim is made over the overlapping k=3 count. An unindexed shuffle or deletion identity for prescribed-pattern fibers could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad computational coverage, not the frozen closed law",
+          "evidence": "Computes complement-scattered sets and multiplicities; asks for upper bounds or closed expressions in special cases.",
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Section 3, Theorem 3.1 and Algorithm 2 (OA text offsets 26000–30169); Section 5 conclusion (92600–93600)",
+          "method": "Bounded original OA article passages",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Foundational predecessor on the same residual and multiplicity objects"
+        },
+        {
+          "assessment": "Direct restricted overlap without full fiber law",
+          "evidence": "Distinct-output count for 001 and 011 matches the k=3 specialization; no distribution of preimages there.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b",
+          "material_read": "Local finding at offset 0 and stated counting model",
+          "method": "Resultary search and local matched result passage",
+          "title": "Exact three-symbol complement deletion spectra of finite alternating words",
+          "trigger": "Identical host and target patterns at k=3"
+        },
+        {
+          "assessment": "Different deleted pattern, no implication",
+          "evidence": "For 010 and 101 it provides binom(n-1,3) singleton fibers and n-1 fibers of size n-1; each pattern alternates over three runs.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-point-collision-spectrum-for-alternating-words-with-a-scatte--e046ddbbf6b9",
+          "material_read": "Local finding at offset 0",
+          "method": "Resultary search and local matched result passage",
+          "title": "Two-point collision spectrum for alternating words with a scattered deletion",
+          "trigger": "Full prescribed-pattern fiber theorem for the identical host"
+        },
+        {
+          "assessment": "Different deletion pattern or pooled output object",
+          "evidence": "First deletes a truly alternating pattern and classifies residual block words; second ranges over patterns of a composition rather than prescribing one pattern.",
+          "identifier_or_url": "2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92; 2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9",
+          "material_read": "Local finding and model scope in each matched record",
+          "method": "Resultary and read of local mirrored scientific passages",
+          "title": "Binomial-tail law for complements of alternating words; Fixed-composition deletion spectra and parity bias for alternating binary words",
+          "trigger": "Earlier exact counts on the same alternating word objects"
+        },
+        {
+          "assessment": "Not prescribed deletion-fiber enumeration",
+          "evidence": "Counts distinct subsequences across deletions, not the multiplicity histogram conditioned on a given deleted word.",
+          "identifier_or_url": "https://doi.org/10.37236/1761",
+          "material_read": "pp. 1–2",
+          "method": "Primary paper passages",
+          "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+          "trigger": "Earlier exact enumeration of subsequences of alternating strings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and central-gap proof",
+        "Prior posed direction of exact complement counts in arXiv:2603.20790v1, Section 5"
+      ],
+      "rationale": "The object is a natural refinement of prescribed complement enumeration: it distinguishes uniquely recoverable deletion embeddings from highly ambiguous residuals. The law determines every multiplicity and its count in an unbounded family and shows that changing the relative run lengths at fixed total does not change these collision statistics. It is stronger than recovering a known short-pattern output count or the immediate embedding total.",
+      "residual_risks": [
+        "No claim for more than two runs or for arbitrary host words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

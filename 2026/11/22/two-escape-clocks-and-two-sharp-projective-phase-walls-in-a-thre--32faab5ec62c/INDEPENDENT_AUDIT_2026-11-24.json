@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:47:54.478418Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions, and proof lines 3–88",
+        "Frozen checker.py lines 9–46 (inspected, not run)",
+        "Frozen VERIFICATION.md lines 19–23"
+      ],
+      "rationale": "For every separately fixed real (a,b), b≠0, the seed-state map has the polynomial inverse obtained by evaluating x_0,x_1,x_2; hence the positive seed chamber maps onto an open initial-state set. For n≥2 the scalar recurrence is x_(n+1)=a−x_(n−1)^2−b x_(n−2). In the stated log bands the gap 2s_(n−1)−s_(n−2) is at least 0.82L at n=2, 0.75·2^m L at n=2m+2>2 (even predecessor has half the current parity scale), and 0.44·2^m L at n=2m+3. The constant term likewise has a denominator ≥exp(0.4·2^m L). Thus the normalized perturbation is at most (|a|+|b|)exp(−0.4·2^m L). For fixed parameters take L so this is <1/4 and the logarithmic errors are bounded by 0.01L. Each next sign is negative, and summing the geometric weights on errors traps each scaled parity log within 0.01L of its seed, strictly improving both provisional bands and closing the induction. The uniform weighted sums are positive continuous heights. After multiplying the tail by 2^m it is bounded by a constant times exp(−0.4·2^m L), proving additive o(1), not merely convergence of scaled logs. In each state the third log rate is strictly less than the first. At even times the leading comparison is H_e vs H_o, and at odd times it is 2H_o vs H_e. At ties the additive error tends to zero on both axes, so their magnitudes have ratio one and their common negative signs give the bisectors. Taking X_0=X_1=R and X_2=R^q for q in [0.8,2.25] reaches ratios below one and above two under the height bounds. The intermediate value theorem yields all five regimes, continuity gives open strict regimes, and neither smoothness nor codimension is inferred for the two level sets.",
+      "residual_risks": [
+        "The malformed rendering of b≠0 in the frozen supplemental verification note does not change the explicit hypothesis in the claim and proof.",
+        "The finite checker is illustrative only; the proof handles the whole chosen chamber, not all escaping points or a parameter-uniform chamber."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hampton–Meiss include the polynomial shift form with quadratic G, but the inspected bounded-orbit estimates use different restrictions on G. Ueno studies monomial conjugacies for two-variable complex polynomial skew products."
+        ],
+        "reasoning": "An ambient generalized-Hénon family is not itself a classification. The skew-product theorem inspected does not directly treat this real three-variable diffeomorphism or derive its additive and sphere-normalized wall limits.",
+        "searches": [
+          "Hampton–Meiss arXiv:2206.07855 §§I, IV",
+          "Ueno arXiv:2404.05154 and DOI 10.1080/14689367.2025.2459088"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work comparison and references",
+        "Exact Muni model passage",
+        "Hampton–Meiss §§I and IV passages",
+        "Ueno OA abstract",
+        "Local Resultary threshold and planar-clock findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence threshold gives an all-orbit escape conclusion in its parameter window with a linear lower bound; the planar analogue gives golden-ratio vs doubling normalizations on distinct domains."
+        ],
+        "reasoning": "Neither result determines the same-orbit odd/even log-difference up to o(1), which is needed for bisectors rather than axis dominance or an unknown tie limit. Existence of all five regimes requires comparison of the two continuous heights on a single chamber.",
+        "searches": [
+          "Indexed global recurrence threshold Finding and proof §1",
+          "Indexed planar incompatible clocks Finding",
+          "Muni arXiv:2406.08317v1 intro and model definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muni's displayed map is identical. The indexed recurrence-threshold family for m=3 is identical on b=−β in (−1,0), whereas the present statement allows either sign of b and any a."
+        ],
+        "reasoning": "Reindexing yields x_(n+3)=a−x_(n+1)^2−b x_n. Identifying that recurrence checks same-map overlap, but the inspected prior claims concern attractors, bifurcations or lower escape bounds, not sharp two-rate geometry.",
+        "searches": [
+          "Resultary generalized Hénon map, y² specialization, parity escape-height and projective walls",
+          "Muni arXiv:2406.08317v1 Eq. (2.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned hit is a self-match. The other two-clock hit is a planar positive-feedback system at r=5/4, comparing different orbits in an interior cone and on a boundary ray, not two parities of each orbit."
+        ],
+        "reasoning": "A finite orbit table would not supply this real-parameter theorem. The exact-result catalogue was compared for both the model and clock invariant.",
+        "searches": [
+          "Resultary exact escape clocks, additive log remainders, parity ratios 1 and 2, generalized Hénon"
+        ]
+      },
+      "rationale": "The supported distinct claim is the two simultaneous parity heights with additive remainder and the two projective walls realized together in an open chamber for each parameter pair. The exact-map and broader escape comparisons inspected do not imply this conjunction. This is a best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "Unreviewed general infinity-coordinate literature may contain implicit results, and the search is not exhaustive.",
+        "The same-day planar comparison establishes neither priority nor overlap of exact maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equation; inspected scope is attractors and bifurcations rather than the claimed infinity geometry",
+          "evidence": "x_(n+1)=a−y_n²−b z_n, y_(n+1)=x_n, z_(n+1)=y_n; abstract/intro discuss hyperchaotic attractors and Lyapunov exponents.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2406.08317",
+          "material_read": "arXiv v1 abstract and introduction, HTML offset 0; §2 Eq. (2.1), offset 10057",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Pathways to hyperchaos in a three-dimensional quadratic map",
+          "trigger": "Exact same dynamical map"
+        },
+        {
+          "assessment": "Material partial overlap only",
+          "evidence": "At m=3 and b=−β, 0<β<1, below a_*=−(1−β)²/4 the stated conclusion gives escape with a linear lower bound, not parity heights or phase walls.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-global-recurrence-threshold-and-logarithmic-fold-relaxation-for--edd60670a63c/RESULT.md",
+          "material_read": "Finding and proof §1, local mirror from offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Global recurrence threshold and logarithmic fold relaxation",
+          "trigger": "Same-map signed coefficient subfamily and prior escape claim"
+        },
+        {
+          "assessment": "Different map and different assignment of clocks",
+          "evidence": "Interior orbits have golden-ratio exponential scaling of logs, while boundary-ray orbits have doubling scaling.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-incompatible-escape-clocks-in-a-positive-feedback-planar-map--94c9f90b513c",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Two incompatible escape clocks in a positive-feedback planar map",
+          "trigger": "Very close escape-clock terminology and asymptotic setting"
+        },
+        {
+          "assessment": "Broader model, not an inspected parity-clock implication",
+          "evidence": "L=(δz+G(x,y),x,y); bounded-orbit estimates relevant to different specializations, including positive-definite and x² cases.",
+          "identifier_or_url": "https://arxiv.org/html/2206.07855",
+          "material_read": "§I, offset 1321; §IV, offsets 19800–25687",
+          "method": "Lawful OA HTML passages",
+          "title": "Visualizing Attractors of the Three-Dimensional Generalized Hénon Map",
+          "trigger": "Includes broader three-dimensional quadratic shift family"
+        },
+        {
+          "assessment": "Broader theoretical analogy with a different map class; not whole-text exclusion",
+          "evidence": "Monomial conjugacy near infinity for polynomial skew products in two complex variables.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05154",
+          "material_read": "Abstract, PDF text offset 0",
+          "method": "Lawful arXiv alternate after unavailable DOI route",
+          "title": "Newton polygons and Böttcher coordinates near infinity for polynomial skew products",
+          "trigger": "General near-infinity coordinate possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Same-map Muni and global-recurrence-threshold comparisons"
+      ],
+      "rationale": "The two parity scales quantify escape for a published model in which a single escape rate does not determine limiting directions. The tie cases genuinely need the sharp remainder, and the chamber uniformly realizes both transitions without changing parameters. That is concrete geometry at infinity beyond known divergence thresholds and without claiming a full escaping-set census.",
+      "residual_risks": [
+        "No inference about the entire infinity boundary or the smoothness of the two level sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:20:04.017271Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each nonroot vertex contributes one independent category (a successor of type s with mass lambda*nu_s, or a nonedge); root type and loop are independent of this sample. Depth-zero formulas are exactly evaluable by a type, including arithmetic tests of depth zero. This gives the finite multinomial sum, including n=1 with an empty sample. Finite structural elimination of current-state indicators, even nested indicators of depth-one formulas, leaves Boolean combinations of integer-affine tests in the sample counts. Drift signs are eventually correct with probability tending to one, by LLN. Zero coefficient rows are evaluated as constants, not passed to the CLT. On nonzero balanced rows the bounded offset disappears under sqrt(n-1) scaling: the covariance in the type basis is positive definite, since u^T Sigma u>=lambda(1-lambda)*sum(nu_s*u_s^2). The finitely many zero hyperplanes are simultaneously null, so there is joint convergence of the Boolean sign predicates, and averaging over root and loop gives a finite weighted cone expression. Every nonempty strict sign cell is open and has positive mass; homogeneity makes strict feasibility equivalent to a rational unit-margin LP. Testing true feasible cells for zero and false feasible cells for one handles both endpoints and a vacuous family of tests. The witness's one-vertex contribution has covariance (1/2,1/2;1/2,3/2), from which the orthant formula gives the stated angle. If alpha/pi were rational then 2cos(2alpha)=2/3 would be a rational algebraic integer, impossible. An independent small rational-bias check of this formula's finite census, using convolution and direct enumeration of increment sequences at lambda=3/5 and type masses (1,2,3,1)/7 in order 00,01,10,11, gives matching truth probabilities 17/35, 397/1225, 12122/42875, 440893/1500625 for n=1..4. Inspected but did not execute the frozen checker. The finite computation does not certify the limit or the LP equivalence; no assertion extends to nested successor counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior tree proof and examples deal with drift signs and balanced inequalities, and use Sheppard's formula in a rich family of limit values.",
+          "Theorem 5.1 of Adam-Day et al. gives almost-sure asymptotic constancy in a real-valued aggregation-term language across several graph models.",
+          "Resultary 546adf3693d6 imposes full Boolean bias and obtains a Boolean reduct with exponential error."
+        ],
+        "reasoning": "Neither changing graph models nor obtaining constancy for a different architecture subsumes exact endpoint decisions for hard balanced comparisons. Full-bias reduction removes precisely the zero-drift regions that can have nontrivial probabilities; prior tree convergence is broader in tree depth, not an effective graph endpoint theorem.",
+        "searches": [
+          "arXiv:2610.26187v1 §6.2 Examples 31–34 and Propositions 36–37",
+          "Adam-Day et al. arXiv:2403.03880v3 §5",
+          "Resultary 546adf3693d6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Ghosh–Schwarzentruber arXiv:2610.26187v1 as scoped above",
+        "Adam-Day et al. arXiv:2403.03880v3 §5",
+        "Resultary 546adf3693d6, e8baad95b71e, f50f25b52a0e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fact 30 decides extreme drift cases and expresses balanced systems by Gaussian integrals; its covariance is in formula-indicator coordinates and can be singular.",
+          "In the assigned graph proof, distinct categorical coordinates with a positive miss probability have full support. Identically zero rows are resolved before taking a limit. The feasibility test applies to all acceptable strict sign patterns, and separately to the complement."
+        ],
+        "reasoning": "Once a full-support rational cone formula is available, positivity and LP rescaling are elementary. But previously stating convergence or Gaussian orthant expressions does not supply a uniform exact algorithm covering constant/cancelling rows, Boolean combinations of comparisons and correlated inequalities. For example, two opposite balanced tests can each have a nontrivial limit while their conjunction lies only on a null hyperplane; testing nonempty closed systems alone gives the wrong endpoint. The strict support reduction for all rational graph inputs is the supported extension; no independent novelty credit is given for the fair convergence, explicit finite multinomial weighting, or elementary orthant mechanism.",
+        "searches": [
+          "Ghosh–Schwarzentruber Fact 30, Eqs. (1)–(5), offsets 57500–67353",
+          "Resultary 546adf3693d6 complete Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 28 is about recursively defined tree-model probabilities, agreeing with the tree model at depth one. Marking each potential child by an independent edge bit makes each graph root count a count of marked children; the one possible loop is an affine offset after conditioning.",
+          "Fact 30 of that theorem uses systems A N_n>=b, drift elimination and a Gaussian cone for the balanced system."
+        ],
+        "reasoning": "Fair graph convergence is an application of the depth-one tree argument, not a genuinely new CLT phenomenon. The prior text distinguishes general graph convergence as open; this result neither relies on nor resolves arbitrary-depth graph convergence.",
+        "searches": [
+          "Ghosh–Schwarzentruber arXiv:2610.26187v1, §6.2 Theorem 28 and §7",
+          "Resultary: depth-one modal counts, balanced rational Gaussian cones, endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected tree examples give concrete Gaussian cone limits, not a table or algorithm of endpoint cases for the graph fragment.",
+          "Resultary e8baad95b71e gives a Gaussian-angle spectrum for fair-colored perfect matchings with a witness having correlation 1/3 rather than 1/sqrt(3). Resultary f50f25b52a0e concerns sparse loopless one-step digraphs and Poisson subsums."
+        ],
+        "reasoning": "No inspected result tabulates the specific graph witness or supplies an equivalent endpoint test. A different exact numerical angle is meaningful prior coverage of the mechanism, not of the graph theorem. The witness itself is not the basis of the originality verdict.",
+        "searches": [
+          "Ghosh–Schwarzentruber Examples 31–34, Props. 36–37, and Appendix A benchmark",
+          "Resultary 546adf3693d6, e8baad95b71e, f50f25b52a0e Findings"
+        ]
+      },
+      "rationale": "Limited to the effective endpoint classification for the full stated depth-one fragment at rational graph parameters. Fair-model convergence and its drift/CLT/Gaussian-cone mechanism are already obtainable from Ghosh–Schwarzentruber through edge-marker translation; the orthant calculation is an instance of their general method. The new part supported by the comparison is a uniform rational zero/one decision theorem, with a type-basis normalization, constant-row handling and strict-cell support characterization that works for arbitrary Boolean combinations and arbitrary rational biases. The individual first-moment and LP ingredients are standard.",
+      "residual_risks": [
+        "A broader theorem on independent categorical threshold logics may already state this exact endpoint consequence in different terminology.",
+        "Rated beyond the inspected prior convergence theorem only for the effective rational graph-fragment classification. The specific angle is not assumed historically unique. Ranked searches and inspected passages do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair depth-one graph convergence mechanically recoverable; not a uniform rational endpoint characterization",
+          "evidence": "Sets up A N_n>=b and centers and scales it; negative or positive drift can give zero or one, and a balanced system is represented by a Gaussian cone. The inspected passage gives neither strict feasibility for the supported sign cells nor an endpoint algorithm for arbitrary rational graph inputs.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26187v1",
+          "material_read": "§6.2 Theorem 28, Fact 30, Examples 31–34, Props. 36–37 (offsets 55900–69896; personally rechecked 57500–67353); §7 and Appendix A scope",
+          "method": "Bounded OA primary text",
+          "title": "On Counting Graphs for Modal Logic with Counting",
+          "trigger": "Same syntax and graph-counting setup; stronger tree convergence and potential endpoint implication"
+        },
+        {
+          "assessment": "Different aggregate-term architecture; not a domination for balanced threshold language",
+          "evidence": "Theorem 5.1 establishes almost-sure constant-output convergence for the specified real-valued term classes.",
+          "identifier_or_url": "https://arxiv.org/html/2403.03880v3",
+          "material_read": "§5, Theorem 5.1, offset 25200",
+          "method": "Bounded OA primary text",
+          "title": "Almost Surely Asymptotically Constant Graph Neural Networks",
+          "trigger": "Potential broader random-graph convergence theorem"
+        },
+        {
+          "assessment": "Different full-bias hypothesis removes the balanced cone regime",
+          "evidence": "Dense independent directed graph model; exponential Boolean reduction under full Boolean bias; zero-one conclusion for the specified pure counting comparisons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exponential-boolean-reduct-law-for-biased-majority-modal-formula--546adf3693d6",
+          "material_read": "RESULT.md, offsets 0–5977",
+          "method": "Local Resultary mirror text",
+          "title": "Exponential Boolean reduct law for biased majority modal formulas",
+          "trigger": "Same dense directed graph model and zero/one behavior"
+        },
+        {
+          "assessment": "Related orthant mechanism, different ensemble and exact witness",
+          "evidence": "Boolean combinations of global counts of local types in fair-colored perfect matchings, including the witness 1/4+arcsin(1/3)/(2*pi).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-gaussian-angle-limits-and-irrational-readout-probabilities-for-c--e8baad95b71e",
+          "material_read": "RESULT.md, offsets 0–6860",
+          "method": "Local Resultary mirror text",
+          "title": "Gaussian angle limits and irrational readout probabilities for colored perfect matchings",
+          "trigger": "Exact related Gaussian-angle witness"
+        },
+        {
+          "assessment": "Sparse loopless graph, proposition-free outdegree predicates, not the dense categorical limit",
+          "evidence": "Poisson-subsums rather than Gaussian sign cells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-poisson-cantor-spectrum-and-sharp-precision-entropy-for-one-step--f50f25b52a0e",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror text",
+          "title": "Poisson–Cantor spectrum and sharp precision entropy for one-step outdegree readouts",
+          "trigger": "One-step modal degree limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A decision theorem for both limiting endpoints is useful even when convergence and approximate integration are known, since neither decides exact equality to zero or one. The result resolves this for a whole syntax fragment with balances, contradictory comparisons, indicators and loops, without having to evaluate any Gaussian integral. The witness demonstrates why this general classification must allow intermediate values and why an exact finite rational census alone does not identify the type of limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

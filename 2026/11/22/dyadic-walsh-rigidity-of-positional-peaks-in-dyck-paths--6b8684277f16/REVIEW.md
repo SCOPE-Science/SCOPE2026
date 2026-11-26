@@ -1,20 +1,21 @@
-# Mathematical assessment: positional Dyck-peak Fourier rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines precisely the unnormalized count kernel and its Walsh characters. Its decisive bijection removes prescribed, nonoverlapping two-step peaks at fixed **positions**, not heights, leaving an arbitrary shorter Dyck path. It yields a formula for every signed character. The elementary binary digit-sum inequality shows that every nonempty term has strictly larger two-adic valuation than the unsigned Catalan total at every odd semilength; this gives noncancellation without relying on finite extrapolation. The Narayana formula is rederived by Lagrange inversion, and its reflection symmetry supplies an explicit zero at every even semilength. Directly enumerated Dyck words and an independent formula agree on every character through order eight; all character transforms through order ten and the contraction-count checks also pass. The proofs cover every positive semilength, including one and two. The computed finite spectra are corroboration, not substitutes for the infinite arguments.
+## correctness
 
-## Originality — PASS, bounded comparison
-Mansour (2002) and Eu–Liu–Yeh (2003) enumerate peaks by **height**. Their objects have different indexing from peaks marked at arbitrary absolute step positions, and their cited principal results do not yield a nonzero Walsh character at every position-subset. Adin–Roichman (2004) is closer: its Dyck bijection identifies peaks before and after the midpoint with forward and inverse descents of 321-avoiding permutations. Its multivariate theorem tracks inverse descents, inversion number and last-descent parameters, not the unrestricted joint positional-peak Fourier signs used here. Classical Narayana symmetry already covers the single all-selected zero in even orders; that special case is not claimed novel. Related recorded work concerning binary Dyck **up-step** sets, height-three restricted paths, noncrossing matchings, Motzkin peaks and return times does not imply the exact two-adic valuation of every **peak-position** Walsh character. This comparison concerns mathematical implications, not title overlap. Search cannot rule out an unindexed equivalent or a specialized signed-peak generating-function treatment; historical priority remains a residual risk.
+PASS
 
-## Value — PASS
-The contribution is an infinite, complete invertibility classification on a canonical Catalan family, with an exact character formula, a uniform congruence independent of arbitrary signs, and a determinant valuation valid at all odd semilengths. In particular, odd semilengths such as five and nine have even Catalan totals but no cancelling Fourier characters, a property not decided by total parity alone. This makes precise which Catalan positional-peak distributions admit stable finite-group Fourier recovery and provides independently checkable arithmetic invariants. The argument is short because a natural peak-contraction bijection exposes a substantive exact two-adic rigidity; it is not an arbitrary finite slice or table recomputation.
+For any nonadjacent set J of prescribed UD start positions, delete the disjoint blocks. Reinserting them at the designated slots in the original word is uniquely defined and preserves the height constraint, so there are exactly C_(n-|J|) realizations; adjacent prescribed starts are impossible. Expanding the product of the selected Walsh signs proves the formula on all 2n-1 coordinates. Put N=n+1. For j>=2, s2(N)<=s2(N-j)+s2(j)<=s2(N-j)+j-1. For odd n, N is even and s2(N-1)>=s2(N), which supplies the j=1 case. With v2(C_m)=s2(m+1)-1, every nonempty term is divisible by 2^s2(N), whereas the empty term has precisely one fewer factor of two. This includes n=1 and C_0. At even n the Narayana symmetry pairs peak counts of opposite parity; the full-support eigenvalue is zero. The orthogonal Walsh basis gives invertibility, determinant valuation and inverse-norm bound with the specified unnormalized kernel. The phrase 'zero-frequency counts' at lines 64–67 is to be read as counts of vanishing multipliers, not as the multiplier at the empty frequency.
 
-## Closest literature and limitations
-- T. Mansour, *Counting Peaks at Height \(k\) in a Dyck Path* (2002), arXiv:math/0203222. Full journal PDF's statements on height-indexed peaks and generating functions checked.
-- S.-P. Eu, S.-C. Liu and Y.-N. Yeh, *Dyck Paths with Peaks Avoiding or Restricted to a Given Set* (2003), DOI:10.1111/1467-9590.t01-1-00042. Publisher bibliographic information and abstract checked; complete text was not available in the inspected sources. The explicit advertised parameter is height rather than position.
-- R. M. Adin and Y. Roichman, *Equidistribution and Sign-Balance on 321-Avoiding Permutations* (2004), SLC 51 B51d. Full PDF's statements and proofs in Sections 1, 2, and 5, including the peak/descent bijection and multivariate recurrence, checked.
-- Related mathematical-record searches returned height-three Dyck up-step spectra, Catalan matroid up-step spectra and noncrossing matching spectra; these concerns are distinct from the unrestricted local peak-coordinate pushforward.
+## originality
 
-The even-order complete nullity, a sharp positive multiplier gap for every order, and the best possible historical-priority determination remain outside this claim. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the exact congruence and valuation for every Walsh sign set at every odd semilength and the resulting invertibility classification. The classical Narayana full-support cancellation at even orders is prior input, not a new result. The closest accessible positional-peak literature and catalogue comparison do not cover the uniform valuation.
+
+## value
+
+PASS
+
+Adjacent UD is a canonical local observable on the Catalan ensemble. A uniform valuation for an exponentially large spectrum gives an exact recovery boundary, not just total Catalan parity or the Narayana histogram. For example C_5=42 is even, but every multiplier is nonzero of valuation one. The determinant and norm consequences are useful corollaries, not independent novelty claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

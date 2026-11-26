@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:36.415698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–37, VERIFICATION.md, artifacts/verify_g4.py",
+        "/workspace/lucas_g4_check.py"
+      ],
+      "rationale": "The congruence p+1 | qr−1 follows by substituting p≡−1 under that modulus, and cyclically. If d divides two normalized shifts, the associated original shifts share gd, and the congruence forces the third prime to be −1 modulo gd. Thus d divides the third normalized shift, making all three normalized shifts pairwise coprime since their triple gcd is one. This proves the LCM is gabc, so the displayed quotient T is integral. For x=1/a, y=1/b, z=1/c in (0,1], xy+xz+yz≤x+y+z, so λ=g²−T is positive for g≥2; also λ<3g/a. Hence a<3g. At g=4 each coordinate reciprocal has strictly positive coefficient 4 minus the other two reciprocals, so the bound with b=a+1 and c=a+2 decreases as a increases; it gives 422/429 at a=11 and leaves just p=3,7,11,19,23,31. The positive integer h=(pq−1)/(r+1) is less than p, and h(pr−1)=p²(q+1)−(p+1)(p+h). This bounds q≤2p²+p−2, with r≤pq−2. These bounds also prove effective finiteness for every fixed even G. Independent replay (python3 /workspace/lucas_g4_check.py) used an Eratosthenes sieve and traversed r≡p⁻¹ mod q+1, testing all original conditions and the shifted gcd. In p order the six unrestricted counts were 1,3,9,9,10,5 and the exact-gcd counts 1,1,1,1,1,0. The additional coarse-bound prime 43 gave none at G=4. The exact outputs are (3,7,19):399, (7,19,43):5719, (11,31,67):22847, (19,83,787):1241099, (23,67,139):214199. Exhaustion rests on proven bounds, not extrapolation. The frozen script was inspected but not run.",
+      "residual_risks": [
+        "The classification is for three distinct odd prime factors; the finiteness corollary does not classify larger even gcd strata or numbers with more factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tamilvanan–Muthukrishnan bound q and r for prescribed first factor m in n=mqr (q<3m² and r<3m³). Wright proves general infinitude. The arithmetic-progression theorem requires equally spaced primes."
+        ],
+        "reasoning": "A fixed first factor gives a finite fiber, not a finite set of eligible first factors at a fixed gcd. Infinitude across all strata does not settle one fixed stratum, and the arithmetic-progression hypothesis is absent here.",
+        "searches": [
+          "arXiv:2311.08012v3 Proposition 3.3; Wright arXiv:1609.00231; Resultary 0e46ab047f14"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd644204c2f1, 0e46ab047f14, a6f03c91eda1",
+        "arXiv:2311.08012v3 Prop. 3.3",
+        "arXiv:1609.00231 p. 3",
+        "OEIS A216925 and A006972",
+        "Programming Praxis, Lucas-Carmichael Numbers, 2015-01-06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise coprimality and the normalized quotient already appear as proof ingredients in the primitive G=2 case. The fixed-factor prior supplies a similar last-factor bound. Neither inspected statement supplies G=4 exhaustion or asserts a uniform least-factor cutoff from G."
+        ],
+        "reasoning": "The new use of the positive integral gap and its explicit optimization bounds the first prime in terms of G, allowing exact finite elimination. This is not a specialization of a prior theorem on a fixed p or a recomputation below an arbitrary table cutoff.",
+        "searches": [
+          "fd644204c2f1 Proof; arXiv:2311.08012v3 Proposition 3.3; A006972 normalized-factor comment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A006972's Dec. 23, 2020 comment uses d=gcd(p+1,q+1,r+1) and normalized factors, but states a sufficient divisibility condition, not a gcd exhaustion. Indexed fd644204c2f1 uses the same condition and integer quotient only at G=2. Indexed a6f03c91eda1 uses p−1,q−1,r−1, not shifted p+1,q+1,r+1."
+        ],
+        "reasoning": "Renaming d or treating the common divisor as a normalization does not convert a membership test or a fixed G=2 theorem into the G=4 exhaustion. Changing the sign of the shifts changes the congruence problem.",
+        "searches": [
+          "Resultary: three-prime Lucas–Carmichael fixed/shifted gcd, exact gcd four, primitive triple; OEIS A006972 normalized shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The A216925 displayed list includes 399, 5719, 22847 and 214199, ending at 966239. It links an ordinary three-prime table of 6685 terms below 10^15. The b-file rows were not verified; the displayed list does not cover 1241099. A006972 is the general Lucas–Carmichael sequence, not a table by G."
+        ],
+        "reasoning": "Individual examples are known or computable from catalogs. Even an exact finite table unconditioned on G does not by itself give all G=4 values: a separate global bound is needed to place the whole stratum below the table cutoff.",
+        "searches": [
+          "OEIS A216925 and linked b216925.txt; OEIS A006972; exact term 1241099; Programming Praxis 2015-01-06"
+        ]
+      },
+      "rationale": "The supported distinct claim is global exhaustion of the three-prime exact G=4 stratum, with a uniform effective least-prime bound for any fixed even shifted gcd. The known membership of individual integers and the precursor congruences, normalization and fixed-first-factor bounds are not novelty claims. Among checked sources, no theorem covers the new least-factor bound or full G=4 exhaustion.",
+      "residual_risks": [
+        "A differently indexed fixed shifted-gcd result could exist; the external phrase search yielded no pertinent hit and does not prove absence. The linked long OEIS table rows were not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "G_EQUALS_2_ONLY",
+          "evidence": [
+            "The iff result has G=2 and triple (5,13,31); its normalized shifts, LCM and quotient are methodological precedents."
+          ],
+          "identifier_or_url": "2026/9/20/SCOPE-lucas-carmichael-primitive-three-prime-uniqueness--fd644204c2f1",
+          "material_read": "RESULT.md Finding and normalized-factor Proof from offset 188",
+          "method": "Resultary search and local mirror text",
+          "title": "Uniqueness of the primitive three-prime Lucas–Carmichael number",
+          "trigger": "Exact fixed-gcd theorem with overlapping proof"
+        },
+        {
+          "assessment": "FIXED_FIRST_FACTOR_BOUND",
+          "evidence": [
+            "For n=mqr, q<r prime, q<3m² and r<3m³; no first-factor bound in terms of the shifted gcd in this proposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.08012v3",
+          "material_read": "Proposition 3.3 and proof, printed p. 5 / OA offset 11540",
+          "method": "Primary OA PDF",
+          "title": "A new characterization for the Lucas-Carmichael integers and sums of base-p digits",
+          "trigger": "Possibly stronger finiteness and factor bounds"
+        },
+        {
+          "assessment": "RESTRICTED_SUBFAMILY",
+          "evidence": [
+            "Arithmetic progression is a hypothesis, not forced by the G=4 condition."
+          ],
+          "identifier_or_url": "2026/9/21/SCOPE-lucas-carmichael-ap-prime-triple-parametrization--0e46ab047f14",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Lucas–Carmichael prime triples in arithmetic progression",
+          "trigger": "Possibly overlapping prime-triple classification"
+        },
+        {
+          "assessment": "FINITE_CENSUS_NOT_GCD_EXHAUSTION",
+          "evidence": [
+            "Four proposed numbers occur in the inline list; an unstratified finite table is linked."
+          ],
+          "identifier_or_url": "https://oeis.org/A216925",
+          "material_read": "Displayed term list and LINKS at offsets 429 onward",
+          "method": "OA website text; linked plain-text rows not readable through attempted retrieval",
+          "title": "Lucas-Carmichael numbers with 3 prime factors",
+          "trigger": "Potential exact table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3 and Relationship to prior work",
+        "Resultary fd644204c2f1; OEIS A216925"
+      ],
+      "rationale": "The common shifted gcd controls overlap of the three defining congruences. The result resolves the next possible stratum after G=2 without an arbitrary size cutoff and gives an effective reduction for any fixed even stratum. It provides a usable exact benchmark and a structural reason that a finite census is complete, rather than merely listing five known values.",
+      "residual_risks": [
+        "No general classification for higher gcd is proved; the exact G=4 classification uses bounded computation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

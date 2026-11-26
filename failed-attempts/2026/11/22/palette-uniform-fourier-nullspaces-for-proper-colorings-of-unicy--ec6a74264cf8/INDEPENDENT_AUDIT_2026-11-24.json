@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:41.776818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74; check.py and VERIFICATION.md inspected as source evidence",
+        "Independent coefficient check: python3 /workspace/branches/reproduction/review_unicyclic.py; review_unicyclic.out in the same directory"
+      ],
+      "rationale": "Diagonal translation forces vanishing at every unbalanced frequency. A tree obtained by deleting one cycle edge integrates arbitrary tree differences after choosing one root value, and forces the last difference by the unique cycle relation. On the dual side the free ambiguity is precisely a common cycle-character shift. Character filtering the cycle relation cancels the factor q from the root and leaves one sum of products of B(s), with bridge factors nonzero. In a cancelling q-term sum of powers of 1−q, divide by the smallest power and reduce modulo q−1. The number of terms attaining the minimum must equal q−1 (q≥3), and the remaining power cancels exactly when its exponent is one larger. The case of minimum zero would give c=1 and is excluded. Choosing the exceptional character, then dividing by the free q-shift, leaves Z_{q,c} choices per bridge assignment. The count of balanced characters is q^(N−1); subtracting proves the claimed rank and nullity. For c=qm+1, Z_{q,c} is (qm+1)/(m+1) times (qm)!/(m!)^q, so Stirling gives the stated fixed-q constant after division by q^(c−1). As a separate finite check I matched sixteen coefficients by inclusion–exclusion on edge equalities for resonant decorated cycles with q=6 and noncyclic q=8. The argument, not these examples, proves the universal quantifiers.",
+      "residual_risks": [
+        "Only connected simple unicyclic graphs and q≥3 are within the frozen claim; the asymptotic is along resonant lengths at fixed q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a682d457a14a applies to connected simple cacti with every finite abelian palette of order at least three, with a rank product over all cycle blocks.",
+          "Goodall supplies graph tension/flow duality and nowhere-zero tension enumerators, not the explicit extra-zero histogram in the inspected passage."
+        ],
+        "reasoning": "A connected simple unicyclic graph is a cactus with one cycle and N−c bridges; this matches all quantifiers and scopes without any restrictions on palette structure or attachment pattern.",
+        "searches": [
+          "Resultary a682d457a14a: all abelian-palette cactus colorings; arXiv:0806.4848v1 §4.4 chromatic tensions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and prior-work paragraph",
+        "Resultary a682d457a14a, a98d4f2cf356, f7d246f81d95",
+        "Goodall arXiv:0806.4848v1 §4.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set one cycle length ℓ=c and bridge count e=N−c in q^e times the product of q^(ℓ−1)−Z_q(ℓ); this is q^(N−1)−q^(N−c)Z_{q,c}.",
+          "The exact Z factorial in the earlier source gives the resonant asymptotic by Stirling, even though the inspected finding does not spell it out."
+        ],
+        "reasoning": "Subtraction from q^N gives nullity. Writing c=qm+1 in the earlier exact factorial and applying Stirling is an immediate implication, not a new analytic or combinatorial result.",
+        "searches": [
+          "a682d457a14a Finding, and Proof §§1–5 including the occupancy classification and rank product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a682d457a14a, Finding and Proof §§2–4: bridge factors q−1 or −1 and cycle factors (−1)^ℓ times the sum of (1−q) raised to symbol multiplicities; pinning one cycle symbol quotients by the same shifts."
+        ],
+        "reasoning": "The cactus convention puts a factor 1/q in its normalized cycle list and one factor q outside the block product; for a single cycle they cancel. Its frequency-by-frequency factorization and cycle proof give the frozen multiplier, not just a similar multiset.",
+        "searches": [
+          "Resultary: finite abelian palette, complete signed Fourier of proper cactus and unicyclic colorings, rank resonances; inspected a682d457a14a",
+          "Goodall arXiv:0806.4848v1 §4.4 tension/flow formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a682d457a14a specifies exactly (m+1,m,…,m) and the factorial Z for every q and resonant cycle length; it even lists the exact q=5,c=6 example.",
+          "a98d4f2cf356 and f7d246f81d95 give the restricted ternary simple-cycle cancellation and rank and resonant asymptotic."
+        ],
+        "reasoning": "An exact symbolic census covers the frozen claim more strongly than matching a finite table of small palette orders would. Ternary records alone would be only partial coverage.",
+        "searches": [
+          "Resultary exact Fourier zero and rank records: a682d457a14a, a98d4f2cf356, f7d246f81d95"
+        ]
+      },
+      "rationale": "The earlier November 16 Resultary cactus theorem is a verified stronger result on the same unnormalized convolution and the same palettes. With a single cycle block it gives precisely the frozen signed formula, the same pointwise zero histogram and the exact additional nullity and rank. The only additional displayed quantity is the direct fixed-q Stirling consequence of its exact count; this does not rescue originality.",
+      "residual_risks": [
+        "No claim to identify the earliest source for the stronger theorem. The decisive earlier Resultary coverage is verified; other older coverage would not change the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem covers entire substantive frozen claim",
+          "evidence": "Its single-cycle character coset gives (−1)^ℓ times the sum of (1−q) powers; reduction modulo q−1 yields the exact same occupancy pattern, and the rank formula specializes identically.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-palette-invariant-fourier-spectra-and-exact-rank-resonances-for--a682d457a14a/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3233 and block factorization and Proof §§2–5 at offsets 3850–6928",
+          "method": "Local Resultary mirror; exact formula substitution and proof comparison",
+          "title": "Palette-invariant Fourier spectra and exact rank resonances for cactus colourings",
+          "trigger": "Same normalized cycle-factor formula, palette range and exact rank resonance on a broader graph family"
+        },
+        {
+          "assessment": "Restricted exact match, not the strongest coverage",
+          "evidence": "Ternary occupancy {m,m,m+1} with exact rank and resonant asymptotic for a cycle.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-modulo-three-resonance-law-for-the-complete-ternary-fourier-sp--a98d4f2cf356",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A modulo-three resonance law for the complete ternary Fourier spectrum of cycle colourings",
+          "trigger": "Explicit ternary overlap with the cycle-only case"
+        },
+        {
+          "assessment": "Restricted overlap; no precedence inferred from date",
+          "evidence": "Ternary cycles only, with rank, frequency-count patterns and asymptotic.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-period-three-fourier-rank-resonance-for-proper-ternary-cycle-c--f7d246f81d95",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A period-three Fourier rank resonance for proper ternary cycle colourings",
+          "trigger": "Same-day exact rank resonance on cycles"
+        },
+        {
+          "assessment": "Methodological prior work rather than the decisive explicit coverage",
+          "evidence": "Tensions as endpoint differences, proper colorings via nowhere-zero tensions, and the tension/flow weight-enumerator relation.",
+          "identifier_or_url": "https://arxiv.org/html/0806.4848v1",
+          "material_read": "§4.4, OA HTML offsets 33494–40296",
+          "method": "OA full-text passage inspection",
+          "title": "Graph polynomials and Tutte-Grothendieck invariants: an application of elementary finite Fourier analysis",
+          "trigger": "General Fourier machinery that could cover the coloring spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40 and 66–74",
+        "Resultary a682d457a14a Finding and Proof §§1–5"
+      ],
+      "rationale": "The Fourier nullity is a useful invariant in general, but the frozen result supplies no independently useful new classification relative to the exact cactus theorem. Removing all but one cycle block is a parameter specialization of that theorem, and the asymptotic is a routine evaluation of its factorial count. There is no remaining substantive contribution to repair within this claim.",
+      "residual_risks": [
+        "This is a value decision about the marginal contribution of this record, not about the usefulness of Fourier rank or the earlier cactus theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

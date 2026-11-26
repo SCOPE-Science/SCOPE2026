@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:05:32.801406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked chamber coordinates: with d_k=x_(k+1)−x_(k), the nonnegative orthant is truncated by Σ D_k d_k≤s, so the contraction of chamber volume is ∏ s(m−k)/D_k and the gamma quotient follows. Conditional uniform barycentric weights have E[W_kW_l]=(1+δ_kl)/(m(m+1)). The resulting trace around c has numerator equal to the sum of squared centered vertex norms plus the squared norm of their sum, giving exactly both terms of R_m after division by the simplex trace (m−1)/(m(m+1)). Permutation symmetry makes the two covariances scalar on the same zero-sum hyperplane. Conditional on order, the rescaled coordinates are uniformly bounded; their means are the Riemann sums for g_s with uniformly bounded error from the single moving jump, and each variance is O_s(1/m). Finite grids and monotonicity give the stated sup-rank convergence. The first R_m term is O_s(1/m) after normalization, and the rest converges to Var(log Z), Z uniform on [1,1+s]. Stirling gives the stated entropy I. Direct differentiation of log F and u=log(1+s) reduce its sign to u sinh u+u²−4(cosh u−1); terms through degree four cancel and all even coefficients beginning at degree six are strictly positive. The small-s expansions and large-s limits give the two endpoints, and substitution gives the quoted trisection limit. Verified at fixed s with the order of limits as stated; neither finite-dimensional monotonicity nor convergence uniform in s is claimed. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazakov's exact c=2 core has volume fraction 1/binom(2m−1,m−1) and raises a limit-shape question. The John and Löwner result fixes extremal ellipsoids; the later polar-volume record has a primal beta-volume formula for all c>1."
+        ],
+        "reasoning": "The earlier trisection result covers that volume exactly; extremal ellipsoid contacts do not specify the uniform-volume covariance. Volume results, even all-ratio, leave the determinant calculation and strict isotropic comparison open.",
+        "searches": [
+          "Kazakov arXiv:2606.02087v1 §§2–3 and conclusion; Resultary central simplex contact/volume records e5eca0d45d36 and d79d6553a85b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kazakov arXiv:2606.02087v1",
+        "Resultary 26d47f09e2ad, e5eca0d45d36, d79d6553a85b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior radial limit is V(s). Under the fixed ratio constraint, m||X−c||² is bounded uniformly in m; its expectation therefore converges to V(s), as does the scalar covariance contraction relative to the simplex. Combining it with elementary chamber volume entropy already yields F(s)=e^I sqrt(V)."
+        ],
+        "reasoning": "The unadorned isotropic limit is mechanically recoverable and not credited on its own. Strict monotonicity needs a separate inequality with cancellations, and the finite-dimensional trace formula needs the second-moment computation, not a parameter re-expression of the radial limit.",
+        "searches": [
+          "26d47f09e2ad proof radial limit; Kazakov volume formula; fixed-ratio volume and isotropic-profile comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The empirical limit in 26d47f09e2ad has density proportional to e^(−y) on [a,c a], with a=log c/(c−1), plus convergence of both extremes. Its quantile is a−log(1−(c−1)t/c)=g_s(t) for c=1+s."
+        ],
+        "reasoning": "Weak empirical convergence to this strictly continuous law plus the extreme limits yields uniform-in-rank convergence to the quantile. The sorted shape is equivalent prior coverage in substance, despite the different form of statement.",
+        "searches": [
+          "Resultary central simplex truncated exponential, normalized sorted barycentric coordinates, fixed coordinate ratio",
+          "Uniform simplex order statistics and maximum-coordinate literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant inspected exact results describe the empirical law/radial limit, ellipsoidal contacts, or primal/polar volume. No exact finite covariance formula or strict isotropic profile found in those statements."
+        ],
+        "reasoning": "This is a bounded comparison, not an inference of priority from search ranking. The same-object material overlap is explicitly credited.",
+        "searches": [
+          "Resultary ratio-constrained simplex cores isotropic constant covariance exact finite dimensional rational Dirichlet ordered gaps strictly increasing limiting profile Marion central polytope",
+          "Nearest matching local records 26d47f09e2ad, e5eca0d45d36, d79d6553a85b"
+        ]
+      },
+      "rationale": "This pass is for the strict isotropic-profile theorem, with its finite-dimensional contraction identity, not for priority on the shape law, limiting covariance, or the bare formula obtainable by combining prior radial and volume asymptotics. Oct. 18 record 26d47f09e2ad already proves the empirical law and extrema at every fixed ratio, which imply the identical uniform-in-rank shape, and its radial limit gives the same covariance limit. The distinct results in the actual finding are the strict comparison across all ratio parameters with exact endpoint range and the exact finite-dimensional moment identity used to derive the profile. Those are not stated by the strongest inspected precedents; an exact limiting expression by itself does not prove the inequality or constrain the finite-dimensional correction.",
+      "residual_risks": [
+        "Older conditional order-statistics and simplex-core moment formulas could offer equivalent coverage not captured by bounded searches. The unnamed earlier fixed-ratio volumes/Hausdorff source referenced in 26d47f09e2ad was not identified. No exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sorted shape and radial asymptotic; together with volume entropy implies the bare isotropic limit",
+          "evidence": "Density e^(−y) truncated at a and c a, explicit extremal limits, and radial limit 1−c(log c)²/(c−1)². Does not state the strict isotropic profile in the material read.",
+          "identifier_or_url": "26d47f09e2ad",
+          "material_read": "RESULT.md offsets 0–3347 (Finding), 3200–5992 (radial proof), 6800–7940 (relationship)",
+          "method": "Local Resultary mirror",
+          "title": "Truncated-exponential bulk geometry of uniform central simplex points",
+          "trigger": "Same object at every fixed ratio and precisely matching typical-point and radial limits"
+        },
+        {
+          "assessment": "Precisely same c=2 body and finite volume fraction, not a covariance/profile theorem",
+          "evidence": "Inequalities x_i≤2x_j and fraction 1/binom(2n+1,n); asks for scaled limit shape.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.02087",
+          "material_read": "§2 pp. 2–3 offsets 7000–9146; §3 offset 11100–13453; conclusion p. 6 offsets 17000–18381",
+          "method": "OA primary PDF passages",
+          "title": "Generalization of Marion's Theorem: Volumes of Central Polytopes Obtained by Trisecting the Edges of Simplices",
+          "trigger": "Exact trisection object and plausible high-dimensional overlap"
+        },
+        {
+          "assessment": "Other invariants; polar-volume record postdates this record",
+          "evidence": "Contact geometry for c=2 and primal beta-volume/polar-volume results for all c>1.",
+          "identifier_or_url": "e5eca0d45d36; d79d6553a85b",
+          "material_read": "Finding offsets 0–1401 and 0–1420 respectively",
+          "method": "Local Resultary mirror",
+          "title": "Exact John and Löwner ellipsoids of the trisected simplex central polytope; Exact polar volumes of ratio-bounded simplex central polytopes",
+          "trigger": "Same bodies, exact affine geometry and volume"
+        },
+        {
+          "assessment": "No whole-paper coverage determination",
+          "evidence": "Identified subject is the unconditioned maximum; detailed conditional ratio overlap not assessed from this source.",
+          "identifier_or_url": "Fried (2022), maximum of uniform simplex coordinates",
+          "material_read": "Bibliographic search evidence only; full text not retrieved (HTTP 403)",
+          "method": "Lawful access attempted",
+          "title": "Fried's 2022 maximum-coordinate paper on uniform simplex sampling",
+          "trigger": "Possible equivalent simplex order-statistic formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural affine volume/covariance normalization exhibits a complete, strict interpolation across all fixed ratio constraints, with exact endpoint constants. Showing strictness is substantive because the variance and inverse volume factor change in opposing directions and the leading derivative coefficients cancel. The exact finite-dimensional trace formula also permits quantitative comparison before taking the dimension limit. This is useful even though the earlier typical shape and radial limit themselves are not distinct contributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

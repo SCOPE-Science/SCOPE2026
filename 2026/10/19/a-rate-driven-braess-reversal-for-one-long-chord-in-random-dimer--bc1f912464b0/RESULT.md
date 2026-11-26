@@ -2,127 +2,105 @@
 
 ## Finding
 
-Give every edge of the cycle \(C_n\) an independent exponential arrival clock of rate one. Add one chord joining vertices \(0\) and \(d_n\), with independent exponential clock of rate \(\lambda>0\). Process all edges in increasing arrival-time order, accepting an edge when both its endpoints are unmatched. Let \(M_n(\lambda)\) denote the terminal number of accepted dimers and let \(M_n(0)\) denote the count when the chord is absent.
+Give each edge of the cycle \(C_n\) an independent exponential arrival clock of rate one. Add a chord joining vertices \(0\) and \(d_n\), with independent exponential clock of rate \(\lambda>0\). Process edges in increasing arrival order, accepting an edge if both endpoints are unmatched. Let \(M_n(\lambda)\) be the terminal number of accepted dimers, let \(M_n(0)\) denote the count when the chord is absent, and put \(\Delta_n(\lambda)=\mathbb E M_n(\lambda)-\mathbb E M_n(0)\).
 
-**Theorem.** If \(2\le d_n\le n-2\), \(d_n\to\infty\), and \(n-d_n\to\infty\), then for each fixed \(\lambda>0\), the following finite expected difference converges:
-
+**Theorem.** Suppose \(2\le d_n\le n-2\), \(d_n\to\infty\), and \(n-d_n\to\infty\). For each fixed \(\lambda>0\),
 \[
-\lim_{n\to\infty}\left(\mathbb E M_n(\lambda)-\mathbb E M_n(0)\right)
-=\mathcal D(\lambda)
-=e^{-2}\int_0^1 \lambda(1-x)^{\lambda-1}e^{-2x}(2x-1)\,dx.
+ \lim_{n\to\infty}\Delta_n(\lambda)=\mathcal D(\lambda)
+ =e^{-2}\int_0^1\lambda(1-x)^{\lambda-1}e^{-2x}(2x-1)\,dx.
 \]
-
 The function \(\mathcal D\) is continuous and strictly decreasing on \((0,\infty)\), with
-
 \[
-\lim_{\lambda\downarrow0}\mathcal D(\lambda)=e^{-4},\qquad
-\mathcal D(1)=-e^{-4},\qquad
-\lim_{\lambda\to\infty}\mathcal D(\lambda)=-e^{-2}.
+ \lim_{\lambda\downarrow0}\mathcal D(\lambda)=e^{-4},\qquad
+ \mathcal D(1)=-e^{-4},\qquad
+ \lim_{\lambda\to\infty}\mathcal D(\lambda)=-e^{-2}.
 \]
-
-There is exactly one critical rate \(\lambda_*\in(0,1)\), numerically \(\lambda_*\approx0.425946020979\), at which the effect changes sign. In particular, inserting a *unit-rate* chord **decreases** the expected terminal number of dimers by \(e^{-4}+o(1)\), whereas inserting a sufficiently slow positive-rate chord increases it. For an absent chord, the difference is identically zero at every finite order; the positive weak-rate limit therefore reflects the noncommutation of the large-system and zero-chord-rate limits.
+There is exactly one critical rate \(\lambda_*\in(0,1)\), numerically \(\lambda_*\approx0.425946020979\). A unit-rate chord decreases the expected terminal count by \(e^{-4}+o(1)\), whereas a sufficiently slow positive-rate chord increases the limiting expected count. The two iterated limits through **positive** rates agree:
+\[
+ \lim_{\lambda\downarrow0}\lim_{n\to\infty}\Delta_n(\lambda)
+ =\lim_{n\to\infty}\lim_{\lambda\downarrow0}\Delta_n(\lambda)
+ =e^{-4}.
+\]
+In contrast, \(\Delta_n(0)=0\) by the no-chord convention. A vanishing positive rate makes the chord attempt arbitrarily late, rather than removing its attempt from the terminal process.
 
 ## Assumptions and scope
 
-Each edge attempts adsorption only at its first independent exponential-clock time. This is equivalent to repeated Poisson attempts because an attempted edge rejected after either endpoint is occupied can never subsequently be accepted. The chord endpoints become separated by arbitrarily many ordinary edges in both cyclic directions; the theorem does not concern chords of bounded cyclic length. The limiting statement is at each **fixed** positive chord rate and concerns the expected **number** of accepted edges, not the macroscopic dimer-density change (which vanishes).
-
-Write \(x=1-e^{-t}\in[0,1]\) for ordinary-edge time and \(h(x)=e^{-x}\). The transformed density of the chord's first attempt is
-
-\[
-\varphi_\lambda(x)=\lambda(1-x)^{\lambda-1},\qquad 0<x<1.
-\]
+Attempts after the first clock of the same edge cannot affect the result: once an edge is rejected because an endpoint is occupied, that endpoint remains occupied. Both cyclic arcs between the chord endpoints must diverge in length. The result concerns an order-one change in the expected **number** of accepted edges, not a nonzero change in limiting dimer density. For ordinary edges the transformed arrival variable \(x=1-e^{-t}\) is uniform on \([0,1]\). The transformed chord density is \(\varphi_\lambda(x)=\lambda(1-x)^{\lambda-1}\).
 
 ## Proof
 
-**1. Cavity factorization on a tree.** For an oriented tree edge \(u\to v\) with exponential rate \(r_{uv}\), let \(q_{u\to v}(t)\) be the probability that its branch does not attempt to occupy \(v\) successfully by time \(t\) when \(v\) is kept artificially available. Removing \(uv\), the branches incident to \(u\) are independent; conditioning on the clock of \(uv\) therefore gives
-
+**1. Cavity factorization on a tree.** For an oriented tree edge \(u\to v\), write \(q_{u\to v}(t)\) for the probability that its branch has not made a successful attempt on \(v\) by time \(t\) in the cavity experiment in which \(v\) is always available to this branch. If the edge has rate \(r_{uv}\), first-arrival conditioning and branch independence give
 \[
-q_{u\to v}(t)=1-\int_0^t r_{uv}e^{-r_{uv}s}
- \prod_{w\sim u,\,w\ne v}q_{w\to u}(s)\,ds.
+ q_{u\to v}(t)=1-\int_0^t r_{uv}e^{-r_{uv}s}
+ \prod_{w\sim u,\ w\ne v}q_{w\to u}(s)\,ds.
 \]
-
-Similarly the chance that edge \(uv\) is accepted at time \(t\) has density
-
+The acceptance-time density of edge \(uv\) is
 \[
-r_{uv}e^{-r_{uv}t}
-\prod_{w\sim u,\,w\ne v}q_{w\to u}(t)
-\prod_{z\sim v,\,z\ne u}q_{z\to v}(t).
+ r_{uv}e^{-r_{uv}t}\prod_{w\sim u,\ w\ne v}q_{w\to u}(t)
+ \prod_{z\sim v,\ z\ne u}q_{z\to v}(t).
 \]
+Indeed, a vertex remains free up to the first successful attempt into it in the separate cavity experiments. No independence of the actual acceptance events competing for the same vertex is needed. In transformed time the single homogeneous half-line message \(h\) satisfies \(h'=-h\), \(h(0)=1\), so \(h(x)=e^{-x}\). A typical ordinary edge is accepted with probability \(\int_0^1h(x)^2dx=(1-e^{-2})/2\), and a vertex between two homogeneous half-lines is unmatched at the end with probability \(h(1)^2=e^{-2}\).
 
-These formulas follow from first-arrival conditioning; there are no independence assumptions between competing claims to the *same* vertex. On a homogeneous one-sided infinite path, the sole cavity message satisfies \(h'= -h\) in transformed time \(x\) and \(h(0)=1\), hence \(h(x)=e^{-x}\). A typical ordinary edge is accepted with probability \(\int_0^1h(x)^2dx=(1-e^{-2})/2\).
-
-**2. The isolated chord defect.** At fixed distance from the chord, the graphs tend to two disjoint bi-infinite paths connected by one bridge. Its endpoints each have two ordinary arms and one bridge. By reflection symmetry the cavity message sent from either endpoint along the bridge is
-
+**2. The isolated chord defect.** In the limit the neighborhood of the chord is two bi-infinite paths connected by a single bridge. Each bridge endpoint has two homogeneous half-line arms. From either endpoint the cavity message along the bridge is
 \[
-b(x)=1-\int_0^x\varphi_\lambda(y)h(y)^2\,dy,
-\qquad k(x)=1-b(x)=\int_0^x\varphi_\lambda(y)e^{-2y}\,dy.
+ b(x)=1-\int_0^x\varphi_\lambda(y)h(y)^2\,dy,
+ \qquad k(x)=1-b(x).
 \]
+The probability of accepting the bridge is \(P_{\mathrm{bridge}}=\int_0^1\varphi_\lambda(x)h(x)^4\,dx\).
 
-The bridge's acceptance probability is
-
+On any arm write \(m_1\) for the cavity message from the bridge endpoint toward its first ordinary neighbor, and \(m_2,m_3,\ldots\) for the successive messages in the same direction. Then
 \[
-P_{\rm bridge}=\int_0^1\varphi_\lambda(x)h(x)^4\,dx.
+ m_1(x)=1-\int_0^x h(y)b(y)\,dy,\qquad
+ m_{j+1}(x)=1-\int_0^x m_j(y)\,dy.
 \]
+For \(\delta_j=m_j-h\) this gives \(\delta_1'=hk\) and \(\delta_{j+1}'=-\delta_j\), with \(\delta_j(0)=0\). Since \(0\le hk\le1\), repeated integration gives \(|\delta_j(x)|\le x^j/j!\). The sum \(S=\sum_{j\ge1}\delta_j\) therefore satisfies \(S'=hk-S\), \(S(0)=0\), so \(S(x)=e^{-x}\int_0^x k(y)\,dy\).
 
-Along any of the four ordinary rays, let \(m_1\) denote the cavity message from the degree-three endpoint to its first ordinary neighbor, and \(m_j\) the next outgoing message at distance \(j\). Then
-
+The bridge-adjacent arm edge is accepted with probability \(\int_0^1 h(x)^2b(x)\,dx\). The \(j\)-th edge, \(j\ge2\), is accepted with probability \(\int_0^1 h(x)m_{j-1}(x)\,dx\). Subtracting the homogeneous probability from each and summing gives one arm's net contribution
 \[
-m_1(x)=1-\int_0^x h(y)b(y)\,dy,
-\qquad m_{j+1}(x)=1-\int_0^x m_j(y)\,dy\quad(j\ge1).
+ \mathcal A=\int_0^1e^{-2x}\left[-k(x)+\int_0^x k(y)\,dy\right]dx.
 \]
-
-Set \(\delta_j(x)=m_j(x)-h(x)\). The first deviation satisfies \(\delta_1'(x)=h(x)k(x)\), and successive deviations satisfy \(\delta_{j+1}'(x)=-\delta_j(x)\), with \(\delta_j(0)=0\). Their sum \(S(x)=\sum_{j\ge1}\delta_j(x)\) converges uniformly on \([0,1]\) by the factorial bounds obtained by iterating integration. It obeys
-
+The total contribution is \(P_{\mathrm{bridge}}+4\mathcal A\). By Fubini, using the definition of \(k\) and
 \[
-S'(x)=h(x)k(x)-S(x),\qquad
-S(x)=e^{-x}\int_0^x k(y)\,dy.
+ \int_y^1e^{-2x}(x-y-1)\,dx=\frac{e^{-2}}4(2y-1)-\frac{e^{-2y}}4,
 \]
+the term \(-\int_0^1\varphi_\lambda(y)e^{-4y}\,dy\) in \(4\mathcal A\) cancels \(P_{\mathrm{bridge}}\). What remains is the stated integral.
 
-The edge immediately adjacent to the bridge is accepted with probability \(\int_0^1h(x)^2b(x)dx\). Every more distant arm edge, indexed \(j\ge2\), has acceptance probability \(\int_0^1h(x)m_{j-1}(x)dx\). Thus the total excess expected number of occupied edges contributed by one ray over its homogeneous comparison is
+**3. Localization from finite cycles.** Use the same ordinary clocks with and without the chord. Regard greedy matching as greedy independent set on the line graph: an edge's status depends only on earlier neighboring edges. A change in status can therefore propagate only along paths of strictly decreasing clocks when traced from the edge back toward the chord. If an ordinary edge is at line-graph distance at least \(r\) from the chord, the dependency path must begin with at least \(r\) ordinary clocks in descending order. The line graph has maximum degree four, so a union bound gives probability at most \(4^r/r!\), independent of \(n\) and the positive chord rate. There are at most four ordinary edges at any given distance from the chord, as seen by walking along the two cyclic arcs in both directions. Thus the expected defect outside radius \(R\) is bounded in absolute value by \(4\sum_{r\ge R}4^r/r!\).
 
+Within any fixed radius the ordinary arcs converge to the four disjoint arms of the bridge. To identify the limiting status of a fixed edge, first compute it in a finite neighborhood, then enlarge that neighborhood. A disagreement with the full-graph status requires a descending dependency path exiting the neighborhood; the same factorial bound applies, using the ordinary clocks along the path (at most one clock is the chord's). This also defines the infinite-tree status and justifies the cavity calculation. Taking the local limit and then sending \(R\to\infty\) proves convergence of the total defect.
+
+**4. Strict reversal.** The chord's transformed arrival has distribution \(U_\lambda\sim\mathrm{Beta}(1,\lambda)\). For \(g(u)=e^{-2u}(2u-1)\) one has \(g'(u)=4(1-u)e^{-2u}\); thus \(g\) is strictly increasing on \([0,1]\). The tail \(\Pr(U_\lambda>u)=(1-u)^\lambda\) strictly decreases with \(\lambda\) for all \(0<u<1\). Hence \(\mathcal D(\lambda)=e^{-2}\mathbb E g(U_\lambda)\) strictly decreases. The representation \(U_\lambda=1-V^{1/\lambda}\) for one uniform \(V\in(0,1)\), with bounded \(g\), gives continuity and both endpoint limits. The integral at \(\lambda=1\) is evaluated using the primitive \(-u e^{-2u}\), giving \(-e^{-4}\). Strict decrease and the endpoint signs imply exactly one zero. For numerical evaluation one may substitute \(y=1-u\), expand the exponential, and use
 \[
-\mathcal A=\int_0^1 e^{-2x}\left[-k(x)+\int_0^xk(y)\,dy\right]dx.
+ \mathcal D(\lambda)=e^{-4}\lambda\sum_{j=0}^{\infty}\frac{2^j}{j!}
+ \left(\frac1{\lambda+j}-\frac2{\lambda+j+1}\right).
 \]
+The expansion is justified by uniform absolute convergence of the exponential series times the integrable factor \(y^{\lambda-1}\). The absolute truncation error is bounded by \(e^{-4}\sum_{j\ \text{omitted}}2^j/j!\), since \(|1-2y|\le1\) on \([0,1]\).
 
-Accounting for four rays and the new bridge yields \(\mathcal D=P_{\rm bridge}+4\mathcal A\). Fubini's theorem gives, for each \(0\le y\le1\),
-
+**5. Weak positive rate at fixed cycle size.** Write the chord clock as \(E/\lambda\) for a common independent rate-one exponential \(E>0\). At fixed \(n\), as \(\lambda\downarrow0\) the chord eventually arrives after the last ordinary clock almost surely. On that event the count difference is the indicator that both chord endpoints are unmatched in the ordinary terminal matching. For fixed \(n\) the count difference is bounded, so
 \[
-\int_y^1e^{-2x}(x-y-1)dx
-=\frac{e^{-2}}4(2y-1)-\frac{e^{-2y}}4.
+ \lim_{\lambda\downarrow0}\Delta_n(\lambda)
+ =\Pr(0\text{ and }d_n\text{ are both unmatched on } C_n).
 \]
-
-Using \(k(x)=\int_0^x\varphi_\lambda(y)e^{-2y}dy\), the terms \(-\int_0^1\varphi_\lambda(y)e^{-4y}dy\) and \(P_{\rm bridge}\) cancel, leaving precisely the claimed integral for \(\mathcal D\).
-
-**3. From long cycles to the isolated defect.** Couple the with-chord and without-chord processes using the same ordinary-edge clocks. For an ordinary edge at line-graph distance at least \(r\) from the chord, changing the chord can affect its fate only if there is a path of \(r\) or more consecutively earlier ordinary-edge priorities connecting it to the chord. The line graphs have maximum degree at most four; the number of possible length-\(r\) paths is at most \(4^r\), while a specified sequence of \(r\) iid continuous ordinary clocks has probability at most \(1/r!\) of lying in the necessary strict order. Hence the probability of a remote influence is bounded by \(4^r/r!\), uniformly in \(n\) and in the positive chord rate. There are at most a constant number of ordinary cycle edges at each fixed line-graph distance from the chord, so the sum of expected differences outside radius \(R\) is dominated by \(C\sum_{r\ge R}4^r/r!\to0\). Inside each fixed radius, both cyclic arcs tend to disjoint infinite rays under the separation hypotheses; coupling and the same factorial bound identify the limiting local expectation. This proves convergence of the total expected difference to the tree value.
-
-**4. A unique rate reversal.** Let \(U_\lambda\) have distribution \(\operatorname{Beta}(1,\lambda)\); its density is \(\varphi_\lambda\). Then
-
-\[
-\mathcal D(\lambda)=e^{-2}\mathbb E[g(U_\lambda)],
-\qquad g(u)=e^{-2u}(2u-1),
-\qquad g'(u)=4(1-u)e^{-2u}>0\quad(0\le u<1).
-\]
-
-The tail \(\mathbb P(U_\lambda>u)=(1-u)^\lambda\) strictly decreases in \(\lambda\) for \(0<u<1\). Strict stochastic ordering thus makes \(\mathcal D\) strictly decreasing. Weak convergence \(U_\lambda\Rightarrow1\) as \(\lambda\downarrow0\) and \(U_\lambda\Rightarrow0\) as \(\lambda\to\infty\) gives the endpoint values. Direct elementary integration at \(\lambda=1\) yields \(\mathcal D(1)=-e^{-4}\). Continuity and the intermediate-value theorem give a unique zero; numerical quadrature gives the stated rate.
+The latter probability tends to \(e^{-4}\). For a fixed truncation radius, the neighborhoods of the two endpoints are disjoint for all sufficiently large \(n\), hence the two truncated vacancy events are independent. Each vacancy event is determined by its incident edge statuses; the descending-path bound of part 3 makes the truncation error tend to zero as the radius grows, uniformly in such \(n\). The limiting full-path vacancy probability is \(h(1)^2=e^{-2}\) from part 1, so the product is \(e^{-4}\). Together with part 4 this proves the equality of the iterated limits. Setting the chord rate to zero in the sense of omitting the edge is not taking the right limit after running the process to its terminal state.
 
 ## Verification
 
-The accompanying `verify.py` implements an exact first-clock decomposition of the finite-graph stochastic process: condition on the first arriving edge, remove both its endpoints, and recurse on the remaining weighted edge set. It independently computes the limiting integral by midpoint quadrature in beta-quantile coordinates and compares its values against the finite cycle with twenty vertices and an antipodal chord at four distinct rates. The code tests strict rate ordering, the positive/negative sign change, the special value \(-e^{-4}\), and both extreme-rate limits. Run `python verify.py` using Python 3; no additional dependencies are required. These numerical checks are supplementary to the infinite-volume proof.
+The accompanying standard-library `verify.py` implements the exponential first-arrival recursion for finite graphs, evaluating it in floating-point arithmetic. It conditions on the first edge, removes its endpoints and invokes the memoryless property for the remaining clocks. It compares four rates for the twenty-vertex cycle with its antipodal chord against quadrature in beta-quantile coordinates. These checks are supplementary and do not prove the infinite-volume limit, the iterated limits, or uniqueness of the critical rate. The convergent series in part 4 gives a separate way to compute the zero by bisection.
 
 ## Relationship to prior work
 
-The classical literature establishes random sequential adsorption of dimers and randomized greedy matchings. Pippenger (1989) treats RSA on graphs; Evans (1993) reviews exact one-dimensional adsorption methods; Dyer and Frieze (1991) analyze randomized greedy matching; Miller and Pritikin (1997) provide bounds for weighted greedy matchings. Gamarnik and Goldberg (2009, first preprint 2008) rigorously study weighted and unweighted randomized greedy matchings on regular graphs, and Krivelevich, Mészáros, Michaeli, and Shikhelman (2024, first published 2023) study random greedy independent sets through local limits, noting the line-graph reduction for matchings. These establish context and methods, but their inspected statements do not explicitly give the **order-one signed adsorption defect** generated by a single isolated long-range chord, its exact rate integral, or its unique sign reversal. General correlation-decay techniques alone describe locality, not the evaluated defect constant. Relevant older full text was not uniformly available, so absolute novelty is not claimed.
+Classical random sequential adsorption and greedy matching works establish the setting, one-dimensional adsorption methods and dependency-path bounds. In particular, Gamarnik and Goldberg treat correlation decay for random greedy matchings on regular graphs, and Krivelevich, Mészáros, Michaeli and Shikhelman give the line-graph reduction and local-limit priority-path bounds. These methods do not by themselves evaluate the signed sum of acceptance-probability differences created by a single added bridge. The contribution here is the exact order-one signed defect integral for a long chord, and the unique sign reversal as a function of its rate, not a new general nonmonotonicity principle. Related short-chord results for greedy **vertex** independent sets on cycles concern a different process; on the line graph, adding the original chord adds a vertex adjacent to four ordinary-edge vertices. Changing the rate of an existing bond on a path and adding a hub with spokes at every cycle vertex are different perturbations from the one studied here.
 
 ## Limitations
 
-This is an expectation theorem for a single added chord with asymptotically separated endpoints, not a finite-order monotonicity assertion. Finite graphs need not have precisely the limiting sign at the threshold. The baseline rates are exactly one and the chord rate is fixed as size grows. Neither concentration of the count difference nor an error bound uniform over all positive chord rates is established. One older foundational paper on graph RSA and some weighted-greedy-matching publications remained inaccessible in full text; potential equivalent formulations therein are an originality risk. No independent scientific audit has been performed.
+The formula is for a fixed positive chord rate and both cyclic arc lengths tending to infinity; the weak-rate statement above concerns the two iterated limits. The theorem is not a claim that the finite-cycle sign always matches the limiting sign or changes monotonically in the rate. It does not address bounded-length chords or give concentration of the count difference. Some older full texts on graph adsorption and weighted greedy matching could not be inspected; historical priority is not asserted exhaustively.
 
 ## References
 
-- P. Schaaf and J. Talbot, “Kinetics of Random Sequential Adsorption,” *Physical Review Letters* 62, 175 (1989), doi:10.1103/PhysRevLett.62.175 (published 1989-01-09).
+- P. Schaaf and J. Talbot, “Kinetics of Random Sequential Adsorption,” *Physical Review Letters* 62, 175 (1989), doi:10.1103/PhysRevLett.62.175.
 - N. Pippenger, “Random Sequential Adsorption on Graphs,” *SIAM Journal on Discrete Mathematics* 2, 393–401 (1989), doi:10.1137/0402034.
 - M. Dyer and A. Frieze, “Randomized greedy matching,” *Random Structures & Algorithms* 2, 29–45 (1991), doi:10.1002/rsa.3240020104.
 - J. W. Evans, “Random and cooperative sequential adsorption,” *Reviews of Modern Physics* 65, 1281 (1993), doi:10.1103/RevModPhys.65.1281.
-- Z. Miller and D. Pritikin, “On randomized greedy matchings,” *Random Structures & Algorithms* 10, 353–383 (1997), doi:10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V.
-- D. Gamarnik and D. A. Goldberg, “Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections,” *Combinatorics, Probability and Computing* 19, 61–85 (2010); arXiv:0807.1277 (first public version 2008).
-- M. Krivelevich, T. Mészáros, P. Michaeli, and C. Shikhelman, “Greedy maximal independent sets via local limits,” *Random Structures & Algorithms* 64, 986–1015 (2024), doi:10.1002/rsa.21200.
+- Z. Miller and D. Pritikin, “On randomized greedy matchings,” *Random Structures & Algorithms* 12, 353–383 (1997), doi:10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V.
+- D. Gamarnik and D. A. Goldberg, “Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections,” *Combinatorics, Probability and Computing* 19, 61–85 (2010), arXiv:0807.1277.
+- M. Krivelevich, T. Mészáros, P. Michaeli and C. Shikhelman, “Greedy maximal independent sets via local limits,” *Random Structures & Algorithms* 64, 986–1015 (2024), arXiv:1907.07216.

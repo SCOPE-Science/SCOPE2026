@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:01:28.217490Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For reduced positive-degree complex plane support, Bézout connects the components. The normalization map identifies finite fibers, lowering Euler characteristic by the sum of branch counts minus one; identifying finite subsets does not change H_2, so b_2 is the number of components. It follows that b_* = 2 + 2 sum g_i + sum_p(b_p−1). Substitution of the genus–delta and Milnor–branch identities and splitting b_p−1 into the within-component contributions and k_p−1 gives exactly the stated local defect after Bézout. At k_p≥2, the intersection sum is at least binom(k_p,2); vanishing defect forces k_p=2 and multiplicity one there, and zero component Milnor numbers force smoothness. Successively choosing general components gives these transverse double points and avoids prior crossings. The fixed-r objective depends positively on sum d_i², strictly improved by transferring a unit from a smaller degree >1 to a larger one. Strict convexity in r leaves the endpoint comparison: the reducible endpoint difference is (d−5)(d−2)/2; the global maximum is 2,3,5,8 for degrees 1–4 and d²−3d+4 thereafter. The quartic global tie and the quintic reducible-only tie are correct. A nonreduced divisor has support of degree ≤d−1 and inherits its Betti numbers; M(d) is increasing and M(d−1)=d²−5d+8 is below the reducible threshold by d−1 for d≥6, justifying the certificate for all divisors. Independently checked 271 positive-degree partitions through degree 12 by recursive generation and the global Milnor formula at the nodal extremizer (python /workspace/branches/independent_math_checks.py, section 3). This is an algebraic finite check, not a topological proof. Inspected the frozen checks/betti_envelope.py without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ancona–Cao takes a normalized limsup over linear systems and identifies the asymptotic invariant with volume in the ample setting.",
+          "Pan–Zhang–Zhang §6 gives a degree-asymptotic Betti upper bound with an O(d^(n−1)) term."
+        ],
+        "reasoning": "Specializing to the plane gives the leading scale but cannot recover the finite lower-order terms, the change in maximizing component count, or which singularities can occur at equality.",
+        "searches": [
+          "arXiv:2610.24134v1 Definition 1.1, Theorems 1.4–1.5 and Corollary 1.6",
+          "arXiv:2601.20179v1 §6 Theorem 6.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24134v1",
+        "arXiv:2601.20179v1",
+        "Resultary local ranked plane-curve results and the degree-nine bad-fiber RESULT.md",
+        "Frozen RESULT.md lines 44–87 for the classical-identity reduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical identities yield the general Betti bookkeeping, with B−b_* equal to the difference between the global Milnor sum and the normal-crossing benchmark. The cited modern results bound normalized or asymptotic Betti numbers, not that difference's optimal consequences for component partitions."
+        ],
+        "reasoning": "The partition result requires the local equality analysis and simultaneous geometric realization, then an independent optimization over degrees and component counts; no inspected stronger theorem supplies those conclusions by specializing its parameters.",
+        "searches": [
+          "arXiv:2610.24134v1 §1",
+          "arXiv:2601.20179v1 §6",
+          "Classical genus–delta, Milnor–branch and Bézout identities as used in the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing b_* = 2r + (d−1)(d−2) − sum_p μ_p(C), the partition defect is equivalently excess of the global Milnor sum over sum_{i<j} d_i d_j.",
+          "The degree-nine sextic-plus-triangle Finding specifies a fixed integral equation and a Tjurina sum of 49, then analyzes its special fibers in characteristics 2 and 3. It does not optimize rational topological Betti numbers over complex curves."
+        ],
+        "reasoning": "A common degree or the word ‘maximizing’ does not make these problems equivalent; the candidate optimizes total rational homology over all complex supports of a prescribed degree partition, equivalently minimizing a Milnor sum at fixed r.",
+        "searches": [
+          "Resultary: complex projective plane curve total rational Betti exact finite degree maximum component degree partition Milnor intersection defect irreducibility",
+          "arXiv:2610.24134v1 §1",
+          "Resultary 2026/11/2/SCOPE-the-two-bad-fibers-of-the-degree-nine-maximizing-sextic-plus-tri--4c071b5cf751"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No ranked hit inspected contained the exact partition envelope. Two same-date hits concerned a Heawood stable curve over finite fields and the bad fibers of a particular degree-nine Tjurina-maximizing divisor; the latter's exact Finding was compared."
+        ],
+        "reasoning": "A table of fixed curve configurations or arithmetic degenerations does not give sharp optimization over all complex degree partitions. Ranked search does not rule out an older exact formula or table.",
+        "searches": [
+          "Resultary: complex projective plane curve total rational Betti exact finite degree maximum component degree partition Milnor intersection defect irreducibility"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp finite envelope for each degree partition, including equality geometry and exact comparisons among component counts. The constituent topological and singularity identities are classical; in particular the defect identity can be rewritten using a global Milnor sum and is not itself a new singularity formula. The sources compared do not supply the sharp partition and finite extremizer classification. This is a bounded scientific judgment, not priority certification.",
+      "residual_risks": [
+        "An old exact inequality or equivalent extremizer classification under a Milnor/Euler formulation could be missed by Betti-number indexing.",
+        "The ranked index is not exhaustive; the comparison supports distinctness against the inspected passages, not historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic overlap, not an exact finite envelope",
+          "evidence": "Definition 1.1 uses the normalized limsup; Corollary 1.6 relates it to the volume for ample line bundles.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24134v1",
+          "material_read": "§1, offsets 1500–6499 around Definition 1.1, Theorems 1.4–1.5 and Corollary 1.6",
+          "method": "OA full-text passage inspection",
+          "title": "Invariants of big classes from asymptotic total Betti numbers",
+          "trigger": "Motivating supremum over linear systems; possible stronger finite statement"
+        },
+        {
+          "assessment": "The compared bound is asymptotic and does not imply finite equality regimes",
+          "evidence": "The degree bound has a leading term with error O(d^(n−1)); the abstract includes the complex topological specialization.",
+          "identifier_or_url": "https://arxiv.org/html/2601.20179v1",
+          "material_read": "Abstract around offset 531 and §6 Theorem 6.2 around offset 154500",
+          "method": "OA full-text passage inspection",
+          "title": "Asymptotic Betti bounds for hypersurfaces in a singular variety",
+          "trigger": "Higher-dimensional degree bound that might specialize to plane curves"
+        },
+        {
+          "assessment": "Different invariant and objective, independent of date order",
+          "evidence": "The claim fixes F=XYZ((X²+Y²+Z²)^3−27X²Y²Z²) and determines its arithmetic special fibers and Tjurina data.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-two-bad-fibers-of-the-degree-nine-maximizing-sextic-plus-tri--4c071b5cf751",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3590",
+          "method": "Local Resultary mirror",
+          "title": "The two bad fibers of the degree-nine maximizing sextic-plus-triangle",
+          "trigger": "Same-date ranked plane-curve extremality lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite evaluation of the natural plane linear-system supremum is not supplied by its limiting volume. The partition envelope identifies exactly how distributing component degrees can beat a smooth curve in low degree, and the reducible envelope gives a practical sharp sufficient Betti threshold for reduced irreducibility. The quartic and quintic ties arise from competing geometries, not from an arbitrary set of tabulated degrees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

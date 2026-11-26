@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. Each implementation computes the minimum induced-edge count and number of extremal vertex subsets for every size 0 through 9, on each of the two explicit 27-edge cubic graphs. Each scans all 262144 vertex subsets, with no random samples. The two enumeration algorithms use direct edge summation and least-significant-bit recurrence, respectively, and assert all tabulated integers. A separate evaluation of linear energy branches produces all field plateaux and degeneracies. The reported output is `ALL_EXHAUSTIVE_CHECKS_PASSED`.
+## correctness
 
-Limits: exact finite computation certifies only the specified 18-vertex graphs and the stated Hamiltonian. No independent audit or literature-priority certification has occurred.
+PASS
+
+For a size-r down-spin set, cut=3r−2e(S), M=18−2r and H/J=27−2 cut−(h/J)M. Independently reproduced the complete cut-size by magnetization histograms by traversing all 262144 spin assignments per graph in Gray order, updating the cut from the three neighbors of each flipped vertex. The resulting minima and multiplicities match all 20 displayed entries; checking every rational line intersection and every intervening interval (including the unbounded tail) gives exposed (M, intercept) pairs (2,−21),(18,27) and (0,−19),(4,−15),(18,27). The only positive changes are h/J=3 and h/J=1,3 respectively. At zero the first has one state at each of M=−2 and 2, and the second four at M=0. At 1 the second has counts 4,42,36 at M=0,2,4. At 3 the histograms give every listed sector and totals 2495 and 2473. Cubicity also gives H/J=−27+4e(S) at h/J=3 for every spin assignment, so these are precisely the independent-set totals. Graph identities independently checked via edge-preserving relabelings to the 2004 primary facial walks and agreement of automorphism group orders 8 and 4 with Sage's documented convention. Sage's first is the genus-two graph called the 'Blanuša double' by Orbanić et al.; Sage's second is their genus-one 'Blanuša snark'. This naming distinction does not change the frozen result, which specifies Sage order and exact edges.
+
+## originality
+
+PASS
+
+The induced-subgraph energy method and the regular-degree saturation mechanism are not new. The supported distinct claim is the evaluated exact two-graph contrast: the zero-field minimizers, positive-field envelopes and sector degeneracies for these two original Blanuša snarks. Actual primary and catalogue comparisons found no distinct source that supplies those data, with the limitations below.
+
+## value
+
+PASS
+
+The original 18-vertex cubic snark pair is a canonical same-order comparison with common degree, girth and edge-coloring obstruction. Their qualitatively different zero-field magnetization and finite-field onset give a specific separation on frustrated finite graphs, and the full magnetization-resolved degeneracy census is an exact benchmark beyond just identifying the last critical field. This value is graph-specific, not a claim to have invented the method or found a thermodynamic phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

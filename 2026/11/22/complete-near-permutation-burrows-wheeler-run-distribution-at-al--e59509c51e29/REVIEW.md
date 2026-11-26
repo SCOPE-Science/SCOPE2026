@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All near-permutation necklaces are primitive because at least one symbol occurs once. The BWT last column has exactly two equal entries; sorted-rotation first-letter blocks identify their positions. The nonadjacent source case reduces to two singleton first-letter blocks, and the adjacent-source case is resolved by the relative ordering of the two rows beginning with the duplicated symbol. Both lead to precisely the same rank-adjacency test. The uniform successor-pair bijection has exactly \((n-3)!\) necklaces per pair for every repeated symbol. Explicit multiplication and subtraction give the stated exact formulas, including the boundary case \(n=3\). Source-based exhaustive BWT calculation and independent stable-LF single-cycle enumeration agree for every \(3\le n\le9\). Finite enumeration is not presented as an all-length proof.
+PASS
 
-## Originality — PASS against inspected evidence
+A singleton letter forces primitivity, and the two rows with predecessor a are exactly the rows starting at its two successors. These positions are distinct, and their symbols cannot coincide: if both were a, the two a-positions would form the entire two-cycle, contrary to n≥3. The only possible adjacent equal pair in the linear last column is aa. When neither successor is a, their row blocks are singletons, consecutive exactly at neighboring occupied ranks. If the successors are a and c, the two a-rows have prefixes aa and ac; precisely the ac row has predecessor a, and it faces the c block because comparing the second symbols puts it on that side of the a block. These rows are consecutive exactly when a and c are neighboring ranks. For any unordered successor pair, delete both a's; on the remaining circle of r−1 distinct letters, uniquely insert either single copies before the designated distinct non-a letters, or the block aa before c. Hence each pair gives (r−2)! circles for each repeated a, also when r=2. Counting r−1 adjacent pairs among all binomial(r,2) pairs gives r! clustered and (r−2)r!/2 unclustered, with (0,2) at n=3. The ambient-alphabet multiplier uses adjacency in the occupied induced order, not across unused letters or around the ends of the rank order. The two supplied checkers test distinct constructions (source rotations and stable LF cycles) for lengths 3–9; their recorded outputs agree. They were inspected, not run, and are not the basis of the all-n proof.
 
-Relevant primary full-text sections of [1], [2], and [3] were checked for the fixed-content profile and a stronger counting result. [1] develops generalized de Bruijn structures; [2] gives existence and a lower bound for ternary families, and specifically raises characterization/counting of unclustered necklaces as a further problem. [3] gives an unrestricted fixed-Parikh necklace count (Proposition 5.5) and explicitly notes that it does not count the unclustered subclass; its principal quantitative result minimizes **source** cyclic run counts, not output run counts on near-permutation necklaces. None of these statements entails the asserted \((n-3)/(n-1)\) proportion or the successor-rank classification. Special fixed lengths may be recoverable from known tables and are not claimed as new in isolation. Remaining risk: an unpublished or unindexed equivalent all-length observation.
+## originality
 
-## Value — PASS
+PASS
 
-The first defect away from a permutation uses exactly one repeated letter. It is a canonical, composition-constrained stress test of BWT clustering: whether this single collision causes an equal-letter run after cyclic-context sorting. The theorem completely classifies this natural family by a local successor-order invariant and gives exact counts and an asymptotic law, instead of a collection of short examples. It addresses the published request for structural characterization/counting, while explicitly not solving fixed-alphabet or arbitrary-content problems.
+The distinct supported contribution is the exact all-length successor-pair criterion and run census for the single-repeat profile. Prior work covers existence of an unclustered necklace in this very profile for n≥4 and gives the unrestricted fixed-Parikh total and standard LF characterization. Those results are credited and are not claimed as new. They do not count the adjacency-constrained fibers, and the closest distinct exact census uses a different content profile except for a small overlap.
 
-## Scope of review
+## value
 
-The boundary, adjacent-symbol case, uniform-pair counting, and relevant prior statements were examined. No claim of mathematical uniqueness, independent validation, or external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal fixed-content departure from an ordinary alphabet permutation is a natural test for whether BWT sorting clusters a repeated letter. The successor-rank criterion identifies exactly what does so, and the uniform successor fibers turn an existence phenomenon into a complete finite count and probability over arbitrary growing support. This is a useful baseline for stronger fixed-Parikh refinements, not a claim about typical clustering over fixed alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

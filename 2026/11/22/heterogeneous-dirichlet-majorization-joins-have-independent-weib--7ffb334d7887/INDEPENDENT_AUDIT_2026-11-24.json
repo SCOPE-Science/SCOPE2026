@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:37:03.540331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(5), join increments and example",
+        "check.py, inspected as finite corroboration",
+        "VERIFICATION.md"
+      ],
+      "rationale": "For a fixed proper subset J, Gamma aggregation gives a Beta(a_J,A-a_J) sum; integrating its density from 0 to t yields t^{a_J} Gamma(A)/(Gamma(a_J+1)Gamma(A-a_J)) times 1+O(t) with no integrality restriction. The deficit is the minimum over J of the prescribed size. Distinct equal-size faces overlap only if the union sum is <=2t; that union has shape strictly larger than the least a_J, or is the full coordinate set and the event is impossible. Thus exactly the minimizing subsets contribute the first-order coefficient, including ties. With k<ell and thresholds x_k m^{-1/gamma_k}, x_ell m^{-1/gamma_ell}, any simultaneous witness J,K forces disjoint sums on K and on the nonempty J minus K. Integrating their aggregated joint Dirichlet density on the small rectangle yields O(m^{-a_K/gamma_ell-a_{J minus K}/gamma_k})=o(1/m); if their union is full the event is empty. This bounds all pair overlaps, so multiplying the per-sample complementary union probability over m independent draws gives the product survival function. The same calculation for every subcollection (or with thresholds zero in the other coordinates) gives joint weak convergence. Positive limiting variables imply each successive deficit ratio tends to zero in probability by tightness and boundedness away from zero in probability after rankwise scaling. Consequently successive slopes, asymptotic in probability to 1, Delta_1, ..., Delta_{d-1}, are strictly decreasing with high probability; this also treats d=2 with just the first and last slopes. On that event no concavification changes the join. Independently substituting (1,1,2,4) gives shapes (4,2,1), multiplicities (1,1,2) and constants (35,21,14).",
+      "residual_risks": [
+        "No finite-m rate, varying-parameter assertion, or conclusion with vanishing Dirichlet shapes follows. The simulation is not a proof or a check over all shapes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bisi et al. explicitly places more general Dirichlet measures outside its uniform-sampling focus in §7.3 and notes that boundary density can change tail exponents.",
+          "The deterministic join formula is measure independent, but neither a distribution-free join construction nor a marginal Beta tail implies asymptotic independence; the disjoint-subset estimate is what makes all cross-rank intersections negligible at the scale 1/m."
+        ],
+        "reasoning": "The general techniques are inherited. A uniform-law theorem or a single-coordinate tail cannot substitute for the rank-dependent rare-event comparison in the heterogeneous case.",
+        "searches": [
+          "arXiv:2611.23612v1 §7.3: Other distributions and other orders",
+          "arXiv:2610.16687 deterministic majorization metrics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23612v1",
+        "arXiv:2610.16687",
+        "Resultary search; identical assigned record excluded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior uniform result matches the form of all the conclusions in its own regime. For nonuniform Dirichlet laws the one-rank tail exponents are sums of smallest shapes and the rate depends on multiplicity of minimizing faces. A uniform theorem cannot be applied by changing the exponent alone: the pair-overlap probabilities and least-concave-majorant transfer need to be justified under the new law."
+        ],
+        "reasoning": "The exact heterogeneous result is not implied by the matched prior claims, even though its proof uses the same lattice/extreme-value framework and standard Dirichlet aggregation.",
+        "searches": [
+          "arXiv:2611.23612v1, pp. 13, 33 and 41",
+          "arXiv:2610.16687, HTML join passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bisi et al. Theorem 4.12 gives independent powered exponential limits with rates binom(d,k) binom(d-1,k-1) and prefix equality with high probability after uniform sampling and sorting. The frozen formula is identical when all alpha_i=1.",
+          "Hariharan et al. gives the deterministic lattice construction; under the deficit convention this is the complementary convex-minorant operation, not a different random join."
+        ],
+        "reasoning": "Uniform simplex sampling is exactly Dirichlet(1,...,1), but neither that identification nor the deterministic reformulation supplies the nonconstant-parameter limits. Uniform sampling should not be confused with every symmetric Dirichlet law.",
+        "searches": [
+          "arXiv:2611.23612v1 Theorem 4.12 and its proof",
+          "arXiv:2610.16687, least-concave-majorant join"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact retrieved ID 7ffb334d7887 was the assigned record itself; no distinct matching parameter formula or table appeared in that search. Theorem 4.12 of arXiv:2611.23612v1 is an exact formula comparison for the uniform case."
+        ],
+        "reasoning": "Excluded the self-match as evidence. The uniform rate table gives neither the powers nor rate constants for the nonuniform example, let alone arbitrary shape vectors.",
+        "searches": [
+          "Resultary: heterogeneous Dirichlet sorted prefix deficits, majorization joins, independent Weibull scales, minimizing subset shape sums and ties"
+        ]
+      },
+      "rationale": "The independent rank limit and inactive join correction for uniform simplex samples are prior work. The supported distinct claim gives the heterogeneous shape exponents and tied-face intensities and establishes the joint law and join transfer under the resulting heterogeneous scales.",
+      "residual_risks": [
+        "The bounded source search does not establish absolute priority, including for earlier Dirichlet-boundary articles under other terminology. Do not interpret the frozen statement's exclusion of all-equal parameters as evidence that Bisi et al. proved every symmetric Dirichlet case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers uniform sampling and concavification, not arbitrary positive nonconstant shape parameters",
+          "evidence": [
+            "Independent powered exponential ranks with rate binom(d,k) binom(d-1,k-1); prefix equality with high probability; other Dirichlet distributions listed for future study."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.23612",
+          "material_read": "Theorem 4.12 p. 13; proof p. 33; §7.3 p. 41",
+          "method": "Primary v1 OA PDF passages at text offsets 38850, 117650 and 145350",
+          "title": "Extreme value statistics for majorisation partial orders",
+          "trigger": "Direct earlier overlap for random majorization joins and possible heterogeneous extension"
+        },
+        {
+          "assessment": "Supplies join construction; not the sample-extreme theorem",
+          "evidence": [
+            "Deterministic majorization dissimilarities and construction of the join by least concave majorant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.16687",
+          "material_read": "Introductory and least-concave-majorant join passages",
+          "method": "Primary OA HTML, offsets 500 and 11380",
+          "title": "On Measures of Dissimilarity on the Majorization Simplex",
+          "trigger": "Deterministic join and related majorization results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof of joint limit and inactive concavification",
+        "arXiv:2611.23612v1 §7.3"
+      ],
+      "rationale": "Unequal shape parameters are a natural model of heterogeneous compositions. A sharp joint law for all ranks of the least common upper bound quantifies concentration and distinguishes repeated from isolated minimum faces. The rank separation and exact high-probability join simplification explain why the result is stronger than a calculation for one Beta minimum.",
+      "residual_risks": [
+        "The contribution is a fixed-dimensional extension, not a general theory for arbitrary sampling measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

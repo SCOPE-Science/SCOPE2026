@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:53:23.721001Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, scripts/verify_census.py and scripts/verify_census.cpp",
+        "Independent replay: python3 /workspace/reproductions/4/halfblock_census.py; captured halfblock_census.out in the same directory"
+      ],
+      "rationale": "Minimum distance three makes both two-coordinate end projections injective. If their intersection has size r, there are r codewords starting in it and r ending in it. These families are disjoint: a word belonging to both would be the shift-two splice of some codeword ending in its prefix and another codeword starting in its suffix. The witnesses need not be distinct, as required by the definition. Thus 2(2m-q²) ≤ 2r ≤ m, proving the floored bound for all q in scope, including empty codes. Independently reproduced the ternary census by enumerating partial matchings of the nine initial and nine terminal half-blocks, rejecting distance violations and updating a bit mask of all three splices of all ordered pairs, including repeated words. Injectivity and fixed initial-block order give coverage with no duplication; any rejected subset cannot extend to an admissible code. The counts at sizes 1–5 were 72, 1410, 7398, 9042, 1548; none were larger. The stated example was found. Symbol relabeling and reversal preserve both constraints (reversal interchanges the splice order and complementary shift); transforming every maximum independently and canonicalizing gave 129 orbits, all of size 12. Both frozen scripts were inspected, not executed. The independent computation is finite and does not replace the projection proof.",
+      "residual_risks": [
+        "No exhaustive claim for larger alphabets, and no noisy-frame correction claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical primitive-rotation bound applies with no aligned-distance test and gives 18 for length four over three symbols, rather than 5. The overlapping-code comparisons change the admissible family. The variable-length error-correcting paper was traceable at abstract/search-description level only."
+        ],
+        "reasoning": "The unrestricted bound does not give the new q²-scale estimate; bounding a smaller, non-overlapping class does not upper-bound all ordinary comma-free codes. The inaccessible variable-length source remains a priority risk, not negative evidence.",
+        "searches": [
+          "Golomb–Gordon–Welch, DOI 10.4153/CJM-1958-023-9",
+          "arXiv:1303.1026v3",
+          "DOI 10.1109/TIT.1982.1056548"
+        ]
+      },
+      "checked_sources": [
+        "Golomb–Gordon–Welch (1958)",
+        "Blackburn arXiv:1303.1026v3",
+        "Resultary triple-code census bd3ff540fee7",
+        "Small ternary general-code table landing description",
+        "DOI 10.1109/TIT.1982.1056548 abstract/search description; Yang–Ding OA attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distance injectivity alone gives m ≤ q²; obtaining m ≤ 2q²/3 requires using the middle splice to forbid a codeword from both intersection-indexed families. At length three there is no two-by-two split into injective half-blocks."
+        ],
+        "reasoning": "The projection obstruction is a proof about the interaction of the two constraints. Neither the classical bounds nor the triple-word orbit sizes give the new upper bound, the length-four optimum or its free action by substitution of parameters.",
+        "searches": [
+          "Golomb–Gordon–Welch, p. 202 and p. 208",
+          "Blackburn, arXiv:1303.1026v3 §1",
+          "Resultary SCOPE-complete-distance-resolved-extremizer-census-for-ternary-comma-f--bd3ff540fee7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A shift-two dictionary collision is an edge between two half-blocks in the shared projection intersection; ordinary comma-freeness allows the half-block sets to intersect. Blackburn's non-overlapping definition forbids any such proper prefix–suffix equality, even without a dictionary splice."
+        ],
+        "reasoning": "Neither the non-overlap alias nor stronger noise-tolerant synchronization is an equivalent formulation of this mixed condition. The aligned and misaligned distance requirements must not be conflated.",
+        "searches": [
+          "Resultary: four symbol ternary length four comma-free code Hamming distance three census projection 1548",
+          "Literature: comma-free minimum distance error correcting codes synchronization substitution length four small alphabet Hamming Levenshtein catalog",
+          "arXiv:1303.1026v3, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The small ternary A₃(n,d) table is indexed for ordinary distance codes without the splice constraint; the Golomb–Gordon–Welch length-four value 18 has the opposite omission. The local length-three record gives 12 distance-three maxima in three classes for length three, not a length-four census. The exact frozen record appeared in the index and is not independent prior evidence."
+        ],
+        "reasoning": "Those tables and the adjacent census fail on a defining constraint or block length. No inspected table established 1548 maxima and freeness for this model.",
+        "searches": [
+          "Literature: ternary comma free codes length four minimum Hamming distance three maximum census comma-free error correcting codes 1548 table",
+          "Resultary: four symbol ternary length four comma-free code Hamming distance three census projection 1548",
+          "Golomb–Gordon–Welch, p. 208"
+        ]
+      },
+      "rationale": "The classic ordinary comma-free model and the distinct prefix–suffix and error-resilient synchronization models do not cover the simultaneous aligned-distance-three condition and the resulting length-four projection bound or exact ternary census. The exact nearby ternary enumeration has length three. This is a best-of-knowledge comparison, not historical priority certification.",
+      "residual_risks": [
+        "Older poorly indexed distance-constrained comma-free classifications may contain an equivalent result; inaccessible sources do not establish noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the ordinary condition, rotation families and unrestricted optimum, not the aligned-distance result in these passages.",
+          "evidence": "§1 excludes dictionary overlaps and bounds one word per primitive rotation class; p. 208 explicitly recalls W₄(3)=18.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "OA full-text passages §1 Theorem 1, pp. 202–203, and p. 208 before §5",
+          "method": "Public OA text by offset",
+          "title": "Comma-Free Codes",
+          "trigger": "Exact classical model and unrestricted ternary length-four value"
+        },
+        {
+          "assessment": "Distinct stricter overlap restriction, as defined.",
+          "evidence": "For all word pairs, including repeated words, every nonempty proper prefix is forbidden from matching a proper suffix. The stated exact short-length results concern that class.",
+          "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+          "material_read": "Abstract and §1 definition and short-length scope",
+          "method": "Public OA full text",
+          "title": "Non-overlapping codes",
+          "trigger": "Possible cross-bifix-free equivalence"
+        },
+        {
+          "assessment": "Near comparator; not a census at length four.",
+          "evidence": "For length three and distance three, maximum 3, 12 labeled extrema, three orbits of sizes 2, 4 and 6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-distance-resolved-extremizer-census-for-ternary-comma-f--bd3ff540fee7/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–3211",
+          "method": "Published local mirror",
+          "title": "Complete distance-resolved extremizer census for ternary comma-free triple codes",
+          "trigger": "Very close alphabet, distance and symmetry census"
+        },
+        {
+          "assessment": "Unresolved beyond accessible material.",
+          "evidence": "Description concerns a variable-length error-correcting construction with Levenshtein distance; the full text was not available for table or appendix comparison.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1982.1056548",
+          "material_read": "Search result/abstract description only; OA full text unavailable",
+          "method": "Literature lookup and exact DOI OA access attempt",
+          "title": "Comma free error correcting codes of variable length",
+          "trigger": "Older synchronization and Hamming-distance alias"
+        },
+        {
+          "assessment": "Not used as negative evidence.",
+          "evidence": "No passage read from the original text.",
+          "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+          "material_read": "Frozen citation and its scope description only; OA access returned HTTP 405",
+          "method": "Exact OA access attempt",
+          "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+          "trigger": "Potential stronger overlap constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Assumptions and Proof; independent census; classical comparison above"
+      ],
+      "rationale": "Noiseless frame recognition together with single-substitution correction at a known frame is a natural constrained packing problem. The two-projection obstruction improves the unconstrained injective-projection bound by a constant factor, and the small ternary classification gives the exact optimum, multiplicity and lack of symmetry stabilizers. The value is the interaction between the constraints plus the complete small extremizer count, not running a search or claiming correction at an unknown frame.",
+      "residual_risks": [
+        "Does not establish asymptotic sharpness or give exact maxima away from the verified ternary case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

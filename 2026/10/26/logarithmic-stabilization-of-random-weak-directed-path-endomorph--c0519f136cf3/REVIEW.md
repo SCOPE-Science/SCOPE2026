@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof characterizes fixed points via a monotone displacement function, identifies the eventual clipping map, proves the two extremal shifts are the unique maps with index \(n-1\), and reduces conditional endpoint hitting times to two fair Bernoulli-prefix iterations. A uniform Hoeffding bound controls every relevant prefix simultaneously and yields polynomial relative-error concentration. The random cutoff has exponential tails, supplying uniform integrability and all positive-moment convergence. Exhaustive independent checks for \(2\le n\le11\) agree with all finite structural statements. This is a self-review, not an independent certification.
+## correctness
 
-**Originality — PASS with residual priority risk.** The 2013 full-contraction study proves the fixed-point enumeration and total count, while the 2021 directed-path paper proves monoid generators, regularity, and idempotent classification. Their examined main statements and proofs do not supply the asymptotic exponent for self-powers of a uniform random element. The claim is not that the published static counts are new; its uniform Bernoulli-prefix reduction, sharp \(\log_2 n\) stabilization law, and moment statement are distinct. A possible earlier dynamical formulation outside searched algebra literature remains a documented risk.
+PASS
 
-**Value — PASS.** Stabilization time is a natural dynamical parameter for iteration in a finite transformation monoid. The result establishes a strong, quantitatively sharp separation between the two extremal \(n-1\)-step translations and the typical \(\log_2 n\)-step trajectory, with an explicit exact source of the logarithmic constant and a nontrivial concentration/moment conclusion. Static counts of rank, idempotents, or fixed points by themselves do not determine this iteration-time law.
+The integer displacement f(i)-i decreases by 0 or 1 and brackets zero, so the fixed points form an interval. Below and above it each orbit moves strictly inward without overshooting the nearest fixed endpoint; monotonicity makes the two chain endpoints slowest. Equality T=n-1 forces one orbit through all n sites in order, which fixes the entire map to one of the two clipped unit shifts (including n=2). Given the exact fixed interval, the adjoining steps are forced flat and the remaining steps on each side are independent fair bits, giving the same nested prefix count H(d) at every iteration, not a resampled binomial. The side-length weights sum to (n-r+3)2^(n-r-2) for fixed interval length r<n, with the identity at r=n, giving the asserted uniform geometric bound. Except on an exponentially small event one side has length at least n/4. A union of prefix Hoeffding bounds gives an exponentially tailed cutoff K; above it the distances contract between factors 1/2-epsilon and 1/2+epsilon, and the remaining time is at most K. Taking a cutoff of sufficiently small positive multiple of log_2 n gives the polynomial relative-deviation bound. The bound using random K with one fixed epsilon, rather than that polynomial probability alone, gives uniform integrability in every positive power and hence the claimed moment limits. The supplied script was inspected, not executed. A separate direct-composition enumeration for n=2 through 11 reproduces map counts, clipping, and the extremizers (6,144 maps at n=11, exactly two at T=10) and the n=4,6,10 histograms; it is not evidence for the asymptotic step.
 
-**Closest literature and limitations.** Adeshola–Umar, arXiv:1303.7428, Corollaries 2.9–2.10, supplies the known fixed-interval length tail; Fernandes–Paulista, arXiv:2112.13427, covers the full weak-path monoid and its idempotents and generators. Neither examined full text states the claimed random power-stabilization law. Priority cannot be guaranteed from finite search. Computations cover only finite small sizes, not the limiting theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing monoid identifications, finite counts, and idempotent/fixed-point structure. The supported distinction is the stabilization index as a dynamical observable, especially the sharp leading log_2 n law with polynomial relative-deviation control and all positive normalized moments for the uniform full-map law. The closest distinct catalogue theorem shares the in-probability law and strengthens the conditioning scope in another direction, but is dated later than the frozen record and does not establish earlier coverage; the inspected statement does not give the two quantitative conclusions above.
+
+## value
+
+PASS
+
+The least time to reach the idempotent power is a natural invariant which rank and eventual image do not determine. Its uniform-law behavior differs parametrically from its extremal value (logarithmic with an exact leading constant versus linear), and tail and moment control describe typical and mean behavior rather than just bounding an orbit. The existing counts and clipping formula alone are not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

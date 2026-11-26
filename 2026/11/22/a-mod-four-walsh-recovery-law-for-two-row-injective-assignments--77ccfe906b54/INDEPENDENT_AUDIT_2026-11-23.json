@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:16:58.839074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and packaged check_spectrum.py/check_counts.py (inspected, not run).",
+        "Fresh integer fast Walsh–Hadamard transform of the actual support indicator, n=2 through 9. Each full signed histogram agrees with the predicted binomial type histogram; nullities 8, 0, 64, 400, 800, 0, 10640, 66864; gaps 2, 2, 2, 4, 2, 2, 2, 4. Replay: python3 /workspace/branches/0ceaba48-8039-43ef-b207-fb8e8fe70654/ordinal3-fwht.py; recorded stdout: /workspace/branches/0ceaba48-8039-43ef-b207-fb8e8fe70654/ordinal3-fwht.stdout."
+      ],
+      "rationale": "With counting convolution the characters of F_2^(2n) are an orthogonal eigenbasis. Each support vector uses row-one coordinate i and row-two coordinate j with i!=j, so deleting the diagonal from the product of the two row sums gives W=ab-c. The (u,v,t) type count chooses the first negative set and the inside/outside portions of the second; no type multiplicity is lost when different types give the same W. Modulo 4, W=n(n-1)-2(n-1)(u+v)+4(uv-t); for odd n this gives residues 0 or 2 and the claimed nonzero lower bounds. At n=4k+3 the stated (2k+1,2k+1,k) yields 2, including k=0. At n=4k+1, k>=1, the feasible overlaps k and k-1 give 0 and 4. At every even n a balanced first row and constant second row give 0; flipping a position where the first row is positive gives 2, including n=2. The all-positive signs attain the triangle-inequality bound n(n-1); rank and condition number then follow in the stated normalization. n=1 has empty support and no nonzero gap, and is not claimed.",
+      "residual_risks": [
+        "The replay is finite corroboration only; the residue argument and feasible extremizers cover all n>=2. No endpoint norm, integral convolution, or higher-row theorem is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wanless's theorem concerns a square matrix with all rows matched and gives zero existence iff its order plus one is not a power of two.",
+          "The indexed three-row two-edge problem permits all three unordered choices of two rows; the all-matchings variant includes sizes other than two."
+        ],
+        "reasoning": "Increasing the square order or the number of available rows does not specialize those Walsh laws by parameter substitution. Fixing an unused third sign row to +1, for example, still introduces contributions from matchings using that row. The same-support specialization and the current sharp residues are not given by the inspected square theorem or identified as covered by the neighboring records.",
+        "searches": [
+          "Wanless, Permanents of matrices of signed ones, DOI 10.1080/03081080500093990, §4, Theorem 1",
+          "Resultary two-edge matchings in K_{3,n} and all matchings of K_{3,n}"
+        ]
+      },
+      "checked_sources": [
+        "Wanless (2005), DOI 10.1080/03081080500093990.",
+        "Resultary 5bf177d89df5, 9046021fcb99 and 75693f3f8db9 (indexed support comparisons).",
+        "O'Donnell, Analysis of Boolean Functions, identified as standard Fourier background, not an antecedent for the claimed classification."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=11 the rectangular spectrum is zero-free, whereas the Wanless square-order result has a vanishing signed permanent. General character diagonalization provides the eigenvalue mechanism but no support-specific least absolute value, nullity or type formula."
+        ],
+        "reasoning": "The standard method reduces the problem to an exact signed count. The feasible overlap analysis and sharp arithmetic classification are not consequences of the compared zero-existence statements; those statements even differ on the central property at width 11.",
+        "searches": [
+          "Wanless, §4 and Theorem 1",
+          "Resultary three-row and square matching Fourier comparisons",
+          "Boolean Fourier diagonalization (O'Donnell, Analysis of Boolean Functions)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cayley generators are e_i+e_(n+j), i!=j. Equivalently W is n(n-1) minus twice the cut size of the sign partition in the crown graph K_{n,n} minus its matching; equivalently it is the rectangular permanent of the two sign rows.",
+          "The cubelike and cut-enumerator searches supplied no verified exact crown-graph spectrum or equivalent two-row theorem. The matching records located for K_{3,n} have a different support."
+        ],
+        "reasoning": "The cut or permanent translation identifies a genuine equivalent object and includes signed multiplicities (one mask per labelled vertex partition with a designated negative side). It is not the ordinary adjacency spectrum of the crown graph or a Hamming graph. The change of viewpoint by itself does not decide the zero types and gaps.",
+        "searches": [
+          "Walsh Fourier eigenvalues K2,n two-row injective assignments incidence vectors injective matchings (Resultary)",
+          "Fourier spectrum Boolean cube Cayley graph matchings K2,n injective assignments two rows Walsh ab-c nullity cross polytope graph cubelike",
+          "crown graph cut enumerator / cut-space weight distribution / Ising partition function / signed rectangular permanent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary entry is the assigned work itself. The nearby five-by-five partial matching spectrum concerns the indicator of all 1,546 partial matchings of a square board, not fixed two-row full coverage. The cut-spectrum search returned no verified same-support signed multiplicity table."
+        ],
+        "reasoning": "A table for a different support cannot be used as the histogram of this indicator, although both use a Boolean transform; nor would a bounded table alone subsume the all-width theorem.",
+        "searches": [
+          "Walsh Fourier eigenvalues K2,n two-row injective assignments incidence vectors injective matchings (Resultary)",
+          "K2,n cubelike graph restricted weight two / crown graph cut size distribution",
+          "Resultary order-five square permutation and five-by-five partial matching Fourier records"
+        ]
+      },
+      "rationale": "The contribution is the combined all-width signed classification, exact singularity criterion and sharp surviving gaps for the row-saturating 2-by-n injections, not diagonalization by Walsh characters or a general permanent identity. No implication-equivalent statement was located in the checked material.",
+      "residual_risks": [
+        "A different terminology for the crown-graph cut distribution or an older rectangular signed-rook calculation could hide an equivalent result. This is a bounded priority assessment, not proof of uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related square result, not coverage of the two-row width law.",
+          "evidence": "Section 4 explicitly says square signing, gives an order-11 zero example and the criterion involving powers of two; no rectangular multiplicities or least surviving multipliers occur in the relevant theorem.",
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/wangconjLAMA.pdf",
+          "material_read": "Author-hosted PDF, opening context and §4, especially Wang's partial result and Theorem 1.",
+          "method": "Read matched OA primary PDF.",
+          "title": "Permanents of matrices of signed ones",
+          "trigger": "Primary prior art on vanishing signed permanents with an explicit mod-four connection."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and proof; exact signed spectra in the independent finite replay.",
+        "Wanless square sign-permanent comparison."
+      ],
+      "rationale": "The two-row model is the first row-saturating assignment convolution in which a genuinely nontrivial collision exclusion couples the rows. The result identifies when recovery on the full labelled Boolean space is possible and, otherwise, gives exactly how many directions are lost and how strongly the remaining directions can be inverted in l2. The all-width mod-four transition and attained norm ratio add substance beyond applying the standard diagonalization or giving a routine small-board spectrum.",
+      "residual_risks": [
+        "No asymptotic estimate of the lost dimension or general multi-row recovery law is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

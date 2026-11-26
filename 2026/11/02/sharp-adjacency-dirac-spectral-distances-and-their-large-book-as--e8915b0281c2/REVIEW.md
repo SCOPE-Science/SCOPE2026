@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph automorphism average preserves specified values while convexly reducing the operator norm. The hub and outer-pair cases follow from explicit rank-two/rank-three reductions. The hub–outer case reduces to a real skew four-dimensional commutator with explicit Hilbert–Schmidt half-norm and Pfaffian; the singular-value identity determines the norm, and coercivity ensures the minimum is attained. The induced-subgraph comparison proves monotonicity. Lower and upper column bounds with the explicit \(b=1-t^{-1/4}\) witness prove the sharp \(m^{-1/2}\) correction and the stated error. Finite matrix comparisons and optimization checkpoints pass; they do not substitute for the proof.
+PASS
 
-## Originality
+With real potentials, the adjacency commutator is real skew-symmetric and has the same norm on the complex vertex space. Pair-fixing automorphism averaging preserves the target difference and cannot increase the norm. For the hubs the resulting three-dimensional skew block has squared norm (2m+4)s²+2mu² at hub difference 2s, minimized at u=0. For two leaves, projection onto the symmetric hub vector bounds the difference by the operator norm, and opposite unit leaf potentials attain equality. In the hub–leaf case only the two hubs, target leaf and unit aggregate of other leaves remain; the skew block has half squared Hilbert–Schmidt norm S_m and Pfaffian tx(1−v). The radicands are squares of the sum and difference of the two singular speeds, and column bounds give compact sublevels when m≥2. Compression to a smaller induced book proves monotonicity; the triangle gives the lower bound on r_m and the x=2b/t, v=b/t derivative at zero makes r_m<√2 strict. At a minimizer the aggregate column gives |x|≤2/t, so the target-leaf column gives √2−√2/t+O(t^−2) as a lower bound for large t. The explicit b=1−t^−1/4 trial gives radicands 2[(1±b−b/t)²+3b²/t²]; the smaller positive linear term is of order t^−1/4. The square-root corrections are O(t^−7/4), and replacing b by one incurs O(t^−5/4). Reciprocation yields the stated error and coefficient in m−1. The supplied check_book.py was inspected, not executed; sampled matrix checks and finite numerical optimizations do not certify global optima or the asymptotic.
 
-PASS, with literature risk. The available full primary text of Besnard 2021 gives general estimates and prunings rather than the book family; Clare–Li–Poon–Swartz 2024 derives complete formulas for paths and graph-specific background; Swartz 2026 treats general edge deletion without the sharp formula. Nearby exact results on complete bipartite and vertex-glued friendship graphs do not imply the edge-glued book result, because commutator-norm behavior changes with the added central edge. Independent equivalent formulations, including small-graph tables and alternative matrix dualities, have not been exhaustively excluded.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Book graphs are the canonical infinitely many-triangles-sharing-an-edge family. The result completely determines two metric orbits, reduces the third by exact singular invariants, and proves a sharp asymptotic separation of three natural pair types. The fixed-parameter extremum is an exact natural invariant, not an arbitrary data slice; the asymptotic first correction is proved quantitatively, not observed numerically.
+The bounded comparison supports the exact orbit distances on the spine-edge book K2 ∨ independent m-set, in particular the attained hub–leaf prescription, and the fact that its hub–leaf asymptotic retains the first correction despite the spine edge. The analogous complete bipartite family already has the same leaf–leaf distance and the same first hub–leaf coefficient; these facts are not novel on their own. A previously known diamond-graph leaf pair is an exact special-case overlap.
 
-## Closest literature and limitations
+## value
 
-Besnard, arXiv:2105.09056; Clare–Li–Poon–Swartz, arXiv:2409.04146; Swartz, arXiv:2610.07718. No elementary closed expression for the finite hub–outer minimizing pair is claimed. An equivalent older formulation in spectral triples or four-by-four skew norm optimization remains possible. Independent validation is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Books are a natural one-edge change to a standard complete bipartite family. The operator metric responds differently on its three orbits, and the exact result separates the changed hub–hub law from the persistence of the leading hub–leaf behavior. The finite attained reduction makes the remaining distance evaluable for each m without optimizing over all vertex potentials. This is a useful exact invariant and edge-edit comparison, not a claim of a new asymptotic coefficient independent of the graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

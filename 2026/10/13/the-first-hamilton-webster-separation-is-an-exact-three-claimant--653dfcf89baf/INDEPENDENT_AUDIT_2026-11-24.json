@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:14.740942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one seat and more than one claimant all lower quotas are zero, so the Hamilton remainder winners are the maximum claimants, just as for Webster's first priorities (and one claimant is trivial). For two claimants the first exact quota is x=ha/(a+b). Under Hamilton the first allocation t ranges over all nearest integers to x. Under Webster a common positive reciprocal divisor lies in the intersection of [(t−1/2)/a,(t+1/2)/a] and [(h−t−1/2)/b,(h−t+1/2)/b]. For 0≤t≤h the upper endpoints are positive; the two cross-inequalities are exactly |t−x|≤1/2, preserving ties even for a zero allocation. For 0<p<q<r and two seats, Webster's second priority compares q to r/3. Under Hamilton, p and q have quotas below one. If the largest quota 2r/S (S=p+q+r) is below one, the two largest shares both get one. Otherwise the largest claimant has lower quota one and its remainder 2r/S−1 competes with 2q/S; equality is r=p+3q, necessarily in the one-lower-quota regime. This proves the strict cone and both stated ties. The weak-order cases omitted from the frozen symbolic minimum argument follow directly: if q=r, both methods give one seat to each top claimant or, if all claims are equal, have the same tied splits. If p=q<r, the unique largest claimant gets a seat under each method; any allocation of the other seat to a smaller claimant is tied by exchange of the equal claims. Thus no strict unique-outcome disagreement can have equal claims. In the strict integer cone p≥2 (p=1 gives an empty open integer interval), q≥p+1 and r≥3q+1. Total is at least p+4q+1≥15, with equality only at the primitive (2,3,10). The frozen verifier's minimum search starts at total 6 rather than the least weak-order total 3, so it does not by itself cover that edge case. I did not execute it. An independent bounded arithmetic check enumerated all six two-seat allocations for each of the 86 primitive weak-order triples of totals 3–15, ranking by integer-scaled remainders among lower-quota lifts for Hamilton and comparing every last awarded priority with each next unawarded priority by cross-products for Webster. Only (2,3,10) had distinct unique outcomes. The symbolic argument, not this finite check, establishes the positive-real correspondence statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1980 framework and Webster unbiasedness result have broader parameter scope but do not give a general Hamilton–Webster separation criterion.",
+          "Resultary 27350e3069d3 gives a first Webster quota-violation cell at four claimants and three seats, with minimum integer witness (6,1,1,1)."
+        ],
+        "reasoning": "Quota failure can separate Webster from quota methods, but is not necessary for this disagreement: the witness here gives the largest claimant quota 4/3 and Webster awards two, within quota. Neither that record nor the inspected general properties dominate the claimed result. The 1975 full text was not inspectable, so it is not treated as negative evidence.",
+        "searches": [
+          "Balinski–Young DOI 10.1073/pnas.77.1.1, general framework and method properties",
+          "Balinski–Young DOI 10.1080/00029890.1975.11993911 (bibliographic and access check)",
+          "Resultary: first quota failure of Webster apportionment"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1073/pnas.77.1.1 (public PDF copy, passages above)",
+        "DOI 10.1080/00029890.1975.11993911 (limited bibliographic/abstract-level access)",
+        "Resultary 27350e3069d3",
+        "Resultary a589daeddd13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior methods give the allocation rules; their one-seat comparison is immediate and their two-claimant reduction is not claimed as novel.",
+          "The inspected stronger-looking results concern quota violations, unbiasedness, or paradoxes, not the first separation of these two whole correspondences."
+        ],
+        "reasoning": "No inspected theorem gives the positive-width chamber and both boundary behaviors by mere parameter specialization. Determining the onset uses the different remainder and second-priority comparisons, and the least integer profile requires ruling out strictly smaller totals even when equal input claims are allowed.",
+        "searches": [
+          "Balinski–Young (1980), pp. 1–3, method framework and comparison properties",
+          "Resultary 27350e3069d3 and a589daeddd13, Finding sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1980 article's relevant passages address Webster among divisor methods, quota and monotonicity; they do not give the two-seat Hare largest-remainder versus Sainte-Laguë/major-fractions chamber.",
+          "Resultary a589daeddd13 also uses three claimants and two seats, but varies populations under Hamilton alone."
+        ],
+        "reasoning": "Same-rule population comparisons under changing inputs are not different-rule correspondences at the same input. The equivalent quota/divisor and largest-remainder/highest-averages forms are included in the comparison.",
+        "searches": [
+          "Resultary: exact Hamilton–Webster disagreement cone, 3q<r<p+3q",
+          "Resultary: first Hamilton–Webster separation and witness (2,3,10)",
+          "Balinski–Young (1980), DOI 10.1073/pnas.77.1.1, pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1980 tables concern U.S. congressional apportionments, not a census of two seats among three positive claimants.",
+          "Resultary a589daeddd13 reports a minimum combined total of 46 for the population transition (1,4,14) to (4,5,18), not the minimum of a single same-input separation profile."
+        ],
+        "reasoning": "The tables and the distinct optimization problem supply neither the proposed witness nor exclusion of smaller primitive profiles under this correspondence criterion.",
+        "searches": [
+          "Resultary: exact cone, first separation, and integer witness (2,3,10), three bounded top-20 comparisons",
+          "Balinski–Young (1980), pp. 3–4, historical comparison tables"
+        ]
+      },
+      "rationale": "Credit is limited to the exact first two-seat separation of the two rules: its open chamber, the exact boundary correspondences and the minimum primitive integer witness. The rules and the two-claimant reduction are background. The closest inspected literature concerns general properties and historical apportionments, and the closest indexed results concern distinct quota and paradox thresholds. No material compared establishes the claimed geometry or primitive minimum.",
+      "residual_risks": [
+        "The inaccessible 1975 full text might include a relevant comparison. A textbook exercise, historical example or unindexed census could contain some or all of the exact claim. Search and access gaps do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general rules/properties and historical comparison, but the read material does not classify the proposed chamber",
+          "evidence": [
+            "Pairwise unbiasedness result is among divisor methods.",
+            "Comparison tables use actual congressional apportionments rather than the unconstrained two-seat three-claimant regime."
+          ],
+          "identifier_or_url": "DOI 10.1073/pnas.77.1.1; https://rohitvaish.in/data/Papers/%5bBalinski,%20Young%5d%20The%20Webster%20Method%20of%20Apportionment.pdf",
+          "material_read": "p. 1 (offset 0) framework; p. 2 (9368, 13030) monotonicity and quota; p. 3 (15401) divisor-method unbiasedness; pp. 3–4 (21772, 23553) tables",
+          "method": "Read publicly accessible PDF copy; DOI and PMC routes did not provide readable full text, and hosting provenance of the copy was not independently authenticated",
+          "title": "The Webster Method of Apportionment",
+          "trigger": "Primary general treatment plausibly covering Hamilton–Webster relationships or tabulated cases"
+        },
+        {
+          "assessment": "No full-text basis to decide coverage by this article; remaining access risk, not negative evidence",
+          "evidence": [
+            "Balinski–Young, American Mathematical Monthly 82(7), 1975, 701–730; inspectable access did not extend to a small-case theorem or table."
+          ],
+          "identifier_or_url": "DOI 10.1080/00029890.1975.11993911",
+          "material_read": "Bibliographic identification and landing/abstract-level material only; full-text routes not accessible",
+          "method": "Attempted publisher/DOI, JSTOR and identified alternate route without bypassing access restrictions",
+          "title": "The Quota Method of Apportionment",
+          "trigger": "Frozen citation and plausible classical coverage of small-size comparisons"
+        },
+        {
+          "assessment": "Different threshold and predicate",
+          "evidence": [
+            "Four entities and three seats, with a first quota-failure chamber and witness (6,1,1,1)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 item 27350e3069d3",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp first quota failure of Webster apportionment",
+          "trigger": "Most closely related small-instance Webster boundary and primitive witness"
+        },
+        {
+          "assessment": "Same dimensions but a different method comparison and quantity minimized",
+          "evidence": [
+            "Two distinct populations under Hamilton with combined total 46, not one population compared between Hamilton and Webster."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4 item a589daeddd13",
+          "material_read": "RESULT.md Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "Smallest monotone-growth population paradox for Hamilton apportionment",
+          "trigger": "Exact overlap in three claimants and two seats, and minimum-integer optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimensions are determined by the two lower-dimensional coincidences, so this is not an arbitrary tiny case. The result identifies whether disagreement is robust to perturbations, which method switches at each tie, and the least integer profile demonstrating this without tie-breaking or a Webster quota violation. This provides a sharp comparator and an exact regression case for two canonical allocation rules, independent of a general classification at larger sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

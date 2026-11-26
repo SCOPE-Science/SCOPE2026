@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:00:21.992227Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full-block central kernel is the dimension-weighted sum of characters, not the projection kernel on the span of the characters alone. Convolution has both strong endpoint norms equal to the Haar L1 mass (phase test and approximate identity), so the Weyl-weighted integral is (2/pi) times the integral of |T| sin(theta). Differentiating the finite geometric sum gives the stated cosine numerator with frequency qM+r−q/2 and first-order poles at qth roots of unity. The removed intervals of radius 1/M cost O_q(M) by |T|=O_q(M²); outside them the second-order remainder integrates to O_q(M). At each interior pole the weighted residue is M sin(2 pi h/q); bounded-primitive averaging of |cos| contributes (2/pi) log M+O_q(1) on each side, uniformly in phase. The Weyl factor gives exactly (8/pi²) sin(2 pi h/q) per interior pole, including C_3=4 sqrt(3)/pi². At 0 and pi the vanishing weight costs only O_q(M); for q=1,2 these are the only possible poles. Constants are for fixed q and uniform over its finitely many r. The analytic argument establishes the asymptotic; the recorded 8,288 finite checks were inspected in source, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected compact-group partial-sum analysis specializes to the full SU(2) cutoff in (4.2), not a spectral residue class.",
+          "The retrieved 2016 Akylzhanov–Nursultanov–Ruzhansky PDF introduction concerns Hardy–Littlewood–Paley inequalities and multiplier estimates, not an identified sharp strong-endpoint coefficient for this kernel. The two older texts were not available for exact comparison."
+        ],
+        "reasoning": "No identified general theorem in the inspected material gives the weighted interior-pole constants and remainder; this assessment does not exclude an older theorem under different labels.",
+        "searches": [
+          "Grow–Myers arXiv:2108.12997v1 §4 (4.2)",
+          "Giulini–Travaglini DOI 10.1016/0022-1236(86)90059-5; Meaney DOI 10.1007/BF01295142 (bounded OA attempts)",
+          "Primary literature lookup for SU(2) arithmetic-progression endpoint projection norms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61; VERIFICATION.md; verify.py (static inspection)",
+        "Grow–Myers arXiv:2005.11245v1 and 2108.12997v1, passages listed above",
+        "The two exact SU(2) endpoint Resultary findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A root-of-unity filter combines angular translates of the consecutive kernel; taking the weighted absolute integral of this combination is not the sum of the original endpoint norms.",
+          "The Haar weight cancels the endpoint poles, but is nonzero at each new interior pole. The fixed-q formula requires the leading weighted residue and two-sided phase averaging there."
+        ],
+        "reasoning": "The new coefficient is not implied by the published one-block or unshifted-kernel norm statements. The q=2 comparison separately follows by applying a contractive even/odd filter for translation by the central element −I to the consecutive cutoff.",
+        "searches": [
+          "Grow–Myers arXiv:2005.11245v1 §2 and arXiv:2108.12997v1 formula (4.2)",
+          "Resultary single-block and consecutive-cutoff findings cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dimension residue r corresponds to highest-weight residue r−1. Full-block endpoint norms are the Weyl-weighted L1 norms of the dimension-weighted kernel.",
+          "The inspected Fourier kernel formulas treat consecutive cutoffs, including their one-dimensional Dirichlet-derivative representation."
+        ],
+        "reasoning": "Rephrasing as a residue-class multiplier or a weighted derivative of a modulated Dirichlet kernel retains interior poles. A single unshifted Dirichlet-derivative estimate has no such contribution.",
+        "searches": [
+          "Resultary semantic comparisons for arithmetic Peter–Weyl thinning and SU(2) endpoint Lebesgue constants",
+          "Grow–Myers arXiv:2005.11245v1 §2; arXiv:2108.12997v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives (8/pi²)m asymptotically for a single full block of dimension m; the second gives (8/pi²)(L+1)+O(log L) for all consecutive blocks through highest weight L."
+        ],
+        "reasoning": "These are direct exact-invariant comparisons in the relevant catalogue; neither indexes the q-spaced family or gives its coefficient. No numerical-table equality would establish the fixed-q asymptotic with remainder.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-endpoint-norms-of-single-peter-weyl-blocks-on-su-2--91e7da647bb6",
+          "Resultary 2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c"
+        ]
+      },
+      "rationale": "The supported distinction is the exact fixed-modulus logarithmic amplification at interior Weyl angles, with residue-independent leading coefficient and an O_q(M) remainder. Single blocks and standard consecutive kernels do not give this result. The q=1,2 comparison is background rather than a separate claim of novelty. The result is distinct to the best of the inspected evidence, not a historical-priority certification.",
+      "residual_risks": [
+        "Exact broader results under alternate spectral-sampling terminology were not exhaustively excluded.",
+        "Full text was not obtained for the 1986 Giulini–Travaglini and 1981 Meaney papers; neither was treated as ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the character and consecutive-kernel formulas; different cutoff.",
+          "evidence": "D_N=sum_{n=0}^N (n+1) chi_n.",
+          "identifier_or_url": "https://arxiv.org/html/2005.11245v1",
+          "material_read": "§2, HTML offsets approximately 8900–12700",
+          "method": "Bounded OA full-text inspection",
+          "title": "Almost everywhere convergence of Fourier series on SU(2): the case of Hölder continuous functions",
+          "trigger": "Same group and sharp cutoff kernel"
+        },
+        {
+          "assessment": "Unshifted consecutive cutoff, not arithmetic selection.",
+          "evidence": "Relates the full SU(2) kernel to an ordinary circle Dirichlet-kernel derivative.",
+          "identifier_or_url": "https://arxiv.org/html/2108.12997v1",
+          "material_read": "§4, (4.2), offsets approximately 17100–20100",
+          "method": "Bounded OA full-text inspection",
+          "title": "Almost everywhere convergence of Fourier series on compact connected Lie groups",
+          "trigger": "Possible general Dirichlet kernel result"
+        },
+        {
+          "assessment": "One block only.",
+          "evidence": "Leading asymptotic (8/pi²)m.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-endpoint-norms-of-single-peter-weyl-blocks-on-su-2--91e7da647bb6",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror reading",
+          "title": "Exact endpoint norms of single Peter–Weyl blocks on SU(2)",
+          "trigger": "Exact same endpoint norm for one selected irrep"
+        },
+        {
+          "assessment": "No interior resonance for this cutoff.",
+          "evidence": "(8/pi²)(L+1)+O(log L) for 0≤n≤L.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror reading",
+          "title": "Exact leading constant for spherical Fourier partial sums on SU(2)",
+          "trigger": "Exact same endpoint norm for consecutive blocks"
+        },
+        {
+          "assessment": "Exact scope unconfirmed.",
+          "evidence": "No statement-level conclusion drawn from the access limitation.",
+          "identifier_or_url": "10.1016/0022-1236(86)90059-5",
+          "material_read": "No substantive full-text passage obtained",
+          "method": "Bounded OA retrieval attempts",
+          "title": "Sharp Estimates for Lebesgue Constants on Compact Lie Groups",
+          "trigger": "Potential broader Lebesgue-constant estimates"
+        },
+        {
+          "assessment": "Exact scope unconfirmed.",
+          "evidence": "No statement-level conclusion drawn from the access limitation.",
+          "identifier_or_url": "10.1007/BF01295142",
+          "material_read": "No substantive full-text passage obtained",
+          "method": "Bounded OA retrieval attempts",
+          "title": "Unbounded Lebesgue Constants on Compact Groups",
+          "trigger": "Potential coverage of nonstandard spectral sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting a full residue class is a natural periodic spectral filter. The theorem shows that regular thinning can increase worst-case endpoint amplification by a logarithm, locates the first modulus where this occurs, and gives the sharp coefficient through the interior Weyl-angle weights. This quantifies a genuine distinction between central parity selection and higher moduli, not merely an alternative expression for the consecutive norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

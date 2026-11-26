@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On each fiber the error is precisely \(W_1\) for the transformed geodesic metric. For odd \(m\), antipodal monodromy forces one labelled sample through the relative midpoint, costing at least \(\phi(1/2)/m\). For even \(m\), the two-sink transportation polytope has integral vertices; two different optimal half-size allocations with cost below \(1\) would contradict the triangle inequality. A unique low-cost allocation cannot return to its complement after one base circuit. Explicit sequential label swaps attain the odd and even bounds. Strictly concave snowflaking gives a genuine metric. The standalone checker passed 2799 finite assertions; the proof, not that count, establishes the quantified theorem.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The strongest comparable primary work, Duru–İlter–Bilgin, arXiv:2610.35575v1, optimizes the \(C(Y)\)-to-\(C(X)\) operator norm (equivalent to pointwise total variation), not the Lipschitz-to-continuous norm dual to the concavely transformed transport metric. The earlier intrinsic-arclength double-circle formula is expressly excluded as a novelty claim; it fixes only the endpoint \(\phi(s)=s\), and does not give the \(\phi(1/2)\) coefficient or exponent-dependent count reversal. Actual targeted published and mathematical-record searches found no claimed covering theorem for the strict concave metric class. Unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The exact formula compares two different topological obstructions (a forced crossing versus an impossible continuous choice of balanced transport matching) in a natural operator approximation problem. The entire strict-concavity family is classified, and the natural Hölder parameter has a sharp, nontrivial threshold above which adding a term worsens best equal-weight approximation; for each fixed positive Hölder exponent this happens infinitely many times at sufficiently large odd term counts. This threshold is not an arclength renaming.
+Kantorovich–Rubinstein duality and interchange of two suprema give exactly the worst fiberwise W1 distance. Each label's distance to the first tracked sheet has complementary endpoint values, so it hits the midpoint and contributes at least φ(1/2)/m in any plan. For m=2k, a minimizing assignment can be taken integral because two fractional entries in the capacity-k polytope can be perturbed. Distinct k-subsets have sums of costs adding to at least two by the antipodal triangle inequality. If every minimal cost in unnormalized units were below one, the unique minimizing subset would be constant by continuity, but it changes to its complement at the glued endpoints. The alternating single-label flips glue correctly: for odd m the stationary labels are balanced and the moving atom is split, with concavity bounding the cost by φ(1/2)/m; for even m the moving atom can fill the single vacancy for at most 1/m. This includes m=1,2. Substitution of s^α and comparison of the two exact constants give the stated threshold and the three-versus-four example.
 
-**Scientific limitations.** The geometry is a fixed connected two-sheet circle; only equal weights and continuous labels are optimized. A general graph/distance transform extension, uniqueness of optimizers, and arbitrary-weight optimization are not established. Independent validation has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact linear-cost parity law and the sheet-interchange obstruction as antecedents. The supported addition is sharp dependence on the concave metric, in particular the odd constant φ(1/2) and the resulting Hölder term-count reversal. The available strongest matching statement is for arclength; it does not give the transformed odd formula. The unchanged even constant is not credited as independent novelty.
+
+## value
+
+PASS
+
+For a natural nontrivial double cover, this gives exact performance of continuous equal-weight approximants in a metric-sensitive norm. It identifies a qualitative reversal that the linear metric does not exhibit: even one additional sample can worsen the best approximation, with an exact exponent threshold. That effect is meaningful only with the fixed Equal-weight constraint, and is not a claim about approximation by arbitrary convex mixtures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

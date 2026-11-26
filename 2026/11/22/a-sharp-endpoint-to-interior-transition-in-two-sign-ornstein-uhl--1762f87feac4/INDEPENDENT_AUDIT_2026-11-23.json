@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:38:39.452805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to repairs/2/RESULT.md. In the frozen Finding's critical equation and Proof Step 3's definition of B, the arcsine bracket is printed as a multiplier outside the fraction. This is false as printed: at the stated critical rate the product gives about 7.831, not 1. The frozen interior stationarity equation and the checker's g_func already put the bracket in the denominator. Differentiating −log(1+c(d)) gives −c'/(1+c)=λr/[√(1−r²)(π/2+arcsin r)], confirming the repair. Independently reconstructed the Gaussian conditional projection (odd under simultaneous bit flip), including the coincident-sign limit. The fixed-gap score decomposes along the sum and difference of the two covariance weights; its derivative in the center's cosh coordinate is strictly negative by the displayed centering identity and arcsin(r)<πr/2. At the centered pair, A strictly increases from 0 to 1, B strictly decreases from infinity, and B(1) strictly decreases with λ from infinity to zero. This gives uniqueness at, below and above the critical rate, with positive small gaps improving over every coincident pair. For large λ, evaluate A/B at fixed displacements on either side of d=1/3 to bracket the root; the uniform interior estimate (π/4)exp(λ(3d−1)/2)(1+o(1)) gives the logarithmic correction. Own bisection reproduced λ_c≈0.0600892783080023 and λ(d_*−1/3)≈0.16104298351366 at λ=100,200,500. Inspected the shipped verifier and its requirements, without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fesl–Koller–Utschick consider one-bit quantized estimation with jointly Gaussian variables and pilot/ADC design; Pronzato–Zhigljavsky formulate full-value Bayesian quadrature. The Bania–Baranowski full text could not be inspected; the targeted search yielded no directly relevant comparison."
+        ],
+        "reasoning": "Neither basic MSE optimality nor a general Gaussian design framework supplies the fixed-separation centering inequality followed by a sign change of the boundary derivative for this integral. Access failure does not support exclusion of the filtering paper.",
+        "searches": [
+          "arXiv:2212.04470v2, pp. 1–2",
+          "arXiv:1808.10722, §2.2",
+          "Focused primary-literature lookup for optimized zero-threshold sign OU integration",
+          "DOI 10.1080/00207179.2017.1282627 (attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Fesl–Koller–Utschick arXiv:2212.04470v2",
+        "Pronzato–Zhigljavsky arXiv:1808.10722",
+        "Full-value OU Resultary comparison",
+        "Frozen RESULT.md, VERIFICATION.md, verify_ou_sign.py and requirements.txt",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general one-bit formulas support the decoder for fixed sites, and the full-value theory addresses an unquantized design; neither gives a bound in the cosh center variable or the threshold B_λ(1)=1."
+        ],
+        "reasoning": "Specializing sign regression produces the objective but not its maximizer. The two nontrivial inequalities (strict centering and monotone gap score) are what turn it into a complete transition theorem. The repair restores its defining equation rather than claiming the underlying regression as new.",
+        "searches": [
+          "Fesl–Koller–Utschick pp. 1–2",
+          "Pronzato–Zhigljavsky §2.2, Eq. (2.13)",
+          "Full-value OU comparison RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-value record uses the same covariance and integral, but takes noiseless point values and proves strictly interior optima for n≥2 at every λ>0. Same-day one-bit Brownian occupation and cubic Brownian integral comparisons have a different covariance, path functional and/or bit budget."
+        ],
+        "reasoning": "Full values strictly precede signs under deterministic coarsening of the observation, but optimal sites need not survive coarsening. The full-value covariance ρ is replaced by (2/π)arcsin ρ in the sign covariance and the cross-covariances rescale; this changes the placement objective and yields a boundary that full-value designs do not have.",
+        "searches": [
+          "Resultary aliases: two zero-threshold signs, Ornstein–Uhlenbeck integral design, quantized quadrature versus full values",
+          "2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gave the identical frozen item, the full-value counterpart, and adjacent one-bit Brownian examples, not a distinct matching exact location classification in the bounded search."
+        ],
+        "reasoning": "The target is a continuous-design transition with a unique implicit critical parameter, not a tabulated invariant; the relevant exact-record comparison tests covariance, functional, observation alphabet and design budget, not whether a decimal matches.",
+        "searches": [
+          "Resultary exact quantized OU integral optimum / critical-rate aliases",
+          "Full-value OU comparison RESULT.md"
+        ]
+      },
+      "rationale": "The repaired two-sign design result, not the general Gaussian projection or arcsine identity, survives the scoped comparison. Full values give a different design problem with no small-λ endpoint phase; standard one-bit estimation machinery does not establish the shape in the OU placement variables.",
+      "residual_risks": [
+        "The inaccessible Bania–Baranowski full text and unlocated literature on sign-placement designs remain priority risks.",
+        "No claim extends to adaptive selection, threshold optimization, or arbitrary encoders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological coverage, not this placement theorem",
+          "evidence": [
+            "Jointly Gaussian inputs; pilot signals and receiver ADCs in the stated design problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.04470",
+          "material_read": "v2 pp. 1–2, text offsets 343 and 13941 and surrounding passages",
+          "method": "Open-access PDF statement inspection",
+          "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+          "trigger": "Strong general one-bit Gaussian estimator antecedent"
+        },
+        {
+          "assessment": "Full-valued observations, not binary signs",
+          "evidence": [
+            "The known-mean posterior variance conditions on an n-point design of full values."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722",
+          "material_read": "§2.2, pp. 4–6, Eq. (2.13), text offsets 15431–22249 in relevant passages",
+          "method": "Open-access PDF statement inspection",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "Broader Gaussian-process design potentially subsuming the integral problem"
+        },
+        {
+          "assessment": "Closest exact design comparison, with a different observation model and boundary behavior",
+          "evidence": [
+            "Strictly interior noiseless two-node optimum for every positive rate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba/RESULT.md",
+          "material_read": "Finding and full-value observation assumptions in RESULT.md",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck Bayesian quadrature",
+          "trigger": "Closest exact result for the same stochastic process and integral"
+        },
+        {
+          "assessment": "Unresolved comparison, not evidence of noncoverage",
+          "evidence": [
+            "403 from attempted routes; no original passage was accessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207179.2017.1282627",
+          "material_read": "Citation and title only; original text not retrieved",
+          "method": "Attempted lawful publisher and author-copy retrieval",
+          "title": "Approximation of optimal filter for Ornstein–Uhlenbeck process with quantised discrete-time observation",
+          "trigger": "Potential prior quantized OU optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The placement classification solves a natural low-bandwidth sensing design, not just a fixed-site risk evaluation. The rate at which endpoint sensing ceases to be optimal and the trisection asymptotic quantify the effect of observing signs rather than full values, with an implementable unique gap equation. The repair makes that equation and the threshold unambiguous.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

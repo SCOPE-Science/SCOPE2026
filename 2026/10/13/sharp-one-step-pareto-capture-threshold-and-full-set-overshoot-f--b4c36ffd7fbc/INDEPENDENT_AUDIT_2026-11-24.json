@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:03.972316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–114",
+        "Frozen VERIFICATION.md and artifacts/verify_pareto_capture.py, especially lines 13–76",
+        "arXiv:2602.05893v1, Algorithm 1"
+      ],
+      "rationale": "Algorithm 1 of arXiv:2602.05893v1 initializes w₋₁=√varsigma and uses the minimum-norm convex-hull gradient with its current square included in w₀². Zero lies in the hull exactly on [−c,c], and outside to the right the closest gradient to zero is λy. Consequently the first multiplier of y=x₀−c is 1−1/√(r+y²), including the exact endpoint hit at r+y²=1. For 0<r<1 the derivative of the positive crossing depth is r/(r+y²)^(3/2)−1, strictly decreasing for y>0 and changing sign once inside (0,√(1−r)). This gives y*=r^(1/3)√(1−r^(1/3)) and depth (1−r^(1/3))^(3/2). The width test is δ≤2c, with equality captured at the far endpoint, and reflection proves the left-start result. For example, λ=1, varsigma=27/64, y*=3/8 gives depth 1/8: c=1/32 jumps from 13/32 to −3/32, whereas c=1/16 lands exactly on −c. If w₀>λ then the right-side distances decrease and stay positive as wₖ is nondecreasing. The upper bound wₖ²≤varsigma+λ²(k+1)y₀² makes the sum of λ/wₖ diverge; the log-product estimate forces the distance to zero. When r≥1 there is no crossing basin for y>0, not a separate real-valued width formula. The bundled script exists at artifacts/verify_pareto_capture.py; its finite checks were read, not executed. Its r=1,2 noncrossing checks use startup values outside the paper's range with λ=1, but the recurrence is still defined there and the same r values are realizable with admissible startup after rescaling λ. The analytical proof uses the stated scope and does not rely on those tests.",
+      "residual_risks": [
+        "No classification of the dynamics after a strict full-set overshoot, of asymmetric curvatures, or of stochastic variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Santis et al. give the unconditional update and discuss a global criticality rate, not side-specific destinations or distances beyond the near endpoint.",
+          "The Gonçalves–Grapiglia–Melo landing page describes conservative and flexible adaptive methods. The full conservative update and theorem were not recovered in this review."
+        ],
+        "reasoning": "A rate for the norm of a common descent vector does not distinguish which parts of the Pareto interval are hit, whether the interval is skipped on a finite step, or the largest crossing depth over varying starting points. The accessible related-method description is not enough to decide coverage by its full text.",
+        "searches": [
+          "arXiv:2602.05893v1, abstract and Algorithm 1, pp. 5–6",
+          "Optimization Online, An adaptive line-search-free multiobjective gradient method and its iteration-complexity analysis"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2602.05893v1",
+        "Gonçalves–Grapiglia–Melo Optimization Online landing page",
+        "Resultary d0e5a5995235, 799f9f7196c9 and 330cd94527fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior update alone gives the crossing test on a specified input by substitution; that observation and the interval characterization are not credited as distinct claims.",
+          "Classifying all starts requires maximizing the depth and testing it against the opposite endpoint. On the noncrossing branch the monotone accumulator prevents future crossings, and its growth bound fixes the destination."
+        ],
+        "reasoning": "No inspected theorem bounds the depth sharply or implies this global-in-start capture/skip transition. The maximization is elementary but supplies an exact decision boundary absent from the checked rate and overshoot statements.",
+        "searches": [
+          "arXiv:2602.05893v1, Algorithm 1",
+          "Frozen RESULT.md, proof of the maximum and side invariance, lines 66–114",
+          "Resultary d0e5a5995235 and 330cd94527fc, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar common-gradient update outside the interval coincides, until crossing, with scalar AdaGrad on the nearer quadratic. Its first-step signed error is independent of c after translation.",
+          "The AdaSGDMax record 330cd94527fc studies a running-maximum denominator and reciprocity with later contraction in a single-objective quadratic, not the maximum overshoot depth over all scalar starts versus a finite interval width."
+        ],
+        "reasoning": "An exact maximum one-step overshoot depth for the same startup-normalized scalar update would be equivalent to the width threshold after translation and comparison with 2c. The strongest retrieved overshoot analogue does not supply that maximum or the same recurrence.",
+        "searches": [
+          "arXiv:2602.05893v1, Algorithm 1 and common-gradient definition",
+          "Resultary adaptive-gradient overshoot and Pareto capture comparisons, exact IDs d0e5a5995235 and 330cd94527fc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record d0e5a5995235 uses the same symmetric interval but a different Tikhonov-regularized iteration and interior starts; it establishes convergence to a noncentral interior point.",
+          "Same-day record 799f9f7196c9 gives λ≥3c²x³ for active-set capture in a cubic Newton half-space model; it does not address a pair of objectives or an opposite-endpoint overshoot.",
+          "Record 330cd94527fc supplies a different overshoot law; the cube-root depth formula was not returned in the bounded comparisons."
+        ],
+        "reasoning": "Same family geometry or capture terminology is not equivalent to the stated continuous width law. A finite parameter sweep is not an exact database for this continuum of parameters.",
+        "searches": [
+          "Resultary Pareto capture and overshoot comparisons, exact IDs d0e5a5995235, 799f9f7196c9 and 330cd94527fc"
+        ]
+      },
+      "rationale": "The algorithm and Pareto interval are known inputs. The distinct result is a sharp parameter-dependent threshold separating guaranteed first-crossing capture from possible complete skipping of a nontrivial Pareto interval, with the complementary no-crossing outcome. Neither the inspected algorithm nor the closest same-family and overshoot records give that comparison.",
+      "residual_risks": [
+        "An equivalent scalar AdaGrad maximum-depth calculation under startup or master-step notation could cover the threshold. The full Gonçalves–Grapiglia–Melo paper was not compared. No claim of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm predecessor, not an exact capture threshold in the passages read",
+          "evidence": "Minimum-norm vector in the convex hull, startup w₋₁=√varsigma, and xₖ₊₁=xₖ−gₖˢ/wₖ with updated cumulative denominator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05893v1",
+          "material_read": "Algorithm 1 and common-gradient definition, pp. 5–6, text around offset 17500; abstract rate description",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Objective-Function Free Multi-Objective Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm",
+          "trigger": "Original recurrence and global rate could cover the specialization"
+        },
+        {
+          "assessment": "Related method; unresolved exact implication from full text",
+          "evidence": "The landing page describes conservative and flexible variants and iteration-complexity analysis, not the underlying conservative algorithm in full.",
+          "identifier_or_url": "https://optimization-online.org/2026/01/an-adaptive-line-search-free-multiobjective-gradient-method-and-its-iteration-complexity-analysis/",
+          "material_read": "Rendered landing page; no paper passage recovered",
+          "method": "Lawful website mode and targeted retrieval attempt",
+          "title": "An adaptive line-search-free multiobjective gradient method and its iteration-complexity analysis",
+          "trigger": "Conservative adaptive method could encode the same recurrence"
+        },
+        {
+          "assessment": "Same geometry, different adaptive rule and basin",
+          "evidence": "Interior sign preservation and nonzero interior limit under summable Tikhonov weights, not an outside-start capture threshold.",
+          "identifier_or_url": "2026/10/4/SCOPE-summable-tikhonov-weights-do-not-select-the-center-of-a-symmetri--d0e5a5995235",
+          "material_read": "Local RESULT.md, Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Summable Tikhonov weights do not select the center of a symmetric Pareto interval",
+          "trigger": "Same quadratic pair and selection question"
+        },
+        {
+          "assessment": "Different mathematical map and set",
+          "evidence": "A cubic Newton problem on a half-space with λ≥3c²x³ as its active-set threshold.",
+          "identifier_or_url": "2026/10/13/SCOPE-tangential-cubic-coupling-gives-a-sharp-active-set-capture-thres--799f9f7196c9",
+          "material_read": "Local RESULT.md, Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Tangential cubic coupling gives a sharp active-set capture threshold",
+          "trigger": "Same-day indexed exact capture threshold"
+        },
+        {
+          "assessment": "Related effect but different optimization of parameters and different recurrence after the first step",
+          "evidence": "Isotropic single-objective quadratic, running-maximum denominator, and a reciprocal relation with later contraction, not a maximum-depth versus interval-width comparison.",
+          "identifier_or_url": "2026/10/12/SCOPE-adasgdmax-has-an-exact-overshoot-rate-reciprocity--330cd94527fc",
+          "material_read": "Local RESULT.md, Finding and overshoot passage",
+          "method": "Resultary and local mirror",
+          "title": "AdaSGDMax has an exact overshoot-rate reciprocity",
+          "trigger": "Scalar quadratic adaptive-step overshoot"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2602.05893v1, Algorithm 1"
+      ],
+      "rationale": "The width is an intrinsic parameter of an elementary connected Pareto set for a named line-search-free method. The sharp law separates a guaranteed selection event from a strict skip of every Pareto point in one iterate, which criticality-rate estimates do not address. It also distinguishes finite entry from same-side convergence to a particular endpoint. The exact witness and equality case make the threshold useful for checking algorithm behavior, rather than merely showing an isolated overshoot.",
+      "residual_risks": [
+        "This is a narrow scalar diagnostic, not a rate theorem or a multidimensional Pareto selection theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

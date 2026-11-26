@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem follows from an exact Hardy-multiplier \(\ell^2\) norm, sharp \(\ell^1\) convolution norm, two nondegenerate equal-velocity boundary maxima, uniform complex-Gaussian Fourier coefficient asymptotics, and an independent Parseval-moment tail bound. Irrational angles kill all nonconstant Fourier harmonics by summation by parts; rational angles retain a periodic profile with a provably nonzero first harmonic. Definitions, exponent range, branch choices, complex normalization, equality on the \(\ell^1\) first unit vector, and limiting extrema are explicitly addressed. The finite program verifies representative identities and asymptotics but is not offered as a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+The frozen display defined u=Re(K⁻¹) but used undefined ν in the theorem and proof. The complete corrected RESULT.md in repairs/3 defines ν=Re(K⁻¹) and uses it consistently; the original checker uses u for the same quantity. Rechecking the corrected claim: differentiation gives only the two maxima ±θ, common positive drift v and conjugate curvatures K and its conjugate. The exact ℓ² boundary maximum is e^{ct}, whereas the ℓ¹ norm is the coefficient absolute sum. A real Gaussian majorant near each saddle gives a uniform window asymptotic with the corrected Gaussian width; the complex Gaussian integral gives the claimed chirp sign and the factor 2. The centered derivative vanishes at both saddles and is bounded even at the branch point for α>1. Its Parseval bound and weighted Cauchy–Schwarz yield an O(L⁻¹ᐟ²) normalized tail outside L√t. The nonzero angular harmonics disappear by bounded geometric sums and Abel summation in the irrational case. For a/q, residue Riemann sums are uniform in the periodic phase and select the harmonics at multiples of q; the first has nonzero Gaussian integral sqrt(2π/(ν+2iqω)), so π/q is fundamental. The constant term yields the stated mean and real times give both extrema repeatedly. These checks are replayable in the repaired proof; the frozen verification notes and CHECK.py were inspected, not executed. The FFT diagnostic is not a proof of the tails or a uniform-in-α rate.
 
-Barberán–Miana (arXiv:2606.16895) identify the semigroup and absolutely summable coefficient kernel, without the exact large-time normalized operator-norm profile. Girard's 1971 full paper, §4, handles separated group velocities and explicitly leaves same-drift multi-maximum nonadditivity unresolved at the level of a complete constant; this theorem treats precisely a natural equal-drift pair and classifies irrational convergence versus rational oscillation. Coeuret (arXiv:2201.01514) and Coulombel–Faye (arXiv:2408.12876) develop local limits for convolution powers but do not state this fractional continuous-time norm ratio or its arithmetic equality cases. Searches for the source, phase aliases, fractional Wiener-algebra semigroups, complex local limits and rational lattice oscillation did not identify an implication covering the exact statement. A stronger, unindexed general theorem about equal-drift saddle interference is a residual risk; negative search results are not a proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural fractional-shift semigroup has a nontrivial exponentially growing norm for superunit fractional order. Determining the exact leading endpoint norm relative to Hilbert growth answers a quantitative operator-semigroup question, and the opposite limiting behavior for rational and irrational orders is an intrinsic arithmetic transition, not a nominal parameter substitution. The Gaussian interference mechanism and strict nonconvergence law provide a useful boundary case for local-limit analysis with coincident velocities.
+After the notation repair the surviving claim is the same fixed-order rational/irrational law with exact continuous-time normalization and periodic profile. It is distinct from the general fractional-shift framework and the earlier finding that multiple-maxima interference can sometimes obstruct convergence. No distinct exact or stronger coverage was established in the inspected sources.
 
-## Scientific limitations
+## value
 
-Only \(1<\alpha<2\) and the complex unilateral shift are covered. No universal-in-order remainder or other \(\ell^p\) norm formula is asserted. The most significant remaining risk is unindexed multi-saddle local-limit literature. A separate independent validation has not been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result computes the endpoint-to-Hilbert norm ratio for a canonical fractional-shift family in a genuine same-velocity interference regime. It resolves both exact convergence and the complete periodic obstruction, quantifying limiting extrema rather than just finding two subsequences with different values. This is a concrete nonadditive benchmark not supplied by the general separated-maxima theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

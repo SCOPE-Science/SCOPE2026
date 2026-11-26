@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:35:26.424268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full diameter forces any resolver of an antipodal pair to be one of the endpoints. Conversely every vertex belongs to the interval between a vertex and its antipode, so any antipodal transversal strongly resolves, and choosing a coordinate half-cube adds exact-distance-two domination. A minimum transversal fails the latter condition exactly if its omitted set contains D_2(v). The d=2 antipode is itself a hop witness; in d=3 each parity class is a distance-two clique, giving two bad transversals; in d=4 each parity contains only four omitted vertices, fewer than the size-seven obstruction. For d=5, write U for the omitted even words. Failure is equivalent to U or its relative complement lying in an open distance-four neighborhood on even words. Two such neighborhoods intersect in two vertices at center distance two and zero at center distance four: a weight-four support must meet a size-two center difference in one coordinate, or a size-four difference in two (the latter is impossible). This gives 353 faces including the empty face, and the two excluded types are disjoint. In d=6, distances in each same-parity antipodal pair sum to six; exactly one is 0 or 2, so each obstruction is a whole parity-side transversal, and the 32 choices are distinct. Bounded fresh exact enumeration corroborated d=5 and both d=6 parity-side counts; replay /workspace/branches/76e234e5-929b-405c-ada6-840c0c61a3c7/reproduce_counts.py, with reproduction_output.txt in that directory. Supplied scripts and recorded outputs were inspected rather than run. For the infinite result, D_2(v) fixes L=1+binom(d,2) distinct antipodal choices. At center distance two there are the two centers plus 2(d-2) common words; at distance four there are binom(4,2) common words; otherwise there are none. A distance-two pair has no antipodal conflict for odd d (same parity), or for even d>=8 (cross-neighborhood distances are at most six). Its contribution from 2^(d-1)binom(d,2) pairs is exactly the claimed positive correction to the no-obstruction probability. Other pair contributions are bounded by 2^(2d-1) times 2^(-2L+6). Triple unions fix at least 3L-3(2d-2) choices if consistent and are impossible otherwise; fewer than 2^(3d) triples give the stated second error bound. Bonferroni places the error between the remaining pair sum and that sum minus the triple sum. Both displayed errors divided by the positive correction vanish. This establishes the coefficient and the explicit bound for all d>=8 independently of enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary search produced no relevant new statement. Frozen RESULT.md lines 80–89 attribute the definition and join/corona/lexicographic product work to Mohamad–Rara and identify the earlier Cartesian product strong metric dimension paper."
+        ],
+        "reasoning": "Strong metric dimension without hop domination constrains only resolution. The cited scope of the definition paper does not supply an exact-distance-two count for a Cartesian power. This is a comparison against available statement descriptions, not a whole-text exclusion.",
+        "searches": [
+          "Primary-literature lookup for strong resolving hop domination in hypercubes",
+          "Mohamad–Rara DOI 10.29020/nybg.ejpam.v16i1.4578",
+          "Rodríguez-Velázquez et al. arXiv:1307.4722"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_outputs.txt, verify_small.py and verify_structure.py",
+        "Resultary a52e2bd7c96c and 1dc11cc6574a summaries",
+        "Cited comparisons to DOI 10.29020/nybg.ejpam.v16i1.4578 and arXiv:1307.4722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Clebsch face total implies the auxiliary dimension-five datum by the proved reduction. The earlier resolution-only condition does not forbid any antipodal transversal."
+        ],
+        "reasoning": "The surviving claim requires control of consistency among neighborhood assignments, the multiplicity of distance-two center pairs, and a triple remainder smaller than the pair correction. Neither counting all antipodal bases nor the finite Clebsch face total implies that information.",
+        "searches": [
+          "Resultary 1dc11cc6574a and the cited strong metric dimension and hop-domination works listed at RESULT.md lines 86–89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed a52e2bd7c96c result is the identical frozen record. Distinct indexed record 1dc11cc6574a concerns the Clebsch open-neighborhood complex and 352 nonempty faces."
+        ],
+        "reasoning": "Complementing selected sets gives transversals avoiding closed distance-two neighborhoods. In odd dimension five the parity and complement translation makes the existing Clebsch face count sufficient for the excluded total of 706, but that specific graph calculation is not the general antipodal obstruction census.",
+        "searches": [
+          "Resultary: strong resolving hop domination on labeled binary cubes, antipodal forbidden patterns, and Clebsch neighborhood complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Clebsch indexed summary identifies 352 nonempty faces; add the empty face and double to obtain 706 exclusions in d=5. No other retrieved distinct catalogue result supplies the d=6 count or the infinite correction."
+        ],
+        "reasoning": "The auxiliary d=5 number is not independently novel. Dimension six instead splits into two parity-side censuses with single-obstruction transversals, and a finite face list cannot certify the claimed asymptotic.",
+        "searches": [
+          "Resultary: Clebsch neighborhood complex and exact cube census; known record 1dc11cc6574a"
+        ]
+      },
+      "rationale": "Pass for the combined exact-distance-two obstruction count and especially the sharp second-order labeled cube asymptotic. The antipodal strong resolving basis reduction alone is not claimed original, and the dimension-five incidence census is covered by earlier Clebsch face data together with the elementary parity translation, as the finding expressly credits.",
+      "residual_risks": [
+        "The Mohamad–Rara primary passage and Clebsch full mirror were not retrieved; available comparisons do not exclude further results in those sources.",
+        "An unindexed cube/transversal enumeration under different graph or error-correcting terminology could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement plus parity reduction covers the auxiliary face total; no basis to extend that coverage to general d",
+          "evidence": [
+            "352 nonempty faces; empty face gives 353, and two disjoint parity cases give 706 exclusions."
+          ],
+          "identifier_or_url": "Resultary 1dc11cc6574a",
+          "material_read": "Catalogue summary and frozen RESULT.md lines 37–39, 80–89; exact mirror passage not retrieved",
+          "method": "Local indexed search and bounded exact-source retrieval attempt",
+          "title": "The 5-regular Clebsch neighborhood complex is a wedge of 31 2-spheres",
+          "trigger": "Strongest distinct indexed overlap with the dimension-five census"
+        },
+        {
+          "assessment": "Definition credited; coverage beyond the available scope not ruled out",
+          "evidence": [
+            "Frozen comparison describes joins, coronas and lexicographic products, distinct from the Cartesian binary cube census."
+          ],
+          "identifier_or_url": "https://doi.org/10.29020/nybg.ejpam.v16i1.4578",
+          "material_read": "Frozen comparison at lines 80–87; relevant primary text unavailable after bounded attempt",
+          "method": "Cited statement inspection and lawful OA passage attempt",
+          "title": "Strong Resolving Hop Domination in Graphs",
+          "trigger": "Primary definition and plausible graph-product coverage"
+        },
+        {
+          "assessment": "Resolution-only result is prior background, not evidence of simultaneous hop domination",
+          "evidence": [
+            "The independent obstruction is exact-distance-two domination of omitted vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4722",
+          "material_read": "Bibliographic identification and frozen scope comparison at lines 80–88, not primary full text",
+          "method": "Comparison of identified statistic and frozen interpretation",
+          "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+          "trigger": "Cartesian powers and antipodal bases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labeled cube is a natural product test case linking two graph constraints. The result detects exactly which local obstructions spoil a minimum strong resolving basis and identifies the dominant dependent pairs, with a proved smaller remainder. The finite exceptions put the asymptotic in context; the already-known Clebsch data are not the basis for value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

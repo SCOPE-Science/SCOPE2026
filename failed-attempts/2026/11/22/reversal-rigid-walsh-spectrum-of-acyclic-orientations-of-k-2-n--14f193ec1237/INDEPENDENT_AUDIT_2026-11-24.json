@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:46:02.757399Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, VERIFICATION.md, and supplied verify.py (not executed)",
+        "/workspace/branches/d6a1e87c-4cd9-4f53-bb15-fc1b71819351/record3-small-check.txt; 16 and 64 exact coefficients tested"
+      ],
+      "rationale": "In K_{2,n}, a simple directed cycle must have length four, and occurs exactly when both mixed columns 01 and 10 occur. Thus acyclic orientations are the union of the two product sets omitting one of those mixed columns, with intersection the product on {00,11}. The one-column character sums for the two sets are 3 at 00, 1 at 11, and opposite signs at 01 and 10; the intersection contributes 2 at 00 and 11, zero otherwise. Factoring proves the exact transform and its multinomial multiplicities. Odd total weight cancels; positive even mixed count yields ±2·3^a; for no mixed frequency columns a zero would require 3^a=2^{n−1}, impossible for n≥2. This also explains the n=1 exclusion. Characters diagonalize counting convolution; all nonzero coefficients are even integers, two mixed frequency columns of the same type and all other columns 11 give 2, and the triangle bound is attained at zero with 2·3^n−2^n. The kernel has half the dimension and the range is exactly the fixed space of all-edge reversal, with the stated positive projection and condition number. An independent exact cycle-test/signed-sum computation at n=2,3 matched all coefficients; the general proof does not rely on it.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 40aa0fb74202 Finding gives exact even-weight support for all m,n≥2; this covers the zero-set claim for two rows. The weighted-lonesum paper counts by total entries equal to 1, which does not recover arbitrary character signs."
+        ],
+        "reasoning": "The broader rectangular result separately subsumes the support claim, but not the entire two-row spectrum. The exact earlier two-row theorem, rather than the general weight enumerator or square gap, subsumes the rest.",
+        "searches": [
+          "Local Resultary: rectangular binary lonesum Fourier support and sharp singular gap",
+          "Kamano–Ohno–Yamamoto, Weighted Lonesum Matrices, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary records 1e3e0be54a6a and 40aa0fb74202, local mirror",
+        "Stanley; West; Kamano–Ohno–Yamamoto; Cameron et al.; Knuth, primary excerpts above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact predecessor states the same rank, nullity, gap 2, condition number, and averaging projection, and proves the attained upper bound W_n(0)=2·3^n−2^n. West's fully orientable result concerns dependent edges, a different statistic."
+        ],
+        "reasoning": "The recovery statements are consequences of the very same multipliers and symmetries; re-encoding as edge orientations adds no independent theorem. Any remaining interpolation or multiplicity observation follows directly from averaging and counting.",
+        "searches": [
+          "Resultary 1e3e0be54a6a, Finding, Scope and proof §3",
+          "West, Acyclic Orientations of Complete Bipartite Graphs, abstract and pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1e3e0be54a6a, Assumptions and scope: a binary entry encodes the orientation of an edge of K_{2,n}, and the forbidden mixed-column pair is exactly a directed four-cycle. Its Finding gives the same unnormalized Walsh transform."
+        ],
+        "reasoning": "Under the labeled edge/entry bijection the two indicators agree on the whole group; swapping which mixed type is called 01 or 10 leaves the formula unchanged. Since subtraction equals addition in this group the convolution conventions agree as well.",
+        "searches": [
+          "Local Resultary: Walsh spectrum of two-row lonesum matrices, acyclic bipartite orientations, exact parity support",
+          "arXiv:1412.3685 Theorem 3.5 and preceding correspondence",
+          "Knuth, Parades and Poly-Bernoulli Bijections §10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding gives the exact coefficient for every quadruple of frequency-column counts, not merely a finite data table. Prior general orientation counts give the zero-frequency count but not the other frequencies."
+        ],
+        "reasoning": "The same coefficient formula for all labeled characters determines the full signed spectrum, including the counts of equal values; the multinomial frequency multiplicities are elementary and require no new invariant.",
+        "searches": [
+          "Resultary 1e3e0be54a6a, published RESULT.md Finding and proof §§1–3",
+          "Stanley, Acyclic Orientations of Graphs, abstract",
+          "arXiv:1412.3685 Theorem 3.5"
+        ]
+      },
+      "rationale": "A distinct published Resultary record already states the same theorem with the same normalization, and explicitly gives the K_{2,n} orientation interpretation. In the two-row binary matrix encoding, lonesum is precisely the acyclic-indicator event; it is equality of signals on the same binary group, not just equality of counts. The checked older record states the full signed formula, support, gap, rank, nullity, condition number, and recovery projection, and its proof gives the sharp maximum. No unattested priority risk is needed for this rejection.",
+      "residual_risks": [
+        "Historical priority before the verified catalogue coverage, including any older per-cell multivariate enumerator, was not resolved; it cannot change the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire material finding, explicitly including the orientation interpretation",
+          "evidence": "Same coefficient formula, exact even support, gap 2, rank/nullity, condition number and averaging projection; §3 bounds all magnitudes by the attained zero-frequency value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-parity-complete-walsh-spectrum-of-two-row-lonesum-matrices--1e3e0be54a6a/RESULT.md",
+          "material_read": "Finding, Scope, proof §§1–3, mirror offsets 0–4891",
+          "method": "Local Resultary search and direct local-mirror passage inspection",
+          "title": "Parity-complete Walsh spectrum of two-row lonesum matrices",
+          "trigger": "Distinct exact theorem-level match"
+        },
+        {
+          "assessment": "Independently contains the broader support conclusion but not the full two-row spectrum",
+          "evidence": "Exact even-weight support for m,n≥2; gap 6 is for the particular 4×4 layer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-first-square-fourier-gap-jump-for-binary-lonesum-matrices--40aa0fb74202/RESULT.md",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror",
+          "title": "The first square Fourier-gap jump for binary lonesum matrices",
+          "trigger": "Stronger rectangular zero-set claim"
+        },
+        {
+          "assessment": "Total-entry-weight rather than independent cell signs",
+          "evidence": "Counts L(m,n,k) by the number k of ones.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/n25/n25.pdf",
+          "material_read": "Abstract p. 1 offset 996 and Theorem 1 p. 2 offset 3120",
+          "method": "Primary OA PDF passages",
+          "title": "Weighted Lonesum Matrices and Their Generating Function",
+          "trigger": "Potential prior weight enumerator for the same matrices"
+        },
+        {
+          "assessment": "Correspondence and unweighted enumeration, not a signed transform in these passages",
+          "evidence": "Theorem 3.5 counts acyclic orientations of complete bipartite graphs via lonesum matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3685",
+          "material_read": "p. 5 offset 10637; Theorem 3.5 p. 7 offset 14962",
+          "method": "Primary OA PDF passages",
+          "title": "Acyclic Orientations and Poly-Bernoulli Numbers",
+          "trigger": "Same graph and equivalent objects"
+        },
+        {
+          "assessment": "General bipartite correspondence, not a Walsh theorem there",
+          "evidence": "Identifies lonesum matrices and acyclic complete-bipartite orientations in the counting context.",
+          "identifier_or_url": "https://www-cs-faculty.stanford.edu/~knuth/papers/poly-Bernoulli.pdf",
+          "material_read": "§10 p. 12 offset 54236",
+          "method": "Primary OA PDF passage",
+          "title": "Parades and Poly-Bernoulli Bijections",
+          "trigger": "Primary literature search on lonesum bijections"
+        },
+        {
+          "assessment": "Only unweighted count in the compared statement",
+          "evidence": "Chromatic-polynomial evaluation at −1 counts acyclic orientations up to the size-dependent sign.",
+          "identifier_or_url": "https://sites.math.washington.edu/~reu/papers/current/jair/acyclic.pdf",
+          "material_read": "Abstract p. 1 offset 445",
+          "method": "Primary OA PDF passage",
+          "title": "Acyclic Orientations of Graphs",
+          "trigger": "Classical acyclic-orientation enumeration"
+        },
+        {
+          "assessment": "Different invariant in the compared material",
+          "evidence": "Fully orientable result concerns the possible counts of dependent edges.",
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+          "material_read": "Abstract and definition p. 1 offsets 532,1265; discussion p. 2 offset 3066",
+          "method": "Primary OA PDF passages",
+          "title": "Acyclic Orientations of Complete Bipartite Graphs",
+          "trigger": "Same graph family and acyclicity structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 1e3e0be54a6a, Finding, Scope and §§1–3"
+      ],
+      "rationale": "An exact nonvanishing theorem and sharp inverse stability can be mathematically useful, but the audited claim supplies no new utility or invariant beyond the already published theorem on the identical signal. The graph interpretation is already explicit in that source. A new certificate, recalculation, or reformulation would not leave a genuinely distinct valuable remainder.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

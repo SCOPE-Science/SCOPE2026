@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's area-one invariant-polygon equidistribution and fundamental-section theorem justify interpreting the exact polygon moment as the orbit time-average for rationally independent votes. The root-lattice spread test proves the sharp Voronoi lower bound. Exact symbolic wedge integration of the source's eleven vertices factors as the displayed cubic correction. A SymPy checker reproduces area, factorization, and rational boundary cases. The checker supports the algebra but is not a substitute for the lattice and ergodic arguments.
+## correctness
 
-## Originality — PASS within the inspected evidence
-The motivating work proves the Farey invariant polygons and area-equidistribution, not the explicit mean-square score formula or its cubic flatness. Root-lattice optimal quantization is prior theory and not claimed as new. Related existing root-lattice and discrepancy entries concern different observables or dynamics. Exact re-expression of a previously published quadratic polygon moment is a residual priority risk; available evidence did not show such a statement.
+PASS
 
-## Mathematical value — PASS
-Long-run squared score discrepancy is a natural fairness and tracking-error criterion for an election rule. The exact factorization unexpectedly quantifies the cancellation between unequal shares and the invariant polygon's deformation, producing a sharp cubic corner and an extended asymptotically optimal edge rather than a generic small-perturbation estimate. Its parameter dependence provides quantitative discrimination beyond known area-one existence.
+The frozen numerical finding survives. The repaired proof corrects the vertex statement in frozen RESULT line 26: the six vertices are the three permutations of (2/3,−1/3,−1/3) AND their negatives, not merely the permutations of one triple. The lattice spread test in both directions is valid; each of the six origin triangles has the other two vertices of squared norm 2/3 and mutual dot product 1/3, giving a mean of 5/18 on each triangle. The planar quotient measure has area one; Euclidean surface area would multiply both area and integral by √3. CJO Theorems 7.5 and 7.7 justify the measurable-section comparison and transfer from invariant area to the orbit mean of a bounded continuous observable on the containing compact region. Eq. (11.5) gives exactly the required score translation, and Eq. (11.49), Theorem 11.6 and Corollary 11.7 identify the polygon of the exact law. Independently, I computed signed boundary integrals via Green's theorem, using the x-antiderivative of 1 and of the translated score quadratic rather than the frozen origin fan. The symbolic results were area 1 and excess −(p−q)²(4p+5q−3)/9. Replay: python3 /workspace/branches/record1_green_check.py. Along p=q the score-coordinate polygon has the six Voronoi vertices with additional repeated or side points. The affine factor is 0, 1, 3/2 at the three vertices, so the interior excess is strictly positive. Density of rationally independent shares and continuity of the area formula establish sharp infimum, with no boundary-orbit assumption. Cubic order at the equal-share vertex is made precise along fixed inward rays, not a uniform lower bound for tangential approaches. The original checker was inspected but not run.
 
-## Scope and risks
-The expression is for the first Farey cell, with other cells not classified. The boundary-hexagon assertion concerns normalized invariant area, not all nonergodic orbits. A complete general polygon-moment formula in previously uninspected literature could imply this result; there has been no independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content is the factorized Frege-specific first-cell energy law and its exact cubic degeneration. The repaired text explicitly credits the invariant polygons, equidistribution, boundary hexagon, and the classical Voronoi moment and comparison; neither the number 5/18 in lattice theory nor the universal comparison technique is new. The strongest inspected sources supply the input geometry and moment-minimization argument, not the resulting nonconstant vote-share law.
+
+## value
+
+PASS
+
+The mean squared score is a natural quantitative discrepancy measure for Frege dynamics on an entire natural stability cell. The exact signed moment reveals a full flat limiting edge and cubic, rather than quadratic, departure at equal shares. These give a concrete sharp benchmark and information on parameter sensitivity not contained in area or equidistribution alone. No general-cell moment or boundary-orbit rate is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

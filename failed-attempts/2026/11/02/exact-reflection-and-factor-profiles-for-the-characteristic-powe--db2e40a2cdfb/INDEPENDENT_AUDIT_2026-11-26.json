@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:58.328715Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 3–79: independent all-length proof check of the one-sided convention, two-one reversals, gap counts, small cases, and extrema.",
+        "Frozen verify.py and VERIFICATION.md inspected, not executed; their finite enumerations are supplementary."
+      ],
+      "rationale": "The first adjacent one-gap determines which pair of marked positions is seen and the relative left offset then determines the start. Factors with three or more ones cannot have an occurring reversal because their consecutive gaps are strictly increasing. For a gap d≥2 put h=d/2 and u=n−d−1; there are min(h,max(0,u+1)) first-pair factors. The reversible subset is precisely those splits a+b=u with both a,b between 0 and h−1; this also excludes the next one because its gap is 2d. Reflection swaps a,b, so subtracting the floor of half its cardinality removes exactly the duplicates. For u<0, 0≤u<h, h≤u≤2h−2 and u≥2h−1, the resulting count is respectively zero, floor((u+2)/2), floor((u+2)/2) and h. This counts the odd lengths in (d,2d) not exceeding n. The dyadic sum, the zero/single-one factors and the unique initial gap yield r_c. Prefixing zero adds only one possible new factor at each length: it is new for n≥3; at n=3 it is the reverse of 110, at n=4 it is the new palindrome 0110, and for n≥5 its reversal cannot occur. The distinct-factor formula uses the same first-pair count without quotients: smaller gaps saturate, the top gap is truncated, larger gaps contribute zero. The empty word and lengths 1–3 give the stated boundary counts. The normalized factor profile has extrema 3/2 and 5/3 on each dyadic scale asymptotically, attained along powers of two and their 3/2 multiples; taking reciprocals gives the stated ratio endpoints since r_c/n→1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem gives exact reflection counts for all integer bases B≥2 and the auxiliary all-base multiple-one factor count. Allouche et al. give regularity for automatic sequences, Dvořáková–Pelantová consider minimum growth, and Cassaigne et al. print the canonical word and state linear-order factor complexity; those literature bounds do not themselves give the precise counts."
+        ],
+        "reasoning": "The covering result is an actual stronger exact theorem and its factor-count proof, not a generic regularity theorem or an order estimate.",
+        "searches": [
+          "SCOPE-20261108-e7e8ab2eb348 all-base Finding and proof Steps 1–4",
+          "arXiv:2406.09302 automatic-word reflection regularity",
+          "arXiv:2511.12358 minimum-growth reflection complexity",
+          "Cassaigne et al. 10.1016/j.jcta.2024.105936, powers-of-two example"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261108-e7e8ab2eb348",
+        "SCOPE-20261102-e4d7d7cd5521",
+        "arXiv:2406.09302",
+        "arXiv:2511.12358",
+        "doi:10.1016/j.jcta.2024.105936",
+        "OEIS factor-profile term lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At base 2 write s=2^k<n≤2s; the indexed parameters give h=s/2, M=n−1−s, and its Step 4 gives U=min(h+M+2,s+1), the exact multiple-one count. Hence ρ_c⁺(n)=n+1+U=n+s/2+2+min(s/2,n−s). At n=2s this is n+n/2+2, consistent with the frozen largest power convention. Steps 1–2 show that all zero/single-one factors occur later, any multiple-one prefix is unique, and three-one reversals never occur. Removing the first symbol therefore subtracts one factor for n≥3 and one reflection class for n≥4; at n=3 the class remains via 110. The n=4 prefix 0110 is palindromic. The endpoint ratios follow by maximizing/minimizing the resulting two rational branches in (n−s)/s."
+        ],
+        "reasoning": "The exact shifted reflection theorem, explicit before-reversal count and simple suffix relation imply both ordinary profiles, both reflection profiles and the asymptotic comparisons. The stronger result need not display the ratio as a separate boxed formula to cover it.",
+        "searches": [
+          "SCOPE-20261108-e7e8ab2eb348 RESULT.md, offsets 0–1681 and 1212–5404, Finding and proof Steps 1, 2, 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed geometric word w₂ marks positions 1,2,4,8,… with zero-based indexing and zero at position zero, so w₂=c⁺, not c. Its reversal equivalence and short lengths agree with the frozen theorem and it states R₂(n)=2ceil(n/2)+2 for n≥4."
+        ],
+        "reasoning": "The reflection formula for c⁺ is an exact match; the boundary convention is real, but c is precisely the suffix obtained by suppressing the initial zero.",
+        "searches": [
+          "Resultary: exact reflection complexity of the characteristic powers of two and leading-zero shift",
+          "SCOPE-20261108-e7e8ab2eb348 Finding and assumptions, offsets 0–2100",
+          "arXiv:2406.09302 definitions, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither sequence-term query returned an OEIS match. The Resultary all-base proof nonetheless supplies the exact profiled count U before reversing, with n+1 additional factors from zeros and a single one. The same-day minimal-absent-basis record concerns the same c⁺ factor language but its displayed count m(n) counts absent words, not factors or reversal classes."
+        ],
+        "reasoning": "A negative sequence lookup does not outweigh a directly inspected explicit factor count under an equivalent parametrization, and a different exact statistic should not be misidentified as the factor table.",
+        "searches": [
+          "OEIS sequence lookup from n=1: 2,4,6,7,9,11,12,13,15,17,19,21,22,23,24,25,27,29,31,33,35,37,39,41",
+          "OEIS sequence lookup from n=1: 2,4,7,8,10,12,13,14,16,18,20,22,23,24,25,26,28,30,32,34,36,38,40,42",
+          "Resultary: exact factor and reflection profiles, powers-of-two characteristic word"
+        ]
+      },
+      "rationale": "The distinct indexed geometric-support result covers the shifted word's exact reflection formula as its base-two case. Crucially, its proof Step 4 also gives the exact number U of distinct multiple-one factors before reversal; specializing that explicit count recovers the entire shifted ordinary factor profile. Its uniqueness and reversal lemmas reduce the canonical word to deletion of the one prefix contribution with the listed short-length exceptions. The ratio endpoints are routine extrema of the already supplied profiles. Thus there is no independently supported distinct remainder. The coverage comparison does not purport to establish priority or provenance from catalog dates.",
+      "residual_risks": [
+        "The index dates do not establish historical priority or provenance between the frozen result and the all-base result.",
+        "A nearby string-attractor index hit SCOPE-20261102-5ffa12b82ec7 did not yield readable RESULT.md in the local mirror and was not used as coverage evidence.",
+        "The bounded OEIS queries were not an exhaustive survey of alternate sequences or indexing conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_AND_MECHANICAL_COVERAGE",
+          "evidence": [
+            "R₂ is identical for c⁺; ordinary ρ follows by adding n+1 to the exact unique-start count U. The first-zero suppression has only the immediate prefix exceptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348/RESULT.md",
+          "material_read": "Finding, assumptions and proof Steps 1–4 (offsets 0–5404), especially the equation for U and its interpretation before reversal",
+          "method": "Local mirror, bounded passage reads",
+          "title": "Exact reflection complexity and oscillation of geometric-support automatic words",
+          "trigger": "Direct base-two reflection match and possible coverage of ordinary factor complexity"
+        },
+        {
+          "assessment": "SAME_LANGUAGE_DIFFERENT_STATED_INVARIANT",
+          "evidence": [
+            "Enumerates minimal absent factors and counts them; states one occurrence per multiple-one factor, but does not need to be used as a factor-profile match."
+          ],
+          "identifier_or_url": "SCOPE-20261102-e4d7d7cd5521",
+          "material_read": "Finding and proof of unique multiple-one occurrences, offsets 320–3678",
+          "method": "Local mirror, paged passages",
+          "title": "Complete minimal absent factor basis of the binary powers-of-two word",
+          "trigger": "Same shifted factor language in a distinct same-day result"
+        },
+        {
+          "assessment": "FRAMEWORK_NOT_EXACT_PROFILE",
+          "evidence": [
+            "Defines reversal equivalence and states automatic-word reflection complexity is computably regular."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "pp. 1–2, offsets 2027 and 4996 and surrounding text",
+          "method": "OA PDF passage inspection",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Primary definition and automatic-word setting"
+        },
+        {
+          "assessment": "KNOWN_WORD_AND_ORDER_OF_GROWTH",
+          "evidence": [
+            "Displays 1101000100000001… and states p_c(n)=Θ(n), not a precise count in the inspected example."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2024.105936",
+          "material_read": "Powers-of-two example in the inspected PDF (Example 12, p. 7, offset 25000)",
+          "method": "OA repository PDF passage inspection",
+          "title": "New string attractor-based complexities for infinite words",
+          "trigger": "Same canonical characteristic word and ordinary subword growth"
+        },
+        {
+          "assessment": "RELATED_REGIME",
+          "evidence": [
+            "Inspected characterizations concern minimum-growth regimes, not the exact powers-of-two profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.12358",
+          "material_read": "pp. 2 and 6, offsets 4949 and 16382",
+          "method": "OA PDF passage inspection",
+          "title": "Reflection on the reflection complexity",
+          "trigger": "Related classification of reflection growth"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact complexity for this nonrecurrent word is a motivated question. However, after the exact all-base reflection theorem and its ordinary factor count are credited, specializing them, removing one leading position, and taking extrema of the corresponding two dyadic branches do not establish a distinct valuable result. Keeping only the rewritten factor formula or the resulting ratios would not be a genuine repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

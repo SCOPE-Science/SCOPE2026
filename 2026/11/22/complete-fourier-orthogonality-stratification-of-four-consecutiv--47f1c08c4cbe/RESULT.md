@@ -7,7 +7,7 @@ For arbitrary strictly positive real masses \(a,b,c,d\) with \(a+b+c+d=1\), cons
 \mu=a\delta_0+b\delta_1+c\delta_2+d\delta_3,
 \qquad e_\lambda(j)=e^{2\pi i\lambda j}.
 \]
-Let \(\mathcal O(\mu)\) be the largest cardinality of a set of **distinct functions** \(e_\lambda\) mutually orthogonal in complex \(L^2(\mu)\); frequencies are arbitrary real numbers, and are equivalent modulo \(1\). Then the following mutually exclusive, exhaustive classification holds:
+Let \(\mathcal O(\mu)\) be the largest cardinality of a set of **distinct functions** \(e_\lambda\) mutually orthogonal in complex \(L^2(\mu)\); frequencies are arbitrary real numbers, and are equivalent modulo \(1\). Then the following ordered classification holds:
 \[
 \boxed{\mathcal O(\mu)=
 \begin{cases}
@@ -17,9 +17,9 @@ Let \(\mathcal O(\mu)\) be the largest cardinality of a set of **distinct functi
 1,&\text{otherwise}.
 \end{cases}}
 \]
-The clauses are evaluated in the displayed order. In the three-character regime, **every** maximal orthogonal family is, up to a common real frequency translation and integer changes of frequencies, \(\{e_0,e_{1/3},e_{2/3}\}\). In the four-character regime every optimal family is similarly \(\{e_0,e_{1/4},e_{1/2},e_{3/4}\}\). In the two-character regime, one may use \(\{e_0,e_{1/2}\}\) when \(a+c=b+d\); otherwise the frequencies \(0\) and \(\arccos(t)/(2\pi)\), with \(t=(d-b)/(2a)\), work. The one-character regime contains no nontrivial orthogonal pair.
+The clauses are evaluated in the displayed order. In the three-character regime, **every maximum-cardinality** orthogonal family is, up to a common real frequency translation and integer changes of frequencies, \(\{e_0,e_{1/3},e_{2/3}\}\). In the four-character regime every optimal family is similarly \(\{e_0,e_{1/4},e_{1/2},e_{3/4}\}\). In the two-character regime, one may use \(\{e_0,e_{1/2}\}\) when \(a+c=b+d\); otherwise the frequencies \(0\) and \(\arccos(t)/(2\pi)\), with \(t=(d-b)/(2a)\), work. The one-character regime contains no nontrivial orthogonal pair.
 
-The three-character, non-spectral locus has the precise positive one-parameter structure \(a+d=1/3\), \(b=c=1/3\), and \(0<a,d<1/3\). It is nonuniform even though it allows three orthogonal exponentials. The four-character regime is exactly the uniform law.
+The three-character, non-spectral locus has the precise positive one-parameter structure \(a+d=1/3\), \(b=c=1/3\), and \(0<a,d<1/3\). It is nonuniform even though it allows three orthogonal exponentials. Maximum cardinality is different from inclusion-maximality: at \((a,b,c,d)=(1,2,2,1)/6\), the orthogonal pair with phases \(0,1/2\) cannot be extended, since the only triples are translates of the three equally spaced phases. The four-character regime is exactly the uniform law.
 
 ## Assumptions and scope
 
@@ -43,7 +43,7 @@ P(z)=(a+dz)(1+z+z^2)
 \]
 so it holds exactly when \(b=c=a+d\). If instead all three nontrivial fourth roots vanish, then \(P(z)=d(1+z+z^2+z^3)\), forcing \(a=b=c=d\). Thus any orthogonal triple obeys one of the first two coefficient conditions. The two conditions are disjoint for strictly positive weights. In the nonuniform triple condition, the only possible phase clique is the cube-root coset; this also proves the claimed classification of all triples.
 
-**Step 4: four characters.** The four-dimensional Hilbert space \(L^2(\mu)\) cannot contain five nonzero mutually orthogonal characters. If four exist, let \(F\) be their \(4\times4\) matrix of normalized values, with rows indexed by the atoms and entries \(F_{j,k}=\sqrt{w_j}e^{2\pi i\lambda_kj}\). Its columns are orthonormal, hence \(F\) is unitary. Every row has squared Euclidean norm \(4w_j\), so \(4w_j=1\) for all rows and all weights equal \(1/4\). Conversely, the four characters \(0,1/4,1/2,3/4\) form the standard four-point discrete Fourier basis for uniform weights. Any four frequencies must, after a common shift, have the four residue classes modulo \(1/4\): with all three nontrivial fourth-root differences available, the four phases form a translate of this subgroup.
+**Step 4: four characters.** The four-dimensional Hilbert space \(L^2(\mu)\) cannot contain five nonzero mutually orthogonal characters. If four exist, let \(F\) be their \(4\times4\) matrix of normalized values, with rows indexed by the atoms and entries \(F_{j,k}=\sqrt{w_j}e^{2\pi i\lambda_kj}\). Its columns are orthonormal, hence \(F\) is unitary. Every row has squared Euclidean norm \(4w_j\), so \(4w_j=1\) for all rows and all weights equal \(1/4\). Conversely, the four frequencies \(0,1/4,1/2,3/4\) yield the standard four-point discrete Fourier basis for uniform weights. Translate one frequency to zero. The other three must have distinct residues \(1/4,1/2,3/4\) modulo \(1\), since these are the only nonzero zero phases of the uniform mask.
 
 **Step 5: every possible orthogonal pair.** The phase \(1/2\) is a Fourier zero precisely when \(P(-1)=a-b+c-d=0\), equivalently \(a+c=b+d\). Any other unit-circle zero comes with its distinct complex conjugate. Such a pair can be written as the roots of \(z^2-2tz+1\) for a uniquely determined \(-1<t<1\). Thus it occurs exactly when
 \[

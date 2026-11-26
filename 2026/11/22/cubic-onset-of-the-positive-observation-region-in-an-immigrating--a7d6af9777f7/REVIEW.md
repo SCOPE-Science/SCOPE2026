@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is stated for every positive \(r,a,b,d,s\) satisfying \(d/b>1\). Positivity of the predator output forces the source prey coordinate above \(d/b\); that is the decisive global reduction, not a local approximation. Strict concavity of the scalar inverse equation proves its zero/one/two positive-predecessor census for all positive targets, while a monotone cubic completely parameterizes the unique fold. Integration of the fold height yields the exact area formula and rigorous cubic onset. The proof distinguishes the boundary fold, strictly interior region, coordinate axes, and the regime below the immigration threshold. The standalone symbolic checker validates the algebraic identities and numerical quadrature agrees for three parameters. Neither numerical sampling nor a finite computation is used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Reconstructed the inverse at fixed output X. Positive predator output requires x=t+u with u>0. Set delta=epsilon-X. For delta>0 the allowable source interval is 0<u<u0, where r(qu0+u0^2)=delta, and Y=(b/a)u(delta-rqu-ru^2)/(t+u). It is positive in this interval, zero at both endpoints, and its derivative has the sign of delta-rR_t(u), strictly decreasing through zero. This proves the full two/one/none census and gives the stated Y_f at the only stationary point; delta<=0 has no positive predecessor, including the threshold. Multiplying (q+2u)u^2 by R_t'(u) gives the derivative of P_t, so integration in X gives the exact area. Uniformly in U, u_X=epsilon(1-U)/(2rq)+O(epsilon^2), giving V_f=(1-U)^2/4+O(epsilon) and the cubic area with coefficient b/(12atrq). The scaled inverse equations are V=xi*eta and U=1-xi-eta+O(epsilon), with a smooth exact remainder. The two limiting solutions are positive, and the Jacobian in (xi,eta) is nonsingular when xi differs from eta, giving both interior branch limits. These arguments validate the continuum statements independently of the finite supplied checker, which was inspected, not run. The restriction t>1 is sufficient and makes the critical immigration positive; the wording that strict t>1 is essential should not be read as a claim of failure at t=1, where the same calculation has critical immigration zero.
 
-The exact same map is introduced by Kangalgil and Işık (2022), with main content on equilibrium locations, local stability, flip and Neimark–Sacker bifurcations and numerical trajectories; full text was inspected. Djellit, Sahari and Hachemi (2013) analyze a closely related mortality-free, immigration-free predator–prey map, including inverse singularities and feasible basins. Their map has no positive mortality ratio \(d/b>1\), hence cannot directly provide the model-specific positive-output threshold, globally exact folded image or cubic immigration-area coefficient. General noninvertible critical-curve theory predicts the local pairwise sheet structure, not this global positive-image formula. A recent indexed plankton-map area classification concerns a different map and its reported parameter transition does not imply the present mortality-versus-immigration boundary. Search and comparison cannot prove uniqueness in unindexed literature.
+## originality
 
-## Value — PASS
+PASS
 
-For predator mortality exceeding conversion efficiency, biologically positive observations require a *finite sharp prey-immigration threshold*. The exact area of the positive one-step observation set is a natural measure of which population pairs can be reconstructed from viable positive antecedents. Its cubic birth and universal scaled parabola distinguish the onset from mere fixed-point existence and quantify how the feasible observation region collapses. The global two-to-one inverse classification also identifies reconstruction ambiguity and its single fold exception. These statements are about one generation only and do not claim forward invariance or population persistence.
+The exact recurrence is prior. Pass is for its global strictly positive one-step image/fiber classification, exact area and cubic onset with rescaled inverse geometry, not for the recurrence, equilibrium analysis, or the generic local fold mechanism.
 
-## Limits and independent status
+## value
 
-Parameter ratios at or below one, axis targets, multistep feasibility and global attractors are excluded. The subject-specific area depends on the units used for population densities. Closest references: Kangalgil–Işık (2022), https://doi.org/10.3934/math.2022791 ; Djellit–Sahari–Hachemi (2013), https://www.academia.edu/3749405/COMPLEX_DYNAMICS_IN_2_SPECIES_PREDATOR_PREY_SYSTEMS ; England–Krauskopf–Osinga (2005), https://doi.org/10.1142/S0218127405012466 . Independent comparison with obscure or unindexed articles remains a limitation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fold separates reconstructible one-generation observations from impossible ones and distinguishes exactly ambiguous observations from the single-predecessor boundary. The sharp area and two different onset scales quantify this natural inverse-geometry transition, rather than evaluating a few arbitrary parameters or restating existence of a fixed point. This does not establish persistence, forward invariance or an area invariant under arbitrary coordinate changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

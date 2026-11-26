@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algorithm is exactly the estimator defined in equation (3) of Hu–Pollock–Xue–Zhu on the specified invariant lower-eigenmode starting ray, including the short-window startup. Every multiplier is positive and stays in a proved invariant interval. A geometric-mean min/max estimate gives blockwise global contraction to the unique fixed point. Explicit differentiation yields an \(\ell\)-lag companion matrix, whose determinant and \(\ell\)-step sup-norm bound squeeze the spectral radius; complex-conjugate roots give the exact two-window crossover. The embedded checker separately exercises finite examples and does not purport to certify an infinite argument.
+PASS
 
-## Originality — PASS, historically qualified
+The primary paper's Algorithm 2.1 and practical estimator (2.2) in arXiv v1 give the frozen update, including the shorter startup product. On the invariant lower ray, q₁=1−a and [ (1−a)², 1−a ] is invariant because the geometric mean is between its inputs. This closes the signed-multiplier induction and ensures the ratios never divide by zero. For the stationary q*=(1−a)/(1+a), the distance from a geometric mean to q* is at most the greatest input distance, even without a Euclidean Lipschitz estimate. Each complete block of ℓ new entries then reduces the maximum deviation by a factor at most a; the limit of α is 2/(1+a). The Jacobian's first row is −a/ℓ in every position and the rest shift the lags. Its ℓth power has sup-norm at most a by the same block argument; the root-product identity gives the other radius bound. The ℓ=2 discriminant is negative on 0<a<1 and the conjugate modulus is √(a/2), with equality to a only at 1/2. These are all-window analytical checks; the packaged finite check was inspected as evidence only. The paper labels in the frozen text should read Algorithm 2.1, (2.2), Lemma 2.4 and Theorem 2.5 in the cited v1. These are pinpoint-citation errors, not a different method or hypotheses. No assertion that the prescribed startup attains the linearized worst-case rate is needed.
 
-The source gives a general optimization-error guarantee and a one-window rate analysis, while presenting several other windows as empirical choices. It does not derive the fixed-\(\ell\) feedback companion, the \(a=1/2\) reversal or the \(\ell\to\infty\) local spectral limit. The closest published mathematical record [2] analyzes a one-window recurrence rather than any fixed history length beyond one. Multiple searches using window length, memory, geometric residual ratios, companion spectral roots, and aliases found no implication covering the final claim. The published record [2] was only available in summary, and classical delay-recurrence sources can contain related methods, so priority is not independently established.
+## originality
 
-## Value — PASS
+PASS
 
-Finite smoothing-window length is a genuine design parameter of the published method. The same optimizer and asymptotic iterate rate conceal a sharp change in feedback stabilization, including a one-to-two-window phase reversal and arbitrarily slow *local parameter identification* as a fixed memory length grows. This distinguishes optimization accuracy from parameter-calibration responsiveness and gives a reproducible test case for adaptive-window choices; it is not presented as a general failure of the optimizer.
+The single-sample rate and identified step are covered by a stronger earlier one-sample result. The original already treats that result as antecedent, not as a novel isolated case. The distinct joint claim is the finite-window feedback classification beyond one sample, including exact radius crossover and degeneration as the chosen fixed window grows. Neither the source framework nor the strongest earlier matched result establishes or implies that claim at the stated scope.
 
-## Scope and evidence
+## value
 
-Primary source: Hu, Pollock, Xue and Zhu, arXiv:2602.13620v1, Sections 2.1 and 3.1 (algorithm, geometric estimator, general convergence and numerical comparisons). Closest published comparison: *Exact alternating identification on two endpoint spectra* (2026-10-04), publicly indexed summary. Residual risks: invariant-ray restriction; generic delayed-recursion literature not exhaustively searchable; full text of closest published comparison inaccessible. Independent validation remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The lower-eigenray is a natural test where one can isolate the curvature-identification dynamics from transient spectral mixing. The exact crossover shows that adding just one observation can improve or worsen that response depending on curvature; the fixed-window limit rules out a memory-uniform linearized contraction factor even though every chosen window converges. This is a concrete limitation of interpreting residual memory as uniformly beneficial, not a claim about slower optimization iterates. The known one-sample result serves as a motivated baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

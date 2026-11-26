@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:22:39.180140Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent independent_audit.py and bounded-run.txt"
+      ],
+      "rationale": "Legendre gives V=s₂(3n)−ν₂(3n+1)=s₂(3n+1)−1. For an independent all-depth derivation write 3n+1=a·2^L+b with 0≤b<2^L and a∈{0,1,2}. For each b exactly one a makes a·2^L+b≡1 mod 3, giving a bijection, including at L=0; a=0 iff b≡1 mod 3. Thus V=K−I with K=s₂(b), I=1_{b≡1 mod 3}. If R_L(t) sums t^K over b≡1, the cubic root-of-unity filter and alternating residues of binary places give Σ_L R_L(t)z^L=(1/3)[1/(1−(1+t)z)+(−1+(2t−1)z)/(1−(1−t+t²)z²)]. In each two-bit factor the two nontrivial character terms have paired product 1−t+t². Substituting P_L=(1+t)^L+(t^−1−1)R_L gives the advertised rational function (R_L has no constant term in t). V=0 is exactly b=0 or b=2^i with even i, giving 1+ceil(L/2). At even L the all-ones b has residue 0 and is the sole maximizer, with a=1 and n=(2^{L+1}−2)/3. At odd L it has residue 1 and loses one; each single-bit deletion has residue 0 or 2 and joins it at the maximum L−1. Uniform b gives K binomial(L,1/2) and p=E I=(1−(−1)^L/2^L)/3. The same character filter gives Cov(K,I)=0 at even L and 2^{−L−1} at odd L: differentiation at t=1 of the paired factor contributes exactly L/2 for even L, while for odd L the unpaired digit contributes 1/2 to the covariance numerator before dividing by 2^L. The variance L/4+p(1−p)−2 Cov(K,I) is exactly the displayed formula. The bounded difference |V−K|≤1 proves the stated Gaussian limit from the binomial limit. Separately, exact binomial quotients were checked against the recurrence for all 8,191 index instances in L=0,…,12, including the edges and exact moments; this corroborates the unrestricted proof.",
+      "replay": "Run the separate independent_audit.py using its L=12 bound; bounded-run.txt records the exact-binomial and moment comparison. The independent character-filter derivation does not rely on a run cutoff.",
+      "residual_risks": [
+        "All polynomial, edge and moment statements are for initial dyadic blocks, not arbitrary translated blocks; the Gaussian assertion is weak convergence in that sampling scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taking h=2 in the 2-power-arity modular formula, or p=2,h=2 in the general prime-power-arity formula, gives the exact C₄(n) coefficients via (1/n)binom(4n,n−1) for n≥1. Resultary 34811cfc1a4a instead fixes n,p and varies arity; f83dcdb19f8b treats C₄(n) at prime 3 on ternary blocks."
+        ],
+        "reasoning": "General congruence theorems support computing individual V_n and in principle enumerating finite blocks. An all-depth evaluation of the histogram and its edge or moment behavior does not follow by a parameter substitution into those modular statements. Changing prime or sampling and enumeration variables likewise does not supply it.",
+        "searches": [
+          "arXiv:1107.2015 §13 Theorem 33",
+          "arXiv:1508.02580 §7 Theorem 19",
+          "Resultary 34811cfc1a4a and f83dcdb19f8b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.0906, 1107.2015, 1508.02580",
+        "Resultary 52bb9a159543, 02997d82d076, f83dcdb19f8b, 34811cfc1a4a and f14da09b70b2",
+        "Resultary 7f423ce9ed57 (attempted; no full-text comparison possible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The modular results determine coefficients of the ordinary tree-count series modulo specified powers, not sums of t raised to their exact valuations in dyadic index blocks. The nearby full five-ary and ternary distributions weigh carries of n+4n and n+2n respectively; the quaternary law has a denominator correction and becomes s₂(3n+1)−1."
+        ],
+        "reasoning": "No implication of the explicit rational census or the extremal census and moment formulas was identified from the original passages read. The easy binomial-scale limit after the independent reduction is a consequence, not the novelty by itself.",
+        "searches": [
+          "arXiv:1107.2015 pp. 51–52; arXiv:1508.02580 pp. 24–25",
+          "Resultary arity-three 02997d82d076 and arity-five f14da09b70b2 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An equivalent census counts popcount(3n+1)−1. The Resultary joint binary-weight record 52bb9a159543 treats (s₂(n),s₂(3n)) with no shift and states joint support and shortest witnesses, not multiplicities.",
+          "The congruence-class reduction is to the weighted histogram of b≡1 mod 3 by popcount on every dyadic block, together with the ordinary binomial histogram."
+        ],
+        "reasoning": "A published evaluated dyadic histogram for s₂(3n+1), or for that weighted congruence class, would cover the polynomial here even without the Fuss–Catalan name. The inspected exact weight-support analogue has neither that shifted variable nor a histogram.",
+        "searches": [
+          "Resultary: Fuss-Catalan 2-adic valuation binary block histogram generating function carry automaton quaternary four-ary",
+          "Resultary: binary popcount digit sum distribution for n congruent to 1 modulo 3 root-of-unity weighted dyadic initial blocks; number of ones in 3n+1 exact generating function",
+          "Primary search: \"Fuss-Catalan\" \"valuation\" binary generating function carry automaton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02997d82d076 gives a complete dyadic table in generating-function form for arity three and variance coefficient 11/12; f83dcdb19f8b gives the same arity-four object but at prime 3. The indexed joint binary-weight support 52bb9a159543 does not count entries in its cells. The cited November ternary record 7f423ce9ed57 was unavailable in the local mirror."
+        ],
+        "reasoning": "These are exact results, but not an exact table of the target fixed-four binary valuation cells. The available October ternary record is a distinct comparison, not a verified replacement for the inaccessible November one.",
+        "searches": [
+          "Resultary: exact dyadic valuation census ternary Fuss Catalan binary blocks generating function",
+          "Resultary 52bb9a159543, 02997d82d076, f83dcdb19f8b; attempted cited 7f423ce9ed57"
+        ]
+      },
+      "rationale": "The distinct result is the evaluated all-depth binary valuation census of the fixed quaternary sequence and the exact edge and moment formulas. Earlier general modular representations directly cover the same coefficients at fixed precision; classical enumeration, Legendre arithmetic, digit filters and finite-state methods are not claimed new. The passages examined do not supply the evaluated full census or a stronger evaluated distribution that specializes to it.",
+      "residual_risks": [
+        "An older exact weighted binary digit-sum enumeration in an arithmetic progression may provide equivalent coverage; the bounded searches do not settle global priority.",
+        "The frozen citation to the November ternary census could not be read independently; this did not justify negative whole-document conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the underlying family, not an exact binary valuation distribution.",
+          "evidence": [
+            "General contour of p-ary tree count and refinements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0711.0906",
+          "material_read": "pp. 1–3, introductory counting and tree interpretation",
+          "method": "Open-access primary text",
+          "title": "Multivariate Fuss–Catalan numbers",
+          "trigger": "Classical tree-count family"
+        },
+        {
+          "assessment": "Arity four is covered exactly by §13 at fixed modulus; the inspected §6 example has different arity. No evaluated all-depth valuation census in these statements.",
+          "evidence": [
+            "The series solves zf^{2^h}−f+1=0, with coefficients (1/n)binom(2^h n,n−1) and a modular series representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2015",
+          "material_read": "§13 pp. 51–52, equations (13.1)–(13.3), Theorem 33; separate §6 p. 24, Theorem 15",
+          "method": "Open-access primary full-text passages",
+          "title": "A method for determining the mod-2^k behaviour of recursive sequences, with applications to subgroup counting",
+          "trigger": "Direct dyadic modular coverage of quaternary coefficients"
+        },
+        {
+          "assessment": "Direct modular coverage with p=2,h=2; no evaluated dyadic block statistic in the checked passages.",
+          "evidence": [
+            "Prime-power arity coefficient representation modulo p^{p^{αh}}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.02580",
+          "material_read": "§7 pp. 24–25, equations (7.1)–(7.7) and Theorem 19",
+          "method": "Open-access primary full-text passages",
+          "title": "A method for determining the mod-p^k behaviour of recursive sequences",
+          "trigger": "Broader prime-power-arity modular theorem"
+        },
+        {
+          "assessment": "Does not give the law of s₂(3n+1) or counts per weight.",
+          "evidence": [
+            "The quantified output is the set of (s₂(n),s₂(3n)) and a shortest witness for each pair."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-joint-binary-weight-spectrum-under-multiplication-by-three--52bb9a159543",
+          "material_read": "RESULT.md Finding, scope, and first carry argument, offset 0",
+          "method": "Local published full-text passage",
+          "title": "Exact joint binary-weight spectrum under multiplication by three",
+          "trigger": "Nearby exact digit-sum alias"
+        },
+        {
+          "assessment": "Different sequence and different edge formulas and variance.",
+          "evidence": [
+            "Four-state carry construction for arity three, variance coefficient 11/12 and Fibonacci extremal counts."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-dyadic-two-adic-valuation-spectra-of-ternary-fuss-catalan--02997d82d076",
+          "material_read": "RESULT.md offsets 0–3500, Finding and proof",
+          "method": "Local published full-text passages",
+          "title": "Exact dyadic two-adic valuation spectra of ternary Fuss–Catalan numbers",
+          "trigger": "All-depth binary distribution at neighboring arity"
+        },
+        {
+          "assessment": "Same-day nearby theorem, but distinct prime and block geometry.",
+          "evidence": [
+            "Evaluates ν₃ over initial ternary blocks with exact moments and extremal multiplicities."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-valuation-spectra-of-four-ary-fuss-catalan-numbers--f83dcdb19f8b",
+          "material_read": "RESULT.md Finding and proof, offsets 0–5727",
+          "method": "Local published full-text passages",
+          "title": "Exact ternary valuation spectra of four-ary Fuss–Catalan numbers",
+          "trigger": "Exact distribution for the same quaternary object"
+        },
+        {
+          "assessment": "No fixed-arity dyadic histogram implied by its stated variable regime.",
+          "evidence": [
+            "Fixes n and the prime and varies arity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-prime-arity-valuation-spectra-and-sharp-periods-for-fuss-cat--34811cfc1a4a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published full-text passage",
+          "title": "All-prime arity valuation spectra and sharp periods for Fuss–Catalan numbers",
+          "trigger": "Potential stronger universal parameter theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "arXiv:1107.2015 §13",
+        "Resultary 02997d82d076 and f83dcdb19f8b"
+      ],
+      "rationale": "The quaternary sequence is classical; its complete valuation histogram over exact dyadic blocks is a natural divisibility invariant. The all-depth enumeration distinguishes an isolated even-depth maximizer from L+1 odd-depth maximizers and quantifies the exact bias and variance corrections to a binomial law. The binomial-scale limit is elementary once the counting reduction is made, but it is not the basis of value on its own. The evaluated census and sharp edges are usable without recomputing individual modular tree counts.",
+      "residual_risks": [
+        "The value is the exact dyadic invariant for this arity, not a new general digit-filter technique or a claim about every Fuss–Catalan sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

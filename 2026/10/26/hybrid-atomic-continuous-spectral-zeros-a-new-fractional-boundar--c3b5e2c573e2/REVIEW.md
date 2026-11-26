@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-difference Gaussian covariance splits into a Poisson extension of \(w_m=(2-2\cos\theta)^m\) and an independent rank-one atom. Its exact Fourier polynomial establishes \(W_m=w_m+O_m(t)\), \(W_m\ge c_m(t+|\theta|^{2m})\), and the needed derivative bounds. Jensen differentiation identifies the zero-count deficit as the derivative of the circular mean of \(\log(W_m+\kappa t/d)\). Rescaling \(\theta=t^{1/(2m+2)}x\) produces an integrable dominating function \((1+|x|^{2m+2})^{-1}\) and the exact beta-integral constant. Independent radial/angular differentiation of the same covariance gives the angular intensity limit, with the origin treated by harmonic factorization. A standalone checker corroborates exact finite Fourier identities and asymptotics in 132 finite tests. The limits are proven analytically, not inferred from these tests.
+## correctness
 
-## Originality — PASS, with residual risk
-Noda–Shirai, arXiv:2106.02860v1, Theorem 1.3 treats finite dependence with a continuous spectral density vanishing at a point, whereas Example 2.6 treats a spectral atom with a flat, nonvanishing absolutely continuous background. Neither model has an atom superposed on an order-\(2m\) zero for \(m\ge1\), and the respective results do not supply the stated fractional deficit exponent. Shirai, arXiv:2501.02586, Proposition 3.1 permits general spectral measures in an exact zero-intensity representation but Theorem 2.1's smooth-direction asymptotics assume absolute continuity. That integral framework is compatible with, but does not itself state, the singular mixed-measure limit. Targeted semantic searches for the mixed atomic-zero model and equivalent powers yielded no covering record. The existing continuous-zero and spectral-jump claims concern atom-free measures and do not imply the mixed asymptotic. This is a best-knowledge comparison, not an exhaustive priority certification; a hidden derivation from general covariance formulas remains possible.
+PASS
 
-## Mathematical value — PASS
-The atom-plus-continuous-zero combination is a natural spectral singularity not encompassed by either of two standard pure regimes, and the exact deficit exponent \((2m+1)/(2m+2)\) changes for every integer vanishing order. The beta-integral leading coefficient and nontrivial angular crossover show how the spectral atom and vanishing background interact quantitatively. The result classifies an infinite family of stationary Gaussian analytic functions and supplies a sharp expected-zero observable, beyond a normalization identity or small finite calculation.
+The finite-difference filter and independent common factor give the claimed spectral measure and diagonal covariance K=W_m/t+κ/d. Jensen gives EN=r²/t−r²I′(t), with I the circular mean of log(W_m+κt/d). The continuous log-derivative contribution is O(t^(1/(2m)−1)), negligible at t^(α−1). At θ=t^α x, dW_m/t tends to x^(2m+2) for x≠0; the logarithmic derivative factors t d_t/d and t W_{m,t}/W_m vanish there and are bounded globally. The lower bounds W_m≳t+|θ|^(2m), d≳t²+θ² yield an integrable majorant C/(1+|x|^(2m+2)). The rescaled mean therefore gives α κ^α csc(πα) with a minus sign in EN. For the intensity at x≠0, differentiate at fixed θ first: tH_t/H→κ/(κ+x^(2m+2)), t²H_tt/H→0, and ∂θθ log H=O(t^(−2α)), for H=tK. Combining with the exact baseline from −log t gives the stated squared term. At x=0, −log d is harmonic and log(1+dW_m/(κt)) has bounded Laplacian: along the ray W_m(t,0)/t is smooth through t=0, and angular derivatives at zero use d=O(t²), W_m=O(t), and vanishing first angular derivatives. Proof applies to fixed m≥1 and κ>0; the checker was inspected, not executed, and would only corroborate finite cases.
 
-## Limitations
-The result is not a universality theorem for arbitrary smooth densities, does not assert correlation or fluctuation convergence, and gives no uniformity in \(m\) or \(\kappa\). The closest known pure-atom and pure-continuous formulas and the general spectral-measure intensity representation are explicitly separated from the new mixed limit. Independent verification and historical priority remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit fractional angular layer and disk-count deficit for an atom located at a zero of the continuous density are distinct from the checked continuous-only, atom-plus-flat, and band-edge laws. A prior spectral representation applies, but does not evaluate this joint singular limit. No equivalent evaluated law was found in the checked sources.
+
+## value
+
+PASS
+
+Co-location of an atomic line and a continuous spectral zero is a natural boundary case not resolved by either component alone. The finding quantifies how the order of the continuous zero sets the angular width and how the two components change both the local intensity and the leading global deficit. The explicit coefficients and profile give useful benchmarks for more general stationary spectra even without a fluctuation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:31:41.926408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source landing factor and replacement equations agree with the frozen model: d_L=1 makes λ_L=K and ℓ=c_LK independent of A. For continuous positive periodic b the resident substitution Z=K/M−1 gives Z′=μ−(Kb−μ)Z. The affine period map has a positive offset and multiplier exp[−T(K mean(b)−μ)]<1, hence a unique positive periodic Z and exponential convergence. Averaging (log(M*/Y))′ and (log M*)′ gives μ〈1/Y〉=mean(b) and 〈bM*〉=K mean(b)−μ, where Y=K−M*. The invasion exponent is ℓ〈Y〉−K mean(b); the constant-rate vacancy is μ/mean(b), the harmonic mean of Y. Strictness follows by AM–HM, since constant M* would force constant b. This proves an invasion gain, not necessarily positive invasion away from the constant-environment threshold. If invasion is positive, V=1/L obeys V′=−a(t)V+ℓ with positive forcing and contracting periodic monodromy on M*. For other positive resident trajectories the coefficient approaches a(t) exponentially; the evolution kernel retains exponential decay and the difference V−V* is forced by an exponentially decaying term. Thus V→V* and L→L*. The physical simplex is invariant (total derivative −μK on the sloping edge); the periodic state lies there by the limit along periods of interior trajectories, and cannot touch that edge since the derivative there is strictly inward. I checked the admissible Aη range and the perturbation calculation: γ=3/50, first cosine response u_c=9/34, ε=η/5, and averaging bM* gives the second-order mean resident change −u_c ε²/(2b₀), yielding 3/340 for the coefficient of η² in invasion. This verifies the decisive formulas analytically (RESULT.md lines 9–31 and 35–88). The package's numerical checker was inspected, not executed; its finite tests are not used for waveform-uniform claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Planas-Sitjà et al. Eqs. (3)–(5) give exact hierarchical replacement and landings, while Eqs. (6)–(7) are fixed-environment equilibria.",
+          "Burkart et al. §II Eq. (2a,b) uses shared abiotic resource R(t) and clipped Monod growth, with their main seasonal setting switching R between two levels."
+        ],
+        "reasoning": "Static algebra in the originating equations does not compare the actual seasonal resident or its invader multiplier. The periodically forced chemostat shows that coexistence can be enabled by variability but its shared-resource growth law is not the one-way replacement hierarchy and does not give the claimed equal-mean sign.",
+        "searches": [
+          "arXiv:2603.29116v1 Planas-Sitjà, Iritani and Cronin, §§3.2.1–3.2.2",
+          "arXiv:2202.11635 Burkart, Willeke and Frey, §II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and AUDIT.json",
+        "arXiv:2603.29116v1",
+        "arXiv:2202.11635",
+        "DOI:10.1111/ecog.06699 (attempted; not read directly)",
+        "Resultary 7f672c43ad11, ca0ffaff28d1, 4b480230e60f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At d_L=1 the original landing factor in Eq. (5) is K; the same factor b(t) occurs in resident colonisation and inferior replacement in Eqs. (3)–(4). Their difference of log growth rates is therefore ℓ(K−M−L)−Kb(t).",
+          "The closest pulsed competitive Lotka–Volterra record treats actual zero invasion, whereas the present zero exponent is for the constant-rate comparator and seasonal invasion is strictly positive."
+        ],
+        "reasoning": "The sign on every nonconstant waveform uses a harmonic-mean identity on the periodic resident, not substitution into the fixed-environment formula. Periodic coexistence additionally uses the stable reciprocal equation on that resident. The prior static, transient, and different-model seasonal conclusions do not entail the combined claim.",
+        "searches": [
+          "Planas-Sitjà et al. arXiv:2603.29116v1 Eqs. (3)–(7)",
+          "Resultary: transient overshoot 7f672c43ad11; staggered critical extinction 4b480230e60f and seasonal weak persistence ca0ffaff28d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 94–99 and AUDIT.json identify Box 1 of Peniston et al. as treating the single-species Levins mean-occupancy penalty; its actual full text could not be retrieved in this audit.",
+          "From the exact source replacement equations the invasion difference is equivalent to ℓ times the mean superior-occupancy reduction at fixed mean b."
+        ],
+        "reasoning": "A matched single-species comparison would account for the occupancy reduction and, after the model-specific cancellation, its sign for invasion. The inspected evidence does not give a prior two-species periodic invasion identity or an attracting coexistence state at the static threshold. The precise scope of Box 1 remains an access risk, not negative evidence.",
+        "searches": [
+          "Resultary: periodic Levins occupancy, seasonal dispersal and mean occupancy penalty, harmonic-mean invasion gain",
+          "Peniston et al. Ecography e06699, DOI:10.1111/ecog.06699"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching bound mirror is the identical record. Distinct 7f672c43ad11 gives a threshold in initial inferior occupancy for a transient maximum with constant coefficients. Same-day ca0ffaff28d1 gives single-species persistence/limsup under lengthening seasons."
+        ],
+        "reasoning": "This is a continuum-waveform comparison rather than an individual table entry. The nearest exact thresholds concern a different independent variable, time dependence and survival criterion. No inference of novelty is made from database silence.",
+        "searches": [
+          "Resultary: periodic hierarchical occupancy at fixed mean, habitat autocorrelation Planas–Iritani–Cronin, harmonic-mean invasion exponent"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact invasion comparison and static-threshold periodic coexistence in the hierarchical replacement model with fixed inferior colonisation, not the single-species occupancy penalty, Jensen's inequality, or seasonally induced coexistence as a general phenomenon. Known resident occupancy comparisons are closely related: the gain is exactly ℓ(M₀−〈M*〉). One needs the two-species replacement term's exact period-average cancellation and the positive periodic attractor implication to identify the phase change in this system.",
+      "residual_risks": [
+        "Peniston et al. was not directly accessible; the precise extent of its seasonal occupancy comparison and any crossover to competition remain unverified.",
+        "An earlier specialist periodic competition–colonisation result could package the same averaged cancellation and threshold conclusion; bounded searches are not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and stationary calculations; not the all-waveform periodic comparison.",
+          "evidence": [
+            "Eq. (5) has λ_Rj=K+(K^{d_j}−K)e^{A−1}; Eq. (3) has the superior displacement loss in the inferior equation; Eq. (4) is independent of the inferior occupancy."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.29116v1",
+          "material_read": "§3.2.1 Eqs. (3)–(5) and §3.2.2 Eqs. (6)–(7)",
+          "method": "Targeted OA HTML reads, offsets about 19444–20900, 23007–23298 and 25335.",
+          "title": "Disentangling the interactive effects of anthropogenic disturbances on biodiversity",
+          "trigger": "Originating occupancy equations and closest same-object mathematical claim"
+        },
+        {
+          "assessment": "Treat resident mean-occupancy penalty as prior; exact hypothesis/claim coverage of Box 1 could not be independently established.",
+          "evidence": [
+            "Frozen RESULT.md lines 94–99 separates the occupancy penalty from its two-species implication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/ecog.06699",
+          "material_read": "No primary full text retrieved; frozen record's account of Box 1 only.",
+          "method": "DOI and identified Wiley HTML/PDF routes attempted; 403.",
+          "title": "Ecological and evolutionary consequences of temporal variation in dispersal",
+          "trigger": "Closest reported single-species Jensen/mean-occupancy precursor"
+        },
+        {
+          "assessment": "Seasonal coexistence mechanism in a different model; no implication from these equations for fixed-mean superior colonisation in the hierarchical occupancy system.",
+          "evidence": [
+            "All species compete for one abiotic resource R(t); growth is μ_i max(R(t)−N(t),0)/(max(R(t)−N(t),0)+K_i) minus mortality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.11635",
+          "material_read": "§II A–B, including Eq. (2a,b), PDF pages 2–3, extracted offset 14911 onward.",
+          "method": "Targeted OA primary PDF passage.",
+          "title": "Periodic temporal environmental variations induce coexistence in resource competition models",
+          "trigger": "Potential general result on seasonally induced competitive coexistence"
+        },
+        {
+          "assessment": "Different, constant-environment question: one peak during resident recovery, not periodic invasion.",
+          "evidence": [
+            "The exact threshold is y_crit in the initial inferior occupancy, and the instantaneous inferior nullcline decreases during resident recovery."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-transient-overshoot-threshold-in-a-two-species-colonizatio--7f672c43ad11/RESULT.md",
+          "material_read": "Finding (mirror offset 0 onward)",
+          "method": "Resultary and bounded local mirror read.",
+          "title": "Sharp transient-overshoot threshold in a two-species colonization hierarchy",
+          "trigger": "Nearest same-hierarchy exact threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed habitat area and mean effective superior colonisation, the exact sign is tied to a genuine persistence boundary, not a comparison of arbitrary simulated waveforms. The inferior invader's gain balances resident-free capacity and replacement exactly, and produces an attracting positive coexistence orbit for every nonconstant admissible modulation from a marginal constant comparator. The explicit admissible habitat family and amplitude coefficient connect the all-waveform theorem to the motivating model. This is not a comparison at fixed mean autocorrelation, an empirical prediction, or a claim when both colonisation rates vary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

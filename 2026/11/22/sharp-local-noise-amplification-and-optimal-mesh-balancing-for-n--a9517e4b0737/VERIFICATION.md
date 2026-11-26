@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact four-knot PCHIP perturbation theorem
+# Independent mathematical audit
 
-The standalone `pchip_sensitivity_verify.py` uses the standard Python library and can be replayed with `python3 pchip_sensitivity_verify.py`. Its seeded exact `fractions.Fraction` computations check 1,200 pairs of nondecreasing inputs on randomly chosen positive rational meshes and evaluation positions, 1,000 exact analytic Jacobian sign/translation identities, three explicitly constructed near-sharp signed perturbations and 300 independent mesh-balancing comparisons. It checks the exact central-cell coefficients 2 for spacings (1,1,1) and 14/5 for (1,2,1). All checks passed.
+## correctness
 
-The infinite claim is not derived from these samples. It rests on the analytic gradient-sign calculation, the sharp boundary approach using positive central and vanishing positive outer secants, and strict convexity of the rational mesh coefficient. The claimed asymptotic is an ordinary one-sided limit with the opposite neighboring mesh held fixed. No formal proof assistant or external independent audit was used.
+PASS
 
-Known limits: the endpoint slope selection of a finite PCHIP interpolant is outside the theorem; historical priority has residual uncertainty; extension to perturbed knot positions or nonmonotone signals is unproved.
+The weighted harmonic mean has partials rv²/(rv+su)² and su²/(rv+su)². On strict monotone data the Hermite gradient has nonpositive outer entries and nonnegative inner entries: the latter are bounded below by 1−S−3U=(1−t)³ and S−3V=t³, since the central-secant slope derivatives are less than 3. Translation equivariance gives sum 1, so its maximum norm dual is 1 plus twice the magnitudes of the outer entries. Their derivative bounds are approached simultaneously as the two positive outer secants tend to zero with fixed positive central secant. Taking the directional quotient with (−1,+1,+1,−1) before letting the outer secants vanish realizes this supremum within the strict cone. Segment integration proves the upper bound there; approaching any closed-cone endpoints by adding the same tiny strictly increasing ramp extends by continuity. At t=0,1 the map is a nodal coordinate. For u=q(a,b), v=q(c,b)>0 the derivative of t(1−t)[u(1−t)+vt] is a quadratic with opposite strict signs at 0 and 1 (linear for u=v), hence exactly one interior root. The midpoint lower bound and strict convexity of q in the outer spacing prove unique balancing, attained at t=1/2; direct substitution gives 2 and 14/5. As a→0 with b,c fixed, dividing the profile increment by q(a,b) gives uniform convergence to 2t(1−t)², with maximum 8/27, and q(a,b)∼3b/(2a).
+
+## originality
+
+PASS
+
+The distinct contribution is the exact pointwise maximum-norm coefficient on unequal stencils and its minimax mesh balance. The harmonic selector, its derivative bounds, the same mesh-ratio function in variation stability, and closely related uniform-grid stability techniques are existing coverage. The leading coefficient from a single shrinking neighbor also appears in the variation calculation, but there it describes a different gain.
+
+## value
+
+PASS
+
+For a standard shape-preserving algorithm, the exact amplification of bounded nodal perturbations is an operationally natural invariant. Dependence on relative position and unequal adjacent spacings matters: the optimal balance under a fixed length budget is unique, while the same monotonicity-preserving rule has unbounded amplification under mesh grading. The sharp coefficient and balance quantify a limitation that range preservation for individual data does not address.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

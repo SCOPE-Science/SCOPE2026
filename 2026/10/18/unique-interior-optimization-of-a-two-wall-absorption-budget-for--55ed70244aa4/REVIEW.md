@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The generator-based backward equations use the specified rate-\(p\) velocity reversal in the bulk, and the wall equations implement competing independent absorption and detachment clocks. The expressions for \(Q,C,S\) solve both equations and both wall conditions, with \(Q>0\). Initial orientation averaging produces exactly one scalar coefficient \(py+m/2\). Differentiation factors the allocation derivative into a strictly positive prefactor times a strictly increasing rational function of the centered allocation. The physically possible bias range lies strictly within the endpoint range because the dimensionless wall-detachment rate is positive. This proves existence and uniqueness *globally*, including deterministic initial velocities; no numerical assumption is required. The exact symbolic checker tests derivation identities, source MFPT reduction, derivatives, and representative exact rational boundary conditions. Limits: positive tumbling and wall release only, and no claims about finite-sample estimation or non-Markovian walls.
+## correctness
 
-## Originality: PASS, pending independent priority assessment
-Closest full texts: Bressloff's 2023 sticky-wall model and Angelani's 2023 general boundary MFPT. The former supplies a model and occupation-time framework and studies MFPT/splitting probabilities; the latter explicitly includes the broad mean-time function needed to reconstruct this specialized objective. Accordingly, novelty is *not* asserted for the process, the backward equations, or the mean-time expression. The specific constrained optimization across two rates, universal strict interior result, explicit optimal allocation for arbitrary initial orientation, sharp bias-reversal surface, and detachment-independent midpoint susceptibility are not stated in either compared text. Angelani's 2024 optimization varies the tumbling rate of different boundary arrangements. The present result is an analytic consequence of prior mean-time formulas plus new global optimization; that derivability is an important scope and priority risk, not grounds to misdescribe the earlier work. An independent literature-priority audit remains necessary.
+PASS
 
-## Value: PASS
-A total absorption-rate budget is a natural limited-resource constraint in active transport with reactive walls. The result decisively says that concentrating all reactivity at one wall is *always* inferior, even for a fully direction-biased starting population, and gives an implementable closed-form optimum. The phase-line \(2p(y-1/2)+m=0\) shows when a nearer wall should counterintuitively receive less reactive budget because the particle points away. The centered sensitivity law is universal with respect to wall-release rate. These are full continuous-parameter structural and extremal claims, not arbitrary isolated parameter evaluations. The scientific scope is the MFPT of a single Markovian persistent particle.
+With length and time rescaled by L and L/v, write f_+-f_-=C-2x and (f_++f_-)/2=S+p(Cx-x^2). These solve the bulk equations. Exponential competition at each wall gives u S-(u/2+h)C=1 on the left and (B-u)[S+p(C-1)+C/2-1]+h(C-2)=1 on the right. Their determinant Q=Bh+(p+1)u(B-u) is positive throughout [0,B]. The expectation is finite including budget endpoints: one active wall has rate at least B/2, and from any state there is uniformly positive probability of reaching that wall and absorbing in bounded time (no bulk reversal during each traverse, and timely inward release if necessary at the other wall). The resulting geometric tail justifies the mean-time problem. Solving the system gives the stated C and S. For t=2u/B-1 the ensemble objective derivative is C'(u)[delta/2+(p+1)t/(1+eta t^2)], with C'(u)>0. The bracket is strictly increasing in t because eta<1, and its endpoint signs are strict since |delta|<=p+1<2(p+1)/(1+eta), even with deterministic initial direction. Thus the unique interior zero is the global minimum. Rationalizing the quadratic root yields the claimed radical and gives left preference iff delta<0. Strict spatial and directional monotonicity follow by inversion of the increasing scalar map, and the local derivative in delta is -B/[4(p+1)], yielding both stated response coefficients.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sticky-boundary process and the exact unbiased-start mean are established background. The distinct result is the global fixed-sum allocation theorem for arbitrary initial direction distributions, with an explicit criterion for bias to reverse the spatial preference and an orientation response independent of the detachment rate. A later catalogue theorem covers the unbiased-start optimization directly and is credited as exact overlap for that subcase; it does not state the biased-orientation result.
+
+## value
+
+PASS
+
+A joint budget creates a genuine constrained decision about whether to use both walls or concentrate capture at one. The solution rules out either corner even for a strongly directed start, quantifies the split, and identifies precisely when initial motion overrides proximity. The global result and its orientation response are useful beyond evaluation of a known unbiased mean at a chosen allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

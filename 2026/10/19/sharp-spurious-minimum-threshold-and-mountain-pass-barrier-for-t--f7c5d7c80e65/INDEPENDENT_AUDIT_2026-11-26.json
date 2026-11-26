@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:12.945003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–89",
+        "VERIFICATION.md lines 3–14",
+        "verify_landscape.py lines 14–26, 34–54 (inspection only)"
+      ],
+      "rationale": "Reconstructed the argument on the real rank-exactly-one manifold. The entrywise weights are in [1,kappa] and attain both endpoints, so Eckart–Young plus the nonnegative added weight establishes the unique global minimum at X_a. The X_22 nonzero chart makes the only potentially indefinite quadratic block the pair (X_12,X_21), with Hessian eigenvalues kappa±a/b. At equality setting both to z and X_22=b-kappa z^2/b cancels the quadratic and yields quartic coefficient (1-kappa^2)/(2b^2)<0. In dimension two, det is a regular constraint off the zero matrix. A critical matrix with a nonzero off-diagonal must have multiplier ±kappa. The plus sign gives two negative diagonals and uv=-u^2, contradicting their positive product. The minus sign gives the stated x_*,y_*, with u=v and xy>0 precisely in the asserted strict regime; the restricted Hessian on the positive-diagonal branch has both signs. For the barrier, every continuous path crosses X_11=x_* with 0<x_*<b/kappa<a. There uv=x_*y and weighted AM–GM gives the lower bound at that slice; minimizing over signed y yields y_*=b-kappa x_*>0. The path y=(b-kappa x)_+ with both off-diagonals sqrt(xy) stays nonzero and rank one, and its two quadratic pieces peak globally at x_*. The peak increment over f(X_b) is exactly (kappa b-a)^2/(2(kappa^2-1)). This proof excludes lower-cost bypasses outside the leading block, including nonsymmetric or signed paths.",
+      "residual_risks": [
+        "The critical-point census applies only to N=2. Finite symbolic/rational identities do not prove census exhaustiveness or the path lower bound; those are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SPD paper explicitly formulates the fixed-rank objective but analyzes preconditioned algorithms. Zhu et al. discuss benign geometry under further hypotheses. The strongest plausible classical cited weighted-geometry comparison was available at abstract level only."
+        ],
+        "reasoning": "The general formulation and benign-geometry results in other regimes do not imply either direction at kappa=a/b for a weighted rank-one fit to a rank-two forcing. Limited access to a named source is a priority risk, not evidence of noncoverage.",
+        "searches": [
+          "Bioli–Kressner–Robol arXiv:2408.16416v2",
+          "Zhu–Li–Tang–Wakin arXiv:1703.01256",
+          "Manton–Mahony–Hua DOI 10.1109/TSP.2002.807002, OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dde16922d807 and 662de06e6334",
+        "Srebro–Jaakkola Fig. 1",
+        "Bioli–Kressner–Robol arXiv:2408.16416v2",
+        "Zhu–Li–Tang–Wakin arXiv:1703.01256",
+        "Manton–Mahony–Hua abstract/access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General weighted fitting can have spurious minima; the SPD setup includes the present operator as a model instance. None of the compared passages gives a boundary quartic, this stationary threshold, or an exact lower bound for all paths with extra dimensions."
+        ],
+        "reasoning": "A classification and attained barrier require more than specializing an objective or citing the general phenomenon. In particular, the signed-diagonal separating slice supplies an obstruction not implied by local Hessian analysis.",
+        "searches": [
+          "Srebro–Jaakkola pp. 3–4",
+          "Bioli–Kressner–Robol p. 2 fixed-rank formulation",
+          "Zhu–Li–Tang–Wakin pp. 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completing the square gives entrywise weighted least squares for target F, since A(F)=F. Srebro–Jaakkola vary the two diagonal weights of a different 2×2 target with all entries nonzero and plot a nonglobal minimum emerging. Retrieved Resultary analogues concern a simplex penalty or coupled Sylvester accuracy."
+        ],
+        "reasoning": "The weighted reformulation makes the classical precedent relevant, but its example is not this diagonal target/opposite-weight model (permuting coordinates does not turn the fully nonzero target into a diagonal one). It provides neither the stated parameter classification nor the path minimax theorem.",
+        "searches": [
+          "Local Resultary semantic search for spurious minima, fixed-rank SPD low-rank equations and exact escape barriers",
+          "Srebro–Jaakkola, Weighted Low-Rank Approximations, Fig. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected related entries are not a fixed-rank SPD critical-point table. Figure 1 is a plotted weighted-fit landscape for other data, not an exact stationary-point or barrier table for this family."
+        ],
+        "reasoning": "This parameterized analytic classification has no relevant tabular coverage in the inspected exact-result index. A plot showing existence of a second local minimum does not furnish the exact census or critical-energy difference.",
+        "searches": [
+          "Resultary search for an exact 2×2 rank-one SPD landscape and barrier; inspected dde16922d807 and 662de06e6334",
+          "Srebro–Jaakkola Fig. 1"
+        ]
+      },
+      "rationale": "The general existence of nonglobal minima in weighted low-rank approximation and the SPD multiterm fixed-rank formulation are prior. The supported distinct content is the explicit gap-versus-conditioning bifurcation including the degenerate equality case, the 2×2 stationary census, and the exact attained all-dimensional barrier in the specified two-term model.",
+      "residual_risks": [
+        "An equivalent classical weighted rank-one calculation in the uninspected Manton–Mahony–Hua full text or other specialized literature remains possible. No claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for the general phenomenon, not the examined classification or barrier",
+          "evidence": "The plotted target has rows (1,1.1) and (1,-1), with weights 1+alpha on the diagonal and 1 elsewhere.",
+          "identifier_or_url": "https://people.csail.mit.edu/tommi/papers/SreJaa-icml03.pdf",
+          "material_read": "pp. 3–4, Fig. 1 and surrounding text, OA offsets 20500–24688 and 25356",
+          "method": "Bounded original OA PDF text inspection",
+          "title": "Weighted Low-Rank Approximations",
+          "trigger": "Rank-one weighted example with a nonglobal minimum emerging as weights vary"
+        },
+        {
+          "assessment": "Prior formulation and preconditioned algorithms",
+          "evidence": "Formulates the objective on a fixed-rank manifold, not a quantitative analysis of these two minima or their separating saddle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.16416",
+          "material_read": "v2 p. 2 fixed-rank formulation, OA offset 8263",
+          "method": "Bounded original OA text inspection",
+          "title": "Preconditioned Low-Rank Riemannian Optimization for Symmetric Positive Definite Linear Matrix Equations",
+          "trigger": "Same SPD multiterm objective class"
+        },
+        {
+          "assessment": "Scope differs",
+          "evidence": "The benign-geometry conclusions are for stated settings or hypotheses, not a fixed-rank underfit weighted example with two nonzero target singular values.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01256",
+          "material_read": "pp. 1–3, OA offsets 5489 and 15091",
+          "method": "Bounded original OA text inspection",
+          "title": "The Global Optimization Geometry of Low-Rank Matrix Optimization",
+          "trigger": "Potentially dominating landscape theorem"
+        },
+        {
+          "assessment": "Specialized coverage unresolved",
+          "evidence": "An abstract cannot rule out an equivalent special calculation.",
+          "identifier_or_url": "https://doi.org/10.1109/TSP.2002.807002",
+          "material_read": "Landing page/abstract; no decisive full-text passage retrieved",
+          "method": "Bounded lawful OA direct and alternate retrieval attempts",
+          "title": "The Geometry of Weighted Low-Rank Approximations",
+          "trigger": "Classical plausible equivalence for a weighted rank-one landscape"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Product-of-simplices graph labeling, fractional minima at a sharp penalty boundary, not fixed-rank matrices.",
+          "identifier_or_url": "Resultary dde16922d807; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Sharp rowwise integrality frontier for a multiclass graph label problem",
+          "trigger": "Sharp local-minimum boundary returned by semantic search"
+        },
+        {
+          "assessment": "Different objective and notion of obstruction",
+          "evidence": "Studies approximation accuracy of solutions for rank-one forcing, not stationary points of this SPD quadratic.",
+          "identifier_or_url": "Resultary 662de06e6334; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Rank-one coupled Sylvester forcing with flat-rank solutions",
+          "trigger": "Nearby low-rank matrix-equation hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof, especially lines 48–89",
+        "Bioli–Kressner–Robol fixed-rank formulation",
+        "Srebro–Jaakkola Fig. 1"
+      ],
+      "rationale": "The exact relationship between conditioning and the two leading singular values shows why nearly ideal conditioning alone does not prevent trapping in a rank-underfit SPD matrix equation. The quartic at equality and the exact barrier, provably not lowered by going through extra coordinates, distinguish this from a routine witness of one nonglobal stationary point.",
+      "residual_risks": [
+        "The operator is diagonal in matrix units with two Kronecker-product terms; this does not quantify the landscape of arbitrary SPD operators or predict the convergence of a particular algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

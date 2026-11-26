@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:46.274867Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6), positivity proof and cylinder identities",
+        "Frozen VERIFICATION.md, check_brik.py and checker_output.txt (inspected, not executed)",
+        "Shallit arXiv:2605.07542v1, Theorems 3 and 7",
+        "/workspace/audit_evidence/replay.py 1; /workspace/audit_evidence/results.txt"
+      ],
+      "rationale": "At a complete block join exactly the starts at most i are lost from the copied block, while at most |v|-1 occurrences cross the new join. The normalized recurrence therefore has an absolutely summable tail bounded by (i+|v|)/2^(i-1). For L_i<=N<L_(i+1), the two boundary-crossing counts enter with opposite signs, so their difference has absolute value at most |v|-1. The reduced prefix length i+N-L_i is at most 2N/3, by L_i>=2i; adding O(i+|v|) at each of O(log N) reductions gives the claimed all-prefix bound, rather than just convergence along block lengths. For an allowed factor, Shallit's recurrence and language theorems give arbitrarily late starts r. The least block index t containing that occurrence is O(log r), and the occurrence and all designated copies double at each join through stage r because their starts are at least r. The normalized lower bound at stage r has numerator 2^(r-t)-(r+1)>0 for large r, even after subtracting all possible later losses. Forbidden factors never occur. Left and right extension counts differ from the parent count by only endpoint errors; these give consistency, invariance and full support, and cylinder averages give genericity. Independent finite replay checked 62 patterns at 14 joins and 1,017,482 prefix inequalities including endpoints.",
+      "residual_risks": [
+        "The replay checks only finite consequences. The uploaded checker's intermediate-prefix loop excludes the last endpoint 65554 (its block-end count is checked separately); the proof is not affected. No optimality, mixing or ergodicity claim is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit's Theorem 7 identifies all factors and Theorem 10 gives the limiting density of 1. The November record includes measure-theoretic entropy; the October block-entropy result assumes the frequencies and adds block entropy bounds."
+        ],
+        "reasoning": "Recurrence and complete language do not force limiting positive frequencies or bound the rate. The stronger November package overlaps materially but is indexed later, with a separate explicit prior attribution to this frozen result in the October record. Neither entropy claim is credited here.",
+        "searches": [
+          "Shallit arXiv:2605.07542v1, abstract and Theorems 3, 7, 10",
+          "Local Resultary Brik-word matches, including the November frequency/entropy and October block-entropy results"
+        ]
+      },
+      "checked_sources": [
+        "Original primary PDF and local published matches detailed in source_inspections",
+        "Focused literature query on the Brik sequence's factor frequencies and discrepancy produced no additional source."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October entropy record explicitly credits prior record 8508728d-2547-41f9-9c6b-a88eb78cb63e with positivity and genericity, using the established frequencies as premises. Shallit supplies the recursion, recurrence, language and marginal density."
+        ],
+        "reasoning": "The all-factor recurrence and shrinking-prefix comparison yield a rate not supplied by the marginal density result, and amplification of copies is needed for strict positivity. The explicit attribution, not merely a date, identifies the prior frequency result used by the later entropy work.",
+        "searches": [
+          "Shallit arXiv:2605.07542v1, Proposition 1 and Theorems 3, 7, 10",
+          "2026/10/26/SCOPE-logarithmic-shannon-block-entropy-for-the-brik-sequence--8922a546c5b5, Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November record states positive limiting frequencies on all allowed words, all-factor O((1+log N)^2) discrepancy, full support and zero entropy. It counts starts through N rather than factors fully contained in the prefix."
+        ],
+        "reasoning": "The two counting conventions differ by at most |v|-1, so the shared frequency and discrepancy statements are genuinely equivalent. The entropy conclusion is additional, not part of the reviewed claim. The inspected November prior-work discussion does not cite the reviewed record.",
+        "searches": [
+          "Local Resultary search on Brik factor frequencies, genericity and discrepancy",
+          "2026/11/2/SCOPE-a-full-support-zero-entropy-frequency-law-for-brik-s-binary-word--8cf4c9f159c7, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source gives a formula for the density of 1 (also fixing the density of 0). The indexed November record matches the all-factor law up to endpoint convention, not merely its sampled frequencies."
+        ],
+        "reasoning": "The exact object is a frequency law rather than a finite table, so the indexed exact-statement comparison matters. One-letter formulas and isolated factor counts do not cover the law for arbitrary lengths.",
+        "searches": [
+          "Local Resultary searches for the Brik sequence, factor frequencies and discrepancy",
+          "Shallit arXiv:2605.07542v1, Theorem 10"
+        ]
+      },
+      "rationale": "Shallit's exact factor language, recurrence and one-letter density are prior. The distinct contribution is positive limiting frequency for every permitted cylinder with an all-prefix discrepancy estimate. A later indexed Brik record has equivalent frequency/discrepancy claims plus an entropy result; the intervening block-entropy record explicitly attributes the positivity and genericity result to this very frozen record, so the overlap is not evidence of antecedent coverage. This is not a claim of exclusive historical priority.",
+      "residual_risks": [
+        "The November record does not establish how its overlapping proof was obtained. A bounded search and indexed chronology with one explicit attribution do not establish global publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers recurrence, factor language and single-letter density, not the all-factor quantitative law",
+          "evidence": [
+            "Theorem 3: b is recurrent.",
+            "Theorem 7: a word is a factor iff it contains no two consecutive 0s.",
+            "Theorem 10: limiting density of 1 exists and has the displayed formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.07542",
+          "material_read": "pp. 1–4, definition, Proposition 1, Theorems 3, 7 and 10; OA offsets 0, 3337, 4266, 6143 and 7969",
+          "method": "Bounded OA PDF passages",
+          "title": "Brik’s sequence: a strange recursion",
+          "trigger": "Identical word construction and strongest primary source"
+        },
+        {
+          "assessment": "Uses the reviewed frequency law as an input, rather than independent antecedent coverage",
+          "evidence": [
+            "Prior frequency analysis identified by full record ID, credited with positivity and genericity; entropy bound asserted separately."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-logarithmic-shannon-block-entropy-for-the-brik-sequence--8922a546c5b5",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 8436",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "Logarithmic Shannon block entropy for the Brik sequence",
+          "trigger": "Exact same word and explicit prior citation"
+        },
+        {
+          "assessment": "Material equivalent coverage in a later indexed record, plus an entropy statement; relationship not specified by that text",
+          "evidence": [
+            "Matching all-factor existence, positivity and log-squared error after accounting for endpoint convention; closely matching count recursion."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-full-support-zero-entropy-frequency-law-for-brik-s-binary-word--8cf4c9f159c7",
+          "material_read": "RESULT.md Finding, proof and prior-work passages, offsets 0, 2772 and 8183",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "A full-support zero-entropy frequency law for Brik’s binary word",
+          "trigger": "Strongest indexed equivalent statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, frequency enclosure and genericity conclusion",
+        "Shallit Theorems 3, 7 and 10",
+        "October block-entropy record explicitly using the prior frequency analysis"
+      ],
+      "rationale": "For this natural non-uniformly recurrent recursion, the theorem gives an actual fully supported empirical frequency law, replaces bare recurrence by positive asymptotic density, and quantifies convergence for every prefix. The convergent dyadic formula makes individual frequencies approximable; the later block-entropy result exemplifies a use of the frequency law.",
+      "residual_risks": [
+        "No claim of computational practicality for rare long factors or of optimal discrepancy is needed for this value judgment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

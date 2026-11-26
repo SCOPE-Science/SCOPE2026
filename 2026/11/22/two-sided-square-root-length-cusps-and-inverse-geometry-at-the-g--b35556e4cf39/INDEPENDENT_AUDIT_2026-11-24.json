@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:31:01.180856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two signed z branches at angle t have speed sqrt(r²+(dr sin t)²/Q), where Q=R²−(d+r)²+2dr(1−cos t), and only finitely many overlapping points. This gives the stated nodal length by the half-angle substitution. For the delicate moving endpoint in the frozen proof use the exact local coordinate h=2 sin(t/2), not the leading angular approximation in line 71. With λ²=|R²−(d+r)²|/(dr) and h=λu, the admissible endpoint is exactly |u|=1 on the plus side. The square of the speed becomes r²+dr(1−λ²u²/4)u²/(u²±1), with plus in the denominator for d below critical, and dt/dh=(1−h²/4)^(−1/2). On a fixed small h-cutoff the speed difference from the nodal integrand is bounded by C(ε+u^(−2)) for |u|≥2. The ε term integrates to O(ε/λ) in rescaled units, and near the endpoint the bound is C(1+(|u|−1)^(−1/2)). Outside the cutoff the change is O(ε), and λ/sqrt(ε) tends to sqrt(2R/(rd*)). This supplies the endpoint justification without a false uniform bound anchored to the limiting endpoint in the unstraightened coordinate. After subtracting the missing rescaled interval, the two dimensionless limits are −2F(m) and −2F(1−m): differentiation gives respectively −K(m) with value 0 at m=0 and K(1−m) with value −2 at m=0, the latter using w=sqrt(u²−1). The prefactor counts both sheets. F'=K/2 and its endpoint values 0,1 verify the inverse bijection and positivity. For outer contact set t=π+w, qmax=R²−(d−r)² and use sin(w/2)=sqrt(qmax/(4dr)) sin θ, z=sqrt(qmax) cos θ. This parametrizes the full small loop; recentered and divided by sqrt(ε), it converges in C¹ on the entire θ-circle to the ellipse with semiaxes sqrt(2Rr/(R+r)) and sqrt(2R). This gives the reported perimeter coefficient. Independent Simpson integration of the elliptic integrals also agrees with the listed examples; neither that diagnostic nor the frozen checker proves the limits. The laws apply pointwise for fixed R>r, not uniformly near degenerate radius ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graefe–Korsch–Strzys give the offset family, its node and loop topology, and spherical enclosed-area integrals, not the moving Euclidean intersection length in the inspected passages.",
+          "MathWorld uses a length element to calculate lateral cylinder area on its cylinder-sphere page and describes a fixed curve's elliptic length on its Viviani page.",
+          "The 2005 journal contents identify Kroll's article as Raumkurven im Mathematikunterricht. Ein Überblick, pp. 15–43; a lawful review of the 2007 book discusses the starting fixed Viviani parameterization, but the primary chapter was not available in the bounded check."
+        ],
+        "reasoning": "Area, volume, period and length are different observables. The older generalized geometry is relevant but does not supply the two local arclength deficits from the passages inspected; incompletely accessible historical texts leave an explicit residual risk.",
+        "searches": [
+          "Graefe–Korsch–Strzys arXiv:1308.3569 §§2.1–2.2",
+          "MathWorld Cylinder-Sphere Intersection and Viviani's Curve",
+          "W Kroll Der Mathematikunterricht 51 6 2005 15 Viviani Kurve pdf Räumliche Kurven Flächen 978-3-00-021836-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.3569",
+        "MathWorld Viviani's Curve and Cylinder-Sphere Intersection",
+        "MathCurve Viviani curve and hippopede pages",
+        "Resultary:1955f3753f0c",
+        "Resultary:6d5d48f193dd",
+        "Resultary:24179d93db39",
+        "Kroll 2005 publisher abstract and lawful review of Kroll 2007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The torus record computes its own two-sided elliptic losses and recovers torus radii; its statements are restricted to a ring torus and Villarceau sections.",
+          "The sphere–cylinder geometry in the earlier papers supplies a parametrization and determines when loops merge, but the signed side limits require the different real domains and the missing central angular interval on one side."
+        ],
+        "reasoning": "No inspected general theorem specializes the Villarceau cusp formulas to the sphere–cylinder metric. Generic transverse contact suggests a square-root scale, and the outer ellipse is a local quadratic calculation, but neither determines the complementary elliptic parameters, ratio crossing, or monotone inverse at the internal node. The recovery is a consequence of the two new coefficients, not priority claimed separately for monotone inversion.",
+        "searches": [
+          "Local mirror 24179d93db39 Finding offsets 0–2598 and 1955f3753f0c Finding offsets 0–1793",
+          "arXiv:1308.3569 §2.1 and §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1955f3753f0c gives L_b=8 sqrt(2(2−b)) E(b/2), exactly the target nodal length with R=2, r=2−b. Similarity of the spherical family extends this equivalence beyond that normalization.",
+          "6d5d48f193dd gives fixed Viviani length 8r E(−1), equivalent to the r=R/2 critical case by the elliptic parameter transformation.",
+          "24179d93db39 treats a Villarceau transition of a sliced ring torus, not the sphere/cylinder family."
+        ],
+        "reasoning": "The generalized nodal-length overlap is exact, irrespective of same-day chronology. A random chord near the diameter varies endpoints on the fixed curve, not the displacement of the cylinder; it does not encode either moving-length cusp. The torus theorem shares the form of the conclusions, not the moving metric geometry.",
+        "searches": [
+          "Local Resultary: generalized Viviani sphere offset cylinder intersection Euclidean arclength two-sided square-root cusp coefficients inverse recovery outer contact",
+          "Local Resultary: Viviani sphere cylinder intersection curve length arclength cusp generalized Viviani hippopede",
+          "sphere cylinder intersection curve Euclidean arclength generalized Viviani curve length offset cylinder elliptic integral length nodal cusp"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only identical catalogue hit is the assigned record. Exact independent matches were found for the critical length or its classical specialization, not for the pair of displacement coefficients at arbitrary aspect ratio."
+        ],
+        "reasoning": "The symbolic pair rather than a sample value is the relevant exact lookup. The fixed formula cannot be differentiated in offset: it holds along the node condition d=R−r while the cusps vary d with R,r fixed.",
+        "searches": [
+          "Local Resultary searches on generalized Viviani arclength cusp and hippopede length; IDs 1955f3753f0c, 6d5d48f193dd, 24179d93db39, b35556e4cf39",
+          "MathWorld Viviani's Curve, equation (11) reference"
+        ]
+      },
+      "rationale": "The qualified contribution is the explicitly complementary elliptic pair of moving-offset Euclidean arclength cusp coefficients and the aspect/scale reconstruction from their ratio and the nodal length, with the outer-contact law. The classical geometry and fixed nodal-length cases are not independent novelty; in particular an inspected same-day hippopede record gives the exact generalized nodal-length formula after scaling. The strongest structurally similar cusp-and-inverse result has a different curve model and does not imply these coefficients.",
+      "residual_risks": [
+        "Full texts of Kroll's 2005 article and 2007 book and Gray's classical treatment were not inspected; related specialist arclength results remain possible.",
+        "The same-day indexed records establish partial overlap or analogy, not a priority order; the search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior topology and enclosed area; historical leads",
+          "evidence": [
+            "Defines the offset cylinder and sphere configuration and gives the differing loop regimes and figure eight. The elliptic integrations in §2.2 are for spherical enclosed areas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.3569",
+          "material_read": "§2.1 PDF pp. 2–4 offsets 4200–9540; §2.2 pp. 6–8 offsets 14000–17285; refs. [16]–[17] p. 18",
+          "method": "OA PDF passages",
+          "title": "Bose-Hubbard dimers, Viviani's windows and pendulum dynamics",
+          "trigger": "Exact generalized sphere–cylinder geometry"
+        },
+        {
+          "assessment": "Fixed classical curve length and distinct lateral cylinder area",
+          "evidence": [
+            "The first text identifies a fixed elliptic curve length; the second describes the cylinder-surface area computation."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/VivianisCurve.html ; https://mathworld.wolfram.com/Cylinder-SphereIntersection.html",
+          "material_read": "Viviani offsets 0–1800 including Eq. (11) reference; cylinder-sphere offsets 0–2020",
+          "method": "OA public pages, rendered equations incompletely extracted",
+          "title": "Viviani's Curve; Cylinder-Sphere Intersection",
+          "trigger": "Potential exact length or contact coefficient"
+        },
+        {
+          "assessment": "Exact nodal-length overlap, different moving variable",
+          "evidence": [
+            "L_b=8 sqrt(2(2−b)) E(b/2) is used to normalize a near-diameter chord law."
+          ],
+          "identifier_or_url": "Resultary:1955f3753f0c",
+          "material_read": "Finding offsets 0–1793",
+          "method": "Local mirror",
+          "title": "A quartic-to-quadratic diameter-tail crossover on spherical hippopedes",
+          "trigger": "Identical nodal family"
+        },
+        {
+          "assessment": "Special case of the nodal length, different target",
+          "evidence": [
+            "Uses L_r=8r E(−1) in a chord probability calculation."
+          ],
+          "identifier_or_url": "Resultary:6d5d48f193dd",
+          "material_read": "Finding offsets 0–1745 and 5100–5993",
+          "method": "Local mirror",
+          "title": "Quartic antipodal tangency and the three-quarter chord tail of Viviani's curve",
+          "trigger": "Fixed Viviani length in exact form"
+        },
+        {
+          "assessment": "Distinct section geometry; no general coverage of sphere–cylinder cusp",
+          "evidence": [
+            "The asymptotics and inverse in its statement concern torus radii and Villarceau sections."
+          ],
+          "identifier_or_url": "Resultary:24179d93db39",
+          "material_read": "Finding offsets 0–2598",
+          "method": "Local mirror",
+          "title": "Square-root arclength cusps and inverse geometry at a Villarceau transition",
+          "trigger": "Strong structural match to both cusp and inverse conclusions"
+        },
+        {
+          "assessment": "Historical overlap unresolved; nothing decisive inferred from the abstract or review",
+          "evidence": [
+            "The book review describes the opening treatment of the Viviani curve as a parametrized sphere–cylinder intersection."
+          ],
+          "identifier_or_url": "https://www.friedrich-verlag.de/shop/raumkurven-524126 ; ISBN 978-3-00-021836-1",
+          "material_read": "Publisher contents/abstract for 2005 paper; 2007 book review p. 2 at https://ojs.didaktik-der-mathematik.de/index.php/mgdm/article/download/633/622",
+          "method": "OA publisher page and separate OA review, no primary full text obtained",
+          "title": "Raumkurven im Mathematikunterricht. Ein Überblick; Räumliche Kurven und Flächen in phänomenologischer Behandlung",
+          "trigger": "Older specialist sources cited by Graefe–Korsch–Strzys"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp constants at the natural topology-change parameter distinguish the two sides quantitatively, pick out the classical aspect as the unique symmetry threshold, and give an exact two-observable geometric inverse. This is useful beyond recognizing the square-root singularity, and does not rely on the fixed-curve length alone being new. The outer coefficient separately quantifies extinction at external tangency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

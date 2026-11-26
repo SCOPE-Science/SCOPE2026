@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact stationary mode diagram from a positive beta-mixture formula and a scalar hypergeometric differential equation. The unique off-center critical points are found by a one-dimensional hypergeometric root equation, with no finite-grid assumption. The opening-law constant is derived by an integrable rescaling limit and the beta reflection identity.
+## correctness
 
-To repeat the computational diagnostics, install Python 3 with `sympy` and `mpmath`, then execute `python check_modes.py`. The checker was run against the final standalone code file and passed 410 assertions. It covers a symbolic differential-equation identity; 336 exact stationary moment relations; 28 exact resonance-density comparisons; 21 differential-equation numerical residuals; five bracketed critical roots; and four splitting-scale samples, plus two symbolic coefficient identities and 14 root/scale checks. The precise count can be reproduced from the script output; individual examples are supplemental and do not establish the continuum theorem.
+PASS
 
-The derived theorem does not include translational noise, nonlinear traps, aperiodic run-length laws, unbiased-to-biased extensions, or any finite-time mode diagram. Literature search and independent scientific validation are not mathematical proof of publication priority. No independent audit has been performed.
+The normalized stationary position is the exponentially weighted integral of the unique stationary finite-state motor chain; exponential contraction eliminates the initial position, and sign reversal gives evenness. The known normalized characteristic function gives the moments of sqrt(U)*V with the frozen beta parameters. Compact support makes moment equality determining. Integrating the scaled V density against U and substituting U=z+(1-z)t gives the exact positive Euler integral, with correct normalization and no atoms. Independent ODE derivation from stationary transport: let q=p_++p_- and m=p_+-p_-. Total flux gives m=xp; the difference equation gives q'=(x^2*p)'-R*x*p; the active sum equation gives (x*q-m)'+T*p-(R+T)*q=0. Differentiate the last equation after substitution for q', so no division by 1-R-T is needed. The result is (x^3-x)p''+((6-2R-T)x^2+T-2)p'+(2-R)(3-R-T)x*p=0. Changing to u=1-x^2 gives exactly the stated Gauss ODE. At each critical point, the sign of the second derivative is fixed by the sign of minus (2-R)(R+T-3), since p>0; this prohibits a second critical point. When that coefficient is zero, ODE uniqueness for the first-order equation in f' gives either no zeros or identically zero derivative. The latter occurs only at the explicitly excepted uniform case (1,2); the half-support critical-point count is for nonuniform profiles. The increasing and decreasing regions with reinforcing factors follow by the pointwise signs of their z-derivatives, including R=1 and e=0. For R>=2 the nonincreasing scaled-V density and strict loss of positive mixture mass as x increases yield strict decrease, also at R=2. Near the outer edge the Euler factor and its z-derivative stay bounded with nonzero limiting factor, so R-1 sets the edge sign or R=1 uses e. In the two mixed regions, c+e=(T-1)/2. For T<3, scaling t=zs in I'_e gives e*B(c,1-c-e)*z^(c+e-1). For T<1, I_e itself is order z^(c+e), and at T=1 it is logarithmic, so this derivative also dominates in those cases; for 1<T<3 the density factor is finite at zero. At T=3 the derivative diverges logarithmically with sign e, and for T>3 the beta integrals yield p_z(0)/p(0)=(2-R)(R+T-3)/(2(T-3)). Therefore the mixed cases have opposite center and edge signs as claimed and each unique extremum has the stated type. The root equation follows from the differentiated Euler integral, including the factor 1/2. For the splitting, the critical equation gives |R-1|=|(1-z)I'_e/I_e|<=|e|/z because [t+(1-t)z]>=z. This explicitly excludes escape to the outer edge, which the compact-interior argument alone would not do. Thus z_* goes to zero. After scaling t=zs, the integrand of z^(1-c-e)*I'_e/e is bounded for z<1/2, |e|<=delta<1-c by s^(c-1)*(1+s/2)^(-1+delta) on the positive axis, an integrable majorant. Also I_e(z_*) tends to B(c,c) by dominance, choosing delta<c as well. The critical equation gives z_*^(1-c-e) asymptotic to e*B(c,1-c-e)/((R-1)*B(c,c)), positive on the stipulated side. Its logs give e*log z_* -> 0; the beta reflection identity and z_*=x_*^2 then yield the stated leading coefficient and exponent. This is fixed-R only and does not extend to the uniform or marginal rates or to thermal/different switching generators.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass only for the full two-rate global critical-point classification (apart from already known cases) and the off-resonance fixed-R splitting with explicit prefactor. The forward stationary law, beta-product method, some center/edge asymptotics, and the exact resonance profile are prior.
+
+## value
+
+PASS
+
+The global mode census distinguishes center accumulation, support-edge accumulation and interior bimodality when the rates can vary independently, even where singularity exponents alone miss a finite local peak or valley. Ruling out competing extrema matters for interpretation of the observable and turns the fixed-R opening law into an unambiguous measurable displacement with a continuously varying exponent. The exact boundary profile and equal-rate cases are not the added value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

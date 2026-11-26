@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:45:44.259666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5, 13–39",
+        "Frozen VERIFICATION.md and verify_pfa.py",
+        "Independent integral matrix multiplication"
+      ],
+      "rationale": "The matrices are row-stochastic with the asserted initial distribution and sole accepting state. Independently multiplied the full row vectors for all 27 inputs using denominator 6^4=1296. Every entry agrees with the frozen table; abc has numerator 1128, cbc has 1104, and all other words have at most 936. Thus the gap is 24/1296=1/54. A one-state stochastic matrix is [1] for every letter, so no one-state witness can give a positive gap. The result concerns the stated alphabet and the particular witness, not an optimal two-state gap. Independent replay: node /workspace/replays/5.js; the uploaded Python was inspected, not executed.",
+      "residual_risks": [
+        "No optimal-gap claim or classification for three-letter alphabets is verified by this computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill classifies binary target words; Kjos-Hanssen proves the arbitrary-alphabet upper bound three and notes that the general two-state classification was not carried out.",
+          "8eb608279288 states that every nonempty block-distinct word over any finite alphabet of size at least two has a rational order-preserving two-state positive-gap witness, with deterministic initial state."
+        ],
+        "reasoning": "The binary and general three-state papers alone do not settle abc. The indexed block-distinct theorem does; the stronger constraint on its witnesses does not prevent them from being witnesses in the unrestricted model.",
+        "searches": [
+          "Resultary: classification AP=2 three-symbol alphabet Kjos-Hanssen Gill Remark 5.3",
+          "arXiv:2402.13376, Theorem 4.1",
+          "arXiv:2607.26275, Theorem 1.2 and Remark 5.3",
+          "Resultary: all-distinct length-three winners"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8eb608279288, 564007bc5eff and 20bad1c0432f",
+        "arXiv:2402.13376",
+        "arXiv:2607.26275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set r1=r2=r3=1 and (a1,a2,a3)=(a,b,c) in the block-distinct theorem. It supplies a rational positive-gap witness and the same lower bound against one-state automata."
+        ],
+        "reasoning": "No new argument is needed to infer the frozen complexity value or existence of a rational witness. Only the particular nonmonotone automaton, its scores and its gap are not entailed by that theorem.",
+        "searches": [
+          "8eb608279288, Finding and Proof: sufficiency; arXiv:2402.13376, definition of probabilistic automatic complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8eb608279288, Finding: block-distinct means a_i occurs in only one run; abc has three runs of length one and distinct letters. Unique maximum among the 27 words is the same positive-gap criterion, even though the covering witness is monotone."
+        ],
+        "reasoning": "Relabeling letters preserves the witness property; the target is the first all-distinct case of the block-distinct theorem, not a new regime outside it. The signed-swap result 564007bc5eff gives seven-letter obstructions, not an alternative proof about abc.",
+        "searches": [
+          "Resultary: minimal ternary witness two-state PFA abc probabilistic automatic complexity length 3",
+          "Resultary: complete length-three ternary winners two-state PFA all-distinct word acceptance probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded exact-signature search did not identify the same matrices and gap; 20bad1c0432f concerns words of length four. The indexed 8eb608279288 gives exact A_P=2 for the class containing abc, not a table of the submitted matrices' scores."
+        ],
+        "reasoning": "The invariant's exact value is covered even without a literal row for abc. The frozen score table is specific to its automaton.",
+        "searches": [
+          "Resultary: A_P(abc) 47/54 23/27 probabilistic automatic complexity",
+          "Resultary: minimal ternary witness two-state PFA abc probabilistic automatic complexity length 3"
+        ]
+      },
+      "rationale": "The substantive finding A_P(abc,{a,b,c})=2, with a rational positive-gap witness, is an immediate case of a distinct indexed theorem for all block-distinct words. The frozen matrices differ and their 1/54 gap is verified, but that exact computation does not distinguish the mathematical classification claim. This establishes coverage, not chronology or authorship priority.",
+      "residual_risks": [
+        "Public discovery outside the identified papers and bounded Resultary comparisons was not exhaustive. This does not weaken the explicit coverage already established.",
+        "No chronology inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage of the central claim",
+          "evidence": [
+            "Theorem explicitly gives unrestricted A_P(w)=2 for every block-distinct w and rational positive-gap witnesses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288/RESULT.md",
+          "material_read": "Finding, assumptions and proof through the rational-envelope construction, offset 0–4165",
+          "method": "Primary Resultary local-mirror file, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Block-distinct words are exactly the monotone two-state probabilistic winners",
+          "trigger": "All-distinct length-three two-state winners"
+        },
+        {
+          "assessment": "Binary classification, not decisive for a three-symbol target",
+          "evidence": [
+            "Theorem 4.1 assumes w in {i,j}*. The frozen reference to Corollary 4.18 was not confirmed; the current version labels it Question 4.18."
+          ],
+          "identifier_or_url": "arXiv:2402.13376",
+          "material_read": "PDF pp. 2–3, definition and Theorem 4.1; checked citation label 4.18 in the current PDF",
+          "method": "OA primary PDF passages",
+          "title": "Probabilistic automatic complexity of finite strings",
+          "trigger": "Definition and two-state classification"
+        },
+        {
+          "assessment": "Three-state bound leaves the specific two-state value undecided",
+          "evidence": [
+            "Remark 5.3 distinguishes the binary classification from the unresolved classification for alphabets of size at least three."
+          ],
+          "identifier_or_url": "arXiv:2607.26275",
+          "material_read": "PDF pp. 1 and 4, Theorem 1.2, Corollary 5.2 and Remark 5.3",
+          "method": "OA primary PDF passages",
+          "title": "Every string has probabilistic automatic complexity at most three",
+          "trigger": "Arbitrary-alphabet general theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary 8eb608279288, Finding"
+      ],
+      "rationale": "The shortest all-distinct ternary case is naturally motivated, but its complexity and existence of a rational positive-gap witness are already covered. The remaining fractions are scores for one chosen parameter set; there is no sharp gap threshold, extremal invariant, or demonstrated need for these precise scores. That numerical remainder does not support a distinct valuable repair.",
+      "residual_risks": [
+        "This does not assess a separately posed optimal-gap problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

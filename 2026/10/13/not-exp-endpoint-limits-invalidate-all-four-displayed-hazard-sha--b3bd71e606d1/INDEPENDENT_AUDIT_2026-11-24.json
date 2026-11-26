@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:50:55.417536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired statement, θy∼v(y) at zero; using the exact density (rather than differentiating an asymptotic equivalence) gives g∼γ(((1+α)θ)/α)^γ y^(γ−1), and 1−G→1. In the tail, with a=α/(1+α) and ε=e^(−θy), the inner CDF factor is (1−ε)/(1−(1−a)ε)=1−aε+O(ε²). Thus 1−G∼γaε and g∼γaθε; all parameters are positive, so division is valid and the limit is θ. The three origin cases follow. Nondecrease cannot start above the finite tail limit, nonincrease cannot start below it, and a positive function with initial limit 0 cannot initially decline; a finite-valued hazard with initial limit +∞ cannot initially rise. This excludes the four prose assignments in α,γ,θ order, including the directions required for standard bathtub and upside-down bathtub shapes. The frozen attribution to Figure 1 labels as if all four prose triples were actually plotted in the hazard panel is inaccurate: p. 6 lists (1.5,1.2,1.5) and (0.5,1.1,1.5) in that panel, and the prose's bathtub triple (1.5,2.8,1.5) belongs to the density-panel legend. The repaired RESULT.md, VERIFICATION.md and slogan distinguish the sources, do not assign an undocumented label to a curve, and prove that both extra hazard-panel triples also exclude an initial decline. An independent bounded mpmath check used u=a/expm1(θy) and I=expm1(γ log1p(u))/(γu), evaluating h/θ=(a+u)/(a(1+u)I) on the four prose triples; at θy=10^−90 and 80 the relative errors against the two laws were below 10^−8 and 10^−30 respectively. The original checker was inspected only. No claim is made about all interior turning points or the original plotting code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For any baseline F with differentiable density, exponentiation gives hazard γF^(γ−1) F′/(1−F^γ); this general formula directly specializes and the endpoint method is standard.",
+          "The inspected MO power half-logistic phase diagram and exponentiated modified-Lindley tail law concern different baselines. The 2018 Kumaraswamy MO exponential full text was not reachable, so its hazard-theorem coverage remains unresolved."
+        ],
+        "reasoning": "A broader law for the family may already cover the origin/tail behavior; the supported distinct claim is the documented failure of all four concrete assignments, tested against the primary formulas and prose separately from the panel.",
+        "searches": [
+          "Equivalent-family hazard theorems: exponentiated MO exponential and Kumaraswamy MO exponential",
+          "Resultary: related MO and exponentiated hazard shape classifications"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt and verify_notexp_endpoints.py; corrected replacement files",
+        "DOI 10.3390/math14071182, pp. 5–6",
+        "CE2G institutional repository PDF",
+        "PLOS ONE DOI 10.1371/journal.pone.0280349",
+        "Resultary MOPHL and modified-Lindley records",
+        "Kumaraswamy MO exponential DOI 10.1080/03610926.2018.1440594, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limits are elementary consequences of the source equations, and the asymptotics need not be treated as a new method.",
+          "The published prose explicitly claims increasing, decreasing, bathtub, and upside-down bathtub behavior for the four triples; the endpoint constraints furnish four contradictions rather than restating a conclusion of the source."
+        ],
+        "reasoning": "Only the concrete correction is credited as distinct. Equivalent-family formulas may independently imply the mathematical endpoint obstruction, but no inspected implication-equivalent correction or explicit earlier classification of these four assignments was established.",
+        "searches": [
+          "Alotaibi–Elshahhat DOI 10.3390/math14071182 §2, p. 5, Eqs. (2)–(5) and following prose; Fig. 1 p. 6",
+          "General exponentiated-MO and related hazard comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a=α/(1+α), the inner CDF equals the Marshall–Olkin exponential CDF of tilt a. Raising it to γ is therefore an exponentiated MO construction, equivalently K(w)=1−(1−w^γ)^b at b=1 with that baseline.",
+          "The inspected complementary exponentiated exponential geometric family applies a fractional-linear transform to the powered exponential base, the opposite order. PLOS ONE DOI 10.1371/journal.pone.0280349 Eq. (6) also uses a generalized MO transform on the exponentiated exponential base."
+        ],
+        "reasoning": "Equivalent distribution constructions cover the family, not the incorrect labels of the particular examples. The distribution name alone is not a novelty claim, and similar compound families are not automatically equivalent.",
+        "searches": [
+          "Resultary: NOT-Exp and hazard-endpoint corrections",
+          "Literature: exponentiated Marshall–Olkin exponential or exponentiated exponential geometric hazard",
+          "Literature: Kumaraswamy Marshall–Olkin exponential asymptotics and monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper gives the exact four purported shape/triple pairs in prose; the plotted legends differ and neither serves as a valid global hazard classification.",
+          "No verified exact corrective record surfaced. The journal notes route was not readable, so absence of a correction there is not asserted."
+        ],
+        "reasoning": "This is not a lookup or recomputation of correct table entries: the claim disputes all four source assignments using their parameter values and analytic endpoints.",
+        "searches": [
+          "Resultary: NOT-Exp, hazard labels, exact endpoint corrections",
+          "DOI/title lookup for corrigendum and Figure 1 claim",
+          "Alotaibi–Elshahhat §2 and Fig. 1"
+        ]
+      },
+      "rationale": "Credit the repaired, model- and paper-specific correction of four explicit hazard claims, not novelty of the distribution family, power transform, or elementary endpoint method. The original paper supplies the formulas that prove the limits but assigns the opposite global behaviors to the four examples; distinguishing the prose assignments from the plotted legend is part of the verified comparison. No inspected source already makes the four-way correction.",
+      "residual_risks": [
+        "The full 2018 Kumaraswamy MO exponential paper and a ScienceDirect failure-rate search hit were unavailable. An earlier equivalent hazard theorem could cover the endpoint facts; none was verified to give the four-example correction.",
+        "No corrigendum was confirmed; an inaccessible journal notes page or an unindexed correction could alter the literature attribution.",
+        "The primary source legend is distinguished from the prose; neither using the figure's finite x-range nor reconstructing the original plotting code is part of the repair."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prose matches the four claimed examples; the HRF legend does not exactly match the prose",
+          "evidence": [
+            "The parameter vector is (α,γ,θ). The prose labels the tuple with γ=2.8 as bathtub. Figure 1 puts it in the density-panel legend and lists γ=1.2 at the otherwise corresponding hazard tuple, plus the unassigned (0.5,1.1,1.5)."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14071182",
+          "material_read": "Publisher PDF §2, p. 5, Eqs. (2)–(5) and four-way prose assignment (OA text around offset 23900); Fig. 1 and legends, p. 6 (around offset 26586)",
+          "method": "OA PDF page/passages and legend text",
+          "title": "A New Exponential-Type Model Under Unified Progressive Hybrid Censoring: Computational Inference and Its Applications",
+          "trigger": "Verify the printed model, the exact four labels, and the legend discrepancy"
+        },
+        {
+          "assessment": "Different ordering of geometric transform and exponentiation",
+          "evidence": [
+            "Its survival is (1−v^α)/(1−(1−θ)v^α), with v=1−exp(−λy), rather than the survival of the powered fractional-linear CDF in the target."
+          ],
+          "identifier_or_url": "https://researchonline.lshtm.ac.uk/id/eprint/1883896/1/The%20Complementary%20Exponentiated_GREEN%20AAM.pdf",
+          "material_read": "§2 Eqs. (1)–(3), OA text offsets 6560–10484",
+          "method": "Lawful OA author-manuscript PDF, formula passages",
+          "title": "The Complementary Exponentiated Exponential Geometric Distribution",
+          "trigger": "Plausible equivalent family under geometric compounding"
+        },
+        {
+          "assessment": "Different transform ordering in inspected general family",
+          "evidence": [
+            "The expression in Eq. (6) is a rational expression in v^β; the specialization λ=1 is MO applied to the exponentiated exponential, not the general target with MO inside the power."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0280349",
+          "material_read": "§2 pp. 3–4, Eqs. (5)–(6), OA offsets 13100–17865",
+          "method": "Publisher OA PDF formula passages",
+          "title": "Generalized Marshall-Olkin exponentiated exponential distribution: Properties and applications",
+          "trigger": "Possible equivalent extension and shape classification"
+        },
+        {
+          "assessment": "Potential broader family coverage; no verified theorem-level hazard comparison",
+          "evidence": [
+            "The standard Kumaraswamy CDF transform reduces to a power when its second shape is 1. No coverage claim is made about the inaccessible paper's statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2018.1440594",
+          "material_read": "Title/identifier via targeted search; no full text read",
+          "method": "Publisher and lawful DOI alternative recovery attempted",
+          "title": "Kumaraswamy Marshall-Olkin Exponential distribution",
+          "trigger": "Plausibly includes the domain as one Kumaraswamy shape fixed at 1"
+        },
+        {
+          "assessment": "Related hazard problems, different baselines",
+          "evidence": [
+            "Power half-logistic and modified-Lindley baselines do not give the target exponential law by mere renaming."
+          ],
+          "identifier_or_url": "SCOPE-20261012-2e6ca0a2ca4a; SCOPE-20261013-4b2b6076db38",
+          "material_read": "Original claims and baseline/formulation scopes",
+          "method": "Resultary local mirror",
+          "title": "Exact MOPHL hazard phase diagram; Every exponentiated modified-Lindley hazard eventually decreases",
+          "trigger": "Nearby indexed endpoint and global shape results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result gives a concrete reliability correction: all four explicit illustrative assignments violate analytic endpoint behavior, with the figure/prose discrepancy kept separate instead of silently treating the labels as matching. It also provides a parameter-wide necessary test for future shape claims and identifies the universal tail rate. Its value is the falsification of these advertised global behaviors, not the routine asymptotic calculation in isolation or a claim to a full shape diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

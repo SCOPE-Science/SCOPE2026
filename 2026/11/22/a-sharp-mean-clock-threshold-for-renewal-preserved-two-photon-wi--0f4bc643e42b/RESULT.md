@@ -9,7 +9,7 @@ For a lossy optical mode independently re-prepared in the two-photon state at ar
 \]
 There exists exactly one positive \(\mu_\star\) such that \(\mu_\star=\varphi(\mu_\star)\), and
 \[
-\mu_\star=1.13035954884516\ldots.
+\mu_\star=1.130359548845188\ldots.
 \]
 For **all** positive finite-mean renewal waiting laws, the stationary Wigner function is everywhere nonnegative whenever \(\mu\ge\mu_\star\). For each \(0<\mu<\mu_\star\), a deterministic wait \(T=\mu/\gamma\) produces a strictly Wigner-negative annulus. At fixed \(\mu\), the deterministic wait uniquely maximizes the exact Wigner-negativity feasibility witness defined in the proof. This last extremality is for that witness and the existence of Wigner negativity, not an assertion about integrated Wigner negative volume or a pointwise ordering of entire Wigner functions.
 
@@ -86,7 +86,7 @@ As one concrete comparison, take \(\gamma=1\) and common mean \(\mathbb ET=0.9\)
 
 ## Relationship to prior work
 
-Chabaud, Emeriau and Grosshans establish operational witnesses for Wigner negativity, not renewal-clock feasibility thresholds. Malpani and collaborators derive photon-loss evolution and convolution of Wigner functions for related photon-added Fock states, without optimizing renewal re-preparation intervals. Liu develops general semi-Markov quantum resetting counting-statistics machinery, but does not classify Wigner negativity for an attenuating two-photon mode with fixed mean re-preparation time. Li and collaborators provide physically relevant Fock-state stabilization and Wigner tomography using cascaded autonomous photon addition, a different restoration mechanism. The exact two-photon **Poisson** re-preparation threshold is already known and follows from the present formulas by specializing the renewal clock; it is not claimed as new. The contribution here is the strict convexity–concavity inequality over *all* positive finite-mean renewal laws and the resulting sharp fixed-mean feasibility boundary.
+Chabaud, Emeriau and Grosshans establish operational witnesses for Wigner negativity, not renewal-clock feasibility thresholds. Malpani and collaborators derive photon-loss evolution and convolution of Wigner functions for related photon-added Fock states, without optimizing renewal re-preparation intervals. Liu develops general semi-Markov quantum resetting counting-statistics machinery, but does not classify Wigner negativity for an attenuating two-photon mode with fixed mean re-preparation time. Li and collaborators provide physically relevant Fock-state stabilization and Wigner tomography using cascaded autonomous photon addition, a different restoration mechanism. The two-photon **Poisson** threshold is also stated in [*Parity-dependent Wigner negativity threshold under Poisson Fock-state resets*](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-dependent-wigner-negativity-threshold-under-poisson-fock--66df55b3ec78/RESULT.md); the exponential specialization here reproduces it and is not claimed as new. The contribution here is the strict convexity–concavity inequality over *all* positive finite-mean renewal laws and the resulting sharp fixed-mean feasibility boundary.
 
 ## Limitations
 

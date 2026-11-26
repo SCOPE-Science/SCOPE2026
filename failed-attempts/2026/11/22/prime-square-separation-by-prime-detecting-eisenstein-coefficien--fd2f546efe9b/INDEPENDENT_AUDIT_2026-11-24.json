@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:41:40.870600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–85; VERIFICATION.md, prime_square_detector_checks.txt and prime_square_detector_verify.py (inspected)",
+        "arXiv:2405.06451v2 pp. 5–6, 8–9",
+        "/workspace/branches/5f76ee89-e34d-4032-96ae-2ab244f95d60/record2_independent_check.md (independent exact integer comparisons, 2392 cases)"
+      ],
+      "rationale": "The frozen domain is n≥2 and odd 1≤r<s. The end-divisor terms cancel, and a proper divisor of composite n is at most n/2, so for h=s−r≥2 its contribution T_n(d) is at least d^r(1+11n^s/16)>n^s d^r/2. Primes have an empty sum. For n=p² the sole interior divisor gives p^r(p^{s−r}−1)(p^{r+s}−1), with normalized ratio (1−p^{−(s−r)})(1−p^{−(r+s)}) strictly between zero and one and tending to one. Otherwise the least prime p and n/p are distinct interior divisors, and AM–GM gives A_{r,s}(n)>n^s(p^r+(n/p)^r)/2≥n^{s+r/2}. The envelope lies below the threshold for all n>1 and equals the exact value at squares. The G normalization and the published partition-detector identity have the stated signs and factor n+1. The prime statement would be false at n=1, which the original explicitly excludes. Exact independent tests corroborate rather than prove the infinite claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Craig–van Ittersum–Ono give a lower bound for every interior-divisor contribution on the full odd-exponent domain",
+          "Allen–Craig explicitly separates n=p² from the distinct complementary pair p,n/p in its smallest-factor bound, and Remark 2.7 gives another positive divisor expansion",
+          "Kane–Krishnamoorthy–Lau and Kwon–Lee address spaces of detecting forms rather than the magnitude implication"
+        ],
+        "reasoning": "The formal smallest-factor bound is not needed at r=1, where the older per-divisor estimate is already sufficient. The overlap that dominates is quantitative and per divisor, not just classification of the forms.",
+        "searches": [
+          "arXiv:2405.06451v2 pp. 5–6 Lemma 2.1",
+          "arXiv:2609.32053v1 pp. 7–8 Lemma 3.1 and Remark 2.7",
+          "arXiv:2507.00147v2, 2601.21267v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.06451v2, 2609.32053v1, 2507.00147v2, 2601.21267v1",
+        "Resultary 63140e8d9cd5 and 655e46fed4c6",
+        "Frozen RESULT.md, comparison and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older bound is T_n(d)≥d^r(1+n^s(1−2^{1−(s−r)}))≥d^r(1+n^s/2)",
+          "For n composite and n≠p², p and n/p both occur in the sum and are distinct; keeping them yields >n^s(p^r+(n/p)^r)/2≥n^{s+r/2}",
+          "For n=p² the known expression is below the threshold and tends to it in ratio, so the same expression with p replaced by √n furnishes a strict lower envelope off squares"
+        ],
+        "reasoning": "The entire additional separation follows by applying the printed bound to the published complementary pair and one AM–GM step, then normalizing the printed square value. No new asymptotic estimate, divisibility input or comparison theorem is needed. The improved intermediate 11/16 constant is not needed for any displayed conclusion.",
+        "searches": [
+          "arXiv:2405.06451v2 Lemma 2.1 proof, extracted offset 18420",
+          "arXiv:2609.32053v1 Lemma 3.1 proof, extracted offsets 27420–33298",
+          "Resultary 63140e8d9cd5 arithmetic evaluations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited forms use c_{k,ℓ}(n)=A_{r,s}(n) under k=r, ℓ=s, with the same positive-index normalization",
+          "The special MacMahon detector has E(n)=A_{1,3}(n)/(n+1)"
+        ],
+        "reasoning": "Neither a change of Fourier-series notation nor rescaling by n+1 produces a different magnitude classification problem at the same index.",
+        "searches": [
+          "arXiv:2405.06451v2 Lemma 2.1 and H_6 identity",
+          "arXiv:2609.32053v1 definitions of f_{k,ℓ} and c_{k,ℓ}",
+          "Resultary: exact coefficient content of prime-detecting divisor-sum forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "63140e8d9cd5 explicitly tabulates the prime-square expression (p^k−p^ℓ)(1−p^{k+ℓ}) in the proof, identical to the factored value in the frozen finding",
+          "Allen–Craig give the same prime-square value expanded; a same-day hit 655e46fed4c6 concerns Stern residues and is not an exact match"
+        ],
+        "reasoning": "The prior square formula supplies both the envelope equality values and the limiting sharpness under the indicated normalization. The exact trichotomy as wording was not found in the inspected sources; this does not negate direct implication.",
+        "searches": [
+          "Resultary 63140e8d9cd5, 655e46fed4c6",
+          "arXiv:2609.32053v1 Lemma 3.1 proof, n=p² case"
+        ]
+      },
+      "rationale": "The threshold is a direct corollary of a previously published proper-divisor bound, even though the checked texts do not print the trichotomy with that threshold. Craig–van Ittersum–Ono's Lemma 2.1 proof bounds each term below by d^r[1+n^s(1−2^{1−(s−r)})] (i.e. as a lower bound for the term). This is already strictly greater than n^s d^r/2 on the entire frozen odd-exponent domain, including r=1. Allen–Craig explicitly retains the two terms p,n/p on nonsquares and evaluates the sole term on prime squares. Substituting the older bound in that two-term estimate and taking the arithmetic–geometric mean yields exactly the claimed strict nonsquare threshold. The exact prime-square value and the partition normalization are also prior. This is demonstrated implication, not a failure due to lack of access or an assumption of priority from a similar title.",
+      "residual_risks": [
+        "The audit does not assert that the threshold wording was printed verbatim in prior work or make an exhaustive priority determination. The failure is based on directly checked prior inequalities and their demonstrated consequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior bound on the full parameter domain",
+          "evidence": "After endpoint cancellation the paper displays T_n(d)≥d^k(1+n^ℓ(1−2^{1−(ℓ−k)})); the outer ≥1 in the paper is a weakening of this explicit bound. The paper also identifies (D+1)6H_6=f_{1,3}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.06451v2",
+          "material_read": "Lemma 2.1, pp. 5–6, extracted 18420–21269 for the proof, and H_6 passages pp. 8–9",
+          "method": "OA PDF, literal locator then bounded reads",
+          "title": "Integer partitions detect the primes",
+          "trigger": "Same family and decisive per-divisor bound; partition normalization"
+        },
+        {
+          "assessment": "Explicit prior pair and square analysis; combines directly with the earlier bound",
+          "evidence": "The proof retains d=p and d=n/p if n≠p², and explicitly gives the coefficient at n=p² separately. The paper's formal magnitude lemma uses k>1; this is not needed to apply the other paper's per-divisor bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32053v1",
+          "material_read": "Definition and interval theorem pp. 2–3; Remark 2.7, Lemma 3.1 and its proof at pp. 7–8, extracted 27420–33298",
+          "method": "OA PDF full text available; relevant passages read by offset",
+          "title": "Quasimodular Forms, Partitions, and Primes in Intervals",
+          "trigger": "Frozen record flagged inaccessible same-family factorization and magnitude comparator"
+        },
+        {
+          "assessment": "Exact component overlap; different principal theorem",
+          "evidence": "The proof explicitly has c_{k,ℓ}(p²)=(p^k−p^ℓ)(1−p^{k+ℓ}); factoring gives the frozen square formula.",
+          "identifier_or_url": "Resultary 63140e8d9cd5",
+          "material_read": "Finding on coefficient gcd and proof's p² evaluation",
+          "method": "Local mirror",
+          "title": "Exact coefficient content of prime-detecting divisor-sum forms",
+          "trigger": "Same coefficient sequence and exact square evaluation"
+        },
+        {
+          "assessment": "Structural coverage rather than magnitude separation",
+          "evidence": "Classifies prime-detecting forms in the ambient quasimodular spaces, not thresholds of individual coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.00147",
+          "material_read": "v2 pp. 1–2, Theorem 1.1 and Corollary 1.2",
+          "method": "OA PDF passages",
+          "title": "On a Conjecture about Prime-Detecting Quasimodular Forms",
+          "trigger": "Broader classification of the detecting forms"
+        },
+        {
+          "assessment": "Structural higher-level classification",
+          "evidence": "Deals with Eisenstein structure and oldforms, not individual coefficient ranges.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.21267",
+          "material_read": "v1 p. 1 result",
+          "method": "OA PDF passage",
+          "title": "On the Structure of Prime-Detecting Quasimodular Forms in Higher Levels",
+          "trigger": "Potential higher-level generalization"
+        },
+        {
+          "assessment": "Unrelated predicate and coefficient family",
+          "evidence": "Least failure is a Stern-residue discrepancy at prime modulus 11, not a separation at prime-square indices.",
+          "identifier_or_url": "Resultary 655e46fed4c6",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "The first prime-square-root discrepancy failure for consecutive Stern residues",
+          "trigger": "Distinct same-day nearby wording"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The prime-square normalization is a clear arithmetic interpretation, but the claimed exact result as a standalone contribution is obtained directly from the already studied complementary-divisor pair and known term estimate, with the equality case and detector identity already available. The frozen proof's slight sharpening of the intermediate coefficient is neither necessary for the claim nor motivated as an independently useful new bound. No substantial surviving finding is established by narrowing this record to its envelope or its partition specialization, so no repair is delivered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

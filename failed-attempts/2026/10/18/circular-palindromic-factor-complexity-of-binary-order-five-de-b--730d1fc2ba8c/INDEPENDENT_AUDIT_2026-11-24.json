@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:39:55.695713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57; VERIFICATION.md; verify.py inspected as text; spectrum.csv; profiles.csv",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 12"
+      ],
+      "rationale": "Rotating to the unique zero 5-mer gives one representative per oriented cycle. A separate exhaustive enumeration prescribes the last exit at each nonroot vertex of the binary order-four graph, accepts the assignments whose last exits reach the root, then uses the other exit first and starts at the zero edge. In a tour last-exit times increase toward the root; conversely this condition prevents the ordered walk stopping short, since any vertex with an unused exit would lead via unused last exits to the exhausted root. The test gave 2048 distinct valid representatives. Integer masks and reflected half bits checked each allowed circular window of lengths 1–32, with distinctness tracked by length and value. The complete spectrum and all 51 profile rows match the frozen CSVs; exact mean 1775/64 and variance 12511/4096 match. Normalized reversal/complement gives the tabulated row-wise orbit decomposition, totaling 32 size-2 and 496 size-4 orbits. The two examples each have longest length 7 and totals 22 and 23, respectively. The fixed short-length contribution 20 follows from coverage of every 5-mer.",
+      "residual_risks": [
+        "Exhaustive at order five; no inference to a distribution at higher order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anisiu–Anisiu–Kása Proposition 2 obtains all fixed-length palindromes from a suitable de Bruijn word; it does not give this cycle distribution.",
+          "The indexed complete joint census includes P, longest palindrome and each per-length profile, so it is genuinely stronger for the same cycle domain.",
+          "The same-day even-palindrome pairing record 2cd798b75b90 gives specific length-six factor-set classes: a one-length overlap, not the overall spectrum."
+        ],
+        "reasoning": "Longest-length data alone would not suffice (frozen examples have the same longest length and distinct totals). The explicit P and profile data in the stronger record do suffice.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles longest circular palindrome length census maximum palindrome length",
+          "Resultary: order-five de Bruijn cycle longest palindromic circular factor census distribution by length",
+          "Anisiu–Anisiu–Kása arXiv:1002.2723; Simpson DOI 10.1016/j.tcs.2014.07.012"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary records 8196e282ed1c, 2cd798b75b90, 1b65d6c3c2e3 and 62623bfd71c0",
+        "Anisiu–Anisiu–Kása, Burris–Motta–Shipman, and Simpson (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published catalogue record supplies every normalized cycle and its distinct-palindrome statistics.",
+          "Reversal and complementation commute modulo rotations, and preserve P and each p_j. The frozen mean and variance are algebraic functions of the matching histogram."
+        ],
+        "reasoning": "Apply the four word operations and renormalize by the unique 00000; group cycles by the least transformed representative and count distinct orbit sizes in each P row. This is a mechanical regrouping of the existing cycle table, not a surviving separate scientific result. Both particular witness statistics can likewise be read from that table.",
+        "searches": [
+          "8196e282ed1c RESULT.md Finding, Step 3, full_census.tsv",
+          "Frozen RESULT.md lines 19–31 and 57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-complete-joint-palindromic-spectrum-of-binary-order-five-de-brui--8196e282ed1c, Finding: same total-distinct histogram and 51 length profiles, plus longest-palindrome distribution and 23 joint cells.",
+          "2026/10/13/SCOPE-the-first-non-universal-reflection-complexity-spectrum-of-binary--62623bfd71c0, Finding: counts factor strings modulo reversal, a different statistic."
+        ],
+        "reasoning": "The joint census uses distinct palindromic circular strings and one representative per rotation, not necklaces additionally quotiented by reversal/complement and not reflection classes of arbitrary factors. Its P marginal is the exact frozen P spectrum.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycle distinct circular palindromic factors histogram reversal complement orbits 51 length profiles",
+          "Resultary: circular palindromic factor complexity binary order-five de Bruijn distinct circular factors histogram",
+          "Web: \"circular palindromic factors\" \"de Bruijn\" distinct histogram cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared finding reports 22:32, 23:32, 24:200, 27:192, 28:920, 29:544, 30:128 and 51 length profiles totaling 2048 cycles.",
+          "Its full_census.tsv links cycle_bits, total_distinct, longest and profile_lengths_1_to_32.",
+          "Same-day joint palindrome/antipalindrome deletion record 1b65d6c3c2e3 reports the identical unconditional orbit totals for scattered-subsequence observables, not the palindromic factor histogram."
+        ],
+        "reasoning": "The match is at full histogram level rather than just selected totals or endpoints. The cycle-level table enables direct orbit grouping even though the grouped columns are not printed there.",
+        "searches": [
+          "Resultary: order-five de Bruijn cycle reversal complement orbit counts circular palindromic factor profiles",
+          "Local mirror: 8196e282ed1c RESULT.md Finding and Step 3; full_census.tsv header"
+        ]
+      },
+      "rationale": "A distinct indexed joint census explicitly states the same seven-cell histogram and 51 length profiles, on the identical 2048 rotation classes. Its cycle-level data determine the remaining orbit columns and witnesses without further factor enumeration. This is demonstrable comparison coverage, not a finding that the later-dated catalogue item predates the frozen one or that either was derived from the other. No independently distinct claim remains by narrowing this result to the reported orbit refinement.",
+      "residual_risks": [
+        "Historical priority and relationship between the dated records remain unresolved; neither is inferred from the catalogue dates.",
+        "The Simpson full text and unindexed material could show additional historical overlap; they do not drive the failure decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact histogram, profile and stronger cycle-level coverage; later catalogue date does not establish priority",
+          "evidence": [
+            "Finding gives same totals and 51 profiles, and additionally joint P and longest-length data.",
+            "TSV exposes normalized cycle bits together with total, longest and length profile."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-joint-palindromic-spectrum-of-binary-order-five-de-brui--8196e282ed1c",
+          "material_read": "RESULT.md Finding (offset 0), Step 3 (offset 4597), and full_census.tsv header",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Complete joint palindromic spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Same exact statistic and cycle domain"
+        },
+        {
+          "assessment": "Exact one-length overlap, not the full census",
+          "evidence": [
+            "Length-six palindrome-set frequencies are 768, 512, 512, 256."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-even-palindrome-pairing-in-binary-de-bruijn-cycles-and-the-compl--2cd798b75b90",
+          "material_read": "Finding offset 0 and prior-work discussion offset 4745",
+          "method": "Resultary and local mirror",
+          "title": "Even-palindrome pairing in binary de Bruijn cycles",
+          "trigger": "Same-day cyclic de Bruijn palindrome enumeration"
+        },
+        {
+          "assessment": "Unconditional orbit totals agree; the grouping statistic is different",
+          "evidence": [
+            "Counts longest palindromic and antipalindromic scattered subsequences, not contiguous distinct strings."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-joint-circular-palindrome-and-antipalindrome-deletion-spectrum-o--1b65d6c3c2e3",
+          "material_read": "Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Joint circular palindrome and antipalindrome deletion spectrum",
+          "trigger": "Same cycle symmetries and same-day census"
+        },
+        {
+          "assessment": "Background, not a distribution over circular cycle classes",
+          "evidence": [
+            "Proposition 2 constructs all length-k palindromes via a suitable de Bruijn word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.2723",
+          "material_read": "Abstract and Proposition 2, pp. 1 and 3 of inspected publication",
+          "method": "OA primary-source passages",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Fixed-length palindrome complexity using de Bruijn words"
+        },
+        {
+          "assessment": "Different family of universal covers",
+          "evidence": [
+            "Subwords are covered by reading forward and backward, not by taking palindromes in each ordinary directed cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "v1 abstract and §1, offset 715",
+          "method": "OA primary-source passages",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Potential reversal-quotient normalization"
+        },
+        {
+          "assessment": "Full text unavailable; no claim of whole-document noncoverage",
+          "evidence": [
+            "Accessible material did not resolve exact coverage of the order-five census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Landing page and abstract only",
+          "method": "OA retrieval and literal circular words locator",
+          "title": "Palindromes in circular words",
+          "trigger": "Plausible independently published nearby circular palindrome result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen spectrum.csv and profiles.csv",
+        "8196e282ed1c RESULT.md and full_census.tsv structure"
+      ],
+      "rationale": "The distribution is a natural exact invariant and the distinction between longest and total is meaningful, but the exact joint census on the same mathematical domain already gives the salient scientific information. Means, example comparisons and symmetry columns are read-offs or simple grouping of that existing table. A reproduced census without a distinct remaining question is not a new valuable finding under this review.",
+      "residual_risks": [
+        "This decision concerns additional scientific content, not the worth of the census as an underlying combinatorial result or the provenance of either record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

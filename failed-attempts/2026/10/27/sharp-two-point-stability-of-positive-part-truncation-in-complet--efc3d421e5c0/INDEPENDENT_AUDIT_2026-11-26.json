@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:34.645462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gram matrix is A=(1+nγ)I−γ11ᵀ. Every segment is split into intervals with constant masks, assigning identically zero coordinates arbitrarily, so its increment quotient is bounded by the largest mask norm. Conversely a small step in any norming direction at an interior orthant point makes the local mask bound attainable. For a mixed mask with blocks of sizes k and ℓ=n−k, separate the within-block zero-sum subspaces and the span of the two normalized block indicators; these are A-orthogonal. On the latter span A has diagonal entries 1+γℓ and 1+γk, off-diagonal −γ√(kℓ), and determinant 1+nγ. Minimizing the input energy over the second coordinate gives squared projection norm (1+γℓ)(1+γk)/(1+nγ). The within-block ratios are at most 1 and the pure masks have norms 0 and 1. Exactly the most balanced k maximize kℓ; the witness has inactive step γk/(1+γk) times its common active step and can be scaled to remain inside the orthant. Scalar contractivity from zero and on each edge gives the one-point inequality, and the two limits follow from the floor formula. The uploaded numerical checker was inspected, not run; no numerical computation or formal certification is needed for this exact proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparator allows any positive graph edge weights and in particular the unit edges of K_n. Classical spectral control at condition number κ=1+nγ yields (κ+1)^2/(4κ) as a squared upper envelope and does not itself capture the odd-n correction."
+        ],
+        "reasoning": "The graph-specific cut theorem covers each face exactly rather than merely bounding the modulus by weighted degree or condition number.",
+        "searches": [
+          "Resultary 1700b3de04ff, Finding and Proof §§1–2",
+          "Kantorovich/Wielandt condition-number comparison for coordinate projections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 1700b3de04ff",
+        "arXiv:2006.13318"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k,ℓ, the comparator's crossing matrix is all ones and the diagonal blocks have constant-vector eigenvalues 1+γℓ and 1+γk. Thus ρ(S)^2=γ²kℓ/[(1+γℓ)(1+γk)] and 1/(1−ρ(S)^2)=1+γ²kℓ/(1+nγ)."
+        ],
+        "reasoning": "Maximizing the same expression over k gives exactly the balanced cases and the floor correction. Same-orthant attainment and one-point contraction are explicit in the comparator; both scaling statements are immediate arithmetic consequences.",
+        "searches": [
+          "Resultary 1700b3de04ff, exact block spectral identity and orthant witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonlinear quotient is the maximum of coordinate projection norms in the A-inner product. The comparator treats exactly that modulus; Cai–Wang prove a different, one-signal energy inequality."
+        ],
+        "reasoning": "A Dirichlet normal contraction is not a two-point bound on perturbations; the exact cut theorem is the relevant equivalent representation.",
+        "searches": [
+          "Resultary: graph-Sobolev truncation, exact two-point ReLU modulus; 1700b3de04ff",
+          "arXiv:2006.13318 Lemma 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Finding prints an exact formula for all weighted graphs and a star specialization, not the complete-graph floor expression as a table. Related work mentions a previously derived complete-graph modulus without a recoverable citation in that passage."
+        ],
+        "reasoning": "This is a continuous-parameter formula, not a finite table. Absence of its literal closed form in the comparator does not defeat exact specialization.",
+        "searches": [
+          "Resultary 1700b3de04ff, Finding and Relationship to prior work"
+        ]
+      },
+      "rationale": "The strongest indexed comparator gives the exact cut-by-cut nonlinear modulus and same-orthant attainment for every positively weighted finite graph with the same norm. On a unit-weight clique, its one rank-one singular value and the scalar integer maximization mechanically give the entire Finding, including its parity and equality statements.",
+      "residual_risks": [
+        "The source of the comparator's reference to a previously derived complete-graph modulus was not identified. The finding of mathematical coverage does not settle chronology, independence or authorship.",
+        "This is a bounded comparison, not a complete literature history of oblique projections or truncation maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the complete-graph Finding",
+          "evidence": [
+            "Exact 1/sqrt(1−ρ(S)^2) per cut, maximum over cuts, and same-orthant attainment; unspecified reference to a previously derived complete-graph result."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2, offsets 0–5399; Relationship to prior work offsets 9300–10560; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local OA mirror and explicit rank-one specialization",
+          "title": "Sharp weighted-degree bound and bipartite rigidity for graph-Sobolev truncation",
+          "trigger": "Exact nonlinear cut theorem in a covering graph class"
+        },
+        {
+          "assessment": "Related one-point contraction, not the exact two-point claim",
+          "evidence": [
+            "E(σ(X))≤E(X) when σ is ReLU or Leaky-ReLU."
+          ],
+          "identifier_or_url": "arXiv:2006.13318",
+          "material_read": "Lemma 3.3, p. 3, OA text offsets 14900–16600",
+          "method": "OA PDF passage inspection",
+          "title": "A Note on Over-Smoothing for Graph Neural Networks",
+          "trigger": "Possible ReLU energy nonexpansion or sharp modulus"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-point versus two-point distinction is meaningful, but the complete-graph calculation is a routine rank-one specialization of the already indexed exact nonlinear cut theorem. The balanced support restriction and the odd-n correction follow from one scalar product k(n−k); there is no separate unresolved mathematical component to rescue by narrowing.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

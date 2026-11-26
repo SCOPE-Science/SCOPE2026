@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:57:56.937303Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repaired theorem: raise the single-ball polynomial 1−p−q+px+qy to n; odd/even filters at ±1 followed by subtracting the even-empty term at y=0 give the joint probability, and the corresponding marginal product gives the displayed four-power covariance. Under p+q≤1/2, d=1−2p−2q is nonnegative, c=d+q and δ=2pq is strictly between zero and q. For f(x)=x^n, f′(d+2v)<f′(c+v) on [0,δ] even at d=0 and n=2. Integration gives strict ordered-pair negativity. Diagonal covariances are negative products of positive probabilities, and sum with the ordered-pair covariances. No all-pairs assumption is used in the proof for a single pair. Independent exact weighted enumeration in /workspace/repairs/5/verify_parity_occupancy.py confirmed the formula for three unequal vectors, including one exceeding the bound globally, and 208 qualifying ordered-pair signs; aggregate checks applied when every pair qualified. The frozen script's purported nonuniform grid enters its conditional loop only for uniform vectors; the repaired tests actually exercise unequal probabilities. The finite tests do not prove the sign theorem. For the original record, /workspace/review_reproduction.py 5 additionally checks small uniform instances, including m=n=3. Its small-box proof uses parity of O at m=2,3, and the limit follows by first-order expansion with the actual n/m: the off-diagonal sum per box tends to λ(e^(−4λ)−e^(−3λ)) in addition to the negative diagonal limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mao–Xue sample independent uniform subsets, whose singleton case gives iid uniform balls in boxes. Dubhashi–Ranjan's negative association controls monotone functions on disjoint load sets. Ben-Hamou et al. distinguish threshold indicators from exact-load indicators."
+        ],
+        "reasoning": "Uniform population labels do not cover the asserted unequal cell masses by direct specialization, and parity indicators are not monotone. A general moment formula, even where applicable, is not by itself the strict sign inequality under the two-mass bound.",
+        "searches": [
+          "arXiv:2608.23998 Eq. (10) and Theorem 2",
+          "arXiv:1412.8652 Theorem 7.2",
+          "BRICS RS-96-25"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c6ffbeff2d78, 65b25f57a4d7 and related convex-collision result",
+        "arXiv:2608.23998",
+        "BRICS RS-96-25",
+        "arXiv:1412.8652v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive-even total is the sum of even exact-load totals, so the uniform sign follows by linearity, independently of chronology. Under unequal weights, conditioning on one load changes the remaining relative probabilities in a mass-dependent way; the uniform exact-frequency formula does not specialize to that law."
+        ],
+        "reasoning": "The repaired theorem is pointwise and can be used for qualifying pairs even when other pairs are heavy. Its convexity comparison at unequal p,q is not implied by the previously compared aggregate or monotone-function inequalities.",
+        "searches": [
+          "Resultary c6ffbeff2d78 Finding and even-frequency proof",
+          "arXiv:2608.23998 two-element generating polynomial and Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Checkerboard result treats a uniform-coordinate walk, versus unequal coordinate weights and ordered distinct coordinates here. The adjacent 65b25f57a4d7 result uses first/second hit counts, which are monotone thresholds rather than parity."
+        ],
+        "reasoning": "Neither relabeling of a uniform cube walk nor the hit-count result gives the asserted ordered-pair sign with two unequal probabilities. Duplicating boxes by rational weights would combine fine loads: parity of that sum is not an odd-load indicator of any fine box.",
+        "searches": [
+          "Resultary local searches: parity-class cross-covariance, parity versus exact occupancy frequency, parity and occupancy dependence on the hypercube",
+          "BRICS RS-96-25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula Sign[Cov(O,C_r)]<0 for every even r in the Checkerboard Finding immediately gives the frozen uniform sign for ≥4 boxes; its displayed exact formula sums to the frozen uniform covariance. That record explicitly excludes unequal probabilities."
+        ],
+        "reasoning": "Do not count the covered uniform aggregate or limit as the repair. No checked exact entry established the ordered-pair mass-bound inequality across unequal weights.",
+        "searches": [
+          "Resultary local exact finite parity and occupancy covariance formula and sign comparisons",
+          "Checkerboard covariance phases for parity and occupancy frequencies, c6ffbeff2d78"
+        ]
+      },
+      "rationale": "Pass only for the repaired inequality on different-mass ordered pairs and its diffuse aggregate consequence, not for parity moment evaluation or the substantially covered uniform theorem. The verified stronger uniform catalogue claim does not quantify over unequal probabilities; the distinct pairwise inequality also cannot be read off an aggregate sign even in its symmetric setting.",
+      "residual_risks": [
+        "The uniform overlap does not establish chronological priority in either direction.",
+        "Other parity-dependence results for nonuniform multinomials may give stronger sufficient conditions. Searches and actual passages checked do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the principal uniform aggregate sign and moment; no claim for unequal weights",
+          "evidence": [
+            "Strictly negative Cov(O_N,C_{N,r}) for each even r in B≥4, N≥2; one term at least; E is the sum over these r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-checkerboard-covariance-phases-for-parity-and-occupancy-frequenc--c6ffbeff2d78/RESULT.md",
+          "material_read": "Finding, assumptions, covariance identity and even-frequency proof (offsets 0–4369); limitations at offset 7000",
+          "method": "Read local mirror and summed the exact even-frequency statement",
+          "title": "Checkerboard covariance phases for parity and occupancy frequencies",
+          "trigger": "Strongest exact formula and finite sign overlap"
+        },
+        {
+          "assessment": "Determines uniform parity cross moments without giving the unequal-probability sign theorem",
+          "evidence": [
+            "Singleton draws have joint PGF [(m−2+x+y)/m]^n; summation of exact-load cross moments then yields the uniform mixed moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.23998",
+          "material_read": "Model definition p. 2; two-element PGF and cross-second moments, pp. 9–11, Eqs. (7)–(16)",
+          "method": "Read primary OA passages and specialize each subset size to one",
+          "title": "A Unified Exact Factorial-Moment Theory for Multi-set Allocation Occupancy (MAO) in Finite Populations",
+          "trigger": "General joint moment framework"
+        },
+        {
+          "assessment": "Not a theorem for odd and positive-even load indicators",
+          "evidence": [
+            "Negative association is tested against increasing functions; exact-frequency indicators are not generally preserved under that operation."
+          ],
+          "identifier_or_url": "https://www.brics.dk/RS/96/25/BRICS-RS-96-25.pdf ; https://arxiv.org/pdf/1412.8652v3",
+          "material_read": "Dubhashi–Ranjan pp. 3–4; Ben-Hamou et al. Theorem 7.2 and surrounding pp. 27–29",
+          "method": "Primary OA statement and hypothesis comparison",
+          "title": "Balls and Bins: A Study in Negative Dependence; Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+          "trigger": "Broader urn occupancy dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For unequal urn weights, the sign is not a general monotone negative-association instance. A test using just the two relevant probabilities determines even the ordered-pair sign, including boundary cases, and can be applied on diffuse subsets without knowing all other weights. It gives strict aggregate covariance in a genuinely unequal regime and identifies a concrete checkable hypothesis rather than claiming a general negative-dependence property.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:13:36.988706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33 and 37–72",
+        "Frozen VERIFICATION.md, inspected verify.py and recorded verify_output.txt; source scripts not executed"
+      ],
+      "rationale": "For the three specified local-window terms, clearing the positive common denominator in the first gap x=x_1−q gives numerator −[q²+bq+(a+b)(b+c)] for their sum, while the only positive term gives numerator q(a−q). This gives the reported formula; reflection gives the right gap, all terms are positive in the middle, and the nodal limits are 1. In an outer gap of length L the derivative has sign LC−2Cq−(L+b)q², strictly decreasing through one zero in (0,L). At the shorter gap's interior maximizer, the larger gap gives a strictly larger value if their lengths differ. Scale the least gap to 1 and put L=max(a,c), s=min(a,c). Then C=(L+b)(s+b)≥2(L+1), b≥1 and L≤μ. The envelope 2q(L−q)/[q²+q+2(L+1)] increases strictly with L at a fixed interior q. At L=μ its maximum occurs at the positive root of q²+4q−2μ=0. The factor there is (q+1)²/(2q+1), giving the bound and its limit after division by sqrt(μ). The strict inequalities force b=s=1, L=μ, and that q for equality, including both reflected points when μ=1. For two or three nodes there are respectively one or two local terms, with no opposite signs on any interior cell. This is a continuous-extension and exact-arithmetic result, not an assertion about a different grouping of barycentric terms.",
+      "residual_risks": [
+        "The factor changes if the three local terms are replaced by the four nodal barycentric terms; for uniform grid (0,1,2,3) at x=1/2 the factors are 21/19 and 29/19 respectively. The result does not certify rounding errors in alternative evaluations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3, Eq. (34) (PDF pp. 18–19, offset 53447), is a general in-hull bound and specializes to 1+μ²/2 for d=1.",
+          "The inspected §7.2 is a numerical comparison with n=29 and d=3, not an optimization over all four-node d=1 meshes."
+        ],
+        "reasoning": "This is genuine prior coverage of the invariant and general bounding question. A looser bound over arbitrary node counts does not supply the exact attained value, the different asymptotic order at four nodes, or its equality cases.",
+        "searches": [
+          "Fuda et al. doi:10.1007/s00211-022-01316-w, Theorem 3 and §7.2",
+          "Frozen RESULT.md lines 78–90, including Themistoclakis–Van Barel doi:10.1007/s11075-024-01933-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33, 57–72 and 78–90",
+        "Fuda–Campagna–Hormann publisher PDF Eq. (26), Theorem 3/Eq. (34) and §7.2",
+        "Resultary 756e40f5132b and 885bf8a5c599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general bound is explicitly described as potentially improvable; its equidistant d=1 upper bound is 3/2 rather than an attained four-node value.",
+          "The generalized three-site catalog summary concerns interpolation amplification, not cancellation in the local denominator sum."
+        ],
+        "reasoning": "Deriving the sharp value requires sign discrimination by cell, a strict mesh-envelope comparison and exact optimization with its equality conditions, none of which follows by setting d=1 and n=3 in the known bound. The ratio definition and absence of poles themselves are not original here.",
+        "searches": [
+          "Fuda et al. Eq. (26), Theorem 3/Eq. (34), §7.2 and conclusion around PDF offset 69903",
+          "Resultary 885bf8a5c599"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fuda et al., Eq. (26) (PDF p. 10, offset 30493), uses the ratio of the absolute λ_i sum to the magnitude of the signed sum in the first barycentric form.",
+          "Fuda et al. §7.2 (PDF p. 22, offset 64109) distinguishes this grouped factor from the nodal Lebesgue function.",
+          "Indexed 885bf8a5c599 is about generalized-FH Lebesgue amplification with three sites."
+        ],
+        "reasoning": "Clearing a common product from all local terms does not change the ratio. Regrouping into nodal terms does change it, so sharp Lebesgue or nodal-term results are not equivalent to this bound.",
+        "searches": [
+          "Fuda–Campagna–Hormann publisher PDF: (26), first barycentric form",
+          "Resultary: four-node Floater–Hormann denominator mesh-ratio conditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "756e40f5132b gives the exact same envelope and is the assigned record, not independent evidence. Distinct same-day 885bf8a5c599 describes a three-site generalized-FH Lebesgue invariant.",
+          "Fuda et al. §7.2 reports a different numerical mesh experiment, not a four-node exact table."
+        ],
+        "reasoning": "The ranked matching statements provide no distinct exact envelope for the specified three λ_i terms; same-day publication does not exclude a candidate or establish priority.",
+        "searches": [
+          "Resultary: sharp four-node degree-one Floater–Hormann denominator conditioning, mesh ratio and three-site stability"
+        ]
+      },
+      "rationale": "The local denominator factor and mesh-ratio bounding problem are established in Fuda–Campagna–Hormann. Their primary Eq. (26) concerns the same grouped terms, but their general Theorem 3 yields 1+μ²/2 at d=1 and does not give the sharp four-node factor or equality pattern. The available distinct indexed result is for a different invariant. Credit is limited to the attained four-node envelope, its location and equality classification, and the precise onset of cancellation for the grouped degree-one terms.",
+      "residual_risks": [
+        "The full distinct generalized-FH record was not available. Other older or inaccessible work may contain a closer result; the primary comparison reported here is limited to the passages named."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified same grouped denominator factor and broad mesh-ratio bound; inspected result and example do not supply the sharp envelope",
+          "evidence": "Eq. (26) uses the λ_i terms; Eq. (34) gives 1+μ²/2 at d=1; §7.2 tests n=29,d=3.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-022-01316-w",
+          "material_read": "Publisher PDF Eq. (26) and Corollary 2 (offsets 29450–31342), Theorem 3/Eq. (34) (53447–56538), and §7.2 example (64109–67136)",
+          "method": "Lawful publisher PDF via OA paper; literal location followed by bounded offset inspection",
+          "title": "On the numerical stability of linear barycentric rational interpolation",
+          "trigger": "Closest same-invariant published conditioning result"
+        },
+        {
+          "assessment": "Different invariant and setting on the available statement",
+          "evidence": "The indexed result treats generalized-FH Lebesgue amplification and a mesh–power boundary layer at three sites.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-site-stability-and-a-mesh-power-boundary-layer-for-g--885bf8a5c599",
+          "material_read": "Indexed statement; local-mirror passage unavailable",
+          "method": "Resultary and targeted local retrieval",
+          "title": "Sharp three-site stability and a mesh power boundary layer for generalized Floater–Hormann interpolation",
+          "trigger": "Closest distinct same-day indexed result on small-node FH mesh conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–33 and 57–84",
+        "Fuda et al. Eq. (26), Corollary 2 and Theorem 3"
+      ],
+      "rationale": "The first-barycentric denominator summation factor is motivated by first-form stability, and four nodes are the first degree-one configuration where cancellation is possible. The exact worst case reveals sqrt(μ) growth at that cutoff and pinpoints the mesh and evaluation points responsible; a general O(μ²) guarantee cannot supply that benchmark. This identifies sensitivity of a specified computation, not a universal lower bound on errors of all implementations.",
+      "residual_risks": [
+        "No extrapolation to larger node counts, higher blending degree, or other denominator representations is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

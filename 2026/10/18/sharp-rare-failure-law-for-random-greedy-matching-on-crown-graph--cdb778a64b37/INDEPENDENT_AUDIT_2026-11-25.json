@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:29:11.588159Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–83",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent replay: /workspace/branches/independent_replay_235.py (crown)"
+      ],
+      "rationale": "The restriction of a uniformly random remaining edge order to the available edges has a uniform first edge, and rejected edges never become feasible again. With r unmatched labels on each side and overlap c, there are r²−c available edges. Removing two, one or zero shared labels has the three stated multiplicities, and r≥2 cannot be terminal. A particular surviving shared label is lost to 2(r−1) choices; for two fixed distinct shared labels the union of those choices has size 4r−6, because the two cross edges are counted twice. These hazards independently yield the first- and second-factorial-moment identities. Substituting the first into V_r(c)=2c/[r(r+1)] gives negative drift −4c(c−1)/[r(r−1)(r+1)(r²−c)], which telescopes to the deficit in the finding. The second identity gives the product bound with factors ((j−2)²+2)/j². Factoring out (j−2)²/j² and bounding the remaining product by exp(sum_{t≥1}2/t²) gives e^{π²/3}r²(r−1)²/[n(n−1)], including the empty product at r=n. Then r²−c≥r(r−1) yields the claimed harmonic bound and n q_n→2. The recurrence requires O(n²) arithmetic operations and O(n) rational registers, not that bit cost. A separately written exact labeled-state recursion agrees for n=2 through 7; enumeration of the original edge orders agrees for n=2,3.",
+      "residual_risks": [
+        "The finite replay checks examples and the experiment definition; it is not a substitute for the analytic bound or a proof of any second-order expansion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local-limit treatment concerns matching density, not a controlled last-pair defect on a growing-degree crown sequence.",
+          "McGregor studies an approximation algorithm; the Glebov–Luria–Simkin process adds edges until some perfect matching exists. The edge-order greedy output is not either observable."
+        ],
+        "reasoning": "The inspected broader results do not determine the exact overlap recurrence or the n^{-1} coefficient here. Access to Dyer–Frieze was insufficient to make a stronger negative claim.",
+        "searches": [
+          "DOI:10.1002/rsa.3240020104",
+          "arXiv:1907.07216",
+          "arXiv:2608.11163",
+          "arXiv:1805.06944",
+          "arXiv:2604.00331"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 85–98",
+        "Resultary:01871f9a019f and db2b2a3ce303",
+        "arXiv:1907.07216, 2608.11163, 1805.06944 and 2604.00331",
+        "DOI:10.1002/rsa.3240020104 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general line-graph equivalence supplies neither the reduction to overlap c nor its first and second factorial-moment estimates.",
+          "The later catalog results really do give the leading constant and error order under the same initial state and terminal event; the displayed bounds are worded differently and do not make the asymptotic a distinct result relative to those later accounts."
+        ],
+        "reasoning": "The proof establishes a quantitative rare-defect law beyond general matching guarantees. The strongest equivalent catalog statements are credited without assigning priority from text similarity.",
+        "searches": [
+          "arXiv:1907.07216, matching/line-graph passage",
+          "arXiv:1805.06944, p. 1",
+          "Resultary:01871f9a019f and db2b2a3ce303, quantitative findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random greedy matching is random greedy maximal independent set on the line graph, as stated by Krivelevich et al.",
+          "01871f9a019f uses Poisson dimer attempts on the same crown graph. The first clock among available buffers is uniform and rejected edges remain unavailable, so the sequence of accepted edges is identical in law."
+        ],
+        "reasoning": "Random continuous edge priorities, uniform available-edge choice, the line-graph greedy independent set, and the same crown Poisson dimer process are genuinely equivalent for the final defect. Vertex-first selection and random subgraph edge-addition thresholds are different.",
+        "searches": [
+          "Primary literature search: random greedy matching on crown graphs / complete bipartite minus a perfect matching / greedy derangement failure",
+          "arXiv:1907.07216, p. 2",
+          "Resultary:01871f9a019f, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "01871f9a019f gives the exact same q_2 through q_6 and recurrence with two-sided harmonic bounds; its catalog date is 2026-10-25.",
+          "db2b2a3ce303, dated 2026-11-02, gives the same exact recurrence and rate with bound 16H_n/n². Both are later-dated than the reviewed record."
+        ],
+        "reasoning": "The agreement is theorem-level, not mere agreement of short rational tables. No inspected earlier table was shown to evaluate these probabilities for the stated process.",
+        "searches": [
+          "Resultary: crown matching, greedy derangement, random dimer adsorption",
+          "Resultary:01871f9a019f",
+          "Resultary:db2b2a3ce303"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact overlap-state failure law and the quantified rare-defect asymptotic for the uniform-edge crown process, not the general greedy algorithm or the line-graph equivalence. The two strongest exact Resultary overlaps are distinct later-dated records: they have the same process, recurrence and asymptotic, with different explicit error bounds; they cannot be cited as evidence of earlier coverage on the inspected record dates. No earlier equivalent quantitative crown law was substantiated in the bounded comparison. This is not a claim of unique discovery or proof of provenance between records.",
+      "residual_risks": [
+        "Dyer–Frieze full text was unavailable. Earlier results in unindexed matching or adsorption work remain possible.",
+        "Catalog dates and mathematical equivalence do not establish dependency or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact later-dated process, recurrence and leading law",
+          "evidence": [
+            "Unit-rate Poisson dimer attempts are explicitly equated to edge priorities; exact q_2 to q_6 agree; alternate harmonic bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-factor-two-jamming-anomaly-for-random-dimer-adsorption-on-crow--01871f9a019f",
+          "material_read": "RESULT.md, Finding and process equivalence",
+          "method": "Local mirror, offset 0",
+          "title": "A factor-two jamming anomaly for random dimer adsorption on crown graphs",
+          "trigger": "Exact process under adsorption terminology"
+        },
+        {
+          "assessment": "Exact later-dated asymptotic and recurrence",
+          "evidence": [
+            "Same uniform edge-order experiment and terminal equal label; gives 2/n+O(log n/n²) and a 16H_n/n² bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-2-n-failure-law-for-random-greedy-matching-on-crown-grap--db2b2a3ce303",
+          "material_read": "RESULT.md, statement and proof passages",
+          "method": "Local mirror, offsets 0–6370",
+          "title": "A sharp 2/n failure law for random greedy matching on crown graphs",
+          "trigger": "Explicit recurrence and asymptotic match"
+        },
+        {
+          "assessment": "Algorithmic equivalence and general density tools, not demonstrated coverage of this crown rare event",
+          "evidence": [
+            "Randomized greedy matching can be defined as the random greedy MIS on the corresponding line graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "p. 2 and matching/local-limit scope",
+          "method": "Lawful OA PDF, matching passage offset 8417",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Equivalent line-graph process and prior greedy laws"
+        },
+        {
+          "assessment": "Unresolved full-text coverage risk, not negative evidence",
+          "evidence": [
+            "Available description concerns general performance and classes of sparse graphs; no adequate full-text basis to exclude a crown example."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Available abstract-level scope; full text not read",
+          "method": "Publisher retrieval returned 403; no lawful repository copy recovered in the bounded lookup",
+          "title": "Randomized greedy matching",
+          "trigger": "Older primary source for the same general greedy rule"
+        },
+        {
+          "assessment": "Different matching procedure and objective",
+          "evidence": [
+            "Its constant-factor approximation algorithm uses random greedy independent sets and samples incident edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11163",
+          "material_read": "pp. 1–2",
+          "method": "Lawful OA PDF, offsets 362 and 1789",
+          "title": "Matchings via Random Greedy Independent Set: A Simpler Algorithm and Analysis",
+          "trigger": "Potential contemporary algorithmic overlap"
+        },
+        {
+          "assessment": "Different event and process",
+          "evidence": [
+            "Concerns the edge-addition hitting time for existence of a perfect matching, not irreversible greedy selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.06944",
+          "material_read": "p. 1, model and theorem scope",
+          "method": "Lawful OA PDF, offset 0",
+          "title": "Perfect Matchings in Random Subgraphs of Regular Bipartite Graphs",
+          "trigger": "Similar language about random perfect matching in bipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–3",
+        "arXiv:1907.07216, matching application",
+        "Resultary:01871f9a019f, comparison of asymptotics"
+      ],
+      "rationale": "Deleting one structurally distinguished perfect matching from K_{n,n} is a natural sparse perturbation of a graph on which greedy matching never fails. Mean matching density misses the defect probability. The exact small-state law and the factor-two leading term, established with an explicit finite-n error bound, quantify that defect; the drift calculation explains why the single surviving forbidden pair rather than the large-n density determines the answer.",
+      "residual_risks": [
+        "The error coefficient is not optimal, and the result addresses one natural graph sequence, not arbitrary sparse deletions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

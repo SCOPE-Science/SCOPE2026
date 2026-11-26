@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Poisson two-founder probability and independent-episode failure product directly yield the stated objective. The central nonstandard step is the exact curvature identity for \(\ell_s\): its sign has one strict positive-to-negative reversal because its bracket is strictly decreasing. The auxiliary \(N_s=x\ell_s'-\ell_s\) therefore has a unique positive zero, producing a strict one-peaked per-budget efficiency curve. Comparing adjacent integers on the ordered intervals around this zero proves global optimality, uniqueness and all equalities. The exact \(1\)-vs-\(2\) crossing identity is algebraic, not inferred from plots. The supplied checker runs 963 finite tests, all passed; these checks are supplemental. Domain \(B>0\), \(s\in(0,1)\), integer \(m\ge1\) and equal expected pulse sizes are explicit. No result is asserted for unequal pulse allocations or dependent environments.
+PASS
 
-## Originality: PASS on inspected evidence, with priority risk
+For the abstract probability model, independence and the Poisson zero- and one-count masses give q_s(x)=1−s+s(1+x)e^(−x) and total failure q_s(B/m)^m. Taking the negative log gives B f_s(B/m), with f_s(x)=ℓ_s(x)/x and ℓ_s=−log q_s. Differentiation gives ℓ_s'=sx e^(−x)/q_s, and the sign of ℓ_s'' is that of (1−s)(1−x)+s e^(−x), strictly decreasing from 1 through its only zero above 1. Therefore N=xℓ_s'−ℓ_s starts at 0, rises, then falls strictly to log(1−s)<0 and has exactly one positive zero ξ_s; f_s'=N/x². The monotone sides of the peak imply strict adjacent-integer bracketing after clamping at one. At B=jξ_s the j-count wins and at B=(j+1)ξ_s the (j+1)-count wins; between these endpoints the two per-budget values are respectively strictly decreasing and increasing, so there is one crossing, with no nonadjacent ties. The brackets are disjoint, establish the complete step order, and give the claimed asymptotic and strict count error. For the first tie, put A=e^t−1−t at B=2t. Expansion gives P₂−P₁=s e^(−2t)[(1−s)A²−t²], so A/t=1/√(1−s); A/t increases strictly from zero to infinity. The stated degenerate s=0 and s=1 cases also check. These are equal expected trial sizes, not fixed total counts or unequal splitting. Replay: frozen RESULT.md lines 30–55; VERIFICATION.md and check.py were inspected, not executed.
 
-The strongest historical overlap is Grevstad (1999), whose abstract already reports a qualitatively intermediate optimal release size under joint Allee effects and environmental noise. We **do not** claim that qualitative effect. Shea and Possingham (2001) study a different nonlinear establishment response embedded in a dynamic program; their accessible full text and Koontz et al. (2018) do not state the complete one-peaked Poisson dose efficiency, the unique strict transition between every adjacent integer count, or the exact first budget threshold in this model. Relevant indexed results about three-site Poisson founding and matched-pair allocation have different objectives or constraints. Grevstad's full paper was inaccessible, so its possible uninspected stronger statements remain a substantive historical-priority risk. All asserted novelty is model-specific and provisional rather than certified.
+## originality
 
-## Value: PASS
+PASS
 
-Many introduction questions have an inherent tradeoff between the number and size of establishment attempts. This theorem resolves that tradeoff *for every budget* in a natural minimal two-founder/independently receptive model: it gives a one-parameter decision rule, exact points at which the recommended number changes, tie classification and the asymptotic intervention frequency. The hard two-founder threshold is biologically motivated by cooperative/mate-limited establishment and the independent receptive episodes model stochastic opportunities. The exact staircase adds a usable structural benchmark beyond the already known qualitative possibility of intermediate optima. This benchmark is not directly field calibrated.
+The supported distinction is the exact all-budget adjacent-crossing law and first transition for this equal-mean, independently gated Poisson at-least-one objective. Qualitative intermediate optima and a related count staircase are not claimed as new. The closely matching per-site law with unequal splits and the closely matching staircase with an expected-number objective were compared separately. Older ecological priority remains provisional given access limits.
 
-## Closest literature and limitations
+## value
 
-Grevstad (1999), DOI 10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2 (abstract only); Shea and Possingham (2001), DOI 10.1046/j.1365-2664.2000.00467.x (available main text); Koontz et al. (2018), DOI 10.1002/ece3.4226 (available main text); Bajeux, Grognard and Mailleret (2019), DOI 10.1016/j.jtbi.2019.03.012 (abstract only). The stochastic effort total, independence, equal sizes, and no carryover are essential modeling limits. Further historical mathematical coverage may exist in older reliability or resource-allocation literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the abstract equal-mean stochastic trial problem, a continuous intermediate optimum alone cannot tell which integer trial count wins at a given budget. Strictly ordered unique switches, the complete equality classification, and the exact first transition answer that finite-budget question without having to check arbitrarily many counts. The result is a mathematical benchmark for the independent model, not advice for real-world introductions or a claim about unequal allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

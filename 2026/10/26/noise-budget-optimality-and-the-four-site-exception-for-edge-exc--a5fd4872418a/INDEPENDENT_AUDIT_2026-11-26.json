@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:43.883698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and artifacts/verify.py, inspected without executing"
+      ],
+      "rationale": "For an edge e, V_e squared is the projector onto its two endpoints. On populations the gain term exchanges endpoint occupations and the loss term gives exactly the weighted Laplacian. On the span of E_ij and E_ji all other edges contribute an equal diagonal damping from edges incident to one endpoint; the common edge contributes the matrix with diagonal -w_ij and off-diagonal w_ij. Its symmetric and antisymmetric combinations give exactly r_ij and s_ij. These orthogonal sectors exhaust the operator space. Removing only the identity retains every extra zero mode, and a sufficiently small slow traceless Hermitian perturbation of I/N is a physical density matrix realizing the sharp rate. Averaging the r_ij gives (N-2)B divided by the edge count. The uniform allocation attains it because its population rate is Na and its coherence rate (N-2)a for a=B/binom(N,2). Equality requires every r_ij to equal their mean c, which by summing w_ij=(d_i+d_j)/2-c gives (N-1)c=B+(N-4)d_i/2. Thus all rates are uniform when N is not four. For N=4, the population eigenvectors comparing sites within each of the two opposite pairs and comparing the pair averages have rates 4a+2t, 4a-2t and 4a. The whole displayed closed interval has population gap at least 2a and coherence gap equal to 2a, including its endpoints with a zero edge rate. Strictly positive nonuniform choices occur precisely for 0<|t|<a within this family.",
+      "residual_risks": [
+        "The displayed four-site family is not asserted to exhaust the optima.",
+        "No claim about coherent drives, correlated edge covariances, or finite-switching channels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nourmandipour–Mancini §II derives a covariance-dependent effective generator; Appendix A.1 exhibits a uniform-noise slow mode and explicitly distinguishes it from proving a spectral gap. Farooq–Mancini §II uses discretely switched XY unitary evolutions."
+        ],
+        "reasoning": "A broader generator derivation subsumes the model but not its positive-spectrum and fixed-budget optimization claims; the finite-time switching formulation does not give the claimed dissipative optimization.",
+        "searches": [
+          "Nourmandipour–Mancini arXiv:2610.03194v1, §II and Appendix A.1",
+          "Farooq–Mancini arXiv:1404.0508, §II"
+        ]
+      },
+      "checked_sources": [
+        "Nourmandipour–Mancini arXiv:2610.03194v1, §II and Appendix A.1",
+        "Farooq–Mancini arXiv:1404.0508, §II",
+        "Caputo–Liggett–Richthammer arXiv:0906.1238, Theorem 1.1",
+        "Nearest Resultary records 2fa67f283da8 and 2b0f2e430e19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A classical Laplacian trace bound gives 2B/(N-1), uniquely attained uniformly; the coherence budget gives a smaller optimum by the factor (N-2)/N, and the coherence equality equation loses its degree term at N=4."
+        ],
+        "reasoning": "Permutation averaging may show existence of a uniform maximizer for this concave gap, but does not show why other optimizers exist only at one order. The latter requires the weighted coherence structure and separate verification that the population rate does not obstruct the four-site allocations.",
+        "searches": [
+          "Uniform-sector proof and relationship section of Resultary record 2fa67f283da8, offsets 0–3575 and 6500–8764",
+          "Nourmandipour–Mancini Appendix A.1 Eqs. (A71)–(A84)",
+          "Caputo–Liggett–Richthammer Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is the sum of edge double commutators -[V,[V,X]]/2 with weighted rates. Its populations follow the ordinary graph walk, but its pairwise coherences are additional sectors. The interchange theorem concerns edge transpositions on labelled configurations and makes the gap equal to the graph-walk gap."
+        ],
+        "reasoning": "The physical edge generator is not a transposition on all labelled configurations or an all-site swap unitary; it annihilates the orthogonal complement of its endpoints. The additional coherence sectors explain why the classical theorem and its budget optimum do not give this result.",
+        "searches": [
+          "Resultary: single-excitation edge-exchange dissipator, coherence spectrum and fixed-budget gap",
+          "Caputo–Liggett–Richthammer arXiv:0906.1238, §1.2 and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The main exact spectral overlap at f283da8 is the uniform independent dissipator sector list 0, -N, -N, -(N-2) in a combined uniform/correlated model. The purity record is about initial slopes, not the full spectrum."
+        ],
+        "reasoning": "The uniform list agrees with one special case; it contains neither dependence on each rate nor a four-site equality exception. The nearest records are not an exact weighted spectrum or optimization table.",
+        "searches": [
+          "Resultary: exchange noise generator spectra, arbitrary weighted edges, uniform optimization and four sites",
+          "2026/10/25/SCOPE-macroscopic-slow-mode-degeneracy-in-correlated-quantum-network-d--2fa67f283da8",
+          "2026/10/12/SCOPE-correlation-blind-short-time-purity-laws-for-fluctuating-quantum--2b0f2e430e19"
+        ]
+      },
+      "rationale": "The effective dissipator and specific uniform-noise modes are antecedents, as is classical fixed-budget Laplacian optimization. The supported distinct contribution is the exact arbitrary-rate coherence spectrum together with the fixed-budget gap optimum and the change in its equality cases at four sites. In the strongest inspected comparisons the edge-noise specialization is uniform, the decay modes are computed for different covariances/settings, or the spectral gap is on the wrong state space. None supplies the equality-case rank defect of the rate-to-coherence map.",
+      "residual_risks": [
+        "The closest uniform-edge Resultary work mentions related independent-edge results without an exact weighted-spectrum locator. Priority of the isolated arbitrary-weight spectral formula is less certain than that of the fixed-budget equality statement.",
+        "The bounded comparison is not a literature-wide priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and special modes are prior; the inspected passages do not determine the proposed allocation optimum",
+          "evidence": "Diagonal covariance gives independent channels; the exhibit of a uniform-noise mode is not claimed there to establish the gap.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03194v1",
+          "material_read": "§II Eqs. (5)–(10), pp. 3–5, offsets 8000–14667; Appendix A.1 Eqs. (A71)–(A84), offsets 71400–77583",
+          "method": "Lawful open-access primary text",
+          "title": "Emergent Dissipation from Fluctuating Quantum-Network Topology",
+          "trigger": "Exact physical edge noise model and its gap modes"
+        },
+        {
+          "assessment": "Different switching model",
+          "evidence": "Studies finite-step unitary XY dynamics rather than fixed-budget optimization of the purely dissipative generator.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.0508",
+          "material_read": "§II Eqs. (1)–(12), pp. 1–3, offsets 5746–12682",
+          "method": "Lawful open-access primary text",
+          "title": "Information Dissipation in Random Quantum Networks",
+          "trigger": "Random networks with single-excitation exchange"
+        },
+        {
+          "assessment": "Labelled interchange and walk gap theorem not applicable to the coherence blocks",
+          "evidence": "Interchange chain uses weighted edge transpositions of labels and has exactly the random-walk gap.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.1238",
+          "material_read": "§1.2 and Theorem 1.1, pp. 3–4, offsets 6000–9429 and 9750–11447",
+          "method": "Lawful open-access primary text",
+          "title": "Proof of Aldous' Spectral Gap Conjecture",
+          "trigger": "Potential stronger graph-exchange gap theorem"
+        },
+        {
+          "assessment": "Exact uniform-rate overlap, not the weighted equality theorem",
+          "evidence": "Independent dissipator part is uniform and its sectors have rates 0, N and N-2; the discussion refers to related independent-edge results without identifying an arbitrary-weight spectrum source.",
+          "identifier_or_url": "2026/10/25/SCOPE-macroscopic-slow-mode-degeneracy-in-correlated-quantum-network-d--2fa67f283da8",
+          "material_read": "RESULT.md offsets 0–3575 and 6500–8764",
+          "method": "Local catalogue and source mirror",
+          "title": "Macroscopic slow-mode degeneracy in correlated quantum-network dissipation",
+          "trigger": "Closest indexed independent-edge spectral overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and equality proof",
+        "Comparison with the ordinary Laplacian budget bound and with uniform-sector antecedents"
+      ],
+      "rationale": "For a natural budget constraint the exact gap identifies which coherences limit relaxation, by a sharp factor below the population-only optimum. The dimension-dependent uniqueness and explicit interval of positive nonuniform optimizers are a meaningful equality phenomenon and distinguish the quantum allocation problem from a classical averaging argument.",
+      "residual_risks": [
+        "The equality phenomenon is for the independent effective generator, not a hardware realizability guarantee or an exhaustive classification of the four-site optima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

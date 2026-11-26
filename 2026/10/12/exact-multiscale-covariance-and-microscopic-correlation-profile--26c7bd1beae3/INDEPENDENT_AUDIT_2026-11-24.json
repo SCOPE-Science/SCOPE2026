@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:59.992628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The translating arc overlap for circle separation d(u) yields the centered kernel K_s(u)=(s-d(u))_+-s² for 0<s<=1/2. Complementing the translated arc preserves V pointwise, giving the reduction for all 0<s<1. Expanding the square leaves deterministic Ns(1-s) plus twice the sum of unordered pair kernels. Each centered kernel has conditional mean zero given either input, so different pairs (including pairs with one shared point) are orthogonal. For s<=t<=1/2 the kernel inner product is 2∫_0^s (s-u)(t-u) du - s²t² = s²t(1-t)-s³/3, with prefactor 4*binom(N,2). The bracket is at least s³/6. Distinct widths give linearly independent kernels by successively testing the slopes between the two largest remaining knots, including the endpoint 1/2. The strict Gram determinant and complement reduction classify correlation one; N>=2 is essential. Substituting a=qb leaves correlation sqrt(q)*(1-b-q/3)/sqrt((2/3-qb)*(2/3-b)), proving both the fixed-ratio profile and the simultaneous ratio-to-zero equivalent. Independent piecewise-Simpson quadrature on 25 pairs differed by at most 1.1e-17; a five-width Gram factorization had positive pivots. Those checks are diagnostics only; the supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1–2 give a fixed-width marginal distribution approximation and a uniform small-width almost-sure result, not a mixed-width covariance kernel.",
+          "The deterministic discrepancy estimates control translation/dilation averages, not the covariance of V_N at fixed widths under the iid law."
+        ],
+        "reasoning": "Neither a marginal theorem nor a uniform path bound determines a joint covariance. Pair orthogonality is available, but the mixed kernel must still be computed.",
+        "searches": [
+          "arXiv:2610.11687v1 Theorems 1–2, eq. (17), and U-statistic proof",
+          "arXiv:2606.07028v1 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_multiscale.py evidence",
+        "arXiv:2610.11687v1",
+        "arXiv:2606.07028v1",
+        "arXiv:2604.25360v1",
+        "Resultary 751c20eb9d3e, 3e6c13d40bc2, fab77aca43a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior U-statistic calculation uses the equal-width squared norm. Different widths require the mixed product and a linear-independence comparison across its distinct knots.",
+          "Knowing the diagonal for every t does not give the norm of K_s+K_t via polarization: this sum is not another one-width kernel."
+        ],
+        "reasoning": "The prior method makes the extension natural, but the inspected theorems neither state nor mechanically specialize to the cross-scale geometry and its full-rank and microscopic consequences.",
+        "searches": [
+          "arXiv:2610.11687v1 around HTML 58315: same centered overlap kernels",
+          "Resultary 751c20eb9d3e and 3e6c13d40bc2 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aistleitner et al. eq. (2) is exactly the same statistic.",
+          "Bramati et al. average deterministic squared discrepancy over translations and dilations; Yuan's scan extrema are determined by minimum k-step spacings.",
+          "Resultary fab77aca43a0 concerns random matching and covariance of component count with covered length."
+        ],
+        "reasoning": "Translation-averaged squared count is the relevant formulation; scan extrema and random matchings do not give its iid mixed-scale moment.",
+        "searches": [
+          "Circular number variance and quadratic circular discrepancy",
+          "Circular scan and spacing statistics: arXiv:2604.25360v1",
+          "Resultary circular number variance and interval covariance matches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact diagonal only in arXiv:2610.11687v1 eq. (17).",
+          "Resultary 751c20eb9d3e gives the exact one-width third moment and skewness including the known variance; 3e6c13d40bc2 compares curve laws in nonuniform examples."
+        ],
+        "reasoning": "No mixed-width finite-N entry was identified among the closest source passages. These moment statements cannot substitute for the cross-scale formula.",
+        "searches": [
+          "Local Resultary circular number variance, uniform points and covariance",
+          "Aistleitner et al. exact finite-N moment formulas"
+        ]
+      },
+      "rationale": "The exact mixed-width covariance, its reduced-width rank, and the microscopic ratio profile are distinct in the inspected record. The diagonal case and kernel technique are prior; the new mixed moment is a short but genuinely additional calculation, not determined by the known marginal variance or distribution.",
+      "residual_risks": [
+        "A mixed-width formula may occur in earlier circular discrepancy or process literature under different terminology; relevant passages were inspected, not an exhaustive historical survey.",
+        "The result describes a covariance, not a joint distribution or independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Diagonal and technique covered, no mixed-width theorem in decisive passages",
+          "evidence": "Var(V_N(s))=2N(N-1)(2s³/3-s⁴); the proof uses a degenerate U-statistic.",
+          "identifier_or_url": "https://arxiv.org/html/2610.11687v1",
+          "material_read": "Equation (2), Theorems 1–2, eq. (17) and overlap-kernel proof (offsets around 3500, 15000, 56700, 58315)",
+          "method": "Primary OA HTML passage inspection",
+          "title": "On the asymptotic behavior of the number variance of random points on the unit torus",
+          "trigger": "Same statistic, iid uniform circle model and exact variance"
+        },
+        {
+          "assessment": "Related deterministic quantity, not a mixed-width iid covariance",
+          "evidence": "Studies L²-averaged discrepancy under deterministic point sets and varied bodies.",
+          "identifier_or_url": "https://arxiv.org/html/2606.07028v1",
+          "material_read": "§1, offset about 1600",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Discrepancy estimates for multi-dimensional non-smooth convex bodies: a case study",
+          "trigger": "Translated and dilated quadratic discrepancy"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Uses minimum k-step spacings and extreme-value probabilities, not spatially integrated squared counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25360",
+          "material_read": "p. 1, PDF offset 0",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Exact closed-form formulae for linear and circular continuous scan statistics: P_c(N−1;N,w), P_c(3;N,w), and P(3;N,w)",
+          "trigger": "Alternative scan/spacing terminology"
+        },
+        {
+          "assessment": "Same V_N, different moment",
+          "evidence": "Third centered moment at one width, including previously known one-width variance; no mixed-width identity.",
+          "identifier_or_url": "751c20eb9d3e",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary search and mirror text",
+          "title": "Exact third cumulant and skewness scale crossover of circular number variance",
+          "trigger": "Strongest neighboring Resultary match"
+        },
+        {
+          "assessment": "Different model and moments",
+          "evidence": "Contrasts two nonuniform laws at N=1,2 and a half-circle variance at larger N.",
+          "identifier_or_url": "3e6c13d40bc2",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Three-point onset of Fourier phase sensitivity in circular number variance",
+          "trigger": "Possible stronger curve-law coverage"
+        },
+        {
+          "assessment": "Different statistic and model; no date-priority assumption",
+          "evidence": "Pairs ordered locations through a uniform matching and computes covariance of coverage and component count.",
+          "identifier_or_url": "fab77aca43a0",
+          "material_read": "RESULT.md offsets 0–1739",
+          "method": "Local mirror text",
+          "title": "Negative component-coverage covariance for uniformly paired intervals",
+          "trigger": "Same-day circular-interval covariance hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating statistic is compared across window sizes, wherever its known marginal variance is insufficient. The full finite-sample covariance, its exact rank apart from complementation, and the microscopic correlation as a function of the ratio provide concrete information for multiscale use, not merely a new decimal or a repeated diagonal calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

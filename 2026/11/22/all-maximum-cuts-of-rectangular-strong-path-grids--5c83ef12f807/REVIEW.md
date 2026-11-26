@@ -1,19 +1,21 @@
-# Review of the optimizer classification for strong rectangular grids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The external minimum-uncut formula is applicable because the base factor is the connected bipartite path. The novel part is proved by a completely explicit one-row extension formula. Disjoint local triangles prove the universal increment and characterize its sharp cases by backward forcing. An exact agreement-variable identity handles alternating boundary rows, including the exceptional two-column boundary. A constant-boundary bound and induction on the shorter and then longer dimensions classify *all* extremizers, not merely exhibit some. Separate exact brute-force and transfer-state calculations confirm the boundary cases and nontrivial rectangles.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+Verified the unordered labelled-cut convention and edge count. With rows of length L, the increment partitions into L−1 edge-disjoint triangles on (x_i,y_i,y_{i+1}) and leftover edges x_Ly_L and x_{i+1}y_i. At equality the leftover edges are cut: the two constraints from x_L make y_{L−1}=y_L, so the last triangle makes x_{L−1}=x_L, and backward induction forces opposite constant rows. For alternating x the exact increment is L plus the number of interior disagreements and the number of changes in the agreement bits. For L≥3 both costs vanish only for y=x; for L=2 either constant agreement bit works. A monochromatic boundary therefore costs at least r(L−1) on an r×L board with equality exactly in row stripes. On an a×a square the prefix costs at least a(a−2); a final-row increment of a−1 forces a constant boundary and hence row stripes, while any other increment must be exactly a and the prefix must be the unique shorter-side column stripe. Appending a column to a narrower optimal prefix must pay exactly a−1, which propagates the unique column stripe from the square. K4 has three balanced cuts and only one has a monochromatic final column. I also checked the scalar formula directly: in the same induction the square either has constant-boundary lower bound a(a−1), or prefix plus increment at least a(a−2)+a. The rectangular extension and explicit stripes then give (a−1)b uncut edges without an external hypothesis. Inspected verification/check_king_cuts.py and VERIFICATION.md without executing them; the anchored enumeration and integer transfer recurrence are corroboration, not the proof.
 
-The closest source is Diester et al., arXiv:2611.13917v1 (2026-11-10), Section 5.1, Theorem 5.10 and Corollary 5.11. It already proves the maximum-cut *size* and existence of one alternating optimum. Those older conclusions are expressly not new here. The present equality-case theorem is not a logical consequence of a scalar minimum or existence of one optimizer: it classifies *every* optimizing cut and its multiplicity, identifying three, two, or one unordered maximizers by rectangular aspect ratio. The cited paper's full relevant section was read and does not state or tabulate this equality classification. Published mathematical research-record searches and targeted literature queries under strong grids, king graphs, maximum-cut degeneracy, antiferromagnetic ground states, and equivalent optimizer terminology did not identify a covering theorem. An older equivalent claim under statistical-physics nomenclature remains possible; an independent literature audit is not yet available.
+## originality
 
-## Value — PASS
+PASS
 
-Ground-state degeneracy is a natural independent extremal invariant: determining the optimum energy does not determine the number of states attaining it. The unique-optimizer result for all strict rectangles is a strong rigidity phenomenon, while squares have a sharp symmetry-induced twofold degeneracy (with one exceptional K4 case). The short all-order equality analysis strengthens the newly published full-product maximum-cut theorem in a mathematically motivated direction. It is not a recomputation of the known scalar, a chosen finite instance, or an arbitrary parameter slice.
+The scalar optimum and existence of an alternating optimum are established prior results. Pass applies only to the equality-case classification for free rectangles with labelled vertices, modulo side exchange. The verified primary source supplies optimality certificates, not the rigidity analysis; the available evidence does not establish an earlier covering classification.
 
-## Limitations
+## value
 
-The original minimum-uncut formula is sourced, not independently reproved. Only unweighted, free-boundary, two-factor strong grids are classified. The exact finite checker is corroborating evidence and not an infinite certificate. Historical priority is qualified pending independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete ground-state/optimal-partition description identifies when a free boundary selects one stripe orientation and accounts for the exceptional K4. This is a structural result for a natural graph family that beyond the known optimum supplies a useful rigidity and degeneracy criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

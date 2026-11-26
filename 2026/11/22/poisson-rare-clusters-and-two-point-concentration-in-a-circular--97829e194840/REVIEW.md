@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Dirichlet/exponential gap representation reduces the undirected circular nearest-neighbor graph to cuts at strict local maxima. The known peak-to-peak gap formula is independently recovered via a conditional valley integral, telescoped to the exact tail \(q_k=k2^k/(k+2)!\). A rare-component indicator depends on only \(k+2\) independent exponential coordinates. Nearby starts are mutually exclusive, except at two boundary offsets, where two disjoint peak-free blocks give a joint probability bounded by \(v_k^2\). The dependency-graph Chen–Stein inequality gives the stated explicit total-variation error; its second-moment analogue and the exact tail ratio yield two-point concentration. The reproducibility checker completed 368786 deterministic assertions, but the infinite result is proved analytically.
+## correctness
 
-## Originality — PASS, qualified
-Kuketayev's 2006 full text already obtains the single-gap distribution, and Zubkov–Kharitonova–Khil (2012) announce fixed-gap frequency central limit theory; neither one is claimed as a contribution. The 2014 Khil neighboring-gap Markov paper has related dependence information. The assessed novelty is the growing rare-cluster Poisson law with a concrete overlap bound and the two-point maximum-size concentration in the random one-nearest-neighbor circle graph. Published research records on circular geometric graph covariance, nearest-neighbor total length, and symmetric random-link component counts concern different events and do not assert these extreme laws. Full-text access limitations leave a residual risk of an earlier general extreme-gap theorem.
+PASS
 
-## Value — PASS
-Largest component size, not merely mean component count, determines the scale at which a one-nearest-neighbor clustering pipeline can produce an unusually large connected block. The result supplies an exact factorial critical intensity, a Poisson calibration for rare large blocks and a strong two-integer bound, avoiding an inaccurate continuously centered Gumbel approximation. This is a natural extreme-size question highlighted by the earlier nearest-neighbor graph literature and not a routine restatement of fixed-size frequencies.
+For any non-neighbor, the first vertex along its shorter arc is strictly closer, so a vertex chooses across the smaller incident gap. This also handles a gap exceeding a semicircle: its complementary arc contains the competing incident gap and is strictly longer than that competitor. Thus cuts are strict gap peaks. Dirichlet spacings normalized from independent exponentials preserve all comparisons. Kuketayev's gap law conditional on a peak, multiplied by the peak probability 1/3 and summed by telescoping, yields q_k; the k+2 distinct coordinates used by a start indicator give the same exact probability on the circle. For n >= 2k+4 the only compatible overlapping offsets are ±k and ±(k+1). Two disjoint interior blocks of k-1 entries must both be peak-free; placing each nonminimum entry on one side or the other of the block minimum gives exactly 2^(k-2) valley orders, also valid for k=2. Hence b1 <= n(2k+3)q_k^2 and b2 <= 4nv_k^2, with joint independence beyond the neighborhood. The Chen–Stein bound and v_k/q_k=(k+1)(k+2)/4 give the stated limit. The maximum proof separately uses the resulting variance upper bound at b_n (relative variance tends to zero), then the factorial tail ratio at b_n+2 and Markov's inequality. Stirling yields the displayed b_n scale. Verification code and reported counts were inspected, not rerun; the proof does not depend on enumeration.
 
-## Boundaries and closest literature
-The one-gap law and its finite table are not new. No general planar or nonuniform claim is made. The inaccessible 2012 and 2014 full texts remain a historical-priority uncertainty, as does any unidentified general rare-pattern theorem. No independent external validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The peak-gap distribution and its exact tail are known and credited. The supported distinct claim is the explicit growing-threshold Poisson error and the resulting adjacent-integer confinement, not a finite spacing table or a new Poisson approximation method. No distinct inspected result establishes those conclusions for the same model; the closest inaccessible papers remain a qualification, not evidence of absence.
+
+## value
+
+PASS
+
+The result calibrates the probability of an unusually large connected block in a canonical one-nearest-neighbor graph. The explicit Poisson error deals with dependent neighboring gaps, and adjacent-integer concentration determines the scale much more precisely than first-order logarithmic growth. Neither feature is obtained by simply recomputing the known gap table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

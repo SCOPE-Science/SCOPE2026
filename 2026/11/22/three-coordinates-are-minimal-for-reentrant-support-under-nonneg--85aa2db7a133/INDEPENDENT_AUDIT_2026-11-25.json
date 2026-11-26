@@ -1,0 +1,200 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:45.460092Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions, proof and verification, lines 4–66",
+        "Frozen VERIFICATION.md and verify_ridge.py (inspected; not executed)"
+      ],
+      "rationale": "In one dimension the sign is independent of t after truncating at zero. In two dimensions, the face x_1=0 has unique optimum x_2=max(b_2,0)/(d+t). The missing KKT condition is precisely c max(b_2,0)/(d+t)-b_1 >= 0, including equality. This function is monotone, and for b_1>0 has strictly negative limit, excluding a terminal zero set except the empty set. Repeat for coordinate 2. In the witness, the minors 3, 2 and 23/4 certify SPD. Eliminating coordinates 2 and 3 gives numerator q=(t-1/2)(t-1) and denominator D=(t+3)(t+1)(t+4)-(t+4)-(9/4)(t+1) for the first unconstrained coordinate. All coefficients of D±q are positive, bounding that coordinate between -1 and 1 and making the other two positive via their stationary equations. On the missing-coordinate face the outward gradient in coordinate 1 is -q/[(t+1)(t+4)]; this is nonnegative on exactly [1/2,1]. The KKT proof thus includes the tie endpoints. The eigenvalues shift by t; the distinct extremal eigenvalues imply strictly decreasing condition number. Strict KKT inequalities at 0, 3/4 and 2 persist by continuity of the relevant restricted inverses and gradients, proving robustness of reentry, not fixed transition locations.",
+      "residual_risks": [
+        "The nine-parameter script check is not an all-parameter proof. The exact KKT calculation supplies that proof.",
+        "Neither arbitrary higher-dimensional support paths nor stability of the exact threshold locations is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected algorithmic literature gives nonnegative regularization models, update/splitting rules or conditioning. The primary search also identified an active-set nonnegative-regularization paper (PII S0096300305006405) and a nonnegative constrained least-squares iteration paper (DOI 10.1137/141002220), whose original passages could not be retrieved."
+        ],
+        "reasoning": "General existence, conditioned linear solves, and methods for nonnegative regularization do not by themselves bound the number or orientation of support transitions. The inaccessible search hits remain unresolved, not negative results.",
+        "searches": [
+          "Schmelzer–Stoll arXiv:2607.22121 §§2 and 5.1",
+          "Calvetti et al. 2004 §§2–3",
+          "\"nonnegative\" Tikhonov regularization \"active set\" support nonmonotone regularization parameter diagonal shift NNLS support path coordinate reentry"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact match and records a3e3bd9186a5, 737f754c4cc5, 799f9f7196c9, db8061d48d29",
+        "Schmelzer–Stoll arXiv:2607.22121",
+        "Rojas–Steihaug p. 1",
+        "Calvetti et al. abstract and §§2–3",
+        "PII S0096300305006405 and DOI 10.1137/141002220 (titles only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related records concern a state-dependent Gauss–Newton update, a linear perturbation and cubic-Newton boundary capture, or objective comparisons at a fixed ridge. The source that describes regularized conditioning does not identify active coordinates of exact solutions along the path."
+        ],
+        "reasoning": "Linear-term or constraint perturbations do not preserve the path A+tI with b fixed. A decreasing condition number does not determine the signs of the restricted gradients. The monotone one-term boundary test versus the two-term three-dimensional test is the added structural comparison.",
+        "searches": [
+          "Resultary: quadratic programming support path Tikhonov constraints regularization diagonal parameter active set",
+          "Resultary 737f754c4cc5, 799f9f7196c9, db8061d48d29",
+          "Schmelzer–Stoll §5.1 and Rojas–Steihaug p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonnegative least squares with a squared Euclidean penalty gives A=R^T R, b=R^T y, after normalizing the penalty parameter. The norm-ball formulation has a multiplier that enters as a diagonal shift when the norm constraint is active."
+        ],
+        "reasoning": "Every SPD A admits a full-rank square factor and every b can arise from data y. Thus normal-equation nonnegative Tikhonov is equivalent in the full-rank model, rather than merely terminologically related. A radius-bound primal formulation tracks a related multiplier, but solving a constrained instance is not classifying the support along that multiplier path.",
+        "searches": [
+          "Resultary: NNLS support monotonicity regularization parameter quadratic objective (A+tI)",
+          "Calvetti et al., Tikhonov regularization with nonnegativity constraint, §§2–3",
+          "Rojas–Steihaug, non-negative regularization, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact minimal-dimension match 85aa2db7a133 is the assigned record. The nearby dimension-three minimal-positivity-loss record a3e3bd9186a5 is a fixed-system conjugate-gradient example."
+        ],
+        "reasoning": "An example of a signed intermediate iterate for fixed A is not an example of exact optimizer reentry as t varies. No independent matching dimension bound and witness were verified in these results.",
+        "searches": [
+          "Resultary: three coordinates minimal reentrant support nonnegative ridge regularization",
+          "Resultary: nonnegative ridge support reentry dimension 3 coordinate support path A+tI"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp dimension obstruction for arbitrary b, the monotone two-dimensional positive-b corollary, and the positive-b minimal robust witness. Nonnegative Tikhonov solution methods concern a genuinely overlapping model, but the passages inspected do not give these support-path conclusions. The Resultary matches about loss of positivity or boundary capture involve different quantities or parameters.",
+      "residual_risks": [
+        "An earlier equivalent regularization-path example or low-dimensional support theorem may be unindexed or outside the inspected passages. Full text of the two additional search hits was not available in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same item, not prior coverage",
+          "evidence": [
+            "The index returns the exact assigned result."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-coordinates-are-minimal-for-reentrant-support-under-nonneg--85aa2db7a133",
+          "material_read": "Catalogue result matched to frozen Finding",
+          "method": "Resultary search",
+          "title": "Three coordinates are minimal for reentrant support under nonnegative ridge regularization",
+          "trigger": "Exact dimension and problem match"
+        },
+        {
+          "assessment": "Fixed-system CG, not support of exact regularized optimizers",
+          "evidence": [
+            "Transient negative iterates can occur despite a positive exact solution."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients",
+          "trigger": "Same dimension and positivity obstruction"
+        },
+        {
+          "assessment": "Different operator and conclusion",
+          "evidence": [
+            "All-state objective envelope for the state-dependent update G_sigma(x)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Two sharp regularization transitions for nonnegative Gauss–Newton",
+          "trigger": "Similar regularization terminology and transitions"
+        },
+        {
+          "assessment": "Linear term and iterative capture, not a Hessian shift",
+          "evidence": [
+            "The parameter multiplies a linear term in a constrained cubic problem and the result concerns a cubic-Newton iteration."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-tangential-cubic-coupling-gives-a-sharp-active-set-capture-thres--799f9f7196c9",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Tangential cubic coupling gives a sharp active-set capture threshold",
+          "trigger": "Parametric support and boundary behavior"
+        },
+        {
+          "assessment": "Fixed ridge and distinct objective question",
+          "evidence": [
+            "Compares two differently weighted objectives with general convex one-homogeneous penalty."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-objective-inflation-law-for-weighted-proximal--db8061d48d29",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp universal objective inflation law for weighted proximal problems",
+          "trigger": "Same-day ridge comparison"
+        },
+        {
+          "assessment": "Solver working sets and regularization, not path classification",
+          "evidence": [
+            "Working-set loop at a fixed problem; regularization split A_alpha=(1-alpha)A+alpha R^T R and conditioning discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.22121",
+          "material_read": "§2, pp. 2–3, offsets 6637–8837; §5.1, p. 12, offsets 47352–50312",
+          "method": "OA PDF passage inspection",
+          "title": "Non-Negative Conjugate Gradients",
+          "trigger": "Nonnegative solver and conditioning"
+        },
+        {
+          "assessment": "Related model, numerical method in inspected passage",
+          "evidence": [
+            "Nonnegative least squares with a norm-ball constraint and interior-point trust-region method."
+          ],
+          "identifier_or_url": "https://www.marielbarojas.com/Academic/Docs/rojas-steihaug.pdf",
+          "material_read": "p. 1, offset 726",
+          "method": "OA PDF passage inspection",
+          "title": "An interior-point trust-region-based method for large-scale non-negative regularization",
+          "trigger": "Equivalent multiplier interpretation"
+        },
+        {
+          "assessment": "Nonnegative Tikhonov solution methods; no low-dimensional reentry theorem in inspected passages",
+          "evidence": [
+            "Nonnegative Tikhonov solution methods with positive regularization parameter."
+          ],
+          "identifier_or_url": "https://www.math.kent.edu/~reichel/publications/tik.constr.pdf",
+          "material_read": "Abstract, p. 1 offset 621; §§2–3, p. 3 offsets 11124–13403, prose around equations",
+          "method": "OA PDF passage inspection",
+          "title": "Tikhonov regularization with nonnegativity constraint",
+          "trigger": "Direct model overlap"
+        },
+        {
+          "assessment": "Unresolved, no conclusion about whole-paper coverage",
+          "evidence": [
+            "Search title identifies an active-set method for nonnegative regularization."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0096300305006405",
+          "material_read": "Search title only; original text unavailable",
+          "method": "Primary literature search and OA retrieval attempt",
+          "title": "The active-set method for nonnegative regularization of linear ill-posed problems",
+          "trigger": "Potential active-set overlap in same application class"
+        },
+        {
+          "assessment": "Unresolved; no conclusion from retrieval failure",
+          "evidence": [
+            "Search title identifies an iteration method for nonnegative least squares."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/141002220",
+          "material_read": "Search title only; no repository copy identified",
+          "method": "Primary literature search and OA DOI lookup",
+          "title": "Modulus-Type Inner Outer Iteration Methods for Nonnegative Constrained Least Squares Problems",
+          "trigger": "Nonnegative least-squares iteration comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and KKT witness",
+        "Compared nonnegative regularization and conditioning sources"
+      ],
+      "rationale": "The theorem rules out support reentry in the smallest dimensions and gives a sharp, exact, open-set counterexample to nested supports for positive data in dimension three. Improving conditioning does not rescue support monotonicity even along the standard isotropic path. The explicit thresholds and persistent strict signs make it useful as a minimal test for support-tracking methods, without making a claim about their runtime or individual iterates.",
+      "residual_risks": [
+        "Does not characterize which additional sign or matrix restrictions would restore nesting in higher dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

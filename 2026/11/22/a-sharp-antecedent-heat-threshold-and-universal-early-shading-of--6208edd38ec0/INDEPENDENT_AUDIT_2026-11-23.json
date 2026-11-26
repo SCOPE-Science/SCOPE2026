@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:05:03.147555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent derivation uses the causal response K(u)=(1−e^{−u}) for u≥0 and 0 otherwise: the unshaded solution is reduced by ρ[K(t−s)−K(t−s−d)]. Continuity at the switches eliminates moving-boundary contributions. With k=m−1, q=e^{−s}, r=C/q, integrating 2x_s∂_s x_s gives Q'=ρ(1−b)[kq+2r+(bkq−ρ(1−b))r²], exactly ρ(1−b)P(q)/q². At q=C, the bracket in P(C)/C² is ≥(1+b)(1−C)>0; P(1)=(1+bC²)(m−mcrit). For m≥1 P>0 on [C,1]. For m<1, P(0)<0, P(C)>0, P tends to −∞, and strict concavity on q>0 gives one root below C and one above. Only the latter can be interior, precisely for m<mcrit; reversing q with s proves the strict decrease-then-increase pattern. Equality at mcrit leaves Q'(s)>0 for every positive feasible s. At q=√C, the given factorization has the strictly positive term (1−√C)(1+b√C), so the optimum precedes the midpoint of [0,H−d]. The larger root has P_q<0, P_m>0, P_ρ<0, giving the stated opposite signs for the optimizer's two dependencies. For fixed m<1, d and ρ, writing ε=√C and q=εz gives k z³+(2+bkε²)z−ρ(1−b)ε=0; its positive root at ε=0 has derivative −4 in z and continues to a physical root q∈(C,1). Taking −log proves the offset and the claimed error. Separate bisection and integration of the squared trajectory reproduce s*=1.18468780635247 and costs 1.29629488655589 and 1.59833476064739. The frozen verify.py was inspected but not executed; the finite diagnostics are not the proof, and its self-comparison of cubic(1,...) is not an endpoint test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bailey–Seginer's public abstract specifies minimizing heating energy with bounds on temperature and its time integral; it does not specify optimizing an L² state cost over translations of one fixed-duration pulse.",
+          "Savalle-Gloire's public institutional abstract specifies two tomato growing seasons, shading at varying times and about 30% less incident radiation. Weselek's open text compares an installed array with an unshaded reference for microclimate and yield."
+        ],
+        "reasoning": "Flexible greenhouse heating and a free-input linear-quadratic problem do not automatically give an optimizer after imposing a one-window constraint and changing the objective. A broader exact fixed-width control result would matter; none was demonstrated in the inspected material.",
+        "searches": [
+          "agrivoltaic transient shading moving panels timing thermal memory quadratic temperature exposure (Resultary)",
+          "Savalle-Gloire et al., exact-title repository lookup, HAL hal-04661267",
+          "Bailey–Seginer doi:10.17660/ActaHortic.1989.245.69",
+          "Weselek et al. doi:10.1007/s13593-021-00714-y"
+        ]
+      },
+      "checked_sources": [
+        "Savalle-Gloire et al., INRAE HAL abstract hal-04661267",
+        "Weselek et al., doi:10.1007/s13593-021-00714-y",
+        "Bailey–Seginer, doi:10.17660/ActaHortic.1989.245.69",
+        "Resultary exact record match and analogs 0031cd3b8d1b and ad19307095ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible timed-shading abstract reports measured temperature, phenology, growth and fruit dry mass. It does not supply a scalar thermal equation or a global optimization argument.",
+          "A generic moving-input derivative gives Q'(s) as an integral difference. The cutoff needs its exact cubic reduction and global root signs; the leading advance needs the selected root asymptotics. The closest inspected sources give neither implication for this loss and admissible class."
+        ],
+        "reasoning": "The theorem's quantified optimizer classification does not follow from reduced temperature under timed shade, and the lead constant does not follow from causal thermal memory alone. The comparison does not assert noncoverage of unread methods or of all optimal-control literature.",
+        "searches": [
+          "Savalle-Gloire et al. HAL hal-04661267, abstract",
+          "Bailey–Seginer doi:10.17660/ActaHortic.1989.245.69, abstract",
+          "Resultary one-shot purge 0031cd3b8d1b and static canopy ad19307095ee, RESULT.md statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematical problem is equivalently finite-horizon squared output of a scalar first-order filter driven by a fixed-width subtractive pulse on a constant baseline, with only its translations admissible.",
+          "Resultary record 0031cd3b8d1b treats one instantaneous partial purge, a decaying external pollutant and linear cumulative exposure. Record ad19307095ee optimizes a static canopy parameter, not a pulse start."
+        ],
+        "reasoning": "Neither analog maps to this feasible set and objective. Rescaling time or using causal convolutions preserves squared loss and fixed-width translations; it does not turn an instantaneous multiplicative reset or a static input into this problem. The external keyword search was low-yield, not evidence of absence.",
+        "searches": [
+          "first-order thermal system fixed-duration pulse placement minimum integrated squared state single interval (Resultary)",
+          "linear quadratic optimal control single cooling pulse timing fixed duration first-order filter (Resultary)",
+          "\"fixed-duration\" shade window first-order thermal dynamics squared temperature exposure optimal timing interval agrivoltaic shading"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index hit is the assessed record, not a precedent. Nearby corpus hits concern a static canopy or a different first-order purge criterion.",
+          "The inspected empirical results give crop and microclimate comparisons rather than an exact start-time formula or threshold table in these parameters."
+        ],
+        "reasoning": "A relevant exact table would encode the optimizer for the same models and constraints, not compare a handful of physical schedules or merely report shade effects. No such precedent was found among the inspected hits.",
+        "searches": [
+          "fixed partial shading interval quadratic heat cost initial-state threshold cubic long-horizon shift (Resultary)",
+          "fixed partial shade window optimal timing exact threshold initial heat cubic long horizon (Resultary)",
+          "Weselek et al., PDF pp. 1–2, 9"
+        ]
+      },
+      "rationale": "Empirical timed-shading studies motivate the model, and first-order pulse placement and greenhouse control are relevant comparisons. The retrieved evidence does not yield the exact one-block quadratic optimizer, threshold and asymptotic shift. This is a bounded priority assessment, with the closest unavailable methods and older control literature expressly unresolved.",
+      "residual_risks": [
+        "Savalle-Gloire full methods and Bailey–Seginer full text were not accessed; the 2023 Uchanski et al. paper doi:10.3390/en16073012 was available only at landing/abstract level in this check.",
+        "Older first-order pulse-timing/control work could cover the exact optimization in another notation. The no-match external search does not rule that out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract supports experimental motivation; full-methods comparison remains open",
+          "evidence": [
+            "HAL offset 0 (4,708 characters) gives the empirical timing comparison and marks the record ‘Fichier non déposé’. The abstract describes alternating sun and shade at different times, reduced radiation and tomato outcomes, with no squared-state optimizer. "
+          ],
+          "identifier_or_url": "https://hal.inrae.fr/hal-04661267 (doi:10.1080/14620316.2024.2371593)",
+          "material_read": "Open INRAE HAL/AGRIS abstract and deposit information; no methods or manuscript available in HAL",
+          "method": "Located the institutional record by title and compared described schedule and outcomes; publisher access was blocked and the author-shared PDF route was unavailable",
+          "title": "Transient shading in agrivoltaic greenhouses: its impact on growth, architecture, and dry matter accumulation and partition in tomato plants",
+          "trigger": "Closest same-application timed-shade study"
+        },
+        {
+          "assessment": "Inspected passages concern fixed array and unshaded reference, not exact optimization of a movable window",
+          "evidence": [
+            "Experimental design uses an installed array; results report radiation, soil temperature and crop effects."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13593-021-00714-y",
+          "material_read": "Open PDF pp. 1, 2, 9 (text offsets 0, 7700, 42600): design, microclimate and crop results",
+          "method": "Read relevant primary passages and compared control intervention and observation with one-window state optimization",
+          "title": "Agrivoltaic system impacts on microclimate and yield of different crops within an organic crop rotation in a temperate climate",
+          "trigger": "Agrivoltaic crop microclimate and outcome comparison"
+        },
+        {
+          "assessment": "Accessible objective and constraints differ; broader full-text coverage is unresolved",
+          "evidence": [
+            "The abstract describes reducing energy under temperature and temperature-integral bounds using a marginal cost, with simulation."
+          ],
+          "identifier_or_url": "https://doi.org/10.17660/ActaHortic.1989.245.69",
+          "material_read": "Public Acta Horticulturae abstract (offset 0); not full text",
+          "method": "Compared stated control, objective and constraints",
+          "title": "Optimum Control of Greenhouse Heating",
+          "trigger": "Earlier optimization of a greenhouse temperature trajectory could imply a scheduling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-duration, fixed-depth window has identical removed forcing at each placement, so the objective isolates thermal memory in a natural baseline model. The exact threshold predicts the qualitative policy switch with antecedent heat; the two interior parameter effects and the shade-independent leading long-day advance are useful checks on numerical or richer models. The criterion is cumulative squared normalized heat under constant forcing, not yield, crop adaptation, variable irradiance or unrestricted optimal control.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

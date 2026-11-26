@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:53.114697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 50–129",
+        "Complete replacement /workspace/repairs/4/RESULT.md, counting lemma and extremal proof",
+        "Frozen verify.py and VERIFICATION.md inspected, not executed"
+      ],
+      "rationale": "In the replacement, reversal permits a≤d. Counting zero-, one-, two- and three-one palindrome strings separately gives the stated objective; in the two-one layer the first/third rectangle supplies all rows through i=a (and contains the first/second rectangle), with only the second/third pair supplying further rows. This includes the empty-gap boundaries without counting the empty word. Writing h=d−a, p=b+c, m=min(b,c), t=min(b,h) gives quadratic part Q=a(p+m)+tc and remainder at most 3z+3. For h≥b, reducing h to b at fixed z,b,c can only raise Q, and the two subcases give respectively at most z²/6 and the checked strictly positive certificate for 3z²−16Q. For h≤b the slopes at fixed z,b,c are −b/2 when b≥c and c/2−b when b≤c. The only potentially sharp endpoint is h=0, since the other endpoint is h=b or a=0 (then hc≤z²/8). At h=0, p+m≤3p/2 and 2a+p=z give Q≤3z²/16; equality forces b=c>0, which makes the slope strictly negative and forces h=0, and forces 2a=p. Four balanced gaps achieve the homogeneous maximum. Appending up to three zeros to a balanced integer word gives the claimed matching lower bound to O(z). Continuity on the normalized simplex and the sole homogeneous equality point give rigidity for every maximizing sequence.",
+      "residual_risks": [
+        "Finite program output has not been rerun and is not needed for the all-gap upper bound or rigidity. No exact finite-size maximizer classification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general run-bounded asymptotic at seven runs is quartic over all lengths of those runs. Fixing three one-runs to singleton length suppresses that top-run term; the published remainder estimate is O(n³), not a sharp bound on the quadratic contributions across run layers.",
+          "The primary scattered-palindrome article bounds P by F_{n+2}−1 and considers an extremum at fixed alphabet size rather than fixed multiplicity of a symbol."
+        ],
+        "reasoning": "Neither broader feasible set with its looser upper bound determines a sharp upper bound or concentration law for the constrained family.",
+        "searches": [
+          "Resultary 24ceac73bbf9, Finding and top-run proof",
+          "arXiv:2108.02729, Theorem 4.2 and Conjecture 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3fb9dc585778, bc05508b94e7, 24ceac73bbf9, 0f3724d4b165",
+        "arXiv:2108.02729",
+        "arXiv:1110.5296v1 abstract/introduction and arXiv:1901.07502v1 introduction: different longest-subsequence questions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric-class theorem gives the lower-bound coefficient 3/16 on its subclass, not a global upper bound.",
+          "The random-word limit identifies the same homogeneous function Q/z² and computes its moments. It does not bound its supremum or identify its maximizers; asymmetry can add a term min(b,d−a)c, so maximizing just over the symmetric face is not a valid shortcut.",
+          "The broad run bound optimizes its leading run layer and does not control the now-comparable two-one and three-one contributions sharply."
+        ],
+        "reasoning": "Uniform remainder control and the unrestricted gap optimization with its equality case are mathematically consequential extra steps; they are not a substitution into any retrieved extremal statement. The finite balanced-word count is illustrative, not independently novel.",
+        "searches": [
+          "Resultary 3fb9dc585778 exact symmetric maximizer",
+          "Resultary bc05508b94e7 homogeneous limit function Φ",
+          "Resultary 24ceac73bbf9 top-run and remainder bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 3fb9dc585778 set m=z, h=H, x=min(a,d), y=min(b,c); T=(x+1)(b+c+1)+E, and removing the empty word subtracts one. The identity is exact. In bc05508b94e7 the same substitutions give the identical formula without any empty-word adjustment.",
+          "The palindromic-defect record counts contiguous factors, not scattered subsequence strings."
+        ],
+        "reasoning": "Both exact enumeration sources count the identical invariant after the indicated convention change. The repair does not treat either notation or the change of convention as a contribution, nor confuse the similarly titled factor theorem with a subsequence theorem.",
+        "searches": [
+          "Resultary records 3fb9dc585778, bc05508b94e7 and 0f3724d4b165; fixed three ones, distinct scattered palindromes vs. factors",
+          "arXiv:2108.02729, scattered-palindrome definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former provides exact counts for every word and exact maximizing counts in the palindromic-source class. The latter provides exact all-gap counts and moments of a random-word limit, not a table or theorem giving the unrestricted maxima or normalized maximizing gaps."
+        ],
+        "reasoning": "Exact enumeration coverage is real and credited. The surviving claim is a bound on the global extremum with rigidity, not a new finite table or recomputation of per-word values.",
+        "searches": [
+          "Resultary three-one scattered palindrome complexity: exact entries 3fb9dc585778 and bc05508b94e7"
+        ]
+      },
+      "rationale": "The original's separate all-gap enumeration contribution is covered and does not pass. In the replacement the enumeration is explicitly credited and retained only as a proof input. The distinct remaining claim optimizes over asymmetric as well as symmetric sources and proves the sole asymptotic shape. Neither the exact symmetric-class optimization, the random-word limit law, nor the broader run-bounded theorem establishes that unrestricted inequality or its equality characterization. The comparisons concern coverage, not priority.",
+      "residual_risks": [
+        "No priority inferred from catalogue dates. The inaccessible primary article and unindexed specialized sparse-word extremal work leave a bounded access risk; neither is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical count after subtracting one; extremal result restricted to symmetric words",
+          "evidence": "The identity includes the empty string; the maximization is stated for a=d and b=c only and has the balanced symmetric word as its extremum.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-closed-palindromic-subsequence-count-for-three-one-binary-word--3fb9dc585778",
+          "material_read": "Finding, Assumptions and proof of count and restricted maximizer, offsets 0–5452",
+          "method": "Configured Resultary search and local-mirror bounded text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A closed palindromic-subsequence count for three-one binary words",
+          "trigger": "Same gaps, alphabet, and exact enumeration"
+        },
+        {
+          "assessment": "Identical nonempty count and homogeneous term, different limit question",
+          "evidence": "It gives the fixed-gap formula and the distribution of Φ at a uniform Dirichlet point, with exact moments, not sharp maximization of Φ on the simplex.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-scattered-palindrome-complexity-and-limit-law-for-binary-w--bc05508b94e7",
+          "material_read": "Finding, Assumptions and exact enumeration proof, offsets 0–3162",
+          "method": "Configured Resultary search and local-mirror bounded text",
+          "title": "Exact scattered-palindrome complexity and limit law for binary words with three ones",
+          "trigger": "Identical exact count and leading term"
+        },
+        {
+          "assessment": "Different extremum despite including the target class in the domain",
+          "evidence": "The theorem uses the exact top-run count and generic lower-run estimate O(n^k); for k=3 that estimate is larger than the target's full extremum.",
+          "identifier_or_url": "2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "material_read": "Finding, Assumptions, lower-order estimate and top-run formula, offsets 0–4442",
+          "method": "Configured Resultary search and local-mirror bounded text",
+          "title": "Universal run-bounded asymptotics and rigidity for scattered palindromes",
+          "trigger": "Broader run-bounded extremal and rigidity theorem"
+        },
+        {
+          "assessment": "Different invariant; not excluded because of date",
+          "evidence": "Its counted palindromes are contiguous factors, not subsequences.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-palindromic-defect-law-and-exact-spectrum-for-binary-words-w--0f3724d4b165",
+          "material_read": "Indexed original Finding, opening passage",
+          "method": "Configured Resultary search and local-mirror text",
+          "title": "The palindromic defect law and exact spectrum for binary words with three ones",
+          "trigger": "Same sparse source family and closely matching title"
+        },
+        {
+          "assessment": "General bound/unrestricted conjecture do not settle fixed-three-ones envelope",
+          "evidence": "The theorem gives F_{n+2}−1; the conjecture uses length and number of distinct letters, not prescribed multiplicity.",
+          "identifier_or_url": "https://arxiv.org/html/2108.02729",
+          "material_read": "Abstract, §4 Theorem 4.2 and §5 Conjecture 5.6/conclusion, offsets approximately 15719 and 68800 for theorem/conjecture passages",
+          "method": "Bounded OA primary HTML passages",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Direct primary literature for the invariant and extremal questions"
+        },
+        {
+          "assessment": "Full text unassessed, not ruled out",
+          "evidence": "Secondary discussion describes reconstruction of a binary word up to reversal from the set of scattered palindromes, not a result about the set's cardinality extremum.",
+          "identifier_or_url": "Publisher ScienceDirect title; discussed in the introduction of arXiv:2108.02729",
+          "material_read": "No primary full text retrieved; checked secondary discussion in Mahalingam–Pandoh",
+          "method": "Lawful publisher access attempt returned HTTP 403; related OA discussion read",
+          "title": "On highly palindromic words",
+          "trigger": "Possible primary result on binary scattered-palindrome sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md, Finding and unrestricted inequality",
+        "Resultary 3fb9dc585778 symmetric extremum and 24ceac73bbf9 unrestricted-run contrast"
+      ],
+      "rationale": "The replacement gives a sharp global answer in a natural sparse-content class and proves that every maximizing word spreads its zeros nearly evenly despite allowing asymmetric placements. The unrestricted upper bound and structural equality case sharpen what the per-word formula or a balanced example can tell a researcher about extremal geometry.",
+      "residual_risks": [
+        "No finite-distance stability modulus, exact formula for the unrestricted integer maximum, or higher-weight classification is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

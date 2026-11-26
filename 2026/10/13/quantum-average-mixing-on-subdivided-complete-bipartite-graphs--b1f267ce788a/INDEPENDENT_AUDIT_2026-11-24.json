@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:30.647755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the distinct-eigenvalue projector sum with H the unweighted adjacency. For each positive incidence singular sector a normalized left/right pair yields the two adjacency projectors with factor 1/2; hence the top sector gives zz^T/2, and the contrasts give C_a S_a C_a^T/2 and C_b S_b C_b^T/2. At a=b cross terms survive only on the midpoint block, where the Schur product of D_a⊗(J_b/b) with (J_a/a)⊗D_b, multiplied by 2 per eigenvalue and 1/4 from the projector factors and summed over two signs, gives (D_a⊗D_b)/(ab). The zero sector has the signed-constant original line and the row-and-column-zero midpoint subspace; its Schur square is the stated J/(a+b)^2 and S_a⊗S_b. The common PSD kernel gives Z=x=y=0 when a,b>=3. For a=2<b it forces zero column sums of Z, y=0 and x a contrast; when a=b=2 it allows the two single-index midpoint contrasts and the two original contrasts, but excludes the double contrast. For a=1, b>=3 the lifted condition gives y=-Z^T and the remaining scalar equations force sum(Z)=x=0. At (1,2) the same scalar equations force both sums and x to zero but the two contrasts are independent, and at (1,1) only x=-y with Z=0 remains. This proves the whole table. An independent finite reproduction, python -B reviews/check_biclique.py, found the squared eigenvalues from the characteristic polynomial and formed orthogonal nullspace projectors without using the frozen decomposition; exact stochasticity and ranks passed for (1,1),(1,2),(1,5),(2,2),(2,5),(3,3),(3,4). The frozen checker was inspected, not executed; these finite cases corroborate, not replace, the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The commutant/rank framework in arXiv:1709.03591 §5 includes simple-spectrum bounds but does not give this repeated-spectrum classification.",
+          "The exact-arithmetic formula in arXiv:2208.08971 computes a fixed graph but supplies no family rank criterion. S(K_n) is not the S(K_{a,b}) family; the frozen reference to an earlier complete-graph-subdivision result is unpinned."
+        ],
+        "reasoning": "Known spectral ingredients and algorithms do not supply the structural dimensions at the resonance or small sides; a directly covering general structural theorem was not identified.",
+        "searches": [
+          "General average-mixing rank and subdivision Hamiltonian formulas; arXiv:1709.03591, arXiv:2208.08971 and Chen thesis"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_exact.py",
+        "arXiv:1103.2578",
+        "arXiv:1709.03591",
+        "arXiv:2208.08971",
+        "Chen 2023 thesis",
+        "Resultary entries 3d2ed0be59c4 and 7a0cdb9f3eaa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-size cross term is not recoverable by simply applying the unequal-size formula at a=b; at (2,2) dropping it changes the nullity by one.",
+          "Schur-square positivity and known subdivision spectra alone do not decide the boundary kernels of the compressed diagonal dynamics."
+        ],
+        "reasoning": "The result uses known machinery but requires a family-specific common-kernel analysis and a collision correction; the strongest inspected claims do not imply the table by restriction or parameter substitution.",
+        "searches": [
+          "Godsil's distinct-eigenvalue formula and PSD property; Coutinho–Godsil–Guo–Zhan rank results; related Resultary resonance and rank formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil's Schur-square formula is the identical definition and spectral convention but leaves the biclique calculation to be done.",
+          "Chen's subdivision-graph average-mixing treatment uses the discrete-time bipartite walk with a Grover-walk relation, not this adjacency continuous-time average."
+        ],
+        "reasoning": "Incidence or subdivision terminology may identify the same graph; it does not identify the Hamiltonian and time averaging. The known path results cover only the smallest boundary graphs.",
+        "searches": [
+          "Continuous-time quantum average mixing / rank / kernel on subdivided bicliques, edge subdivisions and incidence graphs",
+          "Godsil arXiv:1103.2578; Chen 2023 thesis, subdivision graph and Hamiltonian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3d2ed0be59c4 covers double stars D_{p,q}, full rank iff p,q>=3 and p!=q there.",
+          "7a0cdb9f3eaa covers cycle–clique Cartesian products C_n□K_q, not edge subdivisions.",
+          "The frozen exact check tabulates nine parameter pairs only; no independently indexed equivalent two-parameter table was identified."
+        ],
+        "reasoning": "The near matches share walk definitions and methods but have different graph families and rank laws. The comparison is based on content, not dating.",
+        "searches": [
+          "Local Resultary: once-subdivided bicliques/complete bipartite graphs, quantum average-mixing kernels, resonance corrections",
+          "Resultary entries 3d2ed0be59c4 and 7a0cdb9f3eaa"
+        ]
+      },
+      "rationale": "The supported contribution is the specific two-parameter rational decomposition, kernels and sharp rank boundary, with distinct-eigenvalue treatment at equal dimensions. Neither the general projector identity, related graph families nor the known path cases are new here.",
+      "residual_risks": [
+        "The particular S(K_n) antecedent mentioned in the frozen text has no precise citation there and was not recovered; no whole-literature absence is claimed. An uninspected broader structural result stated in other incidence terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and boundary path antecedent, not the biclique classification",
+          "evidence": [
+            "One Schur square per distinct eigenvalue; PSD. The frozen work does not claim its path cases are new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "Lemma 1.1, PDF p. 2 (offset 4400), and §2 p. 3 (offset 5869)",
+          "method": "OA passage inspection",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "Same mixing matrix and classical exact formula"
+        },
+        {
+          "assessment": "General commutant/rank background",
+          "evidence": [
+            "Simple-spectrum bounds do not decide the repeated-spectrum family here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "§5, pp. 8–9, offset near 15300",
+          "method": "OA passage inspection",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Rank results for the identical invariant"
+        },
+        {
+          "assessment": "Known algorithmic framework, not a parameter table",
+          "evidence": [
+            "Same spectral-projector sum and exact arithmetic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.08971",
+          "material_read": "p. 4, offset near 9800",
+          "method": "OA passage inspection",
+          "title": "Irrational quantum walks",
+          "trigger": "Exact computation of identical invariant"
+        },
+        {
+          "assessment": "Different walk",
+          "evidence": [
+            "Subdivision treatment uses discrete time; Theorem 1.2.5 connects the bipartite walk to Grover’s walk."
+          ],
+          "identifier_or_url": "University of Waterloo thesis, Q. Chen, 2023; repository bitstream 4fe72fad-a681-474c-ae1e-8f9749dc0d98",
+          "material_read": "Ch. 4 §4.4 printed p. 50; Theorem 1.2.5, PDF p. 26",
+          "method": "OA passage inspection",
+          "title": "Bipartite Quantum Walks and the Hamiltonian",
+          "trigger": "Subdivision graph and average mixing could match by name"
+        },
+        {
+          "assessment": "Natural analogues, no equivalent statement",
+          "evidence": [
+            "Double stars D_{p,q} and C_n□K_q differ from S(K_{a,b}); in the former family the equal-parts case prevents the analogous full-rank criterion."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12 entry 3d2ed0be59c4; 2026/10/13 entry 7a0cdb9f3eaa",
+          "material_read": "Findings and graph-family definitions from the respective records",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact kernel and sharp full-rank boundary for quantum average mixing / Exact resonance corrections and rank revival in cycle–clique quantum walks",
+          "trigger": "Closest indexed rank/kernel or resonance claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Average mixing rank measures how much of the initial vertex distribution survives in the averaged observable; this is a natural exact invariant, not just a test of a few instances. The result identifies the sharp part-size cutoff, gives the entire hidden subspace at all thin boundaries, and shows exactly when coincident contrast spectra alter the matrix and the kernel on a canonical graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
